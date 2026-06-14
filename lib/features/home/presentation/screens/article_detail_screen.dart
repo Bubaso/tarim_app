@@ -64,10 +64,8 @@ class ArticleDetailScreen extends ConsumerWidget {
     final subtle = isDark ? const Color(0xFF8B949E) : const Color(0xFF666666);
     final accent = isDark ? _kAccentDark : _kAccent;
 
-    // ── Hero görsel yüksekliği: SliverAppBar expanded height ────────────
-    // Genişlik bilinmediğinden oran korunur; SliverAppBar expandedHeight
-    // kullanmak yerine 16:9 AspectRatio ile kendisi belirlensin.
-    // Bunun için SliverToBoxAdapter içinde AspectRatio kullanıyoruz.
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isDesktop   = screenWidth > 900;
 
     return Scaffold(
       backgroundColor: bg,
@@ -78,28 +76,47 @@ class ArticleDetailScreen extends ConsumerWidget {
             slivers: [
               // ── 16:9 Hero Görseli (Sayfanın en üstünde) ─────────────────
               SliverToBoxAdapter(
-                child: AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      // Görsel (shimmer fallback)
-                      NewsArticleImage(
-                        imageUrl: article.imageUrl,
-                        fit: BoxFit.cover,
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: isDesktop ? 900 : double.infinity,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        top: isDesktop ? 24 : 0,
+                        left: isDesktop ? 24 : 0,
+                        right: isDesktop ? 24 : 0,
                       ),
-                      // Alt gradient — başlık alanına geçişi yumuşatır
-                      const DecoratedBox(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            stops: [0.55, 1.0],
-                            colors: [Color(0x00000000), Color(0x55000000)],
+                      child: ClipRRect(
+                        borderRadius: isDesktop
+                            ? BorderRadius.circular(12)
+                            : BorderRadius.zero,
+                        child: AspectRatio(
+                          aspectRatio: 16 / 9,
+                          child: Stack(
+                            fit: StackFit.expand,
+                            children: [
+                              // Görsel (shimmer fallback)
+                              NewsArticleImage(
+                                imageUrl: article.imageUrl,
+                                fit: BoxFit.cover,
+                              ),
+                              // Alt gradient — başlık alanına geçişi yumuşatır
+                              const DecoratedBox(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    stops: [0.55, 1.0],
+                                    colors: [Color(0x00000000), Color(0x55000000)],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -110,8 +127,8 @@ class ArticleDetailScreen extends ConsumerWidget {
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 800),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: isDesktop ? 24 : 20,
                         vertical: 36,
                       ),
                       child: Column(
