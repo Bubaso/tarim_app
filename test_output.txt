@@ -1,0 +1,16 @@
+Analyzing tarim_app...                                          
+
+   info • Unnecessary braces in a string interpolation • lib/features/dashboard/presentation/widgets/market_ticker.dart:62:21 • unnecessary_brace_in_string_interps
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/article_detail_screen.dart:538:18 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/financial_terminal_screen.dart:796:36 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/financial_terminal_screen.dart:796:40 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/financial_terminal_screen.dart:796:45 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/financial_terminal_screen.dart:820:34 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/financial_terminal_screen.dart:820:38 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/financial_terminal_screen.dart:820:43 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/screens/home_screen.dart:714:20 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/widgets/hero_fold.dart:652:35 • unnecessary_underscores
+   info • Unnecessary use of multiple underscores • lib/features/home/presentation/widgets/hero_fold.dart:652:39 • unnecessary_underscores
+   info • The file name 'widget_test 2.dart' isn't a lower_case_with_underscores identifier • test/widget_test 2.dart:1:1 • file_names
+
+12 issues found. (ran in 17.4s)

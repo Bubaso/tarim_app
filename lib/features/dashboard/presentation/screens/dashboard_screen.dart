@@ -229,7 +229,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       if (success) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Yazınız başarıyla incelemeye gönderildi, yapay zeka kapak görseli hazırlanıyor!'),
+            content: Text('Yazınız başarıyla incelemeye gönderildi, kapak görseli hazırlanıyor!'),
             backgroundColor: Colors.green,
           ),
         );
@@ -308,7 +308,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
             ),
             Tab(
               icon: Icon(Icons.psychology_rounded),
-              text: 'AI Tavsiye Odası',
+              text: 'Yayın Kurulu Önerileri',
             ),
           ],
         ),
@@ -673,7 +673,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                 maxLines: 3,
                 decoration: const InputDecoration(
                   labelText: 'Özet (Summary) *',
-                  hintText: 'Yazının kısa bir özetini giriniz (Yapay zeka görsel istemini besler)',
+                  hintText: 'Yazının kısa bir özetini giriniz (görsel üretimi için kullanılacaktır)',
                   prefixIcon: Icon(Icons.summarize_rounded),
                   alignLabelWithHint: true,
                 ),
@@ -924,14 +924,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       ),
                       const SizedBox(height: 24),
                       Text(
-                        'Bekleyen AI Tavsiyesi Bulunmuyor',
+                        'Bekleyen Öneri Bulunmuyor',
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        'Yapay zeka sistemi küresel tarım trendlerini ve krizleri analiz edip yeni makale önerileri ürettiğinde burada listelenecektir.',
+                        'Analiz sistemi küresel tarım trendlerini ve krizleri analiz edip yeni makale önerileri ürettiğinde burada listelenecektir.',
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.hintColor,
                         ),
@@ -997,7 +997,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               Icon(Icons.psychology_rounded, color: theme.colorScheme.primary, size: 28),
               const SizedBox(width: 12),
               Text(
-                'AI Tavsiye Odası',
+                'Yayın Kurulu Önerileri',
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.primary,
@@ -1013,7 +1013,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
           ),
           const SizedBox(height: 8),
           Text(
-            'Yapay zeka tarafından makro tarım trendleri doğrultusunda geliştirilen derin makale önerileri.',
+            'Yayın Kurulu tarafından makro tarım trendleri doğrultusunda geliştirilen derin makale önerileri.',
             style: theme.textTheme.bodyMedium?.copyWith(color: theme.hintColor),
           ),
           const SizedBox(height: 20),

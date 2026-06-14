@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/constants/api_constants.dart';
-import 'core/constants/theme_constants.dart';
+import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'features/home/presentation/screens/home_screen.dart';
 
@@ -35,10 +35,10 @@ class MyApp extends ConsumerWidget {
       title: 'Tarım Portalı',
       debugShowCheckedModeBanner: false,
       
-      // Theme definitions
-      theme: ThemeConstants.lightTheme,
-      darkTheme: ThemeConstants.darkTheme,
-      themeMode: ThemeMode.system, // Automatically adapt to user device theme
+      // Theme definitions — Premium Medya Portalı Tasarım Sistemi
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
 
       // Localization Configuration
       locale: currentLocale,
