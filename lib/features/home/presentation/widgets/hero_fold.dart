@@ -7,6 +7,7 @@ import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../screens/article_detail_screen.dart';
+import '../screens/author_article_detail_screen.dart';
 
 // ─── Ayrıştırma yardımcıları ──────────────────────────────────────────────
 bool _isHeadline(NewsArticle a) =>
@@ -522,12 +523,24 @@ class _MockWriterCardState extends State<_MockWriterCard> {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text('${widget.writer.name} çok yakında portalımızda düzenli yazılarına başlıyor!'),
-              backgroundColor: const Color(0xFF004A99),
-              duration: const Duration(seconds: 2),
+          final name = widget.writer.name;
+          final paragraphs = AuthorArticleDetailScreen.authorParagraphs[name] ?? [
+            'Son yıllarda tarım sektöründe yaşanan yapısal değişimler ve ekonomik dalgalanmalar, üreticilerimizi yeni arayışlara sevk etmektedir. Verimlilik artışı ve girdi maliyetlerinin azaltılması en temel hedefler olarak öne çıkmaktadır.',
+            'Tarımsal üretimin geleceği veriye dayalı planlama ve modern teknolojilerin entegrasyonu ile şekillenecektir. Sürdürülebilir kalkınma için yerel üretici odaklı politikalar geliştirilmelidir.'
+          ];
+          final coverImage = AuthorArticleDetailScreen.authorCoverImages[name] ??
+              'https://images.unsplash.com/photo-1625246333195-78d9c38ad49f?w=900&auto=format&fit=crop&q=80';
+
+          Navigator.of(context).push(
+            createFadeRoute(
+              AuthorArticleDetailScreen(
+                authorName: widget.writer.name,
+                authorTitle: widget.writer.title,
+                authorAvatarUrl: widget.writer.avatarUrl,
+                articleTitle: widget.writer.articleTitle,
+                coverImageUrl: coverImage,
+                paragraphs: paragraphs,
+              ),
             ),
           );
         },
