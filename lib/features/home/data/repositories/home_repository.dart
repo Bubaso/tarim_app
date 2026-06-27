@@ -22,6 +22,53 @@ class HomeRepository {
         .map((maps) => maps.map((map) => NewsArticle.fromJson(map)).toList());
   }
 
+  /// Searches articles by query using ilike on title, content
+  Future<List<NewsArticle>> searchArticles(String query) async {
+    try {
+      if (query.trim().isEmpty) return [];
+      final response = await _supabaseClient
+          .from('articles')
+          .select()
+          .or('title.ilike.%$query%,content.ilike.%$query%')
+          .eq('status', 'published')
+          .order('created_at', ascending: false)
+          .limit(20);
+      final list = response as List<dynamic>;
+      return list.map((map) => NewsArticle.fromJson(map as Map<String, dynamic>)).toList();
+    } catch (e) {
+      if (kDebugMode) {
+        print('Search failed: $e');
+      }
+      return [];
+    }
+  }
+
+  /// Increments the view count of an article.
+  Future<void> incrementArticleViewCount(String id) async {
+    try {
+      await _supabaseClient.rpc('increment_view_count', params: {'row_id': id});
+    } catch (e) {
+      // If RPC is not created, fallback to a simple read-and-update (not perfect for concurrency but works if RPC missing)
+      try {
+        final res = await _supabaseClient.from('articles').select('view_count').eq('id', id).single();
+        final currentCount = (res['view_count'] as int?) ?? 0;
+        await _supabaseClient.from('articles').update({'view_count': currentCount + 1}).eq('id', id);
+      } catch (_) {}
+    }
+  }
+
+  /// Watches top trending articles ordered by view_count
+  Stream<List<NewsArticle>> watchTrendingArticles() {
+    return _supabaseClient
+        .from('articles')
+        .stream(primaryKey: ['id'])
+        .eq('status', 'published')
+        .order('view_count', ascending: false)
+        .order('created_at', ascending: false)
+        .limit(10)
+        .map((maps) => maps.map((map) => NewsArticle.fromJson(map)).toList());
+  }
+
   /// Fetches agricultural weather data with TR/EN localization.
   /// Uses a safe HTTP call to a public API with an automatic fallback to rich, localized mock data.
   Future<WeatherInfo> fetchAgricultureWeather(

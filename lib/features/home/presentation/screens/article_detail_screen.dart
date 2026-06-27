@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:flutter/services.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
@@ -20,13 +22,46 @@ const Color _kSurfaceDark = Color(0xFF111721);
 //  ArticleDetailScreen — tam sayfa makale okuma deneyimi
 // ═══════════════════════════════════════════════════════════════════════════
 
-class ArticleDetailScreen extends ConsumerWidget {
+class ArticleDetailScreen extends ConsumerStatefulWidget {
   final NewsArticle article;
 
   const ArticleDetailScreen({super.key, required this.article});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ArticleDetailScreen> createState() => _ArticleDetailScreenState();
+}
+
+class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
+  late final ScrollController _scrollController;
+  bool _isScrolled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController()..addListener(() {
+      final isScrolled = _scrollController.offset > 150;
+      if (_isScrolled != isScrolled) {
+        setState(() {
+          _isScrolled = isScrolled;
+        });
+      }
+    });
+
+    // Increment view count when article is opened
+    Future.microtask(() {
+      ref.read(homeRepositoryProvider).incrementArticleViewCount(widget.article.id);
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final article = widget.article;
     final theme  = Theme.of(context);
     final isEn   = Localizations.localeOf(context).languageCode == 'en';
     final isDark = theme.brightness == Brightness.dark;
@@ -72,6 +107,7 @@ class ArticleDetailScreen extends ConsumerWidget {
       body: Stack(
         children: [
           CustomScrollView(
+            controller: _scrollController,
             physics: const AlwaysScrollableScrollPhysics(),
             slivers: [
               // ── 16:9 Hero Görseli (Sayfanın en üstünde) ─────────────────
@@ -142,6 +178,7 @@ class ArticleDetailScreen extends ConsumerWidget {
                             readLabel:    readLabel,
                             accent:       accent,
                             subtle:       subtle,
+                            viewCount:    article.viewCount,
                           ),
                           const SizedBox(height: 20),
 
@@ -223,7 +260,6 @@ class ArticleDetailScreen extends ConsumerWidget {
                             ),
                           ],
 
-                          // ── Orijinal kaynak butonu ────────────────────────
                           if (hasSourceUrl) ...[
                             const SizedBox(height: 40),
                             _SourceButton(
@@ -233,6 +269,9 @@ class ArticleDetailScreen extends ConsumerWidget {
                               accent:     accent,
                             ),
                           ],
+
+                          const SizedBox(height: 48),
+                          _ShareBar(article: article, isDark: isDark, isEn: isEn, accent: accent),
 
                           const SizedBox(height: 56),
                         ],
@@ -255,22 +294,85 @@ class ArticleDetailScreen extends ConsumerWidget {
               const SliverToBoxAdapter(child: SizedBox(height: 48)),
             ],
           ),
-          // ── Yüzen Geri Butonu (Floating Back Button at top-left) ───────────
+          
+          // ── Modern Dinamik AppBar ─────────────────────────────────────────
           Positioned(
-            top: MediaQuery.of(context).padding.top + 8,
-            left: 16,
-            child: ClipOval(
-              child: Material(
-                color: isDark ? const Color(0xAA0C1015) : const Color(0xAAFAF9F6),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.arrow_back_ios_new_rounded,
-                    size: 18,
-                    color: isDark ? Colors.white : const Color(0xFF1A1A1A),
+            top: 0,
+            left: 0,
+            right: 0,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeOutCubic,
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).padding.top,
+                left: 8,
+                right: 16,
+              ),
+              height: MediaQuery.of(context).padding.top + kToolbarHeight,
+              decoration: BoxDecoration(
+                color: _isScrolled ? bg.withValues(alpha: 0.98) : Colors.transparent,
+                boxShadow: _isScrolled
+                    ? [
+                        BoxShadow(
+                          color: isDark ? Colors.black45 : Colors.black12,
+                          blurRadius: 4,
+                          offset: const Offset(0, 2),
+                        )
+                      ]
+                    : [],
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  // Geri Butonu
+                  AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeOutCubic,
+                    margin: const EdgeInsets.only(left: 4),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: _isScrolled
+                          ? Colors.transparent
+                          : (isDark ? const Color(0xAA0C1015) : const Color(0xAAFAF9F6)),
+                    ),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_back_ios_new_rounded,
+                        size: 19,
+                        color: _isScrolled
+                            ? onBg
+                            : (isDark ? Colors.white : const Color(0xFF1A1A1A)),
+                      ),
+                      onPressed: () => Navigator.of(context).pop(),
+                      tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                    ),
                   ),
-                  onPressed: () => Navigator.of(context).pop(),
-                  tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-                ),
+                  const SizedBox(width: 12),
+                  // Dinamik Başlık
+                  Expanded(
+                    child: AnimatedSlide(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeOutCubic,
+                      offset: _isScrolled ? Offset.zero : const Offset(0, 0.5),
+                      child: AnimatedOpacity(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeOutCubic,
+                        opacity: _isScrolled ? 1.0 : 0.0,
+                        child: Text(
+                          displayTitle,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: GoogleFonts.playfairDisplay(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: onBg,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 48), // Başlığı merkeze yakın tutmak için sağ boşluk
+                ],
               ),
             ),
           ),
@@ -292,6 +394,7 @@ class _MetaRow extends StatelessWidget {
   final String readLabel;
   final Color accent;
   final Color subtle;
+  final int viewCount;
 
   const _MetaRow({
     required this.hasSource,
@@ -300,6 +403,7 @@ class _MetaRow extends StatelessWidget {
     required this.readLabel,
     required this.accent,
     required this.subtle,
+    this.viewCount = 0,
   });
 
   @override
@@ -333,6 +437,22 @@ class _MetaRow extends StatelessWidget {
             fontSize: 11,
           ),
         ),
+        if (viewCount > 0)
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 14),
+              const SizedBox(width: 4),
+              Text(
+                '$viewCount',
+                style: GoogleFonts.robotoMono(
+                  color: Colors.orangeAccent,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 11,
+                ),
+              ),
+            ],
+          ),
       ],
     );
   }
@@ -450,6 +570,183 @@ class _SourceButton extends StatelessWidget {
             fontSize: 13,
             letterSpacing: 0.5,
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  Sosyal Paylaşım Çubuğu (ShareBar)
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _ShareBar extends StatelessWidget {
+  final NewsArticle article;
+  final bool isDark;
+  final bool isEn;
+  final Color accent;
+
+  const _ShareBar({
+    required this.article,
+    required this.isDark,
+    required this.isEn,
+    required this.accent,
+  });
+
+  String _buildShareUrl() {
+    // Generate a unique URL for the article
+    return 'https://fantastic-dolphin-74f503.netlify.app/haber/${article.id}';
+  }
+
+  void _shareNative(BuildContext context) {
+    final url = _buildShareUrl();
+    final text = isEn 
+        ? '${article.title}\nRead more at: $url' 
+        : '${article.title}\nDetaylar için: $url';
+    Share.share(text);
+  }
+
+  void _copyToClipboard(BuildContext context) {
+    final url = _buildShareUrl();
+    Clipboard.setData(ClipboardData(text: url));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(isEn ? 'Link copied to clipboard!' : 'Bağlantı panoya kopyalandı!'),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _shareToWhatsApp() async {
+    final url = _buildShareUrl();
+    final text = isEn 
+        ? '${article.title} - $url' 
+        : '${article.title} - $url';
+    final whatsappUrl = Uri.parse('whatsapp://send?text=${Uri.encodeComponent(text)}');
+    try {
+      if (await canLaunchUrl(whatsappUrl)) {
+        await launchUrl(whatsappUrl);
+      }
+    } catch (_) {}
+  }
+
+  void _shareToTwitter() async {
+    final url = _buildShareUrl();
+    final text = article.title;
+    final twitterUrl = Uri.parse('https://twitter.com/intent/tweet?text=${Uri.encodeComponent(text)}&url=${Uri.encodeComponent(url)}');
+    try {
+      if (await canLaunchUrl(twitterUrl)) {
+        await launchUrl(twitterUrl, mode: LaunchMode.externalApplication);
+      }
+    } catch (_) {}
+  }
+
+  void _shareToLinkedIn() async {
+    final url = _buildShareUrl();
+    final linkedInUrl = Uri.parse('https://www.linkedin.com/sharing/share-offsite/?url=${Uri.encodeComponent(url)}');
+    try {
+      if (await canLaunchUrl(linkedInUrl)) {
+        await launchUrl(linkedInUrl, mode: LaunchMode.externalApplication);
+      }
+    } catch (_) {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final label = isEn ? 'SHARE THIS ARTICLE' : 'BU HABERİ PAYLAŞ';
+    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
+    final iconColor = isDark ? Colors.white70 : Colors.black87;
+    final bgColor = isDark ? const Color(0xFF161B22) : const Color(0xFFF5F5F5);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: GoogleFonts.inter(
+            fontSize: 12,
+            fontWeight: FontWeight.w800,
+            letterSpacing: 1.0,
+            color: headerColor,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            _ShareButton(
+              icon: Icons.share_rounded,
+              color: iconColor,
+              bgColor: bgColor,
+              onTap: () => _shareNative(context),
+              tooltip: isEn ? 'Share' : 'Paylaş',
+            ),
+            _ShareButton(
+              icon: Icons.copy_rounded,
+              color: iconColor,
+              bgColor: bgColor,
+              onTap: () => _copyToClipboard(context),
+              tooltip: isEn ? 'Copy Link' : 'Kopyala',
+            ),
+            _ShareButton(
+              icon: Icons.chat_rounded, // fallback icon for whatsapp
+              color: const Color(0xFF25D366),
+              bgColor: bgColor,
+              onTap: _shareToWhatsApp,
+              tooltip: 'WhatsApp',
+            ),
+            _ShareButton(
+              icon: Icons.alternate_email_rounded, // fallback icon for twitter/X
+              color: isDark ? Colors.white : Colors.black,
+              bgColor: bgColor,
+              onTap: _shareToTwitter,
+              tooltip: 'X (Twitter)',
+            ),
+            _ShareButton(
+              icon: Icons.work_rounded, // fallback icon for linkedin
+              color: const Color(0xFF0A66C2),
+              bgColor: bgColor,
+              onTap: _shareToLinkedIn,
+              tooltip: 'LinkedIn',
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _ShareButton extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final Color bgColor;
+  final VoidCallback onTap;
+  final String tooltip;
+
+  const _ShareButton({
+    required this.icon,
+    required this.color,
+    required this.bgColor,
+    required this.onTap,
+    required this.tooltip,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: tooltip,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Icon(icon, size: 24, color: color),
         ),
       ),
     );

@@ -16,12 +16,31 @@ import '../widgets/hero_fold.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import 'weather_detail_screen.dart';
+import '../widgets/news_search_delegate.dart';
+import '../widgets/portal_footer.dart';
+import 'article_detail_screen.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  bool _isSearchExpanded = false;
+  final TextEditingController _searchController = TextEditingController();
+  final FocusNode _searchFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    _searchFocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final theme         = Theme.of(context);
     final localizations = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
@@ -138,6 +157,71 @@ class HomeScreen extends ConsumerWidget {
     required Color bgColor,
     required User? user,
   }) {
+    if (_isSearchExpanded) {
+      return AppBar(
+        backgroundColor: bgColor,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 1.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_rounded, color: isDark ? Colors.white : Colors.black),
+          onPressed: () {
+            setState(() {
+              _isSearchExpanded = false;
+              _searchController.clear();
+            });
+          },
+        ),
+        title: TextField(
+          controller: _searchController,
+          focusNode: _searchFocusNode,
+          style: GoogleFonts.inter(
+            color: isDark ? Colors.white : Colors.black,
+            fontSize: 16,
+          ),
+          decoration: InputDecoration(
+            hintText: currentLocale.languageCode == 'en' ? 'Search news...' : 'Haberlerde ara...',
+            hintStyle: GoogleFonts.inter(color: isDark ? Colors.white54 : Colors.black54),
+            border: InputBorder.none,
+          ),
+          textInputAction: TextInputAction.search,
+          onSubmitted: (val) {
+            if (val.trim().isNotEmpty) {
+              final query = val.trim();
+              setState(() {
+                _isSearchExpanded = false;
+                _searchController.clear();
+              });
+              showSearch(
+                context: context,
+                delegate: NewsSearchDelegate(ref: ref),
+                query: query,
+              );
+            }
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search_rounded, color: isDark ? Colors.white : Colors.black),
+            onPressed: () {
+              if (_searchController.text.trim().isNotEmpty) {
+                final query = _searchController.text.trim();
+                setState(() {
+                  _isSearchExpanded = false;
+                  _searchController.clear();
+                });
+                showSearch(
+                  context: context,
+                  delegate: NewsSearchDelegate(ref: ref),
+                  query: query,
+                );
+              }
+            },
+          ),
+        ],
+      );
+    }
+
     return AppBar(
       backgroundColor: bgColor,
       surfaceTintColor: Colors.transparent,
@@ -152,7 +236,7 @@ class HomeScreen extends ConsumerWidget {
           Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: 26),
           const SizedBox(width: 8),
           Text(
-            localizations.translate('app_title').toUpperCase(),
+            'TARIM PORTALI',
             style: GoogleFonts.playfairDisplay(
               fontWeight: FontWeight.w900,
               fontSize: 20,
@@ -165,6 +249,39 @@ class HomeScreen extends ConsumerWidget {
         ],
       ),
       actions: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+          child: FilledButton.icon(
+            style: FilledButton.styleFrom(
+              backgroundColor: isDark 
+                  ? theme.colorScheme.primary.withValues(alpha: 0.15) 
+                  : theme.colorScheme.primary.withValues(alpha: 0.1),
+              foregroundColor: isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99),
+              elevation: 0,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            icon: const Icon(Icons.search_rounded, size: 22),
+            label: Text(
+              currentLocale.languageCode == 'en' ? 'Search' : 'Ara',
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                letterSpacing: 0.5,
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                _isSearchExpanded = true;
+              });
+              Future.delayed(const Duration(milliseconds: 100), () {
+                _searchFocusNode.requestFocus();
+              });
+            },
+          ),
+        ),
         _LanguageToggle(currentLocale: currentLocale, isDark: isDark),
         const SizedBox(width: 4),
         _WeatherChip(isDark: isDark),
@@ -266,11 +383,14 @@ class _MobileContent extends ConsumerWidget {
         children: [
           HeroFold(articles: articles),
           const SizedBox(height: 28),
+          _TrendingSection(isDark: isDark),
+          const SizedBox(height: 28),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: AgendaBentoGrid(articles: articles, isDark: isDark),
           ),
           const SizedBox(height: 32),
+          PortalFooter(isDark: isDark),
         ],
       ),
     );
@@ -301,8 +421,11 @@ class _TabletContent extends ConsumerWidget {
         children: [
           HeroFold(articles: articles),
           const SizedBox(height: 36),
+          _TrendingSection(isDark: isDark),
+          const SizedBox(height: 36),
           AgendaBentoGrid(articles: articles, isDark: isDark),
           const SizedBox(height: 32),
+          PortalFooter(isDark: isDark),
         ],
       ),
     );
@@ -332,32 +455,41 @@ class _DesktopContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: maxWidth),
-        child: Padding(
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: hPad, vertical: vPad),
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 32),
-                  child: HeroFold(articles: articles),
+          sliver: SliverToBoxAdapter(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: maxWidth),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 32),
+                      child: HeroFold(articles: articles),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 32),
+                      child: _TrendingSection(isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 32),
+                      child: AgendaBentoGrid(
+                        articles: articles,
+                        isDark: isDark,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 32),
-                  child: AgendaBentoGrid(
-                    articles: articles,
-                    isDark: isDark,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
-      ),
+        SliverToBoxAdapter(
+          child: PortalFooter(isDark: isDark),
+        ),
+      ],
     );
   }
 }
@@ -539,6 +671,184 @@ class _LanguageToggle extends ConsumerWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  EN ÇOK OKUNANLAR (TRENDING) BÖLÜMÜ
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _TrendingSection extends ConsumerWidget {
+  final bool isDark;
+
+  const _TrendingSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final trendingAsync = ref.watch(trendingArticlesProvider);
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final titleText = isEn ? 'TRENDING' : 'EN ÇOK OKUNANLAR';
+    
+    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
+    final dividerColor = isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+
+    return trendingAsync.when(
+      data: (articles) {
+        if (articles.isEmpty) return const SizedBox.shrink();
+        
+        // Show up to 5 trending articles
+        final topArticles = articles.take(5).toList();
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(height: 3, width: double.infinity, color: dividerColor),
+                  const SizedBox(height: 16),
+                  Row(
+                    children: [
+                      const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 24),
+                      const SizedBox(width: 8),
+                      Text(
+                        titleText,
+                        style: GoogleFonts.playfairDisplay(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 0.4,
+                          color: headerColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              height: 120, // Enough for a compact horizontal card
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                scrollDirection: Axis.horizontal,
+                itemCount: topArticles.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (context, i) {
+                  final a = topArticles[i];
+                  return _TrendingCard(article: a, index: i, isDark: isDark, isEn: isEn);
+                },
+              ),
+            ),
+          ],
+        );
+      },
+      loading: () => const SizedBox(height: 120, child: Center(child: CircularProgressIndicator())),
+      error: (_, __) => const SizedBox.shrink(),
+    );
+  }
+}
+
+class _TrendingCard extends StatefulWidget {
+  final NewsArticle article;
+  final int index;
+  final bool isDark;
+  final bool isEn;
+
+  const _TrendingCard({
+    required this.article,
+    required this.index,
+    required this.isDark,
+    required this.isEn,
+  });
+
+  @override
+  State<_TrendingCard> createState() => _TrendingCardState();
+}
+
+class _TrendingCardState extends State<_TrendingCard> {
+  bool _hover = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = widget.article;
+    final title = (widget.isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    
+    final bg = widget.isDark ? const Color(0xFF161B22) : const Color(0xFFF9F9F9);
+    final border = widget.isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
+    final textCol = widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hover = true),
+      onExit: (_) => setState(() => _hover = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a)));
+        },
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: 280,
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: bg,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: _hover ? Theme.of(context).colorScheme.primary : border,
+              width: _hover ? 1.5 : 1,
+            ),
+          ),
+          child: Row(
+            children: [
+              Text(
+                '#${widget.index + 1}',
+                style: GoogleFonts.playfairDisplay(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w900,
+                  color: widget.isDark ? Colors.white24 : Colors.black12,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: textCol,
+                        height: 1.3,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
+                    Row(
+                      children: [
+                        const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 12),
+                        const SizedBox(width: 4),
+                        Text(
+                          '${a.viewCount} ${widget.isEn ? 'Views' : 'Okuma'}',
+                          style: GoogleFonts.robotoMono(
+                            fontSize: 10,
+                            color: Colors.orangeAccent,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

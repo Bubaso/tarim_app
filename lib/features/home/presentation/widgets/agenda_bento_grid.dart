@@ -168,148 +168,271 @@ class _DesktopBento extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    NewsArticle? at(int i) => i < articles.length ? articles[i] : null;
+    if (articles.isEmpty) return const SizedBox.shrink();
 
-    final a0 = at(0); // Büyük Kare
-    final a1 = at(1); // Dikey Dikdörtgen
-    final a2 = at(2); // Yatay Kutu 1
-    final a3 = at(3); // Yatay Kutu 2
+    // Profesyonel Haber Portalı Masaüstü Layout'u (3 Sütunlu)
+    // Sütun 1: Ana Manşet (1 adet büyük) + Altında Liste (2 adet)
+    // Sütun 2: Standart Haberler (3 adet)
+    // Sütun 3: Standart Haberler (3 adet)
+    // Geri kalanlar ExtraListSection ile alta.
 
-    final a4 = at(4); // Yatay Kutu 3
-    final a5 = at(5); // Yatay Kutu 4
-    final a6 = at(6); // Dikey Dikdörtgen 2
-    final a7 = at(7); // Büyük Kare 2
+    final col1 = <NewsArticle>[];
+    final col2 = <NewsArticle>[];
+    final col3 = <NewsArticle>[];
+
+    for (int i = 0; i < articles.length && i < 9; i++) {
+      if (i == 0) col1.add(articles[i]); 
+      else if (i == 1 || i == 2) col1.add(articles[i]);
+      else if (i >= 3 && i <= 5) col2.add(articles[i]); 
+      else if (i >= 6 && i <= 8) col3.add(articles[i]);
+    }
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // ── Birinci Satır (a0, a1, a2, a3) ──────────────────────────────────
-        if (a0 != null)
-          IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Sol: Büyük Kare (AspectRatio 1.0)
-                Expanded(
-                  flex: 4,
-                  child: _BentoItem(
-                    article: a0,
-                    isDark: isDark,
-                    cardType: _CardType.square,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                // Orta: Dikey Dikdörtgen (AspectRatio 3:4)
-                if (a1 != null) ...[
-                  Expanded(
-                    flex: 3,
-                    child: _BentoItem(
-                      article: a1,
-                      isDark: isDark,
-                      cardType: _CardType.vertical,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                ],
-                // Sağ: İki Yatay Kutu (Column)
-                if (a2 != null || a3 != null)
-                  Expanded(
-                    flex: 3,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        if (a2 != null)
-                          Expanded(
-                            child: _BentoItem(
-                              article: a2,
-                              isDark: isDark,
-                              cardType: _CardType.horizontal,
-                            ),
-                          ),
-                        if (a2 != null && a3 != null) const SizedBox(height: 16),
-                        if (a3 != null)
-                          Expanded(
-                            child: _BentoItem(
-                              article: a3,
-                              isDark: isDark,
-                              cardType: _CardType.horizontal,
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-              ],
-            ),
-          ),
-
-        // ── İkinci Satır (a4, a5, a6, a7) - Simetriyi bozup asimetriyi artırmak için ters düzen ────
-        if (a4 != null) ...[
-          const SizedBox(height: 24),
-          IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Sol: İki Yatay Kutu (Column)
-                Expanded(
-                  flex: 3,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Expanded(
-                        child: _BentoItem(
-                          article: a4,
-                          isDark: isDark,
-                          cardType: _CardType.horizontal,
-                        ),
-                      ),
-                      if (a5 != null) ...[
-                        const SizedBox(height: 16),
-                        Expanded(
-                          child: _BentoItem(
-                            article: a5,
-                            isDark: isDark,
-                            cardType: _CardType.horizontal,
-                          ),
-                        ),
-                      ],
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (col1.isNotEmpty)
+              Expanded(
+                flex: 11,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    _DesktopCardHoverBox(article: col1[0], isDark: isDark, isFeature: true),
+                    if (col1.length > 1) ...[
+                      const SizedBox(height: 32),
+                      Divider(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5)),
+                      const SizedBox(height: 24),
+                      _DesktopCardHoverBox(article: col1[1], isDark: isDark, isList: true),
                     ],
-                  ),
+                    if (col1.length > 2) ...[
+                      const SizedBox(height: 24),
+                      Divider(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5)),
+                      const SizedBox(height: 24),
+                      _DesktopCardHoverBox(article: col1[2], isDark: isDark, isList: true),
+                    ],
+                  ],
                 ),
-                const SizedBox(width: 16),
-                // Orta: Dikey Dikdörtgen (AspectRatio 3:4)
-                if (a6 != null) ...[
-                  Expanded(
-                    flex: 3,
-                    child: _BentoItem(
-                      article: a6,
-                      isDark: isDark,
-                      cardType: _CardType.vertical,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                ],
-                // Sağ: Büyük Kare (AspectRatio 1.0)
-                if (a7 != null)
-                  Expanded(
-                    flex: 4,
-                    child: _BentoItem(
-                      article: a7,
-                      isDark: isDark,
-                      cardType: _CardType.square,
-                    ),
-                  ),
+              ),
+            if (col2.isNotEmpty) ...[
+              const SizedBox(width: 32),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: col2.map((a) {
+                    final isLast = a == col2.last;
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: isLast ? 0 : 32),
+                      child: _DesktopCardHoverBox(article: a, isDark: isDark),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+            if (col3.isNotEmpty) ...[
+              const SizedBox(width: 32),
+              Expanded(
+                flex: 6,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: col3.map((a) {
+                    final isLast = a == col3.last;
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: isLast ? 0 : 32),
+                      child: _DesktopCardHoverBox(article: a, isDark: isDark),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+          ],
+        ),
+        if (articles.length > 9) ...[
+          const SizedBox(height: 32),
+          Divider(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5), thickness: 2),
+          const SizedBox(height: 24),
+          _ExtraListSection(articles: articles.sublist(9), isDark: isDark),
+        ],
+      ],
+    );
+  }
+}
+
+class _DesktopCardHoverBox extends StatefulWidget {
+  final NewsArticle article;
+  final bool isDark;
+  final bool isFeature;
+  final bool isList;
+
+  const _DesktopCardHoverBox({
+    required this.article, 
+    required this.isDark, 
+    this.isFeature = false,
+    this.isList = false,
+  });
+
+  @override
+  State<_DesktopCardHoverBox> createState() => _DesktopCardHoverBoxState();
+}
+
+class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = widget.article;
+    final isDark = widget.isDark;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty) ? a.summaryEn! : (a.summary ?? '');
+    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    
+    final isSpecial = a.sourceName == null || a.sourceName!.trim().isEmpty;
+    final badge = isSpecial
+        ? (a.summary != null && a.summary!.trim().isNotEmpty
+            ? _BadgeType.editorunAnalizi
+            : _BadgeType.ozelDosya)
+        : null;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit:  (_) => setState(() => _hovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(
+          createFadeRoute(ArticleDetailScreen(article: a)),
+        ),
+        child: AnimatedScale(
+          scale: _hovered ? 1.01 : 1.0,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeOut,
+          child: widget.isList 
+            ? _buildListLayout(title, summary, dateStr, badge, isDark)
+            : _buildStandardLayout(title, summary, dateStr, badge, isDark),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStandardLayout(String title, String summary, String dateStr, _BadgeType? badge, bool isDark) {
+    final a = widget.article;
+    final titleColor = _hovered
+        ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
+        : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A));
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AspectRatio(
+          aspectRatio: widget.isFeature ? 16/9 : 3/2,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(6),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                if (badge != null)
+                  Positioned(top: 10, left: 10, child: _ArticleBadge(type: badge))
+                else if (a.sourceName != null && a.sourceName!.isNotEmpty)
+                  Positioned(top: 10, left: 10, child: _SourceBadge(label: a.sourceName!)),
               ],
             ),
           ),
-        ],
-
-        // ── Kalan Diğer Haberler (Liste Görünümü) ──────────────────────────
-        if (articles.length > 8) ...[
-          const SizedBox(height: 24),
-          _ExtraListSection(
-            articles: articles.sublist(8),
-            isDark: isDark,
+        ),
+        const SizedBox(height: 16),
+        Text(
+          dateStr.toUpperCase(),
+          style: GoogleFonts.robotoMono(
+            fontSize: 10,
+            fontWeight: FontWeight.w600,
+            color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
+            letterSpacing: 0.5,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          title,
+          maxLines: widget.isFeature ? 3 : 4,
+          overflow: TextOverflow.ellipsis,
+          style: GoogleFonts.playfairDisplay(
+            fontSize: widget.isFeature ? 28 : 18,
+            fontWeight: FontWeight.w800,
+            color: titleColor,
+            height: 1.2,
+          ),
+        ),
+        if (widget.isFeature && summary.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          Text(
+            summary,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.lora(
+              fontSize: 15,
+              color: isDark ? const Color(0xFF8B949E) : const Color(0xFF555555),
+              height: 1.5,
+            ),
           ),
         ],
+      ],
+    );
+  }
+
+  Widget _buildListLayout(String title, String summary, String dateStr, _BadgeType? badge, bool isDark) {
+    final a = widget.article;
+    final titleColor = _hovered
+        ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
+        : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A));
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(6),
+          child: SizedBox(
+            width: 140,
+            height: 90,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                if (badge != null)
+                  Positioned(top: 4, left: 4, child: Transform.scale(scale: 0.8, alignment: Alignment.topLeft, child: _ArticleBadge(type: badge)))
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(width: 16),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                dateStr.toUpperCase(),
+                style: GoogleFonts.robotoMono(
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                  color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
+                  letterSpacing: 0.5,
+                ),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                title,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.playfairDisplay(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                  color: titleColor,
+                  height: 1.25,
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -412,8 +535,8 @@ class _MobileBento extends StatelessWidget {
                     ),
                     if (isSpecial)
                       Positioned(
-                        top: 8,
-                        left: 8,
+                        top: 6,
+                        left: 6,
                         child: _ArticleBadge(
                           type: summary.isNotEmpty
                               ? _BadgeType.editorunAnalizi
@@ -422,52 +545,39 @@ class _MobileBento extends StatelessWidget {
                       )
                     else if (article.sourceName != null && article.sourceName!.isNotEmpty)
                       Positioned(
-                        top: 8,
-                        left: 8,
+                        top: 6,
+                        left: 6,
                         child: _SourceBadge(label: article.sourceName!),
                       ),
                   ],
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       dateStr.toUpperCase(),
                       style: GoogleFonts.robotoMono(
-                        fontSize: 9,
+                        fontSize: 8,
                         fontWeight: FontWeight.w500,
                         color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
                         letterSpacing: 0.4,
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 4),
                     Text(
                       title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.playfairDisplay(
-                        fontSize: 16,
+                        fontSize: 12.5,
                         fontWeight: FontWeight.w800,
                         color: isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A),
                         height: 1.25,
                       ),
                     ),
-                    if (summary.isNotEmpty) ...[
-                      const SizedBox(height: 6),
-                      Text(
-                        summary,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.lora(
-                          fontSize: 12,
-                          color: isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
-                          height: 1.4,
-                        ),
-                      ),
-                    ],
                   ],
                 ),
               ),
@@ -569,189 +679,6 @@ class _MobileBento extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-//  Bento Haber Kartı (Asimetrik Gösterim Yardımcısı)
-// ═══════════════════════════════════════════════════════════════════════════
-
-class _BentoItem extends StatefulWidget {
-  final NewsArticle article;
-  final bool isDark;
-  final _CardType cardType;
-
-  const _BentoItem({
-    required this.article,
-    required this.isDark,
-    required this.cardType,
-  });
-
-  @override
-  State<_BentoItem> createState() => _BentoItemState();
-}
-
-class _BentoItemState extends State<_BentoItem> {
-  bool _hovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final a = widget.article;
-    final isDark = widget.isDark;
-
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
-        ? a.titleEn!
-        : a.title;
-    final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty)
-        ? a.summaryEn!
-        : (a.summary ?? '');
-
-    // AI kaynak kontrolü
-    final isSpecial = a.sourceName == null || a.sourceName!.trim().isEmpty;
-    final badge = isSpecial
-        ? (a.summary != null && a.summary!.trim().isNotEmpty
-            ? _BadgeType.editorunAnalizi
-            : _BadgeType.ozelDosya)
-        : null;
-
-    final theme = Theme.of(context);
-    final bgColor = isDark ? const Color(0xFF121820) : Colors.white;
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
-
-    // Kart tipine göre tipografik ayarlar
-    double titleSize = 14.0;
-    int maxLines = 3;
-    bool showSummary = false;
-
-    if (widget.cardType == _CardType.square) {
-      titleSize = 18.0;
-      maxLines = 4;
-      showSummary = true;
-    } else if (widget.cardType == _CardType.vertical) {
-      titleSize = 15.0;
-      maxLines = 4;
-      showSummary = false;
-    } else if (widget.cardType == _CardType.horizontal) {
-      titleSize = 13.0;
-      maxLines = 2;
-      showSummary = false;
-    }
-
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit:  (_) => setState(() => _hovered = false),
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
-        ),
-        child: AnimatedScale(
-          scale: _hovered ? 1.02 : 1.0,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            color: bgColor,
-            borderRadius: BorderRadius.circular(4),
-            border: Border.all(
-              color: _hovered ? theme.colorScheme.primary : borderColor,
-              width: 1.0,
-            ),
-            boxShadow: _hovered
-                ? [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
-                      blurRadius: 10,
-                      offset: const Offset(0, 4),
-                    )
-                  ]
-                : [],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(3),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // Görsel alanı
-                Expanded(
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      NewsArticleImage(
-                        imageUrl: a.imageUrl,
-                        fit: BoxFit.cover,
-                      ),
-                      if (badge != null)
-                        Positioned(
-                          top: 10,
-                          left: 10,
-                          child: _ArticleBadge(type: badge),
-                        )
-                      else if (a.sourceName != null && a.sourceName!.isNotEmpty)
-                        Positioned(
-                          top: 10,
-                          left: 10,
-                          child: _SourceBadge(label: a.sourceName!),
-                        ),
-                    ],
-                  ),
-                ),
-                // Metin alanı
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        dateStr.toUpperCase(),
-                        style: GoogleFonts.robotoMono(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w500,
-                          color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
-                          letterSpacing: 0.4,
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        title,
-                        maxLines: maxLines,
-                        overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.playfairDisplay(
-                          fontSize: titleSize,
-                          fontWeight: FontWeight.w800,
-                          color: _hovered
-                              ? (isDark ? const Color(0xFF58A6FF) : _kAccent)
-                              : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A)),
-                          height: 1.25,
-                        ),
-                      ),
-                      if (showSummary && summary.isNotEmpty) ...[
-                        const SizedBox(height: 6),
-                        Text(
-                          summary,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.lora(
-                            fontSize: 12,
-                            color: isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
-                            height: 1.4,
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
   }
 }
 

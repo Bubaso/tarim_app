@@ -9,6 +9,7 @@ import '../../../home/data/models/news_article.dart';
 import '../../../home/data/models/ai_suggestion.dart';
 import '../../../home/providers/home_providers.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
+import 'admin_statistics_screen.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -155,7 +156,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -310,6 +311,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               icon: Icon(Icons.psychology_rounded),
               text: 'Yayın Kurulu Önerileri',
             ),
+            Tab(
+              icon: Icon(Icons.bar_chart_rounded),
+              text: 'İstatistikler',
+            ),
           ],
         ),
         actions: [
@@ -326,6 +331,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
           _buildAssignmentsTab(context, theme),
           _buildAiSuggestionsTab(context, theme),
+          const AdminStatisticsScreen(),
         ],
       ),
     );

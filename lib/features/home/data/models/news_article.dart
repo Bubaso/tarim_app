@@ -14,6 +14,7 @@ class NewsArticle {
   final String? status;
   final String? categoryId;
   final String? geoLocation;
+  final int viewCount;
 
   NewsArticle({
     required this.id,
@@ -31,6 +32,7 @@ class NewsArticle {
     this.status,
     this.categoryId,
     this.geoLocation,
+    this.viewCount = 0,
   });
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) {
@@ -63,6 +65,7 @@ class NewsArticle {
       status: json['status']?.toString(),
       categoryId: json['category_id']?.toString(),
       geoLocation: json['geo_location']?.toString(),
+      viewCount: json['view_count'] != null ? (json['view_count'] as num).toInt() : 0,
     );
   }
 
@@ -83,6 +86,7 @@ class NewsArticle {
       'status': status,
       'category_id': categoryId,
       'geo_location': geoLocation,
+      'view_count': viewCount,
     };
   }
 }

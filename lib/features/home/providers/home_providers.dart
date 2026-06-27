@@ -75,3 +75,16 @@ final pendingSuggestionsProvider = FutureProvider<List<AiSuggestion>>((ref) {
   final repository = ref.watch(homeRepositoryProvider);
   return repository.fetchPendingSuggestions();
 });
+
+/// Future provider for searching articles by query
+final searchArticlesProvider = FutureProvider.family<List<NewsArticle>, String>((ref, query) {
+  if (query.isEmpty) return Future.value([]);
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.searchArticles(query);
+});
+
+/// Stream provider for top trending articles
+final trendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.watchTrendingArticles();
+});

@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  Shimmer skeleton — tüm yükleme iskeletlerinde kullanılan paylaşımlı widget
@@ -56,28 +57,44 @@ class NewsArticleImage extends StatelessWidget {
     this.fit = BoxFit.cover,
   });
 
+  String _optimizeUrl(String url) {
+    // Supabase Image Transformations
+    if (url.contains('/object/public/')) {
+      // Convert standard public URL to render/image endpoint with params
+      final replaced = url.replaceFirst('/object/public/', '/render/image/public/');
+      if (replaced.contains('?')) {
+        return '$replaced&width=600&quality=75';
+      } else {
+        return '$replaced?width=600&quality=75';
+      }
+    }
+    return url;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final url = imageUrl?.trim();
-    if (url == null || url.isEmpty) {
+    final rawUrl = imageUrl?.trim();
+    if (rawUrl == null || rawUrl.isEmpty) {
       return ShimmerPlaceholder(width: width, height: height);
     }
-    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+    if (!rawUrl.startsWith('http://') && !rawUrl.startsWith('https://')) {
       return ShimmerPlaceholder(width: width, height: height);
     }
 
-    return Image.network(
-      url,
-      width:  width,
+    final url = _optimizeUrl(rawUrl);
+
+    return CachedNetworkImage(
+      imageUrl: url,
+      width: width,
       height: height,
-      fit:    fit,
-      loadingBuilder: (context, child, progress) {
-        if (progress == null) return child;
-        return ShimmerPlaceholder(width: width, height: height);
+      fit: fit,
+      fadeInDuration: const Duration(milliseconds: 300),
+      httpHeaders: const {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
       },
-      errorBuilder: (context, error, stackTrace) {
-        return ShimmerPlaceholder(width: width, height: height);
-      },
+      placeholder: (context, url) => ShimmerPlaceholder(width: width, height: height),
+      errorWidget: (context, url, error) => ShimmerPlaceholder(width: width, height: height),
     );
   }
 }
