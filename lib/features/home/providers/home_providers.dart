@@ -18,11 +18,49 @@ final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   return repository.watchLatestArticles();
 });
 
-/// Future provider for fetching agricultural weather info, reacting to locale changes.
+class LocationData {
+  final String name;
+  final double latitude;
+  final double longitude;
+
+  const LocationData({
+    required this.name,
+    required this.latitude,
+    required this.longitude,
+  });
+}
+
+class ActiveLocationNotifier extends Notifier<LocationData> {
+  @override
+  LocationData build() {
+    return const LocationData(
+      name: 'Polatlı, Ankara',
+      latitude: 39.58,
+      longitude: 32.14,
+    );
+  }
+
+  void update(LocationData value) {
+    state = value;
+  }
+}
+
+/// State provider for tracking active weather location. Defaults to Polatlı, Ankara.
+final activeLocationProvider = NotifierProvider<ActiveLocationNotifier, LocationData>(
+  ActiveLocationNotifier.new,
+);
+
+/// Future provider for fetching agricultural weather info, reacting to locale & location changes.
 final weatherProvider = FutureProvider<WeatherInfo>((ref) {
   final repository = ref.watch(homeRepositoryProvider);
   final locale = ref.watch(localeProvider);
-  return repository.fetchAgricultureWeather(locale.languageCode);
+  final location = ref.watch(activeLocationProvider);
+  return repository.fetchAgricultureWeather(
+    locale.languageCode,
+    latitude: location.latitude,
+    longitude: location.longitude,
+    cityName: location.name,
+  );
 });
 
 /// Future provider for fetching market commodity prices, reacting to locale changes.

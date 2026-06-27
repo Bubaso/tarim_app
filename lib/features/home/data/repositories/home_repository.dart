@@ -24,19 +24,99 @@ class HomeRepository {
 
   /// Fetches agricultural weather data with TR/EN localization.
   /// Uses a safe HTTP call to a public API with an automatic fallback to rich, localized mock data.
-  Future<WeatherInfo> fetchAgricultureWeather(String lang) async {
+  Future<WeatherInfo> fetchAgricultureWeather(
+    String lang, {
+    required double latitude,
+    required double longitude,
+    required String cityName,
+  }) async {
     final isEn = lang.toLowerCase() == 'en';
     try {
-      // Try to fetch real weather data for Polatli, Ankara (a major agricultural center in Turkey)
-      final response = await http.get(
-        Uri.parse('https://api.open-meteo.com/v1/forecast?latitude=39.58&longitude=32.14&current=temperature_2m,relative_humidity_2m,weather_code'),
-      ).timeout(const Duration(seconds: 3));
+      final url = 'https://api.open-meteo.com/v1/forecast'
+          '?latitude=$latitude'
+          '&longitude=$longitude'
+          '&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,soil_temperature_0_to_7cm,soil_moisture_0_to_1cm'
+          '&daily=temperature_2m_max,temperature_2m_min,weather_code,et0_fao_evapotranspiration'
+          '&timezone=auto';
+
+      final response = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 4));
       
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
         final current = json['current'];
+        final dailyData = json['daily'];
+        
         final temp = (current['temperature_2m'] as num?)?.toDouble() ?? 22.5;
+        final relHumidity = (current['relative_humidity_2m'] as num?)?.toDouble() ?? 60.0;
+        final windSpeed = (current['wind_speed_10m'] as num?)?.toDouble() ?? 10.0;
         final code = current['weather_code'] as int? ?? 0;
+        final soilTemp = (current['soil_temperature_0_to_7cm'] as num?)?.toDouble() ?? (temp - 2.5);
+        final soilMoisture = (current['soil_moisture_0_to_1cm'] as num?)?.toDouble() ?? 0.15;
+
+        double et0 = 4.5;
+        if (dailyData != null && dailyData['et0_fao_evapotranspiration'] != null) {
+          final et0List = dailyData['et0_fao_evapotranspiration'] as List;
+          if (et0List.isNotEmpty) {
+            et0 = (et0List[0] as num?)?.toDouble() ?? 4.5;
+          }
+        }
+
+        final List<DailyForecastItem> dailyForecast = [];
+        if (dailyData != null) {
+          final times = dailyData['time'] as List? ?? [];
+          final maxTemps = dailyData['temperature_2m_max'] as List? ?? [];
+          final minTemps = dailyData['temperature_2m_min'] as List? ?? [];
+          final weatherCodes = dailyData['weather_code'] as List? ?? [];
+          final et0List = dailyData['et0_fao_evapotranspiration'] as List? ?? [];
+
+          for (int i = 0; i < times.length; i++) {
+            if (i < maxTemps.length && i < minTemps.length) {
+              dailyForecast.add(DailyForecastItem(
+                date: times[i]?.toString() ?? '',
+                maxTemp: (maxTemps[i] as num?)?.toDouble() ?? 0.0,
+                minTemp: (minTemps[i] as num?)?.toDouble() ?? 0.0,
+                weatherCode: (weatherCodes.length > i ? weatherCodes[i] as int? : null) ?? 0,
+                et0: (et0List.length > i ? et0List[i] as num? : null)?.toDouble() ?? 0.0,
+              ));
+            }
+          }
+        }
+
+        HistoricalInfo? historicalInfo;
+        try {
+          final now = DateTime.now();
+          final lastYear = DateTime(now.year - 1, now.month, now.day);
+          final dateStr = '${lastYear.year}-${lastYear.month.toString().padLeft(2, '0')}-${lastYear.day.toString().padLeft(2, '0')}';
+          
+          final histUrl = 'https://archive-api.open-meteo.com/v1/archive'
+              '?latitude=$latitude'
+              '&longitude=$longitude'
+              '&start_date=$dateStr'
+              '&end_date=$dateStr'
+              '&daily=temperature_2m_max,temperature_2m_min,et0_fao_evapotranspiration'
+              '&timezone=auto';
+          
+          final histResponse = await http.get(Uri.parse(histUrl)).timeout(const Duration(seconds: 2));
+          if (histResponse.statusCode == 200) {
+            final histJson = jsonDecode(histResponse.body);
+            final histDaily = histJson['daily'];
+            if (histDaily != null) {
+              final hMaxList = histDaily['temperature_2m_max'] as List? ?? [];
+              final hMinList = histDaily['temperature_2m_min'] as List? ?? [];
+              final hEt0List = histDaily['et0_fao_evapotranspiration'] as List? ?? [];
+              
+              if (hMaxList.isNotEmpty && hMinList.isNotEmpty) {
+                historicalInfo = HistoricalInfo(
+                  lastYearMaxTemp: (hMaxList[0] as num?)?.toDouble() ?? 0.0,
+                  lastYearMinTemp: (hMinList[0] as num?)?.toDouble() ?? 0.0,
+                  lastYearEt0: (hEt0List.isNotEmpty ? hEt0List[0] as num? : null)?.toDouble() ?? 0.0,
+                );
+              }
+            }
+          }
+        } catch (_) {
+          // Fall back gracefully if archive API fails
+        }
 
         // Interpret weather code (WMO Weather interpretation codes)
         String description;
@@ -72,11 +152,18 @@ class HomeRepository {
 
         return WeatherInfo(
           temperature: temp,
-          city: isEn ? 'Polatli, Ankara' : 'Polatlı, Ankara',
+          relativeHumidity: relHumidity,
+          windSpeed: windSpeed,
+          soilTemperature: soilTemp,
+          soilMoisture: soilMoisture,
+          evapotranspiration: et0,
+          city: cityName,
           description: description,
           iconCode: icon,
           agriculturalWarning: warning,
           hasWarning: hasWarning,
+          dailyForecast: dailyForecast,
+          historicalInfo: historicalInfo,
         );
       }
     } catch (_) {
@@ -86,13 +173,33 @@ class HomeRepository {
     // Dynamic, realistic localized Fallback
     return WeatherInfo(
       temperature: 24.5,
-      city: isEn ? 'Polatli, Ankara' : 'Polatlı, Ankara',
+      relativeHumidity: 62.0,
+      windSpeed: 14.0,
+      soilTemperature: 22.0,
+      soilMoisture: 0.18,
+      evapotranspiration: 4.8,
+      city: cityName,
       description: isEn ? 'Partly Cloudy' : 'Parçalı Bulutlu',
       iconCode: '03d',
       agriculturalWarning: isEn 
           ? 'Mild wind. Perfect time for spraying pesticide.'
           : 'Hafif rüzgar. İlaçlama için en uygun zaman dilimi.',
       hasWarning: false,
+      dailyForecast: List.generate(7, (i) {
+        final date = DateTime.now().add(Duration(days: i));
+        return DailyForecastItem(
+          date: '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}',
+          maxTemp: 26.0 + i,
+          minTemp: 15.0 - (i % 2),
+          weatherCode: i % 3 == 0 ? 3 : 1,
+          et0: 5.0 - (i * 0.2),
+        );
+      }),
+      historicalInfo: HistoricalInfo(
+        lastYearMaxTemp: 23.5,
+        lastYearMinTemp: 14.0,
+        lastYearEt0: 4.2,
+      ),
     );
   }
 

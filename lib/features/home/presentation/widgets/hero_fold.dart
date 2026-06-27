@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -485,6 +486,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   late final PageController _pc;
   Timer? _timer;
   int _current = 0;
+  bool _isHovered = false;
 
   @override
   void initState() {
@@ -494,6 +496,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   }
 
   void _startTimer() {
+    _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 6), (_) {
       if (!mounted) return;
       final next = (_current + 1) % widget.headlines.length;
@@ -503,6 +506,10 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
         curve: Curves.easeInOut,
       );
     });
+  }
+
+  void _resetTimer() {
+    _startTimer();
   }
 
   @override
@@ -518,71 +525,98 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < _kDesktopBreakpoint;
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        AspectRatio(
-          aspectRatio: 16 / 9,
-          child: ClipRRect(
-            borderRadius: isMobile ? BorderRadius.zero : BorderRadius.circular(4),
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                // ── PageView ────────────────────────────────────────────────
-                PageView.builder(
-                  controller: _pc,
-                  itemCount: total,
-                  onPageChanged: (i) => setState(() => _current = i),
-                  itemBuilder: (context, index) {
-                    final article = widget.headlines[index];
-                    return _HeadlineSlide(article: article);
-                  },
-                ),
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          AspectRatio(
+            aspectRatio: 16 / 9,
+            child: ClipRRect(
+              borderRadius: isMobile ? BorderRadius.zero : BorderRadius.circular(4),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  // ── PageView ────────────────────────────────────────────────
+                  ScrollConfiguration(
+                    behavior: AppScrollBehavior(),
+                    child: PageView.builder(
+                      controller: _pc,
+                      itemCount: total,
+                      onPageChanged: (i) => setState(() => _current = i),
+                      itemBuilder: (context, index) {
+                        final article = widget.headlines[index];
+                        return _HeadlineSlide(article: article);
+                      },
+                    ),
+                  ),
 
-                // ── Sol/Sağ manuel gezinme (hover alanı) ─────────────────
-                Positioned(
-                  left: 0,
-                  top: 0,
-                  bottom: 0,
-                  width: 48,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () {
-                      if (_current > 0) {
-                        _pc.previousPage(
-                          duration: const Duration(milliseconds: 400),
-                          curve: Curves.easeInOut,
-                        );
-                      }
-                    },
-                  ),
-                ),
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                  width: 48,
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.translucent,
-                    onTap: () {
-                      final next = (_current + 1) % total;
-                      _pc.animateToPage(
-                        next,
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ),
-              ],
+                  // ── Sol / Sağ Manuel Oklar ──────────────────────────────
+                  if (!isMobile && total > 1) ...[
+                    AnimatedPositioned(
+                      duration: const Duration(milliseconds: 250),
+                      left: _isHovered ? 16 : -50,
+                      top: 0,
+                      bottom: 0,
+                      child: Center(
+                        child: _CarouselArrowButton(
+                          icon: Icons.chevron_left,
+                          onTap: () {
+                            _resetTimer();
+                            final prev = (_current - 1 + total) % total;
+                            _pc.animateToPage(
+                              prev,
+                              duration: const Duration(milliseconds: 450),
+                              curve: Curves.easeOutCubic,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    AnimatedPositioned(
+                      duration: const Duration(milliseconds: 250),
+                      right: _isHovered ? 16 : -50,
+                      top: 0,
+                      bottom: 0,
+                      child: Center(
+                        child: _CarouselArrowButton(
+                          icon: Icons.chevron_right,
+                          onTap: () {
+                            _resetTimer();
+                            final next = (_current + 1) % total;
+                            _pc.animateToPage(
+                              next,
+                              duration: const Duration(milliseconds: 450),
+                              curve: Curves.easeOutCubic,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 8),
-        // Rakam sayacı (1/5 şeklinde saydam)
-        _PageCounter(current: _current + 1, total: total),
-      ],
+          const SizedBox(height: 12),
+          // Nokta göstergeleri
+          if (total > 1)
+            _PageDotsIndicator(
+              current: _current,
+              total: total,
+              onDotTapped: (index) {
+                _resetTimer();
+                _pc.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 450),
+                  curve: Curves.easeOutCubic,
+                );
+              },
+            ),
+        ],
+      ),
     );
   }
 }
@@ -689,35 +723,7 @@ class _HeadlineSlide extends StatelessWidget {
   }
 }
 
-// ─── Saydam Rakam Sayacı ──────────────────────────────────────────────────
-class _PageCounter extends StatelessWidget {
-  final int current;
-  final int total;
 
-  const _PageCounter({required this.current, required this.total});
-
-  @override
-  Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      decoration: BoxDecoration(
-        color: isDark ? Colors.white.withOpacity(0.08) : Colors.black.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: Text(
-        '$current / $total',
-        style: GoogleFonts.robotoMono(
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-          color: isDark ? Colors.white70 : Colors.black87,
-          letterSpacing: 1.0,
-        ),
-      ),
-    );
-  }
-}
 
 // ─── Boş durum (headline yoksa) ───────────────────────────────────────────
 class _EmptySlot extends StatelessWidget {
@@ -1130,6 +1136,113 @@ class _InitialAvatar extends StatelessWidget {
           color: fg,
         ),
       ),
+    );
+  }
+}
+
+// ─── Desktop Drag-to-Scroll Desteği ──────────────────────────────────────
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+      };
+}
+
+// ─── Carousel Sol/Sağ Ok Butonu ──────────────────────────────────────────
+class _CarouselArrowButton extends StatefulWidget {
+  final IconData icon;
+  final VoidCallback onTap;
+
+  const _CarouselArrowButton({required this.icon, required this.onTap});
+
+  @override
+  State<_CarouselArrowButton> createState() => _CarouselArrowButtonState();
+}
+
+class _CarouselArrowButtonState extends State<_CarouselArrowButton> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: 44,
+          height: 44,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: _isHovered
+                ? Colors.black.withOpacity(0.85)
+                : Colors.black.withOpacity(0.5),
+            border: Border.all(
+              color: Colors.white.withOpacity(_isHovered ? 0.8 : 0.4),
+              width: 1.2,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Icon(
+            widget.icon,
+            color: Colors.white,
+            size: 26,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ─── Carousel Nokta Göstergeleri ──────────────────────────────────────────
+class _PageDotsIndicator extends StatelessWidget {
+  final int current;
+  final int total;
+  final ValueChanged<int> onDotTapped;
+
+  const _PageDotsIndicator({
+    required this.current,
+    required this.total,
+    required this.onDotTapped,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(total, (index) {
+        final isActive = index == current;
+        return MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () => onDotTapped(index),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              width: isActive ? 20.0 : 8.0,
+              height: 8.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+                color: isActive
+                    ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
+                    : (isDark ? Colors.white24 : Colors.black12),
+              ),
+            ),
+          ),
+        );
+      }),
     );
   }
 }
