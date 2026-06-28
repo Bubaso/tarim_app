@@ -24,7 +24,7 @@ class AiSuggestion {
       suggestionReason: json['suggestion_reason']?.toString() ?? '',
       sourceArticleTitle: json['source_article_title']?.toString() ?? '',
       sourceUrl: json['source_url']?.toString() ?? '',
-      status: json['status']?.toString() ?? 'pending',
+      status: json['status']?.toString() ?? 'reviewing',
       createdAt: json['created_at'] != null
           ? DateTime.tryParse(json['created_at'].toString())
           : null,

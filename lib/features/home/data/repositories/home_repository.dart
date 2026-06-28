@@ -45,7 +45,7 @@ class HomeRepository {
       final stream = _supabaseClient
           .from('articles')
           .stream(primaryKey: ['id'])
-          .eq('status', 'pending')
+          .eq('status', 'reviewing')
           .order('created_at', ascending: false);
 
       await for (final maps in stream) {
@@ -91,42 +91,6 @@ class HomeRepository {
     }
   }
 
-  /// Triggers the Python AI agents by creating a new job
-  Future<String?> startAgentJob() async {
-    try {
-      final response = await _supabaseClient
-          .from('agent_jobs')
-          .insert({'status': 'pending'})
-          .select('id')
-          .single();
-      return response['id'] as String?;
-    } catch (e) {
-      if (kDebugMode) {
-        print('startAgentJob error: $e');
-      }
-      return null;
-    }
-  }
-
-  /// Watches the real-time logs for a specific agent job
-  Stream<List<String>> watchAgentLogs(String jobId) async* {
-    try {
-      final stream = _supabaseClient
-          .from('agent_logs')
-          .stream(primaryKey: ['id'])
-          .eq('job_id', jobId)
-          .order('created_at', ascending: true);
-
-      await for (final maps in stream) {
-        yield maps.map((map) => map['log_text'].toString()).toList();
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print('watchAgentLogs error: $e');
-      }
-      yield [];
-    }
-  }
 
   /// Searches articles by query using ilike on title, content
   Future<List<NewsArticle>> searchArticles(String query) async {
@@ -656,7 +620,7 @@ class HomeRepository {
         {
           'title': 'İklim Değişikliğinin Ege Bölgesindeki Zeytin Hasadına Etkisi',
           'description': 'Lütfen son 5 yılın kuraklık verilerini baz alarak üreticilerle yaptığınız röportajları derleyin. Cuma gününe kadar taslağı gönderin.',
-          'status': 'pending',
+          'status': 'reviewing',
           'created_at': DateTime.now().toIso8601String(),
         },
         {
@@ -690,7 +654,7 @@ class HomeRepository {
       sourceArticleTitle: 'Global Wheat Supply Drops Amidst European Droughts',
       suggestedTitle: 'Avrupa Kuraklığı Küresel Buğday Arzını Vurdu: Türkiye Ne Yapmalı?',
       suggestionReason: 'Buğday fiyatlarındaki küresel artış, Türkiye\'deki un ihracatçılarının maliyetlerini doğrudan etkileme potansiyeline sahip. Acil bir uyarı yazısı trafik çekebilir.',
-      status: 'pending',
+      status: 'reviewing',
       createdAt: DateTime.now(),
     ),
     AiSuggestion(
@@ -699,7 +663,7 @@ class HomeRepository {
       sourceArticleTitle: 'Fertilizer Costs Subside in Q3 Reporting',
       suggestedTitle: 'Gübre Fiyatlarında Düşüş Eğilimi: Çiftçi Bahar Ekimi İçin Beklemeli mi?',
       suggestionReason: 'Üre gübresindeki düşüş, gübre alımı yapacak çiftçiler için stratejik bir karar anı yarattı. Analiz yazısı yüksek etkileşim alır.',
-      status: 'pending',
+      status: 'reviewing',
       createdAt: DateTime.now().subtract(const Duration(hours: 2)),
     )
   ];
@@ -710,14 +674,14 @@ class HomeRepository {
       final response = await _supabaseClient
           .from('ai_suggestions')
           .select('*')
-          .eq('status', 'pending')
+          .eq('status', 'reviewing')
           .order('created_at', ascending: false);
       
       final list = response as List<dynamic>;
       return list.map((map) => AiSuggestion.fromJson(map as Map<String, dynamic>)).toList();
     } catch (e) {
       // Fallback AI Suggestions if table doesn't exist
-      return _fallbackSuggestions.where((s) => s.status == 'pending').toList();
+      return _fallbackSuggestions.where((s) => s.status == 'reviewing').toList();
     }
   }
 
