@@ -4,6 +4,7 @@ import 'package:uuid/uuid.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/network/supabase_client.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
+import '../../../../core/utils/localization_helper.dart';
 import '../../../../main.dart';
 import '../../../home/data/models/news_article.dart';
 import '../../../home/data/models/ai_suggestion.dart';
@@ -40,6 +41,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   String? _selectedCategoryId;
   bool _isSubmitting = false;
   bool _showMobileForm = false; // Toggle to show form on mobile instead of list
+  bool _showArchived = false; // Toggle to view unpublished/archived articles
+  final Set<int> _generatingSuggestionIds = {}; // Track generating suggestions
+
+  NewsArticle? _editingArticle;
 
   // Default fallback categories if DB has none (matching DB UUIDs)
   final List<Map<String, String>> _fallbackCategories = [
@@ -190,8 +195,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     return 'POINT(32.8597 39.9334)';
   }
 
-  Future<void> _submitArticle() async {
-    if (!_formKey.currentState!.validate()) return;
+  String _getCityFromGeoLocation(String? geo) {
+    if (geo == null || geo.isEmpty) return '';
+    final match = RegExp(r'POINT\(([^ ]+) ([^ ]+)\)').firstMatch(geo);
+    if (match != null) {
+      final lon = double.tryParse(match.group(1)!);
+      final lat = double.tryParse(match.group(2)!);
+      if (lon != null && lat != null) {
+        for (final entry in _turkeyCitiesGeo.entries) {
+          if ((entry.value[0] - lon).abs() < 0.01 && (entry.value[1] - lat).abs() < 0.01) {
+            return entry.key[0].toUpperCase() + entry.key.substring(1);
+          }
+        }
+      }
+    }
+    return '';
+  }
+
+  Future<void> _submitArticle({bool isPublishing = false, bool isUnpublishing = false}) async {
+    if (!isUnpublishing && !_formKey.currentState!.validate()) return;
 
     setState(() {
       _isSubmitting = true;
@@ -205,65 +227,83 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     // Map city to WKT geo_location POINT(longitude latitude)
     final geoLocation = _getGeoLocationFromCity(location);
 
-    // Construct the article for Supabase insertion
+    final isEditing = _editingArticle != null;
+
+    // Construct the article for Supabase insertion/update
     final article = NewsArticle(
-      id: const Uuid().v4(),
+      id: isEditing ? _editingArticle!.id : const Uuid().v4(),
       title: title,
+      titleEn: _editingArticle?.titleEn,
       content: content,
+      contentEn: _editingArticle?.contentEn,
       summary: summary,
-      imageUrl: null, // Always null for backend designer agent visual flow
-      createdAt: DateTime.now(),
-      status: 'reviewing', // Enforced reviewing status
+      summaryEn: _editingArticle?.summaryEn,
+      imageUrl: _editingArticle?.imageUrl,
+      seoKeywords: _editingArticle?.seoKeywords,
+      sourceName: _editingArticle?.sourceName,
+      sourceUrl: _editingArticle?.sourceUrl,
+      viewCount: _editingArticle?.viewCount ?? 0,
+      createdAt: isEditing ? _editingArticle!.createdAt : DateTime.now(),
+      status: isUnpublishing ? 'draft' : (isPublishing ? 'published' : (isEditing ? (_editingArticle!.status ?? 'reviewing') : 'reviewing')),
       categoryId: _selectedCategoryId,
       geoLocation: geoLocation,
     );
 
     // Call submit through repository
     final repository = ref.read(homeRepositoryProvider);
-    final success = await repository.submitArticleByAuthor(article);
+    final errorMessage = isEditing 
+        ? await repository.updateArticle(article)
+        : (await repository.submitArticleByAuthor(article) ? null : 'Failed to insert');
 
     setState(() {
       _isSubmitting = false;
     });
 
     if (mounted) {
-      if (success) {
+      if (errorMessage == null) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Yazınız başarıyla incelemeye gönderildi, kapak görseli hazırlanıyor!'),
+           SnackBar(
+            content: Text(isEditing ? 'Makale başarıyla güncellendi!' : loc.translate('form_success')),
             backgroundColor: Colors.green,
           ),
         );
-        // Clear form
-        _titleController.clear();
-        _summaryController.clear();
-        _contentController.clear();
-        _locationController.clear();
-        setState(() {
-          _selectedCategoryId = null;
-          _showMobileForm = false;
-        });
+        _cancelEdit();
         
         // Refresh articles list and invalidate stream provider to pull new values
         ref.invalidate(latestArticlesProvider);
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Makale gönderilirken veritabanı hatası oluştu.'),
+           SnackBar(
+            content: Text('Hata: $errorMessage'),
             backgroundColor: Colors.redAccent,
+            duration: const Duration(seconds: 5),
           ),
         );
       }
     }
   }
 
+  void _cancelEdit() {
+    _titleController.clear();
+    _summaryController.clear();
+    _contentController.clear();
+    _locationController.clear();
+    setState(() {
+      _selectedCategoryId = null;
+      _showMobileForm = false;
+      _editingArticle = null;
+    });
+  }
+
   Future<void> _signOut() async {
     try {
       await ref.read(supabaseClientProvider).auth.signOut();
       if (mounted) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Başarıyla çıkış yapıldı.'),
+           SnackBar(
+            content: Text(loc.translate('dash_logout_success')),
             backgroundColor: Colors.green,
           ),
         );
@@ -274,9 +314,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       }
     } catch (e) {
       if (mounted) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Çıkış hatası: $e'),
+            content: Text('${loc.translate('error')} $e'),
             backgroundColor: Colors.redAccent,
           ),
         );
@@ -289,38 +330,40 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     final theme = Theme.of(context);
     final user = ref.watch(currentUserProvider);
     final isDesktop = ResponsiveBreakpoints.isDesktopOrLarger(context);
+    final loc = AppLocalizations.of(context);
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Yazar Yönetim Paneli'),
+        title: Text(loc.translate('dash_title')),
         bottom: TabBar(
           controller: _tabController,
           labelColor: theme.colorScheme.primary,
           unselectedLabelColor: theme.hintColor,
           indicatorColor: theme.colorScheme.primary,
-          tabs: const [
+          tabs: [
             Tab(
-              icon: Icon(Icons.newspaper_rounded),
-              text: 'Haberler',
+              icon: const Icon(Icons.newspaper_rounded),
+              text: loc.translate('dash_tab_my_articles'),
             ),
             Tab(
-              icon: Icon(Icons.category_rounded),
-              text: 'Kategoriler',
+              icon: const Icon(Icons.category_rounded),
+              text: isEn ? 'Categories' : 'Kategoriler',
             ),
             Tab(
-              icon: Icon(Icons.psychology_rounded),
-              text: 'Yayın Kurulu Önerileri',
+              icon: const Icon(Icons.psychology_rounded),
+              text: loc.translate('dash_tab_ai_suggestions'),
             ),
             Tab(
-              icon: Icon(Icons.bar_chart_rounded),
-              text: 'İstatistikler',
+              icon: const Icon(Icons.bar_chart_rounded),
+              text: loc.translate('dash_tab_stats'),
             ),
           ],
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout_rounded),
-            tooltip: 'Çıkış Yap',
+            tooltip: loc.translate('dash_logout'),
             onPressed: _signOut,
           ),
         ],
@@ -340,6 +383,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   // Tab 1: Articles and Submission Form
   Widget _buildArticlesAndFormTab(BuildContext context, ThemeData theme, dynamic user, bool isDesktop) {
     final articlesAsync = ref.watch(latestArticlesProvider);
+    final loc = AppLocalizations.of(context);
 
     if (isDesktop) {
       // Side-by-side split layout on desktop
@@ -381,7 +425,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                         },
                       ),
                       Text(
-                        'Listeye Dön',
+                        loc.translate('dash_tab_my_articles'), // Listeye Dön doesn't exist, I'll use my_articles or we can just use "Back to List" if I add it. Actually, I can just use isEn.
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -406,7 +450,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       });
                     },
                     icon: const Icon(Icons.add_circle_outline_rounded),
-                    label: const Text('Yeni Yazı Gönder'),
+                    label: Text(loc.translate('dash_tab_write')),
                     backgroundColor: theme.colorScheme.primary,
                     foregroundColor: Colors.white,
                   ),
@@ -419,6 +463,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   // Tab 2: Assignments and Proposed Topics
   Widget _buildAssignmentsTab(BuildContext context, ThemeData theme) {
     final assignmentsAsync = ref.watch(assignmentsFutureProvider);
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
 
     return RefreshIndicator(
       onRefresh: () async => ref.refresh(assignmentsFutureProvider),
@@ -426,7 +472,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         padding: const EdgeInsets.all(24),
         children: [
           Text(
-            'Bana Atanan Görevler',
+            loc.locale.languageCode == 'en' ? 'My Assignments' : 'Bana Atanan Görevler',
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.primary,
@@ -451,7 +497,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                         ),
                         const SizedBox(height: 12),
                         Text(
-                          'Atanmış aktif bir göreviniz bulunmuyor.',
+                          isEn ? 'You have no active assignments.' : 'Atanmış aktif bir göreviniz bulunmuyor.',
                           style: theme.textTheme.bodyMedium?.copyWith(
                             color: theme.hintColor,
                           ),
@@ -469,23 +515,57 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                 itemBuilder: (context, index) {
                   final item = assignments[index];
                   final status = item['status']?.toString() ?? 'pending';
-                  return Card(
-                    margin: const EdgeInsets.only(bottom: 12),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: (status == 'completed' ? Colors.green : Colors.orange).withValues(alpha: 0.15),
-                        child: Icon(
-                          status == 'completed' ? Icons.check_circle_rounded : Icons.pending_rounded,
-                          color: status == 'completed' ? Colors.green : Colors.orange,
+                  return Container(
+                    margin: const EdgeInsets.only(bottom: 16),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.surface,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.03),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
                         ),
-                      ),
-                      title: Text(item['title']?.toString() ?? 'Konu'),
-                      subtitle: Text(item['description']?.toString() ?? ''),
-                      trailing: Text(
-                        status.toUpperCase(),
-                        style: theme.textTheme.labelSmall?.copyWith(
-                          color: status == 'completed' ? Colors.green : Colors.orange,
-                          fontWeight: FontWeight.bold,
+                      ],
+                      border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5)),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          radius: 24,
+                          backgroundColor: (status == 'completed' ? Colors.green : Colors.orange).withValues(alpha: 0.15),
+                          child: Icon(
+                            status == 'completed' ? Icons.check_circle_rounded : Icons.pending_rounded,
+                            color: status == 'completed' ? Colors.green : Colors.orange,
+                            size: 24,
+                          ),
+                        ),
+                        title: Text(
+                          item['title']?.toString() ?? 'Konu',
+                          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Text(
+                            item['description']?.toString() ?? '',
+                            style: theme.textTheme.bodyMedium?.copyWith(height: 1.4),
+                          ),
+                        ),
+                        trailing: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          decoration: BoxDecoration(
+                            color: status == 'completed' ? Colors.green.withValues(alpha: 0.1) : Colors.orange.withValues(alpha: 0.1),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(
+                            status.toUpperCase(),
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              color: status == 'completed' ? Colors.green.shade700 : Colors.orange.shade700,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -503,13 +583,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               color: Colors.redAccent.withValues(alpha: 0.1),
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: Text('Görevler yüklenirken hata oluştu: $err', style: const TextStyle(color: Colors.red)),
+                child: Text('${loc.translate('error')} $err', style: const TextStyle(color: Colors.red)),
               ),
             ),
           ),
           const SizedBox(height: 32),
           Text(
-            'Teklif Edilen Konular',
+            isEn ? 'Proposed Topics' : 'Teklif Edilen Konular',
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.primary,
@@ -522,10 +602,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
             itemCount: _proposedTopics.length,
             itemBuilder: (context, index) {
               final topic = _proposedTopics[index];
-              return Card(
-                margin: const EdgeInsets.only(bottom: 12),
+              return Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surface,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: theme.colorScheme.primary.withValues(alpha: 0.15),
+                    width: 1.5,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: theme.colorScheme.primary.withValues(alpha: 0.04),
+                      blurRadius: 12,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -533,33 +628,55 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
                               color: theme.colorScheme.secondary.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Text(
-                              topic['category'] ?? '',
-                              style: theme.textTheme.labelSmall?.copyWith(
-                                color: theme.colorScheme.secondary,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.category_rounded, size: 14, color: theme.colorScheme.secondary),
+                                const SizedBox(width: 6),
+                                Text(
+                                  topic['category'] ?? '',
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    color: theme.colorScheme.secondary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            'Yazıya Açık',
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: theme.colorScheme.primary,
-                              fontWeight: FontWeight.bold,
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.primary.withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.check_circle_outline_rounded, size: 14, color: theme.colorScheme.primary),
+                                const SizedBox(width: 6),
+                                Text(
+                                  isEn ? 'Open for Writing' : 'Yazıya Açık',
+                                  style: theme.textTheme.labelSmall?.copyWith(
+                                    color: theme.colorScheme.primary,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 16),
                       Text(
                         topic['title'] ?? '',
                         style: theme.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -567,9 +684,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                         topic['description'] ?? '',
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.hintColor,
+                          height: 1.5,
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 20),
                       Align(
                         alignment: Alignment.centerRight,
                         child: OutlinedButton.icon(
@@ -620,18 +738,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   // Sub-widget: Submission Form
   Widget _buildSubmissionForm(BuildContext context, ThemeData theme) {
     final categoriesAsyncValue = ref.watch(categoriesFutureProvider);
+    final loc = AppLocalizations.of(context);
 
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(
-          color: theme.colorScheme.primary.withValues(alpha: 0.15),
-          width: 1,
+    return Container(
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+        ],
+        border: Border.all(
+          color: theme.colorScheme.primary.withValues(alpha: 0.1),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(32.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -646,7 +771,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                   ),
                   const SizedBox(width: 12),
                   Text(
-                    'Yeni Makale İncelemesi Gönder',
+                    loc.translate('write_article_title'),
                     style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: theme.colorScheme.primary,
@@ -656,7 +781,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               ),
               const SizedBox(height: 4),
               Text(
-                'Gönderilen yazılar onay sonrası haber portalında yayınlanır.',
+                loc.translate('write_article_desc'),
                 style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
               ),
               const Divider(height: 24),
@@ -664,12 +789,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               // Turkish Title
               TextFormField(
                 controller: _titleController,
-                decoration: const InputDecoration(
-                  labelText: 'Makale Başlığı *',
-                  hintText: 'Haberin Türkçe başlığını yazınız',
-                  prefixIcon: Icon(Icons.title_rounded),
+                decoration: InputDecoration(
+                  labelText: loc.translate('form_title'),
+                  hintText: loc.translate('form_title_hint'),
+                  prefixIcon: const Icon(Icons.title_rounded),
                 ),
-                validator: (val) => val == null || val.trim().isEmpty ? 'Başlık alanı boş bırakılamaz' : null,
+                validator: (val) => val == null || val.trim().isEmpty ? loc.translate('form_err_title') : null,
               ),
               const SizedBox(height: 16),
 
@@ -677,27 +802,36 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               TextFormField(
                 controller: _summaryController,
                 maxLines: 3,
-                decoration: const InputDecoration(
-                  labelText: 'Özet (Summary) *',
-                  hintText: 'Yazının kısa bir özetini giriniz (görsel üretimi için kullanılacaktır)',
-                  prefixIcon: Icon(Icons.summarize_rounded),
+                decoration: InputDecoration(
+                  labelText: loc.translate('form_summary'),
+                  hintText: loc.translate('form_summary_hint'),
+                  prefixIcon: const Icon(Icons.summarize_rounded),
                   alignLabelWithHint: true,
                 ),
-                validator: (val) => val == null || val.trim().isEmpty ? 'Özet alanı boş bırakılamaz' : null,
+                validator: (val) => val == null || val.trim().isEmpty ? loc.translate('form_err_summary') : null,
               ),
               const SizedBox(height: 16),
 
               // Turkish Content
               TextFormField(
                 controller: _contentController,
-                maxLines: 8,
-                decoration: const InputDecoration(
-                  labelText: 'Makale Gövde Metni *',
-                  hintText: 'Detaylı içeriği buraya girin (En az 50 karakter tavsiye edilir)',
-                  prefixIcon: Icon(Icons.notes_rounded),
+                maxLines: 12,
+                decoration: InputDecoration(
+                  labelText: loc.translate('form_body'),
+                  hintText: loc.translate('form_body_hint'),
                   alignLabelWithHint: true,
+                  filled: true,
+                  fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: BorderSide(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5)),
+                  ),
                 ),
-                validator: (val) => val == null || val.trim().isEmpty ? 'Gövde metni boş bırakılamaz' : null,
+                validator: (val) => val == null || val.trim().isEmpty ? loc.translate('form_err_body') : null,
               ),
               const SizedBox(height: 16),
 
@@ -710,10 +844,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                   
                   return DropdownButtonFormField<String>(
                     // ignore: deprecated_member_use
-                    value: _selectedCategoryId,
-                    decoration: const InputDecoration(
-                      labelText: 'Kategori *',
-                      prefixIcon: Icon(Icons.category_rounded),
+                    value: list.any((c) => c['id'] == _selectedCategoryId) ? _selectedCategoryId : null,
+                    decoration: InputDecoration(
+                      labelText: '${loc.translate('form_category')} *',
+                      prefixIcon: const Icon(Icons.category_rounded),
                     ),
                     items: list.map((cat) {
                       return DropdownMenuItem<String>(
@@ -726,16 +860,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                         _selectedCategoryId = val;
                       });
                     },
-                    validator: (val) => val == null || val.isEmpty ? 'Lütfen bir kategori seçiniz' : null,
+                    validator: (val) => val == null || val.isEmpty ? loc.translate('form_err_category') : null,
                   );
                 },
                 loading: () => const LinearProgressIndicator(),
                 error: (err, stack) => DropdownButtonFormField<String>(
                   // ignore: deprecated_member_use
-                  value: _selectedCategoryId,
-                  decoration: const InputDecoration(
-                    labelText: 'Kategori (Yerel Mod) *',
-                    prefixIcon: Icon(Icons.category_rounded),
+                  value: _fallbackCategories.any((c) => c['id'] == _selectedCategoryId) ? _selectedCategoryId : null,
+                  decoration: InputDecoration(
+                    labelText: '${loc.translate('form_category')} (Yerel) *',
+                    prefixIcon: const Icon(Icons.category_rounded),
                   ),
                   items: _fallbackCategories.map((cat) {
                     return DropdownMenuItem<String>(
@@ -748,7 +882,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       _selectedCategoryId = val;
                     });
                   },
-                  validator: (val) => val == null || val.isEmpty ? 'Lütfen bir kategori seçiniz' : null,
+                  validator: (val) => val == null || val.isEmpty ? loc.translate('form_err_category') : null,
                 ),
               ),
               const SizedBox(height: 16),
@@ -756,30 +890,87 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               // Location / City Name (e.g. Konya, Mersin)
               TextFormField(
                 controller: _locationController,
-                decoration: const InputDecoration(
-                  labelText: 'Lokasyon / Şehir *',
-                  hintText: 'Örn: Konya, Mersin',
-                  prefixIcon: Icon(Icons.location_on_rounded),
+                decoration: InputDecoration(
+                  labelText: loc.translate('form_location'),
+                  hintText: loc.translate('form_location_hint'),
+                  prefixIcon: const Icon(Icons.location_on_rounded),
                 ),
-                validator: (val) => val == null || val.trim().isEmpty ? 'Lokasyon/Şehir boş bırakılamaz' : null,
+                validator: (val) => val == null || val.trim().isEmpty ? loc.translate('form_err_location') : null,
               ),
               const SizedBox(height: 24),
 
-              // Submit Button
-              ElevatedButton.icon(
-                onPressed: _isSubmitting ? null : _submitArticle,
-                icon: _isSubmitting 
-                    ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
-                    : const Icon(Icons.send_rounded),
-                label: Text(_isSubmitting ? 'Gönderiliyor...' : 'İncelemeye Gönder'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: theme.colorScheme.primary,
-                  foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+              // Submit and Cancel Buttons
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: _isSubmitting ? null : () => _submitArticle(isPublishing: false),
+                      icon: _isSubmitting 
+                          ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                          : Icon(_editingArticle != null ? Icons.save_rounded : Icons.send_rounded),
+                      label: Text(_isSubmitting 
+                          ? loc.translate('form_submitting') 
+                          : (_editingArticle != null ? 'Güncelle' : loc.translate('form_submit'))),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: theme.colorScheme.primary,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  if (_editingArticle != null) ...[
+                    const SizedBox(width: 12),
+                    if (_editingArticle!.status == 'published')
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: _isSubmitting ? null : () => _submitArticle(isUnpublishing: true),
+                          icon: const Icon(Icons.archive_rounded),
+                          label: const Text('Yayından Çek'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red.shade600,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      )
+                    else
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: _isSubmitting ? null : () => _submitArticle(isPublishing: true),
+                          icon: const Icon(Icons.public_rounded),
+                          label: const Text('Yayınla'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green.shade600,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        onPressed: _isSubmitting ? null : _cancelEdit,
+                        icon: const Icon(Icons.cancel_rounded),
+                        label: const Text('İptal'),
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ],
               ),
             ],
           ),
@@ -790,6 +981,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
 
   // Sub-widget: Left list showing all previous submissions
   Widget _buildMyArticlesList(BuildContext context, ThemeData theme, AsyncValue<List<NewsArticle>> articlesAsync) {
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
     return RefreshIndicator(
       onRefresh: () async => ref.invalidate(latestArticlesProvider),
       child: Column(
@@ -797,20 +990,40 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         children: [
           Padding(
             padding: const EdgeInsets.all(24.0),
-            child: Column(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Gönderilen Makalelerim',
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: theme.colorScheme.primary,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        loc.translate('dash_tab_my_articles'),
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        _showArchived ? 'Yayından çekilmiş yazılar' : loc.translate('my_articles_desc'),
+                        style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  'Sistem genelindeki makaleleriniz ve güncel inceleme durumları listelenir.',
-                  style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
+                TextButton.icon(
+                  onPressed: () {
+                    setState(() {
+                      _showArchived = !_showArchived;
+                    });
+                  },
+                  icon: Icon(_showArchived ? Icons.article_rounded : Icons.archive_rounded, size: 20),
+                  label: Text(_showArchived ? 'Aktif Yazılar' : 'Arşiv', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  style: TextButton.styleFrom(
+                    foregroundColor: _showArchived ? theme.colorScheme.primary : Colors.red.shade600,
+                  ),
                 ),
               ],
             ),
@@ -818,12 +1031,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
           Expanded(
             child: articlesAsync.when(
               data: (articles) {
-                if (articles.isEmpty) {
+                final filteredArticles = articles.where((a) => _showArchived ? a.status == 'draft' : a.status != 'draft').toList();
+
+                if (filteredArticles.isEmpty) {
                   return Center(
                     child: Padding(
                       padding: const EdgeInsets.all(32.0),
                       child: Text(
-                        'Henüz hiç makale göndermediniz.',
+                        loc.translate('my_articles_empty'),
                         style: theme.textTheme.bodyMedium?.copyWith(color: theme.hintColor),
                         textAlign: TextAlign.center,
                       ),
@@ -832,50 +1047,97 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                 }
                 return ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: articles.length,
+                  itemCount: filteredArticles.length,
                   itemBuilder: (context, index) {
-                    final article = articles[index];
+                    final article = filteredArticles[index];
                     final isReviewing = article.status == 'reviewing';
                     
-                    return Card(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Container(
-                            width: 48,
-                            height: 48,
-                            color: theme.colorScheme.secondary.withValues(alpha: 0.1),
-                            child: NewsArticleImage(
-                              imageUrl: article.imageUrl,
-                              width: 48,
-                              height: 48,
-                              fit: BoxFit.cover,
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.surface,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.6)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.02),
+                            blurRadius: 8,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: ListTile(
+                          onTap: () {
+                            setState(() {
+                              _editingArticle = article;
+                              _titleController.text = article.title;
+                              _summaryController.text = article.summary ?? '';
+                              _contentController.text = article.content ?? '';
+                              _locationController.text = _getCityFromGeoLocation(article.geoLocation);
+                              _selectedCategoryId = article.categoryId;
+                              _showMobileForm = true; // Show form automatically on mobile
+                            });
+                          },
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Container(
+                              width: 56,
+                              height: 56,
+                              color: theme.colorScheme.secondary.withValues(alpha: 0.1),
+                              child: NewsArticleImage(
+                                imageUrl: article.imageUrl,
+                                width: 56,
+                                height: 56,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        title: Text(
-                          article.title,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(
-                          article.createdAt.toLocal().toString().substring(0, 16),
-                          style: theme.textTheme.bodySmall,
-                        ),
-                        trailing: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                          decoration: BoxDecoration(
-                            color: (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.15),
-                            borderRadius: BorderRadius.circular(12),
+                          title: Text(
+                            article.title,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                           ),
-                          child: Text(
-                            isReviewing ? 'İncelemede' : 'Yayında',
-                            style: TextStyle(
-                              color: isReviewing ? Colors.orange.shade800 : Colors.green.shade800,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
+                          subtitle: Padding(
+                            padding: const EdgeInsets.only(top: 6.0),
+                            child: Row(
+                              children: [
+                                Icon(Icons.schedule_rounded, size: 14, color: theme.hintColor),
+                                const SizedBox(width: 4),
+                                Text(
+                                  article.createdAt.toLocal().toString().substring(0, 16),
+                                  style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
+                                ),
+                              ],
+                            ),
+                          ),
+                          trailing: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: article.status == 'archived' 
+                                  ? Colors.red.withValues(alpha: 0.1) 
+                                  : (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.1),
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: article.status == 'archived'
+                                    ? Colors.red.withValues(alpha: 0.3)
+                                    : (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.3),
+                              ),
+                            ),
+                            child: Text(
+                              article.status == 'archived' 
+                                  ? 'YAYINDAN ÇEKİLDİ' 
+                                  : (isReviewing ? loc.translate('status_reviewing') : loc.translate('status_published')),
+                              style: TextStyle(
+                                color: article.status == 'archived'
+                                    ? Colors.red.shade800
+                                    : (isReviewing ? Colors.orange.shade800 : Colors.green.shade800),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                                letterSpacing: 0.5,
+                              ),
                             ),
                           ),
                         ),
@@ -888,7 +1150,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               error: (err, stack) => Center(
                 child: Padding(
                   padding: const EdgeInsets.all(24),
-                  child: Text('Haber listesi yüklenemedi: $err', style: const TextStyle(color: Colors.red)),
+                  child: Text('${loc.translate('error')} $err', style: const TextStyle(color: Colors.red)),
                 ),
               ),
             ),
@@ -902,6 +1164,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   Widget _buildAiSuggestionsTab(BuildContext context, ThemeData theme) {
     final suggestionsAsync = ref.watch(pendingSuggestionsProvider);
     final isDesktop = ResponsiveBreakpoints.isDesktopOrLarger(context);
+    final loc = AppLocalizations.of(context);
 
     return RefreshIndicator(
       onRefresh: () async => ref.refresh(pendingSuggestionsProvider),
@@ -930,14 +1193,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       ),
                       const SizedBox(height: 24),
                       Text(
-                        'Bekleyen Öneri Bulunmuyor',
+                        loc.translate('sug_empty'),
                         style: theme.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(height: 12),
                       Text(
-                        'Analiz sistemi küresel tarım trendlerini ve krizleri analiz edip yeni makale önerileri ürettiğinde burada listelenecektir.',
+                        loc.translate('sug_empty_desc'),
                         style: theme.textTheme.bodyMedium?.copyWith(
                           color: theme.hintColor,
                         ),
@@ -976,7 +1239,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                     const Icon(Icons.error_outline_rounded, color: Colors.red, size: 48),
                     const SizedBox(height: 12),
                     Text(
-                      'Öneriler yüklenirken bir hata oluştu',
+                      loc.translate('sug_err'),
                       style: theme.textTheme.titleMedium?.copyWith(color: Colors.red, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 8),
@@ -992,6 +1255,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   }
 
   Widget _buildDesktopTable(BuildContext context, ThemeData theme, List<AiSuggestion> suggestions) {
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
     return SingleChildScrollView(
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.all(24),
@@ -1003,7 +1268,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               Icon(Icons.psychology_rounded, color: theme.colorScheme.primary, size: 28),
               const SizedBox(width: 12),
               Text(
-                'Yayın Kurulu Önerileri',
+                loc.translate('dash_tab_suggestions'),
                 style: theme.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: theme.colorScheme.primary,
@@ -1013,13 +1278,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               ElevatedButton.icon(
                 onPressed: () => ref.refresh(pendingSuggestionsProvider),
                 icon: const Icon(Icons.refresh_rounded, size: 18),
-                label: const Text('Yenile'),
+                label: Text(loc.translate('sug_refresh')),
               ),
             ],
           ),
           const SizedBox(height: 8),
           Text(
-            'Yayın Kurulu tarafından makro tarım trendleri doğrultusunda geliştirilen derin makale önerileri.',
+            loc.translate('sug_desc'),
             style: theme.textTheme.bodyMedium?.copyWith(color: theme.hintColor),
           ),
           const SizedBox(height: 20),
@@ -1041,42 +1306,42 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: Row(
                     children: [
-                      const Expanded(
+                      Expanded(
                         flex: 3,
                         child: Text(
-                          'Önerilen Başlık',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          loc.translate('sug_col_title'),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const Expanded(
+                      Expanded(
                         flex: 4,
                         child: Text(
-                          'Gerekçe',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          loc.translate('sug_col_reason'),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const Expanded(
+                      Expanded(
                         flex: 3,
                         child: Text(
-                          'Kaynak Haber',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          loc.translate('sug_col_source'),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         width: 70,
                         child: Center(
                           child: Text(
-                            'Kaynak',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            isEn ? 'Link' : 'Kaynak',
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         width: 320,
                         child: Center(
                           child: Text(
-                            'Karar / Aksiyonlar',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            loc.translate('sug_col_actions'),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -1131,7 +1396,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                               child: IconButton(
                                 icon: const Icon(Icons.open_in_new_rounded),
                                 color: theme.colorScheme.primary,
-                                tooltip: 'Kaynağı Tarayıcıda Aç',
+                                tooltip: isEn ? 'Open Source in Browser' : 'Kaynağı Tarayıcıda Aç',
                                 onPressed: () => _launchUrl(suggestion.sourceUrl),
                               ),
                             ),
@@ -1142,12 +1407,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 ElevatedButton.icon(
-                                  onPressed: () => _updateStatus(suggestion.id, 'approved'),
-                                  icon: const Icon(Icons.check_rounded, size: 16),
-                                  label: const Text('Onayla & Üret'),
+                                  onPressed: _generatingSuggestionIds.contains(suggestion.id) 
+                                    ? null 
+                                    : () => _updateStatus(suggestion, 'approved'),
+                                  icon: _generatingSuggestionIds.contains(suggestion.id)
+                                    ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                                    : const Icon(Icons.auto_awesome, size: 16),
+                                  label: Text(
+                                    _generatingSuggestionIds.contains(suggestion.id)
+                                      ? (isEn ? 'Generating...' : 'Yazım Aşamasında...')
+                                      : (isEn ? 'Approve & Generate' : 'Onayla & Üret AI')
+                                  ),
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.green.shade600,
+                                    backgroundColor: Colors.indigo.shade600,
                                     foregroundColor: Colors.white,
+                                    disabledBackgroundColor: Colors.indigo.shade300,
+                                    disabledForegroundColor: Colors.white,
                                     elevation: 0,
                                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
                                     shape: RoundedRectangleBorder(
@@ -1156,9 +1431,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                                   ),
                                 ),
                                 OutlinedButton.icon(
-                                  onPressed: () => _updateStatus(suggestion.id, 'rejected'),
+                                  onPressed: () => _updateStatus(suggestion, 'rejected'),
                                   icon: const Icon(Icons.close_rounded, size: 16),
-                                  label: const Text('Reddet'),
+                                  label: Text(isEn ? 'Reject' : 'Reddet'),
                                   style: OutlinedButton.styleFrom(
                                     foregroundColor: Colors.grey.shade700,
                                     side: BorderSide(color: Colors.grey.shade400),
@@ -1185,6 +1460,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   }
 
   Widget _buildMobileList(BuildContext context, ThemeData theme, List<AiSuggestion> suggestions) {
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
     return ListView.builder(
       physics: const AlwaysScrollableScrollPhysics(),
       padding: const EdgeInsets.all(16),
@@ -1220,13 +1497,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       icon: const Icon(Icons.open_in_new_rounded),
                       color: theme.colorScheme.secondary,
                       onPressed: () => _launchUrl(suggestion.sourceUrl),
-                      tooltip: 'Orijinal Kaynak URL',
+                      tooltip: isEn ? 'Original Source URL' : 'Orijinal Kaynak URL',
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Öneri Gerekçesi:',
+                  isEn ? 'Suggestion Reason:' : 'Öneri Gerekçesi:',
                   style: theme.textTheme.bodySmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme.colorScheme.primary,
@@ -1250,7 +1527,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          'Kaynak: ${suggestion.sourceArticleTitle}',
+                          '${loc.translate('sug_col_source')}: ${suggestion.sourceArticleTitle}',
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.hintColor,
                           ),
@@ -1266,12 +1543,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                   children: [
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () => _updateStatus(suggestion.id, 'approved'),
-                        icon: const Icon(Icons.check_rounded, size: 16),
-                        label: const Text('Onayla & Başlat'),
+                        onPressed: _generatingSuggestionIds.contains(suggestion.id) 
+                          ? null 
+                          : () => _updateStatus(suggestion, 'approved'),
+                        icon: _generatingSuggestionIds.contains(suggestion.id)
+                          ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white))
+                          : const Icon(Icons.auto_awesome, size: 16),
+                        label: Text(
+                          _generatingSuggestionIds.contains(suggestion.id)
+                            ? (isEn ? 'Generating...' : 'Yazım Aşamasında...')
+                            : (isEn ? 'Approve & Start AI' : 'Onayla & Başlat AI')
+                        ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
+                          backgroundColor: Colors.indigo.shade600,
                           foregroundColor: Colors.white,
+                          disabledBackgroundColor: Colors.indigo.shade300,
+                          disabledForegroundColor: Colors.white,
                           elevation: 0,
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           shape: RoundedRectangleBorder(
@@ -1283,9 +1570,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                     const SizedBox(width: 12),
                     Expanded(
                       child: OutlinedButton.icon(
-                        onPressed: () => _updateStatus(suggestion.id, 'rejected'),
+                        onPressed: () => _updateStatus(suggestion, 'rejected'),
                         icon: const Icon(Icons.close_rounded, size: 16),
-                        label: const Text('Reddet'),
+                        label: Text(isEn ? 'Reject' : 'Reddet'),
                         style: OutlinedButton.styleFrom(
                           foregroundColor: Colors.grey.shade700,
                           side: BorderSide(color: Colors.grey.shade400),
@@ -1307,6 +1594,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   }
 
   Future<void> _launchUrl(String urlString) async {
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
     final uri = Uri.tryParse(urlString);
     if (uri != null) {
       try {
@@ -1319,7 +1608,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Bağlantı açılamadı: $urlString'),
+              content: Text(isEn ? 'Could not open link: $urlString' : 'Bağlantı açılamadı: $urlString'),
               backgroundColor: Colors.redAccent,
             ),
           );
@@ -1329,7 +1618,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Geçersiz bağlantı adresi: $urlString'),
+            content: Text(isEn ? 'Invalid link address: $urlString' : 'Geçersiz bağlantı adresi: $urlString'),
             backgroundColor: Colors.redAccent,
           ),
         );
@@ -1337,30 +1626,45 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     }
   }
 
-  Future<void> _updateStatus(int? id, String status) async {
-    if (id == null) return;
+  Future<void> _updateStatus(AiSuggestion suggestion, String status) async {
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
+    if (suggestion.id == null) return;
+
+    if (status == 'approved') {
+      setState(() => _generatingSuggestionIds.add(suggestion.id!));
+    }
 
     final repository = ref.read(homeRepositoryProvider);
-    final success = await repository.updateSuggestionStatus(id, status);
+    final success = await repository.updateSuggestionStatus(suggestion, status);
 
     if (mounted) {
+      if (status == 'approved') {
+        setState(() => _generatingSuggestionIds.remove(suggestion.id!));
+      }
+
       if (success) {
         ref.invalidate(pendingSuggestionsProvider);
+        if (status == 'approved') {
+          ref.invalidate(latestArticlesProvider);
+          // Jump back to the "Makale Editörü" tab so user can see the generated draft
+          _tabController.animateTo(0);
+        }
 
         final isApproved = status == 'approved';
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(isApproved
-                ? 'Tavsiye onaylandı, derin makale üretimi arka planda başlıyor!'
-                : 'Tavsiye reddedildi.'),
+                ? (isEn ? 'AI successfully wrote the analysis. Ready for approval in editor.' : 'Yapay zeka analiz yazısını tamamladı. Editör onayına hazır.')
+                : (isEn ? 'Suggestion rejected.' : 'Tavsiye reddedildi.')),
             backgroundColor: isApproved ? Colors.green : Colors.grey.shade800,
-            duration: const Duration(seconds: 3),
+            duration: const Duration(seconds: 4),
           ),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Durum güncellenirken bir hata oluştu.'),
+          SnackBar(
+            content: Text(isEn ? 'An error occurred while generating article.' : 'Yapay zeka analiz yazarken bir hata oluştu.'),
             backgroundColor: Colors.redAccent,
           ),
         );

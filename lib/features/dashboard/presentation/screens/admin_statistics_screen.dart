@@ -4,6 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../home/data/models/news_article.dart';
 import '../../../home/providers/home_providers.dart';
+import '../../../../core/utils/localization_helper.dart';
 
 class AdminStatisticsScreen extends ConsumerWidget {
   const AdminStatisticsScreen({super.key});
@@ -15,11 +16,12 @@ class AdminStatisticsScreen extends ConsumerWidget {
     
     // We will watch the latestArticlesProvider to aggregate views.
     final latestArticlesAsync = ref.watch(latestArticlesProvider);
+    final loc = AppLocalizations.of(context);
 
     return latestArticlesAsync.when(
       data: (articles) {
         if (articles.isEmpty) {
-          return const Center(child: Text('Henüz veri yok.'));
+          return Center(child: Text(loc.translate('stats_no_data')));
         }
 
         // Aggregate total views
@@ -35,7 +37,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Portal Performans Özeti',
+                loc.translate('stats_title'),
                 style: GoogleFonts.playfairDisplay(
                   fontSize: 24,
                   fontWeight: FontWeight.w900,
@@ -47,7 +49,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: _StatCard(
-                      title: 'Toplam Okunma',
+                      title: loc.translate('stats_total_views'),
                       value: totalViews.toString(),
                       icon: Icons.visibility_rounded,
                       color: Colors.blueAccent,
@@ -57,7 +59,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
                   const SizedBox(width: 16),
                   Expanded(
                     child: _StatCard(
-                      title: 'Toplam Haber',
+                      title: loc.translate('stats_total_articles'),
                       value: articles.length.toString(),
                       icon: Icons.article_rounded,
                       color: Colors.green,
@@ -68,7 +70,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 32),
               Text(
-                'En Çok Okunan Haber',
+                loc.translate('stats_most_read'),
                 style: GoogleFonts.inter(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -96,7 +98,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
                         const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 16),
                         const SizedBox(width: 4),
                         Text(
-                          '${topArticle.viewCount} Okuma',
+                          '${topArticle.viewCount} ${loc.translate('stats_reads')}',
                           style: GoogleFonts.robotoMono(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -106,7 +108,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 48),
               Text(
-                'Haber Okunma Dağılımı (İlk 5)',
+                loc.translate('stats_distribution'),
                 style: GoogleFonts.inter(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -115,7 +117,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
               const SizedBox(height: 24),
               SizedBox(
                 height: 300,
-                child: _buildBarChart(sorted.take(5).toList(), isDark, theme),
+                child: _buildBarChart(sorted.take(5).toList(), isDark, theme, loc),
               ),
               const SizedBox(height: 48),
             ],
@@ -123,16 +125,16 @@ class AdminStatisticsScreen extends ConsumerWidget {
         );
       },
       loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, st) => Center(child: Text('Hata: $e')),
+      error: (e, st) => Center(child: Text('${loc.translate('error')} $e')),
     );
   }
 
-  Widget _buildBarChart(List<NewsArticle> top5, bool isDark, ThemeData theme) {
+  Widget _buildBarChart(List<NewsArticle> top5, bool isDark, ThemeData theme, AppLocalizations loc) {
     if (top5.isEmpty) return const SizedBox.shrink();
 
     final maxViews = top5.first.viewCount.toDouble();
     if (maxViews == 0) {
-      return const Center(child: Text('Hiç okuma verisi yok.'));
+      return Center(child: Text(loc.translate('stats_no_data')));
     }
 
     final barGroups = top5.asMap().entries.map((e) {
@@ -161,7 +163,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
                 GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
                 children: [
                   TextSpan(
-                    text: '${rod.toY.toInt()} Okuma',
+                    text: '${rod.toY.toInt()} ${loc.translate('stats_reads')}',
                     style: GoogleFonts.robotoMono(color: Colors.orangeAccent, fontWeight: FontWeight.w600),
                   ),
                 ],

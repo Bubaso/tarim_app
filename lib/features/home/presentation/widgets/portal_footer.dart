@@ -11,6 +11,8 @@ class PortalFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    
     final bgColor = isDark ? const Color(0xFF161B22) : const Color(0xFFF0F0F0);
     final textColor = isDark ? const Color(0xFF8B949E) : const Color(0xFF555555);
     final linkColor = isDark ? const Color(0xFFE6EDF3) : const Color(0xFF111111);
@@ -41,15 +43,15 @@ class PortalFooter extends StatelessWidget {
                     const SizedBox(width: 48),
                     Expanded(
                       flex: 1,
-                      child: _buildLinks(context, 'Kurumsal', ['Hakkımızda', 'Künye', 'İletişim'], linkColor, textColor),
+                      child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', isEn ? ['About Us', 'Imprint', 'Contact'] : ['Hakkımızda', 'Künye', 'İletişim'], linkColor, textColor),
                     ),
                     Expanded(
                       flex: 1,
-                      child: _buildLinks(context, 'Yasal', ['Kullanım Koşulları', 'Gizlilik Politikası', 'Çerezler'], linkColor, textColor),
+                      child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', isEn ? ['Terms of Use', 'Privacy Policy', 'Cookies'] : ['Kullanım Koşulları', 'Gizlilik Politikası', 'Çerezler'], linkColor, textColor),
                     ),
                     Expanded(
                       flex: 1,
-                      child: _buildSocials(linkColor, textColor),
+                      child: _buildSocials(isEn, linkColor, textColor),
                     ),
                   ],
                 )
@@ -62,19 +64,21 @@ class PortalFooter extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(child: _buildLinks(context, 'Kurumsal', ['Hakkımızda', 'Künye', 'İletişim'], linkColor, textColor)),
-                        Expanded(child: _buildLinks(context, 'Yasal', ['Kullanım Koşulları', 'Gizlilik Politikası', 'Çerezler'], linkColor, textColor)),
+                        Expanded(child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', isEn ? ['About Us', 'Imprint', 'Contact'] : ['Hakkımızda', 'Künye', 'İletişim'], linkColor, textColor)),
+                        Expanded(child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', isEn ? ['Terms of Use', 'Privacy Policy', 'Cookies'] : ['Kullanım Koşulları', 'Gizlilik Politikası', 'Çerezler'], linkColor, textColor)),
                       ],
                     ),
                     const SizedBox(height: 32),
-                    _buildSocials(linkColor, textColor),
+                    _buildSocials(isEn, linkColor, textColor),
                   ],
                 ),
               const SizedBox(height: 48),
               Divider(color: dividerColor),
               const SizedBox(height: 24),
               Text(
-                '© 2026 Tarım Portalı — Tüm hakları saklıdır. Bu site Türkiye medya hukukuna uygun olarak yayın yapmaktadır.',
+                isEn 
+                  ? '© 2026 Tarım Portalı — All rights reserved. This site operates in accordance with Turkish media law.'
+                  : '© 2026 Tarım Portalı — Tüm hakları saklıdır. Bu site Türkiye medya hukukuna uygun olarak yayın yapmaktadır.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 12,
@@ -108,13 +112,20 @@ class PortalFooter extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        Text(
-          'Türkiye\'nin en güncel ve güvenilir tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.',
-          style: GoogleFonts.inter(
-            fontSize: 14,
-            height: 1.5,
-            color: descColor,
-          ),
+        Builder(
+          builder: (context) {
+            final isEn = Localizations.localeOf(context).languageCode == 'en';
+            return Text(
+              isEn 
+                ? 'Turkey\'s most up-to-date and reliable agriculture, livestock, and economy news source. Be the first to learn about industry innovations.'
+                : 'Türkiye\'nin en güncel ve güvenilir tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.',
+              style: GoogleFonts.inter(
+                fontSize: 14,
+                height: 1.5,
+                color: descColor,
+              ),
+            );
+          }
         ),
       ],
     );
@@ -161,12 +172,12 @@ class PortalFooter extends StatelessWidget {
     );
   }
 
-  Widget _buildSocials(Color titleColor, Color iconColor) {
+  Widget _buildSocials(bool isEn, Color titleColor, Color iconColor) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Bizi Takip Edin',
+          isEn ? 'Follow Us' : 'Bizi Takip Edin',
           style: GoogleFonts.inter(
             fontWeight: FontWeight.bold,
             fontSize: 16,

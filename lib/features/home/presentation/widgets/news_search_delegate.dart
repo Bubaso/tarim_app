@@ -11,9 +11,10 @@ import '../../../../core/utils/image_fallback_helper.dart';
 
 class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   final WidgetRef ref;
+  final bool isEn;
 
-  NewsSearchDelegate({required this.ref}) : super(
-    searchFieldLabel: 'Haberlerde Ara...',
+  NewsSearchDelegate({required this.ref, required this.isEn}) : super(
+    searchFieldLabel: isEn ? 'Search news...' : 'Haberlerde Ara...',
     searchFieldStyle: GoogleFonts.inter(fontSize: 16),
   );
 
@@ -59,7 +60,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   @override
   Widget buildResults(BuildContext context) {
     if (query.trim().isEmpty) {
-      return _buildMessage(context, 'Aramak istediğiniz kelimeyi girin.');
+      return _buildMessage(context, isEn ? 'Enter a keyword to search.' : 'Aramak istediğiniz kelimeyi girin.');
     }
 
     return Consumer(
@@ -68,10 +69,10 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
 
         return searchAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, stack) => _buildMessage(context, 'Bir hata oluştu: $err'),
+          error: (err, stack) => _buildMessage(context, isEn ? 'An error occurred: $err' : 'Bir hata oluştu: $err'),
           data: (articles) {
             if (articles.isEmpty) {
-              return _buildMessage(context, '"$query" için sonuç bulunamadı.');
+              return _buildMessage(context, isEn ? 'No results found for "$query".' : '"$query" için sonuç bulunamadı.');
             }
             return _buildSearchResults(context, articles);
           },
@@ -83,7 +84,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.trim().isEmpty) {
-      return _buildMessage(context, 'Haber başlıklarında veya içeriklerinde arama yapın.');
+      return _buildMessage(context, isEn ? 'Search in news titles or contents.' : 'Haber başlıklarında veya içeriklerinde arama yapın.');
     }
     // Show results directly as suggestions for real-time feel
     return Consumer(
@@ -95,7 +96,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
           error: (err, stack) => const SizedBox.shrink(),
           data: (articles) {
             if (articles.isEmpty) {
-              return _buildMessage(context, 'Sonuç bulunamadı.');
+              return _buildMessage(context, isEn ? 'No results found.' : 'Sonuç bulunamadı.');
             }
             return _buildSearchResults(context, articles);
           },

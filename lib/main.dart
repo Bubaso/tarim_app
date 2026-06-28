@@ -38,7 +38,7 @@ class MyApp extends ConsumerWidget {
       // Theme definitions — Premium Medya Portalı Tasarım Sistemi
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
 
       // Localization Configuration
       locale: currentLocale,

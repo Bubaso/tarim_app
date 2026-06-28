@@ -510,17 +510,22 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
           style: GoogleFonts.robotoMono(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold),
         ),
         const SizedBox(width: 4),
-        Icon(isUp ? Icons.arrow_drop_up : Icons.arrow_drop_down, color: clr, size: 14),
+        Semantics(
+          label: isUp ? 'artış' : 'düşüş',
+          child: Icon(isUp ? Icons.arrow_drop_up : Icons.arrow_drop_down, color: clr, size: 14),
+        ),
       ],
     );
   }
 
   Widget _buildVerticalSeparator() {
-    return Container(
-      height: 12,
-      width: 1,
-      color: _kBorder,
-      margin: const EdgeInsets.symmetric(horizontal: 14),
+    return ExcludeSemantics(
+      child: Container(
+        height: 12,
+        width: 1,
+        color: _kBorder,
+        margin: const EdgeInsets.symmetric(horizontal: 14),
+      ),
     );
   }
 

@@ -46,10 +46,11 @@ class _NewsCardState extends State<NewsCard> {
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: widget.article)),
-        ),
+      child: MergeSemantics(
+        child: GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            createFadeRoute(ArticleDetailScreen(article: widget.article)),
+          ),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),
@@ -85,6 +86,7 @@ class _NewsCardState extends State<NewsCard> {
                     imageUrl: widget.article.imageUrl,
                     width: double.infinity,
                     fit: BoxFit.cover,
+                    semanticLabel: displayTitle,
                   ),
                 ),
 
@@ -176,6 +178,6 @@ class _NewsCardState extends State<NewsCard> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

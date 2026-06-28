@@ -48,6 +48,7 @@ class NewsArticleImage extends StatelessWidget {
   final double? width;
   final double? height;
   final BoxFit fit;
+  final String? semanticLabel;
 
   const NewsArticleImage({
     super.key,
@@ -55,6 +56,7 @@ class NewsArticleImage extends StatelessWidget {
     this.width,
     this.height,
     this.fit = BoxFit.cover,
+    this.semanticLabel,
   });
 
   String _optimizeUrl(String url) {
@@ -83,7 +85,7 @@ class NewsArticleImage extends StatelessWidget {
 
     final url = _optimizeUrl(rawUrl);
 
-    return CachedNetworkImage(
+    final imageWidget = CachedNetworkImage(
       imageUrl: url,
       width: width,
       height: height,
@@ -96,6 +98,16 @@ class NewsArticleImage extends StatelessWidget {
       placeholder: (context, url) => ShimmerPlaceholder(width: width, height: height),
       errorWidget: (context, url, error) => ShimmerPlaceholder(width: width, height: height),
     );
+
+    if (semanticLabel != null && semanticLabel!.isNotEmpty) {
+      return Semantics(
+        label: semanticLabel,
+        image: true,
+        child: imageWidget,
+      );
+    } else {
+      return ExcludeSemantics(child: imageWidget);
+    }
   }
 }
 

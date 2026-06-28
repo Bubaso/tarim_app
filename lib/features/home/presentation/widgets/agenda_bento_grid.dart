@@ -95,6 +95,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < _kBentoBreakpoint;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     if (isMobile) {
       final dividerColor = isDark ? const Color(0xFF58A6FF) : const Color(0xFF1A1A1A);
@@ -102,7 +103,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'GÜNDEM & ÖZEL DOSYALAR',
+            isEn ? 'AGENDA & SPECIAL REPORTS' : 'GÜNDEM & ÖZEL DOSYALAR',
             style: GoogleFonts.playfairDisplay(
               fontSize: 20,
               fontWeight: FontWeight.w900,
@@ -135,7 +136,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
 
         // Başlık metni
         Text(
-          'GÜNDEM & ÖZEL DOSYALAR',
+          isEn ? 'AGENDA & SPECIAL REPORTS' : 'GÜNDEM & ÖZEL DOSYALAR',
           style: GoogleFonts.playfairDisplay(
             fontSize: 20,
             fontWeight: FontWeight.w900,
@@ -300,17 +301,19 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
       onEnter: (_) => setState(() => _hovered = true),
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
-        ),
-        child: AnimatedScale(
-          scale: _hovered ? 1.01 : 1.0,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          child: widget.isList 
-            ? _buildListLayout(title, summary, dateStr, badge, isDark)
-            : _buildStandardLayout(title, summary, dateStr, badge, isDark),
+      child: MergeSemantics(
+        child: GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            createFadeRoute(ArticleDetailScreen(article: a)),
+          ),
+          child: AnimatedScale(
+            scale: _hovered ? 1.01 : 1.0,
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeOut,
+            child: widget.isList 
+              ? _buildListLayout(title, summary, dateStr, badge, isDark)
+              : _buildStandardLayout(title, summary, dateStr, badge, isDark),
+          ),
         ),
       ),
     );
@@ -332,7 +335,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover, semanticLabel: title),
                 if (badge != null)
                   Positioned(top: 10, left: 10, child: _ArticleBadge(type: badge))
                 else if (a.sourceName != null && a.sourceName!.isNotEmpty)
@@ -397,7 +400,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover, semanticLabel: title),
                 if (badge != null)
                   Positioned(top: 4, left: 4, child: Transform.scale(scale: 0.8, alignment: Alignment.topLeft, child: _ArticleBadge(type: badge)))
               ],
@@ -509,18 +512,19 @@ class _MobileBento extends StatelessWidget {
     final bgColor = isDark ? const Color(0xFF121820) : Colors.white;
     final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
 
-    return GestureDetector(
-      onTap: () => Navigator.of(context).push(
-        createFadeRoute(ArticleDetailScreen(article: article)),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: borderColor, width: 1.0),
+    return MergeSemantics(
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(
+          createFadeRoute(ArticleDetailScreen(article: article)),
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(7),
+        child: Container(
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: borderColor, width: 1.0),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(7),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -532,6 +536,7 @@ class _MobileBento extends StatelessWidget {
                     NewsArticleImage(
                       imageUrl: article.imageUrl,
                       fit: BoxFit.cover,
+                      semanticLabel: title,
                     ),
                     if (isSpecial)
                       Positioned(
@@ -585,7 +590,7 @@ class _MobileBento extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 
   Widget _buildSmallCard(BuildContext context, NewsArticle article) {
@@ -602,16 +607,17 @@ class _MobileBento extends StatelessWidget {
     final bgColor = isDark ? const Color(0xFF121820) : Colors.white;
     final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
 
-    return GestureDetector(
-      onTap: () => Navigator.of(context).push(
-        createFadeRoute(ArticleDetailScreen(article: article)),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: bgColor,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: borderColor, width: 1.0),
+    return MergeSemantics(
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(
+          createFadeRoute(ArticleDetailScreen(article: article)),
         ),
+        child: Container(
+          decoration: BoxDecoration(
+            color: bgColor,
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: borderColor, width: 1.0),
+          ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(7),
           child: Column(
@@ -625,6 +631,7 @@ class _MobileBento extends StatelessWidget {
                     NewsArticleImage(
                       imageUrl: article.imageUrl,
                       fit: BoxFit.cover,
+                      semanticLabel: title,
                     ),
                     if (isSpecial)
                       Positioned(
@@ -678,7 +685,7 @@ class _MobileBento extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -691,9 +698,10 @@ class _ArticleBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
     final label = type == _BadgeType.editorunAnalizi
-        ? 'EDİTÖRÜN ANALİZİ'
-        : 'ÖZEL DOSYA';
+        ? (isEn ? 'EDITOR\'S ANALYSIS' : 'EDİTÖRÜN ANALİZİ')
+        : (isEn ? 'SPECIAL REPORT' : 'ÖZEL DOSYA');
 
     // Şık koyu altın/bronz rengi
     const bgColor = Color(0xFF9E7E38);

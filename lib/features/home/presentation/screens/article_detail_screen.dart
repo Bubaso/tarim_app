@@ -136,6 +136,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               NewsArticleImage(
                                 imageUrl: article.imageUrl,
                                 fit: BoxFit.cover,
+                                semanticLabel: displayTitle,
                               ),
                               // Alt gradient — başlık alanına geçişi yumuşatır
                               const DecoratedBox(
@@ -263,7 +264,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           if (hasSourceUrl) ...[
                             const SizedBox(height: 40),
                             _SourceButton(
-                              sourceName: article.sourceName ?? 'Kaynak',
+                              sourceName: article.sourceName ?? (isEn ? 'Source' : 'Kaynak'),
                               sourceUrl:  article.sourceUrl!,
                               isEn:       isEn,
                               accent:     accent,

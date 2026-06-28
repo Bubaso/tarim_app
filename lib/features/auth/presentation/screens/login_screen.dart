@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/network/supabase_client.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/localization_helper.dart';
 import '../../../dashboard/presentation/screens/dashboard_screen.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -42,9 +43,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
       if (mounted) {
         if (response.user != null) {
+          final loc = AppLocalizations.of(context);
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Giriş başarılı! Yönetim paneline yönlendiriliyorsunuz.'),
+             SnackBar(
+              content: Text(loc.translate('login_success')),
               backgroundColor: Colors.green,
             ),
           );
@@ -55,18 +57,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       }
     } on AuthException catch (e) {
       if (mounted) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Giriş Hatası: ${e.message}'),
+            content: Text('${loc.translate('login_error')}: ${e.message}'),
             backgroundColor: Colors.redAccent,
           ),
         );
       }
     } catch (e) {
       if (mounted) {
+        final loc = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Beklenmedik bir hata oluştu: $e'),
+            content: Text('${loc.translate('error')} $e'),
             backgroundColor: Colors.redAccent,
           ),
         );
@@ -83,10 +87,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final loc = AppLocalizations.of(context);
+    final isEn = loc.locale.languageCode == 'en';
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Yazar Girişi'),
+        title: Text(loc.translate('login_title')),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
           onPressed: () => Navigator.of(context).pop(),
@@ -126,7 +132,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Yönetim Paneli',
+                    isEn ? 'Dashboard' : 'Yönetim Paneli',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
@@ -135,7 +141,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    'Yazar veya yönetici hesabınızla giriş yapın',
+                    isEn ? 'Sign in with your editor or admin account' : 'Yazar veya yönetici hesabınızla giriş yapın',
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.hintColor,
@@ -145,16 +151,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      labelText: 'E-posta Adresi',
-                      prefixIcon: Icon(Icons.email_outlined),
+                    decoration: InputDecoration(
+                      labelText: loc.translate('login_email'),
+                      prefixIcon: const Icon(Icons.email_outlined),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Lütfen e-posta adresinizi girin';
+                        return isEn ? 'Please enter your email address' : 'Lütfen e-posta adresinizi girin';
                       }
                       if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-                        return 'Geçerli bir e-posta adresi girin';
+                        return isEn ? 'Enter a valid email address' : 'Geçerli bir e-posta adresi girin';
                       }
                       return null;
                     },
@@ -164,7 +170,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     controller: _passwordController,
                     obscureText: _obscureText,
                     decoration: InputDecoration(
-                      labelText: 'Şifre',
+                      labelText: loc.translate('login_password'),
                       prefixIcon: const Icon(Icons.lock_outline),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -179,10 +185,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Lütfen şifrenizi girin';
+                        return isEn ? 'Please enter your password' : 'Lütfen şifrenizi girin';
                       }
                       if (value.length < 6) {
-                        return 'Şifre en az 6 karakter olmalıdır';
+                        return isEn ? 'Password must be at least 6 characters' : 'Şifre en az 6 karakter olmalıdır';
                       }
                       return null;
                     },
@@ -208,9 +214,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                             ),
                           )
-                        : const Text(
-                            'Giriş Yap',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        : Text(
+                            loc.translate('login_button'),
+                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                   ),
                 ],

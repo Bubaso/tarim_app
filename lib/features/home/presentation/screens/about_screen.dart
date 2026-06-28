@@ -8,6 +8,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
     
     final bgColor = isDark ? const Color(0xFF0D1117) : const Color(0xFFF9F9F9);
     final textColor = isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
@@ -45,7 +46,7 @@ class AboutScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Hakkımızda',
+                  isEn ? 'About Us' : 'Hakkımızda',
                   style: GoogleFonts.playfairDisplay(
                     fontSize: 42,
                     fontWeight: FontWeight.w900,
@@ -54,9 +55,13 @@ class AboutScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'Tarım Portalı, Türkiye tarım, hayvancılık ve ekosistem ekonomisinin kalbinin attığı yerdir. '
-                  'Sektörel gelişimleri, bilimsel üretim yöntemlerini ve pazar verilerini çiftçilerimize, yatırımcılara '
-                  've araştırmacılara güvenilir bir dille aktarmak üzere yola çıktık.',
+                  isEn
+                    ? 'Tarım Portalı is where the heart of Turkey\'s agriculture, livestock, and ecosystem economy beats. '
+                      'We set out to convey sectoral developments, scientific production methods, and market data to our farmers, investors, '
+                      'and researchers with a reliable language.'
+                    : 'Tarım Portalı, Türkiye tarım, hayvancılık ve ekosistem ekonomisinin kalbinin attığı yerdir. '
+                      'Sektörel gelişimleri, bilimsel üretim yöntemlerini ve pazar verilerini çiftçilerimize, yatırımcılara '
+                      've araştırmacılara güvenilir bir dille aktarmak üzere yola çıktık.',
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     height: 1.6,
@@ -66,7 +71,7 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: 32),
                 
                 Text(
-                  'Misyonumuz',
+                  isEn ? 'Our Mission' : 'Misyonumuz',
                   style: GoogleFonts.inter(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -75,7 +80,9 @@ class AboutScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Toprağın bereketi ile modern teknolojiyi harmanlayarak, daha sürdürülebilir ve kazançlı bir tarım ekosisteminin inşasına bilgi ve haber yoluyla destek olmaktır.',
+                  isEn 
+                    ? 'To support the construction of a more sustainable and profitable agricultural ecosystem through information and news by blending the bounty of the soil with modern technology.'
+                    : 'Toprağın bereketi ile modern teknolojiyi harmanlayarak, daha sürdürülebilir ve kazançlı bir tarım ekosisteminin inşasına bilgi ve haber yoluyla destek olmaktır.',
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     height: 1.6,
@@ -101,7 +108,7 @@ class AboutScreen extends StatelessWidget {
                           Icon(Icons.gavel_rounded, color: theme.colorScheme.primary, size: 24),
                           const SizedBox(width: 12),
                           Text(
-                            'Yayın Künyesi',
+                            isEn ? 'Publication Details' : 'Yayın Künyesi',
                             style: GoogleFonts.inter(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -111,12 +118,12 @@ class AboutScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 24),
-                      _buildKunyeItem('İmtiyaz Sahibi', 'Tarım Portalı Dijital Yayıncılık A.Ş.', textColor, subtleColor),
-                      _buildKunyeItem('Genel Yayın Yönetmeni', 'Burhan Gökçek', textColor, subtleColor),
-                      _buildKunyeItem('Sorumlu Yazı İşleri Müdürü', 'Ali Yılmaz', textColor, subtleColor),
-                      _buildKunyeItem('Teknik Altyapı', 'Antigravity Studio', textColor, subtleColor),
-                      _buildKunyeItem('Adres', 'Bilişim Vadisi, Teknopark Ofis B-Z02, Gebze/Kocaeli', textColor, subtleColor),
-                      _buildKunyeItem('İletişim', 'info@tarimportali.com', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Franchisee' : 'İmtiyaz Sahibi', isEn ? 'Tarım Portalı Digital Publishing Inc.' : 'Tarım Portalı Dijital Yayıncılık A.Ş.', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Editor-in-Chief' : 'Genel Yayın Yönetmeni', 'Burhan Gökçek', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Managing Editor' : 'Sorumlu Yazı İşleri Müdürü', 'Ali Yılmaz', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Technical Infrastructure' : 'Teknik Altyapı', 'Antigravity Studio', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Address' : 'Adres', 'Bilişim Vadisi, Teknopark Ofis B-Z02, Gebze/Kocaeli', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Contact' : 'İletişim', 'info@tarimportali.com', textColor, subtleColor),
                     ],
                   ),
                 ),
@@ -124,7 +131,7 @@ class AboutScreen extends StatelessWidget {
 
                 // Gizlilik / İletişim vs. (Dummy placeholder text)
                 Text(
-                  'Gizlilik ve Hukuki Şartlar',
+                  isEn ? 'Privacy and Legal Terms' : 'Gizlilik ve Hukuki Şartlar',
                   style: GoogleFonts.inter(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -133,7 +140,9 @@ class AboutScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Tarım Portalı Basın Meslek İlkelerine uymaya söz vermiştir. Sitemizde yer alan içeriklerin telif hakları yayınevine ait olup, kaynak gösterilmeden kopyalanamaz. Dış bağlantıların sorumluluğu ilgili web sitelerine aittir.',
+                  isEn
+                    ? 'Tarım Portalı has promised to comply with Press Professional Principles. The copyrights of the contents on our site belong to the publisher and cannot be copied without citing the source. Responsibility for external links lies with the respective websites.'
+                    : 'Tarım Portalı Basın Meslek İlkelerine uymaya söz vermiştir. Sitemizde yer alan içeriklerin telif hakları yayınevine ait olup, kaynak gösterilmeden kopyalanamaz. Dış bağlantıların sorumluluğu ilgili web sitelerine aittir.',
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     height: 1.6,

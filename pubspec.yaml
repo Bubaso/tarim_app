@@ -50,6 +50,7 @@ dependencies:
   geolocator: ^14.0.3
   share_plus: ^13.2.0
   cached_network_image: ^3.4.1
+  google_generative_ai: ^0.4.7
 
 dev_dependencies:
   flutter_test:

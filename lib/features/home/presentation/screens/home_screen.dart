@@ -52,6 +52,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ? const Color(0xFF0C1015)
         : const Color(0xFFFAF9F6);
 
+    final appBarBgColor = isDark
+        ? const Color(0xFF080B0E)
+        : const Color(0xFFF3F2ED);
+
     return Scaffold(
       backgroundColor: bgColor,
       appBar: PreferredSize(
@@ -67,7 +71,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               localizations: localizations,
               currentLocale: currentLocale,
               isDark:        isDark,
-              bgColor:       bgColor,
+              bgColor:       appBarBgColor,
               user:          user,
             ),
           ],
@@ -82,7 +86,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             theme:         theme,
             isDark:        isDark,
             localizations: localizations,
-            articles:      articles,
+            articles:      articles.where((a) => a.status == 'published').toList(),
           ),
           loading: () => _HomeSkeletonLoader(isDark: isDark),
           error: (e, _) => Center(
@@ -157,6 +161,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required Color bgColor,
     required User? user,
   }) {
+    final isDesktop = MediaQuery.of(context).size.width > 900;
+
     if (_isSearchExpanded) {
       return AppBar(
         backgroundColor: bgColor,
@@ -194,7 +200,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               });
               showSearch(
                 context: context,
-                delegate: NewsSearchDelegate(ref: ref),
+                delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
                 query: query,
               );
             }
@@ -212,7 +218,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 });
                 showSearch(
                   context: context,
-                  delegate: NewsSearchDelegate(ref: ref),
+                  delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
                   query: query,
                 );
               }
@@ -230,48 +236,67 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       shadowColor: isDark
           ? const Color(0xFF30363D)
           : const Color(0xFFE0E0E0),
+      titleSpacing: isDesktop ? NavigationToolbar.kMiddleSpacing : 4,
       title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: 26),
-          const SizedBox(width: 8),
-          Text(
-            'TARIM PORTALI',
-            style: GoogleFonts.playfairDisplay(
-              fontWeight: FontWeight.w900,
-              fontSize: 20,
-              color: isDark
-                  ? const Color(0xFFF0F6FC)
-                  : const Color(0xFF1A1A1A),
-              letterSpacing: -0.3,
+          Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: isDesktop ? 26 : 22),
+          SizedBox(width: isDesktop ? 8 : 4),
+          Expanded(
+            child: Text(
+              'TARIM PORTALI',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.playfairDisplay(
+                fontWeight: FontWeight.w900,
+                fontSize: isDesktop ? 20 : 17,
+                color: isDark
+                    ? const Color(0xFFF0F6FC)
+                    : const Color(0xFF1A1A1A),
+                letterSpacing: -0.3,
+              ),
             ),
           ),
         ],
       ),
       actions: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-          child: FilledButton.icon(
-            style: FilledButton.styleFrom(
-              backgroundColor: isDark 
-                  ? theme.colorScheme.primary.withValues(alpha: 0.15) 
-                  : theme.colorScheme.primary.withValues(alpha: 0.1),
-              foregroundColor: isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99),
-              elevation: 0,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+        if (isDesktop)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+            child: FilledButton.icon(
+              style: FilledButton.styleFrom(
+                backgroundColor: isDark 
+                    ? theme.colorScheme.primary.withValues(alpha: 0.15) 
+                    : theme.colorScheme.primary.withValues(alpha: 0.1),
+                foregroundColor: isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99),
+                elevation: 0,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
-            ),
-            icon: const Icon(Icons.search_rounded, size: 22),
-            label: Text(
-              currentLocale.languageCode == 'en' ? 'Search' : 'Ara',
-              style: GoogleFonts.inter(
-                fontWeight: FontWeight.w600,
-                fontSize: 14,
-                letterSpacing: 0.5,
+              icon: const Icon(Icons.search_rounded, size: 22),
+              label: Text(
+                currentLocale.languageCode == 'en' ? 'Search' : 'Ara',
+                style: GoogleFonts.inter(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  letterSpacing: 0.5,
+                ),
               ),
+              onPressed: () {
+                setState(() {
+                  _isSearchExpanded = true;
+                });
+                Future.delayed(const Duration(milliseconds: 100), () {
+                  _searchFocusNode.requestFocus();
+                });
+              },
             ),
+          )
+        else
+          IconButton(
+            icon: Icon(Icons.search_rounded, color: isDark ? Colors.white : Colors.black87),
             onPressed: () {
               setState(() {
                 _isSearchExpanded = true;
@@ -281,75 +306,78 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               });
             },
           ),
-        ),
+        
         _LanguageToggle(currentLocale: currentLocale, isDark: isDark),
-        const SizedBox(width: 4),
+        if (isDesktop) const SizedBox(width: 4),
         _WeatherChip(isDark: isDark),
-        const SizedBox(width: 4),
-        PopupMenuButton<String>(
-          icon: Icon(
-            user == null ? Icons.account_circle_outlined : Icons.admin_panel_settings_rounded,
-            color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
-          ),
-          tooltip: 'Hesap Menüsü',
-          onSelected: (value) async {
-            if (value == 'login') {
-              Navigator.of(context).push(
-                createFadeRoute(const LoginScreen()),
-              );
-            } else if (value == 'dashboard') {
-              Navigator.of(context).push(
-                createFadeRoute(const DashboardScreen()),
-              );
-            } else if (value == 'logout') {
-              await ref.read(supabaseClientProvider).auth.signOut();
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Başarıyla çıkış yapıldı.'),
-                    backgroundColor: Colors.green,
-                  ),
+        
+        if (isDesktop) ...[
+          const SizedBox(width: 4),
+          PopupMenuButton<String>(
+            icon: Icon(
+              user == null ? Icons.account_circle_outlined : Icons.admin_panel_settings_rounded,
+              color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+            ),
+            tooltip: 'Hesap Menüsü',
+            onSelected: (value) async {
+              if (value == 'login') {
+                Navigator.of(context).push(
+                  createFadeRoute(const LoginScreen()),
                 );
+              } else if (value == 'dashboard') {
+                Navigator.of(context).push(
+                  createFadeRoute(const DashboardScreen()),
+                );
+              } else if (value == 'logout') {
+                await ref.read(supabaseClientProvider).auth.signOut();
+                if (context.mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Başarıyla çıkış yapıldı.'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                }
               }
-            }
-          },
-          itemBuilder: (context) => [
-            if (user == null)
-              PopupMenuItem(
-                value: 'login',
-                child: Row(
-                  children: [
-                    Icon(Icons.login_rounded, color: theme.colorScheme.primary, size: 20),
-                    const SizedBox(width: 8),
-                    Text('Yazar Girişi', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
-                  ],
+            },
+            itemBuilder: (context) => [
+              if (user == null)
+                PopupMenuItem(
+                  value: 'login',
+                  child: Row(
+                    children: [
+                      Icon(Icons.login_rounded, color: theme.colorScheme.primary, size: 20),
+                      const SizedBox(width: 8),
+                      Text(currentLocale.languageCode == 'en' ? 'Editor Login' : 'Yazar Girişi', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                )
+              else ...[
+                PopupMenuItem(
+                  value: 'dashboard',
+                  child: Row(
+                    children: [
+                      Icon(Icons.admin_panel_settings_rounded, color: theme.colorScheme.primary, size: 20),
+                      const SizedBox(width: 8),
+                      Text(currentLocale.languageCode == 'en' ? 'Dashboard' : 'Yönetim Paneli', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                    ],
+                  ),
                 ),
-              )
-            else ...[
-              PopupMenuItem(
-                value: 'dashboard',
-                child: Row(
-                  children: [
-                    Icon(Icons.admin_panel_settings_rounded, color: theme.colorScheme.primary, size: 20),
-                    const SizedBox(width: 8),
-                    Text('Yönetim Paneli', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
-                  ],
+                PopupMenuItem(
+                  value: 'logout',
+                  child: Row(
+                    children: [
+                      const Icon(Icons.logout_rounded, color: Colors.redAccent, size: 20),
+                      const SizedBox(width: 8),
+                      Text(currentLocale.languageCode == 'en' ? 'Logout' : 'Çıkış Yap', style: GoogleFonts.inter(color: Colors.redAccent, fontWeight: FontWeight.bold)),
+                    ],
+                  ),
                 ),
-              ),
-              PopupMenuItem(
-                value: 'logout',
-                child: Row(
-                  children: [
-                    const Icon(Icons.logout_rounded, color: Colors.redAccent, size: 20),
-                    const SizedBox(width: 8),
-                    Text('Çıkış Yap', style: GoogleFonts.inter(color: Colors.redAccent, fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ),
+              ],
             ],
-          ],
-        ),
-        const SizedBox(width: 12),
+          ),
+        ],
+        if (isDesktop) const SizedBox(width: 8),
       ],
     );
   }

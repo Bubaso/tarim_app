@@ -14,7 +14,10 @@ import '../screens/author_article_detail_screen.dart';
 bool _isHeadline(NewsArticle a) =>
     a.sourceName != null && a.sourceName!.trim().isNotEmpty;
 
-bool _isOpEd(NewsArticle a) => !_isHeadline(a);
+// Şimdilik veritabanında gerçek "Köşe Yazısı" ayrımı olmadığı için,
+// AI tarafından üretilen (sourceName == null) makalelerin Yazarlarımız
+// sütununu ezmemesi adına hep false dönüyoruz. Böylece mock yazarlar korunur.
+bool _isOpEd(NewsArticle a) => false;
 
 // ─── Renk / stil sabitleri ────────────────────────────────────────────────
 const double _kDesktopBreakpoint = 900.0;
@@ -36,29 +39,31 @@ class _MockWriter {
   });
 }
 
-const _mockWriters = [
-  _MockWriter(
-    name: 'Prof. Dr. Ahmet Yılmaz',
-    title: 'Tarım Ekonomisti',
-    articleTitle: 'Küresel Gübre Krizinin Türkiye Tarımına Finansal Etkileri',
-    initial: 'A',
-    avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&auto=format&fit=crop&q=80',
-  ),
-  _MockWriter(
-    name: 'Dr. Selen Soylu',
-    title: 'Ziraat Yüksek Mühendisi',
-    articleTitle: 'Akıllı Sulama Teknolojileri ve Sürdürülebilir Su Yönetimi',
-    initial: 'S',
-    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80',
-  ),
-  _MockWriter(
-    name: 'Mehmet Demir',
-    title: 'Gıda ve Tarım Politikaları Analisti',
-    articleTitle: 'Tarımsal Üretimde Yeni Paradigmalar ve Dijital Dönüşüm',
-    initial: 'M',
-    avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80',
-  ),
-];
+List<_MockWriter> _getMockWriters(bool isEn) {
+  return [
+    _MockWriter(
+      name: 'Prof. Dr. Ahmet Yılmaz',
+      title: isEn ? 'Agricultural Economist' : 'Tarım Ekonomisti',
+      articleTitle: isEn ? 'Financial Impacts of Global Fertilizer Crisis on Turkish Agriculture' : 'Küresel Gübre Krizinin Türkiye Tarımına Finansal Etkileri',
+      initial: 'A',
+      avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&auto=format&fit=crop&q=80',
+    ),
+    _MockWriter(
+      name: 'Dr. Selen Soylu',
+      title: isEn ? 'Senior Agricultural Engineer' : 'Ziraat Yüksek Mühendisi',
+      articleTitle: isEn ? 'Smart Irrigation Technologies and Sustainable Water Management' : 'Akıllı Sulama Teknolojileri ve Sürdürülebilir Su Yönetimi',
+      initial: 'S',
+      avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80',
+    ),
+    _MockWriter(
+      name: 'Mehmet Demir',
+      title: isEn ? 'Food and Agriculture Policy Analyst' : 'Gıda ve Tarım Politikaları Analisti',
+      articleTitle: isEn ? 'New Paradigms and Digital Transformation in Agricultural Production' : 'Tarımsal Üretimde Yeni Paradigmalar ve Dijital Dönüşüm',
+      initial: 'M',
+      avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80',
+    ),
+  ];
+}
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  HeroFold — anasayfanın en üst "above the fold" bölümü
@@ -136,6 +141,7 @@ class _MobileHeroFold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +158,7 @@ class _MobileHeroFold extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'YAZARLARIMIZ',
+                isEn ? 'OUR COLUMNISTS' : 'YAZARLARIMIZ',
                 style: GoogleFonts.playfairDisplay(
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
@@ -203,9 +209,11 @@ class _MobileOpEdHorizontalList extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               clipBehavior: Clip.none,
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              itemCount: _mockWriters.length,
+              itemCount: 3, // _getMockWriters(isEn).length
               itemBuilder: (context, index) {
-                final writer = _mockWriters[index];
+                final isEn = Localizations.localeOf(context).languageCode == 'en';
+                final writers = _getMockWriters(isEn);
+                final writer = writers[index];
                 return Padding(
                   padding: const EdgeInsets.only(right: 12.0),
                   child: _MobileMockWriterCard(writer: writer, isDark: isDark),
@@ -258,10 +266,14 @@ class _MobileMockWriterCardState extends State<_MobileMockWriterCard> {
       child: GestureDetector(
         onTap: () {
           final name = writer.name;
-          final paragraphs = AuthorArticleDetailScreen.authorParagraphs[name] ?? [
+          final isEn = Localizations.localeOf(context).languageCode == 'en';
+          final paragraphs = AuthorArticleDetailScreen.getAuthorParagraphs(isEn)[name] ?? (isEn ? [
+            'In recent years, structural changes and economic fluctuations in the agricultural sector have led our producers to seek new pursuits. Increasing efficiency and reducing input costs stand out as the most fundamental goals.',
+            'The future of agricultural production will be shaped by data-driven planning and the integration of modern technologies. Local producer-oriented policies should be developed for sustainable development.'
+          ] : [
             'Son yıllarda tarım sektöründe yaşanan yapısal değişimler ve ekonomik dalgalanmalar, üreticilerimizi yeni arayışlara sevk etmektedir. Verimlilik artışı ve girdi maliyetlerinin azaltılması en temel hedefler olarak öne çıkmaktadır.',
             'Tarımsal üretimin geleceği veriye dayalı planlama ve modern teknolojilerin entegrasyonu ile şekillenecektir. Sürdürülebilir kalkınma için yerel üretici odaklı politikalar geliştirilmelidir.'
-          ];
+          ]);
           final coverImage = _authorArticleCoverImage(name);
 
           Navigator.of(context).push(
@@ -436,7 +448,7 @@ class _MobileRealWriterCardState extends State<_MobileRealWriterCard> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  authorName.isNotEmpty ? authorName : 'Köşe Yazarı',
+                  authorName.isNotEmpty ? authorName : (Localizations.localeOf(context).languageCode == 'en' ? 'Columnist' : 'Köşe Yazarı'),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
@@ -636,18 +648,20 @@ class _HeadlineSlide extends StatelessWidget {
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: article)),
-        ),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            // Fotoğraf (16:9 Aspect Ratio)
-            NewsArticleImage(
-              imageUrl: article.imageUrl,
-              fit: BoxFit.cover,
-            ),
+      child: MergeSemantics(
+        child: GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            createFadeRoute(ArticleDetailScreen(article: article)),
+          ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              // Fotoğraf (16:9 Aspect Ratio)
+              NewsArticleImage(
+                imageUrl: article.imageUrl,
+                fit: BoxFit.cover,
+                semanticLabel: title,
+              ),
 
             // Alttan yukarı siyah gradient karartma
             const DecoratedBox(
@@ -719,7 +733,7 @@ class _HeadlineSlide extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -764,13 +778,15 @@ class _OpEdColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         // "Yazarlarımız" başlığı
         Text(
-          'YAZARLARIMIZ',
+          isEn ? 'OUR COLUMNISTS' : 'YAZARLARIMIZ',
           style: GoogleFonts.playfairDisplay(
             fontSize: 16,
             fontWeight: FontWeight.w900,
@@ -789,14 +805,14 @@ class _OpEdColumn extends StatelessWidget {
 
         if (opEds.isEmpty)
           // Veritabanında yazar yazısı yoksa 3 adet MOCK yazar kartı
-          ..._mockWriters.asMap().entries.map((entry) {
+          ..._getMockWriters(isEn).asMap().entries.map((entry) {
             final idx = entry.key;
             final writer = entry.value;
             return Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 _MockWriterCard(writer: writer, isDark: isDark),
-                if (idx < _mockWriters.length - 1)
+                if (idx < _getMockWriters(isEn).length - 1)
                   Divider(
                     height: 1,
                     thickness: 0.5,
@@ -853,10 +869,14 @@ class _MockWriterCardState extends State<_MockWriterCard> {
       child: GestureDetector(
         onTap: () {
           final name = widget.writer.name;
-          final paragraphs = AuthorArticleDetailScreen.authorParagraphs[name] ?? [
+          final isEn = Localizations.localeOf(context).languageCode == 'en';
+          final paragraphs = AuthorArticleDetailScreen.getAuthorParagraphs(isEn)[name] ?? (isEn ? [
+            'In recent years, structural changes and economic fluctuations in the agricultural sector have led our producers to seek new pursuits. Increasing efficiency and reducing input costs stand out as the most fundamental goals.',
+            'The future of agricultural production will be shaped by data-driven planning and the integration of modern technologies. Local producer-oriented policies should be developed for sustainable development.'
+          ] : [
             'Son yıllarda tarım sektöründe yaşanan yapısal değişimler ve ekonomik dalgalanmalar, üreticilerimizi yeni arayışlara sevk etmektedir. Verimlilik artışı ve girdi maliyetlerinin azaltılması en temel hedefler olarak öne çıkmaktadır.',
             'Tarımsal üretimin geleceği veriye dayalı planlama ve modern teknolojilerin entegrasyonu ile şekillenecektir. Sürdürülebilir kalkınma için yerel üretici odaklı politikalar geliştirilmelidir.'
-          ];
+          ]);
           final coverImage = AuthorArticleDetailScreen.authorCoverImages[name] ??
               'https://images.unsplash.com/photo-1625246333195-78d9c38ad49f?w=900&auto=format&fit=crop&q=80';
 
@@ -1014,7 +1034,7 @@ class _OpEdCardState extends State<_OpEdCard> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        authorName.isNotEmpty ? authorName : 'Köşe Yazarı',
+                        authorName.isNotEmpty ? authorName : (Localizations.localeOf(context).languageCode == 'en' ? 'Columnist' : 'Köşe Yazarı'),
                         style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
