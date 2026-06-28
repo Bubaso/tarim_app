@@ -18,6 +18,12 @@ final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   return repository.watchLatestArticles();
 });
 
+/// Stream provider for realtime listening to pending articles from Supabase.
+final pendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.watchPendingArticles();
+});
+
 class LocationData {
   final String name;
   final double latitude;

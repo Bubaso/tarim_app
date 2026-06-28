@@ -22,6 +22,7 @@ class HomeRepository {
       final stream = _supabaseClient
           .from('articles')
           .stream(primaryKey: ['id'])
+          .eq('status', 'published')
           .order('created_at', ascending: false);
 
       await for (final maps in stream) {
@@ -35,6 +36,95 @@ class HomeRepository {
       }
       // If stream fails (no table, offline, etc), yield local drafts + last known DB articles
       yield [..._localDrafts, ..._cachedDbArticles];
+    }
+  }
+
+  /// Supabase realtime stream for watching changes to pending articles.
+  Stream<List<NewsArticle>> watchPendingArticles() async* {
+    try {
+      final stream = _supabaseClient
+          .from('articles')
+          .stream(primaryKey: ['id'])
+          .eq('status', 'pending')
+          .order('created_at', ascending: false);
+
+      await for (final maps in stream) {
+        yield maps.map((map) => NewsArticle.fromJson(map)).toList();
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('watchPendingArticles error: $e');
+      }
+      yield [];
+    }
+  }
+
+  /// Approves a pending article and makes it published
+  Future<bool> approveArticle(String id) async {
+    try {
+      await _supabaseClient
+          .from('articles')
+          .update({'status': 'published'})
+          .eq('id', id);
+      return true;
+    } catch (e) {
+      if (kDebugMode) {
+        print('approveArticle error: $e');
+      }
+      return false;
+    }
+  }
+
+  /// Rejects (deletes) a pending article
+  Future<bool> rejectArticle(String id) async {
+    try {
+      await _supabaseClient
+          .from('articles')
+          .delete()
+          .eq('id', id);
+      return true;
+    } catch (e) {
+      if (kDebugMode) {
+        print('rejectArticle error: $e');
+      }
+      return false;
+    }
+  }
+
+  /// Triggers the Python AI agents by creating a new job
+  Future<String?> startAgentJob() async {
+    try {
+      final response = await _supabaseClient
+          .from('agent_jobs')
+          .insert({'status': 'pending'})
+          .select('id')
+          .single();
+      return response['id'] as String?;
+    } catch (e) {
+      if (kDebugMode) {
+        print('startAgentJob error: $e');
+      }
+      return null;
+    }
+  }
+
+  /// Watches the real-time logs for a specific agent job
+  Stream<List<String>> watchAgentLogs(String jobId) async* {
+    try {
+      final stream = _supabaseClient
+          .from('agent_logs')
+          .stream(primaryKey: ['id'])
+          .eq('job_id', jobId)
+          .order('created_at', ascending: true);
+
+      await for (final maps in stream) {
+        yield maps.map((map) => map['log_text'].toString()).toList();
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('watchAgentLogs error: $e');
+      }
+      yield [];
     }
   }
 

@@ -36,13 +36,41 @@ class AdminStatisticsScreen extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                loc.translate('stats_title'),
-                style: GoogleFonts.playfairDisplay(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w900,
-                  color: theme.colorScheme.onSurface,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    loc.translate('stats_title'),
+                    style: GoogleFonts.playfairDisplay(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w900,
+                      color: theme.colorScheme.onSurface,
+                    ),
+                  ),
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      foregroundColor: Colors.greenAccent,
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    ),
+                    icon: const Icon(Icons.terminal, size: 20),
+                    label: Text('Yapay Zekayı Çalıştır', style: GoogleFonts.robotoMono(fontWeight: FontWeight.bold)),
+                    onPressed: () async {
+                      final jobId = await ref.read(homeRepositoryProvider).startAgentJob();
+                      if (jobId != null && context.mounted) {
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => _LiveTerminalDialog(jobId: jobId),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Agent Job başlatılamadı! Supabase tablosu eksik olabilir.')),
+                        );
+                      }
+                    },
+                  ),
+                ],
               ),
               const SizedBox(height: 24),
               Row(
@@ -106,6 +134,16 @@ class AdminStatisticsScreen extends ConsumerWidget {
                   ],
                 ),
               ),
+              const SizedBox(height: 48),
+              Text(
+                'Onay Bekleyen Haberler (AI)',
+                style: GoogleFonts.inter(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 16),
+              _PendingArticlesSection(isDark: isDark),
               const SizedBox(height: 48),
               Text(
                 loc.translate('stats_distribution'),
@@ -277,3 +315,204 @@ class _StatCard extends StatelessWidget {
     );
   }
 }
+
+class _PendingArticlesSection extends ConsumerWidget {
+  final bool isDark;
+
+  const _PendingArticlesSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pendingAsync = ref.watch(pendingArticlesProvider);
+
+    return pendingAsync.when(
+      data: (articles) {
+        if (articles.isEmpty) {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24.0),
+              child: Text(
+                'Şu an onay bekleyen haber yok.',
+                style: GoogleFonts.inter(color: isDark ? Colors.grey[400] : Colors.grey[600]),
+              ),
+            ),
+          );
+        }
+
+        return ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: articles.length,
+          separatorBuilder: (context, index) => const SizedBox(height: 12),
+          itemBuilder: (context, index) {
+            final article = articles[index];
+            return Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: isDark ? const Color(0xFF161B22) : Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    article.title,
+                    style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: isDark ? Colors.white : Colors.black),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    article.summary ?? '',
+                    style: GoogleFonts.inter(fontSize: 14, color: isDark ? Colors.grey[400] : Colors.grey[700]),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton.icon(
+                        onPressed: () {
+                          ref.read(homeRepositoryProvider).rejectArticle(article.id);
+                        },
+                        icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
+                        label: Text('Reddet', style: GoogleFonts.inter(color: Colors.red, fontWeight: FontWeight.bold)),
+                      ),
+                      const SizedBox(width: 8),
+                      ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green,
+                          foregroundColor: Colors.white,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                        ),
+                        onPressed: () {
+                          ref.read(homeRepositoryProvider).approveArticle(article.id);
+                        },
+                        icon: const Icon(Icons.check, size: 20),
+                        label: Text('Onayla', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+      loading: () => const Center(child: Padding(
+        padding: EdgeInsets.all(24.0),
+        child: CircularProgressIndicator(),
+      )),
+    );
+  }
+}
+
+class _LiveTerminalDialog extends ConsumerStatefulWidget {
+  final String jobId;
+
+  const _LiveTerminalDialog({required this.jobId});
+
+  @override
+  ConsumerState<_LiveTerminalDialog> createState() => _LiveTerminalDialogState();
+}
+
+class _LiveTerminalDialogState extends ConsumerState<_LiveTerminalDialog> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  Widget build(BuildContext context) {
+    final streamAsync = ref.watch(_agentLogsStreamProvider(widget.jobId));
+
+    return Dialog(
+      backgroundColor: const Color(0xFF0D1117), // GitHub dark theme terminal color
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Container(
+        width: 800,
+        height: 600,
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.terminal, color: Colors.greenAccent),
+                    const SizedBox(width: 8),
+                    Text(
+                      'TARIM AI LIVE TERMINAL',
+                      style: GoogleFonts.robotoMono(
+                        color: Colors.greenAccent,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close, color: Colors.grey),
+                  onPressed: () => Navigator.of(context).pop(),
+                )
+              ],
+            ),
+            const Divider(color: Color(0xFF30363D), thickness: 1),
+            const SizedBox(height: 8),
+            Expanded(
+              child: streamAsync.when(
+                data: (logs) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (_scrollController.hasClients) {
+                      _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeOut,
+                      );
+                    }
+                  });
+
+                  if (logs.isEmpty) {
+                    return Text(
+                      '> Ajanlar başlatılıyor. Lütfen bekleyin...',
+                      style: GoogleFonts.robotoMono(color: Colors.grey[400], fontSize: 13),
+                    );
+                  }
+
+                  return ListView.builder(
+                    controller: _scrollController,
+                    itemCount: logs.length,
+                    itemBuilder: (context, index) {
+                      final log = logs[index];
+                      Color textColor = Colors.white70;
+                      if (log.contains('✅')) textColor = Colors.greenAccent;
+                      if (log.contains('❌') || log.contains('💥') || log.contains('ERROR')) textColor = Colors.redAccent;
+                      if (log.contains('>>>')) textColor = Colors.blueAccent;
+
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 4.0),
+                        child: Text(
+                          log,
+                          style: GoogleFonts.robotoMono(color: textColor, fontSize: 13),
+                        ),
+                      );
+                    },
+                  );
+                },
+                loading: () => const Center(child: CircularProgressIndicator(color: Colors.greenAccent)),
+                error: (e, st) => Center(child: Text('Terminal Hatası: $e', style: const TextStyle(color: Colors.redAccent))),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Local provider for the stream so it disposes when dialog closes
+final _agentLogsStreamProvider = StreamProvider.family<List<String>, String>((ref, jobId) {
+  final repo = ref.watch(homeRepositoryProvider);
+  return repo.watchAgentLogs(jobId);
+});
+
