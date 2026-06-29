@@ -13,11 +13,15 @@ import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import '../widgets/agenda_bento_grid.dart';
 import '../widgets/hero_fold.dart';
+import '../widgets/portal_sections/science_reports_dossier.dart';
+import '../widgets/portal_sections/turkey_news_grid.dart';
+import '../widgets/portal_sections/world_news_row.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import 'weather_detail_screen.dart';
 import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
+import '../widgets/yyt_dosyasi_section.dart';
 import 'article_detail_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -46,7 +50,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final currentLocale = ref.watch(localeProvider);
     final user          = ref.watch(currentUserProvider);
     final isDark        = theme.brightness == Brightness.dark;
-    final newsAsync     = ref.watch(latestArticlesProvider);
+    final rawNewsAsync = ref.watch(latestArticlesProvider);
 
     final bgColor = isDark
         ? const Color(0xFF0C1015)
@@ -79,23 +83,30 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ),
       body: SafeArea(
         top: false,
-        child: newsAsync.when(
-          data: (articles) => _buildBody(
-            context:       context,
-            ref:           ref,
-            theme:         theme,
-            isDark:        isDark,
-            localizations: localizations,
-            articles:      articles.where((a) => a.status == 'published').toList(),
-          ),
-          loading: () => _HomeSkeletonLoader(isDark: isDark),
-          error: (e, _) => Center(
-            child: Text(
-              'Hata: $e',
-              style: theme.textTheme.bodyMedium
-                  ?.copyWith(color: theme.colorScheme.error),
+        child: Column(
+          children: [
+            Expanded(
+              child: rawNewsAsync.when(
+                data: (_) {
+                  return _buildBody(
+                    context:       context,
+                    ref:           ref,
+                    theme:         theme,
+                    isDark:        isDark,
+                    localizations: localizations,
+                  );
+                },
+                loading: () => _HomeSkeletonLoader(isDark: isDark),
+                error: (e, _) => Center(
+                  child: Text(
+                    'Hata: $e',
+                    style: theme.textTheme.bodyMedium
+                        ?.copyWith(color: theme.colorScheme.error),
+                  ),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -108,7 +119,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required ThemeData theme,
     required bool isDark,
     required AppLocalizations localizations,
-    required List<NewsArticle> articles,
   }) {
     final width = MediaQuery.of(context).size.width;
 
@@ -117,7 +127,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         theme: theme,
         isDark: isDark,
         localizations: localizations,
-        articles: articles,
         maxWidth: 1200,
         hPad: 24,
         vPad: 20,
@@ -128,7 +137,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         theme: theme,
         isDark: isDark,
         localizations: localizations,
-        articles: articles,
         maxWidth: 1200,
         hPad: 24,
         vPad: 20,
@@ -139,14 +147,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         theme: theme,
         isDark: isDark,
         localizations: localizations,
-        articles: articles,
       );
     }
     return _MobileContent(
       theme: theme,
       isDark: isDark,
       localizations: localizations,
-      articles: articles,
     );
   }
 
@@ -393,13 +399,11 @@ class _MobileContent extends ConsumerWidget {
   final ThemeData theme;
   final bool isDark;
   final AppLocalizations localizations;
-  final List<NewsArticle> articles;
 
   const _MobileContent({
     required this.theme,
     required this.isDark,
     required this.localizations,
-    required this.articles,
   });
 
   @override
@@ -409,14 +413,23 @@ class _MobileContent extends ConsumerWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          HeroFold(articles: articles),
+          _PortalHeroSection(isDark: isDark),
+          const SizedBox(height: 28),
+          YYTDosyasiSection(isDark: isDark),
+          const SizedBox(height: 28),
+          _TurkeyNewsSection(isDark: isDark),
+          const SizedBox(height: 28),
+          _ScienceAndReportsSection(isDark: isDark),
+          const SizedBox(height: 28),
+          _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 28),
           _TrendingSection(isDark: isDark),
           const SizedBox(height: 28),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: AgendaBentoGrid(articles: articles, isDark: isDark),
-          ),
+          _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
+          const SizedBox(height: 28),
+          _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
+          const SizedBox(height: 28),
+          _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
           const SizedBox(height: 32),
           PortalFooter(isDark: isDark),
         ],
@@ -431,13 +444,11 @@ class _TabletContent extends ConsumerWidget {
   final ThemeData theme;
   final bool isDark;
   final AppLocalizations localizations;
-  final List<NewsArticle> articles;
 
   const _TabletContent({
     required this.theme,
     required this.isDark,
     required this.localizations,
-    required this.articles,
   });
 
   @override
@@ -447,11 +458,23 @@ class _TabletContent extends ConsumerWidget {
       child: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          HeroFold(articles: articles),
+          _PortalHeroSection(isDark: isDark),
+          const SizedBox(height: 36),
+          YYTDosyasiSection(isDark: isDark),
+          const SizedBox(height: 36),
+          _TurkeyNewsSection(isDark: isDark),
+          const SizedBox(height: 36),
+          _ScienceAndReportsSection(isDark: isDark),
+          const SizedBox(height: 36),
+          _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 36),
           _TrendingSection(isDark: isDark),
           const SizedBox(height: 36),
-          AgendaBentoGrid(articles: articles, isDark: isDark),
+          _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
+          const SizedBox(height: 36),
+          _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
+          const SizedBox(height: 36),
+          _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
           const SizedBox(height: 32),
           PortalFooter(isDark: isDark),
         ],
@@ -466,7 +489,6 @@ class _DesktopContent extends ConsumerWidget {
   final ThemeData theme;
   final bool isDark;
   final AppLocalizations localizations;
-  final List<NewsArticle> articles;
   final double maxWidth;
   final double hPad;
   final double vPad;
@@ -475,7 +497,6 @@ class _DesktopContent extends ConsumerWidget {
     required this.theme,
     required this.isDark,
     required this.localizations,
-    required this.articles,
     required this.maxWidth,
     required this.hPad,
     required this.vPad,
@@ -494,19 +515,40 @@ class _DesktopContent extends ConsumerWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 32),
-                      child: HeroFold(articles: articles),
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _PortalHeroSection(isDark: isDark),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 32),
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: YYTDosyasiSection(isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _TurkeyNewsSection(isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _ScienceAndReportsSection(isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _WorldNewsSection(isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
                       child: _TrendingSection(isDark: isDark),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 32),
-                      child: AgendaBentoGrid(
-                        articles: articles,
-                        isDark: isDark,
-                      ),
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
                     ),
                   ],
                 ),
@@ -881,3 +923,157 @@ class _TrendingCardState extends State<_TrendingCard> {
     );
   }
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  PORTAL SECTIONS (YENİ MİMARİ)
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _PortalHeroSection extends ConsumerWidget {
+  final bool isDark;
+  const _PortalHeroSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(heroArticlesProvider);
+    if (articles.isEmpty) return const SizedBox.shrink();
+    
+    // For now we reuse HeroFold but pass only the top hero articles
+    return HeroFold(articles: articles);
+  }
+}
+
+class _TurkeyNewsSection extends ConsumerWidget {
+  final bool isDark;
+  const _TurkeyNewsSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(turkeyNewsProvider);
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    return TurkeyNewsGrid(
+      articles: articles.take(6).toList(),
+      isDark: isDark,
+    );
+  }
+}
+
+class _WorldNewsSection extends ConsumerWidget {
+  final bool isDark;
+  const _WorldNewsSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(worldNewsProvider);
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    return WorldNewsRow(
+      articles: articles.take(10).toList(), // Show up to 10 for scroll
+      isDark: isDark,
+    );
+  }
+}
+
+class _ScienceAndReportsSection extends ConsumerWidget {
+  final bool isDark;
+  const _ScienceAndReportsSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(scienceAndReportsProvider);
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    return ScienceReportsDossier(
+      articles: articles.take(6).toList(),
+      isDark: isDark,
+    );
+  }
+}
+
+class _SectoralNewsSection extends ConsumerWidget {
+  final String topic;
+  final bool isDark;
+  
+  const _SectoralNewsSection({required this.topic, required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(categoryArticlesProvider(topic));
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    String displayTopic = topic.toUpperCase();
+    if (isEn) {
+      if (topic == 'Hayvancılık') displayTopic = 'LIVESTOCK';
+      if (topic == 'Bitkisel Üretim') displayTopic = 'CROP PRODUCTION';
+      if (topic == 'Ekonomi') displayTopic = 'ECONOMY';
+    }
+
+    return _SectionContainer(
+      title: displayTopic,
+      icon: Icons.category_rounded,
+      iconColor: Theme.of(context).colorScheme.primary,
+      isDark: isDark,
+      child: AgendaBentoGrid(articles: articles.take(6).toList(), isDark: isDark),
+    );
+  }
+}
+
+class _SectionContainer extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final Color iconColor;
+  final Widget child;
+  final bool isDark;
+
+  const _SectionContainer({
+    required this.title,
+    required this.icon,
+    required this.iconColor,
+    required this.child,
+    required this.isDark,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
+    final dividerColor = isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(height: 3, width: double.infinity, color: dividerColor),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Icon(icon, color: iconColor, size: 24),
+                  const SizedBox(width: 8),
+                  Text(
+                    title,
+                    style: GoogleFonts.playfairDisplay(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 0.4,
+                      color: headerColor,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: child,
+        ),
+      ],
+    );
+  }
+}
+

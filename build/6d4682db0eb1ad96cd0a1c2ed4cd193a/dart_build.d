@@ -1,1 +1,0 @@
- /Users/BURHAN/Desktop/tarim_app/build/6d4682db0eb1ad96cd0a1c2ed4cd193a/dart_build_result.json:  /Users/BURHAN/Desktop/tarim_app/.dart_tool/package_config.json /Users/BURHAN/Desktop/tarim_app/pubspec.yaml /Users/BURHAN/lib/flutter/bin/cache/dart-sdk/version

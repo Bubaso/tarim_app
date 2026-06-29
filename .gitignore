@@ -1,4 +1,4 @@
-node_modules
+node_modules/
 
 # Gerçek secret'ları içeren .env dosyası ASLA commit edilmemeli.
 # .env.example şablonu commit edilebilir.
@@ -17,4 +17,32 @@ build/
 Thumbs.db
 
 # Local Netlify folder
-.netlify
+.netlify/
+
+# Python virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# Log dosyaları
+*.log
+output.log
+build_log.txt
+test_output.txt
+
+# IDE
+.idea/
+.vscode/
+
+# Temporary/scratch files
+scratch.py
+test_gidatarim*.py
+test_image_url.dart
+test_insert_job_dart.dart
+translate_missing_dart.dart
+lib/translate_missing_en.dart
+lib/test_fetch.dart
+lib/test_insert.dart
+swagger.json
+database.json
+deploy.exp

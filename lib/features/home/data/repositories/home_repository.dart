@@ -127,6 +127,49 @@ class HomeRepository {
     }
   }
 
+  /// Watches YYT-category articles in real-time.
+  /// Filters by category_slug = 'yyt' via a JOIN on the categories table.
+  /// Falls back to a client-side slug match if the join is unavailable.
+  Stream<List<NewsArticle>> watchYYTArticles() async* {
+    try {
+      // First, look up the yyt category_id from the categories table once
+      String? yytCategoryId;
+      try {
+        final catRes = await _supabaseClient
+            .from('categories')
+            .select('id')
+            .eq('slug', 'yyt')
+            .maybeSingle();
+        if (catRes != null) {
+          yytCategoryId = catRes['id']?.toString();
+        }
+      } catch (_) {}
+
+      if (yytCategoryId != null) {
+        final stream = _supabaseClient
+            .from('articles')
+            .stream(primaryKey: ['id'])
+            .eq('status', 'published')
+            .order('created_at', ascending: false)
+            .map((maps) => maps
+                .where((m) => m['category_id']?.toString() == yytCategoryId)
+                .map((m) => NewsArticle.fromJson(m))
+                .toList());
+        await for (final articles in stream) {
+          yield articles;
+        }
+      } else {
+        // No yyt category found, yield empty
+        yield [];
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print('watchYYTArticles error: $e');
+      }
+      yield [];
+    }
+  }
+
   /// Watches top trending articles ordered by view_count
   Stream<List<NewsArticle>> watchTrendingArticles() {
     return _supabaseClient
@@ -606,6 +649,36 @@ class HomeRepository {
     }
   }
 
+  /// Updates the hero status and order of an article.
+  Future<bool> updateHeroStatus(String id, bool isHero, int? heroOrder) async {
+    try {
+      await _supabaseClient.from('articles').update({
+        'is_hero': isHero,
+        'hero_order': heroOrder,
+      }).eq('id', id);
+      return true;
+    } catch (e) {
+      if (kDebugMode) print('updateHeroStatus error: $e');
+      return false;
+    }
+  }
+
+  /// Batch updates the hero orders.
+  Future<bool> batchUpdateHeroOrders(List<Map<String, dynamic>> updates) async {
+    try {
+      for (final update in updates) {
+        await _supabaseClient.from('articles').update({
+          'is_hero': true,
+          'hero_order': update['hero_order'],
+        }).eq('id', update['id']);
+      }
+      return true;
+    } catch (e) {
+      if (kDebugMode) print('batchUpdateHeroOrders error: $e');
+      return false;
+    }
+  }
+
   /// Fetches the list of article assignments from the database.
   Future<List<Map<String, dynamic>>> fetchArticleAssignments() async {
     try {
@@ -773,6 +846,32 @@ Yazım Kuralları:
         );
       }
       return true;
+    }
+  }
+
+  /// Automatically translates Turkish text to English using Gemini.
+  Future<String?> translateTextToEnglish(String? text) async {
+    if (text == null || text.trim().isEmpty) return null;
+    try {
+      final apiKey = ApiConstants.geminiApiKey;
+      if (apiKey.isEmpty) return null;
+
+      final model = GenerativeModel(
+        model: 'gemini-2.5-flash',
+        apiKey: apiKey,
+      );
+
+      final prompt = '''
+Translate the following Turkish text to professional English. Do not add any extra comments, markdown formatting, or explanations. Just provide the exact translation.
+
+Text to translate:
+$text
+''';
+      final response = await model.generateContent([Content.text(prompt)]);
+      return response.text?.trim();
+    } catch (e) {
+      if (kDebugMode) print('Translation error: $e');
+      return null;
     }
   }
 }

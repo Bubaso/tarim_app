@@ -11,8 +11,9 @@ import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 
 // ─── Ayrıştırma yardımcıları ──────────────────────────────────────────────
-bool _isHeadline(NewsArticle a) =>
-    a.sourceName != null && a.sourceName!.trim().isNotEmpty;
+bool _isHeadline(NewsArticle a) {
+  return true; // We use smart filtering now instead of just sourceName
+}
 
 // Şimdilik veritabanında gerçek "Köşe Yazısı" ayrımı olmadığı için,
 // AI tarafından üretilen (sourceName == null) makalelerin Yazarlarımız
@@ -75,7 +76,7 @@ class HeroFold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final headlines = articles.where(_isHeadline).take(8).toList();
+    final headlines = articles; // Provider already buckets, filters, and sorts correctly (max 12 items).
     final opEds     = articles.where(_isOpEd).take(6).toList();
 
     final width = MediaQuery.of(context).size.width;
@@ -520,8 +521,9 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
     });
   }
 
-  void _resetTimer() {
-    _startTimer();
+  void _stopTimer() {
+    _timer?.cancel();
+    _timer = null;
   }
 
   @override
@@ -552,16 +554,25 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
                 fit: StackFit.expand,
                 children: [
                   // ── PageView ────────────────────────────────────────────────
-                  ScrollConfiguration(
-                    behavior: AppScrollBehavior(),
-                    child: PageView.builder(
-                      controller: _pc,
-                      itemCount: total,
-                      onPageChanged: (i) => setState(() => _current = i),
-                      itemBuilder: (context, index) {
-                        final article = widget.headlines[index];
-                        return _HeadlineSlide(article: article);
-                      },
+                  NotificationListener<UserScrollNotification>(
+                    onNotification: (notification) {
+                      _stopTimer();
+                      return false; // Let the scroll propagate
+                    },
+                    child: Listener(
+                      onPointerDown: (_) => _stopTimer(),
+                      child: ScrollConfiguration(
+                        behavior: AppScrollBehavior(),
+                        child: PageView.builder(
+                          controller: _pc,
+                          itemCount: total,
+                          onPageChanged: (i) => setState(() => _current = i),
+                          itemBuilder: (context, index) {
+                            final article = widget.headlines[index];
+                            return _HeadlineSlide(article: article);
+                          },
+                        ),
+                      ),
                     ),
                   ),
 
@@ -576,7 +587,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
                         child: _CarouselArrowButton(
                           icon: Icons.chevron_left,
                           onTap: () {
-                            _resetTimer();
+                            _stopTimer();
                             final prev = (_current - 1 + total) % total;
                             _pc.animateToPage(
                               prev,
@@ -596,7 +607,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
                         child: _CarouselArrowButton(
                           icon: Icons.chevron_right,
                           onTap: () {
-                            _resetTimer();
+                            _stopTimer();
                             final next = (_current + 1) % total;
                             _pc.animateToPage(
                               next,
@@ -619,7 +630,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
               current: _current,
               total: total,
               onDotTapped: (index) {
-                _resetTimer();
+                _stopTimer();
                 _pc.animateToPage(
                   index,
                   duration: const Duration(milliseconds: 450),
@@ -1051,14 +1062,6 @@ class _OpEdCardState extends State<_OpEdCard> {
                           fontWeight: FontWeight.w700,
                           color: titleColor,
                           height: 1.3,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        date,
-                        style: GoogleFonts.robotoMono(
-                          fontSize: 9,
-                          color: widget.isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
                         ),
                       ),
                     ],

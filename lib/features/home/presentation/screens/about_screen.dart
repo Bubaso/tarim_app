@@ -119,7 +119,7 @@ class AboutScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 24),
                       _buildKunyeItem(isEn ? 'Franchisee' : 'İmtiyaz Sahibi', isEn ? 'Tarım Portalı Digital Publishing Inc.' : 'Tarım Portalı Dijital Yayıncılık A.Ş.', textColor, subtleColor),
-                      _buildKunyeItem(isEn ? 'Editor-in-Chief' : 'Genel Yayın Yönetmeni', 'Burhan Gökçek', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Editor-in-Chief' : 'Genel Yayın Yönetmeni', 'Ali Gökçek', textColor, subtleColor),
                       _buildKunyeItem(isEn ? 'Managing Editor' : 'Sorumlu Yazı İşleri Müdürü', 'Ali Yılmaz', textColor, subtleColor),
                       _buildKunyeItem(isEn ? 'Technical Infrastructure' : 'Teknik Altyapı', 'Antigravity Studio', textColor, subtleColor),
                       _buildKunyeItem(isEn ? 'Address' : 'Adres', 'Bilişim Vadisi, Teknopark Ofis B-Z02, Gebze/Kocaeli', textColor, subtleColor),

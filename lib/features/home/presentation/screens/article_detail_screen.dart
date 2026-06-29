@@ -8,6 +8,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:flutter/services.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
+import 'package:flutter_html/flutter_html.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
 
@@ -238,16 +239,26 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ),
                           const SizedBox(height: 28),
 
-                          // ── Gövde metni (Lora, 18px, 1.6 line-height) ─────
-                          Text(
-                            displayContent,
-                            style: GoogleFonts.lora(
-                              fontSize: 18,
-                              color: isDark
-                                  ? const Color(0xFFCFD8DC)
-                                  : const Color(0xFF2C2C2A),
-                              height: 1.6,
-                            ),
+                          // ── Gövde metni (Html) ─────
+                          Html(
+                            data: displayContent,
+                            style: {
+                              "body": Style(
+                                margin: Margins.zero,
+                                padding: HtmlPaddings.zero,
+                                fontSize: FontSize(18),
+                                fontFamily: GoogleFonts.lora().fontFamily,
+                                color: isDark ? const Color(0xFFCFD8DC) : const Color(0xFF2C2C2A),
+                                lineHeight: const LineHeight(1.6),
+                              ),
+                              "p": Style(
+                                margin: Margins.only(bottom: 16),
+                              ),
+                              "img": Style(
+                                width: Width(100, Unit.percent),
+                                height: Height.auto(),
+                              ),
+                            },
                           ),
 
                           // ── Etiketler ─────────────────────────────────────
@@ -596,7 +607,7 @@ class _ShareBar extends StatelessWidget {
 
   String _buildShareUrl() {
     // Generate a unique URL for the article
-    return 'https://fantastic-dolphin-74f503.netlify.app/haber/${article.id}';
+    return 'https://tarim-app-2026.web.app/haber/${article.id}';
   }
 
   void _shareNative(BuildContext context) {
@@ -604,7 +615,17 @@ class _ShareBar extends StatelessWidget {
     final text = isEn 
         ? '${article.title}\nRead more at: $url' 
         : '${article.title}\nDetaylar için: $url';
-    Share.share(text);
+        
+    final box = context.findRenderObject() as RenderBox?;
+    try {
+      Share.share(
+        text,
+        sharePositionOrigin: box != null ? box.localToGlobal(Offset.zero) & box.size : null,
+      );
+    } catch (e) {
+      // Fallback if native share is unavailable (e.g., unsupported Web environment)
+      _copyToClipboard(context);
+    }
   }
 
   void _copyToClipboard(BuildContext context) {
@@ -624,10 +645,15 @@ class _ShareBar extends StatelessWidget {
     final text = isEn 
         ? '${article.title} - $url' 
         : '${article.title} - $url';
-    final whatsappUrl = Uri.parse('whatsapp://send?text=${Uri.encodeComponent(text)}');
+        
+    final whatsappAppUrl = Uri.parse('whatsapp://send?text=${Uri.encodeComponent(text)}');
+    final whatsappWebUrl = Uri.parse('https://api.whatsapp.com/send?text=${Uri.encodeComponent(text)}');
+    
     try {
-      if (await canLaunchUrl(whatsappUrl)) {
-        await launchUrl(whatsappUrl);
+      if (await canLaunchUrl(whatsappAppUrl)) {
+        await launchUrl(whatsappAppUrl);
+      } else {
+        await launchUrl(whatsappWebUrl, mode: LaunchMode.externalApplication);
       }
     } catch (_) {}
   }

@@ -10,7 +10,10 @@ import '../../../home/data/models/news_article.dart';
 import '../../../home/data/models/ai_suggestion.dart';
 import '../../../home/providers/home_providers.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
+import '../../../../core/services/storage_service.dart';
+import 'package:html_editor_enhanced/html_editor.dart';
 import 'admin_statistics_screen.dart';
+import 'admin_hero_screen.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -35,10 +38,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   // Form controllers
   final _titleController = TextEditingController();
   final _summaryController = TextEditingController();
-  final _contentController = TextEditingController();
+  final HtmlEditorController _htmlController = HtmlEditorController();
   final _locationController = TextEditingController();
 
   String? _selectedCategoryId;
+  String? _uploadedImageUrl;
   bool _isSubmitting = false;
   bool _showMobileForm = false; // Toggle to show form on mobile instead of list
   bool _showArchived = false; // Toggle to view unpublished/archived articles
@@ -161,7 +165,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -169,9 +173,29 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     _tabController.dispose();
     _titleController.dispose();
     _summaryController.dispose();
-    _contentController.dispose();
     _locationController.dispose();
     super.dispose();
+  }
+
+  Future<void> _pickCoverImage() async {
+    final StorageService storageService = StorageService();
+    final url = await storageService.pickAndUploadImage();
+    if (url != null) {
+      setState(() {
+        _uploadedImageUrl = url;
+      });
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Kapak görseli başarıyla yüklendi.')),
+        );
+      }
+    } else {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Kapak görseli seçilmedi veya yüklenemedi.')),
+        );
+      }
+    }
   }
 
   // Map city name to a WKT representation POINT(longitude latitude) for PostGIS
@@ -221,24 +245,42 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
 
     final title = _titleController.text.trim();
     final summary = _summaryController.text.trim();
-    final content = _contentController.text.trim();
+    final content = await _htmlController.getText();
     final location = _locationController.text.trim();
 
     // Map city to WKT geo_location POINT(longitude latitude)
     final geoLocation = _getGeoLocationFromCity(location);
 
     final isEditing = _editingArticle != null;
+    final finalImageUrl = _uploadedImageUrl ?? _editingArticle?.imageUrl;
 
     // Construct the article for Supabase insertion/update
+    final repository = ref.read(homeRepositoryProvider);
+    
+    // Auto-translate if English is missing or it's a new article and we have Turkish content
+    String? titleEn = _editingArticle?.titleEn;
+    String? summaryEn = _editingArticle?.summaryEn;
+    String? contentEn = _editingArticle?.contentEn;
+    
+    if (titleEn == null || titleEn.isEmpty) {
+      titleEn = await repository.translateTextToEnglish(title);
+    }
+    if (summaryEn == null || summaryEn.isEmpty) {
+      summaryEn = await repository.translateTextToEnglish(summary);
+    }
+    if (contentEn == null || contentEn.isEmpty) {
+      contentEn = await repository.translateTextToEnglish(content);
+    }
+
     final article = NewsArticle(
       id: isEditing ? _editingArticle!.id : const Uuid().v4(),
       title: title,
-      titleEn: _editingArticle?.titleEn,
+      titleEn: titleEn,
       content: content,
-      contentEn: _editingArticle?.contentEn,
+      contentEn: contentEn,
       summary: summary,
-      summaryEn: _editingArticle?.summaryEn,
-      imageUrl: _editingArticle?.imageUrl,
+      summaryEn: summaryEn,
+      imageUrl: finalImageUrl,
       seoKeywords: _editingArticle?.seoKeywords,
       sourceName: _editingArticle?.sourceName,
       sourceUrl: _editingArticle?.sourceUrl,
@@ -250,7 +292,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     );
 
     // Call submit through repository
-    final repository = ref.read(homeRepositoryProvider);
     final errorMessage = isEditing 
         ? await repository.updateArticle(article)
         : (await repository.submitArticleByAuthor(article) ? null : 'Failed to insert');
@@ -285,11 +326,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   }
 
   void _cancelEdit() {
-    _titleController.clear();
-    _summaryController.clear();
-    _contentController.clear();
-    _locationController.clear();
     setState(() {
+      _titleController.clear();
+      _summaryController.clear();
+      _htmlController.clear();
+      _locationController.clear();
+      _uploadedImageUrl = null;
       _selectedCategoryId = null;
       _showMobileForm = false;
       _editingArticle = null;
@@ -347,6 +389,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               text: loc.translate('dash_tab_my_articles'),
             ),
             Tab(
+              icon: const Icon(Icons.star_rounded),
+              text: isEn ? 'Hero News' : 'Hero Yönetimi',
+            ),
+            Tab(
               icon: const Icon(Icons.category_rounded),
               text: isEn ? 'Categories' : 'Kategoriler',
             ),
@@ -372,6 +418,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         controller: _tabController,
         children: [
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
+          const AdminHeroScreen(),
           _buildAssignmentsTab(context, theme),
           _buildAiSuggestionsTab(context, theme),
           const AdminStatisticsScreen(),
@@ -695,7 +742,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                             setState(() {
                               _titleController.text = topic['title'] ?? '';
                               _summaryController.text = topic['description'] ?? '';
-                              _contentController.text = 'Bu konu hakkında araştırma ve editoryal yazım devam etmektedir...';
+                              Future.delayed(const Duration(milliseconds: 100), () {
+                                _htmlController.insertHtml('Bu konu hakkında araştırma ve editoryal yazım devam etmektedir...');
+                              });
                               _locationController.text = 'Konya';
                               
                               final categoryStr = topic['category'] ?? '';
@@ -812,26 +861,89 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               ),
               const SizedBox(height: 16),
 
-              // Turkish Content
-              TextFormField(
-                controller: _contentController,
-                maxLines: 12,
-                decoration: InputDecoration(
-                  labelText: loc.translate('form_body'),
-                  hintText: loc.translate('form_body_hint'),
-                  alignLabelWithHint: true,
-                  filled: true,
-                  fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color: theme.colorScheme.outlineVariant),
+              // Cover Image Upload Button
+              Container(
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5)),
+                ),
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: theme.colorScheme.secondary.withValues(alpha: 0.1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: _uploadedImageUrl != null || _editingArticle?.imageUrl != null
+                          ? ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.network(
+                                _uploadedImageUrl ?? _editingArticle!.imageUrl!,
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          : Icon(Icons.image_outlined, color: theme.colorScheme.secondary),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Kapak Görseli',
+                            style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            _uploadedImageUrl != null ? 'Yeni görsel yüklendi' : (_editingArticle?.imageUrl != null ? 'Mevcut görsel kullanılıyor' : 'Henüz görsel seçilmedi'),
+                            style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
+                          ),
+                        ],
+                      ),
+                    ),
+                    OutlinedButton.icon(
+                      onPressed: _pickCoverImage,
+                      icon: const Icon(Icons.upload_rounded, size: 18),
+                      label: const Text('Yükle'),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              // Turkish Content with HtmlEditor
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5)),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: HtmlEditor(
+                  controller: _htmlController,
+                  htmlEditorOptions: HtmlEditorOptions(
+                    hint: loc.translate('form_body_hint'),
+                    initialText: _editingArticle?.content ?? '',
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color: theme.colorScheme.outlineVariant.withValues(alpha: 0.5)),
+                  otherOptions: const OtherOptions(
+                    height: 400,
+                  ),
+                  htmlToolbarOptions: HtmlToolbarOptions(
+                    toolbarType: ToolbarType.nativeGrid,
+                    defaultToolbarButtons: [
+                      const StyleButtons(),
+                      const FontSettingButtons(fontSizeUnit: false),
+                      const FontButtons(),
+                      const ColorButtons(),
+                      const ListButtons(),
+                      const ParagraphButtons(),
+                      const InsertButtons(audio: false, video: true, otherFile: false, table: true, hr: true),
+                    ],
                   ),
                 ),
-                validator: (val) => val == null || val.trim().isEmpty ? loc.translate('form_err_body') : null,
               ),
               const SizedBox(height: 16),
 
@@ -1074,7 +1186,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                               _editingArticle = article;
                               _titleController.text = article.title;
                               _summaryController.text = article.summary ?? '';
-                              _contentController.text = article.content ?? '';
+                              Future.delayed(const Duration(milliseconds: 100), () {
+                                _htmlController.setText(article.content ?? '');
+                              });
+                              _uploadedImageUrl = null;
                               _locationController.text = _getCityFromGeoLocation(article.geoLocation);
                               _selectedCategoryId = article.categoryId;
                               _showMobileForm = true; // Show form automatically on mobile

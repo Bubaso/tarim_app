@@ -68,10 +68,6 @@ class AgendaBentoGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // ── Gazete tarzı bölüm başlığı ──────────────────────────────────
-        _NewspaperSectionHeader(isDark: isDark),
-        const SizedBox(height: 20),
-
         // ── Asimetrik bento ─────────────────────────────────────────────
         if (width >= _kBentoBreakpoint)
           _DesktopBento(articles: combined, isDark: isDark)
@@ -345,16 +341,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
           ),
         ),
         const SizedBox(height: 16),
-        Text(
-          dateStr.toUpperCase(),
-          style: GoogleFonts.robotoMono(
-            fontSize: 10,
-            fontWeight: FontWeight.w600,
-            color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
-            letterSpacing: 0.5,
-          ),
-        ),
-        const SizedBox(height: 8),
+
         Text(
           title,
           maxLines: widget.isFeature ? 3 : 4,
@@ -412,16 +399,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                dateStr.toUpperCase(),
-                style: GoogleFonts.robotoMono(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w600,
-                  color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
-                  letterSpacing: 0.5,
-                ),
-              ),
-              const SizedBox(height: 6),
+
               Text(
                 title,
                 maxLines: 3,
@@ -562,16 +540,7 @@ class _MobileBento extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      dateStr.toUpperCase(),
-                      style: GoogleFonts.robotoMono(
-                        fontSize: 8,
-                        fontWeight: FontWeight.w500,
-                        color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
-                        letterSpacing: 0.4,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
+
                     Text(
                       title,
                       maxLines: 3,
@@ -657,16 +626,7 @@ class _MobileBento extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      dateStr.toUpperCase(),
-                      style: GoogleFonts.robotoMono(
-                        fontSize: 8,
-                        fontWeight: FontWeight.w500,
-                        color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
-                        letterSpacing: 0.4,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
+
                     Text(
                       title,
                       maxLines: 3,
@@ -882,14 +842,7 @@ class _ListItemState extends State<_ListItem> {
                         height: 1.25,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt),
-                      style: GoogleFonts.robotoMono(
-                        fontSize: 9,
-                        color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
-                      ),
-                    ),
+
                   ],
                 ),
               ),

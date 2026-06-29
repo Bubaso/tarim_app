@@ -15,6 +15,14 @@ class NewsArticle {
   final String? categoryId;
   final String? geoLocation;
   final int viewCount;
+  
+  // Yeni eklenen taksonomi alanları
+  final String? contentType;
+  final String? topic;
+  final String? region;
+  final int? heroScore;
+  final bool? isHero;
+  final int? heroOrder;
 
   NewsArticle({
     required this.id,
@@ -33,6 +41,12 @@ class NewsArticle {
     this.categoryId,
     this.geoLocation,
     this.viewCount = 0,
+    this.contentType,
+    this.topic,
+    this.region,
+    this.heroScore,
+    this.isHero,
+    this.heroOrder,
   });
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) {
@@ -66,6 +80,12 @@ class NewsArticle {
       categoryId: json['category_id']?.toString(),
       geoLocation: json['geo_location']?.toString(),
       viewCount: json['view_count'] != null ? (json['view_count'] as num).toInt() : 0,
+      contentType: json['content_type']?.toString(),
+      topic: json['topic']?.toString(),
+      region: json['region']?.toString(),
+      heroScore: json['hero_score'] != null ? (json['hero_score'] as num).toInt() : null,
+      isHero: json['is_hero'] as bool?,
+      heroOrder: json['hero_order'] != null ? (json['hero_order'] as num).toInt() : null,
     );
   }
 
@@ -87,6 +107,12 @@ class NewsArticle {
       'category_id': categoryId,
       'geo_location': geoLocation,
       'view_count': viewCount,
+      'content_type': contentType,
+      'topic': topic,
+      'region': region,
+      'hero_score': heroScore,
+      'is_hero': isHero,
+      'hero_order': heroOrder,
     };
   }
 }

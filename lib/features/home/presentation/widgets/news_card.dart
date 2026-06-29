@@ -100,39 +100,63 @@ class _NewsCardState extends State<NewsCard> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          if (hasSource)
-                            Flexible(
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 2,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.primary.withValues(alpha: 0.1),
-                                  borderRadius: BorderRadius.circular(2),
-                                ),
-                                child: Text(
-                                  widget.article.sourceName!.toUpperCase(),
-                                  style: GoogleFonts.inter(
-                                    color: theme.colorScheme.primary,
-                                    fontWeight: FontWeight.w800,
-                                    fontSize: 9,
-                                    letterSpacing: 0.5,
+                          Expanded(
+                            child: Wrap(
+                              spacing: 6,
+                              runSpacing: 4,
+                              children: [
+                                if (hasSource)
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(
+                                      color: theme.colorScheme.primary.withValues(alpha: 0.1),
+                                      borderRadius: BorderRadius.circular(2),
+                                    ),
+                                    child: Text(
+                                      widget.article.sourceName!.toUpperCase(),
+                                      style: GoogleFonts.inter(
+                                        color: theme.colorScheme.primary,
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 9,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
                                   ),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                ),
-                              ),
-                            )
-                          else
-                            const SizedBox.shrink(),
-                          const SizedBox(width: 8),
-                          Text(
-                            formattedDate.toUpperCase(),
-                            style: GoogleFonts.robotoMono(
-                              color: theme.hintColor,
-                              fontSize: 9,
-                              fontWeight: FontWeight.w500,
+                                if (widget.article.topic != null && widget.article.topic!.isNotEmpty)
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(
+                                      color: isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1),
+                                      borderRadius: BorderRadius.circular(2),
+                                    ),
+                                    child: Text(
+                                      widget.article.topic!.toUpperCase(),
+                                      style: GoogleFonts.inter(
+                                        color: isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 9,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
+                                  ),
+                                if (widget.article.region != null && widget.article.region!.isNotEmpty && widget.article.region != 'Türkiye')
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(
+                                      color: isDark ? const Color(0xFF3B2A10) : const Color(0xFFFFF2D9),
+                                      borderRadius: BorderRadius.circular(2),
+                                    ),
+                                    child: Text(
+                                      widget.article.region!.toUpperCase(),
+                                      style: GoogleFonts.inter(
+                                        color: Colors.orangeAccent,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 9,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
                         ],
