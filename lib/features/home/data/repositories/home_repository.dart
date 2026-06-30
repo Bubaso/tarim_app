@@ -16,47 +16,46 @@ class HomeRepository {
 
   HomeRepository(this._supabaseClient);
 
-  /// Supabase realtime stream for watching changes to 'articles' table, ordered by 'created_at' descending.
-  Stream<List<NewsArticle>> watchLatestArticles() async* {
-    try {
-      final stream = _supabaseClient
-          .from('articles')
-          .stream(primaryKey: ['id'])
-          .eq('status', 'published')
-          .order('created_at', ascending: false);
-
-      await for (final maps in stream) {
-        final dbArticles = maps.map((map) => NewsArticle.fromJson(map)).toList();
-        _cachedDbArticles = dbArticles;
-        yield [..._localDrafts, ...dbArticles];
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print('watchLatestArticles error: $e');
-      }
-      // If stream fails (no table, offline, etc), yield local drafts + last known DB articles
-      yield [..._localDrafts, ..._cachedDbArticles];
-    }
+  /// Supabase REST stream for fetching 'articles' table, ordered by 'created_at' descending.
+  Stream<List<NewsArticle>> watchLatestArticles() {
+    return _supabaseClient
+        .from('articles')
+        .select('*')
+        .eq('status', 'published')
+        .order('created_at', ascending: false)
+        .asStream()
+        .map((maps) {
+          final dbArticles = maps
+              .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+              .toList();
+          _cachedDbArticles = dbArticles;
+          return [..._localDrafts, ...dbArticles];
+        })
+        .handleError((e) {
+          if (kDebugMode) {
+            print('watchLatestArticles error: $e');
+          }
+          return [..._localDrafts, ..._cachedDbArticles];
+        });
   }
 
-  /// Supabase realtime stream for watching changes to pending articles.
-  Stream<List<NewsArticle>> watchPendingArticles() async* {
-    try {
-      final stream = _supabaseClient
-          .from('articles')
-          .stream(primaryKey: ['id'])
-          .eq('status', 'reviewing')
-          .order('created_at', ascending: false);
-
-      await for (final maps in stream) {
-        yield maps.map((map) => NewsArticle.fromJson(map)).toList();
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print('watchPendingArticles error: $e');
-      }
-      yield [];
-    }
+  /// Supabase REST stream for fetching pending articles.
+  Stream<List<NewsArticle>> watchPendingArticles() {
+    return _supabaseClient
+        .from('articles')
+        .select('*')
+        .eq('status', 'reviewing')
+        .order('created_at', ascending: false)
+        .asStream()
+        .map((maps) => maps
+            .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+            .toList())
+        .handleError((e) {
+          if (kDebugMode) {
+            print('watchPendingArticles error: $e');
+          }
+          return <NewsArticle>[];
+        });
   }
 
   /// Approves a pending article and makes it published
@@ -127,63 +126,67 @@ class HomeRepository {
     }
   }
 
-  /// Watches YYT-category articles in real-time.
+  /// Watches YYT-category articles using REST stream.
   /// Filters by category_slug = 'yyt' via a JOIN on the categories table.
   /// Falls back to a client-side slug match if the join is unavailable.
-  Stream<List<NewsArticle>> watchYYTArticles() async* {
-    try {
-      // First, look up the yyt category_id from the categories table once
-      String? yytCategoryId;
-      try {
-        final catRes = await _supabaseClient
-            .from('categories')
-            .select('id')
-            .eq('slug', 'yyt')
-            .maybeSingle();
-        if (catRes != null) {
-          yytCategoryId = catRes['id']?.toString();
-        }
-      } catch (_) {}
-
-      if (yytCategoryId != null) {
-        final stream = _supabaseClient
-            .from('articles')
-            .stream(primaryKey: ['id'])
-            .eq('status', 'published')
-            .order('created_at', ascending: false)
-            .map((maps) => maps
+  Stream<List<NewsArticle>> watchYYTArticles() {
+    return Stream.fromFuture(_fetchYYTCategoryId()).asyncExpand((yytCategoryId) {
+      if (yytCategoryId == null) {
+        return Stream.value(<NewsArticle>[]);
+      }
+      return _supabaseClient
+          .from('articles')
+          .select('*')
+          .eq('status', 'published')
+          .order('created_at', ascending: false)
+          .asStream()
+          .map((maps) {
+            return maps
                 .where((m) => m['category_id']?.toString() == yytCategoryId)
-                .map((m) => NewsArticle.fromJson(m))
-                .toList());
-        await for (final articles in stream) {
-          yield articles;
-        }
-      } else {
-        // No yyt category found, yield empty
-        yield [];
-      }
-    } catch (e) {
-      if (kDebugMode) {
-        print('watchYYTArticles error: $e');
-      }
-      yield [];
+                .map((m) => NewsArticle.fromJson(m as Map<String, dynamic>))
+                .toList();
+          })
+          .handleError((e) {
+            if (kDebugMode) print('watchYYTArticles error: $e');
+            return <NewsArticle>[];
+          });
+    });
+  }
+
+  Future<String?> _fetchYYTCategoryId() async {
+    try {
+      final catRes = await _supabaseClient
+          .from('categories')
+          .select('id')
+          .eq('slug', 'yyt')
+          .maybeSingle();
+      return catRes?['id']?.toString();
+    } catch (_) {
+      return null;
     }
   }
 
-  /// Watches top trending articles ordered by view_count
+  /// Watches top trending articles ordered by view_count using REST stream.
   Stream<List<NewsArticle>> watchTrendingArticles() {
     return _supabaseClient
         .from('articles')
-        .stream(primaryKey: ['id'])
+        .select('*')
         .eq('status', 'published')
+        .asStream()
         .map((maps) {
-          final articles = maps.map((map) => NewsArticle.fromJson(map)).toList();
+          final articles = maps
+              .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+              .toList();
           articles.sort((a, b) {
             final cmp = b.viewCount.compareTo(a.viewCount);
             if (cmp != 0) return cmp;
             return b.createdAt.compareTo(a.createdAt);
           });
           return articles.take(10).toList();
+        })
+        .handleError((e) {
+          if (kDebugMode) print('watchTrendingArticles error: $e');
+          return <NewsArticle>[];
         });
   }
 
