@@ -1,10 +1,12 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/localization_helper.dart';
 import '../screens/article_detail_screen.dart';
 
 // ─── Sınır sabitleri ──────────────────────────────────────────────────────
@@ -23,7 +25,7 @@ enum _CardType { square, vertical, horizontal }
 //  AgendaBentoGrid — Gündem & Özel Dosyalar bölümü
 // ═══════════════════════════════════════════════════════════════════════════
 
-class AgendaBentoGrid extends StatelessWidget {
+class AgendaBentoGrid extends ConsumerWidget {
   final List<NewsArticle> articles;
   final bool isDark;
 
@@ -34,7 +36,8 @@ class AgendaBentoGrid extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider); // Rebuild when language changes
     // Özel dosya/analizler: sourceName boş olanlar (bizim taraftan üretilenler)
     final specials = articles
         .where((a) => a.sourceName == null || a.sourceName!.trim().isEmpty)

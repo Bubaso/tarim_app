@@ -757,6 +757,7 @@ class _TrendingSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider); // Rebuild when language changes
     final trendingAsync = ref.watch(trendingArticlesProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final titleText = isEn ? 'TRENDING' : 'EN ÇOK OKUNANLAR';
@@ -998,6 +999,7 @@ class _SectoralNewsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider); // Rebuild when language changes
     final articles = ref.watch(categoryArticlesProvider(topic));
     if (articles.isEmpty) return const SizedBox.shrink();
 

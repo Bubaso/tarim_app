@@ -594,7 +594,20 @@ class HomeRepository {
   /// Sets status to 'reviewing', image_url to null, and created_at to current time.
   Future<bool> submitArticleByAuthor(NewsArticle article) async {
     try {
+      // Create a mutable copy of the json
       final json = article.toJson();
+      
+      // Automatically translate if missing
+      if (json['title_en'] == null || json['title_en'].toString().trim().isEmpty) {
+        json['title_en'] = await translateTextToEnglish(json['title']);
+      }
+      if (json['summary_en'] == null || json['summary_en'].toString().trim().isEmpty) {
+        json['summary_en'] = await translateTextToEnglish(json['summary']);
+      }
+      if (json['content_en'] == null || json['content_en'].toString().trim().isEmpty) {
+        json['content_en'] = await translateTextToEnglish(json['content']);
+      }
+
       json['status'] = 'reviewing';
       json['image_url'] = null;
       json['created_at'] = DateTime.now().toUtc().toIso8601String();
@@ -625,10 +638,22 @@ class HomeRepository {
       // Ensure we don't accidentally update the created_at or status unnecessarily
       json.remove('created_at');
 
+      // Automatically translate if missing
+      if (json['title_en'] == null || json['title_en'].toString().trim().isEmpty) {
+        json['title_en'] = await translateTextToEnglish(json['title']);
+      }
+      if (json['summary_en'] == null || json['summary_en'].toString().trim().isEmpty) {
+        json['summary_en'] = await translateTextToEnglish(json['summary']);
+      }
+      if (json['content_en'] == null || json['content_en'].toString().trim().isEmpty) {
+        json['content_en'] = await translateTextToEnglish(json['content']);
+      }
+
       // Update local drafts cache for instant UI feedback
       final index = _localDrafts.indexWhere((a) => a.id == article.id);
       if (index != -1) {
-        _localDrafts[index] = article;
+        // Create an updated article with translations
+        _localDrafts[index] = NewsArticle.fromJson({...article.toJson(), ...json});
       }
 
       await _supabaseClient
@@ -849,28 +874,31 @@ Yazım Kuralları:
     }
   }
 
-  /// Automatically translates Turkish text to English using Gemini.
+  /// Automatically translates Turkish text to English using a free Google Translate API endpoint.
+  /// This completely bypasses the Gemini API, costing $0.
   Future<String?> translateTextToEnglish(String? text) async {
     if (text == null || text.trim().isEmpty) return null;
     try {
-      final apiKey = ApiConstants.geminiApiKey;
-      if (apiKey.isEmpty) return null;
-
-      final model = GenerativeModel(
-        model: 'gemini-2.5-flash',
-        apiKey: apiKey,
-      );
-
-      final prompt = '''
-Translate the following Turkish text to professional English. Do not add any extra comments, markdown formatting, or explanations. Just provide the exact translation.
-
-Text to translate:
-$text
-''';
-      final response = await model.generateContent([Content.text(prompt)]);
-      return response.text?.trim();
+      final url = Uri.parse(
+          'https://translate.googleapis.com/translate_a/single?client=gtx&sl=tr&tl=en&dt=t&q=\${Uri.encodeComponent(text)}');
+      final response = await http.get(url);
+      
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        if (data != null && data is List && data.isNotEmpty) {
+          final translatedChunks = data[0] as List;
+          final buffer = StringBuffer();
+          for (var chunk in translatedChunks) {
+            if (chunk is List && chunk.isNotEmpty) {
+              buffer.write(chunk[0].toString());
+            }
+          }
+          return buffer.toString().trim();
+        }
+      }
+      return null;
     } catch (e) {
-      if (kDebugMode) print('Translation error: $e');
+      if (kDebugMode) print('Free Translation error: $e');
       return null;
     }
   }

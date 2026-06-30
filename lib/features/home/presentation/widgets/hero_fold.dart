@@ -2,11 +2,13 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/localization_helper.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 
@@ -69,14 +71,15 @@ List<_MockWriter> _getMockWriters(bool isEn) {
 // ═══════════════════════════════════════════════════════════════════════════
 //  HeroFold — anasayfanın en üst "above the fold" bölümü
 // ═══════════════════════════════════════════════════════════════════════════
-class HeroFold extends StatelessWidget {
+class HeroFold extends ConsumerWidget {
   final List<NewsArticle> articles;
 
   const HeroFold({super.key, required this.articles});
 
   @override
-  Widget build(BuildContext context) {
-    final headlines = articles; // Provider already buckets, filters, and sorts correctly (max 12 items).
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider); // Rebuild when language changes
+    final headlines = articles;
     final opEds     = articles.where(_isOpEd).take(6).toList();
 
     final width = MediaQuery.of(context).size.width;
@@ -92,14 +95,15 @@ class HeroFold extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 //  Masaüstü: 7:3 Row — Carousel | Op-Ed Sütunu
 // ═══════════════════════════════════════════════════════════════════════════
-class _DesktopHeroFold extends StatelessWidget {
+class _DesktopHeroFold extends ConsumerWidget {
   final List<NewsArticle> headlines;
   final List<NewsArticle> opEds;
 
   const _DesktopHeroFold({required this.headlines, required this.opEds});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider); // Rebuild when language changes
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Center(
@@ -133,14 +137,15 @@ class _DesktopHeroFold extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 //  Mobil: Column — Carousel, ardından Op-Ed Listesi
 // ═══════════════════════════════════════════════════════════════════════════
-class _MobileHeroFold extends StatelessWidget {
+class _MobileHeroFold extends ConsumerWidget {
   final List<NewsArticle> headlines;
   final List<NewsArticle> opEds;
 
   const _MobileHeroFold({required this.headlines, required this.opEds});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider); // Rebuild when language changes
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 

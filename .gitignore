@@ -46,3 +46,4 @@ lib/test_insert.dart
 swagger.json
 database.json
 deploy.exp
+node_modules

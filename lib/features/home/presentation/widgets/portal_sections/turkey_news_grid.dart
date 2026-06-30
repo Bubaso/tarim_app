@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../../../../core/utils/fade_page_route.dart';
 import '../../../../../core/utils/image_fallback_helper.dart';
+import '../../../../../core/utils/localization_helper.dart';
 import '../../../data/models/news_article.dart';
 import '../../screens/article_detail_screen.dart';
 
-class TurkeyNewsGrid extends StatelessWidget {
+class TurkeyNewsGrid extends ConsumerWidget {
   final List<NewsArticle> articles;
   final bool isDark;
 
@@ -17,9 +19,9 @@ class TurkeyNewsGrid extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     if (articles.isEmpty) return const SizedBox.shrink();
-
+    ref.watch(localeProvider); // Rebuild when language changes
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 900;
