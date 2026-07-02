@@ -597,42 +597,43 @@ class _WeatherChip extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(weatherProvider).when(
-      data: (w) {
-        final color = isDark
-            ? const Color(0xFFCCCCCC)
-            : const Color(0xFF444444);
-        return InkWell(
-          borderRadius: BorderRadius.circular(4),
-          onTap: () => Navigator.of(context).push(
-            createFadeRoute(WeatherDetailScreen(weather: w)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  _icon(w.iconCode),
-                  style: const TextStyle(fontSize: 16),
+    final weatherAsync = ref.watch(weatherProvider);
+    final w = weatherAsync.value;
+    
+    if (w != null) {
+      final color = isDark
+          ? const Color(0xFFCCCCCC)
+          : const Color(0xFF444444);
+      return InkWell(
+        borderRadius: BorderRadius.circular(4),
+        onTap: () => Navigator.of(context).push(
+          createFadeRoute(WeatherDetailScreen(weather: w)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                _icon(w.iconCode),
+                style: const TextStyle(fontSize: 16),
+              ),
+              const SizedBox(width: 4),
+              Text(
+                '${w.temperature.toStringAsFixed(0)}°C',
+                style: GoogleFonts.inter(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w700,
+                  color: color,
                 ),
-                const SizedBox(width: 4),
-                Text(
-                  '${w.temperature.toStringAsFixed(0)}°C',
-                  style: GoogleFonts.inter(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: color,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        );
-      },
-      loading: () => const SizedBox.shrink(),
-      error:   (error, _) => const SizedBox.shrink(),
-    );
+        ),
+      );
+    }
+    
+    return const SizedBox.shrink();
   }
 }
 
