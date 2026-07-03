@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +25,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
     final isDark = theme.brightness == Brightness.dark;
     return theme.copyWith(
       appBarTheme: AppBarTheme(
-        backgroundColor: isDark ? const Color(0xFF0C1015) : const Color(0xFFFAF9F6),
+        backgroundColor: isDark ? AppColors.darkGreen : AppColors.creamBackground,
         elevation: 0,
         scrolledUnderElevation: 0,
         iconTheme: IconThemeData(color: isDark ? Colors.white : Colors.black),

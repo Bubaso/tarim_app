@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,6 +24,7 @@ import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
 import '../widgets/yyt_dosyasi_section.dart';
 import 'article_detail_screen.dart';
+import 'category_articles_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -53,8 +55,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final rawNewsAsync = ref.watch(latestArticlesProvider);
 
     final bgColor = isDark
-        ? const Color(0xFF0C1015)
-        : const Color(0xFFFAF9F6);
+        ? AppColors.darkGreen
+        : AppColors.creamBackground;
 
     final appBarBgColor = isDark
         ? const Color(0xFF080B0E)
@@ -63,7 +65,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(28 + kToolbarHeight),
+        preferredSize: const Size.fromHeight(36 + kToolbarHeight),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -240,8 +242,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       elevation: 0,
       scrolledUnderElevation: 1.0,
       shadowColor: isDark
-          ? const Color(0xFF30363D)
-          : const Color(0xFFE0E0E0),
+          ? AppColors.wheat
+          : AppColors.wheat,
       titleSpacing: isDesktop ? NavigationToolbar.kMiddleSpacing : 4,
       title: Row(
         mainAxisSize: MainAxisSize.min,
@@ -257,8 +259,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 fontWeight: FontWeight.w900,
                 fontSize: isDesktop ? 20 : 17,
                 color: isDark
-                    ? const Color(0xFFF0F6FC)
-                    : const Color(0xFF1A1A1A),
+                    ? AppColors.creamBackground
+                    : AppColors.earthText,
                 letterSpacing: -0.3,
               ),
             ),
@@ -274,7 +276,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 backgroundColor: isDark 
                     ? theme.colorScheme.primary.withValues(alpha: 0.15) 
                     : theme.colorScheme.primary.withValues(alpha: 0.1),
-                foregroundColor: isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99),
+                foregroundColor: isDark ? AppColors.primaryGreen : AppColors.primaryGreen,
                 elevation: 0,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 shape: RoundedRectangleBorder(
@@ -322,7 +324,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           PopupMenuButton<String>(
             icon: Icon(
               user == null ? Icons.account_circle_outlined : Icons.admin_panel_settings_rounded,
-              color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+              color: isDark ? AppColors.creamBackground : AppColors.earthText,
             ),
             tooltip: 'Hesap Menüsü',
             onSelected: (value) async {
@@ -430,6 +432,8 @@ class _MobileContent extends ConsumerWidget {
           _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
           const SizedBox(height: 28),
           _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+          const SizedBox(height: 28),
+          _SectoralNewsSection(topic: 'Genel', isDark: isDark),
           const SizedBox(height: 32),
           PortalFooter(isDark: isDark),
         ],
@@ -475,7 +479,9 @@ class _TabletContent extends ConsumerWidget {
           _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
           const SizedBox(height: 36),
           _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
-          const SizedBox(height: 32),
+          const SizedBox(height: 36),
+          _SectoralNewsSection(topic: 'Genel', isDark: isDark),
+          const SizedBox(height: 48),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -549,6 +555,10 @@ class _DesktopContent extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _SectoralNewsSection(topic: 'Genel', isDark: isDark),
                     ),
                   ],
                 ),
@@ -715,8 +725,8 @@ class _LanguageToggle extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final color = isDark
-        ? const Color(0xFF8B949E)
-        : const Color(0xFF666666);
+        ? AppColors.wheat
+        : AppColors.earthText;
 
     return TextButton(
       onPressed: () => ref.read(localeProvider.notifier).toggleLocale(),
@@ -763,8 +773,8 @@ class _TrendingSection extends ConsumerWidget {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final titleText = isEn ? 'TRENDING' : 'EN ÇOK OKUNANLAR';
     
-    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
-    final dividerColor = isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final dividerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
 
     return trendingAsync.when(
       data: (articles) {
@@ -849,8 +859,8 @@ class _TrendingCardState extends State<_TrendingCard> {
     final a = widget.article;
     final title = (widget.isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
     
-    final bg = widget.isDark ? const Color(0xFF161B22) : const Color(0xFFF9F9F9);
-    final border = widget.isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
+    final bg = widget.isDark ? AppColors.darkGreen : const Color(0xFFF9F9F9);
+    final border = widget.isDark ? AppColors.wheat : AppColors.wheat;
     final textCol = widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
 
     return MouseRegion(
@@ -953,9 +963,25 @@ class _TurkeyNewsSection extends ConsumerWidget {
     final articles = ref.watch(turkeyNewsProvider);
     if (articles.isEmpty) return const SizedBox.shrink();
 
-    return TurkeyNewsGrid(
-      articles: articles.take(6).toList(),
-      isDark: isDark,
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = isEn ? 'NEWS FROM TURKEY' : 'TÜRKİYE\'DEN HABERLER';
+
+    return Column(
+      children: [
+        _SectionContainer(
+          title: title,
+          icon: Icons.location_on_rounded,
+          iconColor: Colors.redAccent,
+          isDark: isDark,
+          onSeeAll: articles.length > 6 ? () {
+            Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
+          } : null,
+          child: TurkeyNewsGrid(
+            articles: articles.take(6).toList(),
+            isDark: isDark,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -969,9 +995,25 @@ class _WorldNewsSection extends ConsumerWidget {
     final articles = ref.watch(worldNewsProvider);
     if (articles.isEmpty) return const SizedBox.shrink();
 
-    return WorldNewsRow(
-      articles: articles.take(10).toList(), // Show up to 10 for scroll
-      isDark: isDark,
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = isEn ? 'WORLD NEWS' : 'DÜNYADAN HABERLER';
+
+    return Column(
+      children: [
+        _SectionContainer(
+          title: title,
+          icon: Icons.public_rounded,
+          iconColor: Colors.blueAccent,
+          isDark: isDark,
+          onSeeAll: articles.length > 10 ? () {
+            Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
+          } : null,
+          child: WorldNewsRow(
+            articles: articles.take(10).toList(), // Show up to 10 for scroll
+            isDark: isDark,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -985,9 +1027,25 @@ class _ScienceAndReportsSection extends ConsumerWidget {
     final articles = ref.watch(scienceAndReportsProvider);
     if (articles.isEmpty) return const SizedBox.shrink();
 
-    return ScienceReportsDossier(
-      articles: articles.take(6).toList(),
-      isDark: isDark,
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = isEn ? 'SCIENCE & REPORTS' : 'TARIM-BİLİM VE RAPORLAR';
+
+    return Column(
+      children: [
+        _SectionContainer(
+          title: title,
+          icon: Icons.science_rounded,
+          iconColor: Colors.purpleAccent,
+          isDark: isDark,
+          onSeeAll: articles.length > 6 ? () {
+            Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
+          } : null,
+          child: ScienceReportsDossier(
+            articles: articles.take(6).toList(),
+            isDark: isDark,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -1017,6 +1075,11 @@ class _SectoralNewsSection extends ConsumerWidget {
       icon: Icons.category_rounded,
       iconColor: Theme.of(context).colorScheme.primary,
       isDark: isDark,
+      onSeeAll: articles.length > 6 ? () {
+        Navigator.of(context).push(
+          createFadeRoute(CategoryArticlesScreen(title: displayTopic, articles: articles)),
+        );
+      } : null,
       child: AgendaBentoGrid(articles: articles.take(6).toList(), isDark: isDark),
     );
   }
@@ -1028,6 +1091,7 @@ class _SectionContainer extends StatelessWidget {
   final Color iconColor;
   final Widget child;
   final bool isDark;
+  final VoidCallback? onSeeAll;
 
   const _SectionContainer({
     required this.title,
@@ -1035,12 +1099,14 @@ class _SectionContainer extends StatelessWidget {
     required this.iconColor,
     required this.child,
     required this.isDark,
+    this.onSeeAll,
   });
 
   @override
   Widget build(BuildContext context) {
-    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
-    final dividerColor = isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final dividerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1056,15 +1122,40 @@ class _SectionContainer extends StatelessWidget {
                 children: [
                   Icon(icon, color: iconColor, size: 24),
                   const SizedBox(width: 8),
-                  Text(
-                    title,
-                    style: GoogleFonts.playfairDisplay(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: 0.4,
-                      color: headerColor,
+                  Expanded(
+                    child: Text(
+                      title,
+                      style: GoogleFonts.playfairDisplay(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 0.4,
+                        color: headerColor,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
+                  if (onSeeAll != null)
+                    TextButton(
+                      onPressed: onSeeAll,
+                      style: TextButton.styleFrom(
+                        foregroundColor: AppColors.primaryGreen,
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            isEn ? 'See All' : 'Daha fazla',
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 13,
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          const Icon(Icons.arrow_forward_rounded, size: 16),
+                        ],
+                      ),
+                    ),
                 ],
               ),
             ],

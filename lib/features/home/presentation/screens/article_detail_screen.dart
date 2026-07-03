@@ -1,4 +1,6 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:ui';
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,15 +10,16 @@ import 'package:share_plus/share_plus.dart';
 import 'package:flutter/services.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
+import '../../../../core/theme/app_typography.dart';
 import 'package:flutter_html/flutter_html.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
-const Color _kAccent      = Color(0xFF004A99);
-const Color _kAccentDark  = Color(0xFF58A6FF);
-const Color _kBgLight     = Color(0xFFFAF9F6);
-const Color _kBgDark      = Color(0xFF0C1015);
+const Color _kAccent      = AppColors.primaryGreen;
+const Color _kAccentDark  = AppColors.primaryGreen;
+const Color _kBgLight     = AppColors.creamBackground;
+const Color _kBgDark      = AppColors.darkGreen;
 const Color _kSurfaceDark = Color(0xFF111721);
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -96,8 +99,8 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         article.sourceUrl!.trim().isNotEmpty;
 
     final bg     = isDark ? _kBgDark  : _kBgLight;
-    final onBg   = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
-    final subtle = isDark ? const Color(0xFF8B949E) : const Color(0xFF666666);
+    final onBg   = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final subtle = isDark ? AppColors.wheat : AppColors.earthText;
     final accent = isDark ? _kAccentDark : _kAccent;
 
     final screenWidth = MediaQuery.of(context).size.width;
@@ -133,10 +136,11 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                              // Görsel (shimmer fallback)
+                              // Tek Görsel: Kutuyu tam dolduran, yüksek kaliteli (cover)
                               NewsArticleImage(
                                 imageUrl: article.imageUrl,
                                 fit: BoxFit.cover,
+                                isHighQuality: true,
                                 semanticLabel: displayTitle,
                               ),
                               // Alt gradient — başlık alanına geçişi yumuşatır
@@ -184,46 +188,22 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ),
                           const SizedBox(height: 20),
 
-                          // ── Başlık (Playfair, devasa) ─────────────────────
+                          // ── Başlık (Libre Franklin, H1) ─────────────────────
                           Text(
                             displayTitle,
-                            style: GoogleFonts.playfairDisplay(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w900,
-                              color: onBg,
-                              height: 1.2,
-                            ),
+                            style: AppTypography.headlineDetail(context, color: onBg),
                           ),
                           const SizedBox(height: 24),
 
-                          // ── Alıntı (özet) — sol kenar vurgusu ─────────────
+                          // ── Özet (Alt başlık) ─────────────────────────────
                           if (displaySummary.isNotEmpty) ...[
-                            Container(
-                              padding: const EdgeInsets.only(
-                                left: 16,
-                                top: 10,
-                                bottom: 10,
-                                right: 12,
-                              ),
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  left: BorderSide(color: accent, width: 4),
-                                ),
+                            Text(
+                              displaySummary,
+                              style: AppTypography.deck(
+                                context,
                                 color: isDark
-                                    ? const Color(0xFF161B22)
-                                    : const Color(0xFFF0EDE8),
-                              ),
-                              child: Text(
-                                displaySummary,
-                                style: GoogleFonts.playfairDisplay(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w600,
-                                  fontStyle: FontStyle.italic,
-                                  color: isDark
-                                      ? const Color(0xFFB0BEC5)
-                                      : const Color(0xFF424242),
-                                  height: 1.55,
-                                ),
+                                    ? const Color(0xFFB0BEC5)
+                                    : const Color(0xFF424242),
                               ),
                             ),
                             const SizedBox(height: 28),
@@ -234,8 +214,8 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                             height: 1,
                             thickness: 1,
                             color: isDark
-                                ? const Color(0xFF1E2631)
-                                : const Color(0xFFE0E0E0),
+                                ? AppColors.wheat
+                                : AppColors.wheat,
                           ),
                           const SizedBox(height: 28),
 
@@ -353,7 +333,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                         size: 19,
                         color: _isScrolled
                             ? onBg
-                            : (isDark ? Colors.white : const Color(0xFF1A1A1A)),
+                            : (isDark ? Colors.white : AppColors.earthText),
                       ),
                       onPressed: () => Navigator.of(context).pop(),
                       tooltip: MaterialLocalizations.of(context).backButtonTooltip,
@@ -374,11 +354,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           displayTitle,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: onBg,
-                          ),
+                          style: AppTypography.headlineCard(context, color: onBg),
                         ),
                       ),
                     ),
@@ -487,7 +463,7 @@ class _KeywordsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final chipBg = isDark ? const Color(0xFF1E2631) : const Color(0xFFEBE3D5);
+    final chipBg = isDark ? AppColors.wheat : const Color(0xFFEBE3D5);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -500,7 +476,7 @@ class _KeywordsRow extends StatelessWidget {
             fontSize: 10,
             fontWeight: FontWeight.w800,
             letterSpacing: 0.8,
-            color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
+            color: isDark ? AppColors.wheat : const Color(0xFF888888),
           ),
         ),
         const SizedBox(height: 10),
@@ -682,9 +658,9 @@ class _ShareBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final label = isEn ? 'SHARE THIS ARTICLE' : 'BU HABERİ PAYLAŞ';
-    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
+    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final iconColor = isDark ? Colors.white70 : Colors.black87;
-    final bgColor = isDark ? const Color(0xFF161B22) : const Color(0xFFF5F5F5);
+    final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF5F5F5);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -807,9 +783,9 @@ class _RelatedSection extends ConsumerWidget {
         if (related.isEmpty) return const SizedBox.shrink();
 
         final dividerColor =
-            isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+            isDark ? AppColors.creamBackground : AppColors.earthText;
         final headerColor =
-            isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
+            isDark ? AppColors.creamBackground : AppColors.earthText;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -868,7 +844,7 @@ class _RelatedShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dividerColor =
-        isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+        isDark ? AppColors.creamBackground : AppColors.earthText;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -928,7 +904,7 @@ class _RelatedCardState extends State<_RelatedCard> {
         .format(a.createdAt);
 
     final cardBg = isDark ? _kSurfaceDark : Colors.white;
-    final borderColor = isDark ? const Color(0xFF1E2631) : const Color(0xFFE0E0E0);
+    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
     final accent = isDark ? _kAccentDark : _kAccent;
 
     return MouseRegion(
@@ -1010,8 +986,8 @@ class _RelatedCardState extends State<_RelatedCard> {
                           color: _hovered
                               ? accent
                               : (isDark
-                                  ? const Color(0xFFECEFF1)
-                                  : const Color(0xFF1A1A1A)),
+                                  ? AppColors.creamBackground
+                                  : AppColors.earthText),
                           height: 1.25,
                         ),
                       ),
@@ -1024,7 +1000,7 @@ class _RelatedCardState extends State<_RelatedCard> {
                         style: GoogleFonts.robotoMono(
                           fontSize: 9,
                           color: isDark
-                              ? const Color(0xFF8B949E)
+                              ? AppColors.wheat
                               : const Color(0xFF888888),
                         ),
                       ),

@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,9 +14,9 @@ import '../screens/article_detail_screen.dart';
 const double _kBentoBreakpoint = 900.0;
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
-const Color _kAccent        = Color(0xFF004A99);
-const Color _kDividerDark   = Color(0xFF30363D);
-const Color _kDividerLight  = Color(0xFF1A1A1A);
+const Color _kAccent        = AppColors.primaryGreen;
+const Color _kDividerDark   = AppColors.wheat;
+const Color _kDividerLight  = AppColors.earthText;
 
 // ─── Rozet türleri ────────────────────────────────────────────────────────
 enum _BadgeType { editorunAnalizi, ozelDosya }
@@ -59,7 +60,7 @@ class AgendaBentoGrid extends ConsumerWidget {
             'Henüz içerik bulunamadı.',
             style: GoogleFonts.lora(
               fontSize: 15,
-              color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
+              color: isDark ? AppColors.wheat : const Color(0xFF888888),
             ),
           ),
         ),
@@ -97,7 +98,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     if (isMobile) {
-      final dividerColor = isDark ? const Color(0xFF58A6FF) : const Color(0xFF1A1A1A);
+      final dividerColor = isDark ? AppColors.primaryGreen : AppColors.earthText;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -107,7 +108,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.w900,
               letterSpacing: 0.5,
-              color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+              color: isDark ? AppColors.creamBackground : AppColors.earthText,
             ),
           ),
           const SizedBox(height: 6),
@@ -120,7 +121,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
       );
     }
 
-    final heavyDividerColor = isDark ? const Color(0xFFF0F6FC) : _kDividerLight;
+    final heavyDividerColor = isDark ? AppColors.creamBackground : _kDividerLight;
     final lightDividerColor = isDark ? _kDividerDark : const Color(0xFFBBBBBB);
 
     return Column(
@@ -140,7 +141,7 @@ class _NewspaperSectionHeader extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.w900,
             letterSpacing: 0.5,
-            color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+            color: isDark ? AppColors.creamBackground : AppColors.earthText,
           ),
         ),
 
@@ -202,13 +203,13 @@ class _DesktopBento extends StatelessWidget {
                     _DesktopCardHoverBox(article: col1[0], isDark: isDark, isFeature: true),
                     if (col1.length > 1) ...[
                       const SizedBox(height: 32),
-                      Divider(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5)),
+                      Divider(color: isDark ? AppColors.wheat : const Color(0xFFE5E5E5)),
                       const SizedBox(height: 24),
                       _DesktopCardHoverBox(article: col1[1], isDark: isDark, isList: true),
                     ],
                     if (col1.length > 2) ...[
                       const SizedBox(height: 24),
-                      Divider(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5)),
+                      Divider(color: isDark ? AppColors.wheat : const Color(0xFFE5E5E5)),
                       const SizedBox(height: 24),
                       _DesktopCardHoverBox(article: col1[2], isDark: isDark, isList: true),
                     ],
@@ -251,7 +252,7 @@ class _DesktopBento extends StatelessWidget {
         ),
         if (articles.length > 9) ...[
           const SizedBox(height: 32),
-          Divider(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5), thickness: 2),
+          Divider(color: isDark ? AppColors.wheat : const Color(0xFFE5E5E5), thickness: 2),
           const SizedBox(height: 24),
           _ExtraListSection(articles: articles.sublist(9), isDark: isDark),
         ],
@@ -321,8 +322,8 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
   Widget _buildStandardLayout(String title, String summary, String dateStr, _BadgeType? badge, bool isDark) {
     final a = widget.article;
     final titleColor = _hovered
-        ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
-        : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A));
+        ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
+        : (isDark ? AppColors.creamBackground : AppColors.earthText);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -364,7 +365,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
             overflow: TextOverflow.ellipsis,
             style: GoogleFonts.lora(
               fontSize: 15,
-              color: isDark ? const Color(0xFF8B949E) : const Color(0xFF555555),
+              color: isDark ? AppColors.wheat : const Color(0xFF555555),
               height: 1.5,
             ),
           ),
@@ -376,8 +377,8 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
   Widget _buildListLayout(String title, String summary, String dateStr, _BadgeType? badge, bool isDark) {
     final a = widget.article;
     final titleColor = _hovered
-        ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
-        : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A));
+        ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
+        : (isDark ? AppColors.creamBackground : AppColors.earthText);
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -490,8 +491,8 @@ class _MobileBento extends StatelessWidget {
 
     final isSpecial = article.sourceName == null || article.sourceName!.trim().isEmpty;
     final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(article.createdAt);
-    final bgColor = isDark ? const Color(0xFF121820) : Colors.white;
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
+    final bgColor = isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
 
     return MergeSemantics(
       child: GestureDetector(
@@ -551,7 +552,7 @@ class _MobileBento extends StatelessWidget {
                       style: GoogleFonts.playfairDisplay(
                         fontSize: 12.5,
                         fontWeight: FontWeight.w800,
-                        color: isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A),
+                        color: isDark ? AppColors.creamBackground : AppColors.earthText,
                         height: 1.25,
                       ),
                     ),
@@ -576,8 +577,8 @@ class _MobileBento extends StatelessWidget {
 
     final isSpecial = article.sourceName == null || article.sourceName!.trim().isEmpty;
     final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(article.createdAt);
-    final bgColor = isDark ? const Color(0xFF121820) : Colors.white;
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
+    final bgColor = isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
 
     return MergeSemantics(
       child: GestureDetector(
@@ -637,7 +638,7 @@ class _MobileBento extends StatelessWidget {
                       style: GoogleFonts.playfairDisplay(
                         fontSize: 12.5,
                         fontWeight: FontWeight.w800,
-                        color: isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A),
+                        color: isDark ? AppColors.creamBackground : AppColors.earthText,
                         height: 1.25,
                       ),
                     ),
@@ -700,7 +701,7 @@ class _SourceBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       decoration: BoxDecoration(
-        color: const Color(0xFF004A99),
+        color: AppColors.primaryGreen,
         borderRadius: BorderRadius.circular(2),
       ),
       child: Text(
@@ -733,7 +734,7 @@ class _ExtraListSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0);
+    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -802,7 +803,7 @@ class _ListItemState extends State<_ListItem> {
           curve: Curves.easeOut,
           child: Container(
           color: _hovered
-              ? (isDark ? const Color(0xFF161B22) : const Color(0xFFF5F3EF))
+              ? (isDark ? AppColors.darkGreen : const Color(0xFFF5F3EF))
               : Colors.transparent,
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 14),
           child: Row(
@@ -840,8 +841,8 @@ class _ListItemState extends State<_ListItem> {
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: _hovered
-                            ? (isDark ? const Color(0xFF58A6FF) : _kAccent)
-                            : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A)),
+                            ? (isDark ? AppColors.primaryGreen : _kAccent)
+                            : (isDark ? AppColors.creamBackground : AppColors.earthText),
                         height: 1.25,
                       ),
                     ),

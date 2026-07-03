@@ -2,23 +2,24 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 
-// ─── Bloomberg Dark Terminal Colors ───────────────────────────────────────
-const Color _kBg        = Color(0xFF070A0E); // saf terminal siyahı
-const Color _kSurface   = Color(0xFF0F141C); // kart yüzeyi
-const Color _kBorder    = Color(0xFF1E2631); // ince kenarlık
-const Color _kGrid      = Color(0xFF111820); // grafik grid çizgisi
-const Color _kUp        = Color(0xFF00FF00); // neon yeşil — artış
-const Color _kDown      = Color(0xFFFF3B30); // elektrik kırmızısı — düşüş
-const Color _kNeutral   = Color(0xFF546E7A); // nötr gri-mavi
-const Color _kLabel     = Color(0xFF90A4AE); // ikincil etiketler
-const Color _kLive      = Color(0xFF00FF00); // LIVE nokta
-const Color _kActiveBlue = Color(0xFF00E5FF); // Aktif bilet rengi
+// ─── Kurumsal Tema Renkleri ───────────────────────────────────────────────
+const Color _kBg        = AppColors.creamBackground; // Arka plan
+const Color _kSurface   = Colors.white; // Kart yüzeyi
+const Color _kBorder    = AppColors.wheat; // Kenarlık
+const Color _kGrid      = AppColors.creamBackground; // Grafik grid çizgisi
+const Color _kUp        = AppColors.primaryGreen; // Artış
+const Color _kDown      = Color(0xFFD32F2F); // Düşüş (kırmızı)
+const Color _kNeutral   = AppColors.wheat; // Nötr
+const Color _kLabel     = AppColors.earthText; // İkincil etiketler
+const Color _kLive      = AppColors.primaryGreen; // LIVE nokta
+const Color _kActiveBlue = AppColors.darkGreen; // Aktif bilet rengi
 
 // ─── Data Models ──────────────────────────────────────────────────────────
 class _Commodity {
@@ -84,6 +85,8 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
   // Live State
   double _usdTry = 33.48;
   double _eurTry = 35.85;
+  double _brentPrice = 82.40;
+  bool _brentIsUp = true;
   bool _fetchingUsd = false;
   late Timer _priceTickerTimer;
   final _random = Random();
@@ -318,26 +321,84 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
     super.dispose();
   }
 
-  // Suggestion 1: Fetch Live USD/TRY and EUR/TRY rates from free Open API
+  // Custom HTML Scraper for Barchart.com
+  Future<double?> _scrapeBarchartPrice(String symbol) async {
+    try {
+      final res = await http.get(
+        Uri.parse('https://www.barchart.com/futures/quotes/$symbol'),
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        },
+      ).timeout(const Duration(seconds: 8));
+      if (res.statusCode == 200) {
+        final regex = RegExp('"$symbol".{0,500}?"lastPrice":"([^"]+)"');
+        final match = regex.firstMatch(res.body);
+        if (match != null) {
+          final priceStr = match.group(1)!.replaceAll(RegExp(r'[^\d.]'), '');
+          return double.tryParse(priceStr);
+        }
+      }
+    } catch (_) {}
+    return null;
+  }
+
+  // Fetch Live Rates and Commodity Prices
   Future<void> _fetchLiveRates() async {
     setState(() => _fetchingUsd = true);
+
+    // 1. Fetch USD & EUR from Open Exchange Rates
     try {
       final res = await http.get(Uri.parse('https://open.er-api.com/v6/latest/USD')).timeout(const Duration(seconds: 6));
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body);
         final rates = data['rates'];
-        if (rates != null) {
-          if (mounted) {
-            setState(() {
-              _usdTry = (rates['TRY'] as num).toDouble();
-              _eurTry = _usdTry / (rates['EUR'] as num).toDouble();
-              _fetchingUsd = false;
-            });
-          }
-          return;
+        if (rates != null && mounted) {
+          setState(() {
+            _usdTry = (rates['TRY'] as num).toDouble();
+            _eurTry = _usdTry / (rates['EUR'] as num).toDouble();
+          });
         }
       }
     } catch (_) {}
+
+    // 2. Fetch White Sugar #5 (SWQ26) and Sugar #11 (SBN26) from Barchart.com
+    final barchartSymbols = {
+      'LSUG5': 'SWQ26',
+      'SUG11': 'SBN26',
+    };
+    for (var entry in barchartSymbols.entries) {
+      final price = await _scrapeBarchartPrice(entry.value);
+      if (price != null && mounted) {
+        setState(() {
+          final cIndex = _commodities.indexWhere((c) => c.code == entry.key);
+          if (cIndex != -1) {
+            final c = _commodities[cIndex];
+            c.currentPrice = price;
+            c.changePercentage = ((price - c.basePrice) / c.basePrice) * 100;
+          }
+        });
+      }
+    }
+
+    // 3. Fetch Live Brent Oil (BZ=F) from Yahoo Finance
+    try {
+      final res = await http.get(Uri.parse('https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?interval=1d')).timeout(const Duration(seconds: 6));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final meta = data['chart']['result'][0]['meta'];
+        final price = (meta['regularMarketPrice'] as num).toDouble();
+        final prevClose = (meta['previousClose'] as num).toDouble();
+        
+        if (mounted) {
+          setState(() {
+            _brentPrice = price;
+            _brentIsUp = price >= prevClose;
+          });
+        }
+      }
+    } catch (_) {}
+
     if (mounted) {
       setState(() => _fetchingUsd = false);
     }
@@ -430,7 +491,7 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
         bottom: BorderSide(color: _kBorder, width: 1),
       ),
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18, color: Colors.white),
+        icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18, color: AppColors.earthText),
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Row(
@@ -442,7 +503,7 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
             isEn ? 'MARKET TERMINAL' : 'FİNANS TERMİNALİ',
             style: GoogleFonts.robotoMono(
               fontWeight: FontWeight.w700,
-              color: Colors.white,
+              color: AppColors.earthText,
               fontSize: 14,
               letterSpacing: 1.5,
             ),
@@ -453,8 +514,8 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
       actions: [
         IconButton(
           icon: _fetchingUsd 
-              ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white70))
-              : const Icon(Icons.refresh, size: 18, color: Colors.white70),
+              ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2, color: AppColors.earthText))
+              : const Icon(Icons.refresh, size: 18, color: AppColors.earthText),
           onPressed: _fetchingUsd ? null : _fetchLiveRates,
         ),
         Padding(
@@ -483,7 +544,7 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
             _buildVerticalSeparator(),
             _buildTickerItem('EUR/TRY', _eurTry.toStringAsFixed(2), true, 'LIVE'),
             _buildVerticalSeparator(),
-            _buildTickerItem('BRENT OIL', '82.40 \$', false, 'ICE'),
+            _buildTickerItem('BRENT OIL', '${_brentPrice.toStringAsFixed(2)} \$', _brentIsUp, 'ICE'),
             _buildVerticalSeparator(),
             _buildTickerItem('KTB EKMEKLİK BUĞDAY', '9.85 TL', true, 'KTB'),
             _buildVerticalSeparator(),
@@ -507,7 +568,7 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
         ),
         Text(
           value,
-          style: GoogleFonts.robotoMono(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold),
+          style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold),
         ),
         const SizedBox(width: 4),
         Semantics(
@@ -634,7 +695,7 @@ class _CommodityCardState extends State<_CommodityCard> {
         duration: const Duration(milliseconds: 200),
         height: cardHeight,
         decoration: BoxDecoration(
-          color: _hovered ? const Color(0xFF131B26) : _kSurface,
+          color: _hovered ? AppColors.earthText.withOpacity(0.04) : _kSurface,
           border: Border.all(
             color: _hovered ? clr.withValues(alpha: 0.45) : _kBorder,
             width: 1.0,
@@ -668,7 +729,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                         Text(
                           name,
                           style: GoogleFonts.robotoMono(
-                            color: Colors.white54,
+                            color: AppColors.earthText.withOpacity(0.54),
                             fontSize: isMobile ? 7.5 : 8.5,
                           ),
                           maxLines: 1,
@@ -693,7 +754,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                     child: Text(
                       _formatPrice(widget.commodity.currentPrice),
                       style: GoogleFonts.robotoMono(
-                        color: Colors.white,
+                        color: AppColors.earthText,
                         fontSize: isMobile ? 14 : 17,
                         fontWeight: FontWeight.w800,
                         letterSpacing: 0.3,
@@ -703,7 +764,9 @@ class _CommodityCardState extends State<_CommodityCard> {
                   ),
                   const SizedBox(width: 3),
                   Text(
-                    widget.commodity.unit,
+                    widget.commodity.code == 'SUG11'
+                        ? '${widget.commodity.unit} (${_formatPrice((widget.commodity.currentPrice / 100) * 2204.62)} \$/Ton)'
+                        : widget.commodity.unit,
                     style: GoogleFonts.robotoMono(color: _kLabel, fontSize: isMobile ? 7 : 8),
                   ),
                   const Spacer(),
@@ -745,7 +808,7 @@ class _CommodityCardState extends State<_CommodityCard> {
             // ── Exchange Footer ──
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-              color: Colors.white.withValues(alpha: 0.025),
+              color: AppColors.earthText.withValues(alpha: 0.025),
               child: Text(
                 widget.commodity.exchange,
                 style: GoogleFonts.robotoMono(color: _kNeutral, fontSize: 7, letterSpacing: 0.8),
@@ -787,7 +850,7 @@ class _CommodityCardState extends State<_CommodityCard> {
             child: Text(
               tf,
               style: GoogleFonts.robotoMono(
-                color: isSelected ? _kActiveBlue : Colors.white38,
+                color: isSelected ? _kActiveBlue : AppColors.earthText.withOpacity(0.38),
                 fontSize: isMobile ? 7 : 9,
                 fontWeight: FontWeight.w700,
               ),
@@ -843,7 +906,7 @@ class _TrendChart extends StatelessWidget {
               return LineTooltipItem(
                 '$dateLabel\n${s.y.toStringAsFixed(2)} ${commodity.unit}',
                 GoogleFonts.robotoMono(
-                  color: Colors.white,
+                  color: AppColors.earthText,
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
                 ),
@@ -854,7 +917,7 @@ class _TrendChart extends StatelessWidget {
           getTouchedSpotIndicator: (barData, indices) => indices.map((i) {
             return TouchedSpotIndicatorData(
               FlLine(
-                color: Colors.white30,
+                color: AppColors.earthText.withOpacity(0.30),
                 strokeWidth: 1,
                 dashArray: [3, 3],
               ),
@@ -864,7 +927,7 @@ class _TrendChart extends StatelessWidget {
                   radius: 5,
                   color: color,
                   strokeWidth: 2,
-                  strokeColor: Colors.white,
+                  strokeColor: AppColors.earthText,
                 ),
               ),
             );
@@ -941,7 +1004,7 @@ class _TrendChart extends StatelessWidget {
                 radius: 3.5,
                 color: color,
                 strokeWidth: 1.5,
-                strokeColor: Colors.white,
+                strokeColor: AppColors.earthText,
               ),
             ),
             belowBarData: BarAreaData(
@@ -1023,7 +1086,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
               Text(
                 widget.isEn ? 'CROP VALUE CALCULATOR' : 'MAHSUL DEĞER HESAPLAYICI',
                 style: GoogleFonts.robotoMono(
-                  color: Colors.white,
+                  color: AppColors.earthText,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.0,
@@ -1047,7 +1110,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                 value: _selectedCrop,
                 dropdownColor: _kSurface,
                 underline: const SizedBox.shrink(),
-                style: GoogleFonts.robotoMono(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                 items: [
                   DropdownMenuItem(value: 'Wheat', child: Text(widget.isEn ? 'Wheat (Buğday)' : 'Buğday')),
                   DropdownMenuItem(value: 'SugarBeet', child: Text(widget.isEn ? 'Sugar Beet' : 'Şeker Pancarı')),
@@ -1082,7 +1145,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                   controller: _amountController,
                   keyboardType: const TextInputType.numberWithOptions(decimal: true),
                   textAlign: TextAlign.end,
-                  style: GoogleFonts.robotoMono(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.only(bottom: 12),
                     enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _kBorder)),
@@ -1113,7 +1176,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                   ),
                   Text(
                     _priceOverride.toStringAsFixed(2),
-                    style: GoogleFonts.robotoMono(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                   ),
                   IconButton(
                     icon: const Icon(Icons.add, size: 14, color: _kLabel),
@@ -1129,7 +1192,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
           const SizedBox(height: 16),
           Container(
             padding: const EdgeInsets.all(12),
-            color: Colors.white.withValues(alpha: 0.02),
+            color: AppColors.earthText.withValues(alpha: 0.02),
             child: Column(
               children: [
                 Row(
@@ -1155,7 +1218,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                     ),
                     Text(
                       NumberFormat('\$#,##0.00', 'en_US').format(totalUsd),
-                      style: GoogleFonts.robotoMono(color: Colors.white70, fontSize: 12, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -1192,7 +1255,7 @@ class _FertilizerIndex extends StatelessWidget {
               Text(
                 isEn ? 'INPUT COST INDEX' : 'TARIMSAL GİRDİ ENDEKSİ',
                 style: GoogleFonts.robotoMono(
-                  color: Colors.white,
+                  color: AppColors.earthText,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.0,
@@ -1221,11 +1284,11 @@ class _FertilizerIndex extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: GoogleFonts.robotoMono(color: Colors.white70, fontSize: 11)),
+          Text(title, style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 11)),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(price, style: GoogleFonts.robotoMono(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
+              Text(price, style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold)),
               const SizedBox(width: 10),
               Container(
                 width: 60,
@@ -1265,12 +1328,12 @@ class _BorsaNewsFeed extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.newspaper, color: Colors.white70, size: 16),
+              const Icon(Icons.newspaper, color: AppColors.earthText, size: 16),
               const SizedBox(width: 8),
               Text(
                 isEn ? 'MARKET NEWS FEED' : 'BORSA HABER AKIŞI',
                 style: GoogleFonts.robotoMono(
-                  color: Colors.white,
+                  color: AppColors.earthText,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.0,
@@ -1329,7 +1392,7 @@ class _NewsCardState extends State<_NewsCard> {
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
                     border: Border.all(color: _kNeutral),
-                    color: Colors.white.withValues(alpha: 0.02),
+                    color: AppColors.earthText.withValues(alpha: 0.02),
                   ),
                   child: Text(
                     widget.item.tag,
@@ -1353,7 +1416,7 @@ class _NewsCardState extends State<_NewsCard> {
             Text(
               title,
               style: GoogleFonts.robotoMono(
-                color: Colors.white,
+                color: AppColors.earthText,
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
                 height: 1.4,
@@ -1454,7 +1517,7 @@ class _TerminalHeader extends StatelessWidget {
                         ? 'GLOBAL COMMODITY & AGRI EXCHANGE'
                         : 'KÜRESEL EMTİA & TARIM BORSASI',
                     style: GoogleFonts.robotoMono(
-                      color: Colors.white,
+                      color: AppColors.earthText,
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
                       letterSpacing: 1.2,

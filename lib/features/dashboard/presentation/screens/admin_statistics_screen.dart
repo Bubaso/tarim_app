@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -86,9 +87,9 @@ class AdminStatisticsScreen extends ConsumerWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: isDark ? const Color(0xFF161B22) : Colors.white,
+                  color: isDark ? AppColors.darkGreen : Colors.white,
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0)),
+                  border: Border.all(color: isDark ? AppColors.wheat : AppColors.wheat),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,7 +225,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
           show: true,
           drawVerticalLine: false,
           getDrawingHorizontalLine: (value) => FlLine(
-            color: isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0),
+            color: isDark ? AppColors.wheat : AppColors.wheat,
             strokeWidth: 1,
             dashArray: [4, 4],
           ),
@@ -255,9 +256,9 @@ class _StatCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF161B22) : Colors.white,
+        color: isDark ? AppColors.darkGreen : Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0)),
+        border: Border.all(color: isDark ? AppColors.wheat : AppColors.wheat),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -326,9 +327,9 @@ class _PendingArticlesSection extends ConsumerWidget {
             return Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: isDark ? const Color(0xFF161B22) : Colors.white,
+                color: isDark ? AppColors.darkGreen : Colors.white,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0)),
+                border: Border.all(color: isDark ? AppColors.wheat : AppColors.wheat),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

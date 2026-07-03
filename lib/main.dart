@@ -6,6 +6,7 @@ import 'core/constants/api_constants.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'features/home/presentation/screens/home_screen.dart';
+import 'features/home/presentation/screens/typography_preview_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +38,6 @@ class MyApp extends ConsumerWidget {
       
       // Theme definitions — Premium Medya Portalı Tasarım Sistemi
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
 
       // Localization Configuration

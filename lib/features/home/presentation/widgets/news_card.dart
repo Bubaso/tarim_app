@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -39,8 +40,8 @@ class _NewsCardState extends State<NewsCard> {
     final hasSource = widget.article.sourceName != null && widget.article.sourceName!.isNotEmpty;
     final formattedDate = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').add_Hm().format(widget.article.createdAt);
 
-    final cardBg = isDark ? const Color(0xFF121820) : Colors.white;
-    final borderColor = isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1);
+    final cardBg = isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -126,13 +127,13 @@ class _NewsCardState extends State<NewsCard> {
                                   Container(
                                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
-                                      color: isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1),
+                                      color: isDark ? AppColors.wheat : AppColors.wheat,
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                     child: Text(
                                       widget.article.topic!.toUpperCase(),
                                       style: GoogleFonts.inter(
-                                        color: isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
+                                        color: isDark ? AppColors.wheat : AppColors.earthText,
                                         fontWeight: FontWeight.w700,
                                         fontSize: 9,
                                         letterSpacing: 0.5,
@@ -172,8 +173,8 @@ class _NewsCardState extends State<NewsCard> {
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
                           color: _hovered
-                              ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
-                              : (isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A)),
+                              ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
+                              : (isDark ? AppColors.creamBackground : AppColors.earthText),
                           height: 1.25,
                         ),
                       ),
@@ -187,8 +188,8 @@ class _NewsCardState extends State<NewsCard> {
                           overflow: TextOverflow.ellipsis,
                           style: GoogleFonts.lora(
                             color: isDark
-                                ? const Color(0xFF8B949E)
-                                : const Color(0xFF666666),
+                                ? AppColors.wheat
+                                : AppColors.earthText,
                             fontSize: 13,
                             height: 1.5,
                           ),

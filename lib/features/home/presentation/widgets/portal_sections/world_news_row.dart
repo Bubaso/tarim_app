@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,51 +24,14 @@ class WorldNewsRow extends ConsumerWidget {
     if (articles.isEmpty) return const SizedBox.shrink();
     ref.watch(localeProvider); // Rebuild when language changes
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
-    final dividerColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5);
+    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final dividerColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 900;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Premium Header for World News
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: isMobile ? 16.0 : 0.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 4,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF2196F3), // Global Blue
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Text(
-                isEn ? "WORLD NEWS" : "DÜNYADAN HABERLER",
-                style: GoogleFonts.playfairDisplay(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 0.5,
-                  color: headerColor,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Container(
-                  height: 1,
-                  color: dividerColor,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 24),
-        
         // Horizontal Scrollable Cards
         SizedBox(
           height: 320, // fixed height for horizontal scroll
@@ -118,9 +82,9 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
     
     final titleColor = _hovered
         ? const Color(0xFF2196F3) // Global Blue on hover
-        : (widget.isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111));
-    final bgColor = widget.isDark ? const Color(0xFF161B22) : Colors.white;
-    final borderColor = widget.isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5);
+        : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
+    final bgColor = widget.isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),

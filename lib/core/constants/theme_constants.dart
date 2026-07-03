@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -94,31 +95,31 @@ class ThemeConstants {
         primary: const Color(0xFF00E676), // Bloomberg terminal neon yeşili
         secondary: const Color(0xFFB0BEC5), // Terminal gri/mavi
         tertiary: const Color(0xFFFFB74D), // Canlı turuncu/uyarı rengi
-        surface: const Color(0xFF0C1015), // Bloomberg terminal koyu laciverti
-        onSurface: const Color(0xFFECEFF1),
-        outlineVariant: const Color(0xFF1E2631),
+        surface: AppColors.darkGreen, // Bloomberg terminal koyu laciverti
+        onSurface: AppColors.creamBackground,
+        outlineVariant: AppColors.wheat,
       ),
       textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme).copyWith(
-        displayLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: const Color(0xFFECEFF1)),
-        displayMedium: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: const Color(0xFFECEFF1)),
-        displaySmall: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: const Color(0xFFECEFF1)),
-        headlineLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: const Color(0xFFECEFF1)),
-        headlineMedium: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: const Color(0xFFECEFF1)),
-        headlineSmall: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: const Color(0xFFECEFF1)),
-        titleLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, fontSize: 22, color: const Color(0xFFECEFF1)),
-        titleMedium: GoogleFonts.inter(fontWeight: FontWeight.w700, color: const Color(0xFFECEFF1)),
-        titleSmall: GoogleFonts.inter(fontWeight: FontWeight.w600, color: const Color(0xFFECEFF1)),
+        displayLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: AppColors.creamBackground),
+        displayMedium: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: AppColors.creamBackground),
+        displaySmall: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: AppColors.creamBackground),
+        headlineLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: AppColors.creamBackground),
+        headlineMedium: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: AppColors.creamBackground),
+        headlineSmall: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, color: AppColors.creamBackground),
+        titleLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.bold, fontSize: 22, color: AppColors.creamBackground),
+        titleMedium: GoogleFonts.inter(fontWeight: FontWeight.w700, color: AppColors.creamBackground),
+        titleSmall: GoogleFonts.inter(fontWeight: FontWeight.w600, color: AppColors.creamBackground),
         bodyLarge: GoogleFonts.inter(fontWeight: FontWeight.normal, fontSize: 16, color: const Color(0xFFCFD8DC)),
         bodyMedium: GoogleFonts.inter(fontWeight: FontWeight.normal, fontSize: 14, color: const Color(0xFFB0BEC5)),
         bodySmall: GoogleFonts.inter(color: const Color(0xFF90A4AE), fontSize: 12),
       ),
       appBarTheme: AppBarTheme(
         centerTitle: false,
-        backgroundColor: const Color(0xFF0C1015),
+        backgroundColor: AppColors.darkGreen,
         elevation: 0,
         iconTheme: const IconThemeData(color: Color(0xFF00E676)),
         titleTextStyle: GoogleFonts.playfairDisplay(
-          color: const Color(0xFFECEFF1),
+          color: AppColors.creamBackground,
           fontSize: 24,
           fontWeight: FontWeight.w900,
           letterSpacing: -0.5,
@@ -129,22 +130,22 @@ class ThemeConstants {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
           side: const BorderSide(
-            color: Color(0xFF1E2631),
+            color: AppColors.wheat,
             width: 1.2,
           ),
         ),
-        color: const Color(0xFF121820),
+        color: AppColors.darkGreen,
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: const Color(0xFF121820),
+        fillColor: AppColors.darkGreen,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: Color(0xFF1E2631)),
+          borderSide: const BorderSide(color: AppColors.wheat),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: Color(0xFF1E2631)),
+          borderSide: const BorderSide(color: AppColors.wheat),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),

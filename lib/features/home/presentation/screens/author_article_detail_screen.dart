@@ -1,12 +1,13 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
-const Color _kAccent      = Color(0xFF004A99);
-const Color _kAccentDark  = Color(0xFF58A6FF);
-const Color _kBgLight     = Color(0xFFFAF9F6);
-const Color _kBgDark      = Color(0xFF0C1015);
+const Color _kAccent      = AppColors.primaryGreen;
+const Color _kAccentDark  = AppColors.primaryGreen;
+const Color _kBgLight     = AppColors.creamBackground;
+const Color _kBgDark      = AppColors.darkGreen;
 
 class AuthorArticleDetailScreen extends StatelessWidget {
   final String authorName;
@@ -82,8 +83,8 @@ class AuthorArticleDetailScreen extends StatelessWidget {
     final isDark = theme.brightness == Brightness.dark;
 
     final bg     = isDark ? _kBgDark  : _kBgLight;
-    final onBg   = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
-    final subtle = isDark ? const Color(0xFF8B949E) : const Color(0xFF666666);
+    final onBg   = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final subtle = isDark ? AppColors.wheat : AppColors.earthText;
     final accent = isDark ? _kAccentDark : _kAccent;
 
     return Scaffold(
@@ -119,7 +120,7 @@ class AuthorArticleDetailScreen extends StatelessWidget {
                         width: 80,
                         height: 80,
                         decoration: BoxDecoration(
-                          color: isDark ? const Color(0xFF1E2631) : const Color(0xFFEBEAE6),
+                          color: isDark ? AppColors.wheat : const Color(0xFFEBEAE6),
                         ),
                         child: Image.network(
                           authorAvatarUrl,
@@ -192,7 +193,7 @@ class AuthorArticleDetailScreen extends StatelessWidget {
                           coverImageUrl,
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) => Container(
-                            color: isDark ? const Color(0xFF161B22) : const Color(0xFFEBEAE6),
+                            color: isDark ? AppColors.darkGreen : const Color(0xFFEBEAE6),
                             child: Icon(
                               Icons.image,
                               size: 48,

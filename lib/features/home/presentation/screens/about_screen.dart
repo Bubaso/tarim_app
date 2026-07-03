@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +13,7 @@ class AboutScreen extends StatelessWidget {
     
     final bgColor = isDark ? const Color(0xFF0D1117) : const Color(0xFFF9F9F9);
     final textColor = isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
-    final subtleColor = isDark ? const Color(0xFF8B949E) : const Color(0xFF57606A);
+    final subtleColor = isDark ? AppColors.wheat : const Color(0xFF57606A);
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -96,9 +97,9 @@ class AboutScreen extends StatelessWidget {
                   width: double.infinity,
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
-                    color: isDark ? const Color(0xFF161B22) : Colors.white,
+                    color: isDark ? AppColors.darkGreen : Colors.white,
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: isDark ? const Color(0xFF30363D) : const Color(0xFFE0E0E0)),
+                    border: Border.all(color: isDark ? AppColors.wheat : AppColors.wheat),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,7 +27,7 @@ class ScienceReportsDossier extends ConsumerWidget {
     final isMobile = width < 900;
     
     // Aesthetic: Dark teal/emerald background for the "Science" feeling
-    final bgColor = isDark ? const Color(0xFF0F1A1C) : const Color(0xFF0C2B2F);
+    final bgColor = isDark ? AppColors.darkGreen : AppColors.darkGreen;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     return Container(
@@ -46,46 +47,6 @@ class ScienceReportsDossier extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: Colors.tealAccent.withOpacity(0.2),
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(Icons.biotech_rounded, color: Colors.tealAccent, size: 28),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      isEn ? 'SPECIAL DOSSIER' : 'ÖZEL DOSYA',
-                      style: GoogleFonts.robotoMono(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1.5,
-                        color: Colors.tealAccent,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      isEn ? 'AGRICULTURE & SCIENCE' : 'TARIM VE BİLİM',
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: isMobile ? 24 : 32,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.white,
-                        letterSpacing: 0.5,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 32),
           if (isMobile)
             _MobileDossierLayout(articles: articles)
           else

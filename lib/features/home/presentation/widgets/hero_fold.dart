@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'dart:async';
 import 'dart:ui';
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,6 +10,7 @@ import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/localization_helper.dart';
+import '../../../../core/theme/app_typography.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 
@@ -169,14 +171,14 @@ class _MobileHeroFold extends ConsumerWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.5,
-                  color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+                  color: isDark ? AppColors.creamBackground : AppColors.earthText,
                 ),
               ),
               const SizedBox(height: 6),
               Container(
                 width: 40,
                 height: 3,
-                color: isDark ? const Color(0xFF58A6FF) : const Color(0xFF1A1A1A),
+                color: isDark ? AppColors.primaryGreen : AppColors.earthText,
               ),
             ],
           ),
@@ -260,10 +262,10 @@ class _MobileMockWriterCardState extends State<_MobileMockWriterCard> {
   Widget build(BuildContext context) {
     final isDark = widget.isDark;
     final writer = widget.writer;
-    final cardBg = isDark ? const Color(0xFF121820) : Colors.white;
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5);
-    final nameColor = isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99);
-    final titleColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A);
+    final cardBg = isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
+    final nameColor = isDark ? AppColors.primaryGreen : AppColors.primaryGreen;
+    final titleColor = isDark ? AppColors.creamBackground : AppColors.earthText;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -329,14 +331,14 @@ class _MobileMockWriterCardState extends State<_MobileMockWriterCard> {
                       writer.avatarUrl,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
-                        color: isDark ? const Color(0xFF1E2631) : const Color(0xFFEBEAE6),
+                        color: isDark ? AppColors.wheat : const Color(0xFFEBEAE6),
                         alignment: Alignment.center,
                         child: Text(
                           writer.initial,
                           style: GoogleFonts.playfairDisplay(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
-                            color: isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
+                            color: isDark ? AppColors.wheat : AppColors.earthText,
                           ),
                         ),
                       ),
@@ -408,10 +410,10 @@ class _MobileRealWriterCardState extends State<_MobileRealWriterCard> {
         : article.title;
     final authorName = _resolveAuthorName(article, isEn);
 
-    final cardBg = isDark ? const Color(0xFF121820) : Colors.white;
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5);
-    final nameColor = isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99);
-    final titleColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A);
+    final cardBg = isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
+    final nameColor = isDark ? AppColors.primaryGreen : AppColors.primaryGreen;
+    final titleColor = isDark ? AppColors.creamBackground : AppColors.earthText;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -552,7 +554,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AspectRatio(
-            aspectRatio: 1.52, // 16/9'dan %15 daha uzun
+            aspectRatio: 1.8, // 16/9'a yakın geniş (daha dar kutu, kaplama için daha uygun)
             child: ClipRRect(
               borderRadius: isMobile ? BorderRadius.zero : BorderRadius.circular(4),
               child: Stack(
@@ -672,10 +674,11 @@ class _HeadlineSlide extends StatelessWidget {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              // Fotoğraf (16:9 Aspect Ratio)
+              // Tek Görsel: Kutuyu tam dolduran, yüksek kaliteli (cover)
               NewsArticleImage(
                 imageUrl: article.imageUrl,
                 fit: BoxFit.cover,
+                isHighQuality: true,
                 semanticLabel: title,
               ),
 
@@ -713,7 +716,7 @@ class _HeadlineSlide extends StatelessWidget {
                           horizontal: 8,
                           vertical: 3,
                         ),
-                        color: const Color(0xFF004A99),
+                        color: AppColors.primaryGreen,
                         child: Text(
                           article.sourceName!.toUpperCase(),
                           style: GoogleFonts.inter(
@@ -729,11 +732,7 @@ class _HeadlineSlide extends StatelessWidget {
                     title,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.playfairDisplay(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white,
-                      height: 1.2,
+                    style: AppTypography.headlineHome(context, color: Colors.white).copyWith(
                       shadows: const [
                         Shadow(
                           color: Color(0x88000000),
@@ -767,14 +766,14 @@ class _EmptySlot extends StatelessWidget {
       aspectRatio: 16 / 9,
       child: Container(
         decoration: BoxDecoration(
-          color: isDark ? const Color(0xFF161B22) : const Color(0xFFEBEAE6),
+          color: isDark ? AppColors.darkGreen : const Color(0xFFEBEAE6),
           borderRadius: BorderRadius.circular(4),
         ),
         alignment: Alignment.center,
         child: Text(
           'Henüz manşet haberi yok',
           style: GoogleFonts.inter(
-            color: isDark ? const Color(0xFF8B949E) : const Color(0xFF888888),
+            color: isDark ? AppColors.wheat : const Color(0xFF888888),
             fontSize: 14,
           ),
         ),
@@ -807,7 +806,7 @@ class _OpEdColumn extends StatelessWidget {
             fontSize: 16,
             fontWeight: FontWeight.w900,
             letterSpacing: 0.5,
-            color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+            color: isDark ? AppColors.creamBackground : AppColors.earthText,
           ),
         ),
         const SizedBox(height: 6),
@@ -815,7 +814,7 @@ class _OpEdColumn extends StatelessWidget {
         Divider(
           height: 1,
           thickness: 1.0,
-          color: isDark ? const Color(0xFF30363D) : const Color(0xFF1A1A1A),
+          color: isDark ? AppColors.wheat : AppColors.earthText,
         ),
         const SizedBox(height: 12),
 
@@ -876,7 +875,7 @@ class _MockWriterCardState extends State<_MockWriterCard> {
 
   @override
   Widget build(BuildContext context) {
-    final titleColor = widget.isDark ? const Color(0xFFECEFF1) : const Color(0xFF1A1A1A);
+    final titleColor = widget.isDark ? AppColors.creamBackground : AppColors.earthText;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -928,14 +927,14 @@ class _MockWriterCardState extends State<_MockWriterCard> {
                       widget.writer.avatarUrl,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
-                        color: widget.isDark ? const Color(0xFF1E2631) : const Color(0xFFEBEAE6),
+                        color: widget.isDark ? AppColors.wheat : const Color(0xFFEBEAE6),
                         alignment: Alignment.center,
                         child: Text(
                           widget.writer.initial,
                           style: GoogleFonts.playfairDisplay(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
-                            color: widget.isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
+                            color: widget.isDark ? AppColors.wheat : AppColors.earthText,
                           ),
                         ),
                       ),
@@ -954,7 +953,7 @@ class _MockWriterCardState extends State<_MockWriterCard> {
                         style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
-                          color: widget.isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99),
+                          color: widget.isDark ? AppColors.primaryGreen : AppColors.primaryGreen,
                         ),
                       ),
                       Text(
@@ -962,7 +961,7 @@ class _MockWriterCardState extends State<_MockWriterCard> {
                         style: GoogleFonts.inter(
                           fontSize: 10,
                           fontWeight: FontWeight.w500,
-                          color: widget.isDark ? const Color(0xFF8B949E) : const Color(0xFF666666),
+                          color: widget.isDark ? AppColors.wheat : AppColors.earthText,
                         ),
                       ),
                       const SizedBox(height: 4),
@@ -972,7 +971,7 @@ class _MockWriterCardState extends State<_MockWriterCard> {
                           fontSize: 14,
                           fontWeight: FontWeight.w700,
                           color: _hovered
-                              ? (widget.isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
+                              ? (widget.isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
                               : titleColor,
                           height: 1.3,
                         ),
@@ -1018,8 +1017,8 @@ class _OpEdCardState extends State<_OpEdCard> {
     final authorName = _resolveAuthor(article, isEn);
 
     final titleColor = widget.isDark
-        ? (_hovered ? Colors.white : const Color(0xFFECEFF1))
-        : (_hovered ? const Color(0xFF004A99) : const Color(0xFF1A1A1A));
+        ? (_hovered ? Colors.white : AppColors.creamBackground)
+        : (_hovered ? AppColors.primaryGreen : AppColors.earthText);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -1054,7 +1053,7 @@ class _OpEdCardState extends State<_OpEdCard> {
                         style: GoogleFonts.inter(
                           fontSize: 12,
                           fontWeight: FontWeight.w800,
-                          color: widget.isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99),
+                          color: widget.isDark ? AppColors.primaryGreen : AppColors.primaryGreen,
                         ),
                       ),
                       const SizedBox(height: 3),
@@ -1105,8 +1104,8 @@ class _AuthorAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double size = 44;
-    final bg = isDark ? const Color(0xFF1E2631) : const Color(0xFFEBEAE6);
-    final fg = isDark ? const Color(0xFF8B949E) : const Color(0xFF666666);
+    final bg = isDark ? AppColors.wheat : const Color(0xFFEBEAE6);
+    final fg = isDark ? AppColors.wheat : AppColors.earthText;
 
     final url = imageUrl?.trim();
     final hasImage = url != null &&
@@ -1264,7 +1263,7 @@ class _PageDotsIndicator extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
                 color: isActive
-                    ? (isDark ? const Color(0xFF58A6FF) : const Color(0xFF004A99))
+                    ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
                     : (isDark ? Colors.white24 : Colors.black12),
               ),
             ),

@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,7 +18,7 @@ class YYTDosyasiScreen extends ConsumerWidget {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final yytAsync = ref.watch(yytArticlesProvider);
 
-    final bgColor = isDark ? const Color(0xFF0C1015) : const Color(0xFFFAF9F6);
+    final bgColor = isDark ? AppColors.darkGreen : AppColors.creamBackground;
     final appBarBg = isDark ? const Color(0xFF080B0E) : const Color(0xFFF3F2ED);
 
     return Scaffold(
@@ -59,7 +60,7 @@ class YYTDosyasiScreen extends ConsumerWidget {
               style: GoogleFonts.playfairDisplay(
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
-                color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+                color: isDark ? AppColors.creamBackground : AppColors.earthText,
                 letterSpacing: -0.3,
               ),
             ),
@@ -222,7 +223,7 @@ class _YYTBanner extends StatelessWidget {
             style: GoogleFonts.playfairDisplay(
               fontSize: 22,
               fontWeight: FontWeight.w900,
-              color: isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A),
+              color: isDark ? AppColors.creamBackground : AppColors.earthText,
               height: 1.2,
             ),
           ),
@@ -273,9 +274,9 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
         ? a.summaryEn!
         : (a.summary ?? '');
 
-    final bg = widget.isDark ? const Color(0xFF161B22) : Colors.white;
-    final border = widget.isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5);
-    final textCol = widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF1A1A1A);
+    final bg = widget.isDark ? AppColors.darkGreen : Colors.white;
+    final border = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
+    final textCol = widget.isDark ? const Color(0xFFE6EDF3) : AppColors.earthText;
     final subCol = widget.isDark ? Colors.white54 : Colors.black54;
 
     final dateStr = _formatDate(a.createdAt, widget.isEn);

@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marquee/marquee.dart';
@@ -52,15 +53,15 @@ class MarketTicker extends StatelessWidget {
         createFadeRoute(const FinancialTerminalScreen()),
       ),
       child: Container(
-        height: 28,
+        height: 36,
         width: double.infinity,
-        color: const Color(0xFF111111), // Siyah zemin
+        color: AppColors.darkGreen, // Kurumsal yeşil zemin
         alignment: Alignment.center,
         child: Marquee(
           text: tickerText,
           style: GoogleFonts.robotoMono(
-            color: const Color(0xFFE0E0E0),
-            fontSize: 11,
+            color: AppColors.wheat,
+            fontSize: 12.5,
             fontWeight: FontWeight.w500,
           ),
           scrollAxis: Axis.horizontal,

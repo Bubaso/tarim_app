@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
@@ -13,10 +14,10 @@ class PortalFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     
-    final bgColor = isDark ? const Color(0xFF161B22) : const Color(0xFFF0F0F0);
-    final textColor = isDark ? const Color(0xFF8B949E) : const Color(0xFF555555);
-    final linkColor = isDark ? const Color(0xFFE6EDF3) : const Color(0xFF111111);
-    final dividerColor = isDark ? const Color(0xFF30363D) : const Color(0xFFD0D0D0);
+    final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF0F0F0);
+    final textColor = isDark ? AppColors.wheat : const Color(0xFF555555);
+    final linkColor = isDark ? const Color(0xFFE6EDF3) : AppColors.earthText;
+    final dividerColor = isDark ? AppColors.wheat : const Color(0xFFD0D0D0);
 
     final isDesktop = ResponsiveBreakpoints.isDesktopOrLarger(context);
 

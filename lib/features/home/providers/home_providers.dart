@@ -143,71 +143,22 @@ bool _isGeoInternational(String? geoLocation) {
   return false;
 }
 
-/// Haberin bilim/rapor içeriği olup olmadığını kapsamlı kontrol eder.
+/// Haberin bilim/rapor içeriği olup olmadığını kontrol eder.
 bool _articleIsScience(NewsArticle a) {
-  final c = a.contentType?.toLowerCase().trim() ?? '';
   final t = a.topic?.toLowerCase().trim() ?? '';
-  // taxonomy fields (yeni haberler)
-  if (c == 'tarım-bilim' || c == 'rapor' || c == 'analiz') return true;
-  if (t == 'tarım teknolojileri' || t == 'gıda güvenliği') return true;
-  // kaynak adı
-  if (_isScienceSource(a.sourceName)) return true;
-  // başlıkta bilim/teknoloji kelimesi
-  final title = a.title.toLowerCase();
-  if (title.contains('araştırma') || title.contains('bilim') ||
-      title.contains('teknoloji') || title.contains('rapor') ||
-      title.contains('analiz') || title.contains('çalışma')) {
-    return true;
-  }
-  return false;
+  return t == 'tarım-bilim' || t == 'yyt';
 }
 
-/// Haberin Türkiye odaklı olup olmadığını kapsamlı kontrol eder.
+/// Haberin Türkiye odaklı olup olmadığını kontrol eder.
 bool _articleIsTurkey(NewsArticle a) {
-  // 1) Açık taxonomy: region alanı
-  if (_isRegionTurkey(a.region)) return true;
-  // 2) Kaynak adı Türk medyası
-  if (_isTurkeySource(a.sourceName)) return true;
-  // 3) WKT koordinat Türkiye içinde
-  if (_isGeoTurkey(a.geoLocation)) return true;
-  // 4) topic veya title'da Türkiye anahtar kelimesi
-  final t = a.topic?.toLowerCase() ?? '';
-  final title = a.title.toLowerCase();
-  if (t == 'ekonomi' || t == 'hayvancılık' || t == 'bitkisel üretim' || t == 'su ve iklim') {
-    // Bu topic'ler çoğunlukla Türkiye haberi — region yoksa varsayılan Türkiye
-    if (!_isRegionInternational(a.region) && !_isWorldSource(a.sourceName)) return true;
-  }
-  if (title.contains('türkiye') || title.contains('türk') || title.contains('ankara') ||
-      title.contains('istanbul') || title.contains('çiftçi') || title.contains('konya') ||
-      title.contains('antalya') || title.contains('ege') || title.contains('karadeniz')) {
-    return true;
-  }
-  return false;
+  final r = a.region?.toLowerCase().trim() ?? '';
+  return r == 'türkiye';
 }
 
 /// Haberin uluslararası (Dünya) odaklı olup olmadığını kontrol eder.
 bool _articleIsWorld(NewsArticle a) {
-  // 1) region açıkça uluslararası
-  if (_isRegionInternational(a.region)) return true;
-  // 2) Kaynak adı dünya kaynağı
-  if (_isWorldSource(a.sourceName)) return true;
-  // 3) topic küresel tarım
-  final t = a.topic?.toLowerCase() ?? '';
-  if (t == 'küresel tarım') return true;
-  // 4) WKT koordinat Türkiye dışında
-  if (_isGeoInternational(a.geoLocation)) return true;
-  // 5) Başlıkta açık global anahtar kelime (Türkiye kaynağı değilse)
-  if (!_isTurkeySource(a.sourceName)) {
-    final title = a.title.toLowerCase();
-    if (title.contains('küresel') || title.contains('global') ||
-        title.contains('avrupa') || title.contains('dünya fiyat') ||
-        title.contains('brezilya') || title.contains('hindistan') ||
-        title.contains('abd') || title.contains('rusya') ||
-        title.contains('ukrayna') || title.contains('çin')) {
-      return true;
-    }
-  }
-  return false;
+  final r = a.region?.toLowerCase().trim() ?? '';
+  return r == 'dünya' || r == 'uluslararası' || r == 'küresel';
 }
 
 // ─── PORTAL SECTION PROVIDERS ──────────────────────────────────────────────────
@@ -289,18 +240,13 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 });
 
 /// Türkiye'den Haberler
-/// Bilim ve kesinlikle uluslararası haberler hariç, geri kalanı Türkiye haberi sayılır.
+/// Sadece region (bölge) alanının Türkiye olup olmadığına bakar.
 final turkeyNewsProvider = Provider<List<NewsArticle>>((ref) {
   final articlesAsync = ref.watch(latestArticlesProvider);
   return articlesAsync.when(
     data: (articles) {
       return articles.where((a) {
         if (a.status != 'published') return false;
-        // Bilim haberleri kendi bölümüne gidiyor
-        if (_articleIsScience(a)) return false;
-        // Kesinlikle uluslararası olanlar dışarı
-        if (_articleIsWorld(a) && !_articleIsTurkey(a)) return false;
-        // Türkiye kontrolü
         return _articleIsTurkey(a);
       }).toList();
     },
@@ -310,14 +256,13 @@ final turkeyNewsProvider = Provider<List<NewsArticle>>((ref) {
 });
 
 /// Dünyadan Haberler (Türkiye dışı)
+/// Sadece region (bölge) alanının Dünya olup olmadığına bakar.
 final worldNewsProvider = Provider<List<NewsArticle>>((ref) {
   final articlesAsync = ref.watch(latestArticlesProvider);
   return articlesAsync.when(
     data: (articles) {
       return articles.where((a) {
         if (a.status != 'published') return false;
-        if (_articleIsScience(a)) return false;
-        if (_articleIsTurkey(a)) return false;
         return _articleIsWorld(a);
       }).toList();
     },
@@ -351,73 +296,10 @@ final categoryArticlesProvider = Provider.family<List<NewsArticle>, String>((ref
     data: (articles) {
       final searchTopic = topic.toLowerCase().trim();
 
-      // Hayvancılık kategorisi için özgün bileşik kelimeler
-      // (Tek heceli veya başka kategorilere giren kelimeler yok)
-      const livestockKws = [
-        'büyükbaş', 'küçükbaş', 'sığır', 'koyun', 'keçi',
-        'kümes hayvan', 'kanatlı hayvan', 'besi hayvan',
-        'hayvancılık', 'çiftlik hayvanı',
-        'süt üretimi', 'süt inekleri', 'et üretimi',
-        'balıkçılık', 'aquakültür', 'yem fiyat', 'hayvan yemi',
-        'çiğ süt fiyat', 'inek sütü', 'hayvan hastalık',
-        'şap hastalık', 'kuş gribi', 'avian influenza',
-        'besilik', 'süt verimi', 'canlı hayvan', 'kesimlik',
-        'kırmızı et fiyat', 'beyaz et fiyat',
-      ];
-
-      // Bitkisel üretim için özgün kelimeler
-      // 'pirinç', 'çeltik' burada — hayvancılıkla çakışmaz
-      const bitkiselKelimeler = [
-        'buğday', 'arpa', 'mısır', 'çeltik', 'pirinç', 'tahıl',
-        'hububat', 'nohut', 'mercimek', 'fasulye', 'soya', 'kanola',
-        'hasat', 'ekim alanı', 'rekolte', 'tarla', 'toprak sağlığı',
-        'gübre fiyat', 'mazot fiyat', 'sulama sistemi', 'bitki zararlı',
-        'don hasarı', 'kuraklık zararı', 'tarım arazisi',
-        'mibzer', 'biçerdöver', 'buğday fiyat', 'arpa fiyat',
-        'mısır fiyat', 'ürün verimi', 'verim kaybı',
-        'zeytin', 'pamuk', 'şeker pancarı', 'tütün', 'fındık',
-        'kiraz', 'elma', 'domates', 'biber', 'salatalık',
-      ];
-
-      // Ekonomi kategorisi — fiyat + politika + ticaret
-      const ekonomiKelimeler = [
-        'ihracat rakam', 'ithalat rakam',
-        'piyasa fiyat', 'borsada', 'enflasyon',
-        'destek ödemesi', 'tarımsal kredi', 'kooperatif',
-        'sübvansiyon', 'tarım politika', 'gümrük vergisi',
-        'tarım ticareti', 'tarım bütçe', 'üretici fiyat',
-        'taban fiyat', 'alım fiyat', 'çiftçi destekle',
-        'tarımsal gelir', 'tarım sigortası',
-      ];
-
       return articles.where((a) {
         if (a.status != 'published') return false;
-
         final articleTopic = a.topic?.toLowerCase().trim() ?? '';
-
-        // 1) topic alanı pipeline tarafından set edilmişse direkt kullan
-        if (articleTopic.isNotEmpty && articleTopic != 'genel') {
-          return articleTopic == searchTopic;
-        }
-
-        // 2) topic yok/genel → başlık + özet üzerinden kesin kelime eşleşmesi
-        final text = '${a.title} ${a.summary ?? ''}'.toLowerCase();
-
-        if (searchTopic == 'hayvancılık') {
-          return livestockKws.any((kw) => text.contains(kw));
-        } else if (searchTopic == 'bitkisel üretim') {
-          // Önce hayvancılık kelimeleri yoksa bitkisel üretim olabilir (çakışma önleme)
-          final isHayvancilik = livestockKws.any((kw) => text.contains(kw));
-          if (isHayvancilik) return false;
-          return bitkiselKelimeler.any((kw) => text.contains(kw));
-        } else if (searchTopic == 'ekonomi') {
-          final isHayvancilik = livestockKws.any((kw) => text.contains(kw));
-          final isBitkisel = bitkiselKelimeler.any((kw) => text.contains(kw));
-          if (isHayvancilik || isBitkisel) return false;
-          return ekonomiKelimeler.any((kw) => text.contains(kw));
-        }
-
-        return false;
+        return articleTopic == searchTopic;
       }).toList();
     },
     loading: () => [],

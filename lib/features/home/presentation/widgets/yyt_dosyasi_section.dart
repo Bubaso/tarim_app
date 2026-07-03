@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -62,7 +63,7 @@ class _YYTSectionContent extends StatelessWidget {
         ? const Color(0xFFD32F2F).withValues(alpha: 0.25)
         : const Color(0xFFD32F2F).withValues(alpha: 0.15);
     final accentRed = const Color(0xFFD32F2F);
-    final headerColor = isDark ? const Color(0xFFF0F6FC) : const Color(0xFF1A1A1A);
+    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final subColor = isDark ? Colors.white54 : Colors.black54;
 
     return Container(
@@ -273,7 +274,7 @@ class _YYTPreviewCardState extends State<_YYTPreviewCard> {
 
     final bg = widget.isDark ? const Color(0xFF1A0F0F) : Colors.white;
     final border = widget.isDark ? const Color(0xFF3D1A1A) : const Color(0xFFEEDDDD);
-    final textCol = widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF1A1A1A);
+    final textCol = widget.isDark ? const Color(0xFFE6EDF3) : AppColors.earthText;
     final accentRed = const Color(0xFFD32F2F);
 
     final months = widget.isEn

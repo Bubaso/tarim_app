@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -22,7 +23,7 @@ class ShimmerPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final base    = isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1);
+    final base    = isDark ? AppColors.wheat : AppColors.wheat;
     final hilite  = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
 
     return Shimmer.fromColors(
@@ -49,6 +50,7 @@ class NewsArticleImage extends StatelessWidget {
   final double? height;
   final BoxFit fit;
   final String? semanticLabel;
+  final bool isHighQuality;
 
   const NewsArticleImage({
     super.key,
@@ -57,6 +59,7 @@ class NewsArticleImage extends StatelessWidget {
     this.height,
     this.fit = BoxFit.cover,
     this.semanticLabel,
+    this.isHighQuality = false,
   });
 
   String _optimizeUrl(String url) {
@@ -64,10 +67,12 @@ class NewsArticleImage extends StatelessWidget {
     if (url.contains('/object/public/')) {
       // Convert standard public URL to render/image endpoint with params
       final replaced = url.replaceFirst('/object/public/', '/render/image/public/');
+      final w = isHighQuality ? 2000 : 600;
+      final q = isHighQuality ? 95 : 75;
       if (replaced.contains('?')) {
-        return '$replaced&width=600&quality=75';
+        return '$replaced&width=$w&quality=$q';
       } else {
-        return '$replaced?width=600&quality=75';
+        return '$replaced?width=$w&quality=$q';
       }
     }
     return url;
@@ -90,6 +95,7 @@ class NewsArticleImage extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
+      filterQuality: isHighQuality ? FilterQuality.high : FilterQuality.medium,
       fadeInDuration: const Duration(milliseconds: 300),
       httpHeaders: const {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -146,7 +152,7 @@ class NewsCardSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base   = isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1);
+    final base   = isDark ? AppColors.wheat : AppColors.wheat;
     final hilite = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
 
     return Shimmer.fromColors(
@@ -217,7 +223,7 @@ class SmallCardSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base   = isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1);
+    final base   = isDark ? AppColors.wheat : AppColors.wheat;
     final hilite = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
 
     return Shimmer.fromColors(
@@ -261,7 +267,7 @@ class RelatedCardSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base   = isDark ? const Color(0xFF1E2631) : const Color(0xFFE8E6E1);
+    final base   = isDark ? AppColors.wheat : AppColors.wheat;
     final hilite = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
 
     return Shimmer.fromColors(

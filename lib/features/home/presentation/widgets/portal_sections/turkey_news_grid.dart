@@ -1,3 +1,4 @@
+import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,39 +27,13 @@ class TurkeyNewsGrid extends ConsumerWidget {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 900;
     
-    final headerColor = isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111);
-    final borderColor = isDark ? const Color(0xFF30363D) : const Color(0xFFE5E5E5);
+    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: isMobile ? 16.0 : 0.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Premium Header
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: 4,
-                height: 32,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFE30A17), // Turkish Red
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Text(
-                isEn ? "TURKEY NEWS" : "TÜRKİYE'DEN HABERLER",
-                style: GoogleFonts.playfairDisplay(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 0.5,
-                  color: headerColor,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
           if (isMobile)
             _MobileGrid(articles: articles, isDark: isDark, borderColor: borderColor)
           else
@@ -184,7 +159,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
     
     final titleColor = _hovered
         ? const Color(0xFFE30A17) // Turkish Red on hover
-        : (widget.isDark ? const Color(0xFFECEFF1) : const Color(0xFF111111));
+        : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
 
     if (widget.isRow) {
       return MouseRegion(
