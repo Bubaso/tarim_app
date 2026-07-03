@@ -973,7 +973,7 @@ class _TurkeyNewsSection extends ConsumerWidget {
           icon: Icons.location_on_rounded,
           iconColor: Colors.redAccent,
           isDark: isDark,
-          onSeeAll: articles.length > 6 ? () {
+          onSeeAll: articles.isNotEmpty ? () {
             Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
           } : null,
           child: TurkeyNewsGrid(
@@ -1005,7 +1005,7 @@ class _WorldNewsSection extends ConsumerWidget {
           icon: Icons.public_rounded,
           iconColor: Colors.blueAccent,
           isDark: isDark,
-          onSeeAll: articles.length > 10 ? () {
+          onSeeAll: articles.isNotEmpty ? () {
             Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
           } : null,
           child: WorldNewsRow(
@@ -1037,7 +1037,7 @@ class _ScienceAndReportsSection extends ConsumerWidget {
           icon: Icons.science_rounded,
           iconColor: Colors.purpleAccent,
           isDark: isDark,
-          onSeeAll: articles.length > 6 ? () {
+          onSeeAll: articles.isNotEmpty ? () {
             Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
           } : null,
           child: ScienceReportsDossier(
@@ -1075,7 +1075,7 @@ class _SectoralNewsSection extends ConsumerWidget {
       icon: Icons.category_rounded,
       iconColor: Theme.of(context).colorScheme.primary,
       isDark: isDark,
-      onSeeAll: articles.length > 6 ? () {
+      onSeeAll: articles.isNotEmpty ? () {
         Navigator.of(context).push(
           createFadeRoute(CategoryArticlesScreen(title: displayTopic, articles: articles)),
         );
@@ -1107,6 +1107,7 @@ class _SectionContainer extends StatelessWidget {
     final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final dividerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final isMobile = MediaQuery.of(context).size.width < 900;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1119,14 +1120,15 @@ class _SectionContainer extends StatelessWidget {
               Container(height: 3, width: double.infinity, color: dividerColor),
               const SizedBox(height: 16),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(icon, color: iconColor, size: 24),
+                  Icon(icon, color: iconColor, size: isMobile ? 18 : 24),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       title,
                       style: GoogleFonts.playfairDisplay(
-                        fontSize: 20,
+                        fontSize: isMobile ? 16 : 20,
                         fontWeight: FontWeight.w900,
                         letterSpacing: 0.4,
                         color: headerColor,

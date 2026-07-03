@@ -62,21 +62,6 @@ class NewsArticleImage extends StatelessWidget {
     this.isHighQuality = false,
   });
 
-  String _optimizeUrl(String url) {
-    // Supabase Image Transformations
-    if (url.contains('/object/public/')) {
-      // Convert standard public URL to render/image endpoint with params
-      final replaced = url.replaceFirst('/object/public/', '/render/image/public/');
-      final w = isHighQuality ? 2000 : 600;
-      final q = isHighQuality ? 95 : 75;
-      if (replaced.contains('?')) {
-        return '$replaced&width=$w&quality=$q';
-      } else {
-        return '$replaced?width=$w&quality=$q';
-      }
-    }
-    return url;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,32 +73,57 @@ class NewsArticleImage extends StatelessWidget {
       return ShimmerPlaceholder(width: width, height: height);
     }
 
-    final url = _optimizeUrl(rawUrl);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Calculate the actual rendering width.
+        // If constraints are tight, use maxWidth. If not, use provided width or fallback to 600.
+        double renderWidth = width ?? (constraints.maxWidth.isFinite ? constraints.maxWidth : 600);
+        // Fallback safety limit
+        if (renderWidth <= 0) renderWidth = 600;
+        
+        // Request a 2x resolution image for retina displays, maxed at 2000px
+        int requestedWidth = isHighQuality ? 2000 : (renderWidth * 2).toInt();
+        if (requestedWidth > 2000) requestedWidth = 2000;
+        if (requestedWidth < 300) requestedWidth = 300;
 
-    final imageWidget = CachedNetworkImage(
-      imageUrl: url,
-      width: width,
-      height: height,
-      fit: fit,
-      filterQuality: isHighQuality ? FilterQuality.high : FilterQuality.medium,
-      fadeInDuration: const Duration(milliseconds: 300),
-      httpHeaders: const {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+        final q = isHighQuality ? 95 : 75;
+        
+        String url = rawUrl;
+        if (rawUrl.contains('/object/public/')) {
+          final replaced = rawUrl.replaceFirst('/object/public/', '/render/image/public/');
+          if (replaced.contains('?')) {
+            url = '$replaced&width=$requestedWidth&quality=$q';
+          } else {
+            url = '$replaced?width=$requestedWidth&quality=$q';
+          }
+        }
+
+        final imageWidget = CachedNetworkImage(
+          imageUrl: url,
+          width: width ?? (constraints.maxWidth.isFinite ? constraints.maxWidth : null),
+          height: height ?? (constraints.maxHeight.isFinite ? constraints.maxHeight : null),
+          fit: fit,
+          filterQuality: isHighQuality ? FilterQuality.high : FilterQuality.medium,
+          fadeInDuration: const Duration(milliseconds: 300),
+          httpHeaders: const {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+          },
+          placeholder: (context, url) => ShimmerPlaceholder(width: width, height: height),
+          errorWidget: (context, url, error) => ShimmerPlaceholder(width: width, height: height),
+        );
+
+        if (semanticLabel != null && semanticLabel!.isNotEmpty) {
+          return Semantics(
+            label: semanticLabel,
+            image: true,
+            child: imageWidget,
+          );
+        } else {
+          return ExcludeSemantics(child: imageWidget);
+        }
       },
-      placeholder: (context, url) => ShimmerPlaceholder(width: width, height: height),
-      errorWidget: (context, url, error) => ShimmerPlaceholder(width: width, height: height),
     );
-
-    if (semanticLabel != null && semanticLabel!.isNotEmpty) {
-      return Semantics(
-        label: semanticLabel,
-        image: true,
-        child: imageWidget,
-      );
-    } else {
-      return ExcludeSemantics(child: imageWidget);
-    }
   }
 }
 
