@@ -39,6 +39,8 @@ class MarketTicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = MediaQuery.of(context).size.width < 900;
+    
     final buffer = StringBuffer();
     for (final m in _staticMarkets) {
       final isUp = m.changePercentage >= 0;
@@ -53,7 +55,7 @@ class MarketTicker extends StatelessWidget {
         createFadeRoute(const FinancialTerminalScreen()),
       ),
       child: Container(
-        height: 36,
+        height: isMobile ? 48 : 36,
         width: double.infinity,
         color: AppColors.darkGreen, // Kurumsal yeşil zemin
         alignment: Alignment.center,
@@ -61,7 +63,7 @@ class MarketTicker extends StatelessWidget {
           text: tickerText,
           style: GoogleFonts.robotoMono(
             color: AppColors.wheat,
-            fontSize: 12.5,
+            fontSize: isMobile ? 14.0 : 12.5,
             fontWeight: FontWeight.w500,
           ),
           scrollAxis: Axis.horizontal,
@@ -76,3 +78,4 @@ class MarketTicker extends StatelessWidget {
     );
   }
 }
+

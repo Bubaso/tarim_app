@@ -1128,11 +1128,13 @@ class _SectionContainer extends StatelessWidget {
                     child: Text(
                       title,
                       style: GoogleFonts.playfairDisplay(
-                        fontSize: isMobile ? 16 : 20,
+                        fontSize: isMobile ? 13 : 20,
                         fontWeight: FontWeight.w900,
                         letterSpacing: 0.4,
                         color: headerColor,
+                        height: 1.2,
                       ),
+                      maxLines: isMobile ? 2 : 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
