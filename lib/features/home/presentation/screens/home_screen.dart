@@ -248,21 +248,41 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       title: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: isDesktop ? 26 : 22),
+          Image.asset(
+            'assets/images/logo.png',
+            height: isDesktop ? 32 : 28,
+            errorBuilder: (context, error, stackTrace) =>
+              Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: isDesktop ? 26 : 22),
+          ),
           SizedBox(width: isDesktop ? 8 : 4),
           Expanded(
-            child: Text(
-              'TARIM PORTALI',
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.playfairDisplay(
-                fontWeight: FontWeight.w900,
-                fontSize: isDesktop ? 20 : 17,
-                color: isDark
-                    ? AppColors.creamBackground
-                    : AppColors.earthText,
-                letterSpacing: -0.3,
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'GERÇEK TARIM',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.playfairDisplay(
+                    fontWeight: FontWeight.w900,
+                    fontSize: isDesktop ? 20 : 17,
+                    color: isDark ? AppColors.creamBackground : AppColors.earthText,
+                    letterSpacing: -0.3,
+                  ),
+                ),
+                Text(
+                  'TARIMIN DOĞRU ADRESİ',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w700,
+                    fontSize: isDesktop ? 10 : 8,
+                    color: theme.colorScheme.primary,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

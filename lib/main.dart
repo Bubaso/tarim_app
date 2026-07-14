@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,12 +34,15 @@ class MyApp extends ConsumerWidget {
     final currentLocale = ref.watch(localeProvider);
 
     return MaterialApp(
-      title: 'Tarım Portalı',
+      title: 'Gerçek Tarım',
       debugShowCheckedModeBanner: false,
       
       // Theme definitions — Premium Medya Portalı Tasarım Sistemi
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
+      
+      // Masaüstü web için fare ile kaydırmayı aktifleştiren özel ayar
+      scrollBehavior: AppScrollBehavior(),
 
       // Localization Configuration
       locale: currentLocale,
@@ -56,4 +60,14 @@ class MyApp extends ConsumerWidget {
       home: const HomeScreen(),
     );
   }
+}
+
+/// Masaüstü tarayıcılarda da (mouse ile) listelerin kaydırılabilmesini sağlayan özel ScrollBehavior
+class AppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+      };
 }

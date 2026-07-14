@@ -10,7 +10,7 @@ import '../../data/models/news_article.dart';
 import 'article_detail_screen.dart';
 import '../widgets/portal_footer.dart';
 
-class CategoryArticlesScreen extends ConsumerStatefulWidget {
+class CategoryArticlesScreen extends ConsumerWidget {
   final String title;
   final List<NewsArticle> articles;
 
@@ -21,21 +21,14 @@ class CategoryArticlesScreen extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<CategoryArticlesScreen> createState() => _CategoryArticlesScreenState();
-}
-
-class _CategoryArticlesScreenState extends ConsumerState<CategoryArticlesScreen> {
-  @override
-  Widget build(BuildContext context) {
-    ref.watch(localeProvider); // Rebuild when language changes
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
-
-    final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF9F9F7);
+    final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF4F4F4);
     final textColor = isDark ? AppColors.wheat : AppColors.earthText;
     final dividerColor = isDark ? Colors.white12 : Colors.black12;
-
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 900;
 
@@ -43,21 +36,27 @@ class _CategoryArticlesScreenState extends ConsumerState<CategoryArticlesScreen>
       backgroundColor: bgColor,
       body: CustomScrollView(
         slivers: [
-          // Premium SliverAppBar
           SliverAppBar(
-            backgroundColor: isDark ? const Color(0xFF0C1014) : Colors.white,
+            backgroundColor: isDark ? const Color(0xFF0A0D10) : Colors.white,
             elevation: 0,
             pinned: true,
             centerTitle: true,
             iconTheme: IconThemeData(color: textColor),
-            title: Text(
-              widget.title.toUpperCase(),
-              style: GoogleFonts.playfairDisplay(
-                color: textColor,
-                fontWeight: FontWeight.w900,
-                fontSize: 22,
-                letterSpacing: 1.5,
-              ),
+            title: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(width: 8, height: 24, color: AppColors.primaryGreen),
+                const SizedBox(width: 12),
+                Text(
+                  title.toUpperCase(),
+                  style: GoogleFonts.inter(
+                    color: textColor,
+                    fontWeight: FontWeight.w900,
+                    fontSize: 18,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+              ],
             ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(1),
@@ -65,110 +64,68 @@ class _CategoryArticlesScreenState extends ConsumerState<CategoryArticlesScreen>
             ),
           ),
 
-          if (widget.articles.isEmpty)
+          if (articles.isEmpty)
             SliverFillRemaining(
               child: Center(
                 child: Text(
-                  isEn ? 'No articles found in this category.' : 'Bu kategoride henüz haber bulunmuyor.',
+                  isEn ? 'No articles found.' : 'Bu kategoride haber bulunmuyor.',
                   style: GoogleFonts.inter(color: textColor, fontSize: 16),
                 ),
               ),
             )
           else ...[
-            SliverPadding(
-              padding: EdgeInsets.symmetric(horizontal: isMobile ? 16 : 48, vertical: 32),
-              sliver: SliverToBoxAdapter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // A massive header title to anchor the page
-                    Text(
-                      isEn ? 'LATEST IN ${widget.title.toUpperCase()}' : '${widget.title.toUpperCase()} HABERLERİ',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: isMobile ? 32 : 54,
-                        fontWeight: FontWeight.w900,
-                        color: textColor,
-                        height: 1.1,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    Container(width: 60, height: 4, color: Theme.of(context).colorScheme.primary),
-                    const SizedBox(height: 48),
-                    
-                    // The Featured Article (First article)
-                    _FeaturedCategoryArticle(
-                      article: widget.articles.first,
-                      isDark: isDark,
-                      isMobile: isMobile,
-                    ),
-                  ],
-                ),
+            // ── Hero ──────────────────────────────────────────────────────────
+            SliverToBoxAdapter(
+              child: _HeroArticle(
+                article: articles.first,
+                categoryName: title,
+                isDark: isDark,
+                isMobile: isMobile,
               ),
             ),
 
-            if (widget.articles.length > 1)
-              SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: isMobile ? 16 : 48),
-                sliver: SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            if (articles.length > 1) ...[
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    isMobile ? 16 : 48, 56, isMobile ? 16 : 48, 48),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 24),
-                      Row(
-                        children: [
-                          Expanded(child: Container(height: 1, color: dividerColor)),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            child: Text(
-                              isEn ? 'MORE STORIES' : 'DİĞER HABERLER',
-                              style: GoogleFonts.robotoMono(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 2,
-                                color: isDark ? Colors.white54 : Colors.black54,
-                              ),
-                            ),
-                          ),
-                          Expanded(child: Container(height: 1, color: dividerColor)),
-                        ],
+                      Container(width: 24, height: 2, color: AppColors.primaryGreen),
+                      const SizedBox(width: 16),
+                      Text(
+                        isEn ? 'MORE STORIES' : 'DİĞER HABERLER',
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 3,
+                          color: textColor,
+                        ),
                       ),
-                      const SizedBox(height: 48),
+                      const SizedBox(width: 16),
+                      Expanded(child: Container(height: 1, color: dividerColor)),
                     ],
                   ),
                 ),
               ),
 
-            // The remaining articles grid
-            if (widget.articles.length > 1)
+              // ── Mixed-size body ──────────────────────────────────────────
               SliverPadding(
                 padding: EdgeInsets.only(
                   left: isMobile ? 16 : 48,
                   right: isMobile ? 16 : 48,
-                  bottom: 64,
+                  bottom: 80,
                 ),
-                sliver: SliverGrid(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: isMobile ? 1 : 3,
-                    crossAxisSpacing: 32,
-                    mainAxisSpacing: 48,
-                    childAspectRatio: isMobile ? 1.1 : 0.75, // Taller cards for elegant text layout
-                  ),
-                  delegate: SliverChildBuilderDelegate(
-                    (context, index) {
-                      return _StandardCategoryCard(
-                        article: widget.articles[index + 1],
-                        isDark: isDark,
-                      );
-                    },
-                    childCount: widget.articles.length - 1,
-                  ),
+                sliver: _MixedGrid(
+                  articles: articles.sublist(1),
+                  isDark: isDark,
+                  isMobile: isMobile,
                 ),
               ),
-              
-            SliverToBoxAdapter(
-              child: PortalFooter(isDark: isDark),
-            ),
+            ],
+
+            SliverToBoxAdapter(child: PortalFooter(isDark: isDark)),
           ],
         ],
       ),
@@ -176,22 +133,140 @@ class _CategoryArticlesScreenState extends ConsumerState<CategoryArticlesScreen>
   }
 }
 
-class _FeaturedCategoryArticle extends StatefulWidget {
-  final NewsArticle article;
+// ─────────────────────────────────────────────────────────────────────────────
+// Mixed grid: builds entire body as a single Column inside SliverToBoxAdapter
+// so there are ZERO Expanded widgets in a scrollable context.
+// ─────────────────────────────────────────────────────────────────────────────
+class _MixedGrid extends StatelessWidget {
+  final List<NewsArticle> articles;
   final bool isDark;
   final bool isMobile;
 
-  const _FeaturedCategoryArticle({
-    required this.article,
-    required this.isDark,
-    required this.isMobile,
-  });
+  const _MixedGrid({required this.articles, required this.isDark, required this.isMobile});
 
   @override
-  State<_FeaturedCategoryArticle> createState() => _FeaturedCategoryArticleState();
+  Widget build(BuildContext context) {
+    final rows = <Widget>[];
+    int i = 0;
+    int blockIndex = 0;
+
+    while (i < articles.length) {
+      if (isMobile) {
+        // Mobile pattern: alternate Large / SideBySide pair
+        if (blockIndex % 2 == 0) {
+          rows.add(_LargeCard(article: articles[i], isDark: isDark, isMobile: true));
+          rows.add(const SizedBox(height: 32));
+          i += 1;
+        } else {
+          // Up to 2 side-by-side list items
+          rows.add(_SideCard(article: articles[i], isDark: isDark));
+          rows.add(Divider(height: 32, color: isDark ? Colors.white12 : Colors.black12));
+          i += 1;
+          if (i < articles.length) {
+            rows.add(_SideCard(article: articles[i], isDark: isDark));
+            rows.add(Divider(height: 32, color: isDark ? Colors.white12 : Colors.black12));
+            i += 1;
+          }
+        }
+      } else {
+        // Desktop: 4-pattern rotation
+        final pattern = blockIndex % 4;
+
+        if (pattern == 0) {
+          // [LARGE(2) | COMPACT STACK(1)]  – 3 articles
+          final a1 = articles[i];
+          final a2 = i + 1 < articles.length ? articles[i + 1] : null;
+          final a3 = i + 2 < articles.length ? articles[i + 2] : null;
+          rows.add(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(flex: 2, child: _LargeCard(article: a1, isDark: isDark, isMobile: false)),
+                if (a2 != null || a3 != null) ...[
+                  const SizedBox(width: 32),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        if (a2 != null) _CompactCard(article: a2, isDark: isDark),
+                        if (a2 != null && a3 != null) const SizedBox(height: 24),
+                        if (a3 != null) _CompactCard(article: a3, isDark: isDark),
+                      ],
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          );
+          i += 3;
+        } else if (pattern == 1) {
+          // 4 standard cards in a row
+          final cards = <Widget>[];
+          for (int k = 0; k < 4 && i + k < articles.length; k++) {
+            if (cards.isNotEmpty) cards.add(const SizedBox(width: 32));
+            cards.add(Expanded(child: _StdCard(article: articles[i + k], isDark: isDark)));
+          }
+          rows.add(Row(crossAxisAlignment: CrossAxisAlignment.start, children: cards));
+          i += 4;
+        } else if (pattern == 2) {
+          // 2 large cards
+          final a1 = articles[i];
+          final a2 = i + 1 < articles.length ? articles[i + 1] : null;
+          rows.add(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(child: _LargeCard(article: a1, isDark: isDark, isMobile: false)),
+                if (a2 != null) ...[
+                  const SizedBox(width: 32),
+                  Expanded(child: _LargeCard(article: a2, isDark: isDark, isMobile: false)),
+                ],
+              ],
+            ),
+          );
+          i += 2;
+        } else {
+          // 3 standard cards
+          final cards = <Widget>[];
+          for (int k = 0; k < 3 && i + k < articles.length; k++) {
+            if (cards.isNotEmpty) cards.add(const SizedBox(width: 32));
+            cards.add(Expanded(child: _StdCard(article: articles[i + k], isDark: isDark)));
+          }
+          rows.add(Row(crossAxisAlignment: CrossAxisAlignment.start, children: cards));
+          i += 3;
+        }
+      }
+
+      rows.add(const SizedBox(height: 48));
+      blockIndex++;
+    }
+
+    return SliverToBoxAdapter(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: rows,
+      ),
+    );
+  }
 }
 
-class _FeaturedCategoryArticleState extends State<_FeaturedCategoryArticle> {
+// ─────────────────────────────────────────────────────────────────────────────
+//  HERO (full-bleed cinematic)
+// ─────────────────────────────────────────────────────────────────────────────
+class _HeroArticle extends StatefulWidget {
+  final NewsArticle article;
+  final String categoryName;
+  final bool isDark;
+  final bool isMobile;
+  const _HeroArticle({required this.article, required this.categoryName, required this.isDark, required this.isMobile});
+
+  @override
+  State<_HeroArticle> createState() => _HeroArticleState();
+}
+
+class _HeroArticleState extends State<_HeroArticle> {
   bool _hovered = false;
 
   @override
@@ -201,9 +276,6 @@ class _FeaturedCategoryArticleState extends State<_FeaturedCategoryArticle> {
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
     final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty) ? a.summaryEn! : (a.summary ?? '');
     final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
-    
-    final textColor = widget.isDark ? AppColors.wheat : AppColors.earthText;
-    final hoverTitleColor = Theme.of(context).colorScheme.primary;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -211,160 +283,108 @@ class _FeaturedCategoryArticleState extends State<_FeaturedCategoryArticle> {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
-        child: widget.isMobile
-            ? Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: NewsArticleImage(
-                        imageUrl: a.imageUrl,
-                        fit: BoxFit.cover,
-                        semanticLabel: title,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Text(
-                    dateStr.toUpperCase(),
-                    style: GoogleFonts.robotoMono(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: Theme.of(context).colorScheme.primary,
-                      letterSpacing: 1.5,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    title,
-                    style: GoogleFonts.playfairDisplay(
-                      fontSize: 28,
-                      fontWeight: FontWeight.w900,
-                      color: _hovered ? hoverTitleColor : textColor,
-                      height: 1.2,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    summary,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.lora(
-                      fontSize: 16,
-                      color: widget.isDark ? Colors.white70 : Colors.black87,
-                      height: 1.6,
-                    ),
-                  ),
-                ],
-              )
-            : Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 12,
-                    child: AspectRatio(
-                      aspectRatio: 16 / 10,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: AnimatedScale(
-                          scale: _hovered ? 1.03 : 1.0,
-                          duration: const Duration(seconds: 1),
-                          curve: Curves.easeOutQuart,
-                          child: NewsArticleImage(
-                            imageUrl: a.imageUrl,
-                            fit: BoxFit.cover,
-                            semanticLabel: title,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 48),
-                  Expanded(
-                    flex: 10,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          dateStr.toUpperCase(),
-                          style: GoogleFonts.robotoMono(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w700,
-                            color: Theme.of(context).colorScheme.primary,
-                            letterSpacing: 2,
-                          ),
-                        ),
-                        const SizedBox(height: 24),
-                        Text(
-                          title,
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: 42,
-                            fontWeight: FontWeight.w900,
-                            color: _hovered ? hoverTitleColor : textColor,
-                            height: 1.15,
-                          ),
-                        ),
-                        const SizedBox(height: 24),
-                        Text(
-                          summary,
-                          maxLines: 4,
-                          overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.lora(
-                            fontSize: 18,
-                            color: widget.isDark ? Colors.white70 : Colors.black87,
-                            height: 1.6,
-                          ),
-                        ),
-                        const SizedBox(height: 32),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: _hovered ? hoverTitleColor : (widget.isDark ? Colors.white24 : Colors.black26)),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                isEn ? 'READ MORE' : 'HABERİ OKU',
-                                style: GoogleFonts.inter(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 1.5,
-                                  color: _hovered ? hoverTitleColor : textColor,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Icon(Icons.arrow_forward_rounded, size: 16, color: _hovered ? hoverTitleColor : textColor),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+        child: AspectRatio(
+          aspectRatio: widget.isMobile ? 1.0 : 2.4,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              AnimatedScale(
+                scale: _hovered ? 1.03 : 1.0,
+                duration: const Duration(seconds: 4),
+                curve: Curves.easeOutQuart,
+                child: NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover, isHighQuality: true),
               ),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: const [0.0, 0.35, 0.75, 1.0],
+                    colors: [
+                      Colors.black.withOpacity(0.1),
+                      Colors.transparent,
+                      Colors.black.withOpacity(0.65),
+                      Colors.black.withOpacity(0.95),
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: widget.isMobile ? 24 : 48,
+                left: widget.isMobile ? 16 : 48,
+                right: widget.isMobile ? 16 : 48,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(children: [
+                            Container(
+                              color: AppColors.primaryGreen,
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                              child: Text(widget.categoryName.toUpperCase(),
+                                  style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w900, letterSpacing: 1.5, color: Colors.white)),
+                            ),
+                            const SizedBox(width: 12),
+                            Text(dateStr.toUpperCase(),
+                                style: GoogleFonts.robotoMono(fontSize: 11, fontWeight: FontWeight.w600, color: Colors.white70, letterSpacing: 1.5)),
+                          ]),
+                          const SizedBox(height: 20),
+                          Text(title,
+                              style: GoogleFonts.playfairDisplay(
+                                  fontSize: widget.isMobile ? 30 : 54,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.white,
+                                  height: 1.1)),
+                          const SizedBox(height: 16),
+                          Text(summary,
+                              maxLines: widget.isMobile ? 2 : 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.lora(fontSize: widget.isMobile ? 15 : 19, color: Colors.white70, height: 1.5)),
+                        ],
+                      ),
+                    ),
+                    if (!widget.isMobile) ...[
+                      const SizedBox(width: 24),
+                      AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: _hovered ? AppColors.primaryGreen : Colors.transparent,
+                          border: Border.all(color: _hovered ? AppColors.primaryGreen : Colors.white30, width: 2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 30),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
 
-class _StandardCategoryCard extends StatefulWidget {
+// ─────────────────────────────────────────────────────────────────────────────
+//  LARGE CARD (16:9 image + text below) — no Expanded
+// ─────────────────────────────────────────────────────────────────────────────
+class _LargeCard extends StatefulWidget {
   final NewsArticle article;
   final bool isDark;
-
-  const _StandardCategoryCard({
-    required this.article,
-    required this.isDark,
-  });
+  final bool isMobile;
+  const _LargeCard({required this.article, required this.isDark, required this.isMobile});
 
   @override
-  State<_StandardCategoryCard> createState() => _StandardCategoryCardState();
+  State<_LargeCard> createState() => _LargeCardState();
 }
 
-class _StandardCategoryCardState extends State<_StandardCategoryCard> {
+class _LargeCardState extends State<_LargeCard> {
   bool _hovered = false;
 
   @override
@@ -374,9 +394,7 @@ class _StandardCategoryCardState extends State<_StandardCategoryCard> {
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
     final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty) ? a.summaryEn! : (a.summary ?? '');
     final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
-    
-    final textColor = widget.isDark ? AppColors.wheat : AppColors.earthText;
-    final hoverTitleColor = Theme.of(context).colorScheme.primary;
+    final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -385,57 +403,205 @@ class _StandardCategoryCardState extends State<_StandardCategoryCard> {
       child: GestureDetector(
         onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Stack(fit: StackFit.expand, children: [
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+              ]),
+            ),
+            const SizedBox(height: 20),
+            Text(dateStr.toUpperCase(),
+                style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w800, color: AppColors.primaryGreen, letterSpacing: 2)),
+            const SizedBox(height: 10),
+            Text(title,
+                maxLines: 3, overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.playfairDisplay(
+                    fontSize: widget.isMobile ? 26 : 34,
+                    fontWeight: FontWeight.w900,
+                    color: _hovered ? AppColors.primaryGreen : textColor,
+                    height: 1.15)),
+            const SizedBox(height: 10),
+            Text(summary,
+                maxLines: 2, overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.lora(fontSize: 15, color: widget.isDark ? Colors.white60 : Colors.black54, height: 1.5)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  STANDARD CARD (3:2 image + text below)
+// ─────────────────────────────────────────────────────────────────────────────
+class _StdCard extends StatefulWidget {
+  final NewsArticle article;
+  final bool isDark;
+  const _StdCard({required this.article, required this.isDark});
+
+  @override
+  State<_StdCard> createState() => _StdCardState();
+}
+
+class _StdCardState extends State<_StdCard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = widget.article;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final textColor = widget.isDark ? Colors.white : Colors.black87;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AspectRatio(
               aspectRatio: 3 / 2,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(6),
-                child: AnimatedScale(
-                  scale: _hovered ? 1.05 : 1.0,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeOutQuart,
-                  child: NewsArticleImage(
-                    imageUrl: a.imageUrl,
-                    fit: BoxFit.cover,
-                    semanticLabel: title,
-                  ),
-                ),
-              ),
+              child: Stack(fit: StackFit.expand, children: [
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+              ]),
             ),
-            const SizedBox(height: 20),
-            Text(
-              dateStr.toUpperCase(),
-              style: GoogleFonts.robotoMono(
-                fontSize: 11,
-                fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.primary,
-                letterSpacing: 1.2,
-              ),
+            const SizedBox(height: 14),
+            Text(dateStr.toUpperCase(),
+                style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primaryGreen, letterSpacing: 1.5)),
+            const SizedBox(height: 8),
+            Text(title,
+                maxLines: 4, overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.playfairDisplay(
+                    fontSize: 20, fontWeight: FontWeight.w900,
+                    color: _hovered ? AppColors.primaryGreen : textColor, height: 1.2)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  COMPACT CARD (16:9 image + title) — used in the right column of pattern 0
+// ─────────────────────────────────────────────────────────────────────────────
+class _CompactCard extends StatefulWidget {
+  final NewsArticle article;
+  final bool isDark;
+  const _CompactCard({required this.article, required this.isDark});
+
+  @override
+  State<_CompactCard> createState() => _CompactCardState();
+}
+
+class _CompactCardState extends State<_CompactCard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = widget.article;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final textColor = widget.isDark ? Colors.white : Colors.black87;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Stack(fit: StackFit.expand, children: [
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+              ]),
             ),
             const SizedBox(height: 12),
-            Text(
-              title,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: GoogleFonts.playfairDisplay(
-                fontSize: 22,
-                fontWeight: FontWeight.w800,
-                color: _hovered ? hoverTitleColor : textColor,
-                height: 1.25,
-              ),
+            Text(dateStr.toUpperCase(),
+                style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primaryGreen, letterSpacing: 1)),
+            const SizedBox(height: 6),
+            Text(title,
+                maxLines: 3, overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.playfairDisplay(
+                    fontSize: 17, fontWeight: FontWeight.w800,
+                    color: _hovered ? AppColors.primaryGreen : textColor, height: 1.2)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  SIDE CARD (mobile: thumbnail left + title right)
+// ─────────────────────────────────────────────────────────────────────────────
+class _SideCard extends StatefulWidget {
+  final NewsArticle article;
+  final bool isDark;
+  const _SideCard({required this.article, required this.isDark});
+
+  @override
+  State<_SideCard> createState() => _SideCardState();
+}
+
+class _SideCardState extends State<_SideCard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = widget.article;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final textColor = widget.isDark ? Colors.white : Colors.black87;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: 110,
+              height: 80,
+              child: Stack(fit: StackFit.expand, children: [
+                NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
+                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+              ]),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(width: 14),
             Expanded(
-              child: Text(
-                summary,
-                maxLines: 4,
-                overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.lora(
-                  fontSize: 15,
-                  color: widget.isDark ? Colors.white60 : Colors.black54,
-                  height: 1.6,
-                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(dateStr.toUpperCase(),
+                      style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primaryGreen, letterSpacing: 1)),
+                  const SizedBox(height: 6),
+                  Text(title,
+                      maxLines: 3, overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.playfairDisplay(
+                          fontSize: 16, fontWeight: FontWeight.w800,
+                          color: _hovered ? AppColors.primaryGreen : textColor, height: 1.2)),
+                ],
               ),
             ),
           ],

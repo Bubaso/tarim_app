@@ -78,8 +78,8 @@ class PortalFooter extends StatelessWidget {
               const SizedBox(height: 24),
               Text(
                 isEn 
-                  ? '© 2026 Tarım Portalı — All rights reserved. This site operates in accordance with Turkish media law.'
-                  : '© 2026 Tarım Portalı — Tüm hakları saklıdır. Bu site Türkiye medya hukukuna uygun olarak yayın yapmaktadır.',
+                  ? '© 2026 Gerçek Tarım — All rights reserved. This site operates in accordance with Turkish media law.'
+                  : '© 2026 Gerçek Tarım — Tüm hakları saklıdır. Bu site Türkiye medya hukukuna uygun olarak yayın yapmaktadır.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 12,
@@ -99,16 +99,35 @@ class PortalFooter extends StatelessWidget {
       children: [
         Row(
           children: [
-            const Icon(Icons.eco_rounded, color: Colors.green, size: 28),
-            const SizedBox(width: 8),
-            Text(
-              'TARIM PORTALI',
-              style: GoogleFonts.playfairDisplay(
-                fontWeight: FontWeight.w900,
-                fontSize: 22,
-                color: titleColor,
-                letterSpacing: -0.3,
-              ),
+            Image.asset(
+              'assets/images/logo.png',
+              height: 48,
+              errorBuilder: (context, error, stackTrace) =>
+                const Icon(Icons.eco_rounded, color: Colors.green, size: 32),
+            ),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'GERÇEK TARIM',
+                  style: GoogleFonts.playfairDisplay(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 22,
+                    color: titleColor,
+                    letterSpacing: -0.3,
+                  ),
+                ),
+                Text(
+                  'TARIMIN DOĞRU ADRESİ',
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 12,
+                    color: AppColors.primaryGreen,
+                    letterSpacing: 0.5,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -154,6 +173,7 @@ class PortalFooter extends StatelessWidget {
                     // Navigate to About screen
                     Navigator.of(context).push(
                       PageRouteBuilder(
+                        settings: const RouteSettings(name: '/AboutScreen'),
                         pageBuilder: (_, __, ___) => const AboutScreen(),
                         transitionsBuilder: (_, animation, __, child) => FadeTransition(opacity: animation, child: child),
                       ),

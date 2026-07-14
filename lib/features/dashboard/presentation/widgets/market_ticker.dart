@@ -55,7 +55,7 @@ class MarketTicker extends StatelessWidget {
         createFadeRoute(const FinancialTerminalScreen()),
       ),
       child: Container(
-        height: isMobile ? 48 : 36,
+        height: isMobile ? 32 : 36,
         width: double.infinity,
         color: AppColors.darkGreen, // Kurumsal yeşil zemin
         alignment: Alignment.center,
@@ -63,7 +63,7 @@ class MarketTicker extends StatelessWidget {
           text: tickerText,
           style: GoogleFonts.robotoMono(
             color: AppColors.wheat,
-            fontSize: isMobile ? 14.0 : 12.5,
+            fontSize: isMobile ? 13.0 : 12.5,
             fontWeight: FontWeight.w500,
           ),
           scrollAxis: Axis.horizontal,

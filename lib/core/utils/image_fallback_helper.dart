@@ -23,8 +23,9 @@ class ShimmerPlaceholder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final base    = isDark ? AppColors.wheat : AppColors.wheat;
-    final hilite  = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
+    // Anasayfa zeminine uygun, göz yormayan soft yükleme renkleri
+    final base    = isDark ? const Color(0xFF253B24) : const Color(0xFFEBE6DD);
+    final hilite  = isDark ? const Color(0xFF355234) : const Color(0xFFF4EFE6);
 
     return Shimmer.fromColors(
       baseColor:     base,
@@ -86,15 +87,15 @@ class NewsArticleImage extends StatelessWidget {
         if (requestedWidth > 2000) requestedWidth = 2000;
         if (requestedWidth < 300) requestedWidth = 300;
 
-        final q = isHighQuality ? 95 : 75;
+        final q = isHighQuality ? 90 : 65;
         
         String url = rawUrl;
         if (rawUrl.contains('/object/public/')) {
           final replaced = rawUrl.replaceFirst('/object/public/', '/render/image/public/');
           if (replaced.contains('?')) {
-            url = '$replaced&width=$requestedWidth&quality=$q';
+            url = '$replaced&width=$requestedWidth&quality=$q&format=webp';
           } else {
-            url = '$replaced?width=$requestedWidth&quality=$q';
+            url = '$replaced?width=$requestedWidth&quality=$q&format=webp';
           }
         }
 
@@ -162,8 +163,8 @@ class NewsCardSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base   = isDark ? AppColors.wheat : AppColors.wheat;
-    final hilite = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
+    final base    = isDark ? const Color(0xFF253B24) : const Color(0xFFEBE6DD);
+    final hilite  = isDark ? const Color(0xFF355234) : const Color(0xFFF4EFE6);
 
     return Shimmer.fromColors(
       baseColor:     base,
@@ -233,8 +234,8 @@ class SmallCardSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base   = isDark ? AppColors.wheat : AppColors.wheat;
-    final hilite = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
+    final base    = isDark ? const Color(0xFF253B24) : const Color(0xFFEBE6DD);
+    final hilite  = isDark ? const Color(0xFF355234) : const Color(0xFFF4EFE6);
 
     return Shimmer.fromColors(
       baseColor:     base,
@@ -277,8 +278,8 @@ class RelatedCardSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final base   = isDark ? AppColors.wheat : AppColors.wheat;
-    final hilite = isDark ? const Color(0xFF2C3A4A) : const Color(0xFFF5F3EF);
+    final base    = isDark ? const Color(0xFF253B24) : const Color(0xFFEBE6DD);
+    final hilite  = isDark ? const Color(0xFF355234) : const Color(0xFFF4EFE6);
 
     return Shimmer.fromColors(
       baseColor:     base,

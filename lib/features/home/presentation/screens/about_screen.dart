@@ -25,10 +25,15 @@ class AboutScreen extends StatelessWidget {
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Icon(Icons.eco_rounded, color: Colors.green, size: 24),
+            Image.asset(
+              'assets/images/logo.png',
+              height: 28,
+              errorBuilder: (context, error, stackTrace) =>
+                const Icon(Icons.eco_rounded, color: Colors.green, size: 24),
+            ),
             const SizedBox(width: 8),
             Text(
-              'TARIM PORTALI',
+              'GERÇEK TARIM',
               style: GoogleFonts.playfairDisplay(
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
@@ -57,10 +62,10 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 Text(
                   isEn
-                    ? 'Tarım Portalı is where the heart of Turkey\'s agriculture, livestock, and ecosystem economy beats. '
+                    ? 'Gerçek Tarım is where the heart of Turkey\'s agriculture, livestock, and ecosystem economy beats. '
                       'We set out to convey sectoral developments, scientific production methods, and market data to our farmers, investors, '
                       'and researchers with a reliable language.'
-                    : 'Tarım Portalı, Türkiye tarım, hayvancılık ve ekosistem ekonomisinin kalbinin attığı yerdir. '
+                    : 'Gerçek Tarım, Türkiye tarım, hayvancılık ve ekosistem ekonomisinin kalbinin attığı yerdir. '
                       'Sektörel gelişimleri, bilimsel üretim yöntemlerini ve pazar verilerini çiftçilerimize, yatırımcılara '
                       've araştırmacılara güvenilir bir dille aktarmak üzere yola çıktık.',
                   style: GoogleFonts.inter(
@@ -119,7 +124,7 @@ class AboutScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 24),
-                      _buildKunyeItem(isEn ? 'Franchisee' : 'İmtiyaz Sahibi', isEn ? 'Tarım Portalı Digital Publishing Inc.' : 'Tarım Portalı Dijital Yayıncılık A.Ş.', textColor, subtleColor),
+                      _buildKunyeItem(isEn ? 'Franchisee' : 'İmtiyaz Sahibi', isEn ? 'Gerçek Tarım Digital Publishing Inc.' : 'Gerçek Tarım Dijital Yayıncılık A.Ş.', textColor, subtleColor),
                       _buildKunyeItem(isEn ? 'Editor-in-Chief' : 'Genel Yayın Yönetmeni', 'Ali Gökçek', textColor, subtleColor),
                       _buildKunyeItem(isEn ? 'Managing Editor' : 'Sorumlu Yazı İşleri Müdürü', 'Ali Yılmaz', textColor, subtleColor),
                       _buildKunyeItem(isEn ? 'Technical Infrastructure' : 'Teknik Altyapı', 'Antigravity Studio', textColor, subtleColor),
@@ -142,8 +147,8 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   isEn
-                    ? 'Tarım Portalı has promised to comply with Press Professional Principles. The copyrights of the contents on our site belong to the publisher and cannot be copied without citing the source. Responsibility for external links lies with the respective websites.'
-                    : 'Tarım Portalı Basın Meslek İlkelerine uymaya söz vermiştir. Sitemizde yer alan içeriklerin telif hakları yayınevine ait olup, kaynak gösterilmeden kopyalanamaz. Dış bağlantıların sorumluluğu ilgili web sitelerine aittir.',
+                    ? 'Gerçek Tarım has promised to comply with Press Professional Principles. The copyrights of the contents on our site belong to the publisher and cannot be copied without citing the source. Responsibility for external links lies with the respective websites.'
+                    : 'Gerçek Tarım Basın Meslek İlkelerine uymaya söz vermiştir. Sitemizde yer alan içeriklerin telif hakları yayınevine ait olup, kaynak gösterilmeden kopyalanamaz. Dış bağlantıların sorumluluğu ilgili web sitelerine aittir.',
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     height: 1.6,

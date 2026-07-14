@@ -23,6 +23,15 @@ class NewsArticle {
   final int? heroScore;
   final bool? isHero;
   final int? heroOrder;
+  
+  // Yeni editoryal alanlar
+  final String? spot;
+  final String? spotEn;
+  final List<String>? keyTakeaways;
+  final List<String>? keyTakeawaysEn;
+  final String? expertInsight;
+  final String? expertInsightEn;
+  final Map<String, dynamic>? chartData;
 
   NewsArticle({
     required this.id,
@@ -47,6 +56,13 @@ class NewsArticle {
     this.heroScore,
     this.isHero,
     this.heroOrder,
+    this.spot,
+    this.spotEn,
+    this.keyTakeaways,
+    this.keyTakeawaysEn,
+    this.expertInsight,
+    this.expertInsightEn,
+    this.chartData,
   });
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) {
@@ -59,6 +75,17 @@ class NewsArticle {
         // Fallback for string-encoded array
         keywords = [json['seo_keywords'].toString()];
       }
+    }
+    
+    // Parse Key Takeaways lists
+    List<String>? takeaways;
+    if (json['key_takeaways'] != null && json['key_takeaways'] is List) {
+      takeaways = (json['key_takeaways'] as List).map((e) => e.toString()).toList();
+    }
+    
+    List<String>? takeawaysEn;
+    if (json['key_takeaways_en'] != null && json['key_takeaways_en'] is List) {
+      takeawaysEn = (json['key_takeaways_en'] as List).map((e) => e.toString()).toList();
     }
 
     return NewsArticle(
@@ -86,6 +113,13 @@ class NewsArticle {
       heroScore: json['hero_score'] != null ? (json['hero_score'] as num).toInt() : null,
       isHero: json['is_hero'] as bool?,
       heroOrder: json['hero_order'] != null ? (json['hero_order'] as num).toInt() : null,
+      spot: json['spot']?.toString(),
+      spotEn: json['spot_en']?.toString(),
+      keyTakeaways: takeaways,
+      keyTakeawaysEn: takeawaysEn,
+      expertInsight: json['expert_insight']?.toString(),
+      expertInsightEn: json['expert_insight_en']?.toString(),
+      chartData: json['chart_data'] as Map<String, dynamic>?,
     );
   }
 
@@ -113,6 +147,13 @@ class NewsArticle {
       'hero_score': heroScore,
       'is_hero': isHero,
       'hero_order': heroOrder,
+      'spot': spot,
+      'spot_en': spotEn,
+      'key_takeaways': keyTakeaways,
+      'key_takeaways_en': keyTakeawaysEn,
+      'expert_insight': expertInsight,
+      'expert_insight_en': expertInsightEn,
+      'chart_data': chartData,
     };
   }
 }

@@ -12,6 +12,7 @@ import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/theme/app_typography.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:fl_chart/fl_chart.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
 
@@ -78,10 +79,18 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         ? article.contentEn!
         : article.content;
 
-    final displaySummary = (isEn && article.summaryEn != null && article.summaryEn!.isNotEmpty)
-        ? article.summaryEn!
-        : (article.summary ?? '');
+    final displaySpot = (isEn && article.spotEn != null && article.spotEn!.isNotEmpty)
+        ? article.spotEn!
+        : (article.spot ?? article.summary ?? '');
 
+    final displayTakeaways = (isEn && article.keyTakeawaysEn != null && article.keyTakeawaysEn!.isNotEmpty)
+        ? article.keyTakeawaysEn!
+        : (article.keyTakeaways ?? []);
+
+    final displayInsight = (isEn && article.expertInsightEn != null && article.expertInsightEn!.isNotEmpty)
+        ? article.expertInsightEn!
+        : (article.expertInsight ?? '');
+        
     final formattedDate = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR')
         .add_Hm()
         .format(article.createdAt);
@@ -195,10 +204,10 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ),
                           const SizedBox(height: 24),
 
-                          // ── Özet (Alt başlık) ─────────────────────────────
-                          if (displaySummary.isNotEmpty) ...[
+                          // ── Özet (Spot) ─────────────────────────────
+                          if (displaySpot.isNotEmpty) ...[
                             Text(
-                              displaySummary,
+                              displaySpot,
                               style: AppTypography.deck(
                                 context,
                                 color: isDark
@@ -207,6 +216,12 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               ),
                             ),
                             const SizedBox(height: 28),
+                          ],
+                          
+                          // ── Anahtar Çıkarımlar ──────────────────────────
+                          if (displayTakeaways.isNotEmpty) ...[
+                             _KeyTakeawaysBox(takeaways: displayTakeaways, isEn: isEn, isDark: isDark, accent: accent),
+                             const SizedBox(height: 28),
                           ],
 
                           // ── Bölme çizgisi ─────────────────────────────────
@@ -218,6 +233,12 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                                 : AppColors.wheat,
                           ),
                           const SizedBox(height: 28),
+
+                          // ── Dinamik Grafik ─────────────────────────────
+                          if (article.chartData != null) ...[
+                             _DynamicChart(chartData: article.chartData!, isDark: isDark, accent: accent),
+                             const SizedBox(height: 28),
+                          ],
 
                           // ── Gövde metni (Html) ─────
                           Html(
@@ -238,8 +259,43 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                                 width: Width(100, Unit.percent),
                                 height: Height.auto(),
                               ),
+                              "h2": Style(
+                                margin: Margins.only(top: 24, bottom: 16),
+                                fontFamily: GoogleFonts.libreFranklin().fontFamily,
+                                fontSize: FontSize(22),
+                                fontWeight: FontWeight.bold,
+                                color: isDark ? Colors.white : Colors.black87,
+                              ),
+                              "blockquote": Style(
+                                margin: Margins.only(left: 16, right: 0, top: 16, bottom: 16),
+                                padding: HtmlPaddings.only(left: 16),
+                                border: Border(left: BorderSide(color: accent, width: 4)),
+                                fontStyle: FontStyle.italic,
+                                color: isDark ? AppColors.wheat : AppColors.earthText,
+                              ),
+                              "table": Style(
+                                margin: Margins.symmetric(vertical: 24),
+                                width: Width(100, Unit.percent),
+                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+                              ),
+                              "th": Style(
+                                padding: HtmlPaddings.all(12),
+                                backgroundColor: isDark ? const Color(0xFF1B232E) : const Color(0xFFF8F9FA),
+                                fontWeight: FontWeight.bold,
+                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+                              ),
+                              "td": Style(
+                                padding: HtmlPaddings.all(12),
+                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+                              ),
                             },
                           ),
+                          
+                          // ── Uzman Görüşü ─────────────────────────────
+                          if (displayInsight.isNotEmpty) ...[
+                             const SizedBox(height: 36),
+                             _ExpertInsightBox(insight: displayInsight, isEn: isEn, isDark: isDark, accent: accent),
+                          ],
 
                           // ── Etiketler ─────────────────────────────────────
                           if (article.seoKeywords != null &&
@@ -1011,6 +1067,315 @@ class _RelatedCardState extends State<_RelatedCard> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  Editoryal Bileşenler
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _KeyTakeawaysBox extends StatelessWidget {
+  final List<String> takeaways;
+  final bool isEn;
+  final bool isDark;
+  final Color accent;
+
+  const _KeyTakeawaysBox({
+    required this.takeaways,
+    required this.isEn,
+    required this.isDark,
+    required this.accent,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final bgColor = isDark ? const Color(0xFF161F2C) : const Color(0xFFF9F6F0);
+    final borderColor = isDark ? const Color(0xFF2C394B) : const Color(0xFFE5E0D8);
+    final textColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: bgColor,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: borderColor, width: 1),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.format_list_bulleted_rounded, color: accent, size: 20),
+              const SizedBox(width: 8),
+              Text(
+                isEn ? 'KEY TAKEAWAYS' : 'ÖNE ÇIKANLAR',
+                style: GoogleFonts.inter(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 1.2,
+                  color: accent,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          ...takeaways.map((takeaway) => Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(top: 7),
+                      width: 6,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        color: accent,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        takeaway,
+                        style: GoogleFonts.lora(
+                          fontSize: 16,
+                          height: 1.5,
+                          color: textColor,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+        ],
+      ),
+    );
+  }
+}
+
+class _ExpertInsightBox extends StatelessWidget {
+  final String insight;
+  final bool isEn;
+  final bool isDark;
+  final Color accent;
+
+  const _ExpertInsightBox({
+    required this.insight,
+    required this.isEn,
+    required this.isDark,
+    required this.accent,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final bgColor = isDark ? const Color(0xFF1B232E) : const Color(0xFFF2F4F8);
+    final textColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: bgColor,
+        border: Border(left: BorderSide(color: accent, width: 4)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.lightbulb_outline_rounded, color: accent, size: 20),
+              const SizedBox(width: 8),
+              Text(
+                isEn ? 'EXPERT INSIGHT' : 'UZMAN GÖRÜŞÜ',
+                style: GoogleFonts.inter(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 1.2,
+                  color: accent,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            insight,
+            style: GoogleFonts.lora(
+              fontSize: 17,
+              height: 1.6,
+              color: textColor,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DynamicChart extends StatelessWidget {
+  final Map<String, dynamic> chartData;
+  final bool isDark;
+  final Color accent;
+
+  const _DynamicChart({
+    required this.chartData,
+    required this.isDark,
+    required this.accent,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final type = chartData['type'] as String?;
+    final title = chartData['title'] as String?;
+    final rawData = chartData['data'] as List<dynamic>?;
+    
+    if (type == null || rawData == null || rawData.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    
+    final data = rawData.map((e) => e as Map<String, dynamic>).toList();
+    final textColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    
+    Widget chartWidget;
+    
+    if (type == 'pie') {
+      chartWidget = AspectRatio(
+        aspectRatio: 1.3,
+        child: PieChart(
+          PieChartData(
+            sectionsSpace: 2,
+            centerSpaceRadius: 40,
+            sections: data.asMap().entries.map((entry) {
+              final index = entry.key;
+              final item = entry.value;
+              final value = (item['value'] as num).toDouble();
+              final label = item['label'] as String;
+              
+              // Generate colors automatically based on index
+              final hue = (index * 137.5) % 360; // Golden angle for distribution
+              final color = HSLColor.fromAHSL(1.0, hue, 0.7, 0.5).toColor();
+              
+              return PieChartSectionData(
+                color: color,
+                value: value,
+                title: '$label\\n${value.toInt()}%',
+                radius: 60,
+                titleStyle: GoogleFonts.inter(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      );
+    } else {
+      // Default to bar chart
+      final maxY = data.map((e) => (e['value'] as num).toDouble()).reduce((a, b) => a > b ? a : b) * 1.2;
+      
+      chartWidget = AspectRatio(
+        aspectRatio: 1.5,
+        child: BarChart(
+          BarChartData(
+            alignment: BarChartAlignment.spaceAround,
+            maxY: maxY,
+            barTouchData: BarTouchData(enabled: false),
+            titlesData: FlTitlesData(
+              show: true,
+              bottomTitles: AxisTitles(
+                sideTitles: SideTitles(
+                  showTitles: true,
+                  getTitlesWidget: (value, meta) {
+                    if (value.toInt() >= 0 && value.toInt() < data.length) {
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          data[value.toInt()]['label'] as String,
+                          style: GoogleFonts.inter(
+                            color: textColor,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      );
+                    }
+                    return const SizedBox.shrink();
+                  },
+                  reservedSize: 32,
+                ),
+              ),
+              leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
+            ),
+            gridData: FlGridData(
+              show: true,
+              drawVerticalLine: false,
+              horizontalInterval: maxY / 4 > 0 ? maxY / 4 : 1,
+              getDrawingHorizontalLine: (value) => FlLine(
+                color: isDark ? Colors.white10 : Colors.black12,
+                strokeWidth: 1,
+                dashArray: [5, 5],
+              ),
+            ),
+            borderData: FlBorderData(show: false),
+            barGroups: data.asMap().entries.map((entry) {
+              return BarChartGroupData(
+                x: entry.key,
+                barRods: [
+                  BarChartRodData(
+                    toY: (entry.value['value'] as num).toDouble(),
+                    color: accent,
+                    width: 22,
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
+                    backDrawRodData: BackgroundBarChartRodData(
+                      show: true,
+                      toY: maxY,
+                      color: isDark ? Colors.white10 : Colors.black12,
+                    ),
+                  )
+                ],
+              );
+            }).toList(),
+          ),
+        ),
+      );
+    }
+    
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+      decoration: BoxDecoration(
+        color: isDark ? const Color(0xFF1A212A) : Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          )
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          if (title != null && title.isNotEmpty) ...[
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.libreFranklin(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ),
+            ),
+            const SizedBox(height: 24),
+          ],
+          chartWidget,
+        ],
       ),
     );
   }
