@@ -50,9 +50,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               backgroundColor: Colors.green,
             ),
           );
-          Navigator.of(context).pushReplacement(
-            createFadeRoute(const DashboardScreen()),
-          );
+          pushReplacementScreen(context, const DashboardScreen());
         }
       }
     } on AuthException catch (e) {

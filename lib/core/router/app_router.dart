@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 
@@ -13,9 +13,9 @@ final appRouter = GoRouter(
       path: '/page/:type',
       pageBuilder: (context, state) {
         final widget = state.extra as Widget?;
-        return CupertinoPage(
+        return NoTransitionPage(
           child: widget ?? const HomeScreen(),
-          name: state.matchedLocation,
+          key: state.pageKey,
         );
       },
     ),

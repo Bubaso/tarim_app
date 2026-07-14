@@ -2,14 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-Route createFadeRoute(Widget page, {String? routeName}) {
-  // Using CupertinoPageRoute to enable native swipe-to-go-back gesture inside Flutter.
-  // This prevents the PWA browser swipe back which causes a white screen reload.
-  return CupertinoPageRoute(
-    settings: RouteSettings(name: routeName ?? '/${page.runtimeType.toString()}'),
-    builder: (context) => page,
-  );
-}
+// No transition page routes are handled by GoRouter internally.
 
 /// Web'de (PWA) tarayıcı geçmişinin (browser history) güncellenmesi için
 /// Navigator.push yerine GoRouter kullanmasını sağlayan yardımcı metod.
