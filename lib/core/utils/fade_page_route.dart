@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 Route createFadeRoute(Widget page, {String? routeName}) {
   // Using CupertinoPageRoute to enable native swipe-to-go-back gesture inside Flutter.
@@ -11,18 +12,13 @@ Route createFadeRoute(Widget page, {String? routeName}) {
 }
 
 /// Web'de (PWA) tarayıcı geçmişinin (browser history) güncellenmesi için
-/// Navigator.push yerine Navigator.pushNamed kullanılmasını sağlayan yardımcı metod.
+/// Navigator.push yerine GoRouter kullanmasını sağlayan yardımcı metod.
 Future<T?> pushScreen<T>(BuildContext context, Widget page) {
-  return Navigator.of(context).pushNamed<T>(
-    '/${page.runtimeType.toString()}',
-    arguments: page,
-  );
+  GoRouter.of(context).push('/page/${page.runtimeType.toString()}', extra: page);
+  return Future.value(null);
 }
 
 Future<T?> pushReplacementScreen<T, TO>(BuildContext context, Widget page, {TO? result}) {
-  return Navigator.of(context).pushReplacementNamed<T, TO>(
-    '/${page.runtimeType.toString()}',
-    result: result,
-    arguments: page,
-  );
+  GoRouter.of(context).pushReplacement('/page/${page.runtimeType.toString()}', extra: page);
+  return Future.value(null);
 }

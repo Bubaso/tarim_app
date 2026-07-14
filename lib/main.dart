@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'core/constants/api_constants.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
+import 'core/router/app_router.dart';
 import 'features/home/presentation/screens/home_screen.dart';
 
 void main() async {
@@ -33,7 +34,8 @@ class MyApp extends ConsumerWidget {
     // Dynamic locale from Riverpod notifier
     final currentLocale = ref.watch(localeProvider);
 
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: appRouter,
       title: 'Gerçek Tarım',
       debugShowCheckedModeBanner: false,
       
@@ -56,29 +58,6 @@ class MyApp extends ConsumerWidget {
         Locale('tr', 'TR'),
         Locale('en', 'US'),
       ],
-
-      // PWA Browser History senkronizasyonu için
-      onGenerateRoute: (settings) {
-        if (settings.arguments is Widget) {
-          final page = settings.arguments as Widget;
-          // CupertinoPageRoute / createFadeRoute dönüyoruz ki swipe-back çalışmaya devam etsin
-          return CupertinoPageRoute(
-            settings: RouteSettings(name: settings.name),
-            builder: (context) => page,
-          );
-        }
-        
-        // Tanımlanamayan bir rota (örneğin sayfa yenilenmesi) olursa veya / ise anasayfaya at.
-        if (settings.name != '/') {
-          return CupertinoPageRoute(
-            settings: const RouteSettings(name: '/'),
-            builder: (context) => const HomeScreen(),
-          );
-        }
-        return null; // let the default fallback handle it
-      },
-
-      home: const HomeScreen(),
     );
   }
 }
