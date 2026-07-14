@@ -55,6 +55,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     // Increment view count when article is opened
     Future.microtask(() {
       ref.read(homeRepositoryProvider).incrementArticleViewCount(widget.article.id);
+      ref.read(readArticlesProvider.notifier).markAsRead(widget.article.id);
     });
   }
 

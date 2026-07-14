@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/network/supabase_client.dart';
 import '../../../core/utils/localization_helper.dart';
 import '../data/models/ai_suggestion.dart';
@@ -12,6 +13,34 @@ final homeRepositoryProvider = Provider<HomeRepository>((ref) {
   final supabaseClient = ref.watch(supabaseClientProvider);
   return HomeRepository(supabaseClient);
 });
+
+class ReadArticlesNotifier extends Notifier<Set<String>> {
+  static const _key = 'read_articles';
+
+  @override
+  Set<String> build() {
+    _loadReadArticles();
+    return {};
+  }
+
+  Future<void> _loadReadArticles() async {
+    final prefs = await SharedPreferences.getInstance();
+    final list = prefs.getStringList(_key) ?? [];
+    state = list.toSet();
+  }
+
+  Future<void> markAsRead(String id) async {
+    if (state.contains(id)) return;
+    
+    final newState = {...state, id};
+    state = newState;
+    
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_key, newState.toList());
+  }
+}
+
+final readArticlesProvider = NotifierProvider<ReadArticlesNotifier, Set<String>>(ReadArticlesNotifier.new);
 
 /// Stream provider for realtime listening to articles from Supabase.
 final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
@@ -168,6 +197,8 @@ bool _articleIsWorld(NewsArticle a) {
 /// Türkiye haberleri ağırlıklı, dünyadan 1-2, bilim/rapor 1 adet.
 final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
   final articlesAsync = ref.watch(latestArticlesProvider);
+  final readIds = ref.watch(readArticlesProvider);
+
   return articlesAsync.when(
     data: (articles) {
       // Sadece published + görseli olan haberler
@@ -178,10 +209,24 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 
       if (withImages.isEmpty) return [];
 
-      // Zaman-ağırlıklı skor hesaplama (yeni + önemli haber önce)
+      // Zaman-ağırlıklı ve okunma durumuna bağlı akıllı skor hesaplama
       double heroScore(NewsArticle a) {
         final ageHours = DateTime.now().difference(a.createdAt).inHours;
-        return (a.heroScore ?? 5) / math.pow(ageHours + 1, 1.5);
+        double score = (a.heroScore ?? 5) / math.pow(ageHours + 1, 1.5);
+        
+        // Strateji 2: Okunanları Geri İtme
+        if (readIds.contains(a.id)) {
+          score = score * 0.3; // Okunanlara %70 ceza
+        } else if (score > 2) {
+          // Strateji 1: Mikro-Karıştırma (Okunmamış ve kaliteli olanlar için)
+          // Saate bağlı ufak bir rastgelelik ekleyerek vitrini canlı tut
+          final hour = DateTime.now().hour;
+          final hash = a.id.hashCode ^ hour;
+          final noise = (hash % 100) / 1000.0; // 0.0 - 0.1 arası
+          score += noise;
+        }
+        
+        return score;
       }
 
       final manualHeroArticles = withImages.where((a) => a.isHero == true).toList();
@@ -190,7 +235,9 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
       final List<NewsArticle> hero = List.from(manualHeroArticles);
       final seen = hero.map((e) => e.id).toSet();
       
-      if (hero.length < 12) {
+      const int heroLimit = 10;
+      
+      if (hero.length < heroLimit) {
         final remaining = withImages.where((a) => !seen.contains(a.id)).toList();
         remaining.sort((a, b) => heroScore(b).compareTo(heroScore(a)));
 
@@ -216,13 +263,13 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
           }
         }
 
-        if (scienceBucket.isNotEmpty && hero.length < 12) hero.add(scienceBucket.first);
-        if (hero.length < 12) hero.addAll(worldBucket.take(math.min(2, 12 - hero.length)));
-        if (hero.length < 12) hero.addAll(turkeyBucket.take(math.min(8, 12 - hero.length)));
-        if (hero.length < 12) hero.addAll(generalBucket.take(12 - hero.length));
-        if (hero.length < 12) {
+        if (scienceBucket.isNotEmpty && hero.length < heroLimit) hero.add(scienceBucket.first);
+        if (hero.length < heroLimit) hero.addAll(worldBucket.take(math.min(2, heroLimit - hero.length)));
+        if (hero.length < heroLimit) hero.addAll(turkeyBucket.take(math.min(6, heroLimit - hero.length)));
+        if (hero.length < heroLimit) hero.addAll(generalBucket.take(heroLimit - hero.length));
+        if (hero.length < heroLimit) {
            final stillSeen = hero.map((e) => e.id).toSet();
-           hero.addAll(remaining.where((a) => !stillSeen.contains(a.id)).take(12 - hero.length));
+           hero.addAll(remaining.where((a) => !stillSeen.contains(a.id)).take(heroLimit - hero.length));
         }
 
         // Kalan (dinamik) olanları skorlarına göre sırala ama manuel olanları üstte tut
@@ -232,7 +279,40 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
         hero.replaceRange(manualHeroArticles.length, hero.length, dynamicPart);
       }
 
-      return hero.take(12).toList();
+      return hero.take(heroLimit).toList();
+    },
+    loading: () => [],
+    error: (e, s) => [],
+  );
+});
+
+/// ICYMI (In Case You Missed It) / Gözden Kaçanlar
+/// Strateji 5: Kullanıcının okumadığı, son 1-7 gün arası kaliteli içerikler.
+final icymiArticlesProvider = Provider<List<NewsArticle>>((ref) {
+  final articlesAsync = ref.watch(latestArticlesProvider);
+  final readIds = ref.watch(readArticlesProvider);
+
+  return articlesAsync.when(
+    data: (articles) {
+      final now = DateTime.now();
+      
+      final icymi = articles.where((a) {
+        if (a.status != 'published') return false;
+        if (a.imageUrl == null || a.imageUrl!.isEmpty) return false;
+        if (readIds.contains(a.id)) return false; // Okunmamış olmalı
+        
+        // Sadece son 1-7 gün arasındaki haberler
+        final ageHours = now.difference(a.createdAt).inHours;
+        return ageHours > 12 && ageHours < (7 * 24);
+      }).toList();
+
+      if (icymi.isEmpty) return [];
+
+      // Hero score'a göre yüksekten düşüğe sırala
+      icymi.sort((a, b) => (b.heroScore ?? 0).compareTo(a.heroScore ?? 0));
+      
+      // En iyi 4'ünü al
+      return icymi.take(4).toList();
     },
     loading: () => [],
     error: (e, s) => [],

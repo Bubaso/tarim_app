@@ -1,16 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Route createFadeRoute(Widget page) {
-  return PageRouteBuilder(
+  // Using CupertinoPageRoute to enable native swipe-to-go-back gesture inside Flutter.
+  // This prevents the PWA browser swipe back which causes a white screen reload.
+  return CupertinoPageRoute(
     settings: RouteSettings(name: '/${page.runtimeType.toString()}'),
-    pageBuilder: (context, animation, secondaryAnimation) => page,
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      return FadeTransition(
-        opacity: animation,
-        child: child,
-      );
-    },
-    transitionDuration: const Duration(milliseconds: 250),
-    reverseTransitionDuration: const Duration(milliseconds: 200),
+    builder: (context) => page,
   );
 }

@@ -437,6 +437,8 @@ class _MobileContent extends ConsumerWidget {
         children: [
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 28),
+          _ICYMISection(isDark: isDark),
+          const SizedBox(height: 28),
           YYTDosyasiSection(isDark: isDark),
           const SizedBox(height: 28),
           _TurkeyNewsSection(isDark: isDark),
@@ -483,6 +485,8 @@ class _TabletContent extends ConsumerWidget {
         padding: const EdgeInsets.all(24),
         children: [
           _PortalHeroSection(isDark: isDark),
+          const SizedBox(height: 36),
+          _ICYMISection(isDark: isDark),
           const SizedBox(height: 36),
           YYTDosyasiSection(isDark: isDark),
           const SizedBox(height: 36),
@@ -543,6 +547,10 @@ class _DesktopContent extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _PortalHeroSection(isDark: isDark),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: _ICYMISection(isDark: isDark),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
@@ -1191,6 +1199,162 @@ class _SectionContainer extends StatelessWidget {
           child: child,
         ),
       ],
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  GÖZDEN KAÇANLAR (ICYMI) BÖLÜMÜ
+// ═══════════════════════════════════════════════════════════════════════════
+
+class _ICYMISection extends ConsumerWidget {
+  final bool isDark;
+
+  const _ICYMISection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider);
+    final articles = ref.watch(icymiArticlesProvider);
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final titleText = isEn ? 'IN CASE YOU MISSED IT' : 'GÖZDEN KAÇANLAR';
+
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    return _SectionContainer(
+      title: titleText,
+      icon: Icons.history_rounded,
+      iconColor: Colors.deepOrangeAccent,
+      isDark: isDark,
+      child: SizedBox(
+        height: 320,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          clipBehavior: Clip.none,
+          itemCount: articles.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: EdgeInsets.only(
+                left: index == 0 ? 0.0 : 8.0,
+                right: index == articles.length - 1 ? 0.0 : 8.0,
+              ),
+              child: SizedBox(
+                width: 260,
+                child: _ICYMICard(article: articles[index], isDark: isDark),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class _ICYMICard extends StatefulWidget {
+  final NewsArticle article;
+  final bool isDark;
+
+  const _ICYMICard({
+    required this.article,
+    required this.isDark,
+  });
+
+  @override
+  State<_ICYMICard> createState() => _ICYMICardState();
+}
+
+class _ICYMICardState extends State<_ICYMICard> {
+  bool _hovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = widget.article;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    
+    final titleColor = _hovered
+        ? const Color(0xFF2196F3) // Global Blue on hover
+        : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
+    final bgColor = widget.isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        child: AnimatedScale(
+          scale: _hovered ? 1.02 : 1.0,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.easeOut,
+          child: Container(
+            decoration: BoxDecoration(
+              color: bgColor,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: _hovered ? const Color(0xFF2196F3).withOpacity(0.5) : borderColor),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(widget.isDark ? 0.3 : 0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                AspectRatio(
+                  aspectRatio: 3 / 2,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.vertical(top: Radius.circular(11)),
+                    child: NewsArticleImage(
+                      imageUrl: a.imageUrl,
+                      fit: BoxFit.cover,
+                      semanticLabel: title,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (a.topic != null && a.topic!.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            child: Text(
+                              a.topic!.toUpperCase(),
+                              style: GoogleFonts.inter(
+                                fontSize: 10,
+                                fontWeight: FontWeight.bold,
+                                color: const Color(0xFF2196F3),
+                              ),
+                            ),
+                          ),
+                        Expanded(
+                          child: Text(
+                            title,
+                            maxLines: 4,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.playfairDisplay(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w800,
+                              color: titleColor,
+                              height: 1.25,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -74,56 +74,67 @@ class CategoryArticlesScreen extends ConsumerWidget {
               ),
             )
           else ...[
-            // ── Hero ──────────────────────────────────────────────────────────
             SliverToBoxAdapter(
-              child: _HeroArticle(
-                article: articles.first,
-                categoryName: title,
-                isDark: isDark,
-                isMobile: isMobile,
-              ),
-            ),
-
-            if (articles.length > 1) ...[
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    isMobile ? 16 : 48, 56, isMobile ? 16 : 48, 48),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(width: 24, height: 2, color: AppColors.primaryGreen),
-                      const SizedBox(width: 16),
-                      Text(
-                        isEn ? 'MORE STORIES' : 'DİĞER HABERLER',
-                        style: GoogleFonts.inter(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 3,
-                          color: textColor,
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 1200),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: isMobile ? 0 : 24, vertical: isMobile ? 0 : 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        // ── Hero ──────────────────────────────────────────────────────────
+                        _HeroArticle(
+                          article: articles.first,
+                          categoryName: title,
+                          isDark: isDark,
+                          isMobile: isMobile,
                         ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(child: Container(height: 1, color: dividerColor)),
-                    ],
+
+                        if (articles.length > 1) ...[
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(
+                              isMobile ? 16 : 0, 56, isMobile ? 16 : 0, 48),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(width: 24, height: 2, color: AppColors.primaryGreen),
+                                const SizedBox(width: 16),
+                                Text(
+                                  isEn ? 'MORE STORIES' : 'DİĞER HABERLER',
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w900,
+                                    letterSpacing: 3,
+                                    color: textColor,
+                                  ),
+                                ),
+                                const SizedBox(width: 16),
+                                Expanded(child: Container(height: 1, color: dividerColor)),
+                              ],
+                            ),
+                          ),
+
+                          // ── Mixed-size body ──────────────────────────────────────────
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: isMobile ? 16 : 0,
+                              right: isMobile ? 16 : 0,
+                              bottom: 80,
+                            ),
+                            child: _MixedGrid(
+                              articles: articles.sublist(1),
+                              isDark: isDark,
+                              isMobile: isMobile,
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-
-              // ── Mixed-size body ──────────────────────────────────────────
-              SliverPadding(
-                padding: EdgeInsets.only(
-                  left: isMobile ? 16 : 48,
-                  right: isMobile ? 16 : 48,
-                  bottom: 80,
-                ),
-                sliver: _MixedGrid(
-                  articles: articles.sublist(1),
-                  isDark: isDark,
-                  isMobile: isMobile,
-                ),
-              ),
-            ],
+            ),
 
             SliverToBoxAdapter(child: PortalFooter(isDark: isDark)),
           ],
@@ -242,12 +253,10 @@ class _MixedGrid extends StatelessWidget {
       blockIndex++;
     }
 
-    return SliverToBoxAdapter(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: rows,
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: rows,
     );
   }
 }
@@ -285,9 +294,11 @@ class _HeroArticleState extends State<_HeroArticle> {
         onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
         child: AspectRatio(
           aspectRatio: widget.isMobile ? 1.0 : 2.4,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
+          child: ClipRRect(
+            borderRadius: widget.isMobile ? BorderRadius.zero : BorderRadius.circular(8),
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
               AnimatedScale(
                 scale: _hovered ? 1.03 : 1.0,
                 duration: const Duration(seconds: 4),
@@ -367,8 +378,9 @@ class _HeroArticleState extends State<_HeroArticle> {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
