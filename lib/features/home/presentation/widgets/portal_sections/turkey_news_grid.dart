@@ -167,7 +167,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
         onExit: (_) => setState(() => _hovered = false),
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+          onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
           child: AnimatedScale(
             scale: _hovered ? 1.02 : 1.0,
             duration: const Duration(milliseconds: 200),
@@ -219,7 +219,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.01 : 1.0,
           duration: const Duration(milliseconds: 200),

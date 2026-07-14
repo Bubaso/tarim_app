@@ -153,8 +153,7 @@ class _DossierFeaturedCardState extends State<_DossierFeaturedCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
         ),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
@@ -255,8 +254,7 @@ class _DossierListCardState extends State<_DossierListCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
         ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),

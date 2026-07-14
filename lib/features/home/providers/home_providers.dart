@@ -209,6 +209,8 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 
       if (withImages.isEmpty) return [];
 
+      final random = math.Random();
+
       // Zaman-ağırlıklı ve okunma durumuna bağlı akıllı skor hesaplama
       double heroScore(NewsArticle a) {
         final ageHours = DateTime.now().difference(a.createdAt).inHours;
@@ -217,12 +219,10 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
         // Strateji 2: Okunanları Geri İtme
         if (readIds.contains(a.id)) {
           score = score * 0.3; // Okunanlara %70 ceza
-        } else if (score > 2) {
+        } else if (score > 1.5) {
           // Strateji 1: Mikro-Karıştırma (Okunmamış ve kaliteli olanlar için)
-          // Saate bağlı ufak bir rastgelelik ekleyerek vitrini canlı tut
-          final hour = DateTime.now().hour;
-          final hash = a.id.hashCode ^ hour;
-          final noise = (hash % 100) / 1000.0; // 0.0 - 0.1 arası
+          // Her yüklemede rastgelelik ekleyerek vitrini dinamik tut (0 ile 2.0 arası ek skor)
+          final noise = random.nextDouble() * 2.0; 
           score += noise;
         }
         

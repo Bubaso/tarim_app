@@ -142,19 +142,8 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
               color: textColor,
             ),
           ),
-          subtitle: Padding(
-            padding: const EdgeInsets.only(top: 4.0),
-            child: Text(
-              DateFormat('dd.MM.yyyy HH:mm').format(article.createdAt.toLocal()),
-              style: GoogleFonts.inter(
-                fontSize: 12,
-                color: subtitleColor,
-              ),
-            ),
-          ),
           onTap: () {
-            Navigator.of(context).push(
-              createFadeRoute(ArticleDetailScreen(article: article)),
+            pushScreen(context, ArticleDetailScreen(article: article),
             );
           },
         );

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../screens/about_screen.dart';
+import '../../../../core/utils/fade_page_route.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PortalFooter extends StatelessWidget {
@@ -171,13 +172,7 @@ class PortalFooter extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     // Navigate to About screen
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        settings: const RouteSettings(name: '/AboutScreen'),
-                        pageBuilder: (_, __, ___) => const AboutScreen(),
-                        transitionsBuilder: (_, animation, __, child) => FadeTransition(opacity: animation, child: child),
-                      ),
-                    );
+                    pushScreen(context, const AboutScreen());
                   },
                   child: Text(
                     link,

@@ -147,8 +147,7 @@ class _YYTSectionContent extends StatelessWidget {
                 ),
                 // "See all" button
                 TextButton.icon(
-                  onPressed: () => Navigator.of(context).push(
-                    createFadeRoute(const YYTDosyasiScreen()),
+                  onPressed: () => pushScreen(context, const YYTDosyasiScreen(),
                   ),
                   icon: Icon(
                     Icons.arrow_forward_rounded,
@@ -214,8 +213,7 @@ class _YYTSectionContent extends StatelessWidget {
           // ── "See full dossier" bottom link ───────────────────────────────
           Center(
             child: OutlinedButton.icon(
-              onPressed: () => Navigator.of(context).push(
-                createFadeRoute(const YYTDosyasiScreen()),
+              onPressed: () => pushScreen(context, const YYTDosyasiScreen(),
               ),
               icon: Icon(Icons.folder_special_rounded, size: 16, color: accentRed),
               label: Text(
@@ -288,8 +286,7 @@ class _YYTPreviewCardState extends State<_YYTPreviewCard> {
       onExit: (_) => setState(() => _hover = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
         ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 180),

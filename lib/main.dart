@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter/cupertino.dart';
 import 'core/constants/api_constants.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'features/home/presentation/screens/home_screen.dart';
-import 'features/home/presentation/screens/typography_preview_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,6 +56,27 @@ class MyApp extends ConsumerWidget {
         Locale('tr', 'TR'),
         Locale('en', 'US'),
       ],
+
+      // PWA Browser History senkronizasyonu için
+      onGenerateRoute: (settings) {
+        if (settings.arguments is Widget) {
+          final page = settings.arguments as Widget;
+          // CupertinoPageRoute / createFadeRoute dönüyoruz ki swipe-back çalışmaya devam etsin
+          return CupertinoPageRoute(
+            settings: RouteSettings(name: settings.name),
+            builder: (context) => page,
+          );
+        }
+        
+        // Tanımlanamayan bir rota (örneğin sayfa yenilenmesi) olursa veya / ise anasayfaya at.
+        if (settings.name != '/') {
+          return CupertinoPageRoute(
+            settings: const RouteSettings(name: '/'),
+            builder: (context) => const HomeScreen(),
+          );
+        }
+        return null; // let the default fallback handle it
+      },
 
       home: const HomeScreen(),
     );

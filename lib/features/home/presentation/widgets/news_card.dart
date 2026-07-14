@@ -49,8 +49,7 @@ class _NewsCardState extends State<NewsCard> {
       cursor: SystemMouseCursors.click,
       child: MergeSemantics(
         child: GestureDetector(
-          onTap: () => Navigator.of(context).push(
-            createFadeRoute(ArticleDetailScreen(article: widget.article)),
+          onTap: () => pushScreen(context, ArticleDetailScreen(article: widget.article),
           ),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,

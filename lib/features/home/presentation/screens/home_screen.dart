@@ -349,12 +349,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             tooltip: 'Hesap Menüsü',
             onSelected: (value) async {
               if (value == 'login') {
-                Navigator.of(context).push(
-                  createFadeRoute(const LoginScreen()),
+                pushScreen(context, const LoginScreen(),
                 );
               } else if (value == 'dashboard') {
-                Navigator.of(context).push(
-                  createFadeRoute(const DashboardScreen()),
+                pushScreen(context, const DashboardScreen(),
                 );
               } else if (value == 'logout') {
                 await ref.read(supabaseClientProvider).auth.signOut();
@@ -644,8 +642,7 @@ class _WeatherChip extends ConsumerWidget {
           : const Color(0xFF444444);
       return InkWell(
         borderRadius: BorderRadius.circular(4),
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(WeatherDetailScreen(weather: w)),
+        onTap: () => pushScreen(context, WeatherDetailScreen(weather: w),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
@@ -897,7 +894,7 @@ class _TrendingCardState extends State<_TrendingCard> {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a)));
+          pushScreen(context, ArticleDetailScreen(article: a));
         },
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
@@ -1002,7 +999,7 @@ class _TurkeyNewsSection extends ConsumerWidget {
           iconColor: Colors.redAccent,
           isDark: isDark,
           onSeeAll: articles.isNotEmpty ? () {
-            Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
+            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
           } : null,
           child: TurkeyNewsGrid(
             articles: articles.take(6).toList(),
@@ -1034,7 +1031,7 @@ class _WorldNewsSection extends ConsumerWidget {
           iconColor: Colors.blueAccent,
           isDark: isDark,
           onSeeAll: articles.isNotEmpty ? () {
-            Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
+            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
           } : null,
           child: WorldNewsRow(
             articles: articles.take(10).toList(), // Show up to 10 for scroll
@@ -1066,7 +1063,7 @@ class _ScienceAndReportsSection extends ConsumerWidget {
           iconColor: Colors.purpleAccent,
           isDark: isDark,
           onSeeAll: articles.isNotEmpty ? () {
-            Navigator.of(context).push(createFadeRoute(CategoryArticlesScreen(title: title, articles: articles)));
+            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
           } : null,
           child: ScienceReportsDossier(
             articles: articles.take(6).toList(),
@@ -1104,8 +1101,7 @@ class _SectoralNewsSection extends ConsumerWidget {
       iconColor: Theme.of(context).colorScheme.primary,
       isDark: isDark,
       onSeeAll: articles.isNotEmpty ? () {
-        Navigator.of(context).push(
-          createFadeRoute(CategoryArticlesScreen(title: displayTopic, articles: articles)),
+        pushScreen(context, CategoryArticlesScreen(title: displayTopic, articles: articles),
         );
       } : null,
       child: AgendaBentoGrid(articles: articles.take(6).toList(), isDark: isDark),
@@ -1283,7 +1279,7 @@ class _ICYMICardState extends State<_ICYMICard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),

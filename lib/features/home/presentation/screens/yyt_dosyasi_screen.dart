@@ -288,8 +288,7 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
         onExit: (_) => setState(() => _hover = false),
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: () => Navigator.of(context).push(
-            createFadeRoute(ArticleDetailScreen(article: a)),
+          onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
           ),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 180),
@@ -381,14 +380,6 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
                             ),
                           ),
                         ],
-                        const SizedBox(height: 6),
-                        Text(
-                          dateStr,
-                          style: GoogleFonts.robotoMono(
-                            fontSize: 10,
-                            color: subCol,
-                          ),
-                        ),
                       ],
                     ),
                   ),

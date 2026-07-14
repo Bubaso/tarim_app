@@ -969,8 +969,7 @@ class _RelatedCardState extends State<_RelatedCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
         ),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 180),

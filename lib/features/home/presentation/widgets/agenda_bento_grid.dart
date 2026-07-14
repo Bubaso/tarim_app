@@ -303,8 +303,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
       cursor: SystemMouseCursors.click,
       child: MergeSemantics(
         child: GestureDetector(
-          onTap: () => Navigator.of(context).push(
-            createFadeRoute(ArticleDetailScreen(article: a)),
+          onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
           ),
           child: AnimatedScale(
             scale: _hovered ? 1.01 : 1.0,
@@ -496,8 +495,7 @@ class _MobileBento extends StatelessWidget {
 
     return MergeSemantics(
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: article)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: article),
         ),
         child: Container(
           decoration: BoxDecoration(
@@ -582,8 +580,7 @@ class _MobileBento extends StatelessWidget {
 
     return MergeSemantics(
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: article)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: article),
         ),
         child: Container(
           decoration: BoxDecoration(
@@ -794,8 +791,7 @@ class _ListItemState extends State<_ListItem> {
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: a)),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
         ),
         child: AnimatedScale(
           scale: _hovered ? 1.015 : 1.0,

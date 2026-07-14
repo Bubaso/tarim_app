@@ -284,8 +284,7 @@ class _MobileMockWriterCardState extends State<_MobileMockWriterCard> {
           ]);
           final coverImage = _authorArticleCoverImage(name);
 
-          Navigator.of(context).push(
-            createFadeRoute(
+          pushScreen(context, 
               AuthorArticleDetailScreen(
                 authorName: writer.name,
                 authorTitle: writer.title,
@@ -294,7 +293,6 @@ class _MobileMockWriterCardState extends State<_MobileMockWriterCard> {
                 coverImageUrl: coverImage,
                 paragraphs: paragraphs,
               ),
-            ),
           );
         },
         child: AnimatedScale(
@@ -420,9 +418,7 @@ class _MobileRealWriterCardState extends State<_MobileRealWriterCard> {
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: article)),
-        ),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: article)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),
@@ -668,8 +664,7 @@ class _HeadlineSlide extends StatelessWidget {
       cursor: SystemMouseCursors.click,
       child: MergeSemantics(
         child: GestureDetector(
-          onTap: () => Navigator.of(context).push(
-            createFadeRoute(ArticleDetailScreen(article: article)),
+          onTap: () => pushScreen(context, ArticleDetailScreen(article: article),
           ),
           child: Stack(
             fit: StackFit.expand,
@@ -895,8 +890,7 @@ class _MockWriterCardState extends State<_MockWriterCard> {
           final coverImage = AuthorArticleDetailScreen.authorCoverImages[name] ??
               'https://images.unsplash.com/photo-1625246333195-78d9c38ad49f?w=900&auto=format&fit=crop&q=80';
 
-          Navigator.of(context).push(
-            createFadeRoute(
+          pushScreen(context, 
               AuthorArticleDetailScreen(
                 authorName: widget.writer.name,
                 authorTitle: widget.writer.title,
@@ -905,7 +899,6 @@ class _MockWriterCardState extends State<_MockWriterCard> {
                 coverImageUrl: coverImage,
                 paragraphs: paragraphs,
               ),
-            ),
           );
         },
         child: AnimatedScale(
@@ -1025,9 +1018,7 @@ class _OpEdCardState extends State<_OpEdCard> {
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(
-          createFadeRoute(ArticleDetailScreen(article: article)),
-        ),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: article)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),

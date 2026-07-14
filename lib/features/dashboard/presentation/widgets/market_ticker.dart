@@ -51,8 +51,7 @@ class MarketTicker extends StatelessWidget {
     final tickerText = buffer.toString();
 
     return InkWell(
-      onTap: () => Navigator.of(context).push(
-        createFadeRoute(const FinancialTerminalScreen()),
+      onTap: () => pushScreen(context, const FinancialTerminalScreen(),
       ),
       child: Container(
         height: isMobile ? 32 : 36,

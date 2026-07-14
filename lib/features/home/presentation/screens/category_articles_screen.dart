@@ -63,12 +63,13 @@ class CategoryArticlesScreen extends ConsumerWidget {
               child: Container(color: dividerColor, height: 1),
             ),
           ),
-
           if (articles.isEmpty)
             SliverFillRemaining(
               child: Center(
                 child: Text(
-                  isEn ? 'No articles found.' : 'Bu kategoride haber bulunmuyor.',
+                  isEn
+                      ? 'No articles found.'
+                      : 'Bu kategoride haber bulunmuyor.',
                   style: GoogleFonts.inter(color: textColor, fontSize: 16),
                 ),
               ),
@@ -79,7 +80,9 @@ class CategoryArticlesScreen extends ConsumerWidget {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 1200),
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: isMobile ? 0 : 24, vertical: isMobile ? 0 : 24),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: isMobile ? 0 : 24,
+                        vertical: isMobile ? 0 : 24),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -94,11 +97,14 @@ class CategoryArticlesScreen extends ConsumerWidget {
                         if (articles.length > 1) ...[
                           Padding(
                             padding: EdgeInsets.fromLTRB(
-                              isMobile ? 16 : 0, 56, isMobile ? 16 : 0, 48),
+                                isMobile ? 16 : 0, 56, isMobile ? 16 : 0, 48),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(width: 24, height: 2, color: AppColors.primaryGreen),
+                                Container(
+                                    width: 24,
+                                    height: 2,
+                                    color: AppColors.primaryGreen),
                                 const SizedBox(width: 16),
                                 Text(
                                   isEn ? 'MORE STORIES' : 'DİĞER HABERLER',
@@ -110,7 +116,9 @@ class CategoryArticlesScreen extends ConsumerWidget {
                                   ),
                                 ),
                                 const SizedBox(width: 16),
-                                Expanded(child: Container(height: 1, color: dividerColor)),
+                                Expanded(
+                                    child: Container(
+                                        height: 1, color: dividerColor)),
                               ],
                             ),
                           ),
@@ -135,7 +143,6 @@ class CategoryArticlesScreen extends ConsumerWidget {
                 ),
               ),
             ),
-
             SliverToBoxAdapter(child: PortalFooter(isDark: isDark)),
           ],
         ],
@@ -153,7 +160,8 @@ class _MixedGrid extends StatelessWidget {
   final bool isDark;
   final bool isMobile;
 
-  const _MixedGrid({required this.articles, required this.isDark, required this.isMobile});
+  const _MixedGrid(
+      {required this.articles, required this.isDark, required this.isMobile});
 
   @override
   Widget build(BuildContext context) {
@@ -165,17 +173,20 @@ class _MixedGrid extends StatelessWidget {
       if (isMobile) {
         // Mobile pattern: alternate Large / SideBySide pair
         if (blockIndex % 2 == 0) {
-          rows.add(_LargeCard(article: articles[i], isDark: isDark, isMobile: true));
+          rows.add(
+              _LargeCard(article: articles[i], isDark: isDark, isMobile: true));
           rows.add(const SizedBox(height: 32));
           i += 1;
         } else {
           // Up to 2 side-by-side list items
           rows.add(_SideCard(article: articles[i], isDark: isDark));
-          rows.add(Divider(height: 32, color: isDark ? Colors.white12 : Colors.black12));
+          rows.add(Divider(
+              height: 32, color: isDark ? Colors.white12 : Colors.black12));
           i += 1;
           if (i < articles.length) {
             rows.add(_SideCard(article: articles[i], isDark: isDark));
-            rows.add(Divider(height: 32, color: isDark ? Colors.white12 : Colors.black12));
+            rows.add(Divider(
+                height: 32, color: isDark ? Colors.white12 : Colors.black12));
             i += 1;
           }
         }
@@ -192,7 +203,10 @@ class _MixedGrid extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(flex: 2, child: _LargeCard(article: a1, isDark: isDark, isMobile: false)),
+                Expanded(
+                    flex: 2,
+                    child: _LargeCard(
+                        article: a1, isDark: isDark, isMobile: false)),
                 if (a2 != null || a3 != null) ...[
                   const SizedBox(width: 32),
                   Expanded(
@@ -200,9 +214,12 @@ class _MixedGrid extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        if (a2 != null) _CompactCard(article: a2, isDark: isDark),
-                        if (a2 != null && a3 != null) const SizedBox(height: 24),
-                        if (a3 != null) _CompactCard(article: a3, isDark: isDark),
+                        if (a2 != null)
+                          _CompactCard(article: a2, isDark: isDark),
+                        if (a2 != null && a3 != null)
+                          const SizedBox(height: 24),
+                        if (a3 != null)
+                          _CompactCard(article: a3, isDark: isDark),
                       ],
                     ),
                   ),
@@ -216,9 +233,11 @@ class _MixedGrid extends StatelessWidget {
           final cards = <Widget>[];
           for (int k = 0; k < 4 && i + k < articles.length; k++) {
             if (cards.isNotEmpty) cards.add(const SizedBox(width: 32));
-            cards.add(Expanded(child: _StdCard(article: articles[i + k], isDark: isDark)));
+            cards.add(Expanded(
+                child: _StdCard(article: articles[i + k], isDark: isDark)));
           }
-          rows.add(Row(crossAxisAlignment: CrossAxisAlignment.start, children: cards));
+          rows.add(Row(
+              crossAxisAlignment: CrossAxisAlignment.start, children: cards));
           i += 4;
         } else if (pattern == 2) {
           // 2 large cards
@@ -228,10 +247,14 @@ class _MixedGrid extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(child: _LargeCard(article: a1, isDark: isDark, isMobile: false)),
+                Expanded(
+                    child: _LargeCard(
+                        article: a1, isDark: isDark, isMobile: false)),
                 if (a2 != null) ...[
                   const SizedBox(width: 32),
-                  Expanded(child: _LargeCard(article: a2, isDark: isDark, isMobile: false)),
+                  Expanded(
+                      child: _LargeCard(
+                          article: a2, isDark: isDark, isMobile: false)),
                 ],
               ],
             ),
@@ -242,9 +265,11 @@ class _MixedGrid extends StatelessWidget {
           final cards = <Widget>[];
           for (int k = 0; k < 3 && i + k < articles.length; k++) {
             if (cards.isNotEmpty) cards.add(const SizedBox(width: 32));
-            cards.add(Expanded(child: _StdCard(article: articles[i + k], isDark: isDark)));
+            cards.add(Expanded(
+                child: _StdCard(article: articles[i + k], isDark: isDark)));
           }
-          rows.add(Row(crossAxisAlignment: CrossAxisAlignment.start, children: cards));
+          rows.add(Row(
+              crossAxisAlignment: CrossAxisAlignment.start, children: cards));
           i += 3;
         }
       }
@@ -269,7 +294,11 @@ class _HeroArticle extends StatefulWidget {
   final String categoryName;
   final bool isDark;
   final bool isMobile;
-  const _HeroArticle({required this.article, required this.categoryName, required this.isDark, required this.isMobile});
+  const _HeroArticle(
+      {required this.article,
+      required this.categoryName,
+      required this.isDark,
+      required this.isMobile});
 
   @override
   State<_HeroArticle> createState() => _HeroArticleState();
@@ -282,105 +311,127 @@ class _HeroArticleState extends State<_HeroArticle> {
   Widget build(BuildContext context) {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty) ? a.summaryEn! : (a.summary ?? '');
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+    final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty)
+        ? a.summaryEn!
+        : (a.summary ?? '');
+    final dateStr =
+        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: AspectRatio(
           aspectRatio: widget.isMobile ? 1.0 : 2.4,
           child: ClipRRect(
-            borderRadius: widget.isMobile ? BorderRadius.zero : BorderRadius.circular(8),
+            borderRadius:
+                widget.isMobile ? BorderRadius.zero : BorderRadius.circular(8),
             child: Stack(
               fit: StackFit.expand,
               children: [
-              AnimatedScale(
-                scale: _hovered ? 1.03 : 1.0,
-                duration: const Duration(seconds: 4),
-                curve: Curves.easeOutQuart,
-                child: NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover, isHighQuality: true),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: const [0.0, 0.35, 0.75, 1.0],
-                    colors: [
-                      Colors.black.withOpacity(0.1),
-                      Colors.transparent,
-                      Colors.black.withOpacity(0.65),
-                      Colors.black.withOpacity(0.95),
+                AnimatedScale(
+                  scale: _hovered ? 1.03 : 1.0,
+                  duration: const Duration(seconds: 4),
+                  curve: Curves.easeOutQuart,
+                  child: NewsArticleImage(
+                      imageUrl: a.imageUrl,
+                      fit: BoxFit.cover,
+                      isHighQuality: true),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: const [0.0, 0.35, 0.75, 1.0],
+                      colors: [
+                        Colors.black.withOpacity(0.1),
+                        Colors.transparent,
+                        Colors.black.withOpacity(0.65),
+                        Colors.black.withOpacity(0.95),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: widget.isMobile ? 24 : 48,
+                  left: widget.isMobile ? 16 : 48,
+                  right: widget.isMobile ? 16 : 48,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(children: [
+                              Container(
+                                color: AppColors.primaryGreen,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 4),
+                                child: Text(widget.categoryName.toUpperCase(),
+                                    style: GoogleFonts.inter(
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w900,
+                                        letterSpacing: 1.5,
+                                        color: Colors.white)),
+                              ),
+                              const SizedBox(width: 12),
+                            ]),
+                            const SizedBox(height: 20),
+                            Text(title,
+                                style: GoogleFonts.playfairDisplay(
+                                    fontSize: widget.isMobile ? 30 : 54,
+                                    fontWeight: FontWeight.w900,
+                                    color: Colors.white,
+                                    height: 1.1)),
+                            const SizedBox(height: 16),
+                            Text(summary,
+                                maxLines: widget.isMobile ? 2 : 3,
+                                overflow: TextOverflow.ellipsis,
+                                style: GoogleFonts.lora(
+                                    fontSize: widget.isMobile ? 15 : 19,
+                                    color: Colors.white70,
+                                    height: 1.5)),
+                          ],
+                        ),
+                      ),
+                      if (!widget.isMobile) ...[
+                        const SizedBox(width: 24),
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: _hovered
+                                ? AppColors.primaryGreen
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: _hovered
+                                    ? AppColors.primaryGreen
+                                    : Colors.white30,
+                                width: 2),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(Icons.arrow_forward_rounded,
+                              color: Colors.white, size: 30),
+                        ),
+                      ],
                     ],
                   ),
                 ),
-              ),
-              Positioned(
-                bottom: widget.isMobile ? 24 : 48,
-                left: widget.isMobile ? 16 : 48,
-                right: widget.isMobile ? 16 : 48,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(children: [
-                            Container(
-                              color: AppColors.primaryGreen,
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                              child: Text(widget.categoryName.toUpperCase(),
-                                  style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w900, letterSpacing: 1.5, color: Colors.white)),
-                            ),
-                            const SizedBox(width: 12),
-                            Text(dateStr.toUpperCase(),
-                                style: GoogleFonts.robotoMono(fontSize: 11, fontWeight: FontWeight.w600, color: Colors.white70, letterSpacing: 1.5)),
-                          ]),
-                          const SizedBox(height: 20),
-                          Text(title,
-                              style: GoogleFonts.playfairDisplay(
-                                  fontSize: widget.isMobile ? 30 : 54,
-                                  fontWeight: FontWeight.w900,
-                                  color: Colors.white,
-                                  height: 1.1)),
-                          const SizedBox(height: 16),
-                          Text(summary,
-                              maxLines: widget.isMobile ? 2 : 3,
-                              overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.lora(fontSize: widget.isMobile ? 15 : 19, color: Colors.white70, height: 1.5)),
-                        ],
-                      ),
-                    ),
-                    if (!widget.isMobile) ...[
-                      const SizedBox(width: 24),
-                      AnimatedContainer(
-                        duration: const Duration(milliseconds: 300),
-                        padding: const EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                          color: _hovered ? AppColors.primaryGreen : Colors.transparent,
-                          border: Border.all(color: _hovered ? AppColors.primaryGreen : Colors.white30, width: 2),
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 30),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -390,7 +441,8 @@ class _LargeCard extends StatefulWidget {
   final NewsArticle article;
   final bool isDark;
   final bool isMobile;
-  const _LargeCard({required this.article, required this.isDark, required this.isMobile});
+  const _LargeCard(
+      {required this.article, required this.isDark, required this.isMobile});
 
   @override
   State<_LargeCard> createState() => _LargeCardState();
@@ -403,9 +455,14 @@ class _LargeCardState extends State<_LargeCard> {
   Widget build(BuildContext context) {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty) ? a.summaryEn! : (a.summary ?? '');
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+    final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty)
+        ? a.summaryEn!
+        : (a.summary ?? '');
+    final dateStr =
+        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -413,7 +470,7 @@ class _LargeCardState extends State<_LargeCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -422,15 +479,15 @@ class _LargeCardState extends State<_LargeCard> {
               aspectRatio: 16 / 9,
               child: Stack(fit: StackFit.expand, children: [
                 NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
-                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+                if (_hovered)
+                  Container(color: AppColors.primaryGreen.withOpacity(0.12)),
               ]),
             ),
             const SizedBox(height: 20),
-            Text(dateStr.toUpperCase(),
-                style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w800, color: AppColors.primaryGreen, letterSpacing: 2)),
             const SizedBox(height: 10),
             Text(title,
-                maxLines: 3, overflow: TextOverflow.ellipsis,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.playfairDisplay(
                     fontSize: widget.isMobile ? 26 : 34,
                     fontWeight: FontWeight.w900,
@@ -438,8 +495,12 @@ class _LargeCardState extends State<_LargeCard> {
                     height: 1.15)),
             const SizedBox(height: 10),
             Text(summary,
-                maxLines: 2, overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.lora(fontSize: 15, color: widget.isDark ? Colors.white60 : Colors.black54, height: 1.5)),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.lora(
+                    fontSize: 15,
+                    color: widget.isDark ? Colors.white60 : Colors.black54,
+                    height: 1.5)),
           ],
         ),
       ),
@@ -466,8 +527,11 @@ class _StdCardState extends State<_StdCard> {
   Widget build(BuildContext context) {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+    final dateStr =
+        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -475,7 +539,7 @@ class _StdCardState extends State<_StdCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -484,18 +548,20 @@ class _StdCardState extends State<_StdCard> {
               aspectRatio: 3 / 2,
               child: Stack(fit: StackFit.expand, children: [
                 NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
-                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+                if (_hovered)
+                  Container(color: AppColors.primaryGreen.withOpacity(0.12)),
               ]),
             ),
             const SizedBox(height: 14),
-            Text(dateStr.toUpperCase(),
-                style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primaryGreen, letterSpacing: 1.5)),
             const SizedBox(height: 8),
             Text(title,
-                maxLines: 4, overflow: TextOverflow.ellipsis,
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.playfairDisplay(
-                    fontSize: 20, fontWeight: FontWeight.w900,
-                    color: _hovered ? AppColors.primaryGreen : textColor, height: 1.2)),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w900,
+                    color: _hovered ? AppColors.primaryGreen : textColor,
+                    height: 1.2)),
           ],
         ),
       ),
@@ -522,8 +588,11 @@ class _CompactCardState extends State<_CompactCard> {
   Widget build(BuildContext context) {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+    final dateStr =
+        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -531,7 +600,7 @@ class _CompactCardState extends State<_CompactCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -540,18 +609,20 @@ class _CompactCardState extends State<_CompactCard> {
               aspectRatio: 16 / 9,
               child: Stack(fit: StackFit.expand, children: [
                 NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
-                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+                if (_hovered)
+                  Container(color: AppColors.primaryGreen.withOpacity(0.12)),
               ]),
             ),
             const SizedBox(height: 12),
-            Text(dateStr.toUpperCase(),
-                style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primaryGreen, letterSpacing: 1)),
             const SizedBox(height: 6),
             Text(title,
-                maxLines: 3, overflow: TextOverflow.ellipsis,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.playfairDisplay(
-                    fontSize: 17, fontWeight: FontWeight.w800,
-                    color: _hovered ? AppColors.primaryGreen : textColor, height: 1.2)),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w800,
+                    color: _hovered ? AppColors.primaryGreen : textColor,
+                    height: 1.2)),
           ],
         ),
       ),
@@ -578,8 +649,11 @@ class _SideCardState extends State<_SideCard> {
   Widget build(BuildContext context) {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+    final dateStr =
+        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -587,7 +661,7 @@ class _SideCardState extends State<_SideCard> {
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () => Navigator.of(context).push(createFadeRoute(ArticleDetailScreen(article: a))),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -596,7 +670,8 @@ class _SideCardState extends State<_SideCard> {
               height: 80,
               child: Stack(fit: StackFit.expand, children: [
                 NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover),
-                if (_hovered) Container(color: AppColors.primaryGreen.withOpacity(0.12)),
+                if (_hovered)
+                  Container(color: AppColors.primaryGreen.withOpacity(0.12)),
               ]),
             ),
             const SizedBox(width: 14),
@@ -605,14 +680,15 @@ class _SideCardState extends State<_SideCard> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(dateStr.toUpperCase(),
-                      style: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w700, color: AppColors.primaryGreen, letterSpacing: 1)),
                   const SizedBox(height: 6),
                   Text(title,
-                      maxLines: 3, overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.playfairDisplay(
-                          fontSize: 16, fontWeight: FontWeight.w800,
-                          color: _hovered ? AppColors.primaryGreen : textColor, height: 1.2)),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                          color: _hovered ? AppColors.primaryGreen : textColor,
+                          height: 1.2)),
                 ],
               ),
             ),
