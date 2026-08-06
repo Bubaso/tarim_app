@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -20,7 +19,8 @@ class LocaleNotifier extends Notifier<Locale> {
       if (kIsWeb) {
         systemLocale = 'tr';
       } else {
-        systemLocale = Platform.localeName.split('_')[0].toLowerCase();
+        // Use PlatformDispatcher instead of dart:io Platform for web compatibility
+        systemLocale = PlatformDispatcher.instance.locale.languageCode.toLowerCase();
       }
 
       if (systemLocale == 'tr') {

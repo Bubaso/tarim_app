@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
@@ -26,21 +25,13 @@ class StorageService {
       final String fileName = '${const Uuid().v4()}.$extension';
       final String filePath = 'editor_uploads/$fileName';
 
-      if (kIsWeb) {
-        final bytes = await image.readAsBytes();
-        await _client.storage.from(_bucketName).uploadBinary(
-              filePath,
-              bytes,
-              fileOptions: FileOptions(contentType: 'image/$extension'),
-            );
-      } else {
-        final file = File(image.path);
-        await _client.storage.from(_bucketName).upload(
-              filePath,
-              file,
-              fileOptions: FileOptions(contentType: 'image/$extension'),
-            );
-      }
+      // Read as bytes works on both Web and Mobile.
+      final bytes = await image.readAsBytes();
+      await _client.storage.from(_bucketName).uploadBinary(
+            filePath,
+            bytes,
+            fileOptions: FileOptions(contentType: 'image/$extension'),
+          );
 
       final String publicUrl = _client.storage.from(_bucketName).getPublicUrl(filePath);
       return publicUrl;
