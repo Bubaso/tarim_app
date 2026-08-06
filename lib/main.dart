@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:flutter/cupertino.dart';
 import 'core/constants/api_constants.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'core/router/app_router.dart';
-import 'features/home/presentation/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +34,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       routerConfig: appRouter,
-      title: 'Gerçek Tarım',
+      title: 'Tarım Portalı',
       debugShowCheckedModeBanner: false,
       
       // Theme definitions — Premium Medya Portalı Tasarım Sistemi

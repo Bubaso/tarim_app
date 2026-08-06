@@ -93,12 +93,12 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
 
   // Selected timeframes per commodity card
   final Map<String, String> _cardTimeframes = {
-    'LSUG5': '1H',
-    'SUG11': '1H',
-    'KNY.WHT': '1H',
-    'ADN.CTN': '1H',
-    'DSL.TR': '1H',
-    'UREA.TR': '1H',
+    'W=F':  '1H',
+    'C=F':  '1H',
+    'S=F':  '1H',
+    'SB=F': '1H',
+    'CT=F': '1H',
+    'BZ=F': '1H',
   };
 
   // Commodities List
@@ -175,145 +175,116 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
   void _initializeCommodities() {
     _commodities = [
       _Commodity(
-        nameEn: 'London Sugar No.5',
-        nameTr: 'Londra Şeker No.5',
-        code: 'LSUG5',
-        exchange: 'ICE EUROPE',
-        unit: r'$/Ton',
-        basePrice: 540.20,
-        changePercentage: 0.85,
+        nameEn: 'CBOT Wheat', nameTr: 'CBOT Buğday',
+        code: 'W=F', exchange: 'CBOT / CHICAGO', unit: '¢/bu',
+        basePrice: 534.5, changePercentage: 0.0,
         timeframeSpots: {
-          '1G': [FlSpot(0, 538.1), FlSpot(1, 539.0), FlSpot(2, 537.4), FlSpot(3, 538.9), FlSpot(4, 540.5), FlSpot(5, 539.8), FlSpot(6, 540.20)],
-          '1H': [FlSpot(0, 532.0), FlSpot(1, 528.5), FlSpot(2, 535.8), FlSpot(3, 531.2), FlSpot(4, 537.4), FlSpot(5, 534.9), FlSpot(6, 540.20)],
-          '1A': [FlSpot(0, 518.5), FlSpot(1, 524.0), FlSpot(2, 530.1), FlSpot(3, 526.4), FlSpot(4, 540.20)],
-          '1Y': [FlSpot(0, 480.0), FlSpot(1, 492.0), FlSpot(2, 510.0), FlSpot(3, 530.0), FlSpot(4, 525.0), FlSpot(5, 540.20)],
+          '1G': [FlSpot(0,530), FlSpot(1,531), FlSpot(2,533), FlSpot(3,532), FlSpot(4,534), FlSpot(5,535), FlSpot(6,534.5)],
+          '1H': [FlSpot(0,520), FlSpot(1,525), FlSpot(2,522), FlSpot(3,528), FlSpot(4,530), FlSpot(5,533), FlSpot(6,534.5)],
+          '1A': [FlSpot(0,510), FlSpot(1,518), FlSpot(2,524), FlSpot(3,530), FlSpot(4,534.5)],
+          '1Y': [FlSpot(0,480), FlSpot(1,495), FlSpot(2,508), FlSpot(3,520), FlSpot(4,528), FlSpot(5,534.5)],
         },
         timeframeLabels: {
-          '1G': ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
-          '1H': ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
-          '1A': ['1.Hf', '2.Hf', '3.Hf', '4.Hf', '5.Hf'],
-          '1Y': ['Oca', 'Mar', 'May', 'Tem', 'Eyl', 'Kas'],
+          '1G': ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+          '1H': ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],
+          '1A': ['1.Hf','2.Hf','3.Hf','4.Hf','5.Hf'],
+          '1Y': ['Oca','Mar','May','Tem','Eyl','Kas'],
         },
-        minY: 460.0,
-        maxY: 560.0,
+        minY: 440.0, maxY: 620.0,
       ),
       _Commodity(
-        nameEn: 'New York Sugar No.11',
-        nameTr: 'New York Şeker No.11',
-        code: 'SUG11',
-        exchange: 'ICE US',
-        unit: '¢/Lb',
-        basePrice: 14.24,
-        changePercentage: -1.22,
+        nameEn: 'CBOT Corn', nameTr: 'CBOT Mısır',
+        code: 'C=F', exchange: 'CBOT / CHICAGO', unit: '¢/bu',
+        basePrice: 341.0, changePercentage: 0.0,
         timeframeSpots: {
-          '1G': [FlSpot(0, 14.35), FlSpot(1, 14.38), FlSpot(2, 14.30), FlSpot(3, 14.28), FlSpot(4, 14.25), FlSpot(5, 14.27), FlSpot(6, 14.24)],
-          '1H': [FlSpot(0, 14.52), FlSpot(1, 14.63), FlSpot(2, 14.41), FlSpot(3, 14.58), FlSpot(4, 14.38), FlSpot(5, 14.31), FlSpot(6, 14.24)],
-          '1A': [FlSpot(0, 15.10), FlSpot(1, 14.85), FlSpot(2, 14.70), FlSpot(3, 14.45), FlSpot(4, 14.24)],
-          '1Y': [FlSpot(0, 16.50), FlSpot(1, 15.80), FlSpot(2, 15.10), FlSpot(3, 14.90), FlSpot(4, 14.60), FlSpot(5, 14.24)],
+          '1G': [FlSpot(0,338), FlSpot(1,339), FlSpot(2,340), FlSpot(3,340), FlSpot(4,341), FlSpot(5,341), FlSpot(6,341)],
+          '1H': [FlSpot(0,330), FlSpot(1,333), FlSpot(2,336), FlSpot(3,338), FlSpot(4,339), FlSpot(5,340), FlSpot(6,341)],
+          '1A': [FlSpot(0,320), FlSpot(1,326), FlSpot(2,332), FlSpot(3,337), FlSpot(4,341)],
+          '1Y': [FlSpot(0,290), FlSpot(1,305), FlSpot(2,318), FlSpot(3,328), FlSpot(4,335), FlSpot(5,341)],
         },
         timeframeLabels: {
-          '1G': ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
-          '1H': ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
-          '1A': ['1.Hf', '2.Hf', '3.Hf', '4.Hf', '5.Hf'],
-          '1Y': ['Oca', 'Mar', 'May', 'Tem', 'Eyl', 'Kas'],
+          '1G': ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+          '1H': ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],
+          '1A': ['1.Hf','2.Hf','3.Hf','4.Hf','5.Hf'],
+          '1Y': ['Oca','Mar','May','Tem','Eyl','Kas'],
         },
-        minY: 13.80,
-        maxY: 17.00,
+        minY: 260.0, maxY: 400.0,
       ),
       _Commodity(
-        nameEn: 'Konya Bread Wheat',
-        nameTr: 'Konya Ekmeklik Buğday',
-        code: 'KNY.WHT',
-        exchange: 'KTB KONYA',
-        unit: 'TL/Kg',
-        basePrice: 9.85,
-        changePercentage: 1.54,
+        nameEn: 'CBOT Soybeans', nameTr: 'CBOT Soya Fasulyesi',
+        code: 'S=F', exchange: 'CBOT / CHICAGO', unit: '¢/bu',
+        basePrice: 903.75, changePercentage: 0.0,
         timeframeSpots: {
-          '1G': [FlSpot(0, 9.72), FlSpot(1, 9.75), FlSpot(2, 9.80), FlSpot(3, 9.82), FlSpot(4, 9.85), FlSpot(5, 9.84), FlSpot(6, 9.85)],
-          '1H': [FlSpot(0, 9.60), FlSpot(1, 9.68), FlSpot(2, 9.72), FlSpot(3, 9.65), FlSpot(4, 9.78), FlSpot(5, 9.80), FlSpot(6, 9.85)],
-          '1A': [FlSpot(0, 9.20), FlSpot(1, 9.35), FlSpot(2, 9.50), FlSpot(3, 9.68), FlSpot(4, 9.85)],
-          '1Y': [FlSpot(0, 7.80), FlSpot(1, 8.20), FlSpot(2, 8.70), FlSpot(3, 9.10), FlSpot(4, 9.40), FlSpot(5, 9.85)],
+          '1G': [FlSpot(0,898), FlSpot(1,900), FlSpot(2,901), FlSpot(3,902), FlSpot(4,903), FlSpot(5,904), FlSpot(6,903.75)],
+          '1H': [FlSpot(0,885), FlSpot(1,890), FlSpot(2,895), FlSpot(3,898), FlSpot(4,900), FlSpot(5,902), FlSpot(6,903.75)],
+          '1A': [FlSpot(0,870), FlSpot(1,880), FlSpot(2,890), FlSpot(3,898), FlSpot(4,903.75)],
+          '1Y': [FlSpot(0,820), FlSpot(1,845), FlSpot(2,865), FlSpot(3,880), FlSpot(4,895), FlSpot(5,903.75)],
         },
         timeframeLabels: {
-          '1G': ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
-          '1H': ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
-          '1A': ['1.Hf', '2.Hf', '3.Hf', '4.Hf', '5.Hf'],
-          '1Y': ['Oca', 'Mar', 'May', 'Tem', 'Eyl', 'Kas'],
+          '1G': ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+          '1H': ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],
+          '1A': ['1.Hf','2.Hf','3.Hf','4.Hf','5.Hf'],
+          '1Y': ['Oca','Mar','May','Tem','Eyl','Kas'],
         },
-        minY: 7.0,
-        maxY: 10.5,
+        minY: 780.0, maxY: 1060.0,
       ),
       _Commodity(
-        nameEn: 'Adana Seed Cotton',
-        nameTr: 'Adana Kütlü Pamuk',
-        code: 'ADN.CTN',
-        exchange: 'ATB ADANA',
-        unit: 'TL/Kg',
-        basePrice: 24.50,
-        changePercentage: -0.41,
+        nameEn: 'ICE Sugar No.11', nameTr: 'ICE Şeker No.11',
+        code: 'SB=F', exchange: 'ICE US', unit: '¢/lb',
+        basePrice: 15.17, changePercentage: 0.0,
         timeframeSpots: {
-          '1G': [FlSpot(0, 24.65), FlSpot(1, 24.70), FlSpot(2, 24.60), FlSpot(3, 24.55), FlSpot(4, 24.50), FlSpot(5, 24.48), FlSpot(6, 24.50)],
-          '1H': [FlSpot(0, 24.80), FlSpot(1, 24.95), FlSpot(2, 24.75), FlSpot(3, 24.60), FlSpot(4, 24.40), FlSpot(5, 24.45), FlSpot(6, 24.50)],
-          '1A': [FlSpot(0, 25.40), FlSpot(1, 25.10), FlSpot(2, 24.90), FlSpot(3, 24.65), FlSpot(4, 24.50)],
-          '1Y': [FlSpot(0, 22.00), FlSpot(1, 23.50), FlSpot(2, 24.80), FlSpot(3, 25.20), FlSpot(4, 24.90), FlSpot(5, 24.50)],
+          '1G': [FlSpot(0,15.10), FlSpot(1,15.12), FlSpot(2,15.14), FlSpot(3,15.15), FlSpot(4,15.16), FlSpot(5,15.17), FlSpot(6,15.17)],
+          '1H': [FlSpot(0,14.90), FlSpot(1,14.95), FlSpot(2,15.00), FlSpot(3,15.05), FlSpot(4,15.10), FlSpot(5,15.14), FlSpot(6,15.17)],
+          '1A': [FlSpot(0,14.60), FlSpot(1,14.75), FlSpot(2,14.90), FlSpot(3,15.05), FlSpot(4,15.17)],
+          '1Y': [FlSpot(0,13.50), FlSpot(1,14.00), FlSpot(2,14.50), FlSpot(3,14.80), FlSpot(4,15.00), FlSpot(5,15.17)],
         },
         timeframeLabels: {
-          '1G': ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
-          '1H': ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
-          '1A': ['1.Hf', '2.Hf', '3.Hf', '4.Hf', '5.Hf'],
-          '1Y': ['Oca', 'Mar', 'May', 'Tem', 'Eyl', 'Kas'],
+          '1G': ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+          '1H': ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],
+          '1A': ['1.Hf','2.Hf','3.Hf','4.Hf','5.Hf'],
+          '1Y': ['Oca','Mar','May','Tem','Eyl','Kas'],
         },
-        minY: 20.0,
-        maxY: 27.0,
+        minY: 12.0, maxY: 20.0,
       ),
       _Commodity(
-        nameEn: 'Diesel Fuel (Istanbul)',
-        nameTr: 'İstanbul Mazot / Motorin',
-        code: 'DSL.TR',
-        exchange: 'EPİAŞ',
-        unit: 'TL/Lt',
-        basePrice: 42.15,
-        changePercentage: 0.12,
+        nameEn: 'NYBOT Cotton', nameTr: 'NYBOT Pamuk',
+        code: 'CT=F', exchange: 'ICE US', unit: '¢/lb',
+        basePrice: 82.95, changePercentage: 0.0,
         timeframeSpots: {
-          '1G': [FlSpot(0, 42.10), FlSpot(1, 42.10), FlSpot(2, 42.15), FlSpot(3, 42.15), FlSpot(4, 42.15), FlSpot(5, 42.15), FlSpot(6, 42.15)],
-          '1H': [FlSpot(0, 41.90), FlSpot(1, 41.90), FlSpot(2, 42.15), FlSpot(3, 42.15), FlSpot(4, 42.15), FlSpot(5, 42.15), FlSpot(6, 42.15)],
-          '1A': [FlSpot(0, 40.80), FlSpot(1, 41.20), FlSpot(2, 41.90), FlSpot(3, 42.15), FlSpot(4, 42.15)],
-          '1Y': [FlSpot(0, 36.50), FlSpot(1, 38.20), FlSpot(2, 40.10), FlSpot(3, 41.50), FlSpot(4, 41.80), FlSpot(5, 42.15)],
+          '1G': [FlSpot(0,82.5), FlSpot(1,82.6), FlSpot(2,82.7), FlSpot(3,82.8), FlSpot(4,82.9), FlSpot(5,82.95), FlSpot(6,82.95)],
+          '1H': [FlSpot(0,80.0), FlSpot(1,80.8), FlSpot(2,81.5), FlSpot(3,82.0), FlSpot(4,82.4), FlSpot(5,82.7), FlSpot(6,82.95)],
+          '1A': [FlSpot(0,78.0), FlSpot(1,79.5), FlSpot(2,80.8), FlSpot(3,82.0), FlSpot(4,82.95)],
+          '1Y': [FlSpot(0,70.0), FlSpot(1,73.0), FlSpot(2,76.0), FlSpot(3,79.0), FlSpot(4,81.5), FlSpot(5,82.95)],
         },
         timeframeLabels: {
-          '1G': ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
-          '1H': ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
-          '1A': ['1.Hf', '2.Hf', '3.Hf', '4.Hf', '5.Hf'],
-          '1Y': ['Oca', 'Mar', 'May', 'Tem', 'Eyl', 'Kas'],
+          '1G': ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+          '1H': ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],
+          '1A': ['1.Hf','2.Hf','3.Hf','4.Hf','5.Hf'],
+          '1Y': ['Oca','Mar','May','Tem','Eyl','Kas'],
         },
-        minY: 34.0,
-        maxY: 45.0,
+        minY: 60.0, maxY: 100.0,
       ),
       _Commodity(
-        nameEn: 'Urea Fertilizer (Bulk)',
-        nameTr: 'Üre Gübresi (Dökme)',
-        code: 'UREA.TR',
-        exchange: 'INPUT INDEX',
-        unit: 'TL/Ton',
-        basePrice: 14200.00,
-        changePercentage: -1.35,
+        nameEn: 'Brent Crude Oil', nameTr: 'Brent Ham Petrol',
+        code: 'BZ=F', exchange: 'ICE EUROPE', unit: r'$/bbl',
+        basePrice: 79.64, changePercentage: 0.0,
         timeframeSpots: {
-          '1G': [FlSpot(0, 14250), FlSpot(1, 14250), FlSpot(2, 14220), FlSpot(3, 14200), FlSpot(4, 14200), FlSpot(5, 14200), FlSpot(6, 14200)],
-          '1H': [FlSpot(0, 14350), FlSpot(1, 14300), FlSpot(2, 14300), FlSpot(3, 14250), FlSpot(4, 14220), FlSpot(5, 14200), FlSpot(6, 14200)],
-          '1A': [FlSpot(0, 14600), FlSpot(1, 14500), FlSpot(2, 14350), FlSpot(3, 14280), FlSpot(4, 14200)],
-          '1Y': [FlSpot(0, 12800), FlSpot(1, 13400), FlSpot(2, 14100), FlSpot(3, 14500), FlSpot(4, 14400), FlSpot(5, 14200)],
+          '1G': [FlSpot(0,79.2), FlSpot(1,79.3), FlSpot(2,79.4), FlSpot(3,79.5), FlSpot(4,79.6), FlSpot(5,79.64), FlSpot(6,79.64)],
+          '1H': [FlSpot(0,77.5), FlSpot(1,78.0), FlSpot(2,78.5), FlSpot(3,79.0), FlSpot(4,79.3), FlSpot(5,79.5), FlSpot(6,79.64)],
+          '1A': [FlSpot(0,76.0), FlSpot(1,77.2), FlSpot(2,78.3), FlSpot(3,79.0), FlSpot(4,79.64)],
+          '1Y': [FlSpot(0,72.0), FlSpot(1,74.5), FlSpot(2,76.8), FlSpot(3,78.0), FlSpot(4,79.0), FlSpot(5,79.64)],
         },
         timeframeLabels: {
-          '1G': ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
-          '1H': ['Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt', 'Paz'],
-          '1A': ['1.Hf', '2.Hf', '3.Hf', '4.Hf', '5.Hf'],
-          '1Y': ['Oca', 'Mar', 'May', 'Tem', 'Eyl', 'Kas'],
+          '1G': ['09:00','10:00','11:00','12:00','13:00','14:00','15:00'],
+          '1H': ['Pzt','Sal','Çar','Per','Cum','Cmt','Paz'],
+          '1A': ['1.Hf','2.Hf','3.Hf','4.Hf','5.Hf'],
+          '1Y': ['Oca','Mar','May','Tem','Eyl','Kas'],
         },
-        minY: 12000.0,
-        maxY: 15000.0,
-      )
+        minY: 60.0, maxY: 100.0,
+      ),
     ];
   }
+
 
   @override
   void dispose() {
@@ -321,33 +292,11 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
     super.dispose();
   }
 
-  // Custom HTML Scraper for Barchart.com
-  Future<double?> _scrapeBarchartPrice(String symbol) async {
-    try {
-      final res = await http.get(
-        Uri.parse('https://www.barchart.com/futures/quotes/$symbol'),
-        headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-        },
-      ).timeout(const Duration(seconds: 8));
-      if (res.statusCode == 200) {
-        final regex = RegExp('"$symbol".{0,500}?"lastPrice":"([^"]+)"');
-        final match = regex.firstMatch(res.body);
-        if (match != null) {
-          final priceStr = match.group(1)!.replaceAll(RegExp(r'[^\d.]'), '');
-          return double.tryParse(priceStr);
-        }
-      }
-    } catch (_) {}
-    return null;
-  }
-
-  // Fetch Live Rates and Commodity Prices
+  // Fetch Live Rates and Commodity Prices — all from Yahoo Finance v8 API
   Future<void> _fetchLiveRates() async {
     setState(() => _fetchingUsd = true);
 
-    // 1. Fetch USD & EUR from Open Exchange Rates
+    // 1. USD & EUR from Open Exchange Rates
     try {
       final res = await http.get(Uri.parse('https://open.er-api.com/v6/latest/USD')).timeout(const Duration(seconds: 6));
       if (res.statusCode == 200) {
@@ -362,47 +311,53 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
       }
     } catch (_) {}
 
-    // 2. Fetch White Sugar #5 (SWQ26) and Sugar #11 (SBN26) from Barchart.com
-    final barchartSymbols = {
-      'LSUG5': 'SWQ26',
-      'SUG11': 'SBN26',
-    };
-    for (var entry in barchartSymbols.entries) {
-      final price = await _scrapeBarchartPrice(entry.value);
-      if (price != null && mounted) {
-        setState(() {
-          final cIndex = _commodities.indexWhere((c) => c.code == entry.key);
-          if (cIndex != -1) {
-            final c = _commodities[cIndex];
-            c.currentPrice = price;
-            c.changePercentage = ((price - c.basePrice) / c.basePrice) * 100;
+    // 2. All 6 commodity prices from Yahoo Finance
+    final yahooSymbols = ['W=F', 'C=F', 'S=F', 'SB=F', 'CT=F', 'BZ=F'];
+    await Future.wait(yahooSymbols.asMap().entries.map((entry) async {
+      final idx = entry.key;
+      final sym = entry.value;
+      try {
+        final res = await http.get(
+          Uri.parse('https://query1.finance.yahoo.com/v8/finance/chart/$sym'),
+          headers: {'User-Agent': 'Mozilla/5.0'},
+        ).timeout(const Duration(seconds: 8));
+        if (res.statusCode == 200) {
+          final data = jsonDecode(res.body);
+          final meta = data['chart']['result'][0]['meta'] as Map<String, dynamic>;
+          final price = (meta['regularMarketPrice'] as num).toDouble();
+          final prev  = (meta['chartPreviousClose'] ?? meta['previousClose'] ?? price) as num;
+          final change = prev.toDouble() != 0 ? ((price - prev.toDouble()) / prev.toDouble()) * 100 : 0.0;
+          if (mounted) {
+            setState(() {
+              if (idx < _commodities.length) {
+                _commodities[idx].currentPrice = price;
+                _commodities[idx].changePercentage = change;
+                // Update last point of all timeframe charts
+                for (final tf in ['1G', '1H', '1A', '1Y']) {
+                  final spots = _commodities[idx].timeframeSpots[tf];
+                  if (spots != null && spots.isNotEmpty) {
+                    spots[spots.length - 1] = FlSpot(spots.last.x, price);
+                  }
+                }
+              }
+            });
           }
-        });
-      }
-    }
-
-    // 3. Fetch Live Brent Oil (BZ=F) from Yahoo Finance
-    try {
-      final res = await http.get(Uri.parse('https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?interval=1d')).timeout(const Duration(seconds: 6));
-      if (res.statusCode == 200) {
-        final data = jsonDecode(res.body);
-        final meta = data['chart']['result'][0]['meta'];
-        final price = (meta['regularMarketPrice'] as num).toDouble();
-        final prevClose = (meta['previousClose'] as num).toDouble();
-        
-        if (mounted) {
-          setState(() {
-            _brentPrice = price;
-            _brentIsUp = price >= prevClose;
-          });
         }
-      }
-    } catch (_) {}
+      } catch (_) {}
+    }));
 
-    if (mounted) {
-      setState(() => _fetchingUsd = false);
+    // 3. Also update _brentPrice for top bar from the fetched BZ=F data
+    final bzIdx = _commodities.indexWhere((c) => c.code == 'BZ=F');
+    if (bzIdx != -1 && mounted) {
+      setState(() {
+        _brentPrice = _commodities[bzIdx].currentPrice;
+        _brentIsUp  = _commodities[bzIdx].changePercentage >= 0;
+      });
     }
+
+    if (mounted) setState(() => _fetchingUsd = false);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -528,7 +483,6 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
     );
   }
 
-  // Ticker of currencies & indices
   Widget _buildLiveCurrencyBar(bool isEn) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
@@ -544,18 +498,19 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
             _buildVerticalSeparator(),
             _buildTickerItem('EUR/TRY', _eurTry.toStringAsFixed(2), true, 'LIVE'),
             _buildVerticalSeparator(),
-            _buildTickerItem('BRENT OIL', '${_brentPrice.toStringAsFixed(2)} \$', _brentIsUp, 'ICE'),
+            _buildTickerItem('BRENT', '${_brentPrice.toStringAsFixed(2)} \$', _brentIsUp, 'ICE • LIVE'),
             _buildVerticalSeparator(),
-            _buildTickerItem('KTB EKMEKLİK BUĞDAY', '9.85 TL', true, 'KTB'),
+            _buildTickerItem('CBOT BUĞDAY', '${_commodities.firstWhere((c)=>c.code=="W=F", orElse: ()=>_commodities[0]).currentPrice.toStringAsFixed(2)} ¢/bu', _commodities.firstWhere((c)=>c.code=="W=F", orElse: ()=>_commodities[0]).changePercentage >= 0, 'CBOT • LIVE'),
             _buildVerticalSeparator(),
-            _buildTickerItem('ATB PAMUK', '24.50 TL', false, 'ATB'),
+            _buildTickerItem('ICE ŞEKER', '${_commodities.firstWhere((c)=>c.code=="SB=F", orElse: ()=>_commodities[0]).currentPrice.toStringAsFixed(2)} ¢/lb', _commodities.firstWhere((c)=>c.code=="SB=F", orElse: ()=>_commodities[0]).changePercentage >= 0, 'ICE • LIVE'),
             _buildVerticalSeparator(),
-            _buildTickerItem('MAZOT/DSL', '42.15 TL', true, 'EPİAŞ'),
+            _buildTickerItem('NYBOT PAMUK', '${_commodities.firstWhere((c)=>c.code=="CT=F", orElse: ()=>_commodities[0]).currentPrice.toStringAsFixed(2)} ¢/lb', _commodities.firstWhere((c)=>c.code=="CT=F", orElse: ()=>_commodities[0]).changePercentage >= 0, 'NYBOT • LIVE'),
           ],
         ),
       ),
     );
   }
+
 
   Widget _buildTickerItem(String label, String value, bool isUp, String source) {
     final clr = isUp ? _kUp : _kDown;

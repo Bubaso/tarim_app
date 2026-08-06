@@ -1,6 +1,6 @@
 {
-    "name": "Gerçek Tarım",
-    "short_name": "Gerçek Tarım",
+    "name": "Tarım Portalı",
+    "short_name": "Tarım Portalı",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#174E38",

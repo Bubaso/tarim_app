@@ -249,10 +249,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
-            'assets/images/logo.png',
-            height: isDesktop ? 32 : 28,
+            'assets/images/logo_tp.png',
+            height: isDesktop ? 38 : 32,
             errorBuilder: (context, error, stackTrace) =>
-              Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: isDesktop ? 26 : 22),
+              Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: isDesktop ? 28 : 24),
           ),
           SizedBox(width: isDesktop ? 8 : 4),
           Expanded(
@@ -261,7 +261,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'GERÇEK TARIM',
+                  'TARIM PORTALI',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.playfairDisplay(
@@ -1035,6 +1035,38 @@ class _WorldNewsSection extends ConsumerWidget {
           } : null,
           child: WorldNewsRow(
             articles: articles.take(10).toList(), // Show up to 10 for scroll
+            isDark: isDark,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _CuratedArticlesSection extends ConsumerWidget {
+  final bool isDark;
+  const _CuratedArticlesSection({required this.isDark});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final articles = ref.watch(curatedArticlesProvider);
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = isEn ? 'CURATED ARTICLES' : 'SEÇTİĞİMİZ MAKALELER';
+
+    return Column(
+      children: [
+        _SectionContainer(
+          title: title,
+          icon: Icons.star_rounded,
+          iconColor: Colors.amberAccent,
+          isDark: isDark,
+          onSeeAll: articles.isNotEmpty ? () {
+            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
+          } : null,
+          child: TurkeyNewsGrid(
+            articles: articles.take(6).toList(),
             isDark: isDark,
           ),
         ),

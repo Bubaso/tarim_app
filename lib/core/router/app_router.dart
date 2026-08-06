@@ -10,12 +10,12 @@ final appRouter = GoRouter(
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      path: '/page/:type',
+      path: '/page/:type/:id',
       pageBuilder: (context, state) {
         final widget = state.extra as Widget?;
         return NoTransitionPage(
           child: widget ?? const HomeScreen(),
-          key: state.pageKey,
+          key: UniqueKey(),
         );
       },
     ),

@@ -183,15 +183,15 @@ class WeatherDetailScreen extends ConsumerWidget {
       elevation: 0,
       scrolledUnderElevation: 0,
       leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white70, size: 18),
+        icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
         onPressed: () => Navigator.of(context).pop(),
       ),
       title: Text(
         isEn ? 'CLIMATE & AGRI WARNING CENTER' : 'ZİRAİ İKLİM VE UYARI MERKEZİ',
         style: GoogleFonts.inter(
-          color: Colors.white54,
-          fontSize: 10,
-          fontWeight: FontWeight.w800,
+          color: Colors.white,
+          fontSize: 12,
+          fontWeight: FontWeight.w900,
           letterSpacing: 1.2,
         ),
       ),
@@ -242,9 +242,16 @@ class _HeroTemperature extends ConsumerWidget {
           '${weather.temperature.toStringAsFixed(0)}°',
           style: GoogleFonts.inter(
             fontSize: 104,
-            fontWeight: FontWeight.w100,
+            fontWeight: FontWeight.w200, // increased for legibility
             color: Colors.white,
             height: 1.0,
+            shadows: [
+              const Shadow(
+                color: Colors.black26,
+                blurRadius: 20,
+                offset: Offset(0, 4),
+              )
+            ],
           ),
           textAlign: TextAlign.center,
         ),
@@ -264,14 +271,14 @@ class _HeroTemperature extends ConsumerWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.location_on, color: Colors.white70, size: 16),
+                  const Icon(Icons.location_on, color: Colors.white, size: 16),
                   const SizedBox(width: 6),
                   Flexible(
                     child: Text(
                       weather.city.toUpperCase(),
                       style: GoogleFonts.inter(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w900,
                         color: Colors.white,
                         letterSpacing: 1.5,
                       ),
@@ -279,7 +286,7 @@ class _HeroTemperature extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(width: 6),
-                  const Icon(Icons.keyboard_arrow_down, color: Colors.white54, size: 16),
+                  const Icon(Icons.keyboard_arrow_down, color: Colors.white, size: 16),
                 ],
               ),
             ),
@@ -291,9 +298,9 @@ class _HeroTemperature extends ConsumerWidget {
         Text(
           weather.description.toUpperCase(),
           style: GoogleFonts.inter(
-            fontSize: 11,
-            fontWeight: FontWeight.w500,
-            color: Colors.white54,
+            fontSize: 13,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
             letterSpacing: 1.0,
           ),
           textAlign: TextAlign.center,
@@ -371,14 +378,14 @@ class _ForecastCard extends StatelessWidget {
                   // Header row
                   Row(
                     children: [
-                      const Icon(Icons.thermostat_outlined, color: Colors.white54, size: 14),
+                      const Icon(Icons.thermostat_outlined, color: Colors.white, size: 14),
                       const SizedBox(width: 6),
                       Text(
                         isEn ? 'AGRICULTURAL WEATHER FORECAST' : 'ZİRAİ HAVA DURUMU TAHMİNİ',
                         style: GoogleFonts.inter(
-                          color: Colors.white54,
-                          fontSize: 9,
-                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w900,
                           letterSpacing: 1.2,
                         ),
                       ),
@@ -418,10 +425,10 @@ class _ForecastCard extends StatelessWidget {
                           style: GoogleFonts.inter(
                             color: weather.hasWarning
                                 ? const Color(0xFFFF9500)
-                                : Colors.white.withValues(alpha: 0.75),
-                            fontSize: 13,
+                                : Colors.white,
+                            fontSize: 14,
                             height: 1.6,
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.w700,
                           ),
                           maxLines: 4,
                           overflow: TextOverflow.ellipsis,
@@ -590,16 +597,17 @@ class _MiniBarChart extends StatelessWidget {
                 Text(
                   '${item.maxTemp.toStringAsFixed(0)}°',
                   style: GoogleFonts.inter(
-                    color: Colors.white70,
-                    fontSize: 8,
-                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w900,
                   ),
                 ),
                 Text(
                   '${item.minTemp.toStringAsFixed(0)}°',
                   style: GoogleFonts.inter(
-                    color: Colors.white30,
-                    fontSize: 7,
+                    color: Colors.white.withValues(alpha: 0.9),
+                    fontSize: 10,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 3),
@@ -619,9 +627,9 @@ class _MiniBarChart extends StatelessWidget {
                 Text(
                   days[i],
                   style: GoogleFonts.inter(
-                    color: Colors.white38,
-                    fontSize: 7,
-                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
+                    fontSize: 9,
+                    fontWeight: FontWeight.w900,
                     letterSpacing: 0.3,
                   ),
                 ),
@@ -668,14 +676,14 @@ class _HistoricalComparisonCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Icon(Icons.history, color: Colors.white54, size: 14),
+              const Icon(Icons.history, color: Colors.white, size: 14),
               const SizedBox(width: 6),
               Text(
                 isEn ? 'HISTORICAL CLIMATE COMPARISON (LAST YEAR)' : 'GEÇMİŞ YIL İKLİM KARŞILAŞTIRMASI (GEÇEN YIL)',
                 style: GoogleFonts.inter(
-                  color: Colors.white54,
-                  fontSize: 9,
-                  fontWeight: FontWeight.w800,
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w900,
                   letterSpacing: 1.2,
                 ),
               ),
@@ -691,12 +699,12 @@ class _HistoricalComparisonCard extends StatelessWidget {
                     children: [
                       Text(
                         isEn ? 'MAX TEMPERATURE' : 'MAKSİMUM SICAKLIK',
-                        style: GoogleFonts.inter(fontSize: 8, color: Colors.white38, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 9, color: Colors.white.withValues(alpha: 0.95), fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         '${todayMax.toStringAsFixed(1)}°C vs ${hist.lastYearMaxTemp.toStringAsFixed(1)}°C',
-                        style: GoogleFonts.inter(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 2),
                       Text(
@@ -719,12 +727,12 @@ class _HistoricalComparisonCard extends StatelessWidget {
                     children: [
                       Text(
                         isEn ? 'MIN TEMPERATURE' : 'MİNİMUM SICAKLIK',
-                        style: GoogleFonts.inter(fontSize: 8, color: Colors.white38, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 9, color: Colors.white.withValues(alpha: 0.95), fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         '${todayMin.toStringAsFixed(1)}°C vs ${hist.lastYearMinTemp.toStringAsFixed(1)}°C',
-                        style: GoogleFonts.inter(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 2),
                       Text(
@@ -747,12 +755,12 @@ class _HistoricalComparisonCard extends StatelessWidget {
                     children: [
                       Text(
                         isEn ? 'EVAPORATION (ET0)' : 'BUHARLAŞMA MİKTARI',
-                        style: GoogleFonts.inter(fontSize: 8, color: Colors.white38, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 9, color: Colors.white.withValues(alpha: 0.95), fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 4),
                       Text(
                         '${weather.evapotranspiration.toStringAsFixed(1)} mm vs ${hist.lastYearEt0.toStringAsFixed(1)} mm',
-                        style: GoogleFonts.inter(fontSize: 12, color: Colors.white, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.inter(fontSize: 13, color: Colors.white, fontWeight: FontWeight.w900),
                       ),
                       const SizedBox(height: 2),
                       Text(
@@ -1024,9 +1032,9 @@ class _MetricCardState extends State<_MetricCard> {
                     child: Text(
                       widget.title,
                       style: GoogleFonts.inter(
-                        color: Colors.white38,
-                        fontSize: 7,
-                        fontWeight: FontWeight.w800,
+                        color: Colors.white,
+                        fontSize: 9,
+                        fontWeight: FontWeight.w900,
                         letterSpacing: 0.8,
                       ),
                       overflow: TextOverflow.ellipsis,
@@ -1055,8 +1063,9 @@ class _MetricCardState extends State<_MetricCard> {
               Text(
                 widget.subtitle,
                 style: GoogleFonts.inter(
-                  color: Colors.white54,
-                  fontSize: 7.5,
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w700,
                   height: 1.3,
                 ),
                 maxLines: 2,

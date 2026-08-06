@@ -3,14 +3,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:tarim_app/core/theme/app_colors.dart';
+import 'package:tarim_app/core/theme/app_typography.dart';
 import 'package:tarim_app/core/utils/localization_helper.dart';
 import 'package:tarim_app/core/utils/fade_page_route.dart';
 import 'package:tarim_app/core/utils/image_fallback_helper.dart';
 import '../../data/models/news_article.dart';
+import '../../providers/font_scale_provider.dart';
+import '../widgets/font_size_control_bar.dart';
 import 'article_detail_screen.dart';
 import '../widgets/portal_footer.dart';
 
-class CategoryArticlesScreen extends ConsumerWidget {
+class CategoryArticlesScreen extends ConsumerStatefulWidget {
   final String title;
   final List<NewsArticle> articles;
 
@@ -21,8 +24,16 @@ class CategoryArticlesScreen extends ConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<CategoryArticlesScreen> createState() =>
+      _CategoryArticlesScreenState();
+}
+
+class _CategoryArticlesScreenState
+    extends ConsumerState<CategoryArticlesScreen> {
+  @override
+  Widget build(BuildContext context) {
     ref.watch(localeProvider);
+    final fontScale = ref.watch(fontScaleProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
@@ -40,30 +51,27 @@ class CategoryArticlesScreen extends ConsumerWidget {
             backgroundColor: isDark ? const Color(0xFF0A0D10) : Colors.white,
             elevation: 0,
             pinned: true,
-            centerTitle: true,
+            centerTitle: false,
             iconTheme: IconThemeData(color: textColor),
-            title: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(width: 8, height: 24, color: AppColors.primaryGreen),
-                const SizedBox(width: 12),
-                Text(
-                  title.toUpperCase(),
-                  style: GoogleFonts.inter(
-                    color: textColor,
-                    fontWeight: FontWeight.w900,
-                    fontSize: 18,
-                    letterSpacing: 2.0,
-                  ),
-                ),
-              ],
+            title: Text(
+              widget.title.toUpperCase(),
+              style: GoogleFonts.inter(
+                color: textColor,
+                fontWeight: FontWeight.w900,
+                fontSize: 18,
+                letterSpacing: 2.0,
+              ),
             ),
+            actions: [
+              FontSizeControlBar(isDark: isDark),
+              const SizedBox(width: 12),
+            ],
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(1),
               child: Container(color: dividerColor, height: 1),
             ),
           ),
-          if (articles.isEmpty)
+          if (widget.articles.isEmpty)
             SliverFillRemaining(
               child: Center(
                 child: Text(
@@ -88,13 +96,14 @@ class CategoryArticlesScreen extends ConsumerWidget {
                       children: [
                         // ── Hero ──────────────────────────────────────────────────────────
                         _HeroArticle(
-                          article: articles.first,
-                          categoryName: title,
+                          article: widget.articles.first,
+                          categoryName: widget.title,
                           isDark: isDark,
                           isMobile: isMobile,
+                          fontScale: fontScale,
                         ),
 
-                        if (articles.length > 1) ...[
+                        if (widget.articles.length > 1) ...[
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 isMobile ? 16 : 0, 56, isMobile ? 16 : 0, 48),
@@ -131,9 +140,10 @@ class CategoryArticlesScreen extends ConsumerWidget {
                               bottom: 80,
                             ),
                             child: _MixedGrid(
-                              articles: articles.sublist(1),
+                              articles: widget.articles.sublist(1),
                               isDark: isDark,
                               isMobile: isMobile,
+                              fontScale: fontScale,
                             ),
                           ),
                         ],
@@ -159,9 +169,10 @@ class _MixedGrid extends StatelessWidget {
   final List<NewsArticle> articles;
   final bool isDark;
   final bool isMobile;
+  final double fontScale;
 
   const _MixedGrid(
-      {required this.articles, required this.isDark, required this.isMobile});
+      {required this.articles, required this.isDark, required this.isMobile, this.fontScale = 1.0});
 
   @override
   Widget build(BuildContext context) {
@@ -174,17 +185,17 @@ class _MixedGrid extends StatelessWidget {
         // Mobile pattern: alternate Large / SideBySide pair
         if (blockIndex % 2 == 0) {
           rows.add(
-              _LargeCard(article: articles[i], isDark: isDark, isMobile: true));
+              _LargeCard(article: articles[i], isDark: isDark, isMobile: true, fontScale: fontScale));
           rows.add(const SizedBox(height: 32));
           i += 1;
         } else {
           // Up to 2 side-by-side list items
-          rows.add(_SideCard(article: articles[i], isDark: isDark));
+          rows.add(_SideCard(article: articles[i], isDark: isDark, fontScale: fontScale));
           rows.add(Divider(
               height: 32, color: isDark ? Colors.white12 : Colors.black12));
           i += 1;
           if (i < articles.length) {
-            rows.add(_SideCard(article: articles[i], isDark: isDark));
+            rows.add(_SideCard(article: articles[i], isDark: isDark, fontScale: fontScale));
             rows.add(Divider(
                 height: 32, color: isDark ? Colors.white12 : Colors.black12));
             i += 1;
@@ -206,7 +217,7 @@ class _MixedGrid extends StatelessWidget {
                 Expanded(
                     flex: 2,
                     child: _LargeCard(
-                        article: a1, isDark: isDark, isMobile: false)),
+                        article: a1, isDark: isDark, isMobile: false, fontScale: fontScale)),
                 if (a2 != null || a3 != null) ...[
                   const SizedBox(width: 32),
                   Expanded(
@@ -215,11 +226,11 @@ class _MixedGrid extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         if (a2 != null)
-                          _CompactCard(article: a2, isDark: isDark),
+                          _CompactCard(article: a2, isDark: isDark, fontScale: fontScale),
                         if (a2 != null && a3 != null)
                           const SizedBox(height: 24),
                         if (a3 != null)
-                          _CompactCard(article: a3, isDark: isDark),
+                          _CompactCard(article: a3, isDark: isDark, fontScale: fontScale),
                       ],
                     ),
                   ),
@@ -234,7 +245,7 @@ class _MixedGrid extends StatelessWidget {
           for (int k = 0; k < 4 && i + k < articles.length; k++) {
             if (cards.isNotEmpty) cards.add(const SizedBox(width: 32));
             cards.add(Expanded(
-                child: _StdCard(article: articles[i + k], isDark: isDark)));
+                child: _StdCard(article: articles[i + k], isDark: isDark, fontScale: fontScale)));
           }
           rows.add(Row(
               crossAxisAlignment: CrossAxisAlignment.start, children: cards));
@@ -249,12 +260,12 @@ class _MixedGrid extends StatelessWidget {
               children: [
                 Expanded(
                     child: _LargeCard(
-                        article: a1, isDark: isDark, isMobile: false)),
+                        article: a1, isDark: isDark, isMobile: false, fontScale: fontScale)),
                 if (a2 != null) ...[
                   const SizedBox(width: 32),
                   Expanded(
                       child: _LargeCard(
-                          article: a2, isDark: isDark, isMobile: false)),
+                          article: a2, isDark: isDark, isMobile: false, fontScale: fontScale)),
                 ],
               ],
             ),
@@ -266,7 +277,7 @@ class _MixedGrid extends StatelessWidget {
           for (int k = 0; k < 3 && i + k < articles.length; k++) {
             if (cards.isNotEmpty) cards.add(const SizedBox(width: 32));
             cards.add(Expanded(
-                child: _StdCard(article: articles[i + k], isDark: isDark)));
+                child: _StdCard(article: articles[i + k], isDark: isDark, fontScale: fontScale)));
           }
           rows.add(Row(
               crossAxisAlignment: CrossAxisAlignment.start, children: cards));
@@ -294,11 +305,13 @@ class _HeroArticle extends StatefulWidget {
   final String categoryName;
   final bool isDark;
   final bool isMobile;
+  final double fontScale;
   const _HeroArticle(
       {required this.article,
       required this.categoryName,
       required this.isDark,
-      required this.isMobile});
+      required this.isMobile,
+      this.fontScale = 1.0});
 
   @override
   State<_HeroArticle> createState() => _HeroArticleState();
@@ -387,18 +400,18 @@ class _HeroArticleState extends State<_HeroArticle> {
                             const SizedBox(height: 20),
                             Text(title,
                                 style: GoogleFonts.playfairDisplay(
-                                    fontSize: widget.isMobile ? 30 : 54,
+                                    fontSize: (widget.isMobile ? 27.0 : 48.0) * widget.fontScale,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white,
-                                    height: 1.1)),
+                                    height: 1.12)),
                             const SizedBox(height: 16),
                             Text(summary,
                                 maxLines: widget.isMobile ? 2 : 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: GoogleFonts.lora(
-                                    fontSize: widget.isMobile ? 15 : 19,
+                                    fontSize: (widget.isMobile ? 15.5 : 17.5) * widget.fontScale,
                                     color: Colors.white70,
-                                    height: 1.5)),
+                                    height: 1.4)),
                           ],
                         ),
                       ),
@@ -441,8 +454,9 @@ class _LargeCard extends StatefulWidget {
   final NewsArticle article;
   final bool isDark;
   final bool isMobile;
+  final double fontScale;
   const _LargeCard(
-      {required this.article, required this.isDark, required this.isMobile});
+      {required this.article, required this.isDark, required this.isMobile, this.fontScale = 1.0});
 
   @override
   State<_LargeCard> createState() => _LargeCardState();
@@ -489,18 +503,18 @@ class _LargeCardState extends State<_LargeCard> {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.playfairDisplay(
-                    fontSize: widget.isMobile ? 26 : 34,
+                    fontSize: (widget.isMobile ? 23.0 : 34.0) * widget.fontScale,
                     fontWeight: FontWeight.w900,
                     color: _hovered ? AppColors.primaryGreen : textColor,
-                    height: 1.15)),
+                    height: 1.20)),
             const SizedBox(height: 10),
             Text(summary,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.lora(
-                    fontSize: 15,
+                    fontSize: (widget.isMobile ? 15.5 : 16.0) * widget.fontScale,
                     color: widget.isDark ? Colors.white60 : Colors.black54,
-                    height: 1.5)),
+                    height: 1.70)),
           ],
         ),
       ),
@@ -514,7 +528,8 @@ class _LargeCardState extends State<_LargeCard> {
 class _StdCard extends StatefulWidget {
   final NewsArticle article;
   final bool isDark;
-  const _StdCard({required this.article, required this.isDark});
+  final double fontScale;
+  const _StdCard({required this.article, required this.isDark, this.fontScale = 1.0});
 
   @override
   State<_StdCard> createState() => _StdCardState();
@@ -558,10 +573,10 @@ class _StdCardState extends State<_StdCard> {
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.playfairDisplay(
-                    fontSize: 20,
+                    fontSize: 21.0 * widget.fontScale,
                     fontWeight: FontWeight.w900,
                     color: _hovered ? AppColors.primaryGreen : textColor,
-                    height: 1.2)),
+                    height: 1.25)),
           ],
         ),
       ),
@@ -575,7 +590,8 @@ class _StdCardState extends State<_StdCard> {
 class _CompactCard extends StatefulWidget {
   final NewsArticle article;
   final bool isDark;
-  const _CompactCard({required this.article, required this.isDark});
+  final double fontScale;
+  const _CompactCard({required this.article, required this.isDark, this.fontScale = 1.0});
 
   @override
   State<_CompactCard> createState() => _CompactCardState();
@@ -619,10 +635,10 @@ class _CompactCardState extends State<_CompactCard> {
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: GoogleFonts.playfairDisplay(
-                    fontSize: 17,
+                    fontSize: 18.5 * widget.fontScale,
                     fontWeight: FontWeight.w800,
                     color: _hovered ? AppColors.primaryGreen : textColor,
-                    height: 1.2)),
+                    height: 1.25)),
           ],
         ),
       ),
@@ -636,7 +652,8 @@ class _CompactCardState extends State<_CompactCard> {
 class _SideCard extends StatefulWidget {
   final NewsArticle article;
   final bool isDark;
-  const _SideCard({required this.article, required this.isDark});
+  final double fontScale;
+  const _SideCard({required this.article, required this.isDark, this.fontScale = 1.0});
 
   @override
   State<_SideCard> createState() => _SideCardState();
@@ -685,10 +702,10 @@ class _SideCardState extends State<_SideCard> {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.playfairDisplay(
-                          fontSize: 16,
+                          fontSize: 16.5 * widget.fontScale,
                           fontWeight: FontWeight.w800,
                           color: _hovered ? AppColors.primaryGreen : textColor,
-                          height: 1.2)),
+                          height: 1.25)),
                 ],
               ),
             ),

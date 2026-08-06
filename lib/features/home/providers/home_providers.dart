@@ -8,6 +8,9 @@ import '../data/models/news_article.dart';
 import '../data/models/weather_info.dart';
 import '../data/models/market_data.dart';
 import '../data/repositories/home_repository.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 final homeRepositoryProvider = Provider<HomeRepository>((ref) {
   final supabaseClient = ref.watch(supabaseClientProvider);
@@ -214,69 +217,60 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
       // Zaman-ağırlıklı ve okunma durumuna bağlı akıllı skor hesaplama
       double heroScore(NewsArticle a) {
         final ageHours = DateTime.now().difference(a.createdAt).inHours;
-        double score = (a.heroScore ?? 5) / math.pow(ageHours + 1, 1.5);
         
-        // Strateji 2: Okunanları Geri İtme
+        // Zaman cezasını biraz yumuşattık (1.5 yerine 0.8 üs) ki haberler hemen ölmesin
+        double score = (a.heroScore ?? 5) / math.pow(ageHours + 1, 0.8);
+        
+        // Strateji 3: Okunanları Aşağı Çekme
         if (readIds.contains(a.id)) {
-          score = score * 0.3; // Okunanlara %70 ceza
-        } else if (score > 1.5) {
-          // Strateji 1: Mikro-Karıştırma (Okunmamış ve kaliteli olanlar için)
-          // Her yüklemede rastgelelik ekleyerek vitrini dinamik tut (0 ile 2.0 arası ek skor)
-          final noise = random.nextDouble() * 2.0; 
+          score = score * 0.1; // Okunanlara %90 ağır ceza
+        } else if (ageHours < 24 * 7) {
+          // Strateji 1 & 2 Harmanı: Kova İçi Ağırlıklı Rastgelelik
+          // Sadece okunmamış ve son 7 güne ait haberlere rastgelelik (noise) ekliyoruz.
+          // Böylece uygulama her açıldığında sıralama organik olarak değişir.
+          final noise = random.nextDouble() * 4.0; // 0 ile 4.0 arası rastgele bonus
           score += noise;
         }
         
         return score;
       }
 
-      final manualHeroArticles = withImages.where((a) => a.isHero == true).toList();
-      manualHeroArticles.sort((a, b) => (a.heroOrder ?? 999).compareTo(b.heroOrder ?? 999));
-
-      final List<NewsArticle> hero = List.from(manualHeroArticles);
-      final seen = hero.map((e) => e.id).toSet();
-      
       const int heroLimit = 10;
+      final List<NewsArticle> hero = [];
+      
+      final remaining = List<NewsArticle>.from(withImages);
+      remaining.sort((a, b) => heroScore(b).compareTo(heroScore(a)));
+
+      // Bucket'lara ayır
+      final turkeyBucket = <NewsArticle>[];
+      final worldBucket = <NewsArticle>[];
+      final scienceBucket = <NewsArticle>[];
+      final generalBucket = <NewsArticle>[];
+
+      for (final a in remaining) {
+        final isScience = _articleIsScience(a);
+        final isTurkey = _articleIsTurkey(a);
+        final isWorld = _articleIsWorld(a);
+
+        if (isScience) {
+          scienceBucket.add(a);
+        } else if (isWorld && !isTurkey) {
+          worldBucket.add(a);
+        } else if (isTurkey) {
+          turkeyBucket.add(a);
+        } else {
+          generalBucket.add(a);
+        }
+      }
+
+      if (scienceBucket.isNotEmpty && hero.length < heroLimit) hero.add(scienceBucket.first);
+      if (hero.length < heroLimit) hero.addAll(worldBucket.take(math.min(2, heroLimit - hero.length)));
+      if (hero.length < heroLimit) hero.addAll(turkeyBucket.take(math.min(6, heroLimit - hero.length)));
+      if (hero.length < heroLimit) hero.addAll(generalBucket.take(heroLimit - hero.length));
       
       if (hero.length < heroLimit) {
-        final remaining = withImages.where((a) => !seen.contains(a.id)).toList();
-        remaining.sort((a, b) => heroScore(b).compareTo(heroScore(a)));
-
-        // Bucket'lara ayır
-        final turkeyBucket = <NewsArticle>[];
-        final worldBucket = <NewsArticle>[];
-        final scienceBucket = <NewsArticle>[];
-        final generalBucket = <NewsArticle>[];
-
-        for (final a in remaining) {
-          final isScience = _articleIsScience(a);
-          final isTurkey = _articleIsTurkey(a);
-          final isWorld = _articleIsWorld(a);
-
-          if (isScience) {
-            scienceBucket.add(a);
-          } else if (isWorld && !isTurkey) {
-            worldBucket.add(a);
-          } else if (isTurkey) {
-            turkeyBucket.add(a);
-          } else {
-            generalBucket.add(a);
-          }
-        }
-
-        if (scienceBucket.isNotEmpty && hero.length < heroLimit) hero.add(scienceBucket.first);
-        if (hero.length < heroLimit) hero.addAll(worldBucket.take(math.min(2, heroLimit - hero.length)));
-        if (hero.length < heroLimit) hero.addAll(turkeyBucket.take(math.min(6, heroLimit - hero.length)));
-        if (hero.length < heroLimit) hero.addAll(generalBucket.take(heroLimit - hero.length));
-        if (hero.length < heroLimit) {
-           final stillSeen = hero.map((e) => e.id).toSet();
-           hero.addAll(remaining.where((a) => !stillSeen.contains(a.id)).take(heroLimit - hero.length));
-        }
-
-        // Kalan (dinamik) olanları skorlarına göre sırala ama manuel olanları üstte tut
-        final dynamicPart = hero.sublist(manualHeroArticles.length);
-        dynamicPart.sort((a, b) => heroScore(b).compareTo(heroScore(a)));
-        
-        hero.replaceRange(manualHeroArticles.length, hero.length, dynamicPart);
+         final stillSeen = hero.map((e) => e.id).toSet();
+         hero.addAll(remaining.where((a) => !stillSeen.contains(a.id)).take(heroLimit - hero.length));
       }
 
       return hero.take(heroLimit).toList();
@@ -328,6 +322,21 @@ final turkeyNewsProvider = Provider<List<NewsArticle>>((ref) {
       return articles.where((a) {
         if (a.status != 'published') return false;
         return _articleIsTurkey(a);
+      }).toList();
+    },
+    loading: () => [],
+    error: (e, s) => [],
+  );
+});
+
+/// Seçtiğimiz Makaleler (Özel Kürasyon - MNT)
+final curatedArticlesProvider = Provider<List<NewsArticle>>((ref) {
+  final articlesAsync = ref.watch(latestArticlesProvider);
+  return articlesAsync.when(
+    data: (articles) {
+      return articles.where((a) {
+        if (a.status != 'published') return false;
+        return a.sourceName?.toLowerCase() == 'medical news today';
       }).toList();
     },
     loading: () => [],
@@ -400,8 +409,14 @@ class LocationData {
 }
 
 class ActiveLocationNotifier extends Notifier<LocationData> {
+  bool _hasAttemptedDetection = false;
+
   @override
   LocationData build() {
+    if (!_hasAttemptedDetection) {
+      _hasAttemptedDetection = true;
+      Future.microtask(_detectLocation);
+    }
     return const LocationData(
       name: 'Polatlı, Ankara',
       latitude: 39.58,
@@ -411,6 +426,53 @@ class ActiveLocationNotifier extends Notifier<LocationData> {
 
   void update(LocationData value) {
     state = value;
+  }
+
+  Future<void> _detectLocation() async {
+    try {
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+      }
+      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+        return;
+      }
+
+      final position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.low,
+        timeLimit: const Duration(seconds: 5),
+      );
+
+      final isEn = ref.read(localeProvider).languageCode == 'en';
+      String name = isEn ? 'GPS Location' : 'GPS Konumu';
+      
+      try {
+        final res = await http.get(
+          Uri.parse('https://nominatim.openstreetmap.org/reverse?lat=${position.latitude}&lon=${position.longitude}&format=json&accept-language=${isEn ? "en" : "tr"}'),
+          headers: {'User-Agent': 'tarim_app_agent'},
+        ).timeout(const Duration(seconds: 3));
+        
+        if (res.statusCode == 200) {
+          final data = jsonDecode(res.body);
+          final address = data['address'];
+          if (address != null) {
+            name = address['suburb'] ?? address['town'] ?? address['district'] ?? address['city'] ?? address['province'] ?? name;
+            final prov = address['province'] ?? address['state'] ?? '';
+            if (prov.isNotEmpty && !name.contains(prov)) {
+              name = '$name, $prov';
+            }
+          }
+        }
+      } catch (_) {}
+
+      state = LocationData(
+        name: name,
+        latitude: position.latitude,
+        longitude: position.longitude,
+      );
+    } catch (_) {
+      // Ignore errors, keep default location
+    }
   }
 }
 

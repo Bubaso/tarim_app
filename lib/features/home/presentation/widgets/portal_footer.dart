@@ -79,8 +79,8 @@ class PortalFooter extends StatelessWidget {
               const SizedBox(height: 24),
               Text(
                 isEn 
-                  ? '© 2026 Gerçek Tarım — All rights reserved. This site operates in accordance with Turkish media law.'
-                  : '© 2026 Gerçek Tarım — Tüm hakları saklıdır. Bu site Türkiye medya hukukuna uygun olarak yayın yapmaktadır.',
+                  ? '© 2026 Tarım Portalı — All rights reserved. This site operates in accordance with Turkish media law.'
+                  : '© 2026 Tarım Portalı — Tüm hakları saklıdır. Bu site Türkiye medya hukukuna uygun olarak yayın yapmaktadır.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 12,
@@ -101,7 +101,7 @@ class PortalFooter extends StatelessWidget {
         Row(
           children: [
             Image.asset(
-              'assets/images/logo.png',
+              'assets/images/logo_tp.png',
               height: 48,
               errorBuilder: (context, error, stackTrace) =>
                 const Icon(Icons.eco_rounded, color: Colors.green, size: 32),
@@ -111,7 +111,7 @@ class PortalFooter extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'GERÇEK TARIM',
+                  'TARIM PORTALI',
                   style: GoogleFonts.playfairDisplay(
                     fontWeight: FontWeight.w900,
                     fontSize: 22,

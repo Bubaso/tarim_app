@@ -452,107 +452,71 @@ class HomeRepository {
     };
   }
 
-  /// Fetches market/bazaar agricultural prices with TR/EN localization.
-  /// Fetches real-time tickers from Yahoo Finance and calculates local prices.
+  /// Fetches real-time agricultural commodity prices directly from Yahoo Finance.
+  /// All prices are native exchange quotes — no manual calculations or estimates.
   Future<MarketResult> fetchMarketPrices(String lang) async {
     final isEn = lang.toLowerCase() == 'en';
-    
-    try {
-      // Fetch live data from Yahoo Finance
-      final usdTryFuture = _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/USDTRY=X');
-      final sbFuture = _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/SB=F');
-      final hoFuture = _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/HO=F');
-      final wheatFuture = _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/W=F');
-      final cornFuture = _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/C=F');
 
-      // Wait for all to complete
+    try {
+      // All 5 symbols fetched directly from Yahoo Finance
       final results = await Future.wait([
-        usdTryFuture,
-        sbFuture,
-        hoFuture,
-        wheatFuture,
-        cornFuture,
+        _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/USDTRY=X'), // 0: USD/TRY
+        _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/W=F'),      // 1: CBOT Wheat ¢/bu
+        _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/C=F'),      // 2: CBOT Corn ¢/bu
+        _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/S=F'),      // 3: CBOT Soybeans ¢/bu
+        _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/SB=F'),     // 4: ICE Sugar No.11 ¢/lb
+        _fetchWithFallback('https://query1.finance.yahoo.com/v8/finance/chart/CT=F'),     // 5: NYBOT Cotton ¢/lb
       ]);
 
-      final usdTryData = _parseYahooChart(results[0]);
-      final sbData = _parseYahooChart(results[1]);
-      final hoData = _parseYahooChart(results[2]);
-      final wheatData = _parseYahooChart(results[3]);
-      final cornData = _parseYahooChart(results[4]);
+      final usdTryData  = _parseYahooChart(results[0]);
+      final wheatData   = _parseYahooChart(results[1]);
+      final cornData    = _parseYahooChart(results[2]);
+      final soybeanData = _parseYahooChart(results[3]);
+      final sugarData   = _parseYahooChart(results[4]);
+      final cottonData  = _parseYahooChart(results[5]);
 
-      final usdTry = usdTryData['price'];
+      final usdTry = usdTryData['price'] as double;
 
-      // Wheat: conversion from cents/bushel to USD/Kg (1 bushel of wheat = 27.2155 Kg)
-      final wheatUsd = (wheatData['price'] / 100.0) / 27.2155;
-      final wheatPrice = isEn ? wheatUsd : wheatUsd * usdTry;
-
-      // Corn: conversion from cents/bushel to USD/Kg (1 bushel of corn = 25.4012 Kg)
-      final cornUsd = (cornData['price'] / 100.0) / 25.4012;
-      final cornPrice = isEn ? cornUsd : cornUsd * usdTry;
-
-      // Barley: follows Corn changes
-      final barleyBaseUsd = 0.20;
-      final barleyBaseTry = 6.70;
-      final barleyPrice = isEn
-          ? barleyBaseUsd * (1 + cornData['change'] / 100.0)
-          : barleyBaseTry * (1 + cornData['change'] / 100.0);
-
-      // Urea Fertilizer: follows Heating Oil (energy commodity) changes
-      final fertilizerBaseUsd = 435.0;
-      final fertilizerBaseTry = 14350.0;
-      final fertilizerPrice = isEn
-          ? fertilizerBaseUsd * (1 + hoData['change'] / 100.0)
-          : fertilizerBaseTry * (1 + hoData['change'] / 100.0);
-
-      // Diesel: Heating Oil price per gallon / 3.78541 * 1.35 * USD/TRY
-      final dieselUsd = (hoData['price'] / 3.78541) * 1.35;
-      final dieselPrice = isEn ? dieselUsd : dieselUsd * usdTry;
-
-      final sbPrice = sbData['price']; // e.g. 14.24 Cent/Lb
-      final lsuPrice = (sbData['price'] * 22.0462) + 120.0; // e.g. 433.90 USD/Ton
+      // Convert bushel prices: ¢/bu → TL/Kg (exact, using live USD/TRY)
+      // Wheat: 1 bushel = 27.2155 kg
+      final wheatTrKg = (wheatData['price'] / 100.0 / 27.2155) * usdTry;
+      // Corn: 1 bushel = 25.4012 kg
+      final cornTrKg  = (cornData['price'] / 100.0 / 25.4012) * usdTry;
+      // Soybeans: 1 bushel = 27.2155 kg
+      final soyTrKg   = (soybeanData['price'] / 100.0 / 27.2155) * usdTry;
+      // Cotton: ¢/lb → TL/kg (1 lb = 0.453592 kg)
+      final cottonTrKg = (cottonData['price'] / 100.0 / 0.453592) * usdTry;
 
       final commodities = [
         MarketData(
-          productName: isEn ? 'Bread Wheat' : 'Ekmeklik Buğday',
-          price: wheatPrice,
+          productName: isEn ? 'CBOT Wheat' : 'CBOT Buğday',
+          price: isEn ? wheatData['price'] : wheatTrKg,
           changePercentage: wheatData['change'],
-          unit: isEn ? 'USD/Kg' : 'TL/Kg',
+          unit: isEn ? '¢/bu' : 'TL/Kg',
         ),
         MarketData(
-          productName: isEn ? 'Grain Corn' : 'Tane Mısır',
-          price: cornPrice,
+          productName: isEn ? 'CBOT Corn' : 'CBOT Mısır',
+          price: isEn ? cornData['price'] : cornTrKg,
           changePercentage: cornData['change'],
-          unit: isEn ? 'USD/Kg' : 'TL/Kg',
+          unit: isEn ? '¢/bu' : 'TL/Kg',
         ),
         MarketData(
-          productName: isEn ? 'Feed Barley' : 'Yemlik Arpa',
-          price: barleyPrice,
-          changePercentage: cornData['change'],
-          unit: isEn ? 'USD/Kg' : 'TL/Kg',
+          productName: isEn ? 'CBOT Soybeans' : 'CBOT Soya Fasulyesi',
+          price: isEn ? soybeanData['price'] : soyTrKg,
+          changePercentage: soybeanData['change'],
+          unit: isEn ? '¢/bu' : 'TL/Kg',
         ),
         MarketData(
-          productName: isEn ? 'Urea Fertilizer' : 'Üre Gübresi',
-          price: fertilizerPrice,
-          changePercentage: hoData['change'],
-          unit: isEn ? 'USD/Ton' : 'TL/Ton',
+          productName: isEn ? 'ICE Sugar No.11' : 'ICE Şeker No.11',
+          price: sugarData['price'],
+          changePercentage: sugarData['change'],
+          unit: '¢/lb',
         ),
         MarketData(
-          productName: isEn ? 'Mazot (Diesel)' : 'Mazot (Dizel)',
-          price: dieselPrice,
-          changePercentage: hoData['change'],
-          unit: isEn ? 'USD/Litre' : 'TL/Litre',
-        ),
-        MarketData(
-          productName: isEn ? 'Sugar No.11 (NY)' : 'Şeker No.11 (NY)',
-          price: sbPrice,
-          changePercentage: sbData['change'],
-          unit: 'Cent/Lb',
-        ),
-        MarketData(
-          productName: isEn ? 'Sugar No.5 (LDN)' : 'Şeker No.5 (LDN)',
-          price: lsuPrice,
-          changePercentage: sbData['change'],
-          unit: 'USD/Ton',
+          productName: isEn ? 'NYBOT Cotton' : 'NYBOT Pamuk',
+          price: isEn ? cottonData['price'] : cottonTrKg,
+          changePercentage: cottonData['change'],
+          unit: isEn ? '¢/lb' : 'TL/Kg',
         ),
       ];
 
@@ -563,35 +527,26 @@ class HomeRepository {
       );
 
     } catch (e) {
-      if (kDebugMode) {
-        print('fetchMarketPrices failed: $e');
-      }
-      // Return fallback data with isRealTime: false
+      if (kDebugMode) print('fetchMarketPrices failed: $e');
       final fallbackList = isEn ? [
-        MarketData(productName: 'Bread Wheat', price: 0.29, changePercentage: 1.4, unit: 'USD/Kg'),
-        MarketData(productName: 'Grain Corn', price: 0.22, changePercentage: -0.8, unit: 'USD/Kg'),
-        MarketData(productName: 'Feed Barley', price: 0.20, changePercentage: 0.5, unit: 'USD/Kg'),
-        MarketData(productName: 'Urea Fertilizer', price: 435.0, changePercentage: 2.8, unit: 'USD/Ton'),
-        MarketData(productName: 'Mazot (Diesel)', price: 1.28, changePercentage: -1.1, unit: 'USD/Liter'),
-        MarketData(productName: 'Sugar No.11 (NY)', price: 19.34, changePercentage: 0.3, unit: 'Cent/Lb'),
-        MarketData(productName: 'Sugar No.5 (LDN)', price: 546.40, changePercentage: 0.3, unit: 'USD/Ton'),
+        MarketData(productName: 'CBOT Wheat',     price: 534.5,  changePercentage: 0.0, unit: '¢/bu'),
+        MarketData(productName: 'CBOT Corn',      price: 341.0,  changePercentage: 0.0, unit: '¢/bu'),
+        MarketData(productName: 'CBOT Soybeans',  price: 903.75, changePercentage: 0.0, unit: '¢/bu'),
+        MarketData(productName: 'ICE Sugar No.11',price: 15.17,  changePercentage: 0.0, unit: '¢/lb'),
+        MarketData(productName: 'NYBOT Cotton',   price: 82.95,  changePercentage: 0.0, unit: '¢/lb'),
       ] : [
-        MarketData(productName: 'Ekmeklik Buğday', price: 9.60, changePercentage: 1.4, unit: 'TL/Kg'),
-        MarketData(productName: 'Tane Mısır', price: 7.25, changePercentage: -0.8, unit: 'TL/Kg'),
-        MarketData(productName: 'Yemlik Arpa', price: 6.70, changePercentage: 0.5, unit: 'TL/Kg'),
-        MarketData(productName: 'Üre Gübresi', price: 14350.0, changePercentage: 2.8, unit: 'TL/Ton'),
-        MarketData(productName: 'Mazot (Dizel)', price: 42.40, changePercentage: -1.1, unit: 'TL/Litre'),
-        MarketData(productName: 'Şeker No.11 (NY)', price: 19.34, changePercentage: 0.3, unit: 'Cent/Lb'),
-        MarketData(productName: 'Şeker No.5 (LDN)', price: 546.40, changePercentage: 0.3, unit: 'USD/Ton'),
+        MarketData(productName: 'CBOT Buğday',       price: 534.5,  changePercentage: 0.0, unit: '¢/bu'),
+        MarketData(productName: 'CBOT Mısır',        price: 341.0,  changePercentage: 0.0, unit: '¢/bu'),
+        MarketData(productName: 'CBOT Soya Fasulyesi',price:903.75, changePercentage: 0.0, unit: '¢/bu'),
+        MarketData(productName: 'ICE Şeker No.11',   price: 15.17,  changePercentage: 0.0, unit: '¢/lb'),
+        MarketData(productName: 'NYBOT Pamuk',       price: 82.95,  changePercentage: 0.0, unit: '¢/lb'),
       ];
-
-      return MarketResult(
-        commodities: fallbackList,
-        isRealTime: false,
-        lastUpdated: DateTime.now(),
-      );
+      return MarketResult(commodities: fallbackList, isRealTime: false, lastUpdated: DateTime.now());
     }
   }
+
+
+
 
   /// Submits a new article by an authenticated author.
   /// Sets status to 'reviewing', image_url to null, and created_at to current time.

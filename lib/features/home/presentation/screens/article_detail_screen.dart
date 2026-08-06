@@ -13,8 +13,11 @@ import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/theme/app_typography.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fl_chart/fl_chart.dart';
+import '../widgets/dynamic_chart_widget.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
+import '../../providers/font_scale_provider.dart';
+import '../widgets/font_size_control_bar.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -71,6 +74,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     final theme  = Theme.of(context);
     final isEn   = Localizations.localeOf(context).languageCode == 'en';
     final isDark = theme.brightness == Brightness.dark;
+    final fontScale = ref.watch(fontScaleProvider);
 
     final displayTitle = (isEn && article.titleEn != null && article.titleEn!.isNotEmpty)
         ? article.titleEn!
@@ -201,7 +205,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           // ── Başlık (Libre Franklin, H1) ─────────────────────
                           Text(
                             displayTitle,
-                            style: AppTypography.headlineDetail(context, color: onBg),
+                            style: AppTypography.headlineDetail(context, color: onBg, scale: fontScale),
                           ),
                           const SizedBox(height: 24),
 
@@ -211,6 +215,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               displaySpot,
                               style: AppTypography.deck(
                                 context,
+                                scale: fontScale,
                                 color: isDark
                                     ? const Color(0xFFB0BEC5)
                                     : const Color(0xFF424242),
@@ -237,7 +242,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
 
                           // ── Dinamik Grafik ─────────────────────────────
                           if (article.chartData != null) ...[
-                             _DynamicChart(chartData: article.chartData!, isDark: isDark, accent: accent),
+                             DynamicChartWidget(chartData: article.chartData!, isDark: isDark, accent: accent),
                              const SizedBox(height: 28),
                           ],
 
@@ -248,10 +253,10 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               "body": Style(
                                 margin: Margins.zero,
                                 padding: HtmlPaddings.zero,
-                                fontSize: FontSize(18),
+                                fontSize: FontSize(AppTypography.bodyBaseFontSize(context) * fontScale),
                                 fontFamily: GoogleFonts.lora().fontFamily,
                                 color: isDark ? const Color(0xFFCFD8DC) : const Color(0xFF2C2C2A),
-                                lineHeight: const LineHeight(1.6),
+                                lineHeight: const LineHeight(1.70),
                               ),
                               "p": Style(
                                 margin: Margins.only(bottom: 16),
@@ -263,7 +268,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               "h2": Style(
                                 margin: Margins.only(top: 24, bottom: 16),
                                 fontFamily: GoogleFonts.libreFranklin().fontFamily,
-                                fontSize: FontSize(22),
+                                fontSize: FontSize(AppTypography.h2BaseFontSize(context) * fontScale),
                                 fontWeight: FontWeight.bold,
                                 color: isDark ? Colors.white : Colors.black87,
                               ),
@@ -416,7 +421,9 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 48), // Başlığı merkeze yakın tutmak için sağ boşluk
+                  // Font size control
+                  FontSizeControlBar(isDark: isDark),
+                  const SizedBox(width: 8),
                 ],
               ),
             ),
@@ -1214,169 +1221,3 @@ class _ExpertInsightBox extends StatelessWidget {
   }
 }
 
-class _DynamicChart extends StatelessWidget {
-  final Map<String, dynamic> chartData;
-  final bool isDark;
-  final Color accent;
-
-  const _DynamicChart({
-    required this.chartData,
-    required this.isDark,
-    required this.accent,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final type = chartData['type'] as String?;
-    final title = chartData['title'] as String?;
-    final rawData = chartData['data'] as List<dynamic>?;
-    
-    if (type == null || rawData == null || rawData.isEmpty) {
-      return const SizedBox.shrink();
-    }
-    
-    final data = rawData.map((e) => e as Map<String, dynamic>).toList();
-    final textColor = isDark ? AppColors.creamBackground : AppColors.earthText;
-    
-    Widget chartWidget;
-    
-    if (type == 'pie') {
-      chartWidget = AspectRatio(
-        aspectRatio: 1.3,
-        child: PieChart(
-          PieChartData(
-            sectionsSpace: 2,
-            centerSpaceRadius: 40,
-            sections: data.asMap().entries.map((entry) {
-              final index = entry.key;
-              final item = entry.value;
-              final value = (item['value'] as num).toDouble();
-              final label = item['label'] as String;
-              
-              // Generate colors automatically based on index
-              final hue = (index * 137.5) % 360; // Golden angle for distribution
-              final color = HSLColor.fromAHSL(1.0, hue, 0.7, 0.5).toColor();
-              
-              return PieChartSectionData(
-                color: color,
-                value: value,
-                title: '$label\\n${value.toInt()}%',
-                radius: 60,
-                titleStyle: GoogleFonts.inter(
-                  fontSize: 11,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              );
-            }).toList(),
-          ),
-        ),
-      );
-    } else {
-      // Default to bar chart
-      final maxY = data.map((e) => (e['value'] as num).toDouble()).reduce((a, b) => a > b ? a : b) * 1.2;
-      
-      chartWidget = AspectRatio(
-        aspectRatio: 1.5,
-        child: BarChart(
-          BarChartData(
-            alignment: BarChartAlignment.spaceAround,
-            maxY: maxY,
-            barTouchData: BarTouchData(enabled: false),
-            titlesData: FlTitlesData(
-              show: true,
-              bottomTitles: AxisTitles(
-                sideTitles: SideTitles(
-                  showTitles: true,
-                  getTitlesWidget: (value, meta) {
-                    if (value.toInt() >= 0 && value.toInt() < data.length) {
-                      return Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Text(
-                          data[value.toInt()]['label'] as String,
-                          style: GoogleFonts.inter(
-                            color: textColor,
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      );
-                    }
-                    return const SizedBox.shrink();
-                  },
-                  reservedSize: 32,
-                ),
-              ),
-              leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-            ),
-            gridData: FlGridData(
-              show: true,
-              drawVerticalLine: false,
-              horizontalInterval: maxY / 4 > 0 ? maxY / 4 : 1,
-              getDrawingHorizontalLine: (value) => FlLine(
-                color: isDark ? Colors.white10 : Colors.black12,
-                strokeWidth: 1,
-                dashArray: [5, 5],
-              ),
-            ),
-            borderData: FlBorderData(show: false),
-            barGroups: data.asMap().entries.map((entry) {
-              return BarChartGroupData(
-                x: entry.key,
-                barRods: [
-                  BarChartRodData(
-                    toY: (entry.value['value'] as num).toDouble(),
-                    color: accent,
-                    width: 22,
-                    borderRadius: const BorderRadius.vertical(top: Radius.circular(4)),
-                    backDrawRodData: BackgroundBarChartRodData(
-                      show: true,
-                      toY: maxY,
-                      color: isDark ? Colors.white10 : Colors.black12,
-                    ),
-                  )
-                ],
-              );
-            }).toList(),
-          ),
-        ),
-      );
-    }
-    
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-      decoration: BoxDecoration(
-        color: isDark ? const Color(0xFF1A212A) : Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          )
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          if (title != null && title.isNotEmpty) ...[
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.libreFranklin(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: textColor,
-              ),
-            ),
-            const SizedBox(height: 24),
-          ],
-          chartWidget,
-        ],
-      ),
-    );
-  }
-}
