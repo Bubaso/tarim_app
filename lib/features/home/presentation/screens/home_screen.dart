@@ -23,6 +23,7 @@ import 'weather_detail_screen.dart';
 import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
 import '../widgets/yyt_dosyasi_section.dart';
+import '../widgets/ios_pwa_prompt.dart';
 import 'article_detail_screen.dart';
 import 'category_articles_screen.dart';
 
@@ -433,6 +434,7 @@ class _MobileContent extends ConsumerWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
+          IosPwaPrompt(isDark: isDark),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 28),
           _ICYMISection(isDark: isDark),
@@ -482,6 +484,7 @@ class _TabletContent extends ConsumerWidget {
       child: ListView(
         padding: const EdgeInsets.all(24),
         children: [
+          IosPwaPrompt(isDark: isDark),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 36),
           _ICYMISection(isDark: isDark),
@@ -542,8 +545,9 @@ class _DesktopContent extends ConsumerWidget {
                 constraints: BoxConstraints(maxWidth: maxWidth),
                 child: Column(
                   children: [
+                    IosPwaPrompt(isDark: isDark),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
+                      padding: const EdgeInsets.only(bottom: 40, top: 16),
                       child: _PortalHeroSection(isDark: isDark),
                     ),
                     Padding(
