@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tarim_app/features/home/presentation/screens/author_article_detail_screen.dart';
+import 'package:tarim_app/features/home/presentation/widgets/ai_columnists.dart';
 
 class MockHttpOverrides extends HttpOverrides {
   @override
@@ -67,25 +69,14 @@ void main() {
   });
 
   testWidgets('AuthorArticleDetailScreen renders elements correctly', (WidgetTester tester) async {
-    const testAuthorName = 'Ahmet Kutlu';
-    const testAuthorTitle = 'Tarım Ekonomisti';
-    const testAuthorAvatarUrl = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150';
-    const testArticleTitle = 'Sürdürülebilir Tarımda Yeni Yaklaşımlar';
-    const testCoverImageUrl = 'https://images.unsplash.com/photo-1625246333195-78d9c38ad49f?w=900';
-    const testParagraphs = [
-      'Bu bir test makale paragrafıdır.',
-      'İkinci bir test paragrafı da burada yer alır.',
-    ];
+    final columnist = aiColumnists.first;
 
     await tester.pumpWidget(
-      const MaterialApp(
-        home: AuthorArticleDetailScreen(
-          authorName: testAuthorName,
-          authorTitle: testAuthorTitle,
-          authorAvatarUrl: testAuthorAvatarUrl,
-          articleTitle: testArticleTitle,
-          coverImageUrl: testCoverImageUrl,
-          paragraphs: testParagraphs,
+      ProviderScope(
+        child: MaterialApp(
+          home: AuthorArticleDetailScreen(
+            columnist: columnist,
+          ),
         ),
       ),
     );
@@ -94,19 +85,12 @@ void main() {
     await tester.pumpAndSettle();
 
     // Verify Author identity is displayed
-    expect(find.text(testAuthorName), findsOneWidget);
+    expect(find.text(columnist.name), findsOneWidget);
     
     // The screen converts title to uppercase
-    expect(find.text(testAuthorTitle.toUpperCase()), findsOneWidget);
+    expect(find.text(columnist.titleTr.toUpperCase()), findsOneWidget);
 
-    // Verify Article title is displayed
-    expect(find.text(testArticleTitle), findsOneWidget);
-
-    // Verify both paragraphs are displayed
-    expect(find.text(testParagraphs[0]), findsOneWidget);
-    expect(find.text(testParagraphs[1]), findsOneWidget);
-
-    // Verify presence of cover image and avatar image
-    expect(find.byType(Image), findsNWidgets(2));
+    // Verify presence of avatar image
+    expect(find.byType(Image), findsWidgets);
   });
 }

@@ -191,14 +191,23 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // ── Meta: kaynak + tarih + okuma süresi ──────────
-                          _MetaRow(
-                            hasSource:    hasSource,
-                            sourceName:   article.sourceName ?? '',
-                            formattedDate: formattedDate,
-                            readLabel:    readLabel,
-                            accent:       accent,
-                            subtle:       subtle,
-                            viewCount:    article.viewCount,
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: _MetaRow(
+                                  hasSource:    hasSource,
+                                  sourceName:   article.sourceName ?? '',
+                                  formattedDate: formattedDate,
+                                  readLabel:    readLabel,
+                                  accent:       accent,
+                                  subtle:       subtle,
+                                  viewCount:    article.viewCount,
+                                ),
+                              ),
+                              FontSizeControlBar(isDark: isDark),
+                            ],
                           ),
                           const SizedBox(height: 20),
 
@@ -421,8 +430,6 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                       ),
                     ),
                   ),
-                  // Font size control
-                  FontSizeControlBar(isDark: isDark),
                   const SizedBox(width: 8),
                 ],
               ),
