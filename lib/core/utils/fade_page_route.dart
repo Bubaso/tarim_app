@@ -4,16 +4,17 @@ import 'package:go_router/go_router.dart';
 
 // No transition page routes are handled by GoRouter internally.
 
-/// Web'de (PWA) tarayıcı geçmişinin (browser history) güncellenmesi için
-/// Navigator.push yerine GoRouter kullanmasını sağlayan yardımcı metod.
+/// Web'de URL güncellemese de mobil cihazlarda ve PWA'da geri butonunun 
+/// anasayfaya dönmesi hatasını çözer. (GoRouter extra objesi tarayıcı geçmişinde tutulamaz).
 Future<T?> pushScreen<T>(BuildContext context, Widget page) {
-  final id = DateTime.now().millisecondsSinceEpoch;
-  GoRouter.of(context).push('/page/${page.runtimeType.toString()}/$id', extra: page);
-  return Future.value(null);
+  return Navigator.of(context).push<T>(
+    MaterialPageRoute(builder: (context) => page),
+  );
 }
 
 Future<T?> pushReplacementScreen<T, TO>(BuildContext context, Widget page, {TO? result}) {
-  final id = DateTime.now().millisecondsSinceEpoch;
-  GoRouter.of(context).pushReplacement('/page/${page.runtimeType.toString()}/$id', extra: page);
-  return Future.value(null);
+  return Navigator.of(context).pushReplacement<T, TO>(
+    MaterialPageRoute(builder: (context) => page),
+    result: result,
+  );
 }
