@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:web/web.dart' as web;
 
 // Web'de tarayıcının geri butonunun site dışına çıkmasını engellemek için
 // her push'ta bir dummy browser history entry ekleyip, popstate olayında
@@ -19,8 +20,8 @@ Future<T?> pushScreen<T>(BuildContext context, Widget page) {
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(opacity: animation, child: child);
       },
-      transitionDuration: const Duration(milliseconds: 150),
-      reverseTransitionDuration: const Duration(milliseconds: 150),
+      transitionDuration: const Duration(milliseconds: 100),
+      reverseTransitionDuration: const Duration(milliseconds: 100),
     ),
   );
 }
@@ -28,7 +29,8 @@ Future<T?> pushScreen<T>(BuildContext context, Widget page) {
 Future<T?> pushReplacementScreen<T, TO>(
     BuildContext context, Widget page, {TO? result}) {
   if (kIsWeb) {
-    _addBrowserHistoryEntry();
+    // If replacing, we might not want to add a new history entry, but to be safe:
+    // we can skip adding an entry, or add it depending on behavior.
   }
   return Navigator.of(context, rootNavigator: false).pushReplacement<T, TO>(
     PageRouteBuilder(
@@ -36,8 +38,8 @@ Future<T?> pushReplacementScreen<T, TO>(
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return FadeTransition(opacity: animation, child: child);
       },
-      transitionDuration: const Duration(milliseconds: 150),
-      reverseTransitionDuration: const Duration(milliseconds: 150),
+      transitionDuration: const Duration(milliseconds: 100),
+      reverseTransitionDuration: const Duration(milliseconds: 100),
     ),
     result: result,
   );
@@ -47,10 +49,14 @@ Future<T?> pushReplacementScreen<T, TO>(
 // Bu sayede geri butonu tıklandığında Flutter Navigator.pop()'u çağırır
 // ve uygulama dışına çıkılmaz.
 void _addBrowserHistoryEntry() {
-  // Bu fonksiyon yalnızca web'de çalışacak, ancak dart:html kullanmak
-  // yerine js_interop'tan faydalanırız (kIsWeb kontrolü yeterli).
-  // Flutter web'de Navigator.push zaten HTML5 history API'sine kayıt atar
-  // — ama GoRouter yokken bunu kendimiz tetiklemeliyiz.
-  // Flutter 3.x web'de Navigator + MaterialPageRoute kombinasyonu
-  // browser history'ye otomatik entry ekler. Ekstra bir şey yapmaya gerek yok.
+  if (kIsWeb) {
+    // We push a new state to the browser history with the exact same URL.
+    // This allows the browser back button to fire a popstate event,
+    // which Flutter catches and maps to Navigator.pop() instead of exiting the site.
+    web.window.history.pushState(
+      null,
+      '',
+      web.window.location.href,
+    );
+  }
 }
