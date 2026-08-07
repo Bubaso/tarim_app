@@ -8,6 +8,7 @@ import '../../../../../core/utils/image_fallback_helper.dart';
 import '../../../../../core/utils/localization_helper.dart';
 import '../../../data/models/news_article.dart';
 import '../../screens/article_detail_screen.dart';
+import '../../../../../core/utils/string_extensions.dart';
 
 class WorldNewsRow extends ConsumerWidget {
   final List<NewsArticle> articles;
@@ -136,7 +137,7 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(
-                                a.region!.toUpperCase(),
+                                a.region!.toTurkishUpperCase(),
                                 style: GoogleFonts.inter(
                                   fontSize: 9,
                                   fontWeight: FontWeight.bold,

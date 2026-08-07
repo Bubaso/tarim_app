@@ -18,6 +18,7 @@ import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -480,7 +481,7 @@ class _MetaRow extends StatelessWidget {
               border: Border.all(color: accent.withValues(alpha: 0.3)),
             ),
             child: Text(
-              sourceName.toUpperCase(),
+              sourceName.toTurkishUpperCase(),
               style: GoogleFonts.inter(
                 color: accent,
                 fontWeight: FontWeight.w800,
@@ -1033,7 +1034,7 @@ class _RelatedCardState extends State<_RelatedCard> {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 5),
                           child: Text(
-                            a.sourceName!.toUpperCase(),
+                            a.sourceName!.toTurkishUpperCase(),
                             style: GoogleFonts.inter(
                               fontSize: 8,
                               fontWeight: FontWeight.w800,

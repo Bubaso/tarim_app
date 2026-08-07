@@ -7,6 +7,7 @@ import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../screens/article_detail_screen.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 class NewsCard extends StatefulWidget {
   final NewsArticle article;
@@ -113,7 +114,7 @@ class _NewsCardState extends State<NewsCard> {
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                     child: Text(
-                                      widget.article.sourceName!.toUpperCase(),
+                                      widget.article.sourceName!.toTurkishUpperCase(),
                                       style: GoogleFonts.inter(
                                         color: theme.colorScheme.primary,
                                         fontWeight: FontWeight.w800,
@@ -130,7 +131,7 @@ class _NewsCardState extends State<NewsCard> {
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                     child: Text(
-                                      widget.article.topic!.toUpperCase(),
+                                      widget.article.topic!.toTurkishUpperCase(),
                                       style: GoogleFonts.inter(
                                         color: isDark ? AppColors.wheat : AppColors.earthText,
                                         fontWeight: FontWeight.w700,
@@ -147,7 +148,7 @@ class _NewsCardState extends State<NewsCard> {
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                     child: Text(
-                                      widget.article.region!.toUpperCase(),
+                                      widget.article.region!.toTurkishUpperCase(),
                                       style: GoogleFonts.inter(
                                         color: Colors.orangeAccent,
                                         fontWeight: FontWeight.w700,

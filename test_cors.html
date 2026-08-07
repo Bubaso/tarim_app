@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html><body>
+<script>
+fetch("https://corsproxy.io/?https%3A%2F%2Fquery1.finance.yahoo.com%2Fv8%2Ffinance%2Fchart%2FW%3DF")
+  .then(r => r.json())
+  .then(d => console.log(d))
+  .catch(e => console.error(e));
+</script>
+</body></html>

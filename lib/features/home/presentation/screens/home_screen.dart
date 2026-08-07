@@ -26,6 +26,7 @@ import '../widgets/yyt_dosyasi_section.dart';
 import '../widgets/ios_pwa_prompt.dart';
 import 'article_detail_screen.dart';
 import 'category_articles_screen.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -1124,7 +1125,7 @@ class _SectoralNewsSection extends ConsumerWidget {
     if (articles.isEmpty) return const SizedBox.shrink();
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    String displayTopic = topic.toUpperCase();
+    String displayTopic = topic.toTurkishUpperCase();
     if (isEn) {
       if (topic == 'Hayvancılık') displayTopic = 'LIVESTOCK';
       if (topic == 'Bitkisel Üretim') displayTopic = 'CROP PRODUCTION';
@@ -1357,7 +1358,7 @@ class _ICYMICardState extends State<_ICYMICard> {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 8.0),
                             child: Text(
-                              a.topic!.toUpperCase(),
+                              a.topic!.toTurkishUpperCase(),
                               style: GoogleFonts.inter(
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,

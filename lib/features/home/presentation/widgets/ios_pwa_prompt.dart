@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/utils/pwa_helper.dart';
 
 class IosPwaPrompt extends StatefulWidget {
@@ -14,22 +15,50 @@ class IosPwaPrompt extends StatefulWidget {
 class _IosPwaPromptState extends State<IosPwaPrompt> {
   bool _isVisible = false;
 
+  static const _prefKeyDismissedAt = 'pwa_prompt_dismissed_visit';
+  static const _prefKeyVisitCount = 'pwa_prompt_visit_count';
+  static const int _cooldownVisits = 6; // Kapatıldıktan sonra 6 ziyaret boyunca gösterme
+
   @override
   void initState() {
     super.initState();
     _checkVisibility();
   }
 
-  void _checkVisibility() {
-    // Only show on Web running on iOS
-    if (kIsWeb && defaultTargetPlatform == TargetPlatform.iOS) {
-      // If it's NOT already installed (standalone mode), show the prompt
-      if (!isStandalone()) {
-        setState(() {
-          _isVisible = true;
-        });
+  Future<void> _checkVisibility() async {
+    // Only show on Web running on iOS and NOT already installed as PWA
+    if (!kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return;
+    if (isStandalone()) return;
+
+    final prefs = await SharedPreferences.getInstance();
+    
+    // Toplam ziyaret sayısını artır
+    final visitCount = (prefs.getInt(_prefKeyVisitCount) ?? 0) + 1;
+    await prefs.setInt(_prefKeyVisitCount, visitCount);
+
+    // Kullanıcı daha önce kapatmışsa, hangi ziyarette kapattığına bak
+    final dismissedAtVisit = prefs.getInt(_prefKeyDismissedAt) ?? -1;
+
+    if (dismissedAtVisit < 0) {
+      // Hiç kapatmamış → göster
+      if (mounted) setState(() => _isVisible = true);
+    } else {
+      // Kapatmış → cooldown süresi dolmuş mu?
+      final visitsSinceDismiss = visitCount - dismissedAtVisit;
+      if (visitsSinceDismiss >= _cooldownVisits) {
+        // Cooldown doldu → tekrar göster (ve dismissed'i sıfırla)
+        if (mounted) setState(() => _isVisible = true);
       }
+      // else: Hâlâ cooldown içinde → gösterme
     }
+  }
+
+  Future<void> _dismiss() async {
+    setState(() => _isVisible = false);
+    
+    final prefs = await SharedPreferences.getInstance();
+    final currentVisit = prefs.getInt(_prefKeyVisitCount) ?? 1;
+    await prefs.setInt(_prefKeyDismissedAt, currentVisit);
   }
 
   @override
@@ -76,11 +105,7 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _isVisible = false;
-                  });
-                },
+                onTap: _dismiss,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child: Icon(Icons.close_rounded, size: 20, color: textColor.withOpacity(0.6)),

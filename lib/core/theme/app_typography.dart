@@ -28,7 +28,7 @@ class AppTypography {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
     if (_isMobile(w)) {
-      fontSize = 27.0;
+      fontSize = 30.0;
     } else if (_isTablet(w)) {
       fontSize = 36.0;
     } else {
@@ -52,7 +52,7 @@ class AppTypography {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
     if (_isMobile(w)) {
-      fontSize = 23.0;
+      fontSize = 26.0;
     } else if (_isTablet(w)) {
       fontSize = 31.0;
     } else {
@@ -76,7 +76,7 @@ class AppTypography {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
     if (_isMobile(w)) {
-      fontSize = 16.5;
+      fontSize = 18.0;
     } else if (_isTablet(w)) {
       fontSize = 18.5;
     } else {
@@ -100,7 +100,7 @@ class AppTypography {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
     if (_isMobile(w)) {
-      fontSize = 15.5;
+      fontSize = 17.0;
     } else if (_isTablet(w)) {
       fontSize = 16.5;
     } else {
@@ -125,7 +125,7 @@ class AppTypography {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
     if (_isMobile(w)) {
-      fontSize = 15.5;
+      fontSize = 17.0;
     } else if (_isTablet(w)) {
       fontSize = 16.0;
     } else {
@@ -146,7 +146,7 @@ class AppTypography {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
     if (_isMobile(w)) {
-      fontSize = 12.5;
+      fontSize = 14.0;
     } else if (_isTablet(w)) {
       fontSize = 13.0;
     } else {
@@ -164,7 +164,7 @@ class AppTypography {
   /// Used for flutter_html FontSize calculations.
   static double bodyBaseFontSize(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
-    if (_isMobile(w)) return 15.5;
+    if (_isMobile(w)) return 17.0;
     if (_isTablet(w)) return 16.0;
     return 17.5;
   }
@@ -172,7 +172,7 @@ class AppTypography {
   /// Returns the base H2 font size for the current screen (used in flutter_html).
   static double h2BaseFontSize(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
-    if (_isMobile(w)) return 16.5;
+    if (_isMobile(w)) return 18.0;
     if (_isTablet(w)) return 18.5;
     return 21.0;
   }

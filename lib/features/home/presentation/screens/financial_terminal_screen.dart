@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 // ─── Kurumsal Tema Renkleri ───────────────────────────────────────────────
 const Color _kBg        = AppColors.creamBackground; // Arka plan
@@ -317,8 +318,10 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
       final idx = entry.key;
       final sym = entry.value;
       try {
+        final baseUrl = 'https://query1.finance.yahoo.com/v8/finance/chart/$sym';
+        final targetUrl = kIsWeb ? 'https://api.allorigins.win/raw?url=${Uri.encodeComponent(baseUrl)}' : baseUrl;
         final res = await http.get(
-          Uri.parse('https://query1.finance.yahoo.com/v8/finance/chart/$sym'),
+          Uri.parse(targetUrl),
           headers: {'User-Agent': 'Mozilla/5.0'},
         ).timeout(const Duration(seconds: 8));
         if (res.statusCode == 200) {

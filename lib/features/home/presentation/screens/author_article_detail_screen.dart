@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/home_providers.dart';
 import '../widgets/ai_columnists.dart';
 import '../widgets/news_card.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 class AuthorArticleDetailScreen extends ConsumerWidget {
   final AiColumnist columnist;
@@ -106,7 +107,7 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
                               border: Border.all(color: accent.withOpacity(0.3)),
                             ),
                             child: Text(
-                              (isEn ? columnist.titleEn : columnist.titleTr).toUpperCase(),
+                              (isEn ? columnist.titleEn : columnist.titleTr).toTurkishUpperCase(),
                               textAlign: TextAlign.center,
                               style: GoogleFonts.inter(
                                 fontSize: isMobile ? 12 : 14,

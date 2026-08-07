@@ -14,6 +14,7 @@ import '../../../../core/services/storage_service.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'admin_statistics_screen.dart';
 import 'admin_hero_screen.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -228,7 +229,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       if (lon != null && lat != null) {
         for (final entry in _turkeyCitiesGeo.entries) {
           if ((entry.value[0] - lon).abs() < 0.01 && (entry.value[1] - lat).abs() < 0.01) {
-            return entry.key[0].toUpperCase() + entry.key.substring(1);
+            return entry.key[0].toTurkishUpperCase() + entry.key.substring(1);
           }
         }
       }

@@ -12,6 +12,7 @@ import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
 import 'article_detail_screen.dart';
 import '../widgets/portal_footer.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 class CategoryArticlesScreen extends ConsumerStatefulWidget {
   final String title;
@@ -54,7 +55,7 @@ class _CategoryArticlesScreenState
             centerTitle: false,
             iconTheme: IconThemeData(color: textColor),
             title: Text(
-              widget.title.toUpperCase(),
+              widget.title.toTurkishUpperCase(),
               style: GoogleFonts.inter(
                 color: textColor,
                 fontWeight: FontWeight.w900,
@@ -388,7 +389,7 @@ class _HeroArticleState extends State<_HeroArticle> {
                                 color: AppColors.primaryGreen,
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 4),
-                                child: Text(widget.categoryName.toUpperCase(),
+                                child: Text(widget.categoryName.toTurkishUpperCase(),
                                     style: GoogleFonts.inter(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w900,

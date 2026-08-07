@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 import '../../data/models/weather_info.dart';
 import '../../providers/home_providers.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  WeatherDetailScreen  —  Zirai İklim ve Uyarı Merkezi
@@ -275,7 +276,7 @@ class _HeroTemperature extends ConsumerWidget {
                   const SizedBox(width: 6),
                   Flexible(
                     child: Text(
-                      weather.city.toUpperCase(),
+                      weather.city.toTurkishUpperCase(),
                       style: GoogleFonts.inter(
                         fontSize: 15,
                         fontWeight: FontWeight.w900,
@@ -296,7 +297,7 @@ class _HeroTemperature extends ConsumerWidget {
 
         // Description
         Text(
-          weather.description.toUpperCase(),
+          weather.description.toTurkishUpperCase(),
           style: GoogleFonts.inter(
             fontSize: 13,
             fontWeight: FontWeight.w800,

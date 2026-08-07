@@ -14,6 +14,8 @@ import '../../../../core/theme/app_typography.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 import 'ai_columnists.dart';
+import '../../../../core/utils/string_extensions.dart';
+import '../../providers/home_providers.dart';
 
 
 // ─── Ayrıştırma yardımcıları ──────────────────────────────────────────────
@@ -21,17 +23,13 @@ bool _isHeadline(NewsArticle a) {
   return true; // We use smart filtering now instead of just sourceName
 }
 
-// Şimdilik veritabanında gerçek "Köşe Yazısı" ayrımı olmadığı için,
-// AI tarafından üretilen (sourceName == null) makalelerin Yazarlarımız
-// sütununu ezmemesi adına hep false dönüyoruz. Böylece mock yazarlar korunur.
+// Köşe yazarı makalesi mi? source_name'e bakarak kontrol eder.
 bool _isOpEd(NewsArticle a) {
   return aiColumnists.any((col) => col.name == a.sourceName?.trim());
 }
 
 // ─── Renk / stil sabitleri ────────────────────────────────────────────────
 const double _kDesktopBreakpoint = 900.0;
-
-// ─── Mock Yazar Veri Modeli ───────────────────────────────────────────────
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  HeroFold — anasayfanın en üst "above the fold" bölümü
@@ -45,7 +43,11 @@ class HeroFold extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider); // Rebuild when language changes
     final headlines = articles;
-    final opEds     = articles.where(_isOpEd).take(6).toList();
+
+    // Yazar yazılarını tüm yayınlanmış makaleler arasından çek (hero listesinden değil!)
+    final allArticlesAsync = ref.watch(latestArticlesProvider);
+    final allPublished = allArticlesAsync.valueOrNull ?? [];
+    final opEds = allPublished.where(_isOpEd).toList();
 
     final width = MediaQuery.of(context).size.width;
 
@@ -559,7 +561,7 @@ class _HeadlineSlide extends StatelessWidget {
                         ),
                         color: AppColors.primaryGreen,
                         child: Text(
-                          article.sourceName!.toUpperCase(),
+                          article.sourceName!.toTurkishUpperCase(),
                           style: GoogleFonts.inter(
                             fontSize: 9,
                             fontWeight: FontWeight.w800,
@@ -658,34 +660,36 @@ class _OpEdColumn extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         
-        // Yazar Listesi
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: isDark ? const Color(0xFF161B22) : const Color(0xFFF9F7F1), // Newspaper column bg
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(
-                color: isDark ? AppColors.wheat.withOpacity(0.1) : const Color(0xFFEAE3CD),
-                width: 1,
-              ),
+        // Yazar Listesi — IntrinsicHeight ile uyumlu olması için Expanded yerine Container
+        Container(
+          decoration: BoxDecoration(
+            color: isDark ? const Color(0xFF161B22) : const Color(0xFFF9F7F1),
+            borderRadius: BorderRadius.circular(4),
+            border: Border.all(
+              color: isDark ? AppColors.wheat.withOpacity(0.1) : const Color(0xFFEAE3CD),
+              width: 1,
             ),
-            child: ListView.separated(
-              physics: const NeverScrollableScrollPhysics(),
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              itemCount: aiColumnists.length,
-              separatorBuilder: (context, index) => Divider(
-                height: 1,
-                thickness: 1,
-                color: isDark ? AppColors.wheat.withOpacity(0.1) : const Color(0xFFEAE3CD),
-                indent: 16,
-                endIndent: 16,
-              ),
-              itemBuilder: (context, index) {
-                final col = aiColumnists[index];
-                final article = opEds.where((a) => a.sourceName?.trim() == col.name).firstOrNull;
-                return _OpEdCard(columnist: col, article: article, isDark: isDark);
-              },
-            ),
+          ),
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (int index = 0; index < aiColumnists.length; index++) ...[
+                if (index > 0)
+                  Divider(
+                    height: 1,
+                    thickness: 1,
+                    color: isDark ? AppColors.wheat.withOpacity(0.1) : const Color(0xFFEAE3CD),
+                    indent: 16,
+                    endIndent: 16,
+                  ),
+                Builder(builder: (context) {
+                  final col = aiColumnists[index];
+                  final article = opEds.where((a) => a.sourceName?.trim() == col.name).firstOrNull;
+                  return _OpEdCard(columnist: col, article: article, isDark: isDark);
+                }),
+              ],
+            ],
           ),
         ),
       ],
@@ -867,7 +871,7 @@ class _InitialAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initial = name.trim().isNotEmpty ? name.trim()[0].toUpperCase() : '?';
+    final initial = name.trim().isNotEmpty ? name.trim()[0].toTurkishUpperCase() : '?';
 
     return Container(
       width: size,

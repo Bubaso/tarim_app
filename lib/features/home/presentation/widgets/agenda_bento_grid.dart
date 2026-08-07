@@ -9,6 +9,7 @@ import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/localization_helper.dart';
 import '../screens/article_detail_screen.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 // ─── Sınır sabitleri ──────────────────────────────────────────────────────
 const double _kBentoBreakpoint = 900.0;
@@ -702,7 +703,7 @@ class _SourceBadge extends StatelessWidget {
         borderRadius: BorderRadius.circular(2),
       ),
       child: Text(
-        label.toUpperCase(),
+        label.toTurkishUpperCase(),
         style: GoogleFonts.inter(
           fontSize: 8,
           fontWeight: FontWeight.w900,

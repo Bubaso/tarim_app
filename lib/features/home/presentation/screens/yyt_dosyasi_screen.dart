@@ -8,6 +8,7 @@ import '../../../../core/utils/image_fallback_helper.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import 'article_detail_screen.dart';
+import '../../../../core/utils/string_extensions.dart';
 
 class YYTDosyasiScreen extends ConsumerWidget {
   const YYTDosyasiScreen({super.key});
@@ -347,7 +348,7 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
                               borderRadius: BorderRadius.circular(3),
                             ),
                             child: Text(
-                              a.sourceName!.toUpperCase(),
+                              a.sourceName!.toTurkishUpperCase(),
                               style: GoogleFonts.robotoMono(
                                 fontSize: 9,
                                 fontWeight: FontWeight.w700,
