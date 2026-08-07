@@ -96,7 +96,7 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
             children: [
               Expanded(
                 child: Text(
-                  "Gerçek Tarım'ı Uygulama Olarak Yükleyin",
+                  "Tarım Portalı'nı Uygulama Olarak Yükleyin",
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
