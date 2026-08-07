@@ -77,10 +77,11 @@ class NewsArticleImage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         // Calculate the actual rendering width.
-        // If constraints are tight, use maxWidth. If not, use provided width or fallback to 600.
-        double renderWidth = width ?? (constraints.maxWidth.isFinite ? constraints.maxWidth : 600);
+        double renderWidth = (width != null && width.isFinite) 
+            ? width 
+            : (constraints.maxWidth.isFinite ? constraints.maxWidth : 600);
         // Fallback safety limit
-        if (renderWidth <= 0) renderWidth = 600;
+        if (renderWidth <= 0 || renderWidth.isInfinite) renderWidth = 600;
         
         // Request a 2x resolution image for retina displays, maxed at 2000px
         int requestedWidth = isHighQuality ? 2000 : (renderWidth * 2).toInt();
