@@ -865,16 +865,16 @@ class _RelatedSection extends ConsumerWidget {
           }
         }
 
-        // 1. Same Author Prioritization (Up to 2)
-        if (currentArticle.author != null && currentArticle.author!.isNotEmpty) {
-           final sameAuthorArticles = otherArticles.where((a) => a.author == currentArticle.author).toList();
-           sameAuthorArticles.shuffle();
-           addUnique(sameAuthorArticles, 2);
+        // 1. Same Author / Source Prioritization (Up to 2)
+        if (currentArticle.sourceName != null && currentArticle.sourceName!.isNotEmpty) {
+           final sameSourceArticles = otherArticles.where((a) => a.sourceName == currentArticle.sourceName).toList();
+           sameSourceArticles.shuffle();
+           addUnique(sameSourceArticles, 2);
         }
 
         // 2. Same Category Matching (Up to 3)
-        if (currentArticle.category != null && currentArticle.category!.isNotEmpty) {
-           final sameCategory = otherArticles.where((a) => a.category == currentArticle.category).take(15).toList();
+        if (currentArticle.categoryId != null && currentArticle.categoryId!.isNotEmpty) {
+           final sameCategory = otherArticles.where((a) => a.categoryId == currentArticle.categoryId).take(15).toList();
            sameCategory.shuffle(); 
            addUnique(sameCategory, 3);
         }
