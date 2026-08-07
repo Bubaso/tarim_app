@@ -77,8 +77,8 @@ class NewsArticleImage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         // Calculate the actual rendering width.
-        double renderWidth = (width != null && width.isFinite) 
-            ? width 
+        double renderWidth = (width != null && width!.isFinite) 
+            ? width! 
             : (constraints.maxWidth.isFinite ? constraints.maxWidth : 600);
         // Fallback safety limit
         if (renderWidth <= 0 || renderWidth.isInfinite) renderWidth = 600;
