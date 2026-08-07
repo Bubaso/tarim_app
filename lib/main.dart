@@ -1,17 +1,17 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/constants/api_constants.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
-import 'core/router/app_router.dart';
+import 'features/home/presentation/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Supabase initialization with environment variables or fallback values
   await Supabase.initialize(
     url: ApiConstants.supabaseUrl,
     publishableKey: ApiConstants.supabaseAnonKey,
@@ -29,18 +29,16 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Dynamic locale from Riverpod notifier
     final currentLocale = ref.watch(localeProvider);
 
-    return MaterialApp.router(
-      routerConfig: appRouter,
+    return MaterialApp(
       title: 'Tarım Portalı',
       debugShowCheckedModeBanner: false,
-      
-      // Theme definitions — Premium Medya Portalı Tasarım Sistemi
+
+      // Theme definitions
       theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
-      
+
       // Masaüstü web için fare ile kaydırmayı aktifleştiren özel ayar
       scrollBehavior: AppScrollBehavior(),
 
@@ -56,6 +54,11 @@ class MyApp extends ConsumerWidget {
         Locale('tr', 'TR'),
         Locale('en', 'US'),
       ],
+
+      // Ana sayfa: HomeScreen doğrudan verilir.
+      // Tüm geçişler Navigator.push ile yönetilir — tarayıcı
+      // history API'siyle otomatik entegre olur.
+      home: const HomeScreen(),
     );
   }
 }

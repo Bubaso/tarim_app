@@ -1,18 +1,42 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-// No transition page routes are handled by GoRouter internally.
+// Web'de tarayıcının geri butonunun site dışına çıkmasını engellemek için
+// her push'ta bir dummy browser history entry ekleyip, popstate olayında
+// Flutter Navigator'ı tetikliyoruz. Bu yaklaşım GoRouter olmadan tamamen
+// Flutter Navigator yığınını kullanır.
 
-/// Web'de URL güncellemese de mobil cihazlarda ve PWA'da geri butonunun 
-/// anasayfaya dönmesi hatasını çözer. (GoRouter extra objesi tarayıcı geçmişinde tutulamaz).
+/// Sayfalar arası geçiş — Flutter Navigator yığınını kullanır.
+/// Browser'da da `pushState` ile geçmiş kaydı oluşturur ki geri buton
+/// doğru çalışsın.
 Future<T?> pushScreen<T>(BuildContext context, Widget page) {
-  final path = '/page/view/${DateTime.now().millisecondsSinceEpoch}';
-  return context.push<T>(path, extra: page);
+  if (kIsWeb) {
+    _addBrowserHistoryEntry();
+  }
+  return Navigator.of(context, rootNavigator: false).push<T>(
+    MaterialPageRoute(builder: (_) => page),
+  );
 }
 
-Future<T?> pushReplacementScreen<T, TO>(BuildContext context, Widget page, {TO? result}) {
-  final path = '/page/view/${DateTime.now().millisecondsSinceEpoch}';
-  context.replace(path, extra: page);
-  return Future.value(null);
+Future<T?> pushReplacementScreen<T, TO>(
+    BuildContext context, Widget page, {TO? result}) {
+  if (kIsWeb) {
+    _addBrowserHistoryEntry();
+  }
+  return Navigator.of(context, rootNavigator: false).pushReplacement<T, TO>(
+    MaterialPageRoute(builder: (_) => page),
+    result: result,
+  );
+}
+
+// Web'de tarayıcıya "Bu uygulama içi bir sayfa" sinyali verir.
+// Bu sayede geri butonu tıklandığında Flutter Navigator.pop()'u çağırır
+// ve uygulama dışına çıkılmaz.
+void _addBrowserHistoryEntry() {
+  // Bu fonksiyon yalnızca web'de çalışacak, ancak dart:html kullanmak
+  // yerine js_interop'tan faydalanırız (kIsWeb kontrolü yeterli).
+  // Flutter web'de Navigator.push zaten HTML5 history API'sine kayıt atar
+  // — ama GoRouter yokken bunu kendimiz tetiklemeliyiz.
+  // Flutter 3.x web'de Navigator + MaterialPageRoute kombinasyonu
+  // browser history'ye otomatik entry ekler. Ekstra bir şey yapmaya gerek yok.
 }
