@@ -348,7 +348,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
               // ── İlgili Haberler bölümü ────────────────────────────────────
               SliverToBoxAdapter(
                 child: _RelatedSection(
-                  currentId: article.id,
+                  currentArticle: article,
                   isEn:      isEn,
                   isDark:    isDark,
                 ),
@@ -833,12 +833,12 @@ class _ShareButton extends StatelessWidget {
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _RelatedSection extends ConsumerWidget {
-  final String currentId;
+  final NewsArticle currentArticle;
   final bool isEn;
   final bool isDark;
 
   const _RelatedSection({
-    required this.currentId,
+    required this.currentArticle,
     required this.isEn,
     required this.isDark,
   });
@@ -847,11 +847,47 @@ class _RelatedSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ref.watch(latestArticlesProvider).when(
       data: (articles) {
-        final related = articles
-            .where((a) => a.id != currentId)
-            .take(6)
-            .toList();
+        final otherArticles = articles.where((a) => a.id != currentArticle.id).toList();
+        if (otherArticles.isEmpty) return const SizedBox.shrink();
 
+        final List<NewsArticle> recommended = [];
+        final Set<String> recommendedIds = {};
+
+        void addUnique(Iterable<NewsArticle> candidates, int maxToAdd) {
+          int added = 0;
+          for (final a in candidates) {
+            if (added >= maxToAdd) break;
+            if (!recommendedIds.contains(a.id)) {
+              recommended.add(a);
+              recommendedIds.add(a.id);
+              added++;
+            }
+          }
+        }
+
+        // 1. Same Author Prioritization (Up to 2)
+        if (currentArticle.author != null && currentArticle.author!.isNotEmpty) {
+           final sameAuthorArticles = otherArticles.where((a) => a.author == currentArticle.author).toList();
+           sameAuthorArticles.shuffle();
+           addUnique(sameAuthorArticles, 2);
+        }
+
+        // 2. Same Category Matching (Up to 3)
+        if (currentArticle.category != null && currentArticle.category!.isNotEmpty) {
+           final sameCategory = otherArticles.where((a) => a.category == currentArticle.category).take(15).toList();
+           sameCategory.shuffle(); 
+           addUnique(sameCategory, 3);
+        }
+
+        // 3. Discovery / Fresh News Fill (Up to 6 total)
+        if (recommended.length < 6) {
+           final remainingNeeded = 6 - recommended.length;
+           final generalPool = otherArticles.take(20).toList();
+           generalPool.shuffle();
+           addUnique(generalPool, remainingNeeded);
+        }
+
+        final related = recommended.take(6).toList();
         if (related.isEmpty) return const SizedBox.shrink();
 
         final dividerColor =
