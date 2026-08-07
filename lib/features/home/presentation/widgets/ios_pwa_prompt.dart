@@ -26,12 +26,22 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
   }
 
   Future<void> _checkVisibility() async {
-    // Only show on Web running on iOS and NOT already installed as PWA
+    // Only show on Web running on iOS
     if (!kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return;
-    if (isStandalone()) return;
 
     final prefs = await SharedPreferences.getInstance();
     
+    // Eğer şu an standalone (yüklü PWA) modunda açıldıysa,
+    // kalıcı olarak "bu cihaza yüklendi" işaretini koy ve gösterme.
+    if (isStandalone()) {
+      await prefs.setBool('has_been_installed', true);
+      return;
+    }
+
+    // Eğer daha önce PWA olarak açıldığına dair iz varsa (Safari'den bile girilse) gösterme.
+    final hasBeenInstalled = prefs.getBool('has_been_installed') ?? false;
+    if (hasBeenInstalled) return;
+
     // Toplam ziyaret sayısını artır
     final visitCount = (prefs.getInt(_prefKeyVisitCount) ?? 0) + 1;
     await prefs.setInt(_prefKeyVisitCount, visitCount);
@@ -49,7 +59,6 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
         // Cooldown doldu → tekrar göster (ve dismissed'i sıfırla)
         if (mounted) setState(() => _isVisible = true);
       }
-      // else: Hâlâ cooldown içinde → gösterme
     }
   }
 
