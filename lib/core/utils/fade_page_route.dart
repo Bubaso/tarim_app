@@ -14,7 +14,14 @@ Future<T?> pushScreen<T>(BuildContext context, Widget page) {
     _addBrowserHistoryEntry();
   }
   return Navigator.of(context, rootNavigator: false).push<T>(
-    MaterialPageRoute(builder: (_) => page),
+    PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(opacity: animation, child: child);
+      },
+      transitionDuration: const Duration(milliseconds: 150),
+      reverseTransitionDuration: const Duration(milliseconds: 150),
+    ),
   );
 }
 
@@ -24,7 +31,14 @@ Future<T?> pushReplacementScreen<T, TO>(
     _addBrowserHistoryEntry();
   }
   return Navigator.of(context, rootNavigator: false).pushReplacement<T, TO>(
-    MaterialPageRoute(builder: (_) => page),
+    PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(opacity: animation, child: child);
+      },
+      transitionDuration: const Duration(milliseconds: 150),
+      reverseTransitionDuration: const Duration(milliseconds: 150),
+    ),
     result: result,
   );
 }
