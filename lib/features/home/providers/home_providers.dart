@@ -17,19 +17,20 @@ final homeRepositoryProvider = Provider<HomeRepository>((ref) {
   return HomeRepository(supabaseClient);
 });
 
+final initialReadArticlesProvider = FutureProvider<Set<String>>((ref) async {
+  final prefs = await SharedPreferences.getInstance();
+  final list = prefs.getStringList('read_articles') ?? [];
+  return list.toSet();
+});
+
 class ReadArticlesNotifier extends Notifier<Set<String>> {
   static const _key = 'read_articles';
 
   @override
   Set<String> build() {
-    _loadReadArticles();
-    return {};
-  }
-
-  Future<void> _loadReadArticles() async {
-    final prefs = await SharedPreferences.getInstance();
-    final list = prefs.getStringList(_key) ?? [];
-    state = list.toSet();
+    // Get initial state from the FutureProvider if available
+    final initial = ref.watch(initialReadArticlesProvider).valueOrNull;
+    return initial ?? {};
   }
 
   Future<void> markAsRead(String id) async {
@@ -91,7 +92,6 @@ const _turkeySourceSet = {
   'türkşeker duyurular',
 };
 
-/// Bilim / Rapor kaynakları
 const _scienceSourceSet = {
   'efsa news',
   'efsa publications',
@@ -99,7 +99,6 @@ const _scienceSourceSet = {
   'iarc basın',
   'food safety news',
   'sciencedaily beslenme',
-  'food chemistry journal',
   'nature food',
 };
 
@@ -195,12 +194,17 @@ bool _articleIsWorld(NewsArticle a) {
 
 // ─── PORTAL SECTION PROVIDERS ──────────────────────────────────────────────────
 
+final _sessionHeroSeed = math.Random().nextInt(1000000);
+
 /// Manşet haberleri (Hero Section)
 /// Tüm yayınlanmış, görseli olan haberler — zaman-ağırlıklı skor ile sıralı.
 /// Türkiye haberleri ağırlıklı, dünyadan 1-2, bilim/rapor 1 adet.
 final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
   final articlesAsync = ref.watch(latestArticlesProvider);
-  final readIds = ref.watch(readArticlesProvider);
+  
+  // Sadece oturum başındaki okuma durumunu alıyoruz. 
+  // Böylece uygulama içindeyken okunan haberler sıralamayı anında DEĞİŞTİRMEZ.
+  final initialReadIds = ref.watch(initialReadArticlesProvider).valueOrNull ?? {};
 
   return articlesAsync.when(
     data: (articles) {
@@ -212,22 +216,19 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 
       if (withImages.isEmpty) return [];
 
-      final random = math.Random();
-
-      // Zaman-ağırlıklı ve okunma durumuna bağlı akıllı skor hesaplama
+      // Zaman-ağırlıklı ve oturum-sabit skor hesaplama
       double heroScore(NewsArticle a) {
         final ageHours = DateTime.now().difference(a.createdAt).inHours;
         
         // Zaman cezasını biraz yumuşattık (1.5 yerine 0.8 üs) ki haberler hemen ölmesin
         double score = (a.heroScore ?? 5) / math.pow(ageHours + 1, 0.8);
         
-        // Strateji 3: Okunanları Aşağı Çekme
-        if (readIds.contains(a.id)) {
-          score = score * 0.1; // Okunanlara %90 ağır ceza
+        // Sadece DÜN veya ÖNCEKİ GÜNLERDE okunanları aşağı çeker
+        if (initialReadIds.contains(a.id)) {
+          score = score * 0.1; 
         } else if (ageHours < 24 * 7) {
-          // Strateji 1 & 2 Harmanı: Kova İçi Ağırlıklı Rastgelelik
-          // Sadece okunmamış ve son 7 güne ait haberlere rastgelelik (noise) ekliyoruz.
-          // Böylece uygulama her açıldığında sıralama organik olarak değişir.
+          // Oturum bazlı sabit rastgelelik (aynı oturumda hep aynı noise değeri)
+          final random = math.Random(_sessionHeroSeed ^ a.id.hashCode);
           final noise = random.nextDouble() * 4.0; // 0 ile 4.0 arası rastgele bonus
           score += noise;
         }

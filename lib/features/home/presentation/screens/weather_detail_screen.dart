@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:geolocator/geolocator.dart';
 import '../../data/models/weather_info.dart';
 import '../../providers/home_providers.dart';
+import '../../data/providers/location_image_provider.dart';
 import '../../../../core/utils/string_extensions.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -228,14 +229,58 @@ class _HeroTemperature extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: [
-        // Weather emoji
-        Text(
-          _weatherIcon(weather.iconCode),
-          style: const TextStyle(fontSize: 56),
-          textAlign: TextAlign.center,
-        ),
+    final locationImageAsync = ref.watch(locationImageProvider(weather.city));
+
+    return Container(
+      // Bu container tüm üst alanı kaplar ve içine resmi alır.
+      constraints: const BoxConstraints(minHeight: 350),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          // 1. Arka plan resmi (varsa)
+          if (locationImageAsync.value != null)
+            Positioned.fill(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(32),
+                child: Image.network(
+                  locationImageAsync.value!,
+                  fit: BoxFit.cover,
+                  color: Colors.black.withValues(alpha: 0.5), // Resmi karartma
+                  colorBlendMode: BlendMode.darken,
+                  errorBuilder: (context, error, stackTrace) => const SizedBox(),
+                ),
+              ),
+            ),
+          
+          // 2. Eğer resim yoksa ama gradient vermek istersek veya sadece karartma
+          Positioned.fill(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(32),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black.withValues(alpha: 0.1),
+                    Colors.black.withValues(alpha: 0.6),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // 3. İçerikler
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 32.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Weather emoji
+                Text(
+                  _weatherIcon(weather.iconCode),
+                  style: const TextStyle(fontSize: 56),
+                  textAlign: TextAlign.center,
+                ),
         const SizedBox(height: 4),
 
         // Giant temperature — Apple Weather style ultra-thin
@@ -310,7 +355,11 @@ class _HeroTemperature extends ConsumerWidget {
 
         // Status pill
         _StatusPill(hasWarning: weather.hasWarning, isEn: isEn),
-      ],
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

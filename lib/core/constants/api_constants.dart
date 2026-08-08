@@ -18,5 +18,10 @@ class ApiConstants {
     'GEMINI_API_KEY',
     defaultValue: 'AIzaSyCbxJQ2JUUTY4PjOh_RVaAIzYI0hYvL8_g',
   );
+
+  static const String unsplashApiKey = String.fromEnvironment(
+    'UNSPLASH_API_KEY',
+    defaultValue: 'YOUR_UNSPLASH_ACCESS_KEY',
+  );
 }
 

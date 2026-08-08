@@ -1,15 +1,19 @@
 import 'dart:html' as html;
+import 'dart:js' as js;
 
 bool isStandalone() {
-  // Check standard display-mode: standalone
-  final matchMedia = html.window.matchMedia('(display-mode: standalone)').matches;
-  // Check legacy iOS web app capable status
-  // Wait, html.window.navigator doesn't have 'standalone' property exposed typed in dart:html.
-  // We can use JS interop or simply cast it to dynamic to access it.
-  final dynamic nav = html.window.navigator;
+  bool matchMedia = false;
+  try {
+    matchMedia = html.window.matchMedia('(display-mode: standalone)').matches ||
+                 html.window.matchMedia('(display-mode: fullscreen)').matches;
+  } catch (_) {}
+
   bool isIosStandalone = false;
   try {
-    isIosStandalone = nav.standalone == true;
+    final nav = js.context['navigator'];
+    if (nav != null && nav.hasProperty('standalone')) {
+      isIosStandalone = nav['standalone'] == true;
+    }
   } catch (_) {}
   
   return matchMedia || isIosStandalone;
