@@ -68,7 +68,7 @@ final pendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
 //     TMO, TZOB, Pankobirlik, Türkşeker, Türkşeker Duyurular
 //   Uluslararası / Bilim kaynakları:
 //     FAO Global News, EFSA News, EFSA Publications, IARC News, IARC Basın,
-//     Food Safety News, ScienceDaily Beslenme, Food Chemistry Journal, Nature Food,
+//     ScienceDaily Beslenme,
 //     PubMed — Aspartam & Sağlık, PubMed — Yapay Tatlandırıcı & Bağırsak,
 //     PubMed — YYT & Kanser, PubMed — Sukraloz & DNA
 
@@ -97,9 +97,7 @@ const _scienceSourceSet = {
   'efsa publications',
   'iarc news',
   'iarc basın',
-  'food safety news',
   'sciencedaily beslenme',
-  'nature food',
 };
 
 /// Uluslararası (Dünya) kaynakları

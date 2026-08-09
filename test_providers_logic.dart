@@ -10,7 +10,7 @@ bool _isTurkeySource(String? sourceName) {
 bool _isScienceSource(String? sourceName) {
   if (sourceName == null || sourceName.isEmpty) return false;
   final lower = sourceName.toLowerCase().trim();
-  if ({'efsa news','efsa publications','iarc news','iarc basın','food safety news','sciencedaily beslenme','food chemistry journal','nature food'}.contains(lower)) return true;
+  if ({'efsa news','efsa publications','iarc news','iarc basın','sciencedaily beslenme'}.contains(lower)) return true;
   if (lower.startsWith('pubmed')) return true;
   return false;
 }
