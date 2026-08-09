@@ -2,10 +2,11 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../data/models/news_article.dart';
+import '../../../../core/theme/app_typography.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/widgets/article_timestamp.dart';
 import '../screens/article_detail_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
 
@@ -39,10 +40,13 @@ class _NewsCardState extends State<NewsCard> {
         : (widget.article.summary ?? '');
 
     final hasSource = widget.article.sourceName != null && widget.article.sourceName!.isNotEmpty;
-    final formattedDate = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').add_Hm().format(widget.article.createdAt);
 
     final cardBg = isDark ? AppColors.darkGreen : Colors.white;
     final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
+    // Zaman damgası gövdeyle aynı renkte olursa hiyerarşi kaybolur.
+    final metaColor = isDark
+        ? AppColors.wheat
+        : AppColors.earthText.withValues(alpha: 0.70);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -118,7 +122,7 @@ class _NewsCardState extends State<NewsCard> {
                                       style: GoogleFonts.inter(
                                         color: theme.colorScheme.primary,
                                         fontWeight: FontWeight.w800,
-                                        fontSize: 9,
+                                        fontSize: AppTypography.minLabelSize,
                                         letterSpacing: 0.5,
                                       ),
                                     ),
@@ -127,7 +131,11 @@ class _NewsCardState extends State<NewsCard> {
                                   Container(
                                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
-                                      color: isDark ? AppColors.wheat : AppColors.wheat,
+                                      // Koyu temada zemin de metin de wheat'ti;
+                                      // rozet görünmez oluyordu.
+                                      color: isDark
+                                          ? AppColors.wheat.withValues(alpha: 0.20)
+                                          : AppColors.wheat,
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                     child: Text(
@@ -135,7 +143,7 @@ class _NewsCardState extends State<NewsCard> {
                                       style: GoogleFonts.inter(
                                         color: isDark ? AppColors.wheat : AppColors.earthText,
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 9,
+                                        fontSize: AppTypography.minLabelSize,
                                         letterSpacing: 0.5,
                                       ),
                                     ),
@@ -144,21 +152,33 @@ class _NewsCardState extends State<NewsCard> {
                                   Container(
                                     padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                                     decoration: BoxDecoration(
-                                      color: isDark ? const Color(0xFF3B2A10) : const Color(0xFFFFF2D9),
+                                      // Konudan renkle değil biçimle ayrılıyor:
+                                      // dolu rozet yerine çerçeveli. Eski hâli
+                                      // (#FFAB40 metin / #FFF2D9 zemin) ~1.6:1
+                                      // kontrastla okunamıyordu.
+                                      border: Border.all(
+                                        color: AppColors.wheat,
+                                        width: 1,
+                                      ),
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                     child: Text(
                                       widget.article.region!.toTurkishUpperCase(),
                                       style: GoogleFonts.inter(
-                                        color: Colors.orangeAccent,
+                                        color: isDark ? AppColors.wheat : AppColors.earthText,
                                         fontWeight: FontWeight.w700,
-                                        fontSize: 9,
+                                        fontSize: AppTypography.minLabelSize,
                                         letterSpacing: 0.5,
                                       ),
                                     ),
                                   ),
                               ],
                             ),
+                          ),
+                          const SizedBox(width: 8),
+                          ArticleTimestamp(
+                            published: widget.article.createdAt,
+                            color: metaColor,
                           ),
                         ],
                       ),

@@ -2,9 +2,7 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../providers/home_providers.dart';
-import '../widgets/news_card.dart'; // To use SmallNewsCard or similar, let's use a standard ListTile for simplicity if NewsCard is not easily imported, but we can try importing news_card.dart or just build a custom tile.
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../screens/article_detail_screen.dart';
@@ -109,7 +107,6 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   Widget _buildSearchResults(BuildContext context, List<NewsArticle> articles) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final textColor = isDark ? Colors.white : Colors.black87;
-    final subtitleColor = isDark ? Colors.white70 : Colors.black54;
 
     return ListView.separated(
       padding: const EdgeInsets.all(16),

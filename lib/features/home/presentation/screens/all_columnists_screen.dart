@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../widgets/ai_columnists.dart';
 import 'author_article_detail_screen.dart';
@@ -28,7 +27,7 @@ class AllColumnistsScreen extends StatelessWidget {
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new_rounded, color: isDark ? AppColors.wheat : AppColors.earthText),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => popScreen(context),
         ),
         title: Text(
           isEn ? 'COLUMNISTS' : 'YAZARLAR',

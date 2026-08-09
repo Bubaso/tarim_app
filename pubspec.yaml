@@ -41,3 +41,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+  fonts:
+    # Sadece Font Awesome "Brands" seti. font_awesome_flutter paketi Free-Solid
+    # ve Free-Regular'ı da manifest'e ekliyor ve Flutter web manifest'teki her
+    # fontu açılışta indiriyor; hiç kullanmadığımız o iki dosya ~500 KB ölü
+    # yük demekti. Sadece bu dosyayı bağlıyoruz, ikon tree-shaking'i onu da
+    # kullanılan glif sayısına indiriyor.
+    # Lisans: assets/fonts/FontAwesome-LICENSE.txt (CC BY 4.0 / SIL OFL 1.1)
+    - family: FontAwesomeBrands
+      fonts:
+        - asset: assets/fonts/Font-Awesome-7-Brands-Regular-400.otf

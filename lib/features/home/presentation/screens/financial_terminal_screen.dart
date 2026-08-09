@@ -9,6 +9,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart' show kIsWeb;
+import '../../../../core/utils/fade_page_route.dart';
 
 // ─── Kurumsal Tema Renkleri ───────────────────────────────────────────────
 const Color _kBg        = AppColors.creamBackground; // Arka plan
@@ -450,7 +451,7 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
       ),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18, color: AppColors.earthText),
-        onPressed: () => Navigator.of(context).pop(),
+        onPressed: () => popScreen(context),
       ),
       title: Row(
         mainAxisSize: MainAxisSize.min,

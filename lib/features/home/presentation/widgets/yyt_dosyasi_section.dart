@@ -3,6 +3,7 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theme/app_typography.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../data/models/news_article.dart';
@@ -60,9 +61,9 @@ class _YYTSectionContent extends StatelessWidget {
         ? const Color(0xFF100A0A)
         : const Color(0xFFFFF8F8);
     final borderColor = isDark
-        ? const Color(0xFFD32F2F).withValues(alpha: 0.25)
-        : const Color(0xFFD32F2F).withValues(alpha: 0.15);
-    final accentRed = const Color(0xFFD32F2F);
+        ? AppColors.alertRed.withValues(alpha: 0.25)
+        : AppColors.alertRed.withValues(alpha: 0.15);
+    final accentRed = AppColors.alertRed;
     final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final subColor = isDark ? Colors.white54 : Colors.black54;
 
@@ -113,7 +114,7 @@ class _YYTSectionContent extends StatelessWidget {
                               style: GoogleFonts.robotoMono(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
-                                fontSize: 10,
+                                fontSize: AppTypography.minLabelSize,
                                 letterSpacing: 2,
                               ),
                             ),
@@ -122,7 +123,7 @@ class _YYTSectionContent extends StatelessWidget {
                           Text(
                             isEn ? 'DOSSIER' : 'ÖZEL DOSYA',
                             style: GoogleFonts.robotoMono(
-                              fontSize: 10,
+                              fontSize: AppTypography.minLabelSize,
                               fontWeight: FontWeight.w700,
                               color: accentRed,
                               letterSpacing: 1.5,
@@ -273,13 +274,8 @@ class _YYTPreviewCardState extends State<_YYTPreviewCard> {
     final bg = widget.isDark ? const Color(0xFF1A0F0F) : Colors.white;
     final border = widget.isDark ? const Color(0xFF3D1A1A) : const Color(0xFFEEDDDD);
     final textCol = widget.isDark ? const Color(0xFFE6EDF3) : AppColors.earthText;
-    final accentRed = const Color(0xFFD32F2F);
+    final accentRed = AppColors.alertRed;
 
-    final months = widget.isEn
-        ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        : ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
-    final dt = a.createdAt;
-    final dateStr = '${dt.day} ${months[dt.month - 1]}';
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hover = true),

@@ -1,16 +1,21 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/constants/api_constants.dart';
+import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
-import 'features/home/presentation/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Bu çağrı olmadan `DateFormat.yMMMd('tr_TR')` sessizce en_US'a düşüyor ve
+  // Türkçe arayüzde tarihler "Aug 8, 2026" olarak yazılıyordu.
+  await initializeDateFormatting('tr_TR');
+  await initializeDateFormatting('en_US');
 
   await Supabase.initialize(
     url: ApiConstants.supabaseUrl,
@@ -31,9 +36,14 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentLocale = ref.watch(localeProvider);
 
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Tarım Portalı',
       debugShowCheckedModeBanner: false,
+
+      // Router API — her sayfa geçişi tarayıcı geçmişine gerçek bir kayıt
+      // ekler. iOS'ta kenardan kaydırarak geri gelme hareketinin uygulamadan
+      // çıkmaması ve geri dönüşte beyaz ekran oluşmaması bu moda bağlı.
+      routerConfig: appRouter,
 
       // Theme definitions
       theme: AppTheme.lightTheme,
@@ -54,11 +64,6 @@ class MyApp extends ConsumerWidget {
         Locale('tr', 'TR'),
         Locale('en', 'US'),
       ],
-
-      // Ana sayfa: HomeScreen doğrudan verilir.
-      // Tüm geçişler Navigator.push ile yönetilir — tarayıcı
-      // history API'siyle otomatik entegre olur.
-      home: const HomeScreen(),
     );
   }
 }

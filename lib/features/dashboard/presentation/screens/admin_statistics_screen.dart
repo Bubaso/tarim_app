@@ -153,19 +153,6 @@ class AdminStatisticsScreen extends ConsumerWidget {
       return Center(child: Text(loc.translate('stats_no_data')));
     }
 
-    final barGroups = top5.asMap().entries.map((e) {
-      return BarChartGroupData(
-        x: e.key,
-        barRods: [
-          BarChartRodData(
-            toY: e.value.viewCount.toDouble(),
-            color: theme.colorScheme.primary,
-            width: 30,
-            borderRadius: const BorderRadius.vertical(top: Radius.circular(6)),
-          ),
-        ],
-      );
-    }).toList();
 
     return BarChart(
       BarChartData(

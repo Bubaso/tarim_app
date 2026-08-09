@@ -3,6 +3,8 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theme/app_typography.dart';
+import '../../../../core/widgets/article_timestamp.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../data/models/news_article.dart';
@@ -34,7 +36,7 @@ class YYTDosyasiScreen extends ConsumerWidget {
             Icons.arrow_back_rounded,
             color: isDark ? Colors.white : Colors.black87,
           ),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => popScreen(context),
         ),
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -42,7 +44,7 @@ class YYTDosyasiScreen extends ConsumerWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
-                color: const Color(0xFFD32F2F),
+                color: AppColors.alertRed,
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
@@ -174,7 +176,7 @@ class _YYTBanner extends StatelessWidget {
         color: isDark ? const Color(0xFF1A0505) : const Color(0xFFFFF3F3),
         border: Border(
           bottom: BorderSide(
-            color: const Color(0xFFD32F2F).withValues(alpha: 0.3),
+            color: AppColors.alertRed.withValues(alpha: 0.3),
             width: 1,
           ),
         ),
@@ -187,7 +189,7 @@ class _YYTBanner extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFD32F2F),
+                  color: AppColors.alertRed,
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
@@ -204,13 +206,13 @@ class _YYTBanner extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFD32F2F).withValues(alpha: 0.12),
+                  color: AppColors.alertRed.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(
                   '$count ${isEn ? 'article' : 'haber'}',
                   style: GoogleFonts.robotoMono(
-                    color: const Color(0xFFD32F2F),
+                    color: AppColors.alertRed,
                     fontWeight: FontWeight.w700,
                     fontSize: 11,
                   ),
@@ -280,7 +282,6 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
     final textCol = widget.isDark ? const Color(0xFFE6EDF3) : AppColors.earthText;
     final subCol = widget.isDark ? Colors.white54 : Colors.black54;
 
-    final dateStr = _formatDate(a.createdAt, widget.isEn);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -298,14 +299,14 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
               borderRadius: BorderRadius.circular(6),
               border: Border.all(
                 color: _hover
-                    ? const Color(0xFFD32F2F).withValues(alpha: 0.6)
+                    ? AppColors.alertRed.withValues(alpha: 0.6)
                     : border,
                 width: _hover ? 1.5 : 1,
               ),
               boxShadow: _hover
                   ? [
                       BoxShadow(
-                        color: const Color(0xFFD32F2F).withValues(alpha: 0.08),
+                        color: AppColors.alertRed.withValues(alpha: 0.08),
                         blurRadius: 12,
                         offset: const Offset(0, 4),
                       ),
@@ -344,15 +345,15 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
                             margin: const EdgeInsets.only(bottom: 6),
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
-                              color: const Color(0xFFD32F2F).withValues(alpha: 0.12),
+                              color: AppColors.alertRed.withValues(alpha: 0.12),
                               borderRadius: BorderRadius.circular(3),
                             ),
                             child: Text(
                               a.sourceName!.toTurkishUpperCase(),
                               style: GoogleFonts.robotoMono(
-                                fontSize: 9,
+                                fontSize: AppTypography.minLabelSize,
                                 fontWeight: FontWeight.w700,
-                                color: const Color(0xFFD32F2F),
+                                color: AppColors.alertRed,
                                 letterSpacing: 0.8,
                               ),
                             ),
@@ -367,6 +368,11 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
                             color: textCol,
                             height: 1.3,
                           ),
+                        ),
+                        const SizedBox(height: 4),
+                        ArticleTimestamp(
+                          published: a.createdAt,
+                          color: subCol,
                         ),
                         if (summary.isNotEmpty) ...[
                           const SizedBox(height: 4),
@@ -391,12 +397,5 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
         ),
       ),
     );
-  }
-
-  String _formatDate(DateTime dt, bool isEn) {
-    final months = isEn
-        ? ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        : ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
-    return '${dt.day} ${months[dt.month - 1]} ${dt.year}';
   }
 }

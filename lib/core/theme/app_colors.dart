@@ -17,4 +17,18 @@ class AppColors {
 
   /// Ana gövde metin rengi, ikon rengi (koyu kontrast gereken yerlerde)
   static const Color earthText = Color(0xFF3A2E20);
+
+  /// Uygulamadaki **tek** onaylı kırmızı: "son dakika" etiketi ve YYT özel
+  /// dosya kimliği.
+  ///
+  /// Bölüm başlıklarında, rozetlerde veya hover renklerinde kullanılmaz —
+  /// her bölüme ayrı bir vurgu rengi vermek marka kimliğini siliyor ve
+  /// amatör bir gökkuşağı etkisi yaratıyor. Bölüm ayrımı tipografi ve
+  /// boşlukla yapılır; vurgu gerektiğinde [primaryGreen] (koyu temada
+  /// [wheat]) kullanılır.
+  static const Color alertRed = Color(0xFFD32F2F);
+
+  /// Bölüm ikonları, aktif durumlar, hover kenarlıkları için tek vurgu rengi.
+  /// Koyu zeminde [primaryGreen] yeterli kontrast vermediği için [wheat]'e döner.
+  static Color accentFor({required bool isDark}) => isDark ? wheat : primaryGreen;
 }

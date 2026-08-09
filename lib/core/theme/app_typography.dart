@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../utils/responsive_breakpoints.dart';
+
 /// ─── Typography System ────────────────────────────────────────────────────
-/// Breakpoints (matching the user's spec table):
-///   Mobile   : ≤ 480 px
-///   Tablet   : 481 – 1023 px
-///   Desktop  : ≥ 1024 px
+/// Breakpoints are shared with the layout system ([ResponsiveBreakpoints]) so
+/// that type and layout always change at the same width:
+///   Mobile   : < 650 px
+///   Tablet   : 650 – 1099 px
+///   Desktop  : ≥ 1100 px
 ///
 /// [scale] is the user-controlled font-scale multiplier (default 1.0).
 /// Apply it only to reading content — never to UI chrome.
 class AppTypography {
   AppTypography._();
 
-  static const double _mobileMax = 480.0;
-  static const double _tabletMax = 1024.0;
+  /// Alt sınır: bundan küçük bir etiket/rozet punto'su telefonda okunmuyor.
+  static const double minLabelSize = 11.0;
 
-  static bool _isMobile(double w) => w <= _mobileMax;
-  static bool _isTablet(double w) => w > _mobileMax && w < _tabletMax;
+  static bool _isMobile(double w) => w < ResponsiveBreakpoints.mobileMax;
+  static bool _isTablet(double w) =>
+      w >= ResponsiveBreakpoints.mobileMax &&
+      w < ResponsiveBreakpoints.tabletMax;
 
   // ── 1. Anasayfa manşeti H1 ──────────────────────────────────────────────
   // Mobile 26-28 → 27 | Tablet 34-38 → 36 | Desktop 44-52 → 48 | LH 1.1-1.15

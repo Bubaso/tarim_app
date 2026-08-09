@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import 'package:tarim_app/core/theme/app_colors.dart';
-import 'package:tarim_app/core/theme/app_typography.dart';
 import 'package:tarim_app/core/utils/localization_helper.dart';
 import 'package:tarim_app/core/utils/fade_page_route.dart';
 import 'package:tarim_app/core/utils/image_fallback_helper.dart';
+import 'package:tarim_app/core/widgets/article_timestamp.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
@@ -331,8 +330,6 @@ class _HeroArticleState extends State<_HeroArticle> {
     final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty)
         ? a.summaryEn!
         : (a.summary ?? '');
-    final dateStr =
-        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -405,6 +402,11 @@ class _HeroArticleState extends State<_HeroArticle> {
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white,
                                     height: 1.12)),
+                            const SizedBox(height: 10),
+                            ArticleTimestamp(
+                              published: widget.article.createdAt,
+                              color: Colors.white.withValues(alpha: 0.85),
+                            ),
                             const SizedBox(height: 16),
                             Text(summary,
                                 maxLines: widget.isMobile ? 2 : 3,
@@ -476,8 +478,6 @@ class _LargeCardState extends State<_LargeCard> {
     final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty)
         ? a.summaryEn!
         : (a.summary ?? '');
-    final dateStr =
-        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -516,6 +516,13 @@ class _LargeCardState extends State<_LargeCard> {
                     fontSize: (widget.isMobile ? 15.5 : 16.0) * widget.fontScale,
                     color: widget.isDark ? Colors.white60 : Colors.black54,
                     height: 1.70)),
+            const SizedBox(height: 10),
+            ArticleTimestamp(
+              published: a.createdAt,
+              color: widget.isDark
+                  ? AppColors.wheat
+                  : AppColors.earthText.withValues(alpha: 0.70),
+            ),
           ],
         ),
       ),
@@ -546,8 +553,6 @@ class _StdCardState extends State<_StdCard> {
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
         ? a.titleEn!
         : a.title;
-    final dateStr =
-        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -578,6 +583,13 @@ class _StdCardState extends State<_StdCard> {
                     fontWeight: FontWeight.w900,
                     color: _hovered ? AppColors.primaryGreen : textColor,
                     height: 1.25)),
+            const SizedBox(height: 10),
+            ArticleTimestamp(
+              published: a.createdAt,
+              color: widget.isDark
+                  ? AppColors.wheat
+                  : AppColors.earthText.withValues(alpha: 0.70),
+            ),
           ],
         ),
       ),
@@ -608,8 +620,6 @@ class _CompactCardState extends State<_CompactCard> {
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
         ? a.titleEn!
         : a.title;
-    final dateStr =
-        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -640,6 +650,13 @@ class _CompactCardState extends State<_CompactCard> {
                     fontWeight: FontWeight.w800,
                     color: _hovered ? AppColors.primaryGreen : textColor,
                     height: 1.25)),
+            const SizedBox(height: 10),
+            ArticleTimestamp(
+              published: a.createdAt,
+              color: widget.isDark
+                  ? AppColors.wheat
+                  : AppColors.earthText.withValues(alpha: 0.70),
+            ),
           ],
         ),
       ),
@@ -670,8 +687,6 @@ class _SideCardState extends State<_SideCard> {
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
         ? a.titleEn!
         : a.title;
-    final dateStr =
-        DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
@@ -707,6 +722,13 @@ class _SideCardState extends State<_SideCard> {
                           fontWeight: FontWeight.w800,
                           color: _hovered ? AppColors.primaryGreen : textColor,
                           height: 1.25)),
+                  const SizedBox(height: 6),
+                  ArticleTimestamp(
+                    published: a.createdAt,
+                    color: widget.isDark
+                        ? AppColors.wheat
+                        : AppColors.earthText.withValues(alpha: 0.70),
+                  ),
                 ],
               ),
             ),

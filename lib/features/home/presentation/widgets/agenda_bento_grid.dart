@@ -3,8 +3,9 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../data/models/news_article.dart';
+import '../../../../core/theme/app_typography.dart';
+import '../../../../core/widgets/article_timestamp.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/localization_helper.dart';
@@ -16,12 +17,9 @@ const double _kBentoBreakpoint = 900.0;
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent        = AppColors.primaryGreen;
-const Color _kDividerDark   = AppColors.wheat;
-const Color _kDividerLight  = AppColors.earthText;
 
 // ─── Rozet türleri ────────────────────────────────────────────────────────
 enum _BadgeType { editorunAnalizi, ozelDosya }
-enum _CardType { square, vertical, horizontal }
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  AgendaBentoGrid — Gündem & Özel Dosyalar bölümü
@@ -78,81 +76,6 @@ class AgendaBentoGrid extends ConsumerWidget {
           _DesktopBento(articles: combined, isDark: isDark)
         else
           _MobileBento(articles: combined, isDark: isDark),
-      ],
-    );
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-//  Gazete Tarzı Bölüm Başlığı (BBC Hiyerarşisi)
-// ═══════════════════════════════════════════════════════════════════════════
-
-class _NewspaperSectionHeader extends StatelessWidget {
-  final bool isDark;
-
-  const _NewspaperSectionHeader({required this.isDark});
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final isMobile = width < _kBentoBreakpoint;
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-
-    if (isMobile) {
-      final dividerColor = isDark ? AppColors.primaryGreen : AppColors.earthText;
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            isEn ? 'AGENDA & SPECIAL REPORTS' : 'GÜNDEM & ÖZEL DOSYALAR',
-            style: GoogleFonts.playfairDisplay(
-              fontSize: 20,
-              fontWeight: FontWeight.w900,
-              letterSpacing: 0.5,
-              color: isDark ? AppColors.creamBackground : AppColors.earthText,
-            ),
-          ),
-          const SizedBox(height: 6),
-          Container(
-            width: 40,
-            height: 3,
-            color: dividerColor,
-          ),
-        ],
-      );
-    }
-
-    final heavyDividerColor = isDark ? AppColors.creamBackground : _kDividerLight;
-    final lightDividerColor = isDark ? _kDividerDark : const Color(0xFFBBBBBB);
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // 3px kalın gazete çizgisi — üst
-        Container(
-          height: 3,
-          color: heavyDividerColor,
-        ),
-        const SizedBox(height: 10),
-
-        // Başlık metni
-        Text(
-          isEn ? 'AGENDA & SPECIAL REPORTS' : 'GÜNDEM & ÖZEL DOSYALAR',
-          style: GoogleFonts.playfairDisplay(
-            fontSize: 20,
-            fontWeight: FontWeight.w900,
-            letterSpacing: 0.5,
-            color: isDark ? AppColors.creamBackground : AppColors.earthText,
-          ),
-        ),
-
-        const SizedBox(height: 10),
-
-        // 1px ince alt çizgi
-        Container(
-          height: 1,
-          color: lightDividerColor,
-        ),
       ],
     );
   }
@@ -289,8 +212,6 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
     final summary = (isEn && a.summaryEn != null && a.summaryEn!.isNotEmpty) ? a.summaryEn! : (a.summary ?? '');
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
-    
     final isSpecial = a.sourceName == null || a.sourceName!.trim().isEmpty;
     final badge = isSpecial
         ? (a.summary != null && a.summary!.trim().isNotEmpty
@@ -311,15 +232,15 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeOut,
             child: widget.isList 
-              ? _buildListLayout(title, summary, dateStr, badge, isDark)
-              : _buildStandardLayout(title, summary, dateStr, badge, isDark),
+              ? _buildListLayout(title, summary, badge, isDark)
+              : _buildStandardLayout(title, summary, badge, isDark),
           ),
         ),
       ),
     );
   }
 
-  Widget _buildStandardLayout(String title, String summary, String dateStr, _BadgeType? badge, bool isDark) {
+  Widget _buildStandardLayout(String title, String summary, _BadgeType? badge, bool isDark) {
     final a = widget.article;
     final titleColor = _hovered
         ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
@@ -357,6 +278,13 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
             height: 1.2,
           ),
         ),
+        const SizedBox(height: 8),
+        ArticleTimestamp(
+          published: a.createdAt,
+          color: isDark
+              ? AppColors.wheat
+              : AppColors.earthText.withValues(alpha: 0.70),
+        ),
         if (widget.isFeature && summary.isNotEmpty) ...[
           const SizedBox(height: 12),
           Text(
@@ -374,7 +302,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
     );
   }
 
-  Widget _buildListLayout(String title, String summary, String dateStr, _BadgeType? badge, bool isDark) {
+  Widget _buildListLayout(String title, String summary, _BadgeType? badge, bool isDark) {
     final a = widget.article;
     final titleColor = _hovered
         ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
@@ -414,6 +342,13 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
                   color: titleColor,
                   height: 1.25,
                 ),
+              ),
+              const SizedBox(height: 6),
+              ArticleTimestamp(
+                published: a.createdAt,
+                color: isDark
+                    ? AppColors.wheat
+                    : AppColors.earthText.withValues(alpha: 0.70),
               ),
             ],
           ),
@@ -490,7 +425,6 @@ class _MobileBento extends StatelessWidget {
         : (article.summary ?? '');
 
     final isSpecial = article.sourceName == null || article.sourceName!.trim().isEmpty;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(article.createdAt);
     final bgColor = isDark ? AppColors.darkGreen : Colors.white;
     final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
 
@@ -575,7 +509,6 @@ class _MobileBento extends StatelessWidget {
         : (article.summary ?? '');
 
     final isSpecial = article.sourceName == null || article.sourceName!.trim().isEmpty;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(article.createdAt);
     final bgColor = isDark ? AppColors.darkGreen : Colors.white;
     final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
 
@@ -677,7 +610,7 @@ class _ArticleBadge extends StatelessWidget {
       child: Text(
         label,
         style: GoogleFonts.inter(
-          fontSize: 8,
+          fontSize: AppTypography.minLabelSize,
           fontWeight: FontWeight.w900,
           letterSpacing: 0.8,
           color: Colors.white,
@@ -705,7 +638,7 @@ class _SourceBadge extends StatelessWidget {
       child: Text(
         label.toTurkishUpperCase(),
         style: GoogleFonts.inter(
-          fontSize: 8,
+          fontSize: AppTypography.minLabelSize,
           fontWeight: FontWeight.w900,
           letterSpacing: 0.8,
           color: Colors.white,
@@ -843,7 +776,13 @@ class _ListItemState extends State<_ListItem> {
                         height: 1.25,
                       ),
                     ),
-
+                    const SizedBox(height: 5),
+                    ArticleTimestamp(
+                      published: a.createdAt,
+                      color: isDark
+                          ? AppColors.wheat
+                          : AppColors.earthText.withValues(alpha: 0.70),
+                    ),
                   ],
                 ),
               ),

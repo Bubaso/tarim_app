@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:tarim_app/core/theme/app_colors.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  DynamicChartWidget — Tableau-grade editorial data visualization
@@ -410,7 +409,6 @@ class _DonutChart extends StatelessWidget {
         children: data.asMap().entries.map((entry) {
           final i     = entry.key;
           final item  = entry.value;
-          final value = _parseDouble(item['value']);
           final label = item['label'] as String? ?? '';
           final formatted = _formatValue(item['value']);
           final color = palette[i % palette.length];
@@ -455,7 +453,6 @@ class _StatCards extends StatelessWidget {
         children: data.asMap().entries.map((entry) {
           final i     = entry.key;
           final item  = entry.value;
-          final value = _parseDouble(item['value']);
           final label = item['label'] as String? ?? '';
           final change = item['change'] as String?;
           final icon   = item['icon'] as String?;

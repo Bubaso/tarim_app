@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/network/supabase_client.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/utils/localization_helper.dart';
-import '../../../../main.dart';
 import '../../../home/data/models/news_article.dart';
 import '../../../home/data/models/ai_suggestion.dart';
 import '../../../home/providers/home_providers.dart';
@@ -350,10 +350,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
             backgroundColor: Colors.green,
           ),
         );
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const MyApp()),
-          (route) => false,
-        );
+        GoRouter.of(context).go('/');
       }
     } catch (e) {
       if (mounted) {
@@ -1095,7 +1092,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   // Sub-widget: Left list showing all previous submissions
   Widget _buildMyArticlesList(BuildContext context, ThemeData theme, AsyncValue<List<NewsArticle>> articlesAsync) {
     final loc = AppLocalizations.of(context);
-    final isEn = loc.locale.languageCode == 'en';
     return RefreshIndicator(
       onRefresh: () async => ref.invalidate(latestArticlesProvider),
       child: Column(

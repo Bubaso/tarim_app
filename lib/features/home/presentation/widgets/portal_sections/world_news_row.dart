@@ -2,11 +2,12 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../../../../core/utils/fade_page_route.dart';
 import '../../../../../core/utils/image_fallback_helper.dart';
 import '../../../../../core/utils/localization_helper.dart';
 import '../../../data/models/news_article.dart';
+import '../../../../../core/theme/app_typography.dart';
+import '../../../../../core/widgets/article_timestamp.dart';
 import '../../screens/article_detail_screen.dart';
 import '../../../../../core/utils/string_extensions.dart';
 
@@ -24,9 +25,6 @@ class WorldNewsRow extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     if (articles.isEmpty) return const SizedBox.shrink();
     ref.watch(localeProvider); // Rebuild when language changes
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
-    final dividerColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 900;
@@ -79,10 +77,10 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
     
+    final accentCol = AppColors.accentFor(isDark: widget.isDark);
     final titleColor = _hovered
-        ? const Color(0xFF2196F3) // Global Blue on hover
+        ? accentCol
         : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
     final bgColor = widget.isDark ? AppColors.darkGreen : Colors.white;
     final borderColor = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
@@ -102,7 +100,7 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
             decoration: BoxDecoration(
               color: bgColor,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: _hovered ? const Color(0xFF2196F3).withOpacity(0.5) : borderColor),
+              border: Border.all(color: _hovered ? accentCol.withValues(alpha: 0.5) : borderColor),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(widget.isDark ? 0.3 : 0.05),
@@ -133,13 +131,15 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
-                                color: const Color(0xFF2196F3).withOpacity(0.9),
+                                // Beyaz metin taşıyan rozet: primaryGreen 4.0:1
+                                // ile AA'nın altında kalıyor, darkGreen 9.7:1.
+                                color: AppColors.darkGreen.withValues(alpha: 0.9),
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: Text(
                                 a.region!.toTurkishUpperCase(),
                                 style: GoogleFonts.inter(
-                                  fontSize: 9,
+                                  fontSize: AppTypography.minLabelSize,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -169,6 +169,13 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
                               height: 1.25,
                             ),
                           ),
+                        ),
+                        const SizedBox(height: 6),
+                        ArticleTimestamp(
+                          published: a.createdAt,
+                          color: widget.isDark
+                              ? AppColors.wheat
+                              : AppColors.earthText.withValues(alpha: 0.70),
                         ),
                       ],
                     ),

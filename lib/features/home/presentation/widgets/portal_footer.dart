@@ -1,4 +1,5 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
+import 'package:tarim_app/core/theme/brand_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
@@ -203,11 +204,26 @@ class PortalFooter extends StatelessWidget {
         const SizedBox(height: 16),
         Row(
           children: [
-            _SocialIcon(icon: Icons.facebook_rounded, color: iconColor, url: 'https://facebook.com'),
-            const SizedBox(width: 16),
-            _SocialIcon(icon: Icons.camera_alt_outlined, color: iconColor, url: 'https://instagram.com'),
-            const SizedBox(width: 16),
-            _SocialIcon(icon: Icons.alternate_email_rounded, color: iconColor, url: 'https://x.com'), // X / Twitter
+            _SocialIcon(
+              icon: BrandIcons.facebook,
+              label: 'Facebook',
+              color: iconColor,
+              url: 'https://facebook.com',
+            ),
+            const SizedBox(width: 8),
+            _SocialIcon(
+              icon: BrandIcons.instagram,
+              label: 'Instagram',
+              color: iconColor,
+              url: 'https://instagram.com',
+            ),
+            const SizedBox(width: 8),
+            _SocialIcon(
+              icon: BrandIcons.x,
+              label: 'X (Twitter)',
+              color: iconColor,
+              url: 'https://x.com',
+            ),
           ],
         ),
       ],
@@ -217,23 +233,37 @@ class PortalFooter extends StatelessWidget {
 
 class _SocialIcon extends StatelessWidget {
   final IconData icon;
+  final String label;
   final Color color;
   final String url;
 
-  const _SocialIcon({required this.icon, required this.color, required this.url});
+  const _SocialIcon({
+    required this.icon,
+    required this.label,
+    required this.color,
+    required this.url,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
+    return Tooltip(
+      message: label,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(8),
         onTap: () async {
           final uri = Uri.parse(url);
           if (await canLaunchUrl(uri)) {
             await launchUrl(uri);
           }
         },
-        child: Icon(icon, color: color, size: 24),
+        // 44x44 → erişilebilir dokunma alanı.
+        child: SizedBox(
+          width: 44,
+          height: 44,
+          child: Center(
+            child: Icon(icon, color: color, size: 20, semanticLabel: label),
+          ),
+        ),
       ),
     );
   }

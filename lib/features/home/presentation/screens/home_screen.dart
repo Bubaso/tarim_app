@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../../../../core/theme/app_typography.dart';
+import '../../../../core/widgets/article_timestamp.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/utils/localization_helper.dart';
 import '../../../../core/network/supabase_client.dart';
@@ -101,12 +103,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   );
                 },
                 loading: () => _HomeSkeletonLoader(isDark: isDark),
-                error: (e, _) => Center(
-                  child: Text(
-                    'Hata: $e',
-                    style: theme.textTheme.bodyMedium
-                        ?.copyWith(color: theme.colorScheme.error),
-                  ),
+                error: (e, _) => _HomeErrorView(
+                  isDark: isDark,
+                  onRetry: () => ref.invalidate(latestArticlesProvider),
                 ),
               ),
             ),
@@ -126,16 +125,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }) {
     final width = MediaQuery.of(context).size.width;
 
-    if (width >= ResponsiveBreakpoints.desktopMax) {
-      return _DesktopContent(
-        theme: theme,
-        isDark: isDark,
-        localizations: localizations,
-        maxWidth: 1200,
-        hPad: 24,
-        vPad: 20,
-      );
-    }
     if (width >= ResponsiveBreakpoints.tabletMax) {
       return _DesktopContent(
         theme: theme,
@@ -678,9 +667,88 @@ class _WeatherChip extends ConsumerWidget {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+//  Hata durumu — okura teknik ayrıntı değil, anlaşılır bir mesaj + tekrar dene
+// ══════════════════════════════════════════════════════════════════════════════
+
+class _HomeErrorView extends StatelessWidget {
+  final bool isDark;
+  final VoidCallback onRetry;
+
+  const _HomeErrorView({required this.isDark, required this.onRetry});
+
+  @override
+  Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final textColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+    final subtleColor = isDark ? AppColors.wheat : const Color(0xFF6B6B6B);
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.cloud_off_rounded,
+              size: 48,
+              color: subtleColor,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              isEn ? 'Could not load the news' : 'Haberler yüklenemedi',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.playfairDisplay(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: textColor,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              isEn
+                  ? 'Please check your internet connection and try again.'
+                  : 'İnternet bağlantınızı kontrol edip tekrar deneyin.',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.libreFranklin(
+                fontSize: 14,
+                height: 1.45,
+                color: subtleColor,
+              ),
+            ),
+            const SizedBox(height: 20),
+            OutlinedButton.icon(
+              onPressed: onRetry,
+              icon: const Icon(Icons.refresh_rounded, size: 18),
+              label: Text(isEn ? 'Try again' : 'Tekrar dene'),
+              style: OutlinedButton.styleFrom(
+                foregroundColor: AppColors.primaryGreen,
+                side: const BorderSide(color: AppColors.primaryGreen),
+                // Erişilebilir dokunma alanı (min 44px).
+                minimumSize: const Size(0, 44),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 //  Home skeleton yükleyicisi — veri gelene kadar shimmer iskelet
 // ══════════════════════════════════════════════════════════════════════════════
 
+/// İskelet, yerini tuttuğu düzenin birebir aynısı olmalı; aksi hâlde veri
+/// gelince sayfa zıplar. Bu yüzden [_buildBody] ile **aynı** kırılım
+/// noktalarını ve aynı dolgu/boşluk değerlerini kullanıyoruz:
+///   Mobil   (< 650)  → kenardan kenara, ListView padding yok
+///   Tablet  (650–1099) → EdgeInsets.all(24)
+///   Masaüstü (≥ 1100) → maxWidth 1200, hPad 24 / vPad 20
+/// Hero bloğu ise HeroFold'un kendi 900 px eşiğini izler.
 class _HomeSkeletonLoader extends StatelessWidget {
   final bool isDark;
 
@@ -688,57 +756,208 @@ class _HomeSkeletonLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Hero carousel iskelet (16:9)
-          AspectRatio(
-            aspectRatio: 16 / 9,
-            child: ShimmerPlaceholder(
-              width: double.infinity,
-              height: double.infinity,
-            ),
-          ),
-          const SizedBox(height: 24),
+    final width = MediaQuery.of(context).size.width;
 
-          // Bölüm başlığı iskelet
-          ShimmerPlaceholder(width: 260, height: 18),
-          const SizedBox(height: 14),
-          ShimmerPlaceholder(width: double.infinity, height: 1),
-          const SizedBox(height: 20),
-
-          // Büyük featured kart iskeleti
-          NewsCardSkeleton(isDark: isDark),
-          const SizedBox(height: 12),
-
-          // 2-sütun satır iskeleti
-          IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+    if (width >= ResponsiveBreakpoints.tabletMax) {
+      return SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 1200),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(child: SmallCardSkeleton(isDark: isDark)),
-                const SizedBox(width: 10),
-                Expanded(child: SmallCardSkeleton(isDark: isDark)),
+                const SizedBox(height: 16),
+                _SkeletonHero(isDark: isDark, splitColumns: true),
+                const SizedBox(height: 40),
+                _SkeletonSection(isDark: isDark, compactHeader: false),
+                const SizedBox(height: 40),
+                _SkeletonSection(isDark: isDark, compactHeader: false),
               ],
             ),
           ),
-          const SizedBox(height: 12),
+        ),
+      );
+    }
 
-          // 3-kart satır iskeleti
-          Row(
-            children: [
-              Expanded(child: NewsCardSkeleton(isDark: isDark)),
-              const SizedBox(width: 12),
-              Expanded(child: NewsCardSkeleton(isDark: isDark)),
-              const SizedBox(width: 12),
-              Expanded(child: NewsCardSkeleton(isDark: isDark)),
-            ],
-          ),
+    if (width >= ResponsiveBreakpoints.mobileMax) {
+      final splitColumns = width >= 900;
+      return SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Hero kendi 900 px eşiğini izliyor; bölüm başlığı ise mobileMax'ı
+            // — bu aralıkta (650–1099) başlık artık geniş sürümde.
+            _SkeletonHero(isDark: isDark, splitColumns: splitColumns),
+            const SizedBox(height: 36),
+            _SkeletonSection(isDark: isDark, compactHeader: false),
+            const SizedBox(height: 36),
+            _SkeletonSection(isDark: isDark, compactHeader: false),
+          ],
+        ),
+      );
+    }
+
+    // Mobil — gerçek düzende ListView padding'i sıfır, manşet kenardan kenara.
+    return SingleChildScrollView(
+      physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _SkeletonHero(isDark: isDark, splitColumns: false),
+          const SizedBox(height: 28),
+          _SkeletonSection(isDark: isDark, compactHeader: true),
+          const SizedBox(height: 28),
+          _SkeletonSection(isDark: isDark, compactHeader: true),
         ],
       ),
+    );
+  }
+}
+
+/// HeroFold'un iskeleti. [splitColumns] true iken masaüstündeki 7:3 satır,
+/// false iken mobildeki "manşet + yatay yazar şeridi" sütunu taklit edilir.
+class _SkeletonHero extends StatelessWidget {
+  final bool isDark;
+  final bool splitColumns;
+
+  const _SkeletonHero({required this.isDark, required this.splitColumns});
+
+  @override
+  Widget build(BuildContext context) {
+    // HeroFold'daki carousel ile aynı en–boy oranı.
+    const carousel = AspectRatio(
+      aspectRatio: 1.8,
+      child: ShimmerPlaceholder(width: double.infinity, height: double.infinity),
+    );
+
+    if (splitColumns) {
+      return IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Expanded(flex: 7, child: carousel),
+            const SizedBox(width: 28),
+            Expanded(
+              flex: 3,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ShimmerPlaceholder(width: 140, height: 20),
+                  const SizedBox(height: 6),
+                  const ShimmerPlaceholder(width: 40, height: 3),
+                  const SizedBox(height: 16),
+                  for (var i = 0; i < 3; i++) ...[
+                    SmallCardSkeleton(isDark: isDark),
+                    const SizedBox(height: 14),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        carousel,
+        const SizedBox(height: 28),
+        // "YAZARLARIMIZ" başlığı — gerçek düzende 16 px yatay dolgulu.
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ShimmerPlaceholder(width: 160, height: 20),
+              SizedBox(height: 6),
+              ShimmerPlaceholder(width: 40, height: 3),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Yatay kaydırılabilir yazar şeridi (gerçek yükseklik: 180).
+        SizedBox(
+          height: 180,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: 4,
+            itemBuilder: (context, index) => const Padding(
+              padding: EdgeInsets.only(right: 12),
+              child: ShimmerPlaceholder(width: 130, height: 180),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// `_SectionContainer` + yatay kart şeridinin iskeleti.
+class _SkeletonSection extends StatelessWidget {
+  final bool isDark;
+
+  /// `_SectionContainer` başlığı `ResponsiveBreakpoints.mobileMax` altında
+  /// küçülüyor; iskelet aynı eşiği izlemeli, yoksa veri gelince başlık zıplar.
+  final bool compactHeader;
+
+  const _SkeletonSection({required this.isDark, required this.compactHeader});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Bölüm üstündeki 1 px ayırıcı.
+              const ShimmerPlaceholder(width: double.infinity, height: 1),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  ShimmerPlaceholder(
+                    width: compactHeader ? 20 : 24,
+                    height: compactHeader ? 20 : 24,
+                  ),
+                  const SizedBox(width: 8),
+                  ShimmerPlaceholder(
+                    width: compactHeader ? 200 : 260,
+                    height: compactHeader ? 17 : 20,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+        // Yatay kart şeridi — gerçek düzende 320 yükseklik / 260 genişlik.
+        SizedBox(
+          height: 320,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: 4,
+            itemBuilder: (context, index) => Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: SizedBox(
+                width: 260,
+                child: NewsCardSkeleton(isDark: isDark),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -821,11 +1040,12 @@ class _TrendingSection extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(height: 3, width: double.infinity, color: dividerColor),
+                  Container(height: 1, width: double.infinity, color: dividerColor),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 24),
+                      Icon(Icons.local_fire_department_rounded,
+                          color: AppColors.accentFor(isDark: isDark), size: 24),
                       const SizedBox(width: 8),
                       Text(
                         titleText,
@@ -892,6 +1112,7 @@ class _TrendingCardState extends State<_TrendingCard> {
     final bg = widget.isDark ? AppColors.darkGreen : const Color(0xFFF9F9F9);
     final border = widget.isDark ? AppColors.wheat : AppColors.wheat;
     final textCol = widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
+    final accentCol = AppColors.accentFor(isDark: widget.isDark);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hover = true),
@@ -943,14 +1164,26 @@ class _TrendingCardState extends State<_TrendingCard> {
                     const SizedBox(height: 6),
                     Row(
                       children: [
-                        const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 12),
+                        // Colors.orangeAccent (#FFAB40) krem/beyaz zeminde
+                        // ~1.9:1 kontrast veriyordu — okunaksızdı ve palet dışıydı.
+                        Icon(Icons.local_fire_department_rounded,
+                            color: accentCol, size: 12),
                         const SizedBox(width: 4),
                         Text(
                           '${a.viewCount} ${widget.isEn ? 'Views' : 'Okuma'}',
                           style: GoogleFonts.robotoMono(
-                            fontSize: 10,
-                            color: Colors.orangeAccent,
+                            fontSize: AppTypography.minLabelSize,
+                            color: accentCol,
                             fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Flexible(
+                          child: ArticleTimestamp(
+                            published: a.createdAt,
+                            color: widget.isDark
+                                ? AppColors.wheat
+                                : AppColors.earthText.withValues(alpha: 0.70),
                           ),
                         ),
                       ],
@@ -1001,7 +1234,6 @@ class _TurkeyNewsSection extends ConsumerWidget {
         _SectionContainer(
           title: title,
           icon: Icons.location_on_rounded,
-          iconColor: Colors.redAccent,
           isDark: isDark,
           onSeeAll: articles.isNotEmpty ? () {
             pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
@@ -1033,45 +1265,12 @@ class _WorldNewsSection extends ConsumerWidget {
         _SectionContainer(
           title: title,
           icon: Icons.public_rounded,
-          iconColor: Colors.blueAccent,
           isDark: isDark,
           onSeeAll: articles.isNotEmpty ? () {
             pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
           } : null,
           child: WorldNewsRow(
             articles: articles.take(10).toList(), // Show up to 10 for scroll
-            isDark: isDark,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _CuratedArticlesSection extends ConsumerWidget {
-  final bool isDark;
-  const _CuratedArticlesSection({required this.isDark});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final articles = ref.watch(curatedArticlesProvider);
-    if (articles.isEmpty) return const SizedBox.shrink();
-
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = isEn ? 'CURATED ARTICLES' : 'SEÇTİĞİMİZ MAKALELER';
-
-    return Column(
-      children: [
-        _SectionContainer(
-          title: title,
-          icon: Icons.star_rounded,
-          iconColor: Colors.amberAccent,
-          isDark: isDark,
-          onSeeAll: articles.isNotEmpty ? () {
-            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
-          } : null,
-          child: TurkeyNewsGrid(
-            articles: articles.take(6).toList(),
             isDark: isDark,
           ),
         ),
@@ -1097,7 +1296,6 @@ class _ScienceAndReportsSection extends ConsumerWidget {
         _SectionContainer(
           title: title,
           icon: Icons.science_rounded,
-          iconColor: Colors.purpleAccent,
           isDark: isDark,
           onSeeAll: articles.isNotEmpty ? () {
             pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
@@ -1135,7 +1333,6 @@ class _SectoralNewsSection extends ConsumerWidget {
     return _SectionContainer(
       title: displayTopic,
       icon: Icons.category_rounded,
-      iconColor: Theme.of(context).colorScheme.primary,
       isDark: isDark,
       onSeeAll: articles.isNotEmpty ? () {
         pushScreen(context, CategoryArticlesScreen(title: displayTopic, articles: articles),
@@ -1149,15 +1346,15 @@ class _SectoralNewsSection extends ConsumerWidget {
 class _SectionContainer extends StatelessWidget {
   final String title;
   final IconData icon;
-  final Color iconColor;
   final Widget child;
   final bool isDark;
   final VoidCallback? onSeeAll;
 
+  // Bilerek `iconColor` parametresi yok: her bölüm kendi rengini seçebildiği
+  // sürece palet dağılıyor. Vurgu rengi tek yerden gelir.
   const _SectionContainer({
     required this.title,
     required this.icon,
-    required this.iconColor,
     required this.child,
     required this.isDark,
     this.onSeeAll,
@@ -1165,10 +1362,11 @@ class _SectionContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final iconColor = AppColors.accentFor(isDark: isDark);
     final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final dividerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final isMobile = MediaQuery.of(context).size.width < 900;
+    final isMobile = MediaQuery.of(context).size.width < ResponsiveBreakpoints.mobileMax;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -1178,24 +1376,31 @@ class _SectionContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(height: 3, width: double.infinity, color: dividerColor),
+              // Sayfada 11 kez tekrar eden bir ayırıcı; 3 px'te her bölüm bir
+              // "basamak" gibi görünüyordu. Gazete kuralı: saç teli inceliğinde
+              // çizgi ayırır, kalın çizgi böler.
+              Container(height: 1, width: double.infinity, color: dividerColor),
               const SizedBox(height: 16),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(icon, color: iconColor, size: isMobile ? 18 : 24),
+                  Icon(icon, color: iconColor, size: isMobile ? 20 : 24),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
                       title,
+                      // Bölüm başlığı gövde metninden (17 px) küçük olamaz;
+                      // 13 px hiyerarşiyi ters çeviriyordu. Tek satır: iki
+                      // satıra sarılan bir başlık, altındaki karta değil
+                      // kendine dikkat çekiyor.
                       style: GoogleFonts.playfairDisplay(
-                        fontSize: isMobile ? 13 : 20,
+                        fontSize: isMobile ? 17 : 20,
                         fontWeight: FontWeight.w900,
                         letterSpacing: 0.4,
                         color: headerColor,
                         height: 1.2,
                       ),
-                      maxLines: isMobile ? 2 : 1,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -1257,7 +1462,6 @@ class _ICYMISection extends ConsumerWidget {
     return _SectionContainer(
       title: titleText,
       icon: Icons.history_rounded,
-      iconColor: Colors.deepOrangeAccent,
       isDark: isDark,
       child: SizedBox(
         height: 320,
@@ -1305,8 +1509,9 @@ class _ICYMICardState extends State<_ICYMICard> {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
     
+    final accentCol = AppColors.accentFor(isDark: widget.isDark);
     final titleColor = _hovered
-        ? const Color(0xFF2196F3) // Global Blue on hover
+        ? accentCol
         : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
     final bgColor = widget.isDark ? AppColors.darkGreen : Colors.white;
     final borderColor = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
@@ -1325,7 +1530,7 @@ class _ICYMICardState extends State<_ICYMICard> {
             decoration: BoxDecoration(
               color: bgColor,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: _hovered ? const Color(0xFF2196F3).withOpacity(0.5) : borderColor),
+              border: Border.all(color: _hovered ? accentCol.withValues(alpha: 0.5) : borderColor),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(widget.isDark ? 0.3 : 0.05),
@@ -1360,9 +1565,9 @@ class _ICYMICardState extends State<_ICYMICard> {
                             child: Text(
                               a.topic!.toTurkishUpperCase(),
                               style: GoogleFonts.inter(
-                                fontSize: 10,
+                                fontSize: AppTypography.minLabelSize,
                                 fontWeight: FontWeight.bold,
-                                color: const Color(0xFF2196F3),
+                                color: accentCol,
                               ),
                             ),
                           ),
@@ -1378,6 +1583,13 @@ class _ICYMICardState extends State<_ICYMICard> {
                               height: 1.25,
                             ),
                           ),
+                        ),
+                        const SizedBox(height: 6),
+                        ArticleTimestamp(
+                          published: a.createdAt,
+                          color: widget.isDark
+                              ? AppColors.wheat
+                              : AppColors.earthText.withValues(alpha: 0.70),
                         ),
                       ],
                     ),

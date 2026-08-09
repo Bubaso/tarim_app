@@ -52,6 +52,13 @@ final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   return repository.watchLatestArticles();
 });
 
+/// Fetches a single article by id — used for `/haber/:id` deep links.
+final articleByIdProvider =
+    FutureProvider.family<NewsArticle?, String>((ref, id) {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.fetchArticleById(id);
+});
+
 /// Stream provider for realtime listening to pending articles from Supabase.
 final pendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   final repository = ref.watch(homeRepositoryProvider);
@@ -60,117 +67,8 @@ final pendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
 
 // ─── KAYNAK / TAKSONOMİ SINIFLANDIRMA ─────────────────────────────────────────
 //
-// Pipeline'dan gelen source_name değerleri (agency_fetcher.py'deki feed isimleri):
-//   Türkiye yerel kaynaklar:
-//     Bloomberg HT, Hürriyet Ekonomi, Sabah Ekonomi, Dünya Gazetesi,
-//     AA Tarım & Ekonomi, Milliyet Ekonomi, NTV Ekonomi,
-//     Tarım Dünyası, GıdaTarım, Tarım Pusulası, TarımTR,
-//     TMO, TZOB, Pankobirlik, Türkşeker, Türkşeker Duyurular
-//   Uluslararası / Bilim kaynakları:
-//     FAO Global News, EFSA News, EFSA Publications, IARC News, IARC Basın,
-//     ScienceDaily Beslenme,
-//     PubMed — Aspartam & Sağlık, PubMed — Yapay Tatlandırıcı & Bağırsak,
-//     PubMed — YYT & Kanser, PubMed — Sukraloz & DNA
-
-/// Türkiye yerel medya/kaynak adları (küçük harf karşılaştırma için)
-const _turkeySourceSet = {
-  'bloomberg ht',
-  'hürriyet ekonomi',
-  'sabah ekonomi',
-  'dünya gazetesi',
-  'aa tarım & ekonomi',
-  'milliyet ekonomi',
-  'ntv ekonomi',
-  'tarım dünyası',
-  'gıdatarım',
-  'tarım pusulası',
-  'tarımtr',
-  'tmo',
-  'tzob',
-  'pankobirlik',
-  'türkşeker',
-  'türkşeker duyurular',
-};
-
-const _scienceSourceSet = {
-  'efsa news',
-  'efsa publications',
-  'iarc news',
-  'iarc basın',
-  'sciencedaily beslenme',
-};
-
-/// Uluslararası (Dünya) kaynakları
-const _worldSourceSet = {
-  'fao global news',
-};
-
-bool _isTurkeySource(String? sourceName) {
-  if (sourceName == null || sourceName.isEmpty) return false;
-  return _turkeySourceSet.contains(sourceName.toLowerCase().trim());
-}
-
-bool _isScienceSource(String? sourceName) {
-  if (sourceName == null || sourceName.isEmpty) return false;
-  final lower = sourceName.toLowerCase().trim();
-  if (_scienceSourceSet.contains(lower)) return true;
-  if (lower.startsWith('pubmed')) return true;
-  return false;
-}
-
-bool _isWorldSource(String? sourceName) {
-  if (sourceName == null || sourceName.isEmpty) return false;
-  return _worldSourceSet.contains(sourceName.toLowerCase().trim());
-}
-
-/// region alanı veya geo_location WKT koordinatından Türkiye tespiti.
-/// Pipeline'dan gelen region değerleri: 'Türkiye', 'Avrupa', 'Amerika', 'Asya', 'Afrika', 'Global'
-bool _isRegionTurkey(String? region) {
-  if (region == null || region.isEmpty) return false;
-  final r = region.toLowerCase().trim();
-  return r == 'türkiye' || r == 'turkey';
-}
-
-bool _isRegionInternational(String? region) {
-  if (region == null || region.isEmpty) return false;
-  final r = region.toLowerCase().trim();
-  // 'global', 'avrupa', 'amerika', 'asya', 'afrika' → uluslararası
-  return r != 'türkiye' && r != 'turkey';
-}
-
-/// WKT POINT(lon lat) formatından Türkiye koordinat kontrolü
-/// Türkiye: lon 25-45, lat 35.5-42.5
-bool _isGeoTurkey(String? geoLocation) {
-  if (geoLocation == null || geoLocation.isEmpty) return false;
-  final lower = geoLocation.toLowerCase().trim();
-  if (!lower.startsWith('point(')) return false;
-  try {
-    final inner = geoLocation.substring(6, geoLocation.length - 1);
-    final parts = inner.trim().split(RegExp(r'\s+'));
-    if (parts.length >= 2) {
-      final lon = double.parse(parts[0]);
-      final lat = double.parse(parts[1]);
-      return lon >= 25.0 && lon <= 45.0 && lat >= 35.5 && lat <= 42.5;
-    }
-  } catch (_) {}
-  return false;
-}
-
-bool _isGeoInternational(String? geoLocation) {
-  if (geoLocation == null || geoLocation.isEmpty) return false;
-  final lower = geoLocation.toLowerCase().trim();
-  if (!lower.startsWith('point(')) return false;
-  try {
-    final inner = geoLocation.substring(6, geoLocation.length - 1);
-    final parts = inner.trim().split(RegExp(r'\s+'));
-    if (parts.length >= 2) {
-      final lon = double.parse(parts[0]);
-      final lat = double.parse(parts[1]);
-      return !(lon >= 25.0 && lon <= 45.0 && lat >= 35.5 && lat <= 42.5);
-    }
-  } catch (_) {}
-  return false;
-}
+// Sınıflandırma artık kaynak adı listelerine değil, pipeline'ın yazdığı
+// `topic` ve `region` alanlarına bakarak yapılıyor.
 
 /// Haberin bilim/rapor içeriği olup olmadığını kontrol eder.
 bool _articleIsScience(NewsArticle a) {

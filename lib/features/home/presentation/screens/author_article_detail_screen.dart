@@ -25,7 +25,10 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
 
     final bg = isDark ? AppColors.darkGreen : AppColors.creamBackground;
     final onBg = isDark ? AppColors.creamBackground : AppColors.earthText;
-    final subtle = isDark ? AppColors.wheat : AppColors.earthText;
+    // Gövde renginin aynısı olursa "soluk" olmaz; açık temada opaklığı kısıyoruz.
+    final subtle = isDark
+        ? AppColors.wheat
+        : AppColors.earthText.withValues(alpha: 0.70);
     final accent = AppColors.primaryGreen;
     final headerBg = isDark ? const Color(0xFF161B22) : const Color(0xFFF9F7F1);
 

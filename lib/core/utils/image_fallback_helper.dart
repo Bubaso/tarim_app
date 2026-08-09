@@ -1,5 +1,4 @@
 // ignore_for_file: deprecated_member_use
-import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';

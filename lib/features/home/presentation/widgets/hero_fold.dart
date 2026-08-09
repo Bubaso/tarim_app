@@ -5,12 +5,12 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/localization_helper.dart';
 import '../../../../core/theme/app_typography.dart';
+import '../../../../core/widgets/article_timestamp.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 import '../screens/all_columnists_screen.dart';
@@ -20,10 +20,6 @@ import '../../providers/home_providers.dart';
 
 
 // ─── Ayrıştırma yardımcıları ──────────────────────────────────────────────
-bool _isHeadline(NewsArticle a) {
-  return true; // We use smart filtering now instead of just sourceName
-}
-
 // Köşe yazarı makalesi mi? source_name'e bakarak kontrol eder.
 bool _isOpEd(NewsArticle a) {
   return aiColumnists.any((col) => col.name == a.sourceName?.trim());
@@ -156,16 +152,6 @@ class _MobileHeroFold extends ConsumerWidget {
       ],
     );
   }
-}
-
-String _resolveAuthorName(NewsArticle a, bool isEn) {
-  if (a.sourceName != null && a.sourceName!.trim().isNotEmpty) {
-    return a.sourceName!.trim();
-  }
-  if (a.geoLocation != null && a.geoLocation!.trim().isNotEmpty) {
-    return a.geoLocation!.trim();
-  }
-  return '';
 }
 
 class _MobileOpEdHorizontalList extends StatelessWidget {
@@ -564,7 +550,7 @@ class _HeadlineSlide extends StatelessWidget {
                         child: Text(
                           article.sourceName!.toTurkishUpperCase(),
                           style: GoogleFonts.inter(
-                            fontSize: 9,
+                            fontSize: AppTypography.minLabelSize,
                             fontWeight: FontWeight.w800,
                             color: Colors.white,
                             letterSpacing: 0.8,
@@ -585,6 +571,13 @@ class _HeadlineSlide extends StatelessWidget {
                         ),
                       ],
                     ),
+                  ),
+                  const SizedBox(height: 6),
+                  // Görsel üzerinde: kısılmış beyaz, gövdeden geri planda ama
+                  // koyu degradede hâlâ okunur.
+                  ArticleTimestamp(
+                    published: article.createdAt,
+                    color: Colors.white.withValues(alpha: 0.85),
                   ),
                 ],
               ),
@@ -855,83 +848,6 @@ class _OpEdCardState extends State<_OpEdCard> {
   }
 }
 
-
-class _AuthorAvatar extends StatelessWidget {
-  final String? imageUrl;
-  final String name;
-  final bool isDark;
-
-  const _AuthorAvatar({
-    required this.imageUrl,
-    required this.name,
-    required this.isDark,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    const double size = 44;
-    final bg = isDark ? AppColors.wheat : const Color(0xFFEBEAE6);
-    final fg = isDark ? AppColors.wheat : AppColors.earthText;
-
-    final url = imageUrl?.trim();
-    final hasImage = url != null &&
-        url.isNotEmpty &&
-        (url.startsWith('http://') || url.startsWith('https://'));
-
-    return ClipOval(
-      child: SizedBox(
-        width: size,
-        height: size,
-        child: hasImage
-            ? Image.network(
-                url,
-                width: size,
-                height: size,
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => _InitialAvatar(name: name, bg: bg, fg: fg, size: size),
-                loadingBuilder: (_, child, progress) => progress == null
-                    ? child
-                    : _InitialAvatar(name: name, bg: bg, fg: fg, size: size),
-              )
-            : _InitialAvatar(name: name, bg: bg, fg: fg, size: size),
-      ),
-    );
-  }
-}
-
-class _InitialAvatar extends StatelessWidget {
-  final String name;
-  final Color bg;
-  final Color fg;
-  final double size;
-
-  const _InitialAvatar({
-    required this.name,
-    required this.bg,
-    required this.fg,
-    required this.size,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final initial = name.trim().isNotEmpty ? name.trim()[0].toTurkishUpperCase() : '?';
-
-    return Container(
-      width: size,
-      height: size,
-      color: bg,
-      alignment: Alignment.center,
-      child: Text(
-        initial,
-        style: GoogleFonts.playfairDisplay(
-          fontSize: size * 0.42,
-          fontWeight: FontWeight.w700,
-          color: fg,
-        ),
-      ),
-    );
-  }
-}
 
 // ─── Desktop Drag-to-Scroll Desteği ──────────────────────────────────────
 class AppScrollBehavior extends MaterialScrollBehavior {

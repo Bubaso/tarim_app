@@ -112,6 +112,22 @@ class HomeRepository {
     }
   }
 
+  /// Fetches a single article by id — used when the app is opened directly
+  /// on a `/haber/:id` deep link and the article is not already in memory.
+  Future<NewsArticle?> fetchArticleById(String id) async {
+    try {
+      final response =
+          await _supabaseClient.from('articles').select().eq('id', id).maybeSingle();
+      if (response == null) return null;
+      return NewsArticle.fromJson(response);
+    } catch (e) {
+      if (kDebugMode) {
+        print('fetchArticleById failed: $e');
+      }
+      return null;
+    }
+  }
+
   /// Increments the view count of an article.
   Future<void> incrementArticleViewCount(String id) async {
     try {

@@ -93,7 +93,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         title: Text(loc.translate('login_title')),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_rounded),
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => popScreen(context),
         ),
       ),
       body: Center(

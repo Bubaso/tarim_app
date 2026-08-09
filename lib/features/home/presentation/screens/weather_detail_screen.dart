@@ -10,6 +10,7 @@ import '../../data/models/weather_info.dart';
 import '../../providers/home_providers.dart';
 import '../../data/providers/location_image_provider.dart';
 import '../../../../core/utils/string_extensions.dart';
+import '../../../../core/utils/fade_page_route.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  WeatherDetailScreen  —  Zirai İklim ve Uyarı Merkezi
@@ -186,7 +187,7 @@ class WeatherDetailScreen extends ConsumerWidget {
       scrolledUnderElevation: 0,
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white, size: 18),
-        onPressed: () => Navigator.of(context).pop(),
+        onPressed: () => popScreen(context),
       ),
       title: Text(
         isEn ? 'CLIMATE & AGRI WARNING CENTER' : 'ZİRAİ İKLİM VE UYARI MERKEZİ',

@@ -33,8 +33,12 @@
   <link rel="manifest" href="manifest.json">
   <style>
     html, body {
+      margin: 0;
       overscroll-behavior-x: none;
       overscroll-behavior-y: none;
+      /* Yeniden yükleme sırasında beyaz yerine marka rengi görünsün
+         (manifest.json'daki background_color ile aynı). */
+      background-color: #174E38;
     }
   </style>
 </head>

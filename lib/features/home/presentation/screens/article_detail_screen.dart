@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
+import 'package:tarim_app/core/theme/brand_icons.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,11 +10,11 @@ import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/services.dart';
+import '../../../../core/router/app_router.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/theme/app_typography.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:fl_chart/fl_chart.dart';
 import '../widgets/dynamic_chart_widget.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
@@ -115,7 +117,12 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
 
     final bg     = isDark ? _kBgDark  : _kBgLight;
     final onBg   = isDark ? AppColors.creamBackground : AppColors.earthText;
-    final subtle = isDark ? AppColors.wheat : AppColors.earthText;
+    // Meta bilgisi (tarih, okuma süresi) gövde metninin altında bir katman.
+    // Aynı rengi kullanırsa hiyerarşi kaybolur; kısılmış opaklık hem görsel
+    // olarak geri çekiyor hem de krem zeminde ~4.8:1 ile WCAG AA'yı geçiyor.
+    final subtle = isDark
+        ? AppColors.wheat
+        : AppColors.earthText.withValues(alpha: 0.70);
     final accent = isDark ? _kAccentDark : _kAccent;
 
     final screenWidth = MediaQuery.of(context).size.width;
@@ -407,7 +414,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                             ? onBg
                             : (isDark ? Colors.white : AppColors.earthText),
                       ),
-                      onPressed: () => Navigator.of(context).pop(),
+                      onPressed: () => popScreen(context),
                       tooltip: MaterialLocalizations.of(context).backButtonTooltip,
                     ),
                   ),
@@ -485,7 +492,7 @@ class _MetaRow extends StatelessWidget {
               style: GoogleFonts.inter(
                 color: accent,
                 fontWeight: FontWeight.w800,
-                fontSize: 10,
+                fontSize: AppTypography.minLabelSize,
                 letterSpacing: 0.8,
               ),
             ),
@@ -501,12 +508,14 @@ class _MetaRow extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 14),
+              // Okunma sayacı ayrı bir vurgu rengi hak etmiyor; meta satırının
+              // geri kalanıyla aynı katmanda.
+              Icon(Icons.local_fire_department_rounded, color: accent, size: 14),
               const SizedBox(width: 4),
               Text(
                 '$viewCount',
                 style: GoogleFonts.robotoMono(
-                  color: Colors.orangeAccent,
+                  color: accent,
                   fontWeight: FontWeight.w700,
                   fontSize: 11,
                 ),
@@ -545,7 +554,7 @@ class _KeywordsRow extends StatelessWidget {
               ? 'TAGS'
               : 'ETİKETLER',
           style: GoogleFonts.inter(
-            fontSize: 10,
+            fontSize: AppTypography.minLabelSize,
             fontWeight: FontWeight.w800,
             letterSpacing: 0.8,
             color: isDark ? AppColors.wheat : const Color(0xFF888888),
@@ -653,9 +662,16 @@ class _ShareBar extends StatelessWidget {
     required this.accent,
   });
 
+  /// Uygulama web'de yayında değilken (mobil derleme) kullanılacak kök adres.
+  static const String _productionOrigin = 'https://tarim-app-2026.web.app';
+
   String _buildShareUrl() {
-    // Generate a unique URL for the article
-    return 'https://tarim-app-2026.web.app/haber/${article.id}';
+    // Web'de sayfanın gerçekten servis edildiği kökü kullanıyoruz; böylece
+    // özel alan adı, Firebase önizleme kanalı ve localhost'ta da doğru adres
+    // üretilir. Yolu router'ın kendi yardımcısı üretiyor: paylaşılan adres ile
+    // tanımlı rota birbirinden ayrışamaz.
+    final origin = kIsWeb ? Uri.base.origin : _productionOrigin;
+    return '$origin${articlePath(article.id)}';
   }
 
   void _shareNative(BuildContext context) {
@@ -751,37 +767,46 @@ class _ShareBar extends StatelessWidget {
           spacing: 12,
           runSpacing: 12,
           children: [
+            // Sistem eylemleri — Material ikonları burada doğru dil.
             _ShareButton(
-              icon: Icons.share_rounded,
-              color: iconColor,
+              icon: Icon(Icons.share_rounded, size: 22, color: iconColor),
               bgColor: bgColor,
               onTap: () => _shareNative(context),
               tooltip: isEn ? 'Share' : 'Paylaş',
             ),
             _ShareButton(
-              icon: Icons.copy_rounded,
-              color: iconColor,
+              icon: Icon(Icons.copy_rounded, size: 22, color: iconColor),
               bgColor: bgColor,
               onTap: () => _copyToClipboard(context),
               tooltip: isEn ? 'Copy Link' : 'Kopyala',
             ),
+            // Platform butonları — gerçek marka işaretleri.
             _ShareButton(
-              icon: Icons.chat_rounded, // fallback icon for whatsapp
-              color: const Color(0xFF25D366),
+              icon: const Icon(
+                BrandIcons.whatsapp,
+                size: 22,
+                color: Color(0xFF25D366),
+              ),
               bgColor: bgColor,
               onTap: _shareToWhatsApp,
               tooltip: 'WhatsApp',
             ),
             _ShareButton(
-              icon: Icons.alternate_email_rounded, // fallback icon for twitter/X
-              color: isDark ? Colors.white : Colors.black,
+              icon: Icon(
+                BrandIcons.x,
+                size: 20,
+                color: isDark ? Colors.white : Colors.black,
+              ),
               bgColor: bgColor,
               onTap: _shareToTwitter,
               tooltip: 'X (Twitter)',
             ),
             _ShareButton(
-              icon: Icons.work_rounded, // fallback icon for linkedin
-              color: const Color(0xFF0A66C2),
+              icon: const Icon(
+                BrandIcons.linkedIn,
+                size: 20,
+                color: Color(0xFF0A66C2),
+              ),
               bgColor: bgColor,
               onTap: _shareToLinkedIn,
               tooltip: 'LinkedIn',
@@ -794,15 +819,15 @@ class _ShareBar extends StatelessWidget {
 }
 
 class _ShareButton extends StatelessWidget {
-  final IconData icon;
-  final Color color;
+  /// Hazır bir ikon widget'ı; rengi ve boyutu çağıran taraf belirler
+  /// (marka işaretlerinin optik boyutu Material ikonlardan farklı).
+  final Widget icon;
   final Color bgColor;
   final VoidCallback onTap;
   final String tooltip;
 
   const _ShareButton({
     required this.icon,
-    required this.color,
     required this.bgColor,
     required this.onTap,
     required this.tooltip,
@@ -816,12 +841,20 @@ class _ShareButton extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(8),
         child: Container(
-          padding: const EdgeInsets.all(12),
+          // 44x44 → erişilebilir dokunma alanı.
+          width: 44,
+          height: 44,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: bgColor,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(icon, size: 24, color: color),
+          // Genişliği değişen marka glifleri butonu esnetmesin.
+          child: SizedBox(
+            width: 24,
+            height: 24,
+            child: Center(child: icon),
+          ),
         ),
       ),
     );
@@ -1072,7 +1105,7 @@ class _RelatedCardState extends State<_RelatedCard> {
                           child: Text(
                             a.sourceName!.toTurkishUpperCase(),
                             style: GoogleFonts.inter(
-                              fontSize: 8,
+                              fontSize: AppTypography.minLabelSize,
                               fontWeight: FontWeight.w800,
                               letterSpacing: 0.5,
                               color: accent,
@@ -1105,7 +1138,7 @@ class _RelatedCardState extends State<_RelatedCard> {
                       Text(
                         date,
                         style: GoogleFonts.robotoMono(
-                          fontSize: 9,
+                          fontSize: AppTypography.minLabelSize,
                           color: isDark
                               ? AppColors.wheat
                               : const Color(0xFF888888),

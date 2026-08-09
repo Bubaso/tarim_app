@@ -2,11 +2,12 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 import '../../../../../core/utils/fade_page_route.dart';
 import '../../../../../core/utils/image_fallback_helper.dart';
 import '../../../../../core/utils/localization_helper.dart';
 import '../../../data/models/news_article.dart';
+import '../../../../../core/theme/app_typography.dart';
+import '../../../../../core/widgets/article_timestamp.dart';
 import '../../screens/article_detail_screen.dart';
 
 class ScienceReportsDossier extends ConsumerWidget {
@@ -28,7 +29,6 @@ class ScienceReportsDossier extends ConsumerWidget {
     
     // Aesthetic: Dark teal/emerald background for the "Science" feeling
     final bgColor = isDark ? AppColors.darkGreen : AppColors.darkGreen;
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     return Container(
       width: double.infinity,
@@ -79,7 +79,7 @@ class _DesktopDossierLayout extends StatelessWidget {
           Container(
             width: 1,
             height: 400,
-            color: Colors.tealAccent.withOpacity(0.2),
+            color: AppColors.wheat.withOpacity(0.2),
           ),
           const SizedBox(width: 32),
           Expanded(
@@ -115,7 +115,7 @@ class _MobileDossierLayout extends StatelessWidget {
         _DossierFeaturedCard(article: featured),
         if (others.isNotEmpty) ...[
           const SizedBox(height: 24),
-          Divider(color: Colors.tealAccent.withOpacity(0.2)),
+          Divider(color: AppColors.wheat.withOpacity(0.2)),
           const SizedBox(height: 24),
           ...others.asMap().entries.map((entry) {
             return Padding(
@@ -180,13 +180,13 @@ class _DossierFeaturedCardState extends State<_DossierFeaturedCard> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                           decoration: BoxDecoration(
-                            color: Colors.tealAccent.withOpacity(0.9),
+                            color: AppColors.wheat.withOpacity(0.9),
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
                             isEn ? 'REPORT' : 'RAPOR',
                             style: GoogleFonts.inter(
-                              fontSize: 10,
+                              fontSize: AppTypography.minLabelSize,
                               fontWeight: FontWeight.bold,
                               color: Colors.black87,
                             ),
@@ -205,9 +205,15 @@ class _DossierFeaturedCardState extends State<_DossierFeaturedCard> {
                 style: GoogleFonts.playfairDisplay(
                   fontSize: 26,
                   fontWeight: FontWeight.w900,
-                  color: _hovered ? Colors.tealAccent : Colors.white,
+                  color: _hovered ? AppColors.wheat : Colors.white,
                   height: 1.2,
                 ),
+              ),
+              const SizedBox(height: 8),
+              // Koyu dosya zemininde meta katmanı: kısılmış beyaz.
+              ArticleTimestamp(
+                published: a.createdAt,
+                color: Colors.white.withValues(alpha: 0.70),
               ),
               if (summary.isNotEmpty) ...[
                 const SizedBox(height: 12),
@@ -247,7 +253,6 @@ class _DossierListCardState extends State<_DossierListCard> {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    final dateStr = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR').format(a.createdAt);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -263,7 +268,7 @@ class _DossierListCardState extends State<_DossierListCard> {
             color: _hovered ? Colors.white.withOpacity(0.05) : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-              color: _hovered ? Colors.tealAccent.withOpacity(0.3) : Colors.transparent,
+              color: _hovered ? AppColors.wheat.withOpacity(0.3) : Colors.transparent,
             ),
           ),
           child: Row(
@@ -294,9 +299,14 @@ class _DossierListCardState extends State<_DossierListCard> {
                       style: GoogleFonts.playfairDisplay(
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
-                        color: _hovered ? Colors.tealAccent : Colors.white,
+                        color: _hovered ? AppColors.wheat : Colors.white,
                         height: 1.25,
                       ),
+                    ),
+                    const SizedBox(height: 6),
+                    ArticleTimestamp(
+                      published: a.createdAt,
+                      color: Colors.white.withValues(alpha: 0.70),
                     ),
                   ],
                 ),
