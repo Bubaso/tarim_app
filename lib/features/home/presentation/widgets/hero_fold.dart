@@ -13,6 +13,7 @@ import '../../../../core/utils/localization_helper.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
+import '../screens/all_columnists_screen.dart';
 import 'ai_columnists.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../providers/home_providers.dart';
@@ -674,7 +675,7 @@ class _OpEdColumn extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              for (int index = 0; index < aiColumnists.length; index++) ...[
+              for (int index = 0; index < (aiColumnists.length > 3 ? 3 : aiColumnists.length); index++) ...[
                 if (index > 0)
                   Divider(
                     height: 1,
@@ -688,6 +689,48 @@ class _OpEdColumn extends StatelessWidget {
                   final article = opEds.where((a) => a.sourceName?.trim() == col.name).firstOrNull;
                   return _OpEdCard(columnist: col, article: article, isDark: isDark);
                 }),
+              ],
+              if (aiColumnists.length > 3) ...[
+                Divider(
+                  height: 1,
+                  thickness: 1,
+                  color: isDark ? AppColors.wheat.withOpacity(0.1) : const Color(0xFFEAE3CD),
+                ),
+                MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: GestureDetector(
+                    onTap: () => pushScreen(context, const AllColumnistsScreen()),
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      decoration: BoxDecoration(
+                        color: isDark ? Colors.white.withOpacity(0.02) : Colors.black.withOpacity(0.01),
+                        borderRadius: const BorderRadius.vertical(bottom: Radius.circular(4)),
+                      ),
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            isEn ? 'View All Columnists' : 'Tüm Yazarları Gör',
+                            style: GoogleFonts.inter(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              color: isDark ? AppColors.wheat : AppColors.earthText,
+                              letterSpacing: 0.5,
+                            ),
+                          ),
+                          const SizedBox(width: 6),
+                          Icon(
+                            Icons.arrow_forward_rounded,
+                            size: 14,
+                            color: isDark ? AppColors.wheat : AppColors.earthText,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ],
           ),

@@ -14,9 +14,11 @@ class IosPwaPrompt extends StatefulWidget {
 
 class _IosPwaPromptState extends State<IosPwaPrompt> {
   bool _isVisible = false;
+  bool _isExpanded = false;
 
   static const _prefKeyDismissedAt = 'pwa_prompt_dismissed_visit';
   static const _prefKeyVisitCount = 'pwa_prompt_visit_count';
+  static const _prefKeyInstalled = 'has_been_installed';
   static const int _cooldownVisits = 6; // Kapatıldıktan sonra 6 ziyaret boyunca gösterme
 
   @override
@@ -30,16 +32,22 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
     if (!kIsWeb || defaultTargetPlatform != TargetPlatform.iOS) return;
 
     final prefs = await SharedPreferences.getInstance();
-    
+
     // Eğer şu an standalone (yüklü PWA) modunda açıldıysa,
     // kalıcı olarak "bu cihaza yüklendi" işaretini koy ve gösterme.
+    //
+    // NOT: iOS'ta ana ekrana eklenen PWA, Safari/Chrome sekmesinden tamamen
+    // ayrı bir depolama alanı kullanır. Bu yüzden burada yazılan işaret
+    // tarayıcı sekmesinden okunamaz ve tarayıcıda kurulum tespiti mümkün
+    // değildir. Bu durumu kullanıcı "Zaten yükledim" ile kendisi bildirir.
     if (isStandalone()) {
-      await prefs.setBool('has_been_installed', true);
+      await prefs.setBool(_prefKeyInstalled, true);
       return;
     }
 
-    // Eğer daha önce PWA olarak açıldığına dair iz varsa (Safari'den bile girilse) gösterme.
-    final hasBeenInstalled = prefs.getBool('has_been_installed') ?? false;
+    // Kullanıcı daha önce "zaten yükledim" dediyse ya da bu bağlamda
+    // PWA olarak açıldığına dair iz varsa bir daha gösterme.
+    final hasBeenInstalled = prefs.getBool(_prefKeyInstalled) ?? false;
     if (hasBeenInstalled) return;
 
     // Toplam ziyaret sayısını artır
@@ -56,18 +64,26 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
       // Kapatmış → cooldown süresi dolmuş mu?
       final visitsSinceDismiss = visitCount - dismissedAtVisit;
       if (visitsSinceDismiss >= _cooldownVisits) {
-        // Cooldown doldu → tekrar göster (ve dismissed'i sıfırla)
         if (mounted) setState(() => _isVisible = true);
       }
     }
   }
 
+  /// Geçici kapatma: cooldown süresi kadar gösterilmez.
   Future<void> _dismiss() async {
     setState(() => _isVisible = false);
-    
+
     final prefs = await SharedPreferences.getInstance();
     final currentVisit = prefs.getInt(_prefKeyVisitCount) ?? 1;
     await prefs.setInt(_prefKeyDismissedAt, currentVisit);
+  }
+
+  /// Kalıcı kapatma: kullanıcı uygulamanın zaten kurulu olduğunu bildirdi.
+  Future<void> _markAsInstalled() async {
+    setState(() => _isVisible = false);
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_prefKeyInstalled, true);
   }
 
   @override
@@ -76,88 +92,115 @@ class _IosPwaPromptState extends State<IosPwaPrompt> {
 
     final bgColor = widget.isDark ? const Color(0xFF1E2A38) : const Color(0xFFE8F1F2);
     final textColor = widget.isDark ? Colors.white : Colors.black87;
-    final iconColor = widget.isDark ? Colors.white : Colors.black87;
 
     return Container(
-      margin: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.fromLTRB(16, 12, 16, 4),
       decoration: BoxDecoration(
         color: bgColor,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          )
-        ],
+        borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: widget.isDark ? Colors.white24 : Colors.black12,
           width: 1,
         ),
       ),
+      child: AnimatedSize(
+        duration: const Duration(milliseconds: 180),
+        curve: Curves.easeOut,
+        alignment: Alignment.topCenter,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildBar(textColor),
+            if (_isExpanded) _buildDetails(textColor),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBar(Color textColor) {
+    return InkWell(
+      onTap: () => setState(() => _isExpanded = !_isExpanded),
+      borderRadius: BorderRadius.circular(10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        child: Row(
+          children: [
+            Icon(Icons.ios_share_rounded, size: 18, color: textColor),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                "Uygulamayı ana ekranınıza ekleyin",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.inter(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: textColor,
+                ),
+              ),
+            ),
+            Icon(
+              _isExpanded ? Icons.expand_less_rounded : Icons.expand_more_rounded,
+              size: 20,
+              color: textColor.withOpacity(0.6),
+            ),
+            GestureDetector(
+              onTap: _dismiss,
+              behavior: HitTestBehavior.opaque,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Icon(Icons.close_rounded, size: 18, color: textColor.withOpacity(0.6)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDetails(Color textColor) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  "Tarım Portalı'nı Uygulama Olarak Yükleyin",
-                  style: GoogleFonts.inter(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                    color: textColor,
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: _dismiss,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Icon(Icons.close_rounded, size: 20, color: textColor.withOpacity(0.6)),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Text(
-            "iOS cihazınızda tam ekran ve daha hızlı bir deneyim için uygulamayı ana ekranınıza ekleyebilirsiniz.",
-            style: GoogleFonts.inter(
-              fontSize: 12,
-              color: textColor.withOpacity(0.8),
-            ),
-          ),
-          const SizedBox(height: 12),
           Container(
+            width: double.infinity,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: widget.isDark ? Colors.black26 : Colors.white54,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Row(
-              children: [
-                Icon(Icons.ios_share_rounded, size: 24, color: iconColor),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                      style: GoogleFonts.inter(fontSize: 12, color: textColor),
-                      children: const [
-                        TextSpan(text: "Tarayıcınızın çubuğundaki "),
-                        TextSpan(text: "Paylaş", style: TextStyle(fontWeight: FontWeight.bold)),
-                        TextSpan(text: " simgesine dokunun ve menüden "),
-                        TextSpan(text: "Ana Ekrana Ekle", style: TextStyle(fontWeight: FontWeight.bold)),
-                        TextSpan(text: "'yi seçin."),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 8),
-                Icon(Icons.add_box_outlined, size: 24, color: iconColor),
-              ],
+            child: RichText(
+              text: TextSpan(
+                style: GoogleFonts.inter(fontSize: 12, color: textColor, height: 1.4),
+                children: const [
+                  TextSpan(text: "Tarayıcınızın çubuğundaki "),
+                  TextSpan(text: "Paylaş", style: TextStyle(fontWeight: FontWeight.bold)),
+                  TextSpan(text: " simgesine dokunun ve menüden "),
+                  TextSpan(text: "Ana Ekrana Ekle", style: TextStyle(fontWeight: FontWeight.bold)),
+                  TextSpan(text: "'yi seçin. Böylece tam ekran ve daha hızlı bir deneyim elde edersiniz."),
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: _markAsInstalled,
+              style: TextButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                foregroundColor: textColor.withOpacity(0.7),
+              ),
+              child: Text(
+                "Zaten yükledim, bir daha gösterme",
+                style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w500),
+              ),
             ),
           ),
         ],
