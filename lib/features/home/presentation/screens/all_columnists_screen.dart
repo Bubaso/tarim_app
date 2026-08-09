@@ -266,7 +266,7 @@ class _PremiumColumnistCardState extends State<_PremiumColumnistCard> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        col.persona,
+                        Localizations.localeOf(context).languageCode == 'en' ? col.titleEn : col.titleTr,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
