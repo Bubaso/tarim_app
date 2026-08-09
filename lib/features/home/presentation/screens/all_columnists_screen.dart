@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/fade_page_route.dart';
-import '../../../dashboard/domain/models/ai_columnist.dart';
+import '../widgets/ai_columnists.dart';
 import 'author_article_detail_screen.dart';
 
 class AllColumnistsScreen extends StatelessWidget {
