@@ -11,7 +11,7 @@ final notificationServiceProvider = Provider<NotificationService>((ref) {
 });
 
 class NotificationService {
-  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
+  FirebaseMessaging? _messaging;
   final SupabaseClient _supabase = Supabase.instance.client;
   
   static const String _hasRequestedPermissionKey = 'has_requested_notification_permission';
@@ -19,35 +19,49 @@ class NotificationService {
   static const int _articlesRequiredForSoftPrompt = 3;
 
   /// Initializes listening to foreground messages and click actions
-  void initialize() {
-    // Listen for messages when the app is in foreground
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      if (kDebugMode) {
-        print('Got a message whilst in the foreground!');
-        print('Message data: ${message.data}');
-      }
-      if (message.notification != null) {
-        // Here you could show a local toast or snackbar
-        if (kDebugMode) {
-          print('Message also contained a notification: ${message.notification}');
+  Future<void> initialize() async {
+    try {
+      if (kIsWeb) {
+        // Check if web push is supported on this browser (iOS Safari issues)
+        final isSupported = await FirebaseMessaging.instance.isSupported();
+        if (!isSupported) {
+          if (kDebugMode) print('Firebase Messaging is not supported on this browser.');
+          return;
         }
       }
-    });
+      
+      _messaging = FirebaseMessaging.instance;
 
-    // Handle clicks when the app is in background but opened
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      if (kDebugMode) {
-        print('Message clicked! Routing...');
-      }
-      _handleMessageClick(message);
-    });
+      // Listen for messages when the app is in foreground
+      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        if (kDebugMode) {
+          print('Got a message whilst in the foreground!');
+          print('Message data: ${message.data}');
+        }
+        if (message.notification != null) {
+          if (kDebugMode) {
+            print('Message also contained a notification: ${message.notification}');
+          }
+        }
+      });
 
-    // Handle initial message if the app was completely closed and opened by a notification click
-    _messaging.getInitialMessage().then((RemoteMessage? message) {
-      if (message != null) {
+      // Handle clicks when the app is in background but opened
+      FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+        if (kDebugMode) {
+          print('Message clicked! Routing...');
+        }
         _handleMessageClick(message);
-      }
-    });
+      });
+
+      // Handle initial message if the app was completely closed and opened by a notification click
+      _messaging?.getInitialMessage().then((RemoteMessage? message) {
+        if (message != null) {
+          _handleMessageClick(message);
+        }
+      });
+    } catch (e) {
+      if (kDebugMode) print('Error initializing notifications: $e');
+    }
   }
 
   void _handleMessageClick(RemoteMessage message) {
@@ -83,32 +97,47 @@ class NotificationService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_hasRequestedPermissionKey, true);
 
-    NotificationSettings settings = await _messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
-
-    if (settings.authorizationStatus == AuthorizationStatus.authorized ||
-        settings.authorizationStatus == AuthorizationStatus.provisional) {
-      
-      // Get the token
-      final token = await _messaging.getToken(
-        // You should pass your actual VAPID key here for production web push
-        // vapidKey: 'YOUR_PUBLIC_VAPID_KEY_HERE', 
-      );
-      
-      if (token != null) {
-        await _saveTokenToSupabase(token);
+    if (_messaging == null) {
+      if (kIsWeb) {
+        final isSupported = await FirebaseMessaging.instance.isSupported();
+        if (!isSupported) {
+          if (kDebugMode) print('Firebase Messaging is not supported on this browser.');
+          return false;
+        }
       }
-      
-      // Listen for token refreshes
-      _messaging.onTokenRefresh.listen(_saveTokenToSupabase);
-      return true;
+      _messaging = FirebaseMessaging.instance;
+    }
+
+    try {
+      NotificationSettings settings = await _messaging!.requestPermission(
+        alert: true,
+        announcement: false,
+        badge: true,
+        carPlay: false,
+        criticalAlert: false,
+        provisional: false,
+        sound: true,
+      );
+
+      if (settings.authorizationStatus == AuthorizationStatus.authorized ||
+          settings.authorizationStatus == AuthorizationStatus.provisional) {
+        
+        // Get the token
+        final token = await _messaging!.getToken(
+          // You should pass your actual VAPID key here for production web push
+          // vapidKey: 'YOUR_PUBLIC_VAPID_KEY_HERE', 
+        );
+        
+        if (token != null) {
+          await _saveTokenToSupabase(token);
+        }
+        
+        // Listen for token refreshes
+        _messaging!.onTokenRefresh.listen(_saveTokenToSupabase);
+        return true;
+      }
+    } catch (e) {
+      if (kDebugMode) print('Error requesting notification permission: $e');
     }
     
     return false;
