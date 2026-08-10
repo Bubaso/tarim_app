@@ -1,0 +1,16 @@
+# https://tarim-app-2026.web.app/robots.txt
+
+User-agent: *
+Allow: /
+
+# Yönetim ekranları. İçerik değil, oturum gerektiriyor; arama sonuçlarında
+# görünmesinin bir faydası yok.
+Disallow: /panel
+Disallow: /giris
+
+# Kategori listeleri adresten yeniden kurulamıyor (başlıklar slug değil);
+# doğrudan açıldıklarında ana sayfaya düşüyorlar. İndekslenirlerse Google'a
+# yinelenen içerik gibi görünür.
+Disallow: /kategori/
+
+Sitemap: https://tarim-app-2026.web.app/sitemap.xml

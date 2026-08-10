@@ -1,0 +1,13 @@
+{
+  "name": "tarim-app-functions",
+  "description": "Sosyal önizleme (og:) ve sitemap üreten Cloud Functions",
+  "type": "module",
+  "private": true,
+  "main": "index.js",
+  "engines": {
+    "node": "22"
+  },
+  "dependencies": {
+    "firebase-functions": "^6.0.1"
+  }
+}

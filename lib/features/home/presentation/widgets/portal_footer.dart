@@ -5,12 +5,41 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../screens/about_screen.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../legal/data/legal_documents.dart';
+import '../../../legal/presentation/screens/legal_page_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+/// Footer'daki bir bağlantı: görünen etiket ve gideceği ekran.
+///
+/// Eskiden buraya yalnızca `List<String>` geçiliyordu ve altı bağlantının
+/// hepsi [AboutScreen]'e gidiyordu. Etiket ile hedefi aynı yerde tutmak,
+/// bir bağlantının sessizce yanlış sayfaya gitmesini imkânsız kılar.
+typedef _FooterLink = ({String label, Widget target});
+
+_FooterLink _link(String label, Widget target) => (label: label, target: target);
+
+/// Slug'ı bilinen bir yasal belgeye giden bağlantı.
+_FooterLink _legalLink(String slug, bool isEn) {
+  final doc = legalDocs[slug]!;
+  return _link(doc.title(isEn), LegalPageScreen(doc: doc));
+}
 
 class PortalFooter extends StatelessWidget {
   final bool isDark;
 
   const PortalFooter({super.key, required this.isDark});
+
+  List<_FooterLink> _corporateLinks(bool isEn) => [
+        _link(isEn ? 'About Us' : 'Hakkımızda', const AboutScreen()),
+        _legalLink('kunye', isEn),
+        _legalLink('iletisim', isEn),
+      ];
+
+  List<_FooterLink> _legalLinks(bool isEn) => [
+        _legalLink('kullanim-kosullari', isEn),
+        _legalLink('gizlilik', isEn),
+        _legalLink('cerezler', isEn),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +75,11 @@ class PortalFooter extends StatelessWidget {
                     const SizedBox(width: 48),
                     Expanded(
                       flex: 1,
-                      child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', isEn ? ['About Us', 'Imprint', 'Contact'] : ['Hakkımızda', 'Künye', 'İletişim'], linkColor, textColor),
+                      child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', _corporateLinks(isEn), linkColor, textColor),
                     ),
                     Expanded(
                       flex: 1,
-                      child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', isEn ? ['Terms of Use', 'Privacy Policy', 'Cookies'] : ['Kullanım Koşulları', 'Gizlilik Politikası', 'Çerezler'], linkColor, textColor),
+                      child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', _legalLinks(isEn), linkColor, textColor),
                     ),
                     Expanded(
                       flex: 1,
@@ -67,8 +96,8 @@ class PortalFooter extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', isEn ? ['About Us', 'Imprint', 'Contact'] : ['Hakkımızda', 'Künye', 'İletişim'], linkColor, textColor)),
-                        Expanded(child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', isEn ? ['Terms of Use', 'Privacy Policy', 'Cookies'] : ['Kullanım Koşulları', 'Gizlilik Politikası', 'Çerezler'], linkColor, textColor)),
+                        Expanded(child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', _corporateLinks(isEn), linkColor, textColor)),
+                        Expanded(child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', _legalLinks(isEn), linkColor, textColor)),
                       ],
                     ),
                     const SizedBox(height: 32),
@@ -153,7 +182,7 @@ class PortalFooter extends StatelessWidget {
     );
   }
 
-  Widget _buildLinks(BuildContext context, String title, List<String> links, Color titleColor, Color linkColor) {
+  Widget _buildLinks(BuildContext context, String title, List<_FooterLink> links, Color titleColor, Color linkColor) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -165,22 +194,19 @@ class PortalFooter extends StatelessWidget {
             color: titleColor,
           ),
         ),
-        const SizedBox(height: 16),
-        ...links.map((link) => Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: MouseRegion(
-                cursor: SystemMouseCursors.click,
-                child: GestureDetector(
-                  onTap: () {
-                    // Navigate to About screen
-                    pushScreen(context, const AboutScreen());
-                  },
-                  child: Text(
-                    link,
-                    style: GoogleFonts.inter(
-                      fontSize: 14,
-                      color: linkColor,
-                    ),
+        const SizedBox(height: 8),
+        ...links.map((link) => InkWell(
+              onTap: () => pushScreen(context, link.target),
+              // 44 px: dokunma hedefi minimumu. 14 px metin + 12 px boşluk
+              // yaklaşık 29 px ediyordu ve telefonda ıskalanıyordu.
+              child: Container(
+                constraints: const BoxConstraints(minHeight: 44),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  link.label,
+                  style: GoogleFonts.inter(
+                    fontSize: 14,
+                    color: linkColor,
                   ),
                 ),
               ),

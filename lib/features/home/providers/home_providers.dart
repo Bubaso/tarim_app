@@ -52,6 +52,71 @@ final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   return repository.watchLatestArticles();
 });
 
+/// Okunan haberin ardından önerilecek tek haber ("Sonraki haber" kartı).
+///
+/// Amaç okumayı sürdürmek: önce aynı konudan devam etmeye çalışır, olmazsa
+/// gündeme döner. Görseli olmayan haberler elenir — kart 16:9 görselin üstüne
+/// kurulu, görselsiz hâli boş bir kutu olurdu.
+///
+/// Burada [initialReadArticlesProvider] değil **canlı** [readArticlesProvider]
+/// kullanılıyor. Ana sayfadaki sıralama providerları bilinçli olarak oturum
+/// başı anlık görüntüyü okuyor (liste okuyucunun gözü önünde yeniden
+/// dizilmesin diye); burada amaç tam tersi: zincirleme okumada az önce
+/// bitirilen haber tekrar önerilmemeli.
+final nextArticleProvider =
+    Provider.family<NewsArticle?, String>((ref, currentId) {
+  final articles = ref.watch(latestArticlesProvider).valueOrNull;
+  if (articles == null) return null;
+
+  // Liste yeniden eskiye sıralı; aşağıdaki "ilk eşleşen" aramaları bu sıraya
+  // dayanıyor.
+  final pool = articles
+      .where((a) =>
+          a.status == 'published' &&
+          a.imageUrl != null &&
+          a.imageUrl!.isNotEmpty)
+      .toList();
+  if (pool.isEmpty) return null;
+
+  final readIds = ref.watch(readArticlesProvider);
+  bool eligible(NewsArticle a) => a.id != currentId && !readIds.contains(a.id);
+
+  final currentIndex = pool.indexWhere((a) => a.id == currentId);
+
+  // Konu anahtarı: pipeline'dan gelen `topic` varsa o, yoksa kategori.
+  String? keyOf(NewsArticle a) {
+    final t = a.topic?.trim();
+    if (t != null && t.isNotEmpty) return t.toLowerCase();
+    final c = a.categoryId?.trim();
+    if (c != null && c.isNotEmpty) return c;
+    return null;
+  }
+
+  final currentKey = currentIndex == -1 ? null : keyOf(pool[currentIndex]);
+
+  if (currentKey != null) {
+    // 1. Aynı konudan bir sonraki (daha eski) haber — dosyayı takip etmek.
+    for (var i = currentIndex + 1; i < pool.length; i++) {
+      if (keyOf(pool[i]) == currentKey && eligible(pool[i])) return pool[i];
+    }
+    // 2. Aynı konudan en yeni okunmamış haber.
+    for (final a in pool) {
+      if (keyOf(a) == currentKey && eligible(a)) return a;
+    }
+  }
+
+  // 3. Genel havuzdan en yeni okunmamış haber.
+  for (final a in pool) {
+    if (eligible(a)) return a;
+  }
+
+  // 4. Her şey okunmuşsa kartı gizlemek yerine en yeni habere yönlendir.
+  for (final a in pool) {
+    if (a.id != currentId) return a;
+  }
+  return null;
+});
+
 /// Fetches a single article by id — used for `/haber/:id` deep links.
 final articleByIdProvider =
     FutureProvider.family<NewsArticle?, String>((ref, id) {

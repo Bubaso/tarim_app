@@ -18,6 +18,8 @@ import '../../features/home/presentation/screens/weather_detail_screen.dart';
 import '../../features/home/presentation/screens/yyt_dosyasi_screen.dart';
 import '../../features/home/presentation/widgets/ai_columnists.dart';
 import '../../features/home/providers/home_providers.dart';
+import '../../features/legal/data/legal_documents.dart';
+import '../../features/legal/presentation/screens/legal_page_screen.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -36,6 +38,11 @@ import '../../features/home/providers/home_providers.dart';
 String articlePath(String id) => '/haber/$id';
 String columnistPath(String name) => '/yazar/${Uri.encodeComponent(name)}';
 String categoryPath(String title) => '/kategori/${Uri.encodeComponent(title)}';
+
+/// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
+/// Türkçe karakterli adresler kopyalanıp yapıştırıldığında ve mesajlaşma
+/// uygulamalarında yüzde kodlamasına dönüşüp okunmaz hâle geliyor.
+String legalPath(String slug) => '/$slug';
 
 /// [CategoryArticlesScreen] için adres dışında taşınan argümanlar.
 class CategoryArgs {
@@ -65,6 +72,9 @@ class CategoryArgs {
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
+  if (page is LegalPageScreen) {
+    return (path: legalPath(page.doc.slug), extra: null);
+  }
   if (page is LoginScreen) return (path: '/giris', extra: null);
   if (page is DashboardScreen) return (path: '/panel', extra: null);
   if (page is HomeScreen) return (path: '/', extra: null);
@@ -193,6 +203,18 @@ final appRouter = GoRouter(
       path: '/hakkimizda',
       pageBuilder: (context, state) => _fadePage(state, const AboutScreen()),
     ),
+
+    // Künye, iletişim ve yasal metinler. Rotalar içerik haritasından üretilir;
+    // yeni bir belge eklemek için yalnızca `legalDocs`'a kayıt eklemek yeterli.
+    // Bu sayfalar adresten tamamen yeniden kurulabildiği için (kategori
+    // listelerinin aksine) yenilemede kaybolmaz.
+    for (final doc in legalDocs.values)
+      GoRoute(
+        path: legalPath(doc.slug),
+        pageBuilder: (context, state) =>
+            _fadePage(state, LegalPageScreen(doc: doc)),
+      ),
+
     GoRoute(
       path: '/giris',
       pageBuilder: (context, state) => _fadePage(state, const LoginScreen()),

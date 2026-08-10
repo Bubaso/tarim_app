@@ -1,9 +1,13 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:math' show Random;
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:tarim_app/core/theme/brand_icons.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+// `RenderAbstractViewport` — okuma ilerlemesini makale gövdesinin sonuna göre
+// ölçmek için; material.dart bunu dışa aktarmıyor.
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -20,6 +24,8 @@ import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
+import '../widgets/next_article_card.dart';
+import '../widgets/reading_progress_bar.dart';
 import '../../../../core/utils/string_extensions.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
@@ -46,6 +52,15 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
   late final ScrollController _scrollController;
   bool _isScrolled = false;
 
+  /// Okuma ilerlemesi (0.0–1.0). `setState` yerine bir notifier: kaydırmanın
+  /// her karesinde bu ekranı yeniden kurmak, gövdedeki `Html` widget'ının da
+  /// makale metnini her karede yeniden ayrıştırması demekti.
+  final ValueNotifier<double> _progress = ValueNotifier<double>(0);
+
+  /// Gövdenin son öğesi (`_ShareBar`). İlerleme bunun altına gelindiğinde
+  /// %100 olmalı — sayfanın en dibinde değil.
+  final GlobalKey _bodyEndKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
@@ -56,7 +71,12 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
           _isScrolled = isScrolled;
         });
       }
+      _updateProgress();
     });
+
+    // İlk karede doğru değerle başla: kaydırma olmadan da (kısa haber, ya da
+    // geri dönülüp konumu korunan bir sayfa) çubuk tutarlı olsun.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _updateProgress());
 
     // Increment view count when article is opened
     Future.microtask(() {
@@ -65,10 +85,77 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     });
   }
 
+  /// İlerlemeyi makale gövdesinin sonuna göre hesaplar.
+  ///
+  /// `pixels / maxScrollExtent` yanlış olurdu: gövdeden sonra İlgili Haberler
+  /// şeridi ve alt boşluk var. Son cümleyi okuyan kişi çubuğu ~%70'te görür,
+  /// yani haberin bittiğini anlayamazdı.
+  ///
+  /// `getOffsetToReveal(box, 1.0)` "hedefin alt kenarı görüş alanının altına
+  /// hizalandığında kaydırma kaç piksel olur" değerini verir — tam olarak
+  /// "makale bitti" anı. Yazı boyutu değiştikçe gövde uzayıp kısaldığı için
+  /// değer önbelleğe alınmıyor, her olayda yeniden hesaplanıyor.
+  void _updateProgress() {
+    if (!_scrollController.hasClients) return;
+    final position = _scrollController.position;
+
+    final renderObject = _bodyEndKey.currentContext?.findRenderObject();
+    double end = position.maxScrollExtent;
+    if (renderObject is RenderBox && renderObject.hasSize) {
+      final viewport = RenderAbstractViewport.maybeOf(renderObject);
+      if (viewport != null) {
+        end = viewport.getOffsetToReveal(renderObject, 1.0).offset;
+      }
+    }
+
+    // Gövde tek ekrana sığıyorsa kaydırılacak bir şey yok; çubuğu dolu göster
+    // ki kısa haberlerde yarım kalmış izlenimi vermesin.
+    if (end <= 0) {
+      _progress.value = 1;
+      return;
+    }
+    _progress.value = (position.pixels / end).clamp(0.0, 1.0);
+  }
+
+  // ── Tarayıcı sekmesi başlığı ─────────────────────────────────────────────
+  // `/haber/<id>` adresine doğrudan girildiğinde başlığı Cloud Function
+  // (`functions/index.js`) yazıyor. Ancak uygulama içinden bir habere
+  // tıklandığında belge yeniden yüklenmediği için sekme "Tarım Portalı -
+  // Tarımın Doğru Adresi"de kalıyordu: on sekme açan okuyucu hangisinin ne
+  // olduğunu ayırt edemiyor, yer imi de anlamsız bir adla kaydediliyordu.
+  //
+  // `initState` yerine burada: `Localizations.localeOf` bir InheritedWidget
+  // okur ve dil değiştiğinde bu metot yeniden çalışıp başlığı da çevirir.
+
+  static const String _defaultLabel = 'Tarım Portalı - Tarımın Doğru Adresi';
+
+  /// Marka rengi (`web/index.html` ve `manifest.json` ile aynı).
+  static const int _brandColor = 0xFF174E38;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title = (isEn && widget.article.titleEn != null && widget.article.titleEn!.isNotEmpty)
+        ? widget.article.titleEn!
+        : widget.article.title;
+    _setTabTitle(title);
+  }
+
   @override
   void dispose() {
+    // Geri dönüldüğünde ana sayfa kendi başlığını ayarlamıyor; sıfırlamazsak
+    // okunmuş haberin başlığı sekmede asılı kalır.
+    _setTabTitle(_defaultLabel);
     _scrollController.dispose();
+    _progress.dispose();
     super.dispose();
+  }
+
+  void _setTabTitle(String label) {
+    SystemChrome.setApplicationSwitcherDescription(
+      ApplicationSwitcherDescription(label: label, primaryColor: _brandColor),
+    );
   }
 
   @override
@@ -342,10 +429,40 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ],
 
                           const SizedBox(height: 48),
-                          _ShareBar(article: article, isDark: isDark, isEn: isEn, accent: accent),
+                          _ShareBar(
+                            key: _bodyEndKey,
+                            article: article,
+                            isDark: isDark,
+                            isEn: isEn,
+                            accent: accent,
+                          ),
 
                           const SizedBox(height: 56),
                         ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // ── Sonraki haber ─────────────────────────────────────────────
+              // Gövdeden hemen sonra, İlgili Haberler'den önce: önce tek güçlü
+              // çağrı, ardından göz gezdirme şeridi.
+              SliverToBoxAdapter(
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 800),
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(
+                        isDesktop ? 24 : 20,
+                        0,
+                        isDesktop ? 24 : 20,
+                        48,
+                      ),
+                      child: NextArticleCard(
+                        currentArticle: article,
+                        isEn: isEn,
+                        isDark: isDark,
                       ),
                     ),
                   ),
@@ -441,6 +558,22 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                   const SizedBox(width: 8),
                 ],
               ),
+            ),
+          ),
+
+          // ── Okuma ilerleme çizgisi ────────────────────────────────────────
+          // AppBar'ın alt kenarına oturur; Stack'te ondan sonra geldiği için
+          // gölgenin üstünde kalır.
+          Positioned(
+            top: MediaQuery.of(context).padding.top +
+                kToolbarHeight -
+                ReadingProgressBar.height,
+            left: 0,
+            right: 0,
+            child: ReadingProgressBar(
+              progress: _progress,
+              accent: AppColors.wheat,
+              visible: _isScrolled,
             ),
           ),
         ],
@@ -656,6 +789,7 @@ class _ShareBar extends StatelessWidget {
   final Color accent;
 
   const _ShareBar({
+    super.key,
     required this.article,
     required this.isDark,
     required this.isEn,
@@ -865,6 +999,21 @@ class _ShareButton extends StatelessWidget {
 //  İlgili Haberler — yatay kaydırmalı kart şeridi
 // ═══════════════════════════════════════════════════════════════════════════
 
+/// Bir metinden platformdan bağımsız, kararlı bir tamsayı üretir.
+///
+/// `String.hashCode` kullanılmadı: değeri VM, dart2js ve wasm arasında aynı
+/// olmak zorunda değil, dolayısıyla aynı haber web ile mobilde farklı sıra
+/// verebilirdi. Burada hesap açıkta ve her yerde aynı.
+int _stableSeed(String text) {
+  var hash = 0;
+  for (final unit in text.codeUnits) {
+    // 0x3FFFFFFF maskesi sonucu 30 bitte tutar: JavaScript'te sayılar 2^53'ten
+    // sonra hassasiyet kaybediyor, taşma davranışı platforma göre değişirdi.
+    hash = (hash * 31 + unit) & 0x3FFFFFFF;
+  }
+  return hash;
+}
+
 class _RelatedSection extends ConsumerWidget {
   final NewsArticle currentArticle;
   final bool isEn;
@@ -882,6 +1031,21 @@ class _RelatedSection extends ConsumerWidget {
       data: (articles) {
         final otherArticles = articles.where((a) => a.id != currentArticle.id).toList();
         if (otherArticles.isEmpty) return const SizedBox.shrink();
+
+        // Karıştırıcı, okunan haberin kimliğinden tohumlanıyor.
+        //
+        // Önceden her `shuffle()` çağrısı kendi rastgele kaynağını kullanıyordu:
+        // bu `build` metodu ise kaydırmada (`_isScrolled`), yazı boyutu
+        // değişiminde, tema ve dil değişiminde yeniden çalışıyor. Sonuç olarak
+        // ilgili haberler şeridi okuyucunun gözünün önünde durmadan yeniden
+        // diziliyordu; az önce görülen bir kart aranmaya kalkıldığında
+        // bulunamıyordu.
+        //
+        // Tohumu kimliğe bağlamak iki özelliği birden veriyor: aynı haberde sıra
+        // her zaman aynı, farklı haberlerde farklı. Aynı `Random` üç karıştırma
+        // boyunca paylaşılıyor — dizisi de deterministik ilerlediği için sonuç
+        // yine tekrarlanabilir.
+        final rng = Random(_stableSeed(currentArticle.id));
 
         final List<NewsArticle> recommended = [];
         final Set<String> recommendedIds = {};
@@ -901,14 +1065,14 @@ class _RelatedSection extends ConsumerWidget {
         // 1. Same Author / Source Prioritization (Up to 2)
         if (currentArticle.sourceName != null && currentArticle.sourceName!.isNotEmpty) {
            final sameSourceArticles = otherArticles.where((a) => a.sourceName == currentArticle.sourceName).toList();
-           sameSourceArticles.shuffle();
+           sameSourceArticles.shuffle(rng);
            addUnique(sameSourceArticles, 2);
         }
 
         // 2. Same Category Matching (Up to 3)
         if (currentArticle.categoryId != null && currentArticle.categoryId!.isNotEmpty) {
            final sameCategory = otherArticles.where((a) => a.categoryId == currentArticle.categoryId).take(15).toList();
-           sameCategory.shuffle(); 
+           sameCategory.shuffle(rng);
            addUnique(sameCategory, 3);
         }
 
@@ -916,7 +1080,7 @@ class _RelatedSection extends ConsumerWidget {
         if (recommended.length < 6) {
            final remainingNeeded = 6 - recommended.length;
            final generalPool = otherArticles.take(20).toList();
-           generalPool.shuffle();
+           generalPool.shuffle(rng);
            addUnique(generalPool, remainingNeeded);
         }
 

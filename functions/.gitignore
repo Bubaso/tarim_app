@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+.firebase/
+
+# `deploy.sh` tarafından `build/web/index.html`'den üretilir; elle
+# düzenlenmemeli ve sürüm kontrolüne girmemeli — kaynağı `web/index.html`.
+shell.html
