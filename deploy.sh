@@ -32,11 +32,37 @@ done
 
 if [[ $DO_BUILD -eq 1 ]]; then
   echo "▸ Flutter web derleniyor…"
-  flutter build web --release
+  # --pwa-strategy=none: Flutter'ın service worker'ı kullanımdan kaldırıldı;
+  # ürettiği sürüm kendini silip sayfayı yeniden yüklüyor, bootstrap ise onu her
+  # açılışta yeniden kaydediyor. Sonuç her ziyarette tekrarlanan yenileme
+  # döngüsüydü (ayrıntı: web/flutter_service_worker.js). Bu bayrak
+  # `serviceWorkerSettings` bloğunu bootstrap'tan çıkarır; elle yazdığımız
+  # temizleyici worker ise `web/` altından olduğu gibi kopyalanır.
+  flutter build web --release --pwa-strategy=none
 fi
 
 if [[ ! -f build/web/index.html ]]; then
   echo "✗ build/web/index.html yok. Önce --no-build olmadan çalıştırın." >&2
+  exit 1
+fi
+
+# Bootstrap'ta kayıt satırı kalmışsa döngü geri gelmiş demektir. (`serviceWorker`
+# sözcüğü küçültülmüş flutter.js içinde parametre adı olarak zaten geçtiği için
+# aranan şey gerçek ayar satırı.)
+if grep -q 'serviceWorkerVersion: "' build/web/flutter_bootstrap.js; then
+  echo "✗ build/web/flutter_bootstrap.js hâlâ service worker kaydediyor." >&2
+  echo "  --pwa-strategy=none uygulanmamış." >&2
+  exit 1
+fi
+
+# Flutter `--pwa-strategy=none` ile bu adrese BOŞ bir dosya yazıyor ve `web/`
+# altındaki sürümümüzü eziyor. Daha önce kayıt yaptırmış tarayıcılar adresi
+# periyodik olarak yeniden istiyor; temizleyici sürümü alabilmeleri için
+# derlemeden sonra dosyayı geri koyuyoruz.
+echo "▸ Temizleyici service worker yerine konuyor…"
+cp web/flutter_service_worker.js build/web/flutter_service_worker.js
+if ! grep -q 'registration.unregister' build/web/flutter_service_worker.js; then
+  echo "✗ web/flutter_service_worker.js temizleyici sürüm değil." >&2
   exit 1
 fi
 

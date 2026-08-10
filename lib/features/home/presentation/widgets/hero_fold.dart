@@ -386,7 +386,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AspectRatio(
-            aspectRatio: 1.8, // 16/9'a yakın geniş (daha dar kutu, kaplama için daha uygun)
+            aspectRatio: 1.44, // 16/9'dan daha uzun, %25 uzatılmış
             child: ClipRRect(
               borderRadius: isMobile ? BorderRadius.zero : BorderRadius.circular(4),
               child: Stack(

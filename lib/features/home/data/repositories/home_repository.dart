@@ -648,6 +648,27 @@ class HomeRepository {
     }
   }
 
+  /// Sets an article as breaking news and updates its created_at timestamp
+  /// so that the breaking news cloud function can pick it up.
+  Future<bool> setBreakingNews(String id, bool isBreaking) async {
+    try {
+      final updates = <String, dynamic>{
+        'is_breaking': isBreaking,
+      };
+      
+      // If setting to true, update created_at so the cloud function 30-min window catches it
+      if (isBreaking) {
+        updates['created_at'] = DateTime.now().toUtc().toIso8601String();
+      }
+
+      await _supabaseClient.from('articles').update(updates).eq('id', id);
+      return true;
+    } catch (e) {
+      if (kDebugMode) print('setBreakingNews error: $e');
+      return false;
+    }
+  }
+
   /// Updates the hero status and order of an article.
   Future<bool> updateHeroStatus(String id, bool isHero, int? heroOrder) async {
     try {

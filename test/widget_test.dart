@@ -4,15 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tarim_app/main.dart';
 
 void main() {
-  testWidgets('App starts without crash smoke test', (WidgetTester tester) async {
-    // Build our app under ProviderScope and trigger a frame.
-    await tester.pumpWidget(
-      const ProviderScope(
-        child: MyApp(),
-      ),
-    );
-
-    // Verify that the title or base structure exists.
-    expect(find.byType(MaterialApp), findsOneWidget);
+  testWidgets('App starts without crashing', (WidgetTester tester) async {
+    await tester.pumpWidget(const ProviderScope(child: MyApp()));
+    await tester.pumpAndSettle();
+    expect(find.byType(MyApp), findsOneWidget);
   });
 }

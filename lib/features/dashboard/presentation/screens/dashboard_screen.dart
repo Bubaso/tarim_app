@@ -1292,9 +1292,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                                       value: article.isBreaking ?? false,
                                       activeColor: Colors.red,
                                       onChanged: (val) async {
-                                        final updatedArticle = article.copyWith(isBreaking: val);
-                                        final error = await ref.read(homeRepositoryProvider).updateArticle(updatedArticle);
-                                        if (error == null) {
+                                        final success = await ref.read(homeRepositoryProvider).setBreakingNews(article.id, val);
+                                        if (success) {
                                           ref.invalidate(latestArticlesProvider);
                                           if (context.mounted && val) {
                                             ScaffoldMessenger.of(context).showSnackBar(
@@ -1307,7 +1306,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                                         } else {
                                           if (context.mounted) {
                                             ScaffoldMessenger.of(context).showSnackBar(
-                                              SnackBar(content: Text('Hata: $error'), backgroundColor: Colors.redAccent),
+                                              const SnackBar(content: Text('Hata: Son dakika durumu güncellenemedi.'), backgroundColor: Colors.redAccent),
                                             );
                                           }
                                         }

@@ -36,7 +36,7 @@ import '../../features/legal/presentation/screens/legal_page_screen.dart';
 // ═══════════════════════════════════════════════════════════════════════════
 
 String articlePath(String id) => '/haber/$id';
-String columnistPath(String name) => '/yazar/${Uri.encodeComponent(name)}';
+String columnistPath(String slug) => '/yazar/$slug';
 String categoryPath(String title) => '/kategori/${Uri.encodeComponent(title)}';
 
 /// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
@@ -57,7 +57,7 @@ class CategoryArgs {
     return (path: articlePath(page.article.id), extra: page.article);
   }
   if (page is AuthorArticleDetailScreen) {
-    return (path: columnistPath(page.columnist.name), extra: page.columnist);
+    return (path: columnistPath(page.columnist.slug), extra: page.columnist);
   }
   if (page is CategoryArticlesScreen) {
     return (
@@ -103,10 +103,9 @@ Object? _resolveExtra(GoRouterState state) {
   return _extraCache[key];
 }
 
-AiColumnist? _findColumnist(String rawName) {
-  final name = Uri.decodeComponent(rawName);
+AiColumnist? _findColumnist(String slug) {
   for (final c in aiColumnists) {
-    if (c.name == name || c.name == rawName) return c;
+    if (c.slug == slug) return c;
   }
   return null;
 }

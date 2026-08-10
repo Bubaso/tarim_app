@@ -30,8 +30,15 @@ void main() async {
     publishableKey: ApiConstants.supabaseAnonKey,
   );
 
-  // Initialize notifications for background and foreground listening
-  NotificationService().initialize();
+  // Initialize notifications safely in the background
+  // We use Future.microtask so it doesn't block runApp in any way.
+  Future.microtask(() async {
+    try {
+      await NotificationService().initialize();
+    } catch (e) {
+      debugPrint('NotificationService init error: $e');
+    }
+  });
 
   runApp(
     const ProviderScope(
