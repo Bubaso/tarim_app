@@ -25,6 +25,11 @@
 
 import { readFileSync } from 'node:fs';
 import { onRequest } from 'firebase-functions/v2/https';
+import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { initializeApp } from 'firebase-admin/app';
+import { getMessaging } from 'firebase-admin/messaging';
+
+initializeApp();
 
 import {
   FALLBACK_IMAGE,
@@ -384,3 +389,205 @@ export const sitemap = onRequest(
     );
   },
 );
+
+// ─── Sabah Özeti Bildirimleri ──────────────────────────────────────────────
+export const morningBriefing = onSchedule(
+  {
+    schedule: '30 9 * * *',
+    timeZone: 'Europe/Istanbul',
+    region: REGION,
+    retryCount: 3,
+  },
+  async (event) => {
+    try {
+      // 1. Son 24 saatteki en önemli veya en son 1 haberi çek
+      const rows = await supabaseGet(
+        'articles?status=eq.published&select=id,title,summary&order=created_at.desc&limit=1'
+      );
+      const article = Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
+
+      if (!article) {
+        console.log('Gönderilecek haber bulunamadı.');
+        return;
+      }
+
+      // 2. Token'ları çek
+      const tokensResponse = await supabaseGet(
+        'push_tokens?select=token&limit=500'
+      );
+      
+      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) {
+        console.log('Kayıtlı cihaz bulunamadı.');
+        return;
+      }
+
+      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+
+      // 3. Bildirim içeriğini hazırla
+      const title = 'Tarım Portalı - Sabah Özeti 🌅';
+      const body = toPlainText(article.title) || 'Günün öne çıkan gelişmeleri.';
+      
+      const message = {
+        notification: {
+          title: title,
+          body: body,
+        },
+        data: {
+          path: `/haber/${article.id}`,
+        },
+        tokens: tokens,
+      };
+
+      // 4. Gönder
+      const messaging = getMessaging();
+      const response = await messaging.sendEachForMulticast(message);
+      
+      console.log(`Başarılı gönderim: ${response.successCount}, Başarısız: ${response.failureCount}`);
+      
+      // İsteğe bağlı: Hatalı (süresi dolmuş) token'ları Supabase'ten silmek için
+      // response.responses dizisi kontrol edilebilir.
+    } catch (err) {
+      console.error('Sabah özeti gönderilirken hata oluştu:', err);
+    }
+  }
+);
+
+// ─── Haftalık Özet (Pazartesi 10:00) ───────────────────────────────────────
+export const weeklyBriefing = onSchedule(
+  {
+    schedule: '0 10 * * 1', // Her Pazartesi 10:00
+    timeZone: 'Europe/Istanbul',
+    region: REGION,
+    retryCount: 3,
+  },
+  async (event) => {
+    try {
+      // Son 7 günün tarihini hesapla
+      const oneWeekAgo = new Date();
+      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+      const isoDate = oneWeekAgo.toISOString();
+
+      // Son 7 gündeki en çok okunan (veya en yüksek hero skorlu) 1 haberi çek
+      const rows = await supabaseGet(
+        `articles?status=eq.published&created_at=gte.${isoDate}&select=id,title,summary&order=view_count.desc&limit=1`
+      );
+      const article = Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
+
+      if (!article) return;
+
+      const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
+      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
+      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+
+      const message = {
+        notification: {
+          title: 'Haftanın Öne Çıkanı 🌟',
+          body: toPlainText(article.title) || 'Geçtiğimiz haftanın en çok dikkat çeken gelişmesi.',
+        },
+        data: { path: `/haber/${article.id}` },
+        tokens: tokens,
+      };
+
+      const messaging = getMessaging();
+      const response = await messaging.sendEachForMulticast(message);
+      console.log(`Haftalık özet - Başarılı: ${response.successCount}`);
+    } catch (err) {
+      console.error('Haftalık özet gönderilirken hata oluştu:', err);
+    }
+  }
+);
+
+// ─── Yazar Bülteni (Her Gün 18:00) ─────────────────────────────────────────
+export const authorBulletin = onSchedule(
+  {
+    schedule: '0 18 * * *', // Her gün 18:00
+    timeZone: 'Europe/Istanbul',
+    region: REGION,
+  },
+  async (event) => {
+    try {
+      // Son 24 saati hesapla
+      const oneDayAgo = new Date();
+      oneDayAgo.setDate(oneDayAgo.getDate() - 1);
+      const isoDate = oneDayAgo.toISOString();
+
+      // Sadece yazarların (source_name boş olmayan ve genel bülten olmayan) yazılarını çek
+      // PostgREST'te "not.is.null" veya "neq" kullanabiliriz.
+      // Basitlik için tümünü çekip kod tarafında filtreleyeceğiz.
+      const rows = await supabaseGet(
+        `articles?status=eq.published&created_at=gte.${isoDate}&select=id,title,source_name&order=created_at.desc&limit=10`
+      );
+      if (!Array.isArray(rows) || rows.length === 0) return;
+
+      // Yazar ismi belli olan ilk yazıyı bul
+      const article = rows.find(
+        (a) => a.source_name && a.source_name.trim() !== '' && !a.source_name.toLowerCase().includes('tarım')
+      );
+
+      if (!article) return;
+
+      const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
+      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
+      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+
+      const message = {
+        notification: {
+          title: `Yeni Yazar Analizi: ${article.source_name} ✍️`,
+          body: toPlainText(article.title),
+        },
+        data: { path: `/haber/${article.id}` },
+        tokens: tokens,
+      };
+
+      const messaging = getMessaging();
+      const response = await messaging.sendEachForMulticast(message);
+      console.log(`Yazar bülteni - Başarılı: ${response.successCount}`);
+    } catch (err) {
+      console.error('Yazar bülteni gönderilirken hata oluştu:', err);
+    }
+  }
+);
+
+// ─── Son Dakika / Kırılım Haberleri (Her 30 Dakikada Bir Kontrol) ────────
+export const breakingNewsCheck = onSchedule(
+  {
+    schedule: '*/30 * * * *', // Her 30 dakikada bir
+    timeZone: 'Europe/Istanbul',
+    region: REGION,
+  },
+  async (event) => {
+    try {
+      // Son 30 dakikayı hesapla
+      const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000);
+      const isoDate = thirtyMinsAgo.toISOString();
+
+      // Son 30 dakikada eklenmiş, is_breaking = true OLAN haberi çek
+      const rows = await supabaseGet(
+        `articles?status=eq.published&is_breaking=is.true&created_at=gte.${isoDate}&select=id,title&order=created_at.desc&limit=1`
+      );
+      const article = Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
+
+      if (!article) return; // Son 30 dk içinde son dakika haberi girilmemiş.
+
+      const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
+      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
+      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+
+      const message = {
+        notification: {
+          title: '🚨 Son Dakika Gelişmesi',
+          body: toPlainText(article.title),
+        },
+        data: { path: `/haber/${article.id}` },
+        tokens: tokens,
+      };
+
+      const messaging = getMessaging();
+      const response = await messaging.sendEachForMulticast(message);
+      console.log(`Son dakika - Başarılı: ${response.successCount}`);
+    } catch (err) {
+      console.error('Son dakika haberi kontrol edilirken hata oluştu:', err);
+    }
+  }
+);
+

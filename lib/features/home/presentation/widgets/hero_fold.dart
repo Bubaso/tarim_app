@@ -219,6 +219,7 @@ class _MobileRealWriterCardState extends State<_MobileRealWriterCard> {
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: () {
             pushScreen(context, AuthorArticleDetailScreen(columnist: col));
         },
@@ -766,6 +767,7 @@ class _OpEdCardState extends State<_OpEdCard> {
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
         onTap: () {
             pushScreen(context, AuthorArticleDetailScreen(columnist: col));
         },

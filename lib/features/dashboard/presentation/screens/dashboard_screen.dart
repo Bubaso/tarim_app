@@ -47,6 +47,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   bool _isSubmitting = false;
   bool _showMobileForm = false; // Toggle to show form on mobile instead of list
   bool _showArchived = false; // Toggle to view unpublished/archived articles
+  bool _isBreaking = false; // Toggle to mark article as breaking news
   final Set<int> _generatingSuggestionIds = {}; // Track generating suggestions
 
   NewsArticle? _editingArticle;
@@ -290,6 +291,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       status: isUnpublishing ? 'draft' : (isPublishing ? 'published' : (isEditing ? (_editingArticle!.status ?? 'reviewing') : 'reviewing')),
       categoryId: _selectedCategoryId,
       geoLocation: geoLocation,
+      isBreaking: _isBreaking,
     );
 
     // Call submit through repository
@@ -335,6 +337,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       _uploadedImageUrl = null;
       _selectedCategoryId = null;
       _showMobileForm = false;
+      _isBreaking = false;
       _editingArticle = null;
     });
   }
@@ -1007,6 +1010,24 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                 ),
                 validator: (val) => val == null || val.trim().isEmpty ? loc.translate('form_err_location') : null,
               ),
+              const SizedBox(height: 16),
+
+              // Is Breaking News Switch
+              SwitchListTile(
+                title: const Text(
+                  'Son Dakika Haberi',
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+                ),
+                subtitle: const Text('Bu haber yayınlandığı anda tüm kullanıcılara acil bildirim gider.'),
+                value: _isBreaking,
+                activeColor: Colors.red,
+                onChanged: (val) {
+                  setState(() {
+                    _isBreaking = val;
+                  });
+                },
+                contentPadding: EdgeInsets.zero,
+              ),
               const SizedBox(height: 24),
 
               // Submit and Cancel Buttons
@@ -1177,81 +1198,126 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: ListTile(
-                          onTap: () {
-                            setState(() {
-                              _editingArticle = article;
-                              _titleController.text = article.title;
-                              _summaryController.text = article.summary ?? '';
-                              Future.delayed(const Duration(milliseconds: 100), () {
-                                _htmlController.setText(article.content ?? '');
-                              });
-                              _uploadedImageUrl = null;
-                              _locationController.text = _getCityFromGeoLocation(article.geoLocation);
-                              _selectedCategoryId = article.categoryId;
-                              _showMobileForm = true; // Show form automatically on mobile
-                            });
-                          },
-                          leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Container(
-                              width: 56,
-                              height: 56,
-                              color: theme.colorScheme.secondary.withValues(alpha: 0.1),
-                              child: NewsArticleImage(
-                                imageUrl: article.imageUrl,
-                                width: 56,
-                                height: 56,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                          title: Text(
-                            article.title,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                          ),
-                          subtitle: Padding(
-                            padding: const EdgeInsets.only(top: 6.0),
-                            child: Row(
-                              children: [
-                                Icon(Icons.schedule_rounded, size: 14, color: theme.hintColor),
-                                const SizedBox(width: 4),
-                                Text(
-                                  article.createdAt.toLocal().toString().substring(0, 16),
-                                  style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
+                        child: Column(
+                          children: [
+                            ListTile(
+                              onTap: () {
+                                setState(() {
+                                  _editingArticle = article;
+                                  _titleController.text = article.title;
+                                  _summaryController.text = article.summary ?? '';
+                                  Future.delayed(const Duration(milliseconds: 100), () {
+                                    _htmlController.setText(article.content ?? '');
+                                  });
+                                  _uploadedImageUrl = null;
+                                  _locationController.text = _getCityFromGeoLocation(article.geoLocation);
+                                  _selectedCategoryId = article.categoryId;
+                                  _isBreaking = article.isBreaking ?? false;
+                                  _showMobileForm = true; // Show form automatically on mobile
+                                });
+                              },
+                              leading: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  width: 56,
+                                  height: 56,
+                                  color: theme.colorScheme.secondary.withValues(alpha: 0.1),
+                                  child: NewsArticleImage(
+                                    imageUrl: article.imageUrl,
+                                    width: 56,
+                                    height: 56,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          trailing: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: article.status == 'archived' 
-                                  ? Colors.red.withValues(alpha: 0.1) 
-                                  : (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.1),
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: article.status == 'archived'
-                                    ? Colors.red.withValues(alpha: 0.3)
-                                    : (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.3),
+                              ),
+                              title: Text(
+                                article.title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                              ),
+                              subtitle: Padding(
+                                padding: const EdgeInsets.only(top: 6.0),
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.schedule_rounded, size: 14, color: theme.hintColor),
+                                    const SizedBox(width: 4),
+                                    Text(
+                                      article.createdAt.toLocal().toString().substring(0, 16),
+                                      style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              trailing: Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                decoration: BoxDecoration(
+                                  color: article.status == 'archived' 
+                                      ? Colors.red.withValues(alpha: 0.1) 
+                                      : (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.1),
+                                  borderRadius: BorderRadius.circular(20),
+                                  border: Border.all(
+                                    color: article.status == 'archived'
+                                        ? Colors.red.withValues(alpha: 0.3)
+                                        : (isReviewing ? Colors.orange : Colors.green).withValues(alpha: 0.3),
+                                  ),
+                                ),
+                                child: Text(
+                                  article.status == 'archived' 
+                                      ? 'YAYINDAN ÇEKİLDİ' 
+                                      : (isReviewing ? loc.translate('status_reviewing') : loc.translate('status_published')),
+                                  style: TextStyle(
+                                    color: article.status == 'archived'
+                                        ? Colors.red.shade800
+                                        : (isReviewing ? Colors.orange.shade800 : Colors.green.shade800),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 12,
+                                    letterSpacing: 0.5,
+                                  ),
+                                ),
                               ),
                             ),
-                            child: Text(
-                              article.status == 'archived' 
-                                  ? 'YAYINDAN ÇEKİLDİ' 
-                                  : (isReviewing ? loc.translate('status_reviewing') : loc.translate('status_published')),
-                              style: TextStyle(
-                                color: article.status == 'archived'
-                                    ? Colors.red.shade800
-                                    : (isReviewing ? Colors.orange.shade800 : Colors.green.shade800),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                                letterSpacing: 0.5,
+                            if (article.status == 'published') ...[
+                              const Divider(height: 1),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Text(
+                                      'Acil: Son Dakika Olarak İşaretle',
+                                      style: TextStyle(fontWeight: FontWeight.w600, color: Colors.red),
+                                    ),
+                                    Switch(
+                                      value: article.isBreaking ?? false,
+                                      activeColor: Colors.red,
+                                      onChanged: (val) async {
+                                        final updatedArticle = article.copyWith(isBreaking: val);
+                                        final error = await ref.read(homeRepositoryProvider).updateArticle(updatedArticle);
+                                        if (error == null) {
+                                          ref.invalidate(latestArticlesProvider);
+                                          if (context.mounted && val) {
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              const SnackBar(
+                                                content: Text('Haber "Son Dakika" olarak işaretlendi. Bildirim kısa süre içinde gönderilecek.'),
+                                                backgroundColor: Colors.red,
+                                              ),
+                                            );
+                                          }
+                                        } else {
+                                          if (context.mounted) {
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              SnackBar(content: Text('Hata: $error'), backgroundColor: Colors.redAccent),
+                                            );
+                                          }
+                                        }
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ),
+                            ],
+                          ],
                         ),
                       ),
                     );

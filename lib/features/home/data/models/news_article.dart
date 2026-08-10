@@ -23,6 +23,7 @@ class NewsArticle {
   final int? heroScore;
   final bool? isHero;
   final int? heroOrder;
+  final bool? isBreaking;
   
   // Yeni editoryal alanlar
   final String? spot;
@@ -56,6 +57,7 @@ class NewsArticle {
     this.heroScore,
     this.isHero,
     this.heroOrder,
+    this.isBreaking,
     this.spot,
     this.spotEn,
     this.keyTakeaways,
@@ -113,6 +115,7 @@ class NewsArticle {
       heroScore: json['hero_score'] != null ? (json['hero_score'] as num).toInt() : null,
       isHero: json['is_hero'] as bool?,
       heroOrder: json['hero_order'] != null ? (json['hero_order'] as num).toInt() : null,
+      isBreaking: json['is_breaking'] as bool?,
       spot: json['spot']?.toString(),
       spotEn: json['spot_en']?.toString(),
       keyTakeaways: takeaways,
@@ -147,6 +150,7 @@ class NewsArticle {
       'hero_score': heroScore,
       'is_hero': isHero,
       'hero_order': heroOrder,
+      'is_breaking': isBreaking,
       'spot': spot,
       'spot_en': spotEn,
       'key_takeaways': keyTakeaways,
@@ -155,5 +159,71 @@ class NewsArticle {
       'expert_insight_en': expertInsightEn,
       'chart_data': chartData,
     };
+  }
+
+  NewsArticle copyWith({
+    String? id,
+    String? title,
+    String? titleEn,
+    String? content,
+    String? contentEn,
+    String? summary,
+    String? summaryEn,
+    String? imageUrl,
+    List<String>? seoKeywords,
+    String? sourceName,
+    String? sourceUrl,
+    DateTime? createdAt,
+    String? status,
+    String? categoryId,
+    String? geoLocation,
+    int? viewCount,
+    String? contentType,
+    String? topic,
+    String? region,
+    int? heroScore,
+    bool? isHero,
+    int? heroOrder,
+    bool? isBreaking,
+    String? spot,
+    String? spotEn,
+    List<String>? keyTakeaways,
+    List<String>? keyTakeawaysEn,
+    String? expertInsight,
+    String? expertInsightEn,
+    Map<String, dynamic>? chartData,
+  }) {
+    return NewsArticle(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      titleEn: titleEn ?? this.titleEn,
+      content: content ?? this.content,
+      contentEn: contentEn ?? this.contentEn,
+      summary: summary ?? this.summary,
+      summaryEn: summaryEn ?? this.summaryEn,
+      imageUrl: imageUrl ?? this.imageUrl,
+      seoKeywords: seoKeywords ?? this.seoKeywords,
+      sourceName: sourceName ?? this.sourceName,
+      sourceUrl: sourceUrl ?? this.sourceUrl,
+      createdAt: createdAt ?? this.createdAt,
+      status: status ?? this.status,
+      categoryId: categoryId ?? this.categoryId,
+      geoLocation: geoLocation ?? this.geoLocation,
+      viewCount: viewCount ?? this.viewCount,
+      contentType: contentType ?? this.contentType,
+      topic: topic ?? this.topic,
+      region: region ?? this.region,
+      heroScore: heroScore ?? this.heroScore,
+      isHero: isHero ?? this.isHero,
+      heroOrder: heroOrder ?? this.heroOrder,
+      isBreaking: isBreaking ?? this.isBreaking,
+      spot: spot ?? this.spot,
+      spotEn: spotEn ?? this.spotEn,
+      keyTakeaways: keyTakeaways ?? this.keyTakeaways,
+      keyTakeawaysEn: keyTakeawaysEn ?? this.keyTakeawaysEn,
+      expertInsight: expertInsight ?? this.expertInsight,
+      expertInsightEn: expertInsightEn ?? this.expertInsightEn,
+      chartData: chartData ?? this.chartData,
+    );
   }
 }
