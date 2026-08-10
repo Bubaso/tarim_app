@@ -14,6 +14,7 @@ import '../../../dashboard/presentation/screens/dashboard_screen.dart';
 import '../../../dashboard/presentation/widgets/market_ticker.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
+import '../../../../core/services/notification_service.dart';
 import '../widgets/agenda_bento_grid.dart';
 import '../widgets/hero_fold.dart';
 import '../widgets/portal_sections/science_reports_dossier.dart';
@@ -41,6 +42,63 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   bool _isSearchExpanded = false;
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkAndShowSoftPrompt();
+    });
+  }
+
+  Future<void> _checkAndShowSoftPrompt() async {
+    final notifService = ref.read(notificationServiceProvider);
+    final shouldShow = await notifService.shouldShowSoftPrompt();
+    if (shouldShow && mounted) {
+      _showSoftPromptDialog(context, notifService);
+    }
+  }
+
+  void _showSoftPromptDialog(BuildContext context, NotificationService service) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        final isDark = Theme.of(context).brightness == Brightness.dark;
+        return AlertDialog(
+          backgroundColor: isDark ? AppColors.darkGreen : AppColors.creamBackground,
+          title: Text(
+            'Bildirimleri Açın',
+            style: TextStyle(color: isDark ? Colors.white : Colors.black),
+          ),
+          content: Text(
+            'Piyasadaki ani değişimlerden ve önemli tarım haberlerinden anında haberdar olmak ister misiniz?',
+            style: TextStyle(color: isDark ? Colors.white70 : Colors.black87),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                service.denySoftPrompt();
+                Navigator.of(context).pop();
+              },
+              child: const Text('Belki Daha Sonra', style: TextStyle(color: Colors.grey)),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppColors.primaryGreen,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: () async {
+                Navigator.of(context).pop();
+                await service.requestPermission();
+              },
+              child: const Text('Evet İsterim'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   void dispose() {

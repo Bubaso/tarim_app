@@ -4,13 +4,21 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 import 'core/constants/api_constants.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
+import 'core/services/notification_service.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // Bu çağrı olmadan `DateFormat.yMMMd('tr_TR')` sessizce en_US'a düşüyor ve
   // Türkçe arayüzde tarihler "Aug 8, 2026" olarak yazılıyordu.
@@ -21,6 +29,9 @@ void main() async {
     url: ApiConstants.supabaseUrl,
     publishableKey: ApiConstants.supabaseAnonKey,
   );
+
+  // Initialize notifications for background and foreground listening
+  NotificationService().initialize();
 
   runApp(
     const ProviderScope(

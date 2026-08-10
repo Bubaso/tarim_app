@@ -22,6 +22,7 @@ import 'package:flutter_html/flutter_html.dart';
 import '../widgets/dynamic_chart_widget.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../providers/home_providers.dart';
+import '../../../../core/services/notification_service.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
 import '../widgets/next_article_card.dart';
@@ -82,6 +83,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     Future.microtask(() {
       ref.read(homeRepositoryProvider).incrementArticleViewCount(widget.article.id);
       ref.read(readArticlesProvider.notifier).markAsRead(widget.article.id);
+      ref.read(notificationServiceProvider).incrementArticleReadCount();
     });
   }
 
