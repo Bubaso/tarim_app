@@ -173,6 +173,31 @@ async function supabaseGet(query, timeoutMs = SUPABASE_TIMEOUT_MS) {
   }
 }
 
+/// Supabase RPC (POST /rest/v1/rpc/<ad>). Yazma gerektiren işler buradan
+/// geçiyor: anon rolüne tablo üzerinde UPDATE yetkisi vermek yerine
+/// SECURITY DEFINER fonksiyonu çağırıyoruz.
+async function supabaseRpc(name, args = {}, timeoutMs = SUPABASE_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`, {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(args),
+      signal: controller.signal,
+    });
+    if (!res.ok) throw new Error(`Supabase RPC ${name} ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 // ─── Meta blok üretimi ─────────────────────────────────────────────────────
 
 /// `documentTitle` sekmede ve arama sonucunda görünen başlık — marka adını
@@ -427,13 +452,30 @@ export const morningBriefing = onSchedule(
       const title = 'Tarım Portalı - Sabah Özeti 🌅';
       const body = toPlainText(article.title) || 'Günün öne çıkan gelişmeleri.';
       
+      // SALT VERİ (data-only) gönderiliyor — `notification` alanı BİLİNÇLİ
+      // olarak yok. Payload'da `notification` bulunduğunda Firebase JS SDK'sı
+      // service worker içinde şunları yapıyor:
+      //   1. Bildirimi kendisi gösteriyor,
+      //   2. ARDINDAN bizim onBackgroundMessage handler'ımızı da çağırıyor
+      //      → aynı bildirim iki kez görünüyor,
+      //   3. Kendi `notificationclick` işleyicisini devreye sokup
+      //      `stopImmediatePropagation()` çağırıyor → bizim yönlendirme
+      //      kodumuz hiç çalışmıyor ve tıklama ana sayfayı açıyor.
+      // Salt veri gönderince gösterimin ve tıklamanın tek sahibi
+      // web/firebase-messaging-sw.js oluyor.
       const message = {
-        notification: {
+        data: {
           title: title,
           body: body,
-        },
-        data: {
           path: `/haber/${article.id}`,
+        },
+        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
+        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
+        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
+        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
+        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
+        webpush: {
+          headers: { Urgency: 'high', TTL: '86400' },
         },
         tokens: tokens,
       };
@@ -479,12 +521,21 @@ export const weeklyBriefing = onSchedule(
       if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
       const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
 
+      // Salt veri — gerekçe morningBriefing içinde açıklandı.
       const message = {
-        notification: {
+        data: {
           title: 'Haftanın Öne Çıkanı 🌟',
           body: toPlainText(article.title) || 'Geçtiğimiz haftanın en çok dikkat çeken gelişmesi.',
+          path: `/haber/${article.id}`,
         },
-        data: { path: `/haber/${article.id}` },
+        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
+        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
+        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
+        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
+        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
+        webpush: {
+          headers: { Urgency: 'high', TTL: '86400' },
+        },
         tokens: tokens,
       };
 
@@ -530,12 +581,23 @@ export const authorBulletin = onSchedule(
       if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
       const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
 
+      // Salt veri — gerekçe morningBriefing içinde açıklandı.
+      // FCM `data` alanındaki her değer string olmak ZORUNDA; boş dönebilecek
+      // alanlar bu yüzden yedekli.
       const message = {
-        notification: {
+        data: {
           title: `Yeni Yazar Analizi: ${article.source_name} ✍️`,
-          body: toPlainText(article.title),
+          body: toPlainText(article.title) || 'Yeni bir yazar analizi yayımlandı.',
+          path: `/haber/${article.id}`,
         },
-        data: { path: `/haber/${article.id}` },
+        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
+        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
+        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
+        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
+        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
+        webpush: {
+          headers: { Urgency: 'high', TTL: '86400' },
+        },
         tokens: tokens,
       };
 
@@ -557,28 +619,39 @@ export const breakingNewsCheck = onSchedule(
   },
   async (event) => {
     try {
-      // Son 30 dakikayı hesapla
-      const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000);
-      const isoDate = thirtyMinsAgo.toISOString();
-
-      // Son 30 dakikada eklenmiş, is_breaking = true OLAN haberi çek
-      const rows = await supabaseGet(
-        `articles?status=eq.published&is_breaking=is.true&created_at=gte.${isoDate}&select=id,title&order=created_at.desc&limit=1`
-      );
+      // Aday haberi veritabanından "sahiplen": seçme ve damgalama tek atomik
+      // ifadede yapılıyor (bkz. 20260811120000_breaking_news_claim.sql).
+      //
+      // Eskiden burada `created_at >= now() - 30dk` filtresi vardı ve bu,
+      // yayında duran ESKİ bir haberin sonradan son dakika işaretlenmesini hiç
+      // görmüyordu; haber ne kadar önemli olursa olsun bildirim çıkmıyordu.
+      // Artık ölçüt haberin yaşı değil, "bu haber için daha önce bildirim
+      // gönderildi mi" sorusu. Elle tetiklenen çalıştırmalar da bu sayede
+      // beklendiği gibi gönderim yapıyor.
+      const rows = await supabaseRpc('claim_breaking_article');
       const article = Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
 
-      if (!article) return; // Son 30 dk içinde son dakika haberi girilmemiş.
+      if (!article) return; // Bildirilmemiş son dakika haberi yok.
 
       const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
       if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
       const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
 
+      // Salt veri — gerekçe morningBriefing içinde açıklandı.
       const message = {
-        notification: {
+        data: {
           title: '🚨 Son Dakika Gelişmesi',
-          body: toPlainText(article.title),
+          body: toPlainText(article.title) || 'Son dakika gelişmesi yayımlandı.',
+          path: `/haber/${article.id}`,
         },
-        data: { path: `/haber/${article.id}` },
+        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
+        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
+        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
+        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
+        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
+        webpush: {
+          headers: { Urgency: 'high', TTL: '86400' },
+        },
         tokens: tokens,
       };
 

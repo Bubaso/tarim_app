@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -62,10 +62,117 @@
   <meta name="apple-mobile-web-app-title" content="Tarım Portalı">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
+  <!--
+    iOS açılış görselleri. Bunlar olmadan iPhone, ana ekrandan açılan uygulamada
+    kendi ürettiği ekranı (küçük ikon + "Tarım Portalı") gösteriyor; hemen
+    ardından aşağıdaki `#splash` katmanı devreye girdiği için kullanıcı ARKA
+    ARKAYA İKİ farklı açılış ekranı görüyordu.
+
+    Buradaki PNG'ler `#splash`in birebir ekran görüntüsü (bkz.
+    puppeteer_test/generate_ios_splash.js) olduğundan geçiş göze çarpmıyor —
+    tek bir açılış ekranı izlenimi kalıyor.
+
+    iOS yalnızca cihazın piksel boyutuyla TAM eşleşen görseli kullanır; bu
+    yüzden liste cihaz cihaz. Eşleşme olmazsa sessizce kendi ekranına döner.
+    `media` sorgusu sayesinde her cihaz yalnızca kendi görselini indirir.
+
+    CSS değişirse görselleri yeniden üretin:
+      ORIGIN=http://localhost:8914 node puppeteer_test/generate_ios_splash.js
+  -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-640x1136.png"
+        media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- SE 1 / 5s -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-750x1334.png"
+        media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- 6 / 7 / 8 / SE 2-3 -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1242x2208.png"
+        media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 6+ / 7+ / 8+ -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1125x2436.png"
+        media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- X / XS / 11 Pro / 13 mini -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-828x1792.png"
+        media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- XR / 11 -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1242x2688.png"
+        media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- XS Max / 11 Pro Max -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1080x2340.png"
+        media="screen and (device-width: 360px) and (device-height: 780px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 12 mini -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1170x2532.png"
+        media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 12 / 13 / 14 -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1179x2556.png"
+        media="screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 14 Pro / 15 / 16 -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1206x2622.png"
+        media="screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 16 Pro -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1284x2778.png"
+        media="screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 12-13 Pro Max / 14 Plus -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1290x2796.png"
+        media="screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 14 Pro Max / 15-16 Plus -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1320x2868.png"
+        media="screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">  <!-- 16 Pro Max -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1536x2048.png"
+        media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- mini / 9.7" -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1620x2160.png"
+        media="screen and (device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- 10.2" -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1640x2360.png"
+        media="screen and (device-width: 820px) and (device-height: 1180px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- 10.9" / Air 4-5 -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1668x2224.png"
+        media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- Air 10.5" -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-1668x2388.png"
+        media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- Pro 11" -->
+  <link rel="apple-touch-startup-image" href="splash/apple-splash-2048x2732.png"
+        media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">  <!-- Pro 12.9" -->
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png?v=2"/>
 
   <link rel="manifest" href="manifest.json">
+
+  <!-- Açılış ekranındaki logo ilk boyanan şey olsun; ayrı bir istek beklemesin. -->
+  <link rel="preload" as="image" href="icons/Icon-512.png">
+
+  <script>
+    // Rota artık adresin `#` sonrasında değil, yolun kendisinde tutuluyor
+    // (bkz. lib/core/utils/url_strategy.dart). Daha önce kopyalanmış ya da yer
+    // imine eklenmiş `/#/haber/123` biçimindeki eski adresler boşa düşmesin
+    // diye açılıştan önce yola çevriliyor. Flutter yüklenmeden çalıştığı için
+    // uygulama doğru rotayla başlıyor, gözle görülür bir sıçrama olmuyor.
+    (function () {
+      var hash = window.location.hash;
+      if (hash.length > 2 && hash.charAt(1) === '/') {
+        window.history.replaceState(null, '', hash.slice(1));
+      }
+    })();
+
+    // Android'de ana ekrandan açılışta Chrome, manifest.json'dan KENDİ açılış
+    // ekranını üretiyor (küçük ikon + "Tarım Portalı"). Bu ekran kapatılamıyor
+    // ve bizim `#splash`imizden önce geliyor; ikisi birden gösterilince
+    // kullanıcı arka arkaya iki farklı açılış ekranı görüyor. Chrome'unki
+    // kaldırılamadığına göre bizimkini atlıyoruz — tek ekran kalsın.
+    //
+    // iOS'ta durum tersine çözülüyor: yukarıdaki `apple-touch-startup-image`
+    // görselleri `#splash`in birebir kopyası olduğu için orada katman kalır.
+    // Masaüstünde yüklü uygulama böyle bir ekran üretmediğinden orası da
+    // kapsam dışı; koşul yalnızca Android'i hedefler.
+    //
+    // `<head>` içinde çalışmak zorunda: gövde boyanmadan karar verilmeli,
+    // yoksa splash bir an görünüp kaybolur.
+    (function () {
+      var standalone = window.matchMedia('(display-mode: standalone)').matches ||
+                       window.matchMedia('(display-mode: fullscreen)').matches ||
+                       window.matchMedia('(display-mode: minimal-ui)').matches ||
+                       window.navigator.standalone === true;
+      if (!standalone) return;
+
+      if (/Android/i.test(navigator.userAgent)) {
+        document.documentElement.className += ' no-splash';
+        return;
+      }
+
+      // iOS: startup görseli, giriş animasyonu bittikten SONRAKİ durgun hâlin
+      // fotoğrafı. HTML katmanı devralırken animasyonu baştan oynatsa logo bir
+      // kez daha aşağıdan yükselir — tam da kaçındığımız sıçrama. Ana ekrandan
+      // açılışta animasyon kapatılıp doğrudan son kareyle başlanıyor.
+      // Tarayıcı sekmesinde (standalone değil) animasyon olduğu gibi kalır.
+      document.documentElement.className += ' instant-splash';
+    })();
+  </script>
+
   <style>
     html, body {
       margin: 0;
@@ -75,9 +182,89 @@
          (manifest.json'daki background_color ile aynı). */
       background-color: #174E38;
     }
+
+    /* ── Açılış ekranı ────────────────────────────────────────────────────
+       Flutter'ın ilk karesi gelene kadar görünen katman. Marka rengi zaten
+       arka planda vardı; buraya logo ve motto ekleniyor.
+       Kaldırma mantığı sayfanın sonundaki script'te.                        */
+    #splash {
+      position: fixed;
+      inset: 0;
+      z-index: 2147483647;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      background-color: #174E38;
+      transition: opacity 400ms ease-out;
+    }
+
+    #splash.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Android: Chrome'un kendi açılış ekranı zaten gösteriliyor
+       (bkz. yukarıdaki `no-splash` script'i). */
+    .no-splash #splash { display: none; }
+
+    /* Logo koyu yeşil ve kahverengi tonlarda; aynı koyulukta bir zeminde
+       kaybolurdu. Krem daire hem okunurluğu hem de marka paletini koruyor. */
+    #splash-logo {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      background-color: #F6F1E7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+      animation: splash-rise 600ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    }
+
+    #splash-logo img {
+      display: block;
+      width: 108px;
+      height: 108px;
+    }
+
+    #splash-motto {
+      margin: 0;
+      /* Uygulamanın kendi yazı tipleri Flutter ile birlikte geliyor; burada
+         indirme beklemeden çizilebilen sistem yığını kullanılıyor. */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: #F6F1E7;
+      animation: splash-rise 600ms 140ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    }
+
+    @keyframes splash-rise {
+      from { opacity: 0; transform: translateY(12px) scale(0.94); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #splash-logo,
+      #splash-motto { animation: none; }
+      #splash { transition: none; }
+    }
+
+    /* iOS'ta ana ekrandan açılış: startup görseli devralınıyor, giriş
+       animasyonu tekrar oynamamalı (bkz. yukarıdaki `instant-splash`). */
+    .instant-splash #splash-logo,
+    .instant-splash #splash-motto { animation: none; }
   </style>
 </head>
 <body>
+  <div id="splash">
+    <div id="splash-logo"><img src="icons/Icon-512.png" alt="Tarım Portalı"></div>
+    <p id="splash-motto">TARIMIN DOĞRU ADRESİ</p>
+  </div>
+
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
@@ -87,5 +274,35 @@
     * https://docs.flutter.dev/platform-integration/web/initialization
   -->
   <script src="flutter_bootstrap.js" async></script>
+
+  <script>
+    // Açılış ekranı iki koşul birden sağlanınca kalkar:
+    //   1) Flutter ilk karesini çizmiş olmalı  → altında hazır bir sayfa dursun
+    //   2) en az MIN_MS geçmiş olmalı          → hızlı açılışta göz kırpıp
+    //                                            kaybolmasın
+    (function () {
+      var MIN_MS = 3000;
+      var startedAt = Date.now();
+      var done = false;
+
+      function hide() {
+        if (done) return;
+        done = true;
+        var el = document.getElementById('splash');
+        if (!el) return;
+        el.classList.add('is-hidden');
+        // Geçiş bitince DOM'dan çıkar; sayfanın üstünde ölü bir katman kalmasın.
+        setTimeout(function () { el.remove(); }, 500);
+      }
+
+      window.addEventListener('flutter-first-frame', function () {
+        setTimeout(hide, Math.max(0, MIN_MS - (Date.now() - startedAt)));
+      });
+
+      // Güvenlik ağı: ilk kare hiç gelmezse (motor yüklenemedi, ağ koptu)
+      // açılış ekranı sonsuza kadar kalmasın — arkasındaki hata görülebilsin.
+      setTimeout(hide, 20000);
+    })();
+  </script>
 </body>
 </html>

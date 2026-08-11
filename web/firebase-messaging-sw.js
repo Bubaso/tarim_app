@@ -13,39 +13,69 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
+// Sunucu SALT VERİ gönderiyor (functions/index.js). Böylece bildirimi gösteren
+// tek yer burası; SDK'nın otomatik gösterimi devreye girmediği için aynı
+// bildirim iki kez görünmüyor ve tıklama yönlendirmesi bizde kalıyor.
+//
+// `payload.notification` ARTIK OKUNMUYOR: salt veri gönderiminde böyle bir alan
+// yok ve eski kod burada `undefined.title` ile patlardı. Patlayan bir push
+// işleyicisinde tarayıcı kendi jenerik "bu site arka planda güncellendi"
+// bildirimini gösterir.
 messaging.onBackgroundMessage((payload) => {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  
-  // Customize notification here
-  const notificationTitle = payload.notification.title;
-  const notificationOptions = {
-    body: payload.notification.body,
-    icon: '/icons/Icon-192.png',
-    data: payload.data, // Contains routing info (e.g. { path: '/haber/123' })
-  };
+  const data = payload.data || {};
+  const path = data.path || '/';
 
-  return self.registration.showNotification(notificationTitle, notificationOptions);
+  return self.registration.showNotification(data.title || 'Tarım Portalı', {
+    body: data.body || '',
+    icon: '/icons/Icon-192.png',
+    badge: '/icons/Icon-192.png',
+    // Aynı habere ait ikinci bir bildirim yenisiyle değiştirilir, üst üste
+    // yığılmaz. Aynı anda iki push gelirse de tek bildirim kalır.
+    tag: path,
+    renotify: true,
+    data: { path: path },
+  });
 });
 
-self.addEventListener('notificationclick', function(event) {
+self.addEventListener('notificationclick', (event) => {
   event.notification.close();
-  
-  const targetPath = event.notification.data.path || '/';
+
+  const targetPath = (event.notification.data && event.notification.data.path) || '/';
   const urlToOpen = new URL(targetPath, self.location.origin).href;
 
-  event.waitUntil(
-    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((windowClients) => {
-      // Check if there is already a window/tab open with the target URL
-      for (let i = 0; i < windowClients.length; i++) {
-        const client = windowClients[i];
-        if (client.url === urlToOpen && 'focus' in client) {
-          return client.focus();
-        }
+  event.waitUntil((async () => {
+    const windowClients = await clients.matchAll({
+      type: 'window',
+      includeUncontrolled: true,
+    });
+
+    // Zaten habere açık bir pencere varsa yalnızca öne alınır.
+    for (const client of windowClients) {
+      if (client.url === urlToOpen && 'focus' in client) {
+        return client.focus();
       }
-      // If not, open a new window/tab
-      if (clients.openWindow) {
-        return clients.openWindow(urlToOpen);
-      }
-    })
-  );
+    }
+
+    // Açık ama başka bir sayfada duran pencere varsa yolu UYGULAMAYA bildirip
+    // odağı ona veriyoruz; yönlendirmeyi uygulamanın kendi router'ı yapıyor
+    // (bkz. lib/core/utils/sw_messages_web.dart).
+    //
+    // Burada `client.navigate()` KULLANILAMAZ. Spesifikasyon gereği bir pencere
+    // yalnızca kendisini KONTROL EDEN service worker tarafından gezdirilebilir.
+    // Bu worker'ın kapsamı `/firebase-cloud-messaging-push-scope`; uygulama
+    // penceresi ise `/` altında ve bu kayda bağlı değil. Dolayısıyla navigate()
+    // her tarayıcıda TypeError ile reddediliyor, kod sessizce `focus()`a
+    // düşüyor ve kullanıcı hangi sayfadaysa orada kalıyordu. Bildirime
+    // tıklayınca ana sayfanın açılmasının nedeni buydu.
+    const openClient = windowClients.find((c) => 'focus' in c);
+    if (openClient) {
+      openClient.postMessage({ type: 'notification-click', path: targetPath });
+      return openClient.focus();
+    }
+
+    // Uygulama hiç açık değilse tarayıcı doğrudan hedef adreste açar.
+    if (clients.openWindow) {
+      return clients.openWindow(urlToOpen);
+    }
+  })());
 });

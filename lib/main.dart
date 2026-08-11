@@ -11,10 +11,15 @@ import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'core/services/notification_service.dart';
+import 'core/utils/url_strategy.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Rotayı adresin `#` sonrasından yola taşır. `runApp`tan ÖNCE çağrılmak
+  // zorunda: router başlangıç adresini ilk karede okuyor.
+  configureUrlStrategy();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -57,6 +62,10 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Tarım Portalı',
       debugShowCheckedModeBanner: false,
+
+      // Ön planda gelen bildirimi gösterebilmek için; NotificationService
+      // widget ağacının dışından bu anahtarla SnackBar açıyor.
+      scaffoldMessengerKey: appMessengerKey,
 
       // Router API — her sayfa geçişi tarayıcı geçmişine gerçek bir kayıt
       // ekler. iOS'ta kenardan kaydırarak geri gelme hareketinin uygulamadan

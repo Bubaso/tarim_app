@@ -11,6 +11,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  # Adres çubuğundaki `#`i kaldırmak için (bkz. lib/core/utils/url_strategy.dart).
+  flutter_web_plugins:
+    sdk: flutter
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
   flutter_riverpod: ^2.5.1

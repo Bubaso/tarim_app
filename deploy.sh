@@ -85,6 +85,18 @@ node --check functions/index.js
 node --check functions/config.js
 
 echo "▸ Dağıtılıyor (${TARGETS})…"
-firebase deploy --only "$TARGETS"
+# firebase-tools 14.x + Node 24 birleşimi fonksiyon keşfi sırasında varsayılan
+# yığınla bellek taşması veriyor. Belirti yanıltıcıdır: CLI önce
+#   "User code failed to load. Cannot determine backend specification.
+#    Timeout after 10000."
+# der; zaman aşımı büyütülünce asıl hata olan V8 OOM ortaya çıkar. Kod tarafında
+# bir sorun yok — `node --check` yukarıda geçiyor ve modül tek başına 100 ms'de
+# yükleniyor. İki değişken de bu yüzden burada:
+#   NODE_OPTIONS ................ CLI'nin yığın sınırını yükseltir (asıl çözüm)
+#   FUNCTIONS_DISCOVERY_TIMEOUT . soğuk dosya sisteminde ilk modül okuması
+#                                 10 sn'yi aşabiliyor
+NODE_OPTIONS="--max-old-space-size=8192" \
+FUNCTIONS_DISCOVERY_TIMEOUT=120 \
+  firebase deploy --only "$TARGETS"
 
 echo "✓ Bitti — https://tarim-app-2026.web.app"

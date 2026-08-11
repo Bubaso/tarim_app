@@ -1,10 +1,17 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../router/app_router.dart';
+import '../utils/sw_messages.dart';
+
+/// Ön planda gelen bildirimi göstermek için gereken messenger. `MaterialApp`
+/// ağacının dışından (servis içinden) SnackBar göstermenin tek yolu bu.
+final GlobalKey<ScaffoldMessengerState> appMessengerKey =
+    GlobalKey<ScaffoldMessengerState>();
 
 final notificationServiceProvider = Provider<NotificationService>((ref) {
   return NotificationService();
@@ -32,18 +39,17 @@ class NotificationService {
       
       _messaging = FirebaseMessaging.instance;
 
-      // Listen for messages when the app is in foreground
-      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-        if (kDebugMode) {
-          print('Got a message whilst in the foreground!');
-          print('Message data: ${message.data}');
-        }
-        if (message.notification != null) {
-          if (kDebugMode) {
-            print('Message also contained a notification: ${message.notification}');
-          }
-        }
-      });
+      // Uygulama AÇIK ve GÖRÜNÜRKEN gelen bildirimler.
+      //
+      // Tarayıcı bu durumda sistem bildirimini GÖSTERMEZ. Firebase SDK'sının
+      // service worker'daki push işleyicisi önce görünür pencere arıyor, bulursa
+      // bildirimi hiç göstermeden mesajı sayfaya iletip çıkıyor. Yani ön planda
+      // bildirimi göstermek tamamen uygulamanın sorumluluğunda; burası boş
+      // kaldığı sürece uygulamayı açık tutan kullanıcı hiçbir şey görmüyordu.
+      FirebaseMessaging.onMessage.listen(_showForegroundNotification);
+
+      // Bildirime tıklandığında service worker hedef yolu buraya gönderiyor.
+      listenNotificationClicks(appRouter.go);
 
       // Handle clicks when the app is in background but opened
       FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
@@ -59,9 +65,81 @@ class NotificationService {
           _handleMessageClick(message);
         }
       });
+
+      // İzni geçmiş bir oturumda vermiş kullanıcıların token'ı aksi hâlde hiç
+      // kaydedilmez: `requestPermission()` yalnızca soft prompt üzerinden bir
+      // kez çağrılıyor ve `has_requested_notification_permission` işaretlendiği
+      // için bir daha çalışmıyor. Token ayrıca tarayıcı tarafından sessizce
+      // yenilenebiliyor. Bu yüzden her açılışta yeniden eşitliyoruz.
+      await _syncTokenIfPermitted();
     } catch (e) {
-      if (kDebugMode) print('Error initializing notifications: $e');
+      debugPrint('Bildirim servisi başlatılamadı: $e');
     }
+  }
+
+  /// İzin zaten verilmişse token'ı alıp Supabase ile eşitler.
+  Future<void> _syncTokenIfPermitted() async {
+    final messaging = _messaging;
+    if (messaging == null) return;
+
+    final settings = await messaging.getNotificationSettings();
+    if (settings.authorizationStatus != AuthorizationStatus.authorized &&
+        settings.authorizationStatus != AuthorizationStatus.provisional) {
+      return;
+    }
+
+    final token = await messaging.getToken();
+    if (token != null) {
+      await _saveTokenToSupabase(token);
+    }
+    messaging.onTokenRefresh.listen(_saveTokenToSupabase);
+  }
+
+  /// Ön planda gelen bildirimi uygulama içinde gösterir.
+  void _showForegroundNotification(RemoteMessage message) {
+    // Salt veri gönderiyoruz; `notification` alanı yalnızca eski sürümden
+    // kalan bir gönderim olursa devreye girer.
+    final title = message.data['title'] as String? ?? message.notification?.title;
+    final body = message.data['body'] as String? ?? message.notification?.body;
+    final path = message.data['path'] as String?;
+
+    if (title == null && body == null) return;
+
+    final messenger = appMessengerKey.currentState;
+    if (messenger == null) return;
+
+    // Arka arkaya iki bildirim gelirse ikincisi kuyruğa girip dakikalarca
+    // beklemesin; yenisi eskisinin yerini alsın.
+    messenger.clearSnackBars();
+    messenger.showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        duration: const Duration(seconds: 8),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (title != null)
+              Text(
+                title,
+                style: const TextStyle(fontWeight: FontWeight.w700),
+              ),
+            if (body != null)
+              Text(
+                body,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+          ],
+        ),
+        action: path == null
+            ? null
+            : SnackBarAction(
+                label: 'Oku',
+                onPressed: () => appRouter.go(path),
+              ),
+      ),
+    );
   }
 
   void _handleMessageClick(RemoteMessage message) {
@@ -121,41 +199,31 @@ class NotificationService {
 
       if (settings.authorizationStatus == AuthorizationStatus.authorized ||
           settings.authorizationStatus == AuthorizationStatus.provisional) {
-        
-        // Get the token
-        final token = await _messaging!.getToken(
-          // You should pass your actual VAPID key here for production web push
-          // vapidKey: 'YOUR_PUBLIC_VAPID_KEY_HERE', 
-        );
-        
-        if (token != null) {
-          await _saveTokenToSupabase(token);
-        }
-        
-        // Listen for token refreshes
-        _messaging!.onTokenRefresh.listen(_saveTokenToSupabase);
+        await _syncTokenIfPermitted();
         return true;
       }
     } catch (e) {
-      if (kDebugMode) print('Error requesting notification permission: $e');
+      debugPrint('Bildirim izni istenirken hata: $e');
     }
-    
+
     return false;
   }
 
   Future<void> _saveTokenToSupabase(String token) async {
     try {
-      // In a real app, you would associate this with a user_id if they are logged in.
-      // For anonymous users, we just save the token to blast notifications.
+      // Aynı cihaz her açılışta yeniden yazar; `token` birincil anahtar olduğu
+      // için çakışma güncellemeye dönüşür.
       await _supabase.from('push_tokens').upsert({
         'token': token,
         'platform': kIsWeb ? 'web' : defaultTargetPlatform.name,
         'updated_at': DateTime.now().toIso8601String(),
-      });
+      }, onConflict: 'token');
     } catch (e) {
-      if (kDebugMode) {
-        print('Error saving FCM token: $e');
-      }
+      // Bu hata sessiz kalırsa bildirim sistemi hiç çalışmaz ama hiçbir belirti
+      // vermez: kullanıcı izni verir, token alınır, kayıt RLS'e takılır ve
+      // zamanlanmış fonksiyonlar boş listeye gönderim yapar. Bu yüzden
+      // release derlemesinde de yazdırılıyor.
+      debugPrint('FCM token Supabase\'e kaydedilemedi: $e');
     }
   }
 
