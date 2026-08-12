@@ -23,6 +23,13 @@ class NewsArticle {
   final int? heroScore;
   final bool? isHero;
   final int? heroOrder;
+
+  /// Editörün haberi manşete ittiği an.
+  ///
+  /// Sabitleme kalıcı değil, zamanla eriyor; erimenin başlangıcı bu damga.
+  /// `createdAt` bu iş için kullanılamaz — eski bir haberi bugün öne çıkarmak
+  /// isteyen editörün müdahalesi doğduğu anda ölürdü.
+  final DateTime? heroPinnedAt;
   final bool? isBreaking;
   
   // Yeni editoryal alanlar
@@ -57,6 +64,7 @@ class NewsArticle {
     this.heroScore,
     this.isHero,
     this.heroOrder,
+    this.heroPinnedAt,
     this.isBreaking,
     this.spot,
     this.spotEn,
@@ -115,6 +123,9 @@ class NewsArticle {
       heroScore: json['hero_score'] != null ? (json['hero_score'] as num).toInt() : null,
       isHero: json['is_hero'] as bool?,
       heroOrder: json['hero_order'] != null ? (json['hero_order'] as num).toInt() : null,
+      heroPinnedAt: json['hero_pinned_at'] != null
+          ? DateTime.tryParse(json['hero_pinned_at'] as String)
+          : null,
       isBreaking: json['is_breaking'] as bool?,
       spot: json['spot']?.toString(),
       spotEn: json['spot_en']?.toString(),
@@ -150,6 +161,7 @@ class NewsArticle {
       'hero_score': heroScore,
       'is_hero': isHero,
       'hero_order': heroOrder,
+      'hero_pinned_at': heroPinnedAt?.toIso8601String(),
       'is_breaking': isBreaking,
       'spot': spot,
       'spot_en': spotEn,
@@ -184,6 +196,7 @@ class NewsArticle {
     int? heroScore,
     bool? isHero,
     int? heroOrder,
+    DateTime? heroPinnedAt,
     bool? isBreaking,
     String? spot,
     String? spotEn,
@@ -216,6 +229,7 @@ class NewsArticle {
       heroScore: heroScore ?? this.heroScore,
       isHero: isHero ?? this.isHero,
       heroOrder: heroOrder ?? this.heroOrder,
+      heroPinnedAt: heroPinnedAt ?? this.heroPinnedAt,
       isBreaking: isBreaking ?? this.isBreaking,
       spot: spot ?? this.spot,
       spotEn: spotEn ?? this.spotEn,

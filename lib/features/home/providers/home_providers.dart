@@ -8,6 +8,7 @@ import '../data/models/news_article.dart';
 import '../data/models/weather_info.dart';
 import '../data/models/market_data.dart';
 import '../data/repositories/home_repository.dart';
+import 'hero_rotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -155,16 +156,100 @@ bool _articleIsWorld(NewsArticle a) {
 
 // ─── PORTAL SECTION PROVIDERS ──────────────────────────────────────────────────
 
-final _sessionHeroSeed = math.Random().nextInt(1000000);
+// ─── EDİTÖR İTKİSİ ────────────────────────────────────────────────────────────
+//
+// Manşete kimin çıkacağına ve hangi sırada duracağına sistem karar veriyor.
+// `is_hero` bir kilit değil, skoru çarpan bir itki: editör "şunu öne al" der,
+// sistem bunu diğer sinyallerle (tazelik, editör puanı, okuma durumu) birlikte
+// tartar ve gerekirse üstüne yazar.
+//
+// Sabitlemenin sert olduğu hâli denedik ve kırılgan çıktı: işaret elle konuyor,
+// kaldırılması unutuluyor; panelde 21 işaretli haber birikmişti, en eskisi 40
+// günlüktü. Süresiz kilit demek manşetin ilk sırasında aylık bir haber demekti.
+// Raf ömrü koymak da yetmiyordu — ömür dolana kadar sıra yine donuyordu.
+
+// İtki skoru ÇARPMIYOR, haberin YAŞINI geriye alıyor. Çarpan denendi ve
+// ölçeklenmedi: taban skor `hero_score/(yaş+1)^0.8` iki büyüklük mertebesine
+// yayılıyor (canlı veride medyan 0.131, manşete girme eşiği 1.908), dolayısıyla
+// aynı işaret 30 saatlik haberde 3.7x, 143 saatlikte 12.7x gerektiriyordu —
+// tek bir sabit ikisine birden hizmet edemez.
+//
+// Yaşı geriye almak hem editörün kastettiği şey ("bunu bugünün haberi say")
+// hem de kendiliğinden ölçekli: çarpan yok, kalibrasyon sabiti yok.
+
+/// İtkinin haberi "az önce yayımlanmış" saydığı süre (`hero_order` = 1 için).
+///
+/// Bu süre boyunca haber manşetin başında durur, sonra normal yaşlanmaya geçer:
+/// 6 saatlik itkiden 24 saat sonra 18 saatlik bir haber gibi davranır, bir gün
+/// içinde manşetten düşer. Müdahale "o an" geçerli olur, imtiyaza dönüşmez —
+/// unutulan eski işaretler de bu yüzden kendiliğinden zararsızlaşıyor.
+///
+/// Süre `hero_order` ile 6 saatten 2.4 saate iniyor: editörün 1. sıraya koyduğu
+/// haber en uzun, 10. sıraya koyduğu en kısa tutunur.
+const _heroPinGrace = 6.0;
+
+/// Aynı anda itki alabilecek en fazla haber sayısı.
+///
+/// Panel `hero_order`ı 1-10 arası yazdırdığı için editör alışkanlıkla manşetin
+/// onunu birden işaretliyor; itkinin hepsine verilmesi rotasyonu öldürüyordu
+/// (ölçümde ayrı ziyaretlerde farklı ilk sıra 5/6'dan 2/6'ya düşüyordu). Üçle
+/// sınırlamak müdahaleyi "nadir ve küçük" tutuyor: geri kalan işaretler
+/// yok sayılmıyor, sadece normal yaşlarıyla yarışıyorlar.
+const _heroMaxBoosted = 3;
+
+/// İtkinin haberi kaç saat gençleştirdiği.
+double _heroPinRejuvenation(NewsArticle a, DateTime now) {
+  final sincePin = now.difference(a.heroPinnedAt ?? a.createdAt).inMinutes / 60;
+  // Damga ileri tarihliyse (cihaz saati geride) itki tam kabul edilir.
+  if (sincePin <= 0) return 0;
+  final order = (a.heroOrder ?? 5).clamp(1, 10);
+  final grace = _heroPinGrace * (1.0 - 0.6 * (order - 1) / 9.0);
+  return math.max(0.0, sincePin - grace);
+}
+
+/// İtkiyi hak eden haberlerin kimlikleri.
+///
+/// Sıralama "itkisi en diri olan" ölçütüne göre: en son yapılan müdahale ve o
+/// müdahale içinde editörün öne koyduğu sıra kazanır. Eski, unutulmuş işaretler
+/// zaten listenin sonuna düşüyor.
+///
+/// [NewsArticle.heroPinnedAt] yoksa `createdAt`e düşülüyor: kolonun eklendiği
+/// göçten önce işaretlenmiş satırlar için tek makul çıpa o (göç bu satırları
+/// `updated_at`ten geriye doldurur).
+Set<String> _heroBoostedIds(List<NewsArticle> articles, DateTime now) {
+  final flagged = articles.where((a) => a.isHero == true).toList()
+    ..sort((a, b) =>
+        _heroPinRejuvenation(a, now).compareTo(_heroPinRejuvenation(b, now)));
+  return flagged.take(_heroMaxBoosted).map((a) => a.id).toSet();
+}
+
+/// İtki yürürlükteyken `hero_order`ın kendi arasındaki sıralaması.
+///
+/// İtkinin ilk saatlerinde işaretli haberlerin hepsi "sıfır yaşlı" göründüğü
+/// için aralarındaki sırayı yaş ayıramaz. Dar bir çarpan (%35) editörün
+/// tercihini kendi seçtikleri arasında geçerli kılar; işaretsiz haberlere göre
+/// bir avantaj yaratacak kadar büyük değil.
+double _heroPinWeight(NewsArticle a) {
+  final order = (a.heroOrder ?? 5).clamp(1, 10);
+  return 1.0 - 0.35 * (order - 1) / 9.0;
+}
 
 /// Manşet haberleri (Hero Section)
 /// Tüm yayınlanmış, görseli olan haberler — zaman-ağırlıklı skor ile sıralı.
 /// Türkiye haberleri ağırlıklı, dünyadan 1-2, bilim/rapor 1 adet.
+///
+/// Sıra bir ziyaret boyunca sabittir (bkz. [heroSeedProvider]): sayfalar
+/// arasında gezinip geri dönen okuyucu listeyi yerinde bulur. Ziyaret
+/// değiştiğinde tohum yenilenir ve sıra tazelenir.
 final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
   final articlesAsync = ref.watch(latestArticlesProvider);
-  
-  // Sadece oturum başındaki okuma durumunu alıyoruz. 
-  // Böylece uygulama içindeyken okunan haberler sıralamayı anında DEĞİŞTİRMEZ.
+
+  // Ziyaret tohumu: sıralamayı ziyaret boyunca sabit tutan tek kaynak.
+  final seed = ref.watch(heroSeedProvider);
+
+  // Okuma durumunun ziyaret başındaki anlık görüntüsü.
+  // Böylece uygulama içindeyken okunan haberler sıralamayı anında DEĞİŞTİRMEZ;
+  // liste okuyucunun gözü önünde yeniden dizilmez.
   final initialReadIds = ref.watch(initialReadArticlesProvider).valueOrNull ?? {};
 
   return articlesAsync.when(
@@ -177,33 +262,71 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 
       if (withImages.isEmpty) return [];
 
-      // Zaman-ağırlıklı ve oturum-sabit skor hesaplama
-      double heroScore(NewsArticle a) {
-        final ageHours = DateTime.now().difference(a.createdAt).inHours;
-        
-        // Zaman cezasını biraz yumuşattık (1.5 yerine 0.8 üs) ki haberler hemen ölmesin
-        double score = (a.heroScore ?? 5) / math.pow(ageHours + 1, 0.8);
-        
-        // Sadece DÜN veya ÖNCEKİ GÜNLERDE okunanları aşağı çeker
+      // Skorlar tek seferde hesaplanıyor. Önceden karşılaştırıcının içindeydi:
+      // her kıyasta `DateTime.now()` okunuyordu ve saat sınırını geçen bir
+      // sıralamada aynı çiftin iki farklı yanıt vermesi mümkündü.
+      final now = DateTime.now();
+      final boostedIds = _heroBoostedIds(withImages, now);
+
+      // İtkinin tavanı: havuzdaki EN TAZE haberin yaşı. Editörün müdahalesi
+      // eski bir haberi "bugünün haberi" saydırabilir, bugünün haberinden daha
+      // taze saydıramaz.
+      //
+      // Tavan olmadan işaretli haber taze havuzun ÜSTÜNE çıkıyordu ve puan
+      // farkı kıpırtının (±%15) kapatamayacağı kadar açılıyordu: ölçümde dört
+      // ziyaretin dördünde de lider kart aynı haberdi. Yani manşetin ilk sırası
+      // yeniden kilitleniyordu — düzeltmeye çalıştığımız sorunun ta kendisi.
+      // Hizaya çekilen haber taze partiyle aynı kümede yarışıyor: manşete
+      // giriyor ama sırası ziyaretten ziyarete değişiyor.
+      final youngest = withImages
+          .map((a) => now.difference(a.createdAt).inMinutes / 60)
+          .reduce(math.min);
+
+      final scores = <String, double>{};
+      for (final a in withImages) {
+        final ageHours = now.difference(a.createdAt).inMinutes / 60;
+
+        // İtki haberi kendi gerçek yaşından DAHA YAŞLI gösteremez: `min` şart.
+        final effectiveAge = boostedIds.contains(a.id)
+            ? math.min(
+                ageHours, math.max(youngest, _heroPinRejuvenation(a, now)))
+            : ageHours;
+
+        double s = (a.heroScore ?? 5) / math.pow(effectiveAge + 1, 0.8);
+        if (boostedIds.contains(a.id)) s *= _heroPinWeight(a);
+
+        // Okuma cezası itkiden SONRA geliyor: editörün öne aldığı haber
+        // okunduysa 0.1x ile kendi işaretsiz hâlinin de altına düşer.
+        // Kullanıcının davranışı editörün kararını geçersiz kılar.
         if (initialReadIds.contains(a.id)) {
-          score = score * 0.1; 
+          // Okunmuş haber listeden atılmıyor, arkaya düşüyor: başka haber
+          // kalmadığında yine de manşeti dolduruyor.
+          s *= 0.1;
         } else if (ageHours < 24 * 7) {
-          // Oturum bazlı sabit rastgelelik (aynı oturumda hep aynı noise değeri)
-          final random = math.Random(_sessionHeroSeed ^ a.id.hashCode);
-          final noise = random.nextDouble() * 4.0; // 0 ile 4.0 arası rastgele bonus
-          score += noise;
+          // Kıpırtı çarpımsal ve dar (±%15). Önceki hâli 0-4.0 arası TOPLAMSAL
+          // bir bonustu; ölçülen taban skorlar 0.13-2.43 aralığında olduğu için
+          // rastgelelik hem editör puanını hem tazeliği eziyordu — bir haftalık
+          // haber üç saatlik haberi düzenli olarak geçebiliyordu. Çarpımsal
+          // biçim sıralamayı yalnızca yakın rakipler arasında karıştırır.
+          final r = math.Random(seed ^ a.id.hashCode);
+          s *= 0.85 + 0.30 * r.nextDouble();
         }
-        
-        return score;
+
+        scores[a.id] = s;
       }
+
+      double scoreOf(NewsArticle a) => scores[a.id] ?? 0;
 
       const int heroLimit = 10;
       final List<NewsArticle> hero = [];
-      
-      final remaining = List<NewsArticle>.from(withImages);
-      remaining.sort((a, b) => heroScore(b).compareTo(heroScore(a)));
+      final used = <String>{};
 
-      // Bucket'lara ayır
+      // Kotalar manşetin BİLEŞİMİNİ belirliyor: en az bir bilim, en çok iki
+      // dünya haberi gibi. Sıraya karışmıyorlar — liste en sonda skora göre
+      // diziliyor.
+      final remaining = withImages.toList()
+        ..sort((a, b) => scoreOf(b).compareTo(scoreOf(a)));
+
       final turkeyBucket = <NewsArticle>[];
       final worldBucket = <NewsArticle>[];
       final scienceBucket = <NewsArticle>[];
@@ -225,17 +348,29 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
         }
       }
 
-      if (scienceBucket.isNotEmpty && hero.length < heroLimit) hero.add(scienceBucket.first);
-      if (hero.length < heroLimit) hero.addAll(worldBucket.take(math.min(2, heroLimit - hero.length)));
-      if (hero.length < heroLimit) hero.addAll(turkeyBucket.take(math.min(6, heroLimit - hero.length)));
-      if (hero.length < heroLimit) hero.addAll(generalBucket.take(heroLimit - hero.length));
-      
-      if (hero.length < heroLimit) {
-         final stillSeen = hero.map((e) => e.id).toSet();
-         hero.addAll(remaining.where((a) => !stillSeen.contains(a.id)).take(heroLimit - hero.length));
+      void fill(List<NewsArticle> bucket, int quota) {
+        for (final a in bucket) {
+          if (hero.length >= heroLimit || quota <= 0) return;
+          if (!used.add(a.id)) continue;
+          hero.add(a);
+          quota--;
+        }
       }
 
-      return hero.take(heroLimit).toList();
+      fill(scienceBucket, 1);
+      fill(worldBucket, 2);
+      fill(turkeyBucket, 6);
+      fill(generalBucket, heroLimit);
+      // Kotalar dolmadıysa (örneğin hiç Türkiye haberi yoksa) kalanlar skor
+      // sırasıyla tamamlar.
+      fill(remaining, heroLimit);
+
+      // Seçim bittikten sonra sıralama yeniden skora bırakılıyor. Aksi hâlde
+      // kotaların doldurulma sırası manşetin sırası olurdu ve ilk kart hep
+      // bilim haberi olarak sabitlenirdi.
+      hero.sort((a, b) => scoreOf(b).compareTo(scoreOf(a)));
+
+      return hero;
     },
     loading: () => [],
     error: (e, s) => [],

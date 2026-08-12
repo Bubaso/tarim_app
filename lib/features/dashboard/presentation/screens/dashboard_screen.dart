@@ -292,6 +292,19 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       categoryId: _selectedCategoryId,
       geoLocation: geoLocation,
       isBreaking: _isBreaking,
+      contentType: _editingArticle?.contentType,
+      topic: _editingArticle?.topic,
+      region: _editingArticle?.region,
+      heroScore: _editingArticle?.heroScore,
+      isHero: _editingArticle?.isHero,
+      heroOrder: _editingArticle?.heroOrder,
+      spot: _editingArticle?.spot,
+      spotEn: _editingArticle?.spotEn,
+      keyTakeaways: _editingArticle?.keyTakeaways,
+      keyTakeawaysEn: _editingArticle?.keyTakeawaysEn,
+      expertInsight: _editingArticle?.expertInsight,
+      expertInsightEn: _editingArticle?.expertInsightEn,
+      chartData: _editingArticle?.chartData,
     );
 
     // Call submit through repository
@@ -785,6 +798,22 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     );
   }
 
+  Widget _buildInfoRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 110,
+            child: Text(label, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+          ),
+          Expanded(child: Text(value, style: const TextStyle(fontSize: 13))),
+        ],
+      ),
+    );
+  }
+
   // Sub-widget: Submission Form
   Widget _buildSubmissionForm(BuildContext context, ThemeData theme) {
     final categoriesAsyncValue = ref.watch(categoriesFutureProvider);
@@ -835,6 +864,75 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                 style: theme.textTheme.bodySmall?.copyWith(color: theme.hintColor),
               ),
               const Divider(height: 24),
+              
+              if (_editingArticle != null) ...[
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.only(bottom: 24),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primaryContainer.withValues(alpha: 0.2),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.2)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.analytics_rounded, color: theme.colorScheme.primary),
+                          const SizedBox(width: 8),
+                          Text(
+                            'AI Haber Analiz Raporu',
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(height: 24),
+                      _buildInfoRow('Kaynak:', _editingArticle!.sourceName ?? 'Bilinmiyor'),
+                      if (_editingArticle!.sourceUrl != null && _editingArticle!.sourceUrl!.isNotEmpty)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                width: 110,
+                                child: Text('Orijinal Link:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
+                              ),
+                              Expanded(
+                                child: InkWell(
+                                  onTap: () => _launchUrl(_editingArticle!.sourceUrl!),
+                                  child: Text(
+                                    _editingArticle!.sourceUrl!,
+                                    style: const TextStyle(color: Colors.blue, decoration: TextDecoration.underline, fontSize: 13),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      _buildInfoRow('Tarih:', _editingArticle!.createdAt.toLocal().toString().substring(0, 16)),
+                      _buildInfoRow('İçerik Niteliği:', _editingArticle!.contentType ?? 'Haber'),
+                      _buildInfoRow('Konu (Topic):', _editingArticle!.topic ?? 'Genel'),
+                      _buildInfoRow('Bölge:', _editingArticle!.region ?? 'Türkiye/Dünya'),
+                      if (_editingArticle!.heroScore != null)
+                        _buildInfoRow('Manşet Değeri:', '${_editingArticle!.heroScore}/10'),
+                      if (_editingArticle!.seoKeywords != null && _editingArticle!.seoKeywords!.isNotEmpty)
+                        _buildInfoRow('SEO Etiketleri:', _editingArticle!.seoKeywords!.join(', ')),
+                      const SizedBox(height: 8),
+                      Text(
+                        '* Haber yayına girmeden önce aşağıdaki formdan AI tarafından atanmış kategoriyi (örn: Tarım, Ekonomi vs.) ve diğer tüm alanları değiştirebilirsiniz.',
+                        style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.primary, fontStyle: FontStyle.italic),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
               
               // Turkish Title
               TextFormField(

@@ -12,6 +12,8 @@ import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'core/services/notification_service.dart';
 import 'core/utils/url_strategy.dart';
+import 'features/home/providers/hero_rotation.dart';
+import 'features/home/providers/home_providers.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -45,18 +47,73 @@ void main() async {
     }
   });
 
+  // Manşet tohumu `runApp`tan önce okunuyor: ilk kare doğru sırayla çizilsin,
+  // liste gözün önünde yeniden dizilmesin.
+  final visit = await VisitTracker.beginVisit();
+
   runApp(
-    const ProviderScope(
-      child: MyApp(),
+    ProviderScope(
+      overrides: [
+        heroSeedProvider.overrideWith(() => HeroSeed(visit.seed)),
+      ],
+      child: const MyApp(),
     ),
   );
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  /// Uygulama öne geldiğinde ziyaretin hâlâ sürüp sürmediğine bakar.
+  ///
+  /// Ana ekrandan açılan bir PWA arka planda dondurulup geri getiriliyor;
+  /// süreç ölmediği için `main` bir daha çalışmıyor. Rotasyonun tek tetikleyicisi
+  /// burası: aradan [VisitTracker.visitGap] geçtiyse tohum yenilenir ve okuma
+  /// durumu tazelenir — okuyucunun az önce okuduğu haber artık manşetin başında
+  /// durmaz.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      // Boşluk, okuyucunun ayrıldığı andan itibaren ölçülmeli.
+      VisitTracker.markActive();
+      return;
+    }
+
+    VisitTracker.beginVisit().then((visit) {
+      if (!mounted || !visit.isNewVisit) return;
+
+      // Haber havuzu tek seferlik bir sorguyla dolduruluyor (`asStream`), yani
+      // uygulama açık kaldığı sürece yeni yayımlanan haberleri hiç görmüyor.
+      // Yeni ziyaret, havuzun yeniden çekilmesi için de doğru an: aradan geçen
+      // sürede yayımlananlar sıraya kendi tazelik puanlarıyla giriyor.
+      ref.invalidate(latestArticlesProvider);
+
+      ref.read(heroSeedProvider.notifier).rotate(visit.seed);
+      // Okunanlar anlık görüntüsü ziyaret başında alınıyor; bu olmadan bugün
+      // okunan haber ancak süreç ölünce sıradan düşerdi.
+      ref.invalidate(initialReadArticlesProvider);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final currentLocale = ref.watch(localeProvider);
 
     return MaterialApp.router(

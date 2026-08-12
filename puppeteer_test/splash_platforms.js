@@ -1,11 +1,11 @@
 // Açılış ekranının platform davranışını doğrular.
 //
-// Beklenen (bkz. web/index.html'deki `no-splash` / `instant-splash` script'i):
+// Beklenen (bkz. web/index.html'deki `instant-splash` script'i):
 //   • tarayıcı sekmesi        → splash görünür, giriş animasyonu oynar
 //   • iOS ana ekran           → splash görünür, animasyon YOK (startup görseli
 //                               zaten son kareyi gösterdi, tekrar oynamamalı)
-//   • Android ana ekran       → splash HİÇ çizilmez (Chrome kendi ekranını
-//                               gösteriyor, ikinci bir ekran olmasın)
+//   • Android ana ekran       → splash görünür, animasyon oynar (orada startup
+//                               görseli diye bir şey yok)
 //
 // Kullanım: ORIGIN=http://localhost:8914 node splash_platforms.js
 const puppeteer = require('puppeteer');
@@ -21,7 +21,7 @@ const CASES = [
   { name: 'Sekme (iOS)',      ua: IOS_UA,     standalone: false, splash: true,  anim: true },
   { name: 'Ana ekran (iOS)',  ua: IOS_UA,     standalone: true,  splash: true,  anim: false },
   { name: 'Sekme (Android)',  ua: ANDROID_UA, standalone: false, splash: true,  anim: true },
-  { name: 'Ana ekran (Android)', ua: ANDROID_UA, standalone: true, splash: false },
+  { name: 'Ana ekran (Android)', ua: ANDROID_UA, standalone: true, splash: true, anim: true },
 ];
 
 // `display-mode: standalone` CDP ile taklit edilemiyor (Emulation.setEmulatedMedia

@@ -670,11 +670,17 @@ class HomeRepository {
   }
 
   /// Updates the hero status and order of an article.
+  ///
+  /// `hero_pinned_at` her işaretlemede tazeleniyor: sabitleme kalıcı bir kilit
+  /// değil, verildiği andan itibaren eriyen bir itki. Editör aynı haberi
+  /// yeniden öne çıkarırsa itki de yeniden dolar.
   Future<bool> updateHeroStatus(String id, bool isHero, int? heroOrder) async {
     try {
       await _supabaseClient.from('articles').update({
         'is_hero': isHero,
         'hero_order': heroOrder,
+        'hero_pinned_at':
+            isHero ? DateTime.now().toUtc().toIso8601String() : null,
       }).eq('id', id);
       return true;
     } catch (e) {
@@ -686,10 +692,12 @@ class HomeRepository {
   /// Batch updates the hero orders.
   Future<bool> batchUpdateHeroOrders(List<Map<String, dynamic>> updates) async {
     try {
+      final pinnedAt = DateTime.now().toUtc().toIso8601String();
       for (final update in updates) {
         await _supabaseClient.from('articles').update({
           'is_hero': true,
           'hero_order': update['hero_order'],
+          'hero_pinned_at': pinnedAt,
         }).eq('id', update['id']);
       }
       return true;

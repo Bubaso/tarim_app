@@ -20,6 +20,19 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
 
   <!--
+    Flutter'ın web şablonu bu etiketi index.html'den çıkarmış; motor aynısını
+    çalışma anında kendisi ekliyor. Ama MOTOR YÜKLENENE KADAR geçen sürede
+    mobil tarayıcılar 980 px'lik masaüstü düzenini varsayıp sayfayı ekrana
+    sığdırmak için küçültüyor: aşağıdaki `#splash` katmanı önce ~%40 boyutunda
+    çiziliyor, motor meta'yı ekleyince bir anda tam boya sıçrıyor. Kullanıcı
+    arka arkaya iki farklı büyüklükte açılış ekranı görüyordu.
+
+    İçerik, motorun eklediğiyle birebir aynı; motor sonradan kendi etiketini
+    eklediğinde düzen değişmiyor.
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!--
     ┌─────────────────────────────────────────────────────────────────────┐
     │  DİKKAT: Aşağıdaki iki işaret arasındaki blok, `/haber/**` adresleri │
     │  için `functions/index.js` (ogRenderer) tarafından çalışma anında    │
@@ -139,37 +152,25 @@
       }
     })();
 
-    // Android'de ana ekrandan açılışta Chrome, manifest.json'dan KENDİ açılış
-    // ekranını üretiyor (küçük ikon + "Tarım Portalı"). Bu ekran kapatılamıyor
-    // ve bizim `#splash`imizden önce geliyor; ikisi birden gösterilince
-    // kullanıcı arka arkaya iki farklı açılış ekranı görüyor. Chrome'unki
-    // kaldırılamadığına göre bizimkini atlıyoruz — tek ekran kalsın.
+    // iOS'ta ana ekrandan açılışta önce yukarıdaki `apple-touch-startup-image`
+    // gösteriliyor: bu görsel, `#splash`in giriş animasyonu BİTTİKTEN sonraki
+    // durgun hâlinin fotoğrafı. HTML katmanı devralırken animasyonu baştan
+    // oynatsa logo bir kez daha aşağıdan yükselirdi. O yüzden orada animasyon
+    // kapatılıp doğrudan son kareyle başlanıyor.
     //
-    // iOS'ta durum tersine çözülüyor: yukarıdaki `apple-touch-startup-image`
-    // görselleri `#splash`in birebir kopyası olduğu için orada katman kalır.
-    // Masaüstünde yüklü uygulama böyle bir ekran üretmediğinden orası da
-    // kapsam dışı; koşul yalnızca Android'i hedefler.
+    // Başka hiçbir yerde geçerli değil: sekmede ve Android'de startup görseli
+    // diye bir şey yok, animasyon olduğu gibi oynar.
     //
     // `<head>` içinde çalışmak zorunda: gövde boyanmadan karar verilmeli,
-    // yoksa splash bir an görünüp kaybolur.
+    // yoksa animasyon bir an başlayıp kesilir.
     (function () {
       var standalone = window.matchMedia('(display-mode: standalone)').matches ||
                        window.matchMedia('(display-mode: fullscreen)').matches ||
                        window.matchMedia('(display-mode: minimal-ui)').matches ||
                        window.navigator.standalone === true;
-      if (!standalone) return;
-
-      if (/Android/i.test(navigator.userAgent)) {
-        document.documentElement.className += ' no-splash';
-        return;
-      }
-
-      // iOS: startup görseli, giriş animasyonu bittikten SONRAKİ durgun hâlin
-      // fotoğrafı. HTML katmanı devralırken animasyonu baştan oynatsa logo bir
-      // kez daha aşağıdan yükselir — tam da kaçındığımız sıçrama. Ana ekrandan
-      // açılışta animasyon kapatılıp doğrudan son kareyle başlanıyor.
-      // Tarayıcı sekmesinde (standalone değil) animasyon olduğu gibi kalır.
-      document.documentElement.className += ' instant-splash';
+      var ios = /iP(hone|ad|od)/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      if (standalone && ios) document.documentElement.className += ' instant-splash';
     })();
   </script>
 
@@ -204,10 +205,6 @@
       opacity: 0;
       pointer-events: none;
     }
-
-    /* Android: Chrome'un kendi açılış ekranı zaten gösteriliyor
-       (bkz. yukarıdaki `no-splash` script'i). */
-    .no-splash #splash { display: none; }
 
     /* Logo koyu yeşil ve kahverengi tonlarda; aynı koyulukta bir zeminde
        kaybolurdu. Krem daire hem okunurluğu hem de marka paletini koruyor. */
