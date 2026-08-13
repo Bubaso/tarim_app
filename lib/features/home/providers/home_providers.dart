@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/network/supabase_client.dart';
+import '../../../core/utils/iso_week.dart';
 import '../../../core/utils/localization_helper.dart';
 import '../data/models/ai_suggestion.dart';
 import '../data/models/news_article.dart';
@@ -51,6 +52,38 @@ final readArticlesProvider = NotifierProvider<ReadArticlesNotifier, Set<String>>
 final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   final repository = ref.watch(homeRepositoryProvider);
   return repository.watchLatestArticles();
+});
+
+/// "Son Okuduklarınız" şeridinde gösterilecek en fazla haber sayısı.
+const _recentlyReadLimit = 10;
+
+/// Okuyucunun en son okuduğu haberler — yeniden eskiye.
+///
+/// Manşetteki okuma cezası okunmuş haberi bilinçli olarak geriye itiyor; bu
+/// şerit onun karşılığı: "gördüğüm haberi bir daha bulamıyorum" şikâyetinin
+/// asıl cevabı burada. Ceza haberi listeden düşürüyor, şerit onu geri getiriyor.
+///
+/// Yeni depolama yok: `read_articles` zaten ekleme sırasını koruyan bir liste
+/// olarak diskte duruyor, sondan başa okumak "en son okunan" demek.
+///
+/// Manşetten farklı olarak **canlı** [readArticlesProvider] kullanılıyor —
+/// okunan haber şeride hemen düşsün diye. (Manşet oturum başı anlık görüntüyü
+/// kullanıyor ki liste okuyucunun gözü önünde yeniden dizilmesin.)
+final recentlyReadArticlesProvider = Provider<List<NewsArticle>>((ref) {
+  final readIds = ref.watch(readArticlesProvider);
+  if (readIds.isEmpty) return const [];
+
+  final articles = ref.watch(latestArticlesProvider).valueOrNull;
+  if (articles == null) return const [];
+
+  final byId = {for (final a in articles) a.id: a};
+
+  // Havuzdan düşmüş (silinmiş ya da yayından kaldırılmış) kimlikler eleniyor.
+  return readIds.toList().reversed
+      .map((id) => byId[id])
+      .whereType<NewsArticle>()
+      .take(_recentlyReadLimit)
+      .toList();
 });
 
 /// Okunan haberin ardından önerilecek tek haber ("Sonraki haber" kartı).
@@ -116,6 +149,19 @@ final nextArticleProvider =
     if (a.id != currentId) return a;
   }
   return null;
+});
+
+/// Bir ISO haftasında yayımlanan haberler (`/hafta/:slug`).
+///
+/// `family` anahtarı [IsoWeek]; sınıf değer eşitliği taşıdığı için aynı hafta
+/// iki kez istendiğinde sorgu tekrarlanmıyor.
+///
+/// Sıralama bilinçli olarak burada değil sunum katmanında: bu provider yalnızca
+/// haftanın penceresini getirir, "öne çıkan hangisi" ayrı bir karar.
+final weeklyRecapProvider =
+    FutureProvider.family<List<NewsArticle>, IsoWeek>((ref, week) {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.fetchArticlesBetween(week.startUtc, week.endUtc);
 });
 
 /// Fetches a single article by id — used for `/haber/:id` deep links.
@@ -196,6 +242,28 @@ const _heroPinGrace = 6.0;
 /// sınırlamak müdahaleyi "nadir ve küçük" tutuyor: geri kalan işaretler
 /// yok sayılmıyor, sadece normal yaşlarıyla yarışıyorlar.
 const _heroMaxBoosted = 3;
+
+/// Manşetin kıpırtıya KAPALI tepe bölgesi.
+///
+/// Kıpırtı (±%15) bu sıraların dışında kalıyor. Amaç okuyucunun şikâyet ettiği
+/// şey: gördüğü haberi tekrar aradığında ilk kartların yerinde durması. Taban
+/// skor tohumdan bağımsız olduğu için bu üç sıra ziyaretten ziyarete DEĞİŞMEZ;
+/// yalnızca haberler yaşlandıkça ya da yeni haber girdikçe değişir.
+///
+/// Kuyruk (4-10) eskisi gibi karışmaya devam ediyor: rotasyonun asıl işlevi
+/// olan "her ziyarette farklı haberler görme" orada korunuyor.
+const _heroStableTop = 3;
+
+/// Okunmuş haberin skoruna uygulanan çarpan.
+///
+/// Önceden 0.1'di ve haberi manşetten tamamen siliyordu; okuduğu bir habere
+/// geri dönmek isteyen okuyucunun ana sayfada onu bulmasının hiçbir yolu
+/// kalmıyordu. 0.35 aynı işi daha yumuşak yapıyor: okunan haber belirgin
+/// biçimde geriye düşüyor ama listeden yok olmuyor.
+///
+/// Not: geri dönüşün asıl yolu artık ana sayfadaki "Son Okuduklarınız" şeridi.
+/// Bu çarpan yalnızca manşetin kendini tekrar etmesini engelliyor.
+const _readPenalty = 0.35;
 
 /// İtkinin haberi kaç saat gençleştirdiği.
 double _heroPinRejuvenation(NewsArticle a, DateTime now) {
@@ -282,7 +350,10 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
           .map((a) => now.difference(a.createdAt).inMinutes / 60)
           .reduce(math.min);
 
-      final scores = <String, double>{};
+      // ── 1. geçiş: kıpırtısız taban skorlar ────────────────────────────
+      // Taban skor TOHUMDAN BAĞIMSIZ. Bu, aşağıdaki sabit tepe bölgesinin
+      // ziyaretten ziyarete değişmemesini sağlayan şey.
+      final base = <String, double>{};
       for (final a in withImages) {
         final ageHours = now.difference(a.createdAt).inMinutes / 60;
 
@@ -296,23 +367,47 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
         if (boostedIds.contains(a.id)) s *= _heroPinWeight(a);
 
         // Okuma cezası itkiden SONRA geliyor: editörün öne aldığı haber
-        // okunduysa 0.1x ile kendi işaretsiz hâlinin de altına düşer.
-        // Kullanıcının davranışı editörün kararını geçersiz kılar.
-        if (initialReadIds.contains(a.id)) {
-          // Okunmuş haber listeden atılmıyor, arkaya düşüyor: başka haber
-          // kalmadığında yine de manşeti dolduruyor.
-          s *= 0.1;
-        } else if (ageHours < 24 * 7) {
-          // Kıpırtı çarpımsal ve dar (±%15). Önceki hâli 0-4.0 arası TOPLAMSAL
-          // bir bonustu; ölçülen taban skorlar 0.13-2.43 aralığında olduğu için
-          // rastgelelik hem editör puanını hem tazeliği eziyordu — bir haftalık
-          // haber üç saatlik haberi düzenli olarak geçebiliyordu. Çarpımsal
-          // biçim sıralamayı yalnızca yakın rakipler arasında karıştırır.
-          final r = math.Random(seed ^ a.id.hashCode);
-          s *= 0.85 + 0.30 * r.nextDouble();
+        // okunduysa kendi işaretsiz hâlinin de altına düşer. Kullanıcının
+        // davranışı editörün kararını geçersiz kılar.
+        if (initialReadIds.contains(a.id)) s *= _readPenalty;
+
+        base[a.id] = s;
+      }
+
+      // ── 2. geçiş: kıpırtı YALNIZCA kuyruğa ────────────────────────────
+      final ranked = withImages.toList()
+        ..sort((a, b) => (base[b.id] ?? 0).compareTo(base[a.id] ?? 0));
+
+      final stableCount = math.min(_heroStableTop, ranked.length);
+      final stableIds = ranked.take(stableCount).map((a) => a.id).toSet();
+
+      // Kuyruğun tavanı: sabit bölgenin en düşük skorunun hemen altı. Kıpırtı
+      // en fazla 1.15x çarpabildiği için bu tavan olmadan 4. sıradaki haber
+      // 3.'yü geçebilir ve "tepe sabit" sözü tutulmazdı.
+      final ceiling = stableCount > 0
+          ? (base[ranked[stableCount - 1].id] ?? 0) * 0.999
+          : double.infinity;
+
+      final scores = <String, double>{};
+      for (final a in withImages) {
+        final s = base[a.id] ?? 0;
+        final ageHours = now.difference(a.createdAt).inMinutes / 60;
+
+        // Sabit bölge, okunmuşlar ve bir haftadan eskiler kıpırdamıyor.
+        if (stableIds.contains(a.id) ||
+            initialReadIds.contains(a.id) ||
+            ageHours >= 24 * 7) {
+          scores[a.id] = s;
+          continue;
         }
 
-        scores[a.id] = s;
+        // Kıpırtı çarpımsal ve dar (±%15). Önceki hâli 0-4.0 arası TOPLAMSAL
+        // bir bonustu; ölçülen taban skorlar 0.13-2.43 aralığında olduğu için
+        // rastgelelik hem editör puanını hem tazeliği eziyordu — bir haftalık
+        // haber üç saatlik haberi düzenli olarak geçebiliyordu. Çarpımsal
+        // biçim sıralamayı yalnızca yakın rakipler arasında karıştırır.
+        final r = math.Random(seed ^ a.id.hashCode);
+        scores[a.id] = math.min(s * (0.85 + 0.30 * r.nextDouble()), ceiling);
       }
 
       double scoreOf(NewsArticle a) => scores[a.id] ?? 0;

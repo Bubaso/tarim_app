@@ -12,6 +12,7 @@ import '../../../../core/network/supabase_client.dart';
 import '../../../auth/presentation/screens/login_screen.dart';
 import '../../../dashboard/presentation/screens/dashboard_screen.dart';
 import '../../../dashboard/presentation/widgets/market_ticker.dart';
+import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import '../../../../core/services/notification_service.dart';
@@ -397,7 +398,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
             tooltip: 'Hesap Menüsü',
             onSelected: (value) async {
-              if (value == 'login') {
+              if (value == 'settings') {
+                pushScreen(context, const SettingsScreen());
+              } else if (value == 'login') {
                 pushScreen(context, const LoginScreen(),
                 );
               } else if (value == 'dashboard') {
@@ -416,6 +419,18 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               }
             },
             itemBuilder: (context) => [
+              // Oturumdan bağımsız: ayarlar okuyucunun kendi tercihleri,
+              // editör hesabıyla ilgisi yok.
+              PopupMenuItem(
+                value: 'settings',
+                child: Row(
+                  children: [
+                    Icon(Icons.notifications_outlined, color: theme.colorScheme.primary, size: 20),
+                    const SizedBox(width: 8),
+                    Text(currentLocale.languageCode == 'en' ? 'Notifications & Language' : 'Bildirimler ve Dil', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                  ],
+                ),
+              ),
               if (user == null)
                 PopupMenuItem(
                   value: 'login',
@@ -485,6 +500,7 @@ class _MobileContent extends ConsumerWidget {
           IosPwaPrompt(isDark: isDark),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 28),
+          _RecentlyReadSection(isDark: isDark, spacing: 28),
           YYTDosyasiSection(isDark: isDark),
           const SizedBox(height: 28),
           _TurkeyNewsSection(isDark: isDark),
@@ -535,6 +551,7 @@ class _TabletContent extends ConsumerWidget {
           IosPwaPrompt(isDark: isDark),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 36),
+          _RecentlyReadSection(isDark: isDark, spacing: 36),
           YYTDosyasiSection(isDark: isDark),
           const SizedBox(height: 36),
           _TurkeyNewsSection(isDark: isDark),
@@ -598,6 +615,7 @@ class _DesktopContent extends ConsumerWidget {
                       padding: const EdgeInsets.only(bottom: 40, top: 16),
                       child: _PortalHeroSection(isDark: isDark),
                     ),
+                    _RecentlyReadSection(isDark: isDark, spacing: 40),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
                       child: YYTDosyasiSection(isDark: isDark),
@@ -1036,7 +1054,13 @@ class _LanguageToggle extends ConsumerWidget {
         : AppColors.earthText;
 
     return TextButton(
-      onPressed: () => ref.read(localeProvider.notifier).toggleLocale(),
+      onPressed: () async {
+        ref.read(localeProvider.notifier).toggleLocale();
+        // Dil yalnızca arayüzü değil bildirim metnini de belirliyor; cihaz
+        // kaydı burada güncellenmezse okuyucu bir sonraki bildirimini eski
+        // dilde alırdı (bkz. push_tokens.locale).
+        await ref.read(notificationServiceProvider).syncPreferences();
+      },
       style: TextButton.styleFrom(
         foregroundColor: color,
         minimumSize: const Size(44, 44),
@@ -1495,6 +1519,138 @@ class _SectionContainer extends StatelessWidget {
           child: child,
         ),
       ],
+    );
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  SON OKUDUKLARINIZ BÖLÜMÜ
+// ═══════════════════════════════════════════════════════════════════════════
+
+/// Okuyucunun kendi okuma geçmişi — manşetin hemen altında.
+///
+/// Şikâyet şuydu: "gördüğüm haberi bir daha bulamıyorum." Manşet sıralaması
+/// okunmuş haberi bilinçli olarak geriye itiyor (kendini tekrar etmesin diye);
+/// bu şerit o haberin sabit bir adresi oluyor. Sıralama algoritmasına
+/// dokunmadan şikâyetin en doğrudan cevabı.
+///
+/// Manşetin ÜSTÜNE değil ALTINA konuyor: ana sayfanın işi önce yeni haberi
+/// göstermek. Geçmiş, aranınca bulunan bir şey.
+class _RecentlyReadSection extends ConsumerWidget {
+  final bool isDark;
+
+  /// Bölümden sonraki boşluk. Bölümün KENDİSİ yayıyor, yerleştiği liste değil:
+  /// hiç okunmuş haber yokken (yeni ziyaretçi) geriye tek bir piksel bile
+  /// kalmasın, sayfa eskisiyle birebir aynı görünsün diye.
+  final double spacing;
+
+  const _RecentlyReadSection({required this.isDark, required this.spacing});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(localeProvider);
+    final articles = ref.watch(recentlyReadArticlesProvider);
+    if (articles.isEmpty) return const SizedBox.shrink();
+
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+
+    return Column(
+      children: [
+        _SectionContainer(
+          title: isEn ? 'RECENTLY READ' : 'SON OKUDUKLARINIZ',
+          icon: Icons.auto_stories_rounded,
+          isDark: isDark,
+          child: SizedBox(
+            // Diğer şeritlerden bilerek alçak. Bu bölüm keşif değil geri dönüş
+            // için: kart tanınacak kadar büyük, dikkat çekecek kadar değil.
+            height: 92,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              clipBehavior: Clip.none,
+              itemCount: articles.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 12),
+              itemBuilder: (context, i) => SizedBox(
+                width: 260,
+                child: _RecentlyReadCard(article: articles[i], isDark: isDark),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: spacing),
+      ],
+    );
+  }
+}
+
+class _RecentlyReadCard extends StatelessWidget {
+  final NewsArticle article;
+  final bool isDark;
+
+  const _RecentlyReadCard({required this.article, required this.isDark});
+
+  @override
+  Widget build(BuildContext context) {
+    final a = article;
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final title =
+        (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+
+    final bgColor = isDark ? AppColors.darkGreen : Colors.white;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
+    final titleColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+
+    return Material(
+      color: bgColor,
+      borderRadius: BorderRadius.circular(12),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: borderColor),
+          ),
+          // Yatay düzen: okuyucu bu haberi zaten gördü, büyük görsele ihtiyacı
+          // yok — küçük bir küçük resim onu hatırlatmaya yetiyor.
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              ClipRRect(
+                borderRadius:
+                    const BorderRadius.horizontal(left: Radius.circular(11)),
+                child: SizedBox(
+                  width: 80,
+                  child: NewsArticleImage(
+                    imageUrl: a.imageUrl,
+                    fit: BoxFit.cover,
+                    semanticLabel: title,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      title,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.playfairDisplay(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                        color: titleColor,
+                        height: 1.3,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

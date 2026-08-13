@@ -6,7 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../router/app_router.dart';
+import '../utils/localization_helper.dart';
 import '../utils/sw_messages.dart';
+import 'notification_prefs.dart';
 
 /// Ön planda gelen bildirimi göstermek için gereken messenger. `MaterialApp`
 /// ağacının dışından (servis içinden) SnackBar göstermenin tek yolu bu.
@@ -20,7 +22,12 @@ final notificationServiceProvider = Provider<NotificationService>((ref) {
 class NotificationService {
   FirebaseMessaging? _messaging;
   final SupabaseClient _supabase = Supabase.instance.client;
-  
+
+  /// En son kaydedilen token. Ayarlar ekranında bir anahtar değiştiğinde satırı
+  /// yeniden yazabilmek için tutuluyor; aksi hâlde tercih yalnızca cihazda
+  /// kalır ve sunucu eski hâline göre gönderim yapardı.
+  String? _lastToken;
+
   static const String _hasRequestedPermissionKey = 'has_requested_notification_permission';
   static const String _articlesReadCountKey = 'articles_read_for_notification';
   static const int _articlesRequiredForSoftPrompt = 3;
@@ -49,7 +56,7 @@ class NotificationService {
       FirebaseMessaging.onMessage.listen(_showForegroundNotification);
 
       // Bildirime tıklandığında service worker hedef yolu buraya gönderiyor.
-      listenNotificationClicks(appRouter.go);
+      listenNotificationClicks(_onNotificationClick);
 
       // Handle clicks when the app is in background but opened
       FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
@@ -74,6 +81,47 @@ class NotificationService {
       await _syncTokenIfPermitted();
     } catch (e) {
       debugPrint('Bildirim servisi başlatılamadı: $e');
+    }
+  }
+
+  /// Bildirim tıklamasının tek girişi: önce yönlendirir, sonra ölçer.
+  ///
+  /// Sıra pazarlık konusu değil. `appRouter.go` ilk satırda ve senkron; ölçüm
+  /// kaydı ateşle-unut ve kendi hata kalkanı içinde. Böylece Supabase yavaşlasa
+  /// da, cihaz çevrimdışı olsa da, RPC henüz uygulanmamış olsa da okuyucunun
+  /// habere gidişi bundan hiç etkilenmiyor.
+  ///
+  /// `kind` boş gelebilir: eski bir service worker hâlâ etkinse bildirimin
+  /// verisinde tür yoktur. O durumda yönlendirme yapılır, ölçüm atlanır.
+  void _onNotificationClick(String path, String? kind) {
+    // Okuyucu zaten o adresteyse `go` ÇAĞRILMIYOR: aynı konuma gitmek rotayı
+    // yeniden kurar ve makaledeki kaydırma konumu başa döner. Bu iki durumda
+    // gerçekten oluyor — bildirimdeki haberi zaten açık tutan okuyucu, ve
+    // bildirimle yeni açılan pencerenin açılışta bekleyen tıklamayı sorması.
+    // Ölçüm yine de yazılıyor; tıklama gerçekleşti.
+    if (_currentLocation() != path) appRouter.go(path);
+    if (kind == null) return;
+    _logClick(kind, path);
+  }
+
+  String? _currentLocation() {
+    try {
+      return appRouter.routeInformationProvider.value.uri.toString();
+    } catch (_) {
+      // Router henüz bir konum yayımlamadıysa karşılaştırma yapılamaz;
+      // yönlendirmeyi atlamaktansa yapmak doğru.
+      return null;
+    }
+  }
+
+  Future<void> _logClick(String kind, String path) async {
+    try {
+      await _supabase.rpc(
+        'log_notification_click',
+        params: {'p_kind': kind, 'p_path': path},
+      );
+    } catch (e) {
+      debugPrint('Bildirim tıklaması kaydedilemedi: $e');
     }
   }
 
@@ -209,13 +257,55 @@ class NotificationService {
     return false;
   }
 
-  Future<void> _saveTokenToSupabase(String token) async {
+  /// Tarayıcı/sistem bildirim izni verilmiş mi?
+  ///
+  /// Ayarlar ekranı buna bakıyor: izin yokken anahtarları çalışır göstermek
+  /// yanıltıcı olurdu — kullanıcı hepsini açık bırakıp hiç bildirim almazdı.
+  Future<bool> isPermissionGranted() async {
     try {
+      if (kIsWeb && !await FirebaseMessaging.instance.isSupported()) {
+        return false;
+      }
+      final settings =
+          await (_messaging ?? FirebaseMessaging.instance)
+              .getNotificationSettings();
+      return settings.authorizationStatus == AuthorizationStatus.authorized ||
+          settings.authorizationStatus == AuthorizationStatus.provisional;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// Ayarlar ekranında bir tercih değiştiğinde çağrılır: cihazın satırını
+  /// güncel `kinds` / `locale` ile yeniden yazar.
+  ///
+  /// Token yoksa (izin verilmemiş) sessizce çıkar — kaydedilecek bir cihaz
+  /// yoktur ve tercih zaten diskte duruyor; izin verildiği anda ilk yazımda
+  /// birlikte gider.
+  Future<void> syncPreferences() async {
+    final token = _lastToken;
+    if (token == null) return;
+    await _saveTokenToSupabase(token);
+  }
+
+  Future<void> _saveTokenToSupabase(String token) async {
+    _lastToken = token;
+    try {
+      // Tercihler DİSKTEN okunuyor, Riverpod state'inden değil. Provider henüz
+      // yüklenmemişken okunsaydı cihaz yanlışlıkla "hiçbir şey istemiyorum"
+      // olarak kaydedilebilir ve sessizce bildirim almayı keserdi.
+      //
+      // `null` = kullanıcı hiç seçim yapmadı → sunucu TÜM türleri gönderir.
+      final kinds = await NotificationPrefsNotifier.readSavedKinds();
+      final locale = await effectiveLanguageCode();
+
       // Aynı cihaz her açılışta yeniden yazar; `token` birincil anahtar olduğu
       // için çakışma güncellemeye dönüşür.
       await _supabase.from('push_tokens').upsert({
         'token': token,
         'platform': kIsWeb ? 'web' : defaultTargetPlatform.name,
+        'kinds': kinds?.map((k) => k.wireName).toList(),
+        'locale': locale,
         'updated_at': DateTime.now().toIso8601String(),
       }, onConflict: 'token');
     } catch (e) {

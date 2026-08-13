@@ -798,6 +798,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     );
   }
 
+  Widget _buildBadge(IconData icon, String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: Colors.grey.withValues(alpha: 0.1),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.2)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 14, color: Colors.grey.shade700),
+          const SizedBox(width: 4),
+          Text(text, style: TextStyle(fontSize: 12, color: Colors.grey.shade800, fontWeight: FontWeight.w600)),
+        ],
+      ),
+    );
+  }
+
   Widget _buildInfoRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8.0),
@@ -1375,6 +1394,68 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                                 ),
                               ),
                             ),
+                            if (isReviewing) ...[
+                              const Divider(height: 1),
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Wrap(
+                                      spacing: 8,
+                                      runSpacing: 8,
+                                      children: [
+                                        if (article.sourceName != null)
+                                          _buildBadge(Icons.business_rounded, article.sourceName!),
+                                        if (article.topic != null)
+                                          _buildBadge(Icons.topic_rounded, article.topic!),
+                                        if (article.heroScore != null)
+                                          _buildBadge(Icons.star_rounded, 'Skor: ${article.heroScore}/10'),
+                                        if (article.contentType != null)
+                                          _buildBadge(Icons.article_rounded, article.contentType!),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 16),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        TextButton.icon(
+                                          onPressed: () async {
+                                            final success = await ref.read(homeRepositoryProvider).rejectArticle(article.id);
+                                            if (success && context.mounted) {
+                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                const SnackBar(content: Text('Haber reddedildi ve silindi.')),
+                                              );
+                                              ref.invalidate(latestArticlesProvider);
+                                            }
+                                          },
+                                          icon: const Icon(Icons.delete_outline_rounded, color: Colors.red),
+                                          label: const Text('Reddet', style: TextStyle(color: Colors.red)),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        ElevatedButton.icon(
+                                          onPressed: () async {
+                                            final success = await ref.read(homeRepositoryProvider).approveArticle(article.id);
+                                            if (success && context.mounted) {
+                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                const SnackBar(content: Text('Haber başarıyla yayınlandı.')),
+                                              );
+                                              ref.invalidate(latestArticlesProvider);
+                                            }
+                                          },
+                                          icon: const Icon(Icons.check_circle_outline_rounded),
+                                          label: const Text('Hızlı Onayla'),
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.green.shade600,
+                                            foregroundColor: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                             if (article.status == 'published') ...[
                               const Divider(height: 1),
                               Padding(

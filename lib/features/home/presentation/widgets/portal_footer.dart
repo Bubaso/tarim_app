@@ -7,6 +7,7 @@ import '../screens/about_screen.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../legal/data/legal_documents.dart';
 import '../../../legal/presentation/screens/legal_page_screen.dart';
+import '../../../settings/presentation/screens/settings_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// Footer'daki bir bağlantı: görünen etiket ve gideceği ekran.
@@ -33,6 +34,12 @@ class PortalFooter extends StatelessWidget {
         _link(isEn ? 'About Us' : 'Hakkımızda', const AboutScreen()),
         _legalLink('kunye', isEn),
         _legalLink('iletisim', isEn),
+        // Ayarların ASIL giriş noktası burası. AppBar'daki hesap menüsü
+        // yalnızca masaüstünde çıkıyor, oysa kayıtlı cihazların tamamı
+        // tarayıcı ve çoğu telefon. Footer üç ekranda birden (ana sayfa,
+        // haftalık özet, kategori) ve her ekran boyutunda görünüyor.
+        _link(isEn ? 'Notifications & Language' : 'Bildirimler ve Dil',
+            const SettingsScreen()),
       ];
 
   List<_FooterLink> _legalLinks(bool isEn) => [

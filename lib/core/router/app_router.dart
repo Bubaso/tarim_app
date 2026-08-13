@@ -15,11 +15,14 @@ import '../../features/home/presentation/screens/category_articles_screen.dart';
 import '../../features/home/presentation/screens/financial_terminal_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/home/presentation/screens/weather_detail_screen.dart';
+import '../../features/home/presentation/screens/weekly_recap_screen.dart';
 import '../../features/home/presentation/screens/yyt_dosyasi_screen.dart';
 import '../../features/home/presentation/widgets/ai_columnists.dart';
 import '../../features/home/providers/home_providers.dart';
+import '../utils/iso_week.dart';
 import '../../features/legal/data/legal_documents.dart';
 import '../../features/legal/presentation/screens/legal_page_screen.dart';
+import '../../features/settings/presentation/screens/settings_screen.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -38,6 +41,10 @@ import '../../features/legal/presentation/screens/legal_page_screen.dart';
 String articlePath(String id) => '/haber/$id';
 String columnistPath(String slug) => '/yazar/$slug';
 String categoryPath(String title) => '/kategori/${Uri.encodeComponent(title)}';
+
+/// Haftalık özet — `/hafta/2026-W33`. Haftalık bildirim de bu adrese iniyor
+/// (bkz. `functions/index.js`, `weeklyBriefing`).
+String weekPath(IsoWeek week) => '/hafta/${week.slug}';
 
 /// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
 /// Türkçe karakterli adresler kopyalanıp yapıştırıldığında ve mesajlaşma
@@ -68,10 +75,14 @@ class CategoryArgs {
   if (page is WeatherDetailScreen) {
     return (path: '/hava-durumu', extra: page.weather);
   }
+  if (page is WeeklyRecapScreen) {
+    return (path: weekPath(page.week), extra: null);
+  }
   if (page is AllColumnistsScreen) return (path: '/yazarlar', extra: null);
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
+  if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
   if (page is LegalPageScreen) {
     return (path: legalPath(page.doc.slug), extra: null);
   }
@@ -172,6 +183,21 @@ final appRouter = GoRouter(
       },
     ),
 
+    // Haftalık özet — kategori listelerinin aksine adresten TAMAMEN yeniden
+    // kurulabilir: `2026-W33` haftanın hangi yedi gün olduğunu tek başına
+    // söylüyor, ekran veriyi kendi çekiyor. Haftalık bildirim buraya iniyor ve
+    // bildirime tıklayan okuyucunun uygulaması kapalı olabilir; önbelleğe bağlı
+    // bir rota o durumda ana sayfaya düşerdi.
+    GoRoute(
+      path: '/hafta/:slug',
+      redirect: (context, state) =>
+          IsoWeek.parse(state.pathParameters['slug']!) == null ? '/' : null,
+      pageBuilder: (context, state) => _fadePage(
+        state,
+        WeeklyRecapScreen(week: IsoWeek.parse(state.pathParameters['slug']!)!),
+      ),
+    ),
+
     GoRoute(
       path: '/hava-durumu',
       pageBuilder: (context, state) {
@@ -201,6 +227,13 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/hakkimizda',
       pageBuilder: (context, state) => _fadePage(state, const AboutScreen()),
+    ),
+
+    // Bildirim tercihleri ve dil. Adresten tamamen yeniden kurulabiliyor:
+    // ekran hiçbir argüman almıyor, durumu diskten okuyor.
+    GoRoute(
+      path: '/ayarlar',
+      pageBuilder: (context, state) => _fadePage(state, const SettingsScreen()),
     ),
 
     // Künye, iletişim ve yasal metinler. Rotalar içerik haritasından üretilir;

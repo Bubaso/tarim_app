@@ -152,6 +152,93 @@ function safeImageUrl(raw) {
 /// PostgREST'ten 400 döndürür — boşuna gidiş dönüş yapmadan eleriz.
 const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
+// ─── ISO hafta ─────────────────────────────────────────────────────────────
+//
+// `lib/core/utils/iso_week.dart` ile BİREBİR aynı kuralı uygular. İki taraf
+// aynı yedi günü göstermek zorunda: haftalık bildirim burada bir slug üretiyor,
+// uygulama onu çözüp veriyi kendisi çekiyor. Bir gün kayma, bildirimin işaret
+// ettiği haberin sayfada HİÇ olmaması demek.
+//
+// Hafta sınırları İstanbul duvar saatinde (Pazartesi 00:00) çizilir; ofset
+// sabit +03:00 — Türkiye 2016'dan beri yaz saati uygulamıyor. Değişirse iki
+// dosya birlikte güncellenmeli.
+const ISO_TZ_MS = 3 * 3600 * 1000;
+const DAY_MS = 86400000;
+
+/// Verilen anın ait olduğu ISO haftası: `{ year, week }`.
+///
+/// Kural: bir tarihin haftası, o haftanın PERŞEMBESİNİN düştüğü yılın
+/// haftasıdır. Yıl sınırındaki tuhaflıkları tek başına bu çözer.
+function isoWeekOf(instant) {
+  const local = new Date(instant.getTime() + ISO_TZ_MS);
+  const day = Date.UTC(local.getUTCFullYear(), local.getUTCMonth(), local.getUTCDate());
+  // getUTCDay(): Pazar 0 … Cumartesi 6. ISO'da Pazartesi 1 … Pazar 7.
+  const weekday = new Date(day).getUTCDay() || 7;
+  const thursday = new Date(day + (4 - weekday) * DAY_MS);
+  const jan1 = Date.UTC(thursday.getUTCFullYear(), 0, 1);
+  return {
+    year: thursday.getUTCFullYear(),
+    week: Math.floor((thursday.getTime() - jan1) / (7 * DAY_MS)) + 1,
+  };
+}
+
+/// Haftanın başladığı ve bittiği an (UTC `Date`). Bitiş bir SONRAKİ Pazartesi
+/// 00:00 — sorgularda `<` ile kullanılır.
+///
+/// 4 Ocak her zaman 1. haftadadır; yılın ilk Pazartesi'si oradan geriye
+/// sayılarak bulunur.
+function isoWeekRange({ year, week }) {
+  const jan4 = Date.UTC(year, 0, 4);
+  const jan4Weekday = new Date(jan4).getUTCDay() || 7;
+  const firstMonday = jan4 - (jan4Weekday - 1) * DAY_MS;
+  const start = firstMonday + (week - 1) * 7 * DAY_MS - ISO_TZ_MS;
+  return { start: new Date(start), end: new Date(start + 7 * DAY_MS) };
+}
+
+/// `2026-W33`.
+function isoWeekSlug({ year, week }) {
+  return `${year}-W${String(week).padStart(2, '0')}`;
+}
+
+/// `2026-W33` → `{ year, week }`. Geçersizse `null`.
+///
+/// Hafta numarasının o yıl için gerçekten var olduğu da doğrulanıyor: 28 Aralık
+/// her zaman yılın son haftasına düşer, üst sınır oradan okunuyor.
+function parseIsoWeekSlug(raw) {
+  const match = /^(\d{4})-W(\d{1,2})$/.exec(String(raw ?? '').trim().toUpperCase());
+  if (!match) return null;
+  const year = Number(match[1]);
+  const week = Number(match[2]);
+  if (year < 2000 || year > 2999 || week < 1) return null;
+  const lastWeek = isoWeekOf(new Date(Date.UTC(year, 11, 28, 12))).week;
+  if (week > lastWeek) return null;
+  return { year, week };
+}
+
+const MONTHS_TR = [
+  'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+  'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+];
+
+/// "10 – 16 Ağustos 2026" / "28 Aralık 2026 – 3 Ocak 2027".
+/// Türkçe biçim; sayfanın kendisi iki dilli ama paylaşım kartı `og:locale`
+/// gereği tek dil olmak zorunda ve o dil tr_TR.
+function isoWeekLabel(week) {
+  const { start } = isoWeekRange(week);
+  const a = new Date(start.getTime() + ISO_TZ_MS);
+  const b = new Date(a.getTime() + 6 * DAY_MS);
+
+  const sameYear = a.getUTCFullYear() === b.getUTCFullYear();
+  const sameMonth = sameYear && a.getUTCMonth() === b.getUTCMonth();
+
+  const first = sameMonth
+    ? `${a.getUTCDate()}`
+    : `${a.getUTCDate()} ${MONTHS_TR[a.getUTCMonth()]}` +
+      (sameYear ? '' : ` ${a.getUTCFullYear()}`);
+
+  return `${first} – ${b.getUTCDate()} ${MONTHS_TR[b.getUTCMonth()]} ${b.getUTCFullYear()}`;
+}
+
 /// Supabase REST çağrısı. Zaman aşımı `AbortController` ile; aşılırsa istisna
 /// fırlar ve çağıran taraf etiketsiz kabuğa düşer.
 async function supabaseGet(query, timeoutMs = SUPABASE_TIMEOUT_MS) {
@@ -338,6 +425,72 @@ export const ogRenderer = onRequest(
   },
 );
 
+// ─── /hafta/** ─────────────────────────────────────────────────────────────
+
+/// Haftalık özet sayfasının paylaşım kartı ve sekme başlığı.
+///
+/// Bu adres HAFTALIK BİLDİRİMİN indiği yer. Bildirime tıklayan okuyucunun
+/// uygulaması kapalıysa tarayıcı doğrudan burayı ister; yani bu fonksiyon
+/// yalnızca WhatsApp önizlemesi için değil, bildirimin işe yaraması için de
+/// çalışmak zorunda. Bu yüzden HER hata yolunda kabuk (`SHELL`) 200 ile
+/// dönüyor: meta üretilemese bile uygulama açılıp sayfayı kendisi kuruyor.
+export const weekRenderer = onRequest(
+  { region: REGION, memory: '256MiB', maxInstances: 10, invoker: 'public' },
+  async (req, res) => {
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.set('Cache-Control', ARTICLE_CACHE);
+
+    try {
+      const slug = req.path.split('/').filter(Boolean).pop() ?? '';
+      const week = parseIsoWeekSlug(slug);
+      if (!week) {
+        res.status(200).send(SHELL);
+        return;
+      }
+
+      const { start, end } = isoWeekRange(week);
+      // Sıralama uygulamadaki `_rank` ile aynı: editöryel önem, eşitlikte yeni
+      // olan önde. Karttaki "öne çıkan" ile sayfayı açınca görülen ilk haber
+      // aynı olmalı.
+      const rows = await supabaseGet(
+        'articles?status=eq.published' +
+          `&created_at=gte.${encodeURIComponent(start.toISOString())}` +
+          `&created_at=lt.${encodeURIComponent(end.toISOString())}` +
+          '&select=id,title,image_url' +
+          '&order=hero_score.desc.nullslast,created_at.desc&limit=400',
+      );
+      const articles = Array.isArray(rows) ? rows : [];
+      const top = articles[0] ?? null;
+
+      const label = isoWeekLabel(week);
+      const url = `${SITE_ORIGIN}/hafta/${isoWeekSlug(week)}`;
+      const title = `Haftanın Özeti · ${label}`;
+      const headline = top ? toPlainText(top.title) : '';
+      const description = top
+        ? truncate(
+            `Bu hafta ${articles.length} haber yayımlandı. Öne çıkan: ${headline}`,
+            160,
+          )
+        : `${label} haftasında yayımlanan haberler.`;
+
+      const block = metaTags({
+        title,
+        documentTitle: `${title} | ${SITE_NAME}`,
+        description,
+        image: safeImageUrl(top?.image_url),
+        url,
+        // `article:published_time` YOK: bu bir haber değil, derleme sayfası.
+        type: 'website',
+      });
+
+      res.status(200).send(inject(SHELL, block));
+    } catch (err) {
+      console.error('weekRenderer', err);
+      res.status(200).send(SHELL);
+    }
+  },
+);
+
 // ─── /sitemap.xml ──────────────────────────────────────────────────────────
 
 /// Adresten tamamen yeniden kurulabilen sayfalar. `/kategori/:title` burada
@@ -374,6 +527,23 @@ export const sitemap = onRequest(
         priority: r.priority,
       }),
     );
+
+    // Son 12 haftanın özet sayfaları. Daha eskisine gerek yok: haftalık
+    // derlemenin değeri güncelliğinde ve haberlerin kendisi zaten aşağıda
+    // tek tek listeleniyor. Hafta hesabı ileri sarmak yerine imleci yedişer
+    // gün geriye alarak yapılıyor; böylece yıl sonu ve 53 haftalık yıllar için
+    // ayrı bir kural gerekmiyor.
+    let cursor = new Date();
+    for (let i = 0; i < 12; i++) {
+      entries.push(
+        urlEntry({
+          loc: `${SITE_ORIGIN}/hafta/${isoWeekSlug(isoWeekOf(cursor))}`,
+          changefreq: i === 0 ? 'daily' : 'monthly',
+          priority: i === 0 ? '0.8' : '0.5',
+        }),
+      );
+      cursor = new Date(cursor.getTime() - 7 * DAY_MS);
+    }
 
     try {
       // 5000: sitemap protokolünün üst sınırı 50.000, ama tek dosyada bu kadarı
@@ -415,195 +585,590 @@ export const sitemap = onRequest(
   },
 );
 
-// ─── Sabah Özeti Bildirimleri ──────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+//  Bildirim İÇERİĞİ — yardımcılar
+//
+//  Bu bölüm yalnızca iki soruyu yanıtlar: HANGİ haber ve HANGİ metin.
+//  Gönderim mekanizmasına — salt veri payload'ı, `webpush` başlıkları,
+//  `sendEachForMulticast` çağrısı, service worker'daki gösterim ve tıklama
+//  işleyicisi — dokunulmuyor. O kurulum çalışıyor ve buradaki hiçbir değişiklik
+//  onu değiştirmiyor.
+// ═══════════════════════════════════════════════════════════════════════════
+
+/// Zamanlanmış işler bir okuyucunun isteğini bekletmiyor. Sayfa üretimi için
+/// konan 2.5 saniyelik sınır (`SUPABASE_TIMEOUT_MS`) burada yalnızca gönderim
+/// kaçırtır.
+const NOTIFY_TIMEOUT_MS = 15000;
+
+function hoursAgoIso(hours) {
+  return new Date(Date.now() - hours * 3600 * 1000).toISOString();
+}
+
+/// Manşet sıralamasının aynısı: `hero_score / (yaş+1)^0.8`.
+///
+/// Bildirimin işaret ettiği haber, okuyucu uygulamaya girdiğinde manşetin
+/// başında GÖRECEĞİ haber olmalı. Salt `created_at desc` bunu vermiyordu:
+/// gecenin üçünde çekilmiş sıradan bir haber, sabaha karşı yayımlanmış önemli
+/// bir gelişmenin önüne geçebiliyordu. İki yerde iki farklı "en önemli" tanımı
+/// olması okuyucuya tutarsızlık olarak geri döner.
+function freshnessScore(article) {
+  const ageHours = Math.max(
+    0,
+    (Date.now() - new Date(article.created_at).getTime()) / 3600000,
+  );
+  return (article.hero_score ?? 5) / Math.pow(ageHours + 1, 0.8);
+}
+
+/// Son [hours] saatte bildirimi gönderilmiş haber kimlikleri.
+///
+/// Defter okunamazsa BOŞ küme döner. Tekrar koruması olmadan göndermek, hiç
+/// göndermemekten iyi: defterin işi bildirimi engellemek değil, tekrarını
+/// engellemek.
+async function recentlyNotifiedIds(hours) {
+  try {
+    const rows = await supabaseGet(
+      'notification_log?select=article_id&article_id=not.is.null' +
+        `&sent_at=gte.${encodeURIComponent(hoursAgoIso(hours))}`,
+      NOTIFY_TIMEOUT_MS,
+    );
+    return new Set((rows || []).map((r) => r.article_id));
+  } catch (err) {
+    console.error('Bildirim defteri okunamadı; tekrar koruması atlandı.', err);
+    return new Set();
+  }
+}
+
+/// Bir türün en son ne zaman gönderildiği (epoch ms). Kayıt yoksa 0.
+async function lastSentAt(kind) {
+  try {
+    const rows = await supabaseGet(
+      `notification_log?select=sent_at&kind=eq.${kind}` +
+        '&order=sent_at.desc&limit=1',
+      NOTIFY_TIMEOUT_MS,
+    );
+    if (!Array.isArray(rows) || rows.length === 0) return 0;
+    return new Date(rows[0].sent_at).getTime();
+  } catch (err) {
+    console.error('Bildirim defteri okunamadı; sıklık sınırı atlandı.', err);
+    return 0;
+  }
+}
+
+/// Deftere yaz. Çağıranı HİÇBİR koşulda etkilemez — gönderim çoktan yapıldı,
+/// defterin tutulamaması bildirimin gitmediği anlamına gelmez.
+async function logNotification({ kind, path, title, articleId, success, failure }) {
+  try {
+    await supabaseRpc(
+      'log_notification',
+      {
+        p_kind: kind,
+        p_path: path,
+        p_title: title ?? null,
+        p_article: articleId ?? null,
+        p_success: success ?? 0,
+        p_failure: failure ?? 0,
+      },
+      NOTIFY_TIMEOUT_MS,
+    );
+  } catch (err) {
+    console.error('Bildirim defterine yazılamadı:', err);
+  }
+}
+
+/// Teslim edilemeyeceği KESİN olan token'ların hata kodları.
+///
+/// `messaging/invalid-argument` bilerek listede yok: bu kod bozuk bir payload
+/// için de dönüyor ve o durumda TÜM token'lar için dönerdi. Listeye alınsaydı
+/// tek bir payload hatası bütün aboneleri silerdi.
+const DEAD_TOKEN_CODES = new Set([
+  'messaging/registration-token-not-registered',
+  'messaging/invalid-registration-token',
+]);
+
+/// FCM tek çağrıda en fazla 500 token kabul ediyor.
+const FCM_BATCH = 500;
+
+/// Kayıtlı bütün cihazlar — tercihleriyle birlikte.
+///
+/// Eski kod `limit=500` ile tek sayfa çekiyordu; abone sayısı 500'ü geçtiğinde
+/// sonraki cihazlar sessizce hiç bildirim almazdı. Sayfalama savunmacı: ek
+/// sayfalarda bir hata olursa o ana kadar toplananlarla devam edilir, yani bu
+/// değişiklik hiçbir koşulda eski davranıştan AZ token döndüremez.
+///
+/// `kinds` ve `locale` sütunları bir migration ile geliyor. Sütunlar HENÜZ
+/// yokken bunları seçmek PostgREST'ten 400 aldırır; ilk sayfa hata verdiğinde
+/// gönderilecek bir şey kalmadığı için bu, fonksiyonlar migration'dan önce
+/// dağıtılırsa TÜM bildirimleri durdururdu. Bu yüzden sorgu bir kez de sütunsuz
+/// biçimiyle deneniyor: o hâlde her cihaz "tercih belirtmemiş" sayılır ve
+/// davranış bugünküyle birebir aynı olur.
+async function fetchTokenRows() {
+  const byToken = new Map();
+  let columns = 'token,kinds,locale';
+
+  const page = (sel, offset) =>
+    supabaseGet(
+      `push_tokens?select=${sel}&order=updated_at.desc` +
+        `&limit=${FCM_BATCH}&offset=${offset}`,
+      NOTIFY_TIMEOUT_MS,
+    );
+
+  for (let offset = 0; ; offset += FCM_BATCH) {
+    let rows;
+    try {
+      rows = await page(columns, offset);
+    } catch (err) {
+      if (columns !== 'token') {
+        // Neredeyse kesinlikle "sütun yok" hatası. Sade sorguyla bir kez daha.
+        console.error('Tercih sütunları okunamadı; sade sorguya düşülüyor.', err);
+        columns = 'token';
+        offset -= FCM_BATCH; // Aynı sayfayı tekrar dene.
+        continue;
+      }
+      if (offset === 0) throw err; // İlk sayfa alınamadıysa gönderilecek bir şey yok.
+      console.error('Token sayfalaması yarıda kesildi; eldekiyle devam.', err);
+      break;
+    }
+    if (!Array.isArray(rows) || rows.length === 0) break;
+    // `order=updated_at.desc` sayesinde bir token birden fazla sayfada
+    // görünürse en güncel satırı kazanır.
+    for (const r of rows) {
+      if (r.token && !byToken.has(r.token)) byToken.set(r.token, r);
+    }
+    if (rows.length < FCM_BATCH) break;
+  }
+
+  return [...byToken.values()];
+}
+
+/// Cihaz bu türü istiyor mu?
+///
+/// `kinds` bir dizi DEĞİLSE (NULL, ya da sütun hiç okunamadı) kullanıcı bir
+/// seçim yapmamıştır ve her şeyi alır — yani varsayılan her zaman "gönder"dir.
+/// Dizi ise birebir uygulanır; boş dizi "hiçbirini istemiyorum" demektir ve
+/// öyle davranılır (bkz. push_tokens migration'ındaki NULL/boş ayrımı).
+function wantsKind(row, kind) {
+  return Array.isArray(row.kinds) ? row.kinds.includes(kind) : true;
+}
+
+/// Kayıtlı bütün cihazlara gönderir.
+///
+/// Payload biçimi, `webpush` başlıkları ve `sendEachForMulticast` çağrısı dört
+/// göndericide birebir aynıydı — dört kopya tek kopyaya indi. Gönderim
+/// DAVRANIŞI aynen korundu; bu bir düzenleme, kurulum değişikliği değil.
+///
+/// Sıra kritik: gönderimden ÖNCE yalnızca token listesi okunur. Defter yazımı
+/// ve ölü token temizliği gönderimden SONRA, kendi hata kalkanları içinde
+/// çalışır. Bu iki yenilikten hiçbiri bir bildirimi engelleyemez.
+async function sendToAll({ kind, title, body, titleEn, bodyEn, path, articleId }) {
+  const all = await fetchTokenRows();
+  const rows = all.filter((r) => wantsKind(r, kind));
+  if (rows.length === 0) {
+    console.log(
+      `${kind}: gönderilecek cihaz yok (kayıtlı: ${all.length}).`,
+    );
+    return null;
+  }
+
+  // SALT VERİ (data-only) gönderiliyor — `notification` alanı BİLİNÇLİ olarak
+  // yok. Payload'da `notification` bulunduğunda Firebase JS SDK'sı service
+  // worker içinde şunları yapıyor:
+  //   1. Bildirimi kendisi gösteriyor,
+  //   2. ARDINDAN bizim onBackgroundMessage handler'ımızı da çağırıyor
+  //      → aynı bildirim iki kez görünüyor,
+  //   3. Kendi `notificationclick` işleyicisini devreye sokup
+  //      `stopImmediatePropagation()` çağırıyor → bizim yönlendirme kodumuz hiç
+  //      çalışmıyor ve tıklama ana sayfayı açıyor.
+  // Salt veri gönderince gösterimin ve tıklamanın tek sahibi
+  // web/firebase-messaging-sw.js oluyor.
+  //
+  // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet uyguluyor.
+  // Android'de cihaz Doze (derin uyku) modundayken normal aciliyetli push'lar
+  // cihaz uyanana kadar bekletilebiliyor; haber bildirimi için bu kabul
+  // edilemez bir gecikme. TTL bir gün: bir günden eski bir haber bildirimi
+  // kuyrukta beklemesin.
+  const messaging = getMessaging();
+  let successCount = 0;
+  let failureCount = 0;
+  const dead = [];
+
+  // Metin dile göre ayrılıyor. İngilizce karşılık VERİLMEMİŞSE (ya da boşsa)
+  // İngilizce seçmiş cihaz da Türkçe metni alır: yarım çevrilmiş bir bildirim
+  // yerine anlaşılır bir bildirim. Adres iki grupta da aynı — sayfa zaten
+  // okuyucunun kendi dilinde açılıyor.
+  const filled = (s) => typeof s === 'string' && s.trim().length > 0;
+  const hasEn = filled(titleEn) && filled(bodyEn);
+
+  const trTokens = [];
+  const enTokens = [];
+  for (const r of rows) {
+    if (hasEn && r.locale === 'en') enTokens.push(r.token);
+    else trTokens.push(r.token);
+  }
+
+  // `kind` payload'a giriyor: service worker onu bildirimin verisinde saklıyor
+  // ve tıklandığında uygulamaya geri veriyor (tıklama ölçümü). Gösterim ya da
+  // yönlendirme bu alana BAĞLI DEĞİL — eski bir service worker'a ulaşan yeni
+  // bir bildirim alanı yok sayar ve bugünkü gibi çalışır.
+  const groups = [
+    { tokens: trTokens, data: { title, body, path, kind } },
+    { tokens: enTokens, data: { title: titleEn, body: bodyEn, path, kind } },
+  ];
+
+  for (const group of groups) {
+    for (let i = 0; i < group.tokens.length; i += FCM_BATCH) {
+      const batch = group.tokens.slice(i, i + FCM_BATCH);
+      const response = await messaging.sendEachForMulticast({
+        data: group.data,
+        webpush: { headers: { Urgency: 'high', TTL: '86400' } },
+        tokens: batch,
+      });
+      successCount += response.successCount;
+      failureCount += response.failureCount;
+      response.responses.forEach((r, idx) => {
+        if (!r.success && DEAD_TOKEN_CODES.has(r.error?.code)) dead.push(batch[idx]);
+      });
+    }
+  }
+
+  console.log(
+    `${kind} — başarılı: ${successCount}, başarısız: ${failureCount},` +
+      ` cihaz: ${rows.length} (tr: ${trTokens.length}, en: ${enTokens.length},` +
+      ` kapatan: ${all.length - rows.length})`,
+  );
+
+  // ─── Buradan sonrası teslimatı ETKİLEMEZ ────────────────────────────────
+  await logNotification({
+    kind,
+    path,
+    title,
+    articleId,
+    success: successCount,
+    failure: failureCount,
+  });
+
+  // Ölü kayıt temizliği. `dead.length < rows.length` koşulu güvenlik kemeri:
+  // beklenmedik bir sebeple HER token hata döndürürse hiçbir şey silinmez —
+  // tek bir kötü gönderim abone listesini boşaltamaz.
+  if (dead.length > 0 && dead.length < rows.length) {
+    try {
+      const removed = await supabaseRpc(
+        'prune_push_tokens',
+        { p_tokens: dead },
+        NOTIFY_TIMEOUT_MS,
+      );
+      console.log(`${kind}: ${removed} ölü token kayıttan düşürüldü.`);
+    } catch (err) {
+      console.error('Ölü token temizliği başarısız:', err);
+    }
+  }
+
+  return { successCount, failureCount };
+}
+
+// ─── Günün Gündemi (Her Gün 07:00) ─────────────────────────────────────────
+//
+// Saat 09:30'dan 07:00'a çekildi. Hedef kitle — üretici, tüccar, ziraat
+// mühendisi — iş gününe erken başlıyor ve fiyat/piyasa içeriği iş gününden
+// ÖNCE değerli. 09:30 hem geç kalıyor hem de günün en yoğun saatiyle yarışıyordu.
 export const morningBriefing = onSchedule(
   {
-    schedule: '30 9 * * *',
+    schedule: '0 7 * * *',
     timeZone: 'Europe/Istanbul',
     region: REGION,
     retryCount: 3,
   },
   async (event) => {
     try {
-      // 1. Son 24 saatteki en önemli veya en son 1 haberi çek
+      // 1. SON 24 SAATTE yayımlananlar.
+      //
+      // Eski sorguda zaman penceresi HİÇ YOKTU: `order=created_at.desc&limit=1`.
+      // Yayın akışında üç haftalık bir boşluk gerçekten yaşandı
+      // (2026-07-14 → 08-06) ve o üç hafta boyunca her sabah üç hafta önceki
+      // haber "Sabah Özeti 🌅" başlığıyla gönderildi. Bir haber uygulamasının
+      // güvenilirliğine en çok zarar veren şey budur.
       const rows = await supabaseGet(
-        'articles?status=eq.published&select=id,title,summary&order=created_at.desc&limit=1'
+        'articles?status=eq.published' +
+          `&created_at=gte.${encodeURIComponent(hoursAgoIso(24))}` +
+          '&select=id,title,title_en,image_url,hero_score,created_at,breaking_notified_at' +
+          '&order=created_at.desc&limit=200',
+        NOTIFY_TIMEOUT_MS,
       );
-      const article = Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
 
-      if (!article) {
-        console.log('Gönderilecek haber bulunamadı.');
+      // Dün hiç haber yayımlanmadıysa duyurulacak gündem de yok. Sessizlik
+      // bayat haberden iyi.
+      if (!Array.isArray(rows) || rows.length === 0) {
+        console.log('Günün gündemi: son 24 saatte yayımlanmış haber yok, gönderilmedi.');
         return;
       }
 
-      // 2. Token'ları çek
-      const tokensResponse = await supabaseGet(
-        'push_tokens?select=token&limit=500'
+      // 2. Zaten duyurulmuş olanları ele. Gece son dakika olarak giden haber
+      //    sabah ikinci kez gitmemeli.
+      //
+      //    Defter yeni; ondan eski olan `breaking_notified_at` damgası da ayrıca
+      //    kontrol ediliyor. İkisi de aynı soruyu soruyor, biri geçmişi biliyor.
+      const alreadySent = await recentlyNotifiedIds(24);
+      const breakingCutoff = Date.now() - 24 * 3600 * 1000;
+      const fresh = rows.filter(
+        (a) =>
+          !alreadySent.has(a.id) &&
+          !(
+            a.breaking_notified_at &&
+            new Date(a.breaking_notified_at).getTime() >= breakingCutoff
+          ),
       );
-      
-      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) {
-        console.log('Kayıtlı cihaz bulunamadı.');
+
+      if (fresh.length === 0) {
+        console.log('Günün gündemi: son 24 saatteki her haber zaten duyurulmuş.');
         return;
       }
 
-      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+      // 3. Manşetin kendi kuralıyla seç — okuyucu uygulamaya girdiğinde
+      //    bildirimdeki haberi manşetin başında bulsun.
+      const article = fresh.reduce(
+        (best, a) => (freshnessScore(a) > freshnessScore(best) ? a : best),
+      );
 
-      // 3. Bildirim içeriğini hazırla
-      const title = 'Tarım Portalı - Sabah Özeti 🌅';
-      const body = toPlainText(article.title) || 'Günün öne çıkan gelişmeleri.';
-      
-      // SALT VERİ (data-only) gönderiliyor — `notification` alanı BİLİNÇLİ
-      // olarak yok. Payload'da `notification` bulunduğunda Firebase JS SDK'sı
-      // service worker içinde şunları yapıyor:
-      //   1. Bildirimi kendisi gösteriyor,
-      //   2. ARDINDAN bizim onBackgroundMessage handler'ımızı da çağırıyor
-      //      → aynı bildirim iki kez görünüyor,
-      //   3. Kendi `notificationclick` işleyicisini devreye sokup
-      //      `stopImmediatePropagation()` çağırıyor → bizim yönlendirme
-      //      kodumuz hiç çalışmıyor ve tıklama ana sayfayı açıyor.
-      // Salt veri gönderince gösterimin ve tıklamanın tek sahibi
-      // web/firebase-messaging-sw.js oluyor.
-      const message = {
-        data: {
-          title: title,
-          body: body,
-          path: `/haber/${article.id}`,
-        },
-        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
-        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
-        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
-        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
-        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
-        webpush: {
-          headers: { Urgency: 'high', TTL: '86400' },
-        },
-        tokens: tokens,
-      };
+      // 4. Metin.
+      //
+      // BAŞLIK = haberin manşeti. Eskiden 'Tarım Portalı - Sabah Özeti 🌅'
+      // yazıyordu; işletim sistemi bildirimin üstünde zaten "Tarım Portalı"
+      // gösteriyor, yani ilk 14 karakter her gün tekrarlanan ölü metindi. Her
+      // gün aynı olan bir başlık okuyucuya "bunu görmezden gel" refleksi
+      // öğretir ve manşeti ikinci satıra, yani göz gezdirilmeyen alana iter.
+      //
+      // GÖVDE = teşvik + ölçek. Okuyucu, dokunuşun arkasında tek haber değil
+      // bir gündem olduğunu bilmeli: eski bildirim 51 haberin yayımlandığı bir
+      // günde tek haberden söz ediyor ve kendine "özet" diyordu.
+      const title = truncate(toPlainText(article.title), 140) || 'Günün gündemi';
+      const body =
+        rows.length > 1
+          ? `🌅 Günün gündeminde ${rows.length} haber var — güne buradan başlayın.`
+          : '🌅 Bugünün gündemi — güne buradan başlayın.';
+      const path = `/haber/${article.id}`;
 
-      // 4. Gönder
-      const messaging = getMessaging();
-      const response = await messaging.sendEachForMulticast(message);
-      
-      console.log(`Başarılı gönderim: ${response.successCount}, Başarısız: ${response.failureCount}`);
-      
-      // İsteğe bağlı: Hatalı (süresi dolmuş) token'ları Supabase'ten silmek için
-      // response.responses dizisi kontrol edilebilir.
+      // İngilizce karşılık. `title_en` boşsa `titleEn` de boş kalır ve
+      // `sendToAll` o cihazları Türkçe gruba düşürür — yarı çevrilmiş bir
+      // bildirim (İngilizce gövde + Türkçe manşet) göndermek istemiyoruz.
+      const titleEn = truncate(toPlainText(article.title_en), 140);
+      const bodyEn =
+        rows.length > 1
+          ? `🌅 ${rows.length} stories on today's agenda — start your day here.`
+          : "🌅 Today's agenda — start your day here.";
+
+      // 5. Gönder. Deftere yazma da `sendToAll` içinde: yarın sabah aynı haber
+      //    ikinci kez seçilmesin.
+      await sendToAll({
+        kind: 'morning',
+        title,
+        body,
+        titleEn,
+        bodyEn,
+        path,
+        articleId: article.id,
+      });
     } catch (err) {
-      console.error('Sabah özeti gönderilirken hata oluştu:', err);
+      console.error('Günün gündemi gönderilirken hata oluştu:', err);
     }
   }
 );
 
-// ─── Haftalık Özet (Pazartesi 10:00) ───────────────────────────────────────
+// ─── Haftanın Öne Çıkanı (Pazar 19:00) ─────────────────────────────────────
+//
+// Pazartesi 10:00'dan Pazar 19:00'a alındı: geriye dönük özet, okuyucunun vakti
+// olduğu saatte okunur. Pazartesi sabahı haftanın en yoğun anıyla yarışıyordu.
+//
+// ── "En çok okunan" neden yazmıyor ───────────────────────────────────────
+// Eski sorgu `order=view_count.desc` idi ve bildirimin adı "Haftanın Öne
+// Çıkanı"ydı. Sayaç çalışıyor (`increment_view_count` RPC'si var), ama ölçek
+// yok: 374 haberde toplam 533 okuma, medyan 1, 153 haber sıfır. Yedi günlük
+// pencerede satırların çoğu 0 veya 1'de berabere kalıyor ve PostgREST
+// beraberlikte KEYFİ bir satır döndürüyor — yani "haftanın en çok okunanı"
+// pratikte kura çekiyordu.
+//
+// Ölçemediğimiz bir metriği iddia etmek, iddia etmemekten kötü. Sıralama şimdilik
+// editöryel önem puanı (`hero_score`) ile yapılıyor ve metin "öne çıkan" diyor.
+// Okuma sayacı güvenilir hâle geldiğinde (cihaz başına tekilleştirme + okuma
+// eşiği) buradaki ölçüt gerçek okunmaya çevrilecek.
+//
+// Tazelik çarpanı burada BİLEREK yok: haftalık özette yaşa bölmek her hafta
+// Pazar günkü haberi seçerdi, oysa soru "bu haftanın en önemlisi".
 export const weeklyBriefing = onSchedule(
   {
-    schedule: '0 10 * * 1', // Her Pazartesi 10:00
+    schedule: '0 19 * * 0', // Her Pazar 19:00
     timeZone: 'Europe/Istanbul',
     region: REGION,
     retryCount: 3,
   },
   async (event) => {
     try {
-      // Son 7 günün tarihini hesapla
-      const oneWeekAgo = new Date();
-      oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-      const isoDate = oneWeekAgo.toISOString();
+      // Pencere TAKVİM HAFTASI, "son 168 saat" değil.
+      //
+      // `hoursAgoIso(7 * 24)` Pazar 19:00'da GEÇEN Pazar 19:00'a kadar
+      // uzanıyordu: iki ayrı takvim haftasının parçalarını karıştıran, hiçbir
+      // adrese karşılık gelmeyen ve her çalıştırmada başka bir sonuç veren bir
+      // aralık. Artık pencere ile bildirimin götürdüğü SAYFA aynı yedi günü
+      // gösteriyor — aynı ISO hafta aritmetiğinin iki ayrı uygulaması
+      // olduğu için (bkz. lib/core/utils/iso_week.dart) ikisi 2020-2035
+      // arasındaki her hafta için birebir aynı sonucu veriyor.
+      //
+      // Pazar 19:00'da içinde bulunulan ISO hafta, birkaç saat sonra kapanacak
+      // olan haftadır; yani özetlenecek hafta budur.
+      const week = isoWeekOf(new Date());
+      const { start, end } = isoWeekRange(week);
 
-      // Son 7 gündeki en çok okunan (veya en yüksek hero skorlu) 1 haberi çek
       const rows = await supabaseGet(
-        `articles?status=eq.published&created_at=gte.${isoDate}&select=id,title,summary&order=view_count.desc&limit=1`
+        'articles?status=eq.published' +
+          `&created_at=gte.${encodeURIComponent(start.toISOString())}` +
+          `&created_at=lt.${encodeURIComponent(end.toISOString())}` +
+          '&select=id,title,title_en,hero_score,created_at' +
+          '&order=hero_score.desc.nullslast,created_at.desc&limit=300',
+        NOTIFY_TIMEOUT_MS,
       );
-      const article = Array.isArray(rows) && rows.length > 0 ? rows[0] : null;
 
-      if (!article) return;
+      // Boş hafta = gönderilecek özet yok.
+      if (!Array.isArray(rows) || rows.length === 0) {
+        console.log(`Haftalık özet: ${isoWeekSlug(week)} haftasında haber yok, gönderilmedi.`);
+        return;
+      }
 
-      const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
-      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
-      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+      // Başlık bir SORU, gövde somut kanca.
+      //
+      // Manşetin kendisini başlığa koymak yanlış olurdu: okuyucu başlığa
+      // dokununca o haberin açılmasını bekler, oysa adres haftalık özet
+      // sayfası. Bildirim ne vaat ediyorsa oraya gitmeli.
+      const top = rows[0];
+      const headline = truncate(toPlainText(top.title), 90);
+      const title = `📅 Bu Hafta Neler Oldu?`;
+      const body = truncate(
+        `${rows.length} haber yayımlandı. Öne çıkan: ${headline}`,
+        160,
+      );
 
-      // Salt veri — gerekçe morningBriefing içinde açıklandı.
-      const message = {
-        data: {
-          title: 'Haftanın Öne Çıkanı 🌟',
-          body: toPlainText(article.title) || 'Geçtiğimiz haftanın en çok dikkat çeken gelişmesi.',
-          path: `/haber/${article.id}`,
-        },
-        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
-        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
-        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
-        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
-        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
-        webpush: {
-          headers: { Urgency: 'high', TTL: '86400' },
-        },
-        tokens: tokens,
-      };
+      // İngilizce gövde yalnızca manşetin İngilizcesi varsa kuruluyor; yoksa
+      // `bodyEn` boş kalır ve bu bildirim İngilizce cihazlara da Türkçe gider.
+      const headlineEn = truncate(toPlainText(top.title_en), 90);
+      const titleEn = '📅 Your Week in Review';
+      const bodyEn = headlineEn
+        ? truncate(
+            `${rows.length} stories published. Top story: ${headlineEn}`,
+            160,
+          )
+        : '';
 
-      const messaging = getMessaging();
-      const response = await messaging.sendEachForMulticast(message);
-      console.log(`Haftalık özet - Başarılı: ${response.successCount}`);
+      await sendToAll({
+        kind: 'weekly',
+        title,
+        body,
+        titleEn,
+        bodyEn,
+        path: `/hafta/${isoWeekSlug(week)}`,
+        // `articleId` BİLEREK boş: bu bildirim bir habere değil derleme
+        // sayfasına gidiyor. Manşeti "duyurulmuş" saymak, yarın sabahki
+        // gündemin o habere DOĞRUDAN bağlanmasını engellerdi
+        // (bkz. `recentlyNotifiedIds`).
+        articleId: null,
+      });
     } catch (err) {
       console.error('Haftalık özet gönderilirken hata oluştu:', err);
     }
   }
 );
 
-// ─── Yazar Bülteni (Her Gün 18:00) ─────────────────────────────────────────
+// ─── Yazar Bülteni (18:00 kontrolü, en fazla 72 saatte bir) ────────────────
+//
+// ── Eski filtre neden yanlıştı ────────────────────────────────────────────
+// Ölçüt "kaynak adı doluysa ve içinde 'tarım' geçmiyorsa bu bir yazardır" idi.
+// Son 8 yayın günü bu kuralla simüle edildiğinde 3 gün ajansı yazar ilan
+// ediyordu: "Yeni Yazar Analizi: Dünya Gazetesi ✍️", "... TMO ✍️",
+// "... Nature Food ✍️". Üstelik `toLowerCase()` Türkçe'de güvenilir değil ve
+// `limit=10` günde 51 haber yayımlanan bir akışta köşe yazısını pencerenin
+// dışında bırakıyordu.
+//
+// Veritabanında bu sorunun doğru cevabı zaten var: `content_type`. 374 haberin
+// 38'i 'Köşe Yazısı'. Tahmin etmek yerine alanı soruyoruz.
+//
+// ── Neden seyreltildi ─────────────────────────────────────────────────────
+// Ölçüme göre köşe yazısı 8 günün 5'inde yayımlanıyor; günlük gönderim haftada
+// ~5 bildirim demekti ve bunlar sabah gündemine EKLENİYORDU. 72 saatlik sınır
+// bunu haftada ~2'ye indiriyor. Sınır cron'a değil koda konuyor: yazılar
+// takvime göre çıkmıyor, o yüzden "her gün bak, ama 72 saatte birden fazla
+// gönderme" doğru davranış — sabit günlere bağlansaydı yeni bir yazı üç gün
+// boyunca duyurulmadan bekleyebilirdi.
 export const authorBulletin = onSchedule(
   {
-    schedule: '0 18 * * *', // Her gün 18:00
+    schedule: '0 18 * * *',
     timeZone: 'Europe/Istanbul',
     region: REGION,
+    retryCount: 3,
   },
   async (event) => {
     try {
-      // Son 24 saati hesapla
-      const oneDayAgo = new Date();
-      oneDayAgo.setDate(oneDayAgo.getDate() - 1);
-      const isoDate = oneDayAgo.toISOString();
+      // 1. Sıklık sınırı — gönderimden ÖNCE, boşuna sorgu atmamak için.
+      const since = await lastSentAt('author');
+      if (since > 0 && Date.now() - since < 72 * 3600 * 1000) {
+        console.log('Yazar bülteni: son 72 saatte gönderildi, atlandı.');
+        return;
+      }
 
-      // Sadece yazarların (source_name boş olmayan ve genel bülten olmayan) yazılarını çek
-      // PostgREST'te "not.is.null" veya "neq" kullanabiliriz.
-      // Basitlik için tümünü çekip kod tarafında filtreleyeceğiz.
+      // 2. Son 24 saatin köşe yazıları. `limit` 10'dan 50'ye çıktı: filtre artık
+      //    sorguda olduğu için 50 satır zaten yalnızca köşe yazısı.
       const rows = await supabaseGet(
-        `articles?status=eq.published&created_at=gte.${isoDate}&select=id,title,source_name&order=created_at.desc&limit=10`
+        'articles?status=eq.published' +
+          `&created_at=gte.${encodeURIComponent(hoursAgoIso(24))}` +
+          `&content_type=eq.${encodeURIComponent('Köşe Yazısı')}` +
+          '&select=id,title,title_en,source_name,hero_score,created_at' +
+          '&order=created_at.desc&limit=50',
+        NOTIFY_TIMEOUT_MS,
       );
-      if (!Array.isArray(rows) || rows.length === 0) return;
+      if (!Array.isArray(rows) || rows.length === 0) {
+        console.log('Yazar bülteni: son 24 saatte köşe yazısı yok.');
+        return;
+      }
 
-      // Yazar ismi belli olan ilk yazıyı bul
-      const article = rows.find(
-        (a) => a.source_name && a.source_name.trim() !== '' && !a.source_name.toLowerCase().includes('tarım')
+      // 3. Zaten duyurulmuş olanı tekrarlama; kalanların en önemlisini seç.
+      const alreadySent = await recentlyNotifiedIds(72);
+      const fresh = rows.filter((a) => !alreadySent.has(a.id));
+      if (fresh.length === 0) {
+        console.log('Yazar bülteni: bekleyen yazıların hepsi duyurulmuş.');
+        return;
+      }
+      const article = fresh.reduce(
+        (best, a) => ((a.hero_score ?? 0) > (best.hero_score ?? 0) ? a : best),
       );
 
-      if (!article) return;
+      // 4. Metin. BAŞLIK yazının kendi başlığı; yazar adı gövdede.
+      //
+      // Eskiden tam tersiydi: başlıkta yazar adı, gövdede yazının başlığı. Ama
+      // okuyucu bildirimde önce başlığa bakıyor ve "Yeni Yazar Analizi: X ✍️"
+      // hiçbir şey anlatmıyor — yazının NE dediği ikinci satırda kalıyordu.
+      //
+      // "Köşe yazısı — Ad" tire ile yazıldı; "Ad'ın köşe yazısı" biçimi Türkçe
+      // ek uyumu gerektiriyor ve kaynak adı veriden geldiği için (Zeynep Aksoy,
+      // TMO, Food Chemistry Journal) doğru eki kod içinde üretmek mümkün değil.
+      const title =
+        truncate(toPlainText(article.title), 140) || 'Yeni köşe yazısı';
+      const author = (article.source_name || '').trim();
+      const body = author
+        ? `✍️ Köşe yazısı — ${author}`
+        : '✍️ Günün köşe yazısı yayımlandı.';
+      const path = `/haber/${article.id}`;
 
-      const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
-      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
-      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+      // İngilizcede ek uyumu sorunu yok, ama kaynak adı veriden geldiği için
+      // gövde yine aynı tire biçimini kullanıyor.
+      const titleEn = truncate(toPlainText(article.title_en), 140);
+      const bodyEn = author
+        ? `✍️ Column — ${author}`
+        : '✍️ Today’s column is out.';
 
-      // Salt veri — gerekçe morningBriefing içinde açıklandı.
-      // FCM `data` alanındaki her değer string olmak ZORUNDA; boş dönebilecek
-      // alanlar bu yüzden yedekli.
-      const message = {
-        data: {
-          title: `Yeni Yazar Analizi: ${article.source_name} ✍️`,
-          body: toPlainText(article.title) || 'Yeni bir yazar analizi yayımlandı.',
-          path: `/haber/${article.id}`,
-        },
-        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
-        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
-        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
-        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
-        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
-        webpush: {
-          headers: { Urgency: 'high', TTL: '86400' },
-        },
-        tokens: tokens,
-      };
-
-      const messaging = getMessaging();
-      const response = await messaging.sendEachForMulticast(message);
-      console.log(`Yazar bülteni - Başarılı: ${response.successCount}`);
+      await sendToAll({
+        kind: 'author',
+        title,
+        body,
+        titleEn,
+        bodyEn,
+        path,
+        articleId: article.id,
+      });
     } catch (err) {
       console.error('Yazar bülteni gönderilirken hata oluştu:', err);
     }
@@ -633,31 +1198,39 @@ export const breakingNewsCheck = onSchedule(
 
       if (!article) return; // Bildirilmemiş son dakika haberi yok.
 
-      const tokensResponse = await supabaseGet('push_tokens?select=token&limit=500');
-      if (!Array.isArray(tokensResponse) || tokensResponse.length === 0) return;
-      const tokens = tokensResponse.map((t) => t.token).filter(Boolean);
+      // İngilizce başlık ayrı bir sorguyla alınıyor: `claim_breaking_article()`
+      // yalnızca `(id, title)` döndürüyor ve dönüş tipini değiştirmek
+      // fonksiyonu DROP etmeyi gerektirirdi — çalışan tek atomik sahiplenme
+      // yolunu bunun için riske atmaya değmez.
+      //
+      // Sorgu tamamen korumalı: başarısız olursa `titleEn` boş kalır, cihazlar
+      // Türkçe metni alır. Yani bu ek adım hiçbir koşulda bildirimi engellemez.
+      let titleEnRaw = '';
+      try {
+        const enRows = await supabaseGet(
+          `articles?id=eq.${encodeURIComponent(article.id)}&select=title_en&limit=1`,
+          NOTIFY_TIMEOUT_MS,
+        );
+        if (Array.isArray(enRows) && enRows.length > 0) {
+          titleEnRaw = enRows[0].title_en ?? '';
+        }
+      } catch (err) {
+        console.error('Son dakika: İngilizce başlık okunamadı, Türkçe gidiyor.', err);
+      }
+      const bodyEn = truncate(toPlainText(titleEnRaw), 160);
 
-      // Salt veri — gerekçe morningBriefing içinde açıklandı.
-      const message = {
-        data: {
-          title: '🚨 Son Dakika Gelişmesi',
-          body: toPlainText(article.title) || 'Son dakika gelişmesi yayımlandı.',
-          path: `/haber/${article.id}`,
-        },
-        // Salt veri gönderiminde FCM varsayılan olarak "normal" aciliyet
-        // uyguluyor. Android'de cihaz Doze (derin uyku) modundayken normal
-        // aciliyetli push'lar cihaz uyanana kadar bekletilebiliyor; haber
-        // bildirimi için bu kabul edilemez bir gecikme. TTL bir gün: bir günden
-        // eski bir "son dakika" zaten haber değil, kuyrukta beklemesin.
-        webpush: {
-          headers: { Urgency: 'high', TTL: '86400' },
-        },
-        tokens: tokens,
-      };
-
-      const messaging = getMessaging();
-      const response = await messaging.sendEachForMulticast(message);
-      console.log(`Son dakika - Başarılı: ${response.successCount}`);
+      // Türkçe metin AYNEN korundu — bu bildirim doğru çalışıyor. Değişiklikler
+      // gönderimin ortak yoldan geçmesi (defter + sabah tekrarının önlenmesi) ve
+      // İngilizce seçen cihazlara İngilizce metin gitmesi.
+      await sendToAll({
+        kind: 'breaking',
+        title: '🚨 Son Dakika Gelişmesi',
+        body: toPlainText(article.title) || 'Son dakika gelişmesi yayımlandı.',
+        titleEn: '🚨 Breaking News',
+        bodyEn,
+        path: `/haber/${article.id}`,
+        articleId: article.id,
+      });
     } catch (err) {
       console.error('Son dakika haberi kontrol edilirken hata oluştu:', err);
     }

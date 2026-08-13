@@ -25,6 +25,13 @@
         }
       },
       {
+        "source": "/hafta/**",
+        "function": {
+          "functionId": "weekRenderer",
+          "region": "europe-west1"
+        }
+      },
+      {
         "source": "/sitemap.xml",
         "function": {
           "functionId": "sitemap",

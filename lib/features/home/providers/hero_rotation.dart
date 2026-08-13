@@ -27,8 +27,15 @@ class VisitTracker {
   static const _lastActiveKey = 'hero_last_active_at';
 
   /// İki etkinlik arasında bu kadar boşluk olursa yeni ziyaret sayılır.
-  /// 30 dakika, analitikteki yerleşik oturum tanımı.
-  static const visitGap = Duration(minutes: 30);
+  ///
+  /// Başlangıçta 30 dakikaydı — analitikteki yerleşik oturum tanımı. Ama burada
+  /// ölçtüğümüz şey bir oturum değil, okuyucunun manşeti "aynı" saydığı süre.
+  /// Okuyucular sabah bakıp öğlen döndüklerinde sıranın değişmiş olmasından
+  /// şikâyet etti: 30 dakika, haber okuma alışkanlığı için fazla kısa.
+  ///
+  /// 4 saat gün içindeki tipik iki bakış arasını kapsıyor; manşet gün boyu
+  /// tanıdık kalıyor, ertesi sabah yine tazeleniyor.
+  static const visitGap = Duration(hours: 4);
 
   /// Ziyareti açar; gerekiyorsa tohumu yeniler.
   ///

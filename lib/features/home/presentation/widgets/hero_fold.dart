@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 import 'dart:async';
+import 'dart:math' as math;
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -334,11 +335,21 @@ class _HeadlineCarousel extends StatefulWidget {
   State<_HeadlineCarousel> createState() => _HeadlineCarouselState();
 }
 
+/// Otomatik geçiş aralığı.
+///
+/// 6 saniyeydi: on kartlık manşet bir dakikada tam tur atıyordu. Okuyucular
+/// "hero'da gördüğüm haberi bir daha bulamıyorum" diye şikâyet etti — sebebi
+/// sıralama değil, buydu. 9 saniye başlığı okuyup karar vermeye yetiyor.
+const _kAdvanceInterval = Duration(seconds: 9);
+
 class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   late final PageController _pc;
   Timer? _timer;
   int _current = 0;
   bool _isHovered = false;
+
+  /// Kaç kez kendiliğinden ilerledi. Bir tam turdan sonra duruyor.
+  int _advances = 0;
 
   @override
   void initState() {
@@ -347,16 +358,51 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
     _startTimer();
   }
 
+  /// Manşet şu anda ekranda mı?
+  ///
+  /// Kart görünmüyorken ilerlemek, okuyucu aşağıdaki bölümlere bakarken
+  /// manşetin arkasından dönmesi demekti; yukarı döndüğünde gördüğü haber
+  /// gitmiş oluyordu. Sayaç dönmeye devam ediyor, yalnızca ilerletmiyor.
+  bool _isOnScreen() {
+    final box = context.findRenderObject();
+    if (box is! RenderBox || !box.hasSize || !box.attached) return false;
+
+    final top = box.localToGlobal(Offset.zero).dy;
+    final height = box.size.height;
+    if (height <= 0) return false;
+
+    final screenHeight = MediaQuery.of(context).size.height;
+    final visible = math.min(top + height, screenHeight) - math.max(top, 0.0);
+    // Yarısından fazlası görünüyorsa "okuyucunun gözü önünde" sayılıyor.
+    return visible >= height * 0.5;
+  }
+
   void _startTimer() {
     _timer?.cancel();
-    _timer = Timer.periodic(const Duration(seconds: 6), (_) {
+    _advances = 0;
+    _timer = Timer.periodic(_kAdvanceInterval, (_) {
       if (!mounted) return;
-      final next = (_current + 1) % widget.headlines.length;
+      if (!_isOnScreen()) return;
+
+      final total = widget.headlines.length;
+      if (total <= 1) {
+        _stopTimer();
+        return;
+      }
+
+      final next = (_current + 1) % total;
       _pc.animateToPage(
         next,
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
       );
+
+      // Bir tam turdan sonra duruyor. Manşet sonsuza kadar dönen bir pano
+      // değil; her başlığı bir kez gösterip ilk karta dönerek duruyor, en
+      // güçlü haber ekranda kalıyor. Okuyucu isterse oklarla/kaydırarak
+      // kendisi geziyor.
+      _advances++;
+      if (_advances >= total) _stopTimer();
     });
   }
 

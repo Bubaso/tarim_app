@@ -112,6 +112,34 @@ class HomeRepository {
     }
   }
 
+  /// Belirli bir zaman aralığında yayımlanmış haberler (`/hafta/:slug`).
+  ///
+  /// Haftalık özet neden [watchLatestArticles] akışından süzülmüyor: o sorgu
+  /// tüm arşivi çekiyor ve PostgREST'in satır tavanına (varsayılan 1000)
+  /// takılıyor. Arşiv büyüdükçe ESKİ haftalar sessizce boşalırdı — üstelik
+  /// hatasız, "o hafta haber yok" diyerek. Aralık sorgusu hem doğru hem ucuz.
+  ///
+  /// Hata burada YUTULMUYOR: boş liste "o hafta haber yayımlanmamış" demek, ağ
+  /// hatası ise bambaşka bir şey. İkisini aynı sonuca indirgemek, bağlantısı
+  /// kopmuş okuyucuya sessizce boş bir arşiv göstermek olurdu.
+  Future<List<NewsArticle>> fetchArticlesBetween(
+    DateTime fromUtc,
+    DateTime toUtc,
+  ) async {
+    final response = await _supabaseClient
+        .from('articles')
+        .select()
+        .eq('status', 'published')
+        .gte('created_at', fromUtc.toUtc().toIso8601String())
+        .lt('created_at', toUtc.toUtc().toIso8601String())
+        .order('created_at', ascending: false)
+        // Ölçülen en yoğun gün 51 haber; 400 bir hafta için geniş bir tavan.
+        .limit(400);
+    return (response as List<dynamic>)
+        .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+        .toList();
+  }
+
   /// Fetches a single article by id — used when the app is opened directly
   /// on a `/haber/:id` deep link and the article is not already in memory.
   Future<NewsArticle?> fetchArticleById(String id) async {
@@ -128,17 +156,24 @@ class HomeRepository {
     }
   }
 
-  /// Increments the view count of an article.
+  /// Okuma sayacını bir artırır.
+  ///
+  /// Çağrı yeri: [ArticleDetailScreen] — haber ekranı AÇILDIĞINDA değil, okuma
+  /// eşiği (gövdenin yarısı + en az 10 sn) aşıldığında ve cihaz başına yalnızca
+  /// bir kez (bkz. `ReadReceipts`).
+  ///
+  /// Tek yol `increment_view_count` RPC'sidir. Eskiden burada bir yedek yol
+  /// vardı: satırı oku, sayacı bir artır, geri yaz. O yol RLS nedeniyle hiçbir
+  /// zaman çalışmadı — anon rolünün `articles` üzerinde UPDATE yetkisi yok ve
+  /// istek sessizce boş sonuç dönüyordu. Çalışsaydı da yarış koşulu üretirdi:
+  /// aynı anda okuyan iki cihaz aynı değeri okuyup aynı değeri yazardı.
   Future<void> incrementArticleViewCount(String id) async {
     try {
       await _supabaseClient.rpc('increment_view_count', params: {'row_id': id});
     } catch (e) {
-      // If RPC is not created, fallback to a simple read-and-update (not perfect for concurrency but works if RPC missing)
-      try {
-        final res = await _supabaseClient.from('articles').select('view_count').eq('id', id).single();
-        final currentCount = (res['view_count'] as int?) ?? 0;
-        await _supabaseClient.from('articles').update({'view_count': currentCount + 1}).eq('id', id);
-      } catch (_) {}
+      if (kDebugMode) {
+        print('incrementArticleViewCount failed: $e');
+      }
     }
   }
 

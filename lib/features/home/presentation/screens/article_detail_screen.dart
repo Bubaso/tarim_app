@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:async' show Timer;
 import 'dart:math' show Random;
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
@@ -14,8 +15,10 @@ import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/services.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/router/app_router.dart';
 import '../../data/models/news_article.dart';
+import '../../data/read_receipts.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/theme/app_typography.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -62,9 +65,32 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
   /// %100 olmalı — sayfanın en dibinde değil.
   final GlobalKey _bodyEndKey = GlobalKey();
 
+  // ── Okuma sayacı eşiği ───────────────────────────────────────────────────
+  // Sayaç eskiden ekran açılır açılmaz artıyordu: adı "okunma" olan ama
+  // aslında "açılma" sayan bir metrik. Başlığa tıklayıp yarım saniyede geri
+  // dönen kişi, baştan sona okuyan kişiyle aynı ağırlıktaydı.
+  //
+  // Yeni ölçüt iki koşulun BİRLİKTE sağlanması:
+  //   • gövdenin en az yarısı geçilmiş,
+  //   • ekranda en az [_readDwell] kadar kalınmış.
+  //
+  // İkisi de gerekli. Yalnız yüzdeye bakmak kısa haberlerde eski davranışa
+  // geri dönerdi: tek ekrana sığan gövdede ilerleme ilk karede %100'dür.
+  // Yalnız süreye bakmak da yetmez — sekmeyi açık unutmak okuma değildir.
+  //
+  // Yüzde zaten okuma çubuğu için hesaplanıyor; eşik yeni bir ölçüm getirmiyor,
+  // var olan değeri okuyor.
+  static const double _readThreshold = 0.5;
+  static const Duration _readDwell = Duration(seconds: 10);
+
+  DateTime? _openedAt;
+  Timer? _dwellTimer;
+  bool _viewCounted = false;
+
   @override
   void initState() {
     super.initState();
+    _openedAt = DateTime.now();
     _scrollController = ScrollController()..addListener(() {
       final isScrolled = _scrollController.offset > 150;
       if (_isScrolled != isScrolled) {
@@ -73,17 +99,46 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         });
       }
       _updateProgress();
+      _maybeCountRead();
     });
 
     // İlk karede doğru değerle başla: kaydırma olmadan da (kısa haber, ya da
     // geri dönülüp konumu korunan bir sayfa) çubuk tutarlı olsun.
     WidgetsBinding.instance.addPostFrameCallback((_) => _updateProgress());
 
-    // Increment view count when article is opened
+    // Kaydırma gerektirmeyen kısa haberde hiç kaydırma olayı doğmaz; eşik
+    // yalnızca bu zamanlayıcı sayesinde yeniden değerlendirilir.
+    _dwellTimer = Timer(_readDwell, _maybeCountRead);
+
+    // "Gördüm" işareti sayaçtan AYRI ve açılışta konuyor. Okuyucu başlığa
+    // tıkladığı anda o haber onun için tüketilmiştir; yarısını okumadan çıksa
+    // bile manşetin başında durmaya devam etmemeli.
     Future.microtask(() {
-      ref.read(homeRepositoryProvider).incrementArticleViewCount(widget.article.id);
       ref.read(readArticlesProvider.notifier).markAsRead(widget.article.id);
       ref.read(notificationServiceProvider).incrementArticleReadCount();
+    });
+  }
+
+  /// Okuma eşiği aşıldıysa sayacı bir kez artırır.
+  void _maybeCountRead() {
+    if (_viewCounted) return;
+    if (_progress.value < _readThreshold) return;
+    final openedAt = _openedAt;
+    if (openedAt == null) return;
+    if (DateTime.now().difference(openedAt) < _readDwell) return;
+
+    // Panelden bakan editör kendi haberinin sayacını şişirmesin. Oturumu açık
+    // tek kullanıcı sınıfı yönetim; okuyucu tarafı tamamen anonim.
+    if (Supabase.instance.client.auth.currentSession != null) return;
+
+    // Bayrak beklemeden kalkıyor: aşağıdaki asenkron adım sürerken yeni
+    // kaydırma olayları gelir ve aynı istek birden çok kez yola çıkardı.
+    _viewCounted = true;
+
+    // `ref` senkron okunuyor — ekran kapandıktan sonra `ref.read` çağrılamaz.
+    final repository = ref.read(homeRepositoryProvider);
+    ReadReceipts.claim(widget.article.id).then((firstTime) {
+      if (firstTime) repository.incrementArticleViewCount(widget.article.id);
     });
   }
 
@@ -149,6 +204,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     // Geri dönüldüğünde ana sayfa kendi başlığını ayarlamıyor; sıfırlamazsak
     // okunmuş haberin başlığı sekmede asılı kalır.
     _setTabTitle(_defaultLabel);
+    _dwellTimer?.cancel();
     _scrollController.dispose();
     _progress.dispose();
     super.dispose();

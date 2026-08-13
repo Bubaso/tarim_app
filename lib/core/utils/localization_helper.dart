@@ -2,34 +2,84 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+/// Kullanıcının SEÇTİĞİ dil. Anahtar yoksa kullanıcı hiç seçim yapmamış
+/// demektir; o durumda cihaz dili geçerlidir.
+const String kLocalePrefsKey = 'user_locale';
 
 final localeProvider = NotifierProvider<LocaleNotifier, Locale>(() {
   return LocaleNotifier();
 });
 
+Locale localeFromCode(String code) =>
+    code == 'en' ? const Locale('en', 'US') : const Locale('tr', 'TR');
+
+/// Cihazın dili. Kullanıcı bir seçim yapmadıysa başlangıç değeri budur.
+Locale detectDeviceLocale() {
+  try {
+    final String systemLocale;
+    if (kIsWeb) {
+      systemLocale = 'tr';
+    } else {
+      // Use PlatformDispatcher instead of dart:io Platform for web compatibility
+      systemLocale =
+          PlatformDispatcher.instance.locale.languageCode.toLowerCase();
+    }
+    return localeFromCode(systemLocale == 'tr' ? 'tr' : 'en');
+  } catch (_) {
+    return const Locale('tr', 'TR');
+  }
+}
+
+/// Bildirim metninin gideceği dil: kullanıcının seçimi, yoksa cihaz dili.
+///
+/// `NotificationService` widget ağacının dışından çalışıyor ve Riverpod'a
+/// erişemiyor; bu yüzden diskteki aynı anahtarı okuyor. Tek gerçek kaynak disk
+/// olduğundan provider ile servis arasında bir yarış oluşamıyor.
+Future<String> effectiveLanguageCode() async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    final saved = prefs.getString(kLocalePrefsKey);
+    if (saved == 'tr' || saved == 'en') return saved!;
+  } catch (_) {
+    // Diske erişilemiyorsa cihaz diline düşülür.
+  }
+  return detectDeviceLocale().languageCode;
+}
+
 class LocaleNotifier extends Notifier<Locale> {
+  /// Dil neden KALICI olmak zorunda: eskiden her açılışta `detectDeviceLocale()`
+  /// çalışıyordu ve bu, web'de her zaman Türkçe döndüğü için İngilizceye geçen
+  /// okuyucuyu sayfayı her yenilediğinde Türkçeye düşürüyordu. Ayrıca bildirim
+  /// metninin dili de bu seçime bakıyor; her açılışta sıfırlanan bir seçimden
+  /// hedefli bildirim üretilemez.
   @override
   Locale build() {
+    _load();
     return detectDeviceLocale();
   }
 
-  Locale detectDeviceLocale() {
+  Future<void> _load() async {
     try {
-      final String systemLocale;
-      if (kIsWeb) {
-        systemLocale = 'tr';
-      } else {
-        // Use PlatformDispatcher instead of dart:io Platform for web compatibility
-        systemLocale = PlatformDispatcher.instance.locale.languageCode.toLowerCase();
-      }
-
-      if (systemLocale == 'tr') {
-        return const Locale('tr', 'TR');
-      } else {
-        return const Locale('en', 'US');
+      final prefs = await SharedPreferences.getInstance();
+      final saved = prefs.getString(kLocalePrefsKey);
+      if (saved == 'tr' || saved == 'en') {
+        final locale = localeFromCode(saved!);
+        Intl.defaultLocale = locale.toString();
+        state = locale;
       }
     } catch (_) {
-      return const Locale('tr', 'TR');
+      // Okunamadıysa cihaz dili geçerli kalır.
+    }
+  }
+
+  Future<void> _save(String code) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(kLocalePrefsKey, code);
+    } catch (_) {
+      // Yazılamazsa seçim yalnızca bu oturum için geçerli olur.
     }
   }
 
@@ -37,6 +87,7 @@ class LocaleNotifier extends Notifier<Locale> {
     if (locale.languageCode == 'tr' || locale.languageCode == 'en') {
       state = locale;
       Intl.defaultLocale = locale.toString();
+      _save(locale.languageCode);
     }
   }
 
