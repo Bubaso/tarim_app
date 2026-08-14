@@ -6,18 +6,21 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../../../core/widgets/article_timestamp.dart';
+import '../../../../core/widgets/section_container.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/utils/localization_helper.dart';
 import '../../../../core/network/supabase_client.dart';
 import '../../../auth/presentation/screens/login_screen.dart';
+import '../../../commodities/presentation/widgets/commodity_strip.dart';
+import '../../../commodities/providers/commodity_providers.dart';
 import '../../../dashboard/presentation/screens/dashboard_screen.dart';
-import '../../../dashboard/presentation/widgets/market_ticker.dart';
 import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import '../../../../core/services/notification_service.dart';
 import '../widgets/agenda_bento_grid.dart';
 import '../widgets/hero_fold.dart';
+import '../widgets/news_ticker.dart';
 import '../widgets/portal_sections/science_reports_dossier.dart';
 import '../widgets/portal_sections/turkey_news_grid.dart';
 import '../widgets/portal_sections/world_news_row.dart';
@@ -132,7 +135,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const MarketTicker(),
+            const NewsTicker(),
             _buildAppBar(
               context:       context,
               ref:           ref,
@@ -493,13 +496,20 @@ class _MobileContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return RefreshIndicator(
-      onRefresh: () async => ref.invalidate(latestArticlesProvider),
+      onRefresh: () async {
+        ref.invalidate(latestArticlesProvider);
+        ref.invalidate(latestCommodityPricesProvider);
+      },
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
           IosPwaPrompt(isDark: isDark),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 28),
+          // Şerit "en son okuduklarınız"ın ÜSTÜNDE — masaüstündeki sırayla
+          // aynı. O bölüm ilk kez gelen okuyucuda hiç çizilmiyor; altına
+          // konduğunda fiyatların yeri okuyucudan okuyucuya kayıyordu.
+          CommodityStrip(isDark: isDark, spacing: 28),
           _RecentlyReadSection(isDark: isDark, spacing: 28),
           YYTDosyasiSection(isDark: isDark),
           const SizedBox(height: 28),
@@ -544,13 +554,17 @@ class _TabletContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return RefreshIndicator(
-      onRefresh: () async => ref.invalidate(latestArticlesProvider),
+      onRefresh: () async {
+        ref.invalidate(latestArticlesProvider);
+        ref.invalidate(latestCommodityPricesProvider);
+      },
       child: ListView(
         padding: const EdgeInsets.all(24),
         children: [
           IosPwaPrompt(isDark: isDark),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 36),
+          CommodityStrip(isDark: isDark, spacing: 36),
           _RecentlyReadSection(isDark: isDark, spacing: 36),
           YYTDosyasiSection(isDark: isDark),
           const SizedBox(height: 36),
@@ -615,6 +629,11 @@ class _DesktopContent extends ConsumerWidget {
                       padding: const EdgeInsets.only(bottom: 40, top: 16),
                       child: _PortalHeroSection(isDark: isDark),
                     ),
+                    // Manşetin hemen altında, "en son okuduklarınız"ın ÜSTÜNDE.
+                    // O bölüm ilk kez gelen okuyucuda hiç çizilmiyor; altına
+                    // konsaydı fiyat şeridinin yeri okuyucudan okuyucuya
+                    // değişirdi.
+                    CommodityStrip(isDark: isDark, spacing: 40),
                     _RecentlyReadSection(isDark: isDark, spacing: 40),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
@@ -1425,103 +1444,13 @@ class _SectoralNewsSection extends ConsumerWidget {
   }
 }
 
-class _SectionContainer extends StatelessWidget {
-  final String title;
-  final IconData icon;
-  final Widget child;
-  final bool isDark;
-  final VoidCallback? onSeeAll;
-
-  // Bilerek `iconColor` parametresi yok: her bölüm kendi rengini seçebildiği
-  // sürece palet dağılıyor. Vurgu rengi tek yerden gelir.
-  const _SectionContainer({
-    required this.title,
-    required this.icon,
-    required this.child,
-    required this.isDark,
-    this.onSeeAll,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final iconColor = AppColors.accentFor(isDark: isDark);
-    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
-    final dividerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final isMobile = MediaQuery.of(context).size.width < ResponsiveBreakpoints.mobileMax;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Sayfada 11 kez tekrar eden bir ayırıcı; 3 px'te her bölüm bir
-              // "basamak" gibi görünüyordu. Gazete kuralı: saç teli inceliğinde
-              // çizgi ayırır, kalın çizgi böler.
-              Container(height: 1, width: double.infinity, color: dividerColor),
-              const SizedBox(height: 16),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(icon, color: iconColor, size: isMobile ? 20 : 24),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      title,
-                      // Bölüm başlığı gövde metninden (17 px) küçük olamaz;
-                      // 13 px hiyerarşiyi ters çeviriyordu. Tek satır: iki
-                      // satıra sarılan bir başlık, altındaki karta değil
-                      // kendine dikkat çekiyor.
-                      style: GoogleFonts.playfairDisplay(
-                        fontSize: isMobile ? 17 : 20,
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: 0.4,
-                        color: headerColor,
-                        height: 1.2,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  if (onSeeAll != null)
-                    TextButton(
-                      onPressed: onSeeAll,
-                      style: TextButton.styleFrom(
-                        foregroundColor: AppColors.primaryGreen,
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            isEn ? 'See All' : 'Daha fazla',
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 13,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          const Icon(Icons.arrow_forward_rounded, size: 16),
-                        ],
-                      ),
-                    ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: child,
-        ),
-      ],
-    );
-  }
-}
+/// Bölüm başlığı artık `core/widgets/section_container.dart` içinde yaşıyor:
+/// emtia şeridi bu dosyanın dışında olduğu halde aynı başlığı kullanıyor.
+///
+/// Bu dosyada 11 kullanım yeri var; hepsini yeniden adlandırmak, taşımanın
+/// görsel bir şey değiştirmediğini kanıtlaması gereken farkı okunmaz hale
+/// getirirdi. Takma ad o gürültüyü engelliyor.
+typedef _SectionContainer = SectionContainer;
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  SON OKUDUKLARINIZ BÖLÜMÜ

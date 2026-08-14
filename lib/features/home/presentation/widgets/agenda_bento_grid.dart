@@ -258,9 +258,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
               children: [
                 NewsArticleImage(imageUrl: a.imageUrl, fit: BoxFit.cover, semanticLabel: title),
                 if (badge != null)
-                  Positioned(top: 10, left: 10, child: _ArticleBadge(type: badge))
-                else if (a.sourceName != null && a.sourceName!.isNotEmpty)
-                  Positioned(top: 10, left: 10, child: _SourceBadge(label: a.sourceName!)),
+                  Positioned(top: 10, left: 10, child: _ArticleBadge(type: badge)),
               ],
             ),
           ),
@@ -462,12 +460,6 @@ class _MobileBento extends StatelessWidget {
                               ? _BadgeType.editorunAnalizi
                               : _BadgeType.ozelDosya,
                         ),
-                      )
-                    else if (article.sourceName != null && article.sourceName!.isNotEmpty)
-                      Positioned(
-                        top: 6,
-                        left: 6,
-                        child: _SourceBadge(label: article.sourceName!),
                       ),
                   ],
                 ),
@@ -546,12 +538,6 @@ class _MobileBento extends StatelessWidget {
                               ? _BadgeType.editorunAnalizi
                               : _BadgeType.ozelDosya,
                         ),
-                      )
-                    else if (article.sourceName != null && article.sourceName!.isNotEmpty)
-                      Positioned(
-                        top: 6,
-                        left: 6,
-                        child: _SourceBadge(label: article.sourceName!),
                       ),
                   ],
                 ),
@@ -758,9 +744,6 @@ class _ListItemState extends State<_ListItem> {
                   children: [
                     if (badge != null) ...[
                       _ArticleBadge(type: badge),
-                      const SizedBox(height: 5),
-                    ] else if (a.sourceName != null && a.sourceName!.isNotEmpty) ...[
-                      _SourceBadge(label: a.sourceName!),
                       const SizedBox(height: 5),
                     ],
                     Text(

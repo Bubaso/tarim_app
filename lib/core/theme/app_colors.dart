@@ -28,6 +28,17 @@ class AppColors {
   /// [wheat]) kullanılır.
   static const Color alertRed = Color(0xFFD32F2F);
 
+  /// Emtia fiyatı düşüşü. Yalnızca fiyat şeridinde ve fiyat grafiğinde.
+  ///
+  /// [alertRed] bilerek kullanılmıyor: o renk "son dakika" demek. Buğday
+  /// fiyatı yüzde yarım gerilediğinde sayfada son dakika haberiyle aynı
+  /// kırmızıyı yakmak, iki uyarıyı da değersizleştirir. Bu kiremit tonu
+  /// kahverengiye kaçtığı için toprak paletinin içinde durur ve düşüşü
+  /// bağırmadan bildirir.
+  ///
+  /// Yükseliş için ayrı bir renk yok: [primaryGreen] zaten yeşil.
+  static const Color marketDown = Color(0xFF9C4A3C);
+
   /// Bölüm ikonları, aktif durumlar, hover kenarlıkları için tek vurgu rengi.
   /// Koyu zeminde [primaryGreen] yeterli kontrast vermediği için [wheat]'e döner.
   static Color accentFor({required bool isDark}) => isDark ? wheat : primaryGreen;

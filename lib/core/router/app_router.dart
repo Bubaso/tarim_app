@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../features/auth/presentation/screens/login_screen.dart';
+import '../../features/commodities/presentation/screens/commodity_detail_screen.dart';
 import '../../features/dashboard/presentation/screens/dashboard_screen.dart';
 import '../../features/home/data/models/news_article.dart';
 import '../../features/home/data/models/weather_info.dart';
@@ -46,6 +47,9 @@ String categoryPath(String title) => '/kategori/${Uri.encodeComponent(title)}';
 /// (bkz. `functions/index.js`, `weeklyBriefing`).
 String weekPath(IsoWeek week) => '/hafta/${week.slug}';
 
+/// Emtia fiyat detayı — `/emtia/bugday`. Slug veritabanındaki ürün anahtarı.
+String commodityPath(String slug) => '/emtia/$slug';
+
 /// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
 /// Türkçe karakterli adresler kopyalanıp yapıştırıldığında ve mesajlaşma
 /// uygulamalarında yüzde kodlamasına dönüşüp okunmaz hâle geliyor.
@@ -77,6 +81,9 @@ class CategoryArgs {
   }
   if (page is WeeklyRecapScreen) {
     return (path: weekPath(page.week), extra: null);
+  }
+  if (page is CommodityDetailScreen) {
+    return (path: commodityPath(page.slug), extra: null);
   }
   if (page is AllColumnistsScreen) return (path: '/yazarlar', extra: null);
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
@@ -195,6 +202,18 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => _fadePage(
         state,
         WeeklyRecapScreen(week: IsoWeek.parse(state.pathParameters['slug']!)!),
+      ),
+    ),
+
+    // Emtia fiyat detayı. Haftalık özet gibi adresten tamamen yeniden
+    // kurulabilir: ekran slug ile kendi verisini çekiyor, önbelleğe bağlı
+    // değil. Bilinmeyen slug'da ekranın kendisi "ürün bulunamadı" gösteriyor;
+    // burada redirect yok çünkü ürün listesi sunucuda, elde değil.
+    GoRoute(
+      path: '/emtia/:slug',
+      pageBuilder: (context, state) => _fadePage(
+        state,
+        CommodityDetailScreen(slug: state.pathParameters['slug']!),
       ),
     ),
 

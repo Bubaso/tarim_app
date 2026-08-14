@@ -584,27 +584,6 @@ class _HeadlineSlide extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  if (article.sourceName != null &&
-                      article.sourceName!.trim().isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 6),
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 3,
-                        ),
-                        color: AppColors.primaryGreen,
-                        child: Text(
-                          article.sourceName!.toTurkishUpperCase(),
-                          style: GoogleFonts.inter(
-                            fontSize: AppTypography.minLabelSize,
-                            fontWeight: FontWeight.w800,
-                            color: Colors.white,
-                            letterSpacing: 0.8,
-                          ),
-                        ),
-                      ),
-                    ),
                   Text(
                     title,
                     maxLines: 3,

@@ -60,13 +60,44 @@
   <meta property="og:title" content="Tarım Portalı - Tarımın Doğru Adresi">
   <meta property="og:description" content="Türkiye'nin en güncel tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.">
   <meta property="og:url" content="https://tarim-app-2026.web.app/">
-  <meta property="og:image" content="https://tarim-app-2026.web.app/icons/Icon-512.png">
+  <!--
+    Uygulama ikonu (512) değil, ona ayrılmış 192'lik `social-preview.png` —
+    üç sebep, üçü de bilerek.
+
+    1. BOYUT. WhatsApp önizlemenin düzenini görselin boyutuna bakarak seçiyor:
+       kenarları ~300x200'ü geçen görsel için tam genişlikte büyük kart, altına
+       başlık; küçük görsel için solda küçük bir kare + sağında başlık,
+       açıklama ve adres. 512'lik ikon eşiği aştığı için ekranın yarısını
+       kaplayan devasa bir logo çıkıyordu. Burada anlatacak bir fotoğraf yok,
+       sadece bir marka işareti var; onun küçük durması doğru.
+    2. SAYDAMLIK. `icons/Icon-*.png` alfa kanallı. Önizleme kutusunu istemci
+       kendi arka planıyla dolduruyor; koyu temada logonun koyu yeşil kısımları
+       arka plana karışıyordu. Bu dosya beyaz üstüne düzleştirilmiş.
+    3. AYRI DOSYA. Uygulama ikonu ana ekranda kenara kadar dolu olmalı, sosyal
+       önizlemede ise küçük kutuda nefes payı gerekiyor. Aynı dosya iki işi
+       birden yapamıyor.
+
+    `og:image:width`/`height` botlar görseli indirmeden karar verebilsin diye
+    var; indirmeyi atlayan istemci boyutu bilmediğinde büyük karta düşüyor.
+
+    /haber/** adresleri bu bloğun DIŞINDA: `functions/index.js` orayı haberin
+    kendi görseliyle değiştiriyor ve orada büyük kart doğru olan.
+  -->
+  <meta property="og:image" content="https://tarim-app-2026.web.app/icons/social-preview.png">
+  <meta property="og:image:width" content="192">
+  <meta property="og:image:height" content="192">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="Tarım Portalı">
 
-  <meta name="twitter:card" content="summary_large_image">
+  <!--
+    `summary_large_image` değil: o kart en az 300x157 görsel istiyor, 192'lik
+    kareyle X görseli tamamen düşürüyordu. `summary` zaten solda küçük kare,
+    sağda metin — istediğimiz düzenin ta kendisi.
+  -->
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Tarım Portalı - Tarımın Doğru Adresi">
   <meta name="twitter:description" content="Türkiye'nin en güncel tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.">
-  <meta name="twitter:image" content="https://tarim-app-2026.web.app/icons/Icon-512.png">
+  <meta name="twitter:image" content="https://tarim-app-2026.web.app/icons/social-preview.png">
   <!-- SOCIAL_META_END -->
 
   <!-- iOS meta tags & icons -->
