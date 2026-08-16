@@ -3,7 +3,7 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/hollanda/
 -- Üretim:  node content/dossiers/seed_dossier.mjs hollanda
--- Tarih:   2026-08-16T22:36:52.302Z
+-- Tarih:   2026-08-16T10:36:29.131Z
 --
 -- Bölüm: 13 · TR ~4.826 kelime · EN ~6.328 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
@@ -61,8 +61,8 @@ delete from public.dossier_sections
  where dossier_id = (select id from public.country_dossiers where slug = 'hollanda');
 
 insert into public.dossier_sections
-  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys, image_url, image_credit)
-select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys, v.image_url, v.image_credit
+  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys)
+select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys
 from public.country_dossiers d
 cross join (values
   (1::integer, $dsr$Paradoks$dsr$, $dsr$The paradox$dsr$, $dsr$Türkiye 2023'te 79,9 milyar uluslararası dolarlık tarımsal üretim yaptı. Hollanda
@@ -131,7 +131,7 @@ Dutch agricultural land.
 So the question is not "how are the Dutch so good at farming?" The question is:
 *how does a country become the world's third largest agricultural exporter using
 half a percent of its farmland?* The answer is not in the soil. It is in what was
-built on top of it.$dsr$, array['tez_ikili']::text[], null, null),
+built on top of it.$dsr$, array['tez_ikili']::text[]),
   (2, $dsr$Rakamla iki ülke$dsr$, $dsr$Two countries in figures$dsr$, $dsr$Karşılaştırma yapmadan önce iki ekonominin ölçeğini yan yana koymak gerekiyor,
 çünkü bu dosyadaki her oranın anlamı bu zemine oturuyor.
 
@@ -199,7 +199,7 @@ the rest of this dossier is about where and how that capital was placed.
 One last number: rural population. In the Netherlands 4.06 percent of people live
 rurally, in Türkiye 10.51 percent. Dutch agriculture is not a rural activity; it is
 a mode of production wedged between cities and run on industrial logic. We will see
-the geographical form of that in the fifth section.$dsr$, array['makro_ikili']::text[], null, null),
+the geographical form of that in the fifth section.$dsr$, array['makro_ikili']::text[]),
   (3, $dsr$Coğrafyanın sınırları$dsr$, $dsr$The limits of geography$dsr$, $dsr$Hollanda'nın tarımsal başarısını "verimli toprak" ile açıklamak yaygın bir
 alışkanlıktır. Veri bunu desteklemiyor — ama beklenmedik bir yerden desteklemiyor.
 
@@ -281,7 +281,7 @@ long-term average; it cannot be read as the rainfall of any single year.)
 
 In short: Dutch soil is not more abundant, it is scarcer. Its water is more abundant
 but its agriculture depends on water less. Its inputs are more intensive. Geography
-does not explain this dossier.$dsr$, array['toprak_ikili']::text[], null, null),
+does not explain this dossier.$dsr$, array['toprak_ikili']::text[]),
   (4, $dsr$Verimin üç kademesi$dsr$, $dsr$The three tiers of yield$dsr$, $dsr$Bu dosyanın en keskin bulgusu burada. Ve ilk yazıldığında yanlış yazılmıştı;
 düzeltilmesi gerekti.
 
@@ -372,7 +372,7 @@ dioxide and nutrient solution are all set. What is measured there is not geograp
 capital and engineering. That is also why the gap does not close: closing it would
 require Türkiye to change not its climate but its investment decision.
 
-The subject of the next section is how small an area this first tier occupies.$dsr$, array['verim_ortualti', 'verim_acik_tarla']::text[], $dsr$https://images.unsplash.com/photo-1530836176759-510f58ebba52?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+The subject of the next section is how small an area this first tier occupies.$dsr$, array['verim_ortualti', 'verim_acik_tarla']::text[]),
   (5, $dsr$Yüzde yarım$dsr$, $dsr$Half a percent$dsr$, $dsr$Hollanda'nın toplam tarım arazisi 1.793.760 hektar (2025, CBS). Bunun **10.030
 hektarı** örtüaltı. Oran: **yüzde 0,56**.
 
@@ -451,7 +451,7 @@ engine of Dutch agriculture is not growth but **consolidation and deepening**.
 For Türkiye the lesson here is about the target of investment, not its scale. Ten
 thousand hectares is about one sixteenth of Türkiye's tomato area. The problem is not
 "we do not have as much land as the Netherlands" — there is far more. The problem is
-which part of that land receives capital, and at what density.$dsr$, array['sera_kunye', 'sera_urunler']::text[], $dsr$https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+which part of that land receives capital, and at what density.$dsr$, array['sera_kunye', 'sera_urunler']::text[]),
   (6, $dsr$Manşetin yarısı kime ait$dsr$, $dsr$Who owns half the headline$dsr$, $dsr$Hollanda tarım ihracatı 2025'te **137,5 milyar avro** oldu; bir önceki yıla göre
 yüzde 8,4 artış (CBS). Bu, dünyanın herhangi bir yerinde manşet olacak bir rakam ve
 oluyor da.
@@ -570,7 +570,7 @@ activity. Türkiye is not among the top ten markets.
 This section does not weaken the dossier's thesis; it sharpens it. The real Dutch
 achievement is not the 137.5 billion euro of turnover; it is that a country of 18
 million extracts 49 billion euro of net earnings from agriculture. To understand where
-those 49 billion come from, we turn to the next two sections.$dsr$, array['ihracat_yigin', 'ilk_10_pazar']::text[], null, null),
+those 49 billion come from, we turn to the next two sections.$dsr$, array['ihracat_yigin', 'ilk_10_pazar']::text[]),
   (7, $dsr$Hiç kakao yetiştirmeyen kakao devi$dsr$, $dsr$The cocoa giant that grows no cocoa$dsr$, $dsr$Hollanda'da kakao yetişmez. Kakao ağacı ekvator kuşağında, yıl boyu sıcak ve nemli
 iklimde yetişir; Hollanda'nın enlemi bunun çok kuzeyindedir. Hollanda'nın ürettiği
 kakao miktarı sıfırdır.
@@ -652,7 +652,7 @@ sells shelled hazelnuts to the Netherlands.
 
 The side with the soil supplies the bean; the side without supplies the processed
 good. That is a difference that cannot be explained by climate or soil. It is a
-difference of choice.$dsr$, array['kakao_ikili']::text[], $dsr$https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+difference of choice.$dsr$, array['kakao_ikili']::text[]),
   (8, $dsr$Kendi toprağını yapan ülke$dsr$, $dsr$The country that made its own land$dsr$, $dsr$Hollanda tarımını anlamak için önce şunu kabul etmek gerekiyor: bu ülkenin
 toprağının önemli bir kısmı **yapılmıştır**. Doğal değildir.
 
@@ -774,7 +774,7 @@ The point is this: the architect of Europe's common agricultural policy was a
 Dutchman. The Netherlands did not merely design its own agriculture; it also wrote the
 rules of the market it would sell into. In the sixth section we saw that 45 percent of
 its exports go to its three nearest markets. That the rules of that market were shaped
-by a Dutch commissioner is not a coincidence.$dsr$, array['tarih_cizelge']::text[], $dsr$https://images.unsplash.com/photo-1641326201918-3cafc641038e?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+by a Dutch commissioner is not a coincidence.$dsr$, array['tarih_cizelge']::text[]),
   (9, $dsr$Beş kurum, beş tasarım kararı$dsr$, $dsr$Five institutions, five design decisions$dsr$, $dsr$Buraya kadarki bölümler Hollanda tarımının **ne** yaptığını gösterdi. Bu bölüm
 **kim** tarafından yapıldığını gösteriyor. Beş kurum, beş ayrı tasarım kararı.
 
@@ -926,7 +926,7 @@ ministry's business.
 
 **What the five decisions share.** None of them has anything to do with climate, soil
 or the size of holdings. All five are institutional design decisions. And that is
-precisely why all five are copyable.$dsr$, array['kurumlar_kartlar']::text[], $dsr$https://images.unsplash.com/photo-1524386416438-98b9b2d4b433?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+precisely why all five are copyable.$dsr$, array['kurumlar_kartlar']::text[]),
   (10, $dsr$Altmış yılın eğrisi$dsr$, $dsr$The curve of sixty years$dsr$, $dsr$Hollanda'nın tarım ihracatı FAOSTAT'ın kaydına göre 1961'de **1,2 milyar dolardı**.
 2023'te **125,8 milyar dolar**. Altmış iki yılda yüz kat.
 
@@ -1052,7 +1052,7 @@ exclude some raw materials. Rankings change when you change the definition.
 
 Every rank given in this dossier is given together with its definition and its year. If
 you state a rank without saying whose definition you are using, what you have given is
-not information but a slogan.$dsr$, array['ihracat_cizgi', 'dunya_ilk10']::text[], null, null),
+not information but a slogan.$dsr$, array['ihracat_cizgi', 'dunya_ilk10']::text[]),
   (11, $dsr$Türkiye ile$dsr$, $dsr$With Türkiye$dsr$, $dsr$İki ülkenin birbiriyle tarım ticareti, bu dosyanın tezini bir kez daha, bu sefer
 Türkiye'nin kendi verisiyle tekrarlıyor.
 
@@ -1171,7 +1171,7 @@ One more detail: "food preparations n.e.c." sits near the top of both lists. The
 Netherlands sells 110.6 million dollars' worth, Türkiye 47.1 million. This item covers
 blends, additives and semi-finished goods — the things industry sells to industry. Most
 of the agricultural trade between these two countries flows not from farmer to consumer
-but from factory to factory.$dsr$, array['ikili_ticaret_cizgi', 'ikili_hollanda_satar', 'ikili_turkiye_satar']::text[], $dsr$https://images.unsplash.com/photo-1599707367812-cd48a3ffa1ee?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+but from factory to factory.$dsr$, array['ikili_ticaret_cizgi', 'ikili_hollanda_satar', 'ikili_turkiye_satar']::text[]),
   (12, $dsr$Gölgeler$dsr$, $dsr$Shadows$dsr$, $dsr$Üçüncü bölümde bir sayıyı aklınızda tutmanızı istemiştim: hektar başına 238,02
 kilogram gübre (2023), Türkiye'nin yaklaşık 1,7 katı. Şimdi o sayının nereye
 gittiğini konuşalım.
@@ -1295,7 +1295,7 @@ becomes a vulnerability.
 
 This section can be summarised in one sentence: the limit of the Dutch model turned out
 to be not soil but a **ceiling**. And what hit the ceiling was not the greenhouses but
-the barns.$dsr$, array['cevre_kunye']::text[], $dsr$https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1200&q=80&auto=format$dsr$, $dsr$Fotoğraf: Unsplash$dsr$),
+the barns.$dsr$, array['cevre_kunye']::text[]),
   (13, $dsr$Türkiye ne alabilir$dsr$, $dsr$What Türkiye can take$dsr$, $dsr$Bu dosyanın en kolay yanlış sonucu şudur: "Türkiye de sera kursun."
 
 Rakamlar bu cümleyi anlamsız kılıyor. Hollanda'nın toplam cam altı alanı 10.030
@@ -1382,8 +1382,8 @@ be seen without waiting for a court.
 
 The thesis of this dossier has been one sentence from the start: Dutch agricultural
 power lies not in its soil but in the system built on top of that soil. And a system is
-portable — because a system is not geography, it is a decision.$dsr$, '{}'::text[], null, null)
-) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys, image_url, image_credit)
+portable — because a system is not geography, it is a decision.$dsr$, '{}'::text[])
+) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys)
 where d.slug = 'hollanda';
 
 -- Sağlama: beklenen bölüm sayısı yazılmadıysa işlem geri alınır.
