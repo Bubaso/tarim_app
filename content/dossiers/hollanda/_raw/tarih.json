@@ -1,0 +1,133 @@
+{
+  "_dosya": "Hollanda tarım/su tarihi — elle girilen doğrulanmış kayıtlar",
+  "_giris_yontemi": "Her kalem, adı geçen kurumun kendi sayfası WebFetch ile AÇILARAK doğrulandı. Hafızadan yazılan hiçbir tarih veya rakam yok.",
+  "_dogrulama_tarihi": "2026-08-15",
+  "_kural": "'dogrulanamadi' listesindeki hiçbir kalem metne giremez.",
+
+  "su_muhendisligi": {
+    "sudan_kazanilan_pay": {
+      "deger": 18,
+      "birim": "%",
+      "aciklama": "Hollanda'nın toplam yüzölçümünün sudan kazanılmış oranı",
+      "kaynak": "PBL — Planbureau voor de Leefomgeving, Atlas van de Regio",
+      "kaynak_url": "https://themasites.pbl.nl/atlas-regio/themas/water/",
+      "alinti": "In totaal is 18% van Nederland veroverd op het water"
+    },
+    "deniz_seviyesi_alti_pay": {
+      "deger": 26,
+      "birim": "%",
+      "aciklama": "Hollanda'nın deniz seviyesinin altında kalan yaklaşık oranı",
+      "kaynak": "PBL, Atlas van de Regio",
+      "kaynak_url": "https://themasites.pbl.nl/atlas-regio/themas/water/",
+      "alinti": "Circa 26% van Nederland ligt onder zeeniveau"
+    },
+    "polder_sayisi": {
+      "deger": 3800,
+      "birim": "adet (üzeri)",
+      "aciklama": "Alçak Hollanda'daki polder sayısı",
+      "kaynak": "PBL, Atlas van de Regio",
+      "kaynak_url": "https://themasites.pbl.nl/atlas-regio/themas/water/",
+      "alinti": "Voor de beheersing van het water omvat Laag-Nederland ruim 3.800 polders"
+    }
+  },
+
+  "zuiderzee": {
+    "yasa_yili": 1918,
+    "afsluitdijk": {
+      "uzunluk_km": 32,
+      "tamamlanma_yili": 1932,
+      "son_kapanis": "28 Mayıs 1932 — Vlieter boşluğu",
+      "kaynak": "Rijkswaterstaat",
+      "kaynak_url": "https://www.rijkswaterstaat.nl/en/projects/iconic-structures/the-afsluitdijk",
+      "alinti": "The Afsluitdijk is a 32 km long dyke that separates the Wadden Sea from the IJsselmeer in the Netherlands. Built largely by hand and completed in 1932"
+    },
+    "toplam_kazanilan_alan_ha": 165000,
+    "toplam_kaynak": "Rijkswaterstaat — 100 jaar Zuiderzeewerken",
+    "toplam_kaynak_url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/100-jaar-zuiderzeewet",
+    "toplam_alinti": "Met de aanleg van Wieringermeer (1930), Noordoostpolder (1942), oostelijk Flevoland (1957) en zuidelijk Flevoland (1968) ontstond er 165.000 ha nieuw land.",
+    "polderler": [
+      { "ad": "Wieringermeer", "yil": 1930, "hektar": 20000, "kaynak": "RCE — Rijksdienst voor het Cultureel Erfgoed", "kaynak_url": "https://kennis.cultureelerfgoed.nl/index.php/Ontginningen_in_de_twintigste_eeuw" },
+      { "ad": "Noordoostpolder", "yil": 1942, "hektar": 48000, "kaynak": "RCE", "kaynak_url": "https://kennis.cultureelerfgoed.nl/index.php/Ontginningen_in_de_twintigste_eeuw" },
+      { "ad": "Oostelijk Flevoland", "yil": 1957, "hektar": 54000, "kaynak": "Flevoland Erfgoed", "kaynak_url": "https://www.flevolanderfgoed.nl/home/erfgoed/oostelijk-flevoland-2.html" },
+      { "ad": "Zuidelijk Flevoland", "yil": 1968, "hektar": 43000, "kaynak": "Flevoland Erfgoed", "kaynak_url": "https://www.flevolanderfgoed.nl/home/erfgoed/zuidelijk-flevoland-2.html" }
+    ],
+    "_toplama_uyarisi": "Polder alanları toplamı 165.000 ha veriyor ve Rijkswaterstaat'ın toplamıyla birebir uyuşuyor. Ancak RCE, Oostelijk+Zuidelijk Flevoland için 'birlikte 98.000 ha' diyor; Flevoland Erfgoed'un tek tek rakamları 97.000 veriyor. 1.000 ha'lık bu fark metinde tek tek rakam verilirken dikkate alınmalı — güvenli olan toplamı (165.000) kullanmaktır.",
+    "ijsselmeer_polderleri_pay": {
+      "alan_km2": 1600,
+      "hollanda_yuzolcumu_payi": "yaklaşık %5",
+      "tarim_arazisi_payi": "yaklaşık %6",
+      "kaynak": "CBS",
+      "kaynak_url": "https://www.cbs.nl/nl-nl/achtergrond/2018/24/nieuw-land-wat-de-ijsselmeerpolders-nederland-brachten",
+      "alinti": "De totale landoppervlakte van de IJsselmeerpolders bedraagt 1 600 vierkante kilometer. Dat is bijna 5 procent van het totaal in Nederland."
+    }
+  },
+
+  "sel_1953_ve_delta": {
+    "tarih": "31 Ocak — 1 Şubat 1953 gecesi",
+    "can_kaybi": 1836,
+    "su_altinda_kalan_ha": 150000,
+    "kaynak": "Rijkswaterstaat",
+    "kaynak_url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/watersnoodramp-1953",
+    "alinti": "De watersnoodramp kostte aan 1836 mensen het leven. Ruim 150.000 ha grond overstroomde.",
+    "delta_works": {
+      "baslangic": 1954,
+      "bitis": 1997,
+      "son_yapi": "Maeslantkering",
+      "kaynak": "Rijkswaterstaat — Onze historie",
+      "kaynak_url": "https://www.rijkswaterstaat.nl/over-ons/onze-organisatie/onze-historie",
+      "alinti": "In 1954 gaat de bouw van het eerste Deltawerk van start en in 1997 is met de Maeslantkering het laatste werk opgeleverd.",
+      "_yapi_sayisi_uyarisi": "Rijkswaterstaat'ın iki sayfası çelişiyor: biri '13 Deltawerken', diğeri '12 waterverdedigingswerken' diyor. Metinde yapı sayısı verilmeyecek."
+    }
+  },
+
+  "hongerwinter_1944_45": {
+    "_neden_aralik": "Ölü sayısı için tek bir resmî rakam yok; kurumlar farklı tanımlar kullanıyor. Metinde tek sayı verilmeyecek, kaynaklar birlikte aktarılacak.",
+    "kayitlar": [
+      { "deger": 8305, "tanim": "Ölüm nedeni resmen 'açlık' kaydedilen vaka", "kaynak": "NIDI (KNAW)", "kaynak_url": "https://nidi.nl/demos/sterfte-door-hongerwinter-en-oorlog/" },
+      { "deger": "20.000+", "tanim": "Açlıktan ölen", "kaynak": "Verzetsmuseum Amsterdam", "kaynak_url": "https://www.verzetsmuseum.org/nl/kennisbank/1944-1945-hongersnood" },
+      { "deger": "22.000+", "tanim": "Batı Hollanda'da açlık ve soğuktan ölen", "kaynak": "Nationaal Archief", "kaynak_url": "https://www.nationaalarchief.nl/onderzoeken/nieuws/de-laatste-oorlogsmaanden-hongersnood-in-nederland", "alinti": "in het laatste oorlogsjaar sterven in het westen van Nederland meer dan 22.000 mensen door honger en kou" },
+      { "deger": "15.000–25.000", "tanim": "Tahmin aralığı", "kaynak": "tweedewereldoorlog.nl (NIOD + Nationaal Comité 4 en 5 mei)", "kaynak_url": "https://www.tweedewereldoorlog.nl/75-jaar-vrijheid/kaartvanbevrijding/hongerwinter/" }
+    ],
+    "nidi_ek": {
+      "asiri_olum_eylul1944_mayis1945": 56000,
+      "hongerwinter_bolgesi_payi": "%38",
+      "kaynak_url": "https://nidi.nl/demos/sterfte-door-hongerwinter-en-oorlog/"
+    }
+  },
+
+  "wageningen": {
+    "tarim_okulu_devletlestirme": 1876,
+    "yuksekogretim_statusu": "9 Mart 1918",
+    "kaynak": "Wageningen University & Research — resmî tarihçe",
+    "kaynak_url": "https://www.wur.nl/en/about-wur/facts-and-figures-1/history-of-wageningen-university-research.htm",
+    "alinti_1876": "The state takes over the local council's Agricultural College in Wageningen: the start of National Agricultural Education in The Netherlands",
+    "alinti_1918": "Wageningen's status as an institute of higher education is legally ratified, and it becomes the National Agricultural College on 9 March 1918"
+  },
+
+  "mansholt": {
+    "plan_tarihi": "21 Aralık 1968",
+    "plan_adi": "Agriculture 1980 / Mansholt Planı",
+    "belge_kunyesi": "Bulletin of the European Communities, Supplement 1/1969 — Office for Official Publications of the European Communities",
+    "kaynak": "CVCE / Université du Luxembourg",
+    "kaynak_url": "https://www.cvce.eu/en/obj/memorandum_on_agricultural_reform_in_the_european_economic_community_21_december_1968-en-aeeba4d9-1971-4e34-ae1c-ae90fc32c6ee.html",
+    "alinti": "On 21 December 1968, the European Commission submits to the Council a memorandum on agricultural reform. This is the Agriculture 1980 plan, also known as the Mansholt Plan",
+    "tarim_komiseri_baslangic": 1958,
+    "tarim_komiseri_kaynak": "Avrupa Birliği resmî portalı — EU pioneers",
+    "tarim_komiseri_kaynak_url": "https://european-union.europa.eu/principles-countries-history/history-eu/eu-pioneers/sicco-mansholt_en",
+    "tarim_komiseri_alinti": "he became Commissioner for Agriculture in the very first European Commission in 1958.",
+    "komisyon_baskanligi": "22 Mart 1972 — 5 Ocak 1973",
+    "komisyon_baskanligi_kaynak": "European Commission Library — History of the European Commission",
+    "komisyon_baskanligi_kaynak_url": "https://ec-europa-eu.libguides.com/ec-history/mansholt/ec-composition",
+    "ortak_pazar_plani_yili": 1950
+  },
+
+  "dogrulanamadi": [
+    { "kalem": "Hongerwinter'de etkilenen nüfus (4,5 veya 4,3 milyon)", "not": "Hiçbir resmî kurum sayfasında bulunamadı." },
+    { "kalem": "Mansholt Planı'nın '5 milyon çiftçi / 5 milyon hektar' hedefleri", "not": "CVCE sayfasında geçmiyor, PDF açılamadı." },
+    { "kalem": "Mansholt'un Tarım Komiserliğinin bitiş tarihi", "not": "Yalnızca Komisyon Başkanlığının başlangıcı (22 Mart 1972) resmî kaynakta var." },
+    { "kalem": "1953 selinin İngiltere/Belçika/deniz can kayıpları", "not": "Rijkswaterstaat sayfasında yok." },
+    { "kalem": "'Hollanda'nın %20'si / 7.150 km² sudan kazanıldı'", "not": "Yalnızca Wikipedia'da. PBL'nin %18'i kullanılacak." },
+    { "kalem": "NIOD'un kendi Hongerwinter rakamları", "not": "Sayfa 5 denemede de HTTP 429 verdi." },
+    { "kalem": "Delta Works'teki yapı sayısı", "not": "Rijkswaterstaat kendi içinde 12 ve 13 diye çelişiyor." }
+  ]
+}

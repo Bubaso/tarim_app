@@ -1,0 +1,48 @@
+{
+  "_dosya": "Hollanda — Ülke Dosyası · yayın künyesi",
+  "_amac": "İçerik (metin_*.md), tasarım (tasarim.json) ve veri (data.json) dışında kalan üçüncü şey: bu dosyanın NE ZAMAN ve HANGİ ADRESTE yayımlanacağı. seed_dossier.mjs yalnızca bu dosyadan okur; betikte hiçbir ülkeye özel değer gömülü değil.",
+
+  "slug": "hollanda",
+  "name_tr": "Hollanda",
+  "name_en": "Netherlands",
+  "iso3": "NLD",
+  "edition": 1,
+
+  "_iso3_notu": "FAOSTAT ve World Bank sorguları bu kodla yapıldı (_raw/wb_fetch.mjs, _raw/fetch_faostat.sh). Bir rakam tartışmaya açılırsa kaynağa dönmenin anahtarı bu.",
+
+  "pencere": {
+    "gun": 28,
+    "baslangic": null,
+    "_baslangic_notu": "null ise seed anında now() yazılır. Belirli bir tarihte açılacaksa ISO 8601 (örn. '2026-09-01T06:00:00+03:00') yazın; betik bitişi otomatik hesaplar.",
+    "_bitis_notu": "İkinci ülke hazır değilse pencere kapanınca ana sayfa bölümü boşalır. Bunu istemiyorsanız 'gun' değerini null yapın — dosya süresiz yayında kalır."
+  },
+
+  "status": "published",
+  "_status_notu": "draft | scheduled | published | archived. 'draft' RLS tarafından anon'a kapalıdır; yarım metin adres tahminiyle okunamaz.",
+
+  "kapak": {
+    "url": null,
+    "atif": null,
+    "_notu": "tasarim.json/kapak kararına göre NASA Earth Observatory (kamu malı) aranacak. Bulunana kadar null — sayfa tipografik iskeletle tam çalışır, bu Faz 3'ün zorunlu şartı."
+  },
+
+  "bolum_grafikleri": {
+    "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin grafikler.json'da GERÇEKTEN tanımlı olduğunu doğrular; ayrıca hiçbir grafiğin sahipsiz kalmadığını. İkisi de sağlanmazsa üretim durur.",
+    "_neden_kimlik": "Önceki sürümde burada data.json blok adları yazıyordu ('tez', 'makro'…). Bir blok birden fazla grafiğe kaynaklık edebiliyor (sera → hem künye hem sıralama) ve bir grafik birden fazla bloktan beslenebiliyor. Eşleme bu yüzden veriye değil grafiğe yapılıyor.",
+    "1": ["tez_ikili"],
+    "2": ["makro_ikili"],
+    "3": ["toprak_ikili"],
+    "4": ["verim_ortualti", "verim_acik_tarla"],
+    "5": ["sera_kunye", "sera_urunler"],
+    "6": ["ihracat_yigin", "ilk_10_pazar"],
+    "7": ["kakao_ikili"],
+    "8": ["tarih_cizelge"],
+    "9": ["kurumlar_kartlar"],
+    "10": ["ihracat_cizgi", "dunya_ilk10"],
+    "11": ["ikili_ticaret_cizgi", "ikili_hollanda_satar", "ikili_turkiye_satar"],
+    "12": ["cevre_kunye"],
+    "13": []
+  },
+
+  "_bolum_13_notu": "13. bölüm ('Türkiye ne alabilir') bilerek grafiksiz. Sonuç bölümü; oradaki iki rakam da (değer tutma oranı, tatlı su payı) 6. ve 3. bölümlerin grafiklerinde zaten görülmüş oluyor. 'bosluklar' bloğu bölüme değil, sayfa sonundaki veri notları paneline ait."
+}

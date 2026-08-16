@@ -20,7 +20,12 @@ export const SITE_ORIGIN = 'https://tarim-app-2026.web.app';
 export const SITE_NAME = 'Tarım Portalı';
 
 /// Görseli olmayan haberler için yedek önizleme görseli.
-export const FALLBACK_IMAGE = `${SITE_ORIGIN}/icons/Icon-512.png`;
+///
+/// Uygulama simgesi (512×512 PNG) değil, ona ayrı üretilmiş 1200×630 JPEG.
+/// Kare bir simge WhatsApp'ın 1.91:1 beklentisine uymuyor ve kartı küçük
+/// biçime düşürüyordu; `metaTags` de artık ölçüyü 1200×630 diye bildiriyor,
+/// kare bir görsel o bildirimi yalanlardı.
+export const FALLBACK_IMAGE = `${SITE_ORIGIN}/icons/og-fallback.jpg`;
 
 /// Supabase yanıt vermezse ne kadar bekleyip vazgeçileceği.
 /// Aşılırsa etiketsiz kabuk döner — sayfa yine açılır.

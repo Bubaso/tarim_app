@@ -54,6 +54,28 @@ final latestArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   return repository.watchLatestArticles();
 });
 
+/// Yayında ve tam haber mi — kart ızgaralarının ortak süzgeci.
+///
+/// Kısa haberler ızgaralara girmiyor. Sebep biçimsel değil: iki paragraflık
+/// bir metni büyük görsel + spot + "devamını oku" düzeninde göstermek onu
+/// BAŞARISIZ bir uzun haber gibi gösteriyor. Oysa kaynağı kısa olan haberin
+/// kısa olması kusur değil. Hepsi [briefArticlesProvider] üzerinden tek bir
+/// 'Kısa Kısa' bloğunda toplanıyor; orada kısalık kendi biçimi.
+bool _yayindaVeTam(NewsArticle a) => a.status == 'published' && !a.isBrief;
+
+/// 'Kısa Kısa' — kaynağı kısa olduğu için kısa yazılmış haberler.
+///
+/// Ölçüm: 25 beslemeden çekilen 90 ham girdinin 18'i (%20) bu dala düşüyor,
+/// yani sayfayı dolduracak günlük hacim var.
+///
+/// Ayrı bir sorgu değil: [latestArticlesProvider] zaten bütün yayındaki
+/// haberleri tarihe göre çekiyor, buradaki iş yalnızca ayıklamak.
+final briefArticlesProvider = Provider<List<NewsArticle>>((ref) {
+  final articles = ref.watch(latestArticlesProvider).valueOrNull;
+  if (articles == null) return const [];
+  return articles.where((a) => a.status == 'published' && a.isBrief).toList();
+});
+
 /// "Son Okuduklarınız" şeridinde gösterilecek en fazla haber sayısı.
 const _recentlyReadLimit = 10;
 
@@ -106,7 +128,7 @@ final nextArticleProvider =
   // dayanıyor.
   final pool = articles
       .where((a) =>
-          a.status == 'published' &&
+          _yayindaVeTam(a) &&
           a.imageUrl != null &&
           a.imageUrl!.isNotEmpty)
       .toList();
@@ -324,7 +346,7 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
     data: (articles) {
       // Sadece published + görseli olan haberler
       final withImages = articles.where((a) =>
-          a.status == 'published' &&
+          _yayindaVeTam(a) &&
           a.imageUrl != null &&
           a.imageUrl!.isNotEmpty).toList();
 
@@ -483,7 +505,7 @@ final icymiArticlesProvider = Provider<List<NewsArticle>>((ref) {
       final now = DateTime.now();
       
       final icymi = articles.where((a) {
-        if (a.status != 'published') return false;
+        if (!_yayindaVeTam(a)) return false;
         if (a.imageUrl == null || a.imageUrl!.isEmpty) return false;
         if (readIds.contains(a.id)) return false; // Okunmamış olmalı
         
@@ -512,7 +534,7 @@ final turkeyNewsProvider = Provider<List<NewsArticle>>((ref) {
   return articlesAsync.when(
     data: (articles) {
       return articles.where((a) {
-        if (a.status != 'published') return false;
+        if (!_yayindaVeTam(a)) return false;
         return _articleIsTurkey(a);
       }).toList();
     },
@@ -527,7 +549,7 @@ final curatedArticlesProvider = Provider<List<NewsArticle>>((ref) {
   return articlesAsync.when(
     data: (articles) {
       return articles.where((a) {
-        if (a.status != 'published') return false;
+        if (!_yayindaVeTam(a)) return false;
         return a.sourceName?.toLowerCase() == 'medical news today';
       }).toList();
     },
@@ -543,7 +565,7 @@ final worldNewsProvider = Provider<List<NewsArticle>>((ref) {
   return articlesAsync.when(
     data: (articles) {
       return articles.where((a) {
-        if (a.status != 'published') return false;
+        if (!_yayindaVeTam(a)) return false;
         return _articleIsWorld(a);
       }).toList();
     },
@@ -558,7 +580,7 @@ final scienceAndReportsProvider = Provider<List<NewsArticle>>((ref) {
   return articlesAsync.when(
     data: (articles) {
       return articles.where((a) {
-        if (a.status != 'published') return false;
+        if (!_yayindaVeTam(a)) return false;
         return _articleIsScience(a);
       }).toList();
     },
@@ -578,7 +600,7 @@ final categoryArticlesProvider = Provider.family<List<NewsArticle>, String>((ref
       final searchTopic = topic.toLowerCase().trim();
 
       return articles.where((a) {
-        if (a.status != 'published') return false;
+        if (!_yayindaVeTam(a)) return false;
         final articleTopic = a.topic?.toLowerCase().trim() ?? '';
         return articleTopic == searchTopic;
       }).toList();

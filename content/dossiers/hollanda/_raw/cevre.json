@@ -1,0 +1,96 @@
+{
+  "_dosya": "Hollanda azot/çevre krizi — elle girilen doğrulanmış kayıtlar",
+  "_giris_yontemi": "Her kalem, adı geçen kurumun kendi sayfası açılarak doğrulandı. Hafızadan yazılan hiçbir rakam yok.",
+  "_dogrulama_tarihi": "2026-08-16",
+  "_kural": "'dogrulanamadi' listesindeki hiçbir kalem metne giremez.",
+
+  "hayvan_sayilari": {
+    "_kaynak": "CBS — Landbouwtelling / StatLine",
+    "_yil": 2025,
+    "domuz": {
+      "deger": 9960000,
+      "degisim": "-%5,1 (2024'e göre)",
+      "not": "1979'dan bu yana ilk kez 10 milyonun altında",
+      "kaynak_url": "https://www.cbs.nl/nl-nl/nieuws/2025/28/minder-varkens-en-runderen-in-2025"
+    },
+    "sigir": { "deger": 3650000, "degisim": "-%3,3" },
+    "sut_inegi": { "deger": 1530000 },
+    "etlik_pilic": { "deger": 35100000 },
+    "yumurta_tavugu": { "deger": 31800000 },
+    "_kumes_uyarisi": "CBS'in iki ayrı kümes serisi birbiriyle UYUŞMUYOR: Landbouwtelling boş kümes düzeltmesiyle ~67 milyon verirken StatLine 84952 ~100 milyon veriyor. Metinde toplam kümes hayvanı sayısı VERİLMEYECEK; yalnızca etlik piliç ve yumurta tavuğu ayrı ayrı anılabilir."
+  },
+
+  "amonyak": {
+    "toplam_kg": 116000000,
+    "yil": 2023,
+    "tarim_payi": "yaklaşık %90",
+    "tarim_ici_dagilim": { "sigir": "%55", "domuz": "%15", "kumes": "%11" },
+    "kaynak": "CBS",
+    "_birim_uyarisi": "Rakam kg NH3'tür, kg N değil. İkisi karıştırılmayacak."
+  },
+
+  "azot_cokelmesi": {
+    "tarim_arazisi_1990_kg": 75000000,
+    "tarim_arazisi_2024_kg": 34000000,
+    "azalma": "%55",
+    "hollanda_tariminin_payi": "%56",
+    "_pay_uyarisi": "Bu %56, TARIM ARAZİSİNE düşen çökelmenin payıdır — Natura 2000 alanlarının payı DEĞİLDİR. İkisi metinde karıştırılmayacak.",
+    "net_ihrac": "Hollanda, aldığından yaklaşık 4 kat fazla azotu komşu ülkelere gönderiyor",
+    "kaynak": "CBS"
+  },
+
+  "pas_karari": {
+    "tarih": "29 Mayıs 2019",
+    "mahkeme": "Raad van State (Danıştay)",
+    "konu": "Programma Aanpak Stikstof (PAS) — 'önce izin ver, sonra telafi et' yaklaşımı AB Habitat Direktifi'ne aykırı bulundu",
+    "_ecli_uyarisi": "Kararın ECLI numarası doğrulanamadı; metinde numara verilmeyecek."
+  },
+
+  "gubre_tavanlari": {
+    "yil": 2024,
+    "azot": { "uretilen_kg": 440000000, "tavan_kg": 440000000, "durum": "tam tavanda" },
+    "fosfat": { "uretilen_kg": 142000000, "tavan_kg": 135000000, "durum": "tavan aşıldı" },
+    "kaynak": "CBS"
+  },
+
+  "cikis_semalari": {
+    "lbv_butce_eur": 1102000000,
+    "lbv_plus_butce_eur": 1820000000,
+    "toplam_eur": 2922000000,
+    "basvuru": 1576,
+    "onaylanan": 1438,
+    "tamamlanan": 243,
+    "rvo_uyarisi": "RVO açıkça belirtiyor: onay, kapanışın gerçekleştiği anlamına gelmiyor.",
+    "kaynak": "Rijksoverheid / RVO"
+  },
+
+  "siyaset": {
+    "bbb_eerste_kamer": { "sandalye": 16, "toplam": 75, "not": "en büyük grup", "kaynak": "Kiesraad" },
+    "_uyari": "BBB'nin eyalet meclislerindeki sandalye sayısı DOĞRULANAMADI — yazılmayacak."
+  },
+
+  "ab_derogasyonu": {
+    "karar": "Decision (EU) 2022/2069",
+    "karar_tarihi": "30 Eylül 2022",
+    "bitis": "31 Aralık 2025",
+    "sonuc": "2026'dan itibaren genel sınır: 170 kg N/ha",
+    "kaynak": "Avrupa Komisyonu"
+  },
+
+  "sera_enerjisi": {
+    "dogalgaz_m3": 3900000000,
+    "yil": 2021,
+    "hata_payi": "±%4",
+    "kaynak": "CBS",
+    "_uyari": "WUR Enerji Monitörü PDF'indeki rakamlar açılamadı; yalnızca CBS'in bu kalemi kullanılacak."
+  },
+
+  "dogrulanamadi": [
+    { "kalem": "BBB'nin eyalet meclisi sandalye sayıları", "not": "Kiesraad sayfasında bulunamadı." },
+    { "kalem": "WUR Enerji Monitörü'ndeki sera enerji rakamları", "not": "PDF açılamadı." },
+    { "kalem": "PAS kararının ECLI numarası", "not": "Doğrulanamadı." },
+    { "kalem": "Natura 2000 alanlarında kritik yük aşım yüzdesi", "not": "Tek bir resmî güncel rakam bulunamadı." },
+    { "kalem": "Toplam kümes hayvanı sayısı", "not": "CBS'in iki serisi ~67M ve ~100M diye çelişiyor." },
+    { "kalem": "Hedeflenen çiftlik kapatma sayısı / '3.000 çiftlik' türü rakamlar", "not": "Resmî kaynakta bulunamadı." }
+  ]
+}

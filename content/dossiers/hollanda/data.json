@@ -1,0 +1,1848 @@
+{
+  "_dosya": "Hollanda — Ülke Dosyası · kilitli veri sayfası",
+  "_uretim_tarihi": "2026-08-16T10:36:03.869Z",
+  "_kural": "Dosya metninde geçen HER sayı bu dosyadan gelir. Buraya girmemiş bir sayı metne giremez. Bir sayı güncellenecekse önce burası güncellenir, sonra metin.",
+  "_kaynaklar": {
+    "WB": {
+      "ad": "World Bank Open Data",
+      "url": "https://data.worldbank.org",
+      "lisans": "CC BY 4.0",
+      "cekim": "2026-08-15T05:31:49.172Z"
+    },
+    "FAO_QCL": {
+      "ad": "FAOSTAT — Production: Crops and livestock products",
+      "url": "https://www.fao.org/faostat/en/#data/QCL",
+      "cekim": "2026-08-15T00:32:33.122Z"
+    },
+    "FAO_QV": {
+      "ad": "FAOSTAT — Value of Agricultural Production",
+      "url": "https://www.fao.org/faostat/en/#data/QV",
+      "cekim": "2026-08-15T00:32:33.122Z"
+    },
+    "FAO_TCL": {
+      "ad": "FAOSTAT — Trade: Crops and livestock products",
+      "url": "https://www.fao.org/faostat/en/#data/TCL",
+      "cekim": "2026-08-15T00:37:10.558Z"
+    },
+    "FAO_TM": {
+      "ad": "FAOSTAT — Detailed Trade Matrix",
+      "url": "https://www.fao.org/faostat/en/#data/TM",
+      "cekim": "2026-08-15T00:50:49.775Z"
+    },
+    "CBS": {
+      "ad": "CBS StatLine — tablo 81302ned",
+      "url": "https://opendata.cbs.nl/statline/#/CBS/nl/dataset/81302ned/table",
+      "lisans": "CC BY 4.0 (CBS açık veri)",
+      "guncelleme": "2026-06-30T02:00:00",
+      "cekim": "2026-08-15T01:07:48.558Z"
+    },
+    "CBS_IHR": {
+      "ad": "CBS (Centraal Bureau voor de Statistiek) — 'Waarde landbouwexport ruim 8 procent hoger in 2025'",
+      "url": "https://www.cbs.nl/nl-nl/nieuws/2026/03/waarde-landbouwexport-ruim-8-procent-hoger-in-2025",
+      "yayin": "2026-01-16",
+      "not": "ELLE GİRİLDİ — CBS bu seriyi OData API'sinden yayımlamıyor, haber bülteninden alındı ve birincil kaynaktan doğrulandı."
+    },
+    "KURUM": {
+      "ad": "Kurumların kendi resmî yayınları — tek tek doğrulandı",
+      "dogrulama": "2026-08-15"
+    },
+    "TARIH": {
+      "ad": "Rijkswaterstaat, Nieuw Land, Deltacommissie, WUR, AB tarihî arşivleri — elle doğrulandı",
+      "dogrulama": "2026-08-15"
+    },
+    "CEVRE": {
+      "ad": "CBS, RIVM, Emissieregistratie, RVO, Raad van State, AB Konseyi — elle doğrulandı",
+      "dogrulama": "2026-08-16"
+    }
+  },
+  "tez": {
+    "cumle": "Hollanda'nın sırrı toprağında değil, toprağının üstüne kurduğu sistemde.",
+    "cumle_en": "The Dutch secret is not in the soil, but in what they built on top of it.",
+    "baslik": "Az üreten, çok satan ülke",
+    "ozet": "Türkiye tarımsal üretim değerinde Hollanda'nın yaklaşık dört buçuk katı. Hollanda tarımsal ihracatta Türkiye'nin yaklaşık dört katı. Aradaki fark toprakta değil, toprakla ürün arasındaki her adımda.",
+    "uretim_degeri": {
+      "birim": "milyon I$ (sabit 2014-2016 uluslararası dolar)",
+      "NLD": {
+        "yil": 2023,
+        "deger": 17789
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 79879
+      },
+      "kaynak": "FAO_QV"
+    },
+    "ihracat": {
+      "birim": "milyon US$ (cari)",
+      "kalem": "Crops and livestock products",
+      "NLD": {
+        "yil": 2023,
+        "deger": 125753
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 29502
+      },
+      "kaynak": "FAO_TCL"
+    },
+    "ithalat": {
+      "birim": "milyon US$ (cari)",
+      "NLD": {
+        "yil": 2023,
+        "deger": 85753
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 25413
+      },
+      "kaynak": "FAO_TCL"
+    },
+    "UYARI": "Üretim değeri sabit I$, ihracat cari US$ cinsinden. İkisinin ORANI (7,1 vs 0,37) ekonomik olarak birebir karşılaştırılabilir bir sayı DEĞİL; metinde oran olarak verilmeyecek, olgu olarak anlatılacak."
+  },
+  "makro": [
+    {
+      "kod": "NV.AGR.TOTL.ZS",
+      "etiket": "Tarımın GSYH içindeki payı",
+      "birim": "%",
+      "NLD": {
+        "yil": 2025,
+        "deger": 1.68323077210041
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 5.20951196750004
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/NV.AGR.TOTL.ZS",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "NV.AGR.TOTL.CD",
+      "etiket": "Tarımsal katma değer",
+      "birim": "cari US$",
+      "NLD": {
+        "yil": 2025,
+        "deger": 22433555223.9215
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 83211181935.7741
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/NV.AGR.TOTL.CD",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "SL.AGR.EMPL.ZS",
+      "etiket": "Tarımda istihdam payı",
+      "birim": "%",
+      "NLD": {
+        "yil": 2025,
+        "deger": 1.70416434849209
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 14.2199829949572
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/SL.AGR.EMPL.ZS",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "SP.POP.TOTL",
+      "etiket": "Nüfus",
+      "birim": "kişi",
+      "NLD": {
+        "yil": 2025,
+        "deger": 18087633
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 85878556
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "SP.RUR.TOTL.ZS",
+      "etiket": "Kırsal nüfus payı",
+      "birim": "%",
+      "NLD": {
+        "yil": 2025,
+        "deger": 4.06140965188089
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 10.505939997814
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/SP.RUR.TOTL.ZS",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "NY.GDP.MKTP.CD",
+      "etiket": "GSYH",
+      "birim": "cari US$",
+      "NLD": {
+        "yil": 2025,
+        "deger": 1332767651100.39
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 1597293229287
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "NY.GDP.PCAP.CD",
+      "etiket": "Kişi başına GSYH",
+      "birim": "cari US$",
+      "NLD": {
+        "yil": 2025,
+        "deger": 73683.917132794
+      },
+      "TUR": {
+        "yil": 2025,
+        "deger": 18599.4420922378
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+      "veri_guncelleme": "2026-07-13"
+    }
+  ],
+  "toprak_su": [
+    {
+      "kod": "AG.LND.TOTL.K2",
+      "etiket": "Kara alanı",
+      "birim": "km²",
+      "NLD": {
+        "yil": 2023,
+        "deger": 33670
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 769630
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.TOTL.K2",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "AG.LND.AGRI.K2",
+      "etiket": "Tarım arazisi",
+      "birim": "km²",
+      "NLD": {
+        "yil": 2023,
+        "deger": 18030
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 385880
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.AGRI.K2",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "AG.LND.AGRI.ZS",
+      "etiket": "Tarım arazisinin kara alanına oranı",
+      "birim": "%",
+      "NLD": {
+        "yil": 2023,
+        "deger": 53.5491535491536
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 50.1383781817237
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.AGRI.ZS",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "AG.LND.ARBL.HA",
+      "etiket": "İşlenebilir arazi",
+      "birim": "hektar",
+      "NLD": {
+        "yil": 2023,
+        "deger": 1009000
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 20277000
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.ARBL.HA",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "AG.LND.ARBL.HA.PC",
+      "etiket": "Kişi başına işlenebilir arazi",
+      "birim": "hektar",
+      "NLD": {
+        "yil": 2023,
+        "deger": 0.056440867954268
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 0.237641613546357
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.ARBL.HA.PC",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "AG.LND.IRIG.AG.ZS",
+      "etiket": "Sulanan arazi payı",
+      "birim": "%",
+      "NLD": {
+        "yil": 2023,
+        "deger": 21.5751525235718
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 12.4676065097958
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.IRIG.AG.ZS",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "ER.H2O.FWAG.ZS",
+      "etiket": "Tarımın tatlı su çekimindeki payı",
+      "birim": "%",
+      "NLD": {
+        "yil": 2022,
+        "deger": 3.219295516
+      },
+      "TUR": {
+        "yil": 2022,
+        "deger": 86.92701174
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/ER.H2O.FWAG.ZS",
+      "veri_guncelleme": "2026-07-13"
+    },
+    {
+      "kod": "AG.CON.FERT.ZS",
+      "etiket": "Gübre tüketimi",
+      "birim": "kg/ha",
+      "NLD": {
+        "yil": 2023,
+        "deger": 238.01982160555
+      },
+      "TUR": {
+        "yil": 2023,
+        "deger": 139.557478917
+      },
+      "kaynak": "World Bank — World Development Indicators",
+      "kaynak_url": "https://data.worldbank.org/indicator/AG.CON.FERT.ZS",
+      "veri_guncelleme": "2026-07-13"
+    }
+  ],
+  "verim": {
+    "aciklama": "Fark tek bir sayı değil, üç kademe. (1) Örtüaltı sebzede 5–12 kat — bu kademe mühendislik ürünü. (2) Yumru ve kök ürünlerde 1,1–1,2 kat — pratikte fark yok. (3) Tahılda 2,2–2,6 kat — gerçek bir fark, ama kapanıyor. Hollanda mucizesi genel bir tarım üstünlüğü DEĞİL; farkın büyüklüğü ürünün cam altına alınıp alınmadığına göre değişiyor. Dosyanın en önemli tespiti budur.",
+    "ortualti": [
+      {
+        "urun": "Salatalık",
+        "fao_item": "Cucumbers and gherkins",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 635.9
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 53.1
+        },
+        "kat": 12
+      },
+      {
+        "urun": "Domates",
+        "fao_item": "Tomatoes",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 410.2
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 80
+        },
+        "kat": 5.1
+      },
+      {
+        "urun": "Biber",
+        "fao_item": "Chillies and peppers, green (Capsicum spp. and Pimenta spp.)",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 269.2
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 40.4
+        },
+        "kat": 6.7
+      }
+    ],
+    "acik_tarla": [
+      {
+        "urun": "Patates",
+        "fao_item": "Potatoes",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 41.8
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 37.8
+        },
+        "kat": 1.1
+      },
+      {
+        "urun": "Kuru soğan",
+        "fao_item": "Onions and shallots, dry (excluding dehydrated)",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 45.9
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 43
+        },
+        "kat": 1.1
+      },
+      {
+        "urun": "Buğday",
+        "fao_item": "Wheat",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 8.5
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 3.2
+        },
+        "kat": 2.6
+      },
+      {
+        "urun": "Arpa",
+        "fao_item": "Barley",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 6.5
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 2.8
+        },
+        "kat": 2.3
+      },
+      {
+        "urun": "Şeker pancarı",
+        "fao_item": "Sugar beet",
+        "birim": "t/ha",
+        "NLD": {
+          "yil": 2023,
+          "deger": 86.3
+        },
+        "TUR": {
+          "yil": 2023,
+          "deger": 69.4
+        },
+        "kat": 1.2
+      }
+    ],
+    "kaynak": "FAO_QCL (element 5412 Yield, kg/ha → t/ha)",
+    "tahil_farki": {
+      "_neden_burada": "Tahıl farkı örtüaltı farkıyla aynı şey değil: sera farkı mühendislikle açılıyor, tahıl farkı girdi ve iklimle birlikte kapanıyor. Metinde bu ikisi birbirine karıştırılmayacak.",
+      "seyir": [
+        {
+          "yil": 1990,
+          "NLD": 6990,
+          "TUR": 2214,
+          "kat": 3.16
+        },
+        {
+          "yil": 2000,
+          "NLD": 7906,
+          "TUR": 2371,
+          "kat": 3.33
+        },
+        {
+          "yil": 2010,
+          "NLD": 8569,
+          "TUR": 2726,
+          "kat": 3.14
+        },
+        {
+          "yil": 2020,
+          "NLD": 7944,
+          "TUR": 3342,
+          "kat": 2.38
+        },
+        {
+          "yil": 2023,
+          "NLD": 8080,
+          "TUR": 3659,
+          "kat": 2.21
+        }
+      ],
+      "seyir_birim": "kg/ha — Dünya Bankası AG.YLD.CREL.KG",
+      "girdi_farklari": [
+        {
+          "kod": "AG.LND.PRCP.MM",
+          "etiket": "Ortalama yağış",
+          "birim": "mm/yıl",
+          "NLD": {
+            "yil": 2022,
+            "deger": 778
+          },
+          "TUR": {
+            "yil": 2022,
+            "deger": 593
+          },
+          "kaynak": "World Bank — World Development Indicators",
+          "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.PRCP.MM",
+          "veri_guncelleme": "2026-07-13"
+        },
+        {
+          "kod": "AG.CON.FERT.ZS",
+          "etiket": "Gübre tüketimi",
+          "birim": "kg/ha",
+          "NLD": {
+            "yil": 2023,
+            "deger": 238.01982160555
+          },
+          "TUR": {
+            "yil": 2023,
+            "deger": 139.557478917
+          },
+          "kaynak": "World Bank — World Development Indicators",
+          "kaynak_url": "https://data.worldbank.org/indicator/AG.CON.FERT.ZS",
+          "veri_guncelleme": "2026-07-13"
+        },
+        {
+          "kod": "AG.LND.IRIG.AG.ZS",
+          "etiket": "Sulanan arazi payı",
+          "birim": "%",
+          "NLD": {
+            "yil": 2023,
+            "deger": 21.5751525235718
+          },
+          "TUR": {
+            "yil": 2023,
+            "deger": 12.4676065097958
+          },
+          "kaynak": "World Bank — World Development Indicators",
+          "kaynak_url": "https://data.worldbank.org/indicator/AG.LND.IRIG.AG.ZS",
+          "veri_guncelleme": "2026-07-13"
+        }
+      ],
+      "yagis_uyarisi": "AG.LND.PRCP.MM YILLIK DEĞİL uzun dönem ortalamasıdır — 1990-2022 arasındaki 33 kaydın hepsi aynı sayıyı verir. \"2022 yağışı\" diye yazılamaz; \"uzun dönem ortalaması\" denir.",
+      "_yorum_siniri": "Bu üç girdi farkı tahıl farkıyla BİRLİKTE bulunuyor; nedensellik kanıtı değildir. Metin \"şu kadarı iklimden\" diye pay dağıtmayacak."
+    }
+  },
+  "sera": {
+    "aciklama": "Verim farkını yaratan alan, Hollanda tarım arazisinin yüzde birinden küçük. Üstelik 2000'den bu yana BÜYÜMEDİ, küçüldü. \"Hollanda mucizesi\" bir yayılma değil, sabit ve küçük bir alanın yoğunlaştırılması hikâyesi.",
+    "toplam_tarim_arazisi": {
+      "alan": "Toplam tarım arazisi (ha)",
+      "yil": 2025,
+      "hektar": 1793760
+    },
+    "ortualti": {
+      "alan": "Örtüaltı toplam (ha)",
+      "yil": 2025,
+      "hektar": 10030,
+      "tarim_arazisi_payi_yuzde": 0.56
+    },
+    "cam_alti_sebze": {
+      "alan": "Cam altı sebze toplam (ha)",
+      "yil": 2025,
+      "hektar": 5570,
+      "tarim_arazisi_payi_yuzde": 0.31
+    },
+    "sus_bitkisi": {
+      "alan": "Süs bitkisi toplam (ha)",
+      "yil": 2025,
+      "hektar": 3900,
+      "tarim_arazisi_payi_yuzde": 0.22
+    },
+    "sebzeler": [
+      {
+        "alan": "Domates (ha)",
+        "yil": 2025,
+        "hektar": 1770
+      },
+      {
+        "alan": "Biber (ha)",
+        "yil": 2025,
+        "hektar": 1580
+      },
+      {
+        "alan": "Salatalık (ha)",
+        "yil": 2025,
+        "hektar": 630
+      },
+      {
+        "alan": "Patlıcan (ha)",
+        "yil": 2025,
+        "hektar": 110
+      }
+    ],
+    "susler": [
+      {
+        "alan": "Kesme çiçek toplam (ha)",
+        "yil": 2025,
+        "hektar": 1710
+      },
+      {
+        "alan": "Saksı bitkisi toplam (ha)",
+        "yil": 2025,
+        "hektar": 1730
+      },
+      {
+        "alan": "Krizantem (ha)",
+        "yil": 2025,
+        "hektar": 470
+      },
+      {
+        "alan": "Gül (ha)",
+        "yil": 2025,
+        "hektar": 140
+      },
+      {
+        "alan": "Orkide (ha)",
+        "yil": 2025,
+        "hektar": 80
+      },
+      {
+        "alan": "Lale — cam altı (ha)",
+        "yil": 2025,
+        "hektar": 0
+      }
+    ],
+    "sera_alani_seyri": {
+      "ilk_yil": 2000,
+      "ilk_deger": 10520,
+      "son_yil": 2025,
+      "son_deger": 10030,
+      "degisim_yuzde": -4.7
+    },
+    "isletme_sayisi_seyri": {
+      "ilk_yil": 2000,
+      "ilk_deger": 97390,
+      "son_yil": 2026,
+      "son_deger": 48570,
+      "degisim_yuzde": -50.1
+    },
+    "ortualti_isletme": {
+      "alan": "Örtüaltı işletme sayısı",
+      "yil": 2025,
+      "hektar": 3030
+    },
+    "ortalama_sera_buyuklugu_ha": 3.31,
+    "capraz_dogrulama": "FAOSTAT'ın Hollanda domates hasat alanı (5312) ile CBS'nin cam altı domates alanı BİREBİR aynı: 1.770 ha. İki bağımsız kaynak aynı sayıyı veriyor — Hollanda'da domates neredeyse tamamen cam altında demektir.",
+    "turkiye_karsilastirmasi": {
+      "urun": "Domates hasat alanı",
+      "birim": "hektar",
+      "TUR": {
+        "yil": 2023,
+        "deger": 166323
+      },
+      "NLD": {
+        "yil": 2023,
+        "deger": 1770
+      },
+      "kat": 94
+    },
+    "kaynak": "CBS"
+  },
+  "ihracat_kompozisyonu": {
+    "aciklama": "Hollanda'nın kendi istatistik kurumu, manşet ihracat rakamının Hollanda ekonomisine bıraktığı payı ayrı hesaplıyor. Dosyanın dürüstlük düzeltmesi burada.",
+    "yil": 2025,
+    "birim": "milyar EUR",
+    "toplam": 137.5,
+    "artis_yuzde": 8.4,
+    "hollanda_yapimi": 88.4,
+    "yeniden_ihracat": 49.1,
+    "yeniden_ihracat_payi_yuzde": 35.7,
+    "kazanc": {
+      "toplam": 49,
+      "hollanda_yapimindan": 43.5,
+      "yeniden_ihracattan": 5.7,
+      "_not": "'Exportverdiensten' = ihracatın Hollanda ekonomisinde gerçekten bıraktığı katma değer. Ciro değil, kazanç.",
+      "_kritik_bulgu": "Yeniden ihracat, manşet rakamın %35,7'si ama kazancın yalnızca %11,6'sı. Yani 137,5 milyar avroluk başlık, Hollanda'nın gerçek başarısını yaklaşık üçte bir oranında ŞİŞİRİYOR — ve bunu söyleyen Hollanda'nın kendi istatistik kurumu."
+    },
+    "kazanc_icinde_yeniden_ihracat_payi_yuzde": 11.6,
+    "deger_tutma_orani": {
+      "hollanda_yapimi_yuzde": 49.2,
+      "yeniden_ihracat_yuzde": 11.6,
+      "_not": "Hollanda'da üretilen her 100 avroluk ihracattan ~49 avro ülkede kalıyor; yeniden ihraç edilen her 100 avrodan ~12 avro."
+    },
+    "kritik_bulgu": "Yeniden ihracat, manşet rakamın %35,7'si ama kazancın yalnızca %11,6'sı. Yani 137,5 milyar avroluk başlık, Hollanda'nın gerçek başarısını yaklaşık üçte bir oranında ŞİŞİRİYOR — ve bunu söyleyen Hollanda'nın kendi istatistik kurumu.",
+    "buyume_nedeni": "Değer artışının üçte ikisinden fazlası FİYAT artışından; kalanı miktar artışından.",
+    "ilk_10_pazar": [
+      {
+        "ulke": "Almanya",
+        "milyar_eur": 34,
+        "pay_yuzde": 25
+      },
+      {
+        "ulke": "Belçika",
+        "milyar_eur": 16.9
+      },
+      {
+        "ulke": "Fransa",
+        "milyar_eur": 11.4
+      },
+      {
+        "ulke": "Birleşik Krallık",
+        "milyar_eur": 9.8
+      },
+      {
+        "ulke": "İspanya",
+        "milyar_eur": 5.7
+      },
+      {
+        "ulke": "İtalya",
+        "milyar_eur": 5.6
+      },
+      {
+        "ulke": "Polonya",
+        "milyar_eur": 5.2
+      },
+      {
+        "ulke": "ABD",
+        "milyar_eur": 3.8
+      },
+      {
+        "ulke": "İsveç",
+        "milyar_eur": 3.1
+      },
+      {
+        "ulke": "Çin",
+        "milyar_eur": 3
+      }
+    ],
+    "ilk_10_notu": "Türkiye ilk 10'da yok. Hollanda ihracatının ezici çoğunluğu komşularına gidiyor — bu da 'küresel dev' imajını düzelten bir olgu.",
+    "UYARI": "Bu seri EUR ve CBS tanımlı 'landbouwgoederen'dir. FAOSTAT'ın USD cinsinden 'Crops and livestock products' serisiyle AYNI ŞEY DEĞİLDİR. İkisi asla aynı cümlede oran olarak kullanılmayacak.",
+    "kaynak": "CBS_IHR"
+  },
+  "kakao": {
+    "aciklama": "Hollanda tek bir kakao ağacı yetiştirmez. Batı Afrika'dan çekirdek alır, öğütür, yağını ve ezmesini satar. Dosyanın tezinin en temiz örneği.",
+    "hollanda_uretimi": "FAOSTAT üretim kaydı yok — Hollanda kakao yetiştirmiyor",
+    "kalemler": [
+      {
+        "kalem": "Cocoa beans",
+        "ithalat": {
+          "yil": 2023,
+          "milyon_usd": 2399
+        },
+        "ihracat": {
+          "yil": 2023,
+          "milyon_usd": 594
+        }
+      },
+      {
+        "kalem": "Cocoa butter, fat and oil",
+        "ithalat": {
+          "yil": 2023,
+          "milyon_usd": 505
+        },
+        "ihracat": {
+          "yil": 2023,
+          "milyon_usd": 1624
+        }
+      },
+      {
+        "kalem": "Cocoa paste not defatted",
+        "ithalat": {
+          "yil": 2023,
+          "milyon_usd": 399
+        },
+        "ihracat": {
+          "yil": 2023,
+          "milyon_usd": 980
+        }
+      },
+      {
+        "kalem": "Cocoa powder and cake",
+        "ithalat": {
+          "yil": 2023,
+          "milyon_usd": 359
+        },
+        "ihracat": {
+          "yil": 2023,
+          "milyon_usd": 1034
+        }
+      }
+    ],
+    "kaynak": "FAO_TCL"
+  },
+  "turkiye_ile": {
+    "aciklama": "Türkiye Hollanda'ya kuru meyve ve sert kabuklu satıyor; Hollanda Türkiye'ye işlenmiş sanayi girdisi satıyor. İlişkinin kendisi dosyanın tezini tekrarlıyor.",
+    "raportor": "Hollanda (tek raportör — iki ülkenin beyanları birbirini tutmaz)",
+    "birim": "milyon US$ (cari)",
+    "yillar": [
+      {
+        "yil": 2020,
+        "hollandadan_turkiyeye": 574,
+        "turkiyeden_hollandaya": 506
+      },
+      {
+        "yil": 2021,
+        "hollandadan_turkiyeye": 614,
+        "turkiyeden_hollandaya": 548
+      },
+      {
+        "yil": 2022,
+        "hollandadan_turkiyeye": 727,
+        "turkiyeden_hollandaya": 564
+      },
+      {
+        "yil": 2023,
+        "hollandadan_turkiyeye": 749,
+        "turkiyeden_hollandaya": 586
+      },
+      {
+        "yil": 2024,
+        "hollandadan_turkiyeye": 803,
+        "turkiyeden_hollandaya": 681
+      }
+    ],
+    "hollandanin_sattiklari": [
+      {
+        "kalem": "Food preparations n.e.c.",
+        "yil": 2024,
+        "milyon_usd": 110.6
+      },
+      {
+        "kalem": "Other manufactured tobacco and manufactured tobacco substitutes; 'homogenized' or 'reconstituted' tobacco; tobacco extracts and essences",
+        "yil": 2024,
+        "milyon_usd": 83.6
+      },
+      {
+        "kalem": "Cocoa powder and cake",
+        "yil": 2024,
+        "milyon_usd": 80
+      },
+      {
+        "kalem": "Cocoa paste not defatted",
+        "yil": 2024,
+        "milyon_usd": 63.8
+      },
+      {
+        "kalem": "Cocoa butter, fat and oil",
+        "yil": 2024,
+        "milyon_usd": 60.9
+      },
+      {
+        "kalem": "Other non-alcoholic caloric beverages",
+        "yil": 2024,
+        "milyon_usd": 60
+      },
+      {
+        "kalem": "Crude organic material n.e.c.",
+        "yil": 2024,
+        "milyon_usd": 45.2
+      },
+      {
+        "kalem": "Coffee, decaffeinated or roasted",
+        "yil": 2024,
+        "milyon_usd": 29.9
+      },
+      {
+        "kalem": "Food wastes",
+        "yil": 2024,
+        "milyon_usd": 26.2
+      },
+      {
+        "kalem": "Potatoes",
+        "yil": 2024,
+        "milyon_usd": 22
+      },
+      {
+        "kalem": "Chocolate products nes",
+        "yil": 2024,
+        "milyon_usd": 20.3
+      },
+      {
+        "kalem": "Extracts, essences and concentrates of tea or mate, and preparations with a basis thereof or with a basis of tea or maté",
+        "yil": 2024,
+        "milyon_usd": 20.3
+      },
+      {
+        "kalem": "Refined sugar",
+        "yil": 2024,
+        "milyon_usd": 12
+      },
+      {
+        "kalem": "Dog or cat food, put up for retail sale",
+        "yil": 2024,
+        "milyon_usd": 11.7
+      },
+      {
+        "kalem": "Cigarettes",
+        "yil": 2024,
+        "milyon_usd": 10.1
+      }
+    ],
+    "turkiyenin_sattiklari": [
+      {
+        "kalem": "Prepared nuts",
+        "yil": 2024,
+        "milyon_usd": 73.1
+      },
+      {
+        "kalem": "Raisins",
+        "yil": 2024,
+        "milyon_usd": 70.9
+      },
+      {
+        "kalem": "Food preparations n.e.c.",
+        "yil": 2024,
+        "milyon_usd": 47.1
+      },
+      {
+        "kalem": "Crude organic material n.e.c.",
+        "yil": 2024,
+        "milyon_usd": 46
+      },
+      {
+        "kalem": "Fruit prepared n.e.c.",
+        "yil": 2024,
+        "milyon_usd": 32.9
+      },
+      {
+        "kalem": "Hazelnuts, shelled",
+        "yil": 2024,
+        "milyon_usd": 32.7
+      },
+      {
+        "kalem": "Vegetables, pulses and potatoes, preserved by vinegar or acetic acid",
+        "yil": 2024,
+        "milyon_usd": 32.7
+      },
+      {
+        "kalem": "Apple juice, concentrated",
+        "yil": 2024,
+        "milyon_usd": 32
+      },
+      {
+        "kalem": "Orange juice, concentrated",
+        "yil": 2024,
+        "milyon_usd": 23.5
+      },
+      {
+        "kalem": "Sugar confectionery",
+        "yil": 2024,
+        "milyon_usd": 21.9
+      },
+      {
+        "kalem": "Juice of fruits n.e.c.",
+        "yil": 2024,
+        "milyon_usd": 18.1
+      },
+      {
+        "kalem": "Pastry",
+        "yil": 2024,
+        "milyon_usd": 17.9
+      },
+      {
+        "kalem": "Apricots, dried",
+        "yil": 2024,
+        "milyon_usd": 15.1
+      },
+      {
+        "kalem": "Unmanufactured tobacco",
+        "yil": 2024,
+        "milyon_usd": 14.4
+      },
+      {
+        "kalem": "Other non-alcoholic caloric beverages",
+        "yil": 2024,
+        "milyon_usd": 10.7
+      }
+    ],
+    "kaynak": "FAO_TM"
+  },
+  "ihracat_seyri": {
+    "birim": "milyon US$ (cari)",
+    "kalem": "Crops and livestock products",
+    "seri": {
+      "1961": 1234,
+      "1962": 1322,
+      "1963": 1451,
+      "1964": 1595,
+      "1965": 1801,
+      "1966": 1819,
+      "1967": 1990,
+      "1968": 2281,
+      "1969": 2589,
+      "1970": 3100,
+      "1971": 3451,
+      "1972": 4164,
+      "1973": 5922,
+      "1974": 7027,
+      "1975": 8404,
+      "1976": 9195,
+      "1977": 10180,
+      "1978": 12088,
+      "1979": 14235,
+      "1980": 15797,
+      "1981": 15399,
+      "1982": 14916,
+      "1983": 14517,
+      "1984": 14775,
+      "1985": 14948,
+      "1986": 18980,
+      "1987": 22762,
+      "1988": 24680,
+      "1989": 26247,
+      "1990": 30616,
+      "1991": 30630,
+      "1992": 33450,
+      "1993": 29040,
+      "1994": 34690,
+      "1995": 36531,
+      "1996": 36917,
+      "1997": 31705,
+      "1998": 29924,
+      "1999": 34061,
+      "2000": 27878,
+      "2001": 27819,
+      "2002": 32514,
+      "2003": 41896,
+      "2004": 47787,
+      "2005": 50785,
+      "2006": 54891,
+      "2007": 67598,
+      "2008": 78998,
+      "2009": 74273,
+      "2010": 77260,
+      "2011": 89305,
+      "2012": 86569,
+      "2013": 90915,
+      "2014": 85286,
+      "2015": 73305,
+      "2016": 78823,
+      "2017": 95980,
+      "2018": 100117,
+      "2019": 97444,
+      "2020": 100825,
+      "2021": 113922,
+      "2022": 119850,
+      "2023": 125753
+    },
+    "kaynak": "FAO_TCL"
+  },
+  "dunya_siralamasi": {
+    "tanim": "FAOSTAT \"Crops and livestock products\", ihracat değeri (element 5922), cari US$",
+    "kapsam": "198 ülke, beş bölge dosyasının tamamı; bölge ve grup agregaları elendi",
+    "UYARI": "Yaygın olarak tekrarlanan \"Hollanda dünyanın 2. büyük tarım ihracatçısı\" ifadesi FAOSTAT'ın BU tanımıyla 2023 için DOĞRU DEĞİL — Hollanda 3. sırada, Brezilya'nın arkasında. \"2. sıra\" iddiası genellikle WTO/Comtrade'in farklı \"tarım ürünleri\" tanımına dayanır. Metinde sıra verilirken TANIM ve YIL mutlaka yazılacak.",
+    "yillar": {
+      "2022": {
+        "kapsanan_ulke": 198,
+        "hollanda_sirasi": 3,
+        "turkiye_sirasi": 21,
+        "ilk_10": [
+          {
+            "sira": 1,
+            "ulke": "United States of America",
+            "milyon_usd": 191567
+          },
+          {
+            "sira": 2,
+            "ulke": "Brazil",
+            "milyon_usd": 136402
+          },
+          {
+            "sira": 3,
+            "ulke": "Netherlands (Kingdom of the)",
+            "milyon_usd": 119850
+          },
+          {
+            "sira": 4,
+            "ulke": "Germany",
+            "milyon_usd": 91702
+          },
+          {
+            "sira": 5,
+            "ulke": "France",
+            "milyon_usd": 82254
+          },
+          {
+            "sira": 6,
+            "ulke": "China, mainland",
+            "milyon_usd": 66304
+          },
+          {
+            "sira": 7,
+            "ulke": "Canada",
+            "milyon_usd": 65260
+          },
+          {
+            "sira": 8,
+            "ulke": "Spain",
+            "milyon_usd": 64472
+          },
+          {
+            "sira": 9,
+            "ulke": "Italy",
+            "milyon_usd": 60409
+          },
+          {
+            "sira": 10,
+            "ulke": "Indonesia",
+            "milyon_usd": 57338
+          }
+        ]
+      },
+      "2023": {
+        "kapsanan_ulke": 198,
+        "hollanda_sirasi": 3,
+        "turkiye_sirasi": 18,
+        "ilk_10": [
+          {
+            "sira": 1,
+            "ulke": "United States of America",
+            "milyon_usd": 170964
+          },
+          {
+            "sira": 2,
+            "ulke": "Brazil",
+            "milyon_usd": 146661
+          },
+          {
+            "sira": 3,
+            "ulke": "Netherlands (Kingdom of the)",
+            "milyon_usd": 125753
+          },
+          {
+            "sira": 4,
+            "ulke": "Germany",
+            "milyon_usd": 98515
+          },
+          {
+            "sira": 5,
+            "ulke": "France",
+            "milyon_usd": 82677
+          },
+          {
+            "sira": 6,
+            "ulke": "Spain",
+            "milyon_usd": 69066
+          },
+          {
+            "sira": 7,
+            "ulke": "China, mainland",
+            "milyon_usd": 68085
+          },
+          {
+            "sira": 8,
+            "ulke": "Canada",
+            "milyon_usd": 68014
+          },
+          {
+            "sira": 9,
+            "ulke": "Italy",
+            "milyon_usd": 64933
+          },
+          {
+            "sira": 10,
+            "ulke": "Belgium",
+            "milyon_usd": 60116
+          }
+        ]
+      }
+    },
+    "kaynak": "FAO_TCL"
+  },
+  "kurumlar": {
+    "aciklama": "Boşluk 3 — Hollanda tarımını ayakta tutan kurumlar. Dosyanın 'nasıl' sorusunun cevabı burada: mucize iklimde değil, kurum tasarımında.",
+    "ozet_tez": "Beş kurum, beş farklı tasarım kararı: bilgiyi tek çatıda topla (WUR), fiyat mekanizmasının mülkiyetini üreticiye ver (FloraHolland), en yüksek katma değerli halkayı elde tut (tohum), üretimi coğrafi olarak sıkıştır (Greenport), araştırma parasını ortaklık şartına bağla (Topsector). Hiçbiri iklimle, toprakla veya arazi büyüklüğüyle ilgili değil. Hepsi kopyalanabilir.",
+    "liste": [
+      {
+        "id": "wur",
+        "ad": "Wageningen University & Research",
+        "tur": "Üniversite + araştırma enstitüsü (ikili yapı)",
+        "kurulus": 1918,
+        "neden_onemli": "Dünyanın tarım alanında 1 numaralı üniversitesi. Hollanda modelinin bilgi üretim motoru. Üniversite (WU) ile sözleşmeli araştırma vakfı (WR) tek çatı altında — akademik yayın ile saha uygulaması aynı kurumda buluşuyor.",
+        "veriler": {
+          "calisan": {
+            "deger": 7800,
+            "birim": "kişi",
+            "not": "Kurumun kendi tanıtım rakamı. 2023 tam zamanlı eşdeğeri (fte) 7.044."
+          },
+          "ogrenci": {
+            "deger": 12407,
+            "birim": "kişi",
+            "tarih": "2025-10",
+            "detay": {
+              "hollandali": 9031,
+              "yabanci": 3376,
+              "lisans": 5175,
+              "yuksek_lisans": 6754,
+              "hazirlik": 99
+            }
+          },
+          "doktora_adayi": {
+            "deger": 2440,
+            "yil": 2023
+          },
+          "profesor": {
+            "deger": 234,
+            "yil": 2023
+          },
+          "program": {
+            "lisans": 20,
+            "yuksek_lisans": 31,
+            "mooc": 49,
+            "yil": 2023
+          },
+          "mezun": {
+            "deger": 64117,
+            "yil": 2023
+          },
+          "qs_tarim_ormancilik": {
+            "deger": 1,
+            "birim": "dünya sırası",
+            "ifade": "Wageningen University & Research excels in Agriculture & Forestry (1st globally)"
+          },
+          "the_genel": {
+            "deger": 67,
+            "birim": "dünya sırası",
+            "yil": 2025
+          },
+          "surdurulebilirlik": {
+            "ifade": "UI GreenMetric'te 9 yıl üst üste dünya 1.'si — 'dünyanın en sürdürülebilir kampüsü'"
+          }
+        },
+        "kritik_bulgu": null,
+        "kaynak": "Wageningen University & Research — resmî 'Facts and figures' ve 'Rankings' sayfaları",
+        "kaynak_url": [
+          "https://www.wur.nl/en/about-wur/facts-figures",
+          "https://www.wur.nl/en/about-wur/facts-figures/rankings-and-scientific-awards"
+        ],
+        "yayin_tarihi": null
+      },
+      {
+        "id": "floraholland",
+        "ad": "Royal FloraHolland",
+        "tur": "Üretici kooperatifi — çiçek ve bitki müzayedesi",
+        "kurulus": 1911,
+        "neden_onemli": "Dosyanın en öğretici kurumu. Dünyanın en büyük çiçek ticaret platformu bir şirket değil, ÜRETİCİ KOOPERATİFİ. Hollanda fiyat oluşum mekanizmasının mülkiyetini üreticiye vermiş. 5,4 milyar avro içinden akıyor ama kurumun kendi cirosu 493 milyon, kârı 12 milyon — aradaki fark üreticide kalıyor.",
+        "veriler": {
+          "urun_cirosu": {
+            "deger": 5.4,
+            "birim": "milyar EUR",
+            "yil": 2025,
+            "onceki": {
+              "2024": 5.3
+            },
+            "rekor": {
+              "yil": 2021,
+              "deger": 5.6
+            }
+          },
+          "kurum_cirosu": {
+            "deger": 493,
+            "birim": "milyon EUR",
+            "yil": 2025
+          },
+          "faaliyet_sonucu": {
+            "deger": 19,
+            "birim": "milyon EUR",
+            "yil": 2025
+          },
+          "net_sonuc": {
+            "deger": 12,
+            "birim": "milyon EUR",
+            "yil": 2025,
+            "onceki": {
+              "2024": 5
+            }
+          },
+          "fiyat_hacim": {
+            "kesme_cicek_fiyat_yuzde": 3,
+            "bitki_fiyat_yuzde": 1,
+            "hacim_yuzde": -2,
+            "yil": 2025
+          },
+          "floriday_dijital": {
+            "deger": 75,
+            "birim": "%",
+            "aciklama": "Alıcı yönlendirmeli bitki işlemlerinin Floriday üzerinden yapılan payı",
+            "yil": 2025
+          }
+        },
+        "kritik_bulgu": "Ciro/kâr oranı: 5.400 milyon avroluk ürün cirosunun yalnızca %9,1'i (493 milyon) kurumun kendi geliri, %0,2'si (12 milyon) kârı. Kooperatif modeli değeri üyede tutuyor — bu bir verimlilik değil, MÜLKİYET tasarımı meselesi.",
+        "kaynak": "NCR — Nationale Coöperatieve Raad (cooperatie.nl), Royal FloraHolland 2025 yıllık sonuçları haberi",
+        "kaynak_url": "https://www.cooperatie.nl/",
+        "yayin_tarihi": null
+      },
+      {
+        "id": "uitgangsmateriaal",
+        "ad": "Tohum ve fide sektörü (uitgangsmateriaal) — Plantum çatısı altında",
+        "tur": "Sektör + meslek örgütü",
+        "kurulus": null,
+        "neden_onemli": "Hollanda'nın gerçek ihracat ürünü domates değil, domatesin TOHUMU. Görünmez ama en yüksek katma değerli halka. Cironun %15'i, sebze ıslahçılarında %30'a kadarı Ar-Ge'ye gidiyor — bu oran ilaç sanayii seviyesinde.",
+        "veriler": {
+          "ihracat": {
+            "deger": 5.02,
+            "birim": "milyar EUR",
+            "yil": 2024,
+            "seyir": {
+              "2000": 1.3,
+              "2020": 3.8,
+              "2024": 5.02
+            },
+            "artis_2020_2024_yuzde": 31
+          },
+          "kompozisyon_yuzde": {
+            "sebze_tohumu": 45,
+            "cicek_sogani_ve_yumru": 34,
+            "tohumluk_patates": 12,
+            "yil": 2024
+          },
+          "sebze_tohumu": {
+            "ihracat_milyar_eur": 2.25,
+            "ithalat_milyon_eur": 592,
+            "ab_disi_pay_yuzde": 58,
+            "kuzey_amerika_pay_yuzde": 19,
+            "yil": 2024
+          },
+          "ar_ge": {
+            "ifade": "Gemiddeld wordt circa 15% van de omzet besteed aan onderzoek en ontwikkeling (R&D), oplopend tot ongeveer 30% bij groenteveredelaars",
+            "ceviri": "Ciroların ortalama %15'i Ar-Ge'ye ayrılıyor; sebze ıslahçılarında bu oran %30'a çıkıyor."
+          },
+          "istihdam": {
+            "deger": 14000,
+            "birim": "kişi",
+            "seyir": {
+              "2010": "8.000–10.000",
+              "2019": "~12.000 tam zamanlı",
+              "guncel": "14.000+"
+            },
+            "kaynak_ic": "Plantum tahmini"
+          }
+        },
+        "kritik_bulgu": "5,02 milyar avroluk tohum/fide ihracatının %58'i AB DIŞINA gidiyor. Yani bu kalem, Hollanda'nın 'komşularına satıyor' genel örüntüsünün istisnası — ve tam da en yüksek katma değerli kalem olması bu yüzden anlamlı.",
+        "kaynak": "Agrimatie — Wageningen University & Research, 'Uitgangsmateriaal in de sector akker- en tuinbouw', Editie 2026",
+        "kaynak_url": "https://agrimatie.nl/internationalehandel/gepubliceerde-artikelen-en-rapporten/editie-2026/2026-uitgangsmateriaal/",
+        "yayin_tarihi": "2026-01-16"
+      },
+      {
+        "id": "greenport",
+        "ad": "Greenports Nederland — bahçecilik kümeleri",
+        "tur": "Bölgesel küme ağı (ulusal koordinasyon)",
+        "kurulus": null,
+        "neden_onemli": "Hollanda seracılığı dağınık işletmeler toplamı değil, coğrafi olarak sıkıştırılmış kümeler. Üretim, ticaret, teknoloji ve lojistik yan yana. 'Küme' kelimesi burada mecaz değil, fiziksel gerçek.",
+        "veriler": {
+          "uretim_degeri": {
+            "2020": 26.8,
+            "2024": 33.3,
+            "birim": "milyar EUR"
+          },
+          "katma_deger": {
+            "2020": 16.2,
+            "2024": 20.4,
+            "birim": "milyar EUR"
+          },
+          "istihdam": {
+            "2020": 198000,
+            "2024": 208000,
+            "birim": "iş yılı (arbeidsjaren)",
+            "ulusal_pay_yuzde": 2.5
+          },
+          "zincir_ihracati": {
+            "deger": 28,
+            "birim": "milyar EUR",
+            "yil": 2024,
+            "artis_2019_yuzde": 25,
+            "hollanda_yapimi_pay_yuzde": 65
+          },
+          "zincir_ithalati": {
+            "deger": 11,
+            "birim": "milyar EUR",
+            "yil": 2024,
+            "artis_2019_yuzde": 15
+          },
+          "inovasyon_tesviki": {
+            "deger": 516,
+            "birim": "milyon EUR",
+            "yil": 2024,
+            "arac": "WBSO Ar-Ge vergi teşviki",
+            "artis_2019_yuzde": 25
+          }
+        },
+        "kritik_bulgu": "Bahçecilik zinciri ihracatının %65'i Hollanda yapımı — genel tarım ihracatındaki %64,3 ile neredeyse aynı. Ama bahçecilik, tüm tarım arazisinin %0,56'sında duruyor. Yoğunluk farkı buradan okunuyor.",
+        "kaynak": "Greenports Nederland — 'Tuinbouw groeit naar ruim 33 miljard productiewaarde'; rakamlar Wageningen Social & Economic Research araştırması, CBS desteğiyle",
+        "kaynak_url": "https://www.greenports-nederland.nl/nl/tuinbouw-groeit-naar-ruim-33-miljard-productiewaarde-en-blijf-investeren-in-innovatie",
+        "yayin_tarihi": "2026-06-09"
+      },
+      {
+        "id": "topsector",
+        "ad": "Topsector Tuinbouw & Uitgangsmaterialen (2026'dan itibaren: TKI T&U)",
+        "tur": "Kamu–özel araştırma finansman mekanizması",
+        "kurulus": 2012,
+        "neden_onemli": "Hollanda modelinin kurumsal kilit taşı. Devlet parayı doğrudan araştırmacıya değil, ŞİRKET–ARAŞTIRMACI ORTAKLIĞINA veriyor; şirket kendi payını koymazsa proje başlamıyor. Türkiye'ye en doğrudan aktarılabilir tasarım budur.",
+        "veriler": {
+          "pps_2025": {
+            "basvuru": 147,
+            "kabul": 100,
+            "kabul_orani_yuzde": 68,
+            "devlet_destegi_milyon_eur": 66.5,
+            "ozel_sektor_katkisi_milyon_eur": 66.7,
+            "toplam_yatirim_milyon_eur": 133,
+            "bakanlik_dagilimi": {
+              "LVVN": 45.2,
+              "EZ": 20.1,
+              "IenW": 1.2
+            },
+            "_not": "Özel sektör katkısı (66,7) devlet desteğini (66,5) AŞIYOR. Eşleştirme oranı 1:1'in biraz üzerinde."
+          },
+          "kia": {
+            "ad": "Kennis- en Innovatieagenda Landbouw, Water, Voedsel",
+            "donem": "2024–2027",
+            "ortak_topsektorler": [
+              "Agri & Food",
+              "Tuinbouw & Uitgangsmaterialen",
+              "Water & Maritiem"
+            ],
+            "bakanliklar": [
+              "LNV",
+              "VWS",
+              "I&W"
+            ]
+          },
+          "yapisal_degisiklik": {
+            "tarih": "2026-01-01",
+            "aciklama": "Topsector politikası sanayi politikasına dönüştü; 'Topsector' adı kalktı, kurum TKI Tuinbouw & Uitgangsmaterialen olarak devam ediyor. PPS inovasyon desteği en az 2027 sonuna kadar yaklaşık sabit."
+          }
+        },
+        "kritik_bulgu": "133 milyon avroluk toplam yatırımın yarısını özel sektör koyuyor. Devlet burada araştırmayı finanse etmiyor — özel sektörün araştırma yapmasını KÂRLI hale getiriyor. Aradaki fark, dosyanın Türkiye bölümünün ana argümanı.",
+        "kaynak": "Topsector Tuinbouw & Uitgangsmaterialen — '100 nieuwe PPS-projecten starten in 2025'",
+        "kaynak_url": "https://topsectortu.nl/nieuws/100-nieuwe-pps-projecten-starten-in-2025/",
+        "yayin_tarihi": "2025-01-15"
+      }
+    ],
+    "_dogrulanmamis_kalemler": [
+      {
+        "kurum": "Wageningen University & Research",
+        "kalemler": {
+          "tasarruf_programi": "2027 sonuna kadar yılda 80 milyon avro tasarruf hedefi — 2024 yıllık raporundan arama sonucuyla geldi, birincil PDF'ten teyit edilmedi.",
+          "2025_geliri": "553,9 milyon avro (WU, bütçe projeksiyonu) — aynı şekilde teyit edilmedi."
+        }
+      },
+      {
+        "kurum": "Royal FloraHolland",
+        "kalemler": {
+          "saat_hacmi": "Yıllık ~5 milyar dal/adet saat üzerinden, saat cirosu 2 milyar avronun biraz üzeri",
+          "kvv": "Doğrudan satış (KVV) 285 milyon EUR, +%10, ~%28 pay",
+          "gunluk_islem": "~100.000 işlem/gün",
+          "fsi_sertifikasyon": "2025 sonunda %78",
+          "ceo": "David van Mechelen, 2025-07-01'den beri vekâleten",
+          "_not": "Bu altı kalem yalnızca arama özetinden geldi; birincil kaynaktan teyit EDİLMEDİ. Metne girmeyecek."
+        }
+      },
+      {
+        "kurum": "Tohum ve fide sektörü (uitgangsmateriaal) — Plantum çatısı altında",
+        "kalemler": {
+          "dunya_pazar_payi": "Plantum'a atfen 'dünya tohum pazarının ~%17'si, sebze tohumlarının %38'i'; PBL'e atfen 'dünya sebze tohumu ticaretinin ~%35'i, tohumluk patatesin ~%60'ı'. Agrimatie sayfası yüzde pay VERMİYOR; iki kaynak birbirinden farklı. Metinde pay yüzdesi kullanılmayacak, mutlak ihracat rakamı kullanılacak."
+        }
+      },
+      {
+        "kurum": "Greenports Nederland — bahçecilik kümeleri",
+        "kalemler": {
+          "west_holland": "Greenport West-Holland: Avrupa'nın en büyük kümesi, 50.000+ istihdam, ~15 milyar EUR katma değer; Westland ~9.000 ha alanda brüt 4.500 ha cam sera, 16.000 işletme (2.000'i sera). greenportwestholland.nl WebFetch'te gövde metni döndürmedi — teyit edilemedi, metne girmeyecek."
+        }
+      },
+      {
+        "kurum": "Topsector Tuinbouw & Uitgangsmaterialen (2026'dan itibaren: TKI T&U)",
+        "kalemler": {
+          "kumulatif": "2012'den beri 250+ araştırma/inovasyon projesi, ~400 şirket katılımı — arama özetinden geldi, birincil kaynaktan teyit edilmedi."
+        }
+      }
+    ],
+    "_dogrulanmamis_kural": "Yukarıdaki liste METNE GİRMEZ. Yalnızca ileride doğrulanmak üzere kayıt altındadır.",
+    "kaynak": "KURUM"
+  },
+  "tarih": {
+    "su_muhendisligi": {
+      "sudan_kazanilan_pay": {
+        "deger": 18,
+        "birim": "%",
+        "aciklama": "Hollanda'nın toplam yüzölçümünün sudan kazanılmış oranı",
+        "kaynak": "PBL — Planbureau voor de Leefomgeving, Atlas van de Regio",
+        "kaynak_url": "https://themasites.pbl.nl/atlas-regio/themas/water/",
+        "alinti": "In totaal is 18% van Nederland veroverd op het water"
+      },
+      "deniz_seviyesi_alti_pay": {
+        "deger": 26,
+        "birim": "%",
+        "aciklama": "Hollanda'nın deniz seviyesinin altında kalan yaklaşık oranı",
+        "kaynak": "PBL, Atlas van de Regio",
+        "kaynak_url": "https://themasites.pbl.nl/atlas-regio/themas/water/",
+        "alinti": "Circa 26% van Nederland ligt onder zeeniveau"
+      },
+      "polder_sayisi": {
+        "deger": 3800,
+        "birim": "adet (üzeri)",
+        "aciklama": "Alçak Hollanda'daki polder sayısı",
+        "kaynak": "PBL, Atlas van de Regio",
+        "kaynak_url": "https://themasites.pbl.nl/atlas-regio/themas/water/",
+        "alinti": "Voor de beheersing van het water omvat Laag-Nederland ruim 3.800 polders"
+      }
+    },
+    "zuiderzee": {
+      "yasa_yili": 1918,
+      "afsluitdijk": {
+        "uzunluk_km": 32,
+        "tamamlanma_yili": 1932,
+        "son_kapanis": "28 Mayıs 1932 — Vlieter boşluğu",
+        "kaynak": "Rijkswaterstaat",
+        "kaynak_url": "https://www.rijkswaterstaat.nl/en/projects/iconic-structures/the-afsluitdijk",
+        "alinti": "The Afsluitdijk is a 32 km long dyke that separates the Wadden Sea from the IJsselmeer in the Netherlands. Built largely by hand and completed in 1932"
+      },
+      "toplam_kazanilan_alan_ha": 165000,
+      "toplam_kaynak": "Rijkswaterstaat — 100 jaar Zuiderzeewerken",
+      "toplam_kaynak_url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/100-jaar-zuiderzeewet",
+      "toplam_alinti": "Met de aanleg van Wieringermeer (1930), Noordoostpolder (1942), oostelijk Flevoland (1957) en zuidelijk Flevoland (1968) ontstond er 165.000 ha nieuw land.",
+      "polderler": [
+        {
+          "ad": "Wieringermeer",
+          "yil": 1930,
+          "hektar": 20000,
+          "kaynak": "RCE — Rijksdienst voor het Cultureel Erfgoed",
+          "kaynak_url": "https://kennis.cultureelerfgoed.nl/index.php/Ontginningen_in_de_twintigste_eeuw"
+        },
+        {
+          "ad": "Noordoostpolder",
+          "yil": 1942,
+          "hektar": 48000,
+          "kaynak": "RCE",
+          "kaynak_url": "https://kennis.cultureelerfgoed.nl/index.php/Ontginningen_in_de_twintigste_eeuw"
+        },
+        {
+          "ad": "Oostelijk Flevoland",
+          "yil": 1957,
+          "hektar": 54000,
+          "kaynak": "Flevoland Erfgoed",
+          "kaynak_url": "https://www.flevolanderfgoed.nl/home/erfgoed/oostelijk-flevoland-2.html"
+        },
+        {
+          "ad": "Zuidelijk Flevoland",
+          "yil": 1968,
+          "hektar": 43000,
+          "kaynak": "Flevoland Erfgoed",
+          "kaynak_url": "https://www.flevolanderfgoed.nl/home/erfgoed/zuidelijk-flevoland-2.html"
+        }
+      ],
+      "_toplama_uyarisi": "Polder alanları toplamı 165.000 ha veriyor ve Rijkswaterstaat'ın toplamıyla birebir uyuşuyor. Ancak RCE, Oostelijk+Zuidelijk Flevoland için 'birlikte 98.000 ha' diyor; Flevoland Erfgoed'un tek tek rakamları 97.000 veriyor. 1.000 ha'lık bu fark metinde tek tek rakam verilirken dikkate alınmalı — güvenli olan toplamı (165.000) kullanmaktır.",
+      "ijsselmeer_polderleri_pay": {
+        "alan_km2": 1600,
+        "hollanda_yuzolcumu_payi": "yaklaşık %5",
+        "tarim_arazisi_payi": "yaklaşık %6",
+        "kaynak": "CBS",
+        "kaynak_url": "https://www.cbs.nl/nl-nl/achtergrond/2018/24/nieuw-land-wat-de-ijsselmeerpolders-nederland-brachten",
+        "alinti": "De totale landoppervlakte van de IJsselmeerpolders bedraagt 1 600 vierkante kilometer. Dat is bijna 5 procent van het totaal in Nederland."
+      }
+    },
+    "sel_1953_ve_delta": {
+      "tarih": "31 Ocak — 1 Şubat 1953 gecesi",
+      "can_kaybi": 1836,
+      "su_altinda_kalan_ha": 150000,
+      "kaynak": "Rijkswaterstaat",
+      "kaynak_url": "https://www.rijkswaterstaat.nl/water/waterbeheer/bescherming-tegen-het-water/watersnoodramp-1953",
+      "alinti": "De watersnoodramp kostte aan 1836 mensen het leven. Ruim 150.000 ha grond overstroomde.",
+      "delta_works": {
+        "baslangic": 1954,
+        "bitis": 1997,
+        "son_yapi": "Maeslantkering",
+        "kaynak": "Rijkswaterstaat — Onze historie",
+        "kaynak_url": "https://www.rijkswaterstaat.nl/over-ons/onze-organisatie/onze-historie",
+        "alinti": "In 1954 gaat de bouw van het eerste Deltawerk van start en in 1997 is met de Maeslantkering het laatste werk opgeleverd.",
+        "_yapi_sayisi_uyarisi": "Rijkswaterstaat'ın iki sayfası çelişiyor: biri '13 Deltawerken', diğeri '12 waterverdedigingswerken' diyor. Metinde yapı sayısı verilmeyecek."
+      }
+    },
+    "hongerwinter_1944_45": {
+      "_neden_aralik": "Ölü sayısı için tek bir resmî rakam yok; kurumlar farklı tanımlar kullanıyor. Metinde tek sayı verilmeyecek, kaynaklar birlikte aktarılacak.",
+      "kayitlar": [
+        {
+          "deger": 8305,
+          "tanim": "Ölüm nedeni resmen 'açlık' kaydedilen vaka",
+          "kaynak": "NIDI (KNAW)",
+          "kaynak_url": "https://nidi.nl/demos/sterfte-door-hongerwinter-en-oorlog/"
+        },
+        {
+          "deger": "20.000+",
+          "tanim": "Açlıktan ölen",
+          "kaynak": "Verzetsmuseum Amsterdam",
+          "kaynak_url": "https://www.verzetsmuseum.org/nl/kennisbank/1944-1945-hongersnood"
+        },
+        {
+          "deger": "22.000+",
+          "tanim": "Batı Hollanda'da açlık ve soğuktan ölen",
+          "kaynak": "Nationaal Archief",
+          "kaynak_url": "https://www.nationaalarchief.nl/onderzoeken/nieuws/de-laatste-oorlogsmaanden-hongersnood-in-nederland",
+          "alinti": "in het laatste oorlogsjaar sterven in het westen van Nederland meer dan 22.000 mensen door honger en kou"
+        },
+        {
+          "deger": "15.000–25.000",
+          "tanim": "Tahmin aralığı",
+          "kaynak": "tweedewereldoorlog.nl (NIOD + Nationaal Comité 4 en 5 mei)",
+          "kaynak_url": "https://www.tweedewereldoorlog.nl/75-jaar-vrijheid/kaartvanbevrijding/hongerwinter/"
+        }
+      ],
+      "nidi_ek": {
+        "asiri_olum_eylul1944_mayis1945": 56000,
+        "hongerwinter_bolgesi_payi": "%38",
+        "kaynak_url": "https://nidi.nl/demos/sterfte-door-hongerwinter-en-oorlog/"
+      }
+    },
+    "wageningen": {
+      "tarim_okulu_devletlestirme": 1876,
+      "yuksekogretim_statusu": "9 Mart 1918",
+      "kaynak": "Wageningen University & Research — resmî tarihçe",
+      "kaynak_url": "https://www.wur.nl/en/about-wur/facts-and-figures-1/history-of-wageningen-university-research.htm",
+      "alinti_1876": "The state takes over the local council's Agricultural College in Wageningen: the start of National Agricultural Education in The Netherlands",
+      "alinti_1918": "Wageningen's status as an institute of higher education is legally ratified, and it becomes the National Agricultural College on 9 March 1918"
+    },
+    "mansholt": {
+      "plan_tarihi": "21 Aralık 1968",
+      "plan_adi": "Agriculture 1980 / Mansholt Planı",
+      "belge_kunyesi": "Bulletin of the European Communities, Supplement 1/1969 — Office for Official Publications of the European Communities",
+      "kaynak": "CVCE / Université du Luxembourg",
+      "kaynak_url": "https://www.cvce.eu/en/obj/memorandum_on_agricultural_reform_in_the_european_economic_community_21_december_1968-en-aeeba4d9-1971-4e34-ae1c-ae90fc32c6ee.html",
+      "alinti": "On 21 December 1968, the European Commission submits to the Council a memorandum on agricultural reform. This is the Agriculture 1980 plan, also known as the Mansholt Plan",
+      "tarim_komiseri_baslangic": 1958,
+      "tarim_komiseri_kaynak": "Avrupa Birliği resmî portalı — EU pioneers",
+      "tarim_komiseri_kaynak_url": "https://european-union.europa.eu/principles-countries-history/history-eu/eu-pioneers/sicco-mansholt_en",
+      "tarim_komiseri_alinti": "he became Commissioner for Agriculture in the very first European Commission in 1958.",
+      "komisyon_baskanligi": "22 Mart 1972 — 5 Ocak 1973",
+      "komisyon_baskanligi_kaynak": "European Commission Library — History of the European Commission",
+      "komisyon_baskanligi_kaynak_url": "https://ec-europa-eu.libguides.com/ec-history/mansholt/ec-composition",
+      "ortak_pazar_plani_yili": 1950
+    },
+    "_giris_yontemi": "Her kalem, adı geçen kurumun kendi sayfası WebFetch ile AÇILARAK doğrulandı. Hafızadan yazılan hiçbir tarih veya rakam yok.",
+    "_dogrulama_tarihi": "2026-08-15",
+    "_dogrulanmamis_kalemler": [
+      {
+        "kalem": "Hongerwinter'de etkilenen nüfus (4,5 veya 4,3 milyon)",
+        "not": "Hiçbir resmî kurum sayfasında bulunamadı."
+      },
+      {
+        "kalem": "Mansholt Planı'nın '5 milyon çiftçi / 5 milyon hektar' hedefleri",
+        "not": "CVCE sayfasında geçmiyor, PDF açılamadı."
+      },
+      {
+        "kalem": "Mansholt'un Tarım Komiserliğinin bitiş tarihi",
+        "not": "Yalnızca Komisyon Başkanlığının başlangıcı (22 Mart 1972) resmî kaynakta var."
+      },
+      {
+        "kalem": "1953 selinin İngiltere/Belçika/deniz can kayıpları",
+        "not": "Rijkswaterstaat sayfasında yok."
+      },
+      {
+        "kalem": "'Hollanda'nın %20'si / 7.150 km² sudan kazanıldı'",
+        "not": "Yalnızca Wikipedia'da. PBL'nin %18'i kullanılacak."
+      },
+      {
+        "kalem": "NIOD'un kendi Hongerwinter rakamları",
+        "not": "Sayfa 5 denemede de HTTP 429 verdi."
+      },
+      {
+        "kalem": "Delta Works'teki yapı sayısı",
+        "not": "Rijkswaterstaat kendi içinde 12 ve 13 diye çelişiyor."
+      }
+    ],
+    "_dogrulanmamis_kural": "Yukarıdaki liste METNE GİRMEZ. Yalnızca ileride doğrulanmak üzere kayıt altındadır."
+  },
+  "cevre": {
+    "hayvan_sayilari": {
+      "_kaynak": "CBS — Landbouwtelling / StatLine",
+      "_yil": 2025,
+      "domuz": {
+        "deger": 9960000,
+        "degisim": "-%5,1 (2024'e göre)",
+        "not": "1979'dan bu yana ilk kez 10 milyonun altında",
+        "kaynak_url": "https://www.cbs.nl/nl-nl/nieuws/2025/28/minder-varkens-en-runderen-in-2025"
+      },
+      "sigir": {
+        "deger": 3650000,
+        "degisim": "-%3,3"
+      },
+      "sut_inegi": {
+        "deger": 1530000
+      },
+      "etlik_pilic": {
+        "deger": 35100000
+      },
+      "yumurta_tavugu": {
+        "deger": 31800000
+      },
+      "_kumes_uyarisi": "CBS'in iki ayrı kümes serisi birbiriyle UYUŞMUYOR: Landbouwtelling boş kümes düzeltmesiyle ~67 milyon verirken StatLine 84952 ~100 milyon veriyor. Metinde toplam kümes hayvanı sayısı VERİLMEYECEK; yalnızca etlik piliç ve yumurta tavuğu ayrı ayrı anılabilir."
+    },
+    "amonyak": {
+      "toplam_kg": 116000000,
+      "yil": 2023,
+      "tarim_payi": "yaklaşık %90",
+      "tarim_ici_dagilim": {
+        "sigir": "%55",
+        "domuz": "%15",
+        "kumes": "%11"
+      },
+      "kaynak": "CBS",
+      "_birim_uyarisi": "Rakam kg NH3'tür, kg N değil. İkisi karıştırılmayacak."
+    },
+    "azot_cokelmesi": {
+      "tarim_arazisi_1990_kg": 75000000,
+      "tarim_arazisi_2024_kg": 34000000,
+      "azalma": "%55",
+      "hollanda_tariminin_payi": "%56",
+      "_pay_uyarisi": "Bu %56, TARIM ARAZİSİNE düşen çökelmenin payıdır — Natura 2000 alanlarının payı DEĞİLDİR. İkisi metinde karıştırılmayacak.",
+      "net_ihrac": "Hollanda, aldığından yaklaşık 4 kat fazla azotu komşu ülkelere gönderiyor",
+      "kaynak": "CBS"
+    },
+    "pas_karari": {
+      "tarih": "29 Mayıs 2019",
+      "mahkeme": "Raad van State (Danıştay)",
+      "konu": "Programma Aanpak Stikstof (PAS) — 'önce izin ver, sonra telafi et' yaklaşımı AB Habitat Direktifi'ne aykırı bulundu",
+      "_ecli_uyarisi": "Kararın ECLI numarası doğrulanamadı; metinde numara verilmeyecek."
+    },
+    "gubre_tavanlari": {
+      "yil": 2024,
+      "azot": {
+        "uretilen_kg": 440000000,
+        "tavan_kg": 440000000,
+        "durum": "tam tavanda"
+      },
+      "fosfat": {
+        "uretilen_kg": 142000000,
+        "tavan_kg": 135000000,
+        "durum": "tavan aşıldı"
+      },
+      "kaynak": "CBS"
+    },
+    "cikis_semalari": {
+      "lbv_butce_eur": 1102000000,
+      "lbv_plus_butce_eur": 1820000000,
+      "toplam_eur": 2922000000,
+      "basvuru": 1576,
+      "onaylanan": 1438,
+      "tamamlanan": 243,
+      "rvo_uyarisi": "RVO açıkça belirtiyor: onay, kapanışın gerçekleştiği anlamına gelmiyor.",
+      "kaynak": "Rijksoverheid / RVO"
+    },
+    "siyaset": {
+      "bbb_eerste_kamer": {
+        "sandalye": 16,
+        "toplam": 75,
+        "not": "en büyük grup",
+        "kaynak": "Kiesraad"
+      },
+      "_uyari": "BBB'nin eyalet meclislerindeki sandalye sayısı DOĞRULANAMADI — yazılmayacak."
+    },
+    "ab_derogasyonu": {
+      "karar": "Decision (EU) 2022/2069",
+      "karar_tarihi": "30 Eylül 2022",
+      "bitis": "31 Aralık 2025",
+      "sonuc": "2026'dan itibaren genel sınır: 170 kg N/ha",
+      "kaynak": "Avrupa Komisyonu"
+    },
+    "sera_enerjisi": {
+      "dogalgaz_m3": 3900000000,
+      "yil": 2021,
+      "hata_payi": "±%4",
+      "kaynak": "CBS",
+      "_uyari": "WUR Enerji Monitörü PDF'indeki rakamlar açılamadı; yalnızca CBS'in bu kalemi kullanılacak."
+    },
+    "_giris_yontemi": "Her kalem, adı geçen kurumun kendi sayfası açılarak doğrulandı. Hafızadan yazılan hiçbir rakam yok.",
+    "_dogrulama_tarihi": "2026-08-16",
+    "_dogrulanmamis_kalemler": [
+      {
+        "kalem": "BBB'nin eyalet meclisi sandalye sayıları",
+        "not": "Kiesraad sayfasında bulunamadı."
+      },
+      {
+        "kalem": "WUR Enerji Monitörü'ndeki sera enerji rakamları",
+        "not": "PDF açılamadı."
+      },
+      {
+        "kalem": "PAS kararının ECLI numarası",
+        "not": "Doğrulanamadı."
+      },
+      {
+        "kalem": "Natura 2000 alanlarında kritik yük aşım yüzdesi",
+        "not": "Tek bir resmî güncel rakam bulunamadı."
+      },
+      {
+        "kalem": "Toplam kümes hayvanı sayısı",
+        "not": "CBS'in iki serisi ~67M ve ~100M diye çelişiyor."
+      },
+      {
+        "kalem": "Hedeflenen çiftlik kapatma sayısı / '3.000 çiftlik' türü rakamlar",
+        "not": "Resmî kaynakta bulunamadı."
+      }
+    ],
+    "_dogrulanmamis_kural": "Yukarıdaki liste METNE GİRMEZ. Yalnızca ileride doğrulanmak üzere kayıt altındadır."
+  },
+  "bosluklar": [
+    {
+      "konu": "Hollanda ürün bazlı üretim değeri",
+      "konu_en": "Dutch production value by commodity",
+      "sorun": "FAOSTAT QV'de Hollanda için ürün bazlı seri 2017'de kesiliyor (59 kalem). Türkiye 2023'e gidiyor.",
+      "sorun_en": "In FAOSTAT QV the Dutch commodity-level series stops in 2017 (59 items). The Turkish series runs to 2023.",
+      "cozum": "Ürün bazlı önem sıralaması üretim DEĞERİ ile değil, üretim MİKTARI (2024) ve TİCARET DEĞERİ (2023-24) ile kurulacak. 2017 rakamı güncelmiş gibi sunulmayacak.",
+      "cozum_en": "Commodity ranking is built from production VOLUME (2024) and TRADE VALUE (2023–24), not production value. The 2017 figure is never presented as current."
+    },
+    {
+      "konu": "Sera alanı",
+      "konu_en": "Greenhouse area",
+      "sorun": "FAOSTAT ve Dünya Bankası sera alanı yayımlamıyor.",
+      "sorun_en": "Neither FAOSTAT nor the World Bank publishes greenhouse area.",
+      "cozum": "CBS StatLine tablo 81302ned'den 16 alan çekildi (`_raw/cbs_fetch.mjs`). FAOSTAT domates hasat alanıyla birebir çapraz doğrulandı (1.770 ha = 1.770 ha).",
+      "cozum_en": "16 fields were pulled from CBS StatLine table 81302ned (`_raw/cbs_fetch.mjs`) and cross-checked exactly against the FAOSTAT tomato harvested area (1,770 ha = 1,770 ha).",
+      "durum": "KAPANDI"
+    },
+    {
+      "konu": "Yeniden ihracat payı",
+      "konu_en": "Share of re-exports",
+      "sorun": "FAOSTAT ihracatı brüt akış olarak verir; Hollanda ihracatının bir kısmı yeniden ihracattır (kendi üretimi değil). Bu ayrımı FAOSTAT yapmaz.",
+      "sorun_en": "FAOSTAT reports exports as gross flows; part of Dutch exports is re-export rather than domestic output, and FAOSTAT does not separate the two.",
+      "cozum": "CBS + Wageningen SER'in 2026-01-16 tarihli ortak yayınından alındı ve cbs.nl'den doğrulandı: 137,5 milyar EUR'nun 49,1'i yeniden ihracat, ama kazancın yalnızca 5,7/49,0'ı. Seri EUR cinsinden; FAOSTAT'ın USD serisiyle KARIŞTIRILMAYACAK.",
+      "cozum_en": "Taken from the joint CBS + Wageningen SER release of 16 Jan 2026 and verified on cbs.nl: of EUR 137.5 bn, 49.1 is re-export, yet it yields only 5.7 of 49.0 in earnings. This series is in EUR and is never mixed with the FAOSTAT USD series.",
+      "durum": "KAPANDI"
+    },
+    {
+      "konu": "Dünya sıralaması",
+      "konu_en": "World ranking",
+      "sorun": "\"Dünyanın 2. büyük tarım ihracatçısı\" ifadesi çok tekrarlanıyor ama yıl ve tanım belirtilmeden kullanılıyor.",
+      "sorun_en": "The claim \"world's second-largest agricultural exporter\" is repeated everywhere, always without a year or a definition.",
+      "cozum": "198 ülke için sıralama hesaplandı. FAOSTAT tanımıyla Hollanda 2023 ve 2022'de 3. sırada (ABD ve Brezilya'nın arkasında). Metinde \"2.\" denmeyecek; sıra verilirken tanım ve yıl yazılacak.",
+      "cozum_en": "The ranking was computed for 198 countries. On the FAOSTAT definition the Netherlands is 3rd in both 2023 and 2022, behind the USA and Brazil. The text never says \"2nd\"; every rank is given with its definition and year.",
+      "durum": "KAPANDI"
+    },
+    {
+      "konu": "Kurumlar (WUR, FloraHolland, ıslah, Greenport, Topsector)",
+      "konu_en": "Institutions (WUR, FloraHolland, plant breeding, Greenport, Topsector)",
+      "sorun": "Sayısal veri değil kurumsal bilgi; API yok.",
+      "sorun_en": "Institutional rather than numerical information; no API exists.",
+      "cozum": "Beş kurum kendi resmî yayınlarından tek tek doğrulandı (`_raw/kurumlar.json`). Teyit edilemeyen kalemler ayrı bir \"dogrulanmamis\" bloğuna alındı ve metne girmeyecek.",
+      "cozum_en": "All five institutions were verified one by one against their own official publications (`_raw/kurumlar.json`). Items that could not be confirmed were quarantined in a separate \"unverified\" block and kept out of the text.",
+      "durum": "KAPANDI",
+      "_kalan_belirsizlik": "Royal FloraHolland kendi sitesi 403 döndürdüğü için rakamlar çatı örgütü NCR üzerinden alındı. Greenport West-Holland bölgesel rakamları teyit edilemedi.",
+      "_kalan_belirsizlik_en": "Royal FloraHolland's own site returns 403, so its figures come via the umbrella body NCR. Greenport West-Holland regional figures could not be confirmed."
+    }
+  ]
+}

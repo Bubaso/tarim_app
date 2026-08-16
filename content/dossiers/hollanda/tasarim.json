@@ -1,0 +1,79 @@
+{
+  "_dosya": "Hollanda — Ülke Dosyası · tasarım künyesi",
+  "_amac": "Faz 0.5'te onaylanan görsel kararlar. Faz 3'te DossierTheme bu dosyadan üretilir; kodda serbest renk yazılmaz.",
+  "_onay_tarihi": "2026-08-15",
+  "_kural": "Bu dosyadaki hiçbir renk 'yaklaşık' değildir. Hepsi WCAG 2.1 AA'ya karşı hesaplandı; hesap betiği aşağıda kayıtlı.",
+
+  "tez_cumlesi": {
+    "tr": "Hollanda'nın sırrı toprağında değil, toprağının üstüne kurduğu sistemde.",
+    "en": "The Dutch secret is not in the soil, but in what they built on top of it.",
+    "gerekce": "Hem verim bölümünü (cam altı yoğunlaştırma) hem kurumlar bölümünü (kooperatif, PPS, ıslah) kapsıyor. 'Kurduğu' fiili kasıtlı: sistem miras değil, tasarım. Dosyanın Türkiye'ye bakan yüzü bu kelimede."
+  },
+
+  "palet": {
+    "ad": "Cam ve Işık",
+    "kaynak_fikir": "Hollanda seralarının gece göğe vurduğu sodyum lambası parıltısı. Westland ve Oostland üzerindeki turuncu ışık kubbeleri uzaydan görülüyor — bu bir metafor değil, ölçülebilir bir olgu. Palet manzaradan değil, manzaraya YAPILAN müdahaleden türetildi.",
+    "mod": "KOYU — dosya sayfası her zaman koyu. Uygulamanın açık/koyu tercihini izlemez.",
+    "mod_gerekcesi": "Dergi dosyası mantığı: içeri girdiğinizde başka bir yere geldiğinizi anlamalısınız. Ayrıca sodyum turuncusu ancak koyu zeminde sodyum turuncusu gibi görünür; açık zeminde tuğla rengine döner ve fikir kaybolur. Ana sayfadaki şerit bunun istisnasıdır — o, sayfanın içinde yaşadığı için açık/koyu izler.",
+
+    "koyu": {
+      "zemin": { "hex": "#0E1418", "rol": "Sayfa arka planı — gece" },
+      "yuzey": { "hex": "#18222A", "rol": "Kart, tablo, alıntı bloğu" },
+      "murekkep": { "hex": "#E8EDEF", "rol": "Gövde metni", "kontrast_zemin": 15.72, "kontrast_yuzey": 13.67 },
+      "sessiz": { "hex": "#9BAAB3", "rol": "Meta, kaynak satırı, altyazı", "kontrast_zemin": 7.77, "kontrast_yuzey": 6.76 },
+      "vurgu": { "hex": "#FF9E5E", "rol": "Sodyum turuncusu — rakamlar, başlık vurguları, grafik ana serisi", "kontrast_zemin": 9.1, "kontrast_yuzey": 7.92 },
+      "ikincil": { "hex": "#7FC8A9", "rol": "Cam yeşili — Türkiye serisi, karşılaştırma ikinci rengi", "kontrast_zemin": 9.49, "kontrast_yuzey": 8.25 },
+      "cizgi": { "hex": "#2A3740", "rol": "SADECE dekoratif ayırıcı", "kontrast_zemin": 1.52, "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz — grafik ekseni, sınır, odak halkası için cizgiVurgu kullanılır." },
+      "cizgiVurgu": { "hex": "#5A6E78", "rol": "Grafik ekseni, ızgara çizgisi, odak halkası — anlam taşıyan çizgiler", "kontrast_zemin": 3.48, "kontrast_yuzey": 3.03 }
+    },
+
+    "acik_mod_seridi": {
+      "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; açık modda sodyum turuncusu okunmuyor (beyaz üstünde 2,04:1). Şerit için koyulaştırılmış varyantlar kullanılır.",
+      "murekkep": { "hex": "#16222A", "kontrast_krem": 14.77 },
+      "vurguKoyu": { "hex": "#AB4F16", "rol": "Turuncunun açık zemin karşılığı", "kontrast_krem": 4.96, "kontrast_beyaz": 5.44 },
+      "ikincilKoyu": { "hex": "#1F6B4E", "rol": "Cam yeşilinin açık zemin karşılığı", "kontrast_krem": 5.85 }
+    },
+
+    "renk_korlugu_notu": "Turuncu (#FF9E5E) ve yeşil (#7FC8A9) parlaklıkları farklı (9,10 vs 9,49 — yakın), bu yüzden deuteranopia'da AYIRT EDİLEMEYEBİLİR. Grafiklerde iki seri asla yalnızca renkle ayrılmayacak: Hollanda dolu çizgi/dolu daire, Türkiye kesikli çizgi/içi boş daire. Bu Faz 3'ün zorunlu şartı.",
+    "denetim_betigi": "_raw/kontrast.cjs — `node content/dossiers/hollanda/_raw/kontrast.cjs`"
+  },
+
+  "motif": {
+    "ad": "Polder geometrisi",
+    "tanim": "Denizden kazanılmış arazinin havadan görünen dikdörtgen parsel ve hendek ızgarası. Düzensiz genişlikte dikey şeritler, aralarında ince yatay bölmeler.",
+    "gerekce": "Doğrusal olduğu için düşük opaklıkta metin okunurluğunu bozmaz. Delft çinisinin figüratifliğinden ve lale şeritlerinin yanlış vaadinden kaçınır. En önemlisi tezi tekrar eder: bu manzara doğal değil, insan yapımı — tıpkı seranın kendisi gibi.",
+    "uygulama": {
+      "opaklik": "%5 (kabul aralığı %4–8)",
+      "renk": "cizgiVurgu #5A6E78 üzerine opaklık",
+      "bicim": "Vektör (CustomPainter) — raster değil. Ölçeklenebilir, dosya boyutu sıfır, telif sorunu yok.",
+      "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+      "moire_notu": "Izgara aralığı 24 px'in altına inmeyecek; retina olmayan ekranlarda titreme yapar."
+    }
+  },
+
+  "kapak": {
+    "yon": "Gece sera parıltısı — havadan/yörüngeden Westland",
+    "gerekce": "Tezin doğrudan görselleştirmesi: karanlık arazide turuncu ışık adaları. Paletle aynı kaynaktan geliyor, o yüzden kapak ve sayfa aynı fikri söylüyor.",
+    "gorsel_kaynagi": {
+      "tercih_1": "NASA Earth Observatory / ISS astronot fotoğrafı — KAMU MALI (public domain), atıf yeterli, ticari kullanım serbest. Hollanda sera ışıkları ISS gece çekimlerinde net görünüyor.",
+      "tercih_2": "Unsplash / Pexels lisanslı havadan gece çekimi",
+      "_karar": "Tercih 1 denenecek; bulunamazsa tercih 2. Görsel BULUNANA KADAR kapak tipografik iskeletle çalışır — Faz 3 görselsiz de tamamlanabilir olmalı.",
+      "_yasak": "Telifi belirsiz hiçbir görsel kullanılmayacak. Google görsel araması kaynak değildir."
+    },
+    "tipografi_katmani": {
+      "ust_satir": "ÜLKE DOSYASI · 01",
+      "baslik": "HOLLANDA",
+      "alt_satir": "tez_cumlesi.tr",
+      "veri_rozeti": "Tarım arazisinin %0,56'sı cam altında"
+    },
+    "okunurluk": "Görsel üzerine zemin renginden %0 → %85 dikey gradyan; metin yalnızca %60+ bölgede durur. Gradyan olmadan hiçbir metin görsel üstüne konmaz."
+  },
+
+  "_faz3_zorunluluklari": [
+    "Grafiklerde iki seri renkle BİRLİKTE biçimle de ayrılacak (renk körlüğü)",
+    "Motif CustomPainter ile çizilecek, görsel dosyası olarak gömülmeyecek",
+    "Kapak görseli bulunamazsa sayfa yine de tam çalışacak",
+    "Koyu sayfa sistem açık/koyu tercihini izlemeyecek; ana sayfa şeridi izleyecek",
+    "Tüm renkler bu dosyadan türetilen DossierTheme üzerinden gelecek, kodda serbest hex yazılmayacak"
+  ]
+}

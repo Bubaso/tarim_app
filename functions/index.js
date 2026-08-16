@@ -29,7 +29,22 @@ import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { initializeApp } from 'firebase-admin/app';
 import { getMessaging } from 'firebase-admin/messaging';
 
-initializeApp();
+// Başlatma BİLEREK modül tepesinde değil.
+//
+// `initializeApp()` kimlik bilgisi arar; makinede kimlik yoksa GCP metadata
+// sunucusuna uzanır ve orada asılı kalır. Firebase CLI dağıtım öncesi bu
+// modülü YEREL makinede yükleyip dışa verilenleri okuduğu için, o asılı soket
+// dağıtımı da asıyordu: "Cannot determine backend specification. Timeout after
+// 120000". Ölçtük — modül 13 sn'de yükleniyor ve geriye 2 açık soket bırakıyordu.
+//
+// Tembel başlatmayla yükleme yan etkisiz oluyor; bağlantı yalnızca bildirim
+// gönderilirken, yani Google altyapısında kurulanıyor.
+let _app = null;
+
+function mesajlasma() {
+  if (!_app) _app = initializeApp();
+  return getMessaging(_app);
+}
 
 import {
   FALLBACK_IMAGE,
@@ -147,6 +162,25 @@ function safeImageUrl(raw) {
     return FALLBACK_IMAGE;
   }
 }
+
+// ─── Paylaşım görseli hakkında ─────────────────────────────────────────────
+//
+// Burada görsele hiçbir şey YAPMIYORUZ; `image_url` ne ise `og:image` o.
+// Kasıtlı: ölçü işi hattın yükleme adımında, depodaki dosyanın kendisinde
+// hallediliyor (`src/utils/image_storage.py::normalize_for_social`). Her dosya
+// 1200×630 JPEG ve 300 KB altında duruyor.
+//
+// Bir ara bunu okuma anında, Supabase'in dönüştürme uçnoktasıyla
+// (`/storage/v1/render/image/...`) çözmüştük. Geri aldık, iki yerden sızıyordu:
+//
+//   1. İçerik pazarlığı yapıyor. `Accept: image/webp` gönderen bir bota aynı
+//      adresten WebP dönüyor — WhatsApp'ta desteği istikrarsız olan, kaçmaya
+//      çalıştığımız formatın ta kendisi.
+//   2. Formatı zorlayamıyoruz. `format=jpeg` 400 veriyor, `format=origin` ise
+//      PNG kaynakta 1 MB döndürüyor; Meta'nın 600 KB sınırının üstü.
+//
+// Ölçü depoda sabitlenince önizlemenin ne bota, ne başlığa, ne de ücretli bir
+// özelliğin faturada durmasına bağlı kalıyor.
 
 /// Supabase'teki `id` sütunu uuid. Biçime uymayan bir değerle sorgu atmak
 /// PostgREST'ten 400 döndürür — boşuna gidiş dönüş yapmadan eleriz.
@@ -305,6 +339,16 @@ function metaTags({ title, documentTitle, description, image, url, publishedAt, 
     `  <meta property="og:description" content="${escapeHtml(description)}">`,
     `  <meta property="og:url" content="${escapeHtml(url)}">`,
     `  <meta property="og:image" content="${escapeHtml(image)}">`,
+    // Ölçüleri bildirmek bota görseli indirip incelemeden karar verme imkânı
+    // veriyor; Facebook ve LinkedIn kartı ilk denemede büyük çiziyor.
+    //
+    // Sabit yazılabilmesinin tek dayanağı hattaki normalizasyon: her görsel
+    // depoya 1200×630 JPEG olarak giriyor (`image_storage.normalize_for_social`),
+    // görselsiz haberlere de aynı ölçüdeki `FALLBACK_IMAGE` veriliyor. O adım
+    // kaldırılırsa buradaki üç satır yalan söylemeye başlar.
+    `  <meta property="og:image:width" content="1200">`,
+    `  <meta property="og:image:height" content="630">`,
+    `  <meta property="og:image:type" content="image/jpeg">`,
     `  <meta property="og:image:alt" content="${escapeHtml(title)}">`,
   ];
 
@@ -491,6 +535,116 @@ export const weekRenderer = onRequest(
   },
 );
 
+// ─── /ulke/** ──────────────────────────────────────────────────────────────
+
+/// Ülke dosyası slug'ı. Doğrudan REST sorgusuna gömüldüğü için kalıp DAR:
+/// yalnızca küçük harf, rakam ve tire. `eq.` filtresine kaçışsız bir metin
+/// koymak, `slug=eq.x&select=*` gibi bir değerle sorgunun geri kalanını
+/// yeniden yazma imkânı verirdi.
+const DOSSIER_SLUG_RE = /^[a-z0-9-]{1,64}$/;
+
+/// Ülke dosyasının yapılandırılmış verisi.
+///
+/// `NewsArticle` DEĞİL: dosya günün haberi değil, yirmi sekiz gün yayında
+/// duran bir inceleme. Haber olarak işaretlenseydi Google Haberler'e günlük
+/// akışın içinde girer ve her yenilemede "eski haber" muamelesi görürdü.
+/// `Article` + `about: Country` doğru olan: sayfanın neyi konu aldığı da
+/// böylece makinece okunabiliyor.
+function dossierJsonLd(row, url, title, description, image) {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: truncate(title, 110),
+    description,
+    image: [image],
+    datePublished: row.published_at ?? row.starts_at ?? undefined,
+    dateModified: row.updated_at ?? row.published_at ?? undefined,
+    inLanguage: 'tr-TR',
+    isPartOf: {
+      '@type': 'CreativeWorkSeries',
+      name: 'Ülke Dosyası',
+      url: `${SITE_ORIGIN}/ulkeler`,
+    },
+    about: {
+      '@type': 'Country',
+      name: row.name_tr || row.name_en || '',
+      identifier: row.iso3 || undefined,
+    },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: { '@type': 'ImageObject', url: FALLBACK_IMAGE },
+    },
+    author: { '@type': 'Organization', name: SITE_NAME },
+  };
+
+  const json = JSON.stringify(data).replaceAll('</', '<\\/');
+  return `<script type="application/ld+json">${json}</script>`;
+}
+
+/// Ülke dosyası sayfasının paylaşım kartı ve sekme başlığı.
+///
+/// Haber sayfasıyla aynı hata felsefesi: her yolda kabuk 200 ile dönüyor.
+/// Dosya paylaşılmak üzere yazıldı — bağlantıyı açan kişi meta üretilemese
+/// bile sayfayı görebilmeli.
+export const dossierRenderer = onRequest(
+  { region: REGION, memory: '256MiB', maxInstances: 10, invoker: 'public' },
+  async (req, res) => {
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.set('Cache-Control', ARTICLE_CACHE);
+
+    try {
+      const slug = req.path.split('/').filter(Boolean).pop() ?? '';
+      if (!DOSSIER_SLUG_RE.test(slug)) {
+        res.status(200).send(SHELL);
+        return;
+      }
+
+      // Taslak dosya DIŞARIDA: bir sonraki ülke yazılırken yarısı bitmiş
+      // metnin paylaşım kartı üretilmemeli. Aynı kural RLS'te de var; burada
+      // tekrarlanması, fonksiyonun anon anahtarla değil de başka bir yetkiyle
+      // çalıştığı bir gelecekte de doğru kalması için.
+      const rows = await supabaseGet(
+        `country_dossiers?slug=eq.${slug}&status=in.(published,archived)` +
+          '&select=slug,name_tr,name_en,iso3,thesis_tr,cover_url,published_at,starts_at,updated_at&limit=1',
+      );
+      const row = Array.isArray(rows) ? rows[0] : null;
+      if (!row) {
+        res.status(200).send(SHELL);
+        return;
+      }
+
+      const url = `${SITE_ORIGIN}/ulke/${row.slug}`;
+      const ad = toPlainText(row.name_tr) || toPlainText(row.name_en) || '';
+      // Paylaşım başlığı seriyi de söylüyor: bağlantıyı gören kişi bunun tek
+      // bir haber değil, bir dosya olduğunu kartta anlamalı.
+      const title = truncate(ad ? `Ülke Dosyası: ${ad}` : SITE_NAME, 90);
+      const description =
+        truncate(toPlainText(row.thesis_tr), 160) ||
+        `${ad} tarımı: veriler, kurumlar ve ürünler.`;
+      const image = safeImageUrl(row.cover_url);
+
+      const block = metaTags({
+        title,
+        documentTitle: `${title} | ${SITE_NAME}`,
+        description,
+        image,
+        url,
+        publishedAt: row.published_at ?? row.starts_at,
+        type: 'article',
+      });
+
+      res
+        .status(200)
+        .send(inject(SHELL, block, dossierJsonLd(row, url, title, description, image)));
+    } catch (err) {
+      console.error('dossierRenderer', err);
+      res.status(200).send(SHELL);
+    }
+  },
+);
+
 // ─── /sitemap.xml ──────────────────────────────────────────────────────────
 
 /// Adresten tamamen yeniden kurulabilen sayfalar. `/kategori/:title` burada
@@ -501,6 +655,9 @@ const STATIC_ROUTES = [
   { path: '/yazarlar', priority: '0.7', changefreq: 'weekly' },
   { path: '/yyt-dosyasi', priority: '0.7', changefreq: 'weekly' },
   { path: '/piyasalar', priority: '0.8', changefreq: 'daily' },
+  // Arşiv 28 günde bir büyüyor; aylık tarama yeni dosyayı ortalama iki hafta
+  // geç görürdü.
+  { path: '/ulkeler', priority: '0.7', changefreq: 'weekly' },
   { path: '/hakkimizda', priority: '0.5', changefreq: 'monthly' },
   { path: '/kunye', priority: '0.4', changefreq: 'yearly' },
   { path: '/iletisim', priority: '0.4', changefreq: 'yearly' },
@@ -572,6 +729,34 @@ export const sitemap = onRequest(
       // Haberler çekilemezse statik sayfalarla dönmek, 500 dönüp Google'a
       // "sitemap bozuk" demekten iyi.
       console.error('sitemap', err);
+    }
+
+    // Ülke dosyaları AYRI bir try içinde: haber sorgusu zaman aşımına
+    // uğradığında dosyaların da düşmesi için bir sebep yok. Tek blokta
+    // olsalardı beş bin haberi çekemeyen bir istek, on iki dosyayı da
+    // indeksten düşürürdü.
+    try {
+      const rows = await supabaseGet(
+        'country_dossier_index?select=slug,published_at&order=edition.desc&limit=200',
+      );
+      for (const row of Array.isArray(rows) ? rows : []) {
+        if (!row?.slug) continue;
+        entries.push(
+          urlEntry({
+            loc: `${SITE_ORIGIN}/ulke/${row.slug}`,
+            lastmod: row.published_at
+              ? String(row.published_at).slice(0, 10)
+              : null,
+            // Dosya yayımlandıktan sonra değişmiyor; haftalık tarama
+            // gereksiz yere bütçe harcardı. Öncelik haberden yüksek:
+            // tek bir dosya on üç bölüm ve ~4.800 kelime.
+            changefreq: 'monthly',
+            priority: '0.9',
+          }),
+        );
+      }
+    } catch (err) {
+      console.error('sitemap dossiers', err);
     }
 
     res.set('Content-Type', 'application/xml; charset=utf-8');
@@ -786,7 +971,7 @@ async function sendToAll({ kind, title, body, titleEn, bodyEn, path, articleId }
   // cihaz uyanana kadar bekletilebiliyor; haber bildirimi için bu kabul
   // edilemez bir gecikme. TTL bir gün: bir günden eski bir haber bildirimi
   // kuyrukta beklemesin.
-  const messaging = getMessaging();
+  const messaging = mesajlasma();
   let successCount = 0;
   let failureCount = 0;
   const dead = [];

@@ -1,0 +1,123 @@
+{
+  "_kaynak": "FAOSTAT — Trade: Crops and livestock products (TCL), element 5922 Export value",
+  "_kaynak_url": "https://www.fao.org/faostat/en/#data/TCL",
+  "_yontem": "Beş bölge dosyasındaki (Africa, Americas, Asia, Europe, Oceania) tüm ülkeler için \"Crops and livestock products\" ihracat değeri alınıp sıralandı. Bölge ve grup agregaları (alan kodu ≥ 1000 veya M49 kodu boş) elendi.",
+  "_uyari": "Yaygın olarak tekrarlanan \"Hollanda dünyanın 2. büyük tarım ihracatçısı\" ifadesi FAOSTAT'ın BU tanımıyla 2023 için DOĞRU DEĞİL — Hollanda 3. sırada, Brezilya'nın arkasında. \"2. sıra\" iddiası genellikle WTO/Comtrade'in farklı \"tarım ürünleri\" tanımına dayanır. Metinde sıra verilirken TANIM ve YIL mutlaka yazılacak.",
+  "_cekilme_tarihi": "2026-08-15T00:54:34.187Z",
+  "siralama": {
+    "2022": {
+      "kapsanan_ulke": 198,
+      "hollanda_sirasi": 3,
+      "turkiye_sirasi": 21,
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "United States of America",
+          "milyon_usd": 191567
+        },
+        {
+          "sira": 2,
+          "ulke": "Brazil",
+          "milyon_usd": 136402
+        },
+        {
+          "sira": 3,
+          "ulke": "Netherlands (Kingdom of the)",
+          "milyon_usd": 119850
+        },
+        {
+          "sira": 4,
+          "ulke": "Germany",
+          "milyon_usd": 91702
+        },
+        {
+          "sira": 5,
+          "ulke": "France",
+          "milyon_usd": 82254
+        },
+        {
+          "sira": 6,
+          "ulke": "China, mainland",
+          "milyon_usd": 66304
+        },
+        {
+          "sira": 7,
+          "ulke": "Canada",
+          "milyon_usd": 65260
+        },
+        {
+          "sira": 8,
+          "ulke": "Spain",
+          "milyon_usd": 64472
+        },
+        {
+          "sira": 9,
+          "ulke": "Italy",
+          "milyon_usd": 60409
+        },
+        {
+          "sira": 10,
+          "ulke": "Indonesia",
+          "milyon_usd": 57338
+        }
+      ]
+    },
+    "2023": {
+      "kapsanan_ulke": 198,
+      "hollanda_sirasi": 3,
+      "turkiye_sirasi": 18,
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "United States of America",
+          "milyon_usd": 170964
+        },
+        {
+          "sira": 2,
+          "ulke": "Brazil",
+          "milyon_usd": 146661
+        },
+        {
+          "sira": 3,
+          "ulke": "Netherlands (Kingdom of the)",
+          "milyon_usd": 125753
+        },
+        {
+          "sira": 4,
+          "ulke": "Germany",
+          "milyon_usd": 98515
+        },
+        {
+          "sira": 5,
+          "ulke": "France",
+          "milyon_usd": 82677
+        },
+        {
+          "sira": 6,
+          "ulke": "Spain",
+          "milyon_usd": 69066
+        },
+        {
+          "sira": 7,
+          "ulke": "China, mainland",
+          "milyon_usd": 68085
+        },
+        {
+          "sira": 8,
+          "ulke": "Canada",
+          "milyon_usd": 68014
+        },
+        {
+          "sira": 9,
+          "ulke": "Italy",
+          "milyon_usd": 64933
+        },
+        {
+          "sira": 10,
+          "ulke": "Belgium",
+          "milyon_usd": 60116
+        }
+      ]
+    }
+  }
+}

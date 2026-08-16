@@ -253,7 +253,14 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         .where((w) => w.isNotEmpty)
         .length;
     final readMins = (wordCount / 200).ceil().clamp(1, 99);
-    final readLabel = isEn ? '$readMins min read' : '$readMins dk okuma';
+    // Kısa haberde okuma süresi yerine biçim etiketi. "1 dk okuma" teknik
+    // olarak yanlış değil ama hiçbir şey söylemiyor: 90 kelimelik haber de
+    // 200 kelimelik haber de aynı etiketi alıyor. Okuyucunun burada bilmek
+    // istediği süre değil, sayfanın neden bu kadar kısa olduğu — kaynağın
+    // kendisi kısa, eksik yazılmış bir haber değil.
+    final readLabel = article.isBrief
+        ? (isEn ? 'in brief' : 'kısa haber')
+        : (isEn ? '$readMins min read' : '$readMins dk okuma');
 
     final hasSource = article.sourceName != null &&
         article.sourceName!.trim().isNotEmpty;
@@ -299,7 +306,12 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                             ? BorderRadius.circular(12)
                             : BorderRadius.zero,
                         child: AspectRatio(
-                          aspectRatio: 16 / 9,
+                          // Kısa haberde daha alçak bir bant. 16:9 görsel
+                          // telefonda ekranın yarısını kaplıyor; altında iki
+                          // paragraf olduğunda sayfa habere değil resme
+                          // ayrılmış gibi duruyor. 21:9 aynı görseli kullanır,
+                          // yalnızca daha az dikey yer ister.
+                          aspectRatio: article.isBrief ? 21 / 9 : 16 / 9,
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
@@ -1494,7 +1506,13 @@ class _ExpertInsightBox extends StatelessWidget {
               Icon(Icons.lightbulb_outline_rounded, color: accent, size: 20),
               const SizedBox(width: 8),
               Text(
-                isEn ? 'EXPERT INSIGHT' : 'UZMAN GÖRÜŞÜ',
+                // Etiket 'UZMAN GÖRÜŞÜ' idi. 507 haberlik ölçümde bu kutunun
+                // içeriğinin bir uzmanın görüşü olmadığı çıktı: metinlerin
+                // yarısı "Bu ..." ile başlayan genel yorumdu ve gövdesinde
+                // adı-unvanı geçen gerçek uzman bulunan haberlerde bile metin
+                // modelin kendi değerlendirmesiydi. Kutunun işi baştan beri
+                // haberin sonucunu açıklamaktı; etiket artık onu söylüyor.
+                isEn ? 'WHAT IT MEANS' : 'NE ANLAMA GELİYOR?',
                 style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w800,

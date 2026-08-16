@@ -442,9 +442,28 @@ class _StatCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Tek rakam kendi düzenine gidiyor. Izgara bir rakamı da üçte bir
+    // genişlikte çiziyordu: haberin TEK görsel öğesi, sol üst köşede küçük bir
+    // rozet olarak duruyor, sağındaki üçte iki boş kalıyordu. Ölçümde yeni
+    // hattan çıkan 16 haberin 1'i bu duruma düşüyor — nadir ama düştüğünde
+    // öğe hiç konmamış gibi görünüyor.
+    if (data.length == 1) {
+      return _TekRakam(
+        item: data.first,
+        color: palette.first,
+        text: text,
+        surface: surface,
+        unit: unit,
+      );
+    }
+
     return LayoutBuilder(builder: (ctx, bc) {
-      // Responsive: 2 columns on narrow, more on wide
-      final colCount = bc.maxWidth > 500 ? 3 : 2;
+      // Sütun sayısı veri sayısını AŞAMAZ. Aşarsa iki rakam üç sütunluk
+      // ızgarada duruyor ve son sütunun boşluğu "bir veri eksik" izlenimi
+      // veriyordu.
+      final colCount = data.length < (bc.maxWidth > 500 ? 3 : 2)
+          ? data.length
+          : (bc.maxWidth > 500 ? 3 : 2);
       final cardWidth = (bc.maxWidth - (colCount - 1) * 12) / colCount;
 
       return Wrap(
@@ -512,6 +531,146 @@ class _StatCards extends StatelessWidget {
         }).toList(),
       );
     });
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  Tek rakam — gazetedeki "büyük sayı" kutusu
+// ══════════════════════════════════════════════════════════════════════════════
+
+/// Haberin tek sayısal bulgusunu tam genişlikte gösterir.
+///
+/// Neden ayrı bir düzen: kart ızgarası bir rakamı da üçte bir genişlikte
+/// çiziyor. Üç rakam varken bu doğru — kartlar birbirini dengeliyor. Tek rakam
+/// varken yanlış: okuyucu sayfada büyük boş bir alan ve köşede küçük bir kutu
+/// görüyor, sayının önemli olduğunu değil bir şeyin eksik kaldığını düşünüyor.
+/// Gazetenin bu duruma çözümü sayıyı büyütmek: rakam kutunun içinde değil,
+/// kutunun kendisi oluyor.
+class _TekRakam extends StatelessWidget {
+  final Map<String, dynamic> item;
+  final Color color;
+  final Color text;
+  final Color surface;
+  final String unit;
+
+  const _TekRakam({
+    required this.item,
+    required this.color,
+    required this.text,
+    required this.surface,
+    required this.unit,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final label = item['label'] as String? ?? '';
+    final change = item['change'] as String?;
+    final formatted = _formatValue(item['value']);
+    final isPositive = change != null && change.startsWith('+');
+    final isNegative = change != null && change.startsWith('-');
+
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+      decoration: BoxDecoration(
+        color: surface,
+        borderRadius: BorderRadius.circular(14),
+        // Sol kenardaki kalın şerit gazetedeki "kesme kutusu" işareti: gövde
+        // metnini okurken sayfanın bu bölümünün ayrı bir şey olduğunu
+        // söylüyor. Izgarada bu iş kartların çokluğuyla zaten yapılıyordu.
+        border: Border(
+          left: BorderSide(color: color, width: 4),
+          top: BorderSide(color: color.withValues(alpha: 0.20)),
+          right: BorderSide(color: color.withValues(alpha: 0.20)),
+          bottom: BorderSide(color: color.withValues(alpha: 0.20)),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label.toUpperCase(),
+            style: GoogleFonts.inter(
+              fontSize: 11,
+              fontWeight: FontWeight.w800,
+              color: color,
+              letterSpacing: 1.1,
+            ),
+          ),
+          const SizedBox(height: 10),
+          // Rakam ve birim ayrı: aynı puntoda yazıldığında "16500TL/ton" tek
+          // bir simge yığınına dönüşüyor, göz sayıyı ayrıştıramıyor.
+          FittedBox(
+            fit: BoxFit.scaleDown,
+            alignment: Alignment.centerLeft,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  formatted,
+                  style: GoogleFonts.inter(
+                    fontSize: 52,
+                    fontWeight: FontWeight.w900,
+                    color: text,
+                    height: 1.0,
+                    letterSpacing: -1.5,
+                  ),
+                ),
+                if (unit.trim().isNotEmpty) ...[
+                  const SizedBox(width: 8),
+                  Text(
+                    unit.trim(),
+                    style: GoogleFonts.inter(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: text.withValues(alpha: 0.65),
+                      height: 1.0,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+          if (change != null && change.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  isPositive
+                      ? Icons.trending_up
+                      : isNegative
+                          ? Icons.trending_down
+                          : Icons.remove,
+                  size: 16,
+                  color: isPositive
+                      ? const Color(0xFF2E7D32)
+                      : isNegative
+                          ? const Color(0xFFC62828)
+                          : Colors.grey,
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  change,
+                  style: GoogleFonts.inter(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w800,
+                    color: isPositive
+                        ? const Color(0xFF2E7D32)
+                        : isNegative
+                            ? const Color(0xFFC62828)
+                            : Colors.grey,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ],
+      ),
+    );
   }
 }
 

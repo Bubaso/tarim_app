@@ -57,5 +57,6 @@ class DefaultFirebaseOptions {
     projectId: 'tarim-app-2026',
     authDomain: 'tarim-app-2026.firebaseapp.com',
     storageBucket: 'tarim-app-2026.firebasestorage.app',
+    measurementId: 'G-0FF4T9BHJ4',
   );
 }

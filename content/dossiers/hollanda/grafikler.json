@@ -1,0 +1,683 @@
+{
+  "_dosya": "Hollanda — Ülke Dosyası · grafik künyesi",
+  "_amac": "İçerik (metin_*.md), tasarım (tasarim.json), veri (data.json) ve yayın (yayin.json) dışındaki beşinci şey: GRAFİKLERİN kendisi. Hangi bölümde hangi grafik, hangi biçimde, hangi iki dilli etiketle çizilecek.",
+
+  "_neden_burada": "İki sebep. (1) data.json'daki etiketlerin tamamı tek dilli: World Bank kalemleri Türkçe ('Tarımın GSYH içindeki payı'), FAOSTAT kalemleri İngilizce ('Cocoa beans'). Grafikler iki dilli olacaksa etiketin ikinci dili bir yerde yazılmalı — ve bu yer Dart kodu OLAMAZ, yoksa ikinci ülke için uygulama sürümü çıkarmak gerekir. (2) Grafik seçimi bir yayın kararıdır, bir kodlama kararı değil; metinle aynı depoda, metinle aynı gözden geçirmeden geçmeli.",
+
+  "_traceability": "Değeri '@' ile başlayan her alan data.json'a bir YOL'dur. seed_dossier.mjs bu yolları çözer; yol bulunamazsa veya sayı değilse üretim durur. Yani hiçbir rakam iki kez yazılmıyor — grafikteki sayı ile metindeki sayı aynı tek kaynaktan geliyor.",
+
+  "_sema": {
+    "ikili_cubuk": "İki seriyi satır satır karşılaştırır. Her satırın KENDİ birimi ve kendi ölçeği var — % ile km² aynı eksene konmaz. Alanlar: seriler[2], satirlar[].{etiket,birim,yil,ondalik,degerler[2],rozet?}",
+    "siralama": "Tek seri, büyükten küçüğe yatay çubuk. Alanlar: birim, ondalik, satirlar[].{etiket,deger,rol?}",
+    "cizgi": "Zaman serisi, 1–2 seri. noktalar ya {harita:'@yol'} (yıl→değer nesnesi) ya da {liste:'@yol',x:'alan',y:'alan'}.",
+    "yigin": "Bütünün parçaları. Her çubuk kendi içinde %100'e normalize edilir. Alanlar: cubuklar[].{etiket,dilimler[].{ad,deger,rol}}",
+    "kunye": "Rakam ızgarası. Alanlar: kalemler[].{deger,bolen?,ondalik,onek?,sonek?,etiket,alt?}",
+    "zaman_cizelgesi": "Yıl + olay. Alanlar: olaylar[].{yil,yil_ek?,baslik,aciklama}",
+    "kartlar": "Kurum/aktör kartları. Alanlar: kartlar[].{ust,baslik,govde,rakam?}"
+  },
+
+  "_roller": "rol alanı DossierTheme'deki renge işaret eder: 'vurgu' (sodyum turuncusu), 'ikincil' (cam yeşili), 'sessiz'. Renk TEK BAŞINA anlam taşımaz — çizici her role ayrı bir biçim de verir (dolu/taralı çubuk, düz/kesikli çizgi, dolu/içi boş nokta). Bu, tasarim.json'daki renk körlüğü şartının uygulamadaki karşılığıdır.",
+
+  "grafikler": {
+
+    "tez_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Az üreten, çok satan", "en": "Produces less, sells more" },
+      "seriler": [
+        { "ad": { "tr": "Hollanda", "en": "Netherlands" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        {
+          "etiket": { "tr": "Tarımsal üretim değeri", "en": "Agricultural production value" },
+          "birim": { "tr": "milyon I$ (sabit 2014-16)", "en": "million I$ (constant 2014-16)" },
+          "yil": "@tez.uretim_degeri.NLD.yil",
+          "ondalik": 0,
+          "degerler": ["@tez.uretim_degeri.NLD.deger", "@tez.uretim_degeri.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Tarımsal ihracat", "en": "Agricultural exports" },
+          "birim": { "tr": "milyon US$ (cari)", "en": "million US$ (current)" },
+          "yil": "@tez.ihracat.NLD.yil",
+          "ondalik": 0,
+          "degerler": ["@tez.ihracat.NLD.deger", "@tez.ihracat.TUR.deger"]
+        }
+      ],
+      "not": {
+        "tr": "İki satır kendi içinde karşılaştırılır, birbiriyle oranlanmaz: üstteki sabit uluslararası dolar, alttaki cari ABD doları cinsindendir.",
+        "en": "Each row compares within itself only. The two rows are not ratios of one another: the top is in constant international dollars, the bottom in current US dollars."
+      },
+      "kaynak": "FAOSTAT — Value of Agricultural Production (QV) · Crops and livestock products, trade (TCL)"
+    },
+
+    "makro_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "İki ekonomide tarımın yeri", "en": "Where agriculture sits in each economy" },
+      "seriler": [
+        { "ad": { "tr": "Hollanda", "en": "Netherlands" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        {
+          "etiket": { "tr": "Tarımın GSYH içindeki payı", "en": "Agriculture, share of GDP" },
+          "birim": { "tr": "%", "en": "%" },
+          "yil": "@makro.0.NLD.yil", "ondalik": 1,
+          "degerler": ["@makro.0.NLD.deger", "@makro.0.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Tarımsal katma değer", "en": "Agricultural value added" },
+          "birim": { "tr": "milyar cari US$", "en": "bn current US$" },
+          "yil": "@makro.1.NLD.yil", "ondalik": 1, "bolen": 1000000000,
+          "degerler": ["@makro.1.NLD.deger", "@makro.1.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Tarımda istihdam payı", "en": "Employment in agriculture" },
+          "birim": { "tr": "%", "en": "%" },
+          "yil": "@makro.2.NLD.yil", "ondalik": 1,
+          "degerler": ["@makro.2.NLD.deger", "@makro.2.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Nüfus", "en": "Population" },
+          "birim": { "tr": "milyon kişi", "en": "million people" },
+          "yil": "@makro.3.NLD.yil", "ondalik": 1, "bolen": 1000000,
+          "degerler": ["@makro.3.NLD.deger", "@makro.3.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Kırsal nüfus payı", "en": "Rural population share" },
+          "birim": { "tr": "%", "en": "%" },
+          "yil": "@makro.4.NLD.yil", "ondalik": 1,
+          "degerler": ["@makro.4.NLD.deger", "@makro.4.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "GSYH", "en": "GDP" },
+          "birim": { "tr": "milyar cari US$", "en": "bn current US$" },
+          "yil": "@makro.5.NLD.yil", "ondalik": 0, "bolen": 1000000000,
+          "degerler": ["@makro.5.NLD.deger", "@makro.5.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Kişi başına GSYH", "en": "GDP per capita" },
+          "birim": { "tr": "cari US$", "en": "current US$" },
+          "yil": "@makro.6.NLD.yil", "ondalik": 0,
+          "degerler": ["@makro.6.NLD.deger", "@makro.6.TUR.deger"]
+        }
+      ],
+      "kaynak": "World Bank — World Development Indicators"
+    },
+
+    "toprak_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Toprak ve su", "en": "Land and water" },
+      "seriler": [
+        { "ad": { "tr": "Hollanda", "en": "Netherlands" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        {
+          "etiket": { "tr": "Kara alanı", "en": "Land area" },
+          "birim": { "tr": "bin km²", "en": "thousand km²" },
+          "yil": "@toprak_su.0.NLD.yil", "ondalik": 1, "bolen": 1000,
+          "degerler": ["@toprak_su.0.NLD.deger", "@toprak_su.0.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Tarım arazisi", "en": "Agricultural land" },
+          "birim": { "tr": "bin km²", "en": "thousand km²" },
+          "yil": "@toprak_su.1.NLD.yil", "ondalik": 1, "bolen": 1000,
+          "degerler": ["@toprak_su.1.NLD.deger", "@toprak_su.1.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Tarım arazisinin kara alanına oranı", "en": "Agricultural land, share of land area" },
+          "birim": { "tr": "%", "en": "%" },
+          "yil": "@toprak_su.2.NLD.yil", "ondalik": 1,
+          "degerler": ["@toprak_su.2.NLD.deger", "@toprak_su.2.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "İşlenebilir arazi", "en": "Arable land" },
+          "birim": { "tr": "milyon hektar", "en": "million hectares" },
+          "yil": "@toprak_su.3.NLD.yil", "ondalik": 2, "bolen": 1000000,
+          "degerler": ["@toprak_su.3.NLD.deger", "@toprak_su.3.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Kişi başına işlenebilir arazi", "en": "Arable land per person" },
+          "birim": { "tr": "hektar", "en": "hectares" },
+          "yil": "@toprak_su.4.NLD.yil", "ondalik": 3,
+          "degerler": ["@toprak_su.4.NLD.deger", "@toprak_su.4.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Sulanan arazi payı", "en": "Irrigated land share" },
+          "birim": { "tr": "%", "en": "%" },
+          "yil": "@toprak_su.5.NLD.yil", "ondalik": 1,
+          "degerler": ["@toprak_su.5.NLD.deger", "@toprak_su.5.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Tarımın tatlı su çekimindeki payı", "en": "Agriculture, share of freshwater withdrawal" },
+          "birim": { "tr": "%", "en": "%" },
+          "yil": "@toprak_su.6.NLD.yil", "ondalik": 1,
+          "degerler": ["@toprak_su.6.NLD.deger", "@toprak_su.6.TUR.deger"]
+        },
+        {
+          "etiket": { "tr": "Gübre tüketimi", "en": "Fertilizer consumption" },
+          "birim": { "tr": "kg/ha (işlenebilir arazi)", "en": "kg per ha of arable land" },
+          "yil": "@toprak_su.7.NLD.yil", "ondalik": 0,
+          "degerler": ["@toprak_su.7.NLD.deger", "@toprak_su.7.TUR.deger"]
+        }
+      ],
+      "kaynak": "World Bank — World Development Indicators"
+    },
+
+    "verim_ortualti": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Cam altında: 5–12 kat", "en": "Under glass: 5–12 fold" },
+      "seriler": [
+        { "ad": { "tr": "Hollanda", "en": "Netherlands" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        {
+          "etiket": { "tr": "Salatalık", "en": "Cucumber" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.ortualti.0.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.ortualti.0.NLD.deger", "@verim.ortualti.0.TUR.deger"],
+          "rozet": { "tr": "12 kat", "en": "12×" }
+        },
+        {
+          "etiket": { "tr": "Domates", "en": "Tomato" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.ortualti.1.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.ortualti.1.NLD.deger", "@verim.ortualti.1.TUR.deger"],
+          "rozet": { "tr": "5,1 kat", "en": "5.1×" }
+        },
+        {
+          "etiket": { "tr": "Biber", "en": "Pepper" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.ortualti.2.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.ortualti.2.NLD.deger", "@verim.ortualti.2.TUR.deger"],
+          "rozet": { "tr": "6,7 kat", "en": "6.7×" }
+        }
+      ],
+      "kaynak": "FAOSTAT — Crops and livestock products (QCL), element 5412 Yield"
+    },
+
+    "verim_acik_tarla": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Açık tarlada: fark küçülüyor", "en": "In the open field: the gap narrows" },
+      "seriler": [
+        { "ad": { "tr": "Hollanda", "en": "Netherlands" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        {
+          "etiket": { "tr": "Patates", "en": "Potato" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.acik_tarla.0.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.acik_tarla.0.NLD.deger", "@verim.acik_tarla.0.TUR.deger"],
+          "rozet": { "tr": "1,1 kat", "en": "1.1×" }
+        },
+        {
+          "etiket": { "tr": "Kuru soğan", "en": "Dry onion" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.acik_tarla.1.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.acik_tarla.1.NLD.deger", "@verim.acik_tarla.1.TUR.deger"],
+          "rozet": { "tr": "1,1 kat", "en": "1.1×" }
+        },
+        {
+          "etiket": { "tr": "Buğday", "en": "Wheat" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.acik_tarla.2.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.acik_tarla.2.NLD.deger", "@verim.acik_tarla.2.TUR.deger"],
+          "rozet": { "tr": "2,6 kat", "en": "2.6×" }
+        },
+        {
+          "etiket": { "tr": "Arpa", "en": "Barley" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.acik_tarla.3.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.acik_tarla.3.NLD.deger", "@verim.acik_tarla.3.TUR.deger"],
+          "rozet": { "tr": "2,3 kat", "en": "2.3×" }
+        },
+        {
+          "etiket": { "tr": "Şeker pancarı", "en": "Sugar beet" },
+          "birim": { "tr": "t/ha", "en": "t/ha" },
+          "yil": "@verim.acik_tarla.4.NLD.yil", "ondalik": 1,
+          "degerler": ["@verim.acik_tarla.4.NLD.deger", "@verim.acik_tarla.4.TUR.deger"],
+          "rozet": { "tr": "1,2 kat", "en": "1.2×" }
+        }
+      ],
+      "kaynak": "FAOSTAT — Crops and livestock products (QCL), element 5412 Yield"
+    },
+
+    "sera_kunye": {
+      "tur": "kunye",
+      "baslik": { "tr": "Mucizenin gerçek boyutu", "en": "The actual size of the miracle" },
+      "kalemler": [
+        {
+          "deger": "@sera.ortualti.tarim_arazisi_payi_yuzde", "ondalik": 2,
+          "onek": { "tr": "%", "en": "" }, "sonek": { "tr": "", "en": "%" },
+          "etiket": { "tr": "Tarım arazisinin örtüaltı payı", "en": "Share of farmland under cover" },
+          "alt": { "tr": "2025", "en": "2025" }
+        },
+        {
+          "deger": "@sera.ortualti.hektar", "ondalik": 0,
+          "sonek": { "tr": " ha", "en": " ha" },
+          "etiket": { "tr": "Örtüaltı toplam alan", "en": "Total area under cover" },
+          "alt": { "tr": "2025", "en": "2025" }
+        },
+        {
+          "deger": "@sera.sera_alani_seyri.degisim_yuzde", "ondalik": 1,
+          "onek": { "tr": "%", "en": "" }, "sonek": { "tr": "", "en": "%" },
+          "etiket": { "tr": "Sera alanının değişimi", "en": "Change in area under glass" },
+          "alt": { "tr": "2000 → 2025", "en": "2000 → 2025" }
+        },
+        {
+          "deger": "@sera.isletme_sayisi_seyri.degisim_yuzde", "ondalik": 1,
+          "onek": { "tr": "%", "en": "" }, "sonek": { "tr": "", "en": "%" },
+          "etiket": { "tr": "İşletme sayısının değişimi", "en": "Change in number of holdings" },
+          "alt": { "tr": "2000 → 2026", "en": "2000 → 2026" }
+        },
+        {
+          "deger": "@sera.ortalama_sera_buyuklugu_ha", "ondalik": 2,
+          "sonek": { "tr": " ha", "en": " ha" },
+          "etiket": { "tr": "Ortalama sera büyüklüğü", "en": "Average greenhouse size" },
+          "alt": { "tr": "2026", "en": "2026" }
+        }
+      ],
+      "not": {
+        "tr": "Alan küçüldü, işletme sayısı yarıya indi, ortalama işletme büyüdü. Bu bir yayılma değil, yoğunlaşma.",
+        "en": "The area shrank, the number of holdings halved, the average holding grew. This is not expansion; it is concentration."
+      },
+      "kaynak": "CBS — Landbouwtelling / StatLine"
+    },
+
+    "sera_urunler": {
+      "tur": "siralama",
+      "baslik": { "tr": "Cam altında ne var", "en": "What is under the glass" },
+      "birim": { "tr": "hektar", "en": "hectares" },
+      "ondalik": 0,
+      "satirlar": [
+        { "etiket": { "tr": "Domates", "en": "Tomato" }, "deger": "@sera.sebzeler.0.hektar", "rol": "vurgu" },
+        { "etiket": { "tr": "Biber", "en": "Pepper" }, "deger": "@sera.sebzeler.1.hektar", "rol": "vurgu" },
+        { "etiket": { "tr": "Saksı bitkisi", "en": "Pot plants" }, "deger": "@sera.susler.1.hektar", "rol": "ikincil" },
+        { "etiket": { "tr": "Kesme çiçek", "en": "Cut flowers" }, "deger": "@sera.susler.0.hektar", "rol": "ikincil" },
+        { "etiket": { "tr": "Salatalık", "en": "Cucumber" }, "deger": "@sera.sebzeler.2.hektar", "rol": "vurgu" },
+        { "etiket": { "tr": "Krizantem", "en": "Chrysanthemum" }, "deger": "@sera.susler.2.hektar", "rol": "ikincil" },
+        { "etiket": { "tr": "Gül", "en": "Rose" }, "deger": "@sera.susler.3.hektar", "rol": "ikincil" },
+        { "etiket": { "tr": "Patlıcan", "en": "Aubergine" }, "deger": "@sera.sebzeler.3.hektar", "rol": "vurgu" },
+        { "etiket": { "tr": "Orkide", "en": "Orchid" }, "deger": "@sera.susler.4.hektar", "rol": "ikincil" },
+        { "etiket": { "tr": "Lale", "en": "Tulip" }, "deger": "@sera.susler.5.hektar", "rol": "sessiz" }
+      ],
+      "not": {
+        "tr": "Cam altında lale yok. Lale tarlada yetişir; ülkenin simgesi ile ülkenin tarım motoru aynı şey değil.",
+        "en": "There are no tulips under glass. Tulips grow in open fields: the country's emblem and the country's agricultural engine are not the same thing."
+      },
+      "kaynak": "CBS — Landbouwtelling 2025"
+    },
+
+    "ihracat_yigin": {
+      "tur": "yigin",
+      "baslik": { "tr": "Manşet ile kazanç aynı şey değil", "en": "The headline and the earnings are not the same" },
+      "cubuklar": [
+        {
+          "etiket": { "tr": "Ciro — 137,5 milyar €", "en": "Turnover — €137.5 bn" },
+          "dilimler": [
+            { "ad": { "tr": "Hollanda yapımı", "en": "Dutch-made" }, "deger": "@ihracat_kompozisyonu.hollanda_yapimi", "rol": "vurgu" },
+            { "ad": { "tr": "Yeniden ihracat", "en": "Re-export" }, "deger": "@ihracat_kompozisyonu.yeniden_ihracat", "rol": "sessiz" }
+          ]
+        },
+        {
+          "etiket": { "tr": "Kazanç — 49 milyar €", "en": "Earnings — €49 bn" },
+          "dilimler": [
+            { "ad": { "tr": "Hollanda yapımı", "en": "Dutch-made" }, "deger": "@ihracat_kompozisyonu.kazanc.hollanda_yapimindan", "rol": "vurgu" },
+            { "ad": { "tr": "Yeniden ihracat", "en": "Re-export" }, "deger": "@ihracat_kompozisyonu.kazanc.yeniden_ihracattan", "rol": "sessiz" }
+          ]
+        }
+      ],
+      "not": {
+        "tr": "Yeniden ihracat cironun %35,7'si, kazancın yalnızca %11,6'sı. Bu düzeltmeyi yapan, Hollanda'nın kendi istatistik kurumudur.",
+        "en": "Re-export is 35.7% of turnover but only 11.6% of earnings. This correction comes from the Dutch statistical office itself."
+      },
+      "kaynak": "CBS — Landbouwexport 2025 (milyar EUR)"
+    },
+
+    "ilk_10_pazar": {
+      "tur": "siralama",
+      "baslik": { "tr": "Nereye satıyor", "en": "Where it sells" },
+      "birim": { "tr": "milyar €", "en": "€ bn" },
+      "ondalik": 1,
+      "satirlar": [
+        { "etiket": { "tr": "Almanya", "en": "Germany" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.0.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "Belçika", "en": "Belgium" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.1.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "Fransa", "en": "France" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.2.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "Birleşik Krallık", "en": "United Kingdom" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.3.milyar_eur", "rol": "sessiz" },
+        { "etiket": { "tr": "İspanya", "en": "Spain" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.4.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "İtalya", "en": "Italy" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.5.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "Polonya", "en": "Poland" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.6.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "ABD", "en": "United States" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.7.milyar_eur", "rol": "sessiz" },
+        { "etiket": { "tr": "İsveç", "en": "Sweden" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.8.milyar_eur", "rol": "vurgu" },
+        { "etiket": { "tr": "Çin", "en": "China" }, "deger": "@ihracat_kompozisyonu.ilk_10_pazar.9.milyar_eur", "rol": "sessiz" }
+      ],
+      "not": {
+        "tr": "Turuncu olanlar AB üyesi. İlk on pazarın yedisi AB içinde; Türkiye listede yok. 'Küresel dev' tanımı bu tabloyla sınırlanmalı.",
+        "en": "Orange bars are EU members. Seven of the top ten markets are inside the EU; Türkiye is not on the list. The 'global giant' label has to be read against this."
+      },
+      "kaynak": "CBS — Landbouwexport 2025"
+    },
+
+    "kakao_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Tek bir kakao ağacı olmadan", "en": "Without a single cocoa tree" },
+      "seriler": [
+        { "ad": { "tr": "İthalat", "en": "Imports" }, "rol": "ikincil" },
+        { "ad": { "tr": "İhracat", "en": "Exports" }, "rol": "vurgu" }
+      ],
+      "satirlar": [
+        {
+          "etiket": { "tr": "Kakao çekirdeği", "en": "Cocoa beans" },
+          "birim": { "tr": "milyon US$", "en": "million US$" },
+          "yil": "@kakao.kalemler.0.ithalat.yil", "ondalik": 0,
+          "degerler": ["@kakao.kalemler.0.ithalat.milyon_usd", "@kakao.kalemler.0.ihracat.milyon_usd"]
+        },
+        {
+          "etiket": { "tr": "Kakao yağı", "en": "Cocoa butter, fat and oil" },
+          "birim": { "tr": "milyon US$", "en": "million US$" },
+          "yil": "@kakao.kalemler.1.ithalat.yil", "ondalik": 0,
+          "degerler": ["@kakao.kalemler.1.ithalat.milyon_usd", "@kakao.kalemler.1.ihracat.milyon_usd"]
+        },
+        {
+          "etiket": { "tr": "Kakao ezmesi", "en": "Cocoa paste" },
+          "birim": { "tr": "milyon US$", "en": "million US$" },
+          "yil": "@kakao.kalemler.2.ithalat.yil", "ondalik": 0,
+          "degerler": ["@kakao.kalemler.2.ithalat.milyon_usd", "@kakao.kalemler.2.ihracat.milyon_usd"]
+        },
+        {
+          "etiket": { "tr": "Kakao tozu ve küspesi", "en": "Cocoa powder and cake" },
+          "birim": { "tr": "milyon US$", "en": "million US$" },
+          "yil": "@kakao.kalemler.3.ithalat.yil", "ondalik": 0,
+          "degerler": ["@kakao.kalemler.3.ithalat.milyon_usd", "@kakao.kalemler.3.ihracat.milyon_usd"]
+        }
+      ],
+      "not": {
+        "tr": "Çekirdekte ithalatçı, dört üründe de ihracatçı. Aradaki fark öğütme tesisinin kendisi — dosyanın tezinin en temiz örneği.",
+        "en": "An importer of beans, an exporter of everything made from them. The difference is the grinding plant itself: the cleanest illustration of this dossier's thesis."
+      },
+      "kaynak": "FAOSTAT — Trade: Crops and livestock products (TCL), 2023"
+    },
+
+    "tarih_cizelge": {
+      "tur": "zaman_cizelgesi",
+      "baslik": { "tr": "Sistem ne zaman kuruldu", "en": "When the system was built" },
+      "olaylar": [
+        {
+          "yil": "@tarih.wageningen.tarim_okulu_devletlestirme",
+          "baslik": { "tr": "Devlet, Wageningen'deki tarım okulunu devralır", "en": "The state takes over the agricultural college at Wageningen" },
+          "aciklama": { "tr": "Hollanda'da ulusal tarım eğitiminin başlangıcı.", "en": "The start of national agricultural education in the Netherlands." }
+        },
+        {
+          "yil": 1918,
+          "baslik": { "tr": "Wageningen yükseköğretim statüsü kazanır", "en": "Wageningen gains higher-education status" },
+          "aciklama": { "tr": "9 Mart 1918. Bilgi üretimi bir devlet işi olarak kurumsallaşıyor.", "en": "9 March 1918. Knowledge production is institutionalised as a state function." }
+        },
+        {
+          "yil": "@tarih.zuiderzee.yasa_yili",
+          "baslik": { "tr": "Zuiderzee Yasası", "en": "The Zuiderzee Act" },
+          "aciklama": { "tr": "Aynı yıl: bir iç denizin kapatılıp toprağa çevrilmesi yasayla kararlaştırılıyor.", "en": "The same year: closing off an inland sea and turning it into land is written into law." }
+        },
+        {
+          "yil": "@tarih.zuiderzee.afsluitdijk.tamamlanma_yili",
+          "baslik": { "tr": "Afsluitdijk tamamlanır", "en": "The Afsluitdijk is completed" },
+          "aciklama": { "tr": "32 km'lik set, büyük ölçüde elle inşa edildi. Zuiderzee polderleri toplam 165.000 hektar yeni toprak verdi.", "en": "A 32 km dyke, built largely by hand. The Zuiderzee polders yielded 165,000 hectares of new land in total." }
+        },
+        {
+          "yil": 1944, "yil_ek": { "tr": "–45", "en": "–45" },
+          "baslik": { "tr": "Hongerwinter", "en": "The Hunger Winter" },
+          "aciklama": { "tr": "Ölüm nedeni resmen 'açlık' kaydedilen 8.305 vaka (NIDI). Kurumlar farklı tanımlar kullandığı için tek bir resmî rakam yok.", "en": "8,305 deaths officially recorded as caused by starvation (NIDI). There is no single official figure: institutions use different definitions." }
+        },
+        {
+          "yil": 1953,
+          "baslik": { "tr": "Sel felaketi", "en": "The North Sea flood" },
+          "aciklama": { "tr": "31 Ocak – 1 Şubat gecesi: 1.836 can kaybı, 150.000 hektar su altında.", "en": "The night of 31 January – 1 February: 1,836 lives lost, 150,000 hectares flooded." }
+        },
+        {
+          "yil": "@tarih.sel_1953_ve_delta.delta_works.baslangic", "yil_ek": { "tr": "–1997", "en": "–1997" },
+          "baslik": { "tr": "Delta Çalışmaları", "en": "The Delta Works" },
+          "aciklama": { "tr": "Kırk üç yıl süren savunma programı; son yapı Maeslantkering.", "en": "A forty-three-year defence programme; the last structure was the Maeslantkering." }
+        },
+        {
+          "yil": 1968,
+          "baslik": { "tr": "Mansholt Planı", "en": "The Mansholt Plan" },
+          "aciklama": { "tr": "21 Aralık 1968. Hollandalı tarım komiseri, Avrupa tarımının yeniden yapılandırılmasını önerir: daha az ve daha büyük işletme.", "en": "21 December 1968. The Dutch agriculture commissioner proposes restructuring European farming: fewer and larger holdings." }
+        }
+      ],
+      "kaynak": "PBL · Rijkswaterstaat · RCE · NIDI · WUR · CVCE"
+    },
+
+    "kurumlar_kartlar": {
+      "tur": "kartlar",
+      "baslik": { "tr": "Beş kurum, beş tasarım kararı", "en": "Five institutions, five design decisions" },
+      "kartlar": [
+        {
+          "ust": { "tr": "Üniversite + araştırma enstitüsü · 1918", "en": "University + research institute · 1918" },
+          "baslik": { "tr": "Wageningen University & Research", "en": "Wageningen University & Research" },
+          "govde": {
+            "tr": "Akademik yayın ile saha uygulaması aynı çatı altında: üniversite (WU) ve sözleşmeli araştırma vakfı (WR) tek kurum. Bilgi üretimi ile bilginin kullanımı arasındaki mesafe kurumsal olarak kaldırılmış.",
+            "en": "Academic publishing and field application under one roof: the university (WU) and the contract-research foundation (WR) are a single institution. The distance between producing knowledge and using it has been removed by design."
+          },
+          "rakam": {
+            "deger": "@kurumlar.liste.0.veriler.qs_tarim_ormancilik.deger", "ondalik": 0,
+            "onek": { "tr": "", "en": "" }, "sonek": { "tr": ".", "en": "st" },
+            "etiket": { "tr": "dünyada — QS, Tarım ve Ormancılık", "en": "worldwide — QS, Agriculture & Forestry" }
+          }
+        },
+        {
+          "ust": { "tr": "Üretici kooperatifi · 1911", "en": "Growers' cooperative · 1911" },
+          "baslik": { "tr": "Royal FloraHolland", "en": "Royal FloraHolland" },
+          "govde": {
+            "tr": "Dünyanın en büyük çiçek ticaret platformu bir şirket değil, üretici kooperatifi. İçinden 5,4 milyar avro akıyor; kurumun kendi cirosu 493 milyon, net kârı 12 milyon. Fiyat oluşum mekanizmasının mülkiyeti üreticide.",
+            "en": "The world's largest flower trading platform is not a company but a growers' cooperative. €5.4 bn flows through it; the institution's own turnover is €493 m and its net result €12 m. Ownership of the price-formation mechanism sits with the growers."
+          },
+          "rakam": {
+            "deger": "@kurumlar.liste.1.veriler.urun_cirosu.deger", "ondalik": 1,
+            "sonek": { "tr": " milyar €", "en": "bn €" },
+            "etiket": { "tr": "içinden akan ürün cirosu (2025)", "en": "product turnover flowing through (2025)" }
+          }
+        },
+        {
+          "ust": { "tr": "Sektör + meslek örgütü", "en": "Sector + trade association" },
+          "baslik": { "tr": "Tohum ve fide (uitgangsmateriaal)", "en": "Seed and propagating material (uitgangsmateriaal)" },
+          "govde": {
+            "tr": "Hollanda'nın asıl ihracat ürünü domates değil, domatesin tohumu. Cironun ortalama %15'i, sebze ıslahçılarında %30'a kadarı Ar-Ge'ye gidiyor — ilaç sanayii seviyesinde bir oran. Bu kalemin %58'i AB dışına satılıyor.",
+            "en": "The real Dutch export is not the tomato but the tomato's seed. On average 15% of turnover goes to R&D, rising to about 30% among vegetable breeders — a pharmaceutical-industry ratio. And 58% of this line is sold outside the EU."
+          },
+          "rakam": {
+            "deger": "@kurumlar.liste.2.veriler.ihracat.deger", "ondalik": 2,
+            "sonek": { "tr": " milyar €", "en": "bn €" },
+            "etiket": { "tr": "tohum ve fide ihracatı (2024)", "en": "seed and propagating material exports (2024)" }
+          }
+        },
+        {
+          "ust": { "tr": "Bölgesel küme ağı", "en": "Regional cluster network" },
+          "baslik": { "tr": "Greenports Nederland", "en": "Greenports Nederland" },
+          "govde": {
+            "tr": "Hollanda seracılığı dağınık işletmelerin toplamı değil, coğrafi olarak sıkıştırılmış kümeler: üretim, ticaret, teknoloji ve lojistik yan yana. Zincir ihracatının %65'i Hollanda yapımı — ve bu, tarım arazisinin %0,56'sında duruyor.",
+            "en": "Dutch horticulture is not a sum of scattered holdings but geographically compressed clusters: production, trade, technology and logistics side by side. 65% of the chain's exports are Dutch-made — and it all sits on 0.56% of the farmland."
+          },
+          "rakam": {
+            "deger": "@kurumlar.liste.3.veriler.zincir_ihracati.deger", "ondalik": 0,
+            "sonek": { "tr": " milyar €", "en": "bn €" },
+            "etiket": { "tr": "bahçecilik zinciri ihracatı (2024)", "en": "horticulture chain exports (2024)" }
+          }
+        },
+        {
+          "ust": { "tr": "Kamu–özel araştırma finansmanı · 2012", "en": "Public–private research funding · 2012" },
+          "baslik": { "tr": "Topsector Tuinbouw & Uitgangsmaterialen", "en": "Topsector Tuinbouw & Uitgangsmaterialen" },
+          "govde": {
+            "tr": "Devlet parayı araştırmacıya değil, şirket–araştırmacı ortaklığına veriyor; şirket kendi payını koymazsa proje başlamıyor. 2025'te 66,5 milyon avroluk devlet desteğine karşılık özel sektör 66,7 milyon koydu. Türkiye'ye en doğrudan aktarılabilir tasarım budur.",
+            "en": "The state funds not the researcher but the company–researcher partnership; without the company's own share the project does not start. In 2025 the state put in €66.5 m and the private sector €66.7 m. This is the most directly transferable design in the file."
+          },
+          "rakam": {
+            "deger": "@kurumlar.liste.4.veriler.pps_2025.ozel_sektor_katkisi_milyon_eur", "ondalik": 1,
+            "sonek": { "tr": " milyon €", "en": "m €" },
+            "etiket": { "tr": "özel sektör katkısı (2025) — devlet desteği 66,5", "en": "private-sector contribution (2025) — state support €66.5 m" }
+          }
+        }
+      ],
+      "kaynak": "WUR · Royal FloraHolland · Plantum · Greenports Nederland · Topsector T&U"
+    },
+
+    "ihracat_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "Altmış yılın eğrisi", "en": "The curve of sixty years" },
+      "birim": { "tr": "milyon US$ (cari)", "en": "million US$ (current)" },
+      "ondalik": 0,
+      "seriler": [
+        {
+          "ad": { "tr": "Hollanda tarımsal ihracatı", "en": "Dutch agricultural exports" },
+          "rol": "vurgu",
+          "noktalar": { "harita": "@ihracat_seyri.seri" }
+        }
+      ],
+      "not": {
+        "tr": "Cari dolar; enflasyondan arındırılmamıştır. Eğrinin dikliği kısmen fiyat artışıdır.",
+        "en": "Current dollars, not inflation-adjusted. Part of the curve's steepness is price growth."
+      },
+      "kaynak": "FAOSTAT — Trade: Crops and livestock products (TCL), 1961–2023"
+    },
+
+    "dunya_ilk10": {
+      "tur": "siralama",
+      "baslik": { "tr": "Dünya sıralaması, 2023", "en": "World ranking, 2023" },
+      "birim": { "tr": "milyon US$", "en": "million US$" },
+      "ondalik": 0,
+      "satirlar": [
+        { "etiket": { "tr": "1 · ABD", "en": "1 · United States" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.0.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "2 · Brezilya", "en": "2 · Brazil" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.1.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "3 · Hollanda", "en": "3 · Netherlands" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.2.milyon_usd", "rol": "vurgu" },
+        { "etiket": { "tr": "4 · Almanya", "en": "4 · Germany" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.3.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "5 · Fransa", "en": "5 · France" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.4.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "6 · İspanya", "en": "6 · Spain" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.5.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "7 · Çin (anakara)", "en": "7 · China, mainland" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.6.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "8 · Kanada", "en": "8 · Canada" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.7.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "9 · İtalya", "en": "9 · Italy" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.8.milyon_usd", "rol": "sessiz" },
+        { "etiket": { "tr": "10 · Belçika", "en": "10 · Belgium" }, "deger": "@dunya_siralamasi.yillar.2023.ilk_10.9.milyon_usd", "rol": "sessiz" }
+      ],
+      "not": {
+        "tr": "198 ülke tarandı, bölge ve grup toplamları elendi. Hollanda 3., Türkiye 18. sırada. Yaygın olarak tekrarlanan '2. sıra' ifadesi FAOSTAT'ın bu tanımıyla 2023 için doğru değildir; o iddia WTO/Comtrade'in farklı 'tarım ürünleri' tanımına dayanır.",
+        "en": "198 countries were screened and regional or group aggregates removed. The Netherlands ranks 3rd and Türkiye 18th. The widely repeated claim of '2nd place' is not correct for 2023 under this FAOSTAT definition; that claim rests on the different WTO/Comtrade definition of 'agricultural products'."
+      },
+      "kaynak": "FAOSTAT — TCL, export value (element 5922), current US$"
+    },
+
+    "ikili_ticaret_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "İki ülke arasında", "en": "Between the two countries" },
+      "birim": { "tr": "milyon US$", "en": "million US$" },
+      "ondalik": 0,
+      "seriler": [
+        {
+          "ad": { "tr": "Hollanda → Türkiye", "en": "Netherlands → Türkiye" },
+          "rol": "vurgu",
+          "noktalar": { "liste": "@turkiye_ile.yillar", "x": "yil", "y": "hollandadan_turkiyeye" }
+        },
+        {
+          "ad": { "tr": "Türkiye → Hollanda", "en": "Türkiye → Netherlands" },
+          "rol": "ikincil",
+          "noktalar": { "liste": "@turkiye_ile.yillar", "x": "yil", "y": "turkiyeden_hollandaya" }
+        }
+      ],
+      "not": {
+        "tr": "Tek raportör Hollanda'dır; iki ülkenin kendi beyanları birbirini tutmaz, bu yüzden karşılaştırma tek kaynaktan yapıldı.",
+        "en": "The Netherlands is the sole reporter: the two countries' own declarations do not agree, so the comparison uses a single source."
+      },
+      "kaynak": "FAOSTAT — Detailed trade matrix (TM), raportör Hollanda"
+    },
+
+    "ikili_hollanda_satar": {
+      "tur": "siralama",
+      "baslik": { "tr": "Hollanda Türkiye'ye ne satıyor", "en": "What the Netherlands sells to Türkiye" },
+      "birim": { "tr": "milyon US$ · 2024", "en": "million US$ · 2024" },
+      "ondalik": 1,
+      "satirlar": [
+        { "etiket": { "tr": "Gıda müstahzarları (b.y.s.)", "en": "Food preparations n.e.c." }, "deger": "@turkiye_ile.hollandanin_sattiklari.0.milyon_usd", "rol": "vurgu" },
+        { "etiket": { "tr": "İşlenmiş tütün ve tütün özleri", "en": "Manufactured tobacco and extracts" }, "deger": "@turkiye_ile.hollandanin_sattiklari.1.milyon_usd", "rol": "vurgu" },
+        { "etiket": { "tr": "Kakao tozu ve küspesi", "en": "Cocoa powder and cake" }, "deger": "@turkiye_ile.hollandanin_sattiklari.2.milyon_usd", "rol": "vurgu" },
+        { "etiket": { "tr": "Kakao ezmesi", "en": "Cocoa paste" }, "deger": "@turkiye_ile.hollandanin_sattiklari.3.milyon_usd", "rol": "vurgu" },
+        { "etiket": { "tr": "Kakao yağı", "en": "Cocoa butter, fat and oil" }, "deger": "@turkiye_ile.hollandanin_sattiklari.4.milyon_usd", "rol": "vurgu" }
+      ],
+      "not": {
+        "tr": "Beşinin beşi de işlenmiş sanayi girdisi. Hiçbiri tarlada yetişen bir ürün değil.",
+        "en": "All five are processed industrial inputs. Not one of them is something grown in a field."
+      },
+      "kaynak": "FAOSTAT — Detailed trade matrix (TM), 2024"
+    },
+
+    "ikili_turkiye_satar": {
+      "tur": "siralama",
+      "baslik": { "tr": "Türkiye Hollanda'ya ne satıyor", "en": "What Türkiye sells to the Netherlands" },
+      "birim": { "tr": "milyon US$ · 2024", "en": "million US$ · 2024" },
+      "ondalik": 1,
+      "satirlar": [
+        { "etiket": { "tr": "İşlenmiş sert kabuklu", "en": "Prepared nuts" }, "deger": "@turkiye_ile.turkiyenin_sattiklari.0.milyon_usd", "rol": "ikincil" },
+        { "etiket": { "tr": "Kuru üzüm", "en": "Raisins" }, "deger": "@turkiye_ile.turkiyenin_sattiklari.1.milyon_usd", "rol": "ikincil" },
+        { "etiket": { "tr": "Gıda müstahzarları (b.y.s.)", "en": "Food preparations n.e.c." }, "deger": "@turkiye_ile.turkiyenin_sattiklari.2.milyon_usd", "rol": "ikincil" },
+        { "etiket": { "tr": "Ham organik madde (b.y.s.)", "en": "Crude organic material n.e.c." }, "deger": "@turkiye_ile.turkiyenin_sattiklari.3.milyon_usd", "rol": "ikincil" },
+        { "etiket": { "tr": "İşlenmiş meyve (b.y.s.)", "en": "Fruit prepared n.e.c." }, "deger": "@turkiye_ile.turkiyenin_sattiklari.4.milyon_usd", "rol": "ikincil" }
+      ],
+      "not": {
+        "tr": "İlk iki kalem tarlanın ve bahçenin doğrudan ürünü. İlişkinin kendisi dosyanın tezini tekrarlıyor.",
+        "en": "The top two lines come straight from the field and the orchard. The relationship itself restates the thesis of this file."
+      },
+      "kaynak": "FAOSTAT — Detailed trade matrix (TM), 2024"
+    },
+
+    "cevre_kunye": {
+      "tur": "kunye",
+      "baslik": { "tr": "Faturanın kendisi", "en": "The bill itself" },
+      "kalemler": [
+        {
+          "deger": "@cevre.hayvan_sayilari.domuz.deger", "ondalik": 2, "bolen": 1000000,
+          "sonek": { "tr": " milyon", "en": " million" },
+          "etiket": { "tr": "Domuz", "en": "Pigs" },
+          "alt": { "tr": "2025 — 1979'dan bu yana ilk kez 10 milyonun altında", "en": "2025 — below 10 million for the first time since 1979" }
+        },
+        {
+          "deger": "@cevre.hayvan_sayilari.sigir.deger", "ondalik": 2, "bolen": 1000000,
+          "sonek": { "tr": " milyon", "en": " million" },
+          "etiket": { "tr": "Sığır", "en": "Cattle" },
+          "alt": { "tr": "2025", "en": "2025" }
+        },
+        {
+          "deger": "@cevre.amonyak.toplam_kg", "ondalik": 0, "bolen": 1000000,
+          "sonek": { "tr": " milyon kg", "en": " million kg" },
+          "etiket": { "tr": "Amonyak salımı (NH₃)", "en": "Ammonia emissions (NH₃)" },
+          "alt": { "tr": "2023 — yaklaşık %90'ı tarımdan", "en": "2023 — around 90% from agriculture" }
+        },
+        {
+          "deger": "@cevre.azot_cokelmesi.tarim_arazisi_2024_kg", "ondalik": 0, "bolen": 1000000,
+          "sonek": { "tr": " milyon kg", "en": " million kg" },
+          "etiket": { "tr": "Tarım arazisine azot çökelmesi", "en": "Nitrogen deposition on farmland" },
+          "alt": { "tr": "2024 — 1990'da 75 milyon kg'dı (%55 azalma)", "en": "2024 — it was 75 million kg in 1990 (a 55% fall)" }
+        },
+        {
+          "deger": "@cevre.gubre_tavanlari.fosfat.uretilen_kg", "ondalik": 0, "bolen": 1000000,
+          "sonek": { "tr": " milyon kg", "en": " million kg" },
+          "etiket": { "tr": "Fosfat üretimi", "en": "Phosphate production" },
+          "alt": { "tr": "2024 — AB tavanı 135 milyon kg; tavan aşıldı", "en": "2024 — the EU ceiling is 135 million kg; it was exceeded" }
+        },
+        {
+          "deger": "@cevre.cikis_semalari.toplam_eur", "ondalik": 2, "bolen": 1000000000,
+          "sonek": { "tr": " milyar €", "en": "bn €" },
+          "etiket": { "tr": "Çiftlik kapatma bütçesi", "en": "Farm buy-out budget" },
+          "alt": { "tr": "1.438 başvuru onaylandı, 243'ü tamamlandı", "en": "1,438 applications approved, 243 completed" }
+        },
+        {
+          "deger": "@cevre.sera_enerjisi.dogalgaz_m3", "ondalik": 1, "bolen": 1000000000,
+          "sonek": { "tr": " milyar m³", "en": "bn m³" },
+          "etiket": { "tr": "Seraların doğalgaz tüketimi", "en": "Natural gas used by greenhouses" },
+          "alt": { "tr": "2021 — hata payı ±%4", "en": "2021 — margin of error ±4%" }
+        }
+      ],
+      "not": {
+        "tr": "29 Mayıs 2019: Danıştay, 'önce izin ver sonra telafi et' yaklaşımını AB Habitat Direktifi'ne aykırı buldu. Kararın adı PAS; sonrası bu tablodur.",
+        "en": "29 May 2019: the Council of State found the 'permit first, compensate later' approach incompatible with the EU Habitats Directive. The ruling is known as PAS; this table is what followed."
+      },
+      "kaynak": "CBS · RVO / Rijksoverheid · Raad van State · Avrupa Komisyonu"
+    }
+  }
+}

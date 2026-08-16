@@ -30,7 +30,9 @@ import 'weather_detail_screen.dart';
 import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
 import '../widgets/yyt_dosyasi_section.dart';
+import '../widgets/kisa_kisa_section.dart';
 import '../widgets/ios_pwa_prompt.dart';
+import '../../../dossiers/presentation/widgets/dossier_strip.dart';
 import 'article_detail_screen.dart';
 import 'category_articles_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
@@ -515,12 +517,17 @@ class _MobileContent extends ConsumerWidget {
           const SizedBox(height: 28),
           _TurkeyNewsSection(isDark: isDark),
           const SizedBox(height: 28),
+          DossierStrip(isDark: isDark, spacing: 28),
           _ScienceAndReportsSection(isDark: isDark),
           const SizedBox(height: 28),
           _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 28),
           _ICYMISection(isDark: isDark),
           const SizedBox(height: 28),
+          // Günün ana haberlerinden sonra, konu bazlı bölümlerden önce.
+          // Kısa haber ikincil haberdir; manşetin üstüne çıkmamalı ama
+          // "hayvancılık" gibi gezinme bölümlerinin de altında kalmamalı.
+          KisaKisaSection(isDark: isDark, spacing: 28),
           _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
           const SizedBox(height: 28),
           _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
@@ -570,12 +577,14 @@ class _TabletContent extends ConsumerWidget {
           const SizedBox(height: 36),
           _TurkeyNewsSection(isDark: isDark),
           const SizedBox(height: 36),
+          DossierStrip(isDark: isDark, spacing: 36),
           _ScienceAndReportsSection(isDark: isDark),
           const SizedBox(height: 36),
           _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 36),
           _ICYMISection(isDark: isDark),
           const SizedBox(height: 36),
+          KisaKisaSection(isDark: isDark, spacing: 36),
           _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
           const SizedBox(height: 36),
           _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
@@ -643,6 +652,7 @@ class _DesktopContent extends ConsumerWidget {
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _TurkeyNewsSection(isDark: isDark),
                     ),
+                    DossierStrip(isDark: isDark, spacing: 40),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _ScienceAndReportsSection(isDark: isDark),
@@ -655,6 +665,10 @@ class _DesktopContent extends ConsumerWidget {
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _ICYMISection(isDark: isDark),
                     ),
+                    // Boşluğu Padding değil bölümün kendisi yayıyor: kısa haber
+                    // üretilmemiş bir günde bölüm SizedBox.shrink() dönüyor ve
+                    // sarmalayan Padding geriye 40 px boşluk bırakırdı.
+                    KisaKisaSection(isDark: isDark, spacing: 40),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),

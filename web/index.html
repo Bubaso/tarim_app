@@ -286,6 +286,24 @@
     .instant-splash #splash-logo,
     .instant-splash #splash-motto { animation: none; }
   </style>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDik1Xy9PHxV64y3Avq2LLWDRWbT0zJxPQ",
+      authDomain: "tarim-app-2026.firebaseapp.com",
+      projectId: "tarim-app-2026",
+      storageBucket: "tarim-app-2026.firebasestorage.app",
+      messagingSenderId: "966840360726",
+      appId: "1:966840360726:web:2d237d44ba55915e94fa37",
+      measurementId: "G-0FF4T9BHJ4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
 </head>
 <body>
   <div id="splash">

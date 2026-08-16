@@ -47,3 +47,7 @@ swagger.json
 database.json
 deploy.exp
 node_modules
+
+# Ülke dosyası — FAOSTAT toplu CSV geçici dizini (2,2 GB, betikle yeniden üretilir)
+content/dossiers/*/_raw/x/
+content/dossiers/*/_raw/*.zip

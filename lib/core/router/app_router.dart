@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/commodities/presentation/screens/commodity_detail_screen.dart';
 import '../../features/dashboard/presentation/screens/dashboard_screen.dart';
+import '../../features/dossiers/presentation/screens/country_dossier_screen.dart';
+import '../../features/dossiers/presentation/screens/dossier_index_screen.dart';
 import '../../features/home/data/models/news_article.dart';
 import '../../features/home/data/models/weather_info.dart';
 import '../../features/home/presentation/screens/about_screen.dart';
@@ -15,6 +18,7 @@ import '../../features/home/presentation/screens/author_article_detail_screen.da
 import '../../features/home/presentation/screens/category_articles_screen.dart';
 import '../../features/home/presentation/screens/financial_terminal_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
+import '../../features/home/presentation/screens/kisa_kisa_screen.dart';
 import '../../features/home/presentation/screens/weather_detail_screen.dart';
 import '../../features/home/presentation/screens/weekly_recap_screen.dart';
 import '../../features/home/presentation/screens/yyt_dosyasi_screen.dart';
@@ -49,6 +53,16 @@ String weekPath(IsoWeek week) => '/hafta/${week.slug}';
 
 /// Emtia fiyat detayı — `/emtia/bugday`. Slug veritabanındaki ürün anahtarı.
 String commodityPath(String slug) => '/emtia/$slug';
+
+/// Ülke dosyası — `/ulke/hollanda`.
+///
+/// Adres ASCII: dosya yirmi sekiz gün boyunca paylaşılmak üzere duruyor ve
+/// `/ülke/` yazan bir adres mesajlaşma uygulamalarında yüzde kodlamasına
+/// dönüşüp okunmaz hâle geliyor (aynı gerekçe [legalPath] için de geçerli).
+String countryPath(String slug) => '/ulke/$slug';
+
+/// Ülke dosyaları arşivi.
+const String dossierIndexPath = '/ulkeler';
 
 /// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
 /// Türkçe karakterli adresler kopyalanıp yapıştırıldığında ve mesajlaşma
@@ -85,7 +99,14 @@ class CategoryArgs {
   if (page is CommodityDetailScreen) {
     return (path: commodityPath(page.slug), extra: null);
   }
+  if (page is CountryDossierScreen) {
+    return (path: countryPath(page.slug), extra: null);
+  }
+  if (page is DossierIndexScreen) {
+    return (path: dossierIndexPath, extra: null);
+  }
   if (page is AllColumnistsScreen) return (path: '/yazarlar', extra: null);
+  if (page is KisaKisaScreen) return (path: '/kisa-kisa', extra: null);
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
@@ -141,6 +162,9 @@ CustomTransitionPage<void> _fadePage(GoRouterState state, Widget child) {
 
 final appRouter = GoRouter(
   initialLocation: '/',
+  observers: [
+    FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+  ],
   onException: (context, state, router) => router.go('/'),
   routes: [
     GoRoute(
@@ -217,6 +241,29 @@ final appRouter = GoRouter(
       ),
     ),
 
+    // Ülke dosyası. Emtia rotasıyla aynı kurulum ve aynı sebeple: slug tek
+    // başına sayfayı yeniden kurmaya yetiyor, ekran veriyi kendi çekiyor.
+    // Önbelleğe bağlanamazdı — dosyanın en çok kullanılacak girişi paylaşılan
+    // bir bağlantı olacak ve o okuyucu uygulamayı ilk kez açıyor.
+    //
+    // Bilinmeyen slug'da redirect yok: dosya listesi sunucuda ve ekran
+    // "Dosya bulunamadı" durumunu zaten kendi çiziyor. Burada yönlendirme
+    // olsaydı yavaş bağlantıda henüz gelmemiş bir dosya "yok" sayılırdı.
+    GoRoute(
+      path: '/ulke/:slug',
+      pageBuilder: (context, state) => _fadePage(
+        state,
+        CountryDossierScreen(slug: state.pathParameters['slug']!),
+      ),
+    ),
+
+    // Arşiv. Şeritten düşen dosyaların tek girişi.
+    GoRoute(
+      path: dossierIndexPath,
+      pageBuilder: (context, state) =>
+          _fadePage(state, const DossierIndexScreen()),
+    ),
+
     GoRoute(
       path: '/hava-durumu',
       pageBuilder: (context, state) {
@@ -232,6 +279,12 @@ final appRouter = GoRouter(
       path: '/yazarlar',
       pageBuilder: (context, state) =>
           _fadePage(state, const AllColumnistsScreen()),
+    ),
+    // Kısa haberlerin günlük bülteni. Adresten tamamen yeniden kurulabiliyor:
+    // ekran hiçbir argüman almıyor, listeyi kendi süzüyor.
+    GoRoute(
+      path: '/kisa-kisa',
+      pageBuilder: (context, state) => _fadePage(state, const KisaKisaScreen()),
     ),
     GoRoute(
       path: '/yyt-dosyasi',

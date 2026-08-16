@@ -1,0 +1,46 @@
+{
+  "_kaynak": "CBS (Centraal Bureau voor de Statistiek) — 'Waarde landbouwexport ruim 8 procent hoger in 2025'",
+  "_kaynak_url": "https://www.cbs.nl/nl-nl/nieuws/2026/03/waarde-landbouwexport-ruim-8-procent-hoger-in-2025",
+  "_arastirma": "CBS ile Wageningen Social & Economic Research (WUR) ortak çalışması, LVVN Bakanlığı adına",
+  "_yayin_tarihi": "2026-01-16",
+  "_giris_yontemi": "ELLE GİRİLDİ — CBS bu seriyi OData API'sinden yayımlamıyor, haber bülteninden alındı ve birincil kaynaktan doğrulandı.",
+  "_dogrulama": "cbs.nl haber sayfası doğrudan çekilip rakamlar teyit edildi (2026-08-15).",
+  "_birim": "milyar EUR",
+  "_uyari": "Bu seri EUR ve CBS tanımlı 'landbouwgoederen'dir. FAOSTAT'ın USD cinsinden 'Crops and livestock products' serisiyle AYNI ŞEY DEĞİLDİR. İkisi asla aynı cümlede oran olarak kullanılmayacak.",
+
+  "yil": 2025,
+  "toplam_ihracat": 137.5,
+  "toplam_ihracat_artis_yuzde": 8.4,
+
+  "kompozisyon": {
+    "hollanda_yapimi": 88.4,
+    "yeniden_ihracat": 49.1,
+    "_not": "'Nederlandse makelij' = Hollanda'da üretilmiş. 'Wederuitvoer' = yurt dışında üretilip Hollanda üzerinden yeniden ihraç edilmiş."
+  },
+
+  "ihracat_kazanci": {
+    "toplam": 49.0,
+    "hollanda_yapimindan": 43.5,
+    "yeniden_ihracattan": 5.7,
+    "_not": "'Exportverdiensten' = ihracatın Hollanda ekonomisinde gerçekten bıraktığı katma değer. Ciro değil, kazanç.",
+    "_kritik_bulgu": "Yeniden ihracat, manşet rakamın %35,7'si ama kazancın yalnızca %11,6'sı. Yani 137,5 milyar avroluk başlık, Hollanda'nın gerçek başarısını yaklaşık üçte bir oranında ŞİŞİRİYOR — ve bunu söyleyen Hollanda'nın kendi istatistik kurumu."
+  },
+
+  "buyume_nedeni": "Değer artışının üçte ikisinden fazlası FİYAT artışından; kalanı miktar artışından.",
+
+  "ilk_10_pazar": [
+    { "ulke": "Almanya", "milyar_eur": 34.0, "pay_yuzde": 25 },
+    { "ulke": "Belçika", "milyar_eur": 16.9 },
+    { "ulke": "Fransa", "milyar_eur": 11.4 },
+    { "ulke": "Birleşik Krallık", "milyar_eur": 9.8 },
+    { "ulke": "İspanya", "milyar_eur": 5.7 },
+    { "ulke": "İtalya", "milyar_eur": 5.6 },
+    { "ulke": "Polonya", "milyar_eur": 5.2 },
+    { "ulke": "ABD", "milyar_eur": 3.8 },
+    { "ulke": "İsveç", "milyar_eur": 3.1 },
+    { "ulke": "Çin", "milyar_eur": 3.0 }
+  ],
+  "_ilk_10_notu": "Türkiye ilk 10'da yok. Hollanda ihracatının ezici çoğunluğu komşularına gidiyor — bu da 'küresel dev' imajını düzelten bir olgu.",
+
+  "_tahmin_uyarisi": "Kasım-Aralık 2025 rakamları CBS tarafından TAHMİN olarak işaretlenmiştir."
+}

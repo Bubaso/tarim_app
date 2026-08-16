@@ -1,0 +1,140 @@
+{
+  "_amac": "Boşluk 3 — Hollanda tarımını ayakta tutan kurumlar. Dosyanın 'nasıl' sorusunun cevabı burada: mucize iklimde değil, kurum tasarımında.",
+  "_giris_yontemi": "Her kalem kendi resmî/birincil kaynağından WebFetch ile doğrulandı. Hafızadan yazılan hiçbir sayı yok.",
+  "_dogrulama_tarihi": "2026-08-15",
+  "_kural": "Aşağıdaki 'dogrulanmamis' blokları metne GİREMEZ. Yalnızca doğrulanmış alanlar data.json'a taşınır.",
+
+  "kurumlar": [
+    {
+      "id": "wur",
+      "ad": "Wageningen University & Research",
+      "kisa": "WUR",
+      "tur": "Üniversite + araştırma enstitüsü (ikili yapı)",
+      "kurulus": 1918,
+      "neden_onemli": "Dünyanın tarım alanında 1 numaralı üniversitesi. Hollanda modelinin bilgi üretim motoru. Üniversite (WU) ile sözleşmeli araştırma vakfı (WR) tek çatı altında — akademik yayın ile saha uygulaması aynı kurumda buluşuyor.",
+      "veriler": {
+        "calisan": { "deger": 7800, "birim": "kişi", "not": "Kurumun kendi tanıtım rakamı. 2023 tam zamanlı eşdeğeri (fte) 7.044." },
+        "ogrenci": { "deger": 12407, "birim": "kişi", "tarih": "2025-10", "detay": { "hollandali": 9031, "yabanci": 3376, "lisans": 5175, "yuksek_lisans": 6754, "hazirlik": 99 } },
+        "doktora_adayi": { "deger": 2440, "yil": 2023 },
+        "profesor": { "deger": 234, "yil": 2023 },
+        "program": { "lisans": 20, "yuksek_lisans": 31, "mooc": 49, "yil": 2023 },
+        "mezun": { "deger": 64117, "yil": 2023 },
+        "qs_tarim_ormancilik": { "deger": 1, "birim": "dünya sırası", "ifade": "Wageningen University & Research excels in Agriculture & Forestry (1st globally)" },
+        "the_genel": { "deger": 67, "birim": "dünya sırası", "yil": 2025 },
+        "surdurulebilirlik": { "ifade": "UI GreenMetric'te 9 yıl üst üste dünya 1.'si — 'dünyanın en sürdürülebilir kampüsü'" }
+      },
+      "kaynak": "Wageningen University & Research — resmî 'Facts and figures' ve 'Rankings' sayfaları",
+      "kaynak_url": [
+        "https://www.wur.nl/en/about-wur/facts-figures",
+        "https://www.wur.nl/en/about-wur/facts-figures/rankings-and-scientific-awards"
+      ],
+      "_uyari": "Sayfa iki farklı referans yılını yan yana gösteriyor (7.800 çalışan güncel; 7.044 fte 2023). Metinde hangi yılın rakamı olduğu belirtilmeli.",
+      "dogrulanmamis": {
+        "tasarruf_programi": "2027 sonuna kadar yılda 80 milyon avro tasarruf hedefi — 2024 yıllık raporundan arama sonucuyla geldi, birincil PDF'ten teyit edilmedi.",
+        "2025_geliri": "553,9 milyon avro (WU, bütçe projeksiyonu) — aynı şekilde teyit edilmedi."
+      }
+    },
+
+    {
+      "id": "floraholland",
+      "ad": "Royal FloraHolland",
+      "tur": "Üretici kooperatifi — çiçek ve bitki müzayedesi",
+      "kurulus": 1911,
+      "neden_onemli": "Dosyanın en öğretici kurumu. Dünyanın en büyük çiçek ticaret platformu bir şirket değil, ÜRETİCİ KOOPERATİFİ. Hollanda fiyat oluşum mekanizmasının mülkiyetini üreticiye vermiş. 5,4 milyar avro içinden akıyor ama kurumun kendi cirosu 493 milyon, kârı 12 milyon — aradaki fark üreticide kalıyor.",
+      "veriler": {
+        "urun_cirosu": { "deger": 5.4, "birim": "milyar EUR", "yil": 2025, "onceki": { "2024": 5.3 }, "rekor": { "yil": 2021, "deger": 5.6 } },
+        "kurum_cirosu": { "deger": 493, "birim": "milyon EUR", "yil": 2025 },
+        "faaliyet_sonucu": { "deger": 19, "birim": "milyon EUR", "yil": 2025 },
+        "net_sonuc": { "deger": 12, "birim": "milyon EUR", "yil": 2025, "onceki": { "2024": 5 } },
+        "fiyat_hacim": { "kesme_cicek_fiyat_yuzde": 3, "bitki_fiyat_yuzde": 1, "hacim_yuzde": -2, "yil": 2025 },
+        "floriday_dijital": { "deger": 75, "birim": "%", "aciklama": "Alıcı yönlendirmeli bitki işlemlerinin Floriday üzerinden yapılan payı", "yil": 2025 }
+      },
+      "kritik_bulgu": "Ciro/kâr oranı: 5.400 milyon avroluk ürün cirosunun yalnızca %9,1'i (493 milyon) kurumun kendi geliri, %0,2'si (12 milyon) kârı. Kooperatif modeli değeri üyede tutuyor — bu bir verimlilik değil, MÜLKİYET tasarımı meselesi.",
+      "kaynak": "NCR — Nationale Coöperatieve Raad (cooperatie.nl), Royal FloraHolland 2025 yıllık sonuçları haberi",
+      "kaynak_url": "https://www.cooperatie.nl/",
+      "_kaynak_notu": "royalfloraholland.com WebFetch'e HTTP 403 döndürdü. Rakamlar Hollanda Kooperatifler Konseyi'nin 2026-03-30 tarihli haberinden alındı — bu kurumun kendi çatı örgütü, ikincil ama yetkin kaynak.",
+      "dogrulanmamis": {
+        "saat_hacmi": "Yıllık ~5 milyar dal/adet saat üzerinden, saat cirosu 2 milyar avronun biraz üzeri",
+        "kvv": "Doğrudan satış (KVV) 285 milyon EUR, +%10, ~%28 pay",
+        "gunluk_islem": "~100.000 işlem/gün",
+        "fsi_sertifikasyon": "2025 sonunda %78",
+        "ceo": "David van Mechelen, 2025-07-01'den beri vekâleten",
+        "_not": "Bu altı kalem yalnızca arama özetinden geldi; birincil kaynaktan teyit EDİLMEDİ. Metne girmeyecek."
+      }
+    },
+
+    {
+      "id": "uitgangsmateriaal",
+      "ad": "Tohum ve fide sektörü (uitgangsmateriaal) — Plantum çatısı altında",
+      "tur": "Sektör + meslek örgütü",
+      "neden_onemli": "Hollanda'nın gerçek ihracat ürünü domates değil, domatesin TOHUMU. Görünmez ama en yüksek katma değerli halka. Cironun %15'i, sebze ıslahçılarında %30'a kadarı Ar-Ge'ye gidiyor — bu oran ilaç sanayii seviyesinde.",
+      "veriler": {
+        "ihracat": { "deger": 5.02, "birim": "milyar EUR", "yil": 2024, "seyir": { "2000": 1.3, "2020": 3.8, "2024": 5.02 }, "artis_2020_2024_yuzde": 31 },
+        "kompozisyon_yuzde": { "sebze_tohumu": 45, "cicek_sogani_ve_yumru": 34, "tohumluk_patates": 12, "yil": 2024 },
+        "sebze_tohumu": { "ihracat_milyar_eur": 2.25, "ithalat_milyon_eur": 592, "ab_disi_pay_yuzde": 58, "kuzey_amerika_pay_yuzde": 19, "yil": 2024 },
+        "ar_ge": { "ifade": "Gemiddeld wordt circa 15% van de omzet besteed aan onderzoek en ontwikkeling (R&D), oplopend tot ongeveer 30% bij groenteveredelaars", "ceviri": "Ciroların ortalama %15'i Ar-Ge'ye ayrılıyor; sebze ıslahçılarında bu oran %30'a çıkıyor." },
+        "istihdam": { "deger": 14000, "birim": "kişi", "seyir": { "2010": "8.000–10.000", "2019": "~12.000 tam zamanlı", "guncel": "14.000+" }, "kaynak_ic": "Plantum tahmini" }
+      },
+      "kritik_bulgu": "5,02 milyar avroluk tohum/fide ihracatının %58'i AB DIŞINA gidiyor. Yani bu kalem, Hollanda'nın 'komşularına satıyor' genel örüntüsünün istisnası — ve tam da en yüksek katma değerli kalem olması bu yüzden anlamlı.",
+      "kaynak": "Agrimatie — Wageningen University & Research, 'Uitgangsmateriaal in de sector akker- en tuinbouw', Editie 2026",
+      "kaynak_url": "https://agrimatie.nl/internationalehandel/gepubliceerde-artikelen-en-rapporten/editie-2026/2026-uitgangsmateriaal/",
+      "kaynak_guncelleme": "2026-01-16",
+      "dogrulanmamis": {
+        "dunya_pazar_payi": "Plantum'a atfen 'dünya tohum pazarının ~%17'si, sebze tohumlarının %38'i'; PBL'e atfen 'dünya sebze tohumu ticaretinin ~%35'i, tohumluk patatesin ~%60'ı'. Agrimatie sayfası yüzde pay VERMİYOR; iki kaynak birbirinden farklı. Metinde pay yüzdesi kullanılmayacak, mutlak ihracat rakamı kullanılacak."
+      }
+    },
+
+    {
+      "id": "greenport",
+      "ad": "Greenports Nederland — bahçecilik kümeleri",
+      "tur": "Bölgesel küme ağı (ulusal koordinasyon)",
+      "neden_onemli": "Hollanda seracılığı dağınık işletmeler toplamı değil, coğrafi olarak sıkıştırılmış kümeler. Üretim, ticaret, teknoloji ve lojistik yan yana. 'Küme' kelimesi burada mecaz değil, fiziksel gerçek.",
+      "veriler": {
+        "uretim_degeri": { "2020": 26.8, "2024": 33.3, "birim": "milyar EUR" },
+        "katma_deger": { "2020": 16.2, "2024": 20.4, "birim": "milyar EUR" },
+        "istihdam": { "2020": 198000, "2024": 208000, "birim": "iş yılı (arbeidsjaren)", "ulusal_pay_yuzde": 2.5 },
+        "zincir_ihracati": { "deger": 28, "birim": "milyar EUR", "yil": 2024, "artis_2019_yuzde": 25, "hollanda_yapimi_pay_yuzde": 65 },
+        "zincir_ithalati": { "deger": 11, "birim": "milyar EUR", "yil": 2024, "artis_2019_yuzde": 15 },
+        "inovasyon_tesviki": { "deger": 516, "birim": "milyon EUR", "yil": 2024, "arac": "WBSO Ar-Ge vergi teşviki", "artis_2019_yuzde": 25 }
+      },
+      "kritik_bulgu": "Bahçecilik zinciri ihracatının %65'i Hollanda yapımı — genel tarım ihracatındaki %64,3 ile neredeyse aynı. Ama bahçecilik, tüm tarım arazisinin %0,56'sında duruyor. Yoğunluk farkı buradan okunuyor.",
+      "kaynak": "Greenports Nederland — 'Tuinbouw groeit naar ruim 33 miljard productiewaarde'; rakamlar Wageningen Social & Economic Research araştırması, CBS desteğiyle",
+      "kaynak_url": "https://www.greenports-nederland.nl/nl/tuinbouw-groeit-naar-ruim-33-miljard-productiewaarde-en-blijf-investeren-in-innovatie",
+      "yayin_tarihi": "2026-06-09",
+      "dogrulanmamis": {
+        "west_holland": "Greenport West-Holland: Avrupa'nın en büyük kümesi, 50.000+ istihdam, ~15 milyar EUR katma değer; Westland ~9.000 ha alanda brüt 4.500 ha cam sera, 16.000 işletme (2.000'i sera). greenportwestholland.nl WebFetch'te gövde metni döndürmedi — teyit edilemedi, metne girmeyecek."
+      }
+    },
+
+    {
+      "id": "topsector",
+      "ad": "Topsector Tuinbouw & Uitgangsmaterialen (2026'dan itibaren: TKI T&U)",
+      "tur": "Kamu–özel araştırma finansman mekanizması",
+      "kurulus": 2012,
+      "neden_onemli": "Hollanda modelinin kurumsal kilit taşı. Devlet parayı doğrudan araştırmacıya değil, ŞİRKET–ARAŞTIRMACI ORTAKLIĞINA veriyor; şirket kendi payını koymazsa proje başlamıyor. Türkiye'ye en doğrudan aktarılabilir tasarım budur.",
+      "veriler": {
+        "pps_2025": {
+          "basvuru": 147,
+          "kabul": 100,
+          "kabul_orani_yuzde": 68,
+          "devlet_destegi_milyon_eur": 66.5,
+          "ozel_sektor_katkisi_milyon_eur": 66.7,
+          "toplam_yatirim_milyon_eur": 133,
+          "bakanlik_dagilimi": { "LVVN": 45.2, "EZ": 20.1, "IenW": 1.2 },
+          "_not": "Özel sektör katkısı (66,7) devlet desteğini (66,5) AŞIYOR. Eşleştirme oranı 1:1'in biraz üzerinde."
+        },
+        "kia": { "ad": "Kennis- en Innovatieagenda Landbouw, Water, Voedsel", "donem": "2024–2027", "ortak_topsektorler": ["Agri & Food", "Tuinbouw & Uitgangsmaterialen", "Water & Maritiem"], "bakanliklar": ["LNV", "VWS", "I&W"] },
+        "yapisal_degisiklik": { "tarih": "2026-01-01", "aciklama": "Topsector politikası sanayi politikasına dönüştü; 'Topsector' adı kalktı, kurum TKI Tuinbouw & Uitgangsmaterialen olarak devam ediyor. PPS inovasyon desteği en az 2027 sonuna kadar yaklaşık sabit." }
+      },
+      "kritik_bulgu": "133 milyon avroluk toplam yatırımın yarısını özel sektör koyuyor. Devlet burada araştırmayı finanse etmiyor — özel sektörün araştırma yapmasını KÂRLI hale getiriyor. Aradaki fark, dosyanın Türkiye bölümünün ana argümanı.",
+      "kaynak": "Topsector Tuinbouw & Uitgangsmaterialen — '100 nieuwe PPS-projecten starten in 2025'",
+      "kaynak_url": "https://topsectortu.nl/nieuws/100-nieuwe-pps-projecten-starten-in-2025/",
+      "yayin_tarihi": "2025-01-15",
+      "dogrulanmamis": {
+        "kumulatif": "2012'den beri 250+ araştırma/inovasyon projesi, ~400 şirket katılımı — arama özetinden geldi, birincil kaynaktan teyit edilmedi."
+      }
+    }
+  ],
+
+  "_ozet_tez": "Beş kurum, beş farklı tasarım kararı: bilgiyi tek çatıda topla (WUR), fiyat mekanizmasının mülkiyetini üreticiye ver (FloraHolland), en yüksek katma değerli halkayı elde tut (tohum), üretimi coğrafi olarak sıkıştır (Greenport), araştırma parasını ortaklık şartına bağla (Topsector). Hiçbiri iklimle, toprakla veya arazi büyüklüğüyle ilgili değil. Hepsi kopyalanabilir."
+}

@@ -41,6 +41,18 @@ class NewsArticle {
   final String? expertInsightEn;
   final Map<String, dynamic>? chartData;
 
+  /// Editörün verdiği biçim kararı: `'kisa'` ya da `'tam'`.
+  ///
+  /// Eski hattan gelen 507 haberde `null`; [isBrief] onları tam haber sayıyor.
+  final String? articleFormat;
+
+  /// Kısa haber mi — ara başlıksız, çıkarımsız, analizsiz, grafiksiz.
+  ///
+  /// Karar Python tarafında bir kez veriliyor ve sütun olarak taşınıyor.
+  /// Uygulamada "çıkarım listesi boşsa kısadır" diye çıkarım yapmıyoruz:
+  /// o kural, modelin alanı doldurmayı unuttuğu haberi de kısa sayardı.
+  bool get isBrief => articleFormat == 'kisa';
+
   NewsArticle({
     required this.id,
     required this.title,
@@ -73,6 +85,7 @@ class NewsArticle {
     this.expertInsight,
     this.expertInsightEn,
     this.chartData,
+    this.articleFormat,
   });
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) {
@@ -134,6 +147,7 @@ class NewsArticle {
       expertInsight: json['expert_insight']?.toString(),
       expertInsightEn: json['expert_insight_en']?.toString(),
       chartData: json['chart_data'] as Map<String, dynamic>?,
+      articleFormat: json['article_format']?.toString(),
     );
   }
 
@@ -170,6 +184,7 @@ class NewsArticle {
       'expert_insight': expertInsight,
       'expert_insight_en': expertInsightEn,
       'chart_data': chartData,
+      'article_format': articleFormat,
     };
   }
 
@@ -205,6 +220,7 @@ class NewsArticle {
     String? expertInsight,
     String? expertInsightEn,
     Map<String, dynamic>? chartData,
+    String? articleFormat,
   }) {
     return NewsArticle(
       id: id ?? this.id,
@@ -238,6 +254,7 @@ class NewsArticle {
       expertInsight: expertInsight ?? this.expertInsight,
       expertInsightEn: expertInsightEn ?? this.expertInsightEn,
       chartData: chartData ?? this.chartData,
+      articleFormat: articleFormat ?? this.articleFormat,
     );
   }
 }
