@@ -277,6 +277,15 @@ class DossierSection {
   /// sıralaması tablosunu taşıyor.
   final List<String> chartKeys;
 
+  /// Bölüm başındaki editoryal fotoğraf.
+  ///
+  /// Unsplash, Wikimedia veya NASA gibi telifsiz kaynaklardan. null ise
+  /// bölüm görselsiz çizilir — tıpkı grafiklerin boş olabilmesi gibi.
+  final String? imageUrl;
+
+  /// Fotoğrafçı atıf bilgisi. Unsplash lisansı zorunlu kılmıyor ama etik.
+  final String? imageCredit;
+
   const DossierSection({
     required this.ord,
     required this.titleTr,
@@ -284,6 +293,8 @@ class DossierSection {
     required this.bodyTr,
     required this.bodyEn,
     this.chartKeys = const [],
+    this.imageUrl,
+    this.imageCredit,
   });
 
   factory DossierSection.fromJson(Map<String, dynamic> json) {
@@ -294,6 +305,8 @@ class DossierSection {
       bodyTr: json['body_tr']?.toString() ?? '',
       bodyEn: json['body_en']?.toString() ?? '',
       chartKeys: (json['chart_keys'] as List?)?.map((e) => e.toString()).toList() ?? const [],
+      imageUrl: DossierSummary._bosDegilse(json['image_url']),
+      imageCredit: DossierSummary._bosDegilse(json['image_credit']),
     );
   }
 

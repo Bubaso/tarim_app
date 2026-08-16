@@ -314,8 +314,13 @@ const kelime = (s) => s.trim().split(/\s+/).filter(Boolean).length;
 const trKelime = tr.reduce((n, b) => n + kelime(b.govde), 0);
 const enKelime = en.reduce((n, b) => n + kelime(b.govde), 0);
 
+// ─── Bölüm görselleri ──────────────────────────────────────────────────
+// yayin.json'daki bolum_gorselleri: { "4": { "url": "...", "kredi": "..." } }
+const gorselEsleme = yayin.bolum_gorselleri ?? {};
+
 const satirlar = tr.map((b, i) => {
   const ilk = i === 0;
+  const gorsel = gorselEsleme[String(b.ord)];
   return '  (' + [
     ilk ? `${b.ord}::integer` : `${b.ord}`,
     dolar(b.baslik),
@@ -326,6 +331,8 @@ const satirlar = tr.map((b, i) => {
     // burada ilk satır ayrımı gerekmiyor: VALUES listesinin sütun türü
     // çıkarıma bırakılmıyor.
     dizi(grafikler[i]),
+    gorsel?.url ? dolar(gorsel.url) : 'null',
+    gorsel?.kredi ? dolar(gorsel.kredi) : 'null',
   ].join(', ') + ')';
 });
 
@@ -392,12 +399,12 @@ delete from public.dossier_sections
  where dossier_id = (select id from public.country_dossiers where slug = ${tirnak(yayin.slug)});
 
 insert into public.dossier_sections
-  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys)
-select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys
+  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys, image_url, image_credit)
+select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys, v.image_url, v.image_credit
 from public.country_dossiers d
 cross join (values
 ${satirlar.join(',\n')}
-) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys)
+) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys, image_url, image_credit)
 where d.slug = ${tirnak(yayin.slug)};
 
 -- Sağlama: beklenen bölüm sayısı yazılmadıysa işlem geri alınır.

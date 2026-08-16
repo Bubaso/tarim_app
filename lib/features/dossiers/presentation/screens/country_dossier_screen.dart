@@ -369,6 +369,17 @@ class _Bolum extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // ── Bölüm görseli ────────────────────────────────────────────
+        // Başlıktan ÖNCE, tam genişlikte. Oluğun kısıtından bağımsız
+        // durur çünkü editoryal fotoğraf sayfanın solundan sağına
+        // yayılmalı — dar olukta sıkışmış bir fotoğraf gazete değil
+        // belge gibi görünürdü.
+        if (bolum.imageUrl != null)
+          _BolumGorsel(
+            url: bolum.imageUrl!,
+            kredi: bolum.imageCredit,
+            tema: tema,
+          ),
         _Oluk(
           dikey: 28,
           child: Column(
@@ -402,6 +413,78 @@ class _Bolum extends StatelessWidget {
         ),
         if (!sonuncu) PolderMotif(tema: tema, yukseklik: 64),
       ],
+    );
+  }
+}
+
+/// Bölüm başındaki tam genişlik editoryal fotoğraf.
+///
+/// Oluktan bağımsız: fotoğraf sayfanın solundan sağına yayılıyor.
+/// Görsel koyu sayfayla uyum sağlasın diye alt ve üst kenardan zemine
+/// kaybolur (gradyan). Kredi sağ alt köşede, sessiz renkte.
+class _BolumGorsel extends StatelessWidget {
+  const _BolumGorsel({
+    required this.url,
+    required this.tema,
+    this.kredi,
+  });
+
+  final String url;
+  final String? kredi;
+  final DossierTheme tema;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 720),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Stack(
+              children: [
+                AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: NewsArticleImage(
+                    imageUrl: url,
+                    fit: BoxFit.cover,
+                    isHighQuality: true,
+                  ),
+                ),
+                // Alttaki kredi yazısının okunabilirliği için gradyan.
+                if (kredi != null)
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            tema.zemin.withValues(alpha: 0.80),
+                          ],
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(12, 20, 12, 8),
+                        child: Text(
+                          kredi!,
+                          textAlign: TextAlign.right,
+                          style: AppTypography.meta(context, color: tema.sessiz)
+                              .copyWith(fontSize: 10),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
