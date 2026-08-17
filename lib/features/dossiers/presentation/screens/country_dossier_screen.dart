@@ -12,6 +12,8 @@ import '../../data/models/dossier_theme.dart';
 import '../../providers/dossier_providers.dart';
 import '../widgets/dossier_chart_view.dart';
 import '../widgets/dossier_prose.dart';
+import '../widgets/dossier_share_bar.dart';
+import '../widgets/dossier_video_player.dart';
 import '../widgets/polder_motif.dart';
 import 'dossier_index_screen.dart';
 
@@ -153,6 +155,15 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                 SliverToBoxAdapter(
                   child: _Kunye(kaynaklar: dosya.sources, tema: tema, isEn: isEn),
                 ),
+                SliverToBoxAdapter(
+                  child: _Oluk(
+                    dikey: 24,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: DossierShareBar(ozet: dosya.summary, tema: tema, isEn: isEn),
+                    ),
+                  ),
+                ),
                 // Arşiv bağlantısı en sonda: on üç bölümü bitiren okuyucu,
                 // dizinin devamı olduğunu ancak burada öğrenmeli. Yukarı
                 // konsaydı okunmakta olan dosyadan çıkmaya davet ederdi.
@@ -244,9 +255,18 @@ class _Kapak extends StatelessWidget {
             renk: tema.vurgu,
           ),
           const SizedBox(height: 14),
-          Text(
-            ozet.name(isEn),
-            style: AppTypography.headlineHome(context, color: tema.murekkep),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Text(
+                  ozet.name(isEn),
+                  style: AppTypography.headlineHome(context, color: tema.murekkep),
+                ),
+              ),
+              const SizedBox(width: 16),
+              DossierShareBar(ozet: ozet, tema: tema, isEn: isEn),
+            ],
           ),
           const SizedBox(height: 16),
           // Tez cümlesi kapakta duruyor: dosyanın ne iddia ettiğini okur ilk
@@ -255,7 +275,15 @@ class _Kapak extends StatelessWidget {
             ozet.thesis(isEn),
             style: AppTypography.deck(context, color: tema.murekkep),
           ),
-          const SizedBox(height: 22),
+          if (ozet.slug.contains('hollanda')) ...[
+            const SizedBox(height: 24),
+            const DossierVideoPlayer(
+              videoPath: 'assets/videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.MOV',
+            ),
+            const SizedBox(height: 12),
+          ] else ...[
+            const SizedBox(height: 22),
+          ],
           _Pencere(ozet: ozet, tema: tema, isEn: isEn),
         ],
       ),
@@ -302,7 +330,7 @@ class _Kapak extends StatelessWidget {
           Padding(
             // Üstteki boşluk çubuğun altına iniyor; kapak metni geri
             // düğmesinin altından başlıyor.
-            padding: EdgeInsets.only(top: ust + kToolbarHeight + 28, bottom: 34),
+            padding: EdgeInsets.only(top: ust + kToolbarHeight + 28, bottom: ozet.slug.contains('hollanda') ? 12 : 34),
             child: icerik,
           ),
         ],

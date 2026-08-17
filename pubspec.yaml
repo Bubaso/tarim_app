@@ -36,6 +36,7 @@ dependencies:
   firebase_core: ^4.13.0
   firebase_messaging: ^16.5.0
   firebase_analytics: ^12.4.6
+  video_player: ^2.11.1
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/videos/
   fonts:
     # Sadece Font Awesome "Brands" seti. font_awesome_flutter paketi Free-Solid
     # ve Free-Regular'ı da manifest'e ekliyor ve Flutter web manifest'teki her
