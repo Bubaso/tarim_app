@@ -258,20 +258,6 @@ class _Basluk extends StatelessWidget {
               height: 1.2,
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            isEn
-                ? 'Short items whose sources were short. No subheads, no takeaway '
-                    'boxes, no charts — a two-paragraph story does not need them.'
-                : 'Kaynağı kısa olduğu için kısa yazılan haberler. Ara başlık, '
-                    'çıkarım kutusu ve grafik yok — iki paragraflık bir haberin '
-                    'bunlara ihtiyacı olmuyor.',
-            style: GoogleFonts.lora(
-              fontSize: 13,
-              color: isDark ? Colors.white60 : Colors.black54,
-              height: 1.5,
-            ),
-          ),
           const SizedBox(height: 12),
           Text(
             isEn
