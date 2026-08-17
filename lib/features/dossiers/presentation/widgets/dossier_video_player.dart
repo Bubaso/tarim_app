@@ -107,32 +107,67 @@ class _DossierVideoPlayerState extends State<DossierVideoPlayer> {
                 duration: const Duration(milliseconds: 300),
                 child: Container(
                   color: Colors.black.withValues(alpha: 0.3),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: _togglePlay,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withValues(alpha: 0.2),
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.white.withValues(alpha: 0.5),
-                                width: 1.5,
+                  child: Stack(
+                    children: [
+                      // Ortadaki Oynat/Duraklat Butonu
+                      Center(
+                        child: GestureDetector(
+                          onTap: _togglePlay,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                              child: Container(
+                                padding: const EdgeInsets.all(20),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withValues(alpha: 0.2),
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.white.withValues(alpha: 0.5),
+                                    width: 1.5,
+                                  ),
+                                ),
+                                child: Icon(
+                                  _isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                                  color: Colors.white,
+                                  size: 48,
+                                ),
                               ),
-                            ),
-                            child: Icon(
-                              _isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
-                              color: Colors.white,
-                              size: 48,
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      
+                      // Alt kısımdaki ilerleme (scrubber) çubuğu
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12, top: 24),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withValues(alpha: 0.8),
+                                Colors.transparent,
+                              ],
+                            ),
+                          ),
+                          child: VideoProgressIndicator(
+                            _controller,
+                            allowScrubbing: true,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            colors: const VideoProgressColors(
+                              playedColor: AppColors.primaryGreen,
+                              bufferedColor: Colors.white38,
+                              backgroundColor: Colors.white12,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
