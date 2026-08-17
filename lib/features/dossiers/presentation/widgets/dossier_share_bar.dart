@@ -104,35 +104,35 @@ class DossierShareBar extends StatelessWidget {
       runSpacing: 8,
       children: [
         _ShareButton(
-          icon: Icon(Icons.share_rounded, size: 24, color: iconColor),
+          icon: Icon(Icons.share_rounded, size: 18, color: iconColor),
           bgColor: bgColor,
           borderColor: tema.vurgu.withValues(alpha: 0.3),
           onTap: () => _shareNative(context),
           tooltip: isEn ? 'Share' : 'Paylaş',
         ),
         _ShareButton(
-          icon: Icon(Icons.copy_rounded, size: 24, color: iconColor),
+          icon: Icon(Icons.copy_rounded, size: 18, color: iconColor),
           bgColor: bgColor,
           borderColor: tema.vurgu.withValues(alpha: 0.3),
           onTap: () => _copyToClipboard(context),
           tooltip: isEn ? 'Copy Link' : 'Kopyala',
         ),
         _ShareButton(
-          icon: const Icon(BrandIcons.whatsapp, size: 24, color: Color(0xFF25D366)),
+          icon: const Icon(BrandIcons.whatsapp, size: 18, color: Color(0xFF25D366)),
           bgColor: bgColor,
           borderColor: tema.vurgu.withValues(alpha: 0.3),
           onTap: _shareToWhatsApp,
           tooltip: 'WhatsApp',
         ),
         _ShareButton(
-          icon: Icon(BrandIcons.x, size: 22, color: tema.murekkep),
+          icon: Icon(BrandIcons.x, size: 16, color: tema.murekkep),
           bgColor: bgColor,
           borderColor: tema.vurgu.withValues(alpha: 0.3),
           onTap: _shareToTwitter,
           tooltip: 'X (Twitter)',
         ),
         _ShareButton(
-          icon: const Icon(BrandIcons.linkedIn, size: 22, color: Color(0xFF0A66C2)),
+          icon: const Icon(BrandIcons.linkedIn, size: 16, color: Color(0xFF0A66C2)),
           bgColor: bgColor,
           borderColor: tema.vurgu.withValues(alpha: 0.3),
           onTap: _shareToLinkedIn,
@@ -166,8 +166,8 @@ class _ShareButton extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(8),
         child: Container(
-          width: 48,
-          height: 48,
+          width: 36,
+          height: 36,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: bgColor,
@@ -175,8 +175,8 @@ class _ShareButton extends StatelessWidget {
             border: Border.all(color: borderColor, width: 1),
           ),
           child: SizedBox(
-            width: 26,
-            height: 26,
+            width: 20,
+            height: 20,
             child: Center(child: icon),
           ),
         ),

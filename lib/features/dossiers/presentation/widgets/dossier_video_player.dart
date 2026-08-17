@@ -128,7 +128,7 @@ class _DossierVideoPlayerState extends State<DossierVideoPlayer> {
                                   ),
                                 ),
                                 child: Icon(
-                                  _isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                                  _isPlaying ? Icons.pause : Icons.play_arrow,
                                   color: Colors.white,
                                   size: 48,
                                 ),
