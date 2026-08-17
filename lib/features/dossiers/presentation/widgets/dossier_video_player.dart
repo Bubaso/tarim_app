@@ -4,8 +4,8 @@ import 'package:video_player/video_player.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class DossierVideoPlayer extends StatefulWidget {
-  final String videoPath;
-  const DossierVideoPlayer({super.key, required this.videoPath});
+  final String videoUrl;
+  const DossierVideoPlayer({super.key, required this.videoUrl});
 
   @override
   State<DossierVideoPlayer> createState() => _DossierVideoPlayerState();
@@ -20,7 +20,7 @@ class _DossierVideoPlayerState extends State<DossierVideoPlayer> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(widget.videoPath)
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
       ..initialize().then((_) {
         if (mounted) {
           setState(() {

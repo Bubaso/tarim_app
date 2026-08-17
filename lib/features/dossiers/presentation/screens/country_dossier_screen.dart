@@ -278,7 +278,7 @@ class _Kapak extends StatelessWidget {
           if (ozet.slug.contains('hollanda')) ...[
             const SizedBox(height: 24),
             const DossierVideoPlayer(
-              videoPath: 'assets/videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.MOV',
+              videoUrl: 'https://xkwcyavcltrweunvooeu.supabase.co/storage/v1/object/public/country_folder_videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.mp4',
             ),
             const SizedBox(height: 12),
           ] else ...[
