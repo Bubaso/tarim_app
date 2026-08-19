@@ -36,6 +36,7 @@ import '../../../dossiers/presentation/widgets/dossier_strip.dart';
 import 'article_detail_screen.dart';
 import 'category_articles_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
+import '../../../stories/presentation/widgets/story_avatar_strip.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -440,6 +441,9 @@ class _MobileContent extends ConsumerWidget {
         padding: EdgeInsets.zero,
         children: [
           IosPwaPrompt(isDark: isDark),
+          const SizedBox(height: 16),
+          StoryAvatarStrip(isDark: isDark),
+          const SizedBox(height: 8),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 28),
           // Şerit "en son okuduklarınız"ın ÜSTÜNDE — masaüstündeki sırayla
@@ -503,6 +507,9 @@ class _TabletContent extends ConsumerWidget {
         padding: const EdgeInsets.all(24),
         children: [
           IosPwaPrompt(isDark: isDark),
+          const SizedBox(height: 16),
+          StoryAvatarStrip(isDark: isDark, maxItems: 10),
+          const SizedBox(height: 8),
           _PortalHeroSection(isDark: isDark),
           const SizedBox(height: 36),
           CommodityStrip(isDark: isDark, spacing: 36),
@@ -568,6 +575,8 @@ class _DesktopContent extends ConsumerWidget {
                 child: Column(
                   children: [
                     IosPwaPrompt(isDark: isDark),
+                    const SizedBox(height: 16),
+                    StoryAvatarStrip(isDark: isDark, maxItems: 10),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40, top: 16),
                       child: _PortalHeroSection(isDark: isDark),
