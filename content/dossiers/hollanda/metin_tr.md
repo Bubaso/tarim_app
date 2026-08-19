@@ -24,7 +24,7 @@ Kelime hedefi ~5.150. Bölüm başına ~400.
 
 ## 1. Paradoks
 
-Türkiye 2023'te 79,9 milyar uluslararası dolarlık tarımsal üretim yaptı. Hollanda
+Türkiye 2023'te 79,9 milyar dolarlık tarımsal üretim yaptı. Hollanda
 aynı ölçüyle 17,8 milyar. Türkiye dört buçuk kat fazla üretti.
 
 Aynı yıl Hollanda 125,8 milyar dolarlık tarım ürünü ihraç etti. Türkiye 29,5 milyar.

@@ -88,7 +88,14 @@ class _Kart extends StatelessWidget {
   Widget build(BuildContext context) {
     final tema = ozet.theme;
 
-    final zemin = isDark ? tema.zemin : Colors.white;
+    // Açık modda karta hafif turuncu tint + turuncu çerçeve.
+    // tema.vurgu gerçek sodyum turuncusu — seritVurgu lacivert tonudur.
+    final zemin = isDark
+        ? tema.zemin
+        : Color.alphaBlend(
+            tema.vurgu.withValues(alpha: 0.06),
+            Colors.white,
+          );
     final murekkep = isDark ? tema.murekkep : tema.seritMurekkep;
     final vurgu = tema.vurguFor(koyuZemin: isDark);
     // Açık modda ayrı bir "sessiz" rengi yok; şerit mürekkebi seyreltiliyor.
@@ -96,8 +103,13 @@ class _Kart extends StatelessWidget {
     // üstünde. Koyu modda temanın kendi sessiz'i zaten var.
     final sessiz =
         isDark ? tema.sessiz : tema.seritMurekkep.withValues(alpha: 0.70);
-    final kenar =
-        isDark ? tema.cizgi : tema.seritMurekkep.withValues(alpha: 0.12);
+    // Her iki modda da turuncu çerçeve:
+    // Koyu modda: sodyum turuncusu (#FF9E5E) %50 opaklıkta — zemin koyu,
+    //   border belirgin ama yanmıyor.
+    // Açık modda: seritVurgu (#AB4F16 koyu pas) %70 opaklıkta.
+    final kenar = isDark
+        ? tema.vurgu.withValues(alpha: 0.50)
+        : tema.seritVurgu.withValues(alpha: 0.70);
 
     return DecoratedBox(
       decoration: BoxDecoration(

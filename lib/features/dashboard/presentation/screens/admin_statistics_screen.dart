@@ -124,17 +124,14 @@ class AdminStatisticsScreen extends ConsumerWidget {
               _PendingArticlesSection(isDark: isDark),
               const SizedBox(height: 48),
               Text(
-                loc.translate('stats_distribution'),
+                'Haber Okuma Sıralaması (İlk 50)',
                 style: GoogleFonts.inter(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 24),
-              SizedBox(
-                height: 300,
-                child: _buildBarChart(sorted.take(5).toList(), isDark, theme, loc),
-              ),
+              _TopReadArticlesList(isDark: isDark, loc: loc),
               const SizedBox(height: 48),
             ],
           ),
@@ -145,82 +142,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildBarChart(List<NewsArticle> top5, bool isDark, ThemeData theme, AppLocalizations loc) {
-    if (top5.isEmpty) return const SizedBox.shrink();
 
-    final maxViews = top5.first.viewCount.toDouble();
-    if (maxViews == 0) {
-      return Center(child: Text(loc.translate('stats_no_data')));
-    }
-
-
-    return BarChart(
-      BarChartData(
-        alignment: BarChartAlignment.spaceAround,
-        maxY: maxViews * 1.2,
-        barTouchData: BarTouchData(
-          touchTooltipData: BarTouchTooltipData(
-            getTooltipItem: (group, groupIndex, rod, rodIndex) {
-              return BarTooltipItem(
-                '${top5[group.x].title}\n',
-                GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
-                children: [
-                  TextSpan(
-                    text: '${rod.toY.toInt()} ${loc.translate('stats_reads')}',
-                    style: GoogleFonts.robotoMono(color: Colors.orangeAccent, fontWeight: FontWeight.w600),
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
-        titlesData: FlTitlesData(
-          show: true,
-          bottomTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              getTitlesWidget: (double value, TitleMeta meta) {
-                final idx = value.toInt();
-                if (idx < 0 || idx >= top5.length) return const SizedBox.shrink();
-                return Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Text(
-                    '#${idx + 1}',
-                    style: GoogleFonts.inter(fontWeight: FontWeight.bold, fontSize: 12),
-                  ),
-                );
-              },
-            ),
-          ),
-          leftTitles: AxisTitles(
-            sideTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 40,
-              getTitlesWidget: (double value, TitleMeta meta) {
-                if (value == 0) return const SizedBox.shrink();
-                return Text(
-                  value.toInt().toString(),
-                  style: GoogleFonts.robotoMono(fontSize: 10),
-                );
-              },
-            ),
-          ),
-          topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-          rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
-        ),
-        gridData: FlGridData(
-          show: true,
-          drawVerticalLine: false,
-          getDrawingHorizontalLine: (value) => FlLine(
-            color: isDark ? AppColors.wheat : AppColors.wheat,
-            strokeWidth: 1,
-            dashArray: [4, 4],
-          ),
-        ),
-        borderData: FlBorderData(show: false),
-      ),
-    );
-  }
 }
 
 class _StatCard extends StatelessWidget {
@@ -378,4 +300,108 @@ class _PendingArticlesSection extends ConsumerWidget {
   }
 
 
+}
+
+class _TopReadArticlesList extends ConsumerWidget {
+  final bool isDark;
+  final AppLocalizations loc;
+
+  const _TopReadArticlesList({required this.isDark, required this.loc});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final topArticlesAsync = ref.watch(adminTopReadArticlesProvider);
+
+    return topArticlesAsync.when(
+      data: (articles) {
+        if (articles.isEmpty) {
+          return Center(child: Text(loc.translate('stats_no_data')));
+        }
+
+        return ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: articles.length,
+          separatorBuilder: (context, index) => const SizedBox(height: 12),
+          itemBuilder: (context, index) {
+            final article = articles[index];
+            final rank = index + 1;
+            return Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: isDark ? AppColors.darkGreen : Colors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: isDark ? AppColors.wheat : AppColors.wheat),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: rank <= 3 ? Colors.orangeAccent.withOpacity(0.2) : (isDark ? Colors.grey[800] : Colors.grey[200]),
+                      shape: BoxShape.circle,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '#$rank',
+                      style: GoogleFonts.robotoMono(
+                        fontWeight: FontWeight.bold,
+                        color: rank <= 3 ? Colors.orangeAccent : (isDark ? Colors.grey[400] : Colors.grey[700]),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          article.title,
+                          style: GoogleFonts.inter(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: isDark ? Colors.white : Colors.black,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 4),
+                        Row(
+                          children: [
+                            const Icon(Icons.local_fire_department_rounded, color: Colors.orangeAccent, size: 14),
+                            const SizedBox(width: 4),
+                            Text(
+                              '${article.viewCount} okunma',
+                              style: GoogleFonts.robotoMono(
+                                color: Colors.orangeAccent,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Icon(Icons.access_time_rounded, color: isDark ? Colors.grey[500] : Colors.grey[600], size: 14),
+                            const SizedBox(width: 4),
+                            Text(
+                              '${article.createdAt.day}/${article.createdAt.month}/${article.createdAt.year}',
+                              style: GoogleFonts.robotoMono(
+                                color: isDark ? Colors.grey[500] : Colors.grey[600],
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (e, st) => Center(child: Text('Hata: $e')),
+    );
+  }
 }

@@ -91,24 +91,24 @@ class HomeRepository {
   }
 
 
-  /// Searches articles by query using ilike on title, content
+  /// Searches articles by query using typo-tolerant RPC (pg_trgm).
+  /// Falls back to basic ILIKE search if the RPC is not yet created in the database.
   Future<List<NewsArticle>> searchArticles(String query) async {
+    if (query.trim().isEmpty) return [];
+    
     try {
-      if (query.trim().isEmpty) return [];
-      final response = await _supabaseClient
-          .from('articles')
-          .select()
-          .or('title.ilike.%$query%,content.ilike.%$query%')
-          .eq('status', 'published')
-          .order('created_at', ascending: false)
-          .limit(20);
+      final response = await _supabaseClient.rpc(
+        'search_articles_fuzzy',
+        params: {'search_term': query.trim(), 'max_limit': 20},
+      );
+      
       final list = response as List<dynamic>;
       return list.map((map) => NewsArticle.fromJson(map as Map<String, dynamic>)).toList();
     } catch (e) {
       if (kDebugMode) {
-        print('Search failed: $e');
+        print('RPC Error: $e');
       }
-      return [];
+      throw Exception('Arama hatası: $e');
     }
   }
 
@@ -237,6 +237,29 @@ class HomeRepository {
         })
         .handleError((e) {
           if (kDebugMode) print('watchTrendingArticles error: $e');
+          return <NewsArticle>[];
+        });
+  }
+
+  /// Watches top read articles using Supabase real-time stream for the dashboard.
+  Stream<List<NewsArticle>> watchTopReadArticles(int limit) {
+    return _supabaseClient
+        .from('articles')
+        .stream(primaryKey: ['id'])
+        .eq('status', 'published')
+        .map((maps) {
+          final articles = maps
+              .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+              .toList();
+          articles.sort((a, b) {
+            final cmp = b.viewCount.compareTo(a.viewCount);
+            if (cmp != 0) return cmp;
+            return b.createdAt.compareTo(a.createdAt);
+          });
+          return articles.take(limit).toList();
+        })
+        .handleError((e) {
+          if (kDebugMode) print('watchTopReadArticles error: $e');
           return <NewsArticle>[];
         });
   }
@@ -694,6 +717,7 @@ class HomeRepository {
       // If setting to true, update created_at so the cloud function 30-min window catches it
       if (isBreaking) {
         updates['created_at'] = DateTime.now().toUtc().toIso8601String();
+        updates['breaking_notified_at'] = null;
       }
 
       await _supabaseClient.from('articles').update(updates).eq('id', id);

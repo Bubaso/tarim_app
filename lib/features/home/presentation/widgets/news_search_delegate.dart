@@ -68,7 +68,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
 
         return searchAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, stack) => _buildMessage(context, isEn ? 'An error occurred: $err' : 'Bir hata oluştu: $err'),
+          error: (err, stack) => _buildMessage(context, 'Hata: $err'),
           data: (articles) {
             if (articles.isEmpty) {
               return _buildMessage(context, isEn ? 'No results found for "$query".' : '"$query" için sonuç bulunamadı.');
@@ -92,7 +92,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
 
         return searchAsync.when(
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (err, stack) => const SizedBox.shrink(),
+          error: (err, stack) => _buildMessage(context, 'Hata: $err'),
           data: (articles) {
             if (articles.isEmpty) {
               return _buildMessage(context, isEn ? 'No results found.' : 'Sonuç bulunamadı.');

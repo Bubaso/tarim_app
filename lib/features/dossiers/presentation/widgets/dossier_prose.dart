@@ -32,13 +32,31 @@ class DossierProse extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloklar = dossierBloklariniAyristir(govde);
 
+    // İlk gerçek paragrafın indeksi: tablo veya ayırıcıyla başlayan
+    // bölümlerde deck stili uygulanmaz.
+    int? ilkParagrafIndeksi;
+    for (var i = 0; i < bloklar.length; i++) {
+      if (bloklar[i] is DosParagraf) {
+        ilkParagrafIndeksi = i;
+        break;
+      }
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        for (final blok in bloklar)
+        for (var idx = 0; idx < bloklar.length; idx++)
           Padding(
-            padding: EdgeInsets.only(bottom: blok is DosTablo ? 24 : 18),
-            child: switch (blok) {
+            // Öneri 2: Nefes boşlukları artırıldı. Paragraflar arası 18→24,
+            // tablo altı 24→32.
+            padding: EdgeInsets.only(
+              bottom: bloklar[idx] is DosTablo ? 32 : 24,
+            ),
+            child: switch (bloklar[idx]) {
+              // Öneri 3: ilk paragraf — deck stili. Okuyucuya bölüm özeti
+              // sinyali verir; gözün giriş cümlesiyle ilişki kurması kolaylaşır.
+              DosParagraf(:final metin) when idx == ilkParagrafIndeksi =>
+                _IlkParagraf(metin: metin, tema: tema, olcek: olcek),
               DosParagraf(:final metin) => Text.rich(
                   TextSpan(
                     children: satirIciSpanlar(
@@ -51,7 +69,11 @@ class DossierProse extends StatelessWidget {
                     ),
                   ),
                 ),
-              DosTablo() => _Tablo(blok: blok, tema: tema, olcek: olcek),
+              DosTablo() => _Tablo(
+                  blok: bloklar[idx] as DosTablo,
+                  tema: tema,
+                  olcek: olcek,
+                ),
               DosAyirici() => Center(
                   child: Container(
                     width: 64,
@@ -62,6 +84,37 @@ class DossierProse extends StatelessWidget {
             },
           ),
       ],
+    );
+  }
+}
+
+/// İlk paragraf — bölümün giriş cümlesi.
+///
+/// Gövde metninden biraz büyük, hafif bold: "bu paragraf özetin kendisi,
+/// devamı ayrıntı" sinyali verir. Yazı tipografisi değişmiyor, yalnızca
+/// ağırlık ve boy farklı.
+class _IlkParagraf extends StatelessWidget {
+  const _IlkParagraf({
+    required this.metin,
+    required this.tema,
+    required this.olcek,
+  });
+
+  final String metin;
+  final DossierTheme tema;
+  final double olcek;
+
+  @override
+  Widget build(BuildContext context) {
+    final taban = AppTypography.body(context, color: tema.murekkep, scale: olcek);
+    // Deck stili: 1 punto büyük, hafif artan satır yüksekliği.
+    final deckStil = taban.copyWith(
+      fontSize: (taban.fontSize ?? 17) + 1.0,
+      height: 1.80,
+      fontWeight: FontWeight.w500,
+    );
+    return Text.rich(
+      TextSpan(children: satirIciSpanlar(metin, deckStil)),
     );
   }
 }
@@ -254,6 +307,11 @@ class _Tablo extends StatelessWidget {
       scale: olcek * 0.92,
     );
 
+    // Öneri 4: Zebra zemin rengi. Çift/tek satırlar hafif renk farkıyla
+    // ayrılır — gözün yatay takibi kolaylaşır. Fark bilinçli olarak çok hafif
+    // (tema.yuzey ile çok yakın): arka plan sıfırdan farklı, ama dikkat çekmez.
+    final zebraRenk = tema.cizgi.withValues(alpha: 0.25);
+
     return Container(
       decoration: BoxDecoration(
         color: tema.yuzey,
@@ -287,11 +345,13 @@ class _Tablo extends StatelessWidget {
           ),
           for (var s = 0; s < blok.satirlar.length; s++)
             TableRow(
-              decoration: s == blok.satirlar.length - 1
-                  ? null
-                  : BoxDecoration(
-                      border: Border(bottom: BorderSide(color: tema.cizgi)),
-                    ),
+              decoration: BoxDecoration(
+                // Zebra: çift satırlar zemin, tek satırlar hafif zebraRenk.
+                color: s.isOdd ? zebraRenk : null,
+                border: s == blok.satirlar.length - 1
+                    ? null
+                    : Border(bottom: BorderSide(color: tema.cizgi)),
+              ),
               children: [
                 for (var i = 0; i < sutun; i++)
                   _hucre(

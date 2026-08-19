@@ -734,6 +734,12 @@ final trendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   return repository.watchTrendingArticles();
 });
 
+/// Stream provider for top 50 read articles (Live data for admin dashboard)
+final adminTopReadArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.watchTopReadArticles(50);
+});
+
 /// Stream provider for YYT (Yüksek Yoğunluklu Tatlandırıcılar) category articles
 final yytArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   final repository = ref.watch(homeRepositoryProvider);

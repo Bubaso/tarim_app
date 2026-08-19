@@ -226,70 +226,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }) {
     final isDesktop = MediaQuery.of(context).size.width > 900;
 
-    if (_isSearchExpanded) {
-      return AppBar(
-        backgroundColor: bgColor,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 1.0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_rounded, color: isDark ? Colors.white : Colors.black),
-          onPressed: () {
-            setState(() {
-              _isSearchExpanded = false;
-              _searchController.clear();
-            });
-          },
-        ),
-        title: TextField(
-          controller: _searchController,
-          focusNode: _searchFocusNode,
-          style: GoogleFonts.inter(
-            color: isDark ? Colors.white : Colors.black,
-            fontSize: 16,
-          ),
-          decoration: InputDecoration(
-            hintText: currentLocale.languageCode == 'en' ? 'Search news...' : 'Haberlerde ara...',
-            hintStyle: GoogleFonts.inter(color: isDark ? Colors.white54 : Colors.black54),
-            border: InputBorder.none,
-          ),
-          textInputAction: TextInputAction.search,
-          onSubmitted: (val) {
-            if (val.trim().isNotEmpty) {
-              final query = val.trim();
-              setState(() {
-                _isSearchExpanded = false;
-                _searchController.clear();
-              });
-              showSearch(
-                context: context,
-                delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
-                query: query,
-              );
-            }
-          },
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search_rounded, color: isDark ? Colors.white : Colors.black),
-            onPressed: () {
-              if (_searchController.text.trim().isNotEmpty) {
-                final query = _searchController.text.trim();
-                setState(() {
-                  _isSearchExpanded = false;
-                  _searchController.clear();
-                });
-                showSearch(
-                  context: context,
-                  delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
-                  query: query,
-                );
-              }
-            },
-          ),
-        ],
-      );
-    }
+    // We removed the _isSearchExpanded state to directly open showSearch
+    // when the user clicks the search icon, enabling true instant search.
 
     return AppBar(
       backgroundColor: bgColor,
@@ -368,12 +306,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
               ),
               onPressed: () {
-                setState(() {
-                  _isSearchExpanded = true;
-                });
-                Future.delayed(const Duration(milliseconds: 100), () {
-                  _searchFocusNode.requestFocus();
-                });
+                showSearch(
+                  context: context,
+                  delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
+                );
               },
             ),
           )
@@ -381,12 +317,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           IconButton(
             icon: Icon(Icons.search_rounded, color: isDark ? Colors.white : Colors.black87),
             onPressed: () {
-              setState(() {
-                _isSearchExpanded = true;
-              });
-              Future.delayed(const Duration(milliseconds: 100), () {
-                _searchFocusNode.requestFocus();
-              });
+              showSearch(
+                context: context,
+                delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
+              );
             },
           ),
         

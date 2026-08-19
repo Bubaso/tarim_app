@@ -146,6 +146,7 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                     isEn: isEn,
                     olcek: olcek,
                     sonuncu: i == bolumler.length - 1,
+                    toplamBolum: bolumler.length,
                   ),
                 ),
 
@@ -383,6 +384,7 @@ class _Bolum extends StatelessWidget {
     required this.isEn,
     required this.olcek,
     required this.sonuncu,
+    required this.toplamBolum,
   });
 
   final DossierSection bolum;
@@ -391,6 +393,7 @@ class _Bolum extends StatelessWidget {
   final bool isEn;
   final double olcek;
   final bool sonuncu;
+  final int toplamBolum;
 
   @override
   Widget build(BuildContext context) {
@@ -406,9 +409,18 @@ class _Bolum extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   _Etiket(bolum.ordLabel, renk: tema.vurgu),
+                  const SizedBox(width: 8),
+                  // Öneri 5: "03 / 13" ilerleme sayacı. Okuyucu nerede
+                  // olduğunu ve ne kadar kaldığını tek bakışta görür.
+                  Text(
+                    '/ ${toplamBolum.toString().padLeft(2, '0')}',
+                    style: AppTypography.meta(context, color: tema.sessiz)
+                        .copyWith(
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1.0,
+                        ),
+                  ),
                   const SizedBox(width: 12),
-                  // Numarayı başlıktan ayıran ince çizgi — dekoratif, bu
-                  // yüzden `cizgi`. Anlam taşısaydı `cizgiVurgu` olurdu.
                   Expanded(child: Container(height: 1, color: tema.cizgi)),
                 ],
               ),

@@ -167,7 +167,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(length: 4, vsync: this);
   }
 
   @override
@@ -406,10 +406,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               icon: const Icon(Icons.star_rounded),
               text: isEn ? 'Hero News' : 'Hero Yönetimi',
             ),
-            Tab(
-              icon: const Icon(Icons.category_rounded),
-              text: isEn ? 'Categories' : 'Kategoriler',
-            ),
+
             Tab(
               icon: const Icon(Icons.psychology_rounded),
               text: loc.translate('dash_tab_ai_suggestions'),
@@ -433,7 +430,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         children: [
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
           const AdminHeroScreen(),
-          _buildAssignmentsTab(context, theme),
+
           _buildAiSuggestionsTab(context, theme),
           const AdminStatisticsScreen(),
         ],
