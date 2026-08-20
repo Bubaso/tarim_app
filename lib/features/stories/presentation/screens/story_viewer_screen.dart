@@ -1,12 +1,20 @@
-import 'dart:async';
+// ignore_for_file: deprecated_member_use
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
+
+import '../../../../core/router/app_router.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../data/models/story_item.dart';
+import '../../data/story_analytics.dart';
+import '../../data/story_constants.dart';
+import '../../providers/story_providers.dart';
 import '../widgets/story_image.dart';
 
-class StoryViewerScreen extends StatefulWidget {
+class StoryViewerScreen extends ConsumerStatefulWidget {
   final List<StoryGroup> storyGroups;
   final int initialGroupIndex;
 
@@ -17,37 +25,72 @@ class StoryViewerScreen extends StatefulWidget {
   });
 
   @override
-  State<StoryViewerScreen> createState() => _StoryViewerScreenState();
+  ConsumerState<StoryViewerScreen> createState() => _StoryViewerScreenState();
 }
 
-class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProviderStateMixin {
+class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   late PageController _pageController;
   late int _currentGroupIndex;
   int _currentItemIndex = 0;
-  
-  Timer? _timer;
+
   late AnimationController _animController;
-  final Duration _storyDuration = const Duration(seconds: 7);
+
+  /// Okuyucu parmağını basılı tuttuğu için mi durduk? Uygulama arka plandan
+  /// döndüğünde yanlışlıkla devam ettirmemek için ayrı tutuyoruz.
+  bool _heldDown = false;
 
   /// Arka plan görselinin hikaye boyunca kapanan yakınlaştırma payı.
   /// 0 yapılırsa hareket tamamen kalkar, kare sabit kalır.
   static const double _kenBurnsZoom = 0.05;
 
+  static const String _productionOrigin = 'https://tarim-app-2026.web.app';
+
+  StoryGroup get _currentGroup => widget.storyGroups[_currentGroupIndex];
+  StoryItem get _currentItem => _currentGroup.items[_currentItemIndex];
+
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _currentGroupIndex = widget.initialGroupIndex;
     _pageController = PageController(initialPage: _currentGroupIndex);
-    
-    _animController = AnimationController(vsync: this, duration: _storyDuration);
+
+    _animController = AnimationController(
+      vsync: this,
+      duration: StoryRules.maxSlideDuration,
+    );
     _animController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        _nextStory();
+        _nextStory(auto: true);
       }
     });
-    
+
+    StoryAnalytics.opened(
+      groupKey: _currentGroup.key,
+      groupCount: widget.storyGroups.length,
+    );
     _startStory();
     WidgetsBinding.instance.addPostFrameCallback((_) => _precacheNeighbours());
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _animController.dispose();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // Sayaç arka planda da işlemeye devam ediyordu: telefonu cebine koyup
+    // dönen okuyucu hikayeleri izlemeden atlamış oluyordu.
+    if (state == AppLifecycleState.resumed) {
+      if (!_heldDown && mounted) _animController.forward();
+    } else {
+      _animController.stop();
+    }
   }
 
   /// Komşu hikayelerin tam boy görsellerini önden indirir; böylece sağa/sola
@@ -66,44 +109,55 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
     }
   }
 
+  /// Slaytı başlatır: süreyi metin uzunluğundan hesaplar, izlendi defterine
+  /// işler ve sayacı sıfırdan başlatır.
   void _startStory() {
+    final item = _currentItem;
+    // Süre kaynak (Türkçe) metnin uzunluğundan hesaplanıyor; çeviriler benzer
+    // uzunlukta ve bu sayede `Localizations` bağlamına ihtiyaç kalmıyor.
+    _animController.duration = storySlideDuration(item.headline, item.statLabel);
     _animController.stop();
     _animController.reset();
     _animController.forward();
+    ref.read(storySeenProvider.notifier).markSeen([item.id]);
   }
 
-  void _nextStory() {
-    final group = widget.storyGroups[_currentGroupIndex];
+  void _nextStory({bool auto = false}) {
+    final group = _currentGroup;
     if (_currentItemIndex < group.items.length - 1) {
-      setState(() {
-        _currentItemIndex++;
-      });
+      setState(() => _currentItemIndex++);
       _startStory();
+      return;
+    }
+
+    if (auto) {
+      StoryAnalytics.completed(
+        groupKey: group.key,
+        itemCount: group.items.length,
+      );
+    }
+
+    if (_currentGroupIndex < widget.storyGroups.length - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
     } else {
-      if (_currentGroupIndex < widget.storyGroups.length - 1) {
-        _pageController.nextPage(
-          duration: const Duration(milliseconds: 400),
-          curve: Curves.easeInOut,
-        );
-      } else {
-        Navigator.of(context).pop();
-      }
+      Navigator.of(context).pop();
     }
   }
 
   void _previousStory() {
     if (_currentItemIndex > 0) {
-      setState(() {
-        _currentItemIndex--;
-      });
+      setState(() => _currentItemIndex--);
       _startStory();
-    } else {
-      if (_currentGroupIndex > 0) {
-        _pageController.previousPage(
-          duration: const Duration(milliseconds: 400),
-          curve: Curves.easeInOut,
-        );
-      }
+      return;
+    }
+    if (_currentGroupIndex > 0) {
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
     }
   }
 
@@ -130,12 +184,42 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
     }
   }
 
-  @override
-  void dispose() {
-    _timer?.cancel();
-    _animController.dispose();
-    _pageController.dispose();
-    super.dispose();
+  String _shareUrl(String articleId) {
+    final origin = kIsWeb ? Uri.base.origin : _productionOrigin;
+    return '$origin${articlePath(articleId)}';
+  }
+
+  /// Habere geçerken hikayeyi kapatıyoruz: eskiden ekran arkada açık kalıyor
+  /// ve sayaç haberi okurken de işlemeye devam ediyordu.
+  void _openArticle(StoryGroup group, StoryItem item) {
+    StoryAnalytics.articleOpened(
+      groupKey: group.key,
+      articleId: item.articleId,
+      slideIndex: _currentItemIndex,
+    );
+    final router = GoRouter.of(context);
+    Navigator.of(context).pop();
+    router.push(articlePath(item.articleId));
+  }
+
+  Future<void> _share(StoryGroup group, StoryItem item, bool isEn) async {
+    _animController.stop();
+    StoryAnalytics.shared(groupKey: group.key, articleId: item.articleId);
+
+    final box = context.findRenderObject() as RenderBox?;
+    final text = '${item.headlineFor(isEn)}\n'
+        '${item.bigStatValueFor(isEn)} · ${item.statLabelFor(isEn)}\n\n'
+        '${_shareUrl(item.articleId)}';
+    try {
+      await Share.share(
+        text,
+        sharePositionOrigin:
+            box != null ? box.localToGlobal(Offset.zero) & box.size : null,
+      );
+    } catch (_) {
+      // Paylaşım sayfası açılamazsa hikaye akmaya devam etsin.
+    }
+    if (mounted && !_heldDown) _animController.forward();
   }
 
   @override
@@ -149,8 +233,14 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
         child: GestureDetector(
           onTapDown: _onTapDown,
           onTapUp: _onTapUp,
-          onLongPressStart: (_) => _animController.stop(),
-          onLongPressEnd: (_) => _animController.forward(),
+          onLongPressStart: (_) {
+            _heldDown = true;
+            _animController.stop();
+          },
+          onLongPressEnd: (_) {
+            _heldDown = false;
+            _animController.forward();
+          },
           child: PageView.builder(
             controller: _pageController,
             onPageChanged: _onPageChanged,
@@ -161,12 +251,8 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
               final itemIndex = isCurrentGroup ? _currentItemIndex : 0;
               final item = group.items[itemIndex];
 
-              final bool isEn = Localizations.localeOf(context).languageCode == 'en';
-              final String displayGroupTitle = isEn && group.titleEn.isNotEmpty ? group.titleEn : group.title;
-              final String displaySuperTitle = isEn && item.superTitleEn.isNotEmpty ? item.superTitleEn : item.superTitle;
-              final String displayHeadline = isEn && item.headlineEn.isNotEmpty ? item.headlineEn : item.headline;
-              final String displayBigStat = isEn && item.bigStatValueEn.isNotEmpty ? item.bigStatValueEn : item.bigStatValue;
-              final String displayStatLabel = isEn && item.statLabelEn.isNotEmpty ? item.statLabelEn : item.statLabel;
+              final bool isEn =
+                  Localizations.localeOf(context).languageCode == 'en';
 
               return Stack(
                 fit: StackFit.expand,
@@ -179,7 +265,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                     animation: _animController,
                     builder: (context, child) {
                       // Çok hafif bir "Ken Burns": kare 1.05'ten 1.00'e iner,
-                      // yani hikaye net kareyle biter. Kapatmak için sabiti 0 yap.
+                      // yani hikaye net kareyle biter.
                       final double t = isCurrentGroup
                           ? Curves.easeOutSine.transform(_animController.value)
                           : 0.0;
@@ -216,27 +302,30 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                   // İçerik (Veri Gösterimi)
                   SafeArea(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 24.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Spacer(),
-                          
-                          // Üst Başlık (Kategori) - Artık ana istatistiğin hemen üstünde
+
+                          // Üst Başlık (Kategori)
                           AnimatedBuilder(
                             animation: _animController,
                             builder: (context, child) {
                               return Opacity(
-                                opacity: Curves.easeIn.transform((_animController.value * 5).clamp(0.0, 1.0)),
+                                opacity: Curves.easeIn.transform(
+                                    (_animController.value * 5).clamp(0.0, 1.0)),
                                 child: Container(
-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 10, vertical: 4),
                                   margin: const EdgeInsets.only(bottom: 12),
                                   decoration: BoxDecoration(
                                     color: AppColors.primaryGreen,
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Text(
-                                    displaySuperTitle.toUpperCase(),
+                                    item.superTitleFor(isEn).toUpperCase(),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.inter(
@@ -250,12 +339,13 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                               );
                             },
                           ),
-                          
+
                           // Büyük İstatistik Değeri
                           AnimatedBuilder(
                             animation: _animController,
                             builder: (context, child) {
-                              final val = Curves.elasticOut.transform((_animController.value * 2).clamp(0.0, 1.0));
+                              final val = Curves.elasticOut.transform(
+                                  (_animController.value * 2).clamp(0.0, 1.0));
                               return Transform.scale(
                                 scale: 0.5 + (0.5 * val),
                                 alignment: Alignment.centerLeft,
@@ -265,7 +355,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                                     fit: BoxFit.scaleDown,
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      displayBigStat,
+                                      item.bigStatValueFor(isEn),
                                       style: GoogleFonts.playfairDisplay(
                                         color: AppColors.wheat,
                                         fontSize: 72,
@@ -276,13 +366,13 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                                   ),
                                 ),
                               );
-                            }
+                            },
                           ),
                           const SizedBox(height: 8),
-                          
+
                           // İstatistik Açıklaması
                           Text(
-                            displayStatLabel,
+                            item.statLabelFor(isEn),
                             style: GoogleFonts.inter(
                               color: AppColors.wheat,
                               fontSize: 16,
@@ -291,10 +381,10 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                             ),
                           ),
                           const SizedBox(height: 24),
-                          
+
                           // Ana Başlık
                           Text(
-                            displayHeadline,
+                            item.headlineFor(isEn),
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.playfairDisplay(
@@ -305,44 +395,49 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                             ),
                           ),
                           const SizedBox(height: 32),
-                          
+
                           // Habere Git Butonu
                           GestureDetector(
-                            onTap: () {
-                              context.push('/haber/${group.articleId}');
-                            },
+                            onTap: () => _openArticle(group, item),
                             child: AnimatedBuilder(
                               animation: _animController,
                               builder: (context, child) {
                                 return Opacity(
                                   // Animasyon biraz daha erken gelsin
-                                  opacity: Curves.easeIn.transform((_animController.value * 2 - 0.5).clamp(0.0, 1.0)),
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.15),
-                                      border: Border.all(color: Colors.white.withOpacity(0.5), width: 1),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          isEn ? 'Read Article' : 'Haberi Oku',
-                                          style: GoogleFonts.inter(
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600,
-                                            letterSpacing: 0.5,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 8),
-                                        const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 14),
-                                      ],
-                                    ),
-                                  ),
+                                  opacity: Curves.easeIn.transform(
+                                      (_animController.value * 2 - 0.5)
+                                          .clamp(0.0, 1.0)),
+                                  child: child,
                                 );
-                              }
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 24, vertical: 12),
+                                decoration: BoxDecoration(
+                                  color: Colors.white.withOpacity(0.15),
+                                  border: Border.all(
+                                      color: Colors.white.withOpacity(0.5),
+                                      width: 1),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      isEn ? 'Read Article' : 'Haberi Oku',
+                                      style: GoogleFonts.inter(
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.5,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    const Icon(Icons.arrow_forward_ios,
+                                        color: Colors.white, size: 14),
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                           const SizedBox(height: 40),
@@ -354,7 +449,8 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                   // Header (Progress bars + Profile)
                   SafeArea(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0, vertical: 10.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -363,11 +459,12 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                               group.items.length,
                               (i) => Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 2.0),
                                   child: _buildProgressBar(
                                     isCurrentGroup: isCurrentGroup,
                                     itemIndex: i,
-                                    currentIndex: _currentItemIndex,
+                                    currentIndex: itemIndex,
                                   ),
                                 ),
                               ),
@@ -377,24 +474,35 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                           Row(
                             children: [
                               ClipOval(
-                                child: StoryCircleImage(url: group.avatarUrl, size: 36),
+                                child: StoryThumbImage(
+                                    url: group.avatarUrl, size: 36),
                               ),
                               const SizedBox(width: 10),
-                              Text(
-                                displayGroupTitle,
-                                style: GoogleFonts.inter(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
+                              Expanded(
+                                child: Text(
+                                  group.titleFor(isEn),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: GoogleFonts.inter(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                  ),
                                 ),
                               ),
-                              const Spacer(),
+                              IconButton(
+                                icon: const Icon(Icons.ios_share,
+                                    color: Colors.white, size: 20),
+                                tooltip: isEn ? 'Share' : 'Paylaş',
+                                onPressed: () => _share(group, item, isEn),
+                              ),
                               IconButton(
                                 icon: const Icon(Icons.close, color: Colors.white),
+                                tooltip: isEn ? 'Close' : 'Kapat',
                                 onPressed: () => Navigator.of(context).pop(),
-                              )
+                              ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -413,29 +521,34 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
     required int itemIndex,
     required int currentIndex,
   }) {
-    if (!isCurrentGroup) {
-      return Container(height: 3, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2)));
+    if (!isCurrentGroup || itemIndex > currentIndex) {
+      return _bar(Colors.white.withOpacity(0.3));
     }
     if (itemIndex < currentIndex) {
-      return Container(height: 3, decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(2)));
+      return _bar(Colors.white);
     }
-    if (itemIndex > currentIndex) {
-      return Container(height: 3, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2)));
-    }
-    
+
     return AnimatedBuilder(
       animation: _animController,
       builder: (context, child) {
         return Stack(
           children: [
-            Container(height: 3, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2))),
+            _bar(Colors.white.withOpacity(0.3)),
             FractionallySizedBox(
               widthFactor: _animController.value,
-              child: Container(height: 3, decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(2))),
+              child: _bar(Colors.white),
             ),
           ],
         );
       },
     );
   }
+
+  Widget _bar(Color color) => Container(
+        height: 3,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(2),
+        ),
+      );
 }

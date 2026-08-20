@@ -1,0 +1,60 @@
+# Hikaye üretici — saatlik çalışır.
+#
+# Bu iş akışı olmadan hikayeler yalnızca geliştiricinin bilgisayarında
+# `scripts/generate_stories.py` elle çalıştırıldığında üretiliyordu; şerit
+# birkaç saat sonra bayatlıyor, sonra tamamen boşalıyordu.
+#
+# Gerekli depo sırları (Settings → Secrets and variables → Actions):
+#   SUPABASE_URL                — projenin API adresi
+#   SUPABASE_SERVICE_ROLE_KEY   — portal_stories'e yazabilen anahtar
+#   GEMINI_API_KEY              — hikaye metinlerini üreten model anahtarı
+name: Hikaye üretici
+
+on:
+  schedule:
+    # Her saat başı. Haber akışı 36 saatlik pencereden beslendiği için daha
+    # sık çalışmanın faydası yok, model çağrısı maliyeti var.
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  # Bir önceki çalıştırma sürerken ikincisi başlarsa aynı haberden iki hikaye
+  # üretilebilir; sıraya sokmak yerine atlıyoruz.
+  group: generate-stories
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sırların varlığını doğrula
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          missing=""
+          [ -z "$SUPABASE_URL" ] && missing="$missing SUPABASE_URL"
+          [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] && missing="$missing SUPABASE_SERVICE_ROLE_KEY"
+          [ -z "$GEMINI_API_KEY" ] && missing="$missing GEMINI_API_KEY"
+          if [ -n "$missing" ]; then
+            echo "Eksik depo sırrı:$missing"
+            exit 1
+          fi
+
+      - name: Bağımlılıklar
+        run: pip install --quiet supabase google-generativeai
+
+      - name: Hikayeleri üret
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/generate_stories.py

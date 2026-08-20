@@ -37,6 +37,7 @@ import 'article_detail_screen.dart';
 import 'category_articles_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../../stories/presentation/widgets/story_avatar_strip.dart';
+import '../../../stories/providers/story_providers.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -436,6 +437,7 @@ class _MobileContent extends ConsumerWidget {
       onRefresh: () async {
         ref.invalidate(latestArticlesProvider);
         ref.invalidate(latestCommodityPricesProvider);
+        ref.invalidate(storyFeedProvider);
       },
       child: ListView(
         padding: EdgeInsets.zero,
@@ -502,6 +504,7 @@ class _TabletContent extends ConsumerWidget {
       onRefresh: () async {
         ref.invalidate(latestArticlesProvider);
         ref.invalidate(latestCommodityPricesProvider);
+        ref.invalidate(storyFeedProvider);
       },
       child: ListView(
         padding: const EdgeInsets.all(24),

@@ -167,16 +167,21 @@ class _RawImageFallback extends StatelessWidget {
   }
 }
 
-// ── Dairesel küçük görsel (avatar) ────────────────────────────────────────────
+// ── Küçük kare görsel (şerit baloncuğu / başlık avatarı) ─────────────────────
 
-/// Hikaye avatarları. Kare kırpma sunucuda yapılır: istemci artık geniş bir
-/// basın fotoğrafını daireye sığdırmaya çalışmaz, hazır kare gelir.
-class StoryCircleImage extends StatelessWidget {
-  const StoryCircleImage({
+/// Hikaye baloncukları. Kare kırpma sunucuda yapılır: istemci artık geniş bir
+/// basın fotoğrafını küçücük bir kutuya sığdırmaya çalışmaz, hazır kare gelir.
+///
+/// Kırpma tam ortadan değil, bir tık yukarıdan yapılıyor: basın fotoğraflarında
+/// ilgi noktası (yüzler, ürün) genellikle karenin üst yarısında kalır, tam orta
+/// hizalama insanları çene hizasından kesiyordu.
+class StoryThumbImage extends StatelessWidget {
+  const StoryThumbImage({
     super.key,
     required this.url,
     required this.size,
     this.fill = false,
+    this.alignment = const Alignment(0, -0.2),
   });
 
   final String url;
@@ -187,6 +192,9 @@ class StoryCircleImage extends StatelessWidget {
 
   /// true ise widget kendi ölçüsünü dayatmaz, ebeveyninin kutusunu doldurur.
   final bool fill;
+
+  /// Kırpma hizası; varsayılan olarak merkezin biraz üstü.
+  final Alignment alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -201,22 +209,29 @@ class StoryCircleImage extends StatelessWidget {
       width: fill ? null : size,
       height: fill ? null : size,
       fit: BoxFit.cover,
+      alignment: alignment,
       filterQuality: FilterQuality.high,
       fadeInDuration: const Duration(milliseconds: 180),
       // Sunucu zaten hedef ölçüde gönderiyor; bu satır dönüştürmenin devre dışı
       // olduğu (harici CDN) durumlarda bellekteki kopyayı sınırlar.
       memCacheWidth: target,
       placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
-      errorWidget: (_, __, ___) => _RawCircleFallback(url: url, size: fill ? null : size),
+      errorWidget: (_, __, ___) =>
+          _RawThumbFallback(url: url, size: fill ? null : size, alignment: alignment),
     );
   }
 }
 
-class _RawCircleFallback extends StatelessWidget {
-  const _RawCircleFallback({required this.url, required this.size});
+class _RawThumbFallback extends StatelessWidget {
+  const _RawThumbFallback({
+    required this.url,
+    required this.size,
+    required this.alignment,
+  });
 
   final String url;
   final double? size;
+  final Alignment alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -226,6 +241,7 @@ class _RawCircleFallback extends StatelessWidget {
       width: size,
       height: size,
       fit: BoxFit.cover,
+      alignment: alignment,
       filterQuality: FilterQuality.high,
       placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
       errorWidget: (_, __, ___) => ColoredBox(
