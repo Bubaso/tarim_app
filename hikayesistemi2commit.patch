@@ -1,0 +1,3082 @@
+From afb9555f2e455a61d7a0ec7836a51ee775606a14 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 20 Aug 2026 02:29:30 +0000
+Subject: [PATCH 1/2] feat(stories): serve story images through the Supabase
+ render CDN
+
+Story images were loaded with a raw Image.network against the
+/object/public/ storage endpoint, so every screen downloaded the
+original file and rescaled it on the device: a multi-megabyte press
+photo squeezed into a 76 px circle, or a small photo stretched over a
+full-screen cover crop. Nothing was cached on disk either, so the same
+bytes were re-fetched on every launch.
+
+All story imagery now goes through a shared helper that rewrites the URL
+to /render/image/public/ and asks for the exact pixel size the device
+will paint (screen longest side x DPR, capped at 1920 for backgrounds;
+square server-side crop for avatars), delivered as WebP via the Accept
+header and cached on disk by cached_network_image. Transform failures
+fall back to the original file, and non-Supabase URLs are left untouched.
+
+Also improves perceived quality around the images:
+- blur-up placeholder (48 px thumbnail) instead of a black frame,
+- neighbouring stories are precached so swipes open on a sharp frame,
+- the scrim gradient gained intermediate stops to kill the banding that
+  showed over dark photos,
+- a subtle 1.05 -> 1.00 zoom that ends on the native-scale frame,
+- the avatar strip keeps its height with shimmer bubbles while loading
+  and stays silent on error instead of printing red error text.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012YD9zcprrqCyE3wBGB2qxG
+---
+ .../screens/story_viewer_screen.dart          |  80 +++---
+ .../widgets/story_avatar_strip.dart           |  50 +++-
+ .../presentation/widgets/story_image.dart     | 237 ++++++++++++++++++
+ 3 files changed, 326 insertions(+), 41 deletions(-)
+ create mode 100644 lib/features/stories/presentation/widgets/story_image.dart
+
+diff --git a/lib/features/stories/presentation/screens/story_viewer_screen.dart b/lib/features/stories/presentation/screens/story_viewer_screen.dart
+index 4cb046e..ad5c327 100644
+--- a/lib/features/stories/presentation/screens/story_viewer_screen.dart
++++ b/lib/features/stories/presentation/screens/story_viewer_screen.dart
+@@ -1,11 +1,10 @@
+ import 'dart:async';
+-import 'dart:ui';
+ import 'package:flutter/material.dart';
+ import 'package:go_router/go_router.dart';
+ import 'package:google_fonts/google_fonts.dart';
+-import 'package:cached_network_image/cached_network_image.dart';
+ import '../../../../core/theme/app_colors.dart';
+ import '../../data/models/story_item.dart';
++import '../widgets/story_image.dart';
+ 
+ class StoryViewerScreen extends StatefulWidget {
+   final List<StoryGroup> storyGroups;
+@@ -30,6 +29,10 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+   late AnimationController _animController;
+   final Duration _storyDuration = const Duration(seconds: 7);
+ 
++  /// Arka plan görselinin hikaye boyunca kapanan yakınlaştırma payı.
++  /// 0 yapılırsa hareket tamamen kalkar, kare sabit kalır.
++  static const double _kenBurnsZoom = 0.05;
++
+   @override
+   void initState() {
+     super.initState();
+@@ -44,6 +47,23 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+     });
+     
+     _startStory();
++    WidgetsBinding.instance.addPostFrameCallback((_) => _precacheNeighbours());
++  }
++
++  /// Komşu hikayelerin tam boy görsellerini önden indirir; böylece sağa/sola
++  /// geçişte bulanık ara kare yerine doğrudan net görsel açılır.
++  void _precacheNeighbours() {
++    if (!mounted) return;
++    for (final int offset in const [1, 2, -1]) {
++      final int i = _currentGroupIndex + offset;
++      if (i < 0 || i >= widget.storyGroups.length) continue;
++      final group = widget.storyGroups[i];
++      if (group.items.isEmpty) continue;
++      precacheImage(
++        storyBackgroundProvider(context, group.items.first.backgroundUrl),
++        context,
++      );
++    }
+   }
+ 
+   void _startStory() {
+@@ -93,6 +113,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+       _currentItemIndex = 0;
+     });
+     _startStory();
++    _precacheNeighbours();
+   }
+ 
+   void _onTapDown(TapDownDetails details) {
+@@ -151,30 +172,43 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                 fit: StackFit.expand,
+                 children: [
+                   // Arka plan Görseli (Tam Ekran)
+-                  Image.network(
+-                    item.backgroundUrl,
+-                    fit: BoxFit.cover,
+-                    filterQuality: FilterQuality.high,
+-                    errorBuilder: (context, error, stackTrace) => Container(
+-                      color: AppColors.primaryGreen,
+-                      child: const Center(
+-                        child: Icon(Icons.broken_image, size: 64, color: Colors.white54),
+-                      ),
+-                    ),
++                  // Görsel, cihazın piksel yoğunluğuna göre boyutlandırılmış
++                  // olarak Supabase dönüştürme uç noktasından gelir; ayrıntı
++                  // için bkz. widgets/story_image.dart
++                  AnimatedBuilder(
++                    animation: _animController,
++                    builder: (context, child) {
++                      // Çok hafif bir "Ken Burns": kare 1.05'ten 1.00'e iner,
++                      // yani hikaye net kareyle biter. Kapatmak için sabiti 0 yap.
++                      final double t = isCurrentGroup
++                          ? Curves.easeOutSine.transform(_animController.value)
++                          : 0.0;
++                      return Transform.scale(
++                        scale: 1.0 + _kenBurnsZoom * (1 - t),
++                        child: child,
++                      );
++                    },
++                    child: StoryBackgroundImage(url: item.backgroundUrl),
+                   ),
+-                  
+-                  // Koyu Karartma (Gradient overlay for text readability)
++
++                  // Koyu Karartma (metin okunabilirliği için degrade perde)
++                  // Ara duraklar bilinçli olarak sık: 3 duraklı bir degrade koyu
++                  // fotoğraflarda 8-bit ekranlarda görünür bantlanma yapıyordu.
+                   Container(
+                     decoration: BoxDecoration(
+                       gradient: LinearGradient(
+                         begin: Alignment.topCenter,
+                         end: Alignment.bottomCenter,
+                         colors: [
+-                          Colors.black.withOpacity(0.7),
++                          Colors.black.withOpacity(0.72),
++                          Colors.black.withOpacity(0.38),
++                          Colors.black.withOpacity(0.12),
+                           Colors.transparent,
+-                          Colors.black.withOpacity(0.9),
++                          Colors.black.withOpacity(0.30),
++                          Colors.black.withOpacity(0.68),
++                          Colors.black.withOpacity(0.92),
+                         ],
+-                        stops: const [0.0, 0.4, 1.0],
++                        stops: const [0.0, 0.10, 0.22, 0.40, 0.62, 0.82, 1.0],
+                       ),
+                     ),
+                   ),
+@@ -343,17 +377,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                           Row(
+                             children: [
+                               ClipOval(
+-                                child: Image.network(
+-                                  group.avatarUrl,
+-                                  width: 36,
+-                                  height: 36,
+-                                  fit: BoxFit.cover,
+-                                  filterQuality: FilterQuality.high,
+-                                  errorBuilder: (context, error, stackTrace) => Container(
+-                                    color: AppColors.wheat,
+-                                    child: const Icon(Icons.broken_image, size: 16, color: Colors.white),
+-                                  ),
+-                                ),
++                                child: StoryCircleImage(url: group.avatarUrl, size: 36),
+                               ),
+                               const SizedBox(width: 10),
+                               Text(
+diff --git a/lib/features/stories/presentation/widgets/story_avatar_strip.dart b/lib/features/stories/presentation/widgets/story_avatar_strip.dart
+index 8195e13..e9d5881 100644
+--- a/lib/features/stories/presentation/widgets/story_avatar_strip.dart
++++ b/lib/features/stories/presentation/widgets/story_avatar_strip.dart
+@@ -1,11 +1,11 @@
+ import 'package:flutter/material.dart';
+ import 'package:google_fonts/google_fonts.dart';
+-import 'package:cached_network_image/cached_network_image.dart';
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import '../../../../core/theme/app_colors.dart';
+-import '../../data/models/story_item.dart';
++import '../../../../core/utils/image_fallback_helper.dart';
+ import '../screens/story_viewer_screen.dart';
+ import '../../providers/story_providers.dart';
++import 'story_image.dart';
+ 
+ class StoryAvatarStrip extends ConsumerWidget {
+   final bool isDark;
+@@ -79,15 +79,8 @@ class StoryAvatarStrip extends ConsumerWidget {
+                         border: Border.all(color: Theme.of(context).scaffoldBackgroundColor, width: 2),
+                       ),
+                       child: ClipOval(
+-                        child: Image.network(
+-                          group.avatarUrl,
+-                          fit: BoxFit.cover,
+-                          filterQuality: FilterQuality.high,
+-                          errorBuilder: (context, error, stackTrace) => Container(
+-                            color: AppColors.wheat,
+-                            child: const Icon(Icons.broken_image, size: 20, color: Colors.white),
+-                          ),
+-                        ),
++                        // 76 px'lik kutu - 3 px halka payı - 2 px zemin çerçevesi
++                        child: StoryCircleImage(url: group.avatarUrl, size: 66, fill: true),
+                       ),
+                     ),
+                   ),
+@@ -114,8 +107,39 @@ class StoryAvatarStrip extends ConsumerWidget {
+       ),
+     );
+   },
+-      loading: () => const SizedBox.shrink(),
+-      error: (err, stack) => SizedBox(height: 110, child: Center(child: Text('Hata: $err', style: const TextStyle(color: Colors.red)))),
++      // Yükleme sırasında yüksekliği koruyoruz: strip sonradan "içeri düşünce"
++      // anasayfa zıplıyor ve bu tek başına kaliteyi düşük gösteriyordu.
++      loading: () => SizedBox(
++        height: 110,
++        child: ListView.builder(
++          scrollDirection: Axis.horizontal,
++          physics: const NeverScrollableScrollPhysics(),
++          padding: const EdgeInsets.symmetric(horizontal: 16),
++          itemCount: 5,
++          itemBuilder: (context, _) => const Padding(
++            padding: EdgeInsets.only(right: 16.0),
++            child: Column(
++              mainAxisSize: MainAxisSize.min,
++              children: [
++                ShimmerPlaceholder(
++                  width: 76,
++                  height: 76,
++                  borderRadius: BorderRadius.all(Radius.circular(38)),
++                ),
++                SizedBox(height: 8),
++                ShimmerPlaceholder(
++                  width: 52,
++                  height: 10,
++                  borderRadius: BorderRadius.all(Radius.circular(5)),
++                ),
++              ],
++            ),
++          ),
++        ),
++      ),
++      // Hikayeler tamamen isteğe bağlı bir bölüm; hata durumunda kullanıcıya
++      // kırmızı bir hata metni göstermek yerine sessizce gizliyoruz.
++      error: (err, stack) => const SizedBox.shrink(),
+     );
+   }
+ }
+diff --git a/lib/features/stories/presentation/widgets/story_image.dart b/lib/features/stories/presentation/widgets/story_image.dart
+new file mode 100644
+index 0000000..25e32e6
+--- /dev/null
++++ b/lib/features/stories/presentation/widgets/story_image.dart
+@@ -0,0 +1,237 @@
++// ignore_for_file: deprecated_member_use
++import 'dart:ui' as ui;
++
++import 'package:flutter/material.dart';
++import 'package:cached_network_image/cached_network_image.dart';
++
++// ══════════════════════════════════════════════════════════════════════════════
++//  Hikaye görselleri — çözünürlük / kalite katmanı
++// ──────────────────────────────────────────────────────────────────────────────
++//  Hikaye ekranı görselleri ham `Image.network` ile, yani Supabase Storage'ın
++//  `/object/public/` uç noktasından dosyanın orijinal hâliyle çekiyordu. Bunun
++//  iki sonucu vardı:
++//    1) Dosya diske hiç önbelleklenmiyordu (her açılışta yeniden indirme),
++//    2) Görsel cihazda yeniden ölçekleniyordu — 76 px'lik avatarda 2 MB'lık
++//       orijinal küçültülüyor, tam ekranda ise küçük bir görsel büyütülüyordu.
++//
++//  Bu dosya, tüm hikaye görsellerini Supabase'in `/render/image/public/`
++//  dönüştürme uç noktasından, hedef pikselin tam ölçüsünde ve WebP olarak
++//  ister. Ölçekleme sunucuda (Lanczos) yapıldığı için sonuç belirgin biçimde
++//  daha net, dosya da daha küçüktür.
++// ══════════════════════════════════════════════════════════════════════════════
++
++/// WebP/AVIF pazarlığı için gereken başlıklar. Supabase dönüştürme uç noktası
++/// çıktı formatını `Accept` başlığına göre seçer.
++const Map<String, String> kStoryImageHeaders = {
++  'Accept': 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
++};
++
++/// Yükleme/hata sırasında ekranı dolduran nötr zemin (siyah üzerine hafif yeşil).
++const Color kStoryImageBackdrop = Color(0xFF12160F);
++
++/// URL'in Supabase Storage'ın dönüştürülebilir public uç noktasına ait olup
++/// olmadığı. Harici CDN adreslerine dokunmuyoruz.
++bool storyImageIsTransformable(String rawUrl) =>
++    rawUrl.contains('/object/public/') || rawUrl.contains('/render/image/public/');
++
++/// Ham depolama URL'ini, istenen piksel ölçüsünde bir dönüştürme URL'ine çevirir.
++///
++/// [width]/[height] **cihaz pikseli** cinsindendir (logical px * devicePixelRatio).
++/// [crop] true ise sunucu görseli tam olarak verilen kutuya kırpar (avatarlar
++/// için: ortadan kare kırpma, istemcinin daireye sığdırırken bozması yerine).
++String storyImageUrl(
++  String rawUrl, {
++  required int width,
++  int? height,
++  int quality = 85,
++  bool crop = false,
++}) {
++  final String url = rawUrl.trim();
++  if (!url.startsWith('http')) return url;
++  if (!storyImageIsTransformable(url)) return url;
++
++  final String base = url.replaceFirst('/object/public/', '/render/image/public/');
++  final StringBuffer out = StringBuffer(base)
++    ..write(base.contains('?') ? '&' : '?')
++    ..write('width=$width');
++  if (height != null) out.write('&height=$height');
++  if (crop) out.write('&resize=cover');
++  out.write('&quality=$quality');
++  return out.toString();
++}
++
++/// Tam ekran arka plan için hedef piksel genişliği.
++///
++/// Yatay (16:9) bir basın fotoğrafı dikey bir telefon ekranını `cover` ile
++/// kapladığında belirleyici olan ekranın **uzun** kenarıdır; bu yüzden hedefi
++/// kısa kenara göre değil uzun kenara göre hesaplıyoruz. 1920 px üst sınırı,
++/// WebP q88'de ~300-500 KB'a denk gelir ve pratikte kaynak görselin çözünürlüğü
++/// zaten bunun altında kalır.
++int storyBackgroundTargetWidth(BuildContext context) {
++  final MediaQueryData media = MediaQuery.of(context);
++  final double px = media.size.longestSide * media.devicePixelRatio;
++  if (px.isNaN || !px.isFinite || px <= 0) return 1440;
++  return px.clamp(1080.0, 1920.0).round();
++}
++
++/// Tam ekran arka planın [ImageProvider]'ı — komşu hikayeleri `precacheImage`
++/// ile önden yüklemek için ekranla birebir aynı URL'i üretir.
++ImageProvider storyBackgroundProvider(BuildContext context, String rawUrl) {
++  return CachedNetworkImageProvider(
++    storyImageUrl(rawUrl, width: storyBackgroundTargetWidth(context), quality: 88),
++    headers: kStoryImageHeaders,
++  );
++}
++
++// ── Tam ekran arka plan görseli ───────────────────────────────────────────────
++
++class StoryBackgroundImage extends StatelessWidget {
++  const StoryBackgroundImage({super.key, required this.url});
++
++  final String url;
++
++  @override
++  Widget build(BuildContext context) {
++    final int target = storyBackgroundTargetWidth(context);
++    final String hiRes = storyImageUrl(url, width: target, quality: 88);
++    final bool canBlurUp = storyImageIsTransformable(url);
++
++    return CachedNetworkImage(
++      imageUrl: hiRes,
++      httpHeaders: kStoryImageHeaders,
++      fit: BoxFit.cover,
++      // Kübik örnekleme: büyütmede de küçültmede de en temiz sonuç.
++      filterQuality: FilterQuality.high,
++      fadeInDuration: const Duration(milliseconds: 220),
++      placeholder: (context, _) => canBlurUp
++          ? _BlurUpPlaceholder(url: storyImageUrl(url, width: 48, quality: 40))
++          : const ColoredBox(color: kStoryImageBackdrop),
++      // Dönüştürme uç noktası bir sebeple cevap veremezse ham dosyaya düş.
++      errorWidget: (context, _, __) => _RawImageFallback(url: url),
++    );
++  }
++}
++
++/// Yüksek çözünürlüklü kare gelene kadar gösterilen, 48 px'lik minik kopyanın
++/// bulanıklaştırılmış hâli. Boş siyah ekran yerine görselin rengiyle açılır.
++class _BlurUpPlaceholder extends StatelessWidget {
++  const _BlurUpPlaceholder({required this.url});
++
++  final String url;
++
++  @override
++  Widget build(BuildContext context) {
++    return Stack(
++      fit: StackFit.expand,
++      children: [
++        const ColoredBox(color: kStoryImageBackdrop),
++        CachedNetworkImage(
++          imageUrl: url,
++          httpHeaders: kStoryImageHeaders,
++          fit: BoxFit.cover,
++          fadeInDuration: Duration.zero,
++          placeholder: (_, __) => const SizedBox.shrink(),
++          errorWidget: (_, __, ___) => const SizedBox.shrink(),
++          imageBuilder: (context, provider) => ImageFiltered(
++            imageFilter: ui.ImageFilter.blur(sigmaX: 18, sigmaY: 18),
++            child: Image(image: provider, fit: BoxFit.cover),
++          ),
++        ),
++      ],
++    );
++  }
++}
++
++/// Dönüştürme uç noktası hata verirse ham dosyayı dener; o da olmazsa nötr zemin.
++class _RawImageFallback extends StatelessWidget {
++  const _RawImageFallback({required this.url});
++
++  final String url;
++
++  @override
++  Widget build(BuildContext context) {
++    return CachedNetworkImage(
++      imageUrl: url,
++      httpHeaders: kStoryImageHeaders,
++      fit: BoxFit.cover,
++      filterQuality: FilterQuality.high,
++      fadeInDuration: const Duration(milliseconds: 200),
++      placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
++      errorWidget: (_, __, ___) => const ColoredBox(
++        color: kStoryImageBackdrop,
++        child: Center(
++          child: Icon(Icons.broken_image_outlined, size: 48, color: Colors.white24),
++        ),
++      ),
++    );
++  }
++}
++
++// ── Dairesel küçük görsel (avatar) ────────────────────────────────────────────
++
++/// Hikaye avatarları. Kare kırpma sunucuda yapılır: istemci artık geniş bir
++/// basın fotoğrafını daireye sığdırmaya çalışmaz, hazır kare gelir.
++class StoryCircleImage extends StatelessWidget {
++  const StoryCircleImage({
++    super.key,
++    required this.url,
++    required this.size,
++    this.fill = false,
++  });
++
++  final String url;
++
++  /// Logical piksel cinsinden kenar uzunluğu. [fill] true iken yalnızca
++  /// indirilecek çözünürlüğü belirler, yerleşimi ebeveyn belirler.
++  final double size;
++
++  /// true ise widget kendi ölçüsünü dayatmaz, ebeveyninin kutusunu doldurur.
++  final bool fill;
++
++  @override
++  Widget build(BuildContext context) {
++    final double dpr = MediaQuery.of(context).devicePixelRatio;
++    final int target = (size * dpr).clamp(96.0, 512.0).round();
++    final String thumb =
++        storyImageUrl(url, width: target, height: target, quality: 82, crop: true);
++
++    return CachedNetworkImage(
++      imageUrl: thumb,
++      httpHeaders: kStoryImageHeaders,
++      width: fill ? null : size,
++      height: fill ? null : size,
++      fit: BoxFit.cover,
++      filterQuality: FilterQuality.high,
++      fadeInDuration: const Duration(milliseconds: 180),
++      // Sunucu zaten hedef ölçüde gönderiyor; bu satır dönüştürmenin devre dışı
++      // olduğu (harici CDN) durumlarda bellekteki kopyayı sınırlar.
++      memCacheWidth: target,
++      placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
++      errorWidget: (_, __, ___) => _RawCircleFallback(url: url, size: fill ? null : size),
++    );
++  }
++}
++
++class _RawCircleFallback extends StatelessWidget {
++  const _RawCircleFallback({required this.url, required this.size});
++
++  final String url;
++  final double? size;
++
++  @override
++  Widget build(BuildContext context) {
++    return CachedNetworkImage(
++      imageUrl: url,
++      httpHeaders: kStoryImageHeaders,
++      width: size,
++      height: size,
++      fit: BoxFit.cover,
++      filterQuality: FilterQuality.high,
++      placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
++      errorWidget: (_, __, ___) => ColoredBox(
++        color: kStoryImageBackdrop,
++        child: Icon(Icons.broken_image_outlined, size: (size ?? 48) * 0.3, color: Colors.white24),
++      ),
++    );
++  }
++}
+-- 
+2.43.0
+
+
+From 71b1da7c0af3adada36777fc6d848fc7d0689616 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Thu, 20 Aug 2026 03:00:25 +0000
+Subject: [PATCH 2/2] feat(stories): topic groups, seen state, squircle
+ bubbles, server-side pipeline
+
+Follow-up to the image-quality pass, covering the rest of the story system
+review.
+
+Feed and ranking
+- Groups are now topics, not articles. Every article used to be its own
+  single-slide group, which is why the multi-segment progress bar always
+  drew as one piece. Slides are bucketed by category (the generator now
+  picks from a fixed taxonomy so the buckets actually merge), newest five
+  per group.
+- Ranking was is_breaking then created_at, so a 20-hour-old "breaking"
+  outranked fresh news. It is now a freshness half-life plus a breaking
+  bonus that itself expires, with unseen groups always first.
+- Seen state is kept on the device (SharedPreferences, pruned after a
+  week). The ring only ever encoded is_breaking, so a reader could not
+  tell which stories they had already watched.
+- The feed was fetched once and never again; expired stories stayed on
+  screen and new ones never appeared. It now refreshes on app resume when
+  stale and on pull-to-refresh, and expired slides are filtered client-side.
+- Every limit lived in three places and disagreed (generator stopped at 10
+  while printing "limit 7"; the strip showed 7 bubbles but handed the
+  viewer 10). They now come from StoryRules / scripts StoryRules.
+
+Viewer
+- Slide duration scales with text length (5-7s) instead of a flat 7s.
+- The timer no longer runs while the app is backgrounded.
+- Opening an article closes the viewer instead of leaving it running
+  behind the article, and links to the slide's own article now that a
+  group spans several.
+- Added a share button and story_open / story_complete /
+  story_article_click / story_share analytics events.
+
+Strip
+- Bubbles are squircles: a circle reads as a person, and circular cropping
+  threw away most of a landscape press photo. Thumbnails are cropped
+  server-side slightly above centre so faces are not cut at the chin.
+- The ring now means something: red-orange unseen breaking, green-wheat
+  unseen, thin grey seen. The strip hides itself below three groups.
+
+Generator (scripts/generate_stories.py)
+- Runs hourly in CI (.github/workflows/generate_stories.yml). It could only
+  ever run from a developer machine before, since it imported a hardcoded
+  local path; config now comes from environment variables with that path as
+  the fallback.
+- Breaking stories expire in 12h rather than 24h.
+- Model output is validated: a big_stat_value with no digit, or an empty
+  headline, no longer reaches the screen.
+- Articles whose image is narrower than 1400px are skipped, since they can
+  only ever look blurry full-screen (dimensions read from the first 64KB of
+  the file, no new dependency).
+- Dedupe query is limited to seven days instead of scanning the whole
+  table, the model gets 4000 characters instead of 1500, and datetimes are
+  timezone-aware.
+
+Tests: test/story_ranking_test.dart covers expiry filtering, unseen-first
+ordering, the breaking bonus window, the group cap and slide duration.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_012YD9zcprrqCyE3wBGB2qxG
+---
+ .github/workflows/generate_stories.yml        |  60 +++
+ .../presentation/screens/home_screen.dart     |   3 +
+ .../stories/data/models/story_item.dart       |  72 ++-
+ .../stories/data/story_analytics.dart         |  51 ++
+ .../stories/data/story_constants.dart         |  65 +++
+ .../stories/data/story_mock_data.dart         |  68 ---
+ .../stories/data/story_seen_store.dart        |  70 +++
+ .../screens/story_viewer_screen.dart          | 343 ++++++++----
+ .../widgets/story_avatar_strip.dart           | 335 ++++++++----
+ .../presentation/widgets/story_image.dart     |  32 +-
+ .../stories/providers/story_providers.dart    | 260 +++++++--
+ scripts/generate_stories.py                   | 497 +++++++++++++-----
+ test/story_ranking_test.dart                  | 155 ++++++
+ 13 files changed, 1527 insertions(+), 484 deletions(-)
+ create mode 100644 .github/workflows/generate_stories.yml
+ create mode 100644 lib/features/stories/data/story_analytics.dart
+ create mode 100644 lib/features/stories/data/story_constants.dart
+ delete mode 100644 lib/features/stories/data/story_mock_data.dart
+ create mode 100644 lib/features/stories/data/story_seen_store.dart
+ create mode 100644 test/story_ranking_test.dart
+
+diff --git a/.github/workflows/generate_stories.yml b/.github/workflows/generate_stories.yml
+new file mode 100644
+index 0000000..032478b
+--- /dev/null
++++ b/.github/workflows/generate_stories.yml
+@@ -0,0 +1,60 @@
++# Hikaye üretici — saatlik çalışır.
++#
++# Bu iş akışı olmadan hikayeler yalnızca geliştiricinin bilgisayarında
++# `scripts/generate_stories.py` elle çalıştırıldığında üretiliyordu; şerit
++# birkaç saat sonra bayatlıyor, sonra tamamen boşalıyordu.
++#
++# Gerekli depo sırları (Settings → Secrets and variables → Actions):
++#   SUPABASE_URL                — projenin API adresi
++#   SUPABASE_SERVICE_ROLE_KEY   — portal_stories'e yazabilen anahtar
++#   GEMINI_API_KEY              — hikaye metinlerini üreten model anahtarı
++name: Hikaye üretici
++
++on:
++  schedule:
++    # Her saat başı. Haber akışı 36 saatlik pencereden beslendiği için daha
++    # sık çalışmanın faydası yok, model çağrısı maliyeti var.
++    - cron: '0 * * * *'
++  workflow_dispatch:
++
++concurrency:
++  # Bir önceki çalıştırma sürerken ikincisi başlarsa aynı haberden iki hikaye
++  # üretilebilir; sıraya sokmak yerine atlıyoruz.
++  group: generate-stories
++  cancel-in-progress: false
++
++jobs:
++  generate:
++    runs-on: ubuntu-latest
++    timeout-minutes: 15
++    steps:
++      - uses: actions/checkout@v4
++
++      - uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
++
++      - name: Sırların varlığını doğrula
++        env:
++          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
++          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
++          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
++        run: |
++          missing=""
++          [ -z "$SUPABASE_URL" ] && missing="$missing SUPABASE_URL"
++          [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] && missing="$missing SUPABASE_SERVICE_ROLE_KEY"
++          [ -z "$GEMINI_API_KEY" ] && missing="$missing GEMINI_API_KEY"
++          if [ -n "$missing" ]; then
++            echo "Eksik depo sırrı:$missing"
++            exit 1
++          fi
++
++      - name: Bağımlılıklar
++        run: pip install --quiet supabase google-generativeai
++
++      - name: Hikayeleri üret
++        env:
++          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
++          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
++          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
++        run: python scripts/generate_stories.py
+diff --git a/lib/features/home/presentation/screens/home_screen.dart b/lib/features/home/presentation/screens/home_screen.dart
+index a4edefa..fca4cfc 100644
+--- a/lib/features/home/presentation/screens/home_screen.dart
++++ b/lib/features/home/presentation/screens/home_screen.dart
+@@ -37,6 +37,7 @@ import 'article_detail_screen.dart';
+ import 'category_articles_screen.dart';
+ import '../../../../core/utils/string_extensions.dart';
+ import '../../../stories/presentation/widgets/story_avatar_strip.dart';
++import '../../../stories/providers/story_providers.dart';
+ 
+ class HomeScreen extends ConsumerStatefulWidget {
+   const HomeScreen({super.key});
+@@ -436,6 +437,7 @@ class _MobileContent extends ConsumerWidget {
+       onRefresh: () async {
+         ref.invalidate(latestArticlesProvider);
+         ref.invalidate(latestCommodityPricesProvider);
++        ref.invalidate(storyFeedProvider);
+       },
+       child: ListView(
+         padding: EdgeInsets.zero,
+@@ -502,6 +504,7 @@ class _TabletContent extends ConsumerWidget {
+       onRefresh: () async {
+         ref.invalidate(latestArticlesProvider);
+         ref.invalidate(latestCommodityPricesProvider);
++        ref.invalidate(storyFeedProvider);
+       },
+       child: ListView(
+         padding: const EdgeInsets.all(24),
+diff --git a/lib/features/stories/data/models/story_item.dart b/lib/features/stories/data/models/story_item.dart
+index e5e5ca6..de5cff1 100644
+--- a/lib/features/stories/data/models/story_item.dart
++++ b/lib/features/stories/data/models/story_item.dart
+@@ -1,7 +1,17 @@
+-import 'package:flutter/material.dart';
++import 'package:flutter/foundation.dart';
+ 
++/// Tek bir hikaye slaytı — bir haberden çıkarılmış veri kartı.
++///
++/// Her slayt kendi haberine bağlıdır: gruplar artık haber başına değil KONU
++/// başına oluştuğu için ("Piyasa" grubunda üç farklı haberin verisi olabilir),
++/// "Haberi Oku" düğmesi grubun değil slaytın [articleId]'sini kullanır.
++@immutable
+ class StoryItem {
++  /// `<portal_stories.id>#<slayt sırası>` — izlendi defterinin anahtarı.
+   final String id;
++  final String storyId;
++  final String articleId;
++
+   final String superTitle;
+   final String superTitleEn;
+   final String headline;
+@@ -12,8 +22,14 @@ class StoryItem {
+   final String statLabelEn;
+   final String backgroundUrl;
+ 
++  final DateTime createdAt;
++  final DateTime? expiresAt;
++  final bool isBreaking;
++
+   const StoryItem({
+     required this.id,
++    required this.storyId,
++    required this.articleId,
+     required this.superTitle,
+     this.superTitleEn = '',
+     required this.headline,
+@@ -23,25 +39,67 @@ class StoryItem {
+     required this.statLabel,
+     this.statLabelEn = '',
+     required this.backgroundUrl,
++    required this.createdAt,
++    this.expiresAt,
++    this.isBreaking = false,
+   });
++
++  String superTitleFor(bool isEn) =>
++      isEn && superTitleEn.isNotEmpty ? superTitleEn : superTitle;
++  String headlineFor(bool isEn) =>
++      isEn && headlineEn.isNotEmpty ? headlineEn : headline;
++  String bigStatValueFor(bool isEn) =>
++      isEn && bigStatValueEn.isNotEmpty ? bigStatValueEn : bigStatValue;
++  String statLabelFor(bool isEn) =>
++      isEn && statLabelEn.isNotEmpty ? statLabelEn : statLabel;
+ }
+ 
++/// Bir konu başlığı altında toplanan slaytlar.
++///
++/// Eskiden her haber tek slaytlık kendi grubuydu; görüntüleyicideki çoklu
++/// ilerleme çubuğu bu yüzden hep tek parça çiziliyordu. Artık grup = konu
++/// (Piyasa, Hasat, Destekleme…), içinde o konudaki en taze slaytlar var.
++@immutable
+ class StoryGroup {
+-  final String id;
++  /// Normalleştirilmiş konu adı — gruplama anahtarı.
++  final String key;
+   final String title;
+   final String titleEn;
+   final String avatarUrl;
+-  final String articleId;
+-  final bool isNew;
+   final List<StoryItem> items;
+ 
++  /// Gruptaki slaytlardan en az biri son dakika mı?
++  final bool isBreaking;
++
++  /// Gruptaki TÜM slaytlar bu cihazda izlendi mi?
++  final bool isSeen;
++
++  /// Gruptaki en taze slaytın zamanı — sıralama puanı buradan hesaplanır.
++  final DateTime latestAt;
++
+   const StoryGroup({
+-    required this.id,
++    required this.key,
+     required this.title,
+     this.titleEn = '',
+     required this.avatarUrl,
+-    required this.articleId,
+     required this.items,
+-    this.isNew = false,
++    required this.latestAt,
++    this.isBreaking = false,
++    this.isSeen = false,
+   });
++
++  String titleFor(bool isEn) => isEn && titleEn.isNotEmpty ? titleEn : title;
++
++  StoryGroup copyWith({bool? isSeen, List<StoryItem>? items}) {
++    return StoryGroup(
++      key: key,
++      title: title,
++      titleEn: titleEn,
++      avatarUrl: avatarUrl,
++      items: items ?? this.items,
++      latestAt: latestAt,
++      isBreaking: isBreaking,
++      isSeen: isSeen ?? this.isSeen,
++    );
++  }
+ }
+diff --git a/lib/features/stories/data/story_analytics.dart b/lib/features/stories/data/story_analytics.dart
+new file mode 100644
+index 0000000..53afce7
+--- /dev/null
++++ b/lib/features/stories/data/story_analytics.dart
+@@ -0,0 +1,51 @@
++import 'package:firebase_analytics/firebase_analytics.dart';
++import 'package:flutter/foundation.dart';
++
++/// Hikaye olayları.
++///
++/// Hangi hikayenin izlendiğini, hangisinin sonuna kadar gidildiğini ve
++/// hangisinden habere geçildiğini ölçmeden "haber çekme kuralı" ayarlanamaz:
++/// üretim tarafında eşiği değiştirdiğimizde işe yarayıp yaramadığını
++/// görebileceğimiz tek yer burası.
++///
++/// Analytics'in kurulu olmadığı hedeflerde (masaüstü) çağrı hata fırlatabilir;
++/// ölçüm uğruna hikaye ekranını düşürmemek için hepsi yutuluyor.
++class StoryAnalytics {
++  const StoryAnalytics._();
++
++  static Future<void> _log(String name, Map<String, Object> params) async {
++    try {
++      await FirebaseAnalytics.instance.logEvent(name: name, parameters: params);
++    } catch (error) {
++      debugPrint('StoryAnalytics: "$name" gönderilemedi ($error)');
++    }
++  }
++
++  /// Görüntüleyici açıldı.
++  static void opened({required String groupKey, required int groupCount}) {
++    _log('story_open', {'group_key': groupKey, 'group_count': groupCount});
++  }
++
++  /// Bir grubun son slaytı da izlendi (dokunarak atlanmadan).
++  static void completed({required String groupKey, required int itemCount}) {
++    _log('story_complete', {'group_key': groupKey, 'item_count': itemCount});
++  }
++
++  /// "Haberi Oku" tıklandı.
++  static void articleOpened({
++    required String groupKey,
++    required String articleId,
++    required int slideIndex,
++  }) {
++    _log('story_article_click', {
++      'group_key': groupKey,
++      'article_id': articleId,
++      'slide_index': slideIndex,
++    });
++  }
++
++  /// Hikaye paylaşıldı.
++  static void shared({required String groupKey, required String articleId}) {
++    _log('story_share', {'group_key': groupKey, 'article_id': articleId});
++  }
++}
+diff --git a/lib/features/stories/data/story_constants.dart b/lib/features/stories/data/story_constants.dart
+new file mode 100644
+index 0000000..6fd6f88
+--- /dev/null
++++ b/lib/features/stories/data/story_constants.dart
+@@ -0,0 +1,65 @@
++/// Hikaye sisteminin tüm sayısal kuralları.
++///
++/// Bu değerler daha önce üç ayrı yere dağılmıştı (Python üretici, Riverpod
++/// sağlayıcı, şerit widget'ı) ve birbirini tutmuyordu: üretici 10'da duruyor
++/// ama ekrana "Limit: 7" yazıyor, sağlayıcı 10 grup döndürüyor ama şerit 7
++/// tanesini gösterip görüntüleyiciye 10'unu birden veriyordu. Tek kaynak.
++///
++/// Python tarafındaki karşılıkları `scripts/generate_stories.py` başındaki
++/// `StoryRules` sınıfındadır; ikisini birlikte güncelleyin.
++class StoryRules {
++  const StoryRules._();
++
++  /// Veritabanından çekilen ham satır sayısı. Görseli bozuk olanlar elendiği
++  /// ve satırlar gruplandığı için havuzu gösterilecek grup sayısından geniş
++  /// tutuyoruz.
++  static const int fetchLimit = 40;
++
++  /// Şeritte ve görüntüleyicide gösterilen en fazla grup (konu) sayısı.
++  static const int maxGroups = 10;
++
++  /// Bir grubun içindeki en fazla slayt sayısı. Beşten uzun bir hikaye
++  /// dizisini kimse sonuna kadar izlemiyor.
++  static const int maxItemsPerGroup = 5;
++
++  /// Şeridi göstermek için gereken en az grup sayısı. Tek başına duran bir
++  /// baloncuk "sistem çalışmıyor" izlenimi veriyor.
++  static const int minGroupsToShow = 3;
++
++  /// Tazelik puanının yarılanma süresi. 8 saatlik bir haber, yeni bir haberin
++  /// yarısı kadar puan alır.
++  static const Duration freshnessHalfLife = Duration(hours: 8);
++
++  /// Son dakika haberlerine eklenen puan (tazelik puanı 0..1 aralığında).
++  static const double breakingBonus = 0.6;
++
++  /// Son dakika bonusunun geçerli olduğu süre. 20 saatlik bir "son dakika"
++  /// artık son dakika değildir.
++  static const Duration breakingBonusWindow = Duration(hours: 12);
++
++  /// Uygulama öne geldiğinde listenin yeniden çekilmesi için gereken süre.
++  static const Duration refreshAfter = Duration(minutes: 5);
++
++  /// Slayt süresinin alt ve üst sınırı; aradaki değer metin uzunluğundan
++  /// hesaplanır (bkz. `storySlideDuration`).
++  static const Duration minSlideDuration = Duration(seconds: 5);
++  static const Duration maxSlideDuration = Duration(seconds: 7);
++
++  /// İzlendi defterinin cihazda tutulduğu süre. Hikayeler en fazla 36 saat
++  /// yaşadığı için bir haftalık defter fazlasıyla yeterli.
++  static const Duration seenMemory = Duration(days: 7);
++}
++
++/// Slaytın ekranda kalma süresi: taban süre + okunacak metin kadar ek süre.
++///
++/// Sabit 7 saniye, tek satırlık bir istatistik kartı için uzundu; okuyucu
++/// dokunarak geçmek zorunda kalıyordu. Karakter sayısı arttıkça süre
++/// [StoryRules.maxSlideDuration]'a kadar uzar.
++Duration storySlideDuration(String headline, String statLabel) {
++  final int chars = headline.length + statLabel.length;
++  final int minMs = StoryRules.minSlideDuration.inMilliseconds;
++  final int maxMs = StoryRules.maxSlideDuration.inMilliseconds;
++  // ~100 karakter, süreyi tabandan tavana taşır.
++  final double ratio = (chars / 100).clamp(0.0, 1.0);
++  return Duration(milliseconds: minMs + ((maxMs - minMs) * ratio).round());
++}
+diff --git a/lib/features/stories/data/story_mock_data.dart b/lib/features/stories/data/story_mock_data.dart
+deleted file mode 100644
+index b22a206..0000000
+--- a/lib/features/stories/data/story_mock_data.dart
++++ /dev/null
+@@ -1,68 +0,0 @@
+-import 'models/story_item.dart';
+-
+-final List<StoryGroup> mockStories = [
+-  StoryGroup(
+-    id: 's1',
+-    title: 'Piyasa Özeti',
+-    avatarUrl: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80',
+-    isNew: true,
+-    items: [
+-      const StoryItem(
+-        id: 's1_1',
+-        superTitle: 'GÜNLÜK PİYASA',
+-        headline: 'Küresel buğday fiyatlarında Karadeniz gerilimi kaynaklı sert yükseliş',
+-        bigStatValue: '+%4.2',
+-        statLabel: 'Chicago Borsası (CBOT) Günlük Artış',
+-        backgroundUrl: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&q=80',
+-      ),
+-      const StoryItem(
+-        id: 's1_2',
+-        superTitle: 'GİRDİ MALİYETLERİ',
+-        headline: 'Üre gübresi uluslararası piyasalarda düşüş eğilimini sürdürüyor',
+-        bigStatValue: '-\$15',
+-        statLabel: 'Ton başına haftalık azalış',
+-        backgroundUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80',
+-      ),
+-    ],
+-  ),
+-  StoryGroup(
+-    id: 's2',
+-    title: 'İklim & Kuraklık',
+-    avatarUrl: 'https://images.unsplash.com/photo-1541818222956-613d9dd839d4?w=400&q=80',
+-    isNew: true,
+-    items: [
+-      const StoryItem(
+-        id: 's2_1',
+-        superTitle: 'FAO KÜRESEL RAPOR',
+-        headline: 'El Niño etkisiyle Güney Yarımküre\'de tarımsal rekolte alarm veriyor',
+-        bigStatValue: '12%',
+-        statLabel: 'Beklenen Küresel Üretim Kaybı',
+-        backgroundUrl: 'https://images.unsplash.com/photo-1541818222956-613d9dd839d4?w=1200&q=80',
+-      ),
+-      const StoryItem(
+-        id: 's2_2',
+-        superTitle: 'SU KRİZİ',
+-        headline: 'İç Anadolu baraj doluluk oranları son 5 yılın en düşük seviyesinde',
+-        bigStatValue: '%32.4',
+-        statLabel: 'Güncel Ortalama Doluluk',
+-        backgroundUrl: 'https://images.unsplash.com/photo-1444201983204-c43cbd584d93?w=1200&q=80',
+-      ),
+-    ],
+-  ),
+-  StoryGroup(
+-    id: 's3',
+-    title: 'TMO Alımları',
+-    avatarUrl: 'https://images.unsplash.com/photo-1621501103258-3e1346be76e2?w=400&q=80',
+-    isNew: false,
+-    items: [
+-      const StoryItem(
+-        id: 's3_1',
+-        superTitle: 'HASAT 2024',
+-        headline: 'Toprak Mahsulleri Ofisi yeni sezon hububat alım fiyatlarını açıkladı',
+-        bigStatValue: '9.25₺',
+-        statLabel: 'Makarnalık Buğday Başlangıç Fiyatı',
+-        backgroundUrl: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?w=1200&q=80',
+-      ),
+-    ],
+-  ),
+-];
+diff --git a/lib/features/stories/data/story_seen_store.dart b/lib/features/stories/data/story_seen_store.dart
+new file mode 100644
+index 0000000..f7c6064
+--- /dev/null
++++ b/lib/features/stories/data/story_seen_store.dart
+@@ -0,0 +1,70 @@
++import 'package:shared_preferences/shared_preferences.dart';
++
++import 'story_constants.dart';
++
++/// Hangi hikaye slaytının bu cihazda izlendiğinin defteri.
++///
++/// ── Neden gerekti ────────────────────────────────────────────────────────
++/// Şeritteki halkanın rengi yalnızca `is_breaking`'e bağlıydı. Yani okuyucu,
++/// hangi hikayeyi izlediğini baloncuğa bakarak ayırt edemiyordu; izlediği
++/// hikaye ertesi açılışta yine aynı yerde, yine "yeni" görünümünde duruyordu.
++/// Instagram'da çalışan tek mekanik budur: izlenmemiş olan öne gelir ve
++/// renkli halkayla durur, izlenen soluklaşıp geri çekilir.
++///
++/// Defter cihazda kalır (hesap yok), [StoryRules.seenMemory] süresinden eski
++/// kayıtlar her yazmada budanır — hikayeler zaten en fazla 36 saat yaşıyor.
++class StorySeenStore {
++  const StorySeenStore._();
++
++  static const String _key = 'seen_story_items_v1';
++
++  /// Kayıt biçimi: `<slaytId>|<epochMillis>`. Zaman damgası budama için.
++  static const String _sep = '|';
++
++  static Future<Set<String>> load() async {
++    final prefs = await SharedPreferences.getInstance();
++    final raw = prefs.getStringList(_key) ?? const <String>[];
++    final cutoff = DateTime.now().subtract(StoryRules.seenMemory);
++    final result = <String>{};
++    for (final entry in raw) {
++      final parts = entry.split(_sep);
++      if (parts.length != 2) continue;
++      final millis = int.tryParse(parts[1]);
++      if (millis == null) continue;
++      if (DateTime.fromMillisecondsSinceEpoch(millis).isBefore(cutoff)) continue;
++      result.add(parts[0]);
++    }
++    return result;
++  }
++
++  /// Verilen slaytları izlendi olarak işler ve defterin tamamını döndürür.
++  static Future<Set<String>> markSeen(Iterable<String> ids) async {
++    final prefs = await SharedPreferences.getInstance();
++    final raw = prefs.getStringList(_key) ?? const <String>[];
++    final cutoff = DateTime.now().subtract(StoryRules.seenMemory);
++    final now = DateTime.now().millisecondsSinceEpoch;
++
++    // Aynı slaytın eski kaydını düşürüp yenisini yazıyoruz; böylece defter
++    // tekrar etmez ve zaman damgası son izlemeyi gösterir.
++    final incoming = ids.toSet();
++    final kept = <String, int>{};
++    for (final entry in raw) {
++      final parts = entry.split(_sep);
++      if (parts.length != 2) continue;
++      final millis = int.tryParse(parts[1]);
++      if (millis == null) continue;
++      if (DateTime.fromMillisecondsSinceEpoch(millis).isBefore(cutoff)) continue;
++      if (incoming.contains(parts[0])) continue;
++      kept[parts[0]] = millis;
++    }
++    for (final id in incoming) {
++      kept[id] = now;
++    }
++
++    await prefs.setStringList(
++      _key,
++      kept.entries.map((e) => '${e.key}$_sep${e.value}').toList(),
++    );
++    return kept.keys.toSet();
++  }
++}
+diff --git a/lib/features/stories/presentation/screens/story_viewer_screen.dart b/lib/features/stories/presentation/screens/story_viewer_screen.dart
+index ad5c327..ff7994e 100644
+--- a/lib/features/stories/presentation/screens/story_viewer_screen.dart
++++ b/lib/features/stories/presentation/screens/story_viewer_screen.dart
+@@ -1,12 +1,20 @@
+-import 'dart:async';
++// ignore_for_file: deprecated_member_use
++import 'package:flutter/foundation.dart' show kIsWeb;
+ import 'package:flutter/material.dart';
++import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+ import 'package:google_fonts/google_fonts.dart';
++import 'package:share_plus/share_plus.dart';
++
++import '../../../../core/router/app_router.dart';
+ import '../../../../core/theme/app_colors.dart';
+ import '../../data/models/story_item.dart';
++import '../../data/story_analytics.dart';
++import '../../data/story_constants.dart';
++import '../../providers/story_providers.dart';
+ import '../widgets/story_image.dart';
+ 
+-class StoryViewerScreen extends StatefulWidget {
++class StoryViewerScreen extends ConsumerStatefulWidget {
+   final List<StoryGroup> storyGroups;
+   final int initialGroupIndex;
+ 
+@@ -17,39 +25,74 @@ class StoryViewerScreen extends StatefulWidget {
+   });
+ 
+   @override
+-  State<StoryViewerScreen> createState() => _StoryViewerScreenState();
++  ConsumerState<StoryViewerScreen> createState() => _StoryViewerScreenState();
+ }
+ 
+-class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProviderStateMixin {
++class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
++    with TickerProviderStateMixin, WidgetsBindingObserver {
+   late PageController _pageController;
+   late int _currentGroupIndex;
+   int _currentItemIndex = 0;
+-  
+-  Timer? _timer;
++
+   late AnimationController _animController;
+-  final Duration _storyDuration = const Duration(seconds: 7);
++
++  /// Okuyucu parmağını basılı tuttuğu için mi durduk? Uygulama arka plandan
++  /// döndüğünde yanlışlıkla devam ettirmemek için ayrı tutuyoruz.
++  bool _heldDown = false;
+ 
+   /// Arka plan görselinin hikaye boyunca kapanan yakınlaştırma payı.
+   /// 0 yapılırsa hareket tamamen kalkar, kare sabit kalır.
+   static const double _kenBurnsZoom = 0.05;
+ 
++  static const String _productionOrigin = 'https://tarim-app-2026.web.app';
++
++  StoryGroup get _currentGroup => widget.storyGroups[_currentGroupIndex];
++  StoryItem get _currentItem => _currentGroup.items[_currentItemIndex];
++
+   @override
+   void initState() {
+     super.initState();
++    WidgetsBinding.instance.addObserver(this);
+     _currentGroupIndex = widget.initialGroupIndex;
+     _pageController = PageController(initialPage: _currentGroupIndex);
+-    
+-    _animController = AnimationController(vsync: this, duration: _storyDuration);
++
++    _animController = AnimationController(
++      vsync: this,
++      duration: StoryRules.maxSlideDuration,
++    );
+     _animController.addStatusListener((status) {
+       if (status == AnimationStatus.completed) {
+-        _nextStory();
++        _nextStory(auto: true);
+       }
+     });
+-    
++
++    StoryAnalytics.opened(
++      groupKey: _currentGroup.key,
++      groupCount: widget.storyGroups.length,
++    );
+     _startStory();
+     WidgetsBinding.instance.addPostFrameCallback((_) => _precacheNeighbours());
+   }
+ 
++  @override
++  void dispose() {
++    WidgetsBinding.instance.removeObserver(this);
++    _animController.dispose();
++    _pageController.dispose();
++    super.dispose();
++  }
++
++  @override
++  void didChangeAppLifecycleState(AppLifecycleState state) {
++    // Sayaç arka planda da işlemeye devam ediyordu: telefonu cebine koyup
++    // dönen okuyucu hikayeleri izlemeden atlamış oluyordu.
++    if (state == AppLifecycleState.resumed) {
++      if (!_heldDown && mounted) _animController.forward();
++    } else {
++      _animController.stop();
++    }
++  }
++
+   /// Komşu hikayelerin tam boy görsellerini önden indirir; böylece sağa/sola
+   /// geçişte bulanık ara kare yerine doğrudan net görsel açılır.
+   void _precacheNeighbours() {
+@@ -66,44 +109,55 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+     }
+   }
+ 
++  /// Slaytı başlatır: süreyi metin uzunluğundan hesaplar, izlendi defterine
++  /// işler ve sayacı sıfırdan başlatır.
+   void _startStory() {
++    final item = _currentItem;
++    // Süre kaynak (Türkçe) metnin uzunluğundan hesaplanıyor; çeviriler benzer
++    // uzunlukta ve bu sayede `Localizations` bağlamına ihtiyaç kalmıyor.
++    _animController.duration = storySlideDuration(item.headline, item.statLabel);
+     _animController.stop();
+     _animController.reset();
+     _animController.forward();
++    ref.read(storySeenProvider.notifier).markSeen([item.id]);
+   }
+ 
+-  void _nextStory() {
+-    final group = widget.storyGroups[_currentGroupIndex];
++  void _nextStory({bool auto = false}) {
++    final group = _currentGroup;
+     if (_currentItemIndex < group.items.length - 1) {
+-      setState(() {
+-        _currentItemIndex++;
+-      });
++      setState(() => _currentItemIndex++);
+       _startStory();
++      return;
++    }
++
++    if (auto) {
++      StoryAnalytics.completed(
++        groupKey: group.key,
++        itemCount: group.items.length,
++      );
++    }
++
++    if (_currentGroupIndex < widget.storyGroups.length - 1) {
++      _pageController.nextPage(
++        duration: const Duration(milliseconds: 400),
++        curve: Curves.easeInOut,
++      );
+     } else {
+-      if (_currentGroupIndex < widget.storyGroups.length - 1) {
+-        _pageController.nextPage(
+-          duration: const Duration(milliseconds: 400),
+-          curve: Curves.easeInOut,
+-        );
+-      } else {
+-        Navigator.of(context).pop();
+-      }
++      Navigator.of(context).pop();
+     }
+   }
+ 
+   void _previousStory() {
+     if (_currentItemIndex > 0) {
+-      setState(() {
+-        _currentItemIndex--;
+-      });
++      setState(() => _currentItemIndex--);
+       _startStory();
+-    } else {
+-      if (_currentGroupIndex > 0) {
+-        _pageController.previousPage(
+-          duration: const Duration(milliseconds: 400),
+-          curve: Curves.easeInOut,
+-        );
+-      }
++      return;
++    }
++    if (_currentGroupIndex > 0) {
++      _pageController.previousPage(
++        duration: const Duration(milliseconds: 400),
++        curve: Curves.easeInOut,
++      );
+     }
+   }
+ 
+@@ -130,12 +184,42 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+     }
+   }
+ 
+-  @override
+-  void dispose() {
+-    _timer?.cancel();
+-    _animController.dispose();
+-    _pageController.dispose();
+-    super.dispose();
++  String _shareUrl(String articleId) {
++    final origin = kIsWeb ? Uri.base.origin : _productionOrigin;
++    return '$origin${articlePath(articleId)}';
++  }
++
++  /// Habere geçerken hikayeyi kapatıyoruz: eskiden ekran arkada açık kalıyor
++  /// ve sayaç haberi okurken de işlemeye devam ediyordu.
++  void _openArticle(StoryGroup group, StoryItem item) {
++    StoryAnalytics.articleOpened(
++      groupKey: group.key,
++      articleId: item.articleId,
++      slideIndex: _currentItemIndex,
++    );
++    final router = GoRouter.of(context);
++    Navigator.of(context).pop();
++    router.push(articlePath(item.articleId));
++  }
++
++  Future<void> _share(StoryGroup group, StoryItem item, bool isEn) async {
++    _animController.stop();
++    StoryAnalytics.shared(groupKey: group.key, articleId: item.articleId);
++
++    final box = context.findRenderObject() as RenderBox?;
++    final text = '${item.headlineFor(isEn)}\n'
++        '${item.bigStatValueFor(isEn)} · ${item.statLabelFor(isEn)}\n\n'
++        '${_shareUrl(item.articleId)}';
++    try {
++      await Share.share(
++        text,
++        sharePositionOrigin:
++            box != null ? box.localToGlobal(Offset.zero) & box.size : null,
++      );
++    } catch (_) {
++      // Paylaşım sayfası açılamazsa hikaye akmaya devam etsin.
++    }
++    if (mounted && !_heldDown) _animController.forward();
+   }
+ 
+   @override
+@@ -149,8 +233,14 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+         child: GestureDetector(
+           onTapDown: _onTapDown,
+           onTapUp: _onTapUp,
+-          onLongPressStart: (_) => _animController.stop(),
+-          onLongPressEnd: (_) => _animController.forward(),
++          onLongPressStart: (_) {
++            _heldDown = true;
++            _animController.stop();
++          },
++          onLongPressEnd: (_) {
++            _heldDown = false;
++            _animController.forward();
++          },
+           child: PageView.builder(
+             controller: _pageController,
+             onPageChanged: _onPageChanged,
+@@ -161,12 +251,8 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+               final itemIndex = isCurrentGroup ? _currentItemIndex : 0;
+               final item = group.items[itemIndex];
+ 
+-              final bool isEn = Localizations.localeOf(context).languageCode == 'en';
+-              final String displayGroupTitle = isEn && group.titleEn.isNotEmpty ? group.titleEn : group.title;
+-              final String displaySuperTitle = isEn && item.superTitleEn.isNotEmpty ? item.superTitleEn : item.superTitle;
+-              final String displayHeadline = isEn && item.headlineEn.isNotEmpty ? item.headlineEn : item.headline;
+-              final String displayBigStat = isEn && item.bigStatValueEn.isNotEmpty ? item.bigStatValueEn : item.bigStatValue;
+-              final String displayStatLabel = isEn && item.statLabelEn.isNotEmpty ? item.statLabelEn : item.statLabel;
++              final bool isEn =
++                  Localizations.localeOf(context).languageCode == 'en';
+ 
+               return Stack(
+                 fit: StackFit.expand,
+@@ -179,7 +265,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                     animation: _animController,
+                     builder: (context, child) {
+                       // Çok hafif bir "Ken Burns": kare 1.05'ten 1.00'e iner,
+-                      // yani hikaye net kareyle biter. Kapatmak için sabiti 0 yap.
++                      // yani hikaye net kareyle biter.
+                       final double t = isCurrentGroup
+                           ? Curves.easeOutSine.transform(_animController.value)
+                           : 0.0;
+@@ -216,27 +302,30 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                   // İçerik (Veri Gösterimi)
+                   SafeArea(
+                     child: Padding(
+-                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0),
++                      padding: const EdgeInsets.symmetric(
++                          horizontal: 20.0, vertical: 24.0),
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                           const Spacer(),
+-                          
+-                          // Üst Başlık (Kategori) - Artık ana istatistiğin hemen üstünde
++
++                          // Üst Başlık (Kategori)
+                           AnimatedBuilder(
+                             animation: _animController,
+                             builder: (context, child) {
+                               return Opacity(
+-                                opacity: Curves.easeIn.transform((_animController.value * 5).clamp(0.0, 1.0)),
++                                opacity: Curves.easeIn.transform(
++                                    (_animController.value * 5).clamp(0.0, 1.0)),
+                                 child: Container(
+-                                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
++                                  padding: const EdgeInsets.symmetric(
++                                      horizontal: 10, vertical: 4),
+                                   margin: const EdgeInsets.only(bottom: 12),
+                                   decoration: BoxDecoration(
+                                     color: AppColors.primaryGreen,
+                                     borderRadius: BorderRadius.circular(4),
+                                   ),
+                                   child: Text(
+-                                    displaySuperTitle.toUpperCase(),
++                                    item.superTitleFor(isEn).toUpperCase(),
+                                     maxLines: 1,
+                                     overflow: TextOverflow.ellipsis,
+                                     style: GoogleFonts.inter(
+@@ -250,12 +339,13 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                               );
+                             },
+                           ),
+-                          
++
+                           // Büyük İstatistik Değeri
+                           AnimatedBuilder(
+                             animation: _animController,
+                             builder: (context, child) {
+-                              final val = Curves.elasticOut.transform((_animController.value * 2).clamp(0.0, 1.0));
++                              final val = Curves.elasticOut.transform(
++                                  (_animController.value * 2).clamp(0.0, 1.0));
+                               return Transform.scale(
+                                 scale: 0.5 + (0.5 * val),
+                                 alignment: Alignment.centerLeft,
+@@ -265,7 +355,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                                     fit: BoxFit.scaleDown,
+                                     alignment: Alignment.centerLeft,
+                                     child: Text(
+-                                      displayBigStat,
++                                      item.bigStatValueFor(isEn),
+                                       style: GoogleFonts.playfairDisplay(
+                                         color: AppColors.wheat,
+                                         fontSize: 72,
+@@ -276,13 +366,13 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                                   ),
+                                 ),
+                               );
+-                            }
++                            },
+                           ),
+                           const SizedBox(height: 8),
+-                          
++
+                           // İstatistik Açıklaması
+                           Text(
+-                            displayStatLabel,
++                            item.statLabelFor(isEn),
+                             style: GoogleFonts.inter(
+                               color: AppColors.wheat,
+                               fontSize: 16,
+@@ -291,10 +381,10 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                             ),
+                           ),
+                           const SizedBox(height: 24),
+-                          
++
+                           // Ana Başlık
+                           Text(
+-                            displayHeadline,
++                            item.headlineFor(isEn),
+                             maxLines: 4,
+                             overflow: TextOverflow.ellipsis,
+                             style: GoogleFonts.playfairDisplay(
+@@ -305,44 +395,49 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                             ),
+                           ),
+                           const SizedBox(height: 32),
+-                          
++
+                           // Habere Git Butonu
+                           GestureDetector(
+-                            onTap: () {
+-                              context.push('/haber/${group.articleId}');
+-                            },
++                            onTap: () => _openArticle(group, item),
+                             child: AnimatedBuilder(
+                               animation: _animController,
+                               builder: (context, child) {
+                                 return Opacity(
+                                   // Animasyon biraz daha erken gelsin
+-                                  opacity: Curves.easeIn.transform((_animController.value * 2 - 0.5).clamp(0.0, 1.0)),
+-                                  child: Container(
+-                                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+-                                    decoration: BoxDecoration(
+-                                      color: Colors.white.withOpacity(0.15),
+-                                      border: Border.all(color: Colors.white.withOpacity(0.5), width: 1),
+-                                      borderRadius: BorderRadius.circular(30),
+-                                    ),
+-                                    child: Row(
+-                                      mainAxisSize: MainAxisSize.min,
+-                                      children: [
+-                                        Text(
+-                                          isEn ? 'Read Article' : 'Haberi Oku',
+-                                          style: GoogleFonts.inter(
+-                                            color: Colors.white,
+-                                            fontSize: 14,
+-                                            fontWeight: FontWeight.w600,
+-                                            letterSpacing: 0.5,
+-                                          ),
+-                                        ),
+-                                        const SizedBox(width: 8),
+-                                        const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 14),
+-                                      ],
+-                                    ),
+-                                  ),
++                                  opacity: Curves.easeIn.transform(
++                                      (_animController.value * 2 - 0.5)
++                                          .clamp(0.0, 1.0)),
++                                  child: child,
+                                 );
+-                              }
++                              },
++                              child: Container(
++                                padding: const EdgeInsets.symmetric(
++                                    horizontal: 24, vertical: 12),
++                                decoration: BoxDecoration(
++                                  color: Colors.white.withOpacity(0.15),
++                                  border: Border.all(
++                                      color: Colors.white.withOpacity(0.5),
++                                      width: 1),
++                                  borderRadius: BorderRadius.circular(30),
++                                ),
++                                child: Row(
++                                  mainAxisSize: MainAxisSize.min,
++                                  children: [
++                                    Text(
++                                      isEn ? 'Read Article' : 'Haberi Oku',
++                                      style: GoogleFonts.inter(
++                                        color: Colors.white,
++                                        fontSize: 14,
++                                        fontWeight: FontWeight.w600,
++                                        letterSpacing: 0.5,
++                                      ),
++                                    ),
++                                    const SizedBox(width: 8),
++                                    const Icon(Icons.arrow_forward_ios,
++                                        color: Colors.white, size: 14),
++                                  ],
++                                ),
++                              ),
+                             ),
+                           ),
+                           const SizedBox(height: 40),
+@@ -354,7 +449,8 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                   // Header (Progress bars + Profile)
+                   SafeArea(
+                     child: Padding(
+-                      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
++                      padding: const EdgeInsets.symmetric(
++                          horizontal: 10.0, vertical: 10.0),
+                       child: Column(
+                         mainAxisSize: MainAxisSize.min,
+                         children: [
+@@ -363,11 +459,12 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                               group.items.length,
+                               (i) => Expanded(
+                                 child: Padding(
+-                                  padding: const EdgeInsets.symmetric(horizontal: 2.0),
++                                  padding: const EdgeInsets.symmetric(
++                                      horizontal: 2.0),
+                                   child: _buildProgressBar(
+                                     isCurrentGroup: isCurrentGroup,
+                                     itemIndex: i,
+-                                    currentIndex: _currentItemIndex,
++                                    currentIndex: itemIndex,
+                                   ),
+                                 ),
+                               ),
+@@ -377,24 +474,35 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+                           Row(
+                             children: [
+                               ClipOval(
+-                                child: StoryCircleImage(url: group.avatarUrl, size: 36),
++                                child: StoryThumbImage(
++                                    url: group.avatarUrl, size: 36),
+                               ),
+                               const SizedBox(width: 10),
+-                              Text(
+-                                displayGroupTitle,
+-                                style: GoogleFonts.inter(
+-                                  color: Colors.white,
+-                                  fontWeight: FontWeight.w600,
+-                                  fontSize: 14,
++                              Expanded(
++                                child: Text(
++                                  group.titleFor(isEn),
++                                  maxLines: 1,
++                                  overflow: TextOverflow.ellipsis,
++                                  style: GoogleFonts.inter(
++                                    color: Colors.white,
++                                    fontWeight: FontWeight.w600,
++                                    fontSize: 14,
++                                  ),
+                                 ),
+                               ),
+-                              const Spacer(),
++                              IconButton(
++                                icon: const Icon(Icons.ios_share,
++                                    color: Colors.white, size: 20),
++                                tooltip: isEn ? 'Share' : 'Paylaş',
++                                onPressed: () => _share(group, item, isEn),
++                              ),
+                               IconButton(
+                                 icon: const Icon(Icons.close, color: Colors.white),
++                                tooltip: isEn ? 'Close' : 'Kapat',
+                                 onPressed: () => Navigator.of(context).pop(),
+-                              )
++                              ),
+                             ],
+-                          )
++                          ),
+                         ],
+                       ),
+                     ),
+@@ -413,29 +521,34 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
+     required int itemIndex,
+     required int currentIndex,
+   }) {
+-    if (!isCurrentGroup) {
+-      return Container(height: 3, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2)));
++    if (!isCurrentGroup || itemIndex > currentIndex) {
++      return _bar(Colors.white.withOpacity(0.3));
+     }
+     if (itemIndex < currentIndex) {
+-      return Container(height: 3, decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(2)));
+-    }
+-    if (itemIndex > currentIndex) {
+-      return Container(height: 3, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2)));
++      return _bar(Colors.white);
+     }
+-    
++
+     return AnimatedBuilder(
+       animation: _animController,
+       builder: (context, child) {
+         return Stack(
+           children: [
+-            Container(height: 3, decoration: BoxDecoration(color: Colors.white.withOpacity(0.3), borderRadius: BorderRadius.circular(2))),
++            _bar(Colors.white.withOpacity(0.3)),
+             FractionallySizedBox(
+               widthFactor: _animController.value,
+-              child: Container(height: 3, decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(2))),
++              child: _bar(Colors.white),
+             ),
+           ],
+         );
+       },
+     );
+   }
++
++  Widget _bar(Color color) => Container(
++        height: 3,
++        decoration: BoxDecoration(
++          color: color,
++          borderRadius: BorderRadius.circular(2),
++        ),
++      );
+ }
+diff --git a/lib/features/stories/presentation/widgets/story_avatar_strip.dart b/lib/features/stories/presentation/widgets/story_avatar_strip.dart
+index e9d5881..3d0bf11 100644
+--- a/lib/features/stories/presentation/widgets/story_avatar_strip.dart
++++ b/lib/features/stories/presentation/widgets/story_avatar_strip.dart
+@@ -1,13 +1,26 @@
+ import 'package:flutter/material.dart';
+ import 'package:google_fonts/google_fonts.dart';
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
++
+ import '../../../../core/theme/app_colors.dart';
+ import '../../../../core/utils/image_fallback_helper.dart';
++import '../../data/models/story_item.dart';
++import '../../data/story_constants.dart';
+ import '../screens/story_viewer_screen.dart';
+ import '../../providers/story_providers.dart';
+ import 'story_image.dart';
+ 
+-class StoryAvatarStrip extends ConsumerWidget {
++/// Anasayfadaki hikaye şeridi.
++///
++/// Baloncuklar daire değil "squircle": daire bir kişi/hesap metaforudur, oysa
++/// buradaki görsel bir haber fotoğrafı. Dairesel kırpma yatay bir basın
++/// fotoğrafının büyük kısmını atıyor ve okuyucu neye baktığını anlamıyordu.
++///
++/// Halka artık anlam taşıyor:
++///   • kırmızı-turuncu  → izlenmemiş son dakika
++///   • yeşil-buğday     → izlenmemiş
++///   • ince gri çerçeve → izlenmiş
++class StoryAvatarStrip extends ConsumerStatefulWidget {
+   final bool isDark;
+   final int maxItems;
+ 
+@@ -18,128 +31,244 @@ class StoryAvatarStrip extends ConsumerWidget {
+   });
+ 
+   @override
+-  Widget build(BuildContext context, WidgetRef ref) {
++  ConsumerState<StoryAvatarStrip> createState() => _StoryAvatarStripState();
++}
++
++class _StoryAvatarStripState extends ConsumerState<StoryAvatarStrip>
++    with WidgetsBindingObserver {
++  /// Şeridin toplam yüksekliği — yükleme iskeleti de aynı yüksekliği tutar,
++  /// yoksa liste sonradan "içeri düşünce" anasayfa zıplıyor.
++  static const double _stripHeight = 110;
++  static const double _bubbleSize = 76;
++
++  @override
++  void initState() {
++    super.initState();
++    WidgetsBinding.instance.addObserver(this);
++  }
++
++  @override
++  void dispose() {
++    WidgetsBinding.instance.removeObserver(this);
++    super.dispose();
++  }
++
++  @override
++  void didChangeAppLifecycleState(AppLifecycleState state) {
++    // Uygulama saatlerce açık kalabiliyor; öne geldiğinde süresi dolmuş
++    // hikayeleri düşürmek ve yenilerini almak için listeyi tazeliyoruz.
++    if (state == AppLifecycleState.resumed) {
++      refreshStoriesIfStale(ref);
++    }
++  }
++
++  @override
++  Widget build(BuildContext context) {
+     final storiesAsync = ref.watch(storiesProvider);
+ 
+     return storiesAsync.when(
+       data: (stories) {
+-        final int displayCount = stories.length > maxItems ? maxItems : stories.length;
+-        
+-        // Minimum limit şimdilik kaldırıldı (Hata ayıklama için)
++        // Tek başına duran bir iki baloncuk "sistem çalışmıyor" izlenimi
++        // veriyor; eşiğin altında şeridi hiç çizmiyoruz.
++        if (stories.length < StoryRules.minGroupsToShow) {
++          return const SizedBox.shrink();
++        }
++
++        // Görüntüleyiciye şeritte GÖRÜNEN liste gidiyor. Eskiden şerit 7,
++        // görüntüleyici 10 hikaye biliyordu; kaydıran okuyucu şeritte hiç
++        // görmediği hikayelere düşüyordu.
++        final visible = stories.take(widget.maxItems).toList();
+ 
+         return SizedBox(
+-          height: 110,
++          height: _stripHeight,
+           child: ListView.builder(
+             scrollDirection: Axis.horizontal,
+             padding: const EdgeInsets.symmetric(horizontal: 16),
+-            itemCount: displayCount,
++            itemCount: visible.length,
+             itemBuilder: (context, index) {
+-              final group = stories[index];
+-              final bool isEn = Localizations.localeOf(context).languageCode == 'en';
+-              final String displayTitle = isEn && group.titleEn.isNotEmpty ? group.titleEn : group.title;
+-
+-          return Padding(
+-            padding: const EdgeInsets.only(right: 16.0),
+-            child: GestureDetector(
+-              onTap: () {
+-                Navigator.of(context).push(
+-                  PageRouteBuilder(
+-                    opaque: false,
+-                    pageBuilder: (context, animation, secondaryAnimation) {
+-                      return StoryViewerScreen(
+-                        storyGroups: stories,
+-                        initialGroupIndex: index,
+-                      );
+-                    },
+-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+-                      return FadeTransition(opacity: animation, child: child);
+-                    },
+-                  ),
+-                );
+-              },
+-              child: Column(
+-                mainAxisSize: MainAxisSize.min,
+-                children: [
+-                  Container(
+-                    width: 76,
+-                    height: 76,
+-                    padding: const EdgeInsets.all(3),
+-                    decoration: BoxDecoration(
+-                      shape: BoxShape.circle,
+-                      gradient: group.isNew ? const LinearGradient(
+-                        colors: [Color(0xFFE94057), Color(0xFFF27121)],
+-                        begin: Alignment.topLeft,
+-                        end: Alignment.bottomRight,
+-                      ) : null,
+-                      border: !group.isNew ? Border.all(color: isDark ? Colors.white24 : Colors.black12, width: 2) : null,
+-                    ),
+-                    child: Container(
+-                      decoration: BoxDecoration(
+-                        shape: BoxShape.circle,
+-                        border: Border.all(color: Theme.of(context).scaffoldBackgroundColor, width: 2),
+-                      ),
+-                      child: ClipOval(
+-                        // 76 px'lik kutu - 3 px halka payı - 2 px zemin çerçevesi
+-                        child: StoryCircleImage(url: group.avatarUrl, size: 66, fill: true),
+-                      ),
+-                    ),
+-                  ),
+-                  const SizedBox(height: 6),
+-                  SizedBox(
+-                    width: 76,
+-                    child: Text(
+-                      displayTitle,
+-                      textAlign: TextAlign.center,
+-                      maxLines: 1,
+-                      overflow: TextOverflow.ellipsis,
+-                      style: GoogleFonts.inter(
+-                        fontSize: 11,
+-                        fontWeight: group.isNew ? FontWeight.w600 : FontWeight.w500,
+-                        color: isDark ? Colors.white : AppColors.earthText,
+-                      ),
+-                    ),
+-                  )
+-                ],
+-              ),
+-            ),
++              return Padding(
++                padding: const EdgeInsets.only(right: 16.0),
++                child: _StoryBubble(
++                  group: visible[index],
++                  isDark: widget.isDark,
++                  size: _bubbleSize,
++                  onTap: () => _openViewer(visible, index),
++                ),
++              );
++            },
++          ),
++        );
++      },
++      loading: () => const _StripSkeleton(
++        height: _stripHeight,
++        bubbleSize: _bubbleSize,
++      ),
++      // Hikayeler tamamen isteğe bağlı bir bölüm; hata durumunda okuyucuya
++      // kırmızı bir hata metni göstermek yerine sessizce gizliyoruz.
++      error: (err, stack) => const SizedBox.shrink(),
++    );
++  }
++
++  void _openViewer(List<StoryGroup> groups, int index) {
++    Navigator.of(context).push(
++      PageRouteBuilder(
++        opaque: false,
++        pageBuilder: (context, animation, secondaryAnimation) {
++          return StoryViewerScreen(
++            storyGroups: groups,
++            initialGroupIndex: index,
+           );
+         },
++        transitionsBuilder: (context, animation, secondaryAnimation, child) {
++          return FadeTransition(opacity: animation, child: child);
++        },
+       ),
+     );
+-  },
+-      // Yükleme sırasında yüksekliği koruyoruz: strip sonradan "içeri düşünce"
+-      // anasayfa zıplıyor ve bu tek başına kaliteyi düşük gösteriyordu.
+-      loading: () => SizedBox(
+-        height: 110,
+-        child: ListView.builder(
+-          scrollDirection: Axis.horizontal,
+-          physics: const NeverScrollableScrollPhysics(),
+-          padding: const EdgeInsets.symmetric(horizontal: 16),
+-          itemCount: 5,
+-          itemBuilder: (context, _) => const Padding(
+-            padding: EdgeInsets.only(right: 16.0),
+-            child: Column(
+-              mainAxisSize: MainAxisSize.min,
+-              children: [
+-                ShimmerPlaceholder(
+-                  width: 76,
+-                  height: 76,
+-                  borderRadius: BorderRadius.all(Radius.circular(38)),
++  }
++}
++
++// ── Tek baloncuk ──────────────────────────────────────────────────────────────
++
++class _StoryBubble extends StatelessWidget {
++  const _StoryBubble({
++    required this.group,
++    required this.isDark,
++    required this.size,
++    required this.onTap,
++  });
++
++  final StoryGroup group;
++  final bool isDark;
++  final double size;
++  final VoidCallback onTap;
++
++  /// Squircle yarıçapları: dıştan içe 3 px halka payı + 2 px zemin çerçevesi
++  /// kadar küçülüyorlar ki köşeler iç içe düzgün otursun.
++  static const double _outerRadius = 24;
++  static const double _innerRadius = 21;
++  static const double _imageRadius = 19;
++
++  @override
++  Widget build(BuildContext context) {
++    final bool isEn = Localizations.localeOf(context).languageCode == 'en';
++    final String displayTitle = group.titleFor(isEn);
++    final bool unseen = !group.isSeen;
++
++    final Gradient? ring = !unseen
++        ? null
++        : group.isBreaking
++            ? const LinearGradient(
++                colors: [Color(0xFFE94057), Color(0xFFF27121)],
++                begin: Alignment.topLeft,
++                end: Alignment.bottomRight,
++              )
++            : const LinearGradient(
++                colors: [AppColors.primaryGreen, AppColors.wheat],
++                begin: Alignment.topLeft,
++                end: Alignment.bottomRight,
++              );
++
++    return GestureDetector(
++      onTap: onTap,
++      child: Semantics(
++        button: true,
++        label: displayTitle,
++        child: Column(
++          mainAxisSize: MainAxisSize.min,
++          children: [
++            Container(
++              width: size,
++              height: size,
++              padding: const EdgeInsets.all(3),
++              decoration: BoxDecoration(
++                borderRadius: BorderRadius.circular(_outerRadius),
++                gradient: ring,
++                border: unseen
++                    ? null
++                    : Border.all(
++                        color: isDark ? Colors.white24 : Colors.black12,
++                        width: 2,
++                      ),
++              ),
++              child: Container(
++                decoration: BoxDecoration(
++                  borderRadius: BorderRadius.circular(_innerRadius),
++                  border: Border.all(
++                    color: Theme.of(context).scaffoldBackgroundColor,
++                    width: 2,
++                  ),
+                 ),
+-                SizedBox(height: 8),
+-                ShimmerPlaceholder(
+-                  width: 52,
+-                  height: 10,
+-                  borderRadius: BorderRadius.all(Radius.circular(5)),
++                child: ClipRRect(
++                  borderRadius: BorderRadius.circular(_imageRadius),
++                  child: StoryThumbImage(
++                    url: group.avatarUrl,
++                    size: size,
++                    fill: true,
++                  ),
+                 ),
+-              ],
++              ),
+             ),
++            const SizedBox(height: 6),
++            SizedBox(
++              width: size,
++              child: Text(
++                displayTitle,
++                textAlign: TextAlign.center,
++                maxLines: 1,
++                overflow: TextOverflow.ellipsis,
++                style: GoogleFonts.inter(
++                  fontSize: 11,
++                  fontWeight: unseen ? FontWeight.w600 : FontWeight.w500,
++                  color: unseen
++                      ? (isDark ? Colors.white : AppColors.earthText)
++                      : (isDark ? Colors.white54 : Colors.black45),
++                ),
++              ),
++            ),
++          ],
++        ),
++      ),
++    );
++  }
++}
++
++// ── Yükleme iskeleti ──────────────────────────────────────────────────────────
++
++class _StripSkeleton extends StatelessWidget {
++  const _StripSkeleton({required this.height, required this.bubbleSize});
++
++  final double height;
++  final double bubbleSize;
++
++  @override
++  Widget build(BuildContext context) {
++    return SizedBox(
++      height: height,
++      child: ListView.builder(
++        scrollDirection: Axis.horizontal,
++        physics: const NeverScrollableScrollPhysics(),
++        padding: const EdgeInsets.symmetric(horizontal: 16),
++        itemCount: 5,
++        itemBuilder: (context, _) => Padding(
++          padding: const EdgeInsets.only(right: 16.0),
++          child: Column(
++            mainAxisSize: MainAxisSize.min,
++            children: [
++              ShimmerPlaceholder(
++                width: bubbleSize,
++                height: bubbleSize,
++                borderRadius: BorderRadius.circular(24),
++              ),
++              const SizedBox(height: 8),
++              ShimmerPlaceholder(
++                width: 52,
++                height: 10,
++                borderRadius: BorderRadius.circular(5),
++              ),
++            ],
+           ),
+         ),
+       ),
+-      // Hikayeler tamamen isteğe bağlı bir bölüm; hata durumunda kullanıcıya
+-      // kırmızı bir hata metni göstermek yerine sessizce gizliyoruz.
+-      error: (err, stack) => const SizedBox.shrink(),
+     );
+   }
+ }
+diff --git a/lib/features/stories/presentation/widgets/story_image.dart b/lib/features/stories/presentation/widgets/story_image.dart
+index 25e32e6..128942d 100644
+--- a/lib/features/stories/presentation/widgets/story_image.dart
++++ b/lib/features/stories/presentation/widgets/story_image.dart
+@@ -167,16 +167,21 @@ class _RawImageFallback extends StatelessWidget {
+   }
+ }
+ 
+-// ── Dairesel küçük görsel (avatar) ────────────────────────────────────────────
++// ── Küçük kare görsel (şerit baloncuğu / başlık avatarı) ─────────────────────
+ 
+-/// Hikaye avatarları. Kare kırpma sunucuda yapılır: istemci artık geniş bir
+-/// basın fotoğrafını daireye sığdırmaya çalışmaz, hazır kare gelir.
+-class StoryCircleImage extends StatelessWidget {
+-  const StoryCircleImage({
++/// Hikaye baloncukları. Kare kırpma sunucuda yapılır: istemci artık geniş bir
++/// basın fotoğrafını küçücük bir kutuya sığdırmaya çalışmaz, hazır kare gelir.
++///
++/// Kırpma tam ortadan değil, bir tık yukarıdan yapılıyor: basın fotoğraflarında
++/// ilgi noktası (yüzler, ürün) genellikle karenin üst yarısında kalır, tam orta
++/// hizalama insanları çene hizasından kesiyordu.
++class StoryThumbImage extends StatelessWidget {
++  const StoryThumbImage({
+     super.key,
+     required this.url,
+     required this.size,
+     this.fill = false,
++    this.alignment = const Alignment(0, -0.2),
+   });
+ 
+   final String url;
+@@ -188,6 +193,9 @@ class StoryCircleImage extends StatelessWidget {
+   /// true ise widget kendi ölçüsünü dayatmaz, ebeveyninin kutusunu doldurur.
+   final bool fill;
+ 
++  /// Kırpma hizası; varsayılan olarak merkezin biraz üstü.
++  final Alignment alignment;
++
+   @override
+   Widget build(BuildContext context) {
+     final double dpr = MediaQuery.of(context).devicePixelRatio;
+@@ -201,22 +209,29 @@ class StoryCircleImage extends StatelessWidget {
+       width: fill ? null : size,
+       height: fill ? null : size,
+       fit: BoxFit.cover,
++      alignment: alignment,
+       filterQuality: FilterQuality.high,
+       fadeInDuration: const Duration(milliseconds: 180),
+       // Sunucu zaten hedef ölçüde gönderiyor; bu satır dönüştürmenin devre dışı
+       // olduğu (harici CDN) durumlarda bellekteki kopyayı sınırlar.
+       memCacheWidth: target,
+       placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
+-      errorWidget: (_, __, ___) => _RawCircleFallback(url: url, size: fill ? null : size),
++      errorWidget: (_, __, ___) =>
++          _RawThumbFallback(url: url, size: fill ? null : size, alignment: alignment),
+     );
+   }
+ }
+ 
+-class _RawCircleFallback extends StatelessWidget {
+-  const _RawCircleFallback({required this.url, required this.size});
++class _RawThumbFallback extends StatelessWidget {
++  const _RawThumbFallback({
++    required this.url,
++    required this.size,
++    required this.alignment,
++  });
+ 
+   final String url;
+   final double? size;
++  final Alignment alignment;
+ 
+   @override
+   Widget build(BuildContext context) {
+@@ -226,6 +241,7 @@ class _RawCircleFallback extends StatelessWidget {
+       width: size,
+       height: size,
+       fit: BoxFit.cover,
++      alignment: alignment,
+       filterQuality: FilterQuality.high,
+       placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
+       errorWidget: (_, __, ___) => ColoredBox(
+diff --git a/lib/features/stories/providers/story_providers.dart b/lib/features/stories/providers/story_providers.dart
+index 3b6b815..cfb220c 100644
+--- a/lib/features/stories/providers/story_providers.dart
++++ b/lib/features/stories/providers/story_providers.dart
+@@ -1,69 +1,231 @@
+-import 'package:flutter/painting.dart';
+-import 'dart:async';
++import 'dart:math' as math;
++
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
++
+ import '../../../../core/network/supabase_client.dart';
+ import '../data/models/story_item.dart';
++import '../data/story_constants.dart';
++import '../data/story_seen_store.dart';
++
++// ══════════════════════════════════════════════════════════════════════════════
++//  Hikaye akışı
++// ──────────────────────────────────────────────────────────────────────────────
++//  Akış üç katmandan geçiyor:
++//    1) [storyFeedProvider]  — Supabase'ten satırları çeker, KONUYA göre
++//                              gruplar (eskiden her haber tek slaytlık kendi
++//                              grubuydu, çoklu ilerleme çubuğu boşuna duruyordu).
++//    2) [storySeenProvider]  — cihazdaki "izlendi" defteri.
++//    3) [storiesProvider]    — ikisini birleştirip süresi dolanları eler,
++//                              izlenmemişleri öne alır, tazelik puanına göre
++//                              sıralar ve [StoryRules.maxGroups] ile keser.
++//
++//  Sıralamanın eskisi `is_breaking` sonra `created_at` idi; 20 saatlik bir
++//  "son dakika" taze haberin önünde duruyordu. Artık son dakika bonusunun da
++//  ömrü var (bkz. [StoryRules.breakingBonusWindow]).
++// ══════════════════════════════════════════════════════════════════════════════
+ 
+-final storiesProvider = FutureProvider<List<StoryGroup>>((ref) async {
++/// Son başarılı çekimin zamanı. Uygulama öne geldiğinde listeyi yenilemeye
++/// değip değmediğine bakmak için tutuluyor (bkz. [refreshStoriesIfStale]).
++DateTime? _lastFetchedAt;
++
++final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
+   final supabase = ref.read(supabaseClientProvider);
+-  
+-  // Hatalı görselleri elemek için havuzu geniş tutuyoruz (En fazla 30 çek, sağlam 10 bulana kadar ele)
++
+   final response = await supabase
+       .from('portal_stories')
+       .select('*, articles(image_url)')
+       .gt('expires_at', DateTime.now().toUtc().toIso8601String())
+-      .order('is_breaking', ascending: false)
+       .order('created_at', ascending: false)
+-      .limit(30);
++      .limit(StoryRules.fetchLimit);
+ 
+-  final List<StoryGroup> validStories = [];
+-  
+-  for (final row in response) {
+-    if (validStories.length >= 10) break; // Sadece sağlam 10 hikaye yeterli
++  // Konu anahtarı -> o konudaki slaytlar. Gruplama tek geçişte, satırları
++  // okurken yapılıyor.
++  final buckets = <String, List<StoryItem>>{};
++  final groupTitles = <String, _GroupTitle>{};
+ 
++  for (final row in response) {
+     final articleData = row['articles'] as Map<String, dynamic>?;
+-    final String? avatarUrl = (articleData != null && articleData['image_url'] != null && articleData['image_url'].toString().trim().length > 5)
+-        ? articleData['image_url'] as String
+-        : null;
+-
+-    // Resim yoksa (null ise) veya geçersizse direkt atla, yedek resim kesinlikle kullanılmaz!
+-    if (avatarUrl == null || avatarUrl.trim().isEmpty) continue;
+-    final String safeAvatarUrl = avatarUrl;
++    final rawImage = articleData?['image_url']?.toString().trim() ?? '';
++    // Görseli olmayan hikaye gösterilmez; yedek görsel kesinlikle kullanılmaz.
++    if (rawImage.length < 6) continue;
+ 
++    final storyId = row['id'].toString();
++    final articleId = row['article_id'].toString();
+     final bool isBreaking = row['is_breaking'] == true;
+-    final List<dynamic> itemsData = row['items'] as List<dynamic>? ?? [];
+-    
+-    final List<StoryItem> parsedItems = itemsData.map((item) {
+-      return StoryItem(
+-        id: row['id'] + '_' + itemsData.indexOf(item).toString(),
+-        superTitle: item['super_title']?.toString() ?? '',
+-        superTitleEn: item['super_title_en']?.toString() ?? '',
+-        headline: item['headline']?.toString() ?? '',
+-        headlineEn: item['headline_en']?.toString() ?? '',
+-        bigStatValue: item['big_stat_value']?.toString() ?? '',
+-        bigStatValueEn: item['big_stat_value_en']?.toString() ?? '',
+-        statLabel: item['stat_label']?.toString() ?? '',
+-        statLabelEn: item['stat_label_en']?.toString() ?? '',
+-        backgroundUrl: safeAvatarUrl,
+-      );
+-    }).toList();
+-
+-    if (parsedItems.isNotEmpty) {
+-      final String groupTitleEn = (itemsData.isNotEmpty && itemsData.first['group_title_en'] != null)
+-          ? itemsData.first['group_title_en'].toString()
+-          : '';
+-
+-      validStories.add(StoryGroup(
+-        id: row['id'].toString(),
+-        title: row['group_title']?.toString() ?? 'Hikaye',
+-        titleEn: groupTitleEn,
+-        avatarUrl: safeAvatarUrl,
+-        articleId: row['article_id'].toString(),
+-        isNew: isBreaking,
+-        items: parsedItems,
++    final DateTime createdAt =
++        DateTime.tryParse(row['created_at']?.toString() ?? '') ?? DateTime.now();
++    final DateTime? expiresAt =
++        DateTime.tryParse(row['expires_at']?.toString() ?? '');
++
++    final String title = row['group_title']?.toString().trim() ?? '';
++    if (title.isEmpty) continue;
++    final String key = title.toLowerCase();
++
++    final itemsData = row['items'];
++    if (itemsData is! List) continue;
++
++    for (int i = 0; i < itemsData.length; i++) {
++      final raw = itemsData[i];
++      if (raw is! Map) continue;
++
++      final headline = raw['headline']?.toString() ?? '';
++      final bigStat = raw['big_stat_value']?.toString() ?? '';
++      // Başlığı veya vurucu değeri olmayan slayt boş bir kart demek.
++      if (headline.isEmpty || bigStat.isEmpty) continue;
++
++      buckets.putIfAbsent(key, () => <StoryItem>[]).add(StoryItem(
++        id: '$storyId#$i',
++        storyId: storyId,
++        articleId: articleId,
++        superTitle: raw['super_title']?.toString() ?? '',
++        superTitleEn: raw['super_title_en']?.toString() ?? '',
++        headline: headline,
++        headlineEn: raw['headline_en']?.toString() ?? '',
++        bigStatValue: bigStat,
++        bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
++        statLabel: raw['stat_label']?.toString() ?? '',
++        statLabelEn: raw['stat_label_en']?.toString() ?? '',
++        backgroundUrl: rawImage,
++        createdAt: createdAt,
++        expiresAt: expiresAt,
++        isBreaking: isBreaking,
+       ));
++
++      // Grubun görünen adını en taze satır belirler; satırlar zaten yeniden
++      // eskiye geldiği için ilk gelen kazanır.
++      groupTitles.putIfAbsent(
++        key,
++        () => _GroupTitle(
++          title,
++          raw['group_title_en']?.toString().trim() ?? '',
++        ),
++      );
+     }
+   }
+ 
+-  return validStories;
++  _lastFetchedAt = DateTime.now();
++  return _buildGroups(buckets, groupTitles);
++});
++
++/// İzlenmişleri, izlenmemişleri ve sıralamayı uygulanmış nihai liste.
++final storiesProvider = Provider<AsyncValue<List<StoryGroup>>>((ref) {
++  final feed = ref.watch(storyFeedProvider);
++  final seen = ref.watch(storySeenProvider);
++  return feed.whenData((groups) => rankStoryGroups(groups, seen, DateTime.now()));
++});
++
++/// Cihazdaki izlendi defteri. Görüntüleyici her slaytı gösterdiğinde işler.
++final storySeenProvider =
++    StateNotifierProvider<StorySeenNotifier, Set<String>>((ref) {
++  return StorySeenNotifier();
+ });
++
++class StorySeenNotifier extends StateNotifier<Set<String>> {
++  StorySeenNotifier() : super(const <String>{}) {
++    _load();
++  }
++
++  Future<void> _load() async {
++    final loaded = await StorySeenStore.load();
++    if (!mounted) return;
++    state = loaded;
++  }
++
++  Future<void> markSeen(Iterable<String> ids) async {
++    final fresh = ids.where((id) => !state.contains(id)).toList();
++    if (fresh.isEmpty) return;
++    final updated = await StorySeenStore.markSeen(fresh);
++    if (!mounted) return;
++    state = updated;
++  }
++}
++
++/// Uygulama öne geldiğinde çağrılır: liste [StoryRules.refreshAfter] süresinden
++/// eskiyse yeniden çekilir.
++///
++/// Eskiden akış tek sefer çekilip uygulama kapanana kadar öyle kalıyordu;
++/// süresi dolmuş hikayeler ekranda duruyor, yeni üretilenler hiç görünmüyordu.
++void refreshStoriesIfStale(WidgetRef ref) {
++  final last = _lastFetchedAt;
++  if (last != null && DateTime.now().difference(last) < StoryRules.refreshAfter) {
++    return;
++  }
++  ref.invalidate(storyFeedProvider);
++}
++
++// ── Gruplama ve sıralama ──────────────────────────────────────────────────────
++
++class _GroupTitle {
++  final String tr;
++  final String en;
++  const _GroupTitle(this.tr, this.en);
++}
++
++/// Kovaları gruplara çevirir; her grupta en taze
++/// [StoryRules.maxItemsPerGroup] slayt kalır.
++List<StoryGroup> _buildGroups(
++  Map<String, List<StoryItem>> buckets,
++  Map<String, _GroupTitle> titles,
++) {
++  final groups = <StoryGroup>[];
++  buckets.forEach((key, bucket) {
++    bucket.sort((a, b) => b.createdAt.compareTo(a.createdAt));
++    final trimmed = bucket.take(StoryRules.maxItemsPerGroup).toList();
++    final title = titles[key];
++    groups.add(StoryGroup(
++      key: key,
++      title: title?.tr ?? key,
++      titleEn: title?.en ?? '',
++      avatarUrl: trimmed.first.backgroundUrl,
++      items: trimmed,
++      latestAt: trimmed.first.createdAt,
++      isBreaking: trimmed.any((i) => i.isBreaking),
++    ));
++  });
++
++  return groups;
++}
++
++/// Süresi dolanları eler, izlendi durumunu işler, sıralar ve keser.
++///
++/// Test edilebilir olsun diye [now] dışarıdan veriliyor.
++List<StoryGroup> rankStoryGroups(
++  List<StoryGroup> groups,
++  Set<String> seen,
++  DateTime now,
++) {
++  final live = <StoryGroup>[];
++
++  for (final group in groups) {
++    // Sunucudan gelen liste çekildiği andaki durumu yansıtıyor; uygulama açık
++    // kaldıkça hikayelerin süresi doluyor. İstemcide de eliyoruz.
++    final items = group.items
++        .where((i) => i.expiresAt == null || i.expiresAt!.isAfter(now))
++        .toList();
++    if (items.isEmpty) continue;
++
++    live.add(group.copyWith(
++      items: items,
++      isSeen: items.every((i) => seen.contains(i.id)),
++    ));
++  }
++
++  live.sort((a, b) {
++    // İzlenmemişler her zaman önce.
++    if (a.isSeen != b.isSeen) return a.isSeen ? 1 : -1;
++    return _score(b, now).compareTo(_score(a, now));
++  });
++
++  return live.take(StoryRules.maxGroups).toList();
++}
++
++double _score(StoryGroup group, DateTime now) {
++  final double ageHours = now.difference(group.latestAt).inMinutes / 60.0;
++  final double halfLife = StoryRules.freshnessHalfLife.inMinutes / 60.0;
++  double score = math.pow(0.5, ageHours / halfLife).toDouble();
++  if (group.isBreaking &&
++      now.difference(group.latestAt) < StoryRules.breakingBonusWindow) {
++    score += StoryRules.breakingBonus;
++  }
++  return score;
++}
+diff --git a/scripts/generate_stories.py b/scripts/generate_stories.py
+index ad32bce..6485240 100644
+--- a/scripts/generate_stories.py
++++ b/scripts/generate_stories.py
+@@ -1,166 +1,395 @@
+-import sys
+-import os
++"""Tarım Portalı hikaye üretici.
++
++Yayındaki haberlerden "Instagram story" biçiminde veri kartları çıkarır ve
++`portal_stories` tablosuna yazar. Uygulama bu satırları konu başlığına göre
++gruplayıp anasayfadaki şeritte gösterir.
++
++Çalıştırma
++----------
++Ortam değişkenleriyle (CI / sunucu):
++
++    SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... GEMINI_API_KEY=... \
++        python scripts/generate_stories.py
++
++Değişkenler yoksa yerel `tarim_ai_pipeline` kurulumuna düşer (geliştirici
++makinesi). Eskiden yalnızca bu ikinci yol vardı; hikayeler ancak geliştiricinin
++bilgisayarı çalıştırdığında üretiliyordu — bkz. .github/workflows/generate_stories.yml
++"""
++
++import io
+ import json
+-from datetime import datetime, timedelta
++import os
++import struct
++import sys
++import urllib.request
++from datetime import datetime, timedelta, timezone
++
++
++# ── Kurallar ─────────────────────────────────────────────────────────────────
++# İstemci tarafındaki karşılıkları lib/features/stories/data/story_constants.dart
++# içindeki StoryRules sınıfındadır; ikisini birlikte güncelleyin.
++
++class StoryRules:
++    #: Aynı anda yayında olabilecek en fazla hikaye satırı.
++    MAX_ACTIVE = 10
+ 
+-# tarim_ai_pipeline bağımlılıkları ve config için yolu ekle
+-sys.path.append("/Users/BURHAN/tarim_ai_pipeline")
+-from src.config import supabase_client, GEMINI_API_KEY
+-import google.generativeai as genai
++    #: Haberlerin taranacağı zaman penceresi.
++    ARTICLE_WINDOW_HOURS = 36
+ 
+-# Gemini Ayarları
+-genai.configure(api_key=GEMINI_API_KEY)
+-model = genai.GenerativeModel('gemini-2.5-flash')
++    #: Tek çalıştırmada değerlendirilen en fazla haber.
++    ARTICLE_SCAN_LIMIT = 100
+ 
+-def generate_story_for_article(article):
++    #: Hikaye ömrü. Son dakika daha kısa yaşar: 24 saatlik bir "son dakika"
++    #: artık son dakika değildir, şeritte kırmızı halkayla durması yanıltıcı.
++    TTL_HOURS = 24
++    BREAKING_TTL_HOURS = 12
++
++    #: Aynı haberden ikinci kez hikaye üretmemek için bakılan geçmiş. Eskiden
++    #: tablonun tamamı çekiliyordu; hikayeler en fazla 36 saat yaşadığı için
++    #: bir haftalık pencere yeterli ve sorgu sabit maliyetli kalıyor.
++    DEDUPE_WINDOW_DAYS = 7
++
++    #: Modele verilen haber metninin uzunluğu. 1500 karakter, tabloların ve
++    #: rakamların metnin ortasında kaldığı haberlerde veriyi kaçırıyordu.
++    CONTENT_CHARS = 4000
++
++    #: Tam ekran gösterim için kabul edilen en küçük görsel genişliği.
++    #: Bunun altındaki görsel telefonda kaçınılmaz olarak bulanık çıkıyor.
++    MIN_IMAGE_WIDTH = 1400
++
++
++#: Grup başlıkları sabit bir listeden seçiliyor. Serbest metin olduğunda her
++#: haber kendi başlığını uyduruyor ve konuya göre gruplama imkânsızlaşıyordu.
++CATEGORIES = [
++    ("Piyasa", "Markets"),
++    ("Hasat", "Harvest"),
++    ("Destekleme", "Subsidies"),
++    ("İhracat", "Exports"),
++    ("Hayvancılık", "Livestock"),
++    ("Su & İklim", "Water & Climate"),
++    ("Gıda", "Food"),
++    ("Teknoloji", "Technology"),
++    ("Politika", "Policy"),
++    ("Dünya", "World"),
++]
++FALLBACK_CATEGORY = ("Gündem", "Agenda")
++
++
++# ── Bağlantılar ──────────────────────────────────────────────────────────────
++
++def build_clients():
++    """Supabase istemcisini ve Gemini modelini kurar.
++
++    Önce ortam değişkenlerine bakar (sunucuda/CI'da böyle çalışır), yoksa
++    geliştirici makinesindeki `tarim_ai_pipeline` kurulumuna düşer.
+     """
+-    Haber metnini Gemini'ye gönderip, içinden istatistik/veri varsa story formatına çevirir.
+-    Eğer hikaye olmaya değecek bir veri yoksa None döner.
++    import google.generativeai as genai
++
++    url = os.environ.get("SUPABASE_URL")
++    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_KEY")
++    gemini_key = os.environ.get("GEMINI_API_KEY")
++
++    if url and key:
++        from supabase import create_client
++
++        supabase = create_client(url, key)
++    else:
++        local_pipeline = os.environ.get(
++            "TARIM_PIPELINE_PATH", "/Users/BURHAN/tarim_ai_pipeline"
++        )
++        sys.path.append(local_pipeline)
++        from src.config import supabase_client  # type: ignore
++        from src.config import GEMINI_API_KEY  # type: ignore
++
++        supabase = supabase_client
++        gemini_key = gemini_key or GEMINI_API_KEY
++
++    if not gemini_key:
++        raise SystemExit("GEMINI_API_KEY tanımlı değil.")
++
++    genai.configure(api_key=gemini_key)
++    return supabase, genai.GenerativeModel("gemini-2.5-flash")
++
++
++def utcnow():
++    return datetime.now(timezone.utc)
++
++
++# ── Görsel çözünürlüğü ───────────────────────────────────────────────────────
++
++def read_image_width(url):
++    """Görselin genişliğini başlığından okur; belirlenemezse None döner.
++
++    Dosyanın tamamını indirmiyoruz — ilk 64 KB başlık için fazlasıyla yeter.
+     """
+-    content = article.get("content", "")
+-    title = article.get("title", "")
+-    
++    try:
++        request = urllib.request.Request(
++            url,
++            headers={
++                "Range": "bytes=0-65535",
++                "User-Agent": "tarim-portal-story-bot/1.0",
++            },
++        )
++        with urllib.request.urlopen(request, timeout=15) as response:
++            data = response.read(65536)
++    except Exception as error:  # ağ hatası hikayeyi engellemesin
++        print(f"    ! görsel ölçülemedi ({error})")
++        return None
++
++    return _parse_width(data)
++
++
++def _parse_width(data):
++    if len(data) < 16:
++        return None
++
++    if data[:8] == b"\x89PNG\r\n\x1a\n" and len(data) >= 24:
++        return struct.unpack(">I", data[16:20])[0]
++
++    if data[:6] in (b"GIF87a", b"GIF89a"):
++        return struct.unpack("<H", data[6:8])[0]
++
++    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
++        chunk = data[12:16]
++        if chunk == b"VP8X" and len(data) >= 27:
++            return int.from_bytes(data[24:27], "little") + 1
++        if chunk == b"VP8 " and len(data) >= 28:
++            return struct.unpack("<H", data[26:28])[0] & 0x3FFF
++        if chunk == b"VP8L" and len(data) >= 25:
++            bits = int.from_bytes(data[21:25], "little")
++            return (bits & 0x3FFF) + 1
++        return None
++
++    if data[:2] == b"\xff\xd8":
++        stream = io.BytesIO(data)
++        stream.read(2)
++        while True:
++            head = stream.read(2)
++            if len(head) < 2 or head[0] != 0xFF:
++                return None
++            marker = head[1]
++            if marker in (0xD8, 0x01) or 0xD0 <= marker <= 0xD7:
++                continue
++            length_bytes = stream.read(2)
++            if len(length_bytes) < 2:
++                return None
++            length = struct.unpack(">H", length_bytes)[0]
++            # SOF0..SOF15 (DHT/DAC/RST hariç) çerçeve boyutunu taşır.
++            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7,
++                          0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
++                # precision(1) + height(2) + width(2)
++                body = stream.read(5)
++                if len(body) < 5:
++                    return None
++                return struct.unpack(">H", body[3:5])[0]
++            stream.seek(length - 2, io.SEEK_CUR)
++
++    return None
++
++
++# ── Model çağrısı ────────────────────────────────────────────────────────────
++
++PROMPT = """Sen Tarım Portalı için profesyonel bir sosyal medya içerik yöneticisisin.
++Aşağıdaki haberi oku. Haberde sayısal bir veri, yüzdelik bir artış/düşüş, net bir fiyat
++veya çok çarpıcı bir gelişme varsa bundan bir "Instagram Story" veri kartı çıkar.
++Haber sadece yorum, siyasi söylem veya genel bir bilgi içeriyorsa is_story_worthy false olsun.
++
++ÖNEMLİ KURALLAR:
++1. group_title MUTLAKA şu listeden BİRE BİR seçilecek: {categories}
++   group_title_en de o kategorinin İngilizce karşılığı olacak: {categories_en}
++2. big_stat_value MUTLAKA rakam içermeli ve en fazla 12 karakter olmalı (örn: +%4.2, 9.25₺, 12 bin ton).
++   Rakam yoksa is_story_worthy false döndür.
++3. Uygulamanın İngilizce sürümü de var; her alanın "_en" karşılığını gazetecilik diline uygun doldur.
++
++ÇIKTIYI SADECE JSON olarak ver, başka hiçbir açıklama yazma:
++{{
++    "is_story_worthy": true veya false,
++    "group_title": "Listeden seçilen kategori",
++    "group_title_en": "Kategorinin İngilizcesi",
++    "super_title": "KISA ETİKET (Max 20 harf)",
++    "super_title_en": "SHORT LABEL (Max 20 chars)",
++    "headline": "Haberi anlatan çarpıcı başlık (Max 60 harf)",
++    "headline_en": "English headline (Max 60 chars)",
++    "big_stat_value": "Vurucu sayısal değer",
++    "big_stat_value_en": "Numeric value in English form",
++    "stat_label": "Bu sayının ne olduğunu açıklayan kısa etiket",
++    "stat_label_en": "Short English label"
++}}
++
++Haber Başlığı: {title}
++Haber Metni: {content}
++"""
++
++
++def generate_story_for_article(model, article):
++    """Haberden story verisi üretir; uygun değilse None döner."""
++    content = article.get("content", "") or ""
++    title = article.get("title", "") or ""
++
+     if len(content) < 200:
+         return None
+-        
+-    prompt = f"""
+-    Sen Tarım Portalı için profesyonel bir sosyal medya içerik yöneticisisin. 
+-    Aşağıdaki haberi oku. Haberde eğer sayısal bir veri, yüzdelik bir artış/düşüş, net bir fiyat, 
+-    veya çok çarpıcı bir gelişme varsa bundan bir "Instagram Story" veri kartı çıkarmanı istiyorum. 
+-    Eğer haber sadece yorum, siyasi söylem veya genel bir bilgi içeriyorsa boş döndür.
+-    
+-    ÖNEMLİ: Uygulamamızın hem Türkçe hem İngilizce versiyonu var. Bu yüzden ürettiğin her metnin
+-    mutlaka İngilizce çevirisini de ("_en" uzantılı anahtarlarda) sağlamalısın. İngilizce çeviriler
+-    profesyonel ve gazetecilik diline uygun olmalı.
+-    
+-    Lütfen ÇIKTIYI SADECE AŞAĞIDAKİ JSON FORMATINDA VER. Başka hiçbir açıklama yazma.
+-    
+-    İstenilen JSON yapısı:
+-    {{
+-        "is_story_worthy": true veya false,
+-        "group_title": "Kısa Kategori Adı (Örn: Piyasa Özeti, TMO Alımları vs. Max 15 harf)",
+-        "group_title_en": "Kategori Adının İngilizcesi (Örn: Market Summary, TMO Purchases. Max 15 chars)",
+-        "super_title": "KISA ETİKET (Örn: GÜNLÜK PİYASA, HASAT 2024. Max 20 harf)",
+-        "super_title_en": "KISA ETİKET İNGİLİZCE (Örn: DAILY MARKET. Max 20 chars)",
+-        "headline": "Haberi anlatan 1 veya 2 cümlelik çarpıcı başlık (Max 60 harf)",
+-        "headline_en": "Haberi anlatan İngilizce başlık (Max 60 chars)",
+-        "big_stat_value": "Vurucu sayısal değer (Örn: +%4.2, 9.25₺, 12%)",
+-        "big_stat_value_en": "Vurucu sayısal değer İngilizce formda (Örn: +4.2%, 9.25 TRY, 12%)",
+-        "stat_label": "Bu sayının ne olduğunu açıklayan kısa etiket (Örn: Chicago Borsası Artış)",
+-        "stat_label_en": "İngilizce etiket (Örn: Chicago Exchange Increase)"
+-    }}
+-    
+-    Haber Başlığı: {title}
+-    Haber Metni: {content[:1500]}
+-    """
+-    
++
++    prompt = PROMPT.format(
++        categories=", ".join(tr for tr, _ in CATEGORIES),
++        categories_en=", ".join(en for _, en in CATEGORIES),
++        title=title,
++        content=content[: StoryRules.CONTENT_CHARS],
++    )
++
+     try:
+         response = model.generate_content(prompt)
+         text = response.text.strip()
+-        
+-        # Markdown kod bloklarını temizle
+         if text.startswith("```json"):
+             text = text[7:-3]
+         elif text.startswith("```"):
+             text = text[3:-3]
+-            
+         data = json.loads(text.strip())
+-        
+-        if data.get("is_story_worthy") == True:
+-            return data
+-    except Exception as e:
+-        print(f"Gemini hatası veya ayrıştırma hatası: {e}")
+-        
+-    return None
++    except Exception as error:
++        print(f"    ! Gemini hatası veya ayrıştırma hatası: {error}")
++        return None
++
++    if data.get("is_story_worthy") is not True:
++        return None
++
++    return validate(data)
++
++
++def validate(data):
++    """Modelin çıktısını kabul edilebilir hâle getirir; olmuyorsa None döner.
++
++    Doğrulama olmadan şu kartlar ekrana çıkabiliyordu: dev punto ile yazılmış
++    ama içinde hiç rakam olmayan bir "big_stat_value", ya da boş bir başlık.
++    """
++    headline = (data.get("headline") or "").strip()
++    stat_label = (data.get("stat_label") or "").strip()
++    big_stat = (data.get("big_stat_value") or "").strip()
++
++    if not headline or not stat_label or not big_stat:
++        print("    ! zorunlu alan boş, atlanıyor")
++        return None
++
++    if not any(ch.isdigit() for ch in big_stat):
++        print(f"    ! vurucu değer rakam içermiyor ('{big_stat}'), atlanıyor")
++        return None
++
++    if len(big_stat) > 12:
++        print(f"    ! vurucu değer çok uzun ('{big_stat}'), atlanıyor")
++        return None
++
++    # Kategori listeye oturmuyorsa serbest metne izin vermek yerine yedeğe
++    # düşüyoruz; gruplamanın çalışması buna bağlı.
++    raw_category = (data.get("group_title") or "").strip().casefold()
++    category = FALLBACK_CATEGORY
++    for tr, en in CATEGORIES:
++        if raw_category == tr.casefold():
++            category = (tr, en)
++            break
++    data["group_title"], data["group_title_en"] = category
++
++    return data
++
++
++# ── Boru hattı ───────────────────────────────────────────────────────────────
+ 
+ def run_story_pipeline():
+-    print("=== TARIM HİKAYELERİ BOTO (STORY PIPELINE) BAŞLATILDI ===")
+-    
+-    # 1. Şu an yayında olan (süresi dolmamış) story sayısına bak.
+-    # Limiti 7 belirledik, çok dolmasını engelle.
+-    now_utc = datetime.utcnow().isoformat()
+-    active_stories = supabase_client.from_("portal_stories") \
+-        .select("id") \
+-        .gt("expires_at", now_utc) \
++    print("=== TARIM HİKAYELERİ (STORY PIPELINE) BAŞLATILDI ===")
++    supabase, model = build_clients()
++
++    now = utcnow()
++
++    active = (
++        supabase.from_("portal_stories")
++        .select("id")
++        .gt("expires_at", now.isoformat())
+         .execute()
+-        
+-    active_count = len(active_stories.data)
+-    print(f"Şu an yayında olan hikaye sayısı: {active_count} (Limit: 7)")
+-    
+-    if active_count >= 10:
++    )
++    active_count = len(active.data or [])
++    print(f"Yayındaki hikaye sayısı: {active_count} (Limit: {StoryRules.MAX_ACTIVE})")
++
++    if active_count >= StoryRules.MAX_ACTIVE:
+         print("Hikaye kapasitesi dolu. İşlem sonlandırılıyor.")
+         return
+-        
+-    # 2. Her zaman hikaye olması için son 36 saatteki güncel haberleri çek
+-    thirty_six_hours_ago = (datetime.utcnow() - timedelta(hours=36)).isoformat()
+-    articles_resp = supabase_client.from_("articles") \
+-        .select("id, title, content, image_url, is_breaking") \
+-        .eq("status", "published") \
+-        .not_.is_("image_url", "null") \
+-        .gt("created_at", thirty_six_hours_ago) \
+-        .order("is_breaking", desc=True) \
+-        .order("created_at", desc=True) \
+-        .limit(100) \
++
++    window_start = now - timedelta(hours=StoryRules.ARTICLE_WINDOW_HOURS)
++    articles_resp = (
++        supabase.from_("articles")
++        .select("id, title, content, image_url, is_breaking")
++        .eq("status", "published")
++        .not_.is_("image_url", "null")
++        .gt("created_at", window_start.isoformat())
++        .order("is_breaking", desc=True)
++        .order("created_at", desc=True)
++        .limit(StoryRules.ARTICLE_SCAN_LIMIT)
++        .execute()
++    )
++    articles = articles_resp.data or []
++
++    dedupe_start = now - timedelta(days=StoryRules.DEDUPE_WINDOW_DAYS)
++    recent_stories = (
++        supabase.from_("portal_stories")
++        .select("article_id")
++        .gt("created_at", dedupe_start.isoformat())
+         .execute()
+-        
+-    articles = articles_resp.data
+-    
+-    # 3. Zaten story'si yapılmış olanları tespit et
+-    existing_story_article_ids = set()
+-    all_stories = supabase_client.from_("portal_stories").select("article_id").execute()
+-    for s in all_stories.data:
+-        existing_story_article_ids.add(s["article_id"])
+-    # 4. Haberleri sırayla değerlendir
+-    added_count = 0
+-    
++    )
++    already_used = {row["article_id"] for row in (recent_stories.data or [])}
++
++    added = 0
+     for article in articles:
+-        if added_count + active_count >= 10:
+-            print("Limit 10'a ulaşıldı.")
++        if active_count + added >= StoryRules.MAX_ACTIVE:
++            print(f"Limit {StoryRules.MAX_ACTIVE}'a ulaşıldı.")
+             break
+-            
+-        image_url = article.get("image_url", "")
+-        if not image_url or len(image_url.strip()) < 5 or "unsplash" in image_url.lower():
++
++        image_url = (article.get("image_url") or "").strip()
++        if len(image_url) < 6 or "unsplash" in image_url.lower():
+             continue
+-            
+-        if article["id"] in existing_story_article_ids:
++        if article["id"] in already_used:
+             continue
+-            
++
+         print(f"\nDeğerlendiriliyor: {article['title']}")
+-        story_data = generate_story_for_article(article)
+-        
+-        if story_data:
+-            print(f" -> Harika! Veri bulundu: {story_data['big_stat_value']} - {story_data['stat_label']}")
+-            
+-            # Veritabanına kaydet (24 saat ömürlü)
+-            expires = (datetime.utcnow() + timedelta(hours=24)).isoformat()
+-            
+-            # Items JSONB yapısı (İleride birden çok slide olursa diye liste)
+-            items_list = [{
+-                "super_title": story_data.get("super_title", ""),
+-                "super_title_en": story_data.get("super_title_en", ""),
+-                "headline": story_data.get("headline", ""),
+-                "headline_en": story_data.get("headline_en", ""),
+-                "big_stat_value": story_data.get("big_stat_value", ""),
+-                "big_stat_value_en": story_data.get("big_stat_value_en", ""),
+-                "stat_label": story_data.get("stat_label", ""),
+-                "stat_label_en": story_data.get("stat_label_en", ""),
+-                "group_title_en": story_data.get("group_title_en", "") # Avatar başlığı için buraya saklıyoruz
+-            }]
+-            
+-            supabase_client.from_("portal_stories").insert({
+-                "article_id": article["id"],
+-                "group_title": story_data.get("group_title", ""),
+-                "is_breaking": article.get("is_breaking", False),
+-                "items": items_list,
+-                "expires_at": expires
+-            }).execute()
+-            
+-            print(" -> Veritabanına kaydedildi.")
+-            added_count += 1
+-        else:
++
++        width = read_image_width(image_url)
++        if width is not None and width < StoryRules.MIN_IMAGE_WIDTH:
++            print(f" -> görsel {width}px, tam ekranda bulanık kalır. Atlanıyor.")
++            continue
++
++        story = generate_story_for_article(model, article)
++        if not story:
+             print(" -> Yeterli veri bulunamadı, story üretilmedi.")
++            continue
++
++        is_breaking = bool(article.get("is_breaking"))
++        ttl = StoryRules.BREAKING_TTL_HOURS if is_breaking else StoryRules.TTL_HOURS
++        expires = now + timedelta(hours=ttl)
++
++        items = [{
++            "super_title": story.get("super_title", ""),
++            "super_title_en": story.get("super_title_en", ""),
++            "headline": story.get("headline", ""),
++            "headline_en": story.get("headline_en", ""),
++            "big_stat_value": story.get("big_stat_value", ""),
++            "big_stat_value_en": story.get("big_stat_value_en", ""),
++            "stat_label": story.get("stat_label", ""),
++            "stat_label_en": story.get("stat_label_en", ""),
++            # Avatar başlığının İngilizcesi burada saklanıyor.
++            "group_title_en": story.get("group_title_en", ""),
++        }]
++
++        supabase.from_("portal_stories").insert({
++            "article_id": article["id"],
++            "group_title": story.get("group_title", ""),
++            "is_breaking": is_breaking,
++            "items": items,
++            "expires_at": expires.isoformat(),
++        }).execute()
++
++        print(
++            f" -> [{story.get('group_title')}] {story.get('big_stat_value')}"
++            f" — {story.get('stat_label')} ({ttl} saat)"
++        )
++        added += 1
++
++    print(f"\n=== TAMAMLANDI. Üretilen yeni hikaye: {added} ===")
+ 
+-    print(f"\n=== İŞLEM TAMAMLANDI. Üretilen Yeni Hikaye Sayısı: {added_count} ===")
+ 
+ if __name__ == "__main__":
+     run_story_pipeline()
+diff --git a/test/story_ranking_test.dart b/test/story_ranking_test.dart
+new file mode 100644
+index 0000000..6a38c47
+--- /dev/null
++++ b/test/story_ranking_test.dart
+@@ -0,0 +1,155 @@
++import 'package:flutter_test/flutter_test.dart';
++import 'package:tarim_app/features/stories/data/models/story_item.dart';
++import 'package:tarim_app/features/stories/data/story_constants.dart';
++import 'package:tarim_app/features/stories/providers/story_providers.dart';
++
++StoryItem _item(
++  String id, {
++  required DateTime createdAt,
++  DateTime? expiresAt,
++  bool isBreaking = false,
++}) {
++  return StoryItem(
++    id: id,
++    storyId: id,
++    articleId: 'a-$id',
++    superTitle: 'ETİKET',
++    headline: 'Başlık $id',
++    bigStatValue: '+%4.2',
++    statLabel: 'Etiket',
++    backgroundUrl: 'https://example.com/$id.jpg',
++    createdAt: createdAt,
++    expiresAt: expiresAt,
++    isBreaking: isBreaking,
++  );
++}
++
++StoryGroup _group(
++  String key,
++  List<StoryItem> items, {
++  bool isBreaking = false,
++}) {
++  return StoryGroup(
++    key: key,
++    title: key,
++    avatarUrl: items.first.backgroundUrl,
++    items: items,
++    latestAt: items.first.createdAt,
++    isBreaking: isBreaking,
++  );
++}
++
++void main() {
++  final now = DateTime(2026, 8, 20, 12);
++
++  group('rankStoryGroups', () {
++    test('süresi dolan slaytları eler, grubu boşalırsa düşürür', () {
++      final live = _item('live',
++          createdAt: now.subtract(const Duration(hours: 1)),
++          expiresAt: now.add(const Duration(hours: 5)));
++      final dead = _item('dead',
++          createdAt: now.subtract(const Duration(hours: 2)),
++          expiresAt: now.subtract(const Duration(minutes: 1)));
++
++      final result = rankStoryGroups(
++        [
++          _group('piyasa', [live, dead]),
++          _group('hasat', [dead]),
++        ],
++        const <String>{},
++        now,
++      );
++
++      expect(result.length, 1);
++      expect(result.single.key, 'piyasa');
++      expect(result.single.items.map((i) => i.id), ['live']);
++    });
++
++    test('izlenmemiş grup, daha taze ama izlenmiş grubun önüne geçer', () {
++      final seenFresh = _item('fresh', createdAt: now);
++      final unseenOld =
++          _item('old', createdAt: now.subtract(const Duration(hours: 10)));
++
++      final result = rankStoryGroups(
++        [
++          _group('taze', [seenFresh]),
++          _group('eski', [unseenOld]),
++        ],
++        {'fresh'},
++        now,
++      );
++
++      expect(result.map((g) => g.key), ['eski', 'taze']);
++      expect(result.first.isSeen, isFalse);
++      expect(result.last.isSeen, isTrue);
++    });
++
++    test('son dakika bonusu süresi dolunca tazelik kazanır', () {
++      final staleBreaking = _item('breaking',
++          createdAt: now.subtract(StoryRules.breakingBonusWindow +
++              const Duration(hours: 1)),
++          isBreaking: true);
++      final fresh =
++          _item('normal', createdAt: now.subtract(const Duration(hours: 1)));
++
++      final result = rankStoryGroups(
++        [
++          _group('sondakika', [staleBreaking], isBreaking: true),
++          _group('normal', [fresh]),
++        ],
++        const <String>{},
++        now,
++      );
++
++      expect(result.map((g) => g.key), ['normal', 'sondakika']);
++    });
++
++    test('taze son dakika, aynı yaştaki normal haberin önünde', () {
++      final breaking = _item('b',
++          createdAt: now.subtract(const Duration(hours: 2)), isBreaking: true);
++      final normal =
++          _item('n', createdAt: now.subtract(const Duration(hours: 2)));
++
++      final result = rankStoryGroups(
++        [
++          _group('normal', [normal]),
++          _group('sondakika', [breaking], isBreaking: true),
++        ],
++        const <String>{},
++        now,
++      );
++
++      expect(result.first.key, 'sondakika');
++    });
++
++    test('grup sayısı üst sınırla kesilir', () {
++      final groups = List.generate(
++        StoryRules.maxGroups + 4,
++        (i) => _group('konu$i', [
++          _item('i$i', createdAt: now.subtract(Duration(minutes: i))),
++        ]),
++      );
++
++      expect(rankStoryGroups(groups, const <String>{}, now).length,
++          StoryRules.maxGroups);
++    });
++  });
++
++  group('storySlideDuration', () {
++    test('metin yoksa taban süre', () {
++      expect(storySlideDuration('', ''), StoryRules.minSlideDuration);
++    });
++
++    test('uzun metinde tavan süreyi aşmaz', () {
++      final duration = storySlideDuration('x' * 200, 'y' * 200);
++      expect(duration, StoryRules.maxSlideDuration);
++    });
++
++    test('metin uzadıkça süre artar', () {
++      final short = storySlideDuration('x' * 10, '');
++      final long = storySlideDuration('x' * 60, '');
++      expect(long, greaterThan(short));
++      expect(long, lessThanOrEqualTo(StoryRules.maxSlideDuration));
++    });
++  });
++}
+-- 
+2.43.0
+

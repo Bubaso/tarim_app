@@ -20,7 +20,18 @@ class StoryItem {
   final String bigStatValueEn;
   final String statLabel;
   final String statLabelEn;
-  final String backgroundUrl;
+
+  /// YATAY kaynak — paylaşım kartının kendisi (1200×630). Baloncuk, başlık
+  /// avatarı ve GENİŞ ekranlarda tam ekran zemin bundan beslenir.
+  final String imageUrl;
+
+  /// DİKEY türev (1080×2340) ya da boş dize.
+  ///
+  /// Yalnızca dar/uzun bir görüntü alanında işe yarar. Geniş bir masaüstü
+  /// penceresinde bu dosyayı `cover` ile yaymak, zaten kırpılmış dikey şeridin
+  /// ortasından ikinci kez kırpmak demek — görsel tanınmaz hâle geliyor.
+  /// Seçimi [storyBackgroundUrl] yapıyor.
+  final String portraitUrl;
 
   final DateTime createdAt;
   final DateTime? expiresAt;
@@ -38,7 +49,8 @@ class StoryItem {
     this.bigStatValueEn = '',
     required this.statLabel,
     this.statLabelEn = '',
-    required this.backgroundUrl,
+    required this.imageUrl,
+    this.portraitUrl = '',
     required this.createdAt,
     this.expiresAt,
     this.isBreaking = false,

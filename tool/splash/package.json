@@ -1,0 +1,13 @@
+{
+  "name": "tarim-app-splash",
+  "private": true,
+  "type": "module",
+  "description": "web/splash/ altındaki iOS açılış görsellerini index.html'den üretir.",
+  "scripts": {
+    "uret": "node uret.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.47.0",
+    "sharp": "^0.35.3"
+  }
+}

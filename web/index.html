@@ -167,8 +167,18 @@
 
   <link rel="manifest" href="manifest.json">
 
-  <!-- Açılış ekranındaki logo ilk boyanan şey olsun; ayrı bir istek beklemesin. -->
-  <link rel="preload" as="image" href="icons/Icon-512.png">
+  <!-- Tarayıcı çerçevesi (Android Chrome adres çubuğu, iOS durum çubuğu)
+       sayfanın zeminiyle aynı renge boyansın. manifest.json'daki değer
+       yalnızca ana ekrana eklenmiş uygulamada geçerli; sekmede açanlar için
+       bu etiket gerekiyor. İkisi de #F6F1E7 — açılış ekranı ve uygulama
+       zemini ile aynı. -->
+  <meta name="theme-color" content="#F6F1E7">
+
+  <!-- Açılış ekranındaki katmanlar ilk boyanan şey olsun; ayrı bir istek
+       beklemesin. Üçü birden ~100 KB. -->
+  <link rel="preload" as="image" href="icons/splash-mark.png">
+  <link rel="preload" as="image" href="icons/splash-wordmark.png">
+  <link rel="preload" as="image" href="icons/splash-tagline.png">
 
   <script>
     // Rota artık adresin `#` sonrasında değil, yolun kendisinde tutuluyor
@@ -210,26 +220,62 @@
       margin: 0;
       overscroll-behavior-x: none;
       overscroll-behavior-y: none;
-      /* Yeniden yükleme sırasında beyaz yerine marka rengi görünsün
-         (manifest.json'daki background_color ile aynı). */
-      background-color: #174E38;
+      /* Uygulamanın kendi zemini ile birebir aynı: AppColors.creamBackground,
+         app_theme.dart:49'daki scaffoldBackgroundColor. Açılış ekranı
+         kalkarken ALTINDAN ÇIKAN renk ile ÜSTTEKİ renk aynı olduğu için
+         devir teslimde ton sıçraması olmuyor — logo silinir, zemin yerinde
+         durur. Önceki koyu yeşil (#174E38) burada bir flaşa yol açıyordu:
+         main.dart:134 temayı ThemeMode.light'a kilitliyor, yani ekran her
+         açılışta koyu yeşilden krem beyaza atlıyordu. Üstelik o yeşil
+         AppColors'ta yoktu, yalnızca bu dosyada yaşayan tek kullanımlık bir
+         renkti. */
+      background-color: #F6F1E7;
     }
 
     /* ── Açılış ekranı ────────────────────────────────────────────────────
-       Flutter'ın ilk karesi gelene kadar görünen katman. Marka rengi zaten
-       arka planda vardı; buraya logo ve motto ekleniyor.
+       Flutter'ın ilk karesi gelene kadar görünen katman.
+
+       Kurgu üç katman: amblem, marka yazısı, slogan. Üçü de markanın kendi
+       çizimlerinden kesildi (assets/images/logo_full.png → icons/splash-*.png).
+       Daha önce slogan sistem yazı tipiyle yeniden diziliyordu; kullanıcının
+       cihazına göre üç ayrı yazı tipi çıkıyordu ve hiçbiri marka tipi değildi.
+       Artık ekranda markanın kendi harfleri var.
+
+       Krem daire kaldırıldı. O daire, logoyu koyu zeminde görünür kılmak için
+       konmuş bir yamaydı; logonun KENDİSİ zaten dairesel (koyu yeşil yay +
+       kahverengi toprak yayı bir çember kapatıyor), dolayısıyla iç içe iki
+       halka oluşuyordu. Zemin kreme dönünce logo kendi doğal zeminine kavuştu,
+       daireye gerek kalmadı.
+
        Kaldırma mantığı sayfanın sonundaki script'te.                        */
     #splash {
       position: fixed;
       inset: 0;
       z-index: 2147483647;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 22px;
-      background-color: #174E38;
-      transition: opacity 400ms ease-out;
+      background-color: #F6F1E7;
+      /* Düz krem, ekranda "boyanmamış" duruyor. Merkeze doğru bir tık açılan,
+         kenarlara doğru bir tık koyulaşan çok yumuşak bir geçiş, gözün ışık
+         beklediği yere ışık koyuyor; fark edilmiyor ama yüzeye derinlik
+         veriyor. */
+      background-image: radial-gradient(118% 76% at 50% 38%,
+                        #FCF9F3 0%, #F6F1E7 45%, #EDE4D3 100%);
+      transition: opacity 460ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* İnce gren. Düz dolgu renkleri ekranda dijital ve ucuz görünür; çok
+       düşük yoğunluklu bir doku yüzeyi kâğıda yaklaştırır. Görsel dosya
+       gerektirmiyor, SVG gürültüsü satır içinde üretiliyor — ek istek yok. */
+    #splash::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.055;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
     }
 
     #splash.is-hidden {
@@ -237,54 +283,127 @@
       pointer-events: none;
     }
 
-    /* Logo koyu yeşil ve kahverengi tonlarda; aynı koyulukta bir zeminde
-       kaybolurdu. Krem daire hem okunurluğu hem de marka paletini koruyor. */
-    #splash-logo {
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      background-color: #F6F1E7;
+    #splash-stage {
+      position: relative;
+      z-index: 1;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
-      animation: splash-rise 600ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+      /* Optik merkez geometrik merkezin biraz üstündedir; tam ortaya konan
+         bir kilit birimi göze "aşağı kaymış" gelir. */
+      transform: translateY(-2.6vh);
+      transition: transform 460ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    #splash-logo img {
+    /* Çıkışta kilit birimi hafifçe büyüyerek siliniyor: ekran kapanmıyor,
+       içinden geçiliyor. Zemin rengi uygulamanınkiyle aynı olduğu için
+       geriye yalnızca bu hareket kalıyor. */
+    #splash.is-hidden #splash-stage { transform: translateY(-2.6vh) scale(1.035); }
+
+    /* Ölçüler markanın kendi kilit biriminden alındı. logo_full.png içinde
+       amblem 689 px, marka yazısı 1024 px genişliğinde; oran 1 : 1,49. Aşağıdaki
+       değerler bu oranı koruyor. Serbest seçilen ölçüler logoyu tanınır ama
+       "biraz yanlış" gösterir — göz oranı bilir, nedenini söyleyemez. */
+    #splash-mark {
       display: block;
-      width: 108px;
-      height: 108px;
+      width: clamp(118px, 30vw, 150px);
+      height: auto;
+      animation: splash-focus 980ms 60ms cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    #splash-motto {
-      margin: 0;
-      /* Uygulamanın kendi yazı tipleri Flutter ile birlikte geliyor; burada
-         indirme beklemeden çizilebilen sistem yığını kullanılıyor. */
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      color: #F6F1E7;
-      animation: splash-rise 600ms 140ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+    #splash-wordmark {
+      display: block;
+      width: clamp(176px, 44.7vw, 224px);
+      height: auto;
+      /* Özgün çizimde iki parçanın arası genişliğin ~%1,4'ü kadar. Splash
+         biraz daha nefes alsın diye açıldı, ama kilit birim hissi bozulmayacak
+         kadar. */
+      margin-top: 16px;
+      animation: splash-wipe 820ms 340ms cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
-    @keyframes splash-rise {
-      from { opacity: 0; transform: translateY(12px) scale(0.94); }
-      to   { opacity: 1; transform: none; }
+    #splash-tagline {
+      position: absolute;
+      left: 50%;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 44px);
+      transform: translateX(-50%);
+      width: clamp(146px, 37vw, 178px);
+      height: auto;
+      opacity: 0.72;
+      z-index: 1;
+      animation: splash-settle 760ms 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Amblem odağa geliyor: hafif büyükten normale, bulanıktan nete. Objektif
+       netlenmesi gibi. Parçalara ayrılıp tek tek çizilmiyor — logo bir bütün,
+       öyle davranıyor. */
+    @keyframes splash-focus {
+      from { opacity: 0; transform: scale(1.045); filter: blur(7px); }
+      to   { opacity: 1; transform: scale(1);     filter: blur(0); }
+    }
+
+    /* Marka yazısı soldan sağa açılıyor: okuma yönü. Yukarı aşağı kaydırmak
+         yerine maskeyle açmak, hareketi "web animasyonu" değil dizgi gibi
+         gösteriyor. */
+    @keyframes splash-wipe {
+      from { opacity: 0; clip-path: inset(0 100% 0 0); }
+      to   { opacity: 1; clip-path: inset(0 0 0 0); }
+    }
+
+    @keyframes splash-settle {
+      from { opacity: 0;    transform: translateX(-50%) translateY(7px); }
+      to   { opacity: 0.72; transform: translateX(-50%) translateY(0); }
+    }
+
+    /* Yavaş bağlantı için geç geri bildirim. Hızlı açılışta hiç görünmez;
+       ancak ekran uzun süre durursa beliriyor. Dönen çark koymadık, o hem
+       jenerik hem huzursuz duruyor — sayfanın kendi ritmini bozmayan, tek
+       yönde ilerleyen ince bir çizgi yeterli. */
+    #splash-wait {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 104px);
+      width: 116px;
+      height: 2px;
+      border-radius: 2px;
+      overflow: hidden;
+      background: rgba(58, 46, 32, 0.10);
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 700ms ease-out;
+    }
+
+    #splash-wait.is-on { opacity: 1; }
+
+    #splash-wait i {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 42%;
+      border-radius: 2px;
+      background: rgba(92, 138, 74, 0.55);
+      animation: splash-wait-run 1500ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+
+    @keyframes splash-wait-run {
+      0%   { transform: translateX(-105%); }
+      100% { transform: translateX(245%); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      #splash-logo,
-      #splash-motto { animation: none; }
-      #splash { transition: none; }
+      #splash-mark,
+      #splash-wordmark,
+      #splash-tagline,
+      #splash-wait i { animation: none; }
+      #splash,
+      #splash-stage { transition: none; }
     }
 
     /* iOS'ta ana ekrandan açılış: startup görseli devralınıyor, giriş
        animasyonu tekrar oynamamalı (bkz. yukarıdaki `instant-splash`). */
-    .instant-splash #splash-logo,
-    .instant-splash #splash-motto { animation: none; }
+    .instant-splash #splash-mark,
+    .instant-splash #splash-wordmark,
+    .instant-splash #splash-tagline { animation: none; }
   </style>
 
   <script type="module">
@@ -306,9 +425,16 @@
   </script>
 </head>
 <body>
+  <!-- Görsellerin hepsi markanın kendi çizimi. alt metni yalnızca kilit
+       birimde var: üçü ayrı ayrı okunursa ekran okuyucu aynı adı üç kez
+       söyler. -->
   <div id="splash">
-    <div id="splash-logo"><img src="icons/Icon-512.png" alt="Tarım Portalı"></div>
-    <p id="splash-motto">TARIMIN DOĞRU ADRESİ</p>
+    <div id="splash-stage">
+      <img id="splash-mark" src="icons/splash-mark.png" alt="" aria-hidden="true">
+      <img id="splash-wordmark" src="icons/splash-wordmark.png" alt="Tarım Portalı">
+    </div>
+    <img id="splash-tagline" src="icons/splash-tagline.png" alt="Tarımın doğru adresi">
+    <div id="splash-wait" aria-hidden="true"><i></i></div>
   </div>
 
   <!--
@@ -326,10 +452,32 @@
     //   1) Flutter ilk karesini çizmiş olmalı  → altında hazır bir sayfa dursun
     //   2) en az MIN_MS geçmiş olmalı          → hızlı açılışta göz kırpıp
     //                                            kaybolmasın
+    //
+    // MIN_MS eskiden sabit 3000'di. İkinci koşulun ölçüsü animasyonun süresi
+    // olmalı, keyfi bir sayı değil: giriş 60+980 / 340+820 / 620+760 ile
+    // 1380 ms'de bitiyor, 1500 onu güvenle kapsıyor. 3 saniye, önbellekten
+    // 400 ms'de açılan bir uygulamayı yavaş gösteriyordu.
+    //
+    // Aynı oturumda ikinci kez gelen kullanıcı açılışı zaten gördü; ona
+    // animasyonu baştan izletmenin bir anlamı yok, yalnızca bekletir.
     (function () {
-      var MIN_MS = 3000;
+      var d = document.documentElement;
+      var instant = d.className.indexOf('instant-splash') >= 0;
+      var seen;
+      try { seen = sessionStorage.getItem('splashSeen'); } catch (e) { seen = null; }
+
+      // instant-splash: iOS startup görseli zaten son kareyi gösterdi.
+      // seen: bu oturumda açılış bir kez oynadı.
+      var MIN_MS = instant ? 400 : (seen ? 700 : 1500);
+
+      // Yavaş bağlantıda ekranın donduğu sanılmasın diye bekleme çizgisi.
+      // Eşik MIN_MS'in belirgin üstünde: normal açılışta hiç görünmüyor.
+      var HINT_MS = 2600;
+
       var startedAt = Date.now();
       var done = false;
+
+      try { sessionStorage.setItem('splashSeen', '1'); } catch (e) {}
 
       function hide() {
         if (done) return;
@@ -338,8 +486,14 @@
         if (!el) return;
         el.classList.add('is-hidden');
         // Geçiş bitince DOM'dan çıkar; sayfanın üstünde ölü bir katman kalmasın.
-        setTimeout(function () { el.remove(); }, 500);
+        setTimeout(function () { el.remove(); }, 560);
       }
+
+      setTimeout(function () {
+        if (done) return;
+        var w = document.getElementById('splash-wait');
+        if (w) w.classList.add('is-on');
+      }, HINT_MS);
 
       window.addEventListener('flutter-first-frame', function () {
         setTimeout(hide, Math.max(0, MIN_MS - (Date.now() - startedAt)));

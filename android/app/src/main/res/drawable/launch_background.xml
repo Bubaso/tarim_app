@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modify this file to customize your launch splash screen -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/white" />
+<!--
+    DİKKAT: Bu dosya şu an ÖLÜ. Projede yerel Android uygulaması yok —
+    android/ altında build.gradle, AndroidManifest.xml ve values/styles.xml
+    bulunmuyor, yani buradaki drawable hiçbir yerden referans almıyor.
+    Uygulama web olarak yayınlanıyor (Firebase Hosting) ve Android'de PWA
+    olarak kuruluyor.
 
-    <!-- You can insert your own image assets here -->
-    <!-- <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@mipmap/launch_image" />
-    </item> -->
+    Android'de açılış ekranı bu dosyadan DEĞİL, web/manifest.json içindeki
+    background_color + icons alanlarından üretiliyor. Açılış ekranıyla ilgili
+    bir değişiklik gerektiğinde bakılacak yer orası.
+
+    Beyaz yerine marka zemini yazıldı ki yerel uygulama bir gün açılırsa
+    yanlış renkle başlamasın. Renk, web/index.html ve manifest.json ile aynı:
+    AppColors.creamBackground.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/launch_background" />
 </layer-list>

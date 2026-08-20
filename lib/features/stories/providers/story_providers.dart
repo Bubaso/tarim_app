@@ -33,7 +33,7 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
 
   final response = await supabase
       .from('portal_stories')
-      .select('*, articles(image_url)')
+      .select('*, articles(image_url, story_image_url)')
       .gt('expires_at', DateTime.now().toUtc().toIso8601String())
       .order('created_at', ascending: false)
       .limit(StoryRules.fetchLimit);
@@ -48,6 +48,14 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
     final rawImage = articleData?['image_url']?.toString().trim() ?? '';
     // Görseli olmayan hikaye gösterilmez; yedek görsel kesinlikle kullanılmaz.
     if (rawImage.length < 6) continue;
+
+    // Dar ekranlarda kullanılacak dikey türev. Boşsa haber bu göçten önce
+    // işlenmiş ya da türev üretilememiş demektir; o durumda yatay kart tek
+    // kaynak olarak kalır — eskiden beri olan davranış, gerileme değil.
+    // Geniş ekranlarda zaten yatay kart kullanılıyor, seçimi görüntüleyici
+    // yapıyor (bkz. storyBackgroundUrl).
+    final rawStory = articleData?['story_image_url']?.toString().trim() ?? '';
+    final portrait = rawStory.length < 6 ? '' : rawStory;
 
     final storyId = row['id'].toString();
     final articleId = row['article_id'].toString();
@@ -85,7 +93,8 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
         bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
         statLabel: raw['stat_label']?.toString() ?? '',
         statLabelEn: raw['stat_label_en']?.toString() ?? '',
-        backgroundUrl: rawImage,
+        imageUrl: rawImage,
+        portraitUrl: portrait,
         createdAt: createdAt,
         expiresAt: expiresAt,
         isBreaking: isBreaking,
@@ -176,7 +185,9 @@ List<StoryGroup> _buildGroups(
       key: key,
       title: title?.tr ?? key,
       titleEn: title?.en ?? '',
-      avatarUrl: trimmed.first.backgroundUrl,
+      // Baloncuk yatay karttan besleniyor: dikey türevin ortasından kare
+      // kesmek kartta görünen çerçeveyi vermiyor.
+      avatarUrl: trimmed.first.imageUrl,
       items: trimmed,
       latestAt: trimmed.first.createdAt,
       isBreaking: trimmed.any((i) => i.isBreaking),

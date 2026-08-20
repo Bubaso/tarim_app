@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Açılış zemini. web/index.html, web/manifest.json ve
+     lib/core/theme/app_colors.dart (creamBackground) ile aynı değer. -->
+<resources>
+    <color name="launch_background">#F6F1E7</color>
+</resources>

@@ -17,7 +17,7 @@ StoryItem _item(
     headline: 'Başlık $id',
     bigStatValue: '+%4.2',
     statLabel: 'Etiket',
-    backgroundUrl: 'https://example.com/$id.jpg',
+    imageUrl: 'https://example.com/$id.jpg',
     createdAt: createdAt,
     expiresAt: expiresAt,
     isBreaking: isBreaking,
@@ -32,7 +32,7 @@ StoryGroup _group(
   return StoryGroup(
     key: key,
     title: key,
-    avatarUrl: items.first.backgroundUrl,
+    avatarUrl: items.first.imageUrl,
     items: items,
     latestAt: items.first.createdAt,
     isBreaking: isBreaking,

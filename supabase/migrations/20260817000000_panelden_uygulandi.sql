@@ -1,0 +1,15 @@
+-- Yer tutucu. İÇERİĞİ BİLİNMİYOR.
+--
+-- Bu sürüm uzaktaki `supabase_migrations.schema_migrations` tablosunda kayıtlı
+-- ama depoda karşılığı yoktu; diskte de git geçmişinde de bulunamadı. Yuvarlak
+-- saat damgası (000000) panelin SQL düzenleyicisinden uygulandığına işaret
+-- ediyor.
+--
+-- Dosya neden var: `supabase db push`, uzakta olup yerelde olmayan bir sürüm
+-- görünce tüm göçü reddediyor. Bu yer tutucu sürüm numarasını eşliyor; CLI
+-- sürümü uzakta kayıtlı gördüğü için bu dosyayı ÇALIŞTIRMIYOR, yalnızca
+-- atlıyor. Yani veritabanına hiçbir etkisi yok.
+--
+-- Bilinen bedeli: sıfırdan kurulan bir veritabanı göçlerden yeniden
+-- üretildiğinde, 17 Ağustos'ta panelden yapılan değişiklik eksik kalır. Bunu
+-- düzeltmenin yolu `supabase db pull` ile uzaktaki şemayı yerele çekmek.

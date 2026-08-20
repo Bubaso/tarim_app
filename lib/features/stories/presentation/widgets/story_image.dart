@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -14,10 +15,19 @@ import 'package:cached_network_image/cached_network_image.dart';
 //    2) Görsel cihazda yeniden ölçekleniyordu — 76 px'lik avatarda 2 MB'lık
 //       orijinal küçültülüyor, tam ekranda ise küçük bir görsel büyütülüyordu.
 //
-//  Bu dosya, tüm hikaye görsellerini Supabase'in `/render/image/public/`
+//  Bu dosya, hikaye görsellerini Supabase'in `/render/image/public/`
 //  dönüştürme uç noktasından, hedef pikselin tam ölçüsünde ve WebP olarak
 //  ister. Ölçekleme sunucuda (Lanczos) yapıldığı için sonuç belirgin biçimde
 //  daha net, dosya da daha küçüktür.
+//
+//  TEK İSTİSNA tam ekran zemin. Dönüştürme uç noktası hiçbir koşulda BÜYÜTME
+//  yapmıyor: 1200×630'luk paylaşım kartından `width=1170` istemek yine
+//  1200×630 döndürüyordu, yani dikey ekranı kaplayan şey aslında 540 px'lik
+//  bir şeridin 4,7 katına şişirilmiş hâliydi. Çözüm sunucuda değil hatta:
+//  `image_storage.py` artık aynı kaynaktan 1080×2340'lık dikey bir türev
+//  üretiyor ve zemin onu HAM hâliyle çekiyor (bkz.
+//  [storyImageIsPortraitDerivative] — hazır ölçüdeki dosyayı dönüştürmekten
+//  geçirmek onu kırpıyor).
 // ══════════════════════════════════════════════════════════════════════════════
 
 /// WebP/AVIF pazarlığı için gereken başlıklar. Supabase dönüştürme uç noktası
@@ -33,6 +43,23 @@ const Color kStoryImageBackdrop = Color(0xFF12160F);
 /// olmadığı. Harici CDN adreslerine dokunmuyoruz.
 bool storyImageIsTransformable(String rawUrl) =>
     rawUrl.contains('/object/public/') || rawUrl.contains('/render/image/public/');
+
+/// Hattın ürettiği dikey hikaye türevi bu ekle biter (bkz. `image_storage.py`,
+/// `STORY_W`×`STORY_H`).
+const String _kDikeyTurevEki = '_1080x2340.jpg';
+
+/// Dosya zaten hikaye ekranının ölçüsünde mi?
+///
+/// Önemli, çünkü bu dosyayı dönüştürme uç noktasından geçirmek onu BOZUYOR:
+/// `width` verilip `height` verilmediğinde uç nokta oranı korumuyor, ortadan
+/// KIRPIYOR (ölçüldü: kırpılmış çıktıyla piksel farkı 0,94; oranı korunmuş
+/// çıktıyla 43,93 — yani gelen şey kırpılmış olan). 1080 px'lik türevden
+/// `width=1170` istemek de bir işe yaramıyor: uç nokta asla büyütmüyor.
+///
+/// Hazır ölçüdeki dosya için doğru davranış, hiç dokunmadan ham hâlini
+/// vermektir.
+bool storyImageIsPortraitDerivative(String rawUrl) =>
+    rawUrl.contains(_kDikeyTurevEki);
 
 /// Ham depolama URL'ini, istenen piksel ölçüsünde bir dönüştürme URL'ine çevirir.
 ///
@@ -74,11 +101,64 @@ int storyBackgroundTargetWidth(BuildContext context) {
   return px.clamp(1080.0, 1920.0).round();
 }
 
+/// Paylaşım kartının oranı (`image_storage.py` → `SOCIAL_W/SOCIAL_H`).
+const double _kYatayOran = 1200 / 630; // 1,90
+/// Hikaye türevinin oranı (`image_storage.py` → `STORY_W/STORY_H`).
+const double _kDikeyOran = 1080 / 2340; // 0,46
+
+/// Tam ekran zemin için indirilecek nihai adres.
+///
+/// İki kaynak var ve HANGİSİNİN kullanılacağı görüntü alanının biçimine bağlı:
+///
+///   telefon (0,46)   → dikey türev; yatay kartla doldurmak 4 kat büyütme
+///                      demekti, sorunun kendisi buydu.
+///   masaüstü (1,78)  → YATAY kart. Dikey türevi geniş bir pencerede `cover`
+///                      ile yaymak felaket: türev zaten kaynağın orta
+///                      şeridinden kırpılmış, üstüne bir de yüksekliğinin
+///                      %75'i kesiliyor ve kalan parça 1,8 kat büyütülüyor.
+///                      Ekranda "resme 10 kat yakınlaşılmış" gibi duruyor.
+///
+/// Karar, iki oranın hangisinin görüntü alanına daha yakın olduğuna bakılarak
+/// veriliyor. Oranlar çarpımsal büyüklükler olduğu için karşılaştırma logaritma
+/// üzerinden yapılıyor; aksi hâlde 0,46 ile 1,90 arasındaki eşik yanlış yere,
+/// aritmetik ortaya (1,18) düşer. Doğru eşik geometrik orta: √(0,46 × 1,90) =
+/// 0,94. Yani görüntü alanı boyundan dar olduğu sürece dikey türev, kareye
+/// yaklaştığı andan itibaren yatay kart kazanıyor. Tabletin dikey (0,75) ve
+/// yatay (1,33) duruşu bu eşiğin iki ayrı yanına düşüyor.
+String storyBackgroundUrl(
+  BuildContext context, {
+  required String imageUrl,
+  required String portraitUrl,
+}) {
+  final Size size = MediaQuery.of(context).size;
+  final bool olculebilir = size.width > 0 && size.height > 0;
+  final double gorusOrani = olculebilir ? size.width / size.height : _kDikeyOran;
+
+  final bool dikeyDahaYakin = portraitUrl.trim().isNotEmpty &&
+      (math.log(gorusOrani / _kDikeyOran)).abs() <
+          (math.log(gorusOrani / _kYatayOran)).abs();
+
+  if (dikeyDahaYakin) return portraitUrl.trim();
+  return storyImageUrl(imageUrl, width: storyBackgroundTargetWidth(context), quality: 88);
+}
+
+/// Yükleme sırasında gösterilen minik kopyanın adresi.
+///
+/// Genişlik ve yükseklik BİRLİKTE veriliyor: yalnız genişlik verildiğinde uç
+/// nokta ortadan kırpıyor, bulanık zemin görselin gerçek renk dağılımını değil
+/// orta şeridininkini gösteriyordu.
+String _bulanikOnizlemeUrl(String rawUrl) =>
+    storyImageUrl(rawUrl, width: 48, height: 104, quality: 40, crop: true);
+
 /// Tam ekran arka planın [ImageProvider]'ı — komşu hikayeleri `precacheImage`
 /// ile önden yüklemek için ekranla birebir aynı URL'i üretir.
-ImageProvider storyBackgroundProvider(BuildContext context, String rawUrl) {
+ImageProvider storyBackgroundProvider(
+  BuildContext context, {
+  required String imageUrl,
+  required String portraitUrl,
+}) {
   return CachedNetworkImageProvider(
-    storyImageUrl(rawUrl, width: storyBackgroundTargetWidth(context), quality: 88),
+    storyBackgroundUrl(context, imageUrl: imageUrl, portraitUrl: portraitUrl),
     headers: kStoryImageHeaders,
   );
 }
@@ -86,14 +166,29 @@ ImageProvider storyBackgroundProvider(BuildContext context, String rawUrl) {
 // ── Tam ekran arka plan görseli ───────────────────────────────────────────────
 
 class StoryBackgroundImage extends StatelessWidget {
-  const StoryBackgroundImage({super.key, required this.url});
+  const StoryBackgroundImage({
+    super.key,
+    required this.imageUrl,
+    required this.portraitUrl,
+  });
 
-  final String url;
+  /// Yatay paylaşım kartı — geniş ekranların kaynağı, aynı zamanda dikey
+  /// türev üretilememiş haberlerin yedeği.
+  final String imageUrl;
+
+  /// Dikey türev; boş olabilir.
+  final String portraitUrl;
 
   @override
   Widget build(BuildContext context) {
-    final int target = storyBackgroundTargetWidth(context);
-    final String hiRes = storyImageUrl(url, width: target, quality: 88);
+    final String hiRes = storyBackgroundUrl(
+      context,
+      imageUrl: imageUrl,
+      portraitUrl: portraitUrl,
+    );
+    // Bulanık önizleme her zaman yatay karttan: küçücük ve tek işi rengi
+    // vermek, iki ayrı dosyayı önbelleğe almanın anlamı yok.
+    final String url = imageUrl;
     final bool canBlurUp = storyImageIsTransformable(url);
 
     return CachedNetworkImage(
@@ -104,7 +199,7 @@ class StoryBackgroundImage extends StatelessWidget {
       filterQuality: FilterQuality.high,
       fadeInDuration: const Duration(milliseconds: 220),
       placeholder: (context, _) => canBlurUp
-          ? _BlurUpPlaceholder(url: storyImageUrl(url, width: 48, quality: 40))
+          ? _BlurUpPlaceholder(url: _bulanikOnizlemeUrl(url))
           : const ColoredBox(color: kStoryImageBackdrop),
       // Dönüştürme uç noktası bir sebeple cevap veremezse ham dosyaya düş.
       errorWidget: (context, _, __) => _RawImageFallback(url: url),

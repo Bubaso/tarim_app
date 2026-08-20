@@ -42,7 +42,13 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
 
   /// Arka plan görselinin hikaye boyunca kapanan yakınlaştırma payı.
   /// 0 yapılırsa hareket tamamen kalkar, kare sabit kalır.
-  static const double _kenBurnsZoom = 0.05;
+  ///
+  /// 0,05'ten indirildi. Bu pay bedava değil: dikey türev 1080 px genişliğinde
+  /// ve iPhone 12 gibi 1170 px'lik bir ekranda zaten 1,08 kat büyütülüyor.
+  /// Üstüne %5 binince toplam 1,14 kata çıkıyordu ve hikayenin ilk saniyeleri
+  /// gözle görülür biçimde yumuşak açılıyordu. %2'de hareket hâlâ seçiliyor,
+  /// büyütme payı 1,10 katta kalıyor.
+  static const double _kenBurnsZoom = 0.02;
 
   static const String _productionOrigin = 'https://tarim-app-2026.web.app';
 
@@ -103,7 +109,11 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
       final group = widget.storyGroups[i];
       if (group.items.isEmpty) continue;
       precacheImage(
-        storyBackgroundProvider(context, group.items.first.backgroundUrl),
+        storyBackgroundProvider(
+          context,
+          imageUrl: group.items.first.imageUrl,
+          portraitUrl: group.items.first.portraitUrl,
+        ),
         context,
       );
     }
@@ -264,7 +274,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                   AnimatedBuilder(
                     animation: _animController,
                     builder: (context, child) {
-                      // Çok hafif bir "Ken Burns": kare 1.05'ten 1.00'e iner,
+                      // Çok hafif bir "Ken Burns": kare 1.02'den 1.00'e iner,
                       // yani hikaye net kareyle biter.
                       final double t = isCurrentGroup
                           ? Curves.easeOutSine.transform(_animController.value)
@@ -274,7 +284,10 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                         child: child,
                       );
                     },
-                    child: StoryBackgroundImage(url: item.backgroundUrl),
+                    child: StoryBackgroundImage(
+                      imageUrl: item.imageUrl,
+                      portraitUrl: item.portraitUrl,
+                    ),
                   ),
 
                   // Koyu Karartma (metin okunabilirliği için degrade perde)
