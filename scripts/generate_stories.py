@@ -29,16 +29,25 @@ def generate_story_for_article(article):
     veya çok çarpıcı bir gelişme varsa bundan bir "Instagram Story" veri kartı çıkarmanı istiyorum. 
     Eğer haber sadece yorum, siyasi söylem veya genel bir bilgi içeriyorsa boş döndür.
     
+    ÖNEMLİ: Uygulamamızın hem Türkçe hem İngilizce versiyonu var. Bu yüzden ürettiğin her metnin
+    mutlaka İngilizce çevirisini de ("_en" uzantılı anahtarlarda) sağlamalısın. İngilizce çeviriler
+    profesyonel ve gazetecilik diline uygun olmalı.
+    
     Lütfen ÇIKTIYI SADECE AŞAĞIDAKİ JSON FORMATINDA VER. Başka hiçbir açıklama yazma.
     
     İstenilen JSON yapısı:
     {{
         "is_story_worthy": true veya false,
         "group_title": "Kısa Kategori Adı (Örn: Piyasa Özeti, TMO Alımları vs. Max 15 harf)",
+        "group_title_en": "Kategori Adının İngilizcesi (Örn: Market Summary, TMO Purchases. Max 15 chars)",
         "super_title": "KISA ETİKET (Örn: GÜNLÜK PİYASA, HASAT 2024. Max 20 harf)",
+        "super_title_en": "KISA ETİKET İNGİLİZCE (Örn: DAILY MARKET. Max 20 chars)",
         "headline": "Haberi anlatan 1 veya 2 cümlelik çarpıcı başlık (Max 60 harf)",
+        "headline_en": "Haberi anlatan İngilizce başlık (Max 60 chars)",
         "big_stat_value": "Vurucu sayısal değer (Örn: +%4.2, 9.25₺, 12%)",
-        "stat_label": "Bu sayının ne olduğunu açıklayan kısa etiket (Örn: Chicago Borsası Artış)"
+        "big_stat_value_en": "Vurucu sayısal değer İngilizce formda (Örn: +4.2%, 9.25 TRY, 12%)",
+        "stat_label": "Bu sayının ne olduğunu açıklayan kısa etiket (Örn: Chicago Borsası Artış)",
+        "stat_label_en": "İngilizce etiket (Örn: Chicago Exchange Increase)"
     }}
     
     Haber Başlığı: {title}
@@ -127,15 +136,20 @@ def run_story_pipeline():
             
             # Items JSONB yapısı (İleride birden çok slide olursa diye liste)
             items_list = [{
-                "super_title": story_data["super_title"],
-                "headline": story_data["headline"],
-                "big_stat_value": story_data["big_stat_value"],
-                "stat_label": story_data["stat_label"]
+                "super_title": story_data.get("super_title", ""),
+                "super_title_en": story_data.get("super_title_en", ""),
+                "headline": story_data.get("headline", ""),
+                "headline_en": story_data.get("headline_en", ""),
+                "big_stat_value": story_data.get("big_stat_value", ""),
+                "big_stat_value_en": story_data.get("big_stat_value_en", ""),
+                "stat_label": story_data.get("stat_label", ""),
+                "stat_label_en": story_data.get("stat_label_en", ""),
+                "group_title_en": story_data.get("group_title_en", "") # Avatar başlığı için buraya saklıyoruz
             }]
             
             supabase_client.from_("portal_stories").insert({
                 "article_id": article["id"],
-                "group_title": story_data["group_title"],
+                "group_title": story_data.get("group_title", ""),
                 "is_breaking": article.get("is_breaking", False),
                 "items": items_list,
                 "expires_at": expires

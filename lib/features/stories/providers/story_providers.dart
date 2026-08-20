@@ -37,17 +37,26 @@ final storiesProvider = FutureProvider<List<StoryGroup>>((ref) async {
       return StoryItem(
         id: row['id'] + '_' + itemsData.indexOf(item).toString(),
         superTitle: item['super_title']?.toString() ?? '',
+        superTitleEn: item['super_title_en']?.toString() ?? '',
         headline: item['headline']?.toString() ?? '',
+        headlineEn: item['headline_en']?.toString() ?? '',
         bigStatValue: item['big_stat_value']?.toString() ?? '',
+        bigStatValueEn: item['big_stat_value_en']?.toString() ?? '',
         statLabel: item['stat_label']?.toString() ?? '',
+        statLabelEn: item['stat_label_en']?.toString() ?? '',
         backgroundUrl: safeAvatarUrl,
       );
     }).toList();
 
     if (parsedItems.isNotEmpty) {
+      final String groupTitleEn = (itemsData.isNotEmpty && itemsData.first['group_title_en'] != null)
+          ? itemsData.first['group_title_en'].toString()
+          : '';
+
       validStories.add(StoryGroup(
         id: row['id'].toString(),
         title: row['group_title']?.toString() ?? 'Hikaye',
+        titleEn: groupTitleEn,
         avatarUrl: safeAvatarUrl,
         articleId: row['article_id'].toString(),
         isNew: isBreaking,

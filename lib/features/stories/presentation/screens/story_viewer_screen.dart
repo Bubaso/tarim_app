@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -139,21 +140,28 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
               final itemIndex = isCurrentGroup ? _currentItemIndex : 0;
               final item = group.items[itemIndex];
 
+              final bool isEn = Localizations.localeOf(context).languageCode == 'en';
+              final String displayGroupTitle = isEn && group.titleEn.isNotEmpty ? group.titleEn : group.title;
+              final String displaySuperTitle = isEn && item.superTitleEn.isNotEmpty ? item.superTitleEn : item.superTitle;
+              final String displayHeadline = isEn && item.headlineEn.isNotEmpty ? item.headlineEn : item.headline;
+              final String displayBigStat = isEn && item.bigStatValueEn.isNotEmpty ? item.bigStatValueEn : item.bigStatValue;
+              final String displayStatLabel = isEn && item.statLabelEn.isNotEmpty ? item.statLabelEn : item.statLabel;
+
               return Stack(
                 fit: StackFit.expand,
                 children: [
-                  // Arka plan Görseli
+                  // Arka plan Görseli (Tam Ekran)
                   Image.network(
-                item.backgroundUrl,
-                fit: BoxFit.cover,
-                filterQuality: FilterQuality.high,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  color: AppColors.primaryGreen,
-                  child: const Center(
-                    child: Icon(Icons.broken_image, size: 64, color: Colors.white54),
+                    item.backgroundUrl,
+                    fit: BoxFit.cover,
+                    filterQuality: FilterQuality.high,
+                    errorBuilder: (context, error, stackTrace) => Container(
+                      color: AppColors.primaryGreen,
+                      child: const Center(
+                        child: Icon(Icons.broken_image, size: 64, color: Colors.white54),
+                      ),
+                    ),
                   ),
-                ),
-              ), 
                   
                   // Koyu Karartma (Gradient overlay for text readability)
                   Container(
@@ -194,7 +202,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: Text(
-                                    item.superTitle.toUpperCase(),
+                                    displaySuperTitle.toUpperCase(),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: GoogleFonts.inter(
@@ -223,7 +231,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                                     fit: BoxFit.scaleDown,
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      item.bigStatValue,
+                                      displayBigStat,
                                       style: GoogleFonts.playfairDisplay(
                                         color: AppColors.wheat,
                                         fontSize: 72,
@@ -240,7 +248,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                           
                           // İstatistik Açıklaması
                           Text(
-                            item.statLabel,
+                            displayStatLabel,
                             style: GoogleFonts.inter(
                               color: AppColors.wheat,
                               fontSize: 16,
@@ -252,7 +260,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                           
                           // Ana Başlık
                           Text(
-                            item.headline,
+                            displayHeadline,
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.playfairDisplay(
@@ -286,7 +294,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
-                                          'Haberi Oku',
+                                          isEn ? 'Read Article' : 'Haberi Oku',
                                           style: GoogleFonts.inter(
                                             color: Colors.white,
                                             fontSize: 14,
@@ -335,12 +343,13 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                           Row(
                             children: [
                               ClipOval(
-                                child: CachedNetworkImage(
-                                  imageUrl: group.avatarUrl,
+                                child: Image.network(
+                                  group.avatarUrl,
                                   width: 36,
                                   height: 36,
                                   fit: BoxFit.cover,
-                                  errorWidget: (context, url, error) => Container(
+                                  filterQuality: FilterQuality.high,
+                                  errorBuilder: (context, error, stackTrace) => Container(
                                     color: AppColors.wheat,
                                     child: const Icon(Icons.broken_image, size: 16, color: Colors.white),
                                   ),
@@ -348,7 +357,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                               ),
                               const SizedBox(width: 10),
                               Text(
-                                group.title,
+                                displayGroupTitle,
                                 style: GoogleFonts.inter(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w600,

@@ -35,6 +35,9 @@ class StoryAvatarStrip extends ConsumerWidget {
             itemCount: displayCount,
             itemBuilder: (context, index) {
               final group = stories[index];
+              final bool isEn = Localizations.localeOf(context).languageCode == 'en';
+              final String displayTitle = isEn && group.titleEn.isNotEmpty ? group.titleEn : group.title;
+
           return Padding(
             padding: const EdgeInsets.only(right: 16.0),
             child: GestureDetector(
@@ -58,26 +61,22 @@ class StoryAvatarStrip extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
-                    width: 72,
-                    height: 72,
+                    width: 76,
+                    height: 76,
                     padding: const EdgeInsets.all(3),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      gradient: group.isNew
-                          ? const LinearGradient(
-                              colors: [AppColors.wheat, AppColors.primaryGreen],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            )
-                          : null,
-                      border: !group.isNew
-                          ? Border.all(color: Colors.grey.withOpacity(0.3), width: 1.5)
-                          : null,
+                      gradient: group.isNew ? const LinearGradient(
+                        colors: [Color(0xFFE94057), Color(0xFFF27121)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ) : null,
+                      border: !group.isNew ? Border.all(color: isDark ? Colors.white24 : Colors.black12, width: 2) : null,
                     ),
                     child: Container(
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: isDark ? AppColors.darkGreen : AppColors.creamBackground, width: 2),
+                        border: Border.all(color: Theme.of(context).scaffoldBackgroundColor, width: 2),
                       ),
                       child: ClipOval(
                         child: Image.network(
@@ -96,7 +95,7 @@ class StoryAvatarStrip extends ConsumerWidget {
                   SizedBox(
                     width: 76,
                     child: Text(
-                      group.title,
+                      displayTitle,
                       textAlign: TextAlign.center,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
