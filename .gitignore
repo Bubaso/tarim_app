@@ -47,6 +47,26 @@ swagger.json
 database.json
 deploy.exp
 node_modules
+check_theme.py
+check_triggers.py
+compare.py
+diff_articles.py
+functions/test_fcm.js
+get_hollanda.py
+get_hollanda_full.py
+get_title_en.py
+query_aa.py
+query_aa_url.py
+query_status.py
+test_blur.dart
+test_claim.py
+test_db.py
+test_rpc.dart
+test_supabase.dart
+test_update.py
+
+# Firebase cache
+.firebase/
 
 # Ülke dosyası — FAOSTAT toplu CSV geçici dizini (2,2 GB, betikle yeniden üretilir)
 content/dossiers/*/_raw/x/
