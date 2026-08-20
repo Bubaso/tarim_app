@@ -1,11 +1,10 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../data/models/story_item.dart';
+import '../widgets/story_image.dart';
 
 class StoryViewerScreen extends StatefulWidget {
   final List<StoryGroup> storyGroups;
@@ -30,6 +29,10 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
   late AnimationController _animController;
   final Duration _storyDuration = const Duration(seconds: 7);
 
+  /// Arka plan görselinin hikaye boyunca kapanan yakınlaştırma payı.
+  /// 0 yapılırsa hareket tamamen kalkar, kare sabit kalır.
+  static const double _kenBurnsZoom = 0.05;
+
   @override
   void initState() {
     super.initState();
@@ -44,6 +47,23 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
     });
     
     _startStory();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _precacheNeighbours());
+  }
+
+  /// Komşu hikayelerin tam boy görsellerini önden indirir; böylece sağa/sola
+  /// geçişte bulanık ara kare yerine doğrudan net görsel açılır.
+  void _precacheNeighbours() {
+    if (!mounted) return;
+    for (final int offset in const [1, 2, -1]) {
+      final int i = _currentGroupIndex + offset;
+      if (i < 0 || i >= widget.storyGroups.length) continue;
+      final group = widget.storyGroups[i];
+      if (group.items.isEmpty) continue;
+      precacheImage(
+        storyBackgroundProvider(context, group.items.first.backgroundUrl),
+        context,
+      );
+    }
   }
 
   void _startStory() {
@@ -93,6 +113,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
       _currentItemIndex = 0;
     });
     _startStory();
+    _precacheNeighbours();
   }
 
   void _onTapDown(TapDownDetails details) {
@@ -151,30 +172,43 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                 fit: StackFit.expand,
                 children: [
                   // Arka plan Görseli (Tam Ekran)
-                  Image.network(
-                    item.backgroundUrl,
-                    fit: BoxFit.cover,
-                    filterQuality: FilterQuality.high,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      color: AppColors.primaryGreen,
-                      child: const Center(
-                        child: Icon(Icons.broken_image, size: 64, color: Colors.white54),
-                      ),
-                    ),
+                  // Görsel, cihazın piksel yoğunluğuna göre boyutlandırılmış
+                  // olarak Supabase dönüştürme uç noktasından gelir; ayrıntı
+                  // için bkz. widgets/story_image.dart
+                  AnimatedBuilder(
+                    animation: _animController,
+                    builder: (context, child) {
+                      // Çok hafif bir "Ken Burns": kare 1.05'ten 1.00'e iner,
+                      // yani hikaye net kareyle biter. Kapatmak için sabiti 0 yap.
+                      final double t = isCurrentGroup
+                          ? Curves.easeOutSine.transform(_animController.value)
+                          : 0.0;
+                      return Transform.scale(
+                        scale: 1.0 + _kenBurnsZoom * (1 - t),
+                        child: child,
+                      );
+                    },
+                    child: StoryBackgroundImage(url: item.backgroundUrl),
                   ),
-                  
-                  // Koyu Karartma (Gradient overlay for text readability)
+
+                  // Koyu Karartma (metin okunabilirliği için degrade perde)
+                  // Ara duraklar bilinçli olarak sık: 3 duraklı bir degrade koyu
+                  // fotoğraflarda 8-bit ekranlarda görünür bantlanma yapıyordu.
                   Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Colors.black.withOpacity(0.7),
+                          Colors.black.withOpacity(0.72),
+                          Colors.black.withOpacity(0.38),
+                          Colors.black.withOpacity(0.12),
                           Colors.transparent,
-                          Colors.black.withOpacity(0.9),
+                          Colors.black.withOpacity(0.30),
+                          Colors.black.withOpacity(0.68),
+                          Colors.black.withOpacity(0.92),
                         ],
-                        stops: const [0.0, 0.4, 1.0],
+                        stops: const [0.0, 0.10, 0.22, 0.40, 0.62, 0.82, 1.0],
                       ),
                     ),
                   ),
@@ -343,17 +377,7 @@ class _StoryViewerScreenState extends State<StoryViewerScreen> with TickerProvid
                           Row(
                             children: [
                               ClipOval(
-                                child: Image.network(
-                                  group.avatarUrl,
-                                  width: 36,
-                                  height: 36,
-                                  fit: BoxFit.cover,
-                                  filterQuality: FilterQuality.high,
-                                  errorBuilder: (context, error, stackTrace) => Container(
-                                    color: AppColors.wheat,
-                                    child: const Icon(Icons.broken_image, size: 16, color: Colors.white),
-                                  ),
-                                ),
+                                child: StoryCircleImage(url: group.avatarUrl, size: 36),
                               ),
                               const SizedBox(width: 10),
                               Text(

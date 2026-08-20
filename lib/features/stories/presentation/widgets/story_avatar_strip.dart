@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/theme/app_colors.dart';
-import '../../data/models/story_item.dart';
+import '../../../../core/utils/image_fallback_helper.dart';
 import '../screens/story_viewer_screen.dart';
 import '../../providers/story_providers.dart';
+import 'story_image.dart';
 
 class StoryAvatarStrip extends ConsumerWidget {
   final bool isDark;
@@ -79,15 +79,8 @@ class StoryAvatarStrip extends ConsumerWidget {
                         border: Border.all(color: Theme.of(context).scaffoldBackgroundColor, width: 2),
                       ),
                       child: ClipOval(
-                        child: Image.network(
-                          group.avatarUrl,
-                          fit: BoxFit.cover,
-                          filterQuality: FilterQuality.high,
-                          errorBuilder: (context, error, stackTrace) => Container(
-                            color: AppColors.wheat,
-                            child: const Icon(Icons.broken_image, size: 20, color: Colors.white),
-                          ),
-                        ),
+                        // 76 px'lik kutu - 3 px halka payı - 2 px zemin çerçevesi
+                        child: StoryCircleImage(url: group.avatarUrl, size: 66, fill: true),
                       ),
                     ),
                   ),
@@ -114,8 +107,39 @@ class StoryAvatarStrip extends ConsumerWidget {
       ),
     );
   },
-      loading: () => const SizedBox.shrink(),
-      error: (err, stack) => SizedBox(height: 110, child: Center(child: Text('Hata: $err', style: const TextStyle(color: Colors.red)))),
+      // Yükleme sırasında yüksekliği koruyoruz: strip sonradan "içeri düşünce"
+      // anasayfa zıplıyor ve bu tek başına kaliteyi düşük gösteriyordu.
+      loading: () => SizedBox(
+        height: 110,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          itemCount: 5,
+          itemBuilder: (context, _) => const Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ShimmerPlaceholder(
+                  width: 76,
+                  height: 76,
+                  borderRadius: BorderRadius.all(Radius.circular(38)),
+                ),
+                SizedBox(height: 8),
+                ShimmerPlaceholder(
+                  width: 52,
+                  height: 10,
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      // Hikayeler tamamen isteğe bağlı bir bölüm; hata durumunda kullanıcıya
+      // kırmızı bir hata metni göstermek yerine sessizce gizliyoruz.
+      error: (err, stack) => const SizedBox.shrink(),
     );
   }
 }
