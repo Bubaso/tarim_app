@@ -31,7 +31,7 @@ from datetime import datetime, timedelta, timezone
 
 class StoryRules:
     #: Aynı anda yayında olabilecek en fazla hikaye satırı.
-    MAX_ACTIVE = 40
+    MAX_ACTIVE = 50
 
     #: Haberlerin taranacağı zaman penceresi.
     ARTICLE_WINDOW_HOURS = 36
