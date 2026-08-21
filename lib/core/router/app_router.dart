@@ -163,7 +163,8 @@ CustomTransitionPage<void> _fadePage(GoRouterState state, Widget child) {
 final appRouter = GoRouter(
   initialLocation: '/',
   observers: [
-    FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+    if (Firebase.apps.isNotEmpty)
+      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
   ],
   onException: (context, state, router) => router.go('/'),
   routes: [

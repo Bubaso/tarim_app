@@ -60,24 +60,28 @@ void main() async {
   // liste gözün önünde yeniden dizilmesin.
   final visit = await VisitTracker.beginVisit();
 
-  // Telefonlarda sadece dikey mod (Portrait), tabletlerde ise hem dikey hem yatay serbest.
-  final view = PlatformDispatcher.instance.views.first;
-  final physicalSize = view.physicalSize;
-  final pixelRatio = view.devicePixelRatio;
-  final logicalSize = physicalSize / pixelRatio;
-  
-  if (logicalSize.shortestSide < 600) {
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ]);
-  } else {
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+  try {
+    // Telefonlarda sadece dikey mod (Portrait), tabletlerde ise hem dikey hem yatay serbest.
+    final view = PlatformDispatcher.instance.views.first;
+    final physicalSize = view.physicalSize;
+    final pixelRatio = view.devicePixelRatio;
+    final logicalSize = physicalSize / pixelRatio;
+    
+    if (logicalSize.shortestSide < 600) {
+      await SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
+    } else {
+      await SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+    }
+  } catch (e) {
+    debugPrint('Orientation setup error: $e');
   }
 
   runApp(
@@ -157,6 +161,45 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       // ekler. iOS'ta kenardan kaydırarak geri gelme hareketinin uygulamadan
       // çıkmaması ve geri dönüşte beyaz ekran oluşmaması bu moda bağlı.
       routerConfig: appRouter,
+
+      builder: (context, child) {
+        return OrientationBuilder(
+          builder: (context, orientation) {
+            // Telefonlarda (en kısa kenar < 600) yatay moda geçildiğinde uyarı göster
+            final isPhone = MediaQuery.of(context).size.shortestSide < 600;
+            if (isPhone && orientation == Orientation.landscape) {
+              return const Directionality(
+                textDirection: TextDirection.ltr,
+                child: Scaffold(
+                  backgroundColor: Color(0xFFF6F1E7),
+                  body: Center(
+                    child: Padding(
+                      padding: EdgeInsets.all(24.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.screen_rotation, size: 48, color: Color(0xFF3A2E20)),
+                          SizedBox(height: 16),
+                          Text(
+                            'Lütfen telefonunuzu dikey tutunuz.',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xFF3A2E20),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }
+            return child ?? const SizedBox.shrink();
+          },
+        );
+      },
 
       // Theme definitions
       theme: AppTheme.lightTheme,
