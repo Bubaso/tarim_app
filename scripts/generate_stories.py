@@ -41,8 +41,8 @@ class StoryRules:
 
     #: Hikaye ömrü. Hem normal haberler hem de son dakika haberleri için
     #: gösterim süresi sabitlendi.
-    TTL_HOURS = 8
-    BREAKING_TTL_HOURS = 8
+    TTL_HOURS = 16
+    BREAKING_TTL_HOURS = 16
 
     #: Aynı haberden ikinci kez hikaye üretmemek için bakılan geçmiş. Eskiden
     #: tablonun tamamı çekiliyordu; hikayeler en fazla 36 saat yaşadığı için
