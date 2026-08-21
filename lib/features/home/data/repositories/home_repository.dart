@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/ai_suggestion.dart';
 import '../models/news_article.dart';
 import '../models/weather_info.dart';
@@ -17,18 +18,37 @@ class HomeRepository {
   HomeRepository(this._supabaseClient);
 
   /// Supabase REST stream for fetching 'articles' table, ordered by 'created_at' descending.
-  Stream<List<NewsArticle>> watchLatestArticles() {
-    return _supabaseClient
+  /// Includes offline caching for PWA via SharedPreferences.
+  Stream<List<NewsArticle>> watchLatestArticles() async* {
+    // 1. Önce yerel önbelleği yükle ve emit et (çevrimdışı destek)
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final cachedData = prefs.getString('offline_articles_cache');
+      if (cachedData != null && _cachedDbArticles.isEmpty) {
+        final decoded = jsonDecode(cachedData) as List;
+        _cachedDbArticles = decoded.map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList();
+        yield [..._localDrafts, ..._cachedDbArticles];
+      }
+    } catch (e) {
+      if (kDebugMode) print('Offline cache read error: $e');
+    }
+
+    // 2. Ardından sunucudan güncel veriyi çek ve önbelleği güncelle
+    yield* _supabaseClient
         .from('articles')
         .select('*')
         .eq('status', 'published')
         .order('created_at', ascending: false)
         .asStream()
-        .map((maps) {
+        .asyncMap((maps) async {
           final dbArticles = maps
               .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
               .toList();
           _cachedDbArticles = dbArticles;
+          try {
+            final prefs = await SharedPreferences.getInstance();
+            await prefs.setString('offline_articles_cache', jsonEncode(dbArticles.map((e) => e.toJson()).toList()));
+          } catch (_) {}
           return [..._localDrafts, ...dbArticles];
         })
         .handleError((e) {
@@ -152,6 +172,11 @@ class HomeRepository {
       if (kDebugMode) {
         print('fetchArticleById failed: $e');
       }
+      // Çevrimdışı isek yerel önbellekten bulmaya çalış
+      try {
+        final idx = _cachedDbArticles.indexWhere((a) => a.id == id);
+        if (idx != -1) return _cachedDbArticles[idx];
+      } catch (_) {}
       return null;
     }
   }
