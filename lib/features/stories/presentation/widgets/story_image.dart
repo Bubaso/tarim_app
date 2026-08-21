@@ -44,9 +44,14 @@ const Color kStoryImageBackdrop = Color(0xFF12160F);
 bool storyImageIsTransformable(String rawUrl) =>
     rawUrl.contains('/object/public/') || rawUrl.contains('/render/image/public/');
 
-/// Hattın ürettiği dikey hikaye türevi bu ekle biter (bkz. `image_storage.py`,
-/// `STORY_W`×`STORY_H`).
-const String _kDikeyTurevEki = '_1080x2340.jpg';
+/// Hattın ürettiği dikey hikaye türevinin adında bu damga geçer (bkz.
+/// `image_storage.py`, `STORY_W`×`STORY_H`).
+///
+/// Uzantı ve sürüm eki bilerek dışarıda: dosya adı `..._1080x2340_v2.jpg`
+/// biçiminde ve üretim yolu her değiştiğinde sürüm artıyor (önbellek düşsün
+/// diye). Burada sürüme bağlanmak, hattın her güncellemesinde uygulamanın da
+/// değişmesini gerektirirdi.
+const String _kDikeyTurevEki = '_1080x2340';
 
 /// Dosya zaten hikaye ekranının ölçüsünde mi?
 ///

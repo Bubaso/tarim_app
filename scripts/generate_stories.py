@@ -39,10 +39,10 @@ class StoryRules:
     #: Tek çalıştırmada değerlendirilen en fazla haber.
     ARTICLE_SCAN_LIMIT = 100
 
-    #: Hikaye ömrü. Son dakika daha kısa yaşar: 24 saatlik bir "son dakika"
-    #: artık son dakika değildir, şeritte kırmızı halkayla durması yanıltıcı.
-    TTL_HOURS = 24
-    BREAKING_TTL_HOURS = 12
+    #: Hikaye ömrü. Hem normal haberler hem de son dakika haberleri için
+    #: gösterim süresi sabitlendi.
+    TTL_HOURS = 8
+    BREAKING_TTL_HOURS = 8
 
     #: Aynı haberden ikinci kez hikaye üretmemek için bakılan geçmiş. Eskiden
     #: tablonun tamamı çekiliyordu; hikayeler en fazla 36 saat yaşadığı için

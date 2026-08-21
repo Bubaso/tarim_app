@@ -25,6 +25,16 @@ class DossierSummary {
   final String? coverUrl;
   final String? coverCredit;
 
+  /// Kapaktaki tanıtım videosu. null ise kapakta video bloğu hiç çizilmez.
+  ///
+  /// Yalnızca dosya sayfası dolduruyor; ana sayfa şeridi ve arşiv listesi
+  /// görünümlerinde bu sütun yok ve orada video oynatılmıyor.
+  ///
+  /// Bu adres bir süre ekran kodunda gömülü durdu ve `slug.contains('hollanda')`
+  /// koşuluyla çiziliyordu. İkinci ülkede koşul ikiye çıkacağı ve testlerde
+  /// video platformu bulunmadığı için veriye taşındı.
+  final String? videoUrl;
+
   final DateTime? startsAt;
   final DateTime? endsAt;
 
@@ -55,6 +65,7 @@ class DossierSummary {
     required this.theme,
     this.coverUrl,
     this.coverCredit,
+    this.videoUrl,
     this.startsAt,
     this.endsAt,
     this.daysRemaining,
@@ -74,6 +85,7 @@ class DossierSummary {
       theme: DossierTheme.fromJson(json['theme'] as Map<String, dynamic>?),
       coverUrl: _bosDegilse(json['cover_url']),
       coverCredit: _bosDegilse(json['cover_credit']),
+      videoUrl: _bosDegilse(json['video_url']),
       startsAt: DateTime.tryParse(json['starts_at']?.toString() ?? ''),
       endsAt: DateTime.tryParse(json['ends_at']?.toString() ?? ''),
       daysRemaining: _toInt(json['days_remaining']),

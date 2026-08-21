@@ -165,6 +165,66 @@ class AppTypography {
     );
   }
 
+  // ── 7. Ülke dosyası kapak adı ───────────────────────────────────────────
+  // Mobile 56 | Tablet 92 | Desktop 132 | LH 0.92
+  //
+  // Bilinçli olarak [headlineHome]'un çok üstünde: dosya kapağı tam ekran ve
+  // üzerinde tek bir kelime var. O kelime anasayfa manşetiyle aynı puntoda
+  // olduğunda kapak "büyük bir haber kartı" gibi okunuyordu; dergi kapağı
+  // gibi okunması için gövdeyle arasındaki kademenin görünür olması gerek.
+  //
+  // Negatif harf aralığı bu boyutta zorunlu: 132 px'te varsayılan aralık
+  // harfleri birbirinden koparıyor, kelime tek bir blok gibi durmuyor.
+  static TextStyle dossierCover(BuildContext context, {Color? color}) {
+    final w = MediaQuery.of(context).size.width;
+    double fontSize;
+    if (_isMobile(w)) {
+      fontSize = 56.0;
+    } else if (_isTablet(w)) {
+      fontSize = 92.0;
+    } else {
+      fontSize = 132.0;
+    }
+    return GoogleFonts.libreFranklin(
+      fontSize: fontSize,
+      height: 0.92,
+      fontWeight: FontWeight.w900,
+      // 0.03 em — puntoyla orantılı, sabit piksel değil.
+      letterSpacing: fontSize * -0.03,
+      color: color,
+    );
+  }
+
+  // ── 8. Ülke dosyası bölüm başlığı ───────────────────────────────────────
+  // Mobile 34 | Tablet 44 | Desktop 52 | LH 1.05
+  //
+  // [headlineCard] (18–21) gövde metninden yalnızca 3-4 punto büyüktü;
+  // on üç bölümlük bir belgede bu, bölüm başlangıçlarını görünmez kılıyordu.
+  // Buradaki kademe gövdenin iki katından fazla: sayfada kaydırırken bölüm
+  // sınırı okunmadan fark ediliyor.
+  static TextStyle dossierSection(
+    BuildContext context, {
+    Color? color,
+    double scale = 1.0,
+  }) {
+    final w = MediaQuery.of(context).size.width;
+    double fontSize;
+    if (_isMobile(w)) {
+      fontSize = 34.0;
+    } else if (_isTablet(w)) {
+      fontSize = 44.0;
+    } else {
+      fontSize = 52.0;
+    }
+    return GoogleFonts.libreFranklin(
+      fontSize: fontSize * scale,
+      height: 1.05,
+      fontWeight: FontWeight.w900,
+      letterSpacing: fontSize * -0.02,
+      color: color,
+    );
+  }
+
   /// Returns the base body font size (without scale) for the current screen.
   /// Used for flutter_html FontSize calculations.
   static double bodyBaseFontSize(BuildContext context) {

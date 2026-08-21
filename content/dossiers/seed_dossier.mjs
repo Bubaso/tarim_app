@@ -304,6 +304,7 @@ if (p.gun != null && (!Number.isInteger(p.gun) || p.gun < 1)) {
 }
 
 const kapak = yayin.kapak ?? {};
+const video = yayin.video ?? {};
 const durum = yayin.status ?? 'draft';
 if (!['draft', 'scheduled', 'published', 'archived'].includes(durum)) {
   dur(`Geçersiz status: '${durum}'.`);
@@ -348,7 +349,7 @@ begin;
 insert into public.country_dossiers
   (slug, name_tr, name_en, iso3, edition,
    thesis_tr, thesis_en, theme, data, charts,
-   cover_url, cover_credit, status, starts_at, ends_at, published_at)
+   cover_url, cover_credit, video_url, status, starts_at, ends_at, published_at)
 values (
   ${tirnak(yayin.slug)},
   ${tirnak(yayin.name_tr)},
@@ -362,6 +363,7 @@ values (
   ${jsonb(charts)},
   ${kapak.url ? tirnak(kapak.url) : 'null'},
   ${kapak.atif ? dolar(kapak.atif) : 'null'},
+  ${video.url ? tirnak(video.url) : 'null'},
   ${tirnak(durum)},
   ${baslangic},
   ${bitis},
@@ -379,6 +381,7 @@ on conflict (slug) do update set
   charts       = excluded.charts,
   cover_url    = excluded.cover_url,
   cover_credit = excluded.cover_credit,
+  video_url    = excluded.video_url,
   status       = excluded.status,
   -- Pencere KASITLI olarak korunuyor. Yayındaki bir dosyanın metninde yazım
   -- hatası düzeltmek için seed'i yeniden çalıştırmak, 28 günlük sayacı

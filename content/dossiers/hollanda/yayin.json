@@ -26,6 +26,11 @@
     "_notu": "tasarim.json/kapak kararına göre NASA Earth Observatory (kamu malı) aranacak. Bulunana kadar null — sayfa tipografik iskeletle tam çalışır, bu Faz 3'ün zorunlu şartı."
   },
 
+  "video": {
+    "url": "https://xkwcyavcltrweunvooeu.supabase.co/storage/v1/object/public/country_folder_videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.mp4",
+    "_notu": "Kapaktaki tanıtım videosu. null ise kapakta video bloğu hiç çizilmez; kapak görselinde olduğu gibi sayfa videosuz da tam çalışır. Bu adres bir süre EKRAN KODUNDA gömülü durdu ve slug'a bakan bir koşulla çiziliyordu; ikinci ülkede koşul ikiye çıkacağı için buraya taşındı."
+  },
+
   "bolum_grafikleri": {
     "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin grafikler.json'da GERÇEKTEN tanımlı olduğunu doğrular; ayrıca hiçbir grafiğin sahipsiz kalmadığını. İkisi de sağlanmazsa üretim durur.",
     "_neden_kimlik": "Önceki sürümde burada data.json blok adları yazıyordu ('tez', 'makro'…). Bir blok birden fazla grafiğe kaynaklık edebiliyor (sera → hem künye hem sıralama) ve bir grafik birden fazla bloktan beslenebiliyor. Eşleme bu yüzden veriye değil grafiğe yapılıyor.",

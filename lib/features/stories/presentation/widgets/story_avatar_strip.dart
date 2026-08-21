@@ -27,7 +27,7 @@ class StoryAvatarStrip extends ConsumerStatefulWidget {
   const StoryAvatarStrip({
     super.key,
     required this.isDark,
-    this.maxItems = 7, // Mobil için varsayılan
+    this.maxItems = 10,
   });
 
   @override
