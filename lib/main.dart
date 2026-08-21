@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -23,19 +24,27 @@ void main() async {
   // zorunda: router başlangıç adresini ilk karede okuyor.
   configureUrlStrategy();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+  } catch (e) {
+    debugPrint('Firebase init error (might be offline): $e');
+  }
 
   // Bu çağrı olmadan `DateFormat.yMMMd('tr_TR')` sessizce en_US'a düşüyor ve
   // Türkçe arayüzde tarihler "Aug 8, 2026" olarak yazılıyordu.
   await initializeDateFormatting('tr_TR');
   await initializeDateFormatting('en_US');
 
-  await Supabase.initialize(
-    url: ApiConstants.supabaseUrl,
-    publishableKey: ApiConstants.supabaseAnonKey,
-  );
+  try {
+    await Supabase.initialize(
+      url: ApiConstants.supabaseUrl,
+      publishableKey: ApiConstants.supabaseAnonKey,
+    );
+  } catch (e) {
+    debugPrint('Supabase init error (might be offline): $e');
+  }
 
   // Initialize notifications safely in the background
   // We use Future.microtask so it doesn't block runApp in any way.
@@ -50,6 +59,26 @@ void main() async {
   // Manşet tohumu `runApp`tan önce okunuyor: ilk kare doğru sırayla çizilsin,
   // liste gözün önünde yeniden dizilmesin.
   final visit = await VisitTracker.beginVisit();
+
+  // Telefonlarda sadece dikey mod (Portrait), tabletlerde ise hem dikey hem yatay serbest.
+  final view = PlatformDispatcher.instance.views.first;
+  final physicalSize = view.physicalSize;
+  final pixelRatio = view.devicePixelRatio;
+  final logicalSize = physicalSize / pixelRatio;
+  
+  if (logicalSize.shortestSide < 600) {
+    await SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  } else {
+    await SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);
+  }
 
   runApp(
     ProviderScope(
