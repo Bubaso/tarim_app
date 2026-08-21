@@ -31,7 +31,7 @@ from datetime import datetime, timedelta, timezone
 
 class StoryRules:
     #: Aynı anda yayında olabilecek en fazla hikaye satırı.
-    MAX_ACTIVE = 10
+    MAX_ACTIVE = 40
 
     #: Haberlerin taranacağı zaman penceresi.
     ARTICLE_WINDOW_HOURS = 36
@@ -55,7 +55,7 @@ class StoryRules:
 
     #: Tam ekran gösterim için kabul edilen en küçük görsel genişliği.
     #: Bunun altındaki görsel telefonda kaçınılmaz olarak bulanık çıkıyor.
-    MIN_IMAGE_WIDTH = 1400
+    MIN_IMAGE_WIDTH = 1200
 
 
 #: Grup başlıkları sabit bir listeden seçiliyor. Serbest metin olduğunda her
