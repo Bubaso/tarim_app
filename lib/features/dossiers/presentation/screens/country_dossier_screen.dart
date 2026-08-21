@@ -1,4 +1,4 @@
-import 'dart:math' as math;
+import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/foundation.dart' show ValueListenable;
 import 'package:flutter/material.dart';
@@ -86,10 +86,6 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
   /// gövdeleriyle birlikte — yeniden kurulurdu.
   final ValueNotifier<int> _aktifBolum = ValueNotifier<int>(-1);
 
-  /// Kapağın ölçülen yüksekliği; üst çubuğun belirme eşiği buna bağlı.
-  /// `build` içinde tazeleniyor, kaydırma dinleyicisinde okunuyor.
-  double _kapakYuksekligi = 560;
-
   /// Bölüm hiç ölçülmemişken kullanılan kaba yükseklik.
   static const double _tahminiBolumYuksekligi = 900;
 
@@ -113,7 +109,7 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
         // Eşik kapağın yüksekliğine bağlı: kapak artık tam ekran, sabit 220
         // px'te çubuk daha kapağın üçte birindeyken belirip dev başlığın
         // üzerine biniyordu. Kapağın üçte ikisi geçildiğinde beliriyor.
-        final kaydi = _kaydirma.offset > _kapakYuksekligi * 0.66;
+        final kaydi = _kaydirma.offset > 150.0;
         if (_kaydi != kaydi) setState(() => _kaydi = kaydi);
         _olc();
       });
@@ -328,12 +324,7 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
       0,
       (t, b) => t + b.body(isEn).split(RegExp(r'\s+')).length,
     );
-    // Kapak yüksekliğinin ikizi. `_Kapak` kendi içinde aynı hesabı yapıyor;
-    // burada da tutuluyor çünkü kaydırma dinleyicisinin `context`i yok.
-    _kapakYuksekligi = math.max(
-      560.0,
-      MediaQuery.of(context).size.height * 0.92,
-    );
+    // Kapak boyutu dinamik.
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       // Sayfa koyu; durum çubuğu simgeleri açık olmalı. Bu da sistem
@@ -364,16 +355,19 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                 // Video kapağın içinden çıkarıldı: tam ekran kapakta ad ile
                 // tez cümlesinin arasına giren bir oynatıcı kompozisyonu
                 // ikiye bölüyordu. Kendi bloğu olarak hemen altında duruyor.
-                if (video != null)
-                  SliverToBoxAdapter(
-                    child: _Oluk(
-                      dikey: 24,
-                      child: DossierVideoPlayer(videoUrl: video),
-                    ),
-                  ),
                 // Kapaktan gövdeye geçiş bandı. Motifin gövde metninin
                 // arkasında değil yalnızca geçişlerde durması tasarım kuralı.
                 SliverToBoxAdapter(child: PolderMotif(tema: tema)),
+                if (video != null)
+                  SliverToBoxAdapter(
+                    child: _Oluk(
+                      dikey: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 24, bottom: 8),
+                        child: DossierVideoPlayer(videoUrl: video),
+                      ),
+                    ),
+                  ),
 
                 // Bölümler tembel: 13 bölümün toplam gövdesi ~4.800 kelime ve
                 // her birinin altında grafik var. Hepsini tek seferde kurmak
@@ -555,19 +549,11 @@ class _Kapak extends StatelessWidget {
     final ust = olcu.padding.top;
     final gorselVar = ozet.coverUrl != null;
 
-    // Ekranın %92'si: alt kenarda kalan %8 gövdenin başlangıcını gösteriyor,
-    // yani kapak bir "son" değil bir "başlangıç" gibi duruyor. Alt sınır 560
-    // px — çok kısa pencerelerde (yatay telefon) dev başlık taşmasın diye
-    // yükseklik içeriğin altına inmiyor.
-    final yukseklik = math.max(560.0, olcu.size.height * 0.92);
-
-    return SizedBox(
+    return Container(
       width: double.infinity,
-      height: yukseklik,
+      color: tema.zemin,
       child: Stack(
-        fit: StackFit.expand,
         children: [
-          ColoredBox(color: tema.zemin),
           if (gorselVar)
             Positioned.fill(
               child: ClipRect(
@@ -655,7 +641,7 @@ class _Kapak extends StatelessWidget {
                   ),
                   // Esnek boşluk adı alt üçte bire itiyor. Sabit bir değer
                   // olsaydı 560 px'lik pencerede ad ekrandan taşardı.
-                  const Spacer(),
+                  const SizedBox(height: 12),
                   // Ad tek satıra sığmayabilir ("Birleşik Krallık"): sarma
                   // serbest, kırpma yok. Dar telefonda iki satır olması
                   // sorun değil, ölçek zaten kompozisyonun kendisi.
@@ -694,15 +680,6 @@ class _Kapak extends StatelessWidget {
                       DossierShareBar(ozet: ozet, tema: tema, isEn: isEn),
                     ],
                   ),
-                  const SizedBox(height: 18),
-                  Center(
-                    child: _KaydirmaDaveti(
-                      bolumSayisi: bolumSayisi,
-                      kelimeSayisi: kelimeSayisi,
-                      tema: tema,
-                      isEn: isEn,
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -710,142 +687,6 @@ class _Kapak extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-/// Kapağın alt kenarındaki "aşağıda devamı var" işareti.
-///
-/// Tam ekran bir kapağın tek riski, okurun sayfanın burada bittiğini
-/// sanması. İnce bir ok ve dosyanın hacmi (`13 BÖLÜM · ~4.800 KELİME`)
-/// bunu tek bakışta çözüyor; hacim bilgisi ayrıca okura ne kadarlık bir işe
-/// giriştiğini söylüyor.
-///
-/// Yavaş yanıp sönme dikkat çekmek için değil, işaretin canlı olduğunu
-/// göstermek için — "hareketi azalt" açıksa sabit tam görünürlükte duruyor.
-class _KaydirmaDaveti extends StatefulWidget {
-  const _KaydirmaDaveti({
-    required this.bolumSayisi,
-    required this.kelimeSayisi,
-    required this.tema,
-    required this.isEn,
-  });
-
-  final int bolumSayisi;
-
-  /// Dosyanın toplam kelimesi. Veritabanında tutulmuyor — gövdelerden
-  /// sayılıyor, çünkü metin düzenlendiğinde ayrı bir alanın güncellenmesi
-  /// unutulur ve okura yanlış bir hacim bildirilir.
-  final int kelimeSayisi;
-  final DossierTheme tema;
-  final bool isEn;
-
-  @override
-  State<_KaydirmaDaveti> createState() => _KaydirmaDavetiState();
-}
-
-class _KaydirmaDavetiState extends State<_KaydirmaDaveti>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _denetim = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 1400),
-  );
-
-  late final Animation<double> _nabiz = Tween<double>(
-    begin: 0.42,
-    end: 1.0,
-  ).animate(CurvedAnimation(parent: _denetim, curve: Curves.easeInOut));
-
-  /// Nabız sonsuza kadar atmıyor: üç turdan sonra tam görünürlükte duruyor.
-  ///
-  /// Kapağın altında durmadan yanıp sönen bir işaret, okur sayfada kaldığı
-  /// sürece göz ucunda hareket eden bir şey demek — dikkati metinden çekiyor.
-  /// Üç tur "bu bir işaret" demeye yetiyor, sonrası ısrar oluyor.
-  int _tur = 0;
-  static const int _maksTur = 3;
-
-  bool _basladi = false;
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    if (_basladi) return;
-    _basladi = true;
-    if (MediaQuery.of(context).disableAnimations) {
-      _denetim.value = 1;
-    } else {
-      _denetim.addStatusListener(_durum);
-      _denetim.forward();
-    }
-  }
-
-  void _durum(AnimationStatus s) {
-    if (_tur >= _maksTur) return;
-    if (s == AnimationStatus.completed) {
-      _denetim.reverse();
-    } else if (s == AnimationStatus.dismissed) {
-      _tur++;
-      // Son turda değeri doğrudan koymak yeni bir durum bildirimi tetikliyor;
-      // yukarıdaki koruma o çağrıyı sessizce geri çeviriyor.
-      _tur >= _maksTur ? _denetim.value = 1 : _denetim.forward();
-    }
-  }
-
-  @override
-  void dispose() {
-    _denetim.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final tema = widget.tema;
-    final parcalar = <String>[
-      if (widget.bolumSayisi > 0)
-        widget.isEn
-            ? '${widget.bolumSayisi} SECTIONS'
-            : '${widget.bolumSayisi} BÖLÜM',
-      if (widget.kelimeSayisi >= 100)
-        widget.isEn
-            ? '~${_bin(widget.kelimeSayisi)} WORDS'
-            : '~${_bin(widget.kelimeSayisi)} KELİME',
-    ];
-
-    return FadeTransition(
-      opacity: _nabiz,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (parcalar.isNotEmpty) ...[
-            Text(
-              parcalar.join('  ·  '),
-              style: AppTypography.meta(context, color: tema.sessiz).copyWith(
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.8,
-              ),
-            ),
-            const SizedBox(height: 6),
-          ],
-          Icon(
-            Icons.keyboard_arrow_down_rounded,
-            size: 22,
-            color: tema.sessiz,
-            // Ok salt dekoratif; hacim bilgisi zaten metin olarak okunuyor.
-            semanticLabel: null,
-          ),
-        ],
-      ),
-    );
-  }
-
-  /// 4823 → "4.800" (TR) / "4,800" (EN). Kelime sayısı yaklaşık bir büyüklük;
-  /// birler basamağına kadar yazmak sahte bir kesinlik olurdu.
-  String _bin(int n) {
-    final yuvarlak = (n / 100).round() * 100;
-    final metin = yuvarlak.toString();
-    if (metin.length <= 3) return metin;
-    final ayrac = widget.isEn ? ',' : '.';
-    return '${metin.substring(0, metin.length - 3)}$ayrac'
-        '${metin.substring(metin.length - 3)}';
   }
 }
 
@@ -917,23 +758,19 @@ class _Bolum extends StatelessWidget {
         // görünmeli. Eşit boşlukta başlık iki blok arasında asılı kalıyor.
         _Oluk(
           child: Padding(
-            padding: const EdgeInsets.only(top: 72, bottom: 24),
+            padding: const EdgeInsets.only(top: 32, bottom: 24),
             child: Stack(
               clipBehavior: Clip.none,
               children: [
-                // Hayalet rakam. %5 opaklıkta, yani bir doku; okunması
-                // gerekmiyor, okunan rakam zaten başlığın üstündeki etikette.
-                // Bu yüzden ekran okuyucudan gizli.
+                // Hayalet rakam. Artık ana başlık numarası olarak tasarlandı.
                 Positioned(
                   left: -8,
-                  top: -34,
-                  child: ExcludeSemantics(
-                    child: Text(
-                      bolum.ordLabel,
-                      style: AppTypography.dossierCover(
-                        context,
-                        color: tema.murekkep.withValues(alpha: 0.05),
-                      ),
+                  top: -24,
+                  child: Text(
+                    bolum.ordLabel,
+                    style: AppTypography.dossierCover(
+                      context,
+                      color: tema.vurgu.withValues(alpha: 0.15),
                     ),
                   ),
                 ),
@@ -948,15 +785,13 @@ class _Bolum extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        _Etiket(bolum.ordLabel, renk: tema.vurgu),
-                        const SizedBox(width: 8),
                         // "03 / 13" ilerleme sayacı. Okuyucu nerede olduğunu
                         // ve ne kadar kaldığını tek bakışta görür.
                         Text(
-                          '/ ${toplamBolum.toString().padLeft(2, '0')}',
+                          '${bolum.ordLabel} / ${toplamBolum.toString().padLeft(2, '0')}',
                           style: AppTypography.meta(context, color: tema.sessiz)
                               .copyWith(
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w700,
                                 letterSpacing: 1.0,
                               ),
                         ),
@@ -979,7 +814,7 @@ class _Bolum extends StatelessWidget {
         ),
         _Oluk(
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 56),
+            padding: const EdgeInsets.only(bottom: 32),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -990,7 +825,15 @@ class _Bolum extends StatelessWidget {
             ),
           ),
         ),
-        if (!sonuncu) PolderMotif(tema: tema, yukseklik: 64),
+        if (!sonuncu)
+          Center(
+            child: Container(
+              height: 1,
+              width: 120,
+              color: tema.cizgi.withValues(alpha: 0.3),
+              margin: const EdgeInsets.symmetric(vertical: 8),
+            ),
+          ),
       ],
     );
   }
@@ -1234,20 +1077,23 @@ class _UstCubuk extends StatelessWidget {
       top: 0,
       left: 0,
       right: 0,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOutCubic,
-        height: ust + kToolbarHeight,
-        padding: EdgeInsets.only(top: ust, left: 4, right: 16),
-        decoration: BoxDecoration(
-          color: kaydi ? tema.zemin.withValues(alpha: 0.97) : Colors.transparent,
-          border: Border(
-            bottom: BorderSide(
-              color: kaydi ? tema.cizgi : Colors.transparent,
+      child: ClipRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: kaydi ? 12 : 0, sigmaY: kaydi ? 12 : 0),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.easeOutCubic,
+            height: ust + kToolbarHeight,
+            padding: EdgeInsets.only(top: ust, left: 4, right: 16),
+            decoration: BoxDecoration(
+              color: kaydi ? tema.zemin.withValues(alpha: 0.75) : Colors.transparent,
+              border: Border(
+                bottom: BorderSide(
+                  color: kaydi ? tema.cizgi : Colors.transparent,
+                ),
+              ),
             ),
-          ),
-        ),
-        child: Row(
+            child: Row(
           children: [
             IconButton(
               icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 19),
@@ -1280,6 +1126,8 @@ class _UstCubuk extends StatelessWidget {
                 onPressed: onIcindekiler,
               ),
           ],
+        ),
+      ),
         ),
       ),
     );

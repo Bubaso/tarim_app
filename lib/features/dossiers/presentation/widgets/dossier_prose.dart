@@ -113,8 +113,24 @@ class _IlkParagraf extends StatelessWidget {
       height: 1.80,
       fontWeight: FontWeight.w500,
     );
+    final ilkHarf = metin.isNotEmpty ? metin.substring(0, 1) : '';
+    final kalani = metin.isNotEmpty ? metin.substring(1) : '';
+
     return Text.rich(
-      TextSpan(children: satirIciSpanlar(metin, deckStil)),
+      TextSpan(
+        children: [
+          TextSpan(
+            text: ilkHarf,
+            style: deckStil.copyWith(
+              fontSize: (deckStil.fontSize ?? 18) * 3.2,
+              height: 1.0,
+              fontWeight: FontWeight.w900,
+              color: tema.vurgu,
+            ),
+          ),
+          ...satirIciSpanlar(kalani, deckStil),
+        ],
+      ),
     );
   }
 }
