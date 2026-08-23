@@ -125,7 +125,8 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     final item = _currentItem;
     // Süre kaynak (Türkçe) metnin uzunluğundan hesaplanıyor; çeviriler benzer
     // uzunlukta ve bu sayede `Localizations` bağlamına ihtiyaç kalmıyor.
-    _animController.duration = storySlideDuration(item.headline, item.statLabel);
+    _animController.duration =
+        storySlideDuration(item.headline, item.statLabel);
     _animController.stop();
     _animController.reset();
     _animController.forward();
@@ -194,10 +195,19 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     }
   }
 
-  String _shareUrl(String articleId) {
+  /// Paylaşılan adres: dosya hikâyesinde dosyanın kendisi, haberde haber.
+  String _shareUrl(StoryItem item) {
     final origin = kIsWeb ? Uri.base.origin : _productionOrigin;
-    return '$origin${articlePath(articleId)}';
+    return '$origin${_hedef(item)}';
   }
+
+  /// Slaytın gideceği uygulama içi adres.
+  ///
+  /// Hedef satırda yazılıysa o kullanılıyor; yazılı değilse eski davranış
+  /// sürüyor ve haberin adresine gidiliyor. Kod hedefi yorumlamıyor — böylece
+  /// yarın emtia veya hafta dosyası hikâyesi eklendiğinde burası değişmiyor.
+  String _hedef(StoryItem item) =>
+      item.dosyaHikayesi ? item.hedefYol : articlePath(item.articleId);
 
   /// Habere geçerken hikayeyi kapatıyoruz: eskiden ekran arkada açık kalıyor
   /// ve sayaç haberi okurken de işlemeye devam ediyordu.
@@ -209,7 +219,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     );
     final router = GoRouter.of(context);
     Navigator.of(context).pop();
-    router.push(articlePath(item.articleId));
+    router.push(_hedef(item));
   }
 
   Future<void> _share(StoryGroup group, StoryItem item, bool isEn) async {
@@ -219,7 +229,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     final box = context.findRenderObject() as RenderBox?;
     final text = '${item.headlineFor(isEn)}\n'
         '${item.bigStatValueFor(isEn)} · ${item.statLabelFor(isEn)}\n\n'
-        '${_shareUrl(item.articleId)}';
+        '${_shareUrl(item)}';
     try {
       await Share.share(
         text,
@@ -328,7 +338,8 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                             builder: (context, child) {
                               return Opacity(
                                 opacity: Curves.easeIn.transform(
-                                    (_animController.value * 5).clamp(0.0, 1.0)),
+                                    (_animController.value * 5)
+                                        .clamp(0.0, 1.0)),
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 4),
@@ -437,7 +448,13 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
-                                      isEn ? 'Read Article' : 'Haberi Oku',
+                                      item.dosyaHikayesi
+                                          ? (isEn
+                                              ? 'Open Dossier'
+                                              : 'Dosyayı Aç')
+                                          : (isEn
+                                              ? 'Read Article'
+                                              : 'Haberi Oku'),
                                       style: GoogleFonts.inter(
                                         color: Colors.white,
                                         fontSize: 14,
@@ -510,7 +527,8 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                                 onPressed: () => _share(group, item, isEn),
                               ),
                               IconButton(
-                                icon: const Icon(Icons.close, color: Colors.white),
+                                icon: const Icon(Icons.close,
+                                    color: Colors.white),
                                 tooltip: isEn ? 'Close' : 'Kapat',
                                 onPressed: () => Navigator.of(context).pop(),
                               ),

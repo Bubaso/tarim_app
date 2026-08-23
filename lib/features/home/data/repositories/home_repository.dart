@@ -20,20 +20,21 @@ class HomeRepository {
   /// Supabase REST stream for fetching 'articles' table, ordered by 'created_at' descending.
   /// Includes offline caching for PWA via SharedPreferences.
   Stream<List<NewsArticle>> watchLatestArticles() async* {
-    // 1. Önce yerel önbelleği yükle ve emit et (çevrimdışı destek)
+    // 1. Çevrimdışı destek için yerel önbelleği yükle (ama hemen emit ETME)
+    // Anında emit etmek manşette "eski haber görünüp yeni habere dönüşme" (flash) 
+    // sorununa yol açıyor. Ağ hatası olursa zaten handleError kısmında emit edilecek.
     try {
       final prefs = await SharedPreferences.getInstance();
       final cachedData = prefs.getString('offline_articles_cache');
       if (cachedData != null && _cachedDbArticles.isEmpty) {
         final decoded = jsonDecode(cachedData) as List;
         _cachedDbArticles = decoded.map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList();
-        yield [..._localDrafts, ..._cachedDbArticles];
       }
     } catch (e) {
       if (kDebugMode) print('Offline cache read error: $e');
     }
 
-    // 2. Ardından sunucudan güncel veriyi çek ve önbelleği güncelle
+    // 2. Sunucudan güncel veriyi çek ve önbelleği güncelle
     yield* _supabaseClient
         .from('articles')
         .select('*')

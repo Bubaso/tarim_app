@@ -57,9 +57,31 @@ const literaller = [...sql.matchAll(/\$dsr\$([\s\S]*?)\$dsr\$/g)].map((m) => ({
 bilgi(`${literaller.length} dolar-tırnaklı literal`);
 
 // ── 2. jsonb sütunları kaynağıyla birebir mi? ──
+// İlk üçü dosyanın kendi sütunları (theme, data, charts) ve SIRALARI SABİT —
+// SQL'de bu sırayla yazılıyorlar. Sonrakiler bölüm görselleri: sayıları
+// yayin.json/bolum_gorselleri'ndeki bölüm sayısı kadar olmalı. Sayı tutmuyorsa
+// ya bir görsel seed'e girmemiş ya da beklenmeyen bir jsonb sütunu eklenmiş.
 const jsonbLit = literaller.filter((l) => l.jsonbMi).map((l) => l.metin);
-if (jsonbLit.length !== 3) {
-  no(`3 jsonb literali bekleniyordu (theme, data, charts), ${jsonbLit.length} bulundu`);
+const beklenenGorsel = Object.keys(yayin.bolum_gorselleri ?? {})
+  .filter((k) => !k.startsWith('_')).length;
+if (jsonbLit.length !== 3 + beklenenGorsel) {
+  no(`${3 + beklenenGorsel} jsonb literali bekleniyordu ` +
+     `(theme, data, charts + ${beklenenGorsel} bölüm görseli), ` +
+     `${jsonbLit.length} bulundu`);
+}
+
+// Her görselin atfı ve iki dilli alt metni yerinde mi. Atıfsız görsel bu
+// dizide yayımlanmıyor; kural yayın betiğinde de var, burada bir kez daha
+// sınanıyor çünkü seed elle düzenlenebiliyor.
+for (const ham of jsonbLit.slice(3)) {
+  let g;
+  try { g = JSON.parse(ham); } catch { no('Bölüm görseli geçerli JSON değil'); continue; }
+  for (const alan of ['url', 'atif', 'alt_tr', 'alt_en']) {
+    if (!g?.[alan]) no(`Bölüm görselinde '${alan}' eksik: ${ham.slice(0, 60)}…`);
+  }
+}
+if (beklenenGorsel) {
+  ok(`${beklenenGorsel} bölüm görseli — hepsinde atıf ve iki dilli alt metin var`);
 }
 
 const esitMi = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -147,11 +169,24 @@ uyduruk.length
 // ── 4. Bölüm gövdeleri kaynakta birebir var mı? ──
 const metinLit = literaller.filter((l) => !l.jsonbMi).map((l) => l.metin);
 const tez = tasarim.tez_cumlesi ?? {};
-const bolumLit = metinLit.filter((l) => l !== tez.tr && l !== tez.en);
-if (metinLit.length - bolumLit.length !== 2) {
+// Kurum dosyasında kuruluş belgesi de dolar tırnağıyla yazılıyor (içinde nokta
+// ve orta çizgi var). O metin bölüm gövdesi değil künye alanı; bölüm
+// karşılaştırmasının dışında tutuluyor ama SQL'e yazıldığı ayrıca sınanıyor.
+const kurulusBelgesi = yayin.kurulus_belgesi ?? null;
+const bolumLit = metinLit.filter(
+  (l) => l !== tez.tr && l !== tez.en && l !== kurulusBelgesi,
+);
+const cikarilan = metinLit.length - bolumLit.length;
+const beklenen = 2 + (kurulusBelgesi && metinLit.includes(kurulusBelgesi) ? 1 : 0);
+if (cikarilan !== beklenen) {
   no('tez cümlesinin iki dili SQL’de bulunamadı');
 } else {
   ok('tez cümlesi (tr+en) SQL’de');
+}
+if (kurulusBelgesi) {
+  metinLit.includes(kurulusBelgesi)
+    ? ok(`kuruluş belgesi SQL’de: ${kurulusBelgesi}`)
+    : no('yayin.json/kurulus_belgesi SQL’e yazılmamış');
 }
 
 let govdeTr = 0, govdeEn = 0, baslikTr = 0, baslikEn = 0;

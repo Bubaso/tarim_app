@@ -3,7 +3,7 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/hollanda/
 -- Üretim:  node content/dossiers/seed_dossier.mjs hollanda
--- Tarih:   2026-08-20T20:42:09.352Z
+-- Tarih:   2026-08-22T22:07:53.253Z
 --
 -- Bölüm: 13 · TR ~4.825 kelime · EN ~6.328 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
@@ -15,7 +15,7 @@
 begin;
 
 insert into public.country_dossiers
-  (slug, name_tr, name_en, iso3, edition,
+  (slug, name_tr, name_en, iso3, tur, kurulus_belgesi, edition,
    thesis_tr, thesis_en, theme, data, charts,
    cover_url, cover_credit, video_url, status, starts_at, ends_at, published_at)
 values (
@@ -23,6 +23,8 @@ values (
   'Hollanda',
   'Netherlands',
   'NLD',
+  'ulke',
+  null,
   1,
   $dsr$Hollanda'nın sırrı toprağında değil, toprağının üstüne kurduğu sistemde.$dsr$,
   $dsr$The Dutch secret is not in the soil, but in what they built on top of it.$dsr$,
@@ -40,8 +42,10 @@ values (
 on conflict (slug) do update set
   name_tr      = excluded.name_tr,
   name_en      = excluded.name_en,
-  iso3         = excluded.iso3,
-  edition      = excluded.edition,
+  iso3            = excluded.iso3,
+  tur             = excluded.tur,
+  kurulus_belgesi = excluded.kurulus_belgesi,
+  edition         = excluded.edition,
   thesis_tr    = excluded.thesis_tr,
   thesis_en    = excluded.thesis_en,
   theme        = excluded.theme,
@@ -63,8 +67,8 @@ delete from public.dossier_sections
  where dossier_id = (select id from public.country_dossiers where slug = 'hollanda');
 
 insert into public.dossier_sections
-  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys)
-select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys
+  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys, tur, gorsel)
+select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys, v.tur, v.gorsel
 from public.country_dossiers d
 cross join (values
   (1::integer, $dsr$Paradoks$dsr$, $dsr$The paradox$dsr$, $dsr$Türkiye 2023'te 79,9 milyar dolarlık tarımsal üretim yaptı. Hollanda
@@ -133,7 +137,7 @@ Dutch agricultural land.
 So the question is not "how are the Dutch so good at farming?" The question is:
 *how does a country become the world's third largest agricultural exporter using
 half a percent of its farmland?* The answer is not in the soil. It is in what was
-built on top of it.$dsr$, array['tez_ikili']::text[]),
+built on top of it.$dsr$, array['tez_ikili']::text[], 'anlati', $dsr${"url":"https://tarim-app-2026.web.app/dosya/hollanda/delta.jpg","atif":"Image provided by the USGS EROS Data Center Satellite Systems Branch as part of the Earth as Art II image series","kaynak":"https://science.nasa.gov/earth/earth-observatory/the-netherlands-4563/","alt_tr":"Hollanda deltası uydudan: kıyı kumları arasında ada ve su yolları — dosyanın konusu olan ülkenin tamamı bu dar şeritte.","alt_en":"The Dutch delta from orbit: islands and waterways threaded between coastal sands — the whole country this dossier is about."}$dsr$::jsonb),
   (2, $dsr$Rakamla iki ülke$dsr$, $dsr$Two countries in figures$dsr$, $dsr$Karşılaştırma yapmadan önce iki ekonominin ölçeğini yan yana koymak gerekiyor,
 çünkü bu dosyadaki her oranın anlamı bu zemine oturuyor.
 
@@ -201,7 +205,7 @@ the rest of this dossier is about where and how that capital was placed.
 One last number: rural population. In the Netherlands 4.06 percent of people live
 rurally, in Türkiye 10.51 percent. Dutch agriculture is not a rural activity; it is
 a mode of production wedged between cities and run on industrial logic. We will see
-the geographical form of that in the fifth section.$dsr$, array['makro_ikili']::text[]),
+the geographical form of that in the fifth section.$dsr$, array['makro_ikili']::text[], 'veri', null),
   (3, $dsr$Coğrafyanın sınırları$dsr$, $dsr$The limits of geography$dsr$, $dsr$Hollanda'nın tarımsal başarısını "verimli toprak" ile açıklamak yaygın bir
 alışkanlıktır. Veri bunu desteklemiyor — ama beklenmedik bir yerden desteklemiyor.
 
@@ -283,7 +287,7 @@ long-term average; it cannot be read as the rainfall of any single year.)
 
 In short: Dutch soil is not more abundant, it is scarcer. Its water is more abundant
 but its agriculture depends on water less. Its inputs are more intensive. Geography
-does not explain this dossier.$dsr$, array['toprak_ikili']::text[]),
+does not explain this dossier.$dsr$, array['toprak_ikili']::text[], 'anlati', $dsr${"url":"https://tarim-app-2026.web.app/dosya/hollanda/delta_isleri.jpg","atif":"Image courtesy NASA/GSFC/METI/ERSDAC/JAROS, and U.S./Japan ASTER Science Team","kaynak":"https://science.nasa.gov/earth/earth-observatory/netherlands-dikes-5854/","alt_tr":"Güneybatı Hollanda kıyısı Delta İşleri sonrası: 1953 fırtınasından sonra kurulan set, baraj ve kilit sistemi adaları birbirine bağlamış.","alt_en":"The south-west Dutch coast after the Delta Works: the dikes, dams and locks built following the 1953 storm now tie the islands together."}$dsr$::jsonb),
   (4, $dsr$Verimin üç kademesi$dsr$, $dsr$The three tiers of yield$dsr$, $dsr$Bu dosyanın en keskin bulgusu burada. Ve ilk yazıldığında yanlış yazılmıştı;
 düzeltilmesi gerekti.
 
@@ -374,7 +378,7 @@ dioxide and nutrient solution are all set. What is measured there is not geograp
 capital and engineering. That is also why the gap does not close: closing it would
 require Türkiye to change not its climate but its investment decision.
 
-The subject of the next section is how small an area this first tier occupies.$dsr$, array['verim_ortualti', 'verim_acik_tarla']::text[]),
+The subject of the next section is how small an area this first tier occupies.$dsr$, array['verim_ortualti', 'verim_acik_tarla']::text[], 'veri', null),
   (5, $dsr$Yüzde yarım$dsr$, $dsr$Half a percent$dsr$, $dsr$Hollanda'nın toplam tarım arazisi 1.793.760 hektar (2025, CBS). Bunun **10.030
 hektarı** örtüaltı. Oran: **yüzde 0,56**.
 
@@ -453,7 +457,7 @@ engine of Dutch agriculture is not growth but **consolidation and deepening**.
 For Türkiye the lesson here is about the target of investment, not its scale. Ten
 thousand hectares is about one sixteenth of Türkiye's tomato area. The problem is not
 "we do not have as much land as the Netherlands" — there is far more. The problem is
-which part of that land receives capital, and at what density.$dsr$, array['sera_kunye', 'sera_urunler']::text[]),
+which part of that land receives capital, and at what density.$dsr$, array['sera_kunye', 'sera_urunler']::text[], 'veri', $dsr${"url":"https://tarim-app-2026.web.app/dosya/hollanda/westland.jpg","atif":"NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team","kaynak":"https://www.jpl.nasa.gov/images/pia21986-westland-the-netherlands/","alt_tr":"Westland: dünyanın sera başkenti. Bu bölümün konusu olan cam, uydudan bakınca arazinin dokusu hâline geliyor.","alt_en":"Westland, the greenhouse capital of the world. Seen from orbit, the glass this section is about becomes the texture of the land itself."}$dsr$::jsonb),
   (6, $dsr$Manşetin yarısı kime ait$dsr$, $dsr$Who owns half the headline$dsr$, $dsr$Hollanda tarım ihracatı 2025'te **137,5 milyar avro** oldu; bir önceki yıla göre
 yüzde 8,4 artış (CBS). Bu, dünyanın herhangi bir yerinde manşet olacak bir rakam ve
 oluyor da.
@@ -572,7 +576,7 @@ activity. Türkiye is not among the top ten markets.
 This section does not weaken the dossier's thesis; it sharpens it. The real Dutch
 achievement is not the 137.5 billion euro of turnover; it is that a country of 18
 million extracts 49 billion euro of net earnings from agriculture. To understand where
-those 49 billion come from, we turn to the next two sections.$dsr$, array['ihracat_yigin', 'ilk_10_pazar']::text[]),
+those 49 billion come from, we turn to the next two sections.$dsr$, array['ihracat_yigin', 'ilk_10_pazar']::text[], 'veri', $dsr${"url":"https://tarim-app-2026.web.app/dosya/hollanda/rotterdam.jpg","atif":"NASA Earth Observatory images created by Jesse Allen and Robert Simmon, using Landsat data provided by the U.S. Geological Survey. Caption by Michon Scott.","kaynak":"https://science.nasa.gov/earth/earth-observatory/land-reclamation-at-rotterdam-47122/","alt_tr":"Rotterdam limanının Maasvlakte 2 genişlemesi: deniz tabanından çıkarılan kumla kazanılmış konteyner sahası. Yeniden ihracatın geçtiği yer.","alt_en":"The Maasvlakte 2 expansion of the Port of Rotterdam: container ground built from seabed sand. This is where the re-export passes through."}$dsr$::jsonb),
   (7, $dsr$Hiç kakao yetiştirmeyen kakao devi$dsr$, $dsr$The cocoa giant that grows no cocoa$dsr$, $dsr$Hollanda'da kakao yetişmez. Kakao ağacı ekvator kuşağında, yıl boyu sıcak ve nemli
 iklimde yetişir; Hollanda'nın enlemi bunun çok kuzeyindedir. Hollanda'nın ürettiği
 kakao miktarı sıfırdır.
@@ -654,7 +658,7 @@ sells shelled hazelnuts to the Netherlands.
 
 The side with the soil supplies the bean; the side without supplies the processed
 good. That is a difference that cannot be explained by climate or soil. It is a
-difference of choice.$dsr$, array['kakao_ikili']::text[]),
+difference of choice.$dsr$, array['kakao_ikili']::text[], 'anlati', null),
   (8, $dsr$Kendi toprağını yapan ülke$dsr$, $dsr$The country that made its own land$dsr$, $dsr$Hollanda tarımını anlamak için önce şunu kabul etmek gerekiyor: bu ülkenin
 toprağının önemli bir kısmı **yapılmıştır**. Doğal değildir.
 
@@ -776,7 +780,7 @@ The point is this: the architect of Europe's common agricultural policy was a
 Dutchman. The Netherlands did not merely design its own agriculture; it also wrote the
 rules of the market it would sell into. In the sixth section we saw that 45 percent of
 its exports go to its three nearest markets. That the rules of that market were shaped
-by a Dutch commissioner is not a coincidence.$dsr$, array['tarih_cizelge']::text[]),
+by a Dutch commissioner is not a coincidence.$dsr$, array['tarih_cizelge']::text[], 'anlati', $dsr${"url":"https://tarim-app-2026.web.app/dosya/hollanda/zuiderzee.jpg","atif":"NASA image by Alan Holmes/ NASA's Ocean Color Web, using data from SeaHawk/HawkEye","kaynak":"https://science.nasa.gov/earth/earth-observatory/zuiderzee-works-148799","alt_tr":"Zuiderzee Works uydudan: Afsluitdijk barajı ve arkasında denizden kazanılmış polder parselleri.","alt_en":"The Zuiderzee Works from orbit: the Afsluitdijk dam and the polders reclaimed behind it."}$dsr$::jsonb),
   (9, $dsr$Beş kurum, beş tasarım kararı$dsr$, $dsr$Five institutions, five design decisions$dsr$, $dsr$Buraya kadarki bölümler Hollanda tarımının **ne** yaptığını gösterdi. Bu bölüm
 **kim** tarafından yapıldığını gösteriyor. Beş kurum, beş ayrı tasarım kararı.
 
@@ -928,7 +932,7 @@ ministry's business.
 
 **What the five decisions share.** None of them has anything to do with climate, soil
 or the size of holdings. All five are institutional design decisions. And that is
-precisely why all five are copyable.$dsr$, array['kurumlar_kartlar']::text[]),
+precisely why all five are copyable.$dsr$, array['kurumlar_kartlar']::text[], 'anlati', $dsr${"url":"https://tarim-app-2026.web.app/dosya/hollanda/laleler.jpg","atif":"NASA Earth Observatory images by Lauren Dauphin, using Landsat data from the U.S. Geological Survey. Story by Emily Cassidy.","kaynak":"https://science.nasa.gov/earth/earth-observatory/a-tulip-frenzy-in-the-netherlands-152750/","alt_tr":"Kuzey Hollanda’da çiçek soğanı tarlaları. Zincirin en yüksek katma değerli halkası — başlangıç materyali ihracatı — bu tarlalarda başlıyor.","alt_en":"Flower-bulb fields in North Holland. The highest value-added link in the chain — starting-material exports — begins here."}$dsr$::jsonb),
   (10, $dsr$Altmış yılın eğrisi$dsr$, $dsr$The curve of sixty years$dsr$, $dsr$Hollanda'nın tarım ihracatı FAOSTAT'ın kaydına göre 1961'de **1,2 milyar dolardı**.
 2023'te **125,8 milyar dolar**. Altmış iki yılda yüz kat.
 
@@ -1054,7 +1058,7 @@ exclude some raw materials. Rankings change when you change the definition.
 
 Every rank given in this dossier is given together with its definition and its year. If
 you state a rank without saying whose definition you are using, what you have given is
-not information but a slogan.$dsr$, array['ihracat_cizgi', 'dunya_ilk10']::text[]),
+not information but a slogan.$dsr$, array['ihracat_cizgi', 'dunya_ilk10']::text[], 'veri', null),
   (11, $dsr$Türkiye ile$dsr$, $dsr$With Türkiye$dsr$, $dsr$İki ülkenin birbiriyle tarım ticareti, bu dosyanın tezini bir kez daha, bu sefer
 Türkiye'nin kendi verisiyle tekrarlıyor.
 
@@ -1173,7 +1177,7 @@ One more detail: "food preparations n.e.c." sits near the top of both lists. The
 Netherlands sells 110.6 million dollars' worth, Türkiye 47.1 million. This item covers
 blends, additives and semi-finished goods — the things industry sells to industry. Most
 of the agricultural trade between these two countries flows not from farmer to consumer
-but from factory to factory.$dsr$, array['ikili_ticaret_cizgi', 'ikili_hollanda_satar', 'ikili_turkiye_satar']::text[]),
+but from factory to factory.$dsr$, array['ikili_ticaret_cizgi', 'ikili_hollanda_satar', 'ikili_turkiye_satar']::text[], 'veri', null),
   (12, $dsr$Gölgeler$dsr$, $dsr$Shadows$dsr$, $dsr$Üçüncü bölümde bir sayıyı aklınızda tutmanızı istemiştim: hektar başına 238,02
 kilogram gübre (2023), Türkiye'nin yaklaşık 1,7 katı. Şimdi o sayının nereye
 gittiğini konuşalım.
@@ -1297,7 +1301,7 @@ becomes a vulnerability.
 
 This section can be summarised in one sentence: the limit of the Dutch model turned out
 to be not soil but a **ceiling**. And what hit the ceiling was not the greenhouses but
-the barns.$dsr$, array['cevre_kunye']::text[]),
+the barns.$dsr$, array['cevre_kunye']::text[], 'veri', null),
   (13, $dsr$Türkiye ne alabilir$dsr$, $dsr$What Türkiye can take$dsr$, $dsr$Bu dosyanın en kolay yanlış sonucu şudur: "Türkiye de sera kursun."
 
 Rakamlar bu cümleyi anlamsız kılıyor. Hollanda'nın toplam cam altı alanı 10.030
@@ -1384,8 +1388,8 @@ be seen without waiting for a court.
 
 The thesis of this dossier has been one sentence from the start: Dutch agricultural
 power lies not in its soil but in the system built on top of that soil. And a system is
-portable — because a system is not geography, it is a decision.$dsr$, '{}'::text[])
-) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys)
+portable — because a system is not geography, it is a decision.$dsr$, '{}'::text[], 'anlati', null)
+) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys, tur, gorsel)
 where d.slug = 'hollanda';
 
 -- Sağlama: beklenen bölüm sayısı yazılmadıysa işlem geri alınır.

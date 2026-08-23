@@ -9,7 +9,10 @@ import '../../data/models/dossier_theme.dart';
 import '../../providers/dossier_providers.dart';
 import 'country_dossier_screen.dart';
 
-/// Yayımlanmış bütün ülke dosyalarının arşivi — `/ulkeler`.
+/// Yayımlanmış dosyaların arşivi — `/ulkeler` ve `/kurumlar`.
+///
+/// Aynı ekran iki diziye hizmet ediyor; [tur] hem listeyi süzüyor hem başlığı,
+/// giriş metnini ve kart adreslerini belirliyor.
 ///
 /// **Neden var.** Dosya yirmi sekiz gün ana sayfada duruyor ve sonra şeritten
 /// düşüyor; ama metin silinmiyor, `archived` durumuna geçiyor. Arşiv olmasaydı
@@ -27,7 +30,12 @@ import 'country_dossier_screen.dart';
 /// üstüne tek bir ülkenin deseni serilmez; her dosya kendi motifini kendi
 /// sayfasında taşıyor.
 class DossierIndexScreen extends ConsumerWidget {
-  const DossierIndexScreen({super.key});
+  const DossierIndexScreen({super.key, this.tur = 'ulke'});
+
+  /// `ulke` | `kurum`. Hangi dizinin arşivi.
+  final String tur;
+
+  bool get _kurum => tur == 'kurum';
 
   /// Kabuğun teması. Sayfadaki hiçbir renk buradan bağımsız değil.
   static const DossierTheme _kabuk = DossierTheme.yedek;
@@ -58,13 +66,15 @@ class DossierIndexScreen extends ConsumerWidget {
             onPressed: () => popScreen(context),
           ),
           title: Text(
-            isEn ? 'Country dossiers' : 'Ülke dosyaları',
+            _kurum
+                ? (isEn ? 'Institution dossiers' : 'Kurum dosyaları')
+                : (isEn ? 'Country dossiers' : 'Ülke dosyaları'),
             style: AppTypography.meta(context, color: _kabuk.murekkep)
                 .copyWith(fontWeight: FontWeight.w700),
           ),
         ),
-        body: ref.watch(dossierIndexProvider).when(
-              data: (liste) => _Liste(liste: liste, isEn: isEn),
+        body: ref.watch(dossierIndexByTurProvider(tur)).when(
+              data: (liste) => _Liste(liste: liste, isEn: isEn, tur: tur),
               loading: () => Center(
                 child: CircularProgressIndicator(
                   color: _kabuk.cizgiVurgu,
@@ -87,10 +97,13 @@ class DossierIndexScreen extends ConsumerWidget {
 }
 
 class _Liste extends StatelessWidget {
-  const _Liste({required this.liste, required this.isEn});
+  const _Liste({required this.liste, required this.isEn, required this.tur});
 
   final List<DossierSummary> liste;
   final bool isEn;
+
+  /// `ulke` | `kurum`. Giriş metni ve kart adresleri buna bağlı.
+  final String tur;
 
   /// İki sütuna geçme eşiği — şeritteki kuralın aynısı, aynı sebeple.
   static const double _ikiSutunEsigi = 900;
@@ -117,7 +130,7 @@ class _Liste extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _Giris(isEn: isEn, sayi: liste.length),
+                  _Giris(isEn: isEn, sayi: liste.length, tur: tur),
                   const SizedBox(height: 24),
                   // Wrap, GridView değil: kartların yüksekliği tez cümlesinin
                   // uzunluğuyla değişiyor ve sabit en-boy oranlı bir ızgara
@@ -149,22 +162,30 @@ class _Liste extends StatelessWidget {
 
 /// Rafın ne olduğunu bir cümlede söyleyen giriş.
 class _Giris extends StatelessWidget {
-  const _Giris({required this.isEn, required this.sayi});
+  const _Giris({required this.isEn, required this.sayi, required this.tur});
 
   final bool isEn;
   final int sayi;
+  final String tur;
 
   @override
   Widget build(BuildContext context) {
     const tema = DossierIndexScreen._kabuk;
+    final kurum = tur == 'kurum';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          isEn
-              ? 'Every 28 days one country, read through its agriculture.'
-              : 'Her 28 günde bir ülke, tarımı üzerinden okunuyor.',
+          // Ritim ve konu diziye göre değişiyor. Sabit yazıldığında kurum
+          // arşivi "her 28 günde bir ülke" diyordu.
+          kurum
+              ? (isEn
+                  ? 'Institutions of Turkish agriculture, one at a time.'
+                  : 'Türkiye tarımının kurumları, teker teker.')
+              : (isEn
+                  ? 'Every 28 days one country, read through its agriculture.'
+                  : 'Her 28 günde bir ülke, tarımı üzerinden okunuyor.'),
           style: AppTypography.deck(context, color: tema.murekkep),
         ),
         const SizedBox(height: 8),
@@ -198,7 +219,12 @@ class _Kart extends StatelessWidget {
       borderRadius: BorderRadius.circular(14),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
-        onTap: () => pushScreen(context, CountryDossierScreen(slug: ozet.slug)),
+        // ozet.tur ile: aktarılmadığında kurum dosyasının kartı /ulke/<slug>
+        // adresine gidiyordu.
+        onTap: () => pushScreen(
+          context,
+          CountryDossierScreen(slug: ozet.slug, tur: ozet.tur),
+        ),
         child: DecoratedBox(
           decoration: BoxDecoration(
             border: Border.all(color: tema.cizgi),
@@ -236,8 +262,9 @@ class _Kart extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   ozet.name(isEn),
-                  style: AppTypography.headlineCard(context, color: tema.murekkep)
-                      .copyWith(fontSize: 24, height: 1.1),
+                  style:
+                      AppTypography.headlineCard(context, color: tema.murekkep)
+                          .copyWith(fontSize: 24, height: 1.1),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

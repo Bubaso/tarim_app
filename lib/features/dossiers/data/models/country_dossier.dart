@@ -12,7 +12,22 @@ class DossierSummary {
   final String nameEn;
 
   /// ISO 3166-1 alpha-3. Rakamların kaynağına dönmenin anahtarı.
+  ///
+  /// Kurum dosyasında boş: kurumun ISO kodu yok, onun yerine
+  /// [kurulusBelgesi] aynı işi görüyor.
   final String iso3;
+
+  /// `ulke` | `kurum`. Hangi diziye ait olduğu.
+  ///
+  /// Ana sayfa bandı iki kartı buna göre ayırıyor, arşiv buna göre süzüyor ve
+  /// sayı numarası (`edition`) dizi İÇİNDE tekil — iki dizi de 01'den başlıyor.
+  final String tur;
+
+  bool get kurumDosyasi => tur == 'kurum';
+
+  /// Kurumu kuran belge: "3491 sayılı Kanun · RG 13.07.1938".
+  /// Ülke dosyasında null.
+  final String? kurulusBelgesi;
 
   /// Kapaktaki "ÜLKE DOSYASI · 01" numarası.
   final int edition;
@@ -59,6 +74,8 @@ class DossierSummary {
     required this.nameTr,
     required this.nameEn,
     required this.iso3,
+    this.tur = 'ulke',
+    this.kurulusBelgesi,
     required this.edition,
     required this.thesisTr,
     required this.thesisEn,
@@ -79,6 +96,8 @@ class DossierSummary {
       nameTr: json['name_tr']?.toString() ?? '',
       nameEn: json['name_en']?.toString() ?? '',
       iso3: json['iso3']?.toString() ?? '',
+      tur: json['tur']?.toString() == 'kurum' ? 'kurum' : 'ulke',
+      kurulusBelgesi: json['kurulus_belgesi']?.toString(),
       edition: _toInt(json['edition']) ?? 0,
       thesisTr: json['thesis_tr']?.toString() ?? '',
       thesisEn: json['thesis_en']?.toString() ?? '',
@@ -99,6 +118,18 @@ class DossierSummary {
 
   /// Kapakta "ÜLKE DOSYASI · 01" biçiminde görünür.
   String get editionLabel => edition.toString().padLeft(2, '0');
+
+  /// Kapağın ve ana sayfa kartının üst satırı: "KURUM DOSYASI · 01".
+  ///
+  /// Dizi adı KODA GÖMÜLMÜYOR. Sabit yazıldığında kurum dosyası ana sayfada
+  /// "ÜLKE DOSYASI" diye çıkıyordu — iki dizi aynı ekranı paylaştığı için
+  /// etiketin de veriden gelmesi gerekiyor.
+  String seriEtiketi(bool isEn) {
+    final dizi = kurumDosyasi
+        ? (isEn ? 'INSTITUTION DOSSIER' : 'KURUM DOSYASI')
+        : (isEn ? 'COUNTRY DOSSIER' : 'ÜLKE DOSYASI');
+    return '$dizi · $editionLabel';
+  }
 
   static int? _toInt(dynamic v) {
     if (v == null) return null;
@@ -265,6 +296,49 @@ class DossierSource {
 }
 
 /// Dosyanın tek bir bölümü.
+/// Bölüm görseli — adres, atıf ve iki dilli alt metin bir arada.
+///
+/// Atıf ayrı bir alan DEĞİL, zorunlu bir alan: bu dizide telifi belirsiz görsel
+/// kullanılmıyor ve atfı olmayan görsel yayımlanmıyor. Kural üretim betiğinde,
+/// doğrulayıcıda ve burada üç kez sınanıyor; üçü de aynı şeyi söylüyor çünkü
+/// zincirin herhangi bir halkasında gevşerse kural kalmaz.
+class DossierGorsel {
+  final String url;
+  final String atif;
+
+  /// Görselin geldiği sayfa. Atıf metni kimin ürettiğini söyler, bu adres
+  /// nereden alındığını — tartışmaya açıldığında kaynağa dönmenin yolu.
+  final String? kaynak;
+
+  final String altTr;
+  final String altEn;
+
+  const DossierGorsel({
+    required this.url,
+    required this.atif,
+    required this.altTr,
+    required this.altEn,
+    this.kaynak,
+  });
+
+  /// Eksik alanlı görsel çizilmez: yarım atıf, atıfsızlıktan farksız.
+  static DossierGorsel? fromJson(Object? ham) {
+    if (ham is! Map) return null;
+    final url = ham['url']?.toString() ?? '';
+    final atif = ham['atif']?.toString() ?? '';
+    if (url.isEmpty || atif.isEmpty) return null;
+    return DossierGorsel(
+      url: url,
+      atif: atif,
+      kaynak: ham['kaynak']?.toString(),
+      altTr: ham['alt_tr']?.toString() ?? '',
+      altEn: ham['alt_en']?.toString() ?? '',
+    );
+  }
+
+  String alt(bool isEn) => isEn && altEn.isNotEmpty ? altEn : altTr;
+}
+
 class DossierSection {
   /// 1'den başlar. Metindeki "üçüncü bölümde geri gelecek" gibi ileri
   /// göndermeler bu numaraya dayanıyor.
@@ -289,6 +363,28 @@ class DossierSection {
   /// sıralaması tablosunu taşıyor.
   final List<String> chartKeys;
 
+  /// Bölümün görsel ritmi: `anlati` | `belge` | `veri` | `akis`.
+  ///
+  /// On üç bölüm tek ritimde akarsa sayfa düzleşiyor — beş bin kelime boyunca
+  /// zemin hiç değişmiyor ve okurun "burası farklı" diyeceği bir an olmuyor.
+  /// Tür, o anı veriyor: `veri` bölümlerinde grafikler okuma oluğunu kırıp
+  /// genişliyor.
+  ///
+  /// `chartKeys`'ten türetilmiyor. "Grafiği olan bölüm geniştir" kuralı iki
+  /// yerde kırılıyor: grafiksiz bir `belge` bölümü olabiliyor, ve Hollanda'nın
+  /// 9. bölümü kart grafiği taşıdığı hâlde anlatı ritminde kalmalı. Tür bir
+  /// yayın kararı; veriden çıkarılmaz, yazılır.
+  ///
+  /// Bilinmeyen bir değer gelirse `anlati` kabul edilir: eski bir istemci yeni
+  /// bir türle karşılaştığında bölümü çizemeyip boş bırakmamalı.
+  final String tur;
+
+  bool get genisVeri => tur == 'veri';
+
+  /// Bölümün konusunu gösteren görsel. null ise bölümde görsel yok ve hiçbir
+  /// şey eksilmez — kapakta olduğu gibi görsel bir katman, taşıyıcı değil.
+  final DossierGorsel? gorsel;
+
   const DossierSection({
     required this.ord,
     required this.titleTr,
@@ -296,6 +392,8 @@ class DossierSection {
     required this.bodyTr,
     required this.bodyEn,
     this.chartKeys = const [],
+    this.tur = 'anlati',
+    this.gorsel,
   });
 
   factory DossierSection.fromJson(Map<String, dynamic> json) {
@@ -305,7 +403,11 @@ class DossierSection {
       titleEn: json['title_en']?.toString() ?? '',
       bodyTr: json['body_tr']?.toString() ?? '',
       bodyEn: json['body_en']?.toString() ?? '',
-      chartKeys: (json['chart_keys'] as List?)?.map((e) => e.toString()).toList() ?? const [],
+      chartKeys:
+          (json['chart_keys'] as List?)?.map((e) => e.toString()).toList() ??
+              const [],
+      tur: _turVeya(json['tur']),
+      gorsel: DossierGorsel.fromJson(json['gorsel']),
     );
   }
 
@@ -314,4 +416,11 @@ class DossierSection {
 
   /// Bölüm numarası "01", "02" biçiminde.
   String get ordLabel => ord.toString().padLeft(2, '0');
+
+  static const _turler = {'anlati', 'belge', 'veri', 'akis'};
+
+  static String _turVeya(Object? ham) {
+    final t = ham?.toString();
+    return t != null && _turler.contains(t) ? t : 'anlati';
+  }
 }

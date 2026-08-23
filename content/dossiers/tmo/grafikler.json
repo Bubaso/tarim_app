@@ -1,0 +1,248 @@
+{
+  "_dosya": "Toprak Mahsulleri Ofisi — Kurum Dosyası · grafik tarifleri",
+  "_amac": "Grafiğin NE olduğu burada, rakamın kendisi data.json’da. Rakamlar \"@yol\" ile bağlanıyor; seed betiği yolu çözüp yerine gerçek sayıyı koyuyor. Böylece hiçbir rakam iki kez yazılmıyor, metindeki sayı ile grafikteki sayı aynı kaynaktan geliyor. Yol bulunamazsa üretim durur.",
+  "_neden_burada": "Grafik seçimi bir yayın kararı: hangi verinin çizelge, hangisinin çubuk olacağı Dart kodunda değil içerik klasöründe kalıyor. Haftada bir dosya çıkan bir dizide grafik değişikliği uygulama sürümü gerektiremez.",
+  "_sema": {
+    "kunye": "Rakam ızgarası. kalemler[].{deger,bolen?,ondalik,onek?,sonek?,etiket,alt?}",
+    "zaman_cizelgesi": "Yıl + olay. olaylar[].{yil,yil_ek?,baslik,aciklama}",
+    "ikili_cubuk": "İki seriyi satır satır karşılaştırır. seriler[2], satirlar[].{etiket,birim,yil,ondalik,degerler[2],rozet?}",
+    "kartlar": "Aktör kartları. kartlar[].{ust,baslik,govde,rakam?}"
+  },
+  "grafikler": {
+    "urun_yetkisi_cizelge": {
+      "tur": "zaman_cizelgesi",
+      "baslik": {
+        "tr": "Yetki alanı kanunla değil kararla genişledi",
+        "en": "The mandate widened by decree, not by law"
+      },
+      "olaylar": [
+        {
+          "yil": 1938,
+          "yil_ek": {
+            "tr": "13 Temmuz",
+            "en": "13 July"
+          },
+          "baslik": {
+            "tr": "Kuruluş: buğday ve uyuşturucu madde tekeli",
+            "en": "Founding: wheat and the narcotics monopoly"
+          },
+          "aciklama": {
+            "tr": "3491 sayılı Kanun. Alım yeri ve fiyatı Bakanlar Kurulu kararına bırakıldı.",
+            "en": "Law 3491. Where and at what price to buy was left to cabinet decision."
+          }
+        },
+        {
+          "yil": 1939,
+          "yil_ek": {
+            "tr": "27 Ekim",
+            "en": "27 Oct"
+          },
+          "baslik": {
+            "tr": "Arpa ve yulaf",
+            "en": "Barley and oats"
+          },
+          "aciklama": {
+            "tr": "",
+            "en": ""
+          }
+        },
+        {
+          "yil": 1940,
+          "yil_ek": {
+            "tr": "28 Kasım",
+            "en": "28 Nov"
+          },
+          "baslik": {
+            "tr": "Çavdar",
+            "en": "Rye"
+          },
+          "aciklama": {
+            "tr": "",
+            "en": ""
+          }
+        },
+        {
+          "yil": 1941,
+          "yil_ek": {
+            "tr": "25 Nisan",
+            "en": "25 Apr"
+          },
+          "baslik": {
+            "tr": "Mısır",
+            "en": "Maize"
+          },
+          "aciklama": {
+            "tr": "",
+            "en": ""
+          }
+        },
+        {
+          "yil": 1941,
+          "yil_ek": {
+            "tr": "13 Ağustos",
+            "en": "13 Aug"
+          },
+          "baslik": {
+            "tr": "Kuru fasulye ve pirinç",
+            "en": "Dry beans and rice"
+          },
+          "aciklama": {
+            "tr": "Savaş yıllarında liste tarımı aştı: benzin, otomobil lastiği, kahve, margarin, et kavurması.",
+            "en": "During the war the list outgrew agriculture: petrol, tyres, coffee, margarine, tinned meat."
+          }
+        },
+        {
+          "yil": 2017,
+          "baslik": {
+            "tr": "Kuru üzüm — tarihinde ilk defa",
+            "en": "Raisins — for the first time"
+          },
+          "aciklama": {
+            "tr": "Aynı yıl kabuklu fındıkta yeniden görevlendirme.",
+            "en": "The same year, hazelnuts were assigned again."
+          }
+        },
+        {
+          "yil": 2019,
+          "baslik": {
+            "tr": "Kuru incir",
+            "en": "Dried figs"
+          },
+          "aciklama": {
+            "tr": "",
+            "en": ""
+          }
+        },
+        {
+          "yil": 2020,
+          "baslik": {
+            "tr": "Kuru kayısı",
+            "en": "Dried apricots"
+          },
+          "aciklama": {
+            "tr": "",
+            "en": ""
+          }
+        },
+        {
+          "yil": 2021,
+          "baslik": {
+            "tr": "Kuru soğan ve yemeklik patates",
+            "en": "Onions and table potatoes"
+          },
+          "aciklama": {
+            "tr": "Üreticinin piyasaya arz edemediği ürünler alınıp ihtiyaç sahiplerine ücretsiz dağıtıldı.",
+            "en": "Crops producers could not place on the market were bought and distributed free of charge."
+          }
+        }
+      ]
+    },
+    "alim_program": {
+      "tur": "ikili_cubuk",
+      "baslik": {
+        "tr": "2025: kuraklık yılında buğday hedefi aşıldı, arpa hedefi tutmadı",
+        "en": "2025: the wheat target overshot in a drought year, the barley target missed"
+      },
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Program",
+            "en": "Programmed"
+          },
+          "rol": "sessiz"
+        },
+        {
+          "ad": {
+            "tr": "Gerçekleşen",
+            "en": "Actual"
+          },
+          "rol": "vurgu"
+        }
+      ],
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "birim": {
+            "tr": "milyon ton",
+            "en": "m tonnes"
+          },
+          "yil": 2025,
+          "ondalik": 2,
+          "degerler": [
+            "@alim_2025.program_gerceklesme.0.program",
+            "@alim_2025.program_gerceklesme.0.gerceklesen"
+          ],
+          "bolen": 1000000,
+          "rozet": {
+            "tr": "%54 üzerinde",
+            "en": "54% over"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "birim": {
+            "tr": "milyon ton",
+            "en": "m tonnes"
+          },
+          "yil": 2025,
+          "ondalik": 2,
+          "degerler": [
+            "@alim_2025.program_gerceklesme.1.program",
+            "@alim_2025.program_gerceklesme.1.gerceklesen"
+          ],
+          "bolen": 1000000,
+          "rozet": {
+            "tr": "%83 altında",
+            "en": "83% under"
+          }
+        }
+      ]
+    },
+    "dunya_pay": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Devlet ulusal buğday üretiminin ne kadarını satın alıyor",
+        "en": "How much of the national wheat crop the state buys"
+      },
+      "not": {
+        "tr": "ABD listede yok: orada devlet rutin olarak tahıl satın almıyor, destek doğrudan ödeme olarak veriliyor.",
+        "en": "The United States is absent: there the state does not routinely buy grain; support is paid directly instead."
+      },
+      "birim": {
+        "tr": "% · ulusal üretim payı",
+        "en": "% of national production"
+      },
+      "ondalik": 1,
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Hindistan · FCI ve eyalet kurumları",
+            "en": "India · FCI and state agencies"
+          },
+          "deger": "@dunya_karsiligi.modeller.1.pay"
+        },
+        {
+          "etiket": {
+            "tr": "Türkiye · TMO",
+            "en": "Türkiye · TMO"
+          },
+          "deger": "@dunya_karsiligi.modeller.0.pay",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Avrupa Birliği · müdahale alımı tavanı",
+            "en": "European Union · intervention ceiling"
+          },
+          "deger": "@dunya_karsiligi.modeller.2.pay"
+        }
+      ]
+    }
+  }
+}

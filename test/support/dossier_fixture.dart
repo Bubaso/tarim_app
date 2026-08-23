@@ -28,7 +28,8 @@ class DossierFixture {
   static List<({String govde, bool jsonb})> _literaller(String kaynak) {
     final cikti = <({String govde, bool jsonb})>[];
     for (final m in RegExp(r'\$dsr\$([\s\S]*?)\$dsr\$').allMatches(kaynak)) {
-      cikti.add((govde: m.group(1)!, jsonb: kaynak.startsWith('::jsonb', m.end)));
+      cikti.add(
+          (govde: m.group(1)!, jsonb: kaynak.startsWith('::jsonb', m.end)));
     }
     return cikti;
   }
@@ -75,14 +76,23 @@ class DossierFixture {
   /// Bölümler. Her demet dörtlü metin + `array[...]::text[]` anahtar dizisi.
   static List<DossierSection> _bolumler() {
     final govde = _yarilar.$2;
-    final metinler = _literaller(govde).map((l) => l.govde).toList();
+    // jsonb damgalılar dışarıda: bölüm görseli de dolar tırnağıyla yazılıyor
+    // ve metin sayılırsa 13×4 demeti bozuluyor (52 yerine 53 literal).
+    final metinler =
+        _literaller(govde).where((l) => !l.jsonb).map((l) => l.govde).toList();
 
     // İki biçim de geçiyor: dolu dizi `array['a','b']::text[]`, boş dizi ise
     // `'{}'::text[]`. Yalnızca ilki aranırsa grafiksiz 13. bölüm atlanır ve
     // bölümlerle anahtarlar bir kayar — eşleşme sessizce yanlışlanır.
     final anahtarlar = <List<String>>[];
-    for (final m in RegExp(r"(?:array\[([^\]]*)\]|'\{([^']*)\}')::text\[\]")
-        .allMatches(govde)) {
+    final turler = <String>[];
+    final gorseller = <Map<String, dynamic>?>[];
+    // Grafik dizisinin hemen ardından bölüm türü geliyor; ikisi tek kalıpta
+    // okunuyor ki demet düzeni değişirse eşleşme kaysın ve test dursun.
+    for (final m in RegExp(
+      r"(?:array\[([^\]]*)\]|'\{([^']*)\}')::text\[\],\s*'(anlati|belge|veri|akis)',"
+      r"\s*(?:null(?:::jsonb)?|\$dsr\$([\s\S]*?)\$dsr\$::jsonb)",
+    ).allMatches(govde)) {
       final ic = (m.group(1) ?? m.group(2) ?? '').trim();
       anahtarlar.add(
         ic.isEmpty
@@ -92,6 +102,10 @@ class DossierFixture {
                 .map((k) => k.group(1)!)
                 .toList(),
       );
+      turler.add(m.group(3)!);
+      final ham = m.group(4);
+      gorseller
+          .add(ham == null ? null : jsonDecode(ham) as Map<String, dynamic>);
     }
 
     // Dörde bölünmüyorsa demet düzeni değişmiş demektir; sessizce yanlış
@@ -112,6 +126,8 @@ class DossierFixture {
           bodyTr: metinler[i * 4 + 2],
           bodyEn: metinler[i * 4 + 3],
           chartKeys: anahtarlar[i],
+          tur: turler[i],
+          gorsel: DossierGorsel.fromJson(gorseller[i]),
         ),
     ];
   }
@@ -127,10 +143,20 @@ class DossierFixture {
     // `values ( 'hollanda', 'Hollanda', 'Netherlands', 'NLD', 1,` — beklenen
     // değerler kalıba gömülmüyor, okunuyor. Gömülseydi test kendi kendini
     // doğrular, seed'deki bir değişikliği yakalamazdı.
+    // `values ( 'hollanda', 'Hollanda', 'Netherlands', 'NLD', 'ulke', null, 1,`
+    //
+    // Beklenen değerler kalıba gömülmüyor, okunuyor: gömülseydi test kendi
+    // kendini doğrular, seed'deki bir değişikliği yakalamazdı.
+    //
+    // `tur` ve `kurulus_belgesi` iso3 ile edition ARASINA eklendi. Kuruluş
+    // belgesi ülke dosyasında null, kurumda dolar tırnaklı metin — kalıp
+    // ikisini de kabul ediyor.
     final kimlik = RegExp(
-      r"values \(\s*'([^']*)',\s*'([^']*)',\s*'([^']*)',\s*'([^']*)',\s*(\d+),",
+      r"values \(\s*'([^']*)',\s*'([^']*)',\s*'([^']*)',\s*(?:'([^']*)'|null),"
+      r"\s*'([^']*)',\s*(?:\$dsr\$[\s\S]*?\$dsr\$|null),\s*(\d+),",
     ).firstMatch(bas);
-    if (kimlik == null) throw StateError('$_yol içinde dosya künyesi okunamadı.');
+    if (kimlik == null)
+      throw StateError('$_yol içinde dosya künyesi okunamadı.');
 
     // Tez cümleleri jsonb OLMAYAN iki literal; sırayla TR ve EN.
     final tezler = _literaller(bas).where((l) => !l.jsonb).toList();
@@ -140,8 +166,9 @@ class DossierFixture {
         slug: kimlik.group(1)!,
         nameTr: kimlik.group(2)!,
         nameEn: kimlik.group(3)!,
-        iso3: kimlik.group(4)!,
-        edition: int.parse(kimlik.group(5)!),
+        iso3: kimlik.group(4) ?? '',
+        tur: kimlik.group(5)!,
+        edition: int.parse(kimlik.group(6)!),
         thesisTr: tezler.isNotEmpty ? tezler[0].govde : '',
         thesisEn: tezler.length > 1 ? tezler[1].govde : '',
         theme: DossierTheme.fromJson(bloklar['theme']),

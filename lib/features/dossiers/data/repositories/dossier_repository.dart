@@ -21,11 +21,15 @@ class DossierRepository {
   ///
   /// Aktif dosya yoksa null döner ve ana sayfa bölümü hiç çizilmez —
   /// boş bir başlık göstermektense hiç göstermemek doğru.
-  Future<DossierSummary?> fetchActive() async {
+  /// [tur] ile süzmek ZORUNLU. Görünüm her diziden bir satır döndürüyor
+  /// (`distinct on (tur)`); süzülmezse `maybeSingle` iki satır görüp hata
+  /// verir ve ana sayfa bandı sessizce boşalır.
+  Future<DossierSummary?> fetchActive({String tur = 'ulke'}) async {
     try {
       final response = await _supabaseClient
           .from('active_country_dossier')
           .select()
+          .eq('tur', tur)
           .maybeSingle();
       if (response == null) return null;
       return DossierSummary.fromJson(response);
@@ -76,7 +80,7 @@ class DossierRepository {
   ///
   /// `country_dossier_index` görünümü `data`'yı taşımıyor: on iki ülkelik bir
   /// liste yarım megabayt indirmemeli.
-  Future<List<DossierSummary>> fetchIndex() async {
+  Future<List<DossierSummary>> fetchIndex({String tur = 'ulke'}) async {
     try {
       final response = await _supabaseClient.from('country_dossier_index').select();
       return (response as List)

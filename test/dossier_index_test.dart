@@ -19,7 +19,8 @@ Widget _sarmala(
 }) {
   return _iskelet(
     isEn: isEn,
-    override: dossierIndexProvider.overrideWith((ref) async => liste),
+    override:
+        dossierIndexByTurProvider('ulke').overrideWith((ref) async => liste),
   );
 }
 
@@ -27,7 +28,7 @@ Widget _sarmala(
 Widget _sarmalaHatali({required bool isEn}) {
   return _iskelet(
     isEn: isEn,
-    override: dossierIndexProvider.overrideWith(
+    override: dossierIndexByTurProvider('ulke').overrideWith(
       (ref) async => throw StateError('ağ yok'),
     ),
   );
@@ -37,7 +38,7 @@ Widget _sarmalaHatali({required bool isEn}) {
 Widget _sarmalaBekleyen() {
   return _iskelet(
     isEn: false,
-    override: dossierIndexProvider
+    override: dossierIndexByTurProvider('ulke')
         .overrideWith((ref) => Completer<List<DossierSummary>>().future),
   );
 }
@@ -50,7 +51,11 @@ Widget _sarmalaBekleyen() {
 /// koyan testler sessizce ilk hâli ölçerdi.
 int _kapsamSayaci = 0;
 
-Widget _iskelet({required bool isEn, required Override override}) {
+Widget _iskelet({
+  required bool isEn,
+  required Override override,
+  String tur = 'ulke',
+}) {
   return ProviderScope(
     key: ValueKey('kapsam-${_kapsamSayaci++}'),
     overrides: [override],
@@ -62,7 +67,7 @@ Widget _iskelet({required bool isEn, required Override override}) {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [Locale('tr'), Locale('en')],
-      home: const DossierIndexScreen(),
+      home: DossierIndexScreen(tur: tur),
     ),
   );
 }
@@ -121,6 +126,30 @@ void main() {
         isFalse,
       );
     });
+  });
+
+  testWidgets('kurum arşivi ülke dosyalarını göstermiyor', (tester) async {
+    // Süzgeç sağlayıcı ailesinde: /kurumlar yalnızca 'kurum' listesini çeker.
+    // Ekran süzülmemiş listeye bağlansaydı iki dizi tek arşivde karışırdı.
+    tester.view.physicalSize = const Size(900, 1400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: false,
+        override: dossierIndexByTurProvider('kurum')
+            .overrideWith((ref) async => [_kurumOzeti(ozet)]),
+        tur: 'kurum',
+      ),
+    );
+    await _coz(tester);
+
+    expect(find.text('Toprak Mahsulleri Ofisi'), findsOneWidget);
+    expect(find.text('Hollanda'), findsNothing);
+    expect(find.text('Kurum dosyaları'), findsOneWidget);
+    // Giriş metni de diziye göre: "28 günde bir ülke" kurum arşivinde çıkmamalı.
+    expect(find.textContaining('28 günde bir ülke'), findsNothing);
   });
 
   group('arşiv boşken', () {
@@ -249,5 +278,22 @@ DossierSummary _aktif(DossierSummary ozet, bool aktif) {
     daysRemaining: ozet.daysRemaining,
     sectionCount: ozet.sectionCount,
     isActive: aktif,
+  );
+}
+
+/// Sahte bir KURUM dosyası özeti — arşiv süzgecini sınamak için.
+DossierSummary _kurumOzeti(DossierSummary ozet) {
+  return DossierSummary(
+    slug: 'tmo',
+    nameTr: 'Toprak Mahsulleri Ofisi',
+    nameEn: 'Turkish Grain Board',
+    iso3: '',
+    tur: 'kurum',
+    kurulusBelgesi: '3491 sayılı Kanun · RG 13.07.1938',
+    edition: 1,
+    thesisTr: ozet.thesisTr,
+    thesisEn: ozet.thesisEn,
+    theme: ozet.theme,
+    sectionCount: 11,
   );
 }

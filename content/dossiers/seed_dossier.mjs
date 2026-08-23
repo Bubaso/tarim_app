@@ -238,6 +238,59 @@ for (const b of tr) {
   grafikler.push(kimlikler);
 }
 
+// ─── Bölüm türleri ───────────────────────────────────────────────────────
+// Sayfadaki görsel ritim. Yazılmayan bölüm 'anlati' sayılıyor: tür sonradan
+// eklenen bir alan ve eski içerik klasörleri onsuz da üretilebilmeli.
+const GECERLI_TURLER = ['anlati', 'belge', 'veri', 'akis'];
+const turEsleme = yayin.bolum_turleri ?? {};
+const turler = [];
+
+for (const k of Object.keys(turEsleme)) {
+  if (k.startsWith('_')) continue;
+  if (Number(k) < 1 || Number(k) > tr.length) {
+    dur(`yayin.json/bolum_turleri içinde ${k}. bölüm var ama metinde ` +
+        `${tr.length} bölüm bulunuyor.`);
+  }
+}
+
+for (const b of tr) {
+  const t = turEsleme[String(b.ord)] ?? 'anlati';
+  if (!GECERLI_TURLER.includes(t)) {
+    dur(`${b.ord}. bölümün türü '${t}' — geçerli türler: ${GECERLI_TURLER.join(', ')}.`);
+  }
+  turler.push(t);
+}
+
+// ─── Bölüm görselleri ────────────────────────────────────────────────────
+// Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz:
+// bu bir üslup tercihi değil, dizinin telif kuralı.
+const gorselEsleme = yayin.bolum_gorselleri ?? {};
+const gorseller = [];
+
+for (const k of Object.keys(gorselEsleme)) {
+  if (k.startsWith('_')) continue;
+  if (Number(k) < 1 || Number(k) > tr.length) {
+    dur(`yayin.json/bolum_gorselleri içinde ${k}. bölüm var ama metinde ` +
+        `${tr.length} bölüm bulunuyor.`);
+  }
+}
+
+for (const b of tr) {
+  const g = gorselEsleme[String(b.ord)];
+  if (g == null) { gorseller.push(null); continue; }
+  for (const alan of ['url', 'atif', 'alt_tr', 'alt_en']) {
+    if (!g[alan]) {
+      dur(`${b.ord}. bölümün görselinde '${alan}' eksik. Atıfsız veya alt ` +
+          'metinsiz görsel yayımlanmaz.');
+    }
+  }
+  // Yalnızca yayımlanacak alanlar geçiyor; '_' ile başlayanlar not.
+  gorseller.push({
+    url: g.url, atif: g.atif, kaynak: g.kaynak ?? null,
+    alt_tr: g.alt_tr, alt_en: g.alt_en,
+  });
+}
+
 const sahipsiz = Object.keys(charts).filter((k) => !kullanilan.has(k));
 if (sahipsiz.length) {
   dur(`grafikler.json'da tanımlı ama hiçbir bölüme atanmamış: ${sahipsiz.join(', ')}. ` +
@@ -256,14 +309,24 @@ for (const k of Object.keys(esleme)) {
 const tez = tasarim.tez_cumlesi ?? {};
 if (!tez.tr || !tez.en) dur('tasarim.json/tez_cumlesi.tr ve .en zorunlu.');
 
-for (const alan of ['slug', 'name_tr', 'name_en', 'iso3', 'edition']) {
-  if (yayin[alan] == null) dur(`yayin.json/${alan} zorunlu.`);
+// Dizi türü. Ülke dosyaları bu alan yokken yazıldı, o yüzden varsayılan 'ulke'.
+const dosyaTuru = yayin.tur ?? 'ulke';
+if (!['ulke', 'kurum'].includes(dosyaTuru)) {
+  dur(`yayin.json/tur '${dosyaTuru}' — 'ulke' veya 'kurum' olmalı.`);
+}
+
+// iso3 ülkede zorunlu, kurumda anlamsız. Kurumda onun yerini kuruluş belgesi
+// alıyor: bir iddia tartışmaya açıldığında kaynağa dönmenin anahtarı.
+const zorunlu = ['slug', 'name_tr', 'name_en', 'edition'];
+zorunlu.push(dosyaTuru === 'kurum' ? 'kurulus_belgesi' : 'iso3');
+for (const alan of zorunlu) {
+  if (yayin[alan] == null) dur(`yayin.json/${alan} zorunlu (tur: ${dosyaTuru}).`);
 }
 if (yayin.slug !== slug) {
   dur(`Klasör adı '${slug}' ama yayin.json/slug '${yayin.slug}'. ` +
       'İkisi aynı olmalı — adres satırı klasörden değil bu alandan geliyor.');
 }
-if (!/^[A-Z]{3}$/.test(yayin.iso3)) {
+if (dosyaTuru === 'ulke' && !/^[A-Z]{3}$/.test(yayin.iso3)) {
   dur(`iso3 üç büyük harf olmalı, '${yayin.iso3}' verilmiş.`);
 }
 
@@ -327,6 +390,12 @@ const satirlar = tr.map((b, i) => {
     // burada ilk satır ayrımı gerekmiyor: VALUES listesinin sütun türü
     // çıkarıma bırakılmıyor.
     dizi(grafikler[i]),
+    tirnak(turler[i]),
+    // İlk satır tür damgasını taşıyor: bütün satırlar null olsaydı VALUES
+    // sütunu 'unknown' kalır ve insert jsonb'ye çeviremezdi.
+    gorseller[i] == null
+      ? (ilk ? 'null::jsonb' : 'null')
+      : `${dolar(JSON.stringify(gorseller[i]))}::jsonb`,
   ].join(', ') + ')';
 });
 
@@ -347,14 +416,16 @@ const sql = `-- ${yayin.name_tr} — Ülke Dosyası · seed
 begin;
 
 insert into public.country_dossiers
-  (slug, name_tr, name_en, iso3, edition,
+  (slug, name_tr, name_en, iso3, tur, kurulus_belgesi, edition,
    thesis_tr, thesis_en, theme, data, charts,
    cover_url, cover_credit, video_url, status, starts_at, ends_at, published_at)
 values (
   ${tirnak(yayin.slug)},
   ${tirnak(yayin.name_tr)},
   ${tirnak(yayin.name_en)},
-  ${tirnak(yayin.iso3)},
+  ${yayin.iso3 ? tirnak(yayin.iso3) : 'null'},
+  ${tirnak(dosyaTuru)},
+  ${yayin.kurulus_belgesi ? dolar(yayin.kurulus_belgesi) : 'null'},
   ${Number(yayin.edition)},
   ${dolar(tez.tr)},
   ${dolar(tez.en)},
@@ -372,8 +443,10 @@ values (
 on conflict (slug) do update set
   name_tr      = excluded.name_tr,
   name_en      = excluded.name_en,
-  iso3         = excluded.iso3,
-  edition      = excluded.edition,
+  iso3            = excluded.iso3,
+  tur             = excluded.tur,
+  kurulus_belgesi = excluded.kurulus_belgesi,
+  edition         = excluded.edition,
   thesis_tr    = excluded.thesis_tr,
   thesis_en    = excluded.thesis_en,
   theme        = excluded.theme,
@@ -395,12 +468,12 @@ delete from public.dossier_sections
  where dossier_id = (select id from public.country_dossiers where slug = ${tirnak(yayin.slug)});
 
 insert into public.dossier_sections
-  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys)
-select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys
+  (dossier_id, ord, title_tr, title_en, body_tr, body_en, chart_keys, tur, gorsel)
+select d.id, v.ord, v.title_tr, v.title_en, v.body_tr, v.body_en, v.chart_keys, v.tur, v.gorsel
 from public.country_dossiers d
 cross join (values
 ${satirlar.join(',\n')}
-) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys)
+) as v(ord, title_tr, title_en, body_tr, body_en, chart_keys, tur, gorsel)
 where d.slug = ${tirnak(yayin.slug)};
 
 -- Sağlama: beklenen bölüm sayısı yazılmadıysa işlem geri alınır.

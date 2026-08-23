@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/theme/app_typography.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../data/models/country_dossier.dart';
 import '../../data/models/dossier_theme.dart';
@@ -39,17 +40,32 @@ class DossierStrip extends ConsumerWidget {
   /// sayfa dosya hiç yokmuş gibi görünüyor.
   final double spacing;
 
+  /// İki kartın yan yana durabildiği en dar genişlik.
+  ///
+  /// Değer [ResponsiveBreakpoints.mobileMax] ile aynı: telefonda alt alta,
+  /// tablette ve masaüstünde yan yana. Kırılma noktası uygulamanın geri
+  /// kalanıyla aynı yerde olsun diye cihaz sınıfının eşiğine bağlandı;
+  /// şeride özel bir sayı seçmek, sayfada iki farklı kırılma anlamına gelirdi.
+  static const double _yanYanaEsigi = ResponsiveBreakpoints.mobileMax;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // İki dizi ayrı ayrı çekiliyor. Biri yayında biri değilse sayfa yalnızca
+    // yayında olanı gösteriyor; eksik olanın yerine boşluk bırakmıyor.
     final ozet = ref.watch(activeDossierProvider).valueOrNull;
+    final kurum = ref.watch(activeKurumDossierProvider).valueOrNull;
 
     // Yükleniyor, hata ve "yayında dosya yok" AYNI davranışa düşüyor: hiçbir
     // şey çizme. İskelet kutu koymak burada yanlış olurdu — şerit sayfanın en
     // altında ve yayında dosya olmadığı haftalarda iskelet, hiç gelmeyecek bir
     // içeriğin sözünü verip sonra çöküyor. Sessizlik dürüst olan.
-    if (ozet == null) return const SizedBox.shrink();
+    if (ozet == null && kurum == null) return const SizedBox.shrink();
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final kartlar = <Widget>[
+      if (ozet != null) _Kart(ozet: ozet, isDark: isDark, isEn: isEn),
+      if (kurum != null) _Kart(ozet: kurum, isDark: isDark, isEn: isEn),
+    ];
 
     return Column(
       children: [
@@ -57,7 +73,36 @@ class DossierStrip extends ConsumerWidget {
           // 16, SectionContainer'ın yatay boşluğunun aynısı: şerit kabuğu
           // kullanmasa da komşularıyla aynı hizada başlamalı.
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: _Kart(ozet: ozet, isDark: isDark, isEn: isEn),
+          child: LayoutBuilder(
+            builder: (context, kisit) {
+              if (kartlar.length == 1) return kartlar.first;
+              if (kisit.maxWidth < _yanYanaEsigi) {
+                return Column(
+                  children: [
+                    kartlar[0],
+                    const SizedBox(height: 16),
+                    kartlar[1],
+                  ],
+                );
+              }
+              // Kartlar üstten hizalanıyor, eşit yükseklikte DEĞİL.
+              //
+              // IntrinsicHeight ile alt kenarları hizalamak denendi, çalışmıyor:
+              // kartın kendisi içinde bir LayoutBuilder taşıyor (iki sütuna
+              // geçme eşiği kartın kendi genişliğine bakıyor) ve LayoutBuilder
+              // intrinsic ölçü döndüremiyor. Tez cümleleri farklı uzunlukta
+              // olduğu için kartlar farklı boyda kalıyor; üstten hizalı iki
+              // kart, alttan hizalı ama içi boşluklu iki karttan iyi.
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: kartlar[0]),
+                  const SizedBox(width: 16),
+                  Expanded(child: kartlar[1]),
+                ],
+              );
+            },
+          ),
         ),
         SizedBox(height: spacing),
       ],
@@ -125,7 +170,7 @@ class _Kart extends StatelessWidget {
         child: InkWell(
           onTap: () => pushScreen(
             context,
-            CountryDossierScreen(slug: ozet.slug),
+            CountryDossierScreen(slug: ozet.slug, tur: ozet.tur),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -227,9 +272,7 @@ class _Baslik extends StatelessWidget {
             // sürüm numarası büyüyor ve 360 px'te satır dar.
             Flexible(
               child: Text(
-                isEn
-                    ? 'COUNTRY DOSSIER · ${ozet.editionLabel}'
-                    : 'ÜLKE DOSYASI · ${ozet.editionLabel}',
+                ozet.seriEtiketi(isEn),
                 style: AppTypography.meta(context, color: sessiz).copyWith(
                   fontWeight: FontWeight.w700,
                   letterSpacing: 1.1,

@@ -246,16 +246,103 @@ void main() {
     await tester.pumpWidget(_sarmala(dosya, isEn: false));
     await tester.pump();
 
-    // Kapak, ülke adının en yakın kaydırılabilir olmayan atası değil; ölçüm
-    // doğrudan başlıktan yukarı çıkmak yerine sayfanın ilk sliver'ının
-    // yüksekliğine bakıyor: adın kutusu değil kapağın kendisi sınanıyor.
-    final kapak = tester.getSize(
-      find.ancestor(
-        of: find.text(dosya.summary.name(false)),
-        matching: find.byType(SizedBox),
-      ).first,
-    );
+    // Ölçüm kapağın KENDİ anahtarından yapılıyor. Önceki hâli ülke adının en
+    // yakın SizedBox atasını arıyordu; kapakta öyle bir ata yok (Container →
+    // Stack → Padding) ve bulucu boş dönüp test "Bad state: No element" ile
+    // kırılıyordu — yani kapak asgari yüksekliğini kaybettiğinde test bunu
+    // haber vermek yerine kendi kendine düştü. Anahtar, ölçülen şeyi widget
+    // ağacının biçiminden bağımsız kılıyor.
+    final kapak = tester.getSize(find.byKey(const Key('dosya-kapak')));
     expect(kapak.height, greaterThanOrEqualTo(900 * 0.85));
+  });
+
+  testWidgets('bölüm görselleri seed’de, hepsi atıflı', (tester) async {
+    // Atıfsız görsel bu dizide yayımlanmıyor. Kural üretim betiğinde ve
+    // doğrulayıcıda da var; burada bir kez daha sınanıyor çünkü seed elle
+    // düzenlenebiliyor ve o zaman ikisi de devreye girmiyor.
+    final gorselli = dosya.sections.where((b) => b.gorsel != null).toList();
+    expect(gorselli.length, greaterThanOrEqualTo(5));
+
+    for (final b in gorselli) {
+      final g = b.gorsel!;
+      expect(g.url, startsWith('https://'), reason: '${b.ord}. bölüm');
+      expect(g.atif, isNotEmpty, reason: '${b.ord}. bölüm atıfsız');
+      expect(g.altTr, isNotEmpty, reason: '${b.ord}. bölüm alt_tr boş');
+      expect(g.altEn, isNotEmpty, reason: '${b.ord}. bölüm alt_en boş');
+      expect(g.alt(true), g.altEn);
+      expect(g.alt(false), g.altTr);
+    }
+  });
+
+  testWidgets('görselin atfı sayfada açıkta duruyor', (tester) async {
+    tester.view.physicalSize = const Size(1200, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(_sarmala(dosya, isEn: false));
+    await tester.pump();
+
+    // Kapak artık ekranı dolduruyor, yani 1. bölüm ilk karede kurulmuyor:
+    // tembel liste onu ancak görünür olunca inşa ediyor. Aşağı kaydırıp
+    // beliriş animasyonunun bitmesini bekliyoruz.
+    await tester.drag(find.byType(CustomScrollView), const Offset(0, -2600));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 700));
+
+    // Görselli ilk bölüm çizildiğinde atfı da yazılı olmalı — katlanabilir bir
+    // kutuda değil, açıkta. Veri notları panelindeki mantığın aynısı.
+    final ilkGorselli = dosya.sections.firstWhere((b) => b.gorsel != null);
+    expect(find.text(ilkGorselli.gorsel!.atif), findsOneWidget);
+    expect(find.text(ilkGorselli.gorsel!.altTr), findsOneWidget);
+  });
+
+  testWidgets('bölüm türü seed’den geliyor ve iki tür de mevcut',
+      (tester) async {
+    // Tür seed’den okunuyor, testte uydurulmuyor: içerik klasöründeki ritim
+    // bozulursa bu test kırılmalı.
+    final turler = dosya.sections.map((b) => b.tur).toSet();
+    expect(turler, containsAll(<String>['anlati', 'veri']));
+    expect(dosya.sections.length, 13);
+    // Ritmin kendisi: 13 bölümün hepsi aynı türde olsaydı tür alanı hiçbir işe
+    // yaramazdı.
+    expect(dosya.sections.where((b) => b.genisVeri).length, greaterThan(3));
+    expect(dosya.sections.where((b) => !b.genisVeri).length, greaterThan(3));
+  });
+
+  testWidgets('veri bölümünde grafik oluğu kırıyor, metin kırmıyor', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1400, 2400);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(_sarmala(dosya, isEn: false));
+    await tester.pump();
+
+    // Metin oluğu bölüm türünden bağımsız olarak 720’de kalmalı: geniş satır
+    // uzun okumada göz satır atlatıyor ve bu, grafiğin genişliğinden bağımsız
+    // olarak doğru.
+    for (final kutu in tester.widgetList<ConstrainedBox>(
+      find.byType(ConstrainedBox),
+    )) {
+      final en = kutu.constraints.maxWidth;
+      if (en.isFinite) {
+        expect(
+          en <= 1040,
+          isTrue,
+          reason: 'Beklenmeyen oluk genişliği: $en',
+        );
+      }
+    }
+
+    // En az bir yerde 1040’lık geniş oluk kurulmuş olmalı — `veri` bölümleri
+    // çiziliyorsa. Tembel liste ilk ekranı kuruyor, o yüzden varlık aranıyor.
+    final genislikler = tester
+        .widgetList<ConstrainedBox>(find.byType(ConstrainedBox))
+        .map((k) => k.constraints.maxWidth)
+        .where((e) => e.isFinite)
+        .toSet();
+    expect(genislikler.contains(720), isTrue);
   });
 
   testWidgets('bölüm başlığı gövde metninin en az iki katı', (tester) async {
@@ -351,10 +438,10 @@ void main() {
     await tester.pumpWidget(_sarmala(dosya, isEn: false));
     await tester.pump();
 
-    double oran() =>
-        tester.widget<ReadingProgressBar>(find.byType(ReadingProgressBar))
-            .progress
-            .value;
+    double oran() => tester
+        .widget<ReadingProgressBar>(find.byType(ReadingProgressBar))
+        .progress
+        .value;
 
     expect(oran(), 0);
     await _sonaKadarKaydir(tester, isEn: false);

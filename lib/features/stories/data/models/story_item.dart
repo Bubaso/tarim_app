@@ -10,7 +10,19 @@ class StoryItem {
   /// `<portal_stories.id>#<slayt sırası>` — izlendi defterinin anahtarı.
   final String id;
   final String storyId;
+
+  /// Slaytın haberi. Dosya hikâyelerinde BOŞ — o hikâyeler bir haberden
+  /// türetilmiyor, okuru dosyanın kendisine çağırıyor.
   final String articleId;
+
+  /// Tıklanınca gidilecek uygulama içi adres: `/ulke/hollanda`, `/kurum/tmo`.
+  ///
+  /// Boşsa eski davranış: haberin adresine gidilir. Hedefi yorumlamak
+  /// istemcinin işi değil — satır nereye gideceğini kendisi söylüyor, böylece
+  /// yarın emtia veya hafta dosyası hikâyesi eklendiğinde kod değişmiyor.
+  final String hedefYol;
+
+  bool get dosyaHikayesi => hedefYol.isNotEmpty;
 
   final String superTitle;
   final String superTitleEn;
@@ -41,6 +53,7 @@ class StoryItem {
     required this.id,
     required this.storyId,
     required this.articleId,
+    this.hedefYol = '',
     required this.superTitle,
     this.superTitleEn = '',
     required this.headline,

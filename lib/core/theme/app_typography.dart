@@ -173,8 +173,23 @@ class AppTypography {
   // olduğunda kapak "büyük bir haber kartı" gibi okunuyordu; dergi kapağı
   // gibi okunması için gövdeyle arasındaki kademenin görünür olması gerek.
   //
+  // ── Dosyanın kendi sesi ─────────────────────────────────────────────────
+  //
+  // Kapak ve bölüm başlıkları Source Serif 4 kullanıyor; sitenin geri kalanı
+  // Libre Franklin. Sebep: dosya sayfasının "başka bir yere girdim" işaretini
+  // neredeyse tamamen arka plan rengi taşıyordu — tipografi bu işe hiç
+  // katılmıyordu. Bir dergi dosyasında ayrımı yapan ilk şey renk değil harftir.
+  //
+  // Gövde zaten Lora (serif); başlıklar da serife geçince dosya bütünüyle
+  // serif bir belge oluyor, haber akışı ise grotesk kalıyor.
+  //
+  // Türkçe kapsaması doğrulandı: latin-ext alt kümesi mevcut, ı (U+0131) latin
+  // alt kümesinde. Kaynağa bakmadan seçilen yazı tipi, kaynağa bakmadan
+  // yazılan rakam gibidir.
+  //
   // Negatif harf aralığı bu boyutta zorunlu: 132 px'te varsayılan aralık
-  // harfleri birbirinden koparıyor, kelime tek bir blok gibi durmuyor.
+  // harfleri birbirinden koparıyor, kelime tek bir blok gibi durmuyor. Serifte
+  // grotesktekinden az: -0.03 em Source Serif'te serifleri birbirine geçiriyor.
   static TextStyle dossierCover(BuildContext context, {Color? color}) {
     final w = MediaQuery.of(context).size.width;
     double fontSize;
@@ -185,12 +200,12 @@ class AppTypography {
     } else {
       fontSize = 132.0;
     }
-    return GoogleFonts.libreFranklin(
+    return GoogleFonts.sourceSerif4(
       fontSize: fontSize,
-      height: 0.92,
-      fontWeight: FontWeight.w900,
-      // 0.03 em — puntoyla orantılı, sabit piksel değil.
-      letterSpacing: fontSize * -0.03,
+      height: 0.94,
+      fontWeight: FontWeight.w700,
+      // 0.022 em — puntoyla orantılı, sabit piksel değil.
+      letterSpacing: fontSize * -0.022,
       color: color,
     );
   }
@@ -216,11 +231,11 @@ class AppTypography {
     } else {
       fontSize = 52.0;
     }
-    return GoogleFonts.libreFranklin(
+    return GoogleFonts.sourceSerif4(
       fontSize: fontSize * scale,
-      height: 1.05,
-      fontWeight: FontWeight.w900,
-      letterSpacing: fontSize * -0.02,
+      height: 1.08,
+      fontWeight: FontWeight.w700,
+      letterSpacing: fontSize * -0.014,
       color: color,
     );
   }

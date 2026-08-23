@@ -101,10 +101,17 @@ class CategoryArgs {
     return (path: commodityPath(page.slug), extra: null);
   }
   if (page is CountryDossierScreen) {
-    return (path: countryPath(page.slug), extra: null);
+    return (
+      path:
+          page.tur == 'kurum' ? '/kurum/${page.slug}' : countryPath(page.slug),
+      extra: null,
+    );
   }
   if (page is DossierIndexScreen) {
-    return (path: dossierIndexPath, extra: null);
+    return (
+      path: page.tur == 'kurum' ? '/kurumlar' : dossierIndexPath,
+      extra: null,
+    );
   }
   if (page is AllColumnistsScreen) return (path: '/yazarlar', extra: null);
   if (page is KisaKisaScreen) return (path: '/kisa-kisa', extra: null);
@@ -257,6 +264,27 @@ final appRouter = GoRouter(
         state,
         CountryDossierScreen(slug: state.pathParameters['slug']!),
       ),
+    ),
+
+    // Kurum Dosyası — ayrı adres, AYNI ekran.
+    //
+    // İki dizi de aynı tabloyu, aynı bölüm yapısını ve aynı grafik tiplerini
+    // kullanıyor; ayıran tek şey `tur` ve tema. Ekranı ikiye ayırmak her
+    // düzeltmeyi iki yerde yapmak demek olurdu.
+    //
+    // Adres yine ASCII: mesajlaşma uygulamaları Türkçe karakteri yüzde
+    // kodlamasına çeviriyor ve dosya paylaşılmak üzere duruyor.
+    GoRoute(
+      path: '/kurum/:slug',
+      pageBuilder: (context, state) => _fadePage(
+        state,
+        CountryDossierScreen(slug: state.pathParameters['slug']!, tur: 'kurum'),
+      ),
+    ),
+    GoRoute(
+      path: '/kurumlar',
+      pageBuilder: (context, state) =>
+          _fadePage(state, const DossierIndexScreen(tur: 'kurum')),
     ),
 
     // Arşiv. Şeritten düşen dosyaların tek girişi.

@@ -8,12 +8,23 @@ final dossierRepositoryProvider = Provider<DossierRepository>((ref) {
   return DossierRepository(ref.watch(supabaseClientProvider));
 });
 
-/// Ana sayfa şeridinin verisi — yayın penceresindeki dosya.
+/// Ana sayfa bandının verisi — yayın penceresindeki dosya, dizi başına bir tane.
 ///
-/// FutureProvider yeterli: dosya 28 gün boyunca değişmiyor, oturum içinde bir
-/// kez çekilip önbellekte kalıyor.
+/// Aile parametresi dizi türü. Tek bir sağlayıcı olsaydı iki dizi aynı önbellek
+/// girdisini paylaşır, biri diğerini ezerdi.
+final activeDossierByTurProvider =
+    FutureProvider.family<DossierSummary?, String>((ref, tur) {
+  return ref.watch(dossierRepositoryProvider).fetchActive(tur: tur);
+});
+
+/// Ülke dosyası kartı.
 final activeDossierProvider = FutureProvider<DossierSummary?>((ref) {
-  return ref.watch(dossierRepositoryProvider).fetchActive();
+  return ref.watch(activeDossierByTurProvider('ulke').future);
+});
+
+/// Kurum dosyası kartı.
+final activeKurumDossierProvider = FutureProvider<DossierSummary?>((ref) {
+  return ref.watch(activeDossierByTurProvider('kurum').future);
 });
 
 /// Dosya sayfasının verisi. 44 KB `data` bloğu buradan geliyor —
@@ -23,7 +34,13 @@ final dossierBySlugProvider =
   return ref.watch(dossierRepositoryProvider).fetchBySlug(slug);
 });
 
+/// Arşiv listesi — dizi başına ayrı.
+final dossierIndexByTurProvider =
+    FutureProvider.family<List<DossierSummary>, String>((ref, tur) {
+  return ref.watch(dossierRepositoryProvider).fetchIndex(tur: tur);
+});
+
 /// /ulkeler arşiv listesi.
 final dossierIndexProvider = FutureProvider<List<DossierSummary>>((ref) {
-  return ref.watch(dossierRepositoryProvider).fetchIndex();
+  return ref.watch(dossierIndexByTurProvider('ulke').future);
 });

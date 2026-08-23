@@ -221,6 +221,9 @@ SADECE GEÇERLİ JSON DÖNDÜR. Markdown kullanma.
 
 def generate_ai_articles(todays_news_text: str) -> list:
     """5 AI yazarımıza günün haberlerine göre köşe yazısı yazdırır."""
+    print("Kullanıcı isteği üzerine AI yazar makale üretimi şimdilik duraklatıldı.")
+    return []
+    
     user_prompt = f"Günün Haberleri:\n{todays_news_text}\n\nLütfen JSON çıktısını üret."
 
     print("Gemini API'sine köşe yazısı isteği gönderiliyor...")

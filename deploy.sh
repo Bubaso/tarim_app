@@ -84,6 +84,21 @@ echo "▸ Fonksiyon sözdizimi denetimi…"
 node --check functions/index.js
 node --check functions/config.js
 
+# Dosya sayfalarının statik paylaşım kabukları.
+#
+# Cloud Function DEĞİL: dosya 28 günde bir değişen, elle yazılmış bir metin ve
+# künyesi zaten depoda. Sabit bir şeyi her istekte sunucuda üretmenin anlamı
+# yok. Firebase statik dosyayı yönlendirmelerden önce sunuyor, yani
+# build/web/ulke/<slug>/index.html yazıldığında /ulke/<slug> og etiketleriyle
+# birlikte doğrudan geliyor ve Flutter yine normal açılıyor.
+echo "▸ Dosya paylaşım kabukları…"
+for d in content/dossiers/*/; do
+  slug=$(basename "$d")
+  [[ "$slug" == _* ]] && continue
+  [[ -f "$d/yayin.json" ]] || continue
+  node content/dossiers/_ortak/statik_sayfa.mjs "$slug"
+done
+
 echo "▸ Dağıtılıyor (${TARGETS})…"
 # firebase-tools 14.x + Node 24 birleşimi fonksiyon keşfi sırasında varsayılan
 # yığınla bellek taşması veriyor. Belirti yanıltıcıdır: CLI önce

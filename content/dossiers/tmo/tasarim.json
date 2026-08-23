@@ -1,0 +1,133 @@
+{
+  "_dosya": "Toprak Mahsulleri Ofisi — Kurum Dosyası · tasarım künyesi",
+  "_amac": "Evrak görsel dilinin bu dosyadaki uygulaması. Palet DİZİ paletidir ve dosyadan dosyaya değişmez; burada yalnızca kümenin vurgusu seçiliyor. Ülke Dosyası’nda her ülke kendi paletini alıyordu — haftalık ritimde o model çöker ve dizi kimliğini yok eder.",
+  "_kontrast_betigi": "content/dossiers/_ortak/kontrast.py",
+  "tez_cumlesi": {
+    "tr": "Buğdaydan afyona: Türkiye’nin tahıl piyasasını seksen sekiz yıldır dengeleyen kurum.",
+    "en": "From wheat to opium: the institution that has balanced Türkiye’s grain market for eighty-eight years.",
+    "_ad": "Şemada `thesis_tr` ama bir TEZ değil, tanıtım cümlesi. Kapakta, ana sayfa kartında ve paylaşım kartında görünüyor.",
+    "_neden": "Önceki hâli \"en geniş yetkili kurumu\" diyordu; Tarım ve Orman Bakanlığı dururken bu bir üstünlük iddiasıydı ve yanlıştı. Yeni cümle yetki değil İŞLEV söylüyor: dengeleme. İki ucu da tutuyor — tahıl ve haşhaş."
+  },
+  "kume": {
+    "ad": "Kamu gücü",
+    "gerekce": "TMO fiyat açıklayarak piyasaya doğrudan müdahale eden bir KİT. Arşivde bu vurguyu taşıyan ilk dosya."
+  },
+  "palet": {
+    "ad": "Evrak — kağıt gövde",
+    "kaynak_fikir": "Kurumun manzarası yok; maddi karşılığı kağıttır. Kanun, tutanak, rapor, makbuz. Zemin arşiv kağıdı: haberin sıcak kremine (#F6F1E7) karşı soğuk gri.",
+    "mod": "KOYU KAPAK → KAĞIT GÖVDE. Dosya sayfası sistem açık/koyu tercihini izlemez.",
+    "mod_gerekcesi": "Fiziksel dosyanın kendisi: dışı mukavva kapak, içi kağıt. Okur ana sayfadan girip tam ekran koyu kapakla karşılaşıyor, kaydırınca kağıda iniyor.",
+    "sayfa": {
+      "zemin": {
+        "hex": "#E3E7E5",
+        "rol": "Sayfa zemini — arşiv kağıdı"
+      },
+      "yuzey": {
+        "hex": "#F0F2F0",
+        "rol": "Kart, tablo, kayıt bloğu"
+      },
+      "murekkep": {
+        "hex": "#15191A",
+        "rol": "Gövde metni",
+        "kontrast_zemin": 14.19,
+        "kontrast_yuzey": 15.74
+      },
+      "sessiz": {
+        "hex": "#575F61",
+        "rol": "Meta, kaynak satırı",
+        "kontrast_zemin": 5.23,
+        "kontrast_yuzey": 5.81
+      },
+      "vurgu": {
+        "hex": "#8E2B24",
+        "rol": "Kamu gücü — rakamlar, başlık vurguları",
+        "kontrast_zemin": 6.67,
+        "kontrast_yuzey": 7.4
+      },
+      "ikincil": {
+        "hex": "#575F61",
+        "rol": "Karşılaştırma ikinci serisi — kasıtlı olarak nötr",
+        "kontrast_zemin": 5.23
+      },
+      "cizgi": {
+        "hex": "#C0C6C3",
+        "rol": "SADECE dekoratif ayırıcı",
+        "kontrast_zemin": 1.39,
+        "_uyari": "3:1 altında. Anlam taşıyan hiçbir yerde kullanılamaz."
+      },
+      "cizgiVurgu": {
+        "hex": "#767E7C",
+        "rol": "Eksen, ızgara, odak halkası",
+        "kontrast_zemin": 3.34,
+        "kontrast_yuzey": 3.7
+      }
+    },
+    "kapak": {
+      "_amac": "Kapak gövdeden AYRI: dışı koyu mukavva, içi kağıt. Bu blok yoksa kapak gövde renklerini kullanır (ülke dosyalarında öyle).",
+      "zemin": {
+        "hex": "#131718",
+        "rol": "Kapak zemini — mukavva"
+      },
+      "murekkep": {
+        "hex": "#F0F2F0",
+        "rol": "Kurum adı, tez cümlesi",
+        "kontrast_zemin": 16.04
+      },
+      "sessiz": {
+        "hex": "#98A1A2",
+        "rol": "Belge satırı, pencere rozeti",
+        "kontrast_zemin": 6.84
+      },
+      "vurgu": {
+        "hex": "#E88079",
+        "rol": "Kamu gücü — kapaktaki karşılığı",
+        "kontrast_zemin": 6.7
+      }
+    },
+    "serit": {
+      "_amac": "Ana sayfa bandındaki kurum kartı sayfanın içinde yaşıyor; krem zemin üstünde çiziliyor.",
+      "murekkep": {
+        "hex": "#15191A"
+      },
+      "vurguKoyu": {
+        "hex": "#8E2B24",
+        "rol": "Kağıt vurgusunun krem zemindeki karşılığı"
+      },
+      "ikincilKoyu": {
+        "hex": "#575F61"
+      }
+    },
+    "renk_korlugu_notu": "Vurgu ile ikincil arasındaki fark parlaklıkta (6,67 ve 5,23) ve ikincil zaten nötr gri — ikili çubukta seriler renkle BİRLİKTE biçimle de ayrılıyor. Mevzuat zincirinde belge türü yalnızca biçimle ayrılır; renk orada sadece yürürlükte olup olmadığını söyler."
+  },
+  "motif": {
+    "ad": "Cetvel çizgisi",
+    "tanim": "Defter ve resmî evrak kağıdının marj rayı: solda dikey ray, aralarda ince yatay kural çizgileri.",
+    "gerekce": "Polder Hollanda’nın geometrisiydi; kurumun geometrisi kağıdın kendisidir. Doğrusal olduğu için düşük opaklıkta metni bozmuyor — ama polderden farklı olarak İŞ YAPIYOR: bölüm numarası ve kayıt bloklarının girintisi bu raya hizalanıyor.",
+    "uygulama": {
+      "opaklik": "%8",
+      "renk": "cizgiVurgu #767E7C üzerine opaklık",
+      "bicim": "Vektör (CustomPainter) — telif yok, ölçeklenir, dosya boyutu sıfır",
+      "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+      "aralik_notu": "Izgara aralığı 24 px’in altına inmeyecek."
+    }
+  },
+  "kapak": {
+    "yon": "Kuruluş belgesinden kurulan tipografik kapak",
+    "gerekce": "Kurum fotoğrafı ve logosu lisanslı değil. Kapak kurumun kuruluş belgesinden kuruluyor; bu bir zorunluluk olarak başlayıp dizinin karakteri hâline geliyor. Tipografik kapak ASIL tasarım, yedek değil.",
+    "sinir": "Kapak bir belgeyi ALINTILAR, TAKLİT ETMEZ. Resmî Gazete anteti, mühür, arma veya kurum logosu yeniden üretilmez. Kapakta her zaman seri etiketi ve sayı numarası bulunur; ekran görüntüsü bağlamından koparıldığında bile gerçek bir resmî belge sanılamaz.",
+    "tipografi_katmani": {
+      "ust_satir": "KURUM DOSYASI · 01 · KAMU GÜCÜ",
+      "baslik": "TOPRAK MAHSULLERİ OFİSİ",
+      "belge_satiri": "3491 sayılı Kanun · RG 13.07.1938",
+      "alt_satir": "tez_cumlesi.tr",
+      "veri_rozeti": "Sermaye dört yılda beş kez yazıldı"
+    },
+    "gorsel": "Yok ve aranmıyor. Sayfa tipografik kapakla tam çalışıyor."
+  },
+  "_yasak": [
+    "Kurum logosu, resmî arma, mühür veya antet taklidi",
+    "Resmî Gazete sayfasının tıpkıbasım görünümü",
+    "Stok \"mutlu çiftçi\" fotoğrafı",
+    "Kurumu simgeleyen dekoratif ikon seti"
+  ]
+}

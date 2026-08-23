@@ -623,7 +623,17 @@ export const dossierRenderer = onRequest(
       const description =
         truncate(toPlainText(row.thesis_tr), 160) ||
         `${ad} tarımı: veriler, kurumlar ve ürünler.`;
-      const image = safeImageUrl(row.cover_url);
+      // Kapak görseli yoksa dosyanın KENDİ paylaşım kartına düşülür, sitenin
+      // genel yedek görseline değil. Dosya 28 gün boyunca paylaşılmak üzere
+      // duruyor; bağlantıyı gören kişiye sıradan bir haber kartı göstermek,
+      // dizinin en çok görülen yüzünü kimliksiz bırakmak demekti.
+      //
+      // Kart depoda duruyor ve hosting statik dosya olarak sunuyor:
+      // `node content/dossiers/_ortak/paylasim_karti.mjs <slug>`. Dosya yoksa
+      // safeImageUrl zaten FALLBACK_IMAGE'a düşer — kırık bağlantı çıkmaz.
+      const image = safeImageUrl(
+        row.cover_url ?? `${SITE_ORIGIN}/paylasim/${row.slug}.jpg`,
+      );
 
       const block = metaTags({
         title,

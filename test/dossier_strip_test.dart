@@ -19,10 +19,15 @@ Widget _sarmala(
   required bool isDark,
   required bool isEn,
   double spacing = 32,
+  DossierSummary? kurum,
 }) {
   return ProviderScope(
     overrides: [
       activeDossierProvider.overrideWith((ref) async => ozet),
+      // Şerit iki diziyi birden izliyor. Taklit edilmezse kurum sağlayıcısı
+      // gerçek isteğe çıkıyor ve ağaç söküldükten sonra bir zamanlayıcı askıda
+      // kalıyor — test "Timer is still pending" ile düşüyor.
+      activeKurumDossierProvider.overrideWith((ref) async => kurum),
     ],
     child: _iskelet(isDark: isDark, isEn: isEn, spacing: spacing),
   );
@@ -34,6 +39,8 @@ Widget _sarmalaBekleyen({required bool isDark}) {
     overrides: [
       activeDossierProvider
           .overrideWith((ref) => Completer<DossierSummary?>().future),
+      activeKurumDossierProvider
+          .overrideWith((ref) => Completer<DossierSummary?>().future),
     ],
     child: _iskelet(isDark: isDark, isEn: false, spacing: 32),
   );
@@ -44,6 +51,9 @@ Widget _sarmalaHatali({required bool isDark}) {
   return ProviderScope(
     overrides: [
       activeDossierProvider.overrideWith(
+        (ref) async => throw StateError('ağ yok'),
+      ),
+      activeKurumDossierProvider.overrideWith(
         (ref) async => throw StateError('ağ yok'),
       ),
     ],
@@ -259,6 +269,82 @@ void main() {
     final kart = tester.getSize(find.byType(InkWell));
     expect(kart.width, greaterThan(300));
   });
+
+  testWidgets('masaüstünde iki dosya yan yana duruyor', (tester) async {
+    tester.view.physicalSize = const Size(1200, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _sarmala(ozet, isDark: false, isEn: false, kurum: _kurumOzeti(ozet)),
+    );
+    await tester.pump();
+
+    expect(find.text('Hollanda'), findsOneWidget);
+    expect(find.text('Toprak Mahsulleri Ofisi'), findsOneWidget);
+
+    final sol = tester.getTopLeft(find.byType(InkWell).first);
+    final sag = tester.getTopLeft(find.byType(InkWell).last);
+    expect(sol.dy, sag.dy, reason: 'kartlar aynı hizada başlamalı');
+    expect(sag.dx, greaterThan(sol.dx), reason: 'ikinci kart sağda olmalı');
+  });
+
+  testWidgets('tablette de yan yana duruyor', (tester) async {
+    // Kullanıcı kararı: telefonda alt alta, TABLET ve masaüstünde yan yana.
+    // Eşik ResponsiveBreakpoints.mobileMax; 768 onun üstünde.
+    tester.view.physicalSize = const Size(768, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _sarmala(ozet, isDark: false, isEn: false, kurum: _kurumOzeti(ozet)),
+    );
+    await tester.pump();
+
+    final sol = tester.getTopLeft(find.byType(InkWell).first);
+    final sag = tester.getTopLeft(find.byType(InkWell).last);
+    expect(sag.dx, greaterThan(sol.dx));
+  });
+
+  testWidgets('telefonda alt alta diziliyor', (tester) async {
+    tester.view.physicalSize = const Size(390, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _sarmala(ozet, isDark: false, isEn: false, kurum: _kurumOzeti(ozet)),
+    );
+    await tester.pump();
+
+    final ust = tester.getTopLeft(find.byType(InkWell).first);
+    final alt = tester.getTopLeft(find.byType(InkWell).last);
+    expect(alt.dy, greaterThan(ust.dy), reason: 'ikinci kart altta olmalı');
+    expect(ust.dx, alt.dx, reason: 'iki kart da aynı kenardan başlamalı');
+  });
+
+  testWidgets('tek dosya yayındayken yerleşim değişmiyor', (tester) async {
+    await tester.pumpWidget(_sarmala(ozet, isDark: false, isEn: false));
+    await tester.pump();
+    expect(find.byType(InkWell), findsOneWidget);
+  });
+}
+
+/// [ozet]'ten türetilmiş sahte bir KURUM dosyası özeti.
+DossierSummary _kurumOzeti(DossierSummary ozet) {
+  return DossierSummary(
+    slug: 'tmo',
+    nameTr: 'Toprak Mahsulleri Ofisi',
+    nameEn: 'Turkish Grain Board',
+    iso3: '',
+    tur: 'kurum',
+    kurulusBelgesi: '3491 sayılı Kanun · RG 13.07.1938',
+    edition: 1,
+    thesisTr: ozet.thesisTr,
+    thesisEn: ozet.thesisEn,
+    theme: ozet.theme,
+    daysRemaining: 9,
+    sectionCount: 11,
+  );
 }
 
 /// [ozet]'in kalan gün sayısı değiştirilmiş kopyası.

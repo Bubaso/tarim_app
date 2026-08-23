@@ -42,7 +42,8 @@ const Color kStoryImageBackdrop = Color(0xFF12160F);
 /// URL'in Supabase Storage'ın dönüştürülebilir public uç noktasına ait olup
 /// olmadığı. Harici CDN adreslerine dokunmuyoruz.
 bool storyImageIsTransformable(String rawUrl) =>
-    rawUrl.contains('/object/public/') || rawUrl.contains('/render/image/public/');
+    rawUrl.contains('/object/public/') ||
+    rawUrl.contains('/render/image/public/');
 
 /// Hattın ürettiği dikey hikaye türevinin adında bu damga geçer (bkz.
 /// `image_storage.py`, `STORY_W`×`STORY_H`).
@@ -82,7 +83,8 @@ String storyImageUrl(
   if (!url.startsWith('http')) return url;
   if (!storyImageIsTransformable(url)) return url;
 
-  final String base = url.replaceFirst('/object/public/', '/render/image/public/');
+  final String base =
+      url.replaceFirst('/object/public/', '/render/image/public/');
   final StringBuffer out = StringBuffer(base)
     ..write(base.contains('?') ? '&' : '?')
     ..write('width=$width');
@@ -137,14 +139,16 @@ String storyBackgroundUrl(
 }) {
   final Size size = MediaQuery.of(context).size;
   final bool olculebilir = size.width > 0 && size.height > 0;
-  final double gorusOrani = olculebilir ? size.width / size.height : _kDikeyOran;
+  final double gorusOrani =
+      olculebilir ? size.width / size.height : _kDikeyOran;
 
   final bool dikeyDahaYakin = portraitUrl.trim().isNotEmpty &&
       (math.log(gorusOrani / _kDikeyOran)).abs() <
           (math.log(gorusOrani / _kYatayOran)).abs();
 
   if (dikeyDahaYakin) return portraitUrl.trim();
-  return storyImageUrl(imageUrl, width: storyBackgroundTargetWidth(context), quality: 88);
+  return storyImageUrl(imageUrl,
+      width: storyBackgroundTargetWidth(context), quality: 88);
 }
 
 /// Yükleme sırasında gösterilen minik kopyanın adresi.
@@ -260,7 +264,8 @@ class _RawImageFallback extends StatelessWidget {
       errorWidget: (_, __, ___) => const ColoredBox(
         color: kStoryImageBackdrop,
         child: Center(
-          child: Icon(Icons.broken_image_outlined, size: 48, color: Colors.white24),
+          child: Icon(Icons.broken_image_outlined,
+              size: 48, color: Colors.white24),
         ),
       ),
     );
@@ -300,8 +305,8 @@ class StoryThumbImage extends StatelessWidget {
   Widget build(BuildContext context) {
     final double dpr = MediaQuery.of(context).devicePixelRatio;
     final int target = (size * dpr).clamp(96.0, 512.0).round();
-    final String thumb =
-        storyImageUrl(url, width: target, height: target, quality: 82, crop: true);
+    final String thumb = storyImageUrl(url,
+        width: target, height: target, quality: 82, crop: true);
 
     return CachedNetworkImage(
       imageUrl: thumb,
@@ -316,8 +321,8 @@ class StoryThumbImage extends StatelessWidget {
       // olduğu (harici CDN) durumlarda bellekteki kopyayı sınırlar.
       memCacheWidth: target,
       placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
-      errorWidget: (_, __, ___) =>
-          _RawThumbFallback(url: url, size: fill ? null : size, alignment: alignment),
+      errorWidget: (_, __, ___) => _RawThumbFallback(
+          url: url, size: fill ? null : size, alignment: alignment),
     );
   }
 }
@@ -346,7 +351,8 @@ class _RawThumbFallback extends StatelessWidget {
       placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
       errorWidget: (_, __, ___) => ColoredBox(
         color: kStoryImageBackdrop,
-        child: Icon(Icons.broken_image_outlined, size: (size ?? 48) * 0.3, color: Colors.white24),
+        child: Icon(Icons.broken_image_outlined,
+            size: (size ?? 48) * 0.3, color: Colors.white24),
       ),
     );
   }

@@ -1,0 +1,179 @@
+{
+  "_dosya": "Toprak Mahsulleri Ofisi — Kurum Dosyası · yayın künyesi",
+  "_amac": "İçerik, tasarım ve veri dışında kalan üçüncü şey: bu dosyanın NE ZAMAN ve HANGİ ADRESTE yayımlanacağı. seed_dossier.mjs yalnızca buradan okur.",
+  "slug": "tmo",
+  "tur": "kurum",
+  "name_tr": "Toprak Mahsulleri Ofisi",
+  "name_en": "Turkish Grain Board (TMO)",
+  "kurulus_belgesi": "3491 sayılı Kanun · RG 13.07.1938",
+  "_kurulus_belgesi_notu": "Ülke dosyasında iso3 neyse kurumda bu: bir iddia tartışmaya açıldığında kaynağa dönmenin anahtarı. RG SAYISI hiçbir kaynakta bulunamadı, uydurulmadı — sayfa sonundaki Veri Notları panelinde yazılı.",
+  "edition": 1,
+  "kume": "Kamu gücü",
+  "kalip": "agir",
+  "_kalip_notu": "Ağır dosya: 13 bölüm. Hafif dosya 7 bölüm. Ritim haftada bir yayın, ağır ve hafif dönüşümlü — her kalıp kendi içinde 14 günde bir.",
+  "pencere": {
+    "gun": 14,
+    "baslangic": null,
+    "_baslangic_notu": "null ise seed anında now() yazılır."
+  },
+  "status": "published",
+  "_status_notu": "Yayında. Metin tanıtım dosyası tarzında yeniden yazıldı ve onaylandı; kaynakça 11. bölüm olarak numaralandırıldı — numarasız ## başlığı seed betiği bölüm saymıyor, öyle kalsaydı kaynakça yayına hiç girmezdi.",
+  "kapak": {
+    "url": null,
+    "atif": null,
+    "_notu": "Kurum fotoğrafı ve logosu lisanslı değil; kapak kuruluş belgesinden kurulan tipografik kapaktır ve ASIL tasarımdır, yedek değil. Görsel aranmıyor."
+  },
+  "video": {
+    "url": null
+  },
+  "bolum_grafikleri": {
+    "_amac": "Bölüm sırası → grafikler.json’daki grafik kimliği.",
+    "_az_grafik": "Tanıtım dosyasında grafik metnin yerine geçmez, yanında durur. Üç grafik, üç bölümde: yetki genişlemesi, alım karşılaştırması, dünya payı.",
+    "1": [],
+    "2": [],
+    "3": [
+      "urun_yetkisi_cizelge"
+    ],
+    "4": [],
+    "5": [],
+    "6": [
+      "alim_program"
+    ],
+    "7": [],
+    "8": [],
+    "9": [
+      "dunya_pay"
+    ],
+    "10": [],
+    "11": []
+  },
+  "bolum_turleri": {
+    "_amac": "anlati | belge | veri | akis. Yazılmayan bölüm anlati sayılır.",
+    "_not": "Tanıtım dosyası ağırlıkla anlatı. Yalnızca rakam yoğun iki bölüm oluğu kırıyor.",
+    "1": "anlati",
+    "2": "anlati",
+    "3": "veri",
+    "4": "anlati",
+    "5": "anlati",
+    "6": "veri",
+    "7": "anlati",
+    "8": "anlati",
+    "9": "veri",
+    "10": "veri",
+    "11": "anlati"
+  },
+  "bolum_gorselleri": {
+    "_amac": "Bölüm sırası → görsel. Grafik veriyi anlatır, görsel konuyu gösterir.",
+    "_kural": "ATIFSIZ GÖRSEL YAYIMLANMAZ. Yedisi de Wikimedia Commons’tan; her birinin yazarı, lisansı ve kaynak sayfası _raw/gorseller/kunye.json içinde kayıtlı. CC BY ve CC BY-SA lisanslı görsellerde atıf zorunlu ve atıf metni sayfada görselin altında açıkta duruyor.",
+    "1": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/bugday_hasadi.jpg",
+      "atif": "mhasras · CC BY 3.0 · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Yayc%C4%B1_k%C3%B6y%C3%BC_bu%C4%9Fday_hasad%C4%B1_-_panoramio.jpg",
+      "_lisans": "CC BY 3.0",
+      "alt_tr": "Orta Anadolu’da buğday hasadı. TMO’nun bütün işi bu andan sonra başlıyor.",
+      "alt_en": "Wheat harvest in Central Anatolia. Everything TMO does begins after this moment."
+    },
+    "2": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/ziraat_bankasi_1930lar.jpg",
+      "atif": "Directorate General of Press and Information · No restrictions · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Banks_Street_(Atat%C3%BCrk_Boulevard)_the_Building_of_Ziraat_Bankas%C4%B1_(Agricultural_Bank),_1930s_(16851305342).jpg",
+      "_lisans": "No restrictions",
+      "alt_tr": "1930’larda Ankara’da Ziraat Bankası binası. TMO’nun işi 1932’de bu bankaya verilmişti; Ofis altı yıl sonra o masadan doğdu.",
+      "alt_en": "The Ziraat Bankası building in 1930s Ankara. TMO’s work was first assigned to this bank in 1932; the Office was born from that desk six years later."
+    },
+    "4": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/tmo_silolari_izmir.jpg",
+      "atif": "Levent · Public domain · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Turkish_Grain_Board_main_silos_in_Izmir.JPG",
+      "_lisans": "Public domain",
+      "alt_tr": "TMO’nun İzmir’deki silolarından biri. Kurumun kendi depolama kapasitesi yaklaşık 4 milyon ton.",
+      "alt_en": "One of TMO’s silo complexes in İzmir. The institution’s own storage capacity is around 4 million tonnes."
+    },
+    "5": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/tmo_satis_ofisi.jpg",
+      "atif": "Elenktra · CC0 · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Toprak_Mahsulleri_Ofisi_sat%C4%B1%C5%9F_ofisi.jpg",
+      "_lisans": "CC0",
+      "alt_tr": "Bir TMO satış ofisi. Alım kadar satış da kurumun işi: stoktan piyasaya verilen ürün fiyatın tavanını belirliyor.",
+      "alt_en": "A TMO sales office. Selling is as much its business as buying: stock released to the market sets the ceiling on price."
+    },
+    "6": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/hasat_tarlada.jpg",
+      "atif": "mhasras · CC BY 3.0 · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Yayc%C4%B1_k%C3%B6y%C3%BC_bu%C4%9Fday_hasad%C4%B1_-_panoramio_(1).jpg",
+      "_lisans": "CC BY 3.0",
+      "alt_tr": "Hasat makinesi tarlada. Çiftçinin ürününü ne zaman ve kime satacağı kararı bu haftalarda veriliyor.",
+      "alt_en": "A combine in the field. The decision of when and to whom to sell is taken in these weeks."
+    },
+    "7": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/hashas_tarlasi.jpg",
+      "atif": "Bernard Gagnon · CC BY-SA 3.0 · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Poppy_field,_Turkey_03.jpg",
+      "_lisans": "CC BY-SA 3.0",
+      "alt_tr": "Türkiye’de bir haşhaş tarlası. Ekim izne bağlı, alıcı tek: TMO.",
+      "alt_en": "A poppy field in Türkiye. Cultivation requires a licence and there is a single buyer: TMO."
+    },
+    "8": {
+      "url": "https://tarim-app-2026.web.app/dosya/tmo/tmo_silolari_ek.jpg",
+      "atif": "Levent · Public domain · Wikimedia Commons",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Turkish_Grain_Board_additional_silos_in_Izmir.JPG",
+      "_lisans": "Public domain",
+      "alt_tr": "TMO’nun İzmir’deki ek siloları. Depolama, ürünü korumak kadar zamanı yönetmek demek.",
+      "alt_en": "TMO’s additional silos in İzmir. Storage is as much about managing time as protecting grain."
+    }
+  },
+  "hikaye": {
+    "_amac": "Ana sayfadaki hikâye baloncuğu. Okuru /kurum/tmo adresine götürüyor.",
+    "_kural": "Metin elle yazıldı. Rakamlar data.json’dan: %21 buğday payı, 1932 Ziraat Bankası görevlendirmesi, afyon tekeli, 11 bölüm.",
+    "_gorsel_notu": "Görseller dosyanın içindeki fotoğraflardan.",
+    "_akis": "Üç merak kancası, sonda tek çağrı: ölçek → beklenmedik köken → az bilinen yetki → dosyaya davet.",
+    "grup_tr": "Kurum Dosyası",
+    "grup_en": "Institution Dossier",
+    "slaytlar": [
+      {
+        "ust": "KURUM DOSYASI · 01",
+        "ust_en": "INSTITUTION DOSSIER · 01",
+        "baslik": "Türkiye’de yetişen her beş buğdaydan biri bu kuruma gidiyor. Peki Toprak Mahsulleri Ofisi tam olarak ne yapıyor?",
+        "baslik_en": "One in every five grains of wheat grown in Türkiye goes to this institution. So what exactly does the Turkish Grain Board do?",
+        "rakam": "%21",
+        "rakam_en": "21%",
+        "etiket": "TMO’nun 2025 buğday üretimindeki payı",
+        "etiket_en": "TMO’s share of the 2025 wheat crop",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/tmo/bugday_hasadi.jpg"
+      },
+      {
+        "ust": "BİR BANKANIN İÇİNDEN",
+        "ust_en": "OUT OF A BANK",
+        "baslik": "TMO sıfırdan kurulmadı: iş, altı yıl boyunca Ziraat Bankası’nın içindeki bir masada yürüdü",
+        "baslik_en": "TMO was not created from nothing: for six years the work ran from a desk inside Ziraat Bankası",
+        "rakam": "1932",
+        "rakam_en": "1932",
+        "etiket": "Buğday alımının bankaya verildiği yıl",
+        "etiket_en": "The year wheat buying was assigned to the bank",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/tmo/ziraat_bankasi_1930lar.jpg"
+      },
+      {
+        "ust": "AZ BİLİNEN YETKİ",
+        "ust_en": "THE LESSER-KNOWN MANDATE",
+        "baslik": "Aynı kurum haşhaşın da tek alıcısı: ekim izne bağlı, alkaloid üretimi tekelde",
+        "baslik_en": "The same institution is the sole buyer of opium poppy: cultivation is licensed, alkaloid production a monopoly",
+        "rakam": "Tek alıcı",
+        "rakam_en": "Sole buyer",
+        "etiket": "Türkiye’de haşhaş ekimi ve afyon alkaloidleri",
+        "etiket_en": "Poppy cultivation and opium alkaloids in Türkiye",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/tmo/hashas_tarlasi.jpg"
+      },
+      {
+        "ust": "BUĞDAYDAN AFYONA",
+        "ust_en": "FROM WHEAT TO OPIUM",
+        "baslik": "Kuruluşundan bugüne, fiyatı nasıl belirlediğinden çiftçiyi neresinden ilgilendirdiğine — 11 bölümde",
+        "baslik_en": "From its founding to today, from how it sets the price to why it matters to the farmer — in 11 sections",
+        "rakam": "11 bölüm",
+        "rakam_en": "11 sections",
+        "etiket": "Kurum dosyamıza göz atın →",
+        "etiket_en": "Take a look at our institution dossier →",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/tmo/tmo_silolari_izmir.jpg"
+      }
+    ]
+  }
+}

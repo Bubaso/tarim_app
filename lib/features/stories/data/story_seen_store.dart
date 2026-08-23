@@ -31,7 +31,8 @@ class StorySeenStore {
       if (parts.length != 2) continue;
       final millis = int.tryParse(parts[1]);
       if (millis == null) continue;
-      if (DateTime.fromMillisecondsSinceEpoch(millis).isBefore(cutoff)) continue;
+      if (DateTime.fromMillisecondsSinceEpoch(millis).isBefore(cutoff))
+        continue;
       result.add(parts[0]);
     }
     return result;
@@ -53,7 +54,8 @@ class StorySeenStore {
       if (parts.length != 2) continue;
       final millis = int.tryParse(parts[1]);
       if (millis == null) continue;
-      if (DateTime.fromMillisecondsSinceEpoch(millis).isBefore(cutoff)) continue;
+      if (DateTime.fromMillisecondsSinceEpoch(millis).isBefore(cutoff))
+        continue;
       if (incoming.contains(parts[0])) continue;
       kept[parts[0]] = millis;
     }

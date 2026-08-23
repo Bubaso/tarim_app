@@ -45,7 +45,13 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
 
   for (final row in response) {
     final articleData = row['articles'] as Map<String, dynamic>?;
-    final rawImage = articleData?['image_url']?.toString().trim() ?? '';
+    // Dosya hikâyelerinin haberi yok; görselleri satırın kendisinde duruyor
+    // (dosyanın paylaşım kartı). Haberli hikâyelerde bu alan boş ve görsel
+    // eskisi gibi join'den geliyor.
+    final rawSatirGorsel = row['gorsel_url']?.toString().trim() ?? '';
+    final rawImage = rawSatirGorsel.isNotEmpty
+        ? rawSatirGorsel
+        : (articleData?['image_url']?.toString().trim() ?? '');
     // Görseli olmayan hikaye gösterilmez; yedek görsel kesinlikle kullanılmaz.
     if (rawImage.length < 6) continue;
 
@@ -58,10 +64,14 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
     final portrait = rawStory.length < 6 ? '' : rawStory;
 
     final storyId = row['id'].toString();
-    final articleId = row['article_id'].toString();
+    // article_id artık null olabiliyor; `.toString()` doğrudan çağrılırsa
+    // "null" dizesi üretir ve düğme /haber/null adresine giderdi.
+    final articleId = row['article_id']?.toString() ?? '';
+    final hedefYol = row['hedef_yol']?.toString().trim() ?? '';
     final bool isBreaking = row['is_breaking'] == true;
     final DateTime createdAt =
-        DateTime.tryParse(row['created_at']?.toString() ?? '') ?? DateTime.now();
+        DateTime.tryParse(row['created_at']?.toString() ?? '') ??
+            DateTime.now();
     final DateTime? expiresAt =
         DateTime.tryParse(row['expires_at']?.toString() ?? '');
 
@@ -81,24 +91,34 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
       // Başlığı veya vurucu değeri olmayan slayt boş bir kart demek.
       if (headline.isEmpty || bigStat.isEmpty) continue;
 
+      // Slayt kendi görselini taşıyabiliyor.
+      //
+      // Haber hikâyelerinde bir grubun bütün slaytları aynı haberden gelir ve
+      // tek görsel doğrudur. Dosya hikâyesinde ise her slayt dosyanın başka
+      // bir bölümünü anlatıyor; hepsine aynı fotoğrafı koymak kartı tekrara
+      // düşürüyordu. Yazılı değilse satırın görseline düşüyor — eski davranış.
+      final slaytGorsel = raw['gorsel_url']?.toString().trim() ?? '';
+      final gorsel = slaytGorsel.length >= 6 ? slaytGorsel : rawImage;
+
       buckets.putIfAbsent(key, () => <StoryItem>[]).add(StoryItem(
-        id: '$storyId#$i',
-        storyId: storyId,
-        articleId: articleId,
-        superTitle: raw['super_title']?.toString() ?? '',
-        superTitleEn: raw['super_title_en']?.toString() ?? '',
-        headline: headline,
-        headlineEn: raw['headline_en']?.toString() ?? '',
-        bigStatValue: bigStat,
-        bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
-        statLabel: raw['stat_label']?.toString() ?? '',
-        statLabelEn: raw['stat_label_en']?.toString() ?? '',
-        imageUrl: rawImage,
-        portraitUrl: portrait,
-        createdAt: createdAt,
-        expiresAt: expiresAt,
-        isBreaking: isBreaking,
-      ));
+            id: '$storyId#$i',
+            storyId: storyId,
+            articleId: articleId,
+            hedefYol: hedefYol,
+            superTitle: raw['super_title']?.toString() ?? '',
+            superTitleEn: raw['super_title_en']?.toString() ?? '',
+            headline: headline,
+            headlineEn: raw['headline_en']?.toString() ?? '',
+            bigStatValue: bigStat,
+            bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
+            statLabel: raw['stat_label']?.toString() ?? '',
+            statLabelEn: raw['stat_label_en']?.toString() ?? '',
+            imageUrl: rawImage,
+            portraitUrl: portrait,
+            createdAt: createdAt,
+            expiresAt: expiresAt,
+            isBreaking: isBreaking,
+          ));
 
       // Grubun görünen adını en taze satır belirler; satırlar zaten yeniden
       // eskiye geldiği için ilk gelen kazanır.
@@ -120,7 +140,8 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
 final storiesProvider = Provider<AsyncValue<List<StoryGroup>>>((ref) {
   final feed = ref.watch(storyFeedProvider);
   final seen = ref.watch(storySeenProvider);
-  return feed.whenData((groups) => rankStoryGroups(groups, seen, DateTime.now()));
+  return feed
+      .whenData((groups) => rankStoryGroups(groups, seen, DateTime.now()));
 });
 
 /// Cihazdaki izlendi defteri. Görüntüleyici her slaytı gösterdiğinde işler.
@@ -156,7 +177,8 @@ class StorySeenNotifier extends StateNotifier<Set<String>> {
 /// süresi dolmuş hikayeler ekranda duruyor, yeni üretilenler hiç görünmüyordu.
 void refreshStoriesIfStale(WidgetRef ref) {
   final last = _lastFetchedAt;
-  if (last != null && DateTime.now().difference(last) < StoryRules.refreshAfter) {
+  if (last != null &&
+      DateTime.now().difference(last) < StoryRules.refreshAfter) {
     return;
   }
   ref.invalidate(storyFeedProvider);

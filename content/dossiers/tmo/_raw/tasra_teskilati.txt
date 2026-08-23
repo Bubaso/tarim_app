@@ -1,0 +1,144 @@
+       1-Karacabey     1-İhsaniye      1-Kahramankazan       1-Pınarbaşı       1-Bünyan 1-Sungurlu       1-Doğankent 1-Horasan 1-Kahta
+1-Balıkesir     2-Sinanpaşa      2-Malıköy 1-Cihanbeyli       2-Tomarza 2-Alaca       2-İmamoğlu 1-AĞRI 1-ELAZIĞ
+2-Biga     3-Şuhut 1-Bala       1-Sülüklü       3-Yeşilhisar 3-Osmancık       3-Kozan 2-ERZİNCAN 2-MALATYA
+1-ÇANAKKALE 1-Çay 2-Beypazarı 2-Sarayönü       4- Felahiye 1-ÇANKIRI       4-Yakapınar       1-Mercan
+       1-Evreşe 2-Dinar        1-Ayaş       1-Meydan 1-Boğazlıyan 2-KASTAMONU       5-Yenice 3-IĞDIR
+3-Emirdağ 3-Haymana 3-Beyşehir 2-Pınarbaşı 1-Ceyhan 4-KARS 1-Bağlar
+4-Sandıklı       1-Oyaca 4-Ilgın 3-Sarıoğlan       1-Sağkaya       1-Akyaka       1-Ergani
+1-İSTANBUL 1-UŞAK       2-Bumsuz 1-KARAMAN 4-Yenifakılı 1-OSMANİYE       2-Mermer
+      1-Banaz 1-POLATLI       1-Ayrancı       1-Kanlıca       1-Kadirli       1-Bulanık 2-Bismil
+      1-Karasu       1-Beylikköprü 2-AKŞEHİR 1-Bafra       2-Mustafabeyli 1-Ahlat      1-Tepe
+1-AYDIN      1-Doğanhisar       1-Boztepe 2-Çarşamba 1-VAN 3-Çınar
+      1-Havsa       1-Çine      2-Şarkikaraağaç       2- Akpınar 3-Havza  1-Antakya
+      2-Lalapaşa       2-Söke 1-Balışeyh 1-Hacıbektaş 1-TOKAT  2-Kırıkhan       1-Şenyurt
+1-İpsala 2-MANİSA 2-Çerikli       1-Topaklı       1-Artova       1-Reyhanlı
+2-Uzunköprü       1-Salihli 3-Keskin 1-Ereğli 2-Kaman       2-Zile
+      1-Meriç 2-Şereflikoçhisar 3-Mucur 2-AMASYA       1-Akdeniz 3-Kızıltepe
+      1-Çardak 1-NİĞDE       1-Merzifon
+      1-Pınarhisar 1-Acıpayam       1-Kaymaz       1-Ulukışla       1-Kangal 1-Bozova
+1-Babaeski 2-Çivril 1-Sivrihisar       2-Yıldızeli 1-Elbistan 2-Ceylanpınar
+2-Lüleburgaz       1-Çal       1-Biçer       1-Saray 1-Şarkışla 3-Viranşehir
+      1-Ahmetbey 1-BURDUR 1-KÜTAHYA 1-Şefaatli       1-Viranşehir OSB
+3-Saray       1-Korkuteli       1-Sarıkent
+      2-Tefenni 2-Sorgun       1-Araban
+1-Çorlu       3-Yeşilova       1-Doğankent       2-Kilis
+2-Hayrabolu 3-Yozgat 1-İslahiye
+3-Malkara
+      1-Şarköy
+4-Muratlı 1-Kurtalan
+5-Silivri
+      2-Yağcıoğlu
+ 2-Nusaybin
+ 1-Derik
+MARMARA
+ EGE
+ KARADENİZ  
+ AKDENİZ 
+ DOĞUANADOLU  
+GÜNEYDOĞU
+ANADOLU 
+BALIKESİR 
+BAŞMÜDÜRLÜĞÜ
+AFYONKARAHİSAR 
+BAŞMÜDÜRLÜĞÜ
+MUŞ 
+BAŞMÜDÜRLÜĞÜ
+KAYSERİ 
+BAŞMÜDÜRLÜĞÜ
+TRABZON 
+BAŞMÜDÜRLÜĞÜ
+ADANA 
+BAŞMÜDÜRLÜĞÜ
+ERZURUM 
+BAŞMÜDÜRLÜĞÜ
+DİYARBAKIR 
+BAŞMÜDÜRLÜĞÜ
+KIRKLARELİ 
+BAŞMÜDÜRLÜĞÜ
+TEKİRDAĞ 
+BAŞMÜDÜRLÜĞÜ
+KONYA 
+BAŞMÜDÜRLÜĞÜ
+SİVAS
+BAŞMÜDÜRLÜĞÜ
+KIRŞEHİR 
+BAŞMÜDÜRLÜĞÜ
+YOZGAT 
+BAŞMÜDÜRLÜĞÜ
+AJANS :                                                                      66    
+BAŞMÜDÜRLÜK :                                                  35
+T.EKİP :                                                                      73
+ÇORUM 
+BAŞMÜDÜRLÜĞÜ
+GAZİANTEP 
+BAŞMÜDÜRLÜĞÜ
+HATAY  
+BAŞMÜDÜRLÜĞÜ
+MERSİN 
+BAŞMÜDÜRLÜĞÜ
+ESKİŞEHİR
+BAŞMÜDÜRLÜĞÜ
+İZMİR 
+BAŞMÜDÜRLÜĞÜ
+ŞANLIURFA
+BAŞMÜDÜRLÜĞÜ
+ADIYAMAN 
+BAŞMÜDÜRLÜĞÜ
+ANKARA 
+BAŞMÜDÜRLÜĞÜ
+TMO T AŞRA TEŞKİLATI ŞEMASI
+13.07.2026
+İÇ ANADOLU
+SAMSUN BAŞMÜDÜRLÜĞÜ
+GİRESUN BAŞMÜDÜRLÜĞÜ
+ORDU BAŞMÜDÜRLÜĞÜ
+ŞUBE :                                                                        23
+BAŞMÜDÜRLÜK :   6
+ŞUBE :                       2
+AJANS:                    12             
+T.EKİP:                       9
+BAŞMÜDÜRLÜK :    3
+ŞUBE :                       4
+AJANS:                    6
+T.EKİP:                    12
+BAŞMÜDÜRLÜK :  9  
+ŞUBE :                     5                     
+AJANS:                   24                   
+T.EKİP:                    29            
+BAŞMÜDÜRLÜK :    5
+ŞUBE :                       4 
+AJANS:                      6                      
+T.EKİP:                       3
+BAŞMÜDÜRLÜK :    4
+ŞUBE :                       1   
+AJANS:                     4
+T.EKİP:                    10    
+BAŞMÜDÜRLÜK :    2
+ŞUBE :                       5 
+AJANS:                     2
+T.EKİP:                       3
+BAŞMÜDÜRLÜK :           6
+ŞUBE :                              2
+AJANS:                           12  
+T.EKİP:                              7
+KIRIKKALE 
+BAŞMÜDÜRLÜĞÜ
+TOPLAM :                                                              198
+DENİZLİ 
+BAŞMÜDÜRLÜĞÜ
+AKSARAY  
+BAŞMÜDÜRLÜĞÜ
+MARDİN BAŞMÜDÜRLÜĞÜ
+AAF :  1
+AAF İŞLETME 
+MÜDÜRLÜĞÜ
+AAF :                         1
+EDİRNE 
+BAŞMÜDÜRLÜĞÜ
+KOCAELİ  
+BAŞMÜDÜRLÜĞÜ
+KAHRAMANMARAŞ 
+BAŞMÜDÜRLÜĞÜ
+SAKARYA 
+BAŞMÜDÜRLÜĞÜ
+BATMAN BAŞMÜDÜRLÜĞÜ

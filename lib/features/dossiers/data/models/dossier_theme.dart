@@ -50,6 +50,19 @@ class DossierTheme {
   final Color seritVurgu;
   final Color seritIkincil;
 
+  /// Kapak renkleri — gövdeden AYRI olabilir.
+  ///
+  /// Ülke Dosyası'nda kapak ile gövde aynı: sayfanın tamamı koyu bir ada.
+  /// Kurum Dosyası'nda değil — orası fiziksel dosyanın kendisi: dışı koyu
+  /// mukavva kapak, içi kağıt.
+  ///
+  /// `tasarim.json/palet.kapak` bloğu yoksa bu dördü gövde renklerine düşüyor
+  /// ve kapak eskisi gibi çiziliyor.
+  final Color kapakZemin;
+  final Color kapakMurekkep;
+  final Color kapakSessiz;
+  final Color kapakVurgu;
+
   /// Polder motifinin opaklığı ve ızgara aralığı.
   ///
   /// Aralık 24 px'in altına inmiyor: retina olmayan ekranlarda moiré titremesi
@@ -70,6 +83,10 @@ class DossierTheme {
     required this.seritMurekkep,
     required this.seritVurgu,
     required this.seritIkincil,
+    required this.kapakZemin,
+    required this.kapakMurekkep,
+    required this.kapakSessiz,
+    required this.kapakVurgu,
     required this.motifOpaklik,
     required this.motifAralik,
   });
@@ -91,6 +108,10 @@ class DossierTheme {
     seritMurekkep: Color(0xFF16222A),
     seritVurgu: Color(0xFF3A4750),
     seritIkincil: Color(0xFF5B676F),
+    kapakZemin: Color(0xFF101418),
+    kapakMurekkep: Color(0xFFE9EDEF),
+    kapakSessiz: Color(0xFF9AA5AC),
+    kapakVurgu: Color(0xFFD8DEE2),
     motifOpaklik: 0.05,
     motifAralik: 28,
   );
@@ -106,8 +127,13 @@ class DossierTheme {
     final palet = json['palet'];
     if (palet is! Map) return yedek;
 
-    final koyu = palet['koyu'];
-    final serit = palet['acik_mod_seridi'];
+    // Anahtar adı 'sayfa'; ülke dosyaları 'koyu' yazıyor ve o adla kalıyor.
+    // Ülke Dosyası koyu bir ada, Kurum Dosyası kağıt gövde — aynı alan bir
+    // dizide koyu, diğerinde açık renk taşıyor. Geriye dönük okunuyor.
+    final koyu = palet['sayfa'] ?? palet['koyu'];
+    final serit = palet['serit'] ?? palet['acik_mod_seridi'];
+    // Kapak bloğu isteğe bağlı; yoksa kapak gövde renklerini kullanır.
+    final kapak = palet['kapak'];
     final motif = json['motif'];
 
     Color? renk(dynamic blok, String anahtar) {
@@ -130,10 +156,43 @@ class DossierTheme {
       seritMurekkep: renk(serit, 'murekkep') ?? yedek.seritMurekkep,
       seritVurgu: renk(serit, 'vurguKoyu') ?? yedek.seritVurgu,
       seritIkincil: renk(serit, 'ikincilKoyu') ?? yedek.seritIkincil,
+      // Sırayla: kapak bloğu → gövde bloğu → yedek. Ortadaki adım önemli;
+      // kapak bloğu olmayan dosyada kapak gövdeyle aynı görünmeli.
+      kapakZemin: renk(kapak, 'zemin') ?? renk(koyu, 'zemin') ?? yedek.kapakZemin,
+      kapakMurekkep:
+          renk(kapak, 'murekkep') ?? renk(koyu, 'murekkep') ?? yedek.kapakMurekkep,
+      kapakSessiz: renk(kapak, 'sessiz') ?? renk(koyu, 'sessiz') ?? yedek.kapakSessiz,
+      kapakVurgu: renk(kapak, 'vurgu') ?? renk(koyu, 'vurgu') ?? yedek.kapakVurgu,
       motifOpaklik: _yuzde(motif is Map ? motif['uygulama'] : null) ?? yedek.motifOpaklik,
       motifAralik: yedek.motifAralik,
     );
   }
+
+  /// Kapak için türetilmiş tema.
+  ///
+  /// Kapağın içindeki her şey gövdeyle aynı `tema` nesnesini alıyor. Renkleri
+  /// tek tek değiştirmek yerine kapak renklerinin gövde renklerinin yerine
+  /// geçtiği bir kopya veriliyor; kapağa yeni bir öğe eklendiğinde renk sorunu
+  /// kendiliğinden çözülüyor.
+  DossierTheme get kapakTemasi => DossierTheme(
+        zemin: kapakZemin,
+        yuzey: kapakZemin,
+        murekkep: kapakMurekkep,
+        sessiz: kapakSessiz,
+        vurgu: kapakVurgu,
+        ikincil: kapakSessiz,
+        cizgi: cizgi,
+        cizgiVurgu: cizgiVurgu,
+        seritMurekkep: seritMurekkep,
+        seritVurgu: seritVurgu,
+        seritIkincil: seritIkincil,
+        kapakZemin: kapakZemin,
+        kapakMurekkep: kapakMurekkep,
+        kapakSessiz: kapakSessiz,
+        kapakVurgu: kapakVurgu,
+        motifOpaklik: motifOpaklik,
+        motifAralik: motifAralik,
+      );
 
   /// Açık zeminde okunacak vurgu rengi.
   ///

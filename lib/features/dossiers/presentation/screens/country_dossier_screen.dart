@@ -38,12 +38,19 @@ import 'dossier_index_screen.dart';
 /// null geldiğinde kapak tipografik iskelete düşüyor; sayfanın hiçbir bölümü
 /// eksilmiyor. Hollanda dosyası şu anda tam olarak bu durumda yayına giriyor.
 class CountryDossierScreen extends ConsumerStatefulWidget {
-  const CountryDossierScreen({super.key, required this.slug});
+  const CountryDossierScreen(
+      {super.key, required this.slug, this.tur = 'ulke'});
 
   final String slug;
 
+  /// `ulke` | `kurum`. Yalnızca ADRESİ belirliyor: `/ulke/<slug>` mi
+  /// `/kurum/<slug>` mi. Sayfanın kendisi türe bakmıyor; ayrımı tema yapıyor
+  /// ve tema zaten veriden geliyor.
+  final String tur;
+
   @override
-  ConsumerState<CountryDossierScreen> createState() => _CountryDossierScreenState();
+  ConsumerState<CountryDossierScreen> createState() =>
+      _CountryDossierScreenState();
 }
 
 class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
@@ -297,7 +304,8 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
         );
   }
 
-  Widget _sayfa(CountryDossier dosya, {required bool isEn, required double olcek}) {
+  Widget _sayfa(CountryDossier dosya,
+      {required bool isEn, required double olcek}) {
     final tema = dosya.summary.theme;
     final ad = dosya.summary.name(isEn);
 
@@ -357,7 +365,9 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                 // ikiye bölüyordu. Kendi bloğu olarak hemen altında duruyor.
                 // Kapaktan gövdeye geçiş bandı. Motifin gövde metninin
                 // arkasında değil yalnızca geçişlerde durması tasarım kuralı.
-                SliverToBoxAdapter(child: PolderMotif(tema: tema)),
+                SliverToBoxAdapter(
+                  child: PolderMotif(tema: tema, yukseklik: 48, opaklik: 0.08),
+                ),
                 if (video != null)
                   SliverToBoxAdapter(
                     child: _Oluk(
@@ -395,25 +405,37 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                     // metin dizisine nefes aralığı. Kapaktaki geçişin aynısı,
                     // dolayısıyla sayfa boyunca tutarlı bir "ara" işareti.
                     if (sonuncu || (i + 1) % 4 != 0) return bolum;
+                    // Bant 88 px'ti ve motif %5 opaklıkta koyu zeminde
+                    // görünmüyordu: 4, 8 ve 12. bölümlerden sonra sayfada
+                    // sebebi anlaşılmayan bir karanlık şerit kalıyordu.
+                    // Yükseklik yarıya indi, opaklık tasarim.json'daki kabul
+                    // aralığının (%4–8) üst ucuna çıktı. Aynı "ara" işareti,
+                    // ama artık görülüyor.
                     return Column(
                       mainAxisSize: MainAxisSize.min,
-                      children: [bolum, PolderMotif(tema: tema)],
+                      children: [
+                        bolum,
+                        PolderMotif(tema: tema, yukseklik: 48, opaklik: 0.08),
+                      ],
                     );
                   },
                 ),
 
                 SliverToBoxAdapter(
-                  child: _VeriNotlari(bosluklar: dosya.gaps, tema: tema, isEn: isEn),
+                  child: _VeriNotlari(
+                      bosluklar: dosya.gaps, tema: tema, isEn: isEn),
                 ),
                 SliverToBoxAdapter(
-                  child: _Kunye(kaynaklar: dosya.sources, tema: tema, isEn: isEn),
+                  child:
+                      _Kunye(kaynaklar: dosya.sources, tema: tema, isEn: isEn),
                 ),
                 SliverToBoxAdapter(
                   child: _Oluk(
                     dikey: 24,
                     child: Align(
                       alignment: Alignment.centerLeft,
-                      child: DossierShareBar(ozet: dosya.summary, tema: tema, isEn: isEn),
+                      child: DossierShareBar(
+                          ozet: dosya.summary, tema: tema, isEn: isEn),
                     ),
                   ),
                 ),
@@ -421,7 +443,11 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                 // dizinin devamı olduğunu ancak burada öğrenmeli. Yukarı
                 // konsaydı okunmakta olan dosyadan çıkmaya davet ederdi.
                 SliverToBoxAdapter(
-                  child: _ArsivBaglantisi(tema: tema, isEn: isEn),
+                  child: _ArsivBaglantisi(
+                    tema: tema,
+                    isEn: isEn,
+                    tur: dosya.summary.tur,
+                  ),
                 ),
                 const SliverToBoxAdapter(child: SizedBox(height: 72)),
               ],
@@ -468,16 +494,21 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
 /// 720 px, haber sayfasındaki 800'den dar: dosya gövdesi uzun paragraflardan
 /// oluşuyor ve geniş satır uzun okumada satır atlatıyor.
 class _Oluk extends StatelessWidget {
-  const _Oluk({required this.child, this.dikey = 0});
+  const _Oluk({required this.child, this.dikey = 0, this.genislik = 720});
 
   final Widget child;
   final double dikey;
+
+  /// Varsayılan 720 — okuma genişliği. `veri` bölümlerinde grafikler bunu
+  /// aşıyor (bkz. [_Bolum]); METİN hiçbir zaman aşmıyor. Geniş satır uzun
+  /// okumada göz satır atlatıyor ve bu, bölüm türünden bağımsız olarak doğru.
+  final double genislik;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 720),
+        constraints: BoxConstraints(maxWidth: genislik),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: dikey),
           child: child,
@@ -549,142 +580,167 @@ class _Kapak extends StatelessWidget {
     final ust = olcu.padding.top;
     final gorselVar = ozet.coverUrl != null;
 
-    return Container(
-      width: double.infinity,
-      color: tema.zemin,
-      child: Stack(
-        children: [
-          if (gorselVar)
-            Positioned.fill(
-              child: ClipRect(
-                child: Stack(
-                  fit: StackFit.expand,
+    // Kapak kendi renklerini kullanıyor. Ülke dosyasında bu kopya gövdeyle
+    // aynı; Kurum Dosyası'nda koyu mukavva kapak ile kağıt gövdeyi ayıran şey
+    // tam olarak burası.
+    final tema = this.tema.kapakTemasi;
+
+    // Kapak EN AZ bir ekran boyunda.
+    //
+    // Bu sınır bir süre yoktu ve kapak içeriği kadar yükseliyordu: telefonda
+    // ilk ekranda hem kapak hem gövdenin başı görünüyor, dosya sıradan bir
+    // haber sayfasından ayrışmıyordu. Kapak tek başına bir ekran olduğunda okur
+    // önce "bir şeyin başına geldiğini" görüyor, sonra okumaya başlıyor —
+    // basılı bir dosyanın kapak sayfasının yaptığı iş.
+    //
+    // minHeight, sabit height DEĞİL. Yazı ölçeği okur tarafından büyütülebiliyor;
+    // sabit yükseklikte 132 px'lik ad iki satıra çıktığında kapak taşardı.
+    // Asgari sınırda kutu büyür, kompozisyon bozulmaz.
+    return ConstrainedBox(
+      key: const Key('dosya-kapak'),
+      constraints: BoxConstraints(minHeight: olcu.size.height),
+      child: Container(
+        width: double.infinity,
+        color: tema.zemin,
+        child: Stack(
+          children: [
+            if (gorselVar)
+              Positioned.fill(
+                child: ClipRect(
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      // Paralaks: görsel kaydırmanın üçte biri kadar hareket
+                      // ediyor, yani metnin gerisinde kalıyor. Büyütme şart —
+                      // görsel aşağı kayarken üst kenarında boşluk açılmasın.
+                      // Perde bu katmanın DIŞINDA: o da kaysaydı metnin altındaki
+                      // koyuluk kayar, okunurluk kaydırmaya bağlı hâle gelirdi.
+                      ValueListenableBuilder<double>(
+                        valueListenable: ofset,
+                        builder: (context, o, child) => Transform.translate(
+                          offset: Offset(
+                            0,
+                            MediaQuery.of(context).disableAnimations
+                                ? 0
+                                : o * 0.32,
+                          ),
+                          child: child,
+                        ),
+                        child: Transform.scale(
+                          scale: 1.16,
+                          child: NewsArticleImage(
+                            imageUrl: ozet.coverUrl,
+                            fit: BoxFit.cover,
+                            isHighQuality: true,
+                            semanticLabel: ozet.name(isEn),
+                          ),
+                        ),
+                      ),
+                      // Perde iki katman.
+                      //
+                      // 1) Radyal: koyuluğu yalnızca metnin bulunduğu sol-alt
+                      // köşeye topluyor. Tek yönlü lineer perde tüm görseli
+                      // eşit karartıyordu; görselin üst köşeleri açık kalınca
+                      // kapak fotoğraf gibi duruyor, karartma da metnin
+                      // gerektiği yerde oluyor.
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: RadialGradient(
+                            center: const Alignment(-0.65, 0.55),
+                            radius: 1.25,
+                            colors: [
+                              tema.zemin.withValues(alpha: 0.88),
+                              tema.zemin.withValues(alpha: 0.20),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // 2) Lineer: alt kenarın zemine tamamen kavuşmasını
+                      // garantiliyor — kapaktan gövdeye kesik bir geçiş olmasın.
+                      DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            stops: const [0.0, 0.35, 0.72, 1.0],
+                            colors: [
+                              tema.zemin.withValues(alpha: 0.42),
+                              tema.zemin.withValues(alpha: 0.10),
+                              tema.zemin.withValues(alpha: 0.72),
+                              tema.zemin,
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            Padding(
+              padding: EdgeInsets.only(
+                top: ust + kToolbarHeight + 20,
+                bottom: 20,
+              ),
+              child: _Oluk(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Paralaks: görsel kaydırmanın üçte biri kadar hareket
-                    // ediyor, yani metnin gerisinde kalıyor. Büyütme şart —
-                    // görsel aşağı kayarken üst kenarında boşluk açılmasın.
-                    // Perde bu katmanın DIŞINDA: o da kaysaydı metnin altındaki
-                    // koyuluk kayar, okunurluk kaydırmaya bağlı hâle gelirdi.
-                    ValueListenableBuilder<double>(
-                      valueListenable: ofset,
-                      builder: (context, o, child) => Transform.translate(
-                        offset: Offset(
-                          0,
-                          MediaQuery.of(context).disableAnimations
-                              ? 0
-                              : o * 0.32,
-                        ),
-                        child: child,
-                      ),
-                      child: Transform.scale(
-                        scale: 1.16,
-                        child: NewsArticleImage(
-                          imageUrl: ozet.coverUrl,
-                          fit: BoxFit.cover,
-                          isHighQuality: true,
-                          semanticLabel: ozet.name(isEn),
-                        ),
+                    _Etiket(
+                      ozet.seriEtiketi(isEn),
+                      renk: tema.vurgu,
+                    ),
+                    // Adı alt üçte bire iten boşluk. Spacer DEĞİL: kapak bir
+                    // SliverToBoxAdapter içinde, orada yükseklik sınırsız ve
+                    // Spacer sonsuz yükseklik isteyip patlar. Ekran yüksekliğinin
+                    // oranı olarak veriliyor; sabit piksel 560 px'lik pencerede
+                    // adı ekrandan taşırıyordu.
+                    SizedBox(
+                        height: (olcu.size.height * 0.24).clamp(12.0, 220.0)),
+                    // Ad tek satıra sığmayabilir ("Birleşik Krallık"): sarma
+                    // serbest, kırpma yok. Dar telefonda iki satır olması
+                    // sorun değil, ölçek zaten kompozisyonun kendisi.
+                    Text(
+                      ozet.name(isEn),
+                      style: AppTypography.dossierCover(
+                        context,
+                        color: tema.murekkep,
                       ),
                     ),
-                    // Perde iki katman.
-                    //
-                    // 1) Radyal: koyuluğu yalnızca metnin bulunduğu sol-alt
-                    // köşeye topluyor. Tek yönlü lineer perde tüm görseli
-                    // eşit karartıyordu; görselin üst köşeleri açık kalınca
-                    // kapak fotoğraf gibi duruyor, karartma da metnin
-                    // gerektiği yerde oluyor.
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: RadialGradient(
-                          center: const Alignment(-0.65, 0.55),
-                          radius: 1.25,
-                          colors: [
-                            tema.zemin.withValues(alpha: 0.88),
-                            tema.zemin.withValues(alpha: 0.20),
-                          ],
-                        ),
+                    const SizedBox(height: 18),
+                    // Tez cümlesi kapakta duruyor: dosyanın ne iddia ettiğini
+                    // okur ilk ekranda öğrenmeli, on üç bölüm sonra değil.
+                    ConstrainedBox(
+                      // Tez satırı adın altında dar bir sütun: dev başlıkla
+                      // aynı genişlikte akarsa ikisi tek blok gibi okunur.
+                      constraints: const BoxConstraints(maxWidth: 520),
+                      child: Text(
+                        ozet.thesis(isEn),
+                        style:
+                            AppTypography.deck(context, color: tema.murekkep),
                       ),
                     ),
-                    // 2) Lineer: alt kenarın zemine tamamen kavuşmasını
-                    // garantiliyor — kapaktan gövdeye kesik bir geçiş olmasın.
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          stops: const [0.0, 0.35, 0.72, 1.0],
-                          colors: [
-                            tema.zemin.withValues(alpha: 0.42),
-                            tema.zemin.withValues(alpha: 0.10),
-                            tema.zemin.withValues(alpha: 0.72),
-                            tema.zemin,
-                          ],
+                    const SizedBox(height: 22),
+                    // Paylaşım çubuğu adın yanından alındı: 132 px'lik bir
+                    // başlığın yanında ikonlar sıkışıyor ve kompozisyonu
+                    // bozuyordu. Pencere rozetiyle aynı satırda, alt sırada.
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Esnek: dar telefonda rozet metni sarmalı, paylaşım
+                        // düğmelerini ekran dışına itmemeli.
+                        Flexible(
+                          child: _Pencere(ozet: ozet, tema: tema, isEn: isEn),
                         ),
-                      ),
+                        const SizedBox(width: 12),
+                        DossierShareBar(ozet: ozet, tema: tema, isEn: isEn),
+                      ],
                     ),
                   ],
                 ),
               ),
             ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: ust + kToolbarHeight + 20,
-              bottom: 20,
-            ),
-            child: _Oluk(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _Etiket(
-                    '${isEn ? 'COUNTRY DOSSIER' : 'ÜLKE DOSYASI'} · ${ozet.editionLabel}',
-                    renk: tema.vurgu,
-                  ),
-                  // Esnek boşluk adı alt üçte bire itiyor. Sabit bir değer
-                  // olsaydı 560 px'lik pencerede ad ekrandan taşardı.
-                  const SizedBox(height: 12),
-                  // Ad tek satıra sığmayabilir ("Birleşik Krallık"): sarma
-                  // serbest, kırpma yok. Dar telefonda iki satır olması
-                  // sorun değil, ölçek zaten kompozisyonun kendisi.
-                  Text(
-                    ozet.name(isEn),
-                    style: AppTypography.dossierCover(
-                      context,
-                      color: tema.murekkep,
-                    ),
-                  ),
-                  const SizedBox(height: 18),
-                  // Tez cümlesi kapakta duruyor: dosyanın ne iddia ettiğini
-                  // okur ilk ekranda öğrenmeli, on üç bölüm sonra değil.
-                  ConstrainedBox(
-                    // Tez satırı adın altında dar bir sütun: dev başlıkla
-                    // aynı genişlikte akarsa ikisi tek blok gibi okunur.
-                    constraints: const BoxConstraints(maxWidth: 520),
-                    child: Text(
-                      ozet.thesis(isEn),
-                      style: AppTypography.deck(context, color: tema.murekkep),
-                    ),
-                  ),
-                  const SizedBox(height: 22),
-                  // Paylaşım çubuğu adın yanından alındı: 132 px'lik bir
-                  // başlığın yanında ikonlar sıkışıyor ve kompozisyonu
-                  // bozuyordu. Pencere rozetiyle aynı satırda, alt sırada.
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Esnek: dar telefonda rozet metni sarmalı, paylaşım
-                      // düğmelerini ekran dışına itmemeli.
-                      Flexible(
-                        child: _Pencere(ozet: ozet, tema: tema, isEn: isEn),
-                      ),
-                      const SizedBox(width: 12),
-                      DossierShareBar(ozet: ozet, tema: tema, isEn: isEn),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -751,90 +807,171 @@ class _Bolum extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        // Bölüm başlığı bloğu: hayalet rakam arkada, başlık önde.
+        // Bölüm başlığı bloğu.
         //
-        // Üstteki 72 px'lik boşluk bilinçli olarak alttakinden (56) büyük:
-        // başlık kendinden önceki bölümün metnine değil, kendi gövdesine ait
-        // görünmeli. Eşit boşlukta başlık iki blok arasında asılı kalıyor.
+        // Burada bir zamanlar iki numara vardı: arkada 132 px'lik soluk bir
+        // "hayalet rakam" ve önde "03 / 13" sayacı. İkisi de aynı şeyi
+        // söylüyordu ve hayalet rakam daha azını: sayaç konumu VE toplamı
+        // veriyor, hayalet rakam yalnızca konumu. Üstelik %15 opaklıkta kendi
+        // bloğunun dışına taşıyor, bölümler arasındaki boşluğu belirsiz
+        // kılıyordu. Bilgi taşımayan yapısal süs kaldırıldı; sayaç kaldı.
         _Oluk(
           child: Padding(
             padding: const EdgeInsets.only(top: 32, bottom: 24),
-            child: Stack(
-              clipBehavior: Clip.none,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Hayalet rakam. Artık ana başlık numarası olarak tasarlandı.
-                Positioned(
-                  left: -8,
-                  top: -24,
-                  child: Text(
-                    bolum.ordLabel,
-                    style: AppTypography.dossierCover(
-                      context,
-                      color: tema.vurgu.withValues(alpha: 0.15),
-                    ),
-                  ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                // Vurgu çizgisi: bölümün başladığı yer, başlık okunmadan
+                // önce fark edilsin. Renk körü okur için de çizginin
+                // varlığı (rengi değil) işaret taşıyor.
+                Container(width: 48, height: 3, color: tema.vurgu),
+                const SizedBox(height: 18),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Vurgu çizgisi: bölümün başladığı yer, başlık okunmadan
-                    // önce fark edilsin. Renk körü okur için de çizginin
-                    // varlığı (rengi değil) işaret taşıyor.
-                    Container(width: 48, height: 3, color: tema.vurgu),
-                    const SizedBox(height: 18),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        // "03 / 13" ilerleme sayacı. Okuyucu nerede olduğunu
-                        // ve ne kadar kaldığını tek bakışta görür.
-                        Text(
-                          '${bolum.ordLabel} / ${toplamBolum.toString().padLeft(2, '0')}',
-                          style: AppTypography.meta(context, color: tema.sessiz)
-                              .copyWith(
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 1.0,
-                              ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
+                    // "03 / 13" ilerleme sayacı. Okuyucu nerede olduğunu
+                    // ve ne kadar kaldığını tek bakışta görür.
                     Text(
-                      bolum.title(isEn),
-                      style: AppTypography.dossierSection(
-                        context,
-                        color: tema.murekkep,
-                        scale: olcek,
+                      '${bolum.ordLabel} / ${toplamBolum.toString().padLeft(2, '0')}',
+                      style: AppTypography.meta(context, color: tema.sessiz)
+                          .copyWith(
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 1.0,
                       ),
                     ),
                   ],
                 ),
+                const SizedBox(height: 12),
+                Text(
+                  bolum.title(isEn),
+                  style: AppTypography.dossierSection(
+                    context,
+                    color: tema.murekkep,
+                    scale: olcek,
+                  ),
+                ),
               ],
             ),
           ),
         ),
+        // Görsel başlıktan hemen sonra: bölümün açılışı. Metnin ardına
+        // konsaydı okur konuyu okuduktan sonra görürdü; dergi dosyasında
+        // görsel önce gelir, metin onu açıklar.
+        if (bolum.gorsel != null)
+          _BolumGorseli(gorsel: bolum.gorsel!, tema: tema, isEn: isEn),
+        // Metin her zaman 720'de. Grafik, bölüm türü `veri` ise oluğu kırıyor:
+        // ikili çubuk ve yığın grafikleri 720'de eksen etiketlerini sıkıştırıp
+        // okunmaz hâle geliyordu. Metnin genişlemesi ise okumayı bozardı, o
+        // yüzden ikisi ayrı oluklara alındı.
         _Oluk(
           child: Padding(
-            padding: const EdgeInsets.only(bottom: 32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+            padding: EdgeInsets.only(bottom: grafikler.isEmpty ? 24 : 8),
+            child:
                 DossierProse(govde: bolum.body(isEn), tema: tema, olcek: olcek),
-                for (final grafik in grafikler)
-                  DossierChartView(chart: grafik, tema: tema, isEn: isEn),
-              ],
-            ),
           ),
         ),
+        if (grafikler.isNotEmpty)
+          _Oluk(
+            genislik: bolum.genisVeri ? 1040 : 720,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final grafik in grafikler)
+                    DossierChartView(chart: grafik, tema: tema, isEn: isEn),
+                ],
+              ),
+            ),
+          ),
+        // Bölüm ayırıcısı.
+        //
+        // Önceki hâli 120 px'lik bir çizgiydi ve `cizgi` rengini %30 opaklıkla
+        // kullanıyordu: `cizgi` zaten 1.52:1 ve bunun %30'u koyu zeminde hiç
+        // görünmüyordu. Ayırıcı görünmeyince aradaki boşluk "bölüm bitti"
+        // demiyor, sadece boşluk gibi duruyordu.
+        //
+        // Şimdi anlam taşıyan çizgi rengiyle (`cizgiVurgu`, 3.48:1) ve okuma
+        // oluğunun genişliğinde. Boşluk azalmadı, işaretlendi.
         if (!sonuncu)
-          Center(
+          _Oluk(
             child: Container(
               height: 1,
-              width: 120,
-              color: tema.cizgi.withValues(alpha: 0.3),
-              margin: const EdgeInsets.symmetric(vertical: 8),
+              color: tema.cizgiVurgu.withValues(alpha: 0.55),
+              margin: const EdgeInsets.only(top: 4, bottom: 28),
             ),
           ),
       ],
+    );
+  }
+}
+
+// ─── Bölüm görseli ──────────────────────────────────────────────────────────
+
+/// Bölümün konusunu gösteren görsel ve **zorunlu** atıf satırı.
+///
+/// Grafik veriyi anlatır, görsel konuyu gösterir; ikisi birbirinin yerine
+/// geçmiyor. Dosya on üç bölüm boyunca yalnızca grafik gösteriyordu.
+///
+/// Atıf katlanabilir bir kutuda veya `alt` metninde saklı değil, görselin
+/// hemen altında açıkta duruyor — veri notları panelindeki mantığın aynısı:
+/// kaynağı gizlemek, kaynağı olmamaktan farksız.
+class _BolumGorseli extends StatelessWidget {
+  const _BolumGorseli({
+    required this.gorsel,
+    required this.tema,
+    required this.isEn,
+  });
+
+  final DossierGorsel gorsel;
+  final DossierTheme tema;
+  final bool isEn;
+
+  @override
+  Widget build(BuildContext context) {
+    return _Oluk(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Kare değil, 4:3 pencere. Uydu görselleri kare geliyor ve tam
+            // kare bir blok 720 px olukta ekranın tamamını yiyip metni
+            // aşağı itiyordu; kırpma kompozisyonu koruyor.
+            AspectRatio(
+              aspectRatio: 4 / 3,
+              child: ColoredBox(
+                color: tema.yuzey,
+                // NewsArticleImage DEĞİL: o, yüklenirken sonsuz bir shimmer
+                // animasyonu çiziyor. İki sorun — (1) okuma sayfasının
+                // ortasında nabız gibi atan bir blok, belge sakinliğini
+                // bozuyor; (2) animasyon hiç durmadığı için widget testinde
+                // pumpAndSettle sonsuza kadar bekliyor. Yer tutucu, yüzey
+                // renginde sabit bir alan: görsel gelmezse bölüm sessizce
+                // metinle devam eder.
+                child: Image.network(
+                  gorsel.url,
+                  fit: BoxFit.cover,
+                  semanticLabel: gorsel.alt(isEn),
+                  loadingBuilder: (context, child, ilerleme) =>
+                      ilerleme == null ? child : const SizedBox.expand(),
+                  errorBuilder: (context, hata, iz) => const SizedBox.expand(),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              gorsel.alt(isEn),
+              style: AppTypography.meta(context, color: tema.murekkep),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              gorsel.atif,
+              style: AppTypography.meta(context, color: tema.sessiz),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -928,7 +1065,8 @@ class _VeriNotlari extends StatelessWidget {
                       const SizedBox(height: 6),
                       Text(
                         b.cozum(isEn),
-                        style: AppTypography.meta(context, color: tema.murekkep),
+                        style:
+                            AppTypography.meta(context, color: tema.murekkep),
                       ),
                     ],
                   ),
@@ -944,7 +1082,8 @@ class _VeriNotlari extends StatelessWidget {
 // ─── Kaynak künyesi ─────────────────────────────────────────────────────────
 
 class _Kunye extends StatelessWidget {
-  const _Kunye({required this.kaynaklar, required this.tema, required this.isEn});
+  const _Kunye(
+      {required this.kaynaklar, required this.tema, required this.isEn});
 
   final List<DossierSource> kaynaklar;
   final DossierTheme tema;
@@ -995,12 +1134,23 @@ class _Kunye extends StatelessWidget {
 
 // ─── Arşiv bağlantısı ───────────────────────────────────────────────────────
 
-/// "Bütün ülke dosyaları →" — dosyanın sonundan arşive açılan tek kapı.
+/// "Bütün kurum dosyaları →" — dosyanın sonundan arşive açılan tek kapı.
+///
+/// Metin ve hedef adres dizi türüne göre değişiyor. Sabit yazıldığında kurum
+/// dosyasının sonunda "Bütün ülke dosyaları" çıkıyor ve okur yanlış arşive
+/// gidiyordu.
 class _ArsivBaglantisi extends StatelessWidget {
-  const _ArsivBaglantisi({required this.tema, required this.isEn});
+  const _ArsivBaglantisi({
+    required this.tema,
+    required this.isEn,
+    required this.tur,
+  });
 
   final DossierTheme tema;
   final bool isEn;
+  final String tur;
+
+  bool get _kurum => tur == 'kurum';
 
   @override
   Widget build(BuildContext context) {
@@ -1009,7 +1159,10 @@ class _ArsivBaglantisi extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerLeft,
         child: InkWell(
-          onTap: () => pushScreen(context, const DossierIndexScreen()),
+          onTap: () => pushScreen(
+            context,
+            DossierIndexScreen(tur: _kurum ? 'kurum' : 'ulke'),
+          ),
           borderRadius: BorderRadius.circular(8),
           child: Padding(
             // Dokunma hedefi metnin kendisinden büyük: satır yüksekliği tek
@@ -1020,7 +1173,13 @@ class _ArsivBaglantisi extends StatelessWidget {
               children: [
                 Flexible(
                   child: Text(
-                    isEn ? 'All country dossiers' : 'Bütün ülke dosyaları',
+                    _kurum
+                        ? (isEn
+                            ? 'All institution dossiers'
+                            : 'Bütün kurum dosyaları')
+                        : (isEn
+                            ? 'All country dossiers'
+                            : 'Bütün ülke dosyaları'),
                     style: AppTypography.meta(context, color: tema.vurgu)
                         .copyWith(fontWeight: FontWeight.w700),
                     maxLines: 1,
@@ -1079,14 +1238,17 @@ class _UstCubuk extends StatelessWidget {
       right: 0,
       child: ClipRect(
         child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: kaydi ? 12 : 0, sigmaY: kaydi ? 12 : 0),
+          filter:
+              ImageFilter.blur(sigmaX: kaydi ? 12 : 0, sigmaY: kaydi ? 12 : 0),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeOutCubic,
             height: ust + kToolbarHeight,
             padding: EdgeInsets.only(top: ust, left: 4, right: 16),
             decoration: BoxDecoration(
-              color: kaydi ? tema.zemin.withValues(alpha: 0.75) : Colors.transparent,
+              color: kaydi
+                  ? tema.zemin.withValues(alpha: 0.75)
+                  : Colors.transparent,
               border: Border(
                 bottom: BorderSide(
                   color: kaydi ? tema.cizgi : Colors.transparent,
@@ -1094,40 +1256,40 @@ class _UstCubuk extends StatelessWidget {
               ),
             ),
             child: Row(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 19),
-              color: tema.murekkep,
-              tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-              onPressed: () => popScreen(context),
-            ),
-            Expanded(
-              child: AnimatedOpacity(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeOutCubic,
-                opacity: kaydi ? 1 : 0,
-                child: _YapiskanBaslik(
-                  ulke: baslik,
-                  bolumler: bolumler,
-                  tema: tema,
-                  isEn: isEn,
-                  aktif: aktif,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 19),
+                  color: tema.murekkep,
+                  tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+                  onPressed: () => popScreen(context),
                 ),
-              ),
+                Expanded(
+                  child: AnimatedOpacity(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeOutCubic,
+                    opacity: kaydi ? 1 : 0,
+                    child: _YapiskanBaslik(
+                      ulke: baslik,
+                      bolumler: bolumler,
+                      tema: tema,
+                      isEn: isEn,
+                      aktif: aktif,
+                    ),
+                  ),
+                ),
+                // Düğme kaydırmadan bağımsız olarak hep görünür: on üç bölümlük
+                // bir belgede içindekiler en çok sayfanın BAŞINDA gerekiyor —
+                // okur neyi okuyacağına orada karar veriyor.
+                if (onIcindekiler != null)
+                  IconButton(
+                    icon: const Icon(Icons.list_rounded, size: 22),
+                    color: tema.murekkep,
+                    tooltip: isEn ? 'Contents' : 'İçindekiler',
+                    onPressed: onIcindekiler,
+                  ),
+              ],
             ),
-            // Düğme kaydırmadan bağımsız olarak hep görünür: on üç bölümlük
-            // bir belgede içindekiler en çok sayfanın BAŞINDA gerekiyor —
-            // okur neyi okuyacağına orada karar veriyor.
-            if (onIcindekiler != null)
-              IconButton(
-                icon: const Icon(Icons.list_rounded, size: 22),
-                color: tema.murekkep,
-                tooltip: isEn ? 'Contents' : 'İçindekiler',
-                onPressed: onIcindekiler,
-              ),
-          ],
-        ),
-      ),
+          ),
         ),
       ),
     );
@@ -1195,14 +1357,14 @@ class _YapiskanBaslik extends StatelessWidget {
   }
 
   Widget _duz(BuildContext context, String metin) => Text(
-    metin,
-    maxLines: 1,
-    overflow: TextOverflow.ellipsis,
-    style: AppTypography.meta(
-      context,
-      color: tema.murekkep,
-    ).copyWith(fontWeight: FontWeight.w700),
-  );
+        metin,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: AppTypography.meta(
+          context,
+          color: tema.murekkep,
+        ).copyWith(fontWeight: FontWeight.w700),
+      );
 }
 
 // ─── Yükleme / hata ─────────────────────────────────────────────────────────
