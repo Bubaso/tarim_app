@@ -152,11 +152,13 @@ self.addEventListener('notificationclick', (event) => {
     }
 
     // Uygulama hiç açık değilse tarayıcı doğrudan hedef adreste açar.
-    // Yönlendirme için bekleyen kayda ihtiyaç yok — adres zaten doğru — ama
-    // kayıt duruyor, çünkü ÖLÇÜMÜN tek taşıyıcısı o: yeni pencere açılışta
-    // sorup türü öğreniyor ve tıklamayı deftere yazıyor.
+    // Ancak push bildirimleri Cloud Function üzerinden (/haber/...) açıldığında
+    // fonksiyon önbelleğinde kalan eski koyu renkli splash ekranını görebiliyor.
+    // Bunu aşmak için doğrudan ana sayfayı (/) açıyoruz; bekleyen kayıt
+    // (pendingClick) sayesinde Flutter açıldıktan sonra doğru habere zaten
+    // yönlendirilecek.
     if (clients.openWindow) {
-      return clients.openWindow(urlToOpen);
+      return clients.openWindow(new URL('/', self.location.origin).href);
     }
   })());
 });

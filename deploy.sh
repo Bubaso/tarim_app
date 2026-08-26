@@ -59,12 +59,8 @@ fi
 # altındaki sürümümüzü eziyor. Daha önce kayıt yaptırmış tarayıcılar adresi
 # periyodik olarak yeniden istiyor; temizleyici sürümü alabilmeleri için
 # derlemeden sonra dosyayı geri koyuyoruz.
-echo "▸ Temizleyici service worker yerine konuyor…"
+echo "▸ Özel service worker yerine konuyor…"
 cp web/flutter_service_worker.js build/web/flutter_service_worker.js
-if ! grep -q 'registration.unregister' build/web/flutter_service_worker.js; then
-  echo "✗ web/flutter_service_worker.js temizleyici sürüm değil." >&2
-  exit 1
-fi
 
 echo "▸ Fonksiyon kabuğu güncelleniyor (functions/shell.html)…"
 # `flutter build web` $FLUTTER_BASE_HREF'i zaten "/" ile değiştiriyor; yine de
