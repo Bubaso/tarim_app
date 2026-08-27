@@ -41,6 +41,13 @@ class NewsArticle {
   final String? expertInsightEn;
   final Map<String, dynamic>? chartData;
 
+  /// `chartData`'nın İngilizcesi. null ise İngilizce sayfa Türkçesini gösteriyor.
+  ///
+  /// Çeviri hattında doğrulamadan geçemeyen grafik ÇEVRİLMİYOR (bkz.
+  /// `chart_translate.py`): tablodaki bir rakam çeviride değişmişse yarısı
+  /// çevrilmiş bir tablo göstermektense hepsini Türkçe bırakmak dürüst olan.
+  final Map<String, dynamic>? chartDataEn;
+
   /// Editörün verdiği biçim kararı: `'kisa'` ya da `'tam'`.
   ///
   /// Eski hattan gelen 507 haberde `null`; [isBrief] onları tam haber sayıyor.
@@ -85,6 +92,7 @@ class NewsArticle {
     this.expertInsight,
     this.expertInsightEn,
     this.chartData,
+    this.chartDataEn,
     this.articleFormat,
   });
 
@@ -147,6 +155,7 @@ class NewsArticle {
       expertInsight: json['expert_insight']?.toString(),
       expertInsightEn: json['expert_insight_en']?.toString(),
       chartData: json['chart_data'] as Map<String, dynamic>?,
+      chartDataEn: json['chart_data_en'] as Map<String, dynamic>?,
       articleFormat: json['article_format']?.toString(),
     );
   }
@@ -184,6 +193,7 @@ class NewsArticle {
       'expert_insight': expertInsight,
       'expert_insight_en': expertInsightEn,
       'chart_data': chartData,
+      'chart_data_en': chartDataEn,
       'article_format': articleFormat,
     };
   }
@@ -220,6 +230,7 @@ class NewsArticle {
     String? expertInsight,
     String? expertInsightEn,
     Map<String, dynamic>? chartData,
+    Map<String, dynamic>? chartDataEn,
     String? articleFormat,
   }) {
     return NewsArticle(
@@ -254,6 +265,7 @@ class NewsArticle {
       expertInsight: expertInsight ?? this.expertInsight,
       expertInsightEn: expertInsightEn ?? this.expertInsightEn,
       chartData: chartData ?? this.chartData,
+      chartDataEn: chartDataEn ?? this.chartDataEn,
       articleFormat: articleFormat ?? this.articleFormat,
     );
   }

@@ -173,11 +173,16 @@ const tez = tasarim.tez_cumlesi ?? {};
 // ve orta çizgi var). O metin bölüm gövdesi değil künye alanı; bölüm
 // karşılaştırmasının dışında tutuluyor ama SQL'e yazıldığı ayrıca sınanıyor.
 const kurulusBelgesi = yayin.kurulus_belgesi ?? null;
+// Kapak atfı da künye alanı, bölüm gövdesi değil. Hollanda'da kapak görseli
+// yoktu (atif: null) ve bu durum hiç yaşanmadı; Rusya kapaklı ilk dosya.
+const kapakAtif = yayin.kapak?.atif ?? null;
 const bolumLit = metinLit.filter(
-  (l) => l !== tez.tr && l !== tez.en && l !== kurulusBelgesi,
+  (l) => l !== tez.tr && l !== tez.en && l !== kurulusBelgesi && l !== kapakAtif,
 );
 const cikarilan = metinLit.length - bolumLit.length;
-const beklenen = 2 + (kurulusBelgesi && metinLit.includes(kurulusBelgesi) ? 1 : 0);
+const beklenen = 2
+  + (kurulusBelgesi && metinLit.includes(kurulusBelgesi) ? 1 : 0)
+  + (kapakAtif && metinLit.includes(kapakAtif) ? 1 : 0);
 if (cikarilan !== beklenen) {
   no('tez cümlesinin iki dili SQL’de bulunamadı');
 } else {
@@ -190,10 +195,29 @@ if (kurulusBelgesi) {
 }
 
 let govdeTr = 0, govdeEn = 0, baslikTr = 0, baslikEn = 0;
+// Bir başlık iki dilde AYNI yazılabiliyor ("Novorossiysk"). Önce TR'ye bakıp
+// bulunca durmak, o başlığın iki kopyasını da TR sayardı ve sayım şaşardı.
+// İki kaynakta da bulunanlar ayrı toplanıp eşit bölüştürülüyor: aynı başlık
+// her dilde bir kez üretildiği için sayıları çift olmak zorunda.
+const ikisinde = [];
 for (const lit of bolumLit) {
-  if (trKaynak.includes(lit)) lit.length > 200 ? govdeTr++ : baslikTr++;
-  else if (enKaynak.includes(lit)) lit.length > 200 ? govdeEn++ : baslikEn++;
+  const trVar = trKaynak.includes(lit);
+  const enVar = enKaynak.includes(lit);
+  if (trVar && enVar) ikisinde.push(lit);
+  else if (trVar) lit.length > 200 ? govdeTr++ : baslikTr++;
+  else if (enVar) lit.length > 200 ? govdeEn++ : baslikEn++;
   else no(`Kaynakta bulunamayan literal (${lit.length} krk): ${JSON.stringify(lit.slice(0, 70))}`);
+}
+const sayim = new Map();
+for (const l of ikisinde) sayim.set(l, (sayim.get(l) ?? 0) + 1);
+for (const [l, n] of sayim) {
+  if (n % 2 !== 0) {
+    no(`İki dilde de geçen literal tek sayıda (${n}): ${JSON.stringify(l.slice(0, 60))}`);
+    continue;
+  }
+  const yari = n / 2;
+  if (l.length > 200) { govdeTr += yari; govdeEn += yari; }
+  else { baslikTr += yari; baslikEn += yari; }
 }
 bilgi(`TR başlık ${baslikTr} · TR gövde ${govdeTr} · EN başlık ${baslikEn} · EN gövde ${govdeEn}`);
 govdeTr === govdeEn && govdeTr > 0 && baslikTr === govdeTr && baslikEn === govdeEn

@@ -1,0 +1,126 @@
+{
+  "_dosya": "Rusya dosyası — görsel künyesi",
+  "_kural": "ATIFSIZ GÖRSEL YAYIMLANMAZ. Buradaki her kalemin lisansı ve atfı kaynağın kendi sayfasından okundu; 'herhalde serbesttir' denmedi. Telifi belirsiz aday listeden düştü.",
+  "_arama_betigi": "_raw/gorsel_ara.mjs — Commons API'sinden lisans ve atıf bilgisini birlikte çeker",
+  "_indirme_betigi": "_raw/gorsel_indir.mjs",
+  "_hedef": "web/dosya/rusya/ — adresler MUTLAK yazılır, NewsArticleImage göreli yolu kabul etmiyor",
+  "_dogrulama_tarihi": "2026-08-23",
+
+  "gorseller": [
+    {
+      "id": "kapak_bozkir",
+      "bolum": null,
+      "rol": "kapak",
+      "dosya": "rusya_kulunda_bozkiri.jpg",
+      "commons": "Kulunda Steppe (MODIS 2026-07-06).jpg",
+      "lisans": "Kamu malı",
+      "yazar": "MODIS Land Rapid Response Team, NASA GSFC",
+      "atif_tr": "NASA Goddard Space Flight Center / MODIS Land Rapid Response Team",
+      "altyazi_tr": "Kulunda Bozkırı, yörüngeden. Batı Sibirya'nın tahıl kuşağı.",
+      "altyazi_en": "The Kulunda Steppe from orbit — the grain belt of western Siberia.",
+      "_neden": "Hollanda dosyasının kapağı da yörüngeden bir görüntüydü. Aynı bakış açısı iki dosyayı aynı diziye bağlıyor; değişen manzara."
+    },
+    {
+      "id": "kara_toprak",
+      "bolum": 2,
+      "dosya": "rusya_cernozyom_monolit.jpg",
+      "commons": "Chernozem.JPG",
+      "lisans": "CC BY-SA 3.0",
+      "yazar": "Rockwurm / ISRIC World Soil Information",
+      "atif_tr": "Rockwurm, ISRIC World Soil Information — CC BY-SA 3.0",
+      "altyazi_tr": "Çernozyom profili. Üstteki koyu katman, binlerce yılda çürümüş bozkır otunun bıraktığı humus.",
+      "altyazi_en": "A chernozem profile. The dark upper horizon is humus left by millennia of decayed steppe grass.",
+      "_neden": "Dokuçayev'in Paris'te sergilediği nesnenin aynısı: toprağın dikey kesiti. Motif de buradan geliyor."
+    },
+    {
+      "id": "vavilov",
+      "bolum": 4,
+      "dosya": "rusya_vavilov.jpg",
+      "commons": "Nikolai Vavilov NYWTS.jpg",
+      "lisans": "Kamu malı",
+      "yazar": "World Telegram staff photographer",
+      "atif_tr": "Library of Congress, New York World-Telegram & Sun Collection — kamu malı",
+      "altyazi_tr": "Nikolai İvanoviç Vavilov (1887-1943). 64 ülkeye 115 sefer, 250 binden fazla tohum örneği.",
+      "altyazi_en": "Nikolai Ivanovich Vavilov (1887-1943). 115 expeditions to 64 countries, more than 250,000 seed samples.",
+      "_neden": "Bölümün kişisi. Portre, anlatı bölümünde metnin ağırlığını taşıyor."
+    },
+    {
+      "id": "aycicegi",
+      "bolum": 5,
+      "dosya": "rusya_aycicegi_tarlasi.jpg",
+      "commons": "Sunflower field in Russia.JPG",
+      "lisans": "CC BY 3.0",
+      "yazar": "andrew",
+      "atif_tr": "andrew, Wikimedia Commons — CC BY 3.0",
+      "altyazi_tr": "Rusya'da ayçiçeği tarlası. Bir perhiz kuralının iki yüzyıl sonraki hâli.",
+      "altyazi_en": "A sunflower field in Russia — a fasting rule, two centuries later.",
+      "_neden": "Bölümün sonucu görselde: kültürel bir tesadüf bir manzaraya dönüşmüş."
+    },
+    {
+      "id": "kolhoz_pul",
+      "bolum": 6,
+      "dosya": "rusya_1946_tahil_pulu.jpg",
+      "commons": "The Soviet Union 1946 CPA 1082 stamp (Fourth Five-Year Plan. Give the country each year 127 million tons of grain. Combine harvester and wheat sheaf) large resolution.jpg",
+      "lisans": "Kamu malı",
+      "yazar": "SSCB Posta İdaresi",
+      "atif_tr": "SSCB posta pulu, 1946 — kamu malı",
+      "altyazi_tr": "1946 tarihli Sovyet pulu: Dördüncü Beş Yıllık Plan'ın tahıl hedefi. Kollektif tarımın hedefi bir posta pulunda ilan ediliyordu.",
+      "altyazi_en": "A 1946 Soviet stamp announcing the Fourth Five-Year Plan's grain target — collective agriculture's goal, declared on postage.",
+      "_neden": "Kollektifleştirmenin ölçeğini ve devletle tarımın iç içeliğini tek karede veriyor.",
+      "_uyari": "Pulun üstündeki hedef rakamı ALTYAZIDA GEÇMİYOR. Rakam doğrulanmadı ve dosyanın veri katmanında karşılığı yok; yalnızca görselin künyesinde, Commons başlığının parçası olarak duruyor."
+    },
+    {
+      "id": "kara_ekmek",
+      "bolum": 9,
+      "dosya": "rusya_borodinski_ekmek.jpg",
+      "commons": "Бородинский хлеб.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "yazar": "Tiraspolsky",
+      "atif_tr": "Tiraspolsky, Wikimedia Commons — CC BY-SA 4.0",
+      "altyazi_tr": "Borodinski ekmeği. Çavdar unundan yapılan Rus kara ekmeğinin en bilinen türü.",
+      "altyazi_en": "Borodinsky bread — the best-known of the Russian rye breads.",
+      "_neden": "Terk edilen ürünün ne olduğunu göstermeden 'çavdar üretimi on birde bire indi' cümlesi soyut kalıyor."
+    },
+    {
+      "id": "dacha",
+      "bolum": 10,
+      "dosya": "rusya_dacha_bahcesi.jpg",
+      "commons": "Дача - panoramio (25).jpg",
+      "lisans": "CC BY 3.0",
+      "yazar": "Vovs Vtoroi",
+      "atif_tr": "Vovs Vtoroi, Wikimedia Commons — CC BY 3.0",
+      "altyazi_tr": "Bir dacha bahçesi. Rusya'nın patatesinin yüzde 80'i bu ölçekten geliyor.",
+      "altyazi_en": "A dacha garden. Four-fifths of Russia's potatoes come from plots this size.",
+      "_neden": "Bölümün bütün şaşırtıcılığı ölçek farkında; ölçek ancak görselle anlaşılıyor."
+    },
+    {
+      "id": "cay",
+      "bolum": 13,
+      "dosya": "rusya_rize_cay.jpg",
+      "commons": "Rize Tea Plantation 2005-jk.jpg",
+      "lisans": "CC BY-SA 2.5",
+      "yazar": "Wikimol",
+      "atif_tr": "Wikimol, Wikimedia Commons — CC BY-SA 2.5",
+      "altyazi_tr": "Rize'de çay bahçesi. Bu bitkinin atası 1937'de Batum'dan geldi.",
+      "altyazi_en": "A tea garden in Rize. The ancestor of this plant arrived from Batumi in 1937.",
+      "_neden": "Dosyanın tek 'ters yöne akmış' hikâyesi; görsel Türkiye'den olmalı, çünkü mesele buraya yerleşmiş olması."
+    },
+    {
+      "id": "novorossiysk",
+      "bolum": 15,
+      "dosya": "rusya_ksk_terminali.jpg",
+      "commons": "Grain shipments at KSK terminal.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "yazar": "IvanStudenov",
+      "atif_tr": "IvanStudenov, Wikimedia Commons — CC BY-SA 4.0",
+      "altyazi_tr": "Novorossiysk'te KSK tahıl terminali. Türkiye'nin buğdayı bu rıhtımlardan geçiyor.",
+      "altyazi_en": "The KSK grain terminal at Novorossiysk — the piers Türkiye's wheat passes through.",
+      "_neden": "Bölümün konusu darboğaz; darboğazın kendisinin fotoğrafı.",
+      "_not": "Bu terminalin KAPASİTE rakamı dosyada karantinada — işletmecinin kendi kaynağından doğrulanamadı. Görselin kullanılması o rakamı doğrulamış saymaz."
+    }
+  ],
+
+  "_elenenler": [
+    { "kalem": "Профіль чорнозему південного.JPG", "neden": "GFDL lisansı; CC/kamu malı değil, ticari kullanımda belirsizlik var." }
+  ]
+}

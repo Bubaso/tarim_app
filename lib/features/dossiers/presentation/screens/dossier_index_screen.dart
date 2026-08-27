@@ -74,7 +74,20 @@ class DossierIndexScreen extends ConsumerWidget {
           ),
         ),
         body: ref.watch(dossierIndexByTurProvider(tur)).when(
-              data: (liste) => _Liste(liste: liste, isEn: isEn, tur: tur),
+              data: (liste) => _Liste(
+                liste: liste,
+                isEn: isEn,
+                tur: tur,
+                // Yaklaşanlar ayrı sağlayıcıdan; gelmezse liste eskisi gibi
+                // yalnızca yayımlanmışları gösterir ve hiçbir şey eksilmez.
+                takvim: ref.watch(dossierTakvimProvider(tur)).valueOrNull ??
+                    const [],
+                // Geri sayım yayındaki dosyanın penceresinden geliyor.
+                kalanGun: liste
+                    .where((d) => d.isActive)
+                    .map((d) => d.daysRemaining)
+                    .firstWhere((g) => g != null, orElse: () => null),
+              ),
               loading: () => Center(
                 child: CircularProgressIndicator(
                   color: _kabuk.cizgiVurgu,
@@ -97,13 +110,26 @@ class DossierIndexScreen extends ConsumerWidget {
 }
 
 class _Liste extends StatelessWidget {
-  const _Liste({required this.liste, required this.isEn, required this.tur});
+  const _Liste({
+    required this.liste,
+    required this.isEn,
+    required this.tur,
+    this.takvim = const [],
+    this.kalanGun,
+  });
 
   final List<DossierSummary> liste;
   final bool isEn;
 
   /// `ulke` | `kurum`. Giriş metni ve kart adresleri buna bağlı.
   final String tur;
+
+  /// Yaklaşan dosyalar — yayımlanmışların ardına "Yakında" kartı olarak dizilir.
+  final List<DossierTakvim> takvim;
+
+  /// Yayındaki dosyanın penceresinin kapanmasına kalan gün. Sıradaki dosya o
+  /// gün açılacağı için geri sayım budur; takvime elle tarih yazılmıyor.
+  final int? kalanGun;
 
   /// İki sütuna geçme eşiği — şeritteki kuralın aynısı, aynı sebeple.
   static const double _ikiSutunEsigi = 900;
@@ -147,6 +173,21 @@ class _Liste extends StatelessWidget {
                               ? (kisit.maxWidth.clamp(0, 1000) - 40 - 20) / 2
                               : double.infinity,
                           child: _Kart(ozet: ozet, isEn: isEn),
+                        ),
+                      // Yaklaşan dosyalar en sonda. Dizinin devam ettiğini
+                      // göstermek için var; tıklanacak bir şey yok, o yüzden
+                      // InkWell de yok — dokununca hiçbir şey olmaması,
+                      // dokunup boş bir sayfaya düşmekten iyi.
+                      for (final gelecek in takvim)
+                        SizedBox(
+                          width: ikiSutun
+                              ? (kisit.maxWidth.clamp(0, 1000) - 40 - 20) / 2
+                              : double.infinity,
+                          child: _YakindaKart(
+                            gelecek: gelecek,
+                            isEn: isEn,
+                            kalanGun: kalanGun,
+                          ),
                         ),
                     ],
                   ),
@@ -290,6 +331,88 @@ class _Kart extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+/// "YAKINDA" — sıradaki dosyanın kartı.
+///
+/// Yayımlanmış kartla aynı ölçüde ama sönük: kabuk temasının sessiz renkleri,
+/// kesikli çerçeve ve tıklanamaz gövde. Okur bunun bir söz olduğunu, henüz
+/// okunacak bir şey olmadığını bakışta anlamalı.
+class _YakindaKart extends StatelessWidget {
+  const _YakindaKart({
+    required this.gelecek,
+    required this.isEn,
+    this.kalanGun,
+  });
+
+  final DossierTakvim gelecek;
+  final bool isEn;
+  final int? kalanGun;
+
+  @override
+  Widget build(BuildContext context) {
+    const tema = DossierIndexScreen._kabuk;
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: tema.zemin,
+        border: Border.all(color: tema.cizgiVurgu, width: 1),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(18, 16, 18, 18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Container(width: 3, height: 13, color: tema.cizgiVurgu),
+                const SizedBox(width: 8),
+                // Rozet bir KELİME; renk tek başına taşımıyor.
+                Text(
+                  isEn ? 'COMING SOON' : 'YAKINDA',
+                  style:
+                      AppTypography.meta(context, color: tema.sessiz).copyWith(
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 1.1,
+                    fontSize: AppTypography.minLabelSize,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Text(
+              gelecek.ad(isEn),
+              style: AppTypography.headlineCard(context, color: tema.sessiz)
+                  .copyWith(fontSize: 24, height: 1.1),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              _altSatir(),
+              style: AppTypography.meta(context, color: tema.sessiz),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// "14 gün sonra" / "Yayındaki dosyanın ardından".
+  ///
+  /// Sayaç yayındaki dosyanın penceresinden geliyor; pencere bilinmiyorsa
+  /// sayı uydurulmuyor, cümle sayısız kuruluyor.
+  String _altSatir() {
+    final g = kalanGun;
+    if (g == null) {
+      return isEn ? 'Next in this series' : 'Bu dizide sıradaki';
+    }
+    if (g <= 0) return isEn ? 'Publishing shortly' : 'Çok yakında';
+    if (g == 1) return isEn ? 'In 1 day' : '1 gün sonra';
+    return isEn ? 'In $g days' : '$g gün sonra';
   }
 }
 

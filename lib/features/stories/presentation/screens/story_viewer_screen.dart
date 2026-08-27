@@ -423,25 +423,14 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                           // Habere Git Butonu
                           GestureDetector(
                             onTap: () => _openArticle(group, item),
-                            child: AnimatedBuilder(
-                              animation: _animController,
-                              builder: (context, child) {
-                                return Opacity(
-                                  // Animasyon biraz daha erken gelsin
-                                  opacity: Curves.easeIn.transform(
-                                      (_animController.value * 2 - 0.5)
-                                          .clamp(0.0, 1.0)),
-                                  child: child,
-                                );
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 24, vertical: 12),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.15),
-                                  border: Border.all(
-                                      color: Colors.white.withOpacity(0.5),
-                                      width: 1),
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 24, vertical: 12),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.15),
+                                border: Border.all(
+                                    color: Colors.white.withOpacity(0.5),
+                                    width: 1),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: Row(
@@ -468,7 +457,6 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                                   ],
                                 ),
                               ),
-                            ),
                           ),
                           const SizedBox(height: 40),
                         ],

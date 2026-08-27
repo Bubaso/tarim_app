@@ -58,6 +58,9 @@ Bu dizinin varlık sebebi güvenilirlik. Uydurma tek bir rakam diziyi bitirir.
 - **Bellekten türetilmiş her iddia karantinadadır** — kaynakla doğrulanana
   kadar kullanılmaz.
 - **Yuvarlamayı tercih et.** Sahte kesinlik, yanlışlıktan beter.
+- **Toplulaştırılmış kalem ile ayrıntı kalemi aynı toplamda buluşmaz.**
+  Toplama yapan her satırın yanında bunu sınayan bir kontrol olur.
+- **Karşılaştırma ortak yıldan kurulur, ileri not atlanmaz** (§2.7).
 
 İzlenebilirlik zinciri, her halka denetlenebilir:
 
@@ -68,9 +71,53 @@ kaynak API/CSV → _raw/*.json → data.json → grafikler.json (@path)
 
 **Yuvarlama depoda değil çizimde yapılır.** Veritabanında tam değer durur.
 
-Bulunamayan rakam gizlenmez: `yayin.json` içindeki boşluk kayıtları sayfada
-**Veri Notları** panelinde açıkça gösterilir. Katlanabilir kutuda değil,
-açıkta. Bu panel dosyanın en güçlü kısmı.
+**VERİ NOTLARI CANLI YAYINDA DOSYA İÇİNDE GÖSTERİLMEZ.** Kural mutlaktır,
+dosyaya göre değişmez.
+
+Panel bir dönem "dosyanın en güçlü kısmı" sayılıyordu. Kullanıcı kararı (24
+Ağustos 2026) bunu kaldırdı: hangi rakamın neden bulunamadığı bir ÜRETİM
+GÜNLÜĞÜDÜR, okuma malzemesi değil.
+
+Panel **veriyi boşaltarak değil, KODDAN ÇIKARILARAK** kaldırıldı
+(`country_dossier_screen.dart`). Boş dizi bırakmak, her yeni dosyada tekrar
+dolmasına açık kapı bırakırdı; kod yoksa geri gelemez.
+
+Kayıt yok olmuyor, yeri değişiyor:
+
+- `_raw/README.md` — yöntem ve tuzaklar
+- `_raw/*.json → dogrulanamadi` — metne giremeyen kalemler
+- **metnin kendi içinde**, cümlenin yanındaki parantez: *(Kültürel bilgi ve
+  yüzdeler ikincil kaynaklardan.)* Okurun ihtiyacı olan yer burası.
+
+`data.bosluklar` her dosyada boş bırakılır; seed'e gereksiz veri yazılmasın.
+
+### 2.2.1 Çift sayım — sessiz hata
+
+Veri kaynakları aynı hücreyi çoğu zaman **hem toplu hem kırılımlı** verir.
+Hepsi toplanırsa sonuç gerçeğin katı çıkar ve **hata sessizdir**: yanlış rakam
+makul görünür, hiçbir şey uyarı vermez.
+
+İki biçimi görüldü:
+
+- **UN Comtrade** — `customsCode` (C00 = tüm gümrük rejimleri, C01/C04/C06 =
+  kırılım) ve `motCode` (0 = tüm taşıma türleri, 2100/3200 = kırılım). Ölçüldü
+  (2023, HS 1001, Rusya→Türkiye): doğru 5.321.335.842 $, tüm satırlar
+  toplanınca 10.642.671.684 $ — **tam iki katı**. Kural: yalnızca
+  `customsCode='C00'` **ve** `motCode=0`. Süzgeç hem sorguya hem gelen satıra
+  uygulanır; iki kere, çünkü sunucu süzgeci sessizce yok sayabilir.
+- **FAOSTAT** — "Crops and livestock products", "Cereals, primary",
+  "Food, Total" gibi kalemler tek tek ürünlerin *yanında* durur ve onları
+  içerir. Ayrıca *alan* agregaları vardır (Avrupa, Dünya, AB); `fao_rank.mjs`
+  bunları `alan kodu ≥ 1000 veya M49 boş` ile eler.
+  **"n.e.c." topluluştırıcı DEĞİLDİR** — "başka yere girmeyen" artık
+  kategorisidir, içinde başka kalem taşımaz.
+
+**Hollanda dosyası bu açıdan denetlendi (23 Ağustos 2026) ve temiz çıktı.**
+Manşet rakamları toplama ürünü değil, tek kaynak satırı. Dünya sıralaması tek
+kalem. Toplama yapan tek yer ikili ticaret (`build_data.mjs:337`); ikili
+matriste topluluştırıcı kalem bulunmuyor ve bağımsız çapraz kontrol
+doğruladı — Comtrade 1.061 milyon $ (CIF) / FAOSTAT 749 milyon $ (FOB),
+oran 1,42×. Çift sayım olsaydı ~2× olurdu.
 
 ### 2.3 İçerik klasörü
 
@@ -167,6 +214,96 @@ uyarı var ama dağıtımı durdurmuyor:
 
 Önem sırasına göre: ayrıntılı alt dosyalar → bilgi yazıları → ekonomik
 göstergeler → kurumlar → tarım tarihi → tarım ürünleri.
+
+### 2.7 Ortak yıl + ileri not
+
+*(Kullanıcı kararı, 23 Ağustos 2026. Dizinin tamamı için geçerli.)*
+
+Karşılaştırma, **iki ülkede de veri bulunan en son ortak yıldan** kurulur.
+Bir ülkede daha yeni veri varsa, karşılaştırmanın **hemen altına** düşülür:
+
+> Rusya'nın tahıl verimi 2023'te 3.167 kg/ha, Türkiye'nin 3.659 kg/ha.
+> *(Türkiye'de 2024 rakamı 3.429 kg/ha; Rusya için aynı yıl bulunamadı.)*
+
+Kural iyi niyete bırakılmaz, çekme betiklerine gömülür:
+`_ortak_son_yil` + `_ileri_not` alanları. `_ileri_not` doluysa metinde
+karşılığı **olmak zorunda**.
+
+**Tahmin yılı karşılaştırmaya girmez.** USDA PSD yürüyen ve gelecek pazarlama
+yılını da yayımlıyor; ham ortak yıl bir öngörü çıkabiliyor. Bunun için ayrı
+bir `kesin_ortak_son_yil` alanı var.
+
+---
+
+### 2.8 Beş anlatı kategorisi — kontrol listesi, iskelet değil
+
+*(Kullanıcı kararı, 24 Ağustos 2026.)*
+
+**Yalnızca veriye dayanan bir dosya bir süre sonra usandırıyor.** Bu, Rusya
+dosyasının ilk taslağında görüldü ve Hollanda dosyası da bu gözle yeniden
+okununca aynı eksik çıktı: on üç bölümün dokuzu saf veriydi.
+
+Okur bir ülke dosyasını pazar eğlencesi, genel kültür ya da "o ülkeyi tarım
+gözüyle öğrenme" niyetiyle de açabilir. Veri o niyetin yalnızca bir kısmını
+karşılıyor.
+
+Her ülke dosyası şu beş soruyu **sorar**:
+
+| | kategori | soru |
+|---|---|---|
+| 1 | **Bilim ve kişi** | Bu ülkenin tarımında adı olan bir insan ve bir keşif var mı? |
+| 2 | **Kültürel açıklama** | Tarımsal bir olgunun tarım dışı bir sebebi var mı? |
+| 3 | **Gündelik tarım** | Sıradan insan orada nasıl çiftçilik yapıyor, ne yiyor? |
+| 4 | **Türkiye bağı** | İki ülke arasında yolculuk etmiş bir bitki, kurum ya da fikir var mı? |
+| 5 | **Terk edilen ürün** | Ülke neyi ekmeyi bıraktı ve neden? |
+
+**Hepsini doldurmak zorunlu değil.** Bir ülkede biri boş kalır, bir başkasında
+iki tane çıkar. Bu bir iskelet değil, unutmamak için tutulan bir listedir —
+tarz, şekil, sıralama ve hacim her dosyada değişir.
+
+İlk iki dosyadaki karşılıkları:
+
+| | Rusya | Hollanda |
+|---|---|---|
+| Bilim ve kişi | Dokuçayev, Ruprecht, Vavilov | Mansholt'un 1972 mektubu |
+| Kültürel açıklama | Perhiz kuralı → ayçiçeği | — |
+| Gündelik tarım | Dacha | Volkstuin |
+| Türkiye bağı | Batum'dan gelen çay tohumu | Anadolu'dan giden lale |
+| Terk edilen ürün | Çavdar (pazar terk etti) | Kökboya (laboratuvar iptal etti) |
+
+Dördüncü satır dizinin kendi içinde bir simetri kurdu: iki dosya birbirinin
+aynasında bitiyor. Beşinci satırdaki fark da bilinçli — bir ürünü pazarın terk
+etmesiyle ürünün gereksizleşmesi aynı şey değil.
+
+**Anlatı bölümü veri bölümünü seyreltir.** Bölüm türü (`yayin.json/bolum_turleri`)
+buna göre dağıtılır; okur dosya boyunca birkaç kez zemin değiştirmeli.
+
+### 2.9 Tablo yükü — okuru yoran şey sayı değil
+
+Rusya dosyasının ilk taslağında okurun hangi bölümlerde boğulduğu ölçüldü.
+Şikâyet edilen bölümlerde ortalama **11,4 tablo satırı** vardı, edilmeyenlerde
+2,2. Ayırt edici olan sayı yoğunluğu **değildi**: sıfır tablosu olan bir bölüm,
+en yüksek sayı oranlarından birine sahip olduğu hâlde yormuyordu.
+
+Tablo bir okuma duraklamasıdır — göz metinden çıkıp ızgara çözmeye geçer.
+
+- **Zaman serisi tabloya değil GRAFİĞE gider.** Okunacak değil, bakılacak şeydir.
+- **İki sütunlu, dört satırlı bir şey tablo değil, cümledir.**
+- **Grafiğin gösterdiği veri metinde tabloyla tekrarlanmaz.**
+- Tablo yalnızca gerçekten iki boyutlu bir karşılaştırmada kalır.
+- Her veri bölümüne bir **tutamak**: soyut bir rakamı bedenin görebileceği bir
+  şeye çeviren tek cümle. (`Hollanda'nın bütün seraları 10.030 hektar — kenarı
+  on kilometre olan bir kare.`)
+
+Uygulandı: Rusya 129 → 15 tablo satırı, Hollanda 34 → 4.
+
+### 2.10 Meta cümle yasağı
+
+Araştırma süreci metne girmez. "Veri sayfası kilitlendiğinde", "bu bölümün asıl
+bulgusu", "bu dosyayı yazarken", "buraya kadarı bir tespit" gibi cümleler
+okurun işine yaramaz. Okur dosyayı okur, dosyanın yapılışını değil.
+
+Aynı kural §8.2'de kurum dosyası için yazılıydı; ülke dosyasında da geçerli.
 
 ---
 
@@ -501,3 +638,175 @@ diye tanımlıyor; dayanağı 3491 değil, 233 (1984) ve 399 (1990) sayılı KHK
 
 Kuruluş kanununun Resmî Gazete tarih ve sayısı **henüz birincil kaynaktan
 doğrulanmadı** — `mevzuat.gov.tr` bu ağdan çekilmiyor.
+
+---
+
+## 9. Emtia fiyatları — Türkşeker ayrı bir vaka
+
+Fiyatları toplayan hat bu depoda değil: `~/tarim_ai_pipeline`, launchd her gün
+19:00'da `run_commodities_daily.sh`'i çağırıyor. Uygulama yalnızca
+`commodity_latest_prices` ve `commodity_price_history` görünümlerini okuyor.
+
+### 9.1 İki fiyat türü aynı dille anlatılamaz
+
+`commodities.price_kind`:
+
+- `traded` (Polatlı) — rakam kendini açıklıyor: bir borsada, bir günde, işlem
+  görmüş hacim ağırlıklı ortalama.
+- `administered` (Türkşeker) — rakam bir METNİN yorumu.
+
+Türkşeker duyurusu tek bir fiyat ilan etmiyor. 21.08.2026 ilanı beş fabrikadan,
+28 Ağustos'a kadar, tonaja ve ödeme biçimine göre **dört** fiyat veriyor:
+
+```
+0 – 5.000 ton        peşin 38,6139    3 taksit 43,4159
+5.000 ton ve üzeri   peşin 37,6238    3 taksit 42,3269
+```
+
+### 9.2 Kararlar (kullanıcı, 24 Ağustos 2026)
+
+- **Kampanya fiyatı da güncel fiyattır.** Bölgesel ya da süreli olması onu
+  ilan edilmiş bir satış fiyatı olmaktan çıkarmıyor: Türkşeker o gün o
+  fabrikalardan o fiyata satıyor. Kapsam artık ELEME SEBEBİ DEĞİL.
+- **Gösterilen rakam ilandaki EN DÜŞÜK fiyat.**
+- **Duyuruya erişim her zaman fiyat/grafik kartının içinde.**
+  Sırası: en düşük fiyat → şart/kapsam/geçerlilik → ilandaki diğer fiyatlar →
+  duyurunun PDF'ini doğrudan açan bağlantı.
+
+  Duyurunun tam metni bir dönem kartın içinde, tablosuyla birlikte gösteriliyordu;
+  **çıkarıldı (25 Ağustos 2026).** PDF'ten çıkarılan tablo dar ekranda zaten yana
+  kaydırılmadan okunmuyordu ve belge bir tık ötede duruyor. Kartta kalması gereken
+  şey bizim YORUMUMUZ — hangi rakamı neden gösterdiğimiz; tıpkıbasım üçüncü kez
+  aynı şeyi söylüyordu. Metin `commodity_prices.raw` içinde duruyor ama
+  görünümler onu dışarı vermiyor (`raw - 'text'`), çizilmeyen 1,7 KB her sorguda
+  istemciye inmesin diye.
+
+  **Doğrudan PDF'i açan bağlantı kaldırılmaz.** Bir kez kaynak notundaki
+  "Resmî ilan" düğmesiyle aynı işi yaptığı düşünülüp sadeleştirilmek istendi;
+  ikisi farklı yere gidiyor (biri belgeye, diğeri duyuru listesine) ve ikisi de
+  duruyor.
+- **ÜRÜN farkı hâlâ eliyor:** C şekeri, paketli şeker, ihraç kayıtlı satış.
+  Seri kristal dökme şekerin serisi; 5 kg paket fiyatı (182,50) TL/kg ile aynı
+  grafikte duramaz.
+
+### 9.3 Fiyat dönemi modeli
+
+Her duyurudan `(başlangıç, bitiş, fiyat, kapsam)` dönemleri çıkarılıyor. Bir
+günün fiyatı = o gün **yürürlükte olan** dönemlerin en düşüğü. Üç şeyi
+kendiliğinden çözüyor:
+
+1. Aynı belgedeki farklı tarihli fiyatlar karışmıyor (17.07 ilanı hem 27.07'den
+   itibaren süresiz 42,00 hem de 20–24.07 arası 38,6139 veriyor).
+2. Kampanya bitince fiyat kendiliğinden geri dönüyor — 29.08'de yeniden 42,00
+   ve o gün için satır yazılıyor. Elle müdahale yok.
+3. Yeni **ülke geneli** ilan öncekileri kapatıyor; bölgesel ilan yalnızca aynı
+   kapsamlı olanı kapatıyor. Olmasa 04.07'nin 40,00'ı sonsuza kadar "en düşük"
+   kalırdı.
+
+### 9.4 Duyuruyu model okuyor, doğrulamayı kod yapıyor
+
+Düzenli ifadeyle okumak denendi ve her seferinde bir sonraki duyuru kalıbı
+kırdı — en kötüsü de sessiz yanlıştı: 26.03.2026 **C şekeri** duyurusundaki
+21,75'i kristal şeker fiyatı sanıp 42,00'ı yarıya düşürmüştü.
+
+Okuma `ilan_okur` rolüne verildi (`turkseker_reader.py`). Ama **model
+doğrulanmadan kabul edilmiyor**: dönen her rakam duyurunun kendi metninde
+harfi harfine aranıyor, tarihler ayrıştırılıyor ve ilan gününe 400 günden
+uzaksa reddediliyor. Tek bir rakam bulunamazsa duyurunun TAMAMI reddediliyor —
+bir rakamı uyduran çıkarımın diğerine de güvenilmez. Çıkarımlar
+`.cache/turkseker/` altına yazılıyor: belge değişmiyor, o hâlde okuma da
+değişmemeli.
+
+`test_turkseker_parser.py` on gerçek duyuru + yedi tarihli beklenti üzerinde
+koşuyor; önbellek doluyken ağ da model de istemiyor.
+
+### 9.5 Karar defteri
+
+Eskiden kabul edilen duyuru da elenen duyuru da aynı sessizlikle sonuçlanıyordu
+ve "sistem bu duyuruyu gördü mü" sorusunun cevabı yoktu. Artık her PDF için
+karar ve GEREKÇESİ `logs/commodities.log` içine basılıyor. Sıfır satırlı gün de
+`commodity_fetch_log`'a yazılıyor: "çalıştı ama bir şey yoktu" ile "hiç
+çalışmadı" ayrı şeyler.
+
+### 9.6 Şerit kartında dokunmanın iki anlamı
+
+*(Kullanıcı kararı, 24 Ağustos 2026.)*
+
+```
+kapalı kart → dokunma açar        (ayrıntı görünür)
+açık kart   → dokunma grafiği açar (her yeri, sadece "Grafik →" bağlantısı değil)
+```
+
+Eskiden açık kartın bütün yüzeyi KAPATMA tuşuydu; grafiğe yalnızca sağ alttaki
+11 puntoluk bağlantıdan gidiliyordu. Yüzeyin tamamı nadir istenen işe, sık
+istenen iş ise en küçük hedefe ayrılmıştı.
+
+**Kapatma gesti bilerek kaldırıldı.** Karşılığı yok: aynı anda tek kart açık
+kalıyor ve başka bir karta dokunmak bunu zaten kapatıyor. `_expandedSlug`
+artık `null`'a dönmüyor; `_seededFirstCard` bayrağı yine de gerekli, yoksa her
+çizimde açık kart baştakine geri düşer.
+
+"Grafik →" bağlantısı duruyor ama **kendi dokunma hedefi yok** — iç içe iki
+InkWell aynı işi yapınca dalga iki kez çiziliyor ve okuyucu bağlantının dışına
+basınca başka bir şey olacağını sanıyor. Kalan tek işi işaret vermek.
+
+---
+
+## 10. Tablo, dil ve kapak — 25 Ağustos 2026
+
+### 10.1 Haber tablosu genişliği içerikten hesaplanır
+
+`DynamicChartWidget` içindeki tablo sabit `columnWidths: {0: FlexColumnWidth(2)}`
+kullanıyordu: ilk sütun, ne yazdığına bakılmaksızın diğerlerinin iki katı. Bu
+tablolarda sütun sırası **Değer | Dönem | Ölçüm** ve en kısa içerik ilk sütunda
+("1 %"), en uzunu sonda ("Kışlık ürün verim tahmini üst düşüş oranı"). Yani
+genişliğin yarısı boş duran bir sütuna gidiyor, açıklama dörtte bire sıkışıp
+`ClipRRect` tarafından kesiliyordu.
+
+Artık genişlik her sütunun **en uzun hücresinden** hesaplanıyor (8–34 karakter
+arasına kırpılarak) ve hücrelerde `TextOverflow.ellipsis` **yok** — sarmak,
+kesmekten iyidir.
+
+**Dar ekranda tablo bırakılır, blok düzenine geçilir.** Sütun başına 120 px'in
+altına inildiğinde satırlar blok olarak diziliyor: üstte satırın ne anlattığı,
+altında diğer sütunlar başlıklarıyla. Eşik 120, çünkü 11 punto Inter'de 24 px iç
+boşluktan sonra ~16 karakter kalıyor; altında "564.188.810" gibi bölünemeyen bir
+hücre ortadan ikiye ayrılıyor. Dar ekranda kart iç boşluğu da 24 → 16.
+
+### 10.2 Grafik verisi de çevrilir — ama doğrulanarak
+
+Çeviri yalnızca düz metni kapsıyordu; 335 haberin grafiği İngilizce sayfada
+Türkçe kalıyordu. Artık `articles.chart_data_en` var.
+
+- Çeviriyi `src/utils/chart_translate.py` yapıyor, çevirmen ajanından **ayrı**
+  bir çağrıyla: yapılandırılmış veri + rakam, on bin karakterlik HTML gövdesiyle
+  aynı isteme sıkıştırılamaz.
+- **Her hücrenin rakam dizisi karşılaştırılıyor.** "564.188.810 dolar" →
+  "564,188,810 dollars" ikisinde de `564188810`. Tek bir hücre uymazsa çevirinin
+  TAMAMI reddediliyor ve `chart_data_en` boş kalıyor; uygulama Türkçesini
+  gösteriyor. Yarısı çevrilmiş bir tablo, hepsi Türkçe olandan kötüdür.
+- **Sütun adları yalnızca `type: table` iken çevrilir.** Çubuk, çizgi, halka ve
+  rakam kartları `item['label']` / `item['value']` anahtarlarını ADIYLA arıyor;
+  çeviri onları yeniden adlandırsa grafik hata vermeden boşalırdı. Tablo dışı
+  tiplerde anahtarlar Türkçe kaynaktan alınıyor, hücreler konuma göre eşleşiyor.
+- Arşiv `backfill_chart_translations.py` ile dolduruldu: 305 çeviri yazıldı,
+  30 haber doğrulamadan geçemeyip Türkçe kaldı.
+
+### 10.3 Türkşeker ilan alanları iki dilli
+
+Arayüz metinleri baştan iki dilliydi ama duyurudan gelen ALANLAR (başlık, şart,
+kapsam, kademe etiketleri) Türkçe kalıyordu. Artık `ilan_okur` aynı geçişte
+İngilizcesini de üretiyor: fabrika ADLARI çevrilmez, "Tüm fabrikalar" →
+"All factories", sayı biçimi değişir (5.000 → 5,000).
+
+Satırın neden o gün yazıldığını anlatan `reason` alanı **cümle değil ANAHTAR**
+tutuyor (`kampanya_bitti`); metni arayüz üretiyor. Veride saklanan Türkçe bir
+cümle İngilizce arayüzde olduğu gibi görünüyordu.
+
+### 10.4 Kapakta ad kelimesinin ortasından bölünmez
+
+Masaüstünde 132 punto "Netherlands" 720 px'lik oluğu birkaç piksel aşıyor ve
+"Netherland" + "s" gibi görünüyordu. `_KapakAdi` puntoyu adın TAMAMINA değil
+**en uzun kelimesine** bakarak küçültüyor: tek kelimelik ad tek satıra sığacak
+kadar iner, "Birleşik Krallık" tam puntosunu koruyup kelime arasından sarar.
+Harf aralığı da (-0.022 em) puntoyla birlikte ölçekleniyor.

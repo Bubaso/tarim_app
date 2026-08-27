@@ -88,6 +88,9 @@ const seriEtiketi = kapak.ust_satir ??
   String(yayin.edition).padStart(2, '0');
 const ad = kapak.baslik ?? yayin.name_tr;
 const tez = tasarim.tez_cumlesi?.tr ?? '';
+// Motif yönü dosyanın kendi tasarımından. Yazılmamışsa dikey — ilk dosyanın
+// davranışı korunuyor, eski künyeler bozulmuyor.
+const motifYon = tasarim.motif?.uygulama?.yon === 'yatay' ? 'yatay' : 'dikey';
 const rozet = kapak.veri_rozeti ?? null;
 // Kurum dosyasında kuruluş belgesi kapakta duruyor: kurumun kimliği o satır.
 const belgeSatiri = kapak.belge_satiri ?? yayin.kurulus_belgesi ?? null;
@@ -121,7 +124,9 @@ const html = `<!doctype html>
   /* Motif: polder ızgarasının kart ölçeğindeki karşılığı. Düzensiz genişlikte
      dikey şeritler — tasarim.json'daki tanımın aynısı, %5 opaklıkta. */
   .motif{position:absolute;inset:0;opacity:.05;pointer-events:none}
-  .motif i{position:absolute;top:0;bottom:0;background:${renk('cizgiVurgu')}}
+  .motif i{position:absolute;background:${renk('cizgiVurgu')}}
+  .motif.dikey i{top:0;bottom:0}
+  .motif.yatay i{left:0;right:0}
 
   .seri{font-size:19px;font-weight:600;letter-spacing:.22em;
         color:${renk('vurgu')};text-transform:uppercase;position:relative}
@@ -142,9 +147,17 @@ const html = `<!doctype html>
         color:${renk('sessiz')};white-space:nowrap}
 </style></head>
 <body>
-  <div class="motif">
-    ${[0, 118, 196, 340, 452, 604, 742, 838, 960, 1082]
-      .map((x, i) => `<i style="left:${x}px;width:${[3, 2, 4, 2, 3, 2, 5, 2, 3, 2][i]}px"></i>`)
+  <!-- Motif YÖNÜ tasarim.json'dan geliyor. Gömülü olduğu sürece her dosyada
+       Hollanda'nın polder şeridi çiziliyordu; Rusya'nın motifi ise toprak
+       profilinin YATAY katmanları. Düzensiz aralık kasıtlı: eşit aralık
+       merdiven etkisi yapıyor. -->
+  <div class="motif ${motifYon}">
+    ${(motifYon === 'yatay'
+        ? [0, 62, 104, 178, 238, 318, 390, 442, 506, 570]
+        : [0, 118, 196, 340, 452, 604, 742, 838, 960, 1082])
+      .map((k, i) => motifYon === 'yatay'
+        ? `<i style="top:${k}px;height:${[3, 2, 4, 2, 3, 2, 5, 2, 3, 2][i]}px"></i>`
+        : `<i style="left:${k}px;width:${[3, 2, 4, 2, 3, 2, 5, 2, 3, 2][i]}px"></i>`)
       .join('')}
   </div>
   <div class="seri">${seriEtiketi}</div>

@@ -424,3 +424,34 @@ class DossierSection {
     return t != null && _turler.contains(t) ? t : 'anlati';
   }
 }
+
+/// Yaklaşan dosya — arşivdeki "Yakında" kartı.
+///
+/// Bir dosya DEĞİL: içeriği, teması, metni yok. Yalnızca sıradaki başlık.
+/// Okur dizinin devam ettiğini görsün diye var.
+///
+/// Geri sayım burada tutulmuyor. Yayındaki dosyanın penceresi kapandığında
+/// sıradaki açılacağı için sayaç oradan hesaplanıyor — takvime elle tarih
+/// yazmak, pencere kaydığında yalan söyleyen bir sayı bırakırdı.
+class DossierTakvim {
+  final String tur;
+  final String adTr;
+  final String adEn;
+  final int sira;
+
+  const DossierTakvim({
+    required this.tur,
+    required this.adTr,
+    required this.adEn,
+    this.sira = 1,
+  });
+
+  factory DossierTakvim.fromJson(Map<String, dynamic> json) => DossierTakvim(
+        tur: json['tur']?.toString() == 'kurum' ? 'kurum' : 'ulke',
+        adTr: json['ad_tr']?.toString() ?? '',
+        adEn: json['ad_en']?.toString() ?? '',
+        sira: DossierSummary._toInt(json['sira']) ?? 1,
+      );
+
+  String ad(bool isEn) => isEn && adEn.isNotEmpty ? adEn : adTr;
+}

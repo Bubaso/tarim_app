@@ -28,6 +28,7 @@ import '../../providers/home_providers.dart';
 import '../../../../core/services/notification_service.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
+import '../../../dossiers/presentation/widgets/haber_dosya_seridi.dart';
 import '../widgets/next_article_card.dart';
 import '../widgets/reading_progress_bar.dart';
 import '../../../../core/utils/string_extensions.dart';
@@ -232,6 +233,13 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         ? article.contentEn!
         : article.content;
 
+    // Grafik/tablo verisi de dile göre seçiliyor. İngilizcesi yoksa Türkçesi
+    // gösteriliyor: çeviri hattı rakam doğrulamasından geçmeyen grafiği
+    // bilerek üretmiyor ve boş bir grafik kutusu, Türkçe bir grafikten kötü.
+    final displayChart = (isEn && article.chartDataEn != null && article.chartDataEn!.isNotEmpty)
+        ? article.chartDataEn
+        : article.chartData;
+
     final displaySpot = (isEn && article.spotEn != null && article.spotEn!.isNotEmpty)
         ? article.spotEn!
         : (article.spot ?? article.summary ?? '');
@@ -415,8 +423,8 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           const SizedBox(height: 28),
 
                           // ── Dinamik Grafik ─────────────────────────────
-                          if (article.chartData != null) ...[
-                             DynamicChartWidget(chartData: article.chartData!, isDark: isDark, accent: accent),
+                          if (displayChart != null) ...[
+                             DynamicChartWidget(chartData: displayChart, isDark: isDark, accent: accent),
                              const SizedBox(height: 28),
                           ],
 
@@ -513,6 +521,16 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                     ),
                   ),
                 ),
+              ),
+
+              // ── Dosya şeridi ──────────────────────────────────────────────
+              // Gövde bitti; okurun ilgisi hâlâ konuda. Elimizde o konuda 28
+              // gün emek verilmiş bir dosya varsa en güçlü çağrı budur —
+              // "sonraki haber"den de önce geliyor.
+              //
+              // Eşleşme yoksa hiç çizilmiyor ve düzen hiç değişmiyor.
+              SliverToBoxAdapter(
+                child: HaberDosyaSeridi(articleId: article.id, isEn: isEn),
               ),
 
               // ── Sonraki haber ─────────────────────────────────────────────

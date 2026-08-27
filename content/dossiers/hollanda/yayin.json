@@ -16,17 +16,16 @@
   "status": "published",
   "_status_notu": "draft | scheduled | published | archived. 'draft' RLS tarafından anon'a kapalıdır; yarım metin adres tahminiyle okunamaz.",
   "kapak": {
-    "url": null,
-    "atif": null,
-    "_notu": "tasarim.json/kapak kararına göre NASA Earth Observatory (kamu malı) aranacak. Bulunana kadar null — sayfa tipografik iskeletle tam çalışır, bu Faz 3'ün zorunlu şartı."
+    "url": "https://tarim-app-2026.web.app/dosya/hollanda/hollanda_gece.jpg",
+    "atif": "NASA — ISS049-E-009356, Expedition 49, 24 Eylül 2016. Kamu malı",
+    "kaynak": "https://commons.wikimedia.org/wiki/File:ISS-49_Western_Europe.jpg",
+    "_notu": "tasarim.json kapak yönü \"gece parıltısı — havadan/yörüngeden\" diyordu ama görsel hiç aranmamıştı; dosya ilk yayında kapaksız çıktı. NASA açıklaması görüntüdeki yoğun ışığın Hollanda ve Belçika olduğunu yazıyor. SERA olduğu İDDİA EDİLMİYOR — kaynak öyle demiyor."
   },
   "video": {
     "url": "https://xkwcyavcltrweunvooeu.supabase.co/storage/v1/object/public/country_folder_videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.mp4",
     "_notu": "Kapaktaki tanıtım videosu. null ise kapakta video bloğu hiç çizilmez; kapak görselinde olduğu gibi sayfa videosuz da tam çalışır. Bu adres bir süre EKRAN KODUNDA gömülü durdu ve slug'a bakan bir koşulla çiziliyordu; ikinci ülkede koşul ikiye çıkacağı için buraya taşındı."
   },
   "bolum_grafikleri": {
-    "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin grafikler.json'da GERÇEKTEN tanımlı olduğunu doğrular; ayrıca hiçbir grafiğin sahipsiz kalmadığını. İkisi de sağlanmazsa üretim durur.",
-    "_neden_kimlik": "Önceki sürümde burada data.json blok adları yazıyordu ('tez', 'makro'…). Bir blok birden fazla grafiğe kaynaklık edebiliyor (sera → hem künye hem sıralama) ve bir grafik birden fazla bloktan beslenebiliyor. Eşleme bu yüzden veriye değil grafiğe yapılıyor.",
     "1": [
       "tez_ikili"
     ],
@@ -44,56 +43,59 @@
       "sera_kunye",
       "sera_urunler"
     ],
-    "6": [
+    "7": [
       "ihracat_yigin",
       "ilk_10_pazar"
     ],
-    "7": [
+    "8": [
       "kakao_ikili"
     ],
-    "8": [
+    "9": [
       "tarih_cizelge"
     ],
-    "9": [
+    "11": [
       "kurumlar_kartlar"
     ],
-    "10": [
+    "12": [
       "ihracat_cizgi",
       "dunya_ilk10"
     ],
-    "11": [
+    "14": [
       "ikili_ticaret_cizgi",
       "ikili_hollanda_satar",
       "ikili_turkiye_satar"
     ],
-    "12": [
+    "15": [
       "cevre_kunye"
     ],
-    "13": []
+    "17": [],
+    "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin grafikler.json'da GERÇEKTEN tanımlı olduğunu doğrular; ayrıca hiçbir grafiğin sahipsiz kalmadığını. İkisi de sağlanmazsa üretim durur.",
+    "_neden_kimlik": "Önceki sürümde burada data.json blok adları yazıyordu ('tez', 'makro'…). Bir blok birden fazla grafiğe kaynaklık edebiliyor (sera → hem künye hem sıralama) ve bir grafik birden fazla bloktan beslenebiliyor. Eşleme bu yüzden veriye değil grafiğe yapılıyor."
   },
   "bolum_turleri": {
-    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis. Yazılmayan bölüm anlati sayılır.",
-    "_neden_elle": "Grafik varlığından türetilebilirdi ama iki yerde yanlış sonuç verirdi: 9. bölüm kart grafiği taşıdığı hâlde anlatı ritminde kalmalı, ve grafiksiz bir belge bölümü de mümkün. Tür bir yayın kararı.",
-    "_ritim": "1 anlatı · 2-6 yoğun veri · 7-9 anlatı nefesi · 10-12 veri · 13 anlatı kapanış. Okur on üç bölümde dört kez zemin değiştiriyor.",
     "1": "anlati",
     "2": "veri",
     "3": "anlati",
     "4": "veri",
     "5": "veri",
-    "6": "veri",
-    "7": "anlati",
+    "6": "anlati",
+    "7": "veri",
     "8": "anlati",
     "9": "anlati",
-    "10": "veri",
-    "11": "veri",
+    "10": "anlati",
+    "11": "anlati",
     "12": "veri",
-    "13": "anlati"
+    "13": "anlati",
+    "14": "veri",
+    "15": "veri",
+    "16": "anlati",
+    "17": "anlati",
+    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis. Yazılmayan bölüm anlati sayılır.",
+    "_neden_elle": "Grafik varlığından türetilebilirdi ama iki yerde yanlış sonuç verirdi: 9. bölüm kart grafiği taşıdığı hâlde anlatı ritminde kalmalı, ve grafiksiz bir belge bölümü de mümkün. Tür bir yayın kararı.",
+    "_ritim": "1 anlatı · 2-5 yoğun veri · 6 anlatı nefesi · 7 veri · 8-11 anlatı · 12 veri · 13 anlatı · 14-15 veri · 16-17 anlatı kapanış. Okur on yedi bölümde altı kez zemin değiştiriyor.",
+    "_neden_degisti": "İlk yayında 13 bölüm vardı ve dördü anlatıydı. Rusya dosyası yazılırken yalnızca veriye dayanan bir metnin okuru yorduğu görüldü; dört anlatı bölümü eklendi (6, 10, 13, 16) ve tekrar eden tablolar grafiğe bırakıldı."
   },
   "bolum_gorselleri": {
-    "_amac": "Bölüm sırası → görsel. Grafik veriyi anlatır, görsel konuyu gösterir. Yazılmayan bölümde görsel yok.",
-    "_kural": "ATIFSIZ GÖRSEL YAYIMLANMAZ — atıf zorunlu alan, üretim betiği ve doğrulayıcı ikisi de eksikse duruyor. Dosyalar depoda web/dosya/<slug>/, ham hâlleri _raw/gorseller/, indirme adresleri kaynak alanında.",
-    "_lisans": "Altısı da NASA üretimi ve atıfla kullanıma açık. ASTER görselleri (NASA/METI/AIST ortak atfı) bir ara \"telif belirsiz\" diye elenmişti; yanlıştı — NASA Earth Observatory ASTER görsellerini kendi sitesinde yayımlıyor ve gereken tek şey atıf. Atıf zaten bu dizinin zorunlu alanı.",
-    "_url_notu": "Adres mutlak: NewsArticleImage göreli yolu kabul etmiyor. Dosyalar hosting tarafından statik sunuluyor.",
     "1": {
       "url": "https://tarim-app-2026.web.app/dosya/hollanda/delta.jpg",
       "atif": "Image provided by the USGS EROS Data Center Satellite Systems Branch as part of the Earth as Art II image series",
@@ -110,6 +112,13 @@
       "alt_tr": "Güneybatı Hollanda kıyısı Delta İşleri sonrası: 1953 fırtınasından sonra kurulan set, baraj ve kilit sistemi adaları birbirine bağlamış.",
       "alt_en": "The south-west Dutch coast after the Delta Works: the dikes, dams and locks built following the 1953 storm now tie the islands together."
     },
+    "4": {
+      "url": "https://tarim-app-2026.web.app/dosya/hollanda/glastuinbouw.jpg",
+      "atif": "Wikimedia Commons — CC BY-SA 4.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Het_is_allemaal_glastuinbouw_wat_de_klok_slaat_in_Harmelerwaard.jpg",
+      "alt_tr": "Polder yolu boyunca uzanan modern cam sera kompleksi; önünde sazdan çatılı bir çiftlik evi, hendek ve ağaç sırası.",
+      "alt_en": "A modern glasshouse complex stretching along a polder road, with a thatched farmhouse, a ditch and a line of trees in front."
+    },
     "5": {
       "url": "https://tarim-app-2026.web.app/dosya/hollanda/westland.jpg",
       "atif": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
@@ -119,6 +128,13 @@
       "alt_en": "Westland, the greenhouse capital of the world. Seen from orbit, the glass this section is about becomes the texture of the land itself."
     },
     "6": {
+      "url": "https://tarim-app-2026.web.app/dosya/hollanda/volkstuin.jpg",
+      "atif": "John - el - Castillo, Wikimedia Commons — CC BY 3.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Volkstuin_straatje_Garden_Calle_popular_-_panoramio.jpg",
+      "alt_tr": "Hollanda'da bir volkstuin sokağı: çitle ayrılmış küçük parseller, kulübeler ve çiçek tarhları. 1950'lere kadar buralar sebze bahçesiydi.",
+      "alt_en": "A volkstuin lane in the Netherlands: small fenced plots, sheds and flower beds. Until the 1950s these were vegetable gardens."
+    },
+    "7": {
       "url": "https://tarim-app-2026.web.app/dosya/hollanda/rotterdam.jpg",
       "atif": "NASA Earth Observatory images created by Jesse Allen and Robert Simmon, using Landsat data provided by the U.S. Geological Survey. Caption by Michon Scott.",
       "kaynak": "https://science.nasa.gov/earth/earth-observatory/land-reclamation-at-rotterdam-47122/",
@@ -126,7 +142,7 @@
       "alt_tr": "Rotterdam limanının Maasvlakte 2 genişlemesi: deniz tabanından çıkarılan kumla kazanılmış konteyner sahası. Yeniden ihracatın geçtiği yer.",
       "alt_en": "The Maasvlakte 2 expansion of the Port of Rotterdam: container ground built from seabed sand. This is where the re-export passes through."
     },
-    "8": {
+    "9": {
       "url": "https://tarim-app-2026.web.app/dosya/hollanda/zuiderzee.jpg",
       "atif": "NASA image by Alan Holmes/ NASA's Ocean Color Web, using data from SeaHawk/HawkEye",
       "kaynak": "https://science.nasa.gov/earth/earth-observatory/zuiderzee-works-148799",
@@ -134,14 +150,45 @@
       "alt_tr": "Zuiderzee Works uydudan: Afsluitdijk barajı ve arkasında denizden kazanılmış polder parselleri.",
       "alt_en": "The Zuiderzee Works from orbit: the Afsluitdijk dam and the polders reclaimed behind it."
     },
-    "9": {
+    "10": {
+      "url": "https://tarim-app-2026.web.app/dosya/hollanda/kokboya.jpg",
+      "atif": "H. Zell, Wikimedia Commons — CC BY-SA 3.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Rubia_tinctorum_001.JPG",
+      "alt_tr": "Rubia tinctorum — kökboya bitkisi. İnce gövdeli, halka biçiminde dizilmiş yapraklı bir bitki; kırmızı boya kökünden elde ediliyordu.",
+      "alt_en": "Rubia tinctorum — the madder plant. Slender stems with leaves in whorls; the red dye came from its root."
+    },
+    "11": {
+      "url": "https://tarim-app-2026.web.app/dosya/hollanda/aalsmeer_muzayede.jpg",
+      "atif": "Wikimedia Commons — CC0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Aalsmeer_marche_aux_fleurs2.JPG",
+      "alt_tr": "Aalsmeer çiçek müzayedesinin salonu: ufka kadar uzanan, çiçek dolu tekerlekli raflar ve aralarında tek bir çalışan.",
+      "alt_en": "The floor of the Aalsmeer flower auction: wheeled racks loaded with flowers stretching to the horizon, a single worker among them."
+    },
+    "13": {
       "url": "https://tarim-app-2026.web.app/dosya/hollanda/laleler.jpg",
       "atif": "NASA Earth Observatory images by Lauren Dauphin, using Landsat data from the U.S. Geological Survey. Story by Emily Cassidy.",
       "kaynak": "https://science.nasa.gov/earth/earth-observatory/a-tulip-frenzy-in-the-netherlands-152750/",
       "_cekim": "29 Nisan 2024 · Landsat 9 · OLI-2",
       "alt_tr": "Kuzey Hollanda’da çiçek soğanı tarlaları. Zincirin en yüksek katma değerli halkası — başlangıç materyali ihracatı — bu tarlalarda başlıyor.",
       "alt_en": "Flower-bulb fields in North Holland. The highest value-added link in the chain — starting-material exports — begins here."
-    }
+    },
+    "15": {
+      "url": "https://tarim-app-2026.web.app/dosya/hollanda/koeien_weiland.jpg",
+      "atif": "Michielverbeek, Wikimedia Commons — CC BY-SA 4.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Woerdense_Verlaat,_koeien_in_weiland_langs_de_Bosweg_bij_Lusthof_de_Haeck_foto3_2017-07-09_11.11.jpg",
+      "alt_tr": "Polder çayırında sıkışmış siyah-beyaz süt sığırı sürüsü; önlerindeki hendek baştan başa parlak yeşil su mercimeğiyle kaplı.",
+      "alt_en": "A herd of black-and-white dairy cattle packed onto a polder meadow; the ditch in front of them is covered end to end in bright green duckweed."
+    },
+    "16": {
+      "url": "https://tarim-app-2026.web.app/dosya/hollanda/mansholt.jpg",
+      "atif": "Rob Mieremet, Anefo — Nationaal Archief, CC0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Sicco_Mansholt_1974_(1).jpg",
+      "alt_tr": "Sicco Mansholt, 1974. Avrupa'nın ortak tarım politikasının mimarı, mektubunu yazmasından iki yıl sonra.",
+      "alt_en": "Sicco Mansholt in 1974 — the architect of Europe's common agricultural policy, two years after his letter."
+    },
+    "_amac": "Bölüm sırası → görsel. Grafik veriyi anlatır, görsel konuyu gösterir. Yazılmayan bölümde görsel yok.",
+    "_kunye": "_raw/gorseller/kunye.json",
+    "_not": "İlk yayında dosyanın bütün görselleri uydu çekimiydi. Tarih ve kültür bölümleri eklenince görsel dili de değişti: insan ve nesne girdi. Anlatı bölümünü yörüngeden fotoğraflayamıyorsunuz."
   },
   "_bolum_13_notu": "13. bölüm ('Türkiye ne alabilir') bilerek grafiksiz. Sonuç bölümü; oradaki iki rakam da (değer tutma oranı, tatlı su payı) 6. ve 3. bölümlerin grafiklerinde zaten görülmüş oluyor. 'bosluklar' bloğu bölüme değil, sayfa sonundaki veri notları paneline ait.",
   "hikaye": {
@@ -197,5 +244,15 @@
         "gorsel": "https://tarim-app-2026.web.app/dosya/hollanda/zuiderzee.jpg"
       }
     ]
-  }
+  },
+  "anahtar_kelimeler": [
+    "Hollanda",
+    "Felemenk",
+    "Rotterdam",
+    "Amsterdam",
+    "Wageningen",
+    "Aalsmeer",
+    "FloraHolland"
+  ],
+  "_anahtar_kelimeler_notu": "Haber eşleştirmesinde aranacak terimler. KELİME OLARAK aranıyor (sözcük sınırı), alt dize olarak değil — \"Rus\" araması \"Prusya\"yı yakalamasın diye. Editör kararıdır: liste boşsa dosya hiçbir haberle eşleşmez, çünkü yanlış haber göstermektense hiç göstermemek doğru."
 }

@@ -377,6 +377,14 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
       // ziyaretten ziyarete değişmemesini sağlayan şey.
       final base = <String, double>{};
       for (final a in withImages) {
+        // YÖNETİCİ İSTİSNASI: Sabit (Hard) Pin
+        // Eğer yönetici is_hero=true ve hero_order=0 yaparsa, kural tanımaz;
+        // sonsuz puan alıp daima en tepede kalır (okunma cezası bile işlemez).
+        if (a.isHero == true && a.heroOrder == 0) {
+          base[a.id] = double.infinity;
+          continue;
+        }
+
         final ageHours = now.difference(a.createdAt).inMinutes / 60;
 
         // İtki haberi kendi gerçek yaşından DAHA YAŞLI gösteremez: `min` şart.

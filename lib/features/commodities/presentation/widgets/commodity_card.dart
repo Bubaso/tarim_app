@@ -10,6 +10,20 @@ import '../../data/models/commodity_price.dart';
 /// Genişleme yerinde oluyor — yeni bir katman açılmıyor. Fiyat listesine bakan
 /// okuyucu tek ürüne değil karşılaştırmaya bakıyor: bir kart ekranı kaplarsa
 /// yanındaki arpa fiyatı gözden kayboluyor ve karşılaştırma bozuluyor.
+///
+/// Dokunmanın anlamı kartın durumuna göre değişiyor:
+///
+///   kapalı → açılır      (ilk dokunuş ayrıntıyı gösteriyor)
+///   açık   → grafiği açar (ikinci dokunuş sayfaya götürüyor)
+///
+/// Eskiden açık kartın her yeri kapatma tuşuydu ve grafiğe yalnızca sağ alttaki
+/// küçük "Grafik →" bağlantısından gidiliyordu. Açık bir kartta okuyucunun
+/// dokunmak istediği şey grafik; kartı kapatmak ise nadiren istenen ve zaten
+/// başka bir karta dokununca kendiliğinden olan bir şey. Yüzeyin tamamı
+/// nadir olana ayrılmıştı, sık olan ise 11 puntoluk bir bağlantıya sıkışmıştı.
+///
+/// Kapatma gesti kayboldu, çünkü karşılığı yok: aynı anda tek kart açık kalıyor
+/// ve başka bir karta dokunmak bunu zaten kapatıyor.
 class CommodityCard extends StatelessWidget {
   final CommodityPrice price;
   final bool isDark;
@@ -50,15 +64,18 @@ class CommodityCard extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
-        onTap: onTap,
+        onTap: isExpanded ? onOpenDetail : onTap,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: isExpanded ? AppColors.accentFor(isDark: isDark) : borderColor,
+              color: isExpanded
+                  ? AppColors.accentFor(isDark: isDark)
+                  : borderColor,
             ),
           ),
-          padding: EdgeInsets.symmetric(horizontal: isCompact ? 12 : 14, vertical: 10),
+          padding: EdgeInsets.symmetric(
+              horizontal: isCompact ? 12 : 14, vertical: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -87,7 +104,6 @@ class CommodityCard extends StatelessWidget {
                       titleColor: titleColor,
                       subtleColor: subtleColor,
                       accentColor: AppColors.accentFor(isDark: isDark),
-                      onOpenDetail: onOpenDetail,
                     ),
                   ),
                 ),
@@ -171,49 +187,57 @@ class _Summary extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 2),
-            Row(
-              children: [
-                Text(
-                  price.unit,
-                  style: GoogleFonts.inter(
-                    fontSize: isCompact ? 10 : 11,
-                    color: subtleColor,
-                  ),
-                ),
-                const SizedBox(width: 6),
-                if (change == null)
-                  // Seyrek işlem gören üründe önceki kayıt bir aylık olabilir.
-                  // Onu "günlük değişim" diye sunmaktansa tire koyuyoruz.
+            // Birim ve değişim oranı dar sütuna sığmazsa küçülüyor, taşmıyor.
+            // Özet sütunu sabit 116 px ve içerik yazı tipi ölçeğine göre
+            // değişiyor: sistem yazı tipi büyütülmüş bir cihazda "TL/kg ▲0,40%"
+            // kartın dışına taşıyordu.
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Row(
+                children: [
                   Text(
-                    '—',
-                    style: GoogleFonts.robotoMono(
-                      fontSize: isCompact ? 11 : 12,
+                    price.unit,
+                    style: GoogleFonts.inter(
+                      fontSize: isCompact ? 10 : 11,
                       color: subtleColor,
                     ),
-                  )
-                else
-                  Row(
-                    children: [
-                      Icon(
-                        change > 0
-                            ? Icons.arrow_drop_up_rounded
-                            : change < 0
-                                ? Icons.arrow_drop_down_rounded
-                                : Icons.remove_rounded,
-                        size: isCompact ? 16 : 18,
-                        color: changeColor,
+                  ),
+                  const SizedBox(width: 6),
+                  if (change == null)
+                    // Seyrek işlem gören üründe önceki kayıt bir aylık olabilir.
+                    // Onu "günlük değişim" diye sunmaktansa tire koyuyoruz.
+                    Text(
+                      '—',
+                      style: GoogleFonts.robotoMono(
+                        fontSize: isCompact ? 11 : 12,
+                        color: subtleColor,
                       ),
-                      Text(
-                        '${change.abs().toStringAsFixed(2).replaceAll('.', ',')}%',
-                        style: GoogleFonts.robotoMono(
-                          fontSize: isCompact ? 11 : 12,
-                          fontWeight: FontWeight.w600,
+                    )
+                  else
+                    Row(
+                      children: [
+                        Icon(
+                          change > 0
+                              ? Icons.arrow_drop_up_rounded
+                              : change < 0
+                                  ? Icons.arrow_drop_down_rounded
+                                  : Icons.remove_rounded,
+                          size: isCompact ? 16 : 18,
                           color: changeColor,
                         ),
-                      ),
-                    ],
-                  ),
-              ],
+                        Text(
+                          '${change.abs().toStringAsFixed(2).replaceAll('.', ',')}%',
+                          style: GoogleFonts.robotoMono(
+                            fontSize: isCompact ? 11 : 12,
+                            fontWeight: FontWeight.w600,
+                            color: changeColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
             ),
           ],
         ),
@@ -229,7 +253,6 @@ class _Details extends StatelessWidget {
   final Color titleColor;
   final Color subtleColor;
   final Color accentColor;
-  final VoidCallback onOpenDetail;
 
   const _Details({
     required this.price,
@@ -238,12 +261,12 @@ class _Details extends StatelessWidget {
     required this.titleColor,
     required this.subtleColor,
     required this.accentColor,
-    required this.onOpenDetail,
   });
 
   @override
   Widget build(BuildContext context) {
-    final labelStyle = GoogleFonts.inter(fontSize: 10, color: subtleColor, height: 1.3);
+    final labelStyle =
+        GoogleFonts.inter(fontSize: 10, color: subtleColor, height: 1.3);
     final valueStyle = GoogleFonts.robotoMono(
       fontSize: isCompact ? 11 : 12,
       fontWeight: FontWeight.w600,
@@ -251,7 +274,8 @@ class _Details extends StatelessWidget {
       height: 1.3,
     );
 
-    final dayLabel = DateFormat('d MMMM', isEn ? 'en_US' : 'tr_TR').format(price.priceDate);
+    final dayLabel =
+        DateFormat('d MMMM', isEn ? 'en_US' : 'tr_TR').format(price.priceDate);
 
     // İşlem fiyatı o günün fiyatı; ilan fiyatı o günkü İLANIN fiyatı ve bir
     // sonraki ilana kadar yürürlükte. Fark kartta yazmazsa 27 Temmuz tarihli
@@ -292,22 +316,24 @@ class _Details extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             const SizedBox(height: 4),
-            InkWell(
-              onTap: onOpenDetail,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    isEn ? 'Chart' : 'Grafik',
-                    style: GoogleFonts.inter(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w600,
-                      color: accentColor,
-                    ),
+            // Kendi dokunma hedefi YOK: dokunmayı kartın tamamı karşılıyor.
+            // İç içe iki InkWell aynı işi yapınca dalga da iki kez çiziliyor
+            // ve okuyucu küçük bağlantının dışına basınca farklı bir şey
+            // olacağını sanıyor. Burada kalan tek iş işaret vermek — dokunmanın
+            // nereye götürdüğünü söyleyen ok ve vurgu rengi.
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  isEn ? 'Chart' : 'Grafik',
+                  style: GoogleFonts.inter(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    color: accentColor,
                   ),
-                  Icon(Icons.arrow_forward_rounded, size: 13, color: accentColor),
-                ],
-              ),
+                ),
+                Icon(Icons.arrow_forward_rounded, size: 13, color: accentColor),
+              ],
             ),
           ],
         ),

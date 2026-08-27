@@ -6,19 +6,26 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'core/constants/api_constants.dart';
+import 'core/network/supabase_client.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'core/utils/localization_helper.dart';
 import 'core/services/notification_service.dart';
 import 'core/utils/url_strategy.dart';
+import 'features/dossiers/data/repositories/onizleme_deposu.dart';
+import 'features/dossiers/providers/dossier_providers.dart';
 import 'features/home/providers/hero_rotation.dart';
 import 'features/home/providers/home_providers.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  await Hive.initFlutter();
+  await Hive.openBox<String>('offline_articles');
 
   // Rotayı adresin `#` sonrasından yola taşır. `runApp`tan ÖNCE çağrılmak
   // zorunda: router başlangıç adresini ilk karede okuyor.
@@ -84,10 +91,29 @@ void main() async {
     debugPrint('Orientation setup error: $e');
   }
 
+  // Yayımlanmamış dosya önizlemesi. Boşsa hiçbir şey değişmez ve uygulama
+  // her zamanki gibi yalnızca veritabanından okur. Dolu olduğunda YALNIZCA o
+  // slug yerel dosyadan gelir; bkz. OnizlemeDeposu.
+  //
+  //   flutter run -d chrome --dart-define=DOSYA_ONIZLEME=rusya
+  //
+  // deploy.sh bu bayrağı geçmiyor, dolayısıyla üretim derlemesinde ölü kod.
+  const onizlemeSlug = String.fromEnvironment('DOSYA_ONIZLEME');
+  if (onizlemeSlug.isNotEmpty) {
+    debugPrint('DOSYA ÖNİZLEME AÇIK → $onizlemeSlug');
+  }
+
   runApp(
     ProviderScope(
       overrides: [
         heroSeedProvider.overrideWith(() => HeroSeed(visit.seed)),
+        if (onizlemeSlug.isNotEmpty)
+          dossierRepositoryProvider.overrideWith(
+            (ref) => OnizlemeDeposu(
+              ref.watch(supabaseClientProvider),
+              onizlemeSlug,
+            ),
+          ),
       ],
       child: const MyApp(),
     ),

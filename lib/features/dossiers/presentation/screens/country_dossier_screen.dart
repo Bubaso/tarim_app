@@ -20,6 +20,7 @@ import '../widgets/dossier_chart_view.dart';
 import '../widgets/dossier_contents_sheet.dart';
 import '../widgets/dossier_prose.dart';
 import '../widgets/dossier_reveal.dart';
+import '../widgets/dosya_haberleri_bolumu.dart';
 import '../widgets/dossier_share_bar.dart';
 import '../widgets/dossier_video_player.dart';
 import '../widgets/polder_motif.dart';
@@ -421,13 +422,24 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                   },
                 ),
 
-                SliverToBoxAdapter(
-                  child: _VeriNotlari(
-                      bosluklar: dosya.gaps, tema: tema, isEn: isEn),
-                ),
+                // VERİ NOTLARI PANELİ KALDIRILDI (kullanıcı kararı, 24 Ağustos
+                // 2026). Hangi rakamın bulunamadığı bir üretim günlüğüdür,
+                // okuma malzemesi değil; okurun ihtiyacı olan kayıt zaten
+                // cümlenin yanındaki parantezde: "(… ikincil kaynaklardan.)"
+                //
+                // Panel VERİYİ BOŞALTARAK değil, KODDAN ÇIKARILARAK kaldırıldı:
+                // boş dizi bırakmak her yeni dosyada tekrar dolmasına açık
+                // kapı bırakırdı. Boşluk kayıtları _raw/ altında duruyor.
                 SliverToBoxAdapter(
                   child:
                       _Kunye(kaynaklar: dosya.sources, tema: tema, isEn: isEn),
+                ),
+                // Dosya bitti, konu bitmedi: aynı konunun güncel haberleri.
+                // Künyeden SONRA duruyor — okuma kaynaklarıyla kapanıyor,
+                // sonra devamı geliyor. Eşleşme yoksa hiç çizilmiyor.
+                SliverToBoxAdapter(
+                  child: DosyaHaberleriBolumu(
+                      slug: dosya.summary.slug, tema: tema, isEn: isEn),
                 ),
                 SliverToBoxAdapter(
                   child: _Oluk(
@@ -519,6 +531,63 @@ class _Oluk extends StatelessWidget {
 }
 
 /// Küçük harf aralıklı üst etiket — "ÜLKE DOSYASI · 01", "VERİ NOTLARI".
+/// Kapaktaki ülke/kurum adı.
+///
+/// Ad KELİMESİNİN ORTASINDAN bölünmesin diye punto gerektiği kadar küçülüyor.
+/// Kelimeler arası sarma serbest — "Birleşik Krallık" iki satıra inebilir ve
+/// bu kompozisyonu bozmuyor. Bozan şey tek kelimelik bir adın son harflerinin
+/// alt satıra düşmesiydi: masaüstünde 132 punto "Netherlands" 720 px'lik okuma
+/// oluğunu birkaç piksel aşıyor ve "Netherland" + "s" gibi görünüyordu.
+///
+/// Bu yüzden ölçek adın TAMAMINA değil, EN UZUN KELİMESİNE bakarak
+/// hesaplanıyor: tek kelimelik ad tek satıra sığacak kadar küçülüyor, iki
+/// kelimelik ad tam puntosunu koruyup kelime arasından sarıyor.
+class _KapakAdi extends StatelessWidget {
+  const _KapakAdi({required this.ad, required this.renk});
+
+  final String ad;
+  final Color renk;
+
+  @override
+  Widget build(BuildContext context) {
+    final stil = AppTypography.dossierCover(context, color: renk);
+
+    return LayoutBuilder(
+      builder: (context, kutu) {
+        final genislik = kutu.maxWidth;
+        if (!genislik.isFinite || genislik <= 0) return Text(ad, style: stil);
+
+        final kelimeler = ad.trim().split(RegExp(r'\s+'));
+        final enUzun = kelimeler.fold<String>(
+          '',
+          (a, b) => b.length > a.length ? b : a,
+        );
+
+        final olcer = TextPainter(
+          text: TextSpan(text: enUzun, style: stil),
+          textDirection: Directionality.of(context),
+          maxLines: 1,
+        )..layout();
+
+        final olcek = olcer.width > genislik ? genislik / olcer.width : 1.0;
+        if (olcek >= 1.0) return Text(ad, style: stil);
+
+        final punto = (stil.fontSize ?? 56) * olcek;
+        return Text(
+          ad,
+          style: stil.copyWith(
+            fontSize: punto,
+            // Harf aralığı puntoyla orantılı tanımlı (-0.022 em); punto
+            // küçülünce onun da küçülmesi gerekiyor, yoksa negatif aralık
+            // oransal olarak büyüyüp harfleri birbirine geçiriyor.
+            letterSpacing: punto * -0.022,
+          ),
+        );
+      },
+    );
+  }
+}
+
 class _Etiket extends StatelessWidget {
   const _Etiket(this.metin, {required this.renk});
 
@@ -699,13 +768,7 @@ class _Kapak extends StatelessWidget {
                     // Ad tek satıra sığmayabilir ("Birleşik Krallık"): sarma
                     // serbest, kırpma yok. Dar telefonda iki satır olması
                     // sorun değil, ölçek zaten kompozisyonun kendisi.
-                    Text(
-                      ozet.name(isEn),
-                      style: AppTypography.dossierCover(
-                        context,
-                        color: tema.murekkep,
-                      ),
-                    ),
+                    _KapakAdi(ad: ozet.name(isEn), renk: tema.murekkep),
                     const SizedBox(height: 18),
                     // Tez cümlesi kapakta duruyor: dosyanın ne iddia ettiğini
                     // okur ilk ekranda öğrenmeli, on üç bölüm sonra değil.
@@ -977,109 +1040,6 @@ class _BolumGorseli extends StatelessWidget {
 }
 
 // ─── Veri notları ───────────────────────────────────────────────────────────
-
-/// Sayfanın dürüstlük paneli.
-///
-/// Gizlenecek bir şey değil, dosyanın en güçlü kısmı: hangi rakamı
-/// bulamadığımızı ve yerine ne koyduğumuzu okur burada görüyor. Bu yüzden
-/// katlanabilir bir kutunun içinde değil, açıkta.
-class _VeriNotlari extends StatelessWidget {
-  const _VeriNotlari({
-    required this.bosluklar,
-    required this.tema,
-    required this.isEn,
-  });
-
-  final List<DossierGap> bosluklar;
-  final DossierTheme tema;
-  final bool isEn;
-
-  @override
-  Widget build(BuildContext context) {
-    if (bosluklar.isEmpty) return const SizedBox.shrink();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        PolderMotif(tema: tema, yukseklik: 64),
-        _Oluk(
-          dikey: 20,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _Etiket(isEn ? 'DATA NOTES' : 'VERİ NOTLARI', renk: tema.vurgu),
-              const SizedBox(height: 10),
-              Text(
-                isEn
-                    ? 'Every figure in this dossier comes from a named source. These are the places where the source did not have the figure, and what was put there instead.'
-                    : 'Bu dosyadaki her rakamın adı konmuş bir kaynağı var. Aşağıdakiler kaynağın o rakamı vermediği yerler ve yerine ne konduğu.',
-                style: AppTypography.body(context, color: tema.sessiz),
-              ),
-              const SizedBox(height: 20),
-              for (final b in bosluklar)
-                Container(
-                  margin: const EdgeInsets.only(bottom: 12),
-                  padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
-                  decoration: BoxDecoration(
-                    color: tema.yuzey,
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: tema.cizgi),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              b.konu(isEn),
-                              style: AppTypography.body(
-                                context,
-                                color: tema.murekkep,
-                              ).copyWith(fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          if (b.kapandi) ...[
-                            const SizedBox(width: 10),
-                            // Durum metinle de yazılı; simge tek başına
-                            // bilgi taşımıyor.
-                            Text(
-                              isEn ? 'CLOSED' : 'KAPANDI',
-                              style: AppTypography.meta(
-                                context,
-                                color: tema.vurgu,
-                              ).copyWith(
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 1.1,
-                              ),
-                            ),
-                          ],
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        b.sorun(isEn),
-                        style: AppTypography.meta(context, color: tema.sessiz),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        b.cozum(isEn),
-                        style:
-                            AppTypography.meta(context, color: tema.murekkep),
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-// ─── Kaynak künyesi ─────────────────────────────────────────────────────────
 
 class _Kunye extends StatelessWidget {
   const _Kunye(

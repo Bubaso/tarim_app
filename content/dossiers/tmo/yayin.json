@@ -175,5 +175,11 @@
         "gorsel": "https://tarim-app-2026.web.app/dosya/tmo/tmo_silolari_izmir.jpg"
       }
     ]
-  }
+  },
+  "anahtar_kelimeler": [
+    "TMO",
+    "Toprak Mahsulleri Ofisi",
+    "Toprak Mahsulleri"
+  ],
+  "_anahtar_kelimeler_notu": "Haber eşleştirmesinde aranacak terimler. KELİME OLARAK aranıyor (sözcük sınırı), alt dize olarak değil — \"Rus\" araması \"Prusya\"yı yakalamasın diye. Editör kararıdır: liste boşsa dosya hiçbir haberle eşleşmez, çünkü yanlış haber göstermektense hiç göstermemek doğru."
 }

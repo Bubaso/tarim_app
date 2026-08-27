@@ -1,0 +1,18 @@
+-- dosya_haberleri: iki parametreli eski imza düşürülüyor.
+--
+-- HATA NASIL OLDU. 20260825030000 fonksiyona `p_min_puan` parametresi eklerken
+-- `create or replace function` kullandı. Postgres'te imza DEĞİŞİRSE bu komut
+-- eskisini değiştirmez, YANINA yeni bir aşırı yükleme koyar. İki imza birden
+-- var olunca PostgREST iki parametreli çağrıyı çözemedi:
+--
+--   PGRST203 — Could not choose the best candidate function between:
+--     dosya_haberleri(p_slug => text, p_limit => integer),
+--     dosya_haberleri(p_slug => text, p_limit => integer, p_min_puan => integer)
+--
+-- İstemci iki parametreyle çağırıyordu; yani dosya sayfasındaki haber bölümü
+-- canlıda sessizce boş kalıyordu. Ters yön (haber_dosyalari) etkilenmedi,
+-- onun imzası değişmemişti.
+--
+-- DERS: `create or replace function` yalnızca GÖVDEYİ güvenle değiştirir.
+-- Parametre eklemek/çıkarmak yeni bir fonksiyondur; eskisi elle düşürülmeli.
+drop function if exists public.dosya_haberleri(text, int);

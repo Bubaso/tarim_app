@@ -22,6 +22,12 @@ Widget _sarmala(CountryDossier dosya, {required bool isEn}) {
     overrides: [
       // Ağ yok: sayfa provider'ı doğrudan seed'den kurulan dosyaya bağlanıyor.
       dossierBySlugProvider('hollanda').overrideWith((ref) async => dosya),
+      // Sayfanın sonundaki "bu konudaki haberler" bölümü de bir sağlayıcı
+      // izliyor. Taklit edilmezse gerçek isteğe çıkıyor ve ağaç söküldükten
+      // sonra zamanlayıcı askıda kalıyor — test "Timer is still pending" ile
+      // düşer. Şerit testindeki tuzağın aynısı (CLAUDE.md §5).
+      dosyaHaberleriProvider(dosya.summary.slug)
+          .overrideWith((ref) async => []),
     ],
     child: MaterialApp(
       locale: Locale(isEn ? 'en' : 'tr'),
@@ -65,14 +71,16 @@ void main() {
 
   final dosya = DossierFixture.hollanda();
 
-  testWidgets('seed doğru okunuyor: 13 bölüm, 18 grafik', (tester) async {
+  testWidgets('seed doğru okunuyor: 17 bölüm, 18 grafik', (tester) async {
     // Fixture'ın kendisi de sınanmalı. Bölüm ayrıştırıcısı sessizce üç bölüm
     // döndürseydi aşağıdaki tüm testler yeşil kalır ama hiçbir şey kanıtlamazdı.
-    expect(dosya.sections.length, 13);
+    expect(dosya.sections.length, 17);
     expect(dosya.charts.length, 18);
     expect(dosya.summary.nameTr, 'Hollanda');
     expect(dosya.summary.nameEn, 'Netherlands');
-    expect(dosya.gaps.length, 5);
+    // Veri notları paneli kaldırıldı (24 Ağustos 2026); boşluk kaydı artık
+    // sayfada gösterilmiyor ve seed'e de yazılmıyor.
+    expect(dosya.gaps, isEmpty);
     expect(dosya.sources, isNotEmpty);
     // Her bölümün grafik anahtarı gerçekten bir grafiğe denk gelmeli;
     // gelmiyorsa seed'de sahipsiz anahtar var demektir.
@@ -137,14 +145,6 @@ void main() {
   });
 
   testWidgets('İngilizce sayfada Türkçe metin kalmıyor', (tester) async {
-    // Veri notları paneli uzun süre yalnızca Türkçeydi; İngilizce sayfada
-    // Türkçe kalması tam da güven vermesi gereken yerde okunmazlık üretirdi.
-    for (final b in dosya.gaps) {
-      expect(b.konu(true), isNot(equals(b.konu(false))),
-          reason: '"${b.konuTr}" başlığının İngilizcesi yok');
-      expect(b.sorun(true), isNot(equals(b.sorun(false))));
-      expect(b.cozum(true), isNot(equals(b.cozum(false))));
-    }
     for (final b in dosya.sections) {
       expect(b.title(true), isNot(equals(b.title(false))),
           reason: '${b.ord}. bölüm başlığı çevrilmemiş');
@@ -302,8 +302,8 @@ void main() {
     // bozulursa bu test kırılmalı.
     final turler = dosya.sections.map((b) => b.tur).toSet();
     expect(turler, containsAll(<String>['anlati', 'veri']));
-    expect(dosya.sections.length, 13);
-    // Ritmin kendisi: 13 bölümün hepsi aynı türde olsaydı tür alanı hiçbir işe
+    expect(dosya.sections.length, 17);
+    // Ritmin kendisi: 17 bölümün hepsi aynı türde olsaydı tür alanı hiçbir işe
     // yaramazdı.
     expect(dosya.sections.where((b) => b.genisVeri).length, greaterThan(3));
     expect(dosya.sections.where((b) => !b.genisVeri).length, greaterThan(3));

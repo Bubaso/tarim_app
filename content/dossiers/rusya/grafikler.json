@@ -1,0 +1,249 @@
+{
+  "_dosya": "Rusya — Ülke Dosyası · grafik künyesi",
+  "_amac": "Hangi bölümde hangi grafik, hangi biçimde, hangi iki dilli etiketle çizilecek.",
+  "_neden_grafik": "Bu dosyanın ilk taslağında zaman serileri TABLO olarak duruyordu ve okuma yoruyordu. Ölçüldü: şikâyet edilen bölümlerde ortalama 11,4 tablo satırı vardı, edilmeyenlerde 2,2. Ayırt edici olan sayı yoğunluğu değil tablo yüküydü — 6. bölüm en yoğun sayı oranlarından birine sahip ama sıfır tablosu olduğu için yormuyor. Zaman serisi okunacak değil BAKILACAK şeydir; tablodan grafiğe taşındı.",
+  "_traceability": "Değeri '@' ile başlayan her alan data.json'a bir YOL'dur. seed_dossier.mjs bu yolları çözer; yol bulunamazsa veya sayı değilse üretim durur. Grafikteki sayı ile metindeki sayı aynı tek kaynaktan gelir.",
+  "_roller": "rol alanı DossierTheme'deki renge işaret eder. Renk TEK BAŞINA anlam taşımaz; çizici her role ayrı bir biçim de verir (düz/kesikli çizgi, dolu/içi boş nokta).",
+
+  "grafikler": {
+    "ticaret_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "Açık on iki yıldır aynı yönde", "en": "Twelve years, the same direction" },
+      "birim": { "tr": "milyon $ (cari)", "en": "million $ (current)" },
+      "bolen": 1000000,
+      "ondalik": 0,
+      "seriler": [
+        { "ad": { "tr": "Rusya → Türkiye", "en": "Russia → Türkiye" }, "rol": "vurgu",
+          "noktalar": { "liste": "@ikili_ticaret.seri", "x": "yil", "y": "rusyadan_turkiyeye_usd" } },
+        { "ad": { "tr": "Türkiye → Rusya", "en": "Türkiye → Russia" }, "rol": "ikincil",
+          "noktalar": { "liste": "@ikili_ticaret.seri", "x": "yil", "y": "turkiyeden_rusyaya_usd" } }
+      ],
+      "not": { "tr": "Türkiye'nin gümrük kaydı, HS 01-24.", "en": "Türkiye's customs record, HS 01-24." }
+    },
+
+    "tez_yigin": {
+      "tur": "yigin",
+      "baslik": { "tr": "Depolanan ve bozulan", "en": "What keeps and what spoils" },
+      "cubuklar": [
+        { "etiket": { "tr": "Rusya'dan aldığımız", "en": "What we buy from Russia" },
+          "dilimler": [
+            { "ad": { "tr": "Depolanabilir — tahıl, yağlı tohum, küspe", "en": "Storable — grain, oilseed, meal" },
+              "deger": "@tez.dayanak.rusyadan_aldigimiz_depolanabilir.tutar_usd", "rol": "vurgu" },
+            { "ad": { "tr": "Diğer", "en": "Other" },
+              "deger": "@tez.dayanak.rusyadan_aldigimiz_diger.tutar_usd", "rol": "sessiz" }
+          ] },
+        { "etiket": { "tr": "Rusya'ya sattığımız", "en": "What we sell to Russia" },
+          "dilimler": [
+            { "ad": { "tr": "Bozulur — meyve, balık, sebze", "en": "Perishable — fruit, fish, vegetables" },
+              "deger": "@tez.dayanak.rusyaya_sattigimiz_bozulur.tutar_usd", "rol": "ikincil" },
+            { "ad": { "tr": "Diğer", "en": "Other" },
+              "deger": "@tez.dayanak.rusyaya_sattigimiz_diger.tutar_usd", "rol": "sessiz" }
+          ] }
+      ],
+      "not": { "tr": "2024. Her çubuk kendi içinde yüzde yüze normalize edilir.", "en": "2024. Each bar is normalised to 100%." }
+    },
+
+    "toprak_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Geniş toprak, düşük yoğunluk", "en": "Wide land, low intensity" },
+      "seriler": [
+        { "ad": { "tr": "Rusya", "en": "Russia" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        { "etiket": { "tr": "Tarım arazisi", "en": "Agricultural land" },
+          "birim": { "tr": "km²", "en": "km²" }, "yil": "@toprak_ve_verim.satirlar.0.yil", "ondalik": 0,
+          "degerler": ["@toprak_ve_verim.satirlar.0.RUS", "@toprak_ve_verim.satirlar.0.TUR"] },
+        { "etiket": { "tr": "Kişi başına işlenebilir arazi", "en": "Arable land per person" },
+          "birim": { "tr": "hektar", "en": "hectares" }, "yil": "@toprak_ve_verim.satirlar.1.yil", "ondalik": 2,
+          "degerler": ["@toprak_ve_verim.satirlar.1.RUS", "@toprak_ve_verim.satirlar.1.TUR"] },
+        { "etiket": { "tr": "Tahıl verimi", "en": "Cereal yield" },
+          "birim": { "tr": "kg/hektar", "en": "kg/hectare" }, "yil": "@toprak_ve_verim.satirlar.3.yil", "ondalik": 0,
+          "degerler": ["@toprak_ve_verim.satirlar.3.RUS", "@toprak_ve_verim.satirlar.3.TUR"],
+          "rozet": { "tr": "Türkiye önde", "en": "Türkiye ahead" } },
+        { "etiket": { "tr": "Gübre kullanımı", "en": "Fertiliser use" },
+          "birim": { "tr": "kg/hektar", "en": "kg/hectare" }, "yil": "@toprak_ve_verim.satirlar.4.yil", "ondalik": 1,
+          "degerler": ["@toprak_ve_verim.satirlar.4.RUS", "@toprak_ve_verim.satirlar.4.TUR"] }
+      ],
+      "not": { "tr": "Her satır kendi içinde karşılaştırılır; satırlar birbiriyle oranlanmaz.", "en": "Each row compares within itself; rows are not divided by one another." }
+    },
+
+    "uretim_degeri_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Fark tahılda toplanıyor", "en": "The gap concentrates in cereals" },
+      "seriler": [
+        { "ad": { "tr": "Rusya", "en": "Russia" }, "rol": "vurgu" },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil" }
+      ],
+      "satirlar": [
+        { "etiket": { "tr": "Tüm tarım", "en": "All agriculture" }, "birim": { "tr": "bin sabit 2014-16 I$", "en": "thousand constant 2014-16 I$" },
+          "yil": "@uretim_degeri.kalemler.0.yil", "ondalik": 0,
+          "degerler": ["@uretim_degeri.kalemler.0.RUS", "@uretim_degeri.kalemler.0.TUR"] },
+        { "etiket": { "tr": "Bitkisel üretim", "en": "Crops" }, "birim": { "tr": "bin sabit 2014-16 I$", "en": "thousand constant 2014-16 I$" },
+          "yil": "@uretim_degeri.kalemler.1.yil", "ondalik": 0,
+          "degerler": ["@uretim_degeri.kalemler.1.RUS", "@uretim_degeri.kalemler.1.TUR"] },
+        { "etiket": { "tr": "Hayvancılık", "en": "Livestock" }, "birim": { "tr": "bin sabit 2014-16 I$", "en": "thousand constant 2014-16 I$" },
+          "yil": "@uretim_degeri.kalemler.2.yil", "ondalik": 0,
+          "degerler": ["@uretim_degeri.kalemler.2.RUS", "@uretim_degeri.kalemler.2.TUR"] },
+        { "etiket": { "tr": "Tahıl", "en": "Cereals" }, "birim": { "tr": "bin sabit 2014-16 I$", "en": "thousand constant 2014-16 I$" },
+          "yil": "@uretim_degeri.kalemler.3.yil", "ondalik": 0,
+          "degerler": ["@uretim_degeri.kalemler.3.RUS", "@uretim_degeri.kalemler.3.TUR"],
+          "rozet": { "tr": "3,3 kat", "en": "3.3×" } }
+      ]
+    },
+
+    "bugday_donus_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "Alan ülkeden satan ülkeye", "en": "From buyer to seller" },
+      "birim": { "tr": "bin ton", "en": "thousand tonnes" },
+      "ondalik": 0,
+      "seriler": [
+        { "ad": { "tr": "Rusya — buğday ihracatı", "en": "Russia — wheat exports" }, "rol": "vurgu",
+          "noktalar": { "harita": "@tahil_donusumu.rusya.ihracat" } },
+        { "ad": { "tr": "Rusya — buğday ithalatı", "en": "Russia — wheat imports" }, "rol": "ikincil",
+          "noktalar": { "harita": "@tahil_donusumu.rusya.ithalat" } }
+      ],
+      "not": { "tr": "İki eğri 2001'de kesişiyor. Pazarlama yılı Temmuz-Haziran. Son iki yıl tahmindir.", "en": "The curves cross in 2001. Marketing year July-June. The last two years are forecasts." }
+    },
+
+    "alan_verim_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Aynı verim artışı, zıt alan kararı", "en": "Same yield gain, opposite land decision" },
+      "seriler": [
+        { "ad": { "tr": "1992", "en": "1992" }, "rol": "sessiz" },
+        { "ad": { "tr": "2024", "en": "2024" }, "rol": "vurgu" }
+      ],
+      "satirlar": [
+        { "etiket": { "tr": "Rusya — buğday alanı", "en": "Russia — wheat area" }, "birim": { "tr": "bin hektar", "en": "thousand hectares" }, "ondalik": 0,
+          "degerler": ["@alan_ve_verim.RUS.alan.1992", "@alan_ve_verim.RUS.alan.2024"] },
+        { "etiket": { "tr": "Türkiye — buğday alanı", "en": "Türkiye — wheat area" }, "birim": { "tr": "bin hektar", "en": "thousand hectares" }, "ondalik": 0,
+          "degerler": ["@alan_ve_verim.TUR.alan.1992", "@alan_ve_verim.TUR.alan.2024"] },
+        { "etiket": { "tr": "Rusya — buğday verimi", "en": "Russia — wheat yield" }, "birim": { "tr": "ton/hektar", "en": "t/hectare" }, "ondalik": 2,
+          "degerler": ["@alan_ve_verim.RUS.verim.1992", "@alan_ve_verim.RUS.verim.2024"] },
+        { "etiket": { "tr": "Türkiye — buğday verimi", "en": "Türkiye — wheat yield" }, "birim": { "tr": "ton/hektar", "en": "t/hectare" }, "ondalik": 2,
+          "degerler": ["@alan_ve_verim.TUR.verim.1992", "@alan_ve_verim.TUR.verim.2024"] }
+      ],
+      "not": { "tr": "Verimde iki ülke de yaklaşık yüzde elli ilerledi. Ayrıldıkları yer alan.", "en": "Both countries gained about 50% in yield. They parted ways on area." }
+    },
+
+    "uretim_degeri_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "Biri çöküp döndü, diğeri hiç durmadı", "en": "One collapsed and returned, the other never stopped" },
+      "birim": { "tr": "milyar sabit 2014-16 I$", "en": "billion constant 2014-16 I$" },
+      "bolen": 1000000,
+      "ondalik": 1,
+      "seriler": [
+        { "ad": { "tr": "Rusya", "en": "Russia" }, "rol": "vurgu",
+          "noktalar": { "liste": "@uretim_degeri.seyir.yillar", "x": "yil", "y": "RUS" } },
+        { "ad": { "tr": "Türkiye", "en": "Türkiye" }, "rol": "ikincil",
+          "noktalar": { "liste": "@uretim_degeri.seyir.yillar", "x": "yil", "y": "TUR" } }
+      ]
+    },
+
+    "cavdar_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "Bin yıllık ekmeğin tarladan çekilişi", "en": "A thousand-year bread leaves the field" },
+      "birim": { "tr": "bin ton", "en": "thousand tonnes" },
+      "ondalik": 0,
+      "seriler": [
+        { "ad": { "tr": "Rusya — çavdar üretimi", "en": "Russia — rye production" }, "rol": "vurgu",
+          "noktalar": { "harita": "@diger_tahillar.urunler.2.rusya_uretim" } }
+      ]
+    },
+
+    "kim_uretiyor_yigin": {
+      "tur": "yigin",
+      "baslik": { "tr": "Tek ülkede iki ayrı tarım", "en": "Two agricultures in one country" },
+      "cubuklar": [
+        { "etiket": { "tr": "Tahıl", "en": "Cereals" }, "dilimler": [
+          { "ad": { "tr": "Tarım kuruluşları", "en": "Agricultural enterprises" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.tarim_kuruluslari.tahil_yuzde", "rol": "vurgu" },
+          { "ad": { "tr": "Özel çiftlik", "en": "Private farms" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.ozel_ciftlik_ve_girisimci.tahil_yuzde", "rol": "sessiz" },
+          { "ad": { "tr": "Haneler", "en": "Households" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.haneler.tahil_yuzde", "rol": "ikincil" } ] },
+        { "etiket": { "tr": "Ayçiçeği", "en": "Sunflower" }, "dilimler": [
+          { "ad": { "tr": "Tarım kuruluşları", "en": "Agricultural enterprises" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.tarim_kuruluslari.aycicegi_yuzde", "rol": "vurgu" },
+          { "ad": { "tr": "Özel çiftlik", "en": "Private farms" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.ozel_ciftlik_ve_girisimci.aycicegi_yuzde", "rol": "sessiz" },
+          { "ad": { "tr": "Haneler", "en": "Households" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.haneler.aycicegi_yuzde", "rol": "ikincil" } ] },
+        { "etiket": { "tr": "Patates", "en": "Potatoes" }, "dilimler": [
+          { "ad": { "tr": "Tarım kuruluşları", "en": "Agricultural enterprises" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.tarim_kuruluslari.patates_yuzde", "rol": "vurgu" },
+          { "ad": { "tr": "Özel çiftlik", "en": "Private farms" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.ozel_ciftlik_ve_girisimci.patates_yuzde", "rol": "sessiz" },
+          { "ad": { "tr": "Haneler", "en": "Households" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.haneler.patates_yuzde", "rol": "ikincil" } ] },
+        { "etiket": { "tr": "Sebze", "en": "Vegetables" }, "dilimler": [
+          { "ad": { "tr": "Tarım kuruluşları", "en": "Agricultural enterprises" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.tarim_kuruluslari.sebze_yuzde", "rol": "vurgu" },
+          { "ad": { "tr": "Özel çiftlik", "en": "Private farms" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.ozel_ciftlik_ve_girisimci.sebze_yuzde", "rol": "sessiz" },
+          { "ad": { "tr": "Haneler", "en": "Households" }, "deger": "@tarih_kultur.dacha.uretici_siniflari_2014.haneler.sebze_yuzde", "rol": "ikincil" } ] }
+      ],
+      "not": { "tr": "2014, Rosstat. Tahıl, ayçiçeği ve şeker pancarında hanelerin payı kaynakta 'yüzde 1'den az' diye geçiyor; buradaki değerler artık paydır.", "en": "2014, Rosstat. For cereals, sunflower and sugar beet the source states the household share as 'less than 1 percent'; the values here are residuals." }
+    },
+
+    "turkiye_bugday_cizgi": {
+      "tur": "cizgi",
+      "baslik": { "tr": "İşleme kapasitesi hasadın önüne geçti", "en": "Processing outgrew the harvest" },
+      "birim": { "tr": "bin ton", "en": "thousand tonnes" },
+      "ondalik": 0,
+      "seriler": [
+        { "ad": { "tr": "Türkiye — buğday ithalatı", "en": "Türkiye — wheat imports" }, "rol": "vurgu",
+          "noktalar": { "harita": "@tahil_donusumu.turkiye.ithalat" } },
+        { "ad": { "tr": "Türkiye — buğday ihracatı", "en": "Türkiye — wheat exports" }, "rol": "ikincil",
+          "noktalar": { "harita": "@tahil_donusumu.turkiye.ihracat" } }
+      ],
+      "not": { "tr": "1980'de ithalat sıfırdı. Son iki yıl tahmindir.", "en": "Imports were zero in 1980. The last two years are forecasts." }
+    },
+
+    "musteriler_siralama": {
+      "tur": "siralama",
+      "baslik": { "tr": "Rusya'nın tarım müşterileri", "en": "Russia's agricultural customers" },
+      "birim": { "tr": "bin $ (cari)", "en": "thousand $ (current)" },
+      "ondalik": 0,
+      "satirlar": [
+        { "etiket": { "tr": "Türkiye", "en": "Türkiye" }, "deger": "@musteriler.son_siralama.ilk_5.0.deger_1000usd", "rol": "vurgu" },
+        { "etiket": { "tr": "Kazakistan", "en": "Kazakhstan" }, "deger": "@musteriler.son_siralama.ilk_5.1.deger_1000usd" },
+        { "etiket": { "tr": "Çin", "en": "China" }, "deger": "@musteriler.son_siralama.ilk_5.2.deger_1000usd" },
+        { "etiket": { "tr": "Mısır", "en": "Egypt" }, "deger": "@musteriler.son_siralama.ilk_5.3.deger_1000usd" },
+        { "etiket": { "tr": "Belarus", "en": "Belarus" }, "deger": "@musteriler.son_siralama.ilk_5.4.deger_1000usd" }
+      ],
+      "not": { "tr": "2021 — Rusya'nın FAOSTAT'a raporladığı son yıl.", "en": "2021 — the last year Russia reported to FAOSTAT." }
+    },
+
+    "ambargo_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "Dokuz yıl sonra geri dönenler ve dönmeyenler", "en": "Nine years on: what came back and what didn't" },
+      "seriler": [
+        { "ad": { "tr": "2015 — kriz öncesi", "en": "2015 — before" }, "rol": "sessiz" },
+        { "ad": { "tr": "2024", "en": "2024" }, "rol": "vurgu" }
+      ],
+      "satirlar": [
+        { "etiket": { "tr": "Domates", "en": "Tomatoes" }, "birim": { "tr": "$", "en": "$" }, "ondalik": 0,
+          "degerler": ["@ambargo_2016.kalemler.0.zirve_oncesi_2015", "@ambargo_2016.kalemler.0.son"],
+          "rozet": { "tr": "%16,9", "en": "16.9%" } },
+        { "etiket": { "tr": "Üzüm", "en": "Grapes" }, "birim": { "tr": "$", "en": "$" }, "ondalik": 0,
+          "degerler": ["@ambargo_2016.kalemler.1.zirve_oncesi_2015", "@ambargo_2016.kalemler.1.son"],
+          "rozet": { "tr": "%64,5", "en": "64.5%" } },
+        { "etiket": { "tr": "Turunçgil", "en": "Citrus" }, "birim": { "tr": "$", "en": "$" }, "ondalik": 0,
+          "degerler": ["@ambargo_2016.kalemler.2.zirve_oncesi_2015", "@ambargo_2016.kalemler.2.son"],
+          "rozet": { "tr": "%127,1", "en": "127.1%" } }
+      ],
+      "not": { "tr": "Türkiye'nin Rusya'ya ihracatı. Rozet, 2024'ün 2015'e oranıdır.", "en": "Türkiye's exports to Russia. The badge is 2024 as a share of 2015." }
+    },
+
+    "isleme_ikili": {
+      "tur": "ikili_cubuk",
+      "baslik": { "tr": "İthalatın üretimi geçtiği yer", "en": "Where imports overtook production" },
+      "seriler": [
+        { "ad": { "tr": "Üretim", "en": "Production" }, "rol": "ikincil" },
+        { "ad": { "tr": "İthalat", "en": "Imports" }, "rol": "vurgu" }
+      ],
+      "satirlar": [
+        { "etiket": { "tr": "Buğday", "en": "Wheat" }, "birim": { "tr": "bin ton", "en": "thousand tonnes" },
+          "yil": "@isleme_makinesi._yil", "ondalik": 0,
+          "degerler": ["@isleme_makinesi.kalemler.0.turkiye.uretim", "@isleme_makinesi.kalemler.0.turkiye.ithalat"] },
+        { "etiket": { "tr": "Ayçiçeği yağı", "en": "Sunflower oil" }, "birim": { "tr": "bin ton", "en": "thousand tonnes" },
+          "yil": "@isleme_makinesi._yil", "ondalik": 0,
+          "degerler": ["@isleme_makinesi.kalemler.1.turkiye.uretim", "@isleme_makinesi.kalemler.1.turkiye.ithalat"],
+          "rozet": { "tr": "ithalat önde", "en": "imports ahead" } },
+        { "etiket": { "tr": "Ayçiçeği tohumu", "en": "Sunflower seed" }, "birim": { "tr": "bin ton", "en": "thousand tonnes" },
+          "yil": "@isleme_makinesi._yil", "ondalik": 0,
+          "degerler": ["@isleme_makinesi.kalemler.2.turkiye.uretim", "@isleme_makinesi.kalemler.2.turkiye.ithalat"] }
+      ]
+    }
+  }
+}

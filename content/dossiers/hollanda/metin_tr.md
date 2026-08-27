@@ -24,6 +24,8 @@ Kelime hedefi ~5.150. Bölüm başına ~400.
 
 ## 1. Paradoks
 
+
+
 Türkiye 2023'te 79,9 milyar dolarlık tarımsal üretim yaptı. Hollanda
 aynı ölçüyle 17,8 milyar. Türkiye dört buçuk kat fazla üretti.
 
@@ -59,7 +61,11 @@ ihracatçısı nasıl olur?* Cevap toprakta değil. Toprağın üstüne kurulmu�
 
 ---
 
+---
+
 ## 2. Rakamla iki ülke
+
+
 
 Karşılaştırma yapmadan önce iki ekonominin ölçeğini yan yana koymak gerekiyor,
 çünkü bu dosyadaki her oranın anlamı bu zemine oturuyor.
@@ -98,7 +104,11 @@ karşılığını beşinci bölümde göreceğiz.
 
 ---
 
+---
+
 ## 3. Coğrafyanın sınırları
+
+
 
 Hollanda'nın tarımsal başarısını "verimli toprak" ile açıklamak yaygın bir
 alışkanlıktır. Veri bunu desteklemiyor — ama beklenmedik bir yerden desteklemiyor.
@@ -144,7 +154,11 @@ suya daha az bağımlı. Girdisi daha yoğun. Coğrafya bu dosyayı açıklamıy
 
 ---
 
+---
+
 ## 4. Verimin üç kademesi
+
+
 
 Bu dosyanın en keskin bulgusu burada. Ve ilk yazıldığında yanlış yazılmıştı;
 düzeltilmesi gerekti.
@@ -195,7 +209,11 @@ gerçekleştiği.
 
 ---
 
+---
+
 ## 5. Yüzde yarım
+
+
 
 Hollanda'nın toplam tarım arazisi 1.793.760 hektar (2025, CBS). Bunun **10.030
 hektarı** örtüaltı. Oran: **yüzde 0,56**.
@@ -239,7 +257,50 @@ kısmına, ne yoğunlukta sermaye konduğu.
 
 ---
 
-## 6. Manşetin yarısı kime ait
+---
+
+## 6. Volkstuin — bahçenin el değiştirmesi
+
+
+Bir önceki bölüm Hollanda tarımının en yoğun ucunu anlattı: on bin hektar cam,
+ülkenin tarım toprağının yüzde yarımı, kilometre kareye sığan bir sanayi. Aynı
+ülkede bunun tam karşıtı bir katman daha var ve kimse ondan ihracat rakamı diye
+söz etmiyor.
+
+Hollanda'da 240 binden fazla **volkstuin** — halk bahçesi — parseli var. Ülke
+yüzölçümünün yaklaşık binde birini kaplıyorlar. Kulübesi olmayan parseller 15
+metrekareye kadar inebiliyor.
+
+Bu bir hobi değil, kurumsal bir gelenek. İlk ulusal kanun 1911'de çıktı. Bahçeci
+dernekleri 1928'de AVVN adıyla bir çatı örgüt kurdu; örgüt hâlâ ayakta.
+
+Asıl mesele bu bahçelerin ne ürettiği değil, **ne üretmeyi bıraktığı**.
+
+1950'lere kadar volkstuinler genel olarak sebze bahçesiydi; insanlar oradan
+yiyordu. Sonra ağırlık rekreasyona kaydı. Bugün bir Hollanda halk bahçesi
+çoğunlukla çiçek, çim, kulübe ve hafta sonu demek.
+
+Bu kayma tesadüf değil. Beşinci bölümdeki cam, sebzeyi öyle ucuza ve öyle
+kesintisiz üretir hâle geldi ki bahçede sebze yetiştirmek bir zorunluluk olmaktan
+çıktı. Sanayileşen tarım, hane üretimini besleyicilikten çıkarıp keyfe çevirdi.
+
+Türkiye için buradaki soru doğrudan: köy bahçesi, evin arkasındaki tarla, kendi
+tüketimi için üretim — bunlar Türkiye'de hâlâ besleyici bir katman mı, yoksa
+Hollanda'nın yolundan mı gidiyorlar? Ve eğer gidiyorlarsa, bu kayıp hangi
+istatistikte görünüyor?
+
+Cevap şu an hiçbirinde görünmüyor. Hollanda kendi bahçelerini sayıyor; Türkiye'nin
+bu katmanı ayrı ayrı sayan bir serisi yok.
+
+*(Bu bölümdeki rakamlar Hollanda bahçecilik yayınlarından; ikincil kaynaklardır.)*
+
+---
+
+---
+
+## 7. Manşetin yarısı kime ait
+
+
 
 Hollanda tarım ihracatı 2025'te **137,5 milyar avro** oldu; bir önceki yıla göre
 yüzde 8,4 artış (CBS). Bu, dünyanın herhangi bir yerinde manşet olacak bir rakam ve
@@ -303,7 +364,11 @@ iki bölüme bakmak gerekiyor.
 
 ---
 
-## 7. Hiç kakao yetiştirmeyen kakao devi
+---
+
+## 8. Hiç kakao yetiştirmeyen kakao devi
+
+
 
 Hollanda'da kakao yetişmez. Kakao ağacı ekvator kuşağında, yıl boyu sıcak ve nemli
 iklimde yetişir; Hollanda'nın enlemi bunun çok kuzeyindedir. Hollanda'nın ürettiği
@@ -311,16 +376,7 @@ kakao miktarı sıfırdır.
 
 Hollanda dünyanın en büyük kakao işleme merkezidir.
 
-2023 rakamları (FAOSTAT, milyon dolar):
-
-| Kalem | İthalat | İhracat |
-|---|---|---|
-| Kakao çekirdeği | 2.399 | 594 |
-| Kakao yağı | 505 | 1.624 |
-| Kakao ezmesi | 399 | 980 |
-| Kakao tozu ve küspesi | 359 | 1.034 |
-
-Örüntü tek bakışta okunuyor. Hollanda **çekirdek** alıyor — 2,4 milyar dolarlık.
+Örüntü 2023 rakamlarında tek bakışta okunuyor (FAOSTAT). Hollanda **çekirdek** alıyor — 2,4 milyar dolarlık.
 Ve **işlenmiş ürün** satıyor: yağ, ezme, toz olarak toplam 3,6 milyar dolar.
 
 Ham çekirdekte Hollanda net ithalatçı: 2.399 alıp 594 satıyor, arada 1,8 milyar
@@ -348,7 +404,11 @@ Bu, iklimle veya toprakla açıklanamayacak bir farktır. Bir tercih farkıdır.
 
 ---
 
-## 8. Kendi toprağını yapan ülke
+---
+
+## 9. Kendi toprağını yapan ülke
+
+
 
 Hollanda tarımını anlamak için önce şunu kabul etmek gerekiyor: bu ülkenin
 toprağının önemli bir kısmı **yapılmıştır**. Doğal değildir.
@@ -408,13 +468,63 @@ Başkanlığı yaptı.
 
 Buradaki nokta şu: Avrupa'nın ortak tarım politikasının mimarı bir Hollandalıydı.
 Hollanda yalnızca kendi tarımını tasarlamadı; içinde satış yapacağı pazarın
-kurallarını da yazdı. Altıncı bölümde ihracatının yüzde 45'inin en yakın üç pazara
+kurallarını da yazdı. Yedinci bölümde ihracatının yüzde 45'inin en yakın üç pazara
 gittiğini görmüştük. O pazarın kurallarının Hollandalı bir komiser tarafından
 şekillendirilmiş olması tesadüf değil.
 
 ---
 
-## 9. Beş kurum, beş tasarım kararı
+---
+
+## 10. Kökboya — bir rengin sonu
+
+
+Hollanda'nın tarlalarından kaybolmuş bir ürün var ve kayboluş biçimi bugün için
+ders niteliğinde.
+
+17. yüzyılda Zeeland'ın zengin toprağında **meekrap** — kökboya — yetiştiriliyordu.
+Kökünden kırmızı boya elde ediliyor, kumaş boyanıyordu. Hollandalılar bir dönem
+dünyanın en büyük kökboya tedarikçisi oldu ve ürün bölgeye büyük refah getirdi.
+Kökü kurutmak için kurulan yapıların — meestoof — adı bugün hâlâ Zeeland
+haritalarında geçiyor.
+
+Sonu bir tarlada değil, bir laboratuvarda geldi.
+
+1868'de Graebe ve Liebermann alizarini sentetik olarak üretmenin yolunu buldu.
+25 Haziran 1869'da BASF ile İngiliz Perkin & Sons firması, bir gün arayla rakip
+patent başvurusu yaptı. 1871'e gelindiğinde sentetik alizarin, kurutulmuş kökboya
+kökünün çok altında bir fiyata satılıyordu.
+
+19. yüzyılın sonuna doğru kökboya tarımı hızla geriledi ve tarım kolu tamamen
+kayboldu — ortaya çıkışından yaklaşık iki yüzyıl sonra. Meestoof'lar karides
+fabrikasına ya da başka ürünler için depoya dönüştü; çoğu sonradan yıkıldı.
+
+Buradaki mekanizmayı ayırt etmek gerekiyor. Bir ürün pazarını iki şekilde
+kaybedebilir. Ya alıcı başka bir tedarikçiye gider — bu rekabettir, geri
+kazanılabilir. Ya da ürünün kendisi gereksizleşir — bu ikame değil, **iptal**dir
+ve geri dönüşü yoktur.
+
+Kökboya ikinci türdendi. Zeeland daha ucuza üretse de fark etmezdi; kimse artık
+kök istemiyordu.
+
+Türkiye açısından soru şu: bugün ürettiğimiz ürünlerden hangileri, laboratuvarda
+sentezlenebilir hâle gelirse pazarını bir daha bulamaz? Boya bitkileri gitti.
+Doğal aroma, doğal renk, bazı ilaç hammaddeleri ve bazı lifler aynı sınırın
+üstünde duruyor.
+
+Gıdanın kendisi bu tehdide en uzak duran kalem — insan yemeği laboratuvarda
+kolayca ikame edilmiyor. Hollanda'nın kökboyadan sebzeye ve çiçeğe geçmiş
+olması, tesadüf olmayabilir.
+
+*(Bu bölümdeki tarihsel bilgi ikincil kaynaklardan.)*
+
+---
+
+---
+
+## 11. Beş kurum, beş tasarım kararı
+
+
 
 Buraya kadarki bölümler Hollanda tarımının **ne** yaptığını gösterdi. Bu bölüm
 **kim** tarafından yapıldığını gösteriyor. Beş kurum, beş ayrı tasarım kararı.
@@ -492,25 +602,19 @@ değil. Beşi de kurumsal tasarım kararı. Ve bu yüzden beşi de kopyalanabili
 
 ---
 
-## 10. Altmış yılın eğrisi
+---
+
+## 12. Altmış yılın eğrisi
+
+
 
 Hollanda'nın tarım ihracatı FAOSTAT'ın kaydına göre 1961'de **1,2 milyar dolardı**.
 2023'te **125,8 milyar dolar**. Altmış iki yılda yüz kat.
 
-Ara duraklar şöyle (milyon dolar, cari):
+Ara duraklar: 1970'te 3,1 milyar, 1980'de 15,8 milyar, 1990'da 30,6 milyar,
+2000'de 27,9 milyar, 2010'da 77,3 milyar, 2020'de 100,8 milyar dolar.
 
-| Yıl | İhracat |
-|---|---|
-| 1961 | 1.234 |
-| 1970 | 3.100 |
-| 1980 | 15.797 |
-| 1990 | 30.616 |
-| 2000 | 27.878 |
-| 2010 | 77.260 |
-| 2020 | 100.825 |
-| 2023 | 125.753 |
-
-Bu tablo cari dolarla ölçülüdür; yani enflasyonu ve döviz kuru hareketlerini içerir.
+Bu seri cari dolarla ölçülüdür; yani enflasyonu ve döviz kuru hareketlerini içerir.
 "Yüz kat" ifadesi bu yüzden bir reel büyüme ölçüsü değildir ve bu dosyada reel
 büyüme iddiası olarak kullanılmayacaktır.
 
@@ -533,13 +637,6 @@ düşüyordu.
 Bu dosya için FAOSTAT'ın "Crops and livestock products" ihracat serisi 198 ülke
 için baştan hesaplandı; bölge ve grup toplamları elendi. Sonuç şu:
 
-| Sıra | 2023 | milyon $ |
-|---|---|---|
-| 1 | ABD | 170.964 |
-| 2 | Brezilya | 146.661 |
-| 3 | **Hollanda** | **125.753** |
-| 4 | Almanya | 98.515 |
-| 5 | Fransa | 82.677 |
 
 Türkiye 2023'te **18.** sırada. Bir yıl önce 21. sıradaydı — üç basamak yükselmiş.
 Hollanda ise hem 2022'de hem 2023'te üçüncü.
@@ -559,20 +656,65 @@ sıra bir bilgi değil bir slogandır.
 
 ---
 
-## 11. Türkiye ile
+---
+
+## 13. Lale — Anadolu'dan gelen
+
+
+Bu dosyadaki bütün ticaret tabloları bir yöne bakıyor: Hollanda'nın sattığı,
+Hollanda'nın taşıdığı, Hollanda'nın yeniden ihraç ettiği. Bir sonraki bölüm iki
+ülke arasındaki alışverişi rakamla anlatacak. Ondan önce, ters yöne gitmiş bir
+şey var.
+
+Hollanda'nın dünyaca bilinen simgesi, Anadolu'dan gitti.
+
+Laleler Osmanlı topraklarında yetişiyordu ve erken dönemden itibaren çini ile
+seramikte süsleme olarak kullanılıyordu. İmparator I. Ferdinand adına Osmanlı
+sarayında diplomat olarak bulunan **Ogier Ghiselin de Busbecq**, laleleri
+gözlemledi ve *Türk Mektupları*'nda belgeledi; yabani yetiştiklerini ve
+renklerinin Türkler tarafından çok sevildiğini yazdı.
+
+Botanikçi **Carolus Clusius**, Rudolf II tahta geçince Avusturya sarayından
+uzaklaştırıldı. Ardından Leiden'da profesör olarak atandı ve Leiden Üniversitesi
+Hortus Botanicus'unun ilk müdürü oldu.
+
+Clusius akademik ağı üzerinden lale tohumu ve soğanı gönderdi. Lale soğanı
+ticareti böyle başladı. Kendi yayınında 22 lale çeşidi belgelendi.
+
+Yani bugün Hollanda'nın süs bitkisi sanayiinin — beşinci bölümde tarım arazisinin
+yüzde 0,22'sini kapladığını gördüğümüz o alanın — kökeninde bir Osmanlı bahçe
+bitkisi ve onu kayda geçiren bir diplomat var.
+
+Bu bölümün burada bulunmasının sebebi şu: bir ülkenin tarımsal kimliği sandığımız
+kadar yerli değil. Hollanda lalesiz düşünülemiyor ama lale Hollandalı değil.
+Türkiye çaysız düşünülemiyor ama çay bitkisi de Anadolu'nun kendi bitkisi değil —
+Rize'deki çayın atası 1937'de Batum'dan geldi.
+
+İki ülke de kendi simgesini dışarıdan almış, sonra o simgeyi dünyaya kendi adıyla
+satmış.
+
+Aradaki fark ölçekte. Hollanda aldığı bitkiyi bir sanayiye çevirdi: müzayede
+sistemi, ıslah şirketleri, soğuk zincir, dünya çapında dağıtım. Türkiye aldığı
+bitkiyi bir tarım koluna çevirdi ama zincirin üst basamaklarına aynı ölçüde
+çıkmadı.
+
+*(Busbecq ve Clusius'a ilişkin bilgiler British Library kaynaklıdır. İlk lalelerin
+Hollanda'ya hangi yıl dikildiği bu kaynakta verilmediği için burada yıl
+yazılmamıştır.)*
+
+---
+
+---
+
+## 14. Türkiye ile
+
+
 
 İki ülkenin birbiriyle tarım ticareti, bu dosyanın tezini bir kez daha, bu sefer
 Türkiye'nin kendi verisiyle tekrarlıyor.
 
-Hacim (milyon dolar, Hollanda raportör):
-
-| Yıl | Hollanda → Türkiye | Türkiye → Hollanda |
-|---|---|---|
-| 2020 | 574 | 506 |
-| 2021 | 614 | 548 |
-| 2022 | 727 | 564 |
-| 2023 | 749 | 586 |
-| 2024 | 803 | 681 |
+Hacim, milyon dolar ve Hollanda raportör: 2020'de Hollanda 574, Türkiye 506; 2024'te
+Hollanda 803, Türkiye 681.
 
 Beş yılın tamamında Hollanda daha çok satıyor. Açık 2020'de 68 milyon dolarken
 2022'de 163 milyona çıkıyor, 2024'te 122 milyona iniyor. Türkiye bu ilişkide sürekli
@@ -624,7 +766,11 @@ büyük kısmı, çiftçiden tüketiciye değil, fabrikadan fabrikaya akıyor.
 
 ---
 
-## 12. Gölgeler
+---
+
+## 15. Gölgeler
+
+
 
 Üçüncü bölümde bir sayıyı aklınızda tutmanızı istemiştim: hektar başına 238,02
 kilogram gübre (2023), Türkiye'nin yaklaşık 1,7 katı. Şimdi o sayının nereye
@@ -689,7 +835,58 @@ Bu bölümün özeti tek cümlede toplanabilir: Hollanda modelinin sınırı top
 
 ---
 
-## 13. Türkiye ne alabilir
+---
+
+## 16. Mansholt'un mektubu
+
+
+Bir önceki bölüm Hollanda tarımının faturasını anlattı: azot, amonyak, mahkeme
+kararı, kapatılan çiftlikler. Bu faturayı ilk kesen kişi, sistemin kendi
+mimarıydı.
+
+On birinci bölümde Sicco Mansholt'u tanımıştık: Groningen'li bir çiftçi ailesinden
+gelen, 1958'de ilk Avrupa Komisyonu'nun Tarım Komiseri olan, 1968'de Mansholt
+Planı'nı sunan adam. Avrupa'nın ortak tarım politikasının mimarı.
+
+Hikâyenin anlatılmayan yarısı 1972'de.
+
+**14 Şubat 1972'de** Mansholt, Avrupa Komisyonu Başkanı Franco Maria Malfatti'ye
+bir mektup yazdı. MIT'in *Limits to Growth* raporunu yayımlanmadan önce okumuştu
+ve raporun ortaya koyduğu ekolojik tablo karşısında telaşa kapılmıştı.
+
+Mektupta yazdıkları, kendi kariyerinin reddi sayılabilir.
+
+Yarının toplumunun büyüme üzerine kurulamayacağını söyledi — en azından maddi
+mallar bakımından. Üretim ve tüketimin durmadan kovalanmasının insanlığı ekolojik
+ve demografik bir felakete sürüklediği uyarısını yaptı. Sürekli yükselen bir
+gayrisafi milli hasıla kovalamak yerine, Avrupa Topluluğu'nun "gayrisafi milli
+mutluluk" ya da "gayrisafi milli fayda" gibi yeni göstergeler benimsemesini
+önerdi.
+
+Ve kendi uzmanlık alanı olan tarım için şunu yazdı: **ölçek büyümesinin durması
+gerekiyor.** Doğal dengenin gıda üretiminde giderek daha büyük bir rol
+oynayacağını söyledi.
+
+Avrupa tarımını sanayileştiren adam, bunu yaptıktan dört yıl sonra durması
+gerektiğini yazdı.
+
+Mektup o gün bir politika değişikliğine dönüşmedi. Ama bir önceki bölümde
+anlatılan azot krizi — mahkeme kararı, sıfırlanan izinler, kapatılacak çiftlikler
+— 1972'de bir Hollandalı komiserin yazdığı şeyin elli yıl sonraki faturasıdır.
+
+Bu dosyanın Türkiye'ye bakan yüzü açısından buradaki ders, teknik değil zamansal.
+Bir tarım modelinin sınırı, o model kurulurken de görülebiliyor. Mansholt gördü ve
+yazdı. Sistem yine de sınıra kadar gitti.
+
+*(Mektubun metni CVCE arşivinde yayımlanmıştır.)*
+
+---
+
+---
+
+## 17. Türkiye ne alabilir
+
+
 
 Bu dosyanın en kolay yanlış sonucu şudur: "Türkiye de sera kursun."
 
@@ -713,13 +910,13 @@ Hollanda'nınki yüzde 16. Bu, Türkiye'nin mevcut yayım, tohum ve girdi politi
 işlediğinin verisidir. Yeni bir model aramadan önce, çalışan bir şeyin çalıştığını
 kabul etmek gerekir.
 
-**Üç: zincirde bir adım aşağı inmek.** Altıncı bölümdeki oran bu dosyanın en sert
+**Üç: zincirde bir adım aşağı inmek.** Yedinci bölümdeki oran bu dosyanın en sert
 sayısıdır: Hollanda kendi ürettiğini sattığında değerin yüzde 49,2'sini tutuyor,
 başkasının malını yeniden ihraç ettiğinde yüzde 11,6'sını. Türkiye bugün fındığı,
 üzümü, meyveyi ham ya da yarı işlenmiş satıyor — zincirin başında. Bir adım aşağı
 inmek, verimi bir kat artırmaktan daha fazla kazandırır ve daha az su ister.
 
-**Dört: kurumu kopyalamak, makineyi değil.** Dokuzuncu bölümdeki beş kurum — bir
+**Dört: kurumu kopyalamak, makineyi değil.** On birinci bölümdeki beş kurum — bir
 üniversite, bir müzayede, bir tohum sanayii, bir bölgesel küme, bir kamu-özel
 program — hiçbiri sera teknolojisi değil. Hepsi kurumsal tasarım. Türkiye'nin
 ihtiyacı bir Westland değil, Westland'i mümkün kılan koordinasyon biçimidir.

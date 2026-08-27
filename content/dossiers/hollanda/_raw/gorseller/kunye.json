@@ -1,0 +1,164 @@
+{
+  "_dosya": "Hollanda dosyası — görsel künyesi",
+  "_kural": "ATIFSIZ GÖRSEL YAYIMLANMAZ. Lisans ve atıf kaynağın kendi sayfasından okundu.",
+  "_not": "İlk yayında dosyanın bütün görselleri uydu çekimiydi. Tarih ve kültür bölümleri eklenince görsel dili de değişti: insan ve nesne girdi. Anlatı bölümünü yörüngeden fotoğraflayamıyorsunuz.",
+  "_indirme_betigi": "_raw/gorsel_indir.mjs (Rusya dosyasındakiyle aynı; sihirli bayt denetimli)",
+  "_dogrulama_tarihi": "2026-08-24",
+  "gorseller": [
+    {
+      "id": "delta",
+      "bolum": 1,
+      "dosya": "delta.jpg",
+      "kaynak": "NASA (mevcut)",
+      "lisans": "Kamu malı",
+      "atif_tr": "Image provided by the USGS EROS Data Center Satellite Systems Branch as part of the Earth as Art II image series",
+      "altyazi_tr": null,
+      "altyazi_en": null,
+      "_durum": "ilk yayından beri var"
+    },
+    {
+      "id": "delta_isleri",
+      "bolum": 3,
+      "dosya": "delta_isleri.jpg",
+      "kaynak": "NASA (mevcut)",
+      "lisans": "Kamu malı",
+      "atif_tr": "Image courtesy NASA/GSFC/METI/ERSDAC/JAROS, and U.S./Japan ASTER Science Team",
+      "altyazi_tr": null,
+      "altyazi_en": null,
+      "_durum": "ilk yayından beri var"
+    },
+    {
+      "id": "westland",
+      "bolum": 5,
+      "dosya": "westland.jpg",
+      "kaynak": "NASA (mevcut)",
+      "lisans": "Kamu malı",
+      "atif_tr": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
+      "altyazi_tr": null,
+      "altyazi_en": null,
+      "_durum": "ilk yayından beri var"
+    },
+    {
+      "id": "rotterdam",
+      "bolum": 7,
+      "dosya": "rotterdam.jpg",
+      "kaynak": "NASA (mevcut)",
+      "lisans": "Kamu malı",
+      "atif_tr": "NASA Earth Observatory images created by Jesse Allen and Robert Simmon, using Landsat data provided by the U.S. Geological Survey. Caption by Michon Scott.",
+      "altyazi_tr": null,
+      "altyazi_en": null,
+      "_durum": "ilk yayından beri var"
+    },
+    {
+      "id": "zuiderzee",
+      "bolum": 9,
+      "dosya": "zuiderzee.jpg",
+      "kaynak": "NASA (mevcut)",
+      "lisans": "Kamu malı",
+      "atif_tr": "NASA image by Alan Holmes/ NASA's Ocean Color Web, using data from SeaHawk/HawkEye",
+      "altyazi_tr": null,
+      "altyazi_en": null,
+      "_durum": "ilk yayından beri var"
+    },
+    {
+      "id": "laleler",
+      "bolum": 13,
+      "dosya": "laleler.jpg",
+      "kaynak": "NASA (mevcut)",
+      "lisans": "Kamu malı",
+      "atif_tr": "NASA Earth Observatory images by Lauren Dauphin, using Landsat data from the U.S. Geological Survey. Story by Emily Cassidy.",
+      "altyazi_tr": null,
+      "altyazi_en": null,
+      "_durum": "ilk yayından beri var"
+    },
+    {
+      "id": "volkstuin",
+      "bolum": 6,
+      "dosya": "volkstuin.jpg",
+      "commons": "Volkstuin straatje Garden Calle popular - panoramio.jpg",
+      "lisans": "CC BY 3.0",
+      "yazar": "John - el - Castillo",
+      "atif_tr": "John - el - Castillo, Wikimedia Commons — CC BY 3.0",
+      "altyazi_tr": "Hollanda'da bir volkstuin sokağı. 1950'lere kadar buralar sebze bahçesiydi.",
+      "altyazi_en": "A volkstuin lane in the Netherlands. Until the 1950s these were vegetable gardens."
+    },
+    {
+      "id": "kokboya",
+      "bolum": 10,
+      "dosya": "kokboya.jpg",
+      "commons": "Rubia tinctorum 001.JPG",
+      "lisans": "CC BY-SA 3.0",
+      "yazar": "H. Zell",
+      "atif_tr": "H. Zell, Wikimedia Commons — CC BY-SA 3.0",
+      "altyazi_tr": "Rubia tinctorum — kökboya. Zeeland tarlalarından iki yüzyıl sonra çekildi.",
+      "altyazi_en": "Rubia tinctorum — madder, two centuries after it left the fields of Zeeland."
+    },
+    {
+      "id": "mansholt",
+      "bolum": 16,
+      "dosya": "mansholt.jpg",
+      "commons": "Sicco Mansholt 1974 (1).jpg",
+      "lisans": "CC0",
+      "yazar": "Rob Mieremet / Anefo",
+      "atif_tr": "Rob Mieremet, Anefo — Nationaal Archief, CC0",
+      "altyazi_tr": "Sicco Mansholt, 1974. Mektubu yazmasından iki yıl sonra.",
+      "altyazi_en": "Sicco Mansholt in 1974, two years after the letter."
+    },
+    {
+      "id": "kapak_gece",
+      "bolum": null,
+      "rol": "kapak",
+      "dosya": "hollanda_gece.jpg",
+      "commons": "ISS-49 Western Europe.jpg",
+      "lisans": "Kamu malı",
+      "yazar": "NASA / ISS Expedition 49",
+      "atif_tr": "NASA — ISS049-E-009356, 24 Eylül 2016, Expedition 49. Kamu malı",
+      "_neden": "tasarim.json kapak yönü olarak \"gece sera parıltısı — havadan/yörüngeden\" diyordu ama görsel hiç aranmamıştı. NASA açıklaması görüntüdeki yoğun ışığın Hollanda ve Belçika olduğunu yazıyor; sera olduğu İDDİA EDİLMİYOR."
+    },
+    {
+      "id": "muzayede",
+      "bolum": 11,
+      "dosya": "aalsmeer_muzayede.jpg",
+      "commons": "Aalsmeer marche aux fleurs2.JPG",
+      "lisans": "CC0",
+      "yazar": "Wikimedia Commons katkıcısı",
+      "atif_tr": "Wikimedia Commons — CC0"
+    },
+    {
+      "id": "koeien",
+      "bolum": 15,
+      "dosya": "koeien_weiland.jpg",
+      "commons": "Woerdense Verlaat, koeien in weiland langs de Bosweg bij Lusthof de Haeck foto3 2017-07-09 11.11.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "yazar": "Michielverbeek",
+      "atif_tr": "Michielverbeek, Wikimedia Commons — CC BY-SA 4.0"
+    },
+    {
+      "id": "glastuinbouw",
+      "bolum": 4,
+      "dosya": "glastuinbouw.jpg",
+      "commons": "Het is allemaal glastuinbouw wat de klok slaat in Harmelerwaard.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "yazar": "Wikimedia Commons katkıcısı",
+      "atif_tr": "Wikimedia Commons — CC BY-SA 4.0"
+    }
+  ],
+  "_cikarilan": [
+    {
+      "id": "hongerwinter",
+      "neden": "Açlık kışı bölümü yayın öncesi çıkarıldı (kullanıcı kararı). Olgu 9. bölümde zaten anlatılıyordu; ayrı bölüm kısmen tekrardı."
+    }
+  ],
+  "_elenenler": [
+    {
+      "id": "tomatenkas",
+      "commons": "Interieur lange tomatenkas - Goor - RCE",
+      "neden": "Görsel güzel ama ESKİ, yosunlu bir miras serası (RCE kültürel miras arşivi). 4. bölüm modern yüksek teknolojili seranın 5-12 kat verim farkını anlatıyor; bu fotoğraf tersini söylerdi."
+    },
+    {
+      "id": "kakao_fabrika",
+      "commons": "Boon-chocoladefabriek.jpg",
+      "neden": "Bir bina cephesi. 8. bölümün meselesi \"üretmeden işleyip satmak\"; mimari fotoğraf bunu vermiyor, üstelik dikey. Kakao için hâlâ uygun görsel yok."
+    }
+  ]
+}

@@ -1,0 +1,1653 @@
+{
+  "_kaynak": "FAOSTAT — toplu CSV (bulks-faostat.fao.org/production)",
+  "_lisans": "CC BY 4.0",
+  "_cekilme_tarihi": "2026-08-23T12:31:28.239Z",
+  "_alan_kodlari": {
+    "185": "Rusya Federasyonu",
+    "223": "Türkiye",
+    "230": "Ukrayna"
+  },
+  "_tanim": "Rusya Federasyonu raporlayan, ihracat değeri (element 5922, 1000 US$), ürün bazında toplanmış.",
+  "_bayrak_notu": "'X' = ticaret ortağı veritabanından tahmin edildi (AYNA). 'A' = resmî beyan. Bayrak dağılımı yıl yıl aşağıda; Rusya'nın kendi beyanının ne zaman seyrekleştiği buradan okunur.",
+  "_uyari": "Bu tablo RUSYA raporlayanın kaydıdır. Türkiye-Rusya ikili ticaretinde birincil kaynak comtrade_ikili.json (Türkiye raporlayan) olarak kalır; bu tablo Rusya'nın DÜNYA müşterileri arasında Türkiye'nin yerini göstermek için var.",
+  "bayrak_dagilimi": {
+    "1998": {
+      "A": 2103,
+      "E": 12
+    },
+    "1999": {
+      "A": 2156,
+      "E": 11
+    },
+    "2000": {
+      "A": 2669,
+      "E": 10
+    },
+    "2001": {
+      "A": 2648,
+      "E": 18,
+      "X": 1
+    },
+    "2002": {
+      "A": 2599,
+      "E": 17
+    },
+    "2003": {
+      "A": 2914,
+      "E": 22
+    },
+    "2004": {
+      "A": 3035,
+      "E": 19
+    },
+    "2005": {
+      "A": 2969,
+      "E": 24,
+      "X": 1
+    },
+    "2006": {
+      "A": 2990,
+      "E": 20
+    },
+    "2007": {
+      "A": 3328,
+      "E": 19
+    },
+    "2008": {
+      "A": 3244,
+      "E": 19
+    },
+    "2009": {
+      "A": 3211,
+      "E": 17
+    },
+    "2010": {
+      "A": 3098,
+      "E": 25
+    },
+    "2011": {
+      "A": 3245,
+      "E": 26
+    },
+    "2012": {
+      "A": 3773,
+      "E": 33
+    },
+    "2013": {
+      "A": 3998,
+      "E": 28
+    },
+    "2014": {
+      "A": 4623,
+      "E": 35
+    },
+    "2015": {
+      "A": 5054,
+      "E": 29
+    },
+    "2016": {
+      "A": 5375,
+      "E": 42
+    },
+    "2017": {
+      "A": 5384,
+      "E": 47
+    },
+    "2018": {
+      "A": 5466,
+      "E": 47
+    },
+    "2019": {
+      "A": 5642,
+      "E": 43
+    },
+    "2020": {
+      "A": 6472,
+      "E": 41
+    },
+    "2021": {
+      "A": 7702,
+      "E": 51
+    }
+  },
+  "turkiye": {
+    "1998": {
+      "deger_1000usd": 123102,
+      "bayraklar": {
+        "A": 33,
+        "E": 1
+      }
+    },
+    "1999": {
+      "deger_1000usd": 36777,
+      "bayraklar": {
+        "A": 21,
+        "E": 1
+      }
+    },
+    "2000": {
+      "deger_1000usd": 80974,
+      "bayraklar": {
+        "A": 29,
+        "E": 1
+      }
+    },
+    "2001": {
+      "deger_1000usd": 17648,
+      "bayraklar": {
+        "A": 46,
+        "E": 1
+      }
+    },
+    "2002": {
+      "deger_1000usd": 46356,
+      "bayraklar": {
+        "A": 19,
+        "E": 1
+      }
+    },
+    "2003": {
+      "deger_1000usd": 84141,
+      "bayraklar": {
+        "A": 29,
+        "E": 1
+      }
+    },
+    "2004": {
+      "deger_1000usd": 83038,
+      "bayraklar": {
+        "A": 31,
+        "E": 1
+      }
+    },
+    "2005": {
+      "deger_1000usd": 79613,
+      "bayraklar": {
+        "A": 22,
+        "E": 1
+      }
+    },
+    "2006": {
+      "deger_1000usd": 97677,
+      "bayraklar": {
+        "A": 27,
+        "E": 1
+      }
+    },
+    "2007": {
+      "deger_1000usd": 353310,
+      "bayraklar": {
+        "A": 53,
+        "E": 1
+      }
+    },
+    "2008": {
+      "deger_1000usd": 538585,
+      "bayraklar": {
+        "A": 50,
+        "E": 1
+      }
+    },
+    "2009": {
+      "deger_1000usd": 563448,
+      "bayraklar": {
+        "A": 35,
+        "E": 1
+      }
+    },
+    "2010": {
+      "deger_1000usd": 547637,
+      "bayraklar": {
+        "A": 43,
+        "E": 1
+      }
+    },
+    "2011": {
+      "deger_1000usd": 1053786,
+      "bayraklar": {
+        "A": 47,
+        "E": 1
+      }
+    },
+    "2012": {
+      "deger_1000usd": 1963653,
+      "bayraklar": {
+        "A": 46,
+        "E": 1
+      }
+    },
+    "2013": {
+      "deger_1000usd": 1732425,
+      "bayraklar": {
+        "A": 52,
+        "E": 1
+      }
+    },
+    "2014": {
+      "deger_1000usd": 2401104,
+      "bayraklar": {
+        "A": 52,
+        "E": 1
+      }
+    },
+    "2015": {
+      "deger_1000usd": 1816379,
+      "bayraklar": {
+        "A": 70,
+        "E": 1
+      }
+    },
+    "2016": {
+      "deger_1000usd": 1679933,
+      "bayraklar": {
+        "A": 60,
+        "E": 1
+      }
+    },
+    "2017": {
+      "deger_1000usd": 1788112,
+      "bayraklar": {
+        "A": 69,
+        "E": 1
+      }
+    },
+    "2018": {
+      "deger_1000usd": 1867850,
+      "bayraklar": {
+        "A": 64,
+        "E": 1
+      }
+    },
+    "2019": {
+      "deger_1000usd": 2506994,
+      "bayraklar": {
+        "A": 63,
+        "E": 1
+      }
+    },
+    "2020": {
+      "deger_1000usd": 3125731,
+      "bayraklar": {
+        "A": 77,
+        "E": 1
+      }
+    },
+    "2021": {
+      "deger_1000usd": 4329243,
+      "bayraklar": {
+        "A": 192,
+        "E": 1
+      }
+    }
+  },
+  "siralama": {
+    "1998": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 158892
+        },
+        {
+          "sira": 2,
+          "ulke": "Türkiye",
+          "deger_1000usd": 123102
+        },
+        {
+          "sira": 3,
+          "ulke": "Italy",
+          "deger_1000usd": 87585
+        },
+        {
+          "sira": 4,
+          "ulke": "Netherlands (Kingdom of the)",
+          "deger_1000usd": 61499
+        },
+        {
+          "sira": 5,
+          "ulke": "Spain",
+          "deger_1000usd": 42480
+        },
+        {
+          "sira": 6,
+          "ulke": "Ukraine",
+          "deger_1000usd": 38740
+        },
+        {
+          "sira": 7,
+          "ulke": "Germany",
+          "deger_1000usd": 37056
+        },
+        {
+          "sira": 8,
+          "ulke": "China, mainland",
+          "deger_1000usd": 32859
+        },
+        {
+          "sira": 9,
+          "ulke": "United States of America",
+          "deger_1000usd": 32560
+        },
+        {
+          "sira": 10,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 30748
+        }
+      ],
+      "turkiye_sirasi": 2,
+      "partner_sayisi": 89,
+      "toplam_1000usd": 1027910
+    },
+    "1999": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 121772
+        },
+        {
+          "sira": 2,
+          "ulke": "Italy",
+          "deger_1000usd": 68901
+        },
+        {
+          "sira": 3,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 44328
+        },
+        {
+          "sira": 4,
+          "ulke": "Türkiye",
+          "deger_1000usd": 36777
+        },
+        {
+          "sira": 5,
+          "ulke": "Ukraine",
+          "deger_1000usd": 27794
+        },
+        {
+          "sira": 6,
+          "ulke": "United States of America",
+          "deger_1000usd": 24592
+        },
+        {
+          "sira": 7,
+          "ulke": "Germany",
+          "deger_1000usd": 24250
+        },
+        {
+          "sira": 8,
+          "ulke": "United Kingdom of Great Britain and Northern Ireland",
+          "deger_1000usd": 21229
+        },
+        {
+          "sira": 9,
+          "ulke": "China, mainland",
+          "deger_1000usd": 16866
+        },
+        {
+          "sira": 10,
+          "ulke": "Mongolia",
+          "deger_1000usd": 15231
+        }
+      ],
+      "turkiye_sirasi": 4,
+      "partner_sayisi": 89,
+      "toplam_1000usd": 608347
+    },
+    "2000": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 212222
+        },
+        {
+          "sira": 2,
+          "ulke": "Italy",
+          "deger_1000usd": 94852
+        },
+        {
+          "sira": 3,
+          "ulke": "Türkiye",
+          "deger_1000usd": 80974
+        },
+        {
+          "sira": 4,
+          "ulke": "Ukraine",
+          "deger_1000usd": 80382
+        },
+        {
+          "sira": 5,
+          "ulke": "Netherlands (Kingdom of the)",
+          "deger_1000usd": 62389
+        },
+        {
+          "sira": 6,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 45200
+        },
+        {
+          "sira": 7,
+          "ulke": "Lithuania",
+          "deger_1000usd": 44199
+        },
+        {
+          "sira": 8,
+          "ulke": "Germany",
+          "deger_1000usd": 40881
+        },
+        {
+          "sira": 9,
+          "ulke": "China, mainland",
+          "deger_1000usd": 30788
+        },
+        {
+          "sira": 10,
+          "ulke": "Israel",
+          "deger_1000usd": 29202
+        }
+      ],
+      "turkiye_sirasi": 3,
+      "partner_sayisi": 96,
+      "toplam_1000usd": 1081245
+    },
+    "2001": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 203048
+        },
+        {
+          "sira": 2,
+          "ulke": "Ukraine",
+          "deger_1000usd": 126055
+        },
+        {
+          "sira": 3,
+          "ulke": "Italy",
+          "deger_1000usd": 107452
+        },
+        {
+          "sira": 4,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 44845
+        },
+        {
+          "sira": 5,
+          "ulke": "Greece",
+          "deger_1000usd": 38175
+        },
+        {
+          "sira": 6,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 33482
+        },
+        {
+          "sira": 7,
+          "ulke": "Israel",
+          "deger_1000usd": 31045
+        },
+        {
+          "sira": 8,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 30277
+        },
+        {
+          "sira": 9,
+          "ulke": "Mongolia",
+          "deger_1000usd": 30172
+        },
+        {
+          "sira": 10,
+          "ulke": "Germany",
+          "deger_1000usd": 26945
+        }
+      ],
+      "turkiye_sirasi": 18,
+      "partner_sayisi": 92,
+      "toplam_1000usd": 1098996
+    },
+    "2002": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Italy",
+          "deger_1000usd": 200409
+        },
+        {
+          "sira": 2,
+          "ulke": "Ukraine",
+          "deger_1000usd": 169176
+        },
+        {
+          "sira": 3,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 169135
+        },
+        {
+          "sira": 4,
+          "ulke": "Egypt",
+          "deger_1000usd": 119836
+        },
+        {
+          "sira": 5,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 91327
+        },
+        {
+          "sira": 6,
+          "ulke": "Greece",
+          "deger_1000usd": 85950
+        },
+        {
+          "sira": 7,
+          "ulke": "Algeria",
+          "deger_1000usd": 85835
+        },
+        {
+          "sira": 8,
+          "ulke": "Morocco",
+          "deger_1000usd": 57792
+        },
+        {
+          "sira": 9,
+          "ulke": "Spain",
+          "deger_1000usd": 48240
+        },
+        {
+          "sira": 10,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 47866
+        }
+      ],
+      "turkiye_sirasi": 11,
+      "partner_sayisi": 101,
+      "toplam_1000usd": 1829956
+    },
+    "2003": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Ukraine",
+          "deger_1000usd": 372539
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 265098
+        },
+        {
+          "sira": 3,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 166528
+        },
+        {
+          "sira": 4,
+          "ulke": "Italy",
+          "deger_1000usd": 112807
+        },
+        {
+          "sira": 5,
+          "ulke": "Georgia",
+          "deger_1000usd": 87342
+        },
+        {
+          "sira": 6,
+          "ulke": "Israel",
+          "deger_1000usd": 87242
+        },
+        {
+          "sira": 7,
+          "ulke": "Egypt",
+          "deger_1000usd": 84641
+        },
+        {
+          "sira": 8,
+          "ulke": "Türkiye",
+          "deger_1000usd": 84141
+        },
+        {
+          "sira": 9,
+          "ulke": "Greece",
+          "deger_1000usd": 61528
+        },
+        {
+          "sira": 10,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 61217
+        }
+      ],
+      "turkiye_sirasi": 8,
+      "partner_sayisi": 105,
+      "toplam_1000usd": 2322579
+    },
+    "2004": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 352618
+        },
+        {
+          "sira": 2,
+          "ulke": "Ukraine",
+          "deger_1000usd": 257536
+        },
+        {
+          "sira": 3,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 147106
+        },
+        {
+          "sira": 4,
+          "ulke": "Egypt",
+          "deger_1000usd": 132967
+        },
+        {
+          "sira": 5,
+          "ulke": "Georgia",
+          "deger_1000usd": 123098
+        },
+        {
+          "sira": 6,
+          "ulke": "Italy",
+          "deger_1000usd": 85130
+        },
+        {
+          "sira": 7,
+          "ulke": "Türkiye",
+          "deger_1000usd": 83038
+        },
+        {
+          "sira": 8,
+          "ulke": "Mongolia",
+          "deger_1000usd": 51965
+        },
+        {
+          "sira": 9,
+          "ulke": "Israel",
+          "deger_1000usd": 50111
+        },
+        {
+          "sira": 10,
+          "ulke": "Latvia",
+          "deger_1000usd": 48252
+        }
+      ],
+      "turkiye_sirasi": 7,
+      "partner_sayisi": 104,
+      "toplam_1000usd": 2181326
+    },
+    "2005": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 512070
+        },
+        {
+          "sira": 2,
+          "ulke": "Ukraine",
+          "deger_1000usd": 399925
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 344120
+        },
+        {
+          "sira": 4,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 211316
+        },
+        {
+          "sira": 5,
+          "ulke": "Georgia",
+          "deger_1000usd": 177721
+        },
+        {
+          "sira": 6,
+          "ulke": "Italy",
+          "deger_1000usd": 134883
+        },
+        {
+          "sira": 7,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 98228
+        },
+        {
+          "sira": 8,
+          "ulke": "Türkiye",
+          "deger_1000usd": 79613
+        },
+        {
+          "sira": 9,
+          "ulke": "Yemen",
+          "deger_1000usd": 75203
+        },
+        {
+          "sira": 10,
+          "ulke": "Algeria",
+          "deger_1000usd": 75183
+        }
+      ],
+      "turkiye_sirasi": 8,
+      "partner_sayisi": 104,
+      "toplam_1000usd": 3434892
+    },
+    "2006": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 704552
+        },
+        {
+          "sira": 2,
+          "ulke": "Ukraine",
+          "deger_1000usd": 442426
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 354195
+        },
+        {
+          "sira": 4,
+          "ulke": "India",
+          "deger_1000usd": 280581
+        },
+        {
+          "sira": 5,
+          "ulke": "Georgia",
+          "deger_1000usd": 238991
+        },
+        {
+          "sira": 6,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 235462
+        },
+        {
+          "sira": 7,
+          "ulke": "Italy",
+          "deger_1000usd": 172117
+        },
+        {
+          "sira": 8,
+          "ulke": "Bangladesh",
+          "deger_1000usd": 163132
+        },
+        {
+          "sira": 9,
+          "ulke": "Türkiye",
+          "deger_1000usd": 97677
+        },
+        {
+          "sira": 10,
+          "ulke": "Greece",
+          "deger_1000usd": 94018
+        }
+      ],
+      "turkiye_sirasi": 9,
+      "partner_sayisi": 104,
+      "toplam_1000usd": 4355646
+    },
+    "2007": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1058524
+        },
+        {
+          "sira": 2,
+          "ulke": "Egypt",
+          "deger_1000usd": 1052360
+        },
+        {
+          "sira": 3,
+          "ulke": "Ukraine",
+          "deger_1000usd": 672978
+        },
+        {
+          "sira": 4,
+          "ulke": "Türkiye",
+          "deger_1000usd": 353310
+        },
+        {
+          "sira": 5,
+          "ulke": "India",
+          "deger_1000usd": 344657
+        },
+        {
+          "sira": 6,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 329705
+        },
+        {
+          "sira": 7,
+          "ulke": "Italy",
+          "deger_1000usd": 264865
+        },
+        {
+          "sira": 8,
+          "ulke": "Georgia",
+          "deger_1000usd": 259221
+        },
+        {
+          "sira": 9,
+          "ulke": "Tunisia",
+          "deger_1000usd": 220139
+        },
+        {
+          "sira": 10,
+          "ulke": "Jordan",
+          "deger_1000usd": 213150
+        }
+      ],
+      "turkiye_sirasi": 4,
+      "partner_sayisi": 115,
+      "toplam_1000usd": 7720905
+    },
+    "2008": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1294800
+        },
+        {
+          "sira": 2,
+          "ulke": "Ukraine",
+          "deger_1000usd": 731759
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 715987
+        },
+        {
+          "sira": 4,
+          "ulke": "Türkiye",
+          "deger_1000usd": 538585
+        },
+        {
+          "sira": 5,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 516985
+        },
+        {
+          "sira": 6,
+          "ulke": "Italy",
+          "deger_1000usd": 246035
+        },
+        {
+          "sira": 7,
+          "ulke": "Syrian Arab Republic",
+          "deger_1000usd": 218560
+        },
+        {
+          "sira": 8,
+          "ulke": "Pakistan",
+          "deger_1000usd": 217432
+        },
+        {
+          "sira": 9,
+          "ulke": "Georgia",
+          "deger_1000usd": 187318
+        },
+        {
+          "sira": 10,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 178880
+        }
+      ],
+      "turkiye_sirasi": 4,
+      "partner_sayisi": 116,
+      "toplam_1000usd": 7886282
+    },
+    "2009": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1061634
+        },
+        {
+          "sira": 2,
+          "ulke": "Egypt",
+          "deger_1000usd": 893631
+        },
+        {
+          "sira": 3,
+          "ulke": "Türkiye",
+          "deger_1000usd": 563448
+        },
+        {
+          "sira": 4,
+          "ulke": "Ukraine",
+          "deger_1000usd": 513203
+        },
+        {
+          "sira": 5,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 429755
+        },
+        {
+          "sira": 6,
+          "ulke": "Syrian Arab Republic",
+          "deger_1000usd": 284162
+        },
+        {
+          "sira": 7,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 259479
+        },
+        {
+          "sira": 8,
+          "ulke": "Italy",
+          "deger_1000usd": 205394
+        },
+        {
+          "sira": 9,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 182332
+        },
+        {
+          "sira": 10,
+          "ulke": "Armenia",
+          "deger_1000usd": 159254
+        }
+      ],
+      "turkiye_sirasi": 3,
+      "partner_sayisi": 124,
+      "toplam_1000usd": 7510201
+    },
+    "2010": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Egypt",
+          "deger_1000usd": 893289
+        },
+        {
+          "sira": 2,
+          "ulke": "Türkiye",
+          "deger_1000usd": 547637
+        },
+        {
+          "sira": 3,
+          "ulke": "Ukraine",
+          "deger_1000usd": 538693
+        },
+        {
+          "sira": 4,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 498404
+        },
+        {
+          "sira": 5,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 340723
+        },
+        {
+          "sira": 6,
+          "ulke": "Italy",
+          "deger_1000usd": 173397
+        },
+        {
+          "sira": 7,
+          "ulke": "Armenia",
+          "deger_1000usd": 147080
+        },
+        {
+          "sira": 8,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 133310
+        },
+        {
+          "sira": 9,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 124395
+        },
+        {
+          "sira": 10,
+          "ulke": "Mongolia",
+          "deger_1000usd": 123182
+        }
+      ],
+      "turkiye_sirasi": 2,
+      "partner_sayisi": 126,
+      "toplam_1000usd": 5849329
+    },
+    "2011": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Egypt",
+          "deger_1000usd": 1355631
+        },
+        {
+          "sira": 2,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1053786
+        },
+        {
+          "sira": 3,
+          "ulke": "Ukraine",
+          "deger_1000usd": 666455
+        },
+        {
+          "sira": 4,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 551096
+        },
+        {
+          "sira": 5,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 383576
+        },
+        {
+          "sira": 6,
+          "ulke": "Italy",
+          "deger_1000usd": 349109
+        },
+        {
+          "sira": 7,
+          "ulke": "Israel",
+          "deger_1000usd": 240950
+        },
+        {
+          "sira": 8,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 228724
+        },
+        {
+          "sira": 9,
+          "ulke": "Armenia",
+          "deger_1000usd": 174979
+        },
+        {
+          "sira": 10,
+          "ulke": "Kenya",
+          "deger_1000usd": 174747
+        }
+      ],
+      "turkiye_sirasi": 2,
+      "partner_sayisi": 141,
+      "toplam_1000usd": 8821287
+    },
+    "2012": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1963653
+        },
+        {
+          "sira": 2,
+          "ulke": "Egypt",
+          "deger_1000usd": 1811068
+        },
+        {
+          "sira": 3,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1341339
+        },
+        {
+          "sira": 4,
+          "ulke": "Ukraine",
+          "deger_1000usd": 673200
+        },
+        {
+          "sira": 5,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 582917
+        },
+        {
+          "sira": 6,
+          "ulke": "Belarus",
+          "deger_1000usd": 579783
+        },
+        {
+          "sira": 7,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 564567
+        },
+        {
+          "sira": 8,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 536081
+        },
+        {
+          "sira": 9,
+          "ulke": "Italy",
+          "deger_1000usd": 403800
+        },
+        {
+          "sira": 10,
+          "ulke": "Latvia",
+          "deger_1000usd": 303590
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 139,
+      "toplam_1000usd": 14262480
+    },
+    "2013": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1732425
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1565771
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 875194
+        },
+        {
+          "sira": 4,
+          "ulke": "Ukraine",
+          "deger_1000usd": 767245
+        },
+        {
+          "sira": 5,
+          "ulke": "Belarus",
+          "deger_1000usd": 747105
+        },
+        {
+          "sira": 6,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 641504
+        },
+        {
+          "sira": 7,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 361850
+        },
+        {
+          "sira": 8,
+          "ulke": "Italy",
+          "deger_1000usd": 346353
+        },
+        {
+          "sira": 9,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 343501
+        },
+        {
+          "sira": 10,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 249830
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 139,
+      "toplam_1000usd": 13387031
+    },
+    "2014": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 2401104
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1680456
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 1386627
+        },
+        {
+          "sira": 4,
+          "ulke": "Belarus",
+          "deger_1000usd": 921749
+        },
+        {
+          "sira": 5,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 768697
+        },
+        {
+          "sira": 6,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 599128
+        },
+        {
+          "sira": 7,
+          "ulke": "Ukraine",
+          "deger_1000usd": 563487
+        },
+        {
+          "sira": 8,
+          "ulke": "Georgia",
+          "deger_1000usd": 365285
+        },
+        {
+          "sira": 9,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 360980
+        },
+        {
+          "sira": 10,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 295887
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 146,
+      "toplam_1000usd": 16107697
+    },
+    "2015": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1816379
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1269796
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 1019391
+        },
+        {
+          "sira": 4,
+          "ulke": "Belarus",
+          "deger_1000usd": 700501
+        },
+        {
+          "sira": 5,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 667349
+        },
+        {
+          "sira": 6,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 578316
+        },
+        {
+          "sira": 7,
+          "ulke": "Ukraine",
+          "deger_1000usd": 528854
+        },
+        {
+          "sira": 8,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 480820
+        },
+        {
+          "sira": 9,
+          "ulke": "China, mainland",
+          "deger_1000usd": 365427
+        },
+        {
+          "sira": 10,
+          "ulke": "Georgia",
+          "deger_1000usd": 308229
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 148,
+      "toplam_1000usd": 13353901
+    },
+    "2016": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1679933
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1291373
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 1238164
+        },
+        {
+          "sira": 4,
+          "ulke": "Belarus",
+          "deger_1000usd": 751688
+        },
+        {
+          "sira": 5,
+          "ulke": "China, mainland",
+          "deger_1000usd": 552898
+        },
+        {
+          "sira": 6,
+          "ulke": "Ukraine",
+          "deger_1000usd": 543395
+        },
+        {
+          "sira": 7,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 532913
+        },
+        {
+          "sira": 8,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 428301
+        },
+        {
+          "sira": 9,
+          "ulke": "Georgia",
+          "deger_1000usd": 307901
+        },
+        {
+          "sira": 10,
+          "ulke": "Bangladesh",
+          "deger_1000usd": 300260
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 152,
+      "toplam_1000usd": 13979969
+    },
+    "2017": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1788112
+        },
+        {
+          "sira": 2,
+          "ulke": "Egypt",
+          "deger_1000usd": 1779855
+        },
+        {
+          "sira": 3,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1419373
+        },
+        {
+          "sira": 4,
+          "ulke": "Belarus",
+          "deger_1000usd": 934959
+        },
+        {
+          "sira": 5,
+          "ulke": "China, mainland",
+          "deger_1000usd": 661270
+        },
+        {
+          "sira": 6,
+          "ulke": "Ukraine",
+          "deger_1000usd": 633923
+        },
+        {
+          "sira": 7,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 585852
+        },
+        {
+          "sira": 8,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 551383
+        },
+        {
+          "sira": 9,
+          "ulke": "Bangladesh",
+          "deger_1000usd": 354341
+        },
+        {
+          "sira": 10,
+          "ulke": "Viet Nam",
+          "deger_1000usd": 351066
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 151,
+      "toplam_1000usd": 17077982
+    },
+    "2018": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Egypt",
+          "deger_1000usd": 2147709
+        },
+        {
+          "sira": 2,
+          "ulke": "Türkiye",
+          "deger_1000usd": 1867850
+        },
+        {
+          "sira": 3,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1485012
+        },
+        {
+          "sira": 4,
+          "ulke": "Belarus",
+          "deger_1000usd": 1155118
+        },
+        {
+          "sira": 5,
+          "ulke": "China, mainland",
+          "deger_1000usd": 984091
+        },
+        {
+          "sira": 6,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 791390
+        },
+        {
+          "sira": 7,
+          "ulke": "Ukraine",
+          "deger_1000usd": 616629
+        },
+        {
+          "sira": 8,
+          "ulke": "Viet Nam",
+          "deger_1000usd": 580903
+        },
+        {
+          "sira": 9,
+          "ulke": "Latvia",
+          "deger_1000usd": 529732
+        },
+        {
+          "sira": 10,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 497075
+        }
+      ],
+      "turkiye_sirasi": 2,
+      "partner_sayisi": 156,
+      "toplam_1000usd": 20380049
+    },
+    "2019": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 2506994
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 1806249
+        },
+        {
+          "sira": 3,
+          "ulke": "Egypt",
+          "deger_1000usd": 1469764
+        },
+        {
+          "sira": 4,
+          "ulke": "China, mainland",
+          "deger_1000usd": 1442675
+        },
+        {
+          "sira": 5,
+          "ulke": "Belarus",
+          "deger_1000usd": 1280642
+        },
+        {
+          "sira": 6,
+          "ulke": "Iran (Islamic Republic of)",
+          "deger_1000usd": 1208555
+        },
+        {
+          "sira": 7,
+          "ulke": "Ukraine",
+          "deger_1000usd": 646541
+        },
+        {
+          "sira": 8,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 615652
+        },
+        {
+          "sira": 9,
+          "ulke": "Bangladesh",
+          "deger_1000usd": 541510
+        },
+        {
+          "sira": 10,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 457675
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 153,
+      "toplam_1000usd": 19945947
+    },
+    "2020": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 3125731
+        },
+        {
+          "sira": 2,
+          "ulke": "China, mainland",
+          "deger_1000usd": 2307591
+        },
+        {
+          "sira": 3,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 2010401
+        },
+        {
+          "sira": 4,
+          "ulke": "Egypt",
+          "deger_1000usd": 1954899
+        },
+        {
+          "sira": 5,
+          "ulke": "Belarus",
+          "deger_1000usd": 1309341
+        },
+        {
+          "sira": 6,
+          "ulke": "Ukraine",
+          "deger_1000usd": 692029
+        },
+        {
+          "sira": 7,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 691007
+        },
+        {
+          "sira": 8,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 682526
+        },
+        {
+          "sira": 9,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 676029
+        },
+        {
+          "sira": 10,
+          "ulke": "Latvia",
+          "deger_1000usd": 478307
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 155,
+      "toplam_1000usd": 23409904
+    },
+    "2021": {
+      "ilk_10": [
+        {
+          "sira": 1,
+          "ulke": "Türkiye",
+          "deger_1000usd": 4329243
+        },
+        {
+          "sira": 2,
+          "ulke": "Kazakhstan",
+          "deger_1000usd": 2690417
+        },
+        {
+          "sira": 3,
+          "ulke": "China, mainland",
+          "deger_1000usd": 2236011
+        },
+        {
+          "sira": 4,
+          "ulke": "Egypt",
+          "deger_1000usd": 1834569
+        },
+        {
+          "sira": 5,
+          "ulke": "Belarus",
+          "deger_1000usd": 1707345
+        },
+        {
+          "sira": 6,
+          "ulke": "Ukraine",
+          "deger_1000usd": 797624
+        },
+        {
+          "sira": 7,
+          "ulke": "Uzbekistan",
+          "deger_1000usd": 789129
+        },
+        {
+          "sira": 8,
+          "ulke": "Azerbaijan",
+          "deger_1000usd": 707207
+        },
+        {
+          "sira": 9,
+          "ulke": "Saudi Arabia",
+          "deger_1000usd": 683069
+        },
+        {
+          "sira": 10,
+          "ulke": "Latvia",
+          "deger_1000usd": 671808
+        }
+      ],
+      "turkiye_sirasi": 1,
+      "partner_sayisi": 159,
+      "toplam_1000usd": 26434619
+    }
+  }
+}

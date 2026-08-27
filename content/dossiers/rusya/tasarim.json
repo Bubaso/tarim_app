@@ -1,0 +1,127 @@
+{
+  "_dosya": "Rusya — Ülke Dosyası · tasarım künyesi",
+  "_amac": "Görsel kararlar. DossierTheme bu dosyadan üretilir; kodda serbest renk yazılmaz.",
+  "_onay_tarihi": "2026-08-23",
+  "_kural": "Bu dosyadaki hiçbir renk 'yaklaşık' değildir. Hepsi WCAG 2.1 AA'ya karşı hesaplandı; hesap betiği _raw/kontrast.py.",
+  "_sureklilik": "Kullanıcı kararı: ülke dosyalarının tasarım dili ortak kalacak ki okurda aşinalık oluşsun. Yapı Hollanda'yla birebir aynı — koyu ada, tek vurgu, tek ikincil, doğrusal motif, aynı bölüm ritmi. Değişen yalnızca paletin ve motifin KAYNAĞI: her ülke kendi malzemesinden türetiliyor.",
+  "tez_cumlesi": {
+    "tr": "Rusya hem pazarımız hem tedarikçimiz. Ama ondan aldığımız bir yıl bekler, ona sattığımız birkaç hafta dayanır.",
+    "en": "Russia is both our market and our supplier. But what we buy keeps for a year; what we sell keeps for weeks.",
+    "gerekce": "İki yarısı da dosyanın iki yarısını taşıyor: 'hem pazarımız hem tedarikçimiz' karşılıklılığı (12. bölüm), 'bir yıl / birkaç hafta' asimetriyi (1. ve 17. bölüm). Suçlayıcı değil, tarif edici — kimsenin hatası anlatılmıyor, bir yapı anlatılıyor."
+  },
+  "palet": {
+    "ad": "Kara Toprak ve Kırağı",
+    "kaynak_fikir": "Çernozyomun rengi topraktan değil, onu yapan bozkır otundan geliyor — dosyanın 2. bölümünün bulgusu bu. Zemin kara toprak, vurgu ise o toprağı binlerce yılda yapan kuru otun rengi. Yani paletin vurgusu bir süs değil, tezin kendisi. İkincil renk kırağı: Rus tarımının asıl sınırı genişlik değil, soğuk.",
+    "hollandadan_farki": "Hollanda'nın zemini MAVİ-siyahtı (gece göğü). Rusya'nınki SICAK siyah (toprak). Yan yana konduklarında iki dosya aynı aileden ama aynı yer değil.",
+    "mod": "KOYU — dosya sayfası her zaman koyu, uygulamanın açık/koyu tercihini izlemez.",
+    "koyu": {
+      "zemin": {
+        "hex": "#14110D",
+        "rol": "Sayfa arka planı — çernozyom"
+      },
+      "yuzey": {
+        "hex": "#221C15",
+        "rol": "Kart, tablo, alıntı bloğu",
+        "kontrast_zemin": 1.12
+      },
+      "murekkep": {
+        "hex": "#EFE9DF",
+        "rol": "Gövde metni",
+        "kontrast_zemin": 15.59,
+        "kontrast_yuzey": 13.97
+      },
+      "sessiz": {
+        "hex": "#ADA492",
+        "rol": "Meta, kaynak satırı, altyazı",
+        "kontrast_zemin": 7.62,
+        "kontrast_yuzey": 6.83
+      },
+      "vurgu": {
+        "hex": "#E8B94E",
+        "rol": "Bozkır otu — rakamlar, başlık vurguları, Rusya serisi",
+        "kontrast_zemin": 10.29,
+        "kontrast_yuzey": 9.22
+      },
+      "ikincil": {
+        "hex": "#6BA5BA",
+        "rol": "Kırağı — Türkiye serisi, karşılaştırma ikinci rengi",
+        "kontrast_zemin": 6.92,
+        "kontrast_yuzey": 6.2
+      },
+      "cizgi": {
+        "hex": "#302921",
+        "rol": "SADECE dekoratif ayırıcı",
+        "kontrast_zemin": 1.31,
+        "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz — grafik ekseni, sınır, odak halkası için cizgiVurgu kullanılır."
+      },
+      "cizgiVurgu": {
+        "hex": "#6E6353",
+        "rol": "Grafik ekseni, ızgara çizgisi, odak halkası",
+        "kontrast_zemin": 3.2,
+        "kontrast_yuzey": 2.87
+      }
+    },
+    "acik_mod_seridi": {
+      "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; açık modda bozkır sarısı krem üstünde 1,62:1 veriyor — okunmaz. Şerit için koyulaştırılmış varyantlar kullanılır.",
+      "murekkep": {
+        "hex": "#1B1710",
+        "kontrast_krem": 15.85
+      },
+      "vurguKoyu": {
+        "hex": "#7A5306",
+        "rol": "Bozkır sarısının açık zemin karşılığı",
+        "kontrast_krem": 6.08,
+        "kontrast_beyaz": 6.85
+      },
+      "ikincilKoyu": {
+        "hex": "#1C5566",
+        "rol": "Kırağının açık zemin karşılığı",
+        "kontrast_krem": 7.34,
+        "kontrast_beyaz": 8.27
+      }
+    },
+    "renk_korlugu_notu": "Vurgu (L=0,524) ve ikincil (L=0,336) parlaklık oranı 1,56 — gri tonda da ayrışıyorlar. Hollanda'da bu oran 1'e yakındı ve tasarım notunda ayrı ayrı uyarı gerekiyordu. Ayrıca sarı-mavi çifti, kırmızı-yeşil körlüğünde KORUNAN eksendir; Hollanda'nın turuncu-yeşil çiftinden bu açıdan daha güvenli. Buna rağmen grafiklerde iki seri asla yalnızca renkle ayrılmayacak: Rusya dolu çizgi/dolu daire, Türkiye kesikli çizgi/içi boş daire.",
+    "denetim_betigi": "_raw/kontrast.py — `python3 content/dossiers/rusya/_raw/kontrast.py`"
+  },
+  "motif": {
+    "ad": "Toprak kesiti",
+    "tanim": "Bir toprak profilinin yatay katmanları: farklı kalınlıkta yatay bantlar, aşağı indikçe koyulaşan. Üstte ince, ortada kalın humus katmanı, altta ana kaya.",
+    "gerekce": "Dokuçayev'in 1900 Paris Sergisi'nde sergilediği çernozyom monoliti tam olarak bu nesnedir — toprağın dikey kesiti. Motif bu yüzden dekoratif değil, dosyanın 2. bölümünün nesnesi. Ve tezi tekrar ediyor: bu manzaranın hikâyesi yatayda değil, DİKEYDE — katmanlarda, zamanda birikmiş. Hollanda'nın polderi insan yapımı bir ızgaraydı; Rusya'nın kesiti insansız bir birikim.",
+    "hollandadan_farki": "Polder motifi DİKEY şeritlerdi (parseller). Toprak kesiti YATAY bantlar. İki dosya yan yana konduğunda motifler birbirinin dikine bakıyor — aynı dil, ayrı cümle.",
+    "uygulama": {
+      "opaklik": "%5 (kabul aralığı %4-8)",
+      "renk": "cizgiVurgu #6E6353 üzerine opaklık",
+      "bicim": "Vektör (CustomPainter) — raster değil. Ölçeklenebilir, dosya boyutu sıfır, telif sorunu yok.",
+      "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+      "bant_araligi": "Bant kalınlığı 18 px'in altına inmeyecek; daha incesi retina olmayan ekranlarda titriyor.",
+      "yon_notu": "Bantlar yatay olduğu için dikey kaydırmada göz izliyor; kaymayı yavaşlatmak üzere bant kalınlıkları düzensiz dağıtılacak — eşit aralık merdiven etkisi yapıyor.",
+      "yon": "yatay",
+      "_yon_notu": "Toprak profilinin katmanları yatay bantlar. Paylaşım kartı bu alanı okuyor; önceden Hollanda'nın dikey şeridi betiğe gömülüydü ve her dosyada dikey çiziliyordu."
+    }
+  },
+  "kapak": {
+    "yon": "Kara toprak. Tercih sırası: (1) çernozyom toprak kesiti/monoliti — dosyanın nesnesi, (2) hasat sonrası bozkır tarlası, ufka giden tek yatay çizgi.",
+    "gerekce": "Paletle aynı kaynaktan geliyor; kapak ve sayfa aynı şeyi söylüyor. Ayrıca 2. bölümün açılışını görselleştiriyor.",
+    "gorsel_kaynagi": {
+      "tercih_1": "Wikimedia Commons — çernozyom profil fotoğrafı, CC lisanslı. Atıf zorunlu ve verilecek.",
+      "tercih_2": "NASA Earth Observatory / Landsat — kara toprak kuşağı, kamu malı",
+      "_karar": "Görsel BULUNANA KADAR kapak tipografik iskeletle çalışır. Görselsiz de tam çalışması şart.",
+      "_yasak": "Telifi belirsiz hiçbir görsel kullanılmayacak. Atıf zorunluysa atıf yapılır."
+    },
+    "tipografi_katmani": {
+      "ust_satir": "ÜLKE DOSYASI · 02",
+      "baslik": "RUSYA",
+      "alt_satir": "tez_cumlesi.tr",
+      "veri_rozeti": "Türkiye, Rusya'nın 1 numaralı tarım müşterisi"
+    },
+    "okunurluk": "Görsel üzerine zemin renginden %0 → %85 dikey gradyan; metin yalnızca %60+ bölgede durur."
+  },
+  "_zorunluluklar": [
+    "Grafiklerde iki seri renkle BİRLİKTE biçimle de ayrılacak (Rusya dolu, Türkiye kesikli)",
+    "Motif CustomPainter ile çizilecek, görsel dosyası olarak gömülmeyecek",
+    "Kapak görseli bulunamazsa sayfa yine de tam çalışacak",
+    "Koyu sayfa sistem açık/koyu tercihini izlemeyecek; ana sayfa şeridi izleyecek",
+    "Tüm renkler bu dosyadan türetilen DossierTheme üzerinden gelecek",
+    "Kapak bloğu YOK — ülke dosyasında kapak ile gövde aynı koyu ada. Tema kapak renklerini gövdeden alıyor."
+  ]
+}

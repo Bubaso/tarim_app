@@ -55,10 +55,14 @@ Widget _iskelet({
   required bool isEn,
   required Override override,
   String tur = 'ulke',
+  List<DossierTakvim> takvim = const [],
 }) {
   return ProviderScope(
     key: ValueKey('kapsam-${_kapsamSayaci++}'),
-    overrides: [override],
+    overrides: [
+      override,
+      dossierTakvimProvider(tur).overrideWith((ref) async => takvim),
+    ],
     child: MaterialApp(
       locale: Locale(isEn ? 'en' : 'tr'),
       localizationsDelegates: const [
@@ -126,6 +130,62 @@ void main() {
         isFalse,
       );
     });
+  });
+
+  testWidgets('yaklaşan dosya Yakında kartıyla çıkıyor', (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: false,
+        override: dossierIndexByTurProvider('kurum')
+            .overrideWith((ref) async => [_aktif(_kurumOzeti(ozet), true)]),
+        tur: 'kurum',
+        takvim: const [
+          DossierTakvim(
+              tur: 'kurum', adTr: 'Ziraat Bankası', adEn: 'Ziraat Bankası'),
+        ],
+      ),
+    );
+    await _coz(tester);
+
+    expect(find.text('Toprak Mahsulleri Ofisi'), findsOneWidget);
+    expect(find.text('ŞİMDİ'), findsOneWidget);
+    expect(find.text('Ziraat Bankası'), findsOneWidget);
+    // Rozet renk değil KELİME.
+    expect(find.text('YAKINDA'), findsOneWidget);
+  });
+
+  testWidgets('Yakında kartı tıklanabilir değil', (tester) async {
+    // Dokununca boş bir sayfaya düşmek, hiçbir şey olmamasından kötü.
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: false,
+        override:
+            dossierIndexByTurProvider('kurum').overrideWith((ref) async => []),
+        tur: 'kurum',
+        takvim: const [
+          DossierTakvim(
+              tur: 'kurum', adTr: 'Ziraat Bankası', adEn: 'Ziraat Bankası'),
+        ],
+      ),
+    );
+    await _coz(tester);
+
+    // Liste boş olduğu için gövdede tek bir dokunma hedefi bile olmamalı.
+    expect(
+      find.descendant(
+        of: find.byType(SingleChildScrollView),
+        matching: find.byType(InkWell),
+      ),
+      findsNothing,
+    );
   });
 
   testWidgets('kurum arşivi ülke dosyalarını göstermiyor', (tester) async {

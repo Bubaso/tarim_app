@@ -20,11 +20,13 @@
 5. **Causal claims require evidence.** Two co-occurring facts are never joined with
    "because of"; they are joined with "alongside".
 
-Word target ~5,150. About 400 per section.
+Word target ~6,400 across 18 sections.
 
 ---
 
 ## 1. The paradox
+
+
 
 In 2023 Türkiye produced 79.9 billion international dollars' worth of agricultural
 output. By the same measure, the Netherlands produced 17.8 billion. Türkiye produced
@@ -65,7 +67,13 @@ built on top of it.
 
 ---
 
+---
+
+---
+
 ## 2. Two countries in figures
+
+
 
 Before any comparison, the scale of the two economies has to be set side by side,
 because every ratio in this dossier rests on that ground.
@@ -105,7 +113,13 @@ the geographical form of that in the fifth section.
 
 ---
 
+---
+
+---
+
 ## 3. The limits of geography
+
+
 
 Explaining Dutch agricultural success through "fertile soil" is a common habit. The
 data does not support it — but it fails to support it from an unexpected direction.
@@ -138,7 +152,7 @@ and directed at high-value crops.
 
 In fertiliser the Netherlands also leads: 238.02 kg per hectare against 139.56 kg in
 Türkiye (2023). Roughly 1.7 times the input. Hold on to that figure — it returns in
-the twelfth section, because the greatest agricultural crisis the Netherlands faces
+the fifteenth section, because the greatest agricultural crisis the Netherlands faces
 today comes precisely from there.
 
 In rainfall the Netherlands has an advantage, but a smaller one than assumed: the
@@ -152,7 +166,13 @@ does not explain this dossier.
 
 ---
 
+---
+
+---
+
 ## 4. The three tiers of yield
+
+
 
 The sharpest finding in this dossier is here. And it was written wrongly the first
 time; it had to be corrected.
@@ -203,7 +223,13 @@ The subject of the next section is how small an area this first tier occupies.
 
 ---
 
+---
+
+---
+
 ## 5. Half a percent
+
+
 
 Total Dutch agricultural land is 1,793,760 hectares (2025, CBS). Of that, **10,030
 hectares** are under cover. The share: **0.56 percent**.
@@ -249,7 +275,56 @@ which part of that land receives capital, and at what density.
 
 ---
 
-## 6. Who owns half the headline
+---
+
+---
+
+## 6. Volkstuin — how the garden changed hands
+
+
+The previous section described the most intensive edge of Dutch agriculture: ten
+thousand hectares of glass, half a percent of the country's farmland, an industry
+that fits inside a hundred square kilometres. The same country holds the exact
+opposite layer, and nobody quotes an export figure for it.
+
+There are more than 240,000 **volkstuin** — people's garden — plots in the
+Netherlands. Together they cover roughly a thousandth of the country's surface.
+Plots without a shed can be as small as 15 square metres.
+
+This is not a hobby but an institutional tradition. The first national law was
+passed in 1911. In 1928 the gardening societies founded a national body, AVVN,
+which still exists.
+
+What matters is not what these gardens produce but **what they stopped
+producing**.
+
+Until the 1950s volkstuinen were generally vegetable gardens; people ate from
+them. Then the weight shifted to recreation. A Dutch allotment today mostly means
+flowers, lawn, a shed and a weekend.
+
+The shift is not accidental. The glass described in the fifth section began
+producing vegetables so cheaply and so continuously that growing your own stopped
+being a necessity. Industrialised agriculture turned household production from
+sustenance into pleasure.
+
+For Türkiye the question is direct: the village garden, the field behind the
+house, growing for one's own table — are these still a feeding layer in Türkiye,
+or are they walking the Dutch road? And if they are, in which statistic does that
+loss appear?
+
+At present, in none. The Netherlands counts its gardens; Türkiye has no series
+that counts this layer separately.
+
+*(Figures in this section come from Dutch horticultural publications; they are
+secondary sources.)*
+
+---
+
+---
+
+## 7. Who owns half the headline
+
+
 
 Dutch agricultural exports reached **137.5 billion euro** in 2025, up 8.4 percent on
 the previous year (CBS). That is a figure that would make headlines anywhere in the
@@ -315,7 +390,13 @@ those 49 billion come from, we turn to the next two sections.
 
 ---
 
-## 7. The cocoa giant that grows no cocoa
+---
+
+---
+
+## 8. The cocoa giant that grows no cocoa
+
+
 
 Cocoa does not grow in the Netherlands. The cocoa tree grows in the equatorial belt,
 in a climate that is hot and humid year round; the Dutch latitude is far north of
@@ -353,7 +434,7 @@ logistics, financing, branding.
 
 For Türkiye the weight of this section is considerable. Türkiye does not grow cocoa
 either — like the Netherlands. But Türkiye **buys** cocoa from the Netherlands: as we
-will see in the eleventh section, three of the top five items the Netherlands sells to
+will see in the fourteenth section, three of the top five items the Netherlands sells to
 Türkiye are cocoa products. In the same section we will see the reverse — Türkiye
 sells shelled hazelnuts to the Netherlands.
 
@@ -363,7 +444,13 @@ difference of choice.
 
 ---
 
-## 8. The country that made its own land
+---
+
+---
+
+## 9. The country that made its own land
+
+
 
 To understand Dutch agriculture one first has to accept this: a significant part of
 this country's land was **made**. It is not natural.
@@ -424,13 +511,66 @@ European Commission from 22 March 1972 to 5 January 1973.
 
 The point is this: the architect of Europe's common agricultural policy was a
 Dutchman. The Netherlands did not merely design its own agriculture; it also wrote the
-rules of the market it would sell into. In the sixth section we saw that 45 percent of
+rules of the market it would sell into. In the seventh section we saw that 45 percent of
 its exports go to its three nearest markets. That the rules of that market were shaped
 by a Dutch commissioner is not a coincidence.
 
 ---
 
-## 9. Five institutions, five design decisions
+---
+
+---
+
+## 10. Madder — the end of a colour
+
+
+One crop has vanished from Dutch fields, and the manner of its vanishing is
+instructive today.
+
+In the 17th century **meekrap** — madder — was grown on the rich soil of Zeeland.
+Red dye was extracted from its root and used to colour cloth. For a period the
+Dutch were the world's largest suppliers of madder, and the crop brought the
+region great prosperity. The buildings raised to dry the root — meestoof — still
+appear on Zeeland maps.
+
+Its end came not in a field but in a laboratory.
+
+In 1868 Graebe and Liebermann found how to produce alizarin synthetically. On 25
+June 1869 BASF and the British firm Perkin & Sons filed competing patents one day
+apart. By 1871 synthetic alizarin was selling far below the price of dried madder
+root.
+
+Towards the end of the 19th century madder cultivation declined rapidly and the
+branch of agriculture disappeared entirely — roughly two centuries after it had
+appeared. The meestoven became shrimp factories or storage for other crops; most
+were later demolished.
+
+The mechanism here deserves distinguishing. A product can lose its market in two
+ways. Either the buyer goes to another supplier — that is competition, and it can
+be won back. Or the product itself becomes unnecessary — that is not substitution
+but **cancellation**, and there is no way back.
+
+Madder was the second kind. Zeeland could have produced it more cheaply and it
+would have made no difference; nobody wanted root any more.
+
+The question for Türkiye: which of the products we grow today would never find
+their market again if they became synthesisable in a laboratory? The dye plants
+are gone. Natural flavours, natural colours, some pharmaceutical raw materials and
+some fibres sit on the same edge.
+
+Food itself is the item furthest from this threat — human food is not easily
+replaced in a laboratory. That the Netherlands moved from madder to vegetables and
+flowers may not be a coincidence.
+
+*(Historical detail in this section comes from secondary sources.)*
+
+---
+
+---
+
+## 11. Five institutions, five design decisions
+
+
 
 The sections up to here have shown **what** Dutch agriculture does. This one shows
 **who** does it. Five institutions, five separate design decisions.
@@ -515,7 +655,13 @@ precisely why all five are copyable.
 
 ---
 
-## 10. The curve of sixty years
+---
+
+---
+
+## 12. The curve of sixty years
+
+
 
 According to FAOSTAT's record, Dutch agricultural exports stood at **1.2 billion
 dollars** in 1961. In 2023, **125.8 billion**. A hundredfold in sixty-two years.
@@ -585,7 +731,60 @@ not information but a slogan.
 
 ---
 
-## 11. With Türkiye
+---
+
+---
+
+## 13. The tulip — what came from Anatolia
+
+
+Every trade table in this dossier points one way: what the Netherlands sells, what
+it ships, what it re-exports. The next section will describe the exchange between
+the two countries in figures. Before that, something that travelled the other way.
+
+The symbol the Netherlands is known for worldwide came from Anatolia.
+
+Tulips grew in Ottoman lands and were used from an early period as decoration on
+tiles and ceramics. **Ogier Ghiselin de Busbecq**, serving as a diplomat at the
+Ottoman court on behalf of Emperor Ferdinand I, observed the tulips and recorded
+them in his *Turkish Letters*, noting that they grew wild and that their colours
+were much loved by the Turks.
+
+The botanist **Carolus Clusius** was removed from the Austrian court when Rudolf
+II came to power. He was then appointed a professor in Leiden and became the first
+Director of the Hortus Botanicus of Leiden University.
+
+Clusius sent tulip seeds and bulbs through his academic network. The trade in
+tulip bulbs began this way. His own publication documented 22 tulip varieties.
+
+So the origin of the Dutch ornamental plant industry — the 0.22 per cent of
+farmland we saw in the fifth section — is an Ottoman garden plant and a diplomat
+who wrote it down.
+
+The reason this section sits here: a country's agricultural identity is less
+native than we assume. The Netherlands is unthinkable without tulips, but the
+tulip is not Dutch. Türkiye is unthinkable without tea, but the tea plant is not
+Anatolian either — the ancestor of the tea in Rize arrived from Batumi in 1937.
+
+Both countries took their symbol from elsewhere, then sold that symbol to the
+world under their own name.
+
+The difference is scale. The Netherlands turned the plant it received into an
+industry: an auction system, breeding companies, a cold chain, worldwide
+distribution. Türkiye turned the plant it received into a branch of agriculture
+but did not climb the upper rungs of the chain to the same degree.
+
+*(Details on Busbecq and Clusius come from the British Library. The year the first
+tulips were planted in the Netherlands is not given in that source and is
+therefore not stated here.)*
+
+---
+
+---
+
+## 14. With Türkiye
+
+
 
 Agricultural trade between the two countries repeats this dossier's thesis once more,
 this time in Türkiye's own data.
@@ -616,7 +815,7 @@ and cake 80.0** · **cocoa paste 63.8** · **cocoa butter 60.9** · non-alcoholi
 beverages 60.0 · raw organic material 45.2 · roasted or decaffeinated coffee 29.9 ·
 food waste 26.2 · potatoes 22.0.
 
-Three of the top five items are cocoa. And from the seventh section we know that cocoa
+Three of the top five items are cocoa. And from the eighth section we know that cocoa
 does not grow in the Netherlands.
 
 **Top items Türkiye sells to the Netherlands** (2024, million dollars): prepared nuts
@@ -650,7 +849,13 @@ but from factory to factory.
 
 ---
 
-## 12. Shadows
+---
+
+---
+
+## 15. Shadows
+
+
 
 In the third section I asked you to hold on to a number: 238.02 kilograms of
 fertiliser per hectare (2023), roughly 1.7 times Türkiye's. Now let us talk about
@@ -720,7 +925,60 @@ the barns.
 
 ---
 
-## 13. What Türkiye can take
+---
+
+---
+
+## 16. Mansholt's letter
+
+
+The previous section described the bill for Dutch agriculture: nitrogen, ammonia,
+a court ruling, farms to be closed. The first person to write that bill was the
+architect of the system himself.
+
+In the eleventh section we met Sicco Mansholt: from a farming family in Groningen,
+Commissioner for Agriculture in the first European Commission in 1958, author of
+the Mansholt Plan in 1968. The architect of Europe's common agricultural policy.
+
+The untold half of the story is in 1972.
+
+On **14 February 1972** Mansholt wrote a letter to European Commission President
+Franco Maria Malfatti. He had read MIT's *Limits to Growth* before publication and
+was alarmed by the ecological picture it set out.
+
+What he wrote can be read as a repudiation of his own career.
+
+He said that tomorrow's society could not be built on growth — at least not as far
+as material goods were concerned. He warned that the relentless pursuit of
+production and consumption was driving humanity towards ecological and demographic
+catastrophe. Instead of chasing an ever-rising gross national product, he proposed
+that the European Community adopt new indicators such as "gross national
+happiness" or "gross national utility".
+
+And for agriculture, his own field, he wrote this: **the increase in scale needs
+to stop.** He said the natural balance would play an increasingly large role in
+food production.
+
+The man who industrialised European agriculture wrote, four years later, that it
+had to stop.
+
+The letter did not become policy that day. But the nitrogen crisis described in
+the previous section — the court ruling, the voided permits, the farms to be
+closed — is the fifty-year invoice for what a Dutch commissioner wrote in 1972.
+
+For this dossier's Turkish reader the lesson here is not technical but temporal.
+The limit of an agricultural model can be seen while the model is being built.
+Mansholt saw it and wrote it down. The system went to the limit anyway.
+
+*(The text of the letter is published in the CVCE archive.)*
+
+---
+
+---
+
+## 17. What Türkiye can take
+
+
 
 The easiest wrong conclusion to draw from this dossier is: "Türkiye should build
 greenhouses too."
@@ -745,7 +1003,7 @@ yield 16 percent. That is evidence that Türkiye's existing extension, seed and 
 policy works. Before looking for a new model, one has to acknowledge that something
 working is working.
 
-**Three: moving one step down the chain.** The ratio in the sixth section is the
+**Three: moving one step down the chain.** The ratio in the seventh section is the
 harshest number in this dossier: when the Netherlands sells what it produces itself it
 retains 49.2 percent of the value; when it re-exports someone else's goods, 11.6
 percent. Türkiye today sells its hazelnuts, its grapes and its fruit raw or
@@ -758,7 +1016,7 @@ programme — are none of them greenhouse technology. All are institutional desi
 Türkiye needs is not a Westland but the form of coordination that made Westland
 possible.
 
-And a warning, from the twelfth section. The Netherlands paid the bill for
+And a warning, from the fifteenth section. The Netherlands paid the bill for
 intensification in nitrogen; that is where its ceiling came from. Türkiye's ceiling is
 not nitrogen but **water**: 86.93 percent of freshwater withdrawal goes to agriculture
 (2022), against 3.22 percent in the Netherlands. The Dutch limit was its own barns, and

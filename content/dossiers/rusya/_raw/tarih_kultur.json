@@ -1,0 +1,256 @@
+{
+  "_dosya": "Rusya dosyası — tarih, bilim ve tarım kültürü katmanı",
+  "_amac": "Dosyanın veriyle anlatılamayan yarısı. Sayı serisi değil; kurum, kişi, alışkanlık ve olay.",
+  "_giris_yontemi": "Her kalem kaynağından tek tek okundu; kaynak niteliği (BİRİNCİL / HAKEMLİ / KURUMSAL / İKİNCİL) her blokta yazılı.",
+  "_dogrulama_tarihi": "2026-08-23",
+  "_kural": "dogrulanamadi listesindeki hiçbir kalem metne giremez.",
+  "kara_toprak": {
+    "baslik_tr": "Çernozyom — kara toprak",
+    "bulgu": "Çernozyomun ne olduğu sorusunun cevabı bir bitkidir: bozkır otu. Toprağın siyahlığı, binlerce yıl boyunca ölüp çürüyen bozkır otlarının biriktirdiği organik maddedir.",
+    "ruprecht": {
+      "kisi": "Franz Joseph Ruprecht (1814-1870), Avusturya doğumlu Rus bilim insanı",
+      "eser": "'Geo-Botanical Researches into the Chernozem', Sankt-Peterburg, 1866",
+      "katki": "Saha çalışması ve mikroskobik örnek incelemesiyle, topraktaki organik maddenin ÇÜRÜMÜŞ BOZKIR OTLARI olduğunu ileri sürdü."
+    },
+    "dokuchaev": {
+      "kisi": "Vasili Dokuçayev (1846-1903)",
+      "eser": "'Russkii chernozem' (Rus Çernozyomu), Sankt-Peterburg, 1883",
+      "katki": "Toprak biliminin kurucu metni sayılıyor. Dokuçayev bu eserinde Ruprecht'in görüşlerine özel yer ayırmış ve onu 'bu sorunun bilimsel incelemesinin babası' diye anmıştır.",
+      "doktora": "Doktora tezi 19 Aralık 1883'te Sankt-Peterburg Üniversitesi'nde savunuldu."
+    },
+    "kaynak": "Anastasia A. Fedotova, 'The Origins of the Russian Chernozem Soil (Black Earth): Franz Joseph Ruprecht's Geo-Botanical Researches into the Chernozem of 1866', Environment and History",
+    "_kaynak_niteligi": "HAKEMLİ makale"
+  },
+  "vavilov": {
+    "baslik_tr": "Vavilov ve Anadolu",
+    "kisi": {
+      "ad": "Nikolai İvanoviç Vavilov",
+      "dogum": "25 Kasım 1887, Moskova",
+      "gorev": "1917'de Uygulamalı Botanik Bürosu başkan yardımcılığı",
+      "tutuklanma": "1940, batı Ukrayna'da; vatana ihanet ve casusluk suçlamasıyla",
+      "olum": "26 Ocak 1943, Saratov hapishanesi — açlıktan"
+    },
+    "eser": {
+      "sefer_sayisi": 115,
+      "ulke_sayisi": 64,
+      "ilk_sefer": "1916, İran ve Pamir",
+      "tohum_ornegi": 250000,
+      "tohum_ornegi_notu": "250.000'den fazla; dünyanın o zamanki en büyük bitki genetik kaynağı koleksiyonu",
+      "koken_merkezi_sayisi": 8,
+      "kitap": "'Kültür Bitkilerinin Kökeni ve Coğrafyası', 1926"
+    },
+    "yakin_dogu_merkezi": {
+      "kapsam": "Küçük Asya (Anadolu), Kafkasya ötesi, İran, Türkmenistan",
+      "urunler": "Birçok Triticum (buğday) türü, çavdar, arpa, mercimek; ayrıca yonca, havuç, lahana, yulaf, soğan, marul, incir, nar, elma, armut, üzüm, badem, kestane, antep fıstığı",
+      "_kaynak_niteligi": "İKİNCİL — ders kitabı düzeyinde yerleşik bilgi"
+    },
+    "anadolu_seferi": {
+      "yil": "1925 ve 1926",
+      "mesafe_km": 12000,
+      "toplanan_ornek": 5700,
+      "toplanan_ornek_notu": "5.700'den fazla kültür bitkisi örneği, bunların 291'i buğday",
+      "ek": "Sefer aynı zamanda dönemin tarım uygulamalarını belgeledi.",
+      "kaynak": "Morgounov, A., Keser, M., Kan, M., Küçükçongar, M., Özdemir, F., Gummadov, N., Muminjanov, H., Zuev, E., Qualset, C.O. (2016). 'Wheat landraces currently grown in Turkey: Distribution, diversity, and use.' Crop Science 56(6): 3112-3124.",
+      "_kaynak_niteligi": "HAKEMLİ makale"
+    },
+    "bugunku_anlami": {
+      "bulgu": "2009-2014 arasında Türkiye'de yapılan yerel buğday çeşidi taraması 3 tür ve 6 alt türü temsil eden 95 morfotip buldu — bu, 1920'de kayda geçen çeşitliliğin yüzde 50 ila 70 oranında kaybı demek.",
+      "en_cesitli_iller": [
+        "Manisa",
+        "Konya",
+        "Diyarbakır",
+        "Adana"
+      ],
+      "neden_onemli": "Türkiye'nin yerel buğday çeşitliliğinin bir asır önceki hâlini bilmemizi sağlayan kayıt, büyük ölçüde bu Rus seferinin kaydıdır.",
+      "kaynak": "aynı makale (Morgounov ve ark., 2016)",
+      "_kaynak_niteligi": "HAKEMLİ makale"
+    },
+    "leningrad": {
+      "olay": "900 günlük Leningrad kuşatması sırasında enstitü çalışanları, korudukları tohum koleksiyonunu açlıktan ölürken bile yemeyi reddetti.",
+      "_uyari": "Ölen personel sayısı okunabilen kaynaklarda verilmiyor; bu dosyada sayı yazılmayacak.",
+      "kaynak": "Crop Trust, 'Nikolai Vavilov: The Father of Genebanks'",
+      "_kaynak_niteligi": "KURUMSAL"
+    }
+  },
+  "aycicegi_ve_perhiz": {
+    "baslik_tr": "Perhiz yağı",
+    "bulgu": "Rusya'nın dünya ayçiçeği devi olmasının kökeninde bir oruç kuralı var.",
+    "anlati": "18. yüzyılda Rus Ortodoks Kilisesi perhiz döneminde tüketilmesi yasak yağları listeledi; listede tereyağı ve domuz yağı vardı. Ayçiçeği o kadar yeni bir bitkiydi ki listeye girmemişti. Böylece perhizde serbest kalan tek yağ oldu ve talep patladı.",
+    "yayilma": "19. yüzyılın başlarında Rusya ve Ukrayna'da ayçiçeği ekim alanı 800.000 hektarı aştı; yüzyılın üçüncü on yılında ayçiçeği yağı Rusya'da büyük ölçekli ve kârlı bir sanayi hâline geldi.",
+    "kaynak": "NPR, 'How The Russians Saved America's Sunflower' ve Nuseed Europe, 'History of the Sunflower'",
+    "_kaynak_niteligi": "İKİNCİL",
+    "_not": "Rakamlar ikincil kaynaktan geldiği için metinde yuvarlak ve temkinli verilir; ayçiçeğinin bugünkü hacmi PSD'den gelir."
+  },
+  "kolhozdan_agroholdinge": {
+    "baslik_tr": "Kolhozdan agroholdinge",
+    "kollektiflestirme": {
+      "baslangic": "1929 sonu, Birinci Beş Yıllık Plan kapsamında",
+      "yapi": "kolhoz (kollektif çiftlik) ve tamamen devlet işletmesi olan sovhoz"
+    },
+    "sovyet_sonu_olcek": {
+      "yil": 1990,
+      "sovhoz_sayisi": 23500,
+      "sovhoz_ortalama_ha": 15300,
+      "kolhoz_ortalama_ha": 5900,
+      "kolhoz_sayisi_1988": 27000
+    },
+    "ozellestirme": {
+      "kararname": "Aralık 1991 cumhurbaşkanlığı kararnamesi — üyelere arazi ve arazi dışı varlıklardan orantılı pay çekip bağımsız çiftlik kurma hakkı",
+      "yeniden_yapilanma_suresi": "Mart 1992'ye kadar üretim kooperatifi, limited ortaklık veya anonim şirkete dönüşme zorunluluğu",
+      "pay_ceken_hane": 300000,
+      "ozel_ciftlik_zirvesi": {
+        "yil": 1994,
+        "sayi": 284000,
+        "ortalama_ha": 40
+      }
+    },
+    "bugun": {
+      "yil": 2024,
+      "en_buyuk_sirket_sayisi": 77,
+      "kontrol_edilen_arazi_ha": 18500000,
+      "not": "Ağırlıklı olarak agroholdingler. En büyükleri yüz binlerce hektar araziyi ve 20.000'e varan tarım işçisini yönetiyor."
+    },
+    "_kaynak_niteligi": "İKİNCİL — ansiklopedik ve derleme kaynaklar",
+    "_uyari": "Bu bloktaki rakamlar birincil kaynaktan teyit edilmedi. Metinde 'yaklaşık' ve kaynak belirtilerek kullanılır; kesin iddia kurulmaz."
+  },
+  "cavdar": {
+    "baslik_tr": "Çavdarın terk edilişi",
+    "kultur": {
+      "anlati": "Kara ekmek Rusya'da 9.-10. yüzyıldan beri biliniyor. Dayanıklı çavdar, özellikle kuzeyde Rusya'nın sert ikliminine en uygun tahıldı ve 19. yüzyılda Avrupa Rusyası'nın 50 vilayetinin 40'ında başlıca üründü. Beyaz buğday ekmeği ancak 20. yüzyılın başında yaygınlaştı ve uzun süre varlık göstergesi sayıldı.",
+      "dusus": "İkinci Dünya Savaşı öncesinde Rusya'da üretilen ekmeğin yüzde 70'inde çavdar unu vardı; bugün bu oran yüzde 30 dolayında.",
+      "_kaynak_niteligi": "İKİNCİL — kültür yayınları",
+      "_uyari": "Yüzdeler ikincil kaynaktan. Metinde kaynak belirtilerek ve 'dolayında' diye verilir."
+    },
+    "veri_baglantisi": "Çavdarın terk edilişinin sayısal kanıtı USDA PSD'de: Rusya'nın çavdar üretimi 1992'de 13,89 milyon tondan 2024'te 1,20 milyon tona indi. Bu rakam data.json/diger_tahillar'dan gelir."
+  },
+  "dacha": {
+    "baslik_tr": "Yirmi milyon bahçe",
+    "bulgu": "Dünyanın en büyük buğday ihracatçısı, patatesinin beşte dördünü hane bahçelerinde yetiştiriyor. Tek ülkenin içinde iki ayrı tarım var.",
+    "uretici_siniflari_2014": {
+      "_kaynak": "Rosstat verisi, USDA FAS GAIN raporu üzerinden",
+      "_yil": 2014,
+      "tarim_kuruluslari": {
+        "tahil_yuzde": 73.8,
+        "aycicegi_yuzde": 70.1,
+        "seker_pancari_yuzde": 88.9,
+        "patates_yuzde": 12.3,
+        "sebze_yuzde": 16.7
+      },
+      "ozel_ciftlik_ve_girisimci": {
+        "tahil_yuzde": 25.4,
+        "aycicegi_yuzde": 29.5,
+        "seker_pancari_yuzde": 10.5,
+        "patates_yuzde": 7.6,
+        "sebze_yuzde": 14.0
+      },
+      "haneler": {
+        "tahil_yuzde": 0.8,
+        "aycicegi_yuzde": 0.4,
+        "seker_pancari_yuzde": 0.6,
+        "patates_yuzde": 80.1,
+        "sebze_yuzde": 69.3
+      },
+      "_haneler_notu": "Kaynak tahıl, ayçiçeği ve şeker pancarı için 'yüzde 1'den az' diyor, sayı vermiyor. Buradaki 0,8 / 0,4 / 0,6 değerleri diğer iki sınıfın toplamından ARTIK olarak hesaplandı ve kaynağın ifadesiyle tutarlı. Metinde 'yüzde 1'den az' denir; sayı yalnızca grafikte kullanılır."
+    },
+    "hukuki_dayanak": [
+      "7 Temmuz 2003 tarihli 112-FZ sayılı Federal Kanun — 'Hane Çiftlikleri Hakkında'",
+      "15 Nisan 1998 tarihli 66-FZ sayılı Federal Kanun — bahçecilik ve sebzecilik amaçlı kâr amacı gütmeyen birlikler"
+    ],
+    "kaynak": "USDA FAS GAIN — 'Classification of Agricultural Producers in Russia', Moskova, 6 Kasım 2015",
+    "yerel_kopya": "_raw/belgeler/RS2015_uretici_siniflari.pdf",
+    "_kaynak_niteligi": "BİRİNCİL BELGE (ABD federal yayını, kamu malı); içindeki oranlar Rosstat kaynaklı"
+  },
+  "cay": {
+    "baslik_tr": "Çayın kuzey sınırı",
+    "bulgu": "İki ülke arasında ters yöne akmış bir ürün var: Türk çayı, Sovyetler Birliği'nden alınan Gürcistan kökenli tohumla başladı.",
+    "turkiye": {
+      "1888": "İlk çalışmalar. Ticaret Nazırı İsmail Paşa aracılığıyla Çin'den getirtilen tohumlar Bursa dolaylarında ekildi; olumlu sonuç alınamadı.",
+      "1917": "Batum ve havalisinde inceleme yapan heyette bulunan Halkalı Yüksek Ziraat Mektebi Müdür Vekili Ali Rıza Erten, İktisat Vekaleti'ne verdiği raporda aynı ekolojik şartların bulunduğu Rize ve civarında çay ve narenciye yetiştirilmesini önerdi. Rapor önce dikkate alınmadı.",
+      "1924": "407 Sayılı Kanun ile çay üretimi çalışmalarına başlandı.",
+      "istasyon": "Rize'de Bahçe Kültürleri İstasyonu kuruldu; başına Ziraat Umum Müfettişi Zihni Derin getirildi.",
+      "tohum_alimlari": [
+        {
+          "yil": 1937,
+          "ton": 20,
+          "kaynak_ulke": "Sovyetler Birliği",
+          "menşe": "Gürcistan kökenli"
+        },
+        {
+          "yil": 1939,
+          "ton": 30
+        },
+        {
+          "yil": 1940,
+          "ton": 20
+        }
+      ],
+      "1940": "29 Mart 1940 tarihli 3788 Sayılı Çay Kanunu ile çay tarımı ve üreticisi desteklendi. Kararname ile Araklı'dan Rus sınırına kadar 30 bin dönümlük alan çay tarımına ayrıldı ve Ziraat Bankası'ndan üreticilere 5 yıl süreyle faizsiz kredi verilmesi kararlaştırıldı.",
+      "kapasite": {
+        "1973_ton_gun": 2732,
+        "2020_ton_gun": 9020,
+        "_tanim": "işlenen yaş çay yaprağı"
+      },
+      "kaynak": "ÇAYKUR — 'Kuruluşumuzun Tarihçesi, Türk Ekonomisindeki Yeri ve Gelişimi', kurumun kendi yayını",
+      "yerel_kopya": "_raw/belgeler/CAYKUR_tarihce.pdf",
+      "_kaynak_niteligi": "BİRİNCİL — kurumun kendi beyanı"
+    },
+    "rusya": {
+      "anlati": "Gürcistan, Abhazya ve Türkiye'de çay tarlalarında çalışmış olan Yuda Koşman, 1901'de Soçi yakınlarındaki Soloh-aul köyünde bir arazi alıp çay yetiştirmeye başladı ve soğuğa dayanıklı bir çeşit geliştirdi.",
+      "kuzey_sinir": "Krasnodar çayı 2012'ye kadar dünyanın en kuzeydeki çayı olarak anıldı; o yıl Birleşik Krallık ilk yerel hasadını aldı.",
+      "_kaynak_niteligi": "İKİNCİL — Rusya Beyond ve turizm yayınları",
+      "_uyari": "Tarihler ve isim ikincil kaynaktan; metinde kaynak belirtilerek verilir."
+    }
+  },
+  "sera_programi": {
+    "baslik_tr": "2014 sonrası sera programı",
+    "bulgu": "Türk domatesinin neden geri dönmediğinin sebebi burada. Boşluk kendiliğinden dolmadı; devlet destekli bir yatırım programıyla dolduruldu.",
+    "destek": "2014 sonrasında yeni sera projelerine, sera inşası ve modernizasyonu için yapılan harcamanın bir bölümünün geri ödenmesi yoluyla maliyetin yüzde 20'sine kadar destek ve imtiyazlı yatırım kredisi sağlandı.",
+    "sonuc": {
+      "sera_sebze_uretimi": "2014'e göre yüzde 65 artış",
+      "domates_ithalat_payi": [
+        {
+          "yil": 2017,
+          "tuketimdeki_pay_yuzde": 60
+        },
+        {
+          "yil": 2018,
+          "tuketimdeki_pay_yuzde": 45
+        }
+      ]
+    },
+    "kaynak": "HortiDaily derlemeleri ve USDA FAS GAIN — 'Government Import Substitution Measures in Agriculture', Moskova, 18 Eylül 2015",
+    "_kaynak_niteligi": "İKİNCİL (üretim rakamları) + BİRİNCİL BELGE (destek mekanizması)"
+  },
+  "dogrulanamadi": [
+    {
+      "kalem": "Dacha bahçelerinin patatesin yüzde 92'sini, sebzenin yüzde 77'sini ürettiği",
+      "neden": "Popüler yayınlarda dolaşıyor; USDA/Rosstat kaydı yüzde 80,1 ve yüzde 69,3 diyor. Doğrulanmış olan kullanılıyor.",
+      "gorulen_kaynak": "bahçecilik siteleri"
+    },
+    {
+      "kalem": "Rusya'da 17 milyon ailenin bahçeli evi olduğu (2016)",
+      "neden": "Anket ve tanım farkları büyük; birincil kaynağa bağlanamadı.",
+      "gorulen_kaynak": "derleme yayınlar"
+    },
+    {
+      "kalem": "Rusya'nın 2026 tahıl hasadı tahmini 137 milyon ton",
+      "neden": "Kota haberinde gerekçe olarak geçiyor; birincil kaynağa bağlanamadı.",
+      "gorulen_kaynak": "kota haberleri"
+    },
+    {
+      "kalem": "Leningrad kuşatmasında ölen enstitü personelinin sayısı",
+      "neden": "Okunabilen kaynaklarda sayı verilmiyor.",
+      "gorulen_kaynak": "Crop Trust, Kew"
+    },
+    {
+      "kalem": "Vavilov'un Anadolu seferine bizzat katılıp katılmadığı",
+      "neden": "Hakemli kaynak seferi 'Vavilov Enstitüsü'ne atfediyor, Vavilov'un kendisine değil. Metinde 'Vavilov Enstitüsü' denir.",
+      "gorulen_kaynak": "Morgounov ve ark., 2016"
+    },
+    {
+      "kalem": "Rus agroholdinglerinin tek tek adları ve payları",
+      "neden": "Şirket bazlı doğrulanmış kaynak bulunamadı.",
+      "gorulen_kaynak": "—"
+    }
+  ]
+}

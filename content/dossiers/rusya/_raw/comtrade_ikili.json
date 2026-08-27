@@ -1,0 +1,3319 @@
+{
+  "_kaynak": "UN Comtrade — public preview uç noktası",
+  "_kaynak_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+  "_raporlayan": "Türkiye (792)",
+  "_partner": "Rusya Federasyonu (643)",
+  "_raporlayan_notu": "Bütün rakamlar TÜRKİYE gümrük kaydıdır. Rusya kendi ayrıntılı ticaret verisini 2022'den beri yayımlamıyor; ayna istatistik zorunluluktur, tercih değil.",
+  "_birim": "primaryValue = cari ABD doları; netWgt = kilogram",
+  "_cekilme_tarihi": "2026-08-23T12:25:50.404Z",
+  "_cift_sayim_kurali": "Yalnızca customsCode=C00 ve motCode=0 satırları toplanır.",
+  "_akis_kodlari": {
+    "X": "Türkiye → Rusya (ihracat)",
+    "M": "Rusya → Türkiye (ithalat)"
+  },
+  "_kalem_adlari": {
+    "1001": "Buğday",
+    "1003": "Arpa",
+    "1005": "Mısır",
+    "1206": "Ayçiçeği tohumu",
+    "1512": "Ayçiçeği/aspir yağı",
+    "2306": "Yağlı tohum küspesi",
+    "3102": "Azotlu gübre",
+    "3105": "Bileşik gübre",
+    "0702": "Domates",
+    "0805": "Turunçgil",
+    "0806": "Üzüm"
+  },
+  "fasillar": {
+    "2013": {
+      "X": {
+        "10": {
+          "deger_usd": 2141490,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 865932,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 87309354,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 664008,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 735114,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 7546718,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 14540,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 47285666,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 18106746,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 13074040,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 71553054,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 50585310,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 1377828,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 63143502,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 115892,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 6935622,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 64597844,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 122952,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 9288,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 5772486,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 694430214,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1229319276,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 3764446,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 1800176976,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 23877504,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 190948338,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 980883426,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 98092,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 64406018,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 2162418,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1017548,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 2145466,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 3037422,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 20563720,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 492526584,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 13213068,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 722593468,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 1671000,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 1021718,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 495214,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 126234434,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1610450,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 484714,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2014": {
+      "X": {
+        "10": {
+          "deger_usd": 1536752,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 652272,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 83626092,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 630754,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 878110,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 11455568,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 17202,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 48903770,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 14096178,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 10670100,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 77366934,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 39660250,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 1511310,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 46566,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 70582896,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 814666,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 47988238,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 112848526,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 1200004,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 40966,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 9651756,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 770917218,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1246402460,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 2686354,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 2967735350,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 22438020,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 281533282,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 1622200318,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 13124,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 120540434,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 2380948,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1617118,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 45234,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 5086858,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 22707386,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 568684376,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 21882976,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 730610514,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 861438,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 48500,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1052676,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 194286612,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 2498760,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 503018,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2015": {
+      "X": {
+        "10": {
+          "deger_usd": 2541212,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 2359704,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 33582306,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 443270,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 964936,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 6333338,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 17228,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 32132028,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 4767560,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 4989322,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 38213154,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 28631106,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 573668,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 1382028,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 68674316,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 437076,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 3692,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 17873572,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 83444170,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 12728564,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 538,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 7271224,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 673930246,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1200782370,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 2266232,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 1885172650,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 26092208,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 153342954,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 810,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 1341338498,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 50700386,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 915250,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 974606,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 405286,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 17214640,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 15159104,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 516420566,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 54073174,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 457419538,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 296170,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 117346,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 570212,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 129812,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1384936,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 19206,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 201715996,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 4195688,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 609342,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2016": {
+      "X": {
+        "10": {
+          "deger_usd": 6284392,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 662896,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 33884806,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 59774,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 451338,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 50118,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 49592,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 12765812,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 1221960,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 2590700,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 19701012,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 17055690,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 49190,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 924880,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 55267068,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 326542,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 6460,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 884574,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 80024220,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 39486298,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 50492,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 45661502,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 688506320,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 742022,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 1377012608,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 23676314,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 306062894,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 1262862748,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 61115878,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 911378,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1137896,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 4411510,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 20628400,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 32562718,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 540465358,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 47512246,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 553693212,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 1442,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 3966,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 1031498,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 186196,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1069926,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 56888,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 192455210,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 7514884,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 147702,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2017": {
+      "X": {
+        "10": {
+          "deger_usd": 1866694,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 808516,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 36452260,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 64762,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 360824,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 111440,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 19428,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 22290932,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 4642094,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 7606214,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 38351326,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 21119690,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 469026,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 1071296,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 36246002,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 1390914,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 68506,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 609568,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 91952994,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 38708792,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 265700,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 80209162,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1274689954,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 1433518,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 1763670222,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 23066764,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 429791390,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 811036004,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 71386790,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 1960428,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1741690,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 558360,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 24785322,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 29121272,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 588510074,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 42750916,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 221517880,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 258398,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 386690,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 2678152,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 232198010,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 524854,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 433476,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2018": {
+      "X": {
+        "10": {
+          "deger_usd": 498092,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 1741002,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 54620108,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 498132,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 108600,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 6843324,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 185562,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 35061532,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 30782948,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 11050434,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 36944712,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 25057624,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 1222432,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 461694,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 19403510,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 2065786,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 455218,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 4855520,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 137308650,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 10761884,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 1075684,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 147746764,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1275014578,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 1056110,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 3023843428,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 16804564,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 54216768,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 536760852,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 61380746,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 1499420,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1226806,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 196714,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 22085282,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 29038594,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 559881814,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 46274698,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 272354168,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 2894,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 632,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 3665060,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1113604,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 84045080,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 7025264,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 250954,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2019": {
+      "X": {
+        "10": {
+          "deger_usd": 356088,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 1932904,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 63734612,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 1501110,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 22554,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 79871046,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 152752,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 35076932,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 29096172,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 19579724,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 37325938,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 34003662,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 1557428,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 1702114,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 33959082,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 3022244,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 599914,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 13017968,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 177198454,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 16438158,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 752904,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 265449056,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1312532096,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 2380342,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 3316879170,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 30469864,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 319897192,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 658985536,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 81978158,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 415722,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 992702,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 3367096,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 15592340,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 27014960,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 617387298,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 52502946,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 334298410,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 27630,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 8314464,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1513598,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 350588,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 82512580,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 8076342,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 467254,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2020": {
+      "X": {
+        "10": {
+          "deger_usd": 834562,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 2324882,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 72630318,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 1899072,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 91698,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 186529608,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 70654,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 36498756,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 8251438,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 28273794,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 42032142,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 37701830,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 568244,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 4851938,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 34793060,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 3202774,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 752826,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 1283076,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 263922158,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 16454130,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 466266,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 247792330,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1761544668,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 3954632,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 3423716882,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 43845284,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 709788758,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 1077928338,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 117781734,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 859814,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1614468,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 1601730,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 22584862,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 53892408,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 704730546,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 80040908,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 156722358,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 18112,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 4002830,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 94924,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 2003194,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 154720,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 83469166,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 3120740,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 135800,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2021": {
+      "X": {
+        "10": {
+          "deger_usd": 3051732,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 4365368,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 72524040,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 3092878,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 528772,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 303986230,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 413914,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 50946636,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 18597350,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 42894320,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 51822556,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 42214904,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 1663540,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 5210860,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 38699296,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 5102322,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 559676,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 1911478,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 434312900,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 80280634,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 40,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 2903752,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 297163294,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1835057546,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 6557424,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 4951485602,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 59965232,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 113341626,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 38,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 2127559404,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 128746,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 46624922,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 853660,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 913180,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 3400724,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 42676498,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 38094694,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 887466340,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 68625738,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 264540476,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 6744,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 747816,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 158,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 783960,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 36972,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 283992768,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 24704252,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 431170,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2022": {
+      "X": {
+        "10": {
+          "deger_usd": 8837154,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 5061074,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 113291162,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 6058552,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 2569206,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 370628174,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 321438,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 80831736,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 54084454,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 69229188,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 238536388,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 66955416,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 22236794,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 64618118,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 62447650,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 4152812,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 494018,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 2733348,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 593693572,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 62307264,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 346,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 8741948,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 246382338,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 2152370798,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 27234222,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 6122623118,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 141081570,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 113068664,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 372,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 2445164710,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 141663610,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 372990,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 369448,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 1919882,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 17073916,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 81692326,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 1381150532,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 77825812,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 710691376,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 18220,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 59562,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 1052520,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 60,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 3221364,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 220608,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 448634158,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 13141058,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 1348376,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2023": {
+      "X": {
+        "10": {
+          "deger_usd": 19385636,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 3218764,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 158877258,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 5169288,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 2298108,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 66828026,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 2055450,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 84961984,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 76251140,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 88233136,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 209816660,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 82189082,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 13382560,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 108103532,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 59985012,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 3500872,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 1868496,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 1486786,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 646630370,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 55224888,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 336,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 11636600,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 242665270,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1867274162,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 17296792,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 6716565986,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 101202612,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 139523202,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 8,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 1033052676,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 1824,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 106864826,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 2486308,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 277074,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 4719854,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 18389018,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 66605020,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 1483731418,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 97542878,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 689092854,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 13492,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 238620,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 26,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1923916,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 679833342,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 6807494,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 2554588,
+          "agirlik_kg": 0
+        }
+      }
+    },
+    "2024": {
+      "X": {
+        "10": {
+          "deger_usd": 16043538,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 2758274,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 87637008,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 6728332,
+          "agirlik_kg": 0
+        },
+        "14": {
+          "deger_usd": 1887822,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 48883728,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 1015466,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 76165976,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 103272316,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 105056476,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 222843486,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 52057640,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 8411180,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 48040300,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 54027434,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 4097528,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 2041716,
+          "agirlik_kg": 0
+        },
+        "02": {
+          "deger_usd": 549278,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 866888838,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 89469140,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 110,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 7707152,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 216203170,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1716586990,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 19468386,
+          "agirlik_kg": 0
+        }
+      },
+      "M": {
+        "10": {
+          "deger_usd": 2909829552,
+          "agirlik_kg": 0
+        },
+        "11": {
+          "deger_usd": 75335340,
+          "agirlik_kg": 0
+        },
+        "12": {
+          "deger_usd": 55402990,
+          "agirlik_kg": 0
+        },
+        "13": {
+          "deger_usd": 12,
+          "agirlik_kg": 0
+        },
+        "15": {
+          "deger_usd": 1520038938,
+          "agirlik_kg": 0
+        },
+        "16": {
+          "deger_usd": 1254,
+          "agirlik_kg": 0
+        },
+        "17": {
+          "deger_usd": 39846922,
+          "agirlik_kg": 0
+        },
+        "18": {
+          "deger_usd": 2300438,
+          "agirlik_kg": 0
+        },
+        "19": {
+          "deger_usd": 1077102,
+          "agirlik_kg": 0
+        },
+        "20": {
+          "deger_usd": 2155006,
+          "agirlik_kg": 0
+        },
+        "21": {
+          "deger_usd": 30140754,
+          "agirlik_kg": 0
+        },
+        "22": {
+          "deger_usd": 29312330,
+          "agirlik_kg": 0
+        },
+        "23": {
+          "deger_usd": 1555200884,
+          "agirlik_kg": 0
+        },
+        "24": {
+          "deger_usd": 101977216,
+          "agirlik_kg": 0
+        },
+        "31": {
+          "deger_usd": 376451288,
+          "agirlik_kg": 0
+        },
+        "01": {
+          "deger_usd": 11122,
+          "agirlik_kg": 0
+        },
+        "03": {
+          "deger_usd": 572478,
+          "agirlik_kg": 0
+        },
+        "04": {
+          "deger_usd": 323568,
+          "agirlik_kg": 0
+        },
+        "05": {
+          "deger_usd": 1917186,
+          "agirlik_kg": 0
+        },
+        "06": {
+          "deger_usd": 7002,
+          "agirlik_kg": 0
+        },
+        "07": {
+          "deger_usd": 497623190,
+          "agirlik_kg": 0
+        },
+        "08": {
+          "deger_usd": 1579544,
+          "agirlik_kg": 0
+        },
+        "09": {
+          "deger_usd": 438364,
+          "agirlik_kg": 0
+        }
+      }
+    }
+  },
+  "kalemler": {
+    "2013": {
+      "X": {
+        "1005": {
+          "deger_usd": 1593930,
+          "agirlik_kg": 3785300
+        },
+        "1206": {
+          "deger_usd": 75363236,
+          "agirlik_kg": 23942656
+        },
+        "1512": {
+          "deger_usd": 1162,
+          "agirlik_kg": 366
+        },
+        "3102": {
+          "deger_usd": 31264,
+          "agirlik_kg": 66020
+        },
+        "3105": {
+          "deger_usd": 84628,
+          "agirlik_kg": 31486
+        },
+        "0702": {
+          "deger_usd": 549192574,
+          "agirlik_kg": 635709230
+        },
+        "0805": {
+          "deger_usd": 593885878,
+          "agirlik_kg": 859079288
+        },
+        "0806": {
+          "deger_usd": 248531638,
+          "agirlik_kg": 248068864
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 1234047692,
+          "agirlik_kg": 4279114716
+        },
+        "1003": {
+          "deger_usd": 17195134,
+          "agirlik_kg": 53818808
+        },
+        "1005": {
+          "deger_usd": 507638620,
+          "agirlik_kg": 1816071600
+        },
+        "1206": {
+          "deger_usd": 39475950,
+          "agirlik_kg": 62134000
+        },
+        "1512": {
+          "deger_usd": 979801610,
+          "agirlik_kg": 724773040
+        },
+        "2306": {
+          "deger_usd": 203483942,
+          "agirlik_kg": 669710140
+        },
+        "3102": {
+          "deger_usd": 438553934,
+          "agirlik_kg": 1552478640
+        },
+        "3105": {
+          "deger_usd": 253571642,
+          "agirlik_kg": 645181628
+        },
+        "0805": {
+          "deger_usd": 33678,
+          "agirlik_kg": 45600
+        },
+        "0806": {
+          "deger_usd": 475202,
+          "agirlik_kg": 240800
+        }
+      }
+    },
+    "2014": {
+      "X": {
+        "1005": {
+          "deger_usd": 874618,
+          "agirlik_kg": 248526
+        },
+        "1206": {
+          "deger_usd": 75448618,
+          "agirlik_kg": 21907978
+        },
+        "1512": {
+          "deger_usd": 696,
+          "agirlik_kg": 382
+        },
+        "3102": {
+          "deger_usd": 74878,
+          "agirlik_kg": 279402
+        },
+        "3105": {
+          "deger_usd": 682632,
+          "agirlik_kg": 297546
+        },
+        "0702": {
+          "deger_usd": 551842210,
+          "agirlik_kg": 705476880
+        },
+        "0805": {
+          "deger_usd": 618271244,
+          "agirlik_kg": 1037182402
+        },
+        "0806": {
+          "deger_usd": 273800404,
+          "agirlik_kg": 329354822
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 2352141318,
+          "agirlik_kg": 8389286018
+        },
+        "1003": {
+          "deger_usd": 98028450,
+          "agirlik_kg": 411866000
+        },
+        "1005": {
+          "deger_usd": 418990700,
+          "agirlik_kg": 1851937654
+        },
+        "1206": {
+          "deger_usd": 67764584,
+          "agirlik_kg": 101687580
+        },
+        "1512": {
+          "deger_usd": 1621381918,
+          "agirlik_kg": 1185661040
+        },
+        "2306": {
+          "deger_usd": 253826824,
+          "agirlik_kg": 917584720
+        },
+        "3102": {
+          "deger_usd": 576561420,
+          "agirlik_kg": 2052332880
+        },
+        "3105": {
+          "deger_usd": 119000630,
+          "agirlik_kg": 274043634
+        },
+        "0702": {
+          "deger_usd": 110900,
+          "agirlik_kg": 134000
+        },
+        "0805": {
+          "deger_usd": 211202,
+          "agirlik_kg": 231380
+        },
+        "0806": {
+          "deger_usd": 922732,
+          "agirlik_kg": 378700
+        }
+      }
+    },
+    "2015": {
+      "X": {
+        "1001": {
+          "deger_usd": 349816,
+          "agirlik_kg": 1022400
+        },
+        "1005": {
+          "deger_usd": 1830772,
+          "agirlik_kg": 4013758
+        },
+        "1206": {
+          "deger_usd": 31114174,
+          "agirlik_kg": 11526090
+        },
+        "1512": {
+          "deger_usd": 6400,
+          "agirlik_kg": 3462
+        },
+        "3105": {
+          "deger_usd": 397076,
+          "agirlik_kg": 133666
+        },
+        "0702": {
+          "deger_usd": 517630196,
+          "agirlik_kg": 674851730
+        },
+        "0805": {
+          "deger_usd": 586913296,
+          "agirlik_kg": 1046905252
+        },
+        "0806": {
+          "deger_usd": 202002782,
+          "agirlik_kg": 243132046
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 1359248546,
+          "agirlik_kg": 5951914572
+        },
+        "1003": {
+          "deger_usd": 12213522,
+          "agirlik_kg": 50000000
+        },
+        "1005": {
+          "deger_usd": 429637860,
+          "agirlik_kg": 2167825152
+        },
+        "1206": {
+          "deger_usd": 25262242,
+          "agirlik_kg": 36111386
+        },
+        "1512": {
+          "deger_usd": 1339698114,
+          "agirlik_kg": 1147811400
+        },
+        "2306": {
+          "deger_usd": 182291002,
+          "agirlik_kg": 743500800
+        },
+        "3102": {
+          "deger_usd": 270832686,
+          "agirlik_kg": 1087940800
+        },
+        "3105": {
+          "deger_usd": 138084402,
+          "agirlik_kg": 364002360
+        },
+        "0702": {
+          "deger_usd": 855156,
+          "agirlik_kg": 921286
+        },
+        "0805": {
+          "deger_usd": 1627386,
+          "agirlik_kg": 2548756
+        },
+        "0806": {
+          "deger_usd": 338710,
+          "agirlik_kg": 119000
+        }
+      }
+    },
+    "2016": {
+      "X": {
+        "1001": {
+          "deger_usd": 6075558,
+          "agirlik_kg": 22495640
+        },
+        "1005": {
+          "deger_usd": 154930,
+          "agirlik_kg": 126160
+        },
+        "1206": {
+          "deger_usd": 32852588,
+          "agirlik_kg": 10007746
+        },
+        "1512": {
+          "deger_usd": 10464,
+          "agirlik_kg": 6144
+        },
+        "3102": {
+          "deger_usd": 26772,
+          "agirlik_kg": 42000
+        },
+        "3105": {
+          "deger_usd": 288652,
+          "agirlik_kg": 156212
+        },
+        "0805": {
+          "deger_usd": 539010566,
+          "agirlik_kg": 974097888
+        },
+        "0806": {
+          "deger_usd": 7818666,
+          "agirlik_kg": 4091160
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 1007248304,
+          "agirlik_kg": 5230418680
+        },
+        "1003": {
+          "deger_usd": 13115406,
+          "agirlik_kg": 76446142
+        },
+        "1005": {
+          "deger_usd": 287225706,
+          "agirlik_kg": 1557322000
+        },
+        "1206": {
+          "deger_usd": 80788740,
+          "agirlik_kg": 125921498
+        },
+        "1512": {
+          "deger_usd": 1258565154,
+          "agirlik_kg": 1105732280
+        },
+        "2306": {
+          "deger_usd": 196057538,
+          "agirlik_kg": 928552600
+        },
+        "3102": {
+          "deger_usd": 325112900,
+          "agirlik_kg": 1578554008
+        },
+        "3105": {
+          "deger_usd": 224171664,
+          "agirlik_kg": 799455806
+        },
+        "0702": {
+          "deger_usd": 889806,
+          "agirlik_kg": 1023578
+        },
+        "0805": {
+          "deger_usd": 4352850,
+          "agirlik_kg": 7626608
+        },
+        "0806": {
+          "deger_usd": 39308,
+          "agirlik_kg": 43272
+        }
+      }
+    },
+    "2017": {
+      "X": {
+        "1001": {
+          "deger_usd": 1182780,
+          "agirlik_kg": 5981680
+        },
+        "1005": {
+          "deger_usd": 461032,
+          "agirlik_kg": 275014
+        },
+        "1206": {
+          "deger_usd": 34616196,
+          "agirlik_kg": 10866694
+        },
+        "1512": {
+          "deger_usd": 14544,
+          "agirlik_kg": 9216
+        },
+        "3102": {
+          "deger_usd": 124250,
+          "agirlik_kg": 122446
+        },
+        "3105": {
+          "deger_usd": 1194442,
+          "agirlik_kg": 735176
+        },
+        "0702": {
+          "deger_usd": 4309960,
+          "agirlik_kg": 3999870
+        },
+        "0805": {
+          "deger_usd": 663520672,
+          "agirlik_kg": 1207574838
+        },
+        "0806": {
+          "deger_usd": 245782888,
+          "agirlik_kg": 326884558
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 1215604138,
+          "agirlik_kg": 6125226734
+        },
+        "1003": {
+          "deger_usd": 48052722,
+          "agirlik_kg": 289681000
+        },
+        "1005": {
+          "deger_usd": 457658042,
+          "agirlik_kg": 2359252300
+        },
+        "1206": {
+          "deger_usd": 207082192,
+          "agirlik_kg": 423682626
+        },
+        "1512": {
+          "deger_usd": 810962152,
+          "agirlik_kg": 52335090
+        },
+        "2306": {
+          "deger_usd": 179385986,
+          "agirlik_kg": 944389800
+        },
+        "3102": {
+          "deger_usd": 160119046,
+          "agirlik_kg": 687837838
+        },
+        "3105": {
+          "deger_usd": 55236756,
+          "agirlik_kg": 217252932
+        },
+        "0702": {
+          "deger_usd": 29056,
+          "agirlik_kg": 40300
+        }
+      }
+    },
+    "2018": {
+      "X": {
+        "1005": {
+          "deger_usd": 431624,
+          "agirlik_kg": 291598
+        },
+        "1206": {
+          "deger_usd": 46223702,
+          "agirlik_kg": 13986836
+        },
+        "1512": {
+          "deger_usd": 6087292,
+          "agirlik_kg": 8807338
+        },
+        "2306": {
+          "deger_usd": 6462,
+          "agirlik_kg": 12210
+        },
+        "3102": {
+          "deger_usd": 213478,
+          "agirlik_kg": 151972
+        },
+        "3105": {
+          "deger_usd": 1831264,
+          "agirlik_kg": 1268092
+        },
+        "0702": {
+          "deger_usd": 60907160,
+          "agirlik_kg": 73730440
+        },
+        "0805": {
+          "deger_usd": 602208988,
+          "agirlik_kg": 1176896022
+        },
+        "0806": {
+          "deger_usd": 141766174,
+          "agirlik_kg": 182340358
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 2195421984,
+          "agirlik_kg": 10095947020
+        },
+        "1003": {
+          "deger_usd": 257662420,
+          "agirlik_kg": 1168870576
+        },
+        "1005": {
+          "deger_usd": 532385392,
+          "agirlik_kg": 2679984930
+        },
+        "1206": {
+          "deger_usd": 2975974,
+          "agirlik_kg": 6657600
+        },
+        "1512": {
+          "deger_usd": 536760492,
+          "agirlik_kg": 697651340
+        },
+        "2306": {
+          "deger_usd": 178901762,
+          "agirlik_kg": 788019240
+        },
+        "3102": {
+          "deger_usd": 162658698,
+          "agirlik_kg": 673053020
+        },
+        "3105": {
+          "deger_usd": 99350232,
+          "agirlik_kg": 319613842
+        },
+        "0702": {
+          "deger_usd": 424954,
+          "agirlik_kg": 367690
+        },
+        "0805": {
+          "deger_usd": 2905518,
+          "agirlik_kg": 5895080
+        },
+        "0806": {
+          "deger_usd": 13560,
+          "agirlik_kg": 15570
+        }
+      }
+    },
+    "2019": {
+      "X": {
+        "1005": {
+          "deger_usd": 201724,
+          "agirlik_kg": 113442
+        },
+        "1206": {
+          "deger_usd": 53165148,
+          "agirlik_kg": 16175702
+        },
+        "1512": {
+          "deger_usd": 64990,
+          "agirlik_kg": 54454
+        },
+        "2306": {
+          "deger_usd": 7650,
+          "agirlik_kg": 7650
+        },
+        "3102": {
+          "deger_usd": 199058,
+          "agirlik_kg": 133140
+        },
+        "3105": {
+          "deger_usd": 2823186,
+          "agirlik_kg": 1957254
+        },
+        "0702": {
+          "deger_usd": 170911716,
+          "agirlik_kg": 193600278
+        },
+        "0805": {
+          "deger_usd": 623877684,
+          "agirlik_kg": 1113328708
+        },
+        "0806": {
+          "deger_usd": 181225154,
+          "agirlik_kg": 207945704
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 2997373022,
+          "agirlik_kg": 13595635186
+        },
+        "1003": {
+          "deger_usd": 75398416,
+          "agirlik_kg": 335631520
+        },
+        "1005": {
+          "deger_usd": 191122596,
+          "agirlik_kg": 1006183720
+        },
+        "1206": {
+          "deger_usd": 229955156,
+          "agirlik_kg": 590383690
+        },
+        "1512": {
+          "deger_usd": 656193650,
+          "agirlik_kg": 949347406
+        },
+        "2306": {
+          "deger_usd": 219772272,
+          "agirlik_kg": 989253960
+        },
+        "3102": {
+          "deger_usd": 88903498,
+          "agirlik_kg": 365486632
+        },
+        "3105": {
+          "deger_usd": 233937292,
+          "agirlik_kg": 800895892
+        },
+        "0702": {
+          "deger_usd": 2026068,
+          "agirlik_kg": 1571354
+        },
+        "0805": {
+          "deger_usd": 3728902,
+          "agirlik_kg": 6103744
+        },
+        "0806": {
+          "deger_usd": 353990,
+          "agirlik_kg": 335618
+        }
+      }
+    },
+    "2020": {
+      "X": {
+        "1003": {
+          "deger_usd": 4,
+          "agirlik_kg": 8
+        },
+        "1005": {
+          "deger_usd": 416466,
+          "agirlik_kg": 295326
+        },
+        "1206": {
+          "deger_usd": 70343720,
+          "agirlik_kg": 20227340
+        },
+        "1512": {
+          "deger_usd": 16110,
+          "agirlik_kg": 14478
+        },
+        "2306": {
+          "deger_usd": 15414,
+          "agirlik_kg": 44040
+        },
+        "3102": {
+          "deger_usd": 100610,
+          "agirlik_kg": 44870
+        },
+        "3105": {
+          "deger_usd": 2987370,
+          "agirlik_kg": 1486564
+        },
+        "0702": {
+          "deger_usd": 123127698,
+          "agirlik_kg": 137034654
+        },
+        "0805": {
+          "deger_usd": 837061204,
+          "agirlik_kg": 1494086526
+        },
+        "0806": {
+          "deger_usd": 191423576,
+          "agirlik_kg": 235851788
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 2998037772,
+          "agirlik_kg": 12912376118
+        },
+        "1003": {
+          "deger_usd": 101862340,
+          "agirlik_kg": 495353176
+        },
+        "1005": {
+          "deger_usd": 266016590,
+          "agirlik_kg": 1355222360
+        },
+        "1206": {
+          "deger_usd": 607864904,
+          "agirlik_kg": 1389669988
+        },
+        "1512": {
+          "deger_usd": 1074468924,
+          "agirlik_kg": 1370986440
+        },
+        "2306": {
+          "deger_usd": 259254114,
+          "agirlik_kg": 1097690540
+        },
+        "3102": {
+          "deger_usd": 23341892,
+          "agirlik_kg": 100614242
+        },
+        "3105": {
+          "deger_usd": 109035742,
+          "agirlik_kg": 418494832
+        },
+        "0702": {
+          "deger_usd": 7254458,
+          "agirlik_kg": 6163752
+        },
+        "0805": {
+          "deger_usd": 685776,
+          "agirlik_kg": 876896
+        },
+        "0806": {
+          "deger_usd": 303574,
+          "agirlik_kg": 194206
+        }
+      }
+    },
+    "2021": {
+      "X": {
+        "1001": {
+          "deger_usd": 1366132,
+          "agirlik_kg": 6070206
+        },
+        "1003": {
+          "deger_usd": 138,
+          "agirlik_kg": 72
+        },
+        "1005": {
+          "deger_usd": 1566168,
+          "agirlik_kg": 629434
+        },
+        "1206": {
+          "deger_usd": 68794288,
+          "agirlik_kg": 22574966
+        },
+        "1512": {
+          "deger_usd": 723792,
+          "agirlik_kg": 560994
+        },
+        "2306": {
+          "deger_usd": 952,
+          "agirlik_kg": 1200
+        },
+        "3102": {
+          "deger_usd": 613000,
+          "agirlik_kg": 316954
+        },
+        "3105": {
+          "deger_usd": 4474436,
+          "agirlik_kg": 3129768
+        },
+        "0702": {
+          "deger_usd": 134828238,
+          "agirlik_kg": 155932528
+        },
+        "0805": {
+          "deger_usd": 853108624,
+          "agirlik_kg": 1559657700
+        },
+        "0806": {
+          "deger_usd": 223264060,
+          "agirlik_kg": 266084544
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 3741151848,
+          "agirlik_kg": 12483091326
+        },
+        "1003": {
+          "deger_usd": 594190272,
+          "agirlik_kg": 2116106480
+        },
+        "1005": {
+          "deger_usd": 555227338,
+          "agirlik_kg": 2007907800
+        },
+        "1206": {
+          "deger_usd": 10494766,
+          "agirlik_kg": 19543066
+        },
+        "1512": {
+          "deger_usd": 2120559714,
+          "agirlik_kg": 1607963672
+        },
+        "2306": {
+          "deger_usd": 262289094,
+          "agirlik_kg": 797572152
+        },
+        "3102": {
+          "deger_usd": 24694350,
+          "agirlik_kg": 105237900
+        },
+        "3105": {
+          "deger_usd": 209655034,
+          "agirlik_kg": 472854924
+        },
+        "0702": {
+          "deger_usd": 1944436,
+          "agirlik_kg": 1957486
+        },
+        "0805": {
+          "deger_usd": 614958,
+          "agirlik_kg": 883384
+        },
+        "0806": {
+          "deger_usd": 2239752,
+          "agirlik_kg": 1942618
+        }
+      }
+    },
+    "2022": {
+      "X": {
+        "1001": {
+          "deger_usd": 3063664,
+          "agirlik_kg": 9636708
+        },
+        "1003": {
+          "deger_usd": 184,
+          "agirlik_kg": 94
+        },
+        "1005": {
+          "deger_usd": 4185428,
+          "agirlik_kg": 1491204
+        },
+        "1206": {
+          "deger_usd": 99230366,
+          "agirlik_kg": 36652778
+        },
+        "1512": {
+          "deger_usd": 5192,
+          "agirlik_kg": 2422
+        },
+        "3102": {
+          "deger_usd": 212924,
+          "agirlik_kg": 61904
+        },
+        "3105": {
+          "deger_usd": 3651210,
+          "agirlik_kg": 1362143.67
+        },
+        "0702": {
+          "deger_usd": 66883828,
+          "agirlik_kg": 72447328
+        },
+        "0805": {
+          "deger_usd": 859084956,
+          "agirlik_kg": 1453779386
+        },
+        "0806": {
+          "deger_usd": 245266712,
+          "agirlik_kg": 285642582
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 4783857174,
+          "agirlik_kg": 12571465260
+        },
+        "1003": {
+          "deger_usd": 501979564,
+          "agirlik_kg": 1504129840
+        },
+        "1005": {
+          "deger_usd": 811344406,
+          "agirlik_kg": 2295319068
+        },
+        "1206": {
+          "deger_usd": 194798,
+          "agirlik_kg": 109414
+        },
+        "1512": {
+          "deger_usd": 2375651134,
+          "agirlik_kg": 1528661488
+        },
+        "2306": {
+          "deger_usd": 323685348,
+          "agirlik_kg": 994980884
+        },
+        "3102": {
+          "deger_usd": 270011282,
+          "agirlik_kg": 470962650
+        },
+        "3105": {
+          "deger_usd": 371270772,
+          "agirlik_kg": 661931444
+        },
+        "0702": {
+          "deger_usd": 770618,
+          "agirlik_kg": 610980
+        },
+        "0805": {
+          "deger_usd": 6845228,
+          "agirlik_kg": 13000638
+        },
+        "0806": {
+          "deger_usd": 2022640,
+          "agirlik_kg": 1620546
+        }
+      }
+    },
+    "2023": {
+      "X": {
+        "1001": {
+          "deger_usd": 10,
+          "agirlik_kg": 2
+        },
+        "1003": {
+          "deger_usd": 20,
+          "agirlik_kg": 20
+        },
+        "1005": {
+          "deger_usd": 12932686,
+          "agirlik_kg": 3605452
+        },
+        "1206": {
+          "deger_usd": 154740562,
+          "agirlik_kg": 30480460
+        },
+        "1512": {
+          "deger_usd": 960632,
+          "agirlik_kg": 464740
+        },
+        "2306": {
+          "deger_usd": 8,
+          "agirlik_kg": 46
+        },
+        "3102": {
+          "deger_usd": 349312,
+          "agirlik_kg": 77702
+        },
+        "3105": {
+          "deger_usd": 2737172,
+          "agirlik_kg": 692484
+        },
+        "0702": {
+          "deger_usd": 79112100,
+          "agirlik_kg": 90751590
+        },
+        "0805": {
+          "deger_usd": 852423212,
+          "agirlik_kg": 1526599962
+        },
+        "0806": {
+          "deger_usd": 157331046,
+          "agirlik_kg": 168863852
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 5321335842,
+          "agirlik_kg": 17972253620
+        },
+        "1003": {
+          "deger_usd": 425348532,
+          "agirlik_kg": 1452115880
+        },
+        "1005": {
+          "deger_usd": 941573920,
+          "agirlik_kg": 3453357000
+        },
+        "1206": {
+          "deger_usd": 20210372,
+          "agirlik_kg": 42099490
+        },
+        "1512": {
+          "deger_usd": 983194972,
+          "agirlik_kg": 955233280
+        },
+        "2306": {
+          "deger_usd": 465589066,
+          "agirlik_kg": 1474405486
+        },
+        "3102": {
+          "deger_usd": 287083102,
+          "agirlik_kg": 776522732
+        },
+        "3105": {
+          "deger_usd": 347068612,
+          "agirlik_kg": 973960426
+        },
+        "0702": {
+          "deger_usd": 374556,
+          "agirlik_kg": 381818
+        },
+        "0805": {
+          "deger_usd": 667834,
+          "agirlik_kg": 890686
+        },
+        "0806": {
+          "deger_usd": 233256,
+          "agirlik_kg": 169372
+        }
+      }
+    },
+    "2024": {
+      "X": {
+        "1005": {
+          "deger_usd": 2417482,
+          "agirlik_kg": 662846
+        },
+        "1206": {
+          "deger_usd": 74901930,
+          "agirlik_kg": 19768134
+        },
+        "1512": {
+          "deger_usd": 1256,
+          "agirlik_kg": 936
+        },
+        "2306": {
+          "deger_usd": 1231148,
+          "agirlik_kg": 3847340
+        },
+        "3102": {
+          "deger_usd": 323904,
+          "agirlik_kg": 177858
+        },
+        "3105": {
+          "deger_usd": 1691268,
+          "agirlik_kg": 824278
+        },
+        "0702": {
+          "deger_usd": 87374328,
+          "agirlik_kg": 99951732
+        },
+        "0805": {
+          "deger_usd": 745991104,
+          "agirlik_kg": 1199162766
+        },
+        "0806": {
+          "deger_usd": 130379300,
+          "agirlik_kg": 118240050
+        }
+      },
+      "M": {
+        "1001": {
+          "deger_usd": 2255909022,
+          "agirlik_kg": 9493452888
+        },
+        "1003": {
+          "deger_usd": 20516678,
+          "agirlik_kg": 104973800
+        },
+        "1005": {
+          "deger_usd": 626873338,
+          "agirlik_kg": 2928430326
+        },
+        "1206": {
+          "deger_usd": 17707324,
+          "agirlik_kg": 18621022
+        },
+        "1512": {
+          "deger_usd": 1515547950,
+          "agirlik_kg": 1593791416
+        },
+        "2306": {
+          "deger_usd": 629747048,
+          "agirlik_kg": 2389803804
+        },
+        "3102": {
+          "deger_usd": 75920150,
+          "agirlik_kg": 247878670
+        },
+        "3105": {
+          "deger_usd": 248103184,
+          "agirlik_kg": 618563210
+        },
+        "0702": {
+          "deger_usd": 498198,
+          "agirlik_kg": 373520
+        },
+        "0805": {
+          "deger_usd": 125152,
+          "agirlik_kg": 173920
+        }
+      }
+    }
+  }
+}

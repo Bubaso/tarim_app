@@ -45,7 +45,9 @@ class CommodityRepository {
     try {
       final response = await _supabaseClient
           .from('commodity_price_history')
-          .select('price_date, avg_price')
+          // `notice` yalnızca ilan fiyatlarında dolu (görünüm süzüyor);
+          // Polatlı satırlarında null geliyor, yük getirmiyor.
+          .select('price_date, avg_price, notice')
           .eq('slug', slug)
           .order('price_date', ascending: false)
           .limit(limit);

@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/network/supabase_client.dart';
 import '../data/models/country_dossier.dart';
+import '../data/models/dosya_haberi.dart';
 import '../data/repositories/dossier_repository.dart';
 
 final dossierRepositoryProvider = Provider<DossierRepository>((ref) {
@@ -43,4 +44,25 @@ final dossierIndexByTurProvider =
 /// /ulkeler arşiv listesi.
 final dossierIndexProvider = FutureProvider<List<DossierSummary>>((ref) {
   return ref.watch(dossierIndexByTurProvider('ulke').future);
+});
+
+/// Yaklaşan dosyalar — dizi başına.
+final dossierTakvimProvider =
+    FutureProvider.family<List<DossierTakvim>, String>((ref, tur) {
+  return ref.watch(dossierRepositoryProvider).fetchTakvim(tur: tur);
+});
+
+/// Dosyayla ilgili haberler. Dosya sayfası açılınca çekiliyor.
+final dosyaHaberleriProvider =
+    FutureProvider.family<List<DosyaHaberi>, String>((ref, slug) {
+  return ref.watch(dossierRepositoryProvider).fetchDosyaHaberleri(slug);
+});
+
+/// Haberin ilgili olduğu dosyalar. Haber sayfası açılınca çekiliyor.
+///
+/// Ayrı sağlayıcı: haber sayfası dosya sayfasının hiçbir verisini yüklemiyor,
+/// yalnızca bu küçük listeyi.
+final haberDosyalariProvider =
+    FutureProvider.family<List<HaberinDosyasi>, String>((ref, articleId) {
+  return ref.watch(dossierRepositoryProvider).fetchHaberDosyalari(articleId);
 });

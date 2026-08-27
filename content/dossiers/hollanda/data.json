@@ -1,6 +1,6 @@
 {
   "_dosya": "Hollanda — Ülke Dosyası · kilitli veri sayfası",
-  "_uretim_tarihi": "2026-08-17T18:32:15.993Z",
+  "_uretim_tarihi": "2026-08-24T17:39:20.597Z",
   "_kural": "Dosya metninde geçen HER sayı bu dosyadan gelir. Buraya girmemiş bir sayı metne giremez. Bir sayı güncellenecekse önce burası güncellenir, sonra metin.",
   "_kaynaklar": {
     "WB": {
@@ -1797,52 +1797,155 @@
     ],
     "_dogrulanmamis_kural": "Yukarıdaki liste METNE GİRMEZ. Yalnızca ileride doğrulanmak üzere kayıt altındadır."
   },
-  "bosluklar": [
-    {
-      "konu": "Hollanda ürün bazlı üretim değeri",
-      "konu_en": "Dutch production value by commodity",
-      "sorun": "FAOSTAT QV'de Hollanda için ürün bazlı seri 2017'de kesiliyor (59 kalem). Türkiye 2023'e gidiyor.",
-      "sorun_en": "In FAOSTAT QV the Dutch commodity-level series stops in 2017 (59 items). The Turkish series runs to 2023.",
-      "cozum": "Ürün bazlı önem sıralaması üretim DEĞERİ ile değil, üretim MİKTARI (2024) ve TİCARET DEĞERİ (2023-24) ile kurulacak. 2017 rakamı güncelmiş gibi sunulmayacak.",
-      "cozum_en": "Commodity ranking is built from production VOLUME (2024) and TRADE VALUE (2023–24), not production value. The 2017 figure is never presented as current."
+  "turetilmis": {
+    "_aciklama": "Başka bloklardan hesaplanan değerler; kaynak alanları yanlarında yazılı.",
+    "kakao_islenmis": {
+      "_kaynak": "kakao.kalemler — çekirdek dışındaki üç kalem",
+      "_birim": "milyon US$ (cari)",
+      "ithalat": 1263,
+      "ihracat": 3638,
+      "net": 2375,
+      "cekirdek_acik": 1805
     },
-    {
-      "konu": "Sera alanı",
-      "konu_en": "Greenhouse area",
-      "sorun": "FAOSTAT ve Dünya Bankası sera alanı yayımlamıyor.",
-      "sorun_en": "Neither FAOSTAT nor the World Bank publishes greenhouse area.",
-      "cozum": "CBS StatLine tablo 81302ned'den 16 alan çekildi (`_raw/cbs_fetch.mjs`). FAOSTAT domates hasat alanıyla birebir çapraz doğrulandı (1.770 ha = 1.770 ha).",
-      "cozum_en": "16 fields were pulled from CBS StatLine table 81302ned (`_raw/cbs_fetch.mjs`) and cross-checked exactly against the FAOSTAT tomato harvested area (1,770 ha = 1,770 ha).",
-      "durum": "KAPANDI"
+    "ikili_acik": {
+      "_kaynak": "turkiye_ile.yillar — Hollanda'nın fazlası",
+      "_birim": "milyon US$ (cari)",
+      "yillar": [
+        {
+          "yil": 2020,
+          "acik": 68
+        },
+        {
+          "yil": 2021,
+          "acik": 66
+        },
+        {
+          "yil": 2022,
+          "acik": 163
+        },
+        {
+          "yil": 2023,
+          "acik": 163
+        },
+        {
+          "yil": 2024,
+          "acik": 122
+        }
+      ]
     },
-    {
-      "konu": "Yeniden ihracat payı",
-      "konu_en": "Share of re-exports",
-      "sorun": "FAOSTAT ihracatı brüt akış olarak verir; Hollanda ihracatının bir kısmı yeniden ihracattır (kendi üretimi değil). Bu ayrımı FAOSTAT yapmaz.",
-      "sorun_en": "FAOSTAT reports exports as gross flows; part of Dutch exports is re-export rather than domestic output, and FAOSTAT does not separate the two.",
-      "cozum": "CBS + Wageningen SER'in 2026-01-16 tarihli ortak yayınından alındı ve cbs.nl'den doğrulandı: 137,5 milyar EUR'nun 49,1'i yeniden ihracat, ama kazancın yalnızca 5,7/49,0'ı. Seri EUR cinsinden; FAOSTAT'ın USD serisiyle KARIŞTIRILMAYACAK.",
-      "cozum_en": "Taken from the joint CBS + Wageningen SER release of 16 Jan 2026 and verified on cbs.nl: of EUR 137.5 bn, 49.1 is re-export, yet it yields only 5.7 of 49.0 in earnings. This series is in EUR and is never mixed with the FAOSTAT USD series.",
-      "durum": "KAPANDI"
-    },
-    {
-      "konu": "Dünya sıralaması",
-      "konu_en": "World ranking",
-      "sorun": "\"Dünyanın 2. büyük tarım ihracatçısı\" ifadesi çok tekrarlanıyor ama yıl ve tanım belirtilmeden kullanılıyor.",
-      "sorun_en": "The claim \"world's second-largest agricultural exporter\" is repeated everywhere, always without a year or a definition.",
-      "cozum": "198 ülke için sıralama hesaplandı. FAOSTAT tanımıyla Hollanda 2023 ve 2022'de 3. sırada (ABD ve Brezilya'nın arkasında). Metinde \"2.\" denmeyecek; sıra verilirken tanım ve yıl yazılacak.",
-      "cozum_en": "The ranking was computed for 198 countries. On the FAOSTAT definition the Netherlands is 3rd in both 2023 and 2022, behind the USA and Brazil. The text never says \"2nd\"; every rank is given with its definition and year.",
-      "durum": "KAPANDI"
-    },
-    {
-      "konu": "Kurumlar (WUR, FloraHolland, ıslah, Greenport, Topsector)",
-      "konu_en": "Institutions (WUR, FloraHolland, plant breeding, Greenport, Topsector)",
-      "sorun": "Sayısal veri değil kurumsal bilgi; API yok.",
-      "sorun_en": "Institutional rather than numerical information; no API exists.",
-      "cozum": "Beş kurum kendi resmî yayınlarından tek tek doğrulandı (`_raw/kurumlar.json`). Teyit edilemeyen kalemler ayrı bir \"dogrulanmamis\" bloğuna alındı ve metne girmeyecek.",
-      "cozum_en": "All five institutions were verified one by one against their own official publications (`_raw/kurumlar.json`). Items that could not be confirmed were quarantined in a separate \"unverified\" block and kept out of the text.",
-      "durum": "KAPANDI",
-      "_kalan_belirsizlik": "Royal FloraHolland kendi sitesi 403 döndürdüğü için rakamlar çatı örgütü NCR üzerinden alındı. Greenport West-Holland bölgesel rakamları teyit edilemedi.",
-      "_kalan_belirsizlik_en": "Royal FloraHolland's own site returns 403, so its figures come via the umbrella body NCR. Greenport West-Holland regional figures could not be confirmed."
+    "hollandanin_kakao_uclusu_2024": {
+      "_kaynak": "turkiye_ile.hollandanin_sattiklari — üç kakao kalemi",
+      "_birim": "milyon US$ (cari)",
+      "kalem_sayisi": 3,
+      "toplam": 204.7
     }
-  ]
+  },
+  "tarih_kultur": {
+    "_kaynak": "TARIH_KULTUR",
+    "_neden_sonradan": "Bu katman ilk yayında yoktu. Rusya dosyası yazılırken, yalnızca veriye dayanan bir metnin okuru yorduğu görüldü ve dizinin tarzı genişletildi. Hollanda dosya 01; arşivde kalıcı olarak duruyor ve yeni okurun ilk gördüğü dosya. Dizinin öğrendikleriyle güncellendi.",
+    "_giris_yontemi": "Her kalem kaynağından okundu; kaynak niteliği (BİRİNCİL / HAKEMLİ / KURUMSAL / İKİNCİL) her blokta yazılı.",
+    "_dogrulama_tarihi": "2026-08-23",
+    "lale": {
+      "baslik_tr": "Lale — Anadolu'dan gelen",
+      "kategori": "Türkiye bağı",
+      "bulgu": "Hollanda'nın ulusal simgesi Osmanlı'dan gitti. Rusya dosyasındaki çay hikâyesinin tam tersi yönü: orada tohum kuzeyden Türkiye'ye geldi, burada Türkiye'den kuzeye gitti.",
+      "busbecq": {
+        "kisi": "Ogier Ghiselin de Busbecq",
+        "gorev": "İmparator I. Ferdinand adına Osmanlı sarayında diplomat",
+        "kayit": "Laleleri 'Türk Mektupları'nda belgeledi (1595'te yeniden basıldı); yabani yetiştiklerini ve renklerinin Türkler tarafından çok sevildiğini yazdı."
+      },
+      "clusius": {
+        "kisi": "Carolus Clusius",
+        "olay": "Rudolf II tahta geçince Avusturya sarayından uzaklaştırıldı; ardından Leiden'da profesör olarak atandı ve Leiden Üniversitesi Hortus Botanicus'unun ilk müdürü oldu.",
+        "etki": "Akademik ağı üzerinden lale tohumu ve soğanı gönderdi; lale soğanı ticaretini böylece başlattı. Yayınında 22 lale çeşidi belgelendi."
+      },
+      "osmanli_koken": "Laleler Osmanlı topraklarında yetişiyordu; erken dönemden itibaren çini ve seramikte süsleme olarak kullanıldı.",
+      "kaynak": "British Library — 'Tulips: Dutch, Turkish, or Flemish?'",
+      "_kaynak_niteligi": "KURUMSAL",
+      "_dogrulanmamis": "İlk lalelerin Hollanda'ya tam olarak 1593'te dikildiği yaygın olarak anılıyor ama bu kaynakta tarih verilmiyor. Metinde yıl VERİLMEYECEK; 'Clusius Leiden'a geçtikten sonra' denecek.",
+      "turkiye_cay_simetrisi": {
+        "_neden_burada": "14. bölüm iki ülkenin simgelerinin de dışarıdan geldiğini söylüyor. Çay tarafındaki olgu Rusya dosyasında da kayıtlı, ama metin kendi dosyasının veri katmanında olmayan bir sayıyı kullanamaz; kalem burada kendi kaynak kaydıyla duruyor.",
+        "olgu": "Türkiye 1937'de Sovyetler Birliği'nden Gürcistan kökenli 20 ton çay tohumu aldı; Rize'de dikildi.",
+        "yil": 1937,
+        "kaynak": "ÇAYKUR — \"Kuruluşumuzun Tarihçesi, Türk Ekonomisindeki Yeri ve Gelişimi\", kurumun kendi yayını",
+        "_kaynak_niteligi": "BİRİNCİL — kurumun kendi beyanı",
+        "_ayni_kaynak": "content/dossiers/rusya/_raw/belgeler/CAYKUR_tarihce.pdf"
+      }
+    },
+    "mansholt_mektubu": {
+      "baslik_tr": "Mansholt'un mektubu",
+      "kategori": "Bilim ve kişi — dönüş",
+      "bulgu": "Avrupa tarımını sanayileştiren adam, kurduğu şeyin durması gerektiğini yazdı.",
+      "tarih": "14 Şubat 1972",
+      "kime": "Avrupa Komisyonu Başkanı Franco Maria Malfatti",
+      "baglam": "Mansholt, MIT'in 'Limits to Growth' raporunu yayımlanmadan önce okumuştu.",
+      "icerik": [
+        "Yarının toplumunun büyüme üzerine kurulamayacağı — en azından maddi mallar bakımından",
+        "Üretim ve tüketimin durmadan kovalanmasının ekolojik ve demografik bir felakete sürüklediği uyarısı",
+        "GSMH yerine 'gayrisafi milli mutluluk' ya da 'gayrisafi milli fayda' gibi göstergeler önerisi",
+        "Kendi uzmanlık alanı tarımda: ÖLÇEK BÜYÜMESİNİN DURMASI gerektiği ve doğal dengenin gıda üretiminde giderek daha büyük rol oynayacağı"
+      ],
+      "neden_carpici": "Mansholt, büyüme odaklı Ortak Tarım Politikası'nın baş mimarıydı. Mektup o rolün açık bir geri dönüşü.",
+      "kaynak": "CVCE — 'Letter from Sicco Mansholt to Franco Maria Malfatti (February 1972)'; Het Nieuwe Instituut — 'Summary of the Mansholt letter'",
+      "_kaynak_niteligi": "BİRİNCİL BELGE (CVCE mektubun metnini yayımlıyor) + KURUMSAL özet",
+      "_mevcut_veri": "data.json/tarih.mansholt zaten Mansholt Planı'nı (21 Aralık 1968) ve Komisyon Başkanlığı dönemini taşıyor. Bu blok hikâyenin ikinci yarısı."
+    },
+    "volkstuin": {
+      "baslik_tr": "Volkstuin — bahçenin el değiştirmesi",
+      "kategori": "Gündelik tarım",
+      "bulgu": "İki ülkede de bahçe geleneği var. Rusya'da haneler patatesin yüzde 80'ini üretiyor; Hollanda'da bahçe 1950'lerden sonra rekreasyona döndü. Sanayileşmiş tarımın hane üretimine ne yaptığı bu ayrışmada görünüyor.",
+      "parsel_sayisi": "240.000'den fazla",
+      "arazi_payi": "Hollanda yüzölçümünün yaklaşık yüzde 0,12'si",
+      "ilk_kanun": 1911,
+      "cati_orgut": {
+        "ad": "AVVN — Algemeen Verbond van Volkstuindersverenigingen",
+        "kurulus": 1928
+      },
+      "donusum": "1950'lere kadar genel olarak sebze üretimi içindi; sonra ağırlıklı olarak rekreasyon amaçlı hâle geldi.",
+      "en_kucuk_parsel": "Kulübesi olmayan parseller 15 m²'ye kadar inebiliyor",
+      "kaynak": "AVVN ve Hollanda bahçecilik yayınları",
+      "_kaynak_niteligi": "İKİNCİL",
+      "_uyari": "Rakamlar ikincil kaynaklardan; metinde 'yaklaşık' ve kaynak belirtilerek verilir."
+    },
+    "meekrap": {
+      "baslik_tr": "Kökboya — bir rengin sonu",
+      "kategori": "Terk edilen ürün",
+      "bulgu": "Rusya çavdarı bıraktı çünkü pazarı yoktu. Hollanda kökboyayı bırakmadı — kökboyanın pazarını bir laboratuvar yok etti.",
+      "yukselis": "17. yüzyılda Zeeland'ın zengin toprağında kırmızı boya elde etmek için yetiştirildi. Hollandalılar bir dönem dünyanın en büyük kökboya tedarikçisi oldu ve ürün ülkeye büyük refah getirdi.",
+      "cokus": {
+        "sentez": "1868'de Graebe ve Liebermann alizarini sentetik olarak üretmenin yolunu buldu.",
+        "patent": "BASF ile İngiliz Perkin & Sons firması 25 Haziran 1869'da bir gün arayla rakip patent başvurusu yaptı.",
+        "fiyat": "1871'e gelindiğinde sentetik alizarin, kurutulmuş kökboya kökünün çok altında bir fiyata satılıyordu.",
+        "sonuc": "19. yüzyıl sonunda kökboya tarımı hızla geriledi ve tarım kolu tamamen kayboldu — ortaya çıkışından yaklaşık iki yüzyıl sonra."
+      },
+      "kalinti": "Kökboya kurutma yapıları (meestoof) karides fabrikalarına ya da başka ürünler için depoya dönüştü; çoğu sonradan yıkıldı.",
+      "kaynak": "Zeeland kökboyası üzerine bölgesel ürün çalışmaları ve doğal boya tarihi yayınları",
+      "_kaynak_niteligi": "İKİNCİL",
+      "_turkiye_baglantisi": "Bu bölümün Türkiye'ye bakan sorusu: bugün ürettiğimiz ürünlerden hangileri laboratuvarda sentezlenebilir hâle gelirse pazarını kaybeder?"
+    },
+    "_dogrulanmamis_kalemler": [
+      {
+        "kalem": "İlk lalelerin Hollanda'ya 1593'te dikildiği",
+        "neden": "Kurumsal kaynakta tarih verilmiyor; yaygın anlatıda geçiyor.",
+        "gorulen_kaynak": "çeşitli lale tarihi yayınları"
+      },
+      {
+        "kalem": "Clusius'un bahçesinden soğanların çalındığı ve ticaretin böyle yayıldığı",
+        "neden": "British Library metninde geçmiyor; 'efsaneye göre' kaydıyla dolaşıyor.",
+        "gorulen_kaynak": "popüler lale tarihi yayınları"
+      },
+      {
+        "kalem": "Hongerwinter epigenetik etkisinin toruna geçtiği",
+        "neden": "Hakemli kaynaktan doğrulanamadı.",
+        "gorulen_kaynak": "derleme yayınlar"
+      },
+      {
+        "kalem": "Volkstuin parsel sayısının güncel resmî rakamı",
+        "neden": "AVVN'nin kendi yayınından teyit edilemedi; ikincil kaynaklarda '240.000'den fazla' geçiyor.",
+        "gorulen_kaynak": "bahçecilik yayınları"
+      }
+    ],
+    "_dogrulanmamis_kural": "Yukarıdaki liste METNE GİRMEZ. Yalnızca ileride doğrulanmak üzere kayıt altındadır."
+  },
+  "bosluklar": []
 }

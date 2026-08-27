@@ -37,6 +37,8 @@ dependencies:
   firebase_messaging: ^16.5.0
   firebase_analytics: ^12.4.6
   video_player: ^2.11.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:

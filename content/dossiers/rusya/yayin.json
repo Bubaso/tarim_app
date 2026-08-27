@@ -1,0 +1,237 @@
+{
+  "_dosya": "Rusya — Ülke Dosyası · yayın künyesi",
+  "_amac": "Pencere, bölüm türleri, bölüm-grafik eşlemesi, kapak ve görseller.",
+  "slug": "rusya",
+  "name_tr": "Rusya",
+  "name_en": "Russia",
+  "iso3": "RUS",
+  "tur": "ulke",
+  "edition": 2,
+  "pencere": {
+    "gun": 28,
+    "baslangic": "2026-09-13T22:45:00+03:00",
+    "_baslangic_notu": "Hollanda'nın penceresi 2026-09-13T19:43Z'de kapanıyor; Rusya iki dakika sonra açılıyor ki ana sayfa şeridi boş kalmasın. Seed pencereyi KORUYOR (coalesce): yayındaki bir dosyanın metnini düzeltmek için seed'i yeniden çalıştırmak sayacı sıfırlamaz.",
+    "_bitis_notu": "Bitiş 28 gün sonra otomatik hesaplanıyor: 2026-10-11."
+  },
+  "status": "draft",
+  "kapak": {
+    "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_kulunda_bozkiri.jpg",
+    "atif": "NASA Goddard Space Flight Center / MODIS Land Rapid Response Team",
+    "lisans": "Kamu malı",
+    "_commons": "Kulunda Steppe (MODIS 2026-07-06).jpg",
+    "_notu": "Hollanda dosyasının kapağı da yörüngeden bir görüntüydü. Aynı bakış açısı iki dosyayı aynı diziye bağlıyor; değişen manzara."
+  },
+  "video": {
+    "url": null,
+    "_notu": "null ise kapakta video bloğu hiç çizilmez."
+  },
+  "bolum_turleri": {
+    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis.",
+    "_ritim": "1-2 anlatı açılış · 3 veri · 4-5 anlatı nefesi · 6 belge · 7-8 veri · 9 anlatı · 10-12 veri · 13 anlatı · 14-15 belge · 16-18 veri · 19 anlatı kapanış. Okur on dokuz bölümde altı kez zemin değiştiriyor.",
+    "_neden_boyle": "İlk taslakta veri bölümleri arka arkaya geliyordu ve okuma yoruyordu. Ölçüldü: yorulmanın sebebi sayı yoğunluğu değil TABLO yüküydü — sıfır tablolu bir bölüm, en yüksek sayı oranlarından birine sahip olduğu hâlde yormuyordu. Tablolar grafiğe ve cümleye taşındı; ritim de anlatı bölümleriyle seyreltildi.",
+    "1": "anlati",
+    "2": "anlati",
+    "3": "veri",
+    "4": "anlati",
+    "5": "anlati",
+    "6": "belge",
+    "7": "veri",
+    "8": "veri",
+    "9": "anlati",
+    "10": "veri",
+    "11": "veri",
+    "12": "veri",
+    "13": "anlati",
+    "14": "belge",
+    "15": "belge",
+    "16": "veri",
+    "17": "veri",
+    "18": "veri",
+    "19": "anlati"
+  },
+  "bolum_grafikleri": {
+    "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin gerçekten tanımlı olduğunu ve hiçbir grafiğin sahipsiz kalmadığını doğrular.",
+    "1": [
+      "ticaret_cizgi",
+      "tez_yigin"
+    ],
+    "3": [
+      "toprak_ikili",
+      "uretim_degeri_ikili"
+    ],
+    "7": [
+      "bugday_donus_cizgi",
+      "alan_verim_ikili"
+    ],
+    "8": [
+      "uretim_degeri_cizgi"
+    ],
+    "9": [
+      "cavdar_cizgi"
+    ],
+    "10": [
+      "kim_uretiyor_yigin"
+    ],
+    "11": [
+      "turkiye_bugday_cizgi"
+    ],
+    "12": [
+      "musteriler_siralama"
+    ],
+    "17": [
+      "ambargo_ikili"
+    ],
+    "18": [
+      "isleme_ikili"
+    ]
+  },
+  "bolum_gorselleri": {
+    "2": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_cernozyom_monolit.jpg",
+      "atif": "Rockwurm, ISRIC World Soil Information — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Chernozem.JPG",
+      "alt_tr": "Çernozyom toprak profili: üstte kalın ve neredeyse siyah bir humus katmanı, aşağı indikçe açılan renk. Siyahlık bozkır otunun binlerce yıllık birikimi.",
+      "alt_en": "A chernozem soil profile: a thick, almost black humus horizon on top, lightening with depth. The blackness is millennia of accumulated steppe grass."
+    },
+    "4": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_vavilov.jpg",
+      "atif": "Library of Congress, New York World-Telegram & Sun Collection — kamu malı",
+      "lisans": "Kamu malı",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Nikolai_Vavilov_NYWTS.jpg",
+      "alt_tr": "Nikolai İvanoviç Vavilov'un portresi. 64 ülkeye 115 sefer düzenleyen ve 250 binden fazla tohum örneği toplayan botanikçi.",
+      "alt_en": "Portrait of Nikolai Ivanovich Vavilov, the botanist who mounted 115 expeditions to 64 countries and gathered more than 250,000 seed samples."
+    },
+    "5": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_aycicegi_tarlasi.jpg",
+      "atif": "andrew, Wikimedia Commons — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Sunflower_field_in_Russia.JPG",
+      "alt_tr": "Rusya'da ufka kadar uzanan ayçiçeği tarlası. İki yüzyıllık bir üretim geleneğinin bugünkü hâli.",
+      "alt_en": "A sunflower field stretching to the horizon in Russia — two centuries of production tradition as it stands today."
+    },
+    "6": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_1946_tahil_pulu.jpg",
+      "atif": "SSCB posta pulu, 1946 — kamu malı",
+      "lisans": "Kamu malı",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:The_Soviet_Union_1946_CPA_1082_stamp_(Fourth_Five-Year_Plan._Give_the_country_each_year_127_million_tons_of_grain._Combine_harvester_and_wheat_sheaf)_large_resolution.jpg",
+      "alt_tr": "1946 tarihli Sovyet posta pulu: biçerdöver ve buğday demeti. Kollektif tarımın hedefi bir posta pulunda ilan ediliyordu.",
+      "alt_en": "A 1946 Soviet postage stamp showing a combine harvester and a wheat sheaf — collective agriculture's target announced on postage."
+    },
+    "9": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_borodinski_ekmek.jpg",
+      "atif": "Tiraspolsky, Wikimedia Commons — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Бородинский_хлеб.jpg",
+      "alt_tr": "Dilimlenmiş Borodinski ekmeği: koyu renkli, çavdar unundan yapılan Rus kara ekmeğinin en bilinen türü.",
+      "alt_en": "Sliced Borodinsky bread: dark, made from rye flour, the best known of the Russian black breads."
+    },
+    "10": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_dacha_bahcesi.jpg",
+      "atif": "Vovs Vtoroi, Wikimedia Commons — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Дача_-_panoramio_(25).jpg",
+      "alt_tr": "Bir dacha bahçesi: küçük parseller, sebze sıraları ve ahşap bir ev. Rusya'nın patatesinin beşte dördü bu ölçekten geliyor.",
+      "alt_en": "A dacha garden: small plots, rows of vegetables and a wooden house. Four-fifths of Russia's potatoes come from this scale."
+    },
+    "13": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_rize_cay.jpg",
+      "atif": "Wikimol, Wikimedia Commons — CC BY-SA 2.5",
+      "lisans": "CC BY-SA 2.5",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Rize_Tea_Plantation_2005-jk.jpg",
+      "alt_tr": "Rize'de yamaca yayılmış çay bahçesi. Bu bitkinin atası 1937'de Batum'dan gelen tohumdan.",
+      "alt_en": "A tea garden spread across a hillside in Rize. The ancestor of this plant came from seed brought from Batumi in 1937."
+    },
+    "15": {
+      "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_ksk_terminali.jpg",
+      "atif": "IvanStudenov, Wikimedia Commons — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "kaynak": "https://commons.wikimedia.org/wiki/File:Grain_shipments_at_KSK_terminal.jpg",
+      "alt_tr": "Novorossiysk'te KSK tahıl terminali: rıhtımda yükleme yapan gemi ve silolar. Türkiye'nin buğdayı bu rıhtımlardan geçiyor.",
+      "alt_en": "The KSK grain terminal at Novorossiysk: a ship loading at the berth, with silos behind. Türkiye's wheat passes through these piers."
+    },
+    "_amac": "Bölüm sırası → görsel. Atıfsız veya alt metinsiz görsel yayımlanmaz.",
+    "_adres_notu": "Adres MUTLAK yazılır — NewsArticleImage göreli yolu kabul etmiyor.",
+    "_kunye": "_raw/gorseller/kunye.json — lisans, yazar ve seçim gerekçeleri orada"
+  },
+  "_kalan_isler": [
+    "status: draft → published (KULLANICI ONAYI BEKLİYOR)",
+    "migration + supabase db push",
+    "./deploy.sh --hosting (9 görsel + paylaşım kartı)",
+    "python3 scripts/dosya_hikayeleri.py — YAYINDAN SONRA; hikâye yayımlanmamış dosyaya çağırmamalı"
+  ],
+  "hikaye": {
+    "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+    "_kural": "Metin elle yazıldı, modele yazdırılmadı. Rakamlar data.json'dan ve doğrulanmış: 2024 tarım ithalatı 6,83 milyar $, bozulan payı %74,6, 2021 müşteri payı %16,4, 1937'de Batum'dan 20 ton çay tohumu, 20 bölüm.",
+    "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ fotoğraflardan; paylaşım kartı kullanılmıyor — kartın üstünde zaten yazı var ve görüntüleyici kendi metnini bindirince ikisi çakışıyor.",
+    "_akis": "Dört merak kancası, sonda tek çağrı. Slaytlar birbirinin devamı: etiket yanlış → asimetri → beklenmedik güç → ters yöne akan tohum → dosyaya davet.",
+    "grup_tr": "Ülke Dosyası",
+    "grup_en": "Country Dossier",
+    "slaytlar": [
+      {
+        "ust": "ÜLKE DOSYASI · 02",
+        "ust_en": "COUNTRY DOSSIER · 02",
+        "baslik": "Rusya'yı pazar ülkemiz sayıyoruz. Oysa ondan aldığımız, ona sattığımızın neredeyse iki katı.",
+        "baslik_en": "We count Russia as one of our markets. Yet we buy from it almost twice what we sell.",
+        "rakam": "6,83 milyar $",
+        "rakam_en": "$6.83 billion",
+        "etiket": "2024'te Rusya'dan tarım ithalatımız",
+        "etiket_en": "Our agricultural imports from Russia in 2024",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_ksk_terminali.jpg"
+      },
+      {
+        "ust": "SİLO VE BUZDOLABI",
+        "ust_en": "SILO AND REFRIGERATOR",
+        "baslik": "Ondan aldığımız bir hasat yılı bekler. Ona sattığımızın ömrü haftalarla ölçülür.",
+        "baslik_en": "What we buy waits out a harvest year. What we sell is measured in weeks.",
+        "rakam": "%74,6",
+        "rakam_en": "74.6%",
+        "etiket": "Rusya'ya sattığımızın bozulan payı",
+        "etiket_en": "The perishable share of what we sell Russia",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_aycicegi_tarlasi.jpg"
+      },
+      {
+        "ust": "BEKLENMEDİK BİR SIRA",
+        "ust_en": "AN UNEXPECTED RANK",
+        "baslik": "159 ülke arasında Türkiye, Rusya'nın dünyadaki bir numaralı tarım müşterisi.",
+        "baslik_en": "Among 159 countries, Türkiye is Russia's largest agricultural customer in the world.",
+        "rakam": "%16,4",
+        "rakam_en": "16.4%",
+        "etiket": "Rusya'nın tarım ihracatından aldığımız pay",
+        "etiket_en": "Our share of Russia's agricultural exports",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_cernozyom_monolit.jpg"
+      },
+      {
+        "ust": "TERS YÖNE AKAN",
+        "ust_en": "WHAT FLOWED THE OTHER WAY",
+        "baslik": "Bu ticaretin her tablosunda akış Rusya'dan Türkiye'ye. Bir istisna var: Rize'deki çayın atası.",
+        "baslik_en": "In every table of this trade the flow runs from Russia to Türkiye. One exception: the ancestor of the tea in Rize.",
+        "rakam": "20 ton",
+        "rakam_en": "20 tonnes",
+        "etiket": "1937'de Batum'dan alınan çay tohumu",
+        "etiket_en": "Tea seed bought from Batumi in 1937",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_rize_cay.jpg"
+      },
+      {
+        "ust": "RUSYA",
+        "ust_en": "RUSSIA",
+        "baslik": "Kara toprak, alan ülkeden satan ülkeye dönüşen bir tarım, ve Türkiye'ye değdiği üç kanal — hepsi 20 bölümde",
+        "baslik_en": "Black earth, an agriculture that turned from buyer to seller, and the three channels where it touches Türkiye — all in 20 sections",
+        "rakam": "20 bölüm",
+        "rakam_en": "20 sections",
+        "etiket": "Ülke dosyamıza göz atın →",
+        "etiket_en": "Take a look at our country dossier →",
+        "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_kulunda_bozkiri.jpg"
+      }
+    ]
+  },
+  "anahtar_kelimeler": [
+    "Rusya",
+    "Rus buğdayı",
+    "Moskova",
+    "Novorossiysk",
+    "Karadeniz tahıl",
+    "Rosstat"
+  ],
+  "_anahtar_kelimeler_notu": "Haber eşleştirmesinde aranacak terimler. KELİME OLARAK aranıyor (sözcük sınırı), alt dize olarak değil — \"Rus\" araması \"Prusya\"yı yakalamasın diye. Editör kararıdır: liste boşsa dosya hiçbir haberle eşleşmez, çünkü yanlış haber göstermektense hiç göstermemek doğru."
+}

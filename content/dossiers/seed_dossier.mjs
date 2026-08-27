@@ -417,7 +417,7 @@ begin;
 
 insert into public.country_dossiers
   (slug, name_tr, name_en, iso3, tur, kurulus_belgesi, edition,
-   thesis_tr, thesis_en, theme, data, charts,
+   thesis_tr, thesis_en, theme, data, charts, anahtar_kelimeler,
    cover_url, cover_credit, video_url, status, starts_at, ends_at, published_at)
 values (
   ${tirnak(yayin.slug)},
@@ -432,6 +432,7 @@ values (
   ${jsonb(tasarim)},
   ${jsonb(data)},
   ${jsonb(charts)},
+  ${dizi(yayin.anahtar_kelimeler ?? [])},
   ${kapak.url ? tirnak(kapak.url) : 'null'},
   ${kapak.atif ? dolar(kapak.atif) : 'null'},
   ${video.url ? tirnak(video.url) : 'null'},
@@ -452,6 +453,7 @@ on conflict (slug) do update set
   theme        = excluded.theme,
   data         = excluded.data,
   charts       = excluded.charts,
+  anahtar_kelimeler = excluded.anahtar_kelimeler,
   cover_url    = excluded.cover_url,
   cover_credit = excluded.cover_credit,
   video_url    = excluded.video_url,
@@ -501,7 +503,56 @@ if (stdout) {
   const cikis = join(cikisDir, `dossier_${slug}.sql`);
   await writeFile(cikis, sql, 'utf8');
 
+  // ── Önizleme satırı ────────────────────────────────────────────────────
+  // Taslak dosya canlıda GÖRÜLEMEZ: RLS anon'a yalnızca published ve archived
+  // açıyor. Yayımlamadan önce dosyanın gerçek hâlini — kendi paleti, kendi
+  // grafikleri, kendi dizgisiyle — görebilmek için, veritabanına yazılacak
+  // satırın aynısı JSON olarak da yazılıyor. `lib/main_onizleme.dart` bunu
+  // okuyup depo yerine koyuyor. Yayına giden yola hiç dokunmuyor.
+  const onizleme = {
+    _uyari: 'ÜRETİLMİŞ ÖNİZLEME. Veritabanına yazılacak satırın aynısı. Yayın bu dosyayı kullanmaz.',
+    _uretim: new Date().toISOString(),
+    summary: {
+      slug: yayin.slug,
+      name_tr: yayin.name_tr,
+      name_en: yayin.name_en,
+      iso3: yayin.iso3 ?? null,
+      tur: dosyaTuru,
+      kurulus_belgesi: yayin.kurulus_belgesi ?? null,
+      edition: Number(yayin.edition),
+      thesis_tr: tez.tr,
+      thesis_en: tez.en,
+      theme: tasarim,
+      cover_url: kapak.url ?? null,
+      cover_credit: kapak.atif ?? null,
+      video_url: video.url ?? null,
+      // Önizlemede pencere hep açık: taslağın penceresi henüz yok ve kapak
+      // "ŞİMDİ" rozetini pencereye bakarak çiziyor.
+      starts_at: new Date(Date.now() - 864e5).toISOString(),
+      ends_at: new Date(Date.now() + (p.gun ?? 28) * 864e5).toISOString(),
+      days_remaining: p.gun ?? 28,
+      section_count: tr.length,
+      is_active: true,
+    },
+    data,
+    charts,
+    sections: tr.map((b, i) => ({
+      ord: b.ord,
+      title_tr: b.baslik,
+      title_en: en[i].baslik,
+      body_tr: b.govde,
+      body_en: en[i].govde,
+      chart_keys: grafikler[i],
+      tur: turler[i],
+      gorsel: gorseller[i] ?? null,
+    })),
+  };
+  const onizlemeDir = join(KOK, 'web', 'onizleme');
+  await mkdir(onizlemeDir, { recursive: true });
+  await writeFile(join(onizlemeDir, `${slug}.json`), JSON.stringify(onizleme), 'utf8');
+
   console.log(`✓ seed yazıldı → supabase/seed/dossier_${slug}.sql`);
+  console.log(`✓ önizleme    → web/onizleme/${slug}.json`);
   console.log(`  ${tr.length} bölüm · TR ~${trKelime} kelime · EN ~${enKelime} kelime`);
   console.log(`  theme ${(JSON.stringify(tasarim).length / 1024).toFixed(1)} KB · ` +
               `data ${(JSON.stringify(data).length / 1024).toFixed(1)} KB · ` +

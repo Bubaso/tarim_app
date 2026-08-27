@@ -44,9 +44,9 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
   /// rozet gibi duruyor, dokunulacak bir şeye benzemiyor. Baştaki kart açık
   /// gelince yanındakilerin de açılacağı kendiliğinden anlaşılıyor.
   ///
-  /// Ayrı bir bayrak gerekiyor çünkü açılan kartı okuyucu kapatabilir; sadece
-  /// `_expandedSlug ??= ...` yazsaydık bir sonraki çizimde kart geri açılır,
-  /// kapatma tuşu çalışmıyormuş gibi görünürdü.
+  /// Ayrı bir bayrak gerekiyor çünkü okuyucu başka bir karta geçebilir; sadece
+  /// `_expandedSlug ??= ...` yazsaydık bir sonraki çizimde açık kart yeniden
+  /// baştakine dönerdi ve seçim tutmuyormuş gibi görünürdü.
   bool _seededFirstCard = false;
 
   final Map<String, GlobalKey> _cardKeys = {};
@@ -57,10 +57,12 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
     super.dispose();
   }
 
-  void _toggle(String slug) {
-    setState(() => _expandedSlug = _expandedSlug == slug ? null : slug);
-
-    if (_expandedSlug == null) return;
+  /// Kartı açar.
+  ///
+  /// Kapatma yok: açık karta dokunmak artık grafiği açıyor (bkz. `CommodityCard`).
+  /// Kapanma başka bir kart açılınca kendiliğinden oluyor.
+  void _ac(String slug) {
+    setState(() => _expandedSlug = slug);
 
     // Sağ kenardaki kart açıldığında büyüyen kısım ekranın dışında kalıyordu:
     // okuyucu bir şeye basıp hiçbir şey olmamış gibi görüyordu. Animasyon
@@ -150,7 +152,7 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
                       isDark: widget.isDark,
                       isExpanded: isExpanded,
                       isCompact: isCompact,
-                      onTap: () => _toggle(price.slug),
+                      onTap: () => _ac(price.slug),
                       onOpenDetail: () => isWide
                           ? showCommodityDetailDialog(context, price.slug)
                           : pushScreen(

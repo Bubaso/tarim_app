@@ -1,0 +1,162 @@
+{
+  "_dosya": "Rusya dosyası — kurumsal ve mevzuat katmanı",
+  "_amac": "API'den gelmeyen, birincil ya da birincile en yakın kaynaktan tek tek doğrulanmış kalemler.",
+  "_giris_yontemi": "WebFetch ile kaynağın kendi sayfasından ya da indirilen resmî belgeden okundu; her kalemin altında kaynağı ve doğrulama tarihi var.",
+  "_dogrulama_tarihi": "2026-08-23",
+  "_kural": "dogrulanamadi listesindeki hiçbir kalem dosya metnine GİREMEZ. Doğrulanana kadar orada durur.",
+
+  "kapali_kaynaklar": {
+    "_not": "Ölçüm, iddia değil. 23 Ağustos 2026'da bu ağdan denendi. Erişimsizliğin ülke engellemesi mi yerel ağ mı olduğu ÇÖZÜLMEDİ — metinde 'erişilemedi' denir, 'yasaklandı' denmez.",
+    "denemeler": [
+      { "adres": "rosstat.gov.ru", "sonuc": "bağlantı kurulamadı", "deneme_sayisi": 2 },
+      { "adres": "customs.gov.ru", "sonuc": "25 saniyede zaman aşımı", "deneme_sayisi": 1 },
+      { "adres": "government.ru / special.government.ru", "sonuc": "yanıt alınamadı", "deneme_sayisi": 2 },
+      { "adres": "fenixservices.fao.org (FAOSTAT API)", "sonuc": "HTTP 521", "deneme_sayisi": 1 }
+    ],
+    "sonuc": "Rusya'ya ait rakamların çoğu ayna istatistiktir: satın alan ülkelerin defterinden okunuyor."
+  },
+
+  "ihracat_vergisi": {
+    "ad_tr": "Tahıl damperi — değişken ihracat vergisi",
+    "ad_ru": "зерновой демпфер",
+    "yururluge_giris": "2021-06-02",
+    "kapsam": ["buğday", "mısır", "arpa"],
+    "hesap": "Vergi = (gösterge fiyat − referans fiyat) × %70",
+    "hesap_sikligi": "haftalık",
+    "gosterge_kaynagi": "Moskova Borsası'na kayıtlı ihracat sözleşmelerinin fiyatları",
+    "referans_fiyat_seyri": [
+      { "tarih": "2021-06-02", "bugday_rub_ton": 15000, "arpa_misir_rub_ton": 13875 },
+      { "tarih": "2023-07", "bugday_rub_ton": 17000, "arpa_misir_rub_ton": 15875 },
+      { "tarih": "2024-06-28", "bugday_rub_ton": 18000, "arpa_misir_rub_ton": 16875 }
+    ],
+    "para_birimi_notu": "Vergi başlangıçta dolarla, Temmuz 2022'den beri rubleyle hesaplanıyor.",
+    "gelirin_kullanimi": "Toplanan tutar üreticiye sübvansiyon olarak geri veriliyor.",
+    "onemi_tr": "Fiyat eşiği aştığında vergi kendiliğinden yükseliyor, düştüğünde sıfıra inebiliyor. Yani Rus buğdayının dünya fiyatı ile iç fiyatı arasına ayarlanabilir bir vana konmuş durumda.",
+    "kaynak": "Rusya Tarım Bakanlığı duyurularının Interfax ve TASS üzerinden aktarımı",
+    "_kaynak_niteligi": "İKİNCİL. Birincil kaynak (Tarım Bakanlığı sitesi) bu ağdan okunamadı; bkz. kapali_kaynaklar.",
+    "_dogrulama_tarihi": "2026-08-23"
+  },
+
+  "ihracat_kotasi": {
+    "ad_tr": "Tahıl ihracat tarife kotası",
+    "hukuki_dayanak": "Kararname No. 2089",
+    "duyuru_tarihi": "2025-12-24",
+    "yururluk": { "baslangic": "2026-02-15", "bitis": "2026-06-30" },
+    "hacim_ton": 20000000,
+    "hacim_notu": "10 Nisan 2026'da 5 milyon ton artırıldı. Bir önceki yıl (2025) kota 10,6 milyon tondu.",
+    "kapsam": ["buğday", "mahlut", "çavdar", "arpa", "mısır"],
+    "kapsam_notu": "Çavdar kapsamda ama kotası sıfır olarak bildirildi — iki kaynak bu noktada farklı okunuyor, ikisi de kayda geçti.",
+    "istisna": "Hükümet kararına dayalı uluslararası insani yardım sevkiyatları kotaya tabi değil.",
+    "cografi_kapsam": "Avrasya Ekonomik Birliği (AEB) dışına yapılan ihracat",
+    "kaynak": "Global Trade Alert — state act 95876",
+    "kaynak_url": "https://globaltradealert.org/state-act/95876-russia-temporary-export-tariff-quota-for-certain-grains-15-february-30-june-2026",
+    "_kaynak_niteligi": "İKİNCİL ama belge künyeli. Birincil metin (government.ru) okunamadı.",
+    "_dogrulama_tarihi": "2026-08-23"
+  },
+
+  "limanlar": {
+    "_not": "Rus tahılının Türkiye'ye çıkış kapısı Karadeniz. Novorossiysk tek liman değil ama en büyüğü.",
+    "novorossiysk_terminalleri": [
+      {
+        "ad": "Novorossiysk Tahıl İşleme Tesisi (NKHP)",
+        "yillik_kapasite_mt": 7.1,
+        "tek_seferlik_depolama_ton": 245000,
+        "gemi_yukleme_ton_saat": 2000,
+        "sahiplik": "Demetra-Holding payı %35,36",
+        "kaynak": "Demetra-Holding kendi varlık sayfası",
+        "kaynak_url": "https://dholding.ru/en/assets/nkhp",
+        "_kaynak_niteligi": "BİRİNCİL — işletmecinin kendi beyanı"
+      },
+      {
+        "ad": "Novorossiysk Tahıl Terminali (NZT/NGT)",
+        "yillik_kapasite_mt": 8.5,
+        "tek_seferlik_depolama_ton": 200000,
+        "hizmete_giris": 2008,
+        "sahiplik": "Demetra-Holding %100",
+        "kaynak": "Demetra-Holding kendi varlık sayfası",
+        "kaynak_url": "https://dholding.ru/en/assets/nzt",
+        "_kaynak_niteligi": "BİRİNCİL — işletmecinin kendi beyanı"
+      }
+    ],
+    "tarihsel_karsilastirma_2013": {
+      "_uyari": "BU RAKAMLAR 2013'TEN. Güncel diye kullanılamaz — Rusya'nın buğday ihracatı o tarihten bu yana kat kat arttı. Yalnızca büyümeyi göstermek için var.",
+      "nkhp_mt": 4.5,
+      "ngt_mt": 3.5,
+      "ksk_mt": 3.5,
+      "toplam_mt": 11.5,
+      "kaynak": "USDA FAS GAIN — Russian Grain Port Capacity and Transportation Update, 16 Ağustos 2013",
+      "yerel_kopya": "_raw/belgeler/RS2013_liman_kapasitesi.pdf",
+      "_kaynak_niteligi": "BİRİNCİL BELGE (ABD federal yayını, kamu malı)"
+    },
+    "guncel_olay_2026_08_12": {
+      "_uyari": "YAŞAYAN DURUM. Dosya yayına girdiğinde geçerliliği değişmiş olabilir; yayın öncesi yeniden doğrulanacak.",
+      "tarih": "2026-08-12",
+      "olay": "Novorossiysk'teki tahıl terminalleri insansız hava aracı saldırısının ardından işlemleri durdurdu.",
+      "dogrulanan_terminaller": [
+        { "ad": "Novorossiysk Tahıl Terminali", "kapasite_mt": 8.5 },
+        { "ad": "NKHP", "kapasite_mt": 7.1 }
+      ],
+      "dogrulanan_kapasite_mt": 15.6,
+      "isletmeci_beyani": "NKHP'nin sahibi OZK ayrıntıları daha sonra paylaşacağını bildirdi; hasar tespiti sürüyor.",
+      "yeniden_calisma": "Kaynakta süre verilmiyor.",
+      "kaynak": "Reuters aktarımı, Ukrinform, 12 Ağustos 2026",
+      "kaynak_url": "https://www.ukrinform.net/rubric-economy/4153550-two-grain-terminals-in-novorossiysk-halt-operations-after-ukrainian-attack-reuters.html",
+      "_kaynak_niteligi": "İKİNCİL"
+    }
+  },
+
+  "turkiye_2024_karari": {
+    "ad_tr": "Dahilde İşleme Rejimi kapsamında buğday ithalatının durdurulması",
+    "duyuru_tarihi": "2024-06-06",
+    "yururluk": { "baslangic": "2024-06-21", "bitis": "2024-10-15" },
+    "bitis_notu": "Kaynak, piyasa koşullarına göre uzatılabileceğini yazıyor.",
+    "kapsam": "Dahilde İşleme Rejimi kapsamındaki buğday ithalatı",
+    "yani_sira_serbestlesenler": [
+      "Yerli buğdaydan üretilen unun ihracatı — Eylül 2018'den beri yasaktı, serbest bırakıldı.",
+      "Ekmeklik buğday, makarnalık buğday ve arpa ihracatı, TMO onayına bağlı olarak kontrollü biçimde serbest bırakıldı."
+    ],
+    "tmo_mudahale_fiyatlari_2024": {
+      "birim": "TL/ton",
+      "makarnalik_bugday": 11750,
+      "ekmeklik_bugday": 11000,
+      "arpa": 8000,
+      "not": "Rakamlar Bakanlık ödeme desteği dahildir: buğdayda 1.750 TL/ton, arpada 750 TL/ton.",
+      "anadolu_sert_bugday_mudahale": 9250
+    },
+    "gerekce_kaynakta": "Üreticiyi fiyat dalgalanmasından korumak, yurt içi hammadde alımını güvenceye almak.",
+    "onemli_ayrinti": "Kaynak, Rusya Tahıl Birliği'nin uygulama tarihinin 30 Haziran'a çekilmesini istediğini, ancak kararın duyurulduğu gibi uygulandığını yazıyor.",
+    "onemi_tr": "Kararın hedefi doğrudan ithal-işle-ihraç zinciriydi. Türkiye'nin ihracat makinesinin hammadde musluğu bir yaz boyunca kendi eliyle kısıldı.",
+    "kaynak": "USDA FAS GAIN — 'Turkiye Announces Changes to Wheat Trade Policy', rapor no TU2024-0027, 5 Temmuz 2024, Ankara",
+    "yerel_kopya": "_raw/belgeler/TU2024-0027_bugday_politikasi.pdf",
+    "_kaynak_niteligi": "BİRİNCİL BELGE (ABD federal yayını, kamu malı); içindeki TMO duyurusu doğrudan alıntılanmış.",
+    "_dogrulama_tarihi": "2026-08-23"
+  },
+
+  "dogrulanamadi": [
+    {
+      "kalem": "KSK terminali yıllık kapasitesi 10,85 milyon ton",
+      "neden": "İşletmecinin kendi sayfasından teyit edilemedi; yalnızca haber kaynağında geçiyor.",
+      "gorulen_kaynak": "S&P Global haber metni"
+    },
+    {
+      "kalem": "Novorossiysk üç terminalin toplam kapasitesi 26,1 milyon ton",
+      "neden": "KSK doğrulanmadığı için toplam da doğrulanmadı. Doğrulanan iki terminal 15,6 milyon ton.",
+      "gorulen_kaynak": "S&P Global, New Voice of Ukraine"
+    },
+    {
+      "kalem": "12 Ağustos 2026'da ÜÇ terminalin birden durduğu",
+      "neden": "Okunabilen kaynak iki terminal adı veriyor; üçüncüsü yalnızca başka haber metinlerinde geçiyor.",
+      "gorulen_kaynak": "S&P Global, New Voice of Ukraine"
+    },
+    {
+      "kalem": "Rusya'nın 2026 tahıl hasadı tahmini 137 milyon ton",
+      "neden": "Kota haberinde gerekçe olarak geçiyor ama birincil kaynağa bağlanamadı. USDA PSD ile çapraz kontrol edilmeli.",
+      "gorulen_kaynak": "kota haberleri"
+    },
+    {
+      "kalem": "Rus tarım ihracatındaki büyük agroholdinglerin adları ve payları",
+      "neden": "Henüz araştırılmadı.",
+      "gorulen_kaynak": "—"
+    }
+  ]
+}

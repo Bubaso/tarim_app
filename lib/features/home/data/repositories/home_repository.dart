@@ -10,8 +10,7 @@ import '../models/weather_info.dart';
 import '../../../../core/constants/api_constants.dart';
 import '../models/market_data.dart';
 import 'package:uuid/uuid.dart';
-
-
+import 'package:hive_flutter/hive_flutter.dart';
 class HomeRepository {
   final SupabaseClient _supabaseClient;
 
@@ -24,40 +23,55 @@ class HomeRepository {
     // Anında emit etmek manşette "eski haber görünüp yeni habere dönüşme" (flash) 
     // sorununa yol açıyor. Ağ hatası olursa zaten handleError kısmında emit edilecek.
     try {
-      final prefs = await SharedPreferences.getInstance();
-      final cachedData = prefs.getString('offline_articles_cache');
-      if (cachedData != null && _cachedDbArticles.isEmpty) {
-        final decoded = jsonDecode(cachedData) as List;
-        _cachedDbArticles = decoded.map((e) => NewsArticle.fromJson(e as Map<String, dynamic>)).toList();
+      final box = Hive.box<String>('offline_articles');
+      if (box.isNotEmpty && _cachedDbArticles.isEmpty) {
+        final cached = box.values.map((v) => NewsArticle.fromJson(jsonDecode(v) as Map<String, dynamic>)).toList();
+        cached.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+        _cachedDbArticles = cached;
       }
     } catch (e) {
-      if (kDebugMode) print('Offline cache read error: $e');
+      if (kDebugMode) print('Offline Hive cache read error: $e');
+    }
+
+    // STALE-WHILE-REVALIDATE: Çevrimdışı (veya yavaş bağlantı) anında "yükleniyor" 
+    // ekranında takılmamak için önce yerel önbelleği (varsa) anında ekrana veriyoruz.
+    if (_cachedDbArticles.isNotEmpty) {
+      yield [..._localDrafts, ..._cachedDbArticles];
     }
 
     // 2. Sunucudan güncel veriyi çek ve önbelleği güncelle
-    yield* _supabaseClient
-        .from('articles')
-        .select('*')
-        .eq('status', 'published')
-        .order('created_at', ascending: false)
-        .asStream()
-        .asyncMap((maps) async {
-          final dbArticles = maps
-              .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
-              .toList();
-          _cachedDbArticles = dbArticles;
-          try {
-            final prefs = await SharedPreferences.getInstance();
-            await prefs.setString('offline_articles_cache', jsonEncode(dbArticles.map((e) => e.toJson()).toList()));
-          } catch (_) {}
-          return [..._localDrafts, ...dbArticles];
-        })
-        .handleError((e) {
-          if (kDebugMode) {
-            print('watchLatestArticles error: $e');
-          }
-          return [..._localDrafts, ..._cachedDbArticles];
-        });
+    try {
+      yield* _supabaseClient
+          .from('articles')
+          .select('*')
+          .eq('status', 'published')
+          .order('created_at', ascending: false)
+          .asStream()
+          .timeout(const Duration(seconds: 8)) // Web'de sonsuza kadar takılmasını önler
+          .asyncMap((maps) async {
+            final dbArticles = maps
+                .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+                .toList();
+            _cachedDbArticles = dbArticles;
+            try {
+              final box = Hive.box<String>('offline_articles');
+              // Clear old cache to avoid infinite growth of deleted articles
+              await box.clear();
+              for (final article in dbArticles) {
+                box.put(article.id, jsonEncode(article.toJson()));
+              }
+            } catch (_) {}
+            return [..._localDrafts, ...dbArticles];
+          });
+    } catch (e) {
+      if (kDebugMode) {
+        print('watchLatestArticles network timeout/error: $e');
+      }
+      // Hata durumunda zaten yukarıda cache emit edildiği için ek bir şey yapmaya gerek yok,
+      // ancak stream'in kapanmaması için boş bir stream veya son halini tekrar dönebiliriz.
+      // Yield ile son hali tekrar gönderiyoruz ki akış kopmasın.
+      yield [..._localDrafts, ..._cachedDbArticles];
+    }
   }
 
   /// Supabase REST stream for fetching pending articles.
@@ -173,10 +187,16 @@ class HomeRepository {
       if (kDebugMode) {
         print('fetchArticleById failed: $e');
       }
-      // Çevrimdışı isek yerel önbellekten bulmaya çalış
+      // Çevrimdışı isek yerel önbellekten bulmaya çalış (önce hafıza, sonra Hive)
       try {
         final idx = _cachedDbArticles.indexWhere((a) => a.id == id);
         if (idx != -1) return _cachedDbArticles[idx];
+        
+        final box = Hive.box<String>('offline_articles');
+        final cachedStr = box.get(id);
+        if (cachedStr != null) {
+          return NewsArticle.fromJson(jsonDecode(cachedStr) as Map<String, dynamic>);
+        }
       } catch (_) {}
       return null;
     }
@@ -217,6 +237,7 @@ class HomeRepository {
           .eq('status', 'published')
           .order('created_at', ascending: false)
           .asStream()
+          .timeout(const Duration(seconds: 8))
           .map((maps) {
             return maps
                 .where((m) => m['category_id']?.toString() == yytCategoryId)
@@ -250,6 +271,7 @@ class HomeRepository {
         .select('*')
         .eq('status', 'published')
         .asStream()
+        .timeout(const Duration(seconds: 8))
         .map((maps) {
           final articles = maps
               .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
@@ -273,6 +295,7 @@ class HomeRepository {
         .from('articles')
         .stream(primaryKey: ['id'])
         .eq('status', 'published')
+        .timeout(const Duration(seconds: 8))
         .map((maps) {
           final articles = maps
               .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))

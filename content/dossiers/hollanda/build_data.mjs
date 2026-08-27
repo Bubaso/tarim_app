@@ -27,6 +27,7 @@ const cbsIh = await oku('cbs_ihracat.json');
 const kur = await oku('kurumlar.json');
 const tarih = await oku('tarih.json');
 const cevre = await oku('cevre.json');
+const tarihKultur = await oku('tarih_kultur.json');
 
 const bul = (list, ad) => list.find((r) => r.item === ad);
 const sonDeger = (obj) => {
@@ -115,6 +116,25 @@ function cbsDegisim(anahtar) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+
+// Kakao kalemleri iki yerde gerekiyor: kakao bloğunda ve türetilmiş toplamlarda.
+// Bir kez kurulup ikisine de veriliyor; rakam hiçbir yerde elle yazılmıyor.
+const kakaoKalemleri = ['Cocoa beans', 'Cocoa butter, fat and oil', 'Cocoa paste not defatted', 'Cocoa powder and cake']
+  .map((ad) => {
+    const ih = bul(tic.ihracat.NLD, ad);
+    const it = bul(tic.ithalat.NLD, ad);
+    return {
+      kalem: ad,
+      ithalat: it ? { yil: it.son_yil, milyon_usd: Math.round(it.son_deger / 1000) } : null,
+      ihracat: ih ? { yil: ih.son_yil, milyon_usd: Math.round(ih.son_deger / 1000) } : null,
+    };
+  });
+
+const ikiliYillar = [2020, 2021, 2022, 2023, 2024].map((y) => ({
+  yil: y,
+  hollandadan_turkiyeye: Math.round(toplamYil(ikili.hollandadan_turkiyeye, y) / 1000),
+  turkiyeden_hollandaya: Math.round(toplamYil(ikili.turkiyeden_hollandaya, y) / 1000),
+})).filter((r) => r.hollandadan_turkiyeye || r.turkiyeden_hollandaya);
 
 const data = {
   _dosya: 'Hollanda — Ülke Dosyası · kilitli veri sayfası',
@@ -312,16 +332,7 @@ const data = {
       'Hollanda tek bir kakao ağacı yetiştirmez. Batı Afrika\'dan çekirdek alır, ' +
       'öğütür, yağını ve ezmesini satar. Dosyanın tezinin en temiz örneği.',
     hollanda_uretimi: 'FAOSTAT üretim kaydı yok — Hollanda kakao yetiştirmiyor',
-    kalemler: ['Cocoa beans', 'Cocoa butter, fat and oil', 'Cocoa paste not defatted', 'Cocoa powder and cake']
-      .map((ad) => {
-        const ih = bul(tic.ihracat.NLD, ad);
-        const it = bul(tic.ithalat.NLD, ad);
-        return {
-          kalem: ad,
-          ithalat: it ? { yil: it.son_yil, milyon_usd: Math.round(it.son_deger / 1000) } : null,
-          ihracat: ih ? { yil: ih.son_yil, milyon_usd: Math.round(ih.son_deger / 1000) } : null,
-        };
-      }),
+    kalemler: kakaoKalemleri,
     kaynak: 'FAO_TCL',
   },
 
@@ -332,11 +343,7 @@ const data = {
       'işlenmiş sanayi girdisi satıyor. İlişkinin kendisi dosyanın tezini tekrarlıyor.',
     raportor: 'Hollanda (tek raportör — iki ülkenin beyanları birbirini tutmaz)',
     birim: 'milyon US$ (cari)',
-    yillar: [2020, 2021, 2022, 2023, 2024].map((y) => ({
-      yil: y,
-      hollandadan_turkiyeye: Math.round(toplamYil(ikili.hollandadan_turkiyeye, y) / 1000),
-      turkiyeden_hollandaya: Math.round(toplamYil(ikili.turkiyeden_hollandaya, y) / 1000),
-    })).filter((r) => r.hollandadan_turkiyeye || r.turkiyeden_hollandaya),
+    yillar: ikiliYillar,
     hollandanin_sattiklari: ikili.hollandadan_turkiyeye.slice(0, 15)
       .map((r) => ({ kalem: r.item, yil: r.son_yil, milyon_usd: +(r.son_deger / 1000).toFixed(1) })),
     turkiyenin_sattiklari: ikili.turkiyeden_hollandaya.slice(0, 15)
@@ -399,60 +406,75 @@ const data = {
   // yanında duruyor, ayrılamaz.
   cevre: elleGirilen(cevre),
 
+  // Metnin dayandığı türetilmiş değerler. Zincirin kuralı gereği metin kendi
+  // başına toplama yapmaz — toplamı veri katmanı taşır, doğrulayıcı sınar.
+  // Bu blok, metindeki altı sayının veri katmanında karşılığı olmadığı
+  // yakalandıktan sonra eklendi.
+  turetilmis: {
+    _aciklama: 'Başka bloklardan hesaplanan değerler; kaynak alanları yanlarında yazılı.',
+    kakao_islenmis: (() => {
+      const cek = kakaoKalemleri.find((k) => k.kalem === 'Cocoa beans');
+      const isl = kakaoKalemleri.filter((k) => k.kalem !== 'Cocoa beans');
+      const it = isl.reduce((a, k) => a + k.ithalat.milyon_usd, 0);
+      const ih = isl.reduce((a, k) => a + k.ihracat.milyon_usd, 0);
+      return {
+        _kaynak: 'kakao.kalemler — çekirdek dışındaki üç kalem',
+        _birim: 'milyon US$ (cari)',
+        ithalat: it, ihracat: ih, net: ih - it,
+        cekirdek_acik: cek.ithalat.milyon_usd - cek.ihracat.milyon_usd,
+      };
+    })(),
+    ikili_acik: {
+      _kaynak: 'turkiye_ile.yillar — Hollanda\'nın fazlası',
+      _birim: 'milyon US$ (cari)',
+      yillar: ikiliYillar.map((y) => ({
+        yil: y.yil,
+        acik: y.hollandadan_turkiyeye - y.turkiyeden_hollandaya,
+      })),
+    },
+    hollandanin_kakao_uclusu_2024: (() => {
+      const ad = ['Cocoa powder and cake', 'Cocoa paste not defatted', 'Cocoa butter, fat and oil'];
+      const l = ikili.hollandadan_turkiyeye.filter((r) => ad.includes(r.item));
+      return {
+        _kaynak: 'turkiye_ile.hollandanin_sattiklari — üç kakao kalemi',
+        _birim: 'milyon US$ (cari)',
+        kalem_sayisi: l.length,
+        toplam: +(l.reduce((a, r) => a + r.son_deger / 1000, 0)).toFixed(1),
+      };
+    })(),
+  },
+
+  // Dosyanın veriyle anlatılamayan yarısı. İlk yayında yoktu; Rusya dosyası
+  // yazılırken dizinin tarzı genişledi ve beş kategori tanımlandı — bilim ve
+  // kişi, kültürel açıklama, gündelik tarım, Türkiye bağı, terk edilen ürün.
+  // Hollanda dosya 01 ve arşivde kalıcı; dizinin öğrendikleriyle güncellendi.
+  tarih_kultur: {
+    _kaynak: 'TARIH_KULTUR',
+    _neden_sonradan: tarihKultur._neden_sonradan,
+    _giris_yontemi: tarihKultur._giris_yontemi,
+    _dogrulama_tarihi: tarihKultur._dogrulama_tarihi,
+    ...Object.fromEntries(
+      Object.entries(tarihKultur).filter(
+        ([k]) => !k.startsWith('_') && k !== 'dogrulanamadi',
+      ),
+    ),
+    _dogrulanmamis_kalemler: tarihKultur.dogrulanamadi,
+    _dogrulanmamis_kural:
+      'Yukarıdaki liste METNE GİRMEZ. Yalnızca ileride doğrulanmak üzere kayıt altındadır.',
+  },
+
   // ═══ 14. VERİ BOŞLUKLARI — dürüstlük bölümü ═══
   //
   // Her kalem İKİ DİLLİ. Panel sayfanın sonunda okura "hangi rakamı neden
   // bulamadık, yerine ne koyduk" diyor; İngilizce sayfada Türkçe kalsaydı bu
   // bölüm tam da güven vermesi gereken yerde okunmaz olurdu. Çeviri metin
   // dosyalarında değil burada, çünkü kaynağı metin değil veri üretimi.
-  bosluklar: [
-    {
-      konu: 'Hollanda ürün bazlı üretim değeri',
-      konu_en: 'Dutch production value by commodity',
-      sorun: 'FAOSTAT QV\'de Hollanda için ürün bazlı seri 2017\'de kesiliyor (59 kalem). Türkiye 2023\'e gidiyor.',
-      sorun_en: 'In FAOSTAT QV the Dutch commodity-level series stops in 2017 (59 items). The Turkish series runs to 2023.',
-      cozum: 'Ürün bazlı önem sıralaması üretim DEĞERİ ile değil, üretim MİKTARI (2024) ve TİCARET DEĞERİ (2023-24) ile kurulacak. 2017 rakamı güncelmiş gibi sunulmayacak.',
-      cozum_en: 'Commodity ranking is built from production VOLUME (2024) and TRADE VALUE (2023–24), not production value. The 2017 figure is never presented as current.',
-    },
-    {
-      konu: 'Sera alanı',
-      konu_en: 'Greenhouse area',
-      sorun: 'FAOSTAT ve Dünya Bankası sera alanı yayımlamıyor.',
-      sorun_en: 'Neither FAOSTAT nor the World Bank publishes greenhouse area.',
-      cozum: 'CBS StatLine tablo 81302ned\'den 16 alan çekildi (`_raw/cbs_fetch.mjs`). FAOSTAT domates hasat alanıyla birebir çapraz doğrulandı (1.770 ha = 1.770 ha).',
-      cozum_en: '16 fields were pulled from CBS StatLine table 81302ned (`_raw/cbs_fetch.mjs`) and cross-checked exactly against the FAOSTAT tomato harvested area (1,770 ha = 1,770 ha).',
-      durum: 'KAPANDI',
-    },
-    {
-      konu: 'Yeniden ihracat payı',
-      konu_en: 'Share of re-exports',
-      sorun: 'FAOSTAT ihracatı brüt akış olarak verir; Hollanda ihracatının bir kısmı yeniden ihracattır (kendi üretimi değil). Bu ayrımı FAOSTAT yapmaz.',
-      sorun_en: 'FAOSTAT reports exports as gross flows; part of Dutch exports is re-export rather than domestic output, and FAOSTAT does not separate the two.',
-      cozum: 'CBS + Wageningen SER\'in 2026-01-16 tarihli ortak yayınından alındı ve cbs.nl\'den doğrulandı: 137,5 milyar EUR\'nun 49,1\'i yeniden ihracat, ama kazancın yalnızca 5,7/49,0\'ı. Seri EUR cinsinden; FAOSTAT\'ın USD serisiyle KARIŞTIRILMAYACAK.',
-      cozum_en: 'Taken from the joint CBS + Wageningen SER release of 16 Jan 2026 and verified on cbs.nl: of EUR 137.5 bn, 49.1 is re-export, yet it yields only 5.7 of 49.0 in earnings. This series is in EUR and is never mixed with the FAOSTAT USD series.',
-      durum: 'KAPANDI',
-    },
-    {
-      konu: 'Dünya sıralaması',
-      konu_en: 'World ranking',
-      sorun: '"Dünyanın 2. büyük tarım ihracatçısı" ifadesi çok tekrarlanıyor ama yıl ve tanım belirtilmeden kullanılıyor.',
-      sorun_en: 'The claim "world\'s second-largest agricultural exporter" is repeated everywhere, always without a year or a definition.',
-      cozum: '198 ülke için sıralama hesaplandı. FAOSTAT tanımıyla Hollanda 2023 ve 2022\'de 3. sırada (ABD ve Brezilya\'nın arkasında). Metinde "2." denmeyecek; sıra verilirken tanım ve yıl yazılacak.',
-      cozum_en: 'The ranking was computed for 198 countries. On the FAOSTAT definition the Netherlands is 3rd in both 2023 and 2022, behind the USA and Brazil. The text never says "2nd"; every rank is given with its definition and year.',
-      durum: 'KAPANDI',
-    },
-    {
-      konu: 'Kurumlar (WUR, FloraHolland, ıslah, Greenport, Topsector)',
-      konu_en: 'Institutions (WUR, FloraHolland, plant breeding, Greenport, Topsector)',
-      sorun: 'Sayısal veri değil kurumsal bilgi; API yok.',
-      sorun_en: 'Institutional rather than numerical information; no API exists.',
-      cozum: 'Beş kurum kendi resmî yayınlarından tek tek doğrulandı (`_raw/kurumlar.json`). Teyit edilemeyen kalemler ayrı bir "dogrulanmamis" bloğuna alındı ve metne girmeyecek.',
-      cozum_en: 'All five institutions were verified one by one against their own official publications (`_raw/kurumlar.json`). Items that could not be confirmed were quarantined in a separate "unverified" block and kept out of the text.',
-      durum: 'KAPANDI',
-      _kalan_belirsizlik: 'Royal FloraHolland kendi sitesi 403 döndürdüğü için rakamlar çatı örgütü NCR üzerinden alındı. Greenport West-Holland bölgesel rakamları teyit edilemedi.',
-      _kalan_belirsizlik_en: 'Royal FloraHolland\'s own site returns 403, so its figures come via the umbrella body NCR. Greenport West-Holland regional figures could not be confirmed.',
-    },
-  ],
+  // ── VERİ NOTLARI KALDIRILDI (kullanıcı kararı, 24 Ağustos 2026) ──────
+  // Panel uygulamadan tamamen çıkarıldı; burası da boşaltıldı ki seed'e
+  // gereksiz veri yazılmasın. Hangi rakamın neden bulunamadığı _raw/ altında
+  // ve metindeki parantez notlarında duruyor.
+  bosluklar: [],
+
 };
 
 // Hiçbir boşluk açık kalmamalı — kalırsa derleme uyarı verir.
