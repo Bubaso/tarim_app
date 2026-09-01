@@ -38,6 +38,7 @@ import 'category_articles_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../../stories/presentation/widgets/story_avatar_strip.dart';
 import '../../../stories/providers/story_providers.dart';
+import '../../../videos/presentation/widgets/video_serit.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -67,14 +68,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
   }
 
-  void _showSoftPromptDialog(BuildContext context, NotificationService service) {
+  void _showSoftPromptDialog(
+      BuildContext context, NotificationService service) {
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         final isDark = Theme.of(context).brightness == Brightness.dark;
         return AlertDialog(
-          backgroundColor: isDark ? AppColors.darkGreen : AppColors.creamBackground,
+          backgroundColor:
+              isDark ? AppColors.darkGreen : AppColors.creamBackground,
           title: Text(
             'Bildirimleri Açın',
             style: TextStyle(color: isDark ? Colors.white : Colors.black),
@@ -89,7 +92,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 service.denySoftPrompt();
                 Navigator.of(context).pop();
               },
-              child: const Text('Belki Daha Sonra', style: TextStyle(color: Colors.grey)),
+              child: const Text('Belki Daha Sonra',
+                  style: TextStyle(color: Colors.grey)),
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -117,20 +121,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme         = Theme.of(context);
+    final theme = Theme.of(context);
     final localizations = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
-    final user          = ref.watch(currentUserProvider);
-    final isDark        = theme.brightness == Brightness.dark;
+    final user = ref.watch(currentUserProvider);
+    final isDark = theme.brightness == Brightness.dark;
     final rawNewsAsync = ref.watch(latestArticlesProvider);
 
-    final bgColor = isDark
-        ? AppColors.darkGreen
-        : AppColors.creamBackground;
+    final bgColor = isDark ? AppColors.darkGreen : AppColors.creamBackground;
 
-    final appBarBgColor = isDark
-        ? const Color(0xFF080B0E)
-        : const Color(0xFFF3F2ED);
+    final appBarBgColor =
+        isDark ? const Color(0xFF080B0E) : const Color(0xFFF3F2ED);
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -141,14 +142,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           children: [
             const NewsTicker(),
             _buildAppBar(
-              context:       context,
-              ref:           ref,
-              theme:         theme,
+              context: context,
+              ref: ref,
+              theme: theme,
               localizations: localizations,
               currentLocale: currentLocale,
-              isDark:        isDark,
-              bgColor:       appBarBgColor,
-              user:          user,
+              isDark: isDark,
+              bgColor: appBarBgColor,
+              user: user,
             ),
           ],
         ),
@@ -161,10 +162,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: rawNewsAsync.when(
                 data: (_) {
                   return _buildBody(
-                    context:       context,
-                    ref:           ref,
-                    theme:         theme,
-                    isDark:        isDark,
+                    context: context,
+                    ref: ref,
+                    theme: theme,
+                    isDark: isDark,
                     localizations: localizations,
                   );
                 },
@@ -236,9 +237,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 1.0,
-      shadowColor: isDark
-          ? AppColors.wheat
-          : AppColors.wheat,
+      shadowColor: isDark ? AppColors.wheat : AppColors.wheat,
       titleSpacing: isDesktop ? NavigationToolbar.kMiddleSpacing : 4,
       title: Row(
         mainAxisSize: MainAxisSize.min,
@@ -246,8 +245,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           Image.asset(
             'assets/images/logo_tp.png',
             height: isDesktop ? 38 : 32,
-            errorBuilder: (context, error, stackTrace) =>
-              Icon(Icons.eco_rounded, color: theme.colorScheme.primary, size: isDesktop ? 28 : 24),
+            errorBuilder: (context, error, stackTrace) => Icon(
+                Icons.eco_rounded,
+                color: theme.colorScheme.primary,
+                size: isDesktop ? 28 : 24),
           ),
           SizedBox(width: isDesktop ? 8 : 4),
           Expanded(
@@ -262,7 +263,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   style: GoogleFonts.playfairDisplay(
                     fontWeight: FontWeight.w900,
                     fontSize: isDesktop ? 20 : 17,
-                    color: isDark ? AppColors.creamBackground : AppColors.earthText,
+                    color: isDark
+                        ? AppColors.creamBackground
+                        : AppColors.earthText,
                     letterSpacing: -0.3,
                   ),
                 ),
@@ -288,10 +291,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
             child: FilledButton.icon(
               style: FilledButton.styleFrom(
-                backgroundColor: isDark 
-                    ? theme.colorScheme.primary.withValues(alpha: 0.15) 
+                backgroundColor: isDark
+                    ? theme.colorScheme.primary.withValues(alpha: 0.15)
                     : theme.colorScheme.primary.withValues(alpha: 0.1),
-                foregroundColor: isDark ? AppColors.primaryGreen : AppColors.primaryGreen,
+                foregroundColor:
+                    isDark ? AppColors.primaryGreen : AppColors.primaryGreen,
                 elevation: 0,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 shape: RoundedRectangleBorder(
@@ -310,31 +314,34 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               onPressed: () {
                 showSearch(
                   context: context,
-                  delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
+                  delegate: NewsSearchDelegate(
+                      ref: ref, isEn: currentLocale.languageCode == 'en'),
                 );
               },
             ),
           )
         else
           IconButton(
-            icon: Icon(Icons.search_rounded, color: isDark ? Colors.white : Colors.black87),
+            icon: Icon(Icons.search_rounded,
+                color: isDark ? Colors.white : Colors.black87),
             onPressed: () {
               showSearch(
                 context: context,
-                delegate: NewsSearchDelegate(ref: ref, isEn: currentLocale.languageCode == 'en'),
+                delegate: NewsSearchDelegate(
+                    ref: ref, isEn: currentLocale.languageCode == 'en'),
               );
             },
           ),
-        
         _LanguageToggle(currentLocale: currentLocale, isDark: isDark),
         if (isDesktop) const SizedBox(width: 4),
         _WeatherChip(isDark: isDark),
-        
         if (isDesktop) ...[
           const SizedBox(width: 4),
           PopupMenuButton<String>(
             icon: Icon(
-              user == null ? Icons.account_circle_outlined : Icons.admin_panel_settings_rounded,
+              user == null
+                  ? Icons.account_circle_outlined
+                  : Icons.admin_panel_settings_rounded,
               color: isDark ? AppColors.creamBackground : AppColors.earthText,
             ),
             tooltip: 'Hesap Menüsü',
@@ -342,10 +349,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               if (value == 'settings') {
                 pushScreen(context, const SettingsScreen());
               } else if (value == 'login') {
-                pushScreen(context, const LoginScreen(),
+                pushScreen(
+                  context,
+                  const LoginScreen(),
                 );
               } else if (value == 'dashboard') {
-                pushScreen(context, const DashboardScreen(),
+                pushScreen(
+                  context,
+                  const DashboardScreen(),
                 );
               } else if (value == 'logout') {
                 await ref.read(supabaseClientProvider).auth.signOut();
@@ -366,9 +377,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 value: 'settings',
                 child: Row(
                   children: [
-                    Icon(Icons.notifications_outlined, color: theme.colorScheme.primary, size: 20),
+                    Icon(Icons.notifications_outlined,
+                        color: theme.colorScheme.primary, size: 20),
                     const SizedBox(width: 8),
-                    Text(currentLocale.languageCode == 'en' ? 'Notifications & Language' : 'Bildirimler ve Dil', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                    Text(
+                        currentLocale.languageCode == 'en'
+                            ? 'Notifications & Language'
+                            : 'Bildirimler ve Dil',
+                        style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
                   ],
                 ),
               ),
@@ -377,9 +393,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   value: 'login',
                   child: Row(
                     children: [
-                      Icon(Icons.login_rounded, color: theme.colorScheme.primary, size: 20),
+                      Icon(Icons.login_rounded,
+                          color: theme.colorScheme.primary, size: 20),
                       const SizedBox(width: 8),
-                      Text(currentLocale.languageCode == 'en' ? 'Editor Login' : 'Yazar Girişi', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                      Text(
+                          currentLocale.languageCode == 'en'
+                              ? 'Editor Login'
+                              : 'Yazar Girişi',
+                          style:
+                              GoogleFonts.inter(fontWeight: FontWeight.bold)),
                     ],
                   ),
                 )
@@ -388,9 +410,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   value: 'dashboard',
                   child: Row(
                     children: [
-                      Icon(Icons.admin_panel_settings_rounded, color: theme.colorScheme.primary, size: 20),
+                      Icon(Icons.admin_panel_settings_rounded,
+                          color: theme.colorScheme.primary, size: 20),
                       const SizedBox(width: 8),
-                      Text(currentLocale.languageCode == 'en' ? 'Dashboard' : 'Yönetim Paneli', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+                      Text(
+                          currentLocale.languageCode == 'en'
+                              ? 'Dashboard'
+                              : 'Yönetim Paneli',
+                          style:
+                              GoogleFonts.inter(fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
@@ -398,9 +426,16 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   value: 'logout',
                   child: Row(
                     children: [
-                      const Icon(Icons.logout_rounded, color: Colors.redAccent, size: 20),
+                      const Icon(Icons.logout_rounded,
+                          color: Colors.redAccent, size: 20),
                       const SizedBox(width: 8),
-                      Text(currentLocale.languageCode == 'en' ? 'Logout' : 'Çıkış Yap', style: GoogleFonts.inter(color: Colors.redAccent, fontWeight: FontWeight.bold)),
+                      Text(
+                          currentLocale.languageCode == 'en'
+                              ? 'Logout'
+                              : 'Çıkış Yap',
+                          style: GoogleFonts.inter(
+                              color: Colors.redAccent,
+                              fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ),
@@ -458,6 +493,7 @@ class _MobileContent extends ConsumerWidget {
           _TurkeyNewsSection(isDark: isDark),
           const SizedBox(height: 28),
           DossierStrip(isDark: isDark, spacing: 28),
+          VideoSerit(isDark: isDark, spacing: 28),
           _ScienceAndReportsSection(isDark: isDark),
           const SizedBox(height: 28),
           _WorldNewsSection(isDark: isDark),
@@ -522,6 +558,7 @@ class _TabletContent extends ConsumerWidget {
           _TurkeyNewsSection(isDark: isDark),
           const SizedBox(height: 36),
           DossierStrip(isDark: isDark, spacing: 36),
+          VideoSerit(isDark: isDark, spacing: 36),
           _ScienceAndReportsSection(isDark: isDark),
           const SizedBox(height: 36),
           _WorldNewsSection(isDark: isDark),
@@ -599,6 +636,7 @@ class _DesktopContent extends ConsumerWidget {
                       child: _TurkeyNewsSection(isDark: isDark),
                     ),
                     DossierStrip(isDark: isDark, spacing: 40),
+                    VideoSerit(isDark: isDark, spacing: 40),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _ScienceAndReportsSection(isDark: isDark),
@@ -617,15 +655,18 @@ class _DesktopContent extends ConsumerWidget {
                     KisaKisaSection(isDark: isDark, spacing: 40),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
+                      child: _SectoralNewsSection(
+                          topic: 'Hayvancılık', isDark: isDark),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
+                      child: _SectoralNewsSection(
+                          topic: 'Bitkisel Üretim', isDark: isDark),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+                      child: _SectoralNewsSection(
+                          topic: 'Ekonomi', isDark: isDark),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
@@ -633,7 +674,8 @@ class _DesktopContent extends ConsumerWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(topic: 'Genel', isDark: isDark),
+                      child:
+                          _SectoralNewsSection(topic: 'Genel', isDark: isDark),
                     ),
                   ],
                 ),
@@ -660,23 +702,31 @@ class _WeatherChip extends ConsumerWidget {
 
   String _icon(String code) {
     switch (code) {
-      case '01d': return '☀️';
-      case '01n': return '🌙';
+      case '01d':
+        return '☀️';
+      case '01n':
+        return '🌙';
       case '02d':
-      case '02n': return '⛅';
+      case '02n':
+        return '⛅';
       case '03d':
       case '03n':
       case '04d':
-      case '04n': return '☁️';
+      case '04n':
+        return '☁️';
       case '09d':
       case '09n':
       case '10d':
-      case '10n': return '🌧️';
+      case '10n':
+        return '🌧️';
       case '11d':
-      case '11n': return '⛈️';
+      case '11n':
+        return '⛈️';
       case '13d':
-      case '13n': return '❄️';
-      default:    return '⛅';
+      case '13n':
+        return '❄️';
+      default:
+        return '⛅';
     }
   }
 
@@ -684,14 +734,14 @@ class _WeatherChip extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final weatherAsync = ref.watch(weatherProvider);
     final w = weatherAsync.value;
-    
+
     if (w != null) {
-      final color = isDark
-          ? const Color(0xFFCCCCCC)
-          : const Color(0xFF444444);
+      final color = isDark ? const Color(0xFFCCCCCC) : const Color(0xFF444444);
       return InkWell(
         borderRadius: BorderRadius.circular(4),
-        onTap: () => pushScreen(context, WeatherDetailScreen(weather: w),
+        onTap: () => pushScreen(
+          context,
+          WeatherDetailScreen(weather: w),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
@@ -716,7 +766,7 @@ class _WeatherChip extends ConsumerWidget {
         ),
       );
     }
-    
+
     return const SizedBox.shrink();
   }
 }
@@ -887,7 +937,8 @@ class _SkeletonHero extends StatelessWidget {
     // HeroFold'daki carousel ile aynı en–boy oranı.
     const carousel = AspectRatio(
       aspectRatio: 1.8,
-      child: ShimmerPlaceholder(width: double.infinity, height: double.infinity),
+      child:
+          ShimmerPlaceholder(width: double.infinity, height: double.infinity),
     );
 
     if (splitColumns) {
@@ -1028,9 +1079,7 @@ class _LanguageToggle extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final color = isDark
-        ? AppColors.wheat
-        : AppColors.earthText;
+    final color = isDark ? AppColors.wheat : AppColors.earthText;
 
     return TextButton(
       onPressed: () async {
@@ -1082,14 +1131,16 @@ class _TrendingSection extends ConsumerWidget {
     final trendingAsync = ref.watch(trendingArticlesProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final titleText = isEn ? 'TRENDING' : 'EN ÇOK OKUNANLAR';
-    
-    final headerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
-    final dividerColor = isDark ? AppColors.creamBackground : AppColors.earthText;
+
+    final headerColor =
+        isDark ? AppColors.creamBackground : AppColors.earthText;
+    final dividerColor =
+        isDark ? AppColors.creamBackground : AppColors.earthText;
 
     return trendingAsync.when(
       data: (articles) {
         if (articles.isEmpty) return const SizedBox.shrink();
-        
+
         // Show up to 5 trending articles
         final topArticles = articles.take(5).toList();
 
@@ -1101,7 +1152,8 @@ class _TrendingSection extends ConsumerWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(height: 1, width: double.infinity, color: dividerColor),
+                  Container(
+                      height: 1, width: double.infinity, color: dividerColor),
                   const SizedBox(height: 16),
                   Row(
                     children: [
@@ -1132,14 +1184,16 @@ class _TrendingSection extends ConsumerWidget {
                 separatorBuilder: (_, __) => const SizedBox(width: 12),
                 itemBuilder: (context, i) {
                   final a = topArticles[i];
-                  return _TrendingCard(article: a, index: i, isDark: isDark, isEn: isEn);
+                  return _TrendingCard(
+                      article: a, index: i, isDark: isDark, isEn: isEn);
                 },
               ),
             ),
           ],
         );
       },
-      loading: () => const SizedBox(height: 120, child: Center(child: CircularProgressIndicator())),
+      loading: () => const SizedBox(
+          height: 120, child: Center(child: CircularProgressIndicator())),
       error: (_, __) => const SizedBox.shrink(),
     );
   }
@@ -1168,11 +1222,14 @@ class _TrendingCardState extends State<_TrendingCard> {
   @override
   Widget build(BuildContext context) {
     final a = widget.article;
-    final title = (widget.isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    
+    final title = (widget.isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+
     final bg = widget.isDark ? AppColors.darkGreen : const Color(0xFFF9F9F9);
     final border = widget.isDark ? AppColors.wheat : AppColors.wheat;
-    final textCol = widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
+    final textCol =
+        widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
     final accentCol = AppColors.accentFor(isDark: widget.isDark);
 
     return MouseRegion(
@@ -1272,7 +1329,7 @@ class _PortalHeroSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final articles = ref.watch(heroArticlesProvider);
     if (articles.isEmpty) return const SizedBox.shrink();
-    
+
     // For now we reuse HeroFold but pass only the top hero articles
     return HeroFold(articles: articles);
   }
@@ -1296,9 +1353,12 @@ class _TurkeyNewsSection extends ConsumerWidget {
           title: title,
           icon: Icons.location_on_rounded,
           isDark: isDark,
-          onSeeAll: articles.isNotEmpty ? () {
-            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
-          } : null,
+          onSeeAll: articles.isNotEmpty
+              ? () {
+                  pushScreen(context,
+                      CategoryArticlesScreen(title: title, articles: articles));
+                }
+              : null,
           child: TurkeyNewsGrid(
             articles: articles.take(6).toList(),
             isDark: isDark,
@@ -1327,9 +1387,12 @@ class _WorldNewsSection extends ConsumerWidget {
           title: title,
           icon: Icons.public_rounded,
           isDark: isDark,
-          onSeeAll: articles.isNotEmpty ? () {
-            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
-          } : null,
+          onSeeAll: articles.isNotEmpty
+              ? () {
+                  pushScreen(context,
+                      CategoryArticlesScreen(title: title, articles: articles));
+                }
+              : null,
           child: WorldNewsRow(
             articles: articles.take(10).toList(), // Show up to 10 for scroll
             isDark: isDark,
@@ -1358,9 +1421,12 @@ class _ScienceAndReportsSection extends ConsumerWidget {
           title: title,
           icon: Icons.science_rounded,
           isDark: isDark,
-          onSeeAll: articles.isNotEmpty ? () {
-            pushScreen(context, CategoryArticlesScreen(title: title, articles: articles));
-          } : null,
+          onSeeAll: articles.isNotEmpty
+              ? () {
+                  pushScreen(context,
+                      CategoryArticlesScreen(title: title, articles: articles));
+                }
+              : null,
           child: ScienceReportsDossier(
             articles: articles.take(6).toList(),
             isDark: isDark,
@@ -1374,7 +1440,7 @@ class _ScienceAndReportsSection extends ConsumerWidget {
 class _SectoralNewsSection extends ConsumerWidget {
   final String topic;
   final bool isDark;
-  
+
   const _SectoralNewsSection({required this.topic, required this.isDark});
 
   @override
@@ -1395,11 +1461,16 @@ class _SectoralNewsSection extends ConsumerWidget {
       title: displayTopic,
       icon: Icons.category_rounded,
       isDark: isDark,
-      onSeeAll: articles.isNotEmpty ? () {
-        pushScreen(context, CategoryArticlesScreen(title: displayTopic, articles: articles),
-        );
-      } : null,
-      child: AgendaBentoGrid(articles: articles.take(6).toList(), isDark: isDark),
+      onSeeAll: articles.isNotEmpty
+          ? () {
+              pushScreen(
+                context,
+                CategoryArticlesScreen(title: displayTopic, articles: articles),
+              );
+            }
+          : null,
+      child:
+          AgendaBentoGrid(articles: articles.take(6).toList(), isDark: isDark),
     );
   }
 }
@@ -1481,8 +1552,9 @@ class _RecentlyReadCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final a = article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title =
-        (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
 
     final bgColor = isDark ? AppColors.darkGreen : Colors.white;
     final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
@@ -1610,14 +1682,17 @@ class _ICYMICardState extends State<_ICYMICard> {
   Widget build(BuildContext context) {
     final a = widget.article;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty) ? a.titleEn! : a.title;
-    
+    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
+        ? a.titleEn!
+        : a.title;
+
     final accentCol = AppColors.accentFor(isDark: widget.isDark);
     final titleColor = _hovered
         ? accentCol
         : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
     final bgColor = widget.isDark ? AppColors.darkGreen : Colors.white;
-    final borderColor = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
+    final borderColor =
+        widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     return MouseRegion(
       onEnter: (_) => setState(() => _hovered = true),
@@ -1633,7 +1708,10 @@ class _ICYMICardState extends State<_ICYMICard> {
             decoration: BoxDecoration(
               color: bgColor,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: _hovered ? accentCol.withValues(alpha: 0.5) : borderColor),
+              border: Border.all(
+                  color: _hovered
+                      ? accentCol.withValues(alpha: 0.5)
+                      : borderColor),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(widget.isDark ? 0.3 : 0.05),
@@ -1648,7 +1726,8 @@ class _ICYMICardState extends State<_ICYMICard> {
                 AspectRatio(
                   aspectRatio: 3 / 2,
                   child: ClipRRect(
-                    borderRadius: const BorderRadius.vertical(top: Radius.circular(11)),
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(11)),
                     child: NewsArticleImage(
                       imageUrl: a.imageUrl,
                       fit: BoxFit.cover,
@@ -1706,4 +1785,3 @@ class _ICYMICardState extends State<_ICYMICard> {
     );
   }
 }
-

@@ -1,0 +1,232 @@
+{
+ "_dosya": "Ziraat Bankası — Kurum Dosyası · grafik tanımları",
+ "_amac": "Grafikler veriyi data.json'dan @yol ile çeker. Sayı burada YENİDEN YAZILMAZ; bir rakam değişirse grafik kendiliğinden değişir.",
+ "_neden_az": "Tanıtım dosyasında grafik metnin yerine geçmez, yanında durur. Beş grafik, beş bölümde.",
+ "_sema": {
+  "kunye": "Rakam ızgarası. kalemler[].{deger,bolen?,ondalik,onek?,sonek?,etiket,alt?}",
+  "zaman_cizelgesi": "Yıl + olay. olaylar[].{yil,yil_ek?,baslik,aciklama}",
+  "siralama": "Tek eksende sıralı çubuk. satirlar[].{etiket,deger,rol?}",
+  "kartlar": "Aktör kartları. kartlar[].{ust,baslik,govde,rakam?}"
+ },
+ "_nominal_seri_yok": "2021→2025 tarım kredisi bakiyesi (109→831 milyar TL) GRAFİK OLMADI. Bunlar yüksek enflasyon yılları ve TÜFE endeksi birincil kaynaktan çekilemiyor (TÜİK JavaScript istiyor, EVDS anahtar istiyor). Düzeltilemeyen seri büyüme diye çizilmez. Büyüme oranla ve müşteri sayısıyla anlatılıyor.",
+
+ "grafikler": {
+
+  "sektor_payi": {
+   "tur": "kunye",
+   "baslik": {
+    "tr": "Türkiye'de tarıma açılan kredinin ne kadarı Ziraat'ten",
+    "en": "How much of Türkiye's agricultural credit comes from Ziraat"
+   },
+   "not": {
+    "tr": "Pay bankanın kendi faaliyet raporundan, payda BDDK'nın sektör toplamından. İki kaynağın tanımları birebir örtüşmeyebilir; oran yuvarlanarak veriliyor.",
+    "en": "The numerator is from the bank's own annual report, the denominator from the banking regulator's sector total. The two definitions may not match exactly; the ratio is rounded."
+   },
+   "kaynak": "Ziraat Bankası Entegre Faaliyet Raporları · BDDK Aylık Bülten",
+   "kalemler": [
+    {
+     "deger": "@sektor_payi.seri.0.ziraat_payi_yuzde",
+     "ondalik": 0,
+     "onek": {"tr": "%", "en": ""},
+     "sonek": {"tr": "", "en": "%"},
+     "etiket": {"tr": "2021", "en": "2021"},
+     "alt": {"tr": "109 / 166 milyar TL", "en": "TRY 109bn of 166bn"}
+    },
+    {
+     "deger": "@sektor_payi.seri.1.ziraat_payi_yuzde",
+     "ondalik": 0,
+     "onek": {"tr": "%", "en": ""},
+     "sonek": {"tr": "", "en": "%"},
+     "etiket": {"tr": "2023", "en": "2023"},
+     "alt": {"tr": "437 / 584 milyar TL", "en": "TRY 437bn of 584bn"}
+    },
+    {
+     "deger": "@sektor_payi.seri.2.ziraat_payi_yuzde",
+     "ondalik": 0,
+     "onek": {"tr": "%", "en": ""},
+     "sonek": {"tr": "", "en": "%"},
+     "etiket": {"tr": "2025", "en": "2025"},
+     "alt": {"tr": "831 / 1.225 milyar TL", "en": "TRY 831bn of 1,225bn"}
+    }
+   ]
+  },
+
+  "hukuki_omurga": {
+   "tur": "zaman_cizelgesi",
+   "baslik": {
+    "tr": "Sandıktan anonim şirkete",
+    "en": "From a village fund to a joint-stock company"
+   },
+   "not": {
+    "tr": "1924 ile 2000 arasındaki dönüşüm zinciri bankanın kendi tarihçesinde yazılı değil; çizelge o aralığı boş bırakıyor.",
+    "en": "The chain of transformations between 1924 and 2000 is not set out in the bank's own history; the timeline leaves that gap open."
+   },
+   "kaynak": "Ziraat Bankası · Bankamız Tarihçesi",
+   "olaylar": [
+    {
+     "yil": 1863,
+     "baslik": {"tr": "Memleket Sandıkları", "en": "The Country Funds"},
+     "aciklama": {
+      "tr": "Mithat Paşa, Pirot kasabasında kurdu. İlk kredi: 3–12 ay vade, kişi başına azami 20 lira.",
+      "en": "Founded by Mithat Pasha in the town of Pirot. The first loan: 3–12 months, at most 20 lira per person."
+     }
+    },
+    {
+     "yil": 1883,
+     "baslik": {"tr": "Menafi Sandıkları", "en": "The Benefit Funds"},
+     "aciklama": {
+      "tr": "Aşar vergisine \"Menafi Hissesi\" zammı yapıldı; sandıklar sürekli bir gelire kavuştu.",
+      "en": "A \"benefit share\" surcharge was added to the tithe, giving the funds a permanent income."
+     }
+    },
+    {
+     "yil": 1888,
+     "baslik": {"tr": "Ziraat Bankası", "en": "Ziraat Bankası"},
+     "aciklama": {
+      "tr": "Nizamname 28 Ağustos'ta yürürlüğe girdi, Umum Müdürlük 17 Eylül'de açıldı. İlk defa faiz karşılığı mevduat kabul edildi.",
+      "en": "The charter took effect on 28 August and the head office opened on 17 September. Interest-bearing deposits were accepted for the first time."
+     }
+    },
+    {
+     "yil": 1916,
+     "baslik": {"tr": "Ziraat Bankası Kanunu", "en": "The Ziraat Bankası Act"},
+     "aciklama": {
+      "tr": "İlk tohumluk kredisi verildi; zirai alacaklarda ilk toplu erteleme yapıldı.",
+      "en": "The first seed loan was issued, and farm debts were rescheduled en masse for the first time."
+     }
+    },
+    {
+     "yil": 1924,
+     "baslik": {"tr": "444 sayılı Bütçe Kanunu", "en": "Budget Act no. 444"},
+     "aciklama": {
+      "tr": "Banka devlet müessesesi olmaktan çıkarılıp anonim şirket hâline getirildi.",
+      "en": "The bank ceased to be a state institution and was turned into a joint-stock company."
+     }
+    },
+    {
+     "yil": 2000,
+     "baslik": {"tr": "4603 sayılı Kanun", "en": "Act no. 4603"},
+     "aciklama": {
+      "tr": "25 Kasım'da kabul edildi; banka yeniden anonim şirket hâline getirildi.",
+      "en": "Passed on 25 November; the bank was made a joint-stock company once again."
+     }
+    }
+   ]
+  },
+
+  "kredi_kirilimi": {
+   "tur": "siralama",
+   "baslik": {
+    "tr": "Tarım kredisi bakiyesi neye gidiyor",
+    "en": "Where the agricultural loan book sits"
+   },
+   "not": {
+    "tr": "Hayvansal üretimin bakiyesi bitkiselden büyük, ama kredili müşterisi daha az: 401 bine karşı 518 bin. Basınçlı sulama bitkiselin içinde de sayılıyor.",
+    "en": "Livestock carries a larger balance than crops, yet fewer borrowers: 401,000 against 518,000. Pressurised irrigation is also counted within crops."
+   },
+   "kaynak": "Ziraat Bankası · 2025 Entegre Faaliyet Raporu, s. 60",
+   "birim": {"tr": "milyar TL · 2025 yıl sonu bakiyesi", "en": "TRY bn · year-end 2025 balance"},
+   "ondalik": 0,
+   "satirlar": [
+    {
+     "etiket": {"tr": "Hayvansal üretim", "en": "Livestock production"},
+     "deger": "@tarim_kredisi_2025.kirilim.hayvansal.bakiye",
+     "rol": "vurgu"
+    },
+    {
+     "etiket": {"tr": "Bitkisel üretim", "en": "Crop production"},
+     "deger": "@tarim_kredisi_2025.kirilim.bitkisel.bakiye"
+    },
+    {
+     "etiket": {"tr": "Tarımsal mekanizasyon", "en": "Farm machinery"},
+     "deger": "@tarim_kredisi_2025.kirilim.mekanizasyon.bakiye"
+    },
+    {
+     "etiket": {"tr": "Basınçlı sulama", "en": "Pressurised irrigation"},
+     "deger": "@tarim_kredisi_2025.kirilim.basincli_sulama.bakiye"
+    }
+   ]
+  },
+
+  "kredinin_sartlari": {
+   "tur": "kartlar",
+   "baslik": {
+    "tr": "Kredinin şartları",
+    "en": "The terms of the loan"
+   },
+   "not": {
+    "tr": "Başvurunun adım adım yolu bankanın yayımladığı belgelerde yok; burada yalnızca ilan edilmiş şartlar var.",
+    "en": "The step-by-step application path is not set out in the bank's published documents; only the announced terms appear here."
+   },
+   "kaynak": "Ziraat Bankası · 2025 Entegre Faaliyet Raporu, s. 59–63",
+   "kartlar": [
+    {
+     "ust": {"tr": "FAİZ", "en": "INTEREST"},
+     "baslik": {"tr": "Oranı banka tek başına belirlemiyor", "en": "The rate is not the bank's alone to set"},
+     "govde": {
+      "tr": "Faiz destekli kredide indirim oranları Tarım ve Orman Bakanlığı Tebliği ile, üretim alanına göre belirleniyor.",
+      "en": "For subsidised loans the discount rates are set by a Ministry of Agriculture and Forestry communiqué, according to the line of production."
+     },
+     "rakam": {
+      "deger": "@sektor_payi.seri.2.ziraat_payi_yuzde",
+      "ondalik": 0,
+      "onek": {"tr": "%", "en": ""},
+      "sonek": {"tr": "", "en": "%"},
+      "etiket": {"tr": "Ziraat'in tarım kredisindeki payı, 2025", "en": "Ziraat's share of agricultural credit, 2025"}
+     }
+    },
+    {
+     "ust": {"tr": "ÇİFTÇİ DESTEK KREDİSİ", "en": "FARMER SUPPORT LOAN"},
+     "baslik": {"tr": "Bir milyon liraya kadar", "en": "Up to one million lira"},
+     "govde": {
+      "tr": "Üretime dair ya da üretim dışı, kısa, orta ve uzun vadeli ihtiyaçlar için. 2025'te 38 bin müşteri kullandı.",
+      "en": "For production and non-production needs alike, at short, medium and long term. 38,000 customers used it in 2025."
+     }
+    },
+    {
+     "ust": {"tr": "ÜRETİCİ ÖRGÜTÜ KREDİSİ", "en": "PRODUCER ORGANISATION LOAN"},
+     "baslik": {"tr": "İki yıl ödemesiz", "en": "Two years before the first payment"},
+     "govde": {
+      "tr": "Limit 2025'te 600 bin liradan 1,2 milyon liraya çıkarıldı. Geri ödeme 2 yıla kadar ödemesiz, toplam vade 5 ya da 7 yıl.",
+      "en": "The ceiling was raised from 600,000 to 1.2 million lira in 2025. Repayment can start after up to two years, over a total term of five or seven."
+     }
+    }
+   ]
+  },
+
+  "iki_banka": {
+   "tur": "kunye",
+   "baslik": {
+    "tr": "Aynı sorun, iki cevap: Ziraat ve Crédit Agricole",
+    "en": "One problem, two answers: Ziraat and Crédit Agricole"
+   },
+   "not": {
+    "tr": "İkisi de devlet parasıyla ayağa kalktı — biri aşar vergisine zamla, öteki Banque de France'ın bağışıyla. Ayrım oyların kimde olduğunda.",
+    "en": "Both were raised on state money — one through a surcharge on the tithe, the other through an endowment from the Banque de France. The difference is who holds the votes."
+   },
+   "kaynak": "Ziraat Bankası · Bankamız Tarihçesi — Crédit Agricole · History of the group",
+   "kalemler": [
+    {
+     "deger": "@kunye.kurulus.yil",
+     "ondalik": 0,
+     "etiket": {"tr": "Memleket Sandıkları kuruldu", "en": "The Country Funds founded"},
+     "alt": {"tr": "Pirot · Mithat Paşa", "en": "Pirot · Mithat Pasha"}
+    },
+    {
+     "deger": "@credit_agricole.sayilar.ilk_kasa_yili",
+     "ondalik": 0,
+     "etiket": {"tr": "İlk yerel kasa kuruldu", "en": "The first local fund founded"},
+     "alt": {"tr": "Salins-les-Bains · Milcent ve Bouvet", "en": "Salins-les-Bains · Milcent and Bouvet"}
+    },
+    {
+     "deger": "@credit_agricole.sayilar.ortak_milyon",
+     "ondalik": 1,
+     "sonek": {"tr": " milyon", "en": "m"},
+     "etiket": {"tr": "Crédit Agricole'un ortağı", "en": "Crédit Agricole's members"},
+     "alt": {"tr": "Kişi başına tek oy, hisseden bağımsız", "en": "One member, one vote, whatever the holding"}
+    }
+   ]
+  }
+
+ }
+}

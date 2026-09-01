@@ -15,6 +15,7 @@ import 'package:html_editor_enhanced/html_editor.dart';
 import 'admin_statistics_screen.dart';
 import 'admin_hero_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
+import '../../../videos/presentation/screens/video_onay_ekrani.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -167,7 +168,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -408,6 +409,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
             ),
 
             Tab(
+              icon: const Icon(Icons.play_circle_outline_rounded),
+              text: isEn ? 'Video News' : 'Video Haberler',
+            ),
+            Tab(
               icon: const Icon(Icons.psychology_rounded),
               text: loc.translate('dash_tab_ai_suggestions'),
             ),
@@ -430,7 +435,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         children: [
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
           const AdminHeroScreen(),
-
+          const VideoOnayEkrani(),
           _buildAiSuggestionsTab(context, theme),
           const AdminStatisticsScreen(),
         ],

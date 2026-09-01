@@ -1,0 +1,1706 @@
+{
+ "_kaynak": "BDDK Aylık Bülten · Sektörel Kredi Dağılımı · Sektör (tüm bankalar)",
+ "_adres": "https://www.bddk.org.tr/BultenAylik/tr/Home/BasitRaporGetir",
+ "_birim": "bin TL",
+ "_uyari": "BDDK'nın sektör tanımı ile bankanın kendi tarım kredisi tanımı birebir örtüşmeyebilir; oran yaklaşık verilir.",
+ "yillar": {
+  "2021": {
+   "donem": "Sektörel Kredi Dağılımı (bin TL), Dönem:2021/12",
+   "birim": "bin TL",
+   "satirlar": {
+    "Tarım, Avcılık ve Ormancılık (2+3+4)": {
+     "Kısa Vadeli Nakdi Krediler": 50624125,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 112877143,
+     "Nakdi Krediler": 163501268,
+     "Takipteki Krediler": 4219213,
+     "Toplam Nakdi Krediler": 167720481,
+     "Gayri Nakdi Krediler": 7384492
+    },
+    "Tarım": {
+     "Kısa Vadeli Nakdi Krediler": 50229239,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 111804647,
+     "Nakdi Krediler": 162033886,
+     "Takipteki Krediler": 4187307,
+     "Toplam Nakdi Krediler": 166221193,
+     "Gayri Nakdi Krediler": 6205399
+    },
+    "Avcılık": {
+     "Kısa Vadeli Nakdi Krediler": 26596,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 52654,
+     "Nakdi Krediler": 79250,
+     "Takipteki Krediler": 1314,
+     "Toplam Nakdi Krediler": 80564,
+     "Gayri Nakdi Krediler": 5843
+    },
+    "Kereste ve Orman Ürünleri": {
+     "Kısa Vadeli Nakdi Krediler": 368290,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 1019842,
+     "Nakdi Krediler": 1388132,
+     "Takipteki Krediler": 30592,
+     "Toplam Nakdi Krediler": 1418724,
+     "Gayri Nakdi Krediler": 1173250
+    },
+    "Balıkçılık": {
+     "Kısa Vadeli Nakdi Krediler": 1060004,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 2489125,
+     "Nakdi Krediler": 3549129,
+     "Takipteki Krediler": 149528,
+     "Toplam Nakdi Krediler": 3698657,
+     "Gayri Nakdi Krediler": 1984831
+    },
+    "Madencilik ve Taşocakçılığı (7+8)": {
+     "Kısa Vadeli Nakdi Krediler": 12574368,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 57724682,
+     "Nakdi Krediler": 70299050,
+     "Takipteki Krediler": 1894889,
+     "Toplam Nakdi Krediler": 72193939,
+     "Gayri Nakdi Krediler": 15283883
+    },
+    "Enerji Üreten Madenlerin Çıkarılması": {
+     "Kısa Vadeli Nakdi Krediler": 3891576,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 32827699,
+     "Nakdi Krediler": 36719275,
+     "Takipteki Krediler": 465173,
+     "Toplam Nakdi Krediler": 37184448,
+     "Gayri Nakdi Krediler": 8590875
+    },
+    "Enerji Üretmeyen Madenlerin Çıkarılması": {
+     "Kısa Vadeli Nakdi Krediler": 8682792,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 24896983,
+     "Nakdi Krediler": 33579775,
+     "Takipteki Krediler": 1429716,
+     "Toplam Nakdi Krediler": 35009491,
+     "Gayri Nakdi Krediler": 6693008
+    },
+    "İmalat Sanayi (10+...+22+25)": {
+     "Kısa Vadeli Nakdi Krediler": 486222777,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 550245292,
+     "Nakdi Krediler": 1036468069,
+     "Takipteki Krediler": 23592943,
+     "Toplam Nakdi Krediler": 1060061012,
+     "Gayri Nakdi Krediler": 619365284
+    },
+    "Gıda, Meşrubat ve Tütün San.": {
+     "Kısa Vadeli Nakdi Krediler": 83899359,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 73072920,
+     "Nakdi Krediler": 156972279,
+     "Takipteki Krediler": 3812633,
+     "Toplam Nakdi Krediler": 160784912,
+     "Gayri Nakdi Krediler": 40995189
+    },
+    "Tekstil ve Tekstil Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 72711269,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 92018666,
+     "Nakdi Krediler": 164729935,
+     "Takipteki Krediler": 4442598,
+     "Toplam Nakdi Krediler": 169172533,
+     "Gayri Nakdi Krediler": 82914089
+    },
+    "Deri ve Deri Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 2148983,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 3568923,
+     "Nakdi Krediler": 5717906,
+     "Takipteki Krediler": 573247,
+     "Toplam Nakdi Krediler": 6291153,
+     "Gayri Nakdi Krediler": 1563373
+    },
+    "Ağaç ve Ağaç Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 5156408,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 11688428,
+     "Nakdi Krediler": 16844836,
+     "Takipteki Krediler": 233662,
+     "Toplam Nakdi Krediler": 17078498,
+     "Gayri Nakdi Krediler": 11578906
+    },
+    "Kağıt Hammaddesi ve Kağıt Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 14699348,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 28188511,
+     "Nakdi Krediler": 42887859,
+     "Takipteki Krediler": 534242,
+     "Toplam Nakdi Krediler": 43422101,
+     "Gayri Nakdi Krediler": 10558871
+    },
+    "Nükleer Yakıt, Petrol Rafineri ve Kok Kömür Ürt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 5710893,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 18610358,
+     "Nakdi Krediler": 24321251,
+     "Takipteki Krediler": 287655,
+     "Toplam Nakdi Krediler": 24608906,
+     "Gayri Nakdi Krediler": 28728396
+    },
+    "Kimya Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 44662233,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 32366585,
+     "Nakdi Krediler": 77028818,
+     "Takipteki Krediler": 659979,
+     "Toplam Nakdi Krediler": 77688797,
+     "Gayri Nakdi Krediler": 56439656
+    },
+    "Kauçuk ve Plastik Ürünler San.": {
+     "Kısa Vadeli Nakdi Krediler": 29393925,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 29545517,
+     "Nakdi Krediler": 58939442,
+     "Takipteki Krediler": 1827498,
+     "Toplam Nakdi Krediler": 60766940,
+     "Gayri Nakdi Krediler": 25612446
+    },
+    "Diğer Metal Dışı Madenler San.": {
+     "Kısa Vadeli Nakdi Krediler": 27728548,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 53063611,
+     "Nakdi Krediler": 80792159,
+     "Takipteki Krediler": 996739,
+     "Toplam Nakdi Krediler": 81788898,
+     "Gayri Nakdi Krediler": 23760185
+    },
+    "Metal Ana San. ve İşlenmiş Maden Ürt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 92484934,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 86521707,
+     "Nakdi Krediler": 179006641,
+     "Takipteki Krediler": 3555623,
+     "Toplam Nakdi Krediler": 182562264,
+     "Gayri Nakdi Krediler": 165640366
+    },
+    "Makina ve Techizat San.": {
+     "Kısa Vadeli Nakdi Krediler": 25254285,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 28829205,
+     "Nakdi Krediler": 54083490,
+     "Takipteki Krediler": 1470088,
+     "Toplam Nakdi Krediler": 55553578,
+     "Gayri Nakdi Krediler": 42613082
+    },
+    "Elektrikli ve Optik Aletler San.": {
+     "Kısa Vadeli Nakdi Krediler": 27385458,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 24440670,
+     "Nakdi Krediler": 51826128,
+     "Takipteki Krediler": 2514632,
+     "Toplam Nakdi Krediler": 54340760,
+     "Gayri Nakdi Krediler": 42647338
+    },
+    "Ulaşım Araçları San.": {
+     "Kısa Vadeli Nakdi Krediler": 39230645,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 48928083,
+     "Nakdi Krediler": 88158728,
+     "Takipteki Krediler": 1560369,
+     "Toplam Nakdi Krediler": 89719097,
+     "Gayri Nakdi Krediler": 73904405
+    },
+    "a) Gemi/Tekne Yapımı ve İmalatı": {
+     "Kısa Vadeli Nakdi Krediler": 4056991,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 10203967,
+     "Nakdi Krediler": 14260958,
+     "Takipteki Krediler": 554325,
+     "Toplam Nakdi Krediler": 14815283,
+     "Gayri Nakdi Krediler": 19681011
+    },
+    "b) Motorlu ve Diğer Araçların İmalatı": {
+     "Kısa Vadeli Nakdi Krediler": 35173654,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 38724116,
+     "Nakdi Krediler": 73897770,
+     "Takipteki Krediler": 1006044,
+     "Toplam Nakdi Krediler": 74903814,
+     "Gayri Nakdi Krediler": 54223394
+    },
+    "Başka Yerlerde Sınıflandırılmamış İmalat San.": {
+     "Kısa Vadeli Nakdi Krediler": 15756489,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 19402108,
+     "Nakdi Krediler": 35158597,
+     "Takipteki Krediler": 1123978,
+     "Toplam Nakdi Krediler": 36282575,
+     "Gayri Nakdi Krediler": 12408982
+    },
+    "Elektrik, Gaz ve Su Kaynakları Ürt. Dağt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 27077560,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 349739991,
+     "Nakdi Krediler": 376817551,
+     "Takipteki Krediler": 18299020,
+     "Toplam Nakdi Krediler": 395116571,
+     "Gayri Nakdi Krediler": 83407086
+    },
+    "İnşaat": {
+     "Kısa Vadeli Nakdi Krediler": 82916321,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 323028296,
+     "Nakdi Krediler": 405944617,
+     "Takipteki Krediler": 30102786,
+     "Toplam Nakdi Krediler": 436047403,
+     "Gayri Nakdi Krediler": 308091570
+    },
+    "Toptan ve Perakende Ticaret, Motorlu Araçlar Servis Hizm. İle Kişisel ve Hane Halkı Ürünleri (29+30+31)": {
+     "Kısa Vadeli Nakdi Krediler": 268736631,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 324233360,
+     "Nakdi Krediler": 592969991,
+     "Takipteki Krediler": 22939438,
+     "Toplam Nakdi Krediler": 615909429,
+     "Gayri Nakdi Krediler": 231832768
+    },
+    "Motorlu Araçlar ve Yakıtlarının Perakende Satışı": {
+     "Kısa Vadeli Nakdi Krediler": 33136896,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 49597738,
+     "Nakdi Krediler": 82734634,
+     "Takipteki Krediler": 2707893,
+     "Toplam Nakdi Krediler": 85442527,
+     "Gayri Nakdi Krediler": 28642621
+    },
+    "Toptan Ticaret ve Komisyonculuk": {
+     "Kısa Vadeli Nakdi Krediler": 178993695,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 176579330,
+     "Nakdi Krediler": 355573025,
+     "Takipteki Krediler": 13328125,
+     "Toplam Nakdi Krediler": 368901150,
+     "Gayri Nakdi Krediler": 161705683
+    },
+    "Perakende Ticaret ve Kişisel Ürünler": {
+     "Kısa Vadeli Nakdi Krediler": 56606040,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 98056292,
+     "Nakdi Krediler": 154662332,
+     "Takipteki Krediler": 6903420,
+     "Toplam Nakdi Krediler": 161565752,
+     "Gayri Nakdi Krediler": 41484464
+    },
+    "Otel ve Restoranlar (Turizm) (33+34+35)": {
+     "Kısa Vadeli Nakdi Krediler": 29414582,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 159104154,
+     "Nakdi Krediler": 188518736,
+     "Takipteki Krediler": 8244556,
+     "Toplam Nakdi Krediler": 196763292,
+     "Gayri Nakdi Krediler": 22931886
+    },
+    "Oteller": {
+     "Kısa Vadeli Nakdi Krediler": 20237064,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 131814266,
+     "Nakdi Krediler": 152051330,
+     "Takipteki Krediler": 5848487,
+     "Toplam Nakdi Krediler": 157899817,
+     "Gayri Nakdi Krediler": 15867382
+    },
+    "Restoranlar": {
+     "Kısa Vadeli Nakdi Krediler": 3064747,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 16977296,
+     "Nakdi Krediler": 20042043,
+     "Takipteki Krediler": 586561,
+     "Toplam Nakdi Krediler": 20628604,
+     "Gayri Nakdi Krediler": 2895158
+    },
+    "Diğer Turizm": {
+     "Kısa Vadeli Nakdi Krediler": 6112771,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 10312592,
+     "Nakdi Krediler": 16425363,
+     "Takipteki Krediler": 1809508,
+     "Toplam Nakdi Krediler": 18234871,
+     "Gayri Nakdi Krediler": 4169346
+    },
+    "Taşımacılık, Depolama ve Haberleşme (37+38+...+43)": {
+     "Kısa Vadeli Nakdi Krediler": 51385258,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 264519641,
+     "Nakdi Krediler": 315904899,
+     "Takipteki Krediler": 6748028,
+     "Toplam Nakdi Krediler": 322652927,
+     "Gayri Nakdi Krediler": 103367671
+    },
+    "Demiryolu Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 72406,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 2492188,
+     "Nakdi Krediler": 2564594,
+     "Takipteki Krediler": 59382,
+     "Toplam Nakdi Krediler": 2623976,
+     "Gayri Nakdi Krediler": 864177
+    },
+    "Karayolu Yolcu Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 2844616,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 22925133,
+     "Nakdi Krediler": 25769749,
+     "Takipteki Krediler": 429777,
+     "Toplam Nakdi Krediler": 26199526,
+     "Gayri Nakdi Krediler": 2416690
+    },
+    "Karayolu Yük Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 6857821,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 29369669,
+     "Nakdi Krediler": 36227490,
+     "Takipteki Krediler": 1037404,
+     "Toplam Nakdi Krediler": 37264894,
+     "Gayri Nakdi Krediler": 6302801
+    },
+    "Deniz Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 1829234,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 33226833,
+     "Nakdi Krediler": 35056067,
+     "Takipteki Krediler": 3379903,
+     "Toplam Nakdi Krediler": 38435970,
+     "Gayri Nakdi Krediler": 4208566
+    },
+    "Hava Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 21897353,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 65442583,
+     "Nakdi Krediler": 87339936,
+     "Takipteki Krediler": 250759,
+     "Toplam Nakdi Krediler": 87590695,
+     "Gayri Nakdi Krediler": 28820059
+    },
+    "Diğer Taşımacılık Faaliyetleri ve Depolama": {
+     "Kısa Vadeli Nakdi Krediler": 8893329,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 97169569,
+     "Nakdi Krediler": 106062898,
+     "Takipteki Krediler": 1283405,
+     "Toplam Nakdi Krediler": 107346303,
+     "Gayri Nakdi Krediler": 47662173
+    },
+    "Haberleşme": {
+     "Kısa Vadeli Nakdi Krediler": 8990499,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 13893666,
+     "Nakdi Krediler": 22884165,
+     "Takipteki Krediler": 307398,
+     "Toplam Nakdi Krediler": 23191563,
+     "Gayri Nakdi Krediler": 13093205
+    },
+    "Finansal Aracılık (45+47+48+49)": {
+     "Kısa Vadeli Nakdi Krediler": 68833447,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 51952905,
+     "Nakdi Krediler": 120786352,
+     "Takipteki Krediler": 478723,
+     "Toplam Nakdi Krediler": 121265075,
+     "Gayri Nakdi Krediler": 68491724
+    },
+    "Parasal Kurumlar": {
+     "Kısa Vadeli Nakdi Krediler": 60638150,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 33864699,
+     "Nakdi Krediler": 94502849,
+     "Takipteki Krediler": 83293,
+     "Toplam Nakdi Krediler": 94586142,
+     "Gayri Nakdi Krediler": 34697379
+    },
+    "Bankalara Kullandırılan Krediler*": {
+     "Kısa Vadeli Nakdi Krediler": 51918853,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 43480057,
+     "Nakdi Krediler": 95398910,
+     "Takipteki Krediler": 9203,
+     "Toplam Nakdi Krediler": 95408113,
+     "Gayri Nakdi Krediler": 78102512
+    },
+    "Diğer Finansal Aracılar (Aracı Kurumlar, MKYO, GYO, RSYO)": {
+     "Kısa Vadeli Nakdi Krediler": 3867119,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 14262390,
+     "Nakdi Krediler": 18129509,
+     "Takipteki Krediler": 318104,
+     "Toplam Nakdi Krediler": 18447613,
+     "Gayri Nakdi Krediler": 23954721
+    },
+    "İsteğe Bağlı Sigorta ve Emeklilik Hizmetleri": {
+     "Kısa Vadeli Nakdi Krediler": 544218,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 466461,
+     "Nakdi Krediler": 1010679,
+     "Takipteki Krediler": 28081,
+     "Toplam Nakdi Krediler": 1038760,
+     "Gayri Nakdi Krediler": 5342581
+    },
+    "Diğer Finansal Aracılık": {
+     "Kısa Vadeli Nakdi Krediler": 3783960,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 3359355,
+     "Nakdi Krediler": 7143315,
+     "Takipteki Krediler": 49245,
+     "Toplam Nakdi Krediler": 7192560,
+     "Gayri Nakdi Krediler": 4497043
+    },
+    "Emlak Kom., Kiralama ve İşletmecilik Faal. (51+52+53+54)": {
+     "Kısa Vadeli Nakdi Krediler": 39863886,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 252792762,
+     "Nakdi Krediler": 292656648,
+     "Takipteki Krediler": 9848481,
+     "Toplam Nakdi Krediler": 302505129,
+     "Gayri Nakdi Krediler": 44129269
+    },
+    "Emlak Komisyonculuğu": {
+     "Kısa Vadeli Nakdi Krediler": 4360763,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 55795485,
+     "Nakdi Krediler": 60156248,
+     "Takipteki Krediler": 4838354,
+     "Toplam Nakdi Krediler": 64994602,
+     "Gayri Nakdi Krediler": 4844248
+    },
+    "Kiralama(Ulaşım Araç, Makina, Techizat)": {
+     "Kısa Vadeli Nakdi Krediler": 5839221,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 30769676,
+     "Nakdi Krediler": 36608897,
+     "Takipteki Krediler": 1383045,
+     "Toplam Nakdi Krediler": 37991942,
+     "Gayri Nakdi Krediler": 2423951
+    },
+    "Bilgisayar ve İlgili Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 3668993,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 26001935,
+     "Nakdi Krediler": 29670928,
+     "Takipteki Krediler": 364457,
+     "Toplam Nakdi Krediler": 30035385,
+     "Gayri Nakdi Krediler": 6797095
+    },
+    "Araştırma Danışmanlık Reklam ve Diğer Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 25994909,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 140225666,
+     "Nakdi Krediler": 166220575,
+     "Takipteki Krediler": 3262625,
+     "Toplam Nakdi Krediler": 169483200,
+     "Gayri Nakdi Krediler": 30063975
+    },
+    "Savunma ve Kamu Yönetimi ve Zorunlu Sosyal Güv. Kurumları": {
+     "Kısa Vadeli Nakdi Krediler": 3008596,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 74949066,
+     "Nakdi Krediler": 77957662,
+     "Takipteki Krediler": 110006,
+     "Toplam Nakdi Krediler": 78067668,
+     "Gayri Nakdi Krediler": 16081101
+    },
+    "Eğitim": {
+     "Kısa Vadeli Nakdi Krediler": 3932898,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 10198454,
+     "Nakdi Krediler": 14131352,
+     "Takipteki Krediler": 1131443,
+     "Toplam Nakdi Krediler": 15262795,
+     "Gayri Nakdi Krediler": 1582438
+    },
+    "Sağlık ve Sosyal Hizmetler": {
+     "Kısa Vadeli Nakdi Krediler": 3786282,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 31659523,
+     "Nakdi Krediler": 35445805,
+     "Takipteki Krediler": 624481,
+     "Toplam Nakdi Krediler": 36070286,
+     "Gayri Nakdi Krediler": 7286870
+    },
+    "Diğer Hizmetler (59+60+61+62)": {
+     "Kısa Vadeli Nakdi Krediler": 11157239,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 66385514,
+     "Nakdi Krediler": 77542753,
+     "Takipteki Krediler": 2776076,
+     "Toplam Nakdi Krediler": 80318829,
+     "Gayri Nakdi Krediler": 16136449
+    },
+    "Kanalizasyon ve Atıkların Tanzimi": {
+     "Kısa Vadeli Nakdi Krediler": 662724,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 1186720,
+     "Nakdi Krediler": 1849444,
+     "Takipteki Krediler": 36086,
+     "Toplam Nakdi Krediler": 1885530,
+     "Gayri Nakdi Krediler": 599469
+    },
+    "Örgütsel Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 755403,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 7542009,
+     "Nakdi Krediler": 8297412,
+     "Takipteki Krediler": 93359,
+     "Toplam Nakdi Krediler": 8390771,
+     "Gayri Nakdi Krediler": 1475440
+    },
+    "Kültür Eğlence ve Spor Faal.": {
+     "Kısa Vadeli Nakdi Krediler": 2513577,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 19323207,
+     "Nakdi Krediler": 21836784,
+     "Takipteki Krediler": 380891,
+     "Toplam Nakdi Krediler": 22217675,
+     "Gayri Nakdi Krediler": 4651180
+    },
+    "Diğer Bireysel Hizmetler": {
+     "Kısa Vadeli Nakdi Krediler": 7225535,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 38333578,
+     "Nakdi Krediler": 45559113,
+     "Takipteki Krediler": 2265740,
+     "Toplam Nakdi Krediler": 47824853,
+     "Gayri Nakdi Krediler": 9410360
+    },
+    "İşçi Çalıştıran Özel Kişiler": {
+     "Kısa Vadeli Nakdi Krediler": 97472,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 169118,
+     "Nakdi Krediler": 266590,
+     "Takipteki Krediler": 61095,
+     "Toplam Nakdi Krediler": 327685,
+     "Gayri Nakdi Krediler": 305922
+    },
+    "Uluslararası Örgüt ve Kuruluşlar": {
+     "Kısa Vadeli Nakdi Krediler": 25355,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 11457,
+     "Nakdi Krediler": 36812,
+     "Takipteki Krediler": 2685,
+     "Toplam Nakdi Krediler": 39497,
+     "Gayri Nakdi Krediler": 13135
+    },
+    "Ferdi Kredi Konut": {
+     "Kısa Vadeli Nakdi Krediler": 172246,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 300860081,
+     "Nakdi Krediler": 301032327,
+     "Takipteki Krediler": 904479,
+     "Toplam Nakdi Krediler": 301936806,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Ferdi Kredi Otomobil": {
+     "Kısa Vadeli Nakdi Krediler": 500035,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 12973082,
+     "Nakdi Krediler": 13473117,
+     "Takipteki Krediler": 151476,
+     "Toplam Nakdi Krediler": 13624593,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Ferdi Kredi Diğer": {
+     "Kısa Vadeli Nakdi Krediler": 53637316,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 413024856,
+     "Nakdi Krediler": 466662172,
+     "Takipteki Krediler": 17344733,
+     "Toplam Nakdi Krediler": 484006905,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Kredi Kartları**": {
+     "Kısa Vadeli Nakdi Krediler": 302529311,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 7286955,
+     "Nakdi Krediler": 309816266,
+     "Takipteki Krediler": 8034491,
+     "Toplam Nakdi Krediler": 317850757,
+     "Gayri Nakdi Krediler": 430083870
+    },
+    "Diğer": {
+     "Kısa Vadeli Nakdi Krediler": 13943794,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 20006303,
+     "Nakdi Krediler": 33950097,
+     "Takipteki Krediler": 2365420,
+     "Toplam Nakdi Krediler": 36315517,
+     "Gayri Nakdi Krediler": 47530680
+    },
+    "TOPLAM": {
+     "Kısa Vadeli Nakdi Krediler": 1511499503,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 3386231760,
+     "Nakdi Krediler": 4897731263,
+     "Takipteki Krediler": 160023990,
+     "Toplam Nakdi Krediler": 5057755253,
+     "Gayri Nakdi Krediler": 2025290929
+    }
+   }
+  },
+  "2023": {
+   "donem": "Sektörel Kredi Dağılımı (bin TL), Dönem:2023/12",
+   "birim": "bin TL",
+   "satirlar": {
+    "Tarım, Avcılık ve Ormancılık (2+3+4)": {
+     "Kısa Vadeli Nakdi Krediler": 204878821,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 383444843,
+     "Nakdi Krediler": 588323664,
+     "Takipteki Krediler": 2105136,
+     "Toplam Nakdi Krediler": 590428800,
+     "Gayri Nakdi Krediler": 30329049
+    },
+    "Tarım": {
+     "Kısa Vadeli Nakdi Krediler": 200718016,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 381330341,
+     "Nakdi Krediler": 582048357,
+     "Takipteki Krediler": 2072753,
+     "Toplam Nakdi Krediler": 584121110,
+     "Gayri Nakdi Krediler": 24973003
+    },
+    "Avcılık": {
+     "Kısa Vadeli Nakdi Krediler": 89159,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 87037,
+     "Nakdi Krediler": 176196,
+     "Takipteki Krediler": 1572,
+     "Toplam Nakdi Krediler": 177768,
+     "Gayri Nakdi Krediler": 16525
+    },
+    "Kereste ve Orman Ürünleri": {
+     "Kısa Vadeli Nakdi Krediler": 4071646,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 2027465,
+     "Nakdi Krediler": 6099111,
+     "Takipteki Krediler": 30811,
+     "Toplam Nakdi Krediler": 6129922,
+     "Gayri Nakdi Krediler": 5339521
+    },
+    "Balıkçılık": {
+     "Kısa Vadeli Nakdi Krediler": 6807793,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 8432417,
+     "Nakdi Krediler": 15240210,
+     "Takipteki Krediler": 63748,
+     "Toplam Nakdi Krediler": 15303958,
+     "Gayri Nakdi Krediler": 3214276
+    },
+    "Madencilik ve Taşocakçılığı (7+8)": {
+     "Kısa Vadeli Nakdi Krediler": 43586944,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 87300894,
+     "Nakdi Krediler": 130887838,
+     "Takipteki Krediler": 2871710,
+     "Toplam Nakdi Krediler": 133759548,
+     "Gayri Nakdi Krediler": 35817633
+    },
+    "Enerji Üreten Madenlerin Çıkarılması": {
+     "Kısa Vadeli Nakdi Krediler": 12923946,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 57054929,
+     "Nakdi Krediler": 69978875,
+     "Takipteki Krediler": 205151,
+     "Toplam Nakdi Krediler": 70184026,
+     "Gayri Nakdi Krediler": 13740196
+    },
+    "Enerji Üretmeyen Madenlerin Çıkarılması": {
+     "Kısa Vadeli Nakdi Krediler": 30662998,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 30245965,
+     "Nakdi Krediler": 60908963,
+     "Takipteki Krediler": 2666559,
+     "Toplam Nakdi Krediler": 63575522,
+     "Gayri Nakdi Krediler": 22077437
+    },
+    "İmalat Sanayi (10+...+22+25)": {
+     "Kısa Vadeli Nakdi Krediler": 1325429690,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 1252620375,
+     "Nakdi Krediler": 2578050065,
+     "Takipteki Krediler": 21571532,
+     "Toplam Nakdi Krediler": 2599621597,
+     "Gayri Nakdi Krediler": 1524598994
+    },
+    "Gıda, Meşrubat ve Tütün San.": {
+     "Kısa Vadeli Nakdi Krediler": 195850960,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 127581894,
+     "Nakdi Krediler": 323432854,
+     "Takipteki Krediler": 3262781,
+     "Toplam Nakdi Krediler": 326695635,
+     "Gayri Nakdi Krediler": 133890246
+    },
+    "Tekstil ve Tekstil Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 183205767,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 183766324,
+     "Nakdi Krediler": 366972091,
+     "Takipteki Krediler": 5863856,
+     "Toplam Nakdi Krediler": 372835947,
+     "Gayri Nakdi Krediler": 191405317
+    },
+    "Deri ve Deri Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 8629413,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 6416425,
+     "Nakdi Krediler": 15045838,
+     "Takipteki Krediler": 383999,
+     "Toplam Nakdi Krediler": 15429837,
+     "Gayri Nakdi Krediler": 4753976
+    },
+    "Ağaç ve Ağaç Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 24083486,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 25816753,
+     "Nakdi Krediler": 49900239,
+     "Takipteki Krediler": 388228,
+     "Toplam Nakdi Krediler": 50288467,
+     "Gayri Nakdi Krediler": 24469526
+    },
+    "Kağıt Hammaddesi ve Kağıt Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 42607243,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 66957500,
+     "Nakdi Krediler": 109564743,
+     "Takipteki Krediler": 421716,
+     "Toplam Nakdi Krediler": 109986459,
+     "Gayri Nakdi Krediler": 40621660
+    },
+    "Nükleer Yakıt, Petrol Rafineri ve Kok Kömür Ürt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 16335897,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 16171448,
+     "Nakdi Krediler": 32507345,
+     "Takipteki Krediler": 212962,
+     "Toplam Nakdi Krediler": 32720307,
+     "Gayri Nakdi Krediler": 49003787
+    },
+    "Kimya Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 122848370,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 97476995,
+     "Nakdi Krediler": 220325365,
+     "Takipteki Krediler": 520970,
+     "Toplam Nakdi Krediler": 220846335,
+     "Gayri Nakdi Krediler": 108006713
+    },
+    "Kauçuk ve Plastik Ürünler San.": {
+     "Kısa Vadeli Nakdi Krediler": 65481641,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 62015820,
+     "Nakdi Krediler": 127497461,
+     "Takipteki Krediler": 1393733,
+     "Toplam Nakdi Krediler": 128891194,
+     "Gayri Nakdi Krediler": 58257914
+    },
+    "Diğer Metal Dışı Madenler San.": {
+     "Kısa Vadeli Nakdi Krediler": 74485610,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 111102974,
+     "Nakdi Krediler": 185588584,
+     "Takipteki Krediler": 629824,
+     "Toplam Nakdi Krediler": 186218408,
+     "Gayri Nakdi Krediler": 63530904
+    },
+    "Metal Ana San. ve İşlenmiş Maden Ürt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 228719151,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 220578132,
+     "Nakdi Krediler": 449297283,
+     "Takipteki Krediler": 2956240,
+     "Toplam Nakdi Krediler": 452253523,
+     "Gayri Nakdi Krediler": 347632439
+    },
+    "Makina ve Techizat San.": {
+     "Kısa Vadeli Nakdi Krediler": 96412192,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 62824920,
+     "Nakdi Krediler": 159237112,
+     "Takipteki Krediler": 659017,
+     "Toplam Nakdi Krediler": 159896129,
+     "Gayri Nakdi Krediler": 117888412
+    },
+    "Elektrikli ve Optik Aletler San.": {
+     "Kısa Vadeli Nakdi Krediler": 76042856,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 67193492,
+     "Nakdi Krediler": 143236348,
+     "Takipteki Krediler": 2156543,
+     "Toplam Nakdi Krediler": 145392891,
+     "Gayri Nakdi Krediler": 116686335
+    },
+    "Ulaşım Araçları San.": {
+     "Kısa Vadeli Nakdi Krediler": 134393558,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 159646815,
+     "Nakdi Krediler": 294040373,
+     "Takipteki Krediler": 872936,
+     "Toplam Nakdi Krediler": 294913309,
+     "Gayri Nakdi Krediler": 228297271
+    },
+    "a) Gemi/Tekne Yapımı ve İmalatı": {
+     "Kısa Vadeli Nakdi Krediler": 11451209,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 26694099,
+     "Nakdi Krediler": 38145308,
+     "Takipteki Krediler": 446488,
+     "Toplam Nakdi Krediler": 38591796,
+     "Gayri Nakdi Krediler": 62135915
+    },
+    "b) Motorlu ve Diğer Araçların İmalatı": {
+     "Kısa Vadeli Nakdi Krediler": 122942349,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 132952716,
+     "Nakdi Krediler": 255895065,
+     "Takipteki Krediler": 426448,
+     "Toplam Nakdi Krediler": 256321513,
+     "Gayri Nakdi Krediler": 166161356
+    },
+    "Başka Yerlerde Sınıflandırılmamış İmalat San.": {
+     "Kısa Vadeli Nakdi Krediler": 56333546,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 45070883,
+     "Nakdi Krediler": 101404429,
+     "Takipteki Krediler": 1848727,
+     "Toplam Nakdi Krediler": 103253156,
+     "Gayri Nakdi Krediler": 40154494
+    },
+    "Elektrik, Gaz ve Su Kaynakları Ürt. Dağt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 76682536,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 535300450,
+     "Nakdi Krediler": 611982986,
+     "Takipteki Krediler": 23818081,
+     "Toplam Nakdi Krediler": 635801067,
+     "Gayri Nakdi Krediler": 210064631
+    },
+    "İnşaat": {
+     "Kısa Vadeli Nakdi Krediler": 223530927,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 542576170,
+     "Nakdi Krediler": 766107097,
+     "Takipteki Krediler": 36901200,
+     "Toplam Nakdi Krediler": 803008297,
+     "Gayri Nakdi Krediler": 864297683
+    },
+    "Toptan ve Perakende Ticaret, Motorlu Araçlar Servis Hizm. İle Kişisel ve Hane Halkı Ürünleri (29+30+31)": {
+     "Kısa Vadeli Nakdi Krediler": 824102198,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 598201580,
+     "Nakdi Krediler": 1422303778,
+     "Takipteki Krediler": 17571477,
+     "Toplam Nakdi Krediler": 1439875255,
+     "Gayri Nakdi Krediler": 694894294
+    },
+    "Motorlu Araçlar ve Yakıtlarının Perakende Satışı": {
+     "Kısa Vadeli Nakdi Krediler": 117517341,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 107669632,
+     "Nakdi Krediler": 225186973,
+     "Takipteki Krediler": 1713003,
+     "Toplam Nakdi Krediler": 226899976,
+     "Gayri Nakdi Krediler": 116482192
+    },
+    "Toptan Ticaret ve Komisyonculuk": {
+     "Kısa Vadeli Nakdi Krediler": 543924609,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 316784839,
+     "Nakdi Krediler": 860709448,
+     "Takipteki Krediler": 10783384,
+     "Toplam Nakdi Krediler": 871492832,
+     "Gayri Nakdi Krediler": 443085134
+    },
+    "Perakende Ticaret ve Kişisel Ürünler": {
+     "Kısa Vadeli Nakdi Krediler": 162660248,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 173747109,
+     "Nakdi Krediler": 336407357,
+     "Takipteki Krediler": 5075090,
+     "Toplam Nakdi Krediler": 341482447,
+     "Gayri Nakdi Krediler": 135326968
+    },
+    "Otel ve Restoranlar (Turizm) (33+34+35)": {
+     "Kısa Vadeli Nakdi Krediler": 64948819,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 281191223,
+     "Nakdi Krediler": 346140042,
+     "Takipteki Krediler": 7681606,
+     "Toplam Nakdi Krediler": 353821648,
+     "Gayri Nakdi Krediler": 60281852
+    },
+    "Oteller": {
+     "Kısa Vadeli Nakdi Krediler": 44095048,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 240555626,
+     "Nakdi Krediler": 284650674,
+     "Takipteki Krediler": 5824961,
+     "Toplam Nakdi Krediler": 290475635,
+     "Gayri Nakdi Krediler": 42326618
+    },
+    "Restoranlar": {
+     "Kısa Vadeli Nakdi Krediler": 13084760,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 28543898,
+     "Nakdi Krediler": 41628658,
+     "Takipteki Krediler": 672797,
+     "Toplam Nakdi Krediler": 42301455,
+     "Gayri Nakdi Krediler": 6951861
+    },
+    "Diğer Turizm": {
+     "Kısa Vadeli Nakdi Krediler": 7769011,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 12091699,
+     "Nakdi Krediler": 19860710,
+     "Takipteki Krediler": 1183848,
+     "Toplam Nakdi Krediler": 21044558,
+     "Gayri Nakdi Krediler": 11003373
+    },
+    "Taşımacılık, Depolama ve Haberleşme (37+38+...+43)": {
+     "Kısa Vadeli Nakdi Krediler": 146994857,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 466643025,
+     "Nakdi Krediler": 613637882,
+     "Takipteki Krediler": 6952006,
+     "Toplam Nakdi Krediler": 620589888,
+     "Gayri Nakdi Krediler": 209642946
+    },
+    "Demiryolu Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 300232,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 5306916,
+     "Nakdi Krediler": 5607148,
+     "Takipteki Krediler": 4688,
+     "Toplam Nakdi Krediler": 5611836,
+     "Gayri Nakdi Krediler": 1395265
+    },
+    "Karayolu Yolcu Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 12492603,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 50792954,
+     "Nakdi Krediler": 63285557,
+     "Takipteki Krediler": 299414,
+     "Toplam Nakdi Krediler": 63584971,
+     "Gayri Nakdi Krediler": 7251292
+    },
+    "Karayolu Yük Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 32723914,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 76365575,
+     "Nakdi Krediler": 109089489,
+     "Takipteki Krediler": 690492,
+     "Toplam Nakdi Krediler": 109779981,
+     "Gayri Nakdi Krediler": 19852327
+    },
+    "Deniz Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 7000665,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 51039599,
+     "Nakdi Krediler": 58040264,
+     "Takipteki Krediler": 4823725,
+     "Toplam Nakdi Krediler": 62863989,
+     "Gayri Nakdi Krediler": 8409619
+    },
+    "Hava Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 47469005,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 96242072,
+     "Nakdi Krediler": 143711077,
+     "Takipteki Krediler": 105276,
+     "Toplam Nakdi Krediler": 143816353,
+     "Gayri Nakdi Krediler": 39428097
+    },
+    "Diğer Taşımacılık Faaliyetleri ve Depolama": {
+     "Kısa Vadeli Nakdi Krediler": 27999689,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 182444181,
+     "Nakdi Krediler": 210443870,
+     "Takipteki Krediler": 855925,
+     "Toplam Nakdi Krediler": 211299795,
+     "Gayri Nakdi Krediler": 102252116
+    },
+    "Haberleşme": {
+     "Kısa Vadeli Nakdi Krediler": 19008749,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 4451728,
+     "Nakdi Krediler": 23460477,
+     "Takipteki Krediler": 172486,
+     "Toplam Nakdi Krediler": 23632963,
+     "Gayri Nakdi Krediler": 31054230
+    },
+    "Finansal Aracılık (45+47+48+49)": {
+     "Kısa Vadeli Nakdi Krediler": 160048104,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 116718149,
+     "Nakdi Krediler": 276766253,
+     "Takipteki Krediler": 596964,
+     "Toplam Nakdi Krediler": 277363217,
+     "Gayri Nakdi Krediler": 227246785
+    },
+    "Parasal Kurumlar": {
+     "Kısa Vadeli Nakdi Krediler": 150057772,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 89503395,
+     "Nakdi Krediler": 239561167,
+     "Takipteki Krediler": 28297,
+     "Toplam Nakdi Krediler": 239589464,
+     "Gayri Nakdi Krediler": 101440587
+    },
+    "Bankalara Kullandırılan Krediler*": {
+     "Kısa Vadeli Nakdi Krediler": 93871473,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 62072840,
+     "Nakdi Krediler": 155944313,
+     "Takipteki Krediler": 9344,
+     "Toplam Nakdi Krediler": 155953657,
+     "Gayri Nakdi Krediler": 150104464
+    },
+    "Diğer Finansal Aracılar (Aracı Kurumlar, MKYO, GYO, RSYO)": {
+     "Kısa Vadeli Nakdi Krediler": 4655866,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 16433295,
+     "Nakdi Krediler": 21089161,
+     "Takipteki Krediler": 511681,
+     "Toplam Nakdi Krediler": 21600842,
+     "Gayri Nakdi Krediler": 59276416
+    },
+    "İsteğe Bağlı Sigorta ve Emeklilik Hizmetleri": {
+     "Kısa Vadeli Nakdi Krediler": 595975,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 8240558,
+     "Nakdi Krediler": 8836533,
+     "Takipteki Krediler": 9957,
+     "Toplam Nakdi Krediler": 8846490,
+     "Gayri Nakdi Krediler": 36121149
+    },
+    "Diğer Finansal Aracılık": {
+     "Kısa Vadeli Nakdi Krediler": 4738491,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 2540901,
+     "Nakdi Krediler": 7279392,
+     "Takipteki Krediler": 47029,
+     "Toplam Nakdi Krediler": 7326421,
+     "Gayri Nakdi Krediler": 30408633
+    },
+    "Emlak Kom., Kiralama ve İşletmecilik Faal. (51+52+53+54)": {
+     "Kısa Vadeli Nakdi Krediler": 132806706,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 509514003,
+     "Nakdi Krediler": 642320709,
+     "Takipteki Krediler": 14004425,
+     "Toplam Nakdi Krediler": 656325134,
+     "Gayri Nakdi Krediler": 135252925
+    },
+    "Emlak Komisyonculuğu": {
+     "Kısa Vadeli Nakdi Krediler": 28825400,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 87970605,
+     "Nakdi Krediler": 116796005,
+     "Takipteki Krediler": 9580970,
+     "Toplam Nakdi Krediler": 126376975,
+     "Gayri Nakdi Krediler": 18318585
+    },
+    "Kiralama(Ulaşım Araç, Makina, Techizat)": {
+     "Kısa Vadeli Nakdi Krediler": 20289371,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 68792255,
+     "Nakdi Krediler": 89081626,
+     "Takipteki Krediler": 465045,
+     "Toplam Nakdi Krediler": 89546671,
+     "Gayri Nakdi Krediler": 7104750
+    },
+    "Bilgisayar ve İlgili Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 12259235,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 44034936,
+     "Nakdi Krediler": 56294171,
+     "Takipteki Krediler": 293036,
+     "Toplam Nakdi Krediler": 56587207,
+     "Gayri Nakdi Krediler": 16511780
+    },
+    "Araştırma Danışmanlık Reklam ve Diğer Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 71432700,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 308716207,
+     "Nakdi Krediler": 380148907,
+     "Takipteki Krediler": 3665374,
+     "Toplam Nakdi Krediler": 383814281,
+     "Gayri Nakdi Krediler": 93317810
+    },
+    "Savunma ve Kamu Yönetimi ve Zorunlu Sosyal Güv. Kurumları": {
+     "Kısa Vadeli Nakdi Krediler": 17075707,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 160093600,
+     "Nakdi Krediler": 177169307,
+     "Takipteki Krediler": 52619,
+     "Toplam Nakdi Krediler": 177221926,
+     "Gayri Nakdi Krediler": 64011220
+    },
+    "Eğitim": {
+     "Kısa Vadeli Nakdi Krediler": 8542515,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 17686798,
+     "Nakdi Krediler": 26229313,
+     "Takipteki Krediler": 1600139,
+     "Toplam Nakdi Krediler": 27829452,
+     "Gayri Nakdi Krediler": 4657499
+    },
+    "Sağlık ve Sosyal Hizmetler": {
+     "Kısa Vadeli Nakdi Krediler": 15028629,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 68701159,
+     "Nakdi Krediler": 83729788,
+     "Takipteki Krediler": 568492,
+     "Toplam Nakdi Krediler": 84298280,
+     "Gayri Nakdi Krediler": 14145022
+    },
+    "Diğer Hizmetler (59+60+61+62)": {
+     "Kısa Vadeli Nakdi Krediler": 40270294,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 130675134,
+     "Nakdi Krediler": 170945428,
+     "Takipteki Krediler": 2869443,
+     "Toplam Nakdi Krediler": 173814871,
+     "Gayri Nakdi Krediler": 50683027
+    },
+    "Kanalizasyon ve Atıkların Tanzimi": {
+     "Kısa Vadeli Nakdi Krediler": 2032599,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 2483546,
+     "Nakdi Krediler": 4516145,
+     "Takipteki Krediler": 42565,
+     "Toplam Nakdi Krediler": 4558710,
+     "Gayri Nakdi Krediler": 2349711
+    },
+    "Örgütsel Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 6857961,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 16487094,
+     "Nakdi Krediler": 23345055,
+     "Takipteki Krediler": 98473,
+     "Toplam Nakdi Krediler": 23443528,
+     "Gayri Nakdi Krediler": 6031473
+    },
+    "Kültür Eğlence ve Spor Faal.": {
+     "Kısa Vadeli Nakdi Krediler": 4964189,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 27408032,
+     "Nakdi Krediler": 32372221,
+     "Takipteki Krediler": 326573,
+     "Toplam Nakdi Krediler": 32698794,
+     "Gayri Nakdi Krediler": 10510514
+    },
+    "Diğer Bireysel Hizmetler": {
+     "Kısa Vadeli Nakdi Krediler": 26415545,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 84296462,
+     "Nakdi Krediler": 110712007,
+     "Takipteki Krediler": 2401832,
+     "Toplam Nakdi Krediler": 113113839,
+     "Gayri Nakdi Krediler": 31791329
+    },
+    "İşçi Çalıştıran Özel Kişiler": {
+     "Kısa Vadeli Nakdi Krediler": 161270,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 617173,
+     "Nakdi Krediler": 778443,
+     "Takipteki Krediler": 21931,
+     "Toplam Nakdi Krediler": 800374,
+     "Gayri Nakdi Krediler": 1013265
+    },
+    "Uluslararası Örgüt ve Kuruluşlar": {
+     "Kısa Vadeli Nakdi Krediler": 31561,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 19891,
+     "Nakdi Krediler": 51452,
+     "Takipteki Krediler": 1159,
+     "Toplam Nakdi Krediler": 52611,
+     "Gayri Nakdi Krediler": 10225
+    },
+    "Ferdi Kredi Konut": {
+     "Kısa Vadeli Nakdi Krediler": 274242,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 441166409,
+     "Nakdi Krediler": 441440651,
+     "Takipteki Krediler": 521750,
+     "Toplam Nakdi Krediler": 441962401,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Ferdi Kredi Otomobil": {
+     "Kısa Vadeli Nakdi Krediler": 12061120,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 84995508,
+     "Nakdi Krediler": 97056628,
+     "Takipteki Krediler": 143558,
+     "Toplam Nakdi Krediler": 97200186,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Ferdi Kredi Diğer": {
+     "Kısa Vadeli Nakdi Krediler": 377861439,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 610171791,
+     "Nakdi Krediler": 988033230,
+     "Takipteki Krediler": 29287518,
+     "Toplam Nakdi Krediler": 1017320748,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Kredi Kartları**": {
+     "Kısa Vadeli Nakdi Krediler": 1560487405,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 46028289,
+     "Nakdi Krediler": 1606515694,
+     "Takipteki Krediler": 19215091,
+     "Toplam Nakdi Krediler": 1625730785,
+     "Gayri Nakdi Krediler": 3370359381
+    },
+    "Diğer": {
+     "Kısa Vadeli Nakdi Krediler": 35887342,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 52137520,
+     "Nakdi Krediler": 88024862,
+     "Takipteki Krediler": 3399742,
+     "Toplam Nakdi Krediler": 91424604,
+     "Gayri Nakdi Krediler": 52311531
+    },
+    "TOPLAM": {
+     "Kısa Vadeli Nakdi Krediler": 5277498919,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 6394236401,
+     "Nakdi Krediler": 11671735320,
+     "Takipteki Krediler": 191819327,
+     "Toplam Nakdi Krediler": 11863554647,
+     "Gayri Nakdi Krediler": 7552832238
+    }
+   }
+  },
+  "2025": {
+   "donem": "Sektörel Kredi Dağılımı (bin TL), Dönem:2025/12",
+   "birim": "bin TL",
+   "satirlar": {
+    "Tarım, Avcılık ve Ormancılık (2+3+4)": {
+     "Kısa Vadeli Nakdi Krediler": 441948345,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 782677534,
+     "Nakdi Krediler": 1224625879,
+     "Takipteki Krediler": 14822126,
+     "Toplam Nakdi Krediler": 1239448005,
+     "Gayri Nakdi Krediler": 47040830
+    },
+    "Tarım": {
+     "Kısa Vadeli Nakdi Krediler": 433987595,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 776098836,
+     "Nakdi Krediler": 1210086431,
+     "Takipteki Krediler": 14377442,
+     "Toplam Nakdi Krediler": 1224463873,
+     "Gayri Nakdi Krediler": 43105759
+    },
+    "Avcılık": {
+     "Kısa Vadeli Nakdi Krediler": 101933,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 174452,
+     "Nakdi Krediler": 276385,
+     "Takipteki Krediler": 7007,
+     "Toplam Nakdi Krediler": 283392,
+     "Gayri Nakdi Krediler": 54251
+    },
+    "Kereste ve Orman Ürünleri": {
+     "Kısa Vadeli Nakdi Krediler": 7858817,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 6404246,
+     "Nakdi Krediler": 14263063,
+     "Takipteki Krediler": 437677,
+     "Toplam Nakdi Krediler": 14700740,
+     "Gayri Nakdi Krediler": 3880820
+    },
+    "Balıkçılık": {
+     "Kısa Vadeli Nakdi Krediler": 11276332,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 21225306,
+     "Nakdi Krediler": 32501638,
+     "Takipteki Krediler": 171335,
+     "Toplam Nakdi Krediler": 32672973,
+     "Gayri Nakdi Krediler": 5264112
+    },
+    "Madencilik ve Taşocakçılığı (7+8)": {
+     "Kısa Vadeli Nakdi Krediler": 102695430,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 162025712,
+     "Nakdi Krediler": 264721142,
+     "Takipteki Krediler": 4088168,
+     "Toplam Nakdi Krediler": 268809310,
+     "Gayri Nakdi Krediler": 76333385
+    },
+    "Enerji Üreten Madenlerin Çıkarılması": {
+     "Kısa Vadeli Nakdi Krediler": 43284981,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 94918323,
+     "Nakdi Krediler": 138203304,
+     "Takipteki Krediler": 496402,
+     "Toplam Nakdi Krediler": 138699706,
+     "Gayri Nakdi Krediler": 16785731
+    },
+    "Enerji Üretmeyen Madenlerin Çıkarılması": {
+     "Kısa Vadeli Nakdi Krediler": 59410449,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 67107389,
+     "Nakdi Krediler": 126517838,
+     "Takipteki Krediler": 3591766,
+     "Toplam Nakdi Krediler": 130109604,
+     "Gayri Nakdi Krediler": 59547654
+    },
+    "İmalat Sanayi (10+...+22+25)": {
+     "Kısa Vadeli Nakdi Krediler": 2286511972,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 2992095978,
+     "Nakdi Krediler": 5278607950,
+     "Takipteki Krediler": 103637099,
+     "Toplam Nakdi Krediler": 5382245049,
+     "Gayri Nakdi Krediler": 3091210672
+    },
+    "Gıda, Meşrubat ve Tütün San.": {
+     "Kısa Vadeli Nakdi Krediler": 397471311,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 288808302,
+     "Nakdi Krediler": 686279613,
+     "Takipteki Krediler": 13798054,
+     "Toplam Nakdi Krediler": 700077667,
+     "Gayri Nakdi Krediler": 308807896
+    },
+    "Tekstil ve Tekstil Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 274759745,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 423133425,
+     "Nakdi Krediler": 697893170,
+     "Takipteki Krediler": 22029677,
+     "Toplam Nakdi Krediler": 719922847,
+     "Gayri Nakdi Krediler": 325360467
+    },
+    "Deri ve Deri Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 11063108,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 16039903,
+     "Nakdi Krediler": 27103011,
+     "Takipteki Krediler": 1362402,
+     "Toplam Nakdi Krediler": 28465413,
+     "Gayri Nakdi Krediler": 9196029
+    },
+    "Ağaç ve Ağaç Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 45666857,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 56142395,
+     "Nakdi Krediler": 101809252,
+     "Takipteki Krediler": 1616793,
+     "Toplam Nakdi Krediler": 103426045,
+     "Gayri Nakdi Krediler": 36844917
+    },
+    "Kağıt Hammaddesi ve Kağıt Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 68739094,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 126795822,
+     "Nakdi Krediler": 195534916,
+     "Takipteki Krediler": 2471905,
+     "Toplam Nakdi Krediler": 198006821,
+     "Gayri Nakdi Krediler": 77790323
+    },
+    "Nükleer Yakıt, Petrol Rafineri ve Kok Kömür Ürt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 64435151,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 34802160,
+     "Nakdi Krediler": 99237311,
+     "Takipteki Krediler": 3906949,
+     "Toplam Nakdi Krediler": 103144260,
+     "Gayri Nakdi Krediler": 109420325
+    },
+    "Kimya Ürünleri San.": {
+     "Kısa Vadeli Nakdi Krediler": 203720991,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 223561355,
+     "Nakdi Krediler": 427282346,
+     "Takipteki Krediler": 3537470,
+     "Toplam Nakdi Krediler": 430819816,
+     "Gayri Nakdi Krediler": 222741052
+    },
+    "Kauçuk ve Plastik Ürünler San.": {
+     "Kısa Vadeli Nakdi Krediler": 104690958,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 136895068,
+     "Nakdi Krediler": 241586026,
+     "Takipteki Krediler": 5873227,
+     "Toplam Nakdi Krediler": 247459253,
+     "Gayri Nakdi Krediler": 134239786
+    },
+    "Diğer Metal Dışı Madenler San.": {
+     "Kısa Vadeli Nakdi Krediler": 125257633,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 262172413,
+     "Nakdi Krediler": 387430046,
+     "Takipteki Krediler": 4178336,
+     "Toplam Nakdi Krediler": 391608382,
+     "Gayri Nakdi Krediler": 140240749
+    },
+    "Metal Ana San. ve İşlenmiş Maden Ürt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 350475521,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 515777089,
+     "Nakdi Krediler": 866252610,
+     "Takipteki Krediler": 18678313,
+     "Toplam Nakdi Krediler": 884930923,
+     "Gayri Nakdi Krediler": 693185932
+    },
+    "Makina ve Techizat San.": {
+     "Kısa Vadeli Nakdi Krediler": 178883649,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 224463984,
+     "Nakdi Krediler": 403347633,
+     "Takipteki Krediler": 7860040,
+     "Toplam Nakdi Krediler": 411207673,
+     "Gayri Nakdi Krediler": 233068294
+    },
+    "Elektrikli ve Optik Aletler San.": {
+     "Kısa Vadeli Nakdi Krediler": 139742658,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 173351196,
+     "Nakdi Krediler": 313093854,
+     "Takipteki Krediler": 4567097,
+     "Toplam Nakdi Krediler": 317660951,
+     "Gayri Nakdi Krediler": 226481150
+    },
+    "Ulaşım Araçları San.": {
+     "Kısa Vadeli Nakdi Krediler": 221922896,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 417824507,
+     "Nakdi Krediler": 639747403,
+     "Takipteki Krediler": 4554964,
+     "Toplam Nakdi Krediler": 644302367,
+     "Gayri Nakdi Krediler": 426887357
+    },
+    "a) Gemi/Tekne Yapımı ve İmalatı": {
+     "Kısa Vadeli Nakdi Krediler": 29689563,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 40870573,
+     "Nakdi Krediler": 70560136,
+     "Takipteki Krediler": 482159,
+     "Toplam Nakdi Krediler": 71042295,
+     "Gayri Nakdi Krediler": 100451475
+    },
+    "b) Motorlu ve Diğer Araçların İmalatı": {
+     "Kısa Vadeli Nakdi Krediler": 192233333,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 376953934,
+     "Nakdi Krediler": 569187267,
+     "Takipteki Krediler": 4072805,
+     "Toplam Nakdi Krediler": 573260072,
+     "Gayri Nakdi Krediler": 326435882
+    },
+    "Başka Yerlerde Sınıflandırılmamış İmalat San.": {
+     "Kısa Vadeli Nakdi Krediler": 99682400,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 92328359,
+     "Nakdi Krediler": 192010759,
+     "Takipteki Krediler": 9201872,
+     "Toplam Nakdi Krediler": 201212631,
+     "Gayri Nakdi Krediler": 146946395
+    },
+    "Elektrik, Gaz ve Su Kaynakları Ürt. Dağt. San.": {
+     "Kısa Vadeli Nakdi Krediler": 104119430,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 758878415,
+     "Nakdi Krediler": 862997845,
+     "Takipteki Krediler": 20801957,
+     "Toplam Nakdi Krediler": 883799802,
+     "Gayri Nakdi Krediler": 356093197
+    },
+    "İnşaat": {
+     "Kısa Vadeli Nakdi Krediler": 430907046,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 1031934783,
+     "Nakdi Krediler": 1462841829,
+     "Takipteki Krediler": 53581834,
+     "Toplam Nakdi Krediler": 1516423663,
+     "Gayri Nakdi Krediler": 1907953662
+    },
+    "Toptan ve Perakende Ticaret, Motorlu Araçlar Servis Hizm. İle Kişisel ve Hane Halkı Ürünleri (29+30+31)": {
+     "Kısa Vadeli Nakdi Krediler": 1356537110,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 1299313735,
+     "Nakdi Krediler": 2655850845,
+     "Takipteki Krediler": 82473086,
+     "Toplam Nakdi Krediler": 2738323931,
+     "Gayri Nakdi Krediler": 1542614558
+    },
+    "Motorlu Araçlar ve Yakıtlarının Perakende Satışı": {
+     "Kısa Vadeli Nakdi Krediler": 148493945,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 173940155,
+     "Nakdi Krediler": 322434100,
+     "Takipteki Krediler": 10273274,
+     "Toplam Nakdi Krediler": 332707374,
+     "Gayri Nakdi Krediler": 198328546
+    },
+    "Toptan Ticaret ve Komisyonculuk": {
+     "Kısa Vadeli Nakdi Krediler": 864679199,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 672392061,
+     "Nakdi Krediler": 1537071260,
+     "Takipteki Krediler": 52605201,
+     "Toplam Nakdi Krediler": 1589676461,
+     "Gayri Nakdi Krediler": 1018014047
+    },
+    "Perakende Ticaret ve Kişisel Ürünler": {
+     "Kısa Vadeli Nakdi Krediler": 343363966,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 452981519,
+     "Nakdi Krediler": 796345485,
+     "Takipteki Krediler": 19594611,
+     "Toplam Nakdi Krediler": 815940096,
+     "Gayri Nakdi Krediler": 326271965
+    },
+    "Otel ve Restoranlar (Turizm) (33+34+35)": {
+     "Kısa Vadeli Nakdi Krediler": 104771123,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 575388469,
+     "Nakdi Krediler": 680159592,
+     "Takipteki Krediler": 7085589,
+     "Toplam Nakdi Krediler": 687245181,
+     "Gayri Nakdi Krediler": 111231270
+    },
+    "Oteller": {
+     "Kısa Vadeli Nakdi Krediler": 67972310,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 465445994,
+     "Nakdi Krediler": 533418304,
+     "Takipteki Krediler": 3114640,
+     "Toplam Nakdi Krediler": 536532944,
+     "Gayri Nakdi Krediler": 68576690
+    },
+    "Restoranlar": {
+     "Kısa Vadeli Nakdi Krediler": 23446266,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 78496810,
+     "Nakdi Krediler": 101943076,
+     "Takipteki Krediler": 2835286,
+     "Toplam Nakdi Krediler": 104778362,
+     "Gayri Nakdi Krediler": 21960315
+    },
+    "Diğer Turizm": {
+     "Kısa Vadeli Nakdi Krediler": 13352547,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 31445665,
+     "Nakdi Krediler": 44798212,
+     "Takipteki Krediler": 1135663,
+     "Toplam Nakdi Krediler": 45933875,
+     "Gayri Nakdi Krediler": 20694265
+    },
+    "Taşımacılık, Depolama ve Haberleşme (37+38+...+43)": {
+     "Kısa Vadeli Nakdi Krediler": 281773400,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 841720609,
+     "Nakdi Krediler": 1123494009,
+     "Takipteki Krediler": 11842547,
+     "Toplam Nakdi Krediler": 1135336556,
+     "Gayri Nakdi Krediler": 388978755
+    },
+    "Demiryolu Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 3562223,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 17014653,
+     "Nakdi Krediler": 20576876,
+     "Takipteki Krediler": 170448,
+     "Toplam Nakdi Krediler": 20747324,
+     "Gayri Nakdi Krediler": 7857115
+    },
+    "Karayolu Yolcu Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 18578276,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 104224510,
+     "Nakdi Krediler": 122802786,
+     "Takipteki Krediler": 1038413,
+     "Toplam Nakdi Krediler": 123841199,
+     "Gayri Nakdi Krediler": 16016890
+    },
+    "Karayolu Yük Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 50367740,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 188312980,
+     "Nakdi Krediler": 238680720,
+     "Takipteki Krediler": 4369099,
+     "Toplam Nakdi Krediler": 243049819,
+     "Gayri Nakdi Krediler": 52918487
+    },
+    "Deniz Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 19259550,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 86615837,
+     "Nakdi Krediler": 105875387,
+     "Takipteki Krediler": 3421558,
+     "Toplam Nakdi Krediler": 109296945,
+     "Gayri Nakdi Krediler": 12154540
+    },
+    "Hava Taşımacılığı": {
+     "Kısa Vadeli Nakdi Krediler": 89035574,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 121085960,
+     "Nakdi Krediler": 210121534,
+     "Takipteki Krediler": 84976,
+     "Toplam Nakdi Krediler": 210206510,
+     "Gayri Nakdi Krediler": 28401362
+    },
+    "Diğer Taşımacılık Faaliyetleri ve Depolama": {
+     "Kısa Vadeli Nakdi Krediler": 86911637,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 309568711,
+     "Nakdi Krediler": 396480348,
+     "Takipteki Krediler": 2097705,
+     "Toplam Nakdi Krediler": 398578053,
+     "Gayri Nakdi Krediler": 198498728
+    },
+    "Haberleşme": {
+     "Kısa Vadeli Nakdi Krediler": 14058400,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 14897958,
+     "Nakdi Krediler": 28956358,
+     "Takipteki Krediler": 660348,
+     "Toplam Nakdi Krediler": 29616706,
+     "Gayri Nakdi Krediler": 73131633
+    },
+    "Finansal Aracılık (45+47+48+49)": {
+     "Kısa Vadeli Nakdi Krediler": 210805622,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 373838355,
+     "Nakdi Krediler": 584643977,
+     "Takipteki Krediler": 1435991,
+     "Toplam Nakdi Krediler": 586079968,
+     "Gayri Nakdi Krediler": 437866832
+    },
+    "Parasal Kurumlar": {
+     "Kısa Vadeli Nakdi Krediler": 179911911,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 197694842,
+     "Nakdi Krediler": 377606753,
+     "Takipteki Krediler": 686346,
+     "Toplam Nakdi Krediler": 378293099,
+     "Gayri Nakdi Krediler": 238280789
+    },
+    "Bankalara Kullandırılan Krediler*": {
+     "Kısa Vadeli Nakdi Krediler": 152449570,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 130339347,
+     "Nakdi Krediler": 282788917,
+     "Takipteki Krediler": 12883,
+     "Toplam Nakdi Krediler": 282801800,
+     "Gayri Nakdi Krediler": 342240723
+    },
+    "Diğer Finansal Aracılar (Aracı Kurumlar, MKYO, GYO, RSYO)": {
+     "Kısa Vadeli Nakdi Krediler": 14328456,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 157430715,
+     "Nakdi Krediler": 171759171,
+     "Takipteki Krediler": 536045,
+     "Toplam Nakdi Krediler": 172295216,
+     "Gayri Nakdi Krediler": 119222508
+    },
+    "İsteğe Bağlı Sigorta ve Emeklilik Hizmetleri": {
+     "Kısa Vadeli Nakdi Krediler": 1546460,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 5989110,
+     "Nakdi Krediler": 7535570,
+     "Takipteki Krediler": 119720,
+     "Toplam Nakdi Krediler": 7655290,
+     "Gayri Nakdi Krediler": 38443475
+    },
+    "Diğer Finansal Aracılık": {
+     "Kısa Vadeli Nakdi Krediler": 15018795,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 12723688,
+     "Nakdi Krediler": 27742483,
+     "Takipteki Krediler": 93880,
+     "Toplam Nakdi Krediler": 27836363,
+     "Gayri Nakdi Krediler": 41920060
+    },
+    "Emlak Kom., Kiralama ve İşletmecilik Faal. (51+52+53+54)": {
+     "Kısa Vadeli Nakdi Krediler": 240156593,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 1017530394,
+     "Nakdi Krediler": 1257686987,
+     "Takipteki Krediler": 12193863,
+     "Toplam Nakdi Krediler": 1269880850,
+     "Gayri Nakdi Krediler": 314889288
+    },
+    "Emlak Komisyonculuğu": {
+     "Kısa Vadeli Nakdi Krediler": 32657061,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 217303778,
+     "Nakdi Krediler": 249960839,
+     "Takipteki Krediler": 3285432,
+     "Toplam Nakdi Krediler": 253246271,
+     "Gayri Nakdi Krediler": 43177929
+    },
+    "Kiralama(Ulaşım Araç, Makina, Techizat)": {
+     "Kısa Vadeli Nakdi Krediler": 28343969,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 156554861,
+     "Nakdi Krediler": 184898830,
+     "Takipteki Krediler": 2833062,
+     "Toplam Nakdi Krediler": 187731892,
+     "Gayri Nakdi Krediler": 26307195
+    },
+    "Bilgisayar ve İlgili Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 26458837,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 76433383,
+     "Nakdi Krediler": 102892220,
+     "Takipteki Krediler": 1344070,
+     "Toplam Nakdi Krediler": 104236290,
+     "Gayri Nakdi Krediler": 45317406
+    },
+    "Araştırma Danışmanlık Reklam ve Diğer Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 152696726,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 567238372,
+     "Nakdi Krediler": 719935098,
+     "Takipteki Krediler": 4731299,
+     "Toplam Nakdi Krediler": 724666397,
+     "Gayri Nakdi Krediler": 200086758
+    },
+    "Savunma ve Kamu Yönetimi ve Zorunlu Sosyal Güv. Kurumları": {
+     "Kısa Vadeli Nakdi Krediler": 15063104,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 350836100,
+     "Nakdi Krediler": 365899204,
+     "Takipteki Krediler": 65072,
+     "Toplam Nakdi Krediler": 365964276,
+     "Gayri Nakdi Krediler": 90286600
+    },
+    "Eğitim": {
+     "Kısa Vadeli Nakdi Krediler": 13309827,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 38922327,
+     "Nakdi Krediler": 52232154,
+     "Takipteki Krediler": 1782078,
+     "Toplam Nakdi Krediler": 54014232,
+     "Gayri Nakdi Krediler": 9666061
+    },
+    "Sağlık ve Sosyal Hizmetler": {
+     "Kısa Vadeli Nakdi Krediler": 38940155,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 144841677,
+     "Nakdi Krediler": 183781832,
+     "Takipteki Krediler": 3434453,
+     "Toplam Nakdi Krediler": 187216285,
+     "Gayri Nakdi Krediler": 38290834
+    },
+    "Diğer Hizmetler (59+60+61+62)": {
+     "Kısa Vadeli Nakdi Krediler": 91021897,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 218459642,
+     "Nakdi Krediler": 309481539,
+     "Takipteki Krediler": 6206730,
+     "Toplam Nakdi Krediler": 315688269,
+     "Gayri Nakdi Krediler": 125262640
+    },
+    "Kanalizasyon ve Atıkların Tanzimi": {
+     "Kısa Vadeli Nakdi Krediler": 6496875,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 12335526,
+     "Nakdi Krediler": 18832401,
+     "Takipteki Krediler": 412365,
+     "Toplam Nakdi Krediler": 19244766,
+     "Gayri Nakdi Krediler": 4588342
+    },
+    "Örgütsel Faaliyetler": {
+     "Kısa Vadeli Nakdi Krediler": 19254911,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 21663156,
+     "Nakdi Krediler": 40918067,
+     "Takipteki Krediler": 168485,
+     "Toplam Nakdi Krediler": 41086552,
+     "Gayri Nakdi Krediler": 8693626
+    },
+    "Kültür Eğlence ve Spor Faal.": {
+     "Kısa Vadeli Nakdi Krediler": 9814683,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 43291519,
+     "Nakdi Krediler": 53106202,
+     "Takipteki Krediler": 650933,
+     "Toplam Nakdi Krediler": 53757135,
+     "Gayri Nakdi Krediler": 35948723
+    },
+    "Diğer Bireysel Hizmetler": {
+     "Kısa Vadeli Nakdi Krediler": 55455428,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 141169441,
+     "Nakdi Krediler": 196624869,
+     "Takipteki Krediler": 4974947,
+     "Toplam Nakdi Krediler": 201599816,
+     "Gayri Nakdi Krediler": 76031949
+    },
+    "İşçi Çalıştıran Özel Kişiler": {
+     "Kısa Vadeli Nakdi Krediler": 603296,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 987543,
+     "Nakdi Krediler": 1590839,
+     "Takipteki Krediler": 274911,
+     "Toplam Nakdi Krediler": 1865750,
+     "Gayri Nakdi Krediler": 1330940
+    },
+    "Uluslararası Örgüt ve Kuruluşlar": {
+     "Kısa Vadeli Nakdi Krediler": 97923,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 21602,
+     "Nakdi Krediler": 119525,
+     "Takipteki Krediler": 1625,
+     "Toplam Nakdi Krediler": 121150,
+     "Gayri Nakdi Krediler": 16645
+    },
+    "Ferdi Kredi Konut": {
+     "Kısa Vadeli Nakdi Krediler": 622370,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 683726195,
+     "Nakdi Krediler": 684348565,
+     "Takipteki Krediler": 1195565,
+     "Toplam Nakdi Krediler": 685544130,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Ferdi Kredi Otomobil": {
+     "Kısa Vadeli Nakdi Krediler": 23743704,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 33182458,
+     "Nakdi Krediler": 56926162,
+     "Takipteki Krediler": 343829,
+     "Toplam Nakdi Krediler": 57269991,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Ferdi Kredi Diğer": {
+     "Kısa Vadeli Nakdi Krediler": 1364381151,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 851993191,
+     "Nakdi Krediler": 2216374342,
+     "Takipteki Krediler": 115692136,
+     "Toplam Nakdi Krediler": 2332066478,
+     "Gayri Nakdi Krediler": 0
+    },
+    "Kredi Kartları**": {
+     "Kısa Vadeli Nakdi Krediler": 3416522577,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 269433616,
+     "Nakdi Krediler": 3685956193,
+     "Takipteki Krediler": 145938927,
+     "Toplam Nakdi Krediler": 3831895120,
+     "Gayri Nakdi Krediler": 11682949302
+    },
+    "Diğer": {
+     "Kısa Vadeli Nakdi Krediler": 46398997,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 90954461,
+     "Nakdi Krediler": 137353458,
+     "Takipteki Krediler": 5318422,
+     "Toplam Nakdi Krediler": 142671880,
+     "Gayri Nakdi Krediler": 112617222
+    },
+    "TOPLAM": {
+     "Kısa Vadeli Nakdi Krediler": 10582207404,
+     "Orta ve Uzun Vadeli Nakdi Krediler": 12539988102,
+     "Nakdi Krediler": 23122195506,
+     "Takipteki Krediler": 592387343,
+     "Toplam Nakdi Krediler": 23714582849,
+     "Gayri Nakdi Krediler": 20339896805
+    }
+   }
+  }
+ }
+}

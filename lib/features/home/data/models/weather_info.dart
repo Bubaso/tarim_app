@@ -5,12 +5,17 @@ class DailyForecastItem {
   final int weatherCode;
   final double et0;
 
+  /// Günlük toplam yağış (mm). Sulama kararı için ikon tek başına yetmiyor —
+  /// "yağmurlu" ikonu 0,2 mm de olabilir 40 mm de. Bkz. weather_detail_screen.dart.
+  final double precipitation;
+
   DailyForecastItem({
     required this.date,
     required this.maxTemp,
     required this.minTemp,
     required this.weatherCode,
     required this.et0,
+    this.precipitation = 0.0,
   });
 
   factory DailyForecastItem.fromJson(Map<String, dynamic> json) {
@@ -20,6 +25,7 @@ class DailyForecastItem {
       minTemp: (json['min_temp'] as num?)?.toDouble() ?? 0.0,
       weatherCode: json['weather_code'] as int? ?? 0,
       et0: (json['et0'] as num?)?.toDouble() ?? 0.0,
+      precipitation: (json['precipitation'] as num?)?.toDouble() ?? 0.0,
     );
   }
 
@@ -30,6 +36,7 @@ class DailyForecastItem {
       'min_temp': minTemp,
       'weather_code': weatherCode,
       'et0': et0,
+      'precipitation': precipitation,
     };
   }
 }
@@ -77,6 +84,10 @@ class WeatherInfo {
   final List<DailyForecastItem> dailyForecast;
   final HistoricalInfo? historicalInfo;
 
+  /// Bu verinin gerçekten ne zaman çekildiği. "CANLI" rozetinin altında boş
+  /// bir iddia olmasın diye — bkz. weather_detail_screen.dart, "Son güncelleme".
+  final DateTime fetchedAt;
+
   WeatherInfo({
     required this.temperature,
     required this.relativeHumidity,
@@ -91,7 +102,8 @@ class WeatherInfo {
     required this.hasWarning,
     required this.dailyForecast,
     this.historicalInfo,
-  });
+    DateTime? fetchedAt,
+  }) : fetchedAt = fetchedAt ?? DateTime.now();
 
   factory WeatherInfo.fromJson(Map<String, dynamic> json) {
     final forecastList = json['daily_forecast'] as List?;
@@ -115,6 +127,9 @@ class WeatherInfo {
       historicalInfo: json['historical_info'] != null
           ? HistoricalInfo.fromJson(json['historical_info'] as Map<String, dynamic>)
           : null,
+      fetchedAt: json['fetched_at'] != null
+          ? DateTime.tryParse(json['fetched_at'].toString())
+          : null,
     );
   }
 
@@ -133,6 +148,7 @@ class WeatherInfo {
       'has_warning': hasWarning,
       'daily_forecast': dailyForecast.map((item) => item.toJson()).toList(),
       'historical_info': historicalInfo?.toJson(),
+      'fetched_at': fetchedAt.toIso8601String(),
     };
   }
 }

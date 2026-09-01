@@ -69,6 +69,9 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
     final articleId = row['article_id']?.toString() ?? '';
     final hedefYol = row['hedef_yol']?.toString().trim() ?? '';
     final bool isBreaking = row['is_breaking'] == true;
+    // Sabit hikâye: yayın penceresi boyunca şeritten düşmüyor. Dosya
+    // hikâyeleri için üretici bunu true yazıyor.
+    final bool sabit = row['sabit'] == true;
     final DateTime createdAt =
         DateTime.tryParse(row['created_at']?.toString() ?? '') ??
             DateTime.now();
@@ -118,6 +121,7 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
             createdAt: createdAt,
             expiresAt: expiresAt,
             isBreaking: isBreaking,
+            sabit: sabit,
           ));
 
       // Grubun görünen adını en taze satır belirler; satırlar zaten yeniden
@@ -213,6 +217,7 @@ List<StoryGroup> _buildGroups(
       items: trimmed,
       latestAt: trimmed.first.createdAt,
       isBreaking: trimmed.any((i) => i.isBreaking),
+      sabit: trimmed.any((i) => i.sabit),
     ));
   });
 
@@ -243,22 +248,53 @@ List<StoryGroup> rankStoryGroups(
     ));
   }
 
-  live.sort((a, b) {
-    // İzlenmemişler her zaman önce.
+  int sirala(StoryGroup a, StoryGroup b) {
+    // İzlenmemişler her zaman önce — sabit hikâye için de geçerli. Dosyayı
+    // izlemiş okura aynı baloncuğu her gün başta göstermek bunaltırdı;
+    // izlendi defteri bir hafta sonra sıfırlandığı için kart kendiliğinden
+    // yeniden öne geliyor.
     if (a.isSeen != b.isSeen) return a.isSeen ? 1 : -1;
     return _score(b, now).compareTo(_score(a, now));
-  });
+  }
 
-  return live.take(StoryRules.maxGroups).toList();
+  live.sort(sirala);
+
+  // Sabit hikâyeler KESİNTİDEN MUAF.
+  //
+  // Eskiden liste tazelik sırasına dizilip `maxGroups` ile kesiliyordu. Dosya
+  // hikâyesi haftalarca yayında kalınca puanı sıfıra yaklaşıyor, kesintinin
+  // altında kalıyor ve "yayında" olduğu hâlde şeritte hiç görünmüyordu.
+  //
+  // Sabitler listeye EKLENMİYOR, yer AYIRIYOR: şeridin uzunluğu değişmiyor,
+  // sabitler kalan yerleri en taze haberlerle paylaşıyor. Kullanıcının
+  // istediği de buydu — dosya kartları diğer hikâyelerin arasına katılsın,
+  // onların yerine geçmesin.
+  final sabitler = live.where((g) => g.sabit).take(StoryRules.maxGroups).toList();
+  final digerleri = live.where((g) => !g.sabit);
+  final kalanYer = StoryRules.maxGroups - sabitler.length;
+
+  final secilen = [...sabitler, if (kalanYer > 0) ...digerleri.take(kalanYer)];
+  secilen.sort(sirala);
+  return secilen;
 }
 
 double _score(StoryGroup group, DateTime now) {
-  final double ageHours = now.difference(group.latestAt).inMinutes / 60.0;
+  // Negatif yaş sıfıra kırpılıyor. Satırın `created_at` alanını veritabanı
+  // yazıyor, puanı ise cihaz saati hesaplıyor; ikisi birbirini tutmadığında
+  // (üretimde görüldü) gelecek tarihli bir hikâye 0.5^negatif = 1'den büyük
+  // puan alıp her şeyin önüne geçiyordu.
+  final int ageMinutes = math.max(0, now.difference(group.latestAt).inMinutes);
+  final double ageHours = ageMinutes / 60.0;
   final double halfLife = StoryRules.freshnessHalfLife.inMinutes / 60.0;
   double score = math.pow(0.5, ageHours / halfLife).toDouble();
   if (group.isBreaking &&
       now.difference(group.latestAt) < StoryRules.breakingBonusWindow) {
     score += StoryRules.breakingBonus;
+  }
+  // Sabit hikâyenin puanı tabanın altına inmiyor: yoksa muafiyet onu listede
+  // tutar ama en sona atardı ve "görünüyor" demek zorlaşırdı.
+  if (group.sabit && score < StoryRules.sabitTabanPuan) {
+    score = StoryRules.sabitTabanPuan;
   }
   return score;
 }

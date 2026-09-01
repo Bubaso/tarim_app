@@ -3,7 +3,7 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/rusya/
 -- Üretim:  node content/dossiers/seed_dossier.mjs rusya
--- Tarih:   2026-08-26T22:35:12.288Z
+-- Tarih:   2026-08-29T10:47:21.321Z
 --
 -- Bölüm: 20 · TR ~5.324 kelime · EN ~6.943 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
@@ -35,10 +35,10 @@ values (
   'https://tarim-app-2026.web.app/dosya/rusya/rusya_kulunda_bozkiri.jpg',
   $dsr$NASA Goddard Space Flight Center / MODIS Land Rapid Response Team$dsr$,
   null,
-  'draft',
-  '2026-09-13T22:45:00+03:00'::timestamptz,
-  ('2026-09-13T22:45:00+03:00'::timestamptz + interval '28 days'),
-  null
+  'published',
+  now(),
+  (now() + interval '28 days'),
+  now()
 )
 on conflict (slug) do update set
   name_tr      = excluded.name_tr,

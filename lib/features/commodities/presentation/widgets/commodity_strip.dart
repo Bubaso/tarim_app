@@ -112,7 +112,14 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
     // oyuncak gibi duruyor.
     final collapsedWidth = isCompact ? 152.0 : 184.0;
     final expandedWidth = isCompact ? 268.0 : 330.0;
-    final stripHeight = isCompact ? 108.0 : 128.0;
+    // Eskiden 108/128: içerik `spaceBetween` ile yayıldığı için kartın altında
+    // boş bir bant kalıyordu (bkz. commodity_card.dart — Column'lar artık
+    // `MainAxisSize.min` ile üstte topluca duruyor). Yükseklik gerçek içerik
+    // boyuna çekildi — en kötü senaryo (uzun kaynak adı + aralık bloğu, dar
+    // ekran) `test/emtia_kart_yukseklik_test.dart` ile ölçüldü: 88'de 9px
+    // taşıyordu, 100'de taşmıyor. Pay bilerek biraz fazla bırakıldı —
+    // gerçek cihaz fontları test fontundan birkaç piksel sapabilir.
+    final stripHeight = isCompact ? 100.0 : 104.0;
 
     return Column(
       children: [

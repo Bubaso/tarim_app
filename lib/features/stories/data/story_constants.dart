@@ -24,7 +24,7 @@ class StoryRules {
 
   /// Şeridi göstermek için gereken en az grup sayısı. Tek başına duran bir
   /// baloncuk "sistem çalışmıyor" izlenimi veriyor.
-  static const int minGroupsToShow = 3;
+  static const int minGroupsToShow = 2;
 
   /// Tazelik puanının yarılanma süresi. 8 saatlik bir haber, yeni bir haberin
   /// yarısı kadar puan alır.
@@ -36,6 +36,15 @@ class StoryRules {
   /// Son dakika bonusunun geçerli olduğu süre. 20 saatlik bir "son dakika"
   /// artık son dakika değildir.
   static const Duration breakingBonusWindow = Duration(hours: 12);
+
+  /// Sabit hikâyelerin puan tabanı.
+  ///
+  /// Tazelik puanı 8 saatte yarılanıyor; beş günlük bir dosya hikâyesinin
+  /// puanı sıfıra yaklaşıyor ve baloncuk şeridin en sonunda, pratikte
+  /// görünmez bir yerde kalıyordu. Taban, kabaca 12 saatlik bir haberin
+  /// puanı: dosya günün taze haberlerinin ARDINDA ama dünkülerin ÖNÜNDE
+  /// duruyor. Başa geçirmek de yanlış olurdu — dosya son dakika değil.
+  static const double sabitTabanPuan = 0.35;
 
   /// Uygulama öne geldiğinde listenin yeniden çekilmesi için gereken süre.
   static const Duration refreshAfter = Duration(minutes: 5);

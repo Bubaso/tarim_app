@@ -28,6 +28,12 @@ Widget _sarmala(CountryDossier dosya, {required bool isEn}) {
       // düşer. Şerit testindeki tuzağın aynısı (CLAUDE.md §5).
       dosyaHaberleriProvider(dosya.summary.slug)
           .overrideWith((ref) async => []),
+      // Aynı tuzak, aynı sebep: kapaktaki ve sondaki dizi listesi iki ayrı
+      // index sağlayıcısı izliyor. Biri bile taklit edilmezse ağaç söküldükten
+      // sonra zamanlayıcı askıda kalıyor.
+      dossierIndexByTurProvider('ulke')
+          .overrideWith((ref) async => [dosya.summary]),
+      dossierIndexByTurProvider('kurum').overrideWith((ref) async => []),
     ],
     child: MaterialApp(
       locale: Locale(isEn ? 'en' : 'tr'),

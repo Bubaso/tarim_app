@@ -20,6 +20,7 @@ import '../widgets/dossier_chart_view.dart';
 import '../widgets/dossier_contents_sheet.dart';
 import '../widgets/dossier_prose.dart';
 import '../widgets/dossier_reveal.dart';
+import '../widgets/diger_dosyalar.dart';
 import '../widgets/dosya_haberleri_bolumu.dart';
 import '../widgets/dossier_share_bar.dart';
 import '../widgets/dossier_video_player.dart';
@@ -441,6 +442,13 @@ class _CountryDossierScreenState extends ConsumerState<CountryDossierScreen> {
                   child: DosyaHaberleriBolumu(
                       slug: dosya.summary.slug, tema: tema, isEn: isEn),
                 ),
+                // Dizinin tamamı — İKİ DİZİ BİRDEN (kullanıcı kararı, 29
+                // Ağustos 2026). Haberlerden sonra duruyor: önce bu konunun
+                // bugünü, sonra okunacak öteki dosyalar.
+                SliverToBoxAdapter(
+                  child: DigerDosyalar(
+                      acikSlug: dosya.summary.slug, tema: tema, isEn: isEn),
+                ),
                 SliverToBoxAdapter(
                   child: _Oluk(
                     dikey: 24,
@@ -798,6 +806,26 @@ class _Kapak extends StatelessWidget {
                         DossierShareBar(ozet: ozet, tema: tema, isEn: isEn),
                       ],
                     ),
+                    // Dizinin devamı KAPAKTA da duyuruluyor (kullanıcı kararı,
+                    // 29 Ağustos 2026).
+                    //
+                    // Eskiden bu bağlantı yalnızca dosyanın SONUNDAYDI ve
+                    // gerekçesi şuydu: "on üç bölümü bitiren okuyucu dizinin
+                    // devamı olduğunu ancak burada öğrenmeli; yukarı konsaydı
+                    // okunmakta olan dosyadan çıkmaya davet ederdi."
+                    //
+                    // Gerekçe tersine döndü: sonuna kadar okumayan okur —ki
+                    // çoğunluk odur— başka dosya olduğunu HİÇ öğrenmiyordu.
+                    // Bir davet, görünmeyen bir arşivden iyidir. Bağlantı
+                    // kapağın en altında, tez cümlesinin ve rozetin ardında:
+                    // ilk göze çarpan şey hâlâ dosyanın kendisi.
+                    const SizedBox(height: 4),
+                    _ArsivBaglantisi(
+                      tema: tema,
+                      isEn: isEn,
+                      tur: ozet.tur,
+                      oluk: false,
+                    ),
                   ],
                 ),
               ),
@@ -1104,19 +1132,22 @@ class _ArsivBaglantisi extends StatelessWidget {
     required this.tema,
     required this.isEn,
     required this.tur,
+    this.oluk = true,
   });
 
   final DossierTheme tema;
   final bool isEn;
   final String tur;
 
+  /// Kapakta `false`: kapak kendi iç boşluğunda duruyor, ikinci bir oluk
+  /// bağlantıyı metnin hizasından kaydırıyordu.
+  final bool oluk;
+
   bool get _kurum => tur == 'kurum';
 
   @override
   Widget build(BuildContext context) {
-    return _Oluk(
-      dikey: 20,
-      child: Align(
+    final govde = Align(
         alignment: Alignment.centerLeft,
         child: InkWell(
           onTap: () => pushScreen(
@@ -1152,8 +1183,8 @@ class _ArsivBaglantisi extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
+      );
+    return oluk ? _Oluk(dikey: 20, child: govde) : govde;
   }
 }
 

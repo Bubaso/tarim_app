@@ -41,9 +41,17 @@ ADRES = "https://tarim-app-2026.web.app"
 MIN_SLAYT = 3
 MAX_SLAYT = 5
 
-#: Hikâyenin ömrü. Dosyanın kendi yayın penceresiyle sınırlanıyor: pencere
-#: kapandığında baloncuk da düşsün, kapanmış bir dosyaya çağıran kart kalmasın.
-VARSAYILAN_OMUR_SAAT = 24
+#: Yayın penceresi bilinmeyen dosya için yedek ömür.
+#:
+#: Normalde hikâye DOSYANIN PENCERESİ KADAR yaşıyor. Eskiden 24 saatti ve
+#: sonuç şuydu: Rusya dosyası 26 Eylül'e kadar yayındayken onu tanıtan baloncuk
+#: 30 Ağustos'ta düşüyordu. Dosya 28 gün boyunca okunmayı bekleyen bir belge;
+#: ona çağıran kartın bir gün sonra kaybolmasının savunulacak tarafı yok.
+#:
+#: Bu sabit yalnızca `ends_at` boş geldiğinde devreye giriyor — o durumda
+#: pencereyi bilmiyoruz ve sonsuza kadar yaşayan bir kart bırakmak, kapanmış
+#: bir dosyaya çağırma riski demek.
+YEDEK_OMUR_SAAT = 24
 
 
 def istemci():
@@ -166,14 +174,42 @@ def calistir():
         ilk = next((s for s in slaytlar if s.get("gorsel_url")), None)
         gorsel = (ilk or {}).get("gorsel_url") or f"{ADRES}/paylasim/{slug}.jpg"
 
-        # Ömür dosyanın penceresini aşmıyor.
-        bitis = now + timedelta(hours=VARSAYILAN_OMUR_SAAT)
+        # Ömür = dosyanın penceresi. Pencere bilinmiyorsa yedek süre.
+        bitis = now + timedelta(hours=YEDEK_OMUR_SAAT)
         if d.get("ends_at"):
             pencere = tarih_coz(d["ends_at"])
             if pencere is not None:
-                bitis = min(bitis, pencere)
+                bitis = pencere
         if bitis <= now:
             print(f"· {slug}: yayın penceresi kapanmış, hikâye üretilmiyor.")
+            continue
+
+        # Zaten canlı ve AYNI olan hikâye varsa hiçbir şey yapılmıyor.
+        #
+        # Betik elle ve tekrar tekrar çalıştırılıyor. Her çalışmada satırı
+        # silip yeniden yazmak iki şeyi bozuyordu: hikâye kimliği değiştiği
+        # için izlendi defteri sıfırlanıyor ve baloncuk okura her seferinde
+        # "izlenmemiş" görünüyordu; ayrıca `created_at` tazelenip 28 günlük bir
+        # dosya sürekli en yeni hikâyeymiş gibi başa geçiyordu.
+        mevcut = (
+            db.from_("portal_stories")
+            .select("id, items, expires_at")
+            .eq("hedef_yol", hedef)
+            .gt("expires_at", now.isoformat())
+            .limit(1)
+            .execute()
+        ).data or []
+        if mevcut and mevcut[0].get("items") == slaytlar:
+            eski_bitis = tarih_coz(mevcut[0].get("expires_at"))
+            # İçerik aynı ama pencere uzamışsa yalnızca bitişi güncelliyoruz;
+            # kimlik korunuyor, izlendi defteri bozulmuyor.
+            if eski_bitis is None or abs((eski_bitis - bitis).total_seconds()) > 60:
+                db.from_("portal_stories").update(
+                    {"expires_at": bitis.isoformat(), "sabit": True}
+                ).eq("id", mevcut[0]["id"]).execute()
+                print(f"· {slug}: içerik aynı, bitiş {bitis.isoformat()[:16]} olarak güncellendi")
+            else:
+                print(f"· {slug}: hikâye zaten güncel, dokunulmadı")
             continue
 
         # Aynı türden eski dosya hikâyeleri düşürülüyor: iki ülke dosyası
@@ -202,6 +238,9 @@ def calistir():
             "hedef_yol": hedef,
             "gorsel_url": gorsel,
             "expires_at": bitis.isoformat(),
+            # Şeritte sabit: tazelik kesintisinden muaf. Sonsuza kadar değil —
+            # ömrünü yukarıdaki `expires_at`, yani dosyanın penceresi belirliyor.
+            "sabit": True,
         }).execute()
 
         print(f"✓ [{grup}] {len(slaytlar)} slayt → {hedef} "

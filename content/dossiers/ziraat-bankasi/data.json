@@ -1,0 +1,538 @@
+{
+ "_dosya": "Ziraat Bankası — Kurum Dosyası · veri katmanı",
+ "_uretim": "build_data.py ile üretildi; elle düzenlenmez.",
+ "_kural": "Buradaki hiçbir rakam bellekten yazılmadı. Elle girilen her kalem ham metindeki alıntısıyla birlikte taşınıyor ve alıntı bulunamazsa üretim duruyor. Kaynağı olmayan kalem bu dosyaya girmez.",
+ "olcu": {
+  "_amac": "Dosyanın omurgası. İddia değil, iki birincil kaynağın oranı.",
+  "cumle": "Türkiye'de tarıma açılan kredinin yaklaşık üçte ikisi tek bir bankadan geçiyor.",
+  "dayanak": "Pay bankanın kendi faaliyet raporundan, payda BDDK'nın sektör toplamından. Oran yuvarlanarak veriliyor: iki kaynağın tanımları birebir örtüşmeyebilir."
+ },
+ "kunye": {
+  "ad": "Türkiye Cumhuriyeti Ziraat Bankası A.Ş.",
+  "kisa_ad": "Ziraat Bankası",
+  "kurulus": {
+   "yil": 1863,
+   "yer": "Pirot",
+   "kuran": "Mithat Paşa",
+   "ilk_bicim": "Memleket Sandıkları",
+   "tarih": "20 Kasım",
+   "kaynak": "site_tarihce.html → tarihce.json · 1863"
+  },
+  "yas": {
+   "deger": 162,
+   "kaynak": "faaliyet_2025.pdf · s. 58",
+   "alinti": "162 yıldır"
+  },
+  "bugunku_bicim": {
+   "deger": "Anonim şirket",
+   "dayanak": "4603 sayılı Kanun (kabul 25 Kasım 2000)",
+   "kaynak": "site_tarihce.html → tarihce.json · 2000",
+   "_not": "Banka 1924'te de anonim şirket yapılmıştı (444 sayılı Bütçe Kanunu). Aradaki dönüşüm zinciri bankanın tarihçesinde yazılı değil; metin o geçişi ATLAR."
+  }
+ },
+ "tarih_zinciri": {
+  "_amac": "Seçilmiş kilometre taşları. Cümleler bankanın kendi metni, kısaltılmadan taşınıyor.",
+  "_kaynak": "site_tarihce.html → tarihce.json (51 yıl, 221 madde)",
+  "yillar": [
+   {
+    "yil": 1863,
+    "maddeler": [
+     "Mithat Paşa tarafından Pirot kasabasında bugünkü Ziraat Bankası'nın temelini oluşturan Memleket Sandıkları kuruldu (20 Kasım).",
+     "3-12 ay vadeli ve kişi başına azami 20 liralık ilk tarımsal kredi uygulaması başladı."
+    ]
+   },
+   {
+    "yil": 1867,
+    "maddeler": [
+     "Memleket Sandıkları Nizamnamesi yürürlüğe girdi.",
+     "Ülkemizde ilk kez teşkilatlı kredi sistemi mevzuatı oluştu."
+    ]
+   },
+   {
+    "yil": 1881,
+    "maddeler": [
+     "Edirne vilayetinde bir Ziraat Bankası kurulması için iki yabancıya hükümetçe izin verildi ancak sonuç başarısız oldu.",
+     "Banka yabancı ortak konusunda ilk girişimde bulundu."
+    ]
+   },
+   {
+    "yil": 1883,
+    "maddeler": [
+     "Menafi Sandıkları, Memleket Sandıkları'nın yerini aldı.",
+     "Aşar vergisine ''Menafi Hissesi'' zammı yapılarak sandıklara daimi ve istikrarlı bir mali kaynak yaratıldı.",
+     "Sandıklar güçlü ve sürekli bir yapıya kavuşturuldu."
+    ]
+   },
+   {
+    "yil": 1888,
+    "maddeler": [
+     "Ziraat Bankası Nizamnamesi yürürlüğe girdi (28 Ağustos).",
+     "Ziraat Bankası Umum Müdürlüğü faaliyete geçti (17 Eylül).",
+     "Mikail PORTAKALYAN Banka Umum Müdürlüğü görevine getirildi.",
+     "İlk defa faiz karşılığı mevduat kabul edildi.",
+     "Nominal sermayesi 10 milyon TL olan Ziraat Bankası hükümetin himayesinde ve Ticaret ve Nafia Nezareti'nin kontrolü altında bir devlet müessesesi oldu."
+    ]
+   },
+   {
+    "yil": 1892,
+    "maddeler": [
+     "Bankanın teftiş hizmetlerini kendi müfettişleri görmeye başladı.",
+     "Hazineye ilk kredi verildi.",
+     "Banka faaliyetleri daha etkin bir şekilde denetlenmeye başlandı."
+    ]
+   },
+   {
+    "yil": 1916,
+    "maddeler": [
+     "Ziraat Bankası Kanunu çıkarıldı (23 Mart).",
+     "Emil Kautz, Genel Müdürlük görevine getirildi.",
+     "Tarımsal işletmelere kredi, tahvil ve kefalet karşılığı avans kullandırılmaya başlandı.",
+     "İlk devlet tahvili satışı yapıldı.",
+     "Bugünkü Mevduat Sertifikası benzeri \"Tevdiatı Nakdiye Senetleri\" çıkarıldı.",
+     "Zirai alacaklarda ilk toplu erteleme yapıldı.",
+     "İlk tohumluk kredisi verildi."
+    ]
+   },
+   {
+    "yil": 1919,
+    "maddeler": [
+     "İzmir'i işgal eden Yunanlılar burada ayrı bir Ziraat Bankası İdare Merkezi oluşturarak, işgalleri altına giren şube ve sandıkları bu merkeze bağladılar.",
+     "Kurtuluş Savaşı sırasında oluşturulan Kuvâ-yi Milliye müfrezelerinin giderlerinin karşılanabilmesi için Ziraat Bankası sandıklarından para alınıp askerlere teçhizat sağlandı.",
+     "İşgal, Banka bünyesini olumsuz şekilde etkiledi."
+    ]
+   },
+   {
+    "yil": 1920,
+    "maddeler": [
+     "Ankara'da TBMM'nin açılmasıyla birlikte, TBMM'nin nüfuzu altındaki topraklarda bulunan şube ve sandıkların idaresi görevi; Ziraat Bankası Ankara Şubesi'ne verildi (23 Nisan).",
+     "Böylece Ziraat Bankası Milli Mücadele'de yerini aldı.",
+     "23 Haziran 1920'de Ahmet Kemal ILGAZ, Genel Müdürlük görevine getirildi.",
+     "06 Aralık 1920'de Hüseyin Avni ŞUŞUD, Genel Müdürlük görevine getirildi."
+    ]
+   },
+   {
+    "yil": 1922,
+    "maddeler": [
+     "İzmir teşkilatı Ankara'ya tabi oldu (9 Eylül). İstanbul teşkilatı Ankara'ya tabi oldu.",
+     "Milli Mücadele'nin kazanılması ile Banka tekrar bütünlüğüne kavuştu (23 Ekim)."
+    ]
+   },
+   {
+    "yil": 1924,
+    "maddeler": [
+     "Ziraat Bankası'nı, kaynaklarını günlük ihtiyaçlara harcayan hükümetlerin siyasi etkisinden kurtarmak, gerçek sahipleri olan çiftçilerin eline ve yönetimine teslim etmek ve tarımsal kredilerle sınırlanmış olan faaliyetlerini genişletmek amacıyla; TBMM'de 444 sayılı Bütçe Kanunu kabul edildi (19 Mart).",
+     "Banka organları Umumi Heyet, Umumi Heyet Müfettişleri, İdare Meclisi ve Umum Müdürlük biçiminde oluşturuldu.",
+     "Prof. Leon MORF, Genel Müdürlük görevine getirildi.",
+     "Bütçe Kanunu ile Ziraat Bankası bir devlet müessesesi olmaktan çıkarıldı ve Anonim Şirket hâline geldi."
+    ]
+   },
+   {
+    "yil": 1938,
+    "maddeler": [
+     "Umumi Heyet'in yetkilerini genişletmek üzere \"Sermayesinin Tamamı Devlet Tarafından Verilmek Suretiyle Kurulan İktisadi Teşekküllerin Teşkilatıyla İdare ve Murakebeleri Hakkında Kanun\" kabul edildi.",
+     "3202 sayılı Kanun'da yer alan Murakıplar Heyeti 3460 sayılı Kanun'la kaldırılarak, bu görev Başbakanlığa bağlı olarak kurulan Umumi Murakebe Heyeti'ne verildi.",
+     "Nusret M. MERAY, Genel Müdürlük görevine getirildi.",
+     "Banka, bugünkü adıyla Yüksek Denetleme Kurulu tarafından denetlenmeye başlandı."
+    ]
+   },
+   {
+    "yil": 1945,
+    "maddeler": [
+     "3202 sayılı Kanun'da hazırlanacağı belirtilen ve 198 maddeden oluşan Türkiye Cumhuriyeti Ziraat Bankası (TCZB) Tüzüğü tamamlanarak yürürlüğe girdi.",
+     "TCZB Tüzüğü, Genel Müdürlük birimlerinde büyük çapta bir yeniden yapılanmayı gündeme getirdi."
+    ]
+   },
+   {
+    "yil": 1964,
+    "maddeler": [
+     "\"Kamu İktisadi Teşebbüslerinin Türkiye Büyük Millet Meclisi'nce Denetlenmesinin Düzenlenmesi Hakkındaki Kanun\" ile \"Umumi Heyet\", TBMM Genel Kurulu ve onun adına hareket eden \"Kamu İktisadi Teşebbüsleri Karma Komisyonu\" oluştu.",
+     "Umumi Murakebe Heyeti'nin görevini Başbakanlık Yüksek Denetleme Kurulu üstlendi."
+    ]
+   },
+   {
+    "yil": 1977,
+    "maddeler": [
+     "Alınan yeni bir Yönetim Kurulu kararıyla, \"Yurt düzeyinde yaygın Ziraat Bankası teşkilatının verimli ve etkili bir yönetime kavuşması için gereken tedbirleri almak, faaliyetlerini yakından izlemek ve Genel Müdürlük'te oluşan kararların şubelerce tam ve doğru olarak uygulanmasını sağlamak amacıyla\" Ege (İzmir), Marmara (İstanbul), İç Anadolu (Ankara), Doğu Anadolu (Erzurum) ve Güneydoğu Anadolu (Diyarbakır) Bölge Müdürlükleri kuruldu.",
+     "Artan şube sayısının bir gereği olarak merkezi yönetimden, yerinden yönetime geçilmeye başlandı."
+    ]
+   },
+   {
+    "yil": 2000,
+    "maddeler": [
+     "25 Kasım 2000 tarihinde kabul edilen 4603 sayılı kanunla T.C. Ziraat Bankası, Anonim Şirket hâline getirildi."
+    ]
+   },
+   {
+    "yil": 2001,
+    "maddeler": [
+     "Kamu bankalarının yeniden yapılandırılmaları kapsamında, Ziraat Bankası 2001 yılından başlayarak büyük bir değişim içine girdi.",
+     "Şubat 2001 Krizi'nin ardından kamu bankaları, Vural Akışık başkanlığında ortak bir yönetim kurulu tarafından yönetilmeye başlandı.",
+     "Ziraat Bankası Genel Müdürlüğü'ne Dr. Niyazi Erdoğan atandı.",
+     "Bankanın organizasyon yapısı, çağdaş bankacılığın ve uluslararası rekabetin gereklerine göre tamamen değiştirildi.",
+     "Operasyon ağırlıklı bankacılık anlayışına, pazarlama nosyonu eklendi.",
+     "Emlak Bankası, Ziraat Bankası ile birleştirilerek kapatıldı.",
+     "37 adet merkez şube seçilerek, merkezi yönetimin bazı yetkileri bu şubelere devredildi.",
+     "Banka çalışanları özel hukuk hükümlerine göre çalıştırılmaya başlandı."
+    ]
+   },
+   {
+    "yil": 2025,
+    "maddeler": [
+     "​Ziraat Leasing faaliyetlerine başladı.",
+     "Türkiye'nin en büyük bankası konumundaki Ziraat Bankası'nın aktif büyüklüğü 8 trilyon TL'yi aştı.",
+     "Efelerimiz, Türk voleybol tarihine altın harflerle yazılacak büyük bir başarıya imza attı. Takımımız, 2024-2025 sezonunda CEV Kupası'nı kazanarak Avrupa Şampiyonu oldu.",
+     "Bankamız, finans sektörünün en büyük yenilenebilir enerji santrali ile öz tüketim GES projesini hayata geçirdi.",
+     "Sardis Awards; Finans ekosisteminde hayata geçirilen inovasyon ve pazarlama alanında; Bankamız, Cumhuriyet filmi ile \"En İyi Kurumsal İmaj Filmi\" kategorisinde altın ödül,",
+     "İş Bankası'nın 100. Yılını Sosyal Medyada Kutlama Mesajı ile \"En İyi Sosyal Medya Kampanyası\" kategorisinde altın ödül,",
+     "\"En Özgün İçerik Üretimi\" kategorisinde gümüş ödüllerine layık görüldü.",
+     "Bankamız, 2024 yılında faaliyete başlayan Birleşik Arap Emirlikleri ve Mısır'daki hizmet noktalarından sonra Cezayir Şubesi ile dünya genelinde hizmet sunduğu ülke sayısını 20'ye çıkardı.",
+     "Global Finance; World's Best SME Banks 2025 Awards'ta (Dünyanın En İyi KOBİ Bankası Ödülleri'nde) birincilik ödülünü kazandı.",
+     "Bankamız Su Güvenliği kategorisinde A puan alarak CDP'nin en üst seviyedeki A Listesi'ne girmeye hak kazandı, İklim Değişikliği kategorisinde ise B puan alarak kayda değer bir başarı elde etti.",
+     "Bankamızın Azerbaycan'daki 10. şubesi olan Nahçıvan Şubesi ile 11. şubesi olan Neftçiler Şubesi'nin açılışı gerçekleştirildi.",
+     "\"Ziraat Bankası 4. Tarım Ekosistemi Buluşması\" gerçekleştirildi.",
+     "162. Kuruluş Yıl Dönümümüz gurur ve coşkuyla kutlandı.",
+     "Bankamız; Türkiye Varlık Fonu tarafından düzenlenen 2025 Yılı Raporlama Dönemi toplantısında \"Hızlı ve Doğru Raporlama\" alanında plaket ile ödüllendirildi.",
+     "​Türk iş dünyasındaki kurumların, pazarlama süreçlerindeki faaliyetlerini değerlendiren İstanbul Marketing Awards ödüllerinde, Bankamız \"Orkestra\" isimli tarım filmiyle Marka İletişiminde En İyi Ses Kullanımı ödülünün sahibi oldu."
+    ]
+   }
+  ]
+ },
+ "sektor_payi": {
+  "_amac": "Dosyanın ölçüsü. Enflasyondan etkilenmiyor — oran.",
+  "birim": "milyar TL · yıl sonu bakiyesi",
+  "seri": [
+   {
+    "yil": 2021,
+    "ziraat_milyar_tl": 109,
+    "turkiye_milyar_tl": 166.2,
+    "ziraat_payi_yuzde": 66,
+    "turkiye_milyar_tl_yuvarlak": 166,
+    "kaynak_pay": "faaliyet_2021.pdf · s. 15",
+    "kaynak_payda": "BDDK Aylık Bülten · Sektörel Kredi Dağılımı · 2021/12 · Tarım satırı, toplam nakdi krediler"
+   },
+   {
+    "yil": 2023,
+    "ziraat_milyar_tl": 437,
+    "turkiye_milyar_tl": 584.1,
+    "ziraat_payi_yuzde": 75,
+    "turkiye_milyar_tl_yuvarlak": 584,
+    "kaynak_pay": "faaliyet_2023.pdf · s. 80",
+    "kaynak_payda": "BDDK Aylık Bülten · Sektörel Kredi Dağılımı · 2023/12 · Tarım satırı, toplam nakdi krediler"
+   },
+   {
+    "yil": 2025,
+    "ziraat_milyar_tl": 831,
+    "turkiye_milyar_tl": 1224.5,
+    "ziraat_payi_yuzde": 68,
+    "turkiye_milyar_tl_yuvarlak": 1225,
+    "kaynak_pay": "faaliyet_2025.pdf · s. 59",
+    "kaynak_payda": "BDDK Aylık Bülten · Sektörel Kredi Dağılımı · 2025/12 · Tarım satırı, toplam nakdi krediler"
+   }
+  ]
+ },
+ "tarim_kredisi_2025": {
+  "bakiye_milyar_tl": {
+   "deger": 831,
+   "kaynak": "faaliyet_2025.pdf · s. 59",
+   "alinti": "tarım kredileri bakiyesi 831 milyar TL’ye ulaşırken"
+  },
+  "kredi_kullanan_musteri": {
+   "deger": "684 bin+",
+   "kaynak": "faaliyet_2025.pdf · s. 59",
+   "alinti": "684 binden fazla müşteriye tarım kredisi kullandırmıştır"
+  },
+  "yeni_musteri": {
+   "deger": "61 bin",
+   "kaynak": "faaliyet_2025.pdf · s. 59",
+   "alinti": "Bu müşterilerin 61 bini yeni müşteri olup"
+  },
+  "yil_sonu_kredili_musteri": {
+   "deger": "924 bin+",
+   "kaynak": "faaliyet_2025.pdf · s. 59",
+   "alinti": "kredili müşteri sayısı 924 binin üzerinde gerçekleşmiştir"
+  },
+  "ortalama_kredi_tl": {
+   "tam": 899000,
+   "deger": 900000,
+   "_hesap": "831 milyar TL ÷ 924 bin müşteri = 899.350 TL; tam alan on bine, gösterilen alan yüz bine yuvarlandı",
+   "kaynak": "faaliyet_2025.pdf · s. 59 (iki kalemden türetildi)"
+  },
+  "kirilim": {
+   "_kaynak": "faaliyet_2025.pdf · s. 60 · tablo",
+   "_sutunlar": [
+    "kredi kullanan müşteri",
+    "kullandırılan tutar",
+    "yıl sonu bakiyesi",
+    "yıl sonu kredili müşteri"
+   ],
+   "_alinti_bitkisel": "Bitkisel Üretim Kredileri 433 Bin 257 milyar TL 263 milyar TL 518 Bin",
+   "_alinti_hayvansal": "Hayvansal Üretim Kredileri 321 Bin 320 milyar TL 418 milyar TL 401 Bin",
+   "bitkisel": {
+    "musteri": "433 bin",
+    "kullandirilan": 257,
+    "bakiye": 263,
+    "kredili_musteri": "518 bin"
+   },
+   "hayvansal": {
+    "musteri": "321 bin",
+    "kullandirilan": 320,
+    "bakiye": 418,
+    "kredili_musteri": "401 bin"
+   },
+   "mekanizasyon": {
+    "musteri": "64 bin",
+    "kullandirilan": 30,
+    "bakiye": 89,
+    "kredili_musteri": "295 bin"
+   },
+   "basincli_sulama": {
+    "musteri": "12 bin",
+    "kullandirilan": 11,
+    "bakiye": 22,
+    "kredili_musteri": "56 bin"
+   },
+   "_not": "Hayvansal bakiye bitkiselden BÜYÜK (418'e karşı 263 milyar TL) ama kredili müşteri sayısı daha AZ (401 bine karşı 518 bin). Sıralama sezgiye aykırı ve doğrudan tablodan."
+  }
+ },
+ "kredili_musteri_serisi": {
+  "_amac": "Enflasyondan etkilenmeyen ikinci ölçü: kaç çiftçinin bankada kredisi var. Seri DÜZ ARTAN DEĞİL — 2023'te tepe yapıp iniyor.",
+  "seri": [
+   {
+    "yil": 2021,
+    "musteri": "725 bin",
+    "kaynak": "faaliyet_2021.pdf · s. 15"
+   },
+   {
+    "yil": 2023,
+    "musteri": "1.207 bin",
+    "kaynak": "faaliyet_2023.pdf · s. 80"
+   },
+   {
+    "yil": 2025,
+    "musteri": "924 bin+",
+    "kaynak": "faaliyet_2025.pdf · s. 59"
+   }
+  ],
+  "_uyari": "Metinde ARTIŞ diye anlatılmaz. Üç nokta olduğu gibi verilir; düşüşün sebebi hakkında iddia kurulmaz (§8.2)."
+ },
+ "portfoy_bilesimi": {
+  "_amac": "Yatırım/işletme kredisi oranı — enflasyondan etkilenmeyen üçüncü ölçü.",
+  "seri": [
+   {
+    "yil": 2021,
+    "yatirim_yuzde": 36,
+    "isletme_yuzde": 64,
+    "kaynak": "faaliyet_2021.pdf · s. 15",
+    "alinti": "%36’sı yatırım kredilerinden, %64’ü işletme kredilerinden"
+   },
+   {
+    "yil": 2023,
+    "yatirim_yuzde": 31,
+    "isletme_yuzde": 69,
+    "kaynak": "faaliyet_2023.pdf · s. 80",
+    "alinti": "%31’i yatırım kredilerinden, %69’u işletme kredilerinden"
+   }
+  ],
+  "_not": "2025 raporu bu oranı vermiyor; seri iki noktada kalıyor ve metinde de öyle söylenir."
+ },
+ "subvansiyon": {
+  "_amac": "10. bölüm. Mekanizma anlatılır, değerlendirilmez.",
+  "belge": "Tarım ve Orman Bakanlığı Tebliği · üretim alanına göre faiz indirim oranı",
+  "kapsam": {
+   "deger": "589 bin üretici · 565 milyar TL+",
+   "kaynak": "faaliyet_2025.pdf · s. 60",
+   "alinti": "tarım sektöründe 589 bin üretici ve toplam 565 milyar TL’nin üzerinde sübvansiyonlu kredi sağlamıştır"
+  }
+ },
+ "kucuk_krediler": {
+  "_amac": "11. bölüm. Kredinin insan ölçeğindeki hâli.",
+  "aricilik": {
+   "deger": "5.700+ üretici · 890 milyon TL",
+   "kaynak": "faaliyet_2025.pdf · s. 62",
+   "alinti": "5.700’den fazla üreticiye toplam 890 milyon TL tutarında kredi kullandırılmıştır"
+  },
+  "aricilik_limit": {
+   "deger": "300.000 TL",
+   "kaynak": "faaliyet_2025.pdf · s. 62",
+   "alinti": "300.000 TL’ye kadar kredi imkânı sağlanmakta"
+  },
+  "balikci": {
+   "deger": "600 üretici · 523 milyon TL",
+   "kaynak": "faaliyet_2025.pdf · s. 63",
+   "alinti": "600 üreticiye toplam 523 milyon TL tutarında kredi kullandırılmıştır"
+  },
+  "lisansli_depoculuk": {
+   "deger": "8,2 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 60",
+   "alinti": "lisanslı depoculuk kredilerinin toplam bakiyesi 8,2 milyar TL"
+  },
+  "yenilenebilir_enerji": {
+   "deger": "987 milyon TL",
+   "kaynak": "faaliyet_2025.pdf · s. 63",
+   "alinti": "Tarımsal Yenilenebilir Enerji Yatırımları Kredisinden, toplam 987 milyon TL"
+  },
+  "kooperatif_katma_deger": {
+   "deger": "40 kooperatif/üretici · 445 milyon TL",
+   "kaynak": "faaliyet_2025.pdf · s. 63",
+   "alinti": "40 kooperatif/üreticiye toplam 445 milyon TL finansman sağlanmıştır"
+  },
+  "soguk_hava_deposu": {
+   "deger": "507 milyon TL",
+   "kaynak": "faaliyet_2025.pdf · s. 60",
+   "alinti": "yeni soğuk hava deposu yatırımları ve mevcut depoların modernizasyonuna yönelik finansman desteği sağlanmıştır. Bu kapsamda kullandırılan kredilerin toplam bakiyesi 2025 yılı itibarıyla 507 milyon TL"
+  },
+  "hayvancilik_projeleri": {
+   "deger": "Köyümde Yaşamak İçin Bir Sürü Nedenim Var · Kırsalda Bereket",
+   "kaynak": "faaliyet_2025.pdf · s. 60",
+   "alinti": "“Köyümde Yaşamak İçin Bir Sürü Nedenim Var” projeleri kapsamında kredi kullandırımları sürdürülmüş; kırmızı et arzında sürdürülebilirliğin sağlanmasına yönelik “Kırsalda Bereket- Hayvancılığa Destek Projesi” 2025 yılında uygulamaya alınmıştır"
+  },
+  "elus": {
+   "deger": "474 milyon TL",
+   "kaynak": "faaliyet_2025.pdf · s. 60",
+   "alinti": "Elektronik Ürün Senetleri (ELÜS) karşılığı kullandırılan kredilerin bakiyesi ise 474 milyon TL"
+  }
+ },
+ "banka_geneli_2025": {
+  "_amac": "Ölçek göstermek için, argüman kurmak için değil (§8.2).",
+  "aktif": {
+   "deger": "8.474 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 37",
+   "alinti": "Aktif büyüklüğü: 8.474 milyar TL"
+  },
+  "aktif_pazar_payi": {
+   "deger": "%18,1",
+   "kaynak": "faaliyet_2025.pdf · s. 37",
+   "alinti": "%18,1 aktif büyüklük pazar payı"
+  },
+  "mevduat": {
+   "deger": "5.405 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 37",
+   "alinti": "Mevduat büyüklüğü: 5.405 milyar TL"
+  },
+  "nakdi_krediler": {
+   "deger": "4.240 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 37",
+   "alinti": "Nakdi krediler: 4.240 milyar TL"
+  },
+  "net_kar": {
+   "deger": "161 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 37",
+   "alinti": "Net dönem kârı: 161 milyar TL"
+  }
+ },
+ "sube_agi_2025": {
+  "_amac": "Kırsalda erişimin ölçüsü. Kredinin büyüklüğünden çok, kredinin NEREYE ulaştığını anlatan rakam.",
+  "sube": {
+   "deger": "1.745 şube · 373 ilçe ve beldede tek banka",
+   "kaynak": "faaliyet_2025.pdf · s. 38",
+   "alinti": "1.745 hizmet noktası ve Türkiye’de 373 ilçe ve beldede tek banka olarak"
+  },
+  "yeni_sube": {
+   "deger": "7 yeni şube",
+   "kaynak": "faaliyet_2025.pdf · s. 160",
+   "alinti": "yurt içinde 7 yeni şubeyi müşteriyle buluşturarak 2025 yıl sonu itibarıyla 1.745 şubesiyle"
+  }
+ },
+ "tarim_sigortasi": {
+  "_amac": "Kredinin yanındaki ikinci ürün. TARSİM devlet destekli tarım sigortası havuzu.",
+  "portfoy_payi": {
+   "deger": "%46",
+   "kaynak": "faaliyet_2025.pdf · s. 65",
+   "alinti": "tarımsal sigortaların payı %46"
+  }
+ },
+ "credit_agricole": {
+  "_amac": "12. bölüm. Karşılaştırmanın ekseni BÜYÜKLÜK DEĞİL SAHİPLİK.",
+  "_kaynak": "site_creditagricole_tarih.html, site_creditagricole_profil.html",
+  "ilk_kasa": {
+   "yil": 1885,
+   "yer": "Salins-les-Bains (Jura)",
+   "kuran": "Louis Milcent, Alfred Bouvet"
+  },
+  "kurulus_kanunu": {
+   "tarih": "5 Kasım 1894",
+   "ilke": "karşılıklılık (mutualité)",
+   "arkasindaki_isim": "Jules Méline"
+  },
+  "oy_ilkesi": "kişi başına tek oy, hisse sayısından bağımsız",
+  "devlet_destegi": "1897 · Banque de France'tan 40 milyon altın frank bağış ve yılda 2 milyon frank",
+  "bugun": {
+   "perakende_musteri": "55 milyon",
+   "ortak": "12,3 milyon",
+   "calisan": "160 bin"
+  },
+  "sayilar": {
+   "orgutlenme_kanunu_yili": 1884,
+   "ilk_kasa_yili": 1885,
+   "kurulus_kanunu_yili": 1894,
+   "bolge_bankalari_yili": 1899,
+   "ortak_milyon": 12.3,
+   "perakende_musteri_milyon": 55
+  },
+  "_eksen": "İkisi de devlet parasıyla ayağa kalktı — biri aşar vergisine zamla (1883), öteki Banque de France bağışıyla (1897). Ayrım oyların kimde olduğunda.",
+  "_zaman_farki": "Ziraat'in sandıkları (1863) Fransa'nın ilk yerel kasasından (1885) 22 yıl önce."
+ },
+ "tmo_baglantisi": {
+  "_amac": "Sayı 01'e köprü. KAYNAK ZİRAAT'TE DEĞİL, TMO DOSYASINDA.",
+  "_uyari": "Ziraat'in kendi tarihçesi bu olaydan hiç söz etmiyor. Atıf TMO belgesine yapılır, Ziraat'e değil.",
+  "fiyat_cokusu": {
+   "deger": "1928 sonrası",
+   "kaynak": "content/dossiers/tmo/_raw/kurum_hakkinda.pdf",
+   "alinti": "özellikle 1928 sonrasında birçok ülkede buğday fiyatları hızla düşmeye başlamıştır"
+  },
+  "gorevlendirme": {
+   "deger": "3/7/1932 tarihli ve 2056 sayılı Kanun",
+   "kaynak": "content/dossiers/tmo/_raw/kurum_hakkinda.pdf",
+   "alinti": "10/7/1932 tarihli ve 2146 sayılı Resmî Gazete’de yayımlanan 3/7/1932 tarihli ve 2056 sayılı Kanunla Ziraat Bankasını buğday alımıyla görevlendirmiştir"
+  },
+  "depo_gorevi": {
+   "deger": "11/6/1933 tarihli ve 2303 sayılı Kanun",
+   "kaynak": "content/dossiers/tmo/_raw/kurum_hakkinda.pdf",
+   "alinti": "Ziraat Bankasına depo ihtiyacını karşılamak üzere 11/6/1933 tarihli ve 2303 sayılı Kanunla hububat muhafaza tesisleri kurma görevi de verilmiştir"
+  },
+  "alim_merkezleri": {
+   "deger": "1932–1933 · çoğu Orta Anadolu'da",
+   "kaynak": "content/dossiers/tmo/_raw/kurum_hakkinda.pdf",
+   "alinti": "Ziraat Bankası 1932 -1933 yıllarında çoğu Orta Anadolu'da olmak üzere alım merkezleri açmıştır"
+  },
+  "ayrilma": {
+   "deger": "Buğday Masası Şefliği",
+   "kaynak": "content/dossiers/tmo/_raw/kurum_hakkinda.pdf",
+   "alinti": "Ziraat Bankası bünyesinde Buğday Masası Şefliği adı altında yürütülen işlerin başka bir kuruluşa devredilmesini zorunlu kılmıştır"
+  }
+ },
+ "kredi_sartlari": {
+  "_amac": "9. bölüm. Kredinin ŞARTLARI — limit, vade, ödemesiz dönem. Başvuru sürecinin adımları hiçbir çekilen kaynakta yok; akış şeması UYDURULMADI, onun yerine belgelenmiş şartlar veriliyor.",
+  "faiz_dayanagi": {
+   "deger": "Tarım ve Orman Bakanlığı Tebliği",
+   "kaynak": "faaliyet_2025.pdf · s. 59",
+   "alinti": "Tarım ve Orman Bakanlığı Tebliğ’i çerçevesinde, üretim alanlarına göre belirlenen faiz indirim oranları doğrultusunda"
+  },
+  "ciftci_destek_limiti": {
+   "deger": "1.000.000 TL",
+   "kaynak": "faaliyet_2025.pdf · s. 62",
+   "alinti": "1.000.000 TL’ye kadar kredi imkânı sunulmaktadır"
+  },
+  "ciftci_destek_kullanim": {
+   "deger": "38 bin müşteri · 18 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 62",
+   "alinti": "38 bin müşteriye 18 milyar TL kredi kullandırılmıştır"
+  },
+  "uretici_orgutu_limiti": {
+   "deger": "1.200.000 TL",
+   "kaynak": "faaliyet_2025.pdf · s. 61",
+   "alinti": "600.000 TL’den 1.200.000 TL’ye yükseltilmiş"
+  },
+  "uretici_orgutu_vade": {
+   "deger": "2 yıl ödemesiz · 5–7 yıl vade",
+   "kaynak": "faaliyet_2025.pdf · s. 61",
+   "alinti": "2 yıla kadar ödemesiz, toplamda 5 veya 7 yıl vadeli"
+  },
+  "tarimsal_elektrik": {
+   "deger": "4 bin+ müşteri · 2,9 milyar TL",
+   "kaynak": "faaliyet_2025.pdf · s. 63",
+   "alinti": "4 bini aşkın müşteriye toplam 2,9 milyar TL"
+  }
+ },
+ "bosluklar": []
+}

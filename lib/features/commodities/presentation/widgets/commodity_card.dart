@@ -75,7 +75,7 @@ class CommodityCard extends StatelessWidget {
             ),
           ),
           padding: EdgeInsets.symmetric(
-              horizontal: isCompact ? 12 : 14, vertical: 10),
+              horizontal: isCompact ? 12 : 14, vertical: 8),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -138,7 +138,7 @@ class _Summary extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Row(
           children: [
@@ -170,8 +170,10 @@ class _Summary extends StatelessWidget {
               ),
           ],
         ),
+        const SizedBox(height: 6),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             // Rakamlar eş genişlikli yazı tipiyle: kartlar yan yana durduğunda
             // orantılı yazı tipi virgülleri farklı yerlere düşürüyor ve sütun
@@ -288,11 +290,12 @@ class _Details extends StatelessWidget {
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        if (price.minPrice != null && price.maxPrice != null)
+        if (price.minPrice != null && price.maxPrice != null) ...[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(isEn ? 'Range' : 'Aralık', style: labelStyle),
               Text(
@@ -303,8 +306,11 @@ class _Details extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 6),
+        ],
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             // Kaynak ve tarih birlikte duruyor. "Polatlı Ticaret Borsası"
             // tek başına, hangi güne ait olduğu söylenmeden, dünkü rakamı

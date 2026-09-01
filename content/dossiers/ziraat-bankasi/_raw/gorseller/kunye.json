@@ -1,0 +1,96 @@
+{
+ "_dosya": "Ziraat Bankası dosyası — görsel künyesi",
+ "_kural": "ATIFSIZ GÖRSEL YAYIMLANMAZ. Buradaki her kalemin lisansı ve yazarı Commons'ın kendi API'sinden okundu; 'herhalde serbesttir' denmedi.",
+ "_arama_betigi": "_raw/gorsel_ara.mjs — Commons API'sinden lisans ve atıf bilgisini birlikte çeker",
+ "_indirme_betigi": "_raw/gorsel_indir.mjs — sihirli bayt doğrulaması yapar; HTML hata sayfası .jpg diye kaydedilemez",
+ "_kapak_yok": "Kurum dosyasının kapağı TİPOGRAFİK (CLAUDE.md §8.4) ve dizinin kimliği. Kapak görseli aranmadı.",
+ "_secim_olcusu": "Belgesel fotoğraf: gerçek bina, gerçek portre, gerçek kovan. Kurgulanmış 'mutlu çiftçi' stok fotoğrafı §8.4'te yasak.",
+
+ "gorseller": [
+  {
+   "id": "konya_subesi",
+   "bolum": 1,
+   "dosya": "ziraat_konya_subesi.jpg",
+   "commons": "Konya Ziraat Bankası 3798.jpg",
+   "lisans": "CC BY-SA 4.0",
+   "yazar": "Dosseman",
+   "atif_tr": "Dosseman, Wikimedia Commons — CC BY-SA 4.0",
+   "altyazi_tr": "Konya'da bir Ziraat Bankası binası. Türkiye'de 373 ilçe ve beldede başka banka yok.",
+   "altyazi_en": "A Ziraat Bankası building in Konya. In 373 districts and towns in Türkiye there is no other bank.",
+   "_neden": "Açılış bölümünün konusu erişim. Şube binası, kredinin nereye ulaştığını soyut rakamdan önce gösteriyor."
+  },
+  {
+   "id": "mithat_pasa",
+   "bolum": 2,
+   "dosya": "ziraat_mithat_pasa.jpg",
+   "commons": "Nadar - Portrait of Midhat Pasha.jpg",
+   "lisans": "Kamu malı",
+   "yazar": "Nadar",
+   "atif_tr": "Nadar, Wikimedia Commons — kamu malı",
+   "altyazi_tr": "Mithat Paşa. 1863'te Niş valisiyken Pirot'ta ilk Memleket Sandığı'nı kurdu.",
+   "altyazi_en": "Mithat Pasha, who as governor of Niş founded the first Country Fund at Pirot in 1863.",
+   "_neden": "Bölümün kişisi. Kurumu kuran fikrin arkasında bir insan var; portre onu metnin yanına koyuyor."
+  },
+  {
+   "id": "ankara_binasi",
+   "bolum": 4,
+   "dosya": "ziraat_ankara_1930lar.jpg",
+   "commons": "Banks Street (Atatürk Boulevard) the Building of Ziraat Bankası (Agricultural Bank), 1930s (16851305342).jpg",
+   "lisans": "Kısıtlama yok",
+   "yazar": "Directorate General of Press and Information",
+   "atif_tr": "Directorate General of Press and Information, Wikimedia Commons — kısıtlama yok",
+   "altyazi_tr": "1930'larda Ankara'da Ziraat Bankası binası. Bankalar Caddesi adını buradaki binalardan aldı.",
+   "altyazi_en": "The Ziraat Bankası building in 1930s Ankara. Banks Street took its name from the buildings here.",
+   "_neden": "Sandığın banka hâline gelişini anlatan bölüm; kurumsallaşmanın taşa dönüşmüş hâli.",
+   "_not": "Aynı fotoğraf TMO dosyasının 2. bölümünde de kullanılıyor — iki dosya tarih olarak zaten burada kesişiyor."
+  },
+  {
+   "id": "bugday_hasadi",
+   "bolum": 7,
+   "dosya": "ziraat_bugday_sivas.jpg",
+   "commons": "Wheat harvest in Sivas, Turkey.jpg",
+   "lisans": "CC BY-SA 4.0",
+   "yazar": "Maurice Flesier",
+   "atif_tr": "Maurice Flesier, Wikimedia Commons — CC BY-SA 4.0",
+   "altyazi_tr": "Sivas'ta buğday hasadı. 1932'de bu ürünü satın alma görevi bankaya verilmişti.",
+   "altyazi_en": "The wheat harvest in Sivas. In 1932 the task of buying this crop was assigned to the bank.",
+   "_neden": "Buğday masasının konusu. Bankanın altı yıl boyunca ne satın aldığını göstermeden bölüm soyut kalıyor."
+  },
+  {
+   "id": "koyun_surusu",
+   "bolum": 8,
+   "dosya": "ziraat_koyun_egribel.jpg",
+   "commons": "Sheep flock in Eğribel, Giresun 01-8.jpg",
+   "lisans": "CC BY-SA 4.0",
+   "yazar": "Zeynel Cebeci",
+   "atif_tr": "Zeynel Cebeci, Wikimedia Commons — CC BY-SA 4.0",
+   "altyazi_tr": "Giresun Eğribel'de koyun sürüsü. Hayvancılık kredisinin bakiyesi bitkisel üretimden büyük.",
+   "altyazi_en": "A flock at Eğribel, Giresun. The livestock loan book is larger than the crop loan book.",
+   "_neden": "Bölümün sezgiye aykırı bulgusu hayvancılığın ağırlığı; tabloyla birlikte görsel de onu söylüyor."
+  },
+  {
+   "id": "aricilik",
+   "bolum": 10,
+   "dosya": "ziraat_aricilik_adana.jpg",
+   "commons": "Beekeeping, Adana 01.jpg",
+   "lisans": "CC BY-SA 4.0",
+   "yazar": "Zeynel Cebeci",
+   "atif_tr": "Zeynel Cebeci, Wikimedia Commons — CC BY-SA 4.0",
+   "altyazi_tr": "Adana'da arı kovanları. Kovan alımı için açılan kredinin üst sınırı 300 bin lira.",
+   "altyazi_en": "Beehives in Adana. The loan for buying stocked hives is capped at 300,000 lira.",
+   "_neden": "Bölümün açılış kalemi. Kredinin insan ölçeğine indiği yer, kovanın kendisiyle anlatılıyor."
+  },
+  {
+   "id": "salins",
+   "bolum": 11,
+   "dosya": "ziraat_salins_les_bains.jpg",
+   "commons": "Salins-les-Bains.jpg",
+   "lisans": "Kamu malı",
+   "yazar": "Jean-Baptiste Béchet",
+   "atif_tr": "Jean-Baptiste Béchet, Wikimedia Commons — kamu malı",
+   "altyazi_tr": "Salins-les-Bains. Fransa'nın ilk yerel tarım kredi kasası 1885'te bu kasabada kuruldu.",
+   "altyazi_en": "Salins-les-Bains, where France's first local agricultural credit fund was founded in 1885.",
+   "_neden": "Karşılaştırmanın öteki ucu bir kasaba — tıpkı Pirot gibi. İki kasaba, iki cevap."
+  }
+ ]
+}

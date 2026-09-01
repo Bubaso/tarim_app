@@ -1,0 +1,203 @@
+{
+ "_dosya": "Ziraat Bankası — Kurum Dosyası · yayın künyesi",
+ "_amac": "İçerik, tasarım ve veri dışında kalan üçüncü şey: bu dosyanın NE ZAMAN ve HANGİ ADRESTE yayımlanacağı. seed_dossier.mjs yalnızca buradan okur.",
+ "slug": "ziraat-bankasi",
+ "tur": "kurum",
+ "name_tr": "Ziraat Bankası",
+ "name_en": "Ziraat Bankası",
+ "_ad_notu": "İngilizce adı ÇEVRİLMİYOR. Banka yurt dışında da 'Ziraat Bank' adıyla çalışıyor; 'Agricultural Bank of Türkiye' diye bir tüzel kişilik yok.",
+ "kurulus_belgesi": "Memleket Sandıkları · 1863 — 4603 sayılı Kanun · kabul 25.11.2000",
+ "_kurulus_belgesi_notu": "İki künye birden: kurum 1863'te sandık olarak doğdu, bugünkü tüzel kimliği 2000 tarihli 4603 sayılı Kanundan geliyor. Aradaki dönüşüm zinciri bankanın kendi tarihçesinde adım adım yazılı DEĞİL; eksik halka uydurulmadı. mevzuat.gov.tr ve resmigazete.gov.tr bu ağdan açılmıyor.",
+ "edition": 2,
+ "kume": "Finans",
+ "kalip": "agir",
+ "_kalip_notu": "Ağır dosya: 13 bölüm. TR ~3.100, EN ~4.150 kelime.",
+ "pencere": {
+  "gun": 14,
+  "baslangic": null,
+  "_baslangic_notu": "null ise seed anında now() yazılır."
+ },
+ "status": "published",
+ "_status_notu": "Yayında. TMO'nun penceresi 5 Eylül yerine 29 Ağustos'ta kapatıldı, Ziraat aynı anda açıldı (kullanıcı kararı).",
+ "kapak": {
+  "url": null,
+  "atif": null,
+  "_notu": "Kurum dosyasının kapağı TİPOGRAFİK ve dizinin kimliği (§8.4). Fotoğraf kapak aranmadı — dizinin ikinci sayısında görsel dili kırmak, henüz kurulmamış bir kimliği yok etmek olurdu. Güçlü fotoğraflar metnin içine yayıldı."
+ },
+ "video": {
+  "url": null
+ },
+ "bolum_grafikleri": {
+  "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği.",
+  "_az_grafik": "Tanıtım dosyasında grafik metnin yerine geçmez, yanında durur. Beş grafik, beş bölümde.",
+  "_islem_akisi_yok": "9. bölüm için §8.5'te tanımlı islem_akisi grafiği KULLANILMADI: başvurunun adım adım yolu bankanın hiçbir yayımlanmış belgesinde yok. Adımları uydurmak yerine ilan edilmiş ŞARTLAR kart grafiğiyle veriliyor.",
+  "1": [
+   "sektor_payi"
+  ],
+  "2": [],
+  "3": [],
+  "4": [
+   "hukuki_omurga"
+  ],
+  "5": [],
+  "6": [],
+  "7": [],
+  "8": [
+   "kredi_kirilimi"
+  ],
+  "9": [
+   "kredinin_sartlari"
+  ],
+  "10": [],
+  "11": [
+   "iki_banka"
+  ],
+  "12": [],
+  "13": []
+ },
+ "bolum_turleri": {
+  "_amac": "anlati | belge | veri | akis. Yazılmayan bölüm anlati sayılır.",
+  "_not": "Anlatı bölümü veri bölümünü seyreltiyor (§2.8): okur dosya boyunca dört kez zemin değiştiriyor. 1. bölüm kunye grafiği taşıdığı hâlde ANLATI kalıyor — açılış ritmi bozulmasın (§2.4'teki kayıtlı istisna).",
+  "1": "anlati",
+  "2": "anlati",
+  "3": "anlati",
+  "4": "belge",
+  "5": "anlati",
+  "6": "belge",
+  "7": "anlati",
+  "8": "veri",
+  "9": "akis",
+  "10": "anlati",
+  "11": "veri",
+  "12": "anlati",
+  "13": "anlati"
+ },
+ "bolum_gorselleri": {
+  "_amac": "Bölüm sırası → görsel. Grafik veriyi anlatır, görsel konuyu gösterir.",
+  "_kural": "ATIFSIZ GÖRSEL YAYIMLANMAZ. Yedisinin de yazarı, lisansı ve kaynak sayfası _raw/gorseller/kunye.json içinde; lisans indirme anında Commons API'sine karşı yeniden doğrulanıyor.",
+  "_alan_adlari": "Tohumlayıcı alt_tr / alt_en bekliyor (künyedeki adı altyazi_*). İki şema bir kez karıştırıldı.",
+  "1": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_konya_subesi.jpg",
+   "atif": "Dosseman · CC BY-SA 4.0 · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Konya_Ziraat_Bankası_3798.jpg",
+   "_lisans": "CC BY-SA 4.0",
+   "alt_tr": "Konya'da bir Ziraat Bankası binası. Türkiye'de 373 ilçe ve beldede başka banka yok.",
+   "alt_en": "A Ziraat Bankası building in Konya. In 373 districts and towns in Türkiye there is no other bank."
+  },
+  "2": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_mithat_pasa.jpg",
+   "atif": "Nadar · Kamu malı · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Nadar_-_Portrait_of_Midhat_Pasha.jpg",
+   "_lisans": "Kamu malı",
+   "alt_tr": "Mithat Paşa. 1863'te Niş valisiyken Pirot'ta ilk Memleket Sandığı'nı kurdu.",
+   "alt_en": "Mithat Pasha, who as governor of Niş founded the first Country Fund at Pirot in 1863."
+  },
+  "4": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_ankara_1930lar.jpg",
+   "atif": "Directorate General of Press and Information · Kısıtlama yok · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Banks_Street_(Atatürk_Boulevard)_the_Building_of_Ziraat_Bankası_(Agricultural_Bank),_1930s_(16851305342).jpg",
+   "_lisans": "Kısıtlama yok",
+   "alt_tr": "1930'larda Ankara'da Ziraat Bankası binası. Bankalar Caddesi adını buradaki binalardan aldı.",
+   "alt_en": "The Ziraat Bankası building in 1930s Ankara. Banks Street took its name from the buildings here."
+  },
+  "7": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_bugday_sivas.jpg",
+   "atif": "Maurice Flesier · CC BY-SA 4.0 · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Wheat_harvest_in_Sivas,_Turkey.jpg",
+   "_lisans": "CC BY-SA 4.0",
+   "alt_tr": "Sivas'ta buğday hasadı. 1932'de bu ürünü satın alma görevi bankaya verilmişti.",
+   "alt_en": "The wheat harvest in Sivas. In 1932 the task of buying this crop was assigned to the bank."
+  },
+  "8": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_koyun_egribel.jpg",
+   "atif": "Zeynel Cebeci · CC BY-SA 4.0 · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Sheep_flock_in_Eğribel,_Giresun_01-8.jpg",
+   "_lisans": "CC BY-SA 4.0",
+   "alt_tr": "Giresun Eğribel'de koyun sürüsü. Hayvancılık kredisinin bakiyesi bitkisel üretimden büyük.",
+   "alt_en": "A flock at Eğribel, Giresun. The livestock loan book is larger than the crop loan book."
+  },
+  "10": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_aricilik_adana.jpg",
+   "atif": "Zeynel Cebeci · CC BY-SA 4.0 · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Beekeeping,_Adana_01.jpg",
+   "_lisans": "CC BY-SA 4.0",
+   "alt_tr": "Adana'da arı kovanları. Kovan alımı için açılan kredinin üst sınırı 300 bin lira.",
+   "alt_en": "Beehives in Adana. The loan for buying stocked hives is capped at 300,000 lira."
+  },
+  "11": {
+   "url": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_salins_les_bains.jpg",
+   "atif": "Jean-Baptiste Béchet · Kamu malı · Wikimedia Commons",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Salins-les-Bains.jpg",
+   "_lisans": "Kamu malı",
+   "alt_tr": "Salins-les-Bains. Fransa'nın ilk yerel tarım kredi kasası 1885'te bu kasabada kuruldu.",
+   "alt_en": "Salins-les-Bains, where France's first local agricultural credit fund was founded in 1885."
+  }
+ },
+ "hikaye": {
+  "_amac": "Ana sayfadaki hikâye baloncuğu. Okuru /kurum/ziraat-bankasi adresine götürüyor.",
+  "_kural": "Metin elle yazıldı. Rakamların hepsi data.json'dan: %68 sektör payı, 1863 kuruluş, 20 lira ilk kredi limiti, 13 bölüm.",
+  "_akis": "Ölçü → beklenmedik köken → bugünkü ayrıntı → dosyaya davet.",
+  "grup_tr": "Kurum Dosyası",
+  "grup_en": "Institution Dossier",
+  "slaytlar": [
+   {
+    "ust": "KURUM DOSYASI · 02",
+    "ust_en": "INSTITUTION DOSSIER · 02",
+    "baslik": "Türkiye'de tarıma açılan her yüz liralık kredinin altmış sekizi tek bir bankadan geliyor. Peki bu kurum nasıl bu hâle geldi?",
+    "baslik_en": "Sixty-eight of every hundred lira lent to farming in Türkiye comes from a single bank. How did it get there?",
+    "rakam": "%68",
+    "rakam_en": "68%",
+    "etiket": "Ziraat'in tarımsal kredideki payı, 2025",
+    "etiket_en": "Ziraat's share of agricultural credit, 2025",
+    "gorsel": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_konya_subesi.jpg"
+   },
+   {
+    "ust": "BİR KASABADA BAŞLADI",
+    "ust_en": "IT BEGAN IN A SMALL TOWN",
+    "baslik": "Ziraat Bankası banka olarak kurulmadı: 1863'te Pirot'ta bir yardımlaşma sandığıydı, ilk kredi kişi başına yirmi lirayla sınırlıydı",
+    "baslik_en": "Ziraat Bankası was not founded as a bank: in 1863 it was a mutual-aid fund in Pirot, and the first loan was capped at twenty lira a person",
+    "rakam": "1863",
+    "rakam_en": "1863",
+    "etiket": "Mithat Paşa'nın kurduğu Memleket Sandıkları",
+    "etiket_en": "The Country Funds founded by Mithat Pasha",
+    "gorsel": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_mithat_pasa.jpg"
+   },
+   {
+    "ust": "AZ BİLİNEN AYRINTI",
+    "ust_en": "THE LESSER-KNOWN DETAIL",
+    "baslik": "Aynı bankanın kovan alımı için ayrı bir kredisi var: 2025'te 5.700'den fazla arıcı kullandı",
+    "baslik_en": "The same bank has a separate loan for buying beehives: more than 5,700 beekeepers used it in 2025",
+    "rakam": "890 milyon TL",
+    "rakam_en": "TRY 890m",
+    "etiket": "2025'te arıcılığa kullandırılan kredi",
+    "etiket_en": "Lent to beekeeping in 2025",
+    "gorsel": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_aricilik_adana.jpg"
+   },
+   {
+    "ust": "SANDIKTAN ANONİM ŞİRKETE",
+    "ust_en": "FROM FUND TO COMPANY",
+    "baslik": "Aşar vergisinden gelen parayla büyüyen sandığın 162 yılı — ve Toprak Mahsulleri Ofisi'nin nasıl bu bankanın içinden çıktığı",
+    "baslik_en": "162 years of a fund grown on tithe money — and how the Turkish Grain Board came out of this bank",
+    "rakam": "13 bölüm",
+    "rakam_en": "13 sections",
+    "etiket": "Kurum dosyamıza göz atın →",
+    "etiket_en": "Take a look at our institution dossier →",
+    "gorsel": "https://tarim-app-2026.web.app/dosya/ziraat-bankasi/ziraat_ankara_1930lar.jpg"
+   }
+  ]
+ },
+ "anahtar_kelimeler": [
+  "Ziraat Bankası",
+  "Ziraat Bank"
+ ],
+ "_anahtar_kelimeler_notu": "SADECE 'Ziraat' YAZILAMAZ. Yayındaki 520 haberde denendi: 'Ziraat' başlıkta beş kez geçiyor ve BEŞİ DE Ziraat ODASI — bambaşka bir kurum. Sözcük sınırı regex'i burada korumuyor, çünkü 'Ziraat' gerçekten ayrı bir kelime. Aynı sebeple 'Tarım Kredi' de yok: Tarım Kredi Kooperatifleri ayrı bir tüzel kişilik.",
+ "_kalan_isler": [
+  "1. status → published",
+  "2. node content/dossiers/seed_dossier.mjs ziraat-bankasi",
+  "3. node content/dossiers/dogrula_seed.mjs ziraat-bankasi",
+  "4. node content/dossiers/_ortak/paylasim_karti.mjs ziraat-bankasi",
+  "5. ÖNCE ./deploy.sh --hosting (7 görsel + paylaşım kartı yayına çıksın), 200 döndüğü DOĞRULANSIN",
+  "6. SONRA migration + supabase db push — sıra ters olursa görseller canlıda kırılır (25 Ağustos 2026'da bir kez yaşandı)",
+  "7. python3 scripts/dosya_hikayeleri.py — yalnızca yayına girdikten SONRA"
+ ]
+}

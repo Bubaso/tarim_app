@@ -49,6 +49,14 @@ class StoryItem {
   final DateTime? expiresAt;
   final bool isBreaking;
 
+  /// Şeritte kalıcı mı?
+  ///
+  /// Dosya hikâyeleri için true. Sonsuza kadar değil, [expiresAt] boyunca:
+  /// sabitlik "hep dursun" değil "yayın penceresi kapanana kadar düşmesin"
+  /// demek. Adresinden TÜRETİLMİYOR — sabitlik bir yayın kararı ve satır
+  /// bunu kendisi söylüyor.
+  final bool sabit;
+
   const StoryItem({
     required this.id,
     required this.storyId,
@@ -67,6 +75,7 @@ class StoryItem {
     required this.createdAt,
     this.expiresAt,
     this.isBreaking = false,
+    this.sabit = false,
   });
 
   String superTitleFor(bool isEn) =>
@@ -102,6 +111,9 @@ class StoryGroup {
   /// Gruptaki en taze slaytın zamanı — sıralama puanı buradan hesaplanır.
   final DateTime latestAt;
 
+  /// Gruptaki slaytlardan biri sabitse grup da sabit.
+  final bool sabit;
+
   const StoryGroup({
     required this.key,
     required this.title,
@@ -111,6 +123,7 @@ class StoryGroup {
     required this.latestAt,
     this.isBreaking = false,
     this.isSeen = false,
+    this.sabit = false,
   });
 
   String titleFor(bool isEn) => isEn && titleEn.isNotEmpty ? titleEn : title;
@@ -125,6 +138,7 @@ class StoryGroup {
       latestAt: latestAt,
       isBreaking: isBreaking,
       isSeen: isSeen ?? this.isSeen,
+      sabit: sabit,
     );
   }
 }
