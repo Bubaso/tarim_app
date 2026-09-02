@@ -340,7 +340,7 @@ def run_story_pipeline():
             break
 
         image_url = (article.get("image_url") or "").strip()
-        if len(image_url) < 6 or "unsplash" in image_url.lower():
+        if len(image_url) < 6:
             continue
         if article["id"] in already_used:
             continue
