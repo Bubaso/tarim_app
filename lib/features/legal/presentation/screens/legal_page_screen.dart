@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,7 +22,7 @@ class LegalPageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     final bgColor = isDark ? AppColors.darkGreen : AppColors.creamBackground;
@@ -88,7 +89,7 @@ class LegalPageScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 Text(
                   _updatedLabel(doc.updatedAt, isEn),
-                  style: GoogleFonts.robotoMono(
+                  style: GoogleFonts.inter(
                     fontSize: AppTypography.minLabelSize,
                     fontWeight: FontWeight.w500,
                     letterSpacing: 0.2,

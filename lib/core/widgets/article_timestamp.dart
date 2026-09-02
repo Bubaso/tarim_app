@@ -12,6 +12,7 @@ import '../theme/app_typography.dart';
 ///   * 1 saatten yeni        → `18 dakika önce`
 ///   * 24 saatten yeni       → `5 saat önce`
 ///   * dün                   → `dün 14:30`
+///   * 2–6 gün               → `3 gün önce`
 ///   * bu yıl                → `8 Ağu`
 ///   * önceki yıllar         → `8 Ağu 2024`
 ///
@@ -47,6 +48,10 @@ String formatArticleTime(
   if (dayDiff == 1) {
     final hm = DateFormat.Hm(locale).format(local);
     return isEn ? 'yesterday $hm' : 'dün $hm';
+  }
+  // 2–6 gün: sayfa taze görünsün diye hâlâ göreli. 7 günden sonra tarih.
+  if (dayDiff <= 6) {
+    return isEn ? '$dayDiff days ago' : '$dayDiff gün önce';
   }
   if (local.year == ref.year) {
     return DateFormat.MMMd(locale).format(local);
@@ -88,11 +93,13 @@ class ArticleTimestamp extends StatelessWidget {
       label,
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
-      style: GoogleFonts.robotoMono(
+      style: GoogleFonts.inter(
         color: color,
         fontSize: fontSize,
         fontWeight: FontWeight.w500,
         letterSpacing: 0.2,
+        // Eskiden Roboto Mono'ydu; rakam hizasını tabular figürlerle koruyoruz.
+        fontFeatures: const [FontFeature.tabularFigures()],
       ),
     );
 

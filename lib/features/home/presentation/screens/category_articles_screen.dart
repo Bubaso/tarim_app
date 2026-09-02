@@ -1,26 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:tarim_app/core/utils/localization_helper.dart';
 import 'package:tarim_app/core/utils/fade_page_route.dart';
+import 'package:tarim_app/core/utils/responsive_breakpoints.dart';
 import 'package:tarim_app/core/utils/image_fallback_helper.dart';
 import 'package:tarim_app/core/widgets/article_timestamp.dart';
 import '../../data/models/news_article.dart';
+import '../../data/category_catalog.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
 import 'article_detail_screen.dart';
 import '../widgets/portal_footer.dart';
 import '../../../../core/utils/string_extensions.dart';
+import 'package:go_router/go_router.dart';
 
 class CategoryArticlesScreen extends ConsumerStatefulWidget {
-  final String title;
-  final List<NewsArticle> articles;
+  /// Uygulama içi gezinmede hazır liste + başlık taşınır. Doğrudan URL'de
+  /// ikisi de null gelir ve ekran [slug]'dan çözer.
+  final String? title;
+  final String? slug;
+  final List<NewsArticle>? articles;
 
   const CategoryArticlesScreen({
     super.key,
-    required this.title,
-    required this.articles,
+    this.title,
+    this.slug,
+    this.articles,
   });
 
   @override
@@ -35,13 +44,23 @@ class _CategoryArticlesScreenState
     ref.watch(localeProvider);
     final fontScale = ref.watch(fontScaleProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
+
+    // Kaynak çözümü: hazır liste varsa onu kullan; yoksa slug → sağlayıcı.
+    final def = widget.slug != null ? categoryBySlug(widget.slug!) : null;
+    final List<NewsArticle>? articles = widget.articles ??
+        (def != null ? ref.watch(def.provider) : null);
+    final String title =
+        widget.title ?? def?.title(isEn) ?? (isEn ? 'Category' : 'Kategori');
+
+    if (articles == null) {
+      return _NotFound(isEn: isEn);
+    }
     final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF4F4F4);
     final textColor = isDark ? AppColors.wheat : AppColors.earthText;
     final dividerColor = isDark ? Colors.white12 : Colors.black12;
     final width = MediaQuery.of(context).size.width;
-    final isMobile = width < 900;
+    final isMobile = width < ResponsiveBreakpoints.contentWide;
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -54,7 +73,7 @@ class _CategoryArticlesScreenState
             centerTitle: false,
             iconTheme: IconThemeData(color: textColor),
             title: Text(
-              widget.title.toTurkishUpperCase(),
+              title.toTurkishUpperCase(),
               style: GoogleFonts.inter(
                 color: textColor,
                 fontWeight: FontWeight.w900,
@@ -71,7 +90,7 @@ class _CategoryArticlesScreenState
               child: Container(color: dividerColor, height: 1),
             ),
           ),
-          if (widget.articles.isEmpty)
+          if (articles.isEmpty)
             SliverFillRemaining(
               child: Center(
                 child: Text(
@@ -96,14 +115,14 @@ class _CategoryArticlesScreenState
                       children: [
                         // ── Hero ──────────────────────────────────────────────────────────
                         _HeroArticle(
-                          article: widget.articles.first,
-                          categoryName: widget.title,
+                          article: articles.first,
+                          categoryName: title,
                           isDark: isDark,
                           isMobile: isMobile,
                           fontScale: fontScale,
                         ),
 
-                        if (widget.articles.length > 1) ...[
+                        if (articles.length > 1) ...[
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 isMobile ? 16 : 0, 56, isMobile ? 16 : 0, 48),
@@ -140,7 +159,7 @@ class _CategoryArticlesScreenState
                               bottom: 80,
                             ),
                             child: _MixedGrid(
-                              articles: widget.articles.sublist(1),
+                              articles: articles.sublist(1),
                               isDark: isDark,
                               isMobile: isMobile,
                               fontScale: fontScale,
@@ -332,7 +351,7 @@ class _HeroArticleState extends State<_HeroArticle> {
         : (a.summary ?? '');
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -481,7 +500,7 @@ class _LargeCardState extends State<_LargeCard> {
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -556,7 +575,7 @@ class _StdCardState extends State<_StdCard> {
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -623,7 +642,7 @@ class _CompactCardState extends State<_CompactCard> {
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -690,7 +709,7 @@ class _SideCardState extends State<_SideCard> {
     final textColor = widget.isDark ? Colors.white : Colors.black87;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -733,6 +752,40 @@ class _SideCardState extends State<_SideCard> {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Bilinmeyen slug ile doğrudan açılan `/kategori/...` adresi.
+class _NotFound extends StatelessWidget {
+  final bool isEn;
+  const _NotFound({required this.isEn});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                isEn ? 'Category not found' : 'Kategori bulunamadı',
+                style: GoogleFonts.playfairDisplay(
+                    fontSize: 22, fontWeight: FontWeight.w800),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              OutlinedButton(
+                onPressed: () => context.go('/'),
+                child: Text(isEn ? 'Go to home' : 'Ana sayfaya dön'),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -25,7 +26,7 @@ class CommodityDetailScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
 
     final price = ref.watch(commodityBySlugProvider(slug));
     final historyAsync = ref.watch(commodityHistoryProvider(slug));
@@ -81,7 +82,7 @@ class _CommodityDetailDialog extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
 
     final price = ref.watch(commodityBySlugProvider(slug));
     final historyAsync = ref.watch(commodityHistoryProvider(slug));
@@ -320,7 +321,7 @@ class _Headline extends StatelessWidget {
                 price.isAdministered
                     ? ilanFiyati(secilenFiyat ?? price.avgPrice)
                     : formatPrice(secilenFiyat ?? price.avgPrice),
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
                   color: textColor,
@@ -541,7 +542,7 @@ class _History extends StatelessWidget {
                     reservedSize: 44,
                     getTitlesWidget: (value, meta) => Text(
                       formatPrice(value),
-                      style: GoogleFonts.robotoMono(fontSize: 10, color: subtle),
+                      style: GoogleFonts.inter(fontSize: 10, color: subtle),
                     ),
                   ),
                 ),
@@ -592,7 +593,7 @@ class _History extends StatelessWidget {
                     return LineTooltipItem(
                       '${formatPrice(point.avgPrice)} $unit\n'
                       '${DateFormat('d MMMM yyyy', isEn ? 'en_US' : 'tr_TR').format(point.date)}',
-                      GoogleFonts.robotoMono(fontSize: 11, color: Colors.white),
+                      GoogleFonts.inter(fontSize: 11, color: Colors.white),
                     );
                   }).toList(),
                 ),
@@ -937,7 +938,7 @@ class _IlanFiyatlari extends StatelessWidget {
                 const SizedBox(width: 12),
                 Text(
                   '${ilanFiyati(satir.price)} $unit',
-                  style: GoogleFonts.robotoMono(
+                  style: GoogleFonts.inter(
                     fontSize: 13,
                     fontWeight: satir.price == gosterilen
                         ? FontWeight.w700

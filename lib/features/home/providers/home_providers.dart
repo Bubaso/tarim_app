@@ -378,9 +378,10 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
       final base = <String, double>{};
       for (final a in withImages) {
         // YÖNETİCİ İSTİSNASI: Sabit (Hard) Pin
-        // Eğer yönetici is_hero=true ve hero_order=0 yaparsa, kural tanımaz;
+        // Eğer yönetici is_hero=true ve hero_order<=0 yaparsa, kural tanımaz;
         // sonsuz puan alıp daima en tepede kalır (okunma cezası bile işlemez).
-        if (a.isHero == true && a.heroOrder == 0) {
+        // Böylece ranked ve _heroStableTop mantığı korunur.
+        if (a.isHero == true && a.heroOrder != null && a.heroOrder! <= 0) {
           base[a.id] = double.infinity;
           continue;
         }
@@ -442,14 +443,26 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 
       double scoreOf(NewsArticle a) => scores[a.id] ?? 0;
 
+      // Sabitlenmiş haberleri kendi istedikleri pozisyonlarda (0, 1, 2) tutmak için
+      final pinnedMap = <int, NewsArticle>{};
+      for (final a in withImages) {
+        if (a.isHero == true && a.heroOrder != null && a.heroOrder! <= 0) {
+          int targetIndex = -(a.heroOrder!);
+          pinnedMap[targetIndex] = a;
+        }
+      }
+
       const int heroLimit = 10;
-      final List<NewsArticle> hero = [];
       final used = <String>{};
+      
+      for (final a in pinnedMap.values) {
+        used.add(a.id);
+      }
 
       // Kotalar manşetin BİLEŞİMİNİ belirliyor: en az bir bilim, en çok iki
       // dünya haberi gibi. Sıraya karışmıyorlar — liste en sonda skora göre
-      // diziliyor.
-      final remaining = withImages.toList()
+      // diziliyor. Sabitlenmiş haberler bu kotanın (dynamicList) dışında kalır.
+      final remaining = withImages.where((a) => !used.contains(a.id)).toList()
         ..sort((a, b) => scoreOf(b).compareTo(scoreOf(a)));
 
       final turkeyBucket = <NewsArticle>[];
@@ -473,11 +486,12 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
         }
       }
 
+      final dynamicList = <NewsArticle>[];
       void fill(List<NewsArticle> bucket, int quota) {
         for (final a in bucket) {
-          if (hero.length >= heroLimit || quota <= 0) return;
+          if (dynamicList.length >= heroLimit || quota <= 0) return;
           if (!used.add(a.id)) continue;
-          hero.add(a);
+          dynamicList.add(a);
           quota--;
         }
       }
@@ -490,10 +504,21 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
       // sırasıyla tamamlar.
       fill(remaining, heroLimit);
 
-      // Seçim bittikten sonra sıralama yeniden skora bırakılıyor. Aksi hâlde
-      // kotaların doldurulma sırası manşetin sırası olurdu ve ilk kart hep
-      // bilim haberi olarak sabitlenirdi.
-      hero.sort((a, b) => scoreOf(b).compareTo(scoreOf(a)));
+      // Seçim bittikten sonra sıralama yeniden skora bırakılıyor.
+      dynamicList.sort((a, b) => scoreOf(b).compareTo(scoreOf(a)));
+
+      // Son olarak listeyi oluştur: Sabit olanlar tam istenen yere (0, 1, 2)
+      // Kalan boşluklara da `dynamicList` elemanları skor sırasıyla.
+      final List<NewsArticle> hero = [];
+      int dynamicIndex = 0;
+      for (int i = 0; i < heroLimit; i++) {
+        if (pinnedMap.containsKey(i)) {
+          hero.add(pinnedMap[i]!);
+        } else if (dynamicIndex < dynamicList.length) {
+          hero.add(dynamicList[dynamicIndex]);
+          dynamicIndex++;
+        }
+      }
 
       return hero;
     },
@@ -502,38 +527,120 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
   );
 });
 
-/// ICYMI (In Case You Missed It) / Gözden Kaçanlar
-/// Strateji 5: Kullanıcının okumadığı, son 1-7 gün arası kaliteli içerikler.
-final icymiArticlesProvider = Provider<List<NewsArticle>>((ref) {
-  final articlesAsync = ref.watch(latestArticlesProvider);
+// ─── ÖNE ÇIKARMA BÜTÇESİ ─────────────────────────────────────────────────────
+//
+// Eskiden her bölüm sağlayıcısı ([turkeyNewsProvider], [worldNewsProvider],
+// [scienceAndReportsProvider], [categoryArticlesProvider], [icymiArticlesProvider])
+// [latestArticlesProvider]'ı BAĞIMSIZ süzüyordu. Çok okunan bir haber hem
+// hero'da hem Türkiye'de hem Hayvancılık'ta büyük kart oluyordu — vitrin
+// içeriğin azlığını ve otomatik toplandığını gösteriyordu.
+//
+// [homeAllocationProvider] dağıtımı tek yerde ve SIRALI yapar: hero'nun
+// aldıkları baştan düşülür, sonra her bölüm kendinden öncekilerin almadığından
+// seçer. Kapsam dışı (bilerek): "Kısa Kısa" (ayrı havuz — isBrief), "Son
+// Okuduklarınız" (okuyucunun kendi geçmişi), emtia/dosya/video şeritleri,
+// YYT dosyası.
+//
+// NOT: Tam listeler ([turkeyNewsProvider] vb.) DEĞİŞMEDEN duruyor — kategori
+// "Daha fazla" tam sayfaları onları kullanıyor; yalnızca ANASAYFA ÖNİZLEMESİ
+// tekilleştirilmiş listeyi gösteriyor.
+
+/// Sektörel bölümlerin konuları. Dağıtım bunları da tüketir ki bir haber hem
+/// "Hayvancılık" hem "Dünya"da öne çıkmasın.
+const _sektorelKonular = <String>['Hayvancılık', 'Bitkisel Üretim', 'Ekonomi'];
+
+class HomeAllocation {
+  const HomeAllocation({
+    this.turkey = const [],
+    this.science = const [],
+    this.world = const [],
+    this.byTopic = const {},
+    this.icymi = const [],
+  });
+
+  final List<NewsArticle> turkey;
+  final List<NewsArticle> science;
+  final List<NewsArticle> world;
+
+  /// Anahtar: [_sektorelKonular] öğesi. Değer: o konuya düşen tekil haberler.
+  final Map<String, List<NewsArticle>> byTopic;
+  final List<NewsArticle> icymi;
+
+  static const empty = HomeAllocation();
+}
+
+/// Anasayfa bölümlerine haberlerin BİR KEZ dağıtıldığı yer. Bkz. yukarıdaki not.
+///
+/// Her `claim` bir ÜST SINIRLA çalışıyor: bölüm önizlemede ~6 kart gösteriyor,
+/// dağıtıcının de o kadar + bir tampon ayırması yeterli. Sınır olmasaydı
+/// "Türkiye" tüm Türkiye haberlerini alıp sektörel bölümleri boşaltırdı.
+/// Kalan haberler bir sonraki bölüme, en sonda ICYMI'ye akıyor.
+final homeAllocationProvider = Provider<HomeAllocation>((ref) {
+  final all = ref.watch(latestArticlesProvider).valueOrNull;
+  if (all == null) return HomeAllocation.empty;
+
+  // Hero'nun aldıkları peşinen "harcanmış" sayılır.
+  final spent = <String>{
+    for (final a in ref.watch(heroArticlesProvider)) a.id,
+  };
+
+  // [latestArticlesProvider] listesi zaten yeniden → eskiye sıralı; claim
+  // bu sırayı koruyor (eski bölüm sağlayıcılarıyla aynı davranış).
+  final pool = all.where(_yayindaVeTam).toList();
+
+  List<NewsArticle> claim(bool Function(NewsArticle) test, {required int cap}) {
+    final out = <NewsArticle>[];
+    for (final a in pool) {
+      if (out.length >= cap) break;
+      if (spent.contains(a.id) || !test(a)) continue;
+      spent.add(a.id);
+      out.add(a);
+    }
+    return out;
+  }
+
+  bool topicIs(NewsArticle a, String t) =>
+      (a.topic?.toLowerCase().trim() ?? '') == t.toLowerCase();
+
+  // Öncelik sırası (sayfadaki görünme sırası DEĞİL):
+  //  1. Bilim/rapor — en küçük ve en ayırt edici kova, ilk seçimi hak ediyor.
+  //  2-3. Bölge bölümleri — geniş; Türkiye bayrak bölüm olduğu için daha
+  //       yüksek tavan.
+  //  4. Sektörel — bölgeden artan konulu haberler.
+  //  5. ICYMI — "ana akışa girmemiş, kaçırmış olabileceğiniz", tanımı gereği
+  //     artığı alır.
+  final science = claim(_articleIsScience, cap: 8);
+  final turkey = claim(_articleIsTurkey, cap: 12);
+  final world = claim(_articleIsWorld, cap: 10);
+  final byTopic = <String, List<NewsArticle>>{
+    for (final t in _sektorelKonular) t: claim((a) => topicIs(a, t), cap: 10),
+  };
+
+  final now = DateTime.now();
   final readIds = ref.watch(readArticlesProvider);
+  final icymi = pool.where((a) {
+    if (spent.contains(a.id)) return false;
+    if (a.imageUrl == null || a.imageUrl!.isEmpty) return false;
+    if (readIds.contains(a.id)) return false;
+    final ageHours = now.difference(a.createdAt).inHours;
+    return ageHours > 12 && ageHours < (7 * 24);
+  }).toList()
+    ..sort((a, b) => (b.heroScore ?? 0).compareTo(a.heroScore ?? 0));
 
-  return articlesAsync.when(
-    data: (articles) {
-      final now = DateTime.now();
-      
-      final icymi = articles.where((a) {
-        if (!_yayindaVeTam(a)) return false;
-        if (a.imageUrl == null || a.imageUrl!.isEmpty) return false;
-        if (readIds.contains(a.id)) return false; // Okunmamış olmalı
-        
-        // Sadece son 1-7 gün arasındaki haberler
-        final ageHours = now.difference(a.createdAt).inHours;
-        return ageHours > 12 && ageHours < (7 * 24);
-      }).toList();
-
-      if (icymi.isEmpty) return [];
-
-      // Hero score'a göre yüksekten düşüğe sırala
-      icymi.sort((a, b) => (b.heroScore ?? 0).compareTo(a.heroScore ?? 0));
-      
-      // En iyi 4'ünü al
-      return icymi.take(4).toList();
-    },
-    loading: () => [],
-    error: (e, s) => [],
+  return HomeAllocation(
+    turkey: turkey,
+    science: science,
+    world: world,
+    byTopic: byTopic,
+    icymi: icymi.take(6).toList(),
   );
 });
+
+/// ICYMI (In Case You Missed It) / Gözden Kaçanlar — anasayfa önizlemesi.
+/// Dağıtımdan gelir (bkz. [homeAllocationProvider]); "Daha fazla" ekranı yok.
+final icymiArticlesProvider = Provider<List<NewsArticle>>(
+  (ref) => ref.watch(homeAllocationProvider).icymi,
+);
 
 /// Türkiye'den Haberler
 /// Sadece region (bölge) alanının Türkiye olup olmadığına bakar.

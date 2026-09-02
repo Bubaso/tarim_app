@@ -2,6 +2,8 @@
 import 'dart:convert';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
@@ -179,7 +181,7 @@ class WeatherDetailScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final weatherAsync = ref.watch(weatherProvider);
 
     return weatherAsync.when(
@@ -433,7 +435,7 @@ class _HeroTemperature extends ConsumerWidget {
                   fit: BoxFit.scaleDown,
                   child: Text(
                     '${weather.temperature.toStringAsFixed(0)}°',
-                    style: GoogleFonts.robotoMono(
+                    style: GoogleFonts.inter(
                       fontSize: 100,
                       fontWeight: FontWeight.w300,
                       color: theme.textPrimary,
@@ -811,7 +813,7 @@ class _MiniBarChart extends StatelessWidget {
               children: [
                 Text(
                   '${item.maxTemp.toStringAsFixed(0)}°',
-                  style: GoogleFonts.robotoMono(
+                  style: GoogleFonts.inter(
                     color: theme.textPrimary,
                     fontSize: 11,
                     fontWeight: FontWeight.w700,
@@ -819,7 +821,7 @@ class _MiniBarChart extends StatelessWidget {
                 ),
                 Text(
                   '${item.minTemp.toStringAsFixed(0)}°',
-                  style: GoogleFonts.robotoMono(
+                  style: GoogleFonts.inter(
                     color: theme.textSecondary,
                     fontSize: 10,
                     fontWeight: FontWeight.w600,
@@ -838,7 +840,7 @@ class _MiniBarChart extends StatelessWidget {
                   item.precipitation > 0.1
                       ? '${item.precipitation.toStringAsFixed(1)}mm'
                       : '',
-                  style: GoogleFonts.robotoMono(
+                  style: GoogleFonts.inter(
                     color: theme.isDark || theme.isNight ? const Color(0xFF7FD8FF) : const Color(0xFF0E76A8),
                     fontSize: 8,
                     fontWeight: FontWeight.w700,
@@ -897,7 +899,7 @@ class _HistoricalComparisonCard extends StatelessWidget {
     final signMin = tempDiffMin > 0 ? '+' : '';
 
     final labelStyle = GoogleFonts.inter(fontSize: 10, color: theme.textSecondary, fontWeight: FontWeight.w800);
-    final valueStyle = GoogleFonts.robotoMono(fontSize: 14, color: theme.textPrimary, fontWeight: FontWeight.w700);
+    final valueStyle = GoogleFonts.inter(fontSize: 14, color: theme.textPrimary, fontWeight: FontWeight.w700);
 
     return Container(
       padding: const EdgeInsets.all(20),
@@ -954,7 +956,7 @@ class _HistoricalComparisonCard extends StatelessWidget {
                           isEn
                               ? '$signMax${tempDiffMax.toStringAsFixed(1)}°C difference'
                               : 'Fark: $signMax${tempDiffMax.toStringAsFixed(1)}°C',
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             color: tempDiffMax > 0 ? _WeatherTheme.dikkat : theme.textSecondary,
                             fontWeight: FontWeight.w600,
@@ -987,7 +989,7 @@ class _HistoricalComparisonCard extends StatelessWidget {
                           isEn
                               ? '$signMin${tempDiffMin.toStringAsFixed(1)}°C difference'
                               : 'Fark: $signMin${tempDiffMin.toStringAsFixed(1)}°C',
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             color: tempDiffMin > 0 ? _WeatherTheme.tehlike : _WeatherTheme.iyi,
                             fontWeight: FontWeight.w600,
@@ -1020,7 +1022,7 @@ class _HistoricalComparisonCard extends StatelessWidget {
                           isEn
                               ? '${(weather.evapotranspiration - hist.lastYearEt0) > 0 ? "+" : ""}${(weather.evapotranspiration - hist.lastYearEt0).toStringAsFixed(1)} mm diff'
                               : 'Fark: ${(weather.evapotranspiration - hist.lastYearEt0) > 0 ? "+" : ""}${(weather.evapotranspiration - hist.lastYearEt0).toStringAsFixed(1)}',
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.inter(
                             fontSize: 10,
                             color: (weather.evapotranspiration - hist.lastYearEt0) > 0
                                 ? _WeatherTheme.dikkat
@@ -1279,7 +1281,7 @@ class _MetricCardState extends State<_MetricCard> {
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit:  (_) => setState(() => _hovered = false),
       child: AnimatedScale(
         scale: _hovered ? 1.03 : 1.0,
@@ -1335,7 +1337,7 @@ class _MetricCardState extends State<_MetricCard> {
               // Value
               Text(
                 widget.value,
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: accent,
                   fontSize: 15,
                   fontWeight: FontWeight.w700,

@@ -175,17 +175,19 @@ class _Summary extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Rakamlar eş genişlikli yazı tipiyle: kartlar yan yana durduğunda
-            // orantılı yazı tipi virgülleri farklı yerlere düşürüyor ve sütun
-            // gibi okunması gereken şey dağınık görünüyor.
+            // Rakamlar eş genişlikli (tabular) figürlerle: kartlar yan yana
+            // durduğunda orantılı figürler virgülleri farklı yerlere düşürüyor
+            // ve sütun gibi okunması gereken şey dağınık görünüyor. (Eskiden
+            // Roboto Mono'ydu; artık Inter + tabularFigures.)
             Text(
               formatPrice(price.avgPrice),
               maxLines: 1,
-              style: GoogleFonts.robotoMono(
+              style: GoogleFonts.inter(
                 fontSize: isCompact ? 18 : 21,
                 fontWeight: FontWeight.w700,
                 color: titleColor,
                 height: 1.1,
+                fontFeatures: const [FontFeature.tabularFigures()],
               ),
             ),
             const SizedBox(height: 2),
@@ -211,7 +213,7 @@ class _Summary extends StatelessWidget {
                     // Onu "günlük değişim" diye sunmaktansa tire koyuyoruz.
                     Text(
                       '—',
-                      style: GoogleFonts.robotoMono(
+                      style: GoogleFonts.inter(
                         fontSize: isCompact ? 11 : 12,
                         color: subtleColor,
                       ),
@@ -230,10 +232,11 @@ class _Summary extends StatelessWidget {
                         ),
                         Text(
                           '${change.abs().toStringAsFixed(2).replaceAll('.', ',')}%',
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.inter(
                             fontSize: isCompact ? 11 : 12,
                             fontWeight: FontWeight.w600,
                             color: changeColor,
+                            fontFeatures: const [FontFeature.tabularFigures()],
                           ),
                         ),
                       ],
@@ -269,15 +272,16 @@ class _Details extends StatelessWidget {
   Widget build(BuildContext context) {
     final labelStyle =
         GoogleFonts.inter(fontSize: 10, color: subtleColor, height: 1.3);
-    final valueStyle = GoogleFonts.robotoMono(
+    final valueStyle = GoogleFonts.inter(
       fontSize: isCompact ? 11 : 12,
       fontWeight: FontWeight.w600,
       color: titleColor,
       height: 1.3,
+      fontFeatures: const [FontFeature.tabularFigures()],
     );
 
     final dayLabel =
-        DateFormat('d MMMM', isEn ? 'en_US' : 'tr_TR').format(price.priceDate);
+        DateFormat('d MMM', isEn ? 'en_US' : 'tr_TR').format(price.priceDate);
 
     // İşlem fiyatı o günün fiyatı; ilan fiyatı o günkü İLANIN fiyatı ve bir
     // sonraki ilana kadar yürürlükte. Fark kartta yazmazsa 27 Temmuz tarihli

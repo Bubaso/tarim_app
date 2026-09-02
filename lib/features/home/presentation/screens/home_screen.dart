@@ -1,11 +1,10 @@
 // ignore_for_file: deprecated_member_use
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import '../../../../core/theme/app_typography.dart';
-import '../../../../core/widgets/article_timestamp.dart';
 import '../../../../core/widgets/section_container.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/utils/localization_helper.dart';
@@ -16,11 +15,13 @@ import '../../../commodities/providers/commodity_providers.dart';
 import '../../../dashboard/presentation/screens/dashboard_screen.dart';
 import '../../../settings/presentation/screens/settings_screen.dart';
 import '../../data/models/news_article.dart';
+import '../../data/category_catalog.dart';
 import '../../providers/home_providers.dart';
 import '../../../../core/services/notification_service.dart';
 import '../widgets/agenda_bento_grid.dart';
 import '../widgets/hero_fold.dart';
 import '../widgets/news_ticker.dart';
+import '../widgets/category_nav_bar.dart';
 import '../widgets/portal_sections/science_reports_dossier.dart';
 import '../widgets/portal_sections/turkey_news_grid.dart';
 import '../widgets/portal_sections/world_news_row.dart';
@@ -31,7 +32,10 @@ import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
 import '../widgets/yyt_dosyasi_section.dart';
 import '../widgets/kisa_kisa_section.dart';
+import '../widgets/icymi_section.dart';
+import '../widgets/home_skeleton.dart';
 import '../widgets/ios_pwa_prompt.dart';
+import '../widgets/notification_prompt_strip.dart';
 import '../../../dossiers/presentation/widgets/dossier_strip.dart';
 import 'article_detail_screen.dart';
 import 'category_articles_screen.dart';
@@ -48,69 +52,11 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
-  bool _isSearchExpanded = false;
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
 
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _checkAndShowSoftPrompt();
-    });
-  }
-
-  Future<void> _checkAndShowSoftPrompt() async {
-    final notifService = ref.read(notificationServiceProvider);
-    final shouldShow = await notifService.shouldShowSoftPrompt();
-    if (shouldShow && mounted) {
-      _showSoftPromptDialog(context, notifService);
-    }
-  }
-
-  void _showSoftPromptDialog(
-      BuildContext context, NotificationService service) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        final isDark = Theme.of(context).brightness == Brightness.dark;
-        return AlertDialog(
-          backgroundColor:
-              isDark ? AppColors.darkGreen : AppColors.creamBackground,
-          title: Text(
-            'Bildirimleri Açın',
-            style: TextStyle(color: isDark ? Colors.white : Colors.black),
-          ),
-          content: Text(
-            'Piyasadaki ani değişimlerden ve önemli tarım haberlerinden anında haberdar olmak ister misiniz?',
-            style: TextStyle(color: isDark ? Colors.white70 : Colors.black87),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                service.denySoftPrompt();
-                Navigator.of(context).pop();
-              },
-              child: const Text('Belki Daha Sonra',
-                  style: TextStyle(color: Colors.grey)),
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.primaryGreen,
-                foregroundColor: Colors.white,
-              ),
-              onPressed: () async {
-                Navigator.of(context).pop();
-                await service.requestPermission();
-              },
-              child: const Text('Evet İsterim'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  // Bildirim izni artık bloke eden bir diyalogla değil, hero'nun altındaki
+  // [NotificationPromptStrip] ile isteniyor.
 
   @override
   void dispose() {
@@ -125,7 +71,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final localizations = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
     final user = ref.watch(currentUserProvider);
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
     final rawNewsAsync = ref.watch(latestArticlesProvider);
 
     final bgColor = isDark ? AppColors.darkGreen : AppColors.creamBackground;
@@ -136,7 +82,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(36 + kToolbarHeight),
+        preferredSize: const Size.fromHeight(36 + kToolbarHeight + 40),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -151,6 +97,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               bgColor: appBarBgColor,
               user: user,
             ),
+            CategoryNavBar(isDark: isDark),
           ],
         ),
       ),
@@ -169,7 +116,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     localizations: localizations,
                   );
                 },
-                loading: () => _HomeSkeletonLoader(isDark: isDark),
+                loading: () => HomeSkeletonLoader(isDark: isDark),
                 error: (e, _) => _HomeErrorView(
                   isDark: isDark,
                   onRetry: () => ref.invalidate(latestArticlesProvider),
@@ -227,7 +174,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     required Color bgColor,
     required User? user,
   }) {
-    final isDesktop = MediaQuery.of(context).size.width > 900;
+    final isDesktop = ResponsiveBreakpoints.isContentWide(context);
 
     // We removed the _isSearchExpanded state to directly open showSearch
     // when the user clicks the search icon, enabling true instant search.
@@ -477,11 +424,12 @@ class _MobileContent extends ConsumerWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          IosPwaPrompt(isDark: isDark),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           StoryAvatarStrip(isDark: isDark),
           const SizedBox(height: 8),
           _PortalHeroSection(isDark: isDark),
+          IosPwaPrompt(isDark: isDark),
+          NotificationPromptStrip(isDark: isDark),
           const SizedBox(height: 28),
           // Şerit "en son okuduklarınız"ın ÜSTÜNDE — masaüstündeki sırayla
           // aynı. O bölüm ilk kez gelen okuyucuda hiç çizilmiyor; altına
@@ -498,7 +446,7 @@ class _MobileContent extends ConsumerWidget {
           const SizedBox(height: 28),
           _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 28),
-          _ICYMISection(isDark: isDark),
+          IcymiSection(isDark: isDark),
           const SizedBox(height: 28),
           // Günün ana haberlerinden sonra, konu bazlı bölümlerden önce.
           // Kısa haber ikincil haberdir; manşetin üstüne çıkmamalı ama
@@ -509,10 +457,6 @@ class _MobileContent extends ConsumerWidget {
           _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
           const SizedBox(height: 28),
           _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
-          const SizedBox(height: 28),
-          _TrendingSection(isDark: isDark),
-          const SizedBox(height: 28),
-          _SectoralNewsSection(topic: 'Genel', isDark: isDark),
           const SizedBox(height: 32),
           PortalFooter(isDark: isDark),
         ],
@@ -543,39 +487,52 @@ class _TabletContent extends ConsumerWidget {
         ref.invalidate(storyFeedProvider);
       },
       child: ListView(
-        padding: const EdgeInsets.all(24),
+        // Tablet için ölçülü genişlik: 1024–1194 px iPad'de kenardan kenara
+        // tek sütun satırları gereğinden uzun oluyordu. Masaüstündeki
+        // maxWidth: 1200 deseninin tablet karşılığı.
+        padding: const EdgeInsets.symmetric(vertical: 24),
         children: [
-          IosPwaPrompt(isDark: isDark),
-          const SizedBox(height: 16),
-          StoryAvatarStrip(isDark: isDark, maxItems: 10),
-          const SizedBox(height: 8),
-          _PortalHeroSection(isDark: isDark),
-          const SizedBox(height: 36),
-          CommodityStrip(isDark: isDark, spacing: 36),
-          _RecentlyReadSection(isDark: isDark, spacing: 36),
-          YYTDosyasiSection(isDark: isDark),
-          const SizedBox(height: 36),
-          _TurkeyNewsSection(isDark: isDark),
-          const SizedBox(height: 36),
-          DossierStrip(isDark: isDark, spacing: 36),
-          VideoSerit(isDark: isDark, spacing: 36),
-          _ScienceAndReportsSection(isDark: isDark),
-          const SizedBox(height: 36),
-          _WorldNewsSection(isDark: isDark),
-          const SizedBox(height: 36),
-          _ICYMISection(isDark: isDark),
-          const SizedBox(height: 36),
-          KisaKisaSection(isDark: isDark, spacing: 36),
-          _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
-          const SizedBox(height: 36),
-          _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
-          const SizedBox(height: 36),
-          _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
-          const SizedBox(height: 36),
-          _TrendingSection(isDark: isDark),
-          const SizedBox(height: 36),
-          _SectoralNewsSection(topic: 'Genel', isDark: isDark),
-          const SizedBox(height: 48),
+          Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 960),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 12),
+                    StoryAvatarStrip(isDark: isDark, maxItems: 10),
+                    const SizedBox(height: 8),
+                    _PortalHeroSection(isDark: isDark),
+                    IosPwaPrompt(isDark: isDark),
+                    NotificationPromptStrip(isDark: isDark),
+                    const SizedBox(height: 36),
+                    CommodityStrip(isDark: isDark, spacing: 36),
+                    _RecentlyReadSection(isDark: isDark, spacing: 36),
+                    YYTDosyasiSection(isDark: isDark),
+                    const SizedBox(height: 36),
+                    _TurkeyNewsSection(isDark: isDark),
+                    const SizedBox(height: 36),
+                    DossierStrip(isDark: isDark, spacing: 36),
+                    VideoSerit(isDark: isDark, spacing: 36),
+                    _ScienceAndReportsSection(isDark: isDark),
+                    const SizedBox(height: 36),
+                    _WorldNewsSection(isDark: isDark),
+                    const SizedBox(height: 36),
+                    IcymiSection(isDark: isDark),
+                    const SizedBox(height: 36),
+                    KisaKisaSection(isDark: isDark, spacing: 36),
+                    _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
+                    const SizedBox(height: 36),
+                    _SectoralNewsSection(
+                        topic: 'Bitkisel Üretim', isDark: isDark),
+                    const SizedBox(height: 36),
+                    _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+                    const SizedBox(height: 48),
+                  ],
+                ),
+              ),
+            ),
+          ),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -614,13 +571,15 @@ class _DesktopContent extends ConsumerWidget {
                 constraints: BoxConstraints(maxWidth: maxWidth),
                 child: Column(
                   children: [
-                    IosPwaPrompt(isDark: isDark),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 12),
                     StoryAvatarStrip(isDark: isDark, maxItems: 10),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 40, top: 16),
+                      padding: const EdgeInsets.only(top: 16),
                       child: _PortalHeroSection(isDark: isDark),
                     ),
+                    IosPwaPrompt(isDark: isDark),
+                    NotificationPromptStrip(isDark: isDark),
+                    const SizedBox(height: 40),
                     // Manşetin hemen altında, "en son okuduklarınız"ın ÜSTÜNDE.
                     // O bölüm ilk kez gelen okuyucuda hiç çizilmiyor; altına
                     // konsaydı fiyat şeridinin yeri okuyucudan okuyucuya
@@ -647,7 +606,7 @@ class _DesktopContent extends ConsumerWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 40),
-                      child: _ICYMISection(isDark: isDark),
+                      child: IcymiSection(isDark: isDark),
                     ),
                     // Boşluğu Padding değil bölümün kendisi yayıyor: kısa haber
                     // üretilmemiş bir günde bölüm SizedBox.shrink() dönüyor ve
@@ -667,15 +626,6 @@ class _DesktopContent extends ConsumerWidget {
                       padding: const EdgeInsets.only(bottom: 40),
                       child: _SectoralNewsSection(
                           topic: 'Ekonomi', isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _TrendingSection(isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child:
-                          _SectoralNewsSection(topic: 'Genel', isDark: isDark),
                     ),
                   ],
                 ),
@@ -814,7 +764,7 @@ class _HomeErrorView extends StatelessWidget {
                   ? 'Please check your internet connection and try again.'
                   : 'İnternet bağlantınızı kontrol edip tekrar deneyin.',
               textAlign: TextAlign.center,
-              style: GoogleFonts.libreFranklin(
+              style: GoogleFonts.playfairDisplay(
                 fontSize: 14,
                 height: 1.45,
                 color: subtleColor,
@@ -842,232 +792,6 @@ class _HomeErrorView extends StatelessWidget {
     );
   }
 }
-
-// ══════════════════════════════════════════════════════════════════════════════
-//  Home skeleton yükleyicisi — veri gelene kadar shimmer iskelet
-// ══════════════════════════════════════════════════════════════════════════════
-
-/// İskelet, yerini tuttuğu düzenin birebir aynısı olmalı; aksi hâlde veri
-/// gelince sayfa zıplar. Bu yüzden [_buildBody] ile **aynı** kırılım
-/// noktalarını ve aynı dolgu/boşluk değerlerini kullanıyoruz:
-///   Mobil   (< 650)  → kenardan kenara, ListView padding yok
-///   Tablet  (650–1099) → EdgeInsets.all(24)
-///   Masaüstü (≥ 1100) → maxWidth 1200, hPad 24 / vPad 20
-/// Hero bloğu ise HeroFold'un kendi 900 px eşiğini izler.
-class _HomeSkeletonLoader extends StatelessWidget {
-  final bool isDark;
-
-  const _HomeSkeletonLoader({required this.isDark});
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-
-    if (width >= ResponsiveBreakpoints.tabletMax) {
-      return SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1200),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                _SkeletonHero(isDark: isDark, splitColumns: true),
-                const SizedBox(height: 40),
-                _SkeletonSection(isDark: isDark, compactHeader: false),
-                const SizedBox(height: 40),
-                _SkeletonSection(isDark: isDark, compactHeader: false),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-
-    if (width >= ResponsiveBreakpoints.mobileMax) {
-      final splitColumns = width >= 900;
-      return SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Hero kendi 900 px eşiğini izliyor; bölüm başlığı ise mobileMax'ı
-            // — bu aralıkta (650–1099) başlık artık geniş sürümde.
-            _SkeletonHero(isDark: isDark, splitColumns: splitColumns),
-            const SizedBox(height: 36),
-            _SkeletonSection(isDark: isDark, compactHeader: false),
-            const SizedBox(height: 36),
-            _SkeletonSection(isDark: isDark, compactHeader: false),
-          ],
-        ),
-      );
-    }
-
-    // Mobil — gerçek düzende ListView padding'i sıfır, manşet kenardan kenara.
-    return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
-      padding: EdgeInsets.zero,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _SkeletonHero(isDark: isDark, splitColumns: false),
-          const SizedBox(height: 28),
-          _SkeletonSection(isDark: isDark, compactHeader: true),
-          const SizedBox(height: 28),
-          _SkeletonSection(isDark: isDark, compactHeader: true),
-        ],
-      ),
-    );
-  }
-}
-
-/// HeroFold'un iskeleti. [splitColumns] true iken masaüstündeki 7:3 satır,
-/// false iken mobildeki "manşet + yatay yazar şeridi" sütunu taklit edilir.
-class _SkeletonHero extends StatelessWidget {
-  final bool isDark;
-  final bool splitColumns;
-
-  const _SkeletonHero({required this.isDark, required this.splitColumns});
-
-  @override
-  Widget build(BuildContext context) {
-    // HeroFold'daki carousel ile aynı en–boy oranı.
-    const carousel = AspectRatio(
-      aspectRatio: 1.8,
-      child:
-          ShimmerPlaceholder(width: double.infinity, height: double.infinity),
-    );
-
-    if (splitColumns) {
-      return IntrinsicHeight(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Expanded(flex: 7, child: carousel),
-            const SizedBox(width: 28),
-            Expanded(
-              flex: 3,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const ShimmerPlaceholder(width: 140, height: 20),
-                  const SizedBox(height: 6),
-                  const ShimmerPlaceholder(width: 40, height: 3),
-                  const SizedBox(height: 16),
-                  for (var i = 0; i < 3; i++) ...[
-                    SmallCardSkeleton(isDark: isDark),
-                    const SizedBox(height: 14),
-                  ],
-                ],
-              ),
-            ),
-          ],
-        ),
-      );
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        carousel,
-        const SizedBox(height: 28),
-        // "YAZARLARIMIZ" başlığı — gerçek düzende 16 px yatay dolgulu.
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ShimmerPlaceholder(width: 160, height: 20),
-              SizedBox(height: 6),
-              ShimmerPlaceholder(width: 40, height: 3),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        // Yatay kaydırılabilir yazar şeridi (gerçek yükseklik: 180).
-        SizedBox(
-          height: 180,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: 4,
-            itemBuilder: (context, index) => const Padding(
-              padding: EdgeInsets.only(right: 12),
-              child: ShimmerPlaceholder(width: 130, height: 180),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-/// `_SectionContainer` + yatay kart şeridinin iskeleti.
-class _SkeletonSection extends StatelessWidget {
-  final bool isDark;
-
-  /// `_SectionContainer` başlığı `ResponsiveBreakpoints.mobileMax` altında
-  /// küçülüyor; iskelet aynı eşiği izlemeli, yoksa veri gelince başlık zıplar.
-  final bool compactHeader;
-
-  const _SkeletonSection({required this.isDark, required this.compactHeader});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Bölüm üstündeki 1 px ayırıcı.
-              const ShimmerPlaceholder(width: double.infinity, height: 1),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  ShimmerPlaceholder(
-                    width: compactHeader ? 20 : 24,
-                    height: compactHeader ? 20 : 24,
-                  ),
-                  const SizedBox(width: 8),
-                  ShimmerPlaceholder(
-                    width: compactHeader ? 200 : 260,
-                    height: compactHeader ? 17 : 20,
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        // Yatay kart şeridi — gerçek düzende 320 yükseklik / 260 genişlik.
-        SizedBox(
-          height: 320,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: 4,
-            itemBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: SizedBox(
-                width: 260,
-                child: NewsCardSkeleton(isDark: isDark),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class _LanguageToggle extends ConsumerWidget {
   final Locale currentLocale;
   final bool isDark;
@@ -1104,214 +828,13 @@ class _LanguageToggle extends ConsumerWidget {
           const SizedBox(width: 4),
           Text(
             currentLocale.languageCode.toUpperCase(),
-            style: GoogleFonts.robotoMono(
+            style: GoogleFonts.inter(
               fontWeight: FontWeight.w700,
               fontSize: 12,
               color: color,
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-//  EN ÇOK OKUNANLAR (TRENDING) BÖLÜMÜ
-// ═══════════════════════════════════════════════════════════════════════════
-
-class _TrendingSection extends ConsumerWidget {
-  final bool isDark;
-
-  const _TrendingSection({required this.isDark});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(localeProvider); // Rebuild when language changes
-    final trendingAsync = ref.watch(trendingArticlesProvider);
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final titleText = isEn ? 'TRENDING' : 'EN ÇOK OKUNANLAR';
-
-    final headerColor =
-        isDark ? AppColors.creamBackground : AppColors.earthText;
-    final dividerColor =
-        isDark ? AppColors.creamBackground : AppColors.earthText;
-
-    return trendingAsync.when(
-      data: (articles) {
-        if (articles.isEmpty) return const SizedBox.shrink();
-
-        // Show up to 5 trending articles
-        final topArticles = articles.take(5).toList();
-
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                      height: 1, width: double.infinity, color: dividerColor),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      Icon(Icons.local_fire_department_rounded,
-                          color: AppColors.accentFor(isDark: isDark), size: 24),
-                      const SizedBox(width: 8),
-                      Text(
-                        titleText,
-                        style: GoogleFonts.playfairDisplay(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 0.4,
-                          color: headerColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            SizedBox(
-              height: 120, // Enough for a compact horizontal card
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                scrollDirection: Axis.horizontal,
-                itemCount: topArticles.length,
-                separatorBuilder: (_, __) => const SizedBox(width: 12),
-                itemBuilder: (context, i) {
-                  final a = topArticles[i];
-                  return _TrendingCard(
-                      article: a, index: i, isDark: isDark, isEn: isEn);
-                },
-              ),
-            ),
-          ],
-        );
-      },
-      loading: () => const SizedBox(
-          height: 120, child: Center(child: CircularProgressIndicator())),
-      error: (_, __) => const SizedBox.shrink(),
-    );
-  }
-}
-
-class _TrendingCard extends StatefulWidget {
-  final NewsArticle article;
-  final int index;
-  final bool isDark;
-  final bool isEn;
-
-  const _TrendingCard({
-    required this.article,
-    required this.index,
-    required this.isDark,
-    required this.isEn,
-  });
-
-  @override
-  State<_TrendingCard> createState() => _TrendingCardState();
-}
-
-class _TrendingCardState extends State<_TrendingCard> {
-  bool _hover = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final a = widget.article;
-    final title = (widget.isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
-        ? a.titleEn!
-        : a.title;
-
-    final bg = widget.isDark ? AppColors.darkGreen : const Color(0xFFF9F9F9);
-    final border = widget.isDark ? AppColors.wheat : AppColors.wheat;
-    final textCol =
-        widget.isDark ? const Color(0xFFE6EDF3) : const Color(0xFF24292F);
-    final accentCol = AppColors.accentFor(isDark: widget.isDark);
-
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hover = true),
-      onExit: (_) => setState(() => _hover = false),
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () {
-          pushScreen(context, ArticleDetailScreen(article: a));
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          width: 280,
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            color: bg,
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: _hover ? Theme.of(context).colorScheme.primary : border,
-              width: _hover ? 1.5 : 1,
-            ),
-          ),
-          child: Row(
-            children: [
-              Text(
-                '#${widget.index + 1}',
-                style: GoogleFonts.playfairDisplay(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w900,
-                  color: widget.isDark ? Colors.white24 : Colors.black12,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.inter(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: textCol,
-                        height: 1.3,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Row(
-                      children: [
-                        // Colors.orangeAccent (#FFAB40) krem/beyaz zeminde
-                        // ~1.9:1 kontrast veriyordu — okunaksızdı ve palet dışıydı.
-                        Icon(Icons.local_fire_department_rounded,
-                            color: accentCol, size: 12),
-                        const SizedBox(width: 4),
-                        Text(
-                          '${a.viewCount} ${widget.isEn ? 'Views' : 'Okuma'}',
-                          style: GoogleFonts.robotoMono(
-                            fontSize: AppTypography.minLabelSize,
-                            color: accentCol,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Flexible(
-                          child: ArticleTimestamp(
-                            published: a.createdAt,
-                            color: widget.isDark
-                                ? AppColors.wheat
-                                : AppColors.earthText.withValues(alpha: 0.70),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -1341,8 +864,11 @@ class _TurkeyNewsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final articles = ref.watch(turkeyNewsProvider);
-    if (articles.isEmpty) return const SizedBox.shrink();
+    // Önizleme: tekilleştirilmiş liste (bkz. homeAllocationProvider).
+    // "Daha fazla": tam liste — kategori sayfası eksik haber göstermesin.
+    final preview = ref.watch(homeAllocationProvider).turkey;
+    if (preview.isEmpty) return const SizedBox.shrink();
+    final all = ref.watch(turkeyNewsProvider);
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = isEn ? 'NEWS FROM TURKEY' : 'TÜRKİYE\'DEN HABERLER';
@@ -1353,14 +879,16 @@ class _TurkeyNewsSection extends ConsumerWidget {
           title: title,
           icon: Icons.location_on_rounded,
           isDark: isDark,
-          onSeeAll: articles.isNotEmpty
+          onSeeAll: all.isNotEmpty
               ? () {
-                  pushScreen(context,
-                      CategoryArticlesScreen(title: title, articles: articles));
+                  pushScreen(
+                      context,
+                      CategoryArticlesScreen(
+                          slug: 'turkiye', title: title, articles: all));
                 }
               : null,
           child: TurkeyNewsGrid(
-            articles: articles.take(6).toList(),
+            articles: preview.take(6).toList(),
             isDark: isDark,
           ),
         ),
@@ -1375,8 +903,9 @@ class _WorldNewsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final articles = ref.watch(worldNewsProvider);
-    if (articles.isEmpty) return const SizedBox.shrink();
+    final preview = ref.watch(homeAllocationProvider).world;
+    if (preview.isEmpty) return const SizedBox.shrink();
+    final all = ref.watch(worldNewsProvider);
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = isEn ? 'WORLD NEWS' : 'DÜNYADAN HABERLER';
@@ -1387,14 +916,16 @@ class _WorldNewsSection extends ConsumerWidget {
           title: title,
           icon: Icons.public_rounded,
           isDark: isDark,
-          onSeeAll: articles.isNotEmpty
+          onSeeAll: all.isNotEmpty
               ? () {
-                  pushScreen(context,
-                      CategoryArticlesScreen(title: title, articles: articles));
+                  pushScreen(
+                      context,
+                      CategoryArticlesScreen(
+                          slug: 'dunya', title: title, articles: all));
                 }
               : null,
           child: WorldNewsRow(
-            articles: articles.take(10).toList(), // Show up to 10 for scroll
+            articles: preview.take(10).toList(),
             isDark: isDark,
           ),
         ),
@@ -1409,8 +940,9 @@ class _ScienceAndReportsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final articles = ref.watch(scienceAndReportsProvider);
-    if (articles.isEmpty) return const SizedBox.shrink();
+    final preview = ref.watch(homeAllocationProvider).science;
+    if (preview.isEmpty) return const SizedBox.shrink();
+    final all = ref.watch(scienceAndReportsProvider);
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = isEn ? 'SCIENCE & REPORTS' : 'TARIM-BİLİM VE RAPORLAR';
@@ -1421,14 +953,16 @@ class _ScienceAndReportsSection extends ConsumerWidget {
           title: title,
           icon: Icons.science_rounded,
           isDark: isDark,
-          onSeeAll: articles.isNotEmpty
+          onSeeAll: all.isNotEmpty
               ? () {
-                  pushScreen(context,
-                      CategoryArticlesScreen(title: title, articles: articles));
+                  pushScreen(
+                      context,
+                      CategoryArticlesScreen(
+                          slug: 'tarim-bilim', title: title, articles: all));
                 }
               : null,
           child: ScienceReportsDossier(
-            articles: articles.take(6).toList(),
+            articles: preview.take(6).toList(),
             isDark: isDark,
           ),
         ),
@@ -1446,8 +980,10 @@ class _SectoralNewsSection extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider); // Rebuild when language changes
-    final articles = ref.watch(categoryArticlesProvider(topic));
-    if (articles.isEmpty) return const SizedBox.shrink();
+    final preview =
+        ref.watch(homeAllocationProvider).byTopic[topic] ?? const <NewsArticle>[];
+    if (preview.isEmpty) return const SizedBox.shrink();
+    final all = ref.watch(categoryArticlesProvider(topic));
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     String displayTopic = topic.toTurkishUpperCase();
@@ -1461,16 +997,19 @@ class _SectoralNewsSection extends ConsumerWidget {
       title: displayTopic,
       icon: Icons.category_rounded,
       isDark: isDark,
-      onSeeAll: articles.isNotEmpty
+      onSeeAll: all.isNotEmpty
           ? () {
               pushScreen(
                 context,
-                CategoryArticlesScreen(title: displayTopic, articles: articles),
+                CategoryArticlesScreen(
+                    slug: categoryTopicSlug(topic),
+                    title: displayTopic,
+                    articles: all),
               );
             }
           : null,
       child:
-          AgendaBentoGrid(articles: articles.take(6).toList(), isDark: isDark),
+          AgendaBentoGrid(articles: preview.take(6).toList(), isDark: isDark),
     );
   }
 }
@@ -1609,176 +1148,6 @@ class _RecentlyReadCard extends StatelessWidget {
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════
-//  GÖZDEN KAÇANLAR (ICYMI) BÖLÜMÜ
-// ═══════════════════════════════════════════════════════════════════════════
-
-class _ICYMISection extends ConsumerWidget {
-  final bool isDark;
-
-  const _ICYMISection({required this.isDark});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(localeProvider);
-    final articles = ref.watch(icymiArticlesProvider);
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final titleText = isEn ? 'IN CASE YOU MISSED IT' : 'GÖZDEN KAÇANLAR';
-
-    if (articles.isEmpty) return const SizedBox.shrink();
-
-    return _SectionContainer(
-      title: titleText,
-      icon: Icons.history_rounded,
-      isDark: isDark,
-      child: SizedBox(
-        height: 320,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          clipBehavior: Clip.none,
-          itemCount: articles.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(
-                left: index == 0 ? 0.0 : 8.0,
-                right: index == articles.length - 1 ? 0.0 : 8.0,
-              ),
-              child: SizedBox(
-                width: 260,
-                child: _ICYMICard(article: articles[index], isDark: isDark),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class _ICYMICard extends StatefulWidget {
-  final NewsArticle article;
-  final bool isDark;
-
-  const _ICYMICard({
-    required this.article,
-    required this.isDark,
-  });
-
-  @override
-  State<_ICYMICard> createState() => _ICYMICardState();
-}
-
-class _ICYMICardState extends State<_ICYMICard> {
-  bool _hovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final a = widget.article;
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final title = (isEn && a.titleEn != null && a.titleEn!.isNotEmpty)
-        ? a.titleEn!
-        : a.title;
-
-    final accentCol = AppColors.accentFor(isDark: widget.isDark);
-    final titleColor = _hovered
-        ? accentCol
-        : (widget.isDark ? AppColors.creamBackground : AppColors.earthText);
-    final bgColor = widget.isDark ? AppColors.darkGreen : Colors.white;
-    final borderColor =
-        widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
-
-    return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit: (_) => setState(() => _hovered = false),
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
-        child: AnimatedScale(
-          scale: _hovered ? 1.02 : 1.0,
-          duration: const Duration(milliseconds: 200),
-          curve: Curves.easeOut,
-          child: Container(
-            decoration: BoxDecoration(
-              color: bgColor,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                  color: _hovered
-                      ? accentCol.withValues(alpha: 0.5)
-                      : borderColor),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(widget.isDark ? 0.3 : 0.05),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                AspectRatio(
-                  aspectRatio: 3 / 2,
-                  child: ClipRRect(
-                    borderRadius:
-                        const BorderRadius.vertical(top: Radius.circular(11)),
-                    child: NewsArticleImage(
-                      imageUrl: a.imageUrl,
-                      fit: BoxFit.cover,
-                      semanticLabel: title,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        if (a.topic != null && a.topic!.isNotEmpty)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              a.topic!.toTurkishUpperCase(),
-                              style: GoogleFonts.inter(
-                                fontSize: AppTypography.minLabelSize,
-                                fontWeight: FontWeight.bold,
-                                color: accentCol,
-                              ),
-                            ),
-                          ),
-                        Expanded(
-                          child: Text(
-                            title,
-                            maxLines: 4,
-                            overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.playfairDisplay(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                              color: titleColor,
-                              height: 1.25,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 6),
-                        ArticleTimestamp(
-                          published: a.createdAt,
-                          color: widget.isDark
-                              ? AppColors.wheat
-                              : AppColors.earthText.withValues(alpha: 0.70),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ),

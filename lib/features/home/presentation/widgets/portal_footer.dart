@@ -1,7 +1,10 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:tarim_app/core/theme/brand_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/services/notification_prefs.dart';
+import '../../../../core/services/notification_service.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../screens/about_screen.dart';
 import '../../../../core/utils/fade_page_route.dart';
@@ -71,6 +74,10 @@ class PortalFooter extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 1200),
           child: Column(
             children: [
+              _NewsletterSignup(isDark: isDark),
+              const SizedBox(height: 40),
+              Divider(color: dividerColor),
+              const SizedBox(height: 40),
               if (isDesktop)
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,6 +305,126 @@ class _SocialIcon extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  Haftalık bülten kaydı
+//
+//  E-posta değil, PUSH tabanlı ve YALNIZ haftalık: düğme tarayıcı izni ister ve
+//  cihazın `push_tokens.kinds`'ini `['weekly']` yapar. Sabah bülteni ayrı bir
+//  kanal (functions/index.js `morningBriefing`) ve izin veren herkese gitmeye
+//  devam eder — yalnız-haftalık abone sabahı almaz (kullanıcı kararı).
+// ══════════════════════════════════════════════════════════════════════════════
+
+class _NewsletterSignup extends ConsumerStatefulWidget {
+  final bool isDark;
+  const _NewsletterSignup({required this.isDark});
+
+  @override
+  ConsumerState<_NewsletterSignup> createState() => _NewsletterSignupState();
+}
+
+class _NewsletterSignupState extends ConsumerState<_NewsletterSignup> {
+  bool _busy = false;
+  String? _result; // null · 'ok' · 'denied'
+
+  Future<void> _subscribe() async {
+    if (_busy) return;
+    setState(() => _busy = true);
+    // Önce diske: `_saveTokenToSupabase` kinds'i diskten okuyor.
+    await ref
+        .read(notificationPrefsProvider.notifier)
+        .setKinds({NotificationKind.weekly});
+    final granted =
+        await ref.read(notificationServiceProvider).requestPermission();
+    if (mounted) {
+      setState(() {
+        _busy = false;
+        _result = granted ? 'ok' : 'denied';
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final isDark = widget.isDark;
+    final titleColor = isDark ? const Color(0xFFE6EDF3) : AppColors.earthText;
+    final bodyColor = isDark ? AppColors.wheat : const Color(0xFF555555);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          isEn ? 'Weekly Digest' : 'Haftalık Özet Bülteni',
+          style: GoogleFonts.playfairDisplay(
+            fontWeight: FontWeight.w900,
+            fontSize: 18,
+            color: titleColor,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          isEn
+              ? 'The week in agriculture — prices, policy and the stories that mattered — once a week, straight to your device.'
+              : 'Haftanın tarımı — fiyatlar, düzenlemeler ve öne çıkan haberler — haftada bir, cihazına.',
+          style: GoogleFonts.inter(fontSize: 13, height: 1.5, color: bodyColor),
+        ),
+        const SizedBox(height: 16),
+        if (_result == 'ok')
+          Row(
+            children: [
+              const Icon(Icons.check_circle_rounded,
+                  size: 18, color: AppColors.primaryGreen),
+              const SizedBox(width: 8),
+              Text(
+                isEn
+                    ? 'Subscribed — the digest arrives every week.'
+                    : 'Kaydınız alındı — özet her hafta gelecek.',
+                style: GoogleFonts.inter(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: titleColor),
+              ),
+            ],
+          )
+        else
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              FilledButton(
+                onPressed: _busy ? null : _subscribe,
+                style: FilledButton.styleFrom(
+                  backgroundColor: AppColors.primaryGreen,
+                  foregroundColor: Colors.white,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
+                ),
+                child: Text(
+                  isEn ? 'Get the digest' : 'Bülteni Al',
+                  style: GoogleFonts.inter(
+                      fontSize: 13, fontWeight: FontWeight.w700),
+                ),
+              ),
+              if (_result == 'denied') ...[
+                const SizedBox(width: 12),
+                Flexible(
+                  child: Text(
+                    isEn
+                        ? 'Permission was blocked — enable notifications in your browser to subscribe.'
+                        : 'İzin verilmedi — kaydolmak için tarayıcı bildirimlerine izin verin.',
+                    style: GoogleFonts.inter(
+                        fontSize: 12, color: AppColors.alertRed),
+                  ),
+                ),
+              ],
+            ],
+          ),
+      ],
     );
   }
 }

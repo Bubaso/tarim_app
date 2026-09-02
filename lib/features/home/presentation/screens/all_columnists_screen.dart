@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../widgets/ai_columnists.dart';
 import 'author_article_detail_screen.dart';
 
@@ -10,7 +13,7 @@ class AllColumnistsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = isEn ? 'Our Columnists' : 'Tüm Yazarlarımız';
     final subtitle = isEn 
@@ -85,7 +88,7 @@ class AllColumnistsScreen extends StatelessWidget {
                     final width = constraints.maxWidth;
                     // Responsive columns
                     int columns = 1;
-                    if (width > 900) {
+                    if (width >= ResponsiveBreakpoints.contentWide) {
                       columns = 3;
                     } else if (width > 600) {
                       columns = 2;
@@ -143,7 +146,7 @@ class _PremiumColumnistCardState extends State<_PremiumColumnistCard> {
     final nameColor = isDark ? AppColors.primaryGreen : const Color(0xFF1B3B36);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(

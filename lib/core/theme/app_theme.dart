@@ -191,40 +191,40 @@ class AppTheme {
     required Color subtleColor,
   }) {
     return TextTheme(
-      // ── Display — Libre Franklin (Büyük manşetler vb.) ──────────────────────
-      displayLarge: GoogleFonts.libreFranklin(
+      // ── Display — Playfair Display (Büyük manşetler vb.) ────────────────────
+      displayLarge: GoogleFonts.playfairDisplay(
         fontSize: 48,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.15,
       ),
-      displayMedium: GoogleFonts.libreFranklin(
+      displayMedium: GoogleFonts.playfairDisplay(
         fontSize: 36,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.15,
       ),
-      displaySmall: GoogleFonts.libreFranklin(
+      displaySmall: GoogleFonts.playfairDisplay(
         fontSize: 28,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.15,
       ),
 
-      // ── Headline — Libre Franklin (Haber detay başlığı, Kart başlıkları) ───
-      headlineLarge: GoogleFonts.libreFranklin(
+      // ── Headline — Playfair Display (Haber detay başlığı, Kart başlıkları) ──
+      headlineLarge: GoogleFonts.playfairDisplay(
         fontSize: 40, // desktop headlineDetail
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.2,
       ),
-      headlineMedium: GoogleFonts.libreFranklin(
+      headlineMedium: GoogleFonts.playfairDisplay(
         fontSize: 22, // desktop headlineCard
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.25,
       ),
-      headlineSmall: GoogleFonts.libreFranklin(
+      headlineSmall: GoogleFonts.playfairDisplay(
         fontSize: 18, // desktop deck/spot
         fontWeight: FontWeight.w500,
         fontStyle: FontStyle.italic,
@@ -232,20 +232,20 @@ class AppTheme {
         height: 1.40,
       ),
 
-      // ── Title — Libre Franklin ───────────────────────────────
-      titleLarge: GoogleFonts.libreFranklin(
+      // ── Title — titleLarge Playfair (başlık); orta/küçük Inter (meta) ──────
+      titleLarge: GoogleFonts.playfairDisplay(
         fontSize: 16,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.25,
       ),
-      titleMedium: GoogleFonts.libreFranklin(
+      titleMedium: GoogleFonts.inter(
         fontSize: 15,
         fontWeight: FontWeight.w500, // meta style baseline
         color: headingColor,
         height: 1.3,
       ),
-      titleSmall: GoogleFonts.libreFranklin(
+      titleSmall: GoogleFonts.inter(
         fontSize: 13,
         fontWeight: FontWeight.w500, // meta style baseline
         color: headingColor,
@@ -272,20 +272,20 @@ class AppTheme {
         height: 1.70,
       ),
 
-      // ── Label — Libre Franklin (UI etiketleri) ──────────────────────────────────
-      labelLarge: GoogleFonts.libreFranklin(
+      // ── Label — Inter (UI etiketleri) ─────────────────────────────────────
+      labelLarge: GoogleFonts.inter(
         fontSize: 14,
         fontWeight: FontWeight.w500,
         color: bodyColor,
         height: 1.3,
       ),
-      labelMedium: GoogleFonts.libreFranklin(
+      labelMedium: GoogleFonts.inter(
         fontSize: 12,
         fontWeight: FontWeight.w500,
         color: subtleColor,
         height: 1.3,
       ),
-      labelSmall: GoogleFonts.libreFranklin(
+      labelSmall: GoogleFonts.inter(
         fontSize: 11,
         fontWeight: FontWeight.w500,
         color: subtleColor,
@@ -295,27 +295,33 @@ class AppTheme {
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
-  //  YARDIMCI: Finansal/Borsa Verileri için Roboto Mono TextStyle
+  //  YARDIMCI: Sayısal veriler için hizalı (tabular) Inter TextStyle
+  //
+  //  Eskiden Roboto Mono'ydu. Ana uygulama üç aileye indi (Playfair·Lora·Inter);
+  //  rakam hizasını mono yerine Inter'in tabularFigures özelliği sağlıyor.
   // ═══════════════════════════════════════════════════════════════════════════
 
   /// Borsa fiyatları, yüzde değişimleri vb. sayısal veriler için kullanın.
-  static TextStyle monoLarge({Color? color}) => GoogleFonts.robotoMono(
+  static TextStyle monoLarge({Color? color}) => GoogleFonts.inter(
         fontSize: 16,
         fontWeight: FontWeight.w600,
         color: color,
         letterSpacing: -0.3,
+        fontFeatures: const [FontFeature.tabularFigures()],
       );
 
-  static TextStyle monoMedium({Color? color}) => GoogleFonts.robotoMono(
+  static TextStyle monoMedium({Color? color}) => GoogleFonts.inter(
         fontSize: 13,
         fontWeight: FontWeight.w500,
         color: color,
         letterSpacing: -0.2,
+        fontFeatures: const [FontFeature.tabularFigures()],
       );
 
-  static TextStyle monoSmall({Color? color}) => GoogleFonts.robotoMono(
+  static TextStyle monoSmall({Color? color}) => GoogleFonts.inter(
         fontSize: 11,
         fontWeight: FontWeight.normal,
         color: color,
+        fontFeatures: const [FontFeature.tabularFigures()],
       );
 }

@@ -12,6 +12,22 @@ class ResponsiveBreakpoints {
   static const double tabletMax = 1100.0;
   static const double desktopMax = 1600.0;
 
+  /// İçerik sütununun yan yana / çok sütunlu düzene geçtiği nokta.
+  ///
+  /// Sayfa kabuğunun kırıldığı [mobileMax] (650) / [tabletMax] (1100) ile
+  /// KARIŞTIRILMAZ: kabuk orada değişir, bir bileşenin kendi içindeki düzen
+  /// (hero'nun 7:3 satırı, bento'nun sütun sayısı, haber ızgaralarının
+  /// büyük/küçük kartı, üst çubuğun geniş hâli, haber şeridi) burada.
+  ///
+  /// Önceden bu değer hero_fold, agenda_bento_grid, news_ticker,
+  /// turkey_news_grid, science_reports_dossier, world_news ve home_screen'de
+  /// ayrı ayrı "900" sabiti ya da `_kDesktopBreakpoint` / `_kBentoBreakpoint`
+  /// yerel kopyası olarak duruyordu — hepsi buraya bağlandı.
+  static const double contentWide = 900.0;
+
+  static bool isContentWide(BuildContext context) =>
+      MediaQuery.of(context).size.width >= contentWide;
+
   static DeviceType getDeviceType(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     if (width < mobileMax) {

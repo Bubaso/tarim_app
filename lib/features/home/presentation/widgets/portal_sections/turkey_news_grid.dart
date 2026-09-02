@@ -1,10 +1,12 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../core/utils/fade_page_route.dart';
 import '../../../../../core/utils/image_fallback_helper.dart';
 import '../../../../../core/utils/localization_helper.dart';
+import '../../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../../core/widgets/article_timestamp.dart';
 import '../../../data/models/news_article.dart';
 import '../../screens/article_detail_screen.dart';
@@ -24,8 +26,9 @@ class TurkeyNewsGrid extends ConsumerWidget {
     if (articles.isEmpty) return const SizedBox.shrink();
     ref.watch(localeProvider); // Rebuild when language changes
     final width = MediaQuery.of(context).size.width;
-    final isMobile = width < 900;
-    
+    final isMobile = width < ResponsiveBreakpoints.mobileMax;
+    final isTablet = !isMobile && width < ResponsiveBreakpoints.contentWide;
+
     final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     return Padding(
@@ -33,11 +36,65 @@ class TurkeyNewsGrid extends ConsumerWidget {
       child: Column(
         children: [
           if (isMobile)
-            _MobileGrid(articles: articles, isDark: isDark, borderColor: borderColor)
+            _MobileGrid(
+                articles: articles, isDark: isDark, borderColor: borderColor)
+          else if (isTablet)
+            _TabletGrid(
+                articles: articles, isDark: isDark, borderColor: borderColor)
           else
-            _DesktopGrid(articles: articles, isDark: isDark, borderColor: borderColor),
+            _DesktopGrid(
+                articles: articles, isDark: isDark, borderColor: borderColor),
         ],
       ),
+    );
+  }
+}
+
+/// Tablet: 1 tam en öne çıkan + kalan 4'ü 2 sütunda.
+class _TabletGrid extends StatelessWidget {
+  final List<NewsArticle> articles;
+  final bool isDark;
+  final Color borderColor;
+
+  const _TabletGrid({
+    required this.articles,
+    required this.isDark,
+    required this.borderColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final top = articles.first;
+    final remaining = articles.skip(1).take(4).toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        _TurkeyNewsCard(article: top, isDark: isDark, isLarge: true),
+        if (remaining.isNotEmpty) ...[
+          const SizedBox(height: 28),
+          Container(height: 1, color: borderColor),
+          const SizedBox(height: 28),
+          LayoutBuilder(
+            builder: (context, c) {
+              const gap = 20.0;
+              final w = ((c.maxWidth - gap) / 2).floorToDouble();
+              return Wrap(
+                spacing: gap,
+                runSpacing: 28,
+                children: [
+                  for (final a in remaining)
+                    SizedBox(
+                      width: w,
+                      child: _TurkeyNewsCard(
+                          article: a, isDark: isDark, isLarge: false),
+                    ),
+                ],
+              );
+            },
+          ),
+        ],
+      ],
     );
   }
 }
@@ -164,7 +221,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
 
     if (widget.isRow) {
       return MouseRegion(
-        onEnter: (_) => setState(() => _hovered = true),
+        onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
         onExit: (_) => setState(() => _hovered = false),
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
@@ -218,7 +275,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
     }
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(

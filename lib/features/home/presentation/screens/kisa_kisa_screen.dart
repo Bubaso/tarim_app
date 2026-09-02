@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -24,7 +25,7 @@ class KisaKisaScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final articles = ref.watch(briefArticlesProvider);
     final durum = ref.watch(latestArticlesProvider);
@@ -193,7 +194,7 @@ class _GunBasligi extends StatelessWidget {
       children: [
         Text(
           _etiket().toUpperCase(),
-          style: GoogleFonts.robotoMono(
+          style: GoogleFonts.inter(
             fontSize: AppTypography.minLabelSize,
             fontWeight: FontWeight.w900,
             color: accent,
@@ -205,7 +206,7 @@ class _GunBasligi extends StatelessWidget {
         const SizedBox(width: 10),
         Text(
           '$adet',
-          style: GoogleFonts.robotoMono(
+          style: GoogleFonts.inter(
             fontSize: AppTypography.minLabelSize,
             fontWeight: FontWeight.w700,
             color: subCol,
@@ -263,7 +264,7 @@ class _Basluk extends StatelessWidget {
             isEn
                 ? '$adet items · $gunSayisi days'
                 : '$adet haber · $gunSayisi gün',
-            style: GoogleFonts.robotoMono(
+            style: GoogleFonts.inter(
               fontSize: AppTypography.minLabelSize,
               fontWeight: FontWeight.w700,
               color: accent,

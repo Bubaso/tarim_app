@@ -1,5 +1,6 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 
 class Shimmer extends StatefulWidget {
   final Widget child;
@@ -87,7 +88,7 @@ class ShimmerSkeleton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final baseColor = isDark ? AppColors.wheat : const Color(0xFFE5E2D9);
     final highlightColor = isDark ? const Color(0xFF2C394B) : const Color(0xFFF0EDE4);
 

@@ -112,7 +112,7 @@ class DynamicChartWidget extends StatelessWidget {
               Expanded(child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: GoogleFonts.libreFranklin(
+                  Text(title, style: GoogleFonts.playfairDisplay(
                     fontSize: 14, fontWeight: FontWeight.w800, color: _text, height: 1.3,
                   )),
                   if (subtitle != null && subtitle.isNotEmpty) ...[

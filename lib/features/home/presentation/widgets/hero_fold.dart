@@ -4,19 +4,21 @@ import 'dart:math' as math;
 import 'dart:ui';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/localization_helper.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/theme/app_typography.dart';
 import '../../../../core/widgets/article_timestamp.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 import '../screens/all_columnists_screen.dart';
 import 'ai_columnists.dart';
-import '../../../../core/utils/string_extensions.dart';
 import '../../providers/home_providers.dart';
 
 
@@ -27,7 +29,9 @@ bool _isOpEd(NewsArticle a) {
 }
 
 // ─── Renk / stil sabitleri ────────────────────────────────────────────────
-const double _kDesktopBreakpoint = 900.0;
+// Hero'nun 7:3 satır düzenine geçtiği genişlik. Sayfa kabuğunun kırıldığı
+// nokta DEĞİL — bileşen içi düzen eşiği; bkz. ResponsiveBreakpoints.contentWide.
+const double _kDesktopBreakpoint = ResponsiveBreakpoints.contentWide;
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  HeroFold — anasayfanın en üst "above the fold" bölümü
@@ -50,10 +54,17 @@ class HeroFold extends ConsumerWidget {
     final width = MediaQuery.of(context).size.width;
 
     if (width >= _kDesktopBreakpoint) {
+      // ≥ contentWide: 7:3 satır (karusel | yazar sütunu).
       return _DesktopHeroFold(headlines: headlines, opEds: opEds);
-    } else {
-      return _MobileHeroFold(headlines: headlines, opEds: opEds);
     }
+    // < mobileMax: tam en karusel + yatay yazar şeridi.
+    // Arada (tablet): tam en karusel + 2 sütunlu yazar ızgarası (şerit yok).
+    final isTablet = width >= ResponsiveBreakpoints.mobileMax;
+    return _MobileHeroFold(
+      headlines: headlines,
+      opEds: opEds,
+      tablet: isTablet,
+    );
   }
 }
 
@@ -69,30 +80,31 @@ class _DesktopHeroFold extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider); // Rebuild when language changes
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
 
     return Center(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 1200),
-        child: IntrinsicHeight(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Sol %70 — Manşet Galerisi
-              Expanded(
-                flex: 7,
-                child: headlines.isEmpty
-                    ? _EmptySlot(isDark: isDark)
-                    : _HeadlineCarousel(headlines: headlines),
-              ),
-              const SizedBox(width: 28),
-              // Sağ %30 — Köşe Yazıları / Yazarlarımız
-              Expanded(
-                flex: 3,
-                child: _OpEdColumn(opEds: opEds, isDark: isDark),
-              ),
-            ],
-          ),
+        // IntrinsicHeight + stretch YOK: yazar sütununu karüsel boyuna
+        // gerdirip altında boşluk bırakıyordu. Üstten hizalı; kutu içeriğine
+        // oturuyor, satır yüksekliğini (hep daha uzun olan) karüsel belirliyor.
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Sol %70 — Manşet Galerisi
+            Expanded(
+              flex: 7,
+              child: headlines.isEmpty
+                  ? _EmptySlot(isDark: isDark)
+                  : _HeadlineCarousel(headlines: headlines),
+            ),
+            const SizedBox(width: 28),
+            // Sağ %30 — Köşe Yazıları / Yazarlarımız
+            Expanded(
+              flex: 3,
+              child: _OpEdColumn(opEds: opEds, isDark: isDark),
+            ),
+          ],
         ),
       ),
     );
@@ -106,22 +118,28 @@ class _MobileHeroFold extends ConsumerWidget {
   final List<NewsArticle> headlines;
   final List<NewsArticle> opEds;
 
-  const _MobileHeroFold({required this.headlines, required this.opEds});
+  /// true iken yazar listesi yatay şerit değil 2 sütunlu ızgara (tablet).
+  final bool tablet;
+
+  const _MobileHeroFold({
+    required this.headlines,
+    required this.opEds,
+    this.tablet = false,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider); // Rebuild when language changes
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Üst — Manşet Galerisi (Edge-to-edge on mobile)
-        if (headlines.isNotEmpty)
-          _HeadlineCarousel(headlines: headlines),
+        if (headlines.isNotEmpty) _HeadlineCarousel(headlines: headlines),
         const SizedBox(height: 28),
-        
+
         // "Yazarlarımız" Bölüm Başlığı (16px Padding ile)
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -134,7 +152,8 @@ class _MobileHeroFold extends ConsumerWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.5,
-                  color: isDark ? AppColors.creamBackground : AppColors.earthText,
+                  color:
+                      isDark ? AppColors.creamBackground : AppColors.earthText,
                 ),
               ),
               const SizedBox(height: 6),
@@ -147,10 +166,51 @@ class _MobileHeroFold extends ConsumerWidget {
           ),
         ),
         const SizedBox(height: 16),
-        
-        // Yatay kaydırılabilir yazar listesi
-        _MobileOpEdHorizontalList(opEds: opEds, isDark: isDark),
+
+        if (tablet)
+          _ColumnistGrid(opEds: opEds, isDark: isDark)
+        else
+          _MobileOpEdHorizontalList(opEds: opEds, isDark: isDark),
       ],
+    );
+  }
+}
+
+/// Tablet hero'sunda yazar kartları — yatay şerit yerine 2 sütun.
+class _ColumnistGrid extends StatelessWidget {
+  final List<NewsArticle> opEds;
+  final bool isDark;
+
+  const _ColumnistGrid({required this.opEds, required this.isDark});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: LayoutBuilder(
+        builder: (context, c) {
+          const gap = 12.0;
+          final w = ((c.maxWidth - gap) / 2).floorToDouble();
+          return Wrap(
+            spacing: gap,
+            runSpacing: gap,
+            children: [
+              for (final col in aiColumnists)
+                SizedBox(
+                  width: w,
+                  child: _MobileRealWriterCard(
+                    columnist: col,
+                    article: opEds
+                        .where((a) => a.sourceName?.trim() == col.name)
+                        .firstOrNull,
+                    isDark: isDark,
+                    width: null,
+                  ),
+                ),
+            ],
+          );
+        },
+      ),
     );
   }
 }
@@ -164,7 +224,9 @@ class _MobileOpEdHorizontalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 180,
+      // Kart içeriği ~150; gerçek cihaz yazı tiplerinde birkaç piksel sapıp
+      // "bottom overflowed by 3px" veriyordu. Payı açtık.
+      height: 170,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         clipBehavior: Clip.none,
@@ -173,12 +235,81 @@ class _MobileOpEdHorizontalList extends StatelessWidget {
         itemBuilder: (context, index) {
           final col = aiColumnists[index];
           // Find if this columnist has an article
-          final article = opEds.where((a) => a.sourceName?.trim() == col.name).firstOrNull;
+          final article = opEds
+              .where((a) => a.sourceName?.trim() == col.name)
+              .firstOrNull;
           return Padding(
             padding: const EdgeInsets.only(right: 12.0),
-            child: _MobileRealWriterCard(columnist: col, article: article, isDark: isDark),
+            child: _MobileRealWriterCard(
+                columnist: col, article: article, isDark: isDark),
           );
         },
+      ),
+    );
+  }
+}
+
+/// Köşe yazarı avatarı — ağ görseli gelene kadar (ya da hiç gelmezse) baş
+/// harfli bir daire gösterir. Eskiden `Image.network` yüklenene kadar kart
+/// boş görünüyordu.
+class _ColumnistAvatar extends StatelessWidget {
+  final AiColumnist columnist;
+  final double size;
+  final bool isDark;
+
+  const _ColumnistAvatar({
+    required this.columnist,
+    required this.size,
+    required this.isDark,
+  });
+
+  String get _initials {
+    final parts = columnist.name
+        .split(RegExp(r'\s+'))
+        .where((w) => w.isNotEmpty && !w.endsWith('.'))
+        .toList();
+    if (parts.isEmpty) return columnist.name.characters.take(1).toString();
+    return parts
+        .take(2)
+        .map((w) => w.characters.first)
+        .join()
+        .toUpperCase();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final bg = isDark ? const Color(0xFF2A2E26) : const Color(0xFFEBE6D9);
+    final fg = isDark ? AppColors.wheat : AppColors.earthText;
+
+    return ClipOval(
+      child: SizedBox(
+        width: size,
+        height: size,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Container(
+              color: bg,
+              alignment: Alignment.center,
+              child: Text(
+                _initials,
+                style: GoogleFonts.playfairDisplay(
+                  fontSize: size * 0.4,
+                  fontWeight: FontWeight.w700,
+                  color: fg,
+                ),
+              ),
+            ),
+            Image.network(
+              columnist.avatarUrl,
+              fit: BoxFit.cover,
+              // Yüklenirken / hata olunca alttaki baş harf görünür kalır.
+              errorBuilder: (_, __, ___) => const SizedBox.shrink(),
+              frameBuilder: (_, child, frame, wasSync) =>
+                  frame == null ? const SizedBox.shrink() : child,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -189,7 +320,15 @@ class _MobileRealWriterCard extends StatefulWidget {
   final NewsArticle? article;
   final bool isDark;
 
-  const _MobileRealWriterCard({required this.columnist, this.article, required this.isDark});
+  /// Yatay şeritte sabit (210); tablet ızgarasında `Expanded` içinde null.
+  final double? width;
+
+  const _MobileRealWriterCard({
+    required this.columnist,
+    this.article,
+    required this.isDark,
+    this.width = 210,
+  });
 
   @override
   State<_MobileRealWriterCard> createState() => _MobileRealWriterCardState();
@@ -205,117 +344,126 @@ class _MobileRealWriterCardState extends State<_MobileRealWriterCard> {
     final col = widget.columnist;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
-    final title = article != null 
-        ? ((isEn && article.titleEn != null && article.titleEn!.isNotEmpty) ? article.titleEn! : article.title)
-        : (isEn ? 'Analysis in progress...' : 'Yeni yazısı hazırlanıyor...');
+    final title = article != null
+        ? ((isEn && article.titleEn != null && article.titleEn!.isNotEmpty)
+            ? article.titleEn!
+            : article.title)
+        : (isEn ? 'New column in progress…' : 'Yeni yazısı hazırlanıyor…');
+    final role = isEn ? col.titleEn : col.titleTr;
 
-    // Newspaper aesthetic colors
-    final cardBg = isDark ? const Color(0xFF1E242B) : const Color(0xFFF9F7F1); // Slightly beige/cream for light mode
-    final borderColor = isDark ? AppColors.wheat.withOpacity(0.3) : const Color(0xFFE5DCC5);
+    final cardBg = isDark ? const Color(0xFF1E242B) : const Color(0xFFF9F7F1);
+    final borderColor = isDark
+        ? AppColors.wheat.withValues(alpha: 0.3)
+        : const Color(0xFFE5DCC5);
     final nameColor = isDark ? AppColors.primaryGreen : const Color(0xFF1B3B36);
-    final titleColor = isDark ? AppColors.creamBackground : const Color(0xFF2C2C2A);
+    final roleColor =
+        isDark ? AppColors.wheat : AppColors.earthText.withValues(alpha: 0.6);
+    final titleColor =
+        isDark ? AppColors.creamBackground : const Color(0xFF2C2C2A);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
-      onExit:  (_) => setState(() => _hovered = false),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
+      onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () {
-            pushScreen(context, AuthorArticleDetailScreen(columnist: col));
-        },
+        onTap: () =>
+            pushScreen(context, AuthorArticleDetailScreen(columnist: col)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),
           curve: Curves.easeOut,
           child: Container(
-            width: 160,
+            width: widget.width,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: cardBg,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                color: _hovered ? Theme.of(context).colorScheme.primary : borderColor,
+                color: _hovered
+                    ? Theme.of(context).colorScheme.primary
+                    : borderColor,
                 width: _hovered ? 1.5 : 1.0,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(isDark ? 0.3 : 0.05),
+                  color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.05),
                   blurRadius: 8,
                   offset: const Offset(0, 4),
                 ),
               ],
             ),
-            child: Stack(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Quote watermark
-                Positioned(
-                  right: -10,
-                  top: -10,
-                  child: Text(
-                    '"',
-                    style: GoogleFonts.playfairDisplay(
-                      fontSize: 80,
-                      fontWeight: FontWeight.w900,
-                      color: isDark ? Colors.white.withOpacity(0.05) : Colors.black.withOpacity(0.04),
-                    ),
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                // Künye satırı: avatar + ad + rol.
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ClipOval(
-                      child: SizedBox(
-                        width: 48,
-                        height: 48,
-                        child: Image.network(
-                          col.avatarUrl,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => Container(
-                            color: isDark ? AppColors.wheat : const Color(0xFFEBEAE6),
-                            alignment: Alignment.center,
-                            child: Text(
-                              col.name[0],
-                              style: GoogleFonts.playfairDisplay(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: isDark ? AppColors.wheat : AppColors.earthText,
-                              ),
+                    _ColumnistAvatar(columnist: col, size: 40, isDark: isDark),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            col.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.inter(
+                              fontSize: 12.5,
+                              fontWeight: FontWeight.w800,
+                              color: nameColor,
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      col.name,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.inter(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w800,
-                        color: nameColor,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    Expanded(
-                      child: Text(
-                        title,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.playfairDisplay(
-                          fontSize: 12,
-                          fontWeight: article != null ? FontWeight.w700 : FontWeight.w400,
-                          fontStyle: article != null ? FontStyle.normal : FontStyle.italic,
-                          color: titleColor,
-                          height: 1.25,
-                        ),
+                          const SizedBox(height: 2),
+                          Text(
+                            role,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.inter(
+                              fontSize: 10.5,
+                              fontWeight: FontWeight.w500,
+                              color: roleColor,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
+                ),
+                const SizedBox(height: 10),
+                // 3 satır (13 × 1.3 ≈ 17) sabit — yatay şeritte kartlar aynı
+                // boyda kalsın diye.
+                SizedBox(
+                  height: 51,
+                  child: Text(
+                    title,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.playfairDisplay(
+                      fontSize: 13,
+                      fontWeight:
+                          article != null ? FontWeight.w700 : FontWeight.w400,
+                      fontStyle:
+                          article != null ? FontStyle.normal : FontStyle.italic,
+                      color: titleColor,
+                      height: 1.3,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  article != null
+                      ? (isEn ? 'Read column →' : 'Yazıyı oku →')
+                      : (isEn ? 'View profile →' : 'Profili gör →'),
+                  style: GoogleFonts.inter(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                    color: roleColor,
+                  ),
                 ),
               ],
             ),
@@ -351,11 +499,26 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   /// Kaç kez kendiliğinden ilerledi. Bir tam turdan sonra duruyor.
   int _advances = 0;
 
+  bool _precached = false;
+
   @override
   void initState() {
     super.initState();
     _pc = PageController();
     _startTimer();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Öncelikli yükleme: hero görseli sayfanın en görünür öğesi. İlk iki
+    // slaytı önden yükle ki manşet boyanırken görsel hazır olsun.
+    if (_precached) return;
+    _precached = true;
+    for (final a in widget.headlines.take(2)) {
+      final p = NewsArticleImage.providerFor(a.imageUrl);
+      if (p != null) precacheImage(p, context);
+    }
   }
 
   /// Manşet şu anda ekranda mı?
@@ -680,7 +843,8 @@ class _OpEdColumn extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         
-        // Yazar Listesi — IntrinsicHeight ile uyumlu olması için Expanded yerine Container
+        // Yazar Listesi — kutu içeriğine oturur (Expanded değil Container):
+        // sütun artık karüsel boyuna gerdirilmiyor.
         Container(
           decoration: BoxDecoration(
             color: isDark ? const Color(0xFF161B22) : const Color(0xFFF9F7F1),
@@ -780,15 +944,18 @@ class _OpEdCardState extends State<_OpEdCard> {
     final isDark = widget.isDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     
-    final title = article != null 
+    final title = article != null
         ? ((isEn && article.titleEn != null && article.titleEn!.isNotEmpty) ? article.titleEn! : article.title)
-        : (isEn ? 'Analysis in progress...' : 'Yeni yazısı hazırlanıyor...');
+        : (isEn ? 'New column in progress…' : 'Yeni yazısı hazırlanıyor…');
+    final role = isEn ? col.titleEn : col.titleTr;
 
     final hoverBgColor = isDark ? Colors.white.withOpacity(0.03) : Colors.black.withOpacity(0.02);
     final nameColor = isDark ? AppColors.primaryGreen : const Color(0xFF1B3B36);
+    final roleColor =
+        isDark ? AppColors.wheat : AppColors.earthText.withValues(alpha: 0.6);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -803,28 +970,7 @@ class _OpEdCardState extends State<_OpEdCard> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipOval(
-                child: SizedBox(
-                  width: 48,
-                  height: 48,
-                  child: Image.network(
-                    col.avatarUrl,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      color: isDark ? AppColors.wheat : const Color(0xFFEBEAE6),
-                      alignment: Alignment.center,
-                      child: Text(
-                        col.name[0],
-                        style: GoogleFonts.playfairDisplay(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          color: isDark ? AppColors.wheat : AppColors.earthText,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              _ColumnistAvatar(columnist: col, size: 48, isDark: isDark),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(
@@ -840,7 +986,18 @@ class _OpEdCardState extends State<_OpEdCard> {
                         color: nameColor,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 2),
+                    Text(
+                      role,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.inter(
+                        fontSize: 10.5,
+                        fontWeight: FontWeight.w500,
+                        color: roleColor,
+                      ),
+                    ),
+                    const SizedBox(height: 6),
                     Text(
                       title,
                       maxLines: 2,
@@ -954,7 +1111,7 @@ class _PageDotsIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

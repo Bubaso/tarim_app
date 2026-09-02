@@ -1,7 +1,7 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../home/data/models/news_article.dart';
 import '../../../home/providers/home_providers.dart';
@@ -13,7 +13,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
     
     // We will watch the latestArticlesProvider to aggregate views.
     final latestArticlesAsync = ref.watch(latestArticlesProvider);
@@ -105,7 +105,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
                         const SizedBox(width: 4),
                         Text(
                           '${topArticle.viewCount} ${loc.translate('stats_reads')}',
-                          style: GoogleFonts.robotoMono(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.inter(color: Colors.orangeAccent, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -191,7 +191,7 @@ class _StatCard extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             value,
-            style: GoogleFonts.robotoMono(
+            style: GoogleFonts.inter(
               fontSize: 32,
               fontWeight: FontWeight.bold,
               color: isDark ? Colors.white : Colors.black,
@@ -345,7 +345,7 @@ class _TopReadArticlesList extends ConsumerWidget {
                     alignment: Alignment.center,
                     child: Text(
                       '#$rank',
-                      style: GoogleFonts.robotoMono(
+                      style: GoogleFonts.inter(
                         fontWeight: FontWeight.bold,
                         color: rank <= 3 ? Colors.orangeAccent : (isDark ? Colors.grey[400] : Colors.grey[700]),
                       ),
@@ -373,7 +373,7 @@ class _TopReadArticlesList extends ConsumerWidget {
                             const SizedBox(width: 4),
                             Text(
                               '${article.viewCount} okunma',
-                              style: GoogleFonts.robotoMono(
+                              style: GoogleFonts.inter(
                                 color: Colors.orangeAccent,
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -384,7 +384,7 @@ class _TopReadArticlesList extends ConsumerWidget {
                             const SizedBox(width: 4),
                             Text(
                               '${article.createdAt.day}/${article.createdAt.month}/${article.createdAt.year}',
-                              style: GoogleFonts.robotoMono(
+                              style: GoogleFonts.inter(
                                 color: isDark ? Colors.grey[500] : Colors.grey[600],
                                 fontSize: 12,
                               ),

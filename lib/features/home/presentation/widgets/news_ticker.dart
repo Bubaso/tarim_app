@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import '../screens/article_detail_screen.dart';
@@ -85,7 +86,8 @@ class _NewsTickerState extends ConsumerState<NewsTicker>
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = MediaQuery.of(context).size.width < 900;
+    final isMobile =
+        MediaQuery.of(context).size.width < ResponsiveBreakpoints.contentWide;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     final articles = (ref.watch(latestArticlesProvider).valueOrNull ?? const [])
@@ -157,7 +159,7 @@ class _Label extends StatelessWidget {
       ),
       child: Text(
         isEn ? 'LATEST' : 'SON HABERLER',
-        style: GoogleFonts.libreFranklin(
+        style: GoogleFonts.playfairDisplay(
           color: AppColors.wheat,
           fontSize: isMobile ? 9.5 : 10.5,
           fontWeight: FontWeight.w700,

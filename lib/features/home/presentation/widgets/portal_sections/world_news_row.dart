@@ -1,10 +1,12 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../core/utils/fade_page_route.dart';
 import '../../../../../core/utils/image_fallback_helper.dart';
 import '../../../../../core/utils/localization_helper.dart';
+import '../../../../../core/utils/responsive_breakpoints.dart';
 import '../../../data/models/news_article.dart';
 import '../../../../../core/theme/app_typography.dart';
 import '../../../../../core/widgets/article_timestamp.dart';
@@ -27,7 +29,7 @@ class WorldNewsRow extends ConsumerWidget {
     ref.watch(localeProvider); // Rebuild when language changes
 
     final width = MediaQuery.of(context).size.width;
-    final isMobile = width < 900;
+    final isMobile = width < ResponsiveBreakpoints.contentWide;
 
     return Column(
       children: [
@@ -86,7 +88,7 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
     final borderColor = widget.isDark ? AppColors.wheat : const Color(0xFFE5E5E5);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(

@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
@@ -21,15 +22,17 @@ class ShimmerPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    // Anasayfa zeminine uygun, göz yormayan soft yükleme renkleri
-    final base    = isDark ? const Color(0xFF253B24) : const Color(0xFFEBE6DD);
-    final hilite  = isDark ? const Color(0xFF355234) : const Color(0xFFF4EFE6);
+    final isDark = appIsDark;
+    // Anasayfa zeminine uygun ama "yükleniyor"un okunduğu tonlar. Eski taban
+    // (#EBE6DD) kremin üstünde neredeyse görünmezdi ve gri bir "bozuk görsel"
+    // gibi duruyordu; biraz koyulaştırıldı, parıltı farkı açıldı.
+    final base    = isDark ? const Color(0xFF253B24) : const Color(0xFFE0D8C6);
+    final hilite  = isDark ? const Color(0xFF355234) : const Color(0xFFF2ECDF);
 
     return Shimmer.fromColors(
       baseColor:     base,
       highlightColor: hilite,
-      period: const Duration(milliseconds: 1400),
+      period: const Duration(milliseconds: 1300),
       child: Container(
         width:  width,
         height: height,
@@ -63,6 +66,36 @@ class NewsArticleImage extends StatelessWidget {
   });
 
 
+  /// Ham Supabase URL'ini istenen genişlik/kaliteyle CDN-render adresine
+  /// çevirir. `build` ve [providerFor] (ön yükleme) aynı adresi üretsin diye
+  /// tek yerde.
+  static String resolveUrl(String rawUrl,
+      {required int requestedWidth, required bool highQuality}) {
+    final q = highQuality ? 90 : 65;
+    if (!rawUrl.contains('/object/public/')) return rawUrl;
+    final replaced =
+        rawUrl.replaceFirst('/object/public/', '/render/image/public/');
+    final sep = replaced.contains('?') ? '&' : '?';
+    return '$replaced${sep}width=$requestedWidth&quality=$q&format=webp';
+  }
+
+  static int _clampWidth(double render, bool highQuality) {
+    var w = highQuality ? 2000 : (render * 2).toInt();
+    if (w > 2000) w = 2000;
+    if (w < 300) w = 300;
+    return w;
+  }
+
+  /// Hero gibi öncelikli görsellerin `precacheImage` ile önden yüklenmesi için.
+  static ImageProvider? providerFor(String? rawUrl,
+      {double estimatedWidth = 1200, bool highQuality = true}) {
+    final u = rawUrl?.trim();
+    if (u == null || u.isEmpty || !u.startsWith('http')) return null;
+    return CachedNetworkImageProvider(resolveUrl(u,
+        requestedWidth: _clampWidth(estimatedWidth, highQuality),
+        highQuality: highQuality));
+  }
+
   @override
   Widget build(BuildContext context) {
     final rawUrl = imageUrl?.trim();
@@ -76,28 +109,15 @@ class NewsArticleImage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         // Calculate the actual rendering width.
-        double renderWidth = (width != null && width!.isFinite) 
-            ? width! 
+        double renderWidth = (width != null && width!.isFinite)
+            ? width!
             : (constraints.maxWidth.isFinite ? constraints.maxWidth : 600);
         // Fallback safety limit
         if (renderWidth <= 0 || renderWidth.isInfinite) renderWidth = 600;
-        
-        // Request a 2x resolution image for retina displays, maxed at 2000px
-        int requestedWidth = isHighQuality ? 2000 : (renderWidth * 2).toInt();
-        if (requestedWidth > 2000) requestedWidth = 2000;
-        if (requestedWidth < 300) requestedWidth = 300;
 
-        final q = isHighQuality ? 90 : 65;
-        
-        String url = rawUrl;
-        if (rawUrl.contains('/object/public/')) {
-          final replaced = rawUrl.replaceFirst('/object/public/', '/render/image/public/');
-          if (replaced.contains('?')) {
-            url = '$replaced&width=$requestedWidth&quality=$q&format=webp';
-          } else {
-            url = '$replaced?width=$requestedWidth&quality=$q&format=webp';
-          }
-        }
+        final requestedWidth = _clampWidth(renderWidth, isHighQuality);
+        final url = resolveUrl(rawUrl,
+            requestedWidth: requestedWidth, highQuality: isHighQuality);
 
         final imageWidget = CachedNetworkImage(
           imageUrl: url,
@@ -105,6 +125,10 @@ class NewsArticleImage extends StatelessWidget {
           height: height ?? (constraints.maxHeight.isFinite ? constraints.maxHeight : null),
           fit: fit,
           filterQuality: isHighQuality ? FilterQuality.high : FilterQuality.medium,
+          // İstenen çözünürlükte çöz — daha küçük bir kartta 2000 px'lik bir
+          // görseli tam boyutta decode etmek web'de gözle görülür takılma
+          // yapıyordu.
+          memCacheWidth: requestedWidth,
           fadeInDuration: const Duration(milliseconds: 300),
           httpHeaders: const {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',

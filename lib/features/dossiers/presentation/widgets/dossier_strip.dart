@@ -121,12 +121,13 @@ class _Kart extends StatelessWidget {
   final bool isDark;
   final bool isEn;
 
-  /// İki sütuna geçme eşiği.
+  /// Kart içinde başlık | tez cümlesi'nin yan yana geçtiği eşik.
   ///
-  /// Tek sütun 820 px'in üstünde tez cümlesini kartın soluna sıkıştırıp sağını
-  /// boş bırakıyordu. Eşik cihaz sınıfına değil kartın KENDİ genişliğine
-  /// bakıyor: şerit masaüstünde 1200'lük bir sütunun içinde, tablette 24+16
-  /// boşluğun ardında duruyor ve ikisinde de kalan genişlik farklı.
+  /// Bu bir EKRAN kırılım noktası DEĞİL — `LayoutBuilder`'ın verdiği KARTIN
+  /// KENDİ genişliği ölçülüyor (`ResponsiveBreakpoints.contentWide` ile
+  /// karıştırma). Şerit masaüstünde 1200'lük sütunun içinde tek dosyayla
+  /// ~1160, iki dosyayla ~576; tablette 24+16 boşluğun ardında farklı.
+  /// 820 pratikte "tek dosya, tam genişlik" durumunda iki sütunu açıyor.
   static const double _ikiSutunEsigi = 820;
 
   @override

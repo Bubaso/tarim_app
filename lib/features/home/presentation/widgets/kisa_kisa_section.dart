@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -135,7 +136,7 @@ class _BriefRowState extends State<_BriefRow> {
     final subCol = widget.isDark ? Colors.white54 : Colors.black54;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hover = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hover = true); },
       onExit: (_) => setState(() => _hover = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -187,7 +188,7 @@ class _BriefRowState extends State<_BriefRow> {
                             a.sourceName!.isNotEmpty) ...[
                           Text(
                             '  ·  ',
-                            style: GoogleFonts.robotoMono(
+                            style: GoogleFonts.inter(
                               fontSize: AppTypography.minLabelSize,
                               color: subCol,
                             ),
@@ -197,7 +198,7 @@ class _BriefRowState extends State<_BriefRow> {
                               a.sourceName!.toTurkishUpperCase(),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
-                              style: GoogleFonts.robotoMono(
+                              style: GoogleFonts.inter(
                                 fontSize: AppTypography.minLabelSize,
                                 fontWeight: FontWeight.w700,
                                 color: subCol,

@@ -6,6 +6,8 @@ import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:tarim_app/core/theme/brand_icons.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 // `RenderAbstractViewport` — okuma ilerlemesini makale gövdesinin sonuna göre
 // ölçmek için; material.dart bunu dışa aktarmıyor.
 import 'package:flutter/rendering.dart';
@@ -24,6 +26,7 @@ import '../../../../core/theme/app_typography.dart';
 import 'package:flutter_html/flutter_html.dart';
 import '../widgets/dynamic_chart_widget.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../providers/home_providers.dart';
 import '../../../../core/services/notification_service.dart';
 import '../../providers/font_scale_provider.dart';
@@ -220,9 +223,8 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
   @override
   Widget build(BuildContext context) {
     final article = widget.article;
-    final theme  = Theme.of(context);
     final isEn   = Localizations.localeOf(context).languageCode == 'en';
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
     final fontScale = ref.watch(fontScaleProvider);
 
     final displayTitle = (isEn && article.titleEn != null && article.titleEn!.isNotEmpty)
@@ -286,7 +288,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     final accent = isDark ? _kAccentDark : _kAccent;
 
     final screenWidth = MediaQuery.of(context).size.width;
-    final isDesktop   = screenWidth > 900;
+    final isDesktop   = screenWidth >= ResponsiveBreakpoints.contentWide;
 
     return Scaffold(
       backgroundColor: bg,
@@ -449,7 +451,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               ),
                               "h2": Style(
                                 margin: Margins.only(top: 24, bottom: 16),
-                                fontFamily: GoogleFonts.libreFranklin().fontFamily,
+                                fontFamily: GoogleFonts.playfairDisplay().fontFamily,
                                 fontSize: FontSize(AppTypography.h2BaseFontSize(context) * fontScale),
                                 fontWeight: FontWeight.bold,
                                 color: isDark ? Colors.white : Colors.black87,
@@ -720,7 +722,7 @@ class _MetaRow extends StatelessWidget {
           ),
         Text(
           '$formattedDate  •  $readLabel',
-          style: GoogleFonts.robotoMono(
+          style: GoogleFonts.inter(
             color: subtle,
             fontSize: 11,
           ),
@@ -735,7 +737,7 @@ class _MetaRow extends StatelessWidget {
               const SizedBox(width: 4),
               Text(
                 '$viewCount',
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: accent,
                   fontWeight: FontWeight.w700,
                   fontSize: 11,
@@ -1301,7 +1303,7 @@ class _RelatedCardState extends State<_RelatedCard> {
     final accent = isDark ? _kAccentDark : _kAccent;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -1389,7 +1391,7 @@ class _RelatedCardState extends State<_RelatedCard> {
                       // Tarih
                       Text(
                         date,
-                        style: GoogleFonts.robotoMono(
+                        style: GoogleFonts.inter(
                           fontSize: AppTypography.minLabelSize,
                           color: isDark
                               ? AppColors.wheat

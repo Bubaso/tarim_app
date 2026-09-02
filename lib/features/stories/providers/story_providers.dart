@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/network/supabase_client.dart';
@@ -28,6 +29,20 @@ import '../data/story_seen_store.dart';
 /// değip değmediğine bakmak için tutuluyor (bkz. [refreshStoriesIfStale]).
 DateTime? _lastFetchedAt;
 
+/// Dosya/kurum hikâyelerinin görseli hatta prod host'una MUTLAK yazılıyor
+/// (`https://tarim-app-2026.web.app/paylasim/<slug>.jpg` — bkz.
+/// `scripts/dosya_hikayeleri.py`). `flutter run -d chrome` localhost'tan
+/// bunu çekince CanvasKit CORS'a takılıyor ve görsel kırık görünüyordu.
+/// Aynı-köken yola çevirince hem dev (Flutter dev sunucusu `web/`'i sunuyor)
+/// hem prod (zaten aynı köken) çalışıyor. Supabase Storage adreslerine
+/// (farklı host) dokunmuyor.
+String _sameOriginAsset(String url) {
+  const host = 'https://tarim-app-2026.web.app';
+  if (!kIsWeb || !url.startsWith('$host/')) return url;
+  // Web'de mevcut kökene bağla: dev'de http://localhost:PORT, canlıda aynı host.
+  return '${Uri.base.origin}${url.substring(host.length)}';
+}
+
 final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
   final supabase = ref.read(supabaseClientProvider);
 
@@ -48,7 +63,8 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
     // Dosya hikâyelerinin haberi yok; görselleri satırın kendisinde duruyor
     // (dosyanın paylaşım kartı). Haberli hikâyelerde bu alan boş ve görsel
     // eskisi gibi join'den geliyor.
-    final rawSatirGorsel = row['gorsel_url']?.toString().trim() ?? '';
+    final rawSatirGorsel =
+        _sameOriginAsset(row['gorsel_url']?.toString().trim() ?? '');
     final rawImage = rawSatirGorsel.isNotEmpty
         ? rawSatirGorsel
         : (articleData?['image_url']?.toString().trim() ?? '');
@@ -100,7 +116,8 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
       // tek görsel doğrudur. Dosya hikâyesinde ise her slayt dosyanın başka
       // bir bölümünü anlatıyor; hepsine aynı fotoğrafı koymak kartı tekrara
       // düşürüyordu. Yazılı değilse satırın görseline düşüyor — eski davranış.
-      final slaytGorsel = raw['gorsel_url']?.toString().trim() ?? '';
+      final slaytGorsel =
+          _sameOriginAsset(raw['gorsel_url']?.toString().trim() ?? '');
       final gorsel = slaytGorsel.length >= 6 ? slaytGorsel : rawImage;
 
       buckets.putIfAbsent(key, () => <StoryItem>[]).add(StoryItem(

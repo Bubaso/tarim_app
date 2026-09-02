@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tarim_app/core/theme/app_colors.dart';
@@ -42,8 +43,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     final bgColor = isDark ? AppColors.darkGreen : AppColors.creamBackground;

@@ -181,7 +181,7 @@ class _AdaySatiri extends StatelessWidget {
                 children: [
                   Text(
                     video.baslik,
-                    style: GoogleFonts.libreFranklin(
+                    style: GoogleFonts.playfairDisplay(
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
                     ),

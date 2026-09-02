@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:intl/intl.dart';
@@ -460,7 +461,7 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
           const SizedBox(width: 8),
           Text(
             isEn ? 'MARKET TERMINAL' : 'FİNANS TERMİNALİ',
-            style: GoogleFonts.robotoMono(
+            style: GoogleFonts.inter(
               fontWeight: FontWeight.w700,
               color: AppColors.earthText,
               fontSize: 14,
@@ -523,11 +524,11 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
       children: [
         Text(
           '$label ($source): ',
-          style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 10, fontWeight: FontWeight.bold),
+          style: GoogleFonts.inter(color: _kLabel, fontSize: 10, fontWeight: FontWeight.bold),
         ),
         Text(
           value,
-          style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold),
+          style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold),
         ),
         const SizedBox(width: 4),
         Semantics(
@@ -648,7 +649,7 @@ class _CommodityCardState extends State<_CommodityCard> {
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit:  (_) => setState(() => _hovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
@@ -678,7 +679,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                       children: [
                         Text(
                           widget.commodity.code,
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.inter(
                             color: _kActiveBlue,
                             fontSize: isMobile ? 9 : 11,
                             fontWeight: FontWeight.w800,
@@ -687,7 +688,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                         ),
                         Text(
                           name,
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.inter(
                             color: AppColors.earthText.withOpacity(0.54),
                             fontSize: isMobile ? 7.5 : 8.5,
                           ),
@@ -712,7 +713,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                   Flexible(
                     child: Text(
                       _formatPrice(widget.commodity.currentPrice),
-                      style: GoogleFonts.robotoMono(
+                      style: GoogleFonts.inter(
                         color: AppColors.earthText,
                         fontSize: isMobile ? 14 : 17,
                         fontWeight: FontWeight.w800,
@@ -726,7 +727,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                     widget.commodity.code == 'SUG11'
                         ? '${widget.commodity.unit} (${_formatPrice((widget.commodity.currentPrice / 100) * 2204.62)} \$/Ton)'
                         : widget.commodity.unit,
-                    style: GoogleFonts.robotoMono(color: _kLabel, fontSize: isMobile ? 7 : 8),
+                    style: GoogleFonts.inter(color: _kLabel, fontSize: isMobile ? 7 : 8),
                   ),
                   const Spacer(),
                   Container(
@@ -738,7 +739,7 @@ class _CommodityCardState extends State<_CommodityCard> {
                     ),
                     child: Text(
                       '$arrow${widget.commodity.changePercentage.toStringAsFixed(2)}%',
-                      style: GoogleFonts.robotoMono(
+                      style: GoogleFonts.inter(
                         color: clr,
                         fontSize: isMobile ? 8 : 10,
                         fontWeight: FontWeight.w700,
@@ -770,7 +771,7 @@ class _CommodityCardState extends State<_CommodityCard> {
               color: AppColors.earthText.withValues(alpha: 0.025),
               child: Text(
                 widget.commodity.exchange,
-                style: GoogleFonts.robotoMono(color: _kNeutral, fontSize: 7, letterSpacing: 0.8),
+                style: GoogleFonts.inter(color: _kNeutral, fontSize: 7, letterSpacing: 0.8),
               ),
             ),
           ],
@@ -808,7 +809,7 @@ class _CommodityCardState extends State<_CommodityCard> {
             ),
             child: Text(
               tf,
-              style: GoogleFonts.robotoMono(
+              style: GoogleFonts.inter(
                 color: isSelected ? _kActiveBlue : AppColors.earthText.withOpacity(0.38),
                 fontSize: isMobile ? 7 : 9,
                 fontWeight: FontWeight.w700,
@@ -864,7 +865,7 @@ class _TrendChart extends StatelessWidget {
               final dateLabel = idx >= 0 && idx < labels.length ? labels[idx] : '';
               return LineTooltipItem(
                 '$dateLabel\n${s.y.toStringAsFixed(2)} ${commodity.unit}',
-                GoogleFonts.robotoMono(
+                GoogleFonts.inter(
                   color: AppColors.earthText,
                   fontSize: 10,
                   fontWeight: FontWeight.w700,
@@ -920,7 +921,7 @@ class _TrendChart extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 4),
                   child: Text(
                     labels[idx],
-                    style: GoogleFonts.robotoMono(
+                    style: GoogleFonts.inter(
                       color: _kLabel,
                       fontSize: 8,
                     ),
@@ -937,7 +938,7 @@ class _TrendChart extends StatelessWidget {
               getTitlesWidget: (val, meta) {
                 return Text(
                   fmtY(val),
-                  style: GoogleFonts.robotoMono(
+                  style: GoogleFonts.inter(
                     color: _kLabel,
                     fontSize: 8,
                   ),
@@ -1044,7 +1045,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
               const SizedBox(width: 8),
               Text(
                 widget.isEn ? 'CROP VALUE CALCULATOR' : 'MAHSUL DEĞER HESAPLAYICI',
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: AppColors.earthText,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
@@ -1062,14 +1063,14 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
             children: [
               Text(
                 widget.isEn ? 'Crop Type:' : 'Mahsul Türü:',
-                style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 11),
+                style: GoogleFonts.inter(color: _kLabel, fontSize: 11),
               ),
               const Spacer(),
               DropdownButton<String>(
                 value: _selectedCrop,
                 dropdownColor: _kSurface,
                 underline: const SizedBox.shrink(),
-                style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                 items: [
                   DropdownMenuItem(value: 'Wheat', child: Text(widget.isEn ? 'Wheat (Buğday)' : 'Buğday')),
                   DropdownMenuItem(value: 'SugarBeet', child: Text(widget.isEn ? 'Sugar Beet' : 'Şeker Pancarı')),
@@ -1094,7 +1095,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
             children: [
               Text(
                 widget.isEn ? 'Amount (Tons):' : 'Miktar (Ton):',
-                style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 11),
+                style: GoogleFonts.inter(color: _kLabel, fontSize: 11),
               ),
               const Spacer(),
               SizedBox(
@@ -1104,7 +1105,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                   controller: _amountController,
                   keyboardType: const TextInputType.numberWithOptions(decimal: true),
                   textAlign: TextAlign.end,
-                  style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.only(bottom: 12),
                     enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: _kBorder)),
@@ -1121,7 +1122,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
             children: [
               Text(
                 widget.isEn ? 'Price (TL/Kg):' : 'Birim Fiyat (TL/Kg):',
-                style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 11),
+                style: GoogleFonts.inter(color: _kLabel, fontSize: 11),
               ),
               const Spacer(),
               Row(
@@ -1135,7 +1136,7 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                   ),
                   Text(
                     _priceOverride.toStringAsFixed(2),
-                    style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                   ),
                   IconButton(
                     icon: const Icon(Icons.add, size: 14, color: _kLabel),
@@ -1159,11 +1160,11 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                   children: [
                     Text(
                       widget.isEn ? 'PROJECTED VALUE' : 'TOPLAM BRÜT DEĞER',
-                      style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 10, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(color: _kLabel, fontSize: 10, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       '${NumberFormat('#,##0.00', 'tr_TR').format(totalTry)} TL',
-                      style: GoogleFonts.robotoMono(color: _kUp, fontSize: 15, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(color: _kUp, fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -1173,11 +1174,11 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
                   children: [
                     Text(
                       widget.isEn ? 'USD EQUIVALENT' : 'DOLAR KARŞILIĞI',
-                      style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 10),
+                      style: GoogleFonts.inter(color: _kLabel, fontSize: 10),
                     ),
                     Text(
                       NumberFormat('\$#,##0.00', 'en_US').format(totalUsd),
-                      style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
+                      style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -1213,7 +1214,7 @@ class _FertilizerIndex extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 isEn ? 'INPUT COST INDEX' : 'TARIMSAL GİRDİ ENDEKSİ',
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: AppColors.earthText,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
@@ -1243,11 +1244,11 @@ class _FertilizerIndex extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 11)),
+          Text(title, style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 11)),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(price, style: GoogleFonts.robotoMono(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold)),
+              Text(price, style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold)),
               const SizedBox(width: 10),
               Container(
                 width: 60,
@@ -1256,7 +1257,7 @@ class _FertilizerIndex extends StatelessWidget {
                 color: clr.withValues(alpha: 0.1),
                 child: Text(
                   change,
-                  style: GoogleFonts.robotoMono(color: clr, fontSize: 10, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.inter(color: clr, fontSize: 10, fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -1291,7 +1292,7 @@ class _BorsaNewsFeed extends StatelessWidget {
               const SizedBox(width: 8),
               Text(
                 isEn ? 'MARKET NEWS FEED' : 'BORSA HABER AKIŞI',
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: AppColors.earthText,
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
@@ -1355,13 +1356,13 @@ class _NewsCardState extends State<_NewsCard> {
                   ),
                   child: Text(
                     widget.item.tag,
-                    style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 8, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.inter(color: _kLabel, fontSize: 8, fontWeight: FontWeight.bold),
                   ),
                 ),
                 const SizedBox(width: 8),
                 Text(
                   widget.item.time,
-                  style: GoogleFonts.robotoMono(color: _kLabel, fontSize: 9),
+                  style: GoogleFonts.inter(color: _kLabel, fontSize: 9),
                 ),
                 const Spacer(),
                 Icon(
@@ -1374,7 +1375,7 @@ class _NewsCardState extends State<_NewsCard> {
             const SizedBox(height: 4),
             Text(
               title,
-              style: GoogleFonts.robotoMono(
+              style: GoogleFonts.inter(
                 color: AppColors.earthText,
                 fontSize: 11,
                 fontWeight: FontWeight.bold,
@@ -1385,7 +1386,7 @@ class _NewsCardState extends State<_NewsCard> {
               const SizedBox(height: 6),
               Text(
                 summary,
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: _kLabel,
                   fontSize: 10,
                   height: 1.5,
@@ -1475,7 +1476,7 @@ class _TerminalHeader extends StatelessWidget {
                     isEn
                         ? 'GLOBAL COMMODITY & AGRI EXCHANGE'
                         : 'KÜRESEL EMTİA & TARIM BORSASI',
-                    style: GoogleFonts.robotoMono(
+                    style: GoogleFonts.inter(
                       color: AppColors.earthText,
                       fontSize: 16,
                       fontWeight: FontWeight.w900,
@@ -1487,7 +1488,7 @@ class _TerminalHeader extends StatelessWidget {
                     isEn
                         ? 'Real-time agricultural commodities feed'
                         : 'Tarım emtia fiyatları — anlık veri akışı',
-                    style: GoogleFonts.robotoMono(
+                    style: GoogleFonts.inter(
                       color: _kLabel,
                       fontSize: 11,
                       letterSpacing: 0.5,
@@ -1504,7 +1505,7 @@ class _TerminalHeader extends StatelessWidget {
               ),
               child: Text(
                 isEn ? 'LIVE DATA' : 'CANLI VERİ',
-                style: GoogleFonts.robotoMono(
+                style: GoogleFonts.inter(
                   color: _kUp,
                   fontSize: 9,
                   fontWeight: FontWeight.w700,
@@ -1541,7 +1542,7 @@ class _Footer extends StatelessWidget {
                 'Ticking updates are simulated to demonstrate live feed activity.'
               : '* Fiyatlar küresel serbest piyasa endekslerini ve yerel tarım borsalarını temsil etmektedir. '
                 'Anlık fiyat dalgalanmaları canlı veri akış simülasyonu ile güncellenmektedir.',
-          style: GoogleFonts.robotoMono(
+          style: GoogleFonts.inter(
             color: _kNeutral,
             fontSize: 9,
             height: 1.6,
@@ -1583,7 +1584,7 @@ class _ClockWidgetState extends State<_ClockWidget> {
   Widget build(BuildContext context) {
     return Text(
       _time,
-      style: GoogleFonts.robotoMono(
+      style: GoogleFonts.inter(
         color: _kLabel,
         fontSize: 11,
         fontWeight: FontWeight.w500,

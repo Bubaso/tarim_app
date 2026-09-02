@@ -46,7 +46,11 @@ import '../../features/settings/presentation/screens/settings_screen.dart';
 
 String articlePath(String id) => '/haber/$id';
 String columnistPath(String slug) => '/yazar/$slug';
-String categoryPath(String title) => '/kategori/${Uri.encodeComponent(title)}';
+
+/// Kategori — `/kategori/hayvancilik`. Slug ASCII: Türkçe karakterli adres
+/// paylaşılınca yüzde kodlamasına dönüşüyor. Ekran slug'dan kendi verisini
+/// çekebildiği için bu adresler artık paylaşılabilir.
+String categoryPath(String slug) => '/kategori/$slug';
 
 /// Haftalık özet — `/hafta/2026-W33`. Haftalık bildirim de bu adrese iniyor
 /// (bkz. `functions/index.js`, `weeklyBriefing`).
@@ -70,11 +74,14 @@ const String dossierIndexPath = '/ulkeler';
 /// uygulamalarında yüzde kodlamasına dönüşüp okunmaz hâle geliyor.
 String legalPath(String slug) => '/$slug';
 
-/// [CategoryArticlesScreen] için adres dışında taşınan argümanlar.
+/// [CategoryArticlesScreen] için adres dışında taşınan argümanlar. Uygulama
+/// içi gezinmede hazır liste taşınır (yeniden çekim yok); doğrudan URL'de
+/// `extra` olmaz ve ekran `slug`'dan kendi verisini çeker.
 class CategoryArgs {
-  const CategoryArgs(this.title, this.articles);
-  final String title;
-  final List<NewsArticle> articles;
+  const CategoryArgs(this.slug, this.title, this.articles);
+  final String slug;
+  final String? title;
+  final List<NewsArticle>? articles;
 }
 
 /// Verilen ekran widget'ının router karşılığı. Tanımlı değilse `null`.
@@ -86,9 +93,10 @@ class CategoryArgs {
     return (path: columnistPath(page.columnist.slug), extra: page.columnist);
   }
   if (page is CategoryArticlesScreen) {
+    final slug = page.slug ?? 'genel';
     return (
-      path: categoryPath(page.title),
-      extra: CategoryArgs(page.title, page.articles),
+      path: categoryPath(slug),
+      extra: CategoryArgs(slug, page.title, page.articles),
     );
   }
   if (page is WeatherDetailScreen) {
@@ -208,18 +216,22 @@ final appRouter = GoRouter(
       ),
     ),
 
-    // Kategori listesi — makale kümesi adresten üretilemez; önbellekte karşılığı
-    // yoksa ana sayfaya düşer.
+    // Kategori listesi — slug'dan yeniden kurulabilir: `extra` (uygulama içi
+    // hazır liste) yoksa ekran slug'a bakıp veriyi kendi çeker. Paylaşılan
+    // `/kategori/hayvancilik` bağlantısı doğrudan açılır.
     GoRoute(
-      path: '/kategori/:title',
-      redirect: (context, state) =>
-          _resolveExtra(state) is CategoryArgs ? null : '/',
+      path: '/kategori/:slug',
       pageBuilder: (context, state) {
-        final args = _resolveExtra(state)! as CategoryArgs;
-        return _fadePage(
-          state,
-          CategoryArticlesScreen(title: args.title, articles: args.articles),
-        );
+        final slug = state.pathParameters['slug']!;
+        final args = _resolveExtra(state);
+        if (args is CategoryArgs) {
+          return _fadePage(
+            state,
+            CategoryArticlesScreen(
+                slug: args.slug, title: args.title, articles: args.articles),
+          );
+        }
+        return _fadePage(state, CategoryArticlesScreen(slug: slug));
       },
     ),
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/theme/app_colors.dart';
@@ -75,7 +76,7 @@ class _NextArticleCardState extends ConsumerState<NextArticleCard> {
     const accent = AppColors.primaryGreen;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: Semantics(

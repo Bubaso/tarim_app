@@ -1,5 +1,6 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/utils/fade_page_route.dart';
@@ -11,8 +12,7 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
     // Renkler [LegalPageScreen] ile aynı token'lardan geliyor: okuyucu

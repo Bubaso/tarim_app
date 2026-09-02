@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../data/models/news_article.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -29,7 +31,7 @@ class _NewsCardState extends State<NewsCard> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
 
     final displayTitle = (isEn && widget.article.titleEn != null && widget.article.titleEn!.isNotEmpty)
         ? widget.article.titleEn!
@@ -49,7 +51,7 @@ class _NewsCardState extends State<NewsCard> {
         : AppColors.earthText.withValues(alpha: 0.70);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: MergeSemantics(

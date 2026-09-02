@@ -60,7 +60,8 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
       onReorder: _onReorder,
       itemBuilder: (context, index) {
         final article = _heroArticles[index];
-        final isPinned = article.heroOrder == 0;
+        final isPinned = article.heroOrder != null && article.heroOrder! <= 0;
+        final canPin = index < 3;
         
         return Card(
           key: ValueKey(article.id),
@@ -84,19 +85,19 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.inter(fontWeight: FontWeight.w600),
             ),
-            subtitle: Text(isPinned ? 'Sabitlenmiş (Sıra 1)' : 'Sıra: ${index + 1}'),
+            subtitle: Text(isPinned ? 'Sabitlenmiş (Sıra ${(-article.heroOrder!) + 1})' : 'Sıra: ${index + 1}'),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 if (isPinned)
                   TextButton.icon(
-                    onPressed: () => _toggleHardPin(article, false),
+                    onPressed: () => _toggleHardPin(article, false, index),
                     icon: const Icon(Icons.push_pin, color: Colors.orange),
                     label: const Text('Kaldır', style: TextStyle(color: Colors.orange)),
                   )
-                else
+                else if (canPin)
                   TextButton.icon(
-                    onPressed: () => _toggleHardPin(article, true),
+                    onPressed: () => _toggleHardPin(article, true, index),
                     icon: const Icon(Icons.push_pin_outlined),
                     label: const Text('Sabitle'),
                   ),
@@ -129,16 +130,21 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     final repository = ref.read(homeRepositoryProvider);
     final updates = <Map<String, dynamic>>[];
     for (int i = 0; i < _heroArticles.length; i++) {
+      final article = _heroArticles[i];
+      int newOrder = i + 1;
+      
+      // Eğer zaten sabitlenmişse ve kendi sırasında duruyorsa sabiti koru
+      // Taşınmışsa sabiti boz (normal sıralama değeri alsın)
+      if (article.heroOrder != null && article.heroOrder! <= 0) {
+        int pinnedIndex = -article.heroOrder!;
+        if (pinnedIndex == i) {
+          newOrder = article.heroOrder!;
+        }
+      }
+
       updates.add({
-        'id': _heroArticles[i].id,
-        // Eğer zaten sabitlenmişse (0 ise), sıralama değişse bile sıfır kalsın
-        // Ancak kendisi taşınmışsa, sabiti kaldırıp yeni sırasını vermek daha mantıklı olabilir.
-        // Ama reorder listesi her şeyi kaydırdığı için en güvenlisi 0 olanları korumak,
-        // taşınan öğenin indexine göre yeni sıra almasını sağlamak.
-        // Şimdilik taşınırsa sabit bozulur mantığı yapalım. Çünkü yer değiştiriyor.
-        // Sabit olan haber en üsttedir, eğer onu aşağı sürüklerse sabitlikten çıkar (i+1 alır).
-        // Eğer aşağıdakilerden birini en üste sürüklerse, önceki sabit olan 2. sıraya düşer ve i+1(2) alır.
-        'hero_order': i == 0 && _heroArticles[i].heroOrder == 0 ? 0 : i + 1,
+        'id': article.id,
+        'hero_order': newOrder,
       });
     }
 
@@ -157,12 +163,13 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     }
   }
 
-  Future<void> _toggleHardPin(NewsArticle article, bool pin) async {
+  Future<void> _toggleHardPin(NewsArticle article, bool pin, int index) async {
     setState(() => _isLoading = true);
     final repository = ref.read(homeRepositoryProvider);
     
-    // pin=true ise hero_order = 0, pin=false ise normal sıra = 1 (en üst)
-    await repository.updateHeroStatus(article.id, true, pin ? 0 : 1);
+    // pin=true ise hero_order = -index (0, -1, -2), pin=false ise normal sıra = index + 1
+    int order = pin ? -index : index + 1;
+    await repository.updateHeroStatus(article.id, true, order);
     
     if (mounted) {
       setState(() => _isLoading = false);

@@ -1,5 +1,6 @@
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../providers/home_providers.dart';
@@ -20,7 +21,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   @override
   ThemeData appBarTheme(BuildContext context) {
     final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
+    final isDark = appIsDark;
     return theme.copyWith(
       appBarTheme: AppBarTheme(
         backgroundColor: isDark ? AppColors.darkGreen : AppColors.creamBackground,
@@ -105,7 +106,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   }
 
   Widget _buildSearchResults(BuildContext context, List<NewsArticle> articles) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     final textColor = isDark ? Colors.white : Colors.black87;
 
     return ListView.separated(
@@ -149,7 +150,7 @@ class NewsSearchDelegate extends SearchDelegate<NewsArticle?> {
   }
 
   Widget _buildMessage(BuildContext context, String message) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isDark = appIsDark;
     return Center(
       child: Text(
         message,

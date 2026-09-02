@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -111,7 +112,7 @@ class _YYTSectionContent extends StatelessWidget {
                             ),
                             child: Text(
                               'YYT',
-                              style: GoogleFonts.robotoMono(
+                              style: GoogleFonts.inter(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w900,
                                 fontSize: AppTypography.minLabelSize,
@@ -122,7 +123,7 @@ class _YYTSectionContent extends StatelessWidget {
                           const SizedBox(width: 8),
                           Text(
                             isEn ? 'DOSSIER' : 'ÖZEL DOSYA',
-                            style: GoogleFonts.robotoMono(
+                            style: GoogleFonts.inter(
                               fontSize: AppTypography.minLabelSize,
                               fontWeight: FontWeight.w700,
                               color: accentRed,
@@ -278,7 +279,7 @@ class _YYTPreviewCardState extends State<_YYTPreviewCard> {
 
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hover = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hover = true); },
       onExit: (_) => setState(() => _hover = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(

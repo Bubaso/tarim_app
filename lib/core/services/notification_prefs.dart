@@ -73,8 +73,15 @@ class NotificationPrefsNotifier extends Notifier<Set<NotificationKind>> {
     } else {
       next.remove(kind);
     }
-    state = next;
+    await _persist(next);
+  }
 
+  /// Seçili türleri topluca değiştirir (künyedeki "yalnız haftalık bülten"
+  /// kaydı bunu `{weekly}` ile çağırıyor).
+  Future<void> setKinds(Set<NotificationKind> kinds) => _persist({...kinds});
+
+  Future<void> _persist(Set<NotificationKind> next) async {
+    state = next;
     try {
       final prefs = await SharedPreferences.getInstance();
       await prefs.setStringList(

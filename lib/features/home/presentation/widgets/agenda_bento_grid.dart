@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:tarim_app/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../data/models/news_article.dart';
@@ -9,11 +10,14 @@ import '../../../../core/widgets/article_timestamp.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/localization_helper.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../screens/article_detail_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
 
 // ─── Sınır sabitleri ──────────────────────────────────────────────────────
-const double _kBentoBreakpoint = 900.0;
+// Bento'nun tek sütundan asimetrik çok sütuna geçtiği genişlik. Sayfa kabuğu
+// eşiği DEĞİL; bkz. ResponsiveBreakpoints.contentWide.
+const double _kBentoBreakpoint = ResponsiveBreakpoints.contentWide;
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent        = AppColors.primaryGreen;
@@ -220,7 +224,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
         : null;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: MergeSemantics(
@@ -357,7 +361,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
-//  Mobil Bento (< 900px)
+//  Mobil Bento (< contentWide)
 // ═══════════════════════════════════════════════════════════════════════════
 
 class _MobileBento extends StatelessWidget {
@@ -424,7 +428,7 @@ class _MobileBento extends StatelessWidget {
 
     final isSpecial = article.sourceName == null || article.sourceName!.trim().isEmpty;
     final bgColor = isDark ? AppColors.darkGreen : Colors.white;
-    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E0D2);
 
     return MergeSemantics(
       child: GestureDetector(
@@ -502,7 +506,7 @@ class _MobileBento extends StatelessWidget {
 
     final isSpecial = article.sourceName == null || article.sourceName!.trim().isEmpty;
     final bgColor = isDark ? AppColors.darkGreen : Colors.white;
-    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E0D2);
 
     return MergeSemantics(
       child: GestureDetector(
@@ -651,7 +655,7 @@ class _ExtraListSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderColor = isDark ? AppColors.wheat : AppColors.wheat;
+    final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E0D2);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -707,7 +711,7 @@ class _ListItemState extends State<_ListItem> {
         : null;
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(

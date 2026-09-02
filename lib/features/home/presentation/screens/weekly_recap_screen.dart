@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/hover.dart';
+import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +10,7 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/utils/iso_week.dart';
+import '../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../core/utils/localization_helper.dart';
 import '../../../../core/widgets/article_timestamp.dart';
 import '../../data/models/news_article.dart';
@@ -60,9 +63,9 @@ class WeeklyRecapScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final theme = Theme.of(context);
-    final isDark = theme.brightness == Brightness.dark;
-    final isMobile = MediaQuery.of(context).size.width < 900;
+    final isDark = appIsDark;
+    final isMobile =
+        MediaQuery.of(context).size.width < ResponsiveBreakpoints.contentWide;
 
     final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF4F4F4);
     final textColor = isDark ? AppColors.wheat : AppColors.earthText;
@@ -548,7 +551,7 @@ class _RecapCardState extends State<_RecapCard> {
     final accent = AppColors.accentFor(isDark: widget.isDark);
 
     return MouseRegion(
-      onEnter: (_) => setState(() => _hovered = true),
+      onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
