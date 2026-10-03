@@ -31,6 +31,25 @@ for arg in "$@"; do
 done
 
 if [[ $DO_BUILD -eq 1 ]]; then
+  # iCloud buluta attığı dosyaları yerelde "veri yok" yer tutucusu olarak
+  # bırakıyor; derleme okumaya çalışınca `errno 60 — Operation timed out`
+  # alıp düşüyor. Depo ~/Desktop altında ve orası senkronizasyona dahil
+  # (bkz. CLAUDE.md §1). Dosyaları okumak iCloud'a indirmeyi tetikliyor.
+  #
+  # `web/` için .nosync YÖNTEMİ KULLANILAMAZ: klasör git tarafından izleniyor
+  # (113 dosya) ve taşınıp yerine sembolik bağ konsaydı git hepsini silinmiş
+  # görürdü. node_modules'de sorun yoktu, orası zaten gitignore'da.
+  echo "▸ Varlıklar yerele çekiliyor (iCloud)…"
+  if ! find web -type f -exec cat {} + > /dev/null 2>/tmp/tarim_icloud.log; then
+    echo "  ! bazı dosyalar okunamadı; iCloud indirmesi bekleniyor, tekrar deneniyor"
+    sleep 20
+    find web -type f -exec cat {} + > /dev/null 2>/tmp/tarim_icloud.log || {
+      echo "  ✗ web/ altındaki dosyalar okunamıyor. iCloud senkronizasyonu takılmış" >&2
+      echo "    olabilir; Finder'da klasörü açıp indirmenin bitmesini bekleyin." >&2
+      exit 1
+    }
+  fi
+
   echo "▸ Flutter web derleniyor…"
   # --pwa-strategy=none: Flutter'ın service worker'ı kullanımdan kaldırıldı;
   # ürettiği sürüm kendini silip sayfayı yeniden yüklüyor, bootstrap ise onu her
@@ -38,7 +57,7 @@ if [[ $DO_BUILD -eq 1 ]]; then
   # döngüsüydü (ayrıntı: web/flutter_service_worker.js). Bu bayrak
   # `serviceWorkerSettings` bloğunu bootstrap'tan çıkarır; elle yazdığımız
   # temizleyici worker ise `web/` altından olduğu gibi kopyalanır.
-  flutter build web --release --pwa-strategy=none
+  flutter build web --release --pwa-strategy=none --no-tree-shake-icons
 fi
 
 if [[ ! -f build/web/index.html ]]; then
@@ -75,6 +94,24 @@ if ! grep -q 'SOCIAL_META_START' functions/shell.html; then
   echo "  web/index.html'deki işaret blokları silinmiş olabilir." >&2
   exit 1
 fi
+
+# Aynı gerekçe gövde işaretleri için: bunlar olmadan `ogRenderer` ve
+# `homeRenderer` haber metnini sayfaya yazamaz ve site arama motorlarına
+# yeniden görünmez olur — üstelik sessizce, hiçbir hata vermeden.
+if ! grep -q 'SSR_CONTENT_START' functions/shell.html; then
+  echo "✗ functions/shell.html içinde SSR_CONTENT_START yok." >&2
+  echo "  Gövde metni arama motorlarına sunulamaz (bkz. SEO denetimi)." >&2
+  exit 1
+fi
+
+# Ana sayfa link listesi — KABUK KOPYALANDIKTAN SONRA.
+#
+# Sıra önemli: `functions/shell.html` işaretleri BOŞ haliyle alıyor, çünkü
+# `ogRenderer` oraya haberin kendi gövdesini yazacak. Liste yalnızca statik
+# sunulan `build/web/index.html`e giriyor — yani ana sayfaya ve `**`
+# yakalayıcısının sunduğu diğer tüm rotalara.
+echo "▸ Ana sayfa link listesi gömülüyor…"
+python3 scripts/ana_sayfa_linkleri.py
 
 echo "▸ Fonksiyon sözdizimi denetimi…"
 node --check functions/index.js

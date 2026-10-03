@@ -75,3 +75,16 @@ content/dossiers/*/_raw/*.zip
 # Dosya önizleme satırları — üretilmiş, yayımlanmamış dosya içeriği taşıyor.
 # Firebase'e de yüklenmiyor (firebase.json/hosting.ignore).
 web/onizleme/
+
+# iCloud dışına alınan derleme dizinleri (bkz. CLAUDE.md)
+.dart_tool.nosync/
+build.nosync/
+
+# Geçici ses ve test dosyaları
+*.wav
+node-v22*
+check_*.py
+test_*.py
+scripts/*.b64
+functions/node_modules.nosync/
+supabase/.temp/

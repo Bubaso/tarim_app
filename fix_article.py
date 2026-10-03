@@ -43,8 +43,7 @@ try:
             "summary_en": new_data.get("summary_en", ""),
             "key_takeaways": new_data.get("key_takeaways", []),
             "key_takeaways_en": new_data.get("key_takeaways_en", []),
-            "expert_insight": new_data.get("expert_insight", ""),
-            "expert_insight_en": new_data.get("expert_insight_en", ""),
+
             "chart_data": new_data.get("chart_data")
         }
         
