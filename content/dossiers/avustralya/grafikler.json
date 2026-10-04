@@ -1,0 +1,849 @@
+{
+  "_dosya": "Avustralya — grafik tarifleri",
+  "_kural": "Sayılar buraya YAZILMAZ; @yol ile data.json'dan çekilir. Yol çözülmezse seed üretimi durur.",
+  "_tur_siniri": "Yalnız çizicide GERÇEKTEN bulunan dokuz tip kullanıldı. §8.5'te tanımlı mevzuat_zinciri ve bagimlilik_haritasi KODA YAZILMADI; var olmayan tip için grafik tarif edilmez (§8.12). Bu dosyanın ekseni hukuki olduğu için mevzuat_zinciri cazip görünüyordu — yazılmadı.",
+  "_kapsam_uyarisi": "Altı grafik kuzey Victoria verisidir, Avustralya geneli değil. Her birinin 'not' alanı bunu söylüyor; kaldırılmayacak.",
+  "_eksen_x": "Çizgi grafiklerinde x ekseni su yılının BAŞLADIĞI takvim yılı (2023-24 → 2023). 'yil' alanı dizgi olduğu için çizici onu okuyamıyor; 'yil_no' bu yüzden var.",
+  "grafikler": {
+    "su_kimde": {
+      "tur": "yigin",
+      "baslik": {
+        "tr": "Kuzey Victoria'da yüksek güvenilirlikli su hakkı kimin elinde",
+        "en": "Who holds the high-reliability water entitlement in northern Victoria"
+      },
+      "not": {
+        "tr": "Dört ayrı 30 Haziran. 2000-01'de suyun tamamı toprağa bağlıydı; 2023-24'te yarısı. Çevre, hiç yokken en büyük tarım dışı hak sahibi oldu. Kuzey Victoria — Avustralya geneli değil.",
+        "en": "Four separate 30 Junes. In 2000-01 all the water was linked to land; by 2023-24, half of it. The environment went from holding none to being the largest non-farm holder. Northern Victoria — not Australia as a whole."
+      },
+      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 2",
+      "cubuklar": [
+        {
+          "etiket": {
+            "tr": "2000-01",
+            "en": "2000-01"
+          },
+          "dilimler": [
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı",
+                "en": "Private — linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.0.ozel_topraga_bagli_gl",
+              "rol": "vurgu"
+            },
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı değil",
+                "en": "Private — not linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.0.ozel_topraga_bagli_degil_gl",
+              "rol": "ikincil"
+            },
+            {
+              "ad": {
+                "tr": "Çevre",
+                "en": "Environment"
+              },
+              "deger": "@sahiplik.kayitlar.0.cevre_gl",
+              "rol": "sessiz"
+            },
+            {
+              "ad": {
+                "tr": "Su kurumu",
+                "en": "Water corporation"
+              },
+              "deger": "@sahiplik.kayitlar.0.su_kurumu_gl",
+              "rol": "sessiz"
+            }
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "2008-09",
+            "en": "2008-09"
+          },
+          "dilimler": [
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı",
+                "en": "Private — linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.2.ozel_topraga_bagli_gl",
+              "rol": "vurgu"
+            },
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı değil",
+                "en": "Private — not linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.2.ozel_topraga_bagli_degil_gl",
+              "rol": "ikincil"
+            },
+            {
+              "ad": {
+                "tr": "Çevre",
+                "en": "Environment"
+              },
+              "deger": "@sahiplik.kayitlar.2.cevre_gl",
+              "rol": "sessiz"
+            },
+            {
+              "ad": {
+                "tr": "Su kurumu",
+                "en": "Water corporation"
+              },
+              "deger": "@sahiplik.kayitlar.2.su_kurumu_gl",
+              "rol": "sessiz"
+            }
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "2015-16",
+            "en": "2015-16"
+          },
+          "dilimler": [
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı",
+                "en": "Private — linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.9.ozel_topraga_bagli_gl",
+              "rol": "vurgu"
+            },
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı değil",
+                "en": "Private — not linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.9.ozel_topraga_bagli_degil_gl",
+              "rol": "ikincil"
+            },
+            {
+              "ad": {
+                "tr": "Çevre",
+                "en": "Environment"
+              },
+              "deger": "@sahiplik.kayitlar.9.cevre_gl",
+              "rol": "sessiz"
+            },
+            {
+              "ad": {
+                "tr": "Su kurumu",
+                "en": "Water corporation"
+              },
+              "deger": "@sahiplik.kayitlar.9.su_kurumu_gl",
+              "rol": "sessiz"
+            }
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "2023-24",
+            "en": "2023-24"
+          },
+          "dilimler": [
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı",
+                "en": "Private — linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.17.ozel_topraga_bagli_gl",
+              "rol": "vurgu"
+            },
+            {
+              "ad": {
+                "tr": "Özel — toprağa bağlı değil",
+                "en": "Private — not linked to land"
+              },
+              "deger": "@sahiplik.kayitlar.17.ozel_topraga_bagli_degil_gl",
+              "rol": "ikincil"
+            },
+            {
+              "ad": {
+                "tr": "Çevre",
+                "en": "Environment"
+              },
+              "deger": "@sahiplik.kayitlar.17.cevre_gl",
+              "rol": "sessiz"
+            },
+            {
+              "ad": {
+                "tr": "Su kurumu",
+                "en": "Water corporation"
+              },
+              "deger": "@sahiplik.kayitlar.17.su_kurumu_gl",
+              "rol": "sessiz"
+            }
+          ]
+        }
+      ]
+    },
+    "topraktan_ayrilma": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Suyun topraktan ayrılması, yirmi üç yılda",
+        "en": "Water's separation from land, over twenty-three years"
+      },
+      "birim": {
+        "tr": "yüksek güvenilirlikli hakkın yüzdesi",
+        "en": "per cent of high-reliability entitlement"
+      },
+      "ondalik": 1,
+      "sonek": {
+        "tr": "%",
+        "en": "%"
+      },
+      "not": {
+        "tr": "Kanun 2006'da ayrışmaya izin verdi, ayrışma 1 Temmuz 2007'de uygulandı. Toprağa bağlı olmayan payın tavanı başta %10'du; 2009'da kaldırıldı. Yüzdeler hacimlerden hesaplandı: kaynağın 2008-09 satırında yazılı yüzdeler kendi hacimleriyle çelişiyor, diğer on yedi satırda çelişmiyor. Kuzey Victoria.",
+        "en": "The law permitted separation in 2006; separation was implemented on 1 July 2007. Holdings not linked to land were initially capped at 10 per cent; the cap was abolished in 2009. The percentages are computed from the volumes: in the source's 2008-09 row the printed percentages contradict its own volumes, which they do not in the other seventeen rows. Northern Victoria."
+      },
+      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 2",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Toprağa bağlı",
+            "en": "Linked to land"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@sahiplik.kayitlar",
+            "x": "yil_no",
+            "y": "topraga_bagli_pay_yuzde"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Çevrenin elinde",
+            "en": "Held by the environment"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "liste": "@sahiplik.kayitlar",
+            "x": "yil_no",
+            "y": "cevre_pay_yuzde"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Özel ama toprağa bağlı değil",
+            "en": "Private but not linked to land"
+          },
+          "rol": "sessiz",
+          "noktalar": {
+            "liste": "@sahiplik.kayitlar",
+            "x": "yil_no",
+            "y": "topraga_bagli_degil_pay_yuzde"
+          }
+        }
+      ]
+    },
+    "kalici_hakkin_fiyati": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Kalıcı su hakkının megalitre fiyatı",
+        "en": "The price of a permanent water entitlement, per megalitre"
+      },
+      "birim": {
+        "tr": "medyan devir fiyatı, AUD/ML",
+        "en": "median transfer price, AUD/ML"
+      },
+      "ondalik": 0,
+      "onek": {
+        "tr": "$",
+        "en": "$"
+      },
+      "not": {
+        "tr": "Medyan fiyat. Yüksek güvenilirlikli pay suyu önce alır; düşük güvenilirlikli pay ancak bol yıllarda su görür ve fiyatı bunu yansıtıyor. Medyan bölgeler arası ayrışmayı gizler — Barmah'ın aşağısındaki fark ayrı bir bölümde. Kuzey Victoria.",
+        "en": "Median price. A high-reliability share is served first; a low-reliability share receives water only in abundant years, and its price reflects that. A median conceals divergence between zones — the gap below Barmah has a section of its own. Northern Victoria."
+      },
+      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 4 ve 5",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Yüksek güvenilirlikli pay",
+            "en": "High-reliability share"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@pay_fiyati.kayitlar",
+            "x": "yil_no",
+            "y": "medyan_fiyat_aud_ml"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Düşük güvenilirlikli pay",
+            "en": "Low-reliability share"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "liste": "@pay_fiyati_dusuk.kayitlar",
+            "x": "yil_no",
+            "y": "medyan_fiyat_aud_ml"
+          }
+        }
+      ]
+    },
+    "hak_ve_kullanim": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Arazinin verdiği hak ile fiilen kullanılan su",
+        "en": "The entitlement the land provides, against the water actually used"
+      },
+      "birim": {
+        "tr": "gigalitre",
+        "en": "gigalitres"
+      },
+      "ondalik": 0,
+      "not": {
+        "tr": "İki çizginin kesiştiği yer, piyasanın işe karıştığı yerdir: kullanım, toprağa bağlı hakkın üstüne çıktığında fark ticaretle kapanıyor. Kuzey Victoria.",
+        "en": "Where the two lines cross is where the market enters: when use exceeds the land-linked entitlement, the difference is met by trade. Northern Victoria."
+      },
+      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 6",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Toprağa bağlı hak",
+            "en": "Entitlement linked to land"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "liste": "@kullanim.kayitlar",
+            "x": "yil_no",
+            "y": "topraga_bagli_gl"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Fiilî kullanım",
+            "en": "Actual use"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@kullanim.kayitlar",
+            "x": "yil_no",
+            "y": "kullanim_gl"
+          }
+        }
+      ]
+    },
+    "topraksiz_suyun_akibeti": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Toprağa bağlı olmayan suyun tahsisi ne oluyor",
+        "en": "What becomes of the allocation on water not linked to land"
+      },
+      "birim": {
+        "tr": "gigalitre",
+        "en": "gigalitres"
+      },
+      "ondalik": 0,
+      "not": {
+        "tr": "Topraktan ayrılan su boş durmuyor. 'Kayıp' kalemi, kullanılmayıp silinen ya da buharlaşan tahsis. Kuzey Victoria.",
+        "en": "Water detached from land does not sit idle. 'Lost' is allocation written off unused or evaporated. Northern Victoria."
+      },
+      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 16",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Ticari olarak satıldı",
+            "en": "Sold commercially"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@topraksiz_su.kayitlar",
+            "x": "yil_no",
+            "y": "ticari_satildi_gl"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Bedelsiz devredildi",
+            "en": "Transferred at no charge"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "liste": "@topraksiz_su.kayitlar",
+            "x": "yil_no",
+            "y": "sifirla_devredildi_gl"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Ertesi yıla devretti",
+            "en": "Carried over to the next year"
+          },
+          "rol": "sessiz",
+          "noktalar": {
+            "liste": "@topraksiz_su.kayitlar",
+            "x": "yil_no",
+            "y": "devreden_gl"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Kayıp — silinen ya da buharlaşan",
+            "en": "Lost — written off or evaporated"
+          },
+          "rol": "sessiz",
+          "noktalar": {
+            "liste": "@topraksiz_su.kayitlar",
+            "x": "yil_no",
+            "y": "kayip_buharlasma_gl"
+          }
+        }
+      ]
+    },
+    "ayrisma_zamani": {
+      "tur": "zaman_cizelgesi",
+      "baslik": {
+        "tr": "Suyu topraktan ayıran kararlar",
+        "en": "The decisions that separated water from land"
+      },
+      "not": {
+        "tr": "Ayrışma tek bir kanunla olmadı: izin verildi, tavan kondu, tavan kaldırıldı, sonra birliktelik kurumu tasfiye edildi. Tarihler Water Act 1989'un kendi dipnotlarından ve sicilin raporundan.",
+        "en": "The separation was not accomplished by a single statute: it was permitted, capped, uncapped, and finally the instrument of association was abolished. Dates come from the Water Act 1989's own endnotes and from the register's report."
+      },
+      "kaynak": "Water Act 1989 (Victoria), Tasdikli Sürüm No. 147 — dipnotlar; Victorian Water Register",
+      "olaylar": [
+        {
+          "yil": "@kronoloji.kanun_yili",
+          "baslik": {
+            "tr": "Water Act 1989 kabul edilir",
+            "en": "The Water Act 1989 is enacted"
+          },
+          "aciklama": {
+            "tr": "Victoria'nın su rejiminin çatı kanunu. Su payı henüz yok.",
+            "en": "The framework statute for Victoria's water regime. The water share does not yet exist."
+          }
+        },
+        {
+          "yil": "@kronoloji.dayanak_tasdik_yili",
+          "baslik": {
+            "tr": "Su payını kuran kanun tasdik edilir",
+            "en": "The statute creating the water share receives assent"
+          },
+          "aciklama": {
+            "tr": "Water (Resource Management) Act 2005, No. 99/2005. Kırk birinci maddesi, Water Act 1989'a 33F'i — payın ihdasını ve niteliğini — ekler.",
+            "en": "The Water (Resource Management) Act 2005, No. 99/2005. Its section 41 inserts section 33F — the issuing and nature of the share — into the Water Act 1989."
+          },
+          "yil_ek": {
+            "tr": "7 Aralık",
+            "en": "7 December"
+          }
+        },
+        {
+          "yil": "@kronoloji.yururluk_yili",
+          "baslik": {
+            "tr": "Hüküm yürürlüğe girer",
+            "en": "The provision commences"
+          },
+          "aciklama": {
+            "tr": "Özel Resmî Gazete No. 191 ile. Artık su payı olmadan su almak suç; payı Bakan ihdas ediyor, Sicil Memuru malikin adını ve adresini kaydediyor.",
+            "en": "By Special Gazette No. 191. Taking water without a water share is now an offence; the Minister issues the share and the Registrar records the owner's name and address."
+          },
+          "yil_ek": {
+            "tr": "3 Ağustos",
+            "en": "3 August"
+          }
+        },
+        {
+          "yil": "@kronoloji.ayrisma_yili",
+          "baslik": {
+            "tr": "Kuzey Victoria'da ayrışma uygulanır",
+            "en": "Separation is implemented in northern Victoria"
+          },
+          "aciklama": {
+            "tr": "Sicilin kendi ifadesiyle: o gün bütün paylar hâlâ toprakla birliktelik hâlindeydi. Sahipler ayırmayı seçebilirdi — tavanlar elverdiği ölçüde.",
+            "en": "In the register's own words: on that day every share was still associated with land. Holders could choose to disassociate — so far as the caps allowed."
+          },
+          "yil_ek": {
+            "tr": "1 Temmuz",
+            "en": "1 July"
+          }
+        },
+        {
+          "yil": "@kronoloji.tavan_kaldirma_yili",
+          "baslik": {
+            "tr": "Yüzde on tavanı kaldırılır",
+            "en": "The ten per cent cap is abolished"
+          },
+          "aciklama": {
+            "tr": "Bir sistemdeki pay hacminin en çok %10'u toprağa bağlı olmadan sahiplenilebiliyordu. Sınır kalkıyor.",
+            "en": "At most 10 per cent of a system's share volume could be owned without being linked to land. The limit is lifted."
+          }
+        },
+        {
+          "yil": "@kronoloji.cikis_tavani_kaldirma_yili",
+          "baslik": {
+            "tr": "Yüzde dört çıkış tavanı kaldırılır",
+            "en": "The four per cent export cap is abolished"
+          },
+          "aciklama": {
+            "tr": "Bir sulama alanından yılda en çok %4 su çıkarılabiliyordu. O sınır da kalkıyor.",
+            "en": "At most 4 per cent of an irrigation area's water could be moved out in a year. That limit goes too."
+          }
+        },
+        {
+          "yil": "@kronoloji.birliktelik_kaldirma_yili",
+          "baslik": {
+            "tr": "Birliktelik kurumu tasfiye edilir",
+            "en": "The instrument of association is abolished"
+          },
+          "aciklama": {
+            "tr": "Payı araziyle resmen bağlama imkânı kanundan çıkarılır. Sicil gerekçesini yazıyor: birliktelik, suyun nerede kullanılacağının anlamlı bir göstergesi olmaktan çıkmıştı.",
+            "en": "The ability to formally associate a share with land is removed from the statute. The register states the reason: association had ceased to be a meaningful indication of where the water would be used."
+          },
+          "yil_ek": {
+            "tr": "20 Kasım",
+            "en": "20 November"
+          }
+        },
+        {
+          "yil": "@kronoloji.kura_yili",
+          "baslik": {
+            "tr": "Sıra kurayla belirlenir",
+            "en": "The queue is decided by lot"
+          },
+          "aciklama": {
+            "tr": "Barmah darlığından geçecek ticaretin sırası rastgeleleştirilir. Çekilişi iki eyaletin idaresi birlikte yapar, rekabet kurumu izler ve kaydı sonradan inceleyip yazılı beyan verir.",
+            "en": "The order of trades passing through the Barmah narrows is randomised. Two states' administrations run the draw jointly, the competition regulator observes it, then reviews the recording and attests to it in writing."
+          },
+          "yil_ek": {
+            "tr": "3 Temmuz",
+            "en": "3 July"
+          }
+        }
+      ]
+    },
+    "kura_akisi": {
+      "tur": "islem_akisi",
+      "baslik": {
+        "tr": "Fiziksel kapasite yetmediğinde sıra nasıl belirleniyor",
+        "en": "How the queue is decided when physical capacity runs short"
+      },
+      "not": {
+        "tr": "Temmuz 2026 Barmah açılışının işleyişi. Sicil bu yöntemi kendi raporunda geçici bir çözüm olarak tanımlıyor.",
+        "en": "The procedure of the July 2026 Barmah opening. The register describes this method in its own report as an interim solution."
+      },
+      "kaynak": "Goulburn-to-Murray and Barmah Narrows Post Trade Opening Report, Temmuz 2026; ACCC'nin 3 Ağustos 2026 tarihli yazısı",
+      "adimlar": [
+        {
+          "baslik": {
+            "tr": "Kapasite ilan edilir",
+            "en": "The capacity is announced"
+          },
+          "aktor": {
+            "tr": "Eyalet idaresi",
+            "en": "State administration"
+          },
+          "aciklama": {
+            "tr": "Darlıktan o dönem geçebilecek hacim duyurulur. Nehrin o noktadaki akışı günde yaklaşık yedi bin megalitreyle sınırlı.",
+            "en": "The volume that can pass the narrows in that window is announced. The river's flow at that point is limited to roughly seven thousand megalitres a day."
+          },
+          "sure": {
+            "tr": "sabah 07.00",
+            "en": "07:00"
+          }
+        },
+        {
+          "baslik": {
+            "tr": "Başvuru penceresi açılır",
+            "en": "The application window opens"
+          },
+          "aktor": {
+            "tr": "Hak sahipleri",
+            "en": "Entitlement holders"
+          },
+          "aciklama": {
+            "tr": "Suyunu aşağı taşımak isteyen herkes başvurur. Başvurular aracı portalından ya da çevrim içi ticaretten gelir.",
+            "en": "Anyone wishing to move water downstream applies. Applications arrive through the broker portal or through online trading."
+          },
+          "sure": {
+            "tr": "2 Temmuz 2026",
+            "en": "2 July 2026"
+          }
+        },
+        {
+          "baslik": {
+            "tr": "Uygunluk denetlenir",
+            "en": "Eligibility is checked"
+          },
+          "aktor": {
+            "tr": "Eyalet idaresi",
+            "en": "State administration"
+          },
+          "aciklama": {
+            "tr": "Kurallara uymayan başvurular kuraya giremez ve doğrudan reddedilir.",
+            "en": "Applications that fail the rules do not enter the draw and are refused outright."
+          },
+          "belge": {
+            "tr": "uygunluk kaydı",
+            "en": "eligibility record"
+          }
+        },
+        {
+          "baslik": {
+            "tr": "Sıra kurayla çekilir",
+            "en": "The order is drawn by lot"
+          },
+          "aktor": {
+            "tr": "DEECA ile WaterNSW, birlikte",
+            "en": "DEECA and WaterNSW, jointly"
+          },
+          "aciklama": {
+            "tr": "Uygun başvurular, işlenme sırasını saptamak için rastgeleleştirilir. Önce başvuran önce geçmiyor; sıra tesadüfe bırakılıyor.",
+            "en": "Eligible applications are randomised to determine the order in which they will be processed. First come is not first served; the order is left to chance."
+          },
+          "belge": {
+            "tr": "rastgeleleştirme aracı",
+            "en": "randomisation tool"
+          },
+          "sure": {
+            "tr": "3 Temmuz 2026",
+            "en": "3 July 2026"
+          }
+        },
+        {
+          "baslik": {
+            "tr": "Çekiliş izlenir ve kaydı incelenir",
+            "en": "The draw is observed and its recording reviewed"
+          },
+          "aktor": {
+            "tr": "Rekabet ve Tüketici Kurumu (ACCC)",
+            "en": "Competition and Consumer Commission (ACCC)"
+          },
+          "aciklama": {
+            "tr": "Kurumun temsilcisi çekilişi yerinde izler, sonra kaydını yeniden inceler ve çıktıda hiçbir düzenleme veya değişiklik gözlemlemediğini imzasıyla beyan eder.",
+            "en": "The regulator's representative observes the draw in person, then reviews its recording and attests under signature to having observed no editing or change to the output."
+          },
+          "belge": {
+            "tr": "bağımsız gözlemci beyanı",
+            "en": "independent observer statement"
+          }
+        },
+        {
+          "baslik": {
+            "tr": "Kapasite dolana kadar işlenir",
+            "en": "Processing continues until capacity is full"
+          },
+          "aktor": {
+            "tr": "Eyalet idaresi",
+            "en": "State administration"
+          },
+          "aciklama": {
+            "tr": "Başvurular çekilen sıraya göre işlenir. Hacim tükendiğinde kalanlar reddedilir — kuralı çiğnedikleri için değil, kuradaki yerleri yüzünden.",
+            "en": "Applications are processed in the order drawn. When capacity is exhausted the rest are refused — not for breaking a rule, but because of where they fell in the draw."
+          },
+          "secenekler": [
+            {
+              "tr": "sıra yetti — ticaret onaylanır",
+              "en": "the queue reached them — the trade is approved"
+            },
+            {
+              "tr": "sıra yetmedi — başvuru reddedilir",
+              "en": "the queue did not reach them — the application is refused"
+            }
+          ]
+        }
+      ],
+      "sonuc": {
+        "tr": "Barmah'ta uygun başvuruların hacmi kapasitenin 2,8 katıydı; başvuranların yaklaşık yüzde yirmi dokuzu geçebildi.",
+        "en": "At Barmah the volume of eligible applications was 2.8 times the capacity; roughly twenty-nine per cent of applicants got through."
+      }
+    },
+    "iki_acilis": {
+      "tur": "ikili_cubuk",
+      "baslik": {
+        "tr": "Aynı gün, aynı kura, iki güzergâh",
+        "en": "The same day, the same draw, two routes"
+      },
+      "not": {
+        "tr": "İki açılış da 2 Temmuz 2026'da açıldı, ikisinin sırası da kurayla belirlendi. Aradaki tek fark fiziksel: Barmah'ta nehir daralıyor. Her iki açılışın rakamları da eyalet ayrımı olmadan, toplam olarak alınmıştır.",
+        "en": "Both openings opened on 2 July 2026 and the order in both was decided by lot. The only difference between them is physical: at Barmah the river narrows. Figures for both openings are taken as totals, without splitting by state."
+      },
+      "kaynak": "Goulburn-to-Murray and Barmah Narrows Post Trade Opening Report, Temmuz 2026",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Goulburn → Murray (darlık yok)",
+            "en": "Goulburn → Murray (no narrowing)"
+          },
+          "rol": "ikincil"
+        },
+        {
+          "ad": {
+            "tr": "Barmah darlığı",
+            "en": "The Barmah narrows"
+          },
+          "rol": "vurgu"
+        }
+      ],
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "İlan edilen kapasite",
+            "en": "Capacity announced"
+          },
+          "birim": {
+            "tr": "bin megalitre",
+            "en": "thousand megalitres"
+          },
+          "ondalik": 1,
+          "degerler": [
+            "@kura.goulburn_murray.kapasite_ml",
+            "@kura.barmah.kapasite_ml"
+          ],
+          "bolen": 1000
+        },
+        {
+          "etiket": {
+            "tr": "Kuraya giren başvuru",
+            "en": "Applications entering the draw"
+          },
+          "birim": {
+            "tr": "başvuru",
+            "en": "applications"
+          },
+          "ondalik": 0,
+          "degerler": [
+            "@kura.goulburn_murray.uygun",
+            "@kura.barmah.uygun_basvuru_toplam"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Onaylanan",
+            "en": "Approved"
+          },
+          "birim": {
+            "tr": "başvuru",
+            "en": "applications"
+          },
+          "ondalik": 0,
+          "degerler": [
+            "@kura.goulburn_murray.onaylanan",
+            "@kura.barmah.toplam_onaylanan"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Onay oranı",
+            "en": "Approval rate"
+          },
+          "birim": {
+            "tr": "yüzde",
+            "en": "per cent"
+          },
+          "ondalik": 1,
+          "degerler": [
+            "@kura.goulburn_murray.onay_orani_yuzde",
+            "@kura.barmah.onay_orani_yuzde"
+          ],
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "rozet": {
+            "tr": "aynı mekanizma",
+            "en": "same mechanism"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Talebin kapasiteye oranı",
+            "en": "Demand as a multiple of capacity"
+          },
+          "birim": {
+            "tr": "kat",
+            "en": "times"
+          },
+          "ondalik": 2,
+          "degerler": [
+            "@kura.goulburn_murray.asim_kati",
+            "@kura.barmah.asim_kati"
+          ],
+          "sonek": {
+            "tr": "×",
+            "en": "×"
+          }
+        }
+      ]
+    },
+    "dosyanin_rakamlari": {
+      "tur": "kunye",
+      "baslik": {
+        "tr": "Dosyanın dört rakamı",
+        "en": "Four figures from this dossier"
+      },
+      "not": {
+        "tr": "İlk üçü kuzey Victoria, dördüncüsü Avustralya geneli ve 2019-20 yılına ait — piyasa rakamlarından dört yıl eski. Aynı yılmış gibi okunmamalı.",
+        "en": "The first three are northern Victoria; the fourth is Australia-wide and belongs to 2019-20 — four years older than the market figures. They should not be read as the same year."
+      },
+      "kaynak": "Victorian Water Register; Bureau of Meteorology — Water in Australia 2019–20",
+      "kalemler": [
+        {
+          "deger": "@sahiplik.son_topraga_bagli_yuzde",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "suyun toprağa bağlı kalan payı",
+            "en": "share of the water still linked to land"
+          },
+          "alt": {
+            "tr": "2000-01'de yüzde yüzdü",
+            "en": "in 2000-01 it was one hundred per cent"
+          }
+        },
+        {
+          "deger": "@pay_fiyati.en_yuksek.medyan_fiyat_aud_ml",
+          "ondalik": 0,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "etiket": {
+            "tr": "kalıcı hakkın megalitre fiyatı, en yüksek yıl",
+            "en": "price of a permanent entitlement per megalitre, peak year"
+          },
+          "alt": {
+            "tr": "2013-14'te 1.380 dolardı",
+            "en": "in 2013-14 it was 1,380 dollars"
+          }
+        },
+        {
+          "deger": "@kura.barmah.onay_orani_yuzde",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "Barmah darlığında onaylanan başvuru oranı",
+            "en": "share of applications approved at the Barmah narrows"
+          },
+          "alt": {
+            "tr": "aynı gün öteki güzergâhta yüzde 98,6",
+            "en": "on the same day, 98.6 per cent on the other route"
+          }
+        },
+        {
+          "deger": "@ulusal.tuketim_toplam_gl",
+          "ondalik": 0,
+          "etiket": {
+            "tr": "Avustralya'da tüketime alınan su, gigalitre",
+            "en": "water taken for consumptive use in Australia, gigalitres"
+          },
+          "alt": {
+            "tr": "2019-20 — ulusal rakamın en güncel yılı",
+            "en": "2019-20 — the most recent year for the national figure"
+          }
+        }
+      ]
+    }
+  }
+}
