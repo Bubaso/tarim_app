@@ -1,0 +1,286 @@
+{
+  "_dosya": "Avustralya — Ülke Dosyası · yayın künyesi",
+  "_amac": "Dosyanın kimliği, penceresi, bölüm iskeleti ve ana sayfa hikâyesi. seed_dossier.mjs bu dosyayı okur.",
+  "slug": "avustralya",
+  "name_tr": "Avustralya",
+  "name_en": "Australia",
+  "iso3": "AUS",
+  "tur": "ulke",
+  "edition": 4,
+  "pencere": {
+    "gun": 28,
+    "baslangic": null,
+    "_baslangic_notu": "null → seed anında now(). Devir günü belli olmadığı için sabit tarih YAZILMIYOR: ileri tarihli bir pencere dosyayı yayına sokup şeritten gizliyor (§2.12/1)."
+  },
+  "status": "draft",
+  "_status_notu": "TASLAK. İspanya hâlâ yayında; devir açık onay ister ve otomatik tetiklenmez.",
+  "kapak": {
+    "url": "https://tarimportali.net/dosya/avustralya/avustralya_kapak_havadan.jpg",
+    "atif": "Willem van Aken, CSIRO — CC BY 3.0",
+    "lisans": "CC BY 3.0",
+    "_commons": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_4717_Aerial_view_of_rice_harvesting_in_the_Murrumbidgee_Irrigation_Area.jpg",
+    "_notu": "Havadan sulama bölgesi: taşkın ovasına oturtulmuş düz hatlı tarla ızgarası ve arazinin seviyesini izleyen kıvrımlı tava sırtları. tasarim.json kuzey Victoria'dan bir hava fotoğrafı istiyordu; Commons'ta bu ağdan bulunabilen en yakın kare Murrumbidgee Sulama Bölgesi'nde (NSW). SAPMA BİLEREK ve burada yazılı — kapak dosyanın KONUSUNU gösterir, verisinin kapsamını değil.",
+    "_gozle_dogrulandi": true
+  },
+  "video": {
+    "url": null,
+    "_notu": "null ise kapakta video bloğu hiç çizilmez."
+  },
+  "_bolum_iskeleti_notu": "Bölüm başlıkları METİNDEN okundu; metinle birebir. Bölüm sayısı 18, TR/EN numaraları aynı ve ardışık — seed bunu zorunlu tutuyor.",
+  "bolum_turleri": {
+    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis.",
+    "_neden_boyle": "İspanya'nın künyesindeki ders: okuma yorgunluğunun sebebi sayı yoğunluğu değil TABLO yüküydü. Bu dosyada da tablo yok; zaman serilerinin tamamı grafiğe gidiyor.",
+    "_akis_turu": "12. bölüm dizide 'akis' türünün İLK kullanımı. Tür seed'de baştan tanımlıydı ama dört sayıda hiç kullanılmadı; kura mekanizması bu türün tam karşılığı.",
+    "1": "anlati",
+    "2": "belge",
+    "3": "veri",
+    "4": "veri",
+    "5": "belge",
+    "6": "veri",
+    "7": "anlati",
+    "8": "veri",
+    "9": "veri",
+    "10": "anlati",
+    "11": "anlati",
+    "12": "akis",
+    "13": "veri",
+    "14": "belge",
+    "15": "anlati",
+    "16": "veri",
+    "17": "anlati",
+    "18": "anlati"
+  },
+  "bolum_grafikleri": {
+    "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir eşleşmek zorunda; aynı grafik iki bölüme atanamaz.",
+    "_kapsam_uyarisi": "3, 4, 6, 8, 9 ve 13'teki grafikler kuzey Victoria verisidir. Bölüm metni kapsamı açıkça söylüyor; grafiklerin 'not' alanı da söylüyor.",
+    "3": [
+      "su_kimde"
+    ],
+    "4": [
+      "topraktan_ayrilma"
+    ],
+    "5": [
+      "ayrisma_zamani"
+    ],
+    "6": [
+      "kalici_hakkin_fiyati"
+    ],
+    "8": [
+      "hak_ve_kullanim"
+    ],
+    "9": [
+      "topraksiz_suyun_akibeti"
+    ],
+    "12": [
+      "kura_akisi"
+    ],
+    "13": [
+      "iki_acilis"
+    ],
+    "16": [
+      "dosyanin_rakamlari"
+    ]
+  },
+  "_bolum_basliklari": {
+    "_notu": "METİNDEN OKUNDU; metinle birebir.",
+    "1": "Suyun kendi sicili",
+    "2": "Aynı kanunun iki kısmı",
+    "3": "Yüzde yüzden yüzde elliye",
+    "4": "Toprağı terk eden su",
+    "5": "İzin, tavan, tavanın kalkması",
+    "6": "Megalitrenin fiyatı",
+    "7": "Çevre bir hak sahibi oldu",
+    "8": "Arazinin verdiği, çiftçinin kullandığı",
+    "9": "Topraksız suyun işi ne",
+    "10": "Altı bin beş yüz hesap",
+    "11": "Nehrin daraldığı yer",
+    "12": "Sıra kurayla belirleniyor",
+    "13": "Aynı gün, iki güzergâh",
+    "14": "Rekabet kurumunun imzası",
+    "15": "Kuraklığı kimse ilan etmiyor",
+    "16": "Ülke ölçeğinde ne kadar su",
+    "17": "Türkiye buradan ne görebilir",
+    "18": "Toprak ve kanal"
+  },
+  "bolum_gorselleri": {
+    "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz.",
+    "_alan_notu": "Alan adı `alt_tr`/`alt_en` — seed bunu ZORUNLU tutuyor; atıf tek başına yetmiyor, alt metinsiz görsel de yayımlanmıyor. Bu metinler ekran okuyucunun duyacağı metindir; görselin NE GÖSTERDİĞİNİ anlatır, bölümün tezini tekrarlamaz.",
+    "_kaynak": "Hepsi Wikimedia Commons; atıf ve lisans Commons API'sinden çekildi, elle yazılmadı.",
+    "_gozle_dogrulama": "Başlık yalan söyleyebilir. Yedi görsel tek tek açılıp bakıldı: 1, 4, 8, 9, 11, 15, 18 ve kapak. BİRİNDE BAŞLIK YANILTICI ÇIKTI — 'CSIRO 11554 Irrigation farming' adlı kare sulanan bir çiftliği değil, KURU bir tarlada duran pivot makineyi gösteriyor; altyazısı ve bölümü ona göre yazıldı. Ötekilerin altyazısı Commons başlığının garanti ettiği kadarını söylüyor.",
+    "_kapsam": "Görseller konuyu gösterir, verinin kapsamını değil. Bazıları NSW'de (Griffith ana kanalı, kapak) — metindeki piyasa rakamları kuzey Victoria'dır ve bu ayrım bölüm metninde yazılı.",
+    "_en_boy_notu": "Oranlar OPTİMİZE EDİLMİŞ dosyalardan ölçüldü: küçültme oranı korur ama yuvarlama dördüncü haneyi kaydırır. §15 DİKEY (0,75) — beyan edilmeseydi çizici kutuyu 4:3 varsayıp onu ince bir şeride çevirirdi (Rusya'nın çernozyom monolitinde yaşanan hata).",
+    "_bos_birakilanlar": "14 ve 17. 14 rekabet kurumunun yazısını anlatıyor ve tasarım künyesi kurum logosu/resmî yazı tıpkıbasımını yasaklıyor. 17 Türkiye'ye bakıyor ve Avustralya dosyasına Türkiye manzarası koymak konuyu kaydırırdı. İkisi de BİLEREK görselsiz.",
+    "1": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_torrumbarry_bent.jpg",
+      "atif": "Chicken-7 — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Torrumbarry Bendi, Murray nehri. Kapaklardan geçen su ölçülüyor ve pay sahiplerine yazılıyor; sicilin kağıttaki kaydının sudaki karşılığı bu yapılar.",
+      "alt_en": "Torrumbarry Weir on the Murray. Water passing the gates is measured and booked to shareholders; these structures are the register's counterpart in the water itself.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Torrumbarry_weir.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "2": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_mulwala_kanal_basi.jpg",
+      "atif": "Mattinbgn — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Mulwala Kanalı'nın başı — suyun nehirden ayrılıp sulama şebekesine girdiği nokta.",
+      "alt_en": "The head of the Mulwala Canal — where water leaves the river and enters the irrigation network.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:MulwalaCanalStart.JPG"
+    },
+    "3": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_bugday_kirsali.jpg",
+      "atif": "David Edwards — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Orta Victoria'da tahıl arazisi.",
+      "alt_en": "Grain country in central Victoria.",
+      "en_boy": 1.5721,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_Country%2C_Central_Victoria._-_panoramio.jpg"
+    },
+    "4": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_ana_kanal.jpg",
+      "atif": "Willem van Aken, CSIRO — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Griffith'te ana sulama kanalı, 1989. Kanaldaki su hiçbir tarlanın değil; geçtiği arazilerin sahipleriyle de ilgisi yok.",
+      "alt_en": "The main irrigation channel at Griffith, 1989. The water in the channel belongs to no field, and has no connection to the owners of the land it passes.",
+      "en_boy": 1.5418,
+      "_commons": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_4632_Main_irrigation_channel_at_Griffith_NSW_1989.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "5": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_goulburn_benti.jpg",
+      "atif": "Mattinbgn (talk · contribs) — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Goulburn Bendi, Goulburn nehri. Kapaklar ne kadar suyun aşağı geçeceğini belirliyor.",
+      "alt_en": "Goulburn Weir on the Goulburn River. The gates determine how much water passes downstream.",
+      "en_boy": 1.5047,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Goulburn_Weir_Goulburn_River_001.JPG"
+    },
+    "6": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_mildura_bagi.jpg",
+      "atif": "Longhair at English Wikipedia — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Mildura'da bağ. Çok yıllık bahçe, parasını her yıl su alarak kazanıyor.",
+      "alt_en": "Vines at Mildura. Perennial horticulture earns its return by buying water every year.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Mildura_vines.jpg"
+    },
+    "7": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_kerang_kugu.jpg",
+      "atif": "Gypsy Denise — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Kerang Gölleri, Victoria. Çevrenin elindeki su hakkı bu tür sulak alanlara bırakılmak üzere tutuluyor.",
+      "alt_en": "The Kerang Lakes, Victoria. Entitlement held by the environment is kept to be released into wetlands such as these.",
+      "en_boy": 1.6609,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Swans_Lake_Elizabeth%2C_Kerang_Lakes%2C_Victoria.jpg"
+    },
+    "8": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_sulama_ciftligi.jpg",
+      "atif": "Liese Coulter, CSIRO — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Kuru bir tarlada duran pivot sulama makinesi. Donanım yerinde; su ayrı bir mesele.",
+      "alt_en": "A centre-pivot irrigator standing on a dry paddock. The equipment is in place; the water is a separate question.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_11554_Irrigation_farming.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "9": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_mulwala_bosalan.jpg",
+      "atif": "Mattinbgn — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Mulwala Gölü düşük seviyede; su çekilince dip ve kütükler açığa çıkıyor.",
+      "alt_en": "Lake Mulwala at a low level; as the water draws back, the bed and old stumps are exposed.",
+      "en_boy": 1.0,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Lake_Mulwala_Emptying.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "10": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_bugday_tarlasi.jpg",
+      "atif": "malleefarmscapes — CC BY 2.0",
+      "lisans": "CC BY 2.0",
+      "alt_tr": "Victoria'da buğday tarlaları.",
+      "alt_en": "Wheat fields in Victoria.",
+      "en_boy": 1.4969,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_fields_in_Victoria%2C_Australia.jpg"
+    },
+    "11": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_barmah_murray.jpg",
+      "atif": "AndreB94 — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Murray nehri, Barmah'ta. Nehrin bu noktadaki genişliği bir hukuk kurumu değil; aşağı geçebilecek su miktarını o belirliyor.",
+      "alt_en": "The Murray at Barmah. The river's width at this point is not a legal institution; it is what determines how much water can pass downstream.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Murray_River_at_Barmah_National_Park%2C_Victoria.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "12": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_barmah_ormani.jpg",
+      "atif": "Neuronicles — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Barmah Ormanı, Victoria.",
+      "alt_en": "The Barmah Forest, Victoria.",
+      "en_boy": 1.3383,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Barmah_Forest.jpeg"
+    },
+    "13": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_goulburn_nehri.jpg",
+      "atif": "Yun Huang Yong — CC BY 2.0",
+      "lisans": "CC BY 2.0",
+      "alt_tr": "Goulburn nehri, Victoria — Temmuz 2026'daki iki ticaret açılışından birinin güzergâhı.",
+      "alt_en": "The Goulburn River, Victoria — the route of one of the two trade openings of July 2026.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Goulburn_River_in_Victoria.jpg"
+    },
+    "15": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_kuraklik_uydu.jpg",
+      "atif": "NASA image of NDVI anomaly by Jesse Allen using MODIS data provided by Inbal Reshef as part of the Global Agricultural Monitoring Project involving NASA, USDA’s Foreign Agricultural Service (FAS), and the University of Maryland. Assaf Anyamba from the Goddard Earth Sciences Technology Center, and James Crutchfield with FAS, contributed to the caption as part of the same partnership. More data and information about this joint project is available at Satellite Information for Agricultural Monitoring. — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Doğu Avustralya'da bitki örtüsünün normalden sapması; kahverengi normalin altını, yeşil üstünü gösteriyor. Büro kuraklık ilan etmiyor, ölçüyor — ve ölçüm aynı anda bir bölgede kuru, başka bir bölgede yeşil olabiliyor.",
+      "alt_en": "Vegetation anomaly across eastern Australia; brown is below normal, green above. The Bureau does not declare drought, it measures it — and the measurement can be dry in one region and green in another at the same moment.",
+      "en_boy": 0.75,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Dry_Spring_in_Eastern_Australia_(5073).jpg",
+      "_gozle_dogrulandi": true
+    },
+    "16": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_hume_baraji.jpg",
+      "atif": "Steve Bennett (stevage) — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Hume Barajı, Murray nehri üzerinde.",
+      "alt_en": "The Hume Dam on the Murray River.",
+      "en_boy": 1.8045,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Hume_Dam_1_Stevage.jpeg"
+    },
+    "18": {
+      "url": "https://tarimportali.net/dosya/avustralya/avustralya_insan_yapimi_kanal.jpg",
+      "atif": "division, CSIRO — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Kazılmış bir sulama kanalı. Bir yanda su, öbür yanda kuru set; yan yana duruyorlar ve biri ötekinin rengini almıyor.",
+      "alt_en": "An excavated irrigation channel. Water on one side, dry bank on the other; they lie side by side and neither takes the other's colour.",
+      "en_boy": 1.456,
+      "_commons": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_169_Manmade_Water_Channel.jpg",
+      "_gozle_dogrulandi": true
+    }
+  },
+  "anahtar_kelimeler": [
+    "Avustralya",
+    "su hakkı",
+    "su piyasası",
+    "Murray-Darling",
+    "Victoria",
+    "sulama",
+    "kuraklık",
+    "su sicili",
+    "tahsis ticareti",
+    "Barmah",
+    "ACCC",
+    "su politikası",
+    "tarım ekonomisi"
+  ],
+  "_anahtar_kelimeler_notu": "'su hakkı' ve 'su piyasası' bu dizide ilk kez geçiyor; Türkçe haber akışında az kullanıldığı için 'sulama' ve 'kuraklık' geniş yakalayıcı olarak bırakıldı.",
+  "_kalan_isler": [
+    "Kanal ızgarası motif çizicisi — şu an yalnızca polder motifi var; şartname tasarim.json'da",
+    "Ulusal rakamın 2019-20'de kalması: ABS Water Account Australia denenecek",
+    "Devir: İspanya'nın arşive alınması ve status 'published' — AÇIK ONAY ister"
+  ]
+}
