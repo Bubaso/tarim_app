@@ -819,6 +819,12 @@ dokunmadım" aynı görünürdü.
 kelime). `/ulke/ispanya` 200 dönüyor, pencere 10 Ekim 2026'da kapanıyor.
 Rusya ve Hollanda arşivde.
 
+**Yayında (kurum):** TAGEM dosyası (Sayı 04, 13 bölüm). `/kurum/tagem`
+statik kabuğu dosyanın kendi og etiketleriyle dönüyor (§2.5); pencere
+29 Eylül 2026'da açıldı, 13 Ekim 2026'da kapanıyor. Kapak görseli yok,
+tipografik iskelete düşüyor (§3.5, §8.8). TMO, Ziraat Bankası ve Tarım
+Kredi arşivde.
+
 **Eski kayıt:** Hollanda dosyası (edition 1, 13 bölüm, TR ~4.826 / EN ~6.328
 kelime). `/ulke/hollanda` ve `/ulkeler` 200 dönüyor.
 
@@ -881,10 +887,16 @@ bülten kaydı; Android'de push ulaşmama sorunu.
 > geri alma sırasını yazıyor — migration ile istemci aynı pakette gitmeli,
 > yoksa ana sayfa şeridi kaybolur.
 
-**Durum: dosya taslak, dizi rafta.** Sayı 01 (TMO) için ham kaynaklar
-`content/dossiers/tmo/_raw/` altında; `data.json` kilitli ve 21 kalemi
-`dogrula_veri.py` ile ham kaynağa karşı doğrulanıyor. Metin yazıldı
-(TR ~3.670, EN ~4.700 kelime) ama **revizyon bekliyor**.
+> **Bu kutu tarihî kayıttır: RAF KALKTI.** `/kurum/` ve `/kurumlar`
+> rotaları geri geldi, dizi yürüyor ve dört sayı yayımlandı (§8.13). Kutu,
+> dizinin bir kez TON yüzünden durdurulduğunu kaydettiği için duruyor —
+> gerekçesi §8.2 (duruş) ve §8.11 (ton artık betikle sınanıyor) oldu.
+
+**Durum: dizi yürüyor, Sayı 04 (TAGEM) yayında** (§7, §8.13). Sayı 01 (TMO)
+için ham kaynaklar `content/dossiers/tmo/_raw/` altında; `data.json` kilitli
+ve 21 kalemi `dogrula_veri.py` ile ham kaynağa karşı doğrulanıyor. Metin
+yazıldı (TR ~3.670, EN ~4.700 kelime) ve Sayı 01 olarak yayımlandı
+(22 Ağustos 2026); bugün arşivde.
 
 ### 8.1 Ne olduğu
 
@@ -1173,8 +1185,8 @@ yazılsaydı boş dururdu.
 | 1 | Toprak Mahsulleri Ofisi | yayımlandı |
 | 2 | Ziraat Bankası | yayımlandı |
 | 3 | **Tarım Kredi Kooperatifleri** | yayımlandı 10 Eylül 2026 — §8.14 |
-| 4 | TAGEM ve araştırma enstitüleri | **sıradaki** |
-| 5 | DSİ | |
+| 4 | **TAGEM ve araştırma enstitüleri** | yayımlandı 29 Eylül 2026 |
+| 5 | **DSİ — Devlet Su İşleri** | **sıradaki** |
 | 6 | TİGEM | |
 | 7 | Türkşeker | |
 | 8 | Et ve Süt Kurumu (ESK) | |
@@ -1195,6 +1207,11 @@ yazılsaydı boş dururdu.
 | 23 | Fiskobirlik | |
 | 24 | ÇKS ve tarımsal veri sistemleri | |
 | 25 | Toptancı Hal Sistemi | |
+
+*(Durumlar 4 Ekim 2026'da canlı `country_dossiers` tablosundan okundu.
+Pencereler: TMO 22–29 Ağustos · Ziraat 29 Ağustos–10 Eylül · Tarım Kredi
+10–24 Eylül · TAGEM 29 Eylül–13 Ekim 2026. Tarım Kredi ile TAGEM arasında
+beş günlük boşluk var — kurum şeridi 24–29 Eylül arası boş kalmış.)*
 
 Liste §8.1'deki kapsamı doğruluyor: kamu kurumu, üretici örgütü, piyasa
 altyapısı ve **kapanmış kurumlar** (Köy Hizmetleri, Zirai Donatım, Devlet
