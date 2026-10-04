@@ -1,0 +1,31 @@
+KAYNAK: https://www.bom.gov.au/resources/learn-and-explore/drought-knowledge-centre
+YAKALAMA NOTU: BoM'un yeni sayfaları JavaScript ile geliyor; curl 192 KB
+HTML'den yalnızca 319 karakter metin veriyor. Aşağıdaki metin sayfayı
+gerçekten işleyen bir tarayıcıyla alındı. cek.sh bu dosyayı YENİDEN
+ÜRETEMEZ — bu yüzden depoda duruyor.
+
+Declaring a drought
+
+As an agency of the Australian Government, the Bureau does not declare a
+drought. The Australian Government does not make drought declarations.
+
+We provide drought and climate information that supports government-led
+drought policy, preparation and response.
+
+State and territory governments administer and coordinate drought policies
+and programs for their jurisdiction.
+
+The approach and response to drought is guided by the National Drought
+Agreement and the Australian Government Drought Plan.
+
+What is drought?
+
+Drought is a prolonged, abnormally dry period when there's not enough water
+available for normal use. It's not simply low rainfall - if it was, much of
+inland Australia would almost always be considered in drought.
+
+We generally measure drought conditions over at least 3 months. But it can be
+measured over weeks or longer, which helps categorise the type of drought:
+weeks - flash drought
+months - meteorological drought
+up to several years - hydrological drought.

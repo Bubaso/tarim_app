@@ -1,0 +1,1381 @@
+{
+  "_kaynak": "Bureau of Meteorology — Drought Statement archive",
+  "_kaynak_adresi": "https://www.bom.gov.au/climate/drought/archive.shtml",
+  "_kaynak_niteligi": "BAĞIMSIZ",
+  "_uyari": "Büro kuraklık ilan etmez, bildiri yayımlar. \"İlan\" denmeyecek.",
+  "bildiri_sayisi": 192,
+  "ilk": "2000-01-10",
+  "son": "2016-08-04",
+  "bildirisiz_ay_sayisi": 8,
+  "en_uzun_bildirisiz_dizi_ay": 8,
+  "en_uzun_bildirisiz_dizi": "October 2011 → May 2012",
+  "yila_gore_bildiri": {
+    "2000": 12,
+    "2001": 12,
+    "2002": 12,
+    "2003": 12,
+    "2004": 12,
+    "2005": 12,
+    "2006": 12,
+    "2007": 12,
+    "2008": 12,
+    "2009": 12,
+    "2010": 12,
+    "2011": 9,
+    "2012": 7,
+    "2013": 12,
+    "2014": 12,
+    "2015": 12,
+    "2016": 8
+  },
+  "yila_gore_bildirisiz_ay": {
+    "2011": 3,
+    "2012": 5
+  },
+  "bildiriler": [
+    {
+      "tarih": "2000-01-10",
+      "yil": 2000,
+      "ay": 1,
+      "baslik": "Drought Statement: Rainfall deficiencies continue in Victoria and Tasmania",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000110.shtml"
+    },
+    {
+      "tarih": "2000-02-07",
+      "yil": 2000,
+      "ay": 2,
+      "baslik": "Rainfall deficiencies continue in Victoria and Tasmania",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000207.shtml"
+    },
+    {
+      "tarih": "2000-03-15",
+      "yil": 2000,
+      "ay": 3,
+      "baslik": "Rainfall deficiencies expand in Victoria but contract in Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000315.shtml"
+    },
+    {
+      "tarih": "2000-04-10",
+      "yil": 2000,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies expand in Victoria, Tasmania and Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000410.shtml"
+    },
+    {
+      "tarih": "2000-05-05",
+      "yil": 2000,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies spread in Tasmania, but ease in parts of Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000505.shtml"
+    },
+    {
+      "tarih": "2000-06-06",
+      "yil": 2000,
+      "ay": 6,
+      "baslik": "Heavy rain in SE Australia eases rainfall deficiencies",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000606.shtml"
+    },
+    {
+      "tarih": "2000-07-11",
+      "yil": 2000,
+      "ay": 7,
+      "baslik": "Rainfall deficiencies persist",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000711.shtml"
+    },
+    {
+      "tarih": "2000-08-03",
+      "yil": 2000,
+      "ay": 8,
+      "baslik": "Rainfall deficiencies expand in Qld, ease in southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000803.shtml"
+    },
+    {
+      "tarih": "2000-09-08",
+      "yil": 2000,
+      "ay": 9,
+      "baslik": "Record dry continues in southeast Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20000908.shtml"
+    },
+    {
+      "tarih": "2000-10-06",
+      "yil": 2000,
+      "ay": 10,
+      "baslik": "Rainfall deficits intensify in WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20001006.shtml"
+    },
+    {
+      "tarih": "2000-11-08",
+      "yil": 2000,
+      "ay": 11,
+      "baslik": "Rainfall deficits intensify in WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20001108.shtml"
+    },
+    {
+      "tarih": "2000-12-07",
+      "yil": 2000,
+      "ay": 12,
+      "baslik": "Rainfall deficit still severe in parts of WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20001207.shtml"
+    },
+    {
+      "tarih": "2001-01-08",
+      "yil": 2001,
+      "ay": 1,
+      "baslik": "Rainfall deficits persist in WA, Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010108.shtml"
+    },
+    {
+      "tarih": "2001-02-08",
+      "yil": 2001,
+      "ay": 2,
+      "baslik": "New year precipitation eases rainfall deficits",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010208.shtml"
+    },
+    {
+      "tarih": "2001-03-08",
+      "yil": 2001,
+      "ay": 3,
+      "baslik": "Rain relief for some, but record dry in WA persists",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010308.shtml"
+    },
+    {
+      "tarih": "2001-04-04",
+      "yil": 2001,
+      "ay": 4,
+      "baslik": "March rains fail to ease WA, Queensland deficits",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010404.shtml"
+    },
+    {
+      "tarih": "2001-05-03",
+      "yil": 2001,
+      "ay": 5,
+      "baslik": "Further worsening of WA rainfall deficits",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010503.shtml"
+    },
+    {
+      "tarih": "2001-06-06",
+      "yil": 2001,
+      "ay": 6,
+      "baslik": "Seriously dry autumn hits parts of southern WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010606.shtml"
+    },
+    {
+      "tarih": "2001-07-04",
+      "yil": 2001,
+      "ay": 7,
+      "baslik": "Dry spell intensifies in southern WA - Drought Statement",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010704.shtml"
+    },
+    {
+      "tarih": "2001-08-02",
+      "yil": 2001,
+      "ay": 8,
+      "baslik": "Winter rains relieve WA but bypass south-east Australia: Drought Statement",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010802.shtml"
+    },
+    {
+      "tarih": "2001-09-05",
+      "yil": 2001,
+      "ay": 9,
+      "baslik": "Deficiencies ease in SE Australia but remain in W.A.",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20010905.shtml"
+    },
+    {
+      "tarih": "2001-10-04",
+      "yil": 2001,
+      "ay": 10,
+      "baslik": "Rainfall Deficiencies continue in W.A., Victoria and Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20011004.shtml"
+    },
+    {
+      "tarih": "2001-11-05",
+      "yil": 2001,
+      "ay": 11,
+      "baslik": "Rainfall Deficiencies ease in Victoria, persist in W.A. and Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20011105.shtml"
+    },
+    {
+      "tarih": "2001-12-07",
+      "yil": 2001,
+      "ay": 12,
+      "baslik": "Rainfall Deficiencies ease in Queensland, persist in W.A.",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20011207.shtml"
+    },
+    {
+      "tarih": "2002-01-07",
+      "yil": 2002,
+      "ay": 1,
+      "baslik": "Rainfall Deficiencies continue in W.A. and eastern Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020107.shtml"
+    },
+    {
+      "tarih": "2002-02-06",
+      "yil": 2002,
+      "ay": 2,
+      "baslik": "Rainfall Deficiencies develop in northwest WA, northern NT & in NSW",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020206.shtml"
+    },
+    {
+      "tarih": "2002-03-07",
+      "yil": 2002,
+      "ay": 3,
+      "baslik": "Rainfall deficiencies persist in WA, NSW, Victoria and SA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020307.shtml"
+    },
+    {
+      "tarih": "2002-04-05",
+      "yil": 2002,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies persist in WA, NSW, Queensland, Victoria and SA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020405.shtml"
+    },
+    {
+      "tarih": "2002-05-07",
+      "yil": 2002,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies affect all States",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020507.shtml"
+    },
+    {
+      "tarih": "2002-06-06",
+      "yil": 2002,
+      "ay": 6,
+      "baslik": "Rainfall deficiencies affect most states",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020606.shtml"
+    },
+    {
+      "tarih": "2002-07-03",
+      "yil": 2002,
+      "ay": 7,
+      "baslik": "Some relief but rainfall deficiencies remain widespread",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020703.shtml"
+    },
+    {
+      "tarih": "2002-08-02",
+      "yil": 2002,
+      "ay": 8,
+      "baslik": "Rainfall deficits worsen in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020802.shtml"
+    },
+    {
+      "tarih": "2002-09-03",
+      "yil": 2002,
+      "ay": 9,
+      "baslik": "Rainfall deficiencies persist in southern half of country",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20020903.shtml"
+    },
+    {
+      "tarih": "2002-10-03",
+      "yil": 2002,
+      "ay": 10,
+      "baslik": "Rainfall deficiencies persist in southern half of country",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20021003.shtml"
+    },
+    {
+      "tarih": "2002-11-01",
+      "yil": 2002,
+      "ay": 11,
+      "baslik": "Rainfall Deficiencies worsen following a dry October",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20021101.shtml"
+    },
+    {
+      "tarih": "2002-12-03",
+      "yil": 2002,
+      "ay": 12,
+      "baslik": "Rainfall deficiencies worsen in east",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20021203.shtml"
+    },
+    {
+      "tarih": "2003-01-07",
+      "yil": 2003,
+      "ay": 1,
+      "baslik": "Rainfall Deficiencies persist in east and south",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030107.shtml"
+    },
+    {
+      "tarih": "2003-02-04",
+      "yil": 2003,
+      "ay": 2,
+      "baslik": "Rainfall Deficiencies intensify",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030204.shtml"
+    },
+    {
+      "tarih": "2003-03-04",
+      "yil": 2003,
+      "ay": 3,
+      "baslik": "Heavy February rain brings relief",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030304.shtml"
+    },
+    {
+      "tarih": "2003-04-04",
+      "yil": 2003,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies persist across many parts of the country",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030404.shtml"
+    },
+    {
+      "tarih": "2003-05-07",
+      "yil": 2003,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies ease across northern NSW",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030507.shtml"
+    },
+    {
+      "tarih": "2003-06-04",
+      "yil": 2003,
+      "ay": 6,
+      "baslik": "Autumn: Rainfall deficiencies develop over some southern parts.",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030604.shtml"
+    },
+    {
+      "tarih": "2003-07-03",
+      "yil": 2003,
+      "ay": 7,
+      "baslik": "Rainfall deficiencies persist in the south",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030703.shtml"
+    },
+    {
+      "tarih": "2003-08-04",
+      "yil": 2003,
+      "ay": 8,
+      "baslik": "July rain brings further relief to SE Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030804.shtml"
+    },
+    {
+      "tarih": "2003-09-03",
+      "yil": 2003,
+      "ay": 9,
+      "baslik": "August rain brings further relief to southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20030903.shtml"
+    },
+    {
+      "tarih": "2003-10-02",
+      "yil": 2003,
+      "ay": 10,
+      "baslik": "Rainfall Deficiencies persist in northern and eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20031002.shtml"
+    },
+    {
+      "tarih": "2003-11-05",
+      "yil": 2003,
+      "ay": 11,
+      "baslik": "Rainfall Deficiencies persist in northern and eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20031105.shtml"
+    },
+    {
+      "tarih": "2003-12-02",
+      "yil": 2003,
+      "ay": 12,
+      "baslik": "Rainfall Deficiencies remain in parts of northern and eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20031202.shtml"
+    },
+    {
+      "tarih": "2004-01-05",
+      "yil": 2004,
+      "ay": 1,
+      "baslik": "Long-term rainfall deficiencies remain in parts of northern and eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040105.shtml"
+    },
+    {
+      "tarih": "2004-02-03",
+      "yil": 2004,
+      "ay": 2,
+      "baslik": "Heavy rain brings relief to Queensland and northern NSW",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040203.shtml"
+    },
+    {
+      "tarih": "2004-03-02",
+      "yil": 2004,
+      "ay": 3,
+      "baslik": "Some relief from long-term deficiencies in far north Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040302.shtml"
+    },
+    {
+      "tarih": "2004-04-05",
+      "yil": 2004,
+      "ay": 4,
+      "baslik": "Further relief in far north Qld, but deficiencies persist in other parts of E Aus.",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040405.shtml"
+    },
+    {
+      "tarih": "2004-05-05",
+      "yil": 2004,
+      "ay": 5,
+      "baslik": "Long-term rainfall deficiencies persist, mainly in the east",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040505.shtml"
+    },
+    {
+      "tarih": "2004-06-02",
+      "yil": 2004,
+      "ay": 6,
+      "baslik": "Autumn rains fall; severe deficiencies widespread in the southeast",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040602.shtml"
+    },
+    {
+      "tarih": "2004-07-02",
+      "yil": 2004,
+      "ay": 7,
+      "baslik": "Above average June rainfall eases rainfall deficiencies in parts of SE Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040702.shtml"
+    },
+    {
+      "tarih": "2004-08-03",
+      "yil": 2004,
+      "ay": 8,
+      "baslik": "Rainfall Deficiencies develop along east coast; persist in southeast inland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040803.shtml"
+    },
+    {
+      "tarih": "2004-09-02",
+      "yil": 2004,
+      "ay": 9,
+      "baslik": "Rainfall Deficiencies persist along east coast & in parts of inland southeast Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20040902.shtml"
+    },
+    {
+      "tarih": "2004-10-01",
+      "yil": 2004,
+      "ay": 10,
+      "baslik": "Rainfall Deficiencies persist along east coast & in parts of inland southeast Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20041001.shtml"
+    },
+    {
+      "tarih": "2004-11-03",
+      "yil": 2004,
+      "ay": 11,
+      "baslik": "Rainfall Deficiencies removed along NSW coast and ranges",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20041103.shtml"
+    },
+    {
+      "tarih": "2004-12-02",
+      "yil": 2004,
+      "ay": 12,
+      "baslik": "Rainfall Deficiencies removed in northeast NSW and southeast Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20041202.shtml"
+    },
+    {
+      "tarih": "2005-01-07",
+      "yil": 2005,
+      "ay": 1,
+      "baslik": "Rainfall Deficiencies develop in the NT and northern WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050107.shtml"
+    },
+    {
+      "tarih": "2005-02-03",
+      "yil": 2005,
+      "ay": 2,
+      "baslik": "Rainfall Deficiencies intensify in the NT and northern WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050203.shtml"
+    },
+    {
+      "tarih": "2005-03-03",
+      "yil": 2005,
+      "ay": 3,
+      "baslik": "Rainfall deficiencies intensify in northwest and central Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050303.shtml"
+    },
+    {
+      "tarih": "2005-04-04",
+      "yil": 2005,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies expand in northwestern and central Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050404.shtml"
+    },
+    {
+      "tarih": "2005-05-03",
+      "yil": 2005,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies develop in eastern & southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050503.shtml"
+    },
+    {
+      "tarih": "2005-06-02",
+      "yil": 2005,
+      "ay": 6,
+      "baslik": "Rainfall Deficiencies spread as autumn rains fail",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050602.shtml"
+    },
+    {
+      "tarih": "2005-07-01",
+      "yil": 2005,
+      "ay": 7,
+      "baslik": "June drenching brings welcome relief",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050701.shtml"
+    },
+    {
+      "tarih": "2005-08-02",
+      "yil": 2005,
+      "ay": 8,
+      "baslik": "Deficiencies persist in far SE Australia, ease in NW & central Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050802.shtml"
+    },
+    {
+      "tarih": "2005-09-05",
+      "yil": 2005,
+      "ay": 9,
+      "baslik": "Deficiencies eased or removed in far SE Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20050905.shtml"
+    },
+    {
+      "tarih": "2005-10-04",
+      "yil": 2005,
+      "ay": 10,
+      "baslik": "Deficiencies persist in parts of eastern and central Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20051004.shtml"
+    },
+    {
+      "tarih": "2005-11-03",
+      "yil": 2005,
+      "ay": 11,
+      "baslik": "Rainfall Deficiencies ease in parts of Queensland, SA and Victoria",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20051103.shtml"
+    },
+    {
+      "tarih": "2005-12-02",
+      "yil": 2005,
+      "ay": 12,
+      "baslik": "Further easing of deficiencies in southern Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20051202.shtml"
+    },
+    {
+      "tarih": "2006-01-05",
+      "yil": 2006,
+      "ay": 1,
+      "baslik": "Rainfall deficiencies persist in parts of eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060105.shtml"
+    },
+    {
+      "tarih": "2006-02-03",
+      "yil": 2006,
+      "ay": 2,
+      "baslik": "Rainfall Deficiencies persist in patches of eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060203.shtml"
+    },
+    {
+      "tarih": "2006-03-07",
+      "yil": 2006,
+      "ay": 3,
+      "baslik": "Rainfall deficiencies persist in small areas of eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060307.shtml"
+    },
+    {
+      "tarih": "2006-04-04",
+      "yil": 2006,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies develop in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060404.shtml"
+    },
+    {
+      "tarih": "2006-05-05",
+      "yil": 2006,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies continue in NSW and southern Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060505.shtml"
+    },
+    {
+      "tarih": "2006-06-02",
+      "yil": 2006,
+      "ay": 6,
+      "baslik": "Rainfall deficiencies intensify and spread in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060602.shtml"
+    },
+    {
+      "tarih": "2006-07-04",
+      "yil": 2006,
+      "ay": 7,
+      "baslik": "Rainfall deficiencies intensify in southwest WA and southeast Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060704.shtml"
+    },
+    {
+      "tarih": "2006-08-02",
+      "yil": 2006,
+      "ay": 8,
+      "baslik": "Rainfall deficiencies spread in western WA; ease in central and eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060802.shtml"
+    },
+    {
+      "tarih": "2006-09-04",
+      "yil": 2006,
+      "ay": 9,
+      "baslik": "Rainfall deficiencies spread following record dry August",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20060904.shtml"
+    },
+    {
+      "tarih": "2006-10-04",
+      "yil": 2006,
+      "ay": 10,
+      "baslik": "Rainfall deficiencies intensify in SA, NSW & Vic, but ease in WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20061004.shtml"
+    },
+    {
+      "tarih": "2006-11-03",
+      "yil": 2006,
+      "ay": 11,
+      "baslik": "Drought intensifies over eastern and southern Australia as spring rains fail",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20061103.shtml"
+    },
+    {
+      "tarih": "2006-12-04",
+      "yil": 2006,
+      "ay": 12,
+      "baslik": "Drought intensifies over eastern and southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20061204.shtml"
+    },
+    {
+      "tarih": "2007-01-04",
+      "yil": 2007,
+      "ay": 1,
+      "baslik": "Driest year on record in parts of southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070104.shtml"
+    },
+    {
+      "tarih": "2007-02-05",
+      "yil": 2007,
+      "ay": 2,
+      "baslik": "Heavy rain eases drought, but deficits remain",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070205.shtml"
+    },
+    {
+      "tarih": "2007-03-06",
+      "yil": 2007,
+      "ay": 3,
+      "baslik": "Drought persists in western WA, southern SA & from Tas to SE Qld",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070306.shtml"
+    },
+    {
+      "tarih": "2007-04-05",
+      "yil": 2007,
+      "ay": 4,
+      "baslik": "Drought persists in western WA, southern SA & from Tasmania to SE Qld",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070405.shtml"
+    },
+    {
+      "tarih": "2007-05-03",
+      "yil": 2007,
+      "ay": 5,
+      "baslik": "Short Term Relief but Long Term Drought Persists",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070503.shtml"
+    },
+    {
+      "tarih": "2007-06-04",
+      "yil": 2007,
+      "ay": 6,
+      "baslik": "Short Term Relief but Long Term Drought Persists",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070604.shtml"
+    },
+    {
+      "tarih": "2007-07-04",
+      "yil": 2007,
+      "ay": 7,
+      "baslik": "Another drier than average month in rainfall deficient areas",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070704.shtml"
+    },
+    {
+      "tarih": "2007-08-03",
+      "yil": 2007,
+      "ay": 8,
+      "baslik": "Most states still affected by rainfall deficiencies",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070803.shtml"
+    },
+    {
+      "tarih": "2007-09-03",
+      "yil": 2007,
+      "ay": 9,
+      "baslik": "Very dry since late autumn in parts of southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20070903.shtml"
+    },
+    {
+      "tarih": "2007-10-04",
+      "yil": 2007,
+      "ay": 10,
+      "baslik": "Rainfall deficits worsen following a dry September",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20071004.shtml"
+    },
+    {
+      "tarih": "2007-11-02",
+      "yil": 2007,
+      "ay": 11,
+      "baslik": "Another dry month for central and south-eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20071102.shtml"
+    },
+    {
+      "tarih": "2007-12-05",
+      "yil": 2007,
+      "ay": 12,
+      "baslik": "Deficiencies ease following a wet November",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20071205.shtml"
+    },
+    {
+      "tarih": "2008-01-07",
+      "yil": 2008,
+      "ay": 1,
+      "baslik": "Short-term deficiencies ease, long-term deficiencies remain",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080107.shtml"
+    },
+    {
+      "tarih": "2008-02-05",
+      "yil": 2008,
+      "ay": 2,
+      "baslik": "Long-term deficiencies remain in southern and eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080205.shtml"
+    },
+    {
+      "tarih": "2008-03-04",
+      "yil": 2008,
+      "ay": 3,
+      "baslik": "Short-term rainfall deficiencies develop in the southeast and central NT",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080304.shtml"
+    },
+    {
+      "tarih": "2008-04-02",
+      "yil": 2008,
+      "ay": 4,
+      "baslik": "Short-term rainfall deficiencies expand in central Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080402.shtml"
+    },
+    {
+      "tarih": "2008-05-02",
+      "yil": 2008,
+      "ay": 5,
+      "baslik": "Long and short-term rainfall deficiencies persist",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080502.shtml"
+    },
+    {
+      "tarih": "2008-06-04",
+      "yil": 2008,
+      "ay": 6,
+      "baslik": "A dry autumn over much of Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080604.shtml"
+    },
+    {
+      "tarih": "2008-07-03",
+      "yil": 2008,
+      "ay": 7,
+      "baslik": "Rainfall deficiencies persist over much of Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080703.shtml"
+    },
+    {
+      "tarih": "2008-08-06",
+      "yil": 2008,
+      "ay": 8,
+      "baslik": "Rainfall deficiencies persist over much of Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080806.shtml"
+    },
+    {
+      "tarih": "2008-09-03",
+      "yil": 2008,
+      "ay": 9,
+      "baslik": "A dry autumn and winter over most of Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20080903.shtml"
+    },
+    {
+      "tarih": "2008-10-03",
+      "yil": 2008,
+      "ay": 10,
+      "baslik": "Long and short-term rainfall deficiencies persist",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20081003.shtml"
+    },
+    {
+      "tarih": "2008-11-05",
+      "yil": 2008,
+      "ay": 11,
+      "baslik": "Rainfall deficiencies expand in southeastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20081105.shtml"
+    },
+    {
+      "tarih": "2008-12-03",
+      "yil": 2008,
+      "ay": 12,
+      "baslik": "Rainfall deficiencies ease over much of Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20081203.shtml"
+    },
+    {
+      "tarih": "2009-01-06",
+      "yil": 2009,
+      "ay": 1,
+      "baslik": "Short-term rainfall deficiencies ease over much of Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090106.shtml"
+    },
+    {
+      "tarih": "2009-02-04",
+      "yil": 2009,
+      "ay": 2,
+      "baslik": "Long-term rainfall deficiencies persist in southeastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090204.shtml"
+    },
+    {
+      "tarih": "2009-03-04",
+      "yil": 2009,
+      "ay": 3,
+      "baslik": "A dry February for southeastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090304.shtml"
+    },
+    {
+      "tarih": "2009-04-06",
+      "yil": 2009,
+      "ay": 4,
+      "baslik": "Long-term rainfall deficiencies persist over southeastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090406.shtml"
+    },
+    {
+      "tarih": "2009-05-06",
+      "yil": 2009,
+      "ay": 5,
+      "baslik": "Long-term rainfall deficiencies persist over southeastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090506.shtml"
+    },
+    {
+      "tarih": "2009-06-05",
+      "yil": 2009,
+      "ay": 6,
+      "baslik": "A very dry start to the year for much of southeast and southwestern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090605.shtml"
+    },
+    {
+      "tarih": "2009-07-06",
+      "yil": 2009,
+      "ay": 7,
+      "baslik": "Very dry first half of the year for parts of southeast Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090706.shtml"
+    },
+    {
+      "tarih": "2009-08-07",
+      "yil": 2009,
+      "ay": 8,
+      "baslik": "Long-term rainfall deficiencies persist; some relief to short-term deficits over parts of southern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090807.shtml"
+    },
+    {
+      "tarih": "2009-09-07",
+      "yil": 2009,
+      "ay": 9,
+      "baslik": "Short-term deficits worsen over the south coast of NSW and over central and eastern Victoria",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20090907.shtml"
+    },
+    {
+      "tarih": "2009-10-06",
+      "yil": 2009,
+      "ay": 10,
+      "baslik": "Short-term rainfall deficits develop over eastern Australia and ease slightly over parts of southern and central Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20091006.shtml"
+    },
+    {
+      "tarih": "2009-11-06",
+      "yil": 2009,
+      "ay": 11,
+      "baslik": "Short-term rainfall deficiencies persist over southeast Queensland and the Riverina and Lower Western districts of NSW",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20091106.shtml"
+    },
+    {
+      "tarih": "2009-12-03",
+      "yil": 2009,
+      "ay": 12,
+      "baslik": "Poor start to the northern wet season; longer-term deficits remain in parts of SE Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20091203.shtml"
+    },
+    {
+      "tarih": "2010-01-05",
+      "yil": 2010,
+      "ay": 1,
+      "baslik": "Deficiencies ease in northern and eastern Australia; longer-term deficits remain in parts of SE Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100105.shtml"
+    },
+    {
+      "tarih": "2010-02-05",
+      "yil": 2010,
+      "ay": 2,
+      "baslik": "Wet-season rainfall eases deficits in northern and central Australia; deficits remain in parts of southeast Australia, southwest WA and southeast Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100205.shtml"
+    },
+    {
+      "tarih": "2010-03-04",
+      "yil": 2010,
+      "ay": 3,
+      "baslik": "Rainfall deficits ease across eastern Australia but worsen in the west",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100304.shtml"
+    },
+    {
+      "tarih": "2010-04-08",
+      "yil": 2010,
+      "ay": 4,
+      "baslik": "Short-term deficiencies eased in east but long-term rainfall deficits remain",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100408.shtml"
+    },
+    {
+      "tarih": "2010-05-06",
+      "yil": 2010,
+      "ay": 5,
+      "baslik": "Short-term deficits persist in Western Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100506.shtml"
+    },
+    {
+      "tarih": "2010-06-03",
+      "yil": 2010,
+      "ay": 6,
+      "baslik": "Dry start to the year for western WA and southern Tasmania",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100603.shtml"
+    },
+    {
+      "tarih": "2010-07-02",
+      "yil": 2010,
+      "ay": 7,
+      "baslik": "Short-term deficits worsen over southwestern WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100702.shtml"
+    },
+    {
+      "tarih": "2010-08-04",
+      "yil": 2010,
+      "ay": 8,
+      "baslik": "Short-term deficits remain over western WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100804.shtml"
+    },
+    {
+      "tarih": "2010-09-06",
+      "yil": 2010,
+      "ay": 9,
+      "baslik": "A very dry year so far in southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20100906.shtml"
+    },
+    {
+      "tarih": "2010-10-06",
+      "yil": 2010,
+      "ay": 10,
+      "baslik": "Short-term deficits ease in Tasmania, but no relief for southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20101006.shtml"
+    },
+    {
+      "tarih": "2010-11-03",
+      "yil": 2010,
+      "ay": 11,
+      "baslik": "Rainfall deficiencies persist in western WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20101103.shtml"
+    },
+    {
+      "tarih": "2010-12-06",
+      "yil": 2010,
+      "ay": 12,
+      "baslik": "Australia's wettest spring but no relief for southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20101206.shtml"
+    },
+    {
+      "tarih": "2011-01-07",
+      "yil": 2011,
+      "ay": 1,
+      "baslik": "Driest year on record for southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110107.shtml"
+    },
+    {
+      "tarih": "2011-02-07",
+      "yil": 2011,
+      "ay": 2,
+      "baslik": "A wet January for southwest WA but deficiencies remain",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110207.shtml"
+    },
+    {
+      "tarih": "2011-03-03",
+      "yil": 2011,
+      "ay": 3,
+      "baslik": "A wet summer, but deficiencies remain in southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110303.shtml"
+    },
+    {
+      "tarih": "2011-04-06",
+      "yil": 2011,
+      "ay": 4,
+      "baslik": "Wettest March on record but still dry in the southwest",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110406.shtml"
+    },
+    {
+      "tarih": "2011-05-04",
+      "yil": 2011,
+      "ay": 5,
+      "baslik": "Mixed Rainfall in April 2011",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110504.shtml"
+    },
+    {
+      "tarih": "2011-06-06",
+      "yil": 2011,
+      "ay": 6,
+      "baslik": "Dry conditions continue in southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110606.shtml"
+    },
+    {
+      "tarih": "2011-07-05",
+      "yil": 2011,
+      "ay": 7,
+      "baslik": "Long-term dry conditions continue in southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110705.shtml"
+    },
+    {
+      "tarih": "2011-08-03",
+      "yil": 2011,
+      "ay": 8,
+      "baslik": "Long-term rainfall deficiencies persist in southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110803.shtml"
+    },
+    {
+      "tarih": "2011-09-06",
+      "yil": 2011,
+      "ay": 9,
+      "baslik": "Winter brings no relief to long-term rainfall deficiencies in southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20110906.shtml"
+    },
+    {
+      "tarih": "2012-06-06",
+      "yil": 2012,
+      "ay": 6,
+      "baslik": "Dry conditions return to southwest WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20120606.shtml"
+    },
+    {
+      "tarih": "2012-07-06",
+      "yil": 2012,
+      "ay": 7,
+      "baslik": "A dry start to winter for the Riverina, relief for western WA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20120706.shtml"
+    },
+    {
+      "tarih": "2012-08-03",
+      "yil": 2012,
+      "ay": 8,
+      "baslik": "Record-dry July for SW Western Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20120803.shtml"
+    },
+    {
+      "tarih": "2012-09-04",
+      "yil": 2012,
+      "ay": 9,
+      "baslik": "Another dry month for Western Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20120904.shtml"
+    },
+    {
+      "tarih": "2012-10-02",
+      "yil": 2012,
+      "ay": 10,
+      "baslik": "Rainfall deficiences continue in WA and SA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20121002.shtml"
+    },
+    {
+      "tarih": "2012-11-07",
+      "yil": 2012,
+      "ay": 11,
+      "baslik": "October rainfall lowest on record for southern Australia - deficiencies in WA and SA continue, expanding in NSW",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20121107.shtml"
+    },
+    {
+      "tarih": "2012-12-04",
+      "yil": 2012,
+      "ay": 12,
+      "baslik": "Rainfall deficiencies contract in WA but continue in SA",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20121204.shtml"
+    },
+    {
+      "tarih": "2013-01-04",
+      "yil": 2013,
+      "ay": 1,
+      "baslik": "Rainfall deficiencies expand in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130104.shtml"
+    },
+    {
+      "tarih": "2013-02-05",
+      "yil": 2013,
+      "ay": 2,
+      "baslik": "Rainfall deficiencies expand in southern Australia, but ease along the east coast",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130205.shtml"
+    },
+    {
+      "tarih": "2013-03-07",
+      "yil": 2013,
+      "ay": 3,
+      "baslik": "Rainfall deficiencies worsen in inland Queensland, continue in the southeast",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130307.shtml"
+    },
+    {
+      "tarih": "2013-04-04",
+      "yil": 2013,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies decline in the centre and inland east",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130404.shtml"
+    },
+    {
+      "tarih": "2013-05-02",
+      "yil": 2013,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies continue and worsen in the southeast for shorter timescales",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130502.shtml"
+    },
+    {
+      "tarih": "2013-06-06",
+      "yil": 2013,
+      "ay": 6,
+      "baslik": "Rainfall deficiencies continue in South Australia, Victoria and western Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130606.shtml"
+    },
+    {
+      "tarih": "2013-07-03",
+      "yil": 2013,
+      "ay": 7,
+      "baslik": "Rainfall deficiencies ease in New South Wales and South Australia; continue in Victoria, Tasmania and western Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130703.shtml"
+    },
+    {
+      "tarih": "2013-08-05",
+      "yil": 2013,
+      "ay": 8,
+      "baslik": "Rainfall deficiencies ease in the southeast but continue in Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130805.shtml"
+    },
+    {
+      "tarih": "2013-09-04",
+      "yil": 2013,
+      "ay": 9,
+      "baslik": "Continued easing of rainfall deficiencies in the southeast, little change for Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20130904.shtml"
+    },
+    {
+      "tarih": "2013-10-03",
+      "yil": 2013,
+      "ay": 10,
+      "baslik": "Rainfall deficiencies increase across Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20131003.shtml"
+    },
+    {
+      "tarih": "2013-11-08",
+      "yil": 2013,
+      "ay": 11,
+      "baslik": "Rainfall deficiencies continue in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20131108.shtml"
+    },
+    {
+      "tarih": "2013-12-05",
+      "yil": 2013,
+      "ay": 12,
+      "baslik": "Rainfall deficiencies persist in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20131205.shtml"
+    },
+    {
+      "tarih": "2014-01-08",
+      "yil": 2014,
+      "ay": 1,
+      "baslik": "Rainfall deficiencies increase in Queensland and northern New South Wales",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140108.shtml"
+    },
+    {
+      "tarih": "2014-02-04",
+      "yil": 2014,
+      "ay": 2,
+      "baslik": "Rainfall deficiencies increase in Queensland and adjacent New South Wales and South Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140204.shtml"
+    },
+    {
+      "tarih": "2014-03-05",
+      "yil": 2014,
+      "ay": 3,
+      "baslik": "Rainfall deficiencies continue in eastern Australia despite easing in western Queensland",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140305.shtml"
+    },
+    {
+      "tarih": "2014-04-04",
+      "yil": 2014,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies remain in Queensland and New South Wales, easing slightly in the inland east",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140404.shtml"
+    },
+    {
+      "tarih": "2014-05-07",
+      "yil": 2014,
+      "ay": 5,
+      "baslik": "Rainfall deficiencies remain in Queensland and northeastern New South Wales",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140507.shtml"
+    },
+    {
+      "tarih": "2014-06-04",
+      "yil": 2014,
+      "ay": 6,
+      "baslik": "Rainfall deficiencies remain in Queensland, emerging in northeastern New South Wales and the southeast",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140604.shtml"
+    },
+    {
+      "tarih": "2014-07-08",
+      "yil": 2014,
+      "ay": 7,
+      "baslik": "Rainfall deficiencies continue in Queensland and northeastern New South Wales",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140708.shtml"
+    },
+    {
+      "tarih": "2014-08-07",
+      "yil": 2014,
+      "ay": 8,
+      "baslik": "Rainfall deficiencies increase in Queensland and northeastern New South Wales",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140807.shtml"
+    },
+    {
+      "tarih": "2014-09-05",
+      "yil": 2014,
+      "ay": 9,
+      "baslik": "Rainfall deficiencies ease in central eastern Australia, worsen in the south and west",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20140905.shtml"
+    },
+    {
+      "tarih": "2014-10-06",
+      "yil": 2014,
+      "ay": 10,
+      "baslik": "Rainfall deficiencies worsen in Victoria and Tasmania",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20141006.shtml"
+    },
+    {
+      "tarih": "2014-11-06",
+      "yil": 2014,
+      "ay": 11,
+      "baslik": "Rainfall deficiencies worsen in southeast Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20141106.shtml"
+    },
+    {
+      "tarih": "2014-12-03",
+      "yil": 2014,
+      "ay": 12,
+      "baslik": "Rainfall deficiencies generally increase across eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20141203.shtml"
+    },
+    {
+      "tarih": "2015-01-07",
+      "yil": 2015,
+      "ay": 1,
+      "baslik": "Some relief on the east coast, rainfall deficiencies increase in western Victoria and southeast South Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150107.shtml"
+    },
+    {
+      "tarih": "2015-02-05",
+      "yil": 2015,
+      "ay": 2,
+      "baslik": "Rain brings some relief in Queensland, reduces deficiencies in northwestern Victoria",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150205.shtml"
+    },
+    {
+      "tarih": "2015-03-04",
+      "yil": 2015,
+      "ay": 3,
+      "baslik": "Below-average rainfall increases deficiencies in eastern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150304.shtml"
+    },
+    {
+      "tarih": "2015-04-08",
+      "yil": 2015,
+      "ay": 4,
+      "baslik": "Rainfall deficiencies continue after drier-than-average month for much of South Australia and the east",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150408.shtml"
+    },
+    {
+      "tarih": "2015-05-06",
+      "yil": 2015,
+      "ay": 5,
+      "baslik": "A dry finish to the northern wet season increases deficiencies in northern Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150506.shtml"
+    },
+    {
+      "tarih": "2015-06-03",
+      "yil": 2015,
+      "ay": 6,
+      "baslik": "Victorian situation worsens",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150603.shtml"
+    },
+    {
+      "tarih": "2015-07-03",
+      "yil": 2015,
+      "ay": 7,
+      "baslik": "June rain brings little relief to the north, deficiencies worsen in Victoria and southeast South Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150703.shtml"
+    },
+    {
+      "tarih": "2015-08-05",
+      "yil": 2015,
+      "ay": 8,
+      "baslik": "Deficiencies increase slightly in the east, develop in southwest Western Australia",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150805.shtml"
+    },
+    {
+      "tarih": "2015-09-04",
+      "yil": 2015,
+      "ay": 9,
+      "baslik": "Deficiencies increase to cover much of Victoria, generally little change elsewhere",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20150904.shtml"
+    },
+    {
+      "tarih": "2015-10-07",
+      "yil": 2015,
+      "ay": 10,
+      "baslik": "A dry September sees deficiencies persist or slightly increase",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20151007.shtml"
+    },
+    {
+      "tarih": "2015-11-05",
+      "yil": 2015,
+      "ay": 11,
+      "baslik": "Deficiencies expand in the southeast following a very dry October",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20151105.shtml"
+    },
+    {
+      "tarih": "2015-12-04",
+      "yil": 2015,
+      "ay": 12,
+      "baslik": "Generally little change to rainfall deficiencies following mixed November rainfall",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20151204.shtml"
+    },
+    {
+      "tarih": "2016-01-08",
+      "yil": 2016,
+      "ay": 1,
+      "baslik": "December rainfall has little impact on rainfall deficiencies",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160108.shtml"
+    },
+    {
+      "tarih": "2016-02-05",
+      "yil": 2016,
+      "ay": 2,
+      "baslik": "January rainfall has some effect on rainfall deficiencies",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160205.shtml"
+    },
+    {
+      "tarih": "2016-03-08",
+      "yil": 2016,
+      "ay": 3,
+      "baslik": "February rainfall has some effect on rainfall deficiencies",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160308.shtml"
+    },
+    {
+      "tarih": "2016-04-08",
+      "yil": 2016,
+      "ay": 4,
+      "baslik": "March rainfall reduces deficiencies in some areas",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160408.shtml"
+    },
+    {
+      "tarih": "2016-05-05",
+      "yil": 2016,
+      "ay": 5,
+      "baslik": "April rainfall affects deficiencies in some areas",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160505.shtml"
+    },
+    {
+      "tarih": "2016-06-07",
+      "yil": 2016,
+      "ay": 6,
+      "baslik": "Rainfall deficiencies continue in some areas",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160607.shtml"
+    },
+    {
+      "tarih": "2016-07-07",
+      "yil": 2016,
+      "ay": 7,
+      "baslik": "A wet June further eases rainfall deficiencies",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160707.shtml"
+    },
+    {
+      "tarih": "2016-08-04",
+      "yil": 2016,
+      "ay": 8,
+      "baslik": "Continued reduction in rainfall deficiencies following a wet July",
+      "adres": "https://www.bom.gov.au/climate/drought/archive/20160804.shtml"
+    }
+  ]
+}
