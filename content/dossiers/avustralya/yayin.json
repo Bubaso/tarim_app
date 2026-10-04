@@ -282,5 +282,61 @@
     "Kanal ızgarası motif çizicisi — şu an yalnızca polder motifi var; şartname tasarim.json'da",
     "Ulusal rakamın 2019-20'de kalması: ABS Water Account Australia denenecek",
     "Devir: İspanya'nın arşive alınması ve status 'published' — AÇIK ONAY ister"
-  ]
+  ],
+  "hikaye": {
+    "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+    "_kural": "Metin ELLE yazıldı, modele yazdırılmadı. Dört rakamın dördü de data.json'dan okunarak doğrulandı: toprağa bağlı pay %50,2 (2000-01'de %100), kalıcı hakkın zirve fiyatı 5.000 $/ML (2013-14'te 1.380, kat 3,62), Barmah'ın günlük akış sınırı 7.000 ML, Barmah onay oranı %29,0 (aynı gün Goulburn→Murray %98,6).",
+    "_akis": "Dört merak kancası, birbirinin devamı: suyun ayrı bir mülk olması → fiyatının üçe katlanması → nehrin daralması → sıranın kurayla belirlenmesi. Son slayt dosyanın en şaşırtıcı cümlesinde bırakıyor; çağrıyı baloncuğun kendisi yapıyor, slayt metni değil.",
+    "_kapsam_notu": "Birinci ve ikinci slaytın rakamları KUZEY VICTORIA verisi ve etiketlerinde bu yazılı. Slaytta yer dar; kapsamı etikete sığdırmak zorunlu, kısaltmak için düşürülemez.",
+    "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ fotoğraflardan; paylaşım kartı kullanılmıyor — kartın üstünde zaten yazı var ve görüntüleyici kendi metnini bindirince ikisi çakışıyor. Dördü de gözle doğrulanmış kareler.",
+    "_sinama_notu": "dosya_hikayeleri.py her slayt görselini HEAD ile çekip content-type'ın image/ ile başladığını sınıyor; biri bile geçmezse hikâyeyi HİÇ yazmıyor. Görseller henüz yayına alınmadığı için betik şu an BAŞARISIZ OLUR — doğru davranış budur, devirden sonra çalıştırılacak.",
+    "grup_tr": "Ülke Dosyası",
+    "grup_en": "Country Dossier",
+    "slaytlar": [
+      {
+        "ust": "ÜLKE DOSYASI · 04",
+        "ust_en": "COUNTRY DOSSIER · 04",
+        "baslik": "Avustralya'da su toprakla birlikte satılmıyor. Kendi sicili var, maliki adıyla kayıtlı, üstüne ipotek konabiliyor.",
+        "baslik_en": "In Australia water is not sold with the land. It has a register of its own, the owner recorded by name, and it can be mortgaged.",
+        "rakam": "%50,2",
+        "rakam_en": "50.2%",
+        "etiket": "Kuzey Victoria'da suyun toprağa bağlı kalan payı — 2000-01'de yüzde yüzdü",
+        "etiket_en": "Share of northern Victoria's water still linked to land — in 2000-01 it was one hundred per cent",
+        "gorsel": "https://tarimportali.net/dosya/avustralya/avustralya_insan_yapimi_kanal.jpg"
+      },
+      {
+        "ust": "MEGALİTRENİN FİYATI",
+        "ust_en": "THE PRICE OF A MEGALITRE",
+        "baslik": "Bir megalitre suyu her yıl alma hakkının fiyatı dokuz yılda üç kattan fazla arttı.",
+        "baslik_en": "The price of the right to take one megalitre every year rose more than threefold in nine years.",
+        "rakam": "5.000 $",
+        "rakam_en": "$5,000",
+        "etiket": "Kuzey Victoria'da kalıcı su hakkının megalitre fiyatı, 2022-23; 2013-14'te 1.380 dolardı",
+        "etiket_en": "Price per megalitre of a permanent entitlement in northern Victoria, 2022-23; in 2013-14 it was 1,380 dollars",
+        "gorsel": "https://tarimportali.net/dosya/avustralya/avustralya_mildura_bagi.jpg"
+      },
+      {
+        "ust": "NEHRİN DARALDIĞI YER",
+        "ust_en": "WHERE THE RIVER NARROWS",
+        "baslik": "Hak devredilebilir, fiyatı vardır, sicile kayıtlıdır. Ama su nehirden geçmek zorunda.",
+        "baslik_en": "The right is transferable, priced and registered. But the water has to pass through the river.",
+        "rakam": "7.000 ML",
+        "rakam_en": "7,000 ML",
+        "etiket": "Barmah darlığından günde geçebilen su",
+        "etiket_en": "Water that can pass the Barmah narrows in a day",
+        "gorsel": "https://tarimportali.net/dosya/avustralya/avustralya_barmah_murray.jpg"
+      },
+      {
+        "ust": "SIRAYI KURA BELİRLİYOR",
+        "ust_en": "THE QUEUE IS DRAWN BY LOT",
+        "baslik": "Kapasite yetmeyince sıra çekilişle veriliyor — ve çekilişi rekabet kurumu izliyor.",
+        "baslik_en": "When capacity falls short the queue is drawn by lot — and the competition regulator watches the draw.",
+        "rakam": "%29",
+        "rakam_en": "29%",
+        "etiket": "Temmuz 2026'da Barmah'ta onaylanan başvuru oranı; aynı gün öteki güzergâhta yüzde 98,6",
+        "etiket_en": "Share of applications approved at Barmah in July 2026; on the same day, 98.6 per cent on the other route",
+        "gorsel": "https://tarimportali.net/dosya/avustralya/avustralya_torrumbarry_bent.jpg"
+      }
+    ]
+  }
 }
