@@ -1,0 +1,1221 @@
+ 
+ 
+ OFFICIAL OFFICIAL OFFICIAL OFFICIAL-Sensitive 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+July 2026 
+Goulburn-to-Murray and Barmah 
+Narrows Post Trade Opening Report 
+
+ 
+ 
+1 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Contents 
+Contents .............................................................................................................. 1 
+Post Trade Report – July 2026 ........................................................................... 2 
+Application process summary ........................................................................................................................... 2 
+Barmah trade opening – 2 July 2026 ..................................................................................... 2 
+Barmah Narrows trade rule ................................................................................................................................ 2 
+Trade opening 2026–27 ....................................................................................................................................... 3 
+Barmah trade application statistics ................................................................................................................... 3 
+Trade application insights .................................................................................................................................. 3 
+Range of applications ......................................................................................................................................... 6 
+Goulburn-to-Murray trade opening – 2 July 2026................................................................. 7 
+Goulburn-to-Murray trade rule ........................................................................................................................... 7 
+Trade opening 2026–27 ....................................................................................................................................... 7 
+Goulburn-to-Murray trade application statistics .............................................................................................. 7 
+Trade application insights .................................................................................................................................. 7 
+Range of applications ....................................................................................................................................... 11 
+Additional Resources ........................................................................................................... 12 
+Appendix ................................................................................................................................ 13 
+ 
+ 
+ 
+ 
+2 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Post Trade Report – July 2026 
+ 
+ 
+This report provides a summary of water allocation trade activities for the July 2026 Barmah and Goulburn-to-Murray 
+trade opening events. It provides insight into the operation and outcomes of the trade opportunities under the 
+Goulburn-to-Murray and Barmah Narrows trading rules. 
+ 
+The report is divided into two sections: the first section covers the Barmah trade opening, and the second part covers 
+the Goulburn-to-Murray trade opening. 
+ 
+Application process summary 
+Allocation trade applications were submitted between 7:00 am and 2:00 pm on 2 July 2026. After the application 
+window closed, eligible applications were randomised to determine the order in which they would be processed for 
+the Goulburn -to-Murray and Barma h Narrows trade openings. DEECA and WaterNSW jointly undertook the 
+randomisation of eligible Barmah Narrows applications. Both randomisation processes were independently observed 
+by the Australian Competition and Consumer Commission (ACCC). 
+ 
+Victorian trade applications for the opening were submitted through My Water, DEECA’s online platform for accessing 
+the Victorian Water Register and trading water allocation. For the purposes of this report, Victorian application 
+sources are reported as either Broker Portal (including Broker API connections) or Online Trading (all other registered 
+My Water users). 
+ 
+The randomisation approach has been implemented as an interim solution to manage disruptions to trade openings. 
+The approach reduces pressure on Victorian Water Register systems during trade openings and maintains the 
+integrity of the trade application processing queue. Longer term options for improving the efficiency and equity of 
+access to inter-valley trade opportunities are being considered under a joint project between DEECA and WaterNSW. 
+DEECA has sought input from the public and industry stakeholders and will publish findings later in 2026. Information 
+regarding the project is available on Engage Victoria. 
+ 
+Barmah trade opening – 2 July 2026 
+Barmah Narrows trade rule 
+The Barmah Narrows trade rule restricts downstream trade through the Barmah Narrows. The Barmah Narrows is a 
+naturally narrow point on the River Murray, which restricts the river flow to just around 7,000 ML per day. Due to this 
+flow restriction, a trade restriction is in place on downstream trade to protect delivery to existing entitlement holders 
+and to maintain the river and riparian environment in and around the Narrows. The restriction means that trade 
+downstream of the Barmah Narrows may only occur when there is sufficient matching trade capacity available in the 
+opposite direction. 
+At the end of each water trading year on the 30th of June, under normal operations, the balance available for trading 
+from above to below the Barmah Narrows is cleared. Then, at the beginning of next water year (1 July), a volume is 
+credited to the Barmah trade balance. This annual adjustment account for water savings downstream of the Narrows 
+which have been transferred to the Snowy scheme. This initial volume is available to be traded from above to below 
+the Barmah Narrows. The Murray-Darling Basin Authority (MDBA) manages the limit as part of its role of managing 
+the River Murray on behalf of New South Wales and Victoria under the Murray-Darling Basin Agreement. 
+ 
+ 
+ 
+3 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Trade opening 2026–27 
+On 2 July 2026, the MDBA opened the Barmah trade limit with 24,121.3 ML of trade opportunity available. Read 
+about the volume made available here. 
+Barmah trade application statistics 
+Key statistics 
+Barmah trade opportunity 
+• The total Barmah trade opportunity made available at 7:00 am 2 July was 24,121.3 ML. 
+• Victorian applications secured a volume of 8,884.2 ML, while NSW applications secured 15,218.2 ML. 
+• A total of 136 eligible applications were submitted in Victoria for a volume of 31,253.1 ML. 
+• A total of 78 eligible applications were submitted in NSW for a volume of 36,192.1 ML. 
+• Of these applications, Victoria approved 33, and NSW approved 29. 
+• In Victoria: 
+o 138 applications were received, for a total volume of 31,477.8 ML. 
+o 136 applications were eligible for randomisation, for a total volume of 31,253.1 ML. 
+• 33 eligible applications were approved, with a volume of 8,884.2 ML. 
+• 103 eligible applications were refused, with a volume of 22,386.9 ML. 
+o 2 applications were not eligible for randomisation, for a volume of 224.7 ML – these were both 
+refused. 
+o 73 applications were received via the Broker Portal, for a total volume of 17,645.5 ML. 
+o 65 applications were received via online trading, for a total volume of 13,832.3 ML. 
+Trade application insights 
+Overview of Victorian and NSW applications 
+ 
+As in previous openings, the total volume of eligible applications received by Victoria and NSW (67,445.2 ML) 
+significantly exceeded the available trade oppor tunity (24,121.3 ML), indicating continued strong market demand to 
+move water allocation downstream through the Barmah Narrows. 
+ 
+Figure 1 shows the number and volume of all eligible Barmah applications received during the 2 July 2026 submission 
+window. 214 eligible applications were received: Victoria approved 33 applications (8,884.2 ML), giving an approval 
+rate of 24% by number of applications and 28% by volume. New South Wales approved 29 applications (15,218.2 
+ML), with a higher approval rate of 37% by number of applications and 42% by volume. 
+ 
+ 
+4 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Figure 1: Eligible applications for the Barmah trade opening by state 
+ 
+Detailed analysis of Victorian applications 
+ 
+The Victorian Water Register (VWR) classifies water owners into three types – Water Corporations, Environmental 
+Water Holders, and ‘Private’ ( for all remaining owners). This information can be used to provide a breakdown of 
+trading activity by owner type. 
+ 
+Table 1 shows the seller and buyer owner type for eligible Victorian applications. Water corporation applications 
+accounted for 6% of the eligible volume, they were approved because of their position in the randomised queue. 
+Private parties made up the remaining 94% of trade volume. Victoria did not receive any applications from 
+environmental parties for the Barmah trade opening. 
+Table 1: Volume of eligible Victorian applications for Barmah by seller type, buyer type and application 
+approval status 
+Seller type 
+Volume by buyer type (ML) 
+Private Water Corporation Environment 
+Approved Refused Approved Refused Approved Refused 
+Private 6,884.2 22,368.9 - - - - 
+Water Corporation - - 2,000 - - - 
+Environment - - - - - - 
+Total 6,884.2 22,368.9 2,000 - - - 
+ 
+Figure 2 shows all eligible Victorian Barmah applications received during the trade window broken down by 
+application status and application source. More eligible Victorian applications were received through the broker portal 
+(53%, 72 of 136), with the remainder submitted via online trading (47%, 64 of 136). 
+33 trades 
+(8,884.2 ML)
+103 trades
+(22,368.9 ML)
+29 trades
+(15,218.2 ML)
+49 trades
+(20,973.9 ML)
+Barmah applications
+Victoria Approved Victoria Refused
+New South Wales Approved New South Wales Refused
+ 
+ 
+5 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Figure 2: Total number of eligible Victorian Barmah applications by application status and source 
+ 
+ 
+Table 2 shows the reasons for trade supplied on eligible Victorian applications. Related party trade ( 30,273.1 ML) 
+accounted for the largest volume . 94% of approved trade applications were between private related parties (Figure 
+3). Definitions for the different reason for trade options can be found in this factsheet. Related party trade applications 
+can include applications undertaken by water brokers to facilitate market transactions. 
+Table 2: Volume of eligible Victorian applications for Barmah by reason for trade, application source and 
+approval status 
+Status Application Source 
+Volume (ML) 
+Related party trade Standard commercial trade Carryover parking return 
+Approved 
+Broker Portal 3,289.2 - 930.0 
+Online trading 4,665.0 - - 
+Refused 
+Broker Portal 13,251.6 50.0 - 
+Online trading 9,067.3 - - 
+Total 30,273.1 50.0 930.0 
+33 trades 
+(8,884.2 ML)
+103 trades
+(22,368.9 ML)
+Approval Rate
+Approved Refused
+136 eligible applications submitted
+64 trades
+(13,732.3 ML)
+72 trades
+(17,520.8 ML)
+Application Source
+Online trading Broker portal
+136 eligible applications submitted
+ 
+ 
+6 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Figure 3: Volume and number of approved Victorian Barmah trades by buyer/seller type and reason for trade 
+ 
+Range of applications 
+Victorian eligible application volumes for the Barmah trade opportunity ranged widely from 20.4 ML to 2,484.4 ML. 
+The median volume of Victorian applications was 110 ML, and the average volume was 230 ML. 
+Figure 6 (see Appendix) displays all application volumes graphically, sorted from smallest to largest application by 
+volume, and grouped by approved, refused, and those that were not eligible for randomisation. 
+There were a total of 63 unique seller allocation accounts and 48 unique buyer allocation accounts across the 136 
+Victorian eligible applications. There were 20 unique seller and 18 unique buyer allocation accounts across the 33 
+approved Victorian trade applications. 
+3%
+94%
+3%
+Percentage by Number
+Private - Carryover parking return
+Private - Related party trade
+Water Corporation - Related party trade
+33 approved applications
+10%
+67%
+23%
+Percentage by Volume (ML)
+Private - Carryover parking return
+Private - Related party trade
+Water Corporation - Related party trade
+33 approved applications
+ 
+ 
+7 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Goulburn-to-Murray trade opening – 2 July 2026 
+Goulburn-to-Murray trade rule 
+The Goulburn-to-Murray trade rule governs the trade of water allocations from the Goulburn, Broken, Campaspe and 
+Loddon systems to the Victorian Murray system and interstate. 
+The rule helps to protect the health of the lower Goulburn River, by keeping trade opportunity in line with what can 
+sustainably be delivered under the lower Goulburn operating rules . This means that traded water is delivered in a 
+more sustainable, variable pattern, providing lower and more natural flows over summer and autumn. The trade rule 
+continues to support water users by enabling the trade and movement of water, within limits that seek to improve 
+river health over the long-term. 
+The trade rule allows for 240 GL of trade out, less legacy trade reserves, plus seasonal trade opportunity. New trade 
+opportunity is made available through three specific announcements on 1 July, 15 October , and 15 December (or 
+the next business day). Available seasonal trade opportunity is linked to real water use in the Murray River, allowing 
+more flexibility to respond to seasonal condition s. Opportunity can also be released due to adjustments to legacy 
+trade commitments. 
+Possible volumes for each trade opportunity are determined in accordance with the Trading Rules for Declared 
+Water Systems. You can read in more detail about the trade rule at the VWR website and you can read worked 
+examples of how the trade opportunity is calculated, for dry, average and wet years. 
+Trade opening 2026–27 
+July 2026 
+On 2 July 2026, the Goulburn-to-Murray trade limit opened with 112,827.9 ML of trade opportunity available. Read 
+about the volume made available in July at the VWR website news. 
+Goulburn-to-Murray trade application statistics 
+Key statistics 
+Goulburn-to-Murray trade opportunity 
+• The total Goulburn-to-Murray trade opportunity made available at 7:00 am 2 July 2026 was 112,827.9 ML 
+• 290 allocation trade applications were received, for a total volume of 120,869.9 ML 
+o 286 applications were eligible for randomisation, for a total volume of 119,285.3 ML 
+▪ 282 eligible applications were approved, with a volume of 112,555.3 ML 
+▪ 4 eligible applications were refused, with a volume of 6,730 ML 
+o 4 applications were not eligible for randomisation, for a volume of 1,584.6 ML – these were all 
+refused 
+• 154 trade applications were received via the broker portal, for a total volume of 45,733.4 ML 
+• 135 trade applications were received via online trading, for a total volume of 75,133.5 ML 
+• No tagged use occurred 
+ 
+There was 272.6 ML of trade opportu nity remaining after the July 2026 Goulburn -to-Murray trade opening. This 
+remaining volume was fully taken up by further allocation applications on 3 July 2026. 
+Trade application insights 
+As in previous openings, the total volume of applications received (120,869.9 ML) exceeded the available trade 
+opportunity (112,827.9 ML), indicating ongoing demand to move water allocation from the Goulburn system to the 
+ 
+ 
+8 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Murray system. The extent of oversubscription was lower than observed in many previous openings, demonstrating 
+less intense competition for the available trade opportunity. 
+ 
+The Victorian Water Register classifies water owners into three types – Water Corporations, Environmental Water 
+Holders, and ‘Private’ (for all remaining owners). This information can be used to provide a breakdown of trading 
+activity by owner type. 
+ 
+Table 3 shows the seller and buyer owner type on eligible applications. Water corporation applications accounted for 
+7.5% of the eligible volume. Environmental applications accounted for 16.8% of the eligible volume, with private 
+parties making up the remaining 75.7%. 
+ 
+5 eligible environmental trade applications were submitted; of these 4 were approved for 16,000 ML. Water 
+corporations submitted 3 eligible applications during the submission window, of these 3 were approved for 9,000 ML. 
+ 
+Allocation held by environmental water holders has the same attributes, including being subject to the same trading 
+rules, as allocation held by irrigators and other market particip ants. Like many large water owners and market 
+participants, environmental water holders hold a portfolio of entitlements across the Murray Darling Basin which they 
+manage for use at different locations. Environmental water holders typically publish their u pcoming trade intentions 
+on their webpages: The Victorian Environmental Water Holder’s trading strategy is available here and the 
+Commonwealth Environmental Water Holder’s is available here. 
+Table 3: Volume of eligible applications for Goulburn-to-Murray by seller type, buyer type and status 
+Seller type 
+Volume by buyer type (ML) 
+Private Water Corporation Environment 
+Approved Refused Approved Refused Approved Refused 
+Private 87,555.3 2,730 - - - - 
+Water Corporation - - 9,000 - - - 
+Environment - - - - 16,000 4,000 
+Total 87,555.3 2,730 9,000 0 16,000 4,000 
+ 
+Figure 4 shows all eligible Goulburn -to-Murray applications received during the trade window broken down by 
+application status and application source. In July 2026, a slightly lower number of eligible applications were received 
+through online trading (47%, 135 of 286), with the remainder submitted via the Broker Portal (53%, 151 of 286). 
+ 
+ 
+9 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Figure 4: Total number of eligible Goulburn-to-Murray applications by application status and source 
+ 
+ 
+Table 4 shows the reasons for trade supplied on eligible applications. Related party trade (94,105.5 ML) remains the 
+dominant reason for trade and accounted for the largest volume. Definitions for the different reason for trade options 
+can be found in this factsheet. Related party trades can include trades undertaken by intermediaries such as water 
+brokers to facilitate market transactions. 
+ 
+282 trades 
+(112,555.3 ML)
+4 trades
+(6,730.0 ML)
+Approval Rate
+Approved Refused
+286 eligible applications submitted
+135 trades
+(75,133.5 ML)
+151 trades
+(44,151.8 ML)
+Application Source
+Online trading Broker portal
+286 eligible applications submitted
+ 
+ 
+10 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Table 4: Volume of eligible applications for Goulburn -to-Murray by reason for trade, application source and 
+status 
+Status Application Source 
+Volume (ML) 
+Related party 
+trade 
+Standard 
+commercial trade 
+Carryover parking 
+return Other 
+Approved 
+Broker portal 37,514.1 - 3,907.7 - 
+Online trading 53,861.4 1,272.1 - 16,000 
+Refused 
+Broker portal 2,730 - - - 
+Online trading - - - 4,000 
+Total 94,105.5 1,272.1 3,907.7 20,000 
+ 
+Figure 5 shows the volume and number of approved trades by buyer/seller type and reason for trade. Note that there 
+were no trades between different party types (e.g. private to environment). Private related party trades make up 91% 
+of all approved trades by number and 73% by volume. In contrast, private standard commercial trades make up only 
+2% by number and 1% by volume. Related party trades can give effect to subsequent market transactions, particularly 
+between water brokers and their clients. 
+Figure 5: Volume and number of approved Goulburn-to-Murray trades by buyer/seller type and reason for 
+trade 
+ 
+ 
+91%
+1%
+1%
+4% 2%
+Percentage by Number
+Private - Related party trade
+Environment - Other
+Water Corporation - Related party trade
+Private - Carryover parking return
+Private - Standard commercial trade
+73%
+14%
+8%
+3% 1%
+Percentage by Volume (ML)
+Private - Related party trade
+Environment - Other
+Water Corporation - Related party trade
+Private - Carryover parking return
+Private - Standard commercial trade
+ 
+ 
+11 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Range of applications 
+The eligible application volumes for the Goulburn-to-Murray trade opportunity ranged widely from 1 ML to 4,000 ML. 
+The median application volume was 209 ML, and the average application volume was 417 ML. 
+Figure 7 (see Appendix) displays all application volumes graphically, sorted from smallest to largest application by 
+volume, and grouped by approved, refused, and those that were not eligible for randomisation. 
+There were a total of 115 unique seller allocation accounts and 82 unique buyer allocation accounts across the 286 
+applications. There were 114 unique seller and 81 unique buyer allocation accounts across the 282 approved 
+applications. 
+ 
+ 
+ 
+12 
+ 
+ 
+www.waterregister.vic.gov.au 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL OFFICIAL 
+Additional Resources 
+• You can find out more about the Goulburn -to-Murray trade rule and how trade opportunity is calculated on 
+the Victorian Water Register website, Trading rules - Water Register. 
+• Understand more about the likely volumes of trade oppo rtunity available between the Goulburn and Murray 
+systems in dry, average and wet conditions with this factsheet. 
+• Read more on Barmah Trade Opening Protocol for July 2026 in the joint protocol document. 
+• Read more on allocation trading history on Allocation trading - Water Register. 
+• Read more on trade opportunities on Trade opportunities - Water Register. 
+• Access trade limits and opportunities tool via where can I trade map? 
+• Access a list of all allocation trade applications within the regulated water systems for a selected region and 
+year via Allocation Trade Data.
+ 
+ 
+13 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+Appendix 
+Figure 6: Range of Victorian applications that were approved, refused, or not eligible – Barmah trade opening, 2 July 2026 (1, 2) 
+ 
+Note: 
+1. This figure presents only Victorian applications from the Barmah trade opening. NSW applications are not included. 
+2. As per Register records, “Trade Remaining Balance” applications in this figure are displayed with the volume that was available in the seller allocation account at the time of processing. 
+0
+500
+1,000
+1,500
+2,000
+2,500Volume (ML)
+Approved Refused Not eligible
+ 
+ 
+14 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+Figure 7: Range of applications that were approved, refused, or not eligible – Goulburn-to-Murray trade opening, 2 July 2026 
+ 
+ 
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+4,000
+4,500
+Volume (ML)
+Approved Refused Not eligible
+ 
+ 
+15 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+Table 5: Barmah trade opening, July 2026: Detailed summary of all applications received (1) 
+Randomised 
+Processing 
+Order 
+Unique 
+Identifier (2) State Status (3) From Trading Zone To Trading Zone Seller/buyer type (4) Recorded reason for 
+trade 
+Application 
+Source (5) 
+Price 
+per ML 
+($) 
+Volume 
+(ML) 
+Opportunity 
+before 
+processing 
+(ML) 
+Opportunity 
+after 
+processing 
+(ML) 
+Barmah trade opportunity released at 7:00 AM 2 July 2026. 24121.3 
+Randomised processing order for eligible applications (6) 
+1 SWC621580 NSW Approved NSW NSW NSW NSW NSW NSW 505.0 24,121.3 23,616.3 
+2 SWC884177 NSW Approved NSW NSW NSW NSW NSW NSW 1,000.0 23616.3 22616.3 
+3 VIC0059 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 22,616.3 22,516.3 
+4 VIC0020 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 51.8 22,516.3 22,464.5 
+5 VIC0111 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 180.0 22,464.5 22,284.5 
+6 SWC621455 NSW Approved NSW NSW NSW NSW NSW NSW 65.7 22,284.5 22,218.8 
+7 VIC0102 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 548.1 22,218.8 21,670.7 
+8 VIC0037 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 527.4 21,670.7 21,143.3 
+9 VIC0110 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 21,143.3 21,043.3 
+10 VIC0049 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 145.0 21,043.3 20,898.3 
+11 SWC621477 NSW Approved NSW NSW NSW NSW NSW NSW 250.0 20,898.3 20,648.3 
+12 SWC884078 NSW Approved NSW NSW NSW NSW NSW NSW 451.0 20,648.3 20,197.3 
+13 SWC621574 NSW Approved NSW NSW NSW NSW NSW NSW 201.0 20,197.3 19,996.3 
+14 SWC621486 NSW Approved NSW NSW NSW NSW NSW NSW 495.0 19,996.3 19,501.3 
+15 SWC621476 NSW Approved NSW NSW NSW NSW NSW NSW 250.0 19,501.3 19,251.3 
+16 VIC0080 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 19,251.3 19,151.3 
+17 SWC621432 NSW Approved NSW NSW NSW NSW NSW NSW 85.3 19,151.3 19,066.0 
+18 VIC0130 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 155.0 19,066.0 18,911.0 
+19 SWC883799 NSW Approved NSW NSW NSW NSW NSW NSW 150.0 18,911.0 18,761.0 
+20 SWC884042 NSW Approved NSW NSW NSW NSW NSW NSW 300.0 18,761.0 18,461.0 
+21 VIC0123 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18,461.0 18,361.0 
+22 SWC621489 NSW Approved NSW NSW NSW NSW NSW NSW 1,000.0 18,361.0 17,361.0 
+23 SWC621578 NSW Approved NSW NSW NSW NSW NSW NSW 495.0 17,361.0 16,866.0 
+24 VIC0135 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Water Corporation / Water Corporation Related party trade Online trading 0 2,000.0 16,866.0 14,866.0 
+25 VIC0087 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 14,866.0 14,766.0 
+26 SWC621481 NSW Approved NSW NSW NSW NSW NSW NSW 1,800.0 14,766.0 12,966.0 
+27 SWC884107 NSW Approved NSW NSW NSW NSW NSW NSW 520.5 12,966.0 12,445.5 
+28 VIC0040 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 317.8 12,445.5 12,127.7 
+29 VIC0101 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 52.2 12,127.7 12,075.5 
+30 VIC0081 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 12,075.5 11,975.5 
+31 VIC0026 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 543.3 11,975.5 11,432.2 
+32 VIC0090 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 11,432.2 11,332.2 
+33 VIC0010 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 930.0 11,332.2 10,402.2 
+34 VIC0063 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 148.0 10,402.2 10,254.2 
+35 VIC0137 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 84.9 10,254.2 10,169.3 
+ 
+ 
+16 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+36 VIC0051 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 70.0 10,169.3 10,099.3 
+37 SWC884191 NSW Approved NSW NSW NSW NSW NSW NSW 223.4 10,099.3 9,875.9 
+38 SWC884199 NSW Approved NSW NSW NSW NSW NSW NSW 49.0 9,875.9 9,826.9 
+39 VIC0075 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 345.0 9,826.9 9,481.9 
+40 SWC621490 NSW Approved NSW NSW NSW NSW NSW NSW 1,000.0 9,481.9 8,481.9 
+41 VIC0125 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 8,481.9 8,381.9 
+42 VIC0097 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 183.5 8,381.9 8,198.4 
+43 VIC0134 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 234.1 8,198.4 7,964.3 
+44 SWC884082 NSW Approved NSW NSW NSW NSW NSW NSW 270.0 7,964.3 7,694.3 
+45 SWC884193 NSW Approved NSW NSW NSW NSW NSW NSW 354.9 7,694.3 7,339.4 
+46 SWC884043 NSW Approved NSW NSW NSW NSW NSW NSW 303.0 7,339.4 7,036.4 
+47 SWC621492 NSW Approved NSW NSW NSW NSW NSW NSW 75.0 7,036.4 6,961.4 
+48 SWC884176 NSW Approved NSW NSW NSW NSW NSW NSW 1,652.5 6,961.4 5,308.9 
+49 SWC884167 NSW Approved NSW NSW NSW NSW NSW NSW 100.0 5,308.9 5,208.9 
+50 SWC884145 NSW Approved NSW NSW NSW NSW NSW NSW 610.0 5,208.9 4,598.9 
+51 VIC0108 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 153.0 4,598.9 4,445.9 
+52 SWC621485 NSW Approved NSW NSW NSW NSW NSW NSW 500.0 4,445.9 3,945.9 
+53 VIC0070 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 345.0 3,945.9 3,600.9 
+54 SWC884169 NSW Approved NSW NSW NSW NSW NSW NSW 111.9 3,600.9 3,489.0 
+55 SWC621482 NSW Approved NSW NSW NSW NSW NSW NSW 1,800.0 3,489.0 1,689.0 
+56 VIC0005 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 227.0 1,689.0 1,462.0 
+57 VIC0028 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 90.1 1,462.0 1,371.9 
+58 VIC0114 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 305.0 1,371.9 1,066.9 
+59 SWC621479 NSW Approved NSW NSW NSW NSW NSW NSW 600.0 1,066.9 466.9 
+60 VIC0112 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 466.9 366.9 
+61 SWC883878 NSW Refused NSW NSW NSW NSW NSW NSW 512.0 366.9 366.9 
+62 VIC0133 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 233.0 366.9 133.9 
+63 VIC0036 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 400.0 133.9 133.9 
+64 VIC0029 Victoria Approved 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 115.0 133.9 18.9 
+65 VIC0132 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 233.0 18.9 18.9 
+66 VIC0109 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+67 VIC0011 Victoria Refused 6 VIC Murray - Dart to Barmah 6B Lower Broken Creek Private / Private Related party trade Online trading 0 350.0 18.9 18.9 
+68 SWC884178 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+69 VIC0017 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 893.6 18.9 18.9 
+70 VIC0119 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+71 VIC0025 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 110.0 18.9 18.9 
+72 VIC0061 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+73 VIC0054 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 147.0 18.9 18.9 
+74 VIC0066 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 149.0 18.9 18.9 
+75 VIC0042 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+76 SWC884189 NSW Refused NSW NSW NSW NSW NSW NSW 742.1 18.9 18.9 
+ 
+ 
+17 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+77 VIC0045 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 343.9 18.9 18.9 
+78 VIC0115 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+79 VIC0002 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 78.5 18.9 18.9 
+80 VIC0043 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 67.0 18.9 18.9 
+81 VIC0024 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 110.0 18.9 18.9 
+82 VIC0052 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 146.0 18.9 18.9 
+83 VIC0018 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 524.9 18.9 18.9 
+84 VIC0023 Victoria Refused 6 VIC Murray - Dart to Barmah 6B Lower Broken Creek Private / Private Related party trade Online trading 1 60.0 18.9 18.9 
+85 SWC621415 NSW Refused NSW NSW NSW NSW NSW NSW 400.0 18.9 18.9 
+86 VIC0086 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+87 VIC0124 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+88 VIC0118 Victoria Refused 6 VIC Murray - Dart to Barmah 6B Lower Broken Creek Private / Private Related party trade Broker portal 0 150.0 18.9 18.9 
+89 VIC0015 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 51.8 18.9 18.9 
+90 VIC0078 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 414.6 18.9 18.9 
+91 SWC883951 NSW Refused NSW NSW NSW NSW NSW NSW 140.0 18.9 18.9 
+92 SWC883952 NSW Refused NSW NSW NSW NSW NSW NSW 140.0 18.9 18.9 
+93 SWC621407 NSW Refused NSW NSW NSW NSW NSW NSW 1,948.7 18.9 18.9 
+94 VIC0019 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 402.9 18.9 18.9 
+95 VIC0034 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 51.4 18.9 18.9 
+96 VIC0116 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 218.8 18.9 18.9 
+97 VIC0032 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 92.6 18.9 18.9 
+98 VIC0046 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 37.7 18.9 18.9 
+99 VIC0076 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+100 VIC0120 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+101 VIC0008 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 300.0 18.9 18.9 
+102 VIC0095 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+103 VIC0072 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+104 VIC0085 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+105 VIC0016 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 51.8 18.9 18.9 
+106 VIC0122 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+107 VIC0053 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 18.9 18.9 
+108 VIC0013 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+109 SWC621579 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+110 VIC0128 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 120.0 18.9 18.9 
+111 VIC0117 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+112 VIC0065 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+113 SWC884200 NSW Refused NSW NSW NSW NSW NSW NSW 46.0 18.9 18.9 
+114 VIC0096 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+115 VIC0027 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 112.4 18.9 18.9 
+116 VIC0056 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 58.0 18.9 18.9 
+117 VIC0004 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 204.0 18.9 18.9 
+ 
+ 
+18 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+118 VIC0012 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 800.0 18.9 18.9 
+119 VIC0074 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 150.0 18.9 18.9 
+120 SWC884090 NSW Refused NSW NSW NSW NSW NSW NSW 44.0 18.9 18.9 
+121 SWC884168 NSW Refused NSW NSW NSW NSW NSW NSW 100.0 18.9 18.9 
+122 SWC883953 NSW Refused NSW NSW NSW NSW NSW NSW 140.0 18.9 18.9 
+123 VIC0131 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 158.0 18.9 18.9 
+124 VIC0083 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+125 VIC0073 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 345.0 18.9 18.9 
+126 SWC621491 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+127 SWC884088 NSW Refused NSW NSW NSW NSW NSW NSW 65.0 18.9 18.9 
+128 VIC0003 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 78.5 18.9 18.9 
+129 VIC0138 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 91.3 18.9 18.9 
+130 VIC0100 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 249.5 18.9 18.9 
+131 VIC0014 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 52.6 18.9 18.9 
+132 SWC621480 NSW Refused NSW NSW NSW NSW NSW NSW 1,800.0 18.9 18.9 
+133 VIC0022 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+134 VIC0089 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+135 SWC884190 NSW Refused NSW NSW NSW NSW NSW NSW 784.8 18.9 18.9 
+136 VIC0055 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 229.0 18.9 18.9 
+137 VIC0050 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,687.0 18.9 18.9 
+138 VIC0113 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 300.0 18.9 18.9 
+139 SWC883798 NSW Refused NSW NSW NSW NSW NSW NSW 163.2 18.9 18.9 
+140 SWC883802 NSW Refused NSW NSW NSW NSW NSW NSW 150.0 18.9 18.9 
+141 VIC0060 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+142 VIC0084 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+143 VIC0105 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 180.0 18.9 18.9 
+144 SWC883797 NSW Refused NSW NSW NSW NSW NSW NSW 184.0 18.9 18.9 
+145 VIC0062 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+146 VIC0048 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 270.0 18.9 18.9 
+147 VIC0099 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 345.0 18.9 18.9 
+148 SWC883800 NSW Refused NSW NSW NSW NSW NSW NSW 150.0 18.9 18.9 
+149 VIC0091 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+150 VIC0098 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 345.0 18.9 18.9 
+151 SWC884080 NSW Refused NSW NSW NSW NSW NSW NSW 270.0 18.9 18.9 
+152 SWC883949 NSW Refused NSW NSW NSW NSW NSW NSW 140.0 18.9 18.9 
+153 SWC884087 NSW Refused NSW NSW NSW NSW NSW NSW 65.0 18.9 18.9 
+154 VIC0009 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+155 SWC621453 NSW Refused NSW NSW NSW NSW NSW NSW 28.9 18.9 18.9 
+156 SWC621581 NSW Refused NSW NSW NSW NSW NSW NSW 510.0 18.9 18.9 
+157 VIC0021 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+158 VIC0127 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+ 
+ 
+19 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+159 SWC884075 NSW Refused NSW NSW NSW NSW NSW NSW 270.0 18.9 18.9 
+160 VIC0068 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 115.0 18.9 18.9 
+161 SWC884133 NSW Refused NSW NSW NSW NSW NSW NSW 100.0 18.9 18.9 
+162 VIC0079 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 97.0 18.9 18.9 
+163 VIC0104 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 151.0 18.9 18.9 
+164 VIC0093 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+165 VIC0006 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 500.0 18.9 18.9 
+166 SWC884085 NSW Refused NSW NSW NSW NSW NSW NSW 100.0 18.9 18.9 
+167 VIC0039 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 475.0 18.9 18.9 
+168 SWC884105 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+169 SWC621483 NSW Refused NSW NSW NSW NSW NSW NSW 200.0 18.9 18.9 
+170 SWC884192 NSW Refused NSW NSW NSW NSW NSW NSW 222.1 18.9 18.9 
+171 SWC621416 NSW Refused NSW NSW NSW NSW NSW NSW 400.0 18.9 18.9 
+172 VIC0077 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 120.3 18.9 18.9 
+173 SWC884198 NSW Refused NSW NSW NSW NSW NSW NSW 164.5 18.9 18.9 
+174 SWC621478 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+175 VIC0047 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 500.0 18.9 18.9 
+176 VIC0030 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 92.5 18.9 18.9 
+177 VIC0088 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+178 VIC0106 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 180.0 18.9 18.9 
+179 VIC0094 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+180 VIC0067 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+181 VIC0001 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 158.0 18.9 18.9 
+182 VIC0126 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 154.0 18.9 18.9 
+183 SWC883801 NSW Refused NSW NSW NSW NSW NSW NSW 150.0 18.9 18.9 
+184 SWC621493 NSW Refused NSW NSW NSW NSW NSW NSW 2,000.0 18.9 18.9 
+185 SWC621573 NSW Refused NSW NSW NSW NSW NSW NSW 237.0 18.9 18.9 
+186 SWC884083 NSW Refused NSW NSW NSW NSW NSW NSW 165.0 18.9 18.9 
+187 SWC621488 NSW Refused NSW NSW NSW NSW NSW NSW 585.0 18.9 18.9 
+188 VIC0136 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Broker API 360 50.0 18.9 18.9 
+189 VIC0069 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 
+190 VIC0082 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+191 SWC621418 NSW Refused NSW NSW NSW NSW NSW NSW 475.0 18.9 18.9 
+192 VIC0103 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 360.0 18.9 18.9 
+193 SWC884158 NSW Refused NSW NSW NSW NSW NSW NSW 194.0 18.9 18.9 
+194 VIC0041 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 425.0 18.9 18.9 
+195 VIC0121 Victoria Refused 6 VIC Murray - Dart to Barmah 6B Lower Broken Creek Private / Private Related party trade Broker portal 0 150.0 18.9 18.9 
+196 VIC0033 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 118.6 18.9 18.9 
+197 VIC0107 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 152.0 18.9 18.9 
+198 SWC621484 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+199 VIC0057 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 2,484.4 18.9 18.9 
+ 
+ 
+20 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+200 VIC0058 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 67.0 18.9 18.9 
+201 SWC621475 NSW Refused NSW NSW NSW NSW NSW NSW 1,365.0 18.9 18.9 
+202 SWC621450 NSW Refused NSW NSW NSW NSW NSW NSW 500.0 18.9 18.9 
+203 SWC884106 NSW Refused NSW NSW NSW NSW NSW NSW 42.6 18.9 18.9 
+204 VIC0038 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 313.5 18.9 18.9 
+205 SWC621419 NSW Refused NSW NSW NSW NSW NSW NSW 400.0 18.9 18.9 
+206 VIC0129 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 20.4 18.9 18.9 
+207 VIC0031 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 115.0 18.9 18.9 
+208 SWC884084 NSW Refused NSW NSW NSW NSW NSW NSW 280.0 18.9 18.9 
+209 SWC621487 NSW Refused NSW NSW NSW NSW NSW NSW 600.0 18.9 18.9 
+210 VIC0044 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 58.0 18.9 18.9 
+211 VIC0092 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 18.9 18.9 
+212 VIC0007 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 602.4 18.9 18.9 
+213 SWC621417 NSW Refused NSW NSW NSW NSW NSW NSW 1,000.0 18.9 18.9 
+214 VIC0071 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 18.9 18.9 (7) 
+Applications not eligible for randomised processing order (8) 
+215 VIC0035 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 124.7 18.9 18.9 
+216 VIC0064 Victoria Refused 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0.0 100.0 18.9 18.9 
+ 
+Notes: 
+1. This table includes all Barmah trade opening applications received in Victoria and NSW on 2 July 2026. Victoria does not have any information about not eligible applications received by NSW. 
+2. Each Victorian Barmah trade application was assigned a “Unique Identifier” according to the order they were received by the register to faci litate a de-identified randomisation procedure. NSW independently assigned each of their applications 
+a unique identifier. 
+3. Trade applications can be refused for reasons including the account not having enough tradable allocation, or because the trade volume would exceed the available trade opportunity for the trade rule. 
+4. The Victorian Water Register classifies allocation account ownership into three types of entities – Water Corporations, Environmental Water Holders, and ‘Private’ (for all remaining accounts). 
+5. Applications can be submitted to the Victorian Water register online in My Water, these can be either online trading by regist er users or from the broker portal (including the broker API). Customers may also submit a form directly to water 
+corporations. 
+6. Applications received between 7:00 am and 2:00 pm on 2 July were manually processed by water corporations on 3 July. 
+7. At the end of processing Barmah applications on 3 July, there was a remaining balance of 18.9 ML. 
+8. There were 2 applications not eligible for the randomisation process either due to insufficient allocation account balance at the time of lodgement, or because the trade was a “trade remaining balance” application. 
+ 
+ 
+ 
+ 
+21 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+Table 6: Goulburn-to-Murray trade opening, July 2026: Detailed summary of all applications received (1) 
+Randomised 
+Processing Order Status (2) From Trading Zone To Trading Zone Seller/buyer type (3) Recorded reason for 
+trade 
+Application 
+Source (4) 
+Price per 
+ML ($) 
+Volume 
+(ML) 
+Opportunity before 
+processing (ML) 
+Opportunity after 
+processing (ML) 
+Total Goulburn-to-Murray trade opportunity released at 7:00 am 2 July 2026 (5) 112,827.9 
+Randomised processing order for eligible applications (6) 
+1 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 201.0 112,827.9 112,626.9 
+2 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 30.3 112,626.9 112,596.6 
+3 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 40.4 112,596.6 112,556.2 
+4 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 112,556.2 112,456.2 
+5 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 1,000.0 112,456.2 111,456.2 
+6 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 350.0 111,456.2 111,106.2 
+7 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Online trading 0 25.0 111,106.2 111,081.2 
+8 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 51.0 111,081.2 111,030.2 
+9 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 50.0 111,030.2 110,980.2 
+10 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 110,980.2 110,180.2 
+11 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 927.7 110,180.2 109,252.5 
+12 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 109,252.5 109,152.5 
+13 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 109,152.5 109,052.5 
+14 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 209.0 109,052.5 108,843.5 
+15 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 243.9 108,843.5 108,599.6 
+16 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 512.0 108,599.6 108,087.6 
+17 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker API 0 100.0 108,087.6 107,987.6 
+18 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 107,987.6 107,187.6 
+19 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 107,187.6 106,937.6 
+20 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 70.0 106,937.6 106,867.6 
+21 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 162.0 106,867.6 106,705.6 
+22 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 106,705.6 106,605.6 
+23 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 72.0 106,605.6 106,533.6 
+24 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 237.4 106,533.6 106,296.2 
+25 Approved 4A Campaspe - Eppalock to WWC 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Online trading 0 40.0 106,296.2 106,256.2 
+26 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 393.9 106,256.2 105,862.3 
+27 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Water Corporation / Water Corporation Related party trade Online trading 0 3,000.0 105,862.3 102,862.3 
+28 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 40.4 102,862.3 102,821.9 
+29 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 79.0 102,821.9 102,742.9 
+30 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 1,000.0 102,742.9 101,742.9 
+31 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 175.7 101,742.9 101,567.2 
+32 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 242.0 101,567.2 101,325.2 
+33 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 200.7 101,325.2 101,124.5 
+34 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 206.0 101,124.5 100,918.5 
+ 
+ 
+22 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+35 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 25.0 100,918.5 100,893.5 
+36 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 154.2 100,893.5 100,739.3 
+37 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 100,739.3 100,611.3 
+38 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 500.0 100,611.3 100,111.3 
+39 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 120.0 100,111.3 99,991.3 
+40 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 300.0 99,991.3 99,691.3 
+41 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 300.0 99,691.3 99,391.3 
+42 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 59.9 99,391.3 99,331.4 
+43 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 264.4 99,331.4 99,067.0 
+44 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 99,067.0 98,067.0 
+45 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 197.0 98,067.0 97,870.0 
+46 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 200.0 97,870.0 97,670.0 
+47 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 647.0 97,670.0 97,023.0 
+48 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 97,023.0 96,923.0 
+49 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 665.0 96,923.0 96,258.0 
+50 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 11.4 96,258.0 96,246.6 
+51 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 96,246.6 95,996.6 
+52 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 11.4 95,996.6 95,985.2 
+53 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 237.5 95,985.2 95,747.7 
+54 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 95,747.7 95,619.7 
+55 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 313.5 95,619.7 95,306.2 
+56 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 91.3 95,306.2 95,214.9 
+57 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 95,214.9 95,114.9 
+58 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 221.5 95,114.9 94,893.4 
+59 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 113.1 94,893.4 94,780.3 
+60 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 94,780.3 94,652.3 
+61 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 207.0 94,652.3 94,445.3 
+62 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 50.0 94,445.3 94,395.3 
+63 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 608.0 94,395.3 93,787.3 
+64 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 2,291.4 93,787.3 91,495.9 
+65 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 203.0 91,495.9 91,292.9 
+66 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 180.5 91,292.9 91,112.4 
+67 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 393.9 91,112.4 90,718.5 
+68 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 90,718.5 90,668.5 
+69 Approved 1A Greater Goulburn 6B Lower Broken Creek Private / Private Related party trade Online trading 0 400.0 90,668.5 90,268.5 
+70 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 221.5 90,268.5 90,047.0 
+71 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 156.7 90,047.0 89,890.3 
+72 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 89,890.3 89,790.3 
+73 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 264.4 89,790.3 89,525.9 
+74 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 3,041.7 89,525.9 86,484.2 
+75 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Online trading 0 700.0 86,484.2 85,784.2 
+ 
+ 
+23 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+76 Approved 3 Lower Goulburn 7 VIC Murray - Barmah to SA Water Corporation / Water Corporation Related party trade Online trading 0 3,000.0 85,784.2 82,784.2 
+77 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 203.0 82,784.2 82,581.2 
+78 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker API 0 100.0 82,581.2 82,481.2 
+79 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 645.0 82,481.2 81,836.2 
+80 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 491.0 81,836.2 81,345.2 
+81 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 285.0 81,345.2 81,060.2 
+82 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 150.0 81,060.2 80,910.2 
+83 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Environment / Environment Other Online trading 0 4,000.0 80,910.2 76,910.2 
+84 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 76,910.2 76,782.2 
+85 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 76,782.2 76,682.2 
+86 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 76,682.2 76,632.2 
+87 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 75.0 76,632.2 76,557.2 
+88 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 76,557.2 76,457.2 
+89 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 202.0 76,457.2 76,255.2 
+90 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 76,255.2 75,609.2 
+91 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Environment / Environment Other Online trading 0 4,000.0 75,609.2 71,609.2 
+92 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 204.0 71,609.2 71,405.2 
+93 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker API 0 100.0 71,405.2 71,305.2 
+94 Approved 1A Greater Goulburn 6B Lower Broken Creek Private / Private Related party trade Broker portal 0 84.0 71,305.2 71,221.2 
+95 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 71,221.2 71,121.2 
+96 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 321.6 71,121.2 70,799.6 
+97 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 321.6 70,799.6 70,478.0 
+98 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 287.8 70,478.0 70,190.2 
+99 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 81.0 70,190.2 70,109.2 
+100 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 221.5 70,109.2 69,887.7 
+101 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 183.4 69,887.7 69,704.3 
+102 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 69,704.3 68,704.3 
+103 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 140.0 68,704.3 68,564.3 
+104 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 950.0 68,564.3 67,614.3 
+105 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 67,614.3 67,486.3 
+106 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 419.6 67,486.3 67,066.7 
+107 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 67,066.7 66,938.7 
+108 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 66,938.7 66,838.7 
+109 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 205.0 66,838.7 66,633.7 
+110 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 285.0 66,633.7 66,348.7 
+111 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 228.0 66,348.7 66,120.7 
+112 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 66,120.7 65,992.7 
+113 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 284.0 65,992.7 65,708.7 
+114 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 65,708.7 65,458.7 
+115 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 608.0 65,458.7 64,850.7 
+116 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 475.0 64,850.7 64,375.7 
+ 
+ 
+24 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+117 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker API 0 100.0 64,375.7 64,275.7 
+118 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 420.0 64,275.7 63,855.7 
+119 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 18.7 63,855.7 63,837.0 
+120 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 15.7 63,837.0 63,821.3 
+121 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 393.9 63,821.3 63,427.4 
+122 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 190.0 63,427.4 63,237.4 
+123 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 118.1 63,237.4 63,119.3 
+124 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 200.0 63,119.3 62,919.3 
+125 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 665.0 62,919.3 62,254.3 
+126 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 62,254.3 62,204.3 
+127 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 665.0 62,204.3 61,539.3 
+128 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 61,539.3 61,489.3 
+129 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 61,489.3 61,439.3 
+130 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 321.6 61,439.3 61,117.7 
+131 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 133.0 61,117.7 60,984.7 
+132 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 215.0 60,984.7 60,769.7 
+133 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 393.9 60,769.7 60,375.8 
+134 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 60,375.8 60,325.8 
+135 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 60,325.8 60,225.8 
+136 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 60,225.8 59,225.8 
+137 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 59,225.8 59,125.8 
+138 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 16.3 59,125.8 59,109.5 
+139 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 59,109.5 58,109.5 
+140 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 58,109.5 57,981.5 
+141 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 57,981.5 57,881.5 
+142 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 40.0 57,881.5 57,841.5 
+143 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 57,841.5 57,195.5 
+144 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 209.0 57,195.5 56,986.5 
+145 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 56,986.5 56,736.5 
+146 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Online trading 0 25.5 56,736.5 56,711.0 
+147 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 800.0 56,711.0 55,911.0 
+148 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 660.0 55,911.0 55,251.0 
+149 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 55,251.0 54,605.0 
+150 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 135.3 54,605.0 54,469.7 
+151 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 323.0 54,469.7 54,146.7 
+152 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 350.0 54,146.7 53,796.7 
+153 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Environment / Environment Other Online trading 0 4,000.0 53,796.7 49,796.7 
+154 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 221.5 49,796.7 49,575.2 
+155 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 380.0 49,575.2 49,195.2 
+156 Approved 4A Campaspe - Eppalock to WWC 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 60.4 49,195.2 49,134.8 
+157 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 321.6 49,134.8 48,813.2 
+ 
+ 
+25 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+158 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 800.0 48,813.2 48,013.2 
+159 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 49.9 48,013.2 47,963.3 
+160 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 47,963.3 47,163.3 
+161 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 4.0 47,163.3 47,159.3 
+162 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 47,159.3 46,159.3 
+163 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 42.0 46,159.3 46,117.3 
+164 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 608.0 46,117.3 45,509.3 
+165 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 221.5 45,509.3 45,287.8 
+166 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 45,287.8 44,641.8 
+167 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 64.4 44,641.8 44,577.4 
+168 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 44,577.4 44,477.4 
+169 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker API 0 1.0 44,477.4 44,476.4 
+170 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 44,476.4 44,348.4 
+171 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 44,348.4 44,248.4 
+172 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 44,248.4 43,998.4 
+173 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 43,998.4 42,998.4 
+174 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 42,998.4 42,198.4 
+175 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 42,198.4 42,070.4 
+176 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 15.3 42,070.4 42,055.1 
+177 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 1,092.6 42,055.1 40,962.5 
+178 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Water Corporation / Water Corporation Related party trade Online trading 0 3,000.0 40,962.5 37,962.5 
+179 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 354.0 37,962.5 37,608.5 
+180 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 75.0 37,608.5 37,533.5 
+181 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 37,533.5 36,887.5 
+182 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 210.0 36,887.5 36,677.5 
+183 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 36,677.5 36,031.5 
+184 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 647.0 36,031.5 35,384.5 
+185 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 607.0 35,384.5 34,777.5 
+186 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 34,777.5 34,677.5 
+187 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 202.0 34,677.5 34,475.5 
+188 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 34,475.5 34,375.5 
+189 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 221.5 34,375.5 34,154.0 
+190 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 95.0 34,154.0 34,059.0 
+191 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 34,059.0 33,931.0 
+192 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 33,931.0 33,831.0 
+193 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Online trading 0 250.6 33,831.0 33,580.4 
+194 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 186.2 33,580.4 33,394.2 
+195 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 475.1 33,394.2 32,919.1 
+196 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 136.0 32,919.1 32,783.1 
+197 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 237.5 32,783.1 32,545.6 
+198 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 477.2 32,545.6 32,068.4 
+ 
+ 
+26 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+199 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 500.0 32,068.4 31,568.4 
+200 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 31,568.4 30,922.4 
+201 Approved 1A Greater Goulburn 6B Lower Broken Creek Private / Private Related party trade Online trading 0 59.0 30,922.4 30,863.4 
+202 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 665.0 30,863.4 30,198.4 
+203 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 150.0 30,198.4 30,048.4 
+204 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 50.0 30,048.4 29,998.4 
+205 Approved 1A Greater Goulburn 6B Lower Broken Creek Private / Private Related party trade Broker portal 0 84.0 29,998.4 29,914.4 
+206 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 29,914.4 29,114.4 
+207 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 70.0 29,114.4 29,044.4 
+208 Approved 4A Campaspe - Eppalock to WWC 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 50.0 29,044.4 28,994.4 
+209 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Standard commercial trade Online trading 0 231.0 28,994.4 28,763.4 
+210 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 56.4 28,763.4 28,707.0 
+211 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Environment / Environment Other Online trading 0 4,000.0 28,707.0 24,707.0 
+212 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 17.0 24,707.0 24,690.0 
+213 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 24,690.0 23,690.0 
+214 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 23,690.0 23,590.0 
+215 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 815.4 23,590.0 22,774.6 
+216 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 116.5 22,774.6 22,658.1 
+217 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 71.2 22,658.1 22,586.9 
+218 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 800.0 22,586.9 21,786.9 
+219 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,000.0 21,786.9 20,786.9 
+220 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 472.0 20,786.9 20,314.9 
+221 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 219.0 20,314.9 20,095.9 
+222 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 297.4 20,095.9 19,798.5 
+223 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 500.0 19,798.5 19,298.5 
+224 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 447.1 19,298.5 18,851.4 
+225 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 113.0 18,851.4 18,738.4 
+226 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 139.4 18,738.4 18,599.0 
+227 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 18,599.0 17,799.0 
+228 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 200.0 17,799.0 17,599.0 
+229 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 393.9 17,599.0 17,205.1 
+230 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 609.0 17,205.1 16,596.1 
+231 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 500.0 16,596.1 16,096.1 
+232 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 16,096.1 15,996.1 
+233 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 264.4 15,996.1 15,731.7 
+234 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 15,731.7 15,603.7 
+235 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 140.0 15,603.7 15,463.7 
+236 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 15,463.7 15,335.7 
+237 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 15,335.7 15,235.7 
+238 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 15,235.7 15,135.7 
+239 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 340.0 15,135.7 14,795.7 
+ 
+ 
+27 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+240 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 170.0 14,795.7 14,625.7 
+241 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 97.3 14,625.7 14,528.4 
+242 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 440.0 14,528.4 14,088.4 
+243 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.0 14,088.4 13,442.4 
+244 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 508.0 13,442.4 12,934.4 
+245 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 93.0 12,934.4 12,841.4 
+246 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 260.0 12,841.4 12,581.4 
+247 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 100.0 12,581.4 12,481.4 
+248 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 198.0 12,481.4 12,283.4 
+249 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,300.0 12,283.4 10,983.4 
+250 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 608.0 10,983.4 10,375.4 
+251 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 646.3 10,375.4 9,729.1 
+252 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 201.0 9,729.1 9,528.1 
+253 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 645.0 9,528.1 8,883.1 
+254 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 1,193.2 8,883.1 7,689.9 
+255 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 272.5 7,689.9 7,417.4 
+256 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 7,417.4 7,317.4 
+257 Approved 3 Lower Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 17.0 7,317.4 7,300.4 
+258 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 475.0 7,300.4 6,825.4 
+259 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 400.0 6,825.4 6,425.4 
+260 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 208.0 6,425.4 6,217.4 
+261 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 248.7 6,217.4 5,968.7 
+262 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 200.0 5,968.7 5,768.7 
+263 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 288.8 5,768.7 5,479.9 
+264 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 62.6 5,479.9 5,417.3 
+265 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Carryover parking return Broker portal 0 570.0 5,417.3 4,847.3 
+266 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 608.0 4,847.3 4,239.3 
+267 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 4,239.3 4,139.3 
+268 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 250.0 4,139.3 3,889.3 
+269 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 127.8 3,889.3 3,761.5 
+270 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker API 0 100.0 3,761.5 3,661.5 
+271 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 157.7 3,661.5 3,503.8 
+272 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 128.0 3,503.8 3,375.8 
+273 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 393.9 3,375.8 2,981.9 
+274 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 100.0 2,981.9 2,881.9 
+275 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 150.0 2,881.9 2,731.9 
+276 Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Environment / Environment Other Online trading 0 4,000.0 2,731.9 2,731.9 
+277 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 2,731.9 1,931.9 
+278 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 402.6 1,931.9 1,529.3 
+279 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 199.0 1,529.3 1,330.3 
+280 Approved 1B Boort 7 VIC Murray - Barmah to SA Private / Private Related party trade Online trading 0 608.0 1,330.3 722.3 
+ 
+ 
+28 
+ 
+ 
+Post Trade Opening Report: July 2026 
+OFFICIAL OFFICIAL 
+www.waterregister.vic.gov.au 
+ OFFICIAL 
+281 Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 930.0 722.3 722.3 
+282 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 50.0 722.3 672.3 
+283 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 377.0 672.3 295.3 
+284 Approved 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 22.7 295.3 272.6 
+285 Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 1,000.0 272.6 272.6 
+286 Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 800.0 272.6 272.6 (7) 
+Applications not eligible for randomised processing order (8) 
+Not eligible Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 1,072.0 272.6 272.6 
+Not eligible Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 377.1 272.6 272.6 
+Not eligible Refused 1A Greater Goulburn 6B Lower Broken Creek Private / Private N/A Water Corporation 0 3.0 272.6 272.6 
+Not eligible Refused 1A Greater Goulburn 7 VIC Murray - Barmah to SA Private / Private Related party trade Broker portal 0 132.5 272.6 272.6 
+ 
+Notes: 
+1. This table includes all Goulburn-to-Murray trade applications submitted between 7:00 am and 2:00 pm on 2 July 2026 for the Goulburn-to-Murray trade opening. Eligible applications are displayed in the randomised processing order. 
+2. Trade applications can be refused for reasons including the account not having enough tradable allocation, or because the tra de volume would exceed the available trade opportunity for the trade rule at the time of processing. 
+3. The Victorian Water Register classifies allocation account ownership into three types of entities – Water Corporations, Environmental Water Holders, and ‘Private’ (for all remaining accounts). 
+4. Applications can be submitted to the Victorian Water register online in My Water, these can be either online trading by register users or from the broker portal (including the broker API). Customers may also submit a form directly to water 
+corporations. 
+5. On 2 July, the Goulburn-to-Murray trade limit opened with a total of 112,827.9 ML of trade opportunity. 
+6. Applications received between 7:00 am and 2:00 pm on 2 July were processed on 3 July. 
+7. At the end of processing Goulburn-to-Murray applications on 3 July, there was a remaining balance of 272.6 ML which was then taken up by further allocation applications after the Register re -opened. 
+8. There were 4 applications not eligible for the randomisation process either due to insufficient allocation account balance at the time of lodgement, or because the trade was a “trade remaining balance” application 

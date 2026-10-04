@@ -1,0 +1,1951 @@
+Water in Australia
+2019–20
+
+Water in Australia
+2019–20
+Water in Australia 2019–20 
+June 2021
+ISSN: (Online) 2206-7817
+Published by the Bureau of Meteorology 2021
+GPO Box 1289 
+Melbourne, Vic 3001 
+Tel: 03 9669 4000 
+Fax: 03 9669 4699
+waterinfo@bom.gov.au 
+www.bom.gov.au
+With the exception of logos and photography, this publication is licensed under a 
+Creative Commons Attribution 3.0 Australia Licence. The terms and conditions of 
+the licence are available at http://creativecommons.org/licenses/by/3.0/au/
+© Commonwealth of Australia 2021
+Attribution for third-party material included in Water in Australia 2019–20 is available at: 
+www.bom.gov.au/water/waterinaustralia/copyright.shtml
+Photographs © individual copyright holders 2021 
+Cover: Lake Oberon, New South Wales (zetter, iStock) 
+Foreword: Barossa Valley, South Australia (lkonya, iStock)
+Page 2: Lake Eildon, Victoria (Paul Feikema, Bureau of Meteorology)
+Page 5: Vineyard near Canberra, Australian Capital Territory (Malcolm Watson, Bureau of Meteorology)
+Introduction: Grazing Cows in Gippsland, Victoria. (GaryRadler, iStock)
+Page 10: Upper Coliban Reservoir, Victoria (Paul Feikema, Bureau of Meteorology)
+Page 42: Flood irrigation in the Ord River Region, Western Australia. (BRONWYN GUDGEON, iStock)
+Foreword 1
+Overview 2
+1 Introduction 6
+2 Water resources 10
+2.1 Rainfall and streamflow 11
+2.2 Water storages 21
+2.3 Streamflow salinity 30
+2.4 Groundwater 33
+2.5 Alternative water resources 38
+3 Water trading and use 42
+3.1 Water trade 43
+3.2 Water for consumptive use 44
+3.3 Water stress 51
+3.4 Water for Environmental use 52
+3.5 Water for Aboriginal cultural use 52
+4 Glossary 54
+5 References 57
+CONTENTS
+
+1
+Water in Australia 2019–20
+FOREWORD
+Water is vital to life and plays a critical role in the health of 
+our communities, economy, and ecosystems. Freshwater 
+resources in Australia are very limited and year-to-year 
+fluctuations are considerable due to high variability in our 
+rainfall. Coupled with population and economic growth 
+this presents unique challenges for water resources 
+management in Australia. Reliable and transparent 
+information on the state of our water resources is essential 
+to address these challenges.
+Under the Commonwealth Water Act 2007, the Bureau 
+of Meteorology is responsible for compiling and delivering 
+comprehensive water information across Australia. 
+More than two hundred organisations across Australia 
+collect data on water availability and use relevant to 
+water management. This is provided to the Bureau 
+of Meteorology, which analyses and integrates the 
+information, and makes it openly available in a range of 
+online products. 
+Water in Australia 2019–20 is the seventh report in a series 
+and covers the period from 1 July 2019 to 30 June 2020. It 
+pulls together the latest data and analysis from across the 
+Bureau to provide an up-to-date assessment of the water 
+situation at a national level in Australia in the context of 
+longer-term trends and climatic influences. The information 
+in the report will be of value to government agencies, 
+policymakers, researchers, industry, educators, students 
+and members of the public looking for insight into the key 
+water issues faced across the country during 2019–20. 
+Water in Australia provides information at a national level 
+while more detailed information for eleven nationally 
+significant water management regions is provided in the 
+National Water Account. Together, these complementary 
+products provide a broad picture of the water resources 
+situation in Australia. 
+I acknowledge everyone involved for their valuable 
+contributions to this report, including the many agencies 
+who collected and provided their data to the Bureau along 
+with the many experts responsible for the analysis. I would 
+appreciate your feedback so that we can continue to 
+improve our reporting. 
+Victoria Dodds
+Manager Environmental Prediction Services-Water
+Bureau of Meteorology
+2
+Water in Australia 2019–20
+OVERVIEW 
+• Dry conditions wer e experienced across most of Australia for the second successive year.
+• Combined water storage acr oss Australia on 30 June 2020 was 46 per cent of capacity, similar to the 
+ pr evious year.
+• T otal water taken in Australia for consumptive use was 14 270 GL, six per cent less than the previous year.
+CLIMATE AND WATER
+Figure I. Annual rainfall during 2019–20 compared with 
+historical records (1900–2020) 
+• Australia’s total annual rainfall in 2019–20 was 347 mm, 
+well below the mean value of 457 mm (1900–2020).
+• This was the second consecutive year of very low 
+rainfall. Over the previous two years, Australia has 
+experienced its driest 24-month period on record.
+• Rainfall was very low during the latter half of 2019 due 
+to a positive phase of the Indian Ocean Dipole, one 
+of the strongest on record, that influenced Australia’s 
+climate during this period (see the Bureau’s 2019–20 
+Climate Report for more information).
+• There was some rainfall relief during the early part of 
+2020, including very heavy rainfall associated with a 
+coastal trough that impacted the east coast in 
+February 2020.
+• Dry conditions over much of Australia during the latter 
+half of 2019 contributed to generally below average 
+streamflow across the whole country in 2019–20.
+3
+Water in Australia 2019–20
+Figure II. Streamflows during 2019–20 compared with historical records (1975–2020)
+• Annual flow in some rivers across southern Australia • The streamflows in southwest Western Australia were 
+were the lowest on record, particularly in parts of New predominantly below average in 2019–20 due to very 
+South Wales. much below-average winter rainfall.
+• In the Murray–Darling Basin, flow in most of the rivers • Total accessible surface water storage for Australia on 
+had reached record low levels by December 2019. 30 June 2020 was 23 140 GL or 46 per cent full, similar 
+Above-average rainfall across large areas of New South to the previous year.
+Wales and Victoria in the early part of 2020, particularly • Most of the storages across southeastern Australia 
+during February to April, resulted in some recovery, with remained low, particularly in the northern part of the 
+flows occurring in all the major rivers within the Murray– Murray–Darling Basin where storages were less than 
+Darling Basin. 20 per cent of capacity on 30 June 2020.
+• Flow in the lower Darling River reconnected with the 
+River Murray in mid-April 2020 for the first time since 
+January 2018. In February 2020, the first major flows in 
+eight years occurred from the Lower Balonne River into 
+the Ramsar-listed Narran Lakes wetland system.
+4
+Water in Australia 2019–20
+• In the Murray–Darling Basin, storage volumes increased 
+after February 2020 for the remainder of the 2019–20 
+year following higher rainfall across the region during 
+February–April 2020; however, many areas have 
+experienced prolonged dry conditions and, by the end 
+of 2019–20, significant follow-up rainfall was needed to 
+replenish these storages.
+• Storage volumes in northwestern Australia declined for 
+the third consecutive year. On 30 June 2020, Lake Argyle 
+was at its lowest end-of-year level in almost 30 years.
+• Storage volumes in Sydney increased markedly following 
+heavy rainfall associated with a coastal trough that 
+crossed the region in early-February 2020. Total storage 
+almost doubled in 10 days between 8–18 February 2020, 
+the first significant rise in storage since June 2016.
+Figure III. Status of rural storage systems on 30 June 2020 
+Figure IV. Status of urban storage systems on 30 June 2020 
+5
+Water in Australia 2019–20
+WATER SOURCES AND SUPPLY
+Figure V. Water taken by use category and source in 2019–20
+• Total water taken for consumptive water use in 2019–20 
+was 14 270 GL, six per cent lower than the previous 
+year.
+• Surface water was the primary water source, 
+particularly for agriculture, due to ease of access and 
+low abstraction cost.
+• Total water taken for agricultural use decreased by 11 
+percent from 2018–19, largely due to the continued dry 
+conditions and low water availability across the Murray–
+Darling Basin.
+• In 2019–20, desalinated water made up four per cent 
+of total water supply compared to one per cent in 
+the previous year. The very dry conditions during the 
+year, particularly in the latter half of 2019, meant urban 
+utilities opted to reduce pressure on their surface water 
+resources and increase their reliance on desalinated 
+water supply to meet urban demand.
+• About 22 per cent of total water taken was for urban 
+water supply. More information on Australia’s urban 
+systems is available from the Bureau’s National 
+Performance Report 2019–20.
+• In 2019–20, water market turnover in Australia was $7 
+billion, a 39 per cent increase from the previous year. 
+This increase was driven by record entitlement and 
+allocation prices due to low water availability and high 
+demand during the latter half of 2019. More information 
+on water trade across Australia is available from the 
+Bureau’s Australian Water Markets Report 2019–20.
+6
+Water in Australia 2019–20
+1 INTRODUCTION
+7
+Water in Australia 2019–20
+Australia’s climate is highly variable both across the country and from year to year. For many areas the 
+frequency and intensity of extreme events, such as droughts and floods, are important characteristics of 
+the climate. Highly variable rainfall has a significant impact on the availability of water resources. With 
+much of the country arid or semi-arid, Australia has a high reliance on water in storage and groundwater 
+to sustain communities, industries and agriculture. Competition for resources is growing with increasing 
+demands from various sectors including the environment. Periodic assessment and reporting of water 
+availability and use is therefore important to provide insights into the use of these limited resources.
+The Bureau of Meteorology is responsible for compiling 
+and delivering comprehensive and transparent information 
+about water resources across Australia to help inform 
+decision-making by water managers and policymakers. 
+Under Part 7 of the Water Act 2007 (Cwlth), the Bureau of 
+Meteorology is required to collect, hold, manage, interpret 
+and disseminate Australia’s water information. As part 
+of this role, the Bureau publishes an annual overview of 
+Australia’s water resources and use in the context of long-
+term patterns and climatic influences. 
+Water in Australia 2019–20 is the seventh in a series of 
+annual reports. It integrates data and investigations from 
+across the Bureau to provide a national overview of the 
+status of Australia’s water resources availability and use 
+for the period from 1 July 2019 to 30 June 2020. Water in 
+Australia provides information at a national level while more 
+detailed information for eleven nationally significant water 
+management regions is provided in the National Water 
+Account.
+Chapter 2 of this report provides an overview of water 
+resources availability in Australia during 2019–20. It 
+provides a summary of climatic conditions and drivers 
+during the year together with the resultant annual and 
+monthly streamflows. The salinity of the streamflow is 
+discussed and how this may constrain water use. An 
+overview of groundwater resources is then presented in 
+terms of three main aquifer groups. The chapter concludes 
+with contributions from climate-independent water sources, 
+such as desalination and recycling.
+Chapter 3 of the report begins with an overview of water 
+trading and then summarises water taken for agricultural, 
+urban and industrial uses. Water stress in Australia is 
+estimated using a United Nation’s indicator. Water use by 
+environmental water holders and Aboriginal cultural water 
+needs are then discussed. 
+The information presented in this report is based on the 
+best data available at the time of writing. Values may differ 
+from those shown in other Bureau of Meteorology products 
+due to subsequent updates. Datasets used to generate 
+this report are available for download through specific 
+information sources available at the Bureau of Meteorology 
+website.
+• Regional Water Information provides spatial and 
+temporal information and summaries (from nationwide 
+to the river region level) on the status of water resources 
+and use (http://www.bom.gov.au/water/rwi/). The 
+statistics provided in the RWI portal are based on 
+the information available shortly after the end of each 
+financial year. 
+• Monthly Water Update provides a snapshot of monthly 
+rainfall, streamflow, stream salinity and storage volumes 
+for ten of Australia’s 13 drainage divisions (http://www.
+bom.gov.au/water/monthly-water-update/).
+• Groundwater Information Suite provides data on 
+bore water levels and trends, and associated data on 
+hydrogeology and groundwater management (http://
+www.bom.gov.au/water/groundwater/index.shtml).
+• Australian Landscape Water Balance provides 
+Australia-wide information on key landscape water 
+balance components, including soil moisture, runoff, 
+evapotranspiration, deep drainage and precipitation in 
+near real time (www.bom.gov.au/water/landscape).
+• National Water Account is a detailed annual accounting 
+of water assets and liabilities for 11 key water-use 
+regions (http://www.bom.gov.au/water/nwa/2020/).
+• Urban National Performance Reports provide annual 
+benchmarking of the performance of 80 urban water 
+utilities and councils and five bulk water authorities 
+(www.bom.gov.au/water/npr/index.shtml).
+8
+Water in Australia 2019–20
+• Water Data Online provides watercourse level, 
+watercourse discharge, storage level, storage 
+volume, electrical conductivity, turbidity, pH and water 
+temperature information from approximately 5000 water 
+monitoring stations across Australia, many of which are 
+updated daily (www.bom.gov.au/waterdata). 
+• Water Storage Dashboard allows comparison of water 
+levels and volumes for more than 300 publicly owned 
+lakes, reservoirs and weirs in each States and Territory, 
+and shows how much water is available over the entire 
+country (www.bom.gov.au/water/dashboards/#/water-
+storages/summary/state).
+• Water Markets Dashboard allows viewing and 
+comparison of the volumes and prices of water 
+entitlements and allocations being traded in Australia. 
+One can also view the number and volume of 
+entitlements that are on issue nationally (www.bom.gov.
+au/water/market).
+• Water Reporting Summaries for sixteen Murray–Darling 
+Basin Catchments provide fortnightly summaries of 
+water storage status and commitments (http://www.
+bom.gov.au/water/nrtwreporting/)
+• Climate trends and extremes tracker provides rainfall 
+data sets and statistics from 1900. These data sets 
+are carefully curated from weather station sites with 
+long-records and subjected to complex quality control 
+to address inconsistencies and errors (http://www.bom.
+gov.au/climate/change/#tabs=Tracker)
+9
+Water in Australia 2019–20
+10
+Water in Australia 2019–20
+2 WATER RESOURCES
+11
+Water in Australia 2019–20
+This chapter provides an overview of water resources availability in Australia during 2019–20. Section 
+2.1 provides a summary of climatic conditions and drivers during the year together with the resultant 
+annual and monthly streamflows. Section 2.2 shows the effects of these patterns on water storages. 
+Section 2.3 examines the salinity of the streamflow and discusses how this may constrain water use. 
+An overview of groundwater resources is presented in terms of three main aquifer groups in Section 
+2.4. The contributions from climate-independent water sources, such as desalination and recycling, are 
+reported in Section 2.5. 
+2.1 RAINFALL AND STREAMFLOW
+2.1.1 National rainfall
+The area-averaged annual rainfall across Australia for 
+2019–20 was 347 mm, 24 per cent less than the mean 
+value (based on data from 1900–2020) of 457 mm. This 
+was the second consecutive year of very low rainfall. Over 
+the previous two years, Australia has experienced its driest 
+24-month period on record. 
+Annual rainfall was below average or lower (in the lowest 30 
+per cent) for sixty per cent of Australia in 2019–20, of which 
+26 per cent was very much below average (lowest ten per 
+cent of such periods on record). The first half of the financial 
+year (July 2019 to June 2020) was drier than the second 
+half. Rainfall was lower than average in the first six months 
+with lowest on record rainfall (since 1911–12) in November 
+and December 2019. The national area-averaged rainfall 
+was closer to average for the first five months of 2020 and 
+very much below average in June 2020.
+Figure 1. Rainfall deciles map for 2019–20
+12
+Water in Australia 2019–20
+Figure 2. Percentage of each State and Territory in the different rainfall decile categories in 2019–20
+After a very dry end to 2019 over much of eastern Australia, 
+the first six months of 2020 saw average to above average 
+rainfall across many rainfall deficient areas and this provided 
+a better start to the winter cropping season in many 
+regions. Rainfall deficiencies have affected most of the New 
+South Wales, Queensland and South Australian parts of the 
+Murray–Darling Basin since early 2017, therefore recovery 
+will be a slow process. Rainfall was above average across 
+large areas of New South Wales and Victoria from January 
+to April, but the 12 months ended with Australia’s fourth-
+driest June on record.
+Very much below average rainfall was recorded in the 
+west and south of Western Australia, much of South 
+Australia, the far south and north of the Northern Territory, 
+southeastern Queensland, western New South Wales 
+and far eastern Victoria. Rainfall was higher than average 
+in western Tasmania, and in isolated patches in northern 
+and central Western Australia, the Northern Territory and 
+southeastern Victoria.
+The Murray–Darling Basin continued to experience below 
+average rainfall as it had for the last two years. Annual 
+rainfall was 374 mm, 20 per cent lower than the long-term 
+mean (based on data from 1900–2020) of 467 mm. Fifty-
+seven per cent of the Basin experienced below average 
+rainfall or drier, of which 17 per cent was very much below 
+average.
+Northern Australia was also relatively dry with a delayed 
+monsoon onset contributing to a below-average wet 
+season. This was the second consecutive year that the 
+transition of the Southwest Indian Monsoon into the 
+southern hemisphere was later than average.
+Annual rainfall was below average or very much below 
+average for more than half of the surface area in most 
+States and Territories (Figure 2). In South Australia, more 
+than half of the surface area experienced very much below 
+average rainfall. 
+In contrast, Victoria and Tasmania were the only States 
+where average to very much above average rainfall 
+occurred over at least half of the surface area, though for 
+Victoria the area of below average conditions was larger 
+than the area with above average rainfall. Above average to 
+very much above average rainfall occurred over more than 
+one-quarter of Tasmania. 
+13
+Water in Australia 2019–20
+Figure 3. Australian monthly rainfall in 2019–20 compared with the long-term mean and the 10th to 90th percentile range 
+(1900–2020)
+2.1.2 Climate drivers 
+The Indian Ocean exerted a strong influence on Australia’s 
+climate during much of 2019–20. A positive Indian Ocean 
+Dipole (IOD) was active during the spring of 2019 and 
+contributed to the very dry conditions that persisted over 
+much of Australia during the latter half of 2019 (Figure 3). 
+The IOD index reached its highest weekly recorded value 
+(for the week ending 13 October 2019) for the available 
+dataset, which extends from 2001. In early 2020, the IOD 
+returned to neutral and warmer than average sea surface 
+temperatures off the northwest coast of Australia saw 
+tropical moisture make its way south across the continent, 
+often interacting with cold fronts from the south, to produce 
+good rainfall for many parts of eastern Australia.
+A sudden stratospheric warming, the strongest event since 
+2002, began at the end of August. This contributed to the 
+prolonged negative phase of the Southern Annular Mode 
+(SAM) from late spring to early summer which resulted in 
+a reduction in rainfall over parts of eastern Australia due to 
+reduced onshore flow, but with wetter conditions in western 
+Tasmania due to the enhanced westerly winds.
+The SAM was positive for much of May and June 2020; 
+during winter a positive SAM typically means less rainfall 
+for southwest Western Australia, southern Victoria, and 
+Tasmania. The dry conditions over much of southern 
+Australia during June were consistent with a winter-time 
+positive SAM.
+2.1.3 Rainfall distribution
+The first half of the financial year (July–December 2019)
+was particularly dry across most of the southern half of 
+Australia and followed several years of below average 
+rainfall over parts of Queensland and New South Wales. 
+Rainfall was generally lower than average over large areas 
+of the country and was particularly low over mainland 
+southern Australia from July to December (Figure 4). This 
+resulted in strong early season demand for irrigation water 
+in the winter cropping areas of New South Wales, Victoria, 
+South Australia and Western Australia. Warm and windy 
+conditions during spring to early summer led to repeated 
+periods of severe fire weather, with very large bushfires 
+affecting eastern Australia from September, with many fires 
+continuing to burn after the end of 2020.
+14
+Water in Australia 2019–20
+Nationally, each month from July through December was 
+amongst the ten driest on record for their respective month. 
+November and December were exceptionally dry (Figure 3), 
+the lowest on record for their respective months.
+Near-to or above-average rainfall returned to many parts 
+of Australia from January onwards. January rainfall was 
+average for Australia as a whole and was 16 per cent 
+above the long-term mean. Rainfall was above to very 
+much above average for much of the west and northeast 
+extending from the Pilbara to South Australia and beyond 
+to central Victoria, as well as from the eastern Northern 
+Territory to central Queensland.
+January rainfall helped to reduce the severity of 
+uncontrolled bush fires across parts of eastern Australia. 
+Two tropical cyclones (Claudia and Blake) contributed to 
+higher-than-average rainfall in parts of northern Australia. 
+Tropical cyclone Claudia generated locally heavy rainfall 
+across the western Top End. Tropical cyclone Blake 
+produced above average rainfall across southwestern 
+Kimberly and parts of the Pilbara.
+Much of eastern New South Wales experienced heavy 
+rain in February, while there was more widespread and 
+consistent rain throughout many parts of eastern Australia 
+from February to April. February rainfall was above to 
+very much above average for much of the western part 
+of Western Australia, central and southeastern South 
+Australia, Victoria, central to eastern New South Wales, 
+southeastern Queensland, and parts of the central Northern 
+Territory. A slow-moving trough delivered 392 mm of 
+rainfall over four days in Sydney in early February which is 
+the heaviest four-day rainfall since 1990. Tropical cyclone 
+Esther generated above average rainfall along a track 
+extending from the Gulf of Carpentaria through central 
+Northern Territory into central Kimberly in Western Australia. 
+Heavy rainfall at the end February and in early March, partly 
+associated with the remnants of tropical cyclone Esther, led 
+to widespread flooding in Queensland and heavy rainfall as 
+far south as Victoria.
+The rainfall during the autumn months of April and May 
+are critical for sowing and establishing of winter crops in 
+southeastern Australia. During April, above average rainfall 
+occurred in much of southeastern Australia, northwest 
+Northern Territory and parts of the Kimberley. Victoria 
+and Tasmania recorded the tenth wettest April on record. 
+Rainfall for May was below to very much below average 
+for most of the southern half of Western Australia, most 
+of South Australia, the far south of the Northern Territory, 
+western to central New South Wales and eastern and 
+northern Tasmania.
+For Australia as a whole June rainfall was the fourth lowest 
+on record. Rainfall was lower than average for most of 
+Australia and for the Murray–Darling Basin, rainfall was 43 
+per cent below the long–term mean. 
+The tropical north depends on rainfall during the northern 
+wet season, which is usually from October through to 
+April. In 2019–20, wet season rainfall was below average 
+for much of northern Australia for the second consecutive 
+year. A near-record strong positive Indian Ocean Dipole 
+(IOD) saw lower than average rainfall at the start of the wet 
+season with a delayed onset of the monsoon contributing 
+to the low rainfall total for the season. The arrival of the 
+monsoon was 6 weeks later than average and the latest on 
+record. Below average tropical low/cyclone activity during 
+2019–20 also contributed to the relatively dry conditions.
+15
+Water in Australia 2019–20
+Figure 4. Monthly rainfall decile maps for 2019–20
+16
+Water in Australia 2019–20
+2.1.4 Streamflow
+The annual streamflow deciles for 2019–20 (Figure 5) 
+mostly followed the spatial distribution of the rainfall deciles 
+(Figure 1). The differences between the percentages shown 
+in the State and Territory decile charts for streamflow 
+(Figure 6) and rainfall (Figure 2) are largely due to the limited 
+spatial distribution of the streamflow monitoring sites.
+Poor rainfall and dry soils over much of Australia during the 
+first six months of 2019–20 contributed to average to lower 
+than average annual streamflow across the whole country. 
+In 2019–20, forty-eight per cent of the 933 streamflow 
+gauges recorded average flows and 45 per cent recorded 
+lower than average flows. 
+Lower than average flows were dominant during the year 
+in the southern part of Australia whereas both average and 
+lower flows were dominant in the north. Four per cent of the 
+gauges recorded the lowest flows on record (since 1975); 
+most of these gauges were in New South Wales.
+In the Murray–Darling Basin (the Basin), flows in most of the 
+rivers reached very low levels in December 2019. Most of 
+the rivers in the Basin recorded lower than average flows 
+(87 per cent) in December 2019 of which 17 per cent were 
+lowest flows on record. Very few rivers across the northern 
+part of the Basin were flowing at all with more than 30 per 
+cent of the gauges recording the lowest flows on record. 
+Above average rainfall across large areas of New South 
+Wales and Victoria during the first six months of 2020 
+resulted in some recovery, with flows occurring in all the 
+major rivers within the Murray–Darling Basin (particularly 
+during February to April). In February 2020, the first major 
+flows in eight years occurred from the Lower Balonne River 
+into the Ramsar-listed Narran Lakes wetland system. Flow 
+in the lower Darling River reconnected with the River Murray 
+in mid-April 2020 for the first time since January 2018.
+Figure 5. Streamflow deciles map at long-term monitoring stations throughout Australia in 2019–20
+17
+Water in Australia 2019–20
+Figure 6. Streamflow deciles by number of gauges in each State or Territory
+The delayed onset of the monsoon period contributed to 
+the predominance of average to lower flows in rivers across 
+most of northern Australia, particularly in northern areas 
+of Queensland. The streamflows in southwest Western 
+Australia were predominantly below average in 2019–20 
+due to lower than average winter rainfall.
+During the latter half of 2019, most of the streamflow 
+gauges (Figure 7) recorded lower than average monthly 
+flows reflecting the dry conditions across Australia during 
+this 6-month period. In July 2019, 48 per cent of the 
+gauges recorded lower than average flows and, following 
+record low rainfalls throughout November–December, this 
+rose to more than 80 per cent of the gauges by the end of 
+2019. 
+By December 2019, root-zone soil moisture was the 
+lowest on record in many areas, including along parts of 
+the eastern seaboard, southeastern Queensland, scattered 
+parts of southwest Western Australia, and in the Top End of 
+the Northern Territory after a late start to the monsoon. The 
+dry conditions across most of the southern half of Australia 
+in the first six months of the financial year, contributed to a 
+predominance of lower than average streamflow in the first 
+seven months (Figure 8) and a strong demand for irrigation 
+water during the 2019 winter–spring season. 
+Near-to-average rainfall and above returned to most of 
+Australia after January 2020 (Figure 4). Above to very-
+much-above average rainfall extended from the Pilbara to 
+South Australia covering much of the west and northeast. 
+Another band of high rainfall extended from the eastern 
+Northern Territory to central Queensland. These high 
+rainfalls generally resulted in higher than average flows. 
+Lower than average streamflows were dominant in gauges 
+in New South Wales and Victoria due to lower than average 
+rainfall.
+Widespread heavy rainfall during the first half of February 
+across much of Queensland and along the east coast of 
+Australia contributed to both riverine and flash flooding 
+in some areas of New South Wales and Queensland. 
+Renewed heavy rainfall at the end February and in early 
+March, partly associated with the remnants of tropical 
+cyclone Esther, led to further widespread flooding in 
+Queensland and heavy rainfall as far south as Victoria. 
+Higher than average flows were recorded in more than 60 
+per cent of the gauges in New South Wales and 40 per 
+cent of the gauges in Victoria during February 2020. 
+18
+Water in Australia 2019–20
+Figure 7. National monthly streamflow deciles
+A slow-moving trough that delivered 392 mm of rainfall to 
+Sydney within one week (7–10 February 2020), produced 
+enough streamflow to almost double the amount of water 
+stored in the urban storages of Sydney – from 42 per cent 
+on 8 February to 81 per cent on 18 February. 
+April 2020 rainfall was higher than average for much of 
+southeastern Australia, leading to above average inflows 
+into many southern Murray–Darling Basin water storages. 
+With lower than average rainfall across much of the 
+southern half of Australia during May and June, there was a 
+strong demand for irrigation water for winter cropping early 
+in the season. Most of New South Wales, South Australia 
+and southwest Western Australia recorded average to lower 
+than average streamflow during May and June.
+19
+Water in Australia 2019–20
+Figure 8. National maps of monthly streamflow deciles in 2019–20
+20
+Water in Australia 2019–20
+Figure 8 (continued). National maps of monthly streamflow deciles in 2019–20
+21
+Water in Australia 2019–20
+2.2 WATER STORAGES
+2.2.1 National view
+Australia has over 500 major storages, several thousand 
+small storages and in excess of two million farm dams. 
+Large storages are essential for coping with the highly 
+variable rainfall and high temperatures that are prevalent 
+in much of Australia. The total accessible storage capacity 
+is about 81 000 GL (Bureau of Meteorology, 2020), which 
+is equivalent to a relatively high national per capita surface 
+water storage capacity of about 3.25 ML. 
+Tasmania has 54 large storages primarily to provide water 
+for hydro-electric power generation. On the Australian 
+mainland, storages are concentrated mainly in the 
+southeast where the largest irrigation areas and most of the 
+major urban centres are located. Here, water is mostly used 
+for direct water supply, including agricultural, urban and 
+industrial uses, as well as for environmental releases. 
+Figure 9. Time series of storage volume as a percentage of capacity for combined urban and rural storages 
+22
+Water in Australia 2019–20
+The combined accessible storage capacity of major 
+storages for direct water supply purposes across Australia 
+at the beginning of 2019–20 was 50 500 GL. The 
+combined accessible storage volume at the start of the 
+year was 23 140 GL, or 46 per cent of capacity. Due to dry 
+conditions throughout much of Australia during the latter 
+half of 2019 and continued diversions from these storages, 
+the accessible storage volume decreased to 36 per cent of 
+capacity by January 2020, the lowest level in more than 10 
+years. The combined accessible storage volume recovered 
+after February 2020 following higher rainfall across 
+southeastern Australia and regained the same proportional 
+fulness as at the start of the year, 46 per cent (Figure 9). 
+After the end of the Millennium Drought (mid-2009) the 
+combined accessible storage volume had risen to 90 
+per cent in March 2012. The storage volume then slowly 
+dropped to 54 per cent of capacity in May 2016 and then 
+rose to 80 per cent of capacity in February 2017 due to wet 
+weather throughout much of Australia during 2016–17. It 
+then gradually dropped to its lowest volume in more than 
+10 years during January 2020.
+Figure 10. Time series of storage volume as a percentage of capacity for combined urban storages
+23
+Water in Australia 2019–20
+2.2.2 Urban storages 
+At the start of the 2019–20 year, the combined accessible 
+water volume in urban storages across Australia was 5847 
+GL (59 per cent of capacity), increasing to 6640 GL (66 per 
+cent of capacity) by the end of the year (Figure 10). The 
+combined accessible storage volume of urban storages 
+dropped to its lowest volume (53 per cent of capacity) 
+in January 2020, the lowest level since the end of the 
+Millennium Drought. Rainfall relief during the early part of 
+2020 resulted in storage increases in most urban storage 
+systems, particularly in southeastern Australia. 
+The accessible storage levels increased in most of the 
+major urban storage systems in southeastern Australia 
+during the 2019–20 financial year except for Canberra. 
+Accessible storage levels declined in the Perth, Darwin and 
+South East Queensland systems (Figure 11). The Hobart 
+system showed the largest proportional increase followed 
+by Sydney, Melbourne and Adelaide. By contrast, the 
+Darwin system showed the largest proportional decrease, 
+followed by South East Queensland and Canberra. 
+In the east of the country, generally wet conditions from 
+January to April saw many urban water storages start 
+to recover. The storage volume in the Canberra system 
+increased from 45 per cent in February to 55 per cent by 
+the end of June 2020 and the South East Queensland from 
+system from 55 per cent in January to 67 per cent in March 
+2020.
+In Adelaide, despite below average rainfall for most of 
+the year, storage volumes increased from 47 per cent of 
+capacity on 30 June 2019 to 49 per cent on 30 June 2020 
+due to the high rainfall in late autumn 2020. The storage 
+volume reached a low of 39 per cent in May 2020, the 
+lowest in more than 10 years.
+In Melbourne, the storage volume of the system increased 
+from 50 per cent on 30 June 2019 to 68 per cent on 30 
+June 2020. The storage volume peaked in November 2019 
+following rainfall during the winter months and was the 
+highest since November 2017 (Figure 12). 
+The Sydney water supply system saw a year of contrasts 
+with the accessible storage volume dropping to 42 per cent 
+in January and filling to 81 per cent by the end of the year 
+(Figure 12). The system had seen a steep decline during 
+the previous few years to January 2020, from near full in 
+April 2017. Level 2 water restrictions were introduced in 
+December 2019 which limit how and when water can be 
+used outdoors (Under level 2 restrictions garden can only 
+be watered using a can or using smart irrigation systems). 
+At this time Sydney’s desalination plant was operating at full 
+capacity to reduce the use of surface water supply. 
+The slow-moving trough that delivered almost 400 mm 
+of rain to Sydney during the second week of February 
+produced enough runoff to almost double the amount 
+of water in storage; the accessible water in the Sydney 
+storages increased from 42 per cent on 8 February to 81 
+per cent on 18 February. Warragamba, the largest storage 
+in the system, increased by 800 GL, almost enough water 
+to fill the Sydney Harbour twice over. The volume of runoff 
+was likely enhanced by low vegetation mass following 
+bushfires across 35 per cent of the catchment during 
+summer season. Water restrictions were lowered to Level 
+1 on 1 March 2020 following the high rainfall in February 
+(under Level 1 restrictions drinking water can only be used 
+to water gardens with a hand-held hose, sprinklers or 
+standard watering systems, top up pools and spas, wash 
+vehicles with a pressure washer).
+The storage volumes in the Canberra system dropped 
+steadily in the first eight months of 2019–20. The Canberra 
+system has experienced a steady decline in storage 
+levels from October 2016, when storages were almost at 
+capacity, to February 2020, the lowest level in almost 10 
+years (46 per cent). Higher rainfall during February–April 
+2020 resulted in a rise in storage levels, the first significant 
+rise in storage since June 2016. 
+24
+Water in Australia 2019–20
+(a) On 30 June 2020
+(b) Change from 30 June 2019 to 30 June 2020
+Figure 11. The distribution and status of urban storage systems (a) On 30 June 2020 (b) Change from 30 June 2019 to 
+30 June 2020
+25
+Water in Australia 2019–20
+Figure 12. Time series of storage volume as a percentage of capacity for urban storages
+26
+Water in Australia 2019–20
+The combined accessible storage volume dropped in 
+South East Queensland, in comparison to the previous 
+year due to below average rainfall across the region (Figure 
+12). Water use and below average streamflow resulted in 
+a steady decline in accessible storage volume from April 
+2018 to a low of 55 per cent of capacity in January 2020, 
+the lowest level in more than 10 years. The combined 
+accessible storage volumes recovered from February 2020 
+to reach a peak of 67 per cent of capacity in March 2020 
+following higher rainfall across the region. The storage 
+volume then dropped to 62 per cent of capacity by the end 
+of the financial year.
+The normal filling and spilling of the Darwin River storage 
+did not occur for a second year in a row due to the 
+low wet-season rainfall across northern Australia. The 
+accessible volume declined steadily during the first six 
+months of the year and reached 53 per cent of capacity in 
+December 2019, the lowest level in more than 10 years. 
+The 2019–20 wet season did bring some inflows, but 
+not enough to fill the storage. Darwin receives the most 
+seasonally variable rainfall among all capital cities and the 
+storage volume generally peaks towards the end of the wet 
+season (October to April). Since 2011, the storage volume 
+has been more than 90 per cent of capacity during March 
+and April except in 2012–13, 2018–19 and 2019–20 when 
+it was below 70 per cent full (Figure 12) due to a poor wet 
+season in these years. 
+In Perth, the storage volume of the system decreased for 
+the first time in four years (from 42 per cent on 30 June 
+2018 to 40 per cent on 30 June 2019) (Figure 12). The 
+decrease in 2019–20 was influenced by below-average 
+streamflow in southwest Western Australia due to below-
+average 2019 winter rainfall.
+The accessible storage volume of the Hobart system 
+(Risdon Brook storage) with a capacity of 4 GL, was close 
+to full capacity for large periods each year during the 
+previous decade (Figure 12). Below average streamflow 
+resulted in a decline in accessible storage volumes from 
+October 2018 to a low of 57 per cent of capacity in June 
+2019, the lowest level since 2010. The volume gradually 
+increased to 72 per cent of capacity during November 
+2019, but below average streamflow resulted in a decline 
+in accessible storage volume to a further low of 56 per 
+cent of capacity in January 2020. The storage volume then 
+increased steadily to full storage capacity by the end of the 
+financial year due to above average rainfall from March to 
+June 2020.
+2.2.3 Rural storages
+At the start of the 2019–20 year, the combined accessible 
+volume in rural storages across Australia was 17 490 GL 
+(43 per cent of capacity), decreasing to 16 500 GL (41 per 
+cent of capacity) by the end of the year (Figure 13). The 
+combined accessible storage volume of rural storages 
+across Australia showed a steady decline between July 
+2019 – January 2020. 
+Immediately after the end of the Millennium Drought in 
+2009 the storage volume steadily increased and reached 
+80 per cent full in February 2011. The combined accessible 
+storage volume further increased and reached 94 per cent 
+full in September 2012 before it started to decline. The 
+storage volume then dropped to a low of 49 per cent at 
+the end of 2015–16 before rising to 82 per cent during 
+2016–17. It then declined to 43 per cent at the beginning 
+of 2019–20 and by February 2020, the storages were at 32 
+per cent, the lowest level since the end of the Millennium 
+Drought. Due to the improved rainfall conditions in the latter 
+half of the year, the storage volume increased to 41 per 
+cent of capacity by the end of year. 
+27
+Water in Australia 2019–20
+The dry conditions and below-average streamflows across 
+southeastern Australia in 2019–20 meant that storage 
+levels throughout most of the Murray–Darling Basin (where 
+most of Australia’s rural storage systems are) remained 
+low, particularly in the northern part of the Basin (Figure 
+14a). Although the storages remained low across the 
+Basin, the storage volumes at the end of June 2020 were 
+generally higher than at the same time during the previous 
+year (Figure 14b). Storage volumes increased in response 
+to higher rainfall across the region during February–April 
+2020; however, many areas of the Basin had experienced 
+prolonged dry conditions and by the end of June 2020, 
+significant additional rainfall was needed to replenish many 
+storages. 
+In the Murray–Darling Basin the combined accessible 
+storage volume increased from 30 per cent at the start of 
+the year to 37 per cent at the end of June 2020 (Figure 
+15). In early 2020, the accessible storage volume declined 
+to its lowest level (24 per cent) since the end of Millennium 
+Drought and thereafter storage levels in the Basin 
+recovered due to higher-than-average rainfall from February 
+2020, particularly in the southern Basin where the majority 
+of the water is stored. 
+Water storage in the northern Murray–Darling Basin 
+reached a record low of 5.4 per cent of combined capacity 
+in mid-January 2020 (Figure 16), 3 per cent lower than at 
+any point during the Millennium Drought and was 18 per 
+cent at the end of 2019–20.
+Figure 13. Time series of combined rural storage volume as a percentage of capacity for Australia 
+28
+Water in Australia 2019–20
+ (a) 30 June 2020
+(b) Change from 30 June 2019 to 30 June 2020
+Figure 14. The distribution and storage status of rural storage systems (a) 30 June 2020 (b) Change from 30 June 2019 to 
+30 June 2020
+29
+Water in Australia 2019–20
+The storage volumes of the rural supply systems across 
+northern Queensland declined in 2019–20 due to the dry 
+conditions across the region. Despite a drop in storage, 
+most of these storages were above 80 per cent of capacity 
+at the end of 2019–20 (Figure 14a) as the storage capacity 
+is small compared to the annual inflows.
+The water storage levels in Lake Argyle, one of Australia’s 
+larger reservoirs, continued to decline during 2019–20. 
+Lake Argyle traditionally fills every few years, if not every 
+year, during the northern wet season. This seasonal filling 
+and spilling of the lake did not occur in 2019–20 for the 
+third successive year. The storage was 55 per cent full 
+at the start of 2019–20 and, despite a small increase in 
+February–March following rainfall associated with 
+ex-tropical cyclone Esther, dropped to 38 per cent full 
+on 30 June 2020, the lowest level since 1993.
+In the Collie–Harvey–Waroona system, which supplies water 
+to Western Australia’s Harvey Water Irrigation Scheme, 
+storage volume decreased for the first time in three years. 
+The decrease in 2019–20 was influenced by low storage 
+inflows following a very dry winter and spring in 2019.
+Figure 15. Time series of combined rural storage volume as a percentage of capacity for Murray–Darling Basin
+Figure 16. Time series of combined rural storage volume as a percentage of capacity for northern Murray–Darling Basin
+30
+Water in Australia 2019–20
+2.3 STREAMFLOW SALINITY
+In many parts of Australia, soils, surface water and 
+groundwater have a high salt content due to the dry climate 
+and highly weathered landscape. For example, Western 
+Australian streams are naturally more saline than streams 
+in northern Australia and along the eastern divide, where 
+greater rainfall dilutes salt concentrations. 
+Across Australia, dryland and irrigated agriculture and 
+clearing of native, perennial vegetation have changed the 
+catchment water balance. These changes in landscapes 
+increase the mobilisation of highly soluble salts from saline 
+aquifers or shallow water tables into streams. This unnatural 
+increase in salinity can present a risk to aquatic ecosystems 
+and vegetation health (Lake, 2003). 
+Within the Murray–Darling Basin and in several other 
+areas in Australia, salinity is increasingly managed and 
+monitored through the implementation of jurisdictional 
+Land and Water Management Plans that include water 
+quality. These plans provide a framework for setting salinity 
+objectives and targets, as well as for developing on-ground 
+measures to improve salinity conditions. Such measures 
+include provision of adequate water flows, investing in 
+re-vegetation, improving irrigation and dryland farming 
+practices, and salt interception schemes that minimise the 
+movement of salts. 
+To support water quality management and planning, an 
+Australian Government initiative has created the Water 
+Quality Australia website in partnership with State and 
+Territory governments.
+1 The website provides tools and 
+resources to guide water managers, researchers, industry 
+and State, Territory and local governments in developing 
+and implementing water quality plans and strategies. 
+2.3.1 Median salinity
+Stream salinity concentrations determine the suitability of 
+water for various uses; for example, drinking and irrigation. 
+They can also be an indication of impacts on ecosystems. 
+The broad salinity categories for which water is considered 
+fit for various uses are provided in Table 1.
+In 2019–20, 61 per cent of Australia’s river and stream sites 
+were on average fresh and suitable for drinking while 13 per 
+cent of sites were marginal. The remaining 26 per cent of 
+the sites were brackish or saline. For the previous year, 73 
+per cent sites were fresh, 9 per cent were marginal and the 
+remaining 18 per cent were brackish or saline.
+1 www.waterquality.gov.au/
+31
+Water in Australia 2019–20
+Table 1. Water salinity and primary suitability for use
+Salinity category TDS concentration (mg/L) Suitability for use
+Fresh 2 0–500 Good-quality water suitable for drinking and all irrigation
+Marginal 500–1 000 Fair- to poor-quality drinking water; most irrigation; adverse 
+effects on ecosystems may become apparent
+Brackish 1 000–3 000 Unacceptable-quality drinking water; useful for most livestock; 
+irrigation limited to certain crops
+Saline 3 000–35 000 Unacceptable drinking water quality: use may be limited for 
+certain livestock
+Hyper-saline >35 000 Seawater salinity or greater, undrinkable, some mining and 
+industrial uses
+mg/L = milligrams per litre; TDS = total dissolved solids 
+Figure 17. Distribution of median annual streamflow salinity across Australia in 2019–20
+2 The Australian Drinking Water Guidelines – Updated August 2018 refer 
+ to a threshold of 600 mg/L TDS as good quality drinking water 
+ (https://www.nhmrc.gov.au/about-us/publications/australian-drink 
+ ing-water-guidelines)
+32
+Water in Australia 2019–20
+The sites with fresh median water salinities were mostly 
+located in areas with high rainfall, along the east coast 
+(Figure 17). Seventy-five per cent of the 143 sites in New 
+South Wales and 85 per cent of the 40 sites in Queensland 
+had fresh median water salinities. In the Murray–Darling 
+Basin, median streamflow salinities were mostly fresh 
+but tended to be higher in the lower reaches of the 
+River Murray.
+In contrast, most flows at the analysed monitoring sites in 
+Western Australia continued to be saline in 2019–20. Fifty-
+seven per cent were saline and 21 per cent were brackish. 
+In South Australia about a quarter of the sites recorded 
+brackish or saline flows. Such salinities (>1000 mg/L TDS) 
+can restrict water use, affect crop yield and reduce land 
+productivity. They could also pose risks to infrastructure 
+and streamflow ecology and require significant treatment 
+costs to improve the water quality. 
+2.3.2 Changes in median salinity
+At individual sites, streamflow salinity typically changes over 
+time due to complex flow and salinity dynamics. Data used 
+for the comparison were from 407 gauging stations that 
+had reliable data for 2018–19 and 2019–20. 
+Streamflow salinity increased within the rainfall-deficient 
+areas in 2019–20, particularly the sites in New South 
+Wales, Queensland, and Western Australia. Around 50 per 
+cent of the 407 gauging sites had an increase in median 
+streamflow salinity in 2019–20. An increase of more than 
+500 mg/L TDS was observed at nine per cent of the 
+monitoring sites and an increase of up to 100 mg/L TDS 
+was observed for 32 per cent of monitoring sites. Increases 
+were between 100 mg/L TDS and 500 mg/L TDS in seven 
+per cent of sites.
+A decrease in stream salinity of more than 500 mg/L TDS 
+was observed at only 6 per cent of the monitoring sites. A 
+decrease of more than 100 mg/L TDS was observed for 11 
+per cent of monitoring sites. Most of these larger decreases 
+occurred in southern Australia (Figure 18), due to the 
+occurrence of near-to or above-average rainfall during the 
+second half of the financial year.
+Figure 18. Changes in median streamflow salinity from 2018–19 to 2019–20
+33
+Water in Australia 2019–20
+2.4 GROUNDWATER
+2.4.1 Overview 
+In many regions across Australia, groundwater is the only 
+reliable water source. Numerous towns, farms and mines, 
+particularly in the outback, rely almost completely on 
+groundwater. Depending on the annual climatic conditions, 
+about one-fifth to one-third of the annual water used in 
+Australia comes from groundwater. 
+The sustainability of groundwater use is subject to the 
+pressures of climatic conditions and extractions. Recharge 
+rates are typically very small compared to the volumes in 
+the aquifer. Over time, water from rain and rivers travels 
+through the ground and collects in underground rock 
+fractures or between grains of sediment. The layering 
+and structure of aquifers and aquitards makes up the 
+groundwater system and dictates how water flows below 
+the ground and sustains rivers, wetlands and vegetation at 
+the surface. The groundwater level analysis presented here 
+uses a simplified representation of the three-dimensional 
+groundwater systems across Australia aggregating them 
+into upper, middle and lower groups, as presented in 
+Australian Groundwater Insight.
+3 
+2.4.2 Groundwater levels 
+Groundwater levels measured from bores are one of the 
+few direct measurements available to understand changing 
+groundwater conditions. Groundwater typically responds 
+slowly to direct climatic variability, especially in comparison 
+to surface water. This report uses groundwater level status 
+and a five-year trend to assess the effects of changes to 
+groundwater levels in 2019–20. Examining trend and status 
+data together is a useful way to give context to year-to-year 
+fluctuations.
+3 http://www.bom.gov.au/water/groundwater/insight/
+The groundwater level status for a bore is a decile ranking 
+of the recovery peak for 2019–20 against all annual 
+recovery peaks in a bore’s historical record (based on 
+data from the period 1997–2020)
+4. The groundwater level 
+recovery peak is defined as the maximum groundwater 
+level observed in a bore during the financial year. Recovery 
+peaks occur through natural groundwater recharge 
+and/or pressure recovery in the non-pumping season. 
+The five-year trend in annual recovery peaks indicates 
+whether groundwater levels at a bore are rising, stable or 
+declining from July 2015 to June 2020. Figure 19 shows 
+the distribution of groundwater level status and Figure 
+20 shows the distribution of groundwater level trends at 
+bores across Australia for (a) upper (b) middle and (c) lower 
+aquifer groups. 
+The lower than average groundwater levels experienced in 
+2018–19 in many parts of Australia persisted in 2019–20 
+for all aquifer groups (Figure 19). Just over half of the upper 
+aquifer bores had a below average groundwater level 
+status; while 30 per cent had an average status and only 
+16 per cent had an above average status. The five-year 
+trend in upper aquifer groundwater levels ranged from 
+stable (41 per cent) to declining (30 per cent) and rising (29 
+per cent) (Figure 20). Similarly, the majority of bores in the 
+middle and lower aquifers, where most extraction occurs, 
+had below average groundwater levels (56 and 54 per cent 
+respectively) with generally stable or declining trends. 
+4 Tasmania has a shorter reference period (2008–2020) due to data 
+ availability. This means that the status r esults for Tasmania are 
+ not directly comparable to the rest of the country.
+34
+Water in Australia 2019–20
+In south eastern Australia, including the Murray–Darling 
+Basin and south-eastern Queensland, most bores had 
+below average groundwater levels and stable or declining 
+trends (Figures 19 and 20). Areas of high groundwater 
+extraction (for example, the alluvial aquifers in the northeast 
+of the Murray–Darling Basin, such as the Namoi) were 
+particularly affected. The low groundwater levels in the 
+Murray–Darling Basin and south-eastern Queensland reflect 
+limited aquifer recharge due to the low rainfall experienced 
+across the region over the previous three years. Rainfall 
+conditions started to improve in early 2020 with above 
+average rainfall in February – April 2020, and groundwater 
+extraction decreased as surface water started to become 
+more available. Despite the rainfall and reduced extraction, 
+groundwater levels did not recover completely.
+Similarly, bores in the Darwin and Daly–Roper water control 
+districts in the Northern Territory had below average 
+groundwater levels and declining trends (Figures 19 and 
+20). For the second consecutive year, the normal increase 
+in groundwater levels during the wet season did not 
+occur due to poor wet season rainfall. In contrast, areas 
+that experienced wetter conditions in 2018–19, such 
+as Queensland’s northeast coast, were able to maintain 
+average to above average levels with rising trends (Figures 
+19 and 20) despite low rainfall in 2019–20.
+In southwest Western Australia, groundwater levels have 
+generally been in decline for the previous 40 years due 
+to decreasing rainfall (Bureau of Meteorology, 2018) and 
+increasing groundwater demand. Overall, in 2019–20, 
+there were more bores with below average groundwater 
+levels than in 2018–19 (Figure 21) because of the 
+continuing drying trend in rainfall and recharge. Managed 
+aquifer recharge and measures to reduce and redistribute 
+groundwater extraction have been undertaken to slow the 
+rate of groundwater level decline,
+5 with groundwater trends 
+in the previous 5 years being mostly stable (Figure 20). 
+Groundwater level conditions varied across Victoria and 
+Tasmania reflecting the variability in rainfall and/or extraction 
+(Figures 19 and 20). For example, groundwater levels in the 
+deep aquifers of Victoria’s Gippsland Basin were typically 
+below average and declining due to dewatering for coal 
+mining and offshore oil and gas extraction. In eastern 
+Tasmania, low rainfall resulted in below average to average 
+groundwater levels with declining trends, elsewhere in the 
+State average levels and stable trends were associated with 
+higher rainfall and low extractions.5 https://gnangara.dwer.wa.gov.au/status/
+35
+Water in Australia 2019–20
+Figure 19. Groundwater level status in 2019–20 compared to the historical record (1997–2020) for (a) upper, (b) middle and (c) 
+lower aquifers
+36
+Water in Australia 2019–20
+Figure 20. Groundwater level trends from July 2015 to June 2020 for (a) upper, (b) middle and (c) lower aquifers 
+37
+Water in Australia 2019–20
+Figure 21 summarises groundwater level status and trend 
+by aquifer group for each State and Territory, for 2018–19 
+and 2019–20. Despite some rainfall relief in the first half of 
+2020, there has been an increase in the number of bores 
+with below average levels and stable or declining trends 
+across most Australian States and Territories as a result of 
+the very dry conditions during the latter half of 2019.
+Figure 21. Summary of groundwater level status and trends by State and Territory (a) 2018–19 (b) 2019–20
+38
+Water in Australia 2019–20
+2.5 ALTERNATIVE WATER RESOURCES
+2.5.1 Desalinated water
+Urban centres across Australia face the challenge of 
+increasing water needs, due to population growth, and 
+often also a declining reliability of existing water resources. 
+This can arise from aging of assets, sedimentation of 
+storages, changes to climate and a deterioration in 
+water quality. Climate-resilient sources such as seawater 
+desalination and water recycling have been introduced to 
+improve the security of urban water supply and are brought 
+into operation especially in dry periods.
+Australia has around 270 desalination plants, mostly small 
+scale, to desalinate marine and brackish water for various 
+uses.
+6 The total desalination capacity across Australia 
+is about 880 GL of water per year. The five major urban 
+centres in Australia have a total seawater desalination 
+capacity of 534 GL per year.
+Due to a steady decline in streamflows to the Perth 
+water storages over the previous four decades, a major 
+desalination plant was built in 2006, followed by a second 
+in 2013. The combined production capacity of the two 
+plants is 145 GL/year (Figure 22). During 2019–20 both 
+plants were run near the rated capacity with about 140 
+GL of desalinated water being sourced. Desalination is the 
+major individual source of urban water supply for Perth and 
+contributed 47 per cent of Perth’s water supply in 2019–20. 
+Perth city now relies less on surface water storages and 
+more on desalination and groundwater.
+6 https://www.water.vic.gov.au/water-grid-and-markets/victorian-desali 
+ nation-project/desalination-background/desalination-history
+Figure 22. Desalination capacity (GL) and supply (GL) of major urban centres in 2019 20
+39
+Water in Australia 2019–20
+Generally, Adelaide sources its water for urban use from 
+local reservoirs, the River Murray and a desalination plant. 
+During 2019–20, Adelaide would have used very little 
+desalinated water had the Australian Government not been 
+committed, under the Water for Fodder program, to pay 
+the South Australian Government to produce up to 100 GL 
+of desalinated water from Adelaide’s desalination plant and 
+to release the equivalent amount of water from the River 
+Murray to farmers.
+7 As per this arrangement 40 GL of water 
+was delivered to the farmers in 2019–20 and Adelaide 
+sourced the equivalent amount from the desalination plant. 
+By utilizing the water that was released 25 470 hectares 
+of fodder and pasture was planted by 800 farmers in the 
+southern connected Murray–Darling Basin.
+8 
+In Melbourne, desalinated water was first provided in 
+2016–17 and a total of 84 GL of desalinated water had 
+been supplied to the distribution system up to the end of 
+2018–19. The contribution from the desalination plant in 
+2019–20 was 118 GL compared to 22 GL in 2018–19. 
+The Victorian Government placed an order of 125 GL of 
+water from the desalination plant for 2020–21, “to improve 
+the security of our water supplies to face the challenges of 
+population growth and climate change” (Melbourne Water 
+Corporation, 2020).
+9
+In January 2019, Sydney’s desalination plant commenced 
+operation for the first time since 2012 when the supply 
+system’s total accessible storage capacity dropped 
+below 60 per cent. An amount of 71 GL of desalinated 
+water was supplied during 2019–20, equivalent to 13 per 
+cent of Sydney’s urban water supply. Desalination plant 
+was operated at full production capacity from the end of 
+July 2019 to the end of March 2020 and at a reduced 
+production capacity thereafter. 
+7 https://www.agriculture.gov.au/water/mdb/programs/basin-wide/wa 
+ ter-for-fodder/sa-agreement
+8 https://www.data.gov.au/data/dataset/water-for-fodder
+9 https://www.melbournewater.com.au/water-data-and-education/wa 
+ ter-facts-and-history/why-melbournes-water-tastes-great/water-0
+In South East Queensland, 14 GL of desalinated water was 
+produced in 2019–20 compared to 6.4 GL in 2018–19. The 
+desalinated water produced in 2019–20 is equivalent to 4 
+per cent of the total urban water supply. The contribution 
+of desalinated water to urban supply was the highest since 
+2010–11.
+2.5.2 Water recycling
+Water recycling involves treating wastewater to a suitable 
+standard so that it can be used for beneficial uses such 
+as irrigation of public places, non-potable domestic uses, 
+agricultural irrigation, industrial uses and groundwater 
+recharge. Water recycling is attractive in situations where 
+available sources cannot meet the growing demand. 
+Another advantage is its reliability of supply: water is 
+available throughout the year as it is produced from 
+wastewater flow from the cities. Water recycling also 
+protects the environment by reducing the amount of treated 
+wastewater discharged to the receiving waters. 
+Total recycled water used in major urban centres in 
+Australia was 145 GL, more than double the 70 GL used 
+in 2010–11. Recycled water is equivalent to eight per cent 
+of the total water sourced in major urban centres. This use 
+will grow as new housing estates in metropolitan growth 
+corridors adopt dual pipe systems to supply recycled water. 
+In 2019–20, recycled water use increased in all the major 
+urban centres in comparison to the previous year, except 
+Melbourne and South East Queensland (Figure 23). The 
+total volume of recycled water sourced for the major urban 
+centres increased by 14 per cent in comparison to the 
+previous year. Recycled water use increased by 75, 40 and 
+36 per cent in Perth, Adelaide, and Canberra, respectively. 
+In South East Queensland and Melbourne, on the other 
+hand, water recycling declined by 13 and 5 per cent, 
+respectively. 
+40
+Water in Australia 2017–18
+Amongst all the major urban centres, Melbourne had the 
+highest recycled water use of 48 GL (Figure 23). Melbourne 
+Water produces this at two treatment plants and 16 per 
+cent of the total wastewater treated was reused. Adelaide 
+had the second highest recycled water use of 44 GL during 
+2019–20.
+Due to a significant reduction in winter rainfall in the 
+southwest of Western Australia since 1970’s, the Shire 
+of Augusta–Margaret River has developed safe and 
+sustainable alternatives to support the community’s 
+water needs and the Western Australian Government 
+is investing $19 million to double the capacity of the 
+wastewater treatment plant to treat up to three million litres 
+of wastewater per day. Treated wastewater will be used to 
+irrigate a wide range of ovals, parks, and other recreational 
+facilities in the Shire and about 87 hectares of Government-
+owned pine plantation.
+10
+10 https://www.watercorporation.com.au/About-us/Latest-updates/Oc 
+ tober-2020/Every-drop-of-wastewater-recycled-at-Margaret-Riv 
+ er-facility
+Figure 23. Recycled water used in major urban centres from 2015–16 to 2019–20
+41
+Water in Australia 2019–20
+42
+Water in Australia 2017–18
+3 WATER TRADING AND USE
+43
+Water in Australia 2017–18
+This chapter begins with an overview of water trading in Section 3.1 and then in Section 3.2 summarises 
+the water extractions for agricultural, urban and industrial uses. Water stress in Australia is estimated in 
+Section 3.3 using a United Nations’ indicator. Water use by environmental water holders is discussed in 
+Section 3.4 and Aboriginal cultural water needs are addressed in Section 3.5. 
+3.1 WATER TRADE
+Water markets facilitate the buying and selling of water 
+entitlements and allocations to allow water to move 
+between various rural, agricultural and environmental uses. 
+However, in Australia, water trading occurs mainly between 
+agricultural users. Entitlement trades involve the permanent 
+trade or leasing of water access entitlements, while 
+allocation trades involve the buying and selling of specific 
+volumes of water each year. 
+Water trade prices are determined by the value placed on 
+water by buyers and sellers in response to many factors 
+such as the purpose of water use, weather patterns, 
+available allocations, storage volumes, jurisdictional 
+legislative arrangements and commodity market conditions. 
+Generally, dry climate conditions push up prices for both 
+allocation and entitlement trade. In contrast, higher storage 
+levels and carryover from the previous year are major 
+drivers for low water trade prices. 
+Due to the dry conditions experienced in the first half of 
+2019–20, there was a large increase in allocation prices 
+in the Murray-Darling Basin (MDB), in some cases to 
+record levels. For example, in lower Murray regions of the 
+southern MDB allocation prices peaked at over $900/
+ML. Entitlement prices for major high reliability entitlement 
+classes in the southern MDB also reached record levels, 
+with increases of 22–80 per cent compared to the previous 
+year. In early 2020, there was rainfall relief across most of 
+eastern Australia, which led to large decreases in allocation 
+prices in the southern MDB. Allocation prices also declined 
+across the northern MDB in the latter half of 2019–20 but 
+to a lesser extent due to continued low water availability 
+following years of severe rainfall deficiencies. 
+The total volume of surface water allocation trade across 
+Australia in 2019–20 was 6275 GL, a 14 per cent increase 
+from the previous year. The volume of surface water traded 
+in the southern MDB was over 5500 GL and about 190 GL 
+in the northern MDB. The volume of groundwater allocation 
+traded in the Murray–Darling Basin was 291 GL, up by 11 
+per cent from the previous year, and 28 GL in the rest of 
+Australia (up from 13 GL in 2018–19). 
+The volume of entitlement trade in Australia increased by 
+13 per cent in 2019–20 compared to the previous year. The 
+volume of entitlements traded was 1961 GL in 2019–20, 
+with an increase in entitlement trade in the MDB and 
+an increase in allocation trade in the rest of Australia. A 
+detailed assessment of water trade is given in the Australian 
+Water Markets Report (Bureau of Meteorology, 2021). 
+44
+Water in Australia 2019–20
+3.2 WATER FOR CONSUMPTIVE USE
+3.2.1 Total water taken
+The total volume of water taken for consumptive use is 
+defined here as all licensed water abstractions from rivers, 
+storages, high-yielding aquifers and desalination plants 
+that are not used for environmental or cultural purposes. 
+Using this definition, the total volume of water taken across 
+Australia during 2019–20 is estimated as 14 270 GL, six 
+per cent lower than the previous year. Water taken for 
+agricultural use (9550 GL) accounted for 67 per cent of 
+the total, followed by water taken for urban use (3125 GL) 
+at 22 per cent (Figure 24). Water taken for agricultural use 
+declined by 11 per cent in comparison to the previous year 
+due to the continued dry conditions and low surface water 
+availability across southeastern Australia. 
+Water taken for industrial purposes (1595 GL) accounted 
+for 11 per cent of the total water use. This estimate is 
+based on the three-year average of water consumed by the 
+mining, manufacturing, electricity and gas supply, and other 
+industrial categories given in the Water Account, Australia.
+11 
+Surface water made up 75 per cent of the total water 
+sourced and the groundwater portion was 20 per cent 
+(Figure 24). The portion sourced from groundwater 
+increased from the previous year, due to low surface water 
+availability for agriculture. The contribution from desalination 
+was four per cent in 2019–20 compared to one per cent 
+in the previous year. The dry conditions during the year, 
+particularly during the final six months of 2019, meant 
+urban utilities opted to reduce pressure on their surface 
+water resources and increase their reliance on desalinated 
+water supply to meet urban demand.
+11 https://www.abs.gov.au/statistics/environment/environmental-man 
+ agement/water-account-australia/latest-release
+Water taken for agriculture, urban and industrial uses 
+from 2013–14 to 2019–20 are shown in Figure 25. Total 
+water taken was the highest in 2013–14 and the lowest 
+in 2019–20, following the trends of agricultural water. 
+The water taken for urban users varied between 3050 
+GL (2018–19) and 3900 GL (2013–14). The proportion of 
+total water taken by agricultural, urban and industrial uses 
+varied between years. The proportion of water taken for 
+agricultural purposes was the highest in 2014–15 (73 per 
+cent) and the lowest in 2019–20 (68 per cent). The urban 
+and industrial proportions were the highest in 2019–20 and 
+2015–16 (21 per cent and 11 per cent respectively) and 
+were the lowest in 2014–15 (18 per cent and 9 per cent, 
+respectively).
+45
+Water in Australia 2019–20
+Figure 24. Water taken by category and source in 2019–20
+Figure 25. Historical water taken for agriculture, urban and industrial users
+46
+Water in Australia 2019–20
+3.2.2 Water taken for agriculture
+The total water taken for agriculture in Australia in 2019–20 
+was 9550 GL, of which 7050 GL (74 per cent) was 
+sourced from surface water and 2500 GL (26 per cent) 
+from groundwater. The annual total decreased by eleven 
+per cent from the previous year; surface water diversion 
+decreased by 15 per cent and groundwater extractions 
+increased by five per cent. 
+Agricultural water-use in Victoria and New South Wales 
+accounted for half of Australia’s agricultural water use. The 
+Northern Territory used the least water for agriculture (less 
+than one per cent), followed by Tasmania (5 per cent), and 
+South Australia (9 per cent). 
+Water taken for agriculture decreased in all States and 
+Territories except Queensland, Western Australia and 
+South Australia. The use of surface water predominated 
+and only in South Australia and the Northern Territory 
+were groundwater extractions larger than surface water 
+diversions (Figure 26).
+Although agricultural water-use in Victoria during 2019–20 
+was larger than that for each of the other States and 
+Territories, it was 23 per cent less than for the previous 
+year. Surface water diversions and groundwater extractions 
+for Victoria decreased by 21 per cent and 41 per cent, 
+respectively (Figure 26). The year started with low opening 
+allocations for High Reliability water shares for the various 
+water systems in Victoria and these never attained full 
+allocation during the year. This was mainly due to the low 
+water availability arising from extremely dry conditions. For 
+the two largest water systems, the Goulburn and Victorian 
+Murray, the maximum allocations only reached 80 per cent 
+and 66 per cent, respectively; the end of year allocations in 
+the Victorian Murray were the lowest in more than 10 years.
+Figure 26. Volume of agricultural water taken from surface water and groundwater in each State and Territory, 2013–14 to 2019–20
+47
+Water in Australia 2019–20
+In New South Wales, the total water taken for agriculture 
+in 2019–20 was 2490 GL, 24 per cent lower than in the 
+previous year. Surface water diversions decreased by 30 
+per cent and groundwater extractions by 12 per cent. The 
+first half of 2019–20 was dry, storage levels were low and 
+rainfall deficiencies continued in the north resulting in low 
+surface water allocations for license holders. Due to the 
+ongoing dry conditions and water storages approaching 
+critical levels, tight temporary water restrictions were in 
+place in the northern New South Wales catchments. These 
+restrictions and high water-trade prices led farmers to 
+reduce the area of annual crops at the beginning of the 
+irrigation season. 
+In contrast to New South Wales and Victoria, agricultural 
+water-use in Queensland increased by 22 per cent; from 
+1406 GL in 2018–19 to 1715 GL in 2019–20. Surface 
+water diversions and groundwater extractions increased by 
+25 per cent and eight per cent, respectively, in comparison 
+to those of the previous year due to the dry weather 
+conditions. High carry-over volumes from the previous year 
+in various large storages, such as the Burdekin, Bundaberg, 
+Mareeba–Dimbulah and Proserpine, contributed positively 
+to water availability for agriculture in Queensland. 
+In South Australia, the total of surface water diversions 
+for 2019–20 was 418 GL, 31 per cent less than the 
+previous year. However, groundwater extractions increased 
+dramatically, from 51 GL in 2018–19 to 470 GL in 2019–20. 
+There are no major rural water storages in South Australia 
+and agriculture depends mainly on groundwater, and 
+seasonal rainfall and streamflow. Given that dry conditions 
+prevailed over most of the year, irrigated agriculture 
+depended heavily on groundwater extractions to address 
+the rainfall deficiencies during 2019–20.
+Water taken for agriculture in Western Australia was 1441 
+GL during 2019–20 which is three per cent higher than 
+the previous year and the highest in the previous six years. 
+Surface water diversions and groundwater extractions 
+accounted for 69 and 31 per cent, respectively, of the 
+total water sourced. Surface water diversions were 997 
+GL, which was three per cent higher than the previous 
+year and groundwater extractions were 444 GL, two per 
+cent higher than the previous year. Due to the dry climatic 
+conditions and expansion of agricultural areas, surface 
+water diversions from Lake Argyle in the Ord River basin 
+increased significantly in 2018–19 in comparison to the 
+previous year. The total water taken in 2019–20 was similar 
+to that of 2018–19 (309 GL). 
+Tasmania and the Northern Territory were the two lowest 
+users of water for agriculture in 2019–20. Agricultural water 
+use in Tasmania was 461 GL, 30 per cent less than the 
+previous year; almost 99 per cent of the water taken was 
+sourced from surface water. In the Northern Territory, 43 GL 
+was taken for agricultural purposes, 98 per cent of which 
+was sourced from groundwater. 
+Total annual water taken for agriculture was the highest in 
+2019–20 compared to the previous six years in Western 
+Australia and the lowest in New South Wales and Tasmania. 
+Both surface water diversions and groundwater extractions 
+were the highest compared to the previous six years in 
+Western Australia but in Tasmania both surface water 
+diversions and groundwater extractions were the lowest 
+compared to the same period. The surface water diversions 
+in the Northern Territory remained similar to those for the 
+previous three years. Surface water diversions were the 
+lowest compared to the previous six years in New South 
+Wales whereas groundwater extractions were the second 
+highest. In South Australia groundwater extractions were 
+more than 9 times higher compared to the previous year.
+Low surface water allocations, due to the dry conditions 
+during the year, resulted in low water take in the 
+southeastern States except Queensland. In Victoria both 
+surface water diversions and groundwater extractions 
+were the lowest in the previous three years. Generally, 
+when surface water availability is low or restricted, the 
+overall demand for groundwater to supplement allocations 
+increases. During 2019–20, despite low surface water 
+availability groundwater use did not increase in New South 
+Wales and Victoria in comparison to the previous year, 
+because of decreased annual cropping and relatively mild 
+climatic conditions during the latter half of the year. 
+48
+Water in Australia 2017–18
+The variation in surface water diversions was low in both 
+Tasmania and Western Australia from 2013–14 to 2017–18. 
+After 2018–19, surface water diversions increased in 
+Western Australia in comparison to the previous five years 
+due to dry conditions and the expansion in agricultural 
+areas. In Tasmania surface water diversions increased 
+in 2018–19 in comparison to the previous years due to 
+the expansion of agricultural areas but due to the dry 
+conditions in 2019–20 surface water diversions dropped to 
+levels similar to that of 2017–18.
+3.2.3 Water sourced by urban utilities
+In 2019–20, total water taken by urban utilities was 3125 
+GL. Surface water contributed 78 per cent of this, 8 per 
+cent lower the previous year. Groundwater and desalinated 
+water contributed 9 per cent and 13 per cent, respectively. 
+Total urban water sourced in 2018–19 was around 3050 GL; 
+this was due to similar dry conditions in most urban regions. 
+Looking at just the major urban centres across the 
+continent, the average annual volume of residential 
+water supplied per property was 213 kL in 2019–20, 1 
+per cent lower than the previous year. This was due to 
+decreased water consumption in most centres. Average 
+residential water-use per property decreased in 2019–20 
+in comparison to the previous year in all major urban 
+centres except Perth and South East Queensland.
+12 Sydney 
+reported the largest decrease (5 per cent) followed by 
+Adelaide, Darwin and Melbourne (2 per cent). In Sydney 
+the average annual volume of residential water supplied 
+per property was the lowest in the previous five years as 
+a result of reduced consumption due to declining water 
+availability in the urban water storages. 
+Average residential use in Melbourne decreased from 
+151 kL per property in 2018–19 to 148 kL per property in 
+2019–20 and was the lowest in the previous five years. In 
+Adelaide it decreased from 202 kL per property in 2018–19 
+to 198 kL per property in 2019–20 and in Darwin it declined 
+from 380 kL per property to 373 kL per property.
+12 http://www.bom.gov.au/water/npr/docs/2019-20/National_Perfor 
+ mance_Report_2019-20_urban_water_utilities.pdf
+Darwin had the highest average urban water use per 
+property (373 kL), followed by Perth (227 kL). Average 
+residential water supplied was the lowest in Melbourne 
+(148 kL) reflecting ongoing water saving measures. Average 
+residential use per property in Melbourne (151 kL), Adelaide 
+(202 kL) and Darwin (373 kL) all showed a decline of about 
+2 per cent from in 2018–19; Melbourne had the lowest use 
+per property in the previous five years.
+The average annual residential water use is influenced by 
+several factors, including climate, temperature, rainfall, 
+water restrictions, water availability, housing density and 
+water prices. The increase in average annual residential 
+water use in Perth and South East Queensland during 
+2019–20 may be due to an increase in the demand for 
+outdoor watering arising from above-average temperatures 
+and lower rainfall. In Sydney, water use declined due to the 
+water restrictions in place and a decline in water availability 
+in urban storages during the first half of 2019–20.
+Overall, inter annual change in average residential water use 
+is very low in major urban centres. The inflows into Perth’s 
+water storages have declined significantly in the previous 
+few decades and the city now relies heavily on energy 
+intensive sources like groundwater and desalination. Perth 
+remains the second highest per capita water-using capital 
+city in Australia. 
+49
+Water in Australia 2017–18
+3.2.4 Sources of water for major urban centres
+Major urban water supplies rely on surface water from 
+reservoirs and, to a lesser extent, on groundwater 
+resources, both of which are highly susceptible to variability 
+in rainfall. Due to increased demand and changes in the 
+reliability of these sources, cities have adopted a variety 
+of approaches including extending their water supply 
+catchment areas to more remote areas, investing in non-
+traditional sources such as desalination and recycling, as 
+well as exploring options for stormwater use and rainwater 
+harvesting. 
+In 2019–20, surface water sourced from local reservoirs 
+was the main source of urban water supply in all major 
+urban centres in Australia except Adelaide and Perth. In 
+Adelaide inter-regional supply was the dominant source 
+whereas in Perth desalination and groundwater were the 
+main sources. Surface water diversions were larger in 
+South East Queensland, Adelaide and Canberra in 2019–
+20 compared with the previous year (Figure 27). 
+For comparison purposes, total water sourced is 
+considered here as the sum of surface water, groundwater, 
+desalinated and interregional transfers. Recycled water is 
+not included in the total water sourced as it is obtained 
+internally from water already sourced elsewhere. In Figure 
+27, recycled water volumes are shown on top of the total 
+water sourced. 
+In Sydney, 539 GL was sourced for urban water use, a 6 
+per cent decrease from the previous year
+13 and was the 
+largest decrease of all major urban centres. This decrease 
+was mainly due to low water consumption in response to 
+water restrictions that were in place during the year. Level 1 
+water restrictions, which limit how and when water can be 
+used outdoors, were introduced from 1 June 2019. Water 
+restrictions were upgraded to Level 2 in December 2019 
+to further reduce pressure on surface water resources. 
+When Level 2 restrictions were in place during December 
+2019–February 2020, the desalination plant operated at 
+full capacity. These restrictions were lowered to Level 1 on 
+1 March 2020 following the high rainfall in February. The 
+contribution from surface water was 87 per cent and the 
+remaining 13 per cent was from desalination. About 3 per 
+cent of the total sourced was recycled. 
+13 http://www.bom.gov.au/water/nwa/2020/
+Total water sourced for urban use in Melbourne in 2019– 
+was 456 GL, a 2 per cent decrease from the previous 
+year. This was the third consecutive decrease in annual 
+urban supply. Surface water contributed 74 per cent 
+of total supply and 26 per cent was from desalination. 
+The contribution from groundwater was minimal. The 
+contribution of desalinated water to urban supply was the 
+highest it has ever been. The Melbourne Water Corporation 
+opted to increase its reliance on desalinated water in 
+2019–20 following the very dry conditions in the previous 
+year. Melbourne Water produces recycled water at the 
+Western Treatment Plant and the Eastern Treatment Plant, 
+providing Class A (uncontrolled public access) and Class 
+C (controlled public access) recycled water to customers. 
+About 11 per cent of the total water sourced for Melbourne 
+was recycled.
+In South East Queensland, the total water sourced was 
+377 GL in 2019–20, 4 per cent higher than the previous 
+year. This was the second highest increase of all the major 
+urban centres. About 94 per cent of the total was sourced 
+from surface water. The contributions from groundwater 
+and desalination were about 2 per cent and 4 per cent 
+respectively and the contribution from inter-regional supply 
+was minimal. The contribution from desalination was the 
+highest since 2010–11. About 4 per cent of the total water 
+sourced was recycled.
+50
+Water in Australia 2017–18
+The volume of water sourced for urban use in Perth in 
+2019–20 was 298 GL, 4 per cent higher than the previous 
+year. The city had to rely mostly on desalinated water and 
+groundwater for urban supply due to low storage inflows 
+following a dry winter in 2019. The contribution from 
+groundwater was 45 per cent and desalination was 47 per 
+cent in 2019–20 compared with 43 per cent and 31 per 
+cent in the previous year. The contribution of surface water 
+dropped by 75 per cent from the previous year due to dry 
+conditions in the catchment areas. The lower surface water 
+contribution meant more desalinated water was required 
+to meet urban demand. The region’s two desalination 
+plants were run at near capacity, similar to the 3-year 
+period between 2014–15 and 2017–18. About 7 per cent 
+of the total urban water sourced was recycled in 2019–20 
+in comparison to 4 per cent in the previous year. Excess 
+groundwater and desalinated water produced during low-
+demand periods was discharged into the surface water 
+storages, to buffer peak period demands.
+Water sourced for urban use in Adelaide decreased by 3 
+per cent from 2018–19 to 2019–20, the second largest 
+proportional decrease of all the major urban centres. Twenty 
+per cent of total urban supply was sourced from surface 
+water and 56 per cent through interregional transfers (from 
+the River Murray) compared with 18 per cent from surface 
+water and 79 per cent through interregional transfers in 
+2018–19. This decrease in interregional transfers was 
+mainly due to the release of 40 GL upstream in the River 
+Murray to help farmers who were affected by water scarcity 
+under the Water for Fodder program. The State and 
+Federal Governments reached an agreement to produce 
+desalinated water from the Adelaide Desalination plant for 
+urban use and release an equivalent quantity from the River 
+Murray to the farmers. Desalinated water made up of about 
+a quarter of urban supply, the highest contribution since 
+2013–14. About 26 per cent of the total water sourced was 
+recycled, 39 per cent higher than previous year and the 
+highest since 2010–11.
+In Canberra, 55 GL of water was sourced for urban use, 5 
+per cent higher than the previous year. This was the highest 
+increase of all major urban centres. Surface water diversions 
+from storages made up nearly 100 per cent of supply. Less 
+than 1 per cent of urban water sourced was recycled. 
+Figure 27. Volumes and sources of urban water used annually in Australia’s major urban centres, 2011–12 to 2019–20 
+51
+Water in Australia 2017–18
+3.2.5 Water use by industries 
+The largest water user in Australia is agriculture, followed 
+by urban users and industry. Industrial water use 
+encompasses a broad range of sectors, including mining, 
+manufacturing and electricity production. 
+The latest data available for industries are for 2018–19.14 
+The total water consumed in Australia for industrial 
+purposes is estimated as the average of the water 
+estimates from 2016–17 to 2018–19 for the mining, 
+manufacturing and electricity generation (ABS 2019; ABS 
+2020a; ABS 2020b). The total water consumed in Australia 
+for industrial purposes is estimated as 1595 GL, 5 per cent 
+higher than the estimate for the previous year. Electricity 
+generation mostly uses surface water, with many large 
+power plants having a high-security entitlement, whereas 
+mining water is sourced from surface water, groundwater 
+and/or desalinated water.
+3.3 WATER STRESS
+Water is essential for human activity and ecosystem 
+healthy functioning. Global freshwater supplies are 
+increasingly under pressure as water requirements increase 
+steadily with population growth, economic development 
+and changes in consumption patterns due to improved 
+living standards. Water availability and use vary around the 
+world. Water stress affects many regions, and more than 
+two billion people live in countries experiencing high levels 
+of water stress.
+To establish whether freshwater is constrained in meeting 
+the basic needs of humans and economic development, 
+several indicators have been developed over the previous 
+few decades to assess the relationship between water 
+availability and water use. The United Nations Sustainable 
+Development Goal (SDG) indicator 6.4.2 was developed 
+by the Food and Agricultural Organization of the UN to 
+compare estimates of the sustainability of water use 
+across the world.
+15 Indicator 6.4.2 estimates the level 
+of water stress as the ratio between the total volume of 
+freshwater withdrawn by major economic sectors and the 
+total renewable freshwater resources, after considering 
+environmental water requirements. This indicator shows the 
+degree to which water resources are being withdrawn to 
+meet the demand.
+Values for the SDG 6.4.2 water stress indicators for 
+Australia for 2016–17 to 2019–20 are shown in Table 2. 
+The estimate for 2019–20 is similar to that of the previous 
+year but is well below the water stress threshold of 25 per 
+cent identified by the United Nations. 
+These figures suggest that water stress is low for Australia 
+on a national level but make no assessment of sub-national 
+water shortages, which is critical considering the generally 
+high availability and low use in northern Australia, compared 
+to the high use in southern Australia.
+Table 2. Water stress indicator values for Australia, 2016–17 to 2019–20
+Year 2016–17 2017–18 2018–19 2019–20
+SDG 6.4.2 indicator 5.1% 7.7% 8.6% 8.0%
+14 https://www.abs.gov.au/ 15 http://www.fao.org/sustainable-development-goals/indicators/642/ 
+ en/ 
+52
+Water in Australia 2017–18
+3.4 WATER FOR ENVIRONMENTAL USE
+The natural flow regimes of most rivers in Australia 
+are highly variable, and this variability is critical to the 
+functioning of their ecosystems and the maintenance 
+of their biodiversity. Constructing weirs or dams in the 
+river system for diverting water for human use disrupts 
+the natural flow cycle and can affect the health and 
+condition of rivers and their ecosystems. Environmental 
+water is allocated and managed to protect and restore 
+water-dependent ecosystems. Environmental watering 
+objectives can be met by all water in the system, including 
+uncontrolled flows from significant rain events, water that is 
+en route for consumptive purposes such as irrigation, and 
+specific environmental water releases from dams. 
+In 2019–20, the majority of environmental water was 
+delivered in the Murray–Darling Basin in a coordinated 
+manner to deliver multiple benefits from water released. 
+The total environmental flow delivered to rivers, lakes and 
+wetlands in 2019–20 from all environmental water holders 
+and managers in the southern Murray–Darling Basin 
+was just over 3179 GL, while the total for the northern 
+Basin was 120 GL. In the previous year, environmental 
+water volumes delivered were 1725 GL and 293 GL in 
+the southern and northern Basin, respectively. Detailed 
+information regarding environmental water delivery is 
+available in the National Water Account.
+16
+Very little information on environmental water use outside 
+the Murray–Darling Basin is available to the Bureau. In 
+Victoria, outside the Murray–Darling Basin, about 187 GL 
+of environmental water was released in the Central (10 GL), 
+Gippsland (153 GL) and Western regions (25 GL) of the 
+State during 2019–20.
+17
+3.5 WATER FOR ABORIGINAL 
+CULTURAL USE
+Cultural flows are water entitlements that are legally owned 
+and managed by First Nations to improve the spiritual, 
+cultural, environmental, social and economic conditions of 
+the Aboriginal Nations (Murray and Lower Darling Rivers 
+Indigenous Nations, 2007). Water for environment can also 
+provide some cultural benefits by improving the conditions 
+of culturally important locations in the river. More recently, in 
+many parts of Australia, methods for the explicit provision 
+and accounting of water for use by Aboriginal people are 
+being developed. It is not possible to provide a nationwide 
+overview of Aboriginal cultural water use, given the current 
+lack of agreed methods to manage and account for it. 
+Case studies (such as the one below) do, however, illustrate 
+that significant progress being made across Australia in 
+provision of water for Aboriginal cultural use. Information 
+regarding cultural water delivery in the National Water 
+Accounting regions is available in National Water Account.
+18 
+One of the environmental water releases in the Yarra River 
+during 2019–20 that provided cultural benefits to Aboriginal 
+people was the watering of the Banyule Billabong (Victorian 
+Environmental Water Holder, 2020). Banyule Billabong 
+is an important billabong on the Yarra floodplain which 
+has a deep cultural connection for the Wurundjeri Woi-
+wurrung people.
+19 In September 2019, Melbourne Water, in 
+partnership with the Victorian Environmental Water Holder, 
+Parks Victoria, Wurundjeri Woi-Wurrung Corporation and 
+the local community delivered environmental water to 
+Banyule Billabong (Victorian Environmental Water Holder, 
+2020). The watering led to the regeneration of native 
+plants in the wetland and provided cultural benefits to the 
+Wurundjeri Woi-wurrung people.
+20
+16 http://www.bom.gov.au/water/nwa/2020/
+17 https://www.vewh.vic.gov.au/__data/assets/pdf_file/0007/539125/ 
+ VEWH-reflections-booklet_2020.-LR-20.01.21.pdf
+18 http://www.bom.gov.au/water/nwa/2020/
+19 https://www.banyule.vic.gov.au/News-items/Banyule-Billabong-is- 
+ getting-a-helping-hand
+20 https://www.vewh.vic.gov.au/__data/assets/pdf_file/0007/539125/ 
+ VEWH-reflections-booklet_2020.-LR-20.01.21.pdf
+53
+Water in Australia 2017–18
+54
+Water in Australia 2017–18
+4 GLOSSARY
+abstraction The removal of water from reservoir, river, pond or channel for use.
+accessible storage capacity The volume of water that a water storage can hold between the minimum supply level 
+and full supply level. It is the sum of this capacity that is reported for a collection of water 
+storages. 
+allocation carryover Water allocated during the water year of an entitlement that is yet to be accessed, 
+abstracted or delivered at the end of the water year and is able to be carried over to the next 
+water year. 
+aquifer An underground layer of saturated rock, sand or gravel that absorbs water and allows it to 
+pass freely through pore spaces. 
+bore A hole drilled in the ground, a well or any other excavation used to access groundwater. May 
+be used for observation of groundwater (including water level, pressure or quality).
+carryover The option to hold in storage a portion of unused seasonal allocations for use at a later date.
+catchment The land area draining to a point of interest, such as a water storage or monitoring site on a 
+watercourse.
+climate The average long-term weather conditions in a particular area. See the Bureau’s climate 
+webpage at www.bom.gov.au/climate/glossary/climate.shtml for more information.
+decile One of a series of threshold values that divides a set of ordered data into ten groups with an 
+equal number of data points in each.
+desalination The process of removing salt from brackish or saline water.
+drainage division Representation of the catchments of major surface water drainage systems, generally 
+comprising a number of river basins. In Australia, 12 drainage divisions were first defined 
+in the 1960s by the Australian Water Resources Council. Australian drainage division 
+boundaries were revised by the Bureau in 2010 in line with the creation of the Australian 
+Hydrological Geospatial Fabric (Geofabric) based on the 9 second Digital Elevation Model.
+drought A long period of abnormally low rainfall, especially one that adversely affects agriculture and 
+other human activities. See the Bureau’s climate webpage at www.bom.gov.au/climate/
+glossary/drought.shtml for more information.
+ecosystem A dynamic complex of plant, animal and microorganism communities and their non-living 
+environment interacting as a functional unit.
+environmental flow The streamflow required to maintain appropriate environmental conditions in a waterway or 
+water body.
+environmental water Water that is available, or preserved, to achieve environmental outcomes, including 
+ecosystem function, biodiversity, water quality and water resource health.
+environmental water release Release of water from infrastructure, such as a surface water storage, for the benefit of the 
+environment.
+groundwater Subsurface water in soils and geological formations that are fully saturated. 
+groundwater level The level of groundwater in an aquifer, typically measured in a groundwater bore. In the case 
+of an unconfined aquifer, the groundwater level is equal to the watertable level. 
+held environmental water Water available under (a) a water access right, (b) a water delivery right or (c) an irrigation 
+right, for the purposes of achieving environmental outcomes (including water that is specified 
+in a water access right to be for environmental use).
+55
+Water in Australia 2017–18
+Indian Ocean Dipole A major contributor to rainfall variability over Australia. When the dipole is in a positive phase, 
+sea surface temperatures (SSTs) around Indonesia are cooler than average while those in 
+the western Indian Ocean are warmer than average. The positive phase increases easterly 
+winds across the Indian Ocean while convection in areas near Australia reduces. This results 
+in suppressed rainfall over the Australian region. During a negative phase, warmer than 
+average SSTs near Indonesia and cooler than average SSTs in the western Indian Ocean, 
+result in more westerly winds across the Indian Ocean, greater convection near Australia and 
+enhanced rainfall in the Australian region. See the Bureau's Weather and Climate page on 
+Indian Ocean for more information http://www.bom.gov.au/climate/iod/
+Millennium Drought The prolonged period of dry conditions experienced in much of southern Australia from late 
+1996 to mid-2010.
+planned environmental water Planned environmental water is committed in a water plan for achieving environmental 
+outcomes.
+rainfall The total liquid product of precipitation or condensation from the atmosphere, as received 
+and measured in a rain gauge.
+recycled water Treated sewage effluent, including water extracted by sewer mining and subsequently 
+treated; it does not include treated urban stormwater.
+river region Produced as part of the Australian Hydrological Geospatial Fabric (Geofabric). These 
+regions align with, and are nested within, the revised drainage divisions.
+residential water The total amount of metered and estimated non-metered, potable and non-potable water 
+supplied to residential properties.
+salinity The concentration of soluble salts in a solution, soil or other medium.
+storage A pond, lake or basin, whether natural or artificial, for the storage, regulation and control of 
+water.
+storage system A water storage or group of water storages from which releases and diversions are the main 
+source of water for users within the boundaries of a particular region, normally aligning with 
+a river catchment.
+storage volume The volume of water stored at a particular time and date, including only the volume of water 
+that can be accessed under normal circumstances without the installation of additional 
+infrastructure.
+stormwater Surface runoff from rainfall events that may enter drains, creeks or streams. It can carry 
+contaminants that may cause pollution in watercourses.
+streamflow The flow of water in streams, rivers and other channels.
+surface water Water in a watercourse, lake or wetland and any water flowing over or lying on land, having 
+precipitated naturally or having risen to the surface naturally from underground.
+urban water The total residential, commercial, municipal, industrial and other water supplied by urban 
+water utilities.
+water take The physical abstraction of water from a water resource for use. It excludes in-system uses 
+of water and results, at least temporarily, in a depletion of the resource. Unless water is 
+taken illegally, it is taken under a water right. Because the right specifies a volume of water 
+that the water provider is liable to deliver to the water user, the exercise of the right through 
+the abstraction effectively decreases the water liability of the provider.
+water access entitlement A perpetual or ongoing entitlement to exclusive access to a share of water from a specified 
+consumptive pool, as defined in the relevant water plan. 
+water access entitlement type Water right types as defined in State and Territory legislation which includes bundled and 
+unbundled water rights and bulk water access entitlements.
+56
+Water in Australia 2019–20
+water allocation The specific volume of water allocated to water access entitlements in a given season or 
+given accounting period, and defined according to rules established in the relevant water 
+plan.
+water allocation trade A transaction to transfer a water allocation from one legal entity to another, with or without a 
+change in location, for the remaining water year (by default) or for a specified term that may 
+be less than the end of the water year or carried over to subsequent years (that is, a lease).
+water quality The physical, chemical and biological characteristics of water. Water quality compliance 
+is usually assessed by comparing these characteristics with a set of reference standards. 
+Common standards used are those for drinking water, safety of human contact and the 
+health of ecosystems.
+water resource All natural water (surface water and groundwater) and alternative water sources (such as 
+recycled or desalinated water) that have not yet been abstracted or used.
+water resource plan A plan for the management of a water resource.
+water sharing plan A legislated plan that establishes rules for managing and sharing water between ecological 
+processes and environmental needs of the respective water source (river or aquifer). It manages 
+water access licences, water allocation and trading, extraction, operation of dams and the 
+management of water flows, and use and rights of different water users.
+water stress A condition where there is not enough water to meet needs, including the effective functioning 
+of ecosystems.
+water trade A transaction to buy, sell or lease a water right, in whole or in part, from one legal entity to 
+another.
+watertable The groundwater surface in an unconfined aquifer or confining bed at which the pore pressure 
+is atmospheric. It can be measured by installing shallow wells extending a few metres into the 
+saturated zone and then determining the water level in those wells.
+water year 1 July to 30 June.
+wetland An area of land whose soil is saturated with moisture either permanently or intermittently. 
+Wetlands are typically highly productive ecosystems. They include areas of marsh, fen, parkland 
+and open water. Open water can be natural or artificial; permanent or temporary; static or 
+flowing; and fresh, brackish or salt. Wetlands may include areas of marine water, as long as the 
+depth at low tide does not exceed six metres.
+57
+Water in Australia 2019–20
+5 REFERENCES
+Australian Bureau of Statistics (2019). Water account, Australia 2016–17. Accessible via https://www.abs.gov.au/
+AUSSTATS/abs@.nsf/DetailsPage/4610.02016-17?OpenDocument [Accessed 16 March 2021].
+Australian Bureau of Statistics (2020a). Water account, Australia 2017–18. Accessible via https://www.abs.gov.au/
+statistics/environment/environmental-management/water-account-australia/2017-18#data-download [Accessed 16 
+March 2021].
+Australian Bureau of Statistics (2020b). Water account, Australia 2018–19. Accessible via https://www.abs.gov.au/
+statistics/environment/environmental-management/water-account-australia/2018-19#data-download [Accessed 16 
+March 2021].
+Bureau of Meteorology (2018). Water in Australia 2016–17. Accessible via http://www.bom.gov.au/water/waterinaustralia/
+files/Water-in-Australia-2016-17.pdf
+Bureau of Meteorology (2020). Water in Australia 2018–19. Accessible via http://www.bom.gov.au/water/waterinaustralia/
+files/Water-in-Australia-2018-19.pdf
+Bureau of Meteorology (2021). Australian water markets report 2019–20. Accessible via http://www.bom.gov.au/water/
+market/documents/AWMR2019-20.pdf
+Lake, P .S. (2003). Ecological effects of perturbation by drought in flowing waters, Freshwater Biology, 48: 1161-1172.
+Melbourne Water Corporation (2020). Melbourne Water Annual Report 2019–20. Accessible via https://www.
+melbournewater.com.au/about/strategies-and-reports/annual-report
+Murray and Lower Darling Rivers Indigenous Nations (2007). MILDRIN Echuca declaration. Accessible via http://
+culturalflows.com.au/~culturalflowscom/images/documents/Echuca_declaration.pdf
+Victorian Environmental Water Holder (2020). Reflections: water for the environment in Victoria 2019–20. Victoria State 
+Government, Melbourne. Accessible via https://vewh.vic.gov.au/__data/assets/pdf_file/0007/539125/VEWH-reflections-
+booklet_2020.-LR-20.01.21.pdf
+58
+Water in Australia 2019–20
+59
+Water in Australia 2019–20
+210607-1
