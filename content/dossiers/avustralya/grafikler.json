@@ -518,140 +518,118 @@
       ]
     },
     "kura_akisi": {
-      "tur": "islem_akisi",
+      "tur": "kartlar",
+      "_tur_notu": "İLK TASARIM 'islem_akisi' İDİ — adımların sırasını, aktörünü ve çıktı belgesini birlikte çizen tip. CLAUDE.md §8.5 o tipin 10 Eylül 2026'da yazıldığını kaydediyor; ama dossier_chart.dart şu an YALNIZCA yedi tip taşıyor ve islem_akisi onlardan biri değil. git log -S'de de hiç geçmiyor: hiç commit edilmemiş ve çalışma dizini kaybında gitmiş. §8.12 — var olmayan tip için grafik tarif edilmez. Kart dizisi sırayı numarayla taşıyor; aktör 'ust' alanında. Çizici geri geldiğinde bu grafik islem_akisi'ne çevrilebilir, gövdesi hazır.",
       "baslik": {
         "tr": "Fiziksel kapasite yetmediğinde sıra nasıl belirleniyor",
         "en": "How the queue is decided when physical capacity runs short"
       },
       "not": {
-        "tr": "Temmuz 2026 Barmah açılışının işleyişi. Sicil bu yöntemi kendi raporunda geçici bir çözüm olarak tanımlıyor.",
-        "en": "The procedure of the July 2026 Barmah opening. The register describes this method in its own report as an interim solution."
+        "tr": "Temmuz 2026 Barmah açılışının işleyişi, adım adım. Sicil bu yöntemi kendi raporunda geçici bir çözüm olarak tanımlıyor.",
+        "en": "The procedure of the July 2026 Barmah opening, step by step. The register describes this method in its own report as an interim solution."
       },
       "kaynak": "Goulburn-to-Murray and Barmah Narrows Post Trade Opening Report, Temmuz 2026; ACCC'nin 3 Ağustos 2026 tarihli yazısı",
-      "adimlar": [
+      "kartlar": [
         {
+          "ust": {
+            "tr": "1 · Eyalet idaresi",
+            "en": "1 · State administration"
+          },
           "baslik": {
             "tr": "Kapasite ilan edilir",
             "en": "The capacity is announced"
           },
-          "aktor": {
-            "tr": "Eyalet idaresi",
-            "en": "State administration"
+          "govde": {
+            "tr": "Sabah yedide, darlıktan o dönem geçebilecek hacim duyurulur. Nehrin o noktadaki akışı günde yaklaşık yedi bin megalitreyle sınırlı.",
+            "en": "At seven in the morning the volume that can pass the narrows in that window is announced. The river's flow at that point is limited to roughly seven thousand megalitres a day."
           },
-          "aciklama": {
-            "tr": "Darlıktan o dönem geçebilecek hacim duyurulur. Nehrin o noktadaki akışı günde yaklaşık yedi bin megalitreyle sınırlı.",
-            "en": "The volume that can pass the narrows in that window is announced. The river's flow at that point is limited to roughly seven thousand megalitres a day."
-          },
-          "sure": {
-            "tr": "sabah 07.00",
-            "en": "07:00"
+          "rakam": {
+            "deger": "@kura.barmah.kapasite_ml",
+            "bolen": 1000,
+            "ondalik": 1,
+            "etiket": {
+              "tr": "bin megalitre ilan edildi",
+              "en": "thousand megalitres announced"
+            }
           }
         },
         {
+          "ust": {
+            "tr": "2 · Hak sahipleri",
+            "en": "2 · Entitlement holders"
+          },
           "baslik": {
             "tr": "Başvuru penceresi açılır",
             "en": "The application window opens"
           },
-          "aktor": {
-            "tr": "Hak sahipleri",
-            "en": "Entitlement holders"
+          "govde": {
+            "tr": "Suyunu aşağı taşımak isteyen herkes aynı gün başvurur; başvurular aracı portalından ya da çevrim içi ticaretten gelir.",
+            "en": "Anyone wishing to move water downstream applies the same day; applications arrive through the broker portal or through online trading."
           },
-          "aciklama": {
-            "tr": "Suyunu aşağı taşımak isteyen herkes başvurur. Başvurular aracı portalından ya da çevrim içi ticaretten gelir.",
-            "en": "Anyone wishing to move water downstream applies. Applications arrive through the broker portal or through online trading."
-          },
-          "sure": {
-            "tr": "2 Temmuz 2026",
-            "en": "2 July 2026"
+          "rakam": {
+            "deger": "@kura.barmah.uygun_basvuru_toplam",
+            "ondalik": 0,
+            "etiket": {
+              "tr": "uygun başvuru, iki eyaletten",
+              "en": "eligible applications, from two states"
+            }
           }
         },
         {
-          "baslik": {
-            "tr": "Uygunluk denetlenir",
-            "en": "Eligibility is checked"
+          "ust": {
+            "tr": "3 · DEECA ile WaterNSW, birlikte",
+            "en": "3 · DEECA and WaterNSW, jointly"
           },
-          "aktor": {
-            "tr": "Eyalet idaresi",
-            "en": "State administration"
-          },
-          "aciklama": {
-            "tr": "Kurallara uymayan başvurular kuraya giremez ve doğrudan reddedilir.",
-            "en": "Applications that fail the rules do not enter the draw and are refused outright."
-          },
-          "belge": {
-            "tr": "uygunluk kaydı",
-            "en": "eligibility record"
-          }
-        },
-        {
           "baslik": {
             "tr": "Sıra kurayla çekilir",
             "en": "The order is drawn by lot"
           },
-          "aktor": {
-            "tr": "DEECA ile WaterNSW, birlikte",
-            "en": "DEECA and WaterNSW, jointly"
-          },
-          "aciklama": {
-            "tr": "Uygun başvurular, işlenme sırasını saptamak için rastgeleleştirilir. Önce başvuran önce geçmiyor; sıra tesadüfe bırakılıyor.",
-            "en": "Eligible applications are randomised to determine the order in which they will be processed. First come is not first served; the order is left to chance."
-          },
-          "belge": {
-            "tr": "rastgeleleştirme aracı",
-            "en": "randomisation tool"
-          },
-          "sure": {
-            "tr": "3 Temmuz 2026",
-            "en": "3 July 2026"
+          "govde": {
+            "tr": "Uygun başvurular, işlenme sırasını saptamak için rastgeleleştirilir. Önce başvuran önce geçmiyor, daha çok ödeyen de; sıra tesadüfe bırakılıyor.",
+            "en": "Eligible applications are randomised to determine the order in which they will be processed. First to apply does not go first, nor does whoever pays most; the order is left to chance."
           }
         },
         {
+          "ust": {
+            "tr": "4 · Rekabet ve Tüketici Kurumu",
+            "en": "4 · Competition and Consumer Commission"
+          },
           "baslik": {
-            "tr": "Çekiliş izlenir ve kaydı incelenir",
-            "en": "The draw is observed and its recording reviewed"
+            "tr": "Çekiliş izlenir, kaydı incelenir",
+            "en": "The draw is observed, its recording reviewed"
           },
-          "aktor": {
-            "tr": "Rekabet ve Tüketici Kurumu (ACCC)",
-            "en": "Competition and Consumer Commission (ACCC)"
-          },
-          "aciklama": {
+          "govde": {
             "tr": "Kurumun temsilcisi çekilişi yerinde izler, sonra kaydını yeniden inceler ve çıktıda hiçbir düzenleme veya değişiklik gözlemlemediğini imzasıyla beyan eder.",
             "en": "The regulator's representative observes the draw in person, then reviews its recording and attests under signature to having observed no editing or change to the output."
-          },
-          "belge": {
-            "tr": "bağımsız gözlemci beyanı",
-            "en": "independent observer statement"
           }
         },
         {
+          "ust": {
+            "tr": "5 · Eyalet idaresi",
+            "en": "5 · State administration"
+          },
           "baslik": {
             "tr": "Kapasite dolana kadar işlenir",
             "en": "Processing continues until capacity is full"
           },
-          "aktor": {
-            "tr": "Eyalet idaresi",
-            "en": "State administration"
-          },
-          "aciklama": {
+          "govde": {
             "tr": "Başvurular çekilen sıraya göre işlenir. Hacim tükendiğinde kalanlar reddedilir — kuralı çiğnedikleri için değil, kuradaki yerleri yüzünden.",
             "en": "Applications are processed in the order drawn. When capacity is exhausted the rest are refused — not for breaking a rule, but because of where they fell in the draw."
           },
-          "secenekler": [
-            {
-              "tr": "sıra yetti — ticaret onaylanır",
-              "en": "the queue reached them — the trade is approved"
+          "rakam": {
+            "deger": "@kura.barmah.onay_orani_yuzde",
+            "ondalik": 1,
+            "sonek": {
+              "tr": "%",
+              "en": "%"
             },
-            {
-              "tr": "sıra yetmedi — başvuru reddedilir",
-              "en": "the queue did not reach them — the application is refused"
+            "etiket": {
+              "tr": "onaylanan başvuru oranı",
+              "en": "share of applications approved"
             }
-          ]
+          }
         }
-      ],
-      "sonuc": {
-        "tr": "Barmah'ta uygun başvuruların hacmi kapasitenin 2,8 katıydı; başvuranların yaklaşık yüzde yirmi dokuzu geçebildi.",
-        "en": "At Barmah the volume of eligible applications was 2.8 times the capacity; roughly twenty-nine per cent of applicants got through."
-      }
+      ]
     },
     "iki_acilis": {
       "tur": "ikili_cubuk",
