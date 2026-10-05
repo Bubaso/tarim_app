@@ -73,15 +73,25 @@
         "kontrast_krem": 15.76
       },
       "vurguKoyu": {
-        "hex": "#0B4F4A",
-        "rol": "Kanal suyunun krem zemindeki karşılığı",
-        "kontrast_krem": 8.36
+        "hex": "#8A4414",
+        "rol": "Kuru toprağın krem zemindeki karşılığı — kart kenarı ve açık moddaki tüm vurgu metni",
+        "kontrast_krem": 6.39,
+        "kontrast_beyaz": 7.2,
+        "_anasayfadan_ayrisma": {
+          "darkGreen_#2F4B2E": 1.35,
+          "primaryGreen_#5C8A4A": 1.84,
+          "wheat_#C9A15A": 2.99,
+          "marketDown_#9C4A3C": 1.19,
+          "alertRed_#D32F2F": 1.45,
+          "_notu": "Ton 24° — marketDown'ın 9°'si ile wheat'in 38°'si arasında, yeşilin 103°'sinden uzak. Kırmızıyla karışma riski yok: alertRed son dakika demek ve o rozet küçük, doygun ve tam kırmızı (0°)."
+        }
       },
       "ikincilKoyu": {
-        "hex": "#8A4414",
-        "rol": "Kuru toprağın krem zemindeki karşılığı",
-        "kontrast_krem": 6.39
-      }
+        "hex": "#0B4F4A",
+        "rol": "Kanal suyunun krem zemindeki karşılığı — ikinci vurgu",
+        "kontrast_krem": 8.36
+      },
+      "_rol_degisimi": "ŞERİTTE TOPRAK ÖNDE, SAYFADA SU. Koyu dosya sayfasında vurgu kanal suyu (#5BC8C0) — dosyanın tezi suyun ayrışması. Ama ana sayfa krem ve kendi yapısal yeşili #2F4B2E; şeridin eski vurgusu #0B4F4A o yeşille arasında 1,03 PARLAKLIK ORANI bırakıyordu, yani kart sayfanın kendi rengiyle aynı ağırlıktaydı ve ayrışmıyordu. Hollanda'da belgelenen çökme deseninin (1,05) aynısı. Paletin fikri 'birbirine değen ama karışmayan iki madde'ydi; hangisinin önde durduğu ZEMİNE bağlı. Krem zeminde kuru toprak önde. Renk uydurulmadı — dosyanın kendi ikincil rengi öne alındı, teal ikinciye geçti."
     },
     "renk_korlugu_notu": "HOLLANDA DERSİ İKİ KEZ UYGULANDI. Orada sodyum turuncusu (0,4867) ile cam yeşili (0,4650) neredeyse eş parlaklıktaydı — oran 1,05 — ve deuteranopi altında ayırt edilemiyorlardı. (1) Koyu gövdede kanal suyu 0,4734, kuru toprak 0,2570; oran 1,84. (2) ŞERİTTE İLK HESAP 1,06 ÇIKTI — tam Hollanda hatası. Teal #0E5F5A'dan #0B4F4A'ya koyulaştırıldı, oran 1,56'ya çıktı. İlk denemeyi kontrast.py yakaladı; göz yakalamazdı.",
     "_cizgivurgu_notu": "İlk seçim #6A6354 idi: zeminde 3,19 ile eşiği geçiyor ama YÜZEYDE 2,86 ile geçmiyordu. Yalnız zemine bakan bir denetim bunu kaçırırdı; betik iki zemini birlikte sınıyor. #7A7363 ikisinde de geçiyor (4,04 / 3,62).",

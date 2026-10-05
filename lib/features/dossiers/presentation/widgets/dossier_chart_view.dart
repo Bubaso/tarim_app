@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_typography.dart';
+import '../../../../core/utils/turkce_metin.dart';
 import '../../data/models/dossier_chart.dart';
 import '../../data/models/dossier_theme.dart';
 
@@ -219,19 +220,6 @@ class _Gosterge extends StatelessWidget {
 }
 
 /// Rakam metni — her yerde aynı hizada dursun diye tek yerde.
-/// Dile göre büyütme.
-///
-/// `toUpperCase()` Unicode'un varsayılan eşlemesini kullanıyor ve 'i' harfini
-/// 'I' yapıyor; Türkçede karşılığı 'İ'. "Giren" ekrana "GIREN" diye çıkıyordu.
-/// Testin yakaladığı gerçek bir hata — gözle fark edilmesi zor, çünkü yanlış
-/// harf de bir büyük harf.
-///
-/// Ters yönde de bir tuzak var: 'ı' harfinin varsayılan büyüğü 'I' zaten, ama
-/// önce 'i' çevrilmezse sıra bozuluyor. İkisi de burada, tek yerde.
-String _buyult(String s, bool isEn) => isEn
-    ? s.toUpperCase()
-    : s.replaceAll('i', 'İ').replaceAll('ı', 'I').toUpperCase();
-
 TextStyle _rakamStili(BuildContext context, Color renk) =>
     AppTypography.meta(context, color: renk).copyWith(
       fontWeight: FontWeight.w700,
@@ -910,7 +898,7 @@ class _Kartlar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 5),
                     child: Text(
-                      _buyult(c.kartlar[i].ust!.of(isEn), isEn),
+                      buyukHarf(c.kartlar[i].ust!.of(isEn), isEn),
                       style: AppTypography.meta(context, color: tema.sessiz)
                           .copyWith(fontSize: 11, letterSpacing: 0.7),
                     ),
@@ -1267,7 +1255,7 @@ class _AkisYakasi extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    _buyult(baslik!.of(isEn), isEn),
+                    buyukHarf(baslik!.of(isEn), isEn),
                     style: AppTypography.meta(context, color: tema.sessiz)
                         .copyWith(fontSize: 11, letterSpacing: 0.7),
                   ),

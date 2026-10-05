@@ -958,7 +958,12 @@ class _Bolum extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(bottom: grafikler.isEmpty ? 24 : 8),
             child:
-                DossierProse(govde: bolum.body(isEn), tema: tema, olcek: olcek),
+                DossierProse(
+                  govde: bolum.body(isEn),
+                  tema: tema,
+                  isEn: isEn,
+                  olcek: olcek,
+                ),
           ),
         ),
         if (grafikler.isNotEmpty)
