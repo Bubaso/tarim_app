@@ -3,43 +3,90 @@
   "_amac": "Görsel kararlar. DossierTheme bu dosyadan üretilir; kodda serbest renk yazılmaz.",
   "_kural": "Bu dosyadaki hiçbir kontrast sayısı 'yaklaşık' değildir. Hepsi _raw/kontrast.py'den geliyor; palet değişirse betik yeniden koşar ve buradaki sayılar güncellenir.",
   "_sureklilik": "Dört dosya, dört geometri: Hollanda dikey şeritler (polder), Rusya yatay bantlar (toprak profili), İspanya nokta ızgarası (dikilmiş zeytinlik), Avustralya ortogonal ızgara (sulama kanalı ağı). Dördü de İNSAN YAPIMI düzen — dizinin sessiz ortak fikri. Bu dosyada fikir bir adım ileri gidiyor: ızgara yalnızca düzenin izi değil, piyasayı MÜMKÜN KILAN altyapı. Suyun yağdığı yerden bağımsız taşınabilmesi o kanalların varlığına bağlı.",
-
   "tez_cumlesi": {
-    "tr": "Avustralya'da suyun kendi sicili var: maliki adıyla kayıtlı, fiyatı belli, ipotek edilebilir. Taşıyacak nehir daraldığında sırayı kura belirliyor.",
-    "en": "In Australia water has a register of its own: the owner recorded by name, the price known, the holding mortgageable. When the river that must carry it narrows, the queue is decided by lot.",
-    "gerekce": "Cümlenin iki yarısı arasındaki gerilim dosyanın omurgası: ilk yarı suyun ne kadar eksiksiz bir mülk olduğunu sayıyor, ikinci yarı o mülkün en kritik noktada tesadüfe bırakıldığını söylüyor. Rotasyon Avustralya'yı 'Model' diye kaydetmişti; veri daha keskin bir şey söyledi — suyu sicile bağlayan, fiyatlandıran ve ipotek edilebilir kılan idare, kapasitenin bittiği yerde kura çekiyor.",
-    "_dayanak": "Dört öğesinin dördü de birincil ya da sicil kaynaklı: malikin adıyla kaydı Water Act 1989 m. 84I'de, ipotek 'mortgage of a water share' ibaresinde (yedi yerde), fiyat sicilin Tablo 4'ünde, kura ise Temmuz 2026 açılış raporunda ve ACCC'nin imzalı yazısında.",
-    "_sayi_yok": "Cümlede rakam yok; ölçü sonraki bölümlerde veriliyor.",
-    "_olumsuz_yok": "Cümle 'toprağın parçası değil' diye kurulabilirdi — ayrışmayı bir yokluk üzerinden anlatırdı. Üç olumlu nitelikle (kayıtlı, fiyatı belli, ipotek edilebilir) aynı şey söyleniyor.",
-    "_metafor_siniri": "'Tapu' kelimesi kullanılmadı. Kanun 'water share' ve 'water register' diyor; tapu Türk hukukunda taşınmaza bağlı bir kurum ve benzetme okuru yanlış yere götürürdü. 'Sicil' kanunun kendi kelimesinin karşılığı."
+    "tr": "Kıtanın yarısı tarım arazisi ama tarım ekonominin yirmi beşte biri. Beş yüz hektarlık işletmeler devletten destek almadan çalışıyor; en kıt girdileri olan su ise topraktan ayrılıp fiyatlanmış.",
+    "en": "Half the continent is farmland, yet farming is one twenty-fifth of the economy. Five-hundred-hectare holdings work without state support, and their scarcest input — water — has been separated from the land and priced.",
+    "gerekce": "Cümlenin üç yarısı dosyanın üç katmanı: ölçek (geniş ama ince bir tarım), destek (yokluğu) ve suyun ayrışması. İlk hâli yalnız suyu anlatıyordu ve bu bir TARIM portalının ülke dosyası için yanlış kapıydı — dosya su hukukuna dönmüştü. Rotasyon Avustralya'yı 'Model' diye kaydetti ve ağırlık merkezini 'su ve kuraklık' koydu; merkez bir ağırlıktır, konunun tamamı değil.",
+    "_dayanak": "Üç öğesinin üçü de bağımsız kaynaktan: arazi payı ve GSYH payı Dünya Bankası'nda (%47,22 ve %2,04); işletme başına ekilen alan ABS'in alan ve işletme sayısının bölümünden (531 ha); destek payı OECD Üretici Destek Tahmini'nde (%2,71). Suyun ayrışması Water Act 1989'un Kısım 3A ve Kısım 4B'sinin ayrı durmasından.",
+    "_sayi_yok": "Cümlede rakam yazıyla var, hanesiyle yok; ölçü sonraki bölümlerde veriliyor.",
+    "_olumsuz_yok": "'Destek almadan' bir yokluk; ama ölçünün kendisi (%2,71) pozitif ve bölüm bunu söylüyor. Avustralya dünyanın en düşüğü DEĞİL — Yeni Zelanda daha aşağıda.",
+    "_metafor_siniri": "'Tapu' kelimesi kullanılmadı. Kanun 'water share' ve 'water register' diyor; tapu Türk hukukunda taşınmaza bağlı bir kurum ve benzetme okuru yanlış yere götürürdü. 'Sicil' kanunun kendi kelimesinin karşılığı.",
+    "_eski_tez": "Su sürümü: 'Avustralya'da suyun kendi sicili var: maliki adıyla kayıtlı, fiyatı belli, ipotek edilebilir. Taşıyacak nehir daraldığında sırayı kura belirliyor.' Cümle doğruydu ama dosyanın tamamını suya bağlıyordu; §13 hâlâ onu anlatıyor."
   },
-
   "palet": {
     "ad": "Toprak ve Kanal",
     "kaynak_fikir": "Palet manzaradan değil, AYRIŞMANIN KENDİSİNDEN türetildi: birbirine değen ama karışmayan iki madde. Kuru toprak ve kanal suyu bir sulama hendeğinin iki yanında yan yana durur, biri ötekinin rengini almaz. Dosyanın anlattığı hukuki ayrışmanın maddi karşılığı bu: su, üstünden geçtiği toprağın maliki olmayan birinin olabilir.",
     "mod": "KOYU — dosya sayfası her zaman koyu. Uygulamanın açık/koyu tercihini izlemez.",
     "mod_gerekcesi": "Dergi dosyası mantığı: içeri girdiğinizde başka bir yere geldiğinizi anlamalısınız (İspanya'dan devralınan karar). Ana sayfadaki şerit bunun istisnasıdır — sayfanın içinde yaşadığı için açık/koyu izler.",
     "koyu": {
-      "zemin": { "hex": "#11100D", "rol": "Sayfa arka planı — gece, sulama bölgesi" },
-      "yuzey": { "hex": "#1E1C17", "rol": "Kart, tablo, alıntı bloğu", "kontrast_zemin": 1.12 },
-      "murekkep": { "hex": "#EFEBE1", "rol": "Gövde metni", "kontrast_zemin": 15.98, "kontrast_yuzey": 14.30 },
-      "sessiz": { "hex": "#A69D8D", "rol": "Meta, kaynak satırı, altyazı", "kontrast_zemin": 7.09, "kontrast_yuzey": 6.35 },
-      "vurgu": { "hex": "#5BC8C0", "rol": "Kanal suyu — rakamlar, başlık vurguları, Avustralya serisi", "kontrast_zemin": 9.48, "kontrast_yuzey": 8.48 },
-      "ikincil": { "hex": "#C9763C", "rol": "Kuru toprak — karşılaştırmanın ikinci rengi", "kontrast_zemin": 5.56, "kontrast_yuzey": 4.98 },
-      "cizgi": { "hex": "#2B2922", "rol": "SADECE dekoratif ayırıcı", "kontrast_zemin": 1.31, "kontrast_yuzey": 1.17, "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz — grafik ekseni, sınır, odak halkası için cizgiVurgu kullanılır." },
-      "cizgiVurgu": { "hex": "#7A7363", "rol": "Grafik ekseni, ızgara çizgisi, işlem akışı omurgası, odak halkası", "kontrast_zemin": 4.04, "kontrast_yuzey": 3.62 }
+      "zemin": {
+        "hex": "#11100D",
+        "rol": "Sayfa arka planı — gece, sulama bölgesi"
+      },
+      "yuzey": {
+        "hex": "#1E1C17",
+        "rol": "Kart, tablo, alıntı bloğu",
+        "kontrast_zemin": 1.12
+      },
+      "murekkep": {
+        "hex": "#EFEBE1",
+        "rol": "Gövde metni",
+        "kontrast_zemin": 15.98,
+        "kontrast_yuzey": 14.3
+      },
+      "sessiz": {
+        "hex": "#A69D8D",
+        "rol": "Meta, kaynak satırı, altyazı",
+        "kontrast_zemin": 7.09,
+        "kontrast_yuzey": 6.35
+      },
+      "vurgu": {
+        "hex": "#5BC8C0",
+        "rol": "Kanal suyu — rakamlar, başlık vurguları, Avustralya serisi",
+        "kontrast_zemin": 9.48,
+        "kontrast_yuzey": 8.48
+      },
+      "ikincil": {
+        "hex": "#C9763C",
+        "rol": "Kuru toprak — karşılaştırmanın ikinci rengi",
+        "kontrast_zemin": 5.56,
+        "kontrast_yuzey": 4.98
+      },
+      "cizgi": {
+        "hex": "#2B2922",
+        "rol": "SADECE dekoratif ayırıcı",
+        "kontrast_zemin": 1.31,
+        "kontrast_yuzey": 1.17,
+        "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz — grafik ekseni, sınır, odak halkası için cizgiVurgu kullanılır."
+      },
+      "cizgiVurgu": {
+        "hex": "#7A7363",
+        "rol": "Grafik ekseni, ızgara çizgisi, işlem akışı omurgası, odak halkası",
+        "kontrast_zemin": 4.04,
+        "kontrast_yuzey": 3.62
+      }
     },
     "acik_mod_seridi": {
       "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; krem zemin üstünde koyu gövdenin renkleri okunmuyor.",
-      "murekkep": { "hex": "#1A1813", "kontrast_krem": 15.76 },
-      "vurguKoyu": { "hex": "#0B4F4A", "rol": "Kanal suyunun krem zemindeki karşılığı", "kontrast_krem": 8.36 },
-      "ikincilKoyu": { "hex": "#8A4414", "rol": "Kuru toprağın krem zemindeki karşılığı", "kontrast_krem": 6.39 }
+      "murekkep": {
+        "hex": "#1A1813",
+        "kontrast_krem": 15.76
+      },
+      "vurguKoyu": {
+        "hex": "#0B4F4A",
+        "rol": "Kanal suyunun krem zemindeki karşılığı",
+        "kontrast_krem": 8.36
+      },
+      "ikincilKoyu": {
+        "hex": "#8A4414",
+        "rol": "Kuru toprağın krem zemindeki karşılığı",
+        "kontrast_krem": 6.39
+      }
     },
     "renk_korlugu_notu": "HOLLANDA DERSİ İKİ KEZ UYGULANDI. Orada sodyum turuncusu (0,4867) ile cam yeşili (0,4650) neredeyse eş parlaklıktaydı — oran 1,05 — ve deuteranopi altında ayırt edilemiyorlardı. (1) Koyu gövdede kanal suyu 0,4734, kuru toprak 0,2570; oran 1,84. (2) ŞERİTTE İLK HESAP 1,06 ÇIKTI — tam Hollanda hatası. Teal #0E5F5A'dan #0B4F4A'ya koyulaştırıldı, oran 1,56'ya çıktı. İlk denemeyi kontrast.py yakaladı; göz yakalamazdı.",
     "_cizgivurgu_notu": "İlk seçim #6A6354 idi: zeminde 3,19 ile eşiği geçiyor ama YÜZEYDE 2,86 ile geçmiyordu. Yalnız zemine bakan bir denetim bunu kaçırırdı; betik iki zemini birlikte sınıyor. #7A7363 ikisinde de geçiyor (4,04 / 3,62).",
     "denetim_betigi": "_raw/kontrast.py — `python3 content/dossiers/avustralya/_raw/kontrast.py`"
   },
-
   "motif": {
     "ad": "Kanal ızgarası",
     "tanim": "Sulama bölgesinin ortogonal kanal ağı: taşkın ovasına dik açılarla oturtulmuş, iki yönde uzanan ince çizgi örgüsü.",
@@ -53,7 +100,6 @@
     },
     "_UYGULANMAMIŞ": "ÖNEMLİ — BU GEOMETRİ ŞU AN ÇİZİLMİYOR. Depodaki tek motif çizici `polder_motif.dart` ve `DossierTheme` motif bloğundan YALNIZCA opaklığı okuyor (`motifOpaklik`); `motifAralik` bile JSON'dan değil yedekten geliyor. Bir `yon` alanı da kodda hiçbir yerde okunmuyor — İspanya'nın tasarım künyesinde 'paylaşım kartı bu alanı okuyor' diye bir not var, kodda karşılığı yok. Bu yüzden burada `yon` alanı YAZILMADI: okunmayan bir alana değer yazmak, sonraki turda 'ızgara motifi bölüm ayırıcılarında görünüyor' diye yanlış bir cümle yazdırır. Izgara bir ŞARTNAMEDİR; çizici yazılana kadar sayfada polder motifi görünür."
   },
-
   "kapak": {
     "yon": "Sulama bölgesinin kanal ağı — havadan",
     "gerekce": "Tezin doğrudan görselleştirmesi değil, zemini: dosyanın anlattığı bütün piyasa bu kazılmış ağın üstünde işliyor. Hollanda ve Rusya yörüngeden, İspanya yerden bakıyordu; burası yine yükseliyor çünkü ızgara ancak yukarıdan ızgara gibi görünüyor.",
@@ -75,7 +121,6 @@
     "_baslik_notu": "En uzun kelime başlığın kendisi: 'AVUSTRALYA' (10 harf). _KapakAdi puntoyu en uzun kelimeye bakarak küçültüyor (§10.4); on harf İSPANYA'dan (7) uzun, KOOPERATİFLERİ'nden (14) kısa — ikisi de taşmadan çalıştığı için bu da çalışır.",
     "okunurluk": "Görsel üzerine zemin renginden %0 → %85 dikey gradyan; metin yalnızca %60+ bölgede durur."
   },
-
   "_zorunluluklar": [
     "Grafiklerde iki seri renkle BİRLİKTE biçimle de ayrılacak; bu dosyada parlaklık farkı da var (gövdede 1,84, şeritte 1,56) ve asıl güvence o.",
     "Kanal ızgarası motifi CustomPainter ile çizilecek — ama çizici YAZILANA KADAR sayfada polder motifi görünür; bu dosyada aksini iddia eden cümle yazılmayacak.",
@@ -84,7 +129,6 @@
     "Tüm renkler bu dosyadan türetilen DossierTheme üzerinden gelecek, kodda serbest hex yazılmayacak.",
     "Palet değişirse _raw/kontrast.py yeniden çalıştırılacak ve buradaki kontrast alanları güncellenecek."
   ],
-
   "_yasak": [
     "Avustralya bayrağı, armaları ya da eyalet amblemleri",
     "Stok \"kurak toprakta çatlak\" fotoğrafı — dosya kuraklığı değil su hakkını anlatıyor",

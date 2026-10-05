@@ -266,7 +266,87 @@ ulusal = {
  "_ciro_uyarisi": "Aralık çok geniş; 'tahmini' ibaresi düşürülmeyecek.",
 }
 
-# ══ 8. KRONOLOJİ — türetilmiş, yeni olgu YOK ═════════════════════════════
+# ══ 8. TARIM — dosyanın gövdesi ══════════════════════════════════════════
+# Bu dosya bir TARIM portalının ülke dosyası. Su, eksenin bir parçası ama
+# tamamı değil; §2.11 "ağırlık merkezi" diyor, "tek konu" demiyor.
+TA = oku_json("tarim.json")
+TI = oku_json("ticaret.json")
+
+makro = {
+    "_kaynak_niteligi": "BAĞIMSIZ — Dünya Bankası",
+    "_kapsam": "Avustralya geneli",
+    "tarim_arazisi_yuzde": TI["makro"]["tarim_arazisi_yuzde"],
+    "tarim_gsyh_yuzde": TI["makro"]["tarim_katma_deger_gsyh_yuzde"],
+    "tarim_istihdam_yuzde": TI["makro"]["tarim_istihdam_yuzde"],
+    "islenebilir_arazi_ha": TI["makro"]["islenebilir_arazi_ha"],
+}
+for ad, alan in (("son_arazi_yuzde", "tarim_arazisi_yuzde"),
+                 ("son_gsyh_yuzde", "tarim_gsyh_yuzde"),
+                 ("son_istihdam_yuzde", "tarim_istihdam_yuzde"),
+                 ("son_islenebilir_ha", "islenebilir_arazi_ha")):
+    d = makro[alan]
+    y = max(d) if d else None
+    makro[ad] = {"yil": y, "deger": d[y]} if y else None
+
+urunler = {
+    "_kaynak_niteligi": "BAĞIMSIZ — ABS, Australian Agriculture: Broadacre Crops",
+    "_kapsam": "Avustralya geneli, 2023",
+    "_not": "Pamukta üretim ve değer alanları boş geliyor; yalnız alan var.",
+    "kayitlar": TA["tarla_bitkileri_2023"],
+}
+bugday = next(x for x in TA["tarla_bitkileri_2023"] if x["urun"] == "Wheat")
+urunler["bugday"] = bugday
+
+hayvan = {
+    "_kaynak_niteligi": "BAĞIMSIZ — ABS, Livestock slaughtered",
+    "_kapsam": "Avustralya geneli",
+    "_birim": "bin baş (UNIT_MULT=3)",
+    "_seri_notu": "1973'ten beri; çeyreklik veriden yıla toplandı ve dört "
+                  "çeyreği tam olmayan yıl DIŞARIDA bırakıldı.",
+    **TA["hayvan_kesimi"],
+}
+
+destek = {
+    "_kaynak_niteligi": "BAĞIMSIZ — OECD, Üretici Destek Tahmini",
+    "_kapsam": "ülke karşılaştırması",
+    "_uyari": "Avustralya DÜNYANIN EN DÜŞÜĞÜ DEĞİL. Yeni Zelanda daha düşük "
+              "(%1,53) ve bazı OECD dışı ekonomilerde destek NEGATİF "
+              "(Vietnam, Hindistan, Arjantin) — orada üretici destekleniyor "
+              "değil, örtülü olarak vergileniyor. Metinde 'en düşük' denmez.",
+    **TA["destek"],
+}
+
+ticaret_dis = {
+    "_kaynak_niteligi": "BAĞIMSIZ — UN Comtrade",
+    "_kapsam": "Avustralya geneli",
+    "_cift_sayim": TI["_cift_sayim"],
+    "_agirlik_uyarisi": TI["_agirlik_uyarisi"],
+    "dunyaya_tarim_2024": TI["dunyaya_tarim_2024"],
+    "dunyaya_lif_2024": TI["dunyaya_lif_2024"],
+    "seri_2005_2024": TI["seri_2005_2024"],
+}
+# yün/et oranının yirmi yıldaki değişimi — terk edilen ürünün ikinci defteri
+s05, s24 = TI["seri_2005_2024"]["2005"], TI["seri_2005_2024"]["2024"]
+ticaret_dis["yun_et_orani_2005_yuzde"] = round(100 * s05["yun"] / s05["et"], 1)
+ticaret_dis["yun_et_orani_2024_yuzde"] = round(100 * s24["yun"] / s24["et"], 1)
+# Çizgi grafiği `harita` biçimini kullanıyor: {yıl: değer}. Anahtarlar
+# double.tryParse'tan geçtiği için dört haneli yıl sorunsuz; milyar dolara
+# çevriliyor ki eksen okunur olsun.
+for ad in ("yun", "et", "hububat"):
+    ticaret_dis[f"harita_{ad}_milyar"] = {
+        y: round(v[ad] / 1e9, 3) for y, v in TI["seri_2005_2024"].items() if v.get(ad)}
+
+turkiye = {
+    "_kaynak_niteligi": "BAĞIMSIZ — UN Comtrade",
+    "_kapsam": "iki ülke arası, HS 01-24, 2024",
+    **TI["turkiye_2024"],
+}
+turkiye["denge_lehine"] = ("Türkiye" if TI["turkiye_2024"]["tur_aus"]["toplam_usd"]
+                           > TI["turkiye_2024"]["aus_tur"]["toplam_usd"] else "Avustralya")
+turkiye["kat"] = round(TI["turkiye_2024"]["tur_aus"]["toplam_usd"]
+                       / TI["turkiye_2024"]["aus_tur"]["toplam_usd"], 2)
+
+# ══ 9. KRONOLOJİ — türetilmiş, yeni olgu YOK ═════════════════════════════
 kronoloji = {
  "_kaynak_niteligi": "TÜRETİLMİŞ — yukarıdaki bloklardaki tarihlerin sayısal "
                      "izdüşümü; yeni olgu içermez",
@@ -283,7 +363,9 @@ kronoloji = {
 }
 
 # ══ SAĞLAMALAR ═══════════════════════════════════════════════════════════
-govde = {"kanun": kanun, "ayrisma_takvimi": takvim, "sahiplik": sahiplik,
+govde = {"makro": makro, "urunler": urunler, "hayvan": hayvan, "destek": destek,
+ "ticaret_dis": ticaret_dis, "turkiye": turkiye,
+ "kanun": kanun, "ayrisma_takvimi": takvim, "sahiplik": sahiplik,
  "kullanim": kullanim, "pay_fiyati": fiyat, "pay_fiyati_dusuk": fiyat_dusuk,
  "topraksiz_su": topraksiz, "tahsis_ticareti": ticaret,
  "piyasa_katilimi": katilim, "kaynak_dagilimi": kaynak_dag,
@@ -319,10 +401,62 @@ if hata:
         print("  ✗ " + h, file=sys.stderr)
     sys.exit(1)
 
+# ---------------------------------------------------------------- metin ölçekleri
+# §2.2 "Getir, hatırlama" ÖLÇEK ÇEVRİMİNİ DE KAPSAR. Metin "13.992 milyon dolar"
+# yazıyorsa o sayı burada hesaplanır; cümlede elle bölünmez. Yuvarlama da burada
+# olur — İngilizce metin 3.990 yazıp veri 3.991'e yuvarlanıyorsa bu bir hatadır
+# ve doğrulayıcı onu yakalar.
+def _ms(v):            # dolar → milyon dolar
+    return round(v / 1e6, 3)
+_fas = lambda blk, hs: next((f["deger_usd"] for f in blk["fasillar"] if f["hs"] == hs), 0.0)
+_alt = lambda blk, hs: next((f["deger_usd"] for f in blk["hs08_kirilim"] if f["hs"] == hs), 0.0)
+_dw, _tr, _au = govde["ticaret_dis"]["dunyaya_tarim_2024"], govde["turkiye"]["tur_aus"], govde["turkiye"]["aus_tur"]
+_u = {k["urun"]: k for k in govde["urunler"]["kayitlar"]}
+_sr = govde["ticaret_dis"]["seri_2005_2024"]
+
+govde["metin_rakamlari"] = {
+    "_kaynak_niteligi": "TÜRETİLMİŞ — yukarıdaki blokların ölçek çevrimleri",
+    "_amac": "Metnin kullandığı ölçek çevrimleri ve türetmeler. Kaynağı bu dosyanın "
+             "kendi blokları; buradaki her değer yukarıdaki ham sayıdan hesaplandı.",
+    "_kapsam": "Türetilmiş — kaynağı her satırın kendi bloğu",
+    "dunyaya_tarim_milyar_usd": round(_dw["toplam_usd"] / 1e9, 3),
+    "dunyaya_fasil_milyon_usd": {hs: _ms(_fas(_dw, hs))
+                                 for hs in ("02", "10", "12", "07", "04", "22", "08", "15", "03")},
+    "lif_milyon_usd": {k: _ms(v["deger_usd"])
+                       for k, v in govde["ticaret_dis"]["dunyaya_lif_2024"].items()},
+    "seri_milyon_usd": {y: {k: _ms(v) for k, v in d.items()} for y, d in _sr.items()},
+    "tur_aus_milyon_usd": _ms(_tr["toplam_usd"]),
+    "aus_tur_milyon_usd": _ms(_au["toplam_usd"]),
+    "tur_aus_fasil_milyon_usd": {hs: _ms(_fas(_tr, hs)) for hs in ("08", "20", "15", "19")},
+    "aus_tur_fasil_milyon_usd": {hs: _ms(_fas(_au, hs)) for hs in ("05", "02", "04", "07")},
+    "tur_aus_hs08_milyon_usd": {hs: _ms(_alt(_tr, hs)) for hs in ("0802", "0813", "0806", "0804")},
+    "aus_tur_hs08_milyon_usd": {hs: _ms(_alt(_au, hs)) for hs in ("0802",)},
+    "denge_kat": round(_tr["toplam_usd"] / _au["toplam_usd"], 2),
+    "turkiye_payi_yuzde": round(_au["toplam_usd"] / _dw["toplam_usd"] * 100, 3),
+    "alan_milyon_ha": {a: round(_u[a]["alan_ha"] / 1e6, 3) for a in ("Wheat", "Barley", "Canola")},
+    "uretim_milyon_t": {a: round(_u[a]["uretim_t"] / 1e6, 3)
+                        for a in ("Barley", "Canola", "Lentils", "Sugarcane", "Rice")},
+    "deger_milyon_aud": {a: round(_u[a]["deger_aud"] / 1e6, 3)
+                         for a in ("Wheat", "Canola", "Lentils") if _u[a].get("deger_aud")},
+    "mercimek_ton_isletme": round(_u["Lentils"]["uretim_t"] / _u["Lentils"]["isletme"], 1),
+    "sekerkamisi_t_ha": round(_u["Sugarcane"]["uretim_t"] / _u["Sugarcane"]["alan_ha"], 1),
+    # BU ÜÇÜ BİR YANLIŞI YAKALADI. Metnin ilk hâli "buğday kalan on bir ürünün
+    # toplamından geniş" diyordu; oran 0,89 çıktı — iddia YANLIŞTI. Karşılaştırma
+    # hesaplanmadan cümleye girmez.
+    "kalan_onbir_ha": sum(k["alan_ha"] for k in govde["urunler"]["kayitlar"]
+                          if k["urun"] != "Wheat"),
+    "bugday_pay_yuzde": round(_u["Wheat"]["alan_ha"]
+                              / sum(k["alan_ha"] for k in govde["urunler"]["kayitlar"]) * 100, 1),
+    "bugday_kat_arpa": round(_u["Wheat"]["alan_ha"] / _u["Barley"]["alan_ha"], 2),
+    "sekerkamisi_kat_bugday": round(_u["Sugarcane"]["uretim_t"] / _u["Sugarcane"]["alan_ha"]
+                                    / _u["Wheat"]["verim_t_ha"], 1),
+}
+
 out = {"_dosya": "Avustralya — Ülke Dosyası Sayı 04 · veri katmanı",
        "_uretim": "build_data.py — elle düzenlenmez",
-       "_eksen": "Su, topraktan hukuken ayrılmış, fiyatı olan, alınıp satılan "
-                 "bir mülkiyet hakkıdır; kapasite bittiğinde sıra kurayla belirlenir.",
+       "_eksen": "Desteksiz, az sayıda ve çok büyük işletmeyle çalışan bir tarım; "
+                 "ve o tarımın en kıt girdisi olan suyun topraktan ayrılıp "
+                 "fiyatlanması — kapasite bittiğinde sıra kurayla belirleniyor.",
        **govde}
 (KOK / "data.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

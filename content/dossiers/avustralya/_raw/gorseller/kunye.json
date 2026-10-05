@@ -205,6 +205,45 @@
       "yukseklik": 1824,
       "en_boy": 1.4567,
       "bayt": 4357353
+    },
+    "avustralya_koyun_kirkimi": {
+      "dosya": "avustralya_koyun_kirkimi.jpg",
+      "commons": "Tom Roberts - Shearing the rams - Google Art Project.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Tom_Roberts_-_Shearing_the_rams_-_Google_Art_Project.jpg",
+      "atif": "Tom Roberts",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "genislik": 6065,
+      "yukseklik": 4034,
+      "en_boy": 1.5035,
+      "bayt": 11283827,
+      "eser_adi": "Shearing the rams",
+      "tarih": "1890",
+      "_tarih_kaynagi": "Commons extmetadata · DateTimeOriginal"
+    },
+    "avustralya_merinos": {
+      "dosya": "avustralya_merinos.jpg",
+      "commons": "Merino ewes & lambs.JPG",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Merino_ewes_%26_lambs.JPG",
+      "atif": "Cgoodwin",
+      "lisans": "CC BY-SA 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0",
+      "genislik": 2592,
+      "yukseklik": 1944,
+      "en_boy": 1.3333,
+      "bayt": 1662261
+    },
+    "avustralya_sigir_surusu": {
+      "dosya": "avustralya_sigir_surusu.jpg",
+      "commons": "Muster (11561739535).jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Muster_(11561739535).jpg",
+      "atif": "Jim Bendon from Karratha, Australia",
+      "lisans": "CC BY-SA 2.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/2.0",
+      "genislik": 5184,
+      "yukseklik": 3456,
+      "en_boy": 1.5,
+      "bayt": 9254425
     }
   },
   "_cekilme_tarihi": "2026-10-04T04:17:59.545Z"

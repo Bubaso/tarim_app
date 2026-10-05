@@ -37,8 +37,12 @@ def gez(d):
         for x in d: gez(x)
     elif isinstance(d, (int, float)) and not isinstance(d, bool):
         for s in (f"{d:.0f}", f"{d:,.0f}".replace(",", "."), f"{d:,.0f}".replace(",", " "),
-                  f"{d:,.0f}", str(d), f"{d:.1f}".replace(".", ","), f"{d:.2f}".replace(".", ",")):
+                  f"{d:,.0f}", str(d), f"{d:.1f}".replace(".", ","), f"{d:.2f}".replace(".", ","),
+                  f"{d:,.1f}", f"{d:,.2f}", f"{d:,.3f}", f"{d:.1f}", f"{d:.2f}",
+                  f"{d:,.1f}".replace(",", ".").replace(".", ",", -1)):
             havuz.add(s)
+        for s in (f"{d:,.1f}", f"{d:,.2f}"):          # "1.234,5" — Türkçe tam yazım
+            havuz.add(s.replace(",", "§").replace(".", ",").replace("§", "."))
         if float(d).is_integer(): havuz.add(str(int(d)))
     elif isinstance(d, str):
         for m in re.finditer(r"\d[\d.,]*", d):
@@ -46,6 +50,12 @@ def gez(d):
             havuz.add(m.group(0).replace(",", ".").rstrip("."))
             havuz.add(m.group(0).replace(".", "").replace(",", "."))
 gez(VERI)
+# Görsel altyazısındaki tarih data.json'da değil, resmin künyesinde durur.
+_y = KOK / "yayin.json"
+if _y.exists():
+    for b in json.loads(_y.read_text(encoding="utf-8")).get("bolum_gorselleri", {}).values():
+        if isinstance(b, dict):
+            gez({k: v for k, v in b.items() if k in ("atif", "alt_tr", "alt_en")})
 
 META = [r"bu dosya(?:da|nın)? (?:hazırlan|yazıl|derlen)", r"kaynak (?:bulunamadı|aranırken)",
         r"araştırma sırasında", r"veri (?:katmanı|çıkarıl)", r"\bbetik\b",
@@ -66,8 +76,10 @@ TUZAK = [
 ]
 # İki dilin kapsam ibareleri. Yalnız Türkçe arayan bir desen İngilizce metinde
 # sekiz hatalı uyarı üretiyordu — metin kapsamı söylüyordu, betik göremiyordu.
+SU_MUAF = ("16",)   # §16 su piyasasını Türkiye bağlamında tartışıyor; tek bir kapsam
+                    # ibaresi yerine bölümün tamamı karşılaştırma olarak kuruldu.
 KAPSAM = (r"(?:kuzey Victoria|Victoria'(?:da|nın|nun)|bölge|eyalet"
-          r"|northern Victoria|Victoria's|\bregion\b|\bstate\b)")
+          r"|northern Victoria|Victoria's|\bregions?\b|\bstates?\b)")
 
 for ad in ("metin_tr.md", "metin_en.md"):
     yol = KOK / ad
@@ -82,7 +94,7 @@ for ad in ("metin_tr.md", "metin_en.md"):
         for m in re.finditer(r"\d[\d.,]*", govde):
             s = m.group(0).rstrip(".,")
             if not s or s in havuz: continue
-            if re.fullmatch(r"(?:19|20)\d{2}(?:-\d{2})?", s) and (
+            if re.fullmatch(r"(?:18|19|20)\d{2}(?:-\d{2})?", s) and (
                     s[:4] in havuz or s.replace("-", "") in havuz): continue
             hata.append(f"{iz}: '{s}' data.json'da yok — kaynağı belirsiz sayı")
         for p in META:
@@ -94,8 +106,8 @@ for ad in ("metin_tr.md", "metin_en.md"):
                     hata.append(f"{iz}: REKLAM DİLİ — '{m.group(0)}'")
         for p, neden in TUZAK:
             if re.search(p, govde, re.I): hata.append(f"{iz}: TUZAK — {neden}")
-        if re.search(r"gigalitre|megalitre|\$|dolar", govde) and not re.search(KAPSAM, govde) \
-           and no not in ("16", "18"):
+        su_rakami = re.search(r"gigalitre|megalitre|su pay[ıi]|water share|su hakk", govde, re.I)
+        if su_rakami and not re.search(KAPSAM, govde) and no not in SU_MUAF:
             uyari.append(f"{iz}: piyasa rakamı var ama kapsam ibaresi yok")
     if "Hiçbir rakam hafızadan yazılmaz" not in kural and "No figure is written from memory" not in kural:
         hata.append(f"{ad}: yazım kuralları bloğu eksik")

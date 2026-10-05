@@ -1,10 +1,694 @@
 {
   "_dosya": "Avustralya — grafik tarifleri",
-  "_kural": "Sayılar buraya YAZILMAZ; @yol ile data.json'dan çekilir. Yol çözülmezse seed üretimi durur.",
-  "_tur_siniri": "Yalnız çizicide GERÇEKTEN bulunan dokuz tip kullanıldı. §8.5'te tanımlı mevzuat_zinciri ve bagimlilik_haritasi KODA YAZILMADI; var olmayan tip için grafik tarif edilmez (§8.12). Bu dosyanın ekseni hukuki olduğu için mevzuat_zinciri cazip görünüyordu — yazılmadı.",
-  "_kapsam_uyarisi": "Altı grafik kuzey Victoria verisidir, Avustralya geneli değil. Her birinin 'not' alanı bunu söylüyor; kaldırılmayacak.",
-  "_eksen_x": "Çizgi grafiklerinde x ekseni su yılının BAŞLADIĞI takvim yılı (2023-24 → 2023). 'yil' alanı dizgi olduğu için çizici onu okuyamıyor; 'yil_no' bu yüzden var.",
+  "_kural": "Sayılar buraya YAZILMAZ; @yol ile data.json'dan çekilir.",
+  "_tur_siniri": "Yalnız çizicide GERÇEKTEN bulunan yedi tip kullanıldı. islem_akisi ve ticaret_akisi dossier_chart.dart'ta YOK (§8.12).",
+  "_denge": "Dosya bir TARIM portalının ülke dosyası. On grafiğin yedisi tarım, üçü su. Su ağırlık merkezidir, tek konu değil.",
   "grafikler": {
+    "dort_rakam": {
+      "tur": "kunye",
+      "baslik": {
+        "tr": "Dosyanın dört rakamı",
+        "en": "Four figures from this dossier"
+      },
+      "not": {
+        "tr": "Ülkenin yarıya yakını tarım arazisi; tarım ekonominin yirmi beşte biri, istihdamın kırk beşte biri. Ve bu kadar az insanla kırk bir milyar dolarlık ihracat yapılıyor.",
+        "en": "Nearly half the country is agricultural land; agriculture is a twenty-fifth of the economy and a forty-fifth of employment. And that few people export forty-one billion dollars' worth."
+      },
+      "kaynak": "Dünya Bankası; UN Comtrade",
+      "kalemler": [
+        {
+          "deger": "@makro.son_arazi_yuzde.deger",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "ülke yüzölçümünün tarım arazisi olan payı",
+            "en": "share of the country's land area that is agricultural"
+          },
+          "alt": {
+            "tr": "2023",
+            "en": "2023"
+          }
+        },
+        {
+          "deger": "@makro.son_gsyh_yuzde.deger",
+          "ondalik": 2,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "tarımın gayrisafi yurt içi hasıladaki payı",
+            "en": "agriculture's share of gross domestic product"
+          },
+          "alt": {
+            "tr": "2024",
+            "en": "2024"
+          }
+        },
+        {
+          "deger": "@makro.son_istihdam_yuzde.deger",
+          "ondalik": 2,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "tarımda çalışanların toplam istihdamdaki payı",
+            "en": "agriculture's share of total employment"
+          },
+          "alt": {
+            "tr": "2024",
+            "en": "2024"
+          }
+        },
+        {
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.toplam_usd",
+          "bolen": 1000000000.0,
+          "ondalik": 2,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "etiket": {
+            "tr": "tarım ihracatı, milyar dolar",
+            "en": "agricultural exports, billion dollars"
+          },
+          "alt": {
+            "tr": "2024 · HS 01-24",
+            "en": "2024 · HS 01-24"
+          }
+        }
+      ]
+    },
+    "tarim_ihracati": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Avustralya dünyaya ne satıyor",
+        "en": "What Australia sells the world"
+      },
+      "birim": {
+        "tr": "milyar dolar, 2024",
+        "en": "billion dollars, 2024"
+      },
+      "bolen": 1000000000.0,
+      "ondalik": 2,
+      "onek": {
+        "tr": "$",
+        "en": "$"
+      },
+      "not": {
+        "tr": "HS 01-24 fasılları. Yün ve pamuk bu aralığın dışında kalır — ikisi ayrı bölümde. Çift sayıma karşı gümrük rejimi, taşıma türü ve ikinci partner boyutları süzüldü.",
+        "en": "HS chapters 01-24. Wool and cotton fall outside this range — both have their own section. Customs procedure, mode of transport and second-partner dimensions were filtered against double counting."
+      },
+      "kaynak": "UN Comtrade, 2024",
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Et",
+            "en": "Meat"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.0.deger_usd",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Hububat",
+            "en": "Cereals"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.1.deger_usd",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Yağlı tohum",
+            "en": "Oilseeds"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.2.deger_usd",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Sebze ve bakliyat",
+            "en": "Vegetables and pulses"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.3.deger_usd",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Süt ürünleri",
+            "en": "Dairy"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.4.deger_usd",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "İçecek — şarap dahil",
+            "en": "Beverages, incl. wine"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.5.deger_usd",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Meyve ve yemiş",
+            "en": "Fruit and nuts"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.6.deger_usd",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Yağlar",
+            "en": "Fats and oils"
+          },
+          "deger": "@ticaret_dis.dunyaya_tarim_2024.fasillar.8.deger_usd",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "urun_alanlari": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Hangi ürün ne kadar yer kaplıyor",
+        "en": "How much ground each crop takes"
+      },
+      "birim": {
+        "tr": "milyon hektar, 2023",
+        "en": "million hectares, 2023"
+      },
+      "bolen": 1000000.0,
+      "ondalik": 2,
+      "not": {
+        "tr": "Buğday tek başına kalan on bir ürünün toplamından geniş. Pamukta ABS yalnız alanı veriyor; üretim ve değer alanları boş.",
+        "en": "Wheat alone covers more ground than the other eleven crops combined. For cotton the ABS publishes only the area; production and value fields are empty."
+      },
+      "kaynak": "ABS, Australian Agriculture: Broadacre Crops, 2023",
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "deger": "@urunler.kayitlar.0.alan_ha",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "deger": "@urunler.kayitlar.1.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Kanola",
+            "en": "Canola"
+          },
+          "deger": "@urunler.kayitlar.2.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Mercimek",
+            "en": "Lentils"
+          },
+          "deger": "@urunler.kayitlar.3.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Sorgum",
+            "en": "Sorghum"
+          },
+          "deger": "@urunler.kayitlar.4.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Pamuk",
+            "en": "Cotton"
+          },
+          "deger": "@urunler.kayitlar.5.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Acı bakla",
+            "en": "Lupins"
+          },
+          "deger": "@urunler.kayitlar.6.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Yulaf",
+            "en": "Oats"
+          },
+          "deger": "@urunler.kayitlar.7.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Şeker kamışı",
+            "en": "Sugarcane"
+          },
+          "deger": "@urunler.kayitlar.8.alan_ha",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Nohut",
+            "en": "Chickpeas"
+          },
+          "deger": "@urunler.kayitlar.9.alan_ha",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "isletme_olcegi": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Bir işletme kaç hektar işliyor",
+        "en": "How many hectares one holding works"
+      },
+      "birim": {
+        "tr": "hektar, işletme başına, 2023",
+        "en": "hectares per holding, 2023"
+      },
+      "ondalik": 0,
+      "not": {
+        "tr": "Buğdayda ülke genelinde on dokuz bin sekiz yüz işletme var ve her biri ortalama beş yüz otuz bir hektar ekiyor. Şeker kamışında alan küçük ama işletme başına değer en yüksek.",
+        "en": "Nationally there are nineteen thousand eight hundred wheat holdings, each sowing an average of five hundred and thirty-one hectares. Sugarcane covers less ground but earns the most per holding."
+      },
+      "kaynak": "ABS, Australian Agriculture: Broadacre Crops, 2023",
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Sorgum",
+            "en": "Sorghum"
+          },
+          "deger": "@urunler.kayitlar.4.ha_isletme",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Mercimek",
+            "en": "Lentils"
+          },
+          "deger": "@urunler.kayitlar.3.ha_isletme",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Kanola",
+            "en": "Canola"
+          },
+          "deger": "@urunler.kayitlar.2.ha_isletme",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "deger": "@urunler.kayitlar.1.ha_isletme",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "deger": "@urunler.kayitlar.0.ha_isletme",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Acı bakla",
+            "en": "Lupins"
+          },
+          "deger": "@urunler.kayitlar.6.ha_isletme",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Yulaf",
+            "en": "Oats"
+          },
+          "deger": "@urunler.kayitlar.7.ha_isletme",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Şeker kamışı",
+            "en": "Sugarcane"
+          },
+          "deger": "@urunler.kayitlar.8.ha_isletme",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "koyun_ve_kuzu": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Koyun azaldı, kuzu arttı",
+        "en": "Fewer sheep, more lambs"
+      },
+      "birim": {
+        "tr": "bin baş, yıllık kesim",
+        "en": "thousand head slaughtered a year"
+      },
+      "ondalik": 0,
+      "not": {
+        "tr": "Elli iki yıllık seri. Koyun kesimi 1991'de zirve yaptı ve bugün onun yarısına yakın; kuzu kesimi 2024'te zirve yaptı. Aynı hayvan, değişen amaç. Çeyreklik veriden toplandı; dört çeyreği tam olmayan yıl dışarıda bırakıldı.",
+        "en": "A fifty-two year series. Sheep slaughter peaked in 1991 and stands near half that today; lamb slaughter peaked in 2024. The same animal, a changed purpose. Aggregated from quarterly data; years without four complete quarters were excluded."
+      },
+      "kaynak": "ABS, Livestock slaughtered",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Kuzu",
+            "en": "Lambs"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@hayvan.kuzu.seri"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Koyun",
+            "en": "Sheep"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "harita": "@hayvan.koyun.seri"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Sığır",
+            "en": "Cattle"
+          },
+          "rol": "sessiz",
+          "noktalar": {
+            "harita": "@hayvan.sigir.seri"
+          }
+        }
+      ]
+    },
+    "yun_ve_et": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Yünün yerini et aldı",
+        "en": "Meat took wool's place"
+      },
+      "birim": {
+        "tr": "milyar dolar, ihracat",
+        "en": "billion dollars of exports"
+      },
+      "ondalik": 2,
+      "onek": {
+        "tr": "$",
+        "en": "$"
+      },
+      "not": {
+        "tr": "Yirmi yılda et ihracatı neredeyse üçe katlandı, yün yerinde saydı. 2005'te yün etin yüzde otuz dördü kadardı; 2024'te yüzde on üçü. Kesim defteriyle ticaret defteri aynı şeyi söylüyor.",
+        "en": "Over twenty years meat exports nearly tripled while wool stood still. In 2005 wool was thirty-four per cent of meat; in 2024, thirteen. The slaughter ledger and the trade ledger say the same thing."
+      },
+      "kaynak": "UN Comtrade, 2005–2024",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Et (HS 02)",
+            "en": "Meat (HS 02)"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@ticaret_dis.harita_et_milyar"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Hububat (HS 10)",
+            "en": "Cereals (HS 10)"
+          },
+          "rol": "sessiz",
+          "noktalar": {
+            "harita": "@ticaret_dis.harita_hububat_milyar"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Yün (HS 51)",
+            "en": "Wool (HS 51)"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "harita": "@ticaret_dis.harita_yun_milyar"
+          }
+        }
+      ]
+    },
+    "destek": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Çiftçi hasılatının ne kadarı destekten geliyor",
+        "en": "How much of farm receipts comes from support"
+      },
+      "birim": {
+        "tr": "brüt çiftlik hasılatının yüzdesi, 2023",
+        "en": "per cent of gross farm receipts, 2023"
+      },
+      "ondalik": 2,
+      "sonek": {
+        "tr": "%",
+        "en": "%"
+      },
+      "not": {
+        "tr": "Avustralya dünyanın en düşüğü değil: Yeni Zelanda daha aşağıda, ve bazı OECD dışı ekonomilerde ölçü negatif çıkıyor — orada üretici desteklenmiyor, örtülü olarak vergileniyor.",
+        "en": "Australia is not the world's lowest: New Zealand sits below it, and in some non-OECD economies the measure is negative — there the producer is not supported but implicitly taxed."
+      },
+      "kaynak": "OECD, Üretici Destek Tahmini (PSE)",
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "İsviçre",
+            "en": "Switzerland"
+          },
+          "deger": "@destek.ulkeler.CHE.2023",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Norveç",
+            "en": "Norway"
+          },
+          "deger": "@destek.ulkeler.NOR.2023",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Kore",
+            "en": "Korea"
+          },
+          "deger": "@destek.ulkeler.KOR.2023",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Japonya",
+            "en": "Japan"
+          },
+          "deger": "@destek.ulkeler.JPN.2023",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "OECD ortalaması",
+            "en": "OECD average"
+          },
+          "deger": "@destek.ulkeler.OECD.2023",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Türkiye",
+            "en": "Türkiye"
+          },
+          "deger": "@destek.ulkeler.TUR.2023",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "ABD",
+            "en": "United States"
+          },
+          "deger": "@destek.ulkeler.USA.2023",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Avustralya",
+            "en": "Australia"
+          },
+          "deger": "@destek.ulkeler.AUS.2023",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Yeni Zelanda",
+            "en": "New Zealand"
+          },
+          "deger": "@destek.ulkeler.NZL.2023",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "turkiye_yemis": {
+      "tur": "ikili_cubuk",
+      "baslik": {
+        "tr": "İki ülke birbirine aynı rafı satıyor",
+        "en": "The two countries sell each other the same shelf"
+      },
+      "not": {
+        "tr": "2024, HS 08 — yenilebilir meyve ve sert kabuklu yemiş. Avustralya'nın bize sattığı tarım ürününün neredeyse tamamı tek alt fasılda toplanıyor; biz dört ayrı alt fasılda satıyoruz. Tonaj verilmiyor: bu muhabir için Comtrade ağırlık alanlarını boş döndürüyor.",
+        "en": "2024, HS 08 — edible fruit and nuts. Almost all of Australia's agricultural sales to Türkiye sit in a single subheading; Türkiye sells across four. No tonnage is given: for this reporter Comtrade returns empty weight fields."
+      },
+      "kaynak": "UN Comtrade, 2024",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Avustralya → Türkiye",
+            "en": "Australia → Türkiye"
+          },
+          "rol": "ikincil"
+        },
+        {
+          "ad": {
+            "tr": "Türkiye → Avustralya",
+            "en": "Türkiye → Australia"
+          },
+          "rol": "vurgu"
+        }
+      ],
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Sert kabuklu yemiş (0802)",
+            "en": "Nuts (0802)"
+          },
+          "birim": {
+            "tr": "milyon dolar",
+            "en": "million dollars"
+          },
+          "bolen": 1000000.0,
+          "ondalik": 1,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "degerler": [
+            "@turkiye.aus_tur.hs08_kirilim.0.deger_usd",
+            "@turkiye.tur_aus.hs08_kirilim.0.deger_usd"
+          ],
+          "rozet": {
+            "tr": "aynı alt fasıl",
+            "en": "the same subheading"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Kuru meyve (0813)",
+            "en": "Dried fruit (0813)"
+          },
+          "birim": {
+            "tr": "milyon dolar",
+            "en": "million dollars"
+          },
+          "bolen": 1000000.0,
+          "ondalik": 1,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "degerler": [
+            0,
+            "@turkiye.tur_aus.hs08_kirilim.1.deger_usd"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Üzüm, taze ya da kuru (0806)",
+            "en": "Grapes, fresh or dried (0806)"
+          },
+          "birim": {
+            "tr": "milyon dolar",
+            "en": "million dollars"
+          },
+          "bolen": 1000000.0,
+          "ondalik": 1,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "degerler": [
+            "@turkiye.aus_tur.hs08_kirilim.1.deger_usd",
+            "@turkiye.tur_aus.hs08_kirilim.2.deger_usd"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "İncir, hurma ve benzeri (0804)",
+            "en": "Figs, dates and the like (0804)"
+          },
+          "birim": {
+            "tr": "milyon dolar",
+            "en": "million dollars"
+          },
+          "bolen": 1000000.0,
+          "ondalik": 1,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "degerler": [
+            0,
+            "@turkiye.tur_aus.hs08_kirilim.3.deger_usd"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Tarım toplamı (HS 01-24)",
+            "en": "Agriculture total (HS 01-24)"
+          },
+          "birim": {
+            "tr": "milyon dolar",
+            "en": "million dollars"
+          },
+          "bolen": 1000000.0,
+          "ondalik": 1,
+          "onek": {
+            "tr": "$",
+            "en": "$"
+          },
+          "degerler": [
+            "@turkiye.aus_tur.toplam_usd",
+            "@turkiye.tur_aus.toplam_usd"
+          ],
+          "rozet": {
+            "tr": "denge Türkiye lehine",
+            "en": "the balance favours Türkiye"
+          }
+        }
+      ]
+    },
     "su_kimde": {
       "tur": "yigin",
       "baslik": {
@@ -179,458 +863,6 @@
         }
       ]
     },
-    "topraktan_ayrilma": {
-      "tur": "cizgi",
-      "baslik": {
-        "tr": "Suyun topraktan ayrılması, yirmi üç yılda",
-        "en": "Water's separation from land, over twenty-three years"
-      },
-      "birim": {
-        "tr": "yüksek güvenilirlikli hakkın yüzdesi",
-        "en": "per cent of high-reliability entitlement"
-      },
-      "ondalik": 1,
-      "sonek": {
-        "tr": "%",
-        "en": "%"
-      },
-      "not": {
-        "tr": "Kanun 2006'da ayrışmaya izin verdi, ayrışma 1 Temmuz 2007'de uygulandı. Toprağa bağlı olmayan payın tavanı başta %10'du; 2009'da kaldırıldı. Yüzdeler hacimlerden hesaplandı: kaynağın 2008-09 satırında yazılı yüzdeler kendi hacimleriyle çelişiyor, diğer on yedi satırda çelişmiyor. Kuzey Victoria.",
-        "en": "The law permitted separation in 2006; separation was implemented on 1 July 2007. Holdings not linked to land were initially capped at 10 per cent; the cap was abolished in 2009. The percentages are computed from the volumes: in the source's 2008-09 row the printed percentages contradict its own volumes, which they do not in the other seventeen rows. Northern Victoria."
-      },
-      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 2",
-      "seriler": [
-        {
-          "ad": {
-            "tr": "Toprağa bağlı",
-            "en": "Linked to land"
-          },
-          "rol": "vurgu",
-          "noktalar": {
-            "liste": "@sahiplik.kayitlar",
-            "x": "yil_no",
-            "y": "topraga_bagli_pay_yuzde"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Çevrenin elinde",
-            "en": "Held by the environment"
-          },
-          "rol": "ikincil",
-          "noktalar": {
-            "liste": "@sahiplik.kayitlar",
-            "x": "yil_no",
-            "y": "cevre_pay_yuzde"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Özel ama toprağa bağlı değil",
-            "en": "Private but not linked to land"
-          },
-          "rol": "sessiz",
-          "noktalar": {
-            "liste": "@sahiplik.kayitlar",
-            "x": "yil_no",
-            "y": "topraga_bagli_degil_pay_yuzde"
-          }
-        }
-      ]
-    },
-    "kalici_hakkin_fiyati": {
-      "tur": "cizgi",
-      "baslik": {
-        "tr": "Kalıcı su hakkının megalitre fiyatı",
-        "en": "The price of a permanent water entitlement, per megalitre"
-      },
-      "birim": {
-        "tr": "medyan devir fiyatı, AUD/ML",
-        "en": "median transfer price, AUD/ML"
-      },
-      "ondalik": 0,
-      "onek": {
-        "tr": "$",
-        "en": "$"
-      },
-      "not": {
-        "tr": "Medyan fiyat. Yüksek güvenilirlikli pay suyu önce alır; düşük güvenilirlikli pay ancak bol yıllarda su görür ve fiyatı bunu yansıtıyor. Medyan bölgeler arası ayrışmayı gizler — Barmah'ın aşağısındaki fark ayrı bir bölümde. Kuzey Victoria.",
-        "en": "Median price. A high-reliability share is served first; a low-reliability share receives water only in abundant years, and its price reflects that. A median conceals divergence between zones — the gap below Barmah has a section of its own. Northern Victoria."
-      },
-      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 4 ve 5",
-      "seriler": [
-        {
-          "ad": {
-            "tr": "Yüksek güvenilirlikli pay",
-            "en": "High-reliability share"
-          },
-          "rol": "vurgu",
-          "noktalar": {
-            "liste": "@pay_fiyati.kayitlar",
-            "x": "yil_no",
-            "y": "medyan_fiyat_aud_ml"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Düşük güvenilirlikli pay",
-            "en": "Low-reliability share"
-          },
-          "rol": "ikincil",
-          "noktalar": {
-            "liste": "@pay_fiyati_dusuk.kayitlar",
-            "x": "yil_no",
-            "y": "medyan_fiyat_aud_ml"
-          }
-        }
-      ]
-    },
-    "hak_ve_kullanim": {
-      "tur": "cizgi",
-      "baslik": {
-        "tr": "Arazinin verdiği hak ile fiilen kullanılan su",
-        "en": "The entitlement the land provides, against the water actually used"
-      },
-      "birim": {
-        "tr": "gigalitre",
-        "en": "gigalitres"
-      },
-      "ondalik": 0,
-      "not": {
-        "tr": "İki çizginin kesiştiği yer, piyasanın işe karıştığı yerdir: kullanım, toprağa bağlı hakkın üstüne çıktığında fark ticaretle kapanıyor. Kuzey Victoria.",
-        "en": "Where the two lines cross is where the market enters: when use exceeds the land-linked entitlement, the difference is met by trade. Northern Victoria."
-      },
-      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 6",
-      "seriler": [
-        {
-          "ad": {
-            "tr": "Toprağa bağlı hak",
-            "en": "Entitlement linked to land"
-          },
-          "rol": "ikincil",
-          "noktalar": {
-            "liste": "@kullanim.kayitlar",
-            "x": "yil_no",
-            "y": "topraga_bagli_gl"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Fiilî kullanım",
-            "en": "Actual use"
-          },
-          "rol": "vurgu",
-          "noktalar": {
-            "liste": "@kullanim.kayitlar",
-            "x": "yil_no",
-            "y": "kullanim_gl"
-          }
-        }
-      ]
-    },
-    "topraksiz_suyun_akibeti": {
-      "tur": "cizgi",
-      "baslik": {
-        "tr": "Toprağa bağlı olmayan suyun tahsisi ne oluyor",
-        "en": "What becomes of the allocation on water not linked to land"
-      },
-      "birim": {
-        "tr": "gigalitre",
-        "en": "gigalitres"
-      },
-      "ondalik": 0,
-      "not": {
-        "tr": "Topraktan ayrılan su boş durmuyor. 'Kayıp' kalemi, kullanılmayıp silinen ya da buharlaşan tahsis. Kuzey Victoria.",
-        "en": "Water detached from land does not sit idle. 'Lost' is allocation written off unused or evaporated. Northern Victoria."
-      },
-      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 16",
-      "seriler": [
-        {
-          "ad": {
-            "tr": "Ticari olarak satıldı",
-            "en": "Sold commercially"
-          },
-          "rol": "vurgu",
-          "noktalar": {
-            "liste": "@topraksiz_su.kayitlar",
-            "x": "yil_no",
-            "y": "ticari_satildi_gl"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Bedelsiz devredildi",
-            "en": "Transferred at no charge"
-          },
-          "rol": "ikincil",
-          "noktalar": {
-            "liste": "@topraksiz_su.kayitlar",
-            "x": "yil_no",
-            "y": "sifirla_devredildi_gl"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Ertesi yıla devretti",
-            "en": "Carried over to the next year"
-          },
-          "rol": "sessiz",
-          "noktalar": {
-            "liste": "@topraksiz_su.kayitlar",
-            "x": "yil_no",
-            "y": "devreden_gl"
-          }
-        },
-        {
-          "ad": {
-            "tr": "Kayıp — silinen ya da buharlaşan",
-            "en": "Lost — written off or evaporated"
-          },
-          "rol": "sessiz",
-          "noktalar": {
-            "liste": "@topraksiz_su.kayitlar",
-            "x": "yil_no",
-            "y": "kayip_buharlasma_gl"
-          }
-        }
-      ]
-    },
-    "ayrisma_zamani": {
-      "tur": "zaman_cizelgesi",
-      "baslik": {
-        "tr": "Suyu topraktan ayıran kararlar",
-        "en": "The decisions that separated water from land"
-      },
-      "not": {
-        "tr": "Ayrışma tek bir kanunla olmadı: izin verildi, tavan kondu, tavan kaldırıldı, sonra birliktelik kurumu tasfiye edildi. Tarihler Water Act 1989'un kendi dipnotlarından ve sicilin raporundan.",
-        "en": "The separation was not accomplished by a single statute: it was permitted, capped, uncapped, and finally the instrument of association was abolished. Dates come from the Water Act 1989's own endnotes and from the register's report."
-      },
-      "kaynak": "Water Act 1989 (Victoria), Tasdikli Sürüm No. 147 — dipnotlar; Victorian Water Register",
-      "olaylar": [
-        {
-          "yil": "@kronoloji.kanun_yili",
-          "baslik": {
-            "tr": "Water Act 1989 kabul edilir",
-            "en": "The Water Act 1989 is enacted"
-          },
-          "aciklama": {
-            "tr": "Victoria'nın su rejiminin çatı kanunu. Su payı henüz yok.",
-            "en": "The framework statute for Victoria's water regime. The water share does not yet exist."
-          }
-        },
-        {
-          "yil": "@kronoloji.dayanak_tasdik_yili",
-          "baslik": {
-            "tr": "Su payını kuran kanun tasdik edilir",
-            "en": "The statute creating the water share receives assent"
-          },
-          "aciklama": {
-            "tr": "Water (Resource Management) Act 2005, No. 99/2005. Kırk birinci maddesi, Water Act 1989'a 33F'i — payın ihdasını ve niteliğini — ekler.",
-            "en": "The Water (Resource Management) Act 2005, No. 99/2005. Its section 41 inserts section 33F — the issuing and nature of the share — into the Water Act 1989."
-          },
-          "yil_ek": {
-            "tr": "7 Aralık",
-            "en": "7 December"
-          }
-        },
-        {
-          "yil": "@kronoloji.yururluk_yili",
-          "baslik": {
-            "tr": "Hüküm yürürlüğe girer",
-            "en": "The provision commences"
-          },
-          "aciklama": {
-            "tr": "Özel Resmî Gazete No. 191 ile. Artık su payı olmadan su almak suç; payı Bakan ihdas ediyor, Sicil Memuru malikin adını ve adresini kaydediyor.",
-            "en": "By Special Gazette No. 191. Taking water without a water share is now an offence; the Minister issues the share and the Registrar records the owner's name and address."
-          },
-          "yil_ek": {
-            "tr": "3 Ağustos",
-            "en": "3 August"
-          }
-        },
-        {
-          "yil": "@kronoloji.ayrisma_yili",
-          "baslik": {
-            "tr": "Kuzey Victoria'da ayrışma uygulanır",
-            "en": "Separation is implemented in northern Victoria"
-          },
-          "aciklama": {
-            "tr": "Sicilin kendi ifadesiyle: o gün bütün paylar hâlâ toprakla birliktelik hâlindeydi. Sahipler ayırmayı seçebilirdi — tavanlar elverdiği ölçüde.",
-            "en": "In the register's own words: on that day every share was still associated with land. Holders could choose to disassociate — so far as the caps allowed."
-          },
-          "yil_ek": {
-            "tr": "1 Temmuz",
-            "en": "1 July"
-          }
-        },
-        {
-          "yil": "@kronoloji.tavan_kaldirma_yili",
-          "baslik": {
-            "tr": "Yüzde on tavanı kaldırılır",
-            "en": "The ten per cent cap is abolished"
-          },
-          "aciklama": {
-            "tr": "Bir sistemdeki pay hacminin en çok %10'u toprağa bağlı olmadan sahiplenilebiliyordu. Sınır kalkıyor.",
-            "en": "At most 10 per cent of a system's share volume could be owned without being linked to land. The limit is lifted."
-          }
-        },
-        {
-          "yil": "@kronoloji.cikis_tavani_kaldirma_yili",
-          "baslik": {
-            "tr": "Yüzde dört çıkış tavanı kaldırılır",
-            "en": "The four per cent export cap is abolished"
-          },
-          "aciklama": {
-            "tr": "Bir sulama alanından yılda en çok %4 su çıkarılabiliyordu. O sınır da kalkıyor.",
-            "en": "At most 4 per cent of an irrigation area's water could be moved out in a year. That limit goes too."
-          }
-        },
-        {
-          "yil": "@kronoloji.birliktelik_kaldirma_yili",
-          "baslik": {
-            "tr": "Birliktelik kurumu tasfiye edilir",
-            "en": "The instrument of association is abolished"
-          },
-          "aciklama": {
-            "tr": "Payı araziyle resmen bağlama imkânı kanundan çıkarılır. Sicil gerekçesini yazıyor: birliktelik, suyun nerede kullanılacağının anlamlı bir göstergesi olmaktan çıkmıştı.",
-            "en": "The ability to formally associate a share with land is removed from the statute. The register states the reason: association had ceased to be a meaningful indication of where the water would be used."
-          },
-          "yil_ek": {
-            "tr": "20 Kasım",
-            "en": "20 November"
-          }
-        },
-        {
-          "yil": "@kronoloji.kura_yili",
-          "baslik": {
-            "tr": "Sıra kurayla belirlenir",
-            "en": "The queue is decided by lot"
-          },
-          "aciklama": {
-            "tr": "Barmah darlığından geçecek ticaretin sırası rastgeleleştirilir. Çekilişi iki eyaletin idaresi birlikte yapar, rekabet kurumu izler ve kaydı sonradan inceleyip yazılı beyan verir.",
-            "en": "The order of trades passing through the Barmah narrows is randomised. Two states' administrations run the draw jointly, the competition regulator observes it, then reviews the recording and attests to it in writing."
-          },
-          "yil_ek": {
-            "tr": "3 Temmuz",
-            "en": "3 July"
-          }
-        }
-      ]
-    },
-    "kura_akisi": {
-      "tur": "kartlar",
-      "_tur_notu": "İLK TASARIM 'islem_akisi' İDİ — adımların sırasını, aktörünü ve çıktı belgesini birlikte çizen tip. CLAUDE.md §8.5 o tipin 10 Eylül 2026'da yazıldığını kaydediyor; ama dossier_chart.dart şu an YALNIZCA yedi tip taşıyor ve islem_akisi onlardan biri değil. git log -S'de de hiç geçmiyor: hiç commit edilmemiş ve çalışma dizini kaybında gitmiş. §8.12 — var olmayan tip için grafik tarif edilmez. Kart dizisi sırayı numarayla taşıyor; aktör 'ust' alanında. Çizici geri geldiğinde bu grafik islem_akisi'ne çevrilebilir, gövdesi hazır.",
-      "baslik": {
-        "tr": "Fiziksel kapasite yetmediğinde sıra nasıl belirleniyor",
-        "en": "How the queue is decided when physical capacity runs short"
-      },
-      "not": {
-        "tr": "Temmuz 2026 Barmah açılışının işleyişi, adım adım. Sicil bu yöntemi kendi raporunda geçici bir çözüm olarak tanımlıyor.",
-        "en": "The procedure of the July 2026 Barmah opening, step by step. The register describes this method in its own report as an interim solution."
-      },
-      "kaynak": "Goulburn-to-Murray and Barmah Narrows Post Trade Opening Report, Temmuz 2026; ACCC'nin 3 Ağustos 2026 tarihli yazısı",
-      "kartlar": [
-        {
-          "ust": {
-            "tr": "1 · Eyalet idaresi",
-            "en": "1 · State administration"
-          },
-          "baslik": {
-            "tr": "Kapasite ilan edilir",
-            "en": "The capacity is announced"
-          },
-          "govde": {
-            "tr": "Sabah yedide, darlıktan o dönem geçebilecek hacim duyurulur. Nehrin o noktadaki akışı günde yaklaşık yedi bin megalitreyle sınırlı.",
-            "en": "At seven in the morning the volume that can pass the narrows in that window is announced. The river's flow at that point is limited to roughly seven thousand megalitres a day."
-          },
-          "rakam": {
-            "deger": "@kura.barmah.kapasite_ml",
-            "bolen": 1000,
-            "ondalik": 1,
-            "etiket": {
-              "tr": "bin megalitre ilan edildi",
-              "en": "thousand megalitres announced"
-            }
-          }
-        },
-        {
-          "ust": {
-            "tr": "2 · Hak sahipleri",
-            "en": "2 · Entitlement holders"
-          },
-          "baslik": {
-            "tr": "Başvuru penceresi açılır",
-            "en": "The application window opens"
-          },
-          "govde": {
-            "tr": "Suyunu aşağı taşımak isteyen herkes aynı gün başvurur; başvurular aracı portalından ya da çevrim içi ticaretten gelir.",
-            "en": "Anyone wishing to move water downstream applies the same day; applications arrive through the broker portal or through online trading."
-          },
-          "rakam": {
-            "deger": "@kura.barmah.uygun_basvuru_toplam",
-            "ondalik": 0,
-            "etiket": {
-              "tr": "uygun başvuru, iki eyaletten",
-              "en": "eligible applications, from two states"
-            }
-          }
-        },
-        {
-          "ust": {
-            "tr": "3 · DEECA ile WaterNSW, birlikte",
-            "en": "3 · DEECA and WaterNSW, jointly"
-          },
-          "baslik": {
-            "tr": "Sıra kurayla çekilir",
-            "en": "The order is drawn by lot"
-          },
-          "govde": {
-            "tr": "Uygun başvurular, işlenme sırasını saptamak için rastgeleleştirilir. Önce başvuran önce geçmiyor, daha çok ödeyen de; sıra tesadüfe bırakılıyor.",
-            "en": "Eligible applications are randomised to determine the order in which they will be processed. First to apply does not go first, nor does whoever pays most; the order is left to chance."
-          }
-        },
-        {
-          "ust": {
-            "tr": "4 · Rekabet ve Tüketici Kurumu",
-            "en": "4 · Competition and Consumer Commission"
-          },
-          "baslik": {
-            "tr": "Çekiliş izlenir, kaydı incelenir",
-            "en": "The draw is observed, its recording reviewed"
-          },
-          "govde": {
-            "tr": "Kurumun temsilcisi çekilişi yerinde izler, sonra kaydını yeniden inceler ve çıktıda hiçbir düzenleme veya değişiklik gözlemlemediğini imzasıyla beyan eder.",
-            "en": "The regulator's representative observes the draw in person, then reviews its recording and attests under signature to having observed no editing or change to the output."
-          }
-        },
-        {
-          "ust": {
-            "tr": "5 · Eyalet idaresi",
-            "en": "5 · State administration"
-          },
-          "baslik": {
-            "tr": "Kapasite dolana kadar işlenir",
-            "en": "Processing continues until capacity is full"
-          },
-          "govde": {
-            "tr": "Başvurular çekilen sıraya göre işlenir. Hacim tükendiğinde kalanlar reddedilir — kuralı çiğnedikleri için değil, kuradaki yerleri yüzünden.",
-            "en": "Applications are processed in the order drawn. When capacity is exhausted the rest are refused — not for breaking a rule, but because of where they fell in the draw."
-          },
-          "rakam": {
-            "deger": "@kura.barmah.onay_orani_yuzde",
-            "ondalik": 1,
-            "sonek": {
-              "tr": "%",
-              "en": "%"
-            },
-            "etiket": {
-              "tr": "onaylanan başvuru oranı",
-              "en": "share of applications approved"
-            }
-          }
-        }
-      ]
-    },
     "iki_acilis": {
       "tur": "ikili_cubuk",
       "baslik": {
@@ -749,76 +981,49 @@
         }
       ]
     },
-    "dosyanin_rakamlari": {
-      "tur": "kunye",
+    "kalici_hakkin_fiyati": {
+      "tur": "cizgi",
       "baslik": {
-        "tr": "Dosyanın dört rakamı",
-        "en": "Four figures from this dossier"
+        "tr": "Kalıcı su hakkının megalitre fiyatı",
+        "en": "The price of a permanent water entitlement, per megalitre"
+      },
+      "birim": {
+        "tr": "medyan devir fiyatı, AUD/ML",
+        "en": "median transfer price, AUD/ML"
+      },
+      "ondalik": 0,
+      "onek": {
+        "tr": "$",
+        "en": "$"
       },
       "not": {
-        "tr": "İlk üçü kuzey Victoria, dördüncüsü Avustralya geneli ve 2019-20 yılına ait — piyasa rakamlarından dört yıl eski. Aynı yılmış gibi okunmamalı.",
-        "en": "The first three are northern Victoria; the fourth is Australia-wide and belongs to 2019-20 — four years older than the market figures. They should not be read as the same year."
+        "tr": "Medyan fiyat. Yüksek güvenilirlikli pay suyu önce alır; düşük güvenilirlikli pay ancak bol yıllarda su görür ve fiyatı bunu yansıtıyor. Medyan bölgeler arası ayrışmayı gizler — Barmah'ın aşağısındaki fark ayrı bir bölümde. Kuzey Victoria.",
+        "en": "Median price. A high-reliability share is served first; a low-reliability share receives water only in abundant years, and its price reflects that. A median conceals divergence between zones — the gap below Barmah has a section of its own. Northern Victoria."
       },
-      "kaynak": "Victorian Water Register; Bureau of Meteorology — Water in Australia 2019–20",
-      "kalemler": [
+      "kaynak": "Victorian Water Register — Water Market Trends 2001–2024, Tablo 4 ve 5",
+      "seriler": [
         {
-          "deger": "@sahiplik.son_topraga_bagli_yuzde",
-          "ondalik": 1,
-          "sonek": {
-            "tr": "%",
-            "en": "%"
+          "ad": {
+            "tr": "Yüksek güvenilirlikli pay",
+            "en": "High-reliability share"
           },
-          "etiket": {
-            "tr": "suyun toprağa bağlı kalan payı",
-            "en": "share of the water still linked to land"
-          },
-          "alt": {
-            "tr": "2000-01'de yüzde yüzdü",
-            "en": "in 2000-01 it was one hundred per cent"
+          "rol": "vurgu",
+          "noktalar": {
+            "liste": "@pay_fiyati.kayitlar",
+            "x": "yil_no",
+            "y": "medyan_fiyat_aud_ml"
           }
         },
         {
-          "deger": "@pay_fiyati.en_yuksek.medyan_fiyat_aud_ml",
-          "ondalik": 0,
-          "onek": {
-            "tr": "$",
-            "en": "$"
+          "ad": {
+            "tr": "Düşük güvenilirlikli pay",
+            "en": "Low-reliability share"
           },
-          "etiket": {
-            "tr": "kalıcı hakkın megalitre fiyatı, en yüksek yıl",
-            "en": "price of a permanent entitlement per megalitre, peak year"
-          },
-          "alt": {
-            "tr": "2013-14'te 1.380 dolardı",
-            "en": "in 2013-14 it was 1,380 dollars"
-          }
-        },
-        {
-          "deger": "@kura.barmah.onay_orani_yuzde",
-          "ondalik": 1,
-          "sonek": {
-            "tr": "%",
-            "en": "%"
-          },
-          "etiket": {
-            "tr": "Barmah darlığında onaylanan başvuru oranı",
-            "en": "share of applications approved at the Barmah narrows"
-          },
-          "alt": {
-            "tr": "aynı gün öteki güzergâhta yüzde 98,6",
-            "en": "on the same day, 98.6 per cent on the other route"
-          }
-        },
-        {
-          "deger": "@ulusal.tuketim_toplam_gl",
-          "ondalik": 0,
-          "etiket": {
-            "tr": "Avustralya'da tüketime alınan su, gigalitre",
-            "en": "water taken for consumptive use in Australia, gigalitres"
-          },
-          "alt": {
-            "tr": "2019-20 — ulusal rakamın en güncel yılı",
-            "en": "2019-20 — the most recent year for the national figure"
+          "rol": "ikincil",
+          "noktalar": {
+            "liste": "@pay_fiyati_dusuk.kayitlar",
+            "x": "yil_no",
+            "y": "medyan_fiyat_aud_ml"
           }
         }
       ]
