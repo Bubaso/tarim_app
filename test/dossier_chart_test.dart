@@ -83,6 +83,27 @@ void main() {
             bak(k.baslik, '${c.id}.kart');
             bak(k.govde, '${c.id}.govde');
           }
+        // Akış türlerini henüz üreten dosya yok; koşumda örnekleri de yok.
+        // Kendi sözleşmeleri dossier_akis_chart_test.dart'ta sınanıyor. Bu
+        // switch yine de onları saymak zorunda — `sealed` olmasının sebebi bu.
+        case IslemAkisiChart():
+          for (final a in c.adimlar) {
+            bak(a.baslik, '${c.id}.adim');
+            bak(a.aktor, '${c.id}.aktor');
+            bak(a.sure, '${c.id}.sure');
+            bak(a.cikti, '${c.id}.cikti');
+            for (final x in a.secenekler) {
+              bak(x, '${c.id}.secenek');
+            }
+          }
+        case TicaretAkisiChart():
+          bak(c.merkez.etiket, '${c.id}.merkez');
+          bak(c.girenBasligi, '${c.id}.giren_basligi');
+          bak(c.cikanBasligi, '${c.id}.cikan_basligi');
+          final kendi = c.merkez.kendi;
+          for (final k in [...c.giren, ...c.cikan, if (kendi != null) kendi]) {
+            bak(k.etiket, '${c.id}.kol');
+          }
       }
     }
     expect(eksik, isEmpty);

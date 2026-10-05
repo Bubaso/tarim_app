@@ -197,6 +197,7 @@ function coz(dugum, anahtar, iz) {
 
 const TURLER = new Set([
   'ikili_cubuk', 'siralama', 'cizgi', 'yigin', 'kunye', 'zaman_cizelgesi', 'kartlar',
+  'islem_akisi', 'ticaret_akisi',
 ]);
 
 const charts = {};

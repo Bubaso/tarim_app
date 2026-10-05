@@ -993,7 +993,10 @@ dekoratif ikon seti.
 
 ### 8.5 Yeni bileşenler
 
-Mevcut yedi grafik tipi kurumun iki temel şeklini çizemiyor:
+Dokuz çizici var. İkisi — `islem_akisi` ve `ticaret_akisi` — bu başlıkta
+önce "yazıldı" diye kaydedilmiş, sonra 4 Ekim 2026'daki iCloud kaybında
+kodla birlikte gitmişti (hiç commit edilmemişlerdi); 5 Ekim 2026'da şartnameye
+göre yeniden yazıldılar. Aşağıdaki ilk iki madde hâlâ YAZILMADI:
 
 - `mevzuat_zinciri` — kuruluş belgesinden bugüne dikey omurga. Düğümler olay
   değil **yürürlükteki metin**; belge türü (kanun/KHK/CBK/yönetmelik) biçimle
@@ -1001,7 +1004,7 @@ Mevcut yedi grafik tipi kurumun iki temel şeklini çizemiyor:
 - `bagimlilik_haritasi` — iki sütun: solda "kime bağımlı", sağda "kim ona
   bağımlı", aralarında ilişki fiili. 360 px'te kuvvet grafiği okunmaz.
 - `islem_akisi` — bir işlemin adım adım yolu: aktör, süre, çıktı belgesi.
-  **YAZILDI (10 Eylül 2026, Sayı 03 için.)** `dossier_chart.dart`
+  **YENİDEN YAZILDI (5 Ekim 2026.)** `dossier_chart.dart`
   (`IslemAkisiChart` + `AkisAdimi`), `dossier_chart_view.dart` (`_IslemAkisi`),
   `seed_dossier.mjs/TURLER`. İki yıl gecikmesinin sebebi kod değil kaynaktı
   (§8.12). Kararlar: düğüm KARE ve içinde adım numarası var — zaman
@@ -1015,7 +1018,7 @@ Mevcut yedi grafik tipi kurumun iki temel şeklini çizemiyor:
   `dossier_chart.dart` (`TicaretAkisiChart` + `AkisMerkezi` + `AkisKolu`),
   `dossier_chart_view.dart` (`_TicaretAkisi`), `seed_dossier.mjs/TURLER`.
   Kullanıcı onayı alındı; İspanya'nın omurgası bir akış (dökme yağ Türkiye'den
-  çıkıyor, İspanyol şişesinde dünyaya dönüyor) ve mevcut sekiz tipin hiçbiri
+  çıkıyor, İspanyol şişesinde dünyaya dönüyor) ve öteki yedi tipin hiçbiri
   miktar akışı çizmiyordu.
 
   `islem_akisi` ile karıştırılmaz: o bir SIRA çiziyor (adımlar eşit ağırlıkta,
@@ -1046,6 +1049,39 @@ Mevcut yedi grafik tipi kurumun iki temel şeklini çizemiyor:
   YOK — "Giren"/"Çıkan" koda gömülseydi İngilizcesi de gömülürdü ve
   `dossier_chart.dart` başındaki kural (etiketler veritabanından gelir)
   kırılırdı. Yazılmazsa başlık çizilmez.
+
+  **İki şey yeniden yazımda değişti.**
+
+  *Yaka başlığı tek yerden geliyor.* İlk sürümde başlık hem şeridin hem
+  dökümün üstünde iki ayrı `Text` olarak çiziliyordu. Şimdi `_AkisYakasi`
+  ikisini de kendi içinde çiziyor ve rolü bir kez hesaplıyor: ilk denemede
+  şerit ikincil rengiyle, altındaki döküm rozeti kolun kendi rolüyle
+  çiziliyordu — aynı kol iki ayrı renkte görünüyordu.
+
+  *`toUpperCase()` Türkçede yanlış harf veriyor.* Yaka başlığı büyütülürken
+  "Giren" ekrana **"GIREN"** diye çıktı; Unicode'un varsayılan eşlemesi 'i'
+  harfini 'I' yapıyor, Türkçede karşılığı 'İ'. Hatayı test yakaladı, göz
+  yakalamadı — yanlış harf de bir büyük harf. `dossier_chart_view.dart`'a
+  `_buyult(metin, isEn)` kondu. **Aynı hata `_Kartlar`'ın `ust` alanında da
+  duruyordu ve yayındaki iki kurum dosyasını etkiliyordu**; o çağrı da
+  çevrildi.
+
+  *Merkezin kendi payı TERS eğimle taranıyor.* Şartname "taramalı" diyordu ve
+  ilk sürüm onu `ikincil` role çevirdi. Görüntü bunu reddetti: dışarıdan gelen
+  bir kol da `ikincil` işaretlenebiliyor ve o da taramalı — giren şeridinin
+  neredeyse tamamı tek dokuya dönüyor, yani ayrım tamamen renge kalıyordu. Oysa
+  bu dosyanın kuralı renge yalnız başına anlam yüklememek. Şimdi kendi payı
+  sessiz renkte ve taraması TERS eğimli; iki blok griye düşen bir ekranda da
+  ayrışıyor. `_TaramaBoyaci` bir `ters` bayrağı aldı, `_Dolgu` bir `tersTarama`.
+  **Bu karar testle değil GÖRÜNTÜYLE bulundu** — on altı test yeşilken yerleşim
+  yanlıştı; geçici bir golden üretilip bakıldı, sonra silindi.
+
+  **Koşum kuralı burada askıda.** Öteki grafik testleri örneği gerçek seed
+  SQL'inden okuyor (`test/support/dossier_fixture.dart`), çünkü elle yazılmış
+  örnek seed'in şekli değişince sessizce eskiyor. Bu iki türü ÜRETEN bir dosya
+  henüz yok — bağlanacak artefakt olmadığı için `dossier_akis_chart_test.dart`
+  tarifleri elle taşıyor ve bunu kendi başında yazıyor. İlk dosya bu türlerden
+  birini kullandığında testler koşuma taşınmalı.
 
 ### 8.6 Şema borcu
 
