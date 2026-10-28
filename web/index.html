@@ -30,7 +30,19 @@
     İçerik, motorun eklediğiyle birebir aynı; motor sonradan kendi etiketini
     eklediğinde düzen değişmiyor.
   -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- YAKINLAŞTIRMA SERBEST. `maximum-scale=1.0, user-scalable=no` vardı ve
+       kullanıcının parmakla büyütmesini tamamen engelliyordu.
+
+       İki gerekçeyle kaldırıldı. Birincisi erişilebilirlik: düşük görüşlü
+       okur için yakınlaştırma tek çare ve Lighthouse bunu erişilebilirlik
+       kusuru olarak işaretliyor (6 Eylül 2026 raporu). İkincisi bu projeye
+       özel — okurlardan "metinler okunamayacak kadar küçük" şikayeti gelmişti
+       ve punto büyütmesi yapılmıştı; aynı anda yakınlaştırmayı yasaklamak o
+       şikayetin çözümünü yarım bırakıyordu.
+
+       Mobil tarayıcılarda çift dokunuşla yakınlaştırma geri geliyor; bu,
+       engellemenin bedeliyle karşılaştırıldığında kabul edilebilir. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!--
     ┌─────────────────────────────────────────────────────────────────────┐
@@ -52,14 +64,14 @@
   <!-- SOCIAL_META_START -->
   <title>Tarım Portalı - Tarımın Doğru Adresi</title>
   <meta name="description" content="Türkiye'nin en güncel tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.">
-  <link rel="canonical" href="https://tarim-app-2026.web.app/">
+  <link rel="canonical" href="https://tarimportali.net/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tarım Portalı">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:title" content="Tarım Portalı - Tarımın Doğru Adresi">
   <meta property="og:description" content="Türkiye'nin en güncel tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.">
-  <meta property="og:url" content="https://tarim-app-2026.web.app/">
+  <meta property="og:url" content="https://tarimportali.net/">
   <!--
     Uygulama ikonu (512) değil, ona ayrılmış 192'lik `social-preview.png` —
     üç sebep, üçü de bilerek.
@@ -83,7 +95,7 @@
     /haber/** adresleri bu bloğun DIŞINDA: `functions/index.js` orayı haberin
     kendi görseliyle değiştiriyor ve orada büyük kart doğru olan.
   -->
-  <meta property="og:image" content="https://tarim-app-2026.web.app/icons/social-preview.png">
+  <meta property="og:image" content="https://tarimportali.net/icons/social-preview.png">
   <meta property="og:image:width" content="192">
   <meta property="og:image:height" content="192">
   <meta property="og:image:type" content="image/png">
@@ -97,7 +109,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Tarım Portalı - Tarımın Doğru Adresi">
   <meta name="twitter:description" content="Türkiye'nin en güncel tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.">
-  <meta name="twitter:image" content="https://tarim-app-2026.web.app/icons/social-preview.png">
+  <meta name="twitter:image" content="https://tarimportali.net/icons/social-preview.png">
   <!-- SOCIAL_META_END -->
 
   <!-- iOS meta tags & icons -->
@@ -437,6 +449,25 @@
     <div id="splash-wait" aria-hidden="true"><i></i></div>
   </div>
 
+  <!-- Sunucuda üretilen okunabilir içerik.
+       CanvasKit her şeyi tuvale PİKSEL olarak çiziyor; DOM'da tek bir metin
+       düğümü bile oluşmuyor. Ölçüldü (6 Eylül 2026, canlı site): haber sayfası
+       tam yüklendiğinde `document.body.innerText.length` = 0, `<a>` = 0.
+       Yani Google haberin gövdesini DEĞİL, yalnızca <head>'deki 160 karakterlik
+       açıklamayı görebiliyordu.
+
+       `ogRenderer` (haber) ve `homeRenderer` (ana sayfa) bu iki işaret arasını
+       gerçek HTML ile dolduruyor. Dolduramazlarsa arada hiçbir şey kalmıyor ve
+       sayfa eskisi gibi çalışmaya devam ediyor — zenginleştirme başarısız
+       olabilir, sayfa kırılmaz.
+
+       Kullanıcı bunu GÖRMÜYOR: üstünde `z-index: 2147483647` ile tam ekran
+       `#splash` var ve Flutter ilk kareyi çizer çizmez aşağıdaki `hide()`
+       bloğu bu düğümü DOM'dan siliyor. Gizleme (cloaking) değil — sunulan
+       metin ile uygulamanın gösterdiği metin birebir aynı, yalnızca biri
+       ötekinin üstünü örtüyor. -->
+  <!-- SSR_CONTENT_START --><!-- SSR_CONTENT_END -->
+
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
@@ -482,6 +513,15 @@
       function hide() {
         if (done) return;
         done = true;
+
+        // Sunucudan gelen SEO içeriği artık gereksiz: Flutter kendi sayfasını
+        // çizdi. DOM'da bırakılırsa ekran okuyucu aynı haberi iki kez okur ve
+        // klavyeyle gezinen kullanıcı görünmeyen bağlantılara takılır.
+        // `#splash`ten ÖNCE siliniyor: aşağıdaki erken `return` (splash zaten
+        // kaldırılmışsa) bu satıra hiç ulaşmamazlık etmesin.
+        var ssr = document.getElementById('ssr-content');
+        if (ssr) ssr.remove();
+
         var el = document.getElementById('splash');
         if (!el) return;
         el.classList.add('is-hidden');

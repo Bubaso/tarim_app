@@ -132,6 +132,12 @@ for d in content/dossiers/*/; do
   node content/dossiers/_ortak/statik_sayfa.mjs "$slug"
 done
 
+# Kaynak klasörü OLMAYAN yayımlanmış dosyalar. Üç dosyanın klasörü 4 Ekim
+# 2026'daki iCloud kaybında gitti; dosyalar veritabanında ve canlıda duruyor.
+# Hosting dağıtımı genel dizini DEĞİŞTİRDİĞİ için kabuğu üretilmeyen dosya
+# og etiketlerini kaybeder. Bu adım boşluğu veritabanından kapatıyor.
+node content/dossiers/_ortak/statik_sayfa_db.mjs
+
 echo "▸ Dağıtılıyor (${TARGETS})…"
 # firebase-tools 14.x + Node 24 birleşimi fonksiyon keşfi sırasında varsayılan
 # yığınla bellek taşması veriyor. Belirti yanıltıcıdır: CLI önce

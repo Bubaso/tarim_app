@@ -3635,3 +3635,103 @@ sayılıyor.
 **Teşhis notu:** macOS'ta `timeout` komutu YOK. Dosya okunabilirliğini
 sınarken kullanıldı ve her şey okunamıyormuş gibi göründü; `head -c` ile
 bakılınca hepsinin okunduğu ortaya çıktı.
+
+## 40. Avustralya devri ve kaybın ikinci dalgası — 5 Ekim 2026
+
+Devir §2.12'nin sırasıyla yürütüldü ve tamamlandı: Avustralya (ülke 04) yayında,
+pencere 5 Ekim – 2 Kasım; İspanya arşivde; takvimde "Yakında" Irak'a geçti.
+Kurum dizisine dokunulmadı (TAGEM 13 Ekim'e kadar).
+
+**Asıl mesele devir değil, devrin ortaya çıkardıklarıydı.** 4 Ekim'deki iCloud
+tahliyesi ilk sanıldığından çok daha genişti ve kaybın tamamı AYNI DESENE
+uyuyor: *çalışan, dağıtılmış, ama hiç commit edilmemiş* her şey gitti. Git'te
+olan hiçbir şey kaybolmadı.
+
+### 40.1 Dağıtım üç ayrı yerde patlayacaktı
+
+Üçü de devir hazırlığında, yayına gitmeden yakalandı.
+
+**1. 33 görsel silinecekti.** `web/dosya/{ispanya,tagem,tarim-kredi}` klasörleri
+boşalmıştı ve üç dosyanın paylaşım kartı yoktu — ama hepsi canlıda duruyordu.
+Firebase hosting dağıtımı genel dizini build/web ile **değiştiriyor**, yani
+`./deploy.sh --hosting` o 33 dosyayı hosting'den silecekti. TAGEM o sırada ana
+sayfada YAYINDAYDI; kırık görsellerle açılırdı. Canlıdan geri indirildi, her
+biri content-type ile doğrulandı (§2.12.1), veritabanındaki 66 görsel kaydının
+66'sı artık yerelde (commit `0f1505d`).
+
+**2. Og kabukları silinecekti.** `deploy.sh` kabukları `content/dossiers/*/`
+döngüsüyle üretiyor; kaynak klasörü olmayan dosyanın kabuğu üretilmiyor,
+dolayısıyla dağıtım onu düşürüyordu. `content/dossiers/_ortak/statik_sayfa_db.mjs`
+eklendi: kabuğun ihtiyacı olan dört şey (ad, tür, durum, tez cümlesi)
+`country_dossiers` satırında zaten var. Klasörü OLAN dosyaya dokunmuyor.
+
+**3. SSR'ın tamamı geri gitmişti ve bunu `deploy.sh` yakaladı.**
+`web/index.html` eski bir sürüme dönmüştü: `SSR_CONTENT` işaretleri yok,
+`user-scalable=no` geri gelmiş, og/canonical adresleri `tarim-app-2026.web.app`.
+Yani §19 (SEO), §21.3 (yakınlaştırma) ve §1.1.1 (kanonik alan adı) — üç ayrı
+çalışma birden. `scripts/ana_sayfa_linkleri.py` de tamamen gitmişti.
+
+Dağıtım §19.5'teki korumada durdu: *"functions/shell.html içinde
+SSR_CONTENT_START yok."* **O koruma olmasaydı site arama motorlarına sessizce
+yeniden görünmez olacaktı** — hiçbir hata vermeden. §19.5 "bu kontrol olmazsa
+sessizce kırılır" diye yazılmıştı; tam olarak öyle oldu.
+
+Kaynak CANLI KOPYADAN geri kuruldu: `curl https://tarimportali.net/` →
+`<base href="/">` yer tutucusuna çevrildi, SSR bloğu boşaltıldı. Sonuç canlı
+kabukla `<li>` öğeleri dışında **birebir** aynı çıktı.
+
+*Ders: dağıtılmış bir dosyanın tek yedeği canlı sitenin kendisi olabilir.
+Teşhiste `curl` bir doğrulama aracı değil, bir KURTARMA aracıdır.*
+
+### 40.2 Migration geçmişi — CLI'nin önerdiği onarım tarihi yalanlar
+
+`supabase db push` reddetti: eylül başından itibaren **23 migration** uzakta
+uygulanmış ama dosyaları yerelde yok. CLI'nin önerisi
+`migration repair --status reverted` idi — bu, uygulanmış 23 migration'ı
+uygulanmamış diye işaretlerdi. **Kullanılmadı:** geçmişi yalanlamak, kaybı
+gizlemek olurdu.
+
+Bunun yerine her sürüm için `<sürüm>_KAYIP_dosya_icerigi_yok.sql` yazıldı. İçi
+bilerek boş, başlığı bilerek bağırıyor: *"BOŞ BİR MIGRATION DEĞİL, KAYIP BİR
+MIGRATION. TEMİZ BİR VERİTABANI BUNDAN KURULAMAZ."* Uzaktaki geçmiş tablosuna
+dokunulmadı; `db push` yalnızca yeni migration'ı uyguladı.
+
+**Gerçek onarım `supabase db pull`** — uzaktaki şemayı tek dosyaya çıkarır ve
+sıfırdan kurulabilirliği geri verir. Üretim veritabanının geçmiş tablosuna
+dokunduğu için kullanıcı onayı bekliyor.
+
+### 40.3 `--output` bayrağı varlıkları sessizce düşürüyor
+
+Önizleme derlemesi `--output build.nosync/web` ile alındı, çıkış kodu 0 verdi
+ve `assets/` ağacının TAMAMI boş kaldı — tek varlık dosyası yazılmamıştı.
+Belirti sayfada sessizdi: başlıklar serif yerine sistem sans'ına düştü,
+paylaşım ikonları kutu çizdi. Varsayılan dizine derleyince 24 dosya yerine
+geldi. **Önizleme derlemesi `--output` kullanmaz.**
+
+### 40.4 Devirde kalan iki eksik
+
+- **TAGEM'in hikâye baloncuğu üretilemiyor.** `dosya_hikayeleri.py` `hikaye`
+  bloğunu `yayin.json`'dan okuyor ve TAGEM'in kaynak klasörü yok. Dosya
+  yayında ve şeritte görünüyor; eksik olan yalnızca ana sayfadaki baloncuk.
+- **İspanya, TAGEM ve Tarım Kredi'nin kaynak klasörleri geri gelmedi.**
+  Dosyaların kendisi veritabanında tam (23/13/13 bölüm) ve arşivde okunuyor —
+  uygulama içeriği Supabase'den okuyor, klasörden değil. Klasör yalnızca seed
+  ÜRETMEK için gerekli; yani o üç dosyanın metni bir daha DÜZENLENEMEZ.
+
+### 40.5 Kaybın tam listesi (bilinen)
+
+| gitti | durumu |
+|---|---|
+| `islem_akisi` / `ticaret_akisi` çizicileri | yeniden yazıldı (§8.5) |
+| `lib/core/utils/turkce_metin.dart` | yeniden yazıldı |
+| `web/index.html`'in SSR/viewport/alan adı hâli | canlıdan geri kuruldu |
+| `scripts/ana_sayfa_linkleri.py` | canlı çıktıdan geri yazıldı |
+| `web/dosya/{ispanya,tagem,tarim-kredi}` + 3 kart | canlıdan geri indirildi |
+| 23 migration dosyası | yer tutucu; gerçek onarım bekliyor |
+| `content/dossiers/{ispanya,tagem,tarim-kredi}` | **geri gelmedi** |
+| `content/dossiers/avustralya` | kaynaktan yeniden kuruldu |
+| `puppeteer_test/node_modules/puppeteer` | `npm install` |
+
+**Ortak nokta: hiçbiri commit edilmemişti.** Tek kural bu — *çalıştığı
+doğrulanan şey aynı gün commit edilir.* iCloud bu depoda beşinci kez vurdu
+(§1, §22.2, §39.8) ve bu seferki en pahalısıydı.

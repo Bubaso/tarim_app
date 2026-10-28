@@ -1,0 +1,22 @@
+-- ╔══════════════════════════════════════════════════════════════════════╗
+-- ║  BU DOSYANIN İÇERİĞİ KAYIP — BOŞ BİR MIGRATION DEĞİL, KAYIP BİR     ║
+-- ║  MIGRATION. TEMİZ BİR VERİTABANI BUNDAN KURULAMAZ.                   ║
+-- ╚══════════════════════════════════════════════════════════════════════╝
+--
+-- Sürüm 20260910180000 UZAK VERİTABANINA UYGULANMIŞ durumda ve etkisi
+-- şemada duruyor. Dosyanın kendisi 4 Ekim 2026'daki iCloud tahliyesinde
+-- gitti (commit edilmemişti) ve geri getirilemedi.
+--
+-- NEDEN BU DOSYA VAR. Supabase CLI, uzaktaki geçmiş tablosundaki her sürümün
+-- yerelde bir dosyası olmasını istiyor; olmayınca `db push` TÜMDEN duruyor ve
+-- yeni migration da uygulanamıyor. CLI'nin önerdiği
+-- `migration repair --status reverted` seçeneği KULLANILMADI: o, uygulanmış
+-- 23 migration'ı uygulanmamış diye işaretlerdi, yani geçmişi yalanlardı.
+--
+-- İÇİ BİLEREK BOŞ. Uydurma SQL yazmak, kaybı gizlemek olurdu.
+--
+-- GERÇEK ONARIM: `supabase db pull` uzaktaki şemayı tek bir dosyaya çıkarır
+-- ve sıfırdan kurulabilirliği geri verir. Üretim veritabanının geçmiş
+-- tablosuna dokunduğu için kullanıcı onayı bekliyor.
+--
+-- Ayrıntı: CLAUDE.md §40.

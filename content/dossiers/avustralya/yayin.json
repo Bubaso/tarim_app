@@ -12,8 +12,8 @@
     "baslangic": null,
     "_baslangic_notu": "null → seed anında now(). Devir günü belli olmadığı için sabit tarih YAZILMIYOR: ileri tarihli bir pencere dosyayı yayına sokup şeritten gizliyor (§2.12/1)."
   },
-  "status": "draft",
-  "_status_notu": "TASLAK. İspanya hâlâ yayında; devir açık onay ister ve otomatik tetiklenmez.",
+  "status": "published",
+  "_status_notu": "YAYINDA. Devir 5 Ekim 2026'da kullanıcı onayıyla yapıldı; İspanya arşive alındı. Pencere devir günü başladı (28 gün).",
   "kapak": {
     "url": "https://tarimportali.net/dosya/avustralya/avustralya_kapak_havadan.jpg",
     "atif": "Willem van Aken, CSIRO — CC BY 3.0",

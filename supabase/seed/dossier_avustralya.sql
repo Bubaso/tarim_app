@@ -3,7 +3,7 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/avustralya/
 -- Üretim:  node content/dossiers/seed_dossier.mjs avustralya
--- Tarih:   2026-10-05T08:56:20.340Z
+-- Tarih:   2026-10-05T11:57:12.940Z
 --
 -- Bölüm: 17 · TR ~4.134 kelime · EN ~4.706 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
@@ -35,10 +35,10 @@ values (
   'https://tarimportali.net/dosya/avustralya/avustralya_kapak_havadan.jpg',
   $dsr$Willem van Aken, CSIRO — CC BY 3.0$dsr$,
   null,
-  'draft',
+  'published',
   now(),
   (now() + interval '28 days'),
-  null
+  now()
 )
 on conflict (slug) do update set
   name_tr      = excluded.name_tr,
