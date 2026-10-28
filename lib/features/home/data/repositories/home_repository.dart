@@ -169,6 +169,56 @@ class HomeRepository {
     return basarili;
   }
 
+  /// "Türkiye'den haberler" bölümünün 2. haberini belirler.
+  ///
+  /// TEK haber işaretli olabilir: önce eski işaret temizleniyor, sonra yenisi
+  /// konuyor. Ters sırada yapılsaydı iki işaretli haber kalabilir ve hangisinin
+  /// görüneceği sorgu sırasına kalırdı.
+  Future<bool> turkiyeSabitiAyarla(String? id) async {
+    try {
+      await _supabaseClient
+          .from('articles')
+          .update({'turkiye_pin': false}).eq('turkiye_pin', true);
+      if (id != null) {
+        await _supabaseClient
+            .from('articles')
+            .update({'turkiye_pin': true}).eq('id', id);
+      }
+      return true;
+    } catch (e) {
+      if (kDebugMode) print('turkiyeSabitiAyarla error: $e');
+      return false;
+    }
+  }
+
+  /// Haberin BELİRLİ alanlarını günceller.
+  ///
+  /// [updateArticle] `toJson()` ile BÜTÜN satırı yazıyor; liste sorgusundan
+  /// gelen eksik bir nesneyle çağrılırsa dolu alanları boşla eziyor (§25.1,
+  /// üretimde bir haberin metni böyle gitti). Tek alan değiştirmek için bu
+  /// metot kullanılır: yalnızca verilen anahtarlar yazılır.
+  Future<bool> alanlariGuncelle(String id, Map<String, dynamic> alanlar) async {
+    if (alanlar.isEmpty) return true;
+    try {
+      await _supabaseClient.from('articles').update(alanlar).eq('id', id);
+      return true;
+    } catch (e) {
+      if (kDebugMode) print('alanlariGuncelle error: $e');
+      return false;
+    }
+  }
+
+  /// Reddi GERİ ALIR: durum `pending`e döner, red izi silinir.
+  ///
+  /// `articles_forget_rejection_status` tetikleyicisi adresi red hafızasından
+  /// da düşürüyor (§29.1); yoksa "geri al" yarım kalır ve hat o haberi bir
+  /// daha hiç getirmez.
+  Future<bool> reddiGeriAl(String id) => alanlariGuncelle(id, {
+        'status': 'pending',
+        'rejection_reason': null,
+        'rejected_at': null,
+      });
+
   /// Bir köşe yazarının TÜM yazıları.
   ///
   /// [watchLatestArticles] en yeni 500 haberi taşıyor (`_listeSiniri`) ve hat

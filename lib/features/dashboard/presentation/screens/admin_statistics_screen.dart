@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../home/data/models/news_article.dart';
 import '../../../home/providers/home_providers.dart';
+import '../widgets/inceleme_karti.dart';
 import '../../../../core/utils/localization_helper.dart';
 
 class AdminStatisticsScreen extends ConsumerWidget {
@@ -234,6 +235,7 @@ class _PendingArticlesSection extends ConsumerStatefulWidget {
 class _PendingArticlesSectionState
     extends ConsumerState<_PendingArticlesSection> {
   final Set<String> _secili = <String>{};
+  String? _acikInceleme;
   bool _islemde = false;
 
   bool get isDark => widget.isDark;
@@ -402,6 +404,23 @@ class _PendingArticlesSectionState
             runSpacing: 8,
             children: [
               TextButton.icon(
+                onPressed: () => setState(() {
+                  if (_acikInceleme == article.id) {
+                    _acikInceleme = null;
+                  } else {
+                    _acikInceleme = article.id;
+                  }
+                }),
+                icon: Icon(
+                    _acikInceleme == article.id
+                        ? Icons.expand_less_rounded
+                        : Icons.fact_check_outlined,
+                    size: 20),
+                label: Text(
+                    _acikInceleme == article.id ? 'İncelemeyi kapat' : 'İncele',
+                    style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+              ),
+              TextButton.icon(
                 onPressed: () => _tamHaberiGoster(context, article),
                 icon: const Icon(Icons.article_outlined, size: 20),
                 label: Text('Tam haber',
@@ -437,6 +456,14 @@ class _PendingArticlesSectionState
               ),
             ],
           ),
+          if (_acikInceleme == article.id) ...[
+            const SizedBox(height: 14),
+            IncelemeKarti(
+              article: article,
+              isDark: isDark,
+              onDegisti: _tazele,
+            ),
+          ],
         ],
       ),
     );

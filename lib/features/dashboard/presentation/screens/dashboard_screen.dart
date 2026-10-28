@@ -14,6 +14,7 @@ import '../../../../core/services/storage_service.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'admin_statistics_screen.dart';
 import 'kaynak_karnesi_screen.dart';
+import 'admin_yazarlar_screen.dart';
 import 'admin_hero_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../../videos/presentation/screens/video_onay_ekrani.dart';
@@ -169,7 +170,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 6, vsync: this);
+    _tabController = TabController(length: 7, vsync: this);
   }
 
   @override
@@ -425,6 +426,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               icon: const Icon(Icons.assessment_rounded),
               text: isEn ? 'Source Scorecard' : 'Kaynak Karnesi',
             ),
+            Tab(
+              icon: const Icon(Icons.people_alt_rounded),
+              text: isEn ? 'Columnists' : 'Yazarlar',
+            ),
           ],
         ),
         actions: [
@@ -444,6 +449,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
           _buildAiSuggestionsTab(context, theme),
           const AdminStatisticsScreen(),
           const KaynakKarnesiScreen(),
+          const AdminYazarlarScreen(),
         ],
       ),
     );

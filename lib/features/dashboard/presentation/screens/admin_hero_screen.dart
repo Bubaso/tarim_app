@@ -76,6 +76,8 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
             const SizedBox(height: 12),
             _buildSabitlemeOzeti(),
             const SizedBox(height: 12),
+            _buildTurkiyeSabiti(),
+            const SizedBox(height: 12),
             Expanded(
               child: _buildHeroList(),
             ),
@@ -133,6 +135,110 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     );
   }
 
+  /// "Türkiye'den haberler" bölümünün 2. haberi.
+  ///
+  /// Manşetin ilk üç slotu yukarıdaki listeden sabitleniyor; dördüncü yayın
+  /// kararı bu. Bölümün 1. sırası en taze habere ait kalıyor.
+  Widget _buildTurkiyeSabiti() {
+    final turkiye = ref.watch(turkeyNewsProvider);
+    final sabit = turkiye.where((a) => a.turkiyePin == true).firstOrNull;
+
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.blue.shade50,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.blue.shade200),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.push_pin_rounded, size: 18, color: Colors.blue.shade700),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Türkiye'den haberler · 2. haber",
+                    style: GoogleFonts.inter(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue.shade900)),
+                const SizedBox(height: 2),
+                Text(
+                  sabit?.title ?? 'Seçilmedi — bölüm kendiliğinden diziliyor.',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                      fontSize: 13, color: Colors.blue.shade900),
+                ),
+              ],
+            ),
+          ),
+          if (sabit != null)
+            TextButton(
+              onPressed: _isLoading ? null : () => _turkiyeSabitiSec(null),
+              child: const Text('Kaldır'),
+            ),
+          TextButton(
+            onPressed: _isLoading ? null : _turkiyeSabitiDialog,
+            child: Text(sabit == null ? 'Seç' : 'Değiştir'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _turkiyeSabitiDialog() async {
+    final turkiye = ref.read(turkeyNewsProvider);
+    final secilen = await showDialog<NewsArticle>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text("Türkiye'den haberler · 2. haberi seç",
+            style: GoogleFonts.outfit(fontWeight: FontWeight.bold)),
+        content: SizedBox(
+          width: 560,
+          height: 420,
+          child: turkiye.isEmpty
+              ? const Center(child: Text('Bölümde haber yok.'))
+              : ListView.separated(
+                  itemCount: turkiye.length,
+                  separatorBuilder: (_, __) => const Divider(height: 1),
+                  itemBuilder: (_, i) => ListTile(
+                    dense: true,
+                    title: Text(turkiye[i].title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.inter(fontSize: 13)),
+                    subtitle: Text('Sıra: ${i + 1}',
+                        style: GoogleFonts.inter(fontSize: 11)),
+                    onTap: () => Navigator.of(ctx).pop(turkiye[i]),
+                  ),
+                ),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: const Text('Vazgeç')),
+        ],
+      ),
+    );
+    if (secilen != null) await _turkiyeSabitiSec(secilen.id);
+  }
+
+  Future<void> _turkiyeSabitiSec(String? id) async {
+    setState(() => _isLoading = true);
+    final ok =
+        await ref.read(homeRepositoryProvider).turkiyeSabitiAyarla(id);
+    if (!mounted) return;
+    setState(() => _isLoading = false);
+    ref.invalidate(latestArticlesProvider);
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(ok
+          ? (id == null ? 'Sabit kaldırıldı.' : '2. haber ayarlandı.')
+          : 'Sabitleme kaydedilemedi.'),
+    ));
+  }
+
   Widget _buildHeroList() {
     return ReorderableListView.builder(
       itemCount: _heroArticles.length,
@@ -140,7 +246,11 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
       itemBuilder: (context, index) {
         final article = _heroArticles[index];
         final isPinned = article.heroOrder != null && article.heroOrder! <= 0;
-        final canPin = index < 3;
+        // İlk ÜÇ slot elle sabitlenebiliyor (hero_order 0, -1, -2).
+        // Dördüncü karar hero'da değil: "Türkiye'den haberler" bölümünün
+        // 2. haberi ayrı bir denetim (articles.turkiye_pin).
+        const sabitlenebilirSlot = 3;
+        final canPin = index < sabitlenebilirSlot;
         
         return Card(
           key: ValueKey(article.id),
@@ -164,7 +274,9 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.inter(fontWeight: FontWeight.w600),
             ),
-            subtitle: Text(isPinned ? 'Sabitlenmiş (Sıra ${(-article.heroOrder!) + 1})' : 'Sıra: ${index + 1}'),
+            subtitle: Text(isPinned
+                ? 'Sabitlenmiş — ${(-article.heroOrder!) + 1}. sıra'
+                : 'Sıra: ${index + 1}'),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -178,7 +290,7 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
                   TextButton.icon(
                     onPressed: () => _toggleHardPin(article, true, index),
                     icon: const Icon(Icons.push_pin_outlined),
-                    label: const Text('Sabitle'),
+                    label: const Text('Bu sıraya sabitle'),
                   ),
                 const SizedBox(width: 8),
                 TextButton.icon(
@@ -248,7 +360,15 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     
     // pin=true ise hero_order = -index (0, -1, -2), pin=false ise normal sıra = index + 1
     int order = pin ? -index : index + 1;
-    await repository.updateHeroStatus(article.id, true, order);
+    // Dönüş DEĞERİ okunuyor: eskiden yok sayılıyordu ve yazma düşse bile
+    // ekran sabitlenmiş gibi görünüyordu — yönetici kaydedilmemiş bir
+    // sabitlemeyi kaydedilmiş sanıyordu (§25.2'nin aynı sınıf hatası).
+    final yazildi = await repository.updateHeroStatus(article.id, true, order);
+    if (!yazildi && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Sabitleme kaydedilemedi.')),
+      );
+    }
     
     if (mounted) {
       setState(() => _isLoading = false);

@@ -39,6 +39,21 @@ class NewsArticle {
   final List<String>? keyTakeawaysEn;
   final String? expertInsight;
   final String? expertInsightEn;
+  /// "Türkiye'den haberler" bölümünde 2. sıraya sabitlenmiş haber.
+  ///
+  /// Manşetin ilk üç slotu `hero_order` ile sabitleniyor; dördüncü yayın
+  /// kararı burada. Tek bir haber işaretli olur.
+  final bool? turkiyePin;
+
+  /// Muhabir ajanının ürettiği doğrulama verisi (§29.2).
+  ///
+  /// Bunlar hat içinde kullanılıp ATILIYORDU; kararı veren kişi görmüyordu.
+  /// `facts` 5N1K sözlüğü, `figures` [{label,value,unit,period,source}],
+  /// `quotes` [{speaker,title,text}]. Eski kayıtlarda null.
+  final Map<String, dynamic>? facts;
+  final List<dynamic>? figures;
+  final List<dynamic>? quotes;
+
   final Map<String, dynamic>? chartData;
 
   /// `chartData`'nın İngilizcesi. null ise İngilizce sayfa Türkçesini gösteriyor.
@@ -91,6 +106,10 @@ class NewsArticle {
     this.keyTakeawaysEn,
     this.expertInsight,
     this.expertInsightEn,
+    this.turkiyePin,
+    this.facts,
+    this.figures,
+    this.quotes,
     this.chartData,
     this.chartDataEn,
     this.articleFormat,
@@ -154,6 +173,10 @@ class NewsArticle {
       keyTakeawaysEn: takeawaysEn,
       expertInsight: json['expert_insight']?.toString(),
       expertInsightEn: json['expert_insight_en']?.toString(),
+      turkiyePin: json['turkiye_pin'] as bool?,
+      facts: json['facts'] as Map<String, dynamic>?,
+      figures: json['figures'] as List<dynamic>?,
+      quotes: json['quotes'] as List<dynamic>?,
       chartData: json['chart_data'] as Map<String, dynamic>?,
       chartDataEn: json['chart_data_en'] as Map<String, dynamic>?,
       articleFormat: json['article_format']?.toString(),
@@ -192,6 +215,10 @@ class NewsArticle {
       'key_takeaways_en': keyTakeawaysEn,
       'expert_insight': expertInsight,
       'expert_insight_en': expertInsightEn,
+      'turkiye_pin': turkiyePin,
+      'facts': facts,
+      'figures': figures,
+      'quotes': quotes,
       'chart_data': chartData,
       'chart_data_en': chartDataEn,
       'article_format': articleFormat,

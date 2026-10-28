@@ -151,6 +151,21 @@ node content/dossiers/_ortak/statik_sayfa_db.mjs
 # sınar. Eksik varsa dağıtım yapılmaz.
 if [[ -f surum_bekcisi.txt ]]; then
   echo "▸ Sürüm bekçisi…"
+
+  # Paket Türkçe harfleri KAÇIŞ DİZİSİYLE yazıyor: "doğrulama" derlemede
+  # "do\u011frulama" olarak duruyor. Ham dosyada aramak, Türkçe karakter
+  # içeren her belirteçte YANLIŞ ALARM verir ve dağıtımı sonsuza kadar
+  # bloke ederdi (28 Ekim'de tam olarak böyle oldu). Önce çözüyoruz.
+  cozulmus=$(mktemp)
+  python3 - "build/web/main.dart.js" "$cozulmus" <<'PYEOF'
+import io, re, sys
+s = io.open(sys.argv[1], encoding='utf-8', errors='replace').read()
+s = re.sub(r'\\u([0-9a-fA-F]{4})', lambda m: chr(int(m.group(1), 16)), s)
+# yalnız kalan vekil karakterler yazdırılamıyor; aramada işe de yaramıyorlar
+s = ''.join(c for c in s if not (0xD800 <= ord(c) <= 0xDFFF))
+io.open(sys.argv[2], 'w', encoding='utf-8').write(s)
+PYEOF
+
   eksik=()
   sizan=()
   while IFS= read -r belirtec; do
@@ -158,9 +173,9 @@ if [[ -f surum_bekcisi.txt ]]; then
     if [[ "$belirtec" == '!'* ]]; then
       # YASAK: bulunmaMAlı. Bulunursa gerileme var demektir.
       yasak="${belirtec#!}"
-      grep -qF -- "$yasak" build/web/main.dart.js && sizan+=("$yasak")
+      grep -qF -- "$yasak" "$cozulmus" && sizan+=("$yasak")
     else
-      grep -qF -- "$belirtec" build/web/main.dart.js || eksik+=("$belirtec")
+      grep -qF -- "$belirtec" "$cozulmus" || eksik+=("$belirtec")
     fi
   done < surum_bekcisi.txt
 
@@ -185,7 +200,8 @@ if [[ -f surum_bekcisi.txt ]]; then
     echo "  Ayrıntı: surum_bekcisi.txt ve CLAUDE.md §40." >&2
     exit 1
   fi
-  echo "  ✓ $(grep -cvE '^#|^$' surum_bekcisi.txt) belirtecin tamamı derlemede var"
+  rm -f "$cozulmus"
+  echo "  ✓ $(grep -vE '^#|^$' surum_bekcisi.txt | grep -vc '^!') belirtecin tamamı derlemede var"
 fi
 
 # Dağıtım genel dizini DEĞİŞTİRİYOR: yerelde olmayan varlık canlıdan SİLİNİR

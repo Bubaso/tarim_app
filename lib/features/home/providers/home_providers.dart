@@ -211,6 +211,15 @@ bool _articleIsScience(NewsArticle a) {
 }
 
 /// Haberin Türkiye odaklı olup olmadığını kontrol eder.
+/// `turkiye_pin` işaretli haberi listenin 2. sırasına (indeks 1) taşır.
+void _turkiyeSabitiniYerlestir(List<NewsArticle> liste) {
+  if (liste.length < 2) return;
+  final i = liste.indexWhere((a) => a.turkiyePin == true);
+  if (i <= 1) return; // zaten 1. ya da 2. sırada
+  final sabit = liste.removeAt(i);
+  liste.insert(1, sabit);
+}
+
 bool _articleIsTurkey(NewsArticle a) {
   final r = a.region?.toLowerCase().trim() ?? '';
   return r == 'türkiye';
@@ -611,6 +620,12 @@ final homeAllocationProvider = Provider<HomeAllocation>((ref) {
   //     artığı alır.
   final science = claim(_articleIsScience, cap: 8);
   final turkey = claim(_articleIsTurkey, cap: 12);
+  // "Türkiye'den haberler"in 2. HABERİ elle seçilebiliyor (articles.turkiye_pin).
+  // Birinci sıra en taze habere ait kalıyor; yöneticinin öne çıkarmak
+  // istediği haber onun hemen ardına giriyor. İşaretli haber bu listeye
+  // girmemişse (havuzun dışında kalacak kadar eskiyse) hiçbir şey yapılmıyor —
+  // listeye zorla sokmak, bölümün tazelik düzenini bozardı.
+  _turkiyeSabitiniYerlestir(turkey);
   final world = claim(_articleIsWorld, cap: 10);
   final byTopic = <String, List<NewsArticle>>{
     for (final t in _sektorelKonular) t: claim((a) => topicIs(a, t), cap: 10),
