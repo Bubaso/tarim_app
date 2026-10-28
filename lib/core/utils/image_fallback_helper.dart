@@ -66,11 +66,32 @@ class NewsArticleImage extends StatelessWidget {
   });
 
 
+  /// Supabase görsel dönüştürme uç noktası (`/render/image/public/`) ÜCRETLİ
+  /// planın parçası. Free planda istek 403 ile
+  /// `{"error":"FeatureNotEnabled"}` dönüyor, `CachedNetworkImage`
+  /// `errorWidget`a düşüyor ve BÜTÜN görseller shimmer olarak kalıyor —
+  /// dosyalar Storage'da sapasağlam dururken.
+  ///
+  /// Ölçüm (28 Ekim 2026, aynı dosya):
+  ///   /object/public/…            → 200 · image/webp · 45.672 bayt
+  ///   /render/image/public/…      → 403 · FeatureNotEnabled
+  ///
+  /// Bu yüzden dönüştürme bir BAYRAĞA bağlı ve varsayılan KAPALI. Plan
+  /// yükseltildiğinde burayı düzenlemek gerekmiyor, derlemeye
+  /// `--dart-define=GORSEL_DONUSTURME=true` eklemek yeterli.
+  ///
+  /// Kapalıyken ham dosya iniyor; bedeli boyut (ölçüm: kullanılan `.jpg`
+  /// ortalaması 228 KB, `.webp` 76 KB). `memCacheWidth` yine istenen
+  /// genişlikte çözdüğü için DECODE maliyeti artmıyor — yalnızca indirme.
+  static const bool donusturmeAcik =
+      bool.fromEnvironment('GORSEL_DONUSTURME');
+
   /// Ham Supabase URL'ini istenen genişlik/kaliteyle CDN-render adresine
   /// çevirir. `build` ve [providerFor] (ön yükleme) aynı adresi üretsin diye
   /// tek yerde.
   static String resolveUrl(String rawUrl,
       {required int requestedWidth, required bool highQuality}) {
+    if (!donusturmeAcik) return rawUrl;
     final q = highQuality ? 90 : 65;
     if (!rawUrl.contains('/object/public/')) return rawUrl;
     final replaced =
