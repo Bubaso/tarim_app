@@ -1,0 +1,33 @@
+# SÜRÜM BEKÇİSİ — canlıda ÇALIŞAN ama depoda OLMAYAN her şeyin listesi.
+#
+# NEDEN VAR. 4 Ekim 2026 iCloud tahliyesinden sonra depo GitHub'dan yeniden
+# klonlandı; GitHub ise 2 Eylül'de kalmıştı. Sonuç: depodaki lib/ canlının
+# GERİSİNDE ve bu HİÇBİR YERDE görünmüyor. Bu ağaçtan yapılan dağıtım
+# canlıyı geriye alıyor — üç kez oldu (28 Ekim 2026 dahil).
+#
+# NASIL ÇALIŞIR. deploy.sh derlemeden sonra build/web/main.dart.js içinde
+# aşağıdaki her dizeyi arar. BİRİ BİLE yoksa dağıtım DURUR.
+#
+# Bir satır ancak o özellik depoda gerçekten yeniden yazıldığında ve
+# derlemede göründüğünde geçer. Satır silmek = o özelliği canlıda kaybetmeyi
+# göze almak. Silmeden önce §40'ı oku.
+#
+# '#' ile başlayan satırlar ve boş satırlar yok sayılır.
+
+# ── Tipografi (CLAUDE.md §36: başlıklar Outfit) ──
+Outfit
+
+# ── Moderasyon paneli (tablo: rejected_sources) ──
+Haberi reddet
+Toplu red
+
+# ── Kaynak karnesi (tablo: source_scorecard) ──
+Kaynak Karnesi
+
+# ── Sesli yayın / radyo (rpc: ses_isine_basla, sesli_yayinla) ──
+Radyoya Ekle
+Sesi Dinle
+
+# ── Sabitleme ve haber görünümü ──
+Sabitleme yok
+Tam haber

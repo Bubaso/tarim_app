@@ -138,6 +138,49 @@ done
 # og etiketlerini kaybeder. Bu adım boşluğu veritabanından kapatıyor.
 node content/dossiers/_ortak/statik_sayfa_db.mjs
 
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  SÜRÜM BEKÇİSİ — geriye dağıtımı durdurur. Ayrıntı: surum_bekcisi.txt ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+#
+# Depo 4 Ekim 2026'da GitHub'dan yeniden klonlandı; GitHub 2 Eylül'de
+# kalmıştı. Bu ağaçtaki lib/ canlının GERİSİNDE ve bunu hiçbir şey
+# söylemiyor: derleme geçer, testler geçer, dağıtım "başarılı" der ve site
+# haftalarca geriye gider. Üç kez oldu.
+#
+# Bu blok, canlıda çalıştığı BİLİNEN her özelliğin derlemede de bulunduğunu
+# sınar. Eksik varsa dağıtım yapılmaz.
+if [[ -f surum_bekcisi.txt ]]; then
+  echo "▸ Sürüm bekçisi…"
+  eksik=()
+  while IFS= read -r belirtec; do
+    [[ -z "$belirtec" || "$belirtec" == \#* ]] && continue
+    grep -qF -- "$belirtec" build/web/main.dart.js || eksik+=("$belirtec")
+  done < surum_bekcisi.txt
+
+  if (( ${#eksik[@]} > 0 )); then
+    echo "" >&2
+    echo "✗ DAĞITIM DURDURULDU — derleme canlının GERİSİNDE." >&2
+    echo "" >&2
+    echo "  Canlıda çalışan ama bu derlemede BULUNMAYAN ${#eksik[@]} özellik:" >&2
+    for e in "${eksik[@]}"; do echo "      • $e" >&2; done
+    echo "" >&2
+    echo "  Bu haliyle dağıtmak siteyi geriye alır. Bu üçüncü kez olmasın." >&2
+    echo "  Ayrıntı: surum_bekcisi.txt ve CLAUDE.md §40." >&2
+    exit 1
+  fi
+  echo "  ✓ $(grep -cvE '^#|^$' surum_bekcisi.txt) belirtecin tamamı derlemede var"
+fi
+
+# Dağıtım genel dizini DEĞİŞTİRİYOR: yerelde olmayan varlık canlıdan SİLİNİR
+# (§40.1'de 33 dosya görseli, 28 Ekim'de 3 yazar görseli böyle gitti).
+for klasor in web/yazarlar web/dosya; do
+  if [[ -d "$klasor" ]] && [[ -z "$(find "$klasor" -type f -print -quit)" ]]; then
+    echo "✗ $klasor BOŞ — dağıtım oradaki dosyaları canlıdan silerdi." >&2
+    echo "  Canlıdaki kopyaları önce depoya indirin." >&2
+    exit 1
+  fi
+done
+
 echo "▸ Dağıtılıyor (${TARGETS})…"
 # firebase-tools 14.x + Node 24 birleşimi fonksiyon keşfi sırasında varsayılan
 # yığınla bellek taşması veriyor. Belirti yanıltıcıdır: CLI önce
