@@ -1,89 +1,159 @@
-import sys
+#!/usr/bin/env python3
+"""Haber görsellerini WebP'ye çevirir ve eski dosyayı siler.
+
+    python3 compress_images.py            # kuru çalışma: ne yapacağını yazar
+    python3 compress_images.py --apply    # gerçekten dönüştürür
+    python3 compress_images.py --apply --limit 200   # partiyi sınırla
+
+Ölçüm (28 Ekim 2026): `article-images` 1.317 MB. Kullanılan dosyalardan
+1.988'i `.jpg` (454 MB, ortalama 228 KB), 935'i `.webp` (71 MB, ortalama
+76 KB). Yani kalan jpg'leri çevirmek ~250 MB kazandırıyor ve Free planın
+1 GB sınırının altına inmeyi tek başına sağlıyor.
+
+--------------------------------------------------------------------------
+ÖNCEKİ sürümün iki hatası (ikisi de burada kapatıldı):
+
+1. `.select()` LİMİTSİZDİ → PostgREST en çok 1.000 satır döndürüyor.
+   1.080 webp'ye karşı 5.751 jpg kalmasının sebebi büyük olasılıkla bu:
+   betik ilk 1.000 haberi işleyip "bitti" demiş.
+
+2. `story_image_url` GÜNCELLENMİYORDU. Aynı dosyaya iki alan işaret
+   edebiliyor; betik yalnızca `image_url`i güncelleyip eski dosyayı silince
+   `story_image_url` ÖLÜ ADRESE düşüyordu. Artık dönüştürülen her yol için
+   ona işaret eden BÜTÜN satır/alan çiftleri güncelleniyor, dosya ancak
+   ondan sonra siliniyor.
+"""
+import io
 import os
-import subprocess
+import sys
+import urllib.parse
+
 import requests
-sys.path.append("/Users/BURHAN/Desktop/tarim_ai_pipeline")
-from src.config import supabase_client as supabase
+from PIL import Image
 
-def compress_images():
-    # Fetch all articles that have an image_url ending in .jpg or .png
-    res = supabase.table("articles").select("id, image_url").not_.is_("image_url", "null").execute()
-    articles = res.data
-    
-    jpg_articles = [a for a in articles if a['image_url'] and (a['image_url'].endswith(".jpg") or a['image_url'].endswith(".jpeg") or a['image_url'].endswith(".png"))]
-    print(f"Found {len(jpg_articles)} articles with unoptimized images.")
-    
-    for idx, article in enumerate(jpg_articles):
-        image_url = article['image_url']
-        article_id = article['id']
-        print(f"[{idx+1}/{len(jpg_articles)}] Processing {article_id}...")
-        
-        r = requests.get(image_url)
-        if r.status_code != 200:
-            print(f"Failed to download {image_url}")
-            continue
-            
-        with open("temp.img", "wb") as f:
-            f.write(r.content)
-            
-        webp_path = "temp.webp"
-        
-        # Convert to WebP using Pillow
-        from PIL import Image
+sys.path.append(os.environ.get("TARIM_PIPELINE",
+                               "/Users/BURHAN/Desktop/tarim_ai_pipeline"))
+from src.config import supabase_client as supabase  # noqa: E402
+
+BUCKET = "article-images"
+ALANLAR = ("image_url", "story_image_url")
+SAYFA = 1000
+
+# Haber okuma oluğu 800 px (CLAUDE.md §4); yüksek yoğunluklu ekran için iki
+# katı. Önceki sürüm 1000 px'e indiriyordu — görsel dönüştürme uç noktası
+# AÇIKKEN sorun değildi, çünkü sunucu istenen boyutu üretiyordu. Dönüştürme
+# Free planda kapalı (bkz. image_fallback_helper.dart) ve artık ham dosya
+# gösteriliyor; 1000 px masaüstü manşette gözle görülür yumuşama yapar.
+EN_FAZLA = int(os.environ.get("WEBP_GENISLIK", "1600"))
+KALITE = int(os.environ.get("WEBP_KALITE", "80"))
+
+
+def yol(u):
+    if not u:
+        return None
+    u = u.split("?")[0]
+    m = f"/{BUCKET}/"
+    return urllib.parse.unquote(u.split(m, 1)[1]) if m in u else None
+
+
+def haberleri_oku():
+    """id + adres alanlarını sayfalayarak okur, sayı sağlamasıyla."""
+    sayim = supabase.table("articles").select("id", count="exact") \
+        .limit(1).execute().count
+    satirlar, off = [], 0
+    while True:
+        res = supabase.table("articles").select("id," + ",".join(ALANLAR)) \
+            .range(off, off + SAYFA - 1).execute()
+        if not res.data:
+            break
+        satirlar += res.data
+        if len(res.data) < SAYFA:
+            break
+        off += SAYFA
+    print(f"Tablo sayımı: {sayim} · okunan: {len(satirlar)}")
+    if sayim is not None and len(satirlar) != sayim:
+        sys.exit(f"✗ DURDU: {sayim} satır var, {len(satirlar)} okundu. "
+                 f"Eksik okumayla dosya silinmez.")
+    return satirlar
+
+
+def main(uygula, limit):
+    satirlar = haberleri_oku()
+
+    # yol → o yola işaret eden (haber id, alan) çiftleri
+    kullanim = {}
+    for r in satirlar:
+        for alan in ALANLAR:
+            p = yol(r.get(alan))
+            if p:
+                kullanim.setdefault(p, []).append((r["id"], alan))
+
+    hedefler = [p for p in kullanim
+                if p.lower().endswith((".jpg", ".jpeg", ".png"))]
+    hedefler.sort()
+    if limit:
+        hedefler = hedefler[:limit]
+    print(f"Dönüştürülecek dosya: {len(hedefler)}")
+    if not uygula:
+        print("KURU ÇALIŞMA — dönüştürme yok. Uygulamak için: --apply\n")
+
+    onceki = sonraki = 0
+    for i, p in enumerate(hedefler, 1):
+        yeni_yol = p.rsplit(".", 1)[0] + ".webp"
+        ham = supabase.storage.from_(BUCKET).get_public_url(p).split("?")[0]
         try:
-            with Image.open("temp.img") as img:
-                # Resize if width or height is larger than 1000px
-                if img.width > 1000 or img.height > 1000:
-                    img.thumbnail((1000, 1000))
-                
-                # Convert to RGB if it's RGBA and we want a smaller webp
-                if img.mode != 'RGB' and img.mode != 'RGBA':
-                    img = img.convert('RGB')
-                    
-                img.save(webp_path, 'WEBP', quality=80)
+            r = requests.get(ham, timeout=60)
+            if r.status_code != 200:
+                print(f"[{i}/{len(hedefler)}] ✗ indirilemedi ({r.status_code}) {p}")
+                continue
+            with Image.open(io.BytesIO(r.content)) as img:
+                if img.width > EN_FAZLA or img.height > EN_FAZLA:
+                    img.thumbnail((EN_FAZLA, EN_FAZLA))
+                if img.mode not in ("RGB", "RGBA"):
+                    img = img.convert("RGB")
+                tampon = io.BytesIO()
+                img.save(tampon, "WEBP", quality=KALITE, method=6)
+            yeni = tampon.getvalue()
         except Exception as e:
-            print(f"Failed to convert image for {article_id}: {e}")
+            print(f"[{i}/{len(hedefler)}] ✗ çevrilemedi {p}: {e}")
             continue
-        
-        parts = image_url.split("/article-images/")
-        if len(parts) < 2:
-            print("Invalid URL format")
-            continue
-            
-        old_remote_path = parts[1]
-        
-        # Replace extension
-        ext_idx = old_remote_path.rfind('.')
-        if ext_idx != -1:
-            new_remote_path = old_remote_path[:ext_idx] + ".webp"
-        else:
-            new_remote_path = old_remote_path + ".webp"
-            
-        with open(webp_path, "rb") as f:
-            webp_bytes = f.read()
-            
-        print(f"Uploading {new_remote_path} ({len(webp_bytes)} bytes)...")
-        supabase.storage.from_("article-images").upload(
-            file=webp_bytes,
-            path=new_remote_path,
-            file_options={"content-type": "image/webp", "upsert": "true"}
-        )
-        
-        new_public_url = supabase.storage.from_("article-images").get_public_url(new_remote_path)
-        
-        # Update DB
-        supabase.table("articles").update({"image_url": new_public_url}).eq("id", article_id).execute()
-        
-        # Delete old image
-        print(f"Deleting {old_remote_path} from storage...")
-        supabase.storage.from_("article-images").remove([old_remote_path])
-        
-        print(f"Successfully migrated {article_id}")
 
-    if os.path.exists("temp.img"):
-        os.remove("temp.img")
-    if os.path.exists("temp.webp"):
-        os.remove("temp.webp")
-        
+        # Yeniden kodlama KAZANÇ sağlamıyorsa dokunmuyoruz. Dosya görsel
+        # hattında bir kez büyütülmüştü (CLAUDE.md §22.1): zaten ekonomik
+        # sıkıştırılmış dosyalarda q80 webp daha büyük çıkabiliyor.
+        if len(yeni) >= len(r.content):
+            print(f"[{i}/{len(hedefler)}] = atlandı, küçülmüyor "
+                  f"({len(r.content)/1e3:.0f} → {len(yeni)/1e3:.0f} KB) {p}")
+            continue
+
+        onceki += len(r.content)
+        sonraki += len(yeni)
+        print(f"[{i}/{len(hedefler)}] {len(r.content)/1e3:6.0f} → "
+              f"{len(yeni)/1e3:6.0f} KB  {p}")
+        if not uygula:
+            continue
+
+        supabase.storage.from_(BUCKET).upload(
+            file=yeni, path=yeni_yol,
+            file_options={"content-type": "image/webp", "upsert": "true"})
+        yeni_adres = supabase.storage.from_(BUCKET).get_public_url(yeni_yol) \
+            .split("?")[0]
+
+        # ÖNCE bütün referanslar, SONRA silme. Ters sırada tek bir alan
+        # güncellenmemiş kalsa o alan ölü adrese düşerdi.
+        for hid, alan in kullanim[p]:
+            supabase.table("articles").update({alan: yeni_adres}) \
+                .eq("id", hid).execute()
+        supabase.storage.from_(BUCKET).remove([p])
+
+    print(f"\n=== {onceki/1e6:.1f} MB → {sonraki/1e6:.1f} MB "
+          f"(kazanç {(onceki-sonraki)/1e6:.1f} MB) ===")
+    if not uygula:
+        print("KURU ÇALIŞMA — hiçbir şey değişmedi.")
+
+
 if __name__ == "__main__":
-    compress_images()
+    lim = 0
+    if "--limit" in sys.argv:
+        lim = int(sys.argv[sys.argv.index("--limit") + 1])
+    main("--apply" in sys.argv, lim)
