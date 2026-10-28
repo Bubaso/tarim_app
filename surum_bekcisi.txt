@@ -24,9 +24,21 @@ Toplu red
 # ── Kaynak karnesi (tablo: source_scorecard) ──
 Kaynak Karnesi
 
-# ── Sesli yayın / radyo (rpc: ses_isine_basla, sesli_yayinla) ──
-Radyoya Ekle
-Sesi Dinle
+# ── Sesli yayın / radyo — KAPSAM DIŞI (kullanıcı kararı, 28 Ekim 2026) ──
+#
+# "Ses özelliği istemiyorum, bununla uğraşma." Bu özellik KAYIP DEĞİL,
+# bilinçli olarak DÜŞÜRÜLDÜ. Belirteçleri bu yüzden listede değil.
+#
+# SONUCU: dağıtımdan sonra 40 haberdeki "Sesi Dinle" barı ve 10 haberlik
+# radyo bülteni canlıdan KALKACAK. 2.090 haberin %1,9'u.
+#
+# VERİ SİLİNMİYOR: articles.audio_url / audio_url_en / is_radio /
+# radio_order ve rpc ses_isine_basla, sesli_yayinla, sesleniyor_sirasi,
+# ses_hatasi_yaz veritabanında duruyor. Karar geri alınırsa arayüz
+# yeniden yazılabilir, veri kaybı yok.
+#
+#   Radyoya Ekle      ← bilerek kapalı
+#   Sesi Dinle        ← bilerek kapalı
 
 # ── Sabitleme ve haber görünümü ──
 Sabitleme yok
