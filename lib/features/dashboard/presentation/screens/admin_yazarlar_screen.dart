@@ -193,9 +193,17 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
       for (var i = 0; i < liste.length; i++) {
         final hedef = (i + 1) * 10;
         if (liste[i]['sort_order'] == hedef) continue;
-        await Supabase.instance.client
+        // .select() ŞART: RLS yazmayı hata vermeden SATIR SÜZEREK
+        // engelleyebiliyor (200 + []). Dönen satır sayılmazsa başarısız
+        // yazma "kaydedildi" diye görünür — bu ekranda tam olarak öyle oldu.
+        final yazilan = await Supabase.instance.client
             .from('columnists')
-            .update({'sort_order': hedef}).eq('slug', liste[i]['slug']);
+            .update({'sort_order': hedef})
+            .eq('slug', liste[i]['slug'])
+            .select();
+        if ((yazilan as List).isEmpty) {
+          throw Exception('yetki yok — satır yazılamadı (${liste[i]['slug']})');
+        }
         liste[i]['sort_order'] = hedef;
       }
       _bitir('Sıra kaydedildi.');
@@ -259,9 +267,15 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
 
     setState(() => _islemde = true);
     try {
-      await Supabase.instance.client
+      final yazilan = await Supabase.instance.client
           .from('columnists')
-          .update({'title_tr': sonuc}).eq('slug', y['slug']);
+          .update({'title_tr': sonuc})
+          .eq('slug', y['slug'])
+          .select();
+      if ((yazilan as List).isEmpty) {
+        _bitir('Kayıt başarısız: yetki yok.');
+        return;
+      }
       setState(() => y['title_tr'] = sonuc);
       _bitir('Unvan kaydedildi.');
     } catch (e) {
@@ -274,9 +288,15 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
   Future<void> _gizleAc(Map<String, dynamic> y, bool aktif) async {
     setState(() => _islemde = true);
     try {
-      await Supabase.instance.client
+      final yazilan = await Supabase.instance.client
           .from('columnists')
-          .update({'is_active': aktif}).eq('slug', y['slug']);
+          .update({'is_active': aktif})
+          .eq('slug', y['slug'])
+          .select();
+      if ((yazilan as List).isEmpty) {
+        _bitir('Kayıt başarısız: yetki yok.');
+        return;
+      }
       setState(() => y['is_active'] = aktif);
       _bitir(aktif ? 'Yazar sitede görünür.' : 'Yazar gizlendi.');
     } catch (e) {
