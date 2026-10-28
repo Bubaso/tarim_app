@@ -19,6 +19,7 @@ import '../screens/article_detail_screen.dart';
 import '../screens/author_article_detail_screen.dart';
 import '../screens/all_columnists_screen.dart';
 import 'ai_columnists.dart';
+import 'basak_avatar.dart';
 import '../../providers/home_providers.dart';
 
 
@@ -43,6 +44,10 @@ class HeroFold extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Yazarlar veritabanından geliyor; burada izlemek hem ilk okumayı
+    // tetikliyor hem de liste gelince şeridin yeniden çizilmesini sağlıyor.
+    // (aiColumnists önbelleğini okuyan alt widget'lar `ref` görmüyor.)
+    ref.watch(columnistsProvider);
     ref.watch(localeProvider); // Rebuild when language changes
     final headlines = articles;
 
@@ -263,23 +268,14 @@ class _ColumnistAvatar extends StatelessWidget {
     required this.isDark,
   });
 
-  String get _initials {
-    final parts = columnist.name
-        .split(RegExp(r'\s+'))
-        .where((w) => w.isNotEmpty && !w.endsWith('.'))
-        .toList();
-    if (parts.isEmpty) return columnist.name.characters.take(1).toString();
-    return parts
-        .take(2)
-        .map((w) => w.characters.first)
-        .join()
-        .toUpperCase();
-  }
-
   @override
   Widget build(BuildContext context) {
-    final bg = isDark ? const Color(0xFF2A2E26) : const Color(0xFFEBE6D9);
-    final fg = isDark ? AppColors.wheat : AppColors.earthText;
+    // Fotoğrafı olmayan yazarda BAŞ HARF DEĞİL başak (§32). Baş harfler bir
+    // kez denenip bırakılmıştı: kimlik işareti gibi değil, eksik bir veri
+    // gibi duruyordu. 8 yazarın 4'ünde avatar_url boş.
+    if (columnist.avatarUrl.isEmpty) {
+      return BasakAvatar(size: size, isDark: isDark);
+    }
 
     return ClipOval(
       child: SizedBox(
@@ -288,22 +284,12 @@ class _ColumnistAvatar extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Container(
-              color: bg,
-              alignment: Alignment.center,
-              child: Text(
-                _initials,
-                style: GoogleFonts.outfit(
-                  fontSize: size * 0.4,
-                  fontWeight: FontWeight.w700,
-                  color: fg,
-                ),
-              ),
-            ),
+            // Fotoğraf inerken ya da adres ölürse altta başak kalıyor —
+            // boş gri daire değil.
+            BasakAvatar(size: size, isDark: isDark),
             Image.network(
               columnist.avatarUrl,
               fit: BoxFit.cover,
-              // Yüklenirken / hata olunca alttaki baş harf görünür kalır.
               errorBuilder: (_, __, ___) => const SizedBox.shrink(),
               frameBuilder: (_, child, frame, wasSync) =>
                   frame == null ? const SizedBox.shrink() : child,

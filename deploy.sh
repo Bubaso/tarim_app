@@ -152,10 +152,27 @@ node content/dossiers/_ortak/statik_sayfa_db.mjs
 if [[ -f surum_bekcisi.txt ]]; then
   echo "▸ Sürüm bekçisi…"
   eksik=()
+  sizan=()
   while IFS= read -r belirtec; do
     [[ -z "$belirtec" || "$belirtec" == \#* ]] && continue
-    grep -qF -- "$belirtec" build/web/main.dart.js || eksik+=("$belirtec")
+    if [[ "$belirtec" == '!'* ]]; then
+      # YASAK: bulunmaMAlı. Bulunursa gerileme var demektir.
+      yasak="${belirtec#!}"
+      grep -qF -- "$yasak" build/web/main.dart.js && sizan+=("$yasak")
+    else
+      grep -qF -- "$belirtec" build/web/main.dart.js || eksik+=("$belirtec")
+    fi
   done < surum_bekcisi.txt
+
+  if (( ${#sizan[@]} > 0 )); then
+    echo "" >&2
+    echo "✗ DAĞITIM DURDURULDU — derlemeye YASAKLI içerik sızmış." >&2
+    for e in "${sizan[@]}"; do echo "      • $e" >&2; done
+    echo "" >&2
+    echo "  Bu genellikle veritabanından gelmesi gereken bir listenin" >&2
+    echo "  koda gömülü uydurma sürümüne dönmesi demektir." >&2
+    exit 1
+  fi
 
   if (( ${#eksik[@]} > 0 )); then
     echo "" >&2

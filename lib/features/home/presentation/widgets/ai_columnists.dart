@@ -1,9 +1,31 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  Köşe yazarları — TEK KAYNAK `columnists` tablosu
+// ──────────────────────────────────────────────────────────────────────────────
+//  Burada eskiden koda gömülü 5 UYDURMA yazar vardı (Unsplash stok fotoğrafı,
+//  olmayan isimler). Gerçek yazarlar veritabanında; liste koda gömülü kaldığı
+//  sürece panelden yazar eklemek/çıkarmak siteye hiç yansımıyordu ve sitede
+//  var olmayan kişiler görünüyordu.
+//
+//  Yazı bağlantısı: `articles.source_name` = `columnists.name`. Bağlantı ada
+//  dayandığı için isim veritabanında ne yazıyorsa O kullanılıyor; burada
+//  yeniden biçimlendirmek (büyük/küçük harf düzeltmek dâhil) yazıları
+//  yazarından KOPARIR.
+// ══════════════════════════════════════════════════════════════════════════════
+
+@immutable
 class AiColumnist {
   final String name;
-  /// URL-safe ASCII slug used in route paths (e.g. `/yazar/tarik-yilmaz`).
+
+  /// Rota yolunda geçen slug (`/yazar/<slug>`). Veritabanındaki `slug`.
   final String slug;
   final String titleTr;
   final String titleEn;
+
+  /// Boş olabilir: her yazarın fotoğrafı yok. Arayüz boşsa baş harflere düşüyor.
   final String avatarUrl;
 
   const AiColumnist({
@@ -13,42 +35,49 @@ class AiColumnist {
     required this.titleEn,
     required this.avatarUrl,
   });
+
+  factory AiColumnist.fromMap(Map<String, dynamic> m) {
+    final ad = (m['name'] as String?)?.trim() ?? '';
+    final trUnvan = (m['title_tr'] as String?)?.trim() ?? '';
+    final enUnvan = (m['title_en'] as String?)?.trim() ?? '';
+    return AiColumnist(
+      name: ad,
+      slug: (m['slug'] as String?)?.trim() ?? '',
+      titleTr: trUnvan,
+      // İngilizce unvan yoksa Türkçesine düşmek, boş satır göstermekten iyi.
+      titleEn: enUnvan.isEmpty ? trUnvan : enUnvan,
+      avatarUrl: (m['avatar_url'] as String?)?.trim() ?? '',
+    );
+  }
 }
 
-const List<AiColumnist> aiColumnists = [
-  AiColumnist(
-    name: 'Dr. Tarık Yılmaz',
-    slug: 'tarik-yilmaz',
-    titleTr: 'Global Tarım Ekonomisti',
-    titleEn: 'Global Agricultural Economist',
-    avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&auto=format&fit=crop&q=80',
-  ),
-  AiColumnist(
-    name: 'Zeynep Aksoy',
-    slug: 'zeynep-aksoy',
-    titleTr: 'İklim & Teknoloji Analisti',
-    titleEn: 'Climate & Tech Analyst',
-    avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80',
-  ),
-  AiColumnist(
-    name: 'Prof. Dr. Kemal Şahin',
-    slug: 'kemal-sahin',
-    titleTr: 'Gıda Politikaları Uzmanı',
-    titleEn: 'Food Policy Expert',
-    avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&auto=format&fit=crop&q=80',
-  ),
-  AiColumnist(
-    name: 'Doç. Dr. Ayşe Gündüz',
-    slug: 'ayse-gunduz',
-    titleTr: 'Kırsal Kalkınma & Sosyoloji',
-    titleEn: 'Rural Development & Sociology',
-    avatarUrl: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=100&auto=format&fit=crop&q=80',
-  ),
-  AiColumnist(
-    name: 'Caner Ekinci',
-    slug: 'caner-ekinci',
-    titleTr: 'Tarımsal Emtia & Piyasalar Uzmanı',
-    titleEn: 'Agri-Commodities & Markets Expert',
-    avatarUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&auto=format&fit=crop&q=80',
-  ),
-];
+/// Senkron erişim için en son okunan liste.
+///
+/// Rota çözümleyicisi (`_findColumnist`) ve `_isOpEd` gibi widget dışı
+/// yardımcılar `ref`e ulaşamıyor; onlar bu önbelleği okuyor.
+/// [columnistsProvider] her başarılı okumada burayı günceller.
+List<AiColumnist> aiColumnists = const <AiColumnist>[];
+
+/// `columnists` tablosu — yalnızca aktif olanlar, panelde verilen sırayla.
+final columnistsProvider = FutureProvider<List<AiColumnist>>((ref) async {
+  try {
+    final veri = await Supabase.instance.client
+        .from('columnists')
+        .select()
+        .eq('is_active', true)
+        .order('sort_order');
+
+    final liste = List<Map<String, dynamic>>.from(veri as List)
+        .map(AiColumnist.fromMap)
+        .where((c) => c.name.isNotEmpty && c.slug.isNotEmpty)
+        .toList(growable: false);
+
+    aiColumnists = liste;
+    return liste;
+  } catch (e) {
+    if (kDebugMode) print('columnists okunamadi: $e');
+    // Elde bir şey varsa onu koru: ağ hatasında yazar şeridini tamamen
+    // boşaltmak, eski listeyi göstermekten kötü.
+    return aiColumnists;
+  }
+});

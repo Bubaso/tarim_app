@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tarim_app/core/utils/hover.dart';
 import 'package:tarim_app/core/theme/app_dark_mode.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,13 +7,17 @@ import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../widgets/ai_columnists.dart';
+import '../widgets/basak_avatar.dart';
 import 'author_article_detail_screen.dart';
 
-class AllColumnistsScreen extends StatelessWidget {
+class AllColumnistsScreen extends ConsumerWidget {
   const AllColumnistsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Yazarlar `columnists` tablosundan; izlemek hem okumayı tetikliyor hem
+    // de liste gelince sayfanın yeniden çizilmesini sağlıyor.
+    final yazarlar = ref.watch(columnistsProvider).valueOrNull ?? aiColumnists;
     final isDark = appIsDark;
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final title = isEn ? 'Our Columnists' : 'Tüm Yazarlarımız';
@@ -103,10 +108,10 @@ class AllColumnistsScreen extends StatelessWidget {
                         mainAxisSpacing: 32,
                         childAspectRatio: 0.85,
                       ),
-                      itemCount: aiColumnists.length,
+                      itemCount: yazarlar.length,
                       itemBuilder: (context, index) {
                         return _PremiumColumnistCard(
-                          columnist: aiColumnists[index],
+                          columnist: yazarlar[index],
                           isDark: isDark,
                         );
                       },
@@ -235,11 +240,20 @@ class _PremiumColumnistCardState extends State<_PremiumColumnistCard> {
                                 offset: const Offset(0, 5),
                               )
                             ],
-                            image: DecorationImage(
-                              image: NetworkImage(col.avatarUrl),
-                              fit: BoxFit.cover,
-                            ),
+                            // Fotoğraf yoksa DecorationImage KURULMUYOR:
+                            // boş adresle NetworkImage çizim sırasında
+                            // patlıyor ve DecorationImage'in hata yedeği yok.
+                            image: col.avatarUrl.isEmpty
+                                ? null
+                                : DecorationImage(
+                                    image: NetworkImage(col.avatarUrl),
+                                    fit: BoxFit.cover,
+                                  ),
                           ),
+                          // Fotoğrafsız yazarda başak (§32).
+                          child: col.avatarUrl.isEmpty
+                              ? BasakAvatar(size: 100, isDark: isDark)
+                              : null,
                         ),
                       ),
                     ),

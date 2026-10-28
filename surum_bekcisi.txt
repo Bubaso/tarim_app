@@ -43,3 +43,19 @@ Kaynak Karnesi
 # ── Sabitleme ve haber görünümü ──
 Sabitleme yok
 Tam haber
+
+# ══════════════════════════════════════════════════════════════════════════
+# YASAK: aşağıdakilerden biri derlemede GÖRÜNÜRSE dağıtım durur.
+# Satır başı "!" ile işaretli.
+# ══════════════════════════════════════════════════════════════════════════
+#
+# Köşe yazarları `columnists` tablosundan gelir. Koda gömülü uydurma
+# yazarlar (Unsplash stok fotoğraflı, olmayan kişiler) 28 Ekim 2026'da
+# yayına çıktı ve gerçek 8 yazarı 60 yazısıyla birlikte sitede görünmez
+# yaptı. Bu isimlerden biri pakete geri sızarsa liste yine koda gömülmüş
+# demektir.
+!Tarık Yılmaz
+!Zeynep Aksoy
+!Kemal Şahin
+!Ayşe Gündüz
+!Caner Ekinci
