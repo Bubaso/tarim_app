@@ -1,0 +1,3101 @@
+ 
+ 
+ 
+ 
+Updated Trends in Northern Victorian Water Trade 
+2001-2024 
+ 
+Water Market Trends 
+
+ 
+ 
+ 
+2 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Acknowledgements 
+DEECA would like to acknowledge the contributions of Frontier Economics for drafting the early versions 
+of this report. 
+Photo credit 
+The title page photo was taken by Darryl Whitaker on a farm in Woorinen, Victoria. 
+ 
+ 
+ 
+© The State of Victoria Department of Energy, Environment and Climate Action December 2025. 
+Creative Commons 
+This work is licensed under a Creative Commons Attribution 4.0 International licence, visit the Creative Commons 
+website (http://creativecommons.org/licenses/by/4.0/). 
+You are free to re-use the work under that licence, on the condition that you credit the State of Victoria as author. 
+The licence does not apply to any images, photographs or branding, including the Victorian Coat of Arms, and the 
+Victorian Government and Department logos. 
+ISBN 978-1-76176-735-7 
+ 
+Disclaimer 
+This publication may be of assistance to you but the State of Victoria and its employees do not guarantee that the 
+publication is without flaw of any kind or is wholly appropriate for your particular purposes and therefore disclaims 
+all liability for any error, loss or other consequence which may arise from you relying on any information in this 
+publication. 
+Accessibility 
+To receive this document in an alternative format, phone the Customer Service Centre on 136 186, email 
+customer.service@deeca.vic.gov.au, or contact National Relay Service on 133 677. Available at 
+https://www.waterregister.vic.gov.au/water-trading/trade-reports. 
+We acknowledge and respect Victorian Traditional Owners as the original 
+custodians of Victoria’s land and waters, their unique ability to care for 
+Country and deep spiritual connection to it. 
+We honour Elders past and present whose knowledge and wisdom 
+has ensured the continuation of culture and traditional practices. 
+DEECA is committed to genuinely partnering with Victorian 
+Traditional Owners and Victoria’s Aboriginal community 
+to progress their aspirations. 
+ 
+ 
+ 
+3 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Contents 
+Contents .............................................................................................................. 3 
+1. About this report ........................................................................................ 4 
+2. Context........................................................................................................ 4 
+3. Private water use ........................................................................................ 6 
+4. Water share trade ....................................................................................... 8 
+5. Water allocation trade .............................................................................. 11 
+6. Water market insights .............................................................................. 19 
+7. Conclusions ............................................................................................. 24 
+8. References ................................................................................................ 25 
+Appendix 1 – Water shares linked to land ....................................................... 26 
+Appendix 2 – Detailed data on water trade and use ....................................... 28 
+ 
+ 
+ 
+ 
+ 
+ 
+4 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+1. About this report 
+The purpose of this report is t o provide insights into trends in how water share holders, irrigators and others have 
+been using northern Victorian water market s to access water, manage their water risks and trade water between 
+people and places. It provides an update to the last water market trends report (DELWP 2019) and the original market 
+trends report (DEPI 2016) by focussing on new data and observed trends since 2018-19, in the context of the historic 
+data from previous reports. 
+Making this information publicly available is part of the Victorian Government’s commitment to provide transparency 
+about changes in how water entitlements are held and used in northern Victoria to help water users make informed 
+decisions about their participation in the market. 
+Unless otherwise stated, the data presented in this report comes from the Victorian Water Register. Data for periods 
+prior to 2007 (i.e. 1991 and 2001) comes from The Value of Water: A Guide to Water Trading in Victoria (DNRE 
+2001). Appendix 2 to this report presents tables and charts of data to allow anyone to quote, use and analyse this 
+information further. 
+2. Context 
+Water markets in northern Victoria are a subset of broader markets spanning the southern-connected Murray Darling 
+Basin (including the South Australian Murray, NSW Murray and Murrumbidgee systems) . Subject to trading rules, 
+water can move between these interconnected systems (or trading zones). 
+Water availability and seasonal conditions 
+The last water market trends report (DELWP 2019) was released during a period of low rainfall and inflows across 
+the southern Murray Darling Basin. Water availability was particularly low in NSW, where general security allocations 
+were 0% and 7% in the NSW Murray and Murrumbidgee respectively. 
+Dry conditions continued through 2019-20, however water availability began to improve in 2020-21, which was then 
+followed by three relatively wet years with high water availability for entitlement holders and widespread flooding in 
+northern Victoria. The relatively wet conditions challenged river operators and irrigators with full and spilling storages 
+and waterlogged land. The Resource Manager announced 100% seasonal determinations to low-reliability water 
+shares in the Victorian Murray for the first time ever in 2021-22, which was then repeated in 2022-23 and 2023-24. 
+Regional commodity trends and water use behaviour 
+The area of perennial horticulture plantings along the Murray downstream of the Barmah Narrows in NSW, South 
+Australia and Victoria has continued to grow, increasing by 23,000 hectares between 2015 and 2021. This increase 
+has been most notable for table grapes and nuts, with some crop plantings such as wine grapes declining over this 
+period (SunRISE 2022). Expansion of the irrigated area of table grapes and nut s in the region continued between 
+2021 and 2023 (SunRISE 2023). This expansion reflects favourable commodity prices and proven farming systems 
+for profitable growing of these crops in the region . It is in this context that these horticulturalists can often ‘out 
+compete’ other water market participants when water is scarce by offering higher prices for water . The trends data 
+in sections 3 and 5Figure 1 of this report highlights that private water users in the Victorian Murray downstream of 
+Barmah Narrows (Lower Murray Water ( LMW) diverters and LMW districts), have retained strong and consistent 
+water use with the support of large volumes of trade . Since 2010, there has also been a shift in seasonal cropping 
+patterns in the Murrumbidgee system driven by commodity prices and the development of colder climate varieties of 
+cotton where large areas of irrigated cotton have replaced more traditional rice crops (BoM 2023). While areas of 
+irrigated cotton fell in 2019 -20 with low water availability and corresponding high water prices a longside softening 
+cotton prices, areas of both irrigated cotton and rice have since increased with improved water availability (BoM 
+2023). 
+ 
+ 
+ 
+5 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Water recovery for the environment 
+Water recovery targets from the largest irrigation moderni sation project in Australian history, the Goulburn -Murray 
+Water (GMW) Connections Project , were finalised in 2020. Consistent with commitments under the project, this 
+resulted in reductions in GMW ’s loss allowance entitlement as a result of water savings from improved efficiency , 
+and the issue of new water entitlements to environmental water holders , Melbourne’s urban water retailers, and 
+Goulburn Murray Irrigation District (GMID) delivery share holders. 
+The purchase of water shares for the environment in northern Victoria under the Commonwealth Government’s 
+Restoring the Balance in the Murray-Darling Basin Program, which peaked in 2009-10 to 2011-12, was wrapped up 
+by 2018. Between 2018 -19 and 2023-24 there were no water share purchases for the environment in northern 
+Victoria. However , in 2023 Commonwealth Government announced plans to purchase additional water towards 
+Basin Plan water recovery, and under the Aboriginal Water Entitlements Program, across the Murray-Darling Basin, 
+including in northern Victoria . These programs commenced in 2024-25 and are expected to continue into 2025-26 
+and 2026-27. Volumes of water shares purchased by the Australian Government after 1 July 2024 can be viewed 
+here. 
+Water market and Victorian trade rule reform 
+Over the period 2018 to 2022, DEECA completed a review of the Goulburn to Murray trade arrangements. The review 
+was established because unprecedented volumes of traded water delivered from the Goulburn to the Murray in 2017-
+18 and 2018-19 caused environmental damage to the lower Goulburn River with sustained high flows in summer and 
+autumn. The review process resulted in the introduction of restrictions on use from tagged accounts when allocation 
+trade limits apply (introduced initially in December 2019) and new Goulburn to Murray trade and operating rules 
+(introduced initially on 1 July 2021 ). Details of the changes made to the rule can be found Goulburn to Murray 
+trade review Long-term rules – fact sheet 1. 
+In response to community concerns about unethical behaviour in water market s, the Australian Competition and 
+Consumer Commission (ACCC) was directed in 2019 to conduct an inquiry into Murray-Darling Basin water markets, 
+including their operation, transparency, regulation, competitiveness and efficiency. This Inquiry was completed in 
+2021. The ACCC did not find evidence that investors exercised market power or manipulated markets to increase 
+water prices in the Southern Connected Basin. However, the ACCC did find that the perception of misconduct by 
+water investors has reduced water users’ confidence in water markets and that information was not readily available 
+to robustly assess behaviour and market performance. The ACCC made several recommendations related to water 
+market transparency and integrity which Victoria and the other Basin governments have used to develop a roadmap 
+for water market reform. 
+Two key Victorian market transparency improvements relevant to this report have been made in recent years. Firstly, 
+in August 2020, Victoria introduced a new requirement that the ‘reason for trade’ be recorded on all online allocation 
+trade applications (NSW and South Australia have both also introduced similar requirements) . This change has 
+enabled improved reporting and market information about why people are using allocation trade . The ‘reasons for 
+trade’ categories are : standard commercial trade, related party trade, carryover parking, carryover parking return, 
+private lease arrangement, allocation trade as part of a water share transfer, forward contract and ‘other’. Secondly, 
+in response to community consultation, changes to Victoria’s Water Act 1989 were introduced in July 2024 that 
+enable new information to be published about frequent allocation traders (people who make more than 20 commercial 
+Murray and/or Goulburn allocation trades in a year). 
+Water delivery in the Murray River 
+Another issue, indirectly related to water markets, is increasing delivery or shortfall risks in the Murray. There have 
+been significant changes across the connected Murray -Darling Basin over the last 10 -20 years that have made it 
+increasingly difficult to deliver water in the Murray downstream of the Barmah Narrows. These changes include the 
+reduced channel capacity through the Barmah Narrows, less frequent access to water in the Menindee Lakes and 
+changing timing and location of water demand. 
+ 
+ 
+ 
+6 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+In addition to working with the other Murray -Darling Basin governments to understand, manage and prepare for 
+shortfalls, Victoria introduced in November 2023 a new ‘place of take approvals’ framework to clarify and protect the 
+rights of water users to have water delivered down rivers in a shortfall and enable more flexibility for river diverters 
+to manage their own delivery risks through the trade of extraction share. The newly introduced extraction share 
+market is not covered in this report, due to the lim ited data available to date, however future water market reporting 
+will expand to incorporate extraction share trade information. 
+3. Private water use 
+Where private parties (i.e. not water corporations or environmental water holders) have been using water in northern 
+Victoria, and how this has changed over time provides useful context for understanding activity and trends in the 
+water market. Figure 1 presents private annual water use in northern Victoria by GMW and LMW river diverter 
+(diverter) and irrigation district (district) customers against a backdrop of different seasonal conditions (drought, 
+drying, average and wet). 
+Figure 1: Annual private water use in northern Victoria 
+ 
+Notes: 
+1. Seasonal indicators are based on northern Victoria rainfall records, and not water availability. They are indicative only for the purpose of 
+highlighting when irrigation areas were wetter or drier in the lead up to and during the irrigation season. 
+2. Water use data from 2004-05 has been sourced from water corporation annual reports. 
+0
+500
+1,000
+1,500
+2,000
+2,500
+2004-05
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume (GL)
+LMW Diverters LMW Districts GMW Diverters GMW Districts
+Wet Drying Average AverageWet Average Drying Drought WetDrought
+ 
+ 
+ 
+7 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Since 2018-19, private annual water use has fluctuated between 1,112 GL and 1,751 GL. Water use was lowest in 
+2019-20 when dry conditions resulted in low water availability across the southern connected Murray-Darling Basin, 
+although notably, use was higher than in the last drought year in 2008 -09. Low-reliability allocations were available 
+in the Murray in 2021-22, 2022-23 and 2023 -24, but there is no observable consequent increase in water use in 
+those years in this data. There is also no obvious signal of decreased private water use from the acquisition of water 
+shares for the environment between 2009 -10 to 2018 ; it is likely that year -to-year climate and water availability 
+variations cause sufficient ‘noise’ in the data to mask such a trend if it exists. 
+GMW district customers have continued to account for the largest share of private water use in northern Victoria, 
+however their use volumes are also the most variable . The decline in water use in 2019 -20 was most evident in 
+GMW’s districts where only 531 GL was used (almost half their average annual use). 
+LMW diverters and district users had a comparatively small decline in water use in response to the dry conditions. 
+The difference in GMW and LMW regional experiences highlights the stark difference between highly variable water 
+use in GMW’s region (where irrigation is dominated by mixed farming and dairy) and the more consistent water use 
+in LMW’s region (where irrigation is dominated by perennial horticulture).1 
+Figure 1 shows that with the exception of 2022 -23 when widespread flooding suppressed demand, use by LMW 
+diverters has been relatively stable since 2017 -18, indicating that growth in perennial horticulture plantings during 
+this time has not increased overall water use. This contrasts with the trend observed in the 2018 Market Trends 
+Report that water use by LMW diverters had increased since 2004-05. It is likely that the stable trend since 2017-
+2018 – even during the ‘drought’ years of 18-19 and 19-20 – is influenced by several factors, including the relatively 
+mild seasonal conditions since 2020-21, exits of existing farm businesses, and reductions in local seasonal cropping. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1 GMW’s irrigation districts are mostly dominated by cropping and dairying but do include important areas of non-dairy grazing and horticultural 
+plantings (GBCMA 2023), and GMW’s river diverters (irrigators who pump their own water directly from rivers without being part of an irrigation 
+district) irrigate a range of enterprises , predominantly cropping, non-dairy grazing and horticulture (GBCMA 2024). LMW’s irrigation districts 
+comprise predominantly permanent plantings of grapevines, and LMW’s river diverters overwhelmingly grow perennial horticultural crops. Almonds 
+are now the dominant crop, but there are also extensive plantings of grapevines, citrus, and various other crops (MCMA 2022). 
+ 
+ 
+ 
+8 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+ 
+4. Water share trade 
+Water share ownership 
+Trends in water share ownership highlight who has access to water allocations that could be made available on the 
+market, and how that has changed over time. Owners can choose to link their water shares to land which may indicate 
+their intent to use the water allocations on that land, although does not prevent them selling allocations on the market. 
+Owners may choose not to link their water shares to land for a wide variety of reasons, including financial and 
+accounting purposes2, irrigators wanting flexibility to move water for use on their land and investors selling water 
+allocations to generate an annual return. 
+Figure 2 presents the ownership and nature of holding high-reliability water shares at 30 June each year. The method 
+of reporting on “links to land” in this report differs from previous reports in response to changes to the Water Act 1989 
+that were made in 2023 (described in detail in Appendix 1 – Water shares linked to land). 
+Figure 2: Changing ownership of high-reliability water shares in northern Victoria 
+ 
+ 
+ 
+2 For example, some may hold water shares in their superannuation account, so allocations are transferred to the required farm allocation account 
+(rather than linked) for use. 
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+June
+2001
+June
+2005
+June
+2009
+June
+2010
+June
+2011
+June
+2012
+June
+2013
+June
+2014
+June
+2015
+June
+2016
+June
+2017
+June
+2018
+June
+2019
+June
+2020
+June
+2021
+June
+2022
+June
+2023
+June
+2024
+Volume at 30 June (GL)
+Private - linked to land Private - not linked to land Water corporation Environmental water holders
+ 
+ 
+ 
+9 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Since 2018, there has been no significant change in the proportion of high-reliability water share volumes in northern 
+Victoria held by the environment (30%), water corporations (2%) and private owners (68%). However, the total 
+volume of high-reliability water shares in northern Victoria has increased by 129 GL during this period as a result of 
+entitlement changes reflecting water recovered under the GMW Connections Project. 3 
+Most privately held high-reliability water shares remain linked to land, however this volume has continued to decline, 
+reducing from 1,390 GL at 30 June 2018 to 1,262 GL at 30 June 2024. The rate of decline has been higher in irrigation 
+districts than for diverters across GMW and LMW regions 4. At 30 June 2024, 18% of high -reliability water shares in 
+northern Victoria were privately owned and not linked to land compared to 11% at 30 June 2018. Use of allocations 
+made to water shares not linked to land is explored further in Section 6 of this report. 
+High reliability water share prices 
+Prices paid for water shares indicate the value that water users and investors have placed on those entitlements. 
+Figure 3 shows how the median prices of high-reliability water shares in the three largest northern Victorian source 
+trading zones has varied since unbundling in July 2007. 
+Figure 3: High-reliability water share median prices (6-month rolling average) 
+ 
+Unlike the preceding decade, the Commonwealth was not a purchaser of Victorian water shares between 2018 to 
+20245, with most trade occurring between private parties. 
+High-reliability water share prices approximately doubled between 2018 and 2020, reflecting the premium value that 
+water users placed on these entitlements during drought conditions. In late 2020 prices fell slightly, but then Murray 
+downstream from Barmah high reliability water share prices subsequently increased again, peaking in early 2023. 
+ 
+ 
+3 This included the issue of 84 GL for the environment and 60 GL to GMID delivery share holders (commonly referred to as the irrigator’s share of 
+water recovery) and the surrender of 15 GL held by GMW on behalf of the GMW Connections Project. Under the irrigators’ share GMID irrigators 
+were issued entitlement equivalent to 77 GL of long-term average annual yield, which was made up of both high-reliability and low-reliability water 
+shares. 
+4 Compared to 2017-18, volumes linked to land in 2023-24 have declined by 10% for GMW districts, 6% for GMW diverters, 15% for LMW districts, 
+and 5% for LMW diverters. Refer to Table 6 in Appendix 2 for volumes. 
+5 Approximately 1 GL of high -reliability water share was transferred to the Commonwealth between 2019 and 2021, however these were not 
+market purchases, they were held by Victorian agencies and relate to projects recovering additional water for the environm ent. Since 2024, the 
+Commonwealth has again become a purchaser of Victorian water shares. Information about this can be found on the Victorian Water Register 
+website here. 
+0
+1,000
+2,000
+3,000
+4,000
+5,000
+6,000
+7,000
+8,000
+July
+2007
+July
+2008
+July
+2009
+July
+2010
+July
+2011
+July
+2012
+July
+2013
+July
+2014
+July
+2015
+July
+2016
+July
+2017
+July
+2018
+July
+2019
+July
+2020
+July
+2021
+July
+2022
+July
+2023
+July
+2024
+High-reliability water share median price 
+($/ML)
+Greater goulburn (zone 1A)
+Murray upstream Barmah (zone 6)
+Murray downstream Barmah (zone 7)
+ 
+ 
+ 
+10 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Water share prices have historically been relatively similar across different water sources. However, since 2018 
+prices have been noticeably higher in the Murray zone 7 (downstream of Barmah) reflecting growth in perennial 
+horticulture demand downstream of Barmah (including in NSW and South Australia) with its high willingness to pay 
+for water and more regular periods of restriction on allocation trade into the region (explored further in Section 5). 
+Low reliability water share prices 
+Figure 4 shows how the median prices of low-reliability water shares has varied since unbundling in July 2007. 
+Figure 4: Low-reliability water share median prices (6-month rolling average) 
+ 
+In this period, low -reliability water share median prices have followed a similar pattern to high-reliability prices – 
+broadly stable until approximately 2018-19, followed by a series of significant increases. This price increase has been 
+most significant in Murray zone 7, where low-reliability water share prices increased from $444 per ML in July 2018 
+to $1,861 per ML in June 2024. Low reliability price rises may be influenced by a growing recognition of the value of 
+these water shares to carry over water in average or dry years, as well as receiving allocations in wetter years like 
+2021-22, 2022-23 and 2023-24. 
+Water share prices in recent years have likely also been supported by emergence of the “carryover parking” market 
+where water share holders have been able to generate new revenue by leasing water shares (representing additional 
+carryover capacity) to others seeking to increase the ability to hold on to their unused allocations. This new market 
+is explored in further detail later in section 5. 
+ 
+ 
+0
+200
+400
+600
+800
+1,000
+1,200
+1,400
+1,600
+1,800
+2,000
+July
+2007
+July
+2008
+July
+2009
+July
+2010
+July
+2011
+July
+2012
+July
+2013
+July
+2014
+July
+2015
+July
+2016
+July
+2017
+July
+2018
+July
+2019
+July
+2020
+July
+2021
+July
+2022
+July
+2023
+July
+2024
+Low-reliability water share median price 
+($/ML)
+Greater goulburn (zone 1A)
+Murray upstream Barmah (zone 6)
+Murray downstream Barmah (zone 7)
+ 
+ 
+ 
+11 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+5. Water allocation trade 
+Allocation trade volumes 
+Annual allocation trade volumes6 have generally increased year on year since unbundling occurred in 2007 -08; the 
+exceptions to this occurred in some of the drier years with low early season allocations (e.g. 2013-14 and 2018-19) 
+(Figure 5). Over this period, trade volumes as a proportion of total allocation available (including volumes carried 
+over and new season allocations) has been trending upwards, indicating ongoing growth of water markets as water 
+users increasingly use allocation markets to maximise the value of thei r entitlements and meet their water needs 
+within the water year. 
+Figure 5: Summary of annual allocation trade in northern Victoria 
+ 
+Notes: 
+1. Excludes trade of environmental water. Environmental trade is defined as trades between environmental accounts, or $0 priced trades 
+involving an environmental account. 
+ 
+Number of allocation trades 
+The number of allocation trades occurring in drier years has tended to be higher than in wetter years, reflecting that 
+when conditions are drier, market participants tend to trade water in smaller parcels (Figure 6). 
+ 
+ 
+6 The allocation trade analysis in this report excludes $0 trades between environmental water holders because these trades reflect environmental 
+water holders moving water between their accounts or delivering water to another state, so do not contribute to the water available in the market 
+or for private water use. The analysis in this report does, however, include information about allocation trades between the environmental water 
+holders and others (i.e. private entities and water corporations). Further information about environmental water delivery and trade between 
+environmental water accounts is included in the Victorian Water Accounts | DEECA Victorian Water Accounts. 
+0%
+20%
+40%
+60%
+80%
+100%
+120%
+140%
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+2007-08
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume traded as proportionon of available 
+allocaiton
+Volume traded (GL)
+$0 priced trade volume Commercial trade volume Total volume as proportion of private available allocation
+ 
+ 
+ 
+12 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 6. Number of trades and average trade parcel size in northern Victoria 
+ 
+Notes: 
+1. Excludes trade of environmental water. Environmental trade is defined as trades between environmental accounts, or $0 priced trades 
+involving an environmental account. 
+ 
+Allocation prices in the Goulburn and Victorian Murray 
+Allocation price trends demonstrate the willingness of market participants to pay for water allocations, and how this 
+has varied over time. Several supply and demand factors influence allocation prices including current and forecast 
+water availability, climate conditions, commodity markets, restrictions on trade and demand. The Goulburn and 
+Victorian Murray are the two largest water supply systems in northern Victoria and have the deepest, most active 
+markets, providing the most robust overall indication of willingness to pay for water allocation s in northern Victoria. 
+Figure 7 presents the trend in annual median allocation prices for the Goulburn and Victorian Murray system s, and 
+how this compares to private water availability and use each year 
+Figure 7: Victorian Murray and Goulburn private water availability, use and median allocation price 
+ 
+Notes: 
+1. Only privately held accounts with a Goulburn or Murray source trading zone are included in this data. 
+0
+5,000
+10,000
+15,000
+20,000
+25,000
+0
+50
+100
+150
+200
+250
+300
+350
+2007-08
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Number of trades
+Average trade parcel size (ML)
+Commercial trades $0 priced trades Total number of trades
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+4,000
+4,500
+5,000
+Median allocation price ($/ML)
+Volume (GL)
+New seasonal allocations Allocation carried over²
+Net trade in Use
+Median price
+ 
+ 
+ 
+13 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+2. ‘Allocation carried over’ reflects the carried over water available after deductions from spillable water accounts. 
+3. In every year except for 2012-13, there was a net trade in to Murray and Goulburn private accounts (i.e. more water traded in than out). In 
+2012-13 there was a net trade out of 1 GL in 2012-13. Since this graph only shows privately held Goulburn and Murray accounts, ‘net trade 
+out’ may mean trade to interstate or other Victorian systems, or trade to environmental water holders or water corporations within Victoria. 
+4. There was no available allocation carried over in 2022-23 as 100% of carryover water spilled in accordance with the carryover rules. 
+ 
+Figure 7 shows that allocation prices have continued to be highest during drought and low water availability periods, 
+and lower during wet years with high water availability and low water use. 
+Record high allocation prices were observed in 2019 -20 when water availability fell to the lowest levels since the 
+Millennium Drought. Several factors contributed to these higher prices, including two years of hot, dry conditions, 
+very low water availability in NSW (much lower than in 2008-09), the reduced volume of high-reliability water shares 
+held for consumptive purposes (due to purchases for the environment), and growth in perennial horticultural 
+industries with a high willingness to pay for allocation. 
+The relatively low allocation prices observed since 2020 -21 reflect high water availability (high carryover volumes 
+and 100% allocations, including for low -reliability water shares). In 2022 -23, allocation prices were particularly low 
+(the median annual price in the Goulburn and Victorian Murray was $20/ML) due to suppressed demand following 
+heavy rainfall and flooding in spring and early summer that offset irrigation needs and damaged crops in some 
+regions. The last time allocation prices have been as low as 2022-23 was in 2011-12, when water availability (new 
+season allocation plus carryover) was even higher. 
+Interstate allocation trade 
+Trends in allocation trade into and out of northern Victoria with other parts of the southern connected Basin highlight 
+the differing supply and demand conditions in each of the states over time. Figure 8 presents the net allocation trade 
+into Victoria from NSW and South Australia each year. 
+Figure 8: Net trade of allocation into Victoria (excluding trade of environmental water) 
+ 
+Notes: 
+1. Net trade in this figure includes interstate tagged usage. 
+2. Excludes trade of environmental water. Environmental trade is defined as trades between environmental accounts, or $0 priced trades 
+involving an environmental account. 
+3. Positive values in this figure indicate water moving into Victoria. Negative values indicate water moving out of Victoria. 
+ 
+Figure 8 shows that i n most years, Victoria continues to be a net importer of allocation from the other states. This 
+trend was reversed in 2017 -18 and 2018-19 when NSW general security allocations fell below 100% and demand 
+from seasonal crops such as cotton remained high (BoM 2023). While NSW general security allocations remained 
+-200
+-150
+-100
+-50
+0
+50
+100
+150
+200
+250
+2007-08
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume (GL)
+ From New South Wales From South Australia
+ 
+ 
+ 
+14 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+low in 2019-20 (3% in the Murray and 11% in the Murrumbidgee), Victorian high-reliability allocations also fell below 
+100% and opportunities to trade water out of the Goulburn were lower than the previous years , resulting in Victoria 
+again becoming a net importer of allocation supported by the willingness of perennial horticulture (the largest 
+proportion of which is located in Victoria) to pay high allocation prices. 
+There was relatively little trade between Victoria and NSW during 2022 -23 and 2023-24 when high spill risks in the 
+Murray led to restrictions on trade between the two states applying for large periods of these years 7 8. 
+Victoria’s volume of trade with South Australia has typically been much lower than trade with NSW. Nevertheless, 
+Figure 8 highlights an increasing trend of net trade from Victoria to South Australia – as observed in five out of the 
+last seven years, including 87 GL of net private allocation trade into South Australia in 2023 -24. This trend is likely 
+to be influenced by several factors which may include growth in irrigation demand from high value crops in South 
+Australia and lower water availability in NSW during dry periods. 
+Regional allocation trade – Murray zone 7 (downstream of Barmah) 
+Net allocation trade into the Murray zone 7 (downstream of Barmah) is worthy of particular consideration given the 
+historically strong demand for water in this reach, and the more recent growth in perennial horticulture plantings 
+downstream of Barmah. Figure 9 shows the net volume of allocation imported into Murray zone 7 by traders, and 
+where that trade was sourced from , including whether it was traded in from interstate, upstream of Barmah and 
+tributaries. 
+Figure 9: Net allocation trade (including tagged use) into Murray zone 7 
+ 
+Notes: 
+1. Victorian tributaries include trading zones 1A, 1B, 2, 3, 4A, 4C, and 5A. 
+2. NSW Murray upstream Barmah includes trading zones 10 and 10B. NSW Murray downstream Barmah includes trading zones 11 and 14. 
+3. This chart excludes trade of environmental water. Environmental trade is defined as trades between environmental accounts, or $0 priced 
+trades involving an environmental account. 
+ 
+ 
+7 Allocation trade from New South Wales to Victoria is limited to the lesser of a net annual volume of 200 gigalitres (GL) or a volume that keeps 
+the risk of spill in Victoria’s share the Murray system below 50 per cent. The spill risk limit currently allows more than 200 GL of trade, and so the 
+net annual volume of 200 GL applies unless advised otherwise. See Understanding the NSW to Victoria trade limit - Water Register 
+8 Allocation trade into NSW was restricted for most of 2022 -23, and until September of 2023 -24, to protect NSW Murray entitlements from an 
+increased spill risk due to trade in . Temporary restriction interstate water trades into NSW Murray, Lower Darling and Murrumbidgee regulated 
+water sources | NSW Government Water 
+-150
+-100
+-50
+0
+50
+100
+150
+200
+250
+300
+350
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Net trade in (GL)
+Vic tributaries
+Lower Broken Creek
+Vic Murray upstream Barmah
+NSW Murray downstream Barmah
+NSW Murray upstream Barmah
+NSW Murrumbidgee
+SA Murray
+Net trade in
+ 
+ 
+ 
+15 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+ 
+Figure 9 shows that Murray zone 7 has historically been a net importer of allocation, with traders importing between 
+net 73 GL and net 306 GL allocation each year since 2017-18. This demonstrates the ongoing demand for water in 
+the zone, which peaked during the recent drought conditions. 
+Victorian tributaries have been the most consistent supplier of allocation to the region during this period . The 
+contribution of the Victorian tributaries was most significant in 2017 -18 and 2018 -19 when record volumes of 
+allocation were trade d out of the Goulburn system u nder the now superseded trade rule. 9 The NSW Murray 
+downstream of Barmah became the dominant source of supply in years when NSW had full general security 
+allocations and trade into Victoria was unrestricted for most of the year (i.e. 2020-21 and 2021-22). Prior to 2017-18, 
+South Australia was a major supplier of allocation to the region, although in more recent years this trend has reversed, 
+for example in 2023 -24 private traders in zone 7 exported a net 85 GL to South Australia . Where zone 7 private 
+buyers source their water from is likely influenced by a range of factors including water availability, restrictions on 
+trade, demand for water and willingness to pay. 
+Interzone allocation trade restrictions and price differentials 
+Trade limits are necessary to protect entitlement holders and waterway health from potential negative impacts. 
+When these limits are reached and allocation trade between zones is restricted, allocation prices in the different 
+zones can diverge in response to different supply and demand conditions. 
+Two of the most influential restrictions on allocation trade in northern Victoria in recent years have been the limits 
+on trade from upstream to downstream of Barmah and from the Goulburn to the Murray10. Data showing when 
+these trade restrictions have been binding is presented in Figure 10 alongside median weekly allocation prices for 
+the largest trading zones on each side of the restriction (Murray zone 6 and Goulburn zone 1A as the largest zones 
+where trade is restricted from, and Murray zone 7 as the largest Victorian zone where is restricted to) . 
+ 
+Figure 10 highlights a price divergence between the restricted zones whenever these limits were in effect, with high 
+prices in the zone where trade is restricted into and lower prices in the zone where trade is restricted f rom. The 
+divergence was most significant in 2019 -20 when there was low water availability and high prices across northern 
+Victoria and both limits remained closed for most of the year. In mid-November 2019 the median weekly price peaked 
+at $960 per ML in the Murray zone 7 compared to $650 per ML in the Murray zone 6 and $660 per ML in the Goulburn 
+zone 1A. These price differences reinforce the strong demand for water in the Murray downstream of Barmah and 
+demonstrate the high willingness to pay from these water users. 
+ 
+ 
+ 
+9 Goulburn to Murray trade review Long-term rules – fact sheet 1 
+10 In addition to the Barmah and Goulburn trade limits, other key trade restrictions that affect the northern Victorian market are limits on trade into 
+Victoria from NSW, limits into NSW from Victoria and South Australia, and limits on trade out of the Murrumbidgee. 
+ 
+ 
+ 
+16 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 10: Allocation trade restrictions and price differentials 
+ 
+ 
+Notes: 
+1. For the purpose of this graph, “trade restricted” means the opportunity to trade at the end of that day was 10 ML or less. This 10 ML value 
+was adopted to avoid noise in the data resulting from small volumes of trade opportunity being available for periods of time when there were 
+likely larger volumes market participants were seeking to trade. 
+2. Note that prior to November 2019 use from Goulburn tagged accounts was unrestricted. 
+3. Price data is median weekly data. Note that in some weeks there are very few trades, and prices may be skewed by a private le ase 
+arrangement or forward contact. 
+ 
+Figure 10 also highlights that these trade restrictions have become more frequent over time. Trade downstream of 
+Barmah restricted has been restricted most of the time since 2019-20, and trade out of the Goulburn has been 
+restricted for large part of each year since 2017-18. The increasing restrictions reflects the strong demand for 
+water in the Murray downstream of Barmah, including in NSW and South Australia as well as Victoria. 
+Most allocation trade under these limits now occurs as soon as trade opportunities become available. In practice, 
+this means that most trade from upstream to downstream of Barmah occurs on 1 July, and most trade out of the 
+Goulburn (since 2021 when the trade rule changed 11) occurs on 1 July, 15 October and 15 December each year. 
+Smaller volumes of allocation trade through the irrigation season occur when new opportunity is created by market 
+participants trading in the opposite direction of the limit. These smaller volume trades are often taken up within 
+minutes of the opportunity becoming available. As the irrigation season draws to a close, the trade limits have often 
+opened up again due to net trade back upstream. This late season trend is explored further in the next section of this 
+report. 
+ 
+ 
+ 
+11 The timing of when Goulburn trade opportunities become available has shifted since July 2022 when changes were made to the Go ulburn to 
+Murray trade rule. Previously, the largest trade opportunities usually became available in summer and autumn when the Inter Valley Trade Account 
+(which tracks the volume of water traded, but not yet delivered, from the Goulburn to the Murray system) fell below 200 GL. Under the new rule, 
+most trade opportunity becomes available on 1 July, with additional trade opportunity released in October and December. 
+$0
+$200
+$400
+$600
+$800
+$1,000
+July 2015 July 2016 July 2017 July 2018 July 2019 July 2020 July 2021 July 2022 July 2023 July 2024
+Weekly median allocation 
+price ($/ML)
+Barmah trade restricted
+Murray upstream Barmah (zone 6)
+Murray downstream Barmah (zone 7)
+$0
+$200
+$400
+$600
+$800
+$1,000
+July 2015 July 2016 July 2017 July 2018 July 2019 July 2020 July 2021 July 2022 July 2023 July 2024
+Weekly median allocation 
+price ($/ML)
+Goulburn to Murray trade restricted
+Goulburn (zone 1A)
+Murray downstream Barmah (zone 7)
+ 
+ 
+ 
+17 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Late-season allocation trade 
+Even when the Barmah and Goulburn trade limits are closed for most of the year, they have often opened again late 
+in the season due to net trade in the opposite direction of the limit. While this opening has occurred as early as April 
+in some wet years, the restrictions have usually been open ed in June. To provide an indication of the trend in late 
+season allocation trade activity, Figure 11 presents net allocation trade into Murray zone 7 each June , including 
+where that water is traded from (or to). 
+Figure 11: June net allocation trade into zone 7 (Murray downstream Barmah) 
+ 
+ 
+Notes: 
+1. Victorian tributaries include trading zones 1A, 1B, 2, 3, 4A, 4C, and 5A. NSW upstream Barmah includes zones 10 and 10B. NSW 
+downstream Barmah includes zones 11 and 14. 
+2. This chart excludes trade of environmental water. Environmental trade is defined as trades between environmental accounts, or $0 
+priced trades involving an environmental account. 
+ 
+Figure 11 demonstrates that in June , the annual trend of net trade into Murray zone 7 (as presented in Figure 9), 
+reverses with net trade out of the zone recorded each year. Net trade out of zone 7 in June has varied between 9 GL 
+in 2016 and 55 GL in 2023. Water use is always very low in June, which suggests this late season trade trend is 
+Murray zone 7 allocation holders seeking to reduce their risk of allocation write -off (forfeiture) before the end of the 
+year by utilising available carryover space in other zones12. 
+Since 2020 (when the Barmah and Goulburn trade limits started to be binding for most of the year), the largest 
+proportion of the June trade out of Murray zone 7 has been into the Victorian tributaries, aligning where the largest 
+volume of water shares are held. During this period there has been net trade in from interstate to zone 7 each June, 
+highlighting that water share holders in the Murray zone 7 have also been realising the benefits of their carryover 
+capacity by trading allocation in from across the southern connected Basin late in the season. 
+ 
+ 
+ 
+12 Prior to the introduction of carryover in northern Victoria, any unused allocation remaining in accounts was written off on 30 June. This system 
+had the unintended consequence of incentivising inefficient water use by driving irrigators to “use it or lose it” before the end of the current year. 
+Now, subject to carryover rules, water share holders can carry over their unu sed water allocation into the following season. Victoria’s carryover 
+rules provide water share holders flexibility to manage their water security risks by building up their own drought reserves, improving certainty of 
+early season access to water and minimising their write-off risks. 
+-80
+-60
+-40
+-20
+0
+20
+40
+60
+June
+2016
+June
+2017
+June
+2018
+June
+2019
+June
+2020
+June
+2021
+June
+2022
+June
+2023
+June
+2024
+June net trade into zone 7 (GL)
+Vic Tributaries
+Lower Broken Creek
+Vic Murray above Barmah
+NSW Murray downstream Barmah
+NSW Murray upstream Barmah
+NSW Murrumbidgee
+SA Murray
+Net trade in
+ 
+ 
+ 
+18 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Carryover parking 
+Victorian carryover provisions have opened up opportunities for commercial arrangements where water share holders 
+carry over water against their water share on behalf of someone else for a fee. This provides water share holders , 
+water users and market participants more options and more flexibility to manage their water, and water share holders 
+the opportunity to generate more income from their asset . This practice is commonly referred to as “carryover 
+parking”. Since August 2020, all online allocation trades have been reported with a ‘reason for trade’ including 
+carryover parking (commercial trade to temporarily move water to another account to be held and carried over for 
+the following year) and carryover parking return (the return trade in the new water year back into the original seller 
+account). 
+Figure 12 draws on the four years of ‘reason for trade’ data to present how much commercial allocation trade has 
+been for carryover parking compared to other reasons, and how the prices for carryover parking have differed from 
+other commercial trade prices. 
+Figure 12: Commercial allocation trade for carryover parking compared to other reasons for trade 
+ 
+Notes: 
+1. ‘Other commercial’ allocation trade volumes refers to all commercial allocation trades recorded with a ‘reason for trade’ that is not carryover 
+parking. This includes standard commercial trades, related party trades, private lease arrangements, allocation trades as part of a water 
+share transfer, forward contracts and other. More information about these definitions is available at Reason-for-trade-fact-sheet.pdf 
+2. ‘No data available’ reflects commercial allocation trades recorded without a ‘reason for trade’. 
+3. ‘Overall median price ($/ML)’ in this chart excludes all trades with carryover parking as the ‘reason for trade’. 
+ 
+Carryover parking has comprised about 9-18% of the commercial allocation trades each year since 2020-21 (Figure 
+12). These trades mostly occur in June and include trades within and between trading zones. Increasing volumes of 
+carryover parking between 2020 -21 and 2022-23 suggest there has been increasing uptake as more people have 
+become aware of this emerging market. The slight reduction in carryover parking volumes in 2023 -24, when there 
+was less ‘unused’ water available at the end of the year than in 2022-23, suggest that water availability at the end of 
+the year may be a key driver influencing the volumes actually traded for the purpose of carryover parking. 
+The prices paid for carryover parking have gradually increased over the four years of data (from a median price of 
+$45/ML in 2020-21 to a median price of $70/ML in 2023-24) indicating increased recognition of the value of carryover 
+parking to water share holders and water users. The prices paid for carryover parking differ considerably from other 
+commercial trades. In the two wetter years (2022 -23 and 2023 -24), when high water availability meant there was 
+limited demand for within year water use, the median price for other commercial allocation trades was very low 
+($20/ML and $40/ML respectively), and carryover prices were higher ($65/ML and $70/ML). 
+ 
+$0
+$20
+$40
+$60
+$80
+$100
+$120
+$140
+$160
+0
+200
+400
+600
+800
+1,000
+1,200
+1,400
+1,600
+2020-21 2021-22 2022-23 2023-24
+Median price ($/ML)
+Allocation trade volume (GL)
+Carryover parking (GL) Other commercial (GL)
+No data available (GL) Carryover parking median price ($/ML)
+Overall median price ($/ML)
+ 
+ 
+ 
+19 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+ 
+6. Water market insights 
+Water shares not linked to land 
+This section describes the trends in use of available water by holders of private water shares that are not linked to 
+land. Allocation made to these water shares is either carried over or written off if it is not traded. Consistent with data 
+presented in previous reports, holders of private water shares that are not linked to land tend to sell most of their 
+available water commercially, making it available for irrigators to purchase and use (Figure 13). These holders (on 
+average) also consistently move some allocation to another account for $0 in most years, which may reflect transfers 
+into accounts for use on the account holders’ own farm, or to a related party . 
+The proportion of available water that is carried over into the next year varies somewhat between years, but in recent 
+years fairly closely mirrors the same statistic for private water users; that is, holders of water shares not linked to land 
+tend to carry over about the same proportion of their available water that private water users do (Figure 13). 
+This data indicates that holders of water shares not linked to land are continuing to make most of the allocation they 
+hold available for water users on the market. 
+Figure 13: How water available to holders of private water shares not linked to land was used 
+ 
+Notes: 
+1. The ‘allocations available’ in this data is the sum of all available water per year. This includes new season allocations, 
+trade in from other accounts, and allocation carried over from the previous year adjusted for spills. 
+2. ‘Sold commercially’ reflects the total volume of commercial trades out of privately held accounts with water shares not 
+linked to land. 
+3. “Moved to another account for $0’ reflects the total volume of $0 priced allocation trades out of privately held accounts 
+not linked to land. 
+4. This data differs from equivalent reporting in the 2018 Market Trends Report which was based on water shares not tied 
+to land, rather than not linked to land. Further analysis in how these reporting methods differ is presented in Appendix 1. 
+ 
+Water users’ approach to securing water allocations 
+Private water users – as distinct from holders of water shares not linked to land mostly rely on seasonal allocations 
+directly from water shares as their main mechanism for accessing water; however in most years this is not sufficient 
+to cover all their water use needs and they also rely on carryover and/or trade (Figure 14). 
+In average and wet years, the allocation carried over by private water users along with their seasonal allocations has 
+been sufficient to cover their annual water needs . Large carryover volumes into 2011-12 and 2012 -13 could have 
+supported exceptionally high water use, and while there was strong water use in those years, there were also large 
+0%
+20%
+40%
+60%
+80%
+100%
+2007-08
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Porpotion of allocation available
+Carried over to the following year Sold commercially
+Moved to another account for $0 Lost to write-off/evaporation
+% of available water
+ 
+ 
+ 
+20 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+carryover reserves at the end of those years that were run down over the subsequent three years to more typical 
+levels. Carryover rules have since changed13, as has user behaviour. In drier years, such as 2018-19, carryover has 
+helped bolster private water use to above average levels. In more recent wet years, carryover available for use has 
+been impacted by spills from storages . In 20 22-23 all allocation carried over from the previous year in Victorian 
+Murray, Goulburn and Campaspe accounts spilled, meaning these customers had no access to additional carryover 
+beyond their water share volume in these systems for that year. However, the unavailability of carryover is unlikely 
+to have constrained water use in 2022-23, given full allocations in 2022-23 and the impacts of flooding, on-farm 
+rainfall and relatively mild summer conditions suppressing irrigation demand. 
+As a group, private water users in northern Victoria have consistently been net buyers of allocation – trading in water 
+from other states, water corporations, environmental water holders and other private holders who haven’t used water. 
+The reliance on trade by this group becomes more important in dry years, such as 2018 -19 when allocations and 
+carryover were not sufficient to meet the group’s water needs. In 2023-24, they traded in 566 GL or 33% of their 
+water use requirements, most of which (528 GL) was commercial trade. Every year this group of water users moves 
+some allocation into their accounts via $0 priced trades. These $0 priced trades reflect users moving water between 
+their accounts (or accounts of related parties) and can include moving water from accounts with water shares not 
+linked to land or interstate entitlements to accounts linked to land. 
+Figure 14: Private water users – where they source their water from 
+ 
+Notes: 
+1. Only privately held northern Victorian accounts with water use recorded in the relevant year are included in this data. 
+2. ‘Allocation carried over’ reflects the carried over water available after deductions from spillable water accounts. 
+3. ‘Bought commercially’ reflects the net volume of commercial trades into private water user accounts. 
+4. ‘Moved from another account for $0’ reflects the net volume of $0 priced trades into private water user accounts. 
+5. There was no net trade out in any year. 
+ 
+LMW diverters are the private water user group most dependent on trade to support their water use. In 2023-24, new 
+seasonal allocations (237 GL) and allocation carried over from the previous year (20 GL) accounted for only 61% of 
+LMW diverters’ use (compared to 140%, 223% and 103% of use for GMW districts, GMW diverters and LMW districts 
+respectively). The latter three groups have enough allocations to cover their needs in most years, with carryover 
+ 
+ 
+13 Changes from the 2012 Carryover Review, including most notably a limit on carryover to the volume of the entitlement in Murray, Goulburn and 
+Campaspe systems were implemented in 2013 and 2014 . More information about this review and subsequent changes is available at 
+https://waterregister.vic.gov.au/water-entitlements/carryover/carryover-review-2012. 
+2007-08
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+4,000
+4,500
+5,000Volume (GL)
+New seasonal allocations Allocation carried over
+Bought commercially (net) Moved from another account for $0 (net)
+Use
+ 
+ 
+ 
+21 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+providing additional support in low allocation years, while LMW diverters as a group have not met their combined use 
+requirements without trade since the 2012 -13 year. These differing regional dependencies likely reflect that more 
+LMW diverters are relatively new entrants who have developed business models based around a range of different 
+products for accessing water , including entitlement and allocation trade through different means such as forward 
+contracts and private leases. This is supported by the first four years of ‘reason for trade’ data: over this period, LMW 
+diverters reported almost 9% of their allocation trades as either a forward contract or private lease, compared to 3%, 
+1% and 1% for GMW district, GMW diverter and LMW district users respectively. 
+ 
+Frequent Traders 
+To increase market transparency, Victoria has commenced reporting on ‘frequent traders’ in the Goulburn and Murray 
+systems. A frequent trader is defined as the owner of a Victorian allocation account that has undertaken more than 
+20 commercial allocation trades, within, to, or from the Goulburn and Murray systems during the year excluding 
+interstate trades 14. Quarterly updates identifying these holders are now published on the Victorian Water Register 
+website, linked here. 
+Qualifying to be on the frequent trader list does not indicate any wrongdoing. Many parties rely on water allocation 
+markets as part of their business model. The list simply provides transparency about account holders who trade 
+relatively frequently in the Goulburn and Murray systems, as these traders have the potential to have more influence 
+in the market. 
+Analysis shows that since 2015-16 there have been between 48 and 104 frequent trader accounts each year 
+(Figure 15). This number was higher in dry years when prices were higher (2018-19 and 2019-20) and lower in the 
+wet, low-price years (such as 2022-23). These fluctuations are broadly in line with fluctuations in the total number 
+of commercial trades, which was also higher in those drier years. It is worth noting that when allocation prices 
+were highest in 2019-20, frequent traders sold a smaller proportion (33%) of the total commercial trade than in 
+years with lower prices (including 2022-23 (40%) and 2023-24 (42%). 
+Between 25% and 42% of the total volume of commercial trade in the Victorian Murray and Goulburn has been 
+sold from frequent trader accounts each year since 2015-16. This is notable given that frequent trader accounts 
+make up approximately 1% of the total number of accounts trading each year ( Table 1). When counting any trades 
+where a frequent trader is the buyer or the seller (i.e. trades involving at least one frequent trader account), this 
+rises to 48 to 65% of the total volume (Figure 15). There is no clear trend across the time period. The high 
+proportion can be explained by two factors: 1. by definition, these are accounts that trade more frequently than all 
+other accounts; 2. the average parcel size of trades by frequent trader accounts is approximately twice as large 
+(164 ML) as the average parcel size of all other trades (85 ML). 
+ 
+ 
+ 
+14 Victoria does not have information on what happens to the water when it is traded interstate, as the interstate party is not recorded. 
+ 
+ 
+ 
+22 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 15: Proportion of Goulburn and Murray commercial allocation trade involving at least one frequent 
+trader account 
+Notes: 
+1. The total trade volume here refers to all trades that meet the criteria used to define frequent traders. That is: approved, 
+commercial trades, within, to, or from the Goulburn and Murray systems (zones 1A, 1B, 3, 6, 6B, and 7). 
+ 
+Table 1: Number of unique allocation accounts involved in commercial trade in the Goulburn and Murray 
+Water year 2015-16 2016-17 2017-18 2018-19 2019-20 2020-21 2021-22 2022-23 2023-24 
+Frequent trader accounts 50 48 68 99 104 74 76 61 84 
+All other trader accounts 6,844 5,540 7,425 8,617 7,249 6,919 6,364 5,188 6,465 
+Total unique accounts trading 6,894 5,588 7,493 8,716 7,353 6,993 6,440 5,249 6,549 
+Notes: 
+1. The other trader accounts identified here are all accounts that have made at least one trade that meets the criteria used 
+to define frequent traders. That is: approved, commercial trades, within, to, or from the Goulburn and Murray systems 
+(zones 1A, 1B, 3, 6, 6B, and 7). 
+ 
+A comparison of the weekly median price for trades involving a frequent trader with all other trades (not involving a 
+frequent trader) in northern Victoria since 2015-16 show no systematic differences in prices between the two 
+groups. Figure 16 shows that when controlling for trading zone, the weekly median allocation prices for the two 
+groups are closely aligned in both the recent year of 2023-24 and in 2019-20 as an example of a dry year when 
+allocation prices were high. Prices were similarly aligned for all other years between 2015-16 and 2023-24. 
+ 
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+200
+0%
+10%
+20%
+30%
+40%
+50%
+60%
+70%
+80%
+90%
+100%
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+# accounts
+% of trade volume
+Volume of trade involving at least one frequent trader account Number of frequent trader accounts
+ 
+ 
+ 
+23 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 16: Weekly median allocation price for trades involving at least one frequent trader, compared to all 
+other trades – 2023-24 and 2019-20 
+ 
+ 
+ 
+Notes: 
+1. Price data is median weekly data. The data is calculated based on all approved, priced trades with a source trading zone 
+of the category indicated. 
+2. The median price data includes only weeks with at least 5 trades for the given category. 
+3. Data for 2023 -24 excludes all trades with a ‘reason for trade ’ of ‘Private lease arrangement (not LTT)’ or ‘Forward 
+contract’. The 2020-19 year was prior to the introduction of ‘reason for trade’ requirements and therefore does not exclude 
+these types of trades. 
+$0
+$20
+$40
+$60
+$80
+$100
+$120
+$140
+$160
+$180
+$200
+$220
+1 Jul
+2023
+1 Aug
+2023
+1 Sep
+2023
+1 Oct
+2023
+1 Nov
+2023
+1 Dec
+2023
+1 Jan
+2024
+1 Feb
+2024
+1 Mar
+2024
+1 Apr
+2024
+1 May
+2024
+1 Jun
+2024
+Weekly median allocation price
+($/ML)
+Goulburn zone 1A, involves frequent trader
+Murray zone 6, involves frequent trader
+Murray zone 7, involves frequent trader
+Goulburn zone 1A, all other trades
+Murray zone 6, all other trades
+Murray zone 7, all other trades
+$0
+$100
+$200
+$300
+$400
+$500
+$600
+$700
+$800
+$900
+$1,000
+1 Jul
+2019
+1 Aug
+2019
+1 Sep
+2019
+1 Oct
+2019
+1 Nov
+2019
+1 Dec
+2019
+1 Jan
+2020
+1 Feb
+2020
+1 Mar
+2020
+1 Apr
+2020
+1 May
+2020
+1 Jun
+2020
+Weekly median allocation price 
+($/ML)
+Goulburn zone 1A, involves frequent trader
+Murray zone 6, involves frequent trader
+Murray zone 7, involves frequent trader
+Goulburn zone 1A, all other trades
+Murray zone 6, all other trades
+Murray zone 7, all other trades
+ 
+ 
+ 
+24 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+ 
+ 
+7. Conclusions 
+This report provides an update since the last Water Market Trends report (DEECA 2019) , with a primary focus on 
+new data and trends since 2017-18, in the context of a longer history of Victoria’s northern water markets. The report 
+provides new data and discussion, both on topics from the previous report but also emerging issues and topics of 
+interest to market participants. 
+Private rural water use in GMW districts has continued to account for the largest segment of private use in northern 
+Victorian declared river systems , but also the most variable year to year. The trend identified in the last version of 
+this report of increasing total use by the group of LMW diverters has stabilised; looking at the longer period of record 
+there is no material trend evident since 2012-13. 
+A look at water share trade median prices has shown a significant diversion of Murray downstream of Barmah (Zone 
+7) water share prices above other trading zones since 2018, likely reflecting the growth of perennial horticulture 
+demand in that region and increasing allocation trade restrictions into the region. 
+Water allocation trade overall volumes continued to increase year on year . The LMW diverter group is the private 
+water user group most dependent on trade to meet their water needs. 
+Updated information is also provided on the behaviour of holders of water shares not linked to land; i.e. what they do 
+with their allocation each year. 
+Finally, two key improvements in market transparency , the collection of ‘reason for trade’ data and a new analysis 
+on market participants who meet the criteria for ‘frequent traders ’, have both provided new insights to this report. 
+‘Reason for trade’ helps to characterise trends such as the emergence of a market for carryover parking . The 
+availability of this data also improves other analyses such as allocation price trend s. Data showing the behaviour of 
+frequent traders in the market highlights that while this group of organisations and individuals is involved in an 
+outsized proportion of traded volume, there is no evidence of systematic differences in the price of these trades 
+compared to other, less frequent, traders. 
+ 
+ 
+ 
+ 
+25 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+8. References 
+Bureau of Meteorology (2023), Australian Water Markets Report 2021-22. 
+Department of Energy, Environment and Climate Action (202 3), Victorian Water Trading : 2022-23 Annual Report 
+Victorian Water Trading 
+Department of Environment, Land, Water and Planning (2016), Water Market Trends: Trends in Northern Victorian 
+Water Trade 2001-2015 Microsoft Word - Water market trends 20160224.docx 
+Department of Environment, Land, Water and Planning (2019), Water Market Trends: Updated Trends in Northern 
+Victorian Water Trade 2001-2018 Water-Market-Trends-Update-2018_web.pdf 
+Department of Natural Resources & Environment (2001), The Value of Water: a guide to water trading in Victoria 
+(accessible at Trade reports - Water Register) 
+Goulburn Broken Catchment Management Authority (2023). Regional Irrigated Land and Water Use Mapping in the 
+Goulburn Murray Irrigation District - Fact Sheets - 2021/2022. Goulburn Murray Irrigation District 2021 -22 
+snapshot 
+Goulburn Broken Catchment Management Authority (2024), Land and Water Use Mapping in Regulated Diversions 
+Catchments of Northern Victoria Technical Report 2022/23 Land and Water Use Mapping report 
+Mallee Catchment Management Authority (2022). 2021 Mallee Horticulture Crop Report . 2021 Mallee Horticulture 
+Crop Report 
+SunRISE (2022), Irrigated crop area data for the Lower Murray -Darling 2003 to 2021 Irrigated crop area data for 
+the lower Murray Darling 2003 to 2021 
+SunRISE (2023), Milestone 5 Report: Supply mapping of expansion areas since 2021 Project proposal: Irrigated 
+crop area data 2021 to 2027 
+ 
+ 
+ 
+ 
+ 
+26 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Appendix 1 – Water shares linked to land 
+A new method for reporting on water shares “linked to land” has been introduced in this report in response to changes 
+to the Water Act 1989. The new method better reflects where allocations made to water shares are approved for use 
+on land. This Appendix explains the legislative changes, the new reporting method s, and how the y compare to 
+previous methods. 
+Legislative changes – removal of association 
+Changes to the Water Act 1989 were introduced on 20 November 2023 which removed the ability to associate a 
+water share with land (under Part 3A, Division 10 ). Association was one of the ways that the water under a water 
+share could be approved to be used on land, and was originally put in place to manage the following limits: 
+• no more than 10% of the water share volume in a system could be owned without being linked to land (this 
+limit was abolished in 2009), and 
+• no more than 4% of the water share volume in an irrigation area could be moved out the area in a year (this 
+limit was abolished in 2014). 
+When unbundling occurred in northern Victoria (1 July 2007) , all water shares were associated with land . Holders 
+could choose to disassociate their water shares from land (and associate it with other land if they chose to) subject 
+to the above limits (when they were in effect). 
+Association was reflected in the Victorian Water Register by a direct connection between the water share and the 
+water-use licence or registration on the relevant land (refer red line in figure below). Associating a water share 
+provided approval to use water allocated to the water share on the specified land. However, such approval could 
+also be obtained via an approval under section 64K of the Water Act 1989. Section 64K approvals are represented 
+in the Victorian Water Register by a connection between a wa ter share and an allocation account with a connected 
+water-use licence or registration (refer blue lines in figure below). 
+ 
+Over time, water users increasingly opted to rely on section 64K approvals for their approvals to use water. There 
+were different fees for water shares associated with land, so over time more and more people chose to link their 
+water share to land without formally associating it under Part 3A, Division 10 of the Water Act 1989. As such, reporting 
+on water shares associated with land increasingly became a poor measure of where water shares were approved to 
+be used. 
+The legislation changes made in 2023 simplified the approvals required to use allocation at a particular place. This 
+included removing the unnecessary ability to associate water shares with land – reflecting the fact that association 
+was no longer required to manage the 10% and 4% limits and was no longer a meaningful indication of where water 
+share allocations were planned to be used . The new approach to approvals to use water share allocations are now 
+consistent – with all w ater users (allocation account holders with a linked water -use licence/registration) having a 
+general place of take approval issued under Part 4AA for every place (service point) they take water. 
+Water share 
+Allocation account 
+Water use 
+licence/registration 
+Association 
+ Section 64K approval 
+ 
+ 
+ 
+27 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+New reporting method – water shares linked to land 
+Previous market trend reporting (in 2016 and 2019) reported on water shares “tied to land” based on whether the 
+water shares were “associated” to a water-use licence/registration. This report uses a new method to report on water 
+shares “linked to land” based on whether a water share is linked to an allocation account with a general place of take 
+approval (i.e. the allocation account has a link to a water-use licence/registration). 
+Similar to previous reports, the data reported for each water year is based on the active links recorded in the Victorian 
+Water Register on 30 June of each year. 
+Figure 17 compares these two reporting methods. It shows the volume of high-reliability water shares ‘linked to land’ 
+(new method) and the volume ‘tied to land’ (old method). The old method of reporting was not an accurate picture of 
+the volume of water shares linked to land as more water share holders chose to disassociate their water shares from 
+land, even though they retained other approvals to use that water on land. The inaccuracy became more significant 
+over time. The new method provides a more reliable indication of when water shares are linked to land , and aligns 
+with the 2023 legislation changes, and the single approach to approvals to use water on land going forwards. 
+Figure 17: Comparison of calculation methods - privately held high-reliability water share linked/tied to land 
+on 30 June 
+ 
+ 
+New reporting method – location of take under water shares 
+Previous market trend reporting (in 2016 and 2019) reported on the location of water shares “tied to land” based on 
+the delivery system recorded on the water share. This is no longer appropriate because the delivery system on the 
+water share was derived from an associated water-use licence/registration, and as discussed above, this data was 
+becoming increasingly inaccurate. Additionally, now that the ability to associate a water share has been removed, 
+the delivery system data on a water share is no longer being maintained. 
+A new approach to reporting on where a water share is approved to be used is adopted for this report, that derives 
+the delivery system from the water-use licence/registrations linked to the water share’s allocation account. Based on 
+2023-24 data, most high -reliability water shares are linked to a single delivery system. However, where a water 
+share’s allocations are approved for take at multiple places we have made some simplifying assumptions to enable 
+reporting on the location of take. Where a water shar e is linked to multiple delivery systems, the water share is 
+reported as being located in the delivery system where the most water has been used in the last two years.15 
+ 
+ 
+15 If in the preceding two years, the water share’s allocation account had equally high proportions of water use in two delivery systems, then the 
+lowest numbered delivery system is reported as the water share location. 
+0
+200
+400
+600
+800
+1,000
+1,200
+1,400
+1,600
+1,800
+June
+2012
+June
+2013
+June
+2014
+June
+2015
+June
+2016
+June
+2017
+June
+2018
+June
+2019
+June
+2020
+June
+2021
+June
+2022
+June
+2023
+June
+2024
+Privately held HRWS (GL)
+Linked to land (new method) Tied to land (old method)
+ 
+ 
+ 
+28 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Appendix 2 – Detailed data on water trade and use 
+Figure 18: Map of irrigation districts in northern Victoria 
+ 
+
+ 
+ 
+ 
+29 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 2: Northern Victorian high-reliability water share volume at 30 June 
+Water year 
+Environmental water holder Water corporation Private - not linked to land Private - linked to land 
+Total 
+GL % GL % GL % GL % 
+2000-01 0 - 0 - 0 - 2,283 100% 2,283 
+2004-05 0 - 0 - 0 - 2,251 100% 2,251 
+2008-09 0 1% 0 2% 125 12% 2,163 85% 2,288 
+2009-10 160 7% 46 2% 128 6% 1,947 85% 2,280 
+2010-11 283 12% 64 3% 120 5% 1,813 80% 2,279 
+2011-12 463 20% 67 3% 117 5% 1,635 72% 2,281 
+2012-13 499 22% 74 3% 142 6% 1,569 69% 2,285 
+2013-14 539 23% 59 3% 146 6% 1,552 68% 2,295 
+2014-15 605 26% 62 3% 156 7% 1,516 65% 2,338 
+2015-16 648 27% 62 3% 197 8% 1,473 62% 2,380 
+2016-17 652 27% 63 3% 237 10% 1,428 60% 2,380 
+2017-18 661 28% 63 3% 272 11% 1,390 58% 2,386 
+2018-19 732 30% 61 2% 307 13% 1,355 55% 2,455 
+2019-20 732 30% 62 3% 330 13% 1,331 54% 2,455 
+2020-21 733 30% 62 3% 344 14% 1,317 54% 2,456 
+2021-22 733 29% 48 2% 397 16% 1,322 53% 2,500 
+2022-23 739 29% 48 2% 435 17% 1,285 51% 2,507 
+2023-24 747 30% 50 2% 456 18% 1,262 50% 2,515 
+Change from 
+2018 to 2024 86 2% -12 -1% 184 7% -129 -8% 129 
+Notes: 
+1. Refer to Appendix 1 for details about how “linked to land” data differs from “tied to land” data reported in the 2018 report. 
+2. Volumes at 30 June 2001 and 2005 reflect the volume of water rights held (since water shares had not yet been introduced). 30 June 2009 values are as reported 
+in the 2018 trends update due to difficulties of working with the historical data.
+ 
+ 
+ 
+30 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 19: Changes in private high-reliability water shares linked to land in northern Victoria 
+ 
+Notes: 
+1. Values prior to 2009-10 are volumes as reported from the 2018 trends update. 
+2. The vertical dotted line indicates that 2000-01 and 2004-05 are not continuous with the rest of the years included. 
+Table 3: Changes in private high-reliability water shares linked to land in northern Victoria 
+Water year GMW Districts 
+(GL) 
+GMW Diverters 
+(GL) 
+LMW Districts 
+(GL) 
+LMW Diverters 
+(GL) Total 
+2000-01 1,648 243 189 203 2,283 
+2004-05 1,580 241 179 252 2,252 
+2008-09 1,475 208 157 323 2,163 
+2009-10 1,348 180 146 273 1,947 
+2010-11 1,240 175 140 258 1,813 
+2011-12 1,111 167 131 226 1,635 
+2012-13 1,054 167 126 222 1,569 
+2013-14 1,041 165 124 221 1,552 
+2014-15 1,012 163 123 218 1,516 
+2015-16 975 160 119 219 1,473 
+2016-17 939 158 114 218 1,428 
+2017-18 916 156 107 211 1,390 
+2018-19 888 154 104 209 1,355 
+2019-20 864 156 102 209 1,331 
+2020-21 857 156 99 205 1,317 
+2021-22 866 153 94 208 1,322 
+2022-23 837 149 93 205 1,285 
+2023-24 824 146 91 201 1,262 
+Notes: 
+1. Values prior to 2009-10 are volumes as reported from the 2018 trends update. 
+ 
+0
+200
+400
+600
+800
+1,000
+1,200
+1,400
+1,600
+1,800
+2000-01
+2004-05
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Water share volume at 30 June (GL)
+GMW Districts GMW Diverters LMW Districts LMW Diverters
+ 
+ 
+ 
+31 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 20: Transfers and price of high and low-reliability water shares in northern Victoria 
+ 
+ 
+Notes: 
+1. The volume of water shares transferred includes transfers of ownership recorded during each year. Transfers of 
+ownership may or may not involve a change in location of water shares. 
+2. The median price is an annual median for all northern Victorian water shares based on all transfers of ownership recorded 
+in the year with non-zero prices. 
+ 
+0
+1,000
+2,000
+3,000
+4,000
+5,000
+6,000
+0
+50
+100
+150
+200
+250
+300
+350
+400
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Median annual price ($/ML)
+High-reliability (GL)
+Other transfers To Australian Government Median Price ($/ML)
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1,000
+0
+10
+20
+30
+40
+50
+60
+70
+80
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Median annual price ($/ML)
+Low-reliability (GL)
+Other transfers To Australian Government Median Price ($/ML)
+ 
+ 
+ 
+32 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 4: Transfers and price of high-reliability water shares in northern Victoria 
+Water year 
+Volume of high-reliability water shares transferred (GL) 
+Median Price ($/ML) 
+To Australian Government Other transfers 
+2008-09 8 154 2,175 
+2009-10 127 210 2,200 
+2010-11 113 98 1,940 
+2011-12 174 93 1,800 
+2012-13 31 104 1,500 
+2013-14 10 93 1,380 
+2014-15 25 99 1,500 
+2015-16 1 124 2,400 
+2016-17 5 151 2,600 
+2017-18 3 66 2,850 
+2018-19 - 112 3,700 
+2019-20 0 156 4,800 
+2020-21 1 88 4,500 
+2021-22 - 112 4,950 
+2022-23 - 82 5,000 
+2023-24 - 60 4,500 
+ 
+Notes: 
+1. The volume of water shares transferred includes transfers of ownership recorded during each year. Transfers of 
+ownership may or may not involve a change in location of water shares. 
+2. The annual median price is based on all northern Victorian transfers recorded during the year with non-zero prices. 
+Table 5: Transfers and price of low-reliability water shares in northern Victoria 
+Water year 
+Volume of low-reliability water shares transferred (GL) 
+Median Price ($/ML) 
+To Australian Government Other transfers 
+2008-09 1 74 200 
+2009-10 20 35 175 
+2010-11 1 53 150 
+2011-12 0 64 140 
+2012-13 - 47 150 
+2013-14 0 32 185 
+2014-15 - 40 225 
+2015-16 - 35 244 
+2016-17 - 61 250 
+2017-18 - 26 340 
+2018-19 - 55 500 
+2019-20 - 36 500 
+2020-21 - 37 470 
+2021-22 - 44 650 
+2022-23 - 44 895 
+2023-24 - 30 850 
+ 
+Notes: 
+1. The volume of water shares transferred includes transfers of ownership recorded during each year. Transfers of 
+ownership may or may not involve a change in location of water shares. 
+2. The annual median price is based on all northern Victorian transfers recorded during the year with non-zero prices. 
+ 
+ 
+ 
+33 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 6: Volumes of high-reliability water share tied to land compared to annual water use 
+Water year 
+GMW districts GMW Diverters LMW districts LMW Diverters Total 
+HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % 
+2004-05 1,580 1,686 107% 241 133 55% 179 136 76% 252 196 78% 2,252 2,151 96% 
+2008-09 1,475 556 38% 208 43 21% 157 90 57% 323 237 73% 2,163 925 43% 
+2009-10 1,348 745 55% 180 33 18% 146 87 59% 273 270 99% 1,947 1,135 58% 
+2010-11 1,240 495 40% 175 19 11% 140 46 33% 258 190 74% 1,813 751 41% 
+2011-12 1,111 1,268 114% 167 59 35% 131 94 72% 226 310 137% 1,635 1,732 106% 
+2012-13 1,054 1,777 169% 167 104 62% 126 113 89% 222 408 184% 1,569 2,402 153% 
+2013-14 1,041 1,316 126% 165 89 54% 124 98 79% 221 354 160% 1,552 1,857 120% 
+2014-15 1,012 1,450 143% 163 90 55% 123 96 78% 218 397 182% 1,516 2,033 134% 
+2015-16 975 1,154 118% 160 82 52% 119 104 88% 219 422 192% 1,473 1,762 120% 
+2016-17 939 928 99% 158 66 42% 114 89 79% 218 371 170% 1,428 1,454 102% 
+2017-18 916 1,338 146% 156 96 62% 107 104 97% 211 429 203% 1,390 1,967 142% 
+2018-19 888 1,090 123% 154 89 58% 104 112 108% 209 460 220% 1,355 1,752 129% 
+2019-20 864 531 61% 156 52 33% 102 98 96% 209 432 207% 1,331 1,113 84% 
+2020-21 857 940 110% 156 71 46% 99 98 99% 205 436 212% 1,317 1,545 117% 
+2021-22 866 953 110% 153 68 45% 94 95 101% 208 448 215% 1,322 1,564 118% 
+2022-23 837 814 97% 149 55 37% 93 77 82% 205 327 160% 1,285 1,273 99% 
+2023-24 824 1,127 137% 146 77 52% 91 95 104% 201 418 208% 1,262 1,716 136% 
+Notes: 
+1. High-reliability water share volumes prior to 2009-10 are volumes as reported from the 2018 trends update. Water use volumes for 2004-05 are as reported from 
+the 2018 trends update. 
+ 
+ 
+ 
+ 
+ 
+ 
+34 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 7: Volumes of high-reliability water share tied to land compared to annual water use - GMW districts 
+Water year 
+GMW Districts 
+Central Goulburn 
+Irrigation Area Loddon Valley Murray Valley 
+Irrigation Area 
+Nyah, Tresco, 
+Woorinen 
+Rochester Irrigation 
+Area 
+Shepparton Irrigation 
+Area 
+Torrumbarry 
+Irrigation Area 
+Campaspe Irrigation 
+Area 
+HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % 
+2004-05 373 389 104% 216 222 103% 257 283 110% 31 20 65% 182 199 109% 174 157 90% 327 405 124% 19 10 53% 
+2008-09 342 140 41% 196 70 36% 250 92 37% 29 17 58% 167 58 35% 161 64 40% 312 112 36% 18 3 18% 
+2009-10 316 171 54% 166 100 60% 229 127 55% 28 17 61% 153 84 55% 152 72 48% 290 173 60% 14 0 2% 
+2010-11 297 121 41% 153 44 29% 215 92 43% 30 10 35% 141 52 37% 143 42 29% 260 130 50% 1 3 633% 
+2011-12 259 289 112% 136 152 112% 195 210 108% 29 18 62% 124 153 123% 132 103 79% 236 332 140% 0 11 - 
+2012-13 244 414 170% 128 234 183% 182 302 166% 29 23 79% 119 215 180% 126 163 130% 225 423 188% 0 1 - 
+2013-14 238 313 131% 124 164 132% 174 222 127% 26 21 79% 117 163 139% 122 127 104% 239 304 127% 0 2 - 
+2014-15 234 347 148% 123 204 166% 167 227 136% 42 23 54% 113 173 153% 118 128 108% 214 348 162% 0 1 - 
+2015-16 226 277 123% 121 155 128% 159 194 122% 36 22 60% 110 150 137% 113 108 95% 210 246 117% 0 1 - 
+2016-17 219 212 97% 118 112 95% 149 168 112% 23 19 83% 105 109 104% 110 85 77% 213 221 104% 0 1 - 
+2017-18 212 310 146% 116 185 159% 143 231 161% 35 23 65% 103 167 162% 106 128 121% 200 293 146% 0 0 - 
+2018-19 206 266 129% 116 142 123% 138 170 123% 27 22 83% 101 141 140% 103 117 113% 196 232 118% 0 0 - 
+2019-20 203 138 68% 114 71 62% 132 74 56% 26 19 73% 99 63 63% 100 63 63% 191 103 54% 0 0 - 
+2020-21 198 214 108% 114 151 133% 131 128 98% 22 21 97% 99 128 130% 99 88 90% 196 209 107% 0 0 - 
+2021-22 207 232 112% 121 144 120% 131 127 97% 20 19 93% 102 138 135% 102 77 76% 184 216 118% 0 0 - 
+2022-23 206 189 92% 119 111 93% 129 138 107% 21 14 68% 99 104 105% 98 73 74% 166 186 112% 0 0 - 
+2023-24 201 252 126% 116 159 138% 128 205 160% 20 17 81% 101 144 142% 96 98 102% 162 251 155% 0 0 - 
+Notes: 
+1. High-reliability water share volumes prior to 2009-10 are volumes as reported from the 2018 trends update. Water use volumes for 2004-05 are as reported from 
+the 2018 trends update. 
+ 
+ 
+ 
+35 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 8: Volumes of high-reliability water share tied to land compared to annual water use - LMW districts 
+Water year 
+LMW Districts 
+First Mildura 
+Irrigation District 
+Robinvale, Red Cliffs, 
+Merbein 
+LMW districts 
+subtotal 
+HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % HRWS 
+(GL) 
+Use 
+(GL) % 
+2004-05 73 50 68% 106 86 81% 179 136 76% 
+2008-09 63 30 48% 94 60 64% 157 90 57% 
+2009-10 61 30 50% 85 56 66% 146 87 59% 
+2010-11 59 13 22% 81 33 41% 140 46 33% 
+2011-12 56 28 50% 75 66 88% 131 94 72% 
+2012-13 53 39 74% 73 73 100% 126 113 89% 
+2013-14 52 34 65% 72 64 89% 124 98 79% 
+2014-15 52 33 63% 71 63 89% 123 96 78% 
+2015-16 51 36 69% 68 68 101% 119 104 88% 
+2016-17 49 30 61% 64 59 92% 114 89 79% 
+2017-18 47 36 75% 60 69 115% 107 104 97% 
+2018-19 46 39 85% 58 73 125% 104 112 108% 
+2019-20 44 34 78% 58 64 110% 102 98 96% 
+2020-21 43 34 79% 56 64 114% 99 98 99% 
+2021-22 41 32 77% 53 63 119% 94 95 101% 
+2022-23 42 25 60% 51 51 100% 93 77 82% 
+2023-24 41 32 78% 50 63 126% 91 95 104% 
+Notes: 
+1. High-reliability water share volumes prior to 2009-10 are volumes as reported from the 2018 trends update. Water use 
+volumes for 2004-05 are as reported from the 2018 trends update. 
+ 
+ 
+ 
+ 
+36 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 9: Summary of private annual allocation trade in northern Victoria 
+Water year 
+Volume traded (GL) Number of trades Percentage 
+(%) Average parcel size (ML) 
+Commercial 
+trades 
+$0 priced 
+trades 
+Total 
+volume 
+Commercial 
+trades 
+$0 priced 
+trades 
+Total 
+trades 
+Total volume 
+as proportion 
+of private 
+available 
+allocation 
+Commercial 
+trades 
+$0 priced 
+trades All trades 
+2007-08 371 168 539 12,996 4,707 17,703 38% 29 36 30 
+2008-09 460 159 618 10,810 4,484 15,294 59% 43 35 40 
+2009-10 448 294 741 7,277 3,080 10,357 39% 62 95 72 
+2010-11 404 372 776 2,209 1,657 3,866 28% 183 225 201 
+2011-12 715 436 1,150 3,513 2,283 5,796 28% 204 191 198 
+2012-13 1,025 369 1,394 7,955 3,832 11,787 40% 129 96 118 
+2013-14 902 382 1,284 8,410 4,022 12,432 58% 107 95 103 
+2014-15 855 455 1,310 9,446 4,653 14,099 56% 91 98 93 
+2015-16 794 523 1,317 9,424 5,133 14,557 66% 84 102 90 
+2016-17 928 766 1,694 7,571 4,517 12,088 83% 123 170 140 
+2017-18 1,088 820 1,908 10,454 5,051 15,505 76% 104 162 123 
+2018-19 1,038 716 1,754 14,571 5,194 19,765 82% 71 138 89 
+2019-20 914 965 1,878 12,518 7,175 19,693 119% 73 134 95 
+2020-21 1,212 884 2,096 11,151 4,667 15,818 91% 109 189 133 
+2021-22 1,224 820 2,044 9,510 3,802 13,312 81% 129 216 154 
+2022-23 1,252 911 2,163 7,039 2,856 9,895 88% 178 319 219 
+2023-24 1,445 1,009 2,454 10,162 3,614 13,776 81% 142 279 178 
+ 
+Notes: 
+1. The trade values reported in this table exclude environmental trades. 
+Table 10: Northern private water availability and use 
+Water Year 
+Allocation 
+carried 
+over (GL) 
+New 
+seasonal 
+allocations 
+(GL) 
+Net trade 
+in (GL) Use (GL) 
+2007-08 121 1,286 11 1,001 
+2008-09 247 798 192 925 
+2009-10 246 1,676 62 1,135 
+2010-11 766 2,053 242 751 
+2011-12 2,126 1,921 51 1,732 
+2012-13 1,735 1,750 28 2,402 
+2013-14 513 1,713 359 1,857 
+2014-15 622 1,703 183 2,033 
+2015-16 413 1,592 337 1,762 
+2016-17 350 1,698 376 1,454 
+2017-18 840 1,675 -12 1,967 
+2018-19 472 1,664 56 1,751 
+2019-20 373 1,209 215 1,112 
+2020-21 623 1,672 288 1,545 
+2021-22 501 2,014 229 1,564 
+2022-23 13 2,448 226 1,272 
+2023-24 686 2,350 57 1,716 
+ 
+ 
+ 
+ 
+37 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Notes: 
+1. ‘Allocation carried over’ reflects the carried over water available after deductions from spillable water accounts. 
+2. There was no available allocation carried over in 2022-23 as 100% of carryover water spilled in accordance with the 
+carryover rules. 
+Table 11: Goulburn and Murray private water availability, use, & allocation price 
+Water year Allocation carried 
+over (GL) 
+New seasonal 
+allocations (GL) Net trade in (GL) Use (GL) Median allocation 
+price ($ / ML) 
+2007-08 121 1,217 11 977 320 
+2008-09 238 765 190 907 320 
+2009-10 243 1,644 60 1,126 160 
+2010-11 760 1,952 250 744 26 
+2011-12 2,093 1,848 45 1,705 20 
+2012-13 1,706 1,680 36 2,366 45 
+2013-14 490 1,643 369 1,825 75 
+2014-15 603 1,633 193 1,993 122 
+2015-16 400 1,536 318 1,708 230 
+2016-17 343 1,618 356 1,398 48 
+2017-18 819 1,601 8 1,932 125 
+2018-19 458 1,599 70 1,715 430 
+2019-20 363 1,154 220 1,084 580 
+2020-21 611 1,596 275 1,494 100 
+2021-22 480 1,943 206 1,510 65 
+2022-23 0 2,367 237 1,255 20 
+2023-24 669 2,269 70 1,688 40 
+ 
+Notes: 
+1. Only privately held accounts with a Goulburn or Murray source trading zone are included in this data. (Trading zones 1A, 
+1B, 3, 6, 6B or 7.) 
+2. ‘Allocation carried over’ reflects the carried over water available after deductions from spillable water accounts. 
+3. Median allocation price reflects only private priced trades in zones 1A, 1B, 3, 6, 6B, and 7. 
+4. There was no available allocation carried over in 2022-23 as 100% of carryover water spilled in accordance with the 
+carryover rules. 
+ 
+ 
+ 
+ 
+38 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 12: Net allocation trade into Victoria (excluding within environment trade) 
+Water year 
+Net volume traded in (GL) 
+From NSW From SA Total from Interstate 
+2007-08 57 -45 11 
+2008-09 230 -18 212 
+2009-10 93 -27 66 
+2010-11 38 207 245 
+2011-12 -54 46 -8 
+2012-13 -141 -4 -145 
+2013-14 120 74 194 
+2014-15 5 61 66 
+2015-16 197 51 248 
+2016-17 119 125 244 
+2017-18 -146 -7 -153 
+2018-19 -62 -29 -91 
+2019-20 106 21 128 
+2020-21 195 -4 192 
+2021-22 133 -44 89 
+2022-23 13 24 37 
+2023-24 -14 -87 -101 
+Notes: 
+1. The presented volumes exclude ‘Within environment’ trades i.e. trades between the Commonwealth, VEWH and 
+MDBA accounts and interstate trades with a $0 price involving environmental party on the Victorian side of the trade. 
+2. Negative values in this table indicate trade out of Victoria to interstate destinations. 
+3. Net trade in this figure includes interstate tagged usage. 
+Table 13: Net allocation trade into private Murray zone 7 accounts (including tagged use) 
+Water year 
+VIC Murray - 
+Dart to 
+Barmah (GL) 
+Lower Broken 
+Creek (GL) 
+Victorian 
+Tributaries 
+(GL) 
+NSW above 
+the Barmah 
+Narrows (GL) 
+NSW below 
+the Barmah 
+Narrows (GL) 
+NSW 
+Murrumbidgee 
+(GL) 
+SA Murray 
+(GL) 
+2008-09 5 1 29 7 44 94 -5 
+2009-10 4 1 8 12 32 16 -8 
+2010-11 1 1 30 -2 13 4 205 
+2011-12 1 0 -9 -6 -31 -11 36 
+2012-13 33 5 48 -27 -41 -25 6 
+2013-14 4 1 48 20 36 19 51 
+2014-15 12 1 111 -2 6 1 52 
+2015-16 14 3 57 41 55 39 36 
+2016-17 -1 0 1 4 39 36 94 
+2017-18 36 4 211 -23 -35 -53 -2 
+2018-19 51 5 209 -31 -20 12 -21 
+2019-20 46 4 155 -3 95 8 1 
+2020-21 14 -1 17 0 168 31 -11 
+2021-22 28 8 51 -1 100 41 -46 
+2022-23 46 6 -2 0 12 0 11 
+2023-24 38 11 153 0 -15 18 -85 
+Notes: 
+1. Victorian tributaries include trading zones 1A, 1B, 2, 3, 4A, 4C, and 5A. NSW upstream Barmah includes zones 10 and 
+10B. NSW downstream Barmah includes zones 11 and 14. 
+ 
+ 
+ 
+39 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 14: June net allocation trade into private Murray zone 7 accounts (including tagged use) 
+Year 
+Vic 
+Murray 
+above 
+Barmah 
+Lower 
+Broken 
+Creek 
+Vic 
+Tributaries 
+NSW 
+Murray 
+upstream 
+Barmah 
+NSW 
+Murray 
+downstream 
+Barmah 
+NSW 
+Murrumbidgee 
+SA 
+Murray 
+Net trade 
+in 
+June 2009 0 0 1 0 7 5 -1 13 
+June 2010 0 0 -3 0 0 0 -2 -5 
+June 2011 -3 0 -1 0 0 0 146 142 
+June 2012 -2 0 -5 0 0 0 40 34 
+June 2013 3 1 7 0 0 0 2 12 
+June 2014 -3 0 0 0 0 0 4 1 
+June 2015 -2 0 -1 0 0 0 24 21 
+June 2016 -3 0 -4 0 0 0 -2 -9 
+June 2017 -6 -1 -47 0 1 0 8 -44 
+June 2018 -3 0 -4 -2 0 0 -11 -21 
+June 2019 -11 0 -9 8 0 0 -5 -18 
+June 2020 -21 -3 -35 -3 -4 0 36 -30 
+June 2021 -18 -2 -38 1 8 0 27 -23 
+June 2022 21 0 -41 -1 1 0 6 -14 
+June 2023 -19 0 -49 0 0 0 13 -55 
+June 2024 0 -1 -22 0 0 0 2 -22 
+Notes: 
+1. Victorian tributaries include trading zones 1A, 1B, 2, 3, 4A, 4C, and 5A. NSW upstream Barmah includes zones 10 and 
+10B. NSW downstream Barmah includes zones 11 and 14. 
+2. The large volume of water transferred from SA Murray in 2011 was mainly due to trade from the SA Department for 
+Water to private users. Figure 9 in the body of the report only shows data from June 2016 to make recent trends more 
+visible in light of the large 2011 volumes. 
+ 
+Table 15: Commercial allocation trade for carryover parking compared to other reasons for trade 
+Water year Carryover parking 
+(GL) 
+Other commercial 
+(GL) 
+No data available 
+(GL) 
+Carryover parking 
+median price ($/ML) 
+Overall median price 
+($/ML) 
+2020-21 114 976 122 45 105 
+2021-22 128 1,059 37 50 70 
+2022-23 224 1,003 25 65 20 
+2023-24 167 1,227 51 70 40 
+ 
+Notes: 
+1. Data excludes all within and into environment trades. 
+2. 2020-21 was the year collection for ‘reason for trade’ data commenced. 
+3. Median allocation price reflects only private priced trades in zones 1A, 1B, 3, 6, 6B, and 7. 
+ 
+ 
+ 
+ 
+40 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 16: How allocations made to private water shares not linked to land were used 
+Water year Sold 
+commercially 
+Moved to 
+another 
+account for $0 
+Lost to write-
+off/evaporation 
+Carried over to the following year 
+Allocation vol 
+(GL) 
+% of available 
+water 
+2007-08 45 21 17 37 30% 
+2008-09 39 21 10 33 32% 
+2009-10 26 34 1 29 33% 
+2010-11 35 37 3 62 45% 
+2011-12 85 35 13 48 27% 
+2012-13 87 49 7 21 13% 
+2013-14 90 46 4 9 6% 
+2014-15 149 76 3 12 5% 
+2015-16 148 83 5 51 18% 
+2016-17 226 165 6 110 22% 
+2017-18 293 238 5 59 10% 
+2018-19 351 210 6 65 10% 
+2019-20 222 266 8 121 20% 
+2020-21 311 240 13 171 23% 
+2021-22 362 285 19 216 24% 
+2022-23 396 349 24 317 29% 
+2023-24 538 459 30 270 21% 
+Notes: 
+1. The ‘available water’ in this data include s new season allocations and allocation carried over from the previous year 
+adjusted for spills. 
+2. ‘Sold commercially’ reflects the net volume of commercial trades out of privately held accounts with water shares not 
+linked to land. 
+3. “Moved to another account for $0’ reflects the net volume of $0 priced allocation trades out of privately held accounts not 
+linked to land. 
+4. This data differs from equivalent reporting in the 2018 Market Trends Report which was based on water shares now tied 
+to land, rather than not linked to land. Further analysis in how these reporting methods differ is presented in Appendix 1. 
+ 
+ 
+ 
+ 
+41 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 17: How allocations made to private water users were carried over 
+Water year 
+Carried over to the following year 
+Allocation vol (GL) % of available water 
+2007-08 238 15% 
+2008-09 224 16% 
+2009-10 691 32% 
+2010-11 1,844 66% 
+2011-12 1,803 41% 
+2012-13 883 22% 
+2013-14 592 20% 
+2014-15 379 13% 
+2015-16 431 16% 
+2016-17 689 26% 
+2017-18 385 13% 
+2018-19 282 11% 
+2019-20 455 21% 
+2020-21 684 24% 
+2021-22 735 25% 
+2022-23 849 31% 
+2023-24 853 26% 
+Notes: 
+1. The ‘available water’ in this data include s new season allocations and allocation carried over from the previous year 
+adjusted for spills. 
+Table 18: Private water users - where they source water from and how that compares to use 
+Water year Allocation carried 
+over (GL) 
+New seasonal 
+allocations (GL) 
+Bought 
+commercially 
+(net GL) 
+Moved from 
+another account 
+for $0 (net GL) 
+Use (GL) 
+Median 
+allocation 
+price ($) 
+2007-08 108 1,131 43 30 1,001 320 
+2008-09 218 694 223 31 925 320 
+2009-10 215 1,459 108 59 1,135 160 
+2010-11 618 1,680 145 172 751 26 
+2011-12 1,878 1,656 267 -38 1,732 20 
+2012-13 1,550 1,515 231 75 2,402 45 
+2013-14 461 1,463 493 88 1,857 75 
+2014-15 566 1,447 375 63 2,033 122 
+2015-16 371 1,341 380 138 1,762 230 
+2016-17 276 1,373 453 103 1,454 48 
+2017-18 686 1,362 312 31 1,967 125 
+2018-19 379 1,298 284 102 1,751 430 
+2019-20 281 926 357 42 1,112 580 
+2020-21 452 1,260 495 85 1,545 100 
+2021-22 369 1,465 484 69 1,564 65 
+2022-23 4 1,721 449 40 1,272 20 
+2023-24 467 1,640 528 38 1,716 40 
+Notes: 
+1. Only privately held northern Victorian accounts with water use recorded in the relevant year are included in this data. 
+2. ‘Allocation carried over’ reflects the carried over water available after deductions from spillable water accounts. 
+3. ‘Bought commercially’ reflects the net volume of commercial trades into private water user accounts. 
+4. “Moved from another account for $0’ reflects the net volume of $0 priced trades into private water user accounts. 
+5. There was no net trade out in any year. 
+ 
+ 
+ 
+42 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 19: Where did northern Victorian irrigators source their water from each year? 
+Water year Private category Allocation carried 
+over (GL) 
+New seasonal 
+allocations (GL) Net trade in (GL) Use (GL) 
+2007-08 
+GMW Districts 40 797 -43 657 
+GMW Diverters 10 102 -14 61 
+LMW Districts 21 91 30 82 
+LMW Diverters 37 141 98 201 
+Subtotal 108 1,131 72 1,001 
+2008-09 
+GMW Districts 117 473 93 556 
+GMW Diverters 19 52 0 43 
+LMW Districts 29 52 45 89 
+LMW Diverters 53 116 115 237 
+Subtotal 218 694 254 925 
+2009-10 
+GMW Districts 120 1,029 58 745 
+GMW Diverters 14 75 -7 33 
+LMW Districts 35 109 1 87 
+LMW Diverters 46 246 115 269 
+Subtotal 215 1,459 167 1,135 
+2010-11 
+GMW Districts 410 1,187 105 495 
+GMW Diverters 31 87 2 19 
+LMW Districts 52 133 -1 43 
+LMW Diverters 125 273 211 194 
+Subtotal 618 1,680 317 751 
+2011-12 
+GMW Districts 1,201 1,171 199 1,269 
+GMW Diverters 104 102 2 58 
+LMW Districts 139 128 -7 84 
+LMW Diverters 434 255 34 320 
+Subtotal 1,878 1,656 229 1,732 
+2012-13 
+GMW Districts 935 1,048 297 1,777 
+GMW Diverters 115 120 -39 104 
+LMW Districts 153 122 -49 114 
+LMW Diverters 347 224 97 407 
+Subtotal 1,550 1,515 306 2,402 
+2013-14 
+GMW Districts 381 999 431 1,317 
+GMW Diverters 44 117 -15 88 
+LMW Districts 9 119 -1 98 
+LMW Diverters 27 228 166 354 
+Subtotal 461 1,463 581 1,857 
+2014-15 
+GMW Districts 451 981 305 1,451 
+GMW Diverters 40 116 -21 89 
+LMW Districts 20 118 -15 94 
+LMW Diverters 54 232 168 399 
+Subtotal 566 1,447 437 2,033 
+2015-16 
+GMW Districts 264 907 267 1,157 
+GMW Diverters 33 104 -14 79 
+LMW Districts 26 118 6 102 
+ 
+ 
+ 
+43 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Water year Private category Allocation carried 
+over (GL) 
+New seasonal 
+allocations (GL) Net trade in (GL) Use (GL) 
+LMW Diverters 48 212 260 424 
+Subtotal 371 1,341 519 1,762 
+2016-17 
+GMW Districts 238 934 372 929 
+GMW Diverters 24 114 -5 64 
+LMW Districts 0 118 -3 87 
+LMW Diverters 14 207 192 374 
+Subtotal 276 1,373 556 1,454 
+2017-18 
+GMW Districts 572 900 186 1,341 
+GMW Diverters 51 115 -24 93 
+LMW Districts 16 115 -10 101 
+LMW Diverters 46 232 191 432 
+Subtotal 686 1,362 342 1,967 
+2018-19 
+GMW Districts 296 873 133 1,093 
+GMW Diverters 37 111 -23 86 
+LMW Districts 18 109 6 110 
+LMW Diverters 28 205 268 462 
+Subtotal 379 1,298 385 1,751 
+2019-20 
+GMW Districts 192 622 71 531 
+GMW Diverters 27 83 -13 51 
+LMW Districts 20 70 35 98 
+LMW Diverters 42 151 304 433 
+Subtotal 281 926 398 1,112 
+2020-21 
+GMW Districts 332 819 337 942 
+GMW Diverters 36 114 -11 69 
+LMW Districts 25 101 14 98 
+LMW Diverters 59 225 240 436 
+Subtotal 452 1,260 580 1,545 
+2021-22 
+GMW Districts 331 1,006 281 956 
+GMW Diverters 31 121 -2 65 
+LMW Districts 0 99 19 93 
+LMW Diverters 7 239 254 449 
+Subtotal 369 1,465 553 1,564 
+2022-23 
+GMW Districts -7 1,259 315 816 
+GMW Diverters 7 124 5 53 
+LMW Districts 0 91 22 75 
+LMW Diverters 3 247 147 329 
+Subtotal 4 1,721 489 1,272 
+2023-24 
+GMW Districts 405 1,182 297 1,130 
+GMW Diverters 35 130 -3 73 
+LMW Districts 7 91 32 94 
+LMW Diverters 20 237 240 418 
+Subtotal 467 1,640 566 1,716 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+ 
+ 
+ 
+44 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 20: Water sourced by irrigators as a percentage of water use 
+Water year Private category Carried over from 
+previous year Seasonal allocation Net trade 
+in Use (GL) 
+2007-08 
+GMW Districts 6% 121% -7% 657 
+GMW Diverters 16% 167% -23% 61 
+LMW Districts 26% 111% 37% 82 
+LMW Diverters 18% 70% 49% 201 
+Subtotal 11% 113% 7% 1,001 
+2008-09 
+GMW Districts 21% 85% 17% 556 
+GMW Diverters 45% 122% 0% 43 
+LMW Districts 33% 58% 50% 89 
+LMW Diverters 22% 49% 49% 237 
+Subtotal 24% 75% 27% 925 
+2009-10 
+GMW Districts 16% 138% 8% 745 
+GMW Diverters 42% 226% -20% 33 
+LMW Districts 40% 125% 1% 87 
+LMW Diverters 17% 92% 43% 269 
+Subtotal 19% 129% 15% 1,135 
+2010-11 
+GMW Districts 83% 240% 21% 495 
+GMW Diverters 163% 459% 11% 19 
+LMW Districts 122% 311% -3% 43 
+LMW Diverters 64% 141% 109% 194 
+Subtotal 82% 224% 42% 751 
+2011-12 
+GMW Districts 95% 92% 16% 1,269 
+GMW Diverters 180% 176% 4% 58 
+LMW Districts 166% 153% -8% 84 
+LMW Diverters 135% 80% 11% 320 
+Subtotal 108% 96% 13% 1,732 
+2012-13 
+GMW Districts 53% 59% 17% 1,777 
+GMW Diverters 110% 116% -38% 104 
+LMW Districts 135% 107% -43% 114 
+LMW Diverters 85% 55% 24% 407 
+Subtotal 65% 63% 13% 2,402 
+2013-14 
+GMW Districts 29% 76% 33% 1,317 
+GMW Diverters 50% 133% -16% 88 
+LMW Districts 9% 121% -1% 98 
+LMW Diverters 8% 64% 47% 354 
+Subtotal 25% 79% 31% 1,857 
+2014-15 
+GMW Districts 31% 68% 21% 1,451 
+GMW Diverters 45% 129% -23% 89 
+LMW Districts 21% 126% -16% 94 
+LMW Diverters 13% 58% 42% 399 
+Subtotal 28% 71% 22% 2,033 
+2015-16 
+GMW Districts 23% 78% 23% 1,157 
+GMW Diverters 42% 132% -18% 79 
+LMW Districts 25% 116% 6% 102 
+ 
+ 
+ 
+45 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Water year Private category Carried over from 
+previous year Seasonal allocation Net trade 
+in Use (GL) 
+LMW Diverters 11% 50% 61% 424 
+Subtotal 21% 76% 29% 1,762 
+2016-17 
+GMW Districts 26% 100% 40% 929 
+GMW Diverters 37% 177% -8% 64 
+LMW Districts 0% 136% -3% 87 
+LMW Diverters 4% 55% 51% 374 
+Subtotal 19% 94% 38% 1,454 
+2017-18 
+GMW Districts 43% 67% 14% 1,341 
+GMW Diverters 55% 124% -26% 93 
+LMW Districts 16% 114% -10% 101 
+LMW Diverters 11% 54% 44% 432 
+Subtotal 35% 69% 17% 1,967 
+2018-19 
+GMW Districts 27% 80% 12% 1,093 
+GMW Diverters 43% 129% -27% 86 
+LMW Districts 16% 98% 6% 110 
+LMW Diverters 6% 44% 58% 462 
+Subtotal 22% 74% 22% 1,751 
+2019-20 
+GMW Districts 36% 117% 13% 531 
+GMW Diverters 54% 163% -25% 51 
+LMW Districts 20% 71% 36% 98 
+LMW Diverters 10% 35% 70% 433 
+Subtotal 25% 83% 36% 1,112 
+2020-21 
+GMW Districts 35% 87% 36% 942 
+GMW Diverters 53% 166% -15% 69 
+LMW Districts 25% 104% 14% 98 
+LMW Diverters 14% 52% 55% 436 
+Subtotal 29% 82% 38% 1,545 
+2021-22 
+GMW Districts 35% 105% 29% 956 
+GMW Diverters 47% 185% -3% 65 
+LMW Districts 0% 106% 21% 93 
+LMW Diverters 2% 53% 57% 449 
+Subtotal 24% 94% 35% 1,564 
+2022-23 
+GMW Districts -1% 154% 39% 816 
+GMW Diverters 14% 233% 9% 53 
+LMW Districts 0% 122% 30% 75 
+LMW Diverters 1% 75% 45% 329 
+Subtotal 0% 135% 38% 1,272 
+2023-24 
+GMW Districts 36% 105% 26% 1,130 
+GMW Diverters 47% 179% -4% 73 
+LMW Districts 7% 96% 33% 94 
+LMW Diverters 5% 57% 57% 418 
+Subtotal 27% 96% 33% 1,716 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+ 
+ 
+ 
+46 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 21: Where did northern Victorian irrigators source their water from in 2023-24 
+ 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+ 
+Figure 22: GMW district irrigators source of allocation 
+ 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+Figure 23: GMW diverter irrigators source of allocation 
+ 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+0
+200
+400
+600
+800
+1000
+1200
+1400
+1600
+1800
+2000
+GMW Districts GMW Diverters LMW Districts LMW Diverters
+Volume (GL)
+New seasonal allocation Allocation carried over Net Trade in Use
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume (GL)
+New seasonal allocation Allocation carried over Net Trade in Use
+0
+50
+100
+150
+200
+250
+300
+350
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume (GL)
+New seasonal allocation Allocation carried over Net Trade in Use
+ 
+ 
+ 
+47 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Figure 24: LMW diverter irrigators source of allocation 
+ 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+ 
+Figure 25: LMW district irrigators source of allocation 
+ 
+Notes: 
+1. Only privately held accounts with water use recorded against them during the relevant year are included in this data. 
+ 
+ 
+0
+100
+200
+300
+400
+500
+600
+700
+800
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume (GL)
+New seasonal allocation Allocation carried over Net Trade in Use
+0
+50
+100
+150
+200
+250
+300
+350
+400
+2008-09
+2009-10
+2010-11
+2011-12
+2012-13
+2013-14
+2014-15
+2015-16
+2016-17
+2017-18
+2018-19
+2019-20
+2020-21
+2021-22
+2022-23
+2023-24
+Volume (GL)
+New seasonal allocation Allocation carried over Net Trade in Use
+ 
+ 
+ 
+48 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 21: Commercial allocation trade in Northern Victoria categorised by buyer and seller type 
+Trade to 
+(buyer): Private Interstate Environment Water Corporation Grand 
+Total Trade from 
+(seller): Private Interstate Water 
+Corp Environment Total Private Water 
+Corp Environment Total Private Interstate Water 
+Corp Total Private Interstate Water 
+Corp Environment Total 
+2007-2008 234 60 8 - 302 57 - - 57 - - - 0 8 3 - - 12 371 
+2008-2009 186 214 8 - 407 24 - - 24 - - - 0 12 15 3 - 29 460 
+2009-2010 274 95 9 - 378 55 - - 55 - - - 0 8 3 3 - 14 448 
+2010-2011 213 108 26 - 346 25 1 - 26 8 20 - 28 3 - 0 - 3 404 
+2011-2012 512 114 43 10 678 34 2 - 36 - - - 0 0 - - - 0 715 
+2012-2013 652 63 129 7 850 140 28 6 174 - - - 0 0 - - - 0 1,025 
+2013-2014 522 200 154 - 876 18 7 - 26 0 - - 0 1 - 0 - 1 902 
+2014-2015 557 115 90 9 771 47 22 3 72 - 10 - 10 2 - - - 2 855 
+2015-2016 507 168 59 22 757 27 10 - 37 - - - 0 0 - - - 0 794 
+2016-2017 624 142 116 20 901 20 5 0 26 - - - 0 2 - - - 2 928 
+2017-2018 783 43 105 10 941 126 11 5 142 - - - 0 4 - - - 4 1,088 
+2018-2019 750 68 77 30 924 106 8 1 114 - - - 0 0 - - - 0 1,038 
+2019-2020 581 192 79 - 852 54 7 - 62 - - - 0 - - - - 0 914 
+2020-2021 822 230 83 - 1,135 64 5 - 69 - - - 0 8 - - - 8 1,212 
+2021-2022 840 143 134 11 1,128 74 2 1 76 - - - 0 19 0 0 - 19 1,224 
+2022-2023 934 44 166 44 1,188 34 3 1 38 1 - - 1 25 - 0 - 26 1,252 
+2023-2024 1,117 57 122 28 1,323 77 17 8 103 6 - - 6 13 - - - 13 1,445 
+ 
+Notes: 
+1. Only priced allocation trades (where the recorded price was greater than $0) are included in this table. 
+2. Values for 2007-08 are as reported in the 2018 trends report. 
+ 
+ 
+ 
+ 
+49 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 22: Percentage of commercial allocation trade in Northern Victoria categorised by buyer and seller type 
+Trade to 
+(buyer): Private Interstate Environment Water Corporation Grand 
+Total Trade from 
+(seller): Private Interstate Water 
+Corp Environment Total Private Water 
+Corp Environment Total Private Interstate Water 
+Corp Total Private Interstate Water 
+Corp Environment Total 
+2007-2008 63% 16% 2% - 81% 15% - - 15% - - - 0% 2% 1% - - 3% 100% 
+2008-2009 40% 47% 2% - 88% 5% - - 5% - - - 0% 3% 3% 1% - 6% 100% 
+2009-2010 61% 21% 2% - 84% 12% - - 12% - - - 0% 2% 1% 1% - 3% 100% 
+2010-2011 53% 27% 6% - 86% 6% 0% - 6% 2% 5% - 7% 1% - 0% - 1% 100% 
+2011-2012 72% 16% 6% 1% 95% 5% 0% - 5% - - - 0% 0% - - - 0% 100% 
+2012-2013 64% 6% 13% 1% 83% 14% 3% 1% 17% - - - 0% 0% - - - 0% 100% 
+2013-2014 58% 22% 17% - 97% 2% 1% - 3% 0% - - 0% 0% - 0% - 0% 100% 
+2014-2015 65% 13% 11% 1% 90% 5% 3% 0% 8% - 1% - 1% 0% - - - 0% 100% 
+2015-2016 64% 21% 7% 3% 95% 3% 1% - 5% - - - 0% 0% - - - 0% 100% 
+2016-2017 67% 15% 13% 2% 97% 2% 1% 0% 3% - - - 0% 0% - - - 0% 100% 
+2017-2018 72% 4% 10% 1% 86% 12% 1% 0% 13% - - - 0% 0% - - - 0% 100% 
+2018-2019 72% 7% 7% 3% 89% 10% 1% 0% 11% - - - 0% 0% - - - 0% 100% 
+2019-2020 64% 21% 9% - 93% 6% 1% - 7% - - - 0% - - - - 0% 100% 
+2020-2021 68% 19% 7% - 94% 5% 0% - 6% - - - 0% 1% - - - 1% 100% 
+2021-2022 69% 12% 11% 1% 92% 6% 0% 0% 6% - - - 0% 2% 0% 0% - 2% 100% 
+2022-2023 75% 4% 13% 4% 95% 3% 0% 0% 3% 0% - - 0% 2% - 0% - 2% 100% 
+2023-2024 77% 4% 8% 2% 92% 5% 1% 1% 7% 0% - - 0% 1% - - - 1% 100% 
+ 
+Notes: 
+1. Only priced allocation trades (where the recorded price was greater than $0) are included in this table. 
+2. Values for 2007-08 are as reported in the 2018 trends report. 
+ 
+ 
+ 
+ 
+ 
+ 
+50 
+ 
+ 
+Water Market Trends 2001-2024 
+www.waterregister.vic.gov.au 
+ 
+OFFICIAL 
+Table 23: Proportion of commercial Goulburn and Murray trade involving at least one frequent trader account 
+Water year 
+# trades Volume (GL) 
+Trade involved at 
+least one frequent 
+trader account 
+All other 
+commercial 
+trades 
+% involving 
+frequent trader 
+account 
+Volume of trade 
+involving at least 
+one frequent 
+trader account 
+All other 
+commercial 
+trades 
+% involving 
+frequent trader 
+account 
+2015-16 3,107 6,255 33% 405 387 51% 
+2016-17 2,645 4,899 35% 441 485 48% 
+2017-18 4,319 6,065 42% 660 424 61% 
+2018-19 7,180 7,309 50% 670 364 65% 
+2019-20 5,769 6,689 46% 592 319 65% 
+2020-21 3,930 7,183 35% 579 629 48% 
+2021-22 3,486 5,980 37% 636 586 52% 
+2022-23 2,615 4,405 37% 726 634 53% 
+2023-24 3,885 6,225 38% 860 640 57% 
+ 
+Notes: 
+1. Frequent trader allocation accounts are identified as individual accounts that have, during a water year, completed 
+more than 20 allocation trades which are: a) approved, b) priced (i.e. commercial), and c) within, from, or to the 
+Goulburn water system (zones 1A, 1B, and 3) or the Murray water system (zones 6, 6B, and 7). 

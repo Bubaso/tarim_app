@@ -3,12 +3,13 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_typography.dart';
+import '../../../../core/utils/turkce_metin.dart';
 import '../../data/models/dossier_chart.dart';
 import '../../data/models/dossier_theme.dart';
 
-/// Yedi grafik türünün çizicisi ve dağıtıcısı.
+/// Dokuz grafik türünün çizicisi ve dağıtıcısı.
 ///
-/// **Neden altısı CustomPainter değil:** çubuk, künye, çizelge ve kartlarda
+/// **Neden sekizi CustomPainter değil:** çubuk, künye, çizelge ve kartlarda
 /// çizilecek tek şey dikdörtgen ve metin. Bunları tuvale boyamak metin
 /// seçilebilirliğini, ekran okuyucuyu ve sistem yazı boyu tercihini elden
 /// çıkarırdı — karşılığında hiçbir şey kazandırmadan. Yalnızca [CizgiChart]
@@ -49,7 +50,7 @@ class DossierChartView extends StatelessWidget {
           ),
           const SizedBox(height: 16),
 
-          // `sealed` sınıf sayesinde bu switch tam kapsamlı: sekizinci bir tür
+          // `sealed` sınıf sayesinde bu switch tam kapsamlı: onuncu bir tür
           // eklendiğinde burası derlenmez. Sessizce boş kutu çizme ihtimali yok.
           switch (chart) {
             IkiliCubukChart() => _IkiliCubuk(c: chart as IkiliCubukChart, tema: tema, isEn: isEn),
@@ -60,6 +61,10 @@ class DossierChartView extends StatelessWidget {
             ZamanCizelgesiChart() =>
               _ZamanCizelgesi(c: chart as ZamanCizelgesiChart, tema: tema, isEn: isEn),
             KartlarChart() => _Kartlar(c: chart as KartlarChart, tema: tema, isEn: isEn),
+            IslemAkisiChart() =>
+              _IslemAkisi(c: chart as IslemAkisiChart, tema: tema, isEn: isEn),
+            TicaretAkisiChart() =>
+              _TicaretAkisi(c: chart as TicaretAkisiChart, tema: tema, isEn: isEn),
           },
 
           if (chart.not != null) ...[
@@ -91,19 +96,34 @@ class DossierChartView extends StatelessWidget {
 /// Tarama, turuncu ile yeşilin eş parlaklıkta olmasının panzehiri. Deuteranopi
 /// altında iki çubuk aynı griye düşüyor; eğik tarama farkı korur.
 class _Dolgu extends StatelessWidget {
-  const _Dolgu({required this.rol, required this.tema, this.yukseklik = 16});
+  const _Dolgu({
+    required this.rol,
+    required this.tema,
+    this.yukseklik = 16,
+    this.tersTarama,
+  });
 
   final ChartRole rol;
   final DossierTheme tema;
   final double yukseklik;
+
+  /// Rolün kendi taraması yerine geçer ve TERS eğimle çizer. Tek kullanıcısı
+  /// akış grafiğindeki "merkezin kendi payı". Rengi ikincile çevirmek
+  /// çözmüyordu: dışarıdan gelen bir kol da ikincil olabiliyor, o da taramalı
+  /// ve iki blok tek dokuya dönüyordu. Eğimi ters çevirmek ikisini griye düşen
+  /// bir ekranda bile ayırıyor.
+  final bool? tersTarama;
 
   @override
   Widget build(BuildContext context) {
     final renk = rol.renk(tema);
     return SizedBox(
       height: yukseklik,
-      child: rol.taramali
-          ? CustomPaint(painter: _TaramaBoyaci(renk), child: const SizedBox.expand())
+      child: ((tersTarama ?? false) || rol.taramali)
+          ? CustomPaint(
+              painter: _TaramaBoyaci(renk, ters: tersTarama ?? false),
+              child: const SizedBox.expand(),
+            )
           : DecoratedBox(
               decoration: BoxDecoration(
                 color: renk,
@@ -115,9 +135,16 @@ class _Dolgu extends StatelessWidget {
 }
 
 class _TaramaBoyaci extends CustomPainter {
-  _TaramaBoyaci(this.renk);
+  _TaramaBoyaci(this.renk, {this.ters = false});
 
   final Color renk;
+
+  /// Ters eğim. Tek kullanıcısı akış grafiğindeki "merkezin kendi payı":
+  /// dışarıdan gelen bir kol `ikincil` işaretlendiğinde o da taramalı oluyor
+  /// ve iki taramalı blok yan yana tek dokuya dönüyordu. Renk farkı tek başına
+  /// yetmez — bu dosyanın kuralı renge yalnız başına anlam yüklememek. Ters
+  /// eğim griye düşen bir ekranda da ayrışıyor.
+  final bool ters;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -135,13 +162,18 @@ class _TaramaBoyaci extends CustomPainter {
       ..strokeCap = StrokeCap.square;
     const aralik = 6.0;
     for (var x = -size.height; x < size.width; x += aralik) {
-      canvas.drawLine(Offset(x, size.height), Offset(x + size.height, 0), kalem);
+      canvas.drawLine(
+        Offset(x, ters ? 0 : size.height),
+        Offset(x + size.height, ters ? size.height : 0),
+        kalem,
+      );
     }
     canvas.restore();
   }
 
   @override
-  bool shouldRepaint(_TaramaBoyaci eski) => eski.renk != renk;
+  bool shouldRepaint(_TaramaBoyaci eski) =>
+      eski.renk != renk || eski.ters != ters;
 }
 
 /// Seri açıklaması — renk örneği + ad.
@@ -866,7 +898,7 @@ class _Kartlar extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 5),
                     child: Text(
-                      c.kartlar[i].ust!.of(isEn).toUpperCase(),
+                      buyukHarf(c.kartlar[i].ust!.of(isEn), isEn),
                       style: AppTypography.meta(context, color: tema.sessiz)
                           .copyWith(fontSize: 11, letterSpacing: 0.7),
                     ),
@@ -918,6 +950,437 @@ class _Kartlar extends StatelessWidget {
             ),
           ),
       ],
+    );
+  }
+}
+
+// ─── 8. İşlem akışı ─────────────────────────────────────────────────────────
+
+/// Adım adım bir yol: kim yapıyor, ne kadar sürüyor, elinde ne kalıyor.
+///
+/// Düğüm KARE ve içinde adım numarası var. [_ZamanCizelgesi]'nin düğümü daire
+/// ve içinde yıl; ikisi aynı dosyada yan yana geçebildiği için ayrımı renk
+/// değil BİÇİM taşıyor.
+class _IslemAkisi extends StatelessWidget {
+  const _IslemAkisi({required this.c, required this.tema, required this.isEn});
+
+  final IslemAkisiChart c;
+  final DossierTheme tema;
+  final bool isEn;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        for (var i = 0; i < c.adimlar.length; i++)
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _AdimDugumu(
+                  tema: tema,
+                  no: i + 1,
+                  altVar: i < c.adimlar.length - 1,
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      bottom: i == c.adimlar.length - 1 ? 0 : 20,
+                    ),
+                    child: _AdimGovdesi(a: c.adimlar[i], tema: tema, isEn: isEn),
+                  ),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _AdimGovdesi extends StatelessWidget {
+  const _AdimGovdesi({required this.a, required this.tema, required this.isEn});
+
+  final AkisAdimi a;
+  final DossierTheme tema;
+  final bool isEn;
+
+  @override
+  Widget build(BuildContext context) {
+    // Aktör ve süre aynı satırda, orta nokta ile. İkisi de yoksa satır hiç
+    // çizilmiyor: boş bir künye satırı "bilgi yok" değil "bilgi var ama
+    // okunmuyor" izlenimi veriyor.
+    final kunye = [
+      if (a.aktor != null) a.aktor!.of(isEn),
+      if (a.sure != null) a.sure!.of(isEn),
+    ].join(' · ');
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          a.baslik.of(isEn),
+          style: AppTypography.meta(context, color: tema.murekkep)
+              .copyWith(fontWeight: FontWeight.w700, height: 1.35),
+        ),
+        if (kunye.isNotEmpty)
+          Padding(
+            padding: const EdgeInsets.only(top: 3),
+            child: Text(
+              kunye,
+              style: AppTypography.meta(context, color: tema.sessiz)
+                  .copyWith(fontSize: 12, height: 1.4),
+            ),
+          ),
+        // Seçenekler AYRI satırlarda ve her biri kendi işaretiyle. Virgülle
+        // birleştirilseydi okur bunu bir seçim değil, art arda iki iş sanardı.
+        for (final s in a.secenekler)
+          Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 6, right: 8),
+                  child: Container(
+                    width: 5,
+                    height: 5,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: tema.cizgiVurgu, width: 1),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    s.of(isEn),
+                    style: AppTypography.meta(context, color: tema.murekkep)
+                        .copyWith(fontSize: 12.5, height: 1.45),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        if (a.cikti != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 7),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(3),
+                border: Border.all(color: tema.cizgiVurgu),
+              ),
+              child: Text(
+                a.cikti!.of(isEn),
+                style: AppTypography.meta(context, color: tema.vurgu)
+                    .copyWith(fontSize: 11.5, letterSpacing: 0.3, height: 1.3),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+/// Kare düğüm + numara + aşağı inen bağ.
+class _AdimDugumu extends StatelessWidget {
+  const _AdimDugumu({required this.tema, required this.no, required this.altVar});
+
+  final DossierTheme tema;
+  final int no;
+  final bool altVar;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 22,
+      child: Column(
+        children: [
+          Container(
+            width: 22,
+            height: 22,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(3),
+              border: Border.all(color: tema.vurgu, width: 1.4),
+            ),
+            child: Text(
+              '$no',
+              style: AppTypography.meta(context, color: tema.vurgu).copyWith(
+                fontSize: 11.5,
+                fontWeight: FontWeight.w700,
+                height: 1,
+                fontFeatures: const [FontFeature.tabularFigures()],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Container(
+                width: 1,
+                color: altVar ? tema.cizgiVurgu : Colors.transparent,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ─── 9. Ticaret akışı ───────────────────────────────────────────────────────
+
+/// Bir malın nereden gelip nereye gittiği; şerit kalınlığı miktarla orantılı.
+///
+/// Üç çizim kararı, üçü de bilerek:
+///
+/// 1. **Yamuk yok.** İlk taslak iki şeridi merkez kutusuna yamuklarla
+///    bağlıyordu; şerit kutudan darsa yamuk genişleyerek iniyor ve gözde
+///    "arttı" izlenimi bırakıyor. Oysa kutu bir etiket, miktar değil. Bağ düz
+///    bir ok; karşılaştırma şeritlerin kendi uzunluğundan okunuyor.
+/// 2. **Her şeridin arkasında sönük bir cetvel var**, cetvel iki yakanın
+///    büyüğü. Giren çıkandan azsa şerit cetveli doldurmuyor ve eksik pay
+///    BOŞLUK olarak görünüyor.
+/// 3. **Fark için cümle üretilmiyor.** Grafiğin elinde farkın sebebi yok;
+///    sayı veriliyor, yorum `not` alanına yazılıyor.
+class _TicaretAkisi extends StatelessWidget {
+  const _TicaretAkisi({required this.c, required this.tema, required this.isEn});
+
+  final TicaretAkisiChart c;
+  final DossierTheme tema;
+  final bool isEn;
+
+  @override
+  Widget build(BuildContext context) {
+    final cetvel = c.cetvel;
+    // Cetvel sıfırsa oran hesaplanamaz. Model boş kolu zaten düşürüyor, ama
+    // hepsi sıfır değerle gelirse bölme burada patlardı.
+    if (cetvel <= 0) return const SizedBox.shrink();
+
+    // Merkezin kendi payı GİREN yakasının sonuna ekleniyor: dışarıdan gelenle
+    // içeride üretilen toplanıp çıkan yakayı besliyor.
+    final girenKollar = [...c.giren, if (c.merkez.kendi != null) c.merkez.kendi!];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (c.birim != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: Text(
+              c.birim!.of(isEn),
+              style: AppTypography.meta(context, color: tema.sessiz)
+                  .copyWith(fontSize: 11.5, letterSpacing: 0.4),
+            ),
+          ),
+
+        _AkisYakasi(
+          baslik: c.girenBasligi,
+          kollar: girenKollar,
+          // Merkezin kendi payı taramalı: dışarıdan gelenle içeride üretilen
+          // aynı desende olsaydı şerit tek yığına dönerdi.
+          taramaliSon: c.merkez.kendi != null,
+          cetvel: cetvel,
+          bicim: c.bicim,
+          tema: tema,
+          isEn: isEn,
+        ),
+
+        // Merkez kutusu, iki yanında düz ok. Yamuk değil — kutu bir etiket,
+        // miktar değil; genişleyen bir bağ "arttı" diye okunurdu.
+        _AkisOku(tema: tema),
+        _AkisMerkeziKutusu(merkez: c.merkez, tema: tema, isEn: isEn),
+        _AkisOku(tema: tema),
+
+        _AkisYakasi(
+          baslik: c.cikanBasligi,
+          kollar: c.cikan,
+          taramaliSon: false,
+          cetvel: cetvel,
+          bicim: c.bicim,
+          tema: tema,
+          isEn: isEn,
+        ),
+      ],
+    );
+  }
+}
+
+/// Bir yaka: başlık + toplam şeridi + kol dökümü.
+class _AkisYakasi extends StatelessWidget {
+  const _AkisYakasi({
+    required this.baslik,
+    required this.kollar,
+    required this.taramaliSon,
+    required this.cetvel,
+    required this.bicim,
+    required this.tema,
+    required this.isEn,
+  });
+
+  final DossierText? baslik;
+  final List<AkisKolu> kollar;
+  final bool taramaliSon;
+  final num cetvel;
+  final SayiBicimi bicim;
+  final DossierTheme tema;
+  final bool isEn;
+
+  /// Merkezin kendi payı listenin SONUNDA ve taramalı.
+  ///
+  /// İlk sürüm onu `ikincil` role çeviriyordu; görüntü bunu reddetti. Dışarıdan
+  /// gelen bir kol da `ikincil` işaretlenebiliyor ve o da taramalı — giren
+  /// şeridinin neredeyse tamamı tek desene dönüyordu, yani ayrım kayboluyordu.
+  /// Şimdi kendi payı SESSİZ renkte ve taraması ayrıca zorlanıyor: desen aynı,
+  /// renk farklı.
+  bool _kendiMi(int i) => taramaliSon && i == kollar.length - 1;
+
+  ChartRole _rol(int i) => _kendiMi(i) ? ChartRole.sessiz : kollar[i].rol;
+
+  @override
+  Widget build(BuildContext context) {
+    final toplam = kollar.fold<num>(0, (t, k) => t + k.deger);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Başlık hem şeridin hem dökümün üstünde. İki yaka birbirinin aynı
+        // göründüğü için aralarındaki boşluk tek başına "yaka değişti" demiyor.
+        if (baslik != null)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 6),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    buyukHarf(baslik!.of(isEn), isEn),
+                    style: AppTypography.meta(context, color: tema.sessiz)
+                        .copyWith(fontSize: 11, letterSpacing: 0.7),
+                  ),
+                ),
+                Text(
+                  bicim.bicimle(toplam, isEn),
+                  style: _rakamStili(context, tema.murekkep),
+                ),
+              ],
+            ),
+          ),
+
+        // Sönük cetvelin üstünde oranlı şerit. Eksik pay boşluk olarak kalıyor.
+        Container(
+          height: 18,
+          decoration: BoxDecoration(
+            color: tema.cizgi,
+            borderRadius: BorderRadius.circular(2),
+          ),
+          child: Row(
+            children: [
+              for (var i = 0; i < kollar.length; i++)
+                Expanded(
+                  flex: (kollar[i].deger / cetvel * 10000).round().clamp(1, 10000),
+                  child: Padding(
+                    padding: EdgeInsets.only(right: i == kollar.length - 1 ? 0 : 1.5),
+                    child: _Dolgu(
+                      rol: _rol(i),
+                      tema: tema,
+                      yukseklik: 18,
+                      tersTarama: _kendiMi(i),
+                    ),
+                  ),
+                ),
+              // Cetvelin doldurulmayan kısmı. Giren çıkandan azsa buradaki
+              // boşluk farkın kendisi.
+              if (toplam < cetvel)
+                Expanded(
+                  flex: ((cetvel - toplam) / cetvel * 10000).round().clamp(1, 10000),
+                  child: const SizedBox.shrink(),
+                ),
+            ],
+          ),
+        ),
+
+        const SizedBox(height: 8),
+        for (var i = 0; i < kollar.length; i++)
+          Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 9,
+                  child: _Dolgu(
+                    rol: _rol(i),
+                    tema: tema,
+                    yukseklik: 9,
+                    tersTarama: _kendiMi(i),
+                  ),
+                ),
+                const SizedBox(width: 9),
+                Expanded(
+                  child: Text(
+                    kollar[i].etiket.of(isEn),
+                    style: AppTypography.meta(context, color: tema.murekkep)
+                        .copyWith(fontSize: 12.5, height: 1.4),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Text(
+                  bicim.bicimle(kollar[i].deger, isEn),
+                  style: _rakamStili(context, tema.murekkep).copyWith(fontSize: 12.5),
+                ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}
+
+class _AkisMerkeziKutusu extends StatelessWidget {
+  const _AkisMerkeziKutusu({
+    required this.merkez,
+    required this.tema,
+    required this.isEn,
+  });
+
+  final AkisMerkezi merkez;
+  final DossierTheme tema;
+  final bool isEn;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: tema.zemin,
+        borderRadius: BorderRadius.circular(5),
+        border: Border.all(color: tema.cizgiVurgu),
+      ),
+      child: Text(
+        merkez.etiket.of(isEn),
+        textAlign: TextAlign.center,
+        style: AppTypography.meta(context, color: tema.murekkep)
+            .copyWith(fontWeight: FontWeight.w700, height: 1.35),
+      ),
+    );
+  }
+}
+
+/// Yakayı merkeze bağlayan düz ok. Genişliği sabit — bağ bir yön gösterir,
+/// miktar taşımaz.
+class _AkisOku extends StatelessWidget {
+  const _AkisOku({required this.tema});
+
+  final DossierTheme tema;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 18,
+      child: Center(
+        child: Icon(Icons.arrow_downward_rounded, size: 15, color: tema.cizgiVurgu),
+      ),
     );
   }
 }

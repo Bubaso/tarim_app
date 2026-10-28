@@ -1,0 +1,858 @@
+ OFFICIAL 
+ 
+ 
+ 
+Victorian Water 
+Trading 
+2024-25 Annual Report 
+
+ OFFICIAL 
+Photo credit 
+The title page photo was taken by James Lauritz. It shows an aerial photo of the Glenmaggie Bridge over Lake 
+Glenmaggie in Gippsland, Victoria. 
+ 
+© The State of Victoria Department of Energy, Environment and Climate Action December 2025. 
+Creative Commons 
+This work is licensed under a Creative Commons Attribution 4.0 International licence, visit the Creative 
+Commons website (http://creativecommons.org/licenses/by/4.0/). 
+You are free to re-use the work under that licence, on the condition that you credit the State of Victoria as 
+author. The licence does not apply to any images, photographs or branding, including the Victorian Coat of 
+Arms, and the Victorian Government and Department logos. 
+ISSN 2203-1928 
+ 
+Disclaimer 
+This publication may be of assistance to you but the State of Victoria and its employees do not guarantee 
+that the publication is without flaw of any kind or is wholly appropriate for your particular purposes and 
+therefore disclaims all liability for any error, loss or other consequence which may arise from you relying on 
+any information in this publication. 
+Accessibility 
+To receive this document in an alternative format, phone the Customer Service Centre on 136 186, email 
+customer.service@deeca.vic.gov.au, or contact National Relay Service on 133 677. Available at 
+https://www.waterregister.vic.gov.au/water-trading/trade-reports. 
+We acknowledge and respect Victorian Traditional Owners as the original 
+custodians of Victoria’s land and waters, their unique ability to care for 
+Country and deep spiritual connection to it. 
+We honour Elders past and present whose knowledge and wisdom 
+has ensured the continuation of culture and traditional practices. 
+DEECA is committed to genuinely partnering with Victorian 
+Traditional Owners and Victoria’s Aboriginal community 
+to progress their aspirations. 
+ 
+ www.waterregister.vic.gov.au 1 
+Victorian Water Trading: 2024-25 
+Contents 
+Contents ............................................................................................................................ 1 
+1. About this report ........................................................................................................... 2 
+2. 2024-25 overview .......................................................................................................... 2 
+3. 2024-25 Key trade statistics ......................................................................................... 2 
+Private allocation trade volume continued to grow .................................................................................... 2 
+Net trade out of Victoria has occurred for the 2nd year in a row, opposite the historical norm of net 
+imports into Victoria ........................................................................................................................... 3 
+Allocation prices were higher and consistent across most of the year...................................................... 4 
+Commercial trade was the most common reason for trade by volume ..................................................... 4 
+Water share trade volume was higher in Northern Victoria ....................................................................... 5 
+Temporary surface water take and use licence trade is higher ................................................................. 5 
+Temporary groundwater trade is up, but permanent transfers are down .................................................. 6 
+Extraction share trade is minimal .............................................................................................................. 7 
+Limited Term Transfers total active volume continues declining since 2019-20 ....................................... 7 
+4. Additional tables and charts ........................................................................................ 8 
+ 
+ 
+ 
+ www.waterregister.vic.gov.au 2 
+Victorian Water Trading: 2024-25 
+1. About this report 
+The purpose of this report is to provide a record of water trade behaviour across the year in Victoria. It 
+maintains continuity with annual water trading reports dating back to 2007-08. 
+Many terms and phrases have specific meanings in the context of Victoria’s water market. You can learn 
+more about the types of water rights that can be traded at Water Trading - Water Register. A water dictionary 
+is also available for definitions of terms. 
+Section 4: Additional tables and charts presents supplementary data without written commentary and is 
+provided as additional context to the analysis in this report. 
+This report is a streamlined version of what was released in previous annual trade reports. Unless otherwise 
+stated, the data presented in this report comes from the Victorian Water Register. If you wish to explore 
+more, the Victorian Water Register website has data available to view or download, or you can contact us on 
+water.reporting@deeca.vic.gov.au. 
+2. 2024-25 overview 
+ 
+About the same 
+allocation water traded 
+The total volume of 
+allocation water traded 
+was 4,062 GL, about the 
+same as the previous 
+year. 
+Higher allocation trade 
+prices 
+Allocation prices were 
+higher for most of the 
+year in 2024-25 
+compared to the 
+previous year. 
+ 
+More water share 
+transfers 
+About 118 GL of high 
+and low-reliability 
+water shares 
+transferred ownership 
+compared to 101 GL in 
+the previous year. 
+Take and use licence 
+trade was about the 
+same 
+More temporary trade 
+in Take and Use 
+licences, but less 
+permanent trade 
+compared to the 
+previous year. 
+The southern Murray-Darling basin saw drying conditions in 2024-25, with total water availability falling 
+somewhat in Victoria. At the same time there was a record volume of allocation trade (excluding 
+environmental trade) for the fourth year in a row. Allocation trade prices were generally higher but more 
+stable than the previous year. 
+3. 2024-25 Key trade statistics 
+Private allocation trade volume continued to grow 
+• 4,062 GL of allocation was traded in Victoria in 2024-25, the 2nd highest on record. This was slightly 
+less than 4,177 GL in the previous year (Figure 1). The decrease in total trade was due to less 
+environmental trade. 
+
+ 
+ www.waterregister.vic.gov.au 3 
+Victorian Water Trading: 2024-25 
+• Excluding environmental trade, there was more trade of all other priced and $0-priced allocation 
+(2,684 GL) compared to the previous year (2,467 GL). This continues the long-term trend that has 
+seen the scale of the Victorian allocation market consistently increase in size. 
+• Total allocation trade in Southern Victoria (19 GL) was higher than the previous year (10 GL), this is in 
+contrast with declining trade volumes over the previous 6 years (Figure 8). Within the Southern 
+systems, Werribee saw a doubling in volume traded (from 1.5 to 3 GL traded), and 
+Thomson/Macalister saw much more priced trade occur compared to last year (Table 3). 
+Net trade out of Victoria has occurred for the 2nd year in a row, opposite the historical norm of net imports 
+into Victoria 
+• Private (non-environmental) net trade to South Australia was about the same, but private net trade 
+to NSW increased (Figure 7). Demand for irrigation in South Australia and drying conditions in 2024-
+25 for both NSW and South Australia may be contributing factors. 
+• The overall movement of private water within Victoria was similar to the previous year, with trade 
+from Victorian Tributaries1 to Zone 7 (138 GL) about the same the previous year (152 GL). 
+• The largest change in intervalley trade is an increase in private (non-environmental) exports to NSW, 
+most notably from Zone 7 to NSW Murrumbidgee which had seen trade into Zone 7 of between 0 GL 
+and 41 GL over the past 6 years but instead exported 12 GL to NSW Murrumbidgee in 2024-25 (Figure 
+11). 
+Figure 1: Allocation trade volume, whole of Victoria since 2007–08 
+ 
+ 
+ 
+1 ‘Victorian tributaries’ comprises all Victorian trading zones from 1A to 5B: that is, zones 1A 
+(Greater Goulburn), 1B (Boort), 2 (Broken), 3 (Lower Goulburn), 4A (Campaspe – Eppalock to WWC), 4C (Lower 
+Campaspe), 5A (Loddon - CC/Tull to LWP) and 5B (Bullarook). 
+0
+500
+1,000
+1,500
+2,000
+2,500
+3,000
+3,500
+4,000
+4,500Volume traded (GL)
+Priced trades - including to/from environment accounts
+$0 priced trades - including to/from environment accounts
+Trades between environment accounts
+ 
+ www.waterregister.vic.gov.au 4 
+Victorian Water Trading: 2024-25 
+Allocation prices were higher and consistent across most of the year 
+• Median allocation prices in Northern Victoria for 2024-25 started higher than the same time in the 
+previous year ($100-150/ML compared to $80-100/ML respectively) (Figure 2). 
+• Where allocation prices peaked up to $200/ML in October then fell throughout 2023-24, prices in 
+2024-25 were broadly stable during the first half of the year, before rising in April and May 2025. 
+• In Southern Victoria, median allocation prices in the Werribee system increased to $400/ML which is 
+a return to the long-term average. Thompson/Macalister saw allocation prices decrease slightly from 
+$200/ML to $166/ML (Figure 10). 
+Figure 2: Allocation trade median price, weekly in zones 1A, 6, and 7, 2023-24 and 2024-25 
+ 
+Notes: 
+1. $0-priced trades are not included in the median price calculations. 
+2. Isolated spikes away from the prevailing price may occur in some weeks with a small number of trades, for example due to forward 
+contracts or private lease agreements. 
+ 
+Commercial trade was the most common reason for trade by volume 
+• Standard commercial trades made up 43% of all non-environmental trade volume in 2024-25, 
+similar to the 42% in the previous year (Table 4). 
+• The median price for trades as part of forward contracts fell slightly compared to the previous year 
+from $140/ML to $125/ML across Northern Victoria, which is below the $135/ML for standard 
+commercial trades. 
+• The volume of allocation traded under forward contacts and private lease agreements (not LTT) has 
+increased each year since 2020-21 up to 159 GL in 2024-25. This growth indicates a growing number 
+of irrigators are seeking to mitigate the risk of price fluctuations by utilising these arrangements. 
+• Unlike in June 2024, median prices of carry over parking arrangements in June 2025 ($20/ML) were 
+much lower than standard commercial trades (between $150-225/ML) in Northern Victoria. Lower 
+water availability compared to 2023-24 results in less unused water and more available carryover 
+space, contributing to the lower carry over prices observed at the end of the 2024-25 (Figure 12 and 
+Figure 13). 
+0
+50
+100
+150
+200
+250
+300
+350
+Jul 2023 Oct 2023 Jan 2024 Apr 2024 Jul 2024 Oct 2024 Jan 2025 Apr 2025
+Median pirce ($/ML)
+1A Greater Goulburn 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA
+ 
+ www.waterregister.vic.gov.au 5 
+Victorian Water Trading: 2024-25 
+Water share trade volume was higher in Northern Victoria 
+• Northern Victoria saw 72 GL of high-reliability and 40 GL of low-reliability water shares transferred, 
+which was about 15% higher than in 2022-23 (60 GL and 30 GL respectively) (Figure 3). 
+• The Australian Government commenced its Voluntary Water Purchase Program in July 2024 and 
+water share transfers in 2024-25 included 14 GL of high-reliability and 3 GL of low-reliability 
+purchased under the Murray-Darling Basin Plan. You can read more about Victoria’s response to 
+these buybacks at https://www.water.vic.gov.au/our-programs/murray-darling-basin/victorian-
+basin-committee and see up-to-date data at Australian Government purchases – Water Register. 
+• Southern Victoria saw 4 GL of high-reliability and 2 GL of low-reliability water share transfers in 2024-
+25, which was about half as much volume as in 2023-24 but across a similar number of transfers. 
+• Water share prices in 2024-25 were broadly similar to the previous year in Southern Victoria and 7 
+VIC Murray – Barmah to SA. There was a with a small decrease in the annual median price in 6 VIC 
+Murray – Dart to Barmah to $4,250/ML from $4,500/ML in 2023-24, with a similarly change also in 1A 
+Greater Goulburn (Figure 11). 
+Figure 3: Water share transfers of ownership, northern Victoria 
+ 
+ 
+Temporary surface water take and use licence trade is higher 
+• There was an increase in temporary and permanent trade in 2024-25 compared to the previous year, 
+with temporary trade volume being the highest since 2018-19. Trade as part of land transfers was 
+about the same (Figure 4). 
+• Unlike other trade types, the largest volume of surface water take and use licence trade is recorded 
+in Southern Victoria, this is in line with the volume of surface water take and use licences on issue 
+being greatest in Southern Victoria. 
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180Voluem (GL)
+High - All other transfers High - To Australian Government
+Low - All other transfers Low - To Australian Government
+ 
+ www.waterregister.vic.gov.au 6 
+Victorian Water Trading: 2024-25 
+Figure 4: Take and use license trade in surface water, whole of Victoria 
+ 
+ 
+Temporary groundwater trade is up, but permanent transfers are down 
+• Temporary trade of groundwater take and use licences rose compared to the previous year, but the 
+volume of permanent trade was about half (Figure 5). 
+• Northern Victoria was the most active, with Southern Victoria following. Western Victoria 
+experienced the smallest number and volume of trades in all trade categories, the same as in 
+previous years. This aligns with the total volume of groundwater entitlements on issue in each 
+region. 
+Figure 5: Take and use license trade in groundwater, whole of Victoria 
+ 
+ 
+0
+2,000
+4,000
+6,000
+8,000
+10,000
+12,000
+14,000Volume traded (ML)
+Temporary volume transfer Permanent volume transfer Change of ownership
+0
+10,000
+20,000
+30,000
+40,000
+50,000
+60,000
+70,000Volume traded (ML)
+Temporary volume transfer Permanent volume transfer Change of ownership
+ 
+ www.waterregister.vic.gov.au 7 
+Victorian Water Trading: 2024-25 
+Extraction share trade is minimal 
+• In November 2023 the ‘General Place of Take’ framework passed into law establishing ‘Extraction 
+Share’ in declared systems as a right to take water during water restrictions. 
+• There is not developed market for extraction share yet with only 17 market trades recorded in 2024-
+25. To learn more about place of take and extraction share see the water register website here: Place 
+of take approvals - Water Register 
+Limited Term Transfers total active volume continues declining since 2019-20 
+• As some Limited Term Transfers (LTTs) expired the total volume of active LTTs on 30 June 2025 
+decreased by 9% to 123 GL and 28 GL for both high and low-reliability LTTs respectively (Figure 6). 
+• The volume of new LTTs recorded in 2024-25 was 13 GL, about the same as 15 GL in the previous 
+year (Figure 16Figure 6). 
+• The volume of LTTs active in 2024-25 in Southern Victoria was unchanged from the previous year at 2 
+GL and 1 GL for high and low-reliability LTTs respectively. 
+ 
+Figure 6: Limited term transfers active at 30 June, whole of Victoria since 2007–08 
+ 
+Notes: 
+1. The marked increase in 2019–20 in the LTTs recorded was mostly due to the restructuring of water assets between two companies. 
+ 
+ 
+0
+20
+40
+60
+80
+100
+120
+140
+160
+180
+June
+2008
+June
+2009
+June
+2010
+June
+2011
+June
+2012
+June
+2013
+June
+2014
+June
+2015
+June
+2016
+June
+2017
+June
+2018
+June
+2019
+June
+2020
+June
+2021
+June
+2022
+June
+2023
+June
+2024
+June
+2025
+Volume (GL)
+High-reliability Low-reliability
+ 
+ www.waterregister.vic.gov.au 8 
+Victorian Water Trading: 2024-25 
+4. Additional tables and charts 
+Table 1: Allocation trade summary 
+Trade type 
+2023-2024 2024-2025 
+Volume (ML) Number of 
+trades Volume (ML) Number of 
+trades 
+Northern Victoria 
+Priced trades 1,504,995 10,164 1,526,564 13,512 
+$0 priced trades 2,662,373 3,735 2,513,807 4,438 
+Northern Victoria subtotal 4,167,368 13,899 4,040,371 17,950 
+Southern Victoria 
+Priced trades 1,132 27 7,996 124 
+$0 priced trades 8,990 110 11,133 190 
+Southern Victoria subtotal 10,122 137 19,129 314 
+Western Victoria 
+Priced trades 0 0 0 0 
+$0 priced trades 0 0 2000 1 
+Western Victoria subtotal 0 0 2,000 1 
+Total 4,177,490 14,036 4,061,500 18,265 
+ 
+Table 2: Water share transfers of ownership, northern and southern Victoria 
+Water share type 
+2023-2024 2024-2025 
+Volume (ML) Number of 
+transfers Volume (ML) Number of 
+transfers 
+High-reliability 
+Northern Victoria 59,654 1,616 72,142 1,628 
+Southern Victoria 7,935 109 3,964 100 
+High-reliability subtotal 67,589 1,725 76,106 1,728 
+Low-reliability 
+Northern Victoria 29,998 628 39,713 689 
+Southern Victoria 3,900 90 1,765 76 
+Low-reliability subtotal 33,898 718 41,478 765 
+ 
+ www.waterregister.vic.gov.au 9 
+Victorian Water Trading: 2024-25 
+ 
+Figure 7: Private net allocation trade volume, interstate by state 
+ 
+Notes: 
+1. Positive volumes represent water imported into Victoria. Negative volumes represent water exported out of Victoria. 
+2. The volumes in this figure are including interstate tagged trade. Tagged trade is when water used in one trading zone is sourced from 
+a different trading zone. Previous annual trade reports have not included tagged trade in this chart. 
+ 
+Table 3: Allocation trade, southern Victoria 
+Trade type 
+2023-2024 2024-2025 
+Volume (ML) Number of 
+trades Volume (ML) Number of 
+trades 
+Thomson/Macalister system 
+Priced trades 781 16 6,760 88 
+$0 priced trades 7,826 74 9,347 116 
+Thomson/Macalister system 
+subtotal 8,607 90 16,107 204 
+Werribee system 
+Priced trades 351 11 1,236 36 
+$0 priced trades 1,164 36 1,786 74 
+Werribee system subtotal 1,515 47 3,022 110 
+Total 10,122 137 19,129 314 
+ 
+-250
+-200
+-150
+-100
+-50
+0
+50
+100
+150
+200
+250
+Volume (GL)
+Net NSW Net SA
+ 
+ www.waterregister.vic.gov.au 10 
+Victorian Water Trading: 2024-25 
+Figure 8: Allocation trade volume, southern Victoria, since 2008-2009 
+ 
+ 
+Figure 9: Allocation trade median price, weekly, zones 1A, 6, and 7, since 2008 
+ 
+Notes: 
+1. $0-priced trades are not included in the median price calculations. 
+2. Isolated spikes away from the prevailing price may occur in some weeks with a small number of trades, for example due to forw ard 
+contracts or private lease agreements. 
+ 
+0
+5
+10
+15
+20
+25
+30
+35Volume traded (GL)
+All priced trades - including to/from environment accounts
+$0 priced trades - including to/from environment accounts
+Trades between environment accounts
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000Median price ($/ML)
+1A Greater Goulburn 6 VIC Murray - Dart to Barmah 7 VIC Murray - Barmah to SA
+ 
+ www.waterregister.vic.gov.au 11 
+Victorian Water Trading: 2024-25 
+Figure 10: Allocation trade median price, southern Victoria since 2008–09 
+ 
+Notes: 
+1. $0-priced trades are not included in the median price calculations. 
+ 
+Figure 11: Net allocation trade and tagged use volume to zone 7 (Vic Murray – Barmah to SA) 
+ 
+Notes: 
+1. This figure shows private accounts only. 
+2. Positive volumes represent water moving into zone 7. Negative volumes represent water moving out of zone 7. 
+3. ‘Victorian tributaries’ comprises all trading zones from 1A to 5B: that is, zones 1A (Greater Goulburn), 1B (Boort), 2 (Broken), 3 (Lower 
+Goulburn), 4A (Campaspe – Eppalock to WWC), 4C (Lower Campaspe), 5A (Loddon - CC/Tull to LWP) and 5B (Bullarook). 
+ 
+0
+500
+1,000
+1,500
+2,000
+2,500Median price ($/ML)
+Thomson/Macalister Werribee
+-150
+-100
+-50
+0
+50
+100
+150
+200
+250
+300
+350
+Volume (GL)
+6 VIC Murray - Dart to Barmah 6B Lower Broken Creek
+Victorian Tributaries NSW above Barmah
+NSW below Barmah NSW Murrumbidgee
+SA Murray Net trade
+ 
+ www.waterregister.vic.gov.au 12 
+Victorian Water Trading: 2024-25 
+Figure 12: Allocation trade price, by reasons for trade in zone 1A 
+ 
+ 
+Figure 13: Allocation trade price, by reasons for trade in zone 7 
+ 
+ 
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+500Price ($/ML)
+Allocation trade as part of water share transfer Carryover parking
+Forward contract Private lease arrangement (not LTT)
+Related party trade Standard commercial trade
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+500Price ($/ML)
+Allocation trade as part of water share transfer Carryover parking
+Forward contract Private lease arrangement (not LTT)
+Related party trade Standard commercial trade
+ 
+ www.waterregister.vic.gov.au 13 
+Victorian Water Trading: 2024-25 
+Table 4: Reasons for trade, whole of Victoria (excluding within environment) 
+Reason for trade 
+2023-2024 2024-2025 
+Volume (GL) Number of 
+trades Volume (GL) Number of 
+trades 
+Standard commercial trade 1,029 8,239 1,165 11,668 
+Related party trade 867 2,506 864 3,097 
+Carryover parking 167 316 132 279 
+Carryover parking return 109 368 168 332 
+Private lease arrangement (not LTT) 68 389 76 361 
+Forward contract 54 102 83 150 
+Allocation trade as part of water share 
+transfer 19 496 12 401 
+Other 14 81 22 115 
+Legacy 145 1,431 170 1,755 
+Total 2,473 13,928 2,693 18,158 
+Notes: 
+1. This table excludes trades between environmental accounts. 
+2. ‘Legacy’ type refers to trades processed manually by water corporations where no reason for trade was collected. 
+3. This document was republished in January 2026. The initial publication in December 2025 contained an error in Table 4 which has now 
+been corrected. The previous version of Table 4 erroneously included within environment trade. 
+ 
+Figure 14: High and low-reliability water share transfers of ownership monthly median price, zones 1A, 
+6, and 7, since 2008 
+ 
+Notes: 
+1. $0-priced trades are not included in the median price calculations. 
+0
+1,000
+2,000
+3,000
+4,000
+5,000
+6,000
+7,000
+8,000
+9,000
+Jul-08
+Feb-09
+Sep-09
+Apr-10
+Nov-10
+Jun-11
+Jan-12
+Aug-12
+Mar-13
+Oct-13
+May-14
+Dec-14
+Jul-15
+Feb-16
+Sep-16
+Apr-17
+Nov-17
+Jun-18
+Jan-19
+Aug-19
+Mar-20
+Oct-20
+May-21
+Dec-21
+Jul-22
+Feb-23
+Sep-23
+Apr-24
+Nov-24
+Jun-25
+Median price ($/ML)
+1A Greater Goulburn 1A Greater Goulburn
+6 VIC Murray - Dart to Barmah 6 VIC Murray - Dart to Barmah
+7 VIC Murray - Barmah to SA 7 VIC Murray - Barmah to SA
+ 
+ www.waterregister.vic.gov.au 14 
+Victorian Water Trading: 2024-25 
+ 
+Figure 15: Water share transfers of ownership annual median price, Southern Victoria since 2008–09 
+ 
+Notes: 
+1. $0-priced trades are not included in the median price calculations. 
+2. Southern Victoria conducts a limited number of water share transfers per month, because of this an annual median price is used in this 
+chart. 
+Table 5: Take and use license trade in surface water 
+Region 
+Temporary trade 
+Permanent trade (not 
+as part of a land 
+transfer) 
+Trade as part of a land 
+transfer 
+Volume 
+(ML) 
+Number of 
+trades 
+Volume 
+(ML) 
+Number of 
+trades 
+Volume 
+(ML) 
+Number of 
+trades 
+Northern Victoria 2,366 99 598 39 3,765 177 
+Southern Victoria 3,973 103 624 22 6,170 178 
+Western Victoria 0 0 0 0 194 17 
+Total 2024-25 6,338 202 1,222 61 10,129 372 
+Total 2023-24 4,394 119 958 70 10,620 378 
+ 
+Table 6: Take and use license trade in groundwater 
+Region 
+Temporary trade 
+Permanent trade (not 
+as part of a land 
+transfer) 
+Trade as part of a land 
+transfer 
+Volume 
+(ML) 
+Number of 
+trades 
+Volume 
+(ML) 
+Number of 
+trades 
+Volume 
+(ML) 
+Number of 
+trades 
+Northern Victoria 10,548 85 2,605 23 17,826 120 
+Southern Victoria 6,005 103 804 19 10,219 115 
+Western Victoria 1,693 13 150 1 344 4 
+Total 2024-25 18,246 201 3,559 43 28,390 239 
+Total 2023-24 14,748 128 7,425 68 30,618 251 
+0
+1,000
+2,000
+3,000
+4,000
+5,000
+6,000
+7,000Median price ($/ML)
+Thomson/Macalister - High Thomson/Macalister - Low
+Werribee - High Werribee - Low
+ 
+ www.waterregister.vic.gov.au 15 
+Victorian Water Trading: 2024-25 
+ 
+Figure 16: Limited term transfer applications recorded, whole of Victoria since 2007–08 
+ 
+Notes: 
+1. The marked increase in 2019–20 in the LTTs recorded was mostly due to the restructuring of water assets between two companies. 
+ 
+Table 7: Allocation trades processing times, 2024-25 
+Trade 
+Number of 
+trades 
+processed 
+Performance Standard 
+With South Australia. 
+(Performance = % processed within 20 business days) 623 98% 90% 
+With New South Wales. 
+(Performance = % processed within 10 business days) 943 99% 90% 
+Within Victoria. 
+(Performance = % processed within 5 business days) 17,624 98% 90% 
+ 
+Table 8: Water share transfer processing times, 2024-25 
+Trade 
+Number of 
+trades 
+processed 
+Performance Standard 
+Approvals. 
+(Performance = % registered within 20 business days) 2,691 99% 90% 
+Registrations. 
+(Performance = % registered within 10 business days) 2,629 100% 90% 
+Notes: 
+1. ‘Approvals’ refer to Water Corporation approvals to transfer a water share. 
+2. ‘Registrations’ refer to transfers legally recorded in the Victorian Water Register by the Water Registrar. 
+ 
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100Volume (GL)
+High-reliability Low-reliability
+ 
+ www.waterregister.vic.gov.au 16 
+Victorian Water Trading: 2024-25 
+ 
+Table 9: Total allocation trade in northern Victoria (excluding environmental trade), 2024-25 
+ 
+Buyer trading zone source volume (ML) 
+Total 
+Volume 
+(ML) 
+Total 
+number 
+of trades 
+1A 
+Greater 
+Goulburn 
+1B 
+Boort 
+2 
+Broken 
+3 Lower 
+Goulburn 
+4A 
+Campaspe 
+- Eppalock 
+to WWC 
+4C Lower 
+Campaspe 
+5A 
+Loddon 
+- 
+CC/Tull 
+to LWP 
+5B 
+Bullarook 
+6 VIC 
+Murray 
+- Dart 
+to 
+Barmah 
+6B 
+Lower 
+Broken 
+Creek 
+7 VIC 
+Murray 
+- 
+Barmah 
+to SA 
+9A 
+Ovens 
+9B 
+King 
+10 NSW 
+Murr 
+U/S 
+Barmah 
+Choke 
+11 NSW 
+Murr 
+D/S 
+Barmah 
+Choke 
+12 South 
+Australian 
+Murray 
+13 
+Murrumbidgee 
+Seller 
+trading 
+zone 
+source 
+volume 
+(ML) 
+1A Greater Goulburn 803,333 62,863 657 7,652 2,817 725 3,322 345 245 136,474 1,018,433 6,856 
+1B Boort 59,264 12,890 900 410 2,593 76,057 341 
+2 Broken 5,482 1,046 6,528 110 
+3 Lower Goulburn 17,180 600 2,436 772 20 421 21,428 201 
+4A Campaspe - 
+Eppalock to WWC 18,261 1,669 832 5,758 71 328 26,919 182 
+4C Lower Campaspe 1,291 66 38 14 1,409 29 
+5A Loddon - CC/Tull 
+to LWP 8,453 721 5,650 14,824 193 
+5B Bullarook 63 63 5 
+6 VIC Murray - Dart 
+to Barmah 5 204,068 282 42,699 43,879 290,934 1,887 
+6B Lower Broken 
+Creek 223 2,292 2,104 16,051 250 1,390 355 22,664 262 
+7 VIC Murray - 
+Barmah to SA 2,422 12 16 31 3,721 777,167 50,635 133,669 53,205 1,020,879 7,029 
+9A Ovens 597 597 11 
+9B King 759 759 18 
+10 NSW Murr U/S 
+Barmah Choke 14,512 14,512 66 
+11 NSW Murr D/S 
+Barmah Choke 29 52,744 52,773 331 
+12 South Australian 
+Murray 100 20 164 53,466 53,750 182 
+13 Murrumbidgee 41,295 41,295 119 
+14 Lower Darling 1,003 1,003 9 
+Total Volume (ML) 916,014 78,755 1,703 11,886 9,384 810 9,766 63 221,249 6,545 1,123,912 597 759 43,879 50,885 135,059 53,561 2,664,825 
+Total number of trades 7,057 358 32 86 77 9 131 5 1,709 113 7,450 11 18 140 154 393 88 17,831 
+Notes: 
+1. Blank values or missing entries indicate that no trade occurred for that combination of seller and buyer trading zones for this water year. 
+2. Does not include tagged trade. 
+3. This table excludes trade between environmental accounts. 
+ 
+ 
+ 
+ www.waterregister.vic.gov.au 17 
+Victorian Water Trading: 2024-25 
+Version history 
+# Notes Author Publish date 
+1.0 Report published DEECA 19 December 
+2025 
+1.1 This document was republished in January 2026. The initial 
+publication in December 2025 contained an error in Table 4 which 
+has now been corrected. 
+DEECA 12 January 
+2026 
+ 
+ 
+ www.waterregister.vic.gov.au 18 
+Victorian Water Trading: 2024-25 
+ 
+deeca.vic.gov.au 

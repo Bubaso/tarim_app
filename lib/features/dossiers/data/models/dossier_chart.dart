@@ -159,7 +159,7 @@ class SayiBicimi {
 // Grafik türleri
 // ---------------------------------------------------------------------------
 
-/// Yedi çizici türünün ortak atası.
+/// Dokuz çizici türünün ortak atası.
 ///
 /// `sealed` bilerek: dağıtıcıdaki `switch` bir tür eklendiğinde derleme
 /// hatası versin, sessizce boş kutu çizmesin.
@@ -293,6 +293,45 @@ sealed class DossierChart {
           not: not,
           kaynak: kaynak,
           kartlar: kartlar,
+        );
+
+      case 'islem_akisi':
+        final adimlar = _liste(json['adimlar'])
+            .map(AkisAdimi._coz)
+            .whereType<AkisAdimi>()
+            .toList();
+        if (adimlar.isEmpty) return null;
+        return IslemAkisiChart(
+          id: id,
+          baslik: baslik,
+          not: not,
+          kaynak: kaynak,
+          adimlar: adimlar,
+        );
+
+      case 'ticaret_akisi':
+        final merkez = AkisMerkezi._coz(json['merkez']);
+        if (merkez == null) return null;
+        final giren =
+            _liste(json['giren']).map(AkisKolu._coz).whereType<AkisKolu>().toList();
+        final cikan =
+            _liste(json['cikan']).map(AkisKolu._coz).whereType<AkisKolu>().toList();
+        // Tek yakası boş bir akış akış değil: geriye kalan şey sıralamadır ve
+        // onu zaten çizebiliyoruz. Yarım çizilmiş bir akış okura "öteki yaka
+        // sıfır" der; oysa bilinmiyor.
+        if (giren.isEmpty || cikan.isEmpty) return null;
+        return TicaretAkisiChart(
+          id: id,
+          baslik: baslik,
+          not: not,
+          kaynak: kaynak,
+          merkez: merkez,
+          bicim: SayiBicimi.fromJson(json),
+          birim: DossierText.tryFrom(json['birim']),
+          girenBasligi: DossierText.tryFrom(json['giren_basligi']),
+          cikanBasligi: DossierText.tryFrom(json['cikan_basligi']),
+          giren: giren,
+          cikan: cikan,
         );
 
       default:
@@ -726,6 +765,172 @@ class KartRakam {
       etiket: DossierText.tryFrom(j['etiket']) ?? const DossierText('', ''),
     );
   }
+}
+
+/// Bir işlemin adım adım yolu: aktör, süre, çıktı belgesi.
+///
+/// [TicaretAkisiChart] ile karıştırılmaz: bu bir SIRA çiziyor — adımlar eşit
+/// ağırlıkta ve bağ "önce/sonra". Öteki bir MİKTAR çiziyor; kolları eşit değil
+/// ve bağ "ne kadarı".
+///
+/// [ZamanCizelgesiChart]'tan da ayrı durmak zorunda, çünkü ikisi aynı dosyada
+/// yan yana geçebiliyor. Ayrım BİÇİMLE kuruluyor: çizelgenin düğümü daire ve
+/// içinde yıl var, akışın düğümü kare ve içinde adım numarası var.
+@immutable
+class IslemAkisiChart extends DossierChart {
+  final List<AkisAdimi> adimlar;
+
+  const IslemAkisiChart({
+    required super.id,
+    required super.baslik,
+    super.not,
+    super.kaynak,
+    required this.adimlar,
+  });
+}
+
+@immutable
+class AkisAdimi {
+  final DossierText baslik;
+
+  /// İşlemi kimin yaptığı — "noter", "il müdürlüğü", "üretici".
+  final DossierText? aktor;
+
+  /// Belgelenmemişse BOŞ KALIR. Tahmin yazılmaz: bir sürenin uydurulması,
+  /// okurun kendi işlemini ona göre planlaması demek.
+  final DossierText? sure;
+
+  /// Adımın sonunda eline geçen belge.
+  final DossierText? cikti;
+
+  /// Bir adımın alternatif yolları AYRI satırlara gidiyor ("noterde" *ya da*
+  /// "ihtiyar heyetinde"). Tek satıra sıkışırsa okur bunun bir SEÇİM olduğunu
+  /// fark etmiyor, zorunlu iki adım sanıyor.
+  final List<DossierText> secenekler;
+
+  const AkisAdimi({
+    required this.baslik,
+    this.aktor,
+    this.sure,
+    this.cikti,
+    this.secenekler = const [],
+  });
+
+  static AkisAdimi? _coz(Map<String, dynamic> j) {
+    final baslik = DossierText.tryFrom(j['baslik']);
+    if (baslik == null) return null;
+    return AkisAdimi(
+      baslik: baslik,
+      aktor: DossierText.tryFrom(j['aktor']),
+      sure: DossierText.tryFrom(j['sure']),
+      cikti: DossierText.tryFrom(j['cikti']),
+      secenekler: _liste2(j['secenekler'])
+          .map(DossierText.tryFrom)
+          .whereType<DossierText>()
+          .toList(),
+    );
+  }
+}
+
+/// Bir malın nereden gelip nereye gittiği; şerit kalınlığı MİKTARLA orantılı.
+///
+/// Üç çizim kararı çizicide duruyor ama ikisinin sebebi burada:
+///
+/// 1. Merkez bir ETİKET, miktar değil. Kutuya yamuklarla bağlanan şeritler
+///    "arttı/azaldı" izlenimi bırakıyordu; bağ düz bir ok, karşılaştırma
+///    şeritlerin kendi uzunluğundan okunuyor.
+/// 2. Farkın SEBEBİ grafiğin elinde yok — stok mu, iç tüketim mi, yeniden
+///    ihracat mı bilmiyor. [fark] sayıyı verir; yorum `not` alanına yazılır.
+@immutable
+class TicaretAkisiChart extends DossierChart {
+  final AkisMerkezi merkez;
+  final SayiBicimi bicim;
+  final DossierText? birim;
+
+  /// Yaka başlıkları. Varsayılan metin BİLEREK YOK: "Giren"/"Çıkan" koda
+  /// gömülseydi İngilizcesi de gömülürdü ve bu dosyanın başındaki kural
+  /// (etiketler veritabanından gelir) kırılırdı. Yazılmazsa başlık çizilmez.
+  final DossierText? girenBasligi;
+  final DossierText? cikanBasligi;
+
+  final List<AkisKolu> giren;
+  final List<AkisKolu> cikan;
+
+  const TicaretAkisiChart({
+    required super.id,
+    required super.baslik,
+    super.not,
+    super.kaynak,
+    required this.merkez,
+    required this.bicim,
+    this.birim,
+    this.girenBasligi,
+    this.cikanBasligi,
+    required this.giren,
+    required this.cikan,
+  });
+
+  num get girenToplam => giren.fold<num>(0, (t, k) => t + k.deger);
+
+  /// Merkezin kendi ürettiği pay çıkan yakanın bir parçası: dışarıdan gelenle
+  /// içeride üretilen toplanıp dışarı gidiyor.
+  num get cikanToplam => cikan.fold<num>(0, (t, k) => t + k.deger);
+
+  /// İki yakanın büyüğü. Her şeridin arkasındaki sönük cetvel bu: giren
+  /// çıkandan azsa şerit cetveli doldurmuyor ve eksik pay BOŞLUK olarak
+  /// görünüyor.
+  num get cetvel {
+    final g = girenToplam + (merkez.kendi?.deger ?? 0);
+    return g > cikanToplam ? g : cikanToplam;
+  }
+
+  /// İki yaka arasındaki fark. Yorumsuz sayı.
+  num get fark => (girenToplam + (merkez.kendi?.deger ?? 0)) - cikanToplam;
+}
+
+@immutable
+class AkisMerkezi {
+  final DossierText etiket;
+
+  /// Merkezin kendi ürettiği pay. Bir kol gibi ama listenin SONUNDA ve
+  /// TARAMALI çiziliyor: dışarıdan gelenle içeride üretilen aynı desende
+  /// olsaydı şerit tek yığına dönerdi ve ayrım kaybolurdu.
+  final AkisKolu? kendi;
+
+  const AkisMerkezi({required this.etiket, this.kendi});
+
+  static AkisMerkezi? _coz(dynamic ham) {
+    if (ham is! Map) return null;
+    final j = Map<String, dynamic>.from(ham);
+    final etiket = DossierText.tryFrom(j['etiket']);
+    if (etiket == null) return null;
+    return AkisMerkezi(etiket: etiket, kendi: AkisKolu._cozHam(j['kendi']));
+  }
+}
+
+@immutable
+class AkisKolu {
+  final DossierText etiket;
+  final num deger;
+  final ChartRole rol;
+
+  const AkisKolu({
+    required this.etiket,
+    required this.deger,
+    this.rol = ChartRole.sessiz,
+  });
+
+  /// Değeri bilinmeyen kol listeden DÜŞER. Sıfır genişlikte çizmek okura
+  /// "hiç almadı" demek olurdu; oysa bilinmiyor — ikisi aynı şey değil.
+  static AkisKolu? _coz(Map<String, dynamic> j) {
+    final deger = _sayi(j['deger']);
+    final etiket = DossierText.tryFrom(j['etiket']);
+    if (deger == null || etiket == null) return null;
+    return AkisKolu(etiket: etiket, deger: deger, rol: ChartRole.coz(j['rol']));
+  }
+
+  static AkisKolu? _cozHam(dynamic ham) =>
+      ham is Map ? _coz(Map<String, dynamic>.from(ham)) : null;
 }
 
 // ---------------------------------------------------------------------------

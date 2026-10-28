@@ -1,0 +1,2593 @@
+{
+  "_kaynak": "Victorian Water Register — Water Market Trends: Trends in Northern Victorian Water Trade 2001–2024 (2025 güncellemesi)",
+  "_kaynak_niteligi": "SİCİLİN BEYANI",
+  "_kapsam": "kuzey Victoria — Avustralya geneli değil",
+  "_ham_dosya": "kaynak_dosyalari/egilim_2001_2024.txt",
+  "_not": "T4/T5 fiyatları MEDYAN. T9 'ticari' = fiyatı $0'dan büyük işlemler. T15 yalnızca 2020-21'den itibaren: 'ticaret gerekçesi' verisi o yıl toplanmaya başladı.",
+  "sahiplik": {
+    "_tablo": "Table 2",
+    "_baslik": "Northern Victorian high-reliability water share volume at 30 June",
+    "_birim": "GL / %",
+    "_2008_09_tutarsizligi": "KAYNAK KENDİ İÇİNDE ÇELİŞİYOR — yalnız bu satırda. Rapor yüzdeleri çevre %1, kurum %2, topraksız %12, bağlı %85 diyor; aynı satırın hacimleri 0 / 0 / 125 / 2.163 GL, toplam 2.288 GL. Hacimlerden hesap %0 / %0 / %5,5 / %94,5. Diğer on yedi satırın tamamında rapor kendi hacmine oturuyor. Buradaki yüzdeler HESAPLANMIŞ değerlerdir. METİNDE 2008-09 YÜZDESİ ÜZERİNE CÜMLE KURULMAZ; temiz seri 2009-10'da başlar.",
+    "kayitlar": [
+      {
+        "yil": "2000-01",
+        "cevre_gl": 0.0,
+        "su_kurumu_gl": 0.0,
+        "ozel_topraga_bagli_degil_gl": 0.0,
+        "ozel_topraga_bagli_gl": 2283.0,
+        "toplam_gl": 2283.0,
+        "topraga_bagli_pay_yuzde": 100.0,
+        "topraga_bagli_degil_pay_yuzde": 0.0,
+        "cevre_pay_yuzde": 0.0,
+        "yil_no": 2000
+      },
+      {
+        "yil": "2004-05",
+        "cevre_gl": 0.0,
+        "su_kurumu_gl": 0.0,
+        "ozel_topraga_bagli_degil_gl": 0.0,
+        "ozel_topraga_bagli_gl": 2251.0,
+        "toplam_gl": 2251.0,
+        "topraga_bagli_pay_yuzde": 100.0,
+        "topraga_bagli_degil_pay_yuzde": 0.0,
+        "cevre_pay_yuzde": 0.0,
+        "yil_no": 2004
+      },
+      {
+        "yil": "2008-09",
+        "cevre_gl": 0.0,
+        "su_kurumu_gl": 0.0,
+        "ozel_topraga_bagli_degil_gl": 125.0,
+        "ozel_topraga_bagli_gl": 2163.0,
+        "toplam_gl": 2288.0,
+        "topraga_bagli_pay_yuzde": 94.5,
+        "topraga_bagli_degil_pay_yuzde": 5.5,
+        "cevre_pay_yuzde": 0.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "cevre_gl": 160.0,
+        "su_kurumu_gl": 46.0,
+        "ozel_topraga_bagli_degil_gl": 128.0,
+        "ozel_topraga_bagli_gl": 1947.0,
+        "toplam_gl": 2280.0,
+        "topraga_bagli_pay_yuzde": 85.4,
+        "topraga_bagli_degil_pay_yuzde": 5.6,
+        "cevre_pay_yuzde": 7.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "cevre_gl": 283.0,
+        "su_kurumu_gl": 64.0,
+        "ozel_topraga_bagli_degil_gl": 120.0,
+        "ozel_topraga_bagli_gl": 1813.0,
+        "toplam_gl": 2279.0,
+        "topraga_bagli_pay_yuzde": 79.6,
+        "topraga_bagli_degil_pay_yuzde": 5.3,
+        "cevre_pay_yuzde": 12.4,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "cevre_gl": 463.0,
+        "su_kurumu_gl": 67.0,
+        "ozel_topraga_bagli_degil_gl": 117.0,
+        "ozel_topraga_bagli_gl": 1635.0,
+        "toplam_gl": 2281.0,
+        "topraga_bagli_pay_yuzde": 71.7,
+        "topraga_bagli_degil_pay_yuzde": 5.1,
+        "cevre_pay_yuzde": 20.3,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "cevre_gl": 499.0,
+        "su_kurumu_gl": 74.0,
+        "ozel_topraga_bagli_degil_gl": 142.0,
+        "ozel_topraga_bagli_gl": 1569.0,
+        "toplam_gl": 2285.0,
+        "topraga_bagli_pay_yuzde": 68.7,
+        "topraga_bagli_degil_pay_yuzde": 6.2,
+        "cevre_pay_yuzde": 21.8,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "cevre_gl": 539.0,
+        "su_kurumu_gl": 59.0,
+        "ozel_topraga_bagli_degil_gl": 146.0,
+        "ozel_topraga_bagli_gl": 1552.0,
+        "toplam_gl": 2295.0,
+        "topraga_bagli_pay_yuzde": 67.6,
+        "topraga_bagli_degil_pay_yuzde": 6.4,
+        "cevre_pay_yuzde": 23.5,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "cevre_gl": 605.0,
+        "su_kurumu_gl": 62.0,
+        "ozel_topraga_bagli_degil_gl": 156.0,
+        "ozel_topraga_bagli_gl": 1516.0,
+        "toplam_gl": 2338.0,
+        "topraga_bagli_pay_yuzde": 64.8,
+        "topraga_bagli_degil_pay_yuzde": 6.7,
+        "cevre_pay_yuzde": 25.9,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "cevre_gl": 648.0,
+        "su_kurumu_gl": 62.0,
+        "ozel_topraga_bagli_degil_gl": 197.0,
+        "ozel_topraga_bagli_gl": 1473.0,
+        "toplam_gl": 2380.0,
+        "topraga_bagli_pay_yuzde": 61.9,
+        "topraga_bagli_degil_pay_yuzde": 8.3,
+        "cevre_pay_yuzde": 27.2,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "cevre_gl": 652.0,
+        "su_kurumu_gl": 63.0,
+        "ozel_topraga_bagli_degil_gl": 237.0,
+        "ozel_topraga_bagli_gl": 1428.0,
+        "toplam_gl": 2380.0,
+        "topraga_bagli_pay_yuzde": 60.0,
+        "topraga_bagli_degil_pay_yuzde": 10.0,
+        "cevre_pay_yuzde": 27.4,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "cevre_gl": 661.0,
+        "su_kurumu_gl": 63.0,
+        "ozel_topraga_bagli_degil_gl": 272.0,
+        "ozel_topraga_bagli_gl": 1390.0,
+        "toplam_gl": 2386.0,
+        "topraga_bagli_pay_yuzde": 58.3,
+        "topraga_bagli_degil_pay_yuzde": 11.4,
+        "cevre_pay_yuzde": 27.7,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "cevre_gl": 732.0,
+        "su_kurumu_gl": 61.0,
+        "ozel_topraga_bagli_degil_gl": 307.0,
+        "ozel_topraga_bagli_gl": 1355.0,
+        "toplam_gl": 2455.0,
+        "topraga_bagli_pay_yuzde": 55.2,
+        "topraga_bagli_degil_pay_yuzde": 12.5,
+        "cevre_pay_yuzde": 29.8,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "cevre_gl": 732.0,
+        "su_kurumu_gl": 62.0,
+        "ozel_topraga_bagli_degil_gl": 330.0,
+        "ozel_topraga_bagli_gl": 1331.0,
+        "toplam_gl": 2455.0,
+        "topraga_bagli_pay_yuzde": 54.2,
+        "topraga_bagli_degil_pay_yuzde": 13.4,
+        "cevre_pay_yuzde": 29.8,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "cevre_gl": 733.0,
+        "su_kurumu_gl": 62.0,
+        "ozel_topraga_bagli_degil_gl": 344.0,
+        "ozel_topraga_bagli_gl": 1317.0,
+        "toplam_gl": 2456.0,
+        "topraga_bagli_pay_yuzde": 53.6,
+        "topraga_bagli_degil_pay_yuzde": 14.0,
+        "cevre_pay_yuzde": 29.8,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "cevre_gl": 733.0,
+        "su_kurumu_gl": 48.0,
+        "ozel_topraga_bagli_degil_gl": 397.0,
+        "ozel_topraga_bagli_gl": 1322.0,
+        "toplam_gl": 2500.0,
+        "topraga_bagli_pay_yuzde": 52.9,
+        "topraga_bagli_degil_pay_yuzde": 15.9,
+        "cevre_pay_yuzde": 29.3,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "cevre_gl": 739.0,
+        "su_kurumu_gl": 48.0,
+        "ozel_topraga_bagli_degil_gl": 435.0,
+        "ozel_topraga_bagli_gl": 1285.0,
+        "toplam_gl": 2507.0,
+        "topraga_bagli_pay_yuzde": 51.3,
+        "topraga_bagli_degil_pay_yuzde": 17.4,
+        "cevre_pay_yuzde": 29.5,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "cevre_gl": 747.0,
+        "su_kurumu_gl": 50.0,
+        "ozel_topraga_bagli_degil_gl": 456.0,
+        "ozel_topraga_bagli_gl": 1262.0,
+        "toplam_gl": 2515.0,
+        "topraga_bagli_pay_yuzde": 50.2,
+        "topraga_bagli_degil_pay_yuzde": 18.1,
+        "cevre_pay_yuzde": 29.7,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "kullanim": {
+    "_tablo": "Table 6",
+    "_baslik": "Volumes of high-reliability water share tied to land compared to annual water use",
+    "_birim": "GL / %",
+    "kayitlar": [
+      {
+        "yil": "2004-05",
+        "topraga_bagli_gl": 2252.0,
+        "kullanim_gl": 2151.0,
+        "kullanim_oran_yuzde": 96.0,
+        "yil_no": 2004
+      },
+      {
+        "yil": "2008-09",
+        "topraga_bagli_gl": 2163.0,
+        "kullanim_gl": 925.0,
+        "kullanim_oran_yuzde": 43.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "topraga_bagli_gl": 1947.0,
+        "kullanim_gl": 1135.0,
+        "kullanim_oran_yuzde": 58.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "topraga_bagli_gl": 1813.0,
+        "kullanim_gl": 751.0,
+        "kullanim_oran_yuzde": 41.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "topraga_bagli_gl": 1635.0,
+        "kullanim_gl": 1732.0,
+        "kullanim_oran_yuzde": 106.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "topraga_bagli_gl": 1569.0,
+        "kullanim_gl": 2402.0,
+        "kullanim_oran_yuzde": 153.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "topraga_bagli_gl": 1552.0,
+        "kullanim_gl": 1857.0,
+        "kullanim_oran_yuzde": 120.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "topraga_bagli_gl": 1516.0,
+        "kullanim_gl": 2033.0,
+        "kullanim_oran_yuzde": 134.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "topraga_bagli_gl": 1473.0,
+        "kullanim_gl": 1762.0,
+        "kullanim_oran_yuzde": 120.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "topraga_bagli_gl": 1428.0,
+        "kullanim_gl": 1454.0,
+        "kullanim_oran_yuzde": 102.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "topraga_bagli_gl": 1390.0,
+        "kullanim_gl": 1967.0,
+        "kullanim_oran_yuzde": 142.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "topraga_bagli_gl": 1355.0,
+        "kullanim_gl": 1752.0,
+        "kullanim_oran_yuzde": 129.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "topraga_bagli_gl": 1331.0,
+        "kullanim_gl": 1113.0,
+        "kullanim_oran_yuzde": 84.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "topraga_bagli_gl": 1317.0,
+        "kullanim_gl": 1545.0,
+        "kullanim_oran_yuzde": 117.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "topraga_bagli_gl": 1322.0,
+        "kullanim_gl": 1564.0,
+        "kullanim_oran_yuzde": 118.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "topraga_bagli_gl": 1285.0,
+        "kullanim_gl": 1273.0,
+        "kullanim_oran_yuzde": 99.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "topraga_bagli_gl": 1262.0,
+        "kullanim_gl": 1716.0,
+        "kullanim_oran_yuzde": 136.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "bolge_dagilimi": {
+    "_tablo": "Table 3",
+    "_baslik": "Changes in private high-reliability water shares linked to land in northern Victoria",
+    "_birim": "GL",
+    "kayitlar": [
+      {
+        "yil": "2000-01",
+        "gmw_bolge": 1648.0,
+        "gmw_ceken": 243.0,
+        "lmw_bolge": 189.0,
+        "lmw_ceken": 203.0,
+        "toplam": 2283.0,
+        "yil_no": 2000
+      },
+      {
+        "yil": "2004-05",
+        "gmw_bolge": 1580.0,
+        "gmw_ceken": 241.0,
+        "lmw_bolge": 179.0,
+        "lmw_ceken": 252.0,
+        "toplam": 2252.0,
+        "yil_no": 2004
+      },
+      {
+        "yil": "2008-09",
+        "gmw_bolge": 1475.0,
+        "gmw_ceken": 208.0,
+        "lmw_bolge": 157.0,
+        "lmw_ceken": 323.0,
+        "toplam": 2163.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "gmw_bolge": 1348.0,
+        "gmw_ceken": 180.0,
+        "lmw_bolge": 146.0,
+        "lmw_ceken": 273.0,
+        "toplam": 1947.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "gmw_bolge": 1240.0,
+        "gmw_ceken": 175.0,
+        "lmw_bolge": 140.0,
+        "lmw_ceken": 258.0,
+        "toplam": 1813.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "gmw_bolge": 1111.0,
+        "gmw_ceken": 167.0,
+        "lmw_bolge": 131.0,
+        "lmw_ceken": 226.0,
+        "toplam": 1635.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "gmw_bolge": 1054.0,
+        "gmw_ceken": 167.0,
+        "lmw_bolge": 126.0,
+        "lmw_ceken": 222.0,
+        "toplam": 1569.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "gmw_bolge": 1041.0,
+        "gmw_ceken": 165.0,
+        "lmw_bolge": 124.0,
+        "lmw_ceken": 221.0,
+        "toplam": 1552.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "gmw_bolge": 1012.0,
+        "gmw_ceken": 163.0,
+        "lmw_bolge": 123.0,
+        "lmw_ceken": 218.0,
+        "toplam": 1516.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "gmw_bolge": 975.0,
+        "gmw_ceken": 160.0,
+        "lmw_bolge": 119.0,
+        "lmw_ceken": 219.0,
+        "toplam": 1473.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "gmw_bolge": 939.0,
+        "gmw_ceken": 158.0,
+        "lmw_bolge": 114.0,
+        "lmw_ceken": 218.0,
+        "toplam": 1428.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "gmw_bolge": 916.0,
+        "gmw_ceken": 156.0,
+        "lmw_bolge": 107.0,
+        "lmw_ceken": 211.0,
+        "toplam": 1390.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "gmw_bolge": 888.0,
+        "gmw_ceken": 154.0,
+        "lmw_bolge": 104.0,
+        "lmw_ceken": 209.0,
+        "toplam": 1355.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "gmw_bolge": 864.0,
+        "gmw_ceken": 156.0,
+        "lmw_bolge": 102.0,
+        "lmw_ceken": 209.0,
+        "toplam": 1331.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "gmw_bolge": 857.0,
+        "gmw_ceken": 156.0,
+        "lmw_bolge": 99.0,
+        "lmw_ceken": 205.0,
+        "toplam": 1317.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "gmw_bolge": 866.0,
+        "gmw_ceken": 153.0,
+        "lmw_bolge": 94.0,
+        "lmw_ceken": 208.0,
+        "toplam": 1322.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "gmw_bolge": 837.0,
+        "gmw_ceken": 149.0,
+        "lmw_bolge": 93.0,
+        "lmw_ceken": 205.0,
+        "toplam": 1285.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "gmw_bolge": 824.0,
+        "gmw_ceken": 146.0,
+        "lmw_bolge": 91.0,
+        "lmw_ceken": 201.0,
+        "toplam": 1262.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "pay_yuksek_guvenilir": {
+    "_tablo": "Table 4",
+    "_baslik": "Transfers and price of high-reliability water shares in northern Victoria",
+    "_birim": "GL / AUD-ML",
+    "kayitlar": [
+      {
+        "yil": "2008-09",
+        "devlete_devir_gl": 8.0,
+        "diger_devir_gl": 154.0,
+        "medyan_fiyat_aud_ml": 2175.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "devlete_devir_gl": 127.0,
+        "diger_devir_gl": 210.0,
+        "medyan_fiyat_aud_ml": 2200.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "devlete_devir_gl": 113.0,
+        "diger_devir_gl": 98.0,
+        "medyan_fiyat_aud_ml": 1940.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "devlete_devir_gl": 174.0,
+        "diger_devir_gl": 93.0,
+        "medyan_fiyat_aud_ml": 1800.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "devlete_devir_gl": 31.0,
+        "diger_devir_gl": 104.0,
+        "medyan_fiyat_aud_ml": 1500.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "devlete_devir_gl": 10.0,
+        "diger_devir_gl": 93.0,
+        "medyan_fiyat_aud_ml": 1380.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "devlete_devir_gl": 25.0,
+        "diger_devir_gl": 99.0,
+        "medyan_fiyat_aud_ml": 1500.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "devlete_devir_gl": 1.0,
+        "diger_devir_gl": 124.0,
+        "medyan_fiyat_aud_ml": 2400.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "devlete_devir_gl": 5.0,
+        "diger_devir_gl": 151.0,
+        "medyan_fiyat_aud_ml": 2600.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "devlete_devir_gl": 3.0,
+        "diger_devir_gl": 66.0,
+        "medyan_fiyat_aud_ml": 2850.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 112.0,
+        "medyan_fiyat_aud_ml": 3700.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "devlete_devir_gl": 0.0,
+        "diger_devir_gl": 156.0,
+        "medyan_fiyat_aud_ml": 4800.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "devlete_devir_gl": 1.0,
+        "diger_devir_gl": 88.0,
+        "medyan_fiyat_aud_ml": 4500.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 112.0,
+        "medyan_fiyat_aud_ml": 4950.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 82.0,
+        "medyan_fiyat_aud_ml": 5000.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 60.0,
+        "medyan_fiyat_aud_ml": 4500.0,
+        "yil_no": 2023
+      }
+    ],
+    "_nitelik": "yüksek güvenilirlikli"
+  },
+  "pay_dusuk_guvenilir": {
+    "_tablo": "Table 5",
+    "_baslik": "Transfers and price of low-reliability water shares in northern Victoria",
+    "_birim": "GL / AUD-ML",
+    "kayitlar": [
+      {
+        "yil": "2008-09",
+        "devlete_devir_gl": 1.0,
+        "diger_devir_gl": 74.0,
+        "medyan_fiyat_aud_ml": 200.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "devlete_devir_gl": 20.0,
+        "diger_devir_gl": 35.0,
+        "medyan_fiyat_aud_ml": 175.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "devlete_devir_gl": 1.0,
+        "diger_devir_gl": 53.0,
+        "medyan_fiyat_aud_ml": 150.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "devlete_devir_gl": 0.0,
+        "diger_devir_gl": 64.0,
+        "medyan_fiyat_aud_ml": 140.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 47.0,
+        "medyan_fiyat_aud_ml": 150.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "devlete_devir_gl": 0.0,
+        "diger_devir_gl": 32.0,
+        "medyan_fiyat_aud_ml": 185.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 40.0,
+        "medyan_fiyat_aud_ml": 225.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 35.0,
+        "medyan_fiyat_aud_ml": 244.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 61.0,
+        "medyan_fiyat_aud_ml": 250.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 26.0,
+        "medyan_fiyat_aud_ml": 340.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 55.0,
+        "medyan_fiyat_aud_ml": 500.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 36.0,
+        "medyan_fiyat_aud_ml": 500.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 37.0,
+        "medyan_fiyat_aud_ml": 470.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 44.0,
+        "medyan_fiyat_aud_ml": 650.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 44.0,
+        "medyan_fiyat_aud_ml": 895.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devlete_devir_gl": null,
+        "diger_devir_gl": 30.0,
+        "medyan_fiyat_aud_ml": 850.0,
+        "yil_no": 2023
+      }
+    ],
+    "_nitelik": "düşük güvenilirlikli"
+  },
+  "tahsis_ticareti": {
+    "_tablo": "Table 9",
+    "_baslik": "Summary of private annual allocation trade in northern Victoria",
+    "_birim": "GL / adet / ML",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "ticari_hacim_gl": 371.0,
+        "sifir_fiyatli_hacim_gl": 168.0,
+        "toplam_hacim_gl": 539.0,
+        "ticari_islem": 12996.0,
+        "sifir_fiyatli_islem": 4707.0,
+        "toplam_islem": 17703.0,
+        "yuzde": 38.0,
+        "ort_parca_ticari_ml": 29.0,
+        "ort_parca_sifir_ml": 36.0,
+        "ort_parca_toplam_ml": 30.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "ticari_hacim_gl": 460.0,
+        "sifir_fiyatli_hacim_gl": 159.0,
+        "toplam_hacim_gl": 618.0,
+        "ticari_islem": 10810.0,
+        "sifir_fiyatli_islem": 4484.0,
+        "toplam_islem": 15294.0,
+        "yuzde": 59.0,
+        "ort_parca_ticari_ml": 43.0,
+        "ort_parca_sifir_ml": 35.0,
+        "ort_parca_toplam_ml": 40.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "ticari_hacim_gl": 448.0,
+        "sifir_fiyatli_hacim_gl": 294.0,
+        "toplam_hacim_gl": 741.0,
+        "ticari_islem": 7277.0,
+        "sifir_fiyatli_islem": 3080.0,
+        "toplam_islem": 10357.0,
+        "yuzde": 39.0,
+        "ort_parca_ticari_ml": 62.0,
+        "ort_parca_sifir_ml": 95.0,
+        "ort_parca_toplam_ml": 72.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "ticari_hacim_gl": 404.0,
+        "sifir_fiyatli_hacim_gl": 372.0,
+        "toplam_hacim_gl": 776.0,
+        "ticari_islem": 2209.0,
+        "sifir_fiyatli_islem": 1657.0,
+        "toplam_islem": 3866.0,
+        "yuzde": 28.0,
+        "ort_parca_ticari_ml": 183.0,
+        "ort_parca_sifir_ml": 225.0,
+        "ort_parca_toplam_ml": 201.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "ticari_hacim_gl": 715.0,
+        "sifir_fiyatli_hacim_gl": 436.0,
+        "toplam_hacim_gl": 1150.0,
+        "ticari_islem": 3513.0,
+        "sifir_fiyatli_islem": 2283.0,
+        "toplam_islem": 5796.0,
+        "yuzde": 28.0,
+        "ort_parca_ticari_ml": 204.0,
+        "ort_parca_sifir_ml": 191.0,
+        "ort_parca_toplam_ml": 198.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "ticari_hacim_gl": 1025.0,
+        "sifir_fiyatli_hacim_gl": 369.0,
+        "toplam_hacim_gl": 1394.0,
+        "ticari_islem": 7955.0,
+        "sifir_fiyatli_islem": 3832.0,
+        "toplam_islem": 11787.0,
+        "yuzde": 40.0,
+        "ort_parca_ticari_ml": 129.0,
+        "ort_parca_sifir_ml": 96.0,
+        "ort_parca_toplam_ml": 118.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "ticari_hacim_gl": 902.0,
+        "sifir_fiyatli_hacim_gl": 382.0,
+        "toplam_hacim_gl": 1284.0,
+        "ticari_islem": 8410.0,
+        "sifir_fiyatli_islem": 4022.0,
+        "toplam_islem": 12432.0,
+        "yuzde": 58.0,
+        "ort_parca_ticari_ml": 107.0,
+        "ort_parca_sifir_ml": 95.0,
+        "ort_parca_toplam_ml": 103.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "ticari_hacim_gl": 855.0,
+        "sifir_fiyatli_hacim_gl": 455.0,
+        "toplam_hacim_gl": 1310.0,
+        "ticari_islem": 9446.0,
+        "sifir_fiyatli_islem": 4653.0,
+        "toplam_islem": 14099.0,
+        "yuzde": 56.0,
+        "ort_parca_ticari_ml": 91.0,
+        "ort_parca_sifir_ml": 98.0,
+        "ort_parca_toplam_ml": 93.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "ticari_hacim_gl": 794.0,
+        "sifir_fiyatli_hacim_gl": 523.0,
+        "toplam_hacim_gl": 1317.0,
+        "ticari_islem": 9424.0,
+        "sifir_fiyatli_islem": 5133.0,
+        "toplam_islem": 14557.0,
+        "yuzde": 66.0,
+        "ort_parca_ticari_ml": 84.0,
+        "ort_parca_sifir_ml": 102.0,
+        "ort_parca_toplam_ml": 90.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "ticari_hacim_gl": 928.0,
+        "sifir_fiyatli_hacim_gl": 766.0,
+        "toplam_hacim_gl": 1694.0,
+        "ticari_islem": 7571.0,
+        "sifir_fiyatli_islem": 4517.0,
+        "toplam_islem": 12088.0,
+        "yuzde": 83.0,
+        "ort_parca_ticari_ml": 123.0,
+        "ort_parca_sifir_ml": 170.0,
+        "ort_parca_toplam_ml": 140.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "ticari_hacim_gl": 1088.0,
+        "sifir_fiyatli_hacim_gl": 820.0,
+        "toplam_hacim_gl": 1908.0,
+        "ticari_islem": 10454.0,
+        "sifir_fiyatli_islem": 5051.0,
+        "toplam_islem": 15505.0,
+        "yuzde": 76.0,
+        "ort_parca_ticari_ml": 104.0,
+        "ort_parca_sifir_ml": 162.0,
+        "ort_parca_toplam_ml": 123.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "ticari_hacim_gl": 1038.0,
+        "sifir_fiyatli_hacim_gl": 716.0,
+        "toplam_hacim_gl": 1754.0,
+        "ticari_islem": 14571.0,
+        "sifir_fiyatli_islem": 5194.0,
+        "toplam_islem": 19765.0,
+        "yuzde": 82.0,
+        "ort_parca_ticari_ml": 71.0,
+        "ort_parca_sifir_ml": 138.0,
+        "ort_parca_toplam_ml": 89.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "ticari_hacim_gl": 914.0,
+        "sifir_fiyatli_hacim_gl": 965.0,
+        "toplam_hacim_gl": 1878.0,
+        "ticari_islem": 12518.0,
+        "sifir_fiyatli_islem": 7175.0,
+        "toplam_islem": 19693.0,
+        "yuzde": 119.0,
+        "ort_parca_ticari_ml": 73.0,
+        "ort_parca_sifir_ml": 134.0,
+        "ort_parca_toplam_ml": 95.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "ticari_hacim_gl": 1212.0,
+        "sifir_fiyatli_hacim_gl": 884.0,
+        "toplam_hacim_gl": 2096.0,
+        "ticari_islem": 11151.0,
+        "sifir_fiyatli_islem": 4667.0,
+        "toplam_islem": 15818.0,
+        "yuzde": 91.0,
+        "ort_parca_ticari_ml": 109.0,
+        "ort_parca_sifir_ml": 189.0,
+        "ort_parca_toplam_ml": 133.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "ticari_hacim_gl": 1224.0,
+        "sifir_fiyatli_hacim_gl": 820.0,
+        "toplam_hacim_gl": 2044.0,
+        "ticari_islem": 9510.0,
+        "sifir_fiyatli_islem": 3802.0,
+        "toplam_islem": 13312.0,
+        "yuzde": 81.0,
+        "ort_parca_ticari_ml": 129.0,
+        "ort_parca_sifir_ml": 216.0,
+        "ort_parca_toplam_ml": 154.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "ticari_hacim_gl": 1252.0,
+        "sifir_fiyatli_hacim_gl": 911.0,
+        "toplam_hacim_gl": 2163.0,
+        "ticari_islem": 7039.0,
+        "sifir_fiyatli_islem": 2856.0,
+        "toplam_islem": 9895.0,
+        "yuzde": 88.0,
+        "ort_parca_ticari_ml": 178.0,
+        "ort_parca_sifir_ml": 319.0,
+        "ort_parca_toplam_ml": 219.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "ticari_hacim_gl": 1445.0,
+        "sifir_fiyatli_hacim_gl": 1009.0,
+        "toplam_hacim_gl": 2454.0,
+        "ticari_islem": 10162.0,
+        "sifir_fiyatli_islem": 3614.0,
+        "toplam_islem": 13776.0,
+        "yuzde": 81.0,
+        "ort_parca_ticari_ml": 142.0,
+        "ort_parca_sifir_ml": 279.0,
+        "ort_parca_toplam_ml": 178.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "arz_kullanim_kuzey": {
+    "_tablo": "Table 10",
+    "_baslik": "Northern private water availability and use",
+    "_birim": "GL",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "devreden_gl": 121.0,
+        "yeni_mevsimlik_gl": 1286.0,
+        "net_ticaret_gl": 11.0,
+        "kullanim_gl": 1001.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "devreden_gl": 247.0,
+        "yeni_mevsimlik_gl": 798.0,
+        "net_ticaret_gl": 192.0,
+        "kullanim_gl": 925.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "devreden_gl": 246.0,
+        "yeni_mevsimlik_gl": 1676.0,
+        "net_ticaret_gl": 62.0,
+        "kullanim_gl": 1135.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "devreden_gl": 766.0,
+        "yeni_mevsimlik_gl": 2053.0,
+        "net_ticaret_gl": 242.0,
+        "kullanim_gl": 751.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "devreden_gl": 2126.0,
+        "yeni_mevsimlik_gl": 1921.0,
+        "net_ticaret_gl": 51.0,
+        "kullanim_gl": 1732.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "devreden_gl": 1735.0,
+        "yeni_mevsimlik_gl": 1750.0,
+        "net_ticaret_gl": 28.0,
+        "kullanim_gl": 2402.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "devreden_gl": 513.0,
+        "yeni_mevsimlik_gl": 1713.0,
+        "net_ticaret_gl": 359.0,
+        "kullanim_gl": 1857.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "devreden_gl": 622.0,
+        "yeni_mevsimlik_gl": 1703.0,
+        "net_ticaret_gl": 183.0,
+        "kullanim_gl": 2033.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "devreden_gl": 413.0,
+        "yeni_mevsimlik_gl": 1592.0,
+        "net_ticaret_gl": 337.0,
+        "kullanim_gl": 1762.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "devreden_gl": 350.0,
+        "yeni_mevsimlik_gl": 1698.0,
+        "net_ticaret_gl": 376.0,
+        "kullanim_gl": 1454.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "devreden_gl": 840.0,
+        "yeni_mevsimlik_gl": 1675.0,
+        "net_ticaret_gl": -12.0,
+        "kullanim_gl": 1967.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "devreden_gl": 472.0,
+        "yeni_mevsimlik_gl": 1664.0,
+        "net_ticaret_gl": 56.0,
+        "kullanim_gl": 1751.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "devreden_gl": 373.0,
+        "yeni_mevsimlik_gl": 1209.0,
+        "net_ticaret_gl": 215.0,
+        "kullanim_gl": 1112.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "devreden_gl": 623.0,
+        "yeni_mevsimlik_gl": 1672.0,
+        "net_ticaret_gl": 288.0,
+        "kullanim_gl": 1545.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devreden_gl": 501.0,
+        "yeni_mevsimlik_gl": 2014.0,
+        "net_ticaret_gl": 229.0,
+        "kullanim_gl": 1564.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devreden_gl": 13.0,
+        "yeni_mevsimlik_gl": 2448.0,
+        "net_ticaret_gl": 226.0,
+        "kullanim_gl": 1272.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devreden_gl": 686.0,
+        "yeni_mevsimlik_gl": 2350.0,
+        "net_ticaret_gl": 57.0,
+        "kullanim_gl": 1716.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "arz_kullanim_goulburn_murray": {
+    "_tablo": "Table 11",
+    "_baslik": "Goulburn and Murray private water availability, use, & allocation price",
+    "_birim": "GL / AUD-ML",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "devreden_gl": 121.0,
+        "yeni_mevsimlik_gl": 1217.0,
+        "net_ticaret_gl": 11.0,
+        "kullanim_gl": 977.0,
+        "medyan_tahsis_fiyat_aud_ml": 320.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "devreden_gl": 238.0,
+        "yeni_mevsimlik_gl": 765.0,
+        "net_ticaret_gl": 190.0,
+        "kullanim_gl": 907.0,
+        "medyan_tahsis_fiyat_aud_ml": 320.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "devreden_gl": 243.0,
+        "yeni_mevsimlik_gl": 1644.0,
+        "net_ticaret_gl": 60.0,
+        "kullanim_gl": 1126.0,
+        "medyan_tahsis_fiyat_aud_ml": 160.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "devreden_gl": 760.0,
+        "yeni_mevsimlik_gl": 1952.0,
+        "net_ticaret_gl": 250.0,
+        "kullanim_gl": 744.0,
+        "medyan_tahsis_fiyat_aud_ml": 26.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "devreden_gl": 2093.0,
+        "yeni_mevsimlik_gl": 1848.0,
+        "net_ticaret_gl": 45.0,
+        "kullanim_gl": 1705.0,
+        "medyan_tahsis_fiyat_aud_ml": 20.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "devreden_gl": 1706.0,
+        "yeni_mevsimlik_gl": 1680.0,
+        "net_ticaret_gl": 36.0,
+        "kullanim_gl": 2366.0,
+        "medyan_tahsis_fiyat_aud_ml": 45.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "devreden_gl": 490.0,
+        "yeni_mevsimlik_gl": 1643.0,
+        "net_ticaret_gl": 369.0,
+        "kullanim_gl": 1825.0,
+        "medyan_tahsis_fiyat_aud_ml": 75.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "devreden_gl": 603.0,
+        "yeni_mevsimlik_gl": 1633.0,
+        "net_ticaret_gl": 193.0,
+        "kullanim_gl": 1993.0,
+        "medyan_tahsis_fiyat_aud_ml": 122.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "devreden_gl": 400.0,
+        "yeni_mevsimlik_gl": 1536.0,
+        "net_ticaret_gl": 318.0,
+        "kullanim_gl": 1708.0,
+        "medyan_tahsis_fiyat_aud_ml": 230.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "devreden_gl": 343.0,
+        "yeni_mevsimlik_gl": 1618.0,
+        "net_ticaret_gl": 356.0,
+        "kullanim_gl": 1398.0,
+        "medyan_tahsis_fiyat_aud_ml": 48.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "devreden_gl": 819.0,
+        "yeni_mevsimlik_gl": 1601.0,
+        "net_ticaret_gl": 8.0,
+        "kullanim_gl": 1932.0,
+        "medyan_tahsis_fiyat_aud_ml": 125.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "devreden_gl": 458.0,
+        "yeni_mevsimlik_gl": 1599.0,
+        "net_ticaret_gl": 70.0,
+        "kullanim_gl": 1715.0,
+        "medyan_tahsis_fiyat_aud_ml": 430.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "devreden_gl": 363.0,
+        "yeni_mevsimlik_gl": 1154.0,
+        "net_ticaret_gl": 220.0,
+        "kullanim_gl": 1084.0,
+        "medyan_tahsis_fiyat_aud_ml": 580.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "devreden_gl": 611.0,
+        "yeni_mevsimlik_gl": 1596.0,
+        "net_ticaret_gl": 275.0,
+        "kullanim_gl": 1494.0,
+        "medyan_tahsis_fiyat_aud_ml": 100.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devreden_gl": 480.0,
+        "yeni_mevsimlik_gl": 1943.0,
+        "net_ticaret_gl": 206.0,
+        "kullanim_gl": 1510.0,
+        "medyan_tahsis_fiyat_aud_ml": 65.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devreden_gl": 0.0,
+        "yeni_mevsimlik_gl": 2367.0,
+        "net_ticaret_gl": 237.0,
+        "kullanim_gl": 1255.0,
+        "medyan_tahsis_fiyat_aud_ml": 20.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devreden_gl": 669.0,
+        "yeni_mevsimlik_gl": 2269.0,
+        "net_ticaret_gl": 70.0,
+        "kullanim_gl": 1688.0,
+        "medyan_tahsis_fiyat_aud_ml": 40.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "eyaletlerarasi_net": {
+    "_tablo": "Table 12",
+    "_baslik": "Net allocation trade into Victoria (excluding within environment trade)",
+    "_birim": "GL",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "nsw_den_gl": 57.0,
+        "sa_dan_gl": -45.0,
+        "toplam_gl": 11.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "nsw_den_gl": 230.0,
+        "sa_dan_gl": -18.0,
+        "toplam_gl": 212.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "nsw_den_gl": 93.0,
+        "sa_dan_gl": -27.0,
+        "toplam_gl": 66.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "nsw_den_gl": 38.0,
+        "sa_dan_gl": 207.0,
+        "toplam_gl": 245.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "nsw_den_gl": -54.0,
+        "sa_dan_gl": 46.0,
+        "toplam_gl": -8.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "nsw_den_gl": -141.0,
+        "sa_dan_gl": -4.0,
+        "toplam_gl": -145.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "nsw_den_gl": 120.0,
+        "sa_dan_gl": 74.0,
+        "toplam_gl": 194.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "nsw_den_gl": 5.0,
+        "sa_dan_gl": 61.0,
+        "toplam_gl": 66.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "nsw_den_gl": 197.0,
+        "sa_dan_gl": 51.0,
+        "toplam_gl": 248.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "nsw_den_gl": 119.0,
+        "sa_dan_gl": 125.0,
+        "toplam_gl": 244.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "nsw_den_gl": -146.0,
+        "sa_dan_gl": -7.0,
+        "toplam_gl": -153.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "nsw_den_gl": -62.0,
+        "sa_dan_gl": -29.0,
+        "toplam_gl": -91.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "nsw_den_gl": 106.0,
+        "sa_dan_gl": 21.0,
+        "toplam_gl": 128.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "nsw_den_gl": 195.0,
+        "sa_dan_gl": -4.0,
+        "toplam_gl": 192.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "nsw_den_gl": 133.0,
+        "sa_dan_gl": -44.0,
+        "toplam_gl": 89.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "nsw_den_gl": 13.0,
+        "sa_dan_gl": 24.0,
+        "toplam_gl": 37.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "nsw_den_gl": -14.0,
+        "sa_dan_gl": -87.0,
+        "toplam_gl": -101.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "devir_parki": {
+    "_tablo": "Table 15",
+    "_baslik": "Commercial allocation trade for carryover parking compared to other reasons for trade",
+    "_birim": "GL / AUD-ML",
+    "kayitlar": [
+      {
+        "yil": "2020-21",
+        "devir_parki_gl": 114.0,
+        "diger_ticari_gl": 976.0,
+        "veri_yok_gl": 122.0,
+        "devir_parki_medyan_fiyat_aud_ml": 45.0,
+        "genel_medyan_fiyat_aud_ml": 105.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devir_parki_gl": 128.0,
+        "diger_ticari_gl": 1059.0,
+        "veri_yok_gl": 37.0,
+        "devir_parki_medyan_fiyat_aud_ml": 50.0,
+        "genel_medyan_fiyat_aud_ml": 70.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devir_parki_gl": 224.0,
+        "diger_ticari_gl": 1003.0,
+        "veri_yok_gl": 25.0,
+        "devir_parki_medyan_fiyat_aud_ml": 65.0,
+        "genel_medyan_fiyat_aud_ml": 20.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devir_parki_gl": 167.0,
+        "diger_ticari_gl": 1227.0,
+        "veri_yok_gl": 51.0,
+        "devir_parki_medyan_fiyat_aud_ml": 70.0,
+        "genel_medyan_fiyat_aud_ml": 40.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "topraksiz_suyun_akibeti": {
+    "_tablo": "Table 16",
+    "_baslik": "How allocations made to private water shares not linked to land were used",
+    "_birim": "GL / %",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "ticari_satildi_gl": 45.0,
+        "sifirla_devredildi_gl": 21.0,
+        "kayip_buharlasma_gl": 17.0,
+        "devreden_gl": 37.0,
+        "devreden_yuzde": 30.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "ticari_satildi_gl": 39.0,
+        "sifirla_devredildi_gl": 21.0,
+        "kayip_buharlasma_gl": 10.0,
+        "devreden_gl": 33.0,
+        "devreden_yuzde": 32.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "ticari_satildi_gl": 26.0,
+        "sifirla_devredildi_gl": 34.0,
+        "kayip_buharlasma_gl": 1.0,
+        "devreden_gl": 29.0,
+        "devreden_yuzde": 33.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "ticari_satildi_gl": 35.0,
+        "sifirla_devredildi_gl": 37.0,
+        "kayip_buharlasma_gl": 3.0,
+        "devreden_gl": 62.0,
+        "devreden_yuzde": 45.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "ticari_satildi_gl": 85.0,
+        "sifirla_devredildi_gl": 35.0,
+        "kayip_buharlasma_gl": 13.0,
+        "devreden_gl": 48.0,
+        "devreden_yuzde": 27.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "ticari_satildi_gl": 87.0,
+        "sifirla_devredildi_gl": 49.0,
+        "kayip_buharlasma_gl": 7.0,
+        "devreden_gl": 21.0,
+        "devreden_yuzde": 13.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "ticari_satildi_gl": 90.0,
+        "sifirla_devredildi_gl": 46.0,
+        "kayip_buharlasma_gl": 4.0,
+        "devreden_gl": 9.0,
+        "devreden_yuzde": 6.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "ticari_satildi_gl": 149.0,
+        "sifirla_devredildi_gl": 76.0,
+        "kayip_buharlasma_gl": 3.0,
+        "devreden_gl": 12.0,
+        "devreden_yuzde": 5.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "ticari_satildi_gl": 148.0,
+        "sifirla_devredildi_gl": 83.0,
+        "kayip_buharlasma_gl": 5.0,
+        "devreden_gl": 51.0,
+        "devreden_yuzde": 18.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "ticari_satildi_gl": 226.0,
+        "sifirla_devredildi_gl": 165.0,
+        "kayip_buharlasma_gl": 6.0,
+        "devreden_gl": 110.0,
+        "devreden_yuzde": 22.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "ticari_satildi_gl": 293.0,
+        "sifirla_devredildi_gl": 238.0,
+        "kayip_buharlasma_gl": 5.0,
+        "devreden_gl": 59.0,
+        "devreden_yuzde": 10.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "ticari_satildi_gl": 351.0,
+        "sifirla_devredildi_gl": 210.0,
+        "kayip_buharlasma_gl": 6.0,
+        "devreden_gl": 65.0,
+        "devreden_yuzde": 10.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "ticari_satildi_gl": 222.0,
+        "sifirla_devredildi_gl": 266.0,
+        "kayip_buharlasma_gl": 8.0,
+        "devreden_gl": 121.0,
+        "devreden_yuzde": 20.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "ticari_satildi_gl": 311.0,
+        "sifirla_devredildi_gl": 240.0,
+        "kayip_buharlasma_gl": 13.0,
+        "devreden_gl": 171.0,
+        "devreden_yuzde": 23.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "ticari_satildi_gl": 362.0,
+        "sifirla_devredildi_gl": 285.0,
+        "kayip_buharlasma_gl": 19.0,
+        "devreden_gl": 216.0,
+        "devreden_yuzde": 24.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "ticari_satildi_gl": 396.0,
+        "sifirla_devredildi_gl": 349.0,
+        "kayip_buharlasma_gl": 24.0,
+        "devreden_gl": 317.0,
+        "devreden_yuzde": 29.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "ticari_satildi_gl": 538.0,
+        "sifirla_devredildi_gl": 459.0,
+        "kayip_buharlasma_gl": 30.0,
+        "devreden_gl": 270.0,
+        "devreden_yuzde": 21.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "devreden_su": {
+    "_tablo": "Table 17",
+    "_baslik": "How allocations made to private water users were carried over",
+    "_birim": "GL / %",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "devreden_gl": 238.0,
+        "devreden_yuzde": 15.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "devreden_gl": 224.0,
+        "devreden_yuzde": 16.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "devreden_gl": 691.0,
+        "devreden_yuzde": 32.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "devreden_gl": 1844.0,
+        "devreden_yuzde": 66.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "devreden_gl": 1803.0,
+        "devreden_yuzde": 41.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "devreden_gl": 883.0,
+        "devreden_yuzde": 22.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "devreden_gl": 592.0,
+        "devreden_yuzde": 20.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "devreden_gl": 379.0,
+        "devreden_yuzde": 13.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "devreden_gl": 431.0,
+        "devreden_yuzde": 16.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "devreden_gl": 689.0,
+        "devreden_yuzde": 26.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "devreden_gl": 385.0,
+        "devreden_yuzde": 13.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "devreden_gl": 282.0,
+        "devreden_yuzde": 11.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "devreden_gl": 455.0,
+        "devreden_yuzde": 21.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "devreden_gl": 684.0,
+        "devreden_yuzde": 24.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devreden_gl": 735.0,
+        "devreden_yuzde": 25.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devreden_gl": 849.0,
+        "devreden_yuzde": 31.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devreden_gl": 853.0,
+        "devreden_yuzde": 26.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "kaynak_dagilimi_ozet": {
+    "_tablo": "Table 18",
+    "_baslik": "Private water users - where they source water from and how that compares to use",
+    "_birim": "GL / AUD-ML",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "devreden_gl": 108.0,
+        "yeni_mevsimlik_gl": 1131.0,
+        "ticari_alinan_net_gl": 43.0,
+        "sifirla_gelen_net_gl": 30.0,
+        "kullanim_gl": 1001.0,
+        "medyan_tahsis_fiyat_aud_ml": 320.0,
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "devreden_gl": 218.0,
+        "yeni_mevsimlik_gl": 694.0,
+        "ticari_alinan_net_gl": 223.0,
+        "sifirla_gelen_net_gl": 31.0,
+        "kullanim_gl": 925.0,
+        "medyan_tahsis_fiyat_aud_ml": 320.0,
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "devreden_gl": 215.0,
+        "yeni_mevsimlik_gl": 1459.0,
+        "ticari_alinan_net_gl": 108.0,
+        "sifirla_gelen_net_gl": 59.0,
+        "kullanim_gl": 1135.0,
+        "medyan_tahsis_fiyat_aud_ml": 160.0,
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "devreden_gl": 618.0,
+        "yeni_mevsimlik_gl": 1680.0,
+        "ticari_alinan_net_gl": 145.0,
+        "sifirla_gelen_net_gl": 172.0,
+        "kullanim_gl": 751.0,
+        "medyan_tahsis_fiyat_aud_ml": 26.0,
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "devreden_gl": 1878.0,
+        "yeni_mevsimlik_gl": 1656.0,
+        "ticari_alinan_net_gl": 267.0,
+        "sifirla_gelen_net_gl": -38.0,
+        "kullanim_gl": 1732.0,
+        "medyan_tahsis_fiyat_aud_ml": 20.0,
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "devreden_gl": 1550.0,
+        "yeni_mevsimlik_gl": 1515.0,
+        "ticari_alinan_net_gl": 231.0,
+        "sifirla_gelen_net_gl": 75.0,
+        "kullanim_gl": 2402.0,
+        "medyan_tahsis_fiyat_aud_ml": 45.0,
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "devreden_gl": 461.0,
+        "yeni_mevsimlik_gl": 1463.0,
+        "ticari_alinan_net_gl": 493.0,
+        "sifirla_gelen_net_gl": 88.0,
+        "kullanim_gl": 1857.0,
+        "medyan_tahsis_fiyat_aud_ml": 75.0,
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "devreden_gl": 566.0,
+        "yeni_mevsimlik_gl": 1447.0,
+        "ticari_alinan_net_gl": 375.0,
+        "sifirla_gelen_net_gl": 63.0,
+        "kullanim_gl": 2033.0,
+        "medyan_tahsis_fiyat_aud_ml": 122.0,
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "devreden_gl": 371.0,
+        "yeni_mevsimlik_gl": 1341.0,
+        "ticari_alinan_net_gl": 380.0,
+        "sifirla_gelen_net_gl": 138.0,
+        "kullanim_gl": 1762.0,
+        "medyan_tahsis_fiyat_aud_ml": 230.0,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "devreden_gl": 276.0,
+        "yeni_mevsimlik_gl": 1373.0,
+        "ticari_alinan_net_gl": 453.0,
+        "sifirla_gelen_net_gl": 103.0,
+        "kullanim_gl": 1454.0,
+        "medyan_tahsis_fiyat_aud_ml": 48.0,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "devreden_gl": 686.0,
+        "yeni_mevsimlik_gl": 1362.0,
+        "ticari_alinan_net_gl": 312.0,
+        "sifirla_gelen_net_gl": 31.0,
+        "kullanim_gl": 1967.0,
+        "medyan_tahsis_fiyat_aud_ml": 125.0,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "devreden_gl": 379.0,
+        "yeni_mevsimlik_gl": 1298.0,
+        "ticari_alinan_net_gl": 284.0,
+        "sifirla_gelen_net_gl": 102.0,
+        "kullanim_gl": 1751.0,
+        "medyan_tahsis_fiyat_aud_ml": 430.0,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "devreden_gl": 281.0,
+        "yeni_mevsimlik_gl": 926.0,
+        "ticari_alinan_net_gl": 357.0,
+        "sifirla_gelen_net_gl": 42.0,
+        "kullanim_gl": 1112.0,
+        "medyan_tahsis_fiyat_aud_ml": 580.0,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "devreden_gl": 452.0,
+        "yeni_mevsimlik_gl": 1260.0,
+        "ticari_alinan_net_gl": 495.0,
+        "sifirla_gelen_net_gl": 85.0,
+        "kullanim_gl": 1545.0,
+        "medyan_tahsis_fiyat_aud_ml": 100.0,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "devreden_gl": 369.0,
+        "yeni_mevsimlik_gl": 1465.0,
+        "ticari_alinan_net_gl": 484.0,
+        "sifirla_gelen_net_gl": 69.0,
+        "kullanim_gl": 1564.0,
+        "medyan_tahsis_fiyat_aud_ml": 65.0,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "devreden_gl": 4.0,
+        "yeni_mevsimlik_gl": 1721.0,
+        "ticari_alinan_net_gl": 449.0,
+        "sifirla_gelen_net_gl": 40.0,
+        "kullanim_gl": 1272.0,
+        "medyan_tahsis_fiyat_aud_ml": 20.0,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "devreden_gl": 467.0,
+        "yeni_mevsimlik_gl": 1640.0,
+        "ticari_alinan_net_gl": 528.0,
+        "sifirla_gelen_net_gl": 38.0,
+        "kullanim_gl": 1716.0,
+        "medyan_tahsis_fiyat_aud_ml": 40.0,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "piyasa_katilimi": {
+    "_tablo": "Table 1",
+    "_baslik": "Number of unique allocation accounts involved in commercial trade in the Goulburn and Murray",
+    "_birim": "hesap adedi",
+    "kayitlar": [
+      {
+        "yil": "2015-16",
+        "sik_ticaret_yapan": 50.0,
+        "diger": 6844.0,
+        "toplam": 6894.0,
+        "sik_ticaret_yapan_yuzde": 0.73,
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "sik_ticaret_yapan": 48.0,
+        "diger": 5540.0,
+        "toplam": 5588.0,
+        "sik_ticaret_yapan_yuzde": 0.86,
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "sik_ticaret_yapan": 68.0,
+        "diger": 7425.0,
+        "toplam": 7493.0,
+        "sik_ticaret_yapan_yuzde": 0.91,
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "sik_ticaret_yapan": 99.0,
+        "diger": 8617.0,
+        "toplam": 8716.0,
+        "sik_ticaret_yapan_yuzde": 1.14,
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "sik_ticaret_yapan": 104.0,
+        "diger": 7249.0,
+        "toplam": 7353.0,
+        "sik_ticaret_yapan_yuzde": 1.41,
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "sik_ticaret_yapan": 74.0,
+        "diger": 6919.0,
+        "toplam": 6993.0,
+        "sik_ticaret_yapan_yuzde": 1.06,
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "sik_ticaret_yapan": 76.0,
+        "diger": 6364.0,
+        "toplam": 6440.0,
+        "sik_ticaret_yapan_yuzde": 1.18,
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "sik_ticaret_yapan": 61.0,
+        "diger": 5188.0,
+        "toplam": 5249.0,
+        "sik_ticaret_yapan_yuzde": 1.16,
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "sik_ticaret_yapan": 84.0,
+        "diger": 6465.0,
+        "toplam": 6549.0,
+        "sik_ticaret_yapan_yuzde": 1.28,
+        "yil_no": 2023
+      }
+    ]
+  },
+  "kaynak_dagilimi": {
+    "_tablo": "Table 19",
+    "_baslik": "Where did northern Victorian irrigators source their water from each year?",
+    "_birim": "GL",
+    "kayitlar": [
+      {
+        "yil": "2007-08",
+        "gmw_bolge": {
+          "devreden_gl": 40.0,
+          "yeni_mevsimlik_gl": 797.0,
+          "net_ticaret_gl": -43.0,
+          "kullanim_gl": 657.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 10.0,
+          "yeni_mevsimlik_gl": 102.0,
+          "net_ticaret_gl": -14.0,
+          "kullanim_gl": 61.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 21.0,
+          "yeni_mevsimlik_gl": 91.0,
+          "net_ticaret_gl": 30.0,
+          "kullanim_gl": 82.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 37.0,
+          "yeni_mevsimlik_gl": 141.0,
+          "net_ticaret_gl": 98.0,
+          "kullanim_gl": 201.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 108.0,
+          "yeni_mevsimlik_gl": 1131.0,
+          "net_ticaret_gl": 72.0,
+          "kullanim_gl": 1001.0
+        },
+        "yil_no": 2007
+      },
+      {
+        "yil": "2008-09",
+        "gmw_bolge": {
+          "devreden_gl": 117.0,
+          "yeni_mevsimlik_gl": 473.0,
+          "net_ticaret_gl": 93.0,
+          "kullanim_gl": 556.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 19.0,
+          "yeni_mevsimlik_gl": 52.0,
+          "net_ticaret_gl": 0.0,
+          "kullanim_gl": 43.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 29.0,
+          "yeni_mevsimlik_gl": 52.0,
+          "net_ticaret_gl": 45.0,
+          "kullanim_gl": 89.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 53.0,
+          "yeni_mevsimlik_gl": 116.0,
+          "net_ticaret_gl": 115.0,
+          "kullanim_gl": 237.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 218.0,
+          "yeni_mevsimlik_gl": 694.0,
+          "net_ticaret_gl": 254.0,
+          "kullanim_gl": 925.0
+        },
+        "yil_no": 2008
+      },
+      {
+        "yil": "2009-10",
+        "gmw_bolge": {
+          "devreden_gl": 120.0,
+          "yeni_mevsimlik_gl": 1029.0,
+          "net_ticaret_gl": 58.0,
+          "kullanim_gl": 745.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 14.0,
+          "yeni_mevsimlik_gl": 75.0,
+          "net_ticaret_gl": -7.0,
+          "kullanim_gl": 33.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 35.0,
+          "yeni_mevsimlik_gl": 109.0,
+          "net_ticaret_gl": 1.0,
+          "kullanim_gl": 87.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 46.0,
+          "yeni_mevsimlik_gl": 246.0,
+          "net_ticaret_gl": 115.0,
+          "kullanim_gl": 269.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 215.0,
+          "yeni_mevsimlik_gl": 1459.0,
+          "net_ticaret_gl": 167.0,
+          "kullanim_gl": 1135.0
+        },
+        "yil_no": 2009
+      },
+      {
+        "yil": "2010-11",
+        "gmw_bolge": {
+          "devreden_gl": 410.0,
+          "yeni_mevsimlik_gl": 1187.0,
+          "net_ticaret_gl": 105.0,
+          "kullanim_gl": 495.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 31.0,
+          "yeni_mevsimlik_gl": 87.0,
+          "net_ticaret_gl": 2.0,
+          "kullanim_gl": 19.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 52.0,
+          "yeni_mevsimlik_gl": 133.0,
+          "net_ticaret_gl": -1.0,
+          "kullanim_gl": 43.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 125.0,
+          "yeni_mevsimlik_gl": 273.0,
+          "net_ticaret_gl": 211.0,
+          "kullanim_gl": 194.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 618.0,
+          "yeni_mevsimlik_gl": 1680.0,
+          "net_ticaret_gl": 317.0,
+          "kullanim_gl": 751.0
+        },
+        "yil_no": 2010
+      },
+      {
+        "yil": "2011-12",
+        "gmw_bolge": {
+          "devreden_gl": 1201.0,
+          "yeni_mevsimlik_gl": 1171.0,
+          "net_ticaret_gl": 199.0,
+          "kullanim_gl": 1269.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 104.0,
+          "yeni_mevsimlik_gl": 102.0,
+          "net_ticaret_gl": 2.0,
+          "kullanim_gl": 58.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 139.0,
+          "yeni_mevsimlik_gl": 128.0,
+          "net_ticaret_gl": -7.0,
+          "kullanim_gl": 84.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 434.0,
+          "yeni_mevsimlik_gl": 255.0,
+          "net_ticaret_gl": 34.0,
+          "kullanim_gl": 320.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 1878.0,
+          "yeni_mevsimlik_gl": 1656.0,
+          "net_ticaret_gl": 229.0,
+          "kullanim_gl": 1732.0
+        },
+        "yil_no": 2011
+      },
+      {
+        "yil": "2012-13",
+        "gmw_bolge": {
+          "devreden_gl": 935.0,
+          "yeni_mevsimlik_gl": 1048.0,
+          "net_ticaret_gl": 297.0,
+          "kullanim_gl": 1777.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 115.0,
+          "yeni_mevsimlik_gl": 120.0,
+          "net_ticaret_gl": -39.0,
+          "kullanim_gl": 104.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 153.0,
+          "yeni_mevsimlik_gl": 122.0,
+          "net_ticaret_gl": -49.0,
+          "kullanim_gl": 114.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 347.0,
+          "yeni_mevsimlik_gl": 224.0,
+          "net_ticaret_gl": 97.0,
+          "kullanim_gl": 407.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 1550.0,
+          "yeni_mevsimlik_gl": 1515.0,
+          "net_ticaret_gl": 306.0,
+          "kullanim_gl": 2402.0
+        },
+        "yil_no": 2012
+      },
+      {
+        "yil": "2013-14",
+        "gmw_bolge": {
+          "devreden_gl": 381.0,
+          "yeni_mevsimlik_gl": 999.0,
+          "net_ticaret_gl": 431.0,
+          "kullanim_gl": 1317.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 44.0,
+          "yeni_mevsimlik_gl": 117.0,
+          "net_ticaret_gl": -15.0,
+          "kullanim_gl": 88.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 9.0,
+          "yeni_mevsimlik_gl": 119.0,
+          "net_ticaret_gl": -1.0,
+          "kullanim_gl": 98.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 27.0,
+          "yeni_mevsimlik_gl": 228.0,
+          "net_ticaret_gl": 166.0,
+          "kullanim_gl": 354.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 461.0,
+          "yeni_mevsimlik_gl": 1463.0,
+          "net_ticaret_gl": 581.0,
+          "kullanim_gl": 1857.0
+        },
+        "yil_no": 2013
+      },
+      {
+        "yil": "2014-15",
+        "gmw_bolge": {
+          "devreden_gl": 451.0,
+          "yeni_mevsimlik_gl": 981.0,
+          "net_ticaret_gl": 305.0,
+          "kullanim_gl": 1451.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 40.0,
+          "yeni_mevsimlik_gl": 116.0,
+          "net_ticaret_gl": -21.0,
+          "kullanim_gl": 89.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 20.0,
+          "yeni_mevsimlik_gl": 118.0,
+          "net_ticaret_gl": -15.0,
+          "kullanim_gl": 94.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 54.0,
+          "yeni_mevsimlik_gl": 232.0,
+          "net_ticaret_gl": 168.0,
+          "kullanim_gl": 399.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 566.0,
+          "yeni_mevsimlik_gl": 1447.0,
+          "net_ticaret_gl": 437.0,
+          "kullanim_gl": 2033.0
+        },
+        "yil_no": 2014
+      },
+      {
+        "yil": "2015-16",
+        "gmw_bolge": {
+          "devreden_gl": 264.0,
+          "yeni_mevsimlik_gl": 907.0,
+          "net_ticaret_gl": 267.0,
+          "kullanim_gl": 1157.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 33.0,
+          "yeni_mevsimlik_gl": 104.0,
+          "net_ticaret_gl": -14.0,
+          "kullanim_gl": 79.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 26.0,
+          "yeni_mevsimlik_gl": 118.0,
+          "net_ticaret_gl": 6.0,
+          "kullanim_gl": 102.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 48.0,
+          "yeni_mevsimlik_gl": 212.0,
+          "net_ticaret_gl": 260.0,
+          "kullanim_gl": 424.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 371.0,
+          "yeni_mevsimlik_gl": 1341.0,
+          "net_ticaret_gl": 519.0,
+          "kullanim_gl": 1762.0
+        },
+        "yil_no": 2015
+      },
+      {
+        "yil": "2016-17",
+        "gmw_bolge": {
+          "devreden_gl": 238.0,
+          "yeni_mevsimlik_gl": 934.0,
+          "net_ticaret_gl": 372.0,
+          "kullanim_gl": 929.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 24.0,
+          "yeni_mevsimlik_gl": 114.0,
+          "net_ticaret_gl": -5.0,
+          "kullanim_gl": 64.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 0.0,
+          "yeni_mevsimlik_gl": 118.0,
+          "net_ticaret_gl": -3.0,
+          "kullanim_gl": 87.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 14.0,
+          "yeni_mevsimlik_gl": 207.0,
+          "net_ticaret_gl": 192.0,
+          "kullanim_gl": 374.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 276.0,
+          "yeni_mevsimlik_gl": 1373.0,
+          "net_ticaret_gl": 556.0,
+          "kullanim_gl": 1454.0
+        },
+        "yil_no": 2016
+      },
+      {
+        "yil": "2017-18",
+        "gmw_bolge": {
+          "devreden_gl": 572.0,
+          "yeni_mevsimlik_gl": 900.0,
+          "net_ticaret_gl": 186.0,
+          "kullanim_gl": 1341.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 51.0,
+          "yeni_mevsimlik_gl": 115.0,
+          "net_ticaret_gl": -24.0,
+          "kullanim_gl": 93.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 16.0,
+          "yeni_mevsimlik_gl": 115.0,
+          "net_ticaret_gl": -10.0,
+          "kullanim_gl": 101.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 46.0,
+          "yeni_mevsimlik_gl": 232.0,
+          "net_ticaret_gl": 191.0,
+          "kullanim_gl": 432.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 686.0,
+          "yeni_mevsimlik_gl": 1362.0,
+          "net_ticaret_gl": 342.0,
+          "kullanim_gl": 1967.0
+        },
+        "yil_no": 2017
+      },
+      {
+        "yil": "2018-19",
+        "gmw_bolge": {
+          "devreden_gl": 296.0,
+          "yeni_mevsimlik_gl": 873.0,
+          "net_ticaret_gl": 133.0,
+          "kullanim_gl": 1093.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 37.0,
+          "yeni_mevsimlik_gl": 111.0,
+          "net_ticaret_gl": -23.0,
+          "kullanim_gl": 86.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 18.0,
+          "yeni_mevsimlik_gl": 109.0,
+          "net_ticaret_gl": 6.0,
+          "kullanim_gl": 110.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 28.0,
+          "yeni_mevsimlik_gl": 205.0,
+          "net_ticaret_gl": 268.0,
+          "kullanim_gl": 462.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 379.0,
+          "yeni_mevsimlik_gl": 1298.0,
+          "net_ticaret_gl": 385.0,
+          "kullanim_gl": 1751.0
+        },
+        "yil_no": 2018
+      },
+      {
+        "yil": "2019-20",
+        "gmw_bolge": {
+          "devreden_gl": 192.0,
+          "yeni_mevsimlik_gl": 622.0,
+          "net_ticaret_gl": 71.0,
+          "kullanim_gl": 531.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 27.0,
+          "yeni_mevsimlik_gl": 83.0,
+          "net_ticaret_gl": -13.0,
+          "kullanim_gl": 51.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 20.0,
+          "yeni_mevsimlik_gl": 70.0,
+          "net_ticaret_gl": 35.0,
+          "kullanim_gl": 98.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 42.0,
+          "yeni_mevsimlik_gl": 151.0,
+          "net_ticaret_gl": 304.0,
+          "kullanim_gl": 433.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 281.0,
+          "yeni_mevsimlik_gl": 926.0,
+          "net_ticaret_gl": 398.0,
+          "kullanim_gl": 1112.0
+        },
+        "yil_no": 2019
+      },
+      {
+        "yil": "2020-21",
+        "gmw_bolge": {
+          "devreden_gl": 332.0,
+          "yeni_mevsimlik_gl": 819.0,
+          "net_ticaret_gl": 337.0,
+          "kullanim_gl": 942.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 36.0,
+          "yeni_mevsimlik_gl": 114.0,
+          "net_ticaret_gl": -11.0,
+          "kullanim_gl": 69.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 25.0,
+          "yeni_mevsimlik_gl": 101.0,
+          "net_ticaret_gl": 14.0,
+          "kullanim_gl": 98.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 59.0,
+          "yeni_mevsimlik_gl": 225.0,
+          "net_ticaret_gl": 240.0,
+          "kullanim_gl": 436.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 452.0,
+          "yeni_mevsimlik_gl": 1260.0,
+          "net_ticaret_gl": 580.0,
+          "kullanim_gl": 1545.0
+        },
+        "yil_no": 2020
+      },
+      {
+        "yil": "2021-22",
+        "gmw_bolge": {
+          "devreden_gl": 331.0,
+          "yeni_mevsimlik_gl": 1006.0,
+          "net_ticaret_gl": 281.0,
+          "kullanim_gl": 956.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 31.0,
+          "yeni_mevsimlik_gl": 121.0,
+          "net_ticaret_gl": -2.0,
+          "kullanim_gl": 65.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 0.0,
+          "yeni_mevsimlik_gl": 99.0,
+          "net_ticaret_gl": 19.0,
+          "kullanim_gl": 93.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 7.0,
+          "yeni_mevsimlik_gl": 239.0,
+          "net_ticaret_gl": 254.0,
+          "kullanim_gl": 449.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 369.0,
+          "yeni_mevsimlik_gl": 1465.0,
+          "net_ticaret_gl": 553.0,
+          "kullanim_gl": 1564.0
+        },
+        "yil_no": 2021
+      },
+      {
+        "yil": "2022-23",
+        "gmw_bolge": {
+          "devreden_gl": -7.0,
+          "yeni_mevsimlik_gl": 1259.0,
+          "net_ticaret_gl": 315.0,
+          "kullanim_gl": 816.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 7.0,
+          "yeni_mevsimlik_gl": 124.0,
+          "net_ticaret_gl": 5.0,
+          "kullanim_gl": 53.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 0.0,
+          "yeni_mevsimlik_gl": 91.0,
+          "net_ticaret_gl": 22.0,
+          "kullanim_gl": 75.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 3.0,
+          "yeni_mevsimlik_gl": 247.0,
+          "net_ticaret_gl": 147.0,
+          "kullanim_gl": 329.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 4.0,
+          "yeni_mevsimlik_gl": 1721.0,
+          "net_ticaret_gl": 489.0,
+          "kullanim_gl": 1272.0
+        },
+        "yil_no": 2022
+      },
+      {
+        "yil": "2023-24",
+        "gmw_bolge": {
+          "devreden_gl": 405.0,
+          "yeni_mevsimlik_gl": 1182.0,
+          "net_ticaret_gl": 297.0,
+          "kullanim_gl": 1130.0
+        },
+        "gmw_ceken": {
+          "devreden_gl": 35.0,
+          "yeni_mevsimlik_gl": 130.0,
+          "net_ticaret_gl": -3.0,
+          "kullanim_gl": 73.0
+        },
+        "lmw_bolge": {
+          "devreden_gl": 7.0,
+          "yeni_mevsimlik_gl": 91.0,
+          "net_ticaret_gl": 32.0,
+          "kullanim_gl": 94.0
+        },
+        "lmw_ceken": {
+          "devreden_gl": 20.0,
+          "yeni_mevsimlik_gl": 237.0,
+          "net_ticaret_gl": 240.0,
+          "kullanim_gl": 418.0
+        },
+        "ara_toplam": {
+          "devreden_gl": 467.0,
+          "yeni_mevsimlik_gl": 1640.0,
+          "net_ticaret_gl": 566.0,
+          "kullanim_gl": 1716.0
+        },
+        "yil_no": 2023
+      }
+    ]
+  }
+}

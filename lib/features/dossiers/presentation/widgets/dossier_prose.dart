@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_typography.dart';
+import '../../../../core/utils/turkce_metin.dart';
 import '../../data/models/dossier_theme.dart';
 
 /// Dosya gövdesini oluklayan Markdown **alt kümesi**.
@@ -19,11 +20,18 @@ class DossierProse extends StatelessWidget {
     super.key,
     required this.govde,
     required this.tema,
+    required this.isEn,
     this.olcek = 1.0,
   });
 
   final String govde;
   final DossierTheme tema;
+
+  /// Hangi dilde yazıldığı. [govde] zaten seçilmiş metni taşıyor, ama tablo
+  /// başlığı büyütülürken dilin bilinmesi gerekiyor: Türkçede 'i' → 'İ',
+  /// İngilizcede aynı kural `'Institution'` → `'INSTİTUTİON'` diye bozuyor.
+  /// Bayraksız kısayol bilerek yok (§8.14.3).
+  final bool isEn;
 
   /// Kullanıcının yazı boyu tercihi. Yalnızca okunan metne uygulanır.
   final double olcek;
@@ -73,6 +81,7 @@ class DossierProse extends StatelessWidget {
                   blok: bloklar[idx] as DosTablo,
                   tema: tema,
                   olcek: olcek,
+                  isEn: isEn,
                 ),
               DosAyirici() => Center(
                   child: Container(
@@ -297,11 +306,17 @@ List<InlineSpan> satirIciSpanlar(String metin, TextStyle taban) {
 // ─── Tablo ──────────────────────────────────────────────────────────────────
 
 class _Tablo extends StatelessWidget {
-  const _Tablo({required this.blok, required this.tema, required this.olcek});
+  const _Tablo({
+    required this.blok,
+    required this.tema,
+    required this.olcek,
+    required this.isEn,
+  });
 
   final DosTablo blok;
   final DossierTheme tema;
   final double olcek;
+  final bool isEn;
 
   @override
   Widget build(BuildContext context) {
@@ -351,7 +366,7 @@ class _Tablo extends StatelessWidget {
               for (var i = 0; i < sutun; i++)
                 _hucre(
                   child: Text(
-                    blok.baslik[i].replaceAll('*', '').toUpperCase(),
+                    buyukHarf(blok.baslik[i].replaceAll('*', ''), isEn),
                     textAlign: sagaYasli[i] ? TextAlign.right : TextAlign.left,
                     style: AppTypography.meta(context, color: tema.sessiz)
                         .copyWith(letterSpacing: 0.6),
