@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tarim_app/core/utils/image_fallback_helper.dart';
 import 'package:tarim_app/features/stories/presentation/widgets/story_image.dart';
 
 // Bir gerileme testi: dikey hikaye türevi kısa bir süre TÜM ekranlara
@@ -26,6 +27,18 @@ Future<String> _secilen(WidgetTester tester, Size size,
   return sonuc;
 }
 
+/// Yatay kart [NewsArticleImage.resolveUrl]'den geçiyor; o da dönüştürme uç
+/// noktasını BAYRAĞA bağlı kullanıyor. Supabase görsel dönüştürme ücretli
+/// planın parçası ve Free'de 403 `FeatureNotEnabled` dönüyor, bu yüzden
+/// varsayılan KAPALI (bkz. image_fallback_helper.dart).
+///
+/// Test iki hâli de doğruluyor: böylece `--dart-define=GORSEL_DONUSTURME=true`
+/// ile koşturulduğunda da geçerli kalıyor. Sabitlenen şey adresin HANGİ yoldan
+/// geldiği değil, yatay kartın dönüştürme yolunu İZLEDİĞİ.
+final String _donusumYolu = NewsArticleImage.donusturmeAcik
+    ? '/render/image/public/'
+    : '/object/public/';
+
 void main() {
   testWidgets('telefon dikey — dikey türev seçilir', (tester) async {
     expect(await _secilen(tester, const Size(390, 844)), _dikey);
@@ -42,7 +55,7 @@ void main() {
   testWidgets('masaüstü — yatay kart seçilir, dikey türev ASLA', (tester) async {
     final String url = await _secilen(tester, const Size(1920, 1080));
     expect(url, isNot(contains('1080x2340')));
-    expect(url, contains('/render/image/public/'));
+    expect(url, contains(_donusumYolu));
   });
 
   testWidgets('dar masaüstü penceresi bile kareye yakınsa yatay kart', (tester) async {
@@ -54,7 +67,7 @@ void main() {
   testWidgets('türev yoksa telefonda da yatay karta düşer', (tester) async {
     final String url = await _secilen(tester, const Size(390, 844), portrait: '');
     expect(url, isNot(contains('1080x2340')));
-    expect(url, contains('/render/image/public/'));
+    expect(url, contains(_donusumYolu));
   });
 
   testWidgets('seçilen dikey türev dönüştürmeden geçmez', (tester) async {

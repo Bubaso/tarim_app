@@ -66,11 +66,24 @@ class NewsArticleImage extends StatelessWidget {
   });
 
 
+  /// Supabase görsel dönüştürme (`/render/image/`) ÜCRETLİ planın parçası.
+  /// Free'de uç nokta 403 `FeatureNotEnabled` döndürüyor ve bu adrese
+  /// çevrilen her haber görseli kırılıyor — bu yüzden varsayılan KAPALI.
+  ///
+  /// Pro'ya geçilince bu dosya DÜZENLENMEYECEK; derlemeye
+  /// `--dart-define=GORSEL_DONUSTURME=true` eklenmesi yeterli.
+  ///
+  /// `memCacheWidth` yerinde kalıyor: decode maliyeti artmıyor, bayrak
+  /// kapalıyken artan tek şey indirme boyutu.
+  static const bool donusturmeAcik =
+      bool.fromEnvironment('GORSEL_DONUSTURME');
+
   /// Ham Supabase URL'ini istenen genişlik/kaliteyle CDN-render adresine
   /// çevirir. `build` ve [providerFor] (ön yükleme) aynı adresi üretsin diye
   /// tek yerde.
   static String resolveUrl(String rawUrl,
       {required int requestedWidth, required bool highQuality}) {
+    if (!donusturmeAcik) return rawUrl;
     final q = highQuality ? 90 : 65;
     if (!rawUrl.contains('/object/public/')) return rawUrl;
     final replaced =

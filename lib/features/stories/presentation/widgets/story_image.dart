@@ -5,6 +5,8 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import 'package:tarim_app/core/utils/image_fallback_helper.dart';
+
 // ══════════════════════════════════════════════════════════════════════════════
 //  Hikaye görselleri — çözünürlük / kalite katmanı
 // ──────────────────────────────────────────────────────────────────────────────
@@ -82,6 +84,11 @@ String storyImageUrl(
   final String url = rawUrl.trim();
   if (!url.startsWith('http')) return url;
   if (!storyImageIsTransformable(url)) return url;
+  // Dönüştürme uç noktası Free planda 403 `FeatureNotEnabled` dönüyor; bayrak
+  // kapalıyken ham dosya veriliyor (bkz. [NewsArticleImage.donusturmeAcik]).
+  // Veritabanındaki adreslerin hepsi `/object/public/` — denetlendi — yani
+  // ham hâli vermek doğru dosyayı veriyor.
+  if (!NewsArticleImage.donusturmeAcik) return url;
 
   final String base =
       url.replaceFirst('/object/public/', '/render/image/public/');
@@ -198,7 +205,11 @@ class StoryBackgroundImage extends StatelessWidget {
     // Bulanık önizleme her zaman yatay karttan: küçücük ve tek işi rengi
     // vermek, iki ayrı dosyayı önbelleğe almanın anlamı yok.
     final String url = imageUrl;
-    final bool canBlurUp = storyImageIsTransformable(url);
+    // Bulanık önizlemenin tek anlamı 48 px'lik MİNİK bir türev istemek;
+    // dönüştürme kapalıyken o adres ham dosyaya çözülür ve tam boyutlu bir
+    // görseli "önizleme" diye çözmek olur. O yüzden bayrağa da bağlı.
+    final bool canBlurUp =
+        NewsArticleImage.donusturmeAcik && storyImageIsTransformable(url);
 
     return CachedNetworkImage(
       imageUrl: hiRes,
