@@ -52,7 +52,8 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
       final veri = await Supabase.instance.client
           .from('columnists')
           .select()
-          .order('sort_order');
+          .order('sort_order')
+          .order('slug');
       if (!mounted) return;
       setState(() {
         _yazarlar = List<Map<String, dynamic>>.from(veri as List);

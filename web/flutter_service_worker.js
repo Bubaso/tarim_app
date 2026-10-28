@@ -6,7 +6,7 @@
 // her şeyi otomatik olarak önbelleğe alıyoruz (dinamik caching).
 // Sonraki çevrimdışı ziyarette önbellekten servis ediyoruz.
 
-const CACHE_NAME = 'tarim-offline-v3';
+const CACHE_NAME = 'tarim-offline-v4';
 
 // Asla önbelleğe alınmaması gereken dış servisler
 const NETWORK_ONLY = [
@@ -24,7 +24,7 @@ const NETWORK_ONLY = [
 
 // ─── Install ──────────────────────────────────────────────────────────────────
 self.addEventListener('install', (event) => {
-  console.log('[SW v3] Kurulum başladı');
+  console.log('[SW v4] Kurulum başladı');
   // Hemen aktif ol, eski SW'nin bitmesini bekleme
   event.waitUntil(self.skipWaiting());
 });
@@ -37,12 +37,12 @@ self.addEventListener('activate', (event) => {
         keys
           .filter((k) => k !== CACHE_NAME)
           .map((k) => {
-            console.log('[SW v3] Eski önbellek siliniyor:', k);
+            console.log('[SW v4] Eski önbellek siliniyor:', k);
             return caches.delete(k);
           })
       )
     ).then(() => {
-      console.log('[SW v3] Aktif. Tüm istemciler kontrol altında.');
+      console.log('[SW v4] Aktif. Tüm istemciler kontrol altında.');
       return self.clients.claim();
     })
   );
@@ -70,7 +70,29 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Aynı origin'deki her şey (Flutter app shell + assets) → Cache-first + dinamik güncelleme
+  // ─── UYGULAMA KABUĞU → ÖNCE AĞ ───────────────────────────────────────────
+  //
+  // Burası bir dönem cache-first + stale-while-revalidate'ti ve sonucu şuydu:
+  // bir açılışta ESKİ uygulama kodu önbellekten geliyor, yenisi arka planda
+  // indiriliyor; ancak BİR SONRAKİ açılışta görünüyordu. Kullanıcı tarafında
+  // "bir açınca değişmiş, çıkıp girince değişmemiş" diye yaşanıyor ve her
+  // dağıtımdan sonra tekrarlanıyor (CLAUDE.md §36).
+  //
+  // Kabuk = gezinme istekleri + Flutter'ın giriş dosyaları. Bunlar içerik
+  // özetiyle damgalanmadığı için önbellekte tutulursa dağıtım görünmez olur.
+  // Çevrimdışı yedek duruyor: ağ düşerse önbellekten sunuluyor.
+  const kabukMu =
+    req.mode === 'navigate' ||
+    /\/(index\.html|main\.dart\.js|flutter_bootstrap\.js|flutter\.js)$/.test(url.pathname) ||
+    url.pathname === '/';
+
+  if (url.origin === self.location.origin && kabukMu) {
+    event.respondWith(networkFirstWithCacheFallback(req));
+    return;
+  }
+
+  // Aynı origin'deki VARLIKLAR (görsel, font, canvaskit) → cache-first.
+  // Bunlar ya değişmiyor ya da adresleri değişerek yenileniyor.
   if (url.origin === self.location.origin) {
     event.respondWith(cacheFirstWithNetworkFallback(req));
     return;
@@ -105,7 +127,7 @@ async function cacheFirstWithNetworkFallback(request) {
     }
     return networkResp;
   } catch (err) {
-    console.warn('[SW v3] Çevrimdışı ve önbellekte yok:', request.url);
+    console.warn('[SW v4] Çevrimdışı ve önbellekte yok:', request.url);
     // index.html'i fallback olarak sun (SPA routing için)
     const indexFallback = await cache.match('/index.html');
     if (indexFallback) return indexFallback;

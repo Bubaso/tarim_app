@@ -65,7 +65,11 @@ final columnistsProvider = FutureProvider<List<AiColumnist>>((ref) async {
         .from('columnists')
         .select()
         .eq('is_active', true)
-        .order('sort_order');
+        // İkincil anahtar ŞART: iki yazarın sort_order'ı eşitse sıra
+        // sorgudan sorguya değişir ve liste kendiliğinden oynuyormuş gibi
+        // görünür. `slug` benzersiz, yani sıra her zaman aynı çıkıyor.
+        .order('sort_order')
+        .order('slug');
 
     final liste = List<Map<String, dynamic>>.from(veri as List)
         .map(AiColumnist.fromMap)
