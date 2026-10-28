@@ -56,7 +56,7 @@ class SectionContainer extends StatelessWidget {
             title,
             // Bölüm başlığı gövde metninden (17 px) küçük olamaz. Geniş ekranda
             // tek satır yeterli; dar ekranda iki satıra sarmak kırpmaktan iyi.
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.outfit(
               fontSize: isMobile ? 17 : 20,
               fontWeight: FontWeight.w900,
               letterSpacing: 0.4,

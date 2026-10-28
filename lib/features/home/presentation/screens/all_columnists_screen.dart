@@ -54,7 +54,7 @@ class AllColumnistsScreen extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     fontSize: 48,
                     fontWeight: FontWeight.w900,
                     letterSpacing: -0.5,
@@ -208,7 +208,7 @@ class _PremiumColumnistCardState extends State<_PremiumColumnistCard> {
                       right: -5,
                       child: Text(
                         '"',
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 120,
                           height: 1,
                           fontWeight: FontWeight.w900,
@@ -260,7 +260,7 @@ class _PremiumColumnistCardState extends State<_PremiumColumnistCard> {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 22,
                           fontWeight: FontWeight.w800,
                           color: nameColor,

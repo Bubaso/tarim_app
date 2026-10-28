@@ -344,9 +344,9 @@ class WeatherDetailScreen extends ConsumerWidget {
       title: Text(
         isEn ? 'CLIMATE & AGRI WARNING CENTER' : 'ZİRAİ İKLİM VE UYARI MERKEZİ',
         // Sayfanın kendi kimliği: uygulamanın bölüm başlıklarında kullandığı
-        // Playfair Display burada da — modül farklı bir palet taşısa da
+        // Outfit burada da — modül farklı bir palet taşısa da
         // "Tarım Portalı"nın editoryal sesiyle bağı kopmuyor.
-        style: GoogleFonts.playfairDisplay(
+        style: GoogleFonts.outfit(
           color: theme.textPrimary,
           fontSize: 13,
           fontWeight: FontWeight.w800,
@@ -486,12 +486,12 @@ class _HeroTemperature extends ConsumerWidget {
                 ),
                 const SizedBox(height: 12),
 
-                // Description — modülün başlık ailesi (Playfair Display),
+                // Description — modülün başlık ailesi (Outfit),
                 // sayfanın geri kalanındaki "AGRICULTURAL WEATHER FORECAST"
                 // gibi etiketlerle aynı ses.
                 Text(
                   weather.description.toTurkishUpperCase(),
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
                     color: theme.textPrimary,
@@ -600,7 +600,7 @@ class _ForecastCard extends StatelessWidget {
                         Flexible(
                           child: Text(
                             isEn ? 'AGRICULTURAL WEATHER FORECAST' : 'ZİRAİ HAVA DURUMU TAHMİNİ',
-                            style: GoogleFonts.playfairDisplay(
+                            style: GoogleFonts.outfit(
                               color: theme.textPrimary,
                               fontSize: 13,
                               fontWeight: FontWeight.w800,
@@ -918,7 +918,7 @@ class _HistoricalComparisonCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   isEn ? 'HISTORICAL CLIMATE COMPARISON (LAST YEAR)' : 'GEÇMİŞ YIL İKLİM KARŞILAŞTIRMASI (GEÇEN YIL)',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     color: theme.textPrimary,
                     fontSize: 13,
                     fontWeight: FontWeight.w800,

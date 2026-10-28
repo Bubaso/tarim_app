@@ -261,7 +261,7 @@ class _Masthead extends StatelessWidget {
         const SizedBox(height: 16),
         Text(
           week.label(isEn: isEn),
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.outfit(
             fontSize: (isMobile ? 30.0 : 46.0) * fontScale,
             fontWeight: FontWeight.w900,
             color: textColor,
@@ -406,7 +406,7 @@ class _RecapHero extends StatelessWidget {
                         title,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: (isMobile ? 26.0 : 44.0) * fontScale,
                           fontWeight: FontWeight.w900,
                           color: Colors.white,
@@ -596,7 +596,7 @@ class _RecapCardState extends State<_RecapCard> {
                     title,
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.outfit(
                       fontSize: 20.0 * widget.fontScale,
                       fontWeight: FontWeight.w900,
                       color: _hovered ? AppColors.primaryGreen : textColor,

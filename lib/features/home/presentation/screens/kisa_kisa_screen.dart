@@ -54,7 +54,7 @@ class KisaKisaScreen extends ConsumerWidget {
             const SizedBox(width: 8),
             Text(
               isEn ? 'IN BRIEF' : 'KISA KISA',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.outfit(
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
                 color: isDark ? AppColors.creamBackground : AppColors.earthText,
@@ -252,7 +252,7 @@ class _Basluk extends StatelessWidget {
         children: [
           Text(
             isEn ? 'In Brief' : 'Kısa Kısa',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.outfit(
               fontSize: 24,
               fontWeight: FontWeight.w900,
               color: isDark ? AppColors.creamBackground : AppColors.earthText,

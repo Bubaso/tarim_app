@@ -159,7 +159,7 @@ class _Label extends StatelessWidget {
       ),
       child: Text(
         isEn ? 'LATEST' : 'SON HABERLER',
-        style: GoogleFonts.playfairDisplay(
+        style: GoogleFonts.outfit(
           color: AppColors.wheat,
           fontSize: isMobile ? 9.5 : 10.5,
           fontWeight: FontWeight.w700,

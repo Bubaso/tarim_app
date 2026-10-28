@@ -451,7 +451,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               ),
                               "h2": Style(
                                 margin: Margins.only(top: 24, bottom: 16),
-                                fontFamily: GoogleFonts.playfairDisplay().fontFamily,
+                                fontFamily: GoogleFonts.outfit().fontFamily,
                                 fontSize: FontSize(AppTypography.h2BaseFontSize(context) * fontScale),
                                 fontWeight: FontWeight.bold,
                                 color: isDark ? Colors.white : Colors.black87,
@@ -1192,7 +1192,7 @@ class _RelatedSection extends ConsumerWidget {
               padding: const EdgeInsets.fromLTRB(24, 20, 24, 16),
               child: Text(
                 isEn ? 'RELATED STORIES' : 'İLGİLİ HABERLER',
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.4,
@@ -1374,7 +1374,7 @@ class _RelatedCardState extends State<_RelatedCard> {
                         title,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 13,
                           fontWeight: FontWeight.w700,
                           color: _hovered

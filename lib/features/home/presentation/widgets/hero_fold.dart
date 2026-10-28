@@ -148,7 +148,7 @@ class _MobileHeroFold extends ConsumerWidget {
             children: [
               Text(
                 isEn ? 'OUR COLUMNISTS' : 'YAZARLARIMIZ',
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: 20,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.5,
@@ -293,7 +293,7 @@ class _ColumnistAvatar extends StatelessWidget {
               alignment: Alignment.center,
               child: Text(
                 _initials,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: size * 0.4,
                   fontWeight: FontWeight.w700,
                   color: fg,
@@ -443,7 +443,7 @@ class _MobileRealWriterCardState extends State<_MobileRealWriterCard> {
                     title,
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.outfit(
                       fontSize: 13,
                       fontWeight:
                           article != null ? FontWeight.w700 : FontWeight.w400,
@@ -738,7 +738,7 @@ class _HeadlineSlide extends StatelessWidget {
               ),
             ),
 
-            // Kaynak rozeti + Başlık (Playfair Display)
+            // Kaynak rozeti + Başlık (Outfit)
             Positioned(
               left: 16,
               right: 16,
@@ -828,7 +828,7 @@ class _OpEdColumn extends StatelessWidget {
         // "Yazarlarımız" başlığı
         Text(
           isEn ? 'OUR COLUMNISTS' : 'YAZARLARIMIZ',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.outfit(
             fontSize: 20,
             fontWeight: FontWeight.w900,
             letterSpacing: 0.5,
@@ -1002,7 +1002,7 @@ class _OpEdCardState extends State<_OpEdCard> {
                       title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 14,
                         fontWeight: article != null ? FontWeight.w700 : FontWeight.w400,
                         fontStyle: article != null ? FontStyle.normal : FontStyle.italic,

@@ -80,7 +80,7 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
                                   errorBuilder: (context, error, stackTrace) => Center(
                                     child: Text(
                                       columnist.name[0],
-                                      style: GoogleFonts.playfairDisplay(
+                                      style: GoogleFonts.outfit(
                                         fontSize: isMobile ? 48 : 64,
                                         fontWeight: FontWeight.bold,
                                         color: subtle,
@@ -95,7 +95,7 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
                           Text(
                             columnist.name,
                             textAlign: TextAlign.center,
-                            style: GoogleFonts.playfairDisplay(
+                            style: GoogleFonts.outfit(
                               fontSize: isMobile ? 32 : 44,
                               fontWeight: FontWeight.w900,
                               color: onBg,

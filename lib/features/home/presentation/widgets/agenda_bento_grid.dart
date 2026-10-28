@@ -273,7 +273,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
           title,
           maxLines: widget.isFeature ? 3 : 4,
           overflow: TextOverflow.ellipsis,
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.outfit(
             fontSize: widget.isFeature ? 28 : 18,
             fontWeight: FontWeight.w800,
             color: titleColor,
@@ -338,7 +338,7 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
                 title,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: 16,
                   fontWeight: FontWeight.w800,
                   color: titleColor,
@@ -478,7 +478,7 @@ class _MobileBento extends StatelessWidget {
                       title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 12.5,
                         fontWeight: FontWeight.w800,
                         color: isDark ? AppColors.creamBackground : AppColors.earthText,
@@ -556,7 +556,7 @@ class _MobileBento extends StatelessWidget {
                       title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 12.5,
                         fontWeight: FontWeight.w800,
                         color: isDark ? AppColors.creamBackground : AppColors.earthText,
@@ -754,7 +754,7 @@ class _ListItemState extends State<_ListItem> {
                       title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: _hovered

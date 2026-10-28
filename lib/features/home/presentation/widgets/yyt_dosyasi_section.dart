@@ -137,7 +137,7 @@ class _YYTSectionContent extends StatelessWidget {
                         isEn
                             ? 'High Intensity Sweeteners'
                             : 'Yüksek Yoğunluklu Tatlandırıcılar',
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
                           color: headerColor,
@@ -344,7 +344,7 @@ class _YYTPreviewCardState extends State<_YYTPreviewCard> {
                         title,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                           color: textCol,

@@ -156,7 +156,7 @@ class PortalFooter extends StatelessWidget {
               children: [
                 Text(
                   'TARIM PORTALI',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     fontWeight: FontWeight.w900,
                     fontSize: 22,
                     color: titleColor,
@@ -359,7 +359,7 @@ class _NewsletterSignupState extends ConsumerState<_NewsletterSignup> {
       children: [
         Text(
           isEn ? 'Weekly Digest' : 'Haftalık Özet Bülteni',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.outfit(
             fontWeight: FontWeight.w900,
             fontSize: 18,
             color: titleColor,

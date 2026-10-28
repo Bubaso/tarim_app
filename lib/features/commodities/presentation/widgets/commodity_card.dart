@@ -147,7 +147,7 @@ class _Summary extends StatelessWidget {
                 price.name(isEn),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: isCompact ? 14 : 15,
                   fontWeight: FontWeight.w800,
                   color: titleColor,

@@ -191,40 +191,40 @@ class AppTheme {
     required Color subtleColor,
   }) {
     return TextTheme(
-      // ── Display — Playfair Display (Büyük manşetler vb.) ────────────────────
-      displayLarge: GoogleFonts.playfairDisplay(
+      // ── Display — Outfit (Büyük manşetler vb.) ──────────────────────────────
+      displayLarge: GoogleFonts.outfit(
         fontSize: 48,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.15,
       ),
-      displayMedium: GoogleFonts.playfairDisplay(
+      displayMedium: GoogleFonts.outfit(
         fontSize: 36,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.15,
       ),
-      displaySmall: GoogleFonts.playfairDisplay(
+      displaySmall: GoogleFonts.outfit(
         fontSize: 28,
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.15,
       ),
 
-      // ── Headline — Playfair Display (Haber detay başlığı, Kart başlıkları) ──
-      headlineLarge: GoogleFonts.playfairDisplay(
+      // ── Headline — Outfit (Haber detay başlığı, Kart başlıkları) ────────────
+      headlineLarge: GoogleFonts.outfit(
         fontSize: 40, // desktop headlineDetail
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.2,
       ),
-      headlineMedium: GoogleFonts.playfairDisplay(
+      headlineMedium: GoogleFonts.outfit(
         fontSize: 22, // desktop headlineCard
         fontWeight: FontWeight.w900,
         color: headingColor,
         height: 1.25,
       ),
-      headlineSmall: GoogleFonts.playfairDisplay(
+      headlineSmall: GoogleFonts.outfit(
         fontSize: 18, // desktop deck/spot
         fontWeight: FontWeight.w500,
         fontStyle: FontStyle.italic,
@@ -232,8 +232,8 @@ class AppTheme {
         height: 1.40,
       ),
 
-      // ── Title — titleLarge Playfair (başlık); orta/küçük Inter (meta) ──────
-      titleLarge: GoogleFonts.playfairDisplay(
+      // ── Title — titleLarge Outfit (başlık); orta/küçük Inter (meta) ────────
+      titleLarge: GoogleFonts.outfit(
         fontSize: 16,
         fontWeight: FontWeight.w900,
         color: headingColor,
@@ -297,7 +297,7 @@ class AppTheme {
   // ═══════════════════════════════════════════════════════════════════════════
   //  YARDIMCI: Sayısal veriler için hizalı (tabular) Inter TextStyle
   //
-  //  Eskiden Roboto Mono'ydu. Ana uygulama üç aileye indi (Playfair·Lora·Inter);
+  //  Eskiden Roboto Mono'ydu. Ana uygulama üç aileye indi (Outfit·Lora·Inter);
   //  rakam hizasını mono yerine Inter'in tabularFigures özelliği sağlıyor.
   // ═══════════════════════════════════════════════════════════════════════════
 

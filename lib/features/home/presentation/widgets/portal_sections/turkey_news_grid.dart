@@ -255,7 +255,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
                         title,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 16,
                           fontWeight: FontWeight.w800,
                           color: titleColor,
@@ -304,7 +304,7 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
                 title,
                 maxLines: widget.isLarge ? 3 : 4,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: widget.isLarge ? 22 : 16,
                   fontWeight: FontWeight.w800,
                   color: titleColor,

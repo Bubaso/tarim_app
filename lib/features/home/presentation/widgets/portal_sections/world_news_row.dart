@@ -164,7 +164,7 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
                             title,
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.playfairDisplay(
+                            style: GoogleFonts.outfit(
                               fontSize: 16,
                               fontWeight: FontWeight.w800,
                               color: titleColor,

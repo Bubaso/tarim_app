@@ -207,7 +207,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   'TARIM PORTALI',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     fontWeight: FontWeight.w900,
                     fontSize: isDesktop ? 20 : 17,
                     color: isDark
@@ -752,7 +752,7 @@ class _HomeErrorView extends StatelessWidget {
             Text(
               isEn ? 'Could not load the news' : 'Haberler yüklenemedi',
               textAlign: TextAlign.center,
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.outfit(
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
                 color: textColor,
@@ -764,7 +764,7 @@ class _HomeErrorView extends StatelessWidget {
                   ? 'Please check your internet connection and try again.'
                   : 'İnternet bağlantınızı kontrol edip tekrar deneyin.',
               textAlign: TextAlign.center,
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.outfit(
                 fontSize: 14,
                 height: 1.45,
                 color: subtleColor,
@@ -1137,7 +1137,7 @@ class _RecentlyReadCard extends StatelessWidget {
                       title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 14,
                         fontWeight: FontWeight.w800,
                         color: titleColor,

@@ -416,7 +416,7 @@ class _HeroArticleState extends State<_HeroArticle> {
                             ]),
                             const SizedBox(height: 20),
                             Text(title,
-                                style: GoogleFonts.playfairDisplay(
+                                style: GoogleFonts.outfit(
                                     fontSize: (widget.isMobile ? 27.0 : 48.0) * widget.fontScale,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white,
@@ -522,7 +522,7 @@ class _LargeCardState extends State<_LargeCard> {
             Text(title,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                     fontSize: (widget.isMobile ? 23.0 : 34.0) * widget.fontScale,
                     fontWeight: FontWeight.w900,
                     color: _hovered ? AppColors.primaryGreen : textColor,
@@ -597,7 +597,7 @@ class _StdCardState extends State<_StdCard> {
             Text(title,
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                     fontSize: 21.0 * widget.fontScale,
                     fontWeight: FontWeight.w900,
                     color: _hovered ? AppColors.primaryGreen : textColor,
@@ -664,7 +664,7 @@ class _CompactCardState extends State<_CompactCard> {
             Text(title,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                     fontSize: 18.5 * widget.fontScale,
                     fontWeight: FontWeight.w800,
                     color: _hovered ? AppColors.primaryGreen : textColor,
@@ -736,7 +736,7 @@ class _SideCardState extends State<_SideCard> {
                   Text(title,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                           fontSize: 16.5 * widget.fontScale,
                           fontWeight: FontWeight.w800,
                           color: _hovered ? AppColors.primaryGreen : textColor,
@@ -775,7 +775,7 @@ class _NotFound extends StatelessWidget {
             children: [
               Text(
                 isEn ? 'Category not found' : 'Kategori bulunamadı',
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                     fontSize: 22, fontWeight: FontWeight.w800),
                 textAlign: TextAlign.center,
               ),

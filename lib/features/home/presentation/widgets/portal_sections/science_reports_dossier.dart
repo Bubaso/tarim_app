@@ -204,7 +204,7 @@ class _DossierFeaturedCardState extends State<_DossierFeaturedCard> {
                 title,
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.outfit(
                   fontSize: 26,
                   fontWeight: FontWeight.w900,
                   color: _hovered ? AppColors.wheat : Colors.white,
@@ -298,7 +298,7 @@ class _DossierListCardState extends State<_DossierListCard> {
                       title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 16,
                         fontWeight: FontWeight.w800,
                         color: _hovered ? AppColors.wheat : Colors.white,

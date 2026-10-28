@@ -66,7 +66,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         ),
         title: Text(
           isEn ? 'Settings' : 'Ayarlar',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.outfit(
             fontWeight: FontWeight.w900,
             fontSize: 20,
             color: textColor,

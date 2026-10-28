@@ -48,7 +48,7 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               'TARIM PORTALI',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.outfit(
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
                 color: textColor,
@@ -67,7 +67,7 @@ class AboutScreen extends StatelessWidget {
               children: [
                 Text(
                   isEn ? 'About Us' : 'Hakkımızda',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     fontSize: 42,
                     fontWeight: FontWeight.w900,
                     color: textColor,

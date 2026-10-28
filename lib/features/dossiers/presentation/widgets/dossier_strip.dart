@@ -13,7 +13,7 @@ import 'polder_motif.dart';
 /// Ana sayfanın künyesinin hemen üstündeki ülke dosyası şeridi.
 ///
 /// **Neden [SectionContainer] kullanmıyor.** Ana sayfadaki her bölüm o kabuğu
-/// giyiyor: ince çizgi, ikon, Playfair başlık, "daha fazla". Dosya şeridi de
+/// giyiyor: ince çizgi, ikon, Outfit başlık, "daha fazla". Dosya şeridi de
 /// onu giyseydi on ikinci bir kategori rafı gibi okunurdu — oysa anlatılan şey
 /// bir haber listesi değil, yirmi sekiz gün boyunca yerinde duran tek bir
 /// yapıt. Bu yüzden şerit kendi kartı; sayfadaki tek "nesne" o.

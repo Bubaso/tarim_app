@@ -26,8 +26,8 @@ class AppTypography {
   // ── 1. Anasayfa manşeti H1 ──────────────────────────────────────────────
   // Mobile 26-28 → 27 | Tablet 34-38 → 36 | Desktop 44-52 → 48 | LH 1.1-1.15
   //
-  // Playfair Display: hero başlığı sayfanın en büyük öğesi; bölüm başlıkları
-  // ve kart başlıkları da Playfair olduğu için manşetin de aynı sesle
+  // Outfit: hero başlığı sayfanın en büyük öğesi; bölüm başlıkları
+  // ve kart başlıkları da Outfit olduğu için manşetin de aynı sesle
   // konuşması gerek. Eskiden Libre Franklin'di ve tek başına groteskti.
   static TextStyle headlineHome(
     BuildContext context, {
@@ -43,7 +43,7 @@ class AppTypography {
     } else {
       fontSize = 48.0;
     }
-    return GoogleFonts.playfairDisplay(
+    return GoogleFonts.outfit(
       fontSize: fontSize * scale,
       height: 1.12,
       fontWeight: FontWeight.w900,
@@ -67,7 +67,7 @@ class AppTypography {
     } else {
       fontSize = 38.0;
     }
-    return GoogleFonts.playfairDisplay(
+    return GoogleFonts.outfit(
       fontSize: fontSize * scale,
       height: 1.20,
       fontWeight: FontWeight.w900,
@@ -91,7 +91,7 @@ class AppTypography {
     } else {
       fontSize = 21.0;
     }
-    return GoogleFonts.playfairDisplay(
+    return GoogleFonts.outfit(
       fontSize: fontSize * scale,
       height: 1.25,
       fontWeight: FontWeight.w900,
@@ -115,7 +115,7 @@ class AppTypography {
     } else {
       fontSize = 17.5;
     }
-    return GoogleFonts.playfairDisplay(
+    return GoogleFonts.outfit(
       fontSize: fontSize * scale,
       height: 1.40,
       fontWeight: FontWeight.w500,
@@ -180,10 +180,10 @@ class AppTypography {
   // ── Dosyanın kendi sesi ─────────────────────────────────────────────────
   //
   // Kapak ve bölüm başlıkları Source Serif 4 kullanıyor; sitenin geri kalanı
-  // Playfair Display (başlık) + Lora (gövde) + Inter (arayüz). Sebep: dosya
+  // Outfit (başlık) + Lora (gövde) + Inter (arayüz). Sebep: dosya
   // sayfasının "başka bir yere girdim" işaretini neredeyse tamamen arka plan
   // rengi taşıyordu — tipografi bu işe hiç katılmıyordu. Bir dergi dosyasında
-  // ayrımı yapan ilk şey renk değil harftir. Source Serif 4, Playfair'in
+  // ayrımı yapan ilk şey renk değil harftir. Source Serif 4, Outfit'in
   // yüksek kontrastlı dramasından farklı: durgun, belgesel bir serif.
   //
   // Türkçe kapsaması doğrulandı: latin-ext alt kümesi mevcut, ı (U+0131) latin

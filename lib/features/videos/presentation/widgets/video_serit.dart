@@ -147,7 +147,7 @@ class _VideoKarti extends StatelessWidget {
                           video.baslik,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.playfairDisplay(
+                          style: GoogleFonts.outfit(
                             fontSize: 13,
                             height: 1.3,
                             fontWeight: FontWeight.w700,

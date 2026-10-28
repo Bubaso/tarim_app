@@ -58,7 +58,7 @@ class LegalPageScreen extends StatelessWidget {
             const SizedBox(width: 8),
             Text(
               'TARIM PORTALI',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.outfit(
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
                 color: textColor,
@@ -79,7 +79,7 @@ class LegalPageScreen extends StatelessWidget {
               children: [
                 Text(
                   doc.title(isEn),
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.outfit(
                     fontSize: 42,
                     fontWeight: FontWeight.w900,
                     height: 1.1,

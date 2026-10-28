@@ -380,7 +380,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                                     alignment: Alignment.centerLeft,
                                     child: Text(
                                       item.bigStatValueFor(isEn),
-                                      style: GoogleFonts.playfairDisplay(
+                                      style: GoogleFonts.outfit(
                                         color: AppColors.wheat,
                                         fontSize: 72,
                                         height: 1.0,
@@ -411,7 +411,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                             item.headlineFor(isEn),
                             maxLines: 4,
                             overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.playfairDisplay(
+                            style: GoogleFonts.outfit(
                               color: Colors.white,
                               fontSize: 28,
                               height: 1.2,

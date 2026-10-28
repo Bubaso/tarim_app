@@ -62,7 +62,7 @@ class YYTDosyasiScreen extends ConsumerWidget {
             const SizedBox(width: 10),
             Text(
               isEn ? 'YYT DOSSIER' : 'YYT DOSYASI',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.outfit(
                 fontWeight: FontWeight.w900,
                 fontSize: 18,
                 color: isDark ? AppColors.creamBackground : AppColors.earthText,
@@ -225,7 +225,7 @@ class _YYTBanner extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             isEn ? 'High Intensity Sweeteners Dossier' : 'Yüksek Yoğunluklu Tatlandırıcılar Dosyası',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.outfit(
               fontSize: 22,
               fontWeight: FontWeight.w900,
               color: isDark ? AppColors.creamBackground : AppColors.earthText,
@@ -364,7 +364,7 @@ class _YYTArticleCardState extends State<_YYTArticleCard> {
                           title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: GoogleFonts.playfairDisplay(
+                          style: GoogleFonts.outfit(
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
                             color: textCol,

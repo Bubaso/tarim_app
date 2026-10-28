@@ -37,7 +37,7 @@ class CommodityDetailScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(
           price?.name(isEn) ?? (isEn ? 'Price' : 'Fiyat'),
-          style: GoogleFonts.playfairDisplay(fontWeight: FontWeight.w900),
+          style: GoogleFonts.outfit(fontWeight: FontWeight.w900),
         ),
       ),
       body: _DetailBody(
@@ -114,7 +114,7 @@ class _CommodityDetailDialog extends ConsumerWidget {
                       price?.name(isEn) ?? (isEn ? 'Price' : 'Fiyat'),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 22,
                         fontWeight: FontWeight.w900,
                         color: textColor,

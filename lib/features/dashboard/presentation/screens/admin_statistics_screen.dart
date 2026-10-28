@@ -42,7 +42,7 @@ class AdminStatisticsScreen extends ConsumerWidget {
                 children: [
                   Text(
                     loc.translate('stats_title'),
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.outfit(
                       fontSize: 24,
                       fontWeight: FontWeight.w900,
                       color: theme.colorScheme.onSurface,

@@ -186,12 +186,12 @@ class _NewsCardState extends State<NewsCard> {
                       ),
                       const SizedBox(height: 8),
 
-                      // Playfair başlık
+                      // Outfit başlık
                       Text(
                         displayTitle,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.outfit(
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
                           color: _hovered

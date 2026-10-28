@@ -169,7 +169,7 @@ class _BriefRowState extends State<_BriefRow> {
                       title,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.outfit(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
                         color: textCol,
