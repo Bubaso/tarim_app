@@ -81,3 +81,11 @@ final columnistsProvider = FutureProvider<List<AiColumnist>>((ref) async {
     return aiColumnists;
   }
 });
+
+/// Bu haber bir köşe yazısı mı? Bağ `articles.source_name` = `columnists.name`
+/// (§24.4) — tek harflik fark eşleşmeyi sessizce düşürür.
+bool koseYazisiMi(String? sourceName) {
+  final ad = sourceName?.trim();
+  if (ad == null || ad.isEmpty) return false;
+  return aiColumnists.any((c) => c.name == ad);
+}

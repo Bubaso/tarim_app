@@ -850,6 +850,16 @@ final trendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
 });
 
 /// Stream provider for top 50 read articles (Live data for admin dashboard)
+/// Bir yazarın TÜM yazıları — ortak listeden süzerek DEĞİL, kendi sorgusuyla.
+///
+/// Kural (§26.2): "bir varlığın TÜM kayıtları" isteyen hiçbir ekran, tarihe
+/// göre sınırlanmış ortak listeyi süzerek çalışmaz.
+final columnistArticlesProvider =
+    FutureProvider.family<List<NewsArticle>, String>((ref, sourceName) async {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.fetchArticlesBySourceName(sourceName);
+});
+
 /// Kaynak karnesi — `source_scorecard` view'ı.
 ///
 /// Yönetici "bu kaynak neden bu kadar çöp getiriyor?" sorusunu sayıyla

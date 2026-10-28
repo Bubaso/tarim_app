@@ -32,7 +32,10 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
     final accent = AppColors.primaryGreen;
     final headerBg = isDark ? const Color(0xFF161B22) : const Color(0xFFF9F7F1);
 
-    final articlesAsyncValue = ref.watch(latestArticlesProvider);
+    // Yazarın TÜM yazıları kendi sorgusuyla geliyor; ortak liste son 500
+    // haberle sınırlı ve o pencere yalnızca birkaç haftayı kapsıyor (§26.2).
+    final articlesAsyncValue =
+        ref.watch(columnistArticlesProvider(columnist.name));
     final isMobile = width < 768;
 
     return Scaffold(
@@ -134,9 +137,8 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
                   ),
                   sliver: articlesAsyncValue.when(
                     data: (allArticles) {
-                      final authorArticles = allArticles
-                          .where((a) => a.sourceName?.trim() == columnist.name)
-                          .toList();
+                      // Sorgu zaten source_name'e göre geldi; ek süzgeç yok.
+                      final authorArticles = allArticles;
 
                       if (authorArticles.isEmpty) {
                         return SliverToBoxAdapter(

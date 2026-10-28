@@ -20,6 +20,7 @@ import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../../core/router/app_router.dart';
 import '../../data/models/news_article.dart';
+import '../widgets/ai_columnists.dart';
 import '../../data/read_receipts.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../../../core/theme/app_typography.dart';
@@ -242,9 +243,18 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         ? article.chartDataEn
         : article.chartData;
 
-    final displaySpot = (isEn && article.spotEn != null && article.spotEn!.isNotEmpty)
-        ? article.spotEn!
-        : (article.spot ?? article.summary ?? '');
+    // Köşe yazısında ALT BAŞLIK YOK: başlık, sonra doğrudan gövde.
+    // Spot bu yazılarda gövdenin ilk paragrafından türetiliyor (§26.3) ve
+    // çizilince okur aynı cümleyi iki kez okuyor. Hat tarafında bir tekrar
+    // denetimi var (§26.4) ama o yalnızca BİREBİR örtüşmeyi yakalıyor;
+    // çeviri ya da kısaltma araya girdiğinde kaçırıyor. Karar ekranda:
+    // yazar yazılarında spot hiç çizilmiyor.
+    final spotGizli = koseYazisiMi(article.sourceName);
+    final displaySpot = spotGizli
+        ? ''
+        : (isEn && article.spotEn != null && article.spotEn!.isNotEmpty)
+            ? article.spotEn!
+            : (article.spot ?? article.summary ?? '');
 
     final displayTakeaways = (isEn && article.keyTakeawaysEn != null && article.keyTakeawaysEn!.isNotEmpty)
         ? article.keyTakeawaysEn!

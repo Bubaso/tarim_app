@@ -59,3 +59,18 @@ Tam haber
 !Kemal Şahin
 !Ayşe Gündüz
 !Caner Ekinci
+
+# ── Yönetim paneli (CLAUDE.md §29 inceleme masası, §30, §34) ──
+#
+# Canlının ESKİ (iyi) paketinde VAR, bu ağaçta YOK. 4 Ekim tahliyesinde
+# giden `inceleme_karti.dart` ve `admin_yazarlar_screen.dart`. 28 Ekim
+# dağıtımı paneli eski sürüme aldı; bekçide belirteç olmadığı için
+# yakalanamadı.
+Kaynak doğrulama
+Kaynaktaki alıntılar
+Yayınlanacak metin
+Yayın Dili
+Benzer yayınları denetle
+Bu sıraya sabitle
+Yazar adı
+Unvan

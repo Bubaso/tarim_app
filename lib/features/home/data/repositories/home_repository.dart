@@ -169,6 +169,29 @@ class HomeRepository {
     return basarili;
   }
 
+  /// Bir köşe yazarının TÜM yazıları.
+  ///
+  /// [watchLatestArticles] en yeni 500 haberi taşıyor (`_listeSiniri`) ve hat
+  /// günde ~130 haber çekiyor: o pencere ancak son birkaç haftayı kapsıyor.
+  /// Yazar arşivini oradan süzmek, 29 yazısı olan yazarın profilinde 3 yazı
+  /// göstermek demekti (§26.2). Sınır SESSİZ: hata vermiyor, eksik gösteriyor.
+  Future<List<NewsArticle>> fetchArticlesBySourceName(String sourceName) async {
+    try {
+      final veri = await _supabaseClient
+          .from('articles')
+          .select('*')
+          .eq('source_name', sourceName)
+          .eq('status', 'published')
+          .order('created_at', ascending: false);
+      return List<Map<String, dynamic>>.from(veri as List)
+          .map(NewsArticle.fromJson)
+          .toList();
+    } catch (e) {
+      if (kDebugMode) print('fetchArticlesBySourceName error: $e');
+      return const [];
+    }
+  }
+
   /// Kaynak karnesi (`source_scorecard` view'ı).
   ///
   /// View hazır: kaynak başına toplam / yayınlanan / reddedilen / bekleyen
