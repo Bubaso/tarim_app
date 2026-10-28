@@ -68,8 +68,13 @@ final columnistsProvider = FutureProvider<List<AiColumnist>>((ref) async {
         // İkincil anahtar ŞART: iki yazarın sort_order'ı eşitse sıra
         // sorgudan sorguya değişir ve liste kendiliğinden oynuyormuş gibi
         // görünür. `slug` benzersiz, yani sıra her zaman aynı çıkıyor.
-        .order('sort_order')
-        .order('slug');
+        // ascending: true AÇIKÇA yazılıyor. postgrest'te order()'ın
+        // VARSAYILANI ascending: false — yani `.order('sort_order')` listeyi
+        // TERSTEN veriyor. Anasayfa da panel de bu yüzden ters sırada
+        // gösteriyordu; panelde sürüklenen sıra ters listeye göre
+        // numaralandığı için her kaydetmede sıra karışıyordu.
+        .order('sort_order', ascending: true)
+        .order('slug', ascending: true);
 
     final liste = List<Map<String, dynamic>>.from(veri as List)
         .map(AiColumnist.fromMap)

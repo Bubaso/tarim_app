@@ -52,8 +52,9 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
       final veri = await Supabase.instance.client
           .from('columnists')
           .select()
-          .order('sort_order')
-          .order('slug');
+          // ascending AÇIK: varsayılan false ve liste tersten gelirdi.
+          .order('sort_order', ascending: true)
+          .order('slug', ascending: true);
       if (!mounted) return;
       setState(() {
         _yazarlar = List<Map<String, dynamic>>.from(veri as List);
