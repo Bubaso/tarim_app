@@ -24,8 +24,37 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
       _heroArticles = List.from(heroList);
     }
 
+    // Boş liste ile YÜKLENİYOR ayrı şeyler. Eskiden ikisi de sonsuz dönen
+    // göstergeye düşüyordu: hiç hero haber yoksa ekran hiç açılmıyordu.
+    // [heroArticlesProvider] düz bir Provider, durumu kaynağından okuyoruz.
+    final kaynak = ref.watch(latestArticlesProvider);
     if (heroList.isEmpty && !_isLoading) {
-       return const Center(child: CircularProgressIndicator());
+      if (kaynak.isLoading) {
+        return const Center(child: CircularProgressIndicator());
+      }
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.article_outlined, size: 48, color: Colors.grey[400]),
+              const SizedBox(height: 12),
+              Text(
+                'Hero alanına koyulacak haber yok.',
+                style: GoogleFonts.inter(
+                    fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                'Yayımlanmış ve görseli olan haber bulunduğunda burada listelenir.',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(fontSize: 13, color: Colors.grey[600]),
+              ),
+            ],
+          ),
+        ),
+      );
     }
 
     return Scaffold(
@@ -44,12 +73,62 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
               'Burada Anasayfa Hero (Manşet) alanındaki 12 haberi sıralayabilir ve değiştirebilirsiniz. Bir haberi kaldırmak için yerine yenisini seçmelisiniz.',
               style: GoogleFonts.inter(fontSize: 14, color: Colors.grey[600]),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 12),
+            _buildSabitlemeOzeti(),
+            const SizedBox(height: 12),
             Expanded(
               child: _buildHeroList(),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  /// Sabitlenmiş haberlerin özeti.
+  ///
+  /// Sabitleme hero sırasını ELLE donduruyor (`hero_order <= 0`); kaç tane
+  /// olduğu ekranda görünmüyordu ve yönetici listeyi tek tek gezmeden
+  /// bilemiyordu. Hiç sabit yoksa bunu açıkça söylemek, sıralamanın
+  /// kendiliğinden mi yoksa elle mi dizildiğini ayırt ettiriyor.
+  Widget _buildSabitlemeOzeti() {
+    final sabitler = _heroArticles
+        .where((a) => a.heroOrder != null && a.heroOrder! <= 0)
+        .toList();
+    final bos = sabitler.isEmpty;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: bos ? Colors.grey.shade100 : Colors.orange.shade50,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(
+            color: bos ? Colors.grey.shade300 : Colors.orange.shade200),
+      ),
+      child: Row(
+        children: [
+          Icon(
+            bos ? Icons.push_pin_outlined : Icons.push_pin,
+            size: 18,
+            color: bos ? Colors.grey.shade600 : Colors.orange.shade700,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              bos
+                  ? 'Sabitleme yok — sıralama kendiliğinden diziliyor.'
+                  : '${sabitler.length} haber sabitlenmiş: '
+                      '${sabitler.map((a) => a.title).join(' · ')}',
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.inter(
+                fontSize: 13,
+                color: bos ? Colors.grey.shade700 : Colors.orange.shade900,
+                fontWeight: bos ? FontWeight.w400 : FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

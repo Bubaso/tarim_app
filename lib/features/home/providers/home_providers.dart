@@ -850,6 +850,17 @@ final trendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
 });
 
 /// Stream provider for top 50 read articles (Live data for admin dashboard)
+/// Kaynak karnesi — `source_scorecard` view'ı.
+///
+/// Yönetici "bu kaynak neden bu kadar çöp getiriyor?" sorusunu sayıyla
+/// cevaplayabilsin diye. View zaten veritabanında hazır; burada yalnızca
+/// okunuyor.
+final kaynakKarnesiProvider =
+    FutureProvider<List<Map<String, dynamic>>>((ref) async {
+  final repository = ref.watch(homeRepositoryProvider);
+  return repository.kaynakKarnesi();
+});
+
 final adminTopReadArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   final repository = ref.watch(homeRepositoryProvider);
   return repository.watchTopReadArticles(50);

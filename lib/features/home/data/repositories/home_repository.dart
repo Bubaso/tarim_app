@@ -109,6 +109,84 @@ class HomeRepository {
     }
   }
 
+  // ══════════════════════════════════════════════════════════════════════
+  //  Moderasyon — red KAYDEDİLİR, sessizce silinmez
+  // ══════════════════════════════════════════════════════════════════════
+  //
+  // [rejectArticle] kaydı doğrudan siliyor ve geriye iz bırakmıyor. Aynı
+  // kaynak ertesi gün aynı haberi yine getirdiğinde moderatör onu ilk kez
+  // görüyormuş gibi tekrar eliyor. `rejected_sources` tablosu (433 kayıt)
+  // tam da bunun için var: reddedilen adres orada kalıyor, hem tekrarı
+  // önlüyor hem de `source_scorecard` karnesini besliyor.
+
+  /// Haberi reddeder: önce `rejected_sources`'a yazar, sonra kuyruktan düşürür.
+  ///
+  /// Sıra önemli: önce kayıt, sonra silme. Tersi olsaydı silme başarılıp
+  /// kayıt düşerse red izi tamamen kaybolurdu.
+  Future<bool> haberiReddet({
+    required String id,
+    required String title,
+    String? sourceUrl,
+    String? sourceName,
+    String? lastStatus,
+  }) async {
+    try {
+      await _supabaseClient.from('rejected_sources').insert({
+        'source_url': sourceUrl,
+        'title': title,
+        'source_name': sourceName,
+        'last_status': lastStatus ?? 'pending',
+        'rejected_at': DateTime.now().toUtc().toIso8601String(),
+      });
+    } catch (e) {
+      // Kayıt düşerse SİLME. İz bırakmayan red, bu metodun varlık sebebine
+      // aykırı olurdu.
+      if (kDebugMode) print('haberiReddet kayit hatasi: $e');
+      return false;
+    }
+    return rejectArticle(id);
+  }
+
+  /// Birden çok haberi tek seferde reddeder.
+  ///
+  /// Tek tek dönüyor çünkü biri patlarsa diğerleri yine de işlensin; geriye
+  /// kaç tanesinin gerçekten reddedildiği dönüyor ki arayüz doğru sayı
+  /// gösterebilsin ("3 haber reddedildi" deyip 1'ini yapmak yalan olurdu).
+  Future<int> topluReddet(List<Map<String, String?>> haberler) async {
+    var basarili = 0;
+    for (final h in haberler) {
+      final id = h['id'];
+      if (id == null) continue;
+      final ok = await haberiReddet(
+        id: id,
+        title: h['title'] ?? '',
+        sourceUrl: h['source_url'],
+        sourceName: h['source_name'],
+        lastStatus: h['last_status'],
+      );
+      if (ok) basarili++;
+    }
+    return basarili;
+  }
+
+  /// Kaynak karnesi (`source_scorecard` view'ı).
+  ///
+  /// View hazır: kaynak başına toplam / yayınlanan / reddedilen / bekleyen
+  /// ve red yüzdesi. En çok reddedilen üstte — karnenin işe yaradığı yer
+  /// orası.
+  Future<List<Map<String, dynamic>>> kaynakKarnesi() async {
+    try {
+      final veri = await _supabaseClient
+          .from('source_scorecard')
+          .select()
+          .order('red_yuzdesi', ascending: false);
+      return List<Map<String, dynamic>>.from(veri as List);
+    } catch (e) {
+      if (kDebugMode) print('kaynakKarnesi error: $e');
+      return const [];
+    }
+  }
+
   /// Rejects (deletes) a pending article
   Future<bool> rejectArticle(String id) async {
     try {

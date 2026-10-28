@@ -203,13 +203,43 @@ class _StatCard extends StatelessWidget {
   }
 }
 
-class _PendingArticlesSection extends ConsumerWidget {
+class _PendingArticlesSection extends ConsumerStatefulWidget {
   final bool isDark;
 
   const _PendingArticlesSection({required this.isDark});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_PendingArticlesSection> createState() =>
+      _PendingArticlesSectionState();
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  Onay kuyruğu
+// ──────────────────────────────────────────────────────────────────────────────
+//  Üç davranış:
+//
+//  1. RED KAYDEDİLİR. Eski "Reddet" kaydı doğrudan siliyordu; aynı kaynak
+//     ertesi gün aynı haberi getirince moderatör onu ilk kez görüyormuş gibi
+//     tekrar eliyordu. Artık `rejected_sources`'a yazılıyor (bkz.
+//     HomeRepository.haberiReddet) ve `source_scorecard` karnesini besliyor.
+//
+//  2. TOPLU RED. Kuyruk bazen tek bir bozuk kaynaktan gelen onlarca haberle
+//     doluyor; tek tek elemek işin kendisinden uzun sürüyordu.
+//
+//  3. TAM HABER. Özet iki satır; "bu haber gerçekten yayına girmeli mi"
+//     kararı çoğu zaman özetle verilemiyor. Gövdeyi reddetmeden önce
+//     okuyabilmek gerekiyor.
+// ══════════════════════════════════════════════════════════════════════════════
+
+class _PendingArticlesSectionState
+    extends ConsumerState<_PendingArticlesSection> {
+  final Set<String> _secili = <String>{};
+  bool _islemde = false;
+
+  bool get isDark => widget.isDark;
+
+  @override
+  Widget build(BuildContext context) {
     final pendingAsync = ref.watch(pendingArticlesProvider);
 
     return pendingAsync.when(
@@ -220,78 +250,34 @@ class _PendingArticlesSection extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: Text(
                 'Şu an onay bekleyen haber yok.',
-                style: GoogleFonts.inter(color: isDark ? Colors.grey[400] : Colors.grey[600]),
+                style: GoogleFonts.inter(
+                    color: isDark ? Colors.grey[400] : Colors.grey[600]),
               ),
             ),
           );
         }
 
-        return ListView.separated(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: articles.length,
-          separatorBuilder: (context, index) => const SizedBox(height: 12),
-          itemBuilder: (context, index) {
-            final article = articles[index];
-            return Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: isDark ? AppColors.darkGreen : Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: isDark ? AppColors.wheat : AppColors.wheat),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    article.title,
-                    style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.bold, color: isDark ? Colors.white : Colors.black),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    article.summary ?? '',
-                    style: GoogleFonts.inter(fontSize: 14, color: isDark ? Colors.grey[400] : Colors.grey[700]),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton.icon(
-                        onPressed: () async {
-                          await ref.read(homeRepositoryProvider).rejectArticle(article.id);
-                          ref.invalidate(pendingArticlesProvider);
-                          ref.invalidate(latestArticlesProvider);
-                        },
-                        icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
-                        label: Text('Reddet', style: GoogleFonts.inter(color: Colors.red, fontWeight: FontWeight.bold)),
-                      ),
-                      const SizedBox(width: 8),
-                      ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          foregroundColor: Colors.white,
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                        ),
-                        onPressed: () async {
-                          await ref.read(homeRepositoryProvider).approveArticle(article.id);
-                          ref.invalidate(pendingArticlesProvider);
-                          ref.invalidate(latestArticlesProvider);
-                        },
-                        icon: const Icon(Icons.check, size: 20),
-                        label: Text('Onayla', style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
+        // Kuyruk değiştiyse artık var olmayan seçimleri düşür; yoksa "3 seçili"
+        // deyip 1 haber reddedilirdi.
+        _secili.removeWhere((id) => !articles.any((a) => a.id == id));
+
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _topluCubuk(articles),
+            ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: articles.length,
+              separatorBuilder: (context, index) => const SizedBox(height: 12),
+              itemBuilder: (context, index) =>
+                  _kart(context, articles[index]),
+            ),
+          ],
         );
       },
-      loading: () => const Center(child: Padding(
+      loading: () => const Center(
+          child: Padding(
         padding: EdgeInsets.all(24.0),
         child: CircularProgressIndicator(),
       )),
@@ -299,7 +285,275 @@ class _PendingArticlesSection extends ConsumerWidget {
     );
   }
 
+  Widget _topluCubuk(List<NewsArticle> articles) {
+    final hepsiSecili =
+        articles.isNotEmpty && _secili.length == articles.length;
 
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        children: [
+          Checkbox(
+            value: hepsiSecili,
+            tristate: false,
+            onChanged: _islemde
+                ? null
+                : (v) => setState(() {
+                      _secili.clear();
+                      if (v == true) {
+                        _secili.addAll(articles.map((a) => a.id));
+                      }
+                    }),
+          ),
+          Text(
+            _secili.isEmpty
+                ? 'Tümünü seç'
+                : '${_secili.length} haber seçili',
+            style: GoogleFonts.inter(
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+                color: isDark ? Colors.grey[300] : Colors.grey[800]),
+          ),
+          const Spacer(),
+          if (_secili.isNotEmpty)
+            TextButton.icon(
+              onPressed:
+                  _islemde ? null : () => _topluReddet(articles),
+              icon: const Icon(Icons.playlist_remove_rounded,
+                  color: Colors.red, size: 20),
+              label: Text('Toplu red',
+                  style: GoogleFonts.inter(
+                      color: Colors.red, fontWeight: FontWeight.bold)),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _kart(BuildContext context, NewsArticle article) {
+    final secili = _secili.contains(article.id);
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: isDark ? AppColors.darkGreen : Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+            color: secili ? Colors.red.shade300 : AppColors.wheat),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Checkbox(
+                value: secili,
+                onChanged: _islemde
+                    ? null
+                    : (v) => setState(() {
+                          if (v == true) {
+                            _secili.add(article.id);
+                          } else {
+                            _secili.remove(article.id);
+                          }
+                        }),
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      article.title,
+                      style: GoogleFonts.inter(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: isDark ? Colors.white : Colors.black),
+                    ),
+                    if ((article.sourceName ?? '').isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        article.sourceName!,
+                        style: GoogleFonts.inter(
+                            fontSize: 12,
+                            color: isDark
+                                ? Colors.grey[500]
+                                : Colors.grey[600]),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Text(
+            article.summary ?? '',
+            style: GoogleFonts.inter(
+                fontSize: 14,
+                color: isDark ? Colors.grey[400] : Colors.grey[700]),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 16),
+          Wrap(
+            alignment: WrapAlignment.end,
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              TextButton.icon(
+                onPressed: () => _tamHaberiGoster(context, article),
+                icon: const Icon(Icons.article_outlined, size: 20),
+                label: Text('Tam haber',
+                    style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+              ),
+              TextButton.icon(
+                onPressed: _islemde ? null : () => _tekReddet(article),
+                icon: const Icon(Icons.delete_outline,
+                    color: Colors.red, size: 20),
+                label: Text('Haberi reddet',
+                    style: GoogleFonts.inter(
+                        color: Colors.red, fontWeight: FontWeight.bold)),
+              ),
+              ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                ),
+                onPressed: _islemde
+                    ? null
+                    : () async {
+                        await ref
+                            .read(homeRepositoryProvider)
+                            .approveArticle(article.id);
+                        _tazele();
+                      },
+                icon: const Icon(Icons.check, size: 20),
+                label: Text('Onayla',
+                    style: GoogleFonts.inter(fontWeight: FontWeight.bold)),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Gövdeyi okunur hâle getirip gösterir. Hat HTML yazıyor; etiketleri
+  /// olduğu gibi göstermek kararı kolaylaştırmaz, o yüzden sadeleştiriliyor.
+  void _tamHaberiGoster(BuildContext context, NewsArticle article) {
+    final govde = article.content
+        .replaceAll(RegExp(r'<br\s*/?>', caseSensitive: false), '\n')
+        .replaceAll(RegExp(r'</p>', caseSensitive: false), '\n\n')
+        .replaceAll(RegExp(r'<[^>]+>'), '')
+        .replaceAll('&nbsp;', ' ')
+        .replaceAll('&amp;', '&')
+        .replaceAll(RegExp(r'\n{3,}'), '\n\n')
+        .trim();
+
+    showDialog<void>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(article.title,
+            style: GoogleFonts.outfit(fontWeight: FontWeight.bold)),
+        content: SizedBox(
+          width: 640,
+          child: SingleChildScrollView(
+            child: Text(
+              govde.isEmpty ? 'Bu haberin gövdesi boş.' : govde,
+              style: GoogleFonts.inter(fontSize: 14, height: 1.6),
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(),
+            child: const Text('Kapat'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _tekReddet(NewsArticle article) async {
+    setState(() => _islemde = true);
+    final ok = await ref.read(homeRepositoryProvider).haberiReddet(
+          id: article.id,
+          title: article.title,
+          sourceUrl: article.sourceUrl,
+          sourceName: article.sourceName,
+          lastStatus: article.status,
+        );
+    _secili.remove(article.id);
+    _bildir(ok ? 'Haber reddedildi.' : 'Reddetme başarısız — kayıt yazılamadı.');
+    _tazele();
+  }
+
+  Future<void> _topluReddet(List<NewsArticle> articles) async {
+    final hedef =
+        articles.where((a) => _secili.contains(a.id)).toList(growable: false);
+    if (hedef.isEmpty) return;
+
+    final onay = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('Toplu red',
+            style: GoogleFonts.outfit(fontWeight: FontWeight.bold)),
+        content: Text(
+          '${hedef.length} haber reddedilecek. Reddedilen adresler '
+          'kaydedilir, aynı haber tekrar kuyruğa düşmez.',
+          style: GoogleFonts.inter(),
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.of(ctx).pop(false),
+              child: const Text('Vazgeç')),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: const Text('Reddet',
+                style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+    if (onay != true) return;
+
+    setState(() => _islemde = true);
+    final sayi = await ref.read(homeRepositoryProvider).topluReddet(
+          hedef
+              .map((a) => <String, String?>{
+                    'id': a.id,
+                    'title': a.title,
+                    'source_url': a.sourceUrl,
+                    'source_name': a.sourceName,
+                    'last_status': a.status,
+                  })
+              .toList(),
+        );
+    _secili.clear();
+    // Gerçekleşen sayıyı söylüyoruz, istenen sayıyı değil.
+    _bildir(sayi == hedef.length
+        ? '$sayi haber reddedildi.'
+        : '$sayi / ${hedef.length} haber reddedildi; kalanlar kuyrukta.');
+    _tazele();
+  }
+
+  void _bildir(String mesaj) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(mesaj)));
+  }
+
+  void _tazele() {
+    if (!mounted) return;
+    setState(() => _islemde = false);
+    ref.invalidate(pendingArticlesProvider);
+    ref.invalidate(latestArticlesProvider);
+    ref.invalidate(kaynakKarnesiProvider);
+  }
 }
 
 class _TopReadArticlesList extends ConsumerWidget {
