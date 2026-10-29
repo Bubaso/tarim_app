@@ -360,7 +360,20 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     final repository = ref.read(homeRepositoryProvider);
     
     // pin=true ise hero_order = -index (0, -1, -2), pin=false ise normal sıra = index + 1
-    int order = pin ? -index : index + 1;
+    // NEGATİF SIFIR TUZAĞI (Flutter web).
+    //
+    // Sabitlenen slot `hero_order = -index` ile yazılıyor: 0, -1, -2.
+    // index 0 iken `-index` NEGATİF SIFIR üretiyor ve Dart web'de int'ler
+    // JS sayısı olduğu için JSON'a "-0.0" diye gidiyor. Postgres integer
+    // kolonda bunu reddediyor:
+    //   PostgrestException(invalid input syntax for type integer: "-0.0",
+    //                      code: 22P02)
+    // Sonuç: 2. ve 3. slot sabitleniyor, BİRİNCİ slot her seferinde
+    // patlıyordu. Mobilde görünmüyor, yalnızca web'de.
+    // Negatif sıfır HİÇ ÜRETİLMİYOR: `-index` yerine index 0'da doğrudan
+    // literal 0 veriliyor. "order == 0 ise order = 0" gibi bir düzeltme
+    // derleyici tarafından gereksiz görülüp elenebilirdi.
+    final int order = pin ? (index == 0 ? 0 : -index) : index + 1;
     // Dönüş DEĞERİ okunuyor: eskiden yok sayılıyordu ve yazma düşse bile
     // ekran sabitlenmiş gibi görünüyordu — yönetici kaydedilmemiş bir
     // sabitlemeyi kaydedilmiş sanıyordu (§25.2'nin aynı sınıf hatası).
@@ -381,7 +394,14 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     }
     
     if (mounted) {
-      setState(() => _isLoading = false);
+      setState(() {
+        _isLoading = false;
+        // Yerel liste YALNIZCA boşken sağlayıcıdan doldruluyor (build'deki
+        // `_heroArticles.isEmpty` koşulu). Boşaltılmazsa yazma başarılı olsa
+        // bile ekran eski hâlinde kalıyor ve kullanıcı "kaydedilmedi"
+        // sanıyor — yazma çalışırken bile çalışmıyor görünüyordu.
+        if (yazildi) _heroArticles = [];
+      });
       ref.invalidate(latestArticlesProvider);
     }
   }
