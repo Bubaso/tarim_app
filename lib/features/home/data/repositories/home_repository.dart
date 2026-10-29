@@ -119,6 +119,32 @@ class HomeRepository {
   // tam da bunun için var: reddedilen adres orada kalıyor, hem tekrarı
   // önlüyor hem de `source_scorecard` karnesini besliyor.
 
+  /// Son yazma hatasının ham metni.
+  ///
+  /// Release derlemede `print` hiçbir yere gitmiyor ve panel yalnızca
+  /// "kaydedilemedi" diyordu — sebebi öğrenmenin yolu yoktu. Arayüz bunu
+  /// okuyup kullanıcıya gösteriyor.
+  String? sonYazmaHatasi;
+
+  /// Panel yazmaları için oturum denetimi.
+  ///
+  /// RLS yazmayı rol `authenticated` değilse HATA VERMEDEN satır süzerek
+  /// engelliyor (200 + []). Oturum düşmüşse istemci `anon` olarak yazıyor ve
+  /// kullanıcı "kaydedilemedi" görüp sebebini bilemiyor. Ölçüldü (29 Ekim
+  /// 2026): articles UPDATE politikası `authenticated` için qual=true —
+  /// yani yetki var, eksik olan OTURUM.
+  String? _oturumSorunu() {
+    final oturum = _supabaseClient.auth.currentSession;
+    if (oturum == null) return 'Oturum yok — panele yeniden giriş yapın.';
+    final bitis = oturum.expiresAt;
+    if (bitis != null &&
+        DateTime.fromMillisecondsSinceEpoch(bitis * 1000)
+            .isBefore(DateTime.now())) {
+      return 'Oturum süresi dolmuş — panele yeniden giriş yapın.';
+    }
+    return null;
+  }
+
   /// Haberin BELİRLİ alanlarını günceller.
   ///
   /// [updateArticle] `toJson()` ile BÜTÜN satırı yazıyor; liste sorgusundan
@@ -131,6 +157,11 @@ class HomeRepository {
   /// görünüyor (§20.4).
   Future<bool> alanlariGuncelle(String id, Map<String, dynamic> alanlar) async {
     if (alanlar.isEmpty) return true;
+    final sorun = _oturumSorunu();
+    if (sorun != null) {
+      if (kDebugMode) print('alanlariGuncelle: $sorun');
+      return false;
+    }
     try {
       final yazilan = await _supabaseClient
           .from('articles')
@@ -139,6 +170,7 @@ class HomeRepository {
           .select('id');
       return (yazilan as List).isNotEmpty;
     } catch (e) {
+      sonYazmaHatasi = e.toString();
       if (kDebugMode) print('alanlariGuncelle error: $e');
       return false;
     }
@@ -940,14 +972,18 @@ class HomeRepository {
   /// yeniden öne çıkarırsa itki de yeniden dolar.
   Future<bool> updateHeroStatus(String id, bool isHero, int? heroOrder) async {
     try {
-      await _supabaseClient.from('articles').update({
+      // Dönen satır SAYILIYOR: RLS yazmayı hata vermeden satır süzerek
+      // engelleyebiliyor (200 + []) ve sabitleme kaydedilmemiş olduğu hâlde
+      // kaydedilmiş görünüyordu (§20.4'ün aynı tuzağı, üçüncü kez).
+      final yazilan = await _supabaseClient.from('articles').update({
         'is_hero': isHero,
         'hero_order': heroOrder,
         'hero_pinned_at':
             isHero ? DateTime.now().toUtc().toIso8601String() : null,
-      }).eq('id', id);
-      return true;
+      }).eq('id', id).select('id');
+      return (yazilan as List).isNotEmpty;
     } catch (e) {
+      sonYazmaHatasi = e.toString();
       if (kDebugMode) print('updateHeroStatus error: $e');
       return false;
     }
@@ -1147,7 +1183,12 @@ Yazım Kuralları:
     if (text == null || text.trim().isEmpty) return null;
     try {
       final url = Uri.parse(
-          'https://translate.googleapis.com/translate_a/single?client=gtx&sl=tr&tl=en&dt=t&q=\${Uri.encodeComponent(text)}');
+          // \$ KAÇIŞLI yazılmıştı: Dart'ta '\$' harfi harfine dolar işareti
+          // demek, interpolasyon DEĞİL. Yani adrese metin hiç konmuyor,
+          // '\${Uri.encodeComponent(text)}' dizesi olduğu gibi gidiyordu ve
+          // Google 400 dönüyordu — İngilizce çeviri sessizce ölüydü.
+          'https://translate.googleapis.com/translate_a/single'
+          '?client=gtx&sl=tr&tl=en&dt=t&q=${Uri.encodeComponent(text)}');
       final response = await http.get(url);
       
       if (response.statusCode == 200) {

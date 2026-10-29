@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../home/data/models/news_article.dart';
 import '../../../home/providers/home_providers.dart';
@@ -365,9 +366,18 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
     // sabitlemeyi kaydedilmiş sanıyordu (§25.2'nin aynı sınıf hatası).
     final yazildi = await repository.updateHeroStatus(article.id, true, order);
     if (!yazildi && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Sabitleme kaydedilemedi.')),
-      );
+      // Yazma sıfır satır döndüyse sebep neredeyse her zaman OTURUM:
+      // RLS, rol `authenticated` değilse satırı hata vermeden süzüyor.
+      final oturumYok =
+          Supabase.instance.client.auth.currentSession == null;
+      final ham = repository.sonYazmaHatasi;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        duration: const Duration(seconds: 12),
+        content: Text(oturumYok
+            ? 'Sabitleme kaydedilemedi — oturum düşmüş, yeniden giriş yapın.'
+            : 'Sabitleme kaydedilemedi.'
+                '${ham == null ? '' : '\nSebep: $ham'}'),
+      ));
     }
     
     if (mounted) {

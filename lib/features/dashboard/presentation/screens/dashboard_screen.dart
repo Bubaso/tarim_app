@@ -244,6 +244,36 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   Future<void> _submitArticle({bool isPublishing = false, bool isUnpublishing = false}) async {
     if (!isUnpublishing && !_formKey.currentState!.validate()) return;
 
+    // YAYINDAN ÇEKME TEK ALAN YAZAR.
+    //
+    // Eskiden bu da formdan BÜTÜN satırı yeniden kurup updateArticle'a
+    // veriyordu. Üç ayrı sakıncası vardı:
+    //   1. 37 alanlık yazma, tek bir kolon için gereksiz risk (§25.1'de bir
+    //      haberin metni tam olarak böyle silinmişti),
+    //   2. içinde çeviri çağrısı var ve o ağa çıkıyor — yayından çekmek
+    //      internet beklemek zorunda değil,
+    //   3. formu doldurmayan alanlar (facts/figures/quotes gibi) null
+    //      yazılıyordu.
+    // Durum değiştirmek bir alan işidir; dönen satır da sayılıyor.
+    if (isUnpublishing && _editingArticle != null) {
+      setState(() => _isSubmitting = true);
+      final ok = await ref
+          .read(homeRepositoryProvider)
+          .alanlariGuncelle(_editingArticle!.id, {'status': 'draft'});
+      if (!mounted) return;
+      setState(() => _isSubmitting = false);
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(ok
+            ? 'Haber yayından çekildi. Taslaklarda duruyor.'
+            : 'Yayından çekilemedi: yetki yok ya da haber bulunamadı.'),
+      ));
+      if (ok) {
+        ref.invalidate(latestArticlesProvider);
+        setState(() => _editingArticle = null);
+      }
+      return;
+    }
+
     setState(() {
       _isSubmitting = true;
     });
@@ -307,6 +337,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
       keyTakeawaysEn: _editingArticle?.keyTakeawaysEn,
       expertInsight: _editingArticle?.expertInsight,
       expertInsightEn: _editingArticle?.expertInsightEn,
+      // Form bu alanları doldurmuyor; taşınmazlarsa toJson() null yazıp
+      // muhabirin doğrulama verisini SİLER (§25.1'in aynı tuzağı —
+      // 1.233 haberde facts, 1.009'unda figures, 566'sında quotes dolu).
+      facts: _editingArticle?.facts,
+      figures: _editingArticle?.figures,
+      quotes: _editingArticle?.quotes,
+      turkiyePin: _editingArticle?.turkiyePin,
       chartData: _editingArticle?.chartData,
     );
 
