@@ -886,20 +886,27 @@ class HomeRepository {
         _localDrafts[index] = NewsArticle.fromJson({...article.toJson(), ...json});
       }
 
-      await _supabaseClient
+      // .select() ŞART. RLS yazmayı HATA VERMEDEN satır süzerek
+      // engelleyebiliyor (200 + []); `articles` üzerinde UPDATE politikası
+      // hiç yoktu ve panelden yapılan her yazma sessizce düşüyordu —
+      // "Yayından Çek" çalışmamasının sebebi buydu (29 Ekim 2026).
+      final yazilan = await _supabaseClient
           .from('articles')
           .update(json)
-          .eq('id', article.id);
+          .eq('id', article.id)
+          .select('id');
+      if ((yazilan as List).isEmpty) {
+        return 'Kayıt yazılamadı: yetki yok ya da haber bulunamadı.';
+      }
       return null;
     } catch (e) {
       if (kDebugMode) {
         print('updateArticle error: $e');
       }
-      // If DB fails, but we updated local cache, it's still a partial success for UX
-      final index = _localDrafts.indexWhere((a) => a.id == article.id);
-      if (index != -1) {
-        return null; // success locally
-      }
+      // YEREL ÖNBELLEK BAŞARI SAYILMAZ. Burada eskiden "DB düşse de yerel
+      // önbelleği güncelledik, UX için kısmi başarı" denip null dönülüyordu:
+      // panel "güncellendi" diyor, veritabanında hiçbir şey değişmiyordu.
+      // Yöneticinin yayından çektiğini sandığı haber yayında kalıyordu.
       return e.toString();
     }
   }
