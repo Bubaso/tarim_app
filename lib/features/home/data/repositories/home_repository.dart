@@ -119,54 +119,63 @@ class HomeRepository {
   // tam da bunun için var: reddedilen adres orada kalıyor, hem tekrarı
   // önlüyor hem de `source_scorecard` karnesini besliyor.
 
-  /// Haberi reddeder: önce `rejected_sources`'a yazar, sonra kuyruktan düşürür.
+  /// Haberin BELİRLİ alanlarını günceller.
   ///
-  /// Sıra önemli: önce kayıt, sonra silme. Tersi olsaydı silme başarılıp
-  /// kayıt düşerse red izi tamamen kaybolurdu.
-  Future<bool> haberiReddet({
-    required String id,
-    required String title,
-    String? sourceUrl,
-    String? sourceName,
-    String? lastStatus,
-  }) async {
+  /// [updateArticle] `toJson()` ile BÜTÜN satırı yazıyor; liste sorgusundan
+  /// gelen eksik bir nesneyle çağrılırsa dolu alanları boşla eziyor (§25.1,
+  /// üretimde bir haberin metni böyle gitti). Tek alan değiştirmek için bu
+  /// metot kullanılır: yalnızca verilen anahtarlar yazılır.
+  ///
+  /// Dönen satır SAYILIYOR: RLS yazmayı hata vermeden satır süzerek
+  /// engelleyebiliyor (200 + []) ve sessiz başarısızlık "kaydedildi" diye
+  /// görünüyor (§20.4).
+  Future<bool> alanlariGuncelle(String id, Map<String, dynamic> alanlar) async {
+    if (alanlar.isEmpty) return true;
     try {
-      await _supabaseClient.from('rejected_sources').insert({
-        'source_url': sourceUrl,
-        'title': title,
-        'source_name': sourceName,
-        'last_status': lastStatus ?? 'pending',
-        'rejected_at': DateTime.now().toUtc().toIso8601String(),
-      });
+      final yazilan = await _supabaseClient
+          .from('articles')
+          .update(alanlar)
+          .eq('id', id)
+          .select('id');
+      return (yazilan as List).isNotEmpty;
     } catch (e) {
-      // Kayıt düşerse SİLME. İz bırakmayan red, bu metodun varlık sebebine
-      // aykırı olurdu.
-      if (kDebugMode) print('haberiReddet kayit hatasi: $e');
+      if (kDebugMode) print('alanlariGuncelle error: $e');
       return false;
     }
-    return rejectArticle(id);
   }
 
-  /// Birden çok haberi tek seferde reddeder.
+  /// Reddi GERİ ALIR: durum `reviewing`e döner, red izi silinir.
   ///
-  /// Tek tek dönüyor çünkü biri patlarsa diğerleri yine de işlensin; geriye
-  /// kaç tanesinin gerçekten reddedildiği dönüyor ki arayüz doğru sayı
-  /// gösterebilsin ("3 haber reddedildi" deyip 1'ini yapmak yalan olurdu).
-  Future<int> topluReddet(List<Map<String, String?>> haberler) async {
-    var basarili = 0;
-    for (final h in haberler) {
-      final id = h['id'];
-      if (id == null) continue;
-      final ok = await haberiReddet(
-        id: id,
-        title: h['title'] ?? '',
-        sourceUrl: h['source_url'],
-        sourceName: h['source_name'],
-        lastStatus: h['last_status'],
-      );
-      if (ok) basarili++;
+  /// `articles_forget_rejection_status` tetikleyicisi adresi red hafızasından
+  /// da düşürüyor (§29.1); yoksa "geri al" yarım kalır ve hat o haberi bir
+  /// daha hiç getirmez.
+  Future<bool> reddiGeriAl(String id) => alanlariGuncelle(id, {
+        'status': 'reviewing',
+        'rejection_reason': null,
+        'rejected_at': null,
+      });
+
+  /// Bir köşe yazarının TÜM yazıları.
+  ///
+  /// [watchLatestArticles] en yeni 500 haberi taşıyor ve hat günde ~130 haber
+  /// çekiyor: o pencere ancak son birkaç haftayı kapsıyor. Yazar arşivini
+  /// oradan süzmek, 29 yazısı olan yazarın profilinde 3 yazı göstermek
+  /// demekti (§26.2). Sınır SESSİZ: hata vermiyor, eksik gösteriyor.
+  Future<List<NewsArticle>> fetchArticlesBySourceName(String sourceName) async {
+    try {
+      final veri = await _supabaseClient
+          .from('articles')
+          .select('*')
+          .eq('source_name', sourceName)
+          .eq('status', 'published')
+          .order('created_at', ascending: false);
+      return List<Map<String, dynamic>>.from(veri as List)
+          .map(NewsArticle.fromJson)
+          .toList();
+    } catch (e) {
+      if (kDebugMode) print('fetchArticlesBySourceName error: $e');
+      return const [];
     }
-    return basarili;
   }
 
   /// "Türkiye'den haberler" bölümünün 2. haberini belirler.
@@ -191,55 +200,51 @@ class HomeRepository {
     }
   }
 
-  /// Haberin BELİRLİ alanlarını günceller.
+  /// Haberi reddeder: durumu `rejected` yapar.
   ///
-  /// [updateArticle] `toJson()` ile BÜTÜN satırı yazıyor; liste sorgusundan
-  /// gelen eksik bir nesneyle çağrılırsa dolu alanları boşla eziyor (§25.1,
-  /// üretimde bir haberin metni böyle gitti). Tek alan değiştirmek için bu
-  /// metot kullanılır: yalnızca verilen anahtarlar yazılır.
-  Future<bool> alanlariGuncelle(String id, Map<String, dynamic> alanlar) async {
-    if (alanlar.isEmpty) return true;
-    try {
-      await _supabaseClient.from('articles').update(alanlar).eq('id', id);
-      return true;
-    } catch (e) {
-      if (kDebugMode) print('alanlariGuncelle error: $e');
-      return false;
-    }
-  }
-
-  /// Reddi GERİ ALIR: durum `pending`e döner, red izi silinir.
+  /// SİLMİYOR (§29.1): yanlış basılan bir düğme geri getirilemeyecek bir kaydı
+  /// yok ediyordu. Haber arşivde duruyor ve [reddiGeriAl] ile dönebiliyor.
   ///
-  /// `articles_forget_rejection_status` tetikleyicisi adresi red hafızasından
-  /// da düşürüyor (§29.1); yoksa "geri al" yarım kalır ve hat o haberi bir
-  /// daha hiç getirmez.
-  Future<bool> reddiGeriAl(String id) => alanlariGuncelle(id, {
-        'status': 'pending',
-        'rejection_reason': null,
-        'rejected_at': null,
+  /// `rejected_sources`'a BURADAN YAZILMIYOR. O tablo istemciye bilerek
+  /// kapalı (RLS açık, politika yok — 20260816130000'deki yorumun kendi
+  /// ifadesi: "Tabloya istemci hiç dokunmuyor"). Adresi hafızaya yazan şey
+  /// `articles_remember_rejection_status` tetikleyicisi; böylece red hangi
+  /// yoldan gelirse gelsin (panel, bakım betiği, elle SQL) kayda geçiyor.
+  /// Elle yazmaya çalışmak 42501 veriyordu ve red hiç gerçekleşmiyordu.
+  Future<bool> haberiReddet({
+    required String id,
+    required String title,
+    String? sourceUrl,
+    String? sourceName,
+    String? lastStatus,
+    String? gerekce,
+  }) =>
+      alanlariGuncelle(id, {
+        'status': 'rejected',
+        'rejection_reason': gerekce,
+        'rejected_at': DateTime.now().toUtc().toIso8601String(),
       });
 
-  /// Bir köşe yazarının TÜM yazıları.
+  /// Birden çok haberi tek seferde reddeder.
   ///
-  /// [watchLatestArticles] en yeni 500 haberi taşıyor (`_listeSiniri`) ve hat
-  /// günde ~130 haber çekiyor: o pencere ancak son birkaç haftayı kapsıyor.
-  /// Yazar arşivini oradan süzmek, 29 yazısı olan yazarın profilinde 3 yazı
-  /// göstermek demekti (§26.2). Sınır SESSİZ: hata vermiyor, eksik gösteriyor.
-  Future<List<NewsArticle>> fetchArticlesBySourceName(String sourceName) async {
-    try {
-      final veri = await _supabaseClient
-          .from('articles')
-          .select('*')
-          .eq('source_name', sourceName)
-          .eq('status', 'published')
-          .order('created_at', ascending: false);
-      return List<Map<String, dynamic>>.from(veri as List)
-          .map(NewsArticle.fromJson)
-          .toList();
-    } catch (e) {
-      if (kDebugMode) print('fetchArticlesBySourceName error: $e');
-      return const [];
+  /// Tek tek dönüyor çünkü biri patlarsa diğerleri yine de işlensin; geriye
+  /// kaç tanesinin GERÇEKTEN reddedildiği dönüyor ki arayüz doğru sayı
+  /// gösterebilsin ("3 haber reddedildi" deyip 1'ini yapmak yalan olurdu).
+  Future<int> topluReddet(List<Map<String, String?>> haberler) async {
+    var basarili = 0;
+    for (final h in haberler) {
+      final id = h['id'];
+      if (id == null) continue;
+      final ok = await haberiReddet(
+        id: id,
+        title: h['title'] ?? '',
+        sourceUrl: h['source_url'],
+        sourceName: h['source_name'],
+        lastStatus: h['last_status'],
+      );
+      if (ok) basarili++;
     }
+    return basarili;
   }
 
   /// Kaynak karnesi (`source_scorecard` view'ı).

@@ -515,7 +515,15 @@ class _PendingArticlesSectionState
           lastStatus: article.status,
         );
     _secili.remove(article.id);
-    _bildir(ok ? 'Haber reddedildi.' : 'Reddetme başarısız — kayıt yazılamadı.');
+    if (ok) {
+      // Red artık SİLMİYOR, durumu değiştiriyor (§29.1) — o yüzden geri
+      // alınabilir ve bunu söylemek gerekiyor. Yanlış basılan bir düğme
+      // eskiden geri getirilemeyecek bir kaydı yok ediyordu.
+      _bildirGeriAlinabilir(
+          'Haber reddedildi. Arşivde duruyor, geri alınabilir.', article.id);
+    } else {
+      _bildir('Reddetme başarısız — yetki yok ya da kayıt yazılamadı.');
+    }
     _tazele();
   }
 
@@ -563,9 +571,29 @@ class _PendingArticlesSectionState
     _secili.clear();
     // Gerçekleşen sayıyı söylüyoruz, istenen sayıyı değil.
     _bildir(sayi == hedef.length
-        ? '$sayi haber reddedildi.'
+        ? '$sayi haber reddedildi. Arşivde duruyor, geri alınabilir.'
         : '$sayi / ${hedef.length} haber reddedildi; kalanlar kuyrukta.');
     _tazele();
+  }
+
+  /// Reddi geri almayı teklif eden bildirim.
+  ///
+  /// `articles_forget_rejection_status` tetikleyicisi adresi red hafızasından
+  /// da düşürüyor; yoksa haber kuyruğa döner ama hat onu bir daha getirmez.
+  void _bildirGeriAlinabilir(String mesaj, String id) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(mesaj),
+      duration: const Duration(seconds: 8),
+      action: SnackBarAction(
+        label: 'Geri al',
+        onPressed: () async {
+          final ok = await ref.read(homeRepositoryProvider).reddiGeriAl(id);
+          _bildir(ok ? 'Red geri alındı.' : 'Geri alınamadı.');
+          _tazele();
+        },
+      ),
+    ));
   }
 
   void _bildir(String mesaj) {
