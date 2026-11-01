@@ -143,8 +143,72 @@
   ],
   "_anahtar_kelimeler_notu": "§8.10'un birinci dersi: anahtar kelime kurumun adının BAŞKA bir kurumun adında geçmeyen en kısa parçası olmalı ve yayına girmeden gerçek habere karşı denenmeli. 'Su İşleri' tek başına riskli olabilir; liste YAYINLANMADAN ÖNCE veritabanındaki başlıklara karşı sınanacak.",
   "hikaye": {
-    "_durum": "HENÜZ YAZILMADI — metinden sonra.",
-    "_kural": "Rakamların hepsi data.json'dan OKUNARAK yazılır; slaytta elle yazılan tek şey cümledir."
+    "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+    "_kural": "Metin ELLE yazıldı. Beş rakamın beşi de data.json'dan OKUNARAK yazıldı: depolama 183,8 milyar m³ (1081 baraj + 750 gölet); devredilen 3.083.200 ha / 936 tesis; devir süresi 53 yıl (ilk sözleşme 1967, 50 ha); 6172'de 'mülkiyet' 0 kez; USBR'da devredilmiş pay üçte iki.",
+    "_akis": "Beş kanca dosyanın kendi sırası: ne kuruldu → ne devredildi → ne kadar sürdü → devredilenin içinde ne YOK → aynı yapı başka ülkede. Dördüncü slayt dosyanın en güçlü bulgusu ve bir YOKLUK: sıfır rakamı bir eksiklik değil, ölçülmüş bir sonuç.",
+    "_kapsam_notu": "ÜÇÜNCÜ SLAYTIN RAKAMI YALNIZCA YERALTISUYU TESİSLERİNE AİT (devir_serisi). İkinci slayt BÜTÜN tesisleri kapsıyor (devir_dagilimi). İki rakam toplanamaz; etiketler bu yüzden kapsamı adıyla söylüyor. Baloncukta bu ayrım gözden kaçarsa okur 53 yılı 3 milyon hektara bağlar ve bu yanlış olur.",
+    "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ beş kareden, her slayta bir tane. Paylaşım kartı kullanılmıyor: kartın üstünde zaten yazı var ve görüntüleyici kendi metnini bindirince ikisi çakışıyor. Eşleştirme konuya göre — devir süresi slaytında köy kanalı, çünkü devredilen tesis çoğunlukla o ölçekte.",
+    "_sinama_notu": "dosya_hikayeleri.py her slayt görselini çekip content-type'ın image/ ile başladığını sınıyor; biri bile geçmezse hikâyeyi HİÇ yazmıyor (§2.12.1). Görseller yayına alınmadan betik BAŞARISIZ OLUR ve doğru davranış budur.",
+    "grup_tr": "Kurum Dosyası",
+    "grup_en": "Institution Dossier",
+    "slaytlar": [
+      {
+        "ust": "KURUM DOSYASI · 05",
+        "ust_en": "INSTITUTION DOSSIER · 05",
+        "baslik": "Türkiye'nin barajlarını, göletlerini ve sulama şebekesini tek bir kurum kurdu. Kuruluş sebebi bir kuraklıktı.",
+        "baslik_en": "A single institution built Türkiye's dams, ponds and irrigation network. The reason it was founded was a drought.",
+        "rakam": "183,8 milyar m³",
+        "rakam_en": "183.8 billion m³",
+        "etiket": "DSİ'nin su depolama kapasitesi, 2025 — 1.081 baraj ve 750 gölet",
+        "etiket_en": "DSİ water storage capacity, 2025 — 1,081 dams and 750 ponds",
+        "gorsel": "https://tarimportali.net/dosya/dsi/dsi_seyhan_baraji.jpg"
+      },
+      {
+        "ust": "KURDU VE DEVRETTİ",
+        "ust_en": "BUILT IT, THEN HANDED IT OVER",
+        "baslik": "İnşa ettiği sulama tesislerinin dokuz yüzden fazlasını başka tüzel kişilere devretti. Birlikler, kooperatifler, belediyeler.",
+        "baslik_en": "It has handed more than nine hundred of the irrigation schemes it built to other legal persons: associations, cooperatives, municipalities.",
+        "rakam": "3.083.200 ha",
+        "rakam_en": "3,083,200 ha",
+        "etiket": "Devredilen sulama alanı, 31 Aralık 2025 — 936 tesis, BÜTÜN sulama tesisleri",
+        "etiket_en": "Transferred irrigation area, 31 December 2025 — 936 schemes, ALL irrigation schemes",
+        "gorsel": "https://tarimportali.net/dosya/dsi/dsi_harran_ana_kanal.jpg"
+      },
+      {
+        "ust": "ELLİ ÜÇ YIL",
+        "ust_en": "FIFTY-THREE YEARS",
+        "baslik": "Devir bir kararla olmadı. 1967'de elli hektarlık tek bir tesisle başladı ve on yıllara yayıldı.",
+        "baslik_en": "The transfer was not a single decision. It began in 1967 with one scheme of fifty hectares and spread across decades.",
+        "rakam": "53 yıl",
+        "rakam_en": "53 years",
+        "etiket": "İlk kati devirden son kayda, 1967–2020 — YALNIZCA yeraltısuyu tesisleri",
+        "etiket_en": "From the first definitive transfer to the last record, 1967–2020 — groundwater schemes ONLY",
+        "gorsel": "https://tarimportali.net/dosya/dsi/dsi_koy_sulama_kanali.jpg"
+      },
+      {
+        "ust": "DEVREDİLMEYEN ŞEY",
+        "ust_en": "WHAT WAS NOT TRANSFERRED",
+        "baslik": "Kanun devri tanımlarken dört şey sayıyor: işletme, bakım, onarım, yönetim. Mülkiyetten hiç söz etmiyor.",
+        "baslik_en": "When the law defines transfer it lists four things: operation, maintenance, repair, management. It does not mention ownership at all.",
+        "rakam": "0",
+        "rakam_en": "0",
+        "etiket": "\"Mülkiyet\" kelimesinin 6172 sayılı Sulama Birlikleri Kanunundaki geçiş sayısı",
+        "etiket_en": "Occurrences of the word \"ownership\" in Law 6172, the Irrigation Associations Law",
+        "gorsel": "https://tarimportali.net/dosya/dsi/dsi_osmaniye_sulama.jpg"
+      },
+      {
+        "ust": "ABD'DE ADI KONMUŞ",
+        "ust_en": "NAMED IN THE UNITED STATES",
+        "baslik": "Aynı yapı ABD'de resmî bir tesis sınıfı: transferred works. Mülkiyet Reclamation'da kalıyor, işletme devrediliyor.",
+        "baslik_en": "In the United States the same arrangement is a formal class of facility: transferred works. Ownership stays with Reclamation; operation is handed over.",
+        "rakam": "üçte iki",
+        "rakam_en": "two-thirds",
+        "etiket": "Reclamation'ın inşa ettiği varlıklardan devredilmiş olanların yaklaşık payı — Reclamation Manual FAC 01-09",
+        "etiket_en": "Approximate share of Reclamation-built assets that are transferred works — Reclamation Manual FAC 01-09",
+        "gorsel": "https://tarimportali.net/dosya/dsi/dsi_all_american_canal.jpg"
+      }
+    ],
+    "_eksen_siniri_notu": "İKİNCİ SLAYTIN BAŞLIĞI BİR KEZ YANLIŞ YAZILDI: 'KURAN İŞLETMİYOR'. data.json/_eksenin_siniri bunu açıkça yasaklıyor — DSİ'nin bugün kendi işlettiği ulusal alan hiçbir kaynakta yok, dolayısıyla 'işletmiyor' iddiası kanıtsız. Başlık 'KURDU VE DEVRETTİ' oldu: ikisi de belgeli. Baloncuk metnin denetiminden geçmiyor, o yüzden dogrula_metin.py'ye slaytları da tarayan bir avcı eklendi."
   },
   "_bolum_basliklari_en": {
     "_notu": "metin_en.md ile birebir",

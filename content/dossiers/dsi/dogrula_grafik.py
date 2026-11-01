@@ -89,20 +89,42 @@ for gid, g in TANIM["grafikler"].items():
                             f"{n} seri — eşleşmiyor")
 
     if g.get("tur") == "cizgi":
+        # ŞEKİL ÖNCE, İÇERİK SONRA. Bu blok bir kez YANLIŞ yazıldı: liste/x/y'yi
+        # serinin ÜST DÜZEYİNDE arıyordu ve tanım da öyle yazılmıştı, yani
+        # doğrulayıcı üreticinin hatasını onaylıyordu. Model ise
+        # `seri['noktalar']`'a bakıyor; bulamayınca seriyi null döndürüyor,
+        # grafik hiç çizilmiyor ve HİÇBİR YERDE hata çıkmıyor. §8.14.2'nin
+        # dersi: doğrulayıcı üreticinin varsayımını paylaşırsa ikisi aynı yönde
+        # yanılır. Dayanak artık dossier_chart.dart/CizgiSeri._coz.
         for i, s in enumerate(g.get("seriler", [])):
-            if "liste" in s:
-                kayitlar = coz(s["liste"][1:]) if isinstance(s["liste"], str) else None
-                xa = s.get("x")
-                if not kayitlar or not xa:
-                    hata.append(f"{iz}.seriler[{i}]: liste/x eksik"); continue
-                for k in kayitlar:
-                    x = k.get(xa)
-                    if not isinstance(x, (int, float)) or isinstance(x, bool):
-                        hata.append(f"{iz}.seriler[{i}]: x ekseni SAYISAL DEĞİL "
-                                    f"({x!r}) — seri sessizce boş kalır")
-                        break
-            elif "harita" not in s:
-                hata.append(f"{iz}.seriler[{i}]: ne 'liste' ne 'harita' var")
+            for kacak in ("liste", "harita", "x", "y"):
+                if kacak in s:
+                    hata.append(f"{iz}.seriler[{i}]: '{kacak}' serinin üst "
+                                "düzeyinde — model onu 'noktalar' ALTINDA arıyor, "
+                                "burada kalırsa grafik sessizce çizilmez")
+            n = s.get("noktalar")
+            if not isinstance(n, dict):
+                hata.append(f"{iz}.seriler[{i}]: 'noktalar' sözlüğü yok")
+                continue
+            if "harita" in n:
+                continue
+            if "liste" not in n:
+                hata.append(f"{iz}.seriler[{i}].noktalar: ne 'liste' ne 'harita' var")
+                continue
+            xa, ya = n.get("x"), n.get("y")
+            kayitlar = coz(n["liste"][1:]) if isinstance(n["liste"], str) else None
+            if not kayitlar or not xa or not ya:
+                hata.append(f"{iz}.seriler[{i}].noktalar: liste/x/y eksik"); continue
+            for k in kayitlar:
+                x, y = k.get(xa), k.get(ya)
+                if not isinstance(x, (int, float)) or isinstance(x, bool):
+                    hata.append(f"{iz}.seriler[{i}]: x ekseni SAYISAL DEĞİL "
+                                f"({x!r}) — seri sessizce boş kalır")
+                    break
+                if not isinstance(y, (int, float)) or isinstance(y, bool):
+                    hata.append(f"{iz}.seriler[{i}]: y ekseni SAYISAL DEĞİL "
+                                f"({y!r}) — nokta sessizce düşer")
+                    break
 
 # Kural 7 — kapsamı dar grafiğin notu bunu söylemeli
 dar = TANIM["grafikler"].get("devir_egrisi", {})

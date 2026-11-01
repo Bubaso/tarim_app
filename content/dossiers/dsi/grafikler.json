@@ -173,11 +173,14 @@
             "en": "Transferred area (groundwater)"
           },
           "rol": "vurgu",
-          "liste": "@devir_serisi.kayitlar",
-          "x": "yil",
-          "y": "alan_ha"
+          "noktalar": {
+            "liste": "@devir_serisi.kayitlar",
+            "x": "yil",
+            "y": "alan_ha"
+          }
         }
-      ]
+      ],
+      "_sekil_notu": "SERİ ŞEKLİ: liste/x/y `noktalar` ALTINDA durur. İlk yazımda üst düzeye konmuştu; @yol'lar çözüldüğü için dogrula_grafik.py geçiyordu ama model `j['noktalar']`'a bakıyor, bulamayınca seriyi null döndürüyor ve grafik HİÇ ÇİZİLMİYORDU. Geçici golden yakaladı (§8.5)."
     },
     "silsile": {
       "tur": "zaman_cizelgesi",

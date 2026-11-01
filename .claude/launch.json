@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "onizleme",
+      "runtimeExecutable": "firebase",
+      "runtimeArgs": [
+        "serve",
+        "--only",
+        "hosting",
+        "--port",
+        "5055"
+      ],
+      "port": 5055
+    }
+  ]
+}

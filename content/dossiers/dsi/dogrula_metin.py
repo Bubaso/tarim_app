@@ -13,7 +13,11 @@ BEŞ AVCI:
      alıntılardan birinin içinde geçmeli. Kanun metni ezberden yazılamaz.
   3. META CÜMLE — dosyanın nasıl yapıldığı metne giremez (§8.11).
   4. REKLAM DİLİ — kurumun tanıtım dili tırnaksız kullanılamaz (§8.14.2).
-  5. KAPSAM UYARISI — BU DOSYAYA ÖZGÜ. İki devir rakamı farklı şeyleri
+  5. EKSENİN SINIRI — "yapıyor ama işletmiyor" cümlesi kurulamaz; DSİ'nin
+     kendi işlettiği alan hiçbir kaynakta yok. Hem METİN hem HİKÂYE SLAYTLARI
+     taranıyor: slayt bir kez tam bu iddiayı taşıyarak yazıldı ve baloncuk
+     metnin denetiminden geçmiyor.
+  6. KAPSAM UYARISI — BU DOSYAYA ÖZGÜ. İki devir rakamı farklı şeyleri
      ölçüyor; 5. ve 6. bölümler kapsamını AÇIKÇA yazmak zorunda. Yazmazlarsa
      okur ikisini toplar ve bu sessiz bir hata olur.
 
@@ -251,6 +255,38 @@ def kapsam_uyarisi(dil: str, bolumler: list[tuple[str, str]]) -> None:
                         f"iki devir rakamı toplanabilir hâle geliyor")
 
 
+# ── 6. Eksenin sınırı — metin VE slaytlar ────────────────────────────────
+SINIR = {
+    "tr": ["isletmiyor", "işletmiyor", "kuran isletmez", "yapiyor ama"],
+    "en": ["does not operate", "builds but does not"],
+}
+
+
+def eksen_siniri(dil: str, bolumler: list[tuple[str, str]]) -> None:
+    for no, g in bolumler:
+        disari = sade(re.sub(r"[\"\u201c].*?[\"\u201d]", " ", g, flags=re.S))
+        for k in SINIR[dil]:
+            if sade(k) in disari:
+                hata.append(f"[{dil}] §{no} · EKSENİN SINIRI AŞILDI: '{k}' — "
+                            "DSİ'nin kendi işlettiği alan kaynakta yok")
+
+
+def slayt_siniri() -> None:
+    """Hikâye baloncuğu yayin.json'da duruyor ve metin denetiminden geçmiyor;
+    ayrı taranmazsa aynı iddia oradan yayına çıkar."""
+    yy = json.loads((KOK / "yayin.json").read_text(encoding="utf-8"))
+    for i, s in enumerate(yy.get("hikaye", {}).get("slaytlar", []), 1):
+        butun = sade(" ".join(str(v) for k, v in s.items()
+                              if not k.startswith("_") and k != "gorsel"))
+        for dil in ("tr", "en"):
+            for k in SINIR[dil]:
+                if sade(k) in butun:
+                    hata.append(f"[slayt {i}] EKSENİN SINIRI AŞILDI: '{k}'")
+        if not s.get("gorsel", "").startswith("https://tarimportali.net/"):
+            hata.append(f"[slayt {i}] GÖRSEL ADRESİ MUTLAK DEĞİL veya "
+                        "kanonik alan adında değil (§1.1.1)")
+
+
 # ── Koş ───────────────────────────────────────────────────────────────────
 bolum: dict[str, list[tuple[str, str]]] = {}
 
@@ -266,11 +302,14 @@ for dil, dosya in (("tr", "metin_tr.md"), ("en", "metin_en.md")):
     if dil == "tr":
         alinti_izi_tr(b)
     kaliplar(dil, b)
+    eksen_siniri(dil, b)
     kapsam_uyarisi(dil, b)
     bolum[dil] = b
     kelime = sum(len(g.split()) for _, g in b)
     print(f"  {dil}: {len(b)} bölüm · {kelime} kelime · "
           f"bölüm ortalaması {kelime // max(len(b), 1)}")
+
+slayt_siniri()
 
 if "tr" in bolum and "en" in bolum:
     alinti_paritesi(bolum["tr"], bolum["en"])
