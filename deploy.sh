@@ -39,13 +39,26 @@ if [[ $DO_BUILD -eq 1 ]]; then
   # `web/` için .nosync YÖNTEMİ KULLANILAMAZ: klasör git tarafından izleniyor
   # (113 dosya) ve taşınıp yerine sembolik bağ konsaydı git hepsini silinmiş
   # görürdü. node_modules'de sorun yoktu, orası zaten gitignore'da.
-  echo "▸ Varlıklar yerele çekiliyor (iCloud)…"
-  if ! find web -type f -exec cat {} + > /dev/null 2>/tmp/tarim_icloud.log; then
+  # KAPSAM 2 KASIM 2026'DA GENİŞLETİLDİ. Burada yalnızca `web/` çekiliyordu
+  # ve dağıtım tam bu yüzden düştü:
+  #
+  #   Target web_release_bundle failed: FileSystemException: readInto failed,
+  #   path = 'assets/images/logo_full.png' (OS Error: Operation timed out,
+  #   errno = 60)
+  #
+  # Flutter derlemesi `web/` dışında `assets/`, `lib/` ve `fonts/` altından da
+  # okuyor; biri bulutta duruyorsa derleme düşüyor. Korumanın kapsamı
+  # derlemenin okuduğu her yer olmalıydı.
+  KLASORLER=(); for d in web assets lib fonts; do [[ -d "$d" ]] && KLASORLER+=("$d"); done
+  echo "▸ Varlıklar yerele çekiliyor (iCloud): ${KLASORLER[*]}…"
+  cek() { find "${KLASORLER[@]}" -type f -exec cat {} + > /dev/null 2>/tmp/tarim_icloud.log; }
+  if ! cek; then
     echo "  ! bazı dosyalar okunamadı; iCloud indirmesi bekleniyor, tekrar deneniyor"
     sleep 20
-    find web -type f -exec cat {} + > /dev/null 2>/tmp/tarim_icloud.log || {
-      echo "  ✗ web/ altındaki dosyalar okunamıyor. iCloud senkronizasyonu takılmış" >&2
-      echo "    olabilir; Finder'da klasörü açıp indirmenin bitmesini bekleyin." >&2
+    cek || {
+      echo "  ✗ Dosyalar okunamıyor. iCloud senkronizasyonu takılmış olabilir;" >&2
+      echo "    Finder'da klasörü açıp indirmenin bitmesini bekleyin." >&2
+      echo "    Okunamayanlar: /tmp/tarim_icloud.log" >&2
       exit 1
     }
   fi
