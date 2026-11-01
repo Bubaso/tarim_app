@@ -3,9 +3,9 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/dsi/
 -- Üretim:  node content/dossiers/seed_dossier.mjs dsi
--- Tarih:   2026-11-01T22:42:52.032Z
+-- Tarih:   2026-11-01T23:20:35.531Z
 --
--- Bölüm: 10 · TR ~3.096 kelime · EN ~4.280 kelime
+-- Bölüm: 10 · TR ~3.079 kelime · EN ~4.263 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
 --
 -- Yeniden çalıştırılabilir: dosyayı günceller, bölümleri silip yeniden yazar.
@@ -346,9 +346,7 @@ Mardin'de Ilısu Projesi bölge müdürlüğüyle, 2012'de Atatürk Barajı işl
 başmühendisliğiyle ve 2014'te Silvan Proje Müdürlüğüyle sürüyor. İlk
 kayıttan sonuncusuna kırk yedi yıl var.
 
-### Güneydoğu Anadolu Projesi
-
-GAP dokuz ili kapsıyor ve bu illerde 2025 itibarıyla 9,59 milyon kişi
+**Güneydoğu Anadolu Projesi.** GAP dokuz ili kapsıyor ve bu illerde 2025 itibarıyla 9,59 milyon kişi
 yaşıyor. Proje tek bir yapı değil; kurumun ifadesiyle "13 adet proje
 demetinden oluşmaktadır" — yedisi Fırat, altısı Dicle havzasında. Fırat
 üzerinde Keban, Karakaya, Atatürk, Birecik ve Karkamış; Dicle ve kolları
@@ -365,9 +363,7 @@ Bu sıralama tesadüf değil. Bir hidroelektrik santral barajla birlikte
 biter; sulama ise barajdan sonra başlar ve tarlaya kadar her metresi ayrı
 bir inşaattır.
 
-### Doğu Anadolu Projesi
-
-DAP on beş ili kapsıyor, bölgede 6,53 milyon kişi yaşıyor ve Türkiye'nin
+**Doğu Anadolu Projesi.** DAP on beş ili kapsıyor, bölgede 6,53 milyon kişi yaşıyor ve Türkiye'nin
 sulanabilir tarım arazisinin %16'sı burada. Hedef 1.377.656 hektar.
 
 Bugün işletmede olan 602.436 hektar — hedefin %44'ü. 263.857 hektarda
@@ -375,9 +371,7 @@ inşaat sürüyor, 511.363 hektar hâlâ planlama ve proje aşamasında. Geriye
 kalan 775.220 hektar, yani hedefin yarısından fazlası, henüz suya
 kavuşmamış.
 
-### Konya Ovası Projesi
-
-KOP sekiz ili kapsıyor. Proje alanı 96.627 kilometrekare — Türkiye
+**Konya Ovası Projesi.** KOP sekiz ili kapsıyor. Proje alanı 96.627 kilometrekare — Türkiye
 yüzölçümünün %12,4'ü — ve burada 4,68 milyon kişi yaşıyor.
 
 Bu projeyi ötekilerden ayıran şey suyun kendisinin olmaması. Konya kapalı
@@ -392,9 +386,7 @@ KOP'un sulama alanı 1.647.239 hektar ve bunun yaklaşık %75'i sulanıyor —
 payının bu kadar yüksek olması tek başına bir ölçü: ovanın suyu yalnızca
 kanaldan değil, kuyudan da geliyor.
 
-### Beş rezervuar
-
-Türkiye'de işletmede 861 baraj var. Yüzey alanı olarak en genişleri
+**Beş rezervuar.** Türkiye'de işletmede 861 baraj var. Yüzey alanı olarak en genişleri
 Atatürk (817 km²), Keban (675 km²), Ilısu (313 km²), Karakaya (268 km²) ve
 Hirfanlı (263 km²). Atatürk Barajı'nın göl yüzeyi, 1954'te kurumun ilk
 bölge müdürlüklerinden birinin yanı başında olduğu Hirfanlı'nın 3,1 katı.
@@ -441,9 +433,7 @@ Atatürk Dam operations chief engineering office in 2012 and the Silvan
 Project Directorate in 2014. Forty-seven years separate the first entry
 from the last.
 
-### The Southeastern Anatolia Project
-
-GAP covers nine provinces, home to 9.59 million people as of 2025. The
+**The Southeastern Anatolia Project.** GAP covers nine provinces, home to 9.59 million people as of 2025. The
 project is not a single structure; in the institution's words it "13 adet
 proje demetinden oluşmaktadır" — it consists of thirteen project bundles,
 seven in the Euphrates basin and six in the Tigris. On the Euphrates stand
@@ -462,9 +452,7 @@ That order is no accident. A hydroelectric plant is finished together with
 its dam; irrigation begins after the dam, and every metre of it down to the
 field is a separate construction.
 
-### The Eastern Anatolia Project
-
-DAP covers fifteen provinces, 6.53 million people live in the region, and
+**The Eastern Anatolia Project.** DAP covers fifteen provinces, 6.53 million people live in the region, and
 16% of Türkiye's irrigable agricultural land lies there. The target is
 1,377,656 hectares.
 
@@ -473,9 +461,7 @@ under way on 263,857 hectares and 511,363 hectares are still at the
 planning and project stage. The remaining 775,220 hectares — more than half
 the target — have yet to receive water.
 
-### The Konya Plain Project
-
-KOP covers eight provinces. The project area is 96,627 square kilometres —
+**The Konya Plain Project.** KOP covers eight provinces. The project area is 96,627 square kilometres —
 12.4% of Türkiye's surface — and 4.68 million people live in it.
 
 What sets this project apart from the others is that the water is not
@@ -492,9 +478,7 @@ irrigated — 717,817 hectares from surface water, 519,601 from groundwater.
 That the groundwater share should be so high is a measure in itself: the
 plain's water comes not only from the canal but from the well.
 
-### Five reservoirs
-
-There are 861 dams in operation in Türkiye. The widest by surface area are
+**Five reservoirs.** There are 861 dams in operation in Türkiye. The widest by surface area are
 Atatürk (817 km²), Keban (675 km²), Ilısu (313 km²), Karakaya (268 km²) and
 Hirfanlı (263 km²). The lake surface of the Atatürk Dam is 3.1 times that
 of Hirfanlı — beside which, in 1954, the institution placed one of its first
@@ -673,12 +657,10 @@ O başkasının ne olduğunu 8 Mart 2011 tarihli ve 6172 sayılı Sulama Birlikl
 Kanunu tanımlıyor (RG 22 Mart 2011 · 27882). Kanunun tanımlar maddesi devri
 şöyle açıklıyor:
 
-> **Devir:** DSİ tarafından inşa edilmiş veya halen inşa edilmekte olan ya da
-> inşa edilmesi planlanan sulama maksatlı tesislerin işletme, bakım, onarım
-> ve yönetim sorumluluğunun, DSİ ve birlik arasında imzalanan sözleşme
-> hükümleri uyarınca birliklere devredilmesini
->
-> — 6172 sayılı Kanun, Madde 2/e
+*"Devir: DSİ tarafından inşa edilmiş veya halen inşa edilmekte olan ya da
+inşa edilmesi planlanan sulama maksatlı tesislerin işletme, bakım, onarım ve
+yönetim sorumluluğunun, DSİ ve birlik arasında imzalanan sözleşme hükümleri
+uyarınca birliklere devredilmesini..."* — 6172 sayılı Kanun, Madde 2/e.
 
 Dört sorumluluk sayılıyor: işletme, bakım, onarım, yönetim. Sayılmayan şey
 mülkiyet — ve bu bir yorum değil, ölçülebilir bir durum: *mülkiyet* kelimesi
@@ -724,12 +706,11 @@ What that somebody else is, is defined by Law 6172, the Irrigation
 Associations Law of 8 March 2011 (Official Gazette, 22 March 2011, issue
 27882). The law's definitions article explains transfer as follows:
 
-> **Transfer:** the handing over to the associations, under the terms of a
-> contract signed between DSİ and the association, of the responsibility for
-> the operation, maintenance, repair and management of irrigation schemes
-> built, currently being built or planned to be built by DSİ
->
-> — Law 6172, Article 2(e)
+*"Transfer: the handing over to the associations, under the terms of a
+contract signed between DSİ and the association, of the responsibility for
+the operation, maintenance, repair and management of irrigation schemes
+built, currently being built or planned to be built by DSİ..."* — Law 6172,
+Article 2(e).
 
 Four responsibilities are listed: operation, maintenance, repair,
 management. What is not listed is ownership — and this is not an
@@ -783,12 +764,11 @@ Türkiye'nin yaptığı şeyin uluslararası literatürde bir adı var: *irrigat
 management transfer*, sulama yönetiminin devri. FAO'nun bu konudaki
 kılavuzu terimi şöyle tanımlıyor:
 
-> The term 'irrigation management transfer' means the relocation of
-> responsibility and authority for irrigation management from government
-> agencies to non-governmental organizations, such as water users'
-> associations.
->
-> — FAO, *Transfer of irrigation management services: guidelines*
+*"The term 'irrigation management transfer' means the relocation of
+responsibility and authority for irrigation management from government
+agencies to non-governmental organizations, such as water users'
+associations."* — FAO, Transfer of irrigation management services:
+guidelines.
 
 Tanım 6172 sayılı Kanunun yaptığı şeyin birebir karşılığı: sorumluluk ve
 yetki, kamu kurumundan hükümet dışı bir örgüte geçiyor.
@@ -800,9 +780,7 @@ management from one organization to another" söz konusudur — sorumluluk
 başka bir tüzel kişiye geçer. Sulama birliği DSİ'nin bir şubesi değil, ayrı
 bir tüzel kişiliktir; Türkiye'deki devir bu yüzden ikinci sınıfa giriyor.
 
-### Türkiye tablodaki satırlardan biri
-
-FAO'nun sonuç raporu, ülke profillerinden derlenmiş bir tablo veriyor: hangi
+**Türkiye tablodaki satırlardan biri.** FAO'nun sonuç raporu, ülke profillerinden derlenmiş bir tablo veriyor: hangi
 ülke, hangi idari düzeyde, hangi tesisleri, hangi hidrolik kademeye kadar ve
 ne kadar yetkiyle devretti. Tabloda otuz üç ülke var — Arnavutluk, Arjantin,
 Ermenistan, Avustralya, Bangladeş, Bulgaristan, Çin, Kolombiya, Kosta Rika,
@@ -843,12 +821,11 @@ What Türkiye did has a name in the international literature: *irrigation
 management transfer*. FAO's guidelines on the subject define the term as
 follows:
 
-> The term 'irrigation management transfer' means the relocation of
-> responsibility and authority for irrigation management from government
-> agencies to non-governmental organizations, such as water users'
-> associations.
->
-> — FAO, *Transfer of irrigation management services: guidelines*
+*"The term 'irrigation management transfer' means the relocation of
+responsibility and authority for irrigation management from government
+agencies to non-governmental organizations, such as water users'
+associations."* — FAO, Transfer of irrigation management services:
+guidelines.
 
 The definition is an exact match for what Law 6172 does: responsibility and
 authority pass from a public agency to a non-governmental organisation.
@@ -861,9 +838,7 @@ responsibility passes to a different legal person. An irrigation association
 is not a branch of DSİ but a legal person in its own right, which is why the
 Turkish transfer belongs in the second category.
 
-### Türkiye is one row in the table
-
-FAO's results report gives a table compiled from country profiles: which
+**Türkiye is one row in the table.** FAO's results report gives a table compiled from country profiles: which
 country transferred which schemes, at what administrative level, down to
 which hydraulic level, and with how much authority. Thirty-three countries
 appear in it — Albania, Argentina, Armenia, Australia, Bangladesh, Bulgaria,

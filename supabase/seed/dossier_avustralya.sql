@@ -3,7 +3,7 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/avustralya/
 -- Üretim:  node content/dossiers/seed_dossier.mjs avustralya
--- Tarih:   2026-10-05T11:57:12.940Z
+-- Tarih:   2026-11-01T23:20:35.625Z
 --
 -- Bölüm: 17 · TR ~4.134 kelime · EN ~4.706 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
