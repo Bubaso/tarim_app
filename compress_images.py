@@ -26,6 +26,7 @@
 import io
 import os
 import sys
+import time
 import urllib.parse
 
 import requests
@@ -34,6 +35,26 @@ from PIL import Image
 sys.path.append(os.environ.get("TARIM_PIPELINE",
                                "/Users/BURHAN/Desktop/tarim_ai_pipeline"))
 from src.config import supabase_client as supabase  # noqa: E402
+
+def dene(islem, ne, kez=5):
+    """Supabase storage/db işlemini geri çekilmeli yeniden dener.
+
+    Supabase 429 `too_many_connections` veriyor: betik 1.889 dosyayı
+    arka arkaya indirip yükleyip güncelleyince bağlantı havuzunu doyuruyor
+    ve 22. dosyada düşüyordu. Beklemeden tekrar denemek aynı duvara
+    çarpar; süre ikiye katlanarak artıyor.
+    """
+    for i in range(kez):
+        try:
+            return islem()
+        except Exception as e:
+            son = "429" in str(e) or "too_many_connections" in str(e)
+            if not son or i == kez - 1:
+                raise
+            bekle = 2 ** i
+            print(f"    · {ne}: 429, {bekle}s bekleniyor ({i+1}/{kez})")
+            time.sleep(bekle)
+
 
 BUCKET = "article-images"
 ALANLAR = ("image_url", "story_image_url")
@@ -133,18 +154,23 @@ def main(uygula, limit):
         if not uygula:
             continue
 
-        supabase.storage.from_(BUCKET).upload(
+        dene(lambda: supabase.storage.from_(BUCKET).upload(
             file=yeni, path=yeni_yol,
-            file_options={"content-type": "image/webp", "upsert": "true"})
+            file_options={"content-type": "image/webp", "upsert": "true"}),
+            f"yukle {yeni_yol}")
         yeni_adres = supabase.storage.from_(BUCKET).get_public_url(yeni_yol) \
             .split("?")[0]
 
         # ÖNCE bütün referanslar, SONRA silme. Ters sırada tek bir alan
         # güncellenmemiş kalsa o alan ölü adrese düşerdi.
         for hid, alan in kullanim[p]:
-            supabase.table("articles").update({alan: yeni_adres}) \
-                .eq("id", hid).execute()
-        supabase.storage.from_(BUCKET).remove([p])
+            dene(lambda h=hid, al=alan: supabase.table("articles")
+                 .update({al: yeni_adres}).eq("id", h).execute(),
+                 f"guncelle {hid[:8]}")
+        dene(lambda: supabase.storage.from_(BUCKET).remove([p]), f"sil {p}")
+        # Bağlantı havuzuna nefes aldır: sınır dosya başına değil zaman
+        # başına işliyor.
+        time.sleep(0.25)
 
     print(f"\n=== {onceki/1e6:.1f} MB → {sonraki/1e6:.1f} MB "
           f"(kazanç {(onceki-sonraki)/1e6:.1f} MB) ===")
