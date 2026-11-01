@@ -13,11 +13,15 @@ BEŞ AVCI:
      alıntılardan birinin içinde geçmeli. Kanun metni ezberden yazılamaz.
   3. META CÜMLE — dosyanın nasıl yapıldığı metne giremez (§8.11).
   4. REKLAM DİLİ — kurumun tanıtım dili tırnaksız kullanılamaz (§8.14.2).
-  5. EKSENİN SINIRI — "yapıyor ama işletmiyor" cümlesi kurulamaz; DSİ'nin
+  5. ÇİZİCİNİN TANIMADIĞI BİÇİM — `dossier_prose.dart` yalnızca paragraf,
+     `**kalın**`, `*italik*` ve boru işaretli tablo tanıyor; sözleşmesinde
+     "alt başlık yok" yazılı. Gövdeye `###` yazılırsa EKRANA OLDUĞU GİBİ
+     basılır. Bir kez oldu ve canlı önizlemede kullanıcı yakaladı.
+  6. EKSENİN SINIRI — "yapıyor ama işletmiyor" cümlesi kurulamaz; DSİ'nin
      kendi işlettiği alan hiçbir kaynakta yok. Hem METİN hem HİKÂYE SLAYTLARI
      taranıyor: slayt bir kez tam bu iddiayı taşıyarak yazıldı ve baloncuk
      metnin denetiminden geçmiyor.
-  6. KAPSAM UYARISI — BU DOSYAYA ÖZGÜ. İki devir rakamı farklı şeyleri
+  7. KAPSAM UYARISI — BU DOSYAYA ÖZGÜ. İki devir rakamı farklı şeyleri
      ölçüyor; 5. ve 6. bölümler kapsamını AÇIKÇA yazmak zorunda. Yazmazlarsa
      okur ikisini toplar ve bu sessiz bir hata olur.
 
@@ -258,6 +262,30 @@ def kapsam_uyarisi(dil: str, bolumler: list[tuple[str, str]]) -> None:
                         f"iki devir rakamı toplanabilir hâle geliyor")
 
 
+# ── 5. Çizicinin tanımadığı biçim ────────────────────────────────────────
+# Markdown'ın tamamı DEĞİL, dört yapılık bir alt kümesi destekleniyor.
+# Desteklenmeyen her şey ham olarak ekrana basılır — hata vermez, sessizce
+# çirkinleşir. Bölüm başlıkları (## N.) ayrı alanda duruyor; gövdedeki
+# başlık işareti her zaman hatadır.
+BICIM_YASAK = [
+    (r"^\s*#{1,6}\s", "başlık işareti (#) — çizici alt başlık tanımıyor"),
+    (r"^\s*[-*+]\s+\S", "madde imi — çizici liste tanımıyor"),
+    (r"^\s*>\s*\S", "alıntı bloğu (>) — çizicide böyle bir blok tipi yok; "
+                       "satır düz paragrafa karışır ve '>' ekrana basılır"),
+    (r"\[[^\]]+\]\([^)]+\)", "bağlantı — çizici bağlantı tanımıyor"),
+    (r"^```", "kod bloğu"),
+]
+
+
+def bicim_denetimi(dil: str, bolumler: list[tuple[str, str]]) -> None:
+    for no, g in bolumler:
+        for satir in g.split("\n"):
+            for desen, mesaj in BICIM_YASAK:
+                if mesaj and re.match(desen, satir):
+                    hata.append(f"[{dil}] §{no} · ÇİZİCİ BU BİÇİMİ TANIMIYOR: "
+                                f"{mesaj} → {satir[:60]!r}")
+
+
 # ── 6. Eksenin sınırı — metin VE slaytlar ────────────────────────────────
 SINIR = {
     "tr": ["isletmiyor", "işletmiyor", "kuran isletmez", "yapiyor ama"],
@@ -305,6 +333,7 @@ for dil, dosya in (("tr", "metin_tr.md"), ("en", "metin_en.md")):
     if dil == "tr":
         alinti_izi_tr(b)
     kaliplar(dil, b)
+    bicim_denetimi(dil, b)
     eksen_siniri(dil, b)
     kapsam_uyarisi(dil, b)
     bolum[dil] = b

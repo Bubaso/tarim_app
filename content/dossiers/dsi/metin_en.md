@@ -212,9 +212,7 @@ Atatürk Dam operations chief engineering office in 2012 and the Silvan
 Project Directorate in 2014. Forty-seven years separate the first entry
 from the last.
 
-### The Southeastern Anatolia Project
-
-GAP covers nine provinces, home to 9.59 million people as of 2025. The
+**The Southeastern Anatolia Project.** GAP covers nine provinces, home to 9.59 million people as of 2025. The
 project is not a single structure; in the institution's words it "13 adet
 proje demetinden oluşmaktadır" — it consists of thirteen project bundles,
 seven in the Euphrates basin and six in the Tigris. On the Euphrates stand
@@ -233,9 +231,7 @@ That order is no accident. A hydroelectric plant is finished together with
 its dam; irrigation begins after the dam, and every metre of it down to the
 field is a separate construction.
 
-### The Eastern Anatolia Project
-
-DAP covers fifteen provinces, 6.53 million people live in the region, and
+**The Eastern Anatolia Project.** DAP covers fifteen provinces, 6.53 million people live in the region, and
 16% of Türkiye's irrigable agricultural land lies there. The target is
 1,377,656 hectares.
 
@@ -244,9 +240,7 @@ under way on 263,857 hectares and 511,363 hectares are still at the
 planning and project stage. The remaining 775,220 hectares — more than half
 the target — have yet to receive water.
 
-### The Konya Plain Project
-
-KOP covers eight provinces. The project area is 96,627 square kilometres —
+**The Konya Plain Project.** KOP covers eight provinces. The project area is 96,627 square kilometres —
 12.4% of Türkiye's surface — and 4.68 million people live in it.
 
 What sets this project apart from the others is that the water is not
@@ -263,9 +257,7 @@ irrigated — 717,817 hectares from surface water, 519,601 from groundwater.
 That the groundwater share should be so high is a measure in itself: the
 plain's water comes not only from the canal but from the well.
 
-### Five reservoirs
-
-There are 861 dams in operation in Türkiye. The widest by surface area are
+**Five reservoirs.** There are 861 dams in operation in Türkiye. The widest by surface area are
 Atatürk (817 km²), Keban (675 km²), Ilısu (313 km²), Karakaya (268 km²) and
 Hirfanlı (263 km²). The lake surface of the Atatürk Dam is 3.1 times that
 of Hirfanlı — beside which, in 1954, the institution placed one of its first
@@ -385,12 +377,11 @@ What that somebody else is, is defined by Law 6172, the Irrigation
 Associations Law of 8 March 2011 (Official Gazette, 22 March 2011, issue
 27882). The law's definitions article explains transfer as follows:
 
-> **Transfer:** the handing over to the associations, under the terms of a
-> contract signed between DSİ and the association, of the responsibility for
-> the operation, maintenance, repair and management of irrigation schemes
-> built, currently being built or planned to be built by DSİ
->
-> — Law 6172, Article 2(e)
+*"Transfer: the handing over to the associations, under the terms of a
+contract signed between DSİ and the association, of the responsibility for
+the operation, maintenance, repair and management of irrigation schemes
+built, currently being built or planned to be built by DSİ..."* — Law 6172,
+Article 2(e).
 
 Four responsibilities are listed: operation, maintenance, repair,
 management. What is not listed is ownership — and this is not an
@@ -450,12 +441,11 @@ What Türkiye did has a name in the international literature: *irrigation
 management transfer*. FAO's guidelines on the subject define the term as
 follows:
 
-> The term 'irrigation management transfer' means the relocation of
-> responsibility and authority for irrigation management from government
-> agencies to non-governmental organizations, such as water users'
-> associations.
->
-> — FAO, *Transfer of irrigation management services: guidelines*
+*"The term 'irrigation management transfer' means the relocation of
+responsibility and authority for irrigation management from government
+agencies to non-governmental organizations, such as water users'
+associations."* — FAO, Transfer of irrigation management services:
+guidelines.
 
 The definition is an exact match for what Law 6172 does: responsibility and
 authority pass from a public agency to a non-governmental organisation.
@@ -468,9 +458,7 @@ responsibility passes to a different legal person. An irrigation association
 is not a branch of DSİ but a legal person in its own right, which is why the
 Turkish transfer belongs in the second category.
 
-### Türkiye is one row in the table
-
-FAO's results report gives a table compiled from country profiles: which
+**Türkiye is one row in the table.** FAO's results report gives a table compiled from country profiles: which
 country transferred which schemes, at what administrative level, down to
 which hydraulic level, and with how much authority. Thirty-three countries
 appear in it — Albania, Argentina, Armenia, Australia, Bangladesh, Bulgaria,

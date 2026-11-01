@@ -194,9 +194,7 @@ Mardin'de Ilısu Projesi bölge müdürlüğüyle, 2012'de Atatürk Barajı işl
 başmühendisliğiyle ve 2014'te Silvan Proje Müdürlüğüyle sürüyor. İlk
 kayıttan sonuncusuna kırk yedi yıl var.
 
-### Güneydoğu Anadolu Projesi
-
-GAP dokuz ili kapsıyor ve bu illerde 2025 itibarıyla 9,59 milyon kişi
+**Güneydoğu Anadolu Projesi.** GAP dokuz ili kapsıyor ve bu illerde 2025 itibarıyla 9,59 milyon kişi
 yaşıyor. Proje tek bir yapı değil; kurumun ifadesiyle "13 adet proje
 demetinden oluşmaktadır" — yedisi Fırat, altısı Dicle havzasında. Fırat
 üzerinde Keban, Karakaya, Atatürk, Birecik ve Karkamış; Dicle ve kolları
@@ -213,9 +211,7 @@ Bu sıralama tesadüf değil. Bir hidroelektrik santral barajla birlikte
 biter; sulama ise barajdan sonra başlar ve tarlaya kadar her metresi ayrı
 bir inşaattır.
 
-### Doğu Anadolu Projesi
-
-DAP on beş ili kapsıyor, bölgede 6,53 milyon kişi yaşıyor ve Türkiye'nin
+**Doğu Anadolu Projesi.** DAP on beş ili kapsıyor, bölgede 6,53 milyon kişi yaşıyor ve Türkiye'nin
 sulanabilir tarım arazisinin %16'sı burada. Hedef 1.377.656 hektar.
 
 Bugün işletmede olan 602.436 hektar — hedefin %44'ü. 263.857 hektarda
@@ -223,9 +219,7 @@ inşaat sürüyor, 511.363 hektar hâlâ planlama ve proje aşamasında. Geriye
 kalan 775.220 hektar, yani hedefin yarısından fazlası, henüz suya
 kavuşmamış.
 
-### Konya Ovası Projesi
-
-KOP sekiz ili kapsıyor. Proje alanı 96.627 kilometrekare — Türkiye
+**Konya Ovası Projesi.** KOP sekiz ili kapsıyor. Proje alanı 96.627 kilometrekare — Türkiye
 yüzölçümünün %12,4'ü — ve burada 4,68 milyon kişi yaşıyor.
 
 Bu projeyi ötekilerden ayıran şey suyun kendisinin olmaması. Konya kapalı
@@ -240,9 +234,7 @@ KOP'un sulama alanı 1.647.239 hektar ve bunun yaklaşık %75'i sulanıyor —
 payının bu kadar yüksek olması tek başına bir ölçü: ovanın suyu yalnızca
 kanaldan değil, kuyudan da geliyor.
 
-### Beş rezervuar
-
-Türkiye'de işletmede 861 baraj var. Yüzey alanı olarak en genişleri
+**Beş rezervuar.** Türkiye'de işletmede 861 baraj var. Yüzey alanı olarak en genişleri
 Atatürk (817 km²), Keban (675 km²), Ilısu (313 km²), Karakaya (268 km²) ve
 Hirfanlı (263 km²). Atatürk Barajı'nın göl yüzeyi, 1954'te kurumun ilk
 bölge müdürlüklerinden birinin yanı başında olduğu Hirfanlı'nın 3,1 katı.
@@ -355,12 +347,10 @@ O başkasının ne olduğunu 8 Mart 2011 tarihli ve 6172 sayılı Sulama Birlikl
 Kanunu tanımlıyor (RG 22 Mart 2011 · 27882). Kanunun tanımlar maddesi devri
 şöyle açıklıyor:
 
-> **Devir:** DSİ tarafından inşa edilmiş veya halen inşa edilmekte olan ya da
-> inşa edilmesi planlanan sulama maksatlı tesislerin işletme, bakım, onarım
-> ve yönetim sorumluluğunun, DSİ ve birlik arasında imzalanan sözleşme
-> hükümleri uyarınca birliklere devredilmesini
->
-> — 6172 sayılı Kanun, Madde 2/e
+*"Devir: DSİ tarafından inşa edilmiş veya halen inşa edilmekte olan ya da
+inşa edilmesi planlanan sulama maksatlı tesislerin işletme, bakım, onarım ve
+yönetim sorumluluğunun, DSİ ve birlik arasında imzalanan sözleşme hükümleri
+uyarınca birliklere devredilmesini..."* — 6172 sayılı Kanun, Madde 2/e.
 
 Dört sorumluluk sayılıyor: işletme, bakım, onarım, yönetim. Sayılmayan şey
 mülkiyet — ve bu bir yorum değil, ölçülebilir bir durum: *mülkiyet* kelimesi
@@ -412,12 +402,11 @@ Türkiye'nin yaptığı şeyin uluslararası literatürde bir adı var: *irrigat
 management transfer*, sulama yönetiminin devri. FAO'nun bu konudaki
 kılavuzu terimi şöyle tanımlıyor:
 
-> The term 'irrigation management transfer' means the relocation of
-> responsibility and authority for irrigation management from government
-> agencies to non-governmental organizations, such as water users'
-> associations.
->
-> — FAO, *Transfer of irrigation management services: guidelines*
+*"The term 'irrigation management transfer' means the relocation of
+responsibility and authority for irrigation management from government
+agencies to non-governmental organizations, such as water users'
+associations."* — FAO, Transfer of irrigation management services:
+guidelines.
 
 Tanım 6172 sayılı Kanunun yaptığı şeyin birebir karşılığı: sorumluluk ve
 yetki, kamu kurumundan hükümet dışı bir örgüte geçiyor.
@@ -429,9 +418,7 @@ management from one organization to another" söz konusudur — sorumluluk
 başka bir tüzel kişiye geçer. Sulama birliği DSİ'nin bir şubesi değil, ayrı
 bir tüzel kişiliktir; Türkiye'deki devir bu yüzden ikinci sınıfa giriyor.
 
-### Türkiye tablodaki satırlardan biri
-
-FAO'nun sonuç raporu, ülke profillerinden derlenmiş bir tablo veriyor: hangi
+**Türkiye tablodaki satırlardan biri.** FAO'nun sonuç raporu, ülke profillerinden derlenmiş bir tablo veriyor: hangi
 ülke, hangi idari düzeyde, hangi tesisleri, hangi hidrolik kademeye kadar ve
 ne kadar yetkiyle devretti. Tabloda otuz üç ülke var — Arnavutluk, Arjantin,
 Ermenistan, Avustralya, Bangladeş, Bulgaristan, Çin, Kolombiya, Kosta Rika,
