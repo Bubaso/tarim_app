@@ -1,0 +1,149 @@
+{
+  "_dosya": "DSİ — Kurum Dosyası Sayı 05 · tasarım künyesi",
+  "_amac": "Evrak görsel dilinin bu dosyadaki uygulaması. DossierTheme bu dosyadan üretilir; kodda serbest renk yazılmaz.",
+  "_kural": "Buradaki hiçbir kontrast sayısı 'yaklaşık' değil. Hepsi content/dossiers/_ortak/kontrast.py'den; palet değişirse betik yeniden koşar ve bu sayılar güncellenir.",
+  "_kontrast_betigi": "content/dossiers/_ortak/kontrast.py",
+  "tez_cumlesi": {
+    "tr": "Kuraklıktan doğan kurum suyu getirdi, işletmesini devretti: elli üç yılda dokuz yüz otuz altı tesis.",
+    "en": "An institution born of drought brought the water and handed over the running of it: 936 facilities across fifty-three years.",
+    "gerekce": "Cümle İDDİA değil tarif (§8.2). Üç damarı da taşıyor: kuruluş sebebi (kuraklık), kurumun işi (suyu getirmek) ve dosyanın ekseni (devir). Ziraat'in kalıbı izlendi — tanıtıcı bir satır ve TEK ölçü.",
+    "_dayanak": "Kuraklık: kurumun kendi Hakkımızda sayfası, 1929'daki 'şiddetli kuraklık ve kıtlık'. Elli üç yıl: devir_serisi'nin ilk (1967) ve son (2020) kaydının farkı, turetilmis.devir_suresi_yil'den. Dokuz yüz otuz altı tesis: 2025 Faaliyet Raporu Tablo 14, satırlardan yeniden toplandı.",
+    "_sayi_yaziyla": "Türetilmiş sayı yazıyla yazılır (§8.14.2). 'Elli üç' iki tarihin farkı, 'dokuz yüz otuz altı' tablo toplamı — ikisi de havuzda kalem değil.",
+    "_ne_demiyor": "'Yapıyor ama işletmiyor' DEMİYOR ve diyemez: DSİ'nin kendi işlettiği ulusal alan hiçbir kaynakta tek rakam olarak yok. Cümle devrin ölçeğini ve süresini söylüyor, oranını değil."
+  },
+  "kume": {
+    "ad": "Su-toprak",
+    "kagit_vurgu": "#11616B",
+    "kapak_vurgu": "#4FC0CB",
+    "gerekce": "Dizinin altıncı kümesi ve ilk kez kullanılıyor; kontrast.py'de baştan tanımlıydı. TMO kırmızı = kamu gücü (fiyat açıklayarak müdahale), Ziraat yeşil = finans (kredi açarak), Tarım Kredi toprak = üretici örgütü, TAGEM mor = bilgi. DSİ bunların hiçbiri değil: ne fiyat açıklıyor ne kredi veriyor ne örgüt. BETON VE SU döküyor. Arşivde beşinci bir renkle okunmalı."
+  },
+  "palet": {
+    "ad": "Evrak — kağıt gövde",
+    "kaynak_fikir": "Kurumun manzarası yok; maddi karşılığı kağıttır. Zemin arşiv kağıdı: haberin sıcak kremine (#F6F1E7) karşı soğuk gri. Dizi kimliği; dosyaya göre değişmiyor.",
+    "mod": "KOYU KAPAK → KAĞIT GÖVDE. Sistem açık/koyu tercihini izlemez.",
+    "mod_gerekcesi": "Fiziksel dosyanın kendisi: dışı mukavva kapak, içi kağıt. Okur ana sayfadan girip tam ekran koyu kapakla karşılaşıyor, kaydırınca kağıda iniyor.",
+    "sayfa": {
+      "zemin": {
+        "hex": "#E3E7E5",
+        "rol": "Sayfa zemini — arşiv kağıdı",
+        "kontrast_app_krem": 1.109
+      },
+      "yuzey": {
+        "hex": "#F0F2F0",
+        "rol": "Kart, tablo, kayıt bloğu",
+        "kontrast_zemin": 1.11
+      },
+      "murekkep": {
+        "hex": "#15191A",
+        "rol": "Gövde metni",
+        "kontrast_zemin": 14.19,
+        "kontrast_yuzey": 15.74
+      },
+      "sessiz": {
+        "hex": "#575F61",
+        "rol": "Meta, kaynak satırı, altyazı",
+        "kontrast_zemin": 5.23,
+        "kontrast_yuzey": 5.81
+      },
+      "vurgu": {
+        "hex": "#11616B",
+        "rol": "Su-toprak — rakamlar, başlık vurguları, devir serisi",
+        "kontrast_zemin": 5.71,
+        "kontrast_yuzey": 6.34
+      },
+      "ikincil": {
+        "hex": "#8A5410",
+        "rol": "Karşılaştırmanın ikinci ölçüsü — tesis sayısı payı",
+        "kontrast_zemin": 5.01,
+        "kontrast_yuzey": 5.56,
+        "_not": "Üretici örgütü kümesinin rengi ödünç alındı. Gerekçesi var: ikili_cubuk'ta karşılaştırılan ikinci ölçü DEVRALANLARIN sayısı, yani üretici örgütlerinin kendisi. Küme kimliğiyle çakışmıyor çünkü bu dosyanın kümesi kapakta ve vurgularda okunuyor."
+      },
+      "cizgi": {
+        "hex": "#C0C6C3",
+        "rol": "SADECE dekoratif ayırıcı — marj rayı",
+        "kontrast_zemin": 1.39,
+        "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz; eksen ve odak halkası için cizgiVurgu kullanılır."
+      },
+      "cizgiVurgu": {
+        "hex": "#767E7C",
+        "rol": "Grafik ekseni, ızgara, odak halkası",
+        "kontrast_zemin": 3.34,
+        "kontrast_yuzey": 3.7
+      }
+    },
+    "kapak": {
+      "zemin": {
+        "hex": "#131718",
+        "rol": "Kapak zemini — mukavva"
+      },
+      "murekkep": {
+        "hex": "#F0F2F0",
+        "rol": "Kapak başlığı",
+        "kontrast_zemin": 16.04
+      },
+      "sessiz": {
+        "hex": "#98A1A2",
+        "rol": "Seri etiketi, belge satırı",
+        "kontrast_zemin": 6.84
+      },
+      "vurgu": {
+        "hex": "#4FC0CB",
+        "rol": "Su-toprak, kapak karşılığı",
+        "kontrast_zemin": 8.37
+      },
+      "yuzey": {
+        "hex": "#1D2325",
+        "rol": "Kapak üstü blok",
+        "kontrast_zemin": 1.13
+      }
+    },
+    "serit": {
+      "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; krem zemin.",
+      "murekkep": {
+        "hex": "#15191A",
+        "kontrast_krem": 15.73
+      },
+      "vurguKoyu": {
+        "hex": "#11616B",
+        "rol": "Su-toprak'ın krem zemindeki karşılığı",
+        "kontrast_krem": 6.33
+      },
+      "ikincilKoyu": {
+        "hex": "#8A5410",
+        "kontrast_krem": 5.56
+      },
+      "_ayrisma_notu": "Avustralya'da öğrenildi: şerit vurgusu uygulamanın yapısal yeşiline (#2F4B2E) PARLAKLIK bakımından yakın düşerse kart sayfanın kendi renginden ayrışmıyor. #11616B ile darkGreen arasındaki oran 1,36 — Avustralya'nın ilk hâlindeki 1,03'ün ve Hollanda'da belgelenen çökme deseninin (1,05) üstünde.",
+      "_olcum_hatasi": "BU DÖRT SAYI İLK YAZIMDA YANLIŞTI ve kayda geçiyor. Şerit kontrastlarını kontrast.py'den okumadım, TAHMİN ETTİM: 14,77 / 5,52 / 4,85 / 1,61 yazmıştım; doğrusu 15,73 / 6,33 / 5,56 / 1,36. Hiçbiri kararı değiştirmedi — üçü de AA üstünde, ayrışma hâlâ çökme deseninin üstünde — ama §8.4 'hiçbir kontrast sayısı yaklaşık değildir' diyor ve §8.14.3 ölçülmemiş varsayımın belgeye girmesini 'sessiz bir mayın' sayıyor. kontrast.py şerit zeminini (krem #F6F1E7) hesaplamıyor; bu dosyanın değerleri ayrıca hesaplandı."
+    }
+  },
+  "motif": {
+    "ad": "Cetvel çizgisi",
+    "tanim": "Defter ve resmî evrak kağıdının marj rayı: solda dikey ray, aralarda ince yatay kural çizgileri.",
+    "gerekce": "Kuruma göre DEĞİŞMEZ, dizi kimliğidir (§8.4). Ülke dosyalarında her dosyanın kendi geometrisi var (polder, bant, nokta, ızgara); kurum dizisinde geometri sabit, değişen renktir. Ray iş de yapıyor: bölüm numarası ve kayıt bloklarının girintisi ona hizalanıyor.",
+    "uygulama": {
+      "opaklik": "%8",
+      "renk": "cizgiVurgu #767E7C üzerine opaklık",
+      "bicim": "Vektör (CustomPainter) — telif yok, ölçeklenir, dosya boyutu sıfır",
+      "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+      "aralik_notu": "Izgara aralığı 24 px'in altına inmeyecek (moiré)."
+    }
+  },
+  "kapak": {
+    "yon": "Kuruluş belgelerinden kurulan tipografik kapak",
+    "gerekce": "Fotoğraf kapak TARTIŞILDI VE REDDEDİLDİ — Ziraat'teki kararın aynısı (§8.8): dizinin görsel kimliği beşinci sayıda kırılırsa hiç kurulmamış olur. Bir kimlik ancak tekrarla kurulur. Güçlü fotoğraflar metnin içine yayılacak, kapağa değil. Tipografik kapak ASIL tasarım, yedek değil (§8.4).",
+    "sinir": "Kapak bir belgeyi ALINTILAR, TAKLİT ETMEZ. Resmî Gazete anteti, mühür, arma veya kurum logosu yeniden üretilmez. Kapakta her zaman seri etiketi ve sayı numarası bulunur; ekran görüntüsü bağlamından koparıldığında bile gerçek bir resmî belge sanılamaz.",
+    "tipografi_katmani": {
+      "ust_satir": "KURUM DOSYASI · 05 · SU-TOPRAK",
+      "baslik": "DEVLET SU İŞLERİ",
+      "belge_satiri": "Sular Umum Müdürlüğü · 1929 — 6200 sayılı Kanun · 1953 — Cumhurbaşkanlığı Kararnamesi 4 · 2018",
+      "alt_satir": "tez_cumlesi.tr",
+      "_belge_satiri_gerekcesi": "Üç belge, üç hukuki kimlik — kapağın kendisi dosyanın ekseni. Üçünün de künyesi birincil kaynaktan okundu; ikisinin RG tarih ve sayısı var."
+    }
+  },
+  "_yasak": [
+    "Kurum logosu, arma, mühür, Resmî Gazete anteti — yeniden üretilmez.",
+    "Stok 'mutlu çiftçi' fotoğrafı ve dekoratif ikon seti.",
+    "Barajın kendisini kahramanlaştıran havadan çekim: dosya inşaatı değil DEVRİ anlatıyor; görsel ekseni bozmaz.",
+    "Kapakta fotoğraf (§8.8)."
+  ]
+}
