@@ -73,7 +73,79 @@
       "yukseklik": 2394,
       "en_boy": 1.556,
       "bayt": 2343722
+    },
+    "dsi_hirfanli_baraji": {
+      "dosya": "dsi_hirfanli_baraji.jpg",
+      "commons": "Hirfanlı Barajı 01.JPG",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Hirfanl%C4%B1_Baraj%C4%B1_01.JPG",
+      "atif": "Hajo-Muc",
+      "lisans": "CC BY-SA 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0",
+      "genislik": 3648,
+      "yukseklik": 2736,
+      "en_boy": 1.3333,
+      "bayt": 7201980
+    },
+    "dsi_harran_1989_sulamasiz": {
+      "dosya": "dsi_harran_1989_sulamasiz.jpg",
+      "commons": "Urfa-Harran Ovası 25 09 1989 ohne GAP-Bewässerung.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_25_09_1989_ohne_GAP-Bew%C3%A4sserung.jpg",
+      "atif": "Volker Höhfeld",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 2670,
+      "yukseklik": 1752,
+      "en_boy": 1.524,
+      "bayt": 1496711
+    },
+    "dsi_harran_2001_sulamali": {
+      "dosya": "dsi_harran_2001_sulamali.jpg",
+      "commons": "Urfa-Harran Ovası 27 08 2001 mit GAP-Bewässerung.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_27_08_2001_mit_GAP-Bew%C3%A4sserung.jpg",
+      "atif": "Volker Höhfeld",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 2415,
+      "yukseklik": 1454,
+      "en_boy": 1.6609,
+      "bayt": 1126992
+    },
+    "dsi_ataturk_baraji": {
+      "dosya": "dsi_ataturk_baraji.jpg",
+      "commons": "Atatürk Barajı'ndan bir görüntü.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_Baraj%C4%B1'ndan_bir_g%C3%B6r%C3%BCnt%C3%BC.jpg",
+      "atif": "Honacan",
+      "lisans": "CC BY-SA 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0",
+      "genislik": 2048,
+      "yukseklik": 1536,
+      "en_boy": 1.3333,
+      "bayt": 946998
+    },
+    "dsi_keban_baraji": {
+      "dosya": "dsi_keban_baraji.jpg",
+      "commons": "Keban Barajı.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Keban_Baraj%C4%B1.jpg",
+      "atif": "Ensarseker1",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 4032,
+      "yukseklik": 3024,
+      "en_boy": 1.3333,
+      "bayt": 4924196
+    },
+    "dsi_kizilirmak_hirfanli": {
+      "dosya": "dsi_kizilirmak_hirfanli.jpg",
+      "commons": "Kızılırmak bei Hirfanlı.JPG",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:K%C4%B1z%C4%B1l%C4%B1rmak_bei_Hirfanl%C4%B1.JPG",
+      "atif": "Hajo-Muc",
+      "lisans": "CC BY-SA 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0",
+      "genislik": 3648,
+      "yukseklik": 2736,
+      "en_boy": 1.3333,
+      "bayt": 6753044
     }
   },
-  "_cekilme_tarihi": "2026-11-01T20:25:27.960Z"
+  "_cekilme_tarihi": "2026-11-01T21:57:59.614Z"
 }

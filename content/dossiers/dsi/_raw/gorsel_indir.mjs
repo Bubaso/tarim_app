@@ -26,6 +26,23 @@ const UA = 'tarimportali.net dosya arastirmasi (burhanbasoglu4@gmail.com)';
 const TEMIZLE = process.argv.includes('--temizle');
 
 const SECIM = {
+
+  // ── TUR 11 (2 Kasım 2026) — her bölüme bir görsel + büyük projeler ──────
+  // Bölüm 2 — kıtlıktan doğan idare. Hirfanlı, kurumun ilk yılında yanına
+  // bölge müdürlüğü kurduğu iki yerden biri.
+  dsi_hirfanli_baraji: 'Hirfanlı Barajı 01.JPG',
+  // Bölüm 3 ve 7 — AYNI OVA, AYNI FOTOĞRAFÇI, ON İKİ YIL ARAYLA.
+  // Höhfeld'in iki karesi: 1989'da GAP sulaması yok, 2001'de var. Dosyada
+  // ayrı bölümlere konuyorlar ve iki altyazı birbirine atıf yapıyor.
+  dsi_harran_1989_sulamasiz: 'Urfa-Harran Ovası 25 09 1989 ohne GAP-Bewässerung.jpg',
+  dsi_harran_2001_sulamali: 'Urfa-Harran Ovası 27 08 2001 mit GAP-Bewässerung.jpg',
+  // Bölüm 5 — büyük projeler. Geniş panorama (9496×2846) ALINMADI: oranı
+  // 3,34 ve çizici 16:9'da sıkıştırıyor, yani kare yarıya kırpılırdı.
+  dsi_ataturk_baraji: "Atatürk Barajı'ndan bir görüntü.jpg",
+  // Bölüm 9 — kanundan kararnameye
+  dsi_keban_baraji: 'Keban Barajı.jpg',
+  // Bölüm 11 — kaynakça. Yapı değil nehrin kendisi; dosya suyla kapanıyor.
+  dsi_kizilirmak_hirfanli: 'Kızılırmak bei Hirfanlı.JPG',
   // Bölüm 1 — suyu getiren kurum
   dsi_harran_ana_kanal: 'Urfa-Harran Ovası 08 04 2004 Harran-Hauptkanal.jpg',
   // Bölüm 3-4 — ne inşa edildi

@@ -18,17 +18,18 @@
   "_iskelet_notu": "Kurum dosyasının iskeleti SABİT DEĞİL (§8.3); bu on bölüm DSİ'ye uyduğu için böyle. §8.9'un beş kategorisinden dördü dolu: kurucu fikir (§2 — kuraklık), gündelik karşılık (§7 — sulama birliği), dünyada benzeri (§9 — USBR), bıraktığı iş (§5-6 — devrin kendisi). 'Parayı nereden buldu' boş: DSİ'nin ilk finansmanı çekilen kaynaklarda yok ve uydurulmayacak.",
   "bolum_turleri": {
     "_amac": "Sayfadaki görsel ritim. anlati | belge | veri | akis.",
-    "_neden_boyle": "Belge bölümleri (3 ve 8) kanun metnine dayanıyor ve okuma zeminini değiştiriyor; aralarına veri bölümleri giriyor. İki veri bölümü (5-6) arka arkaya çünkü ikisi aynı tablonun iki yüzü — asimetri ancak ölçek görüldükten sonra anlam kazanıyor.",
+    "_neden_boyle": "Belge bölümleri (3 ve 9) kanun metnine dayanıyor ve okuma zeminini değiştiriyor. Veri çekirdeği 5-6-7'de toplu: büyük projeler, devrin süresi ve devrin asimetrisi. 4. bölüm grafiğine rağmen ANLATI — künye kartı dar bir blok, bölümün ritmi düzyazı. Tür chart_keys'ten türetilmiyor, yayın kararıdır (§2.4).",
     "1": "anlati",
     "2": "anlati",
     "3": "belge",
-    "4": "veri",
+    "4": "anlati",
     "5": "veri",
     "6": "veri",
-    "7": "anlati",
-    "8": "belge",
-    "9": "anlati",
-    "10": "belge"
+    "7": "veri",
+    "8": "anlati",
+    "9": "belge",
+    "10": "anlati",
+    "11": "belge"
   },
   "bolum_grafikleri": {
     "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir.",
@@ -39,13 +40,18 @@
       "olcek"
     ],
     "5": [
-      "devir_egrisi"
+      "proje_takvimi",
+      "buyuk_rezervuarlar",
+      "bolgesel_projeler"
     ],
     "6": [
+      "devir_egrisi"
+    ],
+    "7": [
       "devir_asimetrisi",
       "devredilen_alan"
     ],
-    "8": [
+    "9": [
       "bosaltilan_kanun"
     ]
   },
@@ -55,27 +61,34 @@
     "2": "Kıtlıktan doğan idare",
     "3": "6200: bir kanunun kurduğu teşkilat",
     "4": "Ne inşa edildi",
-    "5": "Devir elli üç yıl sürdü",
-    "6": "Tesislerin beşte biri, alanın beşte dördünden fazlası",
-    "7": "Çiftçi kurumla nerede karşılaşıyor",
-    "8": "Kanundan kararnameye",
-    "9": "Aynı yapının adı konmuş hâli: Reclamation",
-    "10": "Kaynakça"
+    "5": "Yarım yüzyıl süren projeler",
+    "6": "Devir elli üç yıl sürdü",
+    "7": "Tesislerin beşte biri, alanın beşte dördünden fazlası",
+    "8": "Çiftçi kurumla nerede karşılaşıyor",
+    "9": "Kanundan kararnameye",
+    "10": "Aynı yapının adı konmuş hâli: Reclamation",
+    "11": "Kaynakça"
   },
   "_bolum_notlari": {
     "2": "Açılış. Kurum 1929'daki şiddetli kuraklık ve kıtlığın ardından kurulan Sular Umum Müdürlüğü'ne dayanıyor — §8.9'un birinci kategorisi. Silsile grafiği burada.",
-    "5": "EKSEN. Devir bir anda olmadı; 1967'de 50 hektarla başladı. KAPSAM UYARISI metinde açıkça yazılacak: bu seri yalnızca yeraltısuyu tesisleri.",
-    "6": "Dosyanın merkezî bulgusu: birlikler tesislerin %19'u ama alanın %83,1'i. Bu bölümün rakamları 2025 tarihli ve BÜTÜN tesisleri kapsıyor — bir önceki bölümün serisiyle aynı şey değil.",
-    "7": "Gündelik karşılık. 6172 sayılı Kanun: devredilen şey MÜLKİYET DEĞİL, 'işletme, bakım, onarım ve yönetim sorumluluğu'. Kanunda 'mülkiyet' kelimesi hiç geçmiyor.",
-    "9": "USBR'ın 'transferred works' / 'reserved works' ayrımı. Karşılaştırma bir EKSİKLİĞİ de görünür kılıyor: DSİ'nin kendi işlettiği alan rakamı yok, ABD'de aynı ayrım resmî tesis sınıfı.",
-    "10": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
+    "5": "KULLANICI İSTEĞİ (2 Kasım 2026): büyük barajlar ve bölge sulama projeleri tek bölümde. YILLARIN KAYNAĞI ÖNEMLİ — barajların işletmeye açılış yılları kurumun hiçbir yayımlanmış belgesinde tablo hâlinde yok (793 sayfalık bülten tarandı). Uydurmak yerine kurumun KENDİ TEŞKİLAT ÇİZELGESİ kullanıldı: birim kuruluş tarihleri. Metin bunu açıkça söylüyor, açılış yılı diye sunmuyor.",
+    "6": "EKSEN. Devir bir anda olmadı; 1967'de 50 hektarla başladı. KAPSAM UYARISI metinde açıkça yazılacak: bu seri yalnızca yeraltısuyu tesisleri.",
+    "7": "Dosyanın merkezî bulgusu: birlikler tesislerin %19'u ama alanın %83,1'i. Bu bölümün rakamları 2025 tarihli ve BÜTÜN tesisleri kapsıyor — bir önceki bölümün serisiyle aynı şey değil.",
+    "8": "Gündelik karşılık. 6172 sayılı Kanun: devredilen şey MÜLKİYET DEĞİL, 'işletme, bakım, onarım ve yönetim sorumluluğu'. Kanunda 'mülkiyet' kelimesi hiç geçmiyor.",
+    "10": "USBR'ın 'transferred works' / 'reserved works' ayrımı. Karşılaştırma bir EKSİKLİĞİ de görünür kılıyor: DSİ'nin kendi işlettiği alan rakamı yok, ABD'de aynı ayrım resmî tesis sınıfı.",
+    "11": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
   },
   "bolum_gorselleri": {
     "_amac": "Bölüm görselleri. Adres MUTLAK: NewsArticleImage göreli yolu kabul etmiyor (§2.4).",
     "_kural": "Atıfsız görsel yayımlanmaz; atıf görselin altında açıkta durur (§8.3). Altısı da Wikimedia Commons, lisans ve atıf Commons API'sinden çekildi, kunye.json'da tam künye var.",
-    "_yasak": "Barajı kahramanlaştıran havadan çekim (tasarim.json/_yasak): dosya inşaatı değil DEVRİ anlatıyor. §9'daki ABD karesi havadan ama baraj değil çökeltme havuzu ve Türkiye'ye ait değil — karşılaştırmanın konusunu gösteriyor, bir eseri yüceltmiyor.",
+    "_yasak": "tasarim.json'daki 'barajı kahramanlaştıran havadan çekim' yasağı YENİDEN DEĞERLENDİRİLDİ: dosya artık büyük projelere ayrılmış bir bölüm taşıyor, yani barajlar konunun kendisi. Yasağın ruhu korundu — hiçbir kare HAVADAN değil, hepsi yerden ve hiçbiri yapıyı anıtlaştırmıyor.",
     "_alan_notu": "en_boy indirilen dosyadan ÖLÇÜLDÜ (§8.14.3). Beşi de 3:4–16:9 kıskacının içinde, yani hiçbiri sıkıştırılmıyor ve hepsi `contain` ile tam görünüyor.",
-    "_gozle_dogrulama": "ALTI GÖRSELİN ALTISI DA AÇILIP BAKILDI; iki başlık yanıltıyordu ve altyazılar GÖRÜLENE göre yazıldı: (1) 'Seyhan Barajı 01' karesinde baraj GÖVDESİ yok, görünen şey baraj GÖLÜ — altyazı 'Seyhan Baraj Gölü' diyor. (2) 'All American Canal System' karesi kanal değil, sistemin başındaki ÇÖKELTME HAVUZLARI — altyazı havuzları söylüyor, kanal demiyor. Avustralya'da 'Irrigation farming' başlıklı bir kare KURU bir tarla göstermişti; başlık yalan söyleyebilir, dosya adı hiç söylemez.",
+    "_gozle_dogrulama": "ALTI GÖRSELİN ALTISI DA AÇILIP BAKILDI; iki başlık yanıltıyordu ve altyazılar GÖRÜLENE göre yazıldı: (1) 'Seyhan Barajı 01' karesinde baraj GÖVDESİ yok, görünen şey baraj GÖLÜ — altyazı 'Seyhan Baraj Gölü' diyor. (2) 'All American Canal System' karesi kanal değil, sistemin başındaki ÇÖKELTME HAVUZLARI — altyazı havuzları söylüyor, kanal demiyor. Avustralya'da 'Irrigation farming' başlıklı bir kare KURU bir tarla göstermişti; başlık yalan söyleyebilir, dosya adı hiç söylemez. TUR 11'DE ÜÇÜNCÜ BAŞLIK DÜZELTMESİ: 'Hirfanlı Barajı 01' karesinde baraj gövdesi yok; görünen şey şalt sahası ve göl kenarı. Altyazı buna göre.",
+    "_kullanilmayanlar": {
+      "dsi_adana_sulama_kanali.jpg": "İndirildi, atfı tam, _raw/gorseller'de duruyor — ama KULLANILMADI. Karede boyalı duvarlar, yaya köprüsü ve park bankları var: konu kentsel peyzaj düzenlemesi. Bu dosya altyapının İŞLETMESİNİN devrini anlatıyor; görsel dekoratif kalırdı.",
+      "GAP kamu malı iki kare": "Daha önce reddedildi: indirici 'ATIF YOK' diye durdurdu. Kamu malı olması atıf zorunluluğunu kaldırmıyor (§2.4)."
+    },
+    "_durum": "ON BİR BÖLÜMÜN ON BİRİNDE DE GÖRSEL VAR (kullanıcı isteği, 2 Kasım 2026). Daha önce beş bölüm boş bırakılmıştı ve gerekçeleri kayıtlıydı; istek bunu değiştirdi.",
     "1": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_harran_ana_kanal.jpg",
       "atif": "Volker Höhfeld — CC BY-SA 4.0",
@@ -84,6 +97,26 @@
       "alt_en": "The main irrigation canal on the Harran Plain, 8 April 2004.",
       "en_boy": 1.5368,
       "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_08_04_2004_Harran-Hauptkanal.jpg"
+    },
+    "2": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_hirfanli_baraji.jpg",
+      "atif": "Hajo-Muc — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Hirfanlı'da baraj gölü ve santralin şalt sahası.",
+      "alt_en": "The reservoir and the power plant's switchyard at Hirfanlı.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Hirfanl%C4%B1_Baraj%C4%B1_01.JPG",
+      "_not": "Kurum 1954'te ilk on iki bölge müdürlüğünden birini buraya kurmuştu. Karede baraj GÖVDESİ yok; altyazı gördüğünü söylüyor."
+    },
+    "3": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_harran_1989_sulamasiz.jpg",
+      "atif": "Volker Höhfeld — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Harran Ovası, 25 Eylül 1989 — GAP sulaması gelmeden önce. Arkadaki tarlalar anız ve nadas.",
+      "alt_en": "The Harran Plain, 25 September 1989 — before GAP irrigation arrived. The fields behind are stubble and fallow.",
+      "en_boy": 1.5238,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_25_09_1989_ohne_GAP-Bew%C3%A4sserung.jpg",
+      "_not": "ÇİFTİN İLK YARISI. 7. bölümdeki kare aynı ova, aynı fotoğrafçı, on iki yıl sonra."
     },
     "4": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_seyhan_baraji.jpg",
@@ -96,6 +129,16 @@
       "_not": "Kaynak başlığı 'Seyhan Barajı' ama karede gövde yok; altyazı gölü söylüyor."
     },
     "5": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_ataturk_baraji.jpg",
+      "atif": "Honacan — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Atatürk Barajı'nın mansap yüzü; gövdede kurumun kendi baş harfleri yazılı.",
+      "alt_en": "The downstream face of the Atatürk Dam; the institution's own initials are written on the embankment.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_Baraj%C4%B1%27ndan_bir_g%C3%B6r%C3%BCnt%C3%BC.jpg",
+      "_not": "Havadan çekim DEĞİL (tasarim.json/_yasak). 9496×2846'lık panorama bilerek alınmadı: oranı 3,34 ve çizici 16:9'da sıkıştırıp kareyi yarıya kırpardı."
+    },
+    "6": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_koy_sulama_kanali.jpg",
       "atif": "mhasras — CC BY 3.0",
       "lisans": "CC BY 3.0",
@@ -106,6 +149,16 @@
       "_not": "Devir bölümünün yanında duruyor: devredilen tesis çoğunlukla bu ölçekte. Kaynak il adı vermiyor, altyazı da vermiyor."
     },
     "7": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_harran_2001_sulamali.jpg",
+      "atif": "Volker Höhfeld — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Aynı ova, 27 Ağustos 2001 — GAP sulamasıyla. Köy ve höyük aynı; arkadaki ova yeşil.",
+      "alt_en": "The same plain, 27 August 2001 — with GAP irrigation. The village and the mound are the same; the plain behind is green.",
+      "en_boy": 1.6609,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_27_08_2001_mit_GAP-Bew%C3%A4sserung.jpg",
+      "_not": "ÇİFTİN İKİNCİ YARISI (bkz. 3. bölüm). Önplan iki karede de kuru; altyazı yeşilin ARKADAKİ ova olduğunu söylüyor."
+    },
+    "8": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_osmaniye_sulama.jpg",
       "atif": "Ozgurmulazimoglu — CC BY-SA 3.0",
       "lisans": "CC BY-SA 3.0",
@@ -116,6 +169,16 @@
       "_not": "Zincirin son halkası: çiftçinin kurumla karşılaştığı yer bu kanaletin ağzı."
     },
     "9": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_keban_baraji.jpg",
+      "atif": "Ensarseker1 — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Keban Barajı ve mansabındaki su ürünleri havuzları; gövdede yine kurumun baş harfleri.",
+      "alt_en": "The Keban Dam and the fish farming ponds below it; the institution's initials again on the embankment.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Keban_Baraj%C4%B1.jpg",
+      "_not": "Havuzlar 5. bölümdeki takvimin 1980 kaydının karşılığı: Keban Barajı Su Ürünleri Şube Müdürlüğü."
+    },
+    "10": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_all_american_canal.jpg",
       "atif": "Bureau of Reclamation — CC BY-SA 2.0",
       "lisans": "CC BY-SA 2.0",
@@ -125,16 +188,15 @@
       "_commons": "https://commons.wikimedia.org/wiki/File:All_American_Canal_System_(8370632213).jpg",
       "_not": "Karede kanal değil havuzlar var; altyazı buna göre. Tesisin hangi bentte olduğu kaynakta yazmıyor, yazılmadı."
     },
-    "_bos_birakilanlar": {
-      "2": "1929 kuraklığıyla açılan bölüm. Commons'ta erken cumhuriyet dönemi Türkiye kuraklığına ait kullanılabilir kare YOK; §8.3 bölüm başına bir görsel şartı koymuyor. Bölümü silsile grafiği taşıyor.",
-      "3": "belge bölümü — 6200 sayılı Kanun. Zemin kağıt ve kayıt ekseni; fotoğraf buraya girmiyor (§8.4).",
-      "6": "Dosyanın merkezî bulgusu iki grafikle anlatılıyor; üçüncü bir görsel asimetriyi seyreltirdi.",
-      "8": "belge bölümü — kanundan kararnameye. §3 ile aynı gerekçe.",
-      "10": "Kaynakça."
-    },
-    "_kullanilmayanlar": {
-      "dsi_adana_sulama_kanali.jpg": "İndirildi, atfı tam, _raw/gorseller'de duruyor — ama KULLANILMADI. Karede boyalı duvarlar, yaya köprüsü ve park bankları var: konu kentsel peyzaj düzenlemesi. Bu dosya altyapının İŞLETMESİNİN devrini anlatıyor; görsel dekoratif kalırdı.",
-      "GAP kamu malı iki kare": "Daha önce reddedildi: indirici 'ATIF YOK' diye durdurdu. Kamu malı olması atıf zorunluluğunu kaldırmıyor (§2.4)."
+    "11": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_kizilirmak_hirfanli.jpg",
+      "atif": "Hajo-Muc — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Hirfanlı'nın altında Kızılırmak; sağda barajın beton yapıları.",
+      "alt_en": "The Kızılırmak below Hirfanlı; the dam's concrete works on the right.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:K%C4%B1z%C4%B1l%C4%B1rmak_bei_Hirfanl%C4%B1.JPG",
+      "_not": "Dosya yapıyla değil suyun kendisiyle kapanıyor."
     }
   },
   "anahtar_kelimeler": [
@@ -216,11 +278,12 @@
     "2": "An administration born of famine",
     "3": "Law 6200: the organisation a law established",
     "4": "What was built",
-    "5": "The transfer took fifty-three years",
-    "6": "A fifth of the schemes, more than four-fifths of the area",
-    "7": "Where the farmer meets the institution",
-    "8": "From a law to a decree",
-    "9": "The same structure, named: Reclamation",
-    "10": "Sources"
+    "5": "Projects measured in half-centuries",
+    "6": "The transfer took fifty-three years",
+    "7": "A fifth of the schemes, more than four-fifths of the area",
+    "8": "Where the farmer meets the institution",
+    "9": "From a law to a decree",
+    "10": "The same structure, named: Reclamation",
+    "11": "Sources"
   }
 }

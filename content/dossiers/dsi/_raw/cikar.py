@@ -164,6 +164,7 @@ if 1999 in seri:
 ham = (KOK / "site_hakkimizda.html").read_text(encoding="utf-8", errors="replace")
 govde = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", ham, flags=re.S | re.I)
 govde = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", govde))
+SILSILE_GOVDE = govde
 
 silsile = {
     "_kaynak_niteligi": "KURUMUN BEYANI — dsi.gov.tr/Sayfa/Detay/692 (Hakkımızda)",
@@ -363,6 +364,157 @@ usbr["kopru_denetimi"] = bagla(
 usbr["_kopru_notu"] = ("Devredilmiş tesiste bile köprü denetimi merkezî kurumda. "
                        "Devir bir kopuş değil, sorumluluğun bölünmesi.")
 
+# ══ 9. Büyük projeler — KURUMUN BEYANI ════════════════════════════════════
+# Kullanıcı isteği (2 Kasım 2026): "DSİ'nin tarihe damgasını vuran çok büyük
+# baraj ve bölge sulandırma projeleri var, yıllar aldı bu projeler" — bunların
+# hepsini taşıyan ayrı bir bölüm.
+#
+# YILLARI NEREDEN ALDIK, ÖNEMLİ: tek tek barajların işletmeye açılış yılları
+# elimizdeki hiçbir belgede tablo hâlinde YOK (bülten 793 sayfa tarandı, baraj
+# envanteri çizelgesi bulunmuyor). Uydurmak yerine kurumun KENDİ TEŞKİLAT
+# ÇİZELGESİ kullanıldı: Ek Çizelge 2-1 her taşra biriminin kuruluş tarihini
+# veriyor ve bu birimler projelerin adını taşıyor. "Aşağı Fırat Projesi 15.
+# Bölge Müdürlüğü · 24.05.1976" bir baraj açılışı değil ama o projenin ne
+# zaman kendi idaresini kurduğunu BELGELİ olarak söylüyor. Metinde de böyle
+# yazılır: açılış yılı diye sunulmaz.
+f25 = pdf("faaliyet_2025.pdf")
+teskilat = pdf("istatistik_2021.pdf", 93, 104)
+tsk = (KOK / "site_toprak_su_kaynaklari.html").read_text(
+    encoding="utf-8", errors="replace")
+tsk = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", tsk, flags=re.S | re.I)
+tsk = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", tsk))
+
+
+def _birim(ibare: str, tarih: str, iz: str) -> dict:
+    bagla(teskilat, ibare, f"proje.{iz}")
+    bagla(teskilat, tarih, f"proje.{iz}.tarih")
+    g, a, y = tarih.split(".")
+    return {"birim": ibare, "tarih": tarih, "yil": int(y)}
+
+
+buyuk_projeler = {
+    "_kaynak_niteligi": ("KURUMUN BEYANI — DSİ 2025 Faaliyet Raporu, 2021 "
+                         "Haritalı İstatistik Bülteni Ek Çizelge 2-1, ve "
+                         "dsi.gov.tr Toprak ve Su Kaynakları sayfası"),
+    "_kapsam": "Türkiye · bölgesel projeler 2025, teşkilat tarihleri Şubat 2020",
+
+    # ── Üç bölgesel proje ──────────────────────────────────────────────────
+    "gap": {
+        "ad": "Güneydoğu Anadolu Projesi",
+        "il_sayisi": 9,
+        "nufus_milyon": 9.59,
+        "demet_sayisi": 13,
+        "demet_firat": 7,
+        "demet_dicle": 6,
+        "kurulu_guc_mw": 7461,
+        "yillik_enerji_milyar_kwh": 27.3,
+        "hedef_sulama_milyon_ha": 1.058,
+        "enerji_gerceklesme_yuzde": 91,
+        "sulama_gerceklesme_yuzde": 64,
+        "_alinti": bagla(f25, "13 adet proje demetinden oluşmaktadır", "gap.demet"),
+        "_firat_barajlari": ["Keban", "Karakaya", "Atatürk", "Birecik", "Karkamış"],
+        "_dicle_barajlari": ["Batman", "Kralkızı", "Dicle", "Ilısu"],
+        "_barajlar_alinti": bagla(
+            f25,
+            "Fırat Nehri üzerinde Keban, Karakaya, Atatürk, Birecik, "
+            "Karkamış Baraj ve HES\u2019leri ile Dicle Nehri ve kolları üzerinde "
+            "ise Batman, Kralkızı, Dicle, Ilısu Baraj ve HES\u2019leri",
+            "gap.barajlar"),
+    },
+    "dap": {
+        "ad": "Doğu Anadolu Projesi",
+        "il_sayisi": 15,
+        "nufus_milyon": 6.53,
+        "hedef_sulama_ha": 1377656,
+        "isletmede_ha": 602436,
+        "isletmede_yuzde": 44,
+        "insaat_ha": 263857,
+        "planlama_ha": 511363,
+        "sulanabilir_arazi_payi_yuzde": 16,
+        "_alinti": bagla(
+            f25, "1.377.656 hektar alanın sulamaya açılması", "dap.hedef"),
+    },
+    "kop": {
+        "ad": "Konya Ovası Projesi",
+        "il_sayisi": 8,
+        "alan_km2": 96627,
+        "turkiye_yuzolcumu_payi_yuzde": 12.4,
+        "nufus_milyon": 4.68,
+        "yillik_yagis_mm": 400,
+        "turkiye_ortalamasindan_eksik_yuzde": 30,
+        "toplam_sulama_ha": 1647239,
+        "isletmede_yus_ha": 717817,
+        "isletmede_yas_ha": 519601,
+        "kalan_ha": 409821,
+        "_transfer_alinti": bagla(
+            f25, "Mavi Tünel vasıtasıyla su aktarılması", "kop.tunel"),
+        "yaklasik_sulanan_yuzde": 75,
+        "_sulanan_alinti": bagla(
+            f25, "yaklaşık %75", "kop.sulanan"),
+        "_sulanan_notu": "Raporun KENDİ yuvarlaması. Dilimlerden hesaplanan "
+                         "değer %75,1; metinde raporun rakamı kullanılıyor.",
+        "_yagis_alinti": bagla(
+            f25, "Türkiye ortalamasından yaklaşık %30 daha eksik yağış",
+            "kop.yagis"),
+    },
+
+    # ── En büyük rezervuarlar (yüzey alanı) ────────────────────────────────
+    # DİKKAT: bunlar YÜZEY ALANI, depolama hacmi değil. İkisi karıştırılırsa
+    # sıralama değişir ve hata sessiz olur.
+    "en_genis_rezervuarlar": [
+        {"ad": "Atatürk", "yuzey_km2": 817},
+        {"ad": "Keban", "yuzey_km2": 675},
+        {"ad": "Ilısu", "yuzey_km2": 313},
+        {"ad": "Karakaya", "yuzey_km2": 268},
+        {"ad": "Hirfanlı", "yuzey_km2": 263},
+    ],
+    "_rezervuar_alinti": bagla(
+        tsk,
+        "Atatürk Barajı 817 km2, Keban Barajı 675 km2, Ilısu Barajı 313 km2, "
+        "Karakaya Barajı 268 km2, Hirfanlı Barajı 263 km2 yüzey alanına "
+        "sahiptir",
+        "rezervuar"),
+    "isletmedeki_baraj_adet": 861,
+    "_isletmedeki_baraj_uyarisi": (
+        "861 İŞLETMEDEKİ baraj sayısı (kurumun Toprak ve Su Kaynakları "
+        "sayfası). Faaliyet raporundaki 1.081 ise İNŞA EDİLEN kümülatif "
+        "sayı. İKİSİ AYNI ŞEY DEĞİL ve aynı cümlede yan yana yazılmaz — "
+        "§2.2.1'in klasik sessiz hatası."),
+
+    # ── Projelerin takvimi: kurumun kendi teşkilat çizelgesinden ───────────
+    "teskilat_takvimi": [
+        _birim("Aşağı Seyhan Ovası Sulaması İşletme ve Bakım Şube Müdürlüğü",
+               "7.06.1967", "seyhan"),
+        _birim("Konya Ovası Sulaması İşletme ve Bakım Şube Müdürlüğü",
+               "3.07.1968", "konya"),
+        _birim("DSİ Aşağı Fırat Projesi 15.Bölge Müdürlüğü",
+               "24.05.1976", "firat"),
+        _birim("Aşağı Ceyhan Ovası Sulaması İşletme ve Bakım Şube Müdürlüğü",
+               "27.06.1977", "ceyhan"),
+        _birim("Keban Barajı Su Ürünleri Şube Müdürlüğü", "1.09.1980", "keban"),
+        _birim("Şanlıurfa Ovaları Sulaması Şube Müdürlüğü", "10.01.1986", "urfa"),
+        _birim("Şanlıurfa Tüneli ve Harran Kanalı Başmühendisliği",
+               "10.07.1993", "tunel"),
+        _birim("DSİ Çoruh Projeleri 26.Bölge Müdürlüğü", "13.06.1998", "coruh"),
+        _birim("DSİ Ilısu Projesi 16.Bölge Müdürlüğü", "10.11.2008", "ilisu"),
+        _birim("Atatürk Barajı İşletme Başmühendisliği", "2.02.2012", "ataturk"),
+        _birim("Silvan Proje Müdürlüğü", "24.09.2014", "silvan"),
+    ],
+    "_takvim_notu": ("Bunlar BİRİM KURULUŞ tarihleridir, baraj açılış tarihleri "
+                     "DEĞİL. Metinde de öyle yazılır. Kurum bir projeye kendi "
+                     "idaresini kurduğunda o projenin artık sürekli bir iş "
+                     "olduğunu kabul etmiş oluyor; ölçtüğümüz şey bu."),
+
+    # ── İlk iki bölge müdürlüğü baraj yerindeydi ───────────────────────────
+    "_ilk_bolgeler_alinti": bagla(
+        SILSILE_GOVDE,
+        "Seyhan ve Hirfanlı\u2019da da 2 adet olmak üzere toplam 12 adet Bölge "
+        "Müdürlüğü",
+        "ilk_bolgeler"),
+    "ilk_bolge_sayisi": 12,
+    "yururluge_giris": "28.02.1954",
+}
+
 
 cikti = {
     "_dosya": "DSİ — Kurum Dosyası Sayı 05 · ham çıkarım",
@@ -375,6 +527,7 @@ cikti = {
     "olcek": olcek,
     "kanun_6172": kanun_6172,
     "usbr": usbr,
+    "buyuk_projeler": buyuk_projeler,
 }
 
 if hata:

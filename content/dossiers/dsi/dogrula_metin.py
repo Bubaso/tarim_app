@@ -239,10 +239,13 @@ def kaliplar(dil: str, bolumler: list[tuple[str, str]]) -> None:
 
 # ── 5. Kapsam uyarısı — bu dosyaya özgü ───────────────────────────────────
 KAPSAM = {
-    "tr": {"5": ["yalnızca yeraltısuyu"], "6": ["bütün sulama tesislerini"]},
-    "en": {"5": ["groundwater irrigation\nschemes only",
+    # Numaralar TUR 11'de kaydı: büyük projeler bölümü 5'e girdi, devir
+    # serisi 6'ya, asimetri 7'ye. Anahtarlar bölümle birlikte taşınmazsa
+    # denetim yanlış bölüme bakar ve SESSİZCE geçer.
+    "tr": {"6": ["yalnızca yeraltısuyu"], "7": ["bütün sulama tesislerini"]},
+    "en": {"6": ["groundwater irrigation\nschemes only",
                  "groundwater irrigation schemes only"],
-           "6": ["cover all\nirrigation schemes", "cover all irrigation schemes"]},
+           "7": ["cover all\nirrigation schemes", "cover all irrigation schemes"]},
 }
 
 
@@ -296,8 +299,8 @@ for dil, dosya in (("tr", "metin_tr.md"), ("en", "metin_en.md")):
         hata.append(f"[{dil}] DOSYA YOK: {dosya}")
         continue
     b = govde(yol)
-    if len(b) != 10:
-        hata.append(f"[{dil}] BÖLÜM SAYISI {len(b)} — on olmalı")
+    if len(b) != 11:
+        hata.append(f"[{dil}] BÖLÜM SAYISI {len(b)} — on bir olmalı")
     sayi_izi(dil, b)
     if dil == "tr":
         alinti_izi_tr(b)

@@ -90,6 +90,37 @@ for alan in ("reserved_works_tanimi", "transferred_works_tanimi"):
     if "Reclamation-owned facilities" not in u[alan]:
         hata.append(f"USBR · {alan} 'Reclamation-owned facilities' demiyor")
 
+# ── 7. Büyük projeler: iki ölçünün karıştırılmaması ───────────────────────
+# İŞLETMEDEKİ baraj (861) ile İNŞA EDİLEN kümülatif baraj (1.081) aynı şey
+# değil. İkisi de veri katmanında duruyor; üretim, aralarındaki farkın
+# korunduğunu sınıyor ki metin yanlışlıkla birini ötekinin yerine koymasın.
+bp = govde["buyuk_projeler"]
+if bp["isletmedeki_baraj_adet"] >= govde["olcek"]["baraj_adet"]:
+    hata.append("İŞLETMEDEKİ baraj sayısı, İNŞA EDİLEN kümülatiften küçük olmalı")
+
+# Takvim artan olmalı: bir projenin idaresi kurulduktan sonraki birim
+# ondan önce kurulmuş görünüyorsa çizelge yanlış okunmuştur.
+yillar_t = [b["yil"] for b in bp["teskilat_takvimi"]]
+if yillar_t != sorted(yillar_t):
+    hata.append(f"TEŞKİLAT TAKVİMİ SIRASIZ · {yillar_t}")
+
+# DAP'ın üç dilimi hedefi vermeli.
+_d = bp["dap"]
+_t = _d["isletmede_ha"] + _d["insaat_ha"] + _d["planlama_ha"]
+if _t != _d["hedef_sulama_ha"]:
+    hata.append(f"DAP DİLİMLERİ TUTMUYOR · {_t:,} ≠ {_d['hedef_sulama_ha']:,}")
+
+# KOP'un dilimleri de toplamı vermeli.
+_k = bp["kop"]
+_t2 = _k["isletmede_yus_ha"] + _k["isletmede_yas_ha"] + _k["kalan_ha"]
+if _t2 != _k["toplam_sulama_ha"]:
+    hata.append(f"KOP DİLİMLERİ TUTMUYOR · {_t2:,} ≠ {_k['toplam_sulama_ha']:,}")
+
+# Rezervuarlar yüzey alanına göre azalan sırada olmalı.
+_r = [x["yuzey_km2"] for x in bp["en_genis_rezervuarlar"]]
+if _r != sorted(_r, reverse=True):
+    hata.append(f"REZERVUAR SIRASI AZALAN DEĞİL · {_r}")
+
 # ── Türetilmiş ────────────────────────────────────────────────────────────
 ilk, son = ds["kayitlar"][0], ds["kayitlar"][-1]
 govde["turetilmis"] = {
@@ -182,6 +213,36 @@ govde["metin_rakamlari"] = {
     # dönüşümü kondu — dışarıdan hiçbir rakam gerektirmiyor.
     "depolama_kup_kenari_km": round((govde["olcek"]["depolama_hm3"] * 1e6) ** (1 / 3) / 1000, 1),
     "devredilen_km2": round(d["toplam_alan_ha"] / 100),
+
+    # ── Büyük projeler: sürenin kendisi ───────────────────────────────────
+    # Kullanıcının istediği şey "yıllar aldı bu projeler". Süre bir TARİH
+    # değil bir FARK, ve farkın iki ucu da belgeli olmak zorunda. Uçlar:
+    # kurumun kendi teşkilat çizelgesindeki birim kuruluş tarihleri ve
+    # faaliyet raporunun yılı.
+    "rapor_yili": 2025,
+    "firat_idaresinden_rapora_yil": 2025 - next(
+        b["yil"] for b in bp["teskilat_takvimi"] if "Aşağı Fırat" in b["birim"]),
+    "firat_idaresinden_tunele_yil": (
+        next(b["yil"] for b in bp["teskilat_takvimi"] if "Tüneli" in b["birim"])
+        - next(b["yil"] for b in bp["teskilat_takvimi"] if "Aşağı Fırat" in b["birim"])),
+    "seyhan_idaresinden_rapora_yil": 2025 - next(
+        b["yil"] for b in bp["teskilat_takvimi"] if "Aşağı Seyhan" in b["birim"]),
+    "takvim_ilk_yil": bp["teskilat_takvimi"][0]["yil"],
+    "takvim_son_yil": bp["teskilat_takvimi"][-1]["yil"],
+    "takvim_araligi_yil": (bp["teskilat_takvimi"][-1]["yil"]
+                           - bp["teskilat_takvimi"][0]["yil"]),
+    "gap_kalan_sulama_yuzde": 100 - bp["gap"]["sulama_gerceklesme_yuzde"],
+    # DAP'ın kalanı raporda AYRICA yazılı (775.220 ha); burada yeniden
+    # hesaplanıp karşılaştırılıyor — bağımsız bir çapraz kontrol.
+    "dap_kalan_ha": bp["dap"]["hedef_sulama_ha"] - bp["dap"]["isletmede_ha"],
+    "kop_sulanan_yuzde": round(
+        (bp["kop"]["isletmede_yus_ha"] + bp["kop"]["isletmede_yas_ha"])
+        / bp["kop"]["toplam_sulama_ha"] * 100, 1),
+    "ataturk_hirfanli_kat": round(
+        bp["en_genis_rezervuarlar"][0]["yuzey_km2"]
+        / bp["en_genis_rezervuarlar"][-1]["yuzey_km2"], 1),
+    "uc_proje_hedef_toplam_ha": (bp["dap"]["hedef_sulama_ha"]
+                                 + bp["kop"]["toplam_sulama_ha"]),
 
     # Mülga oranı: kanunun kaç maddesinin düştüğü değil, DÜŞENLERİN
     # arasında kuruluş ve teşkilat maddelerinin bulunması önemli.

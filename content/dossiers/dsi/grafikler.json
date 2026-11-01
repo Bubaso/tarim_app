@@ -367,6 +367,256 @@
           }
         }
       ]
+    },
+    "proje_takvimi": {
+      "tur": "zaman_cizelgesi",
+      "baslik": {
+        "tr": "Bir projeye idare kurmak, onu sürekli bir iş ilan etmektir",
+        "en": "Giving a project its own administration declares it permanent work"
+      },
+      "not": {
+        "tr": "Bu tarihler BARAJ AÇILIŞ tarihleri değil; kurumun o projeye kendi taşra birimini kurduğu tarihlerdir. Kaynak kurumun kendi teşkilat çizelgesi (Ek Çizelge 2-1, Şubat 2020). Barajların işletmeye açılış yılları kurumun yayımlanmış belgelerinde tablo hâlinde bulunmuyor.",
+        "en": "These are not dam commissioning dates; they are the dates on which the institution set up its own field unit for that project. The source is the institution's own organisation table (Annex Table 2-1, February 2020). Dam commissioning years are not published as a table in the institution's documents."
+      },
+      "kaynak": "DSİ · 2021 Haritalı İstatistik Bülteni, Ek Çizelge 2-1",
+      "olaylar": [
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.0.yil",
+          "baslik": {
+            "tr": "Aşağı Seyhan Ovası sulaması kendi idaresini alıyor",
+            "en": "The Lower Seyhan Plain scheme gets its own administration"
+          },
+          "aciklama": {
+            "tr": "Kurumun ilk iki bölge müdürlüğünden biri 1954'te zaten Seyhan'daydı.",
+            "en": "One of the institution's first two regional directorates was already at Seyhan in 1954."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.1.yil",
+          "baslik": {
+            "tr": "Konya Ovası sulaması işletmeye ve bakıma geçiyor",
+            "en": "The Konya Plain scheme moves to operation and maintenance"
+          },
+          "aciklama": {
+            "tr": "Çumra'da kurulan şube, kapalı havzada kalıcı bir idare demek.",
+            "en": "The branch set up at Çumra means a permanent administration in a closed basin."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.2.yil",
+          "baslik": {
+            "tr": "Aşağı Fırat Projesi kendi bölge müdürlüğünü alıyor",
+            "en": "The Lower Euphrates Project gets its own regional directorate"
+          },
+          "aciklama": {
+            "tr": "Şanlıurfa'da kurulan 15. Bölge, bugün GAP diye bilinen işin idari başlangıcı.",
+            "en": "The 15th Region, set up in Şanlıurfa, is the administrative start of what is known today as GAP."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.3.yil",
+          "baslik": {
+            "tr": "Aşağı Ceyhan Ovası sulaması idareye kavuşuyor",
+            "en": "The Lower Ceyhan Plain scheme gains an administration"
+          },
+          "aciklama": {
+            "tr": "Çukurova'nın ikinci büyük ovası da sürekli işletmeye giriyor.",
+            "en": "Çukurova's second great plain also enters continuous operation."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.4.yil",
+          "baslik": {
+            "tr": "Keban'da su ürünleri şubesi kuruluyor",
+            "en": "A fisheries branch is established at Keban"
+          },
+          "aciklama": {
+            "tr": "Baraj gölü artık yalnızca su değil, yönetilen bir kaynak.",
+            "en": "The reservoir is no longer just water but a managed resource."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.5.yil",
+          "baslik": {
+            "tr": "Şanlıurfa Ovaları sulaması şube müdürlüğü kuruluyor",
+            "en": "The Şanlıurfa Plains irrigation branch directorate is established"
+          },
+          "aciklama": {
+            "tr": "Aşağı Fırat idaresinden on yıl sonra, sulama tarafı ayrı bir birim oluyor.",
+            "en": "Ten years after the Lower Euphrates administration, the irrigation side becomes a separate unit."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.6.yil",
+          "baslik": {
+            "tr": "Şanlıurfa Tüneli ve Harran Kanalı başmühendisliği kuruluyor",
+            "en": "The Şanlıurfa Tunnel and Harran Canal chief engineering office is established"
+          },
+          "aciklama": {
+            "tr": "Suyun Harran Ovası'na indiği hat kendi idaresini alıyor.",
+            "en": "The line by which water descends to the Harran Plain gets its own administration."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.7.yil",
+          "baslik": {
+            "tr": "Çoruh Projeleri bölge müdürlüğü kuruluyor",
+            "en": "The Çoruh Projects regional directorate is established"
+          },
+          "aciklama": {
+            "tr": "Artvin'de kurulan 26. Bölge, dik vadili bir havzayı idareye bağlıyor.",
+            "en": "The 26th Region in Artvin brings a steep-valleyed basin under administration."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.8.yil",
+          "baslik": {
+            "tr": "Ilısu Projesi kendi bölge müdürlüğünü alıyor",
+            "en": "The Ilısu Project gets its own regional directorate"
+          },
+          "aciklama": {
+            "tr": "Mardin'de kurulan 16. Bölge, Dicle tarafının son büyük halkası.",
+            "en": "The 16th Region in Mardin is the last great link on the Tigris side."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.9.yil",
+          "baslik": {
+            "tr": "Atatürk Barajı işletme başmühendisliği kuruluyor",
+            "en": "The Atatürk Dam operations chief engineering office is established"
+          },
+          "aciklama": {
+            "tr": "Ülkenin en geniş rezervuarı için ayrı bir işletme idaresi.",
+            "en": "A separate operating administration for the country's widest reservoir."
+          }
+        },
+        {
+          "yil": "@buyuk_projeler.teskilat_takvimi.10.yil",
+          "baslik": {
+            "tr": "Silvan Proje Müdürlüğü kuruluyor",
+            "en": "The Silvan Project Directorate is established"
+          },
+          "aciklama": {
+            "tr": "Çizelgedeki en yeni büyük proje birimi.",
+            "en": "The newest large project unit in the table."
+          }
+        }
+      ]
+    },
+    "buyuk_rezervuarlar": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Beş rezervuar, bir ülkenin su yüzeyi",
+        "en": "Five reservoirs, a country's water surface"
+      },
+      "birim": {
+        "tr": "km² · göl yüzey alanı",
+        "en": "km² · reservoir surface area"
+      },
+      "ondalik": 0,
+      "not": {
+        "tr": "Bunlar YÜZEY ALANI, depolama hacmi değil; iki ölçü farklı sıralama verir. Türkiye'de işletmede 861 baraj var — faaliyet raporundaki 1.081 ise inşa edilen kümülatif sayıdır ve aynı şey değildir.",
+        "en": "These are surface areas, not storage volumes; the two measures give different rankings. There are 861 dams in operation in Türkiye — the 1,081 in the annual report is the cumulative number built, which is not the same thing."
+      },
+      "kaynak": "DSİ · Toprak ve Su Kaynakları sayfası",
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Atatürk Barajı",
+            "en": "Atatürk Dam"
+          },
+          "deger": "@buyuk_projeler.en_genis_rezervuarlar.0.yuzey_km2",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Keban Barajı",
+            "en": "Keban Dam"
+          },
+          "deger": "@buyuk_projeler.en_genis_rezervuarlar.1.yuzey_km2",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Ilısu Barajı",
+            "en": "Ilısu Dam"
+          },
+          "deger": "@buyuk_projeler.en_genis_rezervuarlar.2.yuzey_km2",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Karakaya Barajı",
+            "en": "Karakaya Dam"
+          },
+          "deger": "@buyuk_projeler.en_genis_rezervuarlar.3.yuzey_km2",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Hirfanlı Barajı",
+            "en": "Hirfanlı Dam"
+          },
+          "deger": "@buyuk_projeler.en_genis_rezervuarlar.4.yuzey_km2",
+          "rol": "ikincil"
+        }
+      ]
+    },
+    "bolgesel_projeler": {
+      "tur": "kartlar",
+      "baslik": {
+        "tr": "Üç bölgesel proje, üçü de yarım",
+        "en": "Three regional projects, all three unfinished"
+      },
+      "not": {
+        "tr": "Üç projenin de sulama tarafı hâlâ hedefin altında. Oranlar ve alanlar kurumun 2025 faaliyet raporundan; DAP'ın kalan alanı dilimlerden yeniden hesaplandı ve raporun kendi yazdığı rakamla birebir tuttu.",
+        "en": "The irrigation side of all three projects is still below target. The shares and areas come from the institution's 2025 annual report; DAP's remaining area was recomputed from its slices and matched the report's own figure exactly."
+      },
+      "kaynak": "DSİ · 2025 Faaliyet Raporu",
+      "kartlar": [
+        {
+          "ust": {
+            "tr": "Güneydoğu Anadolu · 9 il",
+            "en": "Southeastern Anatolia · 9 provinces"
+          },
+          "baslik": {
+            "tr": "GAP",
+            "en": "GAP"
+          },
+          "govde": {
+            "tr": "Hedef 1,058 milyon hektar sulama. Enerjide %91, sulamada %64 gerçekleşme. 13 proje demeti, 7.461 MW kurulu güç.",
+            "en": "Target: 1.058 million hectares of irrigation. 91% realised in energy, 64% in irrigation. 13 project bundles, 7,461 MW installed capacity."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Doğu Anadolu · 15 il",
+            "en": "Eastern Anatolia · 15 provinces"
+          },
+          "baslik": {
+            "tr": "DAP",
+            "en": "DAP"
+          },
+          "govde": {
+            "tr": "Hedef 1.377.656 hektar. İşletmede 602.436 hektar (%44); 263.857 hektar inşaatta, 511.363 hektar planlamada.",
+            "en": "Target: 1,377,656 hectares. In operation: 602,436 hectares (44%); 263,857 under construction, 511,363 in planning."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Konya Ovası · 8 il",
+            "en": "Konya Plain · 8 provinces"
+          },
+          "baslik": {
+            "tr": "KOP",
+            "en": "KOP"
+          },
+          "govde": {
+            "tr": "1.647.239 hektarlık alanın %75'i sulanıyor — 717.817 hektarı yüzey suyuyla, 519.601 hektarı yeraltısuyuyla. Yıllık yağış 400 mm.",
+            "en": "75% of a 1,647,239-hectare area is irrigated — 717,817 hectares from surface water, 519,601 from groundwater. Annual rainfall: 400 mm."
+          }
+        }
+      ]
     }
   }
 }

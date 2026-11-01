@@ -14,7 +14,7 @@
    are **the institution's own statements**; the USBR directive is a primary
    United States text.
 3. **THE TWO TRANSFER FIGURES ARE NOT THE SAME THING.** The series in §5
-   counts **groundwater** schemes only; the table in §6 covers **all**
+   counts **groundwater** schemes only; the table in §7 covers **all**
    irrigation schemes. They are never added together and never substituted
    for one another. Both sections state their scope explicitly.
 4. **"It builds but does not operate" IS NOT SAID.** No published source
@@ -152,7 +152,7 @@ of its work, and no longer carries its founding articles. Since 2018 the
 answer to the question of which text the institution was born from lies
 somewhere else.
 
-Where that went is the subject of §8. First one has to look at what the
+Where that went is the subject of §9. First one has to look at what the
 institution built, because that is what was transferred.
 
 ---
@@ -196,17 +196,124 @@ the gates, the water distribution programme for each season. Where
 construction ends, a burden remains that does not end — and the question of
 transfer is precisely the question of who carries it.
 
-The state built these structures. What changed is whose hands hold the last
-link, where the water reaches the field.
+The state built these structures. But none of them was built in a year; the
+biggest of them took generations, and some are still under way.
 
 ---
 
-## 5. The transfer took fifty-three years
+## 5. Projects measured in half-centuries
+
+When the institution was founded it had twelve regional directorates in the
+field, and two of them were at Seyhan and Hirfanlı. Its first map, in other
+words, was drawn not by provinces but by the dams that were to be built. By
+the time Law 6200 entered into force on 28 February 1954, the organisation
+was already sitting on top of two great construction sites.
+
+The institution's published documents contain no table of when individual
+dams were commissioned. But its own organisation chart says something else:
+when it gave a project an administration of its own. Opening a regional
+directorate for a dam, an operations branch for a plain, a chief
+engineering office for a tunnel, is an admission that the work has become
+permanent. Those dates give a calendar.
+
+The calendar begins in Adana in 1967: the operation and maintenance branch
+for the Lower Seyhan Plain scheme is established on 7 June 1967. The
+following year, on 3 July 1968, its counterpart for the Konya Plain scheme
+opens at Çumra. Two plains, two branches, two years.
+
+Eight years later the chart acquires the first name of what is known today
+as GAP: **the DSİ Lower Euphrates Project 15th Regional Directorate,
+Şanlıurfa, 24 May 1976.** It is not yet called GAP; it is called the Lower
+Euphrates. In 1977 comes the Lower Ceyhan Plain, in 1980 a fisheries branch
+at Keban, in 1986 the branch directorate for the Şanlıurfa Plains scheme.
+
+The line by which the water descends to the Harran Plain gets its own
+administration — the Şanlıurfa Tunnel and Harran Canal chief engineering
+office — on **10 July 1993.** Seventeen years after the Lower Euphrates
+regional directorate.
+
+The chart continues with the Çoruh Projects regional directorate at Artvin
+in 1998, the Ilısu Project regional directorate at Mardin in 2008, the
+Atatürk Dam operations chief engineering office in 2012 and the Silvan
+Project Directorate in 2014. Forty-seven years separate the first entry
+from the last.
+
+### The Southeastern Anatolia Project
+
+GAP covers nine provinces, home to 9.59 million people as of 2025. The
+project is not a single structure; in the institution's words it "13 adet
+proje demetinden oluşmaktadır" — it consists of thirteen project bundles,
+seven in the Euphrates basin and six in the Tigris. On the Euphrates stand
+Keban, Karakaya, Atatürk, Birecik and Karkamış; on the Tigris and its
+tributaries, the Batman, Kralkızı, Dicle and Ilısu dams and hydroelectric
+plants have been completed.
+
+The energy side is all but finished: 7,461 megawatts of installed capacity,
+a target of 27.3 billion kilowatt-hours a year, 91% realised. The
+irrigation side is not in the same place. The target is 1.058 million
+hectares and realisation stands at **64%**. Forty-nine years after the
+first regional directorate was set up for the Lower Euphrates, more than a
+third of the project's irrigation leg is still unbuilt.
+
+That order is no accident. A hydroelectric plant is finished together with
+its dam; irrigation begins after the dam, and every metre of it down to the
+field is a separate construction.
+
+### The Eastern Anatolia Project
+
+DAP covers fifteen provinces, 6.53 million people live in the region, and
+16% of Türkiye's irrigable agricultural land lies there. The target is
+1,377,656 hectares.
+
+In operation today: 602,436 hectares, 44% of the target. Construction is
+under way on 263,857 hectares and 511,363 hectares are still at the
+planning and project stage. The remaining 775,220 hectares — more than half
+the target — have yet to receive water.
+
+### The Konya Plain Project
+
+KOP covers eight provinces. The project area is 96,627 square kilometres —
+12.4% of Türkiye's surface — and 4.68 million people live in it.
+
+What sets this project apart from the others is that the water is not
+there. The Konya closed basin averages 400 millimetres of rainfall a year;
+in the institution's words it receives "Türkiye ortalamasından yaklaşık %30
+daha eksik yağış", about 30% less rainfall than the Turkish average. In a
+closed basin, if water does not come from outside it has to be brought from
+outside. The answer was a transfer from another basin: water conveyed from
+the Upper Göksu basin "Mavi Tünel vasıtasıyla su aktarılması", by way of
+the Blue Tunnel.
+
+KOP's irrigation area is 1,647,239 hectares and roughly 75% of it is
+irrigated — 717,817 hectares from surface water, 519,601 from groundwater.
+That the groundwater share should be so high is a measure in itself: the
+plain's water comes not only from the canal but from the well.
+
+### Five reservoirs
+
+There are 861 dams in operation in Türkiye. The widest by surface area are
+Atatürk (817 km²), Keban (675 km²), Ilısu (313 km²), Karakaya (268 km²) and
+Hirfanlı (263 km²). The lake surface of the Atatürk Dam is 3.1 times that
+of Hirfanlı — beside which, in 1954, the institution placed one of its first
+regional directorates.
+
+Four of the five reservoirs lie within GAP. The fifth, Hirfanlı, is among
+the institution's oldest works — and the institution set up a regional
+directorate next to it in its very first year.
+
+All of this leads back to the real subject of this file. Building a network
+on this scale is a construction job; operating it every year afterwards is
+an entirely different one. The institution did the first. Who does the
+second is the subject of the sections that follow.
+
+---
+
+## 6. The transfer took fifty-three years
 
 The longest unbroken series showing how long the transfer took belongs to
 groundwater schemes. **The figures below cover groundwater irrigation
 schemes only**, not all irrigation schemes; they cannot be added to the
-table in §6.
+table in §7.
 
 The series begins in 1967 at 50 hectares. For three years the figure does not
 move. The transfer programme begins not with an announcement and a campaign
@@ -243,7 +350,7 @@ all schemes comes in the next section.
 
 ---
 
-## 6. A fifth of the schemes, more than four-fifths of the area
+## 7. A fifth of the schemes, more than four-fifths of the area
 
 As of 31 December 2025 the number of transferred irrigation schemes is 936
 and the transferred area is 3,083,200 hectares. **These figures cover all
@@ -293,7 +400,7 @@ legal person of its own.
 
 ---
 
-## 7. Where the farmer meets the institution
+## 8. Where the farmer meets the institution
 
 For a farmer, DSİ is usually a distant institution. It may have built the
 canal that brings the water, but the party that says when the water will
@@ -357,9 +464,9 @@ concrete trace, eighty-nine years on, of an administration born of famine.
 
 ---
 
-## 8. From a law to a decree
+## 9. From a law to a decree
 
-Two things happened in 2018. One is in §7: membership became compulsory for
+Two things happened in 2018. One is in §8: membership became compulsory for
 the farmer. The other concerns the institution's own founding text.
 
 Decree-Law 703 of 2 July 2018 repealed the founding and organisational
@@ -396,7 +503,7 @@ another.
 
 ---
 
-## 9. The same structure, named: Reclamation
+## 10. The same structure, named: Reclamation
 
 Türkiye's arrangement is not unique in the world. In the United States the
 agency that does the same work — the Bureau of Reclamation — defines a
@@ -447,7 +554,7 @@ transferred side: 936 schemes, 3,083,200 hectares.
 
 ---
 
-## 10. Sources
+## 11. Sources
 
 **Primary texts.** Law 6200, the *Law on Services Carried Out by the General
 Directorate of State Hydraulic Works* (Official Gazette 25.12.1953, 8592),

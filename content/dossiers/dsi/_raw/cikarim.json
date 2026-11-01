@@ -479,5 +479,153 @@
     "belge_2": "FAC 07-01 — Transportation Program",
     "kopru_denetimi": "inform operating entities, under their jurisdiction, of Reclamation’s bridge inspection responsibilities",
     "_kopru_notu": "Devredilmiş tesiste bile köprü denetimi merkezî kurumda. Devir bir kopuş değil, sorumluluğun bölünmesi."
+  },
+  "buyuk_projeler": {
+    "_kaynak_niteligi": "KURUMUN BEYANI — DSİ 2025 Faaliyet Raporu, 2021 Haritalı İstatistik Bülteni Ek Çizelge 2-1, ve dsi.gov.tr Toprak ve Su Kaynakları sayfası",
+    "_kapsam": "Türkiye · bölgesel projeler 2025, teşkilat tarihleri Şubat 2020",
+    "gap": {
+      "ad": "Güneydoğu Anadolu Projesi",
+      "il_sayisi": 9,
+      "nufus_milyon": 9.59,
+      "demet_sayisi": 13,
+      "demet_firat": 7,
+      "demet_dicle": 6,
+      "kurulu_guc_mw": 7461,
+      "yillik_enerji_milyar_kwh": 27.3,
+      "hedef_sulama_milyon_ha": 1.058,
+      "enerji_gerceklesme_yuzde": 91,
+      "sulama_gerceklesme_yuzde": 64,
+      "_alinti": "13 adet proje demetinden oluşmaktadır",
+      "_firat_barajlari": [
+        "Keban",
+        "Karakaya",
+        "Atatürk",
+        "Birecik",
+        "Karkamış"
+      ],
+      "_dicle_barajlari": [
+        "Batman",
+        "Kralkızı",
+        "Dicle",
+        "Ilısu"
+      ],
+      "_barajlar_alinti": "Fırat Nehri üzerinde Keban, Karakaya, Atatürk, Birecik, Karkamış Baraj ve HES’leri ile Dicle Nehri ve kolları üzerinde ise Batman, Kralkızı, Dicle, Ilısu Baraj ve HES’leri"
+    },
+    "dap": {
+      "ad": "Doğu Anadolu Projesi",
+      "il_sayisi": 15,
+      "nufus_milyon": 6.53,
+      "hedef_sulama_ha": 1377656,
+      "isletmede_ha": 602436,
+      "isletmede_yuzde": 44,
+      "insaat_ha": 263857,
+      "planlama_ha": 511363,
+      "sulanabilir_arazi_payi_yuzde": 16,
+      "_alinti": "1.377.656 hektar alanın sulamaya açılması"
+    },
+    "kop": {
+      "ad": "Konya Ovası Projesi",
+      "il_sayisi": 8,
+      "alan_km2": 96627,
+      "turkiye_yuzolcumu_payi_yuzde": 12.4,
+      "nufus_milyon": 4.68,
+      "yillik_yagis_mm": 400,
+      "turkiye_ortalamasindan_eksik_yuzde": 30,
+      "toplam_sulama_ha": 1647239,
+      "isletmede_yus_ha": 717817,
+      "isletmede_yas_ha": 519601,
+      "kalan_ha": 409821,
+      "_transfer_alinti": "Mavi Tünel vasıtasıyla su aktarılması",
+      "yaklasik_sulanan_yuzde": 75,
+      "_sulanan_alinti": "yaklaşık %75",
+      "_sulanan_notu": "Raporun KENDİ yuvarlaması. Dilimlerden hesaplanan değer %75,1; metinde raporun rakamı kullanılıyor.",
+      "_yagis_alinti": "Türkiye ortalamasından yaklaşık %30 daha eksik yağış"
+    },
+    "en_genis_rezervuarlar": [
+      {
+        "ad": "Atatürk",
+        "yuzey_km2": 817
+      },
+      {
+        "ad": "Keban",
+        "yuzey_km2": 675
+      },
+      {
+        "ad": "Ilısu",
+        "yuzey_km2": 313
+      },
+      {
+        "ad": "Karakaya",
+        "yuzey_km2": 268
+      },
+      {
+        "ad": "Hirfanlı",
+        "yuzey_km2": 263
+      }
+    ],
+    "_rezervuar_alinti": "Atatürk Barajı 817 km2, Keban Barajı 675 km2, Ilısu Barajı 313 km2, Karakaya Barajı 268 km2, Hirfanlı Barajı 263 km2 yüzey alanına sahiptir",
+    "isletmedeki_baraj_adet": 861,
+    "_isletmedeki_baraj_uyarisi": "861 İŞLETMEDEKİ baraj sayısı (kurumun Toprak ve Su Kaynakları sayfası). Faaliyet raporundaki 1.081 ise İNŞA EDİLEN kümülatif sayı. İKİSİ AYNI ŞEY DEĞİL ve aynı cümlede yan yana yazılmaz — §2.2.1'in klasik sessiz hatası.",
+    "teskilat_takvimi": [
+      {
+        "birim": "Aşağı Seyhan Ovası Sulaması İşletme ve Bakım Şube Müdürlüğü",
+        "tarih": "7.06.1967",
+        "yil": 1967
+      },
+      {
+        "birim": "Konya Ovası Sulaması İşletme ve Bakım Şube Müdürlüğü",
+        "tarih": "3.07.1968",
+        "yil": 1968
+      },
+      {
+        "birim": "DSİ Aşağı Fırat Projesi 15.Bölge Müdürlüğü",
+        "tarih": "24.05.1976",
+        "yil": 1976
+      },
+      {
+        "birim": "Aşağı Ceyhan Ovası Sulaması İşletme ve Bakım Şube Müdürlüğü",
+        "tarih": "27.06.1977",
+        "yil": 1977
+      },
+      {
+        "birim": "Keban Barajı Su Ürünleri Şube Müdürlüğü",
+        "tarih": "1.09.1980",
+        "yil": 1980
+      },
+      {
+        "birim": "Şanlıurfa Ovaları Sulaması Şube Müdürlüğü",
+        "tarih": "10.01.1986",
+        "yil": 1986
+      },
+      {
+        "birim": "Şanlıurfa Tüneli ve Harran Kanalı Başmühendisliği",
+        "tarih": "10.07.1993",
+        "yil": 1993
+      },
+      {
+        "birim": "DSİ Çoruh Projeleri 26.Bölge Müdürlüğü",
+        "tarih": "13.06.1998",
+        "yil": 1998
+      },
+      {
+        "birim": "DSİ Ilısu Projesi 16.Bölge Müdürlüğü",
+        "tarih": "10.11.2008",
+        "yil": 2008
+      },
+      {
+        "birim": "Atatürk Barajı İşletme Başmühendisliği",
+        "tarih": "2.02.2012",
+        "yil": 2012
+      },
+      {
+        "birim": "Silvan Proje Müdürlüğü",
+        "tarih": "24.09.2014",
+        "yil": 2014
+      }
+    ],
+    "_takvim_notu": "Bunlar BİRİM KURULUŞ tarihleridir, baraj açılış tarihleri DEĞİL. Metinde de öyle yazılır. Kurum bir projeye kendi idaresini kurduğunda o projenin artık sürekli bir iş olduğunu kabul etmiş oluyor; ölçtüğümüz şey bu.",
+    "_ilk_bolgeler_alinti": "Seyhan ve Hirfanlı’da da 2 adet olmak üzere toplam 12 adet Bölge Müdürlüğü",
+    "ilk_bolge_sayisi": 12,
+    "yururluge_giris": "28.02.1954"
   }
 }

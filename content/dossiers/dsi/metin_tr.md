@@ -137,7 +137,7 @@ hükümler.
 Yani kanun kurumun adını taşımaya devam ediyor, işlerinin bir kısmını
 düzenlemeye devam ediyor, ama kurucu maddelerini taşımıyor. Kurumun hangi
 metinden doğduğu sorusunun cevabı 2018'den beri başka bir yerde. Bunun nereye
-gittiği 8. bölümün konusu. Önce kurumun ne inşa ettiğine bakmak gerekiyor,
+gittiği 9. bölümün konusu. Önce kurumun ne inşa ettiğine bakmak gerekiyor,
 çünkü devredilen şey o.
 
 ---
@@ -178,16 +178,114 @@ başlayan bir iştir: kanalların temizlenmesi, kapakların açılıp kapanması
 sezonun su dağıtım programı. İnşaatın bittiği yerde bitmeyen bir yük kalıyor,
 ve devir meselesi tam olarak o yükün kimde duracağı meselesi.
 
-Bu yapıları devlet kurdu. Değişen şey, suyun tarlaya ulaştığı son halkanın
-kimin elinde olduğu.
+Bu yapıları devlet kurdu. Ama hiçbiri bir yılda kurulmadı; en büyükleri
+nesiller sürdü ve bir kısmı hâlâ sürüyor.
 
 ---
 
-## 5. Devir elli üç yıl sürdü
+## 5. Yarım yüzyıl süren projeler
+
+Kurum kurulduğunda taşrada on iki bölge müdürlüğü vardı ve ikisi Seyhan ile
+Hirfanlı'daydı. Yani kurumun ilk haritası illere göre değil, yapılacak
+barajlara göre çizilmişti. 6200 sayılı Kanun 28 Şubat 1954'te yürürlüğe
+girdiğinde teşkilat zaten iki büyük şantiyenin üstüne oturmuştu.
+
+Barajların tek tek ne zaman işletmeye açıldığı kurumun yayımlanmış
+belgelerinde tablo hâlinde yok. Ama kurumun kendi teşkilat çizelgesi bir şey
+söylüyor: bir projeye ne zaman kendi idaresini kurduğunu. Bir baraj için
+bölge müdürlüğü, bir ova için işletme şubesi, bir tünel için başmühendislik
+açmak, o işin artık kalıcı olduğunu kabul etmektir. O tarihler bir takvim
+veriyor.
+
+Takvim 1967'de Adana'da başlıyor: Aşağı Seyhan Ovası sulamasının işletme ve
+bakım şubesi 7 Haziran 1967'de kuruluyor. Ertesi yıl, 3 Temmuz 1968'de,
+Çumra'da Konya Ovası sulamasının karşılığı açılıyor. İki ova, iki şube, iki
+yıl.
+
+Sekiz yıl sonra çizelgeye bugün GAP diye bilinen işin ilk adı giriyor:
+**DSİ Aşağı Fırat Projesi 15. Bölge Müdürlüğü, Şanlıurfa, 24 Mayıs 1976.**
+Henüz GAP denmiyor; Aşağı Fırat deniyor. 1977'de Aşağı Ceyhan Ovası,
+1980'de Keban'da su ürünleri şubesi, 1986'da Şanlıurfa Ovaları sulaması
+şube müdürlüğü geliyor.
+
+Suyun Harran Ovası'na indiği hattın kendi idaresi — Şanlıurfa Tüneli ve
+Harran Kanalı Başmühendisliği — **10 Temmuz 1993'te** kuruluyor. Aşağı
+Fırat'ın bölge müdürlüğünden on yedi yıl sonra.
+
+Çizelge 1998'de Artvin'de Çoruh Projeleri bölge müdürlüğüyle, 2008'de
+Mardin'de Ilısu Projesi bölge müdürlüğüyle, 2012'de Atatürk Barajı işletme
+başmühendisliğiyle ve 2014'te Silvan Proje Müdürlüğüyle sürüyor. İlk
+kayıttan sonuncusuna kırk yedi yıl var.
+
+### Güneydoğu Anadolu Projesi
+
+GAP dokuz ili kapsıyor ve bu illerde 2025 itibarıyla 9,59 milyon kişi
+yaşıyor. Proje tek bir yapı değil; kurumun ifadesiyle "13 adet proje
+demetinden oluşmaktadır" — yedisi Fırat, altısı Dicle havzasında. Fırat
+üzerinde Keban, Karakaya, Atatürk, Birecik ve Karkamış; Dicle ve kolları
+üzerinde Batman, Kralkızı, Dicle ve Ilısu baraj ve hidroelektrik
+santralleri tamamlanmış durumda.
+
+Enerji tarafı neredeyse bitmiş: kurulu güç 7.461 megavat, yıllık üretim
+hedefi 27,3 milyar kilovatsaat, gerçekleşme %91. Sulama tarafı aynı yerde
+değil. Hedef 1,058 milyon hektar, gerçekleşme **%64**. Yani Aşağı Fırat'a
+ilk bölge müdürlüğünün kurulmasından kırk dokuz yıl sonra, projenin sulama
+ayağının üçte birinden fazlası hâlâ yapılmamış.
+
+Bu sıralama tesadüf değil. Bir hidroelektrik santral barajla birlikte
+biter; sulama ise barajdan sonra başlar ve tarlaya kadar her metresi ayrı
+bir inşaattır.
+
+### Doğu Anadolu Projesi
+
+DAP on beş ili kapsıyor, bölgede 6,53 milyon kişi yaşıyor ve Türkiye'nin
+sulanabilir tarım arazisinin %16'sı burada. Hedef 1.377.656 hektar.
+
+Bugün işletmede olan 602.436 hektar — hedefin %44'ü. 263.857 hektarda
+inşaat sürüyor, 511.363 hektar hâlâ planlama ve proje aşamasında. Geriye
+kalan 775.220 hektar, yani hedefin yarısından fazlası, henüz suya
+kavuşmamış.
+
+### Konya Ovası Projesi
+
+KOP sekiz ili kapsıyor. Proje alanı 96.627 kilometrekare — Türkiye
+yüzölçümünün %12,4'ü — ve burada 4,68 milyon kişi yaşıyor.
+
+Bu projeyi ötekilerden ayıran şey suyun kendisinin olmaması. Konya kapalı
+havzasının yıllık yağış ortalaması 400 milimetre; kurumun ifadesiyle
+"Türkiye ortalamasından yaklaşık %30 daha eksik yağış" alıyor. Kapalı bir
+havzada su dışarıdan gelmiyorsa, dışarıdan getirilmesi gerekiyor. Çözüm
+başka bir havzadan aktarma oldu: Yukarı Göksu havzasından "Mavi Tünel
+vasıtasıyla su aktarılması".
+
+KOP'un sulama alanı 1.647.239 hektar ve bunun yaklaşık %75'i sulanıyor —
+717.817 hektarı yüzey suyuyla, 519.601 hektarı yeraltısuyuyla. Yeraltısuyu
+payının bu kadar yüksek olması tek başına bir ölçü: ovanın suyu yalnızca
+kanaldan değil, kuyudan da geliyor.
+
+### Beş rezervuar
+
+Türkiye'de işletmede 861 baraj var. Yüzey alanı olarak en genişleri
+Atatürk (817 km²), Keban (675 km²), Ilısu (313 km²), Karakaya (268 km²) ve
+Hirfanlı (263 km²). Atatürk Barajı'nın göl yüzeyi, 1954'te kurumun ilk
+bölge müdürlüklerinden birinin yanı başında olduğu Hirfanlı'nın 3,1 katı.
+
+Beş rezervuarın dördü GAP'ın içinde. Beşincisi, Hirfanlı, kurumun en eski
+işlerinden biri — ve kurum onun yanına daha ilk yılında bir bölge
+müdürlüğü kurmuştu.
+
+Bütün bunlar bu dosyanın asıl konusuna çıkıyor. Bu ölçekte bir şebeke
+kurmak bir inşaat işi; kurulduktan sonra onu her yıl işletmek bambaşka bir
+iş. Kurum birinciyi yaptı. İkincisini kimin yapacağı, sonraki bölümlerin
+konusu.
+
+---
+
+## 6. Devir elli üç yıl sürdü
 
 Devrin ne kadar sürdüğünü gösteren en uzun kesintisiz seri yeraltısuyu
 tesislerine ait. **Aşağıdaki rakamlar yalnızca yeraltısuyu sulama
-tesislerini kapsıyor**, bütün sulama tesislerini değil; 6. bölümün tablosuyla
+tesislerini kapsıyor**, bütün sulama tesislerini değil; 7. bölümün tablosuyla
 toplanamazlar.
 
 Seri 1967'de başlıyor: 50 hektar. Üç yıl boyunca rakam değişmiyor. Yani devir
@@ -222,7 +320,7 @@ bu seride yok. Bütün tesisleri kapsayan güncel tablo bir sonraki bölümde.
 
 ---
 
-## 6. Tesislerin beşte biri, alanın beşte dördünden fazlası
+## 7. Tesislerin beşte biri, alanın beşte dördünden fazlası
 
 31 Aralık 2025 itibarıyla devredilmiş sulama tesisi sayısı 936, devredilen
 alan 3.083.200 hektar. **Bu rakamlar bütün sulama tesislerini kapsıyor**,
@@ -270,7 +368,7 @@ ayrı bir tüzel kişilik gerekiyor.
 
 ---
 
-## 7. Çiftçi kurumla nerede karşılaşıyor
+## 8. Çiftçi kurumla nerede karşılaşıyor
 
 Bir çiftçi için DSİ çoğu zaman uzaktaki bir kurum. Suyu getiren kanalı o inşa
 etmiş olabilir ama suyun ne zaman geleceğini söyleyen, bedelini tahsil eden
@@ -326,9 +424,9 @@ idarenin seksen dokuz yıl sonraki en somut izi.
 
 ---
 
-## 8. Kanundan kararnameye
+## 9. Kanundan kararnameye
 
-2018'de iki şey oldu. Biri 7. bölümde: çiftçi için üyelik zorunlu hâle geldi.
+2018'de iki şey oldu. Biri 8. bölümde: çiftçi için üyelik zorunlu hâle geldi.
 Öteki kurumun kendi kuruluş metniyle ilgili.
 
 2 Temmuz 2018 tarihli 703 sayılı Kanun Hükmünde Kararname, 6200 sayılı
@@ -362,7 +460,7 @@ devretti. 2018'de kendi kuruluşu da bir metinden başka bir metne devredildi.
 
 ---
 
-## 9. Aynı yapının adı konmuş hâli: Reclamation
+## 10. Aynı yapının adı konmuş hâli: Reclamation
 
 Türkiye'nin bu yapısı dünyada tek değil. ABD'de aynı işi yapan kurum — Bureau
 of Reclamation — devredilmiş tesisi resmî bir sınıf olarak tanımlıyor ve
@@ -408,7 +506,7 @@ devredilen tarafı veriyor: 936 tesis, 3.083.200 hektar.
 
 ---
 
-## 10. Kaynakça
+## 11. Kaynakça
 
 **Birincil metinler.** 6200 sayılı *Devlet Su İşleri Genel Müdürlüğünce
 Yürütülen Hizmetler Hakkında Kanun* (RG 25.12.1953 · 8592) ve 6172 sayılı
