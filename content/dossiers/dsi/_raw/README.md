@@ -71,3 +71,79 @@ yazıyor; ortak yardımcı paylaşılsaydı ikisi de aynı yönde yanılırdı.
 - **Sulanan arazinin toplam tarım arazisine oranı** — TÜİK ya da raporlardan.
 - **İstatistik bültenleri** — `site_istatistik.html` dizin sayfası; bültenlerin
   kendisi indirilmedi.
+
+---
+
+# Tur 2 — mülga maddeler ve devir rakamları
+
+## 1. Kuruluş kanunu içi boşaltılmış (BİRİNCİL)
+
+`kanun_6200.pdf`: **2/7/2018 tarihli KHK-703'ün 69. maddesi** tek seferde
+şunları mülga etmiş:
+
+| | |
+|---|---|
+| **Madde 1** | kuruluş |
+| **Madde 2** | vazife ve salahiyetler |
+| **Madde 3–7** | teşkilat |
+| ayrıca | 14, 18–23, 37–39, 56–58 · Ek Madde 3, 4, 8, 14 · Geçici Madde 1, 2, 3, 5, 6, 7, 8 |
+
+Yaklaşık **otuz madde**. Kanun DSİ'nin adını taşımaya devam ediyor; kurumu
+kuran, görevini tanımlayan ve teşkilatını kuran maddelerin hiçbiri yok.
+
+**Ad da iki kez değişmiş.** Dipnot 1: kanunun adı 11/10/2011 tarihli 662
+sayılı KHK'nin 49. maddesiyle *"Devlet Su İşleri Umum Müdürlüğü Teşkilat ve
+Vazifeleri Hakkında Kanun"* iken *"Devlet Su İşleri Genel Müdürlüğünün
+Teşkilat ve Görevleri Hakkında Kanun"* olmuş. Bugünkü başlık ise
+*"…Yürütülen **Hizmetler** Hakkında Kanun"* — yani üçüncü bir ad.
+
+> §8.7'deki TMO desenin su tarafındaki karşılığı: aynı isim, ardışık hukuki
+> kimlikler. **HENÜZ OKUNMADI:** mülga maddelerin yerine hangi
+> Cumhurbaşkanlığı Kararnamesi geçti. Okunmadan metinde "yerine şu geçti"
+> denmeyecek.
+
+## 2. Devir tablosu (KURUMUN BEYANI — faaliyet_2025.pdf, s. 47)
+
+**Tablo 14 — Sulama Tesislerinin Devredilen Kuruluşlara Göre Dağılımı
+(31.12.2025)**
+
+| devralan | adet | adet % | alan (ha) | alan % |
+|---|---:|---:|---:|---:|
+| Sulama Birliği | 181 | 19 | 2.562.855 | 83,1 |
+| Kooperatif | 414 | 44 | 193.740 | 6,3 |
+| Belediye | 160 | 17 | 226.146 | 7,3 |
+| Köy Tüzel Kişiliği | 164 | 18 | 29.472 | 1,0 |
+| Diğer | 17 | 2 | 70.987 | 2,3 |
+| **TOPLAM** | **936** | **100** | **3.083.200** | **100** |
+
+**İki toplam da elle sınandı ve tutuyor** (§2.2'nin toplama kuralı):
+181+414+160+164+17 = 936 · 2.562.855+193.740+226.146+29.472+70.987 = 3.083.200.
+
+Asimetri dosyanın merkezinde duruyor: **birlikler tesislerin %19'u ama alanın
+%83'ü.** Kooperatifler tam tersi — tesislerin %44'ü, alanın %6,3'ü.
+
+## 3. Ölçek rakamları (KURUMUN BEYANI — faaliyet_2025.pdf)
+
+| | değer | yer |
+|---|---|---|
+| Ekonomik olarak sulanabilir tarım arazisi | **8,5 milyon ha** | s. 43 |
+| 2028 hedefi: sulama şebekesi tamamlanan alan (brüt) | **5,56 milyon ha** | s. 55, 111 |
+| Tamamlanan sulama tesisi (kümülatif, 2025) | **3.654** (hedef 3.632 — aşıldı) | s. 111 |
+| İnşa edilen baraj (kümülatif) | **1.081** (hedef 1.127 — ulaşılamadı) | s. 111 |
+| İnşa edilen gölet (kümülatif) | **750** (hedef 760) | s. 111 |
+| Su depolama kapasitesi (kümülatif) | **183.819,90 hm³** (hedef 190.951,80) | s. 111 |
+
+Bölgesel sulama programları: GAP 1.057.803 ha · DAP 1.377.656 ha ·
+KOP 1.647.239 ha (s. 48-49). **Bunlar birbirine ve yukarıdaki toplamlara
+EKLENMEZ** — kapsamları ayrıca okunmadı.
+
+## 4. Hâlâ eksik
+
+- **DSİ'nin bugüne kadar sulamaya açtığı GERÇEKLEŞEN kümülatif alan.** Elde
+  2028 hedefi (5,56 milyon ha) ve devredilen alan (3,08 milyon ha) var;
+  gerçekleşen kümülatif rakam bu raporda bulunamadı. *"Devredilen = açılan"
+  varsayılmayacak* — DSİ'nin kendi işlettiği tesisler de var (s. 45: "inşa
+  edilerek işletilen veya sulama birliklerine devredilen pompaj…").
+- **KHK-703'ün yerine koyduğu düzenleme** (muhtemelen 1 numaralı CBK).
+- 2022 ve 2019 raporlarından aynı tablonun geçmiş değerleri — devrin zaman
+  içindeki seyri için.
