@@ -50,13 +50,13 @@
     ]
   },
   "_bolum_basliklari": {
-    "_notu": "METİNDEN OKUNACAK; metin yazıldıktan sonra birebir hâle getirilir.",
+    "_notu": "METİNDEN OKUNDU (tur 9). Birebir; başlık değişirse buradan değil metinden değiştirilir.",
     "1": "Suyu getiren kurum",
     "2": "Kıtlıktan doğan idare",
     "3": "6200: bir kanunun kurduğu teşkilat",
     "4": "Ne inşa edildi",
     "5": "Devir elli üç yıl sürdü",
-    "6": "Tesislerin beşte biri, alanın beşte dördü",
+    "6": "Tesislerin beşte biri, alanın beşte dördünden fazlası",
     "7": "Çiftçi kurumla nerede karşılaşıyor",
     "8": "Kanundan kararnameye",
     "9": "Aynı yapının adı konmuş hâli: Reclamation",
@@ -145,5 +145,18 @@
   "hikaye": {
     "_durum": "HENÜZ YAZILMADI — metinden sonra.",
     "_kural": "Rakamların hepsi data.json'dan OKUNARAK yazılır; slaytta elle yazılan tek şey cümledir."
+  },
+  "_bolum_basliklari_en": {
+    "_notu": "metin_en.md ile birebir",
+    "1": "The institution that brings the water",
+    "2": "An administration born of famine",
+    "3": "Law 6200: the organisation a law established",
+    "4": "What was built",
+    "5": "The transfer took fifty-three years",
+    "6": "A fifth of the schemes, more than four-fifths of the area",
+    "7": "Where the farmer meets the institution",
+    "8": "From a law to a decree",
+    "9": "The same structure, named: Reclamation",
+    "10": "Sources"
   }
 }

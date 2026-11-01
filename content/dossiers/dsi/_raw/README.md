@@ -247,9 +247,30 @@ kendisi USBR'da resmî bir kategori. Türkiye'de "DSİ kendi işlettiği alan"
 rakamı bulunamadı (tur 3/3); ABD'de aynı ayrım tesis sınıfı olarak tanımlı ve
 raporlanıyor. Karşılaştırma bir eksikliği de görünür kılıyor.
 
-**KULLANILMAYACAK:** arama sonuçları USBR tesislerinin "üçte ikisinin"
+~~**KULLANILMAYACAK:** arama sonuçları USBR tesislerinin "üçte ikisinin"
 transferred works olduğunu söylüyor ama bu oranı birincil belgede
-DOĞRULAYAMADIM. Metne girmez (§2.2). Oran gerekiyorsa önce kaynağı bulunur.
+DOĞRULAYAMADIM.~~
+
+**DÜZELTİLDİ (tur 9, metin yazımından önce). ORAN BİRİNCİL BELGEDE VAR** ve
+belge o sırada zaten indirilmişti: `usbr_fac01-09.pdf`, 1/C fıkrası —
+
+> *"Approximately one-third of Reclamation's constructed assets, referred to
+> as reserved works, are operated and maintained by Reclamation personnel or
+> by contract. The remaining two-thirds ... referred to as transferred works,
+> are operated and maintained under a transfer agreement by operating
+> entities..."*
+
+**Hatanın cinsi kayda değer, çünkü §2.2'nin kuralını TERS yönde kırıyor.**
+"Getir, hatırlama" bir rakamın bellekten YAZILMASINI yasaklıyor; burada
+bellekten yazılan şey rakam değil, rakam hakkındaki HÜKÜMDÜ — "bu
+doğrulanamadı". Oran arama sonucunda görülmüş, belgede aranmamış, ve
+"doğrulanamadı" notu belgeye bakmayı gereksiz kılmıştı. Not bir kez
+yazıldıktan sonra kendini doğrulayan bir engele dönüştü.
+
+*Kural: "doğrulanamadı" notu, HANGİ belgede arandığını yazmak zorundadır.
+Yazmıyorsa arama yapılmamış olabilir ve not sonraki turda yeniden sınanır.*
+Aynı dersin §8.14.3'teki karşılığı: belgeye yazılan ölçülmemiş cümle,
+sonraki kararların altına konmuş sessiz bir mayındır.
 
 **Türkiye ile ABD arasındaki asıl soru, karşılaştırmanın kendisinden çıkıyor:**
 devirden sonra mülkiyet kimde? USBR'da açık — Reclamation'da kalıyor. Türkiye

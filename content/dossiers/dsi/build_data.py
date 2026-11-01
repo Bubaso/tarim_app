@@ -71,6 +71,25 @@ bin999 = next((k for k in ds["kayitlar"] if k["yil"] == 1999), None)
 if bin999 and bin999["unite"] is not None:
     hata.append("1999 ünite değeri hâlâ dolu — kaynak hatası düşürülmeliydi")
 
+# ── 5. 6172: iddianın kendi sınaması ──────────────────────────────────────
+# §7'nin omurgası bir YOKLUK: kanunda "mülkiyet" hiç geçmiyor. Yokluk
+# iddiası tehlikelidir — bir kez geçse cümle çöker. Bu yüzden üretim
+# sırasında da sınanıyor, çıkarıcıya güvenilmiyor.
+k72 = govde["kanun_6172"]
+if k72["mulkiyet_gecis_sayisi"] != 0:
+    hata.append(f"6172'DE MÜLKİYET GEÇİYOR · {k72['mulkiyet_gecis_sayisi']} kez — "
+                "§7'nin cümlesi yazılamaz")
+if "işletme, bakım, onarım ve yönetim sorumluluğu" not in k72["devir_tanimi_tam"]:
+    hata.append("6172 devir tanımı beklenen dört sorumluluğu saymıyor")
+
+# ── 6. USBR: karşılaştırmanın dayandığı simetri ───────────────────────────
+# İki tanım da "Reclamation-owned" ile başlamazsa §9'un cümlesi ("mülkiyet
+# iki ülkede de devredilmiyor, biri söyleyerek öteki susarak") çöker.
+u = govde["usbr"]
+for alan in ("reserved_works_tanimi", "transferred_works_tanimi"):
+    if "Reclamation-owned facilities" not in u[alan]:
+        hata.append(f"USBR · {alan} 'Reclamation-owned facilities' demiyor")
+
 # ── Türetilmiş ────────────────────────────────────────────────────────────
 ilk, son = ds["kayitlar"][0], ds["kayitlar"][-1]
 govde["turetilmis"] = {
@@ -93,6 +112,80 @@ govde["turetilmis"] = {
                             "alan açılanın şu kadarı' DENMEZ — gerçekleşen kümülatif "
                             "alan hiçbir kaynakta bulunamadı (README tur 3/3)."),
     "kronoloji": dict(kron),
+}
+
+# ── Metin rakamları ───────────────────────────────────────────────────────
+# Metnin kullanacağı HER ölçek dönüşümü burada hesaplanıyor; cümle yazarken
+# elde yuvarlama yapılmıyor. Avustralya'da bu blok yayına gitmek üzere olan
+# YANLIŞ bir karşılaştırmayı yakalamıştı (§2.2'nin "önce veri, sonra cümle").
+sb = next(s for s in d["satirlar"] if s["devralan"] == "Sulama Birliği")
+ko = next(s for s in d["satirlar"] if s["devralan"] == "Kooperatif")
+ky = next(s for s in d["satirlar"] if s["devralan"] == "Köy Tüzel Kişiliği")
+
+# Serinin yarısını hangi yılda geçtiği: "devir hızlanmadı, yavaşladı"
+# cümlesi buna dayanıyor — iddia değil, serinin kendi şekli.
+_yari = son["alan_ha"] / 2
+_yari_yili = next(k["yil"] for k in ds["kayitlar"] if k["alan_ha"] >= _yari)
+
+govde["metin_rakamlari"] = {
+    "_kaynak_niteligi": "TÜRETİLMİŞ — metnin kullandığı dönüşümler",
+    "_kapsam": "Türetilmiş; her satırın kapsamı kendi kaynağınınkidir",
+
+    # Asimetrinin ASIL içeriği: oranlar değil, ortalama tesis büyüklüğü.
+    # "%19'u ama %83'ü" soyut; "ortalama 14 bin hektara karşı 468 hektar"
+    # aynı şeyi bedenin görebileceği bir ölçüye çeviriyor (§2.9 tutamak).
+    "birlik_ortalama_ha": round(sb["alan_ha"] / sb["adet"]),
+    "kooperatif_ortalama_ha": round(ko["alan_ha"] / ko["adet"]),
+    "koy_ortalama_ha": round(ky["alan_ha"] / ky["adet"]),
+    "birlik_kooperatif_kat": round(
+        (sb["alan_ha"] / sb["adet"]) / (ko["alan_ha"] / ko["adet"]), 1),
+
+    # YAS serisinin iki ucu ve şekli
+    "seri_ilk_yil": ilk["yil"],
+    "seri_ilk_alan_ha": ilk["alan_ha"],
+    "seri_son_yil": son["yil"],
+    "seri_son_alan_ha": son["alan_ha"],
+    "seri_yarisini_gectigi_yil": _yari_yili,
+    "seri_ilk_yari_yil": _yari_yili - ilk["yil"],
+    "seri_ikinci_yari_yil": son["yil"] - _yari_yili,
+
+    # DİKKAT — bir cümle burada çürüdü. "Devir zamanla yavaşladı" yazmak
+    # üzereydim; serinin yarısı 1994'te geçiliyor, yani ilk yarı 27 yıl
+    # ikinci yarı 26 yıl: neredeyse simetrik. Yavaşlama YARIDA değil
+    # KUYRUKTA, ve ancak ölçülerek söylenebilir.
+    "son_bes_yil_artis_ha": son["alan_ha"] - next(
+        k["alan_ha"] for k in ds["kayitlar"] if k["yil"] == son["yil"] - 5),
+    "en_hizli_bes_yil_artis_ha": max(
+        k2["alan_ha"] - k1["alan_ha"]
+        for k1, k2 in zip(ds["kayitlar"], ds["kayitlar"][5:])),
+    "son_bes_yil_yavaslama_kat": round(
+        max(k2["alan_ha"] - k1["alan_ha"]
+            for k1, k2 in zip(ds["kayitlar"], ds["kayitlar"][5:]))
+        / (son["alan_ha"] - next(k["alan_ha"] for k in ds["kayitlar"]
+                                 if k["yil"] == son["yil"] - 5)), 1),
+    "en_hizli_bes_yil_bitis": max(
+        ((k2["alan_ha"] - k1["alan_ha"], k2["yil"])
+         for k1, k2 in zip(ds["kayitlar"], ds["kayitlar"][5:])))[1],
+
+    # Ölçek bloğunun okunabilir karşılıkları
+    "depolama_milyar_m3": round(govde["olcek"]["depolama_hm3"] / 1000, 1),
+    "baraj_golet_toplam": govde["olcek"]["baraj_adet"] + govde["olcek"]["golet_adet"],
+    "hedefin_sulanabilire_orani_yuzde": round(
+        govde["olcek"]["hedef_2028_brut_milyon_ha"]
+        / govde["olcek"]["sulanabilir_arazi_milyon_ha"] * 100, 1),
+
+    # TUTAMAK (§2.9) — ve iki KAYNAKSIZ İDDİANIN yerine geçen şey.
+    # Metnin ilk hâlinde "depolar Türkiye'nin bir yıllık su kullanımından
+    # fazlasını alıyor" ve "devredilen alan Belçika'dan geniş" yazıyordu.
+    # İkisi de makul, ikisi de kaynaksız: ne yıllık su kullanımı ne Belçika'nın
+    # yüzölçümü bu dosyanın veri katmanında var (§2.14.1). Yerlerine saf birim
+    # dönüşümü kondu — dışarıdan hiçbir rakam gerektirmiyor.
+    "depolama_kup_kenari_km": round((govde["olcek"]["depolama_hm3"] * 1e6) ** (1 / 3) / 1000, 1),
+    "devredilen_km2": round(d["toplam_alan_ha"] / 100),
+
+    # Mülga oranı: kanunun kaç maddesinin düştüğü değil, DÜŞENLERİN
+    # arasında kuruluş ve teşkilat maddelerinin bulunması önemli.
+    "mulga_madde_toplam": govde["kanun"]["mulga_toplam"],
 }
 
 if hata:
