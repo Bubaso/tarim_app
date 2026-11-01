@@ -27,6 +27,13 @@ const TEMIZLE = process.argv.includes('--temizle');
 
 const SECIM = {
 
+  // ── TUR 13 — dünyada benzeri bölümü ────────────────────────────────────
+  // Sudan'ın Gezira şeması FAO'nun devir tablosunda adıyla geçiyor
+  // ("Sudan (Gezira) · Pilot system · One large govt. scheme"). Bölüm
+  // kurumları değil DEVRİ anlatıyor; o yüzden kare bir yapı değil, suyu
+  // kullanan taraf.
+  dsi_dunya_gezira: 'Sudanese Farmer in Al Gezira Scheme.JPG',
+
   // ── TUR 11 (2 Kasım 2026) — her bölüme bir görsel + büyük projeler ──────
   // Bölüm 2 — kıtlıktan doğan idare. Hirfanlı, kurumun ilk yılında yanına
   // bölge müdürlüğü kurduğu iki yerden biri.

@@ -438,7 +438,78 @@ concrete trace, eighty-nine years on, of an administration born of famine.
 
 ---
 
-## 9. Sources
+## 9. Elsewhere in the world: the same transfer, thirty-three countries
+
+A state institution running water works is not peculiar to Türkiye. Almost
+every country has an administration that builds the dam, lays the network
+and decides how the water is distributed. The real question is not whether
+the institution exists but what these institutions later did with the
+networks they built.
+
+What Türkiye did has a name in the international literature: *irrigation
+management transfer*. FAO's guidelines on the subject define the term as
+follows:
+
+> The term 'irrigation management transfer' means the relocation of
+> responsibility and authority for irrigation management from government
+> agencies to non-governmental organizations, such as water users'
+> associations.
+>
+> — FAO, *Transfer of irrigation management services: guidelines*
+
+The definition is an exact match for what Law 6172 does: responsibility and
+authority pass from a public agency to a non-governmental organisation.
+
+In the same place FAO draws a distinction that matters for Türkiye. Transfer
+is not decentralisation: under decentralisation the decision moves down
+within the same organisation, whereas transfer is the "transfer of
+responsibility for irrigation management from one organization to another" —
+responsibility passes to a different legal person. An irrigation association
+is not a branch of DSİ but a legal person in its own right, which is why the
+Turkish transfer belongs in the second category.
+
+### Türkiye is one row in the table
+
+FAO's results report gives a table compiled from country profiles: which
+country transferred which schemes, at what administrative level, down to
+which hydraulic level, and with how much authority. Thirty-three countries
+appear in it — Albania, Argentina, Armenia, Australia, Bangladesh, Bulgaria,
+China, Colombia, Costa Rica, the Dominican Republic, Ecuador, Ghana, India,
+Indonesia, the Kyrgyz Republic, Mali, Mexico, Morocco, Nepal, New Zealand,
+Niger, Pakistan, Peru, the Philippines, Romania, Senegal, Sri Lanka, Sudan,
+Tunisia, Türkiye, the United States, Uzbekistan and Zimbabwe.
+
+Every row of the table already presupposes a state agency: what is
+transferred is "all govt. schemes", the works the public sector built. In
+other words, all thirty-three of those countries have a counterpart to DSİ;
+the table counts what those counterparts handed over.
+
+Türkiye's row reads: **national level, all government schemes, down to the
+distributary canal, with full authority.** The widest option in all four
+columns. The table has countries that went only part of the way —
+Bangladesh, the Philippines, Sri Lanka, Tunisia and Uzbekistan transferred
+authority only partially; China and Sudan tried it on pilot systems only;
+Nepal and Zimbabwe limited it to small schemes. Türkiye is on the
+unrestricted rows.
+
+The names of the agencies appear not in the table but in the guidelines. The
+Philippine one, for instance, is named: the National Irrigation
+Administration. FAO records that it was converted into a financially
+autonomous entity in the 1970s but has remained unable to finance itself
+entirely — a note that the transfer has not produced the same result
+everywhere.
+
+Nor is transfer uniform across the world. Some countries hand over from the
+headworks down, some from the main canal, some only below the distributary.
+What they share is this: the central institution that builds the large
+infrastructure leaves the last link, where water is distributed to the
+field, to an organisation of the people who use that water. That DSİ began
+in 1967 with fifty hectares and ended up among thirty-three countries is not
+a choice peculiar to Türkiye; it is the Turkish form of a worldwide policy.
+
+---
+
+## 10. Sources
 
 **Primary texts.** Law 6200, the *Law on Services Carried Out by the General
 Directorate of State Hydraulic Works* (Official Gazette 25.12.1953, 8592),

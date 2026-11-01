@@ -555,6 +555,61 @@
           }
         }
       ]
+    },
+    "dunyada_devir": {
+      "tur": "kunye",
+      "baslik": {
+        "tr": "Türkiye'nin yaptığı şeyin dünyada bir adı var",
+        "en": "What Türkiye did has a name in the world"
+      },
+      "not": {
+        "tr": "FAO'nun ülke profili anketi, sulama yönetimini kamu kurumundan su kullanıcı örgütlerine devretmiş ülkeleri tek tabloda sayıyor. Türkiye tabloda ve en kapsamlı satırlardan birinde.",
+        "en": "FAO's country profile survey lists in a single table the countries that have transferred irrigation management from a public agency to water user organisations. Türkiye is in it, on one of the most comprehensive rows."
+      },
+      "kaynak": "FAO · Irrigation management transfer: results, Ek 1",
+      "kalemler": [
+        {
+          "etiket": {
+            "tr": "Tabloda ülke",
+            "en": "Countries listed"
+          },
+          "deger": "@dunya.ulke_sayisi",
+          "birim": {
+            "tr": "ülke",
+            "en": "countries"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Türkiye'nin kapsamı",
+            "en": "Türkiye's scope"
+          },
+          "metin": {
+            "tr": "Ulusal · bütün kamu tesisleri",
+            "en": "National · all government schemes"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "Devredilen kademe",
+            "en": "Level transferred"
+          },
+          "metin": {
+            "tr": "Tersiyer kanal",
+            "en": "Distributary canal"
+          }
+        },
+        {
+          "etiket": {
+            "tr": "İşletme-bakım yetkisi",
+            "en": "O&M authority"
+          },
+          "metin": {
+            "tr": "Tam",
+            "en": "Full"
+          }
+        }
+      ]
     }
   },
   "_kaldirilanlar": "bosaltilan_kanun (kartlar) TUR 12'DE KALDIRILDI. 6200'ün mülga maddelerini ve 4 numaralı Kararname'yi karşılaştıran iki kartlık bir grafikti. Kullanıcı kararı: 2018 geçişi bütün kurumlar için geçerli genel bir idari değişiklik, DSİ'ye özgü bir bulgu değil; ayrı bir grafiği hak etmiyor. Konu 3. bölümde tek paragrafa indi."

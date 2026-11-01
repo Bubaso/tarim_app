@@ -27,7 +27,8 @@
     "6": "veri",
     "7": "veri",
     "8": "anlati",
-    "9": "belge"
+    "9": "anlati",
+    "10": "belge"
   },
   "bolum_grafikleri": {
     "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir.",
@@ -48,6 +49,9 @@
     "7": [
       "devir_asimetrisi",
       "devredilen_alan"
+    ],
+    "9": [
+      "dunyada_devir"
     ]
   },
   "_bolum_basliklari": {
@@ -60,7 +64,8 @@
     "6": "Devir elli üç yıl sürdü",
     "7": "Tesislerin beşte biri, alanın beşte dördünden fazlası",
     "8": "Çiftçi kurumla nerede karşılaşıyor",
-    "9": "Kaynakça"
+    "9": "Dünyada benzeri: aynı devir, otuz üç ülke",
+    "10": "Kaynakça"
   },
   "_bolum_notlari": {
     "2": "Açılış. Kurum 1929'daki şiddetli kuraklık ve kıtlığın ardından kurulan Sular Umum Müdürlüğü'ne dayanıyor — §8.9'un birinci kategorisi. Silsile grafiği burada.",
@@ -68,7 +73,8 @@
     "6": "EKSEN. Devir bir anda olmadı; 1967'de 50 hektarla başladı. KAPSAM UYARISI metinde açıkça yazılacak: bu seri yalnızca yeraltısuyu tesisleri.",
     "7": "Dosyanın merkezî bulgusu: birlikler tesislerin %19'u ama alanın %83,1'i. Bu bölümün rakamları 2025 tarihli ve BÜTÜN tesisleri kapsıyor — bir önceki bölümün serisiyle aynı şey değil.",
     "8": "Gündelik karşılık. 6172 sayılı Kanun: devredilen şey MÜLKİYET DEĞİL, 'işletme, bakım, onarım ve yönetim sorumluluğu'. Kanunda 'mülkiyet' kelimesi hiç geçmiyor.",
-    "9": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
+    "9": "§8.9'un dördüncü kategorisi: aynı sorun başka yerde nasıl çözüldü. İLK DENEME REDDEDİLDİ — ABD'nin Bureau of Reclamation'ı üzerinden hukuki bir ayrım anlatılmıştı ve zorlamaydı. Kullanıcı asıl soruyu sordu: başka ülkelerde DSİ'nin karşılığı var mı? Cevap FAO'nun devir anketinde: otuz üç ülke, Türkiye de içinde, ve devrin uluslararası bir adı var.",
+    "10": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
   },
   "bolum_gorselleri": {
     "_amac": "Bölüm görselleri. Adres MUTLAK: NewsArticleImage göreli yolu kabul etmiyor (§2.4).",
@@ -80,7 +86,7 @@
       "dsi_adana_sulama_kanali.jpg": "İndirildi, atfı tam, _raw/gorseller'de duruyor — ama KULLANILMADI. Karede boyalı duvarlar, yaya köprüsü ve park bankları var: konu kentsel peyzaj düzenlemesi. Bu dosya altyapının İŞLETMESİNİN devrini anlatıyor; görsel dekoratif kalırdı.",
       "GAP kamu malı iki kare": "Daha önce reddedildi: indirici 'ATIF YOK' diye durdurdu. Kamu malı olması atıf zorunluluğunu kaldırmıyor (§2.4).",
       "dsi_keban_baraji.jpg": "9. bölüm (kanundan kararnameye) kaldırılınca boşta kaldı. _raw'da duruyor.",
-      "dsi_all_american_canal.jpg": "ABD karşılaştırma bölümü kaldırılınca boşta kaldı. _raw'da duruyor."
+      "dsi_all_american_canal.jpg": "ABD karşılaştırması kaldırılınca boşta kaldı. Yeni dünya bölümü FAO'ya dayanıyor ve ABD orada otuz üç satırdan biri; Reclamation'ın kendi karesi geri getirilmedi."
     },
     "_durum": "DOKUZ BÖLÜMÜN DOKUZUNDA DA GÖRSEL VAR. İki kare boşta kaldı (bkz. _kullanilmayanlar); web/dosya'dan çıkarıldılar ki dağıtım karşılığı olmayan dosya taşımasın.",
     "1": {
@@ -163,6 +169,16 @@
       "_not": "Zincirin son halkası: çiftçinin kurumla karşılaştığı yer bu kanaletin ağzı."
     },
     "9": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_dunya_gezira.jpg",
+      "atif": "Ahmedkabashi57 — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Gezira şemasında bir çiftçi, Sudan.",
+      "alt_en": "A farmer in the Gezira scheme, Sudan.",
+      "en_boy": 1.2457,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Sudanese_Farmer_in_Al_Gezira_Scheme.JPG",
+      "_not": "Sudan (Gezira) FAO'nun devir tablosunda adıyla geçiyor. Bölüm kurumları değil DEVRİ anlatıyor; o yüzden kare bir yapı değil, suyu kullanan taraf."
+    },
+    "10": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_kizilirmak_hirfanli.jpg",
       "atif": "Hajo-Muc — CC BY-SA 3.0",
       "lisans": "CC BY-SA 3.0",
@@ -246,6 +262,7 @@
     "6": "The transfer took fifty-three years",
     "7": "A fifth of the schemes, more than four-fifths of the area",
     "8": "Where the farmer meets the institution",
-    "9": "Sources"
+    "9": "Elsewhere in the world: the same transfer, thirty-three countries",
+    "10": "Sources"
   }
 }

@@ -220,38 +220,47 @@ rakam bulunduktan sonra kurulur, ya da iddia "devrin ÖLÇEĞİ ve SÜRESİ"
 
 ---
 
-# Tur 7 — dünyada benzeri · KALDIRILDI (tur 12, 2 Kasım 2026)
+# Tur 7 — dünyada benzeri · İKİ KEZ YAZILDI
 
-Bu tur ABD'nin Bureau of Reclamation'ını karşılaştırma olarak kullanmıştı:
-reserved works / transferred works ayrımı, FAC 01-09'daki tanımlar, üçte
-bir–üçte iki dağılımı. **Kullanıcı kararı: bölüm çok zorlamaydı ve ne dediği
-anlaşılmıyordu; kaldırıldı.** `usbr_fac01-09.pdf` ve `usbr_fac07-01.pdf`
-depodan silindi, veri katmanındaki `usbr` bloğu ve metindeki bölüm çıkarıldı.
+**Birinci deneme (reddedildi).** ABD'nin Bureau of Reclamation'ı alınıp
+"reserved works / transferred works" hukuki ayrımı üzerinden bir bölüm
+yazıldı. Kullanıcı: *"çok zorlama olmuş, ne dediğin anlaşılmıyor."* Haklıydı
+— bölüm bir hukuk metninin iki tanımını karşılaştırıyordu, oysa sorulması
+gereken şey çok daha basitti: **başka ülkelerde DSİ'nin karşılığı var mı?**
 
-**Asıl soru sorulmamıştı.** Kullanıcının sorduğu şey hukuki bir ayrım değil:
-*başka ülkelerde DSİ'nin karşılığı olan bir kurum var mı?* Elbette var —
-devletin su işlerini yürüten bir idare her ülkede bulunuyor. Sorun bunu bu
-dosyanın kaynak standardına göre BELGELEYEMEMEK oldu.
+**İkinci deneme (yürürlükte).** Var, ve DSİ'nin yaptığı devrin uluslararası
+bir adı var: *irrigation management transfer*. FAO'nun iki belgesi kullanıldı:
 
-Denenen ve bu ağdan iş görmeyen kaynaklar (tekrar denenmesin diye kayıtlı):
-
-| kaynak | sonuç |
+| belge | ne veriyor |
 |---|---|
-| `usbr.gov/main/about/fact.html` | bağlantı sıfırlanıyor (`000`) |
-| `gob.mx/conagua/que-hacemos` | 200 ama JavaScript kabuğu — gövde 1.155 karakter |
-| `miteco.gob.es/.../confederaciones-hidrograficas.html` | 200 ama içerik **404** sayfası |
-| `mwri.gov.eg` | 200, gövde Arapça menü; alıntılanabilir tanım yok |
-| `cwc.gov.in` | 401 |
-| `wapda.gov.pk`, `anbi.it` | bağlantı kurulmuyor (`000`) |
-| `fao.org/3/<belge>.pdf` | 200 **ama content-type text/html** — yumuşak 404 (§2.12.1) |
-| `openknowledge.fao.org` | 200, arama kabuğu; belge metni gelmiyor |
+| `fao_devir_kilavuz.pdf` (x2586e) | terimin tanımı; devir ile âdem-i merkeziyet ayrımı; Filipinler'in National Irrigation Administration'ı |
+| `fao_devir_sonuclar.pdf` (a1520e, Ek 1) | aynı devri yapmış **otuz üç ülkenin** tablosu — Türkiye de içinde |
 
-**Kural gereği yazılmadı.** Kullanıcının kendi verdiği ölçü: "yoksa yok de
-geç." Burada olan şey "yok" değil "belgeleyemedim"; ikisi de metne tahmin
-yazmamayı gerektiriyor. Karşılaştırma bölümü dosyadan tamamen çıkarıldı.
+Türkiye'nin satırı: *National · All govt. schemes · Distributary · Full.*
+Dört sütunun dördünde de en geniş seçenek.
 
-*Tekrar denenecekse:* FAO AQUASTAT ülke profilleri ve ICID (Uluslararası
-Sulama ve Drenaj Komisyonu) ülke raporları en umutlu iki yol; ikisi de bu
-oturumda düz metin vermedi. Meksika'nın 1990'lardaki sulama bölgesi devri
-(CONAGUA → su kullanıcı dernekleri) Türkiye'deki devrin birebir karşılığı
-gibi görünüyor ve aranmaya buradan başlanmalı.
+## BİRİNCİ ARAMANIN NEDEN BOŞ DÖNDÜĞÜ — yöntem hatası
+
+İlk turda "bulamadım" denmişti ve bu YANLIŞTI. Yapılan şey yalnızca
+kurumların ana sayfalarını curl ile denemekti; çoğu JavaScript kabuğu
+döndü ve oradan "kaynak yok" sonucu çıkarıldı.
+
+**Hiç arama yapılmamıştı.** Konunun literatürdeki adı (*irrigation
+management transfer*) bilinmediği için o ad hiç aranmadı; doğrudan kurum
+adları tahmin edilerek adres denendi.
+
+*Kural: bir konu "kaynaksız" ilan edilmeden önce konunun KENDİ TERİMİ
+aranır. Kurum ana sayfaları en zayıf kaynak türü — JavaScript kabuğu
+dönerler ve zaten tanım değil tanıtım taşırlar. Uluslararası kuruluşların
+(FAO, ICID, IWMI) belge arşivleri düz PDF verir ve tanım taşır.*
+
+Denenip iş görmeyen adresler, tekrar denenmesin diye: `usbr.gov` (bağlantı
+sıfırlanıyor), `gob.mx/conagua` (JS kabuğu, gövde 1.155 karakter),
+`miteco.gob.es` (200 ama içerik 404 sayfası), `mwri.gov.eg` (Arapça menü),
+`cwc.gov.in` (401), `fao.org/3/<belge>.pdf` (200 + text/html, yumuşak 404).
+**Çalışan yol `fao.org/4/<belge>.pdf`** — gerçek PDF veriyor.
+
+ICID ülke profilleri (`icid-ciid.org/member/country_profile1/<no>_A`)
+açılıyor ama gövdenin çoğu komite üye listesi; kurumsal çerçeve bölümü yok.
+Meksika profili CONAGUA'yı adıyla veriyor ve "main hydraulic works such as
+dams and large canals" ifadesini taşıyor — ileride gerekirse oradan alınır.

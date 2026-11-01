@@ -401,7 +401,72 @@ idarenin seksen dokuz yıl sonraki en somut izi.
 
 ---
 
-## 9. Kaynakça
+## 9. Dünyada benzeri: aynı devir, otuz üç ülke
+
+Su işlerini yürüten bir devlet kurumu Türkiye'ye özgü değil. Barajı yapan,
+şebekeyi kuran ve suyun nasıl dağıtılacağına karar veren bir idare hemen her
+ülkede var. Asıl soru kurumun varlığı değil: bu kurumların inşa ettikleri
+şebekeyi sonradan ne yaptığı.
+
+Türkiye'nin yaptığı şeyin uluslararası literatürde bir adı var: *irrigation
+management transfer*, sulama yönetiminin devri. FAO'nun bu konudaki
+kılavuzu terimi şöyle tanımlıyor:
+
+> The term 'irrigation management transfer' means the relocation of
+> responsibility and authority for irrigation management from government
+> agencies to non-governmental organizations, such as water users'
+> associations.
+>
+> — FAO, *Transfer of irrigation management services: guidelines*
+
+Tanım 6172 sayılı Kanunun yaptığı şeyin birebir karşılığı: sorumluluk ve
+yetki, kamu kurumundan hükümet dışı bir örgüte geçiyor.
+
+FAO aynı yerde bir ayrım da yapıyor ve bu ayrım Türkiye için önemli. Devir
+âdem-i merkeziyet değil: âdem-i merkeziyette karar aynı teşkilatın içinde
+aşağı iner, devirde ise "transfer of responsibility for irrigation
+management from one organization to another" söz konusudur — sorumluluk
+başka bir tüzel kişiye geçer. Sulama birliği DSİ'nin bir şubesi değil, ayrı
+bir tüzel kişiliktir; Türkiye'deki devir bu yüzden ikinci sınıfa giriyor.
+
+### Türkiye tablodaki satırlardan biri
+
+FAO'nun sonuç raporu, ülke profillerinden derlenmiş bir tablo veriyor: hangi
+ülke, hangi idari düzeyde, hangi tesisleri, hangi hidrolik kademeye kadar ve
+ne kadar yetkiyle devretti. Tabloda otuz üç ülke var — Arnavutluk, Arjantin,
+Ermenistan, Avustralya, Bangladeş, Bulgaristan, Çin, Kolombiya, Kosta Rika,
+Dominik Cumhuriyeti, Ekvador, Gana, Hindistan, Endonezya, Kırgızistan, Mali,
+Meksika, Fas, Nepal, Yeni Zelanda, Nijer, Pakistan, Peru, Filipinler,
+Romanya, Senegal, Sri Lanka, Sudan, Tunus, Türkiye, ABD, Özbekistan ve
+Zimbabve.
+
+Tablonun her satırı zaten bir devlet kurumunu varsayıyor: devredilen şey
+"all govt. schemes", yani kamunun inşa ettiği tesisler. Yani otuz üç ülkenin
+otuz üçünde de bir DSİ karşılığı var; tablo onların ne devrettiğini
+sayıyor.
+
+Türkiye'nin satırı şöyle okunuyor: **ulusal düzeyde, bütün kamu tesisleri,
+tersiyer kanala kadar, tam yetkiyle.** Dört sütunun dördünde de en geniş
+seçenek. Tabloda kademeli devir yapan ülkeler var — Bangladeş, Filipinler,
+Sri Lanka, Tunus ve Özbekistan yetkiyi kısmi devretmiş; Çin ve Sudan yalnızca
+pilot sistemlerde denemiş; Nepal ve Zimbabve küçük tesislerle sınırlamış.
+Türkiye kısıtsız satırlarda.
+
+Kurumların adları da tabloda değil kılavuzda geçiyor. Filipinler'inki
+örneğin adıyla anılıyor: National Irrigation Administration. FAO, bu kurumun
+1970'lerde mali özerkliğe geçirildiğini ama kendini tam finanse edemediğini
+yazıyor — devrin her yerde aynı sonucu vermediğinin bir kaydı.
+
+Devir dünyada tek tip de değil. Kimisi başlıktan, kimisi ana kanaldan,
+kimisi tersiyerden aşağısını veriyor. Ama ortak nokta şu: büyük altyapıyı
+kuran merkezî kurum, suyun tarlaya dağıtıldığı son halkayı o suyu
+kullananların örgütüne bırakıyor. DSİ'nin 1967'de elli hektarla başlayıp
+otuz üç ülkenin arasına girmesi, Türkiye'ye özgü bir tercih değil; dünya
+çapında bir politikanın Türkiye'deki hâli.
+
+---
+
+## 10. Kaynakça
 
 **Birincil metinler.** 6200 sayılı *Devlet Su İşleri Genel Müdürlüğünce
 Yürütülen Hizmetler Hakkında Kanun* (RG 25.12.1953 · 8592) ve 6172 sayılı

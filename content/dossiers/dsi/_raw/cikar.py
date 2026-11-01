@@ -462,6 +462,83 @@ buyuk_projeler = {
     "yururluge_giris": "28.02.1954",
 }
 
+# ══ 10. Dünyada benzeri — BİRİNCİL (FAO) ══════════════════════════════════
+# Bu blok TUR 13'te eklendi ve bir önceki denemenin yerine geçti.
+#
+# TUR 7'DE YANLIŞ SORU SORULMUŞTU. ABD'nin Bureau of Reclamation'ı alınıp
+# "reserved works / transferred works" hukuki ayrımı üzerinden bir bölüm
+# yazılmıştı; kullanıcı haklı olarak zorlama buldu. Sorulması gereken şey
+# basitti: BAŞKA ÜLKELERDE DSİ'NİN KARŞILIĞI VAR MI?
+#
+# Cevap: var, ve DSİ'nin yaptığı devrin uluslararası bir adı var —
+# "irrigation management transfer" (IMT). FAO'nun 2007 tarihli sonuç
+# raporunun 1 numaralı eki, aynı devri yapmış ülkeleri tek tabloda
+# sayıyor ve TÜRKİYE DE O TABLODA.
+#
+# İlk denemede bulunamamasının sebebi yöntemdi: yalnızca kurumların ana
+# sayfaları curl ile denenmişti (çoğu JavaScript kabuğu), arama hiç
+# yapılmamıştı. Ders README tur 13'te.
+fao_k = pdf("fao_devir_kilavuz.pdf")
+fao_s = PdfReader(KOK / "fao_devir_sonuclar.pdf")
+# Ek 1'in sayfası "Turkey" ile "govt" birlikte geçen tek sayfa; "Annex 1"
+# ibaresi çıkarıcıda satır sonlarına bölünebiliyor, o yüzden ona bakılmıyor.
+ek1 = next(duz(x) for x in ((p.extract_text() or "") for p in fao_s.pages)
+           if "Turkey" in x and "govt" in x)
+
+# Tablodaki her ülke adı belgeye tek tek bağlanıyor; elle liste yazıp
+# "orada vardır" demek §2.2'nin yasakladığı şey.
+_ulkeler = [
+    "Albania", "Argentina", "Armenia", "Australia", "Bangladesh", "Bulgaria",
+    "China", "Colombia", "Costa Rica", "Dominican Republic", "Ecuador",
+    "Ghana", "India", "Indonesia", "Kyrgyz Republic", "Mali", "Mexico",
+    "Morocco", "Nepal", "New Zealand", "Niger", "Pakistan", "Peru",
+    "Philippines", "Romania", "Senegal", "Sri Lanka", "Sudan", "Tunisia",
+    "Turkey", "United States of America", "Uzbekistan", "Zimbabwe",
+]
+for u in _ulkeler:
+    bagla(ek1, u, f"dunya.ulke.{u}")
+
+dunya = {
+    "_kaynak_niteligi": ("BİRİNCİL — FAO, Transfer of irrigation management "
+                         "services: guidelines (x2586e) ve Irrigation "
+                         "management transfer: results (a1520e, Ek 1)"),
+    "_kapsam": "Dünya · FAO'nun ülke profili anketi",
+    "tanim": bagla(
+        fao_k,
+        "The term ‘irrigation management transfer’ means the relocation of "
+        "responsibility and authority for irrigation management from "
+        "government agencies to non-governmental organizations, such as "
+        "water users’ associations",
+        "dunya.tanim"),
+    "_tanim_yeri": "Guidelines, Giriş — 'WHAT IS IRRIGATION MANAGEMENT TRANSFER'",
+    "ayrim": bagla(
+        fao_k,
+        "IMT is the transfer of responsibility for irrigation management from "
+        "one organization to another",
+        "dunya.ayrim"),
+    "_ayrim_notu": ("FAO devri ÂDEM-İ MERKEZİYETTEN ayırıyor: âdem-i merkeziyet "
+                    "kararı aynı teşkilatın içinde aşağı taşır, devir onu "
+                    "BAŞKA bir tüzel kişiye verir. 6172'nin yaptığı ikincisi."),
+    "ulkeler": _ulkeler,
+    "ulke_sayisi": len(_ulkeler),
+    "turkiye_satiri": bagla(
+        ek1, "Turkey National All govt. schemes Distributary Full",
+        "dunya.turkiye"),
+    "_turkiye_satiri_okunusu": ("Ulusal düzeyde · bütün kamu tesisleri · "
+                                "devredilen en üst hidrolik kademe: tersiyer "
+                                "(distributary) · işletme-bakım yetkisi: TAM"),
+    "tablo_basligi": bagla(ek1, "Types of IMT programmes in", "dunya.baslik"),
+    "filipinler": bagla(
+        fao_k,
+        "the Philippines converted its National Irrigation Administration into "
+        "a financial autonomous entity in the 1970s",
+        "dunya.filipinler"),
+    "_filipinler_notu": ("Filipinler'in kurumu adıyla geçiyor: National "
+                         "Irrigation Administration. FAO aynı yerde kurumun "
+                         "tahsilatının %70'i aştığını yazmıyor — kendini tam "
+                         "finanse edemediğini yazıyor."),
+}
+
 
 cikti = {
     "_dosya": "DSİ — Kurum Dosyası Sayı 05 · ham çıkarım",
@@ -474,6 +551,7 @@ cikti = {
     "olcek": olcek,
     "kanun_6172": kanun_6172,
     "buyuk_projeler": buyuk_projeler,
+    "dunya": dunya,
 }
 
 if hata:

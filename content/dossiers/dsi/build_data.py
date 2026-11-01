@@ -112,6 +112,17 @@ _r = [x["yuzey_km2"] for x in bp["en_genis_rezervuarlar"]]
 if _r != sorted(_r, reverse=True):
     hata.append(f"REZERVUAR SIRASI AZALAN DEĞİL · {_r}")
 
+# ── 8. Dünya karşılaştırması: Türkiye tabloda olmak zorunda ───────────────
+# Bölümün tamamı "DSİ'nin yaptığı şeyin dünyada adı var ve Türkiye o
+# listede" cümlesine dayanıyor. Türkiye satırı düşerse cümle çöker.
+dny = govde["dunya"]
+if "Turkey" not in dny["ulkeler"]:
+    hata.append("DÜNYA · Türkiye FAO tablosunda yok — bölümün iddiası çöker")
+if dny["ulke_sayisi"] != len(set(dny["ulkeler"])):
+    hata.append("DÜNYA · ülke listesinde yineleme var")
+if dny["ulke_sayisi"] < 30:
+    hata.append(f"DÜNYA · {dny['ulke_sayisi']} ülke — tablo eksik okunmuş olabilir")
+
 # ── Türetilmiş ────────────────────────────────────────────────────────────
 ilk, son = ds["kayitlar"][0], ds["kayitlar"][-1]
 govde["turetilmis"] = {
