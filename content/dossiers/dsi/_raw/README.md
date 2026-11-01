@@ -220,58 +220,38 @@ rakam bulunduktan sonra kurulur, ya da iddia "devrin ÖLÇEĞİ ve SÜRESİ"
 
 ---
 
-# Tur 7 — dünyada benzeri
+# Tur 7 — dünyada benzeri · KALDIRILDI (tur 12, 2 Kasım 2026)
 
-**ABD · Bureau of Reclamation (USBR).** Aynı yapı, adı konmuş hâliyle: USBR
-tesislerini resmen ikiye ayırıyor —
+Bu tur ABD'nin Bureau of Reclamation'ını karşılaştırma olarak kullanmıştı:
+reserved works / transferred works ayrımı, FAC 01-09'daki tanımlar, üçte
+bir–üçte iki dağılımı. **Kullanıcı kararı: bölüm çok zorlamaydı ve ne dediği
+anlaşılmıyordu; kaldırıldı.** `usbr_fac01-09.pdf` ve `usbr_fac07-01.pdf`
+depodan silindi, veri katmanındaki `usbr` bloğu ve metindeki bölüm çıkarıldı.
 
-| | |
+**Asıl soru sorulmamıştı.** Kullanıcının sorduğu şey hukuki bir ayrım değil:
+*başka ülkelerde DSİ'nin karşılığı olan bir kurum var mı?* Elbette var —
+devletin su işlerini yürüten bir idare her ülkede bulunuyor. Sorun bunu bu
+dosyanın kaynak standardına göre BELGELEYEMEMEK oldu.
+
+Denenen ve bu ağdan iş görmeyen kaynaklar (tekrar denenmesin diye kayıtlı):
+
+| kaynak | sonuç |
 |---|---|
-| **reserved works** | mülkiyeti de işletmesi de Reclamation'da |
-| **transferred works** | mülkiyet Reclamation'da, işletme ve bakım sözleşmeyle yerel sulama bölgelerine (*irrigation districts*) devredilmiş |
+| `usbr.gov/main/about/fact.html` | bağlantı sıfırlanıyor (`000`) |
+| `gob.mx/conagua/que-hacemos` | 200 ama JavaScript kabuğu — gövde 1.155 karakter |
+| `miteco.gob.es/.../confederaciones-hidrograficas.html` | 200 ama içerik **404** sayfası |
+| `mwri.gov.eg` | 200, gövde Arapça menü; alıntılanabilir tanım yok |
+| `cwc.gov.in` | 401 |
+| `wapda.gov.pk`, `anbi.it` | bağlantı kurulmuyor (`000`) |
+| `fao.org/3/<belge>.pdf` | 200 **ama content-type text/html** — yumuşak 404 (§2.12.1) |
+| `openknowledge.fao.org` | 200, arama kabuğu; belge metni gelmiyor |
 
-Birincil alıntı, *Reclamation Manual* FAC 01-09 (`usbr_fac01-09.pdf`):
-**"O&M is planned and managed by operating entities."**
+**Kural gereği yazılmadı.** Kullanıcının kendi verdiği ölçü: "yoksa yok de
+geç." Burada olan şey "yok" değil "belgeleyemedim"; ikisi de metne tahmin
+yazmamayı gerektiriyor. Karşılaştırma bölümü dosyadan tamamen çıkarıldı.
 
-Ölçü (usbr.gov/main/about/fact.html — kurumun kendi sayfası):
-
-| | |
-|---|---|
-| Sulanan alan | **10 milyon akr** ≈ 4,05 milyon ha |
-| Çiftçi | 140.000 — batıdaki her beş çiftçiden biri |
-| Rezervuar | 296 · depolama 140 milyon akr-fit |
-| Kanal | ~10.000 mil, **mülkiyeti Reclamation'da** |
-
-**Neden bu karşılaştırma işe yarıyor:** DSİ verisinde EKSİK olan ayrımın ta
-kendisi USBR'da resmî bir kategori. Türkiye'de "DSİ kendi işlettiği alan"
-rakamı bulunamadı (tur 3/3); ABD'de aynı ayrım tesis sınıfı olarak tanımlı ve
-raporlanıyor. Karşılaştırma bir eksikliği de görünür kılıyor.
-
-~~**KULLANILMAYACAK:** arama sonuçları USBR tesislerinin "üçte ikisinin"
-transferred works olduğunu söylüyor ama bu oranı birincil belgede
-DOĞRULAYAMADIM.~~
-
-**DÜZELTİLDİ (tur 9, metin yazımından önce). ORAN BİRİNCİL BELGEDE VAR** ve
-belge o sırada zaten indirilmişti: `usbr_fac01-09.pdf`, 1/C fıkrası —
-
-> *"Approximately one-third of Reclamation's constructed assets, referred to
-> as reserved works, are operated and maintained by Reclamation personnel or
-> by contract. The remaining two-thirds ... referred to as transferred works,
-> are operated and maintained under a transfer agreement by operating
-> entities..."*
-
-**Hatanın cinsi kayda değer, çünkü §2.2'nin kuralını TERS yönde kırıyor.**
-"Getir, hatırlama" bir rakamın bellekten YAZILMASINI yasaklıyor; burada
-bellekten yazılan şey rakam değil, rakam hakkındaki HÜKÜMDÜ — "bu
-doğrulanamadı". Oran arama sonucunda görülmüş, belgede aranmamış, ve
-"doğrulanamadı" notu belgeye bakmayı gereksiz kılmıştı. Not bir kez
-yazıldıktan sonra kendini doğrulayan bir engele dönüştü.
-
-*Kural: "doğrulanamadı" notu, HANGİ belgede arandığını yazmak zorundadır.
-Yazmıyorsa arama yapılmamış olabilir ve not sonraki turda yeniden sınanır.*
-Aynı dersin §8.14.3'teki karşılığı: belgeye yazılan ölçülmemiş cümle,
-sonraki kararların altına konmuş sessiz bir mayındır.
-
-**Türkiye ile ABD arasındaki asıl soru, karşılaştırmanın kendisinden çıkıyor:**
-devirden sonra mülkiyet kimde? USBR'da açık — Reclamation'da kalıyor. Türkiye
-için 6172 sayılı Kanun okunmalı; **henüz okunmadı.**
+*Tekrar denenecekse:* FAO AQUASTAT ülke profilleri ve ICID (Uluslararası
+Sulama ve Drenaj Komisyonu) ülke raporları en umutlu iki yol; ikisi de bu
+oturumda düz metin vermedi. Meksika'nın 1990'lardaki sulama bölgesi devri
+(CONAGUA → su kullanıcı dernekleri) Türkiye'deki devrin birebir karşılığı
+gibi görünüyor ve aranmaya buradan başlanmalı.

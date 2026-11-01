@@ -1,7 +1,7 @@
 {
   "_dosya": "DSİ — Kurum Dosyası Sayı 05 · veri katmanı",
   "_uretim": "build_data.py — elle düzenlenmez",
-  "_eksen": "Kuraklıktan doğan kurum ülkenin su altyapısını kurdu ve kurduğunun işletmesini 53 yılda başkalarına devretti; 2018'de kendi kuruluş metni de kanundan kararnameye devredildi.",
+  "_eksen": "Kuraklıktan doğan kurum ülkenin su altyapısını kurdu ve kurduğunun işletmesini 53 yılda başkalarına devretti.",
   "_eksen_notu": "Süre SABİT YAZILMIYOR, turetilmis.devir_suresi_yil'den kuruluyor. İlk taslakta 'elli dört yıl' yazmıştım; seri 54 KAYIT taşıyor ama 1967-2020 arası 53 YIL. Metinle veri ayrışmasın diye sayı tek yerden geliyor.",
   "_eksenin_siniri": "'Yapıyor ama işletmiyor' DENMİYOR. DSİ'nin kendi işlettiği ulusal alan hiçbir kaynakta tek rakam olarak yok; iddia devrin ÖLÇEĞİ ve SÜRESİ ile sınırlı.",
   "kanun": {
@@ -466,23 +466,6 @@
     "gelir_idari_para_cezasi": "idari para cezaları",
     "_gelir_yeri": "Madde 11/1 — altı kalem; dördü doğrudan su kullanıcısından",
     "_ek_madde_notu": "Üyelik, ekim planına uyma ve araziye giriş izni aynı fıkrada. Kurumla karşılaşma noktası burası: çiftçi suyu birlikten alıyor, birliğe üye olmak zorunda, ve suyun azaldığı yıl ne ekeceği planlamaya bağlanıyor."
-  },
-  "usbr": {
-    "_kaynak_niteligi": "BİRİNCİL — Bureau of Reclamation, Reclamation Manual FAC 01-09",
-    "_kapsam": "ABD · yürürlükteki yönerge (04/04/2017, revizyon 02/25/2026)",
-    "belge": "FAC 01-09 — Reporting Deferred Maintenance and Repairs",
-    "reserved_works_tanimi": "Reserved Works. Reclamation-owned facilities for which Reclamation manages and performs O&M",
-    "transferred_works_tanimi": "Transferred Works. Reclamation-owned facilities for which the responsibility to manage and perform O&M has been transferred by contract or agreement to a non-federal operating entity",
-    "oran_cumlesi": "Approximately one-third of Reclamation’s constructed assets, referred to as reserved works",
-    "oran_cumlesi_devami": "The remaining two-thirds of Reclamation’s constructed assets, referred to as transferred works",
-    "reserved_pay": "üçte bir",
-    "transferred_pay": "üçte iki",
-    "_oran_notu": "Oran belgenin kendi cümlesinde 'approximately' ile veriliyor; metinde de yaklaşık olarak yazılır, yüzdeye çevrilmez.",
-    "om_operating_entities": "O&M is planned and managed by operating entities",
-    "_mulkiyet_vurgusu": "İki tanım da 'Reclamation-owned facilities' diye başlıyor: devredilen O&M, mülkiyet kurumda kalıyor. 6172'de mülkiyet kelimesinin HİÇ geçmemesiyle aynı yere çıkıyor — biri söyleyerek, öteki susarak.",
-    "belge_2": "FAC 07-01 — Transportation Program",
-    "kopru_denetimi": "inform operating entities, under their jurisdiction, of Reclamation’s bridge inspection responsibilities",
-    "_kopru_notu": "Devredilmiş tesiste bile köprü denetimi merkezî kurumda. Devir bir kopuş değil, sorumluluğun bölünmesi."
   },
   "buyuk_projeler": {
     "_kaynak_niteligi": "KURUMUN BEYANI — DSİ 2025 Faaliyet Raporu, 2021 Haritalı İstatistik Bülteni Ek Çizelge 2-1, ve dsi.gov.tr Toprak ve Su Kaynakları sayfası",

@@ -11,8 +11,7 @@
 1. **No figure is written from memory.** Every number comes from `data.json`.
 2. **Source classes are not mixed.** Laws 6200 and 6172 and the Presidential
    Decree are primary texts; the annual report and the statistical bulletin
-   are **the institution's own statements**; the USBR directive is a primary
-   United States text.
+   are **the institution's own statements**.
 3. **THE TWO TRANSFER FIGURES ARE NOT THE SAME THING.** The series in §5
    counts **groundwater** schemes only; the table in §7 covers **all**
    irrigation schemes. They are never added together and never substituted
@@ -60,16 +59,11 @@ association of which the farmer is a member. That association has taken the
 scheme over without buying it; it operates without owning; it collects money
 without being allowed to profit.
 
-There is a second transfer, and it concerns the institution itself. In 2018
-the founding articles of DSİ were repealed; the institution is now
-established not by a law but by a presidential decree.
-
 The documents behind this file come in three classes. The texts that
 established the institution and that authorise it today are primary: Law
 6200, Law 6172 and Presidential Decree No. 4. The figures for schemes and
 areas come from the institution's own annual report and statistical
-bulletin. The comparison comes from the United States agency that does the
-same work, out of its own directive.
+bulletin.
 
 ---
 
@@ -124,36 +118,16 @@ change was not merely a simplification but a change of scope: the law is now
 named as a text regulating not the organisation but the services that
 organisation carries out.
 
-When the law's text in force is opened, what first catches the eye is not
-the articles themselves but what stands in their place:
+The law's present text contains 31 repealed articles, among them those on
+establishment, duties and organisation. The reason is not particular to DSİ:
+when Türkiye moved to the presidential system of government in 2018, the
+establishing and organisational provisions of public bodies were transferred
+en bloc to presidential decrees. DSİ's sit in the Tenth Chapter of Decree
+No. 4, articles 119 to 121. The law remains in force and goes on regulating
+the legal detail of the institution's work.
 
-> **Article 1 —** (Repealed: 2/7/2018 – Decree-Law 703, art. 69)
->
-> **II – Duties and powers**
->
-> **Article 2 —** (Repealed: 2/7/2018 – Decree-Law 703, art. 69)
-
-Article 1 was the founding article. Article 2 listed the duties and powers.
-Articles 3 through 7 established the organisation. All seven were repealed on
-the same date, by the same decree, in a single stroke.
-
-The repealed articles are not scattered through the law; they stand in
-blocks. After the first seven, article 14 falls; then six consecutive
-articles from 18 to 23; then 37, 38 and 39; and at the very end 56, 57 and
-58. Four additional articles and seven provisional articles are added to
-these. Thirty-one in all.
-
-Nothing has been put in their place. In the text of the law there is a date
-and a decree number in brackets, and below it a gap. The articles still in
-force are the ones regulating the legal detail of the institution's work.
-
-So the law goes on carrying the institution's name, goes on regulating part
-of its work, and no longer carries its founding articles. Since 2018 the
-answer to the question of which text the institution was born from lies
-somewhere else.
-
-Where that went is the subject of §9. First one has to look at what the
-institution built, because that is what was transferred.
+What matters is not which text the institution was born from but what it
+built — because that is what was transferred.
 
 ---
 
@@ -464,97 +438,7 @@ concrete trace, eighty-nine years on, of an administration born of famine.
 
 ---
 
-## 9. From a law to a decree
-
-Two things happened in 2018. One is in §8: membership became compulsory for
-the farmer. The other concerns the institution's own founding text.
-
-Decree-Law 703 of 2 July 2018 repealed the founding and organisational
-articles of Law 6200. The institution did not close; its founding text
-changed.
-
-The new text is Presidential Decree No. 4. That decree regulates the
-institutions and organisations attached to, related to and affiliated with
-the ministries, and takes dozens of bodies in turn. DSİ appears in its Tenth
-Chapter, in three articles: Article 119 sets out its purpose, Article 120 its
-establishment, Article 121 its duties. The sentence in the establishing
-article reads: *"The General Directorate of State Hydraulic Works has been
-established."*
-
-A founding sentence written in 2018 for an institution founded in 1953. In
-law no new legal person comes into being — what changes is the kind of text
-the institution's existence rests on. It is now established not by a law but
-by a decree, and is attached to the Ministry of Agriculture and Forestry.
-
-In practice the difference is one of procedure. A law comes out of parliament
-and is changed in parliament; a decree is issued under the president's
-signature. Which text an institution's establishment sits in also determines
-how that establishment can be altered.
-
-Law 6200 remains in force. Its title carries the institution's name; inside
-it are 31 repealed articles. Someone wanting to learn which text the
-institution was born from will no longer find the answer there, in the law
-that bears its name.
-
-The transfer this file describes thus becomes two-layered. Over fifty-three
-years the institution handed the operation of the schemes it built to other
-legal persons. In 2018 its own establishment was handed from one text to
-another.
-
----
-
-## 10. The same structure, named: Reclamation
-
-Türkiye's arrangement is not unique in the world. In the United States the
-agency that does the same work — the Bureau of Reclamation — defines a
-transferred facility as a formal class and counts it by name in its own
-directive.
-
-*Reclamation Manual* FAC 01-09 gives two classes:
-
-> **Reserved Works.** Reclamation-owned facilities for which Reclamation
-> manages and performs O&M, either through Reclamation personnel or through
-> a maintenance contract.
->
-> **Transferred Works.** Reclamation-owned facilities for which the
-> responsibility to manage and perform O&M has been transferred by contract
-> or agreement to a non-federal operating entity.
-
-Both definitions open with the same two words: *Reclamation-owned* —
-facilities whose ownership rests with Reclamation. What is transferred is
-operation and maintenance; ownership is not, and that is written into the
-definition itself.
-
-In Türkiye the same outcome arrives by a different route. Law 6172 does not
-say that ownership remains; it does not mention ownership at all. One
-arrives there by saying so, the other by staying silent.
-
-The scale is worth noting too. The opening paragraph of the same directive
-gives the American split: approximately one-third of the assets Reclamation
-has built are reserved works, the facilities the agency operates itself; the
-remaining two-thirds are transferred works. The directive explains in the
-same place why it cannot report maintenance needs on transferred works:
-*"O&M is planned and managed by operating entities."* Operation and
-maintenance planning now sits with the party that took them over.
-
-Even so, the transfer is not a severance. Another Reclamation directive, FAC
-07-01, instructs regional offices to write formally to the receiving parties
-and "inform operating entities, under their jurisdiction, of Reclamation's
-bridge inspection responsibilities" — inspection of the bridges on a
-transferred facility stays with the central agency. It is the same logic as
-Law 6172 leaving the drawing of an association's boundaries to DSİ: hand over
-the work, keep hold of the measure.
-
-In Türkiye and in the United States the transfer serves the same end: the
-central institution that builds the large infrastructure leaves the last
-link, where the water is distributed, to bodies formed by the people who use
-that water, while keeping ownership and oversight. The United States defines
-the distinction as a class of facility and counts both sides of it. Türkiye's published figures give the
-transferred side: 936 schemes, 3,083,200 hectares.
-
----
-
-## 11. Sources
+## 9. Sources
 
 **Primary texts.** Law 6200, the *Law on Services Carried Out by the General
 Directorate of State Hydraulic Works* (Official Gazette 25.12.1953, 8592),
@@ -590,10 +474,3 @@ does not give the size of the side that was not transferred.
 **The 2028 figure is a target.** The 5.56 million hectares of gross area is
 a declared plan, not an achieved result, and no completion percentage has
 been produced by setting the transferred area against it.
-
-**Comparison.** Bureau of Reclamation, *Reclamation Manual, Directives and
-Standards FAC 01-09 — Reporting Deferred Maintenance and Repairs*
-(04.04.2017, revised 25.02.2026) and *FAC 07-01 — Transportation Program*.
-The definitions of reserved works and transferred works, the one-third /
-two-thirds split and the bridge inspection responsibility come from the text
-of those two documents themselves.

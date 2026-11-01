@@ -10,7 +10,7 @@
 1. **Hiçbir rakam hafızadan yazılmaz.** Her sayı `data.json`'dan gelir.
 2. **Kaynak cinsleri karıştırılmaz.** 6200, 6172 ve Cumhurbaşkanlığı
    Kararnamesi birincil metinlerdir; faaliyet raporu ve istatistik bülteni
-   **kurumun kendi beyanıdır**; USBR yönergeleri ABD'nin birincil metinleridir.
+   **kurumun kendi beyanıdır**.
 3. **İKİ DEVİR RAKAMI AYNI ŞEY DEĞİL.** 5. bölümün serisi yalnızca
    **yeraltısuyu** tesislerini sayıyor; 6. bölümün tablosu **bütün** sulama
    tesislerini. Toplanmazlar, biri ötekinin yerine kullanılmaz.
@@ -50,16 +50,11 @@ karşısında çoğu zaman devlet değil, kendisinin de üyesi olduğu bir birli
 duruyor. Bu birlik tesisi devralmış ama satın almamış; işletiyor ama
 sahiplenmiyor; parayı topluyor ama kâr edemiyor.
 
-İkinci bir devir daha var ve o kurumun kendisiyle ilgili. 2018'de DSİ'nin
-kuruluş maddeleri yürürlükten kaldırıldı; kurum artık bir kanunla değil, bir
-cumhurbaşkanlığı kararnamesiyle kurulu.
-
 Bu dosyanın dayandığı belgeler üç cinsten ve karıştırılmıyor. Kurumu kuran ve
 bugün yetkilendiren metinler birincil: 6200 sayılı Kanun, 6172 sayılı Kanun
 ve 4 numaralı Cumhurbaşkanlığı Kararnamesi. Tesis ve alan rakamları kurumun
 kendi faaliyet raporundan ve istatistik bülteninden, yani kurumun kendi
-beyanından geliyor. Karşılaştırma ise ABD'de aynı işi yapan kurumun kendi
-yönergelerinden.
+beyanından geliyor.
 
 ---
 
@@ -111,34 +106,16 @@ Kanunun bugünkü adı kuruluştaki adı değil. Metin uzun yıllar *Devlet Su
 kapsam değişikliği: kanun artık teşkilatı değil, o teşkilatın yürüttüğü
 hizmetleri düzenleyen bir metin olarak adlandırılıyor.
 
-Kanunun yürürlükteki metni açıldığında ilk göze çarpan şey maddelerin
-kendisi değil, yerlerinde ne olduğu:
+Kanunun bugünkü metninde 31 mülga madde var ve aralarında kuruluş, vazife
+ve teşkilat maddeleri de bulunuyor. Bunun sebebi DSİ'ye özgü değil: 2018'de
+cumhurbaşkanlığı hükümet sistemine geçilirken kurumların kuruluş ve teşkilat
+hükümleri topluca cumhurbaşkanlığı kararnamelerine taşındı. DSİ'ninki 4
+numaralı Kararname'nin Onuncu Bölümü'nde, 119 ilâ 121. maddelerde. Kanun
+yürürlükte kalmaya devam ediyor ve kurumun yaptığı işlerin hukuki
+ayrıntılarını düzenliyor.
 
-> **Madde 1 —** (Mülga: 2/7/2018 – KHK-703/69 md.)
->
-> **II – Vazife ve salahiyetler**
->
-> **Madde 2 —** (Mülga: 2/7/2018 – KHK-703/69 md.)
-
-Birinci madde kuruluş maddesiydi. İkinci madde vazife ve salahiyetleri
-sayıyordu. Üçüncüden yedinciye kadar olanlar teşkilatı kuruyordu. Yedisi de
-aynı tarihte, aynı kararnameyle, tek kalemde yürürlükten kaldırıldı.
-
-Mülga maddeler kanunun içine serpiştirilmiş değil, bloklar hâlinde duruyor.
-İlk yedisinden sonra 14'üncü madde düşüyor; sonra 18'den 23'e kadar
-kesintisiz altı madde; sonra 37, 38 ve 39; en sonda 56, 57 ve 58. Buna dört
-ek madde ve yedi geçici madde ekleniyor. Toplam 31 madde.
-
-Düşen maddelerin yerine konan bir şey yok. Kanun metninde parantez içinde bir
-tarih ve bir kararname numarası duruyor, altında boşluk. Yürürlükte kalan
-maddeler ise kurumun yaptığı işlerin hukuki ayrıntılarını düzenleyen
-hükümler.
-
-Yani kanun kurumun adını taşımaya devam ediyor, işlerinin bir kısmını
-düzenlemeye devam ediyor, ama kurucu maddelerini taşımıyor. Kurumun hangi
-metinden doğduğu sorusunun cevabı 2018'den beri başka bir yerde. Bunun nereye
-gittiği 9. bölümün konusu. Önce kurumun ne inşa ettiğine bakmak gerekiyor,
-çünkü devredilen şey o.
+Asıl mesele kurumun hangi metinden doğduğu değil, ne inşa ettiği — çünkü
+devredilen şey o.
 
 ---
 
@@ -424,89 +401,7 @@ idarenin seksen dokuz yıl sonraki en somut izi.
 
 ---
 
-## 9. Kanundan kararnameye
-
-2018'de iki şey oldu. Biri 8. bölümde: çiftçi için üyelik zorunlu hâle geldi.
-Öteki kurumun kendi kuruluş metniyle ilgili.
-
-2 Temmuz 2018 tarihli 703 sayılı Kanun Hükmünde Kararname, 6200 sayılı
-Kanunun kuruluş ve teşkilat maddelerini yürürlükten kaldırdı. Kurum
-kapanmadı, görevleri durmadı; kuruluş metni değişti.
-
-Yeni metin 4 numaralı Cumhurbaşkanlığı Kararnamesi. Bu kararname bakanlıklara
-bağlı, ilgili ve ilişkili kurum ve kuruluşları düzenliyor; içinde onlarca
-kurum sırayla ele alınıyor. DSİ orada Onuncu Bölüm'de, üç madde hâlinde:
-119'uncu madde amacı, 120'nci madde kuruluşu, 121'inci madde görevleri
-düzenliyor.
-
-Kuruluş maddesinin cümlesi şu: "Devlet Su İşleri Genel Müdürlüğü
-kurulmuştur." 1953'te kurulan bir kurum için 2018'de yazılmış bir kuruluş
-cümlesi. Hukuken yeni bir tüzel kişilik doğmuyor — değişen, kurumun varlığını
-dayandırdığı metnin cinsi. Kurum artık bir kanunla değil, bir kararnameyle
-kurulu ve Tarım ve Orman Bakanlığına bağlı.
-
-Aradaki fark pratikte bir usul farkı. Kanun Meclisten çıkar ve Meclisten
-değişir; kararname cumhurbaşkanı imzasıyla düzenlenir. Bir kurumun
-kuruluşunun hangi metinde durduğu, o kuruluşun nasıl değiştirileceğini de
-belirliyor.
-
-6200 sayılı Kanun ise yürürlükte kalmaya devam ediyor. Adında kurumun adı
-var, içinde mülga 31 madde. Kurumun hangi metinden doğduğunu öğrenmek isteyen
-biri, kurumun adını taşıyan kanunu açtığında artık cevabı orada bulamıyor.
-
-Bu dosyanın anlattığı devir böylece iki katmanlı hâle geliyor. Kurum inşa
-ettiği tesislerin işletmesini elli üç yıl içinde başka tüzel kişilere
-devretti. 2018'de kendi kuruluşu da bir metinden başka bir metne devredildi.
-
----
-
-## 10. Aynı yapının adı konmuş hâli: Reclamation
-
-Türkiye'nin bu yapısı dünyada tek değil. ABD'de aynı işi yapan kurum — Bureau
-of Reclamation — devredilmiş tesisi resmî bir sınıf olarak tanımlıyor ve
-kendi yönergesinde adıyla sayıyor.
-
-*Reclamation Manual* FAC 01-09 iki sınıf veriyor:
-
-> **Reserved Works.** Reclamation-owned facilities for which Reclamation
-> manages and performs O&M, either through Reclamation personnel or through
-> a maintenance contract.
->
-> **Transferred Works.** Reclamation-owned facilities for which the
-> responsibility to manage and perform O&M has been transferred by contract
-> or agreement to a non-federal operating entity.
-
-İki tanım da aynı iki kelimeyle başlıyor: *Reclamation-owned* — mülkiyeti
-Reclamation'da olan tesisler. Devredilen şey işletme ve bakım; mülkiyet
-devredilmiyor ve bu, tanımın içine yazılmış.
-
-Türkiye'de aynı sonuç farklı bir yoldan çıkıyor. 6172 sayılı Kanun mülkiyetin
-kaldığını söylemiyor — mülkiyetten hiç söz etmiyor. Biri söyleyerek, öteki
-susarak aynı yere varıyor.
-
-Ölçek de kayda değer. Aynı yönergenin giriş fıkrası ABD'deki dağılımı
-veriyor: Reclamation'ın inşa ettiği varlıkların yaklaşık üçte biri reserved
-works, yani kurumun kendi işlettiği tesisler; kalan yaklaşık üçte ikisi
-transferred works. Yönerge devredilmiş tesislerde bakım ihtiyacını neden
-raporlayamadığını da aynı yerde açıklıyor: "O&M is planned and managed by
-operating entities." İşletme ve bakım planlaması artık devralan tarafta.
-
-Devir yine de bir kopuş değil. Reclamation'ın bir başka yönergesi, FAC 07-01,
-bölge ofislerine devralan taraflara resmî bir mektup göndererek "inform
-operating entities, under their jurisdiction, of Reclamation's bridge
-inspection responsibilities" görevini veriyor — devredilmiş tesisteki
-köprülerin denetimi merkezî kurumda kalıyor. 6172'nin birliğin sınırlarını
-DSİ'ye çizdirmesiyle aynı mantık: işi devret, ölçüyü elde tut.
-
-Türkiye'de ve ABD'de devir aynı şeye yarıyor. Büyük altyapıyı kuran merkezî
-kurum, suyun dağıtıldığı son halkayı o suyu kullananların kurduğu yapılara
-bırakıyor; sahipliği ve denetimi elinde tutuyor. ABD bu ayrımı tesis sınıfı
-olarak tanımlayıp iki tarafı da sayıyor. Türkiye'nin yayımlanmış rakamları
-devredilen tarafı veriyor: 936 tesis, 3.083.200 hektar.
-
----
-
-## 11. Kaynakça
+## 9. Kaynakça
 
 **Birincil metinler.** 6200 sayılı *Devlet Su İşleri Genel Müdürlüğünce
 Yürütülen Hizmetler Hakkında Kanun* (RG 25.12.1953 · 8592) ve 6172 sayılı
@@ -539,9 +434,3 @@ vermez.
 **2028 hedefi bir hedeftir.** 5,56 milyon hektarlık brüt alan gerçekleşmiş
 değil, ilan edilmiş plandır; devredilen alanla oranlanarak bir gerçekleşme
 yüzdesi üretilmemiştir.
-
-**Karşılaştırma.** Bureau of Reclamation, *Reclamation Manual, Directives and
-Standards FAC 01-09 — Reporting Deferred Maintenance and Repairs*
-(04.04.2017, revizyon 25.02.2026) ve *FAC 07-01 — Transportation Program*.
-Reserved works ve transferred works tanımları, üçte bir / üçte iki dağılımı
-ve köprü denetimi sorumluluğu bu iki belgenin kendi metnindendir.

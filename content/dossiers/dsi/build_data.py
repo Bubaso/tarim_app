@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """DSİ — `_raw/cikarim.json` → `data.json`. Veri sayfası burada KİLİTLENİR.
 
-EKSEN: kurum kuraklıktan doğdu, ülkenin su altyapısını kurdu, kurduğunun
-işletmesini elli dört yılda devretti, ve 2018'de kendi kuruluş metni de
-kanundan kararnameye devredildi.
+EKSEN: kurum kuraklıktan doğdu, ülkenin su altyapısını kurdu ve kurduğunun
+işletmesini elli üç yılda devretti.
 
 DÖRT DOĞRULAMA — biri bile tutmazsa üretim DURUR:
   1. Her blok `_kapsam` taşıyor (§2.2 — kapsamsız rakam karşılaştırılamaz)
@@ -81,14 +80,6 @@ if k72["mulkiyet_gecis_sayisi"] != 0:
                 "§7'nin cümlesi yazılamaz")
 if "işletme, bakım, onarım ve yönetim sorumluluğu" not in k72["devir_tanimi_tam"]:
     hata.append("6172 devir tanımı beklenen dört sorumluluğu saymıyor")
-
-# ── 6. USBR: karşılaştırmanın dayandığı simetri ───────────────────────────
-# İki tanım da "Reclamation-owned" ile başlamazsa §9'un cümlesi ("mülkiyet
-# iki ülkede de devredilmiyor, biri söyleyerek öteki susarak") çöker.
-u = govde["usbr"]
-for alan in ("reserved_works_tanimi", "transferred_works_tanimi"):
-    if "Reclamation-owned facilities" not in u[alan]:
-        hata.append(f"USBR · {alan} 'Reclamation-owned facilities' demiyor")
 
 # ── 7. Büyük projeler: iki ölçünün karıştırılmaması ───────────────────────
 # İŞLETMEDEKİ baraj (861) ile İNŞA EDİLEN kümülatif baraj (1.081) aynı şey
@@ -260,8 +251,7 @@ out = {
     "_uretim": "build_data.py — elle düzenlenmez",
     "_eksen": ("Kuraklıktan doğan kurum ülkenin su altyapısını kurdu ve kurduğunun "
                f"işletmesini {govde['turetilmis']['devir_suresi_yil']} yılda "
-               "başkalarına devretti; 2018'de kendi kuruluş metni de kanundan "
-               "kararnameye devredildi."),
+               "başkalarına devretti."),
     "_eksen_notu": ("Süre SABİT YAZILMIYOR, turetilmis.devir_suresi_yil'den "
                     "kuruluyor. İlk taslakta 'elli dört yıl' yazmıştım; seri 54 "
                     "KAYIT taşıyor ama 1967-2020 arası 53 YIL. Metinle veri "

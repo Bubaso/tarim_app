@@ -306,68 +306,6 @@
         }
       ]
     },
-    "bosaltilan_kanun": {
-      "tur": "kartlar",
-      "baslik": {
-        "tr": "Kuruluş metni kanundan kararnameye geçti",
-        "en": "The constitutive text moved from statute to decree"
-      },
-      "not": {
-        "tr": "6200 sayılı Kanun DSİ'nin adını taşımaya devam ediyor; kurumu kuran, görevini tanımlayan ve teşkilatını kuran maddeleri taşımıyor.",
-        "en": "Law 6200 still carries DSİ's name; it no longer carries the articles that establish the institution, define its duties or set up its organisation."
-      },
-      "kaynak": "Kanun 6200 · Cumhurbaşkanlığı Kararnamesi No. 4",
-      "kartlar": [
-        {
-          "ust": {
-            "tr": "Kanun · 1953",
-            "en": "Statute · 1953"
-          },
-          "baslik": {
-            "tr": "6200 sayılı Kanun",
-            "en": "Law no. 6200"
-          },
-          "govde": {
-            "tr": "Kurumu 18 Aralık 1953'te kurdu. 2 Temmuz 2018'de 703 sayılı KHK'nin 69. maddesiyle, aralarında Madde 1 (kuruluş), Madde 2 (vazife ve salahiyetler) ve Madde 3-7'nin (teşkilat) bulunduğu maddeler mülga edildi.",
-            "en": "It established the institution on 18 December 1953. On 2 July 2018, article 69 of decree-law 703 repealed a set of articles including article 1 (establishment), article 2 (duties and powers) and articles 3-7 (organisation)."
-          },
-          "rakam": {
-            "deger": "@kanun.mulga_toplam",
-            "ondalik": 0,
-            "etiket": {
-              "tr": "madde mülga edildi",
-              "en": "articles repealed"
-            }
-          }
-        },
-        {
-          "ust": {
-            "tr": "Kararname · 2018",
-            "en": "Decree · 2018"
-          },
-          "baslik": {
-            "tr": "Cumhurbaşkanlığı Kararnamesi No. 4",
-            "en": "Presidential Decree no. 4"
-          },
-          "govde": {
-            "tr": "Onuncu Bölüm. Madde 120: \"Tarım ve Orman Bakanlığına bağlı, kamu tüzel kişiliğini haiz, merkezi Ankara'da bulunan özel bütçeli Devlet Su İşleri Genel Müdürlüğü kurulmuştur.\" 1953'ten beri var olan bir kurum, 2018'de yeniden kuruluyor.",
-            "en": "Tenth Section. Article 120: \"The General Directorate of State Hydraulic Works is established, attached to the Ministry of Agriculture and Forestry, holding public legal personality, with its centre in Ankara and a special budget.\" An institution that has existed since 1953 is established again in 2018."
-          },
-          "rakam": {
-            "deger": "@kararname.madde_kurulus",
-            "ondalik": 0,
-            "onek": {
-              "tr": "md. ",
-              "en": "art. "
-            },
-            "etiket": {
-              "tr": "kuruluşu düzenleyen madde",
-              "en": "the article that establishes it"
-            }
-          }
-        }
-      ]
-    },
     "proje_takvimi": {
       "tur": "zaman_cizelgesi",
       "baslik": {
@@ -618,5 +556,6 @@
         }
       ]
     }
-  }
+  },
+  "_kaldirilanlar": "bosaltilan_kanun (kartlar) TUR 12'DE KALDIRILDI. 6200'ün mülga maddelerini ve 4 numaralı Kararname'yi karşılaştıran iki kartlık bir grafikti. Kullanıcı kararı: 2018 geçişi bütün kurumlar için geçerli genel bir idari değişiklik, DSİ'ye özgü bir bulgu değil; ayrı bir grafiği hak etmiyor. Konu 3. bölümde tek paragrafa indi."
 }

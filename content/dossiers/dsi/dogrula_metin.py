@@ -299,8 +299,8 @@ for dil, dosya in (("tr", "metin_tr.md"), ("en", "metin_en.md")):
         hata.append(f"[{dil}] DOSYA YOK: {dosya}")
         continue
     b = govde(yol)
-    if len(b) != 11:
-        hata.append(f"[{dil}] BÖLÜM SAYISI {len(b)} — on bir olmalı")
+    if len(b) != 9:
+        hata.append(f"[{dil}] BÖLÜM SAYISI {len(b)} — dokuz olmalı")
     sayi_izi(dil, b)
     if dil == "tr":
         alinti_izi_tr(b)

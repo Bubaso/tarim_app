@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """DSİ — ham kaynaklardan `cikarim.json` üretir.
 
-EKSEN (tur 3 sonunda kilitlendi): kurum kuraklıktan doğdu, ülkenin su
-altyapısını kurdu, kurduğunun İŞLETMESİNİ elli dört yılda devretti, ve
-2018'de kendi KURULUŞ METNİ de kanundan kararnameye devredildi.
+EKSEN: kurum kuraklıktan doğdu, ülkenin su altyapısını kurdu ve kurduğunun
+İŞLETMESİNİ elli üç yılda devretti.
+
+TUR 12'DE İKİ ŞEY ÇIKARILDI (kullanıcı kararı, 2 Kasım 2026):
+ · "Kanundan kararnameye" ekseni. 2018'de cumhurbaşkanlığı sistemine
+   geçilirken BÜTÜN kurumların kuruluş hükümleri kararnamelere taşındı;
+   bu DSİ'ye özgü bir bulgu değil, genel bir idari değişiklik. Dosyanın
+   eksenine konması yanlıştı.
+ · USBR karşılaştırması. Bkz. README tur 12.
 
 "Yapıyor ama işletmiyor" DENMİYOR: DSİ'nin kendi işlettiği ulusal alan hiçbir
 kaynakta tek rakam olarak yok (README tur 3/3). İddia devrin ÖLÇEĞİ ve
@@ -305,65 +311,6 @@ kanun_6172 = {
                       "planlamaya bağlanıyor.",
 }
 
-# ══ 8. USBR — BİRİNCİL (Reclamation Manual) ═══════════════════════════════
-# §9'un karşılaştırması. ÖNEMLİ DÜZELTME: README tur 7 "üçte iki oranını
-# birincil belgede DOĞRULAYAMADIM, metne girmez" diye kaydetmişti. Oran
-# FAC 01-09'un 1/C fıkrasında harfi harfine duruyor ve belge zaten
-# indirilmişti — arama sonuçlarına değil, elimizdeki PDF'in kendisine
-# bakılmamıştı. §2.2'nin "getir, hatırlama" kuralı burada ters yönde
-# çalıştı: doğru bilgi vardı, bellekteki "doğrulanamadı" notu onu bloke etti.
-usbr = {
-    "_kaynak_niteligi": "BİRİNCİL — Bureau of Reclamation, Reclamation Manual FAC 01-09",
-    "_kapsam": "ABD · yürürlükteki yönerge (04/04/2017, revizyon 02/25/2026)",
-    "belge": "FAC 01-09 — Reporting Deferred Maintenance and Repairs",
-    "reserved_works_tanimi": bagla(
-        pdf("usbr_fac01-09.pdf"),
-        "Reserved Works. Reclamation-owned facilities for which Reclamation "
-        "manages and performs O&M",
-        "usbr.reserved"),
-    "transferred_works_tanimi": bagla(
-        pdf("usbr_fac01-09.pdf"),
-        "Transferred Works. Reclamation-owned facilities for which the "
-        "responsibility to manage and perform O&M has been transferred by "
-        "contract or agreement to a non-federal operating entity",
-        "usbr.transferred"),
-    "oran_cumlesi": bagla(
-        pdf("usbr_fac01-09.pdf"),
-        "Approximately one-third of Reclamation’s constructed assets, referred "
-        "to as reserved works",
-        "usbr.oran"),
-    "oran_cumlesi_devami": bagla(
-        pdf("usbr_fac01-09.pdf"),
-        "The remaining two-thirds of Reclamation’s constructed assets, referred "
-        "to as transferred works",
-        "usbr.oran2"),
-    "reserved_pay": "üçte bir",
-    "transferred_pay": "üçte iki",
-    "_oran_notu": "Oran belgenin kendi cümlesinde 'approximately' ile veriliyor; "
-                  "metinde de yaklaşık olarak yazılır, yüzdeye çevrilmez.",
-    "om_operating_entities": bagla(
-        pdf("usbr_fac01-09.pdf"),
-        "O&M is planned and managed by operating entities",
-        "usbr.om"),
-    "_mulkiyet_vurgusu": "İki tanım da 'Reclamation-owned facilities' diye başlıyor: "
-                         "devredilen O&M, mülkiyet kurumda kalıyor. 6172'de mülkiyet "
-                         "kelimesinin HİÇ geçmemesiyle aynı yere çıkıyor — biri "
-                         "söyleyerek, öteki susarak.",
-}
-
-# İkinci USBR belgesi. Devirden SONRA merkezî kurumda ne kaldığını
-# gösteriyor: köprü denetimi sorumluluğu devredilmiş tesislerde de
-# Reclamation'da. 6172'nin "sınırları DSİ belirler" maddesinin karşılığı.
-_u7 = pdf("usbr_fac07-01.pdf")
-usbr["belge_2"] = "FAC 07-01 — Transportation Program"
-usbr["kopru_denetimi"] = bagla(
-    _u7,
-    "inform operating entities, under their jurisdiction, of Reclamation’s "
-    "bridge inspection responsibilities",
-    "usbr.kopru")
-usbr["_kopru_notu"] = ("Devredilmiş tesiste bile köprü denetimi merkezî kurumda. "
-                       "Devir bir kopuş değil, sorumluluğun bölünmesi.")
-
 # ══ 9. Büyük projeler — KURUMUN BEYANI ════════════════════════════════════
 # Kullanıcı isteği (2 Kasım 2026): "DSİ'nin tarihe damgasını vuran çok büyük
 # baraj ve bölge sulandırma projeleri var, yıllar aldı bu projeler" — bunların
@@ -526,7 +473,6 @@ cikti = {
     "kurulus_silsilesi": silsile,
     "olcek": olcek,
     "kanun_6172": kanun_6172,
-    "usbr": usbr,
     "buyuk_projeler": buyuk_projeler,
 }
 

@@ -18,7 +18,7 @@
   "_iskelet_notu": "Kurum dosyasının iskeleti SABİT DEĞİL (§8.3); bu on bölüm DSİ'ye uyduğu için böyle. §8.9'un beş kategorisinden dördü dolu: kurucu fikir (§2 — kuraklık), gündelik karşılık (§7 — sulama birliği), dünyada benzeri (§9 — USBR), bıraktığı iş (§5-6 — devrin kendisi). 'Parayı nereden buldu' boş: DSİ'nin ilk finansmanı çekilen kaynaklarda yok ve uydurulmayacak.",
   "bolum_turleri": {
     "_amac": "Sayfadaki görsel ritim. anlati | belge | veri | akis.",
-    "_neden_boyle": "Belge bölümleri (3 ve 9) kanun metnine dayanıyor ve okuma zeminini değiştiriyor. Veri çekirdeği 5-6-7'de toplu: büyük projeler, devrin süresi ve devrin asimetrisi. 4. bölüm grafiğine rağmen ANLATI — künye kartı dar bir blok, bölümün ritmi düzyazı. Tür chart_keys'ten türetilmiyor, yayın kararıdır (§2.4).",
+    "_neden_boyle": "Belge bölümü 3'te; veri çekirdeği 5-6-7'de toplu (büyük projeler, devrin süresi, devrin asimetrisi); 8 gündelik karşılık, 9 kaynakça. Tür chart_keys'ten türetilmiyor, yayın kararıdır (§2.4).",
     "1": "anlati",
     "2": "anlati",
     "3": "belge",
@@ -27,9 +27,7 @@
     "6": "veri",
     "7": "veri",
     "8": "anlati",
-    "9": "belge",
-    "10": "anlati",
-    "11": "belge"
+    "9": "belge"
   },
   "bolum_grafikleri": {
     "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir.",
@@ -50,9 +48,6 @@
     "7": [
       "devir_asimetrisi",
       "devredilen_alan"
-    ],
-    "9": [
-      "bosaltilan_kanun"
     ]
   },
   "_bolum_basliklari": {
@@ -65,9 +60,7 @@
     "6": "Devir elli üç yıl sürdü",
     "7": "Tesislerin beşte biri, alanın beşte dördünden fazlası",
     "8": "Çiftçi kurumla nerede karşılaşıyor",
-    "9": "Kanundan kararnameye",
-    "10": "Aynı yapının adı konmuş hâli: Reclamation",
-    "11": "Kaynakça"
+    "9": "Kaynakça"
   },
   "_bolum_notlari": {
     "2": "Açılış. Kurum 1929'daki şiddetli kuraklık ve kıtlığın ardından kurulan Sular Umum Müdürlüğü'ne dayanıyor — §8.9'un birinci kategorisi. Silsile grafiği burada.",
@@ -75,8 +68,7 @@
     "6": "EKSEN. Devir bir anda olmadı; 1967'de 50 hektarla başladı. KAPSAM UYARISI metinde açıkça yazılacak: bu seri yalnızca yeraltısuyu tesisleri.",
     "7": "Dosyanın merkezî bulgusu: birlikler tesislerin %19'u ama alanın %83,1'i. Bu bölümün rakamları 2025 tarihli ve BÜTÜN tesisleri kapsıyor — bir önceki bölümün serisiyle aynı şey değil.",
     "8": "Gündelik karşılık. 6172 sayılı Kanun: devredilen şey MÜLKİYET DEĞİL, 'işletme, bakım, onarım ve yönetim sorumluluğu'. Kanunda 'mülkiyet' kelimesi hiç geçmiyor.",
-    "10": "USBR'ın 'transferred works' / 'reserved works' ayrımı. Karşılaştırma bir EKSİKLİĞİ de görünür kılıyor: DSİ'nin kendi işlettiği alan rakamı yok, ABD'de aynı ayrım resmî tesis sınıfı.",
-    "11": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
+    "9": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
   },
   "bolum_gorselleri": {
     "_amac": "Bölüm görselleri. Adres MUTLAK: NewsArticleImage göreli yolu kabul etmiyor (§2.4).",
@@ -86,9 +78,11 @@
     "_gozle_dogrulama": "ALTI GÖRSELİN ALTISI DA AÇILIP BAKILDI; iki başlık yanıltıyordu ve altyazılar GÖRÜLENE göre yazıldı: (1) 'Seyhan Barajı 01' karesinde baraj GÖVDESİ yok, görünen şey baraj GÖLÜ — altyazı 'Seyhan Baraj Gölü' diyor. (2) 'All American Canal System' karesi kanal değil, sistemin başındaki ÇÖKELTME HAVUZLARI — altyazı havuzları söylüyor, kanal demiyor. Avustralya'da 'Irrigation farming' başlıklı bir kare KURU bir tarla göstermişti; başlık yalan söyleyebilir, dosya adı hiç söylemez. TUR 11'DE ÜÇÜNCÜ BAŞLIK DÜZELTMESİ: 'Hirfanlı Barajı 01' karesinde baraj gövdesi yok; görünen şey şalt sahası ve göl kenarı. Altyazı buna göre.",
     "_kullanilmayanlar": {
       "dsi_adana_sulama_kanali.jpg": "İndirildi, atfı tam, _raw/gorseller'de duruyor — ama KULLANILMADI. Karede boyalı duvarlar, yaya köprüsü ve park bankları var: konu kentsel peyzaj düzenlemesi. Bu dosya altyapının İŞLETMESİNİN devrini anlatıyor; görsel dekoratif kalırdı.",
-      "GAP kamu malı iki kare": "Daha önce reddedildi: indirici 'ATIF YOK' diye durdurdu. Kamu malı olması atıf zorunluluğunu kaldırmıyor (§2.4)."
+      "GAP kamu malı iki kare": "Daha önce reddedildi: indirici 'ATIF YOK' diye durdurdu. Kamu malı olması atıf zorunluluğunu kaldırmıyor (§2.4).",
+      "dsi_keban_baraji.jpg": "9. bölüm (kanundan kararnameye) kaldırılınca boşta kaldı. _raw'da duruyor.",
+      "dsi_all_american_canal.jpg": "ABD karşılaştırma bölümü kaldırılınca boşta kaldı. _raw'da duruyor."
     },
-    "_durum": "ON BİR BÖLÜMÜN ON BİRİNDE DE GÖRSEL VAR (kullanıcı isteği, 2 Kasım 2026). Daha önce beş bölüm boş bırakılmıştı ve gerekçeleri kayıtlıydı; istek bunu değiştirdi.",
+    "_durum": "DOKUZ BÖLÜMÜN DOKUZUNDA DA GÖRSEL VAR. İki kare boşta kaldı (bkz. _kullanilmayanlar); web/dosya'dan çıkarıldılar ki dağıtım karşılığı olmayan dosya taşımasın.",
     "1": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_harran_ana_kanal.jpg",
       "atif": "Volker Höhfeld — CC BY-SA 4.0",
@@ -169,26 +163,6 @@
       "_not": "Zincirin son halkası: çiftçinin kurumla karşılaştığı yer bu kanaletin ağzı."
     },
     "9": {
-      "url": "https://tarimportali.net/dosya/dsi/dsi_keban_baraji.jpg",
-      "atif": "Ensarseker1 — CC BY-SA 4.0",
-      "lisans": "CC BY-SA 4.0",
-      "alt_tr": "Keban Barajı ve mansabındaki su ürünleri havuzları; gövdede yine kurumun baş harfleri.",
-      "alt_en": "The Keban Dam and the fish farming ponds below it; the institution's initials again on the embankment.",
-      "en_boy": 1.3333,
-      "_commons": "https://commons.wikimedia.org/wiki/File:Keban_Baraj%C4%B1.jpg",
-      "_not": "Havuzlar 5. bölümdeki takvimin 1980 kaydının karşılığı: Keban Barajı Su Ürünleri Şube Müdürlüğü."
-    },
-    "10": {
-      "url": "https://tarimportali.net/dosya/dsi/dsi_all_american_canal.jpg",
-      "atif": "Bureau of Reclamation — CC BY-SA 2.0",
-      "lisans": "CC BY-SA 2.0",
-      "alt_tr": "All-American Canal sisteminde çökeltme havuzları, ABD.",
-      "alt_en": "Desilting basins on the All-American Canal System, United States.",
-      "en_boy": 1.5024,
-      "_commons": "https://commons.wikimedia.org/wiki/File:All_American_Canal_System_(8370632213).jpg",
-      "_not": "Karede kanal değil havuzlar var; altyazı buna göre. Tesisin hangi bentte olduğu kaynakta yazmıyor, yazılmadı."
-    },
-    "11": {
       "url": "https://tarimportali.net/dosya/dsi/dsi_kizilirmak_hirfanli.jpg",
       "atif": "Hajo-Muc — CC BY-SA 3.0",
       "lisans": "CC BY-SA 3.0",
@@ -206,8 +180,8 @@
   "_anahtar_kelimeler_notu": "§8.10'un birinci dersi: anahtar kelime kurumun adının BAŞKA bir kurumun adında geçmeyen en kısa parçası olmalı ve yayına girmeden gerçek habere karşı denenmeli. 'Su İşleri' tek başına riskli olabilir; liste YAYINLANMADAN ÖNCE veritabanındaki başlıklara karşı sınanacak.",
   "hikaye": {
     "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
-    "_kural": "Metin ELLE yazıldı. Beş rakamın beşi de data.json'dan OKUNARAK yazıldı: depolama 183,8 milyar m³ (1081 baraj + 750 gölet); devredilen 3.083.200 ha / 936 tesis; devir süresi 53 yıl (ilk sözleşme 1967, 50 ha); 6172'de 'mülkiyet' 0 kez; USBR'da devredilmiş pay üçte iki.",
-    "_akis": "Beş kanca dosyanın kendi sırası: ne kuruldu → ne devredildi → ne kadar sürdü → devredilenin içinde ne YOK → aynı yapı başka ülkede. Dördüncü slayt dosyanın en güçlü bulgusu ve bir YOKLUK: sıfır rakamı bir eksiklik değil, ölçülmüş bir sonuç.",
+    "_kural": "Metin ELLE yazıldı. Beş rakamın beşi de data.json'dan OKUNARAK yazıldı: depolama 183,8 milyar m³ (1081 baraj + 750 gölet); devredilen 3.083.200 ha / 936 tesis; devir süresi 53 yıl (ilk sözleşme 1967, 50 ha); 6172'de 'mülkiyet' 0 kez.",
+    "_akis": "Dört kanca dosyanın kendi sırası: ne kuruldu → ne devredildi → ne kadar sürdü → devredilenin içinde ne YOK. Dördüncü slayt dosyanın en güçlü bulgusu ve bir YOKLUK: sıfır rakamı bir eksiklik değil, ölçülmüş bir sonuç.",
     "_kapsam_notu": "ÜÇÜNCÜ SLAYTIN RAKAMI YALNIZCA YERALTISUYU TESİSLERİNE AİT (devir_serisi). İkinci slayt BÜTÜN tesisleri kapsıyor (devir_dagilimi). İki rakam toplanamaz; etiketler bu yüzden kapsamı adıyla söylüyor. Baloncukta bu ayrım gözden kaçarsa okur 53 yılı 3 milyon hektara bağlar ve bu yanlış olur.",
     "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ beş kareden, her slayta bir tane. Paylaşım kartı kullanılmıyor: kartın üstünde zaten yazı var ve görüntüleyici kendi metnini bindirince ikisi çakışıyor. Eşleştirme konuya göre — devir süresi slaytında köy kanalı, çünkü devredilen tesis çoğunlukla o ölçekte.",
     "_sinama_notu": "dosya_hikayeleri.py her slayt görselini çekip content-type'ın image/ ile başladığını sınıyor; biri bile geçmezse hikâyeyi HİÇ yazmıyor (§2.12.1). Görseller yayına alınmadan betik BAŞARISIZ OLUR ve doğru davranış budur.",
@@ -257,20 +231,10 @@
         "etiket": "\"Mülkiyet\" kelimesinin 6172 sayılı Sulama Birlikleri Kanunundaki geçiş sayısı",
         "etiket_en": "Occurrences of the word \"ownership\" in Law 6172, the Irrigation Associations Law",
         "gorsel": "https://tarimportali.net/dosya/dsi/dsi_osmaniye_sulama.jpg"
-      },
-      {
-        "ust": "ABD'DE ADI KONMUŞ",
-        "ust_en": "NAMED IN THE UNITED STATES",
-        "baslik": "Aynı yapı ABD'de resmî bir tesis sınıfı: transferred works. Mülkiyet Reclamation'da kalıyor, işletme devrediliyor.",
-        "baslik_en": "In the United States the same arrangement is a formal class of facility: transferred works. Ownership stays with Reclamation; operation is handed over.",
-        "rakam": "üçte iki",
-        "rakam_en": "two-thirds",
-        "etiket": "Reclamation'ın inşa ettiği varlıklardan devredilmiş olanların yaklaşık payı — Reclamation Manual FAC 01-09",
-        "etiket_en": "Approximate share of Reclamation-built assets that are transferred works — Reclamation Manual FAC 01-09",
-        "gorsel": "https://tarimportali.net/dosya/dsi/dsi_all_american_canal.jpg"
       }
     ],
-    "_eksen_siniri_notu": "İKİNCİ SLAYTIN BAŞLIĞI BİR KEZ YANLIŞ YAZILDI: 'KURAN İŞLETMİYOR'. data.json/_eksenin_siniri bunu açıkça yasaklıyor — DSİ'nin bugün kendi işlettiği ulusal alan hiçbir kaynakta yok, dolayısıyla 'işletmiyor' iddiası kanıtsız. Başlık 'KURDU VE DEVRETTİ' oldu: ikisi de belgeli. Baloncuk metnin denetiminden geçmiyor, o yüzden dogrula_metin.py'ye slaytları da tarayan bir avcı eklendi."
+    "_eksen_siniri_notu": "İKİNCİ SLAYTIN BAŞLIĞI BİR KEZ YANLIŞ YAZILDI: 'KURAN İŞLETMİYOR'. data.json/_eksenin_siniri bunu açıkça yasaklıyor — DSİ'nin bugün kendi işlettiği ulusal alan hiçbir kaynakta yok, dolayısıyla 'işletmiyor' iddiası kanıtsız. Başlık 'KURDU VE DEVRETTİ' oldu: ikisi de belgeli. Baloncuk metnin denetiminden geçmiyor, o yüzden dogrula_metin.py'ye slaytları da tarayan bir avcı eklendi.",
+    "_kaldirilan_slayt": "Beşinci slayt ABD'nin Bureau of Reclamation'ını anlatıyordu ('üçte iki'). Karşılaştırma bölümüyle birlikte kaldırıldı (kullanıcı kararı, 2 Kasım 2026). Dört slayt MIN_SLAYT eşiğinin üstünde; baloncuk çalışmaya devam ediyor."
   },
   "_bolum_basliklari_en": {
     "_notu": "metin_en.md ile birebir",
@@ -282,8 +246,6 @@
     "6": "The transfer took fifty-three years",
     "7": "A fifth of the schemes, more than four-fifths of the area",
     "8": "Where the farmer meets the institution",
-    "9": "From a law to a decree",
-    "10": "The same structure, named: Reclamation",
-    "11": "Sources"
+    "9": "Sources"
   }
 }
