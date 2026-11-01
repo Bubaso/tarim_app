@@ -147,3 +147,73 @@ EKLENMEZ** — kapsamları ayrıca okunmadı.
 - **KHK-703'ün yerine koyduğu düzenleme** (muhtemelen 1 numaralı CBK).
 - 2022 ve 2019 raporlarından aynı tablonun geçmiş değerleri — devrin zaman
   içindeki seyri için.
+
+---
+
+# Tur 3 — yerine ne geçti, devir ne zaman oldu
+
+## 1. Kuruluş metni kararnameye taşınmış (BİRİNCİL)
+
+`cbk_4_bagli_kuruluslar.pdf` — *Bakanlıklara Bağlı, İlgili, İlişkili Kurum ve
+Kuruluşlar ile Diğer Kurum ve Kuruluşların Teşkilatı Hakkında Cumhurbaşkanlığı
+Kararnamesi*, **Sayı 4**. Onuncu Bölüm:
+
+| madde | ne diyor |
+|---|---|
+| **119** | Bölümün amacı: DSİ'nin kuruluş, teşkilat, görev, yetki ve sorumlulukları |
+| **120** | *"Tarım ve Orman Bakanlığına bağlı, kamu tüzel kişiliğini haiz, merkezi Ankara'da bulunan özel bütçeli Devlet Su İşleri Genel Müdürlüğü **kurulmuştur**."* · (2) Kısa adı DSİ'dir. |
+| **121** | Görev ve yetkiler — (a) taşkın sular ve sellere karşı koruyucu tesisler… |
+
+**1953'ten beri var olan bir kurum, 2018'de bir kararnameyle yeniden
+"kurulmuş".** 6200 adını taşımaya devam ediyor ama kurucu metin artık orada
+değil.
+
+> **ELENEN YOL, kayda geçsin:** önce CBK **1**'e (Cumhurbaşkanlığı Teşkilatı,
+> RG 10/7/2018 – 30474) bakıldı. "Su İşleri" orada **sıfır kez** geçiyor —
+> metin çıkarımı sağlam olduğu hâlde (294 sayfa, metin çıkmayan sayfa yok,
+> "Genel Müdürlüğü" 627 kez). DSİ ana teşkilat kararnamesinde değil, bağlı
+> kuruluşlar kararnamesinde.
+
+## 2. Devir bir ANDA değil, elli dört yılda oldu
+
+`istatistik_2021.pdf` s. 62 — *"II. KAT'İ DEVİR SÖZLEŞMESİ İMZALANMIŞ
+OLANLARIN YILLARA GÖRE KÜMÜLATİF DEĞERLERİ"*, 1967–2020 kesintisiz seri:
+
+| yıl | ünite | devredilen alan (ha) |
+|---|---:|---:|
+| 1967 | 1 | 50 |
+| 1980 | 208 | 93.189 |
+| 1990 | 697 | 210.181 |
+| 2000 | 1.295 | 319.243 |
+| 2010 | 2.060 | 427.307 |
+| 2020 | 2.371 | 464.316 |
+
+**KAPSAM UYARISI — bu iki rakam KARIŞTIRILAMAZ.** Sütun başlığı "Devredilen
+**Kuyu** Sayısı": bu seri **yeraltısuyu (YAS)** tesislerinin devri, 2020'de
+464.316 ha. Faaliyet raporundaki **3.083.200 ha** ise BÜTÜN sulama
+tesislerini kapsıyor (31.12.2025). Biri ötekinin alt kümesi; toplanmaz,
+birbirinin yerine kullanılmaz.
+
+**KAYNAK KENDİYLE ÇELİŞİYOR — 1999 satırı.** Ünite sayısı 1998'de 1.187,
+2000'de 1.295 iken 1999'da **151** yazıyor. Kümülatif bir seride düşüş
+imkânsız; basım hatası (muhtemelen 1.251). Alan sütunu düzgün ilerliyor
+(299.728 → 310.548 → 319.243). *O satırın ünite değeri metinde
+KULLANILMAYACAK;* Avustralya'daki 2008-09 satırının aynısı.
+
+## 3. Bulunamayan — ve varsayılmayacak olan
+
+**DSİ'nin bugün KENDİ işlettiği ulusal sulama alanı tek bir rakam olarak
+hiçbir kaynakta bulunamadı.** Arananlar: üç faaliyet raporu, 793 sayfalık
+istatistik bülteni.
+
+Bülten s. 64'teki *Çizelge 15-4* ayrımı YAPIYOR — "A. DSİ'CE İNŞA EDİLEN VE
+İŞLETİLEN SULAMALAR" / "B. DSİ'CE İNŞA EDİLEN VE DEVREDİLEN SULAMALAR" — ama
+tesis tesis listeliyor, ulusal toplam vermiyor. Ek çizelge 17-1'in bu ayrımı
+toplamıyla verdiği yazılı (s. 74) ancak çizelgenin kendisi 793 sayfalık
+dökümün içinde ayrıştırılamadı.
+
+**Sonuç: "DSİ yapıyor ama işletmiyor" cümlesi BU HÂLİYLE YAZILAMAZ.**
+Elimizde devredilen alan var (3.083.200 ha), devredilmeyen alan yok. Rapor
+s. 45 DSİ'nin kendi işlettiği tesisler olduğunu açıkça söylüyor. Eksen ya bu
+rakam bulunduktan sonra kurulur, ya da iddia "devrin ÖLÇEĞİ ve SÜRESİ"
+üzerine daraltılır — ikisi de dürüst, üçüncü bir yol yok.
