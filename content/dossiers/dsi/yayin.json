@@ -71,9 +71,71 @@
     "10": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
   },
   "bolum_gorselleri": {
-    "_durum": "HENÜZ SEÇİLMEDİ — sonraki tur.",
-    "_kural": "Atıfsız görsel yayımlanmaz; atıf görselin altında açıkta durur (§8.3). Kaynak Wikimedia Commons, lisans ve atıf Commons API'sinden çekilecek.",
-    "_yasak": "Barajı kahramanlaştıran havadan çekim (tasarim.json/_yasak): dosya inşaatı değil DEVRİ anlatıyor."
+    "_amac": "Bölüm görselleri. Adres MUTLAK: NewsArticleImage göreli yolu kabul etmiyor (§2.4).",
+    "_kural": "Atıfsız görsel yayımlanmaz; atıf görselin altında açıkta durur (§8.3). Altısı da Wikimedia Commons, lisans ve atıf Commons API'sinden çekildi, kunye.json'da tam künye var.",
+    "_yasak": "Barajı kahramanlaştıran havadan çekim (tasarim.json/_yasak): dosya inşaatı değil DEVRİ anlatıyor. §9'daki ABD karesi havadan ama baraj değil çökeltme havuzu ve Türkiye'ye ait değil — karşılaştırmanın konusunu gösteriyor, bir eseri yüceltmiyor.",
+    "_alan_notu": "en_boy indirilen dosyadan ÖLÇÜLDÜ (§8.14.3). Beşi de 3:4–16:9 kıskacının içinde, yani hiçbiri sıkıştırılmıyor ve hepsi `contain` ile tam görünüyor.",
+    "_gozle_dogrulama": "ALTI GÖRSELİN ALTISI DA AÇILIP BAKILDI; iki başlık yanıltıyordu ve altyazılar GÖRÜLENE göre yazıldı: (1) 'Seyhan Barajı 01' karesinde baraj GÖVDESİ yok, görünen şey baraj GÖLÜ — altyazı 'Seyhan Baraj Gölü' diyor. (2) 'All American Canal System' karesi kanal değil, sistemin başındaki ÇÖKELTME HAVUZLARI — altyazı havuzları söylüyor, kanal demiyor. Avustralya'da 'Irrigation farming' başlıklı bir kare KURU bir tarla göstermişti; başlık yalan söyleyebilir, dosya adı hiç söylemez.",
+    "1": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_harran_ana_kanal.jpg",
+      "atif": "Volker Höhfeld — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Harran Ovası'nda ana sulama kanalı, 8 Nisan 2004.",
+      "alt_en": "The main irrigation canal on the Harran Plain, 8 April 2004.",
+      "en_boy": 1.5368,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_08_04_2004_Harran-Hauptkanal.jpg"
+    },
+    "4": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_seyhan_baraji.jpg",
+      "atif": "Zeynel Cebeci — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Seyhan Baraj Gölü, Adana.",
+      "alt_en": "Seyhan Reservoir, Adana.",
+      "en_boy": 1.5047,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Seyhan_Baraj%C4%B1_01.jpg",
+      "_not": "Kaynak başlığı 'Seyhan Barajı' ama karede gövde yok; altyazı gölü söylüyor."
+    },
+    "5": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_koy_sulama_kanali.jpg",
+      "atif": "mhasras — CC BY 3.0",
+      "lisans": "CC BY 3.0",
+      "alt_tr": "Küllük köyünün sulama kanalı.",
+      "alt_en": "The irrigation canal at Küllük village.",
+      "en_boy": 1.5568,
+      "_commons": "https://commons.wikimedia.org/wiki/File:K%C3%BCll%C3%BCk_k%C3%B6y%C3%BC_sulama_kanal%C4%B1_-_panoramio.jpg",
+      "_not": "Devir bölümünün yanında duruyor: devredilen tesis çoğunlukla bu ölçekte. Kaynak il adı vermiyor, altyazı da vermiyor."
+    },
+    "7": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_osmaniye_sulama.jpg",
+      "atif": "Ozgurmulazimoglu — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Osmaniye'de tarla başına su getiren kanalet.",
+      "alt_en": "A field-edge flume carrying water to a maize plot, Osmaniye.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Osmaniye_irrigation.JPG",
+      "_not": "Zincirin son halkası: çiftçinin kurumla karşılaştığı yer bu kanaletin ağzı."
+    },
+    "9": {
+      "url": "https://tarimportali.net/dosya/dsi/dsi_all_american_canal.jpg",
+      "atif": "Bureau of Reclamation — CC BY-SA 2.0",
+      "lisans": "CC BY-SA 2.0",
+      "alt_tr": "All-American Canal sisteminde çökeltme havuzları, ABD.",
+      "alt_en": "Desilting basins on the All-American Canal System, United States.",
+      "en_boy": 1.5024,
+      "_commons": "https://commons.wikimedia.org/wiki/File:All_American_Canal_System_(8370632213).jpg",
+      "_not": "Karede kanal değil havuzlar var; altyazı buna göre. Tesisin hangi bentte olduğu kaynakta yazmıyor, yazılmadı."
+    },
+    "_bos_birakilanlar": {
+      "2": "1929 kuraklığıyla açılan bölüm. Commons'ta erken cumhuriyet dönemi Türkiye kuraklığına ait kullanılabilir kare YOK; §8.3 bölüm başına bir görsel şartı koymuyor. Bölümü silsile grafiği taşıyor.",
+      "3": "belge bölümü — 6200 sayılı Kanun. Zemin kağıt ve kayıt ekseni; fotoğraf buraya girmiyor (§8.4).",
+      "6": "Dosyanın merkezî bulgusu iki grafikle anlatılıyor; üçüncü bir görsel asimetriyi seyreltirdi.",
+      "8": "belge bölümü — kanundan kararnameye. §3 ile aynı gerekçe.",
+      "10": "Kaynakça."
+    },
+    "_kullanilmayanlar": {
+      "dsi_adana_sulama_kanali.jpg": "İndirildi, atfı tam, _raw/gorseller'de duruyor — ama KULLANILMADI. Karede boyalı duvarlar, yaya köprüsü ve park bankları var: konu kentsel peyzaj düzenlemesi. Bu dosya altyapının İŞLETMESİNİN devrini anlatıyor; görsel dekoratif kalırdı.",
+      "GAP kamu malı iki kare": "Daha önce reddedildi: indirici 'ATIF YOK' diye durdurdu. Kamu malı olması atıf zorunluluğunu kaldırmıyor (§2.4)."
+    }
   },
   "anahtar_kelimeler": [
     "DSİ",

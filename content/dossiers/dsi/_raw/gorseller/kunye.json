@@ -1,0 +1,79 @@
+{
+  "_dosya": "Avustralya dosyası — görsel künyesi",
+  "_kural": "Atıf ve lisans Commons API'sinden çekildi, elle yazılmadı. Atıfsız görsel yayımlanmaz (§2.4).",
+  "gorseller": {
+    "dsi_harran_ana_kanal": {
+      "dosya": "dsi_harran_ana_kanal.jpg",
+      "commons": "Urfa-Harran Ovası 08 04 2004 Harran-Hauptkanal.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_08_04_2004_Harran-Hauptkanal.jpg",
+      "atif": "Volker Höhfeld",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 2584,
+      "yukseklik": 1682,
+      "en_boy": 1.5363,
+      "bayt": 1767435
+    },
+    "dsi_seyhan_baraji": {
+      "dosya": "dsi_seyhan_baraji.jpg",
+      "commons": "Seyhan Barajı 01.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Seyhan_Baraj%C4%B1_01.jpg",
+      "atif": "Zeynel Cebeci",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 2250,
+      "yukseklik": 1495,
+      "en_boy": 1.505,
+      "bayt": 1919451
+    },
+    "dsi_osmaniye_sulama": {
+      "dosya": "dsi_osmaniye_sulama.jpg",
+      "commons": "Osmaniye irrigation.JPG",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Osmaniye_irrigation.JPG",
+      "atif": "Ozgurmulazimoglu",
+      "lisans": "CC BY-SA 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0",
+      "genislik": 3264,
+      "yukseklik": 2448,
+      "en_boy": 1.3333,
+      "bayt": 4547614
+    },
+    "dsi_all_american_canal": {
+      "dosya": "dsi_all_american_canal.jpg",
+      "commons": "All American Canal System (8370632213).jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:All_American_Canal_System_(8370632213).jpg",
+      "atif": "Bureau of Reclamation",
+      "lisans": "CC BY-SA 2.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/2.0",
+      "genislik": 1253,
+      "yukseklik": 834,
+      "en_boy": 1.5024,
+      "bayt": 219794
+    },
+    "dsi_adana_sulama_kanali": {
+      "dosya": "dsi_adana_sulama_kanali.jpg",
+      "commons": "Sulama kanalı 1 adana 2022.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Sulama_kanal%C4%B1_1_adana_2022.jpg",
+      "atif": "Özgür Esen (Surdurulebiliryasam)",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 3000,
+      "yukseklik": 1314,
+      "en_boy": 2.2831,
+      "bayt": 3295433
+    },
+    "dsi_koy_sulama_kanali": {
+      "dosya": "dsi_koy_sulama_kanali.jpg",
+      "commons": "Küllük köyü sulama kanalı - panoramio.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:K%C3%BCll%C3%BCk_k%C3%B6y%C3%BC_sulama_kanal%C4%B1_-_panoramio.jpg",
+      "atif": "mhasras",
+      "lisans": "CC BY 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by/3.0",
+      "genislik": 3725,
+      "yukseklik": 2394,
+      "en_boy": 1.556,
+      "bayt": 2343722
+    }
+  },
+  "_cekilme_tarihi": "2026-11-01T20:25:27.960Z"
+}
