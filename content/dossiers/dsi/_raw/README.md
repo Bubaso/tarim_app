@@ -217,3 +217,40 @@ Elimizde devredilen alan var (3.083.200 ha), devredilmeyen alan yok. Rapor
 s. 45 DSİ'nin kendi işlettiği tesisler olduğunu açıkça söylüyor. Eksen ya bu
 rakam bulunduktan sonra kurulur, ya da iddia "devrin ÖLÇEĞİ ve SÜRESİ"
 üzerine daraltılır — ikisi de dürüst, üçüncü bir yol yok.
+
+---
+
+# Tur 7 — dünyada benzeri
+
+**ABD · Bureau of Reclamation (USBR).** Aynı yapı, adı konmuş hâliyle: USBR
+tesislerini resmen ikiye ayırıyor —
+
+| | |
+|---|---|
+| **reserved works** | mülkiyeti de işletmesi de Reclamation'da |
+| **transferred works** | mülkiyet Reclamation'da, işletme ve bakım sözleşmeyle yerel sulama bölgelerine (*irrigation districts*) devredilmiş |
+
+Birincil alıntı, *Reclamation Manual* FAC 01-09 (`usbr_fac01-09.pdf`):
+**"O&M is planned and managed by operating entities."**
+
+Ölçü (usbr.gov/main/about/fact.html — kurumun kendi sayfası):
+
+| | |
+|---|---|
+| Sulanan alan | **10 milyon akr** ≈ 4,05 milyon ha |
+| Çiftçi | 140.000 — batıdaki her beş çiftçiden biri |
+| Rezervuar | 296 · depolama 140 milyon akr-fit |
+| Kanal | ~10.000 mil, **mülkiyeti Reclamation'da** |
+
+**Neden bu karşılaştırma işe yarıyor:** DSİ verisinde EKSİK olan ayrımın ta
+kendisi USBR'da resmî bir kategori. Türkiye'de "DSİ kendi işlettiği alan"
+rakamı bulunamadı (tur 3/3); ABD'de aynı ayrım tesis sınıfı olarak tanımlı ve
+raporlanıyor. Karşılaştırma bir eksikliği de görünür kılıyor.
+
+**KULLANILMAYACAK:** arama sonuçları USBR tesislerinin "üçte ikisinin"
+transferred works olduğunu söylüyor ama bu oranı birincil belgede
+DOĞRULAYAMADIM. Metne girmez (§2.2). Oran gerekiyorsa önce kaynağı bulunur.
+
+**Türkiye ile ABD arasındaki asıl soru, karşılaştırmanın kendisinden çıkıyor:**
+devirden sonra mülkiyet kimde? USBR'da açık — Reclamation'da kalıyor. Türkiye
+için 6172 sayılı Kanun okunmalı; **henüz okunmadı.**
