@@ -1,0 +1,87 @@
+{
+  "_dosya": "DSİ — Kurum Dosyası Sayı 05 · yayın künyesi",
+  "_amac": "Pencere, bölüm iskeleti, grafik ve görsel eşlemesi.",
+  "slug": "dsi",
+  "tur": "kurum",
+  "edition": 5,
+  "name_tr": "DSİ — Devlet Su İşleri",
+  "name_en": "DSİ — State Hydraulic Works",
+  "kurulus_belgesi": "6200 sayılı Kanun · RG 25/12/1953 · 8592 — ve Cumhurbaşkanlığı Kararnamesi No. 4, md. 120 (2018)",
+  "_kurulus_belgesi_notu": "İKİ belge yazılı, çünkü kurumun kurucu metni 2018'de yer değiştirdi. Kurum dosyasında iso3 yerine bu alan var: bir iddia tartışmaya açıldığında kaynağa dönmenin anahtarı (§8.6).",
+  "status": "draft",
+  "_status_notu": "TASLAK. Kurum dizisinde şu an yayında dosya YOK (TAGEM 13 Ekim'de arşivlendi). Yayına alma açık onay ister.",
+  "pencere": {
+    "gun": 14,
+    "baslangic": null,
+    "_baslangic_notu": "null → seed anında now(). Kurum penceresi 14 gün (§8.1)."
+  },
+  "_iskelet_notu": "Kurum dosyasının iskeleti SABİT DEĞİL (§8.3); bu on bölüm DSİ'ye uyduğu için böyle. §8.9'un beş kategorisinden dördü dolu: kurucu fikir (§2 — kuraklık), gündelik karşılık (§7 — sulama birliği), dünyada benzeri (§9 — USBR), bıraktığı iş (§5-6 — devrin kendisi). 'Parayı nereden buldu' boş: DSİ'nin ilk finansmanı çekilen kaynaklarda yok ve uydurulmayacak.",
+  "bolum_turleri": {
+    "_amac": "Sayfadaki görsel ritim. anlati | belge | veri | akis.",
+    "_neden_boyle": "Belge bölümleri (3 ve 8) kanun metnine dayanıyor ve okuma zeminini değiştiriyor; aralarına veri bölümleri giriyor. İki veri bölümü (5-6) arka arkaya çünkü ikisi aynı tablonun iki yüzü — asimetri ancak ölçek görüldükten sonra anlam kazanıyor.",
+    "1": "anlati",
+    "2": "anlati",
+    "3": "belge",
+    "4": "veri",
+    "5": "veri",
+    "6": "veri",
+    "7": "anlati",
+    "8": "belge",
+    "9": "anlati",
+    "10": "belge"
+  },
+  "bolum_grafikleri": {
+    "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir.",
+    "2": [
+      "silsile"
+    ],
+    "4": [
+      "olcek"
+    ],
+    "5": [
+      "devir_egrisi"
+    ],
+    "6": [
+      "devir_asimetrisi",
+      "devredilen_alan"
+    ],
+    "8": [
+      "bosaltilan_kanun"
+    ]
+  },
+  "_bolum_basliklari": {
+    "_notu": "METİNDEN OKUNACAK; metin yazıldıktan sonra birebir hâle getirilir.",
+    "1": "Suyu getiren kurum",
+    "2": "Kıtlıktan doğan idare",
+    "3": "6200: bir kanunun kurduğu teşkilat",
+    "4": "Ne inşa edildi",
+    "5": "Devir elli üç yıl sürdü",
+    "6": "Tesislerin beşte biri, alanın beşte dördü",
+    "7": "Çiftçi kurumla nerede karşılaşıyor",
+    "8": "Kanundan kararnameye",
+    "9": "Aynı yapının adı konmuş hâli: Reclamation",
+    "10": "Kaynakça"
+  },
+  "_bolum_notlari": {
+    "2": "Açılış. Kurum 1929'daki şiddetli kuraklık ve kıtlığın ardından kurulan Sular Umum Müdürlüğü'ne dayanıyor — §8.9'un birinci kategorisi. Silsile grafiği burada.",
+    "5": "EKSEN. Devir bir anda olmadı; 1967'de 50 hektarla başladı. KAPSAM UYARISI metinde açıkça yazılacak: bu seri yalnızca yeraltısuyu tesisleri.",
+    "6": "Dosyanın merkezî bulgusu: birlikler tesislerin %19'u ama alanın %83,1'i. Bu bölümün rakamları 2025 tarihli ve BÜTÜN tesisleri kapsıyor — bir önceki bölümün serisiyle aynı şey değil.",
+    "7": "Gündelik karşılık. 6172 sayılı Kanun: devredilen şey MÜLKİYET DEĞİL, 'işletme, bakım, onarım ve yönetim sorumluluğu'. Kanunda 'mülkiyet' kelimesi hiç geçmiyor.",
+    "9": "USBR'ın 'transferred works' / 'reserved works' ayrımı. Karşılaştırma bir EKSİKLİĞİ de görünür kılıyor: DSİ'nin kendi işlettiği alan rakamı yok, ABD'de aynı ayrım resmî tesis sınıfı.",
+    "10": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: gerçekleşen kümülatif sulama alanının bulunamadığı, 1999 satırının kaynakta hatalı olduğu, USBR üçte iki oranının doğrulanamadığı."
+  },
+  "bolum_gorselleri": {
+    "_durum": "HENÜZ SEÇİLMEDİ — sonraki tur.",
+    "_kural": "Atıfsız görsel yayımlanmaz; atıf görselin altında açıkta durur (§8.3). Kaynak Wikimedia Commons, lisans ve atıf Commons API'sinden çekilecek.",
+    "_yasak": "Barajı kahramanlaştıran havadan çekim (tasarim.json/_yasak): dosya inşaatı değil DEVRİ anlatıyor."
+  },
+  "anahtar_kelimeler": [
+    "DSİ",
+    "Devlet Su İşleri"
+  ],
+  "_anahtar_kelimeler_notu": "§8.10'un birinci dersi: anahtar kelime kurumun adının BAŞKA bir kurumun adında geçmeyen en kısa parçası olmalı ve yayına girmeden gerçek habere karşı denenmeli. 'Su İşleri' tek başına riskli olabilir; liste YAYINLANMADAN ÖNCE veritabanındaki başlıklara karşı sınanacak.",
+  "hikaye": {
+    "_durum": "HENÜZ YAZILMADI — metinden sonra.",
+    "_kural": "Rakamların hepsi data.json'dan OKUNARAK yazılır; slaytta elle yazılan tek şey cümledir."
+  }
+}
