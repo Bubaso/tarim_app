@@ -1,0 +1,47 @@
+{
+  "_uretim": "ticaret_cek.py",
+  "_kaynak": "Dünya Bankası göstergeleri",
+  "nufus": {
+    "yil": 2025,
+    "deger": 47020774
+  },
+  "tarim_gsyh_payi": {
+    "yil": 2025,
+    "deger": 3.41368848141125
+  },
+  "tarim_arazi_payi": {
+    "yil": 2024,
+    "deger": 21.6475019003524
+  },
+  "tarim_istihdam_payi": {
+    "yil": 2025,
+    "deger": 8.16872836237607
+  },
+  "tahil_verimi_kg_ha": {
+    "yil": 2024,
+    "deger": 2651
+  },
+  "gida_ithalat_payi": {
+    "yil": 2024,
+    "deger": 14.243534425089
+  },
+  "sulanan_arazi_payi": null,
+  "kirsal_nufus_payi": {
+    "yil": 2025,
+    "deger": 30.0603260531895
+  },
+  "turkiye": {
+    "tarim_gsyh_payi": {
+      "yil": 2025,
+      "deger": 5.20951196750004
+    },
+    "tahil_verimi_kg_ha": {
+      "yil": 2024,
+      "deger": 3428.7
+    },
+    "nufus": {
+      "yil": 2025,
+      "deger": 85878556
+    }
+  }
+}

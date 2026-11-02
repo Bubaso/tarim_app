@@ -1,0 +1,117 @@
+{
+  "_uretim": "ticaret_cek.py — elle düzenlenmez",
+  "_muhabir": "Türkiye (792). Irak kendi beyanını vermiyor; bkz. irak_muhabir_satir.",
+  "_suzgec": "customsCode=C00 · motCode=0 · partner2Code=0 — sorguda ve satırda",
+  "yil": 2024,
+  "tarim_ihracat_irak": 4637303510.0,
+  "tarim_ihracat_dunya": 32541007957.0,
+  "toplam_ihracat_irak": 13001359310.0,
+  "tarim_ithalat_irak": 30197244.0,
+  "ihracat_fasil_sayisi": 24,
+  "ithalat_fasil_sayisi": 19,
+  "fasillar": [
+    {
+      "fasil": "19",
+      "deger": 538896931.0
+    },
+    {
+      "fasil": "08",
+      "deger": 498258441.0
+    },
+    {
+      "fasil": "11",
+      "deger": 496602372.0
+    },
+    {
+      "fasil": "02",
+      "deger": 444369283.0
+    },
+    {
+      "fasil": "07",
+      "deger": 432799391.0
+    },
+    {
+      "fasil": "10",
+      "deger": 408266750.0
+    },
+    {
+      "fasil": "15",
+      "deger": 339570443.0
+    },
+    {
+      "fasil": "23",
+      "deger": 298121833.0
+    },
+    {
+      "fasil": "20",
+      "deger": 182360515.0
+    },
+    {
+      "fasil": "04",
+      "deger": 179301541.0
+    },
+    {
+      "fasil": "18",
+      "deger": 171549235.0
+    },
+    {
+      "fasil": "21",
+      "deger": 168917360.0
+    },
+    {
+      "fasil": "24",
+      "deger": 151268681.0
+    },
+    {
+      "fasil": "17",
+      "deger": 131457913.0
+    },
+    {
+      "fasil": "12",
+      "deger": 74195833.0
+    },
+    {
+      "fasil": "16",
+      "deger": 54425489.0
+    },
+    {
+      "fasil": "22",
+      "deger": 41246697.0
+    },
+    {
+      "fasil": "03",
+      "deger": 8284331.0
+    },
+    {
+      "fasil": "01",
+      "deger": 6488556.0
+    },
+    {
+      "fasil": "06",
+      "deger": 5361864.0
+    },
+    {
+      "fasil": "09",
+      "deger": 5246790.0
+    },
+    {
+      "fasil": "13",
+      "deger": 262291.0
+    },
+    {
+      "fasil": "14",
+      "deger": 50914.0
+    },
+    {
+      "fasil": "05",
+      "deger": 56.0
+    }
+  ],
+  "irak_muhabir_satir": {
+    "2018": 0,
+    "2020": 0,
+    "2022": 1,
+    "2024": 1,
+    "2016": 0
+  }
+}
