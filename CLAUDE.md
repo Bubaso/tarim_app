@@ -3752,3 +3752,58 @@ geldi. **Önizleme derlemesi `--output` kullanmaz.**
 **Ortak nokta: hiçbiri commit edilmemişti.** Tek kural bu — *çalıştığı
 doğrulanan şey aynı gün commit edilir.* iCloud bu depoda beşinci kez vurdu
 (§1, §22.2, §39.8) ve bu seferki en pahalısıydı.
+
+---
+
+## 41. Depo iCloud'dan çıkarıldı — 2 Kasım 2026
+
+**Yeni yol: `~/Developer/tarim_app`.** Eski yolda (`~/Desktop/tarim_app`)
+sembolik bağ duruyor; öteki oturumlar ve sabit yol taşıyan eski betikler
+çalışmaya devam ediyor.
+
+**Kullanıcı kararı.** Gerekçe: iCloud bu depoda **altı kez** iş bozdu —
+§1 (fonksiyon dağıtımı 386 sn), §22.2 (44 yinelenen dosya dağıtıma girdi),
+§39.8 (derleme `errno 60`), §40 (bir aylık kaybın zemini) ve 2 Kasım'da iki
+kez birden.
+
+### 2 Kasım'da ne oldu
+
+`./deploy.sh --hosting` iki kez düştü. Birincisi `assets/images/logo_full.png`
+okunamadığı için; korumanın kapsamı yalnızca `web/` idi, oysa derleme
+`assets/` ve `lib/`'den de okuyor. Kapsam genişletildi ve ikinci denemede
+koruma **58 okunamayan dosya** bulup dağıtımı durdurdu.
+
+Sonra kurtarma denemesi zararı büyüttü: o 58 dosya silinip
+`git checkout-index` ile geri yazılmak istendi, ama **`.git`in kendisi de
+tahliye edilmişti** ve git kendi nesne deposunu okuyamadı
+(`fatal: mmap failed`). Dosyalar GitHub'dan ham olarak geri yazıldı.
+
+Tarama asıl boyutu verdi: **3.304 dosyanın 1.396'sı dataless**; `.git`in 880
+dosyasının 872'si. Toplu geri yazma iCloud'a **774 çakışma kopyası**
+ürettirdi ve 149'u `web/` altındaydı — çalışan dağıtım onları canlıya
+taşıyacaktı (§22.2'nin birebir tekrarı).
+
+### Taşımanın kendisi de iCloud'a takıldı
+
+`mv ~/Desktop/tarim_app ~/Developer/` **altı dakika boyunca tamamen bloke**
+kaldı (CPU süresi 0:00.00). `rsync` ilerledi ama izlenmeyen dataless
+dosyalarda aynı duvara tosladı.
+
+**Çalışan yol: GitHub'dan taze klon.** Depo zaten eksiksiz push edilmişti;
+`git clone` ile iCloud'a hiç dokunmadan yerel bir kopya kuruldu. Ardından
+git'e girmeyen iki şey elle taşındı: `.env` ve `denetim/`.
+
+*Ders: iCloud'dan çıkarmanın yolu dosyaları taşımak değil, uzaktan yeniden
+kurmaktır — yeter ki her şey push edilmiş olsun.*
+
+### Eski ağaç silinmedi
+
+`~/Desktop/tarim_app_ESKI_ICLOUD` duruyor (1,2 GB). Yeni ağaç doğrulandıktan
+sonra elle silinebilir. `~/Developer/tarim_app_ARSIV_2026-06` ise taşımadan
+önce o adreste duran Haziran 2026 tarihli eski bir klondur; o da silinmedi.
+
+### Bundan sonra
+
+`deploy.sh`'ın iCloud koruması YERİNDE KALIYOR. Depo artık senkronizasyon
+dışında ama koruma ucuz, ve bir gün biri depoyu yine Masaüstü'ne kopyalarsa
+tek uyarı o olacak.
