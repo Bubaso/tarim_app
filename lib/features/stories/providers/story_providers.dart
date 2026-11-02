@@ -133,8 +133,15 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
             bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
             statLabel: raw['stat_label']?.toString() ?? '',
             statLabelEn: raw['stat_label_en']?.toString() ?? '',
-            imageUrl: rawImage,
-            portraitUrl: portrait,
+            // SLAYTIN KENDİ GÖRSELİ. Yukarıdaki `gorsel` hesaplanıyor ama
+            // buraya satırın tek görseli (`rawImage`) geçiyordu; değişken
+            // hiçbir yerde kullanılmıyordu. Sonuç: dosya hikâyesinin beş
+            // slaytı da aynı fotoğrafı gösteriyordu — yorumun söylediğinin
+            // tam tersi. Kullanıcı 3 Kasım 2026'da bildirdi.
+            imageUrl: gorsel,
+            // Dikey türev HABERİN story_image_url'inden geliyor; slaytın
+            // kendi görseli varsa onu ezmesin diye boş bırakılıyor.
+            portraitUrl: slaytGorsel.length >= 6 ? '' : portrait,
             createdAt: createdAt,
             expiresAt: expiresAt,
             isBreaking: isBreaking,

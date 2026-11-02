@@ -358,8 +358,8 @@
       {
         "ust": "KAPATILIP AÇILAN ÜRÜN",
         "ust_en": "A CROP SWITCHED OFF AND ON",
-        "baslik": "Irak'ın pirinç üretimi iki yılda kırkta birine indi, iki yıl sonra yarısına döndü. Ekilen alan da aynı yönde gitti: kayıp verimden değil alandan geldi.",
-        "baslik_en": "Iraq's rice production fell to a fortieth in two years and returned to half four years later. The harvested area moved with it: the loss came from area, not yield.",
+        "baslik": "Irak'ta pirinç 2 yılda bitti, 2 yılda geri geldi",
+        "baslik_en": "Rice ended in Iraq in 2 years, and came back in 2",
         "rakam": "%97,5",
         "rakam_en": "97.5%",
         "etiket": "Pirinç üretimi 2020'de 464.159 ton, 2022'de 11.637, 2024'te 227.508 — ekilen alan 101.594 hektardan 3.839'a",
@@ -369,8 +369,8 @@
       {
         "ust": "SAVAŞ TARLAYA NE YAPTI",
         "ust_en": "WHAT THE WAR DID TO THE FIELD",
-        "baslik": "Ninova'da buğday ekili alanın üçte ikisi tamamen kayboldu, kalanı hasarlı. Tarla savaşın arka planı değil, doğrudan hedefi oldu.",
-        "baslik_en": "In Nineveh two thirds of the wheat area was lost outright and the rest damaged. The field was not the war's backdrop but its direct object.",
+        "baslik": "Savaş Ninova'da buğday tarlasının %68'ini yok etti",
+        "baslik_en": "War destroyed 68% of Nineveh's wheat field",
         "rakam": "%68",
         "rakam_en": "68%",
         "etiket": "Ninova'da buğday ekili alanın tamamen kaybedilen payı — %32'si ağır hasarlı (FAO saha değerlendirmesi, Şubat 2016)",
@@ -380,8 +380,8 @@
       {
         "ust": "HURMAYI BIRAKMADI, DÜNYA ONU GEÇTİ",
         "ust_en": "IT DID NOT DROP THE DATE; THE WORLD PASSED IT",
-        "baslik": "Irak hurma üretimini 1961'den bugüne 1,7 kat artırdı. Dünya 5,4 kat artırdı. Kaybedilen şey üretim değil, yer.",
-        "baslik_en": "Iraq raised its date output 1.7-fold since 1961. The world raised its own 5.4-fold. What was lost is not production but place.",
+        "baslik": "Irak dünya hurmasının %18,9'unu üretirdi, bugün %5,9'unu",
+        "baslik_en": "Iraq made 18.9% of the world's dates; today it makes 5.9%",
         "rakam": "%5,9",
         "rakam_en": "5.9%",
         "etiket": "Irak'ın dünya hurma üretimindeki payı, 2024 — 1961'de %18,9'du",
@@ -391,8 +391,8 @@
       {
         "ust": "TOPRAĞIN TUZU",
         "ust_en": "THE SALT OF THE SOIL",
-        "baslik": "Ekili alanın onda yedisi yüksek toprak tuzluluğundan etkileniyor; tarihsel olarak sulanmış alanın %40'ı üretim dışı. Su geliyor ama gidemiyor.",
-        "baslik_en": "Seven tenths of the cropland is affected by high soil salinity, and 40% of the historically irrigated area is out of production. The water arrives but cannot leave.",
+        "baslik": "Irak'ta ekili alanın %70'i tuzdan etkilenmiş durumda",
+        "baslik_en": "70% of Iraq's cropland is affected by salt",
         "rakam": "%70",
         "rakam_en": "70%",
         "etiket": "Tuzdan etkilenen ekili alan payı — Dünya Bankası proje belgesi, 2014; daha yeni bir ölçüm bulunamadı",
@@ -402,14 +402,15 @@
       {
         "ust": "HAT TEK YÖNLÜ",
         "ust_en": "THE LINE RUNS ONE WAY",
-        "baslik": "Türkiye'nin tarım ihracatının yedide biri tek bir komşuya gidiyor. Ters yönde gelen, gidenin yüz elli dörtte biri.",
-        "baslik_en": "One seventh of Türkiye's agricultural exports goes to a single neighbour. What comes back is one hundred and fifty-fourth of what goes.",
+        "baslik": "Türkiye'nin tarım ihracatının %14,3'ü tek ülkeye: Irak",
+        "baslik_en": "14.3% of Türkiye's farm exports go to one country: Iraq",
         "rakam": "%14,3",
         "rakam_en": "14.3%",
         "etiket": "Irak'ın Türkiye tarım ihracatındaki payı, 2024 — 4,64 milyar dolar; ters yön 30,2 milyon. Rakamlar Türkiye'nin beyanından",
         "etiket_en": "Iraq's share of Türkiye's agricultural exports, 2024 — $4.64bn; the reverse flow $30.2m. Figures from Türkiye's reporting",
         "gorsel": "https://tarimportali.net/dosya/irak/irak_ekmek.jpg"
       }
-    ]
+    ],
+    "_baslik_notu": "BAŞLIKLAR İKİ KEZ DÜZELTİLDİ (kullanıcı, 3 Kasım 2026). İlk sürüm 110-151 karakterlik iki-üç cümlelik paragraflardı; baloncukta okunmuyordu. İkinci sürüm kısaldı ama BİLMECEYE döndü — 'Su geliyor, gidemiyor. Tarlada tuz kalıyor.' şiir, manşet değil. Baloncuğun işi okuru dosyaya ÇEKMEK: başlık konuyu adıyla söyler, olanı açıkça yazar ve rakamı taşır. Ayrıntı yine `etiket` satırında."
   }
 }
