@@ -873,9 +873,11 @@ class _KeywordsRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
+          // Başlık ne yapılacağını SÖYLÜYOR. "ETİKETLER" bir ad; okur
+          // bunun tıklanabilir olduğunu çıkaramıyordu (kullanıcı gözlemi).
           Localizations.localeOf(context).languageCode == 'en'
-              ? 'TAGS'
-              : 'ETİKETLER',
+              ? 'SEARCH THE ARCHIVE BY TAG'
+              : 'ETİKETE TIKLAYIN, ARŞİVİ TARAYIN',
           style: GoogleFonts.inter(
             fontSize: AppTypography.minLabelSize,
             fontWeight: FontWeight.w800,
@@ -900,19 +902,35 @@ class _KeywordsRow extends StatelessWidget {
             // Etiketin özgün hâli `extra` ile taşınıyor: adresten gelen slug
             // Türkçe harfleri geri veremez.
             final slug = etiketSlug(kw);
+            // Çipin TIKLANABİLİR GÖRÜNMESİ gerekiyor; eski hâli düz zemin
+            // üstünde metindi ve okur onu rozet sanıyordu. Üç işaret
+            // birlikte: belirgin kenarlık, '#' öneki ve sonda ok. Hiçbiri
+            // tek başına yeterli sayılmadı — renk zaten tek başına anlam
+            // taşımıyor (§3.2).
             final cip = Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
               decoration: BoxDecoration(
                 color: chipBg,
-                borderRadius: BorderRadius.circular(2),
-              ),
-              child: Text(
-                '#$kw',
-                style: GoogleFonts.inter(
-                  color: accent,
-                  fontSize: 11,
-                  fontWeight: FontWeight.w600,
+                borderRadius: BorderRadius.circular(3),
+                border: Border.all(
+                  color: accent.withValues(alpha: isDark ? 0.55 : 0.45),
                 ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    '#$kw',
+                    style: GoogleFonts.inter(
+                      color: accent,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(width: 5),
+                  Icon(Icons.arrow_forward_rounded,
+                      size: 11, color: accent.withValues(alpha: 0.75)),
+                ],
               ),
             );
             if (slug.isEmpty) return cip;
