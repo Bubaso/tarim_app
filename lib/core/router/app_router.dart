@@ -194,7 +194,11 @@ final appRouter = GoRouter(
       path: '/haber/:id',
       pageBuilder: (context, state) {
         final cached = _resolveExtra(state);
-        if (cached is NewsArticle) {
+        // GÖVDE SINANIYOR, nesnenin varlığı değil (§20.2). Liste sorgusu
+        // ağır sütunları taşımıyor (`_listeSutunlari`); listeden gelen nesne
+        // doğru ama EKSİK. Yalnızca türüne bakılsaydı her haber BOŞ METİNLE
+        // çizilirdi — üstelik sessizce, hiçbir hata vermeden.
+        if (cached is NewsArticle && cached.content.trim().isNotEmpty) {
           return _fadePage(state, ArticleDetailScreen(article: cached));
         }
         return _fadePage(state, _ArticleLoader(id: state.pathParameters['id']!));

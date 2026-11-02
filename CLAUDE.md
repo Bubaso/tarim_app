@@ -3945,3 +3945,73 @@ yeniden açılırsa bekçi durdurur**, cümleye güvenilmez.
 > ```
 >
 > Gerçek depoda dataless dosya sayısı: **0** — taşıma işe yaradı.
+
+---
+
+## 43. Liste sorgusu geri yazıldı, kategori sayfalandı — 2 Kasım 2026
+
+§20.1'in daraltması (`_listeSutunlari`, `_listeSiniri`) 4 Ekim kaybında gitmişti
+ve depoda yoktu; yorumu kalmıştı (`home_repository.dart:192` hâlâ "en yeni 500
+haberi taşıyor" diyordu). Kod yok, cümle var — §42'nin aynı imzası.
+
+### Ölçüm
+
+| | önce | sonra |
+|---|---|---|
+| gzip | **4,00 MB** | **0,25 MB** |
+| açılmış | 10,52 MB | 1,10 MB |
+| kayıt | 1.000 (PostgREST tavanı) | 500 (açık sınır) |
+
+**15,9 kat · %93,7 azalma.** Dışarıda bırakılan on bir sütunun hiçbiri KART
+çiziminde kullanılmıyor: sekizi §20.1'in saydıkları, üçü doğrulama verisi
+(`facts`, `figures`, `quotes`) — onları yalnızca inceleme masası okuyor ve o
+ekran `watchPendingArticles` ile AYRI sorgu yapıyor.
+
+### Daraltmadan ÖNCE kurulan iki koruma
+
+Sütunları daraltmak tek başına iki sessiz veri kaybı açar; ikisi de depoda
+YOKTU ve ikisi de daha önce üretimde yaşanmıştı:
+
+1. **§20.2 — rota.** `/haber/:id` listeden gelen nesneyi türüne bakıp
+   kullanıyordu. Artık **gövde sınanıyor**: boşsa `_ArticleLoader` devreye
+   girip tam kaydı çekiyor. Olmasaydı her haber BOŞ METİNLE çizilirdi.
+2. **§25.1 — panel.** Düzenleyici liste nesnesiyle açılıyordu ve `_submitArticle`
+   `toJson()` ile bütün satırı yazıyor; "Kaydet" dolu metni boş metinle EZERDİ.
+   Artık `_duzenlemeyeAc` önce `fetchArticleById` ile tam kaydı çekiyor ve
+   **çekim başarısızsa düzenleyici hiç açılmıyor** — yarım veriyle açmak,
+   kaydetme anında sessiz kayıp demek.
+
+### Kategori ekranı artık kendi sorgusunu yapıyor
+
+500 sınırı ana sayfanın yükünü bağlıyor ama arşivin derinini saklamamalı.
+§20.3'ün yazdığı çözüm uygulandı: `fetchKategoriSayfasi(slug, offset, limit)`
++ "Daha fazla yükle". Ekran ortak listeyi SÜZMÜYOR. Aynı kural §26.2'de yazar
+arşivi için yazılıydı — *bir varlığın TÜM kayıtlarını isteyen hiçbir ekran,
+tarihe göre sınırlanmış ortak listeyi süzerek çalışmamalı.*
+
+Süzgeçler üç yerde aynı olmak zorunda ve öyle: `home_providers.dart`
+(istemci), `home_repository.dart` (sayfalama) ve `functions/index.js`
+(`categoryRenderer`, §19.8).
+
+Aynı değişiklikle **yükleniyor / hata / boş** ayrıldı. Eskiden üçü de "Bu
+kategoride haber bulunmuyor." diyordu: veri gelene kadar ve ağ koptuğunda
+okuyucu kategoride haber olmadığını sanıyordu. Hata hâlinde "Tekrar dene"
+düğmesi var — ekran kendi sorgusunu yaptığı için kendiliğinden yeniden
+denemiyor (§17.1'in aynı gerekçesi).
+
+### Taşımanın bıraktığı iki KIRIK SEMBOLİK BAĞ
+
+`pub get` ve `flutter build` düşüyordu: `.dart_tool → .dart_tool.nosync` ve
+`build → build.nosync` bağları git'te İZLENİYORDU (`c437737`) ama `.nosync`
+hedefleri taşımada gelmemişti. O numara iCloud içindi (§1) ve §41'den sonra
+gereksiz. Bağlar silinip yerlerine gerçek dizin kondu; `.gitignore` zaten
+`build/` ve `.dart_tool/` satırlarını taşıyor.
+
+**Bu, depoyu klonlayan HERKESTE derlemeyi düşürürdü** — ve `./deploy.sh`
+`build/web`e derlediği için dağıtım da düşerdi.
+
+### Sınama
+
+`flutter analyze`: **0 error** (357 uyarı/bilgi, hepsi önceden vardı).
+`flutter test`: **199 geçti, 2 düştü** — düşen ikisi §20.9'da zaten kırık
+olarak kayıtlı (`author_article_detail_test`, `widget_test`).

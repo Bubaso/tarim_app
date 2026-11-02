@@ -11,6 +11,7 @@ import 'package:tarim_app/core/utils/image_fallback_helper.dart';
 import 'package:tarim_app/core/widgets/article_timestamp.dart';
 import '../../data/models/news_article.dart';
 import '../../data/category_catalog.dart';
+import '../../providers/home_providers.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/font_size_control_bar.dart';
 import 'article_detail_screen.dart';
@@ -39,6 +40,68 @@ class CategoryArticlesScreen extends ConsumerStatefulWidget {
 
 class _CategoryArticlesScreenState
     extends ConsumerState<CategoryArticlesScreen> {
+  // ── Sayfalama (§20.3) ──────────────────────────────────────────────────
+  // Ekran artık ortak listeyi SÜZMÜYOR, kendi sorgusunu yapıyor. Eskiden
+  // `latestArticlesProvider`ı süzüyordu; o liste `_listeSiniri` ile bağlı ve
+  // arşivin derini oradan HİÇ görünmüyordu — hata vermeden, eksik göstererek.
+  // §26.2'de yazar arşivinde aynısı yaşanmıştı: 20 yazısı olan yazarın
+  // sayfasında 3 yazı çıkıyordu.
+  static const int _sayfaBoyu = 40;
+
+  final List<NewsArticle> _liste = [];
+  bool _ilkYukleme = true;
+  bool _yukleniyor = false;
+  bool _dahaVar = true;
+  String? _hata;
+
+  @override
+  void initState() {
+    super.initState();
+    // Uygulama içi gezinmede hazır liste geliyor: ilk kare BEKLETMEDEN
+    // çiziliyor, sayfalama arkadan devralıyor.
+    final tohum = widget.articles;
+    if (tohum != null && tohum.isNotEmpty) {
+      _liste.addAll(tohum);
+      _ilkYukleme = false;
+    }
+    WidgetsBinding.instance.addPostFrameCallback((_) => _sayfaYukle(ilk: true));
+  }
+
+  Future<void> _sayfaYukle({bool ilk = false}) async {
+    final slug = widget.slug;
+    if (slug == null || _yukleniyor || (!ilk && !_dahaVar)) return;
+    setState(() {
+      _yukleniyor = true;
+      if (ilk) _hata = null;
+    });
+    try {
+      final offset = ilk ? 0 : _liste.length;
+      final gelen = await ref
+          .read(homeRepositoryProvider)
+          .fetchKategoriSayfasi(slug, offset: offset, limit: _sayfaBoyu);
+      if (!mounted) return;
+      setState(() {
+        if (ilk) _liste.clear();
+        // Kimlikle tekilleştirme: tohum listesiyle ilk sayfa çakışabiliyor ve
+        // aynı haber iki kart olarak çizilirdi.
+        final mevcut = _liste.map((a) => a.id).toSet();
+        _liste.addAll(gelen.where((a) => mevcut.add(a.id)));
+        _dahaVar = gelen.length >= _sayfaBoyu;
+        _ilkYukleme = false;
+        _yukleniyor = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      // Hata YUTULMUYOR: boş liste "bu kategoride haber yok" demek, ağ hatası
+      // bambaşka bir şey.
+      setState(() {
+        _hata = '$e';
+        _ilkYukleme = false;
+        _yukleniyor = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     ref.watch(localeProvider);
@@ -46,16 +109,16 @@ class _CategoryArticlesScreenState
     final isEn = Localizations.localeOf(context).languageCode == 'en';
     final isDark = appIsDark;
 
-    // Kaynak çözümü: hazır liste varsa onu kullan; yoksa slug → sağlayıcı.
+    // Başlık slug'dan çözülüyor; LİSTE artık sağlayıcıdan değil, ekranın
+    // kendi sayfalanmış sorgusundan geliyor (§20.3).
     final def = widget.slug != null ? categoryBySlug(widget.slug!) : null;
-    final List<NewsArticle>? articles = widget.articles ??
-        (def != null ? ref.watch(def.provider) : null);
     final String title =
         widget.title ?? def?.title(isEn) ?? (isEn ? 'Category' : 'Kategori');
 
-    if (articles == null) {
+    if (widget.slug != null && def == null) {
       return _NotFound(isEn: isEn);
     }
+    final List<NewsArticle> articles = _liste;
     final bgColor = isDark ? AppColors.darkGreen : const Color(0xFFF4F4F4);
     final textColor = isDark ? AppColors.wheat : AppColors.earthText;
     final dividerColor = isDark ? Colors.white12 : Colors.black12;
@@ -90,7 +153,42 @@ class _CategoryArticlesScreenState
               child: Container(color: dividerColor, height: 1),
             ),
           ),
-          if (articles.isEmpty)
+          // YÜKLENİYOR · HATA · BOŞ — üçü ayrı. Eskiden üçü de "Bu kategoride
+          // haber bulunmuyor." diyordu: veri gelene kadar ve ağ koptuğunda
+          // okuyucu kategoride haber olmadığını sanıyordu.
+          if (_ilkYukleme)
+            const SliverFillRemaining(
+              child: Center(child: CircularProgressIndicator()),
+            )
+          else if (_hata != null && articles.isEmpty)
+            SliverFillRemaining(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        isEn
+                            ? 'Articles could not be loaded.'
+                            : 'Haberler yüklenemedi.',
+                        style: GoogleFonts.inter(color: textColor, fontSize: 16),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 12),
+                      // Yeniden deneme ŞART: ekran kendi sorgusunu yapıyor ve
+                      // hata sonrası kendiliğinden tekrar denemiyor; düğme
+                      // olmazsa okuyucu burada tıkanıp kalır (§17.1).
+                      TextButton(
+                        onPressed: () => _sayfaYukle(ilk: true),
+                        child: Text(isEn ? 'Try again' : 'Tekrar dene'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          else if (articles.isEmpty)
             SliverFillRemaining(
               child: Center(
                 child: Text(
@@ -172,6 +270,28 @@ class _CategoryArticlesScreenState
                 ),
               ),
             ),
+            if (_dahaVar || _yukleniyor)
+              SliverToBoxAdapter(
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 40),
+                    child: _yukleniyor
+                        ? const SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          )
+                        : OutlinedButton(
+                            onPressed: () => _sayfaYukle(),
+                            child: Text(
+                              isEn ? 'Load more' : 'Daha fazla yükle',
+                              style:
+                                  GoogleFonts.inter(fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                  ),
+                ),
+              ),
             SliverToBoxAdapter(child: PortalFooter(isDark: isDark)),
           ],
         ],

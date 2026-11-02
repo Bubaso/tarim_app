@@ -241,6 +241,52 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     return '';
   }
 
+/// Düzenleyiciyi TAM kayıtla açar.
+///
+/// Liste nesnesi kullanılamaz: liste sorgusu ağır sütunları taşımıyor
+/// (`_listeSutunlari`, §20.1) ve `_submitArticle` kaydı `_editingArticle`
+/// alanlarından yeniden kurup `toJson()` ile BÜTÜN satırı yazıyor. Eksik
+/// nesneyle açılan bir düzenleyicide "Kaydet"e basmak, veritabanındaki dolu
+/// metni boş metinle EZER — üretimde tam olarak böyle bir haber kayboldu
+/// (§25.1).
+///
+/// Çekim başarısızsa düzenleyici AÇILMIYOR. Yarım veriyle açmak, kaydetme
+/// anında sessiz veri kaybı demek.
+  Future<void> _duzenlemeyeAc(NewsArticle article) async {
+  NewsArticle? tam;
+  try {
+    tam = await ref.read(homeRepositoryProvider).fetchArticleById(article.id);
+  } catch (_) {
+    tam = null;
+  }
+  if (!mounted) return;
+  if (tam == null) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('Haber yüklenemedi — düzenleyici açılmadı. '
+            'Eksik veriyle kaydetmek metni silerdi.'),
+      ),
+    );
+    return;
+  }
+  final kayit = tam;
+  setState(() {
+    _editingArticle = kayit;
+    _titleController.text = kayit.title;
+    _summaryController.text = kayit.summary ?? '';
+    _uploadedImageUrl = null;
+    _locationController.text = _getCityFromGeoLocation(kayit.geoLocation);
+    _selectedCategoryId = kayit.categoryId;
+    _isBreaking = kayit.isBreaking ?? false;
+    _showMobileForm = true;
+  });
+  // Düzenleyici kurulduktan SONRA dolduruluyor: aynı karede setText
+  // çağrısı boş editöre yazıyor ve metin görünmüyor.
+  Future.delayed(const Duration(milliseconds: 100), () {
+    if (mounted) _htmlController.setText(kayit.content);
+  });
+  }
+
   Future<void> _submitArticle({bool isPublishing = false, bool isUnpublishing = false}) async {
     if (!isUnpublishing && !_formKey.currentState!.validate()) return;
 
@@ -271,6 +317,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         ref.invalidate(latestArticlesProvider);
         setState(() => _editingArticle = null);
       }
+
       return;
     }
 
@@ -1369,21 +1416,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                         child: Column(
                           children: [
                             ListTile(
-                              onTap: () {
-                                setState(() {
-                                  _editingArticle = article;
-                                  _titleController.text = article.title;
-                                  _summaryController.text = article.summary ?? '';
-                                  Future.delayed(const Duration(milliseconds: 100), () {
-                                    _htmlController.setText(article.content ?? '');
-                                  });
-                                  _uploadedImageUrl = null;
-                                  _locationController.text = _getCityFromGeoLocation(article.geoLocation);
-                                  _selectedCategoryId = article.categoryId;
-                                  _isBreaking = article.isBreaking ?? false;
-                                  _showMobileForm = true; // Show form automatically on mobile
-                                });
-                              },
+                              onTap: () => _duzenlemeyeAc(article),
                               leading: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(

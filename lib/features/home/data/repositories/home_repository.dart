@@ -43,9 +43,10 @@ class HomeRepository {
     try {
       yield* _supabaseClient
           .from('articles')
-          .select('*')
+          .select(_listeSutunlari)
           .eq('status', 'published')
           .order('created_at', ascending: false)
+          .limit(_listeSiniri)
           .asStream()
           .timeout(const Duration(seconds: 8)) // Web'de sonsuza kadar takılmasını önler
           .asyncMap((maps) async {
@@ -72,6 +73,101 @@ class HomeRepository {
       // Yield ile son hali tekrar gönderiyoruz ki akış kopmasın.
       yield [..._localDrafts, ..._cachedDbArticles];
     }
+  }
+
+  // ══════════════════════════════════════════════════════════════════════
+  //  LİSTE SORGUSU — §20.1
+  // ──────────────────────────────────────────────────────────────────────
+  //  `select('*')` ve limitsiz sorgu ziyaretçi BAŞINA bütün arşivi
+  //  gövdesiyle indiriyordu. 2 Kasım 2026'da ölçüldü: 4,08 MB gzip /
+  //  10,67 MB açılmış. Asıl tehlike rakam değil BİLEŞİK BÜYÜME: arşiv günde
+  //  ~32 haber alıyor.
+  //
+  //  Dışarıda bırakılan on bir sütunun hiçbiri KART çiziminde kullanılmıyor:
+  //  sekizi gövde/grafik/öne çıkanlar/uzman görüşü (yükün %66'sı), üçü
+  //  (facts/figures/quotes) yalnızca inceleme masasının okuduğu doğrulama
+  //  verisi (%16,5) — o ekran `watchPendingArticles` ile AYRI sorgu yapıyor.
+  //
+  //  Sütunlar TEK TEK yazılıyor: PostgREST'te "şunlar hariç" diye bir sözdizimi
+  //  yok. Tabloya yeni bir sütun eklenirse buraya da eklenmeli; eklenmezse
+  //  kartta görünmez — ama veri KAYBOLMAZ (§20.2/§25.1 korumaları yazma
+  //  yolunu tam kayıtla besliyor).
+  static const String _listeSutunlari =
+      'id,title,slug,summary,status,category_id,image_url,geo_location,'
+      'seo_keywords,view_count,created_at,updated_at,title_en,summary_en,'
+      'source_name,source_url,content_type,topic,region,hero_score,'
+      'is_hero,hero_order,spot,spot_en,is_breaking,breaking_notified_at,'
+      'hero_pinned_at,source_chars,source_depth,extraction_method,'
+      'article_format,published_at,story_image_url,rejection_reason,'
+      'rejected_at,source_modified_at,source_drift,publish_at,turkiye_pin,'
+      'audio_url,audio_url_en,is_radio,radio_order,ses_deneme,ses_hatasi';
+
+  //  Sütun daraltma yükü düşürüyor ama BÜYÜMEYİ durdurmuyor; sınırsız sorgu
+  //  arşivle birlikte sonsuza kadar şişer. 500 bir yayın kararı: kategori
+  //  ekranı artık kendi sayfalanmış sorgusunu yapıyor (§20.3), yani arşivin
+  //  derinine inmek bu sınıra bağlı değil.
+  static const int _listeSiniri = 500;
+
+  // ══════════════════════════════════════════════════════════════════════
+  //  KATEGORİ SAYFALAMASI — §20.3
+  // ──────────────────────────────────────────────────────────────────────
+  //  `_listeSiniri` ana sayfanın yükünü bağlıyor ama kategori ekranı arşivin
+  //  DERİNİNE inebilmeli. §20.3'ün yazdığı çözüm: sınırı büyütmek DEĞİL,
+  //  kategori ekranına KENDİ sayfalanmış sorgusunu vermek.
+  //
+  //  Aynı kural §26.2'de yazar arşivi için de uygulanmıştı: "bir varlığın TÜM
+  //  kayıtları" isteyen hiçbir ekran, tarihe göre sınırlanmış ortak listeyi
+  //  süzerek çalışmamalı. Sınır sessizdir — hata vermez, sadece eksik gösterir.
+  //
+  //  Süzgeçler `category_catalog.dart` ve `home_providers.dart`taki istemci
+  //  süzgeçleriyle AYNI olmak zorunda; ayrışırlarsa "Daha fazla" düğmesi
+  //  anasayfadakinden başka haberler getirir. `functions/index.js` içindeki
+  //  `categoryRenderer` de aynı üçlüyü kullanıyor (§19.8).
+  //
+  //  Değerler veritabanından ölçüldü (2 Kas 2026): region ∈ {Türkiye, Dünya},
+  //  topic ∈ {Ekonomi, Bitkisel Üretim, Hayvancılık, Genel, Tarım-Bilim, YYT}.
+  //  Büyük/küçük harf kayması yok. `toLowerCase()` BURADA TEKRARLANMIYOR —
+  //  istemci onu bellek içi listede yapıyor; sorguya taşımak Türkçe noktalı i
+  //  tuzağına açık olurdu (§39.5).
+  static const Map<String, List<String>> _kategoriBolgeleri = {
+    'turkiye': ['Türkiye'],
+    'dunya': ['Dünya', 'Uluslararası', 'Küresel'],
+  };
+  static const Map<String, List<String>> _kategoriKonulari = {
+    'tarim-bilim': ['Tarım-Bilim', 'YYT'],
+    'hayvancilik': ['Hayvancılık'],
+    'bitkisel-uretim': ['Bitkisel Üretim'],
+    'ekonomi': ['Ekonomi'],
+    'genel': ['Genel'],
+  };
+
+  /// Kategorinin [offset]'ten başlayan [limit] kadar haberi, en yeniden eskiye.
+  ///
+  /// Bilinmeyen slug'da boş liste döner; ÇAĞIRAN TARAFTA "daha fazla yok"
+  /// anlamına gelir ve sonsuz döngü oluşmaz.
+  Future<List<NewsArticle>> fetchKategoriSayfasi(
+    String slug, {
+    required int offset,
+    int limit = 40,
+  }) async {
+    final bolgeler = _kategoriBolgeleri[slug];
+    final konular = _kategoriKonulari[slug];
+    if (bolgeler == null && konular == null) return const [];
+
+    var sorgu = _supabaseClient
+        .from('articles')
+        .select(_listeSutunlari)
+        .eq('status', 'published');
+    if (bolgeler != null) sorgu = sorgu.inFilter('region', bolgeler);
+    if (konular != null) sorgu = sorgu.inFilter('topic', konular);
+
+    final veri = await sorgu
+        .order('created_at', ascending: false)
+        .range(offset, offset + limit - 1);
+
+    return (veri as List)
+        .map((m) => NewsArticle.fromJson(m as Map<String, dynamic>))
+        .toList();
   }
 
   /// Supabase REST stream for fetching pending articles.
