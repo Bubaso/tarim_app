@@ -188,6 +188,26 @@ class HomeRepository {
     } catch (_) {}
   }
 
+  /// Etikete göre yayındaki haberler — sayfalanmış.
+  ///
+  /// Eşleştirme SUNUCUDA (`haberler_etikete_gore`): istemcide yapmanın tek
+  /// yolu bütün etiket dizilerini indirmekti. Fonksiyon `setof articles`
+  /// döndüğü için sütun daraltması burada da sürüyor (§20.1).
+  Future<List<NewsArticle>> fetchEtiketSayfasi(
+    String slug, {
+    required int offset,
+    int limit = 40,
+  }) async {
+    final veri = await _supabaseClient.rpc(
+      'haberler_etikete_gore',
+      params: {'p_slug': slug, 'p_limit': limit, 'p_offset': offset},
+    ).select(_listeSutunlari);
+
+    return (veri as List)
+        .map((m) => NewsArticle.fromJson(m as Map<String, dynamic>))
+        .toList();
+  }
+
   /// Supabase REST stream for fetching pending articles.
   Stream<List<NewsArticle>> watchPendingArticles() {
     return _supabaseClient

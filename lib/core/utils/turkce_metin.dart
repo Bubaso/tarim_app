@@ -32,3 +32,30 @@ String buyukHarf(String metin, bool isEn) => isEn
 String kucukHarf(String metin, bool isEn) => isEn
     ? metin.toLowerCase()
     : metin.replaceAll('I', 'ı').replaceAll('İ', 'i').toLowerCase();
+
+/// Etiket adresinin ASCII slug'ı — `etiket_slug` SQL fonksiyonunun EŞİ.
+///
+/// İkisi birebir aynı sonucu vermek ZORUNDA: istemci bağlantıyı bu fonksiyonla
+/// kuruyor, sunucu eşleştirmeyi ötekiyle yapıyor. Ayrışırlarsa çip bir yere
+/// götürür ama sayfa boş çıkar — ve hiçbir hata vermez.
+///
+/// Harf eşlemesi ÖNCE, `toLowerCase()` SONRA: Dart'ın `toLowerCase()`i 'İ'
+/// harfinde birleşik karakter üretiyor (§39.5). Eşleme önce yapılınca
+/// küçültmeye yalnızca ASCII kalıyor.
+String etiketSlug(String metin) {
+  const esleme = {
+    'ı': 'i', 'İ': 'i', 'ş': 's', 'Ş': 's', 'ğ': 'g', 'Ğ': 'g',
+    'ü': 'u', 'Ü': 'u', 'ö': 'o', 'Ö': 'o', 'ç': 'c', 'Ç': 'c',
+    'â': 'a', 'Â': 'a', 'î': 'i', 'Î': 'i', 'û': 'u', 'Û': 'u',
+  };
+  final sb = StringBuffer();
+  for (final r in metin.runes) {
+    final c = String.fromCharCode(r);
+    sb.write(esleme[c] ?? c);
+  }
+  return sb
+      .toString()
+      .toLowerCase()
+      .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+      .replaceAll(RegExp(r'^-+|-+$'), '');
+}

@@ -12,7 +12,9 @@ import 'package:tarim_app/core/theme/app_dark_mode.dart';
 // ölçmek için; material.dart bunu dışa aktarmıyor.
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/utils/turkce_metin.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
@@ -264,6 +266,31 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         ? article.expertInsightEn!
         : (article.expertInsight ?? '');
         
+    // ══════════════════════════════════════════════════════════════════
+    //  MOBİLYA KURALI — 2 Kasım 2026 denetimi
+    // ──────────────────────────────────────────────────────────────────
+    //  Kısa haberin sorunu kısa olması değil, UZUN HABERİN KOSTÜMÜNÜ
+    //  giymesi. Ölçüm: yayındaki 1.141 haberin 394'ü 150 kelimenin altında
+    //  ama 234'ü "tam" olarak sunuluyordu — grafik, "Öne Çıkanlar" ve
+    //  "Uzman Görüşü" kutularıyla. 150 kelimelik bir metne üç maddelik
+    //  özet kutusu koymak, metni ikinci kez yazmaktır.
+    //
+    //  Eşik ETİKETE DEĞİL METNE bakıyor: `article_format` null ya da yanlış
+    //  olsa bile gövdenin kendi uzunluğu karar veriyor. Etiket 234 kayıtta
+    //  düzeltildi ama tek dayanak olmamalı.
+    //
+    //  Görsel bandına DOKUNULMUYOR: kısa haberde zaten 21:9 çiziliyor ve o
+    //  ayrı bir karar.
+    // ══════════════════════════════════════════════════════════════════
+    final govdeKelime = _kelimeSay(displayContent);
+    final kisaHaber = article.isBrief || govdeKelime < 150;
+
+    final ozetKutusuGorunsun =
+        !kisaHaber && govdeKelime >= 400 && displayTakeaways.isNotEmpty;
+    final uzmanKutusuGorunsun =
+        !kisaHaber && govdeKelime >= 400 && displayInsight.isNotEmpty;
+    final grafikGorunsun = !kisaHaber && displayChart != null;
+
     final formattedDate = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR')
         .add_Hm()
         .format(article.createdAt);
@@ -353,6 +380,35 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                                   ),
                                 ),
                               ),
+                              // GÖRSEL KÜNYESİ — §8.3: atıfsız görsel
+                              // yayımlanmaz. Dosya dizisinde bu kural zaten
+                              // uygulanıyordu; haber tarafında sütun bile
+                              // yoktu (2 Kasım 2026 denetimi).
+                              //
+                              // Künye GÖRSELİN ÜSTÜNDE, sağ altta: gazetede
+                              // alışılmış yer ve orada zaten bir degrade var,
+                              // yani okunurluk için ek bir katman gerekmiyor.
+                              // Alan boşsa satır HİÇ çizilmiyor — boş bir
+                              // "Fotoğraf:" satırı, hiç satır olmamasından
+                              // kötü.
+                              if ((article.imageCredit ?? '').trim().isNotEmpty)
+                                Positioned(
+                                  right: 10,
+                                  bottom: 8,
+                                  child: Text(
+                                    '${isEn ? 'Photo' : 'Fotoğraf'}: '
+                                    '${article.imageCredit!.trim()}',
+                                    style: GoogleFonts.inter(
+                                      fontSize: 10.5,
+                                      height: 1.2,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white.withValues(alpha: 0.82),
+                                      shadows: const [
+                                        Shadow(blurRadius: 3, color: Colors.black54),
+                                      ],
+                                    ),
+                                  ),
+                                ),
                             ],
                           ),
                         ),
@@ -419,7 +475,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ],
                           
                           // ── Anahtar Çıkarımlar ──────────────────────────
-                          if (displayTakeaways.isNotEmpty) ...[
+                          if (ozetKutusuGorunsun) ...[
                              _KeyTakeawaysBox(takeaways: displayTakeaways, isEn: isEn, isDark: isDark, accent: accent),
                              const SizedBox(height: 28),
                           ],
@@ -435,7 +491,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           const SizedBox(height: 28),
 
                           // ── Dinamik Grafik ─────────────────────────────
-                          if (displayChart != null) ...[
+                          if (grafikGorunsun) ...[
                              DynamicChartWidget(chartData: displayChart, isDark: isDark, accent: accent),
                              const SizedBox(height: 28),
                           ],
@@ -492,7 +548,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ),
                           
                           // ── Uzman Görüşü ─────────────────────────────
-                          if (displayInsight.isNotEmpty) ...[
+                          if (uzmanKutusuGorunsun) ...[
                              const SizedBox(height: 36),
                              _ExpertInsightBox(insight: displayInsight, isEn: isEn, isDark: isDark, accent: accent),
                           ],
@@ -798,7 +854,19 @@ class _KeywordsRow extends StatelessWidget {
           spacing: 8,
           runSpacing: 8,
           children: keywords.map((kw) {
-            return Container(
+            // ÇİPLER ARTIK TIKLANIYOR (denetim M4/E4).
+            //
+            // Eskiden düz `Container` + `Text`ti: ne `onTap` ne `InkWell`.
+            // `seo_keywords` 1.000 haberin 984'ünde dolu ve ekranda yer
+            // kaplıyordu ama hiçbir yere götürmüyordu — ölü süs, boş süsten
+            // kötü.
+            //
+            // Slug istemcide `etiketSlug` ile, eşleştirme sunucuda
+            // `etiket_slug` ile yapılıyor; ikisi birebir aynı olmak zorunda.
+            // Etiketin özgün hâli `extra` ile taşınıyor: adresten gelen slug
+            // Türkçe harfleri geri veremez.
+            final slug = etiketSlug(kw);
+            final cip = Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
                 color: chipBg,
@@ -811,6 +879,16 @@ class _KeywordsRow extends StatelessWidget {
                   fontSize: 11,
                   fontWeight: FontWeight.w600,
                 ),
+              ),
+            );
+            if (slug.isEmpty) return cip;
+            return Semantics(
+              button: true,
+              label: kw,
+              child: InkWell(
+                onTap: () => context.push('/etiket/$slug', extra: kw),
+                borderRadius: BorderRadius.circular(2),
+                child: cip,
               ),
             );
           }).toList(),
@@ -1423,6 +1501,16 @@ class _RelatedCardState extends State<_RelatedCard> {
 // ═══════════════════════════════════════════════════════════════════════════
 //  Editoryal Bileşenler
 // ═══════════════════════════════════════════════════════════════════════════
+
+/// HTML gövdesindeki kelime sayısı. Mobilya eşikleri bunu kullanıyor.
+int _kelimeSay(String html) {
+  if (html.isEmpty) return 0;
+  final duz = html
+      .replaceAll(RegExp(r'<[^>]+>'), ' ')
+      .replaceAll(RegExp(r'\s+'), ' ')
+      .trim();
+  return duz.isEmpty ? 0 : duz.split(' ').length;
+}
 
 class _KeyTakeawaysBox extends StatelessWidget {
   final List<String> takeaways;

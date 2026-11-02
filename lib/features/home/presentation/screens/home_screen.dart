@@ -491,48 +491,56 @@ class _TabletContent extends ConsumerWidget {
         // tek sütun satırları gereğinden uzun oluyordu. Masaüstündeki
         // maxWidth: 1200 deseninin tablet karşılığı.
         padding: const EdgeInsets.symmetric(vertical: 24),
+        // BÖLÜMLER TEK TEK LİSTE ÇOCUĞU (denetim E7).
+        //
+        // Eskiden bütün bölümler TEK bir `Center > ConstrainedBox > Column`
+        // çocuğunun içindeydi; `ListView` tembel olsa da tek çocuk tek kutu
+        // demek ve Flutter hepsini birlikte ölçüyordu. Masaüstündeki aynı
+        // kusurun tablet hâli.
+        //
+        // Sıra ve boşluklar DEĞİŞMEDİ; `maxWidth: 960` ve yatay dolgu her
+        // bölüme ayrı ayrı uygulanıyor, görsel sonuç aynı.
         children: [
-          Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 960),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 12),
-                    StoryAvatarStrip(isDark: isDark, maxItems: 10),
-                    const SizedBox(height: 8),
-                    _PortalHeroSection(isDark: isDark),
-                    IosPwaPrompt(isDark: isDark),
-                    NotificationPromptStrip(isDark: isDark),
-                    const SizedBox(height: 36),
-                    CommodityStrip(isDark: isDark, spacing: 36),
-                    _RecentlyReadSection(isDark: isDark, spacing: 36),
-                    YYTDosyasiSection(isDark: isDark),
-                    const SizedBox(height: 36),
-                    _TurkeyNewsSection(isDark: isDark),
-                    const SizedBox(height: 36),
-                    DossierStrip(isDark: isDark, spacing: 36),
-                    VideoSerit(isDark: isDark, spacing: 36),
-                    _ScienceAndReportsSection(isDark: isDark),
-                    const SizedBox(height: 36),
-                    _WorldNewsSection(isDark: isDark),
-                    const SizedBox(height: 36),
-                    IcymiSection(isDark: isDark),
-                    const SizedBox(height: 36),
-                    KisaKisaSection(isDark: isDark, spacing: 36),
-                    _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
-                    const SizedBox(height: 36),
-                    _SectoralNewsSection(
-                        topic: 'Bitkisel Üretim', isDark: isDark),
-                    const SizedBox(height: 36),
-                    _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
-                    const SizedBox(height: 48),
-                  ],
+          for (final bolum in <Widget>[
+        const SizedBox(height: 12),
+        StoryAvatarStrip(isDark: isDark, maxItems: 10),
+        const SizedBox(height: 8),
+        _PortalHeroSection(isDark: isDark),
+        IosPwaPrompt(isDark: isDark),
+        NotificationPromptStrip(isDark: isDark),
+        const SizedBox(height: 36),
+        CommodityStrip(isDark: isDark, spacing: 36),
+        _RecentlyReadSection(isDark: isDark, spacing: 36),
+        YYTDosyasiSection(isDark: isDark),
+        const SizedBox(height: 36),
+        _TurkeyNewsSection(isDark: isDark),
+        const SizedBox(height: 36),
+        DossierStrip(isDark: isDark, spacing: 36),
+        VideoSerit(isDark: isDark, spacing: 36),
+        _ScienceAndReportsSection(isDark: isDark),
+        const SizedBox(height: 36),
+        _WorldNewsSection(isDark: isDark),
+        const SizedBox(height: 36),
+        IcymiSection(isDark: isDark),
+        const SizedBox(height: 36),
+        KisaKisaSection(isDark: isDark, spacing: 36),
+        _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
+        const SizedBox(height: 36),
+        _SectoralNewsSection(
+            topic: 'Bitkisel Üretim', isDark: isDark),
+        const SizedBox(height: 36),
+        _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+        const SizedBox(height: 48),
+          ])
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 960),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: bolum,
                 ),
               ),
             ),
-          ),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -561,74 +569,91 @@ class _DesktopContent extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // BÖLÜMLER TEK TEK SLIVER ÇOCUĞU (denetim E7).
+    //
+    // Eskiden on yedi bölümün tamamı TEK `SliverToBoxAdapter` içindeki bir
+    // `Column`du. Sliver tek kutu olduğu için Flutter hepsini ilk karede
+    // ölçüp yerleştiriyordu: yüzlerce kart, CanvasKit'te metin şekillendirme
+    // dâhil. Ölçüm (2 Kasım 2026, canlı): liste sorgusu 6,3. saniyede
+    // bitiyor ama geri kalan sağlayıcılar 21,7. saniyede başlıyordu — aradaki
+    // on beş saniye bu kurulum. Ekrandaki karşılığı, ana sayfanın yirmi
+    // saniye boyunca iskelet kalması.
+    //
+    // `SliverList` yalnızca görünür olanları kuruyor. Sıra DEĞİŞMEDİ; tek
+    // fark her bölümün kendi `Center`+`ConstrainedBox`'ını taşıması —
+    // eskiden kuşatan `Column` bir kez sarıyordu, görsel sonuç aynı.
+    //
+    // Yan etki BİLİNÇLİ: aşağıdaki bölümler verilerini ancak görünür olunca
+    // istiyor. Vitrinin tamamını ilk karede indirmenin karşılığı yoktu.
+    final bolumler = <Widget>[
+        const SizedBox(height: 12),
+        StoryAvatarStrip(isDark: isDark, maxItems: 10),
+        Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: _PortalHeroSection(isDark: isDark),
+        ),
+        IosPwaPrompt(isDark: isDark),
+        NotificationPromptStrip(isDark: isDark),
+        const SizedBox(height: 40),
+        // Manşetin hemen altında, "en son okuduklarınız"ın ÜSTÜNDE.
+        // O bölüm ilk kez gelen okuyucuda hiç çizilmiyor; altına
+        // konsaydı fiyat şeridinin yeri okuyucudan okuyucuya
+        // değişirdi.
+        CommodityStrip(isDark: isDark, spacing: 40),
+        _RecentlyReadSection(isDark: isDark, spacing: 40),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: YYTDosyasiSection(isDark: isDark),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: _TurkeyNewsSection(isDark: isDark),
+        ),
+        DossierStrip(isDark: isDark, spacing: 40),
+        VideoSerit(isDark: isDark, spacing: 40),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: _ScienceAndReportsSection(isDark: isDark),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: _WorldNewsSection(isDark: isDark),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: IcymiSection(isDark: isDark),
+        ),
+        // Boşluğu Padding değil bölümün kendisi yayıyor: kısa haber
+        // üretilmemiş bir günde bölüm SizedBox.shrink() dönüyor ve
+        // sarmalayan Padding geriye 40 px boşluk bırakırdı.
+        KisaKisaSection(isDark: isDark, spacing: 40),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: _SectoralNewsSection(
+              topic: 'Hayvancılık', isDark: isDark),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: _SectoralNewsSection(
+              topic: 'Bitkisel Üretim', isDark: isDark),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: _SectoralNewsSection(
+              topic: 'Ekonomi', isDark: isDark),
+        ),
+    ];
+
     return CustomScrollView(
       slivers: [
         SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: hPad, vertical: vPad),
-          sliver: SliverToBoxAdapter(
-            child: Center(
+          sliver: SliverList.builder(
+            itemCount: bolumler.length,
+            itemBuilder: (context, i) => Center(
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: maxWidth),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 12),
-                    StoryAvatarStrip(isDark: isDark, maxItems: 10),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: _PortalHeroSection(isDark: isDark),
-                    ),
-                    IosPwaPrompt(isDark: isDark),
-                    NotificationPromptStrip(isDark: isDark),
-                    const SizedBox(height: 40),
-                    // Manşetin hemen altında, "en son okuduklarınız"ın ÜSTÜNDE.
-                    // O bölüm ilk kez gelen okuyucuda hiç çizilmiyor; altına
-                    // konsaydı fiyat şeridinin yeri okuyucudan okuyucuya
-                    // değişirdi.
-                    CommodityStrip(isDark: isDark, spacing: 40),
-                    _RecentlyReadSection(isDark: isDark, spacing: 40),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: YYTDosyasiSection(isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _TurkeyNewsSection(isDark: isDark),
-                    ),
-                    DossierStrip(isDark: isDark, spacing: 40),
-                    VideoSerit(isDark: isDark, spacing: 40),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _ScienceAndReportsSection(isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _WorldNewsSection(isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: IcymiSection(isDark: isDark),
-                    ),
-                    // Boşluğu Padding değil bölümün kendisi yayıyor: kısa haber
-                    // üretilmemiş bir günde bölüm SizedBox.shrink() dönüyor ve
-                    // sarmalayan Padding geriye 40 px boşluk bırakırdı.
-                    KisaKisaSection(isDark: isDark, spacing: 40),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(
-                          topic: 'Hayvancılık', isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(
-                          topic: 'Bitkisel Üretim', isDark: isDark),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 40),
-                      child: _SectoralNewsSection(
-                          topic: 'Ekonomi', isDark: isDark),
-                    ),
-                  ],
-                ),
+                child: bolumler[i],
               ),
             ),
           ),

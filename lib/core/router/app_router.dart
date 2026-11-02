@@ -223,6 +223,30 @@ final appRouter = GoRouter(
     // Kategori listesi — slug'dan yeniden kurulabilir: `extra` (uygulama içi
     // hazır liste) yoksa ekran slug'a bakıp veriyi kendi çeker. Paylaşılan
     // `/kategori/hayvancilik` bağlantısı doğrudan açılır.
+    // Etiket sayfası — `/etiket/<slug>` (denetim M4).
+    //
+    // Haber sayfasındaki `seo_keywords` çipleri çiziliyordu ama tıklanmıyordu:
+    // ekranda yer kaplayan, hiçbir yere götürmeyen bir süs. Slug ASCII (§2.1);
+    // eşleştirmeyi `haberler_etikete_gore` sunucuda yapıyor.
+    //
+    // Başlık `extra` ile taşınıyor: çipten gelindiğinde etiketin ÖZGÜN hâli
+    // ("süt üretimi") elimizde. Adresle doğrudan gelindiğinde slug'dan
+    // türetiliyor — Türkçe harfler geri gelmiyor ama boş başlıktan iyi.
+    GoRoute(
+      path: '/etiket/:slug',
+      pageBuilder: (context, state) {
+        final slug = state.pathParameters['slug']!;
+        final extra = _resolveExtra(state);
+        final baslik = extra is String && extra.trim().isNotEmpty
+            ? extra
+            : slug.replaceAll('-', ' ');
+        return _fadePage(
+          state,
+          CategoryArticlesScreen(tagSlug: slug, title: baslik),
+        );
+      },
+    ),
+
     GoRoute(
       path: '/kategori/:slug',
       pageBuilder: (context, state) {

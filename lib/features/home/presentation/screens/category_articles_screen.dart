@@ -26,11 +26,17 @@ class CategoryArticlesScreen extends ConsumerStatefulWidget {
   final String? slug;
   final List<NewsArticle>? articles;
 
+  /// Doluysa ekran KATEGORİ değil ETİKET sayfasıdır (`/etiket/<slug>`).
+  /// Sayfalama, üç durum ayrımı ve düzen aynı; değişen yalnızca sorgu ve
+  /// başlık. Ayrı bir ekran yazmak bu işin tamamını ikinci kez kurmak olurdu.
+  final String? tagSlug;
+
   const CategoryArticlesScreen({
     super.key,
     this.title,
     this.slug,
     this.articles,
+    this.tagSlug,
   });
 
   @override
@@ -68,7 +74,7 @@ class _CategoryArticlesScreenState
   }
 
   Future<void> _sayfaYukle({bool ilk = false}) async {
-    final slug = widget.slug;
+    final slug = widget.slug ?? widget.tagSlug;
     if (slug == null || _yukleniyor || (!ilk && !_dahaVar)) return;
     setState(() {
       _yukleniyor = true;
@@ -76,9 +82,12 @@ class _CategoryArticlesScreenState
     });
     try {
       final offset = ilk ? 0 : _liste.length;
-      final gelen = await ref
-          .read(homeRepositoryProvider)
-          .fetchKategoriSayfasi(slug, offset: offset, limit: _sayfaBoyu);
+      final depo = ref.read(homeRepositoryProvider);
+      final gelen = widget.tagSlug != null
+          ? await depo.fetchEtiketSayfasi(widget.tagSlug!,
+              offset: offset, limit: _sayfaBoyu)
+          : await depo.fetchKategoriSayfasi(slug,
+              offset: offset, limit: _sayfaBoyu);
       if (!mounted) return;
       setState(() {
         if (ilk) _liste.clear();
@@ -115,7 +124,7 @@ class _CategoryArticlesScreenState
     final String title =
         widget.title ?? def?.title(isEn) ?? (isEn ? 'Category' : 'Kategori');
 
-    if (widget.slug != null && def == null) {
+    if (widget.tagSlug == null && widget.slug != null && def == null) {
       return _NotFound(isEn: isEn);
     }
     final List<NewsArticle> articles = _liste;

@@ -7,6 +7,14 @@ class NewsArticle {
   final String? summary;
   final String? summaryEn;
   final String? imageUrl;
+
+  /// Görselin kaynağı — "AA", "Tarım Pusulası", "sondakika.com".
+  /// §8.3: atıfsız görsel yayımlanmaz. Boşsa arayüz künye satırını HİÇ
+  /// çizmiyor; boş bir "Fotoğraf:" satırı hiç satır olmamasından kötü.
+  final String? imageCredit;
+
+  /// Görselin ne gösterdiği. Belgelenmemişse boş — uydurulmaz.
+  final String? imageCaption;
   final List<String>? seoKeywords;
   final String? sourceName;
   final String? sourceUrl;
@@ -84,6 +92,8 @@ class NewsArticle {
     this.summary,
     this.summaryEn,
     this.imageUrl,
+    this.imageCredit,
+    this.imageCaption,
     this.seoKeywords,
     this.sourceName,
     this.sourceUrl,
@@ -147,6 +157,8 @@ class NewsArticle {
       summary: json['summary']?.toString(),
       summaryEn: json['summary_en']?.toString(),
       imageUrl: json['image_url']?.toString(),
+      imageCredit: json['image_credit']?.toString(),
+      imageCaption: json['image_caption']?.toString(),
       seoKeywords: keywords,
       sourceName: json['source_name']?.toString(),
       sourceUrl: json['source_url']?.toString(),
@@ -193,6 +205,8 @@ class NewsArticle {
       'summary': summary,
       'summary_en': summaryEn,
       'image_url': imageUrl,
+      'image_credit': imageCredit,
+      'image_caption': imageCaption,
       'seo_keywords': seoKeywords,
       'source_name': sourceName,
       'source_url': sourceUrl,
