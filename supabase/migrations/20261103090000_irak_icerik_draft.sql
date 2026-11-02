@@ -1311,7 +1311,7 @@ $kontrol$;
 -- SAĞLAMALAR — veritabanının KENDİ içeriğini sınıyor
 -- ════════════════════════════════════════════════════════════════════════
 do $kontrol_irak$
-declare d_id uuid; n integer; t text;
+declare d_id bigint; n integer; t text;
 begin
   select id into d_id from public.country_dossiers where slug = 'irak';
   if d_id is null then raise exception 'irak satırı yazılmadı'; end if;
