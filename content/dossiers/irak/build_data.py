@@ -137,6 +137,34 @@ sigir = {int(y): v for y, v in u_hayvan['Cattle'].items()}
 # Dip 1990 SONRASINDA aranıyor: 1970'lerin yüksek tabanı dibi gizlerdi
 manda_dip_yil = min((y for y in manda if y >= 1990), key=lambda y: manda[y])
 
+tavuk = {int(y): v for y, v in u_hayvan['Chickens'].items()}
+misir = seri('Maize (corn)|Production')
+m_alan = seri('Maize (corn)|Area harvested')
+domates = seri('Tomatoes|Production')
+
+
+def verim_cifti(urun: str) -> dict:
+    """İlk ortak yıl ve 2024 için verim, alan ve ikisinin katı.
+
+    ÜRETİM = ALAN × VERİM. Ayrıştırılmadan bakılan bir üretim serisi
+    yanıltır: hurmada üretim artmış görünüyor ama artış ALANDAN geliyor,
+    verim düşmüş. Bu ayrım dosyanın iki bölümünü birden taşıyor."""
+    p_ = seri(f'{urun}|Production')
+    a_ = seri(f'{urun}|Area harvested')
+    ortak = sorted(set(p_) & set(a_))
+    ilk, son = ortak[0], ortak[-1]
+    return {'ilk_yil': ilk, 'son_yil': son,
+            'verim_ilk': round(p_[ilk] / a_[ilk], 2),
+            'verim_son': round(p_[son] / a_[son], 2),
+            'verim_kat': round((p_[son] / a_[son]) / (p_[ilk] / a_[ilk]), 2),
+            'alan_ilk': a_[ilk], 'alan_son': a_[son],
+            'alan_kat': round(a_[son] / a_[ilk], 2)}
+
+
+verim_tablosu = {ad: verim_cifti(urun) for ad, urun in (
+    ('bugday', 'Wheat'), ('arpa', 'Barley'), ('pirinc', 'Rice'),
+    ('hurma', 'Dates'), ('misir', 'Maize (corn)'), ('domates', 'Tomatoes'))}
+
 hurma = seri('Dates|Production')
 hurma_d = {int(y): v for y, v in govde['uretim']['hurma_dunya'].items()}
 ortak_hurma = sorted(set(hurma) & set(hurma_d))
@@ -162,6 +190,26 @@ govde['turetilmis'] = {
     'hurma_1961': hurma[1961], 'hurma_2024': hurma[2024],
     'hurma_zirve_yil': max(hurma, key=hurma.get), 'hurma_zirve': max(hurma.values()),
     'ithalat_toplam_kontrol': sum(f['deger'] for f in t['ithalat_fasillar']),
+
+    # ── VERİM Mİ, ALAN MI ────────────────────────────────────────────────
+    # Üretim = alan × verim. Bir ülkenin neyi başardığı ancak bu ikisi
+    # AYRIŞTIRILINCA görünür. Hurmada üretim 1,7 kat arttı diye "iyi gidiyor"
+    # denemez: alan 2,4 kat artmış, verim DÜŞMÜŞ. Dünya payının inişinin
+    # sebebi bu bölümde duruyor.
+    **{f'verim_{ad}': deger for ad, deger in verim_tablosu.items()},
+
+    # Tavuk — ülkenin en hızlı büyüyen sürüsü, hiçbir bölümde geçmiyordu
+    'tavuk_1961': tavuk[1961], 'tavuk_2024': tavuk[2024],
+    'tavuk_zirve_yil': max(tavuk, key=tavuk.get), 'tavuk_zirve': max(tavuk.values()),
+    'tavuk_kat': round(tavuk[2024] / tavuk[1961], 1),
+
+    # Sonradan gelen iki ürün
+    'misir_alan_1961': m_alan[1961], 'misir_alan_2024': m_alan[2024],
+    'misir_2024': misir[2024], 'misir_zirve_yil': max(misir, key=misir.get),
+    'misir_zirve': max(misir.values()),
+    'domates_zirve_yil': max(domates, key=domates.get),
+    'domates_zirve': max(domates.values()), 'domates_2024': domates[2024],
+    'domates_1961': domates[1961],
 
     # Çöküşler — hesaplanmış, iddia edilmemiş
     'pirinc_dusus_yuzde': round((1 - pirinc[2022] / pirinc[2020]) * 100, 1),
@@ -256,4 +304,7 @@ print(f"  pirinç düşüşü %{tt['pirinc_dusus_yuzde']} · buğday IŞİD dü�
       f"%{tt['bugday_isid_dusus_yuzde']}")
 print(f"  manda dibi {tt['manda_dip_yil']} · {tt['manda_dip']:,.0f} → "
       f"bugün {tt['manda_bugun']:,.0f} (dipten {tt['manda_dipten_kat']} kat)")
+print(f"  tavuk {tt['tavuk_1961']:,.0f} → {tt['tavuk_2024']:,.0f} bin baş ({tt['tavuk_kat']} kat)")
+print(f"  hurma verim {tt['verim_hurma']['verim_ilk']} → {tt['verim_hurma']['verim_son']} t/ha "
+      f"({tt['verim_hurma']['verim_kat']} kat) · alan {tt['verim_hurma']['alan_kat']} kat")
 print(f"  hurma payı %{tt['hurma_pay_ilk_yuzde']} → %{tt['hurma_pay_son_yuzde']}")

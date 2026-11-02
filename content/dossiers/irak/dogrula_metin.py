@@ -18,7 +18,7 @@ DOKUZ AVCI:
      altmış kat yanlış olduğunu sanır. Cümle cümle taranıyor.
   7. AYNA İSTATİSTİĞİ — ticaretten söz eden bölümler rakamların TÜRKİYE'NİN
      BEYANINDAN olduğunu söylemek zorunda. Irak muhabir olarak rapor vermiyor.
-  8. YAPI — on dört bölüm, TR ve EN'de aynı numaralar, ardışık.
+  8. YAPI — on sekiz bölüm, TR ve EN'de aynı numaralar, ardışık.
   9. ALINTI PARİTESİ — İngilizce alıntı çeviri olduğu için kaynak metninde
      bulunmayabilir ve bu DÜŞÜRMEZ, kayda geçer. O muafiyet uydurma alıntıya
      kapı açmasın diye bölüm başına alıntı SAYISI iki dilde aynı olmalı.
@@ -147,7 +147,7 @@ ULKE_IZ = {'tr': [r'269\.940', r'302\.000', r'ülke genelinde', r'ülke ölçeğ
            'en': [r'269,940', r'302,000', r'country-wide', r'across the country']}
 
 alinti_sayisi: dict[str, dict[str, int]] = {}
-TICARET_BOLUMLERI = {'1', '11', '12'}
+TICARET_BOLUMLERI = {'1', '14', '15'}
 AYNA = {'tr': ['türkiye\'nin beyanından', 'türkiyenin beyanından', 'muhabir'],
         'en': ["türkiye's reporting", "turkiye's reporting", 'reporter', 'reporting']}
 
@@ -158,8 +158,8 @@ def sin(dil: str, yol: pathlib.Path) -> list[str]:
         return []
     bolumler = govde(yol)
     numaralar = [n for n, _ in bolumler]
-    if len(bolumler) != 14:
-        hata.append(f'[{dil}] BÖLÜM SAYISI {len(bolumler)} — on dört olmalı')
+    if len(bolumler) != 18:
+        hata.append(f'[{dil}] BÖLÜM SAYISI {len(bolumler)} — on sekiz olmalı')
     if numaralar != [str(i) for i in range(1, len(bolumler) + 1)]:
         hata.append(f'[{dil}] BÖLÜM NUMARALARI ARDIŞIK DEĞİL: {numaralar}')
 

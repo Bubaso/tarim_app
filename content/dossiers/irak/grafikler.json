@@ -741,6 +741,171 @@
           }
         }
       ]
+    },
+    "verim_alan": {
+      "tur": "ikili_cubuk",
+      "baslik": {
+        "tr": "Üretim arttıysa, hangisinden arttı",
+        "en": "If output rose, which half rose"
+      },
+      "not": {
+        "tr": "Üretim = alan × verim. Bir üretim serisine tek başına bakmak yanıltır. Her ürün için ilk ölçüm yılı ile 2024 arasındaki kat gösteriliyor; 1,00 değişmedi demek. Mısırda verim 5,27 kat arttı — ülkenin en büyük tarımsal kazancı. Hurmada ise alan 2,45 kat artarken VERİM 0,62 kata indi: üretimin artmış görünmesi daha çok ağaç dikilmesinden geliyor, daha iyi hasattan değil. Arpada ikisi de düştü.",
+        "en": "Output = area × yield. Reading an output series alone misleads. For each crop the chart shows the multiple between its first measured year and 2024; 1.00 means unchanged. Maize yield rose 5.27-fold — the country's largest agricultural gain. For dates the area rose 2.45-fold while YIELD fell to 0.62: output looks higher because more trees were planted, not because the harvest improved. For barley both fell."
+      },
+      "kaynak": "FAOSTAT · üretim ve hasat edilen alan",
+      "sonek": {
+        "tr": " kat",
+        "en": "×"
+      },
+      "ondalik": 2,
+      "seriler": [
+        {
+          "ad": {
+            "tr": "verim katı",
+            "en": "yield multiple"
+          },
+          "rol": "vurgu"
+        },
+        {
+          "ad": {
+            "tr": "alan katı",
+            "en": "area multiple"
+          },
+          "rol": "ikincil"
+        }
+      ],
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "degerler": [
+            "@turetilmis.verim_bugday.verim_kat",
+            "@turetilmis.verim_bugday.alan_kat"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "degerler": [
+            "@turetilmis.verim_arpa.verim_kat",
+            "@turetilmis.verim_arpa.alan_kat"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Pirinç",
+            "en": "Rice"
+          },
+          "degerler": [
+            "@turetilmis.verim_pirinc.verim_kat",
+            "@turetilmis.verim_pirinc.alan_kat"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Hurma",
+            "en": "Dates"
+          },
+          "degerler": [
+            "@turetilmis.verim_hurma.verim_kat",
+            "@turetilmis.verim_hurma.alan_kat"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Mısır",
+            "en": "Maize"
+          },
+          "degerler": [
+            "@turetilmis.verim_misir.verim_kat",
+            "@turetilmis.verim_misir.alan_kat"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Domates",
+            "en": "Tomatoes"
+          },
+          "degerler": [
+            "@turetilmis.verim_domates.verim_kat",
+            "@turetilmis.verim_domates.alan_kat"
+          ]
+        }
+      ]
+    },
+    "tavuk": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "En hızlı büyüyen sürü",
+        "en": "The fastest-growing flock"
+      },
+      "birim": {
+        "tr": "milyon baş",
+        "en": "million head"
+      },
+      "bolen": 1000,
+      "ondalik": 0,
+      "not": {
+        "tr": "Tavuk 1961'de 6,5 milyon baştı; 2022'de 162,5 milyonla zirveye çıktı, 2024'te 140 milyon. Altmış üç yılda 21,5 kat. Koyun aynı dönemde yarıya indi. Ahırda ve kümeste beslenen hayvan, merada otlayanın tersine çoğaldı — ve yemi büyük ölçüde dışarıdan geliyor.",
+        "en": "Chickens numbered 6.5 million head in 1961, peaked at 162.5 million in 2022 and stand at 140 million in 2024 — 21.5-fold over sixty-three years. Sheep halved in the same period. The barn- and coop-fed animal increased as the pasture-fed one declined, and its feed largely comes from outside."
+      },
+      "kaynak": "FAOSTAT · Irak hayvan varlığı",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Tavuk",
+            "en": "Chickens"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@uretim.hayvan.Chickens"
+          }
+        }
+      ]
+    },
+    "yeni_urunler": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Sonradan gelenler",
+        "en": "The latecomers"
+      },
+      "birim": {
+        "tr": "bin ton",
+        "en": "thousand tonnes"
+      },
+      "bolen": 1000,
+      "ondalik": 0,
+      "not": {
+        "tr": "Mısır 1961'de Irak'ta neredeyse yoktu: 2 bin hektar. Bugün 100 bin hektar ve verimi 5,27 kat arttı. Domates ise başka bir eğri çiziyor — 2001'de 1.321 bin tonla zirve yaptı, 2024'te 463 bin ton. Alanı neredeyse aynı kaldı (19,5'ten 22 bin hektara) ama verimi 2,97 kat arttı; düşüş alandan değil, zirve yıllarının ekiminin sürdürülememesinden.",
+        "en": "Maize was almost absent from Iraq in 1961: two thousand hectares. Today it covers a hundred thousand and its yield has risen 5.27-fold. Tomatoes draw a different curve — a peak of 1,321 thousand tonnes in 2001 and 463 thousand in 2024. The area barely moved (19.5 to 22 thousand hectares) while the yield rose 2.97-fold; the fall comes not from area but from the peak years' planting not being sustained."
+      },
+      "kaynak": "FAOSTAT · Irak üretimi",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Domates",
+            "en": "Tomatoes"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@uretim.urunler.Tomatoes|Production"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Mısır",
+            "en": "Maize"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "harita": "@uretim.urunler.Maize (corn)|Production"
+          }
+        }
+      ]
     }
   }
 }

@@ -41,17 +41,21 @@
     "6": "veri",
     "7": "veri",
     "8": "veri",
-    "9": "anlati",
+    "9": "veri",
     "10": "anlati",
-    "11": "veri",
-    "12": "akis",
-    "13": "belge",
-    "14": "belge"
+    "11": "anlati",
+    "12": "veri",
+    "13": "veri",
+    "14": "veri",
+    "15": "akis",
+    "16": "belge",
+    "17": "anlati",
+    "18": "belge"
   },
   "bolum_grafikleri": {
     "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir eşleşmek zorunda.",
-    "_ayna_uyarisi": "11 ve 12'deki grafikler TÜRKİYE'NİN BEYANINDAN; Irak Comtrade'e muhabir olarak rapor vermiyor. Her iki grafiğin notu bunu söylüyor ve bölüm metinleri de söyleyecek.",
-    "_olcek_uyarisi": "10'daki iki grafik ÜLKE ölçeğinde. Bölüm metni BM'nin bataklık ölçeğindeki manda rakamını (80.000 → ~5.000) kullanacaksa kapsamını açıkça yazacak; iki ölçek aynı cümlede kullanılmaz (build_data.py 8. doğrulama).",
+    "_ayna_uyarisi": "14 ve 15'teki grafikler TÜRKİYE'NİN BEYANINDAN; Irak muhabir olarak rapor vermiyor.",
+    "_olcek_uyarisi": "11'deki iki grafik ÜLKE ölçeğinde; bataklık ölçeği aynı cümlede kullanılmaz.",
     "1": [
       "acilis"
     ],
@@ -68,27 +72,38 @@
       "pirinc"
     ],
     "8": [
-      "hurma_payi"
+      "verim_alan"
     ],
     "9": [
-      "tuzluluk"
+      "hurma_payi"
     ],
     "10": [
+      "tuzluluk"
+    ],
+    "11": [
       "hayvan",
       "manda"
     ],
-    "11": [
-      "fasillar"
-    ],
     "12": [
-      "akis"
+      "tavuk"
     ],
     "13": [
+      "yeni_urunler"
+    ],
+    "14": [
+      "fasillar"
+    ],
+    "15": [
+      "akis"
+    ],
+    "16": [
       "protokol"
     ]
   },
   "_bolum_basliklari": {
-    "_notu": "METİNDEN OKUNACAK; metin yazıldıktan sonra birebir hale getirilir. Şu anki adlar tur 3 iskeletinden.",
+    "_notu": "METİNDEN OKUNDU; başlıklar metinle birebir.",
+    "_duzeltme_notu": "TUR 8'DE DÜZELTİLDİ. İskelette §7 'Pirinç kayboldu' idi ve §2.8'in 'terk edilen ürün' kategorisi pirince bağlanmıştı. Seriler 2024'e kadar okununca iddia çöktü: pirinç 2022'de 12 bin tona indi ama 2024'te 228 bin tona, yani 2020'nin %49'una döndü. Terk edilmiş değil, KAPATILIP AÇILAN bir ürün. Gerçekten terk edilen tahıl ARPA: altmış dört yıllık serinin en düşük yılı ambargo dibi değil 2023 (106 bin ton) ve 2024'te hâlâ 2020'nin %9,4'ü. §2.8/5 kategorisi arpaya taşındı ve §6'da duruyor.",
+    "_genisletme_notu": "TUR 8'DE GENİŞLETİLDİ (kullanıcı talebi, 2 Kasım 2026). Dosya 14 bölüm ve 2.544 kelimeyle dizinin en kısasıydı: Hollanda 5.325, Rusya 4.928, Avustralya 3.788. Dört bölüm eklendi (§8 verim/alan, §12 tavuk, §13 sonradan gelenler, §17 Türkiye ne görebilir) ve mevcut bölümler derinleştirildi; gövde 4.470 kelimeye çıktı. Eklenen bölümlerin tamamı KULLANILMAYAN veri bloklarından geliyor — tavuk, mısır ve domates serileri ile verim/alan ayrıştırması veri katmanında vardı ve hiçbir bölümde geçmiyordu.",
     "1": "Bir ülkenin ekmeği",
     "2": "Tarımın başladığı yer",
     "3": "Bugünkü Irak",
@@ -96,20 +111,23 @@
     "5": "Savaş tarlaya ne yaptı",
     "6": "Üç şok ve geri gelmeyen tahıl",
     "7": "Kapatılıp açılan ürün",
-    "8": "Hurma: dünya payı",
-    "9": "Toprağın tuzu",
-    "10": "Koyun, manda ve bataklık",
-    "11": "Türkiye ne satıyor",
-    "12": "Ters yön neredeyse boş",
-    "13": "1946: suyun protokolü",
-    "14": "Kaynakça",
-    "_duzeltme_notu": "TUR 8'DE DÜZELTİLDİ. İskelette §7 'Pirinç kayboldu' idi ve §2.8'in 'terk edilen ürün' kategorisi pirince bağlanmıştı. Seriler 2024'e kadar okununca iddia çöktü: pirinç 2022'de 12 bin tona indi ama 2024'te 228 bin tona, yani 2020'nin %49'una döndü. Terk edilmiş değil, KAPATILIP AÇILAN bir ürün. Gerçekten terk edilen tahıl ARPA: altmış dört yıllık serinin en düşük yılı ambargo dibi değil 2023 (106 bin ton) ve 2024'te hâlâ 2020'nin %9,4'ü. §2.8/5 kategorisi arpaya taşındı ve §6'da duruyor."
+    "8": "Verim mi, alan mı",
+    "9": "Hurmayı bırakmadı, dünya onu geçti",
+    "10": "Toprağın tuzu",
+    "11": "Koyun, manda ve bataklık",
+    "12": "En hızlı büyüyen sürü",
+    "13": "Sonradan gelenler",
+    "14": "Türkiye ne satıyor",
+    "15": "Ters yön neredeyse boş",
+    "16": "1946: suyun protokolü",
+    "17": "Türkiye buradan ne görebilir",
+    "18": "Kaynakça"
   },
   "bolum_gorselleri": {
     "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz (§2.4).",
     "_kaynak": "Hepsi Wikimedia Commons; atıf ve lisans Commons API'sinden çekildi, elle yazılmadı.",
     "_gozle_dogrulama": "ON DOKUZ ADAYIN HEPSİ GÖZLE AÇILDI ve üçü reddedildi; sebepleri _raw/gorseller/kunye.json'daki _reddedilenler bloğunda. İKİ BAŞLIK YALAN SÖYLÜYORDU: 'Chibayish Marshes in Iraq 01' bataklık değil bir portre; 'Iraqi Rice Farmers' ne pirinç ne çiftçi — üniformalı askerler ve çocuklar. Üçüncüsü ('Field irrigation in Iraq') doğru başlıklıydı ama arka planda kamuflajlı bir figür var ve tasarim.json asker görüntüsünü yasaklıyor.",
-    "_bos_birakilanlar": "5, 7, 9, 11, 12 ve 14. 5 (savaş) için onurlu bir görsel yok — tasarim.json asker, tank, patlama ve mülteci imgesini yasaklıyor ve FAO'nun saha ölçümünü gösteren bir kare bulunamadı. 7 (pirinç): 'rice field Iraq' araması 58 dosya döndürdü ve görülenlerin tamamı askerî ya da insanî yardım kareleriydi; pirinç tarlası yok. 9 (tuz): Irak'a ait tuz kabuğu görseli yok ve başka ülkeden bir tuz fotoğrafı klişenin ta kendisi olurdu. 11 ve 12'de grafik zaten gövdeyi taşıyor. 14 kaynakçadır.",
+    "_bos_birakilanlar": "5, 7, 10, 13, 14, 15 ve 18. 5 (savaş) için onurlu bir kare yok — tasarim.json asker, tank, patlama ve mülteci imgesini yasaklıyor. 7 (pirinç): 'rice field Iraq' araması 58 dosya döndürdü ve görülenlerin tamamı askerî ya da insanî yardım kareleriydi. 10 (tuz): Irak'a ait tuz kabuğu görseli yok ve başka ülkeden bir tuz fotoğrafı klişenin ta kendisi olurdu. 13 (sonradan gelenler): Irak'a ait mısır ya da domates tarlası karesi bulunamadı; elde olan tek aday 500×375 ve içeriği başlığıyla uyuşmuyor. 14 ve 15'te grafik gövdeyi taşıyor. 18 kaynakçadır.",
     "_kullanilmayanlar": "irak_bataklik_uydu, irak_bataklik_mashoof, irak_manda, irak_hurma_faw, irak_hurma_bostan, irak_misir_firat, irak_bakhdida_ciftciler, irak_kolza_tarlasi künyede duruyor ama bu iskelete girmedi. Silinmedi; sonraki revizyonda kullanılabilir.",
     "_en_boy_notu": "en_boy değerleri YAYINA GİDEN dosyadan ölçüldü, künyedeki Commons boyutundan değil. irak_harman_ninova kırpıldı (negatif çerçevesi atıldı) ve oranı 1,4585'ten 1,3806'ya indi; künyeden kopyalansaydı yanlış olurdu.",
     "_exif_notu": "irak_hurma_genis Commons'tan EXIF Orientation=3 ile geldi, yani pikselleri 180 derece dönük saklanıyor. Pillow bunu Image.open'da UYGULAMIYOR; yeniden kodlarken etiket düşer ve görsel TERS yayına çıkardı. Yönelim piksele işlendi. Yayındaki bütün dosya görselleri tarandı — hiçbirinde yönelim yoktu, yani bu ilk vaka. scripts/dosya_gorsel_optimize.py artık exif_transpose uyguluyor.",
@@ -163,7 +181,7 @@
       "_commons": "https://commons.wikimedia.org/wiki/File:In_the_wheat_field.jpg",
       "_gozle_dogrulandi": true
     },
-    "8": {
+    "9": {
       "url": "https://tarimportali.net/dosya/irak/irak_hurma_genis.jpg",
       "atif": "Ahmed alsari — CC BY-SA 4.0",
       "lisans": "CC BY-SA 4.0",
@@ -173,7 +191,7 @@
       "_commons": "https://commons.wikimedia.org/wiki/File:%D9%86%D8%AE%D9%8A%D9%84_%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82.jpg",
       "_gozle_dogrulandi": true
     },
-    "10": {
+    "11": {
       "url": "https://tarimportali.net/dosya/irak/irak_bataklik_taisir.jpg",
       "atif": "Taisir Mahdi — CC BY-SA 4.0",
       "lisans": "CC BY-SA 4.0",
@@ -183,7 +201,7 @@
       "_commons": "https://commons.wikimedia.org/wiki/File:The_marshes_of_Iraq.jpg",
       "_gozle_dogrulandi": true
     },
-    "13": {
+    "16": {
       "url": "https://tarimportali.net/dosya/irak/irak_firat_kayik.jpg",
       "atif": "Christiaan Briggs — CC BY-SA 3.0",
       "lisans": "CC BY-SA 3.0",
@@ -191,6 +209,36 @@
       "alt_en": "A wooden boat rowed by two people on the Euphrates; date palms on the far bank.",
       "en_boy": 1.3333,
       "_commons": "https://commons.wikimedia.org/wiki/File:Boat_on_Euphrates.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "8": {
+      "url": "https://tarimportali.net/dosya/irak/irak_kolza_tarlasi.jpg",
+      "atif": "Almejwal — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Çiçeklenmiş bir tarlada duran dört adam; biri elinde bir demet tutuyor.",
+      "alt_en": "Four men standing in a field in flower; one holds a bunch in his hand.",
+      "en_boy": 1.3913,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Field_of_Rape_seeds_in_Salah_Alden_Governance.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "12": {
+      "url": "https://tarimportali.net/dosya/irak/irak_kumes.jpg",
+      "atif": "Kani Ronningen, U.S. Army — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Bir broyler kümesinin içi: toprak zeminde yüzlerce beyaz piliç, aralarında yemlikler ve suluklar; arkada çalışanlar.",
+      "alt_en": "Inside a broiler shed: hundreds of white birds on an earth floor among feeders and drinkers, with workers at the back.",
+      "en_boy": 1.5031,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Chicken_farm_in_Iraq.JPG",
+      "_gozle_dogrulandi": true
+    },
+    "17": {
+      "url": "https://tarimportali.net/dosya/irak/irak_bataklik_mashoof.jpg",
+      "atif": "Hassan Janali, U.S. Army Corps of Engineers — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Sazların arasındaki dar su yolunda uzun bir kayık; biri ayakta sırıkla, biri oturarak kürek çekiyor.",
+      "alt_en": "A long boat on a narrow channel between reeds; one person poles standing, another paddles seated.",
+      "en_boy": 1.3662,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Marsh_Arabs_in_a_mashoof.jpg",
       "_gozle_dogrulandi": true
     }
   },

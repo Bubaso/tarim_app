@@ -40,6 +40,7 @@ const SECIM = {
   irak_bakhdida_ciftciler: 'Assyrian farmers in Bakhdida.jpg',
   irak_hurma_genis: 'نخيل العراق.jpg',
   irak_hurma_bostan: 'بستان نخيل في قرية شرق العراق 06.jpg',
+  irak_kumes: 'Chicken farm in Iraq.JPG',
   irak_ekmek: 'Fresh bread for sale - Flickr - Al Jazeera English.jpg',
   irak_bugday_tarlasi: 'In the wheat field.jpg',
   irak_harman_ninova: "Iraq. Nineveh. 'The Glory of Kingdoms.' A primitive wheat mill near shrine of Nebi Yunis LOC matpc.16227.jpg",
