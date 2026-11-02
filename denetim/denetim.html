@@ -1,0 +1,738 @@
+<title>Tarım Portalı Denetimi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   Palet UYDURULMADI: projenin kendi ölçülmüş paletinden geliyor (CLAUDE.md
+   §33). earthText üstünde krem 11,7:1, buğday 5,5:1 — oranlar orada yazılı.
+   Yazı tipleri de projenin: Outfit başlık (§36), Inter gövde, IBM Plex Mono
+   kayıt/rakam (§8.4).
+   Nötr griler sıcak tarafa kaydırıldı; saf gri bu zeminde soğuk düşüyor.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --kagit:#F6F1E7; --kart:#FBF8F1; --murekkep:#3A2E20; --soluk:#6E6054;
+  --cok-soluk:#8C7F70; --bugday:#C9A15A; --yesil:#1F3320;
+  --cizgi:rgba(58,46,32,.14); --cizgi-kuv:rgba(58,46,32,.30);
+  --ust:#9C3B28; --ust-ze:rgba(156,59,40,.10);
+  --orta:#8A6410; --orta-ze:rgba(138,100,16,.10);
+  --alt:#3F6B37;  --alt-ze:rgba(63,107,55,.10);
+  --kod-ze:#EFE8DA;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+    --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+    --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+    --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+    --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+    --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+    --kod-ze:#120E09;
+  }
+}
+:root[data-theme="dark"]{
+  --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+  --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+  --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+  --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+  --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+  --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+  --kod-ze:#120E09;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--kagit); color:var(--murekkep);
+  font:400 17px/1.68 Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.sar{max-width:1120px; margin:0 auto; padding:0 24px}
+
+/* BÜYÜK HARF CSS'E BIRAKILMIYOR.
+   `text-transform:uppercase` Unicode'un varsayılan eşlemesini kullanıyor ve
+   'i' harfini 'I' yapıyor; Türkçede karşılığı 'İ'. Bu sayfa ilk sürümünde
+   "DENETIM", "KIMLIKLI MADDE", "ETKI" basıyordu — yani raporun kendi H2
+   maddesinin (43 haberde yanlış harf) aynısını yapıyordu. Etiketler artık
+   doğrudan büyük harfle YAZILI; dönüştürme yok, dolayısıyla tuzak da yok.
+   Alan adı bilerek küçük: 'tarimportali' Türkçe bir kelime değil, büyütülürse
+   'TARİMPORTALİ' olurdu. (CLAUDE.md §8.14.3, §39.5)
+   ── künye ───────────────────────────────────────────────────────────────── */
+.kunye{padding:68px 0 36px}
+/* alan adı dönüştürülmüyor; olduğu gibi duruyor */
+.alan-adi{text-transform:none}
+.kunye .seri{
+  font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.17em; color:var(--bugday);
+  display:flex; align-items:center; gap:12px;
+}
+.kunye .seri::after{content:""; flex:1; height:1px; background:var(--bugday); opacity:.5}
+.kunye h1{
+  font:700 clamp(34px,6vw,58px)/1.06 Outfit,Inter,sans-serif;
+  letter-spacing:-.022em; margin:20px 0 0; color:var(--yesil);
+  text-wrap:balance; max-width:22ch;
+}
+.kunye .tez{
+  margin:18px 0 0; max-width:62ch; font-size:18.5px; color:var(--soluk);
+}
+.kunye .tez strong{color:var(--murekkep); font-weight:600}
+
+/* ── ölçüm bandı ─────────────────────────────────────────────────────────── */
+/* Izgara DEĞİL flex: auto-fit beş ögeyi üç sütuna dizince altta sahte bir
+   hücre kalıyor ve zemin rengi oradan sızıyordu. Flex boş iz üretmiyor. */
+.olcum{
+  display:flex; flex-wrap:wrap; border:1px solid var(--cizgi);
+  border-left:none; margin:40px 0 8px;
+}
+.olcum div{
+  flex:1 1 134px; padding:16px 18px; border-left:1px solid var(--cizgi);
+  border-top:1px solid var(--cizgi); margin-top:-1px;
+}
+.olcum b{
+  display:block; font:600 27px/1 "IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums; color:var(--murekkep); letter-spacing:-.02em;
+}
+.olcum span{
+  display:block; margin-top:7px; font-size:12px; letter-spacing:.06em; color:var(--cok-soluk); font-weight:500;
+}
+.yontem{
+  margin:22px 0 0; font-size:14.5px; line-height:1.6; color:var(--cok-soluk);
+  max-width:72ch; padding-left:14px; border-left:2px solid var(--cizgi-kuv);
+}
+
+/* ── sekme çubuğu ────────────────────────────────────────────────────────── */
+.sekme{
+  position:sticky; top:0; z-index:40; background:var(--kagit);
+  border-bottom:1px solid var(--cizgi); margin-top:44px;
+}
+.sekme .sar{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none}
+.sekme .sar::-webkit-scrollbar{display:none}
+.sekme a{
+  flex:0 0 auto; padding:15px 16px; text-decoration:none; color:var(--soluk);
+  font:500 14.5px/1.3 Inter,sans-serif; border-bottom:2px solid transparent;
+  white-space:nowrap; display:flex; align-items:baseline; gap:9px;
+}
+.sekme a i{
+  font:600 11px/1 "IBM Plex Mono",monospace; font-style:normal;
+  color:var(--bugday); letter-spacing:.08em;
+}
+.sekme a:hover{color:var(--murekkep)}
+.sekme a.etkin{color:var(--murekkep); border-bottom-color:var(--bugday); font-weight:600}
+.sekme a:focus-visible{outline:2px solid var(--bugday); outline-offset:-2px}
+
+/* ── alan ────────────────────────────────────────────────────────────────── */
+.alan{padding:76px 0 10px; border-top:1px solid var(--cizgi)}
+.alan:first-of-type{border-top:none}
+.alan-bas .eyebrow{
+  font:600 11.5px/1 "IBM Plex Mono",monospace; letter-spacing:.17em; color:var(--bugday); margin:0;
+}
+.alan-bas h2{
+  font:600 clamp(27px,4vw,41px)/1.12 Outfit,Inter,sans-serif;
+  letter-spacing:-.018em; margin:14px 0 0; color:var(--yesil); text-wrap:balance;
+}
+.alan-bas .alt{margin:9px 0 0; color:var(--soluk); font-size:16px}
+
+/* ── içindekiler ─────────────────────────────────────────────────────────── */
+.ic{
+  margin:34px 0 8px; padding:24px 26px; background:var(--kart);
+  border:1px solid var(--cizgi);
+}
+.ic-bas{
+  margin:0 0 16px; font:600 11.5px/1 "IBM Plex Mono",monospace;
+  letter-spacing:.14em; color:var(--cok-soluk);
+  display:flex; align-items:center; gap:10px;
+}
+.ic-say{
+  font-variant-numeric:tabular-nums; color:var(--murekkep);
+  background:var(--kagit); border:1px solid var(--cizgi); padding:2px 7px;
+}
+.ic ol{
+  list-style:none; margin:0; padding:0; columns:2; column-gap:34px;
+  column-rule:1px solid var(--cizgi);
+}
+.ic li{break-inside:avoid; margin:0 0 8px}
+.ic a{
+  display:flex; gap:10px; text-decoration:none; color:var(--soluk);
+  font-size:14.5px; line-height:1.45; align-items:baseline;
+}
+.ic a b{
+  flex:0 0 auto; min-width:30px; color:var(--bugday);
+  font:600 12px/1.5 "IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+}
+.ic a:hover{color:var(--murekkep)}
+.ic a:hover b{color:var(--murekkep)}
+.ic a:focus-visible{outline:2px solid var(--bugday); outline-offset:2px}
+.ic-yol{
+  display:inline-block; margin-top:18px; padding-top:16px;
+  border-top:1px solid var(--cizgi); width:100%;
+  font:600 13.5px/1 Inter,sans-serif; color:var(--yesil); text-decoration:none;
+}
+.ic-yol:hover{color:var(--bugday)}
+@media (max-width:720px){ .ic ol{columns:1} .ic{padding:20px} }
+
+/* ── gövde ───────────────────────────────────────────────────────────────── */
+.govde{padding-top:14px}
+.govde>*{max-width:72ch}
+.govde p{margin:0 0 17px}
+.govde strong{font-weight:600}
+.govde em{color:var(--soluk)}
+.govde a{color:var(--yesil); text-underline-offset:3px}
+
+.govde h2{
+  font:600 clamp(19px,2.4vw,23px)/1.3 Outfit,Inter,sans-serif;
+  letter-spacing:.02em; color:var(--cok-soluk);
+  margin:58px 0 22px; padding-bottom:11px; border-bottom:1px solid var(--cizgi-kuv);
+  max-width:none;
+}
+/* Bulgu başlığı: kimlik sol boşlukta asılı duruyor. Kimlikler raporun
+   kendi tanımlayıcıları (E1, H3, 2.4) ve yol haritası tablolarında geçiyor —
+   göz onları satır başında aramalı. */
+.govde h3{
+  display:flex; gap:16px; align-items:baseline; margin:46px 0 4px;
+  font:600 clamp(19px,2.3vw,24px)/1.28 Outfit,Inter,sans-serif;
+  letter-spacing:-.012em; color:var(--murekkep); text-wrap:balance; max-width:none;
+}
+.govde h3>span{max-width:34ch}
+.govde h3 .kimlik{
+  flex:0 0 auto; width:46px; text-align:right; color:var(--bugday);
+  font:600 14px/1.65 "IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+}
+.govde h4{
+  font:600 16.5px/1.4 Outfit,Inter,sans-serif; margin:30px 0 10px;
+  color:var(--murekkep);
+}
+@media (min-width:1000px){
+  .govde h3{margin-left:-62px}
+  .govde h3>span{max-width:38ch}
+}
+@media (max-width:700px){
+  .govde h3{gap:0; flex-direction:column}
+  .govde h3 .kimlik{width:auto; text-align:left; line-height:1.2}
+}
+
+.govde hr{
+  border:none; border-top:1px solid var(--cizgi); margin:44px 0; max-width:none;
+}
+.govde ul{margin:0 0 18px; padding-left:0; list-style:none}
+.govde ul li{position:relative; padding-left:19px; margin:0 0 11px}
+.govde ul li::before{
+  content:""; position:absolute; left:1px; top:.68em; width:6px; height:1px;
+  background:var(--bugday);
+}
+.govde blockquote{
+  margin:22px 0; padding:4px 0 4px 20px; border-left:2px solid var(--bugday);
+  color:var(--soluk); font-size:16.5px;
+}
+/* Satır içi kodun ZEMİNİ YOK. Bu metinde dosya ve satır adı çok yoğun
+   geçiyor; zeminli rozetler paragrafı çizgili gösteriyor ve okuma ritmini
+   kırıyordu. Ayrımı mono yüz + renk taşıyor: deepGreen krem üstünde 5,6:1
+   (CLAUDE.md §33'te ölçülü). Blok kodda zemin duruyor — orası zaten ayrı
+   bir kutu. */
+.govde code{
+  font:500 .87em/1.5 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--yesil); word-break:break-word;
+}
+.govde strong code,.govde h4 code{color:inherit}
+.kod{
+  max-width:none; margin:0 0 20px; background:var(--kod-ze);
+  border:1px solid var(--cizgi); overflow-x:auto;
+}
+.kod pre{margin:0; padding:16px 18px}
+.kod code{
+  color:var(--murekkep); background:none; padding:0; font-size:13.5px; line-height:1.62;
+  white-space:pre; display:block;
+}
+
+/* ── ciddiyet pilleri ────────────────────────────────────────────────────── */
+/* Renk TEK BAŞINA anlam taşımıyor: değer kelimeyle yazılı (§3.2). */
+.pilsira{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px; max-width:none}
+.pil{
+  display:inline-flex; align-items:stretch; border:1px solid currentColor;
+  font:500 12px/1 Inter,sans-serif; overflow:hidden;
+}
+.pil-ad{
+  padding:6px 8px; font:600 10.5px/1.25 "IBM Plex Mono",monospace;
+  letter-spacing:.1em; opacity:.85;
+  border-right:1px solid currentColor; display:flex; align-items:center;
+}
+.pil-dg{
+  padding:6px 10px; font-weight:600; font-size:12.5px; color:var(--murekkep);
+  display:flex; align-items:center; background:var(--kagit);
+}
+.pil.ust{color:var(--ust); background:var(--ust-ze)}
+.pil.orta{color:var(--orta); background:var(--orta-ze)}
+.pil.alt{color:var(--alt); background:var(--alt-ze)}
+
+/* ── tablo ───────────────────────────────────────────────────────────────── */
+.tablo-sar{
+  max-width:none; overflow-x:auto; margin:0 0 26px;
+  border:1px solid var(--cizgi);
+}
+table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:520px}
+thead th{
+  text-align:left; padding:11px 14px; background:var(--kart);
+  border-bottom:1px solid var(--cizgi-kuv); color:var(--cok-soluk);
+  font:600 11px/1.3 "IBM Plex Mono",monospace; letter-spacing:.1em; white-space:nowrap; vertical-align:bottom;
+}
+tbody td{
+  padding:11px 14px; border-bottom:1px solid var(--cizgi); vertical-align:top;
+  line-height:1.52;
+}
+tbody tr:last-child td{border-bottom:none}
+/* Yalnızca yol haritası tablosunda ilk sütun bir KİMLİK (madde numarası);
+   veri tablolarında sıradan bir etiket ve kimlik gibi boyanmamalı. */
+table.yol tbody td:first-child{
+  font:600 13px/1.6 "IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  color:var(--bugday); white-space:nowrap; width:1%;
+}
+table.veri tbody td:first-child{font-weight:600}
+table.veri tbody td{font-variant-numeric:tabular-nums}
+tbody td code{font-size:12.5px}
+
+/* ── alt künye ───────────────────────────────────────────────────────────── */
+.dip{
+  margin-top:80px; padding:34px 0 72px; border-top:1px solid var(--cizgi-kuv);
+  color:var(--cok-soluk); font-size:14.5px; line-height:1.65;
+}
+.dip p{margin:0 0 10px; max-width:76ch}
+.dip b{color:var(--soluk)}
+
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+.sekme{scroll-margin-top:0}
+.alan{scroll-margin-top:58px}
+.govde h3{scroll-margin-top:72px}
+</style>
+
+<header class="kunye sar">
+  <p class="seri">DENETİM · 30 EKİM 2026 · <span class="alan-adi">tarimportali.net</span></p>
+  <h1>Tarım Portalı üç alan denetimi</h1>
+  <p class="tez">Üç alan dosya dosya okundu, sayısal iddialar <strong>yayındaki 1.047 haberin tamamı</strong> üzerinde ölçüldü, sonra her bulgu ayrı bir turda <strong>çürütülmeye çalışıldı</strong>. Aşağıda yalnızca çürütmeyi atlatanlar var.</p>
+
+  <div class="olcum">
+    <div><b>173</b><span>BULGU</span></div>
+    <div><b>139</b><span>DOĞRULANDI</span></div>
+    <div><b>34</b><span>ELENDİ</span></div>
+    <div><b>60</b><span>KİMLİKLİ MADDE</span></div>
+    <div><b>3</b><span>ALAN</span></div>
+  </div>
+  <p class="yontem">Yöntem: dokuz inceleme ajanı ayrı merceklerle depoyu okudu; dokuz çürütme ajanı her bulguyu “varsayılanın yanlış olsun” kuralıyla dosyayı açıp sınadı; üç sentez ajanı raporları yazdı. CLAUDE.md’de bilinçli karar olarak yazılı şeyler — dosya sayfasının koyu adası (§3.1), ızgara galerinin kompoze JPEG olması (§39.2), AppBar yerleşimi, seslendirme — eksik sayılmadı.</p>
+</header>
+
+<nav class="sekme" aria-label="Alanlar">
+  <div class="sar">
+    <a href="#alan1" class="etkin"><i>01</i>Sayfa tasarımı ve düzeni</a>
+    <a href="#alan2"><i>02</i>Haber içeriği</a>
+    <a href="#alan3"><i>03</i>Panel onay kuyruğu</a>
+  </div>
+</nav>
+
+<main class="sar">
+<section class="alan" id="alan1">
+<header class="alan-bas">
+  <p class="eyebrow">Alan 1 / 3</p>
+  <h2>Sayfa tasarımı ve düzeni</h2>
+  <p class="alt">anasayfa · kategori · haber detay — masaüstü + mobil</p>
+</header>
+<nav class="ic"><p class="ic-bas">BU RAPORDAKİ BULGULAR <span class="ic-say">23</span></p><ol><li><a href="#kategori-sayfas-y-kleniyor-u-haber-yok-diye-g-ster"><b>E1</b><span>Kategori sayfası &quot;yükleniyor&quot;u &quot;haber yok&quot; diye gösteriyor</span></a></li><li><a href="#kategori-g-vdesi-tembel-de-il-ve-sayfalama-yok"><b>E2</b><span>Kategori gövdesi tembel değil ve sayfalama yok</span></a></li><li><a href="#haber-detay-nda-alt-bilgi-ve-gezinme-yok-en-ok-tra"><b>E3</b><span>Haber detayında alt bilgi ve gezinme yok — en çok trafik alan sayfada</span></a></li><li><a href="#haberden-kategoriye-ve-etikete-d-n-yolu-yok"><b>E4</b><span>Haberden kategoriye ve etikete dönüş yolu yok</span></a></li><li><a href="#yaz-boyutu-denetimi-anasayfada-hi-al-m-yor"><b>E5</b><span>Yazı boyutu denetimi anasayfada hiç çalışmıyor</span></a></li><li><a href="#ayn-sayfadaki-kart-ba-l-klar-hem-uyumsuz-hem-k-r-l"><b>E6</b><span>Aynı sayfadaki kart başlıkları hem uyumsuz hem kırılma noktasına tepkisiz</span></a></li><li><a href="#masa-st-anasayfa-ve-kategori-sayfas-ilk-karede-ba"><b>E7</b><span>Masaüstü anasayfa ve kategori sayfası ilk karede baştan sona çiziliyor</span></a></li><li><a href="#mobilde-man-etten-sonra-haber-gelmiyor"><b>E8</b><span>Mobilde manşetten sonra haber gelmiyor</span></a></li><li><a href="#k-r-k-g-rsel-sonsuza-kadar-y-kleniyor-gibi-duruyor"><b>E9</b><span>Kırık görsel sonsuza kadar &quot;yükleniyor&quot; gibi duruyor</span></a></li><li><a href="#izgara-kartlar-klavyeyle-gezilemiyor-dokunulabilir"><b>E10</b><span>Izgara kartları klavyeyle gezilemiyor, dokunulabilir olduğunu söylemiyor</span></a></li><li><a href="#payla-lan-kart-bile-eni-fiilen-kullan-lm-yor-15-ay"><b>E11</b><span>Paylaşılan kart bileşeni fiilen kullanılmıyor; 15+ ayrı kart sınıfı var</span></a></li><li><a href="#paralel-anasayfa-s-ras-elle-bak-mda"><b>E12</b><span>Üç paralel anasayfa sırası elle bakımda</span></a></li><li><a href="#en-ok-okunan-listesi-okur-taraf"><b>M1</b><span>&quot;En çok okunan&quot; listesi (okur tarafı)</span></a></li><li><a href="#masa-st-nde-i-erik-kenar-s-tunu-sa-ray"><b>M2</b><span>Masaüstünde içerik + kenar sütunu (sağ ray)</span></a></li><li><a href="#sayfalama-daha-fazla-y-kle"><b>M3</b><span>Sayfalama / &quot;daha fazla yükle&quot;</span></a></li><li><a href="#etiket-sayfas"><b>M4</b><span>Etiket sayfası</span></a></li><li><a href="#haberde-kategori-k-nyesi-ekmek-k-r-nt-s"><b>M5</b><span>Haberde kategori künyesi / ekmek kırıntısı</span></a></li><li><a href="#son-daki-ka-band"><b>M6</b><span>&quot;SON DAKİKA&quot; bandı</span></a></li><li><a href="#g-ncellendi-damgas"><b>M7</b><span>&quot;Güncellendi&quot; damgası</span></a></li><li><a href="#g-rsel-altyaz-s-ve-foto-kayna"><b>M8</b><span>Görsel altyazısı ve foto kaynağı</span></a></li><li><a href="#payla-labilir-arama-sonucu-sayfas"><b>M9</b><span>Paylaşılabilir arama sonucu sayfası</span></a></li><li><a href="#footer-da-kategori-s-tunu-ve-ar-iv-giri-i"><b>M10</b><span>Footer&#x27;da kategori sütunu ve arşiv girişi</span></a></li><li><a href="#kategori-eridinin-etkin-durumu-ve-alt-sayfalarda-g"><b>M11</b><span>Kategori şeridinin etkin durumu ve alt sayfalarda görünmesi</span></a></li></ol><a class="ic-yol" href="#hemen-k-k-maliyet-y-ksek-etki">Yol haritası →</a></nav>
+<div class="govde"><p>Tüm bulgular dosya açılarak doğrulandı. CLAUDE.md'de bilinçli karar olarak yazılı şeyler (dosya sayfasının karanlık adası §3.1, ses kapsam dışı, AppBar yerleşimi) eksik sayılmadı.</p>
+<hr>
+<h2 id="1-bug-n-ne-i-yi-ali-iyor"><span>1. BUGÜN NE İYİ ÇALIŞIYOR</span></h2>
+<p><strong>Kırılma noktaları gerçekten tek kaynakta.</strong> <code>ResponsiveBreakpoints.contentWide = 900</code> (<code>lib/core/utils/responsive_breakpoints.dart:26</code>) ve eski yerel kopyalar artık ona bağlı takma adlar: <code>hero_fold.dart:35</code> ve <code>agenda_bento_grid.dart:20</code> ikisi de <code>const … = ResponsiveBreakpoints.contentWide</code>. Dosyanın 18-25. satırlarındaki yorum "kabuk 650/1100'de kırılır, bileşenin içi 900'de" ayrımını yazılı hale getirmiş — bu ayrım kodda da tutuyor.</p>
+<p><strong>Üç ekran boyu için üç ayrı düzen yazılmış, "sıkıştırılmış masaüstü" değil.</strong> <code>turkey_news_grid.dart:38-46</code> mobil/tablet/masaüstü için <code>_MobileGrid</code> / <code>_TabletGrid</code> / <code>_DesktopGrid</code>'e dallanıyor; tablet "1 tam + 2 sütunda 4", masaüstü "üstte 2 büyük + altta 4". Hero da öyle: <code>_DesktopHeroFold</code> 7:3 satır (<code>hero_fold.dart:79-113</code>), tablet 2 sütunlu yazar ızgarası, mobil yatay şerit.</p>
+<p><strong>Okuma oluğu disiplini §4'le birebir.</strong> Haber gövdesi 800 px (<code>article_detail_screen.dart:369</code>), hero görseli 900 (<code>:316</code>), liste kabukları 1200 (<code>home_screen.dart:147</code>, <code>category_articles_screen.dart:108</code>), tablet için 960 karşılığı (<code>home_screen.dart:497</code>) ve gerekçesi yorumda yazılı.</p>
+<p><strong>Boş durum çökmesi düşünülmüş.</strong> Bölüm veri bulamazsa <code>SizedBox.shrink()</code> dönüyor ve boşluğu sarmalayan <code>Padding</code> değil bölümün kendisi yayıyor — gerekçe <code>home_screen.dart:598-601</code>'de yazılı. Ayrıca kısa yazar listesi için hayalet yuvalar (§26.1), manşet yoksa <code>_EmptySlot</code> (<code>hero_fold.dart:770</code>), bölüm başlığı dar ekranda kırpmak yerine iki satıra sarıyor (<code>section_container.dart:37-70</code>).</p>
+<p><strong>Anasayfanın yükleme ve hata hâli gerçek.</strong> <code>HomeSkeletonLoader</code> + <code>_HomeErrorView</code> (<code>home_screen.dart:118-123</code>) ve iskelet hero'nun kendi 900 px eşiğini izliyor (<code>home_skeleton.dart:17, 88-98</code>). Ölçüm de bunu doğruluyor: §21.2'de CLS 0,029 · LCP 0,8 sn.</p>
+<p><strong>Detay sayfasının okuma kurgusu gerekçeli.</strong> Kısa haberde 21:9, uzun haberde 16:9 bant (<code>article_detail_screen.dart:333-343</code>); okuma ilerleme çizgisi (<code>:666-677</code>); gövde → dosya şeridi → sonraki haber → ilgili haberler sırası ve neden bu sırada olduğu <code>:540-585</code> arasında yazılı. İlgili haberler karıştırıcısı haber kimliğinden tohumlanıyor, yani kart sırası kaydırmada yerinden oynamıyor (<code>:1145-1147</code>).</p>
+<hr>
+<h2 id="2-en-nemli-eksi-kler"><span>2. EN ÖNEMLİ EKSİKLER</span></h2>
+<h3 id="kategori-sayfas-y-kleniyor-u-haber-yok-diye-g-ster"><span class="kimlik">E1</span><span>Kategori sayfası "yükleniyor"u "haber yok" diye gösteriyor</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>categoryArticlesProvider</code> yükleme ve hatayı boş listeye indiriyor:</p>
+<div class="kod"><pre><code class="d-">loading: () =&gt; [],
+error: (e, s) =&gt; [],</code></pre></div>
+<p><code>lib/features/home/providers/home_providers.dart:738-739</code> (aynı desen <code>turkeyNewsProvider:672-673</code>, <code>worldNewsProvider</code>, <code>scienceAndReportsProvider</code>'da da var).</p>
+<p>Ekran ise boş listeyi tek bir anlamla karşılıyor: <code>category_articles_screen.dart:93-103</code> → <code>if (articles.isEmpty)</code> → <strong>"Bu kategoride haber bulunmuyor."</strong></p>
+<p>Yani mobil bağlantıda <code>/kategori/hayvancilik</code> bağlantısını açan okuyucu, veri gelene kadar "bu kategoride haber yok" cümlesini okuyor; ağ koparsa da aynı cümleyi görüyor.</p>
+<p><strong>Neden önemli:</strong> proje bu ilkeyi başka yerde açıkça yazmış — <code>home_repository.dart:345-348</code>: <em>"Hata burada YUTULMUYOR: boş liste 'o hafta haber yayımlanmamış' demek, ağ hatası ise bambaşka bir şey."</em> Haftalık özet ekranı da üç durumu ayırıyor (<code>weekly_recap_screen.dart:113</code> loading, <code>:121</code> error). Kategori sayfası aynı ilkeden dışarıda kalmış. Üstelik kategori sayfaları §19.8 ile SEO'ya açılmış giriş sayfaları.</p>
+<hr>
+<h3 id="kategori-g-vdesi-tembel-de-il-ve-sayfalama-yok"><span class="kimlik">E2</span><span>Kategori gövdesi tembel değil ve sayfalama yok</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p><code>_MixedGrid</code> tüm haberleri tek seferde kuruyor — <code>category_articles_screen.dart:202</code> <code>while (i &lt; articles.length)</code>, sonuç <code>:308-318</code>'de tek <code>Column</code>, ve o Column tek bir <code>SliverToBoxAdapter</code> içinde (<code>:105</code>). Dosyanın 185-187. satırındaki yorum bunun bilinçli olduğunu söylüyor ama gerekçesi farklı: <em>"so there are ZERO Expanded widgets in a scrollable context."</em> Yani amaç <code>Expanded</code> kaçınmakmış, tembelliği feda etmek değil.</p>
+<p>Kaynak tarafında sınır da yok: <code>categoryArticlesProvider</code> <code>latestArticlesProvider</code>'ı süzüyor, o da <code>watchLatestArticles()</code>'a dayanıyor ve orada <code>select(&#x27;*&#x27;)</code> var, <code>.limit()</code> <strong>yok</strong> (<code>home_repository.dart:44-50</code>).</p>
+<p><strong>Ek olarak doğrulanması gereken bir çelişki:</strong> §20.1 <code>_listeSutunlari</code> (sekiz ağır sütunu dışarıda bırakan liste) ve <code>_listeSiniri = 500</code> eklendiğini yazıyor. Depoda ikisi de yok:</p>
+<div class="kod"><pre><code class="d-">grep -rn &quot;_listeSutunlari\|_listeSiniri&quot; lib/   → hiç sonuç yok</code></pre></div>
+<p>Aynı dosyadaki 192-195. satırlardaki yorum hâlâ "watchLatestArticles en yeni 500 haberi taşıyor" diyor — yani yorum sınırdan söz ediyor, kod sınır içermiyor. Bu, düzen alanının dışına (veri yükü, §20) taşan bir konu; <strong>harekete geçmeden önce canlı derlemenin bu düzeltmeyi taşıyıp taşımadığı doğrulanmalı</strong> (hafızadaki "depo canlının gerisinde" vakası 28 Ekim'de kapatılmıştı, bu kalıntı o hizalamadan sağ çıkmış olabilir).</p>
+<p><strong>Düzen tarafındaki eksik net:</strong> kategori sayfasında sayfalama ya da "daha fazla yükle" arayüzü hiç yok. §20.3 doğru çözümü zaten yazmış: <em>"Arşivin tamamında gezinme gerektiğinde doğru çözüm sınırı büyütmek DEĞİL, kategori ekranına kendi sayfalanmış sorgusunu vermek."</em></p>
+<hr>
+<h3 id="haber-detay-nda-alt-bilgi-ve-gezinme-yok-en-ok-tra"><span class="kimlik">E3</span><span>Haber detayında alt bilgi ve gezinme yok — en çok trafik alan sayfada</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>PortalFooter</code> yalnızca üç ekranda:</p>
+<div class="kod"><pre><code class="d-">category_articles_screen.dart:175
+weekly_recap_screen.dart:213
+home_screen.dart:461, 536, 637</code></pre></div>
+<p><code>article_detail_screen.dart</code> listede yok; sayfa <code>SliverToBoxAdapter(child: SizedBox(height: 48))</code> ile bitiyor (<code>:586</code>).</p>
+<p>Bu, portalın kendi yorumuyla çelişiyor — <code>portal_footer.dart:40-44</code>: <em>"Ayarların ASIL giriş noktası burası. AppBar'daki hesap menüsü yalnızca masaüstünde çıkıyor… Footer üç ekranda birden (ana sayfa, haftalık özet, kategori) ve her ekran boyutunda görünüyor."</em> Demek ki arama motorundan <code>/haber/:id</code>'ye inen okuyucu ayarlara, künyeye, iletişime, gizlilik ve çerez sayfalarına hiçbir yoldan ulaşamıyor.</p>
+<p>Üst çubuk da en yalın hâlde: <code>article_detail_screen.dart:613-658</code> arasında yalnızca geri düğmesi ve kaydırmada belirlen başlık var. Logo/anasayfa bağlantısı, arama, kategori şeridi yok. <code>CategoryNavBar</code> yalnızca tek yerde çağrılıyor — <code>home_screen.dart:100</code>. Arama da öyle: <code>showSearch</code> yalnızca <code>home_screen.dart:262</code> ve <code>:275</code>'te.</p>
+<p><strong>Neden önemli:</strong> §19 tüm SSR çalışması haber ve kategori sayfalarını arama motoruna açmak içindi. O sayfalara inen okuyucunun tek çıkışı geri düğmesi. (Geri düğmesinin kendisi doğru çalışıyor — <code>popScreen</code> yığın boşsa <code>/</code>'a gidiyor, <code>fade_page_route.dart:47-55</code>.)</p>
+<hr>
+<h3 id="haberden-kategoriye-ve-etikete-d-n-yolu-yok"><span class="kimlik">E4</span><span>Haberden kategoriye ve etikete dönüş yolu yok</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>_MetaRow</code> kaynak etiketi + tarih + okuma süresi + okunma sayacı gösteriyor (<code>article_detail_screen.dart:690-757</code>). <code>article.topic</code> ve <code>article.region</code> modelde var (<code>news_article.dart:21-22</code>) ama detay sayfasında hiç görünmüyor. Okuyucu "Hayvancılık" haberi okuyup "bu kategoride başka ne var?" diyemiyor.</p>
+<p>Etiketler çiziliyor ama <strong>ölü</strong>: <code>_KeywordsRow</code> çipleri düz <code>Container</code> + <code>Text</code>, ne <code>onTap</code> ne <code>InkWell</code> var (<code>:797-816</code>). <code>/etiket/:slug</code> rotası da yok — <code>app_router.dart:188-370</code> arasındaki rota listesinde yer almıyor. Yani <code>seo_keywords</code> ekranda yer kaplıyor, hiçbir yere götürmüyor.</p>
+<hr>
+<h3 id="yaz-boyutu-denetimi-anasayfada-hi-al-m-yor"><span class="kimlik">E5</span><span>Yazı boyutu denetimi anasayfada hiç çalışmıyor</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta-yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p><code>fontScaleProvider</code> (0,8×–1,5×, kalıcı — <code>font_scale_provider.dart</code>) yalnızca üç ekranda okunuyor:</p>
+<div class="kod"><pre><code class="d-">grep -rln &quot;fontScale&quot; lib/features/home/presentation/
+→ article_detail_screen.dart · category_articles_screen.dart · weekly_recap_screen.dart</code></pre></div>
+<p><code>FontSizeControlBar</code> de yalnızca o üç ekranda (<code>weekly_recap_screen.dart:96</code>, <code>category_articles_screen.dart:85</code>, <code>article_detail_screen.dart:394</code>).</p>
+<p>Anasayfanın hiçbir bölümü ölçeği almıyor: <code>hero_fold</code>, <code>turkey_news_grid</code>, <code>world_news_row</code>, <code>science_reports_dossier</code>, <code>icymi_section</code>, <code>kisa_kisa_section</code> <code>fontScale</code> parametresi taşımıyor. Okuyucu haber detayında puntoyu 1,4×'e çıkarıp anasayfaya döndüğünde her şey eski boyuna düşüyor — ve orada büyütecek bir denetim de yok.</p>
+<p><strong>Hafifletici:</strong> §21.3 ile tarayıcı yakınlaştırma engeli kaldırıldı, yani okuyucunun bir çıkış yolu var. Yine de denetimin sayfadan sayfaya kaybolması, kendisi bir tasarım tutarsızlığı. Kararın gerekçesi CLAUDE.md'de yazılı değil — ya yayılmalı ya karar olarak yazılmalı. (<code>app_typography.dart:13-14</code> "scale yalnızca okuma içeriğine, asla arayüz kromuna" diyor; kart başlıkları hangi tarafta sayıldığı belirsiz.)</p>
+<hr>
+<h3 id="ayn-sayfadaki-kart-ba-l-klar-hem-uyumsuz-hem-k-r-l"><span class="kimlik">E6</span><span>Aynı sayfadaki kart başlıkları hem uyumsuz hem kırılma noktasına tepkisiz</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p>Masaüstü anasayfasında, üst üste gelen bölümlerde:</p>
+<div class="tablo-sar"><table class="veri"><thead><tr><th>yer</th><th>masaüstü punto</th><th>mobil punto</th><th>dosya:satır</th></tr></thead><tbody><tr><td><code>AppTypography.headlineCard</code> (sistem rolü)</td><td>21</td><td>18</td><td><code>app_typography.dart:85-93</code></td></tr><tr><td>Türkiye ızgarası — büyük / küçük</td><td>22 / 16</td><td><strong>22 / 16</strong></td><td><code>turkey_news_grid.dart:308</code></td></tr><tr><td>Dünya şeridi</td><td>16</td><td><strong>16</strong></td><td><code>world_news_row.dart:168</code></td></tr><tr><td>Bilim — öne çıkan / liste</td><td>26 / 16</td><td><strong>26 / 16</strong></td><td><code>science_reports_dossier.dart:208, 302</code></td></tr><tr><td>Kategori <code>_LargeCard</code></td><td>34</td><td>23</td><td><code>category_articles_screen.dart:526</code></td></tr><tr><td>Kategori <code>_HeroArticle</code></td><td>48</td><td>27</td><td><code>category_articles_screen.dart:420</code></td></tr></tbody></table></div>
+<p>Koyu yazılan sütun kritik: Türkiye, Dünya ve Bilim kartlarının punto'su 360 px'te de 1920 px'te de aynı. <code>AppTypography</code> tam bu iş için var ve kırılma noktalarını paylaşıyor (<code>app_typography.dart:7-11</code>), hatta bir önizleme ekranı bile var (<code>typography_preview_screen.dart</code>) — ama benimsenmemiş:</p>
+<div class="kod"><pre><code class="d-">AppTypography. kullanımı: turkey_news_grid 0 · world_news_row 1 (sadece minLabelSize)
+                          category_articles_screen 0
+GoogleFonts.  doğrudan:   category_articles_screen 12 · hero_fold 12 · home_screen 12</code></pre></div>
+<hr>
+<h3 id="masa-st-anasayfa-ve-kategori-sayfas-ilk-karede-ba"><span class="kimlik">E7</span><span>Masaüstü anasayfa ve kategori sayfası ilk karede baştan sona çiziliyor</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p><code>_DesktopContent</code> on altı bölümün tamamını <strong>tek</strong> <code>SliverToBoxAdapter</code> içindeki bir <code>Column</code>'a koyuyor (<code>home_screen.dart:568-572</code>). Kategori sayfası aynı desende (<code>category_articles_screen.dart:105</code>). Mobilde <code>ListView(children: […])</code> en azından eleman oluşturmayı erteliyor (<code>:424</code>); masaüstünde o kazanç yok — sliver tek kutu olduğu için tamamı ölçülüp yerleştiriliyor.</p>
+<p>§4 kuralı net: <em>"Uzun listeler tembel (<code>SliverList.builder</code>). 13 bölümü tek seferde kurmak açılışta gözle görülür duraklama yapıyordu."</em> Dosya ekranında uygulanmış kural anasayfada uygulanmamış. §21.2'de kırmızı olan tek metrik de bu: TBT 430 ms.</p>
+<hr>
+<h3 id="mobilde-man-etten-sonra-haber-gelmiyor"><span class="kimlik">E8</span><span>Mobilde manşetten sonra haber gelmiyor</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük-orta</span></span></div>
+<p><code>_MobileContent</code> sırası (<code>home_screen.dart:426-441</code>):</p>
+<div class="kod"><pre><code class="d-">StoryAvatarStrip → _PortalHeroSection (manşet karüseli + &quot;YAZARLARIMIZ&quot;)
+→ IosPwaPrompt → NotificationPromptStrip → CommodityStrip
+→ Son Okuduklarınız → YYT Dosyası → ancak burada _TurkeyNewsSection</code></pre></div>
+<p>Manşet karüselinde aynı anda <strong>tek</strong> başlık görünüyor (<code>hero_fold.dart:146</code> tam en karüsel) ve hemen altına yazar bölümü geliyor (<code>:140-172</code>). Yani ilk haber ızgarasına inmek için okuyucu manşet dışında beş haber-dışı bloğu geçmek zorunda. Haber portalında manşetin hemen altında "diğer öne çıkanlar" listesi beklenir; burada ikinci haberi görmenin tek yolu karüseli kaydırmak.</p>
+<p>(Not: şeridin manşetin üstünde durmasının gerekçesi <code>:433-436</code>'da yazılı ve geçerli — eleştirilen şey o sıra değil, manşetle ilk ızgara arasındaki mesafe.)</p>
+<hr>
+<h3 id="k-r-k-g-rsel-sonsuza-kadar-y-kleniyor-gibi-duruyor"><span class="kimlik">E9</span><span>Kırık görsel sonsuza kadar "yükleniyor" gibi duruyor</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>image_fallback_helper.dart:150-151</code>:</p>
+<div class="kod"><pre><code class="d-dart">placeholder:  (context, url) =&gt; ShimmerPlaceholder(width: width, height: height),
+errorWidget:  (context, url, error) =&gt; ShimmerPlaceholder(width: width, height: height),</code></pre></div>
+<p>Boş/geçersiz URL de aynı yere düşüyor (<code>:116, 119</code>). Yükleniyor, boş ve kırık üç durum tek görünüşe indirgenmiş — okuyucu parlayan kutuya bakıp bekliyor. §3.5 "kapak görselsiz de tam çalışır, görsel bir katman" ilkesi dosya kapağında tipografik iskelete düşüyor; haber kartının böyle bir yedeği yok.</p>
+<hr>
+<h3 id="izgara-kartlar-klavyeyle-gezilemiyor-dokunulabilir"><span class="kimlik">E10</span><span>Izgara kartları klavyeyle gezilemiyor, dokunulabilir olduğunu söylemiyor</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p>Ev deseni zaten var ve doğru: <code>MergeSemantics</code> + <code>GestureDetector</code> + görsele <code>semanticLabel</code> — <code>hero_fold.dart:696, 707</code> ve <code>news_card.dart:57</code>. <code>NewsArticleImage</code> de etiketsizken <code>ExcludeSemantics</code>'e düşüyor, yani yanlış alt metin üretmiyor (<code>image_fallback_helper.dart:154-162</code>). Bu iyi.</p>
+<p>Sorun: desen yeni ızgaralara uygulanmamış.</p>
+<div class="kod"><pre><code class="d-">category_articles_screen.dart : 5 GestureDetector · 0 Semantics
+turkey_news_grid.dart         : 2 GestureDetector · 0 Semantics
+world_news_row.dart           : 1 GestureDetector · 0 Semantics
+science_reports_dossier.dart  : 2 GestureDetector · 0 Semantics
+icymi_section.dart            : 1 GestureDetector · 0 Semantics
+kisa_kisa_section.dart        : 1 GestureDetector · 0 Semantics</code></pre></div>
+<p><code>InkWell</code> kullanan yerler (<code>next_article_card.dart</code>, <code>portal_footer.dart</code>, <code>news_ticker.dart</code>) Tab ile odaklanabiliyor; sayfanın ana ızgaraları odaklanamıyor. §21'de Erişilebilirlik 93 — kalan boşluğun bir kısmı burada.</p>
+<hr>
+<h3 id="payla-lan-kart-bile-eni-fiilen-kullan-lm-yor-15-ay"><span class="kimlik">E11</span><span>Paylaşılan kart bileşeni fiilen kullanılmıyor; 15+ ayrı kart sınıfı var</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil ust"><span class="pil-ad">MALİYET</span><span class="pil-dg">büyük</span></span></div>
+<p><code>lib/features/home/presentation/widgets/news_card.dart</code> paylaşılan <code>NewsCard</code> bileşeni — tek çağrı yeri var: <code>author_article_detail_screen.dart:176</code>. Geri kalan her bölüm kendi özel kartını yazmış:</p>
+<p><code>_TurkeyNewsCard</code> (<code>turkey_news_grid.dart:188</code>) · <code>_WorldNewsCard</code> (<code>world_news_row.dart:61</code>) · <code>_DossierFeaturedCard</code>, <code>_DossierListCard</code> (<code>science_reports_dossier.dart:134, 241</code>) · <code>_IcymiCard</code> (<code>icymi_section.dart:64</code>) · <code>_RecentlyReadCard</code> (<code>home_screen.dart:1084</code>) · <code>_RelatedCard</code> (<code>article_detail_screen.dart:1281</code>) · <code>NextArticleCard</code> · <code>_HeroArticle</code>, <code>_LargeCard</code>, <code>_StdCard</code>, <code>_CompactCard</code>, <code>_SideCard</code> (<code>category_articles_screen.dart:322, 475, 555, 622, 689</code>) · <code>_YYTArticleCard</code>, <code>_YYTPreviewCard</code> · <code>_RecapCard</code>.</p>
+<p>E6 ve E10'un kök nedeni bu: her yeni kart punto skalasını, semantiği, hover'ı, zaman damgasını yeniden keşfediyor. Görünür bir sonuç: kategori/konu etiketi kartlarda yalnızca <code>news_card.dart</code> ve <code>icymi_section.dart</code>'ta gösteriliyor — yani fiilen hiç. <code>ArticleTimestamp</code> ise on bir dosyada tutarlı kullanılıyor; demek ki paylaşım mümkün, yalnızca kart gövdesi için yapılmamış.</p>
+<hr>
+<h3 id="paralel-anasayfa-s-ras-elle-bak-mda"><span class="kimlik">E12</span><span>Üç paralel anasayfa sırası elle bakımda</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">düşük-orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p>Aynı on altı bölüm üç kez ayrı ayrı sıralanmış: <code>_MobileContent</code> (<code>home_screen.dart:426-456</code>), <code>_TabletContent</code> (<code>:500-528</code>), <code>_DesktopContent</code> (<code>:573-633</code>). Bugün sıralar birbiriyle tutuyor; tek fark boşluk sabitleri (28 / 36 / 40). Ama yeni bir bölüm üç yere elle eklenmek zorunda ve biri atlandığında hiçbir hata çıkmaz — yalnızca o ekran boyutunda bölüm yok olur.</p>
+<hr>
+<h2 id="3-modern-bi-r-haber-portalinda-olmasi-gerekenler"><span>3. MODERN BİR HABER PORTALINDA OLMASI GEREKENLER</span></h2>
+<p>Her madde için bu projede hangi mevcut tablo/kolon/bileşenle yapılacağı yazılı.</p>
+<h3 id="en-ok-okunan-listesi-okur-taraf"><span class="kimlik">M1</span><span>"En çok okunan" listesi (okur tarafı)</span></h3>
+<p>Veri hazır: <code>articles.view_count</code> → <code>NewsArticle.viewCount</code> (<code>news_article.dart:17</code>); sayaç gerçek ve korumalı (<code>incrementArticleViewCount</code>, okuma eşiği + cihaz başına bir kez, <code>home_repository.dart:400-412</code>). Sıralayan metot da var: <code>watchTopReadArticles(limit)</code> (<code>:481-502</code>) — <strong>ama yalnızca panelde</strong> (<code>adminTopReadArticlesProvider</code>, <code>home_providers.dart:888</code>).</p>
+<p><strong>Dikkat:</strong> o metot <code>.stream(primaryKey: [&#x27;id&#x27;])</code> kullanıyor, yani Realtime aboneliği. Okur tarafına doğrudan bağlanırsa §20.4'teki "ziyaretçi başına kalıcı bağlantı yok" ilkesi kırılır ve eşzamanlılık limiti devreye girer. Doğru yol: <code>latestArticlesProvider</code>'dan <code>viewCount</code>'a göre sıralanmış türev bir <code>Provider</code> (ek ağ yükü sıfır) ya da <code>.limit(10)</code>'lu tek seferlik sorgu. <strong>Yerleşim:</strong> <code>SectionContainer</code> (<code>lib/core/widgets/section_container.dart</code>) + mevcut kompakt kart; masaüstünde M2'nin rayında.</p>
+<h3 id="masa-st-nde-i-erik-kenar-s-tunu-sa-ray"><span class="kimlik">M2</span><span>Masaüstünde içerik + kenar sütunu (sağ ray)</span></h3>
+<p>Şu an her sayfa tek sütun: anasayfa 1200 (<code>home_screen.dart:147</code>), kategori 1200, detay 800. 1600 px üstü ekranda <code>_buildBody</code> hâlâ 1200 veriyor (<code>:140-148</code>), yani kenarlarda kullanılmayan alan var.</p>
+<p>Desen zaten projede: <code>_DesktopHeroFold</code> 7:3 <code>Row</code> (<code>hero_fold.dart:79-113</code>) — hatta yorumunda <code>IntrinsicHeight</code>'ın neden kullanılmadığı bile yazılı. Aynı desen sayfa kabuğuna taşınırsa detayda 800 px okuma oluğu (§4) bozulmadan yanına 300–320 px ray girer: en çok okunan (M1) + ilgili haberler (<code>_RelatedSection</code> zaten var) + emtia şeridi (<code>CommodityStrip</code> zaten var).</p>
+<h3 id="sayfalama-daha-fazla-y-kle"><span class="kimlik">M3</span><span>Sayfalama / "daha fazla yükle"</span></h3>
+<p>§20.3'ün yazdığı çözüm. Yeni repository metodu <code>fetchArticlesByTopic(topic, {offset, limit})</code> — kalıp dosyada iki kez var: <code>fetchArticlesBetween</code> (<code>home_repository.dart:350-363</code>) ve <code>fetchArticlesBySourceName</code> (<code>:196+</code>). İkisi de "ortak listeyi süzme, kendi sorgunu yap" ilkesini uyguluyor (§26.2 kuralı <code>home_providers.dart:867-870</code>'te yazılı). Kolonlar: <code>articles.topic</code> + <code>status = &#x27;published&#x27;</code> + <code>created_at desc</code>. Arayüz tarafı: <code>_MixedGrid</code>'in Column'u <code>SliverList.builder</code>'a dönerse hem tembellik hem sayfalama aynı değişiklikle gelir.</p>
+<h3 id="etiket-sayfas"><span class="kimlik">M4</span><span>Etiket sayfası</span></h3>
+<p><code>articles.seo_keywords</code> (<code>news_article.dart:10</code>) hazır ve detayda zaten çiziliyor. Gereken: <code>app_router.dart</code>'a <code>/etiket/:slug</code> (ASCII slug kuralı §2.1 ile aynı gerekçe), ekran olarak <code>CategoryArticlesScreen</code>'in ikizi, sorgu olarak <code>seo_keywords</code> üzerinde <code>contains</code>. Bu, <code>_KeywordsRow</code> çiplerini ölü süsten gezinmeye çevirir.</p>
+<h3 id="haberde-kategori-k-nyesi-ekmek-k-r-nt-s"><span class="kimlik">M5</span><span>Haberde kategori künyesi / ekmek kırıntısı</span></h3>
+<p><code>article.topic</code> → slug çevirisi <strong>zaten yazılmış</strong>: <code>categoryTopicSlug(topic)</code> (<code>category_catalog.dart:67-76</code>) ve rota hazır (<code>/kategori/:slug</code>, <code>app_router.dart:222</code>). <code>_MetaRow</code>'a (<code>article_detail_screen.dart:690</code>) kaynak etiketinin yanına tıklanabilir bir konu çipi eklemek yeterli.</p>
+<h3 id="son-daki-ka-band"><span class="kimlik">M6</span><span>"SON DAKİKA" bandı</span></h3>
+<p><code>articles.is_breaking</code> kolonu var (<code>news_article.dart:33</code>), panelde anahtarı var (<code>dashboard_screen.dart:1190</code>), ama okur tarafında yalnızca akan şeritte rozete dönüşüyor (<code>news_ticker.dart:195-209</code>). Manşetin üstünde bir bant ve detay sayfasında bir etiket yok. §3.2 gereği renk değil <strong>kelime</strong> taşımalı — şeritteki mevcut rozet bu kurala zaten uyuyor, onun dili kopyalanabilir.</p>
+<h3 id="g-ncellendi-damgas"><span class="kimlik">M7</span><span>"Güncellendi" damgası</span></h3>
+<p><code>NewsArticle</code> modelinde <code>updated_at</code> <strong>yok</strong> (<code>news_article.dart:1-70</code>); yalnızca <code>createdAt</code> var. §39.6'da yayındaki gövdeye dokunulan vakalar yazılı — okuyucu haberin düzeltildiğini göremiyor. Gereken: yeni migration (§4.1: uygulanmış migration düzenlenmez, yeni dosya yazılır) + modele alan + <code>ArticleTimestamp</code>'a (<code>lib/core/widgets/article_timestamp.dart</code>) ikinci satır.</p>
+<h3 id="g-rsel-altyaz-s-ve-foto-kayna"><span class="kimlik">M8</span><span>Görsel altyazısı ve foto kaynağı</span></h3>
+<p>Ne kolon ne arayüz var. Ajans görseli kullanan bir portalda foto künyesi beklenir (§24.2'nin metne dokunmama disiplinini görsele taşıyan karşılığı). Gereken: <code>articles.image_credit</code> / <code>image_caption</code> + detayda hero'nun hemen altına küçük punto satır (<code>article_detail_screen.dart:312-360</code> bloğunun altı).</p>
+<h3 id="payla-labilir-arama-sonucu-sayfas"><span class="kimlik">M9</span><span>Paylaşılabilir arama sonucu sayfası</span></h3>
+<p>Altyapı tam: <code>search_articles_fuzzy</code> RPC + <code>searchArticlesProvider</code> (<code>home_providers.dart:855-859</code>). Ama arama bir örtü (<code>showSearch</code>) ve yalnızca anasayfada (<code>home_screen.dart:262, 275</code>) — sonuç adresi yok, paylaşılamıyor, SSR göremiyor. Gereken: <code>/ara</code> rotası + <code>NewsSearchDelegate</code>'in sonuç gövdesini bir ekrana taşımak.</p>
+<h3 id="footer-da-kategori-s-tunu-ve-ar-iv-giri-i"><span class="kimlik">M10</span><span>Footer'da kategori sütunu ve arşiv girişi</span></h3>
+<p><code>PortalFooter</code> şu an iki bağlantı kümesi taşıyor: kurumsal ve yasal (<code>portal_footer.dart:35-51</code>). Kategori yok. <code>homeCategorySlugs</code> (<code>category_catalog.dart:57-64</code>) olduğu gibi üçüncü sütun olur. Ayrıca <strong>haftalık özet ekranı arayüzden erişilemiyor</strong>: <code>WeeklyRecapScreen</code> yalnızca router'da ve bir bildirim derin bağlantısı olarak var (<code>app_router.dart:244-250</code>); <code>grep</code> ile hiçbir ekranda ona giden <code>pushScreen</code> yok. Footer'a "Haftalık özet" bağlantısı, yazılmış bir ekranı ücretsiz geri kazandırır.</p>
+<h3 id="kategori-eridinin-etkin-durumu-ve-alt-sayfalarda-g"><span class="kimlik">M11</span><span>Kategori şeridinin etkin durumu ve alt sayfalarda görünmesi</span></h3>
+<p><code>CategoryNavBar</code> iyi yazılmış (ASCII slug, kısa etiket, yatay kaydırma — <code>category_nav_bar.dart</code>) ama (a) hangi kategoride olduğunu göstermiyor, (b) yalnızca anasayfada çağrılıyor. Şeridin kategori ve detay sayfalarına taşınması E3'ün gezinme yarısını da kapatır.</p>
+<hr>
+<h2 id="4-nceli-kli-yol-hari-tasi"><span>4. ÖNCELİKLİ YOL HARİTASI</span></h2>
+<h3 id="hemen-k-k-maliyet-y-ksek-etki"><span>HEMEN — küçük maliyet, yüksek etki</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Süre</th><th>Dokunulacak dosyalar</th></tr></thead><tbody><tr><td>1</td><td><strong>Kategori sayfasında yükleniyor / boş / hata ayrımı.</strong> Bölüm sağlayıcılarını <code>AsyncValue</code> döndürür hale getir ya da ekranda <code>latestArticlesProvider</code>'ın <code>AsyncValue</code>'sunu izle. İskelet için mevcut <code>SkeletonBox</code>/<code>ShimmerPlaceholder</code> yeniden kullanılır.</td><td>~2 sa</td><td><code>lib/features/home/providers/home_providers.dart</code> (726-741), <code>…/screens/category_articles_screen.dart</code> (56-103), <code>…/widgets/home_skeleton.dart</code></td></tr><tr><td>2</td><td><strong>Detay sayfasına <code>PortalFooter</code>.</strong> Son <code>SliverToBoxAdapter</code>'dan sonra ekle.</td><td>~30 dk</td><td><code>…/screens/article_detail_screen.dart</code> (586)</td></tr><tr><td>3</td><td><strong>Kırık/boş görseli iskeletten ayır.</strong> <code>errorWidget</code> için tipografik yedek (§3.5'in haber kartı karşılığı).</td><td>~1 sa</td><td><code>lib/core/utils/image_fallback_helper.dart</code> (116, 150-151)</td></tr><tr><td>4</td><td><strong>Izgara kartlarına <code>MergeSemantics</code> + görsele <code>semanticLabel</code>.</strong> <code>hero_fold.dart:696</code>'daki deseni kopyala.</td><td>~2 sa</td><td><code>category_articles_screen.dart</code>, <code>portal_sections/turkey_news_grid.dart</code>, <code>…/world_news_row.dart</code>, <code>…/science_reports_dossier.dart</code>, <code>icymi_section.dart</code>, <code>kisa_kisa_section.dart</code></td></tr><tr><td>5</td><td><strong>Detayda tıklanabilir konu çipi.</strong> <code>categoryTopicSlug</code> hazır.</td><td>~1 sa</td><td><code>article_detail_screen.dart</code> (<code>_MetaRow</code>, 690-757), <code>data/category_catalog.dart</code></td></tr><tr><td>6</td><td><strong>Footer'a kategori sütunu + "Haftalık özet" bağlantısı.</strong></td><td>~1 sa</td><td><code>widgets/portal_footer.dart</code> (35-51), <code>data/category_catalog.dart</code></td></tr><tr><td>7</td><td><strong><code>CategoryNavBar</code>'a etkin kategori göstergesi</strong> (<code>slug</code> parametresi + alt çizgi).</td><td>~1 sa</td><td><code>widgets/category_nav_bar.dart</code></td></tr><tr><td>8</td><td><strong>Detay üst çubuğuna anasayfa + arama eylemi.</strong> <code>AppBar</code> geometrisine dokunmadan, yalnızca <code>Row</code>'a iki eylem.</td><td>~1,5 sa</td><td><code>article_detail_screen.dart</code> (613-658)</td></tr></tbody></table></div>
+<h3 id="sonra-orta-maliyet"><span>SONRA — orta maliyet</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Süre</th><th>Dokunulacak dosyalar</th></tr></thead><tbody><tr><td>9</td><td><strong>Kategori ekranına kendi sayfalanmış sorgusu + <code>SliverList.builder</code>.</strong> E2'nin kalıcı çözümü; §20.3'ün yazdığı yol. Bu işle birlikte <code>_listeSutunlari</code>/<code>_listeSiniri</code> çelişkisi de canlıya karşı doğrulanmalı.</td><td>~1 gün</td><td><code>data/repositories/home_repository.dart</code> (yeni <code>fetchArticlesByTopic</code>), <code>providers/home_providers.dart</code>, <code>screens/category_articles_screen.dart</code> (105, 196-318)</td></tr><tr><td>10</td><td><strong>Kart tipografisini <code>AppTypography</code>'ye bağla + <code>fontScale</code>'i anasayfaya yay.</strong> Gerekirse yeni rol (<code>headlineCardSmall</code>). 360/768/1200 × tr/en taşma testi zorunlu (§5).</td><td>~1,5 gün</td><td><code>core/theme/app_typography.dart</code>, <code>turkey_news_grid.dart</code> (259, 308), <code>world_news_row.dart</code> (168), <code>science_reports_dossier.dart</code> (208, 227, 302), <code>icymi_section.dart</code>, <code>hero_fold.dart</code>, <code>category_articles_screen.dart</code> (420-535)</td></tr><tr><td>11</td><td><strong>"En çok okunan" bölümü</strong> — Realtime DEĞİL, <code>latestArticlesProvider</code>'dan türev.</td><td>~0,5 gün</td><td><code>providers/home_providers.dart</code>, yeni <code>widgets/portal_sections/most_read.dart</code>, <code>home_screen.dart</code> (üç içerik ağacı)</td></tr><tr><td>12</td><td><strong>Masaüstü anasayfayı tembelleştir:</strong> tek <code>SliverToBoxAdapter</code> → çoklu sliver / <code>SliverList</code>. TBT öncesi-sonrası ölçülmeli (§21.2).</td><td>~1 gün</td><td><code>screens/home_screen.dart</code> (563-640)</td></tr><tr><td>13</td><td><strong>Etiket sayfası <code>/etiket/:slug</code>.</strong></td><td>~1 gün</td><td><code>core/router/app_router.dart</code>, <code>category_articles_screen.dart</code> (yeniden kullanım), <code>home_repository.dart</code>, <code>article_detail_screen.dart</code> (<code>_KeywordsRow</code>, 797-816)</td></tr><tr><td>14</td><td><strong>Arama sonuç rotası <code>/ara</code>.</strong></td><td>~1 gün</td><td><code>core/router/app_router.dart</code>, <code>widgets/news_search_delegate.dart</code>, yeni ekran</td></tr><tr><td>15</td><td><strong>SON DAKİKA bandı</strong> (manşet üstü + detay etiketi), <code>is_breaking</code>.</td><td>~0,5 gün</td><td><code>widgets/hero_fold.dart</code>, <code>screens/article_detail_screen.dart</code></td></tr><tr><td>16</td><td><strong>Mobilde manşetin altına "diğer öne çıkanlar" listesi.</strong> <code>homeAllocationProvider</code>'ın hero'dan artan ilk 4-5 başlığı; dağıtım bütçesi zaten tekilleştiriyor.</td><td>~0,5 gün</td><td><code>providers/home_providers.dart</code> (559-650), <code>screens/home_screen.dart</code> (426-441)</td></tr></tbody></table></div>
+<h3 id="b-y-k-i-mimari"><span>BÜYÜK İŞ — mimari</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Süre</th><th>Dokunulacak dosyalar / risk</th></tr></thead><tbody><tr><td>17</td><td><strong>Tek haber kartı bileşeni.</strong> <code>news_card.dart</code>'ı <code>ArticleCard(variant: hero / large / standard / compact / list)</code> olarak genişlet, 15+ özel sınıfı tek tek taşı. Kazanç: E6, E10, kart kategori etiketi ve <code>fontScale</code> tek yerden çözülür. <strong>Risk:</strong> her bölümün ölçüsü yazılı gerekçeyle seçilmiş (örn. §14.2 kart yüksekliği 108/128 → 100/104). Taşıma ölçü değiştirmeden yapılmalı: bölüm başına ayrı commit + 360/768/1200 taşma testi.</td><td>3-5 gün</td><td><code>widgets/news_card.dart</code> + yukarıdaki tüm kart dosyaları</td></tr><tr><td>18</td><td><strong>Anasayfa bölüm sırasını veriye çevir.</strong> Tek <code>List&lt;PortalSection&gt;</code> tanımı (<code>{bileşen, mobilBoşluk, tabletBoşluk, masaüstüBoşluk}</code>), üç kabuk onu çizsin. E12'yi kapatır, 12. maddeyle birlikte yapılırsa iki iş bir arada.</td><td>2-3 gün</td><td><code>screens/home_screen.dart</code> (426, 500, 573), yeni <code>data/portal_layout.dart</code></td></tr><tr><td>19</td><td><strong>Masaüstü iki sütunlu sayfa kabuğu (içerik + ray).</strong> <code>hero_fold.dart:79</code>'daki 7:3 desenini sayfa seviyesine taşı. 800 px okuma oluğu (§4) korunur, ray yanına girer.</td><td>3-5 gün</td><td><code>screens/home_screen.dart</code> (<code>_DesktopContent</code>), <code>category_articles_screen.dart</code>, <code>article_detail_screen.dart</code> (316, 369, 554)</td></tr><tr><td>20</td><td><strong>Şema borcu: <code>updated_at</code>, <code>image_credit</code>, <code>image_caption</code>.</strong> Yeni migration (§4.1), model, panel formu, detay arayüzü. Hat tarafında da alan doldurulmalı.</td><td>1-2 gün + hat</td><td><code>supabase/migrations/</code> (yeni dosya), <code>data/models/news_article.dart</code>, <code>features/dashboard/presentation/screens/dashboard_screen.dart</code>, <code>article_detail_screen.dart</code></td></tr></tbody></table></div>
+<hr>
+<h2 id="k-k-dokunu-lar-d-k-etkili-ayr-i-a-maya-de-mez"><span>Küçük dokunuşlar (düşük etkili, ayrı iş açmaya değmez)</span></h2>
+<ul><li><code>category_articles_screen.dart:522-523</code> — üst üste <code>SizedBox(height: 20)</code> ve <code>SizedBox(height: 10)</code>; kaldırılmış bir öğeden kalma 30 px. Aynı desen <code>_StdCard</code> ve <code>_CompactCard</code>'da da tekrarlanıyor olabilir.</li><li><code>category_articles_screen.dart:519</code> — <code>withOpacity(0.12)</code>; proje başka yerlerde <code>withValues(alpha:)</code>a geçmiş (ör. <code>section_container.dart</code>, <code>article_detail_screen.dart:297</code>).</li><li><code>category_articles_screen.dart:185-186, 203, 223, 471, 553, 620</code> — yorumlar ve bölüm başlıkları İngilizce ("Mobile pattern", "Desktop: 4-pattern rotation", "STANDARD CARD"); §4 Türkçe yorum kuralı. Aynısı <code>home_repository.dart:19-20, 77, 96</code> ve <code>home_screen.dart:179</code>'da da var.</li><li>Kartlarda kategori/konu etiketi yok — <code>article.topic</code> yalnızca <code>news_card.dart</code> ve <code>icymi_section.dart</code>'ta gösteriliyor; ikisi de fiilen görünmeyen yerler.</li><li><code>science_reports_dossier.dart:227</code> — liste özeti 15 punto; <code>AppTypography.minLabelSize</code> 11 olduğu için kural ihlali değil, ama sayfadaki en küçük gövde metni.</li><li>§22.3 (yazı tipleri 682 KB) ve §22.4 (hero görseli 306 KB) hâlâ açık. Görsel tarafının <strong>kodu hazır</strong>: <code>image_fallback_helper.dart:78-93</code> WebP + genişlik dönüştürmesini <code>--dart-define=GORSEL_DONUSTURME=true</code> ile açıyor, <code>memCacheWidth</code> zaten yerinde (<code>:144</code>). Yani bu bir kod işi değil, Supabase Pro kararı — açıldığında dosya düzenlenmeyecek, yalnızca derleme bayrağı eklenecek.</li></ul></div>
+</section>
+<section class="alan" id="alan2">
+<header class="alan-bas">
+  <p class="eyebrow">Alan 2 / 3</p>
+  <h2>Haber içeriği</h2>
+  <p class="alt">metin · grafik · infografik · tablo</p>
+</header>
+<nav class="ic"><p class="ic-bas">BU RAPORDAKİ BULGULAR <span class="ic-say">21</span></p><ol><li><a href="#okura-g-sterilen-tarih-yay-n-tarihi-de-il-bizim-ka"><b>2.1</b><span>Okura gösterilen tarih yayın tarihi değil, bizim kayda giriş saatimiz</span></a></li><li><a href="#ana-sayfa-sorgusu-b-t-n-ar-ivi-g-vdesiyle-indiriyo"><b>2.2</b><span>Ana sayfa sorgusu bütün arşivi gövdesiyle indiriyor — §20.1 düzeltmesi depoda yok</span></a></li><li><a href="#grafikteki-say-t-rk-e-bi-imlenmiyor-birim-say-ya-y"><b>2.3</b><span>Grafikteki sayı Türkçe biçimlenmiyor; birim sayıya yapışık yazılıyor</span></a></li><li><a href="#t-rk-e-b-y-k-harf-tuza-haber-grafi-inde-duruyor-43"><b>2.4</b><span>Türkçe büyük harf tuzağı haber grafiğinde duruyor — 43 haberde yanlış harf</span></a></li><li><a href="#grafi-in-kayna-ve-metodoloji-notu-i-in-alan-yok"><b>2.5</b><span>Grafiğin kaynağı ve metodoloji notu için alan yok</span></a></li><li><a href="#grafik-ve-tablo-yaln-zca-tuvalde-ne-aramada-ne-ekr"><b>2.6</b><span>Grafik ve tablo yalnızca tuvalde — ne aramada ne ekran okuyucuda</span></a></li><li><a href="#depodaki-ogrenderer-canl-n-n-gerisinde-bir-functio"><b>2.7</b><span>Depodaki ogRenderer canlının gerisinde — bir functions deploy&#x27;u SEO gövdesini sessizce siler</span></a></li><li><a href="#g-vde-metninin-i-yap-s-zay-f-ara-ba-l-k-yok-liste"><b>2.8</b><span>Gövde metninin iç yapısı zayıf: ara başlık yok, liste yok, görsel künyesi yok</span></a></li><li><a href="#yaz-boyu-denetimi-grafi-e-ve-editoryal-kutulara-i"><b>2.9</b><span>Yazı boyu denetimi grafiğe ve editoryal kutulara işlemiyor</span></a></li><li><a href="#grafik-her-zaman-g-vdeden-nce-haber-ba-na-bir-tane"><b>2.10</b><span>Grafik her zaman gövdeden önce, haber başına bir tane</span></a></li><li><a href="#tablo-ba-l-klar-yaln-zca-ilk-sat-rdan-okunuyor"><b>2.11</b><span>Tablo başlıkları yalnızca ilk satırdan okunuyor</span></a></li><li><a href="#k-k-dokunu-lar-l-ld-etkisi-d-k"><b>2.12</b><span>Küçük dokunuşlar (ölçüldü, etkisi düşük)</span></a></li><li><a href="#rakam-k-nyesi-her-grafi-in-alt-nda-kaynak-ve-d-nem"><b>3.1</b><span>Rakam künyesi — her grafiğin altında kaynak ve dönem satırı</span></a></li><li><a href="#t-rk-e-say-bi-imi-ve-birim-ayr-m"><b>3.2</b><span>Türkçe sayı biçimi ve birim ayrımı</span></a></li><li><a href="#grafik-ve-tablonun-metin-kar-l-sunucudan-gitsin"><b>3.3</b><span>Grafik ve tablonun metin karşılığı sunucudan gitsin</span></a></li><li><a href="#g-vde-i-ine-g-m-l-grafik-ve-haber-ba-na-oklu-grafi"><b>3.4</b><span>Gövde içine gömülü grafik ve haber başına çoklu grafik</span></a></li><li><a href="#al-nt-blo-u-bile-eni-quotes-kolonu"><b>3.5</b><span>Alıntı bloğu bileşeni — quotes kolonu</span></a></li><li><a href="#5n1k-kutusu-facts-kolonu"><b>3.6</b><span>5N1K kutusu — facts kolonu</span></a></li><li><a href="#g-rsel-k-nyesi-ve-altyaz"><b>3.7</b><span>Görsel künyesi ve altyazı</span></a></li><li><a href="#d-zeltme-g-ncelleme-kayd"><b>3.8</b><span>Düzeltme / güncelleme kaydı</span></a></li><li><a href="#tabloyu-veri-olarak-alabilmek"><b>3.9</b><span>Tabloyu veri olarak alabilmek</span></a></li></ol><a class="ic-yol" href="#hemen-k-k-maliyet-y-ksek-etki">Yol haritası →</a></nav>
+<div class="govde"><p><strong>Kapsam:</strong> <code>/Users/BURHAN/Desktop/tarim_app</code> · haber gövdesi, <code>chart_data</code> çizicisi, editoryal kutular, sunucu tarafı metin. <strong>Yöntem:</strong> dosyalar açılıp okundu; iddiaların sayısal olanları <strong>yayındaki 1.047 haberin tamamı</strong> üzerinde ölçüldü (Supabase anon, salt okuma), SSR çıktısı canlı siteden indirilip doğrulandı.</p>
+<hr>
+<h2 id="1-bug-n-ne-i-yi-ali-iyor"><span>1. BUGÜN NE İYİ ÇALIŞIYOR</span></h2>
+<ul><li><strong>Grafik kapsaması gerçekten yüksek ve türü çeşitli.</strong> Yayındaki 1.047 haberin <strong>691'inde (%66) <code>chart_data</code> var</strong>: 305 tablo, 168 rakam kartı, 107 yatay çubuk, 99 çubuk, 10 çizgi, 2 halka. Yedi tip <code>dynamic_chart_widget.dart:62-82</code>'de dağıtılıyor; bu, haber sitelerinde alışılmış orandan belirgin yüksek.</li><li><strong>Tablo dar ekranda kırpmıyor, düzen değiştiriyor.</strong> <code>_DataTable</code> sütun genişliğini içerikten hesaplıyor (<code>dynamic_chart_widget.dart:715-721</code>), sütun başına 120 px'in altına inince <code>_Yigin</code> blok düzenine geçiyor (<code>satır 736-748</code>) ve hiçbir hücrede <code>TextOverflow.ellipsis</code> yok. Dört widget testiyle korunuyor (<code>test/haber_tablosu_test.dart</code>). §10.1'de alınan karar kodda yaşıyor.</li><li><strong>Tek rakamın kendi düzeni var.</strong> <code>_TekRakam</code> (<code>satır 553-640</code>), bir rakamı üçte bir genişlikte rozet gibi bırakmak yerine gazetenin "büyük sayı" kutusuna çeviriyor; gerekçesi de kodun içinde ölçümle yazılı. 88 haber bu yola düşüyor.</li><li><strong>İki dillilik metinde eksiksiz, grafikte denetimli.</strong> <code>content_en</code> 1.000/1.000 dolu; <code>chart_data_en</code> 691 grafiğin <strong>614'ünde</strong> var, kalan 77'si §10.2'nin "yarısı çevrilmiş tablo hepsi Türkçe olandan kötüdür" kuralı gereği bilerek Türkçe kalıyor. <code>key_takeaways</code>/<code>expert_insight</code> 805 haberde var, 789'unda İngilizcesi de hazır.</li><li><strong>Doğrulama verisi haber başına yapılandırılmış duruyor.</strong> <code>facts</code> 919/1.000, <code>figures</code> 749/1.000, <code>quotes</code> 449/1.000 dolu — ve <code>figures</code> kalemlerinin her biri <code>label/value/unit/period/**source**</code> taşıyor. İnceleme masası bunu okuyor (<code>lib/features/dashboard/presentation/widgets/inceleme_karti.dart:350-455</code>).</li><li><strong>Okuma künyesi ve kaynak şeffaflığı yerinde.</strong> Okuma süresi 200 kelime/dk ile hesaplanıp basılıyor (<code>article_detail_screen.dart:271-283, 734</code>); <code>source_name</code> 1.000/1.000, <code>source_url</code> 397/400 dolu ve <code>_SourceButton</code> ile gösteriliyor.</li><li><strong>Canlıda SSR gövdesi çalışıyor.</strong> Ölçtüm: <code>/haber/d4a7606d…</code> sayfasında işaretler arası <strong>3.809 karakter</strong> <code>&lt;article&gt;</code>, JSON-LD <code>articleBody</code>, <code>hreflang=&quot;en&quot;</code> bağlantısı dolu geliyor.</li></ul>
+<hr>
+<h2 id="2-en-nemli-eksi-kler"><span>2. EN ÖNEMLİ EKSİKLER</span></h2>
+<h3 id="okura-g-sterilen-tarih-yay-n-tarihi-de-il-bizim-ka"><span class="kimlik">2.1</span><span>Okura gösterilen tarih yayın tarihi değil, bizim kayda giriş saatimiz</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>article_detail_screen.dart:267-269</code>:</p>
+<div class="kod"><pre><code class="d-dart">final formattedDate = DateFormat.yMMMd(isEn ? &#x27;en_US&#x27; : &#x27;tr_TR&#x27;)
+    .add_Hm()
+    .format(article.createdAt);</code></pre></div>
+<p>Okur bunu <code>satır 734</code>'te <code>&#x27;$formattedDate • $readLabel&#x27;</code> olarak dakikasına kadar görüyor. Ama <code>created_at</code> haberin veritabanımıza yazıldığı andır. Haberin gerçek yayın tarihi ayrı bir kolonda duruyor ve ne anlama geldiği migration'da yazılı — <code>supabase/migrations/20260816130000_yayin_tarihi_ve_red_hafizasi.sql:19-23</code>:</p>
+<blockquote><code>published_at date</code> — <em>'Kaynak sayfadan çıkarılan gerçek yayın tarihi. Besleme beyanı değildir.'</em></blockquote>
+<p><strong>Ölçüm (1.000 haber):</strong> <code>published_at</code> ile <code>created_at</code> <strong>981 haberde 1 saatten fazla</strong> ayrışıyor; sapma örnekleri 24, 48, 72, <strong>168 saat</strong>. Yani kaynağın 22 Ekim'de yayımladığı bir haber sayfada "29 Eki 2026 23:47" damgasıyla duruyor.</p>
+<p>Aynı yanlış tarih arama motoruna da gidiyor: <code>functions/index.js:356</code> <code>article:published_time</code>'ı, <code>satır 382-383</code> JSON-LD <code>datePublished</code>/<code>dateModified</code>'ı <code>article.created_at</code>'ten yazıyor; canlı SSR çıktısındaki <code>&lt;time datetime=&quot;2026-09-09T08:15:40&quot;&gt;</code> de aynı alandan.</p>
+<p>Ek engel: <strong><code>published_at</code> modelde hiç yok.</strong> <code>lib/features/home/data/models/news_article.dart</code> içinde <code>publishedAt</code> diye bir alan bulunmuyor (grep: 0 sonuç) — kolon veritabanında dolu, uygulamaya hiç alınmıyor.</p>
+<p>Bu, §27.1'in ruhuyla doğrudan çelişiyor: hat, <strong>yaşı doğrulanamayan içeriği yayınlamamak</strong> için trafilatura'nın uydurduğu tarihleri YouTube akışından düzeltiyor; ekran ise o doğrulanmış tarihi hiç göstermiyor.</p>
+<h3 id="ana-sayfa-sorgusu-b-t-n-ar-ivi-g-vdesiyle-indiriyo"><span class="kimlik">2.2</span><span>Ana sayfa sorgusu bütün arşivi gövdesiyle indiriyor — §20.1 düzeltmesi depoda yok</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük (geri yazım)</span></span></div>
+<p><code>lib/features/home/data/repositories/home_repository.dart:43-48</code>:</p>
+<div class="kod"><pre><code class="d-dart">yield* _supabaseClient
+    .from(&#x27;articles&#x27;)
+    .select(&#x27;*&#x27;)
+    .eq(&#x27;status&#x27;, &#x27;published&#x27;)
+    .order(&#x27;created_at&#x27;, ascending: false)</code></pre></div>
+<p>Ne <code>_listeSutunlari</code> ne <code>_listeSiniri</code> var (grep: 0 sonuç) — oysa §20.1 tam olarak bu ikisini getirmiş ve <strong>2,62 MB → 0,22 MB</strong> ölçmüştü. Üstelik düzeltmenin <strong>yorumu hâlâ ayakta</strong>: aynı dosyanın <code>satır 192</code>'si "<code>[watchLatestArticles]</code> en yeni 500 haberi taşıyor" diyor. Kod gitmiş, cümle kalmış (§8.5'teki 4 Ekim iCloud kaybıyla aynı imza).</p>
+<p><strong>Yeniden ölçtüm (bugün, canlı):</strong></p>
+<div class="tablo-sar"><table class="veri"><thead><tr><th></th><th>§20.1 (6 Eyl)</th><th>bugün</th></tr></thead><tbody><tr><td>gzip</td><td>2,74 MB</td><td><strong>4,08 MB</strong></td></tr><tr><td>açılmış</td><td>6,4 MB</td><td><strong>10,67 MB</strong></td></tr><tr><td>kayıt</td><td>771</td><td>1.000 (PostgREST üst sınırı)</td></tr></tbody></table></div>
+<p>Yükün dökümü — ve burası bu raporun alanı: toplam 9,4 MB JSON'un <strong>6,2 MB'ı (%66)</strong> §20.1'in dışarı aldığı sekiz ağır sütun (<code>content</code> 2,00 MB, <code>content_en</code> 2,12 MB, <code>chart_data</code> 0,36 MB, <code>chart_data_en</code> 0,34 MB, <code>key_takeaways(_en)</code> 0,73 MB, <code>expert_insight(_en)</code> 0,69 MB). Üstüne <strong>okura hiç gösterilmeyen</strong> <code>figures</code> 0,62 MB + <code>quotes</code> 0,48 MB + <code>facts</code> 0,45 MB geliyor (%16,5). Kartta kullanılmayan içerik, ana sayfa yükünün <strong>%82'si</strong>.</p>
+<p>Ayrıca <code>satır 56-64</code> bu 10 MB'ın tamamını Hive'a yazıyor — §20.3'te "çevrimdışı tam metin okuma düştü" diye kabul edilen bedel de geri gelmiş durumda.</p>
+<h3 id="grafikteki-say-t-rk-e-bi-imlenmiyor-birim-say-ya-y"><span class="kimlik">2.3</span><span>Grafikteki sayı Türkçe biçimlenmiyor; birim sayıya yapışık yazılıyor</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>dynamic_chart_widget.dart:16-20</code>:</p>
+<div class="kod"><pre><code class="d-dart">String _formatValue(dynamic val) {
+  if (val is String &amp;&amp; double.tryParse(val.replaceAll(&#x27;,&#x27;, &#x27;.&#x27;)) == null) return val;
+  final d = _parseDouble(val);
+  return d % 1 == 0 ? d.toInt().toString() : d.toStringAsFixed(1);
+}</code></pre></div>
+<p><code>toInt().toString()</code> binlik ayıraç koymuyor. Değer dört ayrı yerde birimle <strong>boşluksuz</strong> birleştiriliyor: <code>satır 180</code> (çubuk), <code>280</code> (yatay çubuk), <code>427</code> (halka döküm), <code>508</code> (rakam kartı) — hepsi <code>Text(&#x27;$formatted$unit&#x27;)</code>.</p>
+<p><strong>Ölçüm:</strong> tablo dışı grafiklerde <strong>180 hücre / 69 haber</strong> dört haneden büyük sayı basıyor. Ekranda görünen:</p>
+<ul><li><code>45000TL/ton</code> (doğrusu <em>45.000 TL/ton</em>) — pirinç çeşit fiyatları, <code>0d8e6c55-…</code></li><li><code>200000tenge/ton</code> — Kazakistan ayçiçeği, <code>8b429366-…</code></li><li><code>1083000TL / Adet</code>, <code>19adet</code>, <code>50Değer</code> — <strong>69 çok kartlı rakam grafiğinde</strong> birim harfle başlıyor ve sayıya yapışıyor.</li></ul>
+<p><strong>Çözüm zaten projede var ve gerekçesi yazılı</strong> — <code>lib/features/dossiers/data/models/dossier_chart.dart:146-156</code>:</p>
+<div class="kod"><pre><code class="d-dart">/// Binlik ve ondalık ayıracı yerele göre değişiyor: `1.234,5` ve `1,234.5`.
+/// Elle yazmak yerine intl&#x27;e bırakıldı…
+final govde = NumberFormat(desen, isEn ? &#x27;en_US&#x27; : &#x27;tr_TR&#x27;).format(v);</code></pre></div>
+<p><code>SayiBicimi</code> ayrıca <code>bolen</code> ile "58.900.000 kg → 58,9 milyon kg" indirgemesini ve <code>onek</code>/<code>sonek</code>'i yapıyor. Haber grafiği bu sınıfın hiçbirini kullanmıyor.</p>
+<h3 id="t-rk-e-b-y-k-harf-tuza-haber-grafi-inde-duruyor-43"><span class="kimlik">2.4</span><span>Türkçe büyük harf tuzağı haber grafiğinde duruyor — 43 haberde yanlış harf</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p>İki ham çağrı var:</p>
+<ul><li><code>dynamic_chart_widget.dart:597</code> → <code>label.toUpperCase()</code> (tek rakam kutusunun etiketi)</li><li><code>dynamic_chart_widget.dart:913</code> → <code>giris.key.toUpperCase()</code> (dar ekran blok düzeninde sütun başlığı)</li></ul>
+<p>Oysa doğru araç yazılmış ve <strong>neden var olduğu</strong> <code>lib/core/utils/turkce_metin.dart:1-25</code>'te anlatılmış: <em>"Yanlış harf de bir büyük harf olduğu için gözle fark edilmesi zor"</em>; <code>buyukHarf(metin, isEn)</code> bayrak zorunlu tutuyor. §8.5 bu hatanın <code>_Kartlar.ust</code>'ta da bulunup çevrildiğini not ediyor — haber grafiği o turda atlanmış.</p>
+<p><strong>Ölçüm:</strong> 88 tek-kart grafiğinin <strong>43'ünde</strong> çıktı yanlış:</p>
+<div class="tablo-sar"><table class="veri"><thead><tr><th>veride</th><th>ekranda</th><th>olması gereken</th></tr></thead><tbody><tr><td>Hibe desteği üst sınırı</td><td>HIBE DESTEĞI ÜST SINIRI</td><td>HİBE DESTEĞİ ÜST SINIRI</td></tr><tr><td>Kapasite</td><td>KAPASITE</td><td>KAPASİTE</td></tr><tr><td>Ekim 2026</td><td>EKIM 2026</td><td>EKİM 2026</td></tr><tr><td>Sezon İçi Uygulama</td><td>SEZON İÇI UYGULAMA</td><td>SEZON İÇİ UYGULAMA</td></tr><tr><td>Görev Dönemi</td><td>GÖREV DÖNEMI</td><td>GÖREV DÖNEMİ</td></tr></tbody></table></div>
+<p><code>satır 913</code> şu an sessiz: yayındaki 305 tablonun sütun şablonu 269 kez <code>Değer | Dönem | Ölçüm</code>, 36 kez <code>Değer | Ölçüm</code> — hiçbirinde noktalı <code>i</code> yok. Ama "Birim", "Bitki", "İhracat" gibi bir başlık geldiği gün aynı hata üretime çıkar.</p>
+<h3 id="grafi-in-kayna-ve-metodoloji-notu-i-in-alan-yok"><span class="kimlik">2.5</span><span>Grafiğin kaynağı ve metodoloji notu için alan yok</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük-orta</span></span></div>
+<p><code>chart_data</code> şeması <code>type / title / subtitle / unit / data</code> (<code>ai_columnist_bot.py:88-96</code>); <code>DynamicChartWidget.build</code> (<code>satır 52-56</code>) yalnızca bunları okuyor. Kaynak için ayrı alan yok — <code>subtitle</code> ("Veri kaynağı veya tarih aralığı") bu işe koşulmuş.</p>
+<p><strong>Ölçüm: 691 grafiğin 221'inde (%32) <code>subtitle</code> boş.</strong> Yani her üç grafikten biri, altında tek satır kaynak olmadan rakam yayınlıyor. 310'unda <code>unit</code> da boş.</p>
+<p>Bu, projenin kendi standardının altında kalıyor iki yönden:</p>
+<ul><li>§2.2: <em>"Kaynağı olmayan sayı metne girmez."</em> ve <em>"Yuvarlamayı tercih et."</em></li><li><code>dossier_chart.dart:170-178</code> — dosya grafiklerinin <strong><code>not</code></strong> (metodoloji uyarısı: <em>"cari dolar, enflasyondan arındırılmamıştır"</em>) ve <strong><code>kaynak</code></strong> diye iki ayrı alanı var. Haber grafiğinde ikisi de yok.</li></ul>
+<p>En can sıkıcısı: <strong>veri elimizde.</strong> <code>figures</code> kolonunun her kalemi <code>source</code> ve <code>period</code> taşıyor (örnek: <code>{&quot;label&quot;:&quot;Faydalanan çiftçi sayısı&quot;,&quot;value&quot;:167,&quot;unit&quot;:&quot;kişi&quot;,&quot;period&quot;:&quot;&quot;,&quot;source&quot;:&quot;Mazıdağı İlçe Tarım ve Orman Müdürlüğü&quot;}</code>) — 749 haberde dolu, yalnızca inceleme masasında okunuyor, okura hiç ulaşmıyor.</p>
+<h3 id="grafik-ve-tablo-yaln-zca-tuvalde-ne-aramada-ne-ekr"><span class="kimlik">2.6</span><span>Grafik ve tablo yalnızca tuvalde — ne aramada ne ekran okuyucuda</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p>Canlı SSR çıktısını satır satır okudum: <code>&lt;h1&gt;</code>, <code>&lt;time&gt;</code>, kapak <code>&lt;img&gt;</code>, spot, <code>&lt;h2&gt;</code>'ler, <code>&lt;blockquote&gt;</code>, <code>hreflang</code> var. <strong><code>chart_data</code>'dan tek karakter yok.</strong> <code>functions/index.js</code> dosyasının tamamında <code>chart</code> dizesi <strong>0 kez</strong> geçiyor. <code>dynamic_chart_widget.dart</code> içinde <code>Semantics</code> <strong>0 kez</strong> geçiyor.</p>
+<p>Sonuç: 691 haberin en alıntılanabilir içeriği — "442 TL/dekar", 305 tablonun bütün hücreleri, 180 büyük rakam — §19.1'in tarif ettiği duruma geri düşüyor: CanvasKit metni tuvale piksel olarak çiziyor, DOM'da yok. Google bu sayıları göremiyor, ekran okuyucu okuyamıyor, okur kopyalayamıyor.</p>
+<h3 id="depodaki-ogrenderer-canl-n-n-gerisinde-bir-functio"><span class="kimlik">2.7</span><span>Depodaki <code>ogRenderer</code> canlının gerisinde — bir <code>functions</code> deploy'u SEO gövdesini sessizce siler</span></h3>
+<div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p><code>deploy.sh:97-106</code> şunu söylüyor:</p>
+<div class="kod"><pre><code class="d-"># Aynı gerekçe gövde işaretleri için: bunlar olmadan `ogRenderer` ve
+# `homeRenderer` haber metnini sayfaya yazamaz…</code></pre></div>
+<p>ve <code>satır 108-114</code> ekliyor: <em>"<code>functions/shell.html</code> işaretleri BOŞ haliyle alıyor, çünkü <code>ogRenderer</code> oraya haberin kendi gövdesini yazacak."</em></p>
+<p>Depodaki <code>ogRenderer</code> bunu <strong>yapmıyor</strong>. <code>functions/index.js:418-478</code> yalnızca <code>inject(SHELL, block, jsonLd(...))</code> çağırıyor; <code>inject</code> (<code>satır 403-414</code>) <code>SOCIAL_META_START/END</code> arasını değiştiriyor — <code>MARKER_START</code>/<code>MARKER_END</code> sabitleri <code>satır 63-64</code>'te o işaretlere bağlı. <code>SSR_CONTENT</code> dizisi <code>functions/</code> altında <strong>hiç geçmiyor</strong>. <code>jsonLd</code> (<code>satır 375-398</code>) <code>articleBody</code> yazmıyor. §19.4'ün anlattığı <code>sanitizeHtml</code> fonksiyonu depoda <strong>yok</strong> (grep, <code>node_modules</code> hariç: 0 sonuç).</p>
+<p>Canlıda ikisi de çalışıyor (3.809 karakter gövde + <code>articleBody</code>). Yani §19'un en önemli parçası <strong>canlıda var, depoda yok</strong> — tıpkı §20.1 gibi. <code>deploy.sh</code>'in bekçisi işaretin <em>varlığını</em> denetliyor, <em>dolup dolmadığını</em> denetlemiyor; bu yüzden depodan yapılacak tek bir <code>functions</code> dağıtımı siteyi §19.1'deki duruma geri döndürür — ve bekçi "✓" der.</p>
+<h3 id="g-vde-metninin-i-yap-s-zay-f-ara-ba-l-k-yok-liste"><span class="kimlik">2.8</span><span>Gövde metninin iç yapısı zayıf: ara başlık yok, liste yok, görsel künyesi yok</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p>Yayındaki 1.000 haberin gövdesinde (<code>content</code>) ölçtüm:</p>
+<div class="tablo-sar"><table class="veri"><thead><tr><th>öğe</th><th>kaç haberde</th></tr></thead><tbody><tr><td><code>&lt;h2&gt;</code> ara başlık</td><td><strong>339</strong> (661 haberde hiç yok)</td></tr><tr><td><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> liste</td><td><strong>0</strong></td></tr><tr><td><code>&lt;a href&gt;</code> gövde bağlantısı</td><td><strong>0</strong></td></tr><tr><td><code>&lt;img&gt;</code> gövde görseli</td><td>386</td></tr><tr><td><code>&lt;figcaption&gt;</code> görsel künyesi</td><td><strong>0</strong></td></tr><tr><td><code>&lt;blockquote&gt;</code></td><td>185</td></tr><tr><td><code>&lt;table&gt;</code></td><td>1</td></tr></tbody></table></div>
+<p>Gövde ortancası 1.491 karakter (≈240 kelime), %95'lik dilim 4.438. Yani 4.400 karakterlik haberlerin çoğu <strong>tek bir ara başlık olmadan</strong> akıyor; §39.1'de tanımlanmış <code>.dsy-h2</code> sınıfı tüm arşivde 10 kez kullanılmış.</p>
+<p>Buna karşılık <code>article_detail_screen.dart:443-490</code> <code>&lt;table&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>, <code>&lt;blockquote&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;h2&gt;</code> için stil tanımlıyor — yani kabiliyet var, içerik yok. Gövde içinde tek bir bağlantı olmaması aynı zamanda §19.1'in <em>"hiç link olmadığı için tarayıcı siteye girip hiçbir yere gidemiyordu"</em> teşhisinin haber-içi karşılığı: iç bağlantı dokusu sıfır.</p>
+<h3 id="yaz-boyu-denetimi-grafi-e-ve-editoryal-kutulara-i"><span class="kimlik">2.9</span><span>Yazı boyu denetimi grafiğe ve editoryal kutulara işlemiyor</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>fontScaleProvider</code> 0,8×–1,5× arası kalıcı bir okur tercihi (<code>font_scale_provider.dart:8-12</code>). <code>article_detail_screen.dart</code>'ta <strong>dört</strong> yere uygulanıyor: başlık (<code>402</code>), spot (<code>412</code>), gövde (<code>450</code>), <code>h2</code> (<code>465</code>).</p>
+<p>Uygulanmadığı yerler:</p>
+<ul><li><strong>Öne Çıkanlar kutusu</strong> — <code>satır 1491</code> <code>fontSize: 16</code> sabit</li><li><strong>Uzman Görüşü kutusu</strong> — <code>fontSize: 17</code> sabit</li><li><strong>Grafiğin tamamı</strong> — <code>DynamicChartWidget</code> <code>satır 439</code>'da ölçek parametresi almıyor; içinde tablo hücresi 11 pt (<code>satır 799</code>), sütun başlığı 10 pt (<code>satır 783</code>), kart etiketi 10 pt (<code>satır 497</code>), halka döküm 10 pt (<code>satır 427</code>) sabit.</li></ul>
+<p>Okur yazıyı 1,5 katına çıkardığında gövde büyüyor, tablo 11 puntoda kalıyor — yani en çok büyütmeye ihtiyaç duyan öğe hiç büyümüyor.</p>
+<h3 id="grafik-her-zaman-g-vdeden-nce-haber-ba-na-bir-tane"><span class="kimlik">2.10</span><span>Grafik her zaman gövdeden önce, haber başına bir tane</span></h3>
+<div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p><code>article_detail_screen.dart:437-441</code> grafiği <code>Html</code> gövdesinden <strong>önce</strong>, sabit bir yere koyuyor. <code>news_article.dart:57</code> tekil: <code>final Map&lt;String, dynamic&gt;? chartData;</code></p>
+<p>İki sonuç: (a) 442 TL/dekar rakamını tartışan paragraf üç ekran aşağıdayken grafik en üstte duruyor — okur ikisini birbirine bağlayamıyor; (b) üç ayrı sayısal bulgusu olan uzun haberde (95'lik dilim 4.438 karakter) ikinci ve üçüncü bulgunun grafiği <strong>yazılamıyor</strong>, ya tek grafiğe sıkıştırılıyor ya düşüyor.</p>
+<p>§39.2'de "ızgara galeri HTML olarak mümkün değil" diye not düşülen kısıt burada da geçerli ama çözümü farklı: <code>flutter_html</code> <strong>tam CSS seçicisiyle</strong> eşleşiyor (§39.1), yani gövdeye konan bir yer tutucu sınıf grafiği paragrafın yanına çağırabilir.</p>
+<h3 id="tablo-ba-l-klar-yaln-zca-ilk-sat-rdan-okunuyor"><span class="kimlik">2.11</span><span>Tablo başlıkları yalnızca ilk satırdan okunuyor</span></h3>
+<div class="pilsira"><span class="pil alt"><span class="pil-ad">ETKİ</span><span class="pil-dg">düşük (şimdilik)</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>dynamic_chart_widget.dart:721</code>: <code>final basliklar = data.first.keys.toList();</code></p>
+<p>İlk satırda olmayan bir sütun çizilmez, eksik anahtar boş hücre olur — <strong>hata vermeden</strong>. Ölçtüm: 305 tablonun <strong>0'ında</strong> satırlar farklı anahtar taşıyor, yani bugün zarar yok. Ama veri bir dil modelinden geliyor; sessiz veri kaybına açık bir kapı.</p>
+<h3 id="k-k-dokunu-lar-l-ld-etkisi-d-k"><span class="kimlik">2.12</span><span>Küçük dokunuşlar (ölçüldü, etkisi düşük)</span></h3>
+<ul><li><strong>Ana sayfadaki SSR bağlantılarının bir kısmı ölü.</strong> Ana sayfada gömülü 60 bağlantının ilki (<code>haber/3db979bc-…</code>) anon'a kapalı; o adres <strong>HTTP 200</strong> dönüyor ama içinde haberin meta'sı değil <strong>ana sayfanın jenerik <code>og:title</code>'ı</strong> ("Tarım Portalı - Tarımın Doğru Adresi") ve <strong>hiç JSON-LD</strong> yok — <code>ogRenderer</code>'ın <code>satır 436-439</code> erken dönüşü. Liste derleme anında üretildiği için (<code>scripts/ana_sayfa_linkleri.py</code>) sonradan yayından kaldırılan haberler yumuşak-404'e dönüşüyor.</li><li><strong>Dört haberde boş WordPress kabuğu kalmış:</strong> <code>&lt;figure class=&quot;wp-block-image size-large&quot;&gt;&lt;/figure&gt;</code> — içi yok (§38.3 kabuk temizliğinin artığı).</li><li><strong><code>summary</code> 997/1.000 haberde <code>spot</code> ile birebir aynı.</strong> Ayrı bir kolon, ayrı bir değer taşımıyor; meta açıklama zaten 160'a kırpılıyor (<code>functions/index.js:446</code>).</li><li><strong>Gövdeye bağlantı eklendiği gün tıklanmaz.</strong> <code>article_detail_screen.dart:444</code> <code>Html(...)</code> çağrısında <code>onLinkTap</code> yok; <code>flutter_html 3.0.0</code> <code>lib/src/html_parser.dart:93</code> <code>onLinkTap?.call(url, …)</code> yapıyor — null ise dokunma sessizce yutulur. Bugün gövdede 0 bağlantı olduğu için görünmüyor.</li><li><strong><code>_parseDouble</code> aralık değerini sıfırlıyor.</strong> <code>satır 9-13</code> rakam dışını atıyor; <code>&quot;15-20&quot;</code> → <code>0.0</code>. Bugün bu 10 hücrenin <strong>tamamı <code>stat</code> tipinde</strong> (<code>&quot;15-20&quot;</code>, <code>&quot;600-650 gram&quot;</code>, <code>&quot;2027-2029&quot;</code>), yani çubuk uzunluğu hesaplanmıyor ve görünür etkisi yok. Çubuk/çizgi tipinde bir aralık yazıldığı gün grafik boş çizilir.</li><li><strong><code>unit</code> alanı bazen birim değil.</strong> <code>&quot;Standart&quot;</code>, <code>&quot;Değer&quot;</code>, <code>&quot;Sayı&quot;</code> gibi değerler 69 grafikte sayıya ekleniyor ("40-50Standart").</li><li><strong>Renk tek ayırt edici kalan tek yer halka grafiği.</strong> <code>_DonutChart</code> döküm listesi 10×10 px renk karesiyle eşleşiyor (<code>satır 420-429</code>), biçim ayrımı yok — §3.2'nin <em>"Grafiklerde seriler renkle birlikte biçimle ayrılır"</em> kuralının dışında. Yalnızca <strong>2 haberi</strong> etkiliyor; dosya grafiklerindeki <code>_TaramaBoyaci</code> deseni buraya taşınabilir.</li></ul>
+<hr>
+<h2 id="3-modern-bi-r-haber-portalinda-olmasi-gerekenler"><span>3. MODERN BİR HABER PORTALINDA OLMASI GEREKENLER</span></h2>
+<p>Her madde için projede <strong>zaten duran</strong> tablo/kolon/bileşen yazıldı.</p>
+<h3 id="rakam-k-nyesi-her-grafi-in-alt-nda-kaynak-ve-d-nem"><span class="kimlik">3.1</span><span>Rakam künyesi — her grafiğin altında kaynak ve dönem satırı</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>chart_data</code> jsonb; migration gerekmez. İki anahtar eklenir: <code>kaynak</code> ve <code>not</code> — adları <code>dossier_chart.dart:175-178</code>'den birebir alınır ki iki dizi aynı sözlüğü kullansın.</li><li><strong>Veri nereden:</strong> <code>figures</code> kolonu zaten <code>source</code> + <code>period</code> taşıyor (749/1.000). Hat tarafında <code>figures[i].source</code> → <code>chart_data.kaynak</code> eşlemesi yazılır; boşsa grafik <strong>kaynaksız yayınlanmaz</strong> (§2.2'nin "kaynağı olmayan sayı metne girmez" kuralının grafik karşılığı).</li><li><strong>Çizim:</strong> <code>DynamicChartWidget.build</code>'deki filigran bloğunun (<code>satır 126-136</code>) üstüne iki satır; <code>not</code> varsa <code>_subtle</code> renkte, <code>kaynak</code> ondan bir tık koyu.</li></ul>
+<h3 id="t-rk-e-say-bi-imi-ve-birim-ayr-m"><span class="kimlik">3.2</span><span>Türkçe sayı biçimi ve birim ayrımı</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>_formatValue</code> (<code>dynamic_chart_widget.dart:16-20</code>) <code>NumberFormat(&#x27;#,##0&#x27;, isEn ? &#x27;en_US&#x27; : &#x27;tr_TR&#x27;)</code> kullanır; <code>dossier_chart.dart:130-156</code>'daki <code>SayiBicimi</code> sınıfı olduğu gibi <code>lib/core/</code>'a taşınıp iki dizi tarafından paylaşılabilir (<code>bolen</code> sayesinde "58.900.000 kg → 58,9 milyon kg" indirgemesi de bedava gelir).</li><li>Birim ayrımı: dört <code>&#x27;$formatted$unit&#x27;</code> çağrısı (<code>180, 280, 427, 508</code>) birimi ayrı <code>Text</code>'e alır — <code>_TekRakam</code> (<code>satır 610-630</code>) bunu zaten doğru yapıyor, gerekçesi de kodda: <em>"aynı puntoda yazıldığında '16500TL/ton' tek bir simge yığınına dönüşüyor"</em>.</li></ul>
+<h3 id="grafik-ve-tablonun-metin-kar-l-sunucudan-gitsin"><span class="kimlik">3.3</span><span>Grafik ve tablonun metin karşılığı sunucudan gitsin</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>ogRenderer</code>'a <code>select</code> listesine <code>chart_data</code> eklenir; <code>chart_data.type == &#x27;table&#x27;</code> ise gerçek <code>&lt;table&gt;&lt;caption&gt;</code> + <code>&lt;th&gt;</code> + <code>&lt;td&gt;</code> HTML'i, diğer tiplerde <code>&lt;figure&gt;&lt;figcaption&gt;başlık + kaynak&lt;/figcaption&gt;</code> + <code>&lt;dl&gt;</code> etiket/değer listesi yazılır. <code>inject</code> ikinci bir işaret çifti (<code>SSR_CONTENT</code>) için genelleştirilir.</li><li><strong>Yan kazanç:</strong> HTML tablo, Google'ın zengin sonuçlarında ve alıntılarda görünür; <code>&lt;dl&gt;</code> ekran okuyucuda sıralı okunur.</li><li><strong>İstemci tarafı:</strong> <code>DynamicChartWidget</code>'ın en dış <code>Container</code>'ı (<code>satır 87</code>) bir <code>Semantics(label: …)</code> ile sarılır — etiket metni aynı üreticiden gelir, tek kaynak.</li></ul>
+<h3 id="g-vde-i-ine-g-m-l-grafik-ve-haber-ba-na-oklu-grafi"><span class="kimlik">3.4</span><span>Gövde içine gömülü grafik ve haber başına çoklu grafik</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>chart_data</code> tek nesneden <strong>diziye</strong> çıkar (jsonb, migration'sız; <code>news_article.dart:57</code> <code>List&lt;Map&gt;</code>'e döner, eski tek nesne <code>[tek]</code> olarak okunur). Gövdeye yer tutucu konur: <code>&lt;div class=&quot;dsy-grafik&quot; data-i=&quot;1&quot;&gt;&lt;/div&gt;</code>.</li><li><strong>Neden mümkün:</strong> §39.1'in bulduğu şey — <code>flutter_html</code> stil haritasını <strong>tam CSS seçicisiyle</strong> eşliyor (<code>tree/styled_element.dart</code> → <code>matchesSelector</code>). Aynı mekanizma <code>extensions</code> ile sınıfa bağlı <strong>widget</strong> döndürmek için de kullanılabilir; kodda haber kimliği, veritabanında yeni kolon gerekmez.</li><li>Yer tutucu yoksa davranış bugünküyle aynı kalır: grafikler gövdenin üstünde.</li></ul>
+<h3 id="al-nt-blo-u-bile-eni-quotes-kolonu"><span class="kimlik">3.5</span><span>Alıntı bloğu bileşeni — <code>quotes</code> kolonu</span></h3>
+<ul><li><strong>Veri hazır:</strong> 449/1.000 haberde <code>[{&quot;text&quot;: &quot;...&quot;, &quot;speaker&quot;: &quot;Ömer Faruk Beyaz&quot;, &quot;title&quot;: &quot;Fındık Üreticisi&quot;}]</code>.</li><li><strong>Nasıl:</strong> <code>_ExpertInsightBox</code> (<code>article_detail_screen.dart:1504+</code>) kardeşi bir <code>_AlintiBlogu</code> yazılır; konuşanın adı <strong>ve sıfatı</strong> ayrı satır. Bugün gövdedeki 185 <code>&lt;blockquote&gt;</code> sıfatsız: §39.1'de tanımlı <code>.dsy-alinti</code> sınıfı tüm arşivde 2 kez kullanılmış.</li></ul>
+<h3 id="5n1k-kutusu-facts-kolonu"><span class="kimlik">3.6</span><span>5N1K kutusu — <code>facts</code> kolonu</span></h3>
+<ul><li><strong>Veri hazır:</strong> 919/1.000 haberde <code>{who, what, when, where, why, how}</code> dolu (örnek: <code>&quot;when&quot;: &quot;Güncel sezon&quot;</code>, <code>&quot;where&quot;: &quot;Mardin, Mazıdağı&quot;</code>).</li><li><strong>Nasıl:</strong> <code>_KeyTakeawaysBox</code> ile aynı kalıpta altı satırlık bir kutu; <code>_Yigin</code>'in etiket/değer deseni (<code>dynamic_chart_widget.dart:896-930</code>) hazır örnek. Boş alan <strong>çizilmez</strong> (§3.5'in "görsel bir katman, taşıyıcı değil" mantığı).</li><li>Bu kutu aynı zamanda §2.8'deki yapı boşluğunu kapatıyor: ara başlığı olmayan 661 haber en azından tarayıcı bir çatı kazanır.</li></ul>
+<h3 id="g-rsel-k-nyesi-ve-altyaz"><span class="kimlik">3.7</span><span>Görsel künyesi ve altyazı</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>.dsy-foto</code> sınıfı §39.1'de tanımlı ve <code>article_detail_screen.dart</code> stil haritasında duruyor; gövdede 7 kez kullanılmış. Hat tarafında her <code>&lt;img&gt;</code>'den sonra <code>&lt;p class=&quot;dsy-foto&quot;&gt;Kaynak: …&lt;/p&gt;</code> üretmek yeterli — yeni kod gerekmiyor.</li><li><strong>Dikkat:</strong> §39.6 — yayındaki gövdede desenle oynanmaz; eklemeden önce kaç şeyle eşleştiği yazdırılıp doğrulanır.</li></ul>
+<h3 id="d-zeltme-g-ncelleme-kayd"><span class="kimlik">3.8</span><span>Düzeltme / güncelleme kaydı</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>updated_at</code> <strong>bu işe yaramaz</strong> — ölçtüm, 1.000/1.000 kayıtta <code>created_at</code>'ten farklı (her yazma, <code>view_count</code> dahil, onu bozuyor). Ayrı bir kolon gerekir: <code>duzeltme_notu text</code> + <code>duzeltildi_at timestamptz</code>.</li><li>Gösterim: gövdenin altında, §28'in emtia kararıyla aynı çizgide — <em>eski bilgi gizlenmez, tarihiyle gösterilir</em>.</li></ul>
+<h3 id="tabloyu-veri-olarak-alabilmek"><span class="kimlik">3.9</span><span>Tabloyu veri olarak alabilmek</span></h3>
+<ul><li><strong>Nasıl:</strong> <code>_DataTable</code> başlığının yanına "kopyala" düğmesi; <code>chart_data.data</code> → TSV. Tuvaldeki tablodan okur bugün hiçbir şey seçemiyor.</li></ul>
+<hr>
+<h2 id="4-nceli-kli-yol-hari-tasi"><span>4. ÖNCELİKLİ YOL HARİTASI</span></h2>
+<h3 id="hemen-k-k-maliyet-y-ksek-etki"><span>HEMEN — küçük maliyet, yüksek etki</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Süre</th><th>Dokunulacak dosyalar</th></tr></thead><tbody><tr><td>H1</td><td><strong><code>_listeSutunlari</code> + <code>_listeSiniri = 500</code> geri yazılır.</strong> §20.1'in reçetesi CLAUDE.md'de tam duruyor; <code>satır 192</code>'deki yorum koda yeniden uyar. §20.2 uyarısı geçerli: detay rotası gövdeyi sınayıp <code>fetchArticleById</code>'ye düşüyor mu, canlıda doğrula.</td><td>1-2 s</td><td><code>lib/features/home/data/repositories/home_repository.dart:43-48, 56-64</code></td></tr><tr><td>H2</td><td><strong>Türkçe büyük harf.</strong> İki çağrı <code>buyukHarf(metin, isEn)</code>'e çevrilir; widget'a <code>isEn</code> parametresi geçilir (<code>article_detail_screen.dart:439</code>). 43 haber aynı anda düzelir.</td><td>1 s</td><td><code>dynamic_chart_widget.dart:597, 913</code> · <code>lib/core/utils/turkce_metin.dart</code></td></tr><tr><td>H3</td><td><strong>Sayı biçimi + birim boşluğu.</strong> <code>_formatValue</code> <code>NumberFormat(…,&#x27;tr_TR&#x27;)</code> kullanır; dört <code>&#x27;$formatted$unit&#x27;</code> ayrılır. 69 haberde görünür düzelme.</td><td>2 s</td><td><code>dynamic_chart_widget.dart:16-20, 180, 280, 427, 508</code></td></tr><tr><td>H4</td><td><strong>Yazı ölçeği grafiğe ve iki editoryal kutuya.</strong> <code>DynamicChartWidget</code>'a <code>scale</code> parametresi; sabit puntolar <code>* scale</code>.</td><td>2 s</td><td><code>dynamic_chart_widget.dart</code> (punto sabitleri) · <code>article_detail_screen.dart:439, 1491, _ExpertInsightBox</code></td></tr><tr><td>H5</td><td><strong>Tarih kararı ve uygulaması.</strong> <code>publishedAt</code> modele eklenir; ekranda <code>published_at</code> (tarih) esas alınır, <code>created_at</code> gerekiyorsa "portala giriş" olarak ikincil kalır. <strong>Bu bir editoryal karar</strong> — hangisinin künye tarihi olacağı kullanıcı onayı ister; kodu küçük, sonucu 981 haberi etkiliyor. <code>functions/index.js</code>'teki <code>article:published_time</code> ve JSON-LD <code>datePublished</code> aynı karara bağlanır.</td><td>2-3 s</td><td><code>news_article.dart</code> · <code>article_detail_screen.dart:267-269</code> · <code>functions/index.js:356, 382-383</code> · <code>home_repository.dart</code> select listesi</td></tr><tr><td>H6</td><td><strong><code>deploy.sh</code> bekçisi gerçek koruma yapsın.</strong> İşaretin varlığı yetmez; <code>functions/index.js</code> içinde <code>SSR_CONTENT</code> dizisi ve <code>sanitizeHtml</code> aranır, yoksa dağıtım durur. Depo-canlı ayrışmasını bir daha sessiz bırakmaz.</td><td>1 s</td><td><code>deploy.sh:97-106</code></td></tr></tbody></table></div>
+<h3 id="sonra-orta-maliyet"><span>SONRA — orta maliyet</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Süre</th><th>Dokunulacak dosyalar</th></tr></thead><tbody><tr><td>S1</td><td><strong><code>ogRenderer</code> depoya geri yazılır.</strong> Canlıdaki davranış (gövde <code>&lt;article&gt;</code> + <code>articleBody</code> + <code>sanitizeHtml</code>) §19.2/§19.4'teki tarife göre yeniden kurulur; dokuz saldırı vektörü testi de yeniden yazılır. Bu yapılmadan hiçbir <code>functions</code> dağıtımı güvenli değil.</td><td>1 gün</td><td><code>functions/index.js:63-64, 375-398, 403-414, 418-478</code></td></tr><tr><td>S2</td><td><strong>Grafik künyesi: <code>kaynak</code> + <code>not</code>.</strong> Alanlar <code>chart_data</code>'ya eklenir, çizici basar, hat <code>figures[i].source</code>'tan doldurur; kaynaksız grafik yayına çıkmaz. Arşivdeki 221 kaynaksız grafik için <code>figures</code>'tan geri doldurma betiği.</td><td>1-1,5 gün</td><td><code>dynamic_chart_widget.dart:52-56, 126-136</code> · hat deposu (ev dizini) · geri doldurma betiği</td></tr><tr><td>S3</td><td><strong>Grafik/tablonun SSR karşılığı.</strong> <code>table</code> → gerçek <code>&lt;table&gt;&lt;caption&gt;</code>; diğer tipler → <code>&lt;figure&gt;&lt;figcaption&gt;</code> + <code>&lt;dl&gt;</code>. Aynı üreticiden <code>Semantics</code> etiketi.</td><td>1-1,5 gün</td><td><code>functions/index.js</code> (select + gövde üretimi) · <code>dynamic_chart_widget.dart:87</code></td></tr><tr><td>S4</td><td><strong><code>facts</code> 5N1K kutusu + <code>quotes</code> alıntı bloğu.</strong> Veri hazır (919 ve 449 haber); iki yeni bileşen, mevcut kutu kalıbıyla.</td><td>1 gün</td><td><code>article_detail_screen.dart</code> (yeni <code>_BesNBirK</code>, <code>_AlintiBlogu</code>) · <code>news_article.dart</code> (alanlar parse edilmiş durumda)</td></tr><tr><td>S5</td><td><strong>Gövde yapısı hat tarafında zorunlu olur.</strong> <code>&lt;h2&gt;</code> ve madde listesi üretimi; 661 haberde ara başlık yok, 1.000 haberde liste yok. Arşive <strong>geriye dönük dokunulmaz</strong> (§39.6).</td><td>1 gün</td><td>hat deposu (istem + doğrulayıcı)</td></tr><tr><td>S6</td><td><strong>Görsel künyesi.</strong> <code>.dsy-foto</code> paragrafı 386 gövde görselinin altına; desen önce <strong>kaç şeyle eşleştiği yazdırılarak</strong> doğrulanır (§39.6).</td><td>yarım gün</td><td>hat deposu · <code>article_detail_screen.dart</code> stil haritası (sınıf zaten tanımlı)</td></tr><tr><td>S7</td><td><strong>Ölü SSR bağlantıları.</strong> <code>ana_sayfa_linkleri.py</code> yalnızca anon'un okuyabildiği kayıtları yazar; <code>ogRenderer</code> bulunamayan haberde <strong>404</strong> döner, ana sayfa meta'sıyla 200 dönmez.</td><td>yarım gün</td><td><code>scripts/ana_sayfa_linkleri.py:55-80</code> · <code>functions/index.js:426-439</code></td></tr></tbody></table></div>
+<h3 id="b-y-k-i-mimari"><span>BÜYÜK İŞ — mimari</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Süre</th><th>Dokunulacak dosyalar</th></tr></thead><tbody><tr><td>B1</td><td><strong><code>chart_data</code> dizi olur, grafik gövdenin içine yerleşir.</strong> <code>.dsy-grafik</code> yer tutucusu + <code>flutter_html</code> <code>extensions</code> ile sınıfa bağlı widget; yer tutucu yoksa bugünkü davranış korunur. Haber başına birden çok sayısal bulgu ilk kez yayınlanabilir hale gelir.</td><td>3-4 gün</td><td><code>news_article.dart:57</code> · <code>article_detail_screen.dart:437-490</code> · <code>dynamic_chart_widget.dart</code> (çoklu örnek) · hat deposu · <code>functions/index.js</code> (SSR karşılığı)</td></tr><tr><td>B2</td><td><strong>Haber grafiği ile dosya grafiği tek sözlükte buluşur.</strong> <code>SayiBicimi</code>, <code>kaynak</code>/<code>not</code>, <code>_TaramaBoyaci</code> deseni ve <code>buyukHarf</code> <code>lib/core/</code>'a taşınır; iki dizi aynı biçimlendiriciyi kullanır. Bugün <code>dossier_chart.dart</code> doğruyu yapıyor, <code>dynamic_chart_widget.dart</code> aynı sorunları yeniden çözüyor — ve bazılarını yanlış çözüyor.</td><td>3-4 gün</td><td><code>lib/core/</code> (yeni ortak katman) · <code>lib/features/dossiers/data/models/dossier_chart.dart:130-178</code> · <code>dynamic_chart_widget.dart</code> bütünü</td></tr><tr><td>B3</td><td><strong>Grafik testleri koşuma bağlanır.</strong> Bugün <code>test/haber_tablosu_test.dart</code> yalnızca tablo yerleşimini koruyor (4 test); rakam kartı, sayı biçimi, büyük harf, aralık değeri ve kaynak satırı için test yok — §8.5'in <em>"on altı test yeşilken yerleşim yanlıştı"</em> dersiyle birlikte, örnekler gerçek veriden okunur (<code>test/support/</code> kalıbı).</td><td>2 gün</td><td><code>test/haber_tablosu_test.dart</code> · yeni <code>test/haber_grafik_test.dart</code> · <code>test/support/</code></td></tr></tbody></table></div>
+<hr>
+<p><strong>Kapsam dışı bıraktıklarım (bilinçli kararlar, "eksik" diye raporlanmadı):</strong> dosya sayfasının koyu adası (§3.1); 77 grafiğin İngilizce sayfada Türkçe kalması (§10.2'nin doğrulama kuralı); ızgara galerinin HTML yerine kompoze JPEG olması (§39.2); AppBar yerleşimi; seslendirme. <code>google_fonts</code> çalışma anında indirme (Lora/Inter/Outfit) §22.3'te <strong>zaten AÇIK</strong> kalem olarak duruyor, yeniden bulgu sayılmadı.</p></div>
+</section>
+<section class="alan" id="alan3">
+<header class="alan-bas">
+  <p class="eyebrow">Alan 3 / 3</p>
+  <h2>Panel onay kuyruğu</h2>
+  <p class="alt">onayda bekleyen haberler ekranı</p>
+</header>
+<nav class="ic"><p class="ic-bas">BU RAPORDAKİ BULGULAR <span class="ic-say">16</span></p><ol><li><a href="#yay-nda-haber-yoksa-onay-kuyru-u-hi-g-r-nm-yor"><b>2.1</b><span>Yayında haber yoksa onay kuyruğu HİÇ görünmüyor</span></a></li><li><a href="#onayla-sonucu-denetlenmiyor"><b>2.2</b><span>&quot;Onayla&quot; sonucu denetlenmiyor</span></a></li><li><a href="#m-kerrer-denetimi-hatada-ye-il-temiz-diyor"><b>2.3</b><span>Mükerrer denetimi hatada yeşil &quot;temiz&quot; diyor</span></a></li><li><a href="#panelden-kaydetme-article-format-ve-chart-data-en"><b>2.4</b><span>Panelden kaydetme article_format ve chart_data_en&#x27;i NULL&#x27;a eziyor</span></a></li><li><a href="#kuyrukta-haberin-tari-hi-yok"><b>2.5</b><span>Kuyrukta haberin TARİHİ yok</span></a></li><li><a href="#reddedilen-habere-8-saniye-sonra-hi-bir-yerden-ula"><b>2.6</b><span>Reddedilen habere 8 saniye sonra hiçbir yerden ulaşılamıyor</span></a></li><li><a href="#red-gerek-esi-hi-yaz-lm-yor"><b>2.7</b><span>Red gerekçesi hiç yazılmıyor</span></a></li><li><a href="#kuyruk-canl-de-il-buna-kar-l-k-her-i-lem-t-m-ar-iv"><b>2.8</b><span>Kuyruk canlı değil, buna karşılık her işlem tüm arşivi yeniden indiriyor</span></a></li><li><a href="#kuyruk-hatada-sonsuz-spinner-g-steriyor"><b>2.9</b><span>Kuyruk hatada sonsuz spinner gösteriyor</span></a></li><li><a href="#kuyrukta-d-zenleme-yolu-yok-bozuk-ba-l-k-ya-oldu-u"><b>2.10</b><span>Kuyrukta düzenleme yolu yok: bozuk başlık ya olduğu gibi onaylanıyor ya reddediliyor</span></a></li><li><a href="#toplu-i-lemde-yaln-zca-red-var"><b>2.11</b><span>Toplu işlemde yalnızca RED var</span></a></li><li><a href="#ekran-i-statistikler-sekmesinin-ortas-na-g-m-l-ve"><b>2.12</b><span>Ekran &quot;İstatistikler&quot; sekmesinin ortasına gömülü ve bekleyen sayacı yok</span></a></li><li><a href="#h-l-duran-bir-silme-yolu-ve-yanl-bilgilendiren-sna"><b>2.13</b><span>Hâlâ duran bir silme yolu ve yanlış bilgilendiren snackbar</span></a></li><li><a href="#kuyruk-s-ralanm-yor-s-z-lm-yor-sayfalanm-yor"><b>2.14</b><span>Kuyruk sıralanmıyor, süzülmüyor, sayfalanmıyor</span></a></li><li><a href="#oturum-te-hisi-kullan-c-ya-ula-m-yor"><b>2.15</b><span>Oturum teşhisi kullanıcıya ulaşmıyor</span></a></li><li><a href="#k-k-dokunu-lar-d-k-etki-k-k-maliyet"><b>2.16</b><span>Küçük dokunuşlar (düşük etki / küçük maliyet)</span></a></li></ol><a class="ic-yol" href="#hemen-k-k-maliyet-y-ksek-etki">Yol haritası →</a></nav>
+<div class="govde"><p><strong>Kapsam.</strong> Kararın verildiği ekran: <code>lib/features/dashboard/presentation/screens/admin_statistics_screen.dart</code> → <code>_PendingArticlesSection</code> (satır 205–612) + <code>lib/features/dashboard/presentation/widgets/inceleme_karti.dart</code>. Veri yolu: <code>pendingArticlesProvider</code> (<code>home_providers.dart:197</code>) → <code>HomeRepository.watchPendingArticles</code> (<code>home_repository.dart:78</code>). Kuyruk <code>status = &#x27;reviewing&#x27;</code> haberleri taşıyor.</p>
+<hr>
+<h2 id="1-bug-n-ne-i-yi-ali-iyor"><span>1. BUGÜN NE İYİ ÇALIŞIYOR</span></h2>
+<ul><li><strong>Red artık yok etmiyor ve geri alınabiliyor.</strong> <code>haberiReddet</code> (<code>home_repository.dart:246</code>) satırı silmek yerine <code>status = &#x27;rejected&#x27;</code> yazıyor; <code>reddiGeriAl</code> (<code>home_repository.dart:184</code>) durumu <code>reviewing</code>e döndürüyor. Red hafızası tetikleyiciyle tutuluyor (<code>supabase/migrations/20261029020000_red_durumu_hafizasi.sql</code>), yani red hangi yoldan gelirse gelsin kayda geçiyor ve geri alma hafızayı da temizliyor. Bu, onay kuyruğunun en sağlam parçası.</li><li><strong>İnceleme kartı gerçekten üç soruyu cevaplıyor.</strong> <code>inceleme_karti.dart</code> gövde önizlemesini TR/EN sekmeli veriyor (satır 180–228), 5N1K + rakam + alıntıları gösteriyor (satır 330–430) ve gövdedeki her görseli ayrı ayrı listeleyip kapak yapma/kaldırma izni veriyor (satır 231–324). Görseli gövdeden çıkarırken desen değil <strong>etiketin tamamı</strong> eşleştiriliyor (satır 310–314, §39.6'ya uygun) — yayındaki metni süpürme riski yok.</li><li><strong>Toplu red dürüst sayı veriyor.</strong> <code>topluReddet</code> (<code>home_repository.dart:265</code>) tek tek dönüyor, biri patlasa diğerleri işleniyor ve arayüz <strong>gerçekleşen</strong> sayıyı yazıyor (<code>admin_statistics_screen.dart:578–581</code>): "3 reddedildi" deyip 1'ini yapmıyor.</li><li><strong>Sessiz yazma başarısızlığı kuyruğun red yolunda çözülmüş.</strong> <code>alanlariGuncelle</code> (<code>home_repository.dart:158</code>) <code>.select(&#x27;id&#x27;)</code> ile dönen satırı <strong>sayıyor</strong>; RLS'in hata vermeden satır süzdüğü (200 + <code>[]</code>) durum yakalanıyor. <code>20261029030000_articles_panel_yazma.sql</code> de UPDATE politikasını kurup kendi sağlamasını yazıyor — DELETE bilerek verilmemiş.</li><li><strong>Kuyruk değişince hayalet seçim kalmıyor.</strong> <code>admin_statistics_screen.dart:264</code> artık var olmayan kimlikleri seçimden düşürüyor; "3 seçili" deyip 1 haber reddetme durumu kapatılmış.</li></ul>
+<hr>
+<h2 id="2-en-nemli-eksi-kler-etkiye-g-re-s-ral"><span>2. EN ÖNEMLİ EKSİKLER (etkiye göre sıralı)</span></h2>
+<h3 id="yay-nda-haber-yoksa-onay-kuyru-u-hi-g-r-nm-yor"><span class="kimlik">2.1</span><span>Yayında haber yoksa onay kuyruğu HİÇ görünmüyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>AdminStatisticsScreen.build</code> tüm ekranı <code>latestArticlesProvider</code> üzerine kuruyor ve liste boşsa erken dönüyor:</p>
+<div class="kod"><pre><code class="d-dart">// admin_statistics_screen.dart:25-27
+if (articles.isEmpty) {
+  return Center(child: Text(loc.translate(&#x27;stats_no_data&#x27;)));
+}</code></pre></div>
+<p>Onay kuyruğu (satır 125) bu dalın <strong>içinde</strong>. Yani yayındaki haber listesi boş geldiği her durumda — ağ hatası, oturum sorunu, önbellek boş ilk açılış — bekleyen haberler ekranı yerine "veri yok" yazısı çıkıyor. Dahası kuyruk, tüm yayın arşivi inene kadar ekrana gelmiyor: sayfa tek bir <code>CircularProgressIndicator</code>la bekliyor (satır 141).</p>
+<h3 id="onayla-sonucu-denetlenmiyor"><span class="kimlik">2.2</span><span>"Onayla" sonucu denetlenmiyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<div class="kod"><pre><code class="d-dart">// admin_statistics_screen.dart:447-452
+onPressed: ... () async {
+  await ref.read(homeRepositoryProvider).approveArticle(article.id);
+  _tazele();
+},</code></pre></div>
+<p>Dönüş değeri okunmuyor, snackbar yok. <code>approveArticle</code> (<code>home_repository.dart:97–108</code>) ise <code>alanlariGuncelle</code>nin iki korumasının <strong>ikisini de</strong> taşımıyor: oturum denetimi yok, dönen satır sayılmıyor. Oturum düştüğünde panel <code>anon</code> olarak yazar; PostgREST hata vermez (§20.4'te ölçülmüş davranış) ve kart kuyruktan düşer gibi görünüp haber yayına <strong>girmez</strong>. Red yolunda bu sorun çözülmüş, onay yolunda açık.</p>
+<h3 id="m-kerrer-denetimi-hatada-ye-il-temiz-diyor"><span class="kimlik">2.3</span><span>Mükerrer denetimi hatada yeşil "temiz" diyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<div class="kod"><pre><code class="d-dart">// inceleme_karti.dart:172-176
+try {
+  bulunan = await ref.read(homeRepositoryProvider).searchArticles(a.title);
+} catch (_) {
+  bulunan = const [];
+}</code></pre></div>
+<p><code>searchArticles</code> (<code>home_repository.dart:319–331</code>) RPC hatasında <code>throw</code> ediyor. O istisna burada yutuluyor, liste boş kalıyor ve kart satır 143'te <strong>yeşil</strong> olarak "Benzer haber bulunamadı." yazıyor. RPC düştüğünde moderatör "mükerrer yok" onayı almış oluyor — §17.1'de bir kez reddedilmiş olan sessiz sahte veri kalıbı.</p>
+<h3 id="panelden-kaydetme-article-format-ve-chart-data-en"><span class="kimlik">2.4</span><span>Panelden kaydetme <code>article_format</code> ve <code>chart_data_en</code>'i NULL'a eziyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>dashboard_screen.dart:310–348</code>'deki <code>NewsArticle</code> kurulumu <code>facts/figures/quotes/turkiye_pin/chart_data</code>'yı özenle taşıyor (satır 335–347'deki yorum §25.1 tuzağını anlatıyor), ama <strong>iki alan listede yok</strong>: <code>articleFormat</code> ve <code>chartDataEn</code>. <code>toJson()</code> ikisini de yazıyor (<code>news_article.dart:223–224</code>) ve <code>updateArticle</code> tüm json'u gönderiyor (<code>home_repository.dart:899, 925–929</code>). Sonuç:</p>
+<ul><li><code>article_format</code> null'a düşüyor → <code>isBrief</code> false olur (<code>news_article.dart:74</code>) → "Kısa Kısa" için yazılmış haber kart ızgaralarına girer; §20.1 ve <code>briefArticlesProvider</code>'ın dayandığı ayrım bozulur.</li><li><code>chart_data_en</code> null'a düşüyor → İngilizce sayfa Türkçe grafiğe düşer.</li></ul>
+<p>§30.1 "<code>article_format</code> artık formdaki değer yazılıyor" diyor; depodaki kodda bu taşıma yok.</p>
+<h3 id="kuyrukta-haberin-tari-hi-yok"><span class="kimlik">2.5</span><span>Kuyrukta haberin TARİHİ yok</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük-orta</span></span></div>
+<p>Kart yalnızca başlık, kaynak adı ve iki satır özet gösteriyor (<code>admin_statistics_screen.dart:342–380</code>). İnceleme kartında da tarih yok (<code>inceleme_karti.dart:85–115</code>). Oysa <code>published_at</code> sütunu <strong>tam bu iş için</strong> açılmış:</p>
+<blockquote><code>supabase/migrations/20260816130000_yayin_tarihi_ve_red_hafizasi.sql:19-22</code> — "Kaynak sayfadan çıkarılan gerçek yayın tarihi. Besleme beyanı değildir." Aynı dosyanın başındaki ölçüm: yenisafak'ın 2025-05-27 tarihli haberi beslemede "1 gün" görünüp <strong>447 günlük</strong> haber taze diye içeri girmiş.</blockquote>
+<p><code>NewsArticle</code> modeli bu sütunu hiç okumuyor (<code>news_article.dart</code> içinde <code>publishedAt</code> alanı yok, <code>toJson</code> listesinde <code>published_at</code> yok). Yani bayatlığı yakalamak için tutulan veri, kararı veren kişiye hiç ulaşmıyor.</p>
+<h3 id="reddedilen-habere-8-saniye-sonra-hi-bir-yerden-ula"><span class="kimlik">2.6</span><span>Reddedilen habere 8 saniye sonra hiçbir yerden ulaşılamıyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p><code>reddiGeriAl</code>ın depodaki <strong>tek</strong> çağrı yeri snackbar aksiyonu (<code>admin_statistics_screen.dart:583–596</code>, <code>duration: 8 saniye</code>). Snackbar kapandıktan sonra:</p>
+<ul><li>Kuyruk yalnızca <code>reviewing</code> çekiyor (<code>home_repository.dart:81</code>) → reddedilen görünmez.</li><li>Tab 1'deki "Arşiv" düğmesi <code>a.status == &#x27;draft&#x27;</code> süzüyor (<code>dashboard_screen.dart:1332</code>) ve beslediği <code>latestArticlesProvider</code> yalnızca <code>published</code> çekiyor (<code>home_repository.dart:46</code>) → <strong>arşiv görünümü her zaman boş</strong>.</li></ul>
+<p>§29.1 "haber arşivde duruyor ve geri alınabiliyor" diyor; veritabanı tarafı doğru (292 kayıt <code>rejected</code>, §40.2'de anılıyor) ama panelde o arşivi gösteren ekran yok.</p>
+<h3 id="red-gerek-esi-hi-yaz-lm-yor"><span class="kimlik">2.7</span><span>Red gerekçesi hiç yazılmıyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta-yüksek</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>haberiReddet</code>in <code>gerekce</code> parametresi var (<code>home_repository.dart:252</code>) ve <code>rejection_reason</code> sütununa yazıyor (satır 256). İki çağrı yerinin <strong>ikisi de</strong> bu parametreyi geçmiyor: <code>_tekReddet</code> (<code>admin_statistics_screen.dart:505–512</code>) ve <code>topluReddet</code> (<code>home_repository.dart:270–276</code>). Sonuç: <code>rejection_reason</code> daima null. Kaynak karnesi red <strong>oranını</strong> gösteriyor (<code>kaynak_karnesi_screen.dart:132</code>), ama "neden reddedildi" verisi hiçbir yerde olmadığı için bir kaynağı kapatma kararı gerekçelendirilemiyor.</p>
+<h3 id="kuyruk-canl-de-il-buna-kar-l-k-her-i-lem-t-m-ar-iv"><span class="kimlik">2.8</span><span>Kuyruk canlı değil, buna karşılık her işlem tüm arşivi yeniden indiriyor</span></h3><div class="pilsira"><span class="pil ust"><span class="pil-ad">ETKİ</span><span class="pil-dg">yüksek</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<ul><li><code>watchPendingArticles</code> <code>.asStream()</code> kullanıyor (<code>home_repository.dart:82</code>) — tek seferlik sorgu, Realtime değil. Hat gün içinde yeni haber yazdığında kuyruk kendiliğinden güncellenmiyor; sayfayı yenilemek gerekiyor ve ekranda "yenile" düğmesi de yok.</li><li>Aynı sorgu <code>select(&#x27;*&#x27;)</code> ve <strong>limitsiz</strong> (satır 80–83): bekleyen her haberin <code>content</code> + <code>content_en</code> HTML gövdesi iniyor.</li><li><code>_tazele</code> (<code>admin_statistics_screen.dart:605–611</code>) her onay/red sonrası <code>latestArticlesProvider</code>'ı da geçersiz kılıyor. O sorgu da şu an <code>select(&#x27;*&#x27;)</code>, limitsiz (<code>home_repository.dart:44–48</code>).</li></ul>
+<p><strong>Not:</strong> §20.1'de anlatılan daraltma (<code>_listeSutunlari</code> sekiz ağır sütunu dışarıda bırakıyor, <code>_listeSiniri = 500</code>) depoda <strong>bulunamıyor</strong> — bu iki ad hiçbir dosyada geçmiyor ve <code>home_repository.dart</code> içindeki tek <code>limit(</code> satır 360'ta (haftalık özet, 400). §40.5'teki kayıp listesiyle tutarlı bir gerileme olabilir; canlı derlemeyle karşılaştırılması gerekir. Mevcut hâlde: §30'daki ~39 haber/gün kararı × tüm yayın arşivi = günde onlarca kez tam arşiv indirmesi.</p>
+<h3 id="kuyruk-hatada-sonsuz-spinner-g-steriyor"><span class="kimlik">2.9</span><span>Kuyruk hatada sonsuz spinner gösteriyor</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<div class="kod"><pre><code class="d-dart">// home_repository.dart:85-91
+.handleError((e) {
+  if (kDebugMode) print(&#x27;watchPendingArticles error: $e&#x27;);
+  return &lt;NewsArticle&gt;[];
+});</code></pre></div>
+<p><code>handleError</code> geri dönüş değerini kullanmaz; hata yutulduğu için akış ne yayın yapar ne hata verir. <code>StreamProvider</code> <code>loading</code>de kalır ve <code>admin_statistics_screen.dart:286</code>'daki <code>error:</code> dalı bu yoldan hiç çalışmaz. Moderatör bozulma ile "bekleyen haber yok"u ayırt edemez.</p>
+<h3 id="kuyrukta-d-zenleme-yolu-yok-bozuk-ba-l-k-ya-oldu-u"><span class="kimlik">2.10</span><span>Kuyrukta düzenleme yolu yok: bozuk başlık ya olduğu gibi onaylanıyor ya reddediliyor</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p>İnceleme kartı yalnızca iki alanı yazabiliyor: <code>image_url</code> (<code>inceleme_karti.dart:300–306</code>) ve gövde (<code>content</code>/<code>content_en</code>, satır 316–322). Başlık, özet, spot, konu, bölge düzenlenemiyor. Editör formuna geçmek de çözüm değil: o liste <code>latestArticlesProvider</code>dan beslendiği için (<code>dashboard_screen.dart:497</code>) sadece <strong>yayındaki</strong> haberleri gösteriyor — bekleyen haber orada hiç listelenmiyor. §30'da "gelişmiş alanlar düzenlenebilir" diye geçen yetenek depoda yok; formdaki ilgili alanlar salt okunur bilgi satırı (<code>dashboard_screen.dart:991–996</code>).</p>
+<h3 id="toplu-i-lemde-yaln-zca-red-var"><span class="kimlik">2.11</span><span>Toplu işlemde yalnızca RED var</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>_topluCubuk</code> (<code>admin_statistics_screen.dart:289–330</code>) tek bir toplu düğme taşıyor: "Toplu red". §30 "toplu yayınla/reddet" diyor; toplu onay tarafı depoda yok. Günde ~39 haberin kabul edilenleri tek tek tıklanıyor.</p>
+<h3 id="ekran-i-statistikler-sekmesinin-ortas-na-g-m-l-ve"><span class="kimlik">2.12</span><span>Ekran "İstatistikler" sekmesinin ortasına gömülü ve bekleyen sayacı yok</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p>Kuyruk, <code>dash_tab_stats</code> etiketli grafik sekmesinin (<code>dashboard_screen.dart:457–460</code>) içinde, iki istatistik bloğunun arasında duruyor (<code>admin_statistics_screen.dart:118–128</code>: üstünde "En çok okunan", altında "Haber Okuma Sıralaması (İlk 50)"). Yedi sekmenin hiçbirinde "onay" sözcüğü ya da bekleyen sayısı yok. Panele giren kişi kaç haberin kararını beklediğini ekranı bulup aşağı kaydırmadan öğrenemiyor.</p>
+<h3 id="h-l-duran-bir-silme-yolu-ve-yanl-bilgilendiren-sna"><span class="kimlik">2.13</span><span>Hâlâ duran bir silme yolu ve yanlış bilgilendiren snackbar</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>dashboard_screen.dart:1475–1479</code> <code>isReviewing</code> dalında <code>rejectArticle</code>ı çağırıyor; o metot (<code>home_repository.dart:301–312</code>) §29.1'in kaldırdığı <code>delete()</code>'i yapıyor ve arayüz "Haber reddedildi ve silindi." yazıyor. İki ayrı sebeple yanlış: (a) <code>20261029030000_articles_panel_yazma.sql</code> <code>authenticated</code>'a DELETE <strong>vermiyor</strong>, dolayısıyla silme sessizce düşer ama mesaj "silindi" der; (b) dal zaten pratikte ölü, çünkü <code>latestArticlesProvider</code> yalnızca <code>published</code> çekiyor. Bu kod yolu kuyruğun doğru yoluyla çelişiyor.</p>
+<h3 id="kuyruk-s-ralanm-yor-s-z-lm-yor-sayfalanm-yor"><span class="kimlik">2.14</span><span>Kuyruk sıralanmıyor, süzülmüyor, sayfalanmıyor</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil orta"><span class="pil-ad">MALİYET</span><span class="pil-dg">orta</span></span></div>
+<p>Tek sıralama <code>created_at desc</code> (<code>home_repository.dart:81</code>). Kaynağa, konuya (<code>topic</code>), bölgeye (<code>region</code>) ya da <code>hero_score</code>'a göre süzme/sıralama yok — üçü de modelde mevcut alanlar. Liste <code>shrinkWrap: true</code> + <code>NeverScrollableScrollPhysics</code> ile kuruluyor (<code>admin_statistics_screen.dart:266–273</code>), yani bütün kartlar bir kerede inşa ediliyor ve hemen altında 50 kayıtlık ikinci liste var (satır 633).</p>
+<h3 id="oturum-te-hisi-kullan-c-ya-ula-m-yor"><span class="kimlik">2.15</span><span>Oturum teşhisi kullanıcıya ulaşmıyor</span></h3><div class="pilsira"><span class="pil orta"><span class="pil-ad">ETKİ</span><span class="pil-dg">orta</span></span><span class="pil alt"><span class="pil-ad">MALİYET</span><span class="pil-dg">küçük</span></span></div>
+<p><code>_oturumSorunu</code> (<code>home_repository.dart:129–141</code>) "Oturum yok — panele yeniden giriş yapın." gibi işe yarar bir metin üretiyor, ama <code>alanlariGuncelle</code> onu yalnızca <code>kDebugMode</code> içinde basıp <code>false</code> dönüyor (satır 160–163). Release'de moderatörün gördüğü tek şey: "Reddetme başarısız — yetki yok ya da kayıt yazılamadı." (<code>admin_statistics_screen.dart:515</code>). <code>sonYazmaHatasi</code> alanı da tek yerde okunuyor: <code>admin_hero_screen.dart:386</code>.</p>
+<h3 id="k-k-dokunu-lar-d-k-etki-k-k-maliyet"><span class="kimlik">2.16</span><span>Küçük dokunuşlar (düşük etki / küçük maliyet)</span></h3>
+<ul><li>İnceleme kartında kaynak adresi mavi yazılıyor ama <strong>tıklanmıyor</strong>: <code>SelectableText</code> (<code>inceleme_karti.dart:106–112</code>). Oysa aynı panelde çalışan bir <code>_launchUrl</code> var (<code>dashboard_screen.dart:1990</code>).</li><li><code>haberiReddet</code>in <code>title</code>, <code>sourceUrl</code>, <code>sourceName</code>, <code>lastStatus</code> parametreleri hiç kullanılmıyor (<code>home_repository.dart:246–258</code>); <code>topluReddet</code> bunları doldurmak için her haber adına sözlük kuruyor (<code>admin_statistics_screen.dart:567–575</code>) — ölü iş.</li><li>"Tam haber" diyaloğu sabit <code>width: 640</code> (<code>admin_statistics_screen.dart:490</code>) — telefonda taşar.</li><li><code>_secili.removeWhere</code> <code>build</code> içinde durum değiştiriyor (<code>admin_statistics_screen.dart:264</code>).</li><li><code>withOpacity</code> kullanımı kalmış (<code>admin_statistics_screen.dart:650</code>), dosyanın geri kalanı <code>withValues</code> kullanıyor.</li></ul>
+<hr>
+<h2 id="3-modern-bi-r-haber-portalinda-olmasi-gerekenler-b"><span>3. MODERN BİR HABER PORTALINDA OLMASI GEREKENLER (bu projede olmayan)</span></h2>
+<p><strong>a) Bekleyen sayısı — panele girince görünür.</strong> Mevcut malzeme: <code>source_scorecard</code> görünümünde <code>bekleyen</code> kolonu zaten var ve okunuyor (<code>kaynak_karnesi_screen.dart:132</code>). Ucuzu: <code>articles</code> üzerinde <code>status = &#x27;reviewing&#x27;</code> için <code>count</code> sorgusu taşıyan ayrı bir <code>bekleyenSayisiProvider</code>; <code>dashboard_screen.dart:457</code>'deki <code>Tab</code>a <code>Badge</code> sarılır. <code>pendingArticlesProvider</code>'ı bu iş için beklemek, gövdeli tam kuyruğu indirmek demek olur.</p>
+<p><strong>b) Bayatlık rozeti — "bu haber kaç günlük".</strong> <code>published_at</code> sütunu var (<code>20260816130000</code>), eksik olan modeldeki alan. <code>NewsArticle</code>'a <code>publishedAt</code> eklenip <code>fromJson</code>/<code>toJson</code>'a bağlanır; kartta <code>dashboard_screen.dart:852</code>'deki hazır <code>_buildBadge</code> kalıbıyla "Kaynak tarihi: … · 3 gün" rozeti basılır. Renk tek başına anlam taşımaz (§3.2) — rozette gün sayısı yazılı olur.</p>
+<p><strong>c) Gerekçeli red — seçmeli liste.</strong> <code>rejection_reason</code> sütunu ve <code>haberiReddet(gerekce:)</code> zaten hazır; eksik olan diyalog. Sabit seçenekler (mükerrer / kaynak güvenilmez / bayat / konu dışı / çeviri bozuk / diğer) <code>kaynak_karnesi_screen.dart</code>'taki karneyle birleşince "bu kaynağı kapatalım mı" kararı veriye dayanır.</p>
+<p><strong>d) Reddedilenler ekranı + geri alma.</strong> <code>reddiGeriAl</code> hazır. Gereken: <code>status = &#x27;rejected&#x27;</code>, <code>order by rejected_at desc</code> okuyan <code>reddedilenlerProvider</code> (<code>home_providers.dart</code>'taki <code>pendingArticlesProvider</code> kalıbının aynısı) ve kuyruğun yanında bir "Reddedilenler" görünümü. <code>dashboard_screen.dart:1332</code>'deki <code>draft</code> süzgeci de bu durumu kapsayacak şekilde düzeltilir.</p>
+<p><strong>e) Yayın öncesi gerçek önizleme.</strong> Kuyrukta "nasıl görünecek" sorusu cevapsız; CanvasKit tarafında metin tuvalde olduğu için ham HTML okumak bu soruyu cevaplamıyor. Mevcut yol hazır: <code>app_router.dart:194–201</code> <code>/haber/:id</code> rotası <code>extra</code> ile gelen <code>NewsArticle</code>'ı doğrudan <code>ArticleDetailScreen</code>e veriyor ve yayın durumuna bakmıyor. Kuyruktaki karta bir "Önizle" düğmesi, <code>reviewing</code> haberi okurun gördüğü düzende açar — yeni ekran yazmadan.</p>
+<p><strong>f) Toplu onay.</strong> <code>topluReddet</code> (<code>home_repository.dart:265</code>) birebir kalıp: <code>topluOnayla</code> aynı döngüyü <code>approveArticle</code> ile kurar ve gerçekleşen sayıyı döner; <code>_topluCubuk</code>'a ikinci düğme girer.</p>
+<p><strong>g) Klavyeyle karar.</strong> Günde ~39 karar (§30) fare ile veriliyor. Flutter <code>CallbackShortcuts</code>/<code>Shortcuts</code> ile <code>j/k</code> gezinme, <code>a</code> onayla, <code>r</code> reddet — <code>_PendingArticlesSection</code> içinde, yeni paket gerekmez.</p>
+<p><strong>h) Onay denetim izi.</strong> <code>rejected_at</code> var, karşılığı yok: <code>approved_at</code> ve karar verenin kimliği (<code>auth.uid()</code>) tutulmuyor; panelde rol ayrımı da yok (<code>20261029030000</code> politikası <code>to authenticated using (true)</code>). Tek kişilik kullanımda sorun değil; ikinci bir editör girdiği anda "bunu kim yayınladı" sorusunun cevabı yok. Yeri: yeni bir migration + <code>approveArticle</code> içinde alan yazımı.</p>
+<p><strong>i) Zamanlanmış yayın.</strong> §30 Aşama 3'te <code>publish_at</code> + <code>scheduled</code> + <code>publish_scheduled_articles()</code> RPC anlatılıyor; depoda bu adların <strong>hiçbiri</strong> geçmiyor (ne <code>lib/</code>, ne <code>supabase/</code>, ne <code>functions/</code>). Kurulacaksa: migration ile sütun + durum, <code>functions/index.js</code> içindeki bulut fonksiyon kalıbıyla beş dakikalık tetik, yazma SECURITY DEFINER RPC'den (anon'un UPDATE yetkisi olmadığı için mevcut kalıp bu).</p>
+<p><strong>j) Onaylanan haberin listeye nereye girdiği.</strong> Ana sayfa <code>created_at desc</code> sıralıyor (<code>home_repository.dart:47</code>). Kuyrukta iki gün bekleyip onaylanan haber, listeye iki gün derinden giriyor — yani pratikte görünmeden yayınlanıyor. <code>hero_pinned_at</code> için benzer sorun bilinçli olarak çözülmüş (<code>news_article.dart:27–33</code>: "eski bir haberi bugün öne çıkarmak isteyen editörün müdahalesi doğduğu anda ölürdü"). Aynı akıl yürütme onay anı için de geçerli: onay damgası tutulup sıralamada kullanılabilir. Karar kullanıcının.</p>
+<hr>
+<h2 id="4-nceli-kli-yol-hari-tasi"><span>4. ÖNCELİKLİ YOL HARİTASI</span></h2>
+<h3 id="hemen-k-k-maliyet-y-ksek-etki"><span>HEMEN — küçük maliyet / yüksek etki</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Dosya</th><th>Tahmini boy</th></tr></thead><tbody><tr><td>1</td><td>Onay kuyruğunu <code>latestArticlesProvider</code>ın <code>isEmpty</code> dalından çıkarmak (§2.1) — kuyruk kendi <code>when</code>'ine alınır</td><td><code>admin_statistics_screen.dart:23–30, 114–125</code></td><td>~20 satır, 30 dk</td></tr><tr><td>2</td><td><code>approveArticle</code>'ı <code>alanlariGuncelle</code> üzerinden geçirmek (oturum denetimi + satır sayımı) ve çağrı yerinde sonucu snackbar'la söylemek (§2.2)</td><td><code>home_repository.dart:97–108</code>, <code>admin_statistics_screen.dart:447–452</code></td><td>~15 satır, 30 dk</td></tr><tr><td>3</td><td><code>article_format</code> + <code>chart_data_en</code>'i form kaydında taşımak (§2.4) — veri kaybı durur</td><td><code>dashboard_screen.dart:310–348</code></td><td>2 satır, 10 dk</td></tr><tr><td>4</td><td>Mükerrer denetiminde hatayı yeşil "temiz" olarak göstermeyi bırakmak (§2.3) — ayrı bir <code>_hata</code> durumu</td><td><code>inceleme_karti.dart:168–180, 134–150</code></td><td>~15 satır, 30 dk</td></tr><tr><td>5</td><td>Red gerekçesi diyaloğu + <code>gerekce</code> parametresini geçmek (§2.7)</td><td><code>admin_statistics_screen.dart:505–512, 546–582</code>, <code>home_repository.dart:270–276</code></td><td>~60 satır, 1,5 sa</td></tr><tr><td>6</td><td><code>publishedAt</code> alanını modele ekleyip kartta tarih/bayatlık rozeti göstermek (§2.5, §3-b)</td><td><code>news_article.dart</code> (alan + <code>fromJson</code>/<code>toJson</code>), <code>admin_statistics_screen.dart:342–380</code></td><td>~40 satır, 1,5 sa</td></tr><tr><td>7</td><td>Sekmede bekleyen sayacı (§3-a) + <code>handleError</code> yerine hatayı yayan akış (§2.9)</td><td><code>dashboard_screen.dart:457</code>, yeni <code>bekleyenSayisiProvider</code>, <code>home_repository.dart:85–91</code></td><td>~50 satır, 2 sa</td></tr><tr><td>8</td><td>Ölü ve yanlış bilgilendiren silme yolunu kaldırmak (§2.13); kaynak adresini tıklanabilir yapmak, 640 px diyaloğu esnetmek (§2.16)</td><td><code>dashboard_screen.dart:1468–1500</code>, <code>inceleme_karti.dart:106–112</code>, <code>admin_statistics_screen.dart:490</code></td><td>~30 satır, 1 sa</td></tr></tbody></table></div>
+<h3 id="sonra-orta-maliyet"><span>SONRA — orta maliyet</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Dosya</th><th>Tahmini boy</th></tr></thead><tbody><tr><td>9</td><td><strong>Reddedilenler görünümü + geri alma</strong> (§2.6): <code>reddedilenlerProvider</code> + kuyruğun yanında ikinci sekme/segment; <code>dashboard_screen.dart:1332</code>'deki <code>draft</code> süzgeci düzeltilir</td><td><code>home_providers.dart</code>, <code>home_repository.dart</code>, <code>admin_statistics_screen.dart</code></td><td>~150 satır, yarım gün</td></tr><tr><td>10</td><td><strong>Önizleme düğmesi</strong> (§3-e): <code>/haber/:id</code> + <code>extra: article</code> ile okur düzeninde açma</td><td><code>admin_statistics_screen.dart:420–460</code></td><td>~15 satır, 1 sa (rota hazır)</td></tr><tr><td>11</td><td><strong>Toplu onay</strong> (§2.11): <code>topluOnayla</code> + <code>_topluCubuk</code>'a ikinci düğme, gerçekleşen sayı raporu</td><td><code>home_repository.dart</code> (<code>topluReddet</code> kalıbı), <code>admin_statistics_screen.dart:289–330</code></td><td>~70 satır, 2 sa</td></tr><tr><td>12</td><td><strong>Kuyrukta düzenleme</strong> (§2.10): başlık/özet/spot için <code>alanlariGuncelle</code> tabanlı satır içi düzenleme — <code>toJson</code> yolu kullanılmaz (§25.1)</td><td><code>inceleme_karti.dart</code></td><td>~200 satır, 1 gün</td></tr><tr><td>13</td><td><strong>Sorgu yükü</strong> (§2.8): <code>watchPendingArticles</code>a sütun daraltma + <code>limit</code>; <code>_tazele</code>nin <code>latestArticlesProvider</code>ı geçersiz kılmasını gözden geçirmek; §20.1 daraltmasının canlıda duruyor mu ölçülmesi</td><td><code>home_repository.dart:44–48, 78–91</code>, <code>admin_statistics_screen.dart:605–611</code></td><td>~80 satır + ölçüm, yarım gün</td></tr><tr><td>14</td><td><strong>Klavye kısayolları</strong> (§3-g) ve kaynağa/konuya göre süzme, <code>hero_score</code>'a göre sıralama (§2.14)</td><td><code>admin_statistics_screen.dart</code></td><td>~150 satır, yarım gün</td></tr><tr><td>15</td><td><strong>Oturum teşhisini ekrana taşımak</strong> (§2.15): <code>alanlariGuncelle</code> <code>_oturumSorunu</code> metnini <code>sonYazmaHatasi</code>'na yazsın, kuyruk onu göstersin</td><td><code>home_repository.dart:158–176</code>, <code>admin_statistics_screen.dart:505–520</code></td><td>~20 satır, 1 sa</td></tr></tbody></table></div>
+<h3 id="b-y-k-i-mimari"><span>BÜYÜK İŞ — mimari</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>İş</th><th>Neden mimari</th><th>Dokunulacak yer</th></tr></thead><tbody><tr><td>16</td><td><strong>Onay kuyruğunu kendi ekranına taşımak</strong> — <code>/panel/onay</code> rotası, kendi sekmesi, istatistik ekranından ayrılması (§2.1, §2.12). Kuyruk bugün istatistik ekranının yaşam döngüsüne ve veri bağımlılığına bağlı; ayrılmadan 1 ve 13 kalıcı çözülmüyor</td><td>yeni <code>features/dashboard/presentation/screens/onay_kuyrugu_screen.dart</code>, <code>app_router.dart:369</code>, <code>dashboard_screen.dart:435–489</code></td><td>1–2 gün</td></tr><tr><td>17</td><td><strong>Gerçek canlı kuyruk</strong> — <code>.asStream()</code> yerine Supabase Realtime abonesi; §20.4'te ziyaretçi tarafı için bilerek Realtime kullanılmıyor, ama panel tek haneli kullanıcı demek, eşzamanlılık limiti sorunu değil. Ölçüm olmadan yapılmaz</td><td><code>home_repository.dart:78–91</code>, <code>home_providers.dart:197</code></td><td>1 gün + ölçüm</td></tr><tr><td>18</td><td><strong>Zamanlanmış yayın</strong> (§3-i): <code>publish_at</code> + <code>scheduled</code> durumu + SECURITY DEFINER RPC + bulut fonksiyonu tetiği</td><td>yeni migration, <code>functions/index.js</code>, <code>news_article.dart</code>, kuyruk ekranı</td><td>2 gün</td></tr><tr><td>19</td><td><strong>Denetim izi ve rol ayrımı</strong> (§3-h): <code>approved_at</code>/<code>approved_by</code>, muhabir–editör ayrımı, RLS politikasının rol bazlı yazılması</td><td>yeni migration (<code>20261029030000</code> kalıbı), <code>home_repository.dart</code>, <code>login_screen.dart</code></td><td>2–3 gün</td></tr><tr><td>20</td><td><strong>Onay anının sıralamada kullanılması</strong> (§3-j) — kullanıcı kararı gerektirir: kuyrukta bekleyen haber onaylandığında ana sayfada nereye girecek</td><td><code>home_repository.dart:44–48</code>, <code>home_providers.dart</code>, yeni sütun</td><td>yarım gün + karar</td></tr></tbody></table></div>
+<p><strong>Dağıtım notu:</strong> maddelerin hiçbiri yayına alma adımı içermiyor; <code>deploy.sh</code> ancak açık onayla çalıştırılır.</p></div>
+</section></main>
+
+<footer class="dip sar">
+  <p><b>Bu rapor bir yayın adımı içermiyor.</b> Hiçbir madde uygulanmadı; <code>deploy.sh</code> ancak açık onayla çalıştırılır.</p>
+  <p>Raporlar arasında üç ortak bulgu var ve üçü de aynı imzayı taşıyor — <b>depoda olmayan, canlıda çalışan kod</b>: §20.1’in liste daraltması (<code>_listeSutunlari</code>/<code>_listeSiniri</code>), §19’un <code>ogRenderer</code> gövde yazımı ve <code>sanitizeHtml</code>, §30’un panel alan taşımaları. İlk ikisi bu üç raporda bağımsız olarak üç kez bulundu.</p>
+  <p>Dosya ve satır numaraları denetim anındaki <code>~/Desktop/tarim_app</code> çalışma ağacına aittir.</p>
+</footer>
+
+<script>
+// Sekme vurgusu: hangi alan okunuyorsa o sekme etkin. IntersectionObserver
+// kaydırma dinleyicisinden ucuz ve ana iş parçacığını meşgul etmiyor (§21.2'de
+// kırmızı olan tek metrik TBT).
+(function(){
+  var bag = {}, sekmeler = document.querySelectorAll('.sekme a');
+  sekmeler.forEach(function(a){ bag[a.getAttribute('href').slice(1)] = a; });
+  var alanlar = document.querySelectorAll('.alan');
+  if (!('IntersectionObserver' in window) || !alanlar.length) return;
+  var gozlemci = new IntersectionObserver(function(girisler){
+    girisler.forEach(function(g){
+      if (!g.isIntersecting) return;
+      sekmeler.forEach(function(a){ a.classList.remove('etkin'); });
+      var hedef = bag[g.target.id];
+      if (hedef) hedef.classList.add('etkin');
+    });
+  }, { rootMargin: '-56px 0px -72% 0px' });
+  alanlar.forEach(function(x){ gozlemci.observe(x); });
+})();
+</script>
