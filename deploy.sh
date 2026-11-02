@@ -227,6 +227,44 @@ for klasor in web/yazarlar web/dosya; do
   fi
 done
 
+# ╔══════════════════════════════════════════════════════════════════════════╗
+# ║  FONKSİYON BEKÇİSİ — depodaki functions/ canlının GERİSİNDE              ║
+# ╚══════════════════════════════════════════════════════════════════════════╝
+# Yukarıdaki sürüm bekçisi DERLENMİŞ WEB PAKETİNİ sınıyor; `functions/` onun
+# kapsamı dışında ve bu delik 2 Kasım 2026 denetiminde ölçüldü:
+#
+#   SSR_CONTENT · sanitizeHtml · articleBody  →  canlıda ÇALIŞIYOR, depoda YOK
+#
+# Yani çıplak `./deploy.sh` canlı `ogRenderer`'ı depodaki eski sürümle ezer ve
+# haber gövdesi arama motorlarına görünmez olur — §19.1'deki duruma dönüş,
+# üstelik HİÇBİR HATA VERMEDEN. §19.5 "bu kontrol olmazsa sessizce kırılır"
+# diye yazılmıştı; 4 Ekim'de web tarafında tam olarak öyle oldu.
+#
+# Belirteç eksik derse yapılacak şey belirteci SİLMEK DEĞİL: `ogRenderer`'ı
+# §19.2/§19.4'e göre depoya geri yazmak. Geri yazıldığı an bu blok susar.
+#
+# Dizi değil dize kullanılıyor: bu Mac'te /bin/bash 3.2 ve orada `set -u`
+# altında boş dizinin uzunluğunu okumak "unbound variable" veriyor.
+if [[ "$TARGETS" == *functions* ]]; then
+  eksik_fn=""
+  for imza in SSR_CONTENT sanitizeHtml articleBody; do
+    grep -qF -- "$imza" functions/index.js || eksik_fn="$eksik_fn $imza"
+  done
+  if [[ -n "$eksik_fn" ]]; then
+    echo "" >&2
+    echo "✗ FONKSİYON DAĞITIMI DURDURULDU — depo canlının GERİSİNDE." >&2
+    echo "" >&2
+    echo "  Canlıda çalışan ama depoda bulunmayan:" >&2
+    for e in $eksik_fn; do echo "      • $e" >&2; done
+    echo "" >&2
+    echo "  Bu dağıtım canlıdaki SEO gövdesini (ogRenderer) SİLERDİ." >&2
+    echo "  Yalnızca siteyi dağıtmak için:   ./deploy.sh --hosting" >&2
+    echo "  Kalıcı çözüm: ogRenderer'ı depoya geri yaz (CLAUDE.md §19.2, §19.4)." >&2
+    exit 1
+  fi
+  echo "  ✓ functions/ canlıdaki özellikleri taşıyor"
+fi
+
 echo "▸ Dağıtılıyor (${TARGETS})…"
 # firebase-tools 14.x + Node 24 birleşimi fonksiyon keşfi sırasında varsayılan
 # yığınla bellek taşması veriyor. Belirti yanıltıcıdır: CLI önce

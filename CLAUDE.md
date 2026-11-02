@@ -3807,3 +3807,78 @@ sonra elle silinebilir. `~/Developer/tarim_app_ARSIV_2026-06` ise taşımadan
 `deploy.sh`'ın iCloud koruması YERİNDE KALIYOR. Depo artık senkronizasyon
 dışında ama koruma ucuz, ve bir gün biri depoyu yine Masaüstü'ne kopyalarsa
 tek uyarı o olacak.
+
+---
+
+## 42. Depo ↔ canlı ayrışması: `functions/` hâlâ geride — 2 Kasım 2026
+
+§41 depoyu iCloud'dan çıkardı ve `lib/` canlıyla hizalandı. **Ama hizalanma
+`functions/` tarafını KAPSAMADI** ve bu, üç ayrı denetim ekibinin birbirinden
+habersiz bulduğu tek ortak kusur oldu (30 Ekim üç alan denetimi,
+`denetim/` altında).
+
+Ölçüm — `grep -c` ile, `functions/index.js` üzerinde:
+
+| imza | depoda | canlıda |
+|---|---|---|
+| `SSR_CONTENT` | **0** | çalışıyor |
+| `sanitizeHtml` | **0** | çalışıyor |
+| `articleBody` (JSON-LD) | **0** | çalışıyor |
+
+Canlı bir haber sayfası işaretler arasında **3.809 karakter** gövde veriyor;
+depodaki `ogRenderer` yalnızca `SOCIAL_META_START/END` arasını dolduruyor.
+Yani §19'un (SEO) en önemli parçası **canlıda var, depoda yok** — §20.1'in
+liste daraltması ve §30'un panel alan taşımaları gibi, aynı imza.
+
+### Neden "sonra bakarız" değil
+
+Çıplak `./deploy.sh` canlı `ogRenderer`'ı depodaki eski sürümle ezer ve haber
+gövdesi arama motorlarına **görünmez olur** — §19.1'deki duruma dönüş, hiçbir
+hata vermeden. §19.5'teki sürüm bekçisi bunu YAKALAMIYOR: o **derlenmiş web
+paketinde** belirteç arıyor, `functions/` kapsamı dışında.
+
+Ayrıca bu bir DONMA: `ogRenderer` geri yazılmadığı sürece hiçbir bulut
+fonksiyonu dağıtılamaz — `indexNowPing`, `publishScheduled`, `morningBriefing`,
+`weeklyBriefing`, `authorBulletin`, `breakingNewsCheck`, `columnistAudio`
+dahil. Fonksiyon tarafındaki her hata düzeltilemez durumda.
+
+### Konan koruma
+
+`deploy.sh`'a **fonksiyon bekçisi** eklendi (sürüm bekçisinin hemen ardında,
+`firebase deploy`'dan önce). `$TARGETS` içinde `functions` geçiyorsa üç imzayı
+arıyor, biri eksikse dağıtımı durduruyor. `./deploy.sh --hosting` etkilenmiyor.
+Üç senaryoda sınandı: gerçek depo + functions → durur · yalnızca hosting →
+geçer · imzalar tamsa → geçer.
+
+**Belirteç eksik derse belirteci SİLME.** Yapılacak şey `ogRenderer`'ı
+§19.2/§19.4'e göre depoya geri yazmak (dokuz saldırı vektörü testi dâhil).
+Geri yazıldığı an bekçi kendiliğinden susar. Aynı kural §40'ta web tarafı için
+yazılıydı; burası onun fonksiyon karşılığı.
+
+### "local = GitHub = canlı" cümlesi eksik
+
+Doğrusu: **`lib/` + `web/` = GitHub = canlı; `functions/` canlının GERİSİNDE.**
+Bu ayrım yazılmazsa bir sonraki oturum "senkronum" deyip functions dağıtır.
+
+### Eski ağaçlar — ölçüldü (2 Kasım 2026)
+
+§41 ikisini de "silinebilir" diye bırakmıştı; ikisi aynı durumda değil:
+
+- `~/Desktop/tarim_app_ESKI_ICLOUD` (649 MB, 3.911 dataless dosya) —
+  HEAD `b60a4eb` ana depoda VAR ve o commit'ten **sonra değişmiş 0 dosya**.
+  Gerçekten temiz, silinebilir.
+- `~/Developer/tarim_app_ARSIV_2026-06` (90 MB) — HEAD ana depoda var ama
+  **6 commit edilmemiş değişiklik** duruyor (`main.dart`, `hero_fold.dart`,
+  `home_repository.dart`, `api_constants.dart`…). Haziran 2026'dan, muhtemelen
+  aşılmış; yine de silmeden önce bakılmalı. 4 Ekim kaybı bu cümleyle başlamıştı.
+
+> **Teşhis notu.** Eski iCloud ağacında `git status` ASILIYOR: git değişiklik
+> bulmak için dosya *içeriği* okuyor ve bu, dataless dosyalarda indirmeyi
+> tetikliyor. Üst veri taraması anında cevap veriyor ve hiçbir şey indirmiyor:
+>
+> ```
+> find <ağaç> -type f -newermt "$(git -C <ağaç> log -1 --format=%cI)" \
+>      -not -path '*/.git/*'
+> ```
+>
+> Gerçek depoda dataless dosya sayısı: **0** — taşıma işe yaradı.
