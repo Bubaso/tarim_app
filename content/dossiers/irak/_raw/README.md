@@ -297,14 +297,71 @@ GSYH, öteki **PETROL DIŞI** GSYH. Yalnızca %3,41 yazmak Irak'ta tarımın
 yerini olduğundan küçük gösterirdi. Metinde ikisi de, farkıyla birlikte
 yazılacak.
 
+## KAPANAN — §2 için kaynak bulundu
+
+**Managing Change in the Marshlands: Iraq's Critical Challenge**, United
+Nations Integrated Water Task Force for Iraq (UNAMI + UNESCO ortak yayını),
+BM Beyaz Kitap, 2011. `kaynak_dosyalari/bm_bataklik_2011.pdf`.
+
+Aranan cümle belgede harfi harfine var ve `bagla()` ile bağlandı:
+*"as the birthplace of humanity and agricultural production"*. Artık
+"Mezopotamya tarımın beşiğidir" cümlesi hatırlanan değil GETİRİLEN bilgi
+(§2.14.1).
+
+Aynı belge iki şey daha veriyor: bataklıkların **%90'ından fazlasının**
+1970'lerden 2003'e kadar kurutulduğu, bugün **%38'inin** geri kazanıldığı; ve
+mandanın bataklıktaki sürüsünün **80.000'den ~5.000'e** indiği.
+
+### KAPSAM ÇARPIŞMASI — bu belgenin tuzağı
+
+BM raporu mandayı **BATAKLIK** ölçeğinde sayıyor, FAOSTAT **ÜLKE** ölçeğinde.
+Aynı yıl (2011): bataklıkta ~5.000, ülkede 302.000 — **60 kat**. Çelişki
+değil, farklı şeyleri sayıyorlar. Yan yana yazılsalardı okur manda sayısının
+altmış kat yanlış olduğunu sanırdı. `build_data.py`'ye sekizinci doğrulama
+eklendi: iki ölçek arasında en az bir büyüklük mertebesi fark varsa blok
+`_olcek_uyarisi` taşımak ZORUNDA. Uyarı silinerek sınandı, üretimi durdurdu.
+
+Bu yüzden `tuzluluk` grafiğine BM'nin %58'lik yeraltı suyu rakamı
+EKLENMEDİ: Dünya Bankası'nın %40/%70'i ülke ölçeğinde toprak tuzluluğu,
+BM'ninki bataklıkta yeraltı suyu. Yeni kaynağı her yere sıkıştırmak bu
+dosyanın kendi kuralını çiğnemek olurdu.
+
 ## AÇIK KALAN
 
-1. **§2 için kaynak.** Mezopotamya'nın tarımın doğduğu yer olması
-   ansiklopedik bilgi; §2.14.1 gereği "bunu nereden biliyorum" sorusunun
-   cevabı bir belge olmalı. Aranacak.
-2. **"En büyük pazar" iddiası ÖLÇÜLMEDİ.** Comtrade ABD ve Fransa için
+1. **"En büyük pazar" iddiası ÖLÇÜLMEDİ.** Comtrade ABD ve Fransa için
    ısrarla BOŞ sonuç dönüyor (hata değil, boş dizi — §2.2.1'in dokuzuncu
    tuzağı: boş sonuç sıfır değildir). Ölçülen sekiz pazarda Irak birinci ve
    ikincinin iki katı, ama "en büyük" cümlesi ölçülene kadar yazılmayacak.
    Eksen zaten ölçülmüş bir orana dayanıyor: Irak tek başına Türkiye'nin
    tarım ihracatının **%14,3**'ünü alıyor (4,64 / 32,54 milyar $).
+
+## TUR 5 — GRAFİKLER · GÖZLE DOĞRULAMA
+
+Doğrulayıcı yeşil yanınca durulmadı; on iki grafiğin hepsi geçici golden
+üretilip GÖZLE görüldü, sonra silindi. DSİ'de doğrulayıcılar yeşilken bir
+çizgi grafiği canlıda hiç çizilmiyordu.
+
+**`ticaret_akisi` bu dizide ilk kez kullanılıyor.** Alt yakanın neredeyse
+boş çıkması ölçüldü: üst yaka 2.847 piksel sütun, alt yaka 11. İki yaka aynı
+cetveli paylaşıyor, yani grafik bozuk değil — 154 katı birebir çiziyor.
+Okurun "yüklenmedi" diye okumaması için not bunu açıkça söylüyor.
+
+**Düzeltilen gerçek kusur.** `hayvan` grafiği koyun/sığır/manda taşıyordu ve
+notu "koyun azalırken manda çoğaldı" diyordu. İddia doğru (koyun %30,5
+azalmış, manda %80 artmış) ama manda 0,15–0,27 milyon başla 13 milyonluk
+eksende DÜZ ÇİZGİ oluyordu: grafiğin söz verdiği karşılaştırma görünmüyordu.
+Manda kendi grafiğine çıkarıldı — orada 1996 dibi ve 2003 sonrası toparlanma
+net okunuyor. `hayvan` aynı mertebedeki üçlüye indi (koyun, sığır, keçi).
+
+**9. kural eklendi — not içindeki sayı izi.** Notlar serbest metin; sekiz
+kural oradaki rakamlara hiç bakmıyordu. Ölçüt yuvarlama: yazılan sayı veri
+katmanındaki bir değerin kendi basamağında doğru yuvarlanmışı olmalı.
+İlk çalıştırmada kuralın KENDİ kusurunu buldu — havuz sözlük anahtarlarını
+atlıyordu, yıllar ise tam orada duruyor.
+
+**9. kuralın gücü ölçüldü.** Rastgele uydurma sayının takılmadan geçme
+oranı: 1–1000 arası tam sayıda %54,7, iki ondalıklıda %6,8. Havuz
+daraltılarak denendi, tam sayıda en iyi %42,9 oldu — kusur ölçek
+türevlerinde değil, altmış yıllık serilerin kendisinde. Kural kaba uydurmayı
+yakalar, makul görünen küçük bir tam sayıyı yakalayacağına GÜVENİLMEZ. Bu
+sınır dosyanın başına yazıldı.

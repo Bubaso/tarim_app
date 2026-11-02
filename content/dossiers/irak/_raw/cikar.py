@@ -72,6 +72,7 @@ ticaret = {
     'toplam_ihracat_irak': tic['toplam_ihracat_irak'],
     'tarim_ithalat_irak': tic['tarim_ithalat_irak'],
     'fasillar': tic['fasillar'],
+    'ithalat_fasillar': tic.get('ithalat_fasillar'),
     'irak_muhabir_satir': tic['irak_muhabir_satir'],
 }
 
@@ -211,6 +212,53 @@ dunya_su = {
     'irak_listede': bagla(faosu, 'Iraq', 'dunyasu.irak'),
 }
 
+# ══ 8. Mezopotamya bataklıkları — BİRİNCİL (BM ortak raporu) ═══════════════
+# Bu kaynak ÜÇ kapıyı birden açıyor: tarımın doğuşu için §2.14.1'in aradığı
+# dayanak, mandanın eğrisi ve tuzluluk. Ansiklopedik bilgi yeterli değildi;
+# "Mezopotamya tarımın beşiğidir" cümlesi artık bir BM belgesine bağlı.
+#
+# KAPSAM TUZAĞI — BU BLOĞUN EN ÖNEMLİ SATIRI. Rapor mandayı BATAKLIK
+# ölçeğinde sayıyor (80.000 → ~5.000). FAOSTAT ise ÜLKE genelini sayıyor ve
+# aynı yıl 302.000 veriyor. İkisi çelişmiyor, FARKLI ŞEYLERİ sayıyorlar.
+# Yan yana yazılırlarsa okur manda sayısının altmış kat yanlış olduğunu
+# sanır. Metin bu iki ölçeği asla aynı cümlede kullanmayacak.
+tbm = pdf('bm_bataklik_2011.pdf')
+bataklik = {
+    '_kaynak_niteligi': ('BİRİNCİL — United Nations Integrated Water Task Force '
+                         'for Iraq, "Managing Change in the Marshlands: Iraq\'s '
+                         'Critical Challenge", BM Beyaz Kitap, 2011'),
+    '_kapsam': 'Güney Irak bataklıkları · 1970–2011 · BATAKLIK ölçeği',
+    '_olcek_uyarisi': (
+        "BU BLOĞUN RAKAMLARI BATAKLIK ÖLÇEĞİNDE. FAOSTAT'ın manda serisi ÜLKE "
+        "ölçeğinde ve aynı yıl (2011) 302.000 baş veriyor; bu rapor bataklıkta "
+        "~5.000 diyor. Çelişki değil, farklı kapsam. Aynı cümlede kullanılmaz."),
+    'yayin_yili': 2011,
+    'kurutma_orani': bagla(
+        tbm, 'over 90% of the original Marshlands area were drained or destroyed',
+        'bataklik.kurutma'),
+    'kurutma_donemi': bagla(tbm, 'Since the 1970s and up to 2003', 'bataklik.donem'),
+    'geri_kazanim': bagla(
+        tbm, 'roughly 38 per cent of the original Marshlands area has been restored',
+        'bataklik.geri'),
+    'manda_onemi': bagla(
+        tbm, 'the most important animal in the Marshlands', 'bataklik.manda_onem'),
+    'manda_bataklik': bagla(
+        tbm, 'from a high 80,000 to a current meager', 'bataklik.manda_sayi'),
+    # §2.14.1 — "tarımın beşiği" artık hatırlanan değil, GETİRİLEN bilgi
+    'tarimin_dogusu': bagla(
+        tbm, 'as the birthplace of humanity and agricultural production',
+        'bataklik.dogus'),
+    'tuzluluk_iki_kat': bagla(
+        tbm, 'has doubled in salinity in recent years', 'bataklik.tuzluluk'),
+    'tur_kaybi': bagla(
+        tbm, 'the variety of species also decreased from 70 to only 10',
+        'bataklik.tur'),
+    'sulanan_alan_2006': bagla(
+        tbm, 'served 232,000 ha', 'bataklik.sulanan'),
+    'yerel_urunler': bagla(
+        tbm, 'to harvest food grains such as rice and millet', 'bataklik.urun'),
+}
+
 cikti = {
     '_dosya': 'Irak — Ülke Dosyası Sayı 05 · ham çıkarım',
     '_uretim': 'cikar.py — elle düzenlenmez',
@@ -221,6 +269,7 @@ cikti = {
     'savas': savas,
     'su': su,
     'dunya_su': dunya_su,
+    'bataklik': bataklik,
 }
 
 if hata:

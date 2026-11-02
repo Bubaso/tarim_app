@@ -87,6 +87,7 @@ if not (m.get('tarim_gsyh_payi') and s.get('petrol_disi_gsyh_payi_yuzde')):
 
 # ── 7. Seriler ve çöküş hesapları ─────────────────────────────────────────
 u = govde['uretim']['urunler']
+u_hayvan = govde['uretim']['hayvan']
 
 
 def seri(ad: str) -> dict[int, float]:
@@ -108,7 +109,34 @@ if pirinc.get(2020) and pirinc.get(2022):
 else:
     hata.append('PİRİNÇ SERİSİNDE 2020 ya da 2022 YOK')
 
+
+# ── 8. KAPSAM ÇARPIŞMASI — bataklık ölçeği ile ülke ölçeği ────────────────
+# BM raporu mandayı BATAKLIKTA sayıyor, FAOSTAT ÜLKEDE. İki rakam yan yana
+# yazılırsa okur manda sayısının altmış kat yanlış olduğunu sanır. Burada
+# ölçülüyor: aynı yıl için iki kapsam arasında en az bir büyüklük mertebesi
+# fark YOKSA, ayrım gereksizdir ve uyarı yanlış yere konmuştur; varsa uyarı
+# ZORUNLUDUR ve blokta durmak zorundadır.
+b = govde['bataklik']
+manda_ulke_2011 = {int(y): v for y, v in u_hayvan.get('Buffalo', {}).items()}.get(2011)
+if manda_ulke_2011 is None:
+    hata.append('MANDA 2011 YOK · kapsam karşılaştırması yapılamıyor')
+else:
+    kat = manda_ulke_2011 / 5000
+    if kat < 10:
+        hata.append(f"KAPSAM AYRIMI GEREKSİZ · bataklık ve ülke ölçeği yalnızca "
+                    f"{kat:.1f} kat ayrı — uyarı yanlış yere konmuş")
+    elif not b.get('_olcek_uyarisi'):
+        hata.append(f"ÖLÇEK UYARISI YOK · bataklık {kat:.0f} kat farklı bir şey "
+                    "sayıyor, blok bunu söylemeli")
+
 # ── Türetilmiş ────────────────────────────────────────────────────────────
+manda = {int(y): v for y, v in u_hayvan['Buffalo'].items()}
+koyun = {int(y): v for y, v in u_hayvan['Sheep'].items()}
+keci = {int(y): v for y, v in u_hayvan['Goats'].items()}
+sigir = {int(y): v for y, v in u_hayvan['Cattle'].items()}
+# Dip 1990 SONRASINDA aranıyor: 1970'lerin yüksek tabanı dibi gizlerdi
+manda_dip_yil = min((y for y in manda if y >= 1990), key=lambda y: manda[y])
+
 hurma = seri('Dates|Production')
 hurma_d = {int(y): v for y, v in govde['uretim']['hurma_dunya'].items()}
 ortak_hurma = sorted(set(hurma) & set(hurma_d))
@@ -136,12 +164,37 @@ govde['turetilmis'] = {
     'bugday_2014': bugday.get(2014), 'bugday_2015': bugday.get(2015),
     'bugday_isid_dusus_yuzde': round((1 - bugday[2015] / bugday[2014]) * 100, 1),
 
+
+    # Manda ve koyun — İDDİA EDİLMİYOR, HESAPLANIYOR. Ülke ölçeği (FAOSTAT).
+    # Mandanın dibi ile BM raporunun kurutma takvimi örtüşüyor; dosya bunu
+    # ZAMANLAMA olarak yazar, sebep olarak değil — rapor manda sayımını
+    # bataklık ölçeğinde veriyor, ülke eğrisinin sebebini söylemiyor.
+    'manda_dip_yil': manda_dip_yil,
+    'manda_dip': manda[manda_dip_yil],
+    'manda_bugun': manda[max(manda)],
+    'manda_dipten_kat': round(manda[max(manda)] / manda[manda_dip_yil], 1),
+    'manda_1990_degisim_yuzde': round((manda[2024] / manda[1990] - 1) * 100, 1),
+    'koyun_1990_degisim_yuzde': round((koyun[2024] / koyun[1990] - 1) * 100, 1),
+    'koyun_zirve_yil': max(koyun, key=koyun.get),
+    'koyun_zirve': max(koyun.values()),
+    'koyun_bugun': koyun[max(koyun)],
+    'keci_1990_degisim_yuzde': round((keci[2024] / keci[1990] - 1) * 100, 1),
+    'sigir_1990_degisim_yuzde': round((sigir[2024] / sigir[1990] - 1) * 100, 1),
+    # Bataklık ölçeği — BM raporundan, ÜLKE eğrisiyle aynı cümleye girmez
+    'bataklik_manda_payi_2011_yuzde': round(5000 / manda[2011] * 100, 1),
+    'manda_ulke_2011': manda[2011],
+
     # Hurmada kaybedilen yer
     'hurma_ilk_yil': ortak_hurma[0], 'hurma_son_yil': ortak_hurma[-1],
     'hurma_pay_ilk_yuzde': round(hurma[ortak_hurma[0]] / hurma_d[ortak_hurma[0]] * 100, 1),
     'hurma_pay_son_yuzde': round(hurma[ortak_hurma[-1]] / hurma_d[ortak_hurma[-1]] * 100, 1),
     'hurma_irak_kat': round(hurma[ortak_hurma[-1]] / hurma[ortak_hurma[0]], 1),
     'hurma_dunya_kat': round(hurma_d[ortak_hurma[-1]] / hurma_d[ortak_hurma[0]], 1),
+
+    # Hurma payı SERİSİ — grafiğe gidiyor. Ortak yılı olmayan yıl atlanıyor;
+    # eksik yılı sıfır saymak payı yapay olarak düşürürdü.
+    'hurma_pay_serisi': {str(y): round(hurma[y] / hurma_d[y] * 100, 2)
+                         for y in ortak_hurma},
 
     # ORTAK YIL (§2.7) — üç kaynağın üç ayrı son yılı var
     '_ortak_yil_notu': (
@@ -183,4 +236,6 @@ print(f"✓ data.json · {len(govde)} blok")
 print(f"  eksen: %{tt['irak_payi_yuzde']} · dengesizlik {tt['dengesizlik_kat']:,.0f} kat")
 print(f"  pirinç düşüşü %{tt['pirinc_dusus_yuzde']} · buğday IŞİD düşüşü "
       f"%{tt['bugday_isid_dusus_yuzde']}")
+print(f"  manda dibi {tt['manda_dip_yil']} · {tt['manda_dip']:,.0f} → "
+      f"bugün {tt['manda_bugun']:,.0f} (dipten {tt['manda_dipten_kat']} kat)")
 print(f"  hurma payı %{tt['hurma_pay_ilk_yuzde']} → %{tt['hurma_pay_son_yuzde']}")

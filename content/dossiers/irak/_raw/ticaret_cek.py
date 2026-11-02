@@ -61,12 +61,20 @@ def comtrade(partner: int, cmd: str, yil: int, akis: str = 'X', dene: int = 5):
     return None, None, None                # hata — boş sonuçtan ayrı
 
 
-def fasil_dokumu(yil: int):
-    ham, suz, _ = comtrade(IRAK, TARIM, yil)
+def fasil_dokumu(yil: int, akis: str = 'X'):
+    """Fasıl dökümü. akis='X' ihracat, 'M' ithalat.
+
+    İTHALAT YAKASI AYRI ÇEKİLİYOR — `ticaret_akisi` grafiğinin ÇIKAN yakası
+    buna dayanıyor ve `dossier_chart.dart` tek yakası boş akışı NULL
+    döndürüyor: grafik hiç çizilmez. Bu döküm bir kez elle eklenmiş ve betiğe
+    yazılmamıştı; betik yeniden çalıştırılsaydı çıkan yaka sessizce silinir,
+    grafik kaybolurdu. Üretilmeyen veri veri değildir.
+    """
+    ham, suz, _ = comtrade(IRAK, TARIM, yil, akis)
     if not ham:
         return None
     u = (f'{COMTRADE}?reporterCode={TR}&period={yil}&partnerCode={IRAK}'
-         f'&flowCode=X&cmdCode={TARIM}&customsCode=C00&motCode=0&partner2Code=0')
+         f'&flowCode={akis}&cmdCode={TARIM}&customsCode=C00&motCode=0&partner2Code=0')
     with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120) as r:
         d = json.load(r).get('data') or []
     return sorted(
@@ -130,6 +138,7 @@ def main() -> None:
         'ihracat_fasil_sayisi': irak_ham,
         'ithalat_fasil_sayisi': ithal_ham,
         'fasillar': fasil_dokumu(YIL),
+        'ithalat_fasillar': fasil_dokumu(YIL, 'M'),
         'irak_muhabir_satir': irak_muhabir,
     }
 

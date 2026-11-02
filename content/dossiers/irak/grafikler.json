@@ -1,0 +1,746 @@
+{
+  "_dosya": "Irak — Ülke Dosyası Sayı 05 · grafik tarifleri",
+  "_kural": "Sayılar @yol ile data.json'a bağlanır; elle rakam yazılmaz.",
+  "_cizici_notu": "Kullanılan tipler: kunye, siralama, cizgi, ikili_cubuk, kartlar, ticaret_akisi. cizgi serilerinde noktalar `harita` altında durur — üst düzeye yazılırsa model seriyi null döndürür ve grafik SESSİZCE çizilmez (DSİ dosyasında bir kez oldu).",
+  "grafikler": {
+    "fasillar": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Türkiye Irak'a ne satıyor",
+        "en": "What Türkiye sells Iraq"
+      },
+      "birim": {
+        "tr": "milyon dolar · 2024",
+        "en": "million dollars · 2024"
+      },
+      "bolen": 1000000,
+      "ondalik": 1,
+      "onek": {
+        "tr": "$",
+        "en": "$"
+      },
+      "not": {
+        "tr": "HS 01-24 fasıllarının en büyük onu; toplam 4,64 milyar dolar. Rakamlar TÜRKİYE'NİN beyanından: Irak Comtrade'e muhabir olarak rapor vermiyor. Çift sayıma karşı gümrük rejimi, taşıma türü ve ikinci partner boyutları süzüldü.",
+        "en": "The ten largest of the HS 01-24 chapters; 4.64 billion dollars in total. The figures come from TÜRKİYE's reporting: Iraq does not report to Comtrade. Customs procedure, mode of transport and second-partner dimensions were filtered against double counting."
+      },
+      "kaynak": "UN Comtrade, 2024 · muhabir Türkiye",
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Hamur işleri ve bisküvi",
+            "en": "Bakery and pasta"
+          },
+          "deger": "@ticaret.fasillar.0.deger",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Meyve ve yemiş",
+            "en": "Fruit and nuts"
+          },
+          "deger": "@ticaret.fasillar.1.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Un ve değirmen ürünleri",
+            "en": "Flour and milling products"
+          },
+          "deger": "@ticaret.fasillar.2.deger",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Et",
+            "en": "Meat"
+          },
+          "deger": "@ticaret.fasillar.3.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Sebze",
+            "en": "Vegetables"
+          },
+          "deger": "@ticaret.fasillar.4.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Hububat",
+            "en": "Cereals"
+          },
+          "deger": "@ticaret.fasillar.5.deger",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Katı ve sıvı yağ",
+            "en": "Fats and oils"
+          },
+          "deger": "@ticaret.fasillar.6.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Yem artıkları",
+            "en": "Feed residues"
+          },
+          "deger": "@ticaret.fasillar.7.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "İşlenmiş sebze-meyve",
+            "en": "Processed fruit and veg"
+          },
+          "deger": "@ticaret.fasillar.8.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "HS 04",
+            "en": "HS 04"
+          },
+          "deger": "@ticaret.fasillar.9.deger",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "akis": {
+      "tur": "ticaret_akisi",
+      "baslik": {
+        "tr": "Hat tek yönlü",
+        "en": "The line runs one way"
+      },
+      "birim": {
+        "tr": "milyon dolar · 2024",
+        "en": "million dollars · 2024"
+      },
+      "bolen": 1000000,
+      "ondalik": 1,
+      "onek": {
+        "tr": "$",
+        "en": "$"
+      },
+      "giren_basligi": {
+        "tr": "Türkiye'den Irak'a",
+        "en": "From Türkiye to Iraq"
+      },
+      "cikan_basligi": {
+        "tr": "Irak'tan Türkiye'ye",
+        "en": "From Iraq to Türkiye"
+      },
+      "not": {
+        "tr": "Merkezde Irak duruyor ama rakamların ikisi de TÜRKİYE'NİN BEYANINDAN: Irak Comtrade'e muhabir olarak rapor vermiyor. İki yaka aynı cetvelle ölçülüyor; çıkan yakanın şeritleri bu yüzden neredeyse görünmüyor. Toplamda giren 4,64 milyar dolar, çıkan 30,2 milyon — oran 154 kat. Her iki yakada da en büyük altı fasıl gösteriliyor; farkın SEBEBİ bu grafikten okunmaz, yalnızca ölçüsü.",
+        "en": "Iraq stands at the centre but both sets of figures come from TÜRKİYE'S REPORTING: Iraq does not report to Comtrade. Both sides are measured against the same ruler, which is why the outbound bars are barely visible. In total 4.64 billion dollars inbound against 30.2 million outbound — a factor of 154. The six largest chapters are shown on each side; the chart gives the size of the gap, not its cause."
+      },
+      "kaynak": "UN Comtrade, 2024 · muhabir Türkiye",
+      "merkez": {
+        "etiket": {
+          "tr": "Irak",
+          "en": "Iraq"
+        }
+      },
+      "giren": [
+        {
+          "etiket": {
+            "tr": "Hamur işleri ve bisküvi",
+            "en": "Bakery and pasta"
+          },
+          "deger": "@ticaret.fasillar.0.deger",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Meyve ve yemiş",
+            "en": "Fruit and nuts"
+          },
+          "deger": "@ticaret.fasillar.1.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Un ve değirmen ürünleri",
+            "en": "Flour and milling products"
+          },
+          "deger": "@ticaret.fasillar.2.deger",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Et",
+            "en": "Meat"
+          },
+          "deger": "@ticaret.fasillar.3.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Sebze",
+            "en": "Vegetables"
+          },
+          "deger": "@ticaret.fasillar.4.deger",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Hububat",
+            "en": "Cereals"
+          },
+          "deger": "@ticaret.fasillar.5.deger",
+          "rol": "sessiz"
+        }
+      ],
+      "cikan": [
+        {
+          "etiket": {
+            "tr": "İçecek",
+            "en": "Beverages"
+          },
+          "deger": "@ticaret.ithalat_fasillar.0.deger",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Hububat",
+            "en": "Cereals"
+          },
+          "deger": "@ticaret.ithalat_fasillar.1.deger",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Et",
+            "en": "Meat"
+          },
+          "deger": "@ticaret.ithalat_fasillar.2.deger",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Meyve ve yemiş",
+            "en": "Fruit and nuts"
+          },
+          "deger": "@ticaret.ithalat_fasillar.3.deger",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "İşlenmiş sebze-meyve",
+            "en": "Processed fruit and veg"
+          },
+          "deger": "@ticaret.ithalat_fasillar.4.deger",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Sebze",
+            "en": "Vegetables"
+          },
+          "deger": "@ticaret.ithalat_fasillar.5.deger",
+          "rol": "ikincil"
+        }
+      ]
+    },
+    "acilis": {
+      "tur": "kunye",
+      "baslik": {
+        "tr": "Dosyanın dört rakamı",
+        "en": "Four figures from this dossier"
+      },
+      "not": {
+        "tr": "Rakamların hepsi Türkiye'nin beyanından ve Dünya Bankası'ndan; Irak'ın kendi istatistik kurumu bu araştırmaya kapalıydı.",
+        "en": "All figures come from Türkiye's reporting and from the World Bank; Iraq's own statistical office was closed to this research."
+      },
+      "kaynak": "UN Comtrade 2024 · Dünya Bankası",
+      "kalemler": [
+        {
+          "deger": "@turetilmis.irak_payi_yuzde",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "Türkiye'nin tarım ihracatının Irak'a giden payı",
+            "en": "share of Türkiye's agricultural exports going to Iraq"
+          },
+          "alt": {
+            "tr": "2024",
+            "en": "2024"
+          }
+        },
+        {
+          "deger": "@turetilmis.dengesizlik_kat",
+          "ondalik": 0,
+          "sonek": {
+            "tr": "×",
+            "en": "×"
+          },
+          "etiket": {
+            "tr": "gidenin gelene oranı",
+            "en": "ratio of outbound to inbound"
+          },
+          "alt": {
+            "tr": "2024 · HS 01-24",
+            "en": "2024 · HS 01-24"
+          }
+        },
+        {
+          "deger": "@makro.nufus.deger",
+          "bolen": 1000000,
+          "ondalik": 1,
+          "etiket": {
+            "tr": "Irak nüfusu, milyon",
+            "en": "Iraq's population, million"
+          },
+          "alt": {
+            "tr": "2025",
+            "en": "2025"
+          }
+        },
+        {
+          "deger": "@turetilmis.pirinc_dusus_yuzde",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "Irak'ın pirinç üretimindeki düşüş",
+            "en": "fall in Iraq's rice production"
+          },
+          "alt": {
+            "tr": "2020 → 2022",
+            "en": "2020 → 2022"
+          }
+        }
+      ]
+    },
+    "bugunku_irak": {
+      "tur": "kunye",
+      "baslik": {
+        "tr": "Petrol ülkesinde tarımın yeri",
+        "en": "Where agriculture stands in an oil economy"
+      },
+      "not": {
+        "tr": "Tarımın payı İKİ FARKLI PAYDAYLA ölçülüyor ve ikisi de doğru: toplam gayrisafi yurt içi hasılanın %3,41'i, petrol dışı hasılanın %35'i. Yalnızca birincisi yazılsaydı tarımın yeri olduğundan küçük görünürdü.",
+        "en": "Agriculture's share is measured against TWO different denominators and both are correct: 3.41% of gross domestic product, 35% of non-oil output. Giving only the first would make agriculture look smaller than it is."
+      },
+      "kaynak": "Dünya Bankası göstergeleri · Dünya Bankası PID P149803 (2014)",
+      "kalemler": [
+        {
+          "deger": "@makro.tarim_gsyh_payi.deger",
+          "ondalik": 2,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "tarımın toplam GSYH payı",
+            "en": "agriculture in total GDP"
+          },
+          "alt": {
+            "tr": "2025",
+            "en": "2025"
+          }
+        },
+        {
+          "deger": "@su.petrol_disi_gsyh_payi_yuzde",
+          "ondalik": 0,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "tarımın PETROL DIŞI hasıladaki payı",
+            "en": "agriculture in NON-OIL output"
+          },
+          "alt": {
+            "tr": "2014",
+            "en": "2014"
+          }
+        },
+        {
+          "deger": "@makro.tarim_istihdam_payi.deger",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "tarımda çalışanların payı",
+            "en": "share employed in agriculture"
+          },
+          "alt": {
+            "tr": "2025",
+            "en": "2025"
+          }
+        },
+        {
+          "deger": "@makro.gida_ithalat_payi.deger",
+          "ondalik": 1,
+          "sonek": {
+            "tr": "%",
+            "en": "%"
+          },
+          "etiket": {
+            "tr": "gıdanın mal ithalatındaki payı",
+            "en": "food in merchandise imports"
+          },
+          "alt": {
+            "tr": "2024",
+            "en": "2024"
+          }
+        }
+      ]
+    },
+    "savas_hasari": {
+      "tur": "ikili_cubuk",
+      "baslik": {
+        "tr": "Ninova'da tarlaya ne oldu",
+        "en": "What happened to the fields in Nineveh"
+      },
+      "not": {
+        "tr": "FAO'nun Şubat 2016 saha değerlendirmesi. Her satır kendi içinde %100'e tamamlanıyor: ağır hasarlı alan düşük verim verdi, tamamen kayıp alan hiç vermedi. Selahaddin'de mısır, buğday ve arpa alanının %70-80'i hasarlı ya da yok.",
+        "en": "FAO's field assessment of February 2016. Each row sums to 100% within itself: the badly damaged area yielded less, the completely lost area nothing at all. In Salahadin 70-80% of the area under maize, wheat and barley was damaged or destroyed."
+      },
+      "kaynak": "FAO · Iraq Agriculture and Livelihoods Needs Assessment, Şubat 2016",
+      "sonek": {
+        "tr": "%",
+        "en": "%"
+      },
+      "ondalik": 0,
+      "seriler": [
+        {
+          "ad": {
+            "tr": "ağır hasarlı",
+            "en": "badly damaged"
+          },
+          "rol": "ikincil"
+        },
+        {
+          "ad": {
+            "tr": "tamamen kayıp",
+            "en": "completely lost"
+          },
+          "rol": "vurgu"
+        }
+      ],
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "degerler": [
+            "@savas.ninova_bugday_agir_hasar_yuzde",
+            "@savas.ninova_bugday_tam_kayip_yuzde"
+          ]
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "degerler": [
+            "@savas.ninova_arpa_hasar_yuzde",
+            "@savas.ninova_arpa_tam_kayip_yuzde"
+          ]
+        }
+      ]
+    },
+    "uc_sok": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Üç şok, tek seri",
+        "en": "Three shocks, one series"
+      },
+      "birim": {
+        "tr": "bin ton · yıllık üretim",
+        "en": "thousand tonnes · annual production"
+      },
+      "bolen": 1000,
+      "ondalik": 0,
+      "not": {
+        "tr": "1961'den bugüne. Buğdayın en düşük yılı 2000 — ambargo dibi, 384 bin ton. 2014'te 5.055 bin tona çıkıyor, ertesi yıl yarıya iniyor. 2021 sonrası düşüş kuraklık dönemine denk geliyor. Grafik şokların ne zaman olduğunu gösterir, sebeplerini kendi başına kanıtlamaz.",
+        "en": "From 1961 to today. Wheat's lowest year is 2000 — the bottom of the sanctions period, 384 thousand tonnes. It reaches 5,055 thousand tonnes in 2014 and halves the following year. The fall after 2021 coincides with the drought years. The chart shows when the shocks happened; it does not by itself prove their causes."
+      },
+      "kaynak": "FAOSTAT · Irak üretimi",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@uretim.urunler.Wheat|Production"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "harita": "@uretim.urunler.Barley|Production"
+          }
+        }
+      ]
+    },
+    "pirinc": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Suda duran ürün",
+        "en": "The crop that stands in water"
+      },
+      "birim": {
+        "tr": "bin ton ve bin hektar",
+        "en": "thousand tonnes and thousand hectares"
+      },
+      "bolen": 1000,
+      "ondalik": 0,
+      "not": {
+        "tr": "Pirinç suda yetişir; su kıtlığı en net ondan okunur. Üretim 2020'de 464 bin ton, 2022'de 12 bin ton — %97,5 düşüş. Ekilen alan da aynı yönde: 102 bin hektardan 4 bine. İki eğrinin birlikte düşmesi, kaybın verimden değil ALANDAN geldiğini gösteriyor.",
+        "en": "Rice grows standing in water; water scarcity reads most clearly from it. Production was 464 thousand tonnes in 2020 and 12 thousand in 2022 — a fall of 97.5%. The harvested area moved the same way: from 102 thousand hectares to 4. That both curves fall together shows the loss came from AREA, not from yield."
+      },
+      "kaynak": "FAOSTAT · Irak",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Üretim (bin ton)",
+            "en": "Production (thousand t)"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@uretim.urunler.Rice|Production"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Ekilen alan (bin ha)",
+            "en": "Area harvested (thousand ha)"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "harita": "@uretim.urunler.Rice|Area harvested"
+          }
+        }
+      ]
+    },
+    "hurma_payi": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Irak hurmayı bırakmadı, dünya onu geçti",
+        "en": "Iraq did not abandon the date; the world overtook it"
+      },
+      "birim": {
+        "tr": "Irak'ın dünya hurma üretimindeki payı, %",
+        "en": "Iraq's share of world date production, %"
+      },
+      "ondalik": 1,
+      "sonek": {
+        "tr": "%",
+        "en": "%"
+      },
+      "not": {
+        "tr": "Irak'ın üretimi 1961'den bugüne 1,7 kat arttı; dünyanınki 5,4 kat. Pay %18,9'dan %5,9'a indi. Kaybedilen şey üretim değil, YER. Ortak yılı olmayan yıl atlandı; eksik yıl sıfır sayılmadı.",
+        "en": "Iraq's output rose 1.7-fold between 1961 and today; the world's rose 5.4-fold. The share fell from 18.9% to 5.9%. What was lost is not production but PLACE. Years without a matching world figure were skipped, not counted as zero."
+      },
+      "kaynak": "FAOSTAT · Irak ve dünya",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Irak'ın payı",
+            "en": "Iraq's share"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@turetilmis.hurma_pay_serisi"
+          }
+        }
+      ]
+    },
+    "hayvan": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Sürü yarıya indi",
+        "en": "The flock halved"
+      },
+      "birim": {
+        "tr": "bin baş",
+        "en": "thousand head"
+      },
+      "bolen": 1000,
+      "ondalik": 0,
+      "not": {
+        "tr": "Koyun 1968'de 13,1 milyon başla zirvedeydi; bugün 6,7 milyon — yarıdan az. Yalnız 1990'dan bugüne düşüş %30,5. Keçi de %12,7 geriledi. Sığır ise %38,4 arttı: ahırda beslenen hayvan, merada otlayanın tersine çoğaldı. Üç eğri de ÜLKE geneli.",
+        "en": "Sheep peaked at 13.1 million head in 1968; today 6.7 million — less than half. Since 1990 alone the fall is 30.5%. Goats are down 12.7%. Cattle, by contrast, rose 38.4%: the barn-fed animal increased as the pasture-fed one declined. All three curves are country-wide."
+      },
+      "kaynak": "FAOSTAT · Irak hayvan varlığı",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Koyun",
+            "en": "Sheep"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@uretim.hayvan.Sheep"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Sığır",
+            "en": "Cattle"
+          },
+          "rol": "ikincil",
+          "noktalar": {
+            "harita": "@uretim.hayvan.Cattle"
+          }
+        },
+        {
+          "ad": {
+            "tr": "Keçi",
+            "en": "Goats"
+          },
+          "rol": "sessiz",
+          "noktalar": {
+            "harita": "@uretim.hayvan.Goats"
+          }
+        }
+      ]
+    },
+    "manda": {
+      "tur": "cizgi",
+      "baslik": {
+        "tr": "Mandanın dibi 1996",
+        "en": "The buffalo bottomed in 1996"
+      },
+      "birim": {
+        "tr": "bin baş · ülke geneli",
+        "en": "thousand head · country-wide"
+      },
+      "bolen": 1000,
+      "ondalik": 0,
+      "not": {
+        "tr": "Eğri ÜLKE genelini sayıyor: 1996'da 50 bin başla dibe vurdu, bugün 270 bin — dipten 5,4 kat. BM'nin 2011 raporu ise ayrı bir şeyi, BATAKLIKTAKİ sürüyü sayıyor ve orada 80 binden 5 bine inildiğini yazıyor; aynı yıl ülke genelinde 302 bin baş vardı. İki rakam çelişmiyor, farklı alanları ölçüyor. Rapora göre bataklıkların %90'ından fazlası 1970'lerden 2003'e kadar kurutuldu, bugün %38'i geri kazanıldı; ülke eğrisinin dibi ve toparlanması bu takvime denk düşüyor. Grafik ZAMANLAMAYI gösterir, sebebi değil.",
+        "en": "The curve counts the country: a trough of 50 thousand head in 1996, 270 thousand today — 5.4 times the trough. The UN's 2011 report counts something else, the herd IN THE MARSHES, and records a fall there from 80 thousand to 5 thousand; the same year the country held 302 thousand. The two figures do not conflict; they measure different areas. The report states that over 90% of the marshlands were drained between the 1970s and 2003 and that roughly 38% has since been restored; the trough and recovery of the country curve fall on that calendar. The chart shows TIMING, not cause."
+      },
+      "kaynak": "FAOSTAT · Irak manda varlığı; bataklık rakamları BM Irak Su Görev Gücü, 2011",
+      "seriler": [
+        {
+          "ad": {
+            "tr": "Manda",
+            "en": "Buffalo"
+          },
+          "rol": "vurgu",
+          "noktalar": {
+            "harita": "@uretim.hayvan.Buffalo"
+          }
+        }
+      ]
+    },
+    "tuzluluk": {
+      "tur": "kartlar",
+      "baslik": {
+        "tr": "Toprak suyu aldı, tuzu bıraktı",
+        "en": "The soil took the water and kept the salt"
+      },
+      "not": {
+        "tr": "İki rakam da Dünya Bankası'nın 2014 tarihli proje belgesinden. Belgenin tarihi metinde yazılacak; daha yeni bir ölçüm bu araştırmada bulunamadı.",
+        "en": "Both figures come from the World Bank project document of 2014. The document's date is given in the text; no more recent measurement was found in this research."
+      },
+      "kaynak": "Dünya Bankası · PID P149803 (2014)",
+      "kartlar": [
+        {
+          "ust": {
+            "tr": "Üretim dışı",
+            "en": "Out of production"
+          },
+          "baslik": {
+            "tr": "%40",
+            "en": "40%"
+          },
+          "govde": {
+            "tr": "Tarihsel olarak sulanmış alanın bu kadarı üretim dışı kaldı.",
+            "en": "This much of the historically irrigated area has gone out of production."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Tuzdan etkilenen",
+            "en": "Affected by salt"
+          },
+          "baslik": {
+            "tr": "%70",
+            "en": "70%"
+          },
+          "govde": {
+            "tr": "Ekili alanın bu kadarı yüksek toprak tuzluluğundan etkileniyor ve bu verimi doğrudan sınırlıyor.",
+            "en": "This much of the crop land is affected by high soil salinity, which directly limits yields."
+          }
+        }
+      ]
+    },
+    "protokol": {
+      "tur": "kartlar",
+      "baslik": {
+        "tr": "1946: suyun protokolü",
+        "en": "1946: the protocol on water"
+      },
+      "not": {
+        "tr": "29 Mart 1946 tarihli Dostluk ve İyi Komşuluk Andlaşması'nın altı ek protokolünden birincisi. Metin TBMM'nin 1947 tarihli onay tasarısında basılı. Protokolün ne öngördüğü yazılıdır; ne kadarının gerçekleştiği bu belgeden okunmaz.",
+        "en": "The first of six protocols annexed to the Treaty of Friendship and Good Neighbourliness of 29 March 1946. The text is printed in the Turkish parliament's ratification bill of 1947. What the protocol envisaged is on the record; how much of it came about cannot be read from this document."
+      },
+      "kaynak": "TBMM S. Sayısı 241 (1947) · birincil metin",
+      "kartlar": [
+        {
+          "ust": {
+            "tr": "Madde 1",
+            "en": "Article 1"
+          },
+          "baslik": {
+            "tr": "Parayı Irak öder",
+            "en": "Iraq pays"
+          },
+          "govde": {
+            "tr": "Bentler ve gözetleme istasyonları için araştırmayı Irak'ın teknisyenleri yapacak, haritaları Türk kurumları hazırlayacak ve bütün harcamaları Irak ödeyecek.",
+            "en": "Iraq's technicians would carry out the surveys for dams and gauging stations, Turkish institutions would prepare the maps, and Iraq would pay all the costs."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Madde 3",
+            "en": "Article 3"
+          },
+          "baslik": {
+            "tr": "Her sabah saat sekizde",
+            "en": "At eight every morning"
+          },
+          "govde": {
+            "tr": "Taşkın zamanlarında nehir seviyesi her sabah telgrafla Irak'a bildirilecek. Adı geçen istasyonlar: Dicle'de Diyarbakır ve Cizre, Fırat'ta Keban.",
+            "en": "In flood season the river level would be telegraphed to Iraq each morning. The stations named: Diyarbakır and Cizre on the Tigris, Keban on the Euphrates."
+          }
+        },
+        {
+          "ust": {
+            "tr": "Madde 4 ve 5",
+            "en": "Articles 4 and 5"
+          },
+          "baslik": {
+            "tr": "Haber vermek, onay almak değil",
+            "en": "To inform, not to obtain consent"
+          },
+          "govde": {
+            "tr": "Türkiye yapıları esas bakımından kabul ediyor; her biri ayrı bir anlaşmaya konu olacak ve o anlaşma Türkiye'nin kendi sulama ve enerji kullanımını da kapsayacak. Türkiye tasarılarını Irak'a \"haber vermeyi kabul eyler\".",
+            "en": "Turkey accepts the works in principle; each would be the subject of a separate agreement, and that agreement would cover Turkey's own use of them for irrigation and energy. Turkey \"accepts to inform\" Iraq of its plans."
+          }
+        }
+      ]
+    }
+  }
+}
