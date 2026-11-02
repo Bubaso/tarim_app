@@ -216,3 +216,95 @@ kat büyüdü. Kaybedilen şey üretim değil, **yer**.
    bir seriyle oranlanacak (§2.2.1 sonu).
 4. **Ortak yıl kuralı** (§2.7): Irak 2023, Türkiye 2024 verisi var;
    karşılaştırmalar ortak yıldan kurulacak, ileri not düşülecek.
+
+---
+
+# Tur 3 — BÖLÜM İSKELETİ (kullanıcı onaylı)
+
+Eksen ticaret, **gövde Irak tarımı**. On dört bölümün dokuzu doğrudan
+ülkenin kendi tarımı.
+
+| # | bölüm | tür | dayanak |
+|---|---|---|---|
+| 1 | Bir ülkenin ekmeği — açılış | anlati | Comtrade · %14,3 · 154 kat |
+| 2 | Tarımın başladığı yer | anlati | **KAYNAK ARANACAK** |
+| 3 | Bugünkü Irak | veri | Dünya Bankası + DB 2014 belgesi |
+| 4 | İki nehrin ülkesi | anlati | FAO su raporu · DB 2014 |
+| 5 | Savaş tarlaya ne yaptı | anlati | FAO Şubat 2016 saha değerlendirmesi |
+| 6 | Üç şok: ambargo, IŞİD, kuraklık | veri | FAOSTAT 1988–2023 serisi |
+| 7 | Pirinç kayboldu | veri | FAOSTAT |
+| 8 | Hurma: dünya payı | veri | FAOSTAT + dünya serisi |
+| 9 | Toprağın tuzu | anlati | DB 2014 · DB 1972 |
+| 10 | Koyun, manda ve bataklık | anlati | FAOSTAT hayvan varlığı |
+| 11 | Türkiye ne satıyor | veri | Comtrade fasıl dökümü |
+| 12 | Ters yön neredeyse boş | veri | Comtrade |
+| 13 | 1946: suyun protokolü | belge | TBMM S. Sayısı 241 |
+| 14 | Kaynakça | belge | — |
+
+**"DÜNYADA BENZERİ" BÖLÜMÜ YOK.** Bir taslakta vardı ve kullanıcı düşürdü:
+o §8.9'un **kurum dosyası** kategorisi, ülke dosyasının beş kategorisinde
+(§2.8) öyle bir madde yok. İki kural seti karıştırılmayacak.
+
+### §2.8'in beş kategorisi nerede karşılanıyor
+
+| | kategori | bölüm |
+|---|---|---|
+| 1 | Bilim ve kişi | 2 — Mezopotamya |
+| 2 | Kültürel açıklama | 2 ve 10 — bataklık ve manda |
+| 3 | Gündelik tarım | 10 |
+| 4 | Türkiye bağı | 13 — 1946 protokolü ve Keban |
+| 5 | Terk edilen ürün | 7 — pirinç |
+
+## Tur 3'te eklenen kaynaklar
+
+| kaynak | sınıf | ne veriyor |
+|---|---|---|
+| FAO, *Iraq Agriculture and Livelihoods Needs Assessment* (Şubat 2016, 79 s.) | BAĞIMSIZ | savaşın tarlaya verdiği hasar, saha ölçümüyle |
+| FAO GIEWS Irak ülke bülteni arşivi (79 s.) | BAĞIMSIZ | gıda güvenliği serisi |
+| Dünya Bankası PID P149803 (2014) | BAĞIMSIZ | tuzluluk, drenaj, su bağımlılığı |
+| Dünya Bankası Lower Khalis (1972, 135 s.) | BAĞIMSIZ | tuzluluğun tarihsel kaydı |
+
+### Savaş bölümünün belgelenmiş rakamları
+
+FAO Şubat 2016, birebir alıntı:
+> *"About 70 to 80% of cultivated area with corn, wheat, and barley was
+> damaged (causing lower yields) or destroyed in areas in Salahadin. In
+> Ninewa on average 32% of acres dedicated to wheat cultivations were badly
+> damaged resulting in a lower yields, and 68% was completely lost.
+> Likewise, 43% of the acres used for barley were damaged while 57% was
+> completely destroyed."*
+
+Sebep listesi de belgede: yerinden edilme, siloların ve tohum-gübre
+depolarının yağmalanması, devlet girdi desteğinin çökmesi.
+
+### FAOSTAT serisi savaşı kendisi gösteriyor (buğday, bin ton)
+
+| yıl | buğday | arpa | |
+|---|---|---|---|
+| 2000 | **384** | 400 | ambargo dibi — serinin en düşüğü |
+| 2014 | 5.055 | 1.278 | IŞİD'in geldiği yıl |
+| 2015 | **2.645** | 499 | yarıya iniyor |
+| 2018 | 2.178 | **191** | dip |
+| 2020 | 6.238 | 1.756 | toparlanma |
+| 2022 | 2.765 | 144 | kuraklık |
+
+## BULUNAN BİR TUZAK — tarımın payı iki farklı rakam
+
+Dünya Bankası API'si tarımın **GSYH payını %3,41** veriyor (2025). Aynı
+kurumun 2014 tarihli proje belgesi ise *"The agricultural sector contributes
+to 35 percent of Iraq's non-oil GDP"* diyor. İkisi çelişmiyor — biri TOPLAM
+GSYH, öteki **PETROL DIŞI** GSYH. Yalnızca %3,41 yazmak Irak'ta tarımın
+yerini olduğundan küçük gösterirdi. Metinde ikisi de, farkıyla birlikte
+yazılacak.
+
+## AÇIK KALAN
+
+1. **§2 için kaynak.** Mezopotamya'nın tarımın doğduğu yer olması
+   ansiklopedik bilgi; §2.14.1 gereği "bunu nereden biliyorum" sorusunun
+   cevabı bir belge olmalı. Aranacak.
+2. **"En büyük pazar" iddiası ÖLÇÜLMEDİ.** Comtrade ABD ve Fransa için
+   ısrarla BOŞ sonuç dönüyor (hata değil, boş dizi — §2.2.1'in dokuzuncu
+   tuzağı: boş sonuç sıfır değildir). Ölçülen sekiz pazarda Irak birinci ve
+   ikincinin iki katı, ama "en büyük" cümlesi ölçülene kadar yazılmayacak.
+   Eksen zaten ölçülmüş bir orana dayanıyor: Irak tek başına Türkiye'nin
+   tarım ihracatının **%14,3**'ünü alıyor (4,64 / 32,54 milyar $).
