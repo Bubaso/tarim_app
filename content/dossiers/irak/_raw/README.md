@@ -365,3 +365,56 @@ daraltılarak denendi, tam sayıda en iyi %42,9 oldu — kusur ölçek
 türevlerinde değil, altmış yıllık serilerin kendisinde. Kural kaba uydurmayı
 yakalar, makul görünen küçük bir tam sayıyı yakalayacağına GÜVENİLMEZ. Bu
 sınır dosyanın başına yazıldı.
+
+## TUR 6 — TASARIM
+
+**Palet "Hurma ve Nehir".** Manzaradan değil, Irak tarımının başka yerden
+gelmeyen iki maddesinden: hurma ülkenin kendi ürünü (dünya payı %18,9 → %5,9),
+nehir ise değil — Dicle ve Fırat yukarıdan geliyor. Üçüncü madde, tuz, renk
+değil MOTİF oldu.
+
+**Motif "tuz poligonu" — dizinin ortak fikri bilerek kırılıyor.** Hollanda
+dikey şerit, Rusya yatay bant, İspanya nokta, Avustralya ortogonal ızgara:
+dördü de insan yapımı düzendi. Tuz poligonu tasarlanmaz; drenaj yetmediğinde
+toprağın kendiliğinden aldığı biçimdir. Dosyanın ölçtüğü şeyle birebir: ekili
+alanın %70'i tuzdan etkilenmiş. Çizici YAZILMADI — künyede açıkça belirtildi,
+sayfada polder motifi görünmeye devam ediyor.
+
+**Renk körlüğü: vekil ölçü yanıldı, benzetim yakaladı.** Dizi Hollanda'dan
+beri iki serinin bağıl parlaklık oranını ölçüyor (orada 1,05 çıkmış ve
+deuteranopi altında iki renk ayırt edilemiyormuş). Bu dosyada ikinci şerit
+denemesi (#1C3A54 / #3F240D) normal görmede **1,67** verdi — eşiği rahat
+geçiyor — ama deuteranopi altında **1,34**'e düştü. kontrast.py artık üç
+körlük tipini doğrudan benzetiyor (Viénot-Mollon) ve oranı benzetim
+SONRASINDA ölçüyor. Son çift: şerit 3,50, gövde 1,59 (en kötü durum).
+
+**Ana sayfadan ayrışma artık hesaplanıyor.** Avustralya'nın künyesi bu
+sayıları yazıyordu ama hiçbir betikte hesaplanmıyorlardı. Burada hesaplanıyor
+ve ilk palet denemesini durdurdu: nehir koyusu #15526B ile ana sayfanın
+yapısal yeşili #2F4B2E arasında oran **1,24** çıktı — kart sayfanın kendi
+rengiyle aynı ağırlıkta olurdu.
+
+**dogrula_tasarim.py — altı kural.** Künyedeki her kontrast sayısı künyenin
+KENDİ hex'lerinden yeniden hesaplanıp karşılaştırılıyor; elle yazılan sayı
+yazıldığı anda doğru olsa bile paletin bir sonraki değişikliğinde sessizce
+yanlışa döner. Dört negatif sınav yapıldı, dördü de durdurdu.
+
+### Doğrulayıcının bulduğu iki kendi hatam
+
+1. **Ölçüler düzyazıya gömülmüştü.** İlk sürüm renk körlüğü sayılarını nottan
+   regex ile kazıyordu ve "şerit" kelimesi notun başka bir cümlesinde geçtiği
+   için gövdenin sayılarını şeride atadı. Ölçüler düzyazıdan çıkarılıp
+   `_olculen_ayrisma` alanına taşındı; doğrulayıcı artık düzyazıda ölçü
+   listesi kalmışsa da uyarıyor.
+2. **"ikincil — Türkiye serisi" yanlıştı.** İkincil rollü seriler sayıldı:
+   arpa, ekilen alan, sığır, hasar sınıfı, ticaretin çıkan yakası. Hiçbirinde
+   Türkiye yok. Sebebi kullanıcı şartı — dosya yalnızca Türkiye ilişkisi
+   üzerinden kurulmuyor, iki renk de çoğu grafikte Irak'ı gösteriyor. Kural 6
+   künyenin rol iddiasını grafikler.json'a bağlıyor.
+
+### Kullanıcıya sorulacak — tek taraflı yapılmadı
+
+`kartlar` türündeki grafiklerde vurgu rengi hiç kullanılmıyor (tuzluluk
+kartında amber piksel sayısı **sıfır**). Çizici kart başlığını `tema.murekkep`
+ile sabitlemiş. Düzeltmek ortak çiziciye dokunmayı, yani yayındaki beş
+dosyanın kart görünümünü birden değiştirmeyi gerektirir.

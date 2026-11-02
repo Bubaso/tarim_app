@@ -1,0 +1,179 @@
+{
+  "_dosya": "Irak — Ülke Dosyası Sayı 05 · tasarım künyesi",
+  "_amac": "Görsel kararlar. DossierTheme bu dosyadan üretilir; kodda serbest renk yazılmaz.",
+  "_kural": "Bu dosyadaki hiçbir kontrast sayısı 'yaklaşık' değildir. Hepsi _raw/kontrast.py'den geliyor; palet değişirse betik yeniden koşar ve buradaki sayılar güncellenir.",
+  "_sureklilik": "Beş dosya, beş geometri: Hollanda dikey şeritler (polder), Rusya yatay bantlar (toprak profili), İspanya nokta ızgarası (dikilmiş zeytinlik), Avustralya ortogonal ızgara (kanal ağı), Irak düzensiz poligon ağı (tuz kabuğu). İlk dördü İNSAN YAPIMI düzendi — dizinin sessiz ortak fikri buydu. BEŞİNCİSİ O FİKRİ BİLEREK KIRIYOR: tuz poligonu tasarlanmış bir desen değil, drenaj yetmediğinde toprağın kendiliğinden aldığı biçim. Irak'ın geometrisi dünyanın en eski sulama geometrisi ve dizide ilk kez çizilen şey düzenin kendisi değil, düzen çekildiğinde geriye kalan. Dosyanın ölçtüğü şeyle birebir: ekili alanın yüzde yetmişi tuzdan etkilenmiş.",
+  "tez_cumlesi": {
+    "tr": "Tarımın doğduğu ovada ekili alanın yüzde yetmişi tuzdan etkilenmiş, pirinç iki yılda neredeyse tükenmiş, bataklıklar önce kurutulup sonra bir bölümü geri verilmiş. Aynı ovaya komşusundan gelen tarım malı, oradan gidenin yüz elli dört katı.",
+    "en": "On the plain where farming began, seventy per cent of the cropland is affected by salt, rice all but vanished in two years, and the marshes were drained and then partly returned. Into that same plain the neighbour sends a hundred and fifty-four times what it takes out.",
+    "gerekce": "Cümlenin sırası kullanıcı şartının kendisi (2 Kasım 2026): 'yalnızca Türkiye ile ilişkileri üzerinden bir dosya oluşmasın'. Bu yüzden ÖNCE Irak'ın kendi tarımı — tuz, pirinç, bataklık — SONRA eksen geliyor. Eksen cümlenin sonunda duruyor ama cümleyi yönetmiyor; dosyanın gövdesi Irak'ın kendi toprağı.",
+    "_dayanak": "Dört öğenin dördü de ayrı kaynaktan: 'tarımın doğduğu ova' BM Irak Su Görev Gücü'nün 2011 raporundan ('as the birthplace of humanity and agricultural production'), ansiklopedik bilgiden değil (§2.14.1); tuz oranı Dünya Bankası PID P149803'ten (%70); pirincin çöküşü FAOSTAT serisinden HESAPLANMIŞ (2020→2022, %97,5); bataklığın kurutulup geri verilmesi yine BM raporundan (%90'dan fazlası kurutuldu, %38'i geri kazanıldı); 154 kat Comtrade'den.",
+    "_ayna_uyarisi": "154 kat TÜRKİYE'NİN BEYANINDAN okunuyor. Irak Comtrade'e muhabir olarak rapor vermiyor; ölçüldü (2016/2018/2020'de sıfır satır, 2022/2024'te bir satır). Cümle 'komşusundan gelen' diyerek Irak'ı özne yapıyor ama rakamın muhabiri Türkiye — metin bunu açıkça yazacak.",
+    "_sayi_yok": "Cümlede rakam yazıyla var, hanesiyle yok; ölçü sonraki bölümlerde veriliyor. Dizinin kuralı.",
+    "_olmayan_iddia": "'Türkiye'nin en büyük tarım pazarı' cümlesi KURULMADI. Comtrade ABD ve Fransa için boş dizi dönüyor (hata değil — boş sonuç sıfır değildir) ve ölçülmemiş bir üstünlük yazılmaz. Cümlenin taşıdığı oran ölçülmüş olan: 154 kat."
+  },
+  "palet": {
+    "ad": "Hurma ve Nehir",
+    "kaynak_fikir": "Palet manzaradan değil, Irak tarımının başka hiçbir yerden gelmeyen iki maddesinden türetildi: hurma ve nehir. Hurma ülkenin kendi ürünü — dosya onun dünya payının %18,9'dan %5,9'a inişini gösteriyor. Nehir ise ülkenin kendi ürünü DEĞİL: Dicle ve Fırat yukarıdan geliyor ve 1946 protokolü o suyun nasıl paylaşılacağını Irak kurulmadan önceki bir düzenle yazıyor. Amber Irak'ın kendi ürünü, mavi yukarıdan gelen su. Renklerin GRAFİKTEKİ işi ise bu ayrımı birebir taşımıyor: ikincil renk burada 'öteki ülke' değil 'ikinci seri' demek — bkz. koyu.ikincil._rol_notu. Üçüncü madde — tuz — renk değil MOTİF oldu: tuz bir madde değil, suyun gidemediği yerde ortaya çıkan biçim.",
+    "mod": "KOYU — dosya sayfası her zaman koyu. Uygulamanın açık/koyu tercihini izlemez.",
+    "mod_gerekcesi": "Dergi dosyası mantığı: içeri girdiğinizde başka bir yere geldiğinizi anlamalısınız (İspanya'dan devralınan karar). Ana sayfadaki şerit bunun istisnasıdır — sayfanın içinde yaşadığı için açık/koyu izler.",
+    "koyu": {
+      "zemin": {
+        "hex": "#12100C",
+        "rol": "Sayfa arka planı — gece, alüvyon ovası"
+      },
+      "yuzey": {
+        "hex": "#1F1A12",
+        "rol": "Kart, tablo, alıntı bloğu",
+        "kontrast_zemin": 1.1
+      },
+      "murekkep": {
+        "hex": "#EFE8DA",
+        "rol": "Gövde metni",
+        "kontrast_zemin": 15.59,
+        "kontrast_yuzey": 14.18
+      },
+      "sessiz": {
+        "hex": "#A89B84",
+        "rol": "Meta, kaynak satırı, altyazı",
+        "kontrast_zemin": 6.96,
+        "kontrast_yuzey": 6.33
+      },
+      "vurgu": {
+        "hex": "#E3A94A",
+        "rol": "Hurma — rakamlar, başlık vurguları ve her grafiğin ÖNDEKİ serisi",
+        "kontrast_zemin": 9.09,
+        "kontrast_yuzey": 8.27
+      },
+      "ikincil": {
+        "hex": "#5F93AD",
+        "rol": "Nehir — karşılaştırmanın ikinci serisi",
+        "kontrast_zemin": 5.67,
+        "kontrast_yuzey": 5.16,
+        "_rol_notu": "DİZİDEN AYRILAN NOKTA. Öteki ülke dosyalarında ikincil renk 'Türkiye serisi' demekti: karşılaştırma hep iki ülke arasındaydı. Bu dosyada DEĞİL — ikinci seri sayıldı ve hiçbirinde Türkiye yok: arpa, ekilen alan, sığır, hasar sınıfı, ticaretin çıkan yakası. Sebebi kullanıcı şartı: dosya yalnızca Türkiye ilişkisi üzerinden kurulmuyor, gövdesi Irak'ın kendi tarımı. Dolayısıyla iki renk de çoğu grafikte Irak'ı gösteriyor. Künyeye 'Türkiye serisi' yazmak, sonraki turda grafiklerin yanlış okunmasına yol açardı."
+      },
+      "cizgi": {
+        "hex": "#2B2418",
+        "rol": "SADECE dekoratif ayırıcı",
+        "kontrast_zemin": 1.24,
+        "kontrast_yuzey": 1.13,
+        "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz — grafik ekseni, sınır, odak halkası için cizgiVurgu kullanılır."
+      },
+      "cizgiVurgu": {
+        "hex": "#7C7158",
+        "rol": "Grafik ekseni, ızgara çizgisi, ticaret akışı omurgası, odak halkası",
+        "kontrast_zemin": 3.95,
+        "kontrast_yuzey": 3.59
+      }
+    },
+    "acik_mod_seridi": {
+      "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; krem zemin üstünde koyu gövdenin renkleri okunmuyor.",
+      "murekkep": {
+        "hex": "#19150F",
+        "kontrast_krem": 16.14
+      },
+      "vurguKoyu": {
+        "hex": "#1D5587",
+        "rol": "Nehrin krem zemindeki karşılığı — kart kenarı ve açık moddaki tüm vurgu metni",
+        "kontrast_krem": 6.91,
+        "_anasayfadan_ayrisma": {
+          "darkGreen_#2F4B2E": 1.46,
+          "primaryGreen_#5C8A4A": 2.46,
+          "wheat_#C9A15A": 4.54,
+          "marketDown_#9C4A3C": 1.44,
+          "alertRed_#D32F2F": 1.89,
+          "_notu": "Bu beş sayı ÖLÇÜLDÜ, elle yazılmadı — kontrast.py hesaplıyor. Avustralya'nın künyesinde aynı blok vardı ama betikte karşılığı yoktu."
+        }
+      },
+      "ikincilKoyu": {
+        "hex": "#3B1F0C",
+        "rol": "Hurmanın krem zemindeki karşılığı — ikinci vurgu",
+        "kontrast_krem": 13.45,
+        "_anasayfadan_ayrisma": {
+          "darkGreen_#2F4B2E": 3.01,
+          "primaryGreen_#5C8A4A": 10.82,
+          "wheat_#C9A15A": 19.96,
+          "marketDown_#9C4A3C": 6.35,
+          "alertRed_#D32F2F": 8.31
+        }
+      },
+      "_rol_degisimi": "ŞERİTTE NEHİR ÖNDE, SAYFADA HURMA. Koyu sayfada vurgu hurma amberi (#E3A94A) — dosyanın konusu Irak'ın kendi tarımı. Ama ana sayfa krem ve kendi buğday rengi #C9A15A ile marketDown #9C4A3C aynı sıcak mahallede; hurmanın koyu sürümü oraya düşüyor ve ancak siyaha yaklaşarak ayrışıyor — o noktada da şeridin kendi mürekkebine karışıyor. Nehir mavisi tekerleğin soğuk yarısını tek başına kullanıyor. Renk uydurulmadı, dosyanın kendi ikinci rengi öne alındı. Hangi rengin önde durduğu ZEMİNE bağlı (Avustralya'da da böyle olmuştu, orada ters yönde)."
+    },
+    "renk_korlugu_notu": "HOLLANDA DERSİ BİR ADIM İLERİ GÖTÜRÜLDÜ. Orada sodyum turuncusu ile cam yeşilinin bağıl parlaklık oranı 1,05'ti ve deuteranopi altında ayırt edilemiyorlardı; o günden beri dizide bu oran ölçülüyor. AMA PARLAKLIK ORANI BİR VEKİL ÖLÇÜDÜR VE BU DOSYADA YANILDI: ikinci şerit denemesi (#1C3A54 / #3F240D) normal görmede 1,67 veriyordu — eşiği rahat geçiyor — deuteranopi altında 1,34'e düşüyordu. Bu yüzden kontrast.py artık üç körlük tipini DOĞRUDAN BENZETİYOR (Viénot-Mollon, LMS izdüşümü) ve oranı benzetim sonrasında ölçüyor. Ölçülen değerler düzyazıda değil `_olculen_ayrisma` alanında duruyor: düzyazıya gömülen sayı, paletin bir sonraki değişikliğinde sessizce yanlışa döner ve denetlenmesi için metin kazımak gerekir.",
+    "_ikincil_notu": "İlk nehir mavisi #5589A3 idi: zeminde 4,97 ile geçiyor ama YÜZEYDE 4,52 ile eşiğe iki yüzde birlik payla yaklaşıyordu. #5F93AD'ye açıldı (5,67 / 5,16). Eşiği kıl payı geçen bir renk, paletin bir sonraki küçük değişikliğinde sessizce altına düşer.",
+    "denetim_betigi": "_raw/kontrast.py — `python3 content/dossiers/irak/_raw/kontrast.py`",
+    "_olculen_ayrisma": {
+      "_uretim": "_raw/kontrast.py — elle yazılmaz; dogrula_tasarim.py bu bloğu künyenin kendi hex'lerinden yeniden hesaplayıp karşılaştırır.",
+      "_esik": 1.4,
+      "_neden_benzetim": "Bağıl parlaklık oranı VEKİL ölçüdür ve bu dosyada yanıldı: #1C3A54 / #3F240D çifti normal görmede 1,67 veriyordu, deuteranopi altında 1,34'e düşüyordu.",
+      "govde": {
+        "normal": 1.72,
+        "protanopi": 1.59,
+        "deuteranopi": 1.99,
+        "tritanopi": 1.71
+      },
+      "serit": {
+        "normal": 4.39,
+        "protanopi": 5.17,
+        "deuteranopi": 3.5,
+        "tritanopi": 4.47
+      }
+    },
+    "_vurgunun_ulasmadigi_yer": "ÖLÇÜLDÜ: `kartlar` türündeki grafiklerde vurgu rengi HİÇ KULLANILMIYOR. Tuzluluk kartının görüntüsünde amber piksel sayısı sıfır. Sebep çizicide: `dossier_chart_view.dart` kart başlığını `tema.murekkep`, üst satırını `tema.sessiz` ile çiziyor ve kartlarda `rol` alanı okumuyor. Bu dosyanın on iki grafiğinin ikisi (tuzluluk, protokol) bu yüzden vurgusuz. KÜNYEDEN DEĞİŞTİRİLEMEZ — değiştirmek ortak çiziciye dokunmayı, yani yayındaki beş dosyanın (Hollanda, Rusya, İspanya, Avustralya, DSİ) kart görünümünü birden değiştirmeyi gerektirir. Bu bir tasarım turu kararı değil, kullanıcı kararıdır ve sorulmadan yapılmaz. Bu dosyada 'tuzluluk rakamları amberle duruyor' gibi bir cümle YAZILMAYACAK."
+  },
+  "motif": {
+    "ad": "Tuz poligonu",
+    "tanim": "Drenajı yetmeyen sulama alanında suyun buharlaşmasıyla oluşan tuz kabuğunun düzensiz çokgen ağı: eşit olmayan hücreler, kırık açılar, hiçbiri ötekine benzemeyen kenarlar.",
+    "gerekce": "Dizideki beşinci geometri ve ilk kez İNSAN YAPIMI OLMAYAN geometri. Hollanda dikey şerit, Rusya yatay bant, İspanya nokta, Avustralya ızgara — dördü de kazılmış, dikilmiş, ölçülmüş düzenlerdi. Tuz poligonu tasarlanmaz; sulama suyu toprağa girip çıkamadığında kendiliğinden belirir. Dosyanın ölçtüğü şeyin biçimi bu: ekili alanın %70'i tuzdan etkilenmiş, tarihsel olarak sulanmış alanın %40'ı üretim dışı. Dizinin 'bu manzara doğal değil, kazılmış' fikri burada tersine dönüyor — bu desen kazılmanın yetmediği yerde çıkıyor.",
+    "uygulama": {
+      "opaklik": "%5",
+      "renk": "cizgiVurgu #7C7158 üzerine opaklık",
+      "bicim": "Vektör (CustomPainter) — raster değil. Ölçeklenebilir, dosya boyutu sıfır, telif sorunu yok.",
+      "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+      "moire_notu": "Hücre ortalama genişliği 28 px'in altına inmeyecek; düzensiz kenarlar ızgaradan daha çok titrer.",
+      "_opaklik_notu": "Izgaradan bir puan düşük (%6 → %5): düzensiz çokgen gözü ortogonal ızgaradan daha çok meşgul eder."
+    },
+    "_UYGULANMAMIŞ": "ÖNEMLİ — BU GEOMETRİ ŞU AN ÇİZİLMİYOR. Depodaki tek motif çizici `polder_motif.dart` ve `DossierTheme` motif bloğundan YALNIZCA opaklığı okuyor (`_yuzde`, `motif.uygulama.opaklik`, 0,02–0,10 arasına kırpılıyor). `motifAralik` bile JSON'dan değil yedekten geliyor (28). Avustralya'nın künyesi bunu aynı açıklıkla yazmıştı ve doğru yapmıştı: okunmayan bir alana değer yazmak, sonraki turda 'tuz poligonu bölüm ayırıcılarında görünüyor' diye yanlış bir cümle yazdırır. Tuz poligonu bir ŞARTNAMEDİR; çizici yazılana kadar sayfada polder motifi görünür ve bu dosyada aksini iddia eden cümle yazılmayacak.",
+    "_yon_alani_yazilmadi": "İspanya'nın künyesinde 'paylaşım kartı yon alanını okuyor' notu var; kodda karşılığı yok — grep ile doğrulandı, `'yon'` hiçbir yerde okunmuyor. Bu yüzden burada da yazılmadı."
+  },
+  "kapak": {
+    "yon": "Tuzdan etkilenmiş sulama ovası — alçak eğik açıyla havadan; tuz poligonları yüzeyde görünecek kadar yakın",
+    "gerekce": "Kapak ile motif aynı şeyi gösteriyor: biri fotoğraf, öteki onun çizgiye indirgenmişi. Hollanda ve Rusya yörüngeden, İspanya yerden, Avustralya yüksekten baktı; burası ikisinin arası — poligon ancak yeterince yakından poligon gibi görünür, ama ancak yeterince yukarıdan ağ gibi.",
+    "gorsel_kaynagi": {
+      "tercih_1": "NASA Earth Observatory / ISS astronot fotoğrafı — kamu malı; Mezopotamya ovası ve bataklıklar için arşivi geniş.",
+      "tercih_2": "Wikimedia Commons, açık lisanslı havadan çekim.",
+      "tercih_3": "FAO / BM fotoğraf kütüphaneleri — LİSANS TEK TEK OKUNACAK, 'BM yayını' açık lisans demek değildir.",
+      "_karar": "Görsel BULUNANA KADAR kapak tipografik iskeletle çalışır — sayfa görselsiz de tam çalışmak zorunda (§3.5).",
+      "_yasak": "Telifi belirsiz hiçbir görsel kullanılmayacak. Google görsel araması kaynak değildir.",
+      "_erisim_uyarisi": "Kaynak turlarında ölçüldü, görsel aramasında bu adreslere gidilmesin: cosit.gov.iq 404, mo-ag.gov.iq 000 (bağlantı kurulmuyor), mowr.gov.iq 200 ama gövde 139 karakter (kabuk), FAO AQUASTAT HTML 200 ama 1.659 karakter (JavaScript kabuğu), IPC 403, UN-ESCWA 403, ReliefWeb API 410, fao.org/3/<belge>.pdf 200 + text/html (YUMUŞAK 404 — durum koduna değil içerik türüne bakılacak)."
+    },
+    "tipografi_katmani": {
+      "ust_satir": "ÜLKE DOSYASI · 05",
+      "baslik": "IRAK",
+      "alt_satir": "tez_cumlesi.tr",
+      "veri_rozeti": "Türkiye'nin tarım ihracatının %14,3'ü tek bir komşuya"
+    },
+    "_rozet_notu": "Rozet 154 katı DEĞİL, %14,3'ü söylüyor. Kat sayısı dosyanın en çarpıcı rakamı ama tek başına okunduğunda Irak'ı küçük gösteriyor; %14,3 ise Irak'ın Türkiye için ne kadar büyük olduğunu söylüyor. Dengesizlik zaten akış grafiğinde çizili.",
+    "_baslik_notu": "En uzun kelime başlığın kendisi: 'IRAK' (4 harf). _KapakAdi puntoyu en uzun kelimeye bakarak küçültüyor (§10.4); dört harf dizinin en kısası — İSPANYA 7, AVUSTRALYA 10, KOOPERATİFLERİ 14. Taşma riski yok; ters yönde kontrol edilecek, punto ÜST sınıra dayanabilir.",
+    "okunurluk": "Görsel üzerine zemin renginden %0 → %85 dikey gradyan; metin yalnızca %60+ bölgede durur."
+  },
+  "_zorunluluklar": [
+    "Grafiklerde iki seri renkle BİRLİKTE biçimle de ayrılacak; bu dosyada parlaklık farkı da var ve üç körlük tipinde benzetilerek ölçüldü (gövdede en kötü 1,59, şeritte en kötü 3,50).",
+    "Tuz poligonu motifi CustomPainter ile çizilecek — ama çizici YAZILANA KADAR sayfada polder motifi görünür; bu dosyada aksini iddia eden cümle yazılmayacak.",
+    "Kapak görseli bulunamazsa sayfa yine de tam çalışacak.",
+    "Koyu sayfa sistem açık/koyu tercihini izlemeyecek; ana sayfa şeridi izleyecek.",
+    "Tüm renkler bu dosyadan türetilen DossierTheme üzerinden gelecek, kodda serbest hex yazılmayacak.",
+    "Palet değişirse _raw/kontrast.py yeniden çalıştırılacak ve buradaki bütün kontrast, ayrışma ve körlük sayıları güncellenecek.",
+    "Ticaret rakamlarını gösteren her görsel öğe rakamların TÜRKİYE'NİN BEYANINDAN olduğunu söyleyecek — Irak muhabir olarak rapor vermiyor."
+  ],
+  "_yasak": [
+    "Irak bayrağı, arması ya da herhangi bir devlet amblemi",
+    "Savaş görüntüsü: asker, tank, yanan petrol kuyusu, patlama, mülteci. Dosyada savaşın tarıma hasarını ölçen bir bölüm var ve o bölüm FAO'nun saha ölçümüne dayanıyor — görsel dil savaş muhabirliğine kaymayacak",
+    "IŞİD'e, herhangi bir silahlı örgüte ya da Saddam dönemi ikonografisine ait hiçbir imge",
+    "Dinî imge, cami silueti, hat sanatı süslemesi — dosya tarımı anlatıyor",
+    "Babil, Ur ya da harabe turizmi klişesi; 'medeniyetin beşiği' kartpostalı. Mezopotamya'nın tarımın doğduğu yer olması METİNDE kaynağıyla duruyor, kapakta dekor olarak değil",
+    "Stok 'çatlamış kurak toprak' fotoğrafı — dosya kuraklığı değil TUZLULUĞU ve drenajı anlatıyor; ikisi farklı şeyler",
+    "Deve, palmiye silueti, gün batımı — ülke klişesi",
+    "Resmî kurum logosu ya da yazı tıpkıbasımı"
+  ]
+}
