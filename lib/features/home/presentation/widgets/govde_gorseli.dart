@@ -27,8 +27,31 @@ import '../../../../core/utils/image_fallback_helper.dart';
 //  yalnızca yanıltır.
 // ══════════════════════════════════════════════════════════════════════════════
 
+/// Gövdedeki görsel adının karşılaştırma biçimi.
+///
+/// Adresler birebir aynı olmayabiliyor: dönüştürme uç noktası sorgu
+/// parametresi ekliyor (`?width=...`) ve kapak bazen `/render/image/`,
+/// gövde `/object/` yolundan geliyor. Karşılaştırma bu yüzden DOSYA ADI
+/// üzerinden yapılıyor.
+String _dosyaAdi(String url) {
+  final q = url.split('?').first;
+  final p = q.split('/');
+  return p.isEmpty ? q : p.last.toLowerCase();
+}
+
 class GovdeGorseli extends HtmlExtension {
-  const GovdeGorseli();
+  /// Haberin KAPAK görseli. Gövdede aynısı geçiyorsa ÇİZİLMİYOR.
+  ///
+  /// Kaynak sayfadan alınan gövdede açılış görseli çoğu zaman metnin de
+  /// içinde duruyor ve kapak olarak zaten yukarıda gösteriliyor. Aynı
+  /// fotoğrafı iki kez göstermek okura hata gibi görünüyor.
+  ///
+  /// Bu kusur eklenti geri yazılana kadar GİZLİYDİ: yerleşik çizici gövde
+  /// görsellerini 100×0 pikselde çiziyordu, yani tekrar da görünmüyordu
+  /// (§31.2). Görsel düzelince tekrar ortaya çıktı.
+  final String? kapakUrl;
+
+  const GovdeGorseli({this.kapakUrl});
 
   @override
   Set<String> get supportedTags => {'img'};
@@ -38,6 +61,11 @@ class GovdeGorseli extends HtmlExtension {
     final src = context.attributes['src']?.trim() ?? '';
     if (src.isEmpty) return const TextSpan(text: '');
     final alt = context.attributes['alt']?.trim() ?? '';
+
+    final kapak = kapakUrl?.trim() ?? '';
+    if (kapak.isNotEmpty && _dosyaAdi(kapak) == _dosyaAdi(src)) {
+      return const TextSpan(text: '');
+    }
 
     return WidgetSpan(
       alignment: PlaceholderAlignment.middle,

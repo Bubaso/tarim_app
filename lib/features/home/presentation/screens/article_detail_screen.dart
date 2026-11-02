@@ -350,7 +350,7 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                                 border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
                               ),
                             },
-                            extensions: const [
+                            extensions: [
                               // `<img>` DEVRALINIYOR (§31.3). Kullanıcı
                               // eklentileri yerleşiklerden önce deneniyor,
                               // yani `ImageBuiltIn` hiç çalışmıyor. Yerleşik
@@ -358,7 +358,9 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               // görsellerini 100×0 pikselde çiziyordu —
                               // yani hiç. `"img"` stil girdisi de kaldırıldı;
                               // eklenti varken hiçbir işe yaramaz.
-                              GovdeGorseli(),
+                              // Kapak görseli gövdede de geçiyorsa
+                              // ÇİZİLMİYOR — aynı fotoğraf iki kez.
+                              GovdeGorseli(kapakUrl: article.imageUrl),
                             ],
                           );
 
