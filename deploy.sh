@@ -247,7 +247,11 @@ done
 # altında boş dizinin uzunluğunu okumak "unbound variable" veriyor.
 if [[ "$TARGETS" == *functions* ]]; then
   eksik_fn=""
-  for imza in SSR_CONTENT sanitizeHtml articleBody; do
+  # categoryRenderer AYRI bir sebeple burada: `firebase.json` /kategori/**
+  # adresini ona yönlendiriyor. Fonksiyon pakette yoksa yönlendirme boşa
+  # düşer ve kategori sayfaları 404 verir — §2.5'te `dossierRenderer` ile
+  # bir kez yaşandı ve dağıtım yalnızca uyarı vermişti.
+  for imza in SSR_CONTENT sanitizeHtml articleBody categoryRenderer; do
     grep -qF -- "$imza" functions/index.js || eksik_fn="$eksik_fn $imza"
   done
   if [[ -n "$eksik_fn" ]]; then

@@ -3810,7 +3810,69 @@ tek uyarı o olacak.
 
 ---
 
-## 42. Depo ↔ canlı ayrışması: `functions/` hâlâ geride — 2 Kasım 2026
+## 42. `functions/` canlıya geri yazıldı — 2 Kasım 2026
+
+> **KAPANDI.** Aşağıdaki ayrışma 2 Kasım 2026'da giderildi; bölüm, neyin neden
+> kaybolduğunu ve nasıl geri kurulduğunu kaydetmek için duruyor.
+
+### Geri yazılanlar
+
+| ne | nasıl doğrulandı |
+|---|---|
+| `ogRenderer` SSR gövdesi (`<article>` + künye + görsel + spot + gövde + nav) | çıktı canlıyla **birebir aynı**: TR 4.064 / 4.064, EN 4.391 / 4.391 karakter |
+| `/en/haber/:id` — iki dilli içerik, `hreflang` üçlüsü, `og:locale` | bütün adresler canlıyla aynı; `/enerji/...` yanlış eşleşmiyor |
+| `sanitizeHtml` (§19.4) | 24 sınama: dokuz saldırı vektörü + yedi kaçış denemesi + sekiz meşru içerik — `functions/ssr_sinama.mjs` |
+| JSON-LD `inLanguage` + `articleBody` + `BreadcrumbList` | articleBody TR 1.814 / EN 2.089 karakter |
+| **`categoryRenderer`** — depoda HİÇ YOKTU | `/kategori/ekonomi` çıktısı canlıyla **birebir**: 10.203 karakter, 60 bağlantı |
+| `sitemap` iki dilli + `xhtml:link` + kategoriler | 2.038 `<url>`, 6.000 `xhtml:link`, 1.000 `/en/`, 6 kategori — dördü de canlıyla aynı |
+| `SITE_ORIGIN` (§1.1.1) | `tarim-app-2026.web.app` → `tarimportali.net` |
+
+Ayrıca `MINIMAL_SHELL`e SSR işaretleri kondu: `shell.html` bulunamadığında
+kabuk yedeğe düşüyordu ve o yedekte işaret olmadığı için gövde **sessizce**
+kayboluyordu.
+
+> **`SITE_ORIGIN` ayrı bir sessiz hataydı.** §1.1.1 kanonik alan adı
+> taşımasını "tamamlandı" diye kaydediyor; taşıma veritabanına ve web
+> kabuğuna uygulanmış, `functions/config.js`e uygulanmamıştı. Bu haliyle
+> dağıtılsaydı `canonical`, `og:url` ve sitemap'in **tamamı** eski konağı
+> gösterirdi ve arama motoru iki ayrı site görürdü. Ders §8.14.3'ün aynısı:
+> belgeye "tamamlandı" yazmak, her dosyada tamamlandığı anlamına gelmiyor.
+
+### Nasıl sınandı — emülatörsüz
+
+`functions/node_modules` kurulu değil ve yalnızca sınama için `npm install`
+gereksiz. `functions/ssr_kosum.mjs` dört dış modülü (`onRequest`,
+`onSchedule`, `initializeApp`, `getMessaging`) taklit edip **üretim
+dosyasının kendisini** geçici bir kopyadan içe aktarıyor, sahte `req`/`res`
+ile çağırıyor ve çıktıyı canlıdan `fetch` edilen HTML'le karşılaştırıyor.
+Kopya ya da yeniden yazım sınanmıyor; çalışan kodun ta kendisi sınanıyor.
+
+`sanitizeHtml` dışarı AÇILMIYOR: `functions/index.js`ten export edilen her
+şeyi Firebase bir bulut fonksiyonu sanmaya çalışıyor. Sınama onu kaynak
+dosyadan metin olarak çıkarıp değerlendiriyor — üretim kodu test uğruna
+değiştirilmiyor. İki koşum da `firebase.json` → `functions.ignore` içinde,
+dağıtıma girmiyorlar.
+
+> **Sınama gerçek bir açık buldu.** İlk `sanitizeHtml` şemayı desenle
+> arıyordu ve `java&#09;script:alert(1)` girdisini GEÇİRİYORDU: entity şema
+> adının ÖNÜNDE değil ORTASINDA, tarayıcı onu çözüp çalıştırıyor. Şimdi değer
+> önce tarayıcının gördüğü hâle getiriliyor (sayısal entity'ler çözülüyor,
+> bütün boşluk ve denetim karakterleri atılıyor), sonra şema sınanıyor.
+
+### Bekçi
+
+`deploy.sh`'ın fonksiyon bekçisi artık dört imza arıyor: `SSR_CONTENT`,
+`sanitizeHtml`, `articleBody` ve **`categoryRenderer`**. Sonuncusu ayrı bir
+sebeple: `firebase.json` `/kategori/**` adresini ona yönlendiriyor ve
+fonksiyon pakette yoksa yönlendirme boşa düşer — §2.5'te `dossierRenderer`
+ile bir kez yaşandı, dağıtım yalnızca uyarı vermişti.
+
+**Belirteç eksik derse belirteç SİLİNMEZ**; eksik olan kod geri yazılır.
+
+---
+
+### Ayrışma neydi (tarihî kayıt)
+
 
 §41 depoyu iCloud'dan çıkardı ve `lib/` canlıyla hizalandı. **Ama hizalanma
 `functions/` tarafını KAPSAMADI** ve bu, üç ayrı denetim ekibinin birbirinden
@@ -3855,10 +3917,11 @@ geçer · imzalar tamsa → geçer.
 Geri yazıldığı an bekçi kendiliğinden susar. Aynı kural §40'ta web tarafı için
 yazılıydı; burası onun fonksiyon karşılığı.
 
-### "local = GitHub = canlı" cümlesi eksik
+### "local = GitHub = canlı" — artık doğru
 
-Doğrusu: **`lib/` + `web/` = GitHub = canlı; `functions/` canlının GERİSİNDE.**
-Bu ayrım yazılmazsa bir sonraki oturum "senkronum" deyip functions dağıtır.
+2 Kasım 2026 öncesinde bu cümle eksikti: `functions/` canlının gerisindeydi.
+Geri yazımdan sonra üç taraf da aynı. Yine de kural duruyor — **ayrışma
+yeniden açılırsa bekçi durdurur**, cümleye güvenilmez.
 
 ### Eski ağaçlar — ölçüldü (2 Kasım 2026)
 

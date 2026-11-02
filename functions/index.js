@@ -63,6 +63,136 @@ import {
 const MARKER_START = '<!-- SOCIAL_META_START -->';
 const MARKER_END = '<!-- SOCIAL_META_END -->';
 
+/// `web/index.html` GÖVDESİNDEKİ ikinci işaret çifti (§19.2). Meta işaretleri
+/// `<head>` içinde; bunlar `<body>` içinde ve aralarına haberin TAM METNİ
+/// yazılıyor. İkisi ayrı olmak zorunda: CanvasKit metni tuvale piksel olarak
+/// çiziyor, DOM'da sıfır karakter kalıyor (§19.1) — arama motoru ve ekran
+/// okuyucu yalnızca buradan okuyor.
+const SSR_START = '<!-- SSR_CONTENT_START -->';
+const SSR_END = '<!-- SSR_CONTENT_END -->';
+
+const MONTHS_EN = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December',
+];
+
+/// Okunur tarih. TR "2 Kasım 2026", EN "November 2, 2026".
+///
+/// Saat dilimi +03:00'e çekiliyor: UTC 21:30'da yayımlanan bir haber ham
+/// UTC'den okunursa Türkiye'de ertesi gün olmasına rağmen bir önceki günün
+/// tarihini gösterirdi.
+function tarihEtiketi(iso, isEn) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return '';
+  const y = new Date(d.getTime() + ISO_TZ_MS);
+  const gun = y.getUTCDate();
+  const ay = y.getUTCMonth();
+  const yil = y.getUTCFullYear();
+  return isEn
+    ? `${MONTHS_EN[ay]} ${gun}, ${yil}`
+    : `${gun} ${MONTHS_TR[ay]} ${yil}`;
+}
+
+/// Bir öznitelik değeri çalıştırılabilir şema taşıyor mu?
+///
+/// Değer, TARAYICININ gördüğü hâle getiriliyor: sayısal entity'ler çözülüyor
+/// ve bütün boşluk/denetim karakterleri atılıyor. `java&#09;script:` ile
+/// `  javascript:` bu geçişten sonra aynı dizeye iniyor.
+const TEHLIKELI_SEMA = /^(?:javascript|vbscript|data):/i;
+
+function semaTehlikeli(deger) {
+  const cozulmus = String(deger)
+    .replace(/&#x([0-9a-f]+);?/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&#(\d+);?/g, (_, d) => String.fromCharCode(parseInt(d, 10)))
+    .replace(/&(?:tab|newline|NewLine);/gi, ' ')
+    .replace(/[\s\u0000-\u0020]/g, '');
+  return TEHLIKELI_SEMA.test(cozulmus);
+}
+
+/// Gövde HTML'i sunucudan, KABUĞUN İÇİNE gömülü gidiyor; oraya sızacak bir
+/// `<script>` sitenin kendi kökeninde çalışırdı (§19.4). Metin Supabase'ten
+/// geliyor ve hat bir dil modeli içeriyor — "bizim verimiz, güvenlidir"
+/// varsayımı burada geçerli değil.
+///
+/// Beyaz liste DEĞİL kara liste: beyaz liste `<table>`, `<figure>`,
+/// `<blockquote>`, `.dsy-*` sınıfları (§39.1) gibi meşru yapıyı da düşürürdü
+/// ve gövde arama motoruna yoksullaşmış giderdi. Tehlikeli olan kümesi
+/// kapalı ve küçük.
+function sanitizeHtml(html) {
+  if (!html) return '';
+  let s = String(html);
+
+  // 1) Tehlikeli bloklar İÇERİĞİYLE BİRLİKTE gider. Yalnızca etiketi silmek
+  //    `<script>alert(1)</script>` girdisinde gövdeye "alert(1)" metnini
+  //    bırakırdı.
+  s = s.replace(
+    /<(script|style|iframe|object|embed|form|noscript|template|svg|math)\b[^>]*>[\s\S]*?<\/\1\s*>/gi,
+    '',
+  );
+  // Kapanışı olmayan açılış da gider; aksi hâlde `<script src=…>` kalırdı.
+  s = s.replace(
+    /<\/?(script|style|iframe|object|embed|form|noscript|template|svg|math|base|link|meta)\b[^>]*>/gi,
+    '',
+  );
+
+  // 2) Olay öznitelikleri. Üç tırnaklama biçimi de var: "…", '…' ve tırnaksız.
+  s = s.replace(/\son[a-z]+\s*=\s*"[^"]*"/gi, '')
+       .replace(/\son[a-z]+\s*=\s*'[^']*'/gi, '')
+       .replace(/\son[a-z]+\s*=\s*[^\s>]+/gi, '');
+
+  // 3) Çalıştırılabilir hedefler. Desenle aramak YETMİYOR: entity şema
+  //    adının ORTASINDA olabiliyor (`java&#09;script:`) ve tarayıcı onu
+  //    çözüp `javascript:` olarak okuyor. İlk sürüm yalnızca şemanın ÖNÜNDEKİ
+  //    boşluk ve entity'leri atıyordu; sınama tam bu vektörü yakaladı.
+  //    Bu yüzden önce değer ÇÖZÜLÜYOR, sonra şema sınanıyor.
+  s = s.replace(
+    /\s(?:href|src|xlink:href|action|data)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi,
+    (tam, q2, q1, nq) => (semaTehlikeli(q2 ?? q1 ?? nq ?? '') ? '' : tam),
+  );
+
+  // 4) `srcdoc` ve `formaction` şemasız hâlleriyle de tehlikeli.
+  s = s.replace(/\s(?:srcdoc|formaction)\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+
+  return s;
+}
+
+/// Tarayıcı botu için bağlantı iskeleti. §19.1'in teşhisi yalnızca metin
+/// değildi: "hiç link olmadığı için tarayıcı siteye girip hiçbir yere
+/// gidemiyordu". Bu blok her SSR sayfasının sonunda duruyor.
+///
+/// Etiketler Türkçe yol adından türetiliyor ve İKİ DİLDE DE aynı: bu bir
+/// okuma metni değil, tarayıcıya verilen bir yol haritası.
+const NAV_KATEGORILER = [
+  'turkiye', 'dunya', 'tarim-bilim', 'hayvancilik', 'bitkisel-uretim', 'ekonomi',
+];
+
+function navBloku() {
+  const yollar = [
+    ...STATIC_ROUTES.map((r) => r.path),
+    ...NAV_KATEGORILER.map((s) => `/kategori/${s}`),
+  ];
+  const ogeler = yollar.map((p) => {
+    const etiket = p === '/' ? 'Ana sayfa' : p.slice(1).replaceAll('-', ' ');
+    return `<li><a href="${escapeHtml(SITE_ORIGIN + p)}">${escapeHtml(etiket)}</a></li>`;
+  });
+  return `<nav aria-label="Site haritası"><ul>${ogeler.join('')}</ul></nav>`;
+}
+
+/// Gövde işaretlerinin arasını doldurur. İşaret yoksa kabuk olduğu gibi
+/// döner — `inject` ile aynı gerekçe: bozuk HTML üretmektense
+/// zenginleştirmeden vazgeçmek yeğdir.
+///
+/// Okuyucu bunu GÖRMÜYOR: `web/index.html` içindeki `hide()` bloğu Flutter
+/// ilk kareyi çizer çizmez `#ssr-content` düğümünü DOM'dan siliyor (§19.3).
+/// Silme şart — bırakılırsa ekran okuyucu aynı haberi iki kez okur.
+function injectSsr(shell, body) {
+  const start = shell.indexOf(SSR_START);
+  const end = shell.indexOf(SSR_END);
+  if (start === -1 || end === -1 || end < start) return shell;
+  return shell.slice(0, start) + SSR_START + body + SSR_END + shell.slice(end + SSR_END.length);
+}
+
 /// `shell.html` bulunamazsa kullanılan asgari kabuk. Flutter'ın açılması için
 /// gereken tek şey `<base>` ve `flutter_bootstrap.js`; ikisi de burada.
 ///
@@ -80,7 +210,9 @@ const MINIMAL_SHELL = `<!DOCTYPE html>
   ${MARKER_END}
   <link rel="manifest" href="manifest.json">
 </head>
-<body><script src="flutter_bootstrap.js" async></script></body>
+<body>
+${SSR_START}${SSR_END}
+<script src="flutter_bootstrap.js" async></script></body>
 </html>
 `;
 
@@ -325,16 +457,33 @@ async function supabaseRpc(name, args = {}, timeoutMs = SUPABASE_TIMEOUT_MS) {
 /// içerir. `title` ise paylaşım kartındaki başlık ve marka adı İÇERMEZ:
 /// `og:site_name` zaten ayrı bir alan, ikisini birleştirmek kartta markanın
 /// iki kez okunmasına yol açar.
-function metaTags({ title, documentTitle, description, image, url, publishedAt, type }) {
+function metaTags({
+  title, documentTitle, description, image, url, publishedAt, type,
+  // Varsayılanlar GERİYE DÖNÜK: weekRenderer ve dossierRenderer bu fonksiyonu
+  // eski imzasıyla çağırıyor ve davranışları hiç değişmiyor.
+  isEn = false,
+  altTr = null,
+  altEn = null,
+}) {
   const lines = [
     MARKER_START,
     `  <title>${escapeHtml(documentTitle)}</title>`,
     `  <meta name="description" content="${escapeHtml(description)}">`,
     `  <link rel="canonical" href="${escapeHtml(url)}">`,
+    // hreflang KARŞILIKLI olmak zorunda: tek yönlü bildirim Google tarafından
+    // sessizce yok sayılıyor (§19.7). Üç satır İKİ sayfada da birebir aynı
+    // basılıyor. `x-default` Türkçeye gidiyor.
+    ...(altTr && altEn
+      ? [
+          `  <link rel="alternate" hreflang="tr" href="${escapeHtml(altTr)}">`,
+          `  <link rel="alternate" hreflang="en" href="${escapeHtml(altEn)}">`,
+          `  <link rel="alternate" hreflang="x-default" href="${escapeHtml(altTr)}">`,
+        ]
+      : []),
     '',
     `  <meta property="og:type" content="${type}">`,
     `  <meta property="og:site_name" content="${escapeHtml(SITE_NAME)}">`,
-    `  <meta property="og:locale" content="tr_TR">`,
+    `  <meta property="og:locale" content="${isEn ? 'en_US' : 'tr_TR'}">`,
     `  <meta property="og:title" content="${escapeHtml(title)}">`,
     `  <meta property="og:description" content="${escapeHtml(description)}">`,
     `  <meta property="og:url" content="${escapeHtml(url)}">`,
@@ -372,13 +521,19 @@ function metaTags({ title, documentTitle, description, image, url, publishedAt, 
 /// yapılandırılmış veri. `JSON.stringify` tırnak ve ters bölü kaçışını yapar;
 /// `</script>` dizisini ayrıca kırmak gerekir, aksi hâlde betik bloğu erken
 /// kapanır.
-function jsonLd(article, url, title, description, image) {
+function jsonLd(article, url, title, description, image, isEn = false, bodyText = '') {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: truncate(title, 110),
     description,
     image: [image],
+    inLanguage: isEn ? 'en' : 'tr',
+    // Gövdenin DÜZ METNİ. `<article>` zaten sayfada duruyor ama Google
+    // yapılandırılmış veriyi ayrıca okuyor ve alıntı/öne çıkan sonuçlarda onu
+    // kullanıyor. Boşsa alan HİÇ yazılmıyor: boş bir `articleBody`
+    // "bu haberin metni yok" demek olurdu.
+    articleBody: bodyText || undefined,
     datePublished: article.created_at ?? undefined,
     dateModified: article.created_at ?? undefined,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -393,8 +548,27 @@ function jsonLd(article, url, title, description, image) {
     },
   };
 
-  const json = JSON.stringify(data).replaceAll('</', '<\\/');
-  return `<script type="application/ld+json">${json}</script>`;
+  // Ekmek kırıntısı AYRI bir blok. Tek diziye koymak da geçerli ama ayrı
+  // tutmak, birinin bozulmasının ötekini düşürmesini engelliyor.
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: SITE_NAME,
+        item: isEn ? `${SITE_ORIGIN}/en` : `${SITE_ORIGIN}/`,
+      },
+      { '@type': 'ListItem', position: 2, name: title, item: url },
+    ],
+  };
+
+  const yaz = (o) => JSON.stringify(o).replaceAll('</', '<\\/');
+  return (
+    `<script type="application/ld+json">${yaz(data)}</script>` +
+    `\n  <script type="application/ld+json">${yaz(breadcrumb)}</script>`
+  );
 }
 
 /// İşaretli bloğu yenisiyle değiştirir. İşaretler bulunamazsa (birisi
@@ -422,6 +596,12 @@ export const ogRenderer = onRequest(
     res.set('Cache-Control', ARTICLE_CACHE);
 
     try {
+      // Aynı fonksiyon İKİ DİLİ birden karşılıyor; ayrımı yol yapıyor
+      // (`firebase.json` hem `/haber/**` hem `/en/haber/**` adresini buraya
+      // yönlendiriyor). Desen `/enerji/...` gibi adreslere YANLIŞ eşleşmiyor:
+      // `en`den sonra ya eğik çizgi ya yolun sonu aranıyor (§19.7).
+      const isEn = /^\/en(\/|$)/.test(req.path);
+
       const id = req.path.split('/').filter(Boolean).pop() ?? '';
       if (!UUID_RE.test(id)) {
         res.status(200).send(SHELL);
@@ -429,7 +609,8 @@ export const ogRenderer = onRequest(
       }
 
       const rows = await supabaseGet(
-        `articles?id=eq.${id}&select=id,title,summary,content,image_url,created_at,source_name&limit=1`,
+        `articles?id=eq.${id}&select=id,title,title_en,summary,summary_en,spot,spot_en,` +
+          `content,content_en,image_url,created_at,source_name&limit=1`,
       );
       const article = Array.isArray(rows) ? rows[0] : null;
       if (!article) {
@@ -437,14 +618,27 @@ export const ogRenderer = onRequest(
         return;
       }
 
-      const url = `${SITE_ORIGIN}/haber/${article.id}`;
-      // 90 karakter: Facebook ve X başlığı bu civarda kesiyor. Kendi
-      // sınırımızı koyup kelime sınırında kırpmak, ortasından kesilmiş bir
-      // başlıktan iyi.
-      const title = truncate(toPlainText(article.title) || SITE_NAME, 90);
+      const trUrl = `${SITE_ORIGIN}/haber/${article.id}`;
+      const enUrl = `${SITE_ORIGIN}/en/haber/${article.id}`;
+      const url = isEn ? enUrl : trUrl;
+
+      // Çeviri eksikse TÜRKÇEYE düşülüyor: yarım çevrilmiş bir sayfa, hiç
+      // açılmayan bir adresten iyi. Çeviri hattı başarısızlıkta bu alanları
+      // NULL bırakıyor, yani bu yedek gerçekten devreye giriyor (§19.7).
+      const sec = (en, tr) => (isEn ? ((en ?? '').trim() || tr) : tr);
+      const hamBaslik = sec(article.title_en, article.title);
+      const hamOzet =
+        sec(article.summary_en, article.summary) || sec(article.spot_en, article.spot);
+      const hamGovde = sec(article.content_en, article.content);
+
+      // 90 karakter: Facebook ve X başlığı bu civarda kesiyor. Kendi sınırımızı
+      // koyup kelime sınırında kırpmak, ortasından kesilmiş bir başlıktan iyi.
+      const title = truncate(toPlainText(hamBaslik) || SITE_NAME, 90);
       const description =
-        truncate(toPlainText(article.summary) || toPlainText(article.content), 160) ||
-        'Türkiye tarım, hayvancılık ve ekonomi haberleri.';
+        truncate(toPlainText(hamOzet) || toPlainText(hamGovde), 160) ||
+        (isEn
+          ? 'Agriculture, livestock and economy news from Türkiye.'
+          : 'Türkiye tarım, hayvancılık ve ekonomi haberleri.');
       const image = safeImageUrl(article.image_url);
 
       const block = metaTags({
@@ -455,15 +649,199 @@ export const ogRenderer = onRequest(
         url,
         publishedAt: article.created_at,
         type: 'article',
+        isEn,
+        altTr: trUrl,
+        altEn: enUrl,
       });
 
-      res
-        .status(200)
-        .send(inject(SHELL, block, jsonLd(article, url, title, description, image)));
+      // ── Gövde (§19.2) ────────────────────────────────────────────────────
+      // Buraya kadar olan kısım yalnızca `<head>`i dolduruyordu ve haber başına
+      // ~250 karakter ediyordu; haberler 2.000–8.000 karakter. Asıl metin
+      // aşağıda, `<article>` olarak gidiyor.
+      const govde = sanitizeHtml(hamGovde);
+      const duzMetin = toPlainText(hamGovde);
+      const tarih = tarihEtiketi(article.created_at, isEn);
+      const kaynak = (article.source_name ?? '').trim();
+      const ozet = toPlainText(hamOzet);
+
+      const parcalar = [`<h1>${escapeHtml(title)}</h1>`];
+
+      // Künye satırı: makine okunur `datetime` + insan okunur etiket. İkisi
+      // ayrı olmak zorunda — Google tarihi `datetime` özniteliğinden alıyor.
+      const kunye = [
+        article.created_at
+          ? `<time datetime="${escapeHtml(article.created_at)}">${escapeHtml(tarih)}</time>`
+          : '',
+        kaynak ? escapeHtml(kaynak) : '',
+      ]
+        .filter(Boolean)
+        .join(' · ');
+      if (kunye) parcalar.push(`<p>${kunye}</p>`);
+
+      if (image) {
+        // Ölçüler sabit yazılabiliyor çünkü her görsel depoya 1200×630 olarak
+        // giriyor (`image_storage.normalize_for_social`) — og etiketleriyle
+        // aynı dayanak.
+        parcalar.push(
+          `<img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" width="1200" height="630">`,
+        );
+      }
+      if (ozet) parcalar.push(`<p><strong>${escapeHtml(ozet)}</strong></p>`);
+      if (govde) parcalar.push(govde);
+
+      // Öteki dile GÖRÜNÜR bağlantı. `hreflang` etiketleri `<head>`te zaten
+      // var ama onlar bir bildirim; tarayıcının izleyebileceği bir bağlantı
+      // değil. §19.1'in teşhisi buydu: "hiç link olmadığı için tarayıcı
+      // siteye girip hiçbir yere gidemiyordu".
+      parcalar.push(
+        `<p><a href="${escapeHtml(isEn ? trUrl : enUrl)}" ` +
+          `hreflang="${isEn ? 'tr' : 'en'}">${isEn ? 'Türkçe' : 'English'}</a></p>`,
+      );
+
+      const ssr =
+        `<div id="ssr-content" lang="${isEn ? 'en' : 'tr'}">` +
+        `<article>${parcalar.join('')}</article>` +
+        navBloku() +
+        `</div>`;
+
+      const kabuk = inject(
+        SHELL,
+        block,
+        jsonLd(article, url, title, description, image, isEn, duzMetin),
+      );
+      res.status(200).send(injectSsr(kabuk, ssr));
     } catch (err) {
       // Zaman aşımı, ağ hatası, beklenmedik yanıt biçimi… hepsi aynı sonuca
       // çıkar: okuyucu haberi görebilmeli.
       console.error('ogRenderer', err);
+      res.status(200).send(SHELL);
+    }
+  },
+);
+
+// ─── /kategori/** ──────────────────────────────────────────────────────────
+
+/// Kategori sayfaları `robots.txt`te açık (§19.8) ve `firebase.json` onları
+/// BU fonksiyona yönlendiriyor. Fonksiyon yoksa yönlendirme boşa düşer ve
+/// kategori sayfaları 404 verir — §2.5'te `dossierRenderer` ile bir kez
+/// yaşandı.
+///
+/// Süzgeçler İSTEMCİDEKİYLE BİREBİR olmak zorunda
+/// (`home_providers.dart` → `_articleIsTurkey`/`_articleIsWorld`/
+/// `_articleIsScience`, `category_catalog.dart`). Ayrışırlarsa kategori
+/// sayfası arama sonucunda uygulamadakinden başka haberler vaat eder.
+///
+/// Değerler veritabanından ÖLÇÜLDÜ (2 Kas 2026, yayındaki 1.000 haber):
+/// region ∈ {Türkiye, Dünya} · topic ∈ {Ekonomi, Bitkisel Üretim, Hayvancılık,
+/// Genel, Tarım-Bilim, YYT}. Büyük/küçük harf kayması yok, bu yüzden eşitlik
+/// süzgeci güvenli — istemcinin yaptığı `toLowerCase()` burada TEKRARLANMIYOR:
+/// JavaScript'te `'Tarım-Bilim'.toLowerCase()` noktalı i'yi birleşik karaktere
+/// çeviriyor ve eşleşmeyi sessizce düşürürdü (§39.5).
+const KATEGORILER = {
+  turkiye: {
+    tr: 'Türkiye\'den Haberler',
+    en: 'News From Turkey',
+    filtre: `region=eq.${encodeURIComponent('Türkiye')}`,
+  },
+  dunya: {
+    tr: 'Dünyadan Haberler',
+    en: 'World News',
+    // `or=` yapısının virgülleri AYIRAÇ; yalnızca değerler kodlanıyor.
+    // Tümünü `encodeURIComponent`ten geçirmek virgülleri de kodlar ve
+    // PostgREST ifadeyi tek bir değer sanar.
+    filtre:
+      `or=(region.eq.${encodeURIComponent('Dünya')},` +
+      `region.eq.${encodeURIComponent('Uluslararası')},` +
+      `region.eq.${encodeURIComponent('Küresel')})`,
+  },
+  'tarim-bilim': {
+    tr: 'Tarım-Bilim ve Raporlar',
+    en: 'Science & Reports',
+    filtre:
+      `or=(topic.eq.${encodeURIComponent('Tarım-Bilim')},` +
+      `topic.eq.${encodeURIComponent('YYT')})`,
+  },
+  hayvancilik: {
+    tr: 'Hayvancılık',
+    en: 'Livestock',
+    filtre: `topic=eq.${encodeURIComponent('Hayvancılık')}`,
+  },
+  'bitkisel-uretim': {
+    tr: 'Bitkisel Üretim',
+    en: 'Crop Production',
+    filtre: `topic=eq.${encodeURIComponent('Bitkisel Üretim')}`,
+  },
+  ekonomi: {
+    tr: 'Ekonomi',
+    en: 'Ekonomi',
+    filtre: `topic=eq.${encodeURIComponent('Ekonomi')}`,
+  },
+};
+
+const KATEGORI_SLUG_RE = /^[a-z-]{1,32}$/;
+
+export const categoryRenderer = onRequest(
+  { region: REGION, memory: '256MiB', maxInstances: 10, invoker: 'public' },
+  async (req, res) => {
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.set('Cache-Control', ARTICLE_CACHE);
+
+    try {
+      const slug = req.path.split('/').filter(Boolean).pop() ?? '';
+      const kat = KATEGORI_SLUG_RE.test(slug) ? KATEGORILER[slug] : null;
+      if (!kat) {
+        // Tanımsız slug: kabuk 200 ile dönüyor, uygulama kendi 404'ünü çiziyor.
+        res.status(200).send(SHELL);
+        return;
+      }
+
+      const url = `${SITE_ORIGIN}/kategori/${slug}`;
+      const title = kat.tr;
+      const description = `${title} — ${SITE_NAME}'nda güncel haberler, analizler ve veriler.`;
+
+      const block = metaTags({
+        title,
+        documentTitle: `${title} | ${SITE_NAME}`,
+        description,
+        image: FALLBACK_IMAGE,
+        url,
+        type: 'website',
+      });
+
+      // 60 haber: altı kategori × 60 = 360 iç bağlantı. Daha fazlası tarama
+      // bütçesini arşivin derinine değil aynı sayfaya harcatır; sitemap zaten
+      // arşivin tamamını taşıyor.
+      let liste = '';
+      try {
+        const rows = await supabaseGet(
+          `articles?status=eq.published&${kat.filtre}` +
+            `&select=id,title&order=created_at.desc&limit=60`,
+        );
+        liste = (Array.isArray(rows) ? rows : [])
+          .filter((r) => r?.id && r?.title)
+          .map(
+            (r) =>
+              `<li><a href="${escapeHtml(`${SITE_ORIGIN}/haber/${r.id}`)}">` +
+              `${escapeHtml(toPlainText(r.title))}</a></li>`,
+          )
+          .join('');
+      } catch (err) {
+        // Liste çekilemezse başlık ve açıklama yine de gitsin: boş bir
+        // kategori sayfası, 500'den iyi.
+        console.error('categoryRenderer liste', err);
+      }
+
+      const ssr =
+        `<div id="ssr-content">` +
+        `<h1>${escapeHtml(title)}</h1>` +
+        `<p>${escapeHtml(description)}</p>` +
+        (liste ? `<ul>${liste}</ul>` : '') +
+        navBloku() +
+        `</div>`;
+
+      res.status(200).send(injectSsr(inject(SHELL, block), ssr));
+    } catch (err) {
+      console.error('categoryRenderer', err);
       res.status(200).send(SHELL);
     }
   },
@@ -676,8 +1054,17 @@ const STATIC_ROUTES = [
   { path: '/cerezler', priority: '0.3', changefreq: 'yearly' },
 ];
 
-function urlEntry({ loc, lastmod, changefreq, priority }) {
+function urlEntry({ loc, lastmod, changefreq, priority, alternates = null }) {
   const parts = [`    <loc>${escapeHtml(loc)}</loc>`];
+  // Alternatifi yalnızca `xhtml:link` ile bildirmek YETMİYOR: alternatif
+  // taranır ama bağımsız bir giriş sayılmaz ve indeksleme gecikir (§19.7).
+  // Bu yüzden her haber sitemap'e İKİ KEZ giriyor; bu satırlar ikisini
+  // birbirine bağlıyor.
+  for (const a of alternates ?? []) {
+    parts.push(
+      `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${escapeHtml(a.href)}"/>`,
+    );
+  }
   if (lastmod) parts.push(`    <lastmod>${escapeHtml(lastmod)}</lastmod>`);
   if (changefreq) parts.push(`    <changefreq>${changefreq}</changefreq>`);
   if (priority) parts.push(`    <priority>${priority}</priority>`);
@@ -694,6 +1081,19 @@ export const sitemap = onRequest(
         priority: r.priority,
       }),
     );
+
+    // Kategori sayfaları `robots.txt`te açık ve kendi içeriklerini sunucudan
+    // veriyorlar (`categoryRenderer`); sitemap'te yoklarsa tarayıcı onları
+    // yalnızca iç bağlantıdan bulur.
+    for (const slug of NAV_KATEGORILER) {
+      entries.push(
+        urlEntry({
+          loc: `${SITE_ORIGIN}/kategori/${slug}`,
+          changefreq: 'daily',
+          priority: '0.8',
+        }),
+      );
+    }
 
     // Son 12 haftanın özet sayfaları. Daha eskisine gerek yok: haftalık
     // derlemenin değeri güncelliğinde ve haberlerin kendisi zaten aşağıda
@@ -726,13 +1126,24 @@ export const sitemap = onRequest(
       );
       for (const row of Array.isArray(rows) ? rows : []) {
         if (!row?.id) continue;
+        const trLoc = `${SITE_ORIGIN}/haber/${row.id}`;
+        const enLoc = `${SITE_ORIGIN}/en/haber/${row.id}`;
+        const lastmod = row.created_at ? String(row.created_at).slice(0, 10) : null;
+        // Üçü de İKİ girişte de birebir aynı; hreflang karşılıklı olmazsa
+        // Google bildirimi sessizce yok sayıyor.
+        const alternates = [
+          { hreflang: 'tr', href: trLoc },
+          { hreflang: 'en', href: enLoc },
+          { hreflang: 'x-default', href: trLoc },
+        ];
         entries.push(
-          urlEntry({
-            loc: `${SITE_ORIGIN}/haber/${row.id}`,
-            lastmod: row.created_at ? String(row.created_at).slice(0, 10) : null,
-            changefreq: 'weekly',
-            priority: '0.9',
-          }),
+          urlEntry({ loc: trLoc, lastmod, changefreq: 'weekly', priority: '0.9', alternates }),
+        );
+        // İngilizcenin önceliği bir kademe aşağıda: çeviri Türkçeden türetiliyor
+        // ve bir çakışmada kanonik olan Türkçe olmalı (`x-default` de oraya
+        // gidiyor).
+        entries.push(
+          urlEntry({ loc: enLoc, lastmod, changefreq: 'weekly', priority: '0.7', alternates }),
         );
       }
     } catch (err) {
@@ -773,7 +1184,10 @@ export const sitemap = onRequest(
     res.set('Cache-Control', 'public, max-age=600, s-maxage=3600');
     res.status(200).send(
       `<?xml version="1.0" encoding="UTF-8"?>\n` +
-        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+        // `xmlns:xhtml` ZORUNLU: tanımsız önek sitemap'in TAMAMINI
+        // geçersiz kılar, yalnızca o satırları değil (§19.7).
+        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
+        `        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
         `${entries.join('\n')}\n` +
         `</urlset>\n`,
     );

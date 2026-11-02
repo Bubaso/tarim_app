@@ -15,7 +15,12 @@ export const SUPABASE_ANON_KEY =
 /// Kanonik adres. Özel alan adına geçilirse burası güncellenmelidir —
 /// `og:url` ve `<link rel="canonical">` bu değerden üretilir ve sosyal
 /// platformlar farklı kökleri ayrı sayfa sayar.
-export const SITE_ORIGIN = 'https://tarim-app-2026.web.app';
+// KANONİK ALAN ADI (§1.1.1). `tarim-app-2026.web.app` aynı Firebase sitesini
+// sunmaya devam ediyor ama kanonik adres bu DEĞİL. Burası eski adreste
+// kalmıştı: canonical, og:url ve sitemap'in tamamı yanlış konağı gösterirdi
+// ve arama motoru iki ayrı site görürdü. Canlı doğru adresi kullanıyor;
+// ayrışan depoydu.
+export const SITE_ORIGIN = 'https://tarimportali.net';
 
 export const SITE_NAME = 'Tarım Portalı';
 
