@@ -532,3 +532,45 @@ ICARDA ile onarım projesi var. Kayıp iddiası yazılmadı.
 metninde harfi harfine bulunmaz. Bu DÜŞÜRMÜYOR, kayda geçiyor — ama muafiyet
 uydurma alıntıya kapı açmasın diye bölüm başına alıntı SAYISI iki dilde aynı
 olmak zorunda (9. avcı). §13'te yedi çeviri alıntısı var ve yedisi de kayıtlı.
+
+## TUR 8 DÜZELTMESİ — UZUNLUK (kullanıcı uyarısı, 2 Kasım 2026)
+
+Dosya 14 bölüm ve **2.544 kelimeyle dizinin en kısasıydı**:
+
+| | bölüm | gövde | bölüm başına |
+|---|---:|---:|---:|
+| Hollanda (01) | 17 | 5.325 | 332 |
+| Rusya (02) | 20 | 4.928 | 259 |
+| Avustralya (04) | 17 | 3.788 | 236 |
+| Irak — ÖNCE | 14 | 2.544 | 195 |
+| **Irak — SONRA** | **18** | **4.470** | **262** |
+
+"Kaynak az" gerekçe değildi: eklenen dört bölümün tamamı veri katmanında
+DURAN ama hiçbir bölümde geçmeyen bloklardan geldi.
+
+### §8 — sekiz tur boyunca görülmemiş bulgu
+
+Üretim = alan × verim. Ayrıştırılınca hurmanın hikâyesi değişti: üretim 1,7
+kat artmış görünüyor ama **alan 2,45 kat artmış, verim 0,62 kata düşmüş**.
+Dünya payının %18,9'dan %5,9'a inişinin mekanizması bu. Sekiz tur boyunca
+üretim serisine tek başına bakılmıştı.
+
+### Yanlış grafik türü seçtim ve golden ölçerek yakaladım
+
+§8 için önce `ikili_cubuk` kullandım. Çizici o türde **her satırı kendi içinde
+ölçekliyor** (`dossier_chart_view.dart` satır 263); `siralama` ise grafik
+genelinde (satır 373). Yani mısırın 50 katlık alanı, pirincin 2 katıyla aynı
+uzunlukta çiziliyordu. Doğrulayıcı bunu göremez — tür geçerli, @yollar çözülü,
+dokuz kural yeşil. Golden'ın piksel genişlikleri ölçülerek bulundu. İki
+`siralama`ya çevrildi.
+
+`savas_hasari`'nın notu zaten söylüyormuş: "her satır kendi içinde %100'e
+tamamlanıyor". `ikili_cubuk` BİLEŞİM içindir, büyüklük karşılaştırması için
+değil. Bu ayrım yayin.json'a yazıldı.
+
+### Göçe uzunluk sağlaması eklendi
+
+Gövde 4.300 kelimenin altına düşerse migration durur. İlk sürümü yalnız
+boşluk sayıyordu ve 4.470 kelimelik gövdeyi 4.020 görüp göçü haksız yere
+durduruyordu — metin sabit genişlikte sarılı, kelimelerin bir kısmını satır
+sonu ayırıyor. Satır sonu da ayraç sayıldı.

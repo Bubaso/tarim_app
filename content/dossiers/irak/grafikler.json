@@ -531,6 +531,140 @@
         }
       ]
     },
+    "verim_katlari": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Hangi üründe verim arttı",
+        "en": "Where yield rose"
+      },
+      "not": {
+        "tr": "İlk ölçüm yılı ile 2024 arasında hektar başına alınan ürünün katı. 1,00 çizgisi değişmedi demek; altı düştü demek. Mısır 5,27 katla ülkenin en büyük tarımsal kazancı. Arpa 0,94 ve hurma 0,62 ile altmış üç yıl önce alınandan AZ veriyor. Aynı ülkede, aynı yıllarda, bir ürün beş kat iyileşirken bir başkası geriledi.",
+        "en": "The multiple of harvest per hectare between each crop's first measured year and 2024. The 1.00 line means unchanged; below it means a fall. Maize, at 5.27, is the country's largest agricultural gain. Barley at 0.94 and dates at 0.62 give LESS than they gave sixty-three years ago. In the same country and the same years, one crop improved fivefold while another went backwards."
+      },
+      "kaynak": "FAOSTAT · üretim ve hasat edilen alan",
+      "sonek": {
+        "tr": " kat",
+        "en": "×"
+      },
+      "ondalik": 2,
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Mısır",
+            "en": "Maize"
+          },
+          "deger": "@turetilmis.verim_misir.verim_kat",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "deger": "@turetilmis.verim_bugday.verim_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Domates",
+            "en": "Tomatoes"
+          },
+          "deger": "@turetilmis.verim_domates.verim_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Pirinç",
+            "en": "Rice"
+          },
+          "deger": "@turetilmis.verim_pirinc.verim_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "deger": "@turetilmis.verim_arpa.verim_kat",
+          "rol": "sessiz"
+        },
+        {
+          "etiket": {
+            "tr": "Hurma",
+            "en": "Dates"
+          },
+          "deger": "@turetilmis.verim_hurma.verim_kat",
+          "rol": "sessiz"
+        }
+      ]
+    },
+    "alan_katlari": {
+      "tur": "siralama",
+      "baslik": {
+        "tr": "Hangi ürüne daha çok yer ayrıldı",
+        "en": "Where more ground was given"
+      },
+      "not": {
+        "tr": "Aynı dönemde ekilen alanın katı. Mısır 50 kat — 2.000 hektardan 100.000'e. Hurmada alan 2,45 kat arttı ama bir önceki grafikte verimi 0,62 kata inmişti: üretimin artmış görünmesi daha çok ağaçtan geliyor, daha iyi hasattan değil. Arpa 0,19 kat, yani beşte bire indi — dosyadaki tek gerçek terk. Mısırın katı ötekilerin yirmi katından büyük olduğu için kalan beş çubuk aynı cetvelde neredeyse görünmez kalıyor; sıfır oldukları için değil, mısır yanlarında durduğu için. Değerleri çubukların yanında yazılı.",
+        "en": "The multiple of sown area over the same period. Maize is 50 — from two thousand hectares to a hundred thousand. The date area rose 2.45-fold while the previous chart showed its yield falling to 0.62: output looks higher because there are more trees, not because the harvest improved. Barley fell to 0.19, a fifth — the only real abandonment in the dossier. Because maize's multiple is more than twenty times the others', the remaining five bars are almost invisible on the same ruler — not because they are zero but because maize stands beside them. Their values are printed next to the bars."
+      },
+      "kaynak": "FAOSTAT · üretim ve hasat edilen alan",
+      "sonek": {
+        "tr": " kat",
+        "en": "×"
+      },
+      "ondalik": 2,
+      "satirlar": [
+        {
+          "etiket": {
+            "tr": "Mısır",
+            "en": "Maize"
+          },
+          "deger": "@turetilmis.verim_misir.alan_kat",
+          "rol": "vurgu"
+        },
+        {
+          "etiket": {
+            "tr": "Hurma",
+            "en": "Dates"
+          },
+          "deger": "@turetilmis.verim_hurma.alan_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Pirinç",
+            "en": "Rice"
+          },
+          "deger": "@turetilmis.verim_pirinc.alan_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Buğday",
+            "en": "Wheat"
+          },
+          "deger": "@turetilmis.verim_bugday.alan_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Domates",
+            "en": "Tomatoes"
+          },
+          "deger": "@turetilmis.verim_domates.alan_kat",
+          "rol": "ikincil"
+        },
+        {
+          "etiket": {
+            "tr": "Arpa",
+            "en": "Barley"
+          },
+          "deger": "@turetilmis.verim_arpa.alan_kat",
+          "rol": "sessiz"
+        }
+      ]
+    },
     "hurma_payi": {
       "tur": "cizgi",
       "baslik": {
@@ -739,101 +873,6 @@
             "tr": "Türkiye yapıları esas bakımından kabul ediyor; her biri ayrı bir anlaşmaya konu olacak ve o anlaşma Türkiye'nin kendi sulama ve enerji kullanımını da kapsayacak. Türkiye tasarılarını Irak'a \"haber vermeyi kabul eyler\".",
             "en": "Turkey accepts the works in principle; each would be the subject of a separate agreement, and that agreement would cover Turkey's own use of them for irrigation and energy. Turkey \"accepts to inform\" Iraq of its plans."
           }
-        }
-      ]
-    },
-    "verim_alan": {
-      "tur": "ikili_cubuk",
-      "baslik": {
-        "tr": "Üretim arttıysa, hangisinden arttı",
-        "en": "If output rose, which half rose"
-      },
-      "not": {
-        "tr": "Üretim = alan × verim. Bir üretim serisine tek başına bakmak yanıltır. Her ürün için ilk ölçüm yılı ile 2024 arasındaki kat gösteriliyor; 1,00 değişmedi demek. Mısırda verim 5,27 kat arttı — ülkenin en büyük tarımsal kazancı. Hurmada ise alan 2,45 kat artarken VERİM 0,62 kata indi: üretimin artmış görünmesi daha çok ağaç dikilmesinden geliyor, daha iyi hasattan değil. Arpada ikisi de düştü.",
-        "en": "Output = area × yield. Reading an output series alone misleads. For each crop the chart shows the multiple between its first measured year and 2024; 1.00 means unchanged. Maize yield rose 5.27-fold — the country's largest agricultural gain. For dates the area rose 2.45-fold while YIELD fell to 0.62: output looks higher because more trees were planted, not because the harvest improved. For barley both fell."
-      },
-      "kaynak": "FAOSTAT · üretim ve hasat edilen alan",
-      "sonek": {
-        "tr": " kat",
-        "en": "×"
-      },
-      "ondalik": 2,
-      "seriler": [
-        {
-          "ad": {
-            "tr": "verim katı",
-            "en": "yield multiple"
-          },
-          "rol": "vurgu"
-        },
-        {
-          "ad": {
-            "tr": "alan katı",
-            "en": "area multiple"
-          },
-          "rol": "ikincil"
-        }
-      ],
-      "satirlar": [
-        {
-          "etiket": {
-            "tr": "Buğday",
-            "en": "Wheat"
-          },
-          "degerler": [
-            "@turetilmis.verim_bugday.verim_kat",
-            "@turetilmis.verim_bugday.alan_kat"
-          ]
-        },
-        {
-          "etiket": {
-            "tr": "Arpa",
-            "en": "Barley"
-          },
-          "degerler": [
-            "@turetilmis.verim_arpa.verim_kat",
-            "@turetilmis.verim_arpa.alan_kat"
-          ]
-        },
-        {
-          "etiket": {
-            "tr": "Pirinç",
-            "en": "Rice"
-          },
-          "degerler": [
-            "@turetilmis.verim_pirinc.verim_kat",
-            "@turetilmis.verim_pirinc.alan_kat"
-          ]
-        },
-        {
-          "etiket": {
-            "tr": "Hurma",
-            "en": "Dates"
-          },
-          "degerler": [
-            "@turetilmis.verim_hurma.verim_kat",
-            "@turetilmis.verim_hurma.alan_kat"
-          ]
-        },
-        {
-          "etiket": {
-            "tr": "Mısır",
-            "en": "Maize"
-          },
-          "degerler": [
-            "@turetilmis.verim_misir.verim_kat",
-            "@turetilmis.verim_misir.alan_kat"
-          ]
-        },
-        {
-          "etiket": {
-            "tr": "Domates",
-            "en": "Tomatoes"
-          },
-          "degerler": [
-            "@turetilmis.verim_domates.verim_kat",
-            "@turetilmis.verim_domates.alan_kat"
-          ]
         }
       ]
     },

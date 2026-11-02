@@ -72,7 +72,8 @@
       "pirinc"
     ],
     "8": [
-      "verim_alan"
+      "verim_katlari",
+      "alan_katlari"
     ],
     "9": [
       "hurma_payi"
@@ -98,7 +99,8 @@
     ],
     "16": [
       "protokol"
-    ]
+    ],
+    "_tur_notu": "§8 ikili_cubuk DEĞİL iki siralama taşıyor. Çizici ikili_cubuk'ta her satırı KENDİ İÇİNDE ölçekliyor (dossier_chart_view.dart satır 263) — o tür bileşim içindir, savas_hasari gibi satırı %100'e tamamlayan veriler için. Karşılaştırma için siralama kullanılır; onun ölçeği grafik genelinde (satır 373). İlk sürümde ikili_cubuk seçilmişti ve mısırın 50 katlık alanı, pirincin 2 katıyla AYNI UZUNLUKTA çiziliyordu. Golden ölçülerek yakalandı."
   },
   "_bolum_basliklari": {
     "_notu": "METİNDEN OKUNDU; başlıklar metinle birebir.",
