@@ -121,3 +121,98 @@ Son satır dosyanın en anlamlı boşluğu olabilir: suyun belirleyici olduğu b
 
 6. **§2.8'in beş kategorisi henüz boş.** Özellikle "Türkiye bağı" ve "terk
    edilen ürün" Irak için araştırılacak.
+
+---
+
+# Tur 2 — EKSEN KİLİTLENDİ
+
+## Eksen (kullanıcı kararı, 2 Kasım 2026)
+
+**Tek yönlü pazar.** Türkiye Irak'a 4,64 milyar dolarlık tarım ürünü satıyor,
+karşılığında 30,2 milyon dolar alıyor — 154 kat. Satılan şey ham tahıl değil,
+ekmeğin bütün zinciri: un, makarna, bisküvi.
+
+## KULLANICI ŞARTI — dosyanın yarısı Irak'ın kendisi
+
+> "bu eksen tamam ama bu dosya aynı zamanda Irak'ın tarım yönünden ele
+> alınması dosyası. yalnızca Türkiye ile ilişkileri üzerinden bir dosya
+> oluşmasın istiyorum. diğer ülkelerdeki konularda da bölüm veya bölümler
+> olmalı."
+
+Yani eksen ticaret, **konu Irak tarımı**. Avustralya dosyası da öyleydi:
+ticaret bir bölümdü, ülkenin kendi tarımı (ölçek, destek, yün-et geçişi, su
+piyasası) dosyanın gövdesiydi. Irak'ta da ülkenin kendi üretimi, suyu,
+tarihi ve ürünleri kendi bölümlerini alacak.
+
+## 1946 PROTOKOLÜ OKUNDU — altı madde
+
+`tbmm_ss241_1947_antlasma.pdf`, 33 sayfa. 29 Mart 1946'da imzalanan Dostluk
+ve İyi Komşuluk Andlaşması'nın **1 numaralı ek protokolü**: "Dicle, Fırat ve
+Kolları Sularının Düzene Konması Protokolü". İmzalar: Hasan Saka, Nuri
+Essaid, Feridun Cemal Erkin, Abdülilâh.
+
+| madde | ne diyor |
+|---|---|
+| Başlangıç | Taşkından korunma **Irak için** önemli; uygun bent yerlerinin **Türk toprağında** bulunması umuluyor; yapılar mümkün olduğunca **sulama ve elektrik** amacına da uysun |
+| 1 | Irak teknisyen gönderir, haritaları Türk kurumları hazırlar, **bütün harcamaları Irak öder** |
+| 2 | Türkiye erişim, bilgi ve kolaylık sağlar |
+| 3 | **Türkiye daimî gözetleme istasyonları kurar ve işletir**; işletme gideri yarı yarıya; taşkında her sabah 8'de seviye telgrafla bildirilir — Dicle'de **Diyarbakır, Cizre**, Fırat'ta **Keban** |
+| 4 | Türkiye yapıları esas bakımından kabul eder; her biri ayrı anlaşmaya konu olacak — **Türkiye'nin kendi sulama ve enerji kullanımı dahil** |
+| 5 | Türkiye tasarılarını Irak'a **haber vermeyi** kabul eder |
+| 6 | İki taraf birer temsilci atar |
+
+**KEBAN 1946'DA ADIYLA GEÇİYOR** — bir telgraf gözlem istasyonu olarak. Dün
+yayımlanan DSİ dosyası aynı Keban'ı GAP'ın Fırat üzerindeki beş barajından
+biri olarak sayıyor ve kurumun 1980'de orada su ürünleri şubesi açtığını
+kaydediyor. Bağ gerçek ve belgeli.
+
+**TON UYARISI.** Protokol metne girecek ama **nedensellik iddia
+EDİLMEYECEK**: elimizde Türkiye'nin barajlarının Irak'ın suyunu ne kadar
+azalttığına dair ölçüm YOK ve Irak'ın kendi kurumları kapalı. Protokol ne
+diyorsa o yazılır, rakamlar ne gösteriyorsa o.
+
+## IRAK'IN KENDİ ÜRETİMİ — FAOSTAT (bin ton)
+
+| ürün | 2000 | 2010 | 2020 | 2022 | 2023 |
+|---|---|---|---|---|---|
+| Buğday | 384 | 2.749 | 6.238 | 2.765 | 4.248 |
+| Arpa | 400 | 1.137 | 1.756 | **144** | 106 |
+| **Pirinç** | 60 | 156 | **464** | **12** | 13 |
+| Hurma | 932 | 568 | 735 | 704 | 615 |
+| Domates | 989 | 1.013 | 755 | 630 | 535 |
+
+**Pirinç iki yılda %97 düştü**; ekilen alan 102 bin hektardan 4 bine indi.
+Suda duran tek ürün pirinç — su kıtlığı en net oradan okunuyor. Arpa %94
+düştü. Hurma, derin köklü olduğu için yerinde duruyor.
+
+### Hurmada dünya payı — Irak geride kaldı
+
+| | 1961 | 1980 | 2000 | 2023 |
+|---|---|---|---|---|
+| Irak üretimi (bin ton) | 350 | 597 | 932 | 615 |
+| Dünya payı | **%18,9** | %22,4 | %14,5 | **%6,2** |
+
+Irak mutlak olarak çökmedi (350 → 615) ama dünya 5,4 kat büyürken Irak 1,8
+kat büyüdü. Kaybedilen şey üretim değil, **yer**.
+
+## Tur 2'de eklenen kaynaklar
+
+| kaynak | sınıf | durum |
+|---|---|---|
+| TBMM S. Sayısı 241 (1947) | BİRİNCİL | indirildi, okundu |
+| FAOSTAT üretim toplu indirme | BAĞIMSIZ | indirildi (34 MB), Irak 21.281 satır |
+| Dünya Bankası belge arama | BAĞIMSIZ | doğrudan PDF adresi veriyor |
+| FAO *Review of World Water Resources by Country* | BAĞIMSIZ | indirildi; Irak 7 kez geçiyor — **yenilenebilir suyunun yarısından fazlası için başka ülkelere bağımlı** ülkeler listesinde. ESKİ bir belge, tarihi metinde belirtilecek |
+| UNESCO (Ahwar bataklıkları) | — | **403, kapalı** |
+
+## Tur 3'te karara bağlanacak
+
+1. **Bölüm iskeleti.** Eksen ticaret ama gövde Irak tarımı; dağılım kullanıcı
+   onayına sunulacak.
+2. **§2.8'in beş kategorisi.** Mezopotamya tarımın doğduğu yer — "bilim ve
+   kişi" ile "kültürel açıklama" için en güçlü aday; "terk edilen ürün" için
+   pirinç hazır; "Türkiye bağı" için 1946 protokolü.
+3. **Çapraz kontrol borcu.** Comtrade tek yaka; 4,64 milyar dolar bağımsız
+   bir seriyle oranlanacak (§2.2.1 sonu).
+4. **Ortak yıl kuralı** (§2.7): Irak 2023, Türkiye 2024 verisi var;
+   karşılaştırmalar ortak yıldan kurulacak, ileri not düşülecek.
