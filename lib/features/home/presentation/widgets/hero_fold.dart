@@ -54,7 +54,27 @@ class HeroFold extends ConsumerWidget {
     // Yazar yazılarını tüm yayınlanmış makaleler arasından çek (hero listesinden değil!)
     final allArticlesAsync = ref.watch(latestArticlesProvider);
     final allPublished = allArticlesAsync.valueOrNull ?? [];
-    final opEds = allPublished.where(_isOpEd).toList();
+    // Yazarın son yazısı KENDİ sorgusundan geliyor (§26.2).
+    //
+    // Ortak liste en yeni 500 haber; seyrek yazan yazarın yazısı pencerenin
+    // dışında kalıyor ve kartta "Yeni yazısı hazırlanıyor…" çıkıyordu — oysa
+    // yazı yayında. Ölçüm (2 Kasım 2026): listedeki en eski haber 23 Eylül
+    // tarihli; Yörük Kızı 8 Eylül, Batuhan TÜRK 7 Eylül, Namık Altan ATABAY
+    // 11 Eylül. Üçünün de yazısı vardı, üçü de boş görünüyordu.
+    //
+    // Çözüm aşağıdaki üç kart sınıfına dokunmuyor: onlar listeyi ada göre
+    // süzüp İLKİNİ alıyor, dolayısıyla kendi sorgumuzdan gelenleri BAŞA
+    // koymak yetiyor. Sağlayıcı daha gelmediyse liste eskisi gibi davranıyor,
+    // yani ilk kare boşalmıyor.
+    final sonYazilar =
+        ref.watch(yazarSonYazilariProvider).valueOrNull ??
+            const <String, NewsArticle>{};
+    final opEds = <NewsArticle>[
+      ...sonYazilar.values,
+      ...allPublished.where(_isOpEd),
+    ];
+
+
 
     final width = MediaQuery.of(context).size.width;
 

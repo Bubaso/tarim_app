@@ -15,6 +15,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/utils/turkce_metin.dart';
+import '../widgets/govde_gorseli.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
@@ -262,9 +263,6 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
         ? article.keyTakeawaysEn!
         : (article.keyTakeaways ?? []);
 
-    final displayInsight = (isEn && article.expertInsightEn != null && article.expertInsightEn!.isNotEmpty)
-        ? article.expertInsightEn!
-        : (article.expertInsight ?? '');
         
     // ══════════════════════════════════════════════════════════════════
     //  MOBİLYA KURALI — 2 Kasım 2026 denetimi
@@ -285,11 +283,88 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
     final govdeKelime = _kelimeSay(displayContent);
     final kisaHaber = article.isBrief || govdeKelime < 150;
 
-    final ozetKutusuGorunsun =
-        !kisaHaber && govdeKelime >= 400 && displayTakeaways.isNotEmpty;
-    final uzmanKutusuGorunsun =
-        !kisaHaber && govdeKelime >= 400 && displayInsight.isNotEmpty;
+    // "Uzman Görüşü" / "ne anlama geliyor" kutusu HİÇBİR HABERDE
+    // ÇİZİLMİYOR (kullanıcı kararı, 2 Kasım 2026). Eşik meselesi değil, kutu
+    // tamamen kaldırıldı. Veri (`expert_insight`) veritabanında duruyor;
+    // yalnızca gösterilmiyor, yani karar geri alınabilir.
+    //
+    // "Öne Çıkanlar" gövdenin SONUNA taşındı: okur önce haberi okuyor, özeti
+    // sonra görüyor. Başta dururken metni okumadan önce özetliyordu.
+    final ozetKutusuGorunsun = !kisaHaber && displayTakeaways.isNotEmpty;
     final grafikGorunsun = !kisaHaber && displayChart != null;
+
+    // GÖVDE İKİYE BÖLÜNÜYOR, GRAFİK ARAYA GİRİYOR (kullanıcı kararı,
+    // 2 Kasım 2026: "her türlü grafik haberin içinde dağılsın").
+    //
+    // Grafik eskiden gövdeden ÖNCE, sabit bir yerdeydi: rakamı tartışan
+    // paragraf üç ekran aşağıdayken grafik en üstte duruyordu ve okur ikisini
+    // birbirine bağlayamıyordu.
+    //
+    // Bölme ARA BAŞLIKTAN yapılıyor, yoksa paragraf sınırından; ikisi de
+    // yoksa gövde bölünmüyor ve grafik metnin sonuna düşüyor. Rastgele bir
+    // karakterden kesmek cümleyi ikiye bölerdi.
+    Widget govdeYaz(String h) => Html(
+                            data: h,
+                            style: {
+                              "body": Style(
+                                margin: Margins.zero,
+                                padding: HtmlPaddings.zero,
+                                fontSize: FontSize(AppTypography.bodyBaseFontSize(context) * fontScale),
+                                fontFamily: GoogleFonts.lora().fontFamily,
+                                color: isDark ? const Color(0xFFCFD8DC) : const Color(0xFF2C2C2A),
+                                lineHeight: const LineHeight(1.70),
+                              ),
+                              "p": Style(
+                                margin: Margins.only(bottom: 16),
+                              ),
+                              "h2": Style(
+                                margin: Margins.only(top: 24, bottom: 16),
+                                fontFamily: GoogleFonts.outfit().fontFamily,
+                                fontSize: FontSize(AppTypography.h2BaseFontSize(context) * fontScale),
+                                fontWeight: FontWeight.bold,
+                                color: isDark ? Colors.white : Colors.black87,
+                              ),
+                              // ALINTIDA DİKEY ÇİZGİ YOK (kullanıcı kararı,
+                              // 2 Kasım 2026). Ayrımı eğik yazı ve boşluk
+                              // taşıyor; sol kenardaki kalın çubuk metni blog
+                              // görünümüne sokuyordu.
+                              "blockquote": Style(
+                                margin: Margins.symmetric(vertical: 16),
+                                padding: HtmlPaddings.zero,
+                                fontStyle: FontStyle.italic,
+                                color: isDark ? AppColors.wheat : AppColors.earthText,
+                              ),
+                              "table": Style(
+                                margin: Margins.symmetric(vertical: 24),
+                                width: Width(100, Unit.percent),
+                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+                              ),
+                              "th": Style(
+                                padding: HtmlPaddings.all(12),
+                                backgroundColor: isDark ? const Color(0xFF1B232E) : const Color(0xFFF8F9FA),
+                                fontWeight: FontWeight.bold,
+                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+                              ),
+                              "td": Style(
+                                padding: HtmlPaddings.all(12),
+                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
+                              ),
+                            },
+                            extensions: const [
+                              // `<img>` DEVRALINIYOR (§31.3). Kullanıcı
+                              // eklentileri yerleşiklerden önce deneniyor,
+                              // yani `ImageBuiltIn` hiç çalışmıyor. Yerleşik
+                              // olan stilin BİRİMİNİ okumuyordu ve gövde
+                              // görsellerini 100×0 pikselde çiziyordu —
+                              // yani hiç. `"img"` stil girdisi de kaldırıldı;
+                              // eklenti varken hiçbir işe yaramaz.
+                              GovdeGorseli(),
+                            ],
+                          );
+
+    final govdeParcalari = grafikGorunsun
+        ? _govdeyiBol(displayContent)
+        : <String>[displayContent];
 
     final formattedDate = DateFormat.yMMMd(isEn ? 'en_US' : 'tr_TR')
         .add_Hm()
@@ -474,11 +549,6 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                             const SizedBox(height: 28),
                           ],
                           
-                          // ── Anahtar Çıkarımlar ──────────────────────────
-                          if (ozetKutusuGorunsun) ...[
-                             _KeyTakeawaysBox(takeaways: displayTakeaways, isEn: isEn, isDark: isDark, accent: accent),
-                             const SizedBox(height: 28),
-                          ],
 
                           // ── Bölme çizgisi ─────────────────────────────────
                           Divider(
@@ -490,68 +560,30 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                           ),
                           const SizedBox(height: 28),
 
-                          // ── Dinamik Grafik ─────────────────────────────
-                          if (grafikGorunsun) ...[
-                             DynamicChartWidget(chartData: displayChart, isDark: isDark, accent: accent),
-                             const SizedBox(height: 28),
-                          ],
 
                           // ── Gövde metni (Html) ─────
-                          Html(
-                            data: displayContent,
-                            style: {
-                              "body": Style(
-                                margin: Margins.zero,
-                                padding: HtmlPaddings.zero,
-                                fontSize: FontSize(AppTypography.bodyBaseFontSize(context) * fontScale),
-                                fontFamily: GoogleFonts.lora().fontFamily,
-                                color: isDark ? const Color(0xFFCFD8DC) : const Color(0xFF2C2C2A),
-                                lineHeight: const LineHeight(1.70),
-                              ),
-                              "p": Style(
-                                margin: Margins.only(bottom: 16),
-                              ),
-                              "img": Style(
-                                width: Width(100, Unit.percent),
-                                height: Height.auto(),
-                              ),
-                              "h2": Style(
-                                margin: Margins.only(top: 24, bottom: 16),
-                                fontFamily: GoogleFonts.outfit().fontFamily,
-                                fontSize: FontSize(AppTypography.h2BaseFontSize(context) * fontScale),
-                                fontWeight: FontWeight.bold,
-                                color: isDark ? Colors.white : Colors.black87,
-                              ),
-                              "blockquote": Style(
-                                margin: Margins.only(left: 16, right: 0, top: 16, bottom: 16),
-                                padding: HtmlPaddings.only(left: 16),
-                                border: Border(left: BorderSide(color: accent, width: 4)),
-                                fontStyle: FontStyle.italic,
-                                color: isDark ? AppColors.wheat : AppColors.earthText,
-                              ),
-                              "table": Style(
-                                margin: Margins.symmetric(vertical: 24),
-                                width: Width(100, Unit.percent),
-                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
-                              ),
-                              "th": Style(
-                                padding: HtmlPaddings.all(12),
-                                backgroundColor: isDark ? const Color(0xFF1B232E) : const Color(0xFFF8F9FA),
-                                fontWeight: FontWeight.bold,
-                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
-                              ),
-                              "td": Style(
-                                padding: HtmlPaddings.all(12),
-                                border: Border.all(color: isDark ? const Color(0xFF2C394B) : const Color(0xFFEEEEEE)),
-                              ),
-                            },
-                          ),
-                          
-                          // ── Uzman Görüşü ─────────────────────────────
-                          if (uzmanKutusuGorunsun) ...[
-                             const SizedBox(height: 36),
-                             _ExpertInsightBox(insight: displayInsight, isEn: isEn, isDark: isDark, accent: accent),
+                          // ── Gövde + grafik ─────────────────────────
+                          govdeYaz(govdeParcalari.first),
+                          if (grafikGorunsun) ...[
+                            const SizedBox(height: 28),
+                            DynamicChartWidget(
+                                chartData: displayChart,
+                                isDark: isDark,
+                                accent: accent),
+                            const SizedBox(height: 28),
+                            if (govdeParcalari.length > 1)
+                              govdeYaz(govdeParcalari[1]),
                           ],
+                          // ── Öne Çıkanlar — GÖVDENİN SONUNDA ────────
+                          if (ozetKutusuGorunsun) ...[
+                            const SizedBox(height: 36),
+                            _KeyTakeawaysBox(
+                                takeaways: displayTakeaways,
+                                isEn: isEn,
+                                isDark: isDark,
+                                accent: accent),
+                          ],
+                          
 
                           // ── Etiketler ─────────────────────────────────────
                           if (article.seoKeywords != null &&
@@ -1502,6 +1534,40 @@ class _RelatedCardState extends State<_RelatedCard> {
 //  Editoryal Bileşenler
 // ═══════════════════════════════════════════════════════════════════════════
 
+/// Gövdeyi grafiğin gireceği yerden İKİYE böler.
+///
+/// Öncelik ara başlık (`<h2>`): bölüm sınırı okurun zaten durduğu yer.
+/// Yoksa ortaya en yakın paragraf sınırı. Hiçbiri yoksa tek parça döner ve
+/// çağıran grafiği metnin sonuna koyar.
+///
+/// Kesme noktası HTML ETİKET SINIRINDA: metnin ortasından kesmek açık bir
+/// etiketi yarıda bırakır ve `flutter_html` kalan gövdeyi çizemez.
+List<String> _govdeyiBol(String html) {
+  if (html.trim().isEmpty) return <String>[html];
+
+  final basliklar = RegExp(r'<h2[\s>]', caseSensitive: false)
+      .allMatches(html)
+      .map((m) => m.start)
+      .toList();
+  // İlk başlık gövdenin en başındaysa bölme anlamsız — grafik yine en üste
+  // düşerdi. İkinciden itibaren bakılıyor.
+  for (final k in basliklar) {
+    if (k > html.length ~/ 4) {
+      return <String>[html.substring(0, k), html.substring(k)];
+    }
+  }
+
+  final paragraflar = RegExp(r'</p>', caseSensitive: false)
+      .allMatches(html)
+      .map((m) => m.end)
+      .toList();
+  if (paragraflar.length >= 2) {
+    final orta = paragraflar[(paragraflar.length / 2).floor()];
+    return <String>[html.substring(0, orta), html.substring(orta)];
+  }
+  return <String>[html];
+}
+
 /// HTML gövdesindeki kelime sayısı. Mobilya eşikleri bunu kullanıyor.
 int _kelimeSay(String html) {
   if (html.isEmpty) return 0;
@@ -1592,67 +1658,8 @@ class _KeyTakeawaysBox extends StatelessWidget {
   }
 }
 
-class _ExpertInsightBox extends StatelessWidget {
-  final String insight;
-  final bool isEn;
-  final bool isDark;
-  final Color accent;
-
-  const _ExpertInsightBox({
-    required this.insight,
-    required this.isEn,
-    required this.isDark,
-    required this.accent,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final bgColor = isDark ? const Color(0xFF1B232E) : const Color(0xFFF2F4F8);
-    final textColor = isDark ? AppColors.creamBackground : AppColors.earthText;
-    
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-        color: bgColor,
-        border: Border(left: BorderSide(color: accent, width: 4)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(Icons.lightbulb_outline_rounded, color: accent, size: 20),
-              const SizedBox(width: 8),
-              Text(
-                // Etiket 'UZMAN GÖRÜŞÜ' idi. 507 haberlik ölçümde bu kutunun
-                // içeriğinin bir uzmanın görüşü olmadığı çıktı: metinlerin
-                // yarısı "Bu ..." ile başlayan genel yorumdu ve gövdesinde
-                // adı-unvanı geçen gerçek uzman bulunan haberlerde bile metin
-                // modelin kendi değerlendirmesiydi. Kutunun işi baştan beri
-                // haberin sonucunu açıklamaktı; etiket artık onu söylüyor.
-                isEn ? 'WHAT IT MEANS' : 'NE ANLAMA GELİYOR?',
-                style: GoogleFonts.inter(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 1.2,
-                  color: accent,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Text(
-            insight,
-            style: GoogleFonts.lora(
-              fontSize: 17,
-              height: 1.6,
-              color: textColor,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+// NOT: "Uzman Görüşü" kutusu 2 Kasım 2026'da KALDIRILDI (kullanıcı kararı:
+// "ne anlama geliyor kutusu kesinlikle olmasın hiçbir metinde"). Çizici sınıf
+// da silindi; veri `expert_insight` sütununda duruyor, yani karar geri
+// alınırsa yalnızca çizici yeniden yazılır.
 

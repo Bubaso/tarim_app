@@ -188,6 +188,40 @@ class HomeRepository {
     } catch (_) {}
   }
 
+  /// Her köşe yazarının SON yayımlanmış yazısı — ada göre.
+  ///
+  /// Şerit eskiden ortak listeyi (`latestArticlesProvider`) süzüyordu ve o
+  /// liste en yeni 500 haber. Ölçüm (2 Kasım 2026): listedeki en eski haber
+  /// 23 Eylül tarihli; Yörük Kızı'nın yazısı 8 Eylül, Batuhan TÜRK'ün 7
+  /// Eylül, Namık Altan ATABAY'ın 11 Eylül. Üçünün de yazısı VARDI ama
+  /// pencerenin dışındaydı ve kartta "Yeni yazısı hazırlanıyor…" yazıyordu.
+  ///
+  /// §26.2'nin kuralı: bir varlığın kaydını isteyen ekran, tarihe göre
+  /// sınırlanmış ortak listeyi SÜZEREK çalışmamalı. Sınır sessizdir — hata
+  /// vermez, sadece eksik gösterir.
+  ///
+  /// Tek sorgu: adlar `in` ile veriliyor, en yeniden eskiye geliyor ve her
+  /// ad için ilk görülen alınıyor.
+  Future<Map<String, NewsArticle>> fetchYazarSonYazilari(
+      List<String> adlar) async {
+    if (adlar.isEmpty) return <String, NewsArticle>{};
+    final veri = await _supabaseClient
+        .from('articles')
+        .select(_listeSutunlari)
+        .eq('status', 'published')
+        .inFilter('source_name', adlar)
+        .order('created_at', ascending: false)
+        .limit(300);
+
+    final sonuc = <String, NewsArticle>{};
+    for (final m in (veri as List)) {
+      final a = NewsArticle.fromJson(m as Map<String, dynamic>);
+      final ad = a.sourceName?.trim();
+      if (ad != null && ad.isNotEmpty) sonuc.putIfAbsent(ad, () => a);
+    }
+    return sonuc;
+  }
+
   /// Etikete göre yayındaki haberler — sayfalanmış.
   ///
   /// Eşleştirme SUNUCUDA (`haberler_etikete_gore`): istemcide yapmanın tek

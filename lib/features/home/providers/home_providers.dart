@@ -1,3 +1,4 @@
+import '../presentation/widgets/ai_columnists.dart';
 import 'dart:math' as math;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -895,4 +896,20 @@ final adminTopReadArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
 final yytArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
   final repository = ref.watch(homeRepositoryProvider);
   return repository.watchYYTArticles();
+});
+
+/// Köşe yazarlarının son yazıları — ada göre, KENDİ sorgusuyla.
+///
+/// Ortak listeyi süzmek yetmiyor: o liste en yeni 500 haber ve seyrek yazan
+/// yazarın yazısı pencerenin dışında kalıyor (§26.2). Şerit bu sağlayıcıyı
+/// ortak listeye TERCİH ediyor; sağlayıcı daha gelmediyse ortak listeden
+/// bulunan yazı gösteriliyor, yani ilk kare boş kalmıyor.
+final yazarSonYazilariProvider =
+    FutureProvider<Map<String, NewsArticle>>((ref) async {
+  final yazarlar = await ref.watch(columnistsProvider.future);
+  final adlar = (yazarlar)
+      .map((c) => c.name.trim())
+      .where((a) => a.isNotEmpty)
+      .toList(growable: false);
+  return ref.read(homeRepositoryProvider).fetchYazarSonYazilari(adlar);
 });
