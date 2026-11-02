@@ -1,32 +1,11 @@
 # Irak — Ülke Dosyası · Sayı 05 · Türkçe metin
 
-> **Tanıtım cümlesi:** Tarımın doğduğu ovada ekili alanın yüzde yetmişi tuzdan etkilenmiş, bir tahıl altmış dört yılın en düşük hasadını geçen yıl verdi, pirinç iki yılda kaybolup iki yılda geri geldi. Aynı ovaya komşusundan gelen tarım malı, oradan gidenin yüz elli dört katı.
-
----
-
-## Yazım kuralları — bu dosyaya dokunan herkes için
-
-1. **Hiçbir rakam hafızadan yazılmaz.** Her sayı `data.json`'dan gelir.
-2. **Bütün ticaret rakamları Türkiye'nin beyanındandır.** Irak, Comtrade'e
-   muhabir olarak rapor vermiyor. Ticaretten söz eden her bölüm bunu söyler.
-3. **Bataklık ölçeği ile ülke ölçeği aynı cümlede kullanılmaz.** BM raporu
-   mandayı bataklıkta sayıyor, FAOSTAT ülkede; aynı yıl arada altmış kat var.
-4. **Üretim tek başına okunmaz.** Üretim alan ile verimin çarpımıdır; hangi
-   yarının değiştiği söylenmeden bir seri yorumlanmaz.
-5. **Kaynak cinsleri karıştırılmaz.** FAOSTAT, Dünya Bankası ve Comtrade
-   bağımsızdır; 1946 protokolünün TBMM nüshası birincildir.
-6. **İki payda birden yazılır.** Tarımın payı toplam GSYH'de ayrı, petrol dışı
-   GSYH'de ayrıdır; yalnız birini yazmak Irak'ta tarımın yerini yanlış gösterir.
-7. **Ölçülmemiş üstünlük iddiası kurulmaz.** "Türkiye'nin en büyük tarım
-   pazarı" cümlesi bu dosyada yoktur; ölçülemedi.
-8. **Meta cümle yasağı.** Dosyanın nasıl hazırlandığı metne girmez.
-
----
+> **Tanıtım cümlesi:** Tarımın doğduğu ovada ekili alanın %70'i tuzdan etkilenmiş, bir tahıl 64 yılın en düşük hasadını geçen yıl verdi, pirinç 2 yılda kaybolup 2 yılda geri geldi. Aynı ovaya komşusundan gelen tarım malı, oradan gidenin 154 katı.
 
 ## 1. Bir ülkenin ekmeği
 
 Türkiye 2024'te dünyaya 32,54 milyar dolarlık tarım ürünü sattı. Bunun 4,64
-milyar doları tek bir ülkeye gitti: Irak. Yedi liralık tarım ihracatının biri,
+milyar doları tek bir ülkeye gitti: Irak. 7 liralık tarım ihracatının biri,
 sınırın hemen güneyinde duran komşuya.
 
 Ters yöne bakınca defter neredeyse boş. Aynı yıl Irak'tan Türkiye'ye gelen
@@ -42,18 +21,17 @@ her ticaret rakamı, hattın Türkiye tarafından görünen hâlidir. Bu, rakaml
 yanlış olduğu anlamına gelmez; tek taraftan sayıldığı anlamına gelir.
 
 Irak'a giden toplam Türk ihracatı 13,00 milyar dolar. Tarım bunun %35,7'si.
-Yani Türkiye bu ülkeye neredeyse her üç liralık malın birini tarladan
+Yani Türkiye bu ülkeye neredeyse her 3 liralık malın birini tarladan
 gönderiyor. Bu oran kendi başına dikkat çekici: Türkiye'nin dünyaya toplam
 ihracatında tarımın payı bunun çok altında. Irak hattı, Türk ihracatının
 genel bileşiminden farklı bir hat.
 
 İçindeki en kalabalık grup tek bir zincir: hububat, un ve hamur işleri
-birlikte 1,44 milyar dolar, tarım ihracatının %31,1'i. Yani Irak'a giden her
-üç liralık tarım malının biri buğdayın bir hâli — tanesi, unu ya da pişmişi.
+birlikte 1,44 milyar dolar, tarım ihracatının %31,1'i. Yani Irak'a giden her 3 liralık tarım malının biri buğdayın bir hâli — tanesi, unu ya da pişmişi.
 
 Bu dosya o hattı anlatıyor. Ama hattın bir ucunda duran ülkeyi de anlatıyor —
 çünkü Irak'ın tarımı, Türkiye ile ilişkisinden çok daha eski ve çok daha
-karışık bir hikâye. Sonraki on beş bölüm o hikâye; hat yalnızca son üçünde
+karışık bir hikâye. Sonraki 15 bölüm o hikâye; hat yalnızca son üçünde
 geri dönüyor.
 
 ## 2. Tarımın başladığı yer
@@ -82,15 +60,14 @@ yok, dolayısıyla iki ülkenin bu tek rakamı doğrudan karşılaştırılamaz.
 
 Tarımın doğduğu yerde tohumun kendisi de bir kurumda tutuluyor. Bağdat'taki
 Ebu Garib tohum bankası — belgenin yazımıyla *"the Abu Gharib seed bank in
-Baghdad"* — *"operational since 1977"*, yani kırk yılı aşkın süredir çalışıyor,
+Baghdad"* — *"operational since 1977"*, yani 40 yılı aşkın süredir çalışıyor,
 ama *"suffered from infrastructural damage"*. FAO, Kurak Alanlarda Tarımsal
 Araştırma Merkezi ile birlikte bankayı onarmaya ve Süleymaniye'de ikinci bir
 tohum bankası kurmaya çalışıyor.
 
 Bir ülkenin tohum bankası, o ülkenin tarımının yedeğidir. Tarla yanarsa
 ertesi yıl ekilir; tohum koleksiyonu giderse yerine konamaz, çünkü o
-koleksiyon yüzyıllarca bir yerde seçilmiş çeşitlerin kaydıdır. Beşinci
-bölümde anlatılan tarla hasarı ile bu bankanın altyapı hasarı farklı
+koleksiyon yüzyıllarca bir yerde seçilmiş çeşitlerin kaydıdır. 5. bölümde anlatılan tarla hasarı ile bu bankanın altyapı hasarı farklı
 büyüklükte iki kayıp değil; biri mevsimlik, öteki geri dönüşsüz olabilecek
 iki ayrı kayıp cinsi.
 
@@ -110,10 +87,9 @@ her tarlada ve her hasatta tekrarlanıyor; birikince ülkenin kendi ekmeğini
 karşılama kapasitesini belirliyor.
 
 Nüfusun %30,1'i kırsalda yaşıyor ama tarımda çalışanların toplam istihdamdaki
-payı %8,17. Aradaki boşluk küçük değil: kırsalda yaşayan her dört kişiden
-üçünden fazlası geçimini tarımdan sağlamıyor. Bu, tarımın kırsalı tek başına
+payı %8,17. Aradaki boşluk küçük değil: kırsalda yaşayan her 4 kişiden 3'ünden fazlası geçimini tarımdan sağlamıyor. Bu, tarımın kırsalı tek başına
 taşıyamadığı bir yapıya işaret ediyor. Bir ülkede kırsal nüfusun tarımsal
-istihdamın üç katından fazla olması, kırsalda tarım dışı bir geçim
+istihdamın 3 katından fazla olması, kırsalda tarım dışı bir geçim
 arayışının ya da geçimsizliğin işaretidir; bu dosyanın verisi ikisini
 birbirinden ayırmaya yetmiyor.
 
@@ -151,7 +127,7 @@ kriz değildir; Hollanda da aşağı havzada oturur ve bunu bir mühendislik
 meselesine çevirmiştir. Farkı yaratan, belgenin ikinci yarısındaki ifade:
 oturmuş bir sınır ötesi anlaşmanın bulunmaması. Su bir anlaşmaya bağlı
 olduğunda miktarı azalsa bile öngörülebilir; bağlı olmadığında az su ile çok
-su arasındaki fark bir plana değil bir habere dönüşür. On altıncı bölümdeki
+su arasındaki fark bir plana değil bir habere dönüşür. 16. bölümdeki
 1946 protokolü bu cümlenin tarihsel karşılığıdır.
 
 Suyun aşağıya ne kadar geleceği yalnızca yukarıdaki ülkelerin kararına değil,
@@ -163,8 +139,7 @@ temmuzda ne kadar su geleceğini bilmiyorsa, riski ekmeyerek azaltır.
 Yukarıdan gelen suyun miktarı yıldan yıla değişiyor, ama değişenin yalnızca
 miktar olmadığını sonraki bölümler gösterecek: su azaldığında Irak'ta
 kaybolan şey verim değil, ekilen alanın kendisi oluyor. Bir çiftçi az suyla
-aynı tarlayı daha kötü sulamıyor; tarlanın bir kısmını hiç ekmiyor. Yedinci
-bölümdeki pirinç ve altıncı bölümdeki arpa, bu davranışın iki ayrı ölçümü.
+aynı tarlayı daha kötü sulamıyor; tarlanın bir kısmını hiç ekmiyor. 7. bölümdeki pirinç ve 6. bölümdeki arpa, bu davranışın iki ayrı ölçümü.
 
 ## 5. Savaş tarlaya ne yaptı
 
@@ -184,7 +159,7 @@ kayıp yalnız tarlada değil; tohumun, gübrenin ve siloların olduğu yerde.
 
 İki hasar sınıfı arasındaki fark önemli. "Ağır hasarlı" bir tarla ertesi yıl
 daha düşük verimle de olsa ürün verir; "tamamen kayıp" bir tarla vermez.
-Ninova'da buğdayda tamamen kayıp oranı hasarlı oranın iki katından fazla,
+Ninova'da buğdayda tamamen kayıp oranı hasarlı oranın 2 katından fazla,
 arpada ise ikisi birbirine yakın. Yani buğday tarlasının üçte ikisi o yıl
 hiçbir şey üretmedi.
 
@@ -208,7 +183,7 @@ kendisi kadar kritiktir.
 
 ## 6. Üç şok ve geri gelmeyen tahıl
 
-Irak'ın buğday serisi 1961'den bugüne uzanıyor ve üç ayrı yerde kırılıyor.
+Irak'ın buğday serisi 1961'den bugüne uzanıyor ve 3 ayrı yerde kırılıyor.
 
 Serinin en düşük yılı 2000: 384 bin ton. Ambargo yıllarının dibi. İkinci
 kırılma 2015'te: bir yıl önce 5.055 bin ton olan hasat 2.645 bine iniyor,
@@ -216,7 +191,7 @@ yani **%47,7** düşüyor. Üçüncüsü 2021 sonrasının kurak dönemi.
 
 Ama asıl hikâye buğdayda değil. Arpada.
 
-Altmış dört yıllık serinin **en düşük yılı ambargo değil, 2023**: 106 bin ton.
+64 yıllık serinin **en düşük yılı ambargo değil, 2023**: 106 bin ton.
 2020'de 1.756 bin tondu. 2024'te 164 bin tona çıktı — yani 2020 seviyesinin
 %9,4'ü. Ekilen alan da aynı yoldan gitti: 1.123.712 hektardan 91.144 hektara.
 
@@ -235,10 +210,10 @@ buğdayı korur, yemlik arpayı korumaz; bu bir tercih sırasıdır ve seride
 açıkça okunuyor.
 
 Bir ülkenin neyi ekmeyi bıraktığı, neyi ektiğinden daha çok şey söyler.
-Irak'ın bıraktığı tahıl, sürüsünü beslediği tahıldı. On birinci bölümdeki
-koyun eğrisi ve on ikinci bölümdeki tavuk eğrisi bu cümlenin iki ayrı
+Irak'ın bıraktığı tahıl, sürüsünü beslediği tahıldı. 11. bölümdeki
+koyun eğrisi ve 12. bölümdeki tavuk eğrisi bu cümlenin iki ayrı
 devamıdır: merada otlayan hayvan azaldı, yemle beslenen hayvan çoğaldı — ve
-yemin bir kısmı artık on dördüncü bölümdeki ithalat listesinde duruyor.
+yemin bir kısmı artık 14. bölümdeki ithalat listesinde duruyor.
 
 ## 7. Kapatılıp açılan ürün
 
@@ -250,7 +225,7 @@ birlikte düşmesi kaybın nereden geldiğini söylüyor: verimden değil, aland
 Tarla ekilmedi.
 
 Burada duran bir metin, terk edilmiş bir ürün anlatırdı. Ama seri devam
-ediyor. 2024'te üretim 227.508 tona döndü — 2020'nin %49'u. Dört yıl içinde
+ediyor. 2024'te üretim 227.508 tona döndü — 2020'nin %49'u. 4 yıl içinde
 kırkta bire inip yarıya çıkan bir eğri, bırakılmış bir ürünü değil,
 **kapatılıp açılan** bir ürünü gösteriyor.
 
@@ -260,7 +235,7 @@ ikincisi. Bu dosya bu kararın kim tarafından ve nasıl verildiğini söylemiyo
 elindeki seriler ne olduğunu gösteriyor, neden olduğunu değil.
 
 Uzun vadede pirincin yönü yine de yukarı. 1961'de 25.000 hektarda ekiliyordu,
-2024'te 52.372 hektarda; alan altmış üç yılda 2,09 kat arttı. Verim de
+2024'te 52.372 hektarda; alan 63 yılda 2,09 kat arttı. Verim de
 hektar başına 2,74 tondan 4,34 tona çıktı, yani 1,59 kat. Yani Irak pirinçte
 hem daha çok yer ayırdı hem daha iyi hasat aldı — ve buna rağmen tek bir
 kurak dönemde üretimin kırkta birine inebiliyor. Bir ürünün uzun vadeli
@@ -277,7 +252,7 @@ ihracat kaleminin kaybı değil, bir sofranın değişmesi demek.
 üretim serisine tek başına bakmak, hangi yarının değiştiğini gizler — ve
 bu dosyanın en yanıltıcı rakamı tam orada duruyor.
 
-Altı ürün için ilk ölçüm yılı ile 2024 arasındaki katlar şöyle:
+6 ürün için ilk ölçüm yılı ile 2024 arasındaki katlar şöyle:
 
 | ürün | verim katı | alan katı |
 |---|---|---|
@@ -292,18 +267,18 @@ Buğday ülkenin en dengeli başarısı: verim 3,31 kat arttı, alan 1,85 kat.
 Yani hem daha çok yere ekildi hem de her yerden daha çok alındı. Mısırda
 verim 5,27 kat arttı — altısı içindeki en büyük tarımsal kazanç.
 
-Arpa tek düşen ürün: verim 0,94 kata indi, yani altmış üç yılda hektar başına
+Arpa tek düşen ürün: verim 0,94 kata indi, yani 63 yılda hektar başına
 alınan ürün bugün 1961'dekinden az. Alan ise 0,19 kata indi. Bir ürünün hem
 alanı hem verimi düşüyorsa, orada iyileşme değil çekilme vardır.
 
 Ama tablonun asıl satırı hurma. Verim **0,62 kata indi** — yani bugün bir
 hektar hurmalıktan 1985'tekinin üçte ikisi kadar ürün alınıyor. Alan ise
-2,45 kat arttı. Dokuzuncu bölümde Irak'ın hurma üretiminin 1,7 kat arttığını
+2,45 kat arttı. 9. bölümde Irak'ın hurma üretiminin 1,7 kat arttığını
 yazacağız; o artışın tamamı ve fazlası alandan geliyor. Ülke daha çok ağaç
 dikti ve her ağaçtan daha az aldı.
 
 Bu, üretim serisine tek başına bakan bir okumanın göremeyeceği şey. "Hurma
-üretimi arttı" cümlesi doğrudur ve yanıltıcıdır. Dokuzuncu bölümdeki dünya
+üretimi arttı" cümlesi doğrudur ve yanıltıcıdır. 9. bölümdeki dünya
 payı kaybının açıklaması burada: dünya hurmada verimini artırırken Irak
 alanını artırdı.
 
@@ -311,7 +286,7 @@ alanını artırdı.
 
 Hurma Irak'ın adıyla anılan ürün. Ve Irak hurmayı bırakmadı.
 
-1961'de 350.000 ton hurma üretiyordu; 2024'te 587.190 ton. Altmış üç yılda
+1961'de 350.000 ton hurma üretiyordu; 2024'te 587.190 ton. 63 yılda
 üretim 1,7 kat arttı. Aynı dönemde dünyanın hurma üretimi 5,4 kat arttı.
 
 Sonuç şu: Irak'ın dünya hurma üretimindeki payı **%18,9'dan %5,9'a** indi.
@@ -325,21 +300,20 @@ Zirve ile bugün arasındaki fark da ayrıca okunmayı hak ediyor. 2000'de 932.0
 ton üretilmişti; bugün 587.190. Yani Irak yalnız dünyaya göre geri kalmadı,
 kendi en iyi yılına göre de geriledi.
 
-Sekizinci bölümdeki tablo bu inişin mekanizmasını veriyor: hurmada ekili alan
+8. bölümdeki tablo bu inişin mekanizmasını veriyor: hurmada ekili alan
 1985'ten bugüne 2,45 kat arttı, ama hektar başına alınan ürün 0,62 kata
 indi. Yani Irak hurmaya daha çok toprak ayırdı ve her topraktan daha az
 aldı. Üretimin yine de artmış görünmesi bu iki hareketin birbirini kısmen
 götürmesinden.
 
-Verimin düşmesinin adayları dosyanın içinde duruyor: onuncu bölümdeki
-tuzlanma, dördüncü bölümdeki su düzensizliği ve beşinci bölümdeki savaş
+Verimin düşmesinin adayları dosyanın içinde duruyor: 10. bölümdeki
+tuzlanma, 4. bölümdeki su düzensizliği ve 5. bölümdeki savaş
 hasarı. Hangisinin ne kadar pay aldığını bu dosya ölçmüyor ve ölçmediğini
 yazıyor.
 
 Bu, dosyadaki en sessiz kayıp. Bir ürünün çöküşü sayılarla görülür; bir
 ürünün yerini kaybetmesi ancak başkalarının sayısıyla birlikte bakıldığında
-görülür. Irak hurmada bugün hâlâ büyük bir üretici. Ama 1961'de dünyadaki her
-beş hurmadan biri buradan çıkıyordu; bugün her on yediden biri.
+görülür. Irak hurmada bugün hâlâ büyük bir üretici. Ama 1961'de dünyadaki her 5 hurmadan biri buradan çıkıyordu; bugün her 17'den biri.
 
 Bir ürünü bırakmak bir karardır ve genelde görünür. Bir üründe yerini
 kaybetmek karar değildir, sonuçtur — ve kimse bir gün oturup buna karar
@@ -352,10 +326,9 @@ Gidemezse buharlaşır ve tuzunu bırakır. Bu dosyadaki en eski sorun bu ve
 bugün hâlâ ölçülüyor.
 
 Dünya Bankası'nın 2014 tarihli proje belgesi iki rakam veriyor. Ekili alanın
-*"70 percent of crop land is affected by high soil salinity"*, yani yüzde
-yetmişi yüksek toprak tuzluluğundan etkileniyor. Tarihsel olarak sulanmış
+*"70 percent of crop land is affected by high soil salinity"*, yani %70'i yüksek toprak tuzluluğundan etkileniyor. Tarihsel olarak sulanmış
 alanın *"almost 40 percent of historically-irrigated areas out of production"*,
-yani yaklaşık yüzde kırkı üretim dışı.
+yani yaklaşık %40'ı üretim dışı.
 
 İkinci rakam birincisinden daha ağır. "Etkilenmiş" bir tarla az ürün verir;
 "üretim dışı" bir tarla hiç vermez. Bir ülkenin tarihsel olarak sulanmış
@@ -363,7 +336,7 @@ arazisinin beşte ikisinin kullanılamaz hale gelmesi, ekilebilir alanın
 haritasının küçülmesi demek — ve o harita geri büyümüyor.
 
 Her iki oran da 2014 tarihli bir belgenin ölçümüdür ve bu dosyada yılıyla
-birlikte duruyor. Tuzlanma yavaş ilerleyen bir süreçtir; on yıl önceki bir
+birlikte duruyor. Tuzlanma yavaş ilerleyen bir süreçtir; 10 yıl önceki bir
 ölçüm bugünü yaklaşık olarak tarif eder, ama bugünün ölçümü değildir.
 
 Tuzluluk yalnız tarlada değil. BM'nin 2011 tarihli bataklık raporu, güneydeki
@@ -372,9 +345,8 @@ aynı belgede tür çeşitliliğinin *"the variety of species also decreased fro
 70 to only 10"* olduğu yazıyor. Bu rakamlar bataklık ölçeğindedir; yukarıdaki
 iki oran ülke ölçeğinde, ekili alana aittir. İkisi aynı şeyi saymıyor.
 
-Tuzlanma, kuraklıktan farklıdır. Kuraklık gelir ve geçer; tuz kalır. Yedinci
-bölümdeki pirinç bir yıl ekilmeyip ertesi yıl ekilebilir, ama tuzlanmış bir
-tarla ertesi yıl kendini onarmaz. Sekizinci bölümde hurmanın veriminin
+Tuzlanma, kuraklıktan farklıdır. Kuraklık gelir ve geçer; tuz kalır. 7. bölümdeki pirinç bir yıl ekilmeyip ertesi yıl ekilebilir, ama tuzlanmış bir
+tarla ertesi yıl kendini onarmaz. 8. bölümde hurmanın veriminin
 düşmesi de bu çerçeveye oturuyor: ağaç yerinde duruyor, toprak değişiyor.
 
 Tuzlanmanın teknik çaresi bilinir ve pahalıdır: drenaj. Suyun tarlaya
@@ -389,7 +361,7 @@ Irak'ın hayvan varlığı 1961'den bugüne sayılıyor ve meradaki sürü küç
 Koyun 1968'de 13,1 milyon başla zirvedeydi. Bugün 6.672.540 baş — yarıdan az.
 Yalnız 1990'dan bugüne bakıldığında düşüş %30,5. Keçi de %12,7 geriledi.
 Sığır ise %38,4 arttı. Merada otlayan hayvan azalırken ahırda beslenen hayvan
-çoğaldı; altıncı bölümdeki arpa eğrisi bu cümlenin öteki yarısıdır.
+çoğaldı; 6. bölümdeki arpa eğrisi bu cümlenin öteki yarısıdır.
 
 Mandanın eğrisi ayrı bir şey anlatıyor. Ülke genelinde 1996'da 50.000 başla
 dibe vurdu; bugün 269.940 baş, yani dipten 5,4 kat. Bu rakamlar ülke
@@ -426,10 +398,10 @@ Irak'ın hayvan serilerinde en hızlı büyüyen kalem ne koyun, ne sığır, ne
 manda. Tavuk.
 
 1961'de ülkede 6,5 milyon baş tavuk vardı. 2022'de 162,5 milyonla zirve
-yaptı; 2024'te 140 milyon. Altmış üç yılda **21,5 kat**. Aynı dönemde koyun
+yaptı; 2024'te 140 milyon. 63 yılda **21,5 kat**. Aynı dönemde koyun
 yarıya indi.
 
-Bu eğri, onuncu ve on birinci bölümlerin anlattığı şeyin en keskin hâli.
+Bu eğri, 10. ve 11. bölümlerin anlattığı şeyin en keskin hâli.
 Koyun meraya, meradaki ot da yağışa bağlıdır; su azaldığında hem mera hem
 yemlik arpa daralır ve sürü küçülür. Tavuk ise meraya bağlı değil. Kümeste
 beslenir, yemi satın alınır, su ihtiyacı sürüsü başına koyundan çok daha
@@ -437,8 +409,8 @@ azdır. Bir ülkede su kısıtlanırken protein üretimi tamamen durmuyorsa,
 genellikle kümese taşınıyor demektir.
 
 Ama bu taşınmanın bir bedeli var ve dosyanın başka bir bölümünde duruyor.
-Kümes hayvanı yem yer; yem ya ekilir ya satın alınır. Altıncı bölümde
-Irak'ın arpa ekimini 0,19 kata indirdiğini gördük. On dördüncü bölümde
+Kümes hayvanı yem yer; yem ya ekilir ya satın alınır. 6. bölümde
+Irak'ın arpa ekimini 0,19 kata indirdiğini gördük. 14. bölümde
 Türkiye'nin Irak'a 298,1 milyon dolarlık yem artığı sattığını göreceğiz.
 Üçü yan yana konduğunda ortaya çıkan cümle şu: ülke yem tahılını ekmeyi
 azalttı, hayvanını yeme bağladı ve yemin bir bölümünü dışarıdan almaya
@@ -452,37 +424,36 @@ ama riskin cinsi farklı ve ikincisi ülkenin dışında duruyor.
 
 ## 13. Sonradan gelenler
 
-Irak'ın ürün haritası altmış üç yılda yalnız kaybetmedi; iki yerde de
+Irak'ın ürün haritası 63 yılda yalnız kaybetmedi; iki yerde de
 belirgin biçimde değişti.
 
 Mısır 1961'de Irak'ta neredeyse yoktu: 2.000 hektar. Bugün 100.000 hektar,
-yani alan elli kat arttı. Verim de 5,27 kat arttı ve bu, dosyadaki altı
+yani alan 50 kat arttı. Verim de 5,27 kat arttı ve bu, dosyadaki altı
 ürünün en büyük verim kazancı. Üretim 2013'te 831 bin tonla zirve yaptı,
 2024'te 500 bin ton.
 
-Mısırın yükselişi tesadüf değil: on ikinci bölümdeki tavuk eğrisiyle aynı
+Mısırın yükselişi tesadüf değil: 12. bölümdeki tavuk eğrisiyle aynı
 yöne gidiyor. Kümes hayvanının yemi büyük ölçüde mısırdır. Bir ülkede tavuk
-21,5 kat artarken mısır alanının elli kat artması, iki ayrı tarım kararı
+21,5 kat artarken mısır alanının 50 kat artması, iki ayrı tarım kararı
 değil, aynı kararın iki yüzü.
 
 Domates başka bir eğri çiziyor. 1961'de 138,7 bin tondu, 2001'de 1.321 bin
 tonla zirve yaptı, 2024'te 463,2 bin ton. Alanı neredeyse hiç değişmedi —
 19.545 hektardan 21.985 hektara, yani 1,12 kat. Verimi ise 2,97 kat arttı.
 
-Yani domateste Irak doğru olanı yaptı: aynı toprakta üç kat daha çok ürün
+Yani domateste Irak doğru olanı yaptı: aynı toprakta 3 kat daha çok ürün
 aldı. Ama zirveden bugüne üretim üçte bire indi ve bunun sebebi alan da
 değil verim de değil — zirve yıllarındaki ekim düzeyinin sürdürülememesi.
 Seri, 2001'den sonra bir platoya değil bir inişe geçiyor.
 
 Bu iki ürün dosyanın geri kalanını dengeliyor. Buğdayda, arpada, hurmada ve
 pirinçte anlatılan şey kısıt ve kayıptı. Mısır ve domates, aynı ülkede aynı
-yıllarda verimin iki ila beş kat artabildiğini gösteriyor. Sorun toprağın
+yıllarda verimin 2 ila 5 kat artabildiğini gösteriyor. Sorun toprağın
 ya da çiftçinin kapasitesi değil; suyun ve girdinin öngörülebilirliği.
 
 ## 14. Türkiye ne satıyor
 
-Türkiye'nin Irak'a sattığı 4,64 milyar dolarlık tarım ürünü yirmi dört
-faslın tamamına yayılıyor, ama ağırlık birkaç yerde toplanıyor.
+Türkiye'nin Irak'a sattığı 4,64 milyar dolarlık tarım ürünü 24 faslın tamamına yayılıyor, ama ağırlık birkaç yerde toplanıyor.
 
 En büyük kalem hamur işleri ve bisküvi: 538,9 milyon dolar. Ardından meyve ve
 yemiş 498,3 milyon, un ve değirmen ürünleri 496,6 milyon, et 444,4 milyon,
@@ -506,14 +477,13 @@ açlığına değil market rafına da satıyorsunuz demektir.
 
 Alt sıralarda ise liste neredeyse boşalıyor: canlı hayvan 6,5 milyon, çiçek
 ve canlı bitki 5,4 milyon, kahve-çay-baharat 5,3 milyon dolar. En dipte
-bitkisel örgü maddeleri 0,05 milyon ve hayvansal ürünler sıfır. Yirmi dört
-faslın hepsinde ticaret var ama son altısının toplamı, ilk kalemin yüzde
+bitkisel örgü maddeleri 0,05 milyon ve hayvansal ürünler sıfır. 24 faslın hepsinde ticaret var ama son altısının toplamı, ilk kalemin yüzde
 beşini bulmuyor.
 
 Süt ürünleri, yumurta ve bal faslı 179,3 milyon dolarla ilk ona giriyor; yem
 artıkları 298,1 milyon. Birincisi doğrudan sofraya giden bir kalem, ikincisi
-Irak'ın kendi hayvanını beslemek için aldığı girdi. Altıncı bölümde arpa
-ekiminin bırakıldığını gösteren eğri, on ikinci bölümdeki tavuk eğrisi ve bu
+Irak'ın kendi hayvanını beslemek için aldığı girdi. 6. bölümde arpa
+ekiminin bırakıldığını gösteren eğri, 12. bölümdeki tavuk eğrisi ve bu
 kalem aynı cümlenin üç parçası.
 
 Rakamlar Türkiye'nin beyanından. Irak'ın bu malları kimden, hangi fiyatla ve
@@ -533,7 +503,7 @@ işlenmiş sebze-meyve 2,79 milyon, sebze 2,60 milyon.
 Bu kalemlerin her biri, karşı yöndeki aynı fasıldan yüzlerce kat küçük. Giden
 ile gelen arasındaki oran 154 kat. Somut bir karşılaştırma: Türkiye'nin
 Irak'a sattığı yalnızca hamur işleri (538,9 milyon dolar), Irak'tan gelen
-bütün tarım ürünlerinin on yedi katından fazla.
+bütün tarım ürünlerinin 17 katından fazla.
 
 Dengesizliğin sebebini bu rakamlar söylemiyor. Bir ülkenin satacak fazlası
 olmayabilir; lojistiği, standardı ya da ticaret düzeni elverişsiz olabilir;
@@ -541,7 +511,7 @@ ya da ürettiğini kendi yiyordur. Dosyanın önceki bölümleri bu ihtimallerin
 bir kısmına ölçü veriyor — tuzlanan tarla, bırakılan arpa, kapatılan pirinç,
 hurmada düşen verim — ama hiçbiri tek başına 154 katı açıklamıyor.
 
-Üçüncü bölümdeki nüfus ve tarım payı rakamları bir ipucu veriyor: 47,0
+3. bölümdeki nüfus ve tarım payı rakamları bir ipucu veriyor: 47,0
 milyon nüfuslu, tarımın petrol dışı ekonominin %35'ini tuttuğu bir ülke,
 ürettiğinin büyük bölümünü içeride tüketiyor olabilir. Bu bir açıklama
 değil, ölçülmemiş bir ihtimal — Irak'ın kendi üretim-tüketim dengesi bu
@@ -565,7 +535,7 @@ Suyun yukarıdan gelmesi yeni bir mesele değil. İki ülke bunu 29 Mart 1946'da
 yazılı hale getirdi.
 
 Belgenin adı **DÎCLE, FIRAT VE KOLLARI SULARININ DÜZENE KONMASI PROTOKOLÜ**.
-Altı maddesi var ve her maddesi bugünkü tartışmanın bir parçasını önceden
+6 maddesi var ve her maddesi bugünkü tartışmanın bir parçasını önceden
 kuruyor.
 
 Birinci madde teknisyeni ve haritayı düzenliyor; *"bütün harcamaları Irak
@@ -583,20 +553,20 @@ işletmeyi kabul etti.
 Dördüncü madde en dikkat çekici olanı. Yapılacak düzenleme yapılarının her
 biri ayrı bir anlaşmaya konu olacak — *"Türkiye'nin sulama ve enerji elde etme
 maksadiyle onlardan faydalanması bakımından ayrı bir Anlaşmaya konu teşkil
-eyliyecektir"*. 1946'da, Devlet Su İşleri kurulmadan yedi yıl önce, Türkiye'nin
+eyliyecektir"*. 1946'da, Devlet Su İşleri kurulmadan 7 yıl önce, Türkiye'nin
 kendi sulama ve enerji kullanımı protokolün dışında bırakılmış.
 
 Beşinci madde ise tek bir fiille yazılmış: Türkiye tasarılarını *"Irak'a haber
 vermeyi kabul eyler"*. Haber vermek, onay almak değildir. Aradaki fark
-seksen yıl sonra hâlâ duruyor — ve dördüncü bölümdeki Dünya Bankası
+80 yıl sonra hâlâ duruyor — ve 4. bölümdeki Dünya Bankası
 cümlesinin *"not subject to well-established cross-border agreements"*
 ifadesi, tam da bu farkın bugünkü adıdır.
 
 Bir ayrıntı da Keban'da. 1946'da Keban bu protokolde bir telgraf gözlem
-noktasıdır: her sabah saat sekizde su seviyesinin bildirileceği yer. Bu
+noktasıdır: her sabah saat 8'de su seviyesinin bildirileceği yer. Bu
 dizinin Kurum Dosyası Sayı 05'i aynı Keban'ı, Güneydoğu Anadolu Projesi'nin
-Fırat üzerindeki beş barajından biri olarak anlatıyor. Aynı ad, aynı nehir,
-seksen yıl arayla iki ayrı şey: önce suyun ölçüldüğü yer, sonra tutulduğu
+Fırat üzerindeki 5 barajından biri olarak anlatıyor. Aynı ad, aynı nehir,
+80 yıl arayla iki ayrı şey: önce suyun ölçüldüğü yer, sonra tutulduğu
 yer.
 
 ## 17. Türkiye buradan ne görebilir
@@ -607,12 +577,12 @@ yukarısında duran ülke için de okunabilir.
 Birincisi tuz. Irak'ta ekili alanın %70'i yüksek toprak tuzluluğundan
 etkileniyor ve tarihsel olarak sulanmış alanın %40'ı üretim dışı. Bunun
 sebebi iklim değil drenaj: suyun tarlaya girmesi kadar çıkması da gerekir.
-Türkiye'nin sulama altyapısı genç ve büyük bölümü son elli yılda kuruldu;
+Türkiye'nin sulama altyapısı genç ve büyük bölümü son 50 yılda kuruldu;
 tuzlanma yavaş ilerleyen bir süreç olduğu için bir sulama sisteminin drenaj
 açığı onlarca yıl sonra görünür. Irak'ın bugünü, drenaj olmadan sulamanın
 uzun vadede ne ürettiğinin ölçülmüş bir örneği.
 
-İkincisi alan ile verim ayrımı. Sekizinci bölümdeki tablo gösteriyor ki bir
+İkincisi alan ile verim ayrımı. 8. bölümdeki tablo gösteriyor ki bir
 ülkenin üretimi artarken verimi düşebiliyor ve bu, uzun süre fark
 edilmeyebiliyor. Hurmada Irak alanı 2,45 kat büyüttü, verimi 0,62 kata
 düşürdü ve üretim serisi hâlâ "artıyor" diye okunabiliyordu. Aynı hesap her
@@ -632,7 +602,7 @@ etkiler. Bu dosya o riski ölçmüyor; yalnız hattın ne kadar tek yönlü
 olduğunu ölçüyor.
 
 Beşincisi 1946'dan kalan fark. Protokol Türkiye'nin tasarılarını Irak'a
-*"haber vermeyi kabul eyler"* diyor. Seksen yıl sonra Dünya Bankası aynı
+*"haber vermeyi kabul eyler"* diyor. 80 yıl sonra Dünya Bankası aynı
 havza için *"not subject to well-established cross-border agreements"*
 yazıyor. İki belge arasındaki mesafe, bir sınır ötesi su düzeninin
 kurulmamış olmasının ne kadar uzun sürebileceğini gösteriyor.
@@ -653,7 +623,7 @@ hesaplandı; FAOSTAT'ın kendi verim serisi kullanılmadı.
 
 **Makro göstergeler.** Dünya Bankası açık veri API'si; her kalem kendi en
 yeni dolu yılıyla. Sulanan arazi payı göstergesinin Irak karşılığı boştur;
-üçüncü bölüm bu boşluğu anıyor.
+3. bölüm bu boşluğu anıyor.
 
 **Su ve tuzluluk.** Dünya Bankası, PID P149803 (2014). Tarımın petrol dışı
 GSYH'deki payı da bu belgeden; toplam GSYH payı API'den. İki payda ayrı ayrı

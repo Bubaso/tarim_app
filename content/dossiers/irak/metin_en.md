@@ -1,41 +1,18 @@
 # Iraq — Country Dossier · Issue 05 · English text
 
-> **Deck:** On the plain where farming began, seventy per cent of the cropland is affected by salt, one grain gave its lowest harvest in sixty-four years last season, and rice vanished in two years and came back in two. Into that same plain the neighbour sends a hundred and fifty-four times what it takes out.
-
----
-
-## House rules — for anyone who touches this file
-
-1. **No figure is written from memory.** Every number comes from `data.json`.
-2. **All trade figures come from Türkiye's reporting.** Iraq does not report
-   to Comtrade. Every section that speaks of trade says so.
-3. **Marshland scale and country scale never share a sentence.** The UN report
-   counts buffalo in the marshes, FAOSTAT counts them across the country; in
-   the same year the two differ sixtyfold.
-4. **Output is never read alone.** Output is area multiplied by yield; no
-   series is interpreted without saying which half moved.
-5. **Source classes are not mixed.** FAOSTAT, the World Bank and Comtrade are
-   independent; the Turkish parliamentary print of the 1946 protocol is primary.
-6. **Two denominators are written, not one.** Agriculture's share of total GDP
-   and of non-oil GDP are different numbers.
-7. **No unmeasured superlative.** The sentence "Türkiye's largest agricultural
-   market" is not in this dossier; it could not be measured.
-8. **No meta sentences.** How the dossier was made does not enter the text.
-
----
+> **Deck:** On the plain where farming began, 70% of the cropland is affected by salt, one grain gave its lowest harvest in 64 years last season, and rice vanished in 2 years and came back in 2. Into that same plain the neighbour sends 154 times what it takes out.
 
 ## 1. A country's bread
 
 In 2024 Türkiye sold 32.54 billion dollars of agricultural produce to the
-world. Of that, 4.64 billion dollars went to a single country: Iraq. One lira
-in every seven of agricultural exports went to the neighbour lying just across
+world. Of that, 4.64 billion dollars went to a single country: Iraq. 1 lira in every 7 of agricultural exports went to the neighbour lying just across
 the southern border.
 
 Look the other way and the ledger is almost empty. In the same year the
 agricultural goods that came from Iraq to Türkiye were worth 30.2 million
-dollars. The ratio is **154 to one**. Imbalance in a trading relationship is
+dollars. The ratio is **154 to 1**. Imbalance in a trading relationship is
 ordinary; imbalance on this scale is not. For comparison, Türkiye's trade with
-Australia ran three times in Türkiye's favour, and even that counted as
+Australia ran 3 times in Türkiye's favour, and even that counted as
 lopsided in this series.
 
 All of these figures are read from Türkiye's reporting. Iraq does not report
@@ -45,19 +22,19 @@ in this dossier is therefore the line as seen from the Turkish side. That does
 not make the figures wrong; it makes them counted from one side.
 
 Total Turkish exports to Iraq come to 13.00 billion dollars. Agriculture is
-35.7% of that. Nearly one lira in every three that Türkiye sends to this
+35.7% of that. Nearly 1 lira in every 3 that Türkiye sends to this
 country leaves from a field. The share is striking on its own: in Türkiye's
 exports to the world as a whole, agriculture's share is far below this. The
 Iraq line has a different composition from Turkish exports in general.
 
 Within it the most crowded group is a single chain: cereals, flour and bakery
 goods together make 1.44 billion dollars, 31.1% of the agricultural exports.
-One lira in every three of agricultural goods going to Iraq is wheat in some
+1 lira in every 3 of agricultural goods going to Iraq is wheat in some
 form — the grain, its flour, or the flour baked.
 
 This dossier is about that line. But it is also about the country at one end
 of it — because Iraq's agriculture is a far older and far more tangled story
-than its relationship with Türkiye. The next fifteen sections are that story;
+than its relationship with Türkiye. The next 15 sections are that story;
 the line returns only in the last three.
 
 ## 2. Where farming began
@@ -87,7 +64,7 @@ denominator problem, so the two single figures cannot be compared directly.
 In the place where farming began, the seed itself is also kept in an
 institution. The seed bank at Abu Ghraib in Baghdad — in the document's own
 spelling, *"the Abu Gharib seed bank in Baghdad"* — has been *"operational
-since 1977"*, more than forty years, but has *"suffered from infrastructural
+since 1977"*, more than 40 years, but has *"suffered from infrastructural
 damage"*. The FAO, together with the International Center for Agricultural
 Research in the Dry Areas, is working to rehabilitate it and to establish a
 second seed bank in Sulaymaniyah.
@@ -95,7 +72,7 @@ second seed bank in Sulaymaniyah.
 A country's seed bank is its agriculture's backup. A burned field is sown
 again the following year; a lost seed collection cannot be replaced, because
 that collection is the record of varieties selected in one place over
-centuries. The field damage described in the fifth section and this bank's
+centuries. The field damage described in section 5 and this bank's
 infrastructural damage are not two losses of different size; they are two
 kinds of loss, one seasonal and the other possibly irreversible.
 
@@ -115,10 +92,10 @@ The difference repeats every year, in every field and at every harvest; it
 accumulates into the country's capacity to cover its own bread.
 
 30.1% of the population lives in the countryside while farming accounts for
-8.17% of employment. The gap is not small: more than three in four people
+8.17% of employment. The gap is not small: more than 3 in 4 people
 living rurally do not make their living from agriculture. That points to a
 structure in which farming cannot carry the countryside on its own. Where a
-rural population is more than three times agricultural employment, it signals
+rural population is more than 3 times agricultural employment, it signals
 either a search for non-farm income in the countryside or the absence of
 income altogether; this dossier's data cannot separate the two.
 
@@ -156,7 +133,7 @@ question of engineering. What makes the difference is the second half of the
 document's sentence: the absence of a settled cross-border agreement. Water
 tied to an agreement is predictable even when it shrinks; untied, the
 difference between little water and much water becomes a piece of news rather
-than a plan. The 1946 protocol in the sixteenth section is the historical
+than a plan. The 1946 protocol in section 16 is the historical
 counterpart of that sentence.
 
 How much water reaches downstream depends not only on upstream decisions but
@@ -170,7 +147,7 @@ The quantity of water arriving from upstream changes from year to year, but
 the sections that follow show that quantity is not the only thing that
 changes: when water grows scarce in Iraq, what disappears is not yield but the
 sown area itself. A farmer short of water does not irrigate the same field
-worse; he leaves part of it unsown. The rice of the seventh section and the
+worse; he leaves part of it unsown. The rice of section 7 and the
 barley of the sixth are two separate measurements of that behaviour.
 
 ## 5. What the war did to the field
@@ -210,12 +187,12 @@ A burned field costs one season. The loss of the seed store and the silo,
 combined with the collapse of government support, costs several seasons after
 it. That is why the breaks in the next section's series are not single-year
 breaks. The infrastructural damage to the Abu Ghraib seed bank described in
-the second section belongs to the same sentence: in any country, the place
+section 2 belongs to the same sentence: in any country, the place
 where seed is kept is as critical as the field itself.
 
 ## 6. Three shocks and the grain that did not come back
 
-Iraq's wheat series runs from 1961 to today and breaks in three places.
+Iraq's wheat series runs from 1961 to today and breaks in 3 places.
 
 The lowest year in the series is 2000, at 384 thousand tonnes — the trough of
 the embargo years. The second break is 2015: a harvest of 5,055 thousand
@@ -224,7 +201,7 @@ is the dry period after 2021.
 
 But the real story is not in wheat. It is in barley.
 
-Across sixty-four years, the lowest year of the series **is not the embargo
+Across 64 years, the lowest year of the series **is not the embargo
 but 2023**: 106 thousand tonnes. In 2020 it had been 1,756 thousand. In 2024
 it rose to 164 thousand — 9.4% of the 2020 level. The sown area followed the
 same road: from 1,123,712 hectares to 91,144.
@@ -244,24 +221,22 @@ protects bread wheat and does not protect feed barley; that is an order of
 preference, and it is legible in the series.
 
 What a country stops sowing says more than what it sows. The grain Iraq
-dropped was the grain that fed its flocks. The sheep curve in the eleventh
-section and the chicken curve in the twelfth are two continuations of that
+dropped was the grain that fed its flocks. The sheep curve in section 11 and the chicken curve in the twelfth are two continuations of that
 sentence: the pasture-grazed animal declined and the feed-fed animal
-increased — and part of that feed now sits in the import list of the
-fourteenth section.
+increased — and part of that feed now sits in the import list of section 14.
 
 ## 7. A crop switched off and on
 
 Rice grows in water. That is why water scarcity reads most clearly from it.
 
 In 2020 Iraq produced 464,159 tonnes of rice. In 2022, 11,637 tonnes. The fall
-is **97.5%**. Across the same two years the sown area went from 101,594
+is **97.5%**. Across the same 2 years the sown area went from 101,594
 hectares to 3,839. The two curves falling together say where the loss came
 from: not from yield but from area. The field was not sown.
 
 A text stopping here would describe an abandoned crop. But the series
 continues. In 2024 output returned to 227,508 tonnes — 49% of 2020. A curve
-that falls to a fortieth and climbs back to half within four years shows not a
+that falls to a fortieth and climbs back to half within 4 years shows not a
 crop given up but a crop **switched off and on**.
 
 The difference matters. A crop abandoned because of the market takes decades
@@ -270,7 +245,7 @@ Rice is the second kind. This dossier does not say by whom or how that
 decision was taken — the series in hand show what happened, not why.
 
 Over the long run rice still points upward. It was sown on 25,000 hectares in
-1961 and on 52,372 in 2024; the area rose 2.09-fold over sixty-three years.
+1961 and on 52,372 in 2024; the area rose 2.09-fold over 63 years.
 Yield rose too, from 2.74 to 4.34 tonnes per hectare, a factor of 1.59. Iraq
 gave rice more ground and took a better harvest from it — and can still fall
 to a fortieth of its output in a single dry period. A crop's long-term trend
@@ -287,7 +262,7 @@ Output is the product of two things: the area sown and the harvest taken per
 hectare. Reading an output series alone hides which half moved — and this
 dossier's most misleading figure sits exactly there.
 
-For six crops, the multiples between the first measured year and 2024:
+For 6 crops, the multiples between the first measured year and 2024:
 
 | crop | yield multiple | area multiple |
 |---|---|---|
@@ -303,19 +278,18 @@ Wheat is the country's most balanced success: yield up 3.31-fold, area up
 the yield rose 5.27-fold — the largest agricultural gain among the six.
 
 Barley is the only crop falling on both counts: yield down to 0.94, meaning
-that after sixty-three years a hectare gives less than it did in 1961, and
+that after 63 years a hectare gives less than it did in 1961, and
 area down to 0.19. Where both the area and the yield of a crop fall, there is
 not improvement but withdrawal.
 
 But the row that matters most is dates. The yield fell **to 0.62** — a hectare
 of date grove today gives two thirds of what it gave in 1985. The area rose
-2.45-fold. The ninth section will record that Iraq's date output rose 1.7-fold;
+2.45-fold. Section 9 will record that Iraq's date output rose 1.7-fold;
 all of that rise, and more, comes from area. The country planted more trees and
 took less from each.
 
 This is what a reading of the output series alone cannot see. "Date production
-rose" is true and misleading. The explanation of the lost world share in the
-ninth section is here: the world raised its date yield while Iraq raised its
+rose" is true and misleading. The explanation of the lost world share in section 9 is here: the world raised its date yield while Iraq raised its
 date area.
 
 ## 9. It did not drop the date; the world passed it
@@ -323,7 +297,7 @@ date area.
 The date is the crop Iraq is named with. And Iraq did not drop the date.
 
 In 1961 it produced 350,000 tonnes of dates; in 2024, 587,190. Over
-sixty-three years output rose 1.7-fold. Over the same period world date
+63 years output rose 1.7-fold. Over the same period world date
 production rose 5.4-fold.
 
 The result: Iraq's share of world date production fell from **18.9% to 5.9%**.
@@ -338,20 +312,20 @@ The gap between the peak and today deserves its own reading. In 2000, 932,000
 tonnes were produced; today, 587,190. Iraq has fallen behind not only the
 world but its own best year.
 
-The table in the eighth section gives the mechanism of that descent: the date
+The table in section 8 gives the mechanism of that descent: the date
 area has risen 2.45-fold since 1985, while the harvest per hectare fell to
 0.62. Iraq gave dates more ground and took less from each piece of it. Output
 still looks higher because the two movements partly cancel.
 
 The candidates for the falling yield stand inside this dossier: the
-salinisation of the tenth section, the irregular water of the fourth and the
+salinisation of section 10, the irregular water of the fourth and the
 war damage of the fifth. This dossier does not measure how much each
 contributes, and says that it does not.
 
 This is the quietest loss in the file. A crop's collapse is visible in its own
 numbers; a crop's loss of place is visible only when read alongside other
-people's numbers. Iraq is still a large date producer. But in 1961 one date in
-every five in the world came from here; today it is one in seventeen.
+people's numbers. Iraq is still a large date producer. But in 1961 1 date in
+every 5 in the world came from here; today it is 1 in 17.
 
 Dropping a crop is a decision and usually visible. Losing one's place in a
 crop is not a decision but an outcome — and because nobody ever sat down and
@@ -374,7 +348,7 @@ irrigated land becoming unusable means the map of what can be sown has shrunk
 — and that map is not growing back.
 
 Both ratios are the measurement of a document dated 2014 and stand here with
-their year. Salinisation is a slow process; a measurement from ten years ago
+their year. Salinisation is a slow process; a measurement from 10 years ago
 describes today approximately, but it is not today's measurement.
 
 Salinity is not confined to the field. The UN's 2011 marshlands report says
@@ -385,9 +359,9 @@ above are at country scale and belong to cropland. The two are not counting
 the same thing.
 
 Salinisation differs from drought. Drought comes and goes; salt stays. The
-rice of the seventh section can go unsown one year and be sown the next, but a
+rice of section 7 can go unsown one year and be sown the next, but a
 salinised field does not repair itself the following year. The falling date
-yield of the eighth section fits the same frame: the tree stands where it
+yield of section 8 fits the same frame: the tree stands where it
 stood, and the soil changes under it.
 
 The technical remedy for salinisation is known and expensive: drainage. Water
@@ -404,7 +378,7 @@ shrinking.
 Sheep peaked in 1968 at 13.1 million head. Today there are 6,672,540 — less
 than half. Measured from 1990 alone the fall is 30.5%. Goats are down 12.7%.
 Cattle, by contrast, rose 38.4%. The pasture-grazed animal declined while the
-barn-fed animal increased; the barley curve of the sixth section is the other
+barn-fed animal increased; the barley curve of section 6 is the other
 half of that sentence.
 
 The buffalo curve tells something else. Across the country it bottomed in 1996
@@ -441,7 +415,7 @@ The fastest-growing line in Iraq's livestock series is neither sheep nor
 cattle nor buffalo. It is chickens.
 
 In 1961 the country held 6.5 million head. In 2022 the number peaked at 162.5
-million; in 2024 it stands at 140 million. Over sixty-three years, **21.5
+million; in 2024 it stands at 140 million. Over 63 years, **21.5
 times**. Sheep halved in the same period.
 
 This curve is the sharpest form of what the tenth and eleventh sections
@@ -453,8 +427,8 @@ country's water is restricted and protein production does not stop, it has
 usually moved indoors.
 
 But that move has a price, and it sits in another section of this dossier.
-Coop animals eat feed; feed is either sown or bought. The sixth section showed
-Iraq's barley area falling to 0.19. The fourteenth will show Türkiye selling
+Coop animals eat feed; feed is either sown or bought. Section 6 showed
+Iraq's barley area falling to 0.19. Section 14 will show Türkiye selling
 Iraq 298.1 million dollars of feed residues. Put the three side by side and
 the sentence is this: the country sowed less feed grain, tied its animals to
 feed, and began buying part of that feed from outside.
@@ -467,17 +441,17 @@ second sits outside the country.
 
 ## 13. The latecomers
 
-Iraq's crop map did not only lose over sixty-three years; in two places it
+Iraq's crop map did not only lose over 63 years; in two places it
 changed markedly.
 
 Maize was almost absent from Iraq in 1961: 2,000 hectares. Today it covers
-100,000 — the area rose fiftyfold. The yield rose 5.27-fold as well, the
-largest yield gain among the dossier's six crops. Output peaked at 831
+100,000 — the area rose 50-fold. The yield rose 5.27-fold as well, the
+largest yield gain among the dossier's 6 crops. Output peaked at 831
 thousand tonnes in 2013 and stands at 500 thousand in 2024.
 
 Maize's rise is not a coincidence: it runs in the same direction as the
-chicken curve of the twelfth section. Coop feed is largely maize. A country
-whose chickens rise 21.5-fold while its maize area rises fiftyfold is not
+chicken curve of section 12. Coop feed is largely maize. A country
+whose chickens rise 21.5-fold while its maize area rises 50-fold is not
 making two separate agricultural decisions but showing two faces of one.
 
 Tomatoes draw a different curve. Output was 138.7 thousand tonnes in 1961,
@@ -485,21 +459,21 @@ peaked at 1,321 thousand in 2001, and stands at 463.2 thousand in 2024. The
 area barely moved — from 19,545 hectares to 21,985, a factor of 1.12. The
 yield rose 2.97-fold.
 
-So in tomatoes Iraq did the right thing: three times as much from the same
+So in tomatoes Iraq did the right thing: 3 times as much from the same
 soil. But output has fallen to a third of its peak, and the cause is neither
 area nor yield — it is that the planting level of the peak years was not
 sustained. After 2001 the series does not level off; it descends.
 
 These two crops balance the rest of the dossier. What wheat, barley, dates and
 rice describe is constraint and loss. Maize and tomatoes show that in the same
-country and the same years yields could rise two to five times. The problem is
+country and the same years yields could rise 2 to 5 times. The problem is
 not the capacity of the soil or of the farmer; it is the predictability of
 water and inputs.
 
 ## 14. What Türkiye sells
 
 The 4.64 billion dollars of agricultural produce Türkiye sells to Iraq spreads
-across all twenty-four chapters, but the weight gathers in a few places.
+across all 24 chapters, but the weight gathers in a few places.
 
 The biggest single line is bakery goods and biscuits: 538.9 million dollars.
 Then fruit and nuts at 498.3 million, flour and milling products at 496.6
@@ -525,13 +499,12 @@ chocolate means selling not only to its hunger but to its supermarket shelf.
 Lower down the list almost empties: live animals at 6.5 million, cut flowers
 and live plants at 5.4 million, coffee, tea and spices at 5.3 million dollars.
 At the very bottom, vegetable plaiting materials at 0.05 million and animal
-products at zero. There is trade in all twenty-four chapters, but the last six
-together do not reach five per cent of the first line.
+products at zero. There is trade in all 24 chapters, but the last six
+together do not reach 5% of the first line.
 
 Dairy, eggs and honey enter the top ten at 179.3 million dollars; feed
 residues stand at 298.1 million. The first goes straight to the table, the
-second is an input Iraq buys to feed its own animals. The curve in the sixth
-section showing barley abandoned, the chicken curve of the twelfth and this
+second is an input Iraq buys to feed its own animals. The curve in section 6 showing barley abandoned, the chicken curve of the twelfth and this
 line are three parts of one sentence.
 
 The figures come from Türkiye's reporting. Iraq's own declaration of whom it
@@ -550,9 +523,9 @@ nuts at 2.85 million, processed fruit and vegetables at 2.79 million, and
 vegetables at 2.60 million.
 
 Each of these is hundreds of times smaller than the same chapter in the
-opposite direction. The ratio between what goes and what comes is 154 to one.
+opposite direction. The ratio between what goes and what comes is 154 to 1.
 A concrete comparison: bakery goods alone, at 538.9 million dollars, are more
-than seventeen times everything agricultural that comes the other way.
+than 17 times everything agricultural that comes the other way.
 
 These figures do not say why the imbalance exists. A country may have no
 surplus to sell; its logistics, standards or trade arrangements may be
@@ -561,7 +534,7 @@ measurements for some of those possibilities — the salting field, the dropped
 barley, the switched-off rice, the falling date yield — but none of them alone
 explains a factor of 154.
 
-The population and agricultural-share figures of the third section offer a
+The population and agricultural-share figures of section 3 offer a
 clue: a country of 47.0 million where farming holds 35% of the non-oil economy
 may well consume most of what it produces. That is not an explanation but an
 unmeasured possibility — Iraq's own production-consumption balance is not in
@@ -587,7 +560,7 @@ it in writing on 29 March 1946.
 
 The document is titled **DÎCLE, FIRAT VE KOLLARI SULARININ DÜZENE KONMASI
 PROTOKOLÜ** — the protocol on the regulation of the waters of the Tigris, the
-Euphrates and their tributaries. It has six articles, and each sets up part of
+Euphrates and their tributaries. It has 6 articles, and each sets up part of
 today's argument in advance.
 
 The first article arranges the technicians and the maps; *"all expenses to be
@@ -604,21 +577,20 @@ agreed to build and operate the station.
 The fourth article is the most striking. Each regulating structure to be built
 will be the subject of a separate agreement — *"shall form the subject of a
 separate Agreement as regards Türkiye's use of them for irrigation and the
-generation of energy"*. In 1946, seven years before the State Hydraulic Works
+generation of energy"*. In 1946, 7 years before the State Hydraulic Works
 was founded, Türkiye's own irrigation and energy use was left outside the
 protocol.
 
 The fifth article is written with a single verb: Türkiye *"accepts to inform
 Iraq"* of its projects. To inform is not to seek consent. The difference is
-still standing eighty years later — and the World Bank's phrase from the
-fourth section, *"not subject to well-established cross-border agreements"*,
+still standing 80 years later — and the World Bank's phrase from section 4, *"not subject to well-established cross-border agreements"*,
 is that same difference under its present name.
 
 One detail sits at Keban. In 1946 Keban is a telegraph observation point in
-this protocol: the place where the water level is to be reported at eight each
+this protocol: the place where the water level is to be reported at 8 each
 morning. Issue 05 of this series' Institution Dossier describes the same Keban
-as one of the five dams of the Southeastern Anatolia Project on the Euphrates.
-The same name, the same river, two different things eighty years apart: first
+as one of the 5 dams of the Southeastern Anatolia Project on the Euphrates.
+The same name, the same river, two different things 80 years apart: first
 the place where water was measured, then the place where it is held.
 
 ## 17. What Türkiye can see from here
@@ -629,13 +601,11 @@ measurements can also be read by the country upstream in the same basin.
 The first is salt. In Iraq 70% of cropland is affected by high soil salinity
 and 40% of the historically irrigated area is out of production. The cause is
 not climate but drainage: water must leave a field as surely as it enters.
-Türkiye's irrigation infrastructure is young and largely built in the last
-fifty years; because salinisation advances slowly, a drainage shortfall in an
+Türkiye's irrigation infrastructure is young and largely built in the last 50 years; because salinisation advances slowly, a drainage shortfall in an
 irrigation system becomes visible only decades later. Iraq's present is a
 measured example of what irrigation without drainage produces in the long run.
 
-The second is the distinction between area and yield. The table in the eighth
-section shows that a country's output can rise while its yield falls, and that
+The second is the distinction between area and yield. The table in section 8 shows that a country's output can rise while its yield falls, and that
 this can go unnoticed for a long time. In dates Iraq grew the area 2.45-fold,
 let the yield fall to 0.62, and the output series could still be read as
 "rising". The same arithmetic can be done for any country's own crop series.
@@ -654,7 +624,7 @@ agricultural exports at once. This dossier does not measure that risk; it
 measures only how one-directional the line is.
 
 The fifth is the gap left over from 1946. The protocol says Türkiye *"accepts
-to inform Iraq"* of its projects. Eighty years later the World Bank writes of
+to inform Iraq"* of its projects. 80 years later the World Bank writes of
 the same basin that it is *"not subject to well-established cross-border
 agreements"*. The distance between the two documents shows how long the
 absence of a cross-border water settlement can last.
@@ -674,8 +644,7 @@ as zero. Yields were computed by dividing production by harvested area;
 FAOSTAT's own yield series was not used.
 
 **Macro indicators.** World Bank open data API, each item at its own most
-recent filled year. The irrigated-land indicator has no Iraq value; the third
-section notes that hole.
+recent filled year. The irrigated-land indicator has no Iraq value; section 3 notes that hole.
 
 **Water and salinity.** World Bank, PID P149803 (2014). Agriculture's share of
 non-oil GDP also comes from this document; the total-GDP share comes from the

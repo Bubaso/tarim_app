@@ -6,7 +6,7 @@ kimliklere, web/dosya/irak altındaki dosyalara ve data.json'daki sayılara.
 Üçü de ayrı dosyada; aralarındaki kayma hiçbir denetimde görünmez. Dosya
 yayına alındıktan sonra görünür ve o zaman geç olur.
 
-YEDİ KURAL:
+SEKİZ KURAL:
   1. bolum_grafikleri'ndeki her kimlik grafikler.json'da VAR
   2. Her grafik en az bir bölüme yerleştirilmiş — yetim grafik yok
   3. Bölüm numaraları iskeletle tutuyor; hiçbir blok olmayan bölüme atıfta
@@ -16,6 +16,7 @@ YEDİ KURAL:
   5. Her görselde atıf, lisans, alt_tr ve alt_en dolu; lisans kabul listesinde
   6. Hikâye slaytlarındaki her rakam data.json'da karşılığını buluyor
   7. Hikâye görselleri bölüm görselleriyle aynı havuzdan
+  8. HER BÖLÜMDE görsel var — kaynakça dahil
 
 NEYİ KANITLAMAZ: görselin KONUYA uygun olduğunu. Başlık yalan söyleyebilir ve
 söyledi — on dokuz adayın üçü gözle açıldığında reddedildi. Bu betik gözün
@@ -156,13 +157,22 @@ for i, s in enumerate(hikaye.get('slaytlar', [])):
         hata.append(f"slayt[{i}]: görsel '{ad}' bölüm görselleri havuzunda yok — "
                     "künyesiz görsel hikâyeye giremez")
 
+# ── 8 — HER BÖLÜMDE GÖRSEL (kullanıcı kuralı, 3 Kasım 2026) ──────────────
+# Kaynakça dahil her bölümün bir görseli olacak. Konuya birebir uyan kare
+# bulunamazsa ilgili başka bir kare kullanılır ve altyazı yalnız karede
+# GÖRÜLENİ söyler — ilgi iddia etmez.
+gorselli = {int(k) for k in Y['bolum_gorselleri'] if not k.startswith('_')}
+eksik = sorted(BOLUM - gorselli)
+if eksik:
+    hata.append(f'GÖRSELSİZ BÖLÜM: §{eksik} — her bölümde bir görsel olacak')
+
 if hata:
     print('YAYIN KÜNYESİ SINAMASI BAŞARISIZ:\n', file=sys.stderr)
     for h in hata:
         print('  ✗ ' + h, file=sys.stderr)
     sys.exit(1)
 
-print(f"✓ yayin.json · 7 kural geçti")
+print(f"✓ yayin.json · 8 kural geçti")
 print(f"  {len(BOLUM)} bölüm · {len(yerlesen)} grafik yerleşti · "
       f"{len(gorseller)} görsel (kapak dahil) · {len(hikaye.get('slaytlar', []))} slayt")
 bos = sorted(BOLUM - {int(k) for k in Y['bolum_gorselleri'] if not k.startswith('_')})

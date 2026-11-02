@@ -229,9 +229,57 @@
       "yukseklik": 2832,
       "en_boy": 1.5028,
       "bayt": 4705415
+    },
+    "irak_silo_musul": {
+      "dosya": "irak_silo_musul.jpg",
+      "commons": "Silo Mosul 2.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Silo_Mosul_2.jpg",
+      "atif": "الدبوني",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 4032,
+      "yukseklik": 3024,
+      "en_boy": 1.3333,
+      "bayt": 5940152
+    },
+    "irak_silo_bagdat": {
+      "dosya": "irak_silo_bagdat.jpg",
+      "commons": "Grain Silo in baghdad.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Grain_Silo_in_baghdad.jpg",
+      "atif": "Hamody al-iraqi",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 5986,
+      "yukseklik": 2770,
+      "en_boy": 2.161,
+      "bayt": 3187187
+    },
+    "irak_pazar_musul": {
+      "dosya": "irak_pazar_musul.jpg",
+      "commons": "Fruit & Vegetables Market-Mosul 01.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Fruit_%26_Vegetables_Market-Mosul_01.jpg",
+      "atif": "Abdulsalam Al Dabbagh",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "genislik": 3264,
+      "yukseklik": 1836,
+      "en_boy": 1.7778,
+      "bayt": 2042405
+    },
+    "irak_souk_kerkuk": {
+      "dosya": "irak_souk_kerkuk.jpg",
+      "commons": "Fruit and vegetable merchant in a souk, Kirkuk.jpg",
+      "commons_sayfasi": "https://commons.wikimedia.org/wiki/File:Fruit_and_vegetable_merchant_in_a_souk%2C_Kirkuk.jpg",
+      "atif": "James (Jim) Gordon",
+      "lisans": "CC BY 2.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by/2.0",
+      "genislik": 2100,
+      "yukseklik": 1500,
+      "en_boy": 1.4,
+      "bayt": 1035029
     }
   },
-  "_cekilme_tarihi": "2026-11-02T19:12:11.983Z",
+  "_cekilme_tarihi": "2026-11-02T21:42:51.634Z",
   "_reddedilenler": {
     "_kural": "Burada duranlar GÖZLE AÇILDI ve reddedildi. Sessizce silinmediler: silinselerdi sonraki turda aynı başlıklar yeniden seçilirdi.",
     "irak_bataklik_genis": {

@@ -183,21 +183,25 @@ for ad, hx in (('zemin', ZEMIN), ('yuzey', YUZEY),
                     "ayrışmış, biri güncellenirken öteki unutulmuş")
 
 # ── 5 — tez cümlesindeki sayılar veriye dayanıyor mu ──────────────────────
-YAZI = {'yüz elli dört': 154, 'yüzde yetmiş': 70, 'iki': 2}
+RAKAM = {'154': 154, '%70': 70}
 tez = T['tez_cumlesi']['tr']
-tt = VERI['turetilmis']
-if YAZI['yüz elli dört'] != int(tt['dengesizlik_kat']):
-    hata.append(f"tez: 'yüz elli dört' ≠ ölçülen {tt['dengesizlik_kat']:.0f} kat")
-if 'yüz elli dört' not in tez:
-    hata.append('tez: dengesizlik oranı cümlede yok')
-# Rakam HANESİYLE yazılmamalı (§ dizi kuralı) — rozet ve not hariç
-if re.search(r'\d', tez):
-    hata.append('tez: cümlede HANELİ RAKAM var — dizide tez cümlesinde sayı yazıyla')
-
-# Tuz oranı gerçekten %70 mi
 su = VERI['su']
-if not any(abs(float(v) - 70) < 0.5 for v in re.findall(r'\d+(?:\.\d+)?', json.dumps(su))):
-    hata.append("tez: 'yüzde yetmiş' su bloğunda karşılık bulmuyor")
+tt = VERI['turetilmis']
+if str(int(tt['dengesizlik_kat'])) not in tez:
+    hata.append(f"tez: dengesizlik oranı ({tt['dengesizlik_kat']:.0f} kat) cümlede yok")
+if f"%{int(su['tuzluluk_yuzde'])}" not in tez:
+    hata.append(f"tez: tuzluluk oranı (%{su['tuzluluk_yuzde']}) cümlede yok")
+# KURAL TERSİNE DÖNDÜ (kullanıcı, 3 Kasım 2026): tez cümlesindeki sayılar
+# artık RAKAMLA yazılıyor. Eski kural "haneli rakam olmasın" diyordu.
+if not re.search(r'\d', tez):
+    hata.append('tez: cümlede hiç RAKAM yok — sayılar artık rakamla yazılıyor')
+for yaziyla in ('yüzde yetmiş', 'yüz elli dört', 'altmış dört', 'iki yılda'):
+    if yaziyla in tez:
+        hata.append(f"tez: '{yaziyla}' YAZIYLA yazılmış — rakamla yazılacak")
+
+if not any(abs(float(v) - su['tuzluluk_yuzde']) < 0.5
+           for v in re.findall(r'\d+(?:\.\d+)?', json.dumps(su))):
+    hata.append('tez: tuzluluk oranı su bloğunda karşılık bulmuyor')
 
 # ── 6 — künyenin ROL İDDİASI grafiklerle tutuyor mu ──────────────────────
 # Künye renklerin ne anlama geldiğini söylüyor; grafikler onları kullanıyor.
