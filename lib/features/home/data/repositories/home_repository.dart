@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -49,19 +50,21 @@ class HomeRepository {
           .limit(_listeSiniri)
           .asStream()
           .timeout(const Duration(seconds: 8)) // Web'de sonsuza kadar takılmasını önler
-          .asyncMap((maps) async {
+          .map((maps) {
             final dbArticles = maps
                 .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
                 .toList();
             _cachedDbArticles = dbArticles;
-            try {
-              final box = Hive.box<String>('offline_articles');
-              // Clear old cache to avoid infinite growth of deleted articles
-              await box.clear();
-              for (final article in dbArticles) {
-                box.put(article.id, jsonEncode(article.toJson()));
-              }
-            } catch (_) {}
+            // ÖNBELLEK YAZIMI BEKLENMİYOR.
+            //
+            // Eskiden `asyncMap` yazımı bekliyordu, arayüz de onunla birlikte
+            // bekliyordu. Ölçüm (2 Kasım 2026, canlı): sorgu 6,3. saniyede
+            // bitiyor ama geri kalan sağlayıcılar 21,9. saniyede başlıyordu —
+            // aradaki 15,6 saniyenin tamamı önbellek yazımı. Ekrandaki
+            // karşılığı, ana sayfanın yirmi saniye boyunca iskelet kalması.
+            //
+            // Önbellek bir KOLAYLIK; ilk boyamanın önüne geçemez.
+            unawaited(_onbellegeYaz(dbArticles));
             return [..._localDrafts, ...dbArticles];
           });
     } catch (e) {
@@ -168,6 +171,21 @@ class HomeRepository {
     return (veri as List)
         .map((m) => NewsArticle.fromJson(m as Map<String, dynamic>))
         .toList();
+  }
+
+  /// Çevrimdışı önbelleği TEK işlemde yazar.
+  ///
+  /// `putAll` şart: 500 ayrı `put` çağrısı web'de 500 ayrı IndexedDB işlemi
+  /// demek. Tek harita, tek işlem.
+  Future<void> _onbellegeYaz(List<NewsArticle> liste) async {
+    try {
+      final box = Hive.box<String>('offline_articles');
+      // Silinen haberler sonsuza kadar birikmesin diye önce temizleniyor.
+      await box.clear();
+      await box.putAll({
+        for (final a in liste) a.id: jsonEncode(a.toJson()),
+      });
+    } catch (_) {}
   }
 
   /// Supabase REST stream for fetching pending articles.

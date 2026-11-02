@@ -1,0 +1,437 @@
+<title>Yapay Zeka Kokusu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   Palet UYDURULMADI: projenin kendi ölçülmüş paletinden geliyor (CLAUDE.md
+   §33). earthText üstünde krem 11,7:1, buğday 5,5:1 — oranlar orada yazılı.
+   Yazı tipleri de projenin: Outfit başlık (§36), Inter gövde, IBM Plex Mono
+   kayıt/rakam (§8.4).
+   Nötr griler sıcak tarafa kaydırıldı; saf gri bu zeminde soğuk düşüyor.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --kagit:#F6F1E7; --kart:#FBF8F1; --murekkep:#3A2E20; --soluk:#6E6054;
+  --cok-soluk:#8C7F70; --bugday:#C9A15A; --yesil:#1F3320;
+  --cizgi:rgba(58,46,32,.14); --cizgi-kuv:rgba(58,46,32,.30);
+  --ust:#9C3B28; --ust-ze:rgba(156,59,40,.10);
+  --orta:#8A6410; --orta-ze:rgba(138,100,16,.10);
+  --alt:#3F6B37;  --alt-ze:rgba(63,107,55,.10);
+  --kod-ze:#EFE8DA;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+    --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+    --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+    --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+    --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+    --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+    --kod-ze:#120E09;
+  }
+}
+:root[data-theme="dark"]{
+  --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+  --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+  --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+  --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+  --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+  --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+  --kod-ze:#120E09;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--kagit); color:var(--murekkep);
+  font:400 17px/1.68 Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.sar{max-width:1120px; margin:0 auto; padding:0 24px}
+
+/* BÜYÜK HARF CSS'E BIRAKILMIYOR.
+   `text-transform:uppercase` Unicode'un varsayılan eşlemesini kullanıyor ve
+   'i' harfini 'I' yapıyor; Türkçede karşılığı 'İ'. Bu sayfa ilk sürümünde
+   "DENETIM", "KIMLIKLI MADDE", "ETKI" basıyordu — yani raporun kendi H2
+   maddesinin (43 haberde yanlış harf) aynısını yapıyordu. Etiketler artık
+   doğrudan büyük harfle YAZILI; dönüştürme yok, dolayısıyla tuzak da yok.
+   Alan adı bilerek küçük: 'tarimportali' Türkçe bir kelime değil, büyütülürse
+   'TARİMPORTALİ' olurdu. (CLAUDE.md §8.14.3, §39.5)
+   ── künye ───────────────────────────────────────────────────────────────── */
+.kunye{padding:68px 0 36px}
+/* alan adı dönüştürülmüyor; olduğu gibi duruyor */
+.alan-adi{text-transform:none}
+.kunye .seri{
+  font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.17em; color:var(--bugday);
+  display:flex; align-items:center; gap:12px;
+}
+.kunye .seri::after{content:""; flex:1; height:1px; background:var(--bugday); opacity:.5}
+.kunye h1{
+  font:700 clamp(34px,6vw,58px)/1.06 Outfit,Inter,sans-serif;
+  letter-spacing:-.022em; margin:20px 0 0; color:var(--yesil);
+  text-wrap:balance; max-width:22ch;
+}
+.kunye .tez{
+  margin:18px 0 0; max-width:62ch; font-size:18.5px; color:var(--soluk);
+}
+.kunye .tez strong{color:var(--murekkep); font-weight:600}
+
+/* ── ölçüm bandı ─────────────────────────────────────────────────────────── */
+/* Izgara DEĞİL flex: auto-fit beş ögeyi üç sütuna dizince altta sahte bir
+   hücre kalıyor ve zemin rengi oradan sızıyordu. Flex boş iz üretmiyor. */
+.olcum{
+  display:flex; flex-wrap:wrap; border:1px solid var(--cizgi);
+  border-left:none; margin:40px 0 8px;
+}
+.olcum div{
+  flex:1 1 134px; padding:16px 18px; border-left:1px solid var(--cizgi);
+  border-top:1px solid var(--cizgi); margin-top:-1px;
+}
+.olcum b{
+  display:block; font:600 27px/1 "IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums; color:var(--murekkep); letter-spacing:-.02em;
+}
+.olcum span{
+  display:block; margin-top:7px; font-size:12px; letter-spacing:.06em; color:var(--cok-soluk); font-weight:500;
+}
+.yontem{
+  margin:22px 0 0; font-size:14.5px; line-height:1.6; color:var(--cok-soluk);
+  max-width:72ch; padding-left:14px; border-left:2px solid var(--cizgi-kuv);
+}
+
+/* ── sekme çubuğu ────────────────────────────────────────────────────────── */
+.sekme{
+  position:sticky; top:0; z-index:40; background:var(--kagit);
+  border-bottom:1px solid var(--cizgi); margin-top:44px;
+}
+.sekme .sar{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none}
+.sekme .sar::-webkit-scrollbar{display:none}
+.sekme a{
+  flex:0 0 auto; padding:15px 16px; text-decoration:none; color:var(--soluk);
+  font:500 14.5px/1.3 Inter,sans-serif; border-bottom:2px solid transparent;
+  white-space:nowrap; display:flex; align-items:baseline; gap:9px;
+}
+.sekme a i{
+  font:600 11px/1 "IBM Plex Mono",monospace; font-style:normal;
+  color:var(--bugday); letter-spacing:.08em;
+}
+.sekme a:hover{color:var(--murekkep)}
+.sekme a.etkin{color:var(--murekkep); border-bottom-color:var(--bugday); font-weight:600}
+.sekme a:focus-visible{outline:2px solid var(--bugday); outline-offset:-2px}
+
+/* ── alan ────────────────────────────────────────────────────────────────── */
+.alan{padding:76px 0 10px; border-top:1px solid var(--cizgi)}
+.alan:first-of-type{border-top:none}
+.alan-bas .eyebrow{
+  font:600 11.5px/1 "IBM Plex Mono",monospace; letter-spacing:.17em; color:var(--bugday); margin:0;
+}
+.alan-bas h2{
+  font:600 clamp(27px,4vw,41px)/1.12 Outfit,Inter,sans-serif;
+  letter-spacing:-.018em; margin:14px 0 0; color:var(--yesil); text-wrap:balance;
+}
+.alan-bas .alt{margin:9px 0 0; color:var(--soluk); font-size:16px}
+
+/* ── içindekiler ─────────────────────────────────────────────────────────── */
+.ic{
+  margin:34px 0 8px; padding:24px 26px; background:var(--kart);
+  border:1px solid var(--cizgi);
+}
+.ic-bas{
+  margin:0 0 16px; font:600 11.5px/1 "IBM Plex Mono",monospace;
+  letter-spacing:.14em; color:var(--cok-soluk);
+  display:flex; align-items:center; gap:10px;
+}
+.ic-say{
+  font-variant-numeric:tabular-nums; color:var(--murekkep);
+  background:var(--kagit); border:1px solid var(--cizgi); padding:2px 7px;
+}
+.ic ol{
+  list-style:none; margin:0; padding:0; columns:2; column-gap:34px;
+  column-rule:1px solid var(--cizgi);
+}
+.ic li{break-inside:avoid; margin:0 0 8px}
+.ic a{
+  display:flex; gap:10px; text-decoration:none; color:var(--soluk);
+  font-size:14.5px; line-height:1.45; align-items:baseline;
+}
+.ic a b{
+  flex:0 0 auto; min-width:30px; color:var(--bugday);
+  font:600 12px/1.5 "IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+}
+.ic a:hover{color:var(--murekkep)}
+.ic a:hover b{color:var(--murekkep)}
+.ic a:focus-visible{outline:2px solid var(--bugday); outline-offset:2px}
+.ic-yol{
+  display:inline-block; margin-top:18px; padding-top:16px;
+  border-top:1px solid var(--cizgi); width:100%;
+  font:600 13.5px/1 Inter,sans-serif; color:var(--yesil); text-decoration:none;
+}
+.ic-yol:hover{color:var(--bugday)}
+@media (max-width:720px){ .ic ol{columns:1} .ic{padding:20px} }
+
+/* ── gövde ───────────────────────────────────────────────────────────────── */
+.govde{padding-top:14px}
+.govde>*{max-width:72ch}
+.govde p{margin:0 0 17px}
+.govde strong{font-weight:600}
+.govde em{color:var(--soluk)}
+.govde a{color:var(--yesil); text-underline-offset:3px}
+
+.govde h2{
+  font:600 clamp(19px,2.4vw,23px)/1.3 Outfit,Inter,sans-serif;
+  letter-spacing:.02em; color:var(--cok-soluk);
+  margin:58px 0 22px; padding-bottom:11px; border-bottom:1px solid var(--cizgi-kuv);
+  max-width:none;
+}
+/* Bulgu başlığı: kimlik sol boşlukta asılı duruyor. Kimlikler raporun
+   kendi tanımlayıcıları (E1, H3, 2.4) ve yol haritası tablolarında geçiyor —
+   göz onları satır başında aramalı. */
+.govde h3{
+  display:flex; gap:16px; align-items:baseline; margin:46px 0 4px;
+  font:600 clamp(19px,2.3vw,24px)/1.28 Outfit,Inter,sans-serif;
+  letter-spacing:-.012em; color:var(--murekkep); text-wrap:balance; max-width:none;
+}
+.govde h3>span{max-width:34ch}
+.govde h3 .kimlik{
+  flex:0 0 auto; width:46px; text-align:right; color:var(--bugday);
+  font:600 14px/1.65 "IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+}
+.govde h4{
+  font:600 16.5px/1.4 Outfit,Inter,sans-serif; margin:30px 0 10px;
+  color:var(--murekkep);
+}
+@media (min-width:1000px){
+  .govde h3{margin-left:-62px}
+  .govde h3>span{max-width:38ch}
+}
+@media (max-width:700px){
+  .govde h3{gap:0; flex-direction:column}
+  .govde h3 .kimlik{width:auto; text-align:left; line-height:1.2}
+}
+
+.govde hr{
+  border:none; border-top:1px solid var(--cizgi); margin:44px 0; max-width:none;
+}
+.govde ul{margin:0 0 18px; padding-left:0; list-style:none}
+.govde ul li{position:relative; padding-left:19px; margin:0 0 11px}
+.govde ul li::before{
+  content:""; position:absolute; left:1px; top:.68em; width:6px; height:1px;
+  background:var(--bugday);
+}
+.govde blockquote{
+  margin:22px 0; padding:4px 0 4px 20px; border-left:2px solid var(--bugday);
+  color:var(--soluk); font-size:16.5px;
+}
+/* Satır içi kodun ZEMİNİ YOK. Bu metinde dosya ve satır adı çok yoğun
+   geçiyor; zeminli rozetler paragrafı çizgili gösteriyor ve okuma ritmini
+   kırıyordu. Ayrımı mono yüz + renk taşıyor: deepGreen krem üstünde 5,6:1
+   (CLAUDE.md §33'te ölçülü). Blok kodda zemin duruyor — orası zaten ayrı
+   bir kutu. */
+.govde code{
+  font:500 .87em/1.5 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--yesil); word-break:break-word;
+}
+.govde strong code,.govde h4 code{color:inherit}
+.kod{
+  max-width:none; margin:0 0 20px; background:var(--kod-ze);
+  border:1px solid var(--cizgi); overflow-x:auto;
+}
+.kod pre{margin:0; padding:16px 18px}
+.kod code{
+  color:var(--murekkep); background:none; padding:0; font-size:13.5px; line-height:1.62;
+  white-space:pre; display:block;
+}
+
+/* ── ciddiyet pilleri ────────────────────────────────────────────────────── */
+/* Renk TEK BAŞINA anlam taşımıyor: değer kelimeyle yazılı (§3.2). */
+.pilsira{display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px; max-width:none}
+.pil{
+  display:inline-flex; align-items:stretch; border:1px solid currentColor;
+  font:500 12px/1 Inter,sans-serif; overflow:hidden;
+}
+.pil-ad{
+  padding:6px 8px; font:600 10.5px/1.25 "IBM Plex Mono",monospace;
+  letter-spacing:.1em; opacity:.85;
+  border-right:1px solid currentColor; display:flex; align-items:center;
+}
+.pil-dg{
+  padding:6px 10px; font-weight:600; font-size:12.5px; color:var(--murekkep);
+  display:flex; align-items:center; background:var(--kagit);
+}
+.pil.ust{color:var(--ust); background:var(--ust-ze)}
+.pil.orta{color:var(--orta); background:var(--orta-ze)}
+.pil.alt{color:var(--alt); background:var(--alt-ze)}
+
+/* ── tablo ───────────────────────────────────────────────────────────────── */
+.tablo-sar{
+  max-width:none; overflow-x:auto; margin:0 0 26px;
+  border:1px solid var(--cizgi);
+}
+table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:520px}
+thead th{
+  text-align:left; padding:11px 14px; background:var(--kart);
+  border-bottom:1px solid var(--cizgi-kuv); color:var(--cok-soluk);
+  font:600 11px/1.3 "IBM Plex Mono",monospace; letter-spacing:.1em; white-space:nowrap; vertical-align:bottom;
+}
+tbody td{
+  padding:11px 14px; border-bottom:1px solid var(--cizgi); vertical-align:top;
+  line-height:1.52;
+}
+tbody tr:last-child td{border-bottom:none}
+/* Yalnızca yol haritası tablosunda ilk sütun bir KİMLİK (madde numarası);
+   veri tablolarında sıradan bir etiket ve kimlik gibi boyanmamalı. */
+table.yol tbody td:first-child{
+  font:600 13px/1.6 "IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  color:var(--bugday); white-space:nowrap; width:1%;
+}
+table.veri tbody td:first-child{font-weight:600}
+table.veri tbody td{font-variant-numeric:tabular-nums}
+tbody td code{font-size:12.5px}
+
+/* ── alt künye ───────────────────────────────────────────────────────────── */
+.dip{
+  margin-top:80px; padding:34px 0 72px; border-top:1px solid var(--cizgi-kuv);
+  color:var(--cok-soluk); font-size:14.5px; line-height:1.65;
+}
+.dip p{margin:0 0 10px; max-width:76ch}
+.dip b{color:var(--soluk)}
+
+@media (prefers-reduced-motion:no-preference){ html{scroll-behavior:smooth} }
+.sekme{scroll-margin-top:0}
+.alan{scroll-margin-top:58px}
+.govde h3{scroll-margin-top:72px}
+</style>
+
+<header class="kunye sar" lang="tr">
+  <p class="seri">İKİNCİ TUR · 2 KASIM 2026 · <span class="alan-adi">tarimportali.net</span></p>
+  <h1>Portalı ele veren ne?</h1>
+  <p class="tez">Soru şuydu: uygulamadaki &ldquo;yapay zeka kokusu&rdquo; nereden geliyor. Sezgisel bir şikâyet ama izleri <strong>sayılabilir</strong>. Yayındaki 1.000 haber ve canlı sitenin ağ izi ölçüldü; aşağısı tahmin değil, ölçüm.</p>
+
+  <div class="olcum">
+    <div><b>999</b><span>/1.000 BAŞLIK TITLE CASE</span></div>
+    <div><b>6</b><span>KARAKTER BAŞLIK SAPMASI</span></div>
+    <div><b>342</b><span>KISA HABER &ldquo;TAM&rdquo; SUNULUYOR</span></div>
+    <div><b>219</b><span>&ldquo;GOOGLE HABERLER&rdquo; İMZASI</span></div>
+    <div><b>50</b><span>SANİYEDE TAMAMLANIYOR</span></div>
+  </div>
+  <p class="yontem">Yöntem: Supabase&rsquo;ten yayındaki 1.000 haberin başlık, gövde, özet, kaynak, biçim ve anahtar kelime alanları; canlı ana sayfanın <code>performance.getEntriesByType('resource')</code> zaman çizelgesi; hat deposundaki (<code>~/tarim_ai_pipeline</code>) başlık ve uzunluk talimatlarının kaynak okuması. Her sayı yeniden üretilebilir.</p>
+</header>
+
+<main class="sar" lang="tr">
+<section class="alan">
+<div class="govde"><h2 id="0-nce-nermende-d-zeltmek-i-stedi-i-m-d-rt-ey"><span>0. ÖNCE: ÖNERMENDE DÜZELTMEK İSTEDİĞİM DÖRT ŞEY</span></h2>
+<h3 id="sorun-tasar-mda-de-il-e-i-tli-li-kte"><span class="kimlik">0.1</span><span>Sorun tasarımda değil, ÇEŞİTLİLİKTE</span></h3>
+<p>Tasarım, metin, sunuş diye saydın. Ölçtüm: bunların hiçbiri tek başına ele vermiyor. Ele veren şey <strong>tekdüzelik</strong>. Gerçek bir gazete düzensizdir — bugün 90 kelimelik bir not, yarın 1.400 kelimelik bir dosya; bir başlık üç kelime, öteki on dört; biri soru sorar, biri tırnak taşır. Bu portalda:</p>
+<div class="tablo-sar"><table class="veri"><thead><tr><th>ölçüm</th><th>bulunan</th><th>gerçek gazetede</th></tr></thead><tbody><tr><td>Başlıkların her kelimesi büyük harfle başlıyor</td><td><strong>999 / 1.000</strong></td><td>~0</td></tr><tr><td>Başlık uzunluğu standart sapması</td><td><strong>6 karakter</strong></td><td>15–25</td></tr><tr><td>Tırnak taşıyan başlık</td><td><strong>0</strong></td><td>%10–20</td></tr><tr><td>Soru başlığı</td><td><strong>1</strong></td><td>%3–8</td></tr><tr><td><code>summary</code> ile <code>spot</code> birebir aynı</td><td><strong>999 / 1.000</strong></td><td>0</td></tr><tr><td>Tam olarak 5 anahtar kelimesi olan haber</td><td><strong>671 / 1.000</strong></td><td>—</td></tr></tbody></table></div>
+<p>Bir okur bunların hiçbirini tek tek fark etmez. Ama yirmi kartı yan yana görünce <strong>aynı elden çıkmış</strong> olduklarını anlar. "Yapay zeka kokusu" dediğin şeyin ölçülebilir karşılığı bu.</p>
+<h3 id="ama-izi-gizlemek-de-il-g-venilir-g-r-nmek-ve-ikisi"><span class="kimlik">0.2</span><span>Amaç "izi gizlemek" değil, "güvenilir görünmek" — ve ikisi aynı şey değil</span></h3>
+<p>"Yapay zeka kokusunun esamesi okunmamalı" dedin. Buradaki tek düzeltmem bu cümleye: <strong>gizlemeye çalışmak, profesyonel algıyı YÜKSELTMİYOR, düşürüyor.</strong></p>
+<p>Üç sebeple:</p>
+<p>1. <strong>Google'ın kuralı yapay zekâyı yasaklamıyor</strong>, "ölçekli içerik kötüye kullanımı"nı yasaklıyor — katma değer üretmeden sıralama için üretilen yığın içeriği. Ayrım, içeriğin NASIL yazıldığında değil, okura ne kattığında. Gizlemek bu ayrımda hiçbir şeyi değiştirmiyor. 2. <strong>Ciddi kurumlar bunu açıkça yazıyor.</strong> Reuters, AP ve Guardian'ın yayımlanmış yapay zekâ politikaları var ve bu onları amatör göstermiyor; tersine kurumsallaştırıyor. Saklayan taraf amatör görünüyor. 3. <strong>Senin kendi disiplinin zaten bu yönde.</strong> <code>CLAUDE.md</code> baştan sona "kaynağı olmayan sayı metne girmez", "atıfsız görsel yayımlanmaz", "uydurma veri yasak" diyor. Bu titizliği GİZLEMEK, sahip olduğun en güçlü güven kozunu çöpe atmak olur.</p>
+<p><strong>Önerim:</strong> izi silmek yerine <strong>sahiplenmek</strong>. Kısa, net bir "Nasıl Çalışıyoruz" sayfası ve her haberin altında tek satırlık künye, portalı amatör göstermez — tam tersine, çoğu Türk haber sitesinde <strong>olmayan</strong> bir şeydir. Asıl ayrışma oradan gelir.</p>
+<h3 id="senior-yaz-l-mc-anlamas-n-yanl-hedef"><span class="kimlik">0.3</span><span>"Senior yazılımcı anlamasın" yanlış hedef</span></h3>
+<p>Bir senior zaten anlar: yığın Flutter Web + CanvasKit + Supabase, kod yorumları hattı anlatıyor. Bunu gizleyemezsin ve gizlemeye çalışmak önceliklerini bozar — seni kozmetik değişikliklere iter.</p>
+<p>Üstelik bir senior'ın asıl söyleyeceği şey "bu yapay zeka" değil; <strong>"ana sayfa 4 MB indiriyor", "sayfalama yok", "15 ayrı kart sınıfı var"</strong> olurdu. Yani onun eleştirisi, üç alan denetiminin zaten bulduğu şeylerdi — ve büyük kısmı bu hafta kapandı.</p>
+<p><strong>Doğru hedef kitle okur ve Google.</strong> İkisi için de iyileştirmeler somut ve ölçülebilir; hayali bir uzman için değil.</p>
+<h3 id="k-nyesiz-g-rsel-nermende-hi-ge-meyen-ama-en-riskli"><span class="kimlik">0.4</span><span>Künyesiz görsel — önermende hiç geçmeyen ama en riskli nokta</span></h3>
+<p>"Kaynaklardaki görselleri çekip tekrar yayınlıyoruz" dedin, sorun olarak saymadın. İki sebeple saymalısın:</p>
+<ul><li><strong>Kendi kuralını ihlal ediyor.</strong> §8.3: <em>"Atıfsız görsel yayımlanmaz"</em> — dosya dizisinde her görselin altında künye var. Haber tarafında <code>image_credit</code> diye bir <strong>sütun bile yok</strong>.</li><li><strong>Algıyı doğrudan düşürüyor.</strong> Fotoğraf altında kaynak olmaması, okurun bilinçsizce "bu görsel buraya ait değil" diye okuduğu bir işarettir.</li></ul>
+<p>Bu hem telif hem algı meselesi ve çözümü ucuz.</p>
+<hr>
+<h2 id="1-l-len-parmak-i-zi"><span>1. ÖLÇÜLEN PARMAK İZİ</span></h2>
+<p>Yayındaki 1.000 haber ve canlı sitenin ağ izi üzerinden.</p>
+<h3 id="en-y-ksek-sesli-i-aret-ba-l-klar"><span class="kimlik">1.1</span><span>En yüksek sesli işaret: başlıklar</span></h3>
+<p><strong>999 / 1.000 başlıkta her kelime büyük harfle başlıyor.</strong></p>
+<div class="kod"><pre><code>Meksika Tohum Kurdu Nedeniyle Avokado İhracatını Durdurdu
+Tarım Bakanlığı Sapanca Havzası İçin Eylem Planını Açıkladı
+Kayseri&#x27;nin Elma Pazarı Modeli 81 İle Yayılıyor</code></pre></div>
+<p>Bu bir İngilizce yazım geleneği (<em>Title Case</em>) ve Türkçede <strong>kullanılmıyor.</strong> Hürriyet, AA, Dünya — hiçbiri böyle yazmaz. Türkçe haber başlığı cümle düzenindedir: ilk harf ve özel adlar büyük, gerisi küçük.</p>
+<p>Hattın tamamını taradım: <strong>büyük/küçük harf hakkında tek bir talimat yok.</strong> Yani bu bir karar değil, modelin talimatsız bırakılmış varsayılan alışkanlığı. Ve ana sayfadaki her kartta, akan şeritte, her sekme başlığında görünüyor.</p>
+<p><strong>Bu tek değişiklik, algıda en büyük sıçramayı yapacak olan şey.</strong></p>
+<h3 id="ba-l-klar-ayn-kal-ptan-k-yor"><span class="kimlik">1.2</span><span>Başlıklar aynı kalıptan çıkıyor</span></h3>
+<p>Ortanca 54 karakter, <strong>standart sapma 6</strong>. Yani neredeyse bütün başlıklar aynı uzunlukta. Sebebi <code>reporter.py</code>'de yazılı:</p>
+<blockquote><code>- title: Maksimum 4-6 kelimelik...</code> · <code>5-9 kelimelik...</code> · <code>5-8 kelimelik...</code></blockquote>
+<p>Dosyadaki yorum sorunu doğru teşhis etmiş: <em>"12 farklı kaynağın başlık uzunluğu 6.1-6.7 kelime arasındaydı... Aradaki fark 0.6 kelime — bu editoryal seçim değil, tek şablon."</em> Ama çözüm <strong>ortalamayı kopyalamış</strong>, dağılımı değil. Gerçek gazetede ortalama 6 kelimedir <em>ama</em> varyans büyüktür.</p>
+<p>En sık biten kelimeler de tek bir kipi gösteriyor: <strong>Başladı (68)</strong>, Dağıtıldı (20), Yapıldı (15), Açıkladı (15), Etti (16). Hepsi edilgen/geçmiş zaman duyuru kipi.</p>
+<h3 id="k-sa-haber-tam-haber-k-l-nda"><span class="kimlik">1.3</span><span>Kısa haber, tam haber kılığında</span></h3>
+<p><strong>520 haber 200 kelimeden kısa. Bunların yalnızca 178'i <code>kisa</code> etiketli — 342 tanesi "tam" haber olarak sunuluyor:</strong> büyük görsel bandı, grafik, "Öne Çıkanlar" kutusu, "Uzman Görüşü" kutusu.</p>
+<p>150 kelimelik bir habere bu mobilyayı giydirmek, okurun gözünde içeriği küçültüyor. Gerçek gazetelerin <strong>kısa haber sütunu</strong> vardır ve oradaki haber küçük, görselsiz, yan yana dizilidir — bu bir kusur değil, bir biçimdir.</p>
+<p>Buna karşılık <strong>649 / 1.000 haberde hiç ara başlık yok, ama 706'sında grafik var.</strong> Mobilya ters takılmış: metni bölen şey yok, ama süsleyen şey var.</p>
+<h3 id="i-mza-yok-google-haberler-var"><span class="kimlik">1.4</span><span>İmza yok, "Google Haberler" var</span></h3>
+<p>44 farklı <code>source_name</code> var ve en büyüğü:</p>
+<div class="kod"><pre><code>219  Google Haberler      ← bir kaynak değil, bir toplayıcı
+216  Tarım Pusulası
+128  GıdaTarım
+ 87  Tarım TV</code></pre></div>
+<p>Haberin künyesinde "Google Haberler" yazması, okura <strong>"bunu kim yazdı bilmiyoruz"</strong> demektir. Hiçbir gerçek portal Google'ı kaynak olarak göstermez.</p>
+<p>Ve portalda <strong>hiçbir haberin insan imzası yok.</strong> Haber merkezi adı da yok. Okur, 1.000 haberin kim tarafından derlendiğini hiçbir yerde göremiyor.</p>
+<h3 id="sayfa-50-saniyede-tamamlan-yor-en-a-r-alg-kayb"><span class="kimlik">1.5</span><span>Sayfa 50 saniyede tamamlanıyor — en ağır algı kaybı</span></h3>
+<p>Canlı ana sayfanın ağ izini ölçtüm:</p>
+<div class="kod"><pre><code> 0,6 sn   SSR metni boyanıyor            ✓ iyi
+ 5,4 sn   motor (main.dart.js) indi
+ 6,4 sn   articles sorgusu BAŞLIYOR
+15,5 sn   biter — 4 MB için 9,1 saniye
+20-25 sn  43 görsel isteği ancak burada BAŞLIYOR
+24,9 sn   öteki bütün sorgular yeni başlıyor
+45-50 sn  son 13 görsel</code></pre></div>
+<p>Ekran görüntüsü bunun karşılığını gösteriyor: ana sayfanın tepesinde, yirmi saniye boyunca <strong>on tane siyah daire</strong> duruyor. Toplam görsel yükü yalnızca 0,25 MB — yani sorun bant genişliği değil, <strong>sıra</strong>. Liste sorgusu bitmeden hiçbir kart kurulmuyor, kart kurulmadan hiçbir görsel istenmiyor.</p>
+<p>Hiçbir tipografi düzeltmesi bu kadar etki etmez. <strong>Fotoğrafları 20 saniye sonra gelen bir site, hiçbir okura profesyonel görünmez.</strong></p>
+<blockquote>İyi haber: bunun sebebi olan <code>select(&#x27;*&#x27;)</code> sorgusu bu hafta depoda düzeltildi (<strong>4,00 MB → 0,25 MB, 15,9 kat</strong>). Henüz dağıtılmadı. Yani bu maddenin büyük kısmı bir dağıtım kararı kadar uzakta.</blockquote>
+<h3 id="k-k-ama-biriken-i-aretler"><span class="kimlik">1.6</span><span>Küçük ama biriken işaretler</span></h3>
+<ul><li><strong><code>summary</code> ile <code>spot</code> 999 haberde birebir aynı</strong> — okur aynı cümleyi iki kez okuyor.</li><li><strong>671 haberde tam 5 anahtar kelime</strong>, 222'sinde 6. İnsan böyle bir dağılım üretmez. Üstelik bu çipler ekranda <strong>tıklanmıyor</strong> (ölü süs).</li><li><strong>Üç köşe yazarından ikisinin fotoğrafı var, birinde aynı buğday başağı</strong> — şeridin içinde tek bir yeşil ikon, "veri eksik" gibi duruyor.</li><li><strong>Yayın ritmi 09:00'da zirve yapıyor</strong> (197 haber). Gerçek bir haber merkezinde gün boyunca daha düz bir dağılım olur.</li><li><strong>889 haberde okunma sıfır.</strong> Sayaç <code>&gt; 0</code> korumalı, yani görünmüyor — ama %11'lik bir azınlıkta görünüyor, bu da tutarsız.</li></ul>
+<hr>
+<h2 id="2-somut-de-i-i-kli-k-neri-leri"><span>2. SOMUT DEĞİŞİKLİK ÖNERİLERİ</span></h2>
+<h3 id="a-meti-n-hat-taraf-tarim-ai-pipeline"><span>A. METİN — hat tarafı (<code>~/tarim_ai_pipeline</code>)</span></h3>
+<p><strong>A1. Başlıkları Türkçe cümle düzenine geçir.</strong> <em>(en yüksek etki / en düşük maliyet)</em></p>
+<ul><li><code>reporter.py</code> → her üç <code>baslik_talimati</code> dalına tek satır: <em>"Başlığı CÜMLE DÜZENİNDE yaz: yalnızca ilk harf ve özel adlar büyük. Her kelimeyi büyük harfle başlatma — bu İngilizce geleneği, Türkçede yanlış."</em></li><li>Arşivdeki 1.000 başlık için geri yazım betiği. Özel adlar gövdeden çıkarılabilir: cümle ortasında büyük harfle geçen kelime özel addır.</li><li>Doğrulayıcı: <code>denetle_baslik</code>'e kural eklenir, bir daha geri gelmez.</li></ul>
+<p><strong>A2. Başlık uzunluğuna gerçek dağılım ver.</strong></p>
+<ul><li>Sabit pencere yerine haber başına hedef <strong>çekilsin</strong>: %15 çok kısa (3-5 kelime), %60 orta (6-9), %25 uzun (10-14).</li><li>Tırnaklı başlığı aç: kaynakta güçlü bir alıntı varsa <code>Bakan Yumaklı: &quot;...&quot;</code> biçimi serbest olsun. Şu an 0 tane var.</li><li>Soru başlığını <code>bilim</code> dalının dışına da aç.</li></ul>
+<p><strong>A3. Kısa haberi kısa haber olarak etiketle.</strong></p>
+<ul><li><code>kisa_haber_mi</code> eşiği gövde uzunluğuna göre de çalışsın: 200 kelimenin altındaki çıktı <code>article_format = &#x27;kisa&#x27;</code> olsun. 342 kayıt için tek seferlik geri yazım.</li></ul>
+<p><strong>A4. Mobilya kuralını içeriğe bağla.</strong></p>
+<ul><li><strong>Grafik</strong>, ancak karşılaştırılabilir ≥3 rakam varsa. (Şu an 706/1.000 — fazla.)</li><li><strong>"Öne Çıkanlar"</strong> kutusu, ancak gövde 400 kelimeden uzunsa. 193 kelimelik habere özet kutusu koymak, metni tekrar etmek demek.</li><li><strong>Ara başlık</strong>, 300 kelimeden uzun her haberde zorunlu. (Şu an 649'unda hiç yok.)</li></ul>
+<p><strong>A5. <code>spot</code>u <code>summary</code>den ayır.</strong></p>
+<ul><li><code>summary</code> meta açıklama olarak kalsın (160 karakter, arama motoru için).</li><li><code>spot</code> okura yazılsın ve <strong>farklı bir iş yapsın</strong>: "bu neden önemli" cümlesi. Aynı metni iki kez göstermek şu an 999 haberde oluyor.</li></ul>
+<p><strong>A6. Anahtar kelime sayısını serbest bırak.</strong></p>
+<ul><li>"5 tane üret" yerine "2 ile 7 arasında, yalnızca metinde gerçekten geçen terimler".</li></ul>
+<h3 id="b-sunu-uygulama-taraf"><span>B. SUNUŞ — uygulama tarafı</span></h3>
+<p><strong>B1. Hızı dağıt.</strong> <em>(en yüksek etki)</em></p>
+<ul><li>Depodaki liste daraltması canlıya çıksın: 4,00 MB → 0,25 MB.</li><li>Ana sayfa bölümleri tembelleştirilsin (denetim E7): tek <code>SliverToBoxAdapter</code> yerine çoklu sliver. Bu, görsellerin 20. saniye yerine ilk ekranda istenmesini sağlar.</li><li>İlk ekrandaki 3-4 görsele <code>precache</code>.</li></ul>
+<p><strong>B2. Künye satırını yeniden kur.</strong></p>
+<ul><li>"Google Haberler" <strong>imza olarak gösterilmesin.</strong> Yerine iki ayrı satır:</li><li><strong>Derleyen:</strong> Tarım Portalı Haber Merkezi</li><li><strong>Kaynak:</strong> Anadolu Ajansı <em>(bağlantılı)</em></li><li><code>source_name</code> değeri "Google Haberler" olan 219 kayıt için gerçek kaynak <code>source_url</code>in alan adından çıkarılabilir.</li></ul>
+<p><strong>B3. Görsel künyesi.</strong></p>
+<ul><li><code>articles.image_credit</code> + <code>image_caption</code> sütunları (yeni migration).</li><li>Hero görselin hemen altında küçük puntoyla: <em>"Fotoğraf: AA"</em>. <code>.dsy-foto</code> sınıfı zaten tanımlı (§39.1).</li><li>Bu madde §8.3'ün kendi kuralının haber tarafına uygulanması.</li></ul>
+<p><strong>B4. Kısa haber için ayrı düzen.</strong></p>
+<ul><li><code>article_format == &#x27;kisa&#x27;</code> olan haberde: hero bandı yok, grafik yok, kutular yok. Kart da küçük. Zaten var olan "Kısa Kısa" bölümünün mantığı detay sayfasına da taşınsın.</li></ul>
+<p><strong>B5. Etiket çiplerini canlandır ya da kaldır.</strong></p>
+<ul><li><code>/etiket/:slug</code> rotası (denetim M4) — çipler tıklanır olsun. Olmayacaksa çizilmesinler; ölü süs, boş süsten kötü.</li></ul>
+<p><strong>B6. Yazar şeridini farklılaştır.</strong></p>
+<ul><li>Fotoğrafı olmayan yazarda aynı başak yerine, yazarın adının baş harfleriyle <strong>birleştirilmiş</strong> bir işaret ya da gerçek fotoğraf. Üç yazardan birinin jenerik ikon taşıması, üçünü birden şüpheli gösteriyor.</li></ul>
+<h3 id="c-g-ven-kurumsal-katman-en-az-yap-lm-en-ok-ayr-t-r"><span>C. GÜVEN — kurumsal katman (en az yapılmış, en çok ayrıştıracak olan)</span></h3>
+<p><strong>C1. "Nasıl Çalışıyoruz" sayfası.</strong> Kısa, net, savunmacı olmayan. İçinde:</p>
+<ul><li>hangi kaynaklardan derlendiği,</li><li>metnin nasıl üretildiği ve <strong>nasıl denetlendiği</strong> (kaynaktaki her rakamın metinde aranması, uydurma yasağı, kaynaksız sayının yayına girmemesi — bunlar zaten var, yazılı değil),</li><li>görsel politikası,</li><li>düzeltme politikası ve iletişim.</li></ul>
+<p>Bu sayfa, §2.2'de ve §8.2'de zaten uyguladığın disiplinin okura görünür hâli. Şu an bu titizliği <strong>sadece sen biliyorsun.</strong></p>
+<p><strong>C2. Düzeltme kaydı.</strong></p>
+<ul><li><code>duzeltme_notu</code> + <code>duzeltildi_at</code> sütunları. Yayındaki metin değiştiğinde altta tek satır: <em>"3 Kasım 2026'da güncellendi: ..."</em>.</li><li><code>updated_at</code> bu işe yaramıyor — ölçüldü, her yazma (okunma sayacı dâhil) onu değiştiriyor.</li><li>Düzeltmesini gösteren bir site, hiç hata yapmıyormuş gibi duran bir siteden daha güvenilirdir.</li></ul>
+<p><strong>C3. Haber merkezi kimliği.</strong></p>
+<ul><li>Künyede gerçek bir sorumlu ad. İmzasız 1.000 haber, en çok "arkasında kimse yok" hissi veren şey.</li></ul>
+<p><strong>C4. Yayın ritmini düzle.</strong></p>
+<ul><li>09:00'daki 197'lik yığın gün içine dağıtılsın. Zamanlanmış yayın altyapısı (<code>publish_at</code>) için denetimde zaten madde var.</li></ul>
+<hr>
+<h2 id="3-nceli-k-sirasi"><span>3. ÖNCELİK SIRASI</span></h2>
+<h3 id="hemen-birka-saat-etki-b-y-k"><span>Hemen — birkaç saat, etki büyük</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>iş</th><th>neden ilk</th></tr></thead><tbody><tr><td>1</td><td><strong>Liste daraltmasını dağıt</strong></td><td>siyah dairelerin ve 50 saniyenin tek sebebi; kod hazır</td></tr><tr><td>2</td><td><strong>Başlıkları cümle düzenine çevir</strong> (hat + 1.000 geri yazım)</td><td>%100 içeriği etkileyen tek işaret</td></tr><tr><td>3</td><td><strong>"Google Haberler" imzasını kaldır</strong></td><td>219 haberde güven kaybı</td></tr><tr><td>4</td><td><strong><code>spot</code>u <code>summary</code>den ayır</strong></td><td>999 haberde tekrar</td></tr></tbody></table></div>
+<h3 id="sonra-birka-g-n"><span>Sonra — birkaç gün</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>iş</th></tr></thead><tbody><tr><td>5</td><td>Başlık uzunluk dağılımı + tırnaklı/soru başlık</td></tr><tr><td>6</td><td>Kısa haber etiketi (342 kayıt) ve kısa haber düzeni</td></tr><tr><td>7</td><td>Mobilya kuralı: grafik/kutu/ara başlık eşikleri</td></tr><tr><td>8</td><td>Görsel künyesi (migration + hat + arayüz)</td></tr><tr><td>9</td><td>Ana sayfayı tembelleştir (denetim E7)</td></tr><tr><td>10</td><td><code>/etiket/:slug</code> (denetim M4)</td></tr></tbody></table></div>
+<h3 id="yap-sal-bir-hafta"><span>Yapısal — bir hafta</span></h3>
+<div class="tablo-sar"><table class="yol"><thead><tr><th>#</th><th>iş</th></tr></thead><tbody><tr><td>11</td><td>"Nasıl Çalışıyoruz" + düzeltme politikası + haber merkezi künyesi</td></tr><tr><td>12</td><td>Düzeltme kaydı sütunları ve gösterimi</td></tr><tr><td>13</td><td>Tek kart bileşeni (denetim E11) — 15 kart sınıfının tekdüzeliği buradan geliyor</td></tr></tbody></table></div>
+<hr>
+<h2 id="4-tek-c-mle"><span>4. TEK CÜMLE</span></h2>
+<p>Bu portalı "yapay zeka ürünü" gösteren şey yapay zekâ kullanması değil; <strong>her haberin birbirine fazla benzemesi ve sayfanın yavaş açılması.</strong> İkisi de ölçüldü, ikisinin de kaynağı belli, ikisi de düzeltilebilir — ve düzeltmenin hiçbir adımı bir şeyi gizlemeyi gerektirmiyor.</p></div>
+</section>
+</main>
+
+<footer class="dip sar" lang="tr">
+  <p><b>Bu rapor bir değişiklik içermiyor.</b> Hiçbir madde uygulanmadı, dağıtım yapılmadı.</p>
+  <p>Kardeş belge: <b>Tarım Portalı üç alan denetimi</b> (30 Ekim 2026). Oradaki E4, E7, E11, M4 ve M8 maddeleri burada farklı bir gerekçeyle yeniden karşımıza çıktı — tekdüzelik ve yavaşlık, aynı kusurların okur gözünden görünüşü.</p>
+</footer>
