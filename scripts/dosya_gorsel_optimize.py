@@ -29,7 +29,7 @@ import io
 import sys
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageOps
 
 KOK = Path(__file__).resolve().parent.parent / "web" / "dosya"
 UZUN_KENAR = 1440
@@ -41,6 +41,14 @@ def optimize(yol: Path) -> tuple[int, int, str]:
     onceki = yol.stat().st_size
 
     with Image.open(yol) as im:
+        # EXIF YÖNELİMİ PİKSELE İŞLENİYOR — yoksa sessizce TERS yayınlanır.
+        # Pillow, Image.open'da yönelimi UYGULAMAZ; bilgi yalnız etikette
+        # durur. Yeniden kodlarken etiket düşer, pikseller olduğu gibi kalır
+        # ve görsel 180 derece dönük yayına çıkar. Irak dosyasında bir hurma
+        # bahçesi fotoğrafı Orientation=3 ile geldi; yayındaki görsellerin
+        # tamamı tarandı, hiçbirinde yönelim yoktu, yani ilk kurban o
+        # olacaktı (2 Kasım 2026).
+        im = ImageOps.exif_transpose(im) or im
         im = im.convert("RGB")
         g, y = im.size
         if max(g, y) > UZUN_KENAR:

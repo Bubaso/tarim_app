@@ -1,0 +1,292 @@
+{
+  "_dosya": "Irak — Ülke Dosyası Sayı 05 · yayın künyesi",
+  "_amac": "Dosyanın kimliği, penceresi, bölüm iskeleti ve ana sayfa hikâyesi. seed_dossier.mjs bu dosyayı okur.",
+  "slug": "irak",
+  "name_tr": "Irak",
+  "name_en": "Iraq",
+  "iso3": "IRQ",
+  "tur": "ulke",
+  "edition": 5,
+  "pencere": {
+    "gun": 28,
+    "baslangic": null,
+    "_baslangic_notu": "null → seed anında now(). İleri tarihli pencere dosyayı yayına sokup şeritten gizler (§2.12/1)."
+  },
+  "status": "draft",
+  "_status_notu": "HENÜZ YAYINDA DEĞİL. Devir AÇIK ONAY ister. Avustralya penceresi 6 Kasım 2026 12:00 UTC'de düşüyor; Irak o tarihe kadar devralmazsa Avustralya yeniden uzatılır — ülke rafı boş kalmaz.",
+  "kapak": {
+    "url": "https://tarimportali.net/dosya/irak/irak_kapak_uydu.jpg",
+    "atif": "NASA — Public domain",
+    "lisans": "Public domain",
+    "alt_tr": "Uydudan Irak: açık kahverengi çöl ve içinden geçen ince yeşil şerit — Dicle ile Fırat'ın suladığı ova.",
+    "alt_en": "Iraq from orbit: pale brown desert crossed by a thin green ribbon — the plain watered by the Tigris and the Euphrates.",
+    "en_boy": 0.9632,
+    "_commons": "https://commons.wikimedia.org/wiki/File:Satellite_image_of_Iraq_in_August_2003.jpg",
+    "_gozle_dogrulandi": true,
+    "_notu": "TASARIM KÜNYESİNDEN SAPMA, BİLEREK VE BURADA YAZILI. tasarim.json 'tuzdan etkilenmiş sulama ovası — alçak eğik açıyla havadan' istiyordu. Commons'ta Irak'a ait tuz kabuğu görüntüsü BULUNAMADI; aramalar ('soil salinity Iraq' iki dosya) README'de kayıtlı. Şili ya da Utah'tan bir tuz fotoğrafı koymak tasarim.json'un kendi yasak listesindeki klişe olurdu. NASA'nın uydu karesi tezin ZEMİNİNİ gösteriyor: kuru bir ülkede dışarıdan beslenen dar bir yeşil koridor."
+  },
+  "video": {
+    "url": null,
+    "_notu": "null ise kapakta video bloğu hiç çizilmez."
+  },
+  "_bolum_iskeleti_notu": "Bölüm iskeleti tur 3'te kullanıcı onayıyla kilitlendi. Başlıklar METİN YAZILDIKTAN SONRA birebir hale getirilecek — şu an iskeletteki adlar duruyor.",
+  "bolum_turleri": {
+    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis.",
+    "_neden_boyle": "Eksen ticaret ama gövde Irak'ın kendi tarımı (kullanıcı şartı). Bu yüzden ticaret bölümleri (11, 12) SONA konuldu: dosya Irak'la başlayıp Irak'la sürüyor, Türkiye bağı sonda bağlanıyor. Savaş bölümü (5) ortada değil erken duruyor çünkü sonraki üç bölümün (6, 7, 8) serilerindeki kırılmaları o açıklıyor.",
+    "1": "anlati",
+    "2": "anlati",
+    "3": "veri",
+    "4": "anlati",
+    "5": "anlati",
+    "6": "veri",
+    "7": "veri",
+    "8": "veri",
+    "9": "anlati",
+    "10": "anlati",
+    "11": "veri",
+    "12": "akis",
+    "13": "belge",
+    "14": "belge"
+  },
+  "bolum_grafikleri": {
+    "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir eşleşmek zorunda.",
+    "_ayna_uyarisi": "11 ve 12'deki grafikler TÜRKİYE'NİN BEYANINDAN; Irak Comtrade'e muhabir olarak rapor vermiyor. Her iki grafiğin notu bunu söylüyor ve bölüm metinleri de söyleyecek.",
+    "_olcek_uyarisi": "10'daki iki grafik ÜLKE ölçeğinde. Bölüm metni BM'nin bataklık ölçeğindeki manda rakamını (80.000 → ~5.000) kullanacaksa kapsamını açıkça yazacak; iki ölçek aynı cümlede kullanılmaz (build_data.py 8. doğrulama).",
+    "1": [
+      "acilis"
+    ],
+    "3": [
+      "bugunku_irak"
+    ],
+    "5": [
+      "savas_hasari"
+    ],
+    "6": [
+      "uc_sok"
+    ],
+    "7": [
+      "pirinc"
+    ],
+    "8": [
+      "hurma_payi"
+    ],
+    "9": [
+      "tuzluluk"
+    ],
+    "10": [
+      "hayvan",
+      "manda"
+    ],
+    "11": [
+      "fasillar"
+    ],
+    "12": [
+      "akis"
+    ],
+    "13": [
+      "protokol"
+    ]
+  },
+  "_bolum_basliklari": {
+    "_notu": "METİNDEN OKUNACAK; metin yazıldıktan sonra birebir hale getirilir. Şu anki adlar tur 3 iskeletinden.",
+    "1": "Bir ülkenin ekmeği",
+    "2": "Tarımın başladığı yer",
+    "3": "Bugünkü Irak",
+    "4": "İki nehrin ülkesi",
+    "5": "Savaş tarlaya ne yaptı",
+    "6": "Üç şok: ambargo, IŞİD, kuraklık",
+    "7": "Pirinç kayboldu",
+    "8": "Hurma: dünya payı",
+    "9": "Toprağın tuzu",
+    "10": "Koyun, manda ve bataklık",
+    "11": "Türkiye ne satıyor",
+    "12": "Ters yön neredeyse boş",
+    "13": "1946: suyun protokolü",
+    "14": "Kaynakça"
+  },
+  "bolum_gorselleri": {
+    "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz (§2.4).",
+    "_kaynak": "Hepsi Wikimedia Commons; atıf ve lisans Commons API'sinden çekildi, elle yazılmadı.",
+    "_gozle_dogrulama": "ON DOKUZ ADAYIN HEPSİ GÖZLE AÇILDI ve üçü reddedildi; sebepleri _raw/gorseller/kunye.json'daki _reddedilenler bloğunda. İKİ BAŞLIK YALAN SÖYLÜYORDU: 'Chibayish Marshes in Iraq 01' bataklık değil bir portre; 'Iraqi Rice Farmers' ne pirinç ne çiftçi — üniformalı askerler ve çocuklar. Üçüncüsü ('Field irrigation in Iraq') doğru başlıklıydı ama arka planda kamuflajlı bir figür var ve tasarim.json asker görüntüsünü yasaklıyor.",
+    "_bos_birakilanlar": "5, 7, 9, 11, 12 ve 14. 5 (savaş) için onurlu bir görsel yok — tasarim.json asker, tank, patlama ve mülteci imgesini yasaklıyor ve FAO'nun saha ölçümünü gösteren bir kare bulunamadı. 7 (pirinç): 'rice field Iraq' araması 58 dosya döndürdü ve görülenlerin tamamı askerî ya da insanî yardım kareleriydi; pirinç tarlası yok. 9 (tuz): Irak'a ait tuz kabuğu görseli yok ve başka ülkeden bir tuz fotoğrafı klişenin ta kendisi olurdu. 11 ve 12'de grafik zaten gövdeyi taşıyor. 14 kaynakçadır.",
+    "_kullanilmayanlar": "irak_bataklik_uydu, irak_bataklik_mashoof, irak_manda, irak_hurma_faw, irak_hurma_bostan, irak_misir_firat, irak_bakhdida_ciftciler, irak_kolza_tarlasi künyede duruyor ama bu iskelete girmedi. Silinmedi; sonraki revizyonda kullanılabilir.",
+    "_en_boy_notu": "en_boy değerleri YAYINA GİDEN dosyadan ölçüldü, künyedeki Commons boyutundan değil. irak_harman_ninova kırpıldı (negatif çerçevesi atıldı) ve oranı 1,4585'ten 1,3806'ya indi; künyeden kopyalansaydı yanlış olurdu.",
+    "_exif_notu": "irak_hurma_genis Commons'tan EXIF Orientation=3 ile geldi, yani pikselleri 180 derece dönük saklanıyor. Pillow bunu Image.open'da UYGULAMIYOR; yeniden kodlarken etiket düşer ve görsel TERS yayına çıkardı. Yönelim piksele işlendi. Yayındaki bütün dosya görselleri tarandı — hiçbirinde yönelim yoktu, yani bu ilk vaka. scripts/dosya_gorsel_optimize.py artık exif_transpose uyguluyor.",
+    "1": {
+      "url": "https://tarimportali.net/dosya/irak/irak_ekmek.jpg",
+      "atif": "Omar Chatriwala of Al Jazeera English — CC BY-SA 2.0",
+      "lisans": "CC BY-SA 2.0",
+      "alt_tr": "Tezgâhta satışa dizilmiş yufka ekmekler; arkasında satıcı oturuyor.",
+      "alt_en": "Flatbreads laid out for sale; the seller sits behind them.",
+      "en_boy": 0.6667,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Fresh_bread_for_sale_-_Flickr_-_Al_Jazeera_English.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "2": {
+      "url": "https://tarimportali.net/dosya/irak/irak_harman_ninova.jpg",
+      "atif": "Matson Collection — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Kerpiç bir değirmen: eşeğin çevirdiği büyük yuvarlak taş, yanında çuvallar ve bekleyen insanlar. Ninova yakınlarında, yirminci yüzyılın başı.",
+      "alt_en": "A mud-brick mill: a large round stone turned by a donkey, with sacks and waiting people beside it. Near Nineveh, early twentieth century.",
+      "en_boy": 1.3806,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Iraq._Nineveh._'The_Glory_of_Kingdoms.'_A_primitive_wheat_mill_near_shrine_of_Nebi_Yunis_LOC_matpc.16227.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "3": {
+      "url": "https://tarimportali.net/dosya/irak/irak_sulama_kanali.jpg",
+      "atif": "Tim Hunt, U.S. Army — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Bir motopompun kıyıya boşalttığı su; arkada yeşil ekili tarla.",
+      "alt_en": "Water discharged onto the bank by a motor pump; a green planted field behind.",
+      "en_boy": 1.3967,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Irrigation_canal_Fira_Shia%2C_Iraq_(2).jpg",
+      "_gozle_dogrulandi": true
+    },
+    "4": {
+      "url": "https://tarimportali.net/dosya/irak/irak_tharthar.jpg",
+      "atif": "MODIS Land Rapid Response Team, NASA GSFC — Public domain",
+      "lisans": "Public domain",
+      "alt_tr": "Uydudan Tharthar Gölü ve Dicle'nin menderesleri; çölün içinde koyu bir su kütlesi ve kıyılarında açık renkli bir halka.",
+      "alt_en": "Lake Tharthar and the meanders of the Tigris from orbit; a dark body of water in the desert, ringed by a pale band.",
+      "en_boy": 1.334,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Shrinking_Lake_Tharthar_(MODIS_2024-04-29).jpg",
+      "_gozle_dogrulandi": true
+    },
+    "6": {
+      "url": "https://tarimportali.net/dosya/irak/irak_bugday_tarlasi.jpg",
+      "atif": "Ruaa Jabbar — CC BY 4.0",
+      "lisans": "CC BY 4.0",
+      "alt_tr": "Başaklanmış buğday tarlasında çömelmiş bir kadın, başakları elliyor.",
+      "alt_en": "A woman crouching in a field of eared wheat, handling the ears.",
+      "en_boy": 0.5611,
+      "_commons": "https://commons.wikimedia.org/wiki/File:In_the_wheat_field.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "8": {
+      "url": "https://tarimportali.net/dosya/irak/irak_hurma_genis.jpg",
+      "atif": "Ahmed alsari — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Yeşil örtü üstünde hurma ağaçları; solda bir elektrik direği ve iletim hatları geçiyor.",
+      "alt_en": "Date palms above green ground cover; a power pylon and transmission lines pass on the left.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:%D9%86%D8%AE%D9%8A%D9%84_%D8%A7%D9%84%D8%B9%D8%B1%D8%A7%D9%82.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "10": {
+      "url": "https://tarimportali.net/dosya/irak/irak_bataklik_taisir.jpg",
+      "atif": "Taisir Mahdi — CC BY-SA 4.0",
+      "lisans": "CC BY-SA 4.0",
+      "alt_tr": "Bataklıkta sazdan yapılmış bir ev; önündeki toprakta iki manda duruyor, kıyıya uzun bir kayık bağlı.",
+      "alt_en": "A reed house in the marshes; two water buffalo stand on the ground in front of it and a long boat is moored at the bank.",
+      "en_boy": 1.5,
+      "_commons": "https://commons.wikimedia.org/wiki/File:The_marshes_of_Iraq.jpg",
+      "_gozle_dogrulandi": true
+    },
+    "13": {
+      "url": "https://tarimportali.net/dosya/irak/irak_firat_kayik.jpg",
+      "atif": "Christiaan Briggs — CC BY-SA 3.0",
+      "lisans": "CC BY-SA 3.0",
+      "alt_tr": "Fırat'ta iki kişinin kürek çektiği ahşap kayık; karşı kıyıda hurma ağaçları.",
+      "alt_en": "A wooden boat rowed by two people on the Euphrates; date palms on the far bank.",
+      "en_boy": 1.3333,
+      "_commons": "https://commons.wikimedia.org/wiki/File:Boat_on_Euphrates.jpg",
+      "_gozle_dogrulandi": true
+    }
+  },
+  "anahtar_kelimeler": [
+    "Irak",
+    "buğday",
+    "arpa",
+    "pirinç",
+    "hurma",
+    "tarım ticareti",
+    "ihracat",
+    "tarım ihracatı",
+    "sulama",
+    "tuzluluk",
+    "Dicle",
+    "Fırat",
+    "su",
+    "bataklık",
+    "manda",
+    "hayvancılık",
+    "gıda güvenliği",
+    "Mezopotamya"
+  ],
+  "_anahtar_kelimeler_notu": "'tuzluluk' ve 'bataklık' bu dizide ilk kez geçiyor. 'Mezopotamya' bilerek eklendi: §2 artık bir BM belgesine dayanıyor, ansiklopedik bilgiye değil.",
+  "_kalan_isler": [
+    "Metin (TR+EN) — tur 8",
+    "dogrula_metin.py — tur 8; sayı izi, alıntı izi, ÖLÇEK AYRIMI (bataklık/ülke) ve çizicinin tanımadığı biçim avcıları",
+    "Tuz poligonu motif çizicisi — şartname tasarim.json'da, kod yazılmadı; şu an polder motifi görünüyor",
+    "'Türkiye'nin en büyük tarım pazarı' iddiası ÖLÇÜLMEDİ ve ölçülene kadar yazılmayacak",
+    "Devir: Avustralya'nın arşive alınması ve status 'published' — AÇIK ONAY ister",
+    "kartlar grafiklerinde vurgu renginin hiç kullanılmaması — ortak çiziciyi ilgilendiriyor, kullanıcı kararı"
+  ],
+  "hikaye": {
+    "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+    "_kural": "Metin ELLE yazıldı, modele yazdırılmadı. Beş rakamın beşi de data.json'dan OKUNARAK yazıldı: pirinç 464.159 → 11.637 ton (%97,5, 2020→2022); Ninova'da buğday ekili alanının %68'i tamamen kayıp (FAO Şubat 2016 saha değerlendirmesi); hurmada dünya payı %18,9 → %5,9 (1961→2024); ekili alanın %70'i tuzdan etkilenmiş (Dünya Bankası PID P149803, 2014); Türkiye'nin tarım ihracatının %14,3'ü Irak'a (Comtrade 2024, muhabir Türkiye).",
+    "_akis": "Beş kanca ve sıralaması dosyanın kendi sırası: pirinç → savaş → hurma → tuz → eksen. İlk DÖRDÜ Irak'ın kendi tarımı; Türkiye bağı yalnız sonda ve yalnız bir slayt. Kullanıcı şartı buydu: dosya yalnızca Türkiye ilişkisi üzerinden kurulmuyor.",
+    "_ayna_notu": "Beşinci slaytın rakamı TÜRKİYE'NİN BEYANINDAN. Irak Comtrade'e muhabir olarak rapor vermiyor; etiket bunu söylüyor.",
+    "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ karelerden; paylaşım kartı kullanılmıyor. Pirinç ve tuz slaytlarının kendi görseli YOK (o bölümler görselsiz — Commons'ta Irak'a ait pirinç tarlası ve tuz kabuğu karesi bulunamadı); ikisi de konuya en yakın sulama karesini kullanıyor ve altyazıları o karede GÖRÜLENİ söylüyor.",
+    "_sinama_notu": "dosya_hikayeleri.py her slayt görselini HEAD ile çekip content-type'ın image/ ile başladığını sınıyor; biri bile geçmezse hikâyeyi HİÇ yazmıyor. Görseller henüz yayına alınmadığı için betik ŞU AN BAŞARISIZ OLUR — doğru davranış budur, devirden sonra çalıştırılacak.",
+    "grup_tr": "Ülke Dosyası",
+    "grup_en": "Country Dossier",
+    "slaytlar": [
+      {
+        "ust": "PİRİNÇ KAYBOLDU",
+        "ust_en": "THE RICE VANISHED",
+        "baslik": "Irak'ın pirinç üretimi iki yılda kırkta birine indi. Bir ürünün ülkeden çekilmesi genelde onlarca yıl sürer; burada iki yıl sürdü.",
+        "baslik_en": "Iraq's rice production fell to a fortieth in two years. A crop usually takes decades to leave a country; here it took two.",
+        "rakam": "%97,5",
+        "rakam_en": "97.5%",
+        "etiket": "Pirinç üretimindeki düşüş, 2020→2022 — 464.159 tondan 11.637 tona",
+        "etiket_en": "Fall in rice production, 2020→2022 — from 464,159 tonnes to 11,637",
+        "gorsel": "https://tarimportali.net/dosya/irak/irak_sulama_kanali.jpg"
+      },
+      {
+        "ust": "SAVAŞ TARLAYA NE YAPTI",
+        "ust_en": "WHAT THE WAR DID TO THE FIELD",
+        "baslik": "Ninova'da buğday ekili alanın üçte ikisi tamamen kayboldu, kalanı hasarlı. Tarla savaşın arka planı değil, doğrudan hedefi oldu.",
+        "baslik_en": "In Nineveh two thirds of the wheat area was lost outright and the rest damaged. The field was not the war's backdrop but its direct object.",
+        "rakam": "%68",
+        "rakam_en": "68%",
+        "etiket": "Ninova'da buğday ekili alanın tamamen kaybedilen payı — %32'si ağır hasarlı (FAO saha değerlendirmesi, Şubat 2016)",
+        "etiket_en": "Share of Nineveh's wheat area completely lost — a further 32% badly damaged (FAO field assessment, February 2016)",
+        "gorsel": "https://tarimportali.net/dosya/irak/irak_bugday_tarlasi.jpg"
+      },
+      {
+        "ust": "HURMAYI BIRAKMADI, DÜNYA ONU GEÇTİ",
+        "ust_en": "IT DID NOT DROP THE DATE; THE WORLD PASSED IT",
+        "baslik": "Irak hurma üretimini 1961'den bugüne 1,7 kat artırdı. Dünya 5,4 kat artırdı. Kaybedilen şey üretim değil, yer.",
+        "baslik_en": "Iraq raised its date output 1.7-fold since 1961. The world raised its own 5.4-fold. What was lost is not production but place.",
+        "rakam": "%5,9",
+        "rakam_en": "5.9%",
+        "etiket": "Irak'ın dünya hurma üretimindeki payı, 2024 — 1961'de %18,9'du",
+        "etiket_en": "Iraq's share of world date production, 2024 — in 1961 it was 18.9%",
+        "gorsel": "https://tarimportali.net/dosya/irak/irak_hurma_genis.jpg"
+      },
+      {
+        "ust": "TOPRAĞIN TUZU",
+        "ust_en": "THE SALT OF THE SOIL",
+        "baslik": "Ekili alanın onda yedisi yüksek toprak tuzluluğundan etkileniyor; tarihsel olarak sulanmış alanın %40'ı üretim dışı. Su geliyor ama gidemiyor.",
+        "baslik_en": "Seven tenths of the cropland is affected by high soil salinity, and 40% of the historically irrigated area is out of production. The water arrives but cannot leave.",
+        "rakam": "%70",
+        "rakam_en": "70%",
+        "etiket": "Tuzdan etkilenen ekili alan payı — Dünya Bankası proje belgesi, 2014; daha yeni bir ölçüm bulunamadı",
+        "etiket_en": "Share of cropland affected by salt — World Bank project document, 2014; no more recent measurement was found",
+        "gorsel": "https://tarimportali.net/dosya/irak/irak_tharthar.jpg"
+      },
+      {
+        "ust": "HAT TEK YÖNLÜ",
+        "ust_en": "THE LINE RUNS ONE WAY",
+        "baslik": "Türkiye'nin tarım ihracatının yedide biri tek bir komşuya gidiyor. Ters yönde gelen, gidenin yüz elli dörtte biri.",
+        "baslik_en": "One seventh of Türkiye's agricultural exports goes to a single neighbour. What comes back is one hundred and fifty-fourth of what goes.",
+        "rakam": "%14,3",
+        "rakam_en": "14.3%",
+        "etiket": "Irak'ın Türkiye tarım ihracatındaki payı, 2024 — 4,64 milyar dolar; ters yön 30,2 milyon. Rakamlar Türkiye'nin beyanından",
+        "etiket_en": "Iraq's share of Türkiye's agricultural exports, 2024 — $4.64bn; the reverse flow $30.2m. Figures from Türkiye's reporting",
+        "gorsel": "https://tarimportali.net/dosya/irak/irak_ekmek.jpg"
+      }
+    ]
+  }
+}

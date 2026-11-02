@@ -418,3 +418,60 @@ yanlışa döner. Dört negatif sınav yapıldı, dördü de durdurdu.
 kartında amber piksel sayısı **sıfır**). Çizici kart başlığını `tema.murekkep`
 ile sabitlemiş. Düzeltmek ortak çiziciye dokunmayı, yani yayındaki beş
 dosyanın kart görünümünü birden değiştirmeyi gerektirir.
+
+## TUR 7 — YAYIN KÜNYESİ VE GÖRSELLER
+
+On dokuz aday indirildi, **hepsi gözle açıldı**, üçü reddedildi. Sekiz bölüm
+görseli ve bir kapak yayına hazır (toplam 1,8 MB).
+
+### İki başlık yalan söylüyordu
+
+| dosya | başlık ne diyor | karede ne var |
+|---|---|---|
+| `Chibayish Marshes in Iraq 01.jpg` | bataklık manzarası | keffiyeli yaşlı bir adamın **portresi** |
+| `Iraqi Rice Farmers DVIDS127458.jpg` | Iraklı pirinç çiftçileri | **üniformalı askerler ve çocuklar** — ne pirinç ne çiftçi |
+
+İkincisi hem olgusal olarak yanlıştı hem de `tasarim.json`'un asker yasağını
+çiğnerdi. Üçüncü ret (`Field irrigation in Iraq`) başlığı DOĞRU olan bir
+kareydi: gerçekten damla sulamalı fide tarlası. Arka planda kamuflajlı bir
+figür olduğu için düşürüldü; temiz alternatif vardı. Üçü de `kunye.json`'un
+`_reddedilenler` bloğunda sebebiyle duruyor — sessizce silinselerdi sonraki
+turda aynı başlıklar yeniden seçilirdi.
+
+### Üçüncü kusur: EXIF yönelimi — DEPO ÇAPINDA ONARILDI
+
+`نخيل العراق.jpg` Commons'tan **EXIF Orientation=3** ile geldi: pikselleri
+180 derece dönük saklanıyor, görüntüleyici çeviriyor. Pillow bunu
+`Image.open`'da **uygulamıyor**. `scripts/dosya_gorsel_optimize.py` yeniden
+kodlarken etiket düşer, pikseller olduğu gibi kalırdı — hurma ağaçları
+**baş aşağı** yayına çıkardı. Betikte EXIF işlemesi hiç yoktu.
+
+Yayındaki **bütün** dosya görselleri tarandı: hiçbirinde yönelim etiketi yok,
+yani canlıda kırık bir şey bulunmadı ve bu ilk vaka olacaktı. Betiğe
+`ImageOps.exif_transpose` eklendi; bundan sonraki her dosya korunuyor.
+
+### Bir tuzak daha: en-boy oranı künyeden kopyalanamaz
+
+`irak_harman_ninova` arşiv negatifiydi; çerçevesi ve el yazısı kırpıldı ve
+oranı **1,4585 → 1,3806** değişti. `kunye.json`'daki oran Commons'taki ÖZGÜN
+dosyaya ait. Kopyalansaydı yerleşim yanlış olurdu. `yayin.json`'daki bütün
+oranlar yayına giden dosyadan ölçüldü ve `dogrula_yayin.py` bunu her koşuda
+yeniden ölçüp karşılaştırıyor.
+
+### Görselsiz bırakılan altı bölüm — sebebiyle
+
+| § | neden |
+|---|---|
+| 5 savaş | asker/tank/patlama/mülteci yasak; FAO'nun saha ölçümünü gösteren onurlu bir kare yok |
+| 7 pirinç | `rice field Iraq` 58 dosya döndürdü, görülenlerin tamamı askerî ya da insanî yardım kareleri |
+| 9 tuz | Irak'a ait tuz kabuğu görseli yok; başka ülkeden tuz fotoğrafı klişenin ta kendisi olurdu |
+| 11, 12 | grafik zaten gövdeyi taşıyor |
+| 14 | kaynakça |
+
+### dogrula_yayin.py — yedi kural
+
+Künye üç ayrı şeye söz veriyor: `grafikler.json` kimliklerine, diskteki
+dosyalara, `data.json` sayılarına. Üçü arasındaki kayma başka hiçbir
+denetimde görünmez. **Yetim grafik** kuralı da burada: üretilip hiçbir bölüme
+yerleştirilmemiş bir grafik sessizce kaybolur. Beş negatif sınav, beşi de
+durdurdu.
