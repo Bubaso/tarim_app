@@ -99,8 +99,8 @@
         },
         {
           "etiket": {
-            "tr": "HS 04",
-            "en": "HS 04"
+            "tr": "Süt ürünleri, yumurta ve bal",
+            "en": "Dairy, eggs and honey"
           },
           "deger": "@ticaret.fasillar.9.deger",
           "rol": "sessiz"
@@ -464,8 +464,8 @@
       "bolen": 1000,
       "ondalik": 0,
       "not": {
-        "tr": "1961'den bugüne. Buğdayın en düşük yılı 2000 — ambargo dibi, 384 bin ton. 2014'te 5.055 bin tona çıkıyor, ertesi yıl yarıya iniyor. 2021 sonrası düşüş kuraklık dönemine denk geliyor. Grafik şokların ne zaman olduğunu gösterir, sebeplerini kendi başına kanıtlamaz.",
-        "en": "From 1961 to today. Wheat's lowest year is 2000 — the bottom of the sanctions period, 384 thousand tonnes. It reaches 5,055 thousand tonnes in 2014 and halves the following year. The fall after 2021 coincides with the drought years. The chart shows when the shocks happened; it does not by itself prove their causes."
+        "tr": "1961'den bugüne. Buğdayın en düşük yılı 2000 — ambargo dibi, 384 bin ton. 2014'te 5.055 bin tona çıkıyor, ertesi yıl 2.645 bine, yani yarıya iniyor. ARPADA ASIL KIRILMA DAHA YENİ: serinin altmış dört yılı içinde en düşük yıl ambargo değil 2023, 106 bin ton. 2020'de 1.756 bin tondu; 2024'te 164 bin, yani 2020'nin onda biri bile değil. İki tahıl aynı tarlada ama aynı eğriyi izlemiyor. Grafik şokların NE ZAMAN olduğunu gösterir, sebeplerini kendi başına kanıtlamaz.",
+        "en": "From 1961 to today. Wheat's lowest year is 2000 — the embargo trough, 384 thousand tonnes. It reaches 5,055 thousand in 2014 and halves to 2,645 the next year. BARLEY'S REAL BREAK IS MORE RECENT: across sixty-four years its lowest year is not the embargo but 2023, at 106 thousand tonnes. In 2020 it was 1,756 thousand; in 2024, 164 thousand — less than a tenth of 2020. The two grains share a field but not a curve. The chart shows WHEN the shocks happened; it does not by itself prove their causes."
       },
       "kaynak": "FAOSTAT · Irak üretimi",
       "seriler": [
@@ -494,8 +494,8 @@
     "pirinc": {
       "tur": "cizgi",
       "baslik": {
-        "tr": "Suda duran ürün",
-        "en": "The crop that stands in water"
+        "tr": "Kapatılıp açılan ürün",
+        "en": "A crop switched off and on"
       },
       "birim": {
         "tr": "bin ton ve bin hektar",
@@ -504,8 +504,8 @@
       "bolen": 1000,
       "ondalik": 0,
       "not": {
-        "tr": "Pirinç suda yetişir; su kıtlığı en net ondan okunur. Üretim 2020'de 464 bin ton, 2022'de 12 bin ton — %97,5 düşüş. Ekilen alan da aynı yönde: 102 bin hektardan 4 bine. İki eğrinin birlikte düşmesi, kaybın verimden değil ALANDAN geldiğini gösteriyor.",
-        "en": "Rice grows standing in water; water scarcity reads most clearly from it. Production was 464 thousand tonnes in 2020 and 12 thousand in 2022 — a fall of 97.5%. The harvested area moved the same way: from 102 thousand hectares to 4. That both curves fall together shows the loss came from AREA, not from yield."
+        "tr": "Pirinç suda yetişir; su kıtlığı en net ondan okunur. Üretim 2020'de 464 bin ton, 2022'de 12 bin ton — %97,5 düşüş. Ekilen alan da aynı yönde: 102 bin hektardan 4 bine. Kayıp verimden değil ALANDAN geliyor. Ama 2024'te üretim 228 bin tona döndü, yani 2020'nin yarısına. Dört yılda inip çıkan bir eğri terk edilmiş bir ürünü değil, AÇILIP KAPATILAN bir ürünü gösterir. Grafik bunun kimin kararıyla olduğunu söylemez.",
+        "en": "Rice grows in water, so water scarcity reads most clearly from it. Output was 464 thousand tonnes in 2020 and 12 thousand in 2022 — a fall of 97.5%. The harvested area moved the same way: from 102 thousand hectares to 4 thousand. The loss comes from AREA, not yield. But in 2024 output returned to 228 thousand tonnes, half of the 2020 level. A curve that falls and rises within four years shows a crop being switched off and on, not one abandoned. The chart does not say whose decision that was."
       },
       "kaynak": "FAOSTAT · Irak",
       "seriler": [

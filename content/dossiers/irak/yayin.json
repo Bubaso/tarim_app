@@ -94,15 +94,16 @@
     "3": "Bugünkü Irak",
     "4": "İki nehrin ülkesi",
     "5": "Savaş tarlaya ne yaptı",
-    "6": "Üç şok: ambargo, IŞİD, kuraklık",
-    "7": "Pirinç kayboldu",
+    "6": "Üç şok ve geri gelmeyen tahıl",
+    "7": "Kapatılıp açılan ürün",
     "8": "Hurma: dünya payı",
     "9": "Toprağın tuzu",
     "10": "Koyun, manda ve bataklık",
     "11": "Türkiye ne satıyor",
     "12": "Ters yön neredeyse boş",
     "13": "1946: suyun protokolü",
-    "14": "Kaynakça"
+    "14": "Kaynakça",
+    "_duzeltme_notu": "TUR 8'DE DÜZELTİLDİ. İskelette §7 'Pirinç kayboldu' idi ve §2.8'in 'terk edilen ürün' kategorisi pirince bağlanmıştı. Seriler 2024'e kadar okununca iddia çöktü: pirinç 2022'de 12 bin tona indi ama 2024'te 228 bin tona, yani 2020'nin %49'una döndü. Terk edilmiş değil, KAPATILIP AÇILAN bir ürün. Gerçekten terk edilen tahıl ARPA: altmış dört yıllık serinin en düşük yılı ambargo dibi değil 2023 (106 bin ton) ve 2024'te hâlâ 2020'nin %9,4'ü. §2.8/5 kategorisi arpaya taşındı ve §6'da duruyor."
   },
   "bolum_gorselleri": {
     "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz (§2.4).",
@@ -233,14 +234,14 @@
     "grup_en": "Country Dossier",
     "slaytlar": [
       {
-        "ust": "PİRİNÇ KAYBOLDU",
-        "ust_en": "THE RICE VANISHED",
-        "baslik": "Irak'ın pirinç üretimi iki yılda kırkta birine indi. Bir ürünün ülkeden çekilmesi genelde onlarca yıl sürer; burada iki yıl sürdü.",
-        "baslik_en": "Iraq's rice production fell to a fortieth in two years. A crop usually takes decades to leave a country; here it took two.",
+        "ust": "KAPATILIP AÇILAN ÜRÜN",
+        "ust_en": "A CROP SWITCHED OFF AND ON",
+        "baslik": "Irak'ın pirinç üretimi iki yılda kırkta birine indi, iki yıl sonra yarısına döndü. Ekilen alan da aynı yönde gitti: kayıp verimden değil alandan geldi.",
+        "baslik_en": "Iraq's rice production fell to a fortieth in two years and returned to half four years later. The harvested area moved with it: the loss came from area, not yield.",
         "rakam": "%97,5",
         "rakam_en": "97.5%",
-        "etiket": "Pirinç üretimindeki düşüş, 2020→2022 — 464.159 tondan 11.637 tona",
-        "etiket_en": "Fall in rice production, 2020→2022 — from 464,159 tonnes to 11,637",
+        "etiket": "Pirinç üretimi 2020'de 464.159 ton, 2022'de 11.637, 2024'te 227.508 — ekilen alan 101.594 hektardan 3.839'a",
+        "etiket_en": "Rice output was 464,159 tonnes in 2020, 11,637 in 2022 and 227,508 in 2024 — the harvested area fell from 101,594 hectares to 3,839",
         "gorsel": "https://tarimportali.net/dosya/irak/irak_sulama_kanali.jpg"
       },
       {

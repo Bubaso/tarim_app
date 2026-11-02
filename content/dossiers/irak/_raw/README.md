@@ -475,3 +475,60 @@ dosyalara, `data.json` sayılarına. Üçü arasındaki kayma başka hiçbir
 denetimde görünmez. **Yetim grafik** kuralı da burada: üretilip hiçbir bölüme
 yerleştirilmemiş bir grafik sessizce kaybolur. Beş negatif sınav, beşi de
 durdurdu.
+
+## TUR 8 — METİN
+
+Türkçe 3.054 kelime, İngilizce karşılığı; on dört bölüm. `dogrula_metin.py`
+dokuz avcı, altı negatif sınav, altısı da durdurdu.
+
+### Seriler 2024'e kadar okununca iskeletin bir iddiası çöktü
+
+Tur 3'te §7 "Pirinç kayboldu" başlığını taşıyordu ve §2.8'in **terk edilen
+ürün** kategorisi pirince bağlanmıştı. Metni yazarken seriler son yıla kadar
+okundu:
+
+| | 2020 | 2022 | 2024 | bugün 2020'nin |
+|---|---|---|---|---|
+| pirinç | 464.159 t | 11.637 t | 227.508 t | **%49'u** |
+| arpa | 1.756.200 t | 144.000 t | 164.495 t | **%9,4'ü** |
+
+Pirinç geri geldi; arpa gelmedi. Dahası arpanın **altmış dört yıllık serideki
+en düşük yılı ambargo dibi değil 2023** (105.903 ton). Yani terk edilen tahıl
+arpa, pirinç ise kapatılıp açılabilen ürün.
+
+İskelet düzeltildi: §7 "Kapatılıp açılan ürün", §6 "Üç şok ve geri gelmeyen
+tahıl". §2.8/5 kategorisi arpaya taşındı. `pirinc` ve `uc_sok` grafiklerinin
+notları, ana sayfa hikâyesinin birinci slaytı ve bölüm başlıkları da aynı
+bulguya göre yeniden yazıldı. Bir grafik de kodla duruyordu ("HS 04"); adı
+yazıldı.
+
+### §2.8/1 için kaynak arandı ve SINIRIYLA birlikte bulundu
+
+"Bilim ve kişi" kategorisi için Ebu Garib tohum bankası araştırıldı. Ağda
+dolaşan ayrıntılı anlatı (2003'te bombalanma, sınırdan geçirilen yedek
+koleksiyon, 1.400 kaybolan çeşit) **birincil kaynağa bağlanamadı**: Nature'ın
+ilgili yazısı kimlik doğrulama istiyor, ikincil özetler kaynak sayılmıyor
+(§2.14.1). Metin yalnız BM Irak / FAO duyurusunun (19 Mayıs 2024) kendi
+ifadelerini kullanıyor: banka 1977'den beri çalışıyor, altyapısı hasarlı,
+ICARDA ile onarım projesi var. Kayıp iddiası yazılmadı.
+
+### Doğrulayıcının yakaladığı kendi hatalarım
+
+1. **Yuvarlanmış rakam.** Slayta 227.544 ve 101.600 yazmıştım; gerçek
+   değerler 227.508 ve 101.594. `dogrula_yayin.py` durdurdu.
+2. **Kendi vurgu tırnaklarım kaynak alıntısı sanılıyordu.** Dizinin kuralı
+   kaynak alıntısının `*"..."*` ile yazılması; düz tırnak yazarın kendi
+   terimi. Ayrım koda geçti, uzun düz tırnak (60+) yine de bağlanmak zorunda.
+3. **Düzenli ifade ardışık tırnak çiftlerini yanlış eşleştiriyordu** —
+   birinin kapanışıyla ötekinin açılışını. `split('"')[1::2]` ile düzeltildi.
+4. **Numaralı liste kuralı yanlıştı.** "154." ve "2024." satır başına düşmüş
+   ve kural onları madde sandı. `dossier_prose.dart` numaralı listeyi
+   BİLEREK desteklemiyor, gerekçesini de kendi yazıyor. Kural kaldırıldı:
+   yanlış olan metin değil kuraldı.
+
+### Çeviri muafiyetinin bedeli: alıntı paritesi
+
+1946 protokolü Türkçe. İngilizce metin onu çeviriyle veriyor ve çeviri kaynak
+metninde harfi harfine bulunmaz. Bu DÜŞÜRMÜYOR, kayda geçiyor — ama muafiyet
+uydurma alıntıya kapı açmasın diye bölüm başına alıntı SAYISI iki dilde aynı
+olmak zorunda (9. avcı). §13'te yedi çeviri alıntısı var ve yedisi de kayıtlı.

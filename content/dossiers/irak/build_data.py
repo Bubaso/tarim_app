@@ -154,11 +154,29 @@ govde['turetilmis'] = {
     # Ekmek zinciri — un, hamur işleri ve hububat bir arada
     'ekmek_zinciri_usd': sum(f['deger'] for f in t['fasillar']
                              if f['fasil'] in ('10', '11', '19')),
+    'ekmek_zinciri_payi_yuzde': round(
+        sum(f['deger'] for f in t['fasillar'] if f['fasil'] in ('10', '11', '19'))
+        / t['tarim_ihracat_irak'] * 100, 1),
+    'arpa_alan_2020': {int(y): v for y, v in u['Barley|Area harvested'].items()}[2020],
+    'arpa_alan_2022': {int(y): v for y, v in u['Barley|Area harvested'].items()}[2022],
+    'hurma_1961': hurma[1961], 'hurma_2024': hurma[2024],
+    'hurma_zirve_yil': max(hurma, key=hurma.get), 'hurma_zirve': max(hurma.values()),
+    'ithalat_toplam_kontrol': sum(f['deger'] for f in t['ithalat_fasillar']),
 
     # Çöküşler — hesaplanmış, iddia edilmemiş
     'pirinc_dusus_yuzde': round((1 - pirinc[2022] / pirinc[2020]) * 100, 1),
     'pirinc_2020': pirinc[2020], 'pirinc_2022': pirinc[2022],
     'arpa_dusus_yuzde': round((1 - arpa[2022] / arpa[2020]) * 100, 1),
+    # ARPA GERİ GELMEDİ, PİRİNÇ GELDİ. Bu ayrım dosyanın iki bölümünü birden
+    # belirliyor: §2.8'in "terk edilen ürün" kategorisi arpadır, pirinç değil.
+    'arpa_en_dusuk_yil': min(arpa, key=arpa.get),
+    'arpa_en_dusuk': min(arpa.values()),
+    'arpa_2020': arpa[2020], 'arpa_2024': arpa[2024],
+    'arpa_bugun_2020_yuzdesi': round(arpa[2024] / arpa[2020] * 100, 1),
+    'pirinc_2024': pirinc[2024],
+    'pirinc_bugun_2020_yuzdesi': round(pirinc[2024] / pirinc[2020] * 100, 1),
+    'pirinc_alan_2020': {int(y): v for y, v in u['Rice|Area harvested'].items()}[2020],
+    'pirinc_alan_2022': {int(y): v for y, v in u['Rice|Area harvested'].items()}[2022],
     'bugday_en_dusuk_yil': min(bugday, key=bugday.get),
     'bugday_en_dusuk': min(bugday.values()),
     'bugday_2014': bugday.get(2014), 'bugday_2015': bugday.get(2015),

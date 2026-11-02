@@ -45,6 +45,11 @@ def pdf(ad: str, bas: int = 0, son: int | None = None) -> str:
     return duz('\n'.join(p.extract_text() or '' for p in say))
 
 
+def duz_metin(ad: str) -> str:
+    """kaynak_dosyalari altındaki düz metin — HTML'den çıkarılmış sayfalar için."""
+    return duz((BELGE / ad).read_text(encoding='utf-8'))
+
+
 def bagla(kaynak: str, ibare: str, iz: str) -> str:
     if harf(ibare) not in harf(kaynak):
         hata.append(f"ALINTI BAĞLANMADI · {iz} · '{ibare[:70]}'")
@@ -259,6 +264,33 @@ bataklik = {
         tbm, 'to harvest food grains such as rice and millet', 'bataklik.urun'),
 }
 
+# ══ 9. Gen bankası — BİRİNCİL (BM Irak, FAO duyurusu) ══════════════════════
+# §2.8/1 "bilim ve kişi" için ELDEKİ TEK DAYANAK. Ağda dolaşan ayrıntılı
+# anlatı (2003'te bombalanma, sınırdan geçirilen 'kara kutu', 1.400 çeşit)
+# bu araştırmada BİRİNCİL kaynağa bağlanamadı: Nature'ın 2005 tarihli yazısı
+# kimlik doğrulama istiyor ve ikincil özetler kaynak sayılmaz (§2.14.1).
+# Dolayısıyla metin yalnızca BU BELGENİN söylediğini yazar: banka 1977'den
+# beri çalışıyor, altyapısı hasarlı, FAO ve ICARDA onarım projesi yürütüyor.
+# KAYIP İDDİASI YAZILMAYACAK — ölçülmedi ve bağlanmadı.
+gb = duz_metin('bm_irak_gen_bankasi_2024.txt')
+gen_bankasi = {
+    '_kaynak_niteligi': ('BİRİNCİL — United Nations in Iraq / FAO Irak duyurusu, '
+                         '19 Mayıs 2024'),
+    '_kapsam': 'Bağdat Ebu Garib tohum bankası ve Süleymaniye · 2024 projesi',
+    '_yazilmayacak': ("Bankanın 2003'te yok edildiği, sınırdan kaçırılan bir yedek "
+                      "koleksiyon ve kaybedilen çeşit sayısı BU ARAŞTIRMADA birincil "
+                      "kaynağa bağlanamadı. Metin bu iddiaların hiçbirini kurmaz."),
+    'yil': 2024,
+    'banka': bagla(gb, 'the Abu Gharib seed bank in Baghdad', 'gen.banka'),
+    'calisma_yili': bagla(gb, 'operational since 1977', 'gen.yil'),
+    'hasar': bagla(gb, 'suffered from infrastructural damage', 'gen.hasar'),
+    'icarda': bagla(gb, 'International Center for Agricultural Research in the Dry Areas',
+                    'gen.icarda'),
+    'yeni_banka': bagla(gb, 'establish a new seed bank in the Kurdistan Region of Iraq',
+                        'gen.yeni'),
+    'amac': bagla(gb, 'conservation of plant genetic material in Iraq', 'gen.amac'),
+}
+
 cikti = {
     '_dosya': 'Irak — Ülke Dosyası Sayı 05 · ham çıkarım',
     '_uretim': 'cikar.py — elle düzenlenmez',
@@ -270,6 +302,7 @@ cikti = {
     'su': su,
     'dunya_su': dunya_su,
     'bataklik': bataklik,
+    'gen_bankasi': gen_bankasi,
 }
 
 if hata:
