@@ -377,28 +377,68 @@ class _HorizontalBar extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 12),
-            Expanded(child: LayoutBuilder(builder: (ctx, bc) => Stack(children: [
-              Container(height: 32, width: bc.maxWidth,
-                decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.08),
-                  borderRadius: BorderRadius.circular(6),
-                )),
-              Container(height: 32, width: bc.maxWidth * pct,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [color.withValues(alpha: 0.75), color]),
-                  borderRadius: BorderRadius.circular(6),
-                )),
-              Positioned.fill(child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Align(
-                  alignment: pct > 0.45 ? Alignment.centerRight : Alignment.centerLeft,
-                  child: Text(unit.yaz(item['value']),
-                    style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w900,
-                      color: pct > 0.45 ? Colors.white : color),
+            Expanded(child: LayoutBuilder(builder: (ctx, bc) {
+              final dolu = bc.maxWidth * pct;
+              final metin = unit.yaz(item['value']);
+              final stil = GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w900);
+
+              // Yazı DOLU kısma göre konumlanıyor, rayın tamamına göre değil.
+              //
+              // Eskiden `Positioned.fill` + `pct > 0.45 ? sağa : sola` vardı:
+              // hizalama rayın iki ucuna yapılıyordu, oysa renkli dolgu
+              // arada bir yerde bitiyor. Sonuç iki yönde de okunamıyordu —
+              // pct 0,64'te beyaz yazı dolgunun SAĞINDAKİ açık zemine
+              // düşüyor, pct 0,25'te renkli yazı dolgunun İÇİNDE aynı renge
+              // biniyordu. Ölçümde 172 yatay çubuk grafiğin çoğu bu iki
+              // durumdan birine giriyor.
+              //
+              // Eşik sabit bir oran değil, GERÇEK ölçüm: yazı genişliği yazı
+              // boyutu tercihiyle değişiyor, 0,45 gibi bir oran 1,5 katına
+              // çıkarılmış puntoda yanlış cevap veriyor.
+              final olcer = TextPainter(
+                text: TextSpan(text: metin, style: stil),
+                textDirection: TextDirection.ltr,
+                textScaler: MediaQuery.textScalerOf(ctx),
+              )..layout();
+              final icerideSigar = olcer.width + 20 <= dolu;
+
+              // Dışarı taşarsa sağ kenardan geri çekiliyor: dolgu neredeyse
+              // tamamsa yazı rayın dışına çıkmasın.
+              final disSol = (dolu + 10)
+                  .clamp(0.0, (bc.maxWidth - olcer.width).clamp(0.0, bc.maxWidth));
+
+              return Stack(children: [
+                Container(height: 32, width: bc.maxWidth,
+                  decoration: BoxDecoration(
+                    color: color.withValues(alpha: 0.08),
+                    borderRadius: BorderRadius.circular(6),
+                  )),
+                Container(height: 32, width: dolu,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(colors: [color.withValues(alpha: 0.75), color]),
+                    borderRadius: BorderRadius.circular(6),
+                  )),
+                if (icerideSigar)
+                  Positioned(
+                    left: 0, top: 0, bottom: 0, width: dolu,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(metin, style: stil.copyWith(color: Colors.white)),
+                      ),
+                    ),
+                  )
+                else
+                  Positioned(
+                    left: disSol, top: 0, bottom: 0,
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(metin, style: stil.copyWith(color: color)),
+                    ),
                   ),
-                ),
-              )),
-            ]))),
+              ]);
+            })),
           ]),
         );
       }).toList(),

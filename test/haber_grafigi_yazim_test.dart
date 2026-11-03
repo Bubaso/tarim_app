@@ -242,4 +242,92 @@ void main() {
       tanik.dispose();
     });
   });
+
+  yatayCubukSinamalari();
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  Yatay çubukta değer yazısının yeri.
+//
+//  Doğrulama sırasında çıkan ayrı bir hata: yazı rayın tamamına göre
+//  hizalanıyordu, renkli dolguya göre değil. İki yönde de okunamıyordu —
+//  beyaz yazı açık zemine düşüyor ya da renkli yazı aynı renge biniyordu.
+// ══════════════════════════════════════════════════════════════════════════
+void yatayCubukSinamalari() {
+  group('yatay çubuk değer yazısı', () {
+    /// Grafiği kurar ve ölçülen değerin yazısının dikdörtgenini döndürür.
+    ///
+    /// `tekBasina` ile tek satırlık grafik çiziliyor: o zaman dolgu oranı 1
+    /// oluyor. İki satırda aynı sayıyı kullanmak bulucuya İKİ eşleşme
+    /// veriyordu — sınama kendi kurgusu yüzünden düşüyordu.
+    Future<Rect> kutu(
+      WidgetTester tester,
+      num deger,
+      String yazili, {
+      bool tekBasina = false,
+    }) async {
+      tester.view.physicalSize = const Size(1200, 900);
+      tester.view.devicePixelRatio = 1.0;
+      addTearDown(tester.view.reset);
+      await tester.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: SizedBox(
+            width: 1200,
+            child: DynamicChartWidget(
+              chartData: {
+                'type': 'horizontal_bar',
+                'title': 'Maliyet',
+                'unit': 'Milyar Euro',
+                'data': [
+                  if (!tekBasina) {'label': 'Ölçek', 'value': 12},
+                  {'label': 'Ölçülen', 'value': deger},
+                ],
+              },
+              isDark: false,
+              accent: const Color(0xFF5C8A4A),
+              isEn: false,
+            ),
+          ),
+        ),
+      ));
+      await tester.pump();
+      final f = find.byWidgetPredicate(
+        // Ayıraç bölünmez boşluk (U+00A0) — normal boşluk HİÇ eşleşmiyor.
+        (w) => w is Text && (w.data ?? '').startsWith('$yazili\u00A0'),
+      );
+      expect(f, findsOneWidget, reason: '$yazili çizilmedi');
+      return tester.getRect(f);
+    }
+
+    Text yazi(WidgetTester tester, String yazili) => tester.widget<Text>(
+          find.byWidgetPredicate(
+            (w) => w is Text && (w.data ?? '').startsWith('$yazili\u00A0'),
+          ),
+        );
+
+    testWidgets('kısa çubukta yazı dolgunun DIŞINDA ve çubuk rengiyle',
+        (tester) async {
+      // 1,5 / 12 = %12,5: yazı dolguya sığmıyor.
+      await kutu(tester, 1.5, '1,5');
+      // Beyaz OLMAMALI — dolgunun dışı açık zemin.
+      expect(yazi(tester, '1,5').style?.color, isNot(Colors.white));
+    });
+
+    testWidgets('dolu çubukta yazı İÇERİDE ve beyaz', (tester) async {
+      await kutu(tester, 12, '12', tekBasina: true);
+      expect(yazi(tester, '12').style?.color, Colors.white);
+    });
+
+    testWidgets('yazı hiçbir durumda rayın dışına taşmıyor', (tester) async {
+      const durumlar = [
+        (0.1, '0,1'), (1.5, '1,5'), (5, '5'), (9.9, '9,9'), (11.9, '11,9'),
+      ];
+      for (final (deger, yazili) in durumlar) {
+        final r = await kutu(tester, deger, yazili);
+        expect(r.right, lessThanOrEqualTo(1200.0),
+            reason: '$yazili değerinde yazı sağa taştı');
+        expect(r.left, greaterThanOrEqualTo(0.0));
+      }
+    });
+  });
 }

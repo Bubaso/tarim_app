@@ -12,6 +12,15 @@
         "5055"
       ],
       "port": 5055
+    },
+    {
+      "name": "tarim-spa",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "tool/spa_sunucu.py",
+        "8131"
+      ],
+      "port": 8131
     }
   ]
 }
