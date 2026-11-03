@@ -157,6 +157,38 @@ void main() {
       expect(tester.takeException(), isNull);
     });
 
+    testWidgets('vurgu halkası gerçekten kalınlaşıp ışıyor', (tester) async {
+      // Vurgunun "fark edilmediği" bildirildi ve güçlendirildi. Bu test
+      // güçlendirmenin GERÇEKTEN çizime yansıdığını ölçüyor: tarayıcıda
+      // gözle bakmak mümkün olmadığında tek güvence bu.
+      await tester.pumpWidget(_sarmala(
+          _pencere(ozet, baslangic: gunOnce(1)),
+          isDark: false,
+          isEn: false));
+      await _coz(tester);
+
+      double enKalin = 0;
+      double enIsik = 0;
+      // Nefsin bir turu 1,3 sn; 150 ms'lik adımlarla tepe noktası yakalanıyor.
+      for (var i = 0; i < 12; i++) {
+        await tester.pump(const Duration(milliseconds: 150));
+        for (final kutu in tester.widgetList<DecoratedBox>(
+            find.byType(DecoratedBox, skipOffstage: false))) {
+          final d = kutu.decoration;
+          if (d is! BoxDecoration) continue;
+          final k = d.border?.top.width ?? 0;
+          if (k > enKalin) enKalin = k;
+          final g = d.boxShadow?.isNotEmpty == true
+              ? d.boxShadow!.first.blurRadius
+              : 0.0;
+          if (g > enIsik) enIsik = g;
+        }
+      }
+      expect(enKalin, greaterThan(2.0),
+          reason: 'kenarlık nefes tepesinde kalınlaşmalı');
+      expect(enIsik, greaterThan(12.0), reason: 'dışarı ışıma olmalı');
+    });
+
     testWidgets('eski dosyada YENİ yazmıyor', (tester) async {
       await tester.pumpWidget(_sarmala(
           _pencere(ozet, baslangic: gunOnce(20)),
