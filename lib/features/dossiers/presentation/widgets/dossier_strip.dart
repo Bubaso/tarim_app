@@ -157,11 +157,10 @@ class _Kart extends StatelessWidget {
         ? tema.vurgu.withValues(alpha: 0.50)
         : tema.seritVurgu.withValues(alpha: 0.70);
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: kenar),
-      ),
+    return _YeniVurgusu(
+      yeni: ozet.yeniMi,
+      vurgu: isDark ? tema.vurgu : tema.seritVurgu,
+      kenar: kenar,
       child: Material(
         color: zemin,
         borderRadius: BorderRadius.circular(14),
@@ -369,6 +368,13 @@ class _Rozet extends StatelessWidget {
   Widget build(BuildContext context) {
     final parcalar = <String>[];
 
+    // "YENİ" bir KELİME, yalnızca renk ya da hareket değil (§3.2). Halka
+    // dikkati çekiyor, kelime ne olduğunu söylüyor — hareketi kapatmış ya
+    // da göremeyen okuyucu için tek taşıyıcı bu.
+    if (ozet.yeniMi) {
+      parcalar.add(isEn ? 'NEW' : 'YENİ');
+    }
+
     if (ozet.sectionCount > 0) {
       parcalar.add(
         isEn ? '${ozet.sectionCount} sections' : '${ozet.sectionCount} bölüm',
@@ -393,6 +399,164 @@ class _Rozet extends StatelessWidget {
       parcalar.join(' · '),
       style: AppTypography.meta(context, color: sessiz),
       maxLines: 2,
+    );
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  Yeni dosya vurgusu — NEFES ALAN HALKA, yanıp sönme DEĞİL
+// ──────────────────────────────────────────────────────────────────────────────
+//  İstek "kart yanıp sönsün" idi. Yanıp sönme bu dizide iki kuralı bozuyor:
+//
+//  §7 — "Animasyonda ölçü: sayfanın karakteri sakin ve ciddi. Yumuşak beliriş
+//  uygun, kayan/zıplayan öğe dosyanın tonunu bozar." Dosya 28 gün yayında
+//  kalan ciddi bir belge; kırpışan kart onu reklam bandına çevirir.
+//
+//  Erişilebilirlik — saniyede üçten hızlı kırpışma nöbet tetikleyebiliyor,
+//  dikkat bozukluğunda da metni okunmaz kılıyor.
+//
+//  Yapılan: 2,6 saniyede dolup boşalan bir vurgu halkası. Göz yakalıyor,
+//  okuma engellenmiyor. KALINLIK DEĞİŞMİYOR, yalnızca rengin opaklığı ve
+//  gölge; kalınlık oynasaydı kart her nefeste birkaç piksel büyüyüp küçülür
+//  ve komşu kartı iterdi.
+//
+//  Hareket azaltma tercihinde halka SABİT duruyor — kaldırılmıyor. Kaldırmak
+//  o okuyucudan "bu dosya yeni" bilgisini saklardı; kelime rozeti zaten var
+//  ama görsel ayrım da kalsın.
+// ══════════════════════════════════════════════════════════════════════════════
+
+class _YeniVurgusu extends StatefulWidget {
+  const _YeniVurgusu({
+    required this.yeni,
+    required this.vurgu,
+    required this.kenar,
+    required this.child,
+  });
+
+  final bool yeni;
+  final Color vurgu;
+  final Color kenar;
+  final Widget child;
+
+  @override
+  State<_YeniVurgusu> createState() => _YeniVurgusuState();
+}
+
+class _YeniVurgusuState extends State<_YeniVurgusu>
+    with SingleTickerProviderStateMixin {
+  // `late final` DEĞİL: alan `late` olsaydı, `yeni` false olan kartlarda
+  // denetleyici hiç kurulmaz, `dispose()` ona dokununca da SÖKÜM ANINDA
+  // kurulurdu. Ticker o anda `TickerMode`u arıyor ve element artık etkin
+  // olmadığı için "Looking up a deactivated widget's ancestor is unsafe"
+  // hatası çıkıyordu — 22 dosya testi birden düşüyordu. Denetleyici artık
+  // her zaman initState'te kuruluyor.
+  late final AnimationController _c;
+
+  /// Nefes SONLU: üç tur, sonra sabit vurgulu hâlde dinleniyor.
+  ///
+  /// Sonsuz tekrar iki yerde kırıldı. Birincisi tasarım: 28 gün yayında kalan
+  /// bir belgenin kartının durmadan kıpırdaması okuma sırasında rahatsız
+  /// ediyor; dikkat çekmek için üç nefes yetiyor, gerisini sabit halka ve
+  /// "YENİ" kelimesi taşıyor.
+  ///
+  /// İkincisi teknik ve testle yakalandı: sonsuz animasyon, widget ağacı
+  /// söküldükten SONRA da yeniden çizim tetikliyor ve o çizimde
+  /// `MediaQuery` okunduğu için "Looking up a deactivated widget's ancestor
+  /// is unsafe" hatası çıkıyordu — 19 dosya testi birden düştü. Aynı tuzak
+  /// §17.6'da `_PulseDot` için zaten yazılıydı.
+  static const int _turSayisi = 3;
+
+  /// Nefes bittiğinde halkanın dinlendiği yer. Sıfır olsaydı vurgu tamamen
+  /// kaybolur, sonradan kaydırıp gelen okuyucu dosyanın yeni olduğunu
+  /// göremezdi.
+  static const double _dinlenme = 0.72;
+
+  bool _hareketKapali = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _c = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1300),
+    );
+    if (widget.yeni) _nefesAl();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Tercih BURADA okunuyor, `build` içinde değil: build teardown sırasında
+    // da çalışabiliyor ve orada InheritedWidget aramak güvenli değil.
+    _hareketKapali = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+  }
+
+  Future<void> _nefesAl() async {
+    for (var i = 0; i < _turSayisi; i++) {
+      if (!mounted || _hareketKapali) break;
+      await _c.forward();
+      if (!mounted) return;
+      await _c.reverse();
+    }
+    if (mounted) _c.value = _dinlenme;
+  }
+
+  @override
+  void didUpdateWidget(covariant _YeniVurgusu eski) {
+    super.didUpdateWidget(eski);
+    // Devirde kart yerinde kalıp "yeni" durumu değişebiliyor.
+    if (widget.yeni && !eski.yeni) {
+      _nefesAl();
+    } else if (!widget.yeni && eski.yeni) {
+      _c.stop();
+      _c.value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _c.stop();
+    _c.dispose();
+    super.dispose();
+  }
+
+  BoxDecoration _kabuk(double t) => BoxDecoration(
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: widget.yeni
+              ? Color.lerp(widget.kenar, widget.vurgu, t)!
+              : widget.kenar,
+        ),
+        boxShadow: widget.yeni && t > 0
+            ? [
+                BoxShadow(
+                  color: widget.vurgu.withValues(alpha: 0.26 * t),
+                  blurRadius: 16 * t,
+                  spreadRadius: 1.5 * t,
+                ),
+              ]
+            : null,
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    if (!widget.yeni) {
+      return DecoratedBox(decoration: _kabuk(0), child: widget.child);
+    }
+    // Hareket azaltma açıksa halka SABİT duruyor — kaldırılmıyor. Kaldırmak
+    // o okuyucudan "bu dosya yeni" bilgisini saklardı.
+    if (_hareketKapali) {
+      return DecoratedBox(decoration: _kabuk(_dinlenme), child: widget.child);
+    }
+    return AnimatedBuilder(
+      animation: _c,
+      // Curves.easeInOut: doğrusal salınım makine gibi sayıyor; yavaşlayarak
+      // dönen bir nefes sakin duruyor.
+      builder: (context, child) => DecoratedBox(
+        decoration: _kabuk(Curves.easeInOut.transform(_c.value)),
+        child: child,
+      ),
+      child: widget.child,
     );
   }
 }

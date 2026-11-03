@@ -25,6 +25,25 @@ class DossierSummary {
 
   bool get kurumDosyasi => tur == 'kurum';
 
+  /// Dosya YENİ mi — penceresi açılalı beş günden az mı.
+  ///
+  /// Ölçü `startsAt`: pencerenin açıldığı an, yani dosyanın vitrine çıktığı
+  /// gün. `created_at` kullanılamaz — seed yeniden çalıştırıldığında değişir
+  /// ve arşivdeki bir dosya "yeni" görünürdü.
+  ///
+  /// Beş gün 28 günlük pencerenin yaklaşık altıda biri: okurun haftada bir
+  /// uğradığında yeni sayıyı en az bir kez yakalamasına yetiyor, ama
+  /// pencerenin çoğunda vurgunun sönük kalmasını sağlıyor. Sönmeyen bir
+  /// vurgu vurgu olmaktan çıkar.
+  static const Duration yeniPenceresi = Duration(days: 5);
+
+  bool get yeniMi {
+    final b = startsAt;
+    if (b == null || !isActive) return false;
+    final yas = DateTime.now().toUtc().difference(b.toUtc());
+    return !yas.isNegative && yas < yeniPenceresi;
+  }
+
   /// Kurumu kuran belge: "3491 sayılı Kanun · RG 13.07.1938".
   /// Ülke dosyasında null.
   final String? kurulusBelgesi;

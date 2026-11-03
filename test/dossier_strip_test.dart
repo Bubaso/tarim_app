@@ -102,6 +102,53 @@ void main() {
 
   final ozet = DossierFixture.hollanda().summary;
 
+  group('yeni dosya vurgusu', () {
+    // İstek "kart yanıp sönsün" idi; yanıp sönme §7'nin animasyon ölçüsünü
+    // ve erişilebilirliği bozuyor. Yapılan: üç nefeslik vurgu halkası +
+    // "YENİ" kelimesi. Kelime ŞART — renk ve hareket tek başına anlam
+    // taşımaz (§3.2) ve hareketi kapatmış okuyucu için tek taşıyıcı o.
+    DateTime gunOnce(int n) =>
+        DateTime.now().toUtc().subtract(Duration(days: n));
+
+    test('penceresi yeni açılmış dosya YENİ işaretleniyor', () {
+      expect(_pencere(ozet, baslangic: gunOnce(2)).yeniMi, isTrue);
+    });
+
+    test('beş günü geçmiş dosya YENİ değil', () {
+      expect(_pencere(ozet, baslangic: gunOnce(6)).yeniMi, isFalse);
+    });
+
+    test('arşivdeki dosya YENİ değil — tarihi yeni olsa bile', () {
+      // Arşivlenmiş dosyanın penceresi teknik olarak yeni görünebilir;
+      // `isActive` olmadan vurgulamak okuru kapanmış bir sayıya çağırırdı.
+      expect(_pencere(ozet, baslangic: gunOnce(1), aktif: false).yeniMi,
+          isFalse);
+    });
+
+    test('başlangıcı olmayan dosya YENİ değil', () {
+      expect(_pencere(ozet, baslangic: null).yeniMi, isFalse);
+    });
+
+    testWidgets('YENİ kelimesi kartta görünüyor', (tester) async {
+      await tester.pumpWidget(_sarmala(
+          _pencere(ozet, baslangic: gunOnce(1)),
+          isDark: false,
+          isEn: false));
+      await _coz(tester);
+      expect(find.textContaining('YENİ'), findsWidgets);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('eski dosyada YENİ yazmıyor', (tester) async {
+      await tester.pumpWidget(_sarmala(
+          _pencere(ozet, baslangic: gunOnce(20)),
+          isDark: false,
+          isEn: false));
+      await _coz(tester);
+      expect(find.textContaining('YENİ'), findsNothing);
+    });
+  });
+
   group('yayında dosya yokken', () {
     testWidgets('tek piksel bile bırakmıyor', (tester) async {
       // Şeridin en önemli davranışı bu. Yirmi sekiz günlük pencerelerin
@@ -327,6 +374,28 @@ void main() {
     await tester.pump();
     expect(find.byType(InkWell), findsOneWidget);
   });
+}
+
+/// [ozet]'in pencere başlangıcı ve etkinliği değiştirilmiş kopyası.
+DossierSummary _pencere(DossierSummary ozet,
+    {required DateTime? baslangic, bool aktif = true}) {
+  return DossierSummary(
+    slug: ozet.slug,
+    nameTr: ozet.nameTr,
+    nameEn: ozet.nameEn,
+    iso3: ozet.iso3,
+    tur: ozet.tur,
+    edition: ozet.edition,
+    thesisTr: ozet.thesisTr,
+    thesisEn: ozet.thesisEn,
+    theme: ozet.theme,
+    coverUrl: ozet.coverUrl,
+    startsAt: baslangic,
+    endsAt: ozet.endsAt,
+    daysRemaining: ozet.daysRemaining,
+    sectionCount: ozet.sectionCount,
+    isActive: aktif,
+  );
 }
 
 /// [ozet]'ten türetilmiş sahte bir KURUM dosyası özeti.
