@@ -14,6 +14,22 @@
 #   ./deploy.sh              → derle + hosting & functions dağıt
 #   ./deploy.sh --hosting    → yalnızca hosting (fonksiyon değişmediyse hızlı)
 #   ./deploy.sh --no-build   → mevcut build/web ile dağıt
+#   ./deploy.sh --fn=ogRenderer  → hosting + YALNIZCA o fonksiyon
+#
+# `--fn=` neden var:
+#   Canlıda, bu depoda KARŞILIĞI OLMAYAN fonksiyonlar duruyor. 3 Kasım 2026
+#   ölçümü:
+#
+#     columnistAudio · homeRenderer · indexNowPing · publishScheduled
+#
+#   Tam `functions` dağıtımı bunları "yerel kaynakta yok" sayıp SİLMEYE
+#   çalışıyor. Firebase etkileşimsiz kipte kendiliğinden duruyor — yani bugün
+#   bizi CLI kurtardı, bekçi değil. `--fn=` ile yalnızca adı verilen fonksiyon
+#   güncelleniyor ve ötekilere dokunulmuyor.
+#
+#   Bu bir ÇÖZÜM DEĞİL, geçici bir yol. Kalıcı çözüm dört fonksiyonu canlıdan
+#   okuyup depoya geri yazmak (CLAUDE.md §19.4'teki ogRenderer işiyle aynı
+#   iş). O yapılana kadar çıplak `./deploy.sh` fonksiyon tarafında kullanılmaz.
 
 set -euo pipefail
 
@@ -26,6 +42,7 @@ for arg in "$@"; do
   case "$arg" in
     --hosting)  TARGETS="hosting" ;;
     --no-build) DO_BUILD=0 ;;
+    --fn=*)     TARGETS="hosting,functions:${arg#--fn=}" ;;
     *) echo "Bilinmeyen argüman: $arg" >&2; exit 2 ;;
   esac
 done
