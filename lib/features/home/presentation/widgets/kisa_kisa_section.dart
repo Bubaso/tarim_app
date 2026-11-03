@@ -1,3 +1,4 @@
+import '../../../../core/utils/responsive_breakpoints.dart';
 import 'package:flutter/material.dart';
 import 'package:tarim_app/core/utils/hover.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -47,13 +48,29 @@ class KisaKisaSection extends ConsumerWidget {
   /// omurgası gibi gösterir; oysa bunlar günün ikincil haberleri.
   static const int _onizlemeSayisi = 6;
 
+  /// Masaüstünde iki sütun, her biri altı satır.
+  ///
+  /// Tek sütunda yer boş kalıyordu: 1200 px'lik oluğun içinde tek satırlık
+  /// bir manşet listesi sağ yarısını kullanmıyor. İki sütun aynı dikey yeri
+  /// kullanıp iki katı haber gösteriyor.
+  ///
+  /// Sayı 12'ye çıkıyor ama BLOK BÜYÜMÜYOR — altı satırlık yükseklik aynı
+  /// kalıyor, dolayısıyla "ana sayfanın omurgası gibi görünmesin" gerekçesi
+  /// (yukarıdaki not) korunuyor.
+  static const int _onizlemeSayisiGenis = 12;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final articles = ref.watch(briefArticlesProvider);
     if (articles.isEmpty) return const SizedBox.shrink();
 
     final isEn = Localizations.localeOf(context).languageCode == 'en';
-    final preview = articles.take(_onizlemeSayisi).toList();
+    // Yalnızca MASAÜSTÜ. Tablette 960'lık oluk iki sütunda satır başına
+    // ~460 px bırakıyor ve manşetler üç satıra sarıyor; telefonda zaten
+    // imkânsız.
+    final genis = ResponsiveBreakpoints.isDesktopOrLarger(context);
+    final gosterilecek = genis ? _onizlemeSayisiGenis : _onizlemeSayisi;
+    final preview = articles.take(gosterilecek).toList();
 
     return Column(
       children: [
@@ -64,10 +81,15 @@ class KisaKisaSection extends ConsumerWidget {
           // "Daha fazla" yalnızca gösterilmeyen haber varken anlamlı. Beş
           // haberlik bir listede tıklandığında aynı beş haberi gösteren bir
           // bağlantı, okuyucuya bir şey saklandığını düşündürüyor.
-          onSeeAll: articles.length > _onizlemeSayisi
+          onSeeAll: articles.length > gosterilecek
               ? () => pushScreen(context, const KisaKisaScreen())
               : null,
-          child: _BriefList(articles: preview, isDark: isDark, isEn: isEn),
+          child: _BriefList(
+            articles: preview,
+            isDark: isDark,
+            isEn: isEn,
+            sutun: genis ? 2 : 1,
+          ),
         ),
         SizedBox(height: spacing),
       ],
@@ -81,10 +103,15 @@ class _BriefList extends StatelessWidget {
   final bool isDark;
   final bool isEn;
 
+  /// Kaç sütun. Varsayılan 1 — `BriefArticleList` üzerinden tam sayfayı
+  /// besleyen yol bu, orada düzen değişmiyor.
+  final int sutun;
+
   const _BriefList({
     required this.articles,
     required this.isDark,
     required this.isEn,
+    this.sutun = 1,
   });
 
   @override
@@ -92,13 +119,32 @@ class _BriefList extends StatelessWidget {
     final borderColor =
         isDark ? Colors.white12 : Colors.black.withValues(alpha: 0.10);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    Widget sutunCiz(List<NewsArticle> liste) => Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (var i = 0; i < liste.length; i++) ...[
+              if (i > 0) Container(height: 1, color: borderColor),
+              _BriefRow(article: liste[i], isDark: isDark, isEn: isEn),
+            ],
+          ],
+        );
+
+    if (sutun < 2 || articles.length < 2) return sutunCiz(articles);
+
+    // Tek sayıda haberde FAZLASI SOLA: göz soldan okumaya başlıyor ve
+    // eksik satır sağ sütunun altında daha az göze batıyor.
+    final orta = (articles.length / 2).ceil();
+
+    // IntrinsicHeight + dikey ayraç YOK — `hero_fold`'daki aynı gerekçe:
+    // sütunları birbirinin boyuna germek kısa olanın altında boşluk
+    // bırakıyor. Sütunlar üstten hizalı; ayrımı aradaki boşluk ve her
+    // sütunun kendi yatay çizgileri taşıyor.
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        for (var i = 0; i < articles.length; i++) ...[
-          if (i > 0) Container(height: 1, color: borderColor),
-          _BriefRow(article: articles[i], isDark: isDark, isEn: isEn),
-        ],
+        Expanded(child: sutunCiz(articles.take(orta).toList())),
+        const SizedBox(width: 28),
+        Expanded(child: sutunCiz(articles.skip(orta).toList())),
       ],
     );
   }
