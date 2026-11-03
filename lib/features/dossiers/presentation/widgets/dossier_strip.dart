@@ -368,13 +368,6 @@ class _Rozet extends StatelessWidget {
   Widget build(BuildContext context) {
     final parcalar = <String>[];
 
-    // "YENİ" bir KELİME, yalnızca renk ya da hareket değil (§3.2). Halka
-    // dikkati çekiyor, kelime ne olduğunu söylüyor — hareketi kapatmış ya
-    // da göremeyen okuyucu için tek taşıyıcı bu.
-    if (ozet.yeniMi) {
-      parcalar.add(isEn ? 'NEW' : 'YENİ');
-    }
-
     if (ozet.sectionCount > 0) {
       parcalar.add(
         isEn ? '${ozet.sectionCount} sections' : '${ozet.sectionCount} bölüm',
@@ -452,24 +445,18 @@ class _YeniVurgusuState extends State<_YeniVurgusu>
   // her zaman initState'te kuruluyor.
   late final AnimationController _c;
 
-  /// Nefes SONLU: üç tur, sonra sabit vurgulu hâlde dinleniyor.
+  /// Nefes SÜREKLİ (kullanıcı kararı, 3 Kasım 2026).
   ///
-  /// Sonsuz tekrar iki yerde kırıldı. Birincisi tasarım: 28 gün yayında kalan
-  /// bir belgenin kartının durmadan kıpırdaması okuma sırasında rahatsız
-  /// ediyor; dikkat çekmek için üç nefes yetiyor, gerisini sabit halka ve
-  /// "YENİ" kelimesi taşıyor.
+  /// Önce üç turla sınırlıydı; §7'nin "sakin ve ciddi" ölçüsü gerekçesiyle.
+  /// Kullanıcı kararını tekrarladı: pencere boyunca sürsün. Not olarak
+  /// duruyor — geri alınacaksa `repeat` yerine sayılı tur yeter.
   ///
-  /// İkincisi teknik ve testle yakalandı: sonsuz animasyon, widget ağacı
-  /// söküldükten SONRA da yeniden çizim tetikliyor ve o çizimde
-  /// `MediaQuery` okunduğu için "Looking up a deactivated widget's ancestor
-  /// is unsafe" hatası çıkıyordu — 19 dosya testi birden düştü. Aynı tuzak
-  /// §17.6'da `_PulseDot` için zaten yazılıydı.
-  static const int _turSayisi = 3;
-
-  /// Nefes bittiğinde halkanın dinlendiği yer. Sıfır olsaydı vurgu tamamen
-  /// kaybolur, sonradan kaydırıp gelen okuyucu dosyanın yeni olduğunu
-  /// göremezdi.
-  static const double _dinlenme = 0.72;
+  /// Sonsuz animasyonun testleri asmadığı doğrulandı: bu dosyanın koşumu
+  /// `pumpAndSettle` değil iki `pump()` kullanıyor. Asıl tuzak sonsuzluk
+  /// değildi — denetleyicinin `late final` olmasıydı (bkz. aşağıdaki not).
+  ///
+  /// Hareket azaltma tercihinde halka SABİT, bu değerde duruyor.
+  static const double _dinlenme = 0.80;
 
   bool _hareketKapali = false;
 
@@ -491,14 +478,12 @@ class _YeniVurgusuState extends State<_YeniVurgusu>
     _hareketKapali = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
   }
 
-  Future<void> _nefesAl() async {
-    for (var i = 0; i < _turSayisi; i++) {
-      if (!mounted || _hareketKapali) break;
-      await _c.forward();
-      if (!mounted) return;
-      await _c.reverse();
+  void _nefesAl() {
+    if (_hareketKapali) {
+      _c.value = _dinlenme;
+      return;
     }
-    if (mounted) _c.value = _dinlenme;
+    _c.repeat(reverse: true);
   }
 
   @override
@@ -520,43 +505,91 @@ class _YeniVurgusuState extends State<_YeniVurgusu>
     super.dispose();
   }
 
+  /// Vurgu BELİRGİN olmak zorunda — ilk sürümde fark edilmiyordu.
+  ///
+  /// Üç şey birden oynuyor: kenarlık kalınlığı 1 → 3,2 px, rengi kartın
+  /// sessiz kenarından tam vurguya, ve dışarı doğru bir ışıma. Kalınlığı
+  /// oynatmak burada GÜVENLİ: `DecoratedBox` yalnızca boyuyor, çocuğun
+  /// yerleşimine dokunmuyor — `Container` olsaydı her nefeste kart büyüyüp
+  /// küçülür ve komşusunu iterdi.
   BoxDecoration _kabuk(double t) => BoxDecoration(
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: widget.yeni
               ? Color.lerp(widget.kenar, widget.vurgu, t)!
               : widget.kenar,
+          width: widget.yeni ? 1 + 2.2 * t : 1,
         ),
         boxShadow: widget.yeni && t > 0
             ? [
                 BoxShadow(
-                  color: widget.vurgu.withValues(alpha: 0.26 * t),
-                  blurRadius: 16 * t,
-                  spreadRadius: 1.5 * t,
+                  color: widget.vurgu.withValues(alpha: 0.55 * t),
+                  blurRadius: 26 * t,
+                  spreadRadius: 3.5 * t,
                 ),
               ]
             : null,
       );
+
+  /// Sağ üst köşedeki "YENİ" etiketi.
+  ///
+  /// Hareketten BAĞIMSIZ: animasyonu göremeyen ya da kapatmış okuyucu için
+  /// tek taşıyıcı bu (§3.2 — renk ve hareket tek başına anlam taşımaz).
+  /// Metin rengi zeminin parlaklığından hesaplanıyor; vurgu açık modda koyu
+  /// pas, koyu modda sodyum turuncusu ve ikisinde sabit bir renk okunmazdı.
+  Widget _koseRozeti(bool isEn) {
+    final yazi = ThemeData.estimateBrightnessForColor(widget.vurgu) ==
+            Brightness.dark
+        ? Colors.white
+        : const Color(0xFF14110D);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
+      decoration: BoxDecoration(
+        color: widget.vurgu,
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(13),
+          bottomLeft: Radius.circular(10),
+        ),
+      ),
+      child: Text(
+        isEn ? 'NEW' : 'YENİ',
+        style: TextStyle(
+          color: yazi,
+          fontSize: 10.5,
+          height: 1.1,
+          fontWeight: FontWeight.w800,
+          letterSpacing: 0.9,
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     if (!widget.yeni) {
       return DecoratedBox(decoration: _kabuk(0), child: widget.child);
     }
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+
+    Widget govde(double t) => Stack(
+          children: [
+            DecoratedBox(decoration: _kabuk(t), child: widget.child),
+            // Rozet kartın köşesine OTURUYOR: üst-sağ yarıçapı kartınkiyle
+            // aynı (13 ≈ 14 eksi kenarlık), böylece dışarı taşmış bir etiket
+            // gibi değil kartın parçası gibi duruyor.
+            Positioned(top: 0, right: 0, child: _koseRozeti(isEn)),
+          ],
+        );
+
     // Hareket azaltma açıksa halka SABİT duruyor — kaldırılmıyor. Kaldırmak
     // o okuyucudan "bu dosya yeni" bilgisini saklardı.
-    if (_hareketKapali) {
-      return DecoratedBox(decoration: _kabuk(_dinlenme), child: widget.child);
-    }
+    if (_hareketKapali) return govde(_dinlenme);
+
     return AnimatedBuilder(
       animation: _c,
       // Curves.easeInOut: doğrusal salınım makine gibi sayıyor; yavaşlayarak
-      // dönen bir nefes sakin duruyor.
-      builder: (context, child) => DecoratedBox(
-        decoration: _kabuk(Curves.easeInOut.transform(_c.value)),
-        child: child,
-      ),
-      child: widget.child,
+      // dönen bir nefes daha az yoruyor.
+      builder: (context, _) => govde(Curves.easeInOut.transform(_c.value)),
     );
   }
 }
