@@ -571,7 +571,11 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                             DynamicChartWidget(
                                 chartData: displayChart,
                                 isDark: isDark,
-                                accent: accent),
+                                accent: accent,
+                                isEn: isEn,
+                                olcek: fontScale,
+                                kunye: grafikKunyesi(
+                                    article.figures, isEn)),
                             const SizedBox(height: 28),
                             if (govdeParcalari.length > 1)
                               govdeYaz(govdeParcalari[1]),

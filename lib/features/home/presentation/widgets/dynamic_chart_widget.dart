@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 
+import '../../../../core/utils/sayi_yazimi.dart';
+import '../../../../core/utils/turkce_metin.dart';
+
 // ══════════════════════════════════════════════════════════════════════════════
 //  DynamicChartWidget — Tableau-grade editorial data visualization
 //  Supports: bar · horizontal_bar · line · pie · donut · stat · cards · table
@@ -13,10 +16,45 @@ double _parseDouble(dynamic val) {
   return double.tryParse(str) ?? 0.0;
 }
 
-String _formatValue(dynamic val) {
-  if (val is String && double.tryParse(val.replaceAll(',', '.')) == null) return val; // Pure text
-  final d = _parseDouble(val);
-  return d % 1 == 0 ? d.toInt().toString() : d.toStringAsFixed(1);
+/// Birim + dil ikilisini çizicilere birlikte taşıyan taşıyıcı.
+///
+/// **Neden bir nesne.** Eskiden çizicilere yalnızca `String unit` iniyor ve
+/// her biri `'$formatted$unit'` diye birleştiriyordu: binlik ayıraç yok,
+/// araya boşluk yok — `45000TL/ton`. Rakamı doğru yazmak için hem birimi hem
+/// dili bilmek gerekiyor (`%45` ile `45%` farkı dile bağlı), bu yüzden ikisi
+/// tek alanda dolaşıyor. Alan adı `unit` BIRAKILDI: altı çizicinin
+/// kurucusunda ve çağrı yerlerinde tek satır değişmesin diye.
+class _Birim {
+  final String birim;
+  final bool isEn;
+  const _Birim(this.birim, this.isEn);
+
+  /// Rakam + birim: `45.000 TL/ton`, `%45`.
+  String yaz(dynamic ham) => birimliYaz(ham, birim, isEn);
+
+  /// Birimsiz rakam — birimin ayrı çizildiği yerlerde (eksen, büyük rakam).
+  String sade(dynamic ham) => degerYaz(ham, isEn);
+
+  /// Pasta diliminin payı. Yüzde işareti Türkçede önde.
+  String yuzde(num pay) => isEn ? '${sayiYaz(pay, true)}%' : '%${sayiYaz(pay, false)}';
+}
+
+/// Tablonun sütun başlıkları — BÜTÜN satırların birleşimi.
+///
+/// Eskiden `data.first.keys` okunuyordu: ilk satırda olmayan bir sütun hiç
+/// çizilmiyor, taşıdığı bütün hücreler sessizce düşüyordu. Veri bir dil
+/// modelinden geldiği için satırların aynı anahtar kümesini taşıdığı garanti
+/// değil. Bugünkü 417 tablonun hiçbirinde fark yok — yani bu yama bir hatayı
+/// değil, hata vermeden veri yutan bir yolu kapatıyor.
+///
+/// Sıra ilk görülme sırası: `Map` zaten ekleme sırasını koruyor, `Set` de
+/// (LinkedHashSet) koruyor. Alfabetik sıralamak sütunları karıştırırdı.
+List<String> sutunlariTopla(List<Map<String, dynamic>> data) {
+  final s = <String>{};
+  for (final satir in data) {
+    s.addAll(satir.keys);
+  }
+  return s.toList();
 }
 
 class DynamicChartWidget extends StatelessWidget {
@@ -24,11 +62,28 @@ class DynamicChartWidget extends StatelessWidget {
   final bool isDark;
   final Color accent;
 
+  /// Rakam yazımı ve büyük harf dönüşümü için ŞART — ikisi de dile bağlı.
+  final bool isEn;
+
+  /// Okurun yazı boyutu tercihi. Gövde metni bu çarpanla büyüyordu, grafik
+  /// büyümüyordu: yazıyı 1,5 katına çıkaran okur için tablo hücresi 11
+  /// puntoda kalıyordu. En çok büyütmeye ihtiyaç duyulan öğe en çok direnen
+  /// öğeydi.
+  final double olcek;
+
+  /// Altlık boşsa kullanılacak kaynak/dönem künyesi. 1039 grafiğin 348'inde
+  /// `subtitle` boş; bunların 316'sında aynı haberin `figures` dizisi kaynağı
+  /// zaten taşıyor. Rakam yayınlayıp kaynağını yazmamak en pahalı eksik.
+  final String? kunye;
+
   const DynamicChartWidget({
     super.key,
     required this.chartData,
     required this.isDark,
     required this.accent,
+    required this.isEn,
+    this.olcek = 1.0,
+    this.kunye,
   });
 
   // ── Palette ───────────────────────────────────────────────────────────────
@@ -52,8 +107,10 @@ class DynamicChartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final type     = chartData['type'] as String? ?? 'bar';
     final title    = chartData['title'] as String?;
-    final subtitle = chartData['subtitle'] as String?;
-    final unit     = chartData['unit'] as String? ?? '';
+    final hamAlt   = (chartData['subtitle'] as String?)?.trim();
+    // Altlık boşsa künyeye düşülüyor; künye de yoksa satır hiç çizilmiyor.
+    final subtitle = (hamAlt != null && hamAlt.isNotEmpty) ? hamAlt : kunye?.trim();
+    final unit     = _Birim(chartData['unit'] as String? ?? '', isEn);
     final rawData  = chartData['data'] as List<dynamic>?;
 
     if (rawData == null || rawData.isEmpty) return const SizedBox.shrink();
@@ -78,7 +135,7 @@ class DynamicChartWidget extends StatelessWidget {
         body = _StatCards(data: data, palette: _palette, text: _text, surface: _surface, unit: unit, border: _border);
         break;
       case 'table':
-        body = _DataTable(data: data, text: _text, subtle: _subtle, accent: accent, border: _border, isDark: isDark);
+        body = _DataTable(data: data, text: _text, subtle: _subtle, accent: accent, border: _border, isDark: isDark, isEn: isEn, olcek: olcek);
         break;
       default:
         body = _GradientBar(data: data, accent: accent, text: _text, subtle: _subtle, isDark: isDark, unit: unit);
@@ -86,8 +143,68 @@ class DynamicChartWidget extends StatelessWidget {
 
     // Dar ekranda 24'er piksellik iç boşluk, 360 px'lik bir telefonda içeriğe
     // kalan yerin altıda birini yiyor. Tablo tam da orada sıkışıyor.
-    final darMi = MediaQuery.of(context).size.width < 600;
+    final mq = MediaQuery.of(context);
+    final darMi = mq.size.width < 600;
 
+    // Grafiğin düz metin karşılığı. CanvasKit bütün yazıyı tuvale boyuyor:
+    // ekran okuyucu için erişilebilirlik ağacında bir karşılık YOKSA 417
+    // tablonun bütün hücreleri ve 265 büyük rakam hiç okunmuyor.
+    final okunur = _duzMetin(type, title, subtle_: subtitle, data: data, birim: unit);
+
+    return Semantics(
+      label: okunur,
+      // Alt öğeler tek bir etikete TOPLANIYOR: aksi halde okuyucu önce bu
+      // özeti, ardından aynı sayıları tek tek bir daha okuyor.
+      excludeSemantics: true,
+      child: MediaQuery(
+        // Ölçek burada veriliyor, her `fontSize`a tek tek çarpan eklenmiyor:
+        // bu dosyada 30'dan fazla `fontSize` var ve biri atlandığında hata
+        // vermeden eski boyutta kalıyordu.
+        data: mq.copyWith(textScaler: TextScaler.linear(olcek)),
+        child: _govde(darMi: darMi, title: title, subtitle: subtitle, body: body),
+      ),
+    );
+  }
+
+  /// Grafiğin düz metin karşılığı — hem `Semantics` hem de ileride paylaşım
+  /// için tek yerden üretiliyor.
+  String _duzMetin(
+    String type, String? title, {
+    required String? subtle_,
+    required List<Map<String, dynamic>> data,
+    required _Birim birim,
+  }) {
+    final p = <String>[];
+    final b = title?.trim() ?? '';
+    if (b.isNotEmpty) p.add(b);
+    final a = subtle_?.trim() ?? '';
+    if (a.isNotEmpty) p.add(a);
+
+    if (type == 'table') {
+      final basliklar = sutunlariTopla(data);
+      for (final satir in data) {
+        p.add(basliklar
+            .map((h) => '$h: ${satir[h]?.toString() ?? ''}')
+            .join(', '));
+      }
+    } else {
+      for (final item in data) {
+        final etiket = (item['label'] ?? '').toString().trim();
+        final deger = birim.yaz(item['value']);
+        final degisim = (item['change'] ?? '').toString().trim();
+        final satir = etiket.isEmpty ? deger : '$etiket: $deger';
+        p.add(degisim.isEmpty ? satir : '$satir ($degisim)');
+      }
+    }
+    return p.join('. ');
+  }
+
+  Widget _govde({
+    required bool darMi,
+    required String? title,
+    required String? subtitle,
+    required Widget body,
+  }) {
     return Container(
       padding: EdgeInsets.all(darMi ? 16 : 24),
       decoration: BoxDecoration(
@@ -150,7 +267,7 @@ class _GradientBar extends StatelessWidget {
   final List<Map<String, dynamic>> data;
   final Color accent, text, subtle;
   final bool isDark;
-  final String unit;
+  final _Birim unit;
   const _GradientBar({required this.data, required this.accent, required this.text, required this.subtle, required this.isDark, required this.unit});
 
   @override
@@ -166,7 +283,6 @@ class _GradientBar extends StatelessWidget {
         final change = item['change'] as String?;
         final pct   = maxVal > 0 ? value / maxVal : 0.0;
         final isMax = value == maxVal && value > 0;
-        final formatted = _formatValue(item['value']);
 
         return Padding(
           padding: const EdgeInsets.only(bottom: 16),
@@ -177,7 +293,7 @@ class _GradientBar extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               )),
               const SizedBox(width: 12),
-              Text('$formatted$unit',
+              Text(unit.yaz(item['value']),
                 style: GoogleFonts.inter(fontSize: 13, fontWeight: FontWeight.w900,
                   color: isMax ? accent : text),
               ),
@@ -233,7 +349,7 @@ class _HorizontalBar extends StatelessWidget {
   final List<Color> palette;
   final Color text, subtle;
   final bool isDark;
-  final String unit;
+  final _Birim unit;
   const _HorizontalBar({required this.data, required this.palette, required this.text, required this.subtle, required this.isDark, required this.unit});
 
   @override
@@ -249,7 +365,6 @@ class _HorizontalBar extends StatelessWidget {
         final label = item['label'] as String? ?? '';
         final pct   = maxVal > 0 ? value / maxVal : 0.0;
         final color = palette[i % palette.length];
-        final formatted = _formatValue(item['value']);
 
         return Padding(
           padding: const EdgeInsets.only(bottom: 14),
@@ -277,7 +392,7 @@ class _HorizontalBar extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Align(
                   alignment: pct > 0.45 ? Alignment.centerRight : Alignment.centerLeft,
-                  child: Text('$formatted$unit',
+                  child: Text(unit.yaz(item['value']),
                     style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w900,
                       color: pct > 0.45 ? Colors.white : color),
                   ),
@@ -298,7 +413,7 @@ class _LineChart extends StatelessWidget {
   final List<Map<String, dynamic>> data;
   final Color accent, text, subtle, grid;
   final bool isDark;
-  final String unit;
+  final _Birim unit;
   const _LineChart({required this.data, required this.accent, required this.text, required this.subtle, required this.grid, required this.isDark, required this.unit});
 
   @override
@@ -347,7 +462,7 @@ class _LineChart extends StatelessWidget {
           leftTitles: AxisTitles(sideTitles: SideTitles(
             showTitles: true, reservedSize: 44,
             getTitlesWidget: (v, _) => Text(
-              v % 1 == 0 ? v.toInt().toString() : v.toStringAsFixed(1),
+              unit.sade(v),
               style: GoogleFonts.inter(fontSize: 9, color: subtle),
             ),
           )),
@@ -361,7 +476,7 @@ class _LineChart extends StatelessWidget {
         borderData: FlBorderData(show: false),
         lineTouchData: LineTouchData(touchTooltipData: LineTouchTooltipData(
           getTooltipItems: (spots) => spots.map((s) => LineTooltipItem(
-            '${s.y % 1 == 0 ? s.y.toInt() : s.y.toStringAsFixed(1)}$unit',
+            unit.yaz(s.y),
             GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w800, color: Colors.white),
           )).toList(),
         )),
@@ -377,7 +492,7 @@ class _DonutChart extends StatelessWidget {
   final List<Map<String, dynamic>> data;
   final List<Color> palette;
   final Color text, subtle;
-  final String unit;
+  final _Birim unit;
   final bool isDonut;
   const _DonutChart({required this.data, required this.palette, required this.text, required this.subtle, required this.unit, required this.isDonut});
 
@@ -395,11 +510,11 @@ class _DonutChart extends StatelessWidget {
             final i     = entry.key;
             final item  = entry.value;
             final value = _parseDouble(item['value']);
-            final pct   = total > 0 ? (value / total * 100).toStringAsFixed(1) : '0';
+            final pct   = total > 0 ? value / total * 100 : 0.0;
             return PieChartSectionData(
               color: palette[i % palette.length],
               value: value,
-              title: '$pct%',
+              title: unit.yuzde(pct),
               radius: 62,
               titleStyle: GoogleFonts.inter(fontSize: 10, fontWeight: FontWeight.w800, color: Colors.white, shadows: [const Shadow(color: Colors.black45, blurRadius: 4)]),
             );
@@ -414,7 +529,6 @@ class _DonutChart extends StatelessWidget {
           final i     = entry.key;
           final item  = entry.value;
           final label = item['label'] as String? ?? '';
-          final formatted = _formatValue(item['value']);
           final color = palette[i % palette.length];
 
           return Padding(
@@ -424,7 +538,7 @@ class _DonutChart extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(label, style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w700, color: text), overflow: TextOverflow.ellipsis, maxLines: 2),
-                Text('$formatted$unit', style: GoogleFonts.inter(fontSize: 10, color: subtle)),
+                Text(unit.yaz(item['value']), style: GoogleFonts.inter(fontSize: 10, color: subtle)),
               ])),
             ]),
           );
@@ -441,7 +555,7 @@ class _StatCards extends StatelessWidget {
   final List<Map<String, dynamic>> data;
   final List<Color> palette;
   final Color text, surface, border;
-  final String unit;
+  final _Birim unit;
   const _StatCards({required this.data, required this.palette, required this.text, required this.surface, required this.border, required this.unit});
 
   @override
@@ -480,7 +594,6 @@ class _StatCards extends StatelessWidget {
           final change = item['change'] as String?;
           final icon   = item['icon'] as String?;
           final color  = palette[i % palette.length];
-          final formatted = _formatValue(item['value']);
           final isPositive = change != null && change.startsWith('+');
           final isNegative = change != null && change.startsWith('-');
 
@@ -505,7 +618,7 @@ class _StatCards extends StatelessWidget {
               FittedBox(
                 fit: BoxFit.scaleDown,
                 alignment: Alignment.centerLeft,
-                child: Text('$formatted$unit',
+                child: Text(unit.yaz(item['value']),
                   style: GoogleFonts.inter(fontSize: 26, fontWeight: FontWeight.w900, color: text, height: 1.0),
                 ),
               ),
@@ -555,7 +668,7 @@ class _TekRakam extends StatelessWidget {
   final Color color;
   final Color text;
   final Color surface;
-  final String unit;
+  final _Birim unit;
 
   const _TekRakam({
     required this.item,
@@ -569,32 +682,57 @@ class _TekRakam extends StatelessWidget {
   Widget build(BuildContext context) {
     final label = item['label'] as String? ?? '';
     final change = item['change'] as String?;
-    final formatted = _formatValue(item['value']);
+    final formatted = unit.sade(item['value']);
     final isPositive = change != null && change.startsWith('+');
     final isNegative = change != null && change.startsWith('-');
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-      decoration: BoxDecoration(
-        color: surface,
-        borderRadius: BorderRadius.circular(14),
-        // Sol kenardaki kalın şerit gazetedeki "kesme kutusu" işareti: gövde
-        // metnini okurken sayfanın bu bölümünün ayrı bir şey olduğunu
-        // söylüyor. Izgarada bu iş kartların çokluğuyla zaten yapılıyordu.
-        border: Border(
-          left: BorderSide(color: color, width: 4),
-          top: BorderSide(color: color.withValues(alpha: 0.20)),
-          right: BorderSide(color: color.withValues(alpha: 0.20)),
-          bottom: BorderSide(color: color.withValues(alpha: 0.20)),
+    // Şerit kenarlığın PARÇASI DEĞİL, ayrı bir katman.
+    //
+    // Eskiden dört kenarı tek `Border`da toplanıyor ve soluna kalın renkli
+    // bir `BorderSide` konuyordu — `borderRadius` ile birlikte. Flutter bunu
+    // çizemiyor: yuvarlatılmış köşe yalnızca TEK RENKLİ kenarlıkta
+    // destekleniyor, karışık renkte `paint()` assert atıyor. Yayın derlemesi
+    // assert'leri attığı için canlıda hata görünmüyordu; görünen şey köşe
+    // yuvarlamasının sessizce düşmesiydi. Bu yüzden kenarlık tek renge
+    // indirildi, şerit `Positioned` olarak üstüne bindirildi — "kesme kutusu"
+    // görüntüsü aynı kalıyor.
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(14),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: surface,
+          border: Border.all(color: color.withValues(alpha: 0.20)),
+        ),
+        child: Stack(
+          children: [
+            // top/bottom birlikte verilince şerit kartın boyuna UZUYOR;
+            // yüksekliği önceden bilmeye gerek kalmıyor.
+            Positioned(
+              left: 0,
+              top: 0,
+              bottom: 0,
+              child: Container(width: 4, color: color),
+            ),
+            _icerik(label, formatted, change, isPositive, isNegative),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget _icerik(String label, String formatted, String? change,
+      bool isPositive, bool isNegative) {
+    return Container(
+      width: double.infinity,
+      // Sol boşluk 4 px şerit kadar fazla: metin şeridin üstüne binmiyor.
+      padding: const EdgeInsets.fromLTRB(24, 20, 20, 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            label.toUpperCase(),
+            // Ham `toUpperCase()` DEĞİL: "Hibe" → "HIBE" oluyordu (§39.5).
+            buyukHarf(label, unit.isEn),
             style: GoogleFonts.inter(
               fontSize: 11,
               fontWeight: FontWeight.w800,
@@ -623,10 +761,10 @@ class _TekRakam extends StatelessWidget {
                     letterSpacing: -1.5,
                   ),
                 ),
-                if (unit.trim().isNotEmpty) ...[
+                if (unit.birim.trim().isNotEmpty) ...[
                   const SizedBox(width: 8),
                   Text(
-                    unit.trim(),
+                    unit.birim.trim(),
                     style: GoogleFonts.inter(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -685,7 +823,9 @@ class _DataTable extends StatelessWidget {
   final List<Map<String, dynamic>> data;
   final Color text, subtle, accent, border;
   final bool isDark;
-  const _DataTable({required this.data, required this.text, required this.subtle, required this.accent, required this.border, required this.isDark});
+  final bool isEn;
+  final double olcek;
+  const _DataTable({required this.data, required this.text, required this.subtle, required this.accent, required this.border, required this.isDark, required this.isEn, required this.olcek});
 
   /// Bir sütunun başlık ve hücrelerindeki en uzun metnin karakter sayısı.
   int _enUzun(String baslik) {
@@ -719,7 +859,7 @@ class _DataTable extends StatelessWidget {
   Widget build(BuildContext context) {
     if (data.isEmpty) return const SizedBox.shrink();
 
-    final basliklar = data.first.keys.toList();
+    final basliklar = sutunlariTopla(data);
     if (basliklar.isEmpty) return const SizedBox.shrink();
 
     return LayoutBuilder(
@@ -734,8 +874,12 @@ class _DataTable extends StatelessWidget {
         // Eşik 120: 11 punto Inter'de bir sütuna 24 px iç boşluktan sonra
         // ~16 karakter kalıyor. Altına inince "564.188.810" gibi bölünemeyen
         // bir hücre satıra sığmıyor ve sayı ortadan ikiye ayrılıyor.
+        // Eşik yazı ölçeğiyle BÜYÜYOR: okur yazıyı 1,5 katına çıkardığında
+        // hücreye sığan karakter sayısı üçte bir azalıyor, yani yan yana
+        // dizmenin sınırı yukarı kayıyor. Sabit 120 kalsaydı büyük puntoda
+        // tablo yine duvara dönerdi — bu kez daha da erken.
         final sutunBasina = genislik / basliklar.length;
-        if (genislik.isFinite && sutunBasina < 120) {
+        if (genislik.isFinite && sutunBasina < 120 * olcek) {
           return _Yigin(
             data: data,
             basliklar: basliklar,
@@ -744,6 +888,7 @@ class _DataTable extends StatelessWidget {
             subtle: subtle,
             accent: accent,
             border: border,
+            isEn: isEn,
           );
         }
 
@@ -824,6 +969,7 @@ class _Yigin extends StatelessWidget {
   final List<String> basliklar;
   final int aciklamaIndeksi;
   final Color text, subtle, accent, border;
+  final bool isEn;
 
   const _Yigin({
     required this.data,
@@ -833,6 +979,7 @@ class _Yigin extends StatelessWidget {
     required this.subtle,
     required this.accent,
     required this.border,
+    required this.isEn,
   });
 
   @override
@@ -860,6 +1007,7 @@ class _Yigin extends StatelessWidget {
             text: text,
             subtle: subtle,
             accent: accent,
+            isEn: isEn,
           ),
         ],
       ],
@@ -871,6 +1019,7 @@ class _YiginSatiri extends StatelessWidget {
   final String aciklama;
   final Map<String, String> digerleri;
   final Color text, subtle, accent;
+  final bool isEn;
 
   const _YiginSatiri({
     required this.aciklama,
@@ -878,6 +1027,7 @@ class _YiginSatiri extends StatelessWidget {
     required this.text,
     required this.subtle,
     required this.accent,
+    required this.isEn,
   });
 
   @override
@@ -910,7 +1060,9 @@ class _YiginSatiri extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      giris.key.toUpperCase(),
+                      // Sütun başlığı Türkçe: ham `toUpperCase()` "Birim"i
+                      // "BIRIM" yazıyordu.
+                      buyukHarf(giris.key, isEn),
                       style: GoogleFonts.inter(
                         fontSize: 9,
                         fontWeight: FontWeight.w800,
@@ -936,4 +1088,45 @@ class _YiginSatiri extends StatelessWidget {
       ],
     );
   }
+}
+
+/// Grafiğin altına yazılacak kaynak/dönem künyesi — `figures` dizisinden.
+///
+/// **Neden gerekli.** 1039 grafiğin 348'inde `chart_data.subtitle` boş; yani
+/// her üç grafikten biri altında tek satır kaynak olmadan rakam yayınlıyor.
+/// Aynı haberlerin 316'sında `figures` dizisi kaynağı ZATEN taşıyor — veri
+/// elde, yalnızca çizilmiyordu.
+///
+/// Çizim anında üretiliyor, veritabanına yazılmıyor: 316 satırı güncellemek
+/// geri alınamaz bir iş, bu yedek ise yarın gelen haberde de kendiliğinden
+/// çalışıyor. Hat ileride `subtitle`ı doğrudan yazmaya başlarsa bu yol hiç
+/// devreye girmez — dolu altlık her zaman önce geliyor.
+///
+/// Kaynak adları TEKİLLEŞTİRİLİYOR: beş rakamın beşi de TÜİK'ten geliyorsa
+/// "TÜİK, TÜİK, TÜİK, TÜİK, TÜİK" yazmanın anlamı yok.
+String? grafikKunyesi(List<dynamic>? figures, bool isEn) {
+  if (figures == null || figures.isEmpty) return null;
+
+  final kaynaklar = <String>{};
+  final donemler = <String>{};
+  for (final ham in figures) {
+    if (ham is! Map) continue;
+    final k = (ham['source'] ?? '').toString().trim();
+    final d = (ham['period'] ?? '').toString().trim();
+    if (k.isNotEmpty) kaynaklar.add(k);
+    if (d.isNotEmpty) donemler.add(d);
+  }
+  if (kaynaklar.isEmpty && donemler.isEmpty) return null;
+
+  final parcalar = <String>[];
+  if (kaynaklar.isNotEmpty) {
+    parcalar.add('${isEn ? 'Source' : 'Kaynak'}: ${kaynaklar.join(', ')}');
+  }
+  // Dönem yalnızca TEK ise yazılıyor. İki ayrı dönemden rakam taşıyan bir
+  // grafikte "Dönem: 2024, 2025" okuru hangi rakamın hangi yıla ait olduğu
+  // konusunda yanıltıyor; grafiğin kendi etiketleri bunu zaten söylüyor.
+  if (donemler.length == 1) {
+    parcalar.add('${isEn ? 'Period' : 'Dönem'}: ${donemler.first}');
+  }
+  return parcalar.join(' · ');
 }

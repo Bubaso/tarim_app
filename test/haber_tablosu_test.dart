@@ -37,6 +37,7 @@ Widget _sarmala({required double genislik}) {
             chartData: _tablo,
             isDark: false,
             accent: Color(0xFF5C8A4A),
+            isEn: false,
           ),
         ),
       ),

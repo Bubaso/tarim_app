@@ -457,6 +457,161 @@ async function supabaseRpc(name, args = {}, timeoutMs = SUPABASE_TIMEOUT_MS) {
 /// içerir. `title` ise paylaşım kartındaki başlık ve marka adı İÇERMEZ:
 /// `og:site_name` zaten ayrı bir alan, ikisini birleştirmek kartta markanın
 /// iki kez okunmasına yol açar.
+// ── Grafik ve tablo (§19.8) ─────────────────────────────────────────────────
+//
+// **Sorun.** Haber grafikleri yalnızca TUVALE çiziliyordu. Flutter Web
+// CanvasKit'te metin bir DOM düğümü değil, boyanmış piksel; SSR çıktısında
+// `chart_data`dan tek karakter geçmiyordu. Ölçüm: 417 tablonun bütün
+// hücreleri ve 265 büyük rakam arama motoruna görünmez, ekran okuyucuya
+// okunmaz, kopyalanamaz durumdaydı. Haberin en özgün kısmı — başka hiçbir
+// yerde olmayan derlenmiş veri — dizine hiç girmiyordu.
+//
+// **Çözüm.** Aynı veri `<table>` ve `<dl>` olarak SSR gövdesine de yazılıyor.
+// Uygulama kabuğu yüklenince Flutter bu düğümleri değiştiriyor; tarayıcı
+// botu ise JavaScript çalıştırmadan okuyor.
+
+/// Rakamı Türkçe/İngilizce yazar. Dart tarafındaki `sayiYaz` ile AYNI kuralı
+/// uyguluyor; ayrışırlarsa aynı haber iki yerde iki farklı sayı gösterir.
+function sayiYaz(deger, isEn) {
+  const sayi = typeof deger === 'number' ? deger : Number(String(deger).trim());
+  if (!Number.isFinite(sayi)) return String(deger ?? '').trim();
+  return new Intl.NumberFormat(isEn ? 'en-US' : 'tr-TR', {
+    maximumFractionDigits: 1,
+  }).format(sayi);
+}
+
+/// Rakam + birim. Yüzde işareti Türkçede ÖNDE (`%45`), İngilizcede arkada.
+function birimliYaz(ham, birim, isEn) {
+  const govde = sayiYaz(ham, isEn);
+  const b = String(birim ?? '').trim();
+  if (!govde || !b) return govde;
+  if (b === '%') return isEn ? `${govde}%` : `%${govde}`;
+  // Bölünmez boşluk (U+00A0) — Dart tarafındaki `birimliYaz` ile AYNI
+  // karakter. Biri normal boşluk kullanırsa aynı rakam iki yerde iki
+  // farklı dizge oluyor ve karşılaştırmalı sınama sessizce ayrışıyor.
+  return `${govde}\u00A0${b}`;
+}
+
+/// `figures` dizisinden kaynak/dönem künyesi — Dart'taki `grafikKunyesi`nin
+/// eşi. 1039 grafiğin 348'inde `subtitle` boş, 316'sında kaynak bu dizide.
+function grafikKunyesi(figures, isEn) {
+  if (!Array.isArray(figures) || figures.length === 0) return '';
+  const kaynaklar = [];
+  const donemler = [];
+  for (const ham of figures) {
+    if (!ham || typeof ham !== 'object') continue;
+    const k = String(ham.source ?? '').trim();
+    const d = String(ham.period ?? '').trim();
+    if (k && !kaynaklar.includes(k)) kaynaklar.push(k);
+    if (d && !donemler.includes(d)) donemler.push(d);
+  }
+  const parcalar = [];
+  if (kaynaklar.length) {
+    parcalar.push(`${isEn ? 'Source' : 'Kaynak'}: ${kaynaklar.join(', ')}`);
+  }
+  if (donemler.length === 1) {
+    parcalar.push(`${isEn ? 'Period' : 'Dönem'}: ${donemler[0]}`);
+  }
+  return parcalar.join(' · ');
+}
+
+/// Tablonun sütunları — BÜTÜN satırların birleşimi, ilk görülme sırasında.
+function sutunlariTopla(satirlar) {
+  const s = [];
+  for (const satir of satirlar) {
+    if (!satir || typeof satir !== 'object') continue;
+    for (const k of Object.keys(satir)) if (!s.includes(k)) s.push(k);
+  }
+  return s;
+}
+
+/// `chart_data`yı SSR gövdesine HTML olarak yazar.
+///
+/// `table` türü gerçek bir `<table>` oluyor — Google'ın tablo veri
+/// anlayışının beklediği yapı. Diğer sekiz tür bir açıklama listesine
+/// (`<dl>`) iniyor: etiket/değer çiftleri bir çubuk grafikte de aynı şey ve
+/// `<dl>` bu ilişkiyi yapısal olarak söylüyor.
+///
+/// Dönen değer `{ html, metin }`: `metin` JSON-LD'deki `articleBody`ye
+/// ekleniyor, yoksa yapılandırılmış veri gövdenin yarısını eksik bildiriyor.
+function grafikBloku(chartData, figures, isEn) {
+  if (!chartData || typeof chartData !== 'object') return { html: '', metin: '' };
+  const satirlar = Array.isArray(chartData.data) ? chartData.data : [];
+  if (satirlar.length === 0) return { html: '', metin: '' };
+
+  const tur = String(chartData.type ?? 'bar');
+  const baslik = String(chartData.title ?? '').trim();
+  const altHam = String(chartData.subtitle ?? '').trim();
+  const alt = altHam || grafikKunyesi(figures, isEn);
+  const birim = String(chartData.unit ?? '');
+
+  const metinler = [];
+  if (baslik) metinler.push(baslik);
+  if (alt) metinler.push(alt);
+
+  let govde = '';
+  if (tur === 'table') {
+    const basliklar = sutunlariTopla(satirlar);
+    if (basliklar.length === 0) return { html: '', metin: '' };
+    const bas = basliklar
+      .map((h) => `<th scope="col">${escapeHtml(h)}</th>`)
+      .join('');
+    const govdeSatirlari = satirlar
+      .map((satir) => {
+        const hucreler = basliklar.map((h) => {
+          const deger = satir && typeof satir === 'object' ? satir[h] : undefined;
+          return `<td>${escapeHtml(String(deger ?? ''))}</td>`;
+        });
+        metinler.push(
+          basliklar
+            .map((h) => {
+              const d = satir && typeof satir === 'object' ? satir[h] : undefined;
+              return `${h}: ${String(d ?? '')}`;
+            })
+            .join(', '),
+        );
+        return `<tr>${hucreler.join('')}</tr>`;
+      })
+      .join('');
+    // `<caption>` başlığı tabloya BAĞLIYOR. Üstünde duran bir `<h3>` aynı
+    // işi görmüyor: tarayıcı ikisi arasında ilişki kurmuyor.
+    const kapsam = baslik
+      ? `<caption>${escapeHtml(baslik)}${alt ? ` — ${escapeHtml(alt)}` : ''}</caption>`
+      : '';
+    govde = `<table>${kapsam}<thead><tr>${bas}</tr></thead><tbody>${govdeSatirlari}</tbody></table>`;
+  } else {
+    const ogeler = satirlar
+      .map((item) => {
+        if (!item || typeof item !== 'object') return '';
+        const etiket = String(item.label ?? '').trim();
+        const deger = birimliYaz(item.value, birim, isEn);
+        const degisim = String(item.change ?? '').trim();
+        if (!etiket && !deger) return '';
+        metinler.push(
+          `${etiket ? `${etiket}: ` : ''}${deger}${degisim ? ` (${degisim})` : ''}`,
+        );
+        return (
+          `<dt>${escapeHtml(etiket)}</dt>` +
+          `<dd>${escapeHtml(deger)}${degisim ? ` <span>${escapeHtml(degisim)}</span>` : ''}</dd>`
+        );
+      })
+      .filter(Boolean)
+      .join('');
+    if (!ogeler) return { html: '', metin: '' };
+    govde =
+      (baslik ? `<h3>${escapeHtml(baslik)}</h3>` : '') +
+      (alt ? `<p>${escapeHtml(alt)}</p>` : '') +
+      `<dl>${ogeler}</dl>`;
+  }
+
+  // Künye tabloda `<caption>`a girdi; grafikte `<p>` olarak yazıldı. İki
+  // yolda da bir kez yazılıyor.
+  return {
+    html: `<figure>${govde}</figure>`,
+    metin: metinler.join('. '),
+  };
+}
+
 function metaTags({
   title, documentTitle, description, image, url, publishedAt, type,
   // Varsayılanlar GERİYE DÖNÜK: weekRenderer ve dossierRenderer bu fonksiyonu
@@ -610,7 +765,10 @@ export const ogRenderer = onRequest(
 
       const rows = await supabaseGet(
         `articles?id=eq.${id}&select=id,title,title_en,summary,summary_en,spot,spot_en,` +
-          `content,content_en,image_url,created_at,source_name&limit=1`,
+          `content,content_en,image_url,created_at,source_name,` +
+          // Grafik kolonları §19.8 ile eklendi: bunlar gelmezse `grafikBloku`
+          // her haberde boş döner ve tablo/rakam yine görünmez kalır.
+          `chart_data,chart_data_en,figures&limit=1`,
       );
       const article = Array.isArray(rows) ? rows[0] : null;
       if (!article) {
@@ -689,6 +847,15 @@ export const ogRenderer = onRequest(
       if (ozet) parcalar.push(`<p><strong>${escapeHtml(ozet)}</strong></p>`);
       if (govde) parcalar.push(govde);
 
+      // Çeviri eksikse Türkçe grafiğe düşülüyor — gövdedeki `sec` ile aynı
+      // kural. Yarım çevrilmiş bir tablo, hiç olmayandan iyi.
+      const hamGrafik =
+        (isEn && article.chart_data_en && Object.keys(article.chart_data_en).length
+          ? article.chart_data_en
+          : article.chart_data) ?? null;
+      const grafik = grafikBloku(hamGrafik, article.figures, isEn);
+      if (grafik.html) parcalar.push(grafik.html);
+
       // Öteki dile GÖRÜNÜR bağlantı. `hreflang` etiketleri `<head>`te zaten
       // var ama onlar bir bildirim; tarayıcının izleyebileceği bir bağlantı
       // değil. §19.1'in teşhisi buydu: "hiç link olmadığı için tarayıcı
@@ -707,7 +874,18 @@ export const ogRenderer = onRequest(
       const kabuk = inject(
         SHELL,
         block,
-        jsonLd(article, url, title, description, image, isEn, duzMetin),
+        // `articleBody`ye grafiğin düz metni de giriyor: tablo gövdenin
+        // yarısını taşıyan haberlerde yapılandırılmış veri aksi halde eksik
+        // bildiriyor.
+        jsonLd(
+          article,
+          url,
+          title,
+          description,
+          image,
+          isEn,
+          [duzMetin, grafik.metin].filter(Boolean).join('\n\n'),
+        ),
       );
       res.status(200).send(injectSsr(kabuk, ssr));
     } catch (err) {
