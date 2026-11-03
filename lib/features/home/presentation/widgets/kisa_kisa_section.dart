@@ -97,6 +97,28 @@ class KisaKisaSection extends ConsumerWidget {
   }
 }
 
+/// Konunun rengi — `kisa_kisa_screen.dart`takiyle AYNI eşleme.
+///
+/// İki yüzey aynı dili konuşmak zorunda: okur ana sayfada yeşil gördüğü
+/// konuyu tam sayfada da yeşil görmeli.
+///
+/// Renk TEK BAŞINA anlam taşımıyor (§3.2) — künyede konunun adı da yazılı.
+Color kisaKonuRengi(String? konu, bool isDark) {
+  switch (konu) {
+    case 'Bitkisel Üretim':
+      return isDark ? const Color(0xFF7FB069) : AppColors.primaryGreen;
+    case 'Hayvancılık':
+      return isDark ? const Color(0xFFC97B63) : AppColors.marketDown;
+    case 'Ekonomi':
+      return isDark ? const Color(0xFFDCBB79) : const Color(0xFF9A7224);
+    case 'Tarım-Bilim':
+    case 'YYT':
+      return isDark ? const Color(0xFF8FBFB4) : const Color(0xFF2F6B60);
+    default:
+      return isDark ? Colors.white38 : const Color(0xFF7A6E60);
+  }
+}
+
 /// Manşet listesi — ana sayfada ve tam sayfada ortak.
 class _BriefList extends StatelessWidget {
   final List<NewsArticle> articles;
@@ -203,7 +225,11 @@ class _BriefRowState extends State<_BriefRow> {
                 height: 34,
                 margin: const EdgeInsets.only(right: 12, top: 2),
                 decoration: BoxDecoration(
-                  color: accent.withValues(alpha: _hover ? 0.9 : 0.35),
+                  // Şerit artık KONUNUN rengi. Altı satırın altısı aynı
+                  // vurgu rengindeyken liste tek tipti; konu rengi okura
+                  // taramadan önce bir ayrım veriyor.
+                  color: kisaKonuRengi(a.topic, widget.isDark)
+                      .withValues(alpha: _hover ? 1.0 : 0.75),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -230,6 +256,25 @@ class _BriefRowState extends State<_BriefRow> {
                     Row(
                       children: [
                         ArticleTimestamp(published: a.createdAt, color: subCol),
+                        // Konu ADIYLA yazılı: şeritteki renk tek başına
+                        // anlam taşımıyor (§3.2).
+                        if ((a.topic ?? '').isNotEmpty) ...[
+                          Text(
+                            '  ·  ',
+                            style: GoogleFonts.inter(
+                              fontSize: AppTypography.minLabelSize,
+                              color: subCol,
+                            ),
+                          ),
+                          Text(
+                            a.topic!,
+                            style: GoogleFonts.inter(
+                              fontSize: AppTypography.minLabelSize,
+                              fontWeight: FontWeight.w800,
+                              color: kisaKonuRengi(a.topic, widget.isDark),
+                            ),
+                          ),
+                        ],
                         if (a.sourceName != null &&
                             a.sourceName!.isNotEmpty) ...[
                           Text(
