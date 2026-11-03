@@ -18,6 +18,7 @@ import 'article_detail_screen.dart';
 import '../widgets/portal_footer.dart';
 import '../../../../core/utils/string_extensions.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 
 class CategoryArticlesScreen extends ConsumerStatefulWidget {
   /// Uygulama içi gezinmede hazır liste + başlık taşınır. Doğrudan URL'de
@@ -144,6 +145,11 @@ class _CategoryArticlesScreenState
             pinned: true,
             centerTitle: false,
             iconTheme: IconThemeData(color: textColor),
+            // Ana sayfa düğmesi 2. basamaktan itibaren belirir; altında
+            // ikisi de null döner ve AppBar bugünkü otomatik geri düğmesini
+            // çizmeye devam eder.
+            leadingWidth: anaSayfaLeadingGenisligi(context),
+            leading: anaSayfaliLeading(context, renk: textColor),
             title: Text(
               title.toTurkishUpperCase(),
               style: GoogleFonts.inter(

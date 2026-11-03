@@ -11,6 +11,7 @@ import '../../../../core/utils/localization_helper.dart';
 import '../../data/models/commodity_price.dart';
 import '../../providers/commodity_providers.dart';
 import '../widgets/commodity_card.dart';
+import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 
 /// Tek bir ürünün fiyat geçmişi.
 ///
@@ -35,6 +36,8 @@ class CommodityDetailScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leadingWidth: anaSayfaLeadingGenisligi(context),
+        leading: anaSayfaliLeading(context, renk: textColor),
         title: Text(
           price?.name(isEn) ?? (isEn ? 'Price' : 'Fiyat'),
           style: GoogleFonts.outfit(fontWeight: FontWeight.w900),

@@ -26,6 +26,7 @@ import '../widgets/dossier_share_bar.dart';
 import '../widgets/dossier_video_player.dart';
 import '../widgets/polder_motif.dart';
 import 'dossier_index_screen.dart';
+import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 
 /// Bir ülke dosyasının tam sayfası.
 ///
@@ -1259,6 +1260,7 @@ class _UstCubuk extends StatelessWidget {
                   tooltip: MaterialLocalizations.of(context).backButtonTooltip,
                   onPressed: () => popScreen(context),
                 ),
+                AnaSayfaIkonu(esigiSina: true, renk: tema.murekkep),
                 Expanded(
                   child: AnimatedOpacity(
                     duration: const Duration(milliseconds: 300),

@@ -8,6 +8,7 @@ import '../../providers/home_providers.dart';
 import '../widgets/ai_columnists.dart';
 import '../widgets/news_card.dart';
 import '../../../../core/utils/string_extensions.dart';
+import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 
 class AuthorArticleDetailScreen extends ConsumerWidget {
   final AiColumnist columnist;
@@ -53,6 +54,8 @@ class AuthorArticleDetailScreen extends ConsumerWidget {
                   pinned: true,
                   expandedHeight: isMobile ? 320 : 400,
                   iconTheme: IconThemeData(color: onBg),
+                  leadingWidth: anaSayfaLeadingGenisligi(context),
+                  leading: anaSayfaliLeading(context, renk: onBg),
                   flexibleSpace: FlexibleSpaceBar(
                     background: Container(
                       color: headerBg,

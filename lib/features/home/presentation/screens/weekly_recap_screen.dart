@@ -19,6 +19,7 @@ import '../../providers/home_providers.dart';
 import '../widgets/font_size_control_bar.dart';
 import '../widgets/portal_footer.dart';
 import 'article_detail_screen.dart';
+import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  /hafta/:slug — haftanın özeti
@@ -83,6 +84,8 @@ class WeeklyRecapScreen extends ConsumerWidget {
             pinned: true,
             centerTitle: false,
             iconTheme: IconThemeData(color: textColor),
+            leadingWidth: anaSayfaLeadingGenisligi(context),
+            leading: anaSayfaliLeading(context, renk: textColor),
             title: Text(
               isEn ? 'THE WEEK IN REVIEW' : 'HAFTANIN ÖZETİ',
               style: GoogleFonts.inter(

@@ -29,6 +29,7 @@ import '../utils/iso_week.dart';
 import '../../features/legal/data/legal_documents.dart';
 import '../../features/legal/presentation/screens/legal_page_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
+import 'gezinti_derinligi.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -181,6 +182,9 @@ final appRouter = GoRouter(
   observers: [
     if (Firebase.apps.isNotEmpty)
       FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+    // Ana sayfa düğmesinin eşiği buradan besleniyor: sayfanın yığındaki
+    // yerini yalnızca bir gözlemci görebiliyor.
+    GezintiDerinligi(),
   ],
   onException: (context, state, router) => router.go('/'),
   routes: [

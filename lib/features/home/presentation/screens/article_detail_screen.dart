@@ -39,6 +39,7 @@ import '../../../dossiers/presentation/widgets/haber_dosya_seridi.dart';
 import '../widgets/next_article_card.dart';
 import '../widgets/reading_progress_bar.dart';
 import '../../../../core/utils/string_extensions.dart';
+import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -728,6 +729,15 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                       onPressed: () => popScreen(context),
                       tooltip: MaterialLocalizations.of(context).backButtonTooltip,
                     ),
+                  ),
+                  // Ana sayfa — yalnızca 2. basamaktan itibaren. Haberden
+                  // habere ya da kategoriden habere gelen okur için geri
+                  // tuşu artık ana sayfaya götürmüyor.
+                  AnaSayfaIkonu(
+                    esigiSina: true,
+                    renk: _isScrolled
+                        ? onBg
+                        : (isDark ? Colors.white : AppColors.earthText),
                   ),
                   const SizedBox(width: 12),
                   // Dinamik Başlık
