@@ -118,11 +118,29 @@ void main() {
       expect(_pencere(ozet, baslangic: gunOnce(6)).yeniMi, isFalse);
     });
 
-    test('arşivdeki dosya YENİ değil — tarihi yeni olsa bile', () {
-      // Arşivlenmiş dosyanın penceresi teknik olarak yeni görünebilir;
-      // `isActive` olmadan vurgulamak okuru kapanmış bir sayıya çağırırdı.
-      expect(_pencere(ozet, baslangic: gunOnce(1), aktif: false).yeniMi,
-          isFalse);
+    test('penceresi kapanmış dosya YENİ değil — tarihi yeni olsa bile', () {
+      // Ölçü `endsAt`: ana sayfa şeridini besleyen görünümde `is_active`
+      // sütunu YOK, dolayısıyla yalnızca ona bakan bir kural canlıda hiç
+      // tutmuyordu.
+      expect(
+        _pencere(ozet,
+                baslangic: gunOnce(1),
+                bitis: DateTime.now().toUtc().subtract(const Duration(days: 1)),
+                aktif: false)
+            .yeniMi,
+        isFalse,
+      );
+    });
+
+    test('penceresi açık dosya, is_active boş olsa da YENİ', () {
+      expect(
+        _pencere(ozet,
+                baslangic: gunOnce(1),
+                bitis: DateTime.now().toUtc().add(const Duration(days: 20)),
+                aktif: false)
+            .yeniMi,
+        isTrue,
+      );
     });
 
     test('başlangıcı olmayan dosya YENİ değil', () {
@@ -378,7 +396,7 @@ void main() {
 
 /// [ozet]'in pencere başlangıcı ve etkinliği değiştirilmiş kopyası.
 DossierSummary _pencere(DossierSummary ozet,
-    {required DateTime? baslangic, bool aktif = true}) {
+    {required DateTime? baslangic, DateTime? bitis, bool aktif = true}) {
   return DossierSummary(
     slug: ozet.slug,
     nameTr: ozet.nameTr,
@@ -391,7 +409,7 @@ DossierSummary _pencere(DossierSummary ozet,
     theme: ozet.theme,
     coverUrl: ozet.coverUrl,
     startsAt: baslangic,
-    endsAt: ozet.endsAt,
+    endsAt: bitis ?? ozet.endsAt,
     daysRemaining: ozet.daysRemaining,
     sectionCount: ozet.sectionCount,
     isActive: aktif,

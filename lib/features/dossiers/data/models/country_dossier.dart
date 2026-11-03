@@ -39,9 +39,23 @@ class DossierSummary {
 
   bool get yeniMi {
     final b = startsAt;
-    if (b == null || !isActive) return false;
-    final yas = DateTime.now().toUtc().difference(b.toUtc());
-    return !yas.isNegative && yas < yeniPenceresi;
+    if (b == null) return false;
+    final simdi = DateTime.now().toUtc();
+    final yas = simdi.difference(b.toUtc());
+    if (yas.isNegative || yas >= yeniPenceresi) return false;
+
+    // PENCERE AÇIK MI — ölçü `endsAt`, `isActive` DEĞİL.
+    //
+    // İlk sürüm yalnızca `isActive` arıyordu ve vurgu canlıda hiç
+    // görünmedi: ana sayfa şeridini besleyen `active_country_dossier`
+    // görünümünde o sütun YOK (alanları ölçüldü), model de onu varsayılan
+    // `false`ta bırakıyor. Yani koşul hiçbir zaman tutmuyordu.
+    //
+    // `endsAt` üç kaynakta da var (görünüm, dizin, tablo). Kapanmış bir
+    // dosyayı vurgulamak okuru biten bir sayıya çağırmak olurdu; `isActive`
+    // doluysa o da kabul ediliyor.
+    final s = endsAt;
+    return isActive || s == null || s.toUtc().isAfter(simdi);
   }
 
   /// Kurumu kuran belge: "3491 sayılı Kanun · RG 13.07.1938".
