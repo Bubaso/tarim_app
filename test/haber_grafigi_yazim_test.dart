@@ -73,6 +73,39 @@ void main() {
     });
   });
 
+  group('tablo hücresi', () {
+    test('beş basamaklı sayı ayıraç alıyor, birim korunuyor', () {
+      expect(hucreYaz('100000 adet', false), '100.000 adet');
+      expect(hucreYaz('100000', false), '100.000');
+    });
+
+    test('YIL biçimlenmiyor — eşik tam da bunun için beş basamak', () {
+      // "2026" → "2.026" düpedüz hata olurdu ve tablolarda dönem sütunu
+      // yaygın.
+      expect(hucreYaz('2026', false), '2026');
+      expect(hucreYaz('2026 yılı', false), '2026 yılı');
+    });
+
+    test('küçük sayıya dokunulmuyor', () {
+      expect(hucreYaz('2 adet', false), '2 adet');
+      expect(hucreYaz('17 Etap', false), '17 Etap');
+    });
+
+    test('zaten biçimli ya da ondalıklı hücreye dokunulmuyor', () {
+      expect(hucreYaz('100.000 adet', false), '100.000 adet');
+      expect(hucreYaz('1.234,5 ton', false), '1.234,5 ton');
+    });
+
+    test('sayıyla başlamayan hücre olduğu gibi', () {
+      expect(hucreYaz('Toplam yatırım bedeli', false), 'Toplam yatırım bedeli');
+      expect(hucreYaz('60 milyon TL', false), '60 milyon TL');
+    });
+
+    test('İngilizcede virgüllü ayıraç', () {
+      expect(hucreYaz('100000 units', true), '100,000 units');
+    });
+  });
+
   group('grafik künyesi', () {
     test('kaynak ve tek dönem yazılıyor', () {
       final k = grafikKunyesi([

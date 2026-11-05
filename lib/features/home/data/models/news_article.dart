@@ -19,6 +19,18 @@ class NewsArticle {
   final String? sourceName;
   final String? sourceUrl;
   final DateTime createdAt;
+
+  /// Haberin KAYNAKTA yayımlandığı gün.
+  ///
+  /// `createdAt`ten farkı önemli: `createdAt` haberin bizim hattımıza GİRDİĞİ
+  /// an, bu alan ise kaynağın onu yayımladığı gün. İkisi arasındaki açıklık
+  /// bayatlığın ölçüsü — sabah 09:00'da hatta giren bir haber üç gün önce
+  /// yayımlanmış olabilir ve bunu yalnızca bu alan söylüyor.
+  ///
+  /// Veritabanında `date` (saat yok), o yüzden gün hassasiyetinde.
+  /// 1659 kaydın 1615'inde dolu; eski kayıtlarda boş olabilir.
+  final DateTime? publishedAt;
+
   final String? status;
   final String? categoryId;
   final String? geoLocation;
@@ -98,6 +110,7 @@ class NewsArticle {
     this.sourceName,
     this.sourceUrl,
     required this.createdAt,
+    this.publishedAt,
     this.status,
     this.categoryId,
     this.geoLocation,
@@ -165,6 +178,10 @@ class NewsArticle {
       createdAt: json['created_at'] != null 
           ? DateTime.parse(json['created_at'].toString()) 
           : DateTime.now(),
+      // `tryParse`, `parse` DEĞİL: bu alan kaynaktan geliyor ve biçimi
+      // garanti değil. Bozuk bir tarih yüzünden haberin TAMAMININ
+      // ayrıştırılamaması, tarihin boş kalmasından çok daha kötü.
+      publishedAt: DateTime.tryParse(json['published_at']?.toString() ?? ''),
       status: json['status']?.toString(),
       categoryId: json['category_id']?.toString(),
       geoLocation: json['geo_location']?.toString(),
@@ -211,6 +228,7 @@ class NewsArticle {
       'source_name': sourceName,
       'source_url': sourceUrl,
       'created_at': createdAt.toIso8601String(),
+      'published_at': publishedAt?.toIso8601String(),
       'status': status,
       'category_id': categoryId,
       'geo_location': geoLocation,
@@ -252,6 +270,7 @@ class NewsArticle {
     String? sourceName,
     String? sourceUrl,
     DateTime? createdAt,
+    DateTime? publishedAt,
     String? status,
     String? categoryId,
     String? geoLocation,
@@ -287,6 +306,7 @@ class NewsArticle {
       sourceName: sourceName ?? this.sourceName,
       sourceUrl: sourceUrl ?? this.sourceUrl,
       createdAt: createdAt ?? this.createdAt,
+      publishedAt: publishedAt ?? this.publishedAt,
       status: status ?? this.status,
       categoryId: categoryId ?? this.categoryId,
       geoLocation: geoLocation ?? this.geoLocation,

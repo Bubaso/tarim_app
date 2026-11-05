@@ -447,6 +447,33 @@ class HomeRepository {
     return basarili;
   }
 
+  /// Seçili haberleri TEK istekte yayına alır ve GERÇEKTEN kaç tanesinin
+  /// yayına girdiğini döner.
+  ///
+  /// **Neden `.select()` zinciri.** PostgREST'te hiçbir satıra denk gelmeyen
+  /// bir `update` hata vermiyor — 200 ve boş gövde dönüyor. [approveArticle]
+  /// bu yüzden RLS kaydı süzdüğünde de `true` diyor. Güncellenen satırları
+  /// geri istemek tek güvenilir sayım yolu: dönen liste uzunluğu, yayına
+  /// giren haber sayısının kendisi.
+  ///
+  /// **Neden tek istek.** Toplu red haber başına bir tur atıyor çünkü her
+  /// red ayrıca `rejected_sources`a yazıyor. Onayda böyle bir yan iş yok;
+  /// 39 haber için 39 tur atmanın sebebi yok.
+  Future<int> topluOnayla(List<String> idler) async {
+    if (idler.isEmpty) return 0;
+    try {
+      final donen = await _supabaseClient
+          .from('articles')
+          .update({'status': 'published'})
+          .inFilter('id', idler)
+          .select('id');
+      return (donen as List).length;
+    } catch (e) {
+      if (kDebugMode) print('topluOnayla error: $e');
+      return 0;
+    }
+  }
+
   /// Kaynak karnesi (`source_scorecard` view'ı).
   ///
   /// View hazır: kaynak başına toplam / yayınlanan / reddedilen / bekleyen

@@ -40,6 +40,9 @@ import '../widgets/next_article_card.dart';
 import '../widgets/reading_progress_bar.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
+import '../widgets/category_nav_bar.dart';
+import '../../data/category_catalog.dart';
+import 'category_articles_screen.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -509,6 +512,20 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // ── Kategori künyesi ────────────────────────────
+                          // Okur haberi bitirip "bu kategoride başka ne var"
+                          // diyemiyordu: `topic` modelde doluydu,
+                          // `categoryTopicSlug` slug'a çeviriyordu, rota da
+                          // hazırdı — yalnızca bağlantı yoktu.
+                          if ((article.topic ?? '').trim().isNotEmpty) ...[
+                            _KategoriKunyesi(
+                              topic: article.topic!.trim(),
+                              accent: accent,
+                              isDark: isDark,
+                            ),
+                            const SizedBox(height: 14),
+                          ],
+
                           // ── Meta: kaynak + tarih + okuma süresi ──────────
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -602,6 +619,24 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               isDark: isDark,
                             ),
                           ],
+
+                          // ── Bölümler arası geçiş ───────────────────────
+                          //
+                          // Şerit haberin BAŞINA değil SONUNA konuldu: üstte
+                          // kahraman görselin üzerine binip okumanın önüne
+                          // geçerdi. Burada ise okur metni bitirmiş ve
+                          // "şimdi nereye" sorusunu soruyor — şeridin
+                          // gerçekten işe yaradığı an.
+                          const SizedBox(height: 36),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: CategoryNavBar(
+                              isDark: isDark,
+                              aktifSlug: (article.topic ?? '').trim().isEmpty
+                                  ? null
+                                  : categoryTopicSlug(article.topic!.trim()),
+                            ),
+                          ),
 
                           if (hasSourceUrl) ...[
                             const SizedBox(height: 40),
@@ -1697,3 +1732,67 @@ class _KeyTakeawaysBox extends StatelessWidget {
 // da silindi; veri `expert_insight` sütununda duruyor, yani karar geri
 // alınırsa yalnızca çizici yeniden yazılır.
 
+
+
+/// Haberin kategorisine götüren künye satırı.
+///
+/// Çip değil DÜZ BAĞLANTI biçiminde: hemen altındaki etiket çipleriyle aynı
+/// görünseydi okur ikisini aynı şey sanırdı. Etiketler arşivi tarıyor, bu
+/// bağlantı bölüme götürüyor.
+class _KategoriKunyesi extends StatelessWidget {
+  final String topic;
+  final Color accent;
+  final bool isDark;
+
+  const _KategoriKunyesi({
+    required this.topic,
+    required this.accent,
+    required this.isDark,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    final slug = categoryTopicSlug(topic);
+    final def = categoryBySlug(slug);
+    if (def == null) return const SizedBox.shrink();
+
+    return InkWell(
+      onTap: () => pushScreen(
+        context,
+        CategoryArticlesScreen(slug: slug, title: def.title(isEn)),
+      ),
+      borderRadius: BorderRadius.circular(4),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 2),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 3,
+              height: 13,
+              decoration: BoxDecoration(
+                color: accent,
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              // Ham `toUpperCase()` DEĞİL — "Hayvancılık" → "HAYVANCILIK"
+              // ama noktasız I ile bozulurdu (§39.5).
+              buyukHarf(topic, isEn),
+              style: GoogleFonts.inter(
+                fontSize: 11.5,
+                fontWeight: FontWeight.w800,
+                letterSpacing: 1.2,
+                color: accent,
+              ),
+            ),
+            const SizedBox(width: 5),
+            Icon(Icons.chevron_right_rounded, size: 15, color: accent),
+          ],
+        ),
+      ),
+    );
+  }
+}

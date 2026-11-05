@@ -43,6 +43,7 @@ import '../../../../core/utils/string_extensions.dart';
 import '../../../stories/presentation/widgets/story_avatar_strip.dart';
 import '../../../stories/providers/story_providers.dart';
 import '../../../videos/presentation/widgets/video_serit.dart';
+import '../../providers/font_scale_provider.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -73,6 +74,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final user = ref.watch(currentUserProvider);
     final isDark = appIsDark;
     final rawNewsAsync = ref.watch(latestArticlesProvider);
+    final fontScale = ref.watch(fontScaleProvider);
 
     final bgColor = isDark ? AppColors.darkGreen : AppColors.creamBackground;
 
@@ -108,12 +110,28 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             Expanded(
               child: rawNewsAsync.when(
                 data: (_) {
-                  return _buildBody(
-                    context: context,
-                    ref: ref,
-                    theme: theme,
-                    isDark: isDark,
-                    localizations: localizations,
+                  // Yazı boyutu tercihi ANA SAYFAYA DA işliyor.
+                  //
+                  // Okur detay sayfasında puntoyu büyütüp ana sayfaya
+                  // döndüğünde her şey eski boyuna düşüyordu: `fontScale`
+                  // yalnızca üç ekranda okunuyor, ana sayfanın hiçbir bölümü
+                  // almıyordu. Tercih kalıcı olarak saklandığı için okur
+                  // ayarı yaptığını sanıyor, sonucunu göremiyordu.
+                  //
+                  // Ölçek GÖVDEYE veriliyor, üst çubuğa değil: başlık
+                  // yüksekliği sabit yazılmış (`36 + kToolbarHeight + 40`) ve
+                  // oradaki yazıyı büyütmek çubuğu taşırırdı. Zaten okurun
+                  // büyütmek istediği şey haber metni, gezinme değil.
+                  return MediaQuery(
+                    data: MediaQuery.of(context)
+                        .copyWith(textScaler: TextScaler.linear(fontScale)),
+                    child: _buildBody(
+                      context: context,
+                      ref: ref,
+                      theme: theme,
+                      isDark: isDark,
+                      localizations: localizations,
+                    ),
                   );
                 },
                 loading: () => HomeSkeletonLoader(isDark: isDark),

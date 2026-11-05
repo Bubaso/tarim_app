@@ -15,7 +15,16 @@ import '../screens/category_articles_screen.dart';
 /// [CategoryArticlesScreen] slug'dan kendi verisini çekiyor.
 class CategoryNavBar extends ConsumerWidget {
   final bool isDark;
-  const CategoryNavBar({super.key, required this.isDark});
+
+  /// Okurun ŞU AN içinde olduğu kategori.
+  ///
+  /// Şerit bugüne kadar yalnızca ana sayfada çağrılıyordu ve orada "etkin"
+  /// diye bir şey yoktu. Kategori ve haber sayfalarına da konunca durum
+  /// değişti: hangi bölümde olduğunu göstermeyen bir gezinme şeridi, okuru
+  /// yerinden eden bir şerit.
+  final String? aktifSlug;
+
+  const CategoryNavBar({super.key, required this.isDark, this.aktifSlug});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -43,24 +52,54 @@ class CategoryNavBar extends ConsumerWidget {
           // Kısa etiket: sağlayıcı başlığı uzun ("Türkiye'den Haberler"),
           // çubukta yalın ad daha iyi.
           final label = _shortLabel(slug, isEn);
+          final aktif = slug == aktifSlug;
+
           return TextButton(
-            onPressed: () => pushScreen(
-              context,
-              CategoryArticlesScreen(slug: slug, title: def.title(isEn)),
-            ),
+            // Bulunduğun kategoriye tekrar GİTMİYOR. Basılsaydı aynı sayfanın
+            // bir kopyası yığına binerdi ve geri tuşu okuru görünüşte hiçbir
+            // şeyin değişmediği bir sayfaya götürürdü.
+            onPressed: aktif
+                ? null
+                : () => pushScreen(
+                      context,
+                      CategoryArticlesScreen(
+                          slug: slug, title: def.title(isEn)),
+                    ),
             style: TextButton.styleFrom(
               foregroundColor: fg,
+              // Etkin öğe söndürülmüş görünmemeli: `onPressed: null`
+              // varsayılan olarak soluklaştırıyor, oysa vurgulanması gereken
+              // öğe tam da bu.
+              disabledForegroundColor: AppColors.primaryGreen,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               minimumSize: const Size(0, 40),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
-            child: Text(
-              label,
-              style: GoogleFonts.inter(
-                fontSize: 12.5,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 0.2,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  label,
+                  style: GoogleFonts.inter(
+                    fontSize: 12.5,
+                    fontWeight: aktif ? FontWeight.w900 : FontWeight.w600,
+                    letterSpacing: 0.2,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                // Altı çizgi: rengi tek başına ayırt edici değil (renk körlüğü
+                // ve düşük kontrastlı ekranlar). Yer DAİMA ayrılıyor, yoksa
+                // etkin öğe birkaç piksel yukarı kayardı.
+                Container(
+                  height: 2,
+                  width: aktif ? 18 : 0,
+                  decoration: BoxDecoration(
+                    color: AppColors.primaryGreen,
+                    borderRadius: BorderRadius.circular(1),
+                  ),
+                ),
+              ],
             ),
           );
         },

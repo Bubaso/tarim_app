@@ -18,6 +18,7 @@ import 'admin_yazarlar_screen.dart';
 import 'admin_hero_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../../videos/presentation/screens/video_onay_ekrani.dart';
+import 'onay_kuyrugu_ekrani.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -170,7 +171,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 7, vsync: this);
+    _tabController = TabController(length: 8, vsync: this);
   }
 
   @override
@@ -489,6 +490,21 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               icon: const Icon(Icons.newspaper_rounded),
               text: loc.translate('dash_tab_my_articles'),
             ),
+            // Onay kuyruğu İKİNCİ sırada ve rozetli: eskiden istatistik
+            // sekmesinin ortasına gömülüydü ve panele giren kişi kaç haberin
+            // kararını beklediğini ekranı bulup aşağı kaydırmadan
+            // öğrenemiyordu. Rozet hangi sekmede olursanız olun görünüyor.
+            Tab(
+              icon: Consumer(
+                builder: (context, ref, _) {
+                  final sayi = ref.watch(bekleyenSayisiProvider);
+                  final ikon = const Icon(Icons.inbox_rounded);
+                  if (sayi == 0) return ikon;
+                  return Badge.count(count: sayi, child: ikon);
+                },
+              ),
+              text: isEn ? 'Review Queue' : 'Onay Kuyruğu',
+            ),
             Tab(
               icon: const Icon(Icons.star_rounded),
               text: isEn ? 'Hero News' : 'Hero Yönetimi',
@@ -528,6 +544,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         controller: _tabController,
         children: [
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
+          const OnayKuyruguEkrani(),
           const AdminHeroScreen(),
           const VideoOnayEkrani(),
           _buildAiSuggestionsTab(context, theme),

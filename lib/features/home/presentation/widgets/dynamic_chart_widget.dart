@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 
@@ -151,6 +152,14 @@ class DynamicChartWidget extends StatelessWidget {
     // tablonun bütün hücreleri ve 265 büyük rakam hiç okunmuyor.
     final okunur = _duzMetin(type, title, subtle_: subtitle, data: data, birim: unit);
 
+    // Tablo verisi PANOYA alınabiliyor. Tuvale boyanmış bir tablodan okur
+    // tek bir hücre bile seçemiyor; rakamı kullanmak isteyen (çiftçi, analist,
+    // gazeteci) onu elle yeniden yazmak zorunda kalıyordu. TSV seçildi çünkü
+    // Excel ve Google E-Tablolar sekmeyle ayrılmış metni yapıştırınca
+    // kendiliğinden sütunlara dağıtıyor — CSV'de ondalık virgülü sütun
+    // ayıracıyla çakışırdı ve Türkçe sayılarda tam da bu olurdu.
+    final tsv = type == 'table' ? _tsv(data) : null;
+
     return Semantics(
       label: okunur,
       // Alt öğeler tek bir etikete TOPLANIYOR: aksi halde okuyucu önce bu
@@ -161,7 +170,12 @@ class DynamicChartWidget extends StatelessWidget {
         // bu dosyada 30'dan fazla `fontSize` var ve biri atlandığında hata
         // vermeden eski boyutta kalıyordu.
         data: mq.copyWith(textScaler: TextScaler.linear(olcek)),
-        child: _govde(darMi: darMi, title: title, subtitle: subtitle, body: body),
+        child: _govde(
+            darMi: darMi,
+            title: title,
+            subtitle: subtitle,
+            body: body,
+            tsv: tsv),
       ),
     );
   }
@@ -199,11 +213,29 @@ class DynamicChartWidget extends StatelessWidget {
     return p.join('. ');
   }
 
+  /// Tablonun sekmeyle ayrılmış hâli — başlık satırı dahil.
+  String _tsv(List<Map<String, dynamic>> data) {
+    final basliklar = sutunlariTopla(data);
+    final satirlar = <String>[basliklar.join('\t')];
+    for (final satir in data) {
+      satirlar.add(basliklar
+          // Hücrenin içindeki sekme ve satır sonu TEMİZLENİYOR: biri
+          // sütunu, öteki satırı bölerdi ve yapıştırılan tablo kayardı.
+          .map((h) => (satir[h]?.toString() ?? '')
+              .replaceAll('\t', ' ')
+              .replaceAll('\n', ' ')
+              .trim())
+          .join('\t'));
+    }
+    return satirlar.join('\n');
+  }
+
   Widget _govde({
     required bool darMi,
     required String? title,
     required String? subtitle,
     required Widget body,
+    String? tsv,
   }) {
     return Container(
       padding: EdgeInsets.all(darMi ? 16 : 24),
@@ -238,8 +270,18 @@ class DynamicChartWidget extends StatelessWidget {
                   ],
                 ],
               )),
+              if (tsv != null) _KopyalaDugmesi(tsv: tsv, renk: _subtle),
             ]),
             const SizedBox(height: 20),
+          ],
+          // Başlıksız tabloda da kopyalama olmalı — başlık koşulunun içinde
+          // kalsaydı `title` boş olan tablolarda düğme kaybolurdu.
+          if ((title == null || title.isEmpty) && tsv != null) ...[
+            Align(
+              alignment: Alignment.centerRight,
+              child: _KopyalaDugmesi(tsv: tsv, renk: _subtle),
+            ),
+            const SizedBox(height: 8),
           ],
 
           // ── Chart body ──────────────────────────────────────────────────
@@ -871,7 +913,9 @@ class _DataTable extends StatelessWidget {
   int _enUzun(String baslik) {
     var uzunluk = baslik.length;
     for (final satir in data) {
-      final hucre = satir[baslik]?.toString() ?? '';
+      // Biçimli hâline bakılıyor: ayıraçlar hücreyi birkaç karakter
+      // uzatıyor ve sütun ona göre pay almalı.
+      final hucre = hucreYaz(satir[baslik]?.toString() ?? '', isEn);
       if (hucre.length > uzunluk) uzunluk = hucre.length;
     }
     return uzunluk;
@@ -966,7 +1010,11 @@ class _DataTable extends StatelessWidget {
                       // dar sütuna sığmayan tek bir uzun sözcük hücreyi taşırıp
                       // dıştaki ClipRRect tarafından kesiliyordu: en sağdaki
                       // sütun yarım görünüyordu. Sarmak, kesmekten iyidir.
-                      child: Text(satir[h]?.toString() ?? '',
+                      child: Text(
+                        // Hücredeki büyük tam sayı binlik ayıraç alıyor:
+                        // "100000 adet" → "100.000 adet". Grafik değerleri
+                        // biçimleniyordu, tablo hücreleri ham geçiyordu.
+                        hucreYaz(satir[h]?.toString() ?? '', isEn),
                         style: GoogleFonts.inter(fontSize: 11, fontWeight: FontWeight.w500, color: text, height: 1.35),
                       ),
                     );
@@ -1042,7 +1090,8 @@ class _Yigin extends StatelessWidget {
           _YiginSatiri(
             aciklama: data[i][aciklamaBasligi]?.toString() ?? '',
             digerleri: {
-              for (final h in digerleri) h: data[i][h]?.toString() ?? '',
+              for (final h in digerleri)
+                h: hucreYaz(data[i][h]?.toString() ?? '', isEn),
             },
             text: text,
             subtle: subtle,
@@ -1169,4 +1218,49 @@ String? grafikKunyesi(List<dynamic>? figures, bool isEn) {
     parcalar.add('${isEn ? 'Period' : 'Dönem'}: ${donemler.first}');
   }
   return parcalar.join(' · ');
+}
+
+
+/// Tabloyu panoya TSV olarak kopyalayan düğme.
+///
+/// Geri bildirim ŞART: pano işlemi hiçbir görünür iz bırakmıyor ve düğmeye
+/// basan okur bir şey olup olmadığını anlayamıyor. İkon iki saniye onay
+/// işaretine dönüyor.
+class _KopyalaDugmesi extends StatefulWidget {
+  final String tsv;
+  final Color renk;
+
+  const _KopyalaDugmesi({required this.tsv, required this.renk});
+
+  @override
+  State<_KopyalaDugmesi> createState() => _KopyalaDugmesiState();
+}
+
+class _KopyalaDugmesiState extends State<_KopyalaDugmesi> {
+  bool _kopyalandi = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    return IconButton(
+      tooltip: _kopyalandi
+          ? (isEn ? 'Copied' : 'Kopyalandı')
+          : (isEn ? 'Copy table' : 'Tabloyu kopyala'),
+      visualDensity: VisualDensity.compact,
+      iconSize: 18,
+      constraints: const BoxConstraints(minWidth: 36, minHeight: 36),
+      onPressed: () async {
+        await Clipboard.setData(ClipboardData(text: widget.tsv));
+        if (!mounted) return;
+        setState(() => _kopyalandi = true);
+        await Future<void>.delayed(const Duration(seconds: 2));
+        if (!mounted) return;
+        setState(() => _kopyalandi = false);
+      },
+      icon: Icon(
+        _kopyalandi ? Icons.check_rounded : Icons.copy_all_outlined,
+        color: _kopyalandi ? Colors.green.shade600 : widget.renk,
+      ),
+    );
+  }
 }

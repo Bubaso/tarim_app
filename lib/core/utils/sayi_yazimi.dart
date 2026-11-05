@@ -56,3 +56,30 @@ String birimliYaz(dynamic ham, String birim, bool isEn) {
   if (b == '%') return isEn ? '$govde%' : '%$govde';
   return '$govde\u00A0$b';
 }
+
+/// Tablo hücresinin BAŞINDAKİ büyük tam sayıyı biçimler, gerisine dokunmaz.
+///
+/// Tablo hücreleri hattan hazır dizge olarak geliyor ("100000 adet",
+/// "17 Etap", "60 milyon TL") ve grafik değerlerinden farklı olarak sayı +
+/// birim ayrımı yok. Hücreyi bütünüyle sayıya çevirmeye çalışmak metni
+/// bozardı; bu yüzden yalnızca başta duran, boşlukla biten tam sayı
+/// biçimleniyor.
+///
+/// **Eşik neden 5 basamak.** Dört basamaklı sayıların çoğu YIL: "2026"yı
+/// "2.026" yazmak düpedüz hata olurdu ve tablolarda dönem sütunu yaygın.
+/// Türkçe yazımda dört basamaklı sayıda ayıraç zaten zorunlu değil. Beş
+/// basamaktan itibaren ayıraçsız okumak güçleşiyor ("100000" kaç?) ve yıl
+/// olma ihtimali kalmıyor.
+///
+/// Ondalık içeren hücreye hiç dokunulmuyor: zaten biçimlenmiş olabilir ve
+/// "1.234,5"i yeniden ayrıştırmanın güvenilir yolu yok.
+final RegExp _bastakiBuyukSayi = RegExp(r'^(\d{5,})(?=$|\s)');
+
+String hucreYaz(String ham, bool isEn) {
+  final metin = ham.trim();
+  final e = _bastakiBuyukSayi.firstMatch(metin);
+  if (e == null) return ham;
+  final sayi = int.tryParse(e.group(1)!);
+  if (sayi == null) return ham;
+  return sayiYaz(sayi, isEn) + metin.substring(e.end);
+}

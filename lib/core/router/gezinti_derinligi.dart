@@ -27,8 +27,22 @@ class GezintiDerinligi extends NavigatorObserver {
   ///
   /// Bilinmeyen rota için 0 dönüyor: emin olunamayan durumda düğmeyi
   /// GÖSTERMEMEK, olmadığı yerde göstermekten iyi.
+  ///
+  /// **Ölü rotalar her ölçümde süpürülüyor.** Gözlemci yalnızca düzgün
+  /// pop/remove olaylarını duyuyor; Navigator'ın KENDİSİ söküldüğünde
+  /// hiçbir olay gelmiyor ve rotalar listede asılı kalıyor. Bu kuramsal
+  /// bir ihtimal değil: `main.dart` telefon yatay moda çevrildiğinde
+  /// `builder` içinde `child` yerine uyarı ekranını döndürüyor, yani
+  /// Navigator tamamen sökülüyor. Dikeye dönüldüğünde yenisi kuruluyor,
+  /// eski rotalar listede duruyor ve yeni açılan her sayfanın derinliği
+  /// olduğundan fazla ölçülüyordu — ana sayfa düğmesi birinci basamakta
+  /// da beliriyordu.
+  ///
+  /// `isActive`, rotası bir Navigator'a bağlı olmayan (dispose edilmiş)
+  /// kayıtlar için false dönüyor; süpürme ölçütü bu.
   static int derinligi(Route<dynamic>? route) {
     if (route == null) return 0;
+    _yigin.removeWhere((r) => !r.isActive);
     final i = _yigin.indexOf(route);
     return i < 0 ? 0 : i;
   }

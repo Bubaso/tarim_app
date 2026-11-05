@@ -45,6 +45,13 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
   List<NewsArticle>? _benzerler;
   bool _benzerArandi = false;
 
+  /// Denetim ÇALIŞTI ama başarısız oldu.
+  ///
+  /// Üç durumu ayırmak zorundayız: hiç denenmedi · denendi ve temiz ·
+  /// denendi ve cevap alınamadı. Üçüncüsü ikincisiyle aynı ekrana
+  /// yazılamaz — aşağıdaki açıklamaya bakın.
+  String? _benzerHatasi;
+
   NewsArticle get a => widget.article;
   bool get isDark => widget.isDark;
 
@@ -137,7 +144,39 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
             ),
           ],
         ),
-        if (_benzerArandi) ...[
+        if (_benzerHatasi != null) ...[
+          const SizedBox(height: 8),
+          // YEŞİL DEĞİL. Eskiden RPC düştüğünde istisna yutuluyor, liste boş
+          // kalıyor ve kart yeşil "Benzer haber bulunamadı" yazıyordu: yani
+          // moderatör hiç yapılmamış bir denetimin onayını alıyordu. Yanlış
+          // güvence, güvence yokluğundan tehlikeli.
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(Icons.error_outline_rounded,
+                  size: 16, color: Colors.red.shade700),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  'Denetim yapılamadı — $_benzerHatasi\n'
+                  'Bu haber mükerrer OLABİLİR; denetim çalışmadı.',
+                  style: GoogleFonts.inter(
+                      fontSize: 12.5,
+                      height: 1.4,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.red.shade700),
+                ),
+              ),
+              const SizedBox(width: 8),
+              TextButton(
+                onPressed: _islemde ? null : _benzerAra,
+                child: Text('Yeniden dene',
+                    style: GoogleFonts.inter(
+                        fontSize: 12.5, fontWeight: FontWeight.w700)),
+              ),
+            ],
+          ),
+        ] else if (_benzerArandi) ...[
           const SizedBox(height: 8),
           if ((_benzerler ?? const []).isEmpty)
             Text('Benzer haber bulunamadı.',
@@ -168,13 +207,27 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
   }
 
   Future<void> _benzerAra() async {
-    setState(() => _islemde = true);
-    List<NewsArticle> bulunan = const [];
+    setState(() {
+      _islemde = true;
+      _benzerHatasi = null;
+    });
+
+    List<NewsArticle> bulunan;
     try {
       bulunan = await ref.read(homeRepositoryProvider).searchArticles(a.title);
-    } catch (_) {
-      bulunan = const [];
+    } catch (e) {
+      // Hata YUTULMUYOR, ekrana çıkıyor. Boş listeye düşmek burada sessiz
+      // bir yalan üretiyordu.
+      if (!mounted) return;
+      setState(() {
+        _benzerHatasi = _hataMetni(e);
+        _benzerler = null;
+        _benzerArandi = false;
+        _islemde = false;
+      });
+      return;
     }
+
     if (!mounted) return;
     setState(() {
       // Haberin KENDİSİ listede çıkar; onu saymak her haberi "mükerrer"
@@ -183,6 +236,12 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
       _benzerArandi = true;
       _islemde = false;
     });
+  }
+
+  /// İstisnayı moderatörün okuyabileceği tek satıra indirir.
+  String _hataMetni(Object e) {
+    final ham = e.toString().replaceAll('\n', ' ').trim();
+    return ham.length > 140 ? '${ham.substring(0, 140)}…' : ham;
   }
 
   // ── Yayınlanacak metin ─────────────────────────────────────────────────────

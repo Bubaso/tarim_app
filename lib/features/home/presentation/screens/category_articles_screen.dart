@@ -19,6 +19,7 @@ import '../widgets/portal_footer.dart';
 import '../../../../core/utils/string_extensions.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
+import '../widgets/category_nav_bar.dart';
 
 class CategoryArticlesScreen extends ConsumerStatefulWidget {
   /// Uygulama içi gezinmede hazır liste + başlık taşınır. Doğrudan URL'de
@@ -135,6 +136,19 @@ class _CategoryArticlesScreenState
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < ResponsiveBreakpoints.contentWide;
 
+    // Izgara satırları `slivers` listesinin DIŞINDA hesaplanıyor: listenin
+    // içinde bir `Builder` kullanılamaz çünkü `Builder` sıradan bir widget,
+    // viewport ise yalnızca sliver kabul ediyor — ve bu hata derlemede
+    // değil, ancak çalışma anında ortaya çıkardı.
+    final izgaraSatirlari = articles.length > 1
+        ? _MixedGrid(
+            articles: articles.sublist(1),
+            isDark: isDark,
+            isMobile: isMobile,
+            fontScale: fontScale,
+          ).satirlar()
+        : const <Widget>[];
+
     return Scaffold(
       backgroundColor: bgColor,
       body: CustomScrollView(
@@ -163,9 +177,20 @@ class _CategoryArticlesScreenState
               FontSizeControlBar(isDark: isDark),
               const SizedBox(width: 12),
             ],
+            // Kategori şeridi başlığa YAPIŞIK: `bottom` olduğu için
+            // SliverAppBar ile birlikte sabit kalıyor ve okur arşivin
+            // derinine indiğinde de bölümler arasında geçebiliyor.
+            // Eskiden şerit yalnızca ana sayfadaydı; kategoriye giren okur
+            // başka bir bölüme ancak geri dönerek geçebiliyordu.
             bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(1),
-              child: Container(color: dividerColor, height: 1),
+              preferredSize: const Size.fromHeight(41),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CategoryNavBar(isDark: isDark, aktifSlug: widget.slug),
+                  Container(color: dividerColor, height: 1),
+                ],
+              ),
             ),
           ),
           // YÜKLENİYOR · HATA · BOŞ — üçü ayrı. Eskiden üçü de "Bu kategoride
@@ -235,7 +260,7 @@ class _CategoryArticlesScreenState
                           fontScale: fontScale,
                         ),
 
-                        if (articles.length > 1) ...[
+                        if (articles.length > 1)
                           Padding(
                             padding: EdgeInsets.fromLTRB(
                                 isMobile ? 16 : 0, 56, isMobile ? 16 : 0, 48),
@@ -263,28 +288,31 @@ class _CategoryArticlesScreenState
                               ],
                             ),
                           ),
-
-                          // ── Mixed-size body ──────────────────────────────────────────
-                          Padding(
-                            padding: EdgeInsets.only(
-                              left: isMobile ? 16 : 0,
-                              right: isMobile ? 16 : 0,
-                              bottom: 80,
-                            ),
-                            child: _MixedGrid(
-                              articles: articles.sublist(1),
-                              isDark: isDark,
-                              isMobile: isMobile,
-                              fontScale: fontScale,
-                            ),
-                          ),
-                        ],
                       ],
                     ),
                   ),
                 ),
               ),
             ),
+
+            // ── Izgara — TEMBEL ────────────────────────────────────────
+            // Satırlar tek tek çiziliyor; ekranda görünmeyen kartlar
+            // kurulmuyor. Ortalama ve genişlik sınırı her satıra ayrı
+            // uygulanıyor çünkü artık ortak bir sarmalayıcı yok.
+            if (izgaraSatirlari.isNotEmpty)
+              SliverList.builder(
+                itemCount: izgaraSatirlari.length,
+                itemBuilder: (context, i) => Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 1200),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: isMobile ? 16 : 24),
+                      child: izgaraSatirlari[i],
+                    ),
+                  ),
+                ),
+              ),
             if (_dahaVar || _yukleniyor)
               SliverToBoxAdapter(
                 child: Center(
@@ -329,7 +357,25 @@ class _MixedGrid extends StatelessWidget {
       {required this.articles, required this.isDark, required this.isMobile, this.fontScale = 1.0});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: satirlar(),
+      );
+
+  /// Izgaranın satırları — AYRI bir liste olarak.
+  ///
+  /// **Neden böyle.** Eskiden bütün ızgara tek bir `Column` içinde, o da tek
+  /// bir `SliverToBoxAdapter` içinde kuruluyordu: `SliverToBoxAdapter` tek
+  /// bir kutu demek, tek kutu da ekranın altında kalan kartların da ÖLÇÜLÜP
+  /// ÇİZİLMESİ demek. Ana sayfada çözülen kusurun (§20.4) kategori karşılığı
+  /// buydu ve sayfalama eklendikçe büyüyordu: "Daha fazla yükle" her
+  /// basıldığında daha önce kurulmuş kartların tamamı yeniden kuruluyordu.
+  ///
+  /// Widget NESNELERİ üretmek ucuz — asıl pahalı iş eleman ve render
+  /// nesnelerini kurmak, onu da `SliverList.builder` görünür olanla
+  /// sınırlıyor.
+  List<Widget> satirlar() {
     final rows = <Widget>[];
     int i = 0;
     int blockIndex = 0;
@@ -443,11 +489,7 @@ class _MixedGrid extends StatelessWidget {
       blockIndex++;
     }
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: rows,
-    );
+    return rows;
   }
 }
 

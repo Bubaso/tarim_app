@@ -176,6 +176,41 @@ void main() {
     });
   });
 
+  group('Navigator sökülüp yeniden kurulursa', () {
+    // `main.dart` telefon yatay moda çevrildiğinde `builder` içinde `child`
+    // yerine uyarı ekranını döndürüyor: Navigator tamamen sökülüyor ve
+    // rotalar hiçbir pop/remove olayı üretmeden ölüyor. Dikeye dönünce
+    // yenisi kuruluyor. Ölü kayıtlar süpürülmezse derinlik şişiyor ve düğme
+    // birinci basamakta da beliriyor.
+    testWidgets('derinlik şişmiyor', (tester) async {
+      final r1 = await _kur(tester);
+      r1.push('/bir');
+      await tester.pumpAndSettle();
+      r1.push('/iki');
+      await tester.pumpAndSettle();
+      expect(_ev, findsOneWidget);
+
+      // Yatay mod: ağaçta Navigator KALMIYOR.
+      await tester.pumpWidget(
+        const MaterialApp(home: Scaffold(body: Text('telefonu dikey tutun'))),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('telefonu dikey tutun'), findsOneWidget);
+
+      // Dikeye dönüş: yepyeni bir yönlendirici, yepyeni bir yığın.
+      final r2 = _yonlendirici();
+      await tester.pumpWidget(MaterialApp.router(routerConfig: r2));
+      await tester.pumpAndSettle();
+      expect(find.text('derinlik: 0'), findsOneWidget);
+
+      r2.push('/bir');
+      await tester.pumpAndSettle();
+      // Eski üç rota listede asılı kalsaydı burası 3 okurdu.
+      expect(find.text('derinlik: 1'), findsOneWidget);
+      expect(_ev, findsNothing);
+    });
+  });
+
   group('kendi satırını kuran ekranlar', () {
     // Haber detayı ve ülke dosyası `AppBar.leading` kullanmıyor; kendi
     // Row'larını kuruyorlar ve düğmeyi doğrudan araya koyuyorlar. Yol farklı
