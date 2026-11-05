@@ -111,11 +111,22 @@ class LegalDoc {
 }
 
 // ─── Kurum bilgileri ───────────────────────────────────────────────────────
-// Tek yerde: hem künyede hem iletişimde hem gizlilik metninde geçiyor.
-const String kCompanyName = 'Tarım Portalı Dijital Yayıncılık A.Ş.';
-const String kCompanyNameEn = 'Tarım Portalı Digital Publishing Inc.';
-const String kCompanyAddress =
-    'Bilişim Vadisi, Teknopark Ofis B-Z02, Gebze/Kocaeli';
+//
+// 5 Kasım 2026: TİCARİ UNVAN VE ADRES KALDIRILDI.
+//
+// Burada "Tarım Portalı Dijital Yayıncılık A.Ş." ve Gebze/Kocaeli'de bir
+// adres yazıyordu. İkisi de gerçek değildi. Künye hukuken bir beyandır;
+// var olmayan bir tüzel kişiyi imtiyaz sahibi, var olmayan bir adresi tebligat
+// adresi olarak ilan etmek, bilgiyi hiç yazmamaktan ağır bir iştir.
+//
+// Yerine yayının KENDİ adı kullanılıyor; tüzel kişilik ve adres bilgileri
+// kayıt süreci tamamlandığında yayımlanacağı söylenerek açıkça eksik
+// bırakılıyor. Eksiklik sessiz değil, okur neden yazılmadığını okuyor.
+//
+// Gerçek bilgiler geldiğinde: buraya sabitleri geri koymak YETMEZ,
+// künyedeki ve gizlilik metnindeki "kayıt süreci" paragrafları da
+// kaldırılmalı. `test/kunye_test.dart` ikisini birden bekçiliyor.
+const String kYayinAdi = 'Tarım Portalı';
 const String kContactEmail = 'info@tarimportali.com';
 const String kNewsroomEmail = 'haber@tarimportali.com';
 const String kCorrectionEmail = 'duzeltme@tarimportali.com';
@@ -143,27 +154,34 @@ final LegalDoc _kunye = LegalDoc(
           'accordance with the statutory imprint requirement.',
     ),
     LegalBlock.heading('Yayın Bilgileri', 'Publication Details'),
-    LegalBlock.keyValue('İmtiyaz Sahibi', 'Publisher', kCompanyName),
+    LegalBlock.keyValue('Yayın Adı', 'Publication Name', kYayinAdi),
     LegalBlock.keyValue('Yayın Türü', 'Publication Type',
         'Süreli yayın — internet haber sitesi'),
     LegalBlock.keyValue('Yayın Dili', 'Publication Language', 'Türkçe, İngilizce'),
-    LegalBlock.keyValue('Adres', 'Address', kCompanyAddress),
-    LegalBlock.mailto('İletişim', 'Contact', kContactEmail),
-    LegalBlock.heading('Sorumlu Kişiler', 'Responsible Persons'),
+    LegalBlock.keyValue('Yayın Adresi', 'Web Address', 'tarimportali.net'),
+    LegalBlock.heading('Kayıt Süreci', 'Registration Status'),
     LegalBlock.paragraph(
-      'Genel yayın yönetmenliği ve sorumlu yazı işleri müdürlüğü görevleri '
-          'yürütülmektedir. Bu görevlere ilişkin kesin bilgiler, Basın '
-          'Kanunu kapsamındaki kayıt ve bildirim süreci tamamlandığında '
-          'bilahare bu sayfada yayımlanacaktır. O tarihe kadar her türlü '
-          'editoryal başvuru ve bildirim, aşağıdaki haber merkezi adresi '
-          'üzerinden yapılabilir.',
-      'The roles of editor-in-chief and managing editor are currently '
-          'exercised. Definitive details for these roles will be published on '
+      'Yayının tüzel kişiliğine, imtiyaz sahibine, tebligat adresine ve '
+          'sorumlu kişilerine ilişkin kesin bilgiler, Basın Kanunu '
+          'kapsamındaki kayıt ve bildirim süreci tamamlandığında bilahare '
+          'bu sayfada yayımlanacaktır. Bu bilgiler tamamlanmadan '
+          'yayımlanmamaktadır; eksik ya da doğrulanmamış bir künye bilgisi '
+          'vermemeyi tercih ediyoruz.',
+      'Definitive details of the publication\'s legal entity, publisher, '
+          'registered address and responsible persons will be published on '
           'this page once the registration and notification process under the '
-          'Press Law is complete. Until then, all editorial enquiries and '
-          'notifications may be made through the newsroom address below.',
+          'Press Law is complete. These details are not published before they '
+          'are finalised: we prefer to give no imprint detail rather than an '
+          'incomplete or unverified one.',
+    ),
+    LegalBlock.paragraph(
+      'O tarihe kadar her türlü editoryal başvuru, düzeltme talebi ve '
+          'bildirim aşağıdaki adresler üzerinden yapılabilir.',
+      'Until then, all editorial enquiries, correction requests and '
+          'notifications may be made through the addresses below.',
     ),
     LegalBlock.mailto('Haber merkezi', 'Newsroom', kNewsroomEmail),
+    LegalBlock.mailto('İletişim', 'Contact', kContactEmail),
     LegalBlock.heading('Yayın İlkeleri', 'Editorial Principles'),
     LegalBlock.paragraph(
       'Tarım Portalı, Türkiye Gazeteciler Cemiyeti Basın Meslek İlkeleri\'ne '
@@ -243,8 +261,12 @@ final LegalDoc _iletisim = LegalDoc(
     LegalBlock.mailto('Reklam', 'Advertising', kAdvertisingEmail),
     LegalBlock.heading('Genel', 'General'),
     LegalBlock.mailto('Genel iletişim', 'General enquiries', kContactEmail),
-    LegalBlock.keyValue('Adres', 'Address', kCompanyAddress),
-    LegalBlock.keyValue('İmtiyaz Sahibi', 'Publisher', kCompanyName),
+    LegalBlock.paragraph(
+      'Tebligat adresi ve tüzel kişilik bilgileri, kayıt süreci '
+          'tamamlandığında Künye sayfasında yayımlanacaktır.',
+      'The registered address and legal entity details will be published on '
+          'the Imprint page once the registration process is complete.',
+    ),
   ],
 );
 
@@ -267,10 +289,10 @@ final LegalDoc _kullanimKosullari = LegalDoc(
     LegalBlock.heading('1. Telif Hakkı ve Alıntı', '1. Copyright and Quotation'),
     LegalBlock.paragraph(
       'Sitede yer alan haber metinleri, görseller, grafikler ve veri '
-          'görselleştirmeleri üzerindeki haklar $kCompanyName\'ye veya ilgili '
+          'görselleştirmeleri üzerindeki haklar $kYayinAdi\'na veya ilgili '
           'lisans sahiplerine aittir.',
       'Rights in the articles, images, graphics and data visualisations on '
-          'this site belong to $kCompanyNameEn or the respective licensors.',
+          'this site belong to $kYayinAdi or the respective licensors.',
     ),
     LegalBlock.bullets(
       'Haberlerden, kaynak ve aktif bağlantı göstermek kaydıyla makul ölçüde alıntı yapabilirsiniz.\n'
@@ -341,11 +363,16 @@ final LegalDoc _kullanimKosullari = LegalDoc(
     ),
     LegalBlock.heading('7. Uygulanacak Hukuk', '7. Governing Law'),
     LegalBlock.paragraph(
+      // Belirli bir il YAZILMIYOR: eski metinde Kocaeli yazıyordu ve bu,
+      // künyedeki uydurma adresten türemişti. Gerçek bir merkez adresi
+      // olmadan yetkili mahkemeyi tek bir ile bağlamak dayanaksız;
+      // genel yetki kuralları zaten sonucu belirliyor.
       'Bu koşullara Türkiye Cumhuriyeti hukuku uygulanır. Uyuşmazlıklarda '
-          'Kocaeli Mahkemeleri ve İcra Daireleri yetkilidir.',
-      'These terms are governed by the laws of the Republic of Türkiye. The '
-          'courts and enforcement offices of Kocaeli have jurisdiction over any '
-          'dispute.',
+          'genel yetki kuralları uyarınca yetkili Türkiye Cumhuriyeti '
+          'mahkemeleri ve icra daireleri görevlidir.',
+      'These terms are governed by the laws of the Republic of Türkiye. '
+          'Disputes fall to the Turkish courts and enforcement offices having '
+          'jurisdiction under the general rules of venue.',
     ),
   ],
 );
@@ -367,8 +394,18 @@ final LegalDoc _gizlilik = LegalDoc(
           'Turkish Personal Data Protection Law No. 6698 (KVKK).',
     ),
     LegalBlock.heading('1. Veri Sorumlusu', '1. Data Controller'),
-    LegalBlock.keyValue('Veri sorumlusu', 'Data controller', kCompanyName),
-    LegalBlock.keyValue('Adres', 'Address', kCompanyAddress),
+    LegalBlock.keyValue('Veri sorumlusu', 'Data controller', kYayinAdi),
+    LegalBlock.keyValue('Yayın adresi', 'Web address', 'tarimportali.net'),
+    LegalBlock.paragraph(
+      'Veri sorumlusunun ticari unvanı, tebligat adresi ve VERBİS kaydına '
+          'ilişkin bilgiler, kayıt süreci tamamlandığında Künye sayfasında '
+          'yayımlanacaktır. Başvurularınız bu süreçten bağımsız olarak '
+          'aşağıdaki adresten karşılanmaktadır.',
+      'The data controller\'s trade name, registered address and data '
+          'registry details will be published on the Imprint page once the '
+          'registration process is complete. Your requests are handled at the '
+          'address below irrespective of that process.',
+    ),
     LegalBlock.mailto('Başvuru adresi', 'Contact for requests', kPrivacyEmail),
     LegalBlock.heading('2. İşlenen Veriler', '2. Data We Process'),
     LegalBlock.paragraph(

@@ -53,6 +53,55 @@ void main() {
     });
   });
 
+  group('uydurma kurum bilgisi yok', () {
+    // 5 Kasım 2026: ticari unvan ve adres de gerçek değildi, kaldırıldı.
+    // Künye hukuken bir beyan; var olmayan bir tüzel kişiyi imtiyaz
+    // sahibi, var olmayan bir adresi tebligat adresi diye ilan etmek
+    // bilgiyi hiç yazmamaktan ağır bir iştir.
+    const uydurma = [
+      'Dijital Yayıncılık',
+      'Digital Publishing',
+      'Bilişim Vadisi',
+      'Teknopark',
+      'Gebze',
+      'A.Ş.',
+    ];
+
+    for (final s in uydurma) {
+      test('"$s" hiçbir yasal metinde geçmiyor', () {
+        expect(_tumMetin.contains(s), isFalse);
+      });
+    }
+
+    test('künyede İmtiyaz Sahibi ve Adres satırı YOK', () {
+      final k = legalDocs['kunye']!;
+      final satirlar = k.blocks
+          .where((b) => b.kind == LegalBlockKind.keyValue)
+          .map((b) => b.tr);
+      expect(satirlar, isNot(contains('İmtiyaz Sahibi')));
+      expect(satirlar, isNot(contains('Adres')));
+    });
+
+    test('yetkili mahkeme tek bir ile bağlanmıyor', () {
+      // Eski metindeki "Kocaeli Mahkemeleri" künyedeki uydurma adresten
+      // türemişti; gerçek merkez olmadan dayanaksız.
+      final metin =
+          legalDocs['kullanim-kosullari']!.blocks.map((b) => b.tr).join(' ');
+      expect(metin.contains('Kocaeli'), isFalse);
+      expect(metin, contains('genel yetki kuralları'));
+    });
+
+    test('eksiklik SESSİZ değil — neden yazılmadığı söyleniyor', () {
+      final kunye = legalDocs['kunye']!.blocks.map((b) => b.tr).join(' ');
+      expect(kunye, contains('tüzel kişiliğine'));
+      expect(kunye, contains('tebligat adresine'));
+      expect(kunye, contains('bilahare'));
+
+      final gizlilik = legalDocs['gizlilik']!.blocks.map((b) => b.tr).join(' ');
+      expect(gizlilik, contains('ticari unvanı'));
+    });
+  });
+
   group('yasal yükümlülükler duruyor', () {
     test('künye Basın Kanunu dayanağını söylüyor', () {
       expect(legalDocs['kunye']!.blocks.first.tr, contains('5187'));
@@ -67,11 +116,13 @@ void main() {
       expect(metin, contains('yayımlanacaktır'));
     });
 
-    test('künyede imtiyaz sahibi, adres ve iletişim var', () {
+    test('künyede yayın adı, yayın adresi ve iletişim var', () {
+      // Tüzel kişilik yazılmasa da okur KİME ve NEREYE yazacağını
+      // bilmeli; künyenin tamamen boşalmasına izin verilmiyor.
       final k = legalDocs['kunye']!;
       final etiketler = k.blocks.map((b) => b.tr).join(' ');
-      expect(etiketler, contains('İmtiyaz Sahibi'));
-      expect(etiketler, contains('Adres'));
+      expect(etiketler, contains('Yayın Adı'));
+      expect(etiketler, contains('Yayın Adresi'));
       expect(k.blocks.any((b) => b.kind == LegalBlockKind.mailto), isTrue);
     });
 
