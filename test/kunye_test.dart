@@ -102,6 +102,59 @@ void main() {
     });
   });
 
+  group('denetim dışı adres yok', () {
+    // 5 Kasım 2026: künyedeki beş e-posta @tarimportali.com uzantılıydı,
+    // oysa yayının alan adı tarimportali.NET. DNS ikisinin ayrı olduğunu
+    // gösterdi: .net Firebase'e bakıyor ve posta kaydı yok, .com bambaşka
+    // bir sunucuda ve kendi posta kaydı var.
+    //
+    // Yayının denetiminde olmayan bir adresi iletişim adresi diye
+    // göstermek, okurun düzeltme talebini ve KVKK başvurusunu — yani
+    // kişisel verisini — üçüncü bir tarafa göndermek demekti.
+
+    test('hiçbir yasal metinde e-posta adresi geçmiyor', () {
+      final eposta = RegExp(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}');
+      final bulunan = eposta.allMatches(_tumMetin).map((m) => m.group(0));
+      expect(bulunan, isEmpty, reason: 'bulundu: $bulunan');
+    });
+
+    test('tarimportali.com hiçbir yerde geçmiyor', () {
+      expect(_tumMetin.contains('tarimportali.com'), isFalse);
+    });
+
+    test('yayının KENDİ adresi duruyor', () {
+      // Hepsini silmek değil, denetim dışı olanı silmek istendi.
+      expect(_tumMetin.contains('tarimportali.net'), isTrue);
+    });
+
+    test('hiçbir belgede mailto bloğu kalmadı', () {
+      for (final doc in legalDocs.values) {
+        expect(doc.blocks.any((b) => b.kind == LegalBlockKind.mailto), isFalse,
+            reason: doc.slug);
+      }
+    });
+
+    test('İletişim sayfası DURUYOR — altbilgi oraya bağlanıyor', () {
+      // Sayfayı kaldırmak altbilgide ve Hakkımızda ekranında iki ölü
+      // bağlantı bırakırdı.
+      final iletisim = legalDocs['iletisim'];
+      expect(iletisim, isNotNull);
+      expect(iletisim!.blocks, isNotEmpty);
+    });
+
+    test('adres yokluğu GEREKÇELİ — sessiz boşluk değil', () {
+      final metin = legalDocs['iletisim']!.blocks.map((b) => b.tr).join(' ');
+      expect(metin, contains('hazırlık aşamasındadır'));
+      expect(metin, contains('bilinçli bir tercihtir'));
+    });
+
+    test('KVKK hakları adres yokken bile saklı tutuluyor', () {
+      final metin = legalDocs['gizlilik']!.blocks.map((b) => b.tr).join(' ');
+      expect(metin, contains('bu haklar saklıdır'));
+      expect(metin, contains('otuz gün'));
+    });
+  });
+
   group('yasal yükümlülükler duruyor', () {
     test('künye Basın Kanunu dayanağını söylüyor', () {
       expect(legalDocs['kunye']!.blocks.first.tr, contains('5187'));
@@ -116,14 +169,12 @@ void main() {
       expect(metin, contains('yayımlanacaktır'));
     });
 
-    test('künyede yayın adı, yayın adresi ve iletişim var', () {
-      // Tüzel kişilik yazılmasa da okur KİME ve NEREYE yazacağını
-      // bilmeli; künyenin tamamen boşalmasına izin verilmiyor.
-      final k = legalDocs['kunye']!;
-      final etiketler = k.blocks.map((b) => b.tr).join(' ');
+    test('künyede yayın adı ve yayın adresi var', () {
+      // Künyenin tamamen boşalmasına izin verilmiyor: okur en azından
+      // hangi yayını okuduğunu ve adresini görmeli.
+      final etiketler = legalDocs['kunye']!.blocks.map((b) => b.tr).join(' ');
       expect(etiketler, contains('Yayın Adı'));
       expect(etiketler, contains('Yayın Adresi'));
-      expect(k.blocks.any((b) => b.kind == LegalBlockKind.mailto), isTrue);
     });
 
     test('düzeltme ve yanıt hakkı anlatılıyor', () {

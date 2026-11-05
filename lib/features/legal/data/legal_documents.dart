@@ -127,11 +127,21 @@ class LegalDoc {
 // künyedeki ve gizlilik metnindeki "kayıt süreci" paragrafları da
 // kaldırılmalı. `test/kunye_test.dart` ikisini birden bekçiliyor.
 const String kYayinAdi = 'Tarım Portalı';
-const String kContactEmail = 'info@tarimportali.com';
-const String kNewsroomEmail = 'haber@tarimportali.com';
-const String kCorrectionEmail = 'duzeltme@tarimportali.com';
-const String kPrivacyEmail = 'kvkk@tarimportali.com';
-const String kAdvertisingEmail = 'reklam@tarimportali.com';
+// 5 Kasım 2026: E-POSTA ADRESLERİ DE KALDIRILDI.
+//
+// Burada beş adres vardı ve hepsi @tarimportali.com uzantılıydı. Oysa
+// yayının alan adı tarimportali.NET. DNS ikisinin AYRI olduğunu söylüyor:
+// .net Firebase'e bakıyor ve posta kaydı yok, .com ise bambaşka bir
+// sunucuda (153.56.184.199) ve kendi posta kaydı var.
+//
+// Yani künyedeki adresler yayının denetiminde olmayan bir alan adına
+// gidiyordu. Bu, uydurma bir ticari unvandan daha ağır bir sorun:
+// okurun düzeltme talebi ve KVKK başvurusu kişisel veri taşır ve
+// üçüncü bir tarafa ulaşırdı.
+//
+// Çalışan bir adres belirlendiğinde: buraya sabiti geri koymak ve ilgili
+// sayfalardaki `mailto` bloklarını yeniden eklemek yeterli. Metinlerde
+// kanalların "yayımlanacağı" söyleniyor; o paragraflar da güncellenmeli.
 
 final DateTime _kLastReview = DateTime(2026, 11, 5);
 
@@ -175,13 +185,16 @@ final LegalDoc _kunye = LegalDoc(
           'incomplete or unverified one.',
     ),
     LegalBlock.paragraph(
-      'O tarihe kadar her türlü editoryal başvuru, düzeltme talebi ve '
-          'bildirim aşağıdaki adresler üzerinden yapılabilir.',
-      'Until then, all editorial enquiries, correction requests and '
-          'notifications may be made through the addresses below.',
+      'Başvuru ve bildirim kanalları da aynı süreçte belirlenecek ve bu '
+          'sayfada yayımlanacaktır. Yayının denetiminde olmayan bir adresi '
+          'iletişim adresi olarak göstermemek için, kanal kurulana kadar '
+          'burada bir adres verilmemektedir.',
+      'The channels for enquiries and notifications will likewise be '
+          'determined in the same process and published on this page. So as '
+          'not to present an address outside the publication\'s control as a '
+          'point of contact, no address is given here until a channel is in '
+          'place.',
     ),
-    LegalBlock.mailto('Haber merkezi', 'Newsroom', kNewsroomEmail),
-    LegalBlock.mailto('İletişim', 'Contact', kContactEmail),
     LegalBlock.heading('Yayın İlkeleri', 'Editorial Principles'),
     LegalBlock.paragraph(
       'Tarım Portalı, Türkiye Gazeteciler Cemiyeti Basın Meslek İlkeleri\'ne '
@@ -205,18 +218,22 @@ final LegalDoc _kunye = LegalDoc(
     LegalBlock.paragraph(
       'Yayımlanan bir haberde hata olduğunu düşünüyorsanız veya Basın Kanunu '
           'md. 14 uyarınca düzeltme ve cevap hakkınızı kullanmak istiyorsanız, '
-          'haberin adresini ve itiraz gerekçenizi belirterek bize yazın. '
-          'Başvurular en geç üç iş günü içinde yanıtlanır; haklı bulunan '
-          'düzeltmeler haberin üzerine tarih damgasıyla işlenir.',
+          'başvurunuzda haberin adresini ve itiraz gerekçenizi belirtmeniz '
+          'gerekir. Başvurular en geç üç iş günü içinde yanıtlanır; haklı '
+          'bulunan düzeltmeler haberin üzerine tarih damgasıyla işlenir.',
       'If you believe a published article contains an error, or wish to '
           'exercise your right of correction and reply under Article 14 of the '
-          'Press Law, write to us with the article URL and the grounds for your '
-          'objection. Requests are answered within three business days; '
-          'corrections found justified are applied to the article with a '
+          'Press Law, your request must state the article URL and the grounds '
+          'for your objection. Requests are answered within three business '
+          'days; corrections found justified are applied to the article with a '
           'timestamp.',
     ),
-    LegalBlock.mailto('Düzeltme başvurusu', 'Correction requests',
-        kCorrectionEmail),
+    LegalBlock.paragraph(
+      'Düzeltme başvurusu kanalı, yukarıdaki kayıt süreciyle birlikte '
+          'belirlenip bu sayfada yayımlanacaktır.',
+      'The channel for correction requests will be determined together with '
+          'the registration process above and published on this page.',
+    ),
   ],
 );
 
@@ -230,43 +247,34 @@ final LegalDoc _iletisim = LegalDoc(
   titleEn: 'Contact',
   updatedAt: _kLastReview,
   blocks: const [
+    // Bu sayfa 5 Kasım 2026'da boşaltıldı. Eskiden beş ayrı birime beş
+    // e-posta adresi veriyordu; hepsi yayının denetiminde olmayan bir alan
+    // adınaydı (ayrıntı dosya başındaki açıklamada).
+    //
+    // Sayfa KALDIRILMADI çünkü altbilgi ve Hakkımızda ekranı buraya
+    // bağlanıyor; kaldırmak iki ölü bağlantı bırakırdı. Bunun yerine
+    // durumu olduğu gibi söylüyor.
     LegalBlock.paragraph(
-      'Konusuna göre doğrudan ilgili birime yazmanız, başvurunuzun daha hızlı '
-          'sonuçlanmasını sağlar.',
-      'Writing directly to the relevant desk will get your enquiry answered '
-          'faster.',
+      'İletişim kanalları hazırlık aşamasındadır. Çalışır bir adres '
+          'belirlendiğinde bu sayfada ve Künye sayfasında yayımlanacaktır.',
+      'Our contact channels are being set up. Once a working address is in '
+          'place it will be published on this page and on the Imprint page.',
     ),
-    LegalBlock.heading('Haber Merkezi', 'Newsroom'),
     LegalBlock.paragraph(
-      'Haber ihbarı, basın bülteni ve editöre ulaşmak için.',
-      'For news tips, press releases and reaching the editor.',
+      'Bu tarihe kadar burada bir adres verilmemesi bilinçli bir tercihtir: '
+          'yayının denetiminde olmayan bir adresi iletişim adresi olarak '
+          'göstermek, başvurunuzun yanlış ele ulaşması anlamına gelirdi. '
+          'Düzeltme ve yanıt hakkına ilişkin usul ise Künye sayfasında '
+          'açıklanmıştır ve kanal açıldığında aynen işleyecektir.',
+      'The absence of an address here is deliberate: presenting an address '
+          'outside the publication\'s control as a point of contact would mean '
+          'your request reaching the wrong hands. The procedure for '
+          'corrections and the right of reply is set out on the Imprint page '
+          'and will apply as written once a channel is open.',
     ),
-    LegalBlock.mailto('Haber merkezi', 'Newsroom', kNewsroomEmail),
-    LegalBlock.heading('Düzeltme Talepleri', 'Corrections'),
-    LegalBlock.paragraph(
-      'Bir haberde hata tespit ettiyseniz haberin adresini ekleyerek yazın. '
-          'Düzeltme ve yanıt hakkına ilişkin usul Künye sayfamızda açıklanmıştır.',
-      'If you have spotted an error, write to us including the article URL. '
-          'The procedure for corrections and right of reply is set out on our '
-          'Imprint page.',
-    ),
-    LegalBlock.mailto('Düzeltme', 'Corrections', kCorrectionEmail),
-    LegalBlock.heading('Kişisel Verilerin Korunması', 'Data Protection'),
-    LegalBlock.paragraph(
-      'KVKK md. 11 kapsamındaki başvurularınız için.',
-      'For requests under Article 11 of the Turkish Data Protection Law.',
-    ),
-    LegalBlock.mailto('KVKK başvuru', 'Data protection', kPrivacyEmail),
-    LegalBlock.heading('Reklam ve İş Birliği', 'Advertising and Partnerships'),
-    LegalBlock.mailto('Reklam', 'Advertising', kAdvertisingEmail),
-    LegalBlock.heading('Genel', 'General'),
-    LegalBlock.mailto('Genel iletişim', 'General enquiries', kContactEmail),
-    LegalBlock.paragraph(
-      'Tebligat adresi ve tüzel kişilik bilgileri, kayıt süreci '
-          'tamamlandığında Künye sayfasında yayımlanacaktır.',
-      'The registered address and legal entity details will be published on '
-          'the Imprint page once the registration process is complete.',
-    ),
+    LegalBlock.heading('Yayın', 'Publication'),
+    LegalBlock.keyValue('Yayın Adı', 'Publication Name', kYayinAdi),
+    LegalBlock.keyValue('Yayın Adresi', 'Web Address', 'tarimportali.net'),
   ],
 );
 
@@ -397,16 +405,13 @@ final LegalDoc _gizlilik = LegalDoc(
     LegalBlock.keyValue('Veri sorumlusu', 'Data controller', kYayinAdi),
     LegalBlock.keyValue('Yayın adresi', 'Web address', 'tarimportali.net'),
     LegalBlock.paragraph(
-      'Veri sorumlusunun ticari unvanı, tebligat adresi ve VERBİS kaydına '
-          'ilişkin bilgiler, kayıt süreci tamamlandığında Künye sayfasında '
-          'yayımlanacaktır. Başvurularınız bu süreçten bağımsız olarak '
-          'aşağıdaki adresten karşılanmaktadır.',
-      'The data controller\'s trade name, registered address and data '
-          'registry details will be published on the Imprint page once the '
-          'registration process is complete. Your requests are handled at the '
-          'address below irrespective of that process.',
+      'Veri sorumlusunun ticari unvanı, tebligat adresi, VERBİS kaydı ve '
+          'başvuru kanalı; kayıt süreci tamamlandığında Künye sayfasında '
+          'yayımlanacaktır.',
+      'The data controller\'s trade name, registered address, data registry '
+          'entry and the channel for requests will be published on the '
+          'Imprint page once the registration process is complete.',
     ),
-    LegalBlock.mailto('Başvuru adresi', 'Contact for requests', kPrivacyEmail),
     LegalBlock.heading('2. İşlenen Veriler', '2. Data We Process'),
     LegalBlock.paragraph(
       'Siteyi yalnızca haber okumak için kullanıyorsanız sizden ad, telefon '
@@ -501,14 +506,18 @@ final LegalDoc _gizlilik = LegalDoc(
           'for any damage suffered.',
     ),
     LegalBlock.paragraph(
-      'Başvurularınızı, kimliğinizi tevsik edici bilgilerle birlikte aşağıdaki '
-          'adrese iletebilirsiniz. Başvurular en geç otuz gün içinde '
-          'sonuçlandırılır.',
-      'You may submit requests, together with information verifying your '
-          'identity, to the address below. Requests are concluded within thirty '
-          'days at the latest.',
+      'Başvurular, kimliği tevsik edici bilgilerle birlikte yapılır ve en '
+          'geç otuz gün içinde sonuçlandırılır. Başvuru kanalı, yayının '
+          'kayıt süreci tamamlandığında Künye sayfasında yayımlanacaktır; '
+          'kanal açılana kadar bu haklar saklıdır ve süre, başvurunun '
+          'yapıldığı tarihten itibaren işler.',
+      'Requests are made together with information verifying the applicant\'s '
+          'identity and are concluded within thirty days at the latest. The '
+          'channel for requests will be published on the Imprint page once '
+          'the publication\'s registration process is complete; until a '
+          'channel is open these rights are reserved, and the period runs '
+          'from the date a request is made.',
     ),
-    LegalBlock.mailto('KVKK başvuru', 'Data protection requests', kPrivacyEmail),
   ],
 );
 
