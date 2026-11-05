@@ -75,10 +75,18 @@ Ana sayfa
 Tabloyu kopyala
 ETİKETE TIKLAYIN
 
-# ── Künye: kişi adı yazılmıyor kararı ──
+# ── Künye: uydurma bilgi yazılmıyor kararı ──
 #
-# Ayrıntı test/kunye_test.dart ve legal_documents.dart başındaki açıklama.
-Sorumlu Kişiler
+# Kişi adları, ticari unvan ve adres gerçek olmadıkları için kaldırıldı;
+# yerlerine bunların kayıt süreci bitince yayımlanacağını söyleyen bölüm
+# kondu. Bu belirteç o bölümün bekçisi: kaybolursa künye GEREKÇESİZ eksik
+# kalır, yani okur neden bilgi olmadığını bilemez.
+#
+# (5 Kasım 2026: belirteç "Sorumlu Kişiler" idi, başlık "Kayıt Süreci"
+#  olunca güncellendi.)
+#
+# Ayrıntı: test/kunye_test.dart ve legal_documents.dart başındaki açıklama.
+Kayıt Süreci
 
 # ══════════════════════════════════════════════════════════════════════════
 # YASAK: aşağıdakilerden biri derlemede GÖRÜNÜRSE dağıtım durur.
