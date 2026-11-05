@@ -7,6 +7,24 @@
 //   2) Yurt dışına veri aktarımının hukuki dayanağı (KVKK md. 9)
 //   3) Basın Kanunu md. 25 uyarınca künyede bulunması zorunlu bilgiler
 //
+// ── 5 Kasım 2026: KİŞİ ADI YAZILMIYOR ─────────────────────────────────────
+//
+// Künyede genel yayın yönetmeni ve sorumlu yazı işleri müdürü adları
+// YAZILMIYOR. Bunun yerine görevlerin yürütüldüğü belirtiliyor ve kesin
+// bilgilerin kayıt süreci tamamlandığında yayımlanacağı söyleniyor.
+//
+// Gerekçe: künye hukuken bir BEYAN. Doğruluğu teyit edilmemiş bir kişi adını
+// sorumlu sıfatıyla yayımlamak, o adı taşıyan kişiyi hiç üstlenmediği bir
+// sorumluluğun altına sokar; eksik bırakmak ise yalnızca eksiklik olur.
+// İkisinden az zararlı olanı seçildi.
+//
+// Aynı gerekçeyle teknik sağlayıcılar ürün adıyla sayılmıyor, kategori
+// olarak yazılıyor: aydınlatma metni bir mimari belgesi değil ve kullanılan
+// yığının adres adres yayımlanması gereksiz bir saldırı yüzeyi.
+//
+// Ad eklenecekse ÖNCE teyit edilmeli. `test/kunye_test.dart` bu kararı
+// bekçiliyor — yanlışlıkla geri gelmesin diye.
+//
 // Metinlerin kendisi tek bir yerde durur; [LegalPageScreen] hepsini aynı
 // düzenle basar. Altı ayrı ekran sınıfı yazmak aynı yerleşimi altı kez
 // kopyalamak olurdu — sayfaların farkı yalnızca içerik.
@@ -104,7 +122,7 @@ const String kCorrectionEmail = 'duzeltme@tarimportali.com';
 const String kPrivacyEmail = 'kvkk@tarimportali.com';
 const String kAdvertisingEmail = 'reklam@tarimportali.com';
 
-final DateTime _kLastReview = DateTime(2026, 8, 10);
+final DateTime _kLastReview = DateTime(2026, 11, 5);
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  KÜNYE
@@ -126,17 +144,26 @@ final LegalDoc _kunye = LegalDoc(
     ),
     LegalBlock.heading('Yayın Bilgileri', 'Publication Details'),
     LegalBlock.keyValue('İmtiyaz Sahibi', 'Publisher', kCompanyName),
-    LegalBlock.keyValue(
-        'Genel Yayın Yönetmeni', 'Editor-in-Chief', 'Ali Gökçek'),
-    LegalBlock.keyValue(
-        'Sorumlu Yazı İşleri Müdürü', 'Managing Editor', 'Ali Yılmaz'),
     LegalBlock.keyValue('Yayın Türü', 'Publication Type',
         'Süreli yayın — internet haber sitesi'),
     LegalBlock.keyValue('Yayın Dili', 'Publication Language', 'Türkçe, İngilizce'),
-    LegalBlock.keyValue('Teknik Altyapı', 'Technical Infrastructure',
-        'Antigravity Studio'),
     LegalBlock.keyValue('Adres', 'Address', kCompanyAddress),
     LegalBlock.mailto('İletişim', 'Contact', kContactEmail),
+    LegalBlock.heading('Sorumlu Kişiler', 'Responsible Persons'),
+    LegalBlock.paragraph(
+      'Genel yayın yönetmenliği ve sorumlu yazı işleri müdürlüğü görevleri '
+          'yürütülmektedir. Bu görevlere ilişkin kesin bilgiler, Basın '
+          'Kanunu kapsamındaki kayıt ve bildirim süreci tamamlandığında '
+          'bilahare bu sayfada yayımlanacaktır. O tarihe kadar her türlü '
+          'editoryal başvuru ve bildirim, aşağıdaki haber merkezi adresi '
+          'üzerinden yapılabilir.',
+      'The roles of editor-in-chief and managing editor are currently '
+          'exercised. Definitive details for these roles will be published on '
+          'this page once the registration and notification process under the '
+          'Press Law is complete. Until then, all editorial enquiries and '
+          'notifications may be made through the newsroom address below.',
+    ),
+    LegalBlock.mailto('Haber merkezi', 'Newsroom', kNewsroomEmail),
     LegalBlock.heading('Yayın İlkeleri', 'Editorial Principles'),
     LegalBlock.paragraph(
       'Tarım Portalı, Türkiye Gazeteciler Cemiyeti Basın Meslek İlkeleri\'ne '
@@ -353,15 +380,15 @@ final LegalDoc _gizlilik = LegalDoc(
           'address. The data processed is as follows:',
     ),
     LegalBlock.bullets(
-      'İşlem güvenliği verileri: IP adresi, tarayıcı ve cihaz bilgisi, istek zamanı — barındırma sağlayıcısının sunucu kayıtlarında tutulur.\n'
-          'Kullanım verileri: görüntülenen haberler ve okunma sayacı. Sayaç haber bazında toplu tutulur, kişiye bağlanmaz.\n'
-          'Tercihleriniz: dil seçimi, yazı boyutu, okuduğunuz haberlerin listesi ve "uygulamayı yükle" uyarısını kapattığınız bilgisi. Bu veriler yalnızca kendi cihazınızın tarayıcı depolamasında tutulur, sunucularımıza gönderilmez.\n'
-          'Hesap verileri: yalnızca yönetim paneline giriş yapan editörler için e-posta adresi ve şifre özeti.',
+      'İşlem güvenliği verileri: IP adresi, tarayıcı ve cihaz bilgisi, istek zamanı. Barındırma hizmetinin sunucu kayıtlarında tutulur.\n'
+          'Kullanım verileri: hangi haberlerin görüntülendiği. Haber bazında toplu tutulur, kişiye bağlanmaz.\n'
+          'Tercihleriniz: dil ve yazı boyutu seçiminiz ile okuduğunuz haberlerin işareti. Bu veriler yalnızca kendi cihazınızda kalır, sunucularımıza gönderilmez.\n'
+          'Hesap verileri: yalnızca yayın yönetim arayüzüne giriş yapan editörler için e-posta adresi ve şifrenin geri döndürülemez özeti.',
       'Transaction security data: IP address, browser and device information, '
-          'request time — held in the hosting provider\'s server logs.\n'
-          'Usage data: articles viewed and the view counter. The counter is kept in aggregate per article and is not linked to an individual.\n'
-          'Your preferences: language choice, text size, the list of articles you have read, and whether you dismissed the "install app" prompt. This data is stored only in your own device\'s browser storage and is not sent to our servers.\n'
-          'Account data: an email address and password hash, only for editors who sign in to the admin panel.',
+          'request time. Held in the hosting service\'s server logs.\n'
+          'Usage data: which articles are viewed. Kept in aggregate per article and not linked to an individual.\n'
+          'Your preferences: your language and text size choices and the read markers on articles. This data remains only on your own device and is not sent to our servers.\n'
+          'Account data: an email address and an irreversible hash of the password, only for editors who sign in to the publishing interface.',
     ),
     LegalBlock.heading('3. İşleme Amacı ve Hukuki Sebep',
         '3. Purpose and Legal Basis'),
@@ -389,14 +416,20 @@ final LegalDoc _gizlilik = LegalDoc(
           'a cross-border transfer under KVKK Art. 9 takes place:',
     ),
     LegalBlock.bullets(
-      'Google Firebase Hosting — sitenin barındırılması ve sunucu kayıtları\n'
-          'Supabase — haber veritabanı ve editör kimlik doğrulaması\n'
-          'Google Fonts — yazı tiplerinin sunulması\n'
-          'Hava durumu ve piyasa verisi sağlayıcıları — yalnızca sorgu bilgisi iletilir, kimlik bilgisi iletilmez',
-      'Google Firebase Hosting — site hosting and server logs\n'
-          'Supabase — news database and editor authentication\n'
-          'Google Fonts — serving typefaces\n'
-          'Weather and market data providers — only the query is transmitted, no identifying information',
+      'Barındırma hizmeti sağlayıcısı — sayfa isteklerinin karşılanması ve sunucu kayıtlarının tutulması\n'
+          'Veritabanı ve kimlik doğrulama hizmeti sağlayıcısı — haber içeriğinin sunulması ve editör girişleri\n'
+          'Yazı tipi hizmeti sağlayıcısı — sayfanın görüntülenmesi\n'
+          'Hava durumu ve piyasa verisi sağlayıcıları — yalnızca sorgu bilgisi iletilir, kimliğinize ilişkin bir bilgi iletilmez',
+      'Hosting service provider — serving page requests and keeping server logs\n'
+          'Database and authentication service provider — serving news content and editor sign-in\n'
+          'Typeface service provider — rendering the page\n'
+          'Weather and market data providers — only the query is transmitted; no information identifying you is sent',
+    ),
+    LegalBlock.paragraph(
+      'Bu sağlayıcıların güncel listesini ve aktarıma ilişkin ayrıntıları '
+          'KVKK başvuru adresimizden talep edebilirsiniz.',
+      'You may request the current list of these providers and details of the '
+          'transfers from our data protection address.',
     ),
     LegalBlock.heading('5. Saklama Süresi', '5. Retention'),
     LegalBlock.paragraph(
@@ -462,40 +495,47 @@ final LegalDoc _cerezler = LegalDoc(
     ),
     LegalBlock.heading('1. Zorunlu Yerel Depolama', '1. Strictly Necessary Storage'),
     LegalBlock.paragraph(
-      'Aşağıdaki veriler tarayıcınızın yerel depolamasında (localStorage) '
-          'tutulur. Sunucuya gönderilmez; yalnızca sizin cihazınızda kalır.',
-      'The following data is kept in your browser\'s local storage. It is not '
-          'sent to the server; it remains only on your device.',
+      'Aşağıdaki bilgiler tarayıcınızın kendi deposunda tutulur. Sunucuya '
+          'gönderilmez; yalnızca sizin cihazınızda kalır ve tarayıcı '
+          'verilerinizi temizlediğinizde silinir.',
+      'The following information is kept in your browser\'s own storage. It is '
+          'not sent to the server; it remains only on your device and is '
+          'deleted when you clear your browser data.',
     ),
     LegalBlock.bullets(
       'Dil tercihi (Türkçe / İngilizce)\n'
           'Yazı boyutu tercihi\n'
-          'Okuduğunuz haberlerin listesi — kartlarda "okundu" işareti için\n'
-          '"Uygulamayı yükle" uyarısını kapattığınız bilgisi\n'
-          'Editör oturum anahtarı — yalnızca yönetim paneline giriş yaptıysanız',
+          'Okuduğunuz haberlerin işareti\n'
+          'Gösterilen bilgilendirme uyarılarını kapattığınız bilgisi\n'
+          'Oturum bilgisi — yalnızca yayın yönetim arayüzüne giriş yaptıysanız',
       'Language preference (Turkish / English)\n'
           'Text size preference\n'
-          'The list of articles you have read — to mark cards as read\n'
-          'Whether you dismissed the "install app" prompt\n'
-          'Editor session token — only if you have signed in to the admin panel',
+          'Read markers on articles\n'
+          'Whether you dismissed the informational prompts shown to you\n'
+          'Session information — only if you have signed in to the publishing interface',
     ),
     LegalBlock.heading('2. Üçüncü Taraf', '2. Third Parties'),
     LegalBlock.bullets(
-      'Google Firebase Hosting — sayfa isteklerinizi karşılar ve sunucu kaydı tutar.\n'
-          'Google Fonts — yazı tipi dosyalarını sunar; bu istek sırasında IP adresiniz Google\'a iletilir.\n'
-          'Supabase — haber içeriğini sunar.',
-      'Google Firebase Hosting — serves your page requests and keeps server logs.\n'
-          'Google Fonts — serves the typeface files; your IP address is transmitted to Google during that request.\n'
-          'Supabase — serves the news content.',
+      'Barındırma hizmeti — sayfa isteklerinizi karşılar ve sunucu kaydı tutar.\n'
+          'Yazı tipi hizmeti — yazı tipi dosyalarını sunar; bu istek sırasında IP adresiniz ilgili sağlayıcıya iletilir.\n'
+          'Veritabanı hizmeti — haber içeriğini sunar.',
+      'Hosting service — serves your page requests and keeps server logs.\n'
+          'Typeface service — serves the typeface files; your IP address is transmitted to that provider during the request.\n'
+          'Database service — serves the news content.',
     ),
-    LegalBlock.heading('3. Uygulama Önbelleği (PWA)', '3. App Cache (PWA)'),
     LegalBlock.paragraph(
-      'Siteyi uygulama olarak yüklediyseniz, çevrimdışı çalışabilmesi için '
-          'arayüz dosyaları bir servis çalışanı (service worker) tarafından '
-          'cihazınızda önbelleğe alınır. Bu önbellek kişisel veri içermez.',
+      'Bu hizmetlerin güncel listesi KVKK başvuru adresimizden talep edilebilir.',
+      'The current list of these services can be requested from our data '
+          'protection address.',
+    ),
+    LegalBlock.heading('3. Uygulama Önbelleği', '3. App Cache'),
+    LegalBlock.paragraph(
+      'Siteyi uygulama olarak yüklediyseniz, çevrimdışı da açılabilmesi için '
+          'arayüz dosyaları cihazınızda önbelleğe alınır. Bu önbellek kişisel '
+          'veri içermez.',
       'If you have installed the site as an app, its interface files are '
-          'cached on your device by a service worker so that it can work '
-          'offline. This cache contains no personal data.',
+          'cached on your device so that it can also open offline. This cache '
+          'contains no personal data.',
     ),
     LegalBlock.heading('4. Nasıl Silerim?', '4. How to Delete'),
     LegalBlock.paragraph(
