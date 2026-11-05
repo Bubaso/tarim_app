@@ -186,11 +186,19 @@ if [[ -f surum_bekcisi.txt ]]; then
   # "do\u011frulama" olarak duruyor. Ham dosyada aramak, Türkçe karakter
   # içeren her belirteçte YANLIŞ ALARM verir ve dağıtımı sonsuza kadar
   # bloke ederdi (28 Ekim'de tam olarak böyle oldu). Önce çözüyoruz.
+  #
+  # İKİ AYRI KAÇIŞ VAR. dart2js yalnızca \uXXXX kullanmıyor: Latin-1
+  # aralığındaki harfleri (â ç î ö û ü ve büyükleri) \xXX ile yazıyor,
+  # ötekileri (ı ğ ş İ Ğ Ş) olduğu gibi bırakıyor. Yalnızca \u çözülürken
+  # "Önizle" belirteci derlemede "\xd6nizle" olarak durduğu için HİÇBİR
+  # ZAMAN eşleşmiyordu — yani içinde ö/ü/ç geçen bir belirteç bekçiye
+  # konulamıyordu. 5 Kasım 2026'da fark edildi.
   cozulmus=$(mktemp)
   python3 - "build/web/main.dart.js" "$cozulmus" <<'PYEOF'
 import io, re, sys
 s = io.open(sys.argv[1], encoding='utf-8', errors='replace').read()
 s = re.sub(r'\\u([0-9a-fA-F]{4})', lambda m: chr(int(m.group(1), 16)), s)
+s = re.sub(r'\\x([0-9a-fA-F]{2})', lambda m: chr(int(m.group(1), 16)), s)
 # yalnız kalan vekil karakterler yazdırılamıyor; aramada işe de yaramıyorlar
 s = ''.join(c for c in s if not (0xD800 <= ord(c) <= 0xDFFF))
 io.open(sys.argv[2], 'w', encoding='utf-8').write(s)

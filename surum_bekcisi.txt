@@ -18,8 +18,16 @@
 Outfit
 
 # ── Moderasyon paneli (tablo: rejected_sources) ──
-Haberi reddet
+#
+# 5 Kasım 2026: "Haberi reddet" belirteci KALDIRILDI çünkü düğmenin adı
+# "Reddet" oldu — kuyruk kendi sekmesine taşınırken. Yetenek kaybolmadı,
+# etiket kısaldı. Etiket yerine reddin ASIL davranışını söyleyen bildirim
+# metni bekçiye kondu: red artık silmiyor, geri alınabilir bir durum
+# değişikliği yapıyor. Etiket değişir, bu davranış değişmemeli.
+Arşivde duruyor, geri alınabilir
 Toplu red
+Toplu onay
+Onay Kuyruğu
 
 # ── Kaynak karnesi (tablo: source_scorecard) ──
 Kaynak Karnesi
@@ -42,7 +50,35 @@ Kaynak Karnesi
 
 # ── Sabitleme ve haber görünümü ──
 Sabitleme yok
-Tam haber
+
+# 5 Kasım 2026: "Tam haber" belirteci KALDIRILDI. O düğme gövdeyi
+# etiketlerinden arındırıp bir diyalogda düz metin olarak gösteriyordu;
+# yerini "Önizle" aldı ve haberi gerçek okuyucu görünümünde açıyor. Yani
+# yetenek kaybolmadı, GÜÇLENDİ — eski belirteci listede tutmak dağıtımı
+# sonsuza kadar bloke ederdi.
+Önizle
+
+# ── Kuyruk kartında bayatlık (articles.published_at) ──
+#
+# `published_at` modelde hiç ayrıştırılmıyordu; 5 Kasım 2026'da eklendi.
+# Kaybolursa moderatör üç gün bayat haberi bugünkünden ayıramaz.
+Kaynak tarihi
+
+# ── Mükerrer denetiminin hata hali (§29.3) ──
+#
+# Denetim düştüğünde kart YEŞİL "bulunamadı" diyordu: yapılmamış bir
+# denetimin onayı alınıyordu. Bu belirteç o düzeltmenin bekçisi.
+Denetim yapılamadı
+
+# ── Okuyucu gezinmesi (5 Kasım 2026) ──
+Ana sayfa
+Tabloyu kopyala
+ETİKETE TIKLAYIN
+
+# ── Künye: kişi adı yazılmıyor kararı ──
+#
+# Ayrıntı test/kunye_test.dart ve legal_documents.dart başındaki açıklama.
+Sorumlu Kişiler
 
 # ══════════════════════════════════════════════════════════════════════════
 # YASAK: aşağıdakilerden biri derlemede GÖRÜNÜRSE dağıtım durur.
