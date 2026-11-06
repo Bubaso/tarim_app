@@ -902,32 +902,40 @@ class HomeRepository {
     String description;
     String icon;
     String warning;
+    // Üst çubuğa sığan kısa hâl (Ö7). Uzun metni kırpmak asıl kelimeyi
+    // kaybettiriyordu; ikisi aynı yerde birlikte yazılıyor.
+    String warningShort;
     bool hasWarning = false;
 
     if (code >= 51 && code <= 67) {
       description = isEn ? 'Rainy & Damp' : 'Yağışlı ve Nemli';
       icon = '09d';
       warning = isEn ? 'High Humidity - Watch out for Mildew!' : 'Yüksek Nem - Mildiyö Hastalığına Dikkat!';
+      warningShort = isEn ? 'Mildew risk' : 'Mildiyö riski';
       hasWarning = true;
     } else if (code >= 71 && code <= 77) {
       description = isEn ? 'Snowy' : 'Karlı';
       icon = '13d';
       warning = isEn ? 'Severe Frost Risk!' : 'Şiddetli Don Riski!';
+      warningShort = isEn ? 'Severe frost' : 'Şiddetli don';
       hasWarning = true;
     } else if (code >= 80 && code <= 82) {
       description = isEn ? 'Heavy Rain Showers' : 'Sağnak Yağışlı';
       icon = '09d';
       warning = isEn ? 'Soil Erosion Risk - Avoid Planting' : 'Erozyon Riski - Ekim Yapmaktan Kaçının';
+      warningShort = isEn ? 'Erosion risk' : 'Erozyon riski';
       hasWarning = true;
     } else if (tonightMin < 4.0) {
       description = isEn ? 'Cold & Clear' : 'Soğuk ve Açık';
       icon = '01d';
       warning = isEn ? 'Frost Risk Tonight!' : 'Bu Gece Don Riski Var!';
+      warningShort = isEn ? 'Frost tonight' : 'Gece don riski';
       hasWarning = true;
     } else {
       description = isEn ? 'Sunny & Warm' : 'Güneşli ve Ilık';
       icon = '01d';
       warning = isEn ? 'Good Conditions for Irrigation & Harvest' : 'Sulama ve Hasat İçin Mükemmel Şartlar';
+      warningShort = isEn ? 'Good for fieldwork' : 'Tarla işine uygun';
     }
 
     return WeatherInfo(
@@ -941,6 +949,7 @@ class HomeRepository {
       description: description,
       iconCode: icon,
       agriculturalWarning: warning,
+      agriculturalWarningShort: warningShort,
       hasWarning: hasWarning,
       dailyForecast: dailyForecast,
       historicalInfo: historicalInfo,

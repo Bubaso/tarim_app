@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../data/models/commodity_price.dart';
+import 'fiyat_egrisi.dart';
 
 /// Şerit kartı. Kapalıyken ürün adı ve fiyat, açıkken ayrıntılar.
 ///
@@ -26,6 +27,11 @@ import '../../data/models/commodity_price.dart';
 /// ve başka bir karta dokunmak bunu zaten kapatıyor.
 class CommodityCard extends StatelessWidget {
   final CommodityPrice price;
+
+  /// Son ~30 günün fiyat noktaları (Ö4). Boşsa eğri çizilmiyor ve kart
+  /// eski görünümüne düşüyor — veri gelmeden kart bozulmasın.
+  final List<CommodityPricePoint> egri;
+
   final bool isDark;
   final bool isExpanded;
   final bool isCompact;
@@ -35,6 +41,7 @@ class CommodityCard extends StatelessWidget {
   const CommodityCard({
     super.key,
     required this.price,
+    this.egri = const [],
     required this.isDark,
     required this.isExpanded,
     required this.isCompact,
@@ -86,6 +93,7 @@ class CommodityCard extends StatelessWidget {
                 width: isCompact ? 116 : 144,
                 child: _Summary(
                   price: price,
+                  egri: egri,
                   isEn: isEn,
                   isCompact: isCompact,
                   titleColor: titleColor,
@@ -117,6 +125,7 @@ class CommodityCard extends StatelessWidget {
 
 class _Summary extends StatelessWidget {
   final CommodityPrice price;
+  final List<CommodityPricePoint> egri;
   final bool isEn;
   final bool isCompact;
   final Color titleColor;
@@ -125,6 +134,7 @@ class _Summary extends StatelessWidget {
 
   const _Summary({
     required this.price,
+    required this.egri,
     required this.isEn,
     required this.isCompact,
     required this.titleColor,
@@ -231,7 +241,12 @@ class _Summary extends StatelessWidget {
                           color: changeColor,
                         ),
                         Text(
-                          '${change.abs().toStringAsFixed(2).replaceAll('.', ',')}%',
+                          // Türkçede yüzde işareti rakamdan ÖNCE geliyor
+                          // (%0,91). Grafiklerde bu düzeltilmişti, şerit
+                          // atlanmıştı; aynı sayfada iki ayrı yazım vardı.
+                          isEn
+                              ? '${change.abs().toStringAsFixed(2)}%'
+                              : '%${change.abs().toStringAsFixed(2).replaceAll('.', ',')}',
                           style: GoogleFonts.inter(
                             fontSize: isCompact ? 11 : 12,
                             fontWeight: FontWeight.w600,
@@ -246,6 +261,19 @@ class _Summary extends StatelessWidget {
             ),
           ],
         ),
+        // Eğri özetin ALTINDA, satırın sağında değil (Ö4). Satırda özet
+        // sabit 144 px yer tutuyor ve kapalı karttan geriye 8 px kalıyordu;
+        // o genişlikte çizilen şey eğri değil, dikey bir çizgiydi. Burada
+        // eğri sütunun tam genişliğini alıyor ve şerit yalnızca ~22 px
+        // uzuyor — görüş alanından kart çıkarmadan.
+        if (egri.length >= FiyatEgrisi.enAzNokta) ...[
+          const SizedBox(height: 6),
+          FiyatEgrisi(
+            noktalar: egri,
+            renk: changeColor,
+            yukseklik: isCompact ? 18 : 22,
+          ),
+        ],
       ],
     );
   }

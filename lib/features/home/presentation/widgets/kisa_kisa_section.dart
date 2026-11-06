@@ -77,6 +77,8 @@ class KisaKisaSection extends ConsumerWidget {
       children: [
         SectionContainer(
           title: isEn ? 'In Brief' : 'Kısa Kısa',
+          // Yardımcı şerit (Ö8).
+          kademe: BolumKademesi.yardimci,
           icon: Icons.bolt_rounded,
           isDark: isDark,
           // "Daha fazla" yalnızca gösterilmeyen haber varken anlamlı. Beş

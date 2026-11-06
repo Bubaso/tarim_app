@@ -49,7 +49,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/videos/
+    # assets/videos/ kaldırıldı: dizin yok ve kodda hiçbir yerde yerel
+    # video açılmıyor (videolar ağdan geliyor). Flutter her derlemede
+    # "unable to find directory entry" hatası basıyordu; derleme yine de
+    # bitiyordu ama çıktıdaki tek Error satırı buydu — gerçek bir hata
+    # çıksa gözden kaçardı.
   fonts:
     # Sadece Font Awesome "Brands" seti. font_awesome_flutter paketi Free-Solid
     # ve Free-Regular'ı da manifest'e ekliyor ve Flutter web manifest'teki her

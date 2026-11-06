@@ -41,6 +41,39 @@ class CommodityRepository {
   /// Gün sayısı değil kayıt sayısı sınırlanıyor: borsa haftada beş gün açık ve
   /// bazı ürünler ayda birkaç gün işlem görüyor. "Son 90 gün" bir üründe 60
   /// nokta, diğerinde 4 nokta demek olurdu.
+  /// Bütün emtiaların son [gun] günlük geçmişi — TEK sorguda.
+  ///
+  /// Şeritte altı kart var ve her birine ayrı `fetchHistory` atmak altı
+  /// turdan altı sorgu demekti (Ö4). Slug süzgeci olmadan tarih aralığı
+  /// çekip istemcide gruplamak bir tur: ~10 emtia × 35 gün ≈ 350 satır.
+  Future<Map<String, List<CommodityPricePoint>>> fetchRecentHistories({
+    int gun = 35,
+  }) async {
+    try {
+      final esik = DateTime.now().subtract(Duration(days: gun));
+      final response = await _supabaseClient
+          .from('commodity_price_history')
+          .select('slug, price_date, avg_price, notice')
+          .gte('price_date', esik.toIso8601String().split('T').first)
+          .order('price_date', ascending: true);
+
+      final gruplar = <String, List<CommodityPricePoint>>{};
+      for (final ham in (response as List)) {
+        final satir = ham as Map<String, dynamic>;
+        final slug = satir['slug']?.toString();
+        if (slug == null || slug.isEmpty) continue;
+        gruplar
+            .putIfAbsent(slug, () => <CommodityPricePoint>[])
+            .add(CommodityPricePoint.fromJson(satir));
+      }
+      return gruplar;
+    } catch (e) {
+      if (kDebugMode) print('fetchRecentHistories error: $e');
+      // Boş harita: eğri çizilmiyor, kart eskisi gibi görünüyor.
+      return const {};
+    }
+  }
+
   Future<List<CommodityPricePoint>> fetchHistory(String slug, {int limit = 120}) async {
     try {
       final response = await _supabaseClient

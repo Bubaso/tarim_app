@@ -14,6 +14,7 @@ import 'hero_rotation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import '../../../core/utils/turkce_metin.dart';
 
 final homeRepositoryProvider = Provider<HomeRepository>((ref) {
   final supabaseClient = ref.watch(supabaseClientProvider);
@@ -207,7 +208,7 @@ final pendingArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {
 
 /// Haberin bilim/rapor içeriği olup olmadığını kontrol eder.
 bool _articleIsScience(NewsArticle a) {
-  final t = a.topic?.toLowerCase().trim() ?? '';
+  final t = kucukHarf(a.topic?.trim() ?? '', false);
   return t == 'tarım-bilim' || t == 'yyt';
 }
 
@@ -222,13 +223,15 @@ void _turkiyeSabitiniYerlestir(List<NewsArticle> liste) {
 }
 
 bool _articleIsTurkey(NewsArticle a) {
-  final r = a.region?.toLowerCase().trim() ?? '';
+  // Türkçe küçültme: `'TÜRKİYE'.toLowerCase()` birleşen noktalı
+  // 'türki̇ye' üretiyor ve hiçbir şeyle eşleşmiyor (§39.5).
+  final r = kucukHarf(a.region?.trim() ?? '', false);
   return r == 'türkiye';
 }
 
 /// Haberin uluslararası (Dünya) odaklı olup olmadığını kontrol eder.
 bool _articleIsWorld(NewsArticle a) {
-  final r = a.region?.toLowerCase().trim() ?? '';
+  final r = kucukHarf(a.region?.trim() ?? '', false);
   return r == 'dünya' || r == 'uluslararası' || r == 'küresel';
 }
 
@@ -609,8 +612,13 @@ final homeAllocationProvider = Provider<HomeAllocation>((ref) {
     return out;
   }
 
+  // Karşılaştırma TÜRKÇE küçültmeyle. Dart'ın `toLowerCase()`i
+  // 'HAYVANCILIK' → 'hayvancilik' üretiyor (I → i, oysa Türkçede ı) ve
+  // konu büyük harfle kaydedilmiş tek bir satır sektörel bölümden sessizce
+  // düşüyordu. İki taraf da aynı yanlışı yaptığı için bugün tutarlı;
+  // yarın bir taraf düzelirse eşleşme kopardı.
   bool topicIs(NewsArticle a, String t) =>
-      (a.topic?.toLowerCase().trim() ?? '') == t.toLowerCase();
+      kucukHarf(a.topic?.trim() ?? '', false) == kucukHarf(t, false);
 
   // Öncelik sırası (sayfadaki görünme sırası DEĞİL):
   //  1. Bilim/rapor — en küçük ve en ayırt edici kova, ilk seçimi hak ediyor.

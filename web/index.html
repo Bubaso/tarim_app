@@ -17,6 +17,29 @@
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       Yazı tipi bağlantısını ÖNDEN kur (A2 — 6 Kasım 2026)
+
+       Denetimde "Inter ve Outfit'i pakete göm" diye yazmıştım; ölçünce
+       tersi çıktı. Flutter web, pubspec'teki her fontu AÇILIŞTA indiriyor
+       (FontAwesome notunda da yazdığı gibi). Türkçe alt kümeye indirilmiş
+       TTF'ler bile ağırlık başına ~55 KB; gerçekten kullanılan 13 varyant
+       607 KB eder ve hepsi ilk boyamadan ÖNCE inerdi. google_fonts ise
+       yalnız o ekranda görünen varyantı, woff2 olarak (~18 KB) ve sonradan
+       çekiyor. Gömmek bayt olarak kayıptı — bu turda 945 KB kazanmışken
+       500 KB'ı geri vermek olurdu.
+
+       Geriye kalan gerçek maliyet bayt değil, el sıkışma: DNS + TLS +
+       bağlantı, yazı tipi baytı akmaya başlamadan önce ~150-300 ms.
+       preconnect bunu uygulama açılırken, paralelde hallediyor. Bedeli
+       iki satır.
+
+       crossorigin şart: yazı tipleri CORS ile çekiliyor, bayrak olmazsa
+       tarayıcı ikinci bir bağlantı açıyor ve önden kurulan boşa gidiyor.
+       ══════════════════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
 
   <!--

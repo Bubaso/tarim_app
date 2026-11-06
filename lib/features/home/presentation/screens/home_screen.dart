@@ -45,6 +45,8 @@ import '../../../stories/providers/story_providers.dart';
 import '../../../videos/presentation/widgets/video_serit.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/hava_ikonu.dart';
+import '../widgets/sektorel_blok.dart';
+import '../widgets/kapanis_blogu.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -471,12 +473,10 @@ class _MobileContent extends ConsumerWidget {
           // Kısa haber ikincil haberdir; manşetin üstüne çıkmamalı ama
           // "hayvancılık" gibi gezinme bölümlerinin de altında kalmamalı.
           KisaKisaSection(isDark: isDark, spacing: 28),
-          _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
-          const SizedBox(height: 28),
-          _SectoralNewsSection(topic: 'Bitkisel Üretim', isDark: isDark),
-          const SizedBox(height: 28),
-          _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+          SektorelBlok(isDark: isDark),
           const SizedBox(height: 32),
+          // Sayfanın bir sonu olsun (A10): arşiv ve bülten daveti.
+          KapanisBlogu(isDark: isDark),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -543,12 +543,7 @@ class _TabletContent extends ConsumerWidget {
         IcymiSection(isDark: isDark),
         const SizedBox(height: 36),
         KisaKisaSection(isDark: isDark, spacing: 36),
-        _SectoralNewsSection(topic: 'Hayvancılık', isDark: isDark),
-        const SizedBox(height: 36),
-        _SectoralNewsSection(
-            topic: 'Bitkisel Üretim', isDark: isDark),
-        const SizedBox(height: 36),
-        _SectoralNewsSection(topic: 'Ekonomi', isDark: isDark),
+        SektorelBlok(isDark: isDark),
         const SizedBox(height: 48),
           ])
             Center(
@@ -560,6 +555,7 @@ class _TabletContent extends ConsumerWidget {
                 ),
               ),
             ),
+          KapanisBlogu(isDark: isDark),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -646,20 +642,11 @@ class _DesktopContent extends ConsumerWidget {
         // üretilmemiş bir günde bölüm SizedBox.shrink() dönüyor ve
         // sarmalayan Padding geriye 40 px boşluk bırakırdı.
         KisaKisaSection(isDark: isDark, spacing: 40),
+        // Üç ayrı sektörel bölüm TEK bloğa indi (Ö3): telefonda 2,4 ekran
+        // 0,9 ekrana iniyor, içerik azalmıyor. Ayrıntı sektorel_blok.dart.
         Padding(
           padding: const EdgeInsets.only(bottom: 40),
-          child: _SectoralNewsSection(
-              topic: 'Hayvancılık', isDark: isDark),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 40),
-          child: _SectoralNewsSection(
-              topic: 'Bitkisel Üretim', isDark: isDark),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(bottom: 40),
-          child: _SectoralNewsSection(
-              topic: 'Ekonomi', isDark: isDark),
+          child: SektorelBlok(isDark: isDark),
         ),
     ];
 
@@ -674,6 +661,14 @@ class _DesktopContent extends ConsumerWidget {
                 constraints: BoxConstraints(maxWidth: maxWidth),
                 child: bolumler[i],
               ),
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: maxWidth),
+              child: KapanisBlogu(isDark: isDark),
             ),
           ),
         ),
@@ -700,9 +695,26 @@ class _WeatherChip extends ConsumerWidget {
     final w = weatherAsync.value;
 
     if (w != null) {
-      final color = isDark ? const Color(0xFFCCCCCC) : const Color(0xFF444444);
+      // ÇİP ARTIK HAVA DURUMU DEĞİL, TARIMSAL UYARI (Ö7).
+      //
+      // "9°C" yazmak bir hava durumu sitesinin işi; okur onu zaten başka
+      // yerden biliyor. Bir tarım portalında o alanın söylemesi gereken şey
+      // don riski, mildiyö ya da tarla işine uygunluk. Veri ZATEN
+      // üretiliyordu (`agriculturalWarning`), yalnız anasayfada hiç
+      // gösterilmiyordu — yalnızca hava detay ekranına girenler görüyordu.
+      //
+      // Sıcaklık kaybolmuyor, ikincil bilgi oluyor.
+      final uyariVar = w.hasWarning;
+      final kisa = w.agriculturalWarningShort.trim();
+      final color = uyariVar
+          ? (isDark ? const Color(0xFFDDB255) : const Color(0xFF8A6410))
+          : (isDark ? const Color(0xFFCCCCCC) : const Color(0xFF444444));
+
+      // Dar ekranda yalnızca ikon + sıcaklık; etiket üst çubuğu taşırırdı.
+      final genis = MediaQuery.of(context).size.width >= 1100;
+
       return InkWell(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(6),
         onTap: () => pushScreen(
           context,
           WeatherDetailScreen(weather: w),
@@ -713,14 +725,43 @@ class _WeatherChip extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               // Emoji DEĞİL ikon: ayrıntı için hava_ikonu.dart (A3).
-              Icon(havaIkonu(w.iconCode), size: 16, color: color),
+              Icon(
+                uyariVar ? Icons.warning_amber_rounded : havaIkonu(w.iconCode),
+                size: 16,
+                color: color,
+              ),
               const SizedBox(width: 5),
+              if (genis && kisa.isNotEmpty) ...[
+                Text(
+                  kisa,
+                  style: GoogleFonts.inter(
+                    fontSize: 12.5,
+                    fontWeight: FontWeight.w700,
+                    color: color,
+                  ),
+                ),
+                const SizedBox(width: 7),
+                Container(
+                  width: 3,
+                  height: 3,
+                  decoration: BoxDecoration(
+                    color: color.withValues(alpha: 0.5),
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                const SizedBox(width: 7),
+              ],
               Text(
                 '${w.temperature.toStringAsFixed(0)}°C',
                 style: GoogleFonts.inter(
                   fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: color,
+                  // Uyarı varken sıcaklık ikincil: asıl bilgi uyarının
+                  // kendisi.
+                  fontWeight:
+                      (genis && kisa.isNotEmpty) ? FontWeight.w500 : FontWeight.w700,
+                  color: (genis && kisa.isNotEmpty)
+                      ? color.withValues(alpha: 0.78)
+                      : color,
                 ),
               ),
             ],
@@ -983,48 +1024,6 @@ class _ScienceAndReportsSection extends ConsumerWidget {
   }
 }
 
-class _SectoralNewsSection extends ConsumerWidget {
-  final String topic;
-  final bool isDark;
-
-  const _SectoralNewsSection({required this.topic, required this.isDark});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(localeProvider); // Rebuild when language changes
-    final preview =
-        ref.watch(homeAllocationProvider).byTopic[topic] ?? const <NewsArticle>[];
-    if (preview.isEmpty) return const SizedBox.shrink();
-    final all = ref.watch(categoryArticlesProvider(topic));
-
-    final isEn = Localizations.localeOf(context).languageCode == 'en';
-    String displayTopic = topic.toTurkishUpperCase();
-    if (isEn) {
-      if (topic == 'Hayvancılık') displayTopic = 'LIVESTOCK';
-      if (topic == 'Bitkisel Üretim') displayTopic = 'CROP PRODUCTION';
-      if (topic == 'Ekonomi') displayTopic = 'ECONOMY';
-    }
-
-    return _SectionContainer(
-      title: displayTopic,
-      icon: Icons.category_rounded,
-      isDark: isDark,
-      onSeeAll: all.isNotEmpty
-          ? () {
-              pushScreen(
-                context,
-                CategoryArticlesScreen(
-                    slug: categoryTopicSlug(topic),
-                    title: displayTopic,
-                    articles: all),
-              );
-            }
-          : null,
-      child:
-          AgendaBentoGrid(articles: preview.take(6).toList(), isDark: isDark),
-    );
-  }
-}
 
 /// Bölüm başlığı artık `core/widgets/section_container.dart` içinde yaşıyor:
 /// emtia şeridi bu dosyanın dışında olduğu halde aynı başlığı kullanıyor.
@@ -1061,9 +1060,40 @@ class _RecentlyReadSection extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(localeProvider);
     final articles = ref.watch(recentlyReadArticlesProvider);
-    if (articles.isEmpty) return const SizedBox.shrink();
-
     final isEn = Localizations.localeOf(context).languageCode == 'en';
+
+    // BOŞKEN GİZLENMİYOR (A9/Ö9).
+    //
+    // Eskiden boş liste bölümü tamamen kaldırıyordu. İki sonucu vardı:
+    // ilk kez gelen okur bu özelliğin VAR OLDUĞUNU hiç öğrenmiyordu ve
+    // ikinci ziyaretinde sayfanın düzeni değişmiş gibi görünüyordu —
+    // bölüm aniden belirip altındaki her şeyi aşağı itiyordu.
+    //
+    // Artık yeri sabit: tek satırlık bir davet duruyor. Kural yalnızca
+    // KİŞİSEL bölümler için; içerik bölümleri boşken hâlâ gizleniyor
+    // (orada gösterilecek bir şey yok, davet edilecek bir şey de).
+    if (articles.isEmpty) {
+      return Column(
+        children: [
+          _SectionContainer(
+            title: isEn ? 'RECENTLY READ' : 'SON OKUDUKLARINIZ',
+            icon: Icons.auto_stories_rounded,
+            isDark: isDark,
+            kademe: BolumKademesi.yardimci,
+            child: Text(
+              isEn
+                  ? 'Articles you read will collect here.'
+                  : 'Okuduğunuz haberler burada birikir.',
+              style: GoogleFonts.inter(
+                fontSize: 14.5,
+                color: isDark ? Colors.white54 : Colors.black54,
+              ),
+            ),
+          ),
+          SizedBox(height: spacing),
+        ],
+      );
+    }
 
     return Column(
       children: [
@@ -1071,6 +1101,7 @@ class _RecentlyReadSection extends ConsumerWidget {
           title: isEn ? 'RECENTLY READ' : 'SON OKUDUKLARINIZ',
           icon: Icons.auto_stories_rounded,
           isDark: isDark,
+          kademe: BolumKademesi.yardimci,
           child: SizedBox(
             // Diğer şeritlerden bilerek alçak. Bu bölüm keşif değil geri dönüş
             // için: kart tanınacak kadar büyük, dikkat çekecek kadar değil.

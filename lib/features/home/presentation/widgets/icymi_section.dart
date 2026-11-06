@@ -35,27 +35,46 @@ class IcymiSection extends ConsumerWidget {
 
     return SectionContainer(
       title: titleText,
+      // Yardımcı şerit (Ö8): çizgisiz, bir kademe sakin başlık.
+      kademe: BolumKademesi.yardimci,
       icon: Icons.history_rounded,
       isDark: isDark,
-      child: SizedBox(
-        height: 320,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          clipBehavior: Clip.none,
-          itemCount: articles.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(
-                left: index == 0 ? 0.0 : 8.0,
-                right: index == articles.length - 1 ? 0.0 : 8.0,
-              ),
-              child: SizedBox(
-                width: 260,
-                child: _IcymiCard(article: articles[index], isDark: isDark),
-              ),
-            );
-          },
-        ),
+      // IZGARA, yatay şerit DEĞİL (A5/Ö2).
+      //
+      // Bu bölüm sayfada "Dünyadan Haberler"in hemen ardından geliyordu ve
+      // ikisi de yatay kart şeridiydi: aynı kart ölçüsü, aynı ritim, aynı
+      // kaydırma. Ekranda ikisini ayıran tek şey başlıktı ve okur ikinci
+      // özdeş şeritten sonra taramayı bırakıyordu.
+      //
+      // Kural basit: aynı kalıp arka arkaya iki kez kullanılmaz. Izgara
+      // burada ayrıca daha doğru — "gözden kaçanlar" bir keşif listesi,
+      // yatay kaydırma ise okura kartların bir kısmını gizliyor. Izgarada
+      // hepsi aynı anda görünüyor.
+      child: LayoutBuilder(
+        builder: (context, kutu) {
+          // Sütun sayısı genişlikten: telefonda tek, tablette iki,
+          // masaüstünde üç. Kart genişliği 260'ın altına inmiyor —
+          // başlık üç satıra taşıyordu.
+          final w = kutu.maxWidth;
+          final sutun = w < 560 ? 1 : (w < 1000 ? 2 : 3);
+          const aralik = 16.0;
+          final kartW = (w - aralik * (sutun - 1)) / sutun;
+
+          return Wrap(
+            spacing: aralik,
+            runSpacing: aralik,
+            children: [
+              for (final a in articles)
+                SizedBox(
+                  width: kartW,
+                  // Yükseklik sabit: ızgarada farklı boylarda kartlar
+                  // satır içinde hizasız duruyor.
+                  height: 320,
+                  child: _IcymiCard(article: a, isDark: isDark),
+                ),
+            ],
+          );
+        },
       ),
     );
   }

@@ -8,6 +8,7 @@ import '../../../../core/widgets/section_container.dart';
 import '../../providers/commodity_providers.dart';
 import '../screens/commodity_detail_screen.dart';
 import 'commodity_card.dart';
+import '../../data/models/commodity_price.dart';
 
 /// Ana sayfadaki tarım emtia fiyatı şeridi.
 ///
@@ -85,6 +86,10 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
     ref.watch(localeProvider);
     final pricesAsync = ref.watch(latestCommodityPricesProvider);
     final prices = pricesAsync.valueOrNull ?? const [];
+    // Eğriler AYRI ve gecikmeli gelebilir: fiyatlar hazırken kartı
+    // bekletmek yerine eğri sonradan beliriyor (Ö4).
+    final egriler = ref.watch(commoditySparkProvider).valueOrNull ??
+        const <String, List<CommodityPricePoint>>{};
 
     // Yükleme ve hata durumunda iskelet ya da hata kutusu YOK. Bu şerit ana
     // sayfanın ana işi değil; boş bir kutu ya da kırmızı bir uyarı manşetten
@@ -125,6 +130,8 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
       children: [
         SectionContainer(
           title: isEn ? 'COMMODITY PRICES' : 'EMTİA FİYATLARI',
+          // Yardımcı şerit (Ö8).
+          kademe: BolumKademesi.yardimci,
           icon: Icons.agriculture_rounded,
           isDark: widget.isDark,
           child: SizedBox(
@@ -156,6 +163,7 @@ class _CommodityStripState extends ConsumerState<CommodityStrip> {
                     borderRadius: BorderRadius.circular(12),
                     child: CommodityCard(
                       price: price,
+                      egri: egriler[price.slug] ?? const [],
                       isDark: widget.isDark,
                       isExpanded: isExpanded,
                       isCompact: isCompact,

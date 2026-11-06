@@ -496,9 +496,20 @@ class _HeadlineCarousel extends StatefulWidget {
 /// sıralama değil, buydu. 9 saniye başlığı okuyup karar vermeye yetiyor.
 const _kAdvanceInterval = Duration(seconds: 9);
 
-class _HeadlineCarouselState extends State<_HeadlineCarousel> {
+class _HeadlineCarouselState extends State<_HeadlineCarousel>
+    with SingleTickerProviderStateMixin {
   late final PageController _pc;
   Timer? _timer;
+
+  /// Etkin noktanın dolma payı (Ö10).
+  ///
+  /// Noktalar "kaç manşet var" diyordu ama "bu ne kadar kalacak" demiyordu;
+  /// okur karuselin döndüğünü ancak bir haberi kaçırdığında fark ediyordu.
+  /// Hikâye görüntüleyicide çalışan mekanizmanın aynısı.
+  ///
+  /// Kendiliğinden ilerleme DURDUĞUNDA (bir tam tur sonrası) denetleyici de
+  /// duruyor ve nokta dolu kalıyor — "artık dönmüyor" bunu söylüyor.
+  late final AnimationController _ilerleme;
   int _current = 0;
   bool _isHovered = false;
 
@@ -511,6 +522,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   void initState() {
     super.initState();
     _pc = PageController();
+    _ilerleme = AnimationController(vsync: this, duration: _kAdvanceInterval);
     _startTimer();
   }
 
@@ -549,6 +561,9 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   void _startTimer() {
     _timer?.cancel();
     _advances = 0;
+    _ilerleme
+      ..reset()
+      ..forward();
     _timer = Timer.periodic(_kAdvanceInterval, (_) {
       if (!mounted) return;
       if (!_isOnScreen()) return;
@@ -565,6 +580,9 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
         duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
       );
+      _ilerleme
+        ..reset()
+        ..forward();
 
       // Bir tam turdan sonra duruyor. Manşet sonsuza kadar dönen bir pano
       // değil; her başlığı bir kez gösterip ilk karta dönerek duruyor, en
@@ -578,11 +596,15 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
   void _stopTimer() {
     _timer?.cancel();
     _timer = null;
+    // Dolu bırakılıyor: yarım bir çubuk "birazdan geçecek" der, oysa
+    // geçmeyecek.
+    _ilerleme.value = 1.0;
   }
 
   @override
   void dispose() {
     _timer?.cancel();
+    _ilerleme.dispose();
     _pc.dispose();
     super.dispose();
   }
@@ -683,6 +705,7 @@ class _HeadlineCarouselState extends State<_HeadlineCarousel> {
             _PageDotsIndicator(
               current: _current,
               total: total,
+              ilerleme: _ilerleme,
               onDotTapped: (index) {
                 _stopTimer();
                 _pc.animateToPage(
@@ -1109,10 +1132,14 @@ class _PageDotsIndicator extends StatelessWidget {
   final int total;
   final ValueChanged<int> onDotTapped;
 
+  /// Etkin noktanın dolma payı — 0 ile 1 arası (Ö10).
+  final Animation<double> ilerleme;
+
   const _PageDotsIndicator({
     required this.current,
     required this.total,
     required this.onDotTapped,
+    required this.ilerleme,
   });
 
   @override
@@ -1130,14 +1157,33 @@ class _PageDotsIndicator extends StatelessWidget {
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 300),
               margin: const EdgeInsets.symmetric(horizontal: 4),
-              width: isActive ? 20.0 : 8.0,
+              width: isActive ? 24.0 : 8.0,
               height: 8.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
-                color: isActive
-                    ? (isDark ? AppColors.primaryGreen : AppColors.primaryGreen)
-                    : (isDark ? Colors.white24 : Colors.black12),
+                color: isDark ? Colors.white24 : Colors.black12,
               ),
+              // Etkin nokta bir OLUK; içindeki dolgu süreyi gösteriyor.
+              // Pasif noktalar eskisi gibi düz.
+              child: !isActive
+                  ? null
+                  : ClipRRect(
+                      borderRadius: BorderRadius.circular(4),
+                      child: AnimatedBuilder(
+                        animation: ilerleme,
+                        builder: (context, _) => Align(
+                          alignment: Alignment.centerLeft,
+                          child: FractionallySizedBox(
+                            // En az %18: yeni geçilen noktada dolgu sıfırsa
+                            // etkin nokta pasiflerden ayırt edilemiyor.
+                            widthFactor:
+                                0.18 + 0.82 * ilerleme.value.clamp(0.0, 1.0),
+                            child: const ColoredBox(
+                                color: AppColors.primaryGreen),
+                          ),
+                        ),
+                      ),
+                    ),
             ),
           ),
         );

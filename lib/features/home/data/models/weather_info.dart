@@ -80,6 +80,14 @@ class WeatherInfo {
   final String description;
   final String iconCode;
   final String agriculturalWarning;
+
+  /// Uyarının üst çubuğa sığan kısa hâli — "Don riski", "Mildiyö riski".
+  ///
+  /// Uzun metni kırpmak yerine AYRI bir alan (Ö7): "Bu Gece Don Riski Var!"
+  /// otuz karaktere kırpılınca "Bu Gece Don Riski V…" oluyor ve asıl
+  /// kelime kayboluyor. Kısa hâl aynı yerde, uzunla birlikte yazılıyor.
+  final String agriculturalWarningShort;
+
   final bool hasWarning;
   final List<DailyForecastItem> dailyForecast;
   final HistoricalInfo? historicalInfo;
@@ -99,6 +107,7 @@ class WeatherInfo {
     required this.description,
     required this.iconCode,
     required this.agriculturalWarning,
+    this.agriculturalWarningShort = '',
     required this.hasWarning,
     required this.dailyForecast,
     this.historicalInfo,
@@ -122,6 +131,8 @@ class WeatherInfo {
       description: json['description']?.toString() ?? '',
       iconCode: json['icon_code']?.toString() ?? '01d',
       agriculturalWarning: json['agricultural_warning']?.toString() ?? '',
+      agriculturalWarningShort:
+          json['agricultural_warning_short']?.toString() ?? '',
       hasWarning: json['has_warning'] as bool? ?? false,
       dailyForecast: daily,
       historicalInfo: json['historical_info'] != null
@@ -145,6 +156,7 @@ class WeatherInfo {
       'description': description,
       'icon_code': iconCode,
       'agricultural_warning': agriculturalWarning,
+      'agricultural_warning_short': agriculturalWarningShort,
       'has_warning': hasWarning,
       'daily_forecast': dailyForecast.map((item) => item.toJson()).toList(),
       'historical_info': historicalInfo?.toJson(),

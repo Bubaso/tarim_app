@@ -74,10 +74,12 @@ class PortalFooter extends StatelessWidget {
           constraints: const BoxConstraints(maxWidth: 1200),
           child: Column(
             children: [
-              _NewsletterSignup(isDark: isDark),
-              const SizedBox(height: 40),
-              Divider(color: dividerColor),
-              const SizedBox(height: 40),
+              // Bülten kaydı BURADAN TAŞINDI (A10): artık sayfanın
+              // kapanış bloğunda, altbilginin hemen üstünde. Sekiz ekran
+              // kaydıran okura "bitti" diyen bir yer gerekiyordu ve
+              // bülten daveti oraya ait. İki yerde göstermek davetin
+              // kendisini değersizleştirirdi.
+              const SizedBox(height: 8),
               if (isDesktop)
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -318,15 +320,19 @@ class _SocialIcon extends StatelessWidget {
 //  devam eder — yalnız-haftalık abone sabahı almaz (kullanıcı kararı).
 // ══════════════════════════════════════════════════════════════════════════════
 
-class _NewsletterSignup extends ConsumerStatefulWidget {
+/// Haftalık özet bülteni kaydı.
+///
+/// Altbilgiden kapanış bloğuna taşındı (A10) ve herkese açık
+/// hâle getirildi — iki yerde ayrı kopya tutmak yerine tek sınıf.
+class HaftalikBultenKaydi extends ConsumerStatefulWidget {
   final bool isDark;
-  const _NewsletterSignup({required this.isDark});
+  const HaftalikBultenKaydi({super.key, required this.isDark});
 
   @override
-  ConsumerState<_NewsletterSignup> createState() => _NewsletterSignupState();
+  ConsumerState<HaftalikBultenKaydi> createState() => _HaftalikBultenKaydiState();
 }
 
-class _NewsletterSignupState extends ConsumerState<_NewsletterSignup> {
+class _HaftalikBultenKaydiState extends ConsumerState<HaftalikBultenKaydi> {
   bool _busy = false;
   String? _result; // null · 'ok' · 'denied'
 

@@ -37,3 +37,13 @@ final commodityBySlugProvider =
   }
   return null;
 });
+
+
+/// Şeritteki bütün kartların eğrisi — tek sorgudan (Ö4).
+///
+/// Kart başına ayrı sorgu altı tur demekti; bu sağlayıcı hepsini bir kerede
+/// getirip slug'a göre dağıtıyor.
+final commoditySparkProvider =
+    FutureProvider<Map<String, List<CommodityPricePoint>>>((ref) {
+  return ref.watch(commodityRepositoryProvider).fetchRecentHistories();
+});

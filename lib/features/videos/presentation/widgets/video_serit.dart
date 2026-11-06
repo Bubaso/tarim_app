@@ -48,6 +48,8 @@ class VideoSerit extends ConsumerWidget {
       children: [
         SectionContainer(
           title: isEn ? 'VIDEO NEWS' : 'VİDEO HABERLER',
+          // Yardımcı şerit (Ö8).
+          kademe: BolumKademesi.yardimci,
           icon: Icons.play_circle_outline_rounded,
           isDark: isDark,
           child: SizedBox(

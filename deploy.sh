@@ -113,6 +113,49 @@ if [[ ! -f build/web/index.html ]]; then
   exit 1
 fi
 
+# ══════════════════════════════════════════════════════════════════════════
+#  Ağırlık bekçisi (6 Kasım 2026 anasayfa denetimi)
+# ──────────────────────────────────────────────────────────────────────────
+#  Bu turda ilk yük 945 KB hafifledi: ikon tree-shaking geri geldi (643 KB →
+#  38 KB) ve Noto yedekleri 441 KB'dan 101 KB'a indi. Kazanç tek bir
+#  bayrakla kayboldu; geri gelmesi de tek bir pubspec satırıyla mümkün.
+#
+#  Ölçülen şey TOPLAM build/web değil (74 MB — içinde dört canvaskit
+#  türevi ve tüm görseller var, ziyaretçi hiçbirini topluca indirmiyor).
+#  Ölçülen şey, HER ilk ziyarette inen iki kalem:
+#
+#    main.dart.js (gzip)   — Firebase Hosting sıkıştırarak servis ediyor
+#    FontManifest fontları — Flutter web bunları AÇILIŞTA indiriyor
+#
+#  Tavan, ölçülen değerin ~%8 üstü. Amaç kılı kırk yarmak değil; bir
+#  bayrağın ya da gömülü bir fontun 100 KB'ları sessizce geri getirmesini
+#  yakalamak.
+#
+#  TAVAN YÜKSELTİLECEKSE: sebebini buraya yazın. "Derleme durdu, sayıyı
+#  büyüttüm" diye yükseltilen bir tavan bekçi olmaktan çıkıyor.
+# ══════════════════════════════════════════════════════════════════════════
+JS_TAVAN=1800000      # bayt, gzip — 6 Kas 2026 ölçümü: 1.664.255
+FONT_TAVAN=70000      # bayt, ham  — 6 Kas 2026 ölçümü: 49.180
+
+js_boyut=$(gzip -c build/web/main.dart.js | wc -c | tr -d " ")
+font_boyut=$(find build/web/assets \( -name "*.ttf" -o -name "*.otf" \) -exec stat -f%z {} + | awk "{s+=\$1} END {print s+0}")
+
+printf "▸ Ağırlık: main.dart.js %s bayt (gzip, tavan %s) · fontlar %s bayt (tavan %s)\n" \
+  "$js_boyut" "$JS_TAVAN" "$font_boyut" "$FONT_TAVAN"
+
+if (( js_boyut > JS_TAVAN )); then
+  echo "✗ main.dart.js tavanı aştı: $js_boyut > $JS_TAVAN bayt." >&2
+  echo "  Yeni bir paket mi girdi, yoksa tree-shaking mi kapandı? Önce ona bakın." >&2
+  exit 1
+fi
+
+if (( font_boyut > FONT_TAVAN )); then
+  echo "✗ Gömülü font yükü tavanı aştı: $font_boyut > $FONT_TAVAN bayt." >&2
+  echo "  pubspec.yaml'a font eklendiyse: Flutter web manifest'teki HER fontu" >&2
+  echo "  açılışta indiriyor — ekrana girmese bile." >&2
+  exit 1
+fi
+
 # Bootstrap'ta kayıt satırı kalmışsa döngü geri gelmiş demektir. (`serviceWorker`
 # sözcüğü küçültülmüş flutter.js içinde parametre adı olarak zaten geçtiği için
 # aranan şey gerçek ayar satırı.)

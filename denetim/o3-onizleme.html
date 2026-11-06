@@ -1,0 +1,466 @@
+<title>Sektörel Sekmeler Önizlemesi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   Ö3'ün MOBİL önizlemesi. Denetim serisinin jeton setini kullanıyor ama
+   rapor değil: tek soruya cevap veriyor — "üç sektörel bölümü sekmeye
+   çevirirsek telefonda ne olur?"
+
+   Telefon çerçeveleri gerçek ölçüde: 375 px genişlik, içerik 343 px
+   (16'şar kenar boşluğu) — uygulamanın mobil kırılımıyla aynı.
+   Başlıklar canlı veritabanından, uydurma yok.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --kagit:#F6F1E7; --kart:#FBF8F1; --murekkep:#3A2E20; --soluk:#6E6054;
+  --cok-soluk:#8C7F70; --bugday:#C9A15A; --yesil:#5C8A4A; --koyu-yesil:#2F4B2E;
+  --cizgi:rgba(58,46,32,.14); --cizgi-kuv:rgba(58,46,32,.28);
+  --ust:#9C3B28; --alt:#3F6B37;
+  --ekran:#F6F1E7; --golge:rgba(58,46,32,.16);
+  --hayvan:#9C4A3C; --bitki:#5C8A4A; --ekonomi:#9A7224;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+    --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#7FB069; --koyu-yesil:#A7C49A;
+    --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.30);
+    --ust:#E8907A; --alt:#92C584;
+    --ekran:#15100B; --golge:rgba(0,0,0,.5);
+    --hayvan:#C97B63; --bitki:#7FB069; --ekonomi:#DCBB79;
+  }
+}
+:root[data-theme="dark"]{
+  --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+  --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#7FB069; --koyu-yesil:#A7C49A;
+  --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.30);
+  --ust:#E8907A; --alt:#92C584;
+  --ekran:#15100B; --golge:rgba(0,0,0,.5);
+  --hayvan:#C97B63; --bitki:#7FB069; --ekonomi:#DCBB79;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--kagit); color:var(--murekkep);
+  font:400 17px/1.68 Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.sar{max-width:1120px; margin:0 auto; padding:0 24px}
+p{max-width:66ch}
+:focus-visible{outline:2px solid var(--bugday); outline-offset:3px; border-radius:4px}
+
+header.kunye{padding:60px 0 28px; border-bottom:1px solid var(--cizgi-kuv)}
+.ust-etiket{
+  font:600 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.2em; color:var(--cok-soluk); margin:0 0 18px;
+}
+h1{
+  font:700 clamp(30px,5vw,46px)/1.05 Outfit,sans-serif;
+  margin:0 0 16px; letter-spacing:-.02em; max-width:20ch; text-wrap:balance;
+}
+.giris{font-size:18px; color:var(--soluk); max-width:60ch; margin:0}
+
+section{padding:52px 0; border-bottom:1px solid var(--cizgi)}
+section:last-of-type{border-bottom:0}
+h2{font:600 clamp(21px,3vw,28px)/1.2 Outfit,sans-serif; margin:0 0 6px; letter-spacing:-.01em}
+.h2-alt{color:var(--soluk); margin:0 0 30px; max-width:62ch}
+
+/* ── telefon çerçevesi ───────────────────────────────────────────────── */
+.sahne{
+  display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start;
+  margin:0 0 8px;
+}
+.sutun{flex:0 0 auto; display:grid; gap:14px; justify-items:center}
+.sutun-basligi{
+  font:600 12px/1.4 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.1em; text-align:center;
+}
+.b-once{color:var(--ust)}
+.b-sonra{color:var(--alt)}
+.telefon{
+  width:375px; background:var(--ekran); border-radius:26px;
+  border:1px solid var(--cizgi-kuv); box-shadow:0 14px 40px var(--golge);
+  overflow:hidden; padding:16px 16px 20px;
+}
+.telefon.kisa{max-height:620px; overflow-y:auto}
+.olcu{
+  font:500 11.5px/1 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--cok-soluk); text-align:center;
+}
+
+/* ── bölüm başlığı (uygulamadaki hâliyle) ────────────────────────────── */
+.bolum-bas{
+  display:flex; align-items:center; gap:8px; margin:26px 0 14px;
+}
+.bolum-bas:first-child{margin-top:4px}
+.bolum-bas .ad{
+  font:800 15px/1 Outfit,sans-serif; letter-spacing:1.6px;
+}
+.bolum-bas .nokta{width:9px; height:9px; border-radius:2px; flex:0 0 auto}
+.bolum-bas .daha{
+  margin-left:auto; font:500 12px/1 Inter,sans-serif; color:var(--soluk);
+}
+
+/* ── haber kartı ─────────────────────────────────────────────────────── */
+.buyuk-kart{display:grid; gap:8px; margin:0 0 18px}
+.gorsel{
+  width:100%; aspect-ratio:16/9; border-radius:10px;
+  background:linear-gradient(135deg,rgba(92,138,74,.22),rgba(201,161,90,.18));
+  border:1px solid var(--cizgi);
+}
+.gorsel.k{aspect-ratio:1/1; width:76px; border-radius:8px; flex:0 0 auto}
+.kart-bas{font:600 15px/1.33 Inter,sans-serif; margin:0}
+.kart-alt{font:400 11.5px/1 Inter,sans-serif; color:var(--cok-soluk); margin:0}
+.liste-kart{display:flex; gap:11px; align-items:flex-start; margin:0 0 14px}
+.liste-kart .govde{display:grid; gap:5px}
+.liste-kart .kart-bas{font-size:14px}
+
+/* ── sekme çubuğu ────────────────────────────────────────────────────── */
+.sekmeler{
+  display:flex; gap:7px; margin:0 0 16px; overflow-x:auto;
+  padding-bottom:3px; scrollbar-width:none;
+}
+.sekmeler::-webkit-scrollbar{display:none}
+.sekme{
+  flex:0 0 auto; display:flex; align-items:center; gap:6px;
+  padding:8px 13px; border-radius:20px; cursor:pointer;
+  border:1px solid var(--cizgi-kuv); background:transparent;
+  font:600 13px/1 Inter,sans-serif; color:var(--soluk);
+  transition:background .14s ease, color .14s ease, border-color .14s ease;
+}
+.sekme i{width:8px; height:8px; border-radius:2px; display:block}
+.sekme[aria-selected="true"]{color:#fff; border-color:transparent}
+.sekme[aria-selected="true"] i{background:rgba(255,255,255,.85)}
+.sekme.t-hayvan[aria-selected="true"]{background:var(--hayvan)}
+.sekme.t-bitki[aria-selected="true"]{background:var(--bitki)}
+.sekme.t-ekonomi[aria-selected="true"]{background:var(--ekonomi); color:#2A2113}
+.sekme.t-ekonomi[aria-selected="true"] i{background:rgba(42,33,19,.7)}
+.pano[hidden]{display:none}
+
+.ipucu{
+  font:400 12px/1.5 Inter,sans-serif; color:var(--cok-soluk);
+  margin:12px 0 0; display:flex; align-items:center; gap:6px;
+}
+
+/* ── notlar ──────────────────────────────────────────────────────────── */
+.notlar{display:grid; gap:14px; margin:34px 0 0}
+.not{
+  background:var(--kart); border:1px solid var(--cizgi);
+  border-radius:11px; padding:18px 20px; display:grid; gap:7px;
+}
+.not h3{font:600 17px/1.3 Outfit,sans-serif; margin:0; letter-spacing:-.005em}
+.not p{margin:0; font-size:15.5px; color:var(--soluk)}
+.not p b{color:var(--murekkep); font-weight:600}
+.soru{
+  border-left:3px solid var(--bugday); padding-left:14px; margin:30px 0 0;
+  font-size:16px; color:var(--soluk);
+}
+.soru b{color:var(--murekkep); font-weight:600}
+.dipnot{padding:36px 0 64px; color:var(--cok-soluk); font-size:14.5px}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:860px){ .sahne{gap:28px} .telefon{width:100%; max-width:375px} }
+</style>
+
+<div class="sar">
+
+<header class="kunye">
+  <p class="ust-etiket">ÖNİZLEME · Ö3 · 6 KASIM 2026</p>
+  <h1>Sektörel üçlü telefonda nasıl görünür?</h1>
+  <p class="giris">
+    Sağdaki çerçeve <strong>çalışıyor</strong> — sekmelere dokunun.
+    Başlıklar canlı veritabanından, ölçüler uygulamanın mobil kırılımıyla
+    aynı (375 px ekran, 343 px içerik).
+  </p>
+</header>
+
+<section>
+  <h2>Yan yana</h2>
+  <p class="h2-alt">
+    Solda bugünkü hâli: üç bölüm alt alta, üçü de aynı düzende. Sağda
+    önerilen: tek blok, üç sekme.
+  </p>
+
+  <div class="sahne">
+    <div class="sutun">
+      <p class="sutun-basligi b-once">BUGÜN — ÜÇ AYRI BÖLÜM</p>
+      <div class="telefon kisa">
+        <div class="bolum-bas">
+          <span class="nokta" style="background:var(--hayvan)"></span>
+          <span class="ad" style="color:var(--hayvan)">HAYVANCILIK</span>
+          <span class="daha">Daha fazla →</span>
+        </div>
+        <div class="buyuk-kart">
+          <div class="gorsel"></div>
+          <p class="kart-bas">Şaphane'de büyükbaş hayvanlara şap ve brusella aşısı yapıldı</p>
+          <p class="kart-alt">3 saat önce</p>
+        </div>
+        <div class="liste-kart">
+          <div class="gorsel k"></div>
+          <div class="govde">
+            <p class="kart-bas">Damızlık sığır desteğinde başvurular resmen başladı</p>
+            <p class="kart-alt">3 saat önce</p>
+          </div>
+        </div>
+        <div class="liste-kart">
+          <div class="gorsel k"></div>
+          <div class="govde">
+            <p class="kart-bas">Paraguay'da canlı hayvan nakliyesine yüzde 25 zam</p>
+            <p class="kart-alt">4 saat önce</p>
+          </div>
+        </div>
+
+        <div class="bolum-bas">
+          <span class="nokta" style="background:var(--bitki)"></span>
+          <span class="ad" style="color:var(--bitki)">BİTKİSEL ÜRETİM</span>
+          <span class="daha">Daha fazla →</span>
+        </div>
+        <div class="buyuk-kart">
+          <div class="gorsel"></div>
+          <p class="kart-bas">TMO arz sıkışıklığına karşı mısır stoklarını artırıyor</p>
+          <p class="kart-alt">5 saat önce</p>
+        </div>
+        <div class="liste-kart">
+          <div class="gorsel k"></div>
+          <div class="govde">
+            <p class="kart-bas">Pakistan yağlı tohumda 883 bin tonu hedefliyor</p>
+            <p class="kart-alt">6 saat önce</p>
+          </div>
+        </div>
+
+        <div class="bolum-bas">
+          <span class="nokta" style="background:var(--ekonomi)"></span>
+          <span class="ad" style="color:var(--ekonomi)">EKONOMİ</span>
+          <span class="daha">Daha fazla →</span>
+        </div>
+        <div class="buyuk-kart">
+          <div class="gorsel"></div>
+          <p class="kart-bas">Türkşeker Erciş'teki 20 MW güneş santralini devreye aldı</p>
+          <p class="kart-alt">dün 11:17</p>
+        </div>
+      </div>
+      <p class="olcu">yaklaşık 2,4 ekran · okur üçünü de geçmek zorunda</p>
+    </div>
+
+    <div class="sutun">
+      <p class="sutun-basligi b-sonra">ÖNERİLEN — TEK BLOK, ÜÇ SEKME</p>
+      <div class="telefon">
+        <div class="bolum-bas">
+          <span class="nokta" style="background:var(--yesil)"></span>
+          <span class="ad" style="color:var(--yesil)">SEKTÖRLER</span>
+          <span class="daha">Daha fazla →</span>
+        </div>
+
+        <div class="sekmeler" role="tablist" aria-label="Sektörler">
+          <button class="sekme t-hayvan" role="tab" aria-selected="true"
+                  aria-controls="p-hayvan" id="t-hayvan">
+            <i style="background:var(--hayvan)"></i>Hayvancılık
+          </button>
+          <button class="sekme t-bitki" role="tab" aria-selected="false"
+                  aria-controls="p-bitki" id="t-bitki">
+            <i style="background:var(--bitki)"></i>Bitkisel Üretim
+          </button>
+          <button class="sekme t-ekonomi" role="tab" aria-selected="false"
+                  aria-controls="p-ekonomi" id="t-ekonomi">
+            <i style="background:var(--ekonomi)"></i>Ekonomi
+          </button>
+        </div>
+
+        <div class="pano" id="p-hayvan" role="tabpanel" aria-labelledby="t-hayvan">
+          <div class="buyuk-kart">
+            <div class="gorsel"></div>
+            <p class="kart-bas">Şaphane'de büyükbaş hayvanlara şap ve brusella aşısı yapıldı</p>
+            <p class="kart-alt">3 saat önce</p>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Damızlık sığır desteğinde başvurular resmen başladı</p>
+              <p class="kart-alt">3 saat önce</p>
+            </div>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Paraguay'da canlı hayvan nakliyesine yüzde 25 zam</p>
+              <p class="kart-alt">4 saat önce</p>
+            </div>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Çiğ sütte referans fiyat çıkmazı üreticiyi zorluyor</p>
+              <p class="kart-alt">dün 09:40</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pano" id="p-bitki" role="tabpanel" aria-labelledby="t-bitki" hidden>
+          <div class="buyuk-kart">
+            <div class="gorsel"></div>
+            <p class="kart-bas">TMO arz sıkışıklığına karşı mısır stoklarını artırıyor</p>
+            <p class="kart-alt">5 saat önce</p>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Pakistan yağlı tohumda 883 bin tonu hedefliyor</p>
+              <p class="kart-alt">6 saat önce</p>
+            </div>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Marmarabirlik rekor alıma hazırlanırken fiyat belirsizliği sürüyor</p>
+              <p class="kart-alt">dün 14:05</p>
+            </div>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Hatalı depolama koşulları patateste rekolteyi eritiyor</p>
+              <p class="kart-alt">dün 10:22</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pano" id="p-ekonomi" role="tabpanel" aria-labelledby="t-ekonomi" hidden>
+          <div class="buyuk-kart">
+            <div class="gorsel"></div>
+            <p class="kart-bas">Türkşeker Erciş'teki 20 MW güneş santralini devreye aldı</p>
+            <p class="kart-alt">dün 11:17</p>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Kazakistan İsrail pazarına 500 bin ton buğday gönderecek</p>
+              <p class="kart-alt">dün 12:30</p>
+            </div>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Ukraynalı üretici Mısır'a doğrudan buğday ihraç etti</p>
+              <p class="kart-alt">dün 08:15</p>
+            </div>
+          </div>
+          <div class="liste-kart">
+            <div class="gorsel k"></div>
+            <div class="govde">
+              <p class="kart-bas">Küresel piyasada mısır yükselirken buğday ve soya geriledi</p>
+              <p class="kart-alt">2 gün önce</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="ipucu">Yana kaydırarak da sektör değiştirilebilir.</p>
+      </div>
+      <p class="olcu">yaklaşık 0,9 ekran · okur kendi sektörünü seçiyor</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Kararlar ve gerekçeleri</h2>
+
+  <div class="notlar">
+    <div class="not">
+      <h3>Sekmeler çipli, alt çizgili değil</h3>
+      <p>
+        Üç etiketten biri 15 harf (“Bitkisel Üretim”). Klasik alt çizgili
+        sekme çubuğunda üçü 343 piksele sığmıyor; sığdırmak için punto
+        küçültmek gerekirdi. <b>Dolgulu çip</b> hem daha kısa yer kaplıyor
+        hem konu rengini taşıyabiliyor — portalda bugün kurduğumuz renk
+        sistemiyle aynı.
+      </p>
+    </div>
+
+    <div class="not">
+      <h3>Çubuk yatay kaydırılabilir — ama kaydırmaya gerek kalmıyor</h3>
+      <p>
+        Üç çip 343 pikselde tam sığıyor (ölçtüm: 331 px). Çubuk yine de
+        kaydırılabilir bırakıldı: yarın dördüncü bir sektör eklenirse düzen
+        bozulmaz, çip taşmaz. <b>Bugün kaydırma görünmüyor</b>, ileride
+        kendiliğinden devreye giriyor.
+      </p>
+    </div>
+
+    <div class="not">
+      <h3>Sektör başına dört haber, bugünkü gibi</h3>
+      <p>
+        Bir büyük kart + üç liste satırı. Bugün her bölüm de bunu
+        gösteriyor; değişen tek şey üçünün aynı anda değil, seçilen birinin
+        görünmesi. <b>Toplam içerik azalmıyor</b> — yalnız 2,4 ekran 0,9
+        ekrana iniyor.
+      </p>
+    </div>
+
+    <div class="not">
+      <h3>Seçim hatırlanıyor, ilk açılışta okurun konusu geliyor</h3>
+      <p>
+        Hangi sektörün seçildiği cihazda saklanıyor. İlk ziyarette seçim
+        okuma geçmişinden belirleniyor: en çok hangi konuyu okuduysanız o
+        sekme açık geliyor. Geçmiş yoksa Hayvancılık — en çok haber üretilen
+        konu. <b>Yeni veri gerekmiyor</b>, okuma geçmişi zaten tutuluyor.
+      </p>
+    </div>
+
+    <div class="not">
+      <h3>Yana kaydırma da çalışıyor</h3>
+      <p>
+        Telefonda sekmeye dokunmak tek yol değil; panoyu yana kaydırmak da
+        sektör değiştiriyor. Hikâye görüntüleyicide çalışan hareketin aynısı.
+      </p>
+    </div>
+
+    <div class="not">
+      <h3>Masaüstünde ne olacak</h3>
+      <p>
+        Aynı yapı, tek farkla: geniş ekranda sektör başına dört haberin
+        tamamı <b>yan yana</b> dizilecek — bugünkü masaüstü düzeni gibi.
+        Sekme çubuğu aynı kalıyor. Yani telefonda dikey, masaüstünde yatay;
+        ikisinde de tek blok.
+      </p>
+    </div>
+  </div>
+
+  <p class="soru">
+    <b>Karar sizin.</b> Bu hâliyle uygunsa uygularım. Değiştirmek
+    istediğiniz bir şey varsa — çip yerine alt çizgi, dört yerine üç haber,
+    varsayılan sekme, sektör sırası — söyleyin, önce burada değiştirip
+    tekrar göstereyim.
+  </p>
+</section>
+
+<footer class="dipnot">
+  <p>
+    Başlıklar 6 Kasım 2026’da veritabanından alındı. Ölçüler uygulamanın
+    mobil kırılımıyla aynı: 375 px ekran, 16’şar kenar boşluğu, 343 px
+    içerik genişliği.
+  </p>
+</footer>
+
+</div>
+
+<script>
+(() => {
+  const sekmeler = Array.from(document.querySelectorAll('.sekme'));
+  const panolar = Array.from(document.querySelectorAll('.pano'));
+
+  function sec(id) {
+    sekmeler.forEach(s => s.setAttribute('aria-selected', String(s.id === id)));
+    panolar.forEach(p => {
+      p.hidden = p.getAttribute('aria-labelledby') !== id;
+    });
+  }
+
+  sekmeler.forEach(s => {
+    s.addEventListener('click', () => sec(s.id));
+    s.addEventListener('keydown', (e) => {
+      const i = sekmeler.indexOf(s);
+      if (e.key === 'ArrowRight') { sekmeler[(i + 1) % sekmeler.length].focus(); sec(sekmeler[(i + 1) % sekmeler.length].id); }
+      if (e.key === 'ArrowLeft') { const j = (i - 1 + sekmeler.length) % sekmeler.length; sekmeler[j].focus(); sec(sekmeler[j].id); }
+    });
+  });
+})();
+</script>
