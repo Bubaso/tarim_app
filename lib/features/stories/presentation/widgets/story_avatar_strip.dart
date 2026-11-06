@@ -10,6 +10,7 @@ import '../screens/story_viewer_screen.dart';
 import '../../providers/story_providers.dart';
 import 'story_image.dart';
 import '../../../../core/theme/konu_renkleri.dart';
+import '../screens/hikaye_arsivi_ekrani.dart';
 
 /// Anasayfadaki hikaye şeridi.
 ///
@@ -85,8 +86,21 @@ class _StoryAvatarStripState extends ConsumerState<StoryAvatarStrip>
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: visible.length,
+            // Son sıradaki fazladan öğe ARŞİV baloncuğu (Ö10): hikâyeler
+            // 24-30 saat sonra düşüyor ama satırlar duruyor; hafta sonu
+            // gelen okur hafta içini hiç göremiyordu.
+            itemCount: visible.length + 1,
             itemBuilder: (context, index) {
+              if (index == visible.length) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 16.0),
+                  child: _ArsivBaloncugu(
+                    isDark: widget.isDark,
+                    size: _bubbleSize,
+                    onTap: () => hikayeArsiviniAc(context),
+                  ),
+                );
+              }
               return Padding(
                 padding: const EdgeInsets.only(right: 16.0),
                 child: _StoryBubble(
@@ -279,6 +293,73 @@ class _StripSkeleton extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+
+// ── Arşiv baloncuğu ──────────────────────────────────────────────────────
+
+/// Şeridin sonunda duran, geçmiş günlere açılan sabit baloncuk.
+///
+/// Fotoğraf TAŞIMIYOR, bilerek: hikâye baloncukları içeriğin kendisini
+/// gösteriyor, bu ise bir kapı. Aynı görünümde olsaydı okur onu da bir
+/// hikâye sanıp açar, karşısında liste bulurdu.
+class _ArsivBaloncugu extends StatelessWidget {
+  const _ArsivBaloncugu({
+    required this.isDark,
+    required this.size,
+    required this.onTap,
+  });
+
+  final bool isDark;
+  final double size;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isEn = Localizations.localeOf(context).languageCode == 'en';
+    final Color cizgi = isDark ? Colors.white30 : Colors.black26;
+    final Color murekkep = isDark ? AppColors.wheat : AppColors.earthText;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Semantics(
+        button: true,
+        label: isEn ? 'Story archive' : 'Hikâye arşivi',
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: size,
+              height: size,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24),
+                // Kesik çizgi DEĞİL ince düz çizgi: şerit yuvarlak hatlı ve
+                // kesik çizgi oraya "yüklenmemiş içerik" gibi düşüyor.
+                border: Border.all(color: cizgi, width: 1.5),
+              ),
+              child: Icon(Icons.history_rounded,
+                  color: murekkep.withValues(alpha: 0.75), size: 26),
+            ),
+            const SizedBox(height: 6),
+            SizedBox(
+              width: size,
+              child: Text(
+                isEn ? 'Archive' : 'Arşiv',
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.inter(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w500,
+                  color: murekkep.withValues(alpha: 0.75),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

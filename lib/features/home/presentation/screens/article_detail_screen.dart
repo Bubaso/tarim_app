@@ -43,6 +43,7 @@ import '../../../../core/widgets/ana_sayfa_dugmesi.dart';
 import '../widgets/category_nav_bar.dart';
 import '../../data/category_catalog.dart';
 import 'category_articles_screen.dart';
+import '../../../stories/presentation/widgets/haber_hikaye_karti.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -619,6 +620,13 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                               isDark: isDark,
                             ),
                           ],
+
+                          // ── Hikâyelere kapı (T9) ───────────────────────
+                          // Bu haberden üretilmiş bir slayt varsa kart
+                          // çiziliyor; yoksa widget kendini hiç çizmiyor.
+                          const SizedBox(height: 28),
+                          HaberHikayeKarti(
+                              articleId: article.id, isDark: isDark),
 
                           // ── Bölümler arası geçiş ───────────────────────
                           //

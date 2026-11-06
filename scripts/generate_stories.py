@@ -290,11 +290,21 @@ Haber sadece yorum, siyasi söylem veya genel bir bilgi içeriyorsa is_story_wor
 5. guc alanına 1-10 arası bir puan ver: bu kart bir haber şeridinde kendi
    başına durmayı ne kadar hak ediyor? 10 = okurun durup bakacağı çarpıcı
    bir rakam. 5 = doğru ama sıradan. Cömert davranma.
+6. guc 8 veya üstüyse bir TAHMİN sorusu hazırla; değilse tahmin alanlarını boş
+   bırak. Soru, okurun rakamı görmeden tahmin etmesini isteyen tek bir cümle
+   olmalı (max 70 harf, örn: "Mazot maliyeti bu yıl ne kadar arttı?").
+   tahmin_secenekler ÜÇ şık içerecek: biri big_stat_value'nun AYNISI, ikisi
+   makul ama yanlış. Şıklar aynı biçimde yazılacak (hepsi yüzdeyse hepsi
+   yüzde, hepsi tonsa hepsi ton) ve birbirine çok yakın OLMAYACAK — okur
+   gerçekten seçim yapabilmeli. tahmin_dogru, doğru şıkkın 0 tabanlı sırası.
 
 ÇIKTIYI SADECE JSON olarak ver, başka hiçbir açıklama yazma:
 {{
     "is_story_worthy": true veya false,
     "guc": 1-10 arası tam sayı,
+    "tahmin_soru": "Tahmin sorusu ya da boş dize",
+    "tahmin_secenekler": ["şık 1", "şık 2", "şık 3"],
+    "tahmin_dogru": 0,
     "group_title": "Listeden seçilen kategori",
     "group_title_en": "Kategorinin İngilizcesi",
     "super_title": "KISA ETİKET (Max 20 harf)",
@@ -383,6 +393,41 @@ def validate(data):
         print(f"    ! güç {guc} < {StoryRules.GUC_ESIGI}, atlanıyor")
         return None
     data["guc"] = guc
+
+    # ── Tahmin slaytı (Ö5) ────────────────────────────────────────────────
+    #
+    # Geçersizse ATILIYOR, kart düşmüyor: tahmin bir süs, kartın kendisi
+    # değil. Üç şık, doğru şık big_stat_value ile birebir, sıra 0-2 —
+    # üçünden biri tutmazsa soru hiç sorulmuyor.
+    soru = (data.get("tahmin_soru") or "").strip()
+    sikler = data.get("tahmin_secenekler")
+    try:
+        dogru_sira = int(data.get("tahmin_dogru"))
+    except (TypeError, ValueError):
+        dogru_sira = -1
+
+    gecerli = (
+        bool(soru)
+        and len(soru) <= 90
+        and isinstance(sikler, list)
+        and len(sikler) == 3
+        and all(isinstance(s, str) and s.strip() for s in sikler)
+        and 0 <= dogru_sira < 3
+        and sikler[dogru_sira].strip() == big_stat
+        # Şıklar birbirinden farklı olmalı; aynı iki şık soruyu anlamsız
+        # kılıyor ve modelin arada yaptığı bir hata.
+        and len({s.strip() for s in sikler}) == 3
+    )
+    if gecerli:
+        data["tahmin_soru"] = soru
+        data["tahmin_secenekler"] = [s.strip() for s in sikler]
+        data["tahmin_dogru"] = dogru_sira
+    else:
+        if soru:
+            print("    · tahmin şıkları geçersiz, soru atlandı")
+        data["tahmin_soru"] = ""
+        data["tahmin_secenekler"] = []
+        data["tahmin_dogru"] = -1
 
     # Kategori listeye oturmuyorsa serbest metne izin vermek yerine yedeğe
     # düşüyoruz; gruplamanın çalışması buna bağlı.
@@ -514,6 +559,10 @@ def run_story_pipeline():
             "stat_label_en": story.get("stat_label_en", ""),
             # Avatar başlığının İngilizcesi burada saklanıyor.
             "group_title_en": story.get("group_title_en", ""),
+            # Tahmin slaytı — boşsa istemci soruyu hiç çizmiyor.
+            "tahmin_soru": story.get("tahmin_soru", ""),
+            "tahmin_secenekler": story.get("tahmin_secenekler", []),
+            "tahmin_dogru": story.get("tahmin_dogru", -1),
         }]
 
         supabase.from_("portal_stories").insert({

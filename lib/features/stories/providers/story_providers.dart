@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show immutable, kIsWeb;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/network/supabase_client.dart';
@@ -59,120 +59,90 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
   final groupTitles = <String, _GroupTitle>{};
 
   for (final row in response) {
-    final articleData = row['articles'] as Map<String, dynamic>?;
-    // Dosya hikâyelerinin haberi yok; görselleri satırın kendisinde duruyor
-    // (dosyanın paylaşım kartı). Haberli hikâyelerde bu alan boş ve görsel
-    // eskisi gibi join'den geliyor.
-    final rawSatirGorsel =
-        _sameOriginAsset(row['gorsel_url']?.toString().trim() ?? '');
-    final rawImage = rawSatirGorsel.isNotEmpty
-        ? rawSatirGorsel
-        : (articleData?['image_url']?.toString().trim() ?? '');
-    // Görseli olmayan hikaye gösterilmez; yedek görsel kesinlikle kullanılmaz.
-    if (rawImage.length < 6) continue;
-
-    // Dar ekranlarda kullanılacak dikey türev. Boşsa haber bu göçten önce
-    // işlenmiş ya da türev üretilememiş demektir; o durumda yatay kart tek
-    // kaynak olarak kalır — eskiden beri olan davranış, gerileme değil.
-    // Geniş ekranlarda zaten yatay kart kullanılıyor, seçimi görüntüleyici
-    // yapıyor (bkz. storyBackgroundUrl).
-    final rawStory = articleData?['story_image_url']?.toString().trim() ?? '';
-    final portrait = rawStory.length < 6 ? '' : rawStory;
-
-    // 320×320 kare türev ve 24 px önizleme (6 Kasım 2026 denetimi, T1-T2).
-    // İkisi de eksik olabilir: türevler o tarihte eklendi ve dosya
-    // hikâyelerinin bağlı bir haberi yok.
-    final rawKare = articleData?['thumb_image_url']?.toString().trim() ?? '';
-    final kare = rawKare.length < 6 ? '' : rawKare;
-    final onizleme = articleData?['image_lqip']?.toString().trim() ?? '';
-
-    final storyId = row['id'].toString();
-    // article_id artık null olabiliyor; `.toString()` doğrudan çağrılırsa
-    // "null" dizesi üretir ve düğme /haber/null adresine giderdi.
-    final articleId = row['article_id']?.toString() ?? '';
-    final hedefYol = row['hedef_yol']?.toString().trim() ?? '';
-    final bool isBreaking = row['is_breaking'] == true;
-    // Sabit hikâye: yayın penceresi boyunca şeritten düşmüyor. Dosya
-    // hikâyeleri için üretici bunu true yazıyor.
-    final bool sabit = row['sabit'] == true;
-    final DateTime createdAt =
-        DateTime.tryParse(row['created_at']?.toString() ?? '') ??
-            DateTime.now();
-    final DateTime? expiresAt =
-        DateTime.tryParse(row['expires_at']?.toString() ?? '');
-
-    final String title = row['group_title']?.toString().trim() ?? '';
-    if (title.isEmpty) continue;
-    final String key = title.toLowerCase();
-
-    final itemsData = row['items'];
-    if (itemsData is! List) continue;
-
-    for (int i = 0; i < itemsData.length; i++) {
-      final raw = itemsData[i];
-      if (raw is! Map) continue;
-
-      final headline = raw['headline']?.toString() ?? '';
-      final bigStat = raw['big_stat_value']?.toString() ?? '';
-      // Başlığı veya vurucu değeri olmayan slayt boş bir kart demek.
-      if (headline.isEmpty || bigStat.isEmpty) continue;
-
-      // Slayt kendi görselini taşıyabiliyor.
-      //
-      // Haber hikâyelerinde bir grubun bütün slaytları aynı haberden gelir ve
-      // tek görsel doğrudur. Dosya hikâyesinde ise her slayt dosyanın başka
-      // bir bölümünü anlatıyor; hepsine aynı fotoğrafı koymak kartı tekrara
-      // düşürüyordu. Yazılı değilse satırın görseline düşüyor — eski davranış.
-      final slaytGorsel =
-          _sameOriginAsset(raw['gorsel_url']?.toString().trim() ?? '');
-      final gorsel = slaytGorsel.length >= 6 ? slaytGorsel : rawImage;
-
-      buckets.putIfAbsent(key, () => <StoryItem>[]).add(StoryItem(
-            id: '$storyId#$i',
-            storyId: storyId,
-            articleId: articleId,
-            hedefYol: hedefYol,
-            superTitle: raw['super_title']?.toString() ?? '',
-            superTitleEn: raw['super_title_en']?.toString() ?? '',
-            headline: headline,
-            headlineEn: raw['headline_en']?.toString() ?? '',
-            bigStatValue: bigStat,
-            bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
-            statLabel: raw['stat_label']?.toString() ?? '',
-            statLabelEn: raw['stat_label_en']?.toString() ?? '',
-            // SLAYTIN KENDİ GÖRSELİ. Yukarıdaki `gorsel` hesaplanıyor ama
-            // buraya satırın tek görseli (`rawImage`) geçiyordu; değişken
-            // hiçbir yerde kullanılmıyordu. Sonuç: dosya hikâyesinin beş
-            // slaytı da aynı fotoğrafı gösteriyordu — yorumun söylediğinin
-            // tam tersi. Kullanıcı 3 Kasım 2026'da bildirdi.
-            imageUrl: gorsel,
-            // Dikey türev HABERİN story_image_url'inden geliyor; slaytın
-            // kendi görseli varsa onu ezmesin diye boş bırakılıyor.
-            portraitUrl: slaytGorsel.length >= 6 ? '' : portrait,
-            // Slaytın KENDİ görseli varsa (dosya hikâyeleri) haberin
-            // türevleri ona ait değil; ikisi de boş bırakılıyor.
-            kareUrl: slaytGorsel.length >= 6 ? '' : kare,
-            onizleme: slaytGorsel.length >= 6 ? '' : onizleme,
-            createdAt: createdAt,
-            expiresAt: expiresAt,
-            isBreaking: isBreaking,
-            sabit: sabit,
-          ));
-
-      // Grubun görünen adını en taze satır belirler; satırlar zaten yeniden
-      // eskiye geldiği için ilk gelen kazanır.
-      groupTitles.putIfAbsent(
-        key,
-        () => _GroupTitle(
-          title,
-          raw['group_title_en']?.toString().trim() ?? '',
-        ),
-      );
-    }
+    _satiriIsle(row, buckets, groupTitles);
   }
 
   _lastFetchedAt = DateTime.now();
   return _buildGroups(buckets, groupTitles);
+});
+
+// ══════════════════════════════════════════════════════════════════════════
+//  Arşiv — "dün ne oldu" (6 Kasım 2026 denetimi, Ö10)
+// ──────────────────────────────────────────────────────────────────────────
+//  Hikâyeler 24-30 saat sonra şeritten düşüyor ama satırlar veritabanında
+//  duruyor. Hafta sonu siteye giren okur hafta içini hiç göremiyordu.
+//
+//  YENİ VERİ ÜRETİLMİYOR, yeni model çağrısı yok: tek fark `expires_at`
+//  süzgecinin kalkması ve sonucun güne göre bölünmesi.
+// ══════════════════════════════════════════════════════════════════════════
+
+/// Arşivde kaç gün geriye bakılıyor.
+///
+/// Yedi gün: hikâye üretimi 36 saatlik bir haber penceresinden besleniyor,
+/// bir haftadan eskisi "arşiv" değil "eski haber" oluyor ve okurun orada
+/// işi yok.
+const int storyArsivGunu = 7;
+
+@immutable
+class StoryArsivGunu {
+  /// Günün yerel tarihi (saat sıfırlanmış).
+  final DateTime gun;
+  final List<StoryGroup> gruplar;
+
+  const StoryArsivGunu({required this.gun, required this.gruplar});
+
+  int get kartSayisi =>
+      gruplar.fold(0, (toplam, g) => toplam + g.items.length);
+}
+
+/// Geçmiş günlerin hikâyeleri — yeniden eskiye.
+final storyArsiviProvider =
+    FutureProvider<List<StoryArsivGunu>>((ref) async {
+  final supabase = ref.read(supabaseClientProvider);
+  final simdi = DateTime.now();
+  final esik = simdi.subtract(Duration(days: storyArsivGunu));
+
+  final response = await supabase
+      .from('portal_stories')
+      .select(
+          '*, articles(image_url, story_image_url, thumb_image_url, image_lqip)')
+      .gt('created_at', esik.toUtc().toIso8601String())
+      .order('created_at', ascending: false)
+      // Arşiv yedi günü kapsıyor; akışın 40'lık sınırı burada yetmez.
+      .limit(400);
+
+  // Önce GÜNE, sonra konuya bölünüyor. Tersi olsaydı bir konunun farklı
+  // günlerdeki kartları tek grupta toplanır ve "dün ne oldu" sorusu
+  // cevapsız kalırdı.
+  final gunler = <DateTime, Map<String, List<StoryItem>>>{};
+  final basliklar = <DateTime, Map<String, _GroupTitle>>{};
+
+  for (final row in response) {
+    final olusum =
+        DateTime.tryParse(row['created_at']?.toString() ?? '')?.toLocal();
+    if (olusum == null) continue;
+    final gun = DateTime(olusum.year, olusum.month, olusum.day);
+
+    final kovalar = gunler.putIfAbsent(gun, () => <String, List<StoryItem>>{});
+    final adlar = basliklar.putIfAbsent(gun, () => <String, _GroupTitle>{});
+    _satiriIsle(row, kovalar, adlar);
+  }
+
+  final sonuc = <StoryArsivGunu>[];
+  final siraliGunler = gunler.keys.toList()..sort((a, b) => b.compareTo(a));
+  // BUGÜN atlanıyor: bugünün hikâyeleri zaten şeritte duruyor ve arşivde
+  // ikinci kez göstermek okura aynı kartı iki kapıdan sunmak olurdu.
+  final bugun = DateTime(simdi.year, simdi.month, simdi.day);
+
+  for (final gun in siraliGunler) {
+    if (gun == bugun) continue;
+    final gruplar = _buildGroups(gunler[gun]!, basliklar[gun]!);
+    if (gruplar.isEmpty) continue;
+    // Gün içinde en taze konu başta.
+    gruplar.sort((a, b) => b.latestAt.compareTo(a.latestAt));
+    sonuc.add(StoryArsivGunu(gun: gun, gruplar: gruplar));
+  }
+  return sonuc;
 });
 
 /// İzlenmişleri, izlenmemişleri ve sıralamayı uygulanmış nihai liste.
@@ -233,6 +203,150 @@ class _GroupTitle {
 
 /// Kovaları gruplara çevirir; her grupta en taze
 /// [StoryRules.maxItemsPerGroup] slayt kalır.
+/// JSON dizisini dizge listesine çevirir; biçim beklenmedikse boş liste.
+///
+/// `items` bir JSONB sütunu ve içeriği hattan geliyor: alan hiç olmayabilir,
+/// null olabilir, yanlış türde olabilir. Hiçbirinde ekran kaybedilmemeli.
+List<String> _dizge(dynamic ham) {
+  if (ham is! List) return const <String>[];
+  final sonuc = <String>[];
+  for (final x in ham) {
+    final s = x?.toString().trim() ?? '';
+    if (s.isNotEmpty) sonuc.add(s);
+  }
+  return sonuc;
+}
+
+/// Tek bir `portal_stories` satırını kovalara dağıtır.
+///
+/// Akış ve ARŞİV aynı satır biçimini okuyor; mantık iki yere kopyalanırsa
+/// biri güncellenip öteki geride kalır. Tek yerde duruyor.
+void _satiriIsle(
+  Map<String, dynamic> row,
+  Map<String, List<StoryItem>> buckets,
+  Map<String, _GroupTitle> groupTitles,
+) {
+
+    final articleData = row['articles'] as Map<String, dynamic>?;
+    // Dosya hikâyelerinin haberi yok; görselleri satırın kendisinde duruyor
+    // (dosyanın paylaşım kartı). Haberli hikâyelerde bu alan boş ve görsel
+    // eskisi gibi join'den geliyor.
+    final rawSatirGorsel =
+        _sameOriginAsset(row['gorsel_url']?.toString().trim() ?? '');
+    final rawImage = rawSatirGorsel.isNotEmpty
+        ? rawSatirGorsel
+        : (articleData?['image_url']?.toString().trim() ?? '');
+    // Görseli olmayan hikaye gösterilmez; yedek görsel kesinlikle kullanılmaz.
+    if (rawImage.length < 6) return;
+
+    // Dar ekranlarda kullanılacak dikey türev. Boşsa haber bu göçten önce
+    // işlenmiş ya da türev üretilememiş demektir; o durumda yatay kart tek
+    // kaynak olarak kalır — eskiden beri olan davranış, gerileme değil.
+    // Geniş ekranlarda zaten yatay kart kullanılıyor, seçimi görüntüleyici
+    // yapıyor (bkz. storyBackgroundUrl).
+    final rawStory = articleData?['story_image_url']?.toString().trim() ?? '';
+    final portrait = rawStory.length < 6 ? '' : rawStory;
+
+    // 320×320 kare türev ve 24 px önizleme (6 Kasım 2026 denetimi, T1-T2).
+    // İkisi de eksik olabilir: türevler o tarihte eklendi ve dosya
+    // hikâyelerinin bağlı bir haberi yok.
+    final rawKare = articleData?['thumb_image_url']?.toString().trim() ?? '';
+    final kare = rawKare.length < 6 ? '' : rawKare;
+    final onizleme = articleData?['image_lqip']?.toString().trim() ?? '';
+
+    final storyId = row['id'].toString();
+    // article_id artık null olabiliyor; `.toString()` doğrudan çağrılırsa
+    // "null" dizesi üretir ve düğme /haber/null adresine giderdi.
+    final articleId = row['article_id']?.toString() ?? '';
+    final hedefYol = row['hedef_yol']?.toString().trim() ?? '';
+    final bool isBreaking = row['is_breaking'] == true;
+    // Sabit hikâye: yayın penceresi boyunca şeritten düşmüyor. Dosya
+    // hikâyeleri için üretici bunu true yazıyor.
+    final bool sabit = row['sabit'] == true;
+    final DateTime createdAt =
+        DateTime.tryParse(row['created_at']?.toString() ?? '') ??
+            DateTime.now();
+    final DateTime? expiresAt =
+        DateTime.tryParse(row['expires_at']?.toString() ?? '');
+
+    final String title = row['group_title']?.toString().trim() ?? '';
+    if (title.isEmpty) return;
+    final String key = title.toLowerCase();
+
+    final itemsData = row['items'];
+    if (itemsData is! List) return;
+
+    for (int i = 0; i < itemsData.length; i++) {
+      final raw = itemsData[i];
+      if (raw is! Map) continue;
+
+      final headline = raw['headline']?.toString() ?? '';
+      final bigStat = raw['big_stat_value']?.toString() ?? '';
+      // Başlığı veya vurucu değeri olmayan slayt boş bir kart demek.
+      if (headline.isEmpty || bigStat.isEmpty) continue;
+
+      // Slayt kendi görselini taşıyabiliyor.
+      //
+      // Haber hikâyelerinde bir grubun bütün slaytları aynı haberden gelir ve
+      // tek görsel doğrudur. Dosya hikâyesinde ise her slayt dosyanın başka
+      // bir bölümünü anlatıyor; hepsine aynı fotoğrafı koymak kartı tekrara
+      // düşürüyordu. Yazılı değilse satırın görseline düşüyor — eski davranış.
+      final slaytGorsel =
+          _sameOriginAsset(raw['gorsel_url']?.toString().trim() ?? '');
+      final gorsel = slaytGorsel.length >= 6 ? slaytGorsel : rawImage;
+
+      buckets.putIfAbsent(key, () => <StoryItem>[]).add(StoryItem(
+            id: '$storyId#$i',
+            storyId: storyId,
+            articleId: articleId,
+            hedefYol: hedefYol,
+            superTitle: raw['super_title']?.toString() ?? '',
+            superTitleEn: raw['super_title_en']?.toString() ?? '',
+            headline: headline,
+            headlineEn: raw['headline_en']?.toString() ?? '',
+            bigStatValue: bigStat,
+            bigStatValueEn: raw['big_stat_value_en']?.toString() ?? '',
+            statLabel: raw['stat_label']?.toString() ?? '',
+            statLabelEn: raw['stat_label_en']?.toString() ?? '',
+            // SLAYTIN KENDİ GÖRSELİ. Yukarıdaki `gorsel` hesaplanıyor ama
+            // buraya satırın tek görseli (`rawImage`) geçiyordu; değişken
+            // hiçbir yerde kullanılmıyordu. Sonuç: dosya hikâyesinin beş
+            // slaytı da aynı fotoğrafı gösteriyordu — yorumun söylediğinin
+            // tam tersi. Kullanıcı 3 Kasım 2026'da bildirdi.
+            imageUrl: gorsel,
+            // Dikey türev HABERİN story_image_url'inden geliyor; slaytın
+            // kendi görseli varsa onu ezmesin diye boş bırakılıyor.
+            portraitUrl: slaytGorsel.length >= 6 ? '' : portrait,
+            // Slaytın KENDİ görseli varsa (dosya hikâyeleri) haberin
+            // türevleri ona ait değil; ikisi de boş bırakılıyor.
+            kareUrl: slaytGorsel.length >= 6 ? '' : kare,
+            onizleme: slaytGorsel.length >= 6 ? '' : onizleme,
+            tahminSoru: raw['tahmin_soru']?.toString() ?? '',
+            tahminSoruEn: raw['tahmin_soru_en']?.toString() ?? '',
+            tahminSecenekler: _dizge(raw['tahmin_secenekler']),
+            tahminSeceneklerEn: _dizge(raw['tahmin_secenekler_en']),
+            tahminDogru: raw['tahmin_dogru'] is num
+                ? (raw['tahmin_dogru'] as num).toInt()
+                : -1,
+            createdAt: createdAt,
+            expiresAt: expiresAt,
+            isBreaking: isBreaking,
+            sabit: sabit,
+          ));
+
+      // Grubun görünen adını en taze satır belirler; satırlar zaten yeniden
+      // eskiye geldiği için ilk gelen kazanır.
+      groupTitles.putIfAbsent(
+        key,
+        () => _GroupTitle(
+          title,
+          raw['group_title_en']?.toString().trim() ?? '',
+        ),
+      );
+    }
+  
+}
+
 List<StoryGroup> _buildGroups(
   Map<String, List<StoryItem>> buckets,
   Map<String, _GroupTitle> titles,

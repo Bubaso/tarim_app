@@ -1,6 +1,10 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +22,9 @@ import '../../../../core/theme/konu_renkleri.dart';
 import '../../../../core/utils/turkce_metin.dart';
 import '../widgets/sayan_rakam.dart';
 import '../widgets/ozet_karti.dart';
+import '../../data/tahmin_defteri.dart';
+import '../widgets/tahmin_slayti.dart';
+import '../../../../core/network/supabase_client.dart';
 
 class StoryViewerScreen extends ConsumerStatefulWidget {
   final List<StoryGroup> storyGroups;
@@ -123,6 +130,74 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
   /// okunur). Açık sayfa korunuyor.
   double _kuruluPay = 1.0;
 
+  /// Açık kartın çizim sınırı — paylaşım görüntüsü buradan alınıyor (T10).
+  final GlobalKey _kartAnahtari = GlobalKey();
+
+  // ── Tahmin slaytı (Ö5) ─────────────────────────────────────────────────
+  //
+  // Cevaplanan sorular cihazda tutuluyor: aynı soruyu ikinci kez sormak,
+  // cevabı bilen okur için bilmece değil engel.
+  Set<String> _cevaplanan = const <String>{};
+
+  /// Bu oturumda verilen cevapların sonucu — slaytId -> (doğru mu, toplam, doğru).
+  final Map<String, _TahminSonucu> _sonuclar = {};
+
+  /// Açık slaytta cevaplanmamış bir soru var mı?
+  ///
+  /// Varsa sayaç DURUYOR: soru sorulup cevap beklenirken hikâyenin
+  /// kendiliğinden ilerlemesi, okura düşünme fırsatı vermemek olurdu.
+  bool get _soruBekliyor =>
+      !_ozetteyiz &&
+      _currentItem.tahminVar &&
+      !_cevaplanan.contains(_currentItem.id);
+
+  Future<void> _defteriYukle() async {
+    final d = await TahminDefteri.yukle();
+    if (!mounted) return;
+    setState(() => _cevaplanan = d);
+    // Defter geldiğinde açık slaytta bekleyen soru kalmadıysa sayaç
+    // başlatılıyor; yükleme asenkron ve ilk kare ondan önce çiziliyor.
+    if (!_soruBekliyor && !_heldDown) _animController.forward();
+  }
+
+  Future<void> _tahminiIsle(StoryItem slayt, int secim) async {
+    final dogru = secim == slayt.tahminDogru;
+    final defter = await TahminDefteri.isaretle(slayt.id);
+    if (!mounted) return;
+
+    setState(() {
+      _cevaplanan = defter;
+      _sonuclar[slayt.id] = _TahminSonucu(dogru: dogru, toplam: 0, bilen: 0);
+    });
+    // Cevap görüldü; sayaç buradan itibaren işliyor.
+    if (!_heldDown) _animController.forward();
+
+    // Toplu sonuç ARKA PLANDA: ağ beklenirse cevabın açılması gecikir ve
+    // okur dokunduğunun işe yaramadığını sanır.
+    try {
+      final yanit = await ref
+          .read(supabaseClientProvider)
+          .rpc('hikaye_tahmin_kaydet', params: {
+        'p_story_id': slayt.storyId,
+        'p_slayt': int.tryParse(slayt.id.split('#').last) ?? 0,
+        'p_dogru': dogru,
+      });
+      if (!mounted) return;
+      final satir = (yanit is List && yanit.isNotEmpty) ? yanit.first : null;
+      if (satir is Map) {
+        setState(() {
+          _sonuclar[slayt.id] = _TahminSonucu(
+            dogru: dogru,
+            toplam: (satir['toplam'] as num?)?.toInt() ?? 0,
+            bilen: (satir['dogru'] as num?)?.toInt() ?? 0,
+          );
+        });
+      }
+    } catch (_) {
+      // Sayaç yazılamazsa cevap yine açık kalıyor; yüzde gösterilmiyor.
+    }
+  }
+
   void _payiTazele(Size ekran) {
     final pay = _gorusPayi(ekran);
     if ((pay - _kuruluPay).abs() < 0.01) return;
@@ -204,6 +279,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
       }
     });
 
+    _defteriYukle();
     StoryAnalytics.opened(
       groupKey: _currentGroup.key,
       groupCount: widget.storyGroups.length,
@@ -225,7 +301,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     // Sayaç arka planda da işlemeye devam ediyordu: telefonu cebine koyup
     // dönen okuyucu hikayeleri izlemeden atlamış oluyordu.
     if (state == AppLifecycleState.resumed) {
-      if (!_heldDown && mounted) _animController.forward();
+      if (!_heldDown && !_soruBekliyor && mounted) _animController.forward();
     } else {
       _animController.stop();
     }
@@ -298,7 +374,9 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     );
     _animController.stop();
     _animController.reset();
-    _animController.forward();
+    // Cevaplanmamış soru varsa sayaç BAŞLAMIYOR; cevap verilince
+    // `_tahminiIsle` başlatıyor.
+    if (!_soruBekliyor) _animController.forward();
     ref.read(storySeenProvider.notifier).markSeen([item.id]);
   }
 
@@ -416,22 +494,67 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     router.push(_hedef(item));
   }
 
+  /// Açık kartın görüntüsünü PNG olarak yakalar.
+  ///
+  /// Sunucuda ikinci bir çizici yazmak yerine EKRANDAKİNİ almak: okurun
+  /// paylaştığı şey gördüğünün birebir aynısı oluyor ve kart tasarımı
+  /// değiştiğinde paylaşım görüntüsü kendiliğinden güncelleniyor. Ayrı bir
+  /// çizici, ilk tasarım değişikliğinde sessizce eskirdi.
+  ///
+  /// Başarısızlıkta null: görüntü alınamazsa paylaşım metinle sürüyor.
+  Future<Uint8List?> _kartiYakala() async {
+    try {
+      final nesne = _kartAnahtari.currentContext?.findRenderObject();
+      if (nesne is! RenderRepaintBoundary) return null;
+      // 2,5 kat: 1080 piksel genişliğinde bir kart ediyor — paylaşım
+      // uygulamalarının beklediği ölçü. 3 kat bellekte dört katına
+      // çıkıyor ve gözle fark edilmiyor.
+      final goruntu = await nesne.toImage(pixelRatio: 2.5);
+      final bayt = await goruntu.toByteData(format: ui.ImageByteFormat.png);
+      goruntu.dispose();
+      return bayt?.buffer.asUint8List();
+    } catch (_) {
+      return null;
+    }
+  }
+
   Future<void> _share(StoryGroup group, StoryItem item, bool isEn) async {
     _animController.stop();
     StoryAnalytics.shared(groupKey: group.key, articleId: item.articleId);
 
     final box = context.findRenderObject() as RenderBox?;
+    final kutu =
+        box != null ? box.localToGlobal(Offset.zero) & box.size : null;
     final text = '${item.headlineFor(isEn)}\n'
         '${item.bigStatValueFor(isEn)} · ${item.statLabelFor(isEn)}\n\n'
         '${_shareUrl(item)}';
+
     try {
-      await Share.share(
-        text,
-        sharePositionOrigin:
-            box != null ? box.localToGlobal(Offset.zero) & box.size : null,
-      );
+      final png = await _kartiYakala();
+      if (png != null) {
+        // Dosya DİSKE yazılmıyor: `XFile.fromData` baytları doğrudan
+        // veriyor ve web'de de çalışıyor. Geçici dosya yazmak web'de
+        // `path_provider` gerektirirdi ve orada çalışmıyor.
+        await Share.shareXFiles(
+          [
+            XFile.fromData(
+              png,
+              mimeType: 'image/png',
+              name: 'tarim-portali-hikaye.png',
+            ),
+          ],
+          text: text,
+          sharePositionOrigin: kutu,
+        );
+      } else {
+        await Share.share(text, sharePositionOrigin: kutu);
+      }
     } catch (_) {
-      // Paylaşım sayfası açılamazsa hikaye akmaya devam etsin.
+      // Görüntü paylaşımı desteklenmiyorsa metne düş; o da olmazsa
+      // hikâye akmaya devam etsin.
+      try {
+        await Share.share(text, sharePositionOrigin: kutu);
+      } catch (_) {}
     }
     if (mounted && !_heldDown) _animController.forward();
   }
@@ -476,6 +599,13 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                   isCurrentGroup && itemIndex >= group.items.length;
               final item =
                   group.items[itemIndex.clamp(0, group.items.length - 1)];
+              // Soru YALNIZCA açık kartta sorulabilir: komşu kartlar sessiz
+              // önizleme ve oradaki bir şıkka dokunmak anlamsız olurdu.
+              final bool soruAcik = isCurrentGroup &&
+                  !ozet &&
+                  item.tahminVar &&
+                  !_cevaplanan.contains(item.id);
+              final _TahminSonucu? sonuc = _sonuclar[item.id];
 
               final bool isEn =
                   Localizations.localeOf(context).languageCode == 'en';
@@ -550,6 +680,15 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                         children: [
                           const Spacer(),
 
+                          if (soruAcik)
+                            TahminSlayti(
+                              slayt: item,
+                              isEn: isEn,
+                              renk: konuCipRengi(group.title),
+                              sec: (i) => _tahminiIsle(item, i),
+                            )
+                          else ...[
+
                           // Üst Başlık (Kategori) — T7.
                           //
                           // Üç şey değişti. (1) Zemin konunun rengi, sabit
@@ -619,6 +758,16 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                               letterSpacing: 0.5,
                             ),
                           ),
+                          // Tahmin cevaplandıysa sonucu rakamın hemen
+                          // altında duruyor — cevabın kendisiyle aynı
+                          // bakışta okunsun diye.
+                          if (sonuc != null)
+                            TahminSonucu(
+                              dogruBildi: sonuc.dogru,
+                              toplam: sonuc.toplam,
+                              dogru: sonuc.bilen,
+                              isEn: isEn,
+                            ),
                           const SizedBox(height: 24),
 
                           // Ana Başlık
@@ -674,6 +823,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                               ),
                           ),
                           const SizedBox(height: 40),
+                          ],
                         ],
                       ),
                     ),
@@ -760,7 +910,13 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                 ],
               );
 
-              if (!vitrin) return sahne;
+              // Paylaşım görüntüsü AÇIK karttan alınıyor; sınır yalnızca
+              // ona konuyor. Her sayfaya koymak, görünmeyen kartlar için de
+              // ayrı bir çizim katmanı ayırmak olurdu.
+              final sarili =
+                  isCurrentGroup ? RepaintBoundary(key: _kartAnahtari, child: sahne) : sahne;
+
+              if (!vitrin) return sarili;
 
               // Vitrinde her sayfa kendi çerçevesinde duruyor. Açık olmayan
               // kartlar KÜÇÜLTÜLÜP soluklaştırılıyor: komşunun orada olduğu
@@ -793,7 +949,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                           borderRadius: BorderRadius.circular(20),
                           child: AspectRatio(
                             aspectRatio: _cerceveOrani,
-                            child: sahne,
+                            child: sarili,
                           ),
                         ),
                       ),
@@ -996,4 +1152,22 @@ class _AvatarHalkasi extends StatelessWidget {
       ),
     );
   }
+}
+
+
+/// Bir tahmin sorusunun sonucu.
+///
+/// [toplam] 0 ise sunucu sayacı henüz gelmedi (ya da gelemedi); o durumda
+/// yalnız doğru/yanlış gösteriliyor, yüzde gösterilmiyor.
+@immutable
+class _TahminSonucu {
+  final bool dogru;
+  final int toplam;
+  final int bilen;
+
+  const _TahminSonucu({
+    required this.dogru,
+    required this.toplam,
+    required this.bilen,
+  });
 }

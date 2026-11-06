@@ -30,6 +30,7 @@ import '../../features/legal/data/legal_documents.dart';
 import '../../features/legal/presentation/screens/legal_page_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
 import 'gezinti_derinligi.dart';
+import '../../features/stories/presentation/screens/hikaye_arsivi_ekrani.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -124,6 +125,9 @@ class CategoryArgs {
   }
   if (page is AllColumnistsScreen) return (path: '/yazarlar', extra: null);
   if (page is KisaKisaScreen) return (path: '/kisa-kisa', extra: null);
+  if (page is HikayeArsiviEkrani) {
+    return (path: '/hikaye-arsivi', extra: null);
+  }
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
@@ -356,6 +360,13 @@ final appRouter = GoRouter(
     ),
     // Kısa haberlerin günlük bülteni. Adresten tamamen yeniden kurulabiliyor:
     // ekran hiçbir argüman almıyor, listeyi kendi süzüyor.
+    // Hikâye arşivi paylaşılabilir bir adres: "dün ne oldu" sorusunun
+    // cevabı bir bağlantıyla verilebilmeli.
+    GoRoute(
+      path: '/hikaye-arsivi',
+      builder: (context, state) => const HikayeArsiviEkrani(),
+    ),
+
     GoRoute(
       path: '/kisa-kisa',
       pageBuilder: (context, state) => _fadePage(state, const KisaKisaScreen()),

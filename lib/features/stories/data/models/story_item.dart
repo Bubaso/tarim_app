@@ -57,6 +57,40 @@ class StoryItem {
   /// 6 Kasım öncesi davranış, gerileme değil.
   final String onizleme;
 
+  // ── Tahmin slaytı (Ö5) ────────────────────────────────────────────────
+  //
+  // Bazı kartlarda rakam hemen gösterilmiyor: okura soruluyor, üç şıktan
+  // birini seçiyor ve cevap öyle açılıyor. Veri gazeteciliğinin en iyi
+  // ürettiği duyguyu kullanıyor — "bu kadar olduğunu bilmiyordum".
+  //
+  // HER KARTTA YOK, bilerek: üretici yalnızca güçlü kartlara soru koyuyor.
+  // Her slayt soru sorarsa oyun olur, haber olmaz.
+
+  /// Soru metni; boşsa bu slaytta tahmin yok.
+  final String tahminSoru;
+  final String tahminSoruEn;
+
+  /// Üç şık. Doğru olan [bigStatValue] ile birebir aynı.
+  final List<String> tahminSecenekler;
+  final List<String> tahminSeceneklerEn;
+
+  /// Doğru şıkkın sırası; tahmin yoksa -1.
+  final int tahminDogru;
+
+  bool get tahminVar =>
+      tahminSoru.trim().isNotEmpty &&
+      tahminSecenekler.length == 3 &&
+      tahminDogru >= 0 &&
+      tahminDogru < 3;
+
+  String tahminSoruFor(bool isEn) =>
+      isEn && tahminSoruEn.isNotEmpty ? tahminSoruEn : tahminSoru;
+
+  List<String> tahminSecenekFor(bool isEn) =>
+      isEn && tahminSeceneklerEn.length == 3
+          ? tahminSeceneklerEn
+          : tahminSecenekler;
+
   final DateTime createdAt;
   final DateTime? expiresAt;
   final bool isBreaking;
@@ -86,6 +120,11 @@ class StoryItem {
     this.portraitUrl = '',
     this.kareUrl = '',
     this.onizleme = '',
+    this.tahminSoru = '',
+    this.tahminSoruEn = '',
+    this.tahminSecenekler = const <String>[],
+    this.tahminSeceneklerEn = const <String>[],
+    this.tahminDogru = -1,
     required this.createdAt,
     this.expiresAt,
     this.isBreaking = false,
