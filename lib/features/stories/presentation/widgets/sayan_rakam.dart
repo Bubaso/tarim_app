@@ -47,6 +47,26 @@ class RakamParcalari {
   });
 
   bool get sayilabilir => deger != null;
+
+  /// Bu sayıyı SAYARAK göstermeye değer mi?
+  ///
+  /// **Neden bir ölçüt gerekti.** İlk sürümde her rakam sayılarak geliyordu
+  /// ve kullanıcı haklı olarak "hepsi böyle olunca sıkıcı" dedi: on kart
+  /// üst üste aynı hareketi yapınca hareket bilgi taşımayı bırakıyor,
+  /// gürültüye dönüşüyor.
+  ///
+  /// **Ölçüt: dört basamak.** Sayma, basamakların GERÇEKTEN döndüğü yerde
+  /// anlamlı. "%30" sıfırdan otuza sayarken göz tek bir hane görüyor —
+  /// hareket var, bilgi yok. "48.000" sayarken üç hane birden dönüyor ve
+  /// okur büyüklüğü hissediyor; zaten o kartın bütün derdi de büyüklük.
+  ///
+  /// Ondalıklı değerlerde tam kısma bakılıyor: "183,8 milyar" sayılmıyor
+  /// (183 üç basamak), "1.234,5" sayılıyor.
+  bool get sayilmaliMi {
+    final d = deger;
+    if (d == null) return false;
+    return d.abs() >= 1000;
+  }
 }
 
 /// Vurucu değeri önek / sayı / sonek olarak ayırır.
@@ -89,20 +109,34 @@ class SayanRakam extends StatelessWidget {
     required this.ilerleme,
     required this.isEn,
     required this.style,
-    this.pay = 0.40,
+    this.pay = 0.18,
   });
 
   final String ham;
   final Animation<double> ilerleme;
   final bool isEn;
   final TextStyle style;
+
+  /// Slayt süresinin ne kadarında sayım bitiyor.
+  ///
+  /// 0,40'tan 0,18'e indirildi: beş saniyelik bir slaytta sayım iki
+  /// saniye sürüyordu ve okur rakamı okumak için bekliyordu. Artık
+  /// yaklaşık 900 ms — hareket görülüyor, bekleme olmuyor.
   final double pay;
 
   @override
   Widget build(BuildContext context) {
     final p = rakamiAyir(ham);
-    if (!p.sayilabilir) {
-      return Text(ham, style: style, maxLines: 1);
+
+    // Sayılmayacak rakam SESSİZ gelmiyor: hafif bir yükselerek beliriş
+    // kartı canlı tutuyor ama dikkati çalmıyor. Hiç hareket olmasaydı
+    // sayılan rakamla sayılmayan arasındaki fark bir tutarsızlık gibi
+    // okunurdu; böyle okunmuyor, kademe gibi okunuyor.
+    if (!p.sayilabilir || !p.sayilmaliMi) {
+      return _Belir(
+        ilerleme: ilerleme,
+        child: Text(ham, style: style, maxLines: 1),
+      );
     }
 
     return AnimatedBuilder(
@@ -133,5 +167,36 @@ class SayanRakam extends StatelessWidget {
     final ayirac = isEn ? '.' : ',';
     return '${sayiYaz(tam, isEn)}$ayirac'
         '${kesir.toString().padLeft(basamak, '0')}';
+  }
+}
+
+
+/// Sayılmayan rakamın sessiz belirişi: 260 ms'de aşağıdan yukarı.
+class _Belir extends StatelessWidget {
+  const _Belir({required this.ilerleme, required this.child});
+
+  final Animation<double> ilerleme;
+  final Widget child;
+
+  /// Slayt süresinin ilk %6'sı — beş saniyede ~300 ms.
+  static const double _pay = 0.06;
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: ilerleme,
+      builder: (context, c) {
+        final t = Curves.easeOutCubic
+            .transform((ilerleme.value / _pay).clamp(0.0, 1.0));
+        return Opacity(
+          opacity: t,
+          child: Transform.translate(
+            offset: Offset(0, 10 * (1 - t)),
+            child: c,
+          ),
+        );
+      },
+      child: child,
+    );
   }
 }

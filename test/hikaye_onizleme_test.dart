@@ -64,6 +64,8 @@ void main() {
     });
   });
 
+  turevSinamalari();
+
   group('önizleme katmanı', () {
     testWidgets('geçerli önizlemede görüntü çiziliyor', (tester) async {
       await tester.pumpWidget(const MaterialApp(
@@ -104,6 +106,80 @@ void main() {
       await tester.pump();
       expect(find.byType(ImageFiltered), findsNothing);
       expect(tester.takeException(), isNull);
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  Türev gerçekten kapağa mı ait? (6 Kasım 2026 kullanıcı bildirimi)
+//
+//  Editör onay sırasında kapağı değiştiriyor — çoğu zaman kaynağın ikon
+//  görselinden kurtulmak için — ama türevler haber alınırken bir kez
+//  üretilmişti ve eski görseli göstermeye devam ediyordu. Ölçüm: 1698
+//  haberin 109'unda uyuşmazlık, şeritteki 33 hikâyenin 12'si etkileniyordu;
+//  tek bir türev dört ayrı haberde kullanılıyordu.
+// ══════════════════════════════════════════════════════════════════════════
+
+const String _depo =
+    'https://x.supabase.co/storage/v1/object/public/article-images';
+
+void turevSinamalari() {
+  group('türev sahipliği', () {
+    test('aynı karmadan üretilmiş türev KABUL ediliyor', () {
+      expect(
+        turevKapagaAit('$_depo/abc123_1080x2340_v2.jpg',
+            '$_depo/abc123_1200x630.jpg'),
+        isTrue,
+      );
+      expect(
+        turevKapagaAit('$_depo/abc123_320x320.jpg',
+            '$_depo/abc123_1200x630.jpg'),
+        isTrue,
+      );
+    });
+
+    test('BAŞKA karmadan gelen türev REDDEDİLİYOR', () {
+      // Kullanıcının bildirdiği hata tam olarak bu.
+      expect(
+        turevKapagaAit('$_depo/fa3b8256b814_1080x2340_v2.webp',
+            '$_depo/551807927553_1200x630.webp'),
+        isFalse,
+      );
+    });
+
+    test('uzantı farkı sorun DEĞİL — karma aynı', () {
+      expect(
+        turevKapagaAit('$_depo/abc123_1080x2340_v2.webp',
+            '$_depo/abc123_1200x630.jpg'),
+        isTrue,
+      );
+    });
+
+    test('sorgu dizgesi kökü bozmuyor', () {
+      expect(
+        turevKapagaAit('$_depo/abc123_320x320.jpg?v=3',
+            '$_depo/abc123_1200x630.jpg'),
+        isTrue,
+      );
+    });
+
+    test('biri boşsa KABUL — çelişki kanıtı yokken türev atılmaz', () {
+      expect(turevKapagaAit('', '$_depo/abc123_1200x630.jpg'), isTrue);
+      expect(turevKapagaAit('$_depo/abc123_320x320.jpg', ''), isTrue);
+      expect(turevKapagaAit('', ''), isTrue);
+    });
+
+    test('kök okunamıyorsa KABUL', () {
+      // Harici bir CDN adresi; karma düzenimize uymuyor ama çalışıyor
+      // olabilir.
+      expect(turevKapagaAit('https://cdn.ornek/x/', 'https://cdn.ornek/y/'),
+          isTrue);
+    });
+
+    test('kök çıkarımı', () {
+      expect(turevKoku('$_depo/abc123_1200x630.jpg'), 'abc123');
+      expect(turevKoku('$_depo/abc123.jpg'), 'abc123');
+      expect(turevKoku(''), '');
     });
   });
 }

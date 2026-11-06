@@ -11,6 +11,37 @@ import 'package:tarim_app/features/stories/presentation/widgets/sayan_rakam.dart
 // ══════════════════════════════════════════════════════════════════════════
 
 void main() {
+  group('sayma ölçütü', () {
+    // Kullanıcı 6 Kasım 2026'da bildirdi: "her rakam böyle olunca çok
+    // sıkıcı bir hal alıyor". On kart üst üste aynı hareketi yapınca
+    // hareket bilgi taşımayı bırakıyor. Ölçüt dört basamak: sayma,
+    // basamakların gerçekten döndüğü yerde anlamlı.
+
+    test('üç basamak ve altı SAYILMIYOR', () {
+      for (final v in ['%30', '%8', '462 ton', '64 bin ton', '10 milyar TL']) {
+        expect(rakamiAyir(v).sayilmaliMi, isFalse, reason: v);
+      }
+    });
+
+    test('dört basamak ve üstü SAYILIYOR', () {
+      for (final v in ['9.250 ₺', '48.000₺', '3.083.200 ha', '1.234,5 ton']) {
+        expect(rakamiAyir(v).sayilmaliMi, isTrue, reason: v);
+      }
+    });
+
+    test('ondalıkta TAM kısma bakılıyor', () {
+      // "183,8 milyar" üç basamak — sayılmaz; birim büyüklüğü taşıyor,
+      // rakamın kendisi değil.
+      expect(rakamiAyir('183,8 milyar m³').sayilmaliMi, isFalse);
+      expect(rakamiAyir('1.000,5').sayilmaliMi, isTrue);
+    });
+
+    test('sayı olmayan değer sayılmıyor', () {
+      expect(rakamiAyir('veri yok').sayilmaliMi, isFalse);
+      expect(rakamiAyir('').sayilmaliMi, isFalse);
+    });
+  });
+
   group('ayrıştırma', () {
     test('yüzde: önek korunuyor', () {
       final p = rakamiAyir('%30');

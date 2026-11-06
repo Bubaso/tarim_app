@@ -54,8 +54,8 @@ KURALLAR
    tek şey öğrenir. Rakam "ne kadar"ı söyler, başlık "ne olacak"ı.
    Mevcut başlık bu kurala uyuyorsa AYNEN koru.
    Yeni başlık en fazla 60 harf olacak, haberin gerçeğinden sapmayacak.
-3. guc 8 veya üstüyse bir tahmin sorusu hazırla; değilse tahmin alanlarını boş
-   bırak. tahmin_secenekler ÜÇ şık: biri big_stat_value'nun AYNISI, ikisi makul
+3. guc 9 veya 10 ise bir tahmin sorusu hazırla; değilse tahmin alanlarını boş
+   bırak. Soru NADİR olmalı — okur sınava girmiyor, haber okumaya geliyor. tahmin_secenekler ÜÇ şık: biri big_stat_value'nun AYNISI, ikisi makul
    ama yanlış, üçü de birbirinden farklı ve aynı biçimde yazılmış.
    tahmin_dogru doğru şıkkın 0 tabanlı sırası.
 
@@ -94,8 +94,13 @@ def _uc_sik(ham, rakam):
     return s
 
 
-def tazele_slayt(model, slayt, haber):
-    """Tek slaytı değerlendirir; (yeni_slayt, guc, degisti) döner."""
+def tazele_slayt(model, slayt, haber, izin_var):
+    """Tek slaytı değerlendirir; (yeni_slayt, guc, degisti, soru_eklendi) döner.
+
+    [izin_var] false ise tahmin sorusu EKLENMİYOR: aynı anda yalnız bir soru
+    yayında olabiliyor (kullanıcı kararı, 6 Kasım 2026 — "okur sınava
+    girmiyor").
+    """
     rakam = (slayt.get("big_stat_value") or "").strip()
     baslik = (slayt.get("headline") or "").strip()
 
@@ -126,6 +131,19 @@ def tazele_slayt(model, slayt, haber):
 
     yeni = dict(slayt)
     degisti = False
+    soru_eklendi = False
+    # Eski sürümden kalan sorular TEMİZLENİYOR: eşik 8'den 9'a çıktı ve
+    # tavan kondu; mevcut kartların çoğunda soru vardı.
+    for alan, bos in (
+        ("tahmin_soru", ""),
+        ("tahmin_soru_en", ""),
+        ("tahmin_secenekler", []),
+        ("tahmin_secenekler_en", []),
+        ("tahmin_dogru", -1),
+    ):
+        if yeni.get(alan) not in (None, bos):
+            yeni[alan] = bos
+            degisti = True
 
     # ── T4 — başlık ────────────────────────────────────────────────────────
     onerilen = (veri.get("headline") or "").strip()
@@ -155,7 +173,14 @@ def tazele_slayt(model, slayt, haber):
     except (TypeError, ValueError):
         sira = -1
 
-    if guc >= 8 and soru and sikler and 0 <= sira < 3 and sikler[sira] == rakam:
+    if (
+        izin_var
+        and guc >= StoryRules.TAHMIN_GUC_ESIGI
+        and soru
+        and sikler
+        and 0 <= sira < 3
+        and sikler[sira] == rakam
+    ):
         yeni["tahmin_soru"] = soru
         yeni["tahmin_secenekler"] = sikler
         yeni["tahmin_dogru"] = sira
@@ -168,9 +193,10 @@ def tazele_slayt(model, slayt, haber):
             yeni["tahmin_soru_en"] = soru_en
             yeni["tahmin_secenekler_en"] = sikler_en
         degisti = True
+        soru_eklendi = True
         print(f"    + tahmin: {soru}")
 
-    return yeni, guc, degisti
+    return yeni, guc, degisti, soru_eklendi
 
 
 def main():
@@ -216,6 +242,10 @@ def main():
     zayif = []
     guclu = []  # (satır, güç) — kademeli ömür için
 
+    # Aynı anda yayında olabilecek soru sayısı. Liste içinde tutuluyor ki
+    # yardımcı işlevden azaltılabilsin.
+    soru_hakki = [StoryRules.TAHMIN_EN_FAZLA_AKTIF]
+
     for i, satir in enumerate(haberliler, 1):
         slaytlar = satir.get("items") or []
         if not slaytlar:
@@ -237,7 +267,11 @@ def main():
         en_dusuk_guc = 10
         degisen = False
         for slayt in slaytlar:
-            y, guc, d = tazele_slayt(model, slayt, haber[0])
+            y, guc, d, eklendi = tazele_slayt(
+                model, slayt, haber[0], soru_hakki[0] > 0
+            )
+            if eklendi:
+                soru_hakki[0] -= 1
             yeni_slaytlar.append(y)
             degisen = degisen or d
             if guc is not None:

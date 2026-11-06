@@ -475,6 +475,83 @@ class HomeRepository {
     }
   }
 
+  // ══════════════════════════════════════════════════════════════════════
+  //  Hikâye slaytlarını yayından kaldırma (kullanıcı isteği, 6 Kas 2026)
+  // ──────────────────────────────────────────────────────────────────────
+  //  "Yönetici canlıda yayınlanan, sevmediği bir hikâye slaytını devre dışı
+  //  bırakabilmeli."
+  //
+  //  SİLMİYORUZ, İŞARETLİYORUZ. Satırı silmek üç şeyi birden kaybettiriyor:
+  //  arşiv kaydını, izlendi defterinin anahtarını ve kararın geri alınma
+  //  imkânını. Gizlenen slayt yerinde duruyor, yalnız çizilmiyor.
+  //
+  //  İşaret `items` içindeki slaytın kendisine yazılıyor — satıra değil.
+  //  Dosya hikâyelerinde bir satırda beş slayt var ve yöneticinin
+  //  beğenmediği genellikle tek slayt; satırı gizlemek ötekileri de
+  //  götürürdü. Bütün slaytları gizlenen satırı istemci zaten çizmiyor.
+  // ══════════════════════════════════════════════════════════════════════
+
+  /// Bir hikâye slaytını gizler ya da geri getirir.
+  ///
+  /// `true` döndüğünde yazma GERÇEKTEN olmuştur: PostgREST hiçbir satıra
+  /// denk gelmeyen bir güncellemede hata vermiyor, 200 ve boş gövde
+  /// dönüyor (§25.1 ailesinden bir tuzak).
+  Future<bool> hikayeSlaytiniGizle({
+    required String storyId,
+    required int slaytSirasi,
+    required bool gizli,
+  }) async {
+    try {
+      final mevcut = await _supabaseClient
+          .from('portal_stories')
+          .select('items')
+          .eq('id', storyId)
+          .limit(1);
+      final liste = (mevcut as List);
+      if (liste.isEmpty) return false;
+
+      final ham = (liste.first as Map)['items'];
+      if (ham is! List || slaytSirasi < 0 || slaytSirasi >= ham.length) {
+        return false;
+      }
+
+      final slaytlar = <Map<String, dynamic>>[
+        for (final x in ham) Map<String, dynamic>.from(x as Map),
+      ];
+      slaytlar[slaytSirasi]['gizli'] = gizli;
+
+      final donen = await _supabaseClient
+          .from('portal_stories')
+          .update({'items': slaytlar})
+          .eq('id', storyId)
+          .select('id');
+      return (donen as List).isNotEmpty;
+    } catch (e) {
+      if (kDebugMode) print('hikayeSlaytiniGizle error: $e');
+      return false;
+    }
+  }
+
+  /// Yönetim ekranı için: yayındaki bütün hikâye satırları, gizlenenler
+  /// dahil.
+  ///
+  /// İstemcinin okur akışı gizlenenleri eliyor; yönetici onları GÖRMEK
+  /// zorunda, yoksa kararını geri alamaz.
+  Future<List<Map<String, dynamic>>> yonetimHikayeleri() async {
+    try {
+      final veri = await _supabaseClient
+          .from('portal_stories')
+          .select('id, group_title, items, expires_at, article_id, hedef_yol, '
+              'is_breaking, articles(image_url, thumb_image_url, image_lqip)')
+          .gt('expires_at', DateTime.now().toUtc().toIso8601String())
+          .order('created_at', ascending: false);
+      return List<Map<String, dynamic>>.from(veri as List);
+    } catch (e) {
+      if (kDebugMode) print('yonetimHikayeleri error: $e');
+      return const [];
+    }
+  }
+
   /// Kaynak karnesi (`source_scorecard` view'ı).
   ///
   /// View hazır: kaynak başına toplam / yayınlanan / reddedilen / bekleyen

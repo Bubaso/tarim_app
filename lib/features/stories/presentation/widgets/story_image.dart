@@ -125,6 +125,46 @@ bool storyImageIsTransformable(String rawUrl) =>
 /// değişmesini gerektirirdi.
 const String _kDikeyTurevEki = '_1080x2340';
 
+// ─── Türev gerçekten BU kapağa mı ait? ─────────────────────────────────────
+//
+// 6 Kasım 2026: editör onay sırasında kapağı değiştiriyor (çoğu zaman Google
+// Haberler'in ikon görselinden kurtulmak için) ama türevler haber alınırken
+// bir kez üretilmişti ve ESKİ görseli göstermeye devam ediyordu. Ölçüm: 1698
+// haberin 109'unda dikey türev kapakla uyuşmuyordu ve şeritteki 33 hikâyenin
+// 12'si etkileniyordu. Tek bir türev dört ayrı haberde kullanılıyordu.
+//
+// Veritabanında artık bir tetikleyici var (kapak değişince türevler NULL'a
+// çekiliyor), ama bu KONTROL ayrıca duruyor: tetikleyiciden önce bozulmuş
+// satırlar var ve istemcinin onlara da doğru davranması gerekiyor. Yanlış
+// bir fotoğraf göstermektense kapağın kendisini göstermek her zaman doğru.
+//
+// Eşleşme dosya adının KARMA ÖNEKİNDEN okunuyor: hat bütün türevleri aynı
+// kaynağın karmasından adlandırıyor (`abc123_1200x630.jpg`,
+// `abc123_1080x2340_v2.jpg`, `abc123_320x320.jpg`).
+
+/// Depo adresinden karma önekini çıkarır; çıkarılamazsa boş dize.
+String turevKoku(String url) {
+  final s = url.trim();
+  if (s.isEmpty) return '';
+  final ad = s.split('?').first.split('/').last;
+  if (ad.isEmpty) return '';
+  final govde = ad.contains('_') ? ad.split('_').first : ad.split('.').first;
+  return govde;
+}
+
+/// [turev] gerçekten [kapak] görselinden mi üretilmiş?
+///
+/// İkisinden biri boşsa ya da kök okunamıyorsa **true** dönüyor: elimizde
+/// çelişki kanıtı yokken var olan türevi atmak, çalışan bir görseli
+/// sebepsiz kaybetmek olurdu. Yalnızca İKİSİ de okunup FARKLI çıktığında
+/// türev reddediliyor.
+bool turevKapagaAit(String turev, String kapak) {
+  final a = turevKoku(turev);
+  final b = turevKoku(kapak);
+  if (a.isEmpty || b.isEmpty) return true;
+  return a == b;
+}
+
 /// Dosya zaten hikaye ekranının ölçüsünde mi?
 ///
 /// Önemli, çünkü bu dosyayı dönüştürme uç noktasından geçirmek onu BOZUYOR:
@@ -218,7 +258,13 @@ String storyBackgroundUrl(
   final double gorusOrani =
       olculebilir ? size.width / size.height : _kDikeyOran;
 
-  final bool dikeyDahaYakin = portraitUrl.trim().isNotEmpty &&
+  // Türev kapakla uyuşmuyorsa HİÇ kullanılmıyor: oranı daha uygun diye
+  // yanlış fotoğrafı göstermek, doğru fotoğrafı kırparak göstermekten
+  // kötüdür.
+  final bool dikeyGecerli = portraitUrl.trim().isNotEmpty &&
+      turevKapagaAit(portraitUrl, imageUrl);
+
+  final bool dikeyDahaYakin = dikeyGecerli &&
       (math.log(gorusOrani / _kDikeyOran)).abs() <
           (math.log(gorusOrani / _kYatayOran)).abs();
 

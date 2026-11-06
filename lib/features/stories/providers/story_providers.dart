@@ -7,6 +7,7 @@ import '../../../../core/network/supabase_client.dart';
 import '../data/models/story_item.dart';
 import '../data/story_constants.dart';
 import '../data/story_seen_store.dart';
+import '../presentation/widgets/story_image.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  Hikaye akışı
@@ -251,7 +252,11 @@ void _satiriIsle(
     // İkisi de eksik olabilir: türevler o tarihte eklendi ve dosya
     // hikâyelerinin bağlı bir haberi yok.
     final rawKare = articleData?['thumb_image_url']?.toString().trim() ?? '';
-    final kare = rawKare.length < 6 ? '' : rawKare;
+    // Kare türev de kapakla eşleşmek ZORUNDA: editör kapağı değiştirdiğinde
+    // baloncuk eski fotoğrafı göstermeye devam ederdi (6 Kasım 2026).
+    final kare = (rawKare.length < 6 || !turevKapagaAit(rawKare, rawImage))
+        ? ''
+        : rawKare;
     final onizleme = articleData?['image_lqip']?.toString().trim() ?? '';
 
     final storyId = row['id'].toString();
@@ -280,19 +285,30 @@ void _satiriIsle(
       final raw = itemsData[i];
       if (raw is! Map) continue;
 
+      // Yönetici bu slaytı yayından kaldırmış (6 Kasım 2026 kullanıcı
+      // isteği). Satır duruyor — arşivde görünsün ve karar geri
+      // alınabilsin diye — ama okur akışında çizilmiyor.
+      if (raw['gizli'] == true) continue;
+
       final headline = raw['headline']?.toString() ?? '';
       final bigStat = raw['big_stat_value']?.toString() ?? '';
       // Başlığı veya vurucu değeri olmayan slayt boş bir kart demek.
       if (headline.isEmpty || bigStat.isEmpty) continue;
 
-      // Slayt kendi görselini taşıyabiliyor.
+      // Slayt kendi görselini YALNIZCA dosya hikâyelerinde taşıyabiliyor.
       //
-      // Haber hikâyelerinde bir grubun bütün slaytları aynı haberden gelir ve
-      // tek görsel doğrudur. Dosya hikâyesinde ise her slayt dosyanın başka
-      // bir bölümünü anlatıyor; hepsine aynı fotoğrafı koymak kartı tekrara
-      // düşürüyordu. Yazılı değilse satırın görseline düşüyor — eski davranış.
-      final slaytGorsel =
-          _sameOriginAsset(raw['gorsel_url']?.toString().trim() ?? '');
+      // Dosya hikâyesinde her slayt dosyanın başka bir bölümünü anlatıyor;
+      // hepsine aynı fotoğrafı koymak kartı tekrara düşürüyordu.
+      //
+      // HABER hikâyesinde ise tek doğru görsel var: haberin KAPAĞI. Editör
+      // onay sırasında kapağı değiştiriyor (çoğu zaman kaynağın ikon
+      // görselinden kurtulmak için) ve hikâyenin başka bir fotoğrafa
+      // yapışması tam da o düzeltmeyi boşa çıkarıyor. Bugün hiçbir haber
+      // satırında slayt görseli yazılı değil (ölçüldü) ama kural kodda
+      // duruyor: yarın yazılırsa yok sayılacak.
+      final slaytGorsel = hedefYol.isNotEmpty
+          ? _sameOriginAsset(raw['gorsel_url']?.toString().trim() ?? '')
+          : '';
       final gorsel = slaytGorsel.length >= 6 ? slaytGorsel : rawImage;
 
       buckets.putIfAbsent(key, () => <StoryItem>[]).add(StoryItem(

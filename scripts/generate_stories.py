@@ -65,6 +65,19 @@ class StoryRules:
     #: şeridin değeri seçiciliğinden geliyor.
     GUC_ESIGI = 7
 
+    #: Tahmin sorusu için güç eşiği ve aynı anda yayında olabilecek en
+    #: fazla soru.
+    #:
+    #: Kullanıcı 6 Kasım 2026'da sınırı çizdi: "kullanıcı sınava girmiyor,
+    #: haber okumaya geliyor — bu çok istisna olmalı." İlk sürümde güç 8
+    #: eşiği kartların çoğuna soru koyuyordu.
+    #:
+    #: İki kat koruma: puan eşiği 9 VE aynı anda yalnız BİR soru yayında.
+    #: İkincisi olmazsa model bir gün cömert davranıp on karta birden 9
+    #: verdiğinde şerit sınava dönerdi; tavan modelin ruh hâlinden bağımsız.
+    TAHMIN_GUC_ESIGI = 9
+    TAHMIN_EN_FAZLA_AKTIF = 1
+
     #: Tek çalıştırmada ve tek günde eklenebilecek en fazla hikâye.
     #:
     #: Hat saatlik çalışıyor; tavan olmadan sabahki yığın tek seferde
@@ -290,8 +303,8 @@ Haber sadece yorum, siyasi söylem veya genel bir bilgi içeriyorsa is_story_wor
 5. guc alanına 1-10 arası bir puan ver: bu kart bir haber şeridinde kendi
    başına durmayı ne kadar hak ediyor? 10 = okurun durup bakacağı çarpıcı
    bir rakam. 5 = doğru ama sıradan. Cömert davranma.
-6. guc 8 veya üstüyse bir TAHMİN sorusu hazırla; değilse tahmin alanlarını boş
-   bırak. Soru, okurun rakamı görmeden tahmin etmesini isteyen tek bir cümle
+6. guc 9 veya 10 ise bir TAHMİN sorusu hazırla; değilse tahmin alanlarını boş
+   bırak. Soru NADİR olmalı — okur sınava girmiyor, haber okumaya geliyor. Soru, okurun rakamı görmeden tahmin etmesini isteyen tek bir cümle
    olmalı (max 70 harf, örn: "Mazot maliyeti bu yıl ne kadar arttı?").
    tahmin_secenekler ÜÇ şık içerecek: biri big_stat_value'nun AYNISI, ikisi
    makul ama yanlış. Şıklar aynı biçimde yazılacak (hepsi yüzdeyse hepsi
@@ -407,7 +420,8 @@ def validate(data):
         dogru_sira = -1
 
     gecerli = (
-        bool(soru)
+        guc >= StoryRules.TAHMIN_GUC_ESIGI
+        and bool(soru)
         and len(soru) <= 90
         and isinstance(sikler, list)
         and len(sikler) == 3
@@ -547,6 +561,27 @@ def run_story_pipeline():
         ttl = _omur(kategori, konu_sayaci, is_breaking)
         konu_sayaci[kategori] = konu_sayaci.get(kategori, 0) + 1
         expires = now + timedelta(hours=ttl)
+
+        # Yayındaki soru sayısı TAVANDAYSA bu kartın sorusu düşüyor.
+        # Puan eşiği modelin ruh hâline bağlı; bu sayım değil.
+        if story.get("tahmin_soru"):
+            aktif_soru = sum(
+                1
+                for s in (
+                    supabase.from_("portal_stories")
+                    .select("items")
+                    .gt("expires_at", now.isoformat())
+                    .execute()
+                ).data
+                or []
+                for it in (s.get("items") or [])
+                if (it.get("tahmin_soru") or "").strip()
+            )
+            if aktif_soru >= StoryRules.TAHMIN_EN_FAZLA_AKTIF:
+                print(f"    · yayında {aktif_soru} soru var, bu kartınki atlandı")
+                story["tahmin_soru"] = ""
+                story["tahmin_secenekler"] = []
+                story["tahmin_dogru"] = -1
 
         items = [{
             "super_title": story.get("super_title", ""),
