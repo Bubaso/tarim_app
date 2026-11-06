@@ -14,6 +14,7 @@ import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/kisa_kisa_screen.dart';
+import '../../../../core/theme/konu_renkleri.dart';
 
 /// Ana sayfadaki 'Kısa Kısa' bloğu — kaynağı kısa olduğu için kısa yazılmış
 /// haberler.
@@ -103,21 +104,15 @@ class KisaKisaSection extends ConsumerWidget {
 /// konuyu tam sayfada da yeşil görmeli.
 ///
 /// Renk TEK BAŞINA anlam taşımıyor (§3.2) — künyede konunun adı da yazılı.
-Color kisaKonuRengi(String? konu, bool isDark) {
-  switch (konu) {
-    case 'Bitkisel Üretim':
-      return isDark ? const Color(0xFF7FB069) : AppColors.primaryGreen;
-    case 'Hayvancılık':
-      return isDark ? const Color(0xFFC97B63) : AppColors.marketDown;
-    case 'Ekonomi':
-      return isDark ? const Color(0xFFDCBB79) : const Color(0xFF9A7224);
-    case 'Tarım-Bilim':
-    case 'YYT':
-      return isDark ? const Color(0xFF8FBFB4) : const Color(0xFF2F6B60);
-    default:
-      return isDark ? Colors.white38 : const Color(0xFF7A6E60);
-  }
-}
+/// Kısa Kısa satırının konu rengi.
+///
+/// Artık portalın ORTAK renk sistemine bağlı (`core/theme/konu_renkleri`).
+/// Eskiden burada dört haber konusunu tanıyan ayrı bir eşleme vardı;
+/// hikâye kategorileri (Piyasa, Hasat, Destekleme…) hiç renklenmiyordu ve
+/// aynı portalda iki ayrı renk dili oluşmuştu (6 Kasım 2026 denetimi, Ö7).
+///
+/// Dört konunun renkleri BİREBİR korundu — bu bölümün görüntüsü değişmiyor.
+Color kisaKonuRengi(String? konu, bool isDark) => konuRengi(konu, isDark);
 
 /// Manşet listesi — ana sayfada ve tam sayfada ortak.
 class _BriefList extends StatelessWidget {

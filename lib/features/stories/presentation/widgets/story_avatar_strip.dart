@@ -9,6 +9,7 @@ import '../../data/story_constants.dart';
 import '../screens/story_viewer_screen.dart';
 import '../../providers/story_providers.dart';
 import 'story_image.dart';
+import '../../../../core/theme/konu_renkleri.dart';
 
 /// Anasayfadaki hikaye şeridi.
 ///
@@ -154,6 +155,14 @@ class _StoryBubble extends StatelessWidget {
     final String displayTitle = group.titleFor(isEn);
     final bool unseen = !group.isSeen;
 
+    // Halka KONUNUN rengini taşıyor (Ö7). Eskiden bütün izlenmemiş
+    // baloncuklar aynı yeşil-buğday geçişindeydi: şerit on ayrı konudan
+    // oluşuyordu ama on baloncuk da aynı görünüyordu.
+    //
+    // Son dakika bu kuralın DIŞINDA kalıyor ve kırmızı-turuncu kalıyor:
+    // aciliyet konudan önce gelir ve okurun o baloncuğu konusuna
+    // bakmadan ayırt etmesi gerekiyor.
+    final Color konu = konuRengi(group.title, isDark);
     final Gradient? ring = !unseen
         ? null
         : group.isBreaking
@@ -162,8 +171,10 @@ class _StoryBubble extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               )
-            : const LinearGradient(
-                colors: [AppColors.primaryGreen, AppColors.wheat],
+            : LinearGradient(
+                // İkinci durak konunun açık tonu: düz renk halka yassı
+                // duruyordu, geçiş baloncuğa derinlik veriyor.
+                colors: [konu, Color.lerp(konu, AppColors.wheat, 0.45)!],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               );

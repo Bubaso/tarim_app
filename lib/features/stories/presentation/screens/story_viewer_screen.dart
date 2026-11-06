@@ -13,6 +13,8 @@ import '../../data/story_analytics.dart';
 import '../../data/story_constants.dart';
 import '../../providers/story_providers.dart';
 import '../widgets/story_image.dart';
+import '../../../../core/theme/konu_renkleri.dart';
+import '../../../../core/utils/turkce_metin.dart';
 
 class StoryViewerScreen extends ConsumerStatefulWidget {
   final List<StoryGroup> storyGroups;
@@ -358,36 +360,36 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                         children: [
                           const Spacer(),
 
-                          // Üst Başlık (Kategori)
-                          AnimatedBuilder(
-                            animation: _animController,
-                            builder: (context, child) {
-                              return Opacity(
-                                opacity: Curves.easeIn.transform(
-                                    (_animController.value * 5)
-                                        .clamp(0.0, 1.0)),
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 4),
-                                  margin: const EdgeInsets.only(bottom: 12),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.primaryGreen,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    item.superTitleFor(isEn).toUpperCase(),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.inter(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 12,
-                                      letterSpacing: 1.2,
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
+                          // Üst Başlık (Kategori) — T7.
+                          //
+                          // Üç şey değişti. (1) Zemin konunun rengi, sabit
+                          // yeşil değil: çip artık hangi bölümde olduğunu
+                          // söylüyor. (2) Punto 12'den 13'e, mürekkep koyu:
+                          // parlak ton üzerinde beyaz yazı okunmuyordu.
+                          // (3) Beliriş animasyonu KALDIRILDI — çip okurun
+                          // nerede olduğunu söyleyen tek işaret ve ilk
+                          // saniyede görünmez olması tam da en çok
+                          // gerektiği anda yok olması demekti.
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                            margin: const EdgeInsets.only(bottom: 12),
+                            decoration: BoxDecoration(
+                              color: konuCipRengi(group.title),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Text(
+                              // Ham `toUpperCase()` DEĞİL (§39.5).
+                              buyukHarf(item.superTitleFor(isEn), isEn),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: GoogleFonts.inter(
+                                color: konuCipMurekkebi,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 13,
+                                letterSpacing: 1.0,
+                              ),
+                            ),
                           ),
 
                           // Büyük İstatistik Değeri
@@ -498,28 +500,41 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Row(
-                            children: List.generate(
-                              group.items.length,
-                              (i) => Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 2.0),
-                                  child: _buildProgressBar(
-                                    isCurrentGroup: isCurrentGroup,
-                                    itemIndex: i,
-                                    currentIndex: itemIndex,
+                          // Ö8 — TEK SLAYTLIK grupta çubuk çizilmiyor.
+                          // Aktif hikâyelerin çoğu tek slayt taşıyor ve
+                          // ekranın tepesinde tek parça, hiç bölünmeyen bir
+                          // çubuk "burada bir şey eksik" izlenimi veriyordu.
+                          // Süreyi avatarın çevresindeki halka söylüyor.
+                          if (group.items.length > 1)
+                            Row(
+                              children: List.generate(
+                                group.items.length,
+                                (i) => Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 2.0),
+                                    child: _buildProgressBar(
+                                      isCurrentGroup: isCurrentGroup,
+                                      itemIndex: i,
+                                      currentIndex: itemIndex,
+                                      slayt: group.items[i],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 12),
+                          SizedBox(height: group.items.length > 1 ? 12 : 4),
                           Row(
                             children: [
-                              ClipOval(
-                                child: StoryThumbImage(
-                                    url: group.avatarUrl, size: 36),
+                              // Tek slaytta süre halkası avatarın çevresinde:
+                              // bilgi kaybolmuyor, ekranın tepesi sessizleşiyor.
+                              _AvatarHalkasi(
+                                avatarUrl: group.avatarUrl,
+                                onizleme: group.avatarOnizleme,
+                                renk: konuCipRengi(group.title),
+                                ilerleme: group.items.length > 1
+                                    ? null
+                                    : (isCurrentGroup ? _animController : null),
                               ),
                               const SizedBox(width: 10),
                               Expanded(
@@ -561,31 +576,56 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     );
   }
 
+  /// Ö6 — segment BİLGİ TAŞIYOR.
+  ///
+  /// Eskiden çubuklar yalnızca "kaç slayt kaldı" diyordu. Artık dolan kısım
+  /// o slaytın konu rengiyle boyanıyor ve son dakika slaytının segmenti
+  /// altında ince bir kırmızı çizgi taşıyor: okur grubu açmadan hangi
+  /// slaytın acil olduğunu görüyor.
   Widget _buildProgressBar({
     required bool isCurrentGroup,
     required int itemIndex,
     required int currentIndex,
+    required StoryItem slayt,
   }) {
+    final Color dolu = konuCipRengi(_currentGroup.title);
+
+    Widget govde;
     if (!isCurrentGroup || itemIndex > currentIndex) {
-      return _bar(Colors.white.withOpacity(0.3));
-    }
-    if (itemIndex < currentIndex) {
-      return _bar(Colors.white);
+      govde = _bar(Colors.white.withOpacity(0.28));
+    } else if (itemIndex < currentIndex) {
+      govde = _bar(dolu);
+    } else {
+      govde = AnimatedBuilder(
+        animation: _animController,
+        builder: (context, child) {
+          return Stack(
+            children: [
+              _bar(Colors.white.withOpacity(0.28)),
+              FractionallySizedBox(
+                widthFactor: _animController.value,
+                child: _bar(dolu),
+              ),
+            ],
+          );
+        },
+      );
     }
 
-    return AnimatedBuilder(
-      animation: _animController,
-      builder: (context, child) {
-        return Stack(
-          children: [
-            _bar(Colors.white.withOpacity(0.3)),
-            FractionallySizedBox(
-              widthFactor: _animController.value,
-              child: _bar(Colors.white),
-            ),
-          ],
-        );
-      },
+    if (!slayt.isBreaking) return govde;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        govde,
+        const SizedBox(height: 2),
+        Container(
+          height: 2,
+          decoration: BoxDecoration(
+            color: const Color(0xFFE94057),
+            borderRadius: BorderRadius.circular(1),
+          ),
+        ),
+      ],
     );
   }
 
@@ -596,4 +636,59 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
           borderRadius: BorderRadius.circular(2),
         ),
       );
+}
+
+/// Avatar ve çevresindeki süre halkası.
+///
+/// [ilerleme] verilmezse halka çizilmiyor — çok slaytlı gruplarda süreyi
+/// üstteki çubuk zaten söylüyor ve iki ayrı yerde göstermek gürültü olur.
+class _AvatarHalkasi extends StatelessWidget {
+  const _AvatarHalkasi({
+    required this.avatarUrl,
+    required this.onizleme,
+    required this.renk,
+    required this.ilerleme,
+  });
+
+  final String avatarUrl;
+  final String onizleme;
+  final Color renk;
+  final Animation<double>? ilerleme;
+
+  static const double _olcu = 36;
+  static const double _halka = 2.5;
+
+  @override
+  Widget build(BuildContext context) {
+    final avatar = ClipOval(
+      child: StoryThumbImage(
+          url: avatarUrl, size: _olcu, onizleme: onizleme),
+    );
+    final anim = ilerleme;
+    if (anim == null) return avatar;
+
+    return SizedBox(
+      width: _olcu + _halka * 4,
+      height: _olcu + _halka * 4,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          AnimatedBuilder(
+            animation: anim,
+            builder: (context, _) => SizedBox(
+              width: _olcu + _halka * 3,
+              height: _olcu + _halka * 3,
+              child: CircularProgressIndicator(
+                value: anim.value,
+                strokeWidth: _halka,
+                backgroundColor: Colors.white.withOpacity(0.22),
+                valueColor: AlwaysStoppedAnimation<Color>(renk),
+              ),
+            ),
+          ),
+          avatar,
+        ],
+      ),
+    );
+  }
 }
