@@ -101,7 +101,8 @@ class HomeRepository {
       'source_name,source_url,content_type,topic,region,hero_score,'
       'is_hero,hero_order,spot,spot_en,is_breaking,breaking_notified_at,'
       'hero_pinned_at,source_chars,source_depth,extraction_method,'
-      'article_format,published_at,story_image_url,rejection_reason,'
+      'article_format,published_at,story_image_url,thumb_image_url,'
+      'image_lqip,rejection_reason,'
       'rejected_at,source_modified_at,source_drift,publish_at,turkiye_pin,'
       'audio_url,audio_url_en,is_radio,radio_order,ses_deneme,ses_hatasi';
 

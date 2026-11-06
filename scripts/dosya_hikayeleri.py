@@ -107,17 +107,61 @@ def yayin_oku(slug):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+# ── Uzunluk sınırları (6 Kasım 2026 denetimi, T5) ───────────────────────────
+#
+# Görüntüleyicinin tipografisi haber hikâyelerine göre ayarlı: etiket tek
+# satırlık kısa bir ibare, başlık en fazla 60 karakterlik çarpıcı bir cümle.
+# Dosya hikâyelerinde alanlar amacının dışında kullanılmıştı — ölçülen:
+#
+#   stat_label : "Devredilen sulama alanı, 31 Aralık 2025 — 936 tesis,
+#                 BÜTÜN sulama tesisleri"                         (76 karakter)
+#   headline   : "İnşa ettiği sulama tesislerinin dokuz yüzden fazlasını
+#                 başka tüzel kişilere devretti. Birlikler, kooperatifler,
+#                 belediyeler."                                  (142 karakter)
+#
+# İkisi de o boyutta okunmuyor.
+#
+# KAYNAK DOSYAYA DOKUNULMUYOR. `yayin.json` içerikleri dosya oturumunun
+# alanı; burada yalnızca GÖSTERİM kırpılıyor ve ne kırpıldığı ekrana
+# yazılıyor ki kaynak düzeltilebilsin. Sessiz kırpma, sorunu gizlemek olurdu.
+SINIR = {
+    "super_title": 24,
+    "headline": 60,
+    "stat_label": 48,
+    "big_stat_value": 12,
+}
+
+
+def _kirp(metin, sinir, nerede, uyar=True):
+    """Sınırı aşan metni SÖZCÜK sınırında kırpar ve uyarır."""
+    m = (metin or "").strip()
+    if len(m) <= sinir:
+        return m
+    kesik = m[:sinir].rsplit(" ", 1)[0].rstrip(" ,;:—-")
+    # Tek sözcük sınırdan uzunsa `rsplit` boş dönüyor; o zaman ham kesim.
+    if not kesik:
+        kesik = m[:sinir].rstrip()
+    if uyar:
+        print(f"    ! {nerede}: {len(m)} karakter, {sinir}'e kırpıldı")
+        print(f"      kaynak : {m}")
+        print(f"      gösterim: {kesik}…")
+    return f"{kesik}…"
+
+
 def slayta_cevir(s):
     """yayin.json slaytı -> portal_stories.items öğesi."""
     return {
-        "super_title": s.get("ust", ""),
-        "super_title_en": s.get("ust_en", ""),
-        "headline": s.get("baslik", ""),
-        "headline_en": s.get("baslik_en", ""),
+        "super_title": _kirp(s.get("ust", ""), SINIR["super_title"], "ust"),
+        "super_title_en": _kirp(s.get("ust_en", ""), SINIR["super_title"],
+                                "ust_en", uyar=False),
+        "headline": _kirp(s.get("baslik", ""), SINIR["headline"], "baslik"),
+        "headline_en": _kirp(s.get("baslik_en", ""), SINIR["headline"],
+                             "baslik_en", uyar=False),
         "big_stat_value": s.get("rakam", ""),
         "big_stat_value_en": s.get("rakam_en", ""),
-        "stat_label": s.get("etiket", ""),
-        "stat_label_en": s.get("etiket_en", ""),
+        "stat_label": _kirp(s.get("etiket", ""), SINIR["stat_label"], "etiket"),
+        "stat_label_en": _kirp(s.get("etiket_en", ""), SINIR["stat_label"],
+                               "etiket_en", uyar=False),
         # Slayt kendi görselini taşıyor. Paylaşım kartı KULLANILMIYOR: kartın
         # üstünde zaten dosyanın adı ve tanıtım cümlesi var, görüntüleyici
         # kendi metnini bindirince ikisi birbirine giriyordu. Bunun yerine

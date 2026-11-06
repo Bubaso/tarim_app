@@ -31,6 +31,19 @@ class NewsArticle {
   /// 1659 kaydın 1615'inde dolu; eski kayıtlarda boş olabilir.
   final DateTime? publishedAt;
 
+  /// 320×320 kare türev — hikâye baloncuğu ve avatar.
+  ///
+  /// Boşsa `imageUrl`a düşülüyor. Bu yedek gerçekten devreye giriyor:
+  /// türev 6 Kasım 2026'da eklendi, ondan eski haberlerin çoğunda yok.
+  final String? thumbImageUrl;
+
+  /// 24 piksellik önizlemenin base64 `data:` URI'si.
+  ///
+  /// Tek işi görselin rengini İLK KAREDE ekrana koymak. Ağ isteği
+  /// gerektirmiyor çünkü satırla birlikte geliyor — ayrı bir dosya olsaydı
+  /// çözmeye çalıştığı beklemeyi yeniden üretirdi.
+  final String? imageLqip;
+
   final String? status;
   final String? categoryId;
   final String? geoLocation;
@@ -111,6 +124,8 @@ class NewsArticle {
     this.sourceUrl,
     required this.createdAt,
     this.publishedAt,
+    this.thumbImageUrl,
+    this.imageLqip,
     this.status,
     this.categoryId,
     this.geoLocation,
@@ -182,6 +197,8 @@ class NewsArticle {
       // garanti değil. Bozuk bir tarih yüzünden haberin TAMAMININ
       // ayrıştırılamaması, tarihin boş kalmasından çok daha kötü.
       publishedAt: DateTime.tryParse(json['published_at']?.toString() ?? ''),
+      thumbImageUrl: json['thumb_image_url']?.toString(),
+      imageLqip: json['image_lqip']?.toString(),
       status: json['status']?.toString(),
       categoryId: json['category_id']?.toString(),
       geoLocation: json['geo_location']?.toString(),
@@ -229,6 +246,8 @@ class NewsArticle {
       'source_url': sourceUrl,
       'created_at': createdAt.toIso8601String(),
       'published_at': publishedAt?.toIso8601String(),
+      'thumb_image_url': thumbImageUrl,
+      'image_lqip': imageLqip,
       'status': status,
       'category_id': categoryId,
       'geo_location': geoLocation,
@@ -271,6 +290,8 @@ class NewsArticle {
     String? sourceUrl,
     DateTime? createdAt,
     DateTime? publishedAt,
+    String? thumbImageUrl,
+    String? imageLqip,
     String? status,
     String? categoryId,
     String? geoLocation,
@@ -307,6 +328,8 @@ class NewsArticle {
       sourceUrl: sourceUrl ?? this.sourceUrl,
       createdAt: createdAt ?? this.createdAt,
       publishedAt: publishedAt ?? this.publishedAt,
+      thumbImageUrl: thumbImageUrl ?? this.thumbImageUrl,
+      imageLqip: imageLqip ?? this.imageLqip,
       status: status ?? this.status,
       categoryId: categoryId ?? this.categoryId,
       geoLocation: geoLocation ?? this.geoLocation,

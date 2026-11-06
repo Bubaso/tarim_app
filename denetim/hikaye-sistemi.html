@@ -1,0 +1,797 @@
+<title>Hikâye Sistemi Denetimi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   Bu sayfa denetim serisinin ÜÇÜNCÜSÜ: denetim.html ve yapay-zeka-kokusu.html
+   ile aynı jeton setini kullanıyor. Yeni bir kimlik uydurmak, aynı rafta
+   duran üç raporu birbirinden habersiz üç sayfaya çevirirdi.
+
+   Konuya özgü TEK ekleme: "slayt" bloğu. Hikâye görüntüleyicisinin kendi
+   tipografisini alıntılıyor — küçük etiket, dev rakam, altında açıklama.
+   Ölçüm sonuçları o biçimde duruyor çünkü rapor zaten o ekranı anlatıyor.
+
+   BÜYÜK HARF CSS'E BIRAKILMIYOR: `text-transform:uppercase` 'i' harfini 'I'
+   yapıyor, Türkçede karşılığı 'İ'. Etiketler doğrudan büyük harfle YAZILI.
+   (CLAUDE.md §39.5)
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --kagit:#F6F1E7; --kart:#FBF8F1; --murekkep:#3A2E20; --soluk:#6E6054;
+  --cok-soluk:#8C7F70; --bugday:#C9A15A; --yesil:#1F3320;
+  --cizgi:rgba(58,46,32,.14); --cizgi-kuv:rgba(58,46,32,.30);
+  --ust:#9C3B28; --ust-ze:rgba(156,59,40,.10);
+  --orta:#8A6410; --orta-ze:rgba(138,100,16,.10);
+  --alt:#3F6B37;  --alt-ze:rgba(63,107,55,.10);
+  --kod-ze:#EFE8DA;
+  --slayt-ze:#211B12; --slayt-mur:#F3EADA;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+    --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+    --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+    --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+    --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+    --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+    --kod-ze:#120E09;
+    --slayt-ze:#100C07; --slayt-mur:#F3EADA;
+  }
+}
+:root[data-theme="dark"]{
+  --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+  --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+  --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+  --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+  --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+  --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+  --kod-ze:#120E09;
+  --slayt-ze:#100C07; --slayt-mur:#F3EADA;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--kagit); color:var(--murekkep);
+  font:400 17px/1.68 Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.sar{max-width:1120px; margin:0 auto; padding:0 24px}
+p{max-width:68ch}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bugday); outline-offset:3px; border-radius:3px}
+
+/* ── künye ───────────────────────────────────────────────────────────────── */
+.kunye{padding:68px 0 30px; border-bottom:1px solid var(--cizgi-kuv)}
+.ust-etiket{
+  font:600 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.20em; color:var(--cok-soluk); margin:0 0 20px;
+}
+h1{
+  font:700 clamp(34px,6vw,60px)/1.03 Outfit,"Helvetica Neue",Arial,sans-serif;
+  margin:0 0 18px; letter-spacing:-.022em; text-wrap:balance; max-width:17ch;
+}
+.giris{font-size:19px; color:var(--soluk); max-width:62ch; margin:0 0 26px}
+.kunye-satir{
+  display:flex; flex-wrap:wrap; gap:10px 26px;
+  font:500 12.5px/1.5 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--cok-soluk);
+}
+
+/* ── bölüm başlıkları ────────────────────────────────────────────────────── */
+section{padding:56px 0; border-bottom:1px solid var(--cizgi)}
+section:last-of-type{border-bottom:0}
+h2{
+  font:600 clamp(23px,3.4vw,32px)/1.18 Outfit,"Helvetica Neue",Arial,sans-serif;
+  margin:0 0 6px; letter-spacing:-.012em; text-wrap:balance;
+}
+.h2-alt{color:var(--soluk); margin:0 0 34px; max-width:64ch}
+h3{
+  font:600 19px/1.32 Outfit,"Helvetica Neue",Arial,sans-serif;
+  margin:0 0 8px; letter-spacing:-.006em; text-wrap:balance;
+}
+
+/* ── ölçüm tablosu ───────────────────────────────────────────────────────── */
+.olcumler{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+  gap:1px; background:var(--cizgi); border:1px solid var(--cizgi);
+  border-radius:12px; overflow:hidden; margin:0 0 30px;
+}
+.olcum{background:var(--kart); padding:18px 20px}
+.olcum dt{
+  font:500 11.5px/1.4 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.06em; color:var(--cok-soluk); margin:0 0 7px;
+}
+.olcum dd{
+  margin:0; font:600 25px/1.1 Outfit,"Helvetica Neue",Arial,sans-serif;
+  font-variant-numeric:tabular-nums; letter-spacing:-.015em;
+}
+.olcum dd small{
+  display:block; font:400 13px/1.45 Inter,sans-serif;
+  color:var(--soluk); margin-top:7px; letter-spacing:0;
+}
+
+/* ── slayt bloğu: görüntüleyicinin kendi tipografisi ─────────────────────── */
+.slayt{
+  background:var(--slayt-ze); color:var(--slayt-mur);
+  border-radius:14px; padding:30px 28px 28px; margin:26px 0;
+  display:grid; gap:4px;
+}
+.slayt .cubuk{display:flex; gap:4px; margin:0 0 22px}
+.slayt .cubuk i{
+  height:3px; flex:1; border-radius:2px; background:rgba(243,234,218,.22);
+}
+.slayt .cubuk i.dolu{background:var(--bugday)}
+.slayt .etiket{
+  font:600 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.16em; color:var(--bugday);
+}
+.slayt .rakam{
+  font:700 clamp(38px,7vw,62px)/1 Outfit,"Helvetica Neue",Arial,sans-serif;
+  letter-spacing:-.03em; font-variant-numeric:tabular-nums; margin:10px 0 2px;
+}
+.slayt .aciklama{font-size:15.5px; color:rgba(243,234,218,.76); max-width:60ch; margin:8px 0 0}
+
+/* ── teşhis kartları ─────────────────────────────────────────────────────── */
+.teshis{
+  background:var(--kart); border:1px solid var(--cizgi);
+  border-radius:12px; padding:22px 24px; margin:0 0 16px;
+  display:grid; gap:10px;
+}
+.teshis-ust{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.kod{
+  font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.07em; color:var(--cok-soluk);
+}
+.rozet{
+  font:600 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.09em; padding:5px 9px; border-radius:5px;
+}
+.r-ust{color:var(--ust); background:var(--ust-ze)}
+.r-orta{color:var(--orta); background:var(--orta-ze)}
+.r-alt{color:var(--alt); background:var(--alt-ze)}
+.teshis p{margin:0}
+.kanit{
+  font:500 13.5px/1.6 "IBM Plex Mono",ui-monospace,monospace;
+  background:var(--kod-ze); border-radius:8px; padding:12px 14px;
+  color:var(--soluk); overflow-x:auto; white-space:pre-wrap;
+}
+.cozum{
+  border-left:3px solid var(--bugday); padding-left:14px;
+  color:var(--soluk); font-size:15.5px;
+}
+.cozum b{color:var(--murekkep); font-weight:600}
+
+/* ── öneri kartları ──────────────────────────────────────────────────────── */
+.oneriler{display:grid; gap:18px}
+.oneri{
+  background:var(--kart); border:1px solid var(--cizgi);
+  border-radius:12px; padding:24px 26px; display:grid; gap:11px;
+}
+.oneri.one-cikan{border-color:var(--bugday); border-width:2px}
+.oneri-ust{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.oneri p{margin:0; max-width:66ch}
+.neden{
+  font-size:15px; color:var(--soluk);
+  border-top:1px solid var(--cizgi); padding-top:11px; margin-top:2px;
+}
+.neden b{color:var(--murekkep); font-weight:600}
+.maliyet{
+  font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--cok-soluk); letter-spacing:.05em;
+}
+
+/* ── sıra listesi ────────────────────────────────────────────────────────── */
+.sira{
+  list-style:none; padding:0; margin:0; counter-reset:adim;
+  display:grid; gap:12px;
+}
+.sira li{
+  counter-increment:adim; position:relative; padding-left:42px;
+  font-size:16px; color:var(--soluk);
+}
+.sira li::before{
+  content:counter(adim); position:absolute; left:0; top:1px;
+  width:26px; height:26px; border-radius:50%;
+  display:grid; place-items:center;
+  font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  background:var(--yesil); color:var(--kagit);
+}
+.sira li b{color:var(--murekkep); font-weight:600}
+
+ul.duz{padding-left:20px; color:var(--soluk)}
+ul.duz li{margin:0 0 8px; max-width:66ch}
+ul.duz b{color:var(--murekkep); font-weight:600}
+
+.dipnot{
+  padding:40px 0 70px; color:var(--cok-soluk); font-size:14.5px;
+}
+.dipnot p{max-width:68ch}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="sar">
+
+<header class="kunye">
+  <p class="ust-etiket">DENETİM 03 · 6 KASIM 2026</p>
+  <h1>Hikâye sistemi: ne çalışıyor, ne görünmüyor</h1>
+  <p class="giris">
+    Sistem iyi kurulmuş. Sıralama, izlendi defteri, konuya göre gruplama ve
+    en-boy oranı kararı tek tek düşünülmüş ve sınanmış. Sorun mimaride değil:
+    tasarlanan şeyin okura <em>zamanında</em> ulaşmamasında.
+  </p>
+  <div class="kunye-satir">
+    <span>30 aktif hikâye</span>
+    <span>10 konu</span>
+    <span>canlı ölçüm: tarimportali.net</span>
+    <span>10 teşhis · 10 öneri</span>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="cerceve">
+  <h2>Önce çerçeveyi düzeltelim</h2>
+  <p class="h2-alt">
+    Önceliğiniz “görünüm ve tasarımın mükemmelliği” ve “out of box” öneriler.
+    İkisini de yazdım — ama sıralamayı değiştirmenizi öneriyorum.
+  </p>
+
+  <p>
+    Hikâye biçiminin bütün görsel iddiası <strong>tam ekran fotoğraf</strong>.
+    Rakam, başlık, düğme; hepsi o fotoğrafın üzerinde durmak üzere tasarlanmış.
+    Ölçtüğümde fotoğrafın <strong>slayt başladıktan 0,7–3,4 saniye sonra</strong>
+    geldiğini gördüm. Slayt 5–7 saniye yaşıyor. Yani okurun gördüğü her
+    slaytın ilk dörtte biri ile üçte ikisi arası, tasarımın merkezindeki öğe
+    henüz orada değil.
+  </p>
+  <p>
+    Bu bir yavaşlık şikâyeti değil, bir <em>tasarım teslimatı</em> sorunu. Yeni
+    görsel fikirler eklemek, henüz ekrana çıkmayan bir tasarımın üstüne ikinci
+    bir kat koymak olur. Aşağıdaki önerilerin ilki tam da bu yüzden hem en
+    “out of box” olanı hem de bu sorunu <em>ortadan kaldıran</em> olanı.
+  </p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="olculenler">
+  <h2>Ölçülenler</h2>
+  <p class="h2-alt">
+    Hepsi bugün, canlı sistemde ölçüldü. Tahmin yok.
+  </p>
+
+  <dl class="olcumler">
+    <div class="olcum">
+      <dt>AKTİF HİKÂYE</dt>
+      <dd>30<small>10 konuya dağılmış; 2’si sabit dosya hikâyesi</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>DÖNÜŞÜM</dt>
+      <dd>%60<small>Son 36 saatte 48 haberin 29’u hikâyeye çevrilmiş</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>AYNI DAKİKADA SONA EREN</dt>
+      <dd>27 / 30<small>Şerit kademeli boşalmıyor, bir anda düşüyor</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>EN UZUN GÖRSEL YÜKLEMESİ</dt>
+      <dd>3.379 ms<small>Baloncuk görseli; ekranın en üstünde, katlamanın üzerinde</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>BALONCUK GÖRSELİ</dt>
+      <dd>175 KB<small>152 piksellik bir kutuya 1200×630 basın fotoğrafı</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>ZEMİN GÖRSELİ</dt>
+      <dd>347 KB<small>1080×2340 dikey türev, ham hâliyle</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>ÖLÇEKLENMİŞ GÖRSEL</dt>
+      <dd>0<small>Dönüştürme uç noktasına giden istek sayısı</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>MÜKERRER HİKÂYE</dt>
+      <dd>0<small>Son 400 kayıtta aynı haberden iki hikâye yok — bu çalışıyor</small></dd>
+    </div>
+  </dl>
+
+  <div class="slayt">
+    <div class="cubuk"><i class="dolu"></i><i></i><i></i><i></i><i></i></div>
+    <p class="etiket">ÖLÇÜMÜN ÖZÜ</p>
+    <p class="rakam">0,7–3,4 sn</p>
+    <p class="aciklama">
+      Her slaytın ve her baloncuğun, görseli gelene kadar boş durduğu süre.
+      Bu pencerede ekranda düz koyu bir dikdörtgen var — tasarımda onun yerinde
+      bulanık bir önizleme olması gerekiyordu.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="teshisler">
+  <h2>Teşhisler</h2>
+  <p class="h2-alt">Etkisine göre sıralı. Her birinin altında ölçülen kanıt var.</p>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T1</span>
+      <span class="rozet r-ust">YÜKSEK</span>
+      <h3>Boşluğu dolduracak mekanizma, tam da gerektiği anda kapalı</h3>
+    </div>
+    <p>
+      Görsel gelene kadar bulanık bir önizleme gösteren
+      <code>_BlurUpPlaceholder</code> yazılmış ve doğru çalışıyor. Ama
+      devreye girmesi <code>donusturmeAcik</code> bayrağına bağlı; o bayrak
+      da kapalı, çünkü Supabase’in görsel dönüştürme uç noktası bu abonelikte
+      kapalı. Sonuç: bulanık önizlemenin <em>var olma sebebi</em> olan durumda
+      önizleme hiç çizilmiyor, yerine düz koyu bir dikdörtgen geliyor.
+    </p>
+    <p class="kanit">curl → /render/image/public/… → 403 FeatureNotEnabled
+uygulamadan o adrese giden istek: 0  (bayrak kapalı, doğru davranış)
+placeholder: canBlurUp ? _BlurUpPlaceholder(…) : ColoredBox(koyu)</p>
+    <p class="cozum">
+      <b>Çözüm:</b> önizlemeyi dönüştürme uç noktasından istemeyi bırakın.
+      Hat zaten görseli işliyor; aynı yerde 24 piksellik bir küçük kopya
+      üretip <code>portal_stories</code> satırına base64 olarak gömün.
+      Bir satıra ~400 bayt ekler, ağ isteği gerektirmez, <em>ilk karede</em>
+      çizilir. Dönüştürme kapalıyken kapanan bir önizleme yerine, hiçbir
+      şeye bağlı olmayan bir önizleme.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T2</span>
+      <span class="rozet r-ust">YÜKSEK</span>
+      <h3>Hiçbir görsel, gösterileceği kutuya göre ölçeklenmiyor</h3>
+    </div>
+    <p>
+      Dönüştürme kapalı olduğu için her görsel kaynak çözünürlüğünde
+      indiriliyor. Ana sayfadaki şerit, kenarı 152 piksel olan dokuz baloncuğu
+      çizmek için 17 ayrı 1200×630 basın fotoğrafı istiyor. Bu, ekranın en
+      üstünde, okurun ilk gördüğü yerde oluyor.
+    </p>
+    <p class="kanit">şeritte ölçülen: 17 × (1200×630 jpg) ≈ 1,6 MB
+süre: 752 / 753 / 817 / 828 / 847 / 1325 / 1802 / … / 3379 ms</p>
+    <p class="cozum">
+      <b>Çözüm:</b> hat 1200×630 ve 1080×2340 türevlerini zaten üretiyor;
+      üçüncü bir türev ekleyin — 320×320 kare. Baloncuk onu çeker, boyut
+      ~15 KB’a düşer. Dönüştürme uç noktasına para ödemeye gerek yok,
+      türev zaten yazma anında üretiliyor.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T3</span>
+      <span class="rozet r-ust">YÜKSEK</span>
+      <h3>Şerit kademeli boşalmıyor, uçurumdan düşüyor</h3>
+    </div>
+    <p>
+      Hikâyeler her sabah tek bir hat çalışmasında üretiliyor ve hepsine aynı
+      24 saatlik ömür damgası vuruluyor. Dolayısıyla hepsi aynı dakikada
+      sona eriyor: şerit 10 konudan 3 konuya bir anda iniyor ve ertesi sabaha
+      kadar öyle kalıyor. Üretici saatlik çalışıyor ama besleyecek yeni haber
+      bulamıyor.
+    </p>
+    <p class="kanit">aktif 30 satırın bitişine kalan saat:
+  8,9 × 27 adet   ·   14,7 × 1   ·   232,6 × 1   ·   590,9 × 1</p>
+    <p class="cozum">
+      <b>Çözüm:</b> ömrü sabit 24 saat yerine <b>konuya göre kademeli</b>
+      yazın — aynı gruptaki ilk hikâye 30 saat, ikincisi 27, üçüncüsü 24…
+      Üretim anı değişmeden şerit gün boyunca yavaş yavaş incelir ve her saat
+      bir öncekinden farklı görünür. Okurun “bugün yeni bir şey var mı”
+      sorusuna günde bir kez değil, gün boyunca cevap verir.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T4</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>Aynı sayı kartta üç kez yazıyor</h3>
+    </div>
+    <p>
+      Model üç alanı birbirinden bağımsız dolduruyor ve üçü de aynı bilgiyi
+      taşıyor. Kart böylece dev bir rakam, onu tekrar eden bir etiket ve onu
+      bir kez daha tekrar eden bir başlıktan oluşuyor. Okurun üç satır
+      okuyup tek bir şey öğrendiği bir kart, boş bir karttan daha yorucu.
+    </p>
+    <p class="kanit">big_stat_value : %30
+stat_label     : Yeni Pazar Kotası
+headline       : Hal Kanunu Taslağı ile Üreticiye %30 Pazar Kotası</p>
+    <p class="cozum">
+      <b>Çözüm:</b> istem düzeyinde bir kural: <b>başlık, büyük rakamı
+      tekrar edemez.</b> Rakam “ne kadar”ı söylüyorsa başlık “ne olacak”ı
+      söylemeli — “Aracı payı yarıya iniyor” gibi. Doğrulayıcıya tek satırlık
+      bir denetim eklenebilir: büyük rakamdaki sayı başlıkta da geçiyorsa
+      kartı reddet.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T5</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>Dosya hikâyelerinde alanlar amacının dışında kullanılmış</h3>
+    </div>
+    <p>
+      Kısa etiket için ayrılmış <code>stat_label</code> bir fotoğraf künyesine,
+      çarpıcı başlık için ayrılmış <code>headline</code> ise gövde metnine
+      dönüşmüş. Tipografi 60 karakterlik bir başlığa göre ayarlı; iki satır
+      düz metin o boyutta okunmuyor.
+    </p>
+    <p class="kanit">stat_label : “Devredilen sulama alanı, 31 Aralık 2025 — 936 tesis,
+              BÜTÜN sulama tesisleri”
+headline   : “İnşa ettiği sulama tesislerinin dokuz yüzden fazlasını başka
+              tüzel kişilere devretti. Birlikler, kooperatifler, belediyeler.”</p>
+    <p class="cozum">
+      <b>Çözüm:</b> dosya hikâyelerini üreten betiğe haber hikâyeleriyle
+      aynı karakter sınırlarını koyun (etiket 24, başlık 60) ve sınırı aşanı
+      üretim anında reddedin. Künye bilgisi bir alana sıkıştırılmak yerine
+      slaytın altına ayrı bir kaynak satırı olarak konabilir.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T6</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>Masaüstünde telefon düzeni esnetiliyor</h3>
+    </div>
+    <p>
+      1440×900 bir pencerede görüntüleyici aynı dikey düzeni çiziyor: içerik
+      sol alt köşede toplanıyor, tuvalin yaklaşık üçte ikisi boş kalıyor,
+      yanlardan komşu slaytın kenarı görünüyor. Zemin seçimi doğru çalışıyor
+      (geniş ekranda yatay karta geçiyor) ama <em>yerleşim</em> aynı kalıyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> masaüstünde hikâyeyi tam ekran yapmayın. Ortada
+      9:16 oranında tek bir çerçeve, iki yanında soluk komşular, altında
+      konu şeridi — yani telefon deneyiminin masaüstündeki <em>vitrini</em>.
+      Aşağıdaki Ö4 bunu ayrıntılandırıyor.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T7</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>Üst etiket çipi okunmuyor</h3>
+    </div>
+    <p>
+      Yeşil zemin üzerine 12 punto beyaz yazı, koyu bir fotoğrafın üzerinde
+      ve açılışta kademeli beliren bir saydamlıkla çiziliyor. Dört ardışık
+      yakalamanın üçünde çipin varlığı seçiliyor ama yazısı okunmuyor. Oysa
+      o çip okurun hangi konuda olduğunu söyleyen tek işaret.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> çipi konunun kendi rengiyle doldurun (Ö9), puntoyu 13’e
+      çıkarın, saydamlık animasyonunu kaldırın. Üstteki ilerleme çubuğu
+      zaten dikkat çekiyor; çipin ayrıca belirmesine gerek yok.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T8</span>
+      <span class="rozet r-alt">DÜŞÜK</span>
+      <h3>Dönüşüm eşiği düşük: her üç haberden ikisi hikâye oluyor</h3>
+    </div>
+    <p>
+      Son 36 saatte yayınlanan 48 haberin 29’undan hikâye üretilmiş. “Çarpıcı
+      sayısal veri” ölçütü bu kadar geçirgense ölçüt değil. Şeridin değeri
+      seçiciliğinden geliyor; her habere bir kart düşerse şerit haber listesinin
+      ikinci bir kopyası olur.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> modele “bu haber hikâye olmalı mı” diye sormak yerine
+      günün bütün adaylarını <b>birbirleriyle yarıştırın</b>: 48 kartı üretip
+      en güçlü 12’sini seçen ikinci bir geçiş. Maliyeti bir model çağrısı,
+      kazancı şeridin seçici kalması.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T9</span>
+      <span class="rozet r-alt">DÜŞÜK</span>
+      <h3>Şerit yalnızca ana sayfada</h3>
+    </div>
+    <p>
+      Hikâyelere girilen tek kapı ana sayfanın üst şeridi. Kategori sayfasına
+      ya da bir habere doğrudan bağlantıyla gelen okur hikâyelerin varlığından
+      haberdar olmuyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> haberin sonuna, o haberin konusundaki hikâye grubunu açan
+      tek bir kart koyun. Okur metni bitirmiş ve “şimdi nereye” diye soruyor —
+      kategori şeridini oraya koymakla aynı gerekçe.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">T10</span>
+      <span class="rozet r-alt">DÜŞÜK</span>
+      <h3>Paylaşım hikâyeyi değil haberi paylaşıyor</h3>
+    </div>
+    <p>
+      Paylaş düğmesi haberin adresini gönderiyor. Okurun paylaşmak istediği
+      şey çoğu zaman gördüğü <em>kart</em>; karşı taraf ise düz bir haber
+      bağlantısı alıyor. Hikâye biçiminin en güçlü yayılma kanalı burada
+      kapalı kalıyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> kartın kendisini 1080×1920 bir görsel olarak üretip
+      paylaşın. Hat zaten paylaşım kartı üretiyor; aynı çizim kodu hikâye
+      oranında ikinci bir çıktı verebilir.
+    </p>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="oneriler">
+  <h2>Tasarım önerileri</h2>
+  <p class="h2-alt">
+    İlk üçü biçimin kendisini değiştiriyor; gerisi mevcut biçimi
+    olgunlaştırıyor. Ö1 aynı zamanda T1 ve T2’yi çözüyor.
+  </p>
+
+  <div class="oneriler">
+
+    <article class="oneri one-cikan">
+      <div class="oneri-ust">
+        <h3>Ö1 · Fotoğraf hikâyesi değil, veri hikâyesi</h3>
+        <span class="maliyet">EN BÜYÜK KAZANÇ</span>
+      </div>
+      <p>
+        Bugün kart şöyle kurulu: zemin bir basın fotoğrafı, rakam onun üstünde
+        bir katman. Oysa bu kartların konusu fotoğraf değil, <strong>sayı</strong>.
+        Kurguyu ters çevirin: <strong>zemini sayının kendisi üretsin.</strong>
+      </p>
+      <p>
+        Fiyat hikâyesinde zemin, o ürünün son 12 aylık fiyat eğrisi olsun —
+        dev, kenardan taşan, tek renkli bir alan grafiği. Rekolte hikâyesinde
+        zemin, 100 küçük kareden oluşan ve 36’sı dolu bir ızgara olsun.
+        Destekleme hikâyesinde dairesel bir pay. Fotoğraf tamamen kalkmıyor:
+        çok düşük opaklıkta, grafiğin arkasında bir doku katmanı olarak kalıyor.
+      </p>
+      <p class="neden">
+        <b>Neden bu aynı zamanda teknik bir çözüm:</b> üretilen zemin birkaç
+        kilobayt vektör, ilk karede çizilir. T1’deki boş pencere ve T2’deki
+        1,6 MB ortadan kalkar. <b>Neden out of box:</b> tarım basınında hiçbir
+        yayın böyle yapmıyor — herkes fotoğrafın üstüne yazı koyuyor. Portalın
+        elinde zaten <code>figures</code> dizisi ve grafik çizicisi var; hiçbiri
+        bu ekranda kullanılmıyor.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö2 · Rakam sayılarak gelsin</h3>
+      </div>
+      <p>
+        Büyük rakam şu an yaylanarak büyüyor (<code>elasticOut</code>) ama
+        değeri baştan yazılı. Bunun yerine sıfırdan hedefe <em>sayılsın</em> —
+        slayt süresinin ilk %40’ında, yavaşlayarak. Göz bir rakamın değiştiğini
+        görünce ona bakar; sabit duran rakamı okur geçer.
+      </p>
+      <p class="neden">
+        <b>Ayrıntı:</b> “%36,9” gibi değerlerde ondalık son anda yerine otursun;
+        “9.250 ₺” gibi değerlerde binlik ayıraç sayım boyunca korunsun. İkisi de
+        bugün eklenen <code>sayiYaz</code> ile hazır.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö3 · Günün kapanış kartı</h3>
+      </div>
+      <p>
+        Bir konu grubunun son slaytından sonra, o grubun bütün rakamlarını tek
+        ekranda toplayan bir <strong>özet kartı</strong> gelsin: “Piyasa, bugün —
+        dört rakam”. Altında iki düğme: <em>Hepsini oku</em> ve <em>Kartı paylaş</em>.
+      </p>
+      <p class="neden">
+        <b>Neden:</b> şu an grup bitince okur sessizce bir sonraki gruba
+        atlıyor ve ne izlediğini hatırlamıyor. Özet kartı hem hafızaya
+        kazıyor hem de paylaşıma doğal bir an yaratıyor.
+        <code>story_complete</code> olayı zaten ölçülüyor; etkisi ilk haftada
+        görülür.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö4 · Masaüstünde vitrin, tam ekran değil</h3>
+      </div>
+      <p>
+        Ortada 9:16 oranında tek bir çerçeve, iki yanında yarısı görünen soluk
+        komşu kartlar, altında konu adları. Klavyeyle gezinme: sağ/sol ok
+        grup değiştirir, boşluk duraklatır, Esc kapatır. Zemin, açık olan
+        kartın baskın renginden türetilmiş çok koyu bir degrade.
+      </p>
+      <p class="neden">
+        <b>Neden:</b> hikâye biçimi telefon için doğdu ama masaüstü okuru da
+        var. Esnetmek yerine <em>sahnelemek</em>, biçimi masaüstünde
+        savunulabilir kılıyor — ve boş kalan üçte iki tuval, komşu kartları
+        göstermek için zaten orada.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö5 · Tahmin slaytı</h3>
+        <span class="maliyet">DENEYSEL</span>
+      </div>
+      <p>
+        Bazı kartlarda rakamı hemen göstermeyin. “Mazot maliyeti bu yıl ne
+        kadar arttı?” diye sorup üç şık verin; okur dokununca doğru rakam
+        yerine otursun ve kaç kişinin doğru bildiği yazsın.
+      </p>
+      <p class="neden">
+        <b>Neden out of box:</b> hikâye biçimini pasif izlemeden aktif
+        katılıma çeviriyor ve tam da veri gazeteciliğinin en iyi ürettiği
+        duyguyu kullanıyor: “bu kadar olduğunu bilmiyordum.”
+        <b>Dikkat:</b> her karta değil, günde bir-ikisine. Her slayt soru
+        sorarsa oyun olur, haber olmaz.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö6 · İlerleme çubuğu bilgi taşısın</h3>
+      </div>
+      <p>
+        Üstteki çubuklar şu an yalnızca “kaç slayt kaldı” diyor. Her segmenti
+        o slaytın konu rengiyle boyayın; okur grup içinde konunun değiştiğini
+        görür. Son dakika slaytının segmenti ince bir kırmızı çizgi taşısın.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö7 · Konu renk sistemi</h3>
+      </div>
+      <p>
+        Her konunun bir rengi olsun ve o renk her yerde aynı kalsın: baloncuk
+        halkası, üst etiket çipi, ilerleme segmenti, özet kartı. Kısa Kısa
+        sayfasında <code>kisaKonuRengi</code> adında böyle bir eşleme zaten var.
+      </p>
+      <p class="neden">
+        <b>Neden:</b> aynı portalda iki ayrı renk dili olması, sistemin
+        parça parça büyüdüğünü ele veriyor — tam da “yapay zekâ kokusu”
+        raporunda konuştuğumuz türden bir iz. Var olanı paylaşmak yeni bir
+        palet uydurmaktan hem ucuz hem doğru.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö8 · Tek slaytlık grupta çubuğu gizleyin</h3>
+      </div>
+      <p>
+        Aktif 30 satırın 28’i tek slayt taşıyor. İstemci bunları konuya göre
+        birleştirdiği için çoğu grup çok slaytlı oluyor — ama tek kalanlarda
+        ekranın tepesinde tek parça, hiç ilerlemeyen bir çubuk duruyor.
+        Tek slaytta çubuk yerine ince bir süre halkası daha sessiz durur.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö9 · Okuma hızına saygı</h3>
+      </div>
+      <p>
+        Süre bugün karakter sayısından hesaplanıyor (5–7 sn) — doğru fikir.
+        İki ekleme: okur bir slaytı elle geçtiyse sonraki slaytlar biraz
+        hızlansın; başparmağını basılı tutup okuduysa yavaşlasın. Duraklatma
+        zaten çalışıyor, ölçüm bedava.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö10 · “Dün ne oldu” arşivi</h3>
+      </div>
+      <p>
+        Hikâyeler 24 saat sonra siliniyor gibi davranılıyor ama satırlar
+        veritabanında duruyor. Şeridin sonuna, geçmiş günlerin kartlarını
+        takvim olarak açan sabit bir baloncuk koyun. Hafta sonu siteye giren
+        okur, hafta içini beş dakikada tarar.
+      </p>
+      <p class="neden">
+        <b>Maliyet:</b> yeni veri yok, yeni üretim yok; yalnızca
+        <code>expires_at</code> süzgecini kaldıran ikinci bir sorgu.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="teknik">
+  <h2>Teknik altyapı: sağlam olan ve olmayan</h2>
+
+  <h3>Sağlam</h3>
+  <ul class="duz">
+    <li><b>Kurallar tek yerde.</b> <code>StoryRules</code> hem Dart hem Python
+      tarafında aynı adla duruyor ve ikisinin birlikte güncellenmesi gerektiği
+      yazılı. Daha önce üç ayrı yerde birbirini tutmayan sayılar varmış.</li>
+    <li><b>En-boy oranı kararı.</b> Dikey türevle yatay kart arasındaki seçim
+      logaritmik eşikle yapılıyor ve gerekçesi koda yazılmış. Ölçtüm: 820 px
+      pencerede dikey, 1440 px’te yatay seçiyor — doğru.</li>
+    <li><b>Sıralama.</b> Tazelik yarılanma ömrü, son dakika bonusunun kendi
+      penceresi, sabit hikâyeler için taban puan. Üçü de gerekçeli.</li>
+    <li><b>Sınama var.</b> <code>story_ranking_test</code>,
+      <code>story_background_source_test</code>, <code>dosya_hikayesi_test</code>.</li>
+    <li><b>Mükerrer koruması çalışıyor.</b> Son 400 kayıtta aynı haberden iki
+      hikâye yok.</li>
+    <li><b>Üretim otomatik.</b> Saatlik GitHub Actions; eskiden yalnızca
+      geliştirici makinesinde çalışıyormuş.</li>
+  </ul>
+
+  <h3>Olmayan</h3>
+  <ul class="duz">
+    <li><b>Ölü kod yolu.</b> <code>/render/image/</code> dönüştürme katmanının
+      tamamı erişilemez durumda (ölçüldü: 0 istek). Ya aboneliği açın ya da
+      katmanı silin; arada bırakmak, okuyan herkese var olmayan bir
+      yeteneği vaat ediyor.</li>
+    <li><b>Çalışmayan başlık.</b> <code>kStoryImageHeaders</code> ile
+      gönderilen <code>Accept</code> başlığı web’de hiç uygulanmıyor: görseller
+      <code>&lt;img&gt;</code> ögesiyle yükleniyor (ölçüldü:
+      <code>initiatorType: "img"</code>), yani WebP/AVIF pazarlığı yapılmıyor.</li>
+    <li><b>Ön yükleme eksik hedefi vuruyor.</b>
+      <code>_precacheNeighbours</code> yalnızca komşu grupların <em>ilk</em>
+      slaytını önden indiriyor. Grup içinde ikinci, üçüncü slayta geçildiğinde
+      indirme sıfırdan başlıyor — T1’deki boşluğun grup içinde de tekrar
+      etmesinin sebebi bu.</li>
+    <li><b>Ölçüm toplanıyor ama okunmuyor.</b> <code>story_open</code>,
+      <code>story_complete</code>, <code>story_article_click</code>,
+      <code>story_share</code> olayları gönderiliyor. Bu rapordaki
+      T8 (dönüşüm eşiği) ve Ö3 (özet kartı) kararları ancak bu veriye
+      bakılarak doğrulanabilir. Haftalık tek bir bakış yeter.</li>
+    <li><b>Hikâye üretimi hat deposunda değil.</b>
+      <code>generate_stories.py</code> ve <code>dosya_hikayeleri.py</code>
+      uygulama deposunda duruyor, haber hattı ise ayrı depoda. İki ayrı yerde
+      iki ayrı Gemini istemi var ve biri güncellenince öteki geride kalıyor.</li>
+  </ul>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="sira">
+  <h2>Önerdiğim sıra</h2>
+  <p class="h2-alt">
+    Her adım bir öncekinin kazancını görünür kılıyor; sıra değişirse
+    iyileşme ölçülemez.
+  </p>
+  <ol class="sira">
+    <li><b>Küçük önizleme (T1).</b> Hat satıra 24 piksellik base64 kopya
+      yazsın, istemci onu çizsin. Boş pencere kapanır. Yarım gün.</li>
+    <li><b>Kare türev (T2).</b> 320×320 baloncuk görseli. Şerit 1,6 MB’tan
+      ~140 KB’a iner. Yarım gün.</li>
+    <li><b>Kademeli ömür (T3).</b> Tek satırlık değişiklik, şerit gün boyu
+      canlı kalır.</li>
+    <li><b>Metin kuralları (T4, T5).</b> İstem ve doğrulayıcı. Kartların
+      tekrarı biter.</li>
+    <li><b>Veri zemini (Ö1).</b> Asıl iş burada. Önceki dört adım bunun
+      altyapısını hazırlamış olur ve bu adım tamamlandığında T1 ile T2
+      kalıcı olarak ortadan kalkar.</li>
+    <li><b>Masaüstü vitrini (Ö4) ve özet kartı (Ö3).</b></li>
+    <li><b>Deneysel olanlar (Ö5, Ö10).</b> Ölçüm verisine bakarak.</li>
+  </ol>
+</section>
+
+<footer class="dipnot">
+  <p>
+    Bu rapordaki bütün sayılar 6 Kasım 2026’da canlı sistemde ölçüldü:
+    Supabase sorguları, <code>curl</code> ile uç nokta denemeleri ve
+    tarayıcının <code>performance</code> kayıtları. Hiçbiri tahmin değil.
+  </p>
+  <p>
+    Serinin önceki raporları: <em>Tarım Portalı Denetimi</em> (üç alan) ve
+    <em>Yapay Zekâ Kokusu</em>.
+  </p>
+</footer>
+
+</div>

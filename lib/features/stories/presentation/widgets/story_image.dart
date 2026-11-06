@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:convert';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
 
@@ -40,6 +41,74 @@ const Map<String, String> kStoryImageHeaders = {
 
 /// Yükleme/hata sırasında ekranı dolduran nötr zemin (siyah üzerine hafif yeşil).
 const Color kStoryImageBackdrop = Color(0xFF12160F);
+
+// ─── Ağ isteği gerektirmeyen önizleme ──────────────────────────────────────
+//
+// 6 Kasım 2026 denetimi (T1): görsel gelene kadar bulanık bir önizleme
+// gösteren mekanizma yazılmıştı ama devreye girmesi `donusturmeAcik`
+// bayrağına bağlıydı; o bayrak kapalı olduğu için önizleme TAM DA gerektiği
+// durumda hiç çizilmiyordu. Slaytın ilk 0,7–3,4 saniyesi düz koyu bir
+// dikdörtgendi.
+//
+// Yeni yol hiçbir şeye bağlı değil: hat 24 piksellik bir kopyayı satıra
+// base64 olarak yazıyor (`articles.image_lqip`, ~550 bayt) ve bu kopya
+// haberle BİRLİKTE geliyor. Beklenecek istek yok, ilk karede çizilebiliyor.
+
+/// Çözülmüş `data:` URI'lerinin önbelleği.
+///
+/// Aynı önizleme her yeniden kuruluşta yeniden çözülüyordu; base64 çözmek
+/// ucuz ama kare başına yapılınca ucuz değil. Anahtar dizenin kendisi:
+/// kopyalar zaten aynı nesneyi paylaşıyor.
+final Map<String, MemoryImage?> _onizlemeOnbellek = <String, MemoryImage?>{};
+
+/// `data:image/...;base64,...` dizesini çizilebilir bir görüntüye çevirir.
+/// Biçim beklenenden farklıysa `null` döner ve çağıran düz zemine düşer.
+MemoryImage? onizlemeGoruntusu(String? dataUri) {
+  final s = dataUri?.trim() ?? '';
+  if (s.isEmpty || !s.startsWith('data:image/')) return null;
+  if (_onizlemeOnbellek.containsKey(s)) return _onizlemeOnbellek[s];
+
+  MemoryImage? sonuc;
+  final virgul = s.indexOf(',');
+  if (virgul > 0) {
+    try {
+      final baytlar = base64Decode(s.substring(virgul + 1));
+      // BOŞ bayt dizisi de başarısızlık sayılıyor: `base64Decode('')`
+      // fırlatmıyor, sıfır uzunlukta bir dizi veriyor ve ondan kurulan
+      // MemoryImage çizim anında çöküyor. Hata burada, sessizce yakalanmalı.
+      sonuc = baytlar.isEmpty ? null : MemoryImage(baytlar);
+    } catch (_) {
+      sonuc = null; // bozuk dize yüzünden ekran kaybedilmez
+    }
+  }
+  // Başarısızlık da önbelleğe yazılıyor: bozuk bir dizeyi her karede
+  // yeniden çözmeye çalışmanın anlamı yok.
+  _onizlemeOnbellek[s] = sonuc;
+  return sonuc;
+}
+
+/// Önizlemeyi bulanıklaştırıp kutuyu dolduran katman.
+class StoryOnizleme extends StatelessWidget {
+  const StoryOnizleme({super.key, required this.onizleme});
+
+  final String onizleme;
+
+  @override
+  Widget build(BuildContext context) {
+    final gorsel = onizlemeGoruntusu(onizleme);
+    if (gorsel == null) return const ColoredBox(color: kStoryImageBackdrop);
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        const ColoredBox(color: kStoryImageBackdrop),
+        ImageFiltered(
+          imageFilter: ui.ImageFilter.blur(sigmaX: 14, sigmaY: 14),
+          child: Image(image: gorsel, fit: BoxFit.cover),
+        ),
+      ],
+    );
+  }
+}
 
 /// URL'in Supabase Storage'ın dönüştürülebilir public uç noktasına ait olup
 /// olmadığı. Harici CDN adreslerine dokunmuyoruz.
@@ -158,14 +227,6 @@ String storyBackgroundUrl(
       width: storyBackgroundTargetWidth(context), quality: 88);
 }
 
-/// Yükleme sırasında gösterilen minik kopyanın adresi.
-///
-/// Genişlik ve yükseklik BİRLİKTE veriliyor: yalnız genişlik verildiğinde uç
-/// nokta ortadan kırpıyor, bulanık zemin görselin gerçek renk dağılımını değil
-/// orta şeridininkini gösteriyordu.
-String _bulanikOnizlemeUrl(String rawUrl) =>
-    storyImageUrl(rawUrl, width: 48, height: 104, quality: 40, crop: true);
-
 /// Tam ekran arka planın [ImageProvider]'ı — komşu hikayeleri `precacheImage`
 /// ile önden yüklemek için ekranla birebir aynı URL'i üretir.
 ImageProvider storyBackgroundProvider(
@@ -186,7 +247,11 @@ class StoryBackgroundImage extends StatelessWidget {
     super.key,
     required this.imageUrl,
     required this.portraitUrl,
+    this.onizleme = '',
   });
+
+  /// 24 px önizlemenin `data:` URI'si; boşsa düz zemin.
+  final String onizleme;
 
   /// Yatay paylaşım kartı — geniş ekranların kaynağı, aynı zamanda dikey
   /// türev üretilememiş haberlerin yedeği.
@@ -205,12 +270,11 @@ class StoryBackgroundImage extends StatelessWidget {
     // Bulanık önizleme her zaman yatay karttan: küçücük ve tek işi rengi
     // vermek, iki ayrı dosyayı önbelleğe almanın anlamı yok.
     final String url = imageUrl;
-    // Bulanık önizlemenin tek anlamı 48 px'lik MİNİK bir türev istemek;
-    // dönüştürme kapalıyken o adres ham dosyaya çözülür ve tam boyutlu bir
-    // görseli "önizleme" diye çözmek olur. O yüzden bayrağa da bağlı.
-    final bool canBlurUp =
-        NewsArticleImage.donusturmeAcik && storyImageIsTransformable(url);
-
+    // Yer tutucu artık HİÇBİR İSTEĞE bağlı değil: önizleme satırla birlikte
+    // geldi, ilk karede çizilebiliyor. Eskiden burada 48 px'lik bir türev
+    // isteniyordu ve o istek dönüştürme kapalıyken tam boyutlu dosyaya
+    // çözülüyordu — yani "önizleme" diye asıl görselin kendisi indiriliyordu
+    // (T1). Önizleme boşsa davranış eskisi gibi: düz koyu zemin.
     return CachedNetworkImage(
       imageUrl: hiRes,
       httpHeaders: kStoryImageHeaders,
@@ -218,50 +282,20 @@ class StoryBackgroundImage extends StatelessWidget {
       // Kübik örnekleme: büyütmede de küçültmede de en temiz sonuç.
       filterQuality: FilterQuality.high,
       fadeInDuration: const Duration(milliseconds: 220),
-      placeholder: (context, _) => canBlurUp
-          ? _BlurUpPlaceholder(url: _bulanikOnizlemeUrl(url))
-          : const ColoredBox(color: kStoryImageBackdrop),
+      placeholder: (context, _) => StoryOnizleme(onizleme: onizleme),
       // Dönüştürme uç noktası bir sebeple cevap veremezse ham dosyaya düş.
-      errorWidget: (context, _, __) => _RawImageFallback(url: url),
-    );
-  }
-}
-
-/// Yüksek çözünürlüklü kare gelene kadar gösterilen, 48 px'lik minik kopyanın
-/// bulanıklaştırılmış hâli. Boş siyah ekran yerine görselin rengiyle açılır.
-class _BlurUpPlaceholder extends StatelessWidget {
-  const _BlurUpPlaceholder({required this.url});
-
-  final String url;
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        const ColoredBox(color: kStoryImageBackdrop),
-        CachedNetworkImage(
-          imageUrl: url,
-          httpHeaders: kStoryImageHeaders,
-          fit: BoxFit.cover,
-          fadeInDuration: Duration.zero,
-          placeholder: (_, __) => const SizedBox.shrink(),
-          errorWidget: (_, __, ___) => const SizedBox.shrink(),
-          imageBuilder: (context, provider) => ImageFiltered(
-            imageFilter: ui.ImageFilter.blur(sigmaX: 18, sigmaY: 18),
-            child: Image(image: provider, fit: BoxFit.cover),
-          ),
-        ),
-      ],
+      errorWidget: (context, _, __) =>
+          _RawImageFallback(url: url, onizleme: onizleme),
     );
   }
 }
 
 /// Dönüştürme uç noktası hata verirse ham dosyayı dener; o da olmazsa nötr zemin.
 class _RawImageFallback extends StatelessWidget {
-  const _RawImageFallback({required this.url});
+  const _RawImageFallback({required this.url, this.onizleme = ''});
 
   final String url;
+  final String onizleme;
 
   @override
   Widget build(BuildContext context) {
@@ -271,7 +305,7 @@ class _RawImageFallback extends StatelessWidget {
       fit: BoxFit.cover,
       filterQuality: FilterQuality.high,
       fadeInDuration: const Duration(milliseconds: 200),
-      placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
+      placeholder: (_, __) => StoryOnizleme(onizleme: onizleme),
       errorWidget: (_, __, ___) => const ColoredBox(
         color: kStoryImageBackdrop,
         child: Center(
@@ -298,7 +332,11 @@ class StoryThumbImage extends StatelessWidget {
     required this.size,
     this.fill = false,
     this.alignment = const Alignment(0, -0.2),
+    this.onizleme = '',
   });
+
+  /// 24 px önizlemenin `data:` URI'si; boşsa düz zemin.
+  final String onizleme;
 
   final String url;
 
@@ -331,9 +369,12 @@ class StoryThumbImage extends StatelessWidget {
       // Sunucu zaten hedef ölçüde gönderiyor; bu satır dönüştürmenin devre dışı
       // olduğu (harici CDN) durumlarda bellekteki kopyayı sınırlar.
       memCacheWidth: target,
-      placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
+      placeholder: (_, __) => StoryOnizleme(onizleme: onizleme),
       errorWidget: (_, __, ___) => _RawThumbFallback(
-          url: url, size: fill ? null : size, alignment: alignment),
+          url: url,
+          size: fill ? null : size,
+          alignment: alignment,
+          onizleme: onizleme),
     );
   }
 }
@@ -343,11 +384,13 @@ class _RawThumbFallback extends StatelessWidget {
     required this.url,
     required this.size,
     required this.alignment,
+    this.onizleme = '',
   });
 
   final String url;
   final double? size;
   final Alignment alignment;
+  final String onizleme;
 
   @override
   Widget build(BuildContext context) {
@@ -359,7 +402,7 @@ class _RawThumbFallback extends StatelessWidget {
       fit: BoxFit.cover,
       alignment: alignment,
       filterQuality: FilterQuality.high,
-      placeholder: (_, __) => const ColoredBox(color: kStoryImageBackdrop),
+      placeholder: (_, __) => StoryOnizleme(onizleme: onizleme),
       errorWidget: (_, __, ___) => ColoredBox(
         color: kStoryImageBackdrop,
         child: Icon(Icons.broken_image_outlined,

@@ -99,23 +99,44 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     }
   }
 
-  /// Komşu hikayelerin tam boy görsellerini önden indirir; böylece sağa/sola
-  /// geçişte bulanık ara kare yerine doğrudan net görsel açılır.
+  /// Birazdan gösterilecek görselleri önden indirir.
+  ///
+  /// İKİ YÖNE bakıyor ve sıra önemli:
+  ///
+  /// 1. **Açık grubun kalan slaytları.** Eskiden yalnızca komşu grupların
+  ///    İLK slaytı indiriliyordu; grup içinde ikinci, üçüncü slayta geçen
+  ///    okur her seferinde sıfırdan bekliyordu. Oysa grup içi geçiş,
+  ///    gruplar arası geçişten çok daha sık (6 Kasım 2026 denetimi).
+  /// 2. **Komşu grupların ilk slaytı**, sağa/sola kaydırma için.
+  ///
+  /// Açık grup önce geliyor çünkü okurun bir sonraki hamlesi büyük
+  /// ihtimalle o: hikâye kendiliğinden ilerliyor, kaydırmak için
+  /// müdahale gerekiyor.
   void _precacheNeighbours() {
     if (!mounted) return;
-    for (final int offset in const [1, 2, -1]) {
+
+    void al(StoryItem item) {
+      precacheImage(
+        storyBackgroundProvider(
+          context,
+          imageUrl: item.imageUrl,
+          portraitUrl: item.portraitUrl,
+        ),
+        context,
+      );
+    }
+
+    final acik = _currentGroup.items;
+    for (var i = _currentItemIndex + 1; i < acik.length; i++) {
+      al(acik[i]);
+    }
+
+    for (final int offset in const [1, -1, 2]) {
       final int i = _currentGroupIndex + offset;
       if (i < 0 || i >= widget.storyGroups.length) continue;
       final group = widget.storyGroups[i];
       if (group.items.isEmpty) continue;
-      precacheImage(
-        storyBackgroundProvider(
-          context,
-          imageUrl: group.items.first.imageUrl,
-          portraitUrl: group.items.first.portraitUrl,
-        ),
-        context,
-      );
+      al(group.items.first);
     }
   }
 
@@ -123,6 +144,10 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
   /// işler ve sayacı sıfırdan başlatır.
   void _startStory() {
     final item = _currentItem;
+    // Grup içinde ilerledikçe ön yükleme yeniden hesaplanıyor; aksi hâlde
+    // yalnızca açılışta bir kez çalışır ve uzun gruplarda sonu beklemede
+    // kalırdı.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _precacheNeighbours());
     // Süre kaynak (Türkçe) metnin uzunluğundan hesaplanıyor; çeviriler benzer
     // uzunlukta ve bu sayede `Localizations` bağlamına ihtiyaç kalmıyor.
     _animController.duration =
@@ -297,6 +322,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                     child: StoryBackgroundImage(
                       imageUrl: item.imageUrl,
                       portraitUrl: item.portraitUrl,
+                      onizleme: item.onizleme,
                     ),
                   ),
 

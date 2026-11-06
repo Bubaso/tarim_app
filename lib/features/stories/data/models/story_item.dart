@@ -45,6 +45,18 @@ class StoryItem {
   /// Seçimi [storyBackgroundUrl] yapıyor.
   final String portraitUrl;
 
+  /// 320×320 kare türev — baloncuk ve başlık avatarı.
+  ///
+  /// Boşsa [imageUrl] kullanılıyor; türev 6 Kasım 2026'da eklendi, ondan
+  /// eski haberlerde yok.
+  final String kareUrl;
+
+  /// 24 piksellik önizlemenin `data:` URI'si.
+  ///
+  /// Zeminin ilk karesini bu çiziyor. Boşsa düz koyu zemin kalıyor — yani
+  /// 6 Kasım öncesi davranış, gerileme değil.
+  final String onizleme;
+
   final DateTime createdAt;
   final DateTime? expiresAt;
   final bool isBreaking;
@@ -72,6 +84,8 @@ class StoryItem {
     this.statLabelEn = '',
     required this.imageUrl,
     this.portraitUrl = '',
+    this.kareUrl = '',
+    this.onizleme = '',
     required this.createdAt,
     this.expiresAt,
     this.isBreaking = false,
@@ -100,6 +114,10 @@ class StoryGroup {
   final String title;
   final String titleEn;
   final String avatarUrl;
+
+  /// Baloncuğun önizlemesi — şerit açılırken ilk karede çizilir.
+  final String avatarOnizleme;
+
   final List<StoryItem> items;
 
   /// Gruptaki slaytlardan en az biri son dakika mı?
@@ -119,6 +137,7 @@ class StoryGroup {
     required this.title,
     this.titleEn = '',
     required this.avatarUrl,
+    this.avatarOnizleme = '',
     required this.items,
     required this.latestAt,
     this.isBreaking = false,
@@ -134,6 +153,7 @@ class StoryGroup {
       title: title,
       titleEn: titleEn,
       avatarUrl: avatarUrl,
+      avatarOnizleme: avatarOnizleme,
       items: items ?? this.items,
       latestAt: latestAt,
       isBreaking: isBreaking,

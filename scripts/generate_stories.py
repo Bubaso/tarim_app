@@ -19,6 +19,7 @@ bilgisayarı çalıştırdığında üretiliyordu — bkz. .github/workflows/gen
 import io
 import json
 import os
+import re
 import struct
 import sys
 import urllib.request
@@ -39,10 +40,37 @@ class StoryRules:
     #: Tek çalıştırmada değerlendirilen en fazla haber.
     ARTICLE_SCAN_LIMIT = 100
 
-    #: Hikaye ömrü. Hem normal haberler hem de son dakika haberleri için
-    #: gösterim süresi sabitlendi.
-    TTL_HOURS = 24
-    BREAKING_TTL_HOURS = 24
+    #: Hikâye ömrü KADEMELİ (6 Kasım 2026 denetimi, T3).
+    #:
+    #: Eskiden herkese sabit 24 saat veriliyordu. Hat her sabah tek seferde
+    #: çalıştığı için bütün hikâyeler aynı dakikada doğuyor ve aynı dakikada
+    #: ölüyordu: ölçümde 30 aktif hikâyenin 27'si aynı saniyede sona eriyordu.
+    #: Şerit 10 konudan 3 konuya bir anda düşüp ertesi sabaha kadar öyle
+    #: kalıyordu.
+    #:
+    #: Artık aynı konudaki her ek hikâye bir öncekinden TTL_ADIM saat kısa
+    #: yaşıyor. Üretim anı değişmiyor, şerit gün boyunca incelerek değişiyor.
+    TTL_TABAN = 30
+    TTL_ADIM = 3
+    TTL_EN_AZ = 18
+
+    #: Son dakika daha kısa yaşıyor: 24 saat sonra "son dakika" olan bir şey
+    #: yok. Sıralamadaki bonusun kendi penceresi zaten 12 saat.
+    BREAKING_TTL_HOURS = 20
+
+    #: Kart gücü eşiği (model 1-10 veriyor).
+    #:
+    #: Ölçüm: son 36 saatte yayınlanan 48 haberin 29'u hikâyeye çevrilmişti —
+    #: %60. "Çarpıcı sayısal veri" ölçütü bu kadar geçirgense ölçüt değil;
+    #: şeridin değeri seçiciliğinden geliyor.
+    GUC_ESIGI = 7
+
+    #: Tek çalıştırmada ve tek günde eklenebilecek en fazla hikâye.
+    #:
+    #: Hat saatlik çalışıyor; tavan olmadan sabahki yığın tek seferde
+    #: içeri giriyordu. Günlük tavan şeridi 12 güçlü karta sabitliyor.
+    CALISMA_BASINA = 6
+    GUNLUK_EN_FAZLA = 12
 
     #: Aynı haberden ikinci kez hikaye üretmemek için bakılan geçmiş. Eskiden
     #: tablonun tamamı çekiliyordu; hikayeler en fazla 36 saat yaşadığı için
@@ -187,6 +215,60 @@ def _parse_width(data):
     return None
 
 
+# ── Ömür ve tekrar denetimi ──────────────────────────────────────────────────
+
+def _omur(kategori, sayac, son_dakika):
+    """Hikâyenin kaç saat yaşayacağı — aynı konudaki kaçıncısı olduğuna göre.
+
+    Son dakika bu kademeye GİRMİYOR: onun ömrü haberin niteliğinden geliyor,
+    konudaki sırasından değil.
+    """
+    if son_dakika:
+        return StoryRules.BREAKING_TTL_HOURS
+    sira = sayac.get(kategori, 0)
+    return max(
+        StoryRules.TTL_EN_AZ,
+        StoryRules.TTL_TABAN - sira * StoryRules.TTL_ADIM,
+    )
+
+
+#: Bir dizgedeki sayı öbekleri. Ayıraçlar dahil: "1.234,5" tek öbek.
+_SAYI = re.compile(r"\d[\d.,]*")
+
+
+def _sayilar(metin):
+    """Metindeki sayıları karşılaştırılabilir biçimde döndürür.
+
+    Ayıraçlar atılıyor: başlıkta "1.234", vurucu değerde "1234" yazıyorsa
+    bu yine aynı sayıdır.
+    """
+    return {
+        s.strip(".,").replace(".", "").replace(",", "")
+        for s in _SAYI.findall(metin or "")
+        if s.strip(".,")
+    }
+
+
+def baslik_rakami_tekrarliyor(baslik, vurucu):
+    """Başlık, dev punto ile yazılan sayıyı AYNEN tekrar ediyor mu?
+
+    6 Kasım 2026 denetimi (T4): üç alan birbirinden bağımsız dolduruluyor ve
+    üçü de aynı bilgiyi taşıyordu. Okur dev bir rakam, onu tekrar eden bir
+    etiket ve onu bir kez daha tekrar eden bir başlık okuyup tek bir şey
+    öğreniyordu.
+
+        big_stat_value : %30
+        stat_label     : Yeni Pazar Kotası
+        headline       : Hal Kanunu Taslağı ile Üreticiye %30 Pazar Kotası
+
+    Kural: rakam "ne kadar"ı söylüyorsa başlık "ne olacak"ı söylemeli.
+    """
+    v = _sayilar(vurucu)
+    if not v:
+        return False
+    return bool(v & _sayilar(baslik))
+
+
 # ── Model çağrısı ────────────────────────────────────────────────────────────
 
 PROMPT = """Sen Tarım Portalı için profesyonel bir sosyal medya içerik yöneticisisin.
@@ -200,10 +282,19 @@ Haber sadece yorum, siyasi söylem veya genel bir bilgi içeriyorsa is_story_wor
 2. big_stat_value MUTLAKA rakam içermeli ve en fazla 12 karakter olmalı (örn: +%4.2, 9.25₺, 12 bin ton).
    Rakam yoksa is_story_worthy false döndür.
 3. Uygulamanın İngilizce sürümü de var; her alanın "_en" karşılığını gazetecilik diline uygun doldur.
+4. headline, big_stat_value'daki SAYIYI TEKRAR ETMEYECEK. Dev punto ile yazılan
+   rakam zaten ekranda duruyor; başlık aynı sayıyı bir daha yazarsa okur üç
+   satır okuyup tek şey öğrenir. Rakam "ne kadar"ı söyler, başlık "ne olacak"ı:
+   big_stat_value "%30" ise headline "Aracı payı yarıya iniyor" gibi olmalı,
+   "Üreticiye %30 Pazar Kotası" gibi DEĞİL.
+5. guc alanına 1-10 arası bir puan ver: bu kart bir haber şeridinde kendi
+   başına durmayı ne kadar hak ediyor? 10 = okurun durup bakacağı çarpıcı
+   bir rakam. 5 = doğru ama sıradan. Cömert davranma.
 
 ÇIKTIYI SADECE JSON olarak ver, başka hiçbir açıklama yazma:
 {{
     "is_story_worthy": true veya false,
+    "guc": 1-10 arası tam sayı,
     "group_title": "Listeden seçilen kategori",
     "group_title_en": "Kategorinin İngilizcesi",
     "super_title": "KISA ETİKET (Max 20 harf)",
@@ -276,6 +367,23 @@ def validate(data):
         print(f"    ! vurucu değer çok uzun ('{big_stat}'), atlanıyor")
         return None
 
+    # T4 — başlık dev rakamı tekrar edemez. İstemde yazılı ama model
+    # kuralı her zaman tutmuyor; doğrulayıcı son söz.
+    if baslik_rakami_tekrarliyor(headline, big_stat):
+        print(f"    ! başlık vurucu rakamı tekrarlıyor ('{big_stat}'), atlanıyor")
+        return None
+
+    # T8 — güç eşiği. Model vermezse 0 sayılıyor: puansız kart geçemez,
+    # yoksa eşik ilk model güncellemesinde sessizce devre dışı kalırdı.
+    try:
+        guc = int(data.get("guc") or 0)
+    except (TypeError, ValueError):
+        guc = 0
+    if guc < StoryRules.GUC_ESIGI:
+        print(f"    ! güç {guc} < {StoryRules.GUC_ESIGI}, atlanıyor")
+        return None
+    data["guc"] = guc
+
     # Kategori listeye oturmuyorsa serbest metne izin vermek yerine yedeğe
     # düşüyoruz; gruplamanın çalışması buna bağlı.
     raw_category = (data.get("group_title") or "").strip().casefold()
@@ -333,10 +441,42 @@ def run_story_pipeline():
     )
     already_used = {row["article_id"] for row in (recent_stories.data or [])}
 
+    # Günlük tavan (T8). Gün sınırı Türkiye saatiyle: hat sabah 07:45'te
+    # çalışıyor ve UTC gün sınırı o yığını ikiye bölerdi.
+    gun_basi = (now + timedelta(hours=3)).replace(
+        hour=0, minute=0, second=0, microsecond=0
+    ) - timedelta(hours=3)
+    bugunku = (
+        supabase.from_("portal_stories")
+        .select("id, group_title")
+        .gt("created_at", gun_basi.isoformat())
+        .execute()
+    ).data or []
+    print(
+        f"Bugün eklenen: {len(bugunku)} "
+        f"(günlük tavan: {StoryRules.GUNLUK_EN_FAZLA})"
+    )
+    if len(bugunku) >= StoryRules.GUNLUK_EN_FAZLA:
+        print("Günlük tavana ulaşıldı. İşlem sonlandırılıyor.")
+        return
+
+    # Kademeli ömür, konudaki SIRAYA bakıyor; bugün o konudan kaç hikâye
+    # çıktığını saymazsak her çalıştırma sayacı sıfırlar ve kademe oluşmaz.
+    konu_sayaci = {}
+    for satir in bugunku:
+        ad = satir.get("group_title") or ""
+        konu_sayaci[ad] = konu_sayaci.get(ad, 0) + 1
+
     added = 0
     for article in articles:
         if active_count + added >= StoryRules.MAX_ACTIVE:
             print(f"Limit {StoryRules.MAX_ACTIVE}'a ulaşıldı.")
+            break
+        if added >= StoryRules.CALISMA_BASINA:
+            print(f"Çalıştırma tavanı ({StoryRules.CALISMA_BASINA}) doldu.")
+            break
+        if len(bugunku) + added >= StoryRules.GUNLUK_EN_FAZLA:
+            print(f"Günlük tavan ({StoryRules.GUNLUK_EN_FAZLA}) doldu.")
             break
 
         image_url = (article.get("image_url") or "").strip()
@@ -358,7 +498,9 @@ def run_story_pipeline():
             continue
 
         is_breaking = bool(article.get("is_breaking"))
-        ttl = StoryRules.BREAKING_TTL_HOURS if is_breaking else StoryRules.TTL_HOURS
+        kategori = story.get("group_title", "")
+        ttl = _omur(kategori, konu_sayaci, is_breaking)
+        konu_sayaci[kategori] = konu_sayaci.get(kategori, 0) + 1
         expires = now + timedelta(hours=ttl)
 
         items = [{
@@ -384,7 +526,7 @@ def run_story_pipeline():
 
         print(
             f" -> [{story.get('group_title')}] {story.get('big_stat_value')}"
-            f" — {story.get('stat_label')} ({ttl} saat)"
+            f" — {story.get('stat_label')} (güç {story.get('guc')}, {ttl} saat)"
         )
         added += 1
 

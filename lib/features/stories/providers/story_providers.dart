@@ -48,7 +48,7 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
 
   final response = await supabase
       .from('portal_stories')
-      .select('*, articles(image_url, story_image_url)')
+      .select('*, articles(image_url, story_image_url, thumb_image_url, image_lqip)')
       .gt('expires_at', DateTime.now().toUtc().toIso8601String())
       .order('created_at', ascending: false)
       .limit(StoryRules.fetchLimit);
@@ -78,6 +78,13 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
     // yapıyor (bkz. storyBackgroundUrl).
     final rawStory = articleData?['story_image_url']?.toString().trim() ?? '';
     final portrait = rawStory.length < 6 ? '' : rawStory;
+
+    // 320×320 kare türev ve 24 px önizleme (6 Kasım 2026 denetimi, T1-T2).
+    // İkisi de eksik olabilir: türevler o tarihte eklendi ve dosya
+    // hikâyelerinin bağlı bir haberi yok.
+    final rawKare = articleData?['thumb_image_url']?.toString().trim() ?? '';
+    final kare = rawKare.length < 6 ? '' : rawKare;
+    final onizleme = articleData?['image_lqip']?.toString().trim() ?? '';
 
     final storyId = row['id'].toString();
     // article_id artık null olabiliyor; `.toString()` doğrudan çağrılırsa
@@ -142,6 +149,10 @@ final storyFeedProvider = FutureProvider<List<StoryGroup>>((ref) async {
             // Dikey türev HABERİN story_image_url'inden geliyor; slaytın
             // kendi görseli varsa onu ezmesin diye boş bırakılıyor.
             portraitUrl: slaytGorsel.length >= 6 ? '' : portrait,
+            // Slaytın KENDİ görseli varsa (dosya hikâyeleri) haberin
+            // türevleri ona ait değil; ikisi de boş bırakılıyor.
+            kareUrl: slaytGorsel.length >= 6 ? '' : kare,
+            onizleme: slaytGorsel.length >= 6 ? '' : onizleme,
             createdAt: createdAt,
             expiresAt: expiresAt,
             isBreaking: isBreaking,
@@ -235,9 +246,13 @@ List<StoryGroup> _buildGroups(
       key: key,
       title: title?.tr ?? key,
       titleEn: title?.en ?? '',
-      // Baloncuk yatay karttan besleniyor: dikey türevin ortasından kare
-      // kesmek kartta görünen çerçeveyi vermiyor.
-      avatarUrl: trimmed.first.imageUrl,
+      // Baloncuk artık HAZIR kare türevden besleniyor (320×320). Yoksa
+      // yatay karta düşülüyor — dikey türevin ortasından kare kesmek
+      // kartta görünen çerçeveyi vermiyor, o yüzden o hiç kullanılmıyor.
+      avatarUrl: trimmed.first.kareUrl.isNotEmpty
+          ? trimmed.first.kareUrl
+          : trimmed.first.imageUrl,
+      avatarOnizleme: trimmed.first.onizleme,
       items: trimmed,
       latestAt: trimmed.first.createdAt,
       isBreaking: trimmed.any((i) => i.isBreaking),

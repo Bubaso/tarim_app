@@ -204,6 +204,7 @@ class _StoryBubble extends StatelessWidget {
                     url: group.avatarUrl,
                     size: size,
                     fill: true,
+                    onizleme: group.avatarOnizleme,
                   ),
                 ),
               ),
