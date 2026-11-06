@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +16,8 @@ import '../../providers/story_providers.dart';
 import '../widgets/story_image.dart';
 import '../../../../core/theme/konu_renkleri.dart';
 import '../../../../core/utils/turkce_metin.dart';
+import '../widgets/sayan_rakam.dart';
+import '../widgets/ozet_karti.dart';
 
 class StoryViewerScreen extends ConsumerStatefulWidget {
   final List<StoryGroup> storyGroups;
@@ -32,7 +35,7 @@ class StoryViewerScreen extends ConsumerStatefulWidget {
 
 class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     with TickerProviderStateMixin, WidgetsBindingObserver {
-  late PageController _pageController;
+  PageController _pageController = PageController();
   late int _currentGroupIndex;
   int _currentItemIndex = 0;
 
@@ -41,6 +44,35 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
   /// Okuyucu parmağını basılı tuttuğu için mi durduk? Uygulama arka plandan
   /// döndüğünde yanlışlıkla devam ettirmemek için ayrı tutuyoruz.
   bool _heldDown = false;
+
+  // ── Okuma hızına uyum (Ö9) ─────────────────────────────────────────────
+  //
+  // Slayt süresi metin uzunluğundan hesaplanıyor (5-7 sn) — doğru temel ama
+  // okurlar aynı hızda okumuyor. İki sinyal var ve ikisi de bedava:
+  //
+  //   · Okur slaytı ELLE geçtiyse hızlı okuyor ya da ilgilenmiyor; sonraki
+  //     slaytlar biraz kısalıyor.
+  //   · Parmağını BASILI TUTUP okuduysa yavaş okuyor; slaytlar uzuyor.
+  //
+  // Oturum içinde kalıyor, cihaza yazılmıyor: okuma hızı günden güne değil
+  // o anki bağlama göre değişiyor (otobüste başka, masa başında başka).
+  double _hizCarpani = 1.0;
+
+  /// Çarpanın sınırları. Dar tutuldu: 5 saniyelik bir slaytı 3,5'e indirmek
+  /// metni okunmaz, 7,5'e çıkarmak sıkıcı yapıyor.
+  static const double _hizEnAz = 0.78;
+  static const double _hizEnCok = 1.35;
+
+  /// Basılı tutma bundan kısa sürerse "okuma" sayılmıyor — parmağın ekrana
+  /// değip kalkması da uzun basma olarak algılanabiliyor.
+  static const Duration _okumaEsigi = Duration(milliseconds: 600);
+  DateTime? _basiliBaslangic;
+
+  void _hiziAyarla(double carpan) {
+    final yeni = (_hizCarpani * carpan).clamp(_hizEnAz, _hizEnCok);
+    if ((yeni - _hizCarpani).abs() < 0.001) return;
+    _hizCarpani = yeni;
+  }
 
   /// Arka plan görselinin hikaye boyunca kapanan yakınlaştırma payı.
   /// 0 yapılırsa hareket tamamen kalkar, kare sabit kalır.
@@ -54,8 +86,106 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
 
   static const String _productionOrigin = 'https://tarim-app-2026.web.app';
 
+  // ── Masaüstü vitrini (Ö4) ──────────────────────────────────────────────
+  //
+  // Hikâye biçimi telefon için doğdu. 1440×900 bir pencerede aynı dikey
+  // düzeni tam ekrana yaymak, içeriği sol alt köşede bırakıp tuvalin üçte
+  // ikisini boş siyah olarak gösteriyordu (denetim, T6).
+  //
+  // Esnetmek yerine SAHNELEMEK: ortada 9:16 oranında tek bir çerçeve, iki
+  // yanında kısmen görünen komşu kartlar, altında klavye ipucu. Boş kalan
+  // tuval artık boş değil — komşuları göstermek için orada.
+  static const double _vitrinEsigi = 900;
+  static const double _cerceveOrani = 9 / 16;
+
+  /// Çerçevenin yüksekliği: pencerenin %86'sı, 940 pikselde tavan.
+  /// Tavan olmadan çok uzun bir pencerede kart devleşiyor ve 9:16 oranı
+  /// ekranı yatayda taşırıyordu.
+  double _cerceveYuksekligi(Size ekran) =>
+      (ekran.height * 0.86).clamp(420.0, 940.0);
+
+  double _cerceveGenisligi(Size ekran) {
+    final h = _cerceveYuksekligi(ekran);
+    // Yatayda da sığmalı: dar ama kısa bir pencerede oran korunurken
+    // kart pencereden taşmasın.
+    return (h * _cerceveOrani).clamp(260.0, ekran.width * 0.56);
+  }
+
+  bool _vitrinMi(Size ekran) => ekran.width >= _vitrinEsigi;
+
+  /// `PageView`in görüntü payı — komşuların ne kadarının görüneceği.
+  double _gorusPayi(Size ekran) => _vitrinMi(ekran)
+      ? (_cerceveGenisligi(ekran) / ekran.width).clamp(0.2, 1.0)
+      : 1.0;
+
+  /// Denetleyici görüntü payına bağlı ve pay pencere ölçüsüyle değişiyor;
+  /// pay değiştiğinde denetleyici YENİDEN KURULMAK zorunda (alan salt
+  /// okunur). Açık sayfa korunuyor.
+  double _kuruluPay = 1.0;
+
+  void _payiTazele(Size ekran) {
+    final pay = _gorusPayi(ekran);
+    if ((pay - _kuruluPay).abs() < 0.01) return;
+    _kuruluPay = pay;
+    final eski = _pageController;
+    _pageController = PageController(
+      initialPage: _currentGroupIndex,
+      viewportFraction: pay,
+    );
+    // Eski denetleyici bu karede hâlâ bağlı; kareden sonra bırakılıyor.
+    WidgetsBinding.instance.addPostFrameCallback((_) => eski.dispose());
+  }
+
+  /// Klavye: ok tuşlarıyla gezinme, boşlukla duraklatma, Esc ile kapatma.
+  /// Masaüstünde fare tek giriş yolu olmamalı.
+  KeyEventResult _klavye(FocusNode node, KeyEvent olay) {
+    if (olay is! KeyDownEvent) return KeyEventResult.ignored;
+    final k = olay.logicalKey;
+    if (k == LogicalKeyboardKey.arrowRight) {
+      _nextStory();
+    } else if (k == LogicalKeyboardKey.arrowLeft) {
+      _previousStory();
+    } else if (k == LogicalKeyboardKey.escape) {
+      Navigator.of(context).pop();
+    } else if (k == LogicalKeyboardKey.space) {
+      if (_animController.isAnimating) {
+        _animController.stop();
+        _heldDown = true;
+      } else {
+        _heldDown = false;
+        _animController.forward();
+      }
+    } else {
+      return KeyEventResult.ignored;
+    }
+    return KeyEventResult.handled;
+  }
+
   StoryGroup get _currentGroup => widget.storyGroups[_currentGroupIndex];
-  StoryItem get _currentItem => _currentGroup.items[_currentItemIndex];
+
+  /// Açık slayt. Özet slaytındayken grubun SON öğesine düşüyor: paylaşım ve
+  /// "izlendi" işaretlemesi gibi işler yine gerçek bir slayta bağlı kalmalı.
+  StoryItem get _currentItem =>
+      _currentGroup.items[_currentItemIndex.clamp(0, _currentGroup.items.length - 1)];
+
+  /// Şu an grubun özet kartında mıyız?
+  bool get _ozetteyiz => _ozetVar(_currentGroup) &&
+      _currentItemIndex >= _currentGroup.items.length;
+
+  /// Grubun sonuna özet kartı konuyor mu?
+  ///
+  /// TEK slaytlık grupta konmuyor: özet, tek bir rakamı ikinci kez
+  /// göstermekten ibaret olurdu. Aktif hikâyelerin çoğu tek slayt taşıyor
+  /// ve hepsine özet koymak kartı değersizleştirirdi.
+  static bool _ozetVar(StoryGroup g) => g.items.length >= 2;
+
+  /// Gruptaki toplam ekran sayısı — özet dahil.
+  static int _slaytSayisi(StoryGroup g) =>
+      g.items.length + (_ozetVar(g) ? 1 : 0);
+
+  /// Özet kartının süresi. Normal slayttan uzun: okur burada dört beş
+  /// satır tarıyor ve dokunacağı satırı seçiyor.
+  static const Duration _ozetSuresi = Duration(seconds: 9);
 
   @override
   void initState() {
@@ -152,8 +282,20 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
     WidgetsBinding.instance.addPostFrameCallback((_) => _precacheNeighbours());
     // Süre kaynak (Türkçe) metnin uzunluğundan hesaplanıyor; çeviriler benzer
     // uzunlukta ve bu sayede `Localizations` bağlamına ihtiyaç kalmıyor.
-    _animController.duration =
-        storySlideDuration(item.headline, item.statLabel);
+    if (_ozetteyiz) {
+      // Özet kartı okuma hızı çarpanından ETKİLENMİYOR: süresi metinden
+      // değil, taranacak satır sayısından geliyor.
+      _animController.duration = _ozetSuresi;
+      _animController.stop();
+      _animController.reset();
+      _animController.forward();
+      return;
+    }
+
+    final taban = storySlideDuration(item.headline, item.statLabel);
+    _animController.duration = Duration(
+      milliseconds: (taban.inMilliseconds * _hizCarpani).round(),
+    );
     _animController.stop();
     _animController.reset();
     _animController.forward();
@@ -161,8 +303,12 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
   }
 
   void _nextStory({bool auto = false}) {
+    // Elle geçildiyse okur bu hızı fazla yavaş buluyor demektir.
+    // Özet kartından geçmek bu sinyali VERMİYOR: orada okumak değil
+    // seçmek var.
+    if (!auto && !_ozetteyiz) _hiziAyarla(0.92);
     final group = _currentGroup;
-    if (_currentItemIndex < group.items.length - 1) {
+    if (_currentItemIndex < _slaytSayisi(group) - 1) {
       setState(() => _currentItemIndex++);
       _startStory();
       return;
@@ -213,9 +359,30 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
   }
 
   void _onTapUp(TapUpDetails details) {
-    final double screenWidth = MediaQuery.of(context).size.width;
+    final Size ekran = MediaQuery.of(context).size;
     final double dx = details.globalPosition.dx;
-    if (dx < screenWidth / 3) {
+
+    if (!_vitrinMi(ekran)) {
+      // Telefon: sol üçte bir geri, gerisi ileri.
+      if (dx < ekran.width / 3) {
+        _previousStory();
+      } else {
+        _nextStory();
+      }
+      return;
+    }
+
+    // Vitrinde kart pencerenin tamamını kaplamıyor. Pencerenin sol üçte
+    // birini ölçüt almak, kartın DIŞINA yapılan bir dokunuşu "geri" sayıp
+    // okurun komşu karta geçme niyetini tersine çeviriyordu.
+    final double yari = _cerceveGenisligi(ekran) / 2;
+    final double merkez = ekran.width / 2;
+    if (dx < merkez - yari) {
+      _previousStory();
+    } else if (dx > merkez + yari) {
+      _nextStory();
+    } else if (dx < merkez - yari / 3) {
+      // Kartın İÇİNDE sol şerit: geri.
       _previousStory();
     } else {
       _nextStory();
@@ -271,21 +438,28 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Dismissible(
-        key: const Key('story_dismiss'),
-        direction: DismissDirection.down,
-        onDismissed: (_) => Navigator.of(context).pop(),
-        child: GestureDetector(
+    final ekran = MediaQuery.of(context).size;
+    final vitrin = _vitrinMi(ekran);
+    _payiTazele(ekran);
+
+    final govde = GestureDetector(
           onTapDown: _onTapDown,
           onTapUp: _onTapUp,
           onLongPressStart: (_) {
             _heldDown = true;
+            _basiliBaslangic = DateTime.now();
             _animController.stop();
           },
           onLongPressEnd: (_) {
             _heldDown = false;
+            // Yeterince uzun tutulduysa okur metni okuyordu; sonraki
+            // slaytlara biraz nefes veriliyor.
+            final bas = _basiliBaslangic;
+            if (bas != null &&
+                DateTime.now().difference(bas) >= _okumaEsigi) {
+              _hiziAyarla(1.12);
+            }
+            _basiliBaslangic = null;
             _animController.forward();
           },
           child: PageView.builder(
@@ -296,12 +470,17 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
               final group = widget.storyGroups[index];
               final isCurrentGroup = index == _currentGroupIndex;
               final itemIndex = isCurrentGroup ? _currentItemIndex : 0;
-              final item = group.items[itemIndex];
+              // Özet kartında gerçek bir slayt yok; zemin ve paylaşım için
+              // grubun son öğesine düşülüyor.
+              final bool ozet =
+                  isCurrentGroup && itemIndex >= group.items.length;
+              final item =
+                  group.items[itemIndex.clamp(0, group.items.length - 1)];
 
               final bool isEn =
                   Localizations.localeOf(context).languageCode == 'en';
 
-              return Stack(
+              final sahne = Stack(
                 fit: StackFit.expand,
                 children: [
                   // Arka plan Görseli (Tam Ekran)
@@ -351,6 +530,17 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                   ),
 
                   // İçerik (Veri Gösterimi)
+                  if (ozet)
+                    SafeArea(
+                      child: OzetKarti(
+                        grup: group,
+                        isEn: isEn,
+                        renk: konuCipRengi(group.title),
+                        ac: (s) => _openArticle(group, s),
+                        paylas: () => _share(group, item, isEn),
+                      ),
+                    )
+                  else
                   SafeArea(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
@@ -392,33 +582,30 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                             ),
                           ),
 
-                          // Büyük İstatistik Değeri
-                          AnimatedBuilder(
-                            animation: _animController,
-                            builder: (context, child) {
-                              final val = Curves.elasticOut.transform(
-                                  (_animController.value * 2).clamp(0.0, 1.0));
-                              return Transform.scale(
-                                scale: 0.5 + (0.5 * val),
-                                alignment: Alignment.centerLeft,
-                                child: Opacity(
-                                  opacity: val.clamp(0.0, 1.0),
-                                  child: FittedBox(
-                                    fit: BoxFit.scaleDown,
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      item.bigStatValueFor(isEn),
-                                      style: GoogleFonts.outfit(
-                                        color: AppColors.wheat,
-                                        fontSize: 72,
-                                        height: 1.0,
-                                        fontWeight: FontWeight.w900,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
+                          // Büyük İstatistik Değeri — Ö2.
+                          //
+                          // Eskiden `elasticOut` ile yaylanarak büyüyordu ama
+                          // DEĞERİ baştan yazılıydı: hareket vardı, bilgi
+                          // yoktu. Artık sıfırdan sayarak geliyor ve
+                          // slaytın ilk %40'ında hedefe oturuyor. Yaylanma
+                          // kaldırıldı: sayan bir rakam ayrıca zıplarsa iki
+                          // hareket birbiriyle yarışıyor.
+                          FittedBox(
+                            fit: BoxFit.scaleDown,
+                            alignment: Alignment.centerLeft,
+                            child: SayanRakam(
+                              ham: item.bigStatValueFor(isEn),
+                              ilerleme: isCurrentGroup
+                                  ? _animController
+                                  : const AlwaysStoppedAnimation<double>(1.0),
+                              isEn: isEn,
+                              style: GoogleFonts.outfit(
+                                color: AppColors.wheat,
+                                fontSize: 72,
+                                height: 1.0,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
                           ),
                           const SizedBox(height: 8),
 
@@ -505,10 +692,10 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                           // ekranın tepesinde tek parça, hiç bölünmeyen bir
                           // çubuk "burada bir şey eksik" izlenimi veriyordu.
                           // Süreyi avatarın çevresindeki halka söylüyor.
-                          if (group.items.length > 1)
+                          if (_slaytSayisi(group) > 1)
                             Row(
                               children: List.generate(
-                                group.items.length,
+                                _slaytSayisi(group),
                                 (i) => Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
@@ -517,13 +704,16 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                                       isCurrentGroup: isCurrentGroup,
                                       itemIndex: i,
                                       currentIndex: itemIndex,
-                                      slayt: group.items[i],
+                                      // Özet segmentinin kendi slaytı yok;
+                                      // son slaytın bayrağını devralıyor.
+                                      slayt: group.items[
+                                          i.clamp(0, group.items.length - 1)],
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          SizedBox(height: group.items.length > 1 ? 12 : 4),
+                          SizedBox(height: _slaytSayisi(group) > 1 ? 12 : 4),
                           Row(
                             children: [
                               // Tek slaytta süre halkası avatarın çevresinde:
@@ -532,7 +722,7 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                                 avatarUrl: group.avatarUrl,
                                 onizleme: group.avatarOnizleme,
                                 renk: konuCipRengi(group.title),
-                                ilerleme: group.items.length > 1
+                                ilerleme: _slaytSayisi(group) > 1
                                     ? null
                                     : (isCurrentGroup ? _animController : null),
                               ),
@@ -569,10 +759,125 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                   ),
                 ],
               );
+
+              if (!vitrin) return sahne;
+
+              // Vitrinde her sayfa kendi çerçevesinde duruyor. Açık olmayan
+              // kartlar KÜÇÜLTÜLÜP soluklaştırılıyor: komşunun orada olduğu
+              // görünsün ama gözü açık kartla yarıştırmasın.
+              final acik = index == _currentGroupIndex;
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 13),
+                  child: AnimatedScale(
+                    scale: acik ? 1.0 : 0.88,
+                    duration: const Duration(milliseconds: 260),
+                    curve: Curves.easeOutCubic,
+                    child: AnimatedOpacity(
+                      opacity: acik ? 1.0 : 0.45,
+                      duration: const Duration(milliseconds: 260),
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: acik
+                              ? [
+                                  BoxShadow(
+                                    color: Colors.black.withValues(alpha: 0.55),
+                                    blurRadius: 42,
+                                    offset: const Offset(0, 14),
+                                  ),
+                                ]
+                              : const [],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: AspectRatio(
+                            aspectRatio: _cerceveOrani,
+                            child: sahne,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              );
             },
           ),
-        ),
+        );
+
+    // Aşağı kaydırarak kapatma TELEFON hareketi. Masaüstünde fare tekerleği
+    // bu hareketi yanlışlıkla tetikliyor ve okur hikâyeyi kaydırmak isterken
+    // kapatmış oluyor.
+    final sarmal = vitrin
+        ? govde
+        : Dismissible(
+            key: const Key('story_dismiss'),
+            direction: DismissDirection.down,
+            onDismissed: (_) => Navigator.of(context).pop(),
+            child: govde,
+          );
+
+    return Scaffold(
+      backgroundColor: vitrin ? const Color(0xFF07090A) : Colors.black,
+      body: Focus(
+        autofocus: true,
+        onKeyEvent: _klavye,
+        child: vitrin ? _vitrin(ekran, sarmal) : sarmal,
       ),
+    );
+  }
+
+  /// Masaüstü sahnesi: ortada çerçeve, üstte kapatma, altta klavye ipucu.
+  Widget _vitrin(Size ekran, Widget govde) {
+    final isEn = Localizations.localeOf(context).languageCode == 'en';
+    return Stack(
+      children: [
+        // Sahne zemini: açık karttan türetilmiş çok koyu bir ışık havuzu.
+        // Düz siyah, kartı havada asılı bırakıyordu.
+        Positioned.fill(
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: RadialGradient(
+                center: Alignment.center,
+                radius: 0.9,
+                colors: [
+                  konuCipRengi(_currentGroup.title).withValues(alpha: 0.13),
+                  const Color(0xFF07090A),
+                ],
+              ),
+            ),
+          ),
+        ),
+        Center(
+          child: SizedBox(height: _cerceveYuksekligi(ekran), child: govde),
+        ),
+        Positioned(
+          top: 18,
+          right: 22,
+          child: IconButton(
+            icon: const Icon(Icons.close_rounded, color: Colors.white70),
+            tooltip: isEn ? 'Close (Esc)' : 'Kapat (Esc)',
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          bottom: 16,
+          child: Center(
+            child: Text(
+              isEn
+                  ? '← →  switch · space  pause · esc  close'
+                  : '← →  geçiş · boşluk  duraklat · esc  kapat',
+              style: GoogleFonts.inter(
+                color: Colors.white.withValues(alpha: 0.38),
+                fontSize: 12,
+                letterSpacing: 0.4,
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
