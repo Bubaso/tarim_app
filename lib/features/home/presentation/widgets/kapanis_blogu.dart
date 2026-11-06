@@ -55,16 +55,6 @@ class KapanisBlogu extends StatelessWidget {
               letterSpacing: -0.2,
             ),
           ),
-          const SizedBox(height: 6),
-          Text(
-            isEn
-                ? 'New stories arrive every morning at 07:45.'
-                : 'Yeni haberler her sabah 07.45’te geliyor.',
-            style: GoogleFonts.inter(
-              fontSize: 14.5,
-              color: metin.withValues(alpha: 0.7),
-            ),
-          ),
           const SizedBox(height: 22),
           // Geniş ekranda yan yana, dar ekranda alt alta. İkisi de tam
           // genişlik isterse masaüstünde blok gereksiz uzuyordu.

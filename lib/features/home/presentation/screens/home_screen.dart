@@ -467,13 +467,14 @@ class _MobileContent extends ConsumerWidget {
           const SizedBox(height: 28),
           _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 28),
+          // Sektörler, Dünya'nın hemen peşinde: bölge bölümlerinden sonra
+          // gelen ilk konu bölümü.
+          SektorelBlok(isDark: isDark),
+          const SizedBox(height: 28),
           IcymiSection(isDark: isDark),
           const SizedBox(height: 28),
-          // Günün ana haberlerinden sonra, konu bazlı bölümlerden önce.
-          // Kısa haber ikincil haberdir; manşetin üstüne çıkmamalı ama
-          // "hayvancılık" gibi gezinme bölümlerinin de altında kalmamalı.
+          // Kısa haber ikincil haberdir; manşetin üstüne çıkmamalı.
           KisaKisaSection(isDark: isDark, spacing: 28),
-          SektorelBlok(isDark: isDark),
           const SizedBox(height: 32),
           // Sayfanın bir sonu olsun (A10): arşiv ve bülten daveti.
           KapanisBlogu(isDark: isDark),
@@ -540,10 +541,11 @@ class _TabletContent extends ConsumerWidget {
         const SizedBox(height: 36),
         _WorldNewsSection(isDark: isDark),
         const SizedBox(height: 36),
+        SektorelBlok(isDark: isDark),
+        const SizedBox(height: 36),
         IcymiSection(isDark: isDark),
         const SizedBox(height: 36),
         KisaKisaSection(isDark: isDark, spacing: 36),
-        SektorelBlok(isDark: isDark),
         const SizedBox(height: 48),
           ])
             Center(
@@ -634,6 +636,13 @@ class _DesktopContent extends ConsumerWidget {
           padding: const EdgeInsets.only(bottom: 40),
           child: _WorldNewsSection(isDark: isDark),
         ),
+        // Üç ayrı sektörel bölüm TEK bloğa indi (Ö3): telefonda 2,4 ekran
+        // 0,9 ekrana iniyor, içerik azalmıyor. Ayrıntı sektorel_blok.dart.
+        // Yeri Dünya'nın peşi: bölge bölümleri biter, konu bölümü başlar.
+        Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: SektorelBlok(isDark: isDark),
+        ),
         Padding(
           padding: const EdgeInsets.only(bottom: 40),
           child: IcymiSection(isDark: isDark),
@@ -642,12 +651,6 @@ class _DesktopContent extends ConsumerWidget {
         // üretilmemiş bir günde bölüm SizedBox.shrink() dönüyor ve
         // sarmalayan Padding geriye 40 px boşluk bırakırdı.
         KisaKisaSection(isDark: isDark, spacing: 40),
-        // Üç ayrı sektörel bölüm TEK bloğa indi (Ö3): telefonda 2,4 ekran
-        // 0,9 ekrana iniyor, içerik azalmıyor. Ayrıntı sektorel_blok.dart.
-        Padding(
-          padding: const EdgeInsets.only(bottom: 40),
-          child: SektorelBlok(isDark: isDark),
-        ),
     ];
 
     return CustomScrollView(

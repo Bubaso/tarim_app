@@ -113,14 +113,7 @@ class SektorelBlok extends ConsumerStatefulWidget {
 }
 
 class _SektorelBlokState extends ConsumerState<SektorelBlok> {
-  PageController? _sayfa;
   int? _etkin;
-
-  @override
-  void dispose() {
-    _sayfa?.dispose();
-    super.dispose();
-  }
 
   String _etiket(String konu, bool isEn) {
     if (!isEn) return konu;
@@ -135,15 +128,13 @@ class _SektorelBlokState extends ConsumerState<SektorelBlok> {
     return konu;
   }
 
-  void _sec(int i) {
+  /// [dolu] = o an içeriği olan konular. Kaydedilen şey indeks değil KONU;
+  /// yarın bir konu boş kalırsa indeksler kayar ve okur bambaşka bir
+  /// sekmeyle karşılaşırdı.
+  void _sec(int i, List<String> dolu) {
     if (_etkin == i) return;
     setState(() => _etkin = i);
-    ref.read(sektorSecimiProvider.notifier).sec(sektorelKonular[i]);
-    _sayfa?.animateToPage(
-      i,
-      duration: const Duration(milliseconds: 260),
-      curve: Curves.easeOutCubic,
-    );
+    ref.read(sektorSecimiProvider.notifier).sec(dolu[i]);
   }
 
   @override
@@ -168,10 +159,9 @@ class _SektorelBlokState extends ConsumerState<SektorelBlok> {
         ? kayitli
         : (dolu.contains(varsayilan) ? varsayilan : dolu.first);
 
-    final etkin = _etkin ?? dolu.indexOf(istenen);
-    _sayfa ??= PageController(initialPage: etkin);
+    final etkin = (_etkin ?? dolu.indexOf(istenen)).clamp(0, dolu.length - 1);
 
-    final acikKonu = dolu[etkin.clamp(0, dolu.length - 1)];
+    final acikKonu = dolu[etkin];
     final tumu = ref.watch(categoryArticlesProvider(acikKonu));
 
     return SectionContainer(
@@ -196,67 +186,25 @@ class _SektorelBlokState extends ConsumerState<SektorelBlok> {
             etkin: etkin,
             isDark: widget.isDark,
             etiket: (k) => _etiket(k, isEn),
-            sec: _sec,
+            sec: (i) => _sec(i, dolu),
           ),
           const SizedBox(height: 16),
-          // Yükseklik içeriğe göre: sekmeler farklı sayıda haber
-          // taşıyabiliyor ve sabit yükseklik kısa sekmede boşluk
-          // bırakırdı. `shrinkWrap` bir PageView'de yok; onun yerine
-          // en uzun panonun yüksekliği ölçülüp veriliyor.
-          _DegisenYukseklik(
-            etkin: etkin,
-            child: PageView(
-              controller: _sayfa,
-              physics: const ClampingScrollPhysics(),
-              onPageChanged: (i) {
-                setState(() => _etkin = i);
-                ref.read(sektorSecimiProvider.notifier).sec(dolu[i]);
-              },
-              children: [
-                for (final k in dolu)
-                  AgendaBentoGrid(
-                    articles:
-                        (dagitim[k] ?? const <NewsArticle>[]).take(6).toList(),
-                    isDark: widget.isDark,
-                  ),
-              ],
-            ),
+          // YALNIZ etkin sekme çiziliyor ve yüksekliğini kendi içeriği
+          // belirliyor.
+          //
+          // İlk hâli bir PageView'di ve PageView ebeveyninden sonsuz
+          // yükseklik istediği için ona genişliğin bir ORANI veriliyordu
+          // (w * 0.46 gibi). Oran tahminden ibaretti: başlığı üç satıra
+          // çıkan bir haber kutuyu aşıyor ve SON KARTIN BAŞLIĞI ORTADAN
+          // KESİLİYORDU. Kaydırma jesti bir kartın yarısını yutmaya
+          // değmez; sekmeler zaten geçiş için orada.
+          AgendaBentoGrid(
+            articles:
+                (dagitim[acikKonu] ?? const <NewsArticle>[]).take(6).toList(),
+            isDark: widget.isDark,
           ),
         ],
       ),
-    );
-  }
-}
-
-/// Panonun yüksekliğini içeriğine göre veren sarmalayıcı.
-///
-/// `PageView` ebeveyninden sonsuz yükseklik istiyor ve kendi içeriğine
-/// göre küçülmüyor. Alternatif sabit bir yükseklik vermekti; o da kısa
-/// sekmede boşluk, uzun sekmede kırpma demekti. Burada çocuk bir kez
-/// ölçülüp yükseklik ona göre veriliyor.
-class _DegisenYukseklik extends StatefulWidget {
-  const _DegisenYukseklik({required this.etkin, required this.child});
-
-  final int etkin;
-  final Widget child;
-
-  @override
-  State<_DegisenYukseklik> createState() => _DegisenYuksekligiState();
-}
-
-class _DegisenYuksekligiState extends State<_DegisenYukseklik> {
-  @override
-  Widget build(BuildContext context) {
-    // Ölçüm yerine oran: bento ızgarası genişliğe bağlı bir yükseklik
-    // üretiyor ve iki sekme arasındaki fark küçük. Genişliğin oranı
-    // olarak vermek hem kırpmıyor hem de ölçüm turu gerektirmiyor.
-    return LayoutBuilder(
-      builder: (context, kutu) {
-        final w = kutu.maxWidth;
-        // Dar ekranda ızgara dikey diziliyor, geniş ekranda yatay.
-        final h = w < 650 ? w * 1.62 : (w < 1100 ? w * 0.72 : w * 0.46);
-        return SizedBox(height: h, child: widget.child);
-      },
     );
   }
 }

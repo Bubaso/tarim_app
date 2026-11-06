@@ -1178,6 +1178,12 @@ class _PageDotsIndicator extends StatelessWidget {
                             // etkin nokta pasiflerden ayırt edilemiyor.
                             widthFactor:
                                 0.18 + 0.82 * ilerleme.value.clamp(0.0, 1.0),
+                            // heightFactor OLMADAN dolgu görünmüyordu:
+                            // FractionallySizedBox çocuğa gevşek yükseklik
+                            // veriyor, çocuk da boş bir ColoredBox olduğu
+                            // için sıfır piksel yüksekliğe çöküyordu.
+                            // Çubuk vardı, yalnızca 0 px yüksekliğindeydi.
+                            heightFactor: 1.0,
                             child: const ColoredBox(
                                 color: AppColors.primaryGreen),
                           ),
