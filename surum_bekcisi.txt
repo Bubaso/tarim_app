@@ -118,3 +118,18 @@ Benzer yayınları denetle
 Bu sıraya sabitle
 Yazar adı
 Unvan
+
+# ── Anasayfa denetimi, 6 Kasım 2026 ──
+#
+# Bu üç blok canlıda var ve depoda YENİ. Bekçiye konmalarının sebebi
+# öncekilerle aynı: geriye dağıtım bunları sessizce götürür ve kimse
+# "sektör sekmeleri gitmiş" diye fark etmez — sayfa yine dolu görünür.
+#
+# SEKTÖRLER: üç ayrı bölümün (Hayvancılık / Bitkisel Üretim / Ekonomi)
+#   yerine geçen sekmeli blok. Eski hâlde üç ayrı başlık vardı; o başlıklar
+#   kategori adları olduğu için bekçi belirteci olamıyorlar.
+# Günün sonu: arşiv + bülten taşıyan kapanış bloğu.
+# Okuduğunuz haberler burada birikir.: Son Okuduklarınız boş durumu.
+SEKTÖRLER
+Günün sonu
+Okuduğunuz haberler burada birikir.
