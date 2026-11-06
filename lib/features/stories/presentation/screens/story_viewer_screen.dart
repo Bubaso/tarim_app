@@ -681,11 +681,21 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
                           const Spacer(),
 
                           if (soruAcik)
-                            TahminSlayti(
-                              slayt: item,
-                              isEn: isEn,
-                              renk: konuCipRengi(group.title),
-                              sec: (i) => _tahminiIsle(item, i),
+                            // Kaydırılabilir: soru üç satıra çıkıp üç şık da
+                            // uzun yazıldığında içerik kartı taşırıyordu —
+                            // masaüstü çerçevesi 9:16 ve telefondan (9:19,5)
+                            // daha kısa, yani asıl dar yer orası. Taşma
+                            // yerine kaydırma, hiçbir şıkkı erişilemez
+                            // bırakmıyor.
+                            Flexible(
+                              child: SingleChildScrollView(
+                                child: TahminSlayti(
+                                  slayt: item,
+                                  isEn: isEn,
+                                  renk: konuCipRengi(group.title),
+                                  sec: (i) => _tahminiIsle(item, i),
+                                ),
+                              ),
                             )
                           else ...[
 
