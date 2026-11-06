@@ -13,6 +13,7 @@ import '../../providers/home_providers.dart';
 import '../../../../core/utils/string_extensions.dart';
 import '../../../../core/utils/fade_page_route.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
+import '../widgets/hava_ikonu.dart';
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  WeatherDetailScreen  —  Zirai İklim ve Uyarı Merkezi
@@ -375,21 +376,6 @@ class _HeroTemperature extends ConsumerWidget {
 
   const _HeroTemperature({required this.weather, required this.isEn, required this.theme});
 
-  String _weatherIcon(String code) {
-    if (code.endsWith('n')) return '🌙';
-    switch (code.substring(0, 2)) {
-      case '01': return '☀️';
-      case '02': return '🌤️';
-      case '03':
-      case '04': return '☁️';
-      case '09':
-      case '10': return '🌧️';
-      case '11': return '⛈️';
-      case '13': return '❄️';
-      case '50': return '🌫️';
-      default:   return '⛅';
-    }
-  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -420,11 +406,13 @@ class _HeroTemperature extends ConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Weather emoji
-                Text(
-                  _weatherIcon(weather.iconCode),
-                  style: const TextStyle(fontSize: 56),
-                  textAlign: TextAlign.center,
+                // İkon fontu, emoji DEĞİL: emoji CanvasKit'te 441 KB'lık
+                // Noto sembol fontu indiriyordu (A3). İkon ayrıca tema
+                // rengini alıyor — emoji almıyordu.
+                Icon(
+                  havaIkonu(weather.iconCode),
+                  size: 56,
+                  color: theme.textPrimary,
                 ),
                 const SizedBox(height: 4),
 
@@ -537,25 +525,40 @@ class _StatusPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = hasWarning ? _WeatherTheme.dikkat : _WeatherTheme.iyi;
+    // İşaretler METİNDEN çıkarıldı, ikona taşındı: '⚠' ve '✓' CanvasKit'te
+    // Noto sembol fontunu tetikliyordu (A3). Material ikonu zaten pakette.
     final label = hasWarning
-        ? (isEn ? '⚠ AGRICULTURAL WARNING ACTIVE' : '⚠ ZİRAİ UYARI AKTİF')
-        : (isEn ? '✓ CONDITIONS NORMAL' : '✓ KOŞULLAR NORMAL');
+        ? (isEn ? 'AGRICULTURAL WARNING ACTIVE' : 'ZİRAİ UYARI AKTİF')
+        : (isEn ? 'CONDITIONS NORMAL' : 'KOŞULLAR NORMAL');
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.15),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: color.withValues(alpha: 0.4), width: 1),
       ),
-      child: Text(
-        label,
-        style: GoogleFonts.inter(
-          color: color,
-          fontSize: 10,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.8,
-        ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            hasWarning
+                ? Icons.warning_amber_rounded
+                : Icons.check_circle_outline_rounded,
+            size: 13,
+            color: color,
+          ),
+          const SizedBox(width: 5),
+          Text(
+            label,
+            style: GoogleFonts.inter(
+              color: color,
+              fontSize: 10,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -746,14 +749,6 @@ class _MiniBarChart extends StatelessWidget {
 
   const _MiniBarChart({required this.isEn, required this.weather, required this.theme});
 
-  String _weatherIcon(int code) {
-    if (code >= 51 && code <= 67) return '🌧️';
-    if (code >= 71 && code <= 77) return '❄️';
-    if (code >= 80 && code <= 82) return '🌧️';
-    if (code == 0) return '☀️';
-    if (code == 1 || code == 2) return '🌤️';
-    return '☁️';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -828,9 +823,10 @@ class _MiniBarChart extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 3),
-                Text(
-                  _weatherIcon(item.weatherCode),
-                  style: const TextStyle(fontSize: 10),
+                Icon(
+                  havaIkonuWmo(item.weatherCode),
+                  size: 12,
+                  color: theme.textSecondary,
                 ),
                 // Yağış miktarı (mm) — ikon tek başına "yağmurlu" der ama
                 // 0,2 mm mi 40 mm mi olduğunu söylemez; sulama kararı için

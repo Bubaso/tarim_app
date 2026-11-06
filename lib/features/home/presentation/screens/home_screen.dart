@@ -44,6 +44,7 @@ import '../../../stories/presentation/widgets/story_avatar_strip.dart';
 import '../../../stories/providers/story_providers.dart';
 import '../../../videos/presentation/widgets/video_serit.dart';
 import '../../providers/font_scale_provider.dart';
+import '../widgets/hava_ikonu.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -693,36 +694,6 @@ class _WeatherChip extends ConsumerWidget {
 
   const _WeatherChip({required this.isDark});
 
-  String _icon(String code) {
-    switch (code) {
-      case '01d':
-        return '☀️';
-      case '01n':
-        return '🌙';
-      case '02d':
-      case '02n':
-        return '⛅';
-      case '03d':
-      case '03n':
-      case '04d':
-      case '04n':
-        return '☁️';
-      case '09d':
-      case '09n':
-      case '10d':
-      case '10n':
-        return '🌧️';
-      case '11d':
-      case '11n':
-        return '⛈️';
-      case '13d':
-      case '13n':
-        return '❄️';
-      default:
-        return '⛅';
-    }
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final weatherAsync = ref.watch(weatherProvider);
@@ -741,11 +712,9 @@ class _WeatherChip extends ConsumerWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                _icon(w.iconCode),
-                style: const TextStyle(fontSize: 16),
-              ),
-              const SizedBox(width: 4),
+              // Emoji DEĞİL ikon: ayrıntı için hava_ikonu.dart (A3).
+              Icon(havaIkonu(w.iconCode), size: 16, color: color),
+              const SizedBox(width: 5),
               Text(
                 '${w.temperature.toStringAsFixed(0)}°C',
                 style: GoogleFonts.inter(

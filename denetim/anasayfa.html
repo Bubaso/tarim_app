@@ -1,0 +1,779 @@
+<title>Anasayfa Denetimi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   Serinin DÖRDÜNCÜSÜ: denetim.html, yapay-zeka-kokusu.html ve
+   hikaye-sistemi.html ile aynı jeton setini kullanıyor.
+
+   Konuya özgü ekleme: "şerit" bloğu. Anasayfa üst üste dizilmiş bölümlerden
+   oluşuyor ve raporun asıl bulgularından biri o dizilimin tekdüzeliği;
+   ağırlık ölçümleri o yüzden yatay bir çubuk olarak gösteriliyor — payın
+   ne kadarının yazı tipine gittiği tek bakışta görünsün diye.
+
+   BÜYÜK HARF CSS'E BIRAKILMIYOR (§39.5): etiketler doğrudan yazılı.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --kagit:#F6F1E7; --kart:#FBF8F1; --murekkep:#3A2E20; --soluk:#6E6054;
+  --cok-soluk:#8C7F70; --bugday:#C9A15A; --yesil:#1F3320;
+  --cizgi:rgba(58,46,32,.14); --cizgi-kuv:rgba(58,46,32,.30);
+  --ust:#9C3B28; --ust-ze:rgba(156,59,40,.10);
+  --orta:#8A6410; --orta-ze:rgba(138,100,16,.10);
+  --alt:#3F6B37;  --alt-ze:rgba(63,107,55,.10);
+  --kod-ze:#EFE8DA; --oluk:rgba(58,46,32,.09);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+    --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+    --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+    --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+    --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+    --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+    --kod-ze:#120E09; --oluk:rgba(239,230,214,.10);
+  }
+}
+:root[data-theme="dark"]{
+  --kagit:#1A140E; --kart:#221B13; --murekkep:#EFE6D6; --soluk:#B3A693;
+  --cok-soluk:#8E8272; --bugday:#D9B573; --yesil:#A7C49A;
+  --cizgi:rgba(239,230,214,.16); --cizgi-kuv:rgba(239,230,214,.34);
+  --ust:#E8907A; --ust-ze:rgba(232,144,122,.13);
+  --orta:#DDB255; --orta-ze:rgba(221,178,85,.13);
+  --alt:#92C584;  --alt-ze:rgba(146,197,132,.13);
+  --kod-ze:#120E09; --oluk:rgba(239,230,214,.10);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--kagit); color:var(--murekkep);
+  font:400 17px/1.68 Inter,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.sar{max-width:1120px; margin:0 auto; padding:0 24px}
+p{max-width:68ch}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bugday); outline-offset:3px; border-radius:3px}
+
+/* ── künye ───────────────────────────────────────────────────────────────── */
+.kunye{padding:68px 0 30px; border-bottom:1px solid var(--cizgi-kuv)}
+.ust-etiket{
+  font:600 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.20em; color:var(--cok-soluk); margin:0 0 20px;
+}
+h1{
+  font:700 clamp(34px,6vw,60px)/1.03 Outfit,"Helvetica Neue",Arial,sans-serif;
+  margin:0 0 18px; letter-spacing:-.022em; text-wrap:balance; max-width:18ch;
+}
+.giris{font-size:19px; color:var(--soluk); max-width:62ch; margin:0 0 26px}
+.kunye-satir{
+  display:flex; flex-wrap:wrap; gap:10px 26px;
+  font:500 12.5px/1.5 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--cok-soluk);
+}
+
+/* ── bölümler ────────────────────────────────────────────────────────────── */
+section{padding:56px 0; border-bottom:1px solid var(--cizgi)}
+section:last-of-type{border-bottom:0}
+h2{
+  font:600 clamp(23px,3.4vw,32px)/1.18 Outfit,"Helvetica Neue",Arial,sans-serif;
+  margin:0 0 6px; letter-spacing:-.012em; text-wrap:balance;
+}
+.h2-alt{color:var(--soluk); margin:0 0 34px; max-width:64ch}
+h3{
+  font:600 19px/1.32 Outfit,"Helvetica Neue",Arial,sans-serif;
+  margin:0 0 8px; letter-spacing:-.006em; text-wrap:balance;
+}
+
+/* ── ölçümler ────────────────────────────────────────────────────────────── */
+.olcumler{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+  gap:1px; background:var(--cizgi); border:1px solid var(--cizgi);
+  border-radius:12px; overflow:hidden; margin:0 0 30px;
+}
+.olcum{background:var(--kart); padding:18px 20px}
+.olcum dt{
+  font:500 11.5px/1.4 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.06em; color:var(--cok-soluk); margin:0 0 7px;
+}
+.olcum dd{
+  margin:0; font:600 25px/1.1 Outfit,"Helvetica Neue",Arial,sans-serif;
+  font-variant-numeric:tabular-nums; letter-spacing:-.015em;
+}
+.olcum dd small{
+  display:block; font:400 13px/1.45 Inter,sans-serif;
+  color:var(--soluk); margin-top:7px; letter-spacing:0;
+}
+
+/* ── ağırlık şeridi ──────────────────────────────────────────────────────── */
+.serit{margin:30px 0 8px}
+.serit-baslik{
+  font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.08em; color:var(--cok-soluk); margin:0 0 10px;
+}
+.cubuk{
+  display:flex; height:38px; border-radius:8px; overflow:hidden;
+  background:var(--oluk); border:1px solid var(--cizgi);
+}
+.cubuk span{
+  display:grid; place-items:center;
+  font:600 11.5px/1 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--kagit); overflow:hidden; white-space:nowrap;
+}
+.p-ikon{background:var(--ust)}
+.p-web{background:var(--orta)}
+.p-kod{background:var(--yesil)}
+.p-oteki{background:var(--cok-soluk)}
+.serit-aciklama{
+  display:flex; flex-wrap:wrap; gap:8px 20px; margin:12px 0 0;
+  font:500 12.5px/1.5 Inter,sans-serif; color:var(--soluk);
+}
+.serit-aciklama i{
+  display:inline-block; width:10px; height:10px; border-radius:2px;
+  margin-right:6px; vertical-align:baseline;
+}
+
+/* ── teşhis ──────────────────────────────────────────────────────────────── */
+.teshis{
+  background:var(--kart); border:1px solid var(--cizgi);
+  border-radius:12px; padding:22px 24px; margin:0 0 16px;
+  display:grid; gap:10px;
+}
+.teshis-ust{display:flex; align-items:center; gap:12px; flex-wrap:wrap}
+.kod{
+  font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.07em; color:var(--cok-soluk);
+}
+.rozet{
+  font:600 11px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.09em; padding:5px 9px; border-radius:5px;
+}
+.r-ust{color:var(--ust); background:var(--ust-ze)}
+.r-orta{color:var(--orta); background:var(--orta-ze)}
+.r-alt{color:var(--alt); background:var(--alt-ze)}
+.teshis p{margin:0}
+.kanit{
+  font:500 13.5px/1.6 "IBM Plex Mono",ui-monospace,monospace;
+  background:var(--kod-ze); border-radius:8px; padding:12px 14px;
+  color:var(--soluk); overflow-x:auto; white-space:pre;
+}
+.cozum{
+  border-left:3px solid var(--bugday); padding-left:14px;
+  color:var(--soluk); font-size:15.5px;
+}
+.cozum b{color:var(--murekkep); font-weight:600}
+
+/* ── öneri ───────────────────────────────────────────────────────────────── */
+.oneriler{display:grid; gap:18px}
+.oneri{
+  background:var(--kart); border:1px solid var(--cizgi);
+  border-radius:12px; padding:24px 26px; display:grid; gap:11px;
+}
+.oneri.one-cikan{border-color:var(--bugday); border-width:2px}
+.oneri-ust{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.oneri p{margin:0; max-width:66ch}
+.neden{
+  font-size:15px; color:var(--soluk);
+  border-top:1px solid var(--cizgi); padding-top:11px; margin-top:2px;
+}
+.neden b{color:var(--murekkep); font-weight:600}
+.maliyet{
+  font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  color:var(--cok-soluk); letter-spacing:.05em;
+}
+
+/* ── sıra ────────────────────────────────────────────────────────────────── */
+.sira{list-style:none; padding:0; margin:0; counter-reset:adim; display:grid; gap:12px}
+.sira li{counter-increment:adim; position:relative; padding-left:42px; font-size:16px; color:var(--soluk)}
+.sira li::before{
+  content:counter(adim); position:absolute; left:0; top:1px;
+  width:26px; height:26px; border-radius:50%; display:grid; place-items:center;
+  font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;
+  background:var(--yesil); color:var(--kagit);
+}
+.sira li b{color:var(--murekkep); font-weight:600}
+
+ul.duz{padding-left:20px; color:var(--soluk)}
+ul.duz li{margin:0 0 8px; max-width:66ch}
+ul.duz b{color:var(--murekkep); font-weight:600}
+
+.dipnot{padding:40px 0 70px; color:var(--cok-soluk); font-size:14.5px}
+.dipnot p{max-width:68ch}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="sar">
+
+<header class="kunye">
+  <p class="ust-etiket">DENETİM 04 · 6 KASIM 2026</p>
+  <h1>Anasayfa: ağırlık, ritim ve ilk ekran</h1>
+  <p class="giris">
+    İçerik dağıtımı iyi kurulmuş — bölümler birbirinin haberini çalmıyor,
+    liste tembel çiziliyor, okuma geçmişi hesaba katılıyor. Üç sorun var ve
+    üçü de tasarımın <em>önünde</em> duruyor: sayfanın dörtte üçü yazı
+    tipinden ibaret, ilk ekran günü anlatmıyor, on beş bölüm üç kalıbın
+    tekrarı.
+  </p>
+  <div class="kunye-satir">
+    <span>15 içerik bölümü</span>
+    <span>2,9 MB ilk yük</span>
+    <span>canlı ölçüm: tarimportali.net</span>
+    <span>10 teşhis · 10 öneri</span>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="olculenler">
+  <h2>Ölçülenler</h2>
+  <p class="h2-alt">
+    Hepsi bugün ölçüldü: tarayıcının <code>performance</code> kayıtları,
+    derleme çıktısı ve kaynak taraması. Tahmin yok.
+  </p>
+
+  <dl class="olcumler">
+    <div class="olcum">
+      <dt>İLK YÜK — TOPLAM</dt>
+      <dd>2,9 MB<small>36 istek; HTML’in kendisi 308 ms’de geliyor, yani ağ sorun değil</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>BUNUN YAZI TİPİ OLANI</dt>
+      <dd>%78<small>2,26 MB. Kodun kendisi 1,2 MB</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>İKON FONTU — BUDANMAMIŞ</dt>
+      <dd>2,12 MB<small>Budandığında 47 KB. Ölçüldü, derleme sorunsuz geçti</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>ÇALIŞMA ANINDA İNEN FONT</dt>
+      <dd>873 KB<small>fonts.gstatic.com’dan; ilk istek 15,7 saniyede başlıyor</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>HAVA DURUMU EMOJİSİNİN BEDELİ</dt>
+      <dd>441 KB<small>Üst çubuktaki tek glif için inen Noto sembol fontları</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>SON KAYNAK</dt>
+      <dd>22,2 sn<small>Sayfanın tamamen yerleşmesi. İlk içerik çok daha erken</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>PAKET İNDİRME + AYRIŞTIRMA</dt>
+      <dd>12,4 sn<small>main.dart.js 1,93 sn’de başlıyor, 14,36 sn’de bitiyor</small></dd>
+    </div>
+    <div class="olcum">
+      <dt>MASAÜSTÜNDE SAYFA BOYU</dt>
+      <dd>~8 ekran<small>15 içerik bölümü, 3 kart kalıbı</small></dd>
+    </div>
+  </dl>
+
+  <div class="serit">
+    <p class="serit-baslik">İLK YÜKÜN DAĞILIMI — 2,9 MB</p>
+    <div class="cubuk">
+      <span class="p-ikon" style="flex:643">643 KB ikon fontu</span>
+      <span class="p-web" style="flex:873">873 KB web fontu</span>
+      <span class="p-kod" style="flex:1216">1216 KB kod</span>
+      <span class="p-oteki" style="flex:175"></span>
+    </div>
+    <p class="serit-aciklama">
+      <span><i class="p-ikon" style="background:var(--ust)"></i>İkon fontu — %98’i hiç kullanılmıyor</span>
+      <span><i class="p-web" style="background:var(--orta)"></i>Web fontu — çalışma anında, gstatic’ten</span>
+      <span><i class="p-kod" style="background:var(--yesil)"></i>Uygulama kodu</span>
+      <span><i class="p-oteki" style="background:var(--cok-soluk)"></i>Görsel ve ötekiler (175 KB)</span>
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="teshisler">
+  <h2>Teşhisler</h2>
+  <p class="h2-alt">Etkisine göre sıralı; her birinin altında ölçülen kanıt var.</p>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A1</span>
+      <span class="rozet r-ust">YÜKSEK</span>
+      <h3>İkon fontları budanmıyor — 2,12 MB’ın 47 KB olması gerekiyordu</h3>
+    </div>
+    <p>
+      Derleme komutunda <code>--no-tree-shake-icons</code> var. Flutter
+      normalde kullanılmayan ikonları atıyor; bu bayrak onu kapatıyor ve
+      üç ikon fontu tam boyuyla pakete giriyor. Bayrağın <strong>yazılı bir
+      gerekçesi yok</strong>: genel bir “projeyi temizle ve güncelle”
+      commit’iyle gelmiş, yorumda yalnızca yanındaki
+      <code>--pwa-strategy=none</code> açıklanmış.
+    </p>
+    <p>
+      Bugün bayraksız derledim; <strong>derleme sorunsuz geçti</strong>.
+      Yani bayrak bir sorunu çözmüyor, sadece duruyor.
+    </p>
+    <p class="kanit">MaterialIcons-Regular.otf   1.645.184 → 31.804 bayt   (%98,1)
+CupertinoIcons.ttf           257.628 →  1.472 bayt   (%99,4)
+Font-Awesome-Brands.otf      215.132 →  2.288 bayt   (%98,9)
+                           ─────────────────────────────────
+                           2.117.944 → 35.564 bayt</p>
+    <p class="cozum">
+      <b>Çözüm:</b> <code>deploy.sh</code>’tan bayrağı kaldırın. Tek satır,
+      kod değişikliği yok, her ilk ziyaretten <b>~630 KB</b> düşüyor.
+      Bu rapordaki en ucuz kazanç ve farkla en büyüğü.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A2</span>
+      <span class="rozet r-ust">YÜKSEK</span>
+      <h3>Yazı tipleri çalışma anında, üçüncü taraf sunucudan iniyor</h3>
+    </div>
+    <p>
+      Arayüz beş aileyi kullanıyor (Inter 350 çağrı, Outfit 99, Lora 19,
+      RobotoMono 4, SourceSerif4 2) ve hepsi <code>google_fonts</code>
+      paketiyle <em>çalışma anında</em> fonts.gstatic.com’dan indiriliyor.
+      Hiçbiri pakete gömülü değil.
+    </p>
+    <p>
+      İki sonucu var. Birincisi 873 KB. İkincisi daha önemli: ilk font
+      isteği <strong>15,7 saniyede</strong> başlıyor, çünkü hangi fontun
+      gerektiğini Dart kodu çalışmadan bilemiyoruz. Yani metin, paket
+      yüklenene <em>ve</em> font inene kadar doğru yüzüne kavuşamıyor.
+    </p>
+    <p class="kanit">gstatic font isteği : 10 dosya · 873 KB · ilk istek 15.686 ms
+yerel ikon fontu   :  3 dosya · 643 KB · ilk istek 15.685 ms</p>
+    <p class="cozum">
+      <b>Çözüm:</b> Inter ve Outfit’i (gövdenin ve başlığın tamamı) asset
+      olarak gömün. <code>google_fonts</code> gömülü kopyayı bulduğunda ağa
+      hiç çıkmıyor — kod değişmiyor, yalnızca <code>pubspec.yaml</code>’a
+      font tanımı giriyor. Lora ve ötekiler nadir kullanıldığı için ağda
+      kalabilir.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A3</span>
+      <span class="rozet r-ust">YÜKSEK</span>
+      <h3>Üst çubuktaki hava durumu emojisi 441 KB font indiriyor</h3>
+    </div>
+    <p>
+      Hava durumu çipi glifleri emoji olarak yazıyor (<code>☀️ 🌙 ⛅ ☁️ 🌧️
+      ⛈️ ❄️</code>). CanvasKit’in emoji kapsaması yok, bu yüzden Flutter
+      eksik karakterleri çizebilmek için Noto sembol fontlarını indiriyor.
+      Tarayıcı konsolu bunu zaten söylüyor — kimse bakmamış.
+    </p>
+    <p class="kanit">NotoSansSymbols2  374 KB
+NotoSansSymbols    67 KB
+                  ───────
+                  441 KB   → ekranda 16 piksellik tek bir glif
+
+konsol: "Could not find a set of Noto fonts to display all
+         missing characters."</p>
+    <p class="cozum">
+      <b>Çözüm:</b> emojileri Material ikonlarıyla değiştirin
+      (<code>wb_sunny</code>, <code>nights_stay</code>, <code>grain</code>…).
+      O font zaten pakette ve A1’den sonra 31 KB; yeni ikonların maliyeti
+      birkaç yüz bayt. Üstelik ikonlar temaya uyuyor, emoji uymuyor:
+      koyu temada emoji kendi renginde kalıyor.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A4</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>İlk ekran günü anlatmıyor</h3>
+    </div>
+    <p>
+      1440×1000 bir pencerede katlamanın üstünde şunlar var: hikâye şeridi,
+      tek bir manşet fotoğrafı ve sağ üçte birde <em>henüz boş</em> bir
+      “Yazarlarımız” başlığı. Okur “bugün tarımda ne oldu” sorusunun
+      cevabını almadan kaydırmak zorunda.
+    </p>
+    <p>
+      Manşet fotoğrafı dikey alanın %60’ını alıyor ve tek bir haber
+      taşıyor. Yanındaki üçte bir, yazar kartları gelene kadar — ki onlar
+      sayfanın en geç yerleşen parçası — boş duruyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> Ö1. İlk ekranın işi bir fotoğraf göstermek değil,
+      günü özetlemek.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A5</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>On beş bölüm, üç kart kalıbı</h3>
+    </div>
+    <p>
+      Sayfa masaüstünde yaklaşık sekiz ekran boyunda ve neredeyse tamamı
+      üç kalıbın tekrarı: <em>yatay kart şeridi</em> (Dünya, Gözden
+      Kaçanlar, sektörel üçlü), <em>büyük + küçükler ızgarası</em>
+      (Türkiye, Bilim), <em>iki sütun liste</em> (Kısa Kısa). Dünyadan
+      Haberler ile Gözden Kaçanlar arka arkaya geliyor ve <strong>birbirinin
+      aynısı görünüyor</strong>; ikisini ayıran tek şey başlık.
+    </p>
+    <p>
+      Sonuç: kaydırma bir keşif değil, tekrar hissi veriyor. Okur üçüncü
+      özdeş şeritten sonra taramayı bırakıyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> Ö2 ve Ö3 — kalıp sayısını değil, kalıpların
+      <em>dağılımını</em> değiştirmek. Her bölüm kendi biçimini hak etmiyor;
+      ama arka arkaya iki özdeş bölüm de olmamalı.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A6</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>Üç sektörel bölüm birebir aynı</h3>
+    </div>
+    <p>
+      Sayfanın son üçte biri Hayvancılık, Bitkisel Üretim ve Ekonomi
+      bölümlerinden oluşuyor; üçü de aynı düzende, aynı kart ölçüsünde,
+      aynı “Daha fazla →” bağlantısıyla. Okur üçünü de görmek zorunda ama
+      çoğu okur yalnızca biriyle ilgileniyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> Ö3 — üçünü sekmeli tek bir bloğa indirin. Sayfa iki
+      ekran kısalıyor, okur kendi konusunu seçiyor ve seçimi hatırlanıyor.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A7</span>
+      <span class="rozet r-orta">ORTA</span>
+      <h3>Emtia şeridinde ilk kart ayrıcalıklı, ötekiler değil</h3>
+    </div>
+    <p>
+      Buğday kartı aylık aralık, borsa adı, tarih ve “Grafik →” bağlantısı
+      taşıyor; yanındaki beş kart yalnız fiyat ve yüzde. Aynı satırda iki
+      farklı bilgi yoğunluğu, ilk kartı “seçili” gibi gösteriyor — oysa
+      seçili değil, sadece ayrıcalıklı.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> ya hepsi aynı yoğunlukta olsun ya da fark
+      <em>anlamlı</em> olsun: Ö4’teki gibi her karta kendi eğrisi
+      konabilir — o zaman ilk kartın genişliği bir bilgi taşır.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A8</span>
+      <span class="rozet r-alt">DÜŞÜK</span>
+      <h3>Bölüm başlıkları on beş kez aynı kalıpta</h3>
+    </div>
+    <p>
+      Her bölüm “yeşil ikon + büyük harf başlık + sağda Daha fazla →”
+      biçiminde açılıyor. Kalıbın kendisi iyi; on beş kez tekrarlanınca
+      hiyerarşi taşımayı bırakıyor. Okur hangi bölümün ana, hangisinin
+      yardımcı olduğunu ayırt edemiyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> iki kademe: <em>ana bölümler</em> (Türkiye, Dünya)
+      büyük başlık ve üstünde ince çizgi; <em>yardımcı şeritler</em>
+      (Gözden Kaçanlar, Video, Dosya) daha küçük, çizgisiz. Tipografi
+      zaten var, kullanılmıyor.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A9</span>
+      <span class="rozet r-alt">DÜŞÜK</span>
+      <h3>Kişisel bölümler ilk ziyarette hiç görünmüyor</h3>
+    </div>
+    <p>
+      “Son Okuduklarınız” boşken kendini gizliyor — doğru karar. Ama ilk
+      kez gelen okur o bölümün <em>var olduğunu</em> hiç öğrenmiyor ve
+      ikinci ziyaretinde sayfanın düzeni değişmiş gibi görünüyor.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> boş hâli gizlemek yerine tek satırlık bir davet:
+      “Okuduğunuz haberler burada birikir.” Bölümün yeri sabit kalıyor,
+      düzen okurdan okura değişmiyor.
+    </p>
+  </article>
+
+  <article class="teshis">
+    <div class="teshis-ust">
+      <span class="kod">A10</span>
+      <span class="rozet r-alt">DÜŞÜK</span>
+      <h3>Sayfanın sonu bir son gibi durmuyor</h3>
+    </div>
+    <p>
+      Sekiz ekranlık kaydırmanın sonunda üçüncü sektörel bölüm bitiyor ve
+      doğrudan altbilgi geliyor. Okura “bitti” diyen, onu bir sonraki
+      eyleme yönlendiren hiçbir şey yok.
+    </p>
+    <p class="cozum">
+      <b>Çözüm:</b> Ö5 — gün sonu özeti, arşiv bağlantısı ve bülten daveti
+      taşıyan bir kapanış bloğu.
+    </p>
+  </article>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="oneriler">
+  <h2>Tasarım önerileri</h2>
+  <p class="h2-alt">
+    İlk üçü sayfanın iskeletini değiştiriyor; gerisi mevcut iskeleti
+    olgunlaştırıyor.
+  </p>
+
+  <div class="oneriler">
+
+    <article class="oneri one-cikan">
+      <div class="oneri-ust">
+        <h3>Ö1 · İlk ekran “günün panosu” olsun</h3>
+        <span class="maliyet">EN BÜYÜK KAZANÇ</span>
+      </div>
+      <p>
+        Katlamanın üstü şu an tek bir fotoğraf gösteriyor. Onun yerine
+        <strong>günü tek bakışta anlatan bir pano</strong> koyun: solda
+        manşet (bugünkü kadar büyük değil), sağda üç şey — <em>günün üç
+        rakamı</em> (hikâye kartlarından gelen, zaten üretiliyor),
+        <em>bugünün başlık sayısı ve saati</em>, ve <em>en çok okunan üç
+        haber</em>.
+      </p>
+      <p>
+        Fotoğraf küçülüyor ama bilgi yoğunluğu üç katına çıkıyor. Okur
+        “bugün ne oldu” sorusunun cevabını kaydırmadan alıyor; kaydırma
+        kararı bilinçli oluyor.
+      </p>
+      <p class="neden">
+        <b>Neden out of box:</b> tarım basınında anasayfa demek büyük
+        fotoğraf demek. Oysa bu portalın gerçek ayrıcalığı fotoğrafı değil
+        <em>verisi</em>: emtia fiyatları, hikâye rakamları, okunma sayaçları.
+        Üçü de var ve üçü de katlamanın altında kalıyor.
+        <b>Maliyet:</b> yeni veri yok — hepsi mevcut sağlayıcılardan.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö2 · Bölüm ritmi: iki özdeş bölüm yan yana gelmesin</h3>
+      </div>
+      <p>
+        Üç kalıp yeterli ama dizilimi değil. Dünyadan Haberler ve Gözden
+        Kaçanlar şu an arka arkaya ve ikisi de yatay şerit. Araya farklı
+        bir kalıp girmeli — ya Kısa Kısa’yı yukarı alın ya da Gözden
+        Kaçanlar’ı ızgaraya çevirin.
+      </p>
+      <p class="neden">
+        <b>Basit kural:</b> aynı kalıp arka arkaya iki kez kullanılamaz.
+        Bölüm sırası zaten tek bir listede duruyor; kural oraya bir
+        sınamayla yazılabilir ve ileride bölüm eklendiğinde kendiliğinden
+        korunur.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö3 · Sektörel üçlü tek bir sekmeli blok olsun</h3>
+      </div>
+      <p>
+        Hayvancılık · Bitkisel Üretim · Ekonomi — üç özdeş bölüm yerine üç
+        sekmeli tek blok. Açılışta okurun en çok okuduğu konu seçili gelir;
+        seçim cihazda hatırlanır.
+      </p>
+      <p class="neden">
+        <b>Kazanç:</b> sayfa iki ekran kısalıyor ve okur kendi konusunu
+        görüyor. <b>Veri hazır:</b> okuma geçmişi (<code>read_articles</code>)
+        zaten tutuluyor ve manşette kullanılıyor; hangi konunun daha çok
+        okunduğunu saymak ek bir şey gerektirmiyor.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö4 · Emtia şeridi küçük bir veri panosuna dönüşsün</h3>
+      </div>
+      <p>
+        Her karta son 30 günün ince bir eğrisi (sparkline) girsin, son nokta
+        vurgulu. Yüzde rengi eğrinin rengiyle aynı olsun. Kart genişliği
+        sabit kalır, bilgi iki katına çıkar.
+      </p>
+      <p class="neden">
+        <b>Neden burası:</b> çiftçi için fiyatın <em>bugünkü değeri</em>
+        değil <em>yönü</em> önemli; “19,25 ▲%0,81” yönü söylemiyor, otuz
+        günlük eğri söylüyor. Emtia geçmişi veritabanında zaten var
+        (<code>commodity</code> tabloları, emtia detay ekranı onu çiziyor).
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö5 · Sayfanın sonunda “günün kapanışı”</h3>
+      </div>
+      <p>
+        Son bölümün ardından: bugün kaç haber yayımlandığı, günün üç
+        rakamı, hikâye arşivine bağlantı ve “yarın sabah 07:45’te yeni
+        haberler” satırı.
+      </p>
+      <p class="neden">
+        <b>Neden:</b> sekiz ekran kaydıran okura “bitti” demek gerekiyor.
+        Yayın saatini söylemek ayrıca bir alışkanlık daveti — okur ne zaman
+        döneceğini öğreniyor.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö6 · Bölüm sırası okura göre değişsin</h3>
+        <span class="maliyet">DENEYSEL</span>
+      </div>
+      <p>
+        İlk üç bölüm sabit kalsın (manşet, emtia, Türkiye). Altındakiler
+        okurun en çok okuduğu konuya göre sıralansın: hayvancılık okuyan
+        okurda o bölüm yukarı gelsin.
+      </p>
+      <p class="neden">
+        <b>Dikkat:</b> sıra tamamen serbest bırakılırsa okur sayfayı
+        tanıyamaz hâle gelir. Üst üç sabit, alt kısım esnek — ve değişiklik
+        sessiz olmasın: “sizin için öne alındı” diye tek satır.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö7 · Hava durumu çipi tarımsal uyarıya dönüşsün</h3>
+      </div>
+      <p>
+        Üst çubukta “9°C” yazmak bir hava durumu sitesinin işi. Bir tarım
+        portalında o alan <em>don riski</em>, <em>yağış penceresi</em> veya
+        <em>ilaçlama uygunluğu</em> demeli. Sıcaklık yan bilgi olarak kalır.
+      </p>
+      <p class="neden">
+        <b>Neden out of box:</b> okurun hava durumunu zaten başka yerden
+        öğrendiği doğru; ondan <em>tarımsal yorumunu</em> alacağı yer burası.
+        A3’teki emoji değişimi zaten bu alana dokunuyor — ikisi tek işte
+        birleşiyor.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö8 · Başlık tipografisinde iki kademe</h3>
+      </div>
+      <p>
+        Ana bölümler (Türkiye, Dünya, Bilim) büyük başlık + üstünde ince
+        çizgi; yardımcı şeritler (Gözden Kaçanlar, Video, Dosya, Kısa Kısa)
+        bir kademe küçük ve çizgisiz. Sayfanın hiyerarşisi tipografiden
+        okunur hâle gelir.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö9 · Boş durumlar tasarlansın</h3>
+      </div>
+      <p>
+        Bugün boş bölüm gizleniyor. Kişisel bölümlerde (Son Okuduklarınız)
+        gizlemek yerine tek satırlık davet daha doğru: bölümün yeri sabit
+        kalıyor ve okur özelliğin varlığını öğreniyor. İçerik bölümlerinde
+        gizleme doğru kalsın.
+      </p>
+    </article>
+
+    <article class="oneri">
+      <div class="oneri-ust">
+        <h3>Ö10 · Manşet karuselinde ilerleme görünsün</h3>
+      </div>
+      <p>
+        Manşetin altında on nokta var ama hangisinin ne kadar süre kaldığı
+        belli değil ve okur karuselin döndüğünü ancak kaçırdığında fark
+        ediyor. Etkin noktaya ince bir süre çubuğu — hikâye görüntüleyicide
+        çalışan mekanizmanın aynısı.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="teknik">
+  <h2>Teknik altyapı: sağlam olan ve olmayan</h2>
+
+  <h3>Sağlam — ve hafife alınmamalı</h3>
+  <ul class="duz">
+    <li><b>Bölümler birbirinin haberini çalmıyor.</b>
+      <code>homeAllocationProvider</code> tek bir havuzdan dağıtım yapıyor ve
+      dağıtılan haberi <code>spent</code> kümesine işaretliyor. Öncelik sırası
+      gerekçesiyle yazılı: en küçük ve ayırt edici kova (bilim) ilk seçimi
+      alıyor, ICYMI tanımı gereği artığı. Bu tür bir sayfada aynı haberin üç
+      bölümde birden çıkması en sık görülen kusurdur; burada yok.</li>
+    <li><b>Liste tembel.</b> Bölümler <code>SliverList.builder</code> ile
+      çiziliyor, görünmeyen bölüm verisini istemiyor.</li>
+    <li><b>Okuma geçmişi iki yönlü kullanılıyor.</b> Manşette okunmuş haber
+      geri itiliyor, “Son Okuduklarınız” şeridi onu geri getiriyor — biri
+      ötekinin karşılığı ve ikisi de gerekçeli.</li>
+    <li><b>Kısa haberler ayrı sınıf.</b> <code>isBrief</code> ile
+      ayrıldığı için Kısa Kısa bölümü ana dağıtımla çakışmıyor.</li>
+    <li><b>Sorgu daraltılmış.</b> Liste sorgusu 45 sütunla sınırlı ve 500
+      satırda duruyor; ağır sütunlar dışarıda.</li>
+  </ul>
+
+  <h3>Olmayan</h3>
+  <ul class="duz">
+    <li><b>Gerekçesiz derleme bayrağı.</b> <code>--no-tree-shake-icons</code>
+      hiçbir yerde açıklanmamış ve bugün yapılan denemede gereksiz olduğu
+      görüldü (A1).</li>
+    <li><b>Ağırlık ölçülmüyor.</b> Paket ve font boyutu için hiçbir eşik,
+      hiçbir uyarı yok. 2,12 MB’lık bir ikon fontu aylarca fark edilmeden
+      gitti; aynı şey yarın başka bir varlıkla tekrar olur.</li>
+    <li><b>Konsol uyarısı okunmuyor.</b> Noto uyarısı her açılışta basılıyor
+      ve 441 KB’ı doğrudan işaret ediyor (A3).</li>
+    <li><b>İlk ekranın maliyeti ile sayfanın maliyeti ayrışmamış.</b> Bütün
+      fontlar ve bütün kod, okur henüz manşeti görmeden iniyor. Flutter web’de
+      bunu bölmek sınırlı ama mümkün: ikon fontunun budanması ve fontların
+      gömülmesi tek başına ilk ekranı yarıdan fazla hafifletiyor.</li>
+    <li><b>Anasayfa için sınama yok.</b> Dağıtım mantığı (A’daki “sağlam”
+      maddelerin en değerlisi) tamamen sınamasız. Bir bölümün tavanı
+      değiştiğinde ya da yeni bölüm eklendiğinde çakışmanın geri döndüğünü
+      hiçbir şey söylemez.</li>
+  </ul>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<section id="sira">
+  <h2>Önerdiğim sıra</h2>
+  <p class="h2-alt">
+    İlk üç adım bir günlük iş ve sayfanın ağırlığını üçte birine indiriyor;
+    tasarım işine ondan sonra başlamak daha doğru.
+  </p>
+  <ol class="sira">
+    <li><b>Bayrağı kaldır (A1).</b> Tek satır, ~630 KB. Bugün yapılabilir.</li>
+    <li><b>Emojileri ikona çevir (A3).</b> Yarım gün, 441 KB.</li>
+    <li><b>Inter ve Outfit’i göm (A2).</b> Yarım gün, 873 KB’ın çoğu ve
+      metnin doğru yüzle açılması.</li>
+    <li><b>Ağırlık bekçisi.</b> Dağıtım öncesi paket ve varlık boyutuna
+      eşik koy — bu üç kazancın geri gelmemesi için. Sürüm bekçisinin
+      yanına yazılabilir.</li>
+    <li><b>Dağıtım mantığına sınama.</b> Bölümlerin çakışmadığını
+      doğrulayan birkaç sınama; sonraki adımlar o mantığa dokunacak.</li>
+    <li><b>İlk ekran panosu (Ö1).</b> Asıl tasarım işi burada başlıyor.</li>
+    <li><b>Sektörel sekmeler (Ö3) ve bölüm ritmi (Ö2).</b> Sayfa iki ekran
+      kısalıyor.</li>
+    <li><b>Emtia eğrileri (Ö4), kapanış bloğu (Ö5), tipografi kademesi (Ö8).</b></li>
+    <li><b>Deneysel olanlar (Ö6, Ö7).</b> Ölçüm verisine bakarak.</li>
+  </ol>
+</section>
+
+<footer class="dipnot">
+  <p>
+    Bütün sayılar 6 Kasım 2026’da ölçüldü: canlı sitede tarayıcının
+    <code>performance</code> kayıtları, yerelde <code>flutter build web</code>
+    çıktısı ve kaynak ağacının taranması. Budama kazancı tahmin değil —
+    bayraksız bir derleme yapılıp dosya boyutları okundu.
+  </p>
+  <p>
+    Serinin önceki raporları: <em>Tarım Portalı Denetimi</em>,
+    <em>Yapay Zekâ Kokusu</em>, <em>Hikâye Sistemi Denetimi</em>.
+  </p>
+</footer>
+
+</div>

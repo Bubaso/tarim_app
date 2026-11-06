@@ -87,7 +87,25 @@ if [[ $DO_BUILD -eq 1 ]]; then
   # döngüsüydü (ayrıntı: web/flutter_service_worker.js). Bu bayrak
   # `serviceWorkerSettings` bloğunu bootstrap'tan çıkarır; elle yazdığımız
   # temizleyici worker ise `web/` altından olduğu gibi kopyalanır.
-  flutter build web --release --pwa-strategy=none --no-tree-shake-icons
+  # --no-tree-shake-icons KALDIRILDI (6 Kasım 2026 anasayfa denetimi, A1).
+  #
+  # Bayrak gerekçesiz duruyordu: genel bir "projeyi temizle ve güncelle"
+  # commit'iyle gelmiş, hiçbir yerde açıklanmamış. Kaldırıp denedik,
+  # derleme sorunsuz geçti. Ölçülen kazanç:
+  #
+  #   MaterialIcons-Regular.otf   1.645.184 → 31.804 bayt  (%98,1)
+  #   CupertinoIcons.ttf            257.628 →  1.472 bayt  (%99,4)
+  #   Font-Awesome-Brands.otf       215.132 →  2.288 bayt  (%98,9)
+  #                               ─────────────────────────────────
+  #                               2.117.944 → 35.564 bayt
+  #
+  # Yani her ilk ziyarette ~630 KB (sıkıştırılmış) boşuna iniyordu.
+  #
+  # BAYRAK GERİ KONULACAKSA: tek sebebi `IconData`nın çalışma anında
+  # ÜRETİLMESİ olabilir (sabit olmayan codePoint). Öyle bir yer eklenirse
+  # derleme zaten açık bir hatayla durur; bayrağı geri koymadan önce o
+  # hatayı okuyun — çözüm genellikle ikonu sabit bir sabite bağlamaktır.
+  flutter build web --release --pwa-strategy=none
 fi
 
 if [[ ! -f build/web/index.html ]]; then
