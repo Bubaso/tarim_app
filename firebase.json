@@ -49,6 +49,13 @@
         }
       },
       {
+        "source": "/rss.xml",
+        "function": {
+          "functionId": "rss",
+          "region": "europe-west1"
+        }
+      },
+      {
         "source": "/sitemap.xml",
         "function": {
           "functionId": "sitemap",

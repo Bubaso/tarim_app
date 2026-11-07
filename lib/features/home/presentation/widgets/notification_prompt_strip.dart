@@ -85,9 +85,13 @@ class _NotificationPromptStripState
           const SizedBox(width: 10),
           Expanded(
             child: Text(
+              // Fiyat alarmı GÖNDERMİYORUZ. Dört gönderici sabah özeti,
+              // son dakika, haftalık özet ve yazar yazısı atıyor. Eski metin
+              // "ani fiyat hareketleri" vaat ediyordu; abone olan okuyucu ilk
+              // bildirimde beklediğini bulamayınca aboneliği bırakıyordu.
               isEn
-                  ? 'Get instant alerts for price swings and major news.'
-                  : 'Ani fiyat hareketlerini ve önemli haberleri anında öğren.',
+                  ? 'Breaking news and one short digest every morning.'
+                  : 'Son dakika haberleri ve her sabah tek bir kısa özet.',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.inter(

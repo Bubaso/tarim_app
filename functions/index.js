@@ -1249,6 +1249,119 @@ function urlEntry({ loc, lastmod, changefreq, priority, alternates = null }) {
   return `  <url>\n${parts.join('\n')}\n  </url>`;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+//  RSS akışı — /rss.xml
+// ───────────────────────────────────────────────────────────────────────────
+//  8 Kasım 2026 ölçümü: ayda 281 haber üretiliyor, push kanalından ayda ~16
+//  tıklanma geliyor. Üretim ile dağıtım arasında yüz kat fark var ve sitenin
+//  DIŞARIYA açılan tek makine-okunur ucu `sitemap.xml`di — o da yalnızca
+//  arama motoru için.
+//
+//  Bir akış, bizim yazmadığımız dağıtımı mümkün kılıyor: Telegram botları,
+//  haber toplayıcılar, Feedly/Inoreader okurları, IFTTT/Zapier kuran
+//  kullanıcılar ve içerik ortaklığı yapacak siteler hepsi bu tek adrese
+//  bakıyor. Yazması bir fonksiyon, bakımı sıfır.
+//
+//  Neden `description` içine TAM METİN konmuyor: akışın işi okuru siteye
+//  getirmek. Tam metin veren akışlar okuyucuyu okuyucu uygulamasında tutuyor
+//  ve tıklanma getirmiyor — tam da kaçınmak istediğimiz şey.
+//
+//  `source` parametresi UTM ekliyor: /rss.xml?source=telegram ile çekilen
+//  akıştaki bağlantılar utm_source=telegram taşıyor. Hangi kanalın gerçekten
+//  tıklanma getirdiğini bu olmadan ölçemeyiz.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const RSS_KANAL_LIMIT = 40;
+
+/// İzin verilen kaynak adları. Serbest metin alınsaydı akış adresi açık bir
+/// yönlendirme/enjeksiyon yüzeyi olurdu; ayrıca ölçümde `telegram`,
+/// `Telegram` ve `telegram ` üç ayrı kanal gibi görünürdü.
+const RSS_KAYNAKLAR = new Set([
+  'telegram', 'x', 'bluesky', 'facebook', 'linkedin',
+  'instagram', 'whatsapp', 'rss', 'feedly',
+]);
+
+function rssTarih(deger) {
+  const d = deger ? new Date(deger) : new Date();
+  return Number.isNaN(d.getTime()) ? new Date().toUTCString() : d.toUTCString();
+}
+
+/// CDATA içine konacak metni güvene alır.
+///
+/// `]]>` dizgesi CDATA bloğunu erken kapatır ve akışın tamamını bozar. Haber
+/// gövdesi makineden geliyor ve bir gün bu üç karakteri yan yana getirebilir.
+function cdata(metin) {
+  return `<![CDATA[${String(metin ?? '').replace(/\]\]>/g, ']]&gt;')}]]>`;
+}
+
+export const rss = onRequest(
+  { region: REGION, memory: '256MiB', maxInstances: 3, invoker: 'public' },
+  async (req, res) => {
+    const ham = String(req.query.source ?? '').toLowerCase().trim();
+    const kaynak = RSS_KAYNAKLAR.has(ham) ? ham : null;
+    const utm = kaynak
+      ? `?utm_source=${kaynak}&utm_medium=feed&utm_campaign=rss`
+      : '';
+
+    let rows = [];
+    try {
+      rows = await supabaseGet(
+        'articles?status=eq.published&select=id,title,summary,created_at,topic,image_url' +
+          `&order=created_at.desc&limit=${RSS_KANAL_LIMIT}`,
+        15000,
+      );
+    } catch (err) {
+      // Boş bir akış, 500'den iyi: okuyucu uygulamaları 500 alan bir akışı
+      // birkaç denemeden sonra abonelikten düşürüyor.
+      console.error('rss', err);
+      rows = [];
+    }
+
+    const items = (Array.isArray(rows) ? rows : [])
+      .filter((r) => r?.id && r?.title)
+      .map((r) => {
+        const link = `${SITE_ORIGIN}/haber/${r.id}${utm}`;
+        const ozet = (r.summary ?? '').trim();
+        const gorsel = r.image_url
+          ? `\n      <enclosure url="${escapeHtml(r.image_url)}" type="image/jpeg" />`
+          : '';
+        const konu = r.topic
+          ? `\n      <category>${cdata(r.topic)}</category>`
+          : '';
+        return (
+          `    <item>\n` +
+          `      <title>${cdata(r.title)}</title>\n` +
+          `      <link>${escapeHtml(link)}</link>\n` +
+          // guid UTM'siz ve kalıcı: adres kaynağa göre değişiyor ama haberin
+          // kimliği değişmiyor. UTM'li guid, aynı haberi her kanalda yeni
+          // haber gibi gösterir ve aboneye tekrar tekrar bildirim attırırdı.
+          `      <guid isPermaLink="false">${SITE_ORIGIN}/haber/${r.id}</guid>\n` +
+          `      <pubDate>${rssTarih(r.created_at)}</pubDate>\n` +
+          `      <description>${cdata(ozet)}</description>${konu}${gorsel}\n` +
+          `    </item>`
+        );
+      });
+
+    const sonTarih = rows?.[0]?.created_at;
+    res.set('Content-Type', 'application/rss+xml; charset=utf-8');
+    res.set('Cache-Control', 'public, max-age=300, s-maxage=900');
+    res.status(200).send(
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+        `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n` +
+        `  <channel>\n` +
+        `    <title>Tarım Portalı</title>\n` +
+        `    <link>${SITE_ORIGIN}/</link>\n` +
+        `    <description>Türkiye'nin güncel tarım, hayvancılık ve tarım ekonomisi haberleri.</description>\n` +
+        `    <language>tr</language>\n` +
+        `    <lastBuildDate>${rssTarih(sonTarih)}</lastBuildDate>\n` +
+        `    <atom:link href="${SITE_ORIGIN}/rss.xml" rel="self" type="application/rss+xml" />\n` +
+        `${items.join('\n')}\n` +
+        `  </channel>\n` +
+        `</rss>\n`,
+    );
+  },
+);
+
 export const sitemap = onRequest(
   { region: REGION, memory: '256MiB', maxInstances: 3, invoker: 'public' },
   async (req, res) => {

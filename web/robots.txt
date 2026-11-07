@@ -1,4 +1,4 @@
-# https://tarim-app-2026.web.app/robots.txt
+# https://tarimportali.net/robots.txt
 
 User-agent: *
 Allow: /
@@ -13,4 +13,8 @@ Disallow: /giris
 # yinelenen içerik gibi görünür.
 Disallow: /kategori/
 
-Sitemap: https://tarim-app-2026.web.app/sitemap.xml
+# Adres tarimportali.net: kanonik alan adı bu (functions/config.js
+# SITE_ORIGIN) ve sitemap içindeki bütün bağlantılar da oraya
+# işaret ediyor. web.app adresi çalışmaya devam ediyor ama iki
+# ayrı alan adı bildirmek siteyi ikiye bölünmüş gösteriyordu.
+Sitemap: https://tarimportali.net/sitemap.xml

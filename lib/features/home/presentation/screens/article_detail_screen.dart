@@ -44,6 +44,7 @@ import '../widgets/category_nav_bar.dart';
 import '../../data/category_catalog.dart';
 import 'category_articles_screen.dart';
 import '../../../stories/presentation/widgets/haber_hikaye_karti.dart';
+import '../widgets/bildirim_daveti_karti.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -673,6 +674,16 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                 ),
               ),
 
+              // ── Bildirim daveti ───────────────────────────────────────────
+              // Gövdenin hemen altı: okuyucu haberi bitirdi, konudan memnun
+              // ve "bundan daha var mı" diye bakıyor. Abonelik teklifinin
+              // karşılık bulacağı tek an bu. Koşullar tutmuyorsa (iki haber
+              // okunmamış, izin zaten sorulmuş, davet hakkı dolmuş) hiç
+              // çizilmiyor — bkz. NotificationService.shouldShowSoftPrompt.
+              SliverToBoxAdapter(
+                child: BildirimDavetiKarti(isDark: isDark, isEn: isEn),
+              ),
+
               // ── Dosya şeridi ──────────────────────────────────────────────
               // Gövde bitti; okurun ilgisi hâlâ konuda. Elimizde o konuda 28
               // gün emek verilmiş bir dosya varsa en güçlü çağrı budur —
@@ -1097,9 +1108,12 @@ class _ShareBar extends StatelessWidget {
 
   void _shareNative(BuildContext context) {
     final url = _buildShareUrl();
-    final text = isEn 
-        ? '${article.title}\nRead more at: $url' 
-        : '${article.title}\nDetaylar için: $url';
+    // Marka adı metnin İÇİNDE. WhatsApp'ta iletilen mesajlarda bağlantı
+    // önizlemesi çoğu zaman oluşmuyor; önizleme yoksa okuyucuya ulaşan tek
+    // şey başlık ile çıplak bir adres oluyor ve kaynağın adı kayboluyor.
+    final text = isEn
+        ? '${article.title}\n$url\n— Tarım Portalı'
+        : '${article.title}\n$url\n— Tarım Portalı';
         
     final box = context.findRenderObject() as RenderBox?;
     try {

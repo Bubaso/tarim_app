@@ -28,9 +28,42 @@ class NotificationService {
   /// kalır ve sunucu eski hâline göre gönderim yapardı.
   String? _lastToken;
 
-  static const String _hasRequestedPermissionKey = 'has_requested_notification_permission';
+  // ══════════════════════════════════════════════════════════════════════
+  //  Bildirim izni isteme kuralları — 8 Kasım 2026 ölçümünden sonra
+  // ──────────────────────────────────────────────────────────────────────
+  //  Ölçüm: 88 günde 18 abone. Dağıtım kanalı fiilen yok. Sebep kodda
+  //  dört yerde duruyordu:
+  //
+  //  1. Eşik ÜÇ haberdi. Haber sitelerinde oturum başına okunan haber
+  //     1-2 civarı; üç haber, ziyaretçilerin büyük çoğunluğunu daveti
+  //     HİÇ GÖRMEDEN eliyordu.
+  //  2. "Kapat" KALICIYDI. `denySoftPrompt` tarayıcı iznini istemiş gibi
+  //     `hasRequested`i işaretliyordu: 12 puntoluk bir şeride yanlışlıkla
+  //     dokunan okuyucu bir daha asla davet görmüyordu.
+  //  3. Tarayıcı istemi KAPATILDIĞINDA da aynı bayrak yanıyordu. Oysa
+  //     kapatmak reddetmek değil; Chrome'da üç kez görmezden gelinmeden
+  //     izin bloklanmıyor ve ikinci bir deneme hakkımız var.
+  //  4. Davet YALNIZCA anasayfadaydı. Okuyucunun aboneliği en çok
+  //     isteyeceği an haberin SONU; anasayfaya dönmesini beklemek,
+  //     ilgisinin tepe noktasını kaçırmak demekti.
+  //
+  //  Yeni kural: iki haber, en fazla üç davet, araya on gün. Tarayıcı
+  //  istemi bir kez gerçekten çıktıysa (izin verildi ya da reddedildi)
+  //  bir daha hiç sorulmuyor — orası tek yönlü kapı.
+  // ══════════════════════════════════════════════════════════════════════
+
+  /// Tarayıcı izni GERÇEKTEN soruldu (verildi ya da reddedildi).
+  static const String _hasRequestedPermissionKey =
+      'has_requested_notification_permission';
   static const String _articlesReadCountKey = 'articles_read_for_notification';
-  static const int _articlesRequiredForSoftPrompt = 3;
+
+  /// Kaç kez davet gösterildi ve sonuncusu ne zaman kapatıldı.
+  static const String _davetSayisiKey = 'bildirim_daveti_sayisi';
+  static const String _sonDavetKey = 'bildirim_daveti_son';
+
+  static const int _articlesRequiredForSoftPrompt = 2;
+  static const int _enFazlaDavet = 3;
+  static const Duration _davetAralik = Duration(days: 10);
 
   /// Initializes listening to foreground messages and click actions
   Future<void> initialize() async {
@@ -197,31 +230,49 @@ class NotificationService {
     }
   }
 
-  /// Check if we should show the Soft Prompt
+  /// Davet gösterilmeli mi?
+  ///
+  /// Üç kapı var ve üçü de ayrı sebeplerle kapanıyor: tarayıcı izni zaten
+  /// soruldu, davet hakkı doldu, ya da son kapatmanın üstünden on gün
+  /// geçmedi.
   Future<bool> shouldShowSoftPrompt() async {
     final prefs = await SharedPreferences.getInstance();
-    final hasRequested = prefs.getBool(_hasRequestedPermissionKey) ?? false;
-    
-    if (hasRequested) return false;
+    if (prefs.getBool(_hasRequestedPermissionKey) ?? false) return false;
 
-    final readCount = prefs.getInt(_articlesReadCountKey) ?? 0;
-    return readCount >= _articlesRequiredForSoftPrompt;
+    final okunan = prefs.getInt(_articlesReadCountKey) ?? 0;
+    if (okunan < _articlesRequiredForSoftPrompt) return false;
+
+    if ((prefs.getInt(_davetSayisiKey) ?? 0) >= _enFazlaDavet) return false;
+
+    final son = prefs.getInt(_sonDavetKey);
+    if (son != null) {
+      final gecen = DateTime.now()
+          .difference(DateTime.fromMillisecondsSinceEpoch(son));
+      if (gecen < _davetAralik) return false;
+    }
+    return true;
   }
 
   /// Increment article read count (called when entering ArticleDetailScreen)
   Future<void> incrementArticleReadCount() async {
     final prefs = await SharedPreferences.getInstance();
     final hasRequested = prefs.getBool(_hasRequestedPermissionKey) ?? false;
-    if (hasRequested) return; // Don't count if already asked
+    if (hasRequested) return; // İzin zaten soruldu, saymaya gerek yok.
 
     final readCount = (prefs.getInt(_articlesReadCountKey) ?? 0) + 1;
     await prefs.setInt(_articlesReadCountKey, readCount);
   }
 
-  /// Request actual browser permission (Hard Prompt)
+  /// Tarayıcı iznini ister (sert istem).
+  ///
+  /// `hasRequested` artık BAŞTA değil, SONUÇ belli olunca işaretleniyor.
+  /// Fark şurada: tarayıcı istemi kapatıldığında (Chrome'da çarpıya basmak)
+  /// durum `notDetermined` kalıyor — izin ne verilmiş ne reddedilmiştir.
+  /// Eski kod bunu da "soruldu" sayıp daveti ömür boyu kapatıyordu. Oysa
+  /// kapatan okuyucuya on gün sonra bir kez daha sorulabilir; asıl tek
+  /// yönlü kapı reddetmektir.
   Future<bool> requestPermission() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_hasRequestedPermissionKey, true);
 
     if (_messaging == null) {
       if (kIsWeb) {
@@ -245,13 +296,28 @@ class NotificationService {
         sound: true,
       );
 
-      if (settings.authorizationStatus == AuthorizationStatus.authorized ||
-          settings.authorizationStatus == AuthorizationStatus.provisional) {
+      final durum = settings.authorizationStatus;
+
+      if (durum == AuthorizationStatus.authorized ||
+          durum == AuthorizationStatus.provisional) {
+        await prefs.setBool(_hasRequestedPermissionKey, true);
         await _syncTokenIfPermitted();
         return true;
       }
+
+      if (durum == AuthorizationStatus.denied) {
+        // Gerçek ret. Tarayıcı bu kararı hatırlıyor; bir daha sormanın
+        // karşılığı yok, yalnızca rahatsız etmek olurdu.
+        await prefs.setBool(_hasRequestedPermissionKey, true);
+        return false;
+      }
+
+      // notDetermined: istem kapatıldı. Davet sayacı ilerliyor, on gün
+      // sonra bir kez daha denenebilir.
+      await denySoftPrompt();
     } catch (e) {
       debugPrint('Bildirim izni istenirken hata: $e');
+      await denySoftPrompt();
     }
 
     return false;
@@ -317,9 +383,15 @@ class NotificationService {
     }
   }
 
-  /// Deny Soft Prompt logic
+  /// Davet kapatıldı — SUSTURULDU, kapatılmadı.
+  ///
+  /// Eskiden burası `hasRequested`i işaretliyordu ve tek dokunuş daveti
+  /// ömür boyu bitiriyordu. Artık sayaç ilerliyor: on gün sonra, en fazla
+  /// üç kez olmak üzere bir kez daha soruluyor.
   Future<void> denySoftPrompt() async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_hasRequestedPermissionKey, true);
+    await prefs.setInt(
+        _davetSayisiKey, (prefs.getInt(_davetSayisiKey) ?? 0) + 1);
+    await prefs.setInt(_sonDavetKey, DateTime.now().millisecondsSinceEpoch);
   }
 }
