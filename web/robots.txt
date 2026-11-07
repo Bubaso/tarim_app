@@ -8,10 +8,15 @@ Allow: /
 Disallow: /panel
 Disallow: /giris
 
-# Kategori listeleri adresten yeniden kurulamıyor (başlıklar slug değil);
-# doğrudan açıldıklarında ana sayfaya düşüyorlar. İndekslenirlerse Google'a
-# yinelenen içerik gibi görünür.
-Disallow: /kategori/
+# NOT (8 Kasım 2026): burada "Disallow: /kategori/" vardı. Satır,
+# `categoryRenderer` fonksiyonu YAZILMADAN ÖNCE konmuştu ve gerekçesi
+# "kategori sayfaları adresten yeniden kurulamıyor, ana sayfaya düşüyorlar"
+# idi. O gerekçe artık geçersiz: sayfalar sunucudan kendi içerikleriyle
+# geliyor ve `sitemap.xml` zaten hepsini bildiriyor.
+#
+# Yani kendi kendimizle çelişiyorduk: bir dosyayla "bu sayfaları tara"
+# derken ötekiyle "tarama" diyorduk. İkisinden biri gidecekti; giden,
+# bayatlamış olan oldu.
 
 # Adres tarimportali.net: kanonik alan adı bu (functions/config.js
 # SITE_ORIGIN) ve sitemap içindeki bütün bağlantılar da oraya
