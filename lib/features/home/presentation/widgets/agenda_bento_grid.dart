@@ -13,6 +13,7 @@ import '../../../../core/utils/localization_helper.dart';
 import '../../../../core/utils/responsive_breakpoints.dart';
 import '../screens/article_detail_screen.dart';
 import '../../../../core/utils/string_extensions.dart';
+import '../../../../core/widgets/haber_dokunma_alani.dart';
 
 // ─── Sınır sabitleri ──────────────────────────────────────────────────────
 // Bento'nun tek sütundan asimetrik çok sütuna geçtiği genişlik. Sayfa kabuğu
@@ -228,9 +229,10 @@ class _DesktopCardHoverBoxState extends State<_DesktopCardHoverBox> {
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
       child: MergeSemantics(
-        child: GestureDetector(
-          onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
-          ),
+        child: HaberDokunmaAlani(
+          etiket: a.title,
+          onTap: () => pushScreen(
+              context, ArticleDetailScreen(article: a)),
           child: AnimatedScale(
             scale: _hovered ? 1.01 : 1.0,
             duration: const Duration(milliseconds: 200),
@@ -431,9 +433,10 @@ class _MobileBento extends StatelessWidget {
     final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E0D2);
 
     return MergeSemantics(
-      child: GestureDetector(
-        onTap: () => pushScreen(context, ArticleDetailScreen(article: article),
-        ),
+      child: HaberDokunmaAlani(
+        etiket: article.title,
+        onTap: () => pushScreen(
+            context, ArticleDetailScreen(article: article)),
         child: Container(
           decoration: BoxDecoration(
             color: bgColor,
@@ -509,9 +512,10 @@ class _MobileBento extends StatelessWidget {
     final borderColor = isDark ? AppColors.wheat : const Color(0xFFE5E0D2);
 
     return MergeSemantics(
-      child: GestureDetector(
-        onTap: () => pushScreen(context, ArticleDetailScreen(article: article),
-        ),
+      child: HaberDokunmaAlani(
+        etiket: article.title,
+        onTap: () => pushScreen(
+            context, ArticleDetailScreen(article: article)),
         child: Container(
           decoration: BoxDecoration(
             color: bgColor,
@@ -714,9 +718,10 @@ class _ListItemState extends State<_ListItem> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit:  (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
-        ),
+      child: HaberDokunmaAlani(
+        etiket: a.title,
+        onTap: () => pushScreen(
+            context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.015 : 1.0,
           duration: const Duration(milliseconds: 180),

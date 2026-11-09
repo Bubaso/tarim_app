@@ -15,6 +15,7 @@ import '../../../../core/widgets/section_container.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
 import '../screens/article_detail_screen.dart';
+import '../../../../core/widgets/haber_dokunma_alani.dart';
 
 //  GÖZDEN KAÇANLAR (ICYMI) BÖLÜMÜ
 // ═══════════════════════════════════════════════════════════════════════════
@@ -97,7 +98,8 @@ class _IcymiCardState extends State<_IcymiCard> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
+      child: HaberDokunmaAlani(
+        etiket: a.title,
         onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,

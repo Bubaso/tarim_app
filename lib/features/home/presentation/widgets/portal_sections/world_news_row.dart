@@ -12,6 +12,7 @@ import '../../../../../core/theme/app_typography.dart';
 import '../../../../../core/widgets/article_timestamp.dart';
 import '../../screens/article_detail_screen.dart';
 import '../../../../../core/utils/string_extensions.dart';
+import '../../../../../core/widgets/haber_dokunma_alani.dart';
 
 class WorldNewsRow extends ConsumerWidget {
   final List<NewsArticle> articles;
@@ -91,7 +92,8 @@ class _WorldNewsCardState extends State<_WorldNewsCard> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
+      child: HaberDokunmaAlani(
+        etiket: a.title,
         onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,

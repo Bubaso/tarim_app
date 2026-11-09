@@ -765,14 +765,35 @@ export const ogRenderer = onRequest(
 
       const rows = await supabaseGet(
         `articles?id=eq.${id}&select=id,title,title_en,summary,summary_en,spot,spot_en,` +
-          `content,content_en,image_url,created_at,source_name,` +
+          // `status` ŞART. Aşağıdaki denetim buna bakıyor; sütun
+          // çekilmezse denetim her haberi "yayında" sayar.
+          `content,content_en,image_url,created_at,source_name,status,` +
           // Grafik kolonları §19.8 ile eklendi: bunlar gelmezse `grafikBloku`
           // her haberde boş döner ve tablo/rakam yine görünmez kalır.
           `chart_data,chart_data_en,figures&limit=1`,
       );
       const article = Array.isArray(rows) ? rows[0] : null;
-      if (!article) {
-        res.status(200).send(SHELL);
+
+      // ── Yayında olmayan haber ────────────────────────────────────────
+      //
+      // İKİ ayrı sorun tek yerde kapanıyor.
+      //
+      // 1. YAYINDA OLMAYAN İÇERİK SUNULUYORDU. Sorgu `status` süzmüyordu;
+      //    reddedilmiş ya da taslak bir haber `/haber/<id>` adresinde tam
+      //    başlığı, özeti ve gövdesiyle sunuluyordu. Moderatörün elediği
+      //    metin, adresi bilen herkese açıktı.
+      //
+      // 2. YUMUŞAK 404. Kaydı olmayan ya da yayından çekilmiş adres 200 ve
+      //    ana sayfanın jenerik meta'sıyla dönüyordu. Ana sayfaya gömülü
+      //    link listesi derleme anında donuyor; dağıtımdan SONRA yayından
+      //    çekilen haberin adresi orada kalıyor ve tarayıcı onu "içeriği
+      //    olmayan ama 200 dönen sayfa" diye görüyor.
+      //
+      // Kabuk YİNE gönderiliyor, yalnız 404 ile: Flutter normal açılıyor ve
+      // kendi "bulunamadı" ekranını gösterebiliyor, tarayıcı ise doğru kodu
+      // alıyor. Boş gövdeyle 404 dönmek uygulamayı hiç açmazdı.
+      if (!article || article.status !== 'published') {
+        res.status(404).send(SHELL);
         return;
       }
 

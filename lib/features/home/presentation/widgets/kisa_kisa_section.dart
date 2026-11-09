@@ -15,6 +15,7 @@ import '../../providers/home_providers.dart';
 import '../screens/article_detail_screen.dart';
 import '../screens/kisa_kisa_screen.dart';
 import '../../../../core/theme/konu_renkleri.dart';
+import '../../../../core/widgets/haber_dokunma_alani.dart';
 
 /// Ana sayfadaki 'Kısa Kısa' bloğu — kaynağı kısa olduğu için kısa yazılmış
 /// haberler.
@@ -204,7 +205,8 @@ class _BriefRowState extends State<_BriefRow> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hover = true); },
       onExit: (_) => setState(() => _hover = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
+      child: HaberDokunmaAlani(
+        etiket: a.title,
         onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: Container(
           color: _hover

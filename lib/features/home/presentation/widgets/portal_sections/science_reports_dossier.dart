@@ -11,6 +11,7 @@ import '../../../data/models/news_article.dart';
 import '../../../../../core/theme/app_typography.dart';
 import '../../../../../core/widgets/article_timestamp.dart';
 import '../../screens/article_detail_screen.dart';
+import '../../../../../core/widgets/haber_dokunma_alani.dart';
 
 class ScienceReportsDossier extends ConsumerWidget {
   final List<NewsArticle> articles;
@@ -154,9 +155,10 @@ class _DossierFeaturedCardState extends State<_DossierFeaturedCard> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
-        ),
+      child: HaberDokunmaAlani(
+        etiket: a.title,
+        onTap: () => pushScreen(
+            context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),
@@ -260,9 +262,10 @@ class _DossierListCardState extends State<_DossierListCard> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: () => pushScreen(context, ArticleDetailScreen(article: a),
-        ),
+      child: HaberDokunmaAlani(
+        etiket: a.title,
+        onTap: () => pushScreen(
+            context, ArticleDetailScreen(article: a)),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.all(12),

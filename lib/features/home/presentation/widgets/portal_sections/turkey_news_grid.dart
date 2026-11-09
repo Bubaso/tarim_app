@@ -10,6 +10,7 @@ import '../../../../../core/utils/responsive_breakpoints.dart';
 import '../../../../../core/widgets/article_timestamp.dart';
 import '../../../data/models/news_article.dart';
 import '../../screens/article_detail_screen.dart';
+import '../../../../../core/widgets/haber_dokunma_alani.dart';
 
 class TurkeyNewsGrid extends ConsumerWidget {
   final List<NewsArticle> articles;
@@ -224,7 +225,8 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
         onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
         onExit: (_) => setState(() => _hovered = false),
         cursor: SystemMouseCursors.click,
-        child: GestureDetector(
+        child: HaberDokunmaAlani(
+          etiket: a.title,
           onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
           child: AnimatedScale(
             scale: _hovered ? 1.02 : 1.0,
@@ -278,7 +280,8 @@ class _TurkeyNewsCardState extends State<_TurkeyNewsCard> {
       onEnter: (_) { if (hoverPointerLikely) setState(() => _hovered = true); },
       onExit: (_) => setState(() => _hovered = false),
       cursor: SystemMouseCursors.click,
-      child: GestureDetector(
+      child: HaberDokunmaAlani(
+        etiket: a.title,
         onTap: () => pushScreen(context, ArticleDetailScreen(article: a)),
         child: AnimatedScale(
           scale: _hovered ? 1.01 : 1.0,

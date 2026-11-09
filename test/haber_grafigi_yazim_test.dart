@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tarim_app/core/utils/turkce_metin.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tarim_app/core/utils/sayi_yazimi.dart';
 import 'package:tarim_app/features/home/presentation/widgets/dynamic_chart_widget.dart';
@@ -36,6 +37,7 @@ Finder _iceren(String parca) => find.byWidgetPredicate(
     );
 
 void main() {
+  _turkceBuyukHarfTestleri();
   group('sayı yazımı', () {
     test('binlik ayıracı Türkçe', () {
       expect(sayiYaz(45000, false), '45.000');
@@ -361,6 +363,45 @@ void yatayCubukSinamalari() {
             reason: '$yazili değerinde yazı sağa taştı');
         expect(r.left, greaterThanOrEqualTo(0.0));
       }
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  Türkçe büyük harf — grafik etiketlerinde (8 Kas 2026 eki)
+// ──────────────────────────────────────────────────────────────────────────
+//  Dosyadaki 19 test sayı biçimini, kaynak satırını ve sütun sırasını
+//  koruyordu ama BÜYÜK HARFİ hiç sınamıyordu. Oysa grafik iki yerde
+//  büyütüyor (rakam kartı etiketi ve tablo sütun başlığı) ve orada ham
+//  `toUpperCase()` "Hibe" → "HIBE", "Birim" → "BIRIM" üretiyordu — yanlış
+//  harf de büyük harf olduğu için gözle yakalanması zor.
+//
+//  Kod `buyukHarf`e çevrildi; bu testler o kararı kilitliyor. Biri ham
+//  `toUpperCase()`e dönerse test kırılıyor.
+// ══════════════════════════════════════════════════════════════════════════
+
+void _turkceBuyukHarfTestleri() {
+  group('grafik etiketlerinde Türkçe büyük harf', () {
+    test('noktalı i büyürken noktasını koruyor', () {
+      expect(buyukHarf('Hibe', false), 'HİBE');
+      expect(buyukHarf('Birim', false), 'BİRİM');
+      expect(buyukHarf('Üretici', false), 'ÜRETİCİ');
+    });
+
+    test('noktasız ı büyürken noktasız kalıyor', () {
+      expect(buyukHarf('Yıllık', false), 'YILLIK');
+      expect(buyukHarf('Buğday', false), 'BUĞDAY');
+    });
+
+    test('İngilizcede kural TERS — ham büyütme doğru olan', () {
+      // 'Institution' Türkçe kuralla 'INSTİTUTİON' olurdu.
+      expect(buyukHarf('Institution', true), 'INSTITUTION');
+      expect(buyukHarf('Yield', true), 'YIELD');
+    });
+
+    test('ham toUpperCase ile AYNI SONUCU VERMİYOR — testin anlamı bu', () {
+      expect(buyukHarf('Hibe', false), isNot('Hibe'.toUpperCase()));
+      expect('Hibe'.toUpperCase(), 'HIBE'); // yanlış olan bu
     });
   });
 }

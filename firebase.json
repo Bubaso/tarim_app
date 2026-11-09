@@ -90,6 +90,10 @@
           {
             "key": "Referrer-Policy",
             "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Content-Security-Policy-Report-Only",
+            "value": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-inline' https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob: https:; connect-src 'self' https://xkwcyavcltrweunvooeu.supabase.co https://*.supabase.co https://*.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://www.gstatic.com https://fonts.gstatic.com https://api.open-meteo.com https://archive-api.open-meteo.com https://geocoding-api.open-meteo.com https://nominatim.openstreetmap.org https://open.er-api.com https://query1.finance.yahoo.com https://api.allorigins.win https://api.codetabs.com https://corsproxy.io; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self';"
           }
         ]
       },

@@ -42,6 +42,30 @@
   <link rel="alternate" type="application/rss+xml"
         title="Tarım Portalı" href="https://tarimportali.net/rss.xml">
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       CSP ihlallerini konsola topla (8 Kasım 2026)
+
+       Politika firebase.json'da ve RAPORLAMA kipinde:
+       Content-Security-Policy-Report-Only. Hiçbir şeyi engellemiyor,
+       yalnızca ihlali bildiriyor.
+
+       Neden doğrudan zorlayıcı kipe geçmiyoruz: uygulama on ikiden fazla
+       dış kökene bağlanıyor (Supabase, Open-Meteo, Nominatim, üç ayrı
+       CORS vekili, Yahoo Finance, YouTube, Firebase). connect-src'de
+       EKSİK kalan tek bir giriş, o özelliği hata vermeden kırar — hava
+       durumu kartı boş gelir, emtia fiyatı gelmez ve sebebi hiçbir yerde
+       görünmez.
+
+       Bu dinleyici ihlalleri konsola yazıyor. Birkaç gün gerçek
+       kullanımda toplandıktan sonra liste tamamlanır ve başlık
+       `Content-Security-Policy` olarak zorlayıcı kipe alınır.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('securitypolicyviolation', function (e) {
+      console.warn('[CSP] engellenecekti:', e.violatedDirective, '\u2192', e.blockedURI);
+    });
+  </script>
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
