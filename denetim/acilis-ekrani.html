@@ -1,0 +1,405 @@
+<title>Açılış Ekranı Denetimi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{
+  --ink:#161A13; --ground:#F4F6F0; --surface:#FFFFFF; --line:#D7DDCE;
+  --accent:#31603C; --accent-soft:#E2EBDF; --warn:#8A5A12; --warn-soft:#F5EBD9;
+  --stop:#8C2F26; --stop-soft:#F7E3E0; --muted:#5C6554;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E6EADF; --ground:#11140E; --surface:#191D15; --line:#2C3325;
+    --accent:#8DB98F; --accent-soft:#1E2A1D; --warn:#C79A4E; --warn-soft:#2A2314;
+    --stop:#D4867B; --stop-soft:#2C1A17; --muted:#949C8A;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E6EADF; --ground:#11140E; --surface:#191D15; --line:#2C3325;
+  --accent:#8DB98F; --accent-soft:#1E2A1D; --warn:#C79A4E; --warn-soft:#2A2314;
+  --stop:#D4867B; --stop-soft:#2C1A17; --muted:#949C8A;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Sans 3",system-ui,sans-serif; font-size:16px; line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px; margin:0 auto; padding:40px 24px 80px; display:flex; flex-direction:column; gap:44px}
+h1,h2,h3{font-family:Archivo,system-ui,sans-serif; margin:0; text-wrap:balance; letter-spacing:-.015em}
+h1{font-size:clamp(30px,4.6vw,46px); font-weight:800; line-height:1.08}
+h2{font-size:21px; font-weight:700}
+h3{font-size:15.5px; font-weight:700}
+p{margin:0}
+code{font-family:"JetBrains Mono",monospace; font-size:13px; background:var(--accent-soft); color:var(--accent); padding:1px 5px}
+.eyebrow{font-family:Archivo,sans-serif; font-size:11.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--muted)}
+header{display:flex; flex-direction:column; gap:14px; border-bottom:2px solid var(--ink); padding-bottom:26px}
+.lede{font-size:17.5px; color:var(--muted); max-width:62ch}
+.lede b{color:var(--ink); font-weight:600}
+
+/* zaman çizelgesi */
+.serit{border:1px solid var(--line); background:var(--surface); padding:24px 22px 18px; overflow-x:auto}
+.ray{position:relative; min-width:620px; height:96px; margin-top:8px}
+.ray .cizgi{position:absolute; left:0; right:0; top:46px; height:3px; background:var(--line)}
+.ray .dolu{position:absolute; left:0; top:46px; height:3px; background:var(--accent)}
+.ray .bos{position:absolute; top:46px; height:3px; background:var(--stop)}
+.im{position:absolute; top:0; width:2px; height:46px; background:var(--muted); opacity:.45}
+.im b{position:absolute; bottom:48px; left:0; transform:translateX(-50%); white-space:nowrap;
+      font-family:Archivo,sans-serif; font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--muted)}
+.im span{position:absolute; top:50px; left:0; transform:translateX(-50%); white-space:nowrap;
+         font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+.im.vurgu{background:var(--stop); opacity:1}
+.im.vurgu b{color:var(--stop)}
+
+/* sayaçlar */
+.sayac{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line)}
+.sayac > div{background:var(--surface); padding:18px 20px; display:flex; flex-direction:column; gap:3px}
+.sayac .n{font-family:Archivo,sans-serif; font-size:28px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1}
+.sayac .l{font-size:13px; color:var(--muted)}
+.n.kotu{color:var(--stop)} .n.iyi{color:var(--accent)}
+
+/* bulgu kartları */
+.bulgular{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line)}
+.bulgu{background:var(--surface); padding:20px 22px; display:grid; grid-template-columns:46px 1fr; gap:16px; align-items:start}
+.bulgu .kod{font-family:Archivo,sans-serif; font-size:13px; font-weight:800; letter-spacing:.04em; padding-top:2px}
+.bulgu .govde{display:flex; flex-direction:column; gap:7px}
+.bulgu p{font-size:14.5px; color:var(--muted); max-width:66ch}
+.bulgu p b{color:var(--ink); font-weight:600}
+.k-agir .kod{color:var(--stop)} .k-orta .kod{color:var(--warn)} .k-oneri .kod{color:var(--accent)}
+.etiket{display:inline-block; font-family:Archivo,sans-serif; font-size:10.5px; font-weight:700;
+        letter-spacing:.07em; text-transform:uppercase; padding:2px 7px; margin-left:8px; vertical-align:2px}
+.e-agir{background:var(--stop-soft); color:var(--stop)}
+.e-orta{background:var(--warn-soft); color:var(--warn)}
+.e-gor{background:var(--accent-soft); color:var(--accent)}
+
+table{border-collapse:collapse; width:100%; font-size:14px}
+th,td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--line)}
+th{font-family:Archivo,sans-serif; font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--muted)}
+td.s{font-variant-numeric:tabular-nums; white-space:nowrap}
+
+/* ── Yapay zeka kokusu bölümü ───────────────────────────────────────── */
+.koku{border:1px solid var(--stop); background:var(--stop-soft); padding:24px 24px 20px; display:flex; flex-direction:column; gap:16px}
+.koku h2{color:var(--stop)}
+.koku ol{margin:0; padding-left:0; list-style:none; counter-reset:k; display:flex; flex-direction:column; gap:14px}
+.koku li{counter-increment:k; padding-left:30px; position:relative; font-size:15px; max-width:66ch}
+.koku li::before{content:counter(k); position:absolute; left:0; top:1px; font-family:Archivo,sans-serif;
+                 font-size:12px; font-weight:800; color:var(--stop); width:20px}
+.koku li b{font-weight:600}
+
+/* ── Yön önizlemeleri ──────────────────────────────────────────────── */
+.yonler{display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:20px}
+.yon{display:flex; flex-direction:column; gap:12px}
+.telefon{aspect-ratio:9/19.5; border:1px solid var(--line); background:#F6F1E7; position:relative;
+         overflow:hidden; border-radius:14px; color:#2A2318;
+         font-family:Archivo,"Source Sans 3",sans-serif; container-type:inline-size}
+.yon figcaption{display:flex; flex-direction:column; gap:4px}
+.yon h3{font-size:15px}
+.yon p{font-size:13.5px; color:var(--muted)}
+
+/* A — Künye */
+.yA{display:flex; flex-direction:column; justify-content:flex-end; padding:0 9cqw 28.2cqw}
+.yA .ad{font-size:8.6cqw; font-weight:800; letter-spacing:-0.02em; line-height:1}
+.yA .kural{height:2px; background:#2A2318; margin:4cqw 0 3cqw}
+.yA .tarih{font-size:3.5cqw; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#6B6153}
+.yA .amblem{width:13cqw; height:13cqw; border-radius:50%; border:1.6px solid #31603C; margin-bottom:13.0cqw;
+            display:flex; align-items:center; justify-content:center; font-size:6cqw; font-weight:800; color:#31603C}
+
+/* B — Bugün */
+.yB{display:flex; flex-direction:column; justify-content:space-between; padding:19.5cqw 8cqw 23.8cqw}
+.yB .ust{display:flex; align-items:center; gap:2.5cqw}
+.yB .nokta{width:7cqw; height:7cqw; border-radius:50%; border:1.5px solid #31603C;
+           display:flex; align-items:center; justify-content:center; font-size:3.4cqw; font-weight:800; color:#31603C}
+.yB .marka{font-size:3.6cqw; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:#6B6153}
+.yB .etiket{font-size:3cqw; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#8C2F26}
+.yB .manset{font-size:6.6cqw; font-weight:800; line-height:1.16; letter-spacing:-0.015em; margin-top:4.3cqw}
+.yB .alt{font-size:3.4cqw; color:#6B6153; line-height:1.5}
+
+/* C — Toprak hattı */
+.yC{display:flex; flex-direction:column; justify-content:flex-end; padding:0 0 0}
+.yC .govde{padding:0 8cqw 10.8cqw; display:flex; align-items:flex-end; gap:3cqw}
+.yC .amblem{width:11cqw; height:11cqw; border-radius:50%; border:1.6px solid #31603C;
+            display:flex; align-items:center; justify-content:center; font-size:5cqw; font-weight:800; color:#31603C}
+.yC .ad{font-size:6.2cqw; font-weight:800; letter-spacing:-0.02em; line-height:1}
+.yC .alt{font-size:3.2cqw; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#6B6153; margin-top:2.2cqw}
+.yC .hat{height:10.8cqw; background:#E6DECF; position:relative}
+.yC .hat i{position:absolute; inset:0 38% 0 0; background:linear-gradient(90deg,#5C4A2E,#31603C)}
+.yC .oran{position:absolute; right:3cqw; top:50%; transform:translateY(-50%); font-size:3cqw;
+          font-weight:700; color:#6B6153; font-variant-numeric:tabular-nums}
+
+footer{border-top:1px solid var(--line); padding-top:20px; font-size:13.5px; color:var(--muted); display:flex; flex-direction:column; gap:7px}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Tarım Portalı · denetim · 9 Kasım 2026</span>
+    <h1>Açılış ekranı</h1>
+    <p class="lede">Ekranın kendisi iyi tasarlanmış: marka kilidi, gren dokusu, üç katmanlı giriş, azaltılmış hareket desteği, iOS devralma. Sorun tasarımda değil — <b>sürede</b>. Bir buçuk saniyelik bir animasyon, üç ila yedi saniye ekranda duruyor ve altında <b>okunmaya hazır tam bir haber</b> bekliyor.</p>
+  </header>
+
+  <section class="sayac">
+    <div><span class="n kotu">6,8 sn</span><span class="l">main.dart.js indi (1,2 MB) — splash'in gerçek süresi</span></div>
+    <div><span class="n">1,4 sn</span><span class="l">giriş animasyonunun bittiği an</span></div>
+    <div><span class="n kotu">7.755</span><span class="l">karakter — splash'in ALTINDA hazır bekleyen okunabilir metin</span></div>
+    <div><span class="n">99 KB</span><span class="l">splash'in kendi üç görseli, kritik yolda</span></div>
+  </section>
+
+  <section class="serit">
+    <span class="eyebrow">Ölçülen açılış · tarimportali.net · 9 Kas 2026</span>
+    <h2 style="margin-top:6px">Yedi saniyenin beş buçuğunda ekranda hiçbir şey olmuyor</h2>
+    <div class="ray">
+      <div class="cizgi"></div>
+      <div class="dolu" style="left:0; width:20%"></div>
+      <div class="bos" style="left:20%; width:17%"></div>
+      <div class="im" style="left:4%"><b>SSR hazır</b><span>0,30 sn</span></div>
+      <div class="im" style="left:20%"><b>animasyon bitti</b><span>1,4 sn</span></div>
+      <div class="im vurgu" style="left:37%"><b>bekleme çizgisi</b><span>2,6 sn</span></div>
+      <div class="im" style="left:97%"><b>ilk kare</b><span>6,8 sn</span></div>
+    </div>
+    <p style="font-size:14px;color:var(--muted);margin-top:4px">
+      Yeşil: animasyonun oynadığı aralık. Kırmızı: hiçbir geri bildirim olmayan boşluk.
+      <b style="color:var(--ink)">1,4 ile 6,8 arası — 5,4 saniye — donmuş bir logo.</b>
+      İkinci bir ölçümde ilk kare 3,0 sn'de geldi; aralık bağlantıya göre 3–7 sn arasında değişiyor.
+    </p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Tespitler</span>
+    <h2 style="margin:6px 0 16px">Ölçülen yedi sorun</h2>
+    <div class="bulgular">
+
+      <div class="bulgu k-agir">
+        <span class="kod">A1</span>
+        <div class="govde">
+          <h3>Splash, okunmaya hazır bir haberin üstünü örtüyor<span class="etiket e-agir">ağır</span></h3>
+          <p>Sunucu 300 ms'de <b>7.755 karakterlik tam haberi</b> DOM'a koyuyor: başlık, tarih, kaynak, gövdenin tamamı. <code>#splash</code> onun üstüne <code>z-index: 2147483647</code> ile tam ekran kapanıyor ve 3–7 saniye orada duruyor. Yani sayfa <b>okunabilir hâldeyken</b> okura kapalı tutuluyor. Arama motoru o metni görüyor, okur görmüyor.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-agir">
+        <span class="kod">A2</span>
+        <div class="govde">
+          <h3>Yirmi saniyelik güvenlik ağı, hatayı daha da kötüleştiriyor<span class="etiket e-agir">ağır</span></h3>
+          <p>İlk kare hiç gelmezse 20. saniyede <code>hide()</code> çalışıyor. O fonksiyon <b>önce <code>#ssr-content</code>'i siliyor</b>, sonra splash'i kaldırıyor. Flutter açılmadıysa geriye <b>bomboş bir sayfa</b> kalıyor — oysa silinen şey okunabilir haberin ta kendisiydi. Ağ koptuğunda okur, elindeki tek içerikten de oluyor.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-orta">
+        <span class="kod">A3</span>
+        <div class="govde">
+          <h3>1,4 saniyeden sonra ekranın söyleyecek sözü yok<span class="etiket e-orta">orta</span></h3>
+          <p>Giriş üç katmanla 1.380 ms'de bitiyor. Bekleme çizgisi 2.600 ms'de giriyor. Aradaki <b>1,2 saniye tamamen sessiz</b>, sonrası da yalnızca 116 px'lik ince bir çizgi. Hızlı bağlantıda sorun yok; 6,8 saniyelik bir açılışta ekran beş saniye boyunca "donmuş" izlenimi veriyor.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-orta">
+        <span class="kod">A4</span>
+        <div class="govde">
+          <h3>Splash'in kendi görselleri kritik yolu şişiriyor<span class="etiket e-orta">orta</span></h3>
+          <p>Üç PNG <b>99,2 KB</b> ve <code>rel="preload"</code> ile <code>main.dart.js</code>'ten <b>önce</b> sıraya giriyor. Üçü de düz çizim — amblemde 694, marka yazısında 79, sloganda 80 opak renk. Ekranda en fazla 150 / 224 / 178 CSS px kaplıyorlar ama dosyalar 689 / 1024 / 640 px genişliğinde.</p>
+          <table style="margin-top:6px">
+            <thead><tr><th>Dosya</th><th>Şimdi</th><th>3× ekran için yeterli</th><th>Kazanç</th></tr></thead>
+            <tbody>
+              <tr><td>splash-mark</td><td class="s">689 px · 69,7 KB</td><td class="s">450 px · 18,9 KB</td><td class="s">%72</td></tr>
+              <tr><td>splash-wordmark</td><td class="s">1024 px · 19,6 KB</td><td class="s">672 px · 6,9 KB</td><td class="s">%64</td></tr>
+              <tr><td>splash-tagline</td><td class="s">640 px · 10,0 KB</td><td class="s">534 px · 4,0 KB</td><td class="s">%59</td></tr>
+              <tr><td><b>Toplam</b></td><td class="s"><b>99,2 KB</b></td><td class="s"><b>29,8 KB</b></td><td class="s"><b>69,4 KB</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bulgu k-orta">
+        <span class="kod">A5</span>
+        <div class="govde">
+          <h3>On dokuz iOS açılış görseli, sapma bekçisi olmadan duruyor<span class="etiket e-orta">orta</span></h3>
+          <p><code>web/splash/</code> altında <b>19 PNG, 4,5 MB</b> — hepsi splash'in son karesinin elle alınmış ekran görüntüsü. Üreten betik var (<code>puppeteer_test/generate_ios_splash.js</code>) ama <code>deploy.sh</code> onu <b>ne çalıştırıyor ne de denetliyor</b>. Splash'in rengi, ölçüsü ya da sloganı değiştiği gün bu 19 görsel sessizce yanlış olacak ve iOS'ta ana ekrandan açılış eski tasarımı gösterecek.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-orta">
+        <span class="kod">A6</span>
+        <div class="govde">
+          <h3>Ekran okuyucuya "yükleniyor" denmiyor<span class="etiket e-orta">orta</span></h3>
+          <p><code>#splash</code>'te <code>role</code>, <code>aria-busy</code> ya da canlı bölge yok. Ekran okuyucu "Tarım Portalı · Tarımın doğru adresi" diyor, sonra <b>sessizlik</b>; altındaki içerik 3–7 saniye sonra habersizce değişiyor. Kullanıcı sayfanın yüklendiğini de, bittiğini de duymuyor.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-orta">
+        <span class="kod">A7</span>
+        <div class="govde">
+          <h3>Manifest'te ekran yönü ve kimlik alanı yok<span class="etiket e-orta">orta</span></h3>
+          <p><code>manifest.json</code>'da <code>orientation</code> tanımsız — tablette yan çevrilen cihazda açılış görseli ile uygulama arasında oran uyuşmazlığı oluşuyor. <code>id</code> alanı da yok; PWA kimliği <code>start_url</code>'e bağlı kalıyor ve <code>start_url</code> değişirse tarayıcı kurulu uygulamayı yeni bir uygulama sayıyor.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Öneriler</span>
+    <h2 style="margin:6px 0 16px">Beş teklif — ilki ötekilerin hepsinden önemli</h2>
+    <div class="bulgular">
+
+      <div class="bulgu k-oneri">
+        <span class="kod">Ö1</span>
+        <div class="govde">
+          <h3>Açılış ekranı günün manşetini göstersin<span class="etiket e-gor">görünümü değiştirir</span></h3>
+          <p>Metin <b>zaten orada</b>. 300 ms'de DOM'a giren SSR bloğunun ilk <code>&lt;h1&gt;</code>'i günün haberi. Logonun altına, slogan yerine, tek satır hâlinde yazılabilir — <b>ek istek yok, ek bayt yok</b>, yalnızca zaten inmiş olan metinden bir alıntı.</p>
+          <p>Kazanç şu: beş saniyelik ölü bekleme, <b>okuma zamanına</b> dönüşüyor. Okur uygulama açılmadan önce bugün ne olduğunu öğreniyor. Bir haber sitesinin açılış ekranının logo göstermesi doğal değil — gazete kapağı da logo değil, manşet gösterir.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-oneri">
+        <span class="kod">Ö2</span>
+        <div class="govde">
+          <h3>"Beklemeden oku" çıkışı<span class="etiket e-gor">görünümü değiştirir</span></h3>
+          <p>Bekleme çizgisi belirdiğinde (2,6 sn) yanına küçük bir bağlantı: dokununca <code>#splash</code> kalkıyor ve okur <b>sunucudan gelen tam metni</b> okumaya başlıyor. Flutter arkada yüklenmeye devam ediyor, ilk kare geldiğinde devralıyor.</p>
+          <p>Yavaş bağlantıdaki okuru kaybetmemenin en ucuz yolu. Bugün o okurun tek seçeneği beklemek ya da sekmeyi kapatmak.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-oneri">
+        <span class="kod">Ö3</span>
+        <div class="govde">
+          <h3>Bekleme çizgisi gerçek ilerlemeyi göstersin</h3>
+          <p>Şu anki çizgi <b>sahte</b>: sabit 1.500 ms'lik bir döngüde sağa sola gidiyor, indirilen baytla ilgisi yok. <code>main.dart.js</code> bir <code>fetch</code> ile okunup <code>Content-Length</code> üzerinden gerçek oran hesaplanabilir. İlerleyen bir çubuk beklemeyi kısaltmıyor ama <b>bitişi öngörülebilir</b> kılıyor — belirsiz bekleme, aynı uzunluktaki belli beklemeden daha uzun hissettiriyor.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-oneri">
+        <span class="kod">Ö4</span>
+        <div class="govde">
+          <h3>Üç PNG yerine satır içi SVG</h3>
+          <p>Üçü de düz çizim; SVG olarak <b>toplam ~6–10 KB</b> ve HTML'e gömülebilir, yani <b>sıfır ek istek</b>. Bugün üç ayrı istek + 99 KB var ve bunlar <code>main.dart.js</code>'in önünde duruyor. SVG ayrıca her ekran yoğunluğunda net — şu anki PNG'ler 3× ekranda amblemde hafifçe yumuşuyor.</p>
+          <p>SVG'ye geçilmezse bile A4'teki ölçüler uygulanarak <b>69 KB</b> kurtarılıyor; bu, kritik yoldaki en kolay kazanç.</p>
+        </div>
+      </div>
+
+      <div class="bulgu k-oneri">
+        <span class="kod">Ö5</span>
+        <div class="govde">
+          <h3>Hata yolu içeriği GÖSTERSİN, silmesin</h3>
+          <p>A2'nin karşılığı: 20 saniyelik güvenlik ağı <code>#ssr-content</code>'i silmemeli, <b>ortaya çıkarmalı</b>. Flutter açılamadıysa okur en azından haberi okuyabilir. Üstüne bir satır: "Uygulama yüklenemedi — metin aşağıda." Bugün aynı durumda beyaz bir sayfa var.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="koku">
+    <span class="eyebrow" style="color:var(--stop)">Kullanıcı tespiti · 9 Kasım 2026</span>
+    <h2>"Yapay zeka kokuyor" — neden kokuyor</h2>
+    <p style="font-size:15px;max-width:66ch">Tespit doğru ve sebebi tek bir hatada değil. Ekrandaki her karar
+    <b>tek tek savunulabilir</b>, hepsi birlikte <b>anonim</b>. Bugünün üretilmiş tasarım alışkanlıklarının
+    listesi neredeyse birebir burada:</p>
+    <ol>
+      <li><b>Ekran bir logo sunumu, bir ürün anı değil.</b> Söylediği tek şey "işte logomuz, ortada". Hiçbir bilgi,
+      tarih ya da içerik yok — var olma sebebi yalnızca gecikmeyi doldurmak. Her üretilmiş açılış ekranı budur.</li>
+      <li><b>Marka yazısı bir alan adı.</b> <code>tarimportali.net</code> — üstelik <code>.net</code> daha açık tonda.
+      Gazete künyesi adını yazar, adresini değil. Zaten sitede olan okura "sitemizi ziyaret edin" demek gibi.</li>
+      <li><b>Amblem stok tarım şablonu.</b> Daire kuşatma + başak dalı + tarla şeritleri + monogram. Aynı kurgu bir
+      yem fabrikasına, bir kooperatife, bir gübre markasına da uyar. Portalın kendine ait değil.</li>
+      <li><b>Her şey ortada, hiçbir şey bir yere yaslanmıyor.</b> Merkez-merkez kompozisyon, altta yüzen bir slogan.
+      Izgara yok, kenar yok, asimetri yok — mümkün olan en güvenli yerleşim.</li>
+      <li><b>Görünmez ama jenerik "prestij" katmanı.</b> Radyal gradyan, %5,5 gren dokusu, bulanıktan nete gelen
+      amblem, soldan sağa açılan maske, üçünde de <code>cubic-bezier(0.16, 1, 0.3, 1)</code>. Tek tek fark
+      edilmiyorlar; toplamda "genel geçer zarif" hissi veriyorlar. Bu kombinasyon şu anki üretilmiş tasarımın
+      imzası.</li>
+      <li><b>Harf aralıklı büyük harf slogan.</b> <span style="letter-spacing:.14em">TARIMIN DOĞRU ADRESİ</span> —
+      evrensel "premium" tipografi hamlesi.</li>
+    </ol>
+    <p style="font-size:15px;max-width:66ch"><b>Tek cümlelik teşhis:</b> ekranda, yalnızca bu ürüne ait
+    olabilecek hiçbir şey yok. Logoyu değiştir, aynı ekran bir fintek uygulamasının, bir meditasyon
+    uygulamasının ya da bir şarap markasının açılışı olur.</p>
+    <p style="font-size:15px;max-width:66ch"><b>Çare efekt eklemek değil, çıkarmak ve yerine GERÇEK bir şey
+    koymak.</b> Üretilmiş tasarımın taklit edemediği tek şey veridir: bugünün tarihi, bugünün manşeti, bugünün
+    don uyarısı. Aşağıdaki üç yön bunun üstüne kurulu.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Üç yön</span>
+    <h2 style="margin:6px 0 6px">Kokuyu kesen üç ayrı yol</h2>
+    <p style="font-size:14.5px;color:var(--muted);max-width:66ch;margin-bottom:18px">
+      Üçü de gradyanı, greni, bulanıklığı ve kademeli girişi <b>atıyor</b>. Tipografi burada yer tutucu
+      (Archivo); gerçeğinde markanın kendi harfleri kullanılacak. Amaç bitmiş tasarım göstermek değil,
+      <b>üç farklı fikri karşılaştırılabilir kılmak</b>.</p>
+    <div class="yonler">
+
+      <figure class="yon" style="margin:0">
+        <div class="telefon yA">
+          <div class="amblem">tp</div>
+          <div class="ad">TARIM<br>PORTALI</div>
+          <div class="kural"></div>
+          <div class="tarih">9 Kasım 2026 · Pazartesi</div>
+        </div>
+        <figcaption>
+          <h3>A · Künye</h3>
+          <p>Gazete mantığı: ad, bir kural çizgisi, tarih satırı. Ortada değil <b>alta yaslı</b>. Her gün
+          değişen tek şey tarih — ve bu, hiçbir efektin veremeyeceği "bugün" hissini veriyor.
+          Alan adı yerine <b>ad</b> yazıyor.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="yon" style="margin:0">
+        <div class="telefon yB">
+          <div>
+            <div class="ust">
+              <div class="nokta">tp</div>
+              <div class="marka">Tarım Portalı</div>
+            </div>
+          </div>
+          <div>
+            <div class="etiket">Bugün · Zirai don uyarısı</div>
+            <div class="manset">Karaman'da üreticilere don uyarısı yapıldı</div>
+            <div class="alt" style="margin-top:5.4cqw">9 Kasım 2026 · Pazartesi<br>Buğday 19,25 TL/kg</div>
+          </div>
+        </div>
+        <figcaption>
+          <h3>B · Bugün</h3>
+          <p>Ekran <b>beklemeyi okumaya çeviriyor</b>. Manşet zaten 300 ms'de DOM'da — ek istek yok. Bir haber
+          sitesinin açılışında logo değil haber olması, markayı anlatmanın en doğrudan yolu. Denetimdeki
+          Ö1'in görsel karşılığı.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="yon" style="margin:0">
+        <div class="telefon yC">
+          <div class="govde">
+            <div class="amblem">tp</div>
+            <div>
+              <div class="ad">TARIM PORTALI</div>
+              <div class="alt">Tarımın doğru adresi</div>
+            </div>
+          </div>
+          <div class="hat"><i></i><span class="oran">%62</span></div>
+        </div>
+        <figcaption>
+          <h3>C · Toprak hattı</h3>
+          <p>İlerleme <b>süsleme değil tasarımın kendisi</b>: ekranın altındaki toprak şeridi gerçek indirme
+          oranıyla doluyor. Asimetrik, sola yaslı kilit birim. Bekleme gizlenmiyor, <b>sahiplenîliyor</b> —
+          ve dolduğu için belirsizlikten çıkıyor.</p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+  <section class="serit" style="padding:22px">
+    <h2>İyi olan ve dokunulmaması gerekenler</h2>
+    <p style="font-size:14.5px;color:var(--muted);margin-top:8px;max-width:66ch">
+      Denetim yalnızca eksiği yazıyor, o yüzden doğru yapılmış olanı da kayda geçiriyorum:
+      zemin rengi uygulamanın <code>scaffoldBackgroundColor</code>'ıyla <b>birebir aynı</b>
+      (devir teslimde ton sıçraması yok), gren dokusu satır içi SVG olduğu için <b>ek istek
+      getirmiyor</b>, <code>prefers-reduced-motion</code> dört animasyonu birden durduruyor,
+      iOS'ta ana ekrandan açılışta giriş animasyonu <b>tekrar oynamıyor</b>, aynı oturumda
+      ikinci ziyarette bekleme 1.500 ms'den 700 ms'ye düşüyor ve minimum süre keyfi bir sayı
+      değil <b>animasyonun kendi uzunluğundan</b> türetilmiş. Bunların hiçbiri bu turda
+      değişmemeli.
+    </p>
+  </section>
+
+  <footer>
+    <p>Ölçümler 9 Kasım 2026'da canlı sitede (tarimportali.net) ve depodaki dosyalar üzerinde yapıldı. Zaman değerleri tek bir bağlantıya ait; ilk kare ikinci ölçümde 3,0 sn'de geldi.</p>
+    <p>Ö1 ve Ö2 açılış ekranının görünümünü değiştirir — uygulanmadan önce onay bekliyor.</p>
+  </footer>
+</div>
