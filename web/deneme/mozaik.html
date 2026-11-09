@@ -106,10 +106,15 @@ function varsayilanBoy() {
 }
 
 var BOY_AYAR = 0 > 0 ? 0 : varsayilanBoy();
-// Taban hız px/sn. Splash 3-7 saniye yaşıyor; 20 px/sn'de o sürede
-// yarım kareden az yol alınıyor ve ekran duruyor gibi görünüyordu.
-// 50'de ~5 saniyede bir kare yol var, yani akış gözle görülüyor.
-var HIZ_AYAR = 50;
+// Taban hız px/sn.
+//
+// 50 ile başlanmıştı; kullanıcı iki cihazda da deneyip 10'da karar
+// kıldı (9 Kasım 2026). 10 px/sn çok yavaş görünüyor ama ekran 2-3
+// saniye yaşıyor ve o pencerede hızlı bir akış huzursuz ediyor —
+// amaç hareketi fark ettirmek, izlettirmek değil.
+//
+// Üç şerit bandı bunun katları: 10 · 12,2 · 14,4 px/sn.
+var HIZ_AYAR = 10;
 var LOGO_AYAR = LOGO_ARALIK, SERIT_AYAR = LOGO_SERIT;
 var ELLE = false;   // panelden dokunulduysa ekran ölçüsü artık ezmiyor
 
