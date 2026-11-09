@@ -20,6 +20,7 @@ import '../../../../core/utils/string_extensions.dart';
 import '../../../videos/presentation/screens/video_onay_ekrani.dart';
 import 'onay_kuyrugu_ekrani.dart';
 import 'hikaye_yonetimi_ekrani.dart';
+import 'reddedilenler_ekrani.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -172,7 +173,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 9, vsync: this);
+    _tabController = TabController(length: 10, vsync: this);
   }
 
   @override
@@ -398,7 +399,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
 
     // Call submit through repository
     final errorMessage = isEditing 
-        ? await repository.updateArticle(article)
+        // formdanKaydet: satırın TAMAMINI değil, formun sahip olduğu
+        // alanları yazıyor. updateArticle her kaydetmede sekiz sütunu
+        // NULL'a eziyordu (fotoğraf künyesi, kaynak tarihi, görsel
+        // türevleri, kısa haber etiketi). Ayrıntı repository'de.
+        ? await repository.formdanKaydet(article)
         : (await repository.submitArticleByAuthor(article) ? null : 'Failed to insert');
 
     setState(() {
@@ -506,6 +511,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               ),
               text: isEn ? 'Review Queue' : 'Onay Kuyruğu',
             ),
+            // Kuyruğun HEMEN yanında: reddedilenler kuyruğun geri dönüş
+            // kapısı, ayrı bir iş değil. Rozet YOK — reddedilen sayısı bir
+            // görev sayısı değil, bakılacak bir arşiv.
+            Tab(
+              icon: const Icon(Icons.block_rounded),
+              text: isEn ? 'Rejected' : 'Reddedilenler',
+            ),
             Tab(
               icon: const Icon(Icons.auto_stories_rounded),
               text: isEn ? 'Stories' : 'Hikâyeler',
@@ -550,6 +562,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         children: [
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
           const OnayKuyruguEkrani(),
+          const ReddedilenlerEkrani(),
           const HikayeYonetimiEkrani(),
           const AdminHeroScreen(),
           const VideoOnayEkrani(),
@@ -1526,29 +1539,60 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                                     Row(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
+                                        // ÖLÜ YOL KALDIRILDI. Burada
+                                        // `rejectArticle` (eski `delete()`)
+                                        // çağrılıyor ve "Haber reddedildi ve
+                                        // silindi" yazılıyordu. İki yanlış
+                                        // vardı: politika DELETE vermediği
+                                        // için silme sessizce düşüyordu, ve
+                                        // red artık zaten SİLMİYOR (§29.1) —
+                                        // durumu `rejected` yapıp arşivde
+                                        // bırakıyor. Yani mesaj olmayan bir
+                                        // şeyi anlatıyordu.
                                         TextButton.icon(
                                           onPressed: () async {
-                                            final success = await ref.read(homeRepositoryProvider).rejectArticle(article.id);
-                                            if (success && context.mounted) {
-                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                const SnackBar(content: Text('Haber reddedildi ve silindi.')),
-                                              );
-                                              ref.invalidate(latestArticlesProvider);
-                                            }
+                                            final repo = ref.read(homeRepositoryProvider);
+                                            final ok = await repo.haberiReddet(
+                                              id: article.id,
+                                              title: article.title,
+                                              sourceUrl: article.sourceUrl,
+                                              sourceName: article.sourceName,
+                                              lastStatus: article.status,
+                                            );
+                                            if (!context.mounted) return;
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              SnackBar(
+                                                content: Text(ok
+                                                    ? 'Reddedildi. Arşivde duruyor, geri alınabilir.'
+                                                    : 'Reddedilemedi: ${repo.sonYazmaHatasi ?? 'yetki yok ya da oturum düşmüş'}'),
+                                                backgroundColor: ok ? null : Colors.redAccent,
+                                              ),
+                                            );
+                                            if (ok) ref.invalidate(latestArticlesProvider);
                                           },
-                                          icon: const Icon(Icons.delete_outline_rounded, color: Colors.red),
+                                          icon: const Icon(Icons.block_rounded, color: Colors.red),
                                           label: const Text('Reddet', style: TextStyle(color: Colors.red)),
                                         ),
                                         const SizedBox(width: 8),
                                         ElevatedButton.icon(
                                           onPressed: () async {
-                                            final success = await ref.read(homeRepositoryProvider).approveArticle(article.id);
-                                            if (success && context.mounted) {
-                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                const SnackBar(content: Text('Haber başarıyla yayınlandı.')),
-                                              );
-                                              ref.invalidate(latestArticlesProvider);
-                                            }
+                                            // Başarısızlık da SÖYLENİYOR.
+                                            // Eskiden yalnızca başarı dalı
+                                            // vardı: oturum düştüğünde hiçbir
+                                            // şey olmuyor, moderatör düğmeye
+                                            // bastığını sanıyordu.
+                                            final repo = ref.read(homeRepositoryProvider);
+                                            final ok = await repo.approveArticle(article.id);
+                                            if (!context.mounted) return;
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              SnackBar(
+                                                content: Text(ok
+                                                    ? 'Haber yayına alındı.'
+                                                    : 'Yayına alınamadı: ${repo.sonYazmaHatasi ?? 'yetki yok ya da oturum düşmüş'}'),
+                                                backgroundColor: ok ? null : Colors.redAccent,
+                                              ),
+                                            );
+                                            if (ok) ref.invalidate(latestArticlesProvider);
                                           },
                                           icon: const Icon(Icons.check_circle_outline_rounded),
                                           label: const Text('Hızlı Onayla'),

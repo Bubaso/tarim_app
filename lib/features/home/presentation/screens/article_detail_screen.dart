@@ -45,6 +45,7 @@ import '../../data/category_catalog.dart';
 import 'category_articles_screen.dart';
 import '../../../stories/presentation/widgets/haber_hikaye_karti.dart';
 import '../widgets/bildirim_daveti_karti.dart';
+import '../widgets/portal_footer.dart';
 
 // ─── Renk sabitleri ───────────────────────────────────────────────────────
 const Color _kAccent      = AppColors.primaryGreen;
@@ -727,8 +728,19 @@ class _ArticleDetailScreenState extends ConsumerState<ArticleDetailScreen> {
                 ),
               ),
 
-              // Alt boşluk
-              const SliverToBoxAdapter(child: SizedBox(height: 48)),
+              // ── Alt bilgi ─────────────────────────────────────────────────
+              // PortalFooter ana sayfa, haftalık özet ve kategori ekranında
+              // vardı; haber detayında YOKTU. Oysa arama motorundan gelen
+              // okuyucu siteye ana sayfadan değil doğrudan /haber/:id'den
+              // iniyor — yani sitenin künyesine, iletişimine, yasal
+              // sayfalarına ve bildirim ayarlarına ulaşabileceği tek yüzey
+              // tam da burada eksikti. Okur haberi bitirip aşağı indiğinde
+              // sayfanın sonu geliyordu ve gidecek yer kalmıyordu.
+              //
+              // Alttaki 48 px boşluk kaldırıldı: alt bilgi kendi iç
+              // boşluğunu taşıyor, ikisi üst üste gelince bant gereksiz
+              // uzuyordu.
+              SliverToBoxAdapter(child: PortalFooter(isDark: isDark)),
             ],
           ),
           

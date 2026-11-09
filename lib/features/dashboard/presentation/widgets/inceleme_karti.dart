@@ -40,6 +40,12 @@ class IncelemeKarti extends ConsumerStatefulWidget {
 }
 
 class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
+  @override
+  void dispose() {
+    _baslikDenetleyici.dispose();
+    super.dispose();
+  }
+
   bool _ingilizce = false;
   bool _islemde = false;
   List<NewsArticle>? _benzerler;
@@ -89,17 +95,109 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
 
   // ── Başlık + kaynak ────────────────────────────────────────────────────────
 
+  // ── Başlık düzenleme ───────────────────────────────────────────────────
+  //
+  // Kuyrukta düzenleme yolu YOKTU: kart yalnızca kapak görselini ve gövdeyi
+  // yazabiliyordu. Başlığı bozuk bir haber için moderatörün iki seçeneği
+  // vardı — olduğu gibi onaylamak ya da reddetmek. Editör formu da yalnızca
+  // YAYINDAKİLERİ listeliyor, yani "önce yayınla sonra düzelt" demek
+  // bozuk başlığı okura göstermek demekti.
+  //
+  // Başlıkla sınırlı tutuluyor: kuyruğun işi karar vermek, yazı işleri
+  // yapmak değil. Gövde zaten düzenlenebiliyor; aradaki tek boşluk buydu.
+  bool _basligiDuzenle = false;
+  final TextEditingController _baslikDenetleyici = TextEditingController();
+  bool _baslikKaydediliyor = false;
+
+  Future<void> _basligiKaydet() async {
+    final yeni = _baslikDenetleyici.text.trim();
+    if (yeni.isEmpty || yeni == a.title) {
+      setState(() => _basligiDuzenle = false);
+      return;
+    }
+    setState(() => _baslikKaydediliyor = true);
+    final repo = ref.read(homeRepositoryProvider);
+    final ok = await repo.alanlariGuncelle(a.id, {'title': yeni});
+    if (!mounted) return;
+    setState(() {
+      _baslikKaydediliyor = false;
+      if (ok) _basligiDuzenle = false;
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(ok
+            ? 'Başlık güncellendi.'
+            : 'Başlık yazılamadı: ${repo.sonYazmaHatasi ?? 'yetki yok'}'),
+        backgroundColor: ok ? null : Colors.redAccent,
+      ),
+    );
+    if (ok) widget.onDegisti?.call();
+  }
+
   Widget _baslik() {
     final kaynak = (a.sourceName ?? '').trim();
     final adres = (a.sourceUrl ?? '').trim();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectableText(
-          a.title,
-          style: GoogleFonts.outfit(
-              fontSize: 19, fontWeight: FontWeight.bold, color: _metin),
-        ),
+        if (_basligiDuzenle)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                controller: _baslikDenetleyici,
+                autofocus: true,
+                maxLines: null,
+                style: GoogleFonts.outfit(
+                    fontSize: 19, fontWeight: FontWeight.bold, color: _metin),
+                decoration: const InputDecoration(
+                  isDense: true,
+                  border: OutlineInputBorder(),
+                  labelText: 'Başlık',
+                ),
+                onSubmitted: (_) => _basligiKaydet(),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  FilledButton(
+                    onPressed: _baslikKaydediliyor ? null : _basligiKaydet,
+                    child: Text(_baslikKaydediliyor ? 'Kaydediliyor…' : 'Kaydet'),
+                  ),
+                  const SizedBox(width: 8),
+                  TextButton(
+                    onPressed: _baslikKaydediliyor
+                        ? null
+                        : () => setState(() => _basligiDuzenle = false),
+                    child: const Text('Vazgeç'),
+                  ),
+                ],
+              ),
+            ],
+          )
+        else
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: SelectableText(
+                  a.title,
+                  style: GoogleFonts.outfit(
+                      fontSize: 19, fontWeight: FontWeight.bold, color: _metin),
+                ),
+              ),
+              IconButton(
+                tooltip: 'Başlığı düzenle',
+                iconSize: 18,
+                visualDensity: VisualDensity.compact,
+                onPressed: () => setState(() {
+                  _baslikDenetleyici.text = a.title;
+                  _basligiDuzenle = true;
+                }),
+                icon: Icon(Icons.edit_outlined, color: _soluk),
+              ),
+            ],
+          ),
         const SizedBox(height: 6),
         Wrap(
           spacing: 10,

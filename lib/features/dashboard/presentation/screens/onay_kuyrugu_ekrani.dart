@@ -688,12 +688,17 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(mesaj),
+      // Sekiz saniye artık TEK şans değil: çubuk kapandıktan sonra
+      // Reddedilenler sekmesinden aynı haber geri alınabiliyor.
       duration: const Duration(seconds: 8),
       action: SnackBarAction(
         label: 'Geri al',
         onPressed: () async {
-          final ok = await ref.read(homeRepositoryProvider).reddiGeriAl(id);
-          _bildir(ok ? 'Red geri alındı.' : 'Geri alınamadı.');
+          final repo = ref.read(homeRepositoryProvider);
+          final ok = await repo.reddiGeriAl(id);
+          _bildir(ok
+              ? 'Red geri alındı.'
+              : 'Geri alınamadı: ${repo.sonYazmaHatasi ?? 'yetki yok'}');
           _tazele();
         },
       ),

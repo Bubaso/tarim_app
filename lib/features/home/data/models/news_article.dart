@@ -78,6 +78,16 @@ class NewsArticle {
   /// kararı burada. Tek bir haber işaretli olur.
   final bool? turkiyePin;
 
+  /// Reddin zamanı ve gerekçesi.
+  ///
+  /// Sütunlar veritabanında vardı ama modele hiç alınmamıştı; red artık
+  /// silmek yerine arşivleyen bir durum değişikliği olduğu için
+  /// (§29.1) reddedilenler ekranının "ne zaman, neden" sorusuna cevap
+  /// verebilmesi gerekiyor. İkisi de null olabilir: toplu red gerekçe
+  /// sormuyor ve eski kayıtlarda damga yok.
+  final DateTime? rejectedAt;
+  final String? rejectionReason;
+
   /// Muhabir ajanının ürettiği doğrulama verisi (§29.2).
   ///
   /// Bunlar hat içinde kullanılıp ATILIYORDU; kararı veren kişi görmüyordu.
@@ -145,6 +155,8 @@ class NewsArticle {
     this.expertInsight,
     this.expertInsightEn,
     this.turkiyePin,
+    this.rejectedAt,
+    this.rejectionReason,
     this.facts,
     this.figures,
     this.quotes,
@@ -220,6 +232,10 @@ class NewsArticle {
       expertInsight: json['expert_insight']?.toString(),
       expertInsightEn: json['expert_insight_en']?.toString(),
       turkiyePin: json['turkiye_pin'] as bool?,
+      rejectedAt: json['rejected_at'] == null
+          ? null
+          : DateTime.tryParse(json['rejected_at'].toString()),
+      rejectionReason: json['rejection_reason']?.toString(),
       facts: json['facts'] as Map<String, dynamic>?,
       figures: json['figures'] as List<dynamic>?,
       quotes: json['quotes'] as List<dynamic>?,
@@ -267,6 +283,11 @@ class NewsArticle {
       'expert_insight': expertInsight,
       'expert_insight_en': expertInsightEn,
       'turkiye_pin': turkiyePin,
+      // `rejected_at` ve `rejection_reason` toJson'a BİLEREK girmiyor.
+      // İkisini de yazan tek yer `haberiReddet` ve o alan alan yazıyor.
+      // toJson'a konsalardı, bu iki alanı taşımayan her çağrı (örneğin
+      // yazarın yeni haber göndermesi) reddin kaydını siler ya da
+      // sıfırlardı — §25.1'in tam olarak aynı tuzağı.
       'facts': facts,
       'figures': figures,
       'quotes': quotes,

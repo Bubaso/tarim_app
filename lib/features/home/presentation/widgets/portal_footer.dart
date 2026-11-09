@@ -12,6 +12,10 @@ import '../../../legal/data/legal_documents.dart';
 import '../../../legal/presentation/screens/legal_page_screen.dart';
 import '../../../settings/presentation/screens/settings_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../../data/category_catalog.dart';
+import '../screens/category_articles_screen.dart';
+import '../screens/weekly_recap_screen.dart';
+import '../../../../core/utils/iso_week.dart';
 
 /// Footer'daki bir bağlantı: görünen etiket ve gideceği ekran.
 ///
@@ -45,11 +49,35 @@ class PortalFooter extends StatelessWidget {
             const SettingsScreen()),
       ];
 
+  /// Kategori sütunu — alt bilgideki tek GEZİNME sütunu.
+  ///
+  /// [homeCategorySlugs] zaten üst gezinme çubuğunu besliyordu; alt bilgide
+  /// karşılığı yoktu. Oysa arama motorundan bir haber sayfasına inen okur
+  /// sayfanın sonuna geldiğinde "başka ne var" diye bakıyor ve orada yalnızca
+  /// kurumsal/yasal bağlantılar buluyordu — yani siteden çıkış yolu vardı,
+  /// içine gitme yolu yoktu.
+  List<_FooterLink> _categoryLinks(bool isEn) => [
+        for (final slug in homeCategorySlugs)
+          if (categoryBySlug(slug) case final k?)
+            _link(k.title(isEn), CategoryArticlesScreen(slug: slug, title: k.title(isEn))),
+      ];
+
   List<_FooterLink> _legalLinks(bool isEn) => [
         _legalLink('kullanim-kosullari', isEn),
         _legalLink('gizlilik', isEn),
         _legalLink('cerezler', isEn),
       ];
+
+  /// Bu haftanın özet sayfası.
+  ///
+  /// [WeeklyRecapScreen] yazılmış ve `/hafta/<slug>` rotası çalışıyor ama
+  /// arayüzde ona giden TEK bağlantı bildirim derin bağlantısıydı: push
+  /// aboneliği olmayan okur ekranın varlığından haberdar bile olmuyordu.
+  /// 18 abone düşünülürse pratikte kimse göremiyordu.
+  _FooterLink _weeklyLink(bool isEn) => _link(
+        isEn ? "This Week's Recap" : 'Bu Haftanın Özeti',
+        WeeklyRecapScreen(week: IsoWeek.of(DateTime.now())),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +119,12 @@ class PortalFooter extends StatelessWidget {
                     const SizedBox(width: 48),
                     Expanded(
                       flex: 1,
-                      child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', _corporateLinks(isEn), linkColor, textColor),
+                      child: _buildLinks(context, isEn ? 'Sections' : 'Bölümler', _categoryLinks(isEn), linkColor, textColor),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal',
+                          [..._corporateLinks(isEn), _weeklyLink(isEn)], linkColor, textColor),
                     ),
                     Expanded(
                       flex: 1,
@@ -109,10 +142,17 @@ class PortalFooter extends StatelessWidget {
                   children: [
                     _buildBrand(linkColor, textColor),
                     const SizedBox(height: 32),
+                    // Dar ekranda kategori sütunu ÜSTTE ve tek başına:
+                    // altı kategori iki sütunlu bir satıra sıkıştırıldığında
+                    // etiketler ("Bitkisel Üretim") iki satıra kırılıyor.
+                    _buildLinks(context, isEn ? 'Sections' : 'Bölümler',
+                        _categoryLinks(isEn), linkColor, textColor),
+                    const SizedBox(height: 32),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal', _corporateLinks(isEn), linkColor, textColor)),
+                        Expanded(child: _buildLinks(context, isEn ? 'Corporate' : 'Kurumsal',
+                            [..._corporateLinks(isEn), _weeklyLink(isEn)], linkColor, textColor)),
                         Expanded(child: _buildLinks(context, isEn ? 'Legal' : 'Yasal', _legalLinks(isEn), linkColor, textColor)),
                       ],
                     ),

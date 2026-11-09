@@ -243,40 +243,83 @@ class HomeRepository {
         .toList();
   }
 
-  /// Supabase REST stream for fetching pending articles.
+  /// Onay kuyruğu.
+  ///
+  /// **`handleError` KALDIRILDI.** Eski hâli dönüş değeri kullanılmayan bir
+  /// geri çağırımdı: `handleError` hatayı YUTUYOR, geri dönen liste hiçbir
+  /// yere gitmiyordu. Sonuç — akış ne veri yayınlıyor ne hata veriyordu ve
+  /// ekran sonsuza kadar dönen bir çarkta kalıyordu. Moderatör "bağlantı
+  /// koptu" ile "bekleyen haber yok"u ayırt edemiyordu. Hata artık yukarı
+  /// çıkıyor; ekranın `error` dalı zaten yazılı ve yeniden dene düğmesi var.
+  ///
+  /// **`select('*')` yerine ad ad sütun.** Kuyruk kartı sekiz alan
+  /// gösteriyor; bütün satırı çekmek gövde metnini, İngilizce çeviriyi,
+  /// grafik verisini ve alıntı dizilerini de indiriyordu. Önizleme zaten
+  /// haberin kendi sayfasını açıyor, o da kendi sorgusunu yapıyor.
+  ///
+  /// **`limit` kondu.** Kuyrukta normalde ~39 haber bekliyor; sınırsız
+  /// sorgu, hat bir gün durduğunda yüzlerce satır indirir ve ekranı
+  /// dondurur. 300, en kötü günün birkaç katı.
   Stream<List<NewsArticle>> watchPendingArticles() {
     return _supabaseClient
         .from('articles')
-        .select('*')
+        .select(_kuyrukSutunlari)
         .eq('status', 'reviewing')
         .order('created_at', ascending: false)
+        .limit(300)
         .asStream()
         .map((maps) => maps
             .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
-            .toList())
-        .handleError((e) {
-          if (kDebugMode) {
-            print('watchPendingArticles error: $e');
-          }
-          return <NewsArticle>[];
-        });
+            .toList());
   }
 
-  /// Approves a pending article and makes it published
-  Future<bool> approveArticle(String id) async {
-    try {
-      await _supabaseClient
-          .from('articles')
-          .update({'status': 'published'})
-          .eq('id', id);
-      return true;
-    } catch (e) {
-      if (kDebugMode) {
-        print('approveArticle error: $e');
-      }
-      return false;
-    }
+  /// Kuyruk ve reddedilenler kartlarının gösterdiği alanlar.
+  ///
+  /// `id` ve `created_at` kartta görünmüyor ama şart: biri kimlik, öteki
+  /// sıralama. `published_at` kaynak tarihi rozetini, `hero_score` manşet
+  /// skoru sıralamasını besliyor.
+  static const String _kuyrukSutunlari =
+      'id,title,summary,image_url,thumb_image_url,image_lqip,source_name,'
+      'source_url,created_at,published_at,topic,region,category_id,'
+      'hero_score,status,article_format,rejection_reason,rejected_at';
+
+  /// Reddedilmiş haberler — geri alma ekranı için.
+  ///
+  /// Red artık silmiyor (§29.1), ama reddedilen habere ulaşmanın tek yolu
+  /// sekiz saniyelik bir bildirim çubuğuydu. O kapandıktan sonra
+  /// [reddiGeriAl] çağrılabilecek hiçbir yer kalmıyordu: "geri alınabilir"
+  /// vaadi pratikte sekiz saniye sürüyordu.
+  Stream<List<NewsArticle>> reddedilenleriIzle({int limit = 200}) {
+    return _supabaseClient
+        .from('articles')
+        .select(_kuyrukSutunlari)
+        .eq('status', 'rejected')
+        // Reddedilme sırası, haberin yazılma sırası DEĞİL: moderatör
+        // "az önce yanlışlıkla reddettiğim" haberi arıyor.
+        .order('rejected_at', ascending: false, nullsFirst: false)
+        .limit(limit)
+        .asStream()
+        .map((maps) => maps
+            .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
+            .toList());
   }
+
+  /// Bekleyen haberi yayına alır.
+  ///
+  /// [alanlariGuncelle] üzerinden geçiyor çünkü eski hâli İKİ denetimi de
+  /// atlıyordu:
+  ///
+  ///   * Oturum denetimi yoktu. Oturum düştüğünde istemci `anon` rolüyle
+  ///     yazıyor, RLS satırı hata vermeden süzüyor ve metot `true` dönüyordu.
+  ///   * Dönen satır sayılmıyordu. PostgREST hiçbir satıra denk gelmeyen bir
+  ///     `update` için 200 ve boş gövde döner — "başarılı" ile "hiçbir şey
+  ///     yazılmadı" aynı görünür.
+  ///
+  /// Sonuç: kart kuyruktan düşmüş gibi görünüyor, haber yayına girmiyor.
+  /// Aynı koruma red yolunda (`haberiReddet`) ve toplu onayda zaten vardı;
+  /// eksik olan tek yol buydu.
+  Future<bool> approveArticle(String id) =>
+      alanlariGuncelle(id, {'status': 'published'});
 
   // ══════════════════════════════════════════════════════════════════════
   //  Moderasyon — red KAYDEDİLİR, sessizce silinmez
@@ -326,8 +369,16 @@ class HomeRepository {
   /// görünüyor (§20.4).
   Future<bool> alanlariGuncelle(String id, Map<String, dynamic> alanlar) async {
     if (alanlar.isEmpty) return true;
+    sonYazmaHatasi = null;
+
     final sorun = _oturumSorunu();
     if (sorun != null) {
+      // Teşhis ARAYÜZE taşınıyor. Eski hâli bu metni üretip yalnızca hata
+      // ayıklama kipinde basıyordu; release derlemede `print` hiçbir yere
+      // gitmiyor ve moderatörün gördüğü tek şey genel bir "kaydedilemedi"
+      // oluyordu. Oysa metin tam olarak ne yapılacağını söylüyor:
+      // "panele yeniden giriş yapın".
+      sonYazmaHatasi = sorun;
       if (kDebugMode) print('alanlariGuncelle: $sorun');
       return false;
     }
@@ -337,7 +388,15 @@ class HomeRepository {
           .update(alanlar)
           .eq('id', id)
           .select('id');
-      return (yazilan as List).isNotEmpty;
+      if ((yazilan as List).isEmpty) {
+        // Oturum var ve süresi dolmamış ama satır yine de süzülmüş.
+        // Geriye iki ihtimal kalıyor ve ikisi de ayırt edilemiyor:
+        // kimlik yok, ya da rol beklenen rol değil.
+        sonYazmaHatasi =
+            'Kayıt yazılmadı: haber bulunamadı ya da bu oturumun yetkisi yok.';
+        return false;
+      }
+      return true;
     } catch (e) {
       sonYazmaHatasi = e.toString();
       if (kDebugMode) print('alanlariGuncelle error: $e');
@@ -1176,6 +1235,101 @@ class HomeRepository {
   }
 
   /// Updates an existing article and returns error message if any, null on success.
+  // ══════════════════════════════════════════════════════════════════════
+  //  Panelden düzenleme — SATIRIN TAMAMI DEĞİL, DEĞİŞEN ALANLAR
+  // ──────────────────────────────────────────────────────────────────────
+  //  8 Kasım 2026 ölçümü. Panel formu [updateArticle] çağırıyordu, o da
+  //  `toJson()` ile bütün satırı yazıyordu. Form 42 sütunun 34'ünü
+  //  taşıyordu; taşımadığı 8'i her kaydetmede NULL'a eziliyordu:
+  //
+  //    image_credit · image_caption  → fotoğraf künyesi (telif açısından
+  //                                    bulunması gereken bilgi)
+  //    published_at                  → kaynaktaki yayın tarihi; kuyruğun
+  //                                    bayatlık rozetini besleyen alan
+  //    thumb_image_url · image_lqip  → hikâye görsel türevleri
+  //    hero_pinned_at                → manşete sabitlenme zamanı
+  //    chart_data_en                 → İngilizce grafik
+  //    article_format                → "kısa haber" etiketi
+  //
+  //  §25.1'de aynı tuzak bir kez daha yaşanmış ve o zaman çözüm forma
+  //  taşıyıcı satırlar eklemek olmuştu (facts, figures, quotes...). O çözüm
+  //  bir sonraki sütun eklendiğinde yine bozuluyor — nitekim bozuldu.
+  //
+  //  Kalıcı çözüm: düzenleme yolu artık FORMUN SAHİP OLDUĞU alanları
+  //  yazıyor. Formda karşılığı olmayan sütuna hiç dokunulmuyor, dolayısıyla
+  //  yarın eklenecek sütun da kendiliğinden güvende.
+  // ══════════════════════════════════════════════════════════════════════
+
+  /// Panel formunun GERÇEKTEN düzenlediği alanlar. Başka sütuna dokunmuyor.
+  ///
+  /// `null` değerler bilerek yazılıyor: form bir alanı boşaltabilmeli
+  /// (örneğin görseli kaldırmak). Haritaya girmeyen sütun ile haritaya
+  /// `null` ile giren sütun arasındaki fark bu.
+  /// Panel formunun yazdığı sütunlar — TEK kaynak, test edilebilir.
+  ///
+  /// Ayrı bir fonksiyon olmasının sebebi testle korunabilmesi: bu listeye
+  /// yanlışlıkla bir sütun EKLEMEK, o sütunu formun her kaydetmesinde
+  /// yeniden yazılır hâle getirir. Asıl tehlike de bu yönde: biri "form
+  /// zaten NewsArticle alıyor, toJson kullanalım" der ve sekiz sütun yine
+  /// sıfırlanır. `test/panel_form_alanlari_test.dart` bunu durduruyor.
+  @visibleForTesting
+  static Map<String, dynamic> formAlanlari(
+    NewsArticle article, {
+    String? titleEn,
+    String? summaryEn,
+    String? contentEn,
+  }) =>
+      <String, dynamic>{
+        'title': article.title,
+        'title_en': titleEn,
+        'content': article.content,
+        'content_en': contentEn,
+        'summary': article.summary,
+        'summary_en': summaryEn,
+        'image_url': article.imageUrl,
+        'category_id': article.categoryId,
+        'geo_location': article.geoLocation,
+        'is_breaking': article.isBreaking,
+        'status': article.status,
+      };
+
+  Future<String?> formdanKaydet(NewsArticle article) async {
+    final sorun = _oturumSorunu();
+    if (sorun != null) return sorun;
+
+    // Çeviriler kaydetmeden ÖNCE: eksikse doldurulup haritaya giriyor.
+    final titleEn = (article.titleEn ?? '').trim().isEmpty
+        ? await translateTextToEnglish(article.title)
+        : article.titleEn;
+    final summaryEn = (article.summaryEn ?? '').trim().isEmpty
+        ? await translateTextToEnglish(article.summary ?? '')
+        : article.summaryEn;
+    final contentEn = (article.contentEn ?? '').trim().isEmpty
+        ? await translateTextToEnglish(article.content)
+        : article.contentEn;
+
+    final alanlar = formAlanlari(article,
+        titleEn: titleEn, summaryEn: summaryEn, contentEn: contentEn);
+
+    final ok = await alanlariGuncelle(article.id, alanlar);
+    if (!ok) {
+      return sonYazmaHatasi ??
+          'Kayıt yazılamadı: yetki yok ya da haber bulunamadı.';
+    }
+
+    // Yerel taslak önbelleği anında güncellensin ki liste beklemesin.
+    final i = _localDrafts.indexWhere((a) => a.id == article.id);
+    if (i != -1) {
+      _localDrafts[i] = NewsArticle.fromJson({
+        ...article.toJson(),
+        'title_en': titleEn,
+        'summary_en': summaryEn,
+        'content_en': contentEn,
+      });
+    }
+    return null;
+  }
+
   Future<String?> updateArticle(NewsArticle article) async {
     try {
       final json = article.toJson();
