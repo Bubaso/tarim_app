@@ -34,7 +34,13 @@ import urllib.request
 KOK = pathlib.Path(__file__).resolve().parent.parent
 ADRES = "https://tarimportali.net"
 BAS, SON = "<!-- SSR_CONTENT_START -->", "<!-- SSR_CONTENT_END -->"
+M_BAS, M_SON = "<!-- MOZAIK_START -->", "<!-- MOZAIK_END -->"
 ADET = 60
+
+# Açılış mozaiğindeki benzersiz görsel sayısı. 28'den 35'e çıkarıldı:
+# tekrar eden kare arası mesafe artıyor, desen kendini daha az
+# tekrarlıyor. Gömülü LQIP yükü ~19 KB — hepsi satır içi, ek istek yok.
+MOZAIK_ADET = 35
 
 
 def env():
@@ -53,6 +59,27 @@ def haberler(url, anahtar):
         headers={"apikey": anahtar, "Authorization": f"Bearer {anahtar}"})
     with urllib.request.urlopen(istek, timeout=60) as y:
         return json.load(y)
+
+
+def mozaik_kareleri(url, anahtar):
+    """Açılış mozaiğinin yedek seti.
+
+    Bu set yalnızca İLK ziyarette ve `localStorage` boşken kullanılıyor;
+    normalde uygulama bir önceki açılışta o günün haberlerini oraya
+    yazıyor. Yani buradaki görseller dağıtımdan dağıtıma yaşlanabilir ve
+    bu sorun değil — tek işleri ilk kareyi doldurmak.
+
+    `image_lqip` ZORUNLU: mozaiğin anında dolu açılmasını sağlayan şey o.
+    LQIP'i olmayan haber karede gri bir kutu bırakırdı.
+    """
+    istek = urllib.request.Request(
+        f"{url}/rest/v1/articles?select=thumb_image_url,image_lqip"
+        "&status=eq.published&thumb_image_url=not.is.null"
+        f"&image_lqip=not.is.null&order=created_at.desc&limit={MOZAIK_ADET}",
+        headers={"apikey": anahtar, "Authorization": f"Bearer {anahtar}"})
+    with urllib.request.urlopen(istek, timeout=60) as y:
+        return [{"t": k["thumb_image_url"], "l": k["image_lqip"]}
+                for k in json.load(y)]
 
 
 def main():
@@ -87,7 +114,31 @@ def main():
         f"<ul>{satirlar}</ul>"
         "</div>")
 
-    kabuk.write_text(metin[:i + len(BAS)] + govde + metin[j:], encoding="utf-8")
+    metin = metin[:i + len(BAS)] + govde + metin[j:]
+
+    # ── Açılış mozaiğinin yedek seti ──
+    mi, mj = metin.find(M_BAS), metin.find(M_SON)
+    if mi < 0 or mj < 0:
+        # İşaret yoksa mozaik veri bulamaz ve açılış ekranı düz krem kalır.
+        # Sayfa kırılmaz ama ekran boşalır; o yüzden uyarı basılıyor.
+        print("  ⚠ index.html içinde MOZAIK işaretleri yok — mozaik boş kalacak")
+    else:
+        try:
+            kareler = mozaik_kareleri(e["SUPABASE_URL"], e["SUPABASE_ANON_KEY"])
+        except Exception as hata:                   # noqa: BLE001
+            print(f"  ⚠ mozaik görselleri alınamadı ({hata}) — boş bırakıldı")
+            kareler = []
+        if kareler:
+            # `</script>` dizisi JSON içinde geçerse betik bloğu ERKEN
+            # kapanır; tek güvenli yol onu kırmak.
+            veri = json.dumps(kareler, ensure_ascii=False).replace("</", "<\\/")
+            blok = f"<script>window.__MOZAIK={veri}</script>"
+        else:
+            blok = ""
+        metin = metin[:mi + len(M_BAS)] + blok + metin[mj:]
+        print(f"✓ {len(kareler)} mozaik karesi gömüldü ({len(blok):,} bayt)")
+
+    kabuk.write_text(metin, encoding="utf-8")
     print(f"✓ {len(kayitlar)} haber bağlantısı gömüldü ({len(govde):,} bayt)")
 
 
