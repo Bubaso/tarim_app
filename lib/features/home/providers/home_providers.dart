@@ -189,6 +189,26 @@ final weeklyRecapProvider =
 });
 
 /// Fetches a single article by id — used for `/haber/:id` deep links.
+/// Tek haberin TAM satırı — `select('*')`.
+///
+/// İki yerde şart:
+///
+/// 1. `/haber/:id` rotası `extra` olmadan açıldığında (web'de "Önizle"
+///    URL'i değiştirdiği için `extra` kaybolur).
+/// 2. Onay kuyruğunun İnceleme panelinde. [pendingArticlesProvider]
+///    performans için ad ad sütun çekiyor: 300 satırın gövdesini,
+///    çevirisini, doğrulama verisini ve alıntı dizilerini indirmek
+///    kuyruğu kullanılmaz hâle getiriyordu. Ama panel tam olarak o
+///    listede OLMAYAN alanları gösteriyor — `content`, `content_en`,
+///    `facts`, `figures`, `quotes`.
+///
+/// 9 Kasım 2026: kuyruğa 29 haber geldi, hepsi başlık dışında bomboş
+/// açıldı. "Önizle" çalışıyordu çünkü 1. yol bu sağlayıcıya uğruyor;
+/// panel ise kuyruk nesnesini olduğu gibi kullanıyordu. Sütun listesi
+/// KATLANMIŞ kuyruk kartına bakılarak daraltılmış, aynı widget'ın
+/// içinde açılan panel atlanmıştı.
+///
+/// Çözüm listeyi genişletmek değil, açılan TEK haberi tam çekmek.
 final articleByIdProvider =
     FutureProvider.family<NewsArticle?, String>((ref, id) {
   final repository = ref.watch(homeRepositoryProvider);

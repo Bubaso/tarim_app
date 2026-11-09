@@ -489,11 +489,74 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
           ),
           if (_acikInceleme == article.id) ...[
             const SizedBox(height: 14),
-            IncelemeKarti(
-                article: article, isDark: isDark, onDegisti: _tazele),
+            _inceleme(article),
           ],
         ],
       ),
+    );
+  }
+
+  /// İnceleme paneli — tam satır gelene kadar ÇİZİLMİYOR.
+  ///
+  /// Kuyruk akışı dar bir sütun listesi çekiyor, panel ise gövde metnini,
+  /// çeviriyi, doğrulama verisini ve alıntıları gösteriyor. Eksik nesneyle
+  /// çizmek "haberin içi boş" demek oluyordu ve moderatör dolu bir haberi
+  /// boş sanıp reddedebiliyordu. Gerekçenin tamamı [articleByIdProvider]'da.
+  Widget _inceleme(NewsArticle article) {
+    const hata = 'Haberin içeriği getirilemedi. '
+        'Onay vermeden önce yeniden deneyin.';
+    return ref.watch(articleByIdProvider(article.id)).when(
+          loading: () => _incelemeDurumu('Haberin tamamı getiriliyor…'),
+          error: (_, __) => _incelemeDurumu(hata, yeniden: article.id),
+          data: (tam) => tam == null
+              ? _incelemeDurumu(hata, yeniden: article.id)
+              : IncelemeKarti(
+                  article: tam,
+                  isDark: isDark,
+                  onDegisti: () {
+                    // Panel kendi yazdığı değişikliği göremezse moderatör
+                    // aynı düzeltmeyi ikinci kez yapmaya çalışıyor.
+                    ref.invalidate(articleByIdProvider(article.id));
+                    _tazele();
+                  }),
+        );
+  }
+
+  Widget _incelemeDurumu(String mesaj, {String? yeniden}) {
+    final kirmizi = yeniden != null;
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: isDark ? const Color(0xFF161B22) : Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+            color: kirmizi
+                ? Colors.red.shade700.withValues(alpha: 0.45)
+                : (isDark
+                    ? Colors.white10
+                    : Colors.black.withValues(alpha: 0.08))),
+      ),
+      child: Row(children: [
+        if (kirmizi)
+          Icon(Icons.cloud_off_rounded, size: 16, color: Colors.red.shade700)
+        else
+          const SizedBox(
+              width: 15,
+              height: 15,
+              child: CircularProgressIndicator(strokeWidth: 2)),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Text(mesaj,
+              style: GoogleFonts.inter(
+                  fontSize: 12.5,
+                  color: kirmizi ? Colors.red.shade700 : _soluk)),
+        ),
+        if (kirmizi)
+          TextButton(
+            onPressed: () => ref.invalidate(articleByIdProvider(yeniden)),
+            child: const Text('Yeniden dene'),
+          ),
+      ]),
     );
   }
 
@@ -559,8 +622,19 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   /// Yeni ekran yazmaya gerek yok: `/haber/:id` rotası `extra` ile gelen
   /// haberi yayın durumuna BAKMADAN açıyor, yani kuyruktaki haber de tam
   /// olarak yayınlanınca görüneceği gibi çiziliyor.
-  void _onizle(NewsArticle article) {
-    pushScreen(context, ArticleDetailScreen(article: article));
+  ///
+  /// **Kuyruk nesnesi DEĞİL, tam satır gönderiliyor.** Kuyruk akışı ad ad
+  /// sütun çekiyor ve `content` o listede yok; detay ekranı gövdeyi
+  /// doğrudan `widget.article.content`ten okuyor. Web'de bu fark
+  /// görünmüyordu: "Önizle" URL'i değiştirdiği için `extra` kayboluyor ve
+  /// rota [articleByIdProvider] ile tam satırı kendisi çekiyor. Ama
+  /// Android/iOS'ta `extra` hayatta kalıyor — önizleme orada da boş
+  /// gövdeyle açılırdı. Sağlayıcı önbellekli: panel zaten açıksa bu
+  /// çağrı ağa çıkmıyor.
+  Future<void> _onizle(NewsArticle article) async {
+    final tam = await ref.read(articleByIdProvider(article.id).future);
+    if (!mounted) return;
+    pushScreen(context, ArticleDetailScreen(article: tam ?? article));
   }
 
   Future<void> _tekOnayla(NewsArticle article) async {
