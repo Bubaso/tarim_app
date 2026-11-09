@@ -1,0 +1,225 @@
+<!doctype html><html lang=tr><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Hortum acilis - deneme</title>
+<style>
+html,body{margin:0;height:100%;background:#F6F1E7;overflow:hidden;
+  font-family:system-ui,-apple-system,sans-serif}
+
+/* Sahne. perspective BURADA: hortumun kendisinde olsaydı her halka ayrı
+   bir kaçış noktası alır ve silindir eğrilirdi. */
+#sahne{position:fixed;inset:0;perspective:1100px;perspective-origin:50% 42%;
+  overflow:hidden}
+
+/* Hortum.
+   YATIKLIK rotateX ile veriliyor, rotateZ ile DEĞİL. İlk denemede
+   rotateZ kullanılmıştı: o, ekseni ekran düzleminde tutuyor, yani
+   boruya yandan bakılıyor ve ekranda düz bir diyagonal şerit gibi
+   okunuyordu. Hortumun AĞZINI görmek, yani içinden logo çıktığını
+   hissetmek için eksenin kameraya doğru dönmesi gerekiyor — bunu
+   yapan rotateX.
+   rotateZ ayrı bir denetim olarak kaldı: iniş yönünü çaprazlaştırıyor
+   ve iki boyutlu sürümün diyagonaliyle akraba duruyor. */
+#tup{position:absolute;left:50%;top:50%;width:0;height:0;
+  transform-style:preserve-3d;will-change:transform}
+
+.halka{position:absolute;transform-style:preserve-3d}
+.karo{position:absolute;left:0;top:0;
+  background-image:url(/mozaik.jpg);background-repeat:no-repeat;
+  border-radius:3px;
+  /* Arka yüzler görünür: hortumun İÇİ de görünmeli, yoksa boru içi boş
+     bir kabuk gibi duruyor. */
+  backface-visibility:visible}
+
+/* Derinlik perdesi. Uzaktaki karo kreme doğru soluyor; bu olmadan
+   silindir düz bir halka dizisi gibi okunuyor. */
+.karo::after{content:"";position:absolute;inset:0;border-radius:3px;
+  background:#F6F1E7;opacity:var(--sis)}
+
+/* Logo hortumun İÇİNDEN geliyor: derinden öne. */
+#logo{position:absolute;left:50%;top:50%;width:min(34vw,180px);
+  transform:translate(-50%,-50%) translateZ(-900px) scale(.35);
+  opacity:0;will-change:transform,opacity}
+
+/* Kenar solması: hortum ekrandan taşıyormuş gibi dursun. */
+#vinyet{position:fixed;inset:0;pointer-events:none;
+  background:radial-gradient(120% 92% at 50% 46%,
+    rgba(246,241,231,0) 42%,rgba(246,241,231,.34) 78%,rgba(246,241,231,.88) 100%)}
+
+/* ── Yalnızca DENEME için ───────────────────────────────────────────── */
+#panel{position:fixed;right:12px;bottom:12px;z-index:9;display:flex;
+  flex-direction:column;gap:7px;background:rgba(255,255,255,.93);
+  border:1px solid #D9D1BE;border-radius:10px;padding:10px 12px;
+  font-size:13px;color:#2A2318;box-shadow:0 2px 14px rgba(42,35,24,.12)}
+#panel div{display:flex;align-items:center;gap:8px;justify-content:space-between}
+#panel b{font-weight:600;font-size:12px}
+#panel span{font-variant-numeric:tabular-nums;min-width:52px;text-align:right;color:#6B6153}
+#panel button{min-width:28px;height:28px;border:1px solid #D9D1BE;background:#fff;
+  border-radius:6px;font-size:14px;line-height:1;cursor:pointer;color:#2A2318;padding:0 8px}
+#panel button:active{background:#F1EADC}
+#panel i{font-style:normal;font-size:11px;color:#8A8273}
+@media (prefers-reduced-motion: reduce){ #tup,#logo{animation:none!important} }
+</style></head><body>
+<div id="sahne"><div id="tup"></div>
+  <!-- Logo sahnenin İÇİNDE: perspective yalnızca ataya uygulanıyor,
+       dışarıda kalan bir elemanda translateZ hiçbir şey yapmıyor. -->
+  <img id="logo" src="/icons/splash-mark.png" alt=""></div>
+<div id="vinyet"></div>
+<div id="panel">
+  <div><b>Süre</b><span id="vSure"></span>
+    <button data-d="sure" data-y="-400">−</button><button data-d="sure" data-y="400">+</button></div>
+  <div><b>Karo</b><span id="vKaro"></span>
+    <button data-d="karo" data-y="-10">−</button><button data-d="karo" data-y="10">+</button></div>
+  <div><b>Çevre karo</b><span id="vCevre"></span>
+    <button data-d="cevre" data-y="-2">−</button><button data-d="cevre" data-y="2">+</button></div>
+  <div><b>Yatıklık</b><span id="vYatik"></span>
+    <button data-d="yatik" data-y="-5">−</button><button data-d="yatik" data-y="5">+</button></div>
+  <div><b>Eğim</b><span id="vEgim"></span>
+    <button data-d="egim" data-y="-6">−</button><button data-d="egim" data-y="6">+</button></div>
+  <div><b>Uzunluk</b><span id="vUzun"></span>
+    <button data-d="uzun" data-y="-20">−</button><button data-d="uzun" data-y="20">+</button></div>
+  <div><b>Logo anı</b><span id="vLogoAn"></span>
+    <button data-d="logoan" data-y="-5">−</button><button data-d="logoan" data-y="5">+</button></div>
+  <div><button data-d="tekrar" style="width:100%">↻ Tekrar oynat</button></div>
+  <i>Deneme — canlıya alınmadı</i>
+</div>
+<script>
+var KARELER = [{"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQABA//EACUQAAICAQIEBwAAAAAAAAAAAAECAxEABBIFIlFxEyEjMWGRsf/EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EABkRAQEBAAMAAAAAAAAAAAAAAAEAAhEiQf/aAAwDAQACEQMRAD8A4w6ERalWmncrYKoDdd8RSXT+I6DSiwTuoV94IeIOk8d2pZtwK+dV+4o+p18DSTmaMWBudU5iD0HsMza0Y0BKdrd8ErhV06qSdvKbrvdVlhrcSLzRRc59RlcM1hgfjrliivlKcX//2Q==", "x": 0.0, "y": 0.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAQP/xAAiEAACAgEDBAMAAAAAAAAAAAABAgMRAAQSIRMxQXFRgbH/xAAWAQEBAQAAAAAAAAAAAAAAAAADAQT/xAAbEQEAAgIDAAAAAAAAAAAAAAABAAIREiExQf/aAAwDAQACEQMRAD8AUWpO92sqQXY8n59fuSSorkvCQzcVYr7zpr5ui/SAsd8kEp2uee9Zla6uI/Vd2bJHFMtFdsg5KgUfYwx9JeoZl3EHaVN+QcMpk9hgPLP/2Q==", "x": 20.0, "y": 0.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQACA//EACIQAAICAQMEAwAAAAAAAAAAAAECAAMEESExEhMiQRRRgf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQIRUf/aAAwDAQACEQMRAD8ARw2qrCefPI+p1zM/tXilcdrAVBBX3Bq9T5jY7GYexmFmj2KdR1ENz+TFGJ7RGeMVyRV3Vb5VVZO5VzKDdKkBioZj7YamUKUcG2OH/9k=", "x": 40.0, "y": 0.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwAUDg8SDw0UEhASFxUUGB4yIR4cHB49LC4kMklATEtHQEZFUFpzYlBVbVZFRmSIZW13e4GCgU5gjZeMfZZzfoF8/9sAQwEVFxceGh47ISE7fFNGU3x8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8/8AAEQgADgAYAwEiAAIRAQMRAf/EABcAAAMBAAAAAAAAAAAAAAAAAAADBAX/xAAhEAACAgICAQUAAAAAAAAAAAABAgMRACEEExIiMUFxsf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/xAAYEQACAwAAAAAAAAAAAAAAAAAAEwECEf/aAAwDAQACEQMRAD8AulaFEJLKSwIXd4rjOkkQErKrrpr1vM7vUM6TJ6o2NFTf7j+PBGhPI7JWPvRArNHWidIXGYaAWIv4qwOvjeGTM7PKkxRG7CKskVf1hg+wk1P/2Q==", "x": 60.0, "y": 0.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAASABgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMEAQL/xAAmEAACAgEEAQIHAAAAAAAAAAABAgMRAAQSIUExBRM1QlFxkbHR/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAECAwT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAMAwEAAhEDEQA/AEkKq0YmSwPlYCxd+T2MlHvMfuxsoSIANa3ZvoZ51MT6kEoFaaMAMxagB/fOdmlaJRJCjGls8ALd5ztkX1KzFjNDtYOau7J7rGV1MzSEe3GHkKglUT6jk39v3jGGM/EJB0TyPzlPUiVj0SgkLsPA8YxgTTp3ddwVmA2jgHGMZF1Uf//Z", "x": 80.0, "y": 0.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQX/xAAkEAACAQMDBAMBAAAAAAAAAAABAgMABBESIUEFEzFRFFJxkf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/EABoRAAICAwAAAAAAAAAAAAAAAAABAlEREkH/2gAMAwEAAhEDEQA/AMs5ZWuI0+S7ADU+VXGOOPdLeeZbgr35NXe04zt59flNXpMGcq0qe8Od6ti6XaGPS0QY/Ykk/wBqcJWaUkuEdxNItzIrTyAMutCpA25HjiiugOk2a7mEN+k0UauwyqP/2Q==", "x": 100.0, "y": 0.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABgAE/8QAIhAAAgEEAgIDAQAAAAAAAAAAAQIDAAQREgUhIjFhccHw/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQID/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARIf/aAAwDAQACEQMRAD8AxcfdyoukZ7ZhnXoff96pXx3IRG2RJHLTqvmdck4+aEKzx6+RLYznPqtS3EiLiNtSwJzWQo1ZJ25E3jtHbsI11ILOMFT+VUdtZZI0YGRiwHQ9iqnVjl//2Q==", "x": 0.0, "y": 20.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwAUDg8SDw0UEhASFxUUGB4yIR4cHB49LC4kMklATEtHQEZFUFpzYlBVbVZFRmSIZW13e4GCgU5gjZeMfZZzfoF8/9sAQwEVFxceGh47ISE7fFNGU3x8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8/8AAEQgADgAYAwEiAAIRAQMRAf/EABcAAQEBAQAAAAAAAAAAAAAAAAQAAwX/xAAjEAACAQMDBAMAAAAAAAAAAAABAgMABBESIUEFIjGBExRx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQISIf/aAAwDAQACEQMRAD8AJ0uxltbuC4kT40RxuT3tsfAp0nUreWWWV5W0RZ0oQAW4P77rS2H27Y3CoolKlQ7MdvXiuRdShrUrIg1k4Lg7kYqabqq6LlSgFzO09yWmUKsh7cccVURlzPnUSdWd6qqTDP/Z", "x": 20.0, "y": 20.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEFAwT/xAAiEAACAQQBBAMAAAAAAAAAAAABAgMABBESIRNBUXEFMWH/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/xAAYEQEBAAMAAAAAAAAAAAAAAAABAAIRIv/aAAwDAQACEQMRAD8AiR2FzJGjK64b62yc+e1azWM6QM5tZNezakceRSs55Emkt9sxHL4POPVdcvzkluNAzNleAVGPfus9M7xKZZzHYjphwEOBnHNFO1uXHVWNVVXySP3zRSlF/9k=", "x": 40.0, "y": 20.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwAUDg8SDw0UEhASFxUUGB4yIR4cHB49LC4kMklATEtHQEZFUFpzYlBVbVZFRmSIZW13e4GCgU5gjZeMfZZzfoF8/9sAQwEVFxceGh47ISE7fFNGU3x8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8/8AAEQgADgAYAwEiAAIRAQMRAf/EABYAAQEBAAAAAAAAAAAAAAAAAAQAA//EACEQAAIBBAICAwAAAAAAAAAAAAECAwAFESEEMRJRE0Gh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhEDEQA/ABrHPPc54vgRMrhkU6AIAoN1sT20F5HVl0MDsZ+jTLPypjeFPlgysqvj1kUG5cyflyynkv5kSnrXQqaC4GV5ePPGgzkb/MVVhanyY12AZBr1uqrB/9k=", "x": 60.0, "y": 20.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAiEAACAgIBAwUAAAAAAAAAAAABAgMRAAQSITFBBRRRkdH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/EABgRAAMBAQAAAAAAAAAAAAAAAAABEQIh/9oADAMBAAIRAxEAPwDEis5pFLH4Ay/CH27s1iRDV9fo9axSmVgYoWCtLUYJ8Waxc+lNp60kEkiHkzNa34r8xbciJjtJMbSA8EZq78ReGJ9P2pV1yFPfvYvDH1gsP//Z", "x": 80.0, "y": 20.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAE/8QAIRAAAgEEAgIDAAAAAAAAAAAAAQIDAAQRISIxBRITMmH/xAAVAQEBAAAAAAAAAAAAAAAAAAADAv/EABgRAQEBAQEAAAAAAAAAAAAAAAEAAhIh/9oADAMBAAIRAxEAPwBtrq3ktzG8qgMMabBoXzZ+WKAGYTunsQYxvGu6wRXCuz3BDcWKIOvXW61WE6yyOSnIYI/KPWh9kMpHyW7khwj9fZhgYqpqZivIgEMOqqPupL//2Q==", "x": 100.0, "y": 20.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQX/xAAlEAACAQQABAcAAAAAAAAAAAABAgMABBESIjFBURMUIXGBkaH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAwDAQACEQMRAD8Ay0a4QBwpAYDj8QL3x90xLi5gnRZFmEszDk2Rj3Ap13L5QImoMROAoHLqK59w8pJn3ZBg4VWPpUjNqJSxS2bTFbqOWQO4xhyNR2oqyDEiWsEqRurKOMoNxnbr8ftFPQgi3//Z", "x": 0.0, "y": 40.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAgT/xAAhEAEAAQMEAgMAAAAAAAAAAAABAgADERIhMVEEBRRB4f/EABYBAQEBAAAAAAAAAAAAAAAAAAIDBP/EABgRAAMBAQAAAAAAAAAAAAAAAAABAlES/9oADAMBAAIRAxEAPwDUe0uyeTGcbhVvnT06nRx1S2ATstwUYuJHb3UX5pcjA2GP7WbutK8rBjLzJEVQcH1RS29eyBA0DvpOKKau9A5WH//Z", "x": 20.0, "y": 40.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAjEAACAQQBAwUAAAAAAAAAAAABAgMABBEhEhMUIjFBUXGB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgT/xAAcEQABBAMBAAAAAAAAAAAAAAACAAEDEQQTIUH/2gAMAwEAAhEDEQA/AO5cqkMZZlIUbJI9hukSqqpzwSmM5HxU13LcSFYIptyNx5OM4FIWyRbiZHklkVVAIZvXOz+aonksD16iMNrDXvVlCWFv3C48nOQoNFUMwijLqoEcWwgGPqip2lkPtqjWA8pf/9k=", "x": 40.0, "y": 40.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQCBf/EACMQAAIBAwMEAwAAAAAAAAAAAAECEQADBAUSIhMhMVFBYZH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EAB4RAAICAAcAAAAAAAAAAAAAAAABAgMREhMxQlGx/9oADAMBAAIRAxEAPwCg4luCzMoHsmKi2gZNyzcAXb3Qjy37XTyraZdrp313LIMfYqS5p+O5biVBAWFgQAfj1U3dKSw2Gq0jHTxkKi65t7jA3DzSiaRhgHgzSZ5NNKGpNcvBZI9H/9k=", "x": 60.0, "y": 40.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBP/EACMQAAICAgICAQUAAAAAAAAAAAECAxEAIRIxBHFBIiNRYfD/xAAWAQEBAQAAAAAAAAAAAAAAAAABAwT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAMAwEAAhEDEQA/AOvki/aoRki9MOh833Y/GRRYPwPCMbQg0GOxRPx6OWjJLM6GNQyoZFYKL1oesjyIHERLSXtSxquTEX113u8zxesXgGlLQhH4U/1aBLd3/dYx5aPI0BkCF55AARYCgbI/fvGM0XH/2Q==", "x": 80.0, "y": 40.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EACAQAAICAgICAwAAAAAAAAAAAAECABEDBBIhBTFBkaH/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAWEQADAAAAAAAAAAAAAAAAAAAAARP/2gAMAwEAAhEDEQA/ANJ3MZNk/kDtYgpayaF+oi8B3wH1GYoa5IGr1YmVmXNE9XyOPbxFkRlI6IIhKYzjVjwxqp+aFQizE0f/2Q==", "x": 100.0, "y": 40.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAjEAACAgEDAwUAAAAAAAAAAAABAgMRAAQSIQUTMUFCYbHB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/8QAFxEBAQEBAAAAAAAAAAAAAAAAABMBAv/aAAwDAQACEQMRAD8AsGukDUp5+RdYuOrsNQYwJNw8m6GRMy9xpCzrfNKBQxCd4Hm3gSmU+4kD6GGmFNuvOZIgDsU+nFkfmGJ6U6lIuWjcsbtrsYZleVPX/9k=", "x": 0.0, "y": 60.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFBv/EACQQAAIBAwIGAwAAAAAAAAAAAAECAwAEEQUhEhMiMkFRMWGB/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/8QAGhEAAwEAAwAAAAAAAAAAAAAAAAERAwIEIf/aAAwDAQACEQMRAD8AvyQhVyxCj2TWa1mWLmI6zux4j0hsAKB8jH35p4arNcQdeMMCNhUZrCBJQSpIO3cfVby1vgFlCpo8sMlsFM5Z8AkO2SD++KKTisrdY1xH3bnc0U12IoTwp//Z", "x": 20.0, "y": 60.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDAf/EACMQAAIBBAEDBQAAAAAAAAAAAAECEQADEiEEUWGRIjFBcYH/xAAVAQEBAAAAAAAAAAAAAAAAAAAABP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwCiXEW3CaTemJMr0B6Uwvi3suCphgGSBM+Kmzvb4hv3GzIbRAgwRr9rLDu4hVAyUMpyIAB7VIpi/HvN6lVFCsCBiPft9fNFIVYE5NLKTlowx87ooR//2Q==", "x": 40.0, "y": 60.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgX/xAAnEAACAQMCAwkAAAAAAAAAAAABAgMAESEEEgUUMRMkUWFxcoGRsf/EABYBAQEBAAAAAAAAAAAAAAAAAAIDBP/EABoRAAIDAQEAAAAAAAAAAAAAAAABESFBAjH/2gAMAwEAAhEDEQA/AFeTZdLHKL3Y2a5F7enhVl045VDgt2hDEdTjH5Wg2j08u1ULiQDBbI+qifh0pjVknG/N7rgk1kXbeFrn0TGmjliWMgF9uWSUbgfaevxRTsHD7nvLIz2yRErX8s0UrHK0/9k=", "x": 60.0, "y": 60.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDAv/EACIQAAIBBAICAwEAAAAAAAAAAAECEQADEiFRoYHwEzFC0f/EABUBAQEAAAAAAAAAAAAAAAAAAAIE/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/AAAKkwumk8++7rJSf2G5adjf3wDBHdVt2SbZYsDCgkxsiJ/vmoZj43YMQRAU4yV7qZaQwBXK2CcZEHRPHdFK/ijMCoaGkhpPieNd0Uhr/9k=", "x": 80.0, "y": 60.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwAUDg8SDw0UEhASFxUUGB4yIR4cHB49LC4kMklATEtHQEZFUFpzYlBVbVZFRmSIZW13e4GCgU5gjZeMfZZzfoF8/9sAQwEVFxceGh47ISE7fFNGU3x8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8/8AAEQgADgAYAwEiAAIRAQMRAf/EABcAAQEBAQAAAAAAAAAAAAAAAAAFBgf/xAAoEAACAQMCAgsAAAAAAAAAAAABAgMAESEEEgWBBhQiIzFRYXGhwdH/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//EABsRAAMAAgMAAAAAAAAAAAAAAAABAgMREiFR/9oADAMBAAIRAxEAPwDUTTJEFRmAaS6oPM2J+q55qIk6rAY4SvZy221/2rXS7WywcT0iRnbtiYgjxBbB+BUrWavuYI0BG1QW92zjlYcqrNcXsMronFECiwsfWlJBgMMXpSrG0yqyLw//2Q==", "x": 100.0, "y": 60.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAgT/xAAeEAEAAgICAwEAAAAAAAAAAAABAgMAESExBBJBIv/EABYBAQEBAAAAAAAAAAAAAAAAAAMAAv/EABgRAAMBAQAAAAAAAAAAAAAAAAABAhEh/9oADAMBAAIRAxEAPwDjjWA7Ofi5qt0n5EOdOPajtylGimjxqLGqKzrl7cbV+YtUkg5ltkuItkkAi9B8wxcb2ryWvXtGUgNvWGSfDF7un//Z", "x": 0.0, "y": 80.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAUGAgP/xAAjEAACAgIBAgcAAAAAAAAAAAABAgMEABEFEiExQVFhcZHR/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwT/xAAcEQACAQUBAAAAAAAAAAAAAAAAAhEBAxITMTL/2gAMAwEAAhEDEQA/AEPA1Et8iiygNGAWYHz0M3Z4xo3cKCVViNge+NqddKCKFAZwCGcLosCc6WLbNMvRGpCjWyfHJmuT5KVWO0J7kuLkoAFzsFivx6feGUlmI8rQMEjmNiytsDq7jf7hi7FBwY//2Q==", "x": 20.0, "y": 80.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFA//EACUQAAICAQIEBwAAAAAAAAAAAAECABEhBBMDIjHREhRBUWFxsf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgT/xAAYEQADAQEAAAAAAAAAAAAAAAAAARJSAv/aAAwDAQACEQMRAD8A1GuYqTuMT7Yv8jHUlaJZqJwRXaSg7qjt0CCzRyY26X4SOpPxeZld6Ioo+a5S+4/WqJHaEm34uU+jAGvqEaXemFH/2Q==", "x": 40.0, "y": 80.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAiEAACAgEDBAMAAAAAAAAAAAABAgMRAAQSIQUiMVETYcH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAbEQEAAgIDAAAAAAAAAAAAAAABAAIDEhFBUf/aAAwDAQACEQMRAD8AnNq1SenDsCCtoLF34I/cS2sld22qWpu6gOBitcfh1sig0OGFffnLXT1Rod6XvcE93I7T6zXSpUfYBV4iYGncFlA3BjQLc1hmrEYXjMrwqQpoiuQT6wyOK3UWxP/Z", "x": 60.0, "y": 80.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAkEAABAwQBAwUAAAAAAAAAAAABAgMRAAQTITEFEiMUUcHR4f/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/8QAGREBAQADAQAAAAAAAAAAAAAAAQACEVES/9oADAMBAAIRAxEAPwDNh1JxTqZZyq2QAQJ1Me2pmuybhxxBuPTMpAB8RJkifup1nYqaug0+4FNJ8x7BCiePmmMpIVjJxrUlACuY3Ul5UDs65djRBx67lJBAieNjkc0VP6g2u0XIIGVHdozsAj9oo47noL//2Q==", "x": 80.0, "y": 80.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAOABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAiEAACAgEDBAMAAAAAAAAAAAABAgADERIiMQQTQWEhUXH/xAAWAQEBAQAAAAAAAAAAAAAAAAADAAH/xAAXEQEBAQEAAAAAAAAAAAAAAAAAASEx/9oADAMBAAIRAxEAPwDOQvZV3bLCF4zzn8ljIlipubb7BiqXNY7jAwvwB4AjNdLXZCEfW4wrhpvUloo1biT64EIzX0SZBtbVjwBiEmP/2Q==", "x": 100.0, "y": 80.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2ODApLCBxdWFsaXR5ID0gOTAK/9sAQwAUDg8SDw0UEhASFxUUGB4yIR4cHB49LC4kMklATEtHQEZFUFpzYlBVbVZFRmSIZW13e4GCgU5gjZeMfZZzfoF8/9sAQwEVFxceGh47ISE7fFNGU3x8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8/8AAEQgADgAYAwEiAAIRAQMRAf/EABgAAAIDAAAAAAAAAAAAAAAAAAAEAQUG/8QAIhABAAICAQQCAwAAAAAAAAAAAQIRAAMhBAUTMRJBFGGB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgP/xAAYEQEBAAMAAAAAAAAAAAAAAAARAAECIf/aAAwDAQACEQMRAD8Ae6aRp7ZHb8ScYxVD2l4fl6OoNuvUvkIL6r6xDtnXME1JYUrXPPFZcbq8EwiCxf5xk9csnlk4bK1QgxBpCT7jf7wyNOqiBNs+6cMQwS//2Q==", "x": 0.0, "y": 100.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFAwT/xAAiEAACAgIBBAMBAAAAAAAAAAABAgMEACERBRITMSIyQXH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQIRAyExQf/aAAwDAQACEQMRAD8A36dZWqFFoMY24CkgjfGPd6mlmJoVHbC4P91kCK9ajgaHzs0Uk3BVzzrHsW3rpboD5QuwYEk9ynX7gUFVILhXp3pLVjHPmUL6AwyXPO9sV3m+yoycronfvWGS0tGscc2un//Z", "x": 20.0, "y": 100.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAkEAACAQMDAwUAAAAAAAAAAAABAgMABBESEyEFIjEyQVFhgf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERAkH/2gAMAwEAAhEDEQA/AE3uwLkrtJpY+r6p2G5WVCNG2vjDAgflPXFtbWd5GIbdBpIYHnOatm6Ulye6VwIkJx885808jJM9NsIoDtleMkGioxxbvVJYdTBUdsHPtRUPMFOn/9k=", "x": 40.0, "y": 100.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA7Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBxdWFsaXR5ID0gODgK/9sAQwAUDg8SDw0UEhASFxUUGB4yIR4cHB49LC4kMklATEtHQEZFUFpzYlBVbVZFRmSIZW13e4GCgU5gjZeMfZZzfoF8/9sAQwEVFxceGh47ISE7fFNGU3x8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8/8AAEQgADQAYAwEiAAIRAQMRAf/EABcAAAMBAAAAAAAAAAAAAAAAAAAEBQH/xAAiEAACAgICAgIDAAAAAAAAAAABAgMRAAQSIRMxBRRBYZH/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEiFR/9oADAMBAAIRAxEAPwDNR9uAN4pOBqnC9/3rEmkfzM6FmKKEFd+/WU9b5RZ/lBq/XC8jRflf4v1WRCWjmeIMQhcrQ665XWKK0MnhUSfd0NJpWQeNxTWt0LwxT7kssk2tIxeJ7sH9YYbdFU//2Q==", "x": 60.0, "y": 100.0}, {"l": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAUA/8QAIxAAAgEDBAEFAAAAAAAAAAAAAQIDAAQxERIhQdEFExUiMv/EABYBAQEBAAAAAAAAAAAAAAAAAAIDBP/EABYRAQEBAAAAAAAAAAAAAAAAAAABEv/aAAwDAQACEQMRAD8AF6fcXQlSNJ3jjJ5YnFXBcOIgflQevyfFTLaOOUMxjVfsRooHVJjRd0IZVJY7cY74qUrTU68vryRD7skg1wA3itS3hjJ5RSCNcY5PFajosv/Z", "x": 80.0, "y": 100.0}], SUTUN = 6, SATIR = 6;
+
+var SURE = 4000;     // ms — tüm gösterinin uzunluğu
+var KARO = 104;      // px — tek karo kenarı
+var CEVRE = 14;      // halka başına karo
+var YATIK = 45;      // derece — rotateX: hortumun ağzı kameraya dönüyor
+var EGIM = 18;       // derece — rotateZ: iniş yönünü çaprazlaştırıyor
+var UZUNLUK = 1.1;   // hortum boyu / ekran köşegeni
+var LOGO_AN = 0.52;  // logonun belirmeye başladığı an (0-1)
+
+var tup = document.getElementById('tup');
+var logo = document.getElementById('logo');
+var oynatimlar = [];
+
+function kur() {
+  document.getElementById('vSure').textContent = (SURE / 1000).toFixed(1) + ' sn';
+  document.getElementById('vKaro').textContent = KARO + ' px';
+  document.getElementById('vCevre').textContent = CEVRE;
+  document.getElementById('vYatik').textContent = YATIK + '°';
+  document.getElementById('vEgim').textContent = EGIM + '°';
+  document.getElementById('vUzun').textContent = UZUNLUK.toFixed(1) + '×';
+  document.getElementById('vLogoAn').textContent = '%' + Math.round(LOGO_AN * 100);
+
+  tup.innerHTML = '';
+  tup.style.setProperty('--yatik', YATIK + 'deg');
+
+  // Yarıçap: karolar yan yana DEĞMELİ. Çevrede n karo varsa merkez
+  // açısı 360/n; kenarı tam kapatan yarıçap (kenar/2) / tan(açı/2).
+  var R = (KARO / 2) / Math.tan(Math.PI / CEVRE);
+  // Logo hortumun ağzından çıkıyormuş gibi dursun diye hortumun İÇ
+  // yarıçapından küçük başlıyor; büyüdükçe ağızdan taşıyor.
+  logo.style.width = Math.round(Math.min(innerWidth * 0.34, R * 1.25)) + 'px';
+  var olcek = (SUTUN * 100) + '% ' + (SATIR * 100) + '%';
+
+  // Hortum uzunluğu ekranın KÖŞEGENİNE göre: 45 derece yatıkken
+  // ekranı kat eden mesafe yükseklik değil köşegen.
+  var kosegen = (innerWidth + innerHeight) * 0.7072;
+  var adim = KARO * 0.94;
+  // Uzunluk denetime açık. 2,2 ile başlanmıştı ve perspektif altında
+  // sonsuza giden bir boru gibi okunuyordu; 1,1 civarı "inen bir parça"
+  // hissi veriyor.
+  var halkaSayisi = Math.ceil((kosegen * UZUNLUK) / adim) + 2;
+  // Hortum kendi başlangıç noktasının ETRAFINA diziliyor, altına değil.
+  // Aşağı doğru dizildiğinde gövdenin tamamı başlangıcın altında
+  // kalıyordu ve iniş hiç görünmüyordu.
+  var merkez = (halkaSayisi - 1) / 2;
+  tup.dataset.yol = Math.round((halkaSayisi * adim) / 2 + kosegen / 2);
+  var n = 0;
+
+  for (var h = 0; h < halkaSayisi; h++) {
+    var halka = document.createElement('div');
+    halka.className = 'halka';
+    halka.style.transform = 'translateY(' + ((h - merkez) * adim) + 'px)';
+
+    for (var c = 0; c < CEVRE; c++) {
+      // Helezon: her halka birkaç derece kayıyor. Birebir üst üste
+      // dizilen halkalar hortumu dikişli bir boru gibi gösteriyordu.
+      var aci = (c * 360 / CEVRE) + (h * 360 / CEVRE / 3);
+      var k = KARELER[n++ % KARELER.length];
+
+      var karo = document.createElement('div');
+      karo.className = 'karo';
+      karo.style.width = karo.style.height = KARO + 'px';
+      karo.style.marginLeft = (-KARO / 2) + 'px';
+      karo.style.backgroundSize = olcek;
+      karo.style.backgroundPosition = k.x + '% ' + k.y + '%';
+      karo.style.transform = 'rotateY(' + aci + 'deg) translateZ(' + R + 'px)';
+
+      // Sis: karo ne kadar ARKADA ise o kadar krem. cos(açı) öne
+      // bakanda 1, arkaya bakanda -1; 0..0,62 aralığına eşleniyor.
+      var on = Math.cos(aci * Math.PI / 180);
+      karo.style.setProperty('--sis', (0.62 - on * 0.52).toFixed(3));
+
+      halka.appendChild(karo);
+    }
+    tup.appendChild(halka);
+  }
+  oynat();
+}
+
+function oynat() {
+  oynatimlar.forEach(function (o) { try { o.cancel(); } catch (e) {} });
+  oynatimlar = [];
+
+  // Gidiş mesafesi kur() içinde hesaplandı: hortumun yarısı + ekranın
+  // yarısı. Bu kadarı hortumun tamamen üstte başlayıp tamamen altta
+  // bitmesini garanti ediyor.
+  var yol = parseFloat(tup.dataset.yol) || innerHeight;
+
+  // Dönüşüm sırası ÖNEMLİ: önce eğim (rotateZ), sonra yatıklık
+  // (rotateX), sonra eksende ilerleme (translateY). Ters sırada
+  // ilerleme ekran eksenine göre olur ve hortum kendi borusundan
+  // kayarak çıkar.
+  function cerceve(ilerle, don) {
+    return 'translate(-50%,-50%) rotateZ(' + EGIM + 'deg) rotateX(' + YATIK +
+           'deg) translateY(' + ilerle + 'px) rotateY(' + don + 'deg)';
+  }
+
+  // Hortum: yukarıdan iniyor, inerken dönüyor, sonunda aşağıda kayboluyor.
+  // `easeOut` değil hafif `easeInOut`: baştan sona sabit hız mekanik
+  // duruyor, tam easeOut ise sonunda asılı kalıyor.
+  oynatimlar.push(tup.animate([
+    { transform: cerceve(-yol, 0), opacity: 0 },
+    { offset: 0.10, opacity: 1 },
+    { offset: 0.72, opacity: 1 },
+    { transform: cerceve(yol, 150), opacity: 0 }
+  ], { duration: SURE, easing: 'cubic-bezier(0.42, 0, 0.30, 1)', fill: 'forwards' }));
+
+  // Logo: hortumun ağzından çıkıyor. Hortum onu GEÇERKEN beliriyor —
+  // bu yüzden gecikme toplam sürenin %38'i.
+  // Logo hortum GEÇTİKTEN sonra beliriyor. İlk denemede ikisi
+  // çakışıyordu ve logo yoğun karoların arasında kayboluyordu —
+  // ekranda iki şey birden olunca ikisi de okunmuyor.
+  oynatimlar.push(logo.animate([
+    { transform: 'translate(-50%,-50%) translateZ(-760px) scale(.4)', opacity: 0, offset: 0 },
+    { transform: 'translate(-50%,-50%) translateZ(-220px) scale(.78)', opacity: .6, offset: 0.5 },
+    { transform: 'translate(-50%,-50%) translateZ(0) scale(1)', opacity: 1, offset: 0.85 },
+    { transform: 'translate(-50%,-50%) translateZ(0) scale(1)', opacity: 1, offset: 1 }
+  ], { duration: SURE * (1 - LOGO_AN), delay: SURE * LOGO_AN,
+       easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' }));
+}
+
+document.getElementById('panel').addEventListener('click', function (e) {
+  var d = e.target.dataset.d; if (!d) return;
+  var y = parseInt(e.target.dataset.y, 10);
+  if (d === 'tekrar') { oynat(); return; }
+  if (d === 'sure') SURE = Math.max(1600, Math.min(9000, SURE + y));
+  else if (d === 'karo') KARO = Math.max(48, Math.min(220, KARO + y));
+  else if (d === 'cevre') CEVRE = Math.max(6, Math.min(30, CEVRE + y));
+  else if (d === 'yatik') YATIK = Math.max(0, Math.min(88, YATIK + y));
+  else if (d === 'egim') EGIM = Math.max(-60, Math.min(60, EGIM + y));
+  else if (d === 'uzun') UZUNLUK = Math.max(0.4, Math.min(3, UZUNLUK + y / 100));
+  else if (d === 'logoan') LOGO_AN = Math.max(0.1, Math.min(0.9, LOGO_AN + y / 100));
+  kur();
+});
+
+var z;
+addEventListener('resize', function () { clearTimeout(z); z = setTimeout(kur, 240); });
+kur();
+</script></body></html>
