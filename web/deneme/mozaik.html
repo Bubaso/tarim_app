@@ -16,8 +16,16 @@ html,body{margin:0;height:100%;background:#F6F1E7;overflow:hidden}
   --boy:0px; --ara:8px;
 }
 .serit{height:var(--boy); overflow:hidden; flex:0 0 auto}
-.akis{display:flex; gap:var(--ara); width:max-content;
-      animation:kay var(--hiz) linear infinite; will-change:transform}
+.akis{display:flex; gap:var(--ara); width:max-content; will-change:transform;
+      /* Kısayol DEĞİL, ayrı ayrı. Kısayolda `animation:kay var(--hiz) ...`
+         yazıyordu ve `--hiz` hiç tanımlanmıyordu; tanımsız var() kısayolun
+         TAMAMINI geçersiz kılıyor, yani animation-name hiç kurulmuyordu.
+         Süreyi JS ile atamak da kurtarmıyor — adı olmayan animasyonun
+         süresi çalışmıyor. İki cihazda da kareler bu yüzden donuktu. */
+      animation-name:kay;
+      animation-timing-function:linear;
+      animation-iteration-count:infinite;
+      animation-duration:60s}
 .serit.ters .akis{animation-direction:reverse}
 @keyframes kay{from{transform:translate3d(0,0,0)} to{transform:translate3d(-50%,0,0)}}
 
@@ -91,8 +99,10 @@ var BOY = 0, ARA = 8, LOGO_ARALIK = 14, LOGO_SERIT = 3;
 // BÜYÜYOR ama ekrana oranla küçülüyor — yani mozaik daha çok kare
 // gösteriyor, ki masaüstünde istenen tam olarak bu.
 function varsayilanBoy() {
+  // Kullanıcı iki cihazda da deneyip karar verdi (9 Kasım 2026):
+  // telefonda 124, masaüstünde 200. Aradaki geçiş kısa kenardan.
   var kisa = Math.min(innerWidth, innerHeight);
-  return Math.round(Math.max(200, Math.min(320, kisa * 0.52)));
+  return kisa < 600 ? 124 : 200;
 }
 
 var BOY_AYAR = 0 > 0 ? 0 : varsayilanBoy();
@@ -186,6 +196,11 @@ function kur(){
     // 19,5 ölçülüyordu).
     var yol = akis.scrollWidth / 2;
     akis.style.animationDuration = (yol / seritHizi).toFixed(1) + 's';
+    // Kendi kendini denetleme: animasyon adı kurulmadıysa ekranda
+    // donuk kareler kalır ve bu hiçbir hata vermez. Konsola yazıyor.
+    if (getComputedStyle(akis).animationName !== 'kay') {
+      console.error('[mozaik] animation-name kurulmadı — akış çalışmayacak');
+    }
   }
 
   // Adres başına TEK indirme. Mozaikte yüzlerce kare var ama benzersiz
