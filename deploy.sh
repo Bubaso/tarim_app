@@ -204,6 +204,15 @@ fi
 echo "▸ Ana sayfa link listesi gömülüyor…"
 python3 scripts/ana_sayfa_linkleri.py
 
+# Açılış mozaiğinin sprite'ı. `flutter build web`den SONRA çalışmak
+# zorunda: çıktıyı build/web içine yazıyor ve index.html'i düzenliyor.
+#
+# Başarısız olursa dağıtım DURMUYOR — mozaik LQIP'siz kalır ve açılış
+# ekranı düz krem olur; sayfa çalışmaya devam eder. Yine de uyarı
+# basılıyor, sessizce boş bir ekrana düşülmesin.
+echo "▸ Açılış mozaiği üretiliyor…"
+python3 scripts/mozaik_uret.py || echo "  ⚠ mozaik üretilemedi — açılış ekranı boş kalacak" 
+
 echo "▸ Fonksiyon sözdizimi denetimi…"
 node --check functions/index.js
 node --check functions/config.js

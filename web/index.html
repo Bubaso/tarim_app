@@ -240,6 +240,10 @@
   <!-- Açılış ekranındaki katmanlar ilk boyanan şey olsun; ayrı bir istek
        beklemesin. Üçü birden ~100 KB. -->
   <link rel="preload" as="image" href="icons/splash-mark.png">
+  <!-- Mozaik sprite'ı derleme anında buraya ekleniyor
+       (scripts/mozaik_uret.py). <head>'de olması şart: betik
+       çalışana kadar beklemek yarım saniye kaybettiriyor. -->
+  <!-- MOZAIK_PRELOAD_START --><!-- MOZAIK_PRELOAD_END -->
 
   <script>
     // Rota artık adresin `#` sonrasında değil, yolun kendisinde tutuluyor
@@ -356,19 +360,25 @@
       flex: 0 0 auto; border-radius: 4px; overflow: hidden;
       background: #E6DECF 50%/cover no-repeat;
     }
-    .kare img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      opacity: 0; transition: opacity 560ms ease-out;
+    /* Net katman: TEK sprite'ın ilgili karesi. Ayrı <img> yerine arka
+       plan konumu kullanılıyor çünkü 35 görselin hepsi aynı dosyada.
+       Sprite indiğinde `#mozaik.net` sınıfı kuruluyor ve bütün kareler
+       AYNI ANDA netleşiyor — tek tek inen kareler "yavaş yavaş
+       yükleniyor" hissi veriyordu. */
+    .kare i {
+      position: absolute; inset: 0; display: block;
+      background-image: var(--sprite);
+      background-repeat: no-repeat;
+      opacity: 0; transition: opacity 420ms ease-out;
     }
-    .kare img.geldi { opacity: 1; }
+    #mozaik.net .kare i { opacity: 1; }
 
     /* Marka karesi: haberlerin arasında, onlarla AYNI ölçüde bir kare —
        ayrı bir katman ya da ortada duran bir kilit birim değil, akışın
        parçası. Yalnızca TEK şeritte; her şeritte olunca ekran "haber"
        değil "marka deseni" gibi okunuyordu. */
     .kare.marka { background: #F1EADC; display: flex; align-items: center; justify-content: center; }
-    .kare.marka img { position: static; width: 62%; height: auto; opacity: 1; }
+    .kare.marka img { position: static; width: 62%; height: auto; opacity: 1; display: block; }
 
     /* Kenarlar yumuşasın: mozaik kesilmiş değil, ekranın dışına taşıyor gibi. */
     #vinyet {
@@ -378,17 +388,24 @@
     }
 
     /* Yavaş bağlantı için geç geri bildirim. Hızlı açılışta hiç görünmüyor. */
+    /* Bekleme çubuğu.
+       Eskiden 2.600 ms'de beliriyordu ama MIN_MS 2.500'e çekilince
+       ekran çoğu zaman o eşiğe varmadan kalkıyordu — yani çubuk pratikte
+       HİÇ görünmüyordu. Artık erken giriyor ve fotoğrafların üstünde
+       okunacak kadar belirgin: 2 px yerine 4, soluk gri yerine koyu
+       zemin üstünde marka yeşili. */
     #splash-wait {
       position: absolute; left: 50%; transform: translateX(-50%);
-      bottom: calc(env(safe-area-inset-bottom, 0px) + 56px);
-      width: 116px; height: 2px; border-radius: 2px; overflow: hidden;
-      background: rgba(58, 46, 32, 0.14);
-      opacity: 0; z-index: 2; transition: opacity 700ms ease-out;
+      bottom: calc(env(safe-area-inset-bottom, 0px) + 64px);
+      width: 148px; height: 4px; border-radius: 4px; overflow: hidden;
+      background: rgba(42, 35, 24, 0.22);
+      box-shadow: 0 0 0 4px rgba(246, 241, 231, 0.55);
+      opacity: 0; z-index: 2; transition: opacity 420ms ease-out;
     }
     #splash-wait.is-on { opacity: 1; }
     #splash-wait i {
-      position: absolute; inset: 0 auto 0 0; width: 42%; border-radius: 2px;
-      background: rgba(92, 138, 74, 0.55);
+      position: absolute; inset: 0 auto 0 0; width: 42%; border-radius: 4px;
+      background: #31603C;
       animation: splash-wait-run 1500ms cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
     @keyframes splash-wait-run {
@@ -484,31 +501,18 @@
     //  ekranın tek iyi özelliğini öldürürdü.
     // ══════════════════════════════════════════════════════════════════
     (function () {
-      var KARELER = [];
-      try {
-        // `shared_preferences` web'de localStorage'a `flutter.` ÖNEKİYLE
-        // yazıyor ve değeri bir kez daha JSON'layabiliyor (String için
-        // sarmalanmış bir dizge çıkıyor). İki biçimi de kabul ediyoruz:
-        // tek çözümde dizi gelirse o, yine dizge gelirse ikinci çözüm.
-        // Paket sürümü değiştiğinde biçim değişirse ekran sessizce
-        // boşalmasın diye iki yol da açık.
-        var ham = localStorage.getItem('flutter.mozaik_kareler');
-        if (ham) {
-          var taze = JSON.parse(ham);
-          if (typeof taze === 'string') taze = JSON.parse(taze);
-          if (Array.isArray(taze) && taze.length >= 12) KARELER = taze;
-        }
-      } catch (e) {}
-      if (!KARELER.length && Array.isArray(window.__MOZAIK)) KARELER = window.__MOZAIK;
-      if (!KARELER.length) return;   // veri yoksa düz krem; kırılmıyor
+      var VERI = window.__MOZAIK;
+      if (!VERI || !VERI.kareler || VERI.kareler.length < 12) return;
+      var KARELER = VERI.kareler;
 
       var LOGO = 'icons/splash-mark.png';
       var LOGO_ARALIK = 14;   // kaç karede bir marka karesi
       var LOGO_SERIT = 3;     // yalnızca bu şeritte (0 = en üst)
-      var HIZ = 10;           // px/sn — kullanıcı iki cihazda deneyip seçti
+      var HIZ = 10;           // px/sn — iki cihazda denenerek seçildi
 
       var mozaik = document.getElementById('mozaik');
       if (!mozaik) return;
+      mozaik.style.setProperty('--sprite', 'url(mozaik.jpg)');
 
       function boy() {
         // Sabit piksel iki uçta da yanlış: telefonda ekranın yarısı,
@@ -529,8 +533,9 @@
         // Dikişsiz döngü: kayma %50'ye varınca liste başa dönüyor, ek
         // yeri görünmüyor. Bu yüzden içerik tuvalin iki katı.
         var yarim = Math.ceil(kenar / (BOY + ARA)) + 2;
+        // Sprite ızgarası kare başına ölçekleniyor: 6 sütun → %600.
+        var olcek = (VERI.sutun * 100) + '% ' + (VERI.satir * 100) + '%';
 
-        var grup = {};
         for (var i = 0; i < seritSayisi; i++) {
           var serit = document.createElement('div');
           serit.className = 'serit' + (i % 2 ? ' ters' : '');
@@ -549,10 +554,10 @@
               var k = KARELER[(i * 5 + j) % KARELER.length];
               kare.className = 'kare';
               if (k.l) kare.style.backgroundImage = 'url(' + k.l + ')';
-              var img = document.createElement('img');
-              img.alt = ''; img.setAttribute('aria-hidden', 'true');
-              kare.appendChild(img);
-              if (k.t) (grup[k.t] = grup[k.t] || []).push(img);
+              var net = document.createElement('i');
+              net.style.backgroundSize = olcek;
+              net.style.backgroundPosition = k.x + '% ' + k.y + '%';
+              kare.appendChild(net);
             }
             akis.appendChild(kare);
           }
@@ -566,37 +571,27 @@
           var hiz = HIZ * (1 + (i % 3) * 0.22);
           akis.style.animationDuration = ((akis.scrollWidth / 2) / hiz).toFixed(1) + 's';
         }
-
-        // Adres başına TEK indirme. Mozaikte yüzlerce kare var ama
-        // benzersiz görsel otuz küsur; kare başına istek açmak bant
-        // genişliğini main.dart.js ile yarıştırırdı — açılışı
-        // hızlandırsın diye kurulan ekran açılışı yavaşlatmış olurdu.
-        var adresler = Object.keys(grup), i2 = 0;
-        function sonraki() {
-          if (i2 >= adresler.length) return;
-          var src = adresler[i2++];
-          var yukleyici = new Image();
-          yukleyici.onload = function () {
-            var liste = grup[src];
-            for (var n = 0; n < liste.length; n++) {
-              liste[n].src = src;
-              liste[n].classList.add('geldi');
-            }
-            sonraki();
-          };
-          yukleyici.onerror = sonraki;
-          yukleyici.src = src;
-        }
-        sonraki(); sonraki();
       }
 
       kur();
+
+      // Sprite TEK parça: indiğinde bütün kareler aynı anda netleşiyor.
+      // <head>'deki preload zaten indirmeye başlamış oluyor; buradaki
+      // Image yalnızca "indi mi" sorusunu cevaplıyor, ikinci bir istek
+      // açmıyor (aynı adres, aynı önbellek girdisi).
+      var sprite = new Image();
+      sprite.onload = function () { mozaik.classList.add('net'); };
+      sprite.src = 'mozaik.jpg';
 
       // Ekran döndüğünde şerit ve kare sayısı yeniden hesaplanmalı.
       var zaman;
       addEventListener('resize', function () {
         clearTimeout(zaman);
-        zaman = setTimeout(kur, 220);
+        zaman = setTimeout(function () {
+          var netti = mozaik.classList.contains('net');
+          kur();
+          if (netti) mozaik.classList.add('net');
+        }, 220);
       });
     })();
   </script>
@@ -630,7 +625,11 @@
 
       // Yavaş bağlantıda ekranın donduğu sanılmasın diye bekleme çizgisi.
       // Eşik MIN_MS'in belirgin üstünde: normal açılışta hiç görünmüyor.
-      var HINT_MS = 2600;
+      // Eskiden 2.600 idi ve MIN_MS 2.500'e çekilince çubuk pratikte
+      // HİÇ görünmüyordu — kullanıcı "hiç görünmüyor" diye bildirdi.
+      // 900 ms: hızlı açılışta bile ekran en az 2,5 saniye duruyor,
+      // yani çubuğun görünmesi için bir sebep var.
+      var HINT_MS = 900;
 
       var startedAt = Date.now();
       var done = false;

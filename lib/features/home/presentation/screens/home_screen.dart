@@ -47,7 +47,6 @@ import '../../providers/font_scale_provider.dart';
 import '../widgets/hava_ikonu.dart';
 import '../widgets/sektorel_blok.dart';
 import '../widgets/kapanis_blogu.dart';
-import '../../../../core/services/mozaik_onbellegi.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -60,13 +59,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   final TextEditingController _searchController = TextEditingController();
   final FocusNode _searchFocusNode = FocusNode();
 
-  /// Açılış mozaiği bir kez yazıldı mı.
-  ///
-  /// `latestArticlesProvider` bir AKIŞ: liste her tazelendiğinde dinleyici
-  /// yeniden tetikleniyor. Her seferinde yazmak gereksiz — ekran bir
-  /// sonraki AÇILIŞTA okunuyor, bu oturumda kaç kez güncellendiği
-  /// hiçbir şeyi değiştirmiyor.
-  bool _mozaikYazildi = false;
 
   // Bildirim izni artık bloke eden bir diyalogla değil, hero'nun altındaki
   // [NotificationPromptStrip] ile isteniyor.
@@ -81,17 +73,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
 
-    // Bir sonraki açılışın mozaiği. Uygulama bu veriyi zaten çekiyor;
-    // saklamanın maliyeti bir localStorage yazması. Ayrıntı:
-    // core/services/mozaik_onbellegi.dart
-    ref.listen<AsyncValue<List<NewsArticle>>>(latestArticlesProvider,
-        (onceki, simdiki) {
-      if (_mozaikYazildi) return;
-      final liste = simdiki.valueOrNull;
-      if (liste == null || liste.isEmpty) return;
-      _mozaikYazildi = true;
-      mozaigiSakla(liste);
-    });
     final theme = Theme.of(context);
     final localizations = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
