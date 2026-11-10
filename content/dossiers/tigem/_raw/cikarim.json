@@ -1,0 +1,708 @@
+{
+ "_dosya": "TİGEM — Kurum Dosyası Sayı 06 · ham çıkarım",
+ "_amac": "Her blok KAPSAMINI ve KAYNAK NİTELİĞİNİ taşır. build_data.py bunları sınar.",
+ "_tarih": "11 Kasım 2026",
+ "kurulus_silsilesi": {
+  "_kapsam": "Kurumun soyunu kuran ve bugünkü hâlini belirleyen belgeler; hepsi birincil metinden okundu",
+  "_kaynak_niteligi": "BİRİNCİL — TBMM Kanunlar Dergisi ve Resmî Gazete arşivi",
+  "halkalar": [
+   {
+    "yil": 1937,
+    "belge": "3130 sayılı Kanun",
+    "tur": "kanun",
+    "rg": "19/11/1937 · 3538",
+    "kabul": "12.II.1937",
+    "ne": "Ziraat Vekâleti bütçesinde 858'inci fasıl açıldı: 'Ziraî kombinalar kurumu masrafları' 3.000.000 lira",
+    "kaynak": "tbmm_kanun_3130_zirai_kombinalar_1937.pdf"
+   },
+   {
+    "yil": 1938,
+    "belge": "3308 sayılı Kanun",
+    "tur": "kanun",
+    "rg": "13/1/1938 · 3807",
+    "kabul": "7.I.1938",
+    "ne": "Devlet Ziraat İşletmeleri Kurumu kuruldu; Atatürk'ün 11.VI.1937 tarihli mektupla Hazineye bağışladığı mallar kuruma geçti",
+    "kaynak": "tbmm_kanun_3308_dzik_1938.pdf"
+   },
+   {
+    "yil": 1948,
+    "belge": "5254 sayılı Kanun",
+    "tur": "kanun",
+    "rg": "14/7/1948 · 6957",
+    "kabul": "8.VII.1948",
+    "ne": "Muhtaç çiftçiye Ziraat Bankası eliyle ödünç ve faizsiz tohumluk; 2001'de 4684 sayılı Kanunla mülga",
+    "kaynak": "tbmm_kanun_5254_odunc_tohumluk_1948.pdf"
+   },
+   {
+    "yil": 1949,
+    "belge": "5433 sayılı Kanun",
+    "tur": "kanun",
+    "rg": "13/6/1949 · 7231",
+    "kabul": "7.VI.1949",
+    "ne": "Devlet Üretme Çiftlikleri Genel Müdürlüğü kuruldu; katma bütçeli, Tarım Bakanlığına bağlı",
+    "kaynak": "tbmm_kanun_5433_duc_1949.pdf"
+   },
+   {
+    "yil": 1950,
+    "belge": "5659 sayılı Kanun",
+    "tur": "kanun",
+    "rg": "1/4/1950 · 7472",
+    "kabul": "24.III.1950",
+    "ne": "Atatürk Orman Çiftliği ayrı bir müdürlük oldu; sermayesi 7.500.000 lira",
+    "kaynak": "tbmm_kanun_5659_aoc_1950.pdf"
+   },
+   {
+    "yil": 1983,
+    "belge": "95 sayılı KHK",
+    "tur": "khk",
+    "rg": "28/10/1983 · 18205 Mükerrer",
+    "kabul": "BKK 10/10/1983",
+    "ne": "TİGEM adıyla Kamu İktisadi Kuruluşu kuruldu; merkez Ankara, sermaye 30 milyar TL",
+    "kaynak": "rg_18205_khk95_tigem_kurulus.pdf"
+   },
+   {
+    "yil": 1984,
+    "belge": "233 sayılı KHK",
+    "tur": "khk",
+    "rg": "18/6/1984 · 18435 Mükerrer",
+    "kabul": "8.6.1984",
+    "ne": "KİT çerçevesi 60 sayılı KHK'den 233'e geçti; TİGEM ekli cetvelde Kamu İktisadi Kuruluşu olarak yer aldı",
+    "kaynak": "rg_18435_khk233_tigem.pdf"
+   },
+   {
+    "yil": 1990,
+    "belge": "3646 sayılı Kanun",
+    "tur": "kanun",
+    "rg": "25/5/1990 · 20528",
+    "kabul": "16 Mayıs 1990",
+    "ne": "Mülga 5433 ile Devlet Üretme Çiftlikleri'ne geçen taşınmazlar ve hara-inekhane arazileri TİGEM adına tapuya tescil edildi",
+    "kaynak": "kanun_3646_tescil.docx"
+   },
+   {
+    "yil": 1994,
+    "belge": "4046 sayılı Kanun md. 35",
+    "tur": "kanun",
+    "rg": "24/11/1994",
+    "kabul": "24/11/1994",
+    "ne": "233 sayılı KHK'nin ekli cetvelleri yeniden tespit edildi; TİGEM İktisadi Devlet Teşekkülü bölümüne geçti",
+    "kaynak": "khk_233_kit.pdf — dipnot 47"
+   },
+   {
+    "yil": 2022,
+    "belge": "Ana Statü · Cumhurbaşkanı Kararı 5141",
+    "tur": "karar",
+    "rg": "2/2/2022 · 31738",
+    "kabul": "1 Şubat 2022",
+    "ne": "Bugünkü kurucu metin; dayanağı 233 ve 399 sayılı KHK'ler",
+    "kaynak": "rg_2022_ana_statu_5141.pdf"
+   }
+  ]
+ },
+ "gorev_cumlesi": {
+  "_kapsam": "Kurumun görev tanımının üç ayrı belgedeki hâli; dosyanın omurgası",
+  "_kaynak_niteligi": "BİRİNCİL — üç belgeden de kendi metninden alıntılandı",
+  "halkalar": [
+   {
+    "yil": 1949,
+    "belge": "5433 sayılı Kanun, madde 1",
+    "alinti": "Yurt çiftçiliğinin zirai verimini artırmak, istihsalini çeşitlendirmek ve mahsulün kalitesini yükseltmek amacı ile iyi tohumluk, damızlık ve fidan ihtiyacını sağlamak, tarım alanında çiftçiye örneklik ve öğreticilik etmek üzere"
+   },
+   {
+    "yil": 1983,
+    "belge": "95 sayılı KHK, madde 3/1",
+    "alinti": "Ülkenin bitkisel ve hayvansal üretimini artırmak, çeşitlendirmek ve ürün kalitesini iyileştirmek amacıyla yetiştirdiği damızlık hayvan, tohum, fidan, fide ve benzerleriyle ürettiği spermaları yetiştiricilere intikal ettirmek"
+   },
+   {
+    "yil": 2022,
+    "belge": "Ana Statü, madde 5/1-a",
+    "alinti": "Ürettiği tohumluk, fidan, fide ve benzeri ürünler ile yetiştirdiği damızlık hayvanlar ve spermalarını üreticilere intikal ettirmek"
+   }
+  ]
+ },
+ "arazi": {
+  "_kapsam": "25.07.2023 · faaliyette olan 17 işletme + Genel Müdürlük yerleşkesi; kiraya verilen ve iştirak AYRI satırda",
+  "_kaynak_niteligi": "KURUMUN BEYANI — tigem.gov.tr arazi varlığı PDF'i; satır toplamları betikle yeniden hesaplandı",
+  "_birim": "dekar",
+  "tarih": "2023-07-25",
+  "genel_mudurluk": 1771.22,
+  "isletmeler": [
+   {
+    "sira": 1,
+    "isletme": "Altınova",
+    "toplam": 310259.0,
+    "kulturalti": 299739.0,
+    "tarla": 234460.0,
+    "yem_bitkileri": 31530.0,
+    "tabii_mera": 25058.0,
+    "bahce": 8691.0,
+    "kulturdisi": 10520.2,
+    "sulanan": 41282.0
+   },
+   {
+    "sira": 2,
+    "isletme": "Anadolu",
+    "toplam": 44824.0,
+    "kulturalti": 42265.0,
+    "tarla": 18880.0,
+    "yem_bitkileri": 13441.0,
+    "tabii_mera": 9061.0,
+    "bahce": 883.0,
+    "kulturdisi": 2559.0,
+    "sulanan": 17636.0
+   },
+   {
+    "sira": 3,
+    "isletme": "Boztepe",
+    "toplam": 3208.4,
+    "kulturalti": 2951.0,
+    "tarla": 237.0,
+    "yem_bitkileri": 0.0,
+    "tabii_mera": 0.0,
+    "bahce": 2714.0,
+    "kulturdisi": 257.4,
+    "sulanan": 2882.0
+   },
+   {
+    "sira": 4,
+    "isletme": "Ceylanpınar",
+    "toplam": 1633157.3,
+    "kulturalti": 1435911.7,
+    "tarla": 902823.0,
+    "yem_bitkileri": 63613.0,
+    "tabii_mera": 403815.0,
+    "bahce": 65660.0,
+    "kulturdisi": 197245.6,
+    "sulanan": 696475.0
+   },
+   {
+    "sira": 5,
+    "isletme": "Çukurova",
+    "toplam": 42830.0,
+    "kulturalti": 40663.0,
+    "tarla": 36126.0,
+    "yem_bitkileri": 3902.0,
+    "tabii_mera": 0.0,
+    "bahce": 635.0,
+    "kulturdisi": 2167.0,
+    "sulanan": 15254.0
+   },
+   {
+    "sira": 6,
+    "isletme": "Dalaman",
+    "toplam": 33630.0,
+    "kulturalti": 26870.0,
+    "tarla": 13322.0,
+    "yem_bitkileri": 4312.0,
+    "tabii_mera": 704.0,
+    "bahce": 8532.0,
+    "kulturdisi": 6760.0,
+    "sulanan": 24369.0
+   },
+   {
+    "sira": 7,
+    "isletme": "Gökhöyük",
+    "toplam": 24881.9,
+    "kulturalti": 20451.0,
+    "tarla": 11010.0,
+    "yem_bitkileri": 9112.0,
+    "tabii_mera": 88.0,
+    "bahce": 241.0,
+    "kulturdisi": 4430.9,
+    "sulanan": 18169.0
+   },
+   {
+    "sira": 8,
+    "isletme": "Gözlü",
+    "toplam": 288297.89,
+    "kulturalti": 261705.49,
+    "tarla": 123439.0,
+    "yem_bitkileri": 26503.0,
+    "tabii_mera": 99095.49,
+    "bahce": 12668.0,
+    "kulturdisi": 26592.4,
+    "sulanan": 34999.0
+   },
+   {
+    "sira": 9,
+    "isletme": "Karacabey",
+    "toplam": 89001.7,
+    "kulturalti": 75241.0,
+    "tarla": 30827.0,
+    "yem_bitkileri": 18681.0,
+    "tabii_mera": 12380.0,
+    "bahce": 13353.0,
+    "kulturdisi": 13760.7,
+    "sulanan": 26994.0
+   },
+   {
+    "sira": 10,
+    "isletme": "Kazım Karabekirekir",
+    "toplam": 186993.9,
+    "kulturalti": 68700.4,
+    "tarla": 11500.0,
+    "yem_bitkileri": 783.0,
+    "tabii_mera": 55907.4,
+    "bahce": 510.0,
+    "kulturdisi": 118293.5,
+    "sulanan": 5939.0
+   },
+   {
+    "sira": 11,
+    "isletme": "Koçaş",
+    "toplam": 25075.94,
+    "kulturalti": 23196.0,
+    "tarla": 6733.0,
+    "yem_bitkileri": 15929.0,
+    "tabii_mera": 0.0,
+    "bahce": 534.0,
+    "kulturdisi": 1879.7,
+    "sulanan": 20151.0
+   },
+   {
+    "sira": 12,
+    "isletme": "Konuklar",
+    "toplam": 44570.0,
+    "kulturalti": 35397.0,
+    "tarla": 29867.0,
+    "yem_bitkileri": 3160.0,
+    "tabii_mera": 1240.0,
+    "bahce": 1130.0,
+    "kulturdisi": 9173.0,
+    "sulanan": 6835.0
+   },
+   {
+    "sira": 13,
+    "isletme": "Malya",
+    "toplam": 218828.7,
+    "kulturalti": 157662.0,
+    "tarla": 120428.0,
+    "yem_bitkileri": 34135.0,
+    "tabii_mera": 0.0,
+    "bahce": 3099.0,
+    "kulturdisi": 61167.0,
+    "sulanan": 2878.0
+   },
+   {
+    "sira": 14,
+    "isletme": "Polatlı",
+    "toplam": 211335.27,
+    "kulturalti": 208734.0,
+    "tarla": 169729.0,
+    "yem_bitkileri": 21432.0,
+    "tabii_mera": 14227.0,
+    "bahce": 3346.0,
+    "kulturdisi": 2601.0,
+    "sulanan": 6491.0
+   },
+   {
+    "sira": 15,
+    "isletme": "Sultansuyu",
+    "toplam": 27191.0,
+    "kulturalti": 22542.0,
+    "tarla": 12100.0,
+    "yem_bitkileri": 8188.0,
+    "tabii_mera": 500.0,
+    "bahce": 1754.0,
+    "kulturdisi": 4649.0,
+    "sulanan": 12017.0
+   },
+   {
+    "sira": 16,
+    "isletme": "Türkgeldi",
+    "toplam": 18244.0,
+    "kulturalti": 16434.0,
+    "tarla": 5649.0,
+    "yem_bitkileri": 8760.0,
+    "tabii_mera": 1800.0,
+    "bahce": 225.0,
+    "kulturdisi": 1810.0,
+    "sulanan": 4921.0
+   },
+   {
+    "sira": 17,
+    "isletme": "Ulaş",
+    "toplam": 71463.46,
+    "kulturalti": 49941.96,
+    "tarla": 29450.0,
+    "yem_bitkileri": 15039.0,
+    "tabii_mera": 5262.0,
+    "bahce": 190.0,
+    "kulturdisi": 21521.5,
+    "sulanan": 3276.0
+   }
+  ],
+  "pdf_toplam_satiri": 3275563.68,
+  "uzun_sureli_kiraya_verilen": 238203.0,
+  "istirak_seklinde": 88688.0,
+  "tigem_toplam_arazi": 3602454.68,
+  "pdf_yazdigi_kullanim_orani": 90.93,
+  "pdf_yazdigi_kira_orani": 9.07
+ },
+ "isletmeler": {
+  "_kapsam": "tigem.gov.tr/Isletme/Index/1,2,3 — adlar tek tek sayıldı (tur 2)",
+  "_kaynak_niteligi": "KURUMUN BEYANI",
+  "faaliyette": 17,
+  "kiraya_verilmis": 17,
+  "istirak": 2
+ },
+ "olcek": {
+  "_kapsam": "TİGEM'in toplam arazisi (3.602.454,68 da) / Türkiye'nin tarım arazisi",
+  "_kaynak_niteligi": "BAĞIMSIZ — Dünya Bankası, Türkiye tarım arazisi 2024",
+  "turkiye_tarim_arazisi_km2": 386400,
+  "_turkiye_kaynak": "World Bank, Agricultural land (sq. km) — Türkiye, 2024"
+ },
+ "tohum_dagitim": {
+  "_kapsam": "SERTİFİKALI HUBUBAT TOHUMU DAĞITIMI (ton). Ülke rakamının kaynağı TOB; TİGEM satırı kurumun kendi ekilişlerini de içeriyor (raporun dipnotu)",
+  "_kaynak_niteligi": "KARMA — ülke satırı BAĞIMSIZ (TOB), TİGEM satırı KURUMUN BEYANI",
+  "_uyari": "Bu seri DAĞITIM'dır; stratejik plandaki SATIŞ serisiyle aynı grafikte gösterilemez",
+  "_kaynak": "Tohumculuk Sektör Raporu 2022, Tablo 9 ve Tablo 10",
+  "_olcu": "dagitim",
+  "yillar": [
+   2002,
+   2010,
+   2015,
+   2020,
+   2021,
+   2022
+  ],
+  "turkiye_bugday": [
+   80089,
+   262764,
+   483819,
+   485366,
+   490027,
+   443978
+  ],
+  "turkiye_arpa": [
+   4127,
+   31822,
+   124932,
+   221526,
+   139292,
+   169228
+  ],
+  "turkiye_toplam_rapor": [
+   84216,
+   294586,
+   608751,
+   706892,
+   629319,
+   613206
+  ],
+  "tigem_bugday": [
+   72059,
+   156925,
+   128383,
+   136055,
+   106631,
+   104319
+  ],
+  "tigem_arpa": [
+   3753,
+   16795,
+   14484,
+   19893,
+   11168,
+   17726
+  ],
+  "rapor_pay_bugday": [
+   90,
+   60,
+   27,
+   28,
+   22,
+   23.5
+  ],
+  "rapor_pay_arpa": [
+   91,
+   53,
+   12,
+   9,
+   8,
+   10.5
+  ],
+  "ihtiyaci_karsilama_yuzde": [
+   3.8,
+   39.7,
+   28.6,
+   35.3,
+   27.6,
+   27.1
+  ]
+ },
+ "tohum_satis": {
+  "_kapsam": "SATIŞ miktarı (ton) — kurumun kendi ekilişi hariç. Dağıtım serisiyle karıştırılmaz",
+  "_kaynak_niteligi": "KURUMUN BEYANI — 2024-2028 Stratejik Plan Tablo 6 (2018-2022) ve Mart 2024 sunumu (2023)",
+  "_olcu": "satis",
+  "yillar": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "bugday_tohumu": [
+   97423,
+   97331,
+   109569,
+   84234,
+   79561
+  ],
+  "arpa_tohumu": [
+   18200,
+   15176,
+   17706,
+   8777,
+   13586
+  ],
+  "tritikale_tohumu": [
+   3642,
+   3490,
+   4261,
+   1701,
+   2244
+  ],
+  "hububat_2023_bin_ton": 113,
+  "_2023_notu": "Mart 2024 sunumu: '2023 yılında ülkemiz çiftçilerine 113 bin ton sertifikalı hububat tohumu satışı gerçekleşmiştir'"
+ },
+ "damizlik": {
+  "_kapsam": "Damızlık hayvan varlığı ve sperma satışı",
+  "_kaynak_niteligi": "KURUMUN BEYANI — Mart 2024 sunumu; sperma serisi Stratejik Plan Tablo 6 ile çapraz okundu",
+  "sigir_varlik_2002": 17000,
+  "sigir_varlik_2023": 27000,
+  "sigir_isletme": 14,
+  "sigir_irk": 6,
+  "koyun_varlik_2002": 71000,
+  "koyun_varlik_2023": 284000,
+  "koyun_isletme": 10,
+  "koyun_irk": 10,
+  "koyun_irk_yerli": 5,
+  "koyun_irk_melez": 5,
+  "sperma_yillar": [
+   2018,
+   2020,
+   2021,
+   2022,
+   2023
+  ],
+  "sperma_doz": [
+   460000,
+   658000,
+   874000,
+   945000,
+   1019000
+  ],
+  "_sperma_notu": "Sultansuyu/Malatya Boğa Sperması Üretim Merkezi 2012'de açıldı",
+  "arap_ati_varlik": 1549,
+  "arap_ati_isletme": 3,
+  "arap_ati_isletmeler": [
+   "Karacabey/Bursa",
+   "Sultansuyu/Malatya",
+   "Anadolu/Eskişehir"
+  ],
+  "yaris_tayi_yillik_ortalama": 260,
+  "halep_kecisi_ana_bas": 1000,
+  "halep_kecisi_yil": 2013,
+  "kovan": 5000
+ },
+ "dagitim_kanallari": {
+  "_kapsam": "Tohumluk Satış ve Dağıtım Yönergesi (YKK 10/03/2017-80, değişik 22.12.2022-401)",
+  "_kaynak_niteligi": "BİRİNCİL — kurumun yürürlükteki yönergesi",
+  "kanallar": [
+   "İşletmeler (doğrudan peşin satış)",
+   "TİGEM Bayileri",
+   "İl Müdürlükleri",
+   "Dağıtıcı kuruluşlar: Tarım Kredi Kooperatifleri ve Pankobirlik"
+  ],
+  "bayi_sayisi": 303,
+  "_bayi_notu": "2003-2023 döneminde kurulmuş (Mart 2024 sunumu)",
+  "fiyat_belirleme_ayi": "Haziran-Ağustos",
+  "bayi_adimlari": [
+   {
+    "sira": 1,
+    "ad": "Ön talep",
+    "aktor": "Bayi",
+    "sure": null,
+    "belge": "Bayi Otomasyon Sistemi"
+   },
+   {
+    "sira": 2,
+    "ad": "Ön tahsis",
+    "aktor": "TİGEM",
+    "sure": null,
+    "belge": "Bayi Otomasyon Sistemi bildirimi"
+   },
+   {
+    "sira": 3,
+    "ad": "Kesin tahsis",
+    "aktor": "Bayi",
+    "sure": "5 iş günü",
+    "belge": "bedelin %10'u peşin"
+   },
+   {
+    "sira": 4,
+    "ad": "Teslim alma",
+    "aktor": "Bayi",
+    "sure": "20 takvim günü",
+    "belge": "işletmeden teslim"
+   },
+   {
+    "sira": 5,
+    "ad": "Ödeme",
+    "aktor": "Bayi",
+    "sure": null,
+    "belge": "nakit veya teminat mektubu"
+   },
+   {
+    "sira": 6,
+    "ad": "Sevkiyat",
+    "aktor": "Bayi",
+    "sure": null,
+    "belge": "randevu"
+   }
+  ],
+  "ciftci_dogrudan": "Yönetim Kurulunun belirlediği peşin satış fiyatı üzerinden, Genel Müdürlüğe veya İşletmelere yazılı müracaat"
+ },
+ "kiralama": {
+  "_kapsam": "Bazı İşletmelerin Uzun Süreli Kiraya Verilmesine İlişkin Yönerge; arazi payı arazi varlığı PDF'inden",
+  "_kaynak_niteligi": "BİRİNCİL — yönerge metni",
+  "karar_zinciri": [
+   {
+    "sira": 1,
+    "aktor": "Strateji Geliştirme Dairesi Başkanlığı",
+    "is": "teknik, malî ve ekonomik analiz; rapor"
+   },
+   {
+    "sira": 2,
+    "aktor": "Yönetim Kurulu",
+    "is": "raporu inceler ve karar verir"
+   },
+   {
+    "sira": 3,
+    "aktor": "İnşaat ve Emlak Dairesi Başkanlığı",
+    "is": "şartname ve sözleşmelerle Cumhurbaşkanlığına sunar"
+   },
+   {
+    "sira": 4,
+    "aktor": "Cumhurbaşkanlığı",
+    "is": "süre ve şartları belirleyen karar"
+   },
+   {
+    "sira": 5,
+    "aktor": "Kira Tespit Komisyonu",
+    "is": "en az üç kişi, işletmenin bulunduğu yerde, 30 gün, oybirliği"
+   },
+   {
+    "sira": 6,
+    "aktor": "İhale Komisyonu",
+    "is": "ihale; Yönetim Kurulu onayıyla tamamlanır"
+   }
+  ],
+  "komisyon_asgari_uye": 3,
+  "komisyon_sure_gun": 30,
+  "ozel_sektore_tohum_uretim_alani_da": {
+   "2020": 96000,
+   "2021": 102000,
+   "2022": 133000,
+   "2023": 111000
+  }
+ },
+ "koruma": {
+  "_kapsam": "Kurumun tohum ve damızlık dışında koruduğunu bildirdiği varlıklar",
+  "_kaynak_niteligi": "KURUMUN BEYANI — Stratejik Plan, Mirasımız Yerel Tohum, Yerel Çeşit Listesi",
+  "ata_tohumu_cesit": 1027,
+  "_ata_notu": "2019-2023 Stratejik Planı hedefi: 1027 çeşitte Ata tohumunun çoğaltılması ve tanımlanması; gerçekleşme %92",
+  "varliklar": [
+   "yerel (Ata) tohumları",
+   "Safkan Arap Atı",
+   "Ankara Tiftik Keçisi",
+   "Kangal Köpeği",
+   "Asya Ceylanı"
+  ],
+  "cesit_ornegi": {
+   "ad": "Şahnalı Acı Biber",
+   "kod": "TGM18335"
+  }
+ },
+ "kunye": {
+  "_kapsam": "Kurumun bugünkü hukuki ve malî künyesi",
+  "_kaynak_niteligi": "KARMA — Ana Statü BİRİNCİL; bilanço satırı BAĞIMSIZ (Sayıştay)",
+  "hukuki_bunye": "İktisadi Devlet Teşekkülü",
+  "merkez": "Ankara",
+  "ilgili_bakanlik": "Tarım ve Orman Bakanlığı",
+  "denetim": "Türkiye Büyük Millet Meclisi ve Sayıştay",
+  "sermaye_serisi": [
+   {
+    "yil": 2022,
+    "tutar_tl": 3316000000,
+    "belge": "Ana Statü md. 4/4"
+   },
+   {
+    "yil": 2023,
+    "tutar_tl": 4356000000,
+    "belge": "Cumhurbaşkanı Kararı 6650 · 6/1/2023"
+   },
+   {
+    "yil": 2024,
+    "tutar_tl": 9356000000,
+    "belge": "Sayıştay Kamu İşletmeleri 2024 Genel Raporu — esas sermaye"
+   }
+  ],
+  "_sermaye_1983": "95 sayılı KHK md. 2: 30 milyar TL. ESKİ PARA — 2005 öncesi; bugünkü seriyle aynı eksende gösterilemez",
+  "sayistay_2024": {
+   "donen_varlik_bin_tl": 8001760,
+   "duran_varlik_bin_tl": 17137081,
+   "ozkaynak_bin_tl": 22856983,
+   "kisa_vadeli_yabanci_bin_tl": 2281859,
+   "uzun_vadeli_yabanci_bin_tl": 0,
+   "odenmis_sermaye_bin_tl": 7855747
+  },
+  "tohum_hazirlama_kapasite_ton_saat": 341
+ },
+ "dunya": {
+  "_kapsam": "Aynı sorunun — çiftçiye sertifikalı tohum ulaştırmanın — başka ülkelerde nasıl çözüldüğü",
+  "_kaynak_niteligi": "KARMA — OECD listesi BAĞIMSIZ ve birincil; Hindistan birleşmesi İKİNCİL (basın)",
+  "iki_model": [
+   {
+    "ad": "Devlet kendi çiftliğinde üretir",
+    "ornekler": [
+     "Türkiye — TİGEM",
+     "Hindistan — State Farms Corporation of India"
+    ]
+   },
+   {
+    "ad": "Devlet üretmez, belgeler",
+    "ornekler": [
+     "OECD Tohum Şemaları — altmıştan fazla ülke"
+    ]
+   }
+  ],
+  "hindistan": {
+   "nsc_kurulus": 1963,
+   "nsc_uretim_ton_yil": 150000,
+   "sfci": "State Farms Corporation of India — devletin büyük, makineli çiftliklerini sertifikalı tohum üretimi için işleten kuruluş",
+   "sfci_ciftlik": 5,
+   "sfci_alan_ha": 21908,
+   "_sfci_alan_notu": "2012 tarihli Hindistan hükûmeti duyurusundan aktarılan rakam; Rajasthan, Haryana ve Karnataka'da beş Merkezî Devlet Çiftliği. Sonraki bir Lok Sabha cevabı altı çiftlik diyor — sayı yıla göre değişiyor.",
+   "birlesme_yil": 2013,
+   "birlesme": "Bakanlar Kurulu, SFCI'nin NSC bünyesine katılmasını Aralık 2013'te onayladı",
+   "gerekce": "SFCI'nin arazisi ile NSC'nin dağıtım ağının birleştirilmesi",
+   "_kaynak": "Business Standard / ANI, Aralık 2013; Hindistan hükûmeti basın duyurusundan aktaran haberler"
+  },
+  "oecd_semalari": {
+   "_kaynak": "OECD, 'List of countries participating in the OECD Seed Schemes' (PDF, oecd.org)",
+   "_kaynak_niteligi": "BAĞIMSIZ",
+   "turkiye_katiliyor": true,
+   "listede_ayiklanan_ulke": 64,
+   "_sayi_uyarisi": "Listeden ayıklanan ülke sayısı 64; OECD'nin kendi sayfası 62, broşürü 64 diyor. Metinde kesin sayı yerine 'altmıştan fazla' yazılacak.",
+   "ayni_listede": [
+    "Hindistan",
+    "Mısır",
+    "Fas",
+    "Amerika Birleşik Devletleri",
+    "Rusya Federasyonu",
+    "İran"
+   ]
+  }
+ }
+}

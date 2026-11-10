@@ -163,7 +163,7 @@ tarih ve sayısını kendi ilk satırında taşıyor. Yol deseni kayda geçti:
 
 | belge | tarih | RG | ne veriyor |
 |---|---|---|---|
-| **3130** sayılı Kanun | kabul 12.II.1937 | 19/11/1937 · 3538 | Zirai Kombinalar Kurumu'nun **parası** |
+| **3130** sayılı Kanun | kabul 12.II.1937 | 19/11/1937 · 3538 | Zirai Kombinalar Kurumu'nun **tahsisatı** |
 | **3308** sayılı Kanun | kabul 7.I.1938 | 13/1/1938 · 3807 | Devlet Ziraat İşletmeleri Kurumu; **Atatürk'ün bağışı sermaye oluyor** |
 | **5254** sayılı Kanun | kabul 8.VII.1948 | 14/7/1948 · 6957 | Muhtaç çiftçiye ödünç tohumluk — 2001'de mülga |
 | **5433** sayılı Kanun | kabul 7.VI.1949 | 13/6/1949 · 7231 | Devlet Üretme Çiftlikleri; **görev cümlesi** |
@@ -172,7 +172,7 @@ tarih ve sayısını kendi ilk satırında taşıyor. Yol deseni kayda geçti:
 | **233** sayılı KHK | 8.6.1984 | 18435 | TİGEM ekli cetvelde; dipnot 47 |
 | **Ana Statü** · CB Kararı 5141 | 1.2.2022 | 2/2/2022 · 31738 | Bugünkü kurucu metin |
 
-### 1. Paranın kanundan önce geldiği yer — 3130 (1937)
+### 1. Ödeneğin kanundan önce geldiği yer — 3130 (1937)
 
 Zirai Kombinalar Kurumu'nu kuran bir kanun yok. **3130 sayılı Kanun bir ek
 bütçe kanunu**: 1936 malî yılı muvazenei umumiyesine 4.512.636 liralık
@@ -181,14 +181,14 @@ Ziraat Vekâleti bütçesinde yeni açılan **858'inci fasıl, "Ziraî kombinala
 kurumu masrafları"** faslına gidiyor. Tek fasıl, o kanunun koyduğu bütün
 fevkalade tahsisatın üçte ikisi.
 
-Dördüncü madde parayı nereye koyduğunu da yazıyor: **Ziraat Bankasında
+Dördüncü madde tahsisatın nereye yatırılacağını da yazıyor: **Ziraat Bankasında
 açtırılacak hususî bir kredi hesabına.** Ve şu cümleyi kuruyor —
 *"Bu krediden yapılacak masraflar hususî bir kanun ile tayin olunur. Ancak
 bu kanunun tanzim ve meriyete girmesine kadar İcra Vekilleri Heyeti kararile
 tayin edilecek işler için sarfiyat yapılır."*
 
-Yani kurumun parası, kurumun kanunundan on bir ay önce yatırılmış. §8.9/2'nin
-("parayı nereden buldu") karşılığı bu. Ve para **Ziraat Bankası'nda** duruyor —
+Yani kurumun ödeneği, kurumun kanunundan on bir ay önce ayrılmış. §8.9/2'nin
+("parayı nereden buldu") karşılığı bu. Ve tahsisat **Ziraat Bankası'nda** duruyor —
 Sayı 02'ye bağ.
 
 ### 2. Atatürk'ün mektubu sermaye oluyor — 3308 (1938)
@@ -205,7 +205,7 @@ Aynı maddenin sonu, bu malların Maliye, Ziraat ve kurumdan birer kişilik üç
 kişilik bir komisyonca değerlenip **"sermaye hesabına mahsuben vukubulmuş
 tediye sayıl"**acağını söylüyor. İtibarî sermaye 15.000.000 TL (madde 6).
 
-Kurumun ilk sermayesi para değil **toprak**. Kurumun sitesi bunu "Atatürk'ün
+Kurumun ilk sermayesi nakit değil **toprak**. Kurumun sitesi bunu "Atatürk'ün
 çiftliklerini bağışlamasıyla" diye yazıyor; kanun metni tarihi ve mekanizmayı
 da veriyor. §8.9/1 ve §8.9/2 aynı maddede.
 
@@ -409,19 +409,19 @@ Tur 8'de `dogrula_metin.py`, tur 9'da göç dosyası bunu sınayacak.
 | # | bölüm | tür | dayanak | §8.9 |
 |---|---|---|---|---|
 | 1 | **Tohumun geldiği yer** | anlatı | Ana Statü md. 4–5; arazi varlığı; Tablo 9–10 | — |
-| 2 | **Önce para geldi, kanun sonra** | belge | 3130 md. 2 ve 4; fasıl 858 | 1, 2 |
+| 2 | **Önce ödenek, sonra kanun** | belge | 3130 md. 2 ve 4; fasıl 858 | 1, 2 |
 | 3 | **Haralar: ordunun atı** | anlatı | kurumun `/Tarih` beyanı; 3646 md. 1-b | 1 |
 | 4 | **Atatürk'ün mektubu** | belge | 3308 md. 1, 5, 6 | 1, 2 |
 | 5 | **1949'da yazılan cümle** | belge | 5433 md. 1, 2; Ana Statü md. 5 | — |
-| 6 | **İki soy tek çatı: 1984** | belge | 233 KHK ekli cetvel + dipnot 47 | — |
+| 6 | **Kuruluş 1983, çerçeve 1984** | belge | 95 sayılı KHK; 233 KHK ekli cetvel + dipnot 47 | — |
 | 7 | **Toprak 1990'da tapuya geçti** | veri | 3646; arazi varlığı tablosu | 2 |
-| 8 | **Türkiye'nin yüzde birinden azı** | veri | arazi 3.273.792 da; DB 386.400 km² | — |
+| 8 | **Türkiye'nin yüzde birinden azı** | veri | arazi 3.602.454,68 da; DB 386.400 km² | — |
 | 9 | **Ülkenin tohumu: doksandan yirmiye** | veri | Tablo 9–10 serisi 2002–2022 | — |
 | 10 | **Çiftçi tohumu nasıl alıyor** | akış | Tohumluk Satış ve Dağıtım Yönergesi | 3 |
-| 11 | **Çiftliklerin yarısı kirada** | belge | Uzun Süreli Kira Yönergesi; Ana Statü 5/1-f,g | — |
+| 11 | **İşletmelerin yarısı, arazinin onda biri** | belge | Uzun Süreli Kira Yönergesi; arazi varlığı PDF'i | — |
 | 12 | **Tohumdan başkasını da koruyor** | anlatı | Yerel Çeşit Listesi; At Yetiştirme Yönergesi | 3 |
 | 13 | **Bıraktığı iş** | anlatı | 5254 (mülga 2001); 5433 md. 2-g; 5659; 3646 md. 5 | 5 |
-| 14 | **Dünyada benzeri** | anlatı | **TUR 4'TE ARANACAK** | 4 |
+| 14 | **Dünyada benzeri: iki model** | anlatı | OECD Tohum Şemaları listesi; Hindistan SFCI–NSC | 4 |
 | — | **Kaynakça** | belge | §2.14 — bölümdür, unutulmaz | — |
 
 *(Kaynakça 14'ten sonra gelir ve numara almaz; yukarıdaki 14 bölüm metnin
@@ -437,9 +437,9 @@ bir görsel) olmasını unutma."* 14 bölüm = en az 14 görsel.
 
 ## Bölümlerin neden bu sırada olduğu
 
-- **2, 3, 4 bilerek kronolojik değil.** Para (1937) → haralar (Osmanlı) →
+- **2, 3, 4 bilerek kronolojik değil.** Ödenek (1937) → haralar (Osmanlı) →
   mektup (1937) sırası, iki soyun aynı yıla düğümlendiğini gösteriyor:
-  1937'de hem Zirai Kombinalar'ın parası yatırılıyor hem Atatürk mektubunu
+  1937'de hem Zirai Kombinalar'ın tahsisatı ayrılıyor hem Atatürk mektubunu
   yazıyor. Haralar araya girince okur iki kolun da aynı noktada birleştiğini
   görüyor.
 - **5 dosyanın merkezi.** 1949 cümlesi ile 2022 cümlesi yan yana basılacak.
@@ -455,7 +455,7 @@ bir görsel) olmasını unutma."* 14 bölüm = en az 14 görsel.
 
 | bağ | nerede | hangi sayı |
 |---|---|---|
-| 3 milyon lira **Ziraat Bankası**'nda hususî hesapta | bölüm 2 | Sayı 02 |
+| Üç milyonluk tahsisat **Ziraat Bankası**'nda hususî hesapta | bölüm 2 | Sayı 02 |
 | **TMO**, Zirai Donatım, SEK ile aynı ekli cetvel tablosu | bölüm 6 | Sayı 01, rotasyon 15 ve 20 |
 | **Tarım Kredi Kooperatifleri** ve **Pankobirlik** adıyla dağıtım kanalı | bölüm 10 | Sayı 03, rotasyon 19 |
 | Araştırma enstitüleri 3646'nın dışında — **TAGEM** | bölüm 13 | Sayı 04 |
@@ -486,3 +486,236 @@ bir görsel) olmasını unutma."* 14 bölüm = en az 14 görsel.
    yazılır.
 5. **Damızlık tarafının rakamları** — hayvan varlığı, sperma üretimi.
    Bölüm 1 ve 12 için gerekli.
+
+---
+
+## KULLANICI KURALI — 10 Kasım 2026, bölüm 2
+
+Bölüm 2'nin başlığı ve gövdesi **"para" kelimesini kullanmayacak.** Belgenin
+kendi sözcükleri var ve daha doğru: **tahsisat, ödenek, fasıl, kredi hesabı,
+sermaye.** Başlık bu yüzden "Önce ödenek, sonra kanun" oldu. Tur 8'de
+`dogrula_metin.py`'ye bir avcı eklenecek: bölüm 2 gövdesinde "para" kökü
+geçerse çıkış kodu 1.
+
+
+---
+
+# Tur 4 — VERİ KATMANI KİLİTLENDİ
+
+`cikarim.json` → `build_data.py` → `data.json`. **On üç blok, dokuz doğrulama,
+dokuzu da geçti.** Veri sayfası artık elle düzenlenmez.
+
+```
+data.json yazıldı · 9 doğrulamanın 9'u geçti
+  arazi payı            %0.93
+  tohum payı (2022)     %19.9
+  pay serisi            [90.0, 59.0, 23.5, 22.1, 18.7, 19.9]
+  Ceylanpınar           %45.3 (toplam) · %49.9 (17 işletme)
+  kiraya verilen arazi  %9.07 · işletme %50.0
+```
+
+## Dokuz doğrulama
+
+| # | ne sınıyor |
+|---|---|
+| 1 | Her blok `_kapsam` ve `_kaynak_niteligi` taşıyor (§2.2) |
+| 2 | Arazi tablosunun **üç** toplamı da satırlardan yeniden hesaplanıyor |
+| 3 | Kurumun kendi yazdığı %90,93 / %9,07 oranı yeniden hesaplanıyor |
+| 4 | Tohum tablosunda ülke toplamı = buğday + arpa, **her yıl için** |
+| 5 | Raporun yazdığı pay yüzdeleri satırlardan yeniden hesaplanıyor |
+| 6 | DAĞITIM ve SATIŞ serileri ayrı `_olcu` etiketi taşıyor |
+| 7 | Kronoloji artan (hem kuruluş silsilesi hem görev cümlesi) |
+| 8 | Sermaye serisi artan ve **hepsi 2005 sonrası** — eski para karışmıyor |
+| 9 | Eksen cümlesi hâlâ yazılabiliyor mu: arazi payı <%1, tohum payı %15–25 |
+
+Dokuzuncu doğrulama dizide yeni. Eksen bir cümledir ve iki sayıya dayanır;
+o sayılar aralığın dışına çıkarsa cümle yalan olur. Betik bunu üretim
+anında sınıyor, metin yazılırken değil.
+
+## Arazi varlığı betikle çıkarıldı — ve tur 2'nin rakamı eksik kapsamdı
+
+`cikar_arazi.py` PDF'ten işletme işletme 17 satırı okuyor. Üç sütun toplamı
+da PDF'in kendi toplam satırını **birebir** veriyor: 3.273.792,46 da ·
+tarla 1.756.580 · sulanan 940.568.
+
+**Kapsam ayrımı netleşti.** PDF'in başlığı kapsamı söylüyor: *"TİGEM'İN
+FAALİYETTE OLDUĞU 17 İŞLETMENİN ARAZİ VARLIĞI"*. Altındaki üç satır ayrı
+kapsamdır:
+
+| | dekar |
+|---|---:|
+| 17 işletme (Genel Müdürlük hariç) | 3.273.792,46 |
+| Genel Müdürlük yerleşkesi | 1.771,22 |
+| **PDF'in toplam satırı** | **3.275.563,68** |
+| uzun süreli kiraya verilen | 238.203,00 |
+| iştirak şeklinde | 88.688,00 |
+| **TİGEM TOPLAM ARAZİ VARLIĞI** | **3.602.454,68** |
+
+Tur 2 **3.273.792**'yi "toplam arazi" diye kaydetmişti; o rakam Genel
+Müdürlük yerleşkesini ve kiraya verilenleri dışarıda bırakıyor. İkisi de
+doğru, kapsamları farklı. Eksen cümlesinin paydası bundan böyle **toplam**:
+3.602.454,68 da = 3.602,455 km² → Türkiye tarım arazisinin **%0,93'ü**.
+Hâlâ yüzde birin altında, cümle ayakta.
+
+PDF kendi oranını da yazıyor — %90,93 kullanımda, %9,07 kiraya verilmiş —
+ve betik ikisini de satırlardan yeniden hesaplayıp PDF'in yazdığıyla
+karşılaştırıyor. Tutuyor.
+
+## BÖLÜM 11'İN BULGUSU TERSİNE DÖNDÜ
+
+Tur 2 "**işletmelerin yarısı kirada**" demişti ve bunu çarpıcı bulmuştu.
+Arazi rakamı gelince resim değişti:
+
+> İşletmelerin **yarısı** kiraya verilmiş ama bu işletmeler TİGEM
+> arazisinin **onda birinden azını** (%9,07) tutuyor. Kiraya verilenler
+> küçük işletmeler.
+
+Bu hem daha doğru hem kullanıcının istediği tona daha uygun: *"maliyet
+hesabı dosyası yapmıyoruz, kurumu tanıtıyoruz."* Bölümün adı da buna göre
+değişti: **"İşletmelerin yarısı, arazinin onda biri"**.
+
+## KURULUŞ TARİHİ DÜZELDİ — 1984 DEĞİL, 28 EKİM 1983
+
+Kurumun kendi sayfası ve Mart 2024 sunumu "1984'te kuruldu" diyor. Birincil
+belge başka söylüyor.
+
+**Resmî Gazete 28 Ekim 1983, sayı 18205 Mükerrer.** O nüsha bütün KİT'lerin
+kuruluş kararnamelerini birden yayımlıyor. Fihristte sırayla:
+
+| KHK | kurum | sayfa |
+|---:|---|---:|
+| 94 | Türkiye Kömür İşletmeleri | 1 |
+| **95** | **Tarım İşletmeleri Genel Müdürlüğü** | **6** |
+| 96 | Türkiye Taşkömürü Kurumu | 10 |
+| **97** | **Türkiye Zirai Donatım Kurumu** | 15 |
+| **107** | **T.C. Ziraat Bankası** | 52 |
+| **113** | **Toprak Mahsulleri Ofisi** | 94 |
+
+**95 sayılı KHK, madde 2:** *"Bu Kanun Hükmünde Kararname ile Tarım
+İşletmeleri Genel Müdürlüğü (TİGEM) adında, tüzel kişiliğe sahip,
+faaliyetlerinde özerk ve sorumluluğu sermayesiyle sınırlı bir **Kamu
+İktisadi Kuruluşu kurulmuştur**."* Merkez Ankara, sermaye 30 milyar TL,
+Bakanlar Kurulu kararı 10/10/1983.
+
+1984'te olan şey kuruluş değil: KİT çerçevesi 60 sayılı KHK'den **233 sayılı
+KHK'ye** geçti ve TİGEM 18 Haziran 1984 tarihli 18435 Mükerrer sayılı
+nüshada, "TARIM, ORMAN VE KÖYİŞLERİ BAKANLIĞI" başlığı altında **Kamu
+İktisadi Kuruluşu** olarak ekli cetvele yazıldı. 1994'te de 4046'nın 35.
+maddesiyle İDT bölümüne geçti.
+
+Üç tarih, üç ayrı şey. Metin üçünü de doğru adlandıracak.
+
+> **DİZİ İÇİ BAĞ — dizinin en güçlüsü.** Sayı 01 (TMO), Sayı 02 (Ziraat
+> Bankası) ve bu dosya **aynı gün, aynı Resmî Gazete nüshasında** yeniden
+> kuruldu. Rotasyonun 15. sırasındaki Zirai Donatım Kurumu da iki numara
+> sonra. 28 Ekim 1983, sayı 18205 Mükerrer.
+
+## GÖREV CÜMLESİ ÜÇ BELGEDE AYNI
+
+Tur 3 iki belge bulmuştu; 95 sayılı KHK üçüncüsünü verdi ve halka kapandı.
+
+| yıl | belge | cümle |
+|---|---|---|
+| 1949 | 5433 md. 1 | "…**iyi tohumluk, damızlık ve fidan** ihtiyacını sağlamak, tarım alanında çiftçiye örneklik ve öğreticilik etmek üzere" |
+| 1983 | 95 sayılı KHK md. 3/1 | "…yetiştirdiği **damızlık hayvan, tohum, fidan, fide** ve benzerleriyle ürettiği **spermaları yetiştiricilere intikal ettirmek**" |
+| 2022 | Ana Statü md. 5/1-a | "Ürettiği **tohumluk, fidan, fide** ve benzeri ürünler ile yetiştirdiği **damızlık hayvanlar ve spermalarını üreticilere intikal ettirmek**" |
+
+1983 ile 2022 cümleleri neredeyse kelimesi kelimesine aynı; tek fark
+"yetiştiricilere" → "üreticilere". **Yetmiş üç yıl, üç kurum adı, bir
+cümle.** Bölüm 5'in tamamı bu.
+
+## Damızlık tarafı geldi
+
+Mart 2024'te yayımlanan kurum sunumu (Erzurum Ticaret Borsası üzerinden
+bulundu; kurumun kendi sitesinde yok) güncel rakamları veriyor:
+
+| | 2002 | 2023 | kat |
+|---|---:|---:|---:|
+| damızlık sığır varlığı | 17.000 baş | 27.000 baş | 1,6 |
+| damızlık koyun varlığı | 71.000 baş | 284.000 baş | 4,0 |
+
+| sperma satışı (doz) | 2018 | 2020 | 2021 | 2022 | 2023 |
+|---|---:|---:|---:|---:|---:|
+| | 460.000 | 658.000 | 874.000 | 945.000 | **1.019.000** |
+
+Boğa Sperması Üretim Merkezi Malatya/Sultansuyu'nda **2012**'de açılmış;
+satış beş yılda **2,22 kat** artmış. Eksenin ikinci ayağı bu: kurum yalnız
+tohum değil, **damızlık ve sperma** da üretiyor — ikisi de girdi.
+
+Safkan Arap Atı üç işletmede, **1.549 baş**, yılda ortalama **260 yarış
+tayı**. Sunumun kendi ifadesi soyu da söylüyor: *"Çiftlikat-ı Hümayun adı
+altında Osmanlının kuruluşundan beri devam eden atçılık faaliyetleri."*
+Bölüm 3 ve bölüm 12 bu ifadeyi kullanacak.
+
+Ayrıca: 10 işletmede **10 ırk koyun — beşi yerli, beşi TİGEM'in kendi ıslah
+çalışmasıyla elde edilmiş melez**; Ceylanpınar'da 2013'ten beri **1.000 ana
+baş Halep ırkı keçi**; **5.000 kovan** arıcılık; **303 TİGEM bayisi**
+(2003–2023 arasında kurulmuş).
+
+## ÖLÇÜ ÇAKIŞMASI YAKALANDI — "dağıtım" ile "satış" aynı şey değil
+
+Sektör raporu 2022'de TİGEM buğday tohumu **dağıtımını** 104.319 ton
+gösteriyor. Stratejik plan aynı yıl buğday tohumu **satışını** 79.561 ton
+gösteriyor. Fark 24.758 ton ve sebebi raporun kendi dipnotunda: TİGEM'in
+dağıtım satırı **kurumun kendi ekilişlerini de içeriyor**.
+
+İki seri aynı grafikte gösterilemez. `build_data.py`'nin 6. doğrulaması
+bunu zorunlu kılıyor: her iki blok da `_olcu` etiketi taşıyor
+(`dagitim` / `satis`) ve ikisi aynı olamaz. Tur 5'te grafik kurarken bu
+etiket okunacak.
+
+## BÖLÜM 14 TAMAMLANDI — iki model
+
+Soru §8.9/4'ün sorusu: *aynı sorun başka yerde nasıl çözüldü?* Cevap tek
+değil, iki:
+
+**1. Devlet kendi çiftliğinde üretir.** Hindistan'ın **State Farms
+Corporation of India**'sı tam TİGEM'in ikizi: devletin büyük, makineli
+çiftliklerini sertifikalı tohum üretmek için işletiyordu. Rajasthan,
+Haryana ve Karnataka'da **beş Merkezî Devlet Çiftliği, 21.908 hektar**.
+Hindistan bu yapıyı 2013'te **National Seeds Corporation** (kuruluş 1963,
+yılda ~150.000 ton tohum) bünyesine kattı; gerekçe, SFCI'nin arazisiyle
+NSC'nin dağıtım ağını birleştirmekti.
+
+Karşılaştırma kendiliğinden çıkıyor: SFCI'nin 21.908 hektarına karşılık
+TİGEM'in **360.245 hektarı** — on altı katı. Ve Hindistan iki kurumu
+birleştirmek zorunda kaldı; **TİGEM 1983'ten beri zaten ikisi birden.**
+
+**2. Devlet üretmez, belgeler.** **OECD Tohum Şemaları**'na altmıştan fazla
+ülke katılıyor ve listede Türkiye de var — Hindistan, Mısır, Fas, Rusya,
+İran ve Amerika Birleşik Devletleri ile aynı listede. Bu modelde devletin
+işi tohum üretmek değil, üretilenin belgesini vermek.
+
+Türkiye ikisinde birden. Bölüm bunu söyleyecek.
+
+> **SAYI UYARISI.** OECD listesinden ayıklanan ülke sayısı 64; OECD'nin
+> kendi sayfası 62, broşürü 64 diyor. Metinde kesin sayı yazılmayacak,
+> "altmıştan fazla" denecek.
+
+## Tur 4'te eklenen kaynaklar
+
+| dosya | ne |
+|---|---|
+| `rg_18205_khk95_tigem_kurulus.pdf` | **Kuruluş belgesi.** RG 28/10/1983 · 18205 Mükerrer; künye, KHK/95 tam metni, fihrist. 160 sayfalık nüshadan 7 sayfa alındı |
+| `rg_18435_khk233_tigem.pdf` | RG 18/6/1984 · 18435 Mükerrer; TİGEM'in ekli cetveldeki satırı. 256 sayfadan 3 sayfa |
+| `tigem_stratejik_plan.pdf` | **2024–2028 Stratejik Plan**, 82 sayfa; arazi, personel, satış ve hedef tabloları |
+| `tigem_sunum_mart_2024.pdf` | Mart 2024 kurum sunumu; damızlık ve bayi rakamları |
+| `oecd_tohum_semalari_ulkeler.pdf` | OECD Tohum Şemaları katılımcı ülke listesi |
+
+## Tur 5'e açık kalanlar
+
+1. **Stratejik Plan Tablo 12 ile arazi varlığı PDF'i aynı şeyi söylemiyor.**
+   Plan genel toplamı 3.638.482 da, PDF 3.602.454,68 da; tarla rakamları da
+   farklı (2.293.944 ↔ 1.756.580). İki ayrı tarih ve muhtemelen iki ayrı
+   tasnif. **Veri katmanı PDF'i esas aldı**; plan çapraz okuma olarak durur.
+   Metinde tek rakam kullanılacak ve tarihi yazılacak.
+2. **Sulanan arazi iki rakam veriyor:** PDF 940.568 da (17 işletme),
+   Stratejik Plan Tablo 13 ise 994.798 da (2023). Biri "sulanan", öteki
+   "sulu tarım arazi varlığı" olabilir. Tur 5'te ayrım yazılmadan grafik
+   kurulmayacak.
+3. **Hara arazisinin 3–4 milyon dekardan 450 bin dekara düşmesi** hâlâ
+   kurumun kendi beyanı; bağımsız karşılık bulunamadı.
+4. **Hindistan rakamları İKİNCİL.** SFCI'nin 21.908 hektarı basın yoluyla
+   aktarılmış bir hükûmet rakamı; `eparlib.sansad.in` ve `pib.gov.in`
+   doğrudan açılamadı (biri zaman aşımı, öteki yanlış duyuru numarası).
+   Metinde "Hindistan hükûmetinin bildirdiği" diye yazılacak.
