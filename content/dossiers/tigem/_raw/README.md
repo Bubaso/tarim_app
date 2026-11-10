@@ -719,3 +719,139 @@ Türkiye ikisinde birden. Bölüm bunu söyleyecek.
    aktarılmış bir hükûmet rakamı; `eparlib.sansad.in` ve `pib.gov.in`
    doğrudan açılamadı (biri zaman aşımı, öteki yanlış duyuru numarası).
    Metinde "Hindistan hükûmetinin bildirdiği" diye yazılacak.
+
+---
+
+# Tur 5 — GRAFİKLER KİLİTLENDİ
+
+**On üç grafik, 42 `@yol`, on bir kural — on biri de geçti.** Sayılar
+grafik dosyasında yazılı değil; hepsi `data.json`'dan okunuyor.
+
+```
+grafikler kilitlendi · 13 grafik · 42 @yol çözüldü · 11 kuralın 11'i geçti
+  cizgi 3 · ikili_cubuk 1 · islem_akisi 1 · kartlar 3 · kunye 1
+  siralama 3 · zaman_cizelgesi 1
+```
+
+| grafik | tür | bölüm |
+|---|---|---|
+| `kunye_tigem` | kunye | 1 |
+| `fevkalade_tahsisat_1937` | siralama | 2 |
+| `silsile` | zaman_cizelgesi | 6 |
+| `isletme_arazileri` | siralama | 7 |
+| `arazi_kullanimi` | siralama | 8 |
+| `tohum_dagitimi` | cizgi | 9 |
+| `tigem_payi` | cizgi | 9 |
+| `tohum_yolu` | islem_akisi | 10 |
+| `dagitim_kanallari` | kartlar | 10 |
+| `kira_asimetrisi` | ikili_cubuk | 11 |
+| `sperma_satisi` | cizgi | 12 |
+| `korunanlar` | kartlar | 12 |
+| `iki_model` | kartlar | 14 |
+
+Bölüm 3, 4, 5 ve 13 grafiksiz. Dördü de belge ve anlatı bölümü; sayı
+göstermek için grafik kurmak, §8.12'nin tersi olurdu.
+
+## YENİ KURAL: siralama aralığı 40 katı aşamaz
+
+Irak dosyası tur 9'da `ikili_cubuk`'un satır satır oranladığı yakalanmıştı.
+Bu turda **`siralama`'nın tersi** yakalandı: o bütün grafiği birden oranlıyor
+ve aralık açıldıkça en küçük çubuk yok oluyor.
+
+1937 bütçe cetveli dokuz fasıl taşıyor. En büyüğü 3.000.000 lira, en küçüğü
+**3.000 lira** — **bin kat.** 360 pikselde en küçük çubuk yarım pikselin
+altına iner; okur onu çizim hatası sanar, bulgu değil.
+
+Çözüm küçükleri düşürmek değil — düşürmek yekûnu bozar ve 4.512.636'lık
+basılı toplam tutmaz. **En küçük dört fasıl tek satırda toplandı.** Aralık
+22,6 kata indi, yekûn korundu, `build_data.py` gruplamanın toplamını basılı
+yekûna karşı sınıyor.
+
+`dogrula_grafik.py`'nin **11'inci kuralı** bunu kalıcı hâle getirdi: bir
+`siralama`'da en büyük/en küçük oranı 40'ı aşarsa üretim durur.
+
+## Kurallar gerçekten ateş ediyor mu — ölçüldü
+
+Ateş etmeyen kural kural değildir. Beş kural bilerek bozuldu ve beşi de
+yakaladı; dosya sonra geri alındı:
+
+| bozulan | yakalandı mı |
+|---|---|
+| siralama aralığı 1000 kata çıkarıldı | ✓ "aralığı 1000 kat — en küçük çubuk görünmez" |
+| ikili_cubuk satırı 34 etti (100 yerine) | ✓ "ikili_cubuk SATIR SATIR oranlar" |
+| cizgi'nin x alanı kayıtlarda yok | ✓ "kayıtlarda 'yok_boyle_alan' alanı yok" |
+| dağıtım grafiğinin notundan ölçü adı silindi | ✓ "notu ölçüyü söylemiyor" |
+| `@yol` kırıldı | ✓ "data.json'da yok" |
+
+## Ölçü çakışması kurala bağlandı
+
+Tur 4 dağıtım (104.319 ton) ile satışın (79.561 ton) aynı yıl farklı rakam
+verdiğini bulmuştu. Yedinci kural bunu grafik tarafında kapatıyor: **dağıtım
+serisi kullanan bir grafiğin notu "dağıtım" demek zorunda, satış serisi
+kullananınki "satış".** Okur hangi ölçüye baktığını grafiğin altında görüyor.
+
+## `islem_akisi` nihayet kullanıldı
+
+§8.5 bu türü 2024'te tanımlamıştı, Ziraat dosyasında **kaynak olmadığı için**
+kullanılmamıştı (§8.12). Burada kaynak var: Tohumluk Satış ve Dağıtım
+Yönergesi'nin dokuzuncu maddesi adımları, aktörleri **ve süreleri** yazıyor.
+
+Altı adım: ön talep → ön tahsis → **5 iş günü** içinde %10 peşinatla kesin
+tahsis → **20 takvim günü** içinde teslim → ödeme → sevkiyat. Ödeme adımı
+`secenekler` alanını kullanıyor (nakit *ya da* teminat mektubu), çünkü bu bir
+seçim; tek satıra sıkışsa okur iki zorunlu adım sanardı.
+
+Süresi belgelenmemiş adımlarda `sure` alanı **yok** — boş bırakılmadı,
+silindi. Dokuzuncu kural boş süreyi hata sayıyor: uydurulmuş bir süre, okurun
+kendi işini ona göre planlaması demek.
+
+## `kartlar` üç kez kullanıldı — ve `rol` yazılmadı
+
+§8'de kayıtlı sınır: `kartlar` çizicisi kart başlığı için `tema.murekkep`
+kullanıyor, `vurgu` oraya hiç ulaşmıyor. Onuncu kural kart tanımında `rol`
+görürse hata veriyor — sessizce düşen bir alan yazılmasın diye.
+
+Üç kart grafiği: dağıtım kanalları (dört kapı), korunanlar (Ata tohumu,
+Safkan Arap Atı, Ankara Tiftik Keçisi, Kangal ve Asya Ceylanı), iki model
+(Türkiye, Hindistan, OECD).
+
+## Kurulmayan iki grafik — ve neden
+
+| kurulmadı | sebep |
+|---|---|
+| Dünya arazi sıralaması | İki çubuk grafik değildir. TİGEM 360.245 ha, SFCI 21.908 ha karşılaştırması `iki_model` kartlarının rakam alanına taşındı |
+| Sermaye serisi | Üç nokta, biri yıl içi karar. Ayrıca kullanıcı kararı gereği bu dosya malî tartışmaya girmiyor; künyede satır olarak kalıyor |
+
+## Tur 5'te veri katmanına eklenenler
+
+- `butce_1937` — 3130 sayılı Kanunun ikinci cetveli, dokuz fasıl. Satırlar
+  basılı yekûnu (4.512.636) **birebir** veriyor; onuncu doğrulama bunu sınıyor
+  ve ayrıca Ziraî kombinalar faslının listenin en büyüğü olduğunu doğruluyor —
+  olmasaydı bölüm 2'nin cümlesi yazılamazdı.
+- `turetilmis.dagitim_kayitlari`, `turetilmis.sperma_kayitlari` — `cizgi`
+  çizicisi noktaları **kayıt dizisinde** arıyor, paralel dizilerden okumuyor.
+- `turetilmis.isletme_siralamasi` — ilk sekiz işletme + kalan dokuzun toplamı.
+- `turetilmis.arazi_kullanimi` — beş kalem.
+- `turetilmis.kira_asimetrisi` — iki satır, her biri %100.
+- `turetilmis.tahsisat_1937_gruplu` — grafiğe giren altı satır.
+
+**Kaynağın yuvarlama farkı kaydedildi, yutulmadı.** Arazi tablosunun alt
+sütunları altı işletme satırında birer dekarın altında sapıyor; toplam fark
+3,27 milyon dekarda **1,67 dekar**. Doğrulama 2 dekarı aşarsa duruyor, çünkü
+o zaman yuvarlama değil hata demektir. Grafiğin notu da farkı söylüyor.
+
+## Kaynaktaki iki aksaklık
+
+1. **Kaynak tabloda bir işletme adı yanlış basılmış:** "Kazım Karabekirekir".
+   Grafikte doğru yazılıyor, notta kaynağın yazdığı hâli belirtiliyor.
+2. **Sperma serisinde 2019 yok.** Kurumun yayımladığı dizide o yıl bulunmuyor;
+   uydurulmadı, grafiğin notu eksikliği söylüyor.
+
+## Tur 6'ya açık kalanlar
+
+1. Tasarım künyesi: kurum **beşinci küme** mi, yoksa var olan bir kümeye mi
+   giriyor? TMO kırmızı, Ziraat yeşil, Tarım Kredi toprak, DSİ su-toprak.
+   TİGEM bunların hiçbiri değil — devletin bizzat üretici olması.
+2. Kapak: tipografik, kuruluş belgesinden. Aday belge **95 sayılı KHK'nin
+   Resmî Gazete künyesi** (28 Ekim 1983, sayı 18205 Mükerrer).
+3. Kontrast ve renk körlüğü denetimi `_ortak/kontrast.py` ile.

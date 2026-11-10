@@ -712,6 +712,72 @@
    ]
   }
  },
+ "butce_1937": {
+  "_kapsam": "3130 sayılı Kanun, CETVEL No. [2] — 1936 malî yılı bütçesinde YENİDEN AÇILAN fasıllara konulan fevkalade tahsisat. Munzam tahsisat (Cetvel 1) ve münakale (Cetvel 3) AYRI, bu listeye dahil değil",
+  "_kaynak_niteligi": "BİRİNCİL — TBMM Kanunlar Dergisi, basılı s. 247; tablo görüntüden okundu",
+  "_birim": "lira",
+  "_kaynak": "3130 sayılı Kanun · RG 19/11/1937 · 3538",
+  "yekun_basili": 4512636,
+  "fasillar": [
+   {
+    "fasil": 80,
+    "daire": "Başvekâlet",
+    "kalem": "Siyasî müsteşarlar tahsisatı",
+    "lira": 10000
+   },
+   {
+    "fasil": 210,
+    "daire": "Maliye Vekâleti",
+    "kalem": "Askerî Fabrikalar Umum Müdürlüğüne mütedavil sermaye karşılığı",
+    "lira": 100000
+   },
+   {
+    "fasil": 235,
+    "daire": "Düyunu Umumiye",
+    "kalem": "İstanbul Üniversitesi istikraz karşılığı",
+    "lira": 229636
+   },
+   {
+    "fasil": 586,
+    "daire": "Adliye Vekâleti",
+    "kalem": "Para cezalarını tahsile gideceklerin harcırahı",
+    "lira": 3000
+   },
+   {
+    "fasil": 658,
+    "daire": "Maarif Vekâleti",
+    "kalem": "Okullar için fizik, kimya ve tabiî ilimler ders ve tecrübe aletleri",
+    "lira": 300000
+   },
+   {
+    "fasil": 706,
+    "daire": "Nafia Vekâleti",
+    "kalem": "Dahiliye vekâleti",
+    "lira": 20000
+   },
+   {
+    "fasil": 784,
+    "daire": "İktisad Vekâleti",
+    "kalem": "Maden Tetkik ve Arama Enstitüsüne yardım",
+    "lira": 500000
+   },
+   {
+    "fasil": 858,
+    "daire": "Ziraat Vekâleti",
+    "kalem": "Ziraî kombinalar kurumu masrafları",
+    "lira": 3000000
+   },
+   {
+    "fasil": 1023,
+    "daire": "Askerî Fabrikalar Umum Md.",
+    "kalem": "Tank imalâtı için yapılacak tesisat bedel ve masrafları",
+    "lira": 350000
+   }
+  ],
+  "kombinalar_fasli": 858,
+  "kredi_hesabi": "Ziraat Bankasında açtırılacak hususî bir kredi hesabı (madde 4)",
+  "madde4_alinti": "Bu krediden yapılacak masraflar hususî bir kanun ile tayin olunur. Ancak bu kanunun tanzim ve meriyete girmesine kadar İcra Vekilleri Heyeti kararile tayin edilecek işler için sarfiyat yapılır."
+ },
  "turetilmis": {
   "_kapsam": "Hepsi yukarıdaki bloklardan HESAPLANDI; hiçbiri elle yazılmadı",
   "_kaynak_niteligi": "TÜRETİLMİŞ",
@@ -744,7 +810,165 @@
   "sperma_buyume_kat": 2.22,
   "koyun_buyume_kat": 4.0,
   "sigir_buyume_kat": 1.6,
+  "kombinalar_fevkalade_tahsisat_payi_yuzde": 66.5,
   "gorev_cumlesi_yil_araligi": 73,
-  "kurulus_silsilesi_yil_araligi": 85
+  "kurulus_silsilesi_yil_araligi": 85,
+  "dagitim_kayitlari": [
+   {
+    "yil": 2002,
+    "turkiye": 84216,
+    "tigem": 75812,
+    "pay": 90.0
+   },
+   {
+    "yil": 2010,
+    "turkiye": 294586,
+    "tigem": 173720,
+    "pay": 59.0
+   },
+   {
+    "yil": 2015,
+    "turkiye": 608751,
+    "tigem": 142867,
+    "pay": 23.5
+   },
+   {
+    "yil": 2020,
+    "turkiye": 706892,
+    "tigem": 155948,
+    "pay": 22.1
+   },
+   {
+    "yil": 2021,
+    "turkiye": 629319,
+    "tigem": 117799,
+    "pay": 18.7
+   },
+   {
+    "yil": 2022,
+    "turkiye": 613206,
+    "tigem": 122045,
+    "pay": 19.9
+   }
+  ],
+  "sperma_kayitlari": [
+   {
+    "yil": 2018,
+    "doz": 460000
+   },
+   {
+    "yil": 2020,
+    "doz": 658000
+   },
+   {
+    "yil": 2021,
+    "doz": 874000
+   },
+   {
+    "yil": 2022,
+    "doz": 945000
+   },
+   {
+    "yil": 2023,
+    "doz": 1019000
+   }
+  ],
+  "isletme_siralamasi": [
+   {
+    "isletme": "Ceylanpınar",
+    "toplam": 1633157.3
+   },
+   {
+    "isletme": "Altınova",
+    "toplam": 310259.0
+   },
+   {
+    "isletme": "Gözlü",
+    "toplam": 288297.89
+   },
+   {
+    "isletme": "Malya",
+    "toplam": 218828.7
+   },
+   {
+    "isletme": "Polatlı",
+    "toplam": 211335.27
+   },
+   {
+    "isletme": "Kazım Karabekirekir",
+    "toplam": 186993.9
+   },
+   {
+    "isletme": "Karacabey",
+    "toplam": 89001.7
+   },
+   {
+    "isletme": "Ulaş",
+    "toplam": 71463.46
+   },
+   {
+    "isletme": "diğer 9 işletme",
+    "toplam": 264455.24
+   }
+  ],
+  "arazi_kullanimi": [
+   {
+    "tur": "Tarla arazisi",
+    "da": 1756580.0
+   },
+   {
+    "tur": "Tabii mera",
+    "da": 629137.89
+   },
+   {
+    "tur": "Yem bitkileri",
+    "da": 278520.0
+   },
+   {
+    "tur": "Bahçe arazisi",
+    "da": 124165.0
+   },
+   {
+    "tur": "Kültürdışı",
+    "da": 485387.9
+   }
+  ],
+  "arazi_kullanimi_fark_da": 1.67,
+  "_arazi_kullanimi_fark_notu": "Kaynağın alt sütunları yuvarlanmış; altı işletme satırında birer dekarın altında fark var. Toplam fark 3,27 milyon dekarda 1,67 dekar.",
+  "kira_asimetrisi": {
+   "isletme_kullanimda_yuzde": 50.0,
+   "isletme_kirada_yuzde": 50.0,
+   "arazi_kullanimda_yuzde": 90.93,
+   "arazi_kirada_yuzde": 9.07
+  },
+  "tigem_ha": 360245.0,
+  "sfci_kat": 16.4,
+  "tahsisat_1937_gruplu": [
+   {
+    "ad": "Ziraî kombinalar kurumu masrafları",
+    "lira": 3000000
+   },
+   {
+    "ad": "Maden Tetkik ve Arama Enstitüsüne yardım",
+    "lira": 500000
+   },
+   {
+    "ad": "Tank imalâtı tesisatı",
+    "lira": 350000
+   },
+   {
+    "ad": "Okullara fizik ve kimya aletleri",
+    "lira": 300000
+   },
+   {
+    "ad": "İstanbul Üniversitesi istikraz karşılığı",
+    "lira": 229636
+   },
+   {
+    "ad": "öteki dört fasıl",
+    "lira": 133000
+   }
+  ],
+  "tahsisat_1937_aralik_kat": 22.6
  }
 }

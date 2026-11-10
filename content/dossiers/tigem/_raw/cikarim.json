@@ -704,5 +704,71 @@
     "İran"
    ]
   }
+ },
+ "butce_1937": {
+  "_kapsam": "3130 sayılı Kanun, CETVEL No. [2] — 1936 malî yılı bütçesinde YENİDEN AÇILAN fasıllara konulan fevkalade tahsisat. Munzam tahsisat (Cetvel 1) ve münakale (Cetvel 3) AYRI, bu listeye dahil değil",
+  "_kaynak_niteligi": "BİRİNCİL — TBMM Kanunlar Dergisi, basılı s. 247; tablo görüntüden okundu",
+  "_birim": "lira",
+  "_kaynak": "3130 sayılı Kanun · RG 19/11/1937 · 3538",
+  "yekun_basili": 4512636,
+  "fasillar": [
+   {
+    "fasil": 80,
+    "daire": "Başvekâlet",
+    "kalem": "Siyasî müsteşarlar tahsisatı",
+    "lira": 10000
+   },
+   {
+    "fasil": 210,
+    "daire": "Maliye Vekâleti",
+    "kalem": "Askerî Fabrikalar Umum Müdürlüğüne mütedavil sermaye karşılığı",
+    "lira": 100000
+   },
+   {
+    "fasil": 235,
+    "daire": "Düyunu Umumiye",
+    "kalem": "İstanbul Üniversitesi istikraz karşılığı",
+    "lira": 229636
+   },
+   {
+    "fasil": 586,
+    "daire": "Adliye Vekâleti",
+    "kalem": "Para cezalarını tahsile gideceklerin harcırahı",
+    "lira": 3000
+   },
+   {
+    "fasil": 658,
+    "daire": "Maarif Vekâleti",
+    "kalem": "Okullar için fizik, kimya ve tabiî ilimler ders ve tecrübe aletleri",
+    "lira": 300000
+   },
+   {
+    "fasil": 706,
+    "daire": "Nafia Vekâleti",
+    "kalem": "Dahiliye vekâleti",
+    "lira": 20000
+   },
+   {
+    "fasil": 784,
+    "daire": "İktisad Vekâleti",
+    "kalem": "Maden Tetkik ve Arama Enstitüsüne yardım",
+    "lira": 500000
+   },
+   {
+    "fasil": 858,
+    "daire": "Ziraat Vekâleti",
+    "kalem": "Ziraî kombinalar kurumu masrafları",
+    "lira": 3000000
+   },
+   {
+    "fasil": 1023,
+    "daire": "Askerî Fabrikalar Umum Md.",
+    "kalem": "Tank imalâtı için yapılacak tesisat bedel ve masrafları",
+    "lira": 350000
+   }
+  ],
+  "kombinalar_fasli": 858,
+  "kredi_hesabi": "Ziraat Bankasında açtırılacak hususî bir kredi hesabı (madde 4)",
+  "madde4_alinti": "Bu krediden yapılacak masraflar hususî bir kanun ile tayin olunur. Ancak bu kanunun tanzim ve meriyete girmesine kadar İcra Vekilleri Heyeti kararile tayin edilecek işler için sarfiyat yapılır."
  }
 }

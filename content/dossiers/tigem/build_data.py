@@ -5,7 +5,7 @@ EKSEN: kurum Türkiye tarım arazisinin yüzde birinden azını tutuyor ama
 ülkede dağıtılan sertifikalı hububat tohumunun beşte birini veriyor —
 çünkü ürettiği şey gıda değil GİRDİ.
 
-DOKUZ DOĞRULAMA — biri bile tutmazsa üretim DURUR:
+ON DOĞRULAMA — biri bile tutmazsa üretim DURUR:
   1. Her blok `_kapsam` ve `_kaynak_niteligi` taşıyor (§2.2)
   2. Arazi tablosunun ÜÇ toplamı da satırlardan yeniden hesaplanıyor
   3. Kurumun kendi yazdığı %90,93 / %9,07 oranı yeniden hesaplanıyor
@@ -14,7 +14,8 @@ DOKUZ DOĞRULAMA — biri bile tutmazsa üretim DURUR:
   6. DAĞITIM ve SATIŞ serileri ayrı ölçü etiketi taşıyor (§8.10/karışık payda)
   7. Kronoloji artan
   8. Sermaye serisi artan ve hepsi 2005 sonrası (eski para karışmıyor)
-  9. `metin_rakamlari`ndaki her sayı bir bloktan TÜRETİLİYOR, elle yazılmıyor
+  9. Eksen cümlesinin iki sayısı hâlâ yazılabilir aralıkta
+ 10. 1937 bütçe cetvelinin satırları basılı yekûnu veriyor
 
 Çalıştırma: python3 build_data.py
 """
@@ -158,9 +159,100 @@ turetilmis |= {
         govde["damizlik"]["koyun_varlik_2023"] / govde["damizlik"]["koyun_varlik_2002"], 1),
     "sigir_buyume_kat": yuvarla(
         govde["damizlik"]["sigir_varlik_2023"] / govde["damizlik"]["sigir_varlik_2002"], 1),
+    "kombinalar_fevkalade_tahsisat_payi_yuzde": yuvarla(
+        next(f["lira"] for f in govde["butce_1937"]["fasillar"]
+             if f["fasil"] == govde["butce_1937"]["kombinalar_fasli"])
+        / govde["butce_1937"]["yekun_basili"] * 100, 1),
     "gorev_cumlesi_yil_araligi": gyillar[-1] - gyillar[0],
     "kurulus_silsilesi_yil_araligi": yillar[-1] - yillar[0],
 }
+
+# Grafiklerin ihtiyacı olan KAYIT listeleri. `cizgi` çizicisi noktaları
+# `noktalar.liste` altında bir KAYIT dizisinde arıyor; paralel diziler
+# oradan okunamıyor (DSİ tur 5'in dersi).
+turetilmis["dagitim_kayitlari"] = [
+    {"yil": t["yillar"][i],
+     "turkiye": t["turkiye_toplam_rapor"][i],
+     "tigem": t["tigem_bugday"][i] + t["tigem_arpa"][i],
+     "pay": turetilmis["tigem_birlesik_pay_yuzde"][i]}
+    for i in range(n)
+]
+dz = govde["damizlik"]
+turetilmis["sperma_kayitlari"] = [
+    {"yil": y, "doz": d} for y, d in zip(dz["sperma_yillar"], dz["sperma_doz"])
+]
+
+# İşletme sıralaması: ilk sekiz + kalanlar tek satırda. Onyedi çubuk 360 px'te
+# okunmuyor; kalanları DÜŞÜRMEK ise toplamı bozar, o yüzden toplanıyor.
+sirali = sorted(a["isletmeler"], key=lambda s: -s["toplam"])
+turetilmis["isletme_siralamasi"] = [
+    {"isletme": s["isletme"], "toplam": s["toplam"]} for s in sirali[:8]
+]
+kalan = sirali[8:]
+turetilmis["isletme_siralamasi"].append({
+    "isletme": f"diğer {len(kalan)} işletme",
+    "toplam": yuvarla(sum(s["toplam"] for s in kalan), 2),
+})
+kontrol = sum(s["toplam"] for s in turetilmis["isletme_siralamasi"])
+if abs(kontrol - float(onyedi)) > 0.5:
+    hata.append(f"SIRALAMA TOPLAMI · {kontrol} ≠ 17 işletme toplamı {onyedi}")
+
+# Arazi kullanım dökümü — 17 işletmenin sütun toplamları
+turetilmis["arazi_kullanimi"] = [
+    {"tur": "Tarla arazisi", "da": a["_17_isletme_tarla"]},
+    {"tur": "Tabii mera", "da": a["_17_isletme_tabii_mera"]},
+    {"tur": "Yem bitkileri", "da": yuvarla(sum(s["yem_bitkileri"] for s in a["isletmeler"]), 2)},
+    {"tur": "Bahçe arazisi", "da": a["_17_isletme_bahce"]},
+    {"tur": "Kültürdışı", "da": yuvarla(sum(s["kulturdisi"] for s in a["isletmeler"]), 2)},
+]
+kullanim_toplam = sum(x["da"] for x in turetilmis["arazi_kullanimi"])
+# Kaynağın alt sütunları ondalıkta yuvarlanmış: altı satırda 1 dekarın altında
+# fark var, toplamı 1,67 dekar. Fark KAYDEDİLİYOR, sessizce yutulmuyor; 2
+# dekarı aşarsa üretim durur, çünkü o zaman yuvarlama değil hata demektir.
+turetilmis["arazi_kullanimi_fark_da"] = yuvarla(float(onyedi) - kullanim_toplam, 2)
+turetilmis["_arazi_kullanimi_fark_notu"] = (
+    "Kaynağın alt sütunları yuvarlanmış; altı işletme satırında birer dekarın "
+    "altında fark var. Toplam fark 3,27 milyon dekarda 1,67 dekar.")
+if abs(kullanim_toplam - float(onyedi)) > 2.0:
+    hata.append(f"ARAZİ KULLANIM DÖKÜMÜ · {kullanim_toplam} ≠ {onyedi} — "
+                f"fark {float(onyedi) - kullanim_toplam:.2f} da, yuvarlama olamaz")
+
+# Kira asimetrisi — iki satır, her satır kendi içinde %100
+isl = govde["isletmeler"]
+isl_toplam = isl["faaliyette"] + isl["kiraya_verilmis"]
+turetilmis["kira_asimetrisi"] = {
+    "isletme_kullanimda_yuzde": yuvarla(isl["faaliyette"] / isl_toplam * 100, 1),
+    "isletme_kirada_yuzde": yuvarla(isl["kiraya_verilmis"] / isl_toplam * 100, 1),
+    "arazi_kullanimda_yuzde": kullanim_orani,
+    "arazi_kirada_yuzde": kira_orani,
+}
+
+# Dünya karşılaştırması — hektara çevrilmiş
+turetilmis["tigem_ha"] = yuvarla(float(toplam_arazi) / 10, 0)
+turetilmis["sfci_kat"] = yuvarla(
+    turetilmis["tigem_ha"] / govde["dunya"]["hindistan"]["sfci_alan_ha"], 1)
+
+# 1937 cetveli grafiğe girerken GRUPLANIYOR. `siralama` bütün grafiği birden
+# oranlıyor: 3.000.000 ile 3.000 yan yana konursa küçük çubuk 360 px'te
+# yarım pikselin altına düşer ve okur onu çizim hatası sanır. En küçük dört
+# fasıl tek satırda toplanıyor — DÜŞÜRÜLMÜYOR, toplanıyor, yekûn korunuyor.
+butce = govde["butce_1937"]
+fasil = {f["fasil"]: f for f in butce["fasillar"]}
+kucukler = [80, 210, 706, 586]
+turetilmis["tahsisat_1937_gruplu"] = [
+    {"ad": "Ziraî kombinalar kurumu masrafları", "lira": fasil[858]["lira"]},
+    {"ad": "Maden Tetkik ve Arama Enstitüsüne yardım", "lira": fasil[784]["lira"]},
+    {"ad": "Tank imalâtı tesisatı", "lira": fasil[1023]["lira"]},
+    {"ad": "Okullara fizik ve kimya aletleri", "lira": fasil[658]["lira"]},
+    {"ad": "İstanbul Üniversitesi istikraz karşılığı", "lira": fasil[235]["lira"]},
+    {"ad": "öteki dört fasıl", "lira": sum(fasil[k]["lira"] for k in kucukler)},
+]
+gruplu_toplam = sum(x["lira"] for x in turetilmis["tahsisat_1937_gruplu"])
+if gruplu_toplam != butce["yekun_basili"]:
+    hata.append(f"1937 GRUPLAMA · {gruplu_toplam:,} ≠ yekûn {butce['yekun_basili']:,}")
+araligi = (max(x["lira"] for x in turetilmis["tahsisat_1937_gruplu"])
+           / min(x["lira"] for x in turetilmis["tahsisat_1937_gruplu"]))
+turetilmis["tahsisat_1937_aralik_kat"] = yuvarla(araligi, 1)
 
 # Eksenin cümlesi — iki sayı da türetilmiş olmalı
 eksen_pay = turetilmis["turkiye_tarim_arazisi_payi_yuzde"]
@@ -174,6 +266,15 @@ if not 15 <= eksen_tohum <= 25:
 for ad, blok in govde.items():
     if isinstance(blok, dict) and blok.get("_durum", "").startswith("TAMAMLANMADI"):
         uyari.append(f"TAMAMLANMADI · '{ad}' — {blok['_durum']}")
+
+# ── 10. 1937 bütçe cetveli — satırlar basılı yekûnu vermeli ───────────────
+b = govde["butce_1937"]
+toplam = sum(f["lira"] for f in b["fasillar"])
+if toplam != b["yekun_basili"]:
+    hata.append(f"1937 CETVELİ TUTMUYOR · satırlar {toplam:,} ≠ basılı yekûn {b['yekun_basili']:,}")
+kombina = next(f for f in b["fasillar"] if f["fasil"] == b["kombinalar_fasli"])
+if kombina["lira"] != max(f["lira"] for f in b["fasillar"]):
+    hata.append("1937 CETVELİ · Ziraî kombinalar faslı en büyük kalem değil — cümle yazılamaz")
 
 if hata:
     print("VERİ KATMANI KİLİTLENMEDİ:", file=sys.stderr)
@@ -198,7 +299,7 @@ cikti = {
 (KOK / "data.json").write_text(
     json.dumps(cikti, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
-print("data.json yazıldı · 9 doğrulamanın 9'u geçti")
+print("data.json yazıldı · 10 doğrulamanın 10'u geçti")
 for u in uyari:
     print("  ⚠", u)
 print(f"  arazi payı            %{eksen_pay}")

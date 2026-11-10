@@ -1,0 +1,980 @@
+{
+ "_dosya": "TİGEM — Kurum Dosyası Sayı 06 · grafik tarifleri",
+ "_kural": "Sayılar burada yazılmaz; '@yol' ile data.json'dan okunur. dogrula_grafik.py tohumlamadan önce her yolu çözer.",
+ "_olcu_notu": "DAĞITIM ve SATIŞ aynı grafiğe girmez. tohum_dagitimi ve tigem_payi dağıtım serisini kullanıyor; satış serisi yalnız künyede ve metinde geçiyor ve ikisi ayrı ayrı adlandırılıyor.",
+ "_roller": "vurgu · ikincil · sessiz",
+ "grafikler": {
+  "kunye_tigem": {
+   "tur": "kunye",
+   "baslik": {
+    "tr": "Kurum rakamlarla",
+    "en": "The institution in figures"
+   },
+   "not": {
+    "tr": "Arazi 25.07.2023 tarihli; tohum satışı 2023, sperma satışı 2023. Otuz dört işletmenin on yedisi TİGEM'in kendi işletmesinde, on yedisi kiraya verilmiş durumda.",
+    "en": "Land as of 25 July 2023; seed sales and semen sales are 2023 figures. Of thirty-four enterprises, seventeen are run by TİGEM and seventeen are leased out."
+   },
+   "kaynak": "TİGEM · arazi varlığı tablosu, 2024-2028 Stratejik Plan, Mart 2024 sunumu",
+   "kalemler": [
+    {
+     "deger": "@arazi.tigem_toplam_arazi",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "dekar arazi",
+      "en": "decares of land"
+     },
+     "alt": {
+      "tr": "25.07.2023",
+      "en": "25 July 2023"
+     }
+    },
+    {
+     "deger": "@turetilmis.turkiye_tarim_arazisi_payi_yuzde",
+     "ondalik": 2,
+     "sonek": {
+      "tr": "%",
+      "en": "%"
+     },
+     "etiket": {
+      "tr": "Türkiye tarım arazisinin",
+      "en": "of Türkiye's farmland"
+     },
+     "alt": {
+      "tr": "Dünya Bankası, 2024",
+      "en": "World Bank, 2024"
+     }
+    },
+    {
+     "deger": "@tohum_satis.hububat_2023_bin_ton",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "bin ton hububat tohumu",
+      "en": "thousand tonnes of cereal seed"
+     },
+     "alt": {
+      "tr": "satış, 2023",
+      "en": "sold, 2023"
+     }
+    },
+    {
+     "deger": "@damizlik.sperma_doz.4",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "doz boğa sperması",
+      "en": "doses of bull semen"
+     },
+     "alt": {
+      "tr": "satış, 2023",
+      "en": "sold, 2023"
+     }
+    },
+    {
+     "deger": "@damizlik.koyun_varlik_2023",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "baş damızlık koyun",
+      "en": "head of breeding sheep"
+     },
+     "alt": {
+      "tr": "2023",
+      "en": "2023"
+     }
+    },
+    {
+     "deger": "@dagitim_kanallari.bayi_sayisi",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "TİGEM bayisi",
+      "en": "TİGEM dealers"
+     },
+     "alt": {
+      "tr": "2003-2023",
+      "en": "2003-2023"
+     }
+    },
+    {
+     "deger": "@kunye.tohum_hazirlama_kapasite_ton_saat",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "ton/saat tohum hazırlama",
+      "en": "tonnes/hour seed processing"
+     },
+     "alt": {
+      "tr": "kurulu kapasite",
+      "en": "installed capacity"
+     }
+    },
+    {
+     "deger": "@damizlik.arap_ati_varlik",
+     "ondalik": 0,
+     "etiket": {
+      "tr": "baş Safkan Arap Atı",
+      "en": "head of Purebred Arabian horses"
+     },
+     "alt": {
+      "tr": "üç işletmede",
+      "en": "at three enterprises"
+     }
+    }
+   ]
+  },
+  "fevkalade_tahsisat_1937": {
+   "tur": "siralama",
+   "baslik": {
+    "tr": "1937'de devletin yeni açtığı dokuz fasıl",
+    "en": "The nine new budget lines the state opened in 1937"
+   },
+   "birim": {
+    "tr": "lira · 3130 sayılı Kanun, Cetvel 2",
+    "en": "lira · Law 3130, Schedule 2"
+   },
+   "ondalik": 0,
+   "not": {
+    "tr": "Kanunun ikinci maddesi 1936 malî yılı bütçesine dokuz yeni fasıl açıp toplam 4.512.636 lira fevkalade tahsisat koydu. En büyüğü, yekûnun yüzde 66,5'i, Ziraat Vekâleti bütçesindeki 858'inci fasıldı. Dördüncü madde bu tahsisatın Ziraat Bankasında açılacak hususî bir kredi hesabına yatırılacağını, harcama esaslarının sonradan çıkarılacak hususî bir kanunla belirleneceğini yazıyor. En küçük dört fasıl son satırda toplandı; düşürülmedi, yekûn korundu.",
+    "en": "The law's second article opened nine new lines in the 1936 fiscal-year budget with 4,512,636 lira of extraordinary appropriation. The largest, 66.5 per cent of the total, was line 858 in the Ministry of Agriculture's budget. Article four states the money would be deposited in a special credit account at Ziraat Bankası and that the rules for spending it would be set by a law yet to be written. The four smallest lines are aggregated in the last row; they were not dropped and the total is preserved."
+   },
+   "kaynak": "3130 sayılı Kanun · RG 19/11/1937 · 3538, basılı s. 247",
+   "satirlar": [
+    {
+     "etiket": {
+      "tr": "Ziraî kombinalar kurumu masrafları",
+      "en": "State Agricultural Combines expenses"
+     },
+     "deger": "@turetilmis.tahsisat_1937_gruplu.0.lira",
+     "rol": "vurgu"
+    },
+    {
+     "etiket": {
+      "tr": "Maden Tetkik ve Arama Enstitüsüne yardım",
+      "en": "Grant to the Mineral Research Institute"
+     },
+     "deger": "@turetilmis.tahsisat_1937_gruplu.1.lira",
+     "rol": "ikincil"
+    },
+    {
+     "etiket": {
+      "tr": "Tank imalâtı tesisatı",
+      "en": "Tank manufacturing plant"
+     },
+     "deger": "@turetilmis.tahsisat_1937_gruplu.2.lira",
+     "rol": "ikincil"
+    },
+    {
+     "etiket": {
+      "tr": "Okullara fizik ve kimya aletleri",
+      "en": "Physics and chemistry equipment for schools"
+     },
+     "deger": "@turetilmis.tahsisat_1937_gruplu.3.lira",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "İstanbul Üniversitesi istikraz karşılığı",
+      "en": "Istanbul University loan"
+     },
+     "deger": "@turetilmis.tahsisat_1937_gruplu.4.lira",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "öteki dört fasıl",
+      "en": "the other four lines"
+     },
+     "deger": "@turetilmis.tahsisat_1937_gruplu.5.lira",
+     "rol": "sessiz"
+    }
+   ]
+  },
+  "silsile": {
+   "tur": "zaman_cizelgesi",
+   "baslik": {
+    "tr": "Bir kurumun soyu: iki koldan bir çatıya",
+    "en": "The lineage of an institution: two branches, one roof"
+   },
+   "not": {
+    "tr": "Kuruluş tarihi kurumun kendi sayfasında 1984 yazıyor. Birincil belge başka söylüyor: TİGEM 28 Ekim 1983 tarihli Resmî Gazete'de yayımlanan 95 sayılı Kanun Hükmünde Kararname ile kurulmuştur. 1984'te olan, bağlı olduğu KİT çerçevesinin değişmesidir.",
+    "en": "The institution's own page gives 1984 as its founding year. The primary document says otherwise: TİGEM was established by Decree-Law 95, published in the Official Gazette of 28 October 1983. What happened in 1984 was a change in the state-enterprise framework it was subject to."
+   },
+   "kaynak": "TBMM Kanunlar Dergisi ve Resmî Gazete arşivi",
+   "olaylar": [
+    {
+     "yil": 1937,
+     "baslik": {
+      "tr": "858'inci fasıl açılıyor",
+      "en": "Budget line 858 is opened"
+     },
+     "aciklama": {
+      "tr": "3130 sayılı Kanun, Ziraat Vekâleti bütçesine 'Ziraî kombinalar kurumu masrafları' faslını açıyor ve 3.000.000 lira koyuyor.",
+      "en": "Law 3130 opens the line 'State Agricultural Combines expenses' in the Ministry of Agriculture's budget with 3,000,000 lira."
+     }
+    },
+    {
+     "yil": 1938,
+     "baslik": {
+      "tr": "Devlet Ziraat İşletmeleri Kurumu",
+      "en": "State Agricultural Enterprises Corporation"
+     },
+     "aciklama": {
+      "tr": "3308 sayılı Kanun kurumu kuruyor; Atatürk'ün 11 Haziran 1937 tarihli mektupla Hazineye bağışladığı taşınmazlar kuruma geçiyor ve değerleri sermaye hesabına yazılıyor.",
+      "en": "Law 3308 establishes the corporation; the property Atatürk donated to the Treasury by his letter of 11 June 1937 passes to it and its value is credited to capital."
+     }
+    },
+    {
+     "yil": 1949,
+     "baslik": {
+      "tr": "Devlet Üretme Çiftlikleri",
+      "en": "State Production Farms"
+     },
+     "aciklama": {
+      "tr": "5433 sayılı Kanun iki kolu birleştiriyor. Birinci madde görevi sayıyor: iyi tohumluk, damızlık ve fidan.",
+      "en": "Law 5433 merges the two branches. Its first article states the task: good seed, breeding stock and saplings."
+     }
+    },
+    {
+     "yil": 1950,
+     "baslik": {
+      "tr": "Atatürk Orman Çiftliği ayrılıyor",
+      "en": "Atatürk Forest Farm separates"
+     },
+     "aciklama": {
+      "tr": "5659 sayılı Kanun çiftliği ayrı bir müdürlük yapıyor; sermayesi 7.500.000 lira.",
+      "en": "Law 5659 makes the farm a separate directorate with a capital of 7,500,000 lira."
+     }
+    },
+    {
+     "yil": 1983,
+     "baslik": {
+      "tr": "TİGEM kuruluyor",
+      "en": "TİGEM is established"
+     },
+     "aciklama": {
+      "tr": "95 sayılı Kanun Hükmünde Kararname, 28 Ekim 1983. Hara ve inekhaneler ile Devlet Üretme Çiftlikleri tek çatı altında; Kamu İktisadi Kuruluşu, merkez Ankara.",
+      "en": "Decree-Law 95, 28 October 1983. The studs and cattle farms and the State Production Farms come under one roof; a public economic establishment, headquartered in Ankara."
+     }
+    },
+    {
+     "yil": 1984,
+     "baslik": {
+      "tr": "Çerçeve 233 sayılı KHK'ye geçiyor",
+      "en": "The framework moves to Decree-Law 233"
+     },
+     "aciklama": {
+      "tr": "TİGEM 18 Haziran 1984 tarihli ekli cetvelde Kamu İktisadi Kuruluşu olarak yer alıyor.",
+      "en": "TİGEM appears in the schedule of 18 June 1984 as a public economic establishment."
+     }
+    },
+    {
+     "yil": 1990,
+     "baslik": {
+      "tr": "Toprak tapuya geçiyor",
+      "en": "The land is entered in the register"
+     },
+     "aciklama": {
+      "tr": "3646 sayılı Kanun, Devlet Üretme Çiftlikleri'nden gelen ve hara-inekhanelere tahsisli taşınmazları TİGEM adına tescil ettiriyor.",
+      "en": "Law 3646 registers in TİGEM's name the property inherited from the State Production Farms and allocated to the studs and cattle farms."
+     }
+    },
+    {
+     "yil": 1994,
+     "baslik": {
+      "tr": "Statü İDT'ye dönüyor",
+      "en": "The status becomes a state economic enterprise"
+     },
+     "aciklama": {
+      "tr": "4046 sayılı Kanunun 35'inci maddesi 233'ün ekli cetvellerini yeniden tespit ediyor; TİGEM İktisadi Devlet Teşekkülü bölümüne geçiyor.",
+      "en": "Article 35 of Law 4046 redraws the schedules of Decree-Law 233; TİGEM moves to the state economic enterprise section."
+     }
+    },
+    {
+     "yil": 2022,
+     "baslik": {
+      "tr": "Bugünkü Ana Statü",
+      "en": "The current charter"
+     },
+     "aciklama": {
+      "tr": "1 Şubat 2022 tarihli Cumhurbaşkanı Kararı. Beşinci maddenin ilk bendi 1983'teki cümlenin neredeyse aynısı.",
+      "en": "Presidential Decision of 1 February 2022. The first clause of its fifth article is almost identical to the 1983 sentence."
+     }
+    }
+   ]
+  },
+  "isletme_arazileri": {
+   "tur": "siralama",
+   "baslik": {
+    "tr": "Bir işletme, arazinin yarısı",
+    "en": "One enterprise, half the land"
+   },
+   "birim": {
+    "tr": "bin dekar · faaliyetteki 17 işletme · 25.07.2023",
+    "en": "thousand decares · the 17 operating enterprises · 25 July 2023"
+   },
+   "bolen": 1000,
+   "ondalik": 0,
+   "not": {
+    "tr": "Şanlıurfa'daki Ceylanpınar İşletmesi tek başına faaliyetteki arazinin yüzde 49,9'unu, TİGEM'in bütün arazisinin yüzde 45,3'ünü tutuyor. Sıralamanın sonundaki satır kalan dokuz işletmenin toplamıdır; düşürülmedi, toplandı. Kaynak tabloda işletmenin adı 'Kazım Karabekirekir' diye basılmış.",
+    "en": "The Ceylanpınar enterprise in Şanlıurfa alone holds 49.9 per cent of the land in operation and 45.3 per cent of all TİGEM land. The last row is the sum of the remaining nine enterprises; they were aggregated, not dropped. In the source table the enterprise name is printed as 'Kazım Karabekirekir'."
+   },
+   "kaynak": "TİGEM · işletme bazında arazi varlığı tablosu, 25.07.2023",
+   "satirlar": [
+    {
+     "etiket": {
+      "tr": "Ceylanpınar · Şanlıurfa",
+      "en": "Ceylanpınar · Şanlıurfa"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.0.toplam",
+     "rol": "vurgu"
+    },
+    {
+     "etiket": {
+      "tr": "Altınova · Konya",
+      "en": "Altınova · Konya"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.1.toplam",
+     "rol": "ikincil"
+    },
+    {
+     "etiket": {
+      "tr": "Gözlü · Konya",
+      "en": "Gözlü · Konya"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.2.toplam",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Malya · Kırşehir",
+      "en": "Malya · Kırşehir"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.3.toplam",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Polatlı · Ankara",
+      "en": "Polatlı · Ankara"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.4.toplam",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Kazım Karabekir · Karaman",
+      "en": "Kazım Karabekir · Karaman"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.5.toplam",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Karacabey · Bursa",
+      "en": "Karacabey · Bursa"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.6.toplam",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Ulaş · Sivas",
+      "en": "Ulaş · Sivas"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.7.toplam",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "diğer dokuz işletme",
+      "en": "the other nine enterprises"
+     },
+     "deger": "@turetilmis.isletme_siralamasi.8.toplam",
+     "rol": "sessiz"
+    }
+   ]
+  },
+  "arazi_kullanimi": {
+   "tur": "siralama",
+   "baslik": {
+    "tr": "Arazi ne için kullanılıyor",
+    "en": "What the land is used for"
+   },
+   "birim": {
+    "tr": "bin dekar · faaliyetteki 17 işletme",
+    "en": "thousand decares · the 17 operating enterprises"
+   },
+   "bolen": 1000,
+   "ondalik": 0,
+   "not": {
+    "tr": "Beş kalem faaliyetteki arazinin tamamını kapsıyor. Kaynağın alt sütunları yuvarlanmış: beş kalemin toplamı ile tablo toplamı arasında 3,27 milyon dekarda 1,67 dekar fark var.",
+    "en": "The five items cover all the land in operation. The source's sub-columns are rounded: the five items and the table total differ by 1.67 decares in 3.27 million."
+   },
+   "kaynak": "TİGEM · arazi varlığı tablosu, 25.07.2023",
+   "satirlar": [
+    {
+     "etiket": {
+      "tr": "Tarla arazisi",
+      "en": "Field crops"
+     },
+     "deger": "@turetilmis.arazi_kullanimi.0.da",
+     "rol": "vurgu"
+    },
+    {
+     "etiket": {
+      "tr": "Tabii mera",
+      "en": "Natural pasture"
+     },
+     "deger": "@turetilmis.arazi_kullanimi.1.da",
+     "rol": "ikincil"
+    },
+    {
+     "etiket": {
+      "tr": "Kültürdışı arazi",
+      "en": "Non-arable land"
+     },
+     "deger": "@turetilmis.arazi_kullanimi.4.da",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Yem bitkileri",
+      "en": "Forage crops"
+     },
+     "deger": "@turetilmis.arazi_kullanimi.2.da",
+     "rol": "sessiz"
+    },
+    {
+     "etiket": {
+      "tr": "Bahçe arazisi",
+      "en": "Orchards and gardens"
+     },
+     "deger": "@turetilmis.arazi_kullanimi.3.da",
+     "rol": "sessiz"
+    }
+   ]
+  },
+  "tohum_dagitimi": {
+   "tur": "cizgi",
+   "baslik": {
+    "tr": "Ülke yedi kat büyüdü, kurum bir buçuk",
+    "en": "The country grew sevenfold, the institution one and a half"
+   },
+   "birim": {
+    "tr": "bin ton · sertifikalı buğday ve arpa tohumu DAĞITIMI",
+    "en": "thousand tonnes · certified wheat and barley seed DISTRIBUTED"
+   },
+   "bolen": 1000,
+   "ondalik": 0,
+   "not": {
+    "tr": "Ülke rakamının kaynağı Tarım ve Orman Bakanlığı. TİGEM satırı kurumun kendi ekilişlerini de içeriyor; bu yüzden aynı yılın satış rakamından yüksektir. 2002'de 84.216 ton olan ülke dağıtımı 2022'de 613.206 tona çıktı; TİGEM'inki 75.812'den 122.045 tona.",
+    "en": "The country figure comes from the Ministry of Agriculture and Forestry. The TİGEM series includes the seed the institution sowed on its own land, which is why it exceeds the sales figure for the same year. Country-wide distribution rose from 84,216 tonnes in 2002 to 613,206 in 2022; TİGEM's from 75,812 to 122,045."
+   },
+   "kaynak": "Tohumculuk Sektör Raporu 2022, Tablo 9 ve 10 · ülke rakamı TOB",
+   "seriler": [
+    {
+     "ad": {
+      "tr": "Türkiye toplamı",
+      "en": "Türkiye total"
+     },
+     "rol": "ikincil",
+     "noktalar": {
+      "liste": "@turetilmis.dagitim_kayitlari",
+      "x": "yil",
+      "y": "turkiye"
+     }
+    },
+    {
+     "ad": {
+      "tr": "TİGEM",
+      "en": "TİGEM"
+     },
+     "rol": "vurgu",
+     "noktalar": {
+      "liste": "@turetilmis.dagitim_kayitlari",
+      "x": "yil",
+      "y": "tigem"
+     }
+    }
+   ]
+  },
+  "tigem_payi": {
+   "tur": "cizgi",
+   "baslik": {
+    "tr": "Doksandan yirmiye",
+    "en": "From ninety to twenty"
+   },
+   "birim": {
+    "tr": "% · TİGEM'in ülke hububat tohumu dağıtımındaki payı",
+    "en": "% · TİGEM's share of national cereal seed distribution"
+   },
+   "ondalik": 1,
+   "not": {
+    "tr": "2002'de ülkede dağıtılan sertifikalı buğday ve arpa tohumunun yüzde 90'ı TİGEM'den geliyordu; 2022'de yüzde 19,9'u. Rakamlar buğday ve arpanın toplamından hesaplandı. Raporun kendi ifadesiyle payın düşmesi, özel sektör firmalarının bu alanda hızla gelişmesinden kaynaklanıyor.",
+    "en": "In 2002, 90 per cent of the certified wheat and barley seed distributed in the country came from TİGEM; in 2022, 19.9 per cent. The figures are computed from wheat and barley combined. In the report's own words, the falling share reflects the rapid growth of private firms in this field."
+   },
+   "kaynak": "Tohumculuk Sektör Raporu 2022, Tablo 9 ve 10'dan hesaplandı",
+   "seriler": [
+    {
+     "ad": {
+      "tr": "TİGEM'in payı",
+      "en": "TİGEM's share"
+     },
+     "rol": "vurgu",
+     "noktalar": {
+      "liste": "@turetilmis.dagitim_kayitlari",
+      "x": "yil",
+      "y": "pay"
+     }
+    }
+   ]
+  },
+  "tohum_yolu": {
+   "tur": "islem_akisi",
+   "baslik": {
+    "tr": "Tohum bayiye nasıl ulaşıyor",
+    "en": "How the seed reaches the dealer"
+   },
+   "not": {
+    "tr": "Adımlar ve süreler Tohumluk Satış ve Dağıtım Yönergesi'nin dokuzuncu maddesinde yazılı. Çiftçi bu yoldan geçmek zorunda değil: Yönetim Kurulunun belirlediği peşin satış fiyatı üzerinden Genel Müdürlüğe veya işletmeye yazılı başvurarak doğrudan da alabilir. Fiyatlar her yıl Haziran-Ağustos arasında belirleniyor.",
+    "en": "The steps and deadlines are set out in article nine of the Seed Sales and Distribution Directive. A farmer need not use this route: they may buy directly by applying in writing to the General Directorate or an enterprise at the cash price set by the Board. Prices are set each year between June and August."
+   },
+   "kaynak": "TİGEM Tohumluk Satış ve Dağıtım Yönergesi · YK kararı 10/03/2017-80, değişik 22.12.2022-401",
+   "adimlar": [
+    {
+     "baslik": {
+      "tr": "Ön talep",
+      "en": "Preliminary request"
+     },
+     "aktor": {
+      "tr": "Bayi",
+      "en": "Dealer"
+     },
+     "cikti": {
+      "tr": "Bayi Otomasyon Sistemi kaydı",
+      "en": "Entry in the Dealer Automation System"
+     }
+    },
+    {
+     "baslik": {
+      "tr": "Ön tahsis",
+      "en": "Preliminary allocation"
+     },
+     "aktor": {
+      "tr": "TİGEM",
+      "en": "TİGEM"
+     },
+     "cikti": {
+      "tr": "Kota ve ön talebe göre bildirim",
+      "en": "Notification based on quota and request"
+     }
+    },
+    {
+     "baslik": {
+      "tr": "Kesin tahsise çevirme",
+      "en": "Confirming the allocation"
+     },
+     "aktor": {
+      "tr": "Bayi",
+      "en": "Dealer"
+     },
+     "sure": {
+      "tr": "5 iş günü",
+      "en": "5 working days"
+     },
+     "cikti": {
+      "tr": "Bedelin %10'u peşin; çevrilmeyen tahsis sistemce iptal edilir",
+      "en": "10% of the price paid up front; an unconfirmed allocation is cancelled automatically"
+     }
+    },
+    {
+     "baslik": {
+      "tr": "Teslim alma",
+      "en": "Collection"
+     },
+     "aktor": {
+      "tr": "Bayi",
+      "en": "Dealer"
+     },
+     "sure": {
+      "tr": "20 takvim günü",
+      "en": "20 calendar days"
+     },
+     "cikti": {
+      "tr": "Tohumluk tahsis edilen işletmeden alınır",
+      "en": "The seed is collected from the allocated enterprise"
+     }
+    },
+    {
+     "baslik": {
+      "tr": "Ödeme",
+      "en": "Payment"
+     },
+     "aktor": {
+      "tr": "Bayi",
+      "en": "Dealer"
+     },
+     "cikti": {
+      "tr": "Bayi Otomasyon Sistemi üzerinden",
+      "en": "Through the Dealer Automation System"
+     },
+     "secenekler": [
+      {
+       "tr": "nakit",
+       "en": "cash"
+      },
+      {
+       "tr": "banka teminat mektubu",
+       "en": "bank letter of guarantee"
+      }
+     ]
+    },
+    {
+     "baslik": {
+      "tr": "Sevkiyat",
+      "en": "Dispatch"
+     },
+     "aktor": {
+      "tr": "Bayi",
+      "en": "Dealer"
+     },
+     "cikti": {
+      "tr": "Randevuyla; yükleme işletmenin, nakliye bayinin",
+      "en": "By appointment; loading is the enterprise's duty, haulage the dealer's"
+     }
+    }
+   ]
+  },
+  "dagitim_kanallari": {
+   "tur": "kartlar",
+   "baslik": {
+    "tr": "Dört kapı",
+    "en": "Four doors"
+   },
+   "not": {
+    "tr": "Yönergenin yedinci maddesi dağıtım araçlarını sayıyor. Dağıtıcı kuruluşlar bu dizinin başka iki kurumu: Tarım Kredi Kooperatifleri ve Pankobirlik.",
+    "en": "Article seven of the directive lists the distribution channels. The distributing organisations are two other institutions in this series: the Agricultural Credit Cooperatives and Pankobirlik."
+   },
+   "kaynak": "TİGEM Tohumluk Satış ve Dağıtım Yönergesi, madde 7-8",
+   "kartlar": [
+    {
+     "ust": {
+      "tr": "Doğrudan",
+      "en": "Direct"
+     },
+     "baslik": {
+      "tr": "İşletmeler",
+      "en": "The enterprises"
+     },
+     "govde": {
+      "tr": "Çiftçi Genel Müdürlüğe ya da işletmeye yazılı başvuruyor, Yönetim Kurulunun belirlediği peşin fiyattan alıyor.",
+      "en": "The farmer applies in writing to the General Directorate or to an enterprise and buys at the cash price set by the Board."
+     },
+     "rakam": {
+      "deger": "@isletmeler.faaliyette",
+      "ondalik": 0,
+      "etiket": {
+       "tr": "faaliyetteki işletme",
+       "en": "operating enterprises"
+      }
+     }
+    },
+    {
+     "ust": {
+      "tr": "Sözleşmeli",
+      "en": "Under contract"
+     },
+     "baslik": {
+      "tr": "TİGEM bayileri",
+      "en": "TİGEM dealers"
+     },
+     "govde": {
+      "tr": "Bakanlıktan Tohumluk Bayi Belgesi almış gerçek ve tüzel kişiler. Sözleşme bir yıllık ve kendiliğinden uzuyor; bayi yalnız başvurduğu il sınırları içinde satabiliyor.",
+      "en": "Natural and legal persons holding a Seed Dealer Certificate from the ministry. The contract runs for one year and renews automatically; a dealer may sell only within the province named in its application."
+     },
+     "rakam": {
+      "deger": "@dagitim_kanallari.bayi_sayisi",
+      "ondalik": 0,
+      "etiket": {
+       "tr": "bayi · 2003-2023",
+       "en": "dealers · 2003-2023"
+      }
+     }
+    },
+    {
+     "ust": {
+      "tr": "Kamu",
+      "en": "Public"
+     },
+     "baslik": {
+      "tr": "İl müdürlükleri",
+      "en": "Provincial directorates"
+     },
+     "govde": {
+      "tr": "İl Tarım ve Orman Müdürlüğü çeşit çeşit talebini yazıyla iletiyor, tahsis Genel Müdürlükçe işletmelerden yapılıyor.",
+      "en": "The provincial directorate submits its request by letter, variety by variety, and the General Directorate allocates from the enterprises."
+     }
+    },
+    {
+     "ust": {
+      "tr": "Protokolle",
+      "en": "By protocol"
+     },
+     "baslik": {
+      "tr": "Dağıtıcı kuruluşlar",
+      "en": "Distributing organisations"
+     },
+     "govde": {
+      "tr": "Tarım Kredi Kooperatifleri ve Pankobirlik, TİGEM ile imzalanan Dağıtıcı Kuruluş Protokolü esaslarında tohumluk alıyor.",
+      "en": "The Agricultural Credit Cooperatives and Pankobirlik take seed under a Distributing Organisation Protocol signed with TİGEM."
+     }
+    }
+   ]
+  },
+  "kira_asimetrisi": {
+   "tur": "ikili_cubuk",
+   "baslik": {
+    "tr": "İşletmelerin yarısı, arazinin onda biri",
+    "en": "Half the enterprises, a tenth of the land"
+   },
+   "not": {
+    "tr": "Otuz dört işletmenin on yedisi kiraya verilmiş durumda ama bu işletmeler TİGEM arazisinin yüzde 9,07'sini tutuyor: kiraya verilenler küçük işletmeler. Oranı kurumun kendi arazi tablosu yazıyor ve satırlardan yeniden hesaplandı. Her satır kendi içinde oranlanıyor; satırlar birbiriyle değil.",
+    "en": "Seventeen of thirty-four enterprises are leased out, but they hold 9.07 per cent of TİGEM's land: the leased ones are the small ones. The ratio is printed in the institution's own land table and was recomputed from the rows. Each row is scaled within itself, not against the other."
+   },
+   "kaynak": "TİGEM · arazi varlığı tablosu, 25.07.2023 · işletme sayıları tigem.gov.tr",
+   "seriler": [
+    {
+     "ad": {
+      "tr": "TİGEM'in kullanımında",
+      "en": "Run by TİGEM"
+     },
+     "rol": "vurgu"
+    },
+    {
+     "ad": {
+      "tr": "Kiraya verilmiş",
+      "en": "Leased out"
+     },
+     "rol": "ikincil"
+    }
+   ],
+   "sonek": {
+    "tr": "%",
+    "en": "%"
+   },
+   "ondalik": 1,
+   "satirlar": [
+    {
+     "etiket": {
+      "tr": "İşletme sayısı",
+      "en": "Number of enterprises"
+     },
+     "degerler": [
+      "@turetilmis.kira_asimetrisi.isletme_kullanimda_yuzde",
+      "@turetilmis.kira_asimetrisi.isletme_kirada_yuzde"
+     ]
+    },
+    {
+     "etiket": {
+      "tr": "Arazi",
+      "en": "Land"
+     },
+     "degerler": [
+      "@turetilmis.kira_asimetrisi.arazi_kullanimda_yuzde",
+      "@turetilmis.kira_asimetrisi.arazi_kirada_yuzde"
+     ]
+    }
+   ]
+  },
+  "sperma_satisi": {
+   "tur": "cizgi",
+   "baslik": {
+    "tr": "Beş yılda iki katından fazla",
+    "en": "More than double in five years"
+   },
+   "birim": {
+    "tr": "bin doz · boğa sperması satışı",
+    "en": "thousand doses · bull semen sold"
+   },
+   "bolen": 1000,
+   "ondalik": 0,
+   "not": {
+    "tr": "Üretim merkezi Malatya'daki Sultansuyu İşletmesinde 2012'de açıldı. 2018'de 460 bin doz satılmış, 2023'te 1 milyon 19 bin doz. Seride 2019 yılı yok; kurumun yayımladığı dizide o yıl bulunmuyor.",
+    "en": "The production centre opened in 2012 at the Sultansuyu enterprise in Malatya. 460,000 doses were sold in 2018 and 1,019,000 in 2023. The year 2019 is absent from the series; it is missing from the figures the institution published."
+   },
+   "kaynak": "TİGEM · Mart 2024 sunumu",
+   "seriler": [
+    {
+     "ad": {
+      "tr": "Satılan doz",
+      "en": "Doses sold"
+     },
+     "rol": "vurgu",
+     "noktalar": {
+      "liste": "@turetilmis.sperma_kayitlari",
+      "x": "yil",
+      "y": "doz"
+     }
+    }
+   ]
+  },
+  "korunanlar": {
+   "tur": "kartlar",
+   "baslik": {
+    "tr": "Tohumdan başka ne koruyor",
+    "en": "What else it keeps alive"
+   },
+   "not": {
+    "tr": "Kurum, sertifikalı tohum ve damızlığın yanında kaybolmakta olan yerel çeşitleri ve ırkları da elinde tutuyor. Atçılık Osmanlı'daki Çiftlikat-ı Hümayun'dan geliyor.",
+    "en": "Alongside certified seed and breeding stock, the institution maintains local varieties and breeds that are disappearing. The horse breeding descends from the Ottoman imperial farms."
+   },
+   "kaynak": "TİGEM · 2024-2028 Stratejik Plan, Mart 2024 sunumu, Yerel Çeşit Listesi",
+   "kartlar": [
+    {
+     "ust": {
+      "tr": "Bitki",
+      "en": "Plant"
+     },
+     "baslik": {
+      "tr": "Yerel Ata tohumları",
+      "en": "Ancestral local seeds"
+     },
+     "govde": {
+      "tr": "Kaybolmakta olan yerel çeşitler toplanıp çoğaltılıyor ve tescil ettiriliyor. Listedeki her çeşidin kendi künyesi var: Şahnalı Acı Biber, kayıt numarası TGM18335.",
+      "en": "Disappearing local varieties are collected, propagated and registered. Each variety on the list has its own record: Şahnalı hot pepper, registration number TGM18335."
+     },
+     "rakam": {
+      "deger": "@koruma.ata_tohumu_cesit",
+      "ondalik": 0,
+      "etiket": {
+       "tr": "çeşit",
+       "en": "varieties"
+      }
+     }
+    },
+    {
+     "ust": {
+      "tr": "At",
+      "en": "Horse"
+     },
+     "baslik": {
+      "tr": "Safkan Arap Atı",
+      "en": "The Purebred Arabian horse"
+     },
+     "govde": {
+      "tr": "Karacabey, Sultansuyu ve Anadolu işletmelerinde sürdürülüyor; kurumun ifadesiyle Çiftlikat-ı Hümayun adı altında Osmanlı'nın kuruluşundan beri devam eden bir faaliyet. Her yıl ortalama 260 yarış tayı yetiştiriliyor.",
+      "en": "Continued at the Karacabey, Sultansuyu and Anadolu enterprises; in the institution's words an activity carried on since the founding of the Ottoman state under the name of the imperial farms. An average of 260 racing foals are raised each year."
+     },
+     "rakam": {
+      "deger": "@damizlik.arap_ati_varlik",
+      "ondalik": 0,
+      "etiket": {
+       "tr": "baş",
+       "en": "head"
+      }
+     }
+    },
+    {
+     "ust": {
+      "tr": "Keçi",
+      "en": "Goat"
+     },
+     "baslik": {
+      "tr": "Ankara Tiftik Keçisi",
+      "en": "The Angora goat"
+     },
+     "govde": {
+      "tr": "Tiftiğiyle bir şehre adını veren ırk, kurumun koruduğu yerli ırklar arasında.",
+      "en": "The breed that gave a city its name through its mohair is among the native breeds the institution maintains."
+     }
+    },
+    {
+     "ust": {
+      "tr": "Köpek ve ceylan",
+      "en": "Dog and gazelle"
+     },
+     "baslik": {
+      "tr": "Kangal ve Asya Ceylanı",
+      "en": "The Kangal and the Asian gazelle"
+     },
+     "govde": {
+      "tr": "Bir tohum kuruluşunun koruma listesinde bir çoban köpeği ve bir yaban hayvanı da var. Ceylanpınar, adını o ceylandan alıyor.",
+      "en": "A seed institution's conservation list also holds a shepherd dog and a wild animal. Ceylanpınar takes its name from that gazelle."
+     }
+    }
+   ]
+  },
+  "iki_model": {
+   "tur": "kartlar",
+   "baslik": {
+    "tr": "Aynı sorun, iki çözüm",
+    "en": "The same problem, two answers"
+   },
+   "not": {
+    "tr": "Çiftçiye sertifikalı tohum ulaştırmanın iki yolu var: devlet ya kendi çiftliğinde üretir ya da üretileni belgeler. Türkiye ikisini birden yapıyor.",
+    "en": "There are two ways to get certified seed to the farmer: the state either grows it on its own farms or certifies what others grow. Türkiye does both."
+   },
+   "kaynak": "OECD Tohum Şemaları katılımcı ülke listesi · Hindistan rakamları hükûmet açıklamalarından aktaran basın, 2012-2013",
+   "kartlar": [
+    {
+     "ust": {
+      "tr": "Üretim modeli",
+      "en": "The production model"
+     },
+     "baslik": {
+      "tr": "Türkiye",
+      "en": "Türkiye"
+     },
+     "govde": {
+      "tr": "Devlet otuz dört işletmede kendi tohumunu, damızlığını ve spermasını üretiyor; ayrıca dağıtım ağını da kendisi kuruyor.",
+      "en": "The state produces its own seed, breeding stock and semen at thirty-four enterprises, and builds the distribution network itself."
+     },
+     "rakam": {
+      "deger": "@turetilmis.tigem_ha",
+      "ondalik": 0,
+      "etiket": {
+       "tr": "hektar",
+       "en": "hectares"
+      }
+     }
+    },
+    {
+     "ust": {
+      "tr": "Üretim modeli",
+      "en": "The production model"
+     },
+     "baslik": {
+      "tr": "Hindistan",
+      "en": "India"
+     },
+     "govde": {
+      "tr": "State Farms Corporation of India devletin büyük makineli çiftliklerini tohum için işletiyordu. Hindistan hükûmetinin bildirdiğine göre Rajasthan, Haryana ve Karnataka'da beş merkezî devlet çiftliği vardı. 2013'te bu yapı, 1963 kuruluşlu National Seeds Corporation bünyesine katıldı; gerekçe, çiftliklerin arazisiyle tohum kuruluşunun dağıtım ağını birleştirmekti.",
+      "en": "The State Farms Corporation of India ran the state's large mechanised farms for seed. According to the Indian government it held five central state farms in Rajasthan, Haryana and Karnataka. In 2013 it was merged into the National Seeds Corporation, founded in 1963, in order to combine the farms' land with the seed corporation's distribution network."
+     },
+     "rakam": {
+      "deger": "@dunya.hindistan.sfci_alan_ha",
+      "ondalik": 0,
+      "etiket": {
+       "tr": "hektar",
+       "en": "hectares"
+      }
+     }
+    },
+    {
+     "ust": {
+      "tr": "Belgeleme modeli",
+      "en": "The certification model"
+     },
+     "baslik": {
+      "tr": "OECD Tohum Şemaları",
+      "en": "The OECD Seed Schemes"
+     },
+     "govde": {
+      "tr": "Bu modelde devlet tohum üretmez, üretilenin belgesini verir. Şemalara altmıştan fazla ülke katılıyor ve listede Türkiye de var: Hindistan, Mısır, Fas, İran, Rusya ve Amerika Birleşik Devletleri ile aynı listede.",
+      "en": "In this model the state does not grow seed; it certifies what others grow. More than sixty countries take part, Türkiye among them, on the same list as India, Egypt, Morocco, Iran, Russia and the United States."
+     }
+    }
+   ]
+  }
+ },
+ "_kaldirilanlar": {
+  "dunya_arazi_siralamasi": "İki çubuklu bir sıralama grafiği kurulacaktı (TİGEM 360.245 ha, SFCI 21.908 ha). İki çubuk grafik değildir; karşılaştırma iki_model kartlarının rakam alanlarına taşındı.",
+  "sermaye_serisi": "2022-2024 sermaye dizisi grafik yapılmadı. Üç nokta ve biri yıl içi karar; ayrıca kullanıcı kararı gereği bu dosya malî tartışmaya girmiyor. Künyede satır olarak kalıyor."
+ }
+}
