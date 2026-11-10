@@ -855,3 +855,157 @@ o zaman yuvarlama değil hata demektir. Grafiğin notu da farkı söylüyor.
 2. Kapak: tipografik, kuruluş belgesinden. Aday belge **95 sayılı KHK'nin
    Resmî Gazete künyesi** (28 Ekim 1983, sayı 18205 Mükerrer).
 3. Kontrast ve renk körlüğü denetimi `_ortak/kontrast.py` ile.
+
+---
+
+# Tur 6 — TASARIM KÜNYESİ KİLİTLENDİ
+
+**Yirmi kontrast yeniden ölçüldü, on kuralın onu da geçti.** Ve bu turda
+dizinin **dokuzuncu kümesi** kuruldu.
+
+```
+tasarım kilitlendi · 20 kontrast yeniden ölçüldü, hepsi tuttu · 10 kuralın 10'u geçti
+  küme              Üretim (dizinin 9'uncusu)
+  kağıt vurgusu     #1F5626  kağıt 6.96 · yüzey 7.72
+  kapak vurgusu     #4CC756  kapak 8.26
+  şerit ayrışması   1.12 (çökme deseni 1,05)
+  renk körlüğü      ΔE normal 19,35 · deuteranopi 3,62 (mevcut sekizin tabanı 1,95)
+```
+
+## Dizinin dokuzuncu kümesi: **Üretim**
+
+Mevcut sekizin hiçbiri tutmadı:
+
+| küme | ne demek | kimde |
+|---|---|---|
+| Kamu gücü | piyasaya fiyatla müdahale eden KİT | TMO |
+| Finans | kredi açan | Ziraat Bankası |
+| Üretici örgütü | ortaklık kuran | Tarım Kredi |
+| Piyasa altyapısı | borsa, lisanslı depoculuk | — |
+| Bilgi | araştırma | TAGEM |
+| Su-toprak | altyapı | DSİ |
+| Meslek | oda | — |
+| Hayalet | kapanmış kurum | — |
+
+TİGEM bunların hiçbiri değil: **devletin bizzat üretici olması.**
+
+**Küme tek seferlik değil** — gerekçenin kilit noktası bu. Rotasyonun
+7. sırasındaki **Türkşeker** ve 8. sırasındaki **Et ve Süt Kurumu** da aynı
+kümeye girer; üçü de devletin kendi tesisinde üretim yapan KİT'i. Tek bir
+dosya için küme açılmıyor, üç dosyalık bir aile için açılıyor.
+
+Renk: **#1F5626** kağıt, **#4CC756** kapak. Ton 125° — paletteki kullanılmayan
+tek geniş aralık; Finans (160°, mavi-yeşil) ile Meslek (52°, sarı-zeytin)
+iki yanında duruyor. Kümenin maddesi tarla.
+
+## RENK KÖRLÜĞÜ ÖLÇÜLDÜ — ve bulgu dizinin tamamını ilgilendiriyor
+
+Irak dosyası renk körlüğü benzetimini (Viénot-Mollon) eklemişti ama orada
+iki şerit renginin ayrımına bakılmıştı. Burada ilk kez **kümelerin
+birbirinden ayrımına** uygulandı, çünkü yeni bir rengin eskilerden ayrılıp
+ayrılmadığı tahminle bilinemez.
+
+**Önce bir ölçü hatası düzeltildi.** WCAG kontrast oranı **hue ayrımını
+ölçmez**. İki renk aynı parlaklıkta ama bambaşka tonda olabilir; kontrast
+oranı 1,0 çıkar, göz ikisini rahat ayırır. Mevcut kümelerde zaten böyle:
+Üretici örgütü ile Hayalet arasındaki kontrast oranı **1,01**. Doğru ölçü
+CIE76 ΔE (Lab).
+
+Ölçüm:
+
+| | ΔE normal | ΔE deuteranopi |
+|---|---:|---:|
+| **Mevcut sekizin kendi içindeki en küçüğü** | 17,4 | **1,95** |
+| Dokuzuncu kümenin en yakın kümeye mesafesi | **19,35** | **3,62** |
+
+Yani: **dizi kurulduğundan beri kümeler renk körü okur için ayrışmıyor.**
+Piyasa altyapısı ile Bilgi deuteranopi altında neredeyse aynı renk. Dokuzuncu
+küme bu tabanın üstünde — ama tabanın kendisi çok alçak.
+
+**Takas denendi ve reddedildi.** Deuteranopi ayrımını 10'un üstüne çıkaran
+kapak vurguları bulundu (ör. `#47CC8A`, ΔE deut 9,9) ama hepsi normal
+görüşteki ayrımı 45,2'den 23,7'ye ve altına düşürüyor — yani Finans'ın
+nanesine yaklaşıyor. Okurların büyük çoğunluğu normal görüşlü; takas kabul
+edilmedi.
+
+**Karar: renk tek başına hiçbir yerde anlam taşımaz.** Bu `tasarim.json`'a
+kural olarak, `_ortak/kontrast.py`'ye yorum olarak yazıldı.
+
+> **KULLANICI KARARI BEKLİYOR.** Kalıcı çözüm renk değil: arşiv ve ana sayfa
+> şeridi kümenin adını **yazıyla** da göstermeli. Bugün göstermiyor —
+> `diger_dosyalar.dart` yalnız `editionLabel` basıyor ("Kurum Dosyası · 06").
+> Bu ORTAK bir bileşen; değişiklik yayındaki beş dosyayı birden etkiler.
+
+## Tahmin edilen sayı artık imkânsız
+
+DSİ dosyasında dört şerit kontrastı betikten okunmayıp **tahmin edilmiş** ve
+dördü de yanlış çıkmıştı (§8.14.3'ün "sessiz mayın"ı). Bu turda iki şey
+yapıldı:
+
+1. **`tasarim.json` elle yazılmadı, `_raw/kontrast.py`'den ÜRETİLDİ.**
+2. **`dogrula_tasarim.py` her sayıyı yeniden ölçüyor** ve birebir tutmazsa
+   üretim duruyor. Yirmi kontrast değerinin yirmisi de sınanıyor.
+
+## Kurallar ateş ediyor mu — ölçüldü
+
+| bozulan | yakalandı mı |
+|---|---|
+| şerit kontrastı 7,72 yerine 7,5 yazıldı | ✓ "yazılı 7.5, ölçülen 7.7" |
+| vurgu AA altına düşürüldü | ✓ "yazılı 2.41, ölçülen 2.1" |
+| `cizgi` 3:1'in üstüne çıkarıldı | ✓ "cizgiVurgu'dan ayrı durmuyor" |
+| küme rengi Su-toprak'ınkiyle aynı yapıldı | ✓ "'Su-toprak' kümesiyle aynı" |
+| tez cümlesinden payda silindi | ✓ "paydayı söylemiyor" |
+| `_yasak` listesi boşaltıldı | ✓ "kapakta fotoğrafı yasaklamıyor" |
+
+## Şeridin tek gerçek riski bu dosyada
+
+Kümenin rengi yeşil ve **uygulamanın yapısal yeşili de yeşil** (#2F4B2E).
+İkisi arasındaki oran **1,12**. Hollanda'da çöken desen 1,05, Avustralya'nın
+ilk hâli 1,03 idi — bu onların üstünde ama **dizinin en dar aralığı**. Kart
+sayfanın kendi renginden parlaklıkla değil, krem zemindeki 7,72'lik
+kontrastıyla ve şerit çerçevesiyle ayrışıyor. Tur 9'da önizlemede gözle
+doğrulanacak.
+
+## Tanıtım cümlesi
+
+> **TR:** Türkiye tarım arazisinin yüzde birinden azıyla, ülkede dağıtılan
+> sertifikalı hububat tohumunun beşte birini veriyor: ürettiği gıda değil,
+> girdi.
+
+İki sayı da doğrulanmış ve ikisi de `build_data.py`'nin dokuzuncu
+doğrulamasından geçiyor. **Cümle paydayı kendi içinde söylüyor** —
+"dağıtılan". Dokuzuncu kural bunu da sınıyor: kelime silinirse üretim durur.
+
+Cümlenin **demediği** şey de kayıtlı: "Türkiye'nin tohumunu TİGEM üretir"
+demiyor. Pay beşte bir ve düşüyor.
+
+## Kapak
+
+Tipografik, kuruluş belgesinden. Fotoğraf kapak yine reddedildi (§8.8).
+
+```
+KURUM DOSYASI · 06 · ÜRETİM
+TARIM İŞLETMELERİ
+95 sayılı Kanun Hükmünde Kararname · Resmî Gazete 28 Ekim 1983 · 18205 Mükerrer
+— Ana Statü · 2 Şubat 2022 · 31738
+```
+
+**Kapak bir düzeltme yapıyor:** kurumun kendi sayfası 1984 diyor, kapak
+28 Ekim 1983 tarihli KHK/95'i gösteriyor.
+
+## Bu dosyaya özel iki yasak
+
+Dizinin genel yasaklarına (logo, arma, mühür, kapakta fotoğraf, stok "mutlu
+çiftçi") iki tanesi eklendi:
+
+- **Gün batımında altın başak tarlası.** Tarımın en yıpranmış stok karesi ve
+  dosyanın anlattığı şey manzara değil, girdi.
+- **Toprakta filizlenen yeşil fide makrosu.** "Büyüme" klişesi; kurumun
+  ürettiği şey fide değil tohumluk, damızlık ve sperma.
+
+## Tur 7'ye açık kalanlar
+
+1. Yayın künyesi: on dört bölüm, on üç grafik eşlemesi, pencere 14 gün.
+2. Görseller: her bölümde bir tane (kullanıcı kuralı). Atıfsız görsel
+   yayımlanmaz; atıf görselin altında açıkta durur.
+3. Hikâye slaytları: her slayt ayrı görsel, başlıklar vurucu ve doğrudan.

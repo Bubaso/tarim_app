@@ -1,0 +1,172 @@
+{
+ "_dosya": "TİGEM — Kurum Dosyası Sayı 06 · tasarım künyesi",
+ "_amac": "Evrak görsel dilinin bu dosyadaki uygulaması. DossierTheme bu dosyadan üretilir.",
+ "_kural": "Buradaki hiçbir kontrast sayısı elle yazılmadı. Hepsi _raw/kontrast.py ile ÖLÇÜLDÜ ve bu dosya o betikten üretildi; dogrula_tasarim.py her sayıyı yeniden ölçüp karşılaştırıyor. DSİ dosyasında dört şerit kontrastı tahmin edilmiş ve yanlış çıkmıştı (§8.14.3'ün 'sessiz mayın'ı); bu yol o hatayı imkânsız kılıyor.",
+ "_kontrast_betigi": "content/dossiers/tigem/_raw/kontrast.py",
+ "tez_cumlesi": {
+  "tr": "Türkiye tarım arazisinin yüzde birinden azıyla, ülkede dağıtılan sertifikalı hububat tohumunun beşte birini veriyor: ürettiği gıda değil, girdi.",
+  "en": "With less than one per cent of Türkiye's farmland it supplies a fifth of the certified cereal seed distributed in the country: what it makes is not food but input.",
+  "_ad": "Şemada `thesis_tr` ama bir TEZ değil, tanıtım cümlesi (§8.2).",
+  "gerekce": "Cümle iddia kurmuyor, ÖLÇÜ veriyor ve iki ucu da doğrulanmış: arazi payı %0,93 (TİGEM 3.602.454,68 da / Dünya Bankası 386.400 km²), tohum payı %19,9 (122.045 / 613.206 ton, 2022). İkisi de build_data.py'nin dokuzuncu doğrulamasından geçiyor — aralığın dışına çıkarsa üretim durur ve cümle yazılamaz.",
+  "_payda_uyarisi": "Tohum payının paydası DAĞITIM'dır, ihtiyaç değil. Aynı miktarın 790 bin tonluk ihtiyaca oranı %15,4 olur; cümle paydayı kendi içinde söylüyor.",
+  "_ne_demiyor": "'Türkiye'nin tohumunu TİGEM üretir' DEMİYOR. Pay beşte bir ve düşüyor; 2002'de %90'dı. Dosya bunu bölüm 9'da ayrıca anlatıyor."
+ },
+ "kume": {
+  "ad": "Üretim",
+  "sira": 9,
+  "kagit_vurgu": "#1F5626",
+  "kapak_vurgu": "#4CC756",
+  "gerekce": "Dizinin DOKUZUNCU kümesi ve ilk kez burada kuruluyor. Mevcut sekizin hiçbiri tutmuyor: Kamu gücü piyasaya fiyatla müdahale eden KİT (TMO), Finans kredi açan (Ziraat), Üretici örgütü ortaklık (Tarım Kredi), Piyasa altyapısı borsa ve depoculuk, Bilgi araştırma (TAGEM), Su-toprak altyapı (DSİ), Meslek oda, Hayalet kapanmış kurum. TİGEM bunların hiçbiri değil: devletin BİZZAT ÜRETİCİ olması.",
+  "_tek_seferlik_degil": "Küme bu dosyaya özel değil. Rotasyonun 7. sırasındaki Türkşeker ve 8. sırasındaki Et ve Süt Kurumu da aynı kümeye girer — üçü de devletin kendi tesisinde üretim yapan KİT'i. Kapanmışları (SEK, Zirai Donatım) Hayalet kümesinde kalır.",
+  "_renk_gerekcesi": "Kümenin maddesi tarla. Ton 125° — kullanılmayan tek geniş aralık; Finans (160°, mavi-yeşil) ve Meslek (52°, sarı-zeytin) iki yanında duruyor."
+ },
+ "palet": {
+  "ad": "Evrak — kağıt gövde",
+  "kaynak_fikir": "Kurumun manzarası yok; maddi karşılığı kağıttır. Kanun, tutanak, cetvel, yönerge. Bu dosyada kağıt fazladan bir şey daha yapıyor: dosyanın omurgası üç belgedeki AYNI CÜMLE (1949, 1983, 2022) ve o cümle ancak kağıtta yan yana konur.",
+  "mod": "KOYU KAPAK → KAĞIT GÖVDE. Dosya sayfası sistem açık/koyu tercihini izlemez.",
+  "mod_gerekcesi": "Fiziksel dosyanın kendisi: dışı mukavva kapak, içi kağıt.",
+  "sayfa": {
+   "zemin": {
+    "hex": "#E3E7E5",
+    "rol": "Sayfa zemini — arşiv kağıdı",
+    "kontrast_app_krem": 1.109
+   },
+   "yuzey": {
+    "hex": "#F0F2F0",
+    "rol": "Kart, tablo, kayıt bloğu",
+    "kontrast_zemin": 1.11
+   },
+   "murekkep": {
+    "hex": "#15191A",
+    "rol": "Gövde metni",
+    "kontrast_zemin": 14.19,
+    "kontrast_yuzey": 15.74
+   },
+   "sessiz": {
+    "hex": "#575F61",
+    "rol": "Meta, kaynak satırı, altyazı",
+    "kontrast_zemin": 5.23,
+    "kontrast_yuzey": 5.81
+   },
+   "vurgu": {
+    "hex": "#1F5626",
+    "rol": "Üretim — rakamlar, başlık vurguları, tohum serisi",
+    "kontrast_zemin": 6.96,
+    "kontrast_yuzey": 7.72
+   },
+   "ikincil": {
+    "hex": "#575F61",
+    "rol": "Karşılaştırmanın ikinci ölçüsü — ülke toplamı, kiraya verilen pay",
+    "kontrast_zemin": 5.23,
+    "kontrast_yuzey": 5.81,
+    "_not": "Kasıtlı olarak NÖTR. DSİ'de ikincil için başka bir kümenin rengi ödünç alınmıştı çünkü karşılaştırılan taraf gerçek bir kurum türüydü. Burada öyle değil: ikinci seri bir kez 'Türkiye toplamı', bir kez 'kiraya verilmiş pay'. İkisi de kurum değil; renk vermek onlara olmayan bir kimlik verirdi."
+   },
+   "cizgi": {
+    "hex": "#C0C6C3",
+    "rol": "SADECE dekoratif ayırıcı — marj rayı",
+    "kontrast_zemin": 1.39,
+    "_uyari": "3:1'in altında. Anlam taşıyan hiçbir yerde kullanılamaz; eksen ve odak halkası için cizgiVurgu kullanılır."
+   },
+   "cizgiVurgu": {
+    "hex": "#767E7C",
+    "rol": "Grafik ekseni, ızgara, odak halkası",
+    "kontrast_zemin": 3.34,
+    "kontrast_yuzey": 3.7
+   }
+  },
+  "kapak": {
+   "zemin": {
+    "hex": "#131718",
+    "rol": "Kapak zemini — mukavva"
+   },
+   "murekkep": {
+    "hex": "#F0F2F0",
+    "rol": "Kapak başlığı",
+    "kontrast_zemin": 16.04
+   },
+   "sessiz": {
+    "hex": "#98A1A2",
+    "rol": "Seri etiketi, belge satırı",
+    "kontrast_zemin": 6.84
+   },
+   "vurgu": {
+    "hex": "#4CC756",
+    "rol": "Üretim, kapak karşılığı",
+    "kontrast_zemin": 8.26
+   },
+   "yuzey": {
+    "hex": "#1D2325",
+    "rol": "Kapak üstü blok",
+    "kontrast_zemin": 1.13
+   }
+  },
+  "serit": {
+   "_amac": "Ana sayfadaki dosya şeridi sayfanın içinde yaşıyor; krem zemin.",
+   "murekkep": {
+    "hex": "#15191A",
+    "kontrast_krem": 15.73
+   },
+   "vurguKoyu": {
+    "hex": "#1F5626",
+    "rol": "Üretim'in krem zemindeki karşılığı",
+    "kontrast_krem": 7.72
+   },
+   "ikincilKoyu": {
+    "hex": "#575F61",
+    "kontrast_krem": 5.8
+   },
+   "_ayrisma": {
+    "uygulamanin_yapisal_yesili": "#2F4B2E",
+    "oran": 1.12,
+    "_not": "ŞERİDİN TEK GERÇEK RİSKİ BU DOSYADA. Kümenin rengi yeşil ve uygulamanın yapısal yeşili de #2F4B2E; ikisi arasındaki oran 1,12. Hollanda'da çöken desen 1,05, Avustralya'nın ilk hâli 1,03 idi — bu onların üstünde ama dizinin en dar aralığı. Kart kendi zemininden PARLAKLIKLA değil, krem zemin üzerindeki 7,72'lik kontrastla ve şerit çerçevesiyle ayrışıyor. Önizlemede gözle doğrulanacak (tur 9)."
+   }
+  }
+ },
+ "renk_korlugu": {
+  "_olcum": "_raw/kontrast.py · Viénot-Mollon benzetimi + CIE76 ΔE",
+  "kagit_vurgusu_en_yakin": {
+   "normal_dE": 19.35,
+   "deuteranopi_dE": 3.62,
+   "protanopi_dE": 10.5
+  },
+  "mevcut_sekizin_tabani": {
+   "en_kucuk_normal_dE": 17.43,
+   "en_kucuk_deuteranopi_dE": 1.95
+  },
+  "KARAR": "RENK TEK BAŞINA HİÇBİR YERDE ANLAM TAŞIMAZ. Ölçüm bunu zorunlu kıldı: dokuzuncu kümenin kağıt vurgusu deuteranopi altında Kamu gücü'ne ΔE 3,6 mesafede. Mevcut sekizin kendi tabanı zaten 2,0 — yani dizi kurulduğundan beri renk körü okur için kümeler ayrışmıyor. Dokuzuncu küme bunu kötüleştirmiyor ama düzeltmiyor da.",
+  "_denenen_ve_elenen": "Deuteranopi ayrımını 10'un üstüne çıkaran kapak vurguları arandı ve bulundu (ör. #47CC8A, ΔE deut 9,9) — ama hepsi normal görüşteki ayrımı 45,2'den 23,7'ye ve altına düşürüyor, yani Finans'ın nanesine yaklaşıyor. Okurların büyük çoğunluğu normal görüşlü; takas kabul edilmedi.",
+  "_gereken_degisiklik": "Arşiv ve şerit kümenin adını YAZIYLA da göstermeli. Bugün göstermiyor: diger_dosyalar.dart yalnız editionLabel basıyor. Bu, beş yayındaki dosyayı etkileyen ORTAK bileşen değişikliğidir; kullanıcı kararı bekliyor."
+ },
+ "motif": {
+  "ad": "Cetvel çizgisi",
+  "tanim": "Defter ve resmî evrak kağıdının marj rayı: solda dikey ray, aralarda ince yatay kural çizgileri.",
+  "gerekce": "Kuruma göre DEĞİŞMEZ, dizi kimliğidir (§8.4). Değişen renktir.",
+  "uygulama": {
+   "opaklik": "%8",
+   "renk": "cizgiVurgu #767E7C üzerine opaklık",
+   "bicim": "Vektör (CustomPainter) — telif yok, ölçeklenir",
+   "yerlesim": "Bölüm ayırıcılarında ve kapak altı geçiş bandında. Gövde metninin ARKASINDA kullanılmaz.",
+   "aralik_notu": "Izgara aralığı 24 px'in altına inmeyecek (moiré)."
+  }
+ },
+ "kapak": {
+  "yon": "Kuruluş belgesinden kurulan tipografik kapak",
+  "gerekce": "Fotoğraf kapak yine reddedildi (§8.8, DSİ'deki kararın aynısı): dizinin görsel kimliği altıncı sayıda kırılırsa hiç kurulmamış olur. Güçlü fotoğraflar metnin içine yayılıyor, kapağa değil.",
+  "sinir": "Kapak bir belgeyi ALINTILAR, TAKLİT ETMEZ. Resmî Gazete anteti, mühür, arma veya kurum logosu yeniden üretilmez. Kapakta her zaman seri etiketi ve sayı numarası bulunur.",
+  "tipografi_katmani": {
+   "ust_satir": "KURUM DOSYASI · 06 · ÜRETİM",
+   "baslik": "TARIM İŞLETMELERİ",
+   "belge_satiri": "95 sayılı Kanun Hükmünde Kararname · Resmî Gazete 28 Ekim 1983 · 18205 Mükerrer — Ana Statü · 2 Şubat 2022 · 31738",
+   "alt_satir": "tez_cumlesi.tr",
+   "_belge_satiri_gerekcesi": "Kuruluş belgesi kapakta DÜZELTME yapıyor: kurumun kendi sayfası 1984 diyor, kapak 28 Ekim 1983 tarihli KHK/95'i gösteriyor. İki künye de birincil kaynaktan okundu."
+  }
+ },
+ "_yasak": [
+  "Kurum logosu, arma, mühür, Resmî Gazete anteti — yeniden üretilmez.",
+  "Kapakta fotoğraf (§8.8).",
+  "Stok 'mutlu çiftçi' fotoğrafı ve dekoratif ikon seti.",
+  "Gün batımında altın başak tarlası: tarımın en yıpranmış stok karesi ve dosyanın anlattığı şey manzara değil, GİRDİ.",
+  "Toprakta filizlenen yeşil fide makrosu: 'büyüme' klişesi; kurumun ürettiği şey fide değil tohumluk, damızlık ve sperma.",
+  "Grafikte rengi tek ayırt edici işaret yapmak — ölçüldü, renk körü okur için çalışmıyor (renk_korlugu bloğu)."
+ ]
+}

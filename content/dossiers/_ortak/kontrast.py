@@ -32,6 +32,7 @@ kumeler = [
  ("Su-toprak","#11616B","#4FC0CB"),
  ("Meslek","#5F5417","#C6B457"),
  ("Hayalet","#5C6264","#A4ABAD"),
+ ("Uretim","#1F5626","#4CC756"),   # TİGEM · Sayı 06 · dizinin dokuzuncu kümesi
 ]
 print("=== Kume vurgulari ===")
 print(f"  {'kume':18} {'kagit':8} {'/kagit':>7} {'/yuzey':>7}   {'kapak':8} {'/kapak':>7}")
@@ -39,3 +40,15 @@ for ad,k,d in kumeler:
     a,b,c = cr(k,KAGIT), cr(k,YUZEY), cr(d,KZEMIN)
     flag = "" if (a>=4.5 and b>=4.5 and c>=4.5) else "   <-- AA ALTI"
     print(f"  {ad:18} {k:8} {a:7.2f} {b:7.2f}   {d:8} {c:7.2f}{flag}")
+
+# DOKUZUNCU KÜME — TİGEM dosyasında (Sayı 06) kuruldu. Gerekçesi tasarim.json'da:
+# devletin BİZZAT ÜRETİCİ olması; Türkşeker ve Et ve Süt Kurumu da buraya girer.
+#
+# RENK KÖRLÜĞÜ ÖLÇÜLDÜ VE SONUÇ DİZİ GENELİNİ İLGİLENDİRİYOR. Bu betik yalnız
+# WCAG kontrastı hesaplıyor; kontrast oranı HUE AYRIMINI ÖLÇMEZ. Lab ΔE ve
+# Viénot-Mollon benzetimiyle ölçüldüğünde (tigem/_raw/kontrast.py):
+#   · mevcut sekiz kümenin kendi içindeki en küçük deuteranopi ΔE'si  1,95
+#   · dokuzuncu kümenin en yakın kümeye deuteranopi ΔE'si             3,62
+# Yani kümeler renk körü okur için DİZİ KURULDUĞUNDAN BERİ ayrışmıyor.
+# Dokuzuncu küme bunu kötüleştirmiyor ama düzeltmiyor da. Kalıcı çözüm renk
+# değil: arşiv ve şerit küme adını YAZIYLA da göstermeli.
