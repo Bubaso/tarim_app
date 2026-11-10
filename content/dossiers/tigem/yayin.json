@@ -1,0 +1,174 @@
+{
+ "_dosya": "TİGEM — Kurum Dosyası Sayı 06 · yayın künyesi",
+ "_amac": "Dosyanın kimliği, penceresi, bölüm iskeleti, grafik ve görsel eşlemesi. seed_dossier.mjs bu dosyayı okur.",
+ "slug": "tigem",
+ "tur": "kurum",
+ "edition": 6,
+ "name_tr": "TİGEM — Tarım İşletmeleri Genel Müdürlüğü",
+ "name_en": "TİGEM — General Directorate of Agricultural Enterprises",
+ "kurulus_belgesi": "95 sayılı Kanun Hükmünde Kararname · RG 28/10/1983 · 18205 Mükerrer — ve Ana Statü · RG 2/2/2022 · 31738",
+ "_kurulus_belgesi_notu": "İKİ belge yazılı. Kurumun kendi sayfası 1984 diyor; birincil belge 28 Ekim 1983'te yayımlanan KHK/95. 1984'te olan, KİT çerçevesinin 60 sayılı KHK'den 233'e geçmesi. Üçüncü tarih 1994: 4046'nın 35. maddesiyle KİK'ten İDT'ye.",
+ "status": "draft",
+ "_status_notu": "HENÜZ YAYINDA DEĞİL. Devir AÇIK ONAY ister (§8/devir kuralı ve kullanıcı kuralı). Ayrıca Supabase şu an erişime kapalı; devir (tur 10) o çözülmeden yapılamaz.",
+ "pencere": {
+  "gun": 14,
+  "baslangic": null,
+  "_baslangic_notu": "null → seed anında now(). Kurum penceresi 14 gün (§8.1)."
+ },
+ "kapak": null,
+ "_kapak_notu": "TİPOGRAFİK KAPAK — fotoğraf yok (§8.4, §8.8). DSİ dosyasındaki kararın aynısı. Kapak metni tasarim.json/kapak.tipografi_katmani'nda.",
+ "video": {
+  "url": null,
+  "_notu": "null ise kapakta video bloğu hiç çizilmez."
+ },
+ "_iskelet_notu": "On dört bölüm + kaynakça. İskelet tur 3'te kuruldu, tur 4'te iki başlık DÜZELTİLDİ: 6 ('İki soy tek çatı: 1984' → 'Kuruluş 1983, çerçeve 1984', çünkü birincil belge 1983 diyor) ve 11 ('Çiftliklerin yarısı kirada' → 'İşletmelerin yarısı, arazinin onda biri', çünkü kiraya verilen işletmeler arazinin %9,07'sini tutuyor).",
+ "bolum_turleri": {
+  "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis.",
+  "_neden_boyle": "Dosyanın ortası BELGE: 2-4-5-6 dört ayrı kanun ve kararname. Veri çekirdeği 7-8-9'da ardışık; akış tek ve 10'da. Açılış ve kapanış anlatı. §8.4'ün 'Evrak' dili bunu istiyor — dosyanın ortası kağıttır.",
+  "1": "anlati",
+  "2": "belge",
+  "3": "anlati",
+  "4": "belge",
+  "5": "belge",
+  "6": "belge",
+  "7": "veri",
+  "8": "veri",
+  "9": "veri",
+  "10": "akis",
+  "11": "belge",
+  "12": "anlati",
+  "13": "anlati",
+  "14": "anlati"
+ },
+ "bolum_grafikleri": {
+  "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir eşleşmek zorunda.",
+  "_olcu_uyarisi": "9'daki iki grafik DAĞITIM ölçüsünde; künyedeki 113 bin ton SATIŞ ölçüsünde. İkisi aynı cümlede karşılaştırılmaz (fark kurumun kendi ekilişi).",
+  "_kapsam_uyarisi": "7 ve 8'deki grafikler FAALİYETTEKİ 17 İŞLETMENİN arazisini gösteriyor; 11'deki grafik TİGEM'in TOPLAM arazisini bölüyor. İki payda farklı ve her grafiğin notu kendi paydasını söylüyor.",
+  "1": [
+   "kunye_tigem"
+  ],
+  "2": [
+   "fevkalade_tahsisat_1937"
+  ],
+  "6": [
+   "silsile"
+  ],
+  "7": [
+   "isletme_arazileri"
+  ],
+  "8": [
+   "arazi_kullanimi"
+  ],
+  "9": [
+   "tohum_dagitimi",
+   "tigem_payi"
+  ],
+  "10": [
+   "tohum_yolu",
+   "dagitim_kanallari"
+  ],
+  "11": [
+   "kira_asimetrisi"
+  ],
+  "12": [
+   "sperma_satisi",
+   "korunanlar"
+  ],
+  "14": [
+   "iki_model"
+  ]
+ },
+ "_bolum_basliklari": {
+  "_notu": "İSKELETTEN; metin yazıldıktan sonra (tur 8) metinle birebir hale getirilecek.",
+  "1": "Tohumun geldiği yer",
+  "2": "Önce ödenek, sonra kanun",
+  "3": "Haralar: ordunun atı",
+  "4": "Atatürk'ün mektubu",
+  "5": "1949'da yazılan cümle",
+  "6": "Kuruluş 1983, çerçeve 1984",
+  "7": "Toprak 1990'da tapuya geçti",
+  "8": "Türkiye'nin yüzde birinden azı",
+  "9": "Ülkenin tohumu: doksandan yirmiye",
+  "10": "Çiftçi tohumu nasıl alıyor",
+  "11": "İşletmelerin yarısı, arazinin onda biri",
+  "12": "Tohumdan başkasını da koruyor",
+  "13": "Bıraktığı iş",
+  "14": "Dünyada benzeri: iki model",
+  "15": "Kaynakça"
+ },
+ "_bolum_notlari": {
+  "2": "KULLANICI KURALI (10 Kasım 2026): bu bölüm 'para' kelimesini kullanmayacak. Belgenin kendi sözcükleri var: tahsisat, ödenek, fasıl, kredi hesabı, sermaye.",
+  "5": "Dosyanın merkezi. 1949 (5433/1), 1983 (KHK 95/3-1) ve 2022 (Ana Statü 5/1-a) cümleleri yan yana basılacak; 1983 ile 2022 arasındaki tek fark 'yetiştiricilere' → 'üreticilere'.",
+  "9": "EKSEN BÖLÜMÜ. Pay 2002'de %90, 2022'de %19,9. Kurum küçülmedi, ülke büyüdü: dağıtım 7,28 kata, TİGEM'inki 1,61 kata çıktı. Raporun kendi cümlesi sebebi özel sektörün gelişmesi diyor.",
+  "11": "Kullanıcı kararı: 'maliyet hesabı dosyası yapmıyoruz, kurumu tanıtıyoruz.' Bölüm olanı anlatır, hesap sormaz. Karar zinciri Cumhurbaşkanlığında bitiyor ve bu bir tespittir, bir eleştiri değil.",
+  "13": "§8.9/5 'bıraktığı iş'. Dört halka: 5254 sayılı Kanun (Ziraat Bankası eliyle faizsiz tohumluk, 2001'de mülga), 5433/2-g (çiftçinin aletini ücretle onarmak), 5659 (AOÇ ayrıldı), 3646/5 (araştırma enstitüleri TİGEM'e geçmedi — TAGEM).",
+  "15": "Kaynakça BİR BÖLÜMDÜR, unutulmaz (§2.14). Kaynaklar KUSURLARIYLA yazılır: tohum payının paydası dağıtımdır; Hindistan rakamları ikincil; hara arazisinin düşüşü kurumun beyanı."
+ },
+ "anahtar_kelimeler": [
+  "TİGEM",
+  "Tarım İşletmeleri Genel Müdürlüğü",
+  "sertifikalı tohum",
+  "tohumluk",
+  "damızlık",
+  "Ceylanpınar",
+  "Devlet Üretme Çiftlikleri",
+  "hara",
+  "Zirai Kombinalar",
+  "tohum bayisi"
+ ],
+ "_anahtar_kelimeler_notu": "§8.10/1: anahtar kelime kurumun adının BAŞKA bir kurumun adında geçmeyen en kısa parçası olmalı. 'Tarım İşletmeleri' tek başına riskli değil ama 'tarım' asla konulmaz — yayındaki her haberde geçer. 'TİGEM' ve tam ad güvenli. 'hara' tek başına kısa; yayına girmeden gerçek habere karşı denenecek (tur 9).",
+ "_kalan_isler": [
+  "Bölüm görselleri — tur 7 (devam ediyor)",
+  "Hikâye slaytları — tur 7",
+  "Metin (TR+EN) — tur 8, gövde en az 4.000 kelime",
+  "Başlıkları metinle birebir hale getir — tur 8",
+  "Seed ve göç dosyası — tur 9",
+  "Devir — tur 10, AÇIK ONAY ve Supabase erişimi şart"
+ ],
+ "hikaye": {
+  "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+  "_kural": "Metin ELLE yazıldı. Beş rakamın beşi de data.json'dan OKUNARAK yazıldı: 3.000.000 lira (3130 sayılı Kanun, fasıl 858); Atatürk'ün 11.VI.1937 mektubu (3308 md. 5); görev cümlesi üç belgede (1949-1983-2022); pay %90,0 → %19,9 (Tablo 9-10); 1.027 Ata tohumu çeşidi ve 1.549 baş Safkan Arap Atı.",
+  "_baslik_kurali": "KULLANICI KURALI (8 Kasım 2026): başlıklar VURUCU ve DOĞRUDAN. Bilmece yok, soru yok, uzun cümle yok. Beşinin de 60 karakterin altında olması dogrula_yayin.py ile sınanıyor.",
+  "_gorsel_kurali": "KULLANICI KURALI (8 Kasım 2026): her slayt AYRI görsel taşır. Aynı kare iki slaytta tekrarlanmaz; dogrula_yayin.py sınıyor.",
+  "_akis": "Beş kanca dosyanın kendi sırası: ödenek → sermaye → cümle → pay → koruma. İlk üçü kurumun nasıl var olduğu, dördüncüsü bugün ne yaptığı, beşincisi kimsenin beklemediği tarafı.",
+  "grup_tr": "Kurum Dosyası",
+  "grup_en": "Institution Dossier",
+  "slaytlar": [
+   {
+    "ust": "ÖNCE ÖDENEK, SONRA KANUN",
+    "ust_en": "THE MONEY CAME FIRST",
+    "baslik": "Üç milyon lira ayrıldı, kurum daha yoktu",
+    "baslik_en": "Three million lira was set aside before the institution existed",
+    "gorsel": null
+   },
+   {
+    "ust": "BİR MEKTUPLA GELEN SERMAYE",
+    "ust_en": "CAPITAL THAT CAME BY LETTER",
+    "baslik": "İlk sermayesi Atatürk'ün çiftlikleriydi",
+    "baslik_en": "Its first capital was Atatürk's own farms",
+    "gorsel": null
+   },
+   {
+    "ust": "YETMİŞ ÜÇ YIL, BİR CÜMLE",
+    "ust_en": "SEVENTY-THREE YEARS, ONE SENTENCE",
+    "baslik": "Aynı görev cümlesi üç belgede: 1949, 1983, 2022",
+    "baslik_en": "The same sentence in three documents: 1949, 1983, 2022",
+    "gorsel": null
+   },
+   {
+    "ust": "DOKSANDAN YİRMİYE",
+    "ust_en": "FROM NINETY TO TWENTY",
+    "baslik": "2002'de ülkenin tohumu oydu, bugün beşte biri",
+    "baslik_en": "In 2002 it was the country's seed; today it is a fifth of it",
+    "gorsel": null
+   },
+   {
+    "ust": "TOHUMDAN BAŞKASI",
+    "ust_en": "MORE THAN SEED",
+    "baslik": "Tohumun yanında Kangal'ı ve ceylanı da koruyor",
+    "baslik_en": "Alongside the seed it also keeps the Kangal and the gazelle",
+    "gorsel": null
+   }
+  ]
+ }
+}
