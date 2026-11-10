@@ -36,6 +36,14 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 DO_BUILD=1
+# HAZIRLIK: derleme SONRASI adımlar (service worker, functions/shell.html,
+# anasayfa link listesi, açılış mozaiği, dosya kabukları). Bunlar `DO_BUILD`
+# kapısının DIŞINDA, çünkü mevcut `build/web` üzerinde çalışıyorlar ve
+# `--no-build` ile de koşmaları gerekiyor. Ama hepsi Supabase'e gidiyor:
+# yalnız fonksiyon dağıtacakken koşmaları, kapalı bir Supabase'de anasayfa
+# link listesini BOŞALTIYOR ve dosya kabuğu adımında dağıtımı düşürüyor
+# (10 Kasım 2026'da tam böyle oldu). `--sadece-fn` bu bayrağı kapatıyor.
+HAZIRLIK=1
 TARGETS="hosting,functions"
 
 for arg in "$@"; do
@@ -66,6 +74,7 @@ for arg in "$@"; do
         exit 2
       fi
       DO_BUILD=0
+      HAZIRLIK=0
       ;;
     *) echo "Bilinmeyen argüman: $arg" >&2; exit 2 ;;
   esac
@@ -193,6 +202,7 @@ fi
 # altındaki sürümümüzü eziyor. Daha önce kayıt yaptırmış tarayıcılar adresi
 # periyodik olarak yeniden istiyor; temizleyici sürümü alabilmeleri için
 # derlemeden sonra dosyayı geri koyuyoruz.
+if [[ $HAZIRLIK -eq 1 ]]; then
 echo "▸ Özel service worker yerine konuyor…"
 cp web/flutter_service_worker.js build/web/flutter_service_worker.js
 
@@ -235,7 +245,8 @@ python3 scripts/ana_sayfa_linkleri.py
 # ekranı düz krem olur; sayfa çalışmaya devam eder. Yine de uyarı
 # basılıyor, sessizce boş bir ekrana düşülmesin.
 echo "▸ Açılış mozaiği üretiliyor…"
-python3 scripts/mozaik_uret.py || echo "  ⚠ mozaik üretilemedi — açılış ekranı boş kalacak" 
+python3 scripts/mozaik_uret.py || echo "  ⚠ mozaik üretilemedi — açılış ekranı boş kalacak"
+fi
 
 echo "▸ Fonksiyon sözdizimi denetimi…"
 node --check functions/index.js
@@ -248,6 +259,7 @@ node --check functions/config.js
 # yok. Firebase statik dosyayı yönlendirmelerden önce sunuyor, yani
 # build/web/ulke/<slug>/index.html yazıldığında /ulke/<slug> og etiketleriyle
 # birlikte doğrudan geliyor ve Flutter yine normal açılıyor.
+if [[ $HAZIRLIK -eq 1 ]]; then
 echo "▸ Dosya paylaşım kabukları…"
 for d in content/dossiers/*/; do
   slug=$(basename "$d")
@@ -261,6 +273,7 @@ done
 # Hosting dağıtımı genel dizini DEĞİŞTİRDİĞİ için kabuğu üretilmeyen dosya
 # og etiketlerini kaybeder. Bu adım boşluğu veritabanından kapatıyor.
 node content/dossiers/_ortak/statik_sayfa_db.mjs
+fi
 
 # ╔══════════════════════════════════════════════════════════════════════╗
 # ║  SÜRÜM BEKÇİSİ — geriye dağıtımı durdurur. Ayrıntı: surum_bekcisi.txt ║
