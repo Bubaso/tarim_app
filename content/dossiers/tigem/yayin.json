@@ -79,7 +79,7 @@
   ]
  },
  "_bolum_basliklari": {
-  "_notu": "İSKELETTEN; metin yazıldıktan sonra (tur 8) metinle birebir hale getirilecek.",
+  "_notu": "METİNDEN OKUNDU (tur 8). Birebir; başlık değişirse buradan değil metinden değiştirilir.",
   "1": "Tohumun geldiği yer",
   "2": "Önce ödenek, sonra kanun",
   "3": "Haralar: ordunun atı",
@@ -118,10 +118,6 @@
  ],
  "_anahtar_kelimeler_notu": "§8.10/1: anahtar kelime kurumun adının BAŞKA bir kurumun adında geçmeyen en kısa parçası olmalı. 'Tarım İşletmeleri' tek başına riskli değil ama 'tarım' asla konulmaz — yayındaki her haberde geçer. 'TİGEM' ve tam ad güvenli. 'hara' tek başına kısa; yayına girmeden gerçek habere karşı denenecek (tur 9).",
  "_kalan_isler": [
-  "Bölüm görselleri — tur 7 (devam ediyor)",
-  "Hikâye slaytları — tur 7",
-  "Metin (TR+EN) — tur 8, gövde en az 4.000 kelime",
-  "Başlıkları metinle birebir hale getir — tur 8",
   "Seed ve göç dosyası — tur 9",
   "Devir — tur 10, AÇIK ONAY ve Supabase erişimi şart"
  ],

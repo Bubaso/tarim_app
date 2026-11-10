@@ -1145,3 +1145,124 @@ On yedi karenin on yedisi de indi.
 2. `dogrula_metin.py`: §8.11'in meta cümle avcıları + **bölüm 2'de "para"
    kökü yasağı** (kullanıcı kuralı, 10 Kasım 2026) + uzunluk tabanı.
 3. Başlıklar metin yazıldıktan sonra metinle birebir hale getirilecek.
+
+---
+
+# Tur 8 — METİN
+
+**TR gövde 4.285 kelime, EN gövde 5.699 kelime, on kuralın onu da geçti.**
+
+```
+metin kilitlendi · 10 kuralın 10'u geçti
+  TR gövde   4285 kelime (taban 4000)
+  EN gövde   5699 kelime
+  bölüm      15 / 15
+  sayı izi   73 sayı data.json'a bağlandı
+```
+
+Dizinin kurum dosyaları arasında en uzunu. Karşılaştırma: TMO 3.019,
+Ziraat 2.941, DSİ 3.063 kelime. Taban tur 3'te kilitlenmişti ve bu turda
+**birinci kural** olarak koda girdi: gövde 4.000 kelimenin altına inerse
+üretim durur.
+
+## İki kullanıcı kuralı artık metni durduruyor
+
+**Beşinci kural — bölüm 2'de "para" yasağı.** Kullanıcı 10 Kasım 2026'da
+şöyle dedi: *"2. bölümde direk para kelimesini kullanma. daha başka bir ifade
+biçimi bul."* Bölümün adı "Önce ödenek, sonra kanun" oldu ve gövdesi belgenin
+kendi sözcükleriyle yazıldı: tahsisat, ödenek, fasıl, kredi hesabı, sermaye.
+Betik "para" kökünü arıyor ve bulursa düşürüyor.
+
+**Altıncı kural — "Yazım kuralları" bloğu yasak.** Kullanıcı 3 Kasım 2026'da
+Irak dosyasında bu bloğu sildirmişti: *"dosyaların içine teknik şeyler yani
+bizi ilgilendiren şeyler yazmayalım diye."* DSİ ve öteki yayımlanmış
+dosyalarda bu blok hâlâ duruyor; TİGEM'de hiç yazılmadı ve yazılamaz.
+
+**Yedinci kural — büyük sayılar rakamla.** Yine kullanıcı kuralı:
+*"265.116 yaz geç."* Betik "üç milyon", "yüz bin" gibi kalıpları arıyor.
+
+## Sayı izi: 73 sayı veri katmanına bağlandı
+
+Sekizinci kural gövdedeki her dört haneli ve üstü sayıyı `data.json`
+havuzuna karşı sınıyor. İlk koşuda **dört sayı yakalandı** ve dördü de
+gerçekten veri katmanında yoktu:
+
+| yakalanan | ne |
+|---|---|
+| 994.798 | 2023 sulu tarım arazisi varlığı (Stratejik Plan Tablo 13) |
+| 942.500 / 1.090.500 | 2019–2023 planının sulama hedefi |
+| 326.891 | kiraya verilen + iştirak toplamı |
+
+Kural gevşetilmedi; **dördü de veri katmanına eklendi.** 994.798 eklenirken
+kapsam notu da yazıldı: arazi tablosundaki 940.568 dekarlık "sulanan arazi"
+ile aynı şey değil, biri sulanan öteki sulu tarım arazisi varlığı.
+
+Sulama oranları da (TİGEM %33,7, Türkiye %12,7) bu turda veri katmanına
+girdi ve yanlarına **payda uyarısı** kondu: biri kültüraltı araziye, öteki
+bütün tarım arazisine göre; fark bire bir bir üstünlük ölçüsü değil.
+
+## Onuncu kural: ölçü ve payda uyarısı zorunlu
+
+Bu dosyaya özgü iki tuzak metinde açıkça yazılmak zorunda:
+
+- **9. bölüm** "dağıtım" ile "satış"ı ayırmadan geçemiyor. Aynı yılın iki
+  rakamı var — 104.319 ve 79.561 ton — ve fark kurumun kendi ekilişi.
+- **8. bölüm** sulama oranlarının paydasının farklı olduğunu söylemeden
+  geçemiyor.
+
+İkisi de betikle sınanıyor; cümle silinirse üretim duruyor.
+
+## On kural ateş ediyor mu — ölçüldü
+
+| bozulan | yakalandı mı |
+|---|---|
+| bölüm 2'ye "para" sokuldu | ✓ "'PARA' YASAĞI (kullanıcı kuralı)" |
+| meta cümle sokuldu | ✓ "META CÜMLE: 'hazırlanırken'" |
+| reklam dili sokuldu | ✓ "REKLAM DİLİ (tırnaksız): 'en büyük'" |
+| sayı yazıyla yazıldı | ✓ "SAYI YAZIYLA: 'üç milyon'" |
+| havuzda olmayan sayı sokuldu | ✓ "SAYI İZİ YOK: 777.333" |
+| madde işareti sokuldu | ✓ "MADDE İŞARETİ" |
+| alt başlık sokuldu | ✓ "ALT BAŞLIK: '### Ara başlık'" |
+| §9'un ölçü ayrımı silindi | ✓ "DAĞITIM ile SATIŞ ayrımı yazılmamış" |
+| "Yazım kuralları" bloğu eklendi | ✓ "kullanıcı kuralı yasaklıyor" |
+| metin 4.000 kelimenin altına indi | ✓ "TR gövdesi 2433 kelime, taban 4000" |
+
+**Onuncu test bir hatayı da ortaya çıkardı ve düzeltildi.** Metin kısaltılınca
+betik hata yazmak yerine **çöküyordu**: onuncu kural eksik bölümü `next()`
+ile arıyor ve `StopIteration` fırlatıyordu. Çöken bir doğrulayıcı geçmekle
+karışır — kullanıcı yığın izini görür, hangi kuralın düştüğünü görmez. Üç
+yerde eksik bölüm artık hata olarak yazılıyor.
+
+## Metnin omurgası
+
+Dosyanın merkezinde beşinci bölüm duruyor ve orada üç belge yan yana basılı:
+
+| yıl | belge | cümle |
+|---|---|---|
+| 1949 | 5433 md. 1 | "…iyi tohumluk, damızlık ve fidan ihtiyacını sağlamak" |
+| 1983 | 95 sayılı KHK md. 3 | "…damızlık hayvan, tohum, fidan, fide ve benzerleriyle ürettiği spermaları **yetiştiricilere** intikal ettirmek" |
+| 2022 | Ana Statü md. 5 | "…damızlık hayvanlar ve spermalarını **üreticilere** intikal ettirmek" |
+
+1983 ile 2022 arasındaki tek fark bir kelime.
+
+## Beş doğrulayıcı da yeşil
+
+```
+build_data.py       10 doğrulamanın 10'u
+dogrula_grafik.py   11 kuralın 11'i
+dogrula_tasarim.py  10 kuralın 10'u · 20 kontrast yeniden ölçüldü
+dogrula_yayin.py    10 kuralın 10'u
+dogrula_metin.py    10 kuralın 10'u
+```
+
+Bölüm başlıkları metinden okundu ve `yayin.json` ile birebir tuttu.
+
+## Tur 9'a açık kalanlar
+
+1. `seed_dossier.mjs` ile tohumlama ve göç dosyası.
+2. Önizleme: `--dart-define=DOSYA_ONIZLEME=tigem` ile gözle doğrulama —
+   özellikle **şerit ayrışması** (kümenin yeşili uygulamanın yapısal
+   yeşiline 1,12 oranında yakın, dizinin en dar aralığı).
+3. Anahtar kelimelerin gerçek habere karşı denenmesi (§8.10/1): "hara" tek
+   başına kısa ve riskli olabilir.
+4. Devir (tur 10) Supabase erişimi ve **açık onay** istiyor.

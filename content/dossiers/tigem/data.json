@@ -339,6 +339,16 @@
   "tigem_toplam_arazi": 3602454.68,
   "pdf_yazdigi_kullanim_orani": 90.93,
   "pdf_yazdigi_kira_orani": 9.07,
+  "sulu_tarim_arazi_varligi_2023": 994798,
+  "_sulu_tarim_notu": "2024-2028 Stratejik Plan Tablo 13, 2023 yılı. Arazi varlığı tablosundaki 940.568 dekarlık 'sulanan arazi' ile AYNI ŞEY DEĞİL: biri sulanan, öteki sulu tarım arazisi varlığı. İkisi birbirinin yerine kullanılamaz.",
+  "sulama_hedefi_2019_2023": {
+   "baslangic_da": 942500,
+   "hedef_da": 1090500,
+   "gerceklesme_yuzde": 92,
+   "_kaynak": "2024-2028 Stratejik Plan, Tablo 2, Hedef 2.1"
+  },
+  "sulamaya_acilan_da": 995000,
+  "_sulamaya_acilan_notu": "Mart 2024 kurum sunumu: 'Yapılan yatırımlar ile 995 Bin dekar arazi sulamaya açılmış.'",
   "_17_isletme_kulturalti": 2788404.55,
   "_17_isletme_tarla": 1756580.0,
   "_17_isletme_tabii_mera": 629137.89,
@@ -356,7 +366,10 @@
   "_kapsam": "TİGEM'in toplam arazisi (3.602.454,68 da) / Türkiye'nin tarım arazisi",
   "_kaynak_niteligi": "BAĞIMSIZ — Dünya Bankası, Türkiye tarım arazisi 2024",
   "turkiye_tarim_arazisi_km2": 386400,
-  "_turkiye_kaynak": "World Bank, Agricultural land (sq. km) — Türkiye, 2024"
+  "_turkiye_kaynak": "World Bank, Agricultural land (sq. km) — Türkiye, 2024",
+  "tigem_sulama_orani_yuzde": 33.7,
+  "turkiye_sulama_orani_yuzde": 12.7,
+  "_sulama_payda_uyarisi": "İKİ ORANIN PAYDASI FARKLI. TİGEM oranı KÜLTÜRALTI arazisine, Türkiye oranı BÜTÜN tarım arazisine göre. Fark bire bir bir üstünlük ölçüsü değildir ve metin bunu yazmadan oranları yan yana koyamaz."
  },
  "tohum_dagitim": {
   "_kapsam": "SERTİFİKALI HUBUBAT TOHUMU DAĞITIMI (ton). Ülke rakamının kaynağı TOB; TİGEM satırı kurumun kendi ekilişlerini de içeriyor (raporun dipnotu)",
@@ -941,6 +954,7 @@
    "arazi_kullanimda_yuzde": 90.93,
    "arazi_kirada_yuzde": 9.07
   },
+  "kiraya_verilen_toplam_da": 326891.0,
   "tigem_ha": 360245.0,
   "sfci_kat": 16.4,
   "tahsisat_1937_gruplu": [

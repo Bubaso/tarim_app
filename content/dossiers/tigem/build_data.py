@@ -228,6 +228,7 @@ turetilmis["kira_asimetrisi"] = {
 }
 
 # Dünya karşılaştırması — hektara çevrilmiş
+turetilmis["kiraya_verilen_toplam_da"] = yuvarla(float(kira), 2)
 turetilmis["tigem_ha"] = yuvarla(float(toplam_arazi) / 10, 0)
 turetilmis["sfci_kat"] = yuvarla(
     turetilmis["tigem_ha"] / govde["dunya"]["hindistan"]["sfci_alan_ha"], 1)
