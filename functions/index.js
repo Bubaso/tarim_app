@@ -426,6 +426,39 @@ async function supabaseGet(query, timeoutMs = SUPABASE_TIMEOUT_MS) {
   }
 }
 
+/// Supabase'e ulaşılamadığında verilen cevap.
+///
+/// NEDEN 200 DEĞİL. Hata yolunda 200 dönmek tarayıcı botuna "bu adresin
+/// içeriği budur" demek: haberin yerine jenerik kabuk indeksleniyor, sosyal
+/// platformlar da jenerik `og:` etiketlerini adres başına önbelleğe alıyor.
+/// 10 Kasım 2026'da Supabase projesi kota aşımından kısıtlandı (REST, Auth,
+/// Storage — her uç 402) ve portal her haber adresine 200 + jenerik kabuk
+/// döndürdü. Ölçüldü: `og:title` "Tarım Portalı - Tarımın Doğru Adresi",
+/// `og:image` genel sosyal önizleme.
+///
+/// 503 + `Retry-After` "geçici olarak erişilemiyor" demek: Google indeksteki
+/// doğru hâli KORUYOR ve sonra tekrar geliyor. Geçici yokluk geri
+/// dönülebilir; indeksin yanlış içerikle üzerine yazılması daha zor
+/// toparlanıyor.
+///
+/// GÖVDE AYNEN GÖNDERİLİYOR. Durum kodu tarayıcının gövdeyi çizmesini
+/// engellemiyor: Flutter normal açılıyor, siteye giren insan için hiçbir şey
+/// değişmiyor. Değişen tek şey botlara verilen cevap. Bu yüzden
+/// User-Agent'a bakıp bota ayrı içerik sunmaya da gerek yok (o cloaking
+/// sınırına girerdi).
+///
+/// `no-store` ŞART. Hata yolu, işleyicinin başındaki `Cache-Control`
+/// başlığını miras alıyordu (`s-maxage=3600, stale-while-revalidate=86400`)
+/// ve canlıda `x-cache: HIT` ölçüldü — yani jenerik sayfa adres başına bir
+/// saat önbellekte tutuluyor, bir güne kadar bayat servis ediliyordu.
+/// Onsuz CDN 503'ü de önbelleğe alır ve Supabase döndükten sonra bir saat
+/// daha kapalıymış gibi davranırdı; düzeltme işi daha kötü yapardı.
+function kesinti(res, govde) {
+  res.set('Cache-Control', 'no-store');
+  res.set('Retry-After', '3600');
+  res.status(503).send(govde);
+}
+
 /// Supabase RPC (POST /rest/v1/rpc/<ad>). Yazma gerektiren işler buradan
 /// geçiyor: anon rolüne tablo üzerinde UPDATE yetkisi vermek yerine
 /// SECURITY DEFINER fonksiyonu çağırıyoruz.
@@ -913,7 +946,8 @@ export const ogRenderer = onRequest(
       // Zaman aşımı, ağ hatası, beklenmedik yanıt biçimi… hepsi aynı sonuca
       // çıkar: okuyucu haberi görebilmeli.
       console.error('ogRenderer', err);
-      res.status(200).send(SHELL);
+      // Kabuk YİNE gönderiliyor, yalnız 503 ile — bkz. kesinti().
+      kesinti(res, SHELL);
     }
   },
 );
@@ -1011,6 +1045,7 @@ export const categoryRenderer = onRequest(
       // bütçesini arşivin derinine değil aynı sayfaya harcatır; sitemap zaten
       // arşivin tamamını taşıyor.
       let liste = '';
+      let listeDustu = false;
       try {
         const rows = await supabaseGet(
           `articles?status=eq.published&${kat.filtre}` +
@@ -1025,9 +1060,11 @@ export const categoryRenderer = onRequest(
           )
           .join('');
       } catch (err) {
-        // Liste çekilemezse başlık ve açıklama yine de gitsin: boş bir
-        // kategori sayfası, 500'den iyi.
+        // Liste çekilemezse başlık ve açıklama yine de gitsin — ama 200 ile
+        // DEĞİL: boş bir kategori sayfası, Google'a "bu kategoride haber
+        // yok" demek. Gövde aynen gidiyor, durum kodu 503 oluyor.
         console.error('categoryRenderer liste', err);
+        listeDustu = true;
       }
 
       const ssr =
@@ -1038,10 +1075,12 @@ export const categoryRenderer = onRequest(
         navBloku() +
         `</div>`;
 
-      res.status(200).send(injectSsr(inject(SHELL, block), ssr));
+      const cevap = injectSsr(inject(SHELL, block), ssr);
+      if (listeDustu) kesinti(res, cevap);
+      else res.status(200).send(cevap);
     } catch (err) {
       console.error('categoryRenderer', err);
-      res.status(200).send(SHELL);
+      kesinti(res, SHELL);
     }
   },
 );
@@ -1107,7 +1146,8 @@ export const weekRenderer = onRequest(
       res.status(200).send(inject(SHELL, block));
     } catch (err) {
       console.error('weekRenderer', err);
-      res.status(200).send(SHELL);
+      // Kabuk YİNE gönderiliyor, yalnız 503 ile — bkz. kesinti().
+      kesinti(res, SHELL);
     }
   },
 );
@@ -1227,7 +1267,8 @@ export const dossierRenderer = onRequest(
         .send(inject(SHELL, block, dossierJsonLd(row, url, title, description, image)));
     } catch (err) {
       console.error('dossierRenderer', err);
-      res.status(200).send(SHELL);
+      // Kabuk YİNE gönderiliyor, yalnız 503 ile — bkz. kesinti().
+      kesinti(res, SHELL);
     }
   },
 );
@@ -1325,6 +1366,7 @@ export const rss = onRequest(
       : '';
 
     let rows = [];
+    let akisDustu = false;
     try {
       rows = await supabaseGet(
         'articles?status=eq.published&select=id,title,summary,created_at,topic,image_url' +
@@ -1332,10 +1374,14 @@ export const rss = onRequest(
         15000,
       );
     } catch (err) {
-      // Boş bir akış, 500'den iyi: okuyucu uygulamaları 500 alan bir akışı
-      // birkaç denemeden sonra abonelikten düşürüyor.
+      // Boş akış 200 ile gönderilemez: okuyucu uygulamaları ve haber
+      // toplayıcıları "bu beslemede haber yok" diye kaydediyor. 500 de
+      // doğru değil — eski yorumun haklı kaygısı buydu, birkaç 500'den
+      // sonra abonelikten düşürüyorlar. 503 + `Retry-After` ikisinin
+      // arasında: "şu an yok, belirtilen süre sonra tekrar gel".
       console.error('rss', err);
       rows = [];
+      akisDustu = true;
     }
 
     const items = (Array.isArray(rows) ? rows : [])
@@ -1366,7 +1412,7 @@ export const rss = onRequest(
     const sonTarih = rows?.[0]?.created_at;
     res.set('Content-Type', 'application/rss+xml; charset=utf-8');
     res.set('Cache-Control', 'public, max-age=300, s-maxage=900');
-    res.status(200).send(
+    (akisDustu ? kesinti : (r, g) => r.status(200).send(g))(res,
       `<?xml version="1.0" encoding="UTF-8"?>\n` +
         `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n` +
         `  <channel>\n` +
@@ -1386,6 +1432,7 @@ export const rss = onRequest(
 export const sitemap = onRequest(
   { region: REGION, memory: '256MiB', maxInstances: 3, invoker: 'public' },
   async (req, res) => {
+    let haberlerDustu = false;
     const entries = STATIC_ROUTES.map((r) =>
       urlEntry({
         loc: `${SITE_ORIGIN}${r.path}`,
@@ -1459,9 +1506,12 @@ export const sitemap = onRequest(
         );
       }
     } catch (err) {
-      // Haberler çekilemezse statik sayfalarla dönmek, 500 dönüp Google'a
-      // "sitemap bozuk" demekten iyi.
+      // Haberler çekilemezse statik sayfalarla dönüyoruz ama 200 İLE
+      // DEĞİL: yalnız statik sayfaları listeleyen bir sitemap, Google'a
+      // "benim bütün adreslerim bunlar" demek ve haber adreslerini
+      // indeksten düşürmeye davet eder. Gövde aynen gidiyor, kod 503.
       console.error('sitemap', err);
+      haberlerDustu = true;
     }
 
     // Ülke dosyaları AYRI bir try içinde: haber sorgusu zaman aşımına
@@ -1494,7 +1544,7 @@ export const sitemap = onRequest(
 
     res.set('Content-Type', 'application/xml; charset=utf-8');
     res.set('Cache-Control', 'public, max-age=600, s-maxage=3600');
-    res.status(200).send(
+    (haberlerDustu ? kesinti : (r, g) => r.status(200).send(g))(res,
       `<?xml version="1.0" encoding="UTF-8"?>\n` +
         // `xmlns:xhtml` ZORUNLU: tanımsız önek sitemap'in TAMAMINI
         // geçersiz kılar, yalnızca o satırları değil (§19.7).

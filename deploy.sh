@@ -43,6 +43,30 @@ for arg in "$@"; do
     --hosting)  TARGETS="hosting" ;;
     --no-build) DO_BUILD=0 ;;
     --fn=*)     TARGETS="hosting,functions:${arg#--fn=}" ;;
+    # Yalnız fonksiyon — HOSTING'E HİÇ DOKUNMAZ, derleme de yapmaz.
+    #
+    # `--fn=` hosting'i de dağıtıyor ve hosting dağıtımı yeniden derleme
+    # gerektiriyor. Derlemenin içindeki `mozaik_uret.py` ve ülke/kurum kabuk
+    # üreticileri Supabase'den veri çekiyor; Supabase erişilemezse (10 Kasım
+    # 2026: kota aşımından proje kısıtlandı, her uç 402) bu adımlar sessizce
+    # atlanıyor ve açılış ekranı boş, dosya sayfaları eksik yayına gidiyor.
+    # Fonksiyon düzeltmesini o riske atmadan dağıtmak için bu seçenek var.
+    #
+    # Virgülle birden çok ad alır:  --sadece-fn=ogRenderer,rss,sitemap
+    --sadece-fn=*)
+      TARGETS=""
+      IFS="," read -r -a _adlar <<< "${arg#--sadece-fn=}"
+      for _ad in "${_adlar[@]}"; do
+        [[ -z "$_ad" ]] && continue
+        [[ -n "$TARGETS" ]] && TARGETS="$TARGETS,"
+        TARGETS="${TARGETS}functions:${_ad}"
+      done
+      if [[ -z "$TARGETS" ]]; then
+        echo "✗ --sadece-fn= en az bir fonksiyon adı istiyor." >&2
+        exit 2
+      fi
+      DO_BUILD=0
+      ;;
     *) echo "Bilinmeyen argüman: $arg" >&2; exit 2 ;;
   esac
 done
