@@ -80,3 +80,68 @@ buradan kurulacak.
    Gazete arşivinden sayı numarasıyla aranacak.
 4. **İşletme sayıları.** Faaliyette olan ve kiraya verilen işletmelerin
    kesin sayısı; HTML'den sayılacak, menü tekrarından ayıklanarak.
+
+---
+
+# Tur 2 — EKSEN
+
+## Ölçülenler
+
+**Arazi** (`/Folder/AraziVarligiDosyasi/…pdf`, işletme işletme tablo):
+
+| | dekar |
+|---|---:|
+| Toplam arazi | **3.273.792** |
+| Kültüraltı | 2.788.405 |
+| Tarla | 1.756.580 |
+| Tabii mera | 629.138 |
+| Sulanan | 940.568 |
+| **Ceylanpınar tek başına** | **1.633.157 — toplamın yarısı** |
+
+**İşletme sayısı** (`/Isletme/Index/1,2,3`, adlar tek tek sayıldı):
+**17 faaliyette · 17 kiraya verilmiş · 2 iştirak.** Yarı yarıya.
+
+**Ölçek karşılaştırması** (Dünya Bankası, bağımsız): Türkiye'nin tarım
+arazisi 386.400 km² (2024). TİGEM 3.274 km² → **%0,85.**
+
+**Sulama karşılaştırması:** TİGEM'in kültüraltı arazisinin %33,7'si sulanıyor;
+Türkiye'de tarım arazisinin %12,7'si (Dünya Bankası 2024). **2,6 kat.**
+İki oranın PAYDASI farklı — biri kültüraltı, öteki tüm tarım arazisi. Metinde
+bu fark yazılmadan karşılaştırma kurulmayacak.
+
+**Tohumluk payı** (TİGEM'in kendi kataloğu, s. 5): TÜİK 2025 verisiyle
+Türkiye'de 7,1 milyon hektar buğday, 3,2 milyon hektar arpa ekiliyor. Tohumun
+3 yılda bir yenilenmesi esasına göre sertifikalı hububat tohumu ihtiyacı
+buğdayda 547 bin ton, arpada 243 bin ton, **toplam 790 bin ton**. Bunun
+**yaklaşık %20'si TİGEM tarafından karşılanıyor.**
+
+> **KAYNAK SINIRI.** Bu %20 KURUMUN KENDİ BEYANI. Bağımsız bir karşılığı
+> (BÜGEM ya da TÜİK tohumculuk istatistiği) henüz bulunamadı. Metinde ya
+> bağımsız kaynak bulunur ya da "kurumun kendi bildirimi" diye yazılır.
+
+## Eksen adayları
+
+**A — Az toprak, çok tohum.** Kurum Türkiye tarım arazisinin %0,85'ini
+tutuyor ama sertifikalı hububat tohumunun yaklaşık beşte birini veriyor.
+Sebebi: ürettiği şey gıda değil **girdi**. Çiftçi TİGEM ile pazarda değil,
+ekim zamanında karşılaşıyor. Dizideki öteki dört kurumdan ayrıldığı nokta da
+tam burası — TMO ürünü alır, Ziraat kredi verir, Tarım Kredi ortaklık kurar,
+DSİ suyu getirir; TİGEM tohumu ÜRETİR.
+
+**B — Devletin çiftliklerinin yarısı kirada.** 34 işletmenin 17'si özel
+şirketlere kiralanmış; ana statü bunu açıkça yetki sayıyor ("yer kiralar,
+kiraya verir"). Çarpıcı ama dosyayı özelleştirme tartışmasına çeker;
+kullanıcı kararı: *"maliyet hesabı dosyası yapmıyoruz, kurumu tanıtıyoruz."*
+Eksen değil, kendi bölümü olmalı.
+
+**C — İki kök, ikisi de ordu.** Osmanlı haraları (ordu ve sarayın iaşesi,
+at) + 1937 Zirai Kombinaları (ordunun gerektiğinde halkın gıdası) → 1984'te
+233 sayılı KHK ile tek çatı. §8.9/1'in karşılığı; eksen değil, açılış.
+
+## Tur 2'de çıkan ek malzeme
+
+Kurumun kataloğu, tohum ve damızlığın yanında şunları da koruduğunu yazıyor:
+**yerel (Ata) tohumları, Safkan Arap Atı, Ankara Tiftik Keçisi, Kangal Köpeği
+ve Asya Ceylanı.** Bir devlet çiftliğinin aynı zamanda Kangal'ı ve ceylanı
+kaybolmaktan koruması §8.9/3 "gündelik karşılık" ve kültürel açıklama için
+güçlü malzeme.
