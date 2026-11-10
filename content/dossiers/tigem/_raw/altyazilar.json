@@ -1,0 +1,110 @@
+{
+ "_amac": "Altyazılar ELLE yazıldı. Kullanıcı kuralı (8 Kasım 2026): görselin altında yapay zekânın analiz notu değil, KAREDE NE GÖRÜNÜYORSA o yazılır.",
+ "_gozle_dogrulama": "Kullanılan karelerin hepsi açılıp bakıldı. İki aday REDDEDİLDİ; sebepleri _reddedilenler'de.",
+ "_reddedilenler": {
+  "Wheat and Vegetable Seeds (5513876607).jpg": "Adı tohum çuvalı diyor, karede Pakistan'da USAID yardım dağıtımı var: çuvallarda 'NOT FOR SALE', başlarda USAID şapkası. Bir Türk kurumunun dosyasına konamaz.",
+  "Wheat and Vegetable Seeds (5513870679).jpg": "Aynı serinin ikinci karesi, aynı sebep."
+ },
+ "metin": {
+  "tigem_orman_ciftligi_1929a": {
+   "tr": "Ankara'da Orman Çiftliği, 14 Temmuz 1929. Beyaz takım ve hasır şapkalı Mustafa Kemal, bir harman yığınının önünde yalınayak bir çiftlik işçisiyle konuşuyor; arkada takım elbiseli görevliler ve askerler duruyor.",
+   "en": "The Forest Farm in Ankara, 14 July 1929. Mustafa Kemal, in a white suit and straw hat, talks with a barefoot farm worker in front of a stack of cut straw; officials in suits and soldiers stand behind."
+  },
+  "tigem_orman_ciftligi_1929b": {
+   "tr": "Aynı gün, aynı çiftlik: güneşlikli, çelik tekerlekli bir traktör, arkasına bir ekipman bağlanmış hâlde tarlada.",
+   "en": "The same day on the same farm: a steel-wheeled tractor with a sun canopy, an implement hitched behind it, in the field."
+  },
+  "tigem_orman_ciftligi_1929c": {
+   "tr": "Orman Çiftliği'nin tarlasında dört kişi: ortada beyaz takımlı ve bastonlu Mustafa Kemal, yanında şapkalı üç kişi.",
+   "en": "Four men in a field at the Forest Farm: Mustafa Kemal in the centre in a white suit with a walking stick, three hatted men beside him."
+  },
+  "tigem_aoc_1939": {
+   "tr": "Atatürk Orman Çiftliği, 1939. Ağaçların arasından bakıldığında bacalı bir fabrika, çiftlik binaları ve ağaçlandırılmış şeritler; arkada Ankara'nın çıplak tepeleri uzanıyor.",
+   "en": "Atatürk Forest Farm, 1939. Seen through trees: a factory with a tall chimney, farm buildings and planted belts; beyond them the bare hills of Ankara."
+  },
+  "tigem_bugday_tarla": {
+   "tr": "Suşehri, Sivas'ta hasat öncesi bir buğday tarlası. Olgunlaşmış başaklar yakın planda, arkada puslu tepeler.",
+   "en": "A wheat field before harvest in Suşehri, Sivas. Ripe ears in the foreground, hazy hills behind."
+  },
+  "tigem_bugday_sivas": {
+   "tr": "Aynı tarlanın geniş hâli: olgun buğday, kavak sıraları ve Sivas'ın dağları.",
+   "en": "The same field seen wide: ripe wheat, lines of poplars and the mountains of Sivas."
+  },
+  "tigem_hasat": {
+   "tr": "Bir traktör harman makinesini çalıştırıyor; makineden saman savruluyor ve bir adam sopayla yığını düzeltiyor. Makinenin yan yüzünde üreticisinin adı yazılı.",
+   "en": "A tractor drives a threshing machine; straw flies out of it and a man levels the pile with a stick. The maker's name is painted on the side."
+  },
+  "tigem_ceylan": {
+   "tr": "Şanlıurfa'nın Ceylanpınar ilçesinde bir Asya ceylanı, otların arasına çökmüş. İlçe adını bu hayvandan alıyor.",
+   "en": "An Asian gazelle resting in the grass at Ceylanpınar, Şanlıurfa. The district takes its name from this animal."
+  },
+  "tigem_hindistan_bugday": {
+   "tr": "Hindistan'ın Pencap eyaletinde olgunlaşmış buğday başakları.",
+   "en": "Ripe ears of wheat in Punjab, India."
+  },
+  "tigem_harran_hasat_1988": {
+   "tr": "Harran Ovası, 15 Haziran 1988. Pembe ve turuncu desenli giysisiyle bir kadın, olgunlaşmış tarlada eğilmiş, elindeki orakla biçiyor.",
+   "en": "The Harran Plain, 15 June 1988. A woman in a pink and orange patterned dress bends over the ripe field, cutting with a sickle."
+  },
+  "tigem_harran_kanal": {
+   "tr": "Harran Ovası'nda bir sulama kanalı ve savakları, 11 Eylül 2011. Kanalın ötesinde yeşil bir mısır tarlası, arkada kuru tepeler.",
+   "en": "An irrigation canal and its sluice gates on the Harran Plain, 11 September 2011. A green maize field lies beyond, with dry hills behind."
+  },
+  "tigem_harran_pamuk": {
+   "tr": "Harran Ovası'nda sulanan bir pamuk bitkisi, 20 Eylül 2012. Açmış beyaz kozalar, henüz yeşil ve kızarmış kozalar, altta çatlamış toprak.",
+   "en": "An irrigated cotton plant on the Harran Plain, 20 September 2012. Opened white bolls, green and reddening bolls, cracked soil below."
+  },
+  "tigem_kangal": {
+   "tr": "Taşlı bir avluda oturan Kangal çoban köpeği: krem rengi tüy, siyah maske ve siyah kulaklar.",
+   "en": "A Kangal shepherd dog sitting in a stony yard: cream coat, black mask and black ears."
+  },
+  "tigem_tiftik_kecisi": {
+   "tr": "Uzun, kıvırcık tiftiğiyle bir Ankara keçisi; kulağında künye küpesi var.",
+   "en": "An Angora goat with its long, curly mohair fleece; an identification tag in its ear."
+  },
+  "tigem_resmi_gazete": {
+   "tr": "Resmî Gazete'nin bir sayfası: 20 Nisan 1946, sayı 6288, 'Kararlar' bölümü. TİGEM'i kuran 95 sayılı kararname başka bir nüshada, 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı.",
+   "en": "A page of the Official Gazette: 20 April 1946, issue 6288, the 'Decisions' section. Decree 95, which established TİGEM, appeared in a different issue: 18205 Repeated, 28 October 1983."
+  },
+  "tigem_karacabey": {
+   "tr": "Karacabey'de beyaz parmaklıklı padoklarda otlayan doru atlar; arkada uzun kırmızı çatılı ahır sıraları, çam ormanı ve ova. Duvardaki madalyonlardan biri işletmenin armasını taşıyor.",
+   "en": "Bay horses grazing in white-railed paddocks at Karacabey; behind them long red-roofed stable blocks, a pine wood and the plain. One of the roundels on the wall carries the enterprise's emblem."
+  },
+  "tigem_koyun_karapinar": {
+   "tr": "Karapınar Yaylası, 10 Mayıs 1989: koyun sağımı.",
+   "en": "The Karapınar plateau, 10 May 1989: milking sheep."
+  }
+ },
+ "bolumler": {
+  "1": "tigem_hasat",
+  "2": "tigem_orman_ciftligi_1929b",
+  "3": "tigem_karacabey",
+  "4": "tigem_orman_ciftligi_1929a",
+  "5": "tigem_bugday_tarla",
+  "6": "tigem_resmi_gazete",
+  "7": "tigem_ceylan",
+  "8": "tigem_harran_kanal",
+  "9": "tigem_harran_hasat_1988",
+  "10": "tigem_bugday_sivas",
+  "11": "tigem_harran_pamuk",
+  "12": "tigem_kangal",
+  "13": "tigem_aoc_1939",
+  "14": "tigem_hindistan_bugday"
+ },
+ "slaytlar": {
+  "1": "tigem_orman_ciftligi_1929b",
+  "2": "tigem_orman_ciftligi_1929a",
+  "3": "tigem_bugday_tarla",
+  "4": "tigem_harran_hasat_1988",
+  "5": "tigem_kangal"
+ },
+ "_kullanilmayanlar": {
+  "tigem_orman_ciftligi_1929c": "İndirildi, atfı tam, _raw/gorseller'de duruyor — kullanılmadı. 1929'da Orman Çiftliği'nin tarlasında duran dört kişi; aynı günün öteki iki karesi (Atatürk ve işçi, traktör) daha çok şey söylüyor ve üçünü birden koymak aynı günü üç kez göstermek olurdu.",
+  "tigem_tiftik_kecisi": "İndirildi, atfı tam — kullanılmadı. Üçüncü bölüme Ankara keçisi konacaktı; Karacabey'deki at işletmesinin karesi sonradan indi ve bölüm atı anlattığı için o geçti. Keçi 12. bölümün metninde geçiyor, görseli Kangal.",
+  "tigem_koyun_karapinar": "İndirildi, atfı tam — kullanılmadı. 1989'da koyun sağımı; 12. bölüme uygundu ama Kangal karesi o bölümün cümlesini daha iyi karşılıyor."
+ },
+ "_bulunamayanlar": {
+  "tohum çuvalı / bayi": "Türkiye'de sertifikalı tohum çuvalı ya da TİGEM bayisi karesi bulunamadı. Bulunan iki aday Pakistan'da USAID yardım dağıtımıydı ve reddedildi.",
+  "Safkan Arap Atı yakın plan": "Atın kendisinin yakın karesi bulunamadı; üçüncü bölüm Karacabey işletmesinin padoklarını gösteriyor ve altyazı ne görüldüğünü söylüyor."
+ }
+}

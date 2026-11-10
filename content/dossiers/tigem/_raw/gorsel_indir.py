@@ -7,7 +7,7 @@ atıfsız bir kare sokmanın en kolay yolu.
 """
 import json, pathlib, re, sys, time, urllib.parse, urllib.request
 
-UA = "tarimportali-dosya/1.0 (research; contact via site)"
+UA = "tarimportali-dosya/1.0 (https://tarimportali.net) python-urllib"
 API = "https://commons.wikimedia.org/w/api.php"
 KOK = pathlib.Path(__file__).parent / "gorseller"
 KOK.mkdir(exist_ok=True)
@@ -44,6 +44,7 @@ def indir(ad, yerel):
     if hedef.exists():                      # yeniden çalıştırılabilir
         ham = hedef.read_bytes()
     else:
+        time.sleep(20)          # dosya sunucusuna nazik aralık
         req = urllib.request.Request(m["url"], headers={"User-Agent": UA})
         ham = None
         for deneme in range(5):             # Commons 429 veriyor, geri çekil
@@ -55,7 +56,7 @@ def indir(ad, yerel):
                 if e.code != 429 or deneme == 4:
                     print(f"  İNDİRİLEMEDİ ({e.code}) · {ad}")
                     return None
-                time.sleep(4 * (deneme + 1))
+                time.sleep(30 * (deneme + 1))
         if ham is None:
             return None
     hedef.write_bytes(ham)

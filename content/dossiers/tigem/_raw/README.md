@@ -1009,3 +1009,139 @@ Dizinin genel yasaklarına (logo, arma, mühür, kapakta fotoğraf, stok "mutlu
 2. Görseller: her bölümde bir tane (kullanıcı kuralı). Atıfsız görsel
    yayımlanmaz; atıf görselin altında açıkta durur.
 3. Hikâye slaytları: her slayt ayrı görsel, başlıklar vurucu ve doğrudan.
+
+---
+
+# Tur 7 — YAYIN KÜNYESİ VE GÖRSELLER
+
+**On dört bölüm, on dört görsel, beş slayt, on kuralın onu da geçti.**
+
+```
+yayın künyesi kilitlendi · 14 bölüm · 13 grafik yerleşti · 14 görsel · 5 slayt · 10 kuralın 10'u geçti
+```
+
+Kapak **tipografik** — fotoğraf yok (§8.4, §8.8). DSİ'deki kararın aynısı:
+dizinin görsel kimliği altıncı sayıda kırılırsa hiç kurulmamış olur.
+
+## Kullanıcı kuralı koda çevrildi
+
+*"Her bölümde bir görselin olmasını unutma."* (3 Kasım 2026) Bu artık benim
+dikkatime bırakılmış bir not değil: `dogrula_yayin.py`'nin üçüncü kuralı
+görselsiz bölümü **hata sayıyor** ve dosya tohumlanamıyor.
+
+Aynı şekilde yedinci kural — *"her bir slayt ayrı görsel taşısın, aynı görsel
+her slaytda tekrarlanmasın"* — ve sekizinci kural: başlık 60 karakteri
+aşamaz, soru işaretiyle bitemez (*"bilmece gibi başlık koyuyorsun"*).
+
+**Sekiz kural bilerek bozuldu, sekizi de yakaladı:** silinen görsel, göreli
+adres, boş atıf, tekrarlanan slayt görseli, 64 karaktere çıkan başlık,
+bölümsüz kalan grafik, fotoğrafa çevrilen kapak, anahtar kelimeye eklenen
+"tarım".
+
+## Görsel eşlemesi
+
+| # | bölüm | kare |
+|---|---|---|
+| 1 | Tohumun geldiği yer | traktörle çalışan harman makinesi |
+| 2 | Önce ödenek, sonra kanun | Orman Çiftliği'nde çelik tekerlekli traktör, 1929 |
+| 3 | Haralar: ordunun atı | **Karacabey'de padoklar ve doru atlar** |
+| 4 | Atatürk'ün mektubu | **Atatürk harman yığınının önünde, 14 Temmuz 1929** |
+| 5 | 1949'da yazılan cümle | Suşehri'nde hasat öncesi buğday başakları |
+| 6 | Kuruluş 1983, çerçeve 1984 | Resmî Gazete sayfası, 20 Nisan 1946 |
+| 7 | Toprak 1990'da tapuya geçti | **Ceylanpınar'da bir Asya ceylanı** |
+| 8 | Türkiye'nin yüzde birinden azı | Harran Ovası'nda sulama kanalı, 2011 |
+| 9 | Ülkenin tohumu: doksandan yirmiye | **Harran'da orakla biçen kadın, 15 Haziran 1988** |
+| 10 | Çiftçi tohumu nasıl alıyor | Sivas'ta olgun buğday tarlası |
+| 11 | İşletmelerin yarısı, arazinin onda biri | Harran'da sulanan pamuk, 2012 |
+| 12 | Tohumdan başkasını da koruyor | Kangal çoban köpeği |
+| 13 | Bıraktığı iş | **Atatürk Orman Çiftliği'nin panoraması, 1939** |
+| 14 | Dünyada benzeri: iki model | Pencap'ta buğday başakları |
+
+İki eşleşme tesadüf değil ve ikisi de doğrulandı:
+
+- **7. bölümün ceylanı gerçekten Ceylanpınar'dan.** Commons açıklaması
+  Kürtçe: *"Ceylanek ji Serêkaniya Rihayê"* — Urfa'nın Serêkaniyê'sinden bir
+  ceylan. Serêkaniyê, Ceylanpınar'ın Kürtçe adı; "Rihayê" (Urfa) niteleyicisi
+  onu sınırın öte yanındaki Suriye Serêkaniyê'sinden ayırıyor. Yani kare,
+  TİGEM'in en büyük işletmesinin bulunduğu ilçeden ve ilçeye adını veren
+  hayvandan.
+- **3. bölümün karesi Karacabey işletmesinin kendisi** — TİGEM'in üç at
+  işletmesinden biri, Osmanlı harasının doğrudan devamı. Duvardaki
+  madalyonlardan biri işletmenin armasını taşıyor; bu **tasarımda arma
+  üretmek değil**, karede tesadüfen bulunan bir tabela.
+
+## İKİ KARE GÖZLE AÇILDI VE REDDEDİLDİ
+
+Commons'ta **"Wheat and Vegetable Seeds"** adıyla duran iki kare tohum çuvalı
+sanılmıştı. Açılıp bakıldığında **Pakistan'da USAID yardım dağıtımı** çıktı:
+çuvallarda "NOT FOR SALE", adamların başında USAID şapkası, elde "VEGETABLE
+SEEDS" paketleri. Bir Türk kurumunun dosyasına koymak hem yanıltıcı olurdu
+hem de kurumun yaptığı işi — bedeli karşılığında tohumluk satmayı — yardım
+dağıtımına benzetirdi. İkisi de silindi.
+
+Irak dosyasının dersi doğrulandı: **başlık yalan söyleyebilir, kare söylemez.**
+Kullanılan on dört karenin on dördü de açılıp bakıldı.
+
+## Bulunamayanlar — ve ne yapıldığı
+
+| aranan | sonuç |
+|---|---|
+| Türkiye'de sertifikalı tohum çuvalı ya da TİGEM bayisi | Commons'ta YOK. Bulunan iki aday USAID dağıtımıydı, reddedildi |
+| Safkan Arap Atı yakın planı | Atın kendisi yok; 3. bölüm Karacabey'in padoklarını gösteriyor ve altyazı ne görüldüğünü söylüyor |
+| TİGEM'i kuran Resmî Gazete nüshası (18205) | Taranmış görüntüsü Commons'ta yok. 6. bölüm 1946 tarihli başka bir nüshayı gösteriyor ve **altyazı farkı açıkça yazıyor**: "TİGEM'i kuran 95 sayılı kararname başka bir nüshada, 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı" |
+
+**Boş bırakılan bölüm YOK.**
+
+## Kullanılmayan üç kare
+
+İndirildi, atfı tam, `_raw/gorseller`'de duruyor:
+
+- `tigem_orman_ciftligi_1929c` — aynı günün üçüncü karesi; üçünü birden koymak
+  aynı günü üç kez göstermek olurdu.
+- `tigem_tiftik_kecisi` — 3. bölüme konacaktı, Karacabey karesi sonradan indi
+  ve bölüm atı anlattığı için o geçti.
+- `tigem_koyun_karapinar` — 1989'da koyun sağımı; 12. bölüme uygundu ama
+  Kangal karesi o bölümün cümlesini daha iyi karşılıyor.
+
+## PNG'ler JPEG'e çevrildi — yayından ÖNCE
+
+Dört kare PNG olarak inmişti ve optimizasyon betiği PNG'e dokunmuyor
+(§22.1: "format JPEG KALIR"). Dördü fotoğraf; PNG'de 3,4 MB tutuyorlardı,
+JPEG q88'de **365 KB**. Dosya henüz yayında olmadığı için adres değişikliği
+hiçbir şeyi kırmadı — yayından sonra olsa yapılmazdı.
+
+Toplam sayfa görsel yükü: **5,6 MB → 3,3 MB.**
+
+## Hikâye slaytları
+
+Beş kanca, beşi de ayrı görsel, beşi de 60 karakterin altında:
+
+| | başlık | karakter |
+|---|---|---:|
+| 1 | Üç milyon lira ayrıldı, kurum daha yoktu | 40 |
+| 2 | İlk sermayesi Atatürk'ün çiftlikleriydi | 39 |
+| 3 | Aynı görev cümlesi üç belgede: 1949, 1983, 2022 | 47 |
+| 4 | 2002'de ülkenin tohumu oydu, bugün beşte biri | 45 |
+| 5 | Tohumun yanında Kangal'ı ve ceylanı da koruyor | 46 |
+
+## Commons hız sınırı — ve nasıl uyulduğu
+
+`upload.wikimedia.org` bu ağa 429 verdi ve indirmelerin yarısı düştü.
+**Tarayıcı taklidi yapılmadı** — hız sınırı aşılacak bir engel değil, uyulacak
+bir kuraldır. Üç şey yapıldı:
+
+1. İstekler ham dosya yerine **küçük resim uç noktasına** çevrildi (2400 px;
+   zaten 1440'a indiriliyor).
+2. `User-Agent` Wikimedia'nın politikasına uyduruldu: projenin **kendi genel
+   adresi** yazıldı. Kullanıcının kişisel bilgisi hiçbir isteğe konulmadı.
+3. Dosya istekleri arasına **20 saniye**, yeniden denemeler arasına 30-120
+   saniye kondu.
+
+On yedi karenin on yedisi de indi.
+
+## Tur 8'e açık kalanlar
+
+1. Metin (TR + EN). **Gövde en az 4.000 kelime** — tur 3'te kilitlendi.
+2. `dogrula_metin.py`: §8.11'in meta cümle avcıları + **bölüm 2'de "para"
+   kökü yasağı** (kullanıcı kuralı, 10 Kasım 2026) + uzunluk tabanı.
+3. Başlıklar metin yazıldıktan sonra metinle birebir hale getirilecek.

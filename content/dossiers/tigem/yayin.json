@@ -139,36 +139,184 @@
     "ust_en": "THE MONEY CAME FIRST",
     "baslik": "Üç milyon lira ayrıldı, kurum daha yoktu",
     "baslik_en": "Three million lira was set aside before the institution existed",
-    "gorsel": null
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929b.jpg"
    },
    {
     "ust": "BİR MEKTUPLA GELEN SERMAYE",
     "ust_en": "CAPITAL THAT CAME BY LETTER",
     "baslik": "İlk sermayesi Atatürk'ün çiftlikleriydi",
     "baslik_en": "Its first capital was Atatürk's own farms",
-    "gorsel": null
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929a.jpg"
    },
    {
     "ust": "YETMİŞ ÜÇ YIL, BİR CÜMLE",
     "ust_en": "SEVENTY-THREE YEARS, ONE SENTENCE",
     "baslik": "Aynı görev cümlesi üç belgede: 1949, 1983, 2022",
     "baslik_en": "The same sentence in three documents: 1949, 1983, 2022",
-    "gorsel": null
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_bugday_tarla.jpg"
    },
    {
     "ust": "DOKSANDAN YİRMİYE",
     "ust_en": "FROM NINETY TO TWENTY",
     "baslik": "2002'de ülkenin tohumu oydu, bugün beşte biri",
     "baslik_en": "In 2002 it was the country's seed; today it is a fifth of it",
-    "gorsel": null
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_harran_hasat_1988.jpg"
    },
    {
     "ust": "TOHUMDAN BAŞKASI",
     "ust_en": "MORE THAN SEED",
     "baslik": "Tohumun yanında Kangal'ı ve ceylanı da koruyor",
     "baslik_en": "Alongside the seed it also keeps the Kangal and the gazelle",
-    "gorsel": null
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_kangal.jpg"
    }
   ]
+ },
+ "bolum_gorselleri": {
+  "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz (§2.4).",
+  "_kaynak": "Hepsi Wikimedia Commons; atıf ve lisans Commons API'sinden çekildi, elle yazılmadı.",
+  "_kural": "HER BÖLÜMDE BİR GÖRSEL — kullanıcı kuralı. dogrula_yayin.py boş bırakılan bölümü hata sayıyor.",
+  "_altyazi_kurali": "Altyazı GÖRÜLENİ söyler. Kullanıcı kuralı (8 Kasım 2026): 'görselin ne olduğunu kullanıcı için yaz, teknik analiz tahlilini değil.'",
+  "_gozle_dogrulama": "Kullanılan karelerin hepsi açılıp bakıldı. İki aday REDDEDİLDİ; sebepleri _reddedilenler'de.",
+  "_bos_birakilanlar": "YOK.",
+  "1": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_hasat.jpg",
+   "atif": "Ckoroglu — CC BY-SA 3.0",
+   "lisans": "CC BY-SA 3.0",
+   "alt_tr": "Bir traktör harman makinesini çalıştırıyor; makineden saman savruluyor ve bir adam sopayla yığını düzeltiyor. Makinenin yan yüzünde üreticisinin adı yazılı.",
+   "alt_en": "A tractor drives a threshing machine; straw flies out of it and a man levels the pile with a stick. The maker's name is painted on the side.",
+   "en_boy": 1.3346,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_Harvesting.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "2": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929b.jpg",
+   "atif": "Unknown authorUnknown author — kamu malı",
+   "lisans": "Public domain",
+   "alt_tr": "Aynı gün, aynı çiftlik: güneşlikli, çelik tekerlekli bir traktör, arkasına bir ekipman bağlanmış hâlde tarlada.",
+   "alt_en": "The same day on the same farm: a steel-wheeled tractor with a sun canopy, an implement hitched behind it, in the field.",
+   "en_boy": 1.4391,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929_%283%29.png",
+   "_gozle_dogrulandi": true
+  },
+  "3": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_karacabey.jpg",
+   "atif": "Ufuk Önen — CC BY 3.0",
+   "lisans": "CC BY 3.0",
+   "alt_tr": "Karacabey'de beyaz parmaklıklı padoklarda otlayan doru atlar; arkada uzun kırmızı çatılı ahır sıraları, çam ormanı ve ova. Duvardaki madalyonlardan biri işletmenin armasını taşıyor.",
+   "alt_en": "Bay horses grazing in white-railed paddocks at Karacabey; behind them long red-roofed stable blocks, a pine wood and the plain. One of the roundels on the wall carries the enterprise's emblem.",
+   "en_boy": 1.3333,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Karacabey_Turkey_-_panoramio.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "4": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929a.jpg",
+   "atif": "Unknown authorUnknown author — kamu malı",
+   "lisans": "Public domain",
+   "alt_tr": "Ankara'da Orman Çiftliği, 14 Temmuz 1929. Beyaz takım ve hasır şapkalı Mustafa Kemal, bir harman yığınının önünde yalınayak bir çiftlik işçisiyle konuşuyor; arkada takım elbiseli görevliler ve askerler duruyor.",
+   "alt_en": "The Forest Farm in Ankara, 14 July 1929. Mustafa Kemal, in a white suit and straw hat, talks with a barefoot farm worker in front of a stack of cut straw; officials in suits and soldiers stand behind.",
+   "en_boy": 1.4992,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929.png",
+   "_gozle_dogrulandi": true
+  },
+  "5": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_bugday_tarla.jpg",
+   "atif": "Maurice Flesier — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Suşehri, Sivas'ta hasat öncesi bir buğday tarlası. Olgunlaşmış başaklar yakın planda, arkada puslu tepeler.",
+   "alt_en": "A wheat field before harvest in Suşehri, Sivas. Ripe ears in the foreground, hazy hills behind.",
+   "en_boy": 1.3333,
+   "_commons": "https://commons.wikimedia.org/wiki/File:A_wheat_field_before_harvest.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "6": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_resmi_gazete.jpg",
+   "atif": "Turkish government — kamu malı",
+   "lisans": "Public domain",
+   "alt_tr": "Resmî Gazete'nin bir sayfası: 20 Nisan 1946, sayı 6288, 'Kararlar' bölümü. TİGEM'i kuran 95 sayılı kararname başka bir nüshada, 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı.",
+   "alt_en": "A page of the Official Gazette: 20 April 1946, issue 6288, the 'Decisions' section. Decree 95, which established TİGEM, appeared in a different issue: 18205 Repeated, 28 October 1983.",
+   "en_boy": 0.7207,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Resmi_Gazete_sayfasi.png",
+   "_gozle_dogrulandi": true
+  },
+  "7": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_ceylan.jpg",
+   "atif": "Dûrzan Cîrano — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Şanlıurfa'nın Ceylanpınar ilçesinde bir Asya ceylanı, otların arasına çökmüş. İlçe adını bu hayvandan alıyor.",
+   "alt_en": "An Asian gazelle resting in the grass at Ceylanpınar, Şanlıurfa. The district takes its name from this animal.",
+   "en_boy": 1.5635,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Gazella_subgutturosa_2018.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "8": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_harran_kanal.jpg",
+   "atif": "Volker Höhfeld — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Harran Ovası'nda bir sulama kanalı ve savakları, 11 Eylül 2011. Kanalın ötesinde yeşil bir mısır tarlası, arkada kuru tepeler.",
+   "alt_en": "An irrigation canal and its sluice gates on the Harran Plain, 11 September 2011. A green maize field lies beyond, with dry hills behind.",
+   "en_boy": 1.3333,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_11_09_2011_Bew%C3%A4sserungskanal.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "9": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_harran_hasat_1988.jpg",
+   "atif": "Volker Höhfeld — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Harran Ovası, 15 Haziran 1988. Pembe ve turuncu desenli giysisiyle bir kadın, olgunlaşmış tarlada eğilmiş, elindeki orakla biçiyor.",
+   "alt_en": "The Harran Plain, 15 June 1988. A woman in a pink and orange patterned dress bends over the ripe field, cutting with a sickle.",
+   "en_boy": 1.527,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_15_06_1988_B%C3%A4uerin_bei_der_Getreideernte.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "10": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_bugday_sivas.jpg",
+   "atif": "Maurice Flesier — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Aynı tarlanın geniş hâli: olgun buğday, kavak sıraları ve Sivas'ın dağları.",
+   "alt_en": "The same field seen wide: ripe wheat, lines of poplars and the mountains of Sivas.",
+   "en_boy": 1.3333,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_field_in_Sivas_Province.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "11": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_harran_pamuk.jpg",
+   "atif": "Volker Höhfeld — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Harran Ovası'nda sulanan bir pamuk bitkisi, 20 Eylül 2012. Açmış beyaz kozalar, henüz yeşil ve kızarmış kozalar, altta çatlamış toprak.",
+   "alt_en": "An irrigated cotton plant on the Harran Plain, 20 September 2012. Opened white bolls, green and reddening bolls, cracked soil below.",
+   "en_boy": 0.7479,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_20_09_2012_Baumwolllpflanze_bew%C3%A4ssert.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "12": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_kangal.jpg",
+   "atif": "Zeynel Cebeci — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Taşlı bir avluda oturan Kangal çoban köpeği: krem rengi tüy, siyah maske ve siyah kulaklar.",
+   "alt_en": "A Kangal shepherd dog sitting in a stony yard: cream coat, black mask and black ears.",
+   "en_boy": 0.6722,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Anatolian_Shepherd_Dog_-_Kangal_k%C3%B6pe%C4%9Fi_01.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "13": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_aoc_1939.jpg",
+   "atif": "Directorate General of Press and Information — No restrictions",
+   "lisans": "No restrictions",
+   "alt_tr": "Atatürk Orman Çiftliği, 1939. Ağaçların arasından bakıldığında bacalı bir fabrika, çiftlik binaları ve ağaçlandırılmış şeritler; arkada Ankara'nın çıplak tepeleri uzanıyor.",
+   "alt_en": "Atatürk Forest Farm, 1939. Seen through trees: a factory with a tall chimney, farm buildings and planted belts; beyond them the bare hills of Ankara.",
+   "en_boy": 1.3806,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_Forest_Farm%2C_1939_%2816851409021%29.jpg",
+   "_gozle_dogrulandi": true
+  },
+  "14": {
+   "url": "https://tarimportali.net/dosya/tigem/tigem_hindistan_bugday.jpg",
+   "atif": "Satpal Dandiwal — CC BY-SA 4.0",
+   "lisans": "CC BY-SA 4.0",
+   "alt_tr": "Hindistan'ın Pencap eyaletinde olgunlaşmış buğday başakları.",
+   "alt_en": "Ripe ears of wheat in Punjab, India.",
+   "en_boy": 1.5031,
+   "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_in_Punjab%2C_India.jpg",
+   "_gozle_dogrulandi": true
+  }
  }
 }
