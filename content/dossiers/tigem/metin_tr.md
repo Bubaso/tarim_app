@@ -151,10 +151,9 @@ hükmî şahsiyeti haiz bir **Devlet Ziraat İşletmeleri Kurumu** kuruyor.
 
 Kurumun o sermayeyi nasıl doldurduğu beşinci maddede yazılı:
 
-> *"Atatürkün 11-VI-1937 tarihli mektub ile Hazineye teberru ettiği bütün
-> menkul ve gayrimenkul mallar ve bunlara aid hak ve vecibeler bu kanunun
-> neşri tarihinden itibaren Devlet ziraat işletmeleri kurumuna intikal
-> eder."*
+*"Atatürkün 11-VI-1937 tarihli mektub ile Hazineye teberru ettiği bütün menkul
+ve gayrimenkul mallar ve bunlara aid hak ve vecibeler bu kanunun neşri
+tarihinden itibaren Devlet ziraat işletmeleri kurumuna intikal eder."*
 
 Aynı maddenin devamı mekanizmayı da kuruyor. İntikal eden malların
 1 İkinciteşrin 1937 tarihindeki bilanço durumu esas alınacak; Maliye,
@@ -199,10 +198,10 @@ topluyor. Tarım Bakanlığına bağlı, tüzel kişiliği haiz, katma bütçeli
 
 Birinci maddesi kurumun ne için var olduğunu söylüyor:
 
-> *"Yurt Çiftçiliğinin zirai verimini artırmak, istihsalini çeşitlendirmek ve
-> mahsulün kalitesini yükseltmek amacı ile iyi tohumluk, damızlık ve fidan
-> ihtiyacını sağlamak, tarım alanında çiftçiye örneklik ve öğreticilik etmek
-> üzere…"*
+*"Yurt Çiftçiliğinin zirai verimini artırmak, istihsalini çeşitlendirmek ve
+mahsulün kalitesini yükseltmek amacı ile iyi tohumluk, damızlık ve fidan
+ihtiyacını sağlamak, tarım alanında çiftçiye örneklik ve öğreticilik etmek
+üzere…"*
 
 İkinci maddenin (c) bendi işin ticari yanını da yazıyor: *"Yüksek vasıflı
 tohum, damızlık ve fidanları bedeli karşılığında çiftçiye dağıtmak."*
@@ -227,15 +226,15 @@ bakan onayıyla yürürlüğe gireceğini söylüyor. Fiyatın nerede belirlendi
 beşinci maddesi, kurumun faaliyet konularını sıralarken ilk sıraya şunu
 koyuyor:
 
-> *"Ürettiği tohumluk, fidan, fide ve benzeri ürünler ile yetiştirdiği
-> damızlık hayvanlar ve spermalarını üreticilere intikal ettirmek."*
+*"Ürettiği tohumluk, fidan, fide ve benzeri ürünler ile yetiştirdiği damızlık
+hayvanlar ve spermalarını üreticilere intikal ettirmek."*
 
 Arada bir üçüncü belge daha var. 28 Ekim 1983 tarihli 95 sayılı Kanun
 Hükmünde Kararname'nin üçüncü maddesi, 2022 metninden tek kelimeyle
 ayrılıyor:
 
-> *"…yetiştirdiği damızlık hayvan, tohum, fidan, fide ve benzerleriyle
-> ürettiği spermaları **yetiştiricilere** intikal ettirmek."*
+*"…yetiştirdiği damızlık hayvan, tohum, fidan, fide ve benzerleriyle ürettiği
+spermaları **yetiştiricilere** intikal ettirmek."*
 
 1983'ün "yetiştiricileri", 2022'de "üreticiler" oldu. Gerisi aynı. Üç ayrı
 rejim, üç ayrı kurum adı, yetmiş üç yıl — ve değişmeyen bir görev tanımı.

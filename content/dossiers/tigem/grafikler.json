@@ -768,7 +768,12 @@
      "degerler": [
       "@turetilmis.kira_asimetrisi.isletme_kullanimda_yuzde",
       "@turetilmis.kira_asimetrisi.isletme_kirada_yuzde"
-     ]
+     ],
+     "ondalik": 1,
+     "sonek": {
+      "tr": "%",
+      "en": "%"
+     }
     },
     {
      "etiket": {
@@ -778,9 +783,15 @@
      "degerler": [
       "@turetilmis.kira_asimetrisi.arazi_kullanimda_yuzde",
       "@turetilmis.kira_asimetrisi.arazi_kirada_yuzde"
-     ]
+     ],
+     "ondalik": 1,
+     "sonek": {
+      "tr": "%",
+      "en": "%"
+     }
     }
-   ]
+   ],
+   "_bicim_notu": "Sayı biçimi HER SATIRDA tekrarlanıyor. Grafik düzeyindeki sonek/ondalik çizici tarafından okunmuyor (dossier_chart.dart:410 biçimi satır sözlüğünden kuruyor); önizlemede ölçüldü, %90,93 '91' diye çiziliyordu."
   },
   "sperma_satisi": {
    "tur": "cizgi",

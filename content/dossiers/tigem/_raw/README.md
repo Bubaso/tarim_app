@@ -1266,3 +1266,117 @@ Bölüm başlıkları metinden okundu ve `yayin.json` ile birebir tuttu.
 3. Anahtar kelimelerin gerçek habere karşı denenmesi (§8.10/1): "hara" tek
    başına kısa ve riskli olabilir.
 4. Devir (tur 10) Supabase erişimi ve **açık onay** istiyor.
+
+---
+
+# Tur 9 — TOHUMLAMA, GÖÇ DOSYASI VE ÖNİZLEME
+
+Supabase kapalı; bu turun hiçbir adımı ona dokunmadı. Seed **yerelde SQL
+üretiyor**, önizleme `web/onizleme/tigem.json`'u düz HTTP ile okuyor.
+
+```
+✓ seed yazıldı → supabase/seed/dossier_tigem.sql
+✓ önizleme    → web/onizleme/tigem.json
+  15 bölüm · grafik: 13 tanım · 42 @yol çözüldü · 10/15 bölümde
+✓ tüm kontroller geçti        (dogrula_seed.mjs)
+```
+
+Göç dosyası: `supabase/migrations/20261111090000_tigem_icerik_draft.sql`,
+148,8 KB. **Durum `draft`** — bu göç dosyayı yayına ALMAZ. On iki sağlama
+taşıyor; ikisi doğrudan kullanıcı kuralını veritabanı tarafında koruyor:
+bölüm 2'de "para" geçerse ve bir bölümün görseli ya da atfı yoksa göç geri
+alınır.
+
+## ÖNİZLEME ÜÇ HATA YAKALADI
+
+Üçü de ancak sayfayı gözle görünce ortaya çıktı.
+
+### 1. Metin alıntı bloğuyla yazılmıştı — çizici alıntı tanımıyor
+
+Metinde kanun alıntıları `>` ile yazılmıştı; iki dilde **on ikişer satır**.
+`dossier_prose.dart` alıntı tanımıyor ve `>` işaretini ekrana olduğu gibi
+basardı. Bu, DSİ'de `###`'in canlıya gitmesinin birebir aynısı.
+
+**Göç dosyasının dördüncü sağlaması yakaladı; `dogrula_metin.py` yakalamadı.**
+Dokuzuncu kural `###`, madde işareti, bağlantı ve kod bloğunu arıyordu —
+alıntı bloğunu aramayı unutmuştum. Kurala eklendi ve bozularak sınandı.
+
+Alıntılar düz paragrafa çevrildi; italik tırnak zaten çizicinin tanıdığı
+biçim. Öteki yayımlanmış dosyalar tarandı: yalnız Rusya'da iki satır var,
+o da arşivde.
+
+### 2. `ikili_cubuk` sayı biçimini SATIRDAN okuyor, grafikten değil
+
+Önizlemede çubuk etiketleri **"50", "91", "9"** diye çıktı — ondalık yok,
+yüzde işareti yok. Oysa grafiğin üstünde `ondalik: 1` ve `sonek: %` yazılı.
+
+Sebep çizicide: `dossier_chart.dart:410`, `SayiBicimi.fromJson(j)` çağrısını
+**satır sözlüğüyle** yapıyor; grafik düzeyindeki alanlar oraya hiç ulaşmıyor
+ve etiket varsayılana düşüyor. Biçim her satıra ayrı ayrı yazıldı; etiketler
+**"50,0%", "90,9%", "9,1%"** oldu.
+
+Bu, §8'deki `kartlar`/`vurgu` bulgusunun kardeşi: künyeye yazılan ama
+çizicinin okumadığı alan sessizce düşüyor.
+
+### 3. `kapak.tipografi_katmani` kodda hiç okunmuyor
+
+`tasarim.json` kapağa "KURUM DOSYASI · 06 · ÜRETİM", "TARIM İŞLETMELERİ" ve
+kuruluş belgesi satırını yazıyordu. Önizlemede kapak başlığı
+**"TİGEM — Tarım İşletmeleri Genel Müdürlüğü"** çıktı, yani `name_tr`.
+
+Grep ile doğrulandı: `tipografi_katmani`, `baslik`, `belge_satiri` ve
+`ust_satir` kodun hiçbir yerinde okunmuyor. Kapak `name_tr`, `edition`,
+`tur` ve `thesis_tr` ile kuruluyor. DSİ'nin motif alanlarının aynısı:
+**şartname, çizim değil.** Künyeye not düşüldü; bu dosyada "kapakta kuruluş
+belgesi yazıyor" diye bir cümle kurulmayacak.
+
+## Gözle doğrulananlar
+
+| ne | sonuç |
+|---|---|
+| Tipografik kapak | ✓ "KURUM DOSYASI · 06" yeni küme yeşiliyle (#4CC756) |
+| Kağıt gövde | ✓ arşiv kağıdı zemin, serif gövde, yeşil düşen harf |
+| Boru işaretli tablo | ✓ sağa dayalı rakam, tabular figür, %90,93 ondalığıyla |
+| `cizgi` grafikleri | ✓ sayısal x ekseni çalışıyor; TİGEM düz, Türkiye **kesikli** |
+| `islem_akisi` | ✓ **dizide ilk kez** — kare düğüm, adım numarası, aktör, `secenekler` ayrı satırda |
+| `kartlar` | ✓ üst satır, başlık, gövde ve köşe rakamı |
+| `ikili_cubuk` | ✓ iki satır, biri 50/50 öteki 90,9/9,1 — bulgu görünür |
+| Görsel altyazıları | ✓ önce okur için altyazı, altında atıf |
+| İçindekiler | ✓ on beş bölüm, başlıklar metinle birebir |
+
+**Renk tek başına iş yapmıyor.** Çizgi grafiğinde iki seri hem renkle hem
+çizgi deseniyle (düz / kesikli), `ikili_cubuk`'ta hem renkle hem dolguyla
+(düz / taramalı) ayrılıyor. Tur 6'nın renk körlüğü bulgusunun pratikteki
+karşılığı bu.
+
+**Bölüm görselleri boş çıkıyor ve bu doğru.** Adresler mutlak
+(`https://tarimportali.net/dosya/tigem/…`) ve dosyalar henüz dağıtılmadı.
+Devirden önce `./deploy.sh --hosting` çalışacak (§2.12/4).
+
+## Yeni araç: `tool/spa_vekil.py`
+
+Önizleme bayrağı yalnız `flutter run`'a geçirilebiliyor, ama flutter'ın web
+sunucusu yol tabanlı yönlendirmeyi bilmiyor: `/kurum/tigem` **404** veriyor.
+Var olan `tool/spa_sunucu.py` bu işi yapıyor ama `build/web`'i sunuyor, yani
+önce `flutter build web --dart-define=…` gerekiyor — ve o derleme önizleme
+bayrağıyla `build/web`'de kalırsa bir sonraki dağıtımda üretime sızar.
+
+`spa_vekil.py` derleme yapmıyor: çalışan flutter sunucusuna bağlanıyor,
+uzantısız ve bulunamayan yolu `/index.html`e düşürüyor.
+
+```
+flutter run -d web-server --web-port=8137 --dart-define=DOSYA_ONIZLEME=tigem
+python3 tool/spa_vekil.py 8139 8137
+```
+
+## Tur 10 — DEVİR, iki şart
+
+1. **Supabase erişimi.** Hâlâ kapalı.
+2. **Açık onay.** Devir göçü dört iş yapıyor (§2.12): TİGEM `published` ve
+   pencere `now()`; DSİ arşive ve `ends_at = now()`; takvimde "Yakında"
+   bir sonrakine (§8.13'e göre Türkşeker); ve **görseller ÖNCE dağıtılır.**
+
+Devir göçünden önce yapılacaklar: `./deploy.sh --hosting`, on dört görselin
+content-type denetimi, `dosya_hikayeleri.py` ile hikâye slaytları, ve
+anahtar kelimelerin gerçek habere karşı denenmesi (§8.10/1 — "hara" tek
+başına kısa).

@@ -190,6 +190,12 @@ for dil, b in (("tr", btr), ("en", ben)):
                 hata.append(f"[{dil}] §{no} · BAĞLANTI: '{s[:40]}'")
             if s.startswith("```"):
                 hata.append(f"[{dil}] §{no} · KOD BLOĞU")
+            # ALINTI BLOĞU — bu kural ilk yazımda UNUTULDU ve metin on iki
+            # satırlık alıntı bloğuyla yazıldı. `dossier_prose.dart` alıntı
+            # tanımıyor; ekrana '>' işareti olduğu gibi basılırdı. Göç
+            # dosyasının sağlaması yakaladı, betik yakalamadı.
+            if s.startswith(">"):
+                hata.append(f"[{dil}] §{no} · ALINTI BLOĞU: '{s[:40]}'")
 
 # ── 10. Ölçü ve payda uyarısı ─────────────────────────────────────────────
 # Eksik bölümde ÇÖKMEZ, hata yazar. Bir doğrulayıcının çökmesi geçmekle

@@ -158,10 +158,10 @@ agricultural work and craft. Its nominal capital was 15,000,000 lira.
 
 How it filled that capital is written in the fifth article:
 
-> *"All movable and immovable property donated to the Treasury by Atatürk's
-> letter dated 11 June 1937, and the rights and obligations attached to them,
-> shall pass to the State Agricultural Enterprises Corporation from the date
-> of publication of this law."*
+*"All movable and immovable property donated to the Treasury by Atatürk's
+letter dated 11 June 1937, and the rights and obligations attached to them,
+shall pass to the State Agricultural Enterprises Corporation from the date of
+publication of this law."*
 
 The rest of the article sets out the mechanism. The balance-sheet position of
 the transferred property as at 1 November 1937 would be taken as the basis; a
@@ -210,10 +210,10 @@ personality and an annexed budget.
 
 Its first article states what the institution exists for:
 
-> *"In order to increase the agricultural yield of the country's farming, to
-> diversify its output and raise the quality of the crop, to supply the need
-> for good seed, breeding stock and saplings, and to set an example and
-> instruct the farmer in the field of agriculture…"*
+*"In order to increase the agricultural yield of the country's farming, to
+diversify its output and raise the quality of the crop, to supply the need for
+good seed, breeding stock and saplings, and to set an example and instruct the
+farmer in the field of agriculture…"*
 
 Clause (c) of the second article sets out the commercial side as well: *"To
 distribute high-quality seed, breeding stock and saplings to the farmer
@@ -237,14 +237,14 @@ Now look at the same sentence seventy-three years later. The fifth article of
 the TİGEM Charter, published in the Official Gazette of 2 February 2022,
 places this first among the institution's fields of activity:
 
-> *"To pass to producers the seed, saplings, seedlings and similar products it
-> produces and the breeding animals and their semen that it raises."*
+*"To pass to producers the seed, saplings, seedlings and similar products it
+produces and the breeding animals and their semen that it raises."*
 
 There is a third document in between. The third article of Decree-Law 95,
 dated 28 October 1983, differs from the 2022 text by a single word:
 
-> *"…to pass to **breeders** the breeding animals, seed, saplings, seedlings
-> and the like that it raises and the semen that it produces."*
+*"…to pass to **breeders** the breeding animals, seed, saplings, seedlings and
+the like that it raises and the semen that it produces."*
 
 The "breeders" of 1983 became "producers" in 2022. The rest is the same. Three
 different regimes, three different institutional names, seventy-three years —
