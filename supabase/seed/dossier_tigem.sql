@@ -3,7 +3,7 @@
 -- ÜRETİLMİŞ DOSYA — elle düzenlemeyin.
 -- Kaynak:  content/dossiers/tigem/
 -- Üretim:  node content/dossiers/seed_dossier.mjs tigem
--- Tarih:   2026-11-11T23:13:22.876Z
+-- Tarih:   2026-11-11T23:45:42.937Z
 --
 -- Bölüm: 15 · TR ~4.620 kelime · EN ~6.150 kelime
 -- Metindeki her rakam data.json'dan, data.json _raw/'dan geliyor.
@@ -35,10 +35,10 @@ values (
   null,
   null,
   null,
-  'draft',
+  'published',
   now(),
   (now() + interval '14 days'),
-  null
+  now()
 )
 on conflict (slug) do update set
   name_tr      = excluded.name_tr,
@@ -56,7 +56,24 @@ on conflict (slug) do update set
   cover_url    = excluded.cover_url,
   cover_credit = excluded.cover_credit,
   video_url    = excluded.video_url,
-  status       = excluded.status,
+  -- DURUM GERİYE ALINMIYOR. Seed, dosya taslakken üretilmiş olabilir; o
+  -- seed'i yayındaki bir dosya üzerinde yeniden koşmak dosyayı RAFTAN
+  -- İNDİRİRDİ ve kimse görmezdi — çünkü göçün sonundaki "durum draft
+  -- olmalı" sağlaması, draft'ı bu satır yazdığı için GEÇERDİ.
+  --
+  -- 12 Kasım 2026'da TİGEM devrinden hemen sonra fark edildi:
+  -- 20261111090000 göçü hâlâ 'draft' taşıyor ve yeniden uygulansaydı
+  -- (migration repair, sıfırlama, yeni ortam) kurum rafı sessizce boşalırdı.
+  --
+  -- Mantık hemen aşağıdaki pencere kuralıyla AYNI: seed'i yeniden koşmak
+  -- metni günceller, YAYIN KARARINI değiştirmez. Yayına almak ve arşive
+  -- atmak devir göçünün işi.
+  status       = case
+                   when country_dossiers.status in ('published', 'archived')
+                        and excluded.status = 'draft'
+                     then country_dossiers.status
+                   else excluded.status
+                 end,
   -- Pencere KASITLI olarak korunuyor. Yayındaki bir dosyanın metninde yazım
   -- hatası düzeltmek için seed'i yeniden çalıştırmak, 28 günlük sayacı
   -- sıfırlamamalı. Pencereyi bilerek kaydırmak istiyorsanız elle update.

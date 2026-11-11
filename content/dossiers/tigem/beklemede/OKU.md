@@ -38,6 +38,31 @@ olduğu için ilk dağıtımda kabuğu üretilmedi. Hosting dağıtımı genel d
 değiştirdiğinden, devirden sonra dağıtılmazsa `/kurum/tigem` og
 etiketlerini hiç almaz. Irak'ta bu on gün sürdü (§ `durum_bekcisi.mjs`).
 
+## UYARI — 20261111090000 yeniden uygulanmamalı
+
+O göç `status = 'draft'` taşıyor, çünkü dosya taslakken üretildi. Yeniden
+uygulanırsa (`migration repair`, sıfırlama, yeni ortam) upsert dosyayı
+**raftan indirir** ve göçün kendi sağlaması bunu YAKALAYAMAZ: "durum draft
+olmalı" diye bakıyor, draft'ı da kendisi yazmış oluyor. Sessizce geçer.
+
+Göç uygulandı, dolayısıyla §4.1 gereği DÜZENLENMEDİ. Bunun yerine kaynak
+düzeltildi: `seed_dossier.mjs` artık published/archived bir dosyayı seed ile
+draft'a çekmiyor —
+
+```sql
+status = case
+           when country_dossiers.status in ('published','archived')
+                and excluded.status = 'draft'
+             then country_dossiers.status
+           else excluded.status
+         end,
+```
+
+Mantık hemen altındaki pencere kuralıyla aynı: seed'i yeniden koşmak METNİ
+günceller, YAYIN KARARINI değiştirmez. Bundan sonraki her dosyanın içerik
+göçü bu korumayla üretiliyor; elde kalan tek korumasız dosya
+`20261111090000`.
+
 ## Geri alma
 
 Uygulanmış göç düzenlenmez (§4.1); yeni göç yazılır:

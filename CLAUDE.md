@@ -783,6 +783,16 @@ hiçbir bölümü eksilmez. Görsel bir katman, taşıyıcı değil.
 - **İki migration aynı sürüm numarasını taşıyamaz.** `supabase db push`
   sürüme göre iz sürer; çakışma sessizce kırar. Yeni dosya adı verirken
   `ls supabase/migrations/ | tail` ile bak.
+- **Seed, yayın kararını değiştirmez.** `seed_dossier.mjs` upsert'ü
+  published/archived bir dosyayı `draft`a çekmiyor. Gerekçe 12 Kasım
+  2026'da ölçüldü: içerik göçü dosya taslakken üretiliyor ve `status =
+  excluded.status` yazıyordu; o göç devirden sonra yeniden uygulansaydı
+  (migration repair, sıfırlama, yeni ortam) dosyayı **raftan indirirdi** —
+  üstelik sessizce, çünkü göçün "durum draft olmalı" sağlaması draft'ı
+  kendisi yazdığı için geçerdi. Mantık pencere kuralıyla aynı: seed'i
+  yeniden koşmak METNİ günceller, yayına alma/arşivleme devir göçünün işi.
+  Korumasız kalan tek göç `20261111090000` (uygulanmış, §4.1 gereği
+  düzenlenmedi); yeniden uygulanmamalı.
 - Seed migration'a taşınırken içteki `begin;` / `commit;` çıkarılır — CLI
   zaten her migration'ı tek işlemde çalıştırır, iç `commit` sarmalayan
   işlemi erken kapatır.

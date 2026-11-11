@@ -458,7 +458,24 @@ on conflict (slug) do update set
   cover_url    = excluded.cover_url,
   cover_credit = excluded.cover_credit,
   video_url    = excluded.video_url,
-  status       = excluded.status,
+  -- DURUM GERİYE ALINMIYOR. Seed, dosya taslakken üretilmiş olabilir; o
+  -- seed'i yayındaki bir dosya üzerinde yeniden koşmak dosyayı RAFTAN
+  -- İNDİRİRDİ ve kimse görmezdi — çünkü göçün sonundaki "durum draft
+  -- olmalı" sağlaması, draft'ı bu satır yazdığı için GEÇERDİ.
+  --
+  -- 12 Kasım 2026'da TİGEM devrinden hemen sonra fark edildi:
+  -- 20261111090000 göçü hâlâ 'draft' taşıyor ve yeniden uygulansaydı
+  -- (migration repair, sıfırlama, yeni ortam) kurum rafı sessizce boşalırdı.
+  --
+  -- Mantık hemen aşağıdaki pencere kuralıyla AYNI: seed'i yeniden koşmak
+  -- metni günceller, YAYIN KARARINI değiştirmez. Yayına almak ve arşive
+  -- atmak devir göçünün işi.
+  status       = case
+                   when country_dossiers.status in ('published', 'archived')
+                        and excluded.status = 'draft'
+                     then country_dossiers.status
+                   else excluded.status
+                 end,
   -- Pencere KASITLI olarak korunuyor. Yayındaki bir dosyanın metninde yazım
   -- hatası düzeltmek için seed'i yeniden çalıştırmak, 28 günlük sayacı
   -- sıfırlamamalı. Pencereyi bilerek kaydırmak istiyorsanız elle update.
