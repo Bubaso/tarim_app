@@ -12,8 +12,9 @@
     "baslangic": null,
     "_baslangic_notu": "null → seed anında now(). İleri tarihli pencere dosyayı yayına sokup şeritten gizler (§2.12/1)."
   },
-  "status": "draft",
-  "_status_notu": "HENÜZ YAYINDA DEĞİL. Devir AÇIK ONAY ister. Avustralya penceresi 6 Kasım 2026 12:00 UTC'de düşüyor; Irak o tarihe kadar devralmazsa Avustralya yeniden uzatılır — ülke rafı boş kalmaz.",
+  "status": "published",
+  "_status_notu": "YAYINDA. Devir 2 Kasım 2026'da yapıldı; pencere 2 Kasım → 30 Kasım 2026 (country_dossiers satırından okundu, 12 Kasım 2026).",
+  "_status_duzeltme_notu": "12 KASIM 2026'DA DÜZELTİLDİ. Bu alan devirden sonra 'draft' kalmıştı: devir göçü veritabanını güncelliyor, bu dosyayı güncellemiyordu. Sonucu sessiz ve canlıydı — statik_sayfa.mjs yalnızca published/archived için kabuk üretiyor, hosting dağıtımı ise genel dizini DEĞİŞTİRİYOR; yani her dağıtımda /ulke/irak og etiketlerini kaybediyordu ve paylaşıldığında jenerik site kartı çıkıyordu. statik_sayfa_db.mjs de kapatmıyor, çünkü o yalnızca KLASÖRÜ OLMAYAN dosyalar için çalışıyor. 12 Kasım dağıtımının çıktısında \"irak: durum 'draft' — statik sayfa üretilmedi\" satırı görülüp fark edildi. Aynı sınıfın tekrarını durum_bekcisi.mjs engelliyor: depo ile veritabanı ayrışırsa dağıtım durur.",
   "kapak": {
     "url": "https://tarimportali.net/dosya/irak/irak_bataklik_taisir.jpg",
     "atif": "Taisir Mahdi — CC BY-SA 4.0",

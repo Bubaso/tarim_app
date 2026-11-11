@@ -260,6 +260,17 @@ node --check functions/config.js
 # build/web/ulke/<slug>/index.html yazıldığında /ulke/<slug> og etiketleriyle
 # birlikte doğrudan geliyor ve Flutter yine normal açılıyor.
 if [[ $HAZIRLIK -eq 1 ]]; then
+# Durum bekçisi — kabuklardan ÖNCE.
+#
+# Sıra önemli: aşağıdaki döngü yalnızca published/archived için kabuk üretiyor,
+# bu dağıtım ise genel dizini DEĞİŞTİRİYOR. Yani yayin.json'ı yanlışlıkla
+# 'draft' kalmış CANLI bir dosya, kabuğunu bu döngüde kaybeder ve kimse
+# görmez (12 Kasım 2026'da Irak'ta on gün boyunca tam olarak böyle oldu).
+# Bekçinin döngüden sonra koşmasının anlamı olmazdı: zarar çoktan yazılmış
+# olurdu.
+echo "▸ Dosya durumları (depo ↔ veritabanı)…"
+node content/dossiers/_ortak/durum_bekcisi.mjs
+
 echo "▸ Dosya paylaşım kabukları…"
 for d in content/dossiers/*/; do
   slug=$(basename "$d")

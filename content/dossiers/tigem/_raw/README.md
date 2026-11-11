@@ -1380,3 +1380,297 @@ Devir göçünden önce yapılacaklar: `./deploy.sh --hosting`, on dört görsel
 content-type denetimi, `dosya_hikayeleri.py` ile hikâye slaytları, ve
 anahtar kelimelerin gerçek habere karşı denenmesi (§8.10/1 — "hara" tek
 başına kısa).
+
+---
+
+## Tur 10 — 12 Kasım 2026
+
+Kullanıcı onayları: *"görselleri dağıt, sonra kalan işlere geç"* ve
+*"TİGEM işin bittiği anda devrolabilir."*
+
+### 1. Görseller canlıya çıktı — §2.12/4 sırası tutuldu
+
+`./deploy.sh --hosting`, 233 dosya. On dördünün tamamı tek tek sınandı:
+**14/14 `200` + `content-type: image/jpeg`**. Devir göçünden önce yapıldı,
+yani dosya canlıda kırık görselle açılmayacak.
+
+### 2. ON DÖRT ALTYAZI YENİDEN YAZILDI — kural yanlış kaydedilmişti
+
+Kullanıcı düzeltmeyi **ikinci kez** vermek zorunda kaldı: *"fotoda ne
+olduğunu analiz etme, fotonun ne olduğunu caption olarak yaz."*
+
+Sebebi bir **kayıt hatası**: 8 Kasım talimatı `_raw/altyazilar.json`'a
+"görselin altında yapay zekânın analiz notu değil, **karede ne görünüyorsa**
+o yazılır" diye geçmişti. İkinci yarısı talimatın tersiydi — kullanıcı kareyi
+*tarif* etmeyi değil, fotoğrafı *tanımlamayı* istiyordu. Yanlış kayıt kuralın
+kendisi gibi okundu.
+
+Üslup hatasının yanında **dört maddi hata** çıktı ve dördü de kareye bakıp
+çıkarım yapmaktan geliyordu:
+
+| § | iddia | gerçek |
+|---|---|---|
+| 1 | "makinenin yan yüzünde üreticisinin adı yazılı" | Commons künyesi logonun makineye değil **üzerine atılmış beze** ait olduğunu ayrıca uyarıyor |
+| 3 | "duvardaki madalyonlardan biri **işletmenin** armasını taşıyor" | künye yalnızca "Karacabey Turkey" diyor; atların TİGEM'e ait olduğuna dair **hiçbir kayıt yok** |
+| 10 | "**aynı tarlanın** geniş hâli" | iki kare aynı yer ve aynı hafta, ama "aynı tarla" diyen kayıt yok |
+| 9 | "elindeki **orak**la biçiyor" | künye *Sense* diyor: **tırpan** |
+
+Üçüncüsü dosyanın uydurma veri yasağının ihlaliydi.
+
+Altyazılar artık `gorseller/kunye_ham.json` içindeki Commons `aciklama` ve
+`tarih` alanlarından yazılıyor, kareden değil. Künyede duran ama altyazıya
+geçmemiş yerler de girdi: §1 **Tekmen**, §12 **Saimbeyli/Adana**, §8
+**Şanlıurfa–Altınbaşak** hattı.
+
+**Yapısal kök.** `country_dossier_screen.dart` aynı `alt_tr` alanını hem
+`Image.network`'ün `semanticLabel`'ı (satır 1052) hem görünen altyazı (1061)
+olarak kullanıyor. Ekran okuyucu için iyi alt metin kareyi TARİF eder, okur
+için iyi altyazı kareyi TANIMLAR; tek alan ikisini isteyince yazı tarife
+kayıyor. Doğru çözüm ayrı bir `altyazi_tr/en` alanı ve çizicide iki ayrı
+kullanım — ortak bileşene dokunuyor, yayındaki 10 dosyayı etkiliyor, bu
+devirde YAPILMADI. Bu dosyanın kuralı: çatışma varsa **altyazı kazanır**.
+
+Kural üç yere birden yazıldı ki bir daha kaymasın: `dogrula_yayin.py` 11.
+kural (kadraj sözcükleri, görünüş envanteri, tarih zorunluluğu, 230 karakter
+tavanı), içerik göçünün 13-14. sağlamaları, devir göçünün 11. sağlaması.
+Hepsi olumsuz denendi.
+
+### 3. "Para" yasağı İngilizcede çiğneniyordu
+
+Kullanıcı kuralı (10 Kasım) §2 için verilmişti ve Türkçe tutuyordu
+("ödenek", "kaynak"). **İngilizcesi iki yerde "the money" diyordu**
+(*"where the money was to go"*, *"how the money was spent"*) — çünkü
+`dogrula_metin.py` 5. kuralı yalnızca Türkçeye bakıyordu. Kural bir üslup
+kararı, dile göre değişmez.
+
+Düzeltildi: "that appropriation", "that credit". Kural iki dile açıldı
+(`money|monies|cash`), hikâye slaytlarına da kondu (13. kural) — ilk slaytın
+İngilizcesi *"THE MONEY CAME FIRST"* diyordu, artık *"THE APPROPRIATION CAME
+FIRST"*. Göçe de 15. sağlama olarak girdi.
+
+### 4. Anahtar kelimeler 1.351 habere karşı ölçüldü
+
+Ölçü `dosya_haberleri`'nin kendi ölçüsü (`terim_geciyor`: `\m TERİM \M`,
+eşik 2).
+
+| terim | isabet | TİGEM'i anan |
+|---|---:|---:|
+| TİGEM | 10 başlık | 10 |
+| Tarım İşletmeleri Genel Müdürlüğü | 5 özet | 5 |
+| sertifikalı tohum | 7 | 0 |
+| Ceylanpınar | 3 | 3 |
+| tohumluk | 1 | 0 |
+| ~~damızlık~~ | ~~29~~ | ~~2~~ |
+| Devlet Üretme Çiftlikleri · hara · Zirai Kombinalar · tohum bayisi | 0 | — |
+
+**"damızlık" çıkarıldı.** 29 haberin 27'si TİGEM'den hiç söz etmiyordu:
+*"Ardahan'da damızlık hayvan başvuruları"*, *"Damızlık sığır desteğinde
+başvurular"*, *"Mardin'de 24 yerel üzüm çeşidi"*. Dosya sayfasının altındaki
+şeridi bakanlık destek haberleriyle dolduruyordu — eşiğin 2'ye çıkarılma
+gerekçesiyle aynı durum (Hollanda/Karacadağ, `20260825030000`). Sebebi: terim
+kurumun adının parçası değil, tarımın ortak sözcüğü.
+
+**"hara" kaldı.** Tur 9'un kaygısı gürültüydü; ölçüm **0 isabet** verdi —
+`\M` sınırı "Harran"ı, "harap"ı, "harası"nı tutmuyor. Bugün çalışmıyor,
+gerçek bir hara haberi çıkarsa tutacak, maliyeti yok.
+
+**"Karacabey" denendi, konulmadı:** tek isabeti orman varlığı haberiydi.
+İşletme adları ilçe adlarıyla çakışıyor (Altınova, Gözlü, Konuklar: 0).
+
+**Platform sorunu (bu dosyanın değil):** `seo_keywords` 3 puan veriyor ve o
+alan haber hattında MAKİNE tarafından yazılıyor. Konusu tohum olmayan iki
+haber böyle 3 puan alıyor. Yayındaki 10 dosyayı etkiliyor, ortak fonksiyona
+dokunmak gerekiyor; değiştirilmedi, kullanıcıya ayrı iş olarak bildirildi.
+
+### 5. IRAK CANLIDA OG ETİKETLERİNİ KAYBETMİŞ — on gündür
+
+Dağıtım çıktısındaki tek satır fark ettirdi:
+
+```
+· irak: durum 'draft' — statik sayfa üretilmedi.
+```
+
+`content/dossiers/irak/yayin.json` **"draft"** diyordu, oysa Irak 2 Kasım'dan
+beri yayında ve `country_dossiers` **"published"** diyor. Devir göçü
+veritabanını güncelliyor, depodaki `yayin.json`'ı güncellemiyor.
+
+Zinciri: `statik_sayfa.mjs` yalnızca published/archived için kabuk üretiyor →
+`statik_sayfa_db.mjs` kapatamıyor, o yalnızca **klasörü olmayan** dosyalar
+için çalışıyor → hosting dağıtımı genel dizini **değiştiriyor**. Sonuç: her
+dağıtımda `/ulke/irak` og etiketlerini kaybediyordu ve paylaşıldığında
+jenerik site kartı çıkıyordu. Canlıda doğrulandı:
+
+```
+<meta property="og:title" content="Tarım Portalı - Tarımın Doğru Adresi">
+```
+
+Düzeltildi. Aynı sınıfı **`content/dossiers/_ortak/durum_bekcisi.mjs`**
+durduruyor: depo `yayin.json` durumları ile `country_dossiers` karşılaştırılıyor,
+`deploy.sh` kabukları üretmeden ÖNCE koşuyor.
+
+İki ağırlık var ve bu ayrım bekçinin kullanılabilir kalması için şart:
+**durduran** (depo draft + veritabanı canlı → kabuk kayboluyor) ve **uyaran**
+(depo published + veritabanı archived → kabuk üretiliyor, yalnız etiket
+eski). İkincisi hata sayılsa her arşivlemeden sonra dağıtım kilitlenirdi.
+Bekçi beş eski etiket buldu (avustralya, hollanda, rusya, tmo,
+ziraat-bankasi) — hepsi veritabanıyla eşitlendi. Olumsuz denendi.
+
+### 6. İçerik göçü yeniden üretilebilir oldu — ve bir hata düzeldi
+
+Göç elle birleştirilmişti; seed tur 10'da iki kez değişti. Artık
+`content/dossiers/tigem/goc/goc_uret.py` üretiyor (başlık + seed + sağlama).
+
+Düzelen hata: elle birleştirilen sürümde seed'in `begin;`/`commit;` çifti
+duruyordu ve **sağlama bloğu `commit;`ten SONRA** geliyordu. Yani *"biri bile
+tutmazsa göç geri alınır"* yazısı doğru değildi — içerik çoktan işlenmiş
+olurdu. §4.1 bunu zaten yasaklıyor, başlık yorumu yaptığını söylüyordu, ama
+dosyada yapılmamıştı. Betik çıkarıyor ve çıktıda işlem satırı kalmadığını
+sınıyor.
+
+### 7. "Yakında" kartına teaser alanı açıldı
+
+Kullanıcı hatırlattı: takvim kartı 12 Kasım'da **"TİGEM"** diyordu — yani
+devredilmezse dosya hem yayında hem "yakında" görünürdü. Sıradaki kurum
+**Türkşeker** (§8.13 sıra 7).
+
+Ve bir tarih kararı: **Türkşeker dosyası 26 Kasım 2026'da çıkacak**, çünkü
+ilk Türk şekeri 26 Kasım 1926'da Kırklareli'ndeki Alpullu Şeker
+Fabrikası'nda üretildi — o günün **yüzüncü yılı**. Kullanıcı kartta bunu
+söyleyen kısa bir cümle istedi.
+
+`dossier_takvim` bu cümleyi tutamıyordu. Açılanlar: `teaser_tr`/`teaser_en`
+kolonları (göç `20261112130000`, 140/160 karakter kısıtı veritabanında ve
+kısıtın çalıştığı göçün içinde sınanıyor), `DossierTakvim.teaser(isEn)`,
+kartta koşullu satır. Beş sınama eklendi, biri olumsuz denendi.
+
+Uyum iki yönlü güvenli: göç uygulanıp istemci dağıtılmazsa kolon okunmaz;
+istemci dağıtılıp göç uygulanmazsa alan `null` gelir ve kart teaser'sız
+çizilir.
+
+**Pencere hizalanması.** TİGEM 12 Kasım'da devredilirse penceresi 14 gün
+sonra, tam **26 Kasım**'da kapanıyor: Türkşeker yıldönümünde devralıyor.
+Devir gecikirse hizalanma bozulur ve karar kullanıcınındır — ya Türkşeker bir
+gün geç açılır ya TİGEM'in penceresi 26 Kasım'a çekilir.
+
+### 8. Devir göçü hazır, `beklemede/` altında
+
+`content/dossiers/tigem/beklemede/20261112120000_dosya_devri_tigem.sql` —
+`supabase/migrations/` altında **bilerek değil**: `db push` klasördeki her
+şeyi uygular, devir ise açık onay ister (§37.5'te TMO göçü aynı gerekçeyle
+oraya taşınmıştı). Sırası ve ön koşulları `beklemede/OKU.md`'de.
+
+TİGEM → published + pencere now()+14 gün · DSİ → archived + ends_at now() ·
+takvim TİGEM → Türkşeker + teaser. **On dört sağlama**, içlerinde içerik
+göçünün uygulanmış olduğu (15 bölüm), kurum rafında tek aktif dosya,
+takvimde etkin TİGEM sözü KALMADIĞI, teaser'ın yazıldığı ve altyazıların
+tahlile kaymadığı.
+
+### 9. Kalan — izin bekliyor
+
+`supabase db push` izin katmanı tarafından durduruldu (üretim dağıtımı).
+Kullanıcı devri sözle onayladı; komut ayrıca izin istiyor. Bekleyen üç göç:
+`20261111090000` (TİGEM içeriği, draft), `20261112010000` (COP31 kolonu —
+kolon canlıda zaten var, kayıt geride kalmış, `if not exists` ile zararsız),
+`20261112130000` (teaser kolonu).
+
+Devamı `beklemede/OKU.md` sırasıyla: içerik göçü → `yayin.json` published →
+devir göçü → **ikinci hosting dağıtımı** (og kabuğu için, atlanırsa Irak'ın
+başına geleni TİGEM yaşar) → `dosya_hikayeleri.py` → canlı gözle denetim.
+
+---
+
+## Tur 10 · devir günü — dört şey daha kırıldı
+
+### 10. Devir göçü ilk denemede PATLADI — ve sağlama haksızdı
+
+```
+ERROR: Tez cümlesinde hiç rakam yok — sayılar rakamla yazılıyor (SQLSTATE P0001)
+```
+
+Sağlamayı tur 9'da ben yazmıştım ve hiç koşmamıştı. Ölçtüm: **yayındaki 10
+dosyanın 8'i** bu kuraldan geçemezdi.
+
+| dosya | tez cümlesi |
+|---|---|
+| dsi | "**elli üç** yılda **dokuz yüz otuz altı**…" |
+| tmo | "**seksen sekiz** yıldır dengeleyen kurum" |
+| avustralya | "tarım ekonominin **yirmi beşte biri**" |
+| ziraat | "tarıma açılan kredinin **üçte ikisi**" |
+
+Yani kural dizinin kendi uygulamasının tersiydi. "Sayılar rakamla" GÖVDE
+metni için: 3.602.455 dekar yazıyla yazılmaz. Tez cümlesi gövde değil,
+belgenin açılış satırı; orada sayı okunur.
+
+Sağlama atlanmadı, DOĞRUSUYLA değiştirildi: korunması gereken şey rakam değil
+**ölçü** — cümle iddia kurmamalı, bir büyüklük vermeli. Onu arıyor ve on bir
+cümlenin dokuzu geçiyor. Geçmeyen ikisi dizinin en eski dosyaları (hollanda,
+ispanya) ve ikisi de gerçekten ölçüsüz; kural zamanla sıkılaşmış.
+
+### 11. Göç damgası sessizce atlandı
+
+Devir göçü `20261112120000` damgalıydı, teaser kolonu `20261112130000` zaten
+uygulanmıştı. CLI eski damgalı göçü **atladı ve "Remote database is up to
+date" dedi** — hata yok, uyarı yok. `20261112140000` yapılınca geçti.
+
+Ayrıca: içerik göçünden sonra `country_dossiers?slug=eq.tigem` BOŞ döndü ve
+bir an "yazılmamış" sanıldı. RLS draft'ı anon anahtarından gizliyor. Doğru
+doğrulama devir göçünün kendi ön koşul sağlamasıydı (15 bölüm) — o geçti,
+yani içerik yerindeydi.
+
+### 12. HİKÂYE SLAYTLARI HİÇ YAYIMLANMAYACAKTI
+
+`dosya_hikayeleri.py` şunu dedi ve geçti:
+
+```
+· tigem: 0 slayt — en az 3 gerekiyor, atlanıyor.
+```
+
+Beş slaytın beşinde de `rakam` ve `etiket` alanları **yoktu**. Betik
+`headline`'ı ve `big_stat_value`'su olmayan slaytı eliyor (satır 199), beşi
+de elendi. Hata vermedi, uyarı satırını kimse okumadı. Devirden sonra ana
+sayfada dosyayı tanıtan baloncuk **hiç çıkmayacaktı**.
+
+Beş rakam data.json'dan OKUNARAK yazıldı: `butce_1937` (858'inci fasıl,
+3.000.000 lira) · `kurulus_silsilesi` (11.VI.1937 mektubu) ·
+`turetilmis.gorev_cumlesi_yil_araligi` (73) ·
+`turetilmis.dagitim_kayitlari[2022]` (%19,9) · `koruma.ata_tohumu_cesit`
+(1.027).
+
+İkisinde ayrıca dikkat gerekti:
+- **%19,9'un etiketi paydayı söylüyor** ("dağıtılan sertifikalı hububat
+  tohumundaki pay"). Aynı miktarın ihtiyaca oranı %15,4 olurdu.
+- **1.027 "hedef" diyor, "korunuyor" demiyor.** data.json `_ata_notu`:
+  2019-2023 Stratejik Planı hedefi, gerçekleşme %92. "1.027 çeşit korunuyor"
+  demek kurumun beyanını aşmaktı.
+
+Yeni 15. kural ayrıca **beş sessiz kırpma** yakaladı: üst satırlar çizicinin
+24 karakterini aşıyordu ve betik uyarıp kırpıyordu ("BİR MEKTUPLA GELEN…").
+Kaynak kısaltıldı; ilk slaytın İngilizcesi kısaltılırken "para" yasağı
+korundu (APPROPRIATION FIRST, MONEY değil).
+
+### 13. KAPAK CANLIDA KELİMEYİ ORTADAN BÖLÜYORDU
+
+Kullanıcı masaüstünde gördü:
+
+```
+    TİGEM — Tarım
+    İşletmeleri
+    Genel
+    Müdürlüğ
+    ü
+```
+
+`_KapakAdi` puntoyu küçültmek için **en uzun kelimeyi HARF SAYISINA göre**
+seçiyordu: "İşletmeleri" 11 harf, "Müdürlüğü" 9. Ama kapak yazı tipinde
+(serif, geniş gövdeli) "Müdürlüğü" DAHA GENİŞ çiziliyor. Ölçek dar kelimeye
+göre kurulunca geniş olanı oluğu aşıyor ve Flutter sığmayan tek kelimeyi
+ortasından bölüyor. **Harf sayısı genişliğin vekili değil.**
+
+Artık her kelime ölçülüyor, en genişi esas alınıyor. Mantık
+`kapakAdiOlcegi()` olarak dışarı alındı, çünkü `flutter_test`in varsayılan
+yazı tipinde her glif punto kadar kare — yani orada genişlik harf sayısına
+EŞİT ve bu hata üretilemez. Sınama sahte bir ölçerle kuruluyor ve gerçek
+hatayı yeniden üretiyor; olumsuz denendi.
+
+Testin eski hâli de aynı yanlış kuralı kopyalıyordu, yani hatanın bekçisi
+değil suç ortağıydı. Kural artık tek yerde.

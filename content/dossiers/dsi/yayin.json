@@ -8,7 +8,8 @@
   "name_en": "DSİ — State Hydraulic Works",
   "kurulus_belgesi": "6200 sayılı Kanun · RG 25/12/1953 · 8592 — ve Cumhurbaşkanlığı Kararnamesi No. 4, md. 120 (2018)",
   "_kurulus_belgesi_notu": "İKİ belge yazılı, çünkü kurumun kurucu metni 2018'de yer değiştirdi. Kurum dosyasında iso3 yerine bu alan var: bir iddia tartışmaya açıldığında kaynağa dönmenin anahtarı (§8.6).",
-  "status": "published",
+  "status": "archived",
+  "_status_devir_notu": "ARŞİVDE. 12 Kasım 2026'da TİGEM devrinde arşive alındı (göç 20261112140000); ends_at o an now() ile kapatıldı. Bu alan devirle birlikte güncellenmek ZORUNDA: durum_bekcisi.mjs depo ile veritabanı ayrışırsa dağıtımı durduruyor, çünkü statik_sayfa.mjs yalnızca published/archived için og kabuğu üretiyor.",
   "_status_notu": "YAYINDA. 2 Kasım 2026'da kullanıcı onayıyla yayına alındı (migration 20261102020000_dosya_devri_dsi.sql). Pencere 14 gün. Bu alan statik_sayfa.mjs'yi de besliyor: 'draft' kaldığı sürece og kabuğu ÜRETİLMİYOR ve dosya paylaşıldığında sitenin genel kartı çıkıyor. Devirde bu alan da çevrilmeli.",
   "pencere": {
     "gun": 14,

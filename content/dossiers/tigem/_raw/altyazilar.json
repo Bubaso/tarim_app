@@ -1,5 +1,5 @@
 {
- "_amac": "Altyazılar ELLE yazıldı. Kullanıcı kuralı (8 Kasım 2026): görselin altında yapay zekânın analiz notu değil, KAREDE NE GÖRÜNÜYORSA o yazılır.",
+ "_amac": "Yayına giden altyazıların ham kaydı. Geçerli sürüm yayin.json bolum_gorselleri içindedir; burası onun izi.",
  "_gozle_dogrulama": "Kullanılan karelerin hepsi açılıp bakıldı. İki aday REDDEDİLDİ; sebepleri _reddedilenler'de.",
  "_reddedilenler": {
   "Wheat and Vegetable Seeds (5513876607).jpg": "Adı tohum çuvalı diyor, karede Pakistan'da USAID yardım dağıtımı var: çuvallarda 'NOT FOR SALE', başlarda USAID şapkası. Bir Türk kurumunun dosyasına konamaz.",
@@ -7,72 +7,89 @@
  },
  "metin": {
   "tigem_orman_ciftligi_1929a": {
-   "tr": "Ankara'da Orman Çiftliği, 14 Temmuz 1929. Beyaz takım ve hasır şapkalı Mustafa Kemal, bir harman yığınının önünde yalınayak bir çiftlik işçisiyle konuşuyor; arkada takım elbiseli görevliler ve askerler duruyor.",
-   "en": "The Forest Farm in Ankara, 14 July 1929. Mustafa Kemal, in a white suit and straw hat, talks with a barefoot farm worker in front of a stack of cut straw; officials in suits and soldiers stand behind."
+   "tr": "Mustafa Kemal, Ankara'daki örnek Orman Çiftliği'nde, 14 Temmuz 1929.",
+   "en": "Mustafa Kemal at the model Forest Farm in Ankara, 14 July 1929.",
+   "_bolum": "4"
   },
   "tigem_orman_ciftligi_1929b": {
-   "tr": "Aynı gün, aynı çiftlik: güneşlikli, çelik tekerlekli bir traktör, arkasına bir ekipman bağlanmış hâlde tarlada.",
-   "en": "The same day on the same farm: a steel-wheeled tractor with a sun canopy, an implement hitched behind it, in the field."
+   "tr": "Mustafa Kemal, Ankara'daki örnek Orman Çiftliği'nde, 14 Temmuz 1929. Aynı ziyaretten ikinci kare; birincisi dördüncü bölümde.",
+   "en": "Mustafa Kemal at the model Forest Farm in Ankara, 14 July 1929. A second frame from the same visit; the first is in section 4.",
+   "_bolum": "2"
   },
   "tigem_orman_ciftligi_1929c": {
    "tr": "Orman Çiftliği'nin tarlasında dört kişi: ortada beyaz takımlı ve bastonlu Mustafa Kemal, yanında şapkalı üç kişi.",
-   "en": "Four men in a field at the Forest Farm: Mustafa Kemal in the centre in a white suit with a walking stick, three hatted men beside him."
+   "en": "Four men in a field at the Forest Farm: Mustafa Kemal in the centre in a white suit with a walking stick, three hatted men beside him.",
+   "_kullanilmadi": "Bu kare dosyaya girmedi; altyazısı yayına çıkmıyor."
   },
   "tigem_aoc_1939": {
-   "tr": "Atatürk Orman Çiftliği, 1939. Ağaçların arasından bakıldığında bacalı bir fabrika, çiftlik binaları ve ağaçlandırılmış şeritler; arkada Ankara'nın çıplak tepeleri uzanıyor.",
-   "en": "Atatürk Forest Farm, 1939. Seen through trees: a factory with a tall chimney, farm buildings and planted belts; beyond them the bare hills of Ankara."
+   "tr": "Atatürk Orman Çiftliği, 1939.",
+   "en": "Atatürk Forest Farm, 1939.",
+   "_bolum": "13"
   },
   "tigem_bugday_tarla": {
-   "tr": "Suşehri, Sivas'ta hasat öncesi bir buğday tarlası. Olgunlaşmış başaklar yakın planda, arkada puslu tepeler.",
-   "en": "A wheat field before harvest in Suşehri, Sivas. Ripe ears in the foreground, hazy hills behind."
+   "tr": "Hasat öncesi buğday tarlası, Suşehri, Sivas, 21 Temmuz 2021.",
+   "en": "A wheat field before harvest, Suşehri, Sivas, 21 July 2021.",
+   "_bolum": "5"
   },
   "tigem_bugday_sivas": {
-   "tr": "Aynı tarlanın geniş hâli: olgun buğday, kavak sıraları ve Sivas'ın dağları.",
-   "en": "The same field seen wide: ripe wheat, lines of poplars and the mountains of Sivas."
+   "tr": "Hasat öncesi buğday tarlası, Suşehri, Sivas, 18 Temmuz 2021.",
+   "en": "A wheat field before harvest, Suşehri, Sivas, 18 July 2021.",
+   "_bolum": "10"
   },
   "tigem_hasat": {
-   "tr": "Bir traktör harman makinesini çalıştırıyor; makineden saman savruluyor ve bir adam sopayla yığını düzeltiyor. Makinenin yan yüzünde üreticisinin adı yazılı.",
-   "en": "A tractor drives a threshing machine; straw flies out of it and a man levels the pile with a stick. The maker's name is painted on the side."
+   "tr": "Buğday harmanı, Tekmen. Fotoğrafın tarihi kayıtlı değil; kaynak künyesi 2010'dan önce diyor.",
+   "en": "Threshing wheat at Tekmen. The date is not recorded; the source says before 2010.",
+   "_bolum": "1"
   },
   "tigem_ceylan": {
-   "tr": "Şanlıurfa'nın Ceylanpınar ilçesinde bir Asya ceylanı, otların arasına çökmüş. İlçe adını bu hayvandan alıyor.",
-   "en": "An Asian gazelle resting in the grass at Ceylanpınar, Şanlıurfa. The district takes its name from this animal."
+   "tr": "Ceylanpınar'da bir Asya ceylanı, 6 Nisan 2018. İlçe adını bu hayvandan alıyor.",
+   "en": "An Asian gazelle at Ceylanpınar, 6 April 2018. The district takes its name from the animal.",
+   "_bolum": "7"
   },
   "tigem_hindistan_bugday": {
-   "tr": "Hindistan'ın Pencap eyaletinde olgunlaşmış buğday başakları.",
-   "en": "Ripe ears of wheat in Punjab, India."
+   "tr": "Pencap'ta buğday, Hindistan, 5 Nisan 2018.",
+   "en": "Wheat in Punjab, India, 5 April 2018.",
+   "_bolum": "14"
   },
   "tigem_harran_hasat_1988": {
-   "tr": "Harran Ovası, 15 Haziran 1988. Pembe ve turuncu desenli giysisiyle bir kadın, olgunlaşmış tarlada eğilmiş, elindeki orakla biçiyor.",
-   "en": "The Harran Plain, 15 June 1988. A woman in a pink and orange patterned dress bends over the ripe field, cutting with a sickle."
+   "tr": "Harran Ovası'nda tırpanla hububat hasadı, 15 Haziran 1988. Kaynak künyesi 1980'lerin sonunda ovada hasadın yer yer hâlâ tırpanla yapıldığını kaydediyor.",
+   "en": "Cutting grain with a scythe on the Harran Plain, 15 June 1988. The source records that in the late 1980s grain there was still sometimes harvested by scythe.",
+   "_bolum": "9"
   },
   "tigem_harran_kanal": {
-   "tr": "Harran Ovası'nda bir sulama kanalı ve savakları, 11 Eylül 2011. Kanalın ötesinde yeşil bir mısır tarlası, arkada kuru tepeler.",
-   "en": "An irrigation canal and its sluice gates on the Harran Plain, 11 September 2011. A green maize field lies beyond, with dry hills behind."
+   "tr": "Harran Ovası'nda ikincil sulama kanalı, Şanlıurfa ile Altınbaşak arası, 11 Eylül 2011.",
+   "en": "A secondary irrigation canal on the Harran Plain, between Şanlıurfa and Altınbaşak, 11 September 2011.",
+   "_bolum": "8"
   },
   "tigem_harran_pamuk": {
-   "tr": "Harran Ovası'nda sulanan bir pamuk bitkisi, 20 Eylül 2012. Açmış beyaz kozalar, henüz yeşil ve kızarmış kozalar, altta çatlamış toprak.",
-   "en": "An irrigated cotton plant on the Harran Plain, 20 September 2012. Opened white bolls, green and reddening bolls, cracked soil below."
+   "tr": "Sulanan tarlada pamuk bitkisi, Harran Ovası, 20 Eylül 2012.",
+   "en": "A cotton plant on an irrigated field, Harran Plain, 20 September 2012.",
+   "_bolum": "11"
   },
   "tigem_kangal": {
-   "tr": "Taşlı bir avluda oturan Kangal çoban köpeği: krem rengi tüy, siyah maske ve siyah kulaklar.",
-   "en": "A Kangal shepherd dog sitting in a stony yard: cream coat, black mask and black ears."
+   "tr": "Kangal çoban köpeği, Saimbeyli'nin Avcıpınarı mahallesi, Adana, 2 Nisan 2016.",
+   "en": "A Kangal shepherd dog in the Avcıpınarı neighbourhood of Saimbeyli, Adana, 2 April 2016.",
+   "_bolum": "12"
   },
   "tigem_tiftik_kecisi": {
    "tr": "Uzun, kıvırcık tiftiğiyle bir Ankara keçisi; kulağında künye küpesi var.",
-   "en": "An Angora goat with its long, curly mohair fleece; an identification tag in its ear."
+   "en": "An Angora goat with its long, curly mohair fleece; an identification tag in its ear.",
+   "_kullanilmadi": "Bu kare dosyaya girmedi; altyazısı yayına çıkmıyor."
   },
   "tigem_resmi_gazete": {
-   "tr": "Resmî Gazete'nin bir sayfası: 20 Nisan 1946, sayı 6288, 'Kararlar' bölümü. TİGEM'i kuran 95 sayılı kararname başka bir nüshada, 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı.",
-   "en": "A page of the Official Gazette: 20 April 1946, issue 6288, the 'Decisions' section. Decree 95, which established TİGEM, appeared in a different issue: 18205 Repeated, 28 October 1983."
+   "tr": "Resmî Gazete, 20 Nisan 1946, sayı 6288. TİGEM'i kuran 95 sayılı kararname bu nüshada değil: 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı.",
+   "en": "The Official Gazette, 20 April 1946, issue 6288. Decree 95, which established TİGEM, is not in this issue: it appeared in 18205 Repeated, 28 October 1983.",
+   "_bolum": "6"
   },
   "tigem_karacabey": {
-   "tr": "Karacabey'de beyaz parmaklıklı padoklarda otlayan doru atlar; arkada uzun kırmızı çatılı ahır sıraları, çam ormanı ve ova. Duvardaki madalyonlardan biri işletmenin armasını taşıyor.",
-   "en": "Bay horses grazing in white-railed paddocks at Karacabey; behind them long red-roofed stable blocks, a pine wood and the plain. One of the roundels on the wall carries the enterprise's emblem."
+   "tr": "Karacabey, Bursa, 30 Temmuz 2008. Kaynak künyesi yerden başka bir şey söylemiyor; atların hangi işletmeye ait olduğu kayıtlı değil.",
+   "en": "Karacabey, Bursa, 30 July 2008. The source records the place and nothing more; which enterprise the horses belong to is not stated.",
+   "_bolum": "3"
   },
   "tigem_koyun_karapinar": {
    "tr": "Karapınar Yaylası, 10 Mayıs 1989: koyun sağımı.",
-   "en": "The Karapınar plateau, 10 May 1989: milking sheep."
+   "en": "The Karapınar plateau, 10 May 1989: milking sheep.",
+   "_kullanilmadi": "Bu kare dosyaya girmedi; altyazısı yayına çıkmıyor."
   }
  },
  "bolumler": {
@@ -106,5 +123,8 @@
  "_bulunamayanlar": {
   "tohum çuvalı / bayi": "Türkiye'de sertifikalı tohum çuvalı ya da TİGEM bayisi karesi bulunamadı. Bulunan iki aday Pakistan'da USAID yardım dağıtımıydı ve reddedildi.",
   "Safkan Arap Atı yakın plan": "Atın kendisinin yakın karesi bulunamadı; üçüncü bölüm Karacabey işletmesinin padoklarını gösteriyor ve altyazı ne görüldüğünü söylüyor."
- }
+ },
+ "_kural": "ALTYAZI FOTOĞRAFIN NE OLDUĞUNU SÖYLER: konu + yer + tarih, gerekiyorsa bir cümleyle neden burada olduğu. Kullanıcı kuralı, 8 Kasım 2026 ve 12 Kasım 2026.",
+ "_kural_yanlis_kaydedilmisti": "BU ALAN BİR HATANIN KAYDI VE SİLİNMİYOR. 8 Kasım 2026 talimatı buraya 'görselin altında yapay zekânın analiz notu değil, KAREDE NE GÖRÜNÜYORSA o yazılır' diye geçmişti. İkinci yarısı talimatın tersiydi: kullanıcı kareyi TARİF etmeyi değil, fotoğrafı TANIMLAMAYI istiyordu. Yanlış kayıt kuralın kendisi gibi okundu ve on dört altyazı kareyi tahlil ederek yazıldı; 12 Kasım 2026'da kullanıcı aynı düzeltmeyi İKİNCİ KEZ vermek zorunda kaldı: 'fotoda ne olduğunu analiz etme, fotonun ne olduğunu caption olarak yaz.' Ders: kullanıcı kuralını kendi sözcükleriyle kaydet, yorumuyla değil.",
+ "_kaynak": "Altyazılar 12 Kasım 2026'da gorseller/kunye_ham.json içindeki Commons 'aciklama' ve 'tarih' alanlarından yeniden yazıldı — kareye bakıp çıkarım yapılmadı. Çıkarım yapılan sürümde dört maddi hata vardı; dökümü yayin.json _altyazi_duzeltmesi_12_kasim alanında."
 }

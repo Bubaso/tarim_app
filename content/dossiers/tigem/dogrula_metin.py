@@ -139,10 +139,27 @@ for dil, b in (("tr", btr), ("en", ben)):
             if re.search(r"\b" + re.escape(sade(k)), disari):
                 hata.append(f"[{dil}] §{no} · REKLAM DİLİ (tırnaksız): '{k}'")
 
-# ── 5. Bölüm 2'de "para" yasağı ───────────────────────────────────────────
-for dil, b in (("tr", btr),):
+# ── 5. Bölüm 2'de "para" yasağı — İKİ DİLDE ───────────────────────────────
+#
+# Kullanıcı kuralı (10 Kasım 2026): "2. bölümde direk para kelimesini
+# kullanma. daha başka bir ifade biçimi bul. uygunsa önce kaynak geldi, kanun
+# sonra vb. olabilir."
+#
+# İLK SÜRÜM YALNIZCA TÜRKÇEYE BAKIYORDU ve bu bir delikti: 12 Kasım 2026'da
+# ölçüldü, İngilizce §2 iki yerde "the money" diyordu ("where the money was to
+# go", "how the money was spent") — yani kural Türkçede tutuluyor,
+# çevirisinde çiğneniyordu. Kural bir ÜSLUP kararı; dile göre değişmez.
+#
+# Yasak YALNIZCA doğrudan karşılıklara konuyor. "appropriation", "funding",
+# "credit", "ödenek", "kaynak" serbest — kullanıcının kendi önerdiği ifade
+# biçimi bunlar.
+YASAK_2 = {
+    "tr": r"\bpara\w*",
+    "en": r"\b(money|monies|cash)\b",
+}
+for dil, b in (("tr", btr), ("en", ben)):
     g2 = next((g for no, _, g in b if no == "2"), "")
-    for m in re.finditer(r"\bpara\w*", g2, re.I):
+    for m in re.finditer(YASAK_2[dil], g2, re.I):
         hata.append(f"[{dil}] §2 · 'PARA' YASAĞI (kullanıcı kuralı): '{m.group()}'")
 
 # ── 6. "Yazım kuralları" bloğu ────────────────────────────────────────────

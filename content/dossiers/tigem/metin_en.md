@@ -77,7 +77,7 @@ A single line took **66.5 per cent** of all the extraordinary appropriation
 that law contained. For comparison: on the same list, tank manufacturing plant
 received 350,000 lira and the Mineral Research Institute 500,000.
 
-The law's fourth article also states where the money was to go: into a
+The law's fourth article also states where that appropriation was to go: into a
 **special credit account** to be opened at Ziraat Bankası. The same article
 continues: *"The expenses to be made from this credit shall be determined by a
 special law. However, until that law is drawn up and enters into force,
@@ -85,7 +85,7 @@ expenditure shall be made for works to be determined by decision of the
 Council of Ministers."*
 
 So the institution's funding was set aside before the institution's law. The
-law that would govern how the money was spent had not yet been written; until
+law that would govern how that credit was to be spent had not yet been written; until
 it arrived, the Council of Ministers would decide what to do. The awaited law
 came eleven months later.
 

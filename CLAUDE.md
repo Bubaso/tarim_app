@@ -530,8 +530,37 @@ Devirde dokunulması gereken **dört** yer var; üçü kolay unutuluyor:
    `content-type: image/jpeg` döndüğü doğrulanır. Ters sırada dosya canlıda
    kırık görsellerle açılır (25 Ağustos 2026'da yaşandı).
 
+5. **Depodaki `yayin.json` da güncellenir** — devir göçü veritabanını
+   değiştiriyor, depoyu değiştirmiyor. Atlanırsa sessiz ve canlı bir hata
+   çıkıyor: `statik_sayfa.mjs` yalnızca published/archived için og kabuğu
+   üretiyor, hosting dağıtımı ise genel dizini DEĞİŞTİRİYOR. Irak'ta on gün
+   sürdü (12 Kasım 2026). Artık `content/dossiers/_ortak/durum_bekcisi.mjs`
+   dağıtımı durduruyor.
+6. **Devirden SONRA ikinci bir `./deploy.sh --hosting`.** Yeni dosya devirden
+   önce draft olduğu için ilk dağıtımda kabuğu üretilmemiştir; dağıtılmazsa
+   `/kurum/<slug>` og etiketlerini hiç almaz.
+
 Arşive düşen dosya kaybolmuyor: `country_dossier_index`, `dosya_haberleri` ve
 `haber_dosyalari` üçü de `archived`'ı kabul ediyor.
+
+#### 2.12.0 Devirde üç sessiz tuzak — hepsi 12 Kasım 2026'da yaşandı
+
+**Göç damgası, uygulanmış son göçten SONRA olmalı.** Devir göçü
+`20261112120000` damgalıydı; teaser kolonu `20261112130000` zaten
+uygulanmıştı. CLI eski damgalıyı **atladı ve "Remote database is up to date"
+dedi** — hata yok, uyarı yok. Taşımadan önce `ls supabase/migrations/ | tail`.
+
+**Draft satır anon anahtarıyla GÖRÜNMEZ.** İçerik göçünden sonra
+`country_dossiers?slug=eq.<slug>` boş döner; RLS draft'ı gizliyor. "Yazılmadı"
+sanmayın. Doğrulama yolu devir göçünün kendi ön koşul sağlamasıdır (bölüm
+sayısı).
+
+**`hikaye` slaytları `rakam` ve `etiket` taşımazsa hikâye HİÇ yayımlanmaz.**
+`dosya_hikayeleri.py` `headline`'ı ya da `big_stat_value`'su olmayan slaytı
+eliyor ve "0 slayt — atlanıyor" deyip GEÇİYOR. Ana sayfada baloncuk çıkmaz ve
+hiçbir yerde hata görünmez. Dosyanın `dogrula_yayin.py`'si bu alanları ve
+çizicinin karakter sınırlarını (ust 24 · baslik 60 · rakam 12 · etiket 48)
+sınamalı.
 
 #### 2.12.1 İspanya devri — ve yayına çıkan sessiz bir kırık görsel
 
@@ -1222,9 +1251,9 @@ yazılsaydı boş dururdu.
 | 2 | Ziraat Bankası | yayımlandı |
 | 3 | **Tarım Kredi Kooperatifleri** | yayımlandı 10 Eylül 2026 — §8.14 |
 | 4 | **TAGEM ve araştırma enstitüleri** | yayımlandı 29 Eylül 2026 |
-| 5 | **DSİ — Devlet Su İşleri** | **sıradaki** |
-| 6 | TİGEM | |
-| 7 | Türkşeker | |
+| 5 | **DSİ — Devlet Su İşleri** | yayımlandı 1 Kasım 2026 · pencere 1–15 Kasım |
+| 6 | **TİGEM** | içerik hazır, devir bekliyor (12 Kasım 2026) |
+| 7 | **Türkşeker** | **sıradaki** — TİGEM devrinde "Yakında" kartı buna döner |
 | 8 | Et ve Süt Kurumu (ESK) | |
 | 9 | TZOB / Ziraat Odaları | |
 | 10 | TARSİM | |
@@ -1244,7 +1273,14 @@ yazılsaydı boş dururdu.
 | 24 | ÇKS ve tarımsal veri sistemleri | |
 | 25 | Toptancı Hal Sistemi | |
 
-*(Durumlar 4 Ekim 2026'da canlı `country_dossiers` tablosundan okundu.
+**"Yakında" kartı devirle birlikte değişir.** `dossier_takvim` tablosunda
+`tur='kurum'` için TEK bir etkin satır duruyor ve 12 Kasım 2026'da içeriği
+"TİGEM"di — yani devrederken kart, yayına aldığın dosyanın kendisini "yakında"
+diye gösterir. Devir göçü bu satırı da güncellemek zorunda. Kullanıcı 12 Kasım
+2026'da bunu ayrıca hatırlattı; unutulması dizinin görünür bir hatası olur.
+
+*(Durumlar 12 Kasım 2026'da canlı `country_dossiers` tablosundan yeniden
+okundu. Önceki okuma 4 Ekim 2026'daydı.
 Pencereler: TMO 22–29 Ağustos · Ziraat 29 Ağustos–10 Eylül · Tarım Kredi
 10–24 Eylül · TAGEM 29 Eylül–13 Ekim 2026. Tarım Kredi ile TAGEM arasında
 beş günlük boşluk var — kurum şeridi 24–29 Eylül arası boş kalmış.)*

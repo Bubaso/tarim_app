@@ -8,7 +8,8 @@
  "name_en": "TİGEM — General Directorate of Agricultural Enterprises",
  "kurulus_belgesi": "95 sayılı Kanun Hükmünde Kararname · RG 28/10/1983 · 18205 Mükerrer — ve Ana Statü · RG 2/2/2022 · 31738",
  "_kurulus_belgesi_notu": "İKİ belge yazılı. Kurumun kendi sayfası 1984 diyor; birincil belge 28 Ekim 1983'te yayımlanan KHK/95. 1984'te olan, KİT çerçevesinin 60 sayılı KHK'den 233'e geçmesi. Üçüncü tarih 1994: 4046'nın 35. maddesiyle KİK'ten İDT'ye.",
- "status": "draft",
+ "status": "published",
+ "_status_devir_notu": "YAYINDA. Devir 12 Kasım 2026'da yapıldı (göç 20261112140000). Pencere 11 Kasım 23:30 → 25 Kasım 23:30 UTC, yani İstanbul saatiyle 12 Kasım 02:30 → 26 Kasım 02:30. Bitiş günü bilerek böyle: Türkşeker dosyası 26 Kasım 2026'da, ilk Türk şekerinin yüzüncü yılında devralıyor.",
  "_status_notu": "HENÜZ YAYINDA DEĞİL. Devir AÇIK ONAY ister (§8/devir kuralı ve kullanıcı kuralı). Ayrıca Supabase şu an erişime kapalı; devir (tur 10) o çözülmeden yapılamaz.",
  "pencere": {
   "gun": 14,
@@ -109,14 +110,14 @@
   "Tarım İşletmeleri Genel Müdürlüğü",
   "sertifikalı tohum",
   "tohumluk",
-  "damızlık",
   "Ceylanpınar",
   "Devlet Üretme Çiftlikleri",
   "hara",
   "Zirai Kombinalar",
   "tohum bayisi"
  ],
- "_anahtar_kelimeler_notu": "§8.10/1: anahtar kelime kurumun adının BAŞKA bir kurumun adında geçmeyen en kısa parçası olmalı. 'Tarım İşletmeleri' tek başına riskli değil ama 'tarım' asla konulmaz — yayındaki her haberde geçer. 'TİGEM' ve tam ad güvenli. 'hara' tek başına kısa; yayına girmeden gerçek habere karşı denenecek (tur 9).",
+ "_anahtar_kelimeler_notu": "§8.10/1. TUR 10'DA 1.351 YAYIMLANMIŞ HABERE KARŞI ÖLÇÜLDÜ — eşleşme ölçüsü dosya_haberleri'nin kendi ölçüsü (terim_geciyor: \\m TERİM \\M, büyük/küçük harf duyarsız, eşik 2 yani başlık/seo/özet/spot). Ölçüm: TİGEM 10 başlık · Tarım İşletmeleri Genel Müdürlüğü 5 özet · sertifikalı tohum 7 · Ceylanpınar 3 · tohumluk 1 · Devlet Üretme Çiftlikleri, hara, Zirai Kombinalar, tohum bayisi 0. 'DAMIZLIK' ÇIKARILDI: 29 habere vuruyordu ve 27'si TİGEM'den hiç söz etmiyordu ('Ardahan'da damızlık hayvan başvuruları', 'Damızlık sığır desteğinde başvurular', 'Mardin'de 24 yerel üzüm çeşidi'). Dosya sayfasının altındaki şeridi bakanlık destek haberleriyle doldurup okuru yanıltıyordu — eşiğin 2'ye çıkarılma gerekçesiyle aynı durum (20260825030000 göçü, Hollanda/Karacadağ örneği). Sebebi şu: 'damızlık' kurumun adının parçası değil, tarımın ortak sözcüğü; §8.10/1 'tarım' için ne diyorsa onun için de geçerli. Yerine 'damızlık düve/boğa' denendi, ikisi de 0 isabet: gürültüsüz ama bugün işe yaramaz, konulmadı. 'HARA' KALDI: kaygı gürültüydü, ölçüm 0 isabet verdi — \\M sınırı 'Harran'ı, 'harap'ı, 'harası'nı tutmuyor. Bugün çalışmıyor, ileride gerçekten hara haberi çıkarsa tutacak; maliyeti yok. 'KARACABEY' DENENDİ, KONULMADI: tek isabeti orman varlığı haberiydi. İşletme adları ilçe adlarıyla çakıştığı için eklenmiyor (Altınova, Gözlü, Konuklar 0 isabet).",
+ "_anahtar_kelimeler_platform_bulgusu": "PLATFORM SORUNU, BU DOSYANIN DEĞİL: seo_keywords 3 PUAN veriyor (dosya_haberleri, 20260825010000) ve o alan haber hattında MAKİNE tarafından yazılıyor. Sonuç: konusu tohum olmayan iki haber 'sertifikalı tohum' üzerinden 3 puan alıyor ('Artan maliyetler çiftçiyi Ekim çıkmazına sürükledi', 'Yeni destekleme modeliyle tarım ve hayvancılık ödemeleri yükseldi'). Yayındaki 10 dosyanın hepsini etkiliyor, ortak fonksiyona dokunmak gerekiyor; bu dosyanın devrinde DEĞİŞTİRİLMEDİ, kullanıcıya ayrı iş olarak bildirildi.",
  "_kalan_isler": [
   "Seed ve göç dosyası — tur 9",
   "Devir — tur 10, AÇIK ONAY ve Supabase erişimi şart"
@@ -132,54 +133,79 @@
   "slaytlar": [
    {
     "ust": "ÖNCE ÖDENEK, SONRA KANUN",
-    "ust_en": "THE MONEY CAME FIRST",
+    "ust_en": "APPROPRIATION FIRST",
     "baslik": "Üç milyon lira ayrıldı, kurum daha yoktu",
-    "baslik_en": "Three million lira was set aside before the institution existed",
-    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929b.jpg"
+    "baslik_en": "Three million lira set aside before the institution existed",
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929b.jpg",
+    "rakam": "3.000.000",
+    "etiket": "lira — 1937 bütçesinde açılan 858'inci fasıl",
+    "rakam_en": "3,000,000",
+    "etiket_en": "lira — chapter 858, reopened in the 1937 budget"
    },
    {
-    "ust": "BİR MEKTUPLA GELEN SERMAYE",
-    "ust_en": "CAPITAL THAT CAME BY LETTER",
+    "ust": "MEKTUPLA GELEN SERMAYE",
+    "ust_en": "CAPITAL BY LETTER",
     "baslik": "İlk sermayesi Atatürk'ün çiftlikleriydi",
     "baslik_en": "Its first capital was Atatürk's own farms",
-    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929a.jpg"
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929a.jpg",
+    "rakam": "1937",
+    "etiket": "Atatürk'ün bağış mektubu — mallar 1938'de geçti",
+    "rakam_en": "1937",
+    "etiket_en": "Atatürk's donation letter; transferred in 1938"
    },
    {
     "ust": "YETMİŞ ÜÇ YIL, BİR CÜMLE",
-    "ust_en": "SEVENTY-THREE YEARS, ONE SENTENCE",
+    "ust_en": "ONE SENTENCE, 73 YEARS",
     "baslik": "Aynı görev cümlesi üç belgede: 1949, 1983, 2022",
     "baslik_en": "The same sentence in three documents: 1949, 1983, 2022",
-    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_bugday_tarla.jpg"
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_bugday_tarla.jpg",
+    "rakam": "73",
+    "etiket": "yıl — görev cümlesi üç belgede değişmedi",
+    "rakam_en": "73",
+    "etiket_en": "years — the same mission sentence, unchanged"
    },
    {
     "ust": "DOKSANDAN YİRMİYE",
     "ust_en": "FROM NINETY TO TWENTY",
     "baslik": "2002'de ülkenin tohumu oydu, bugün beşte biri",
     "baslik_en": "In 2002 it was the country's seed; today it is a fifth of it",
-    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_harran_hasat_1988.jpg"
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_harran_hasat_1988.jpg",
+    "rakam": "%19,9",
+    "etiket": "dağıtılan sertifikalı hububat tohumundaki pay",
+    "rakam_en": "19.9%",
+    "etiket_en": "share of certified cereal seed distributed, 2022"
    },
    {
     "ust": "TOHUMDAN BAŞKASI",
     "ust_en": "MORE THAN SEED",
     "baslik": "Tohumun yanında Kangal'ı ve ceylanı da koruyor",
     "baslik_en": "Alongside the seed it also keeps the Kangal and the gazelle",
-    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_kangal.jpg"
+    "gorsel": "https://tarimportali.net/dosya/tigem/tigem_kangal.jpg",
+    "rakam": "1.027",
+    "etiket": "Ata tohumu çeşidi — Stratejik Plan hedefi",
+    "rakam_en": "1,027",
+    "etiket_en": "heirloom seed varieties — Strategic Plan target"
    }
-  ]
+  ],
+  "_para_kurali": "KULLANICI KURALI (10 Kasım 2026) SLAYTLARDA DA GEÇERLİ. İlk slaytın İngilizce üst satırı 'THE MONEY CAME FIRST' yazıyordu: Türkçesi kuralı tutuyor ('ÖNCE ÖDENEK, SONRA KANUN'), çevirisi çiğniyordu. 12 Kasım 2026'da 'THE APPROPRIATION CAME FIRST' oldu ve dogrula_yayin.py artık slayt metinlerinde para/money/cash geçmesini hata sayıyor.",
+  "_rakam_notu": "RAKAM VE ETİKET ALANLARI 12 KASIM 2026'DA EKLENDİ. Eksiktiler ve sonucu SESSİZDİ: dosya_hikayeleri.py, headline ve big_stat_value'su olmayan slaytı eliyor (satır 199), dolayısıyla beş slaytın beşi de düşüyor ve betik 'tigem: 0 slayt — en az 3 gerekiyor, atlanıyor' deyip geçiyordu. Devirden sonra ana sayfada hiç baloncuk çıkmayacaktı. dogrula_yayin.py 15. kural artık bu boşluğu hata sayıyor. Beş rakamın beşi de data.json'dan OKUNARAK üretildi, elle yazılmadı: butce_1937 (fasıl 858), kurulus_silsilesi (11.VI.1937 mektubu), turetilmis.gorev_cumlesi_yil_araligi, turetilmis.dagitim_kayitlari[2022], koruma.ata_tohumu_cesit. SINIRLAR ÇİZİCİDEN: rakam 12, etiket 48 karakter (dosya_hikayeleri.py SINIR sözlüğü). Aşan metin uyarıyla kırpılıyor ama kırpılmış etiket cümleyi yarıda bırakır; sınıra göre yazıldı.",
+  "_ata_tohumu_uyarisi": "Beşinci slaytın etiketi 'hedef' diyor, 'korunuyor' DEMİYOR. data.json _ata_notu: 1.027 çeşit 2019-2023 Stratejik Planı HEDEFİ ve gerçekleşme %92. '1.027 çeşit korunuyor' demek kurumun beyanını aşmak olurdu.",
+  "_payda_notu": "Dördüncü slaytın etiketi paydayı SÖYLÜYOR: pay dağıtılan tohuma göre. Aynı miktarın 790 bin tonluk ihtiyaca oranı %15,4 olurdu; payda yazılmazsa iki rakam karışır (dosyanın eksen notu, tur 3).",
+  "_kirpma_notu": "ÜST SATIRLAR VE BİR BAŞLIK 12 KASIM 2026'DA KISALTILDI. dosya_hikayeleri.py sınırı aşan metni kırpıp uyarı basıyordu ama uyarıyı kimse okumuyordu; sonuç ana sayfada yarıda kalan cümlelerdi: 'BİR MEKTUPLA GELEN…', 'HURMAYI BIRAKMADI…'. Kırpma artık dogrula_yayin.py 15. kuralında HATA. İlk slaytın İngilizce üst satırı kısaltılırken 'para' yasağı korundu: APPROPRIATION FIRST, MONEY değil."
  },
  "bolum_gorselleri": {
   "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz (§2.4).",
   "_kaynak": "Hepsi Wikimedia Commons; atıf ve lisans Commons API'sinden çekildi, elle yazılmadı.",
   "_kural": "HER BÖLÜMDE BİR GÖRSEL — kullanıcı kuralı. dogrula_yayin.py boş bırakılan bölümü hata sayıyor.",
-  "_altyazi_kurali": "Altyazı GÖRÜLENİ söyler. Kullanıcı kuralı (8 Kasım 2026): 'görselin ne olduğunu kullanıcı için yaz, teknik analiz tahlilini değil.'",
+  "_altyazi_kurali": "ALTYAZI FOTOĞRAFIN NE OLDUĞUNU SÖYLER, FOTOĞRAFTA NE GÖRÜLDÜĞÜNÜ ANLATMAZ. Kullanıcı kuralı, iki kez verildi (8 Kasım 2026 ve 12 Kasım 2026): 'fotoda ne olduğunu analiz etme, fotonun ne olduğunu caption olarak yaz.' Yani altyazı KÜNYEDİR: konu + yer + tarih, ve gerekiyorsa bir cümleyle neden burada olduğu. Kadrajda kaç kişi var, ne renk giymiş, arkada ne duruyor — bunların hiçbiri altyazıya girmez. KAYNAĞI: her altyazı _raw/gorseller/kunye_ham.json içindeki Commons 'aciklama' ve 'tarih' alanlarından yazıldı. Karenin kendisine bakıp çıkarım yapılmadı — çıkarım yapıldığı turda üç uydurma iddia girmişti (aşağıya bak).",
   "_gozle_dogrulama": "Kullanılan karelerin hepsi açılıp bakıldı. İki aday REDDEDİLDİ; sebepleri _reddedilenler'de.",
   "_bos_birakilanlar": "YOK.",
   "1": {
    "url": "https://tarimportali.net/dosya/tigem/tigem_hasat.jpg",
    "atif": "Ckoroglu — CC BY-SA 3.0",
    "lisans": "CC BY-SA 3.0",
-   "alt_tr": "Bir traktör harman makinesini çalıştırıyor; makineden saman savruluyor ve bir adam sopayla yığını düzeltiyor. Makinenin yan yüzünde üreticisinin adı yazılı.",
-   "alt_en": "A tractor drives a threshing machine; straw flies out of it and a man levels the pile with a stick. The maker's name is painted on the side.",
+   "alt_tr": "Buğday harmanı, Tekmen. Fotoğrafın tarihi kayıtlı değil; kaynak künyesi 2010'dan önce diyor.",
+   "alt_en": "Threshing wheat at Tekmen. The date is not recorded; the source says before 2010.",
    "en_boy": 1.3346,
    "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_Harvesting.jpg",
    "_gozle_dogrulandi": true
@@ -188,8 +214,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929b.jpg",
    "atif": "Unknown authorUnknown author — kamu malı",
    "lisans": "Public domain",
-   "alt_tr": "Aynı gün, aynı çiftlik: güneşlikli, çelik tekerlekli bir traktör, arkasına bir ekipman bağlanmış hâlde tarlada.",
-   "alt_en": "The same day on the same farm: a steel-wheeled tractor with a sun canopy, an implement hitched behind it, in the field.",
+   "alt_tr": "Mustafa Kemal, Ankara'daki örnek Orman Çiftliği'nde, 14 Temmuz 1929. Aynı ziyaretten ikinci kare; birincisi dördüncü bölümde.",
+   "alt_en": "Mustafa Kemal at the model Forest Farm in Ankara, 14 July 1929. A second frame from the same visit; the first is in section 4.",
    "en_boy": 1.4391,
    "_commons": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929_%283%29.png",
    "_gozle_dogrulandi": true
@@ -198,8 +224,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_karacabey.jpg",
    "atif": "Ufuk Önen — CC BY 3.0",
    "lisans": "CC BY 3.0",
-   "alt_tr": "Karacabey'de beyaz parmaklıklı padoklarda otlayan doru atlar; arkada uzun kırmızı çatılı ahır sıraları, çam ormanı ve ova. Duvardaki madalyonlardan biri işletmenin armasını taşıyor.",
-   "alt_en": "Bay horses grazing in white-railed paddocks at Karacabey; behind them long red-roofed stable blocks, a pine wood and the plain. One of the roundels on the wall carries the enterprise's emblem.",
+   "alt_tr": "Karacabey, Bursa, 30 Temmuz 2008. Kaynak künyesi yerden başka bir şey söylemiyor; atların hangi işletmeye ait olduğu kayıtlı değil.",
+   "alt_en": "Karacabey, Bursa, 30 July 2008. The source records the place and nothing more; which enterprise the horses belong to is not stated.",
    "en_boy": 1.3333,
    "_commons": "https://commons.wikimedia.org/wiki/File:Karacabey_Turkey_-_panoramio.jpg",
    "_gozle_dogrulandi": true
@@ -208,8 +234,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_orman_ciftligi_1929a.jpg",
    "atif": "Unknown authorUnknown author — kamu malı",
    "lisans": "Public domain",
-   "alt_tr": "Ankara'da Orman Çiftliği, 14 Temmuz 1929. Beyaz takım ve hasır şapkalı Mustafa Kemal, bir harman yığınının önünde yalınayak bir çiftlik işçisiyle konuşuyor; arkada takım elbiseli görevliler ve askerler duruyor.",
-   "alt_en": "The Forest Farm in Ankara, 14 July 1929. Mustafa Kemal, in a white suit and straw hat, talks with a barefoot farm worker in front of a stack of cut straw; officials in suits and soldiers stand behind.",
+   "alt_tr": "Mustafa Kemal, Ankara'daki örnek Orman Çiftliği'nde, 14 Temmuz 1929.",
+   "alt_en": "Mustafa Kemal at the model Forest Farm in Ankara, 14 July 1929.",
    "en_boy": 1.4992,
    "_commons": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929.png",
    "_gozle_dogrulandi": true
@@ -218,8 +244,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_bugday_tarla.jpg",
    "atif": "Maurice Flesier — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Suşehri, Sivas'ta hasat öncesi bir buğday tarlası. Olgunlaşmış başaklar yakın planda, arkada puslu tepeler.",
-   "alt_en": "A wheat field before harvest in Suşehri, Sivas. Ripe ears in the foreground, hazy hills behind.",
+   "alt_tr": "Hasat öncesi buğday tarlası, Suşehri, Sivas, 21 Temmuz 2021.",
+   "alt_en": "A wheat field before harvest, Suşehri, Sivas, 21 July 2021.",
    "en_boy": 1.3333,
    "_commons": "https://commons.wikimedia.org/wiki/File:A_wheat_field_before_harvest.jpg",
    "_gozle_dogrulandi": true
@@ -228,8 +254,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_resmi_gazete.jpg",
    "atif": "Turkish government — kamu malı",
    "lisans": "Public domain",
-   "alt_tr": "Resmî Gazete'nin bir sayfası: 20 Nisan 1946, sayı 6288, 'Kararlar' bölümü. TİGEM'i kuran 95 sayılı kararname başka bir nüshada, 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı.",
-   "alt_en": "A page of the Official Gazette: 20 April 1946, issue 6288, the 'Decisions' section. Decree 95, which established TİGEM, appeared in a different issue: 18205 Repeated, 28 October 1983.",
+   "alt_tr": "Resmî Gazete, 20 Nisan 1946, sayı 6288. TİGEM'i kuran 95 sayılı kararname bu nüshada değil: 28 Ekim 1983 tarihli 18205 Mükerrer sayıda yayımlandı.",
+   "alt_en": "The Official Gazette, 20 April 1946, issue 6288. Decree 95, which established TİGEM, is not in this issue: it appeared in 18205 Repeated, 28 October 1983.",
    "en_boy": 0.7207,
    "_commons": "https://commons.wikimedia.org/wiki/File:Resmi_Gazete_sayfasi.png",
    "_gozle_dogrulandi": true
@@ -238,8 +264,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_ceylan.jpg",
    "atif": "Dûrzan Cîrano — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Şanlıurfa'nın Ceylanpınar ilçesinde bir Asya ceylanı, otların arasına çökmüş. İlçe adını bu hayvandan alıyor.",
-   "alt_en": "An Asian gazelle resting in the grass at Ceylanpınar, Şanlıurfa. The district takes its name from this animal.",
+   "alt_tr": "Ceylanpınar'da bir Asya ceylanı, 6 Nisan 2018. İlçe adını bu hayvandan alıyor.",
+   "alt_en": "An Asian gazelle at Ceylanpınar, 6 April 2018. The district takes its name from the animal.",
    "en_boy": 1.5635,
    "_commons": "https://commons.wikimedia.org/wiki/File:Gazella_subgutturosa_2018.jpg",
    "_gozle_dogrulandi": true
@@ -248,8 +274,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_harran_kanal.jpg",
    "atif": "Volker Höhfeld — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Harran Ovası'nda bir sulama kanalı ve savakları, 11 Eylül 2011. Kanalın ötesinde yeşil bir mısır tarlası, arkada kuru tepeler.",
-   "alt_en": "An irrigation canal and its sluice gates on the Harran Plain, 11 September 2011. A green maize field lies beyond, with dry hills behind.",
+   "alt_tr": "Harran Ovası'nda ikincil sulama kanalı, Şanlıurfa ile Altınbaşak arası, 11 Eylül 2011.",
+   "alt_en": "A secondary irrigation canal on the Harran Plain, between Şanlıurfa and Altınbaşak, 11 September 2011.",
    "en_boy": 1.3333,
    "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_11_09_2011_Bew%C3%A4sserungskanal.jpg",
    "_gozle_dogrulandi": true
@@ -258,8 +284,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_harran_hasat_1988.jpg",
    "atif": "Volker Höhfeld — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Harran Ovası, 15 Haziran 1988. Pembe ve turuncu desenli giysisiyle bir kadın, olgunlaşmış tarlada eğilmiş, elindeki orakla biçiyor.",
-   "alt_en": "The Harran Plain, 15 June 1988. A woman in a pink and orange patterned dress bends over the ripe field, cutting with a sickle.",
+   "alt_tr": "Harran Ovası'nda tırpanla hububat hasadı, 15 Haziran 1988. Kaynak künyesi 1980'lerin sonunda ovada hasadın yer yer hâlâ tırpanla yapıldığını kaydediyor.",
+   "alt_en": "Cutting grain with a scythe on the Harran Plain, 15 June 1988. The source records that in the late 1980s grain there was still sometimes harvested by scythe.",
    "en_boy": 1.527,
    "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_15_06_1988_B%C3%A4uerin_bei_der_Getreideernte.jpg",
    "_gozle_dogrulandi": true
@@ -268,8 +294,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_bugday_sivas.jpg",
    "atif": "Maurice Flesier — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Aynı tarlanın geniş hâli: olgun buğday, kavak sıraları ve Sivas'ın dağları.",
-   "alt_en": "The same field seen wide: ripe wheat, lines of poplars and the mountains of Sivas.",
+   "alt_tr": "Hasat öncesi buğday tarlası, Suşehri, Sivas, 18 Temmuz 2021.",
+   "alt_en": "A wheat field before harvest, Suşehri, Sivas, 18 July 2021.",
    "en_boy": 1.3333,
    "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_field_in_Sivas_Province.jpg",
    "_gozle_dogrulandi": true
@@ -278,8 +304,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_harran_pamuk.jpg",
    "atif": "Volker Höhfeld — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Harran Ovası'nda sulanan bir pamuk bitkisi, 20 Eylül 2012. Açmış beyaz kozalar, henüz yeşil ve kızarmış kozalar, altta çatlamış toprak.",
-   "alt_en": "An irrigated cotton plant on the Harran Plain, 20 September 2012. Opened white bolls, green and reddening bolls, cracked soil below.",
+   "alt_tr": "Sulanan tarlada pamuk bitkisi, Harran Ovası, 20 Eylül 2012.",
+   "alt_en": "A cotton plant on an irrigated field, Harran Plain, 20 September 2012.",
    "en_boy": 0.7479,
    "_commons": "https://commons.wikimedia.org/wiki/File:Urfa-Harran_Ovas%C4%B1_20_09_2012_Baumwolllpflanze_bew%C3%A4ssert.jpg",
    "_gozle_dogrulandi": true
@@ -288,8 +314,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_kangal.jpg",
    "atif": "Zeynel Cebeci — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Taşlı bir avluda oturan Kangal çoban köpeği: krem rengi tüy, siyah maske ve siyah kulaklar.",
-   "alt_en": "A Kangal shepherd dog sitting in a stony yard: cream coat, black mask and black ears.",
+   "alt_tr": "Kangal çoban köpeği, Saimbeyli'nin Avcıpınarı mahallesi, Adana, 2 Nisan 2016.",
+   "alt_en": "A Kangal shepherd dog in the Avcıpınarı neighbourhood of Saimbeyli, Adana, 2 April 2016.",
    "en_boy": 0.6722,
    "_commons": "https://commons.wikimedia.org/wiki/File:Anatolian_Shepherd_Dog_-_Kangal_k%C3%B6pe%C4%9Fi_01.jpg",
    "_gozle_dogrulandi": true
@@ -298,8 +324,8 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_aoc_1939.jpg",
    "atif": "Directorate General of Press and Information — No restrictions",
    "lisans": "No restrictions",
-   "alt_tr": "Atatürk Orman Çiftliği, 1939. Ağaçların arasından bakıldığında bacalı bir fabrika, çiftlik binaları ve ağaçlandırılmış şeritler; arkada Ankara'nın çıplak tepeleri uzanıyor.",
-   "alt_en": "Atatürk Forest Farm, 1939. Seen through trees: a factory with a tall chimney, farm buildings and planted belts; beyond them the bare hills of Ankara.",
+   "alt_tr": "Atatürk Orman Çiftliği, 1939.",
+   "alt_en": "Atatürk Forest Farm, 1939.",
    "en_boy": 1.3806,
    "_commons": "https://commons.wikimedia.org/wiki/File:Atat%C3%BCrk_Forest_Farm%2C_1939_%2816851409021%29.jpg",
    "_gozle_dogrulandi": true
@@ -308,11 +334,13 @@
    "url": "https://tarimportali.net/dosya/tigem/tigem_hindistan_bugday.jpg",
    "atif": "Satpal Dandiwal — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
-   "alt_tr": "Hindistan'ın Pencap eyaletinde olgunlaşmış buğday başakları.",
-   "alt_en": "Ripe ears of wheat in Punjab, India.",
+   "alt_tr": "Pencap'ta buğday, Hindistan, 5 Nisan 2018.",
+   "alt_en": "Wheat in Punjab, India, 5 April 2018.",
    "en_boy": 1.5031,
    "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_in_Punjab%2C_India.jpg",
    "_gozle_dogrulandi": true
-  }
+  },
+  "_altyazi_duzeltmesi_12_kasim": "ON DÖRT ALTYAZI DA YENİDEN YAZILDI. Önceki sürüm kareyi tahlil ediyordu ('bir adam sopayla yığını düzeltiyor', 'krem rengi tüy, siyah maske'). Üslup hatasının yanında DÖRT MADDİ HATA çıktı ve hepsi tahlilden geliyordu: (1) §1 'makinenin yan yüzünde üreticisinin adı yazılı' deniyordu; Commons künyesi o logonun makineye değil üzerine atılmış beze ait olduğunu AYRICA uyarıyor. (2) §3 'duvardaki madalyonlardan biri işletmenin armasını taşıyor' deniyordu; kaynak künyesi yalnızca 'Karacabey Turkey' diyor, atların TİGEM işletmesine ait olduğuna dair hiçbir kayıt yok — dosyanın uydurma veri yasağının ihlaliydi. (3) §10 'aynı tarlanın geniş hâli' diyordu; iki kare aynı yerde ve aynı hafta çekilmiş ama aynı tarla olduğunu söyleyen bir kayıt yok. (4) §9 'orak' diyordu; kaynak künyesi 'Sense', yani TIRPAN. Yeri ve tarihi olan hiçbir altyazıda da yoktu: §1 Tekmen, §12 Saimbeyli, §8 Şanlıurfa-Altınbaşak hattı künyede duruyordu, altyazıya geçmemişti.",
+  "_altyazi_yapisal_notu": "BU ALAN İKİ İŞ YAPIYOR ve üslup kaymasının kökü bu. country_dossier_screen.dart:1052 alt_tr'yi Image.network'ün semanticLabel'ı olarak veriyor, 1061'de de görünen altyazı olarak basıyor. Ekran okuyucu için iyi bir alt metin kareyi TARİF eder; okur için iyi bir altyazı kareyi TANIMLAR. Tek alan ikisini birden isteyince yazı tarife kayıyor. Doğru çözüm ayrı bir 'altyazi_tr/en' alanı ve çizicide iki ayrı kullanım; ortak bileşene dokunuyor ve yayındaki 10 dosyayı etkiliyor, bu devirde YAPILMADI. Bu dosyada kural şu: çatışma varsa ALTYAZI kazanır."
  }
 }

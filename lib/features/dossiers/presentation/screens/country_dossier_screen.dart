@@ -1,6 +1,7 @@
 import 'dart:ui' show ImageFilter;
 
-import 'package:flutter/foundation.dart' show ValueListenable;
+import 'package:flutter/foundation.dart'
+    show ValueListenable, visibleForTesting;
 import 'package:flutter/material.dart';
 // getOffsetToReveal / RenderAbstractViewport material.dart'tan dışa vurulmuyor.
 import 'package:flutter/rendering.dart';
@@ -551,6 +552,46 @@ class _Oluk extends StatelessWidget {
 /// Bu yüzden ölçek adın TAMAMINA değil, EN UZUN KELİMESİNE bakarak
 /// hesaplanıyor: tek kelimelik ad tek satıra sığacak kadar küçülüyor, iki
 /// kelimelik ad tam puntosunu koruyup kelime arasından sarıyor.
+/// Kapak adının punto ÖLÇEĞİ — her kelime oluğa sığacak kadar küçültülür.
+///
+/// 12 KASIM 2026'DA DÜZELTİLDİ. Önceki hâl en uzun kelimeyi HARF SAYISINA
+/// göre seçiyor ve ölçeği yalnızca onu ölçerek kuruyordu. TİGEM kapağında
+/// canlıya şöyle çıktı:
+///
+///     TİGEM — Tarım
+///     İşletmeleri
+///     Genel
+///     Müdürlüğ
+///     ü
+///
+/// Sebep: "İşletmeleri" 11 harf, "Müdürlüğü" 9 — ama kapak yazı tipinde
+/// (serif, geniş gövdeli) "Müdürlüğü" DAHA GENİŞ çiziliyor. Ölçek dar
+/// kelimeye göre hesaplanınca geniş olanı oluğu aşıyor ve Flutter, sığmayan
+/// tek kelimeyi ortasından bölüyor.
+///
+/// Harf sayısı genişliğin vekili değil. Artık her kelime ÖLÇÜLÜYOR ve en
+/// genişi esas alınıyor — kelime sayısı bir elin parmakları kadar, maliyeti
+/// yok.
+///
+/// `olc` dışarıdan veriliyor ki sınanabilsin: `flutter_test`in varsayılan
+/// yazı tipi her glifi punto kadar kare çiziyor, yani orada genişlik harf
+/// sayısına eşit ve bu hata ÜRETİLEMEZ. Sınama sahte bir ölçerle kuruluyor.
+@visibleForTesting
+double kapakAdiOlcegi(
+  Iterable<String> kelimeler,
+  double genislik,
+  double Function(String) olc,
+) {
+  var enGenis = 0.0;
+  for (final k in kelimeler) {
+    if (k.isEmpty) continue;
+    final g = olc(k);
+    if (g > enGenis) enGenis = g;
+  }
+  if (enGenis <= 0 || enGenis <= genislik) return 1.0;
+  return genislik / enGenis;
+}
+
 class _KapakAdi extends StatelessWidget {
   const _KapakAdi({required this.ad, required this.renk});
 
@@ -567,18 +608,16 @@ class _KapakAdi extends StatelessWidget {
         if (!genislik.isFinite || genislik <= 0) return Text(ad, style: stil);
 
         final kelimeler = ad.trim().split(RegExp(r'\s+'));
-        final enUzun = kelimeler.fold<String>(
-          '',
-          (a, b) => b.length > a.length ? b : a,
-        );
+        final yon = Directionality.of(context);
 
-        final olcer = TextPainter(
-          text: TextSpan(text: enUzun, style: stil),
-          textDirection: Directionality.of(context),
-          maxLines: 1,
-        )..layout();
+        double olc(String k) => (TextPainter(
+              text: TextSpan(text: k, style: stil),
+              textDirection: yon,
+              maxLines: 1,
+            )..layout())
+            .width;
 
-        final olcek = olcer.width > genislik ? genislik / olcer.width : 1.0;
+        final olcek = kapakAdiOlcegi(kelimeler, genislik, olc);
         if (olcek >= 1.0) return Text(ad, style: stil);
 
         final punto = (stil.fontSize ?? 56) * olcek;

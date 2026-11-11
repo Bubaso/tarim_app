@@ -13,7 +13,8 @@
   "_baslangic_notu": "null → seed anında now(). Önceki değer 2026-09-13T22:45+03'tü; devir öne çekilince kaldırıldı. Seed pencereyi KORUYOR (coalesce): yayındaki bir dosyanın metnini düzeltmek için seed'i yeniden çalıştırmak sayacı sıfırlamaz.",
   "_bitis_notu": "Bitiş 28 gün sonra otomatik: 2026-09-26."
  },
- "status": "published",
+ "status": "archived",
+ "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
  "kapak": {
   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_kulunda_bozkiri.jpg",
   "atif": "NASA Goddard Space Flight Center / MODIS Land Rapid Response Team",

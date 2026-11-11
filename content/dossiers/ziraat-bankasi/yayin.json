@@ -17,7 +17,8 @@
   "baslangic": null,
   "_baslangic_notu": "null ise seed anında now() yazılır."
  },
- "status": "published",
+ "status": "archived",
+ "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
  "_status_notu": "Yayında. TMO'nun penceresi 5 Eylül yerine 29 Ağustos'ta kapatıldı, Ziraat aynı anda açıldı (kullanıcı kararı).",
  "kapak": {
   "url": null,

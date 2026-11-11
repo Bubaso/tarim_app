@@ -395,6 +395,29 @@ class _YakindaKart extends StatelessWidget {
               _altSatir(),
               style: AppTypography.meta(context, color: tema.sessiz),
             ),
+            // Teaser — sıradaki dosyanın NEDEN o gün açıldığını söyleyen
+            // cümle. Kullanıcı isteği, 12 Kasım 2026.
+            //
+            // Sayacın ALTINDA duruyor, üstünde değil: sayaç kartın işlevi
+            // ("ne zaman"), teaser ise sebebi. Önce işlev okunur.
+            //
+            // Boşsa HİÇ çizilmiyor — SizedBox.shrink bile değil, çünkü
+            // üstündeki 10 px aralık da onunla birlikte gitmeli; yoksa
+            // teaser'sız kartın altında sebepsiz bir boşluk kalır.
+            if (gelecek.teaser(isEn).isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Text(
+                gelecek.teaser(isEn),
+                style: AppTypography.meta(context, color: tema.sessiz)
+                    .copyWith(height: 1.45),
+                // Dört satır: 140 karakterlik tavan dar ekranda üç satıra
+                // taşıyor, dördüncüsü emniyet payı. Taşarsa kırpılıyor —
+                // kart büyümüyor, çünkü yanındaki yayın kartıyla aynı
+                // yükseklikte durması gerekiyor.
+                maxLines: 4,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ],
         ),
       ),

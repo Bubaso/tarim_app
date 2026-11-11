@@ -158,6 +158,136 @@ void main() {
     expect(find.text('YAKINDA'), findsOneWidget);
   });
 
+  // ── Teaser (kullanıcı isteği, 12 Kasım 2026) ───────────────────────────
+  //
+  // Kart sıradaki dosyanın NEDEN o gün açıldığını da söylüyor. İlk kullanıcısı
+  // Türkşeker: ilk Türk şekeri 26 Kasım 1926'da Alpullu'da üretildi, dosya o
+  // günün yüzüncü yılında açılıyor.
+  //
+  // Yüzey BÜYÜTÜLÜYOR ve dizin BOŞ BIRAKILMIYOR: "Yakında" kartı arşiv
+  // listesinin ardından çiziliyor, varsayılan 800x600 yüzeyde ve boş dizinde
+  // hiç yerleşmiyor. İlk yazımda bu atlandı ve dört sınama kartın adını bile
+  // bulamadı.
+
+  testWidgets('Yakında kartı teaser cümlesini basıyor', (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: false,
+        override: dossierIndexByTurProvider('kurum')
+            .overrideWith((ref) async => [_aktif(_kurumOzeti(ozet), true)]),
+        tur: 'kurum',
+        takvim: const [
+          DossierTakvim(
+              tur: 'kurum',
+              adTr: 'Türkşeker',
+              adEn: 'Türkşeker',
+              teaserTr: _teaser),
+        ],
+      ),
+    );
+    await _coz(tester);
+
+    expect(find.text('Türkşeker'), findsOneWidget);
+    expect(find.text(_teaser), findsOneWidget);
+  });
+
+  testWidgets('teaser boşsa kart onu HİÇ basmıyor', (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: false,
+        override: dossierIndexByTurProvider('kurum')
+            .overrideWith((ref) async => [_aktif(_kurumOzeti(ozet), true)]),
+        tur: 'kurum',
+        takvim: const [
+          DossierTakvim(
+              tur: 'kurum', adTr: 'Türkşeker', adEn: 'Türkşeker'),
+        ],
+      ),
+    );
+    await _coz(tester);
+
+    expect(find.text('Türkşeker'), findsOneWidget);
+    // Boş teaser için Text bile kurulmamalı: üstündeki aralık da onunla
+    // gitmeli, yoksa kartın altında sebepsiz boşluk kalır.
+    expect(find.text(''), findsNothing);
+    expect(find.text(_teaser), findsNothing);
+  });
+
+  testWidgets('İngilizce kart İngilizce teaser basıyor', (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: true,
+        override: dossierIndexByTurProvider('kurum')
+            .overrideWith((ref) async => [_aktif(_kurumOzeti(ozet), true)]),
+        tur: 'kurum',
+        takvim: const [
+          DossierTakvim(
+              tur: 'kurum',
+              adTr: 'Türkşeker',
+              adEn: 'Türkşeker',
+              teaserTr: 'Türkçe cümle',
+              teaserEn: 'English sentence'),
+        ],
+      ),
+    );
+    await _coz(tester);
+
+    expect(find.text('English sentence'), findsOneWidget);
+    expect(find.text('Türkçe cümle'), findsNothing);
+  });
+
+  testWidgets('İngilizce teaser yoksa Türkçesine düşüyor', (tester) async {
+    tester.view.physicalSize = const Size(900, 1600);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.reset);
+
+    await tester.pumpWidget(
+      _iskelet(
+        isEn: true,
+        override: dossierIndexByTurProvider('kurum')
+            .overrideWith((ref) async => [_aktif(_kurumOzeti(ozet), true)]),
+        tur: 'kurum',
+        takvim: const [
+          DossierTakvim(
+              tur: 'kurum',
+              adTr: 'Türkşeker',
+              adEn: 'Türkşeker',
+              teaserTr: 'Yalnız Türkçesi var'),
+        ],
+      ),
+    );
+    await _coz(tester);
+
+    // ad(isEn) ile aynı davranış: çeviri yoksa boş değil, Türkçesi.
+    expect(find.text('Yalnız Türkçesi var'), findsOneWidget);
+  });
+
+  test('fromJson teaser kolonu yoksa boş dize veriyor', () {
+    // Kolon 20261112130000 göçüyle geldi. Göç uygulanmamış bir veritabanında
+    // alan HİÇ gelmiyor; kart teaser'sız çizilmeli, patlamamalı.
+    final t = DossierTakvim.fromJson(const {
+      'tur': 'kurum',
+      'ad_tr': 'Türkşeker',
+      'ad_en': 'Türkşeker',
+      'sira': 1,
+    });
+    expect(t.teaserTr, '');
+    expect(t.teaser(false), '');
+    expect(t.teaser(true), '');
+  });
+
   testWidgets('Yakında kartı tıklanabilir değil', (tester) async {
     // Dokununca boş bir sayfaya düşmek, hiçbir şey olmamasından kötü.
     tester.view.physicalSize = const Size(900, 1600);
@@ -357,3 +487,6 @@ DossierSummary _kurumOzeti(DossierSummary ozet) {
     sectionCount: 11,
   );
 }
+
+/// Türkşeker kartının gerçek teaser cümlesinden kısaltılmış hâli.
+const _teaser = 'İlk Türk şekeri 26 Kasım 1926\'da Alpullu\'da üretildi.';

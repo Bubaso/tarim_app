@@ -472,11 +472,21 @@ class DossierTakvim {
   final String adEn;
   final int sira;
 
+  /// Kartın altındaki kısa gerekçe cümlesi — sıradaki dosyanın NEDEN o gün
+  /// açıldığını söyler. İsteğe bağlı: boşsa kart eskisi gibi çiziliyor.
+  ///
+  /// İlk kullanımı Türkşeker: ilk Türk şekeri 26 Kasım 1926'da Alpullu'da
+  /// üretildi, dosya o günün yüzüncü yılında açılıyor.
+  final String teaserTr;
+  final String teaserEn;
+
   const DossierTakvim({
     required this.tur,
     required this.adTr,
     required this.adEn,
     this.sira = 1,
+    this.teaserTr = '',
+    this.teaserEn = '',
   });
 
   factory DossierTakvim.fromJson(Map<String, dynamic> json) => DossierTakvim(
@@ -484,7 +494,16 @@ class DossierTakvim {
         adTr: json['ad_tr']?.toString() ?? '',
         adEn: json['ad_en']?.toString() ?? '',
         sira: DossierSummary._toInt(json['sira']) ?? 1,
+        // Kolon 20261112130000 göçüyle geldi. Göç uygulanmamış bir
+        // veritabanında alan hiç gelmiyor; varsayılan boş dize olduğu için
+        // kart teaser'sız çiziliyor ve hiçbir şey kırılmıyor.
+        teaserTr: json['teaser_tr']?.toString() ?? '',
+        teaserEn: json['teaser_en']?.toString() ?? '',
       );
 
   String ad(bool isEn) => isEn && adEn.isNotEmpty ? adEn : adTr;
+
+  /// Boş dönebilir — çağıran yeri boş teaser'ı HİÇ basmamalı.
+  String teaser(bool isEn) =>
+      isEn && teaserEn.isNotEmpty ? teaserEn : teaserTr;
 }

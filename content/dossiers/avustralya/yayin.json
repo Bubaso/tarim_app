@@ -12,7 +12,8 @@
     "baslangic": null,
     "_baslangic_notu": "null → seed anında now(). Devir günü belli olmadığı için sabit tarih YAZILMIYOR: ileri tarihli bir pencere dosyayı yayına sokup şeritten gizliyor (§2.12/1)."
   },
-  "status": "published",
+  "status": "archived",
+  "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
   "_status_notu": "YAYINDA. Devir 5 Ekim 2026'da kullanıcı onayıyla yapıldı; İspanya arşive alındı. Pencere devir günü başladı (28 gün).",
   "kapak": {
     "url": "https://tarimportali.net/dosya/avustralya/avustralya_kapak_havadan.jpg",

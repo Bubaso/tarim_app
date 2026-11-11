@@ -13,7 +13,8 @@
     "_baslangic_notu": "null ise seed anında now() yazılır. Belirli bir tarihte açılacaksa ISO 8601 (örn. '2026-09-01T06:00:00+03:00') yazın; betik bitişi otomatik hesaplar.",
     "_bitis_notu": "İkinci ülke hazır değilse pencere kapanınca ana sayfa bölümü boşalır. Bunu istemiyorsanız 'gun' değerini null yapın — dosya süresiz yayında kalır."
   },
-  "status": "published",
+  "status": "archived",
+  "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
   "_status_notu": "draft | scheduled | published | archived. 'draft' RLS tarafından anon'a kapalıdır; yarım metin adres tahminiyle okunamaz.",
   "kapak": {
     "url": "https://tarim-app-2026.web.app/dosya/hollanda/hollanda_gece.jpg",

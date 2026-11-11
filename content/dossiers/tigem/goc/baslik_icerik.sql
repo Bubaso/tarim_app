@@ -1,0 +1,32 @@
+-- TİGEM — Kurum Dosyası Sayı 06 · İÇERİK YAZILIYOR, DEVİR YAPILMIYOR
+--
+-- ── BU GÖÇ DOSYAYI YAYINA ALMAZ ──────────────────────────────────────────
+-- status = 'draft'. Dosya veritabanına yazılıyor ama ana sayfada ve kurum
+-- rafında GÖRÜNMÜYOR. Devir (status → published, pencerenin başlatılması ve
+-- DSİ'nin arşive alınması) AYRI BİR GÖÇ ve AÇIK ONAY ister.
+--
+-- ── SIRA ÖNEMLİ (§2.12/4) ────────────────────────────────────────────────
+-- Devir göçünden ÖNCE `./deploy.sh --hosting` çalışmalı ve TİGEM'in on dört
+-- görselinin content-type: image/* döndüğü doğrulanmalı. Ters sırada dosya
+-- canlıda kırık görsellerle açılır. Bu göç draft yazdığı için o sıra
+-- kısıtına tabi DEĞİL; devir göçü tabidir.
+--
+-- ── NE YAZILIYOR ─────────────────────────────────────────────────────────
+-- 15 bölüm (14 + kaynakça), 13 grafik, 14 bölüm görseli, tema künyesi ve
+-- kilitli veri sayfası. Kapak YOK: kurum kapağı tipografik (§8.4, §8.8).
+-- Hikâye slaytları AYRI betikle yazılıyor (dosya_hikayeleri.py).
+--
+-- ── DİZİNİN DOKUZUNCU KÜMESİ ─────────────────────────────────────────────
+-- Bu dosya "Üretim" kümesini ilk kez kullanıyor; kağıt vurgusu #1F5626,
+-- kapak vurgusu #4CC756. Küme TİGEM'e özel değil — rotasyonda Türkşeker ve
+-- Et ve Süt Kurumu da aynı kümeye girer. Aşağıdaki sağlama vurgunun
+-- tasarim.json'dan geldiğini doğruluyor.
+--
+-- İçteki begin/commit çıkarıldı: CLI her migration'ı zaten tek işlemde
+-- çalıştırıyor (§4.1).
+
+-- ════════════════════════════════════════════════════════════════════════
+-- tigem — ÜRETİLMİŞ seed (node content/dossiers/seed_dossier.mjs tigem)
+-- Göçe gömülmeden HEMEN ÖNCE yeniden üretildi (DSİ'de bir düzeltme öncesi
+-- seed gömülmüş ve on bölüm başlığı canlıya ### ile gitmişti).
+-- ════════════════════════════════════════════════════════════════════════
