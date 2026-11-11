@@ -20,7 +20,6 @@ import '../../../../core/utils/string_extensions.dart';
 import '../../../videos/presentation/screens/video_onay_ekrani.dart';
 import 'onay_kuyrugu_ekrani.dart';
 import 'hikaye_yonetimi_ekrani.dart';
-import 'reddedilenler_ekrani.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -173,7 +172,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 10, vsync: this);
+    _tabController = TabController(length: 9, vsync: this);
   }
 
   @override
@@ -511,13 +510,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
               ),
               text: isEn ? 'Review Queue' : 'Onay Kuyruğu',
             ),
-            // Kuyruğun HEMEN yanında: reddedilenler kuyruğun geri dönüş
-            // kapısı, ayrı bir iş değil. Rozet YOK — reddedilen sayısı bir
-            // görev sayısı değil, bakılacak bir arşiv.
-            Tab(
-              icon: const Icon(Icons.block_rounded),
-              text: isEn ? 'Rejected' : 'Reddedilenler',
-            ),
             Tab(
               icon: const Icon(Icons.auto_stories_rounded),
               text: isEn ? 'Stories' : 'Hikâyeler',
@@ -562,7 +554,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         children: [
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
           const OnayKuyruguEkrani(),
-          const ReddedilenlerEkrani(),
           const HikayeYonetimiEkrani(),
           const AdminHeroScreen(),
           const VideoOnayEkrani(),

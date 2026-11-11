@@ -104,7 +104,8 @@ class HomeRepository {
       'article_format,published_at,story_image_url,thumb_image_url,'
       'image_lqip,rejection_reason,'
       'rejected_at,source_modified_at,source_drift,publish_at,turkiye_pin,'
-      'audio_url,audio_url_en,is_radio,radio_order,ses_deneme,ses_hatasi';
+      'audio_url,audio_url_en,is_radio,radio_order,ses_deneme,ses_hatasi,'
+      'ozel_bolum';
 
   //  Sütun daraltma yükü düşürüyor ama BÜYÜMEYİ durdurmuyor; sınırsız sorgu
   //  arşivle birlikte sonsuza kadar şişer. 500 bir yayın kararı: kategori
@@ -281,28 +282,48 @@ class HomeRepository {
   static const String _kuyrukSutunlari =
       'id,title,summary,image_url,thumb_image_url,image_lqip,source_name,'
       'source_url,created_at,published_at,topic,region,category_id,'
-      'hero_score,status,article_format,rejection_reason,rejected_at';
+      'hero_score,status,article_format,rejection_reason,rejected_at,'
+      'ozel_bolum';
 
-  /// Reddedilmiş haberler — geri alma ekranı için.
+  // `reddedilenleriIzle` kaldırıldı (11 Kas 2026): red artık satırı siliyor,
+  // `status = 'rejected'` diye bir kayıt oluşmuyor. Sorgu her zaman boş
+  // dönerdi.
+
+  /// Süreli özel bölümün haberleri — ORTAK LİSTEYİ SÜZMEYEN, kendi sorgusu.
   ///
-  /// Red artık silmiyor (§29.1), ama reddedilen habere ulaşmanın tek yolu
-  /// sekiz saniyelik bir bildirim çubuğuydu. O kapandıktan sonra
-  /// [reddiGeriAl] çağrılabilecek hiçbir yer kalmıyordu: "geri alınabilir"
-  /// vaadi pratikte sekiz saniye sürüyordu.
-  Stream<List<NewsArticle>> reddedilenleriIzle({int limit = 200}) {
+  /// Ortak liste en yeni 500 haberi taşıyor; COP31'e tarih sınırı konulmadığı
+  /// için bölüme Eylül'deki zirve hazırlık haberleri de giriyor ve onlar o
+  /// pencerenin dışında kalıyor. Köşe yazarı şeridinin §26.2'de çarptığı
+  /// duvarın aynısı: ortak listeyi süzmek bölümü eksik gösterirdi.
+  ///
+  /// Yalnızca yayındakiler: bölüm okuyucuya bakıyor, onay kuyruğuna değil.
+  Stream<List<NewsArticle>> ozelBolumuIzle(String bolum, {int limit = 60}) {
     return _supabaseClient
         .from('articles')
-        .select(_kuyrukSutunlari)
-        .eq('status', 'rejected')
-        // Reddedilme sırası, haberin yazılma sırası DEĞİL: moderatör
-        // "az önce yanlışlıkla reddettiğim" haberi arıyor.
-        .order('rejected_at', ascending: false, nullsFirst: false)
+        .select(_listeSutunlari)
+        .eq('ozel_bolum', bolum)
+        .eq('status', 'published')
+        .order('created_at', ascending: false)
         .limit(limit)
         .asStream()
+        .timeout(const Duration(seconds: 8))
         .map((maps) => maps
-            .map((map) => NewsArticle.fromJson(map as Map<String, dynamic>))
-            .toList());
+            .map((m) => NewsArticle.fromJson(m as Map<String, dynamic>))
+            .toList())
+        .handleError((e) {
+          if (kDebugMode) print('ozelBolumuIzle error: $e');
+          return <NewsArticle>[];
+        });
   }
+
+  /// Haberi özel bölüme alır (`bolum`) ya da çıkarır (`null`).
+  ///
+  /// Hattın anahtar kelime + LLM yargısı bölümü besliyor ama son söz
+  /// yöneticide: ölçümde zirveyi yalnızca arka planda anan 18 haber vardı ve
+  /// bunların bir kısmı gerçekten zirvede açıklanmıştı. O ayrımı gözle
+  /// düzeltebilmek gerekiyor.
+  Future<bool> ozelBolumAyarla(String id, String? bolum) =>
+      alanlariGuncelle(id, {'ozel_bolum': bolum});
 
   /// Bekleyen haberi yayına alır.
   ///
@@ -404,16 +425,9 @@ class HomeRepository {
     }
   }
 
-  /// Reddi GERİ ALIR: durum `reviewing`e döner, red izi silinir.
-  ///
-  /// `articles_forget_rejection_status` tetikleyicisi adresi red hafızasından
-  /// da düşürüyor (§29.1); yoksa "geri al" yarım kalır ve hat o haberi bir
-  /// daha hiç getirmez.
-  Future<bool> reddiGeriAl(String id) => alanlariGuncelle(id, {
-        'status': 'reviewing',
-        'rejection_reason': null,
-        'rejected_at': null,
-      });
+  // `reddiGeriAl` kaldırıldı (11 Kas 2026): geri alınacak kayıt kalmıyor.
+  // Haber silindiği için adresi red hafızasında kalıcı; aynı haber bir daha
+  // kuyruğa düşmüyor. Bu bilinçli: "bir daha görmek istemiyorum".
 
   /// Bir köşe yazarının TÜM yazıları.
   ///
@@ -460,17 +474,23 @@ class HomeRepository {
     }
   }
 
-  /// Haberi reddeder: durumu `rejected` yapar.
+  /// Haberi reddeder: satırı SİLER. Geri dönüşü yok.
   ///
-  /// SİLMİYOR (§29.1): yanlış basılan bir düğme geri getirilemeyecek bir kaydı
-  /// yok ediyordu. Haber arşivde duruyor ve [reddiGeriAl] ile dönebiliyor.
+  /// 11 Kasım 2026'da §29.1 geri alındı. O karar reddedileni `rejected`
+  /// durumunda arşivde tutuyordu; sonuç, hiç bakılmayan 457 haber ve depoda
+  /// 105 MB ölü görseldi. Artık red, kaydı yok etmek demek.
   ///
-  /// `rejected_sources`'a BURADAN YAZILMIYOR. O tablo istemciye bilerek
-  /// kapalı (RLS açık, politika yok — 20260816130000'deki yorumun kendi
-  /// ifadesi: "Tabloya istemci hiç dokunmuyor"). Adresi hafızaya yazan şey
-  /// `articles_remember_rejection_status` tetikleyicisi; böylece red hangi
-  /// yoldan gelirse gelsin (panel, bakım betiği, elle SQL) kayda geçiyor.
-  /// Elle yazmaya çalışmak 42501 veriyordu ve red hiç gerçekleşmiyordu.
+  /// Adresi hafızaya yazan şey `articles_remember_rejection` (AFTER DELETE)
+  /// tetikleyicisi: silinen haberin `source_url`'ü `rejected_sources`'a
+  /// geçiyor ve hat o haberi bir daha getirmiyor. `rejected_sources`'a
+  /// BURADAN yazılmıyor — o tablo istemciye kapalı (RLS açık, politika yok);
+  /// elle yazmaya çalışmak 42501 veriyordu.
+  ///
+  /// `gerekce` artık hiçbir yere yazılmıyor (yazılacak satır kalmıyor), ama
+  /// çağıranları bozmamak için imzada duruyor.
+  ///
+  /// Silinen haberin görselleri depoda yetim kalıyor; onları süpürmek
+  /// bakım betiğinin işi, panelin değil.
   Future<bool> haberiReddet({
     required String id,
     required String title,
@@ -478,12 +498,21 @@ class HomeRepository {
     String? sourceName,
     String? lastStatus,
     String? gerekce,
-  }) =>
-      alanlariGuncelle(id, {
-        'status': 'rejected',
-        'rejection_reason': gerekce,
-        'rejected_at': DateTime.now().toUtc().toIso8601String(),
-      });
+  }) async {
+    try {
+      // `.select()` şart: eşleşme olmayan bir silme de 200 + boş gövde
+      // dönüyor. Onsuz "reddedildi" diyip hiçbir şey silmemiş olurduk.
+      final silinen = await _supabaseClient
+          .from('articles')
+          .delete()
+          .eq('id', id)
+          .select('id');
+      return silinen.isNotEmpty;
+    } catch (e) {
+      if (kDebugMode) print('haberiReddet error: $e');
+      return false;
+    }
+  }
 
   /// Birden çok haberi tek seferde reddeder.
   ///

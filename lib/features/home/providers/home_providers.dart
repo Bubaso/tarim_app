@@ -582,6 +582,47 @@ final heroArticlesProvider = Provider<List<NewsArticle>>((ref) {
 /// "Hayvancılık" hem "Dünya"da öne çıkmasın.
 const _sektorelKonular = <String>['Hayvancılık', 'Bitkisel Üretim', 'Ekonomi'];
 
+// ─── SÜRELİ ÖZEL BÖLÜM: COP31 ─────────────────────────────────────────────
+//
+// COP31 iklim zirvesi 9-20 Kasım 2026, Antalya. Bölüm "Türkiye'den
+// Haberler"in altında duruyor ve 25 Kasım'da kalkıyor.
+//
+// BÖLÜMÜN ÖMRÜ BURADA, VERİDE DEĞİL. İşaretli haberlerin `topic`/`region`
+// değerleri hiç değişmiyor; `ozel_bolum` yalnızca ÜSTE binen bir işaret.
+// [kOzelBolumBitis] geçtiğinde bu dosyadaki kurallar susuyor ve haberler
+// kendi konu/bölge bölümlerine kendiliğinden akıyor. 25 Kasım'da betik
+// çalıştırmak, sütunu temizlemek ya da dağıtım yapmak GEREKMİYOR —
+// "haberler ilgili kategorilerine taşınacak" şartı hiçbir şeyi taşımamakla
+// sağlanıyor.
+const kOzelBolum = 'cop31';
+
+/// Bölümün anasayfadan kalktığı gün (bu tarihten İTİBAREN görünmüyor).
+final kOzelBolumBitis = DateTime(2026, 11, 25);
+
+/// Zirvenin kendi takvimi — başlıktaki durum satırı için. Haberlerin bölüme
+/// girmesini SINIRLAMIYOR: zirve hazırlık haberleri de bölümde duruyor.
+final kZirveBaslangic = DateTime(2026, 11, 9);
+final kZirveBitis = DateTime(2026, 11, 21);
+
+/// Şimdiki zaman, geçersiz kılınabilir hâlde.
+///
+/// Bölümün 25 Kasım'da kendiliğinden kalkması bu özelliğin EN RİSKLİ yanı:
+/// o gün kimse bakmıyor olacak ve yanlışsa bölüm asılı kalır ya da erken
+/// düşer. Saati sabit `DateTime.now()` olarak bırakmak o davranışı test
+/// edilemez yapıyordu; buradan geçince test 25 Kasım'a gidip ölçebiliyor.
+final simdiProvider = Provider<DateTime Function()>((ref) => DateTime.now);
+
+/// Bölüm şu an anasayfada mı. [simdi] yalnızca testler için.
+bool ozelBolumAktif([DateTime? simdi]) =>
+    (simdi ?? DateTime.now()).isBefore(kOzelBolumBitis);
+
+/// Haber, AKTİF özel bölüme ait mi.
+///
+/// Bölümün ömrü dolduktan sonra `false` dönüyor; işaret veritabanında kalsa
+/// bile haber artık sıradan bir Türkiye/Dünya haberi gibi davranıyor.
+bool ozelBolumeAit(NewsArticle a, [DateTime? simdi]) =>
+    a.ozelBolum == kOzelBolum && ozelBolumAktif(simdi);
+
 class HomeAllocation {
   const HomeAllocation({
     this.turkey = const [],
@@ -619,7 +660,18 @@ final homeAllocationProvider = Provider<HomeAllocation>((ref) {
 
   // [latestArticlesProvider] listesi zaten yeniden → eskiye sıralı; claim
   // bu sırayı koruyor (eski bölüm sağlayıcılarıyla aynı davranış).
-  final pool = all.where(_yayindaVeTam).toList();
+  // COP31 haberleri HAVUZDAN çıkarılıyor; bölüm bölüm elenmiyorlar. Tek satır
+  // Türkiye, Dünya, Bilim, Sektörel ve ICYMI'yi birden kapsıyor — "COP31
+  // haricinde başka yere gitmesin" şartı burada karşılanıyor.
+  //
+  // Manşet ETKİLENMİYOR: hero kendi havuzunu doğrudan
+  // [latestArticlesProvider]'dan kuruyor. Yönetici bir COP31 haberini
+  // `is_hero` + `hero_order <= 0` ile manşetin tepesine sabitleyebiliyor.
+  final ozelBolumSaati = ref.watch(simdiProvider)();
+  final pool = all
+      .where(_yayindaVeTam)
+      .where((a) => !ozelBolumeAit(a, ozelBolumSaati))
+      .toList();
 
   List<NewsArticle> claim(bool Function(NewsArticle) test, {required int cap}) {
     final out = <NewsArticle>[];
@@ -685,6 +737,69 @@ final homeAllocationProvider = Provider<HomeAllocation>((ref) {
 final icymiArticlesProvider = Provider<List<NewsArticle>>(
   (ref) => ref.watch(homeAllocationProvider).icymi,
 );
+
+/// COP31 bölümünün ham akışı — ortak listeyi SÜZMEYEN kendi sorgusu.
+///
+/// Ortak liste en yeni 500 haber; bölüme tarih sınırı konulmadığı için
+/// Eylül'deki zirve hazırlık haberleri de giriyor ve onlar o pencerenin
+/// dışında kalıyor (köşe yazarı şeridinin §26.2'de çarptığı duvar).
+///
+/// Süre dolduysa sorgu hiç yapılmıyor: kapalı bir bölüm için ağ isteği
+/// harcamanın anlamı yok.
+final ozelBolumAkisiProvider = StreamProvider<List<NewsArticle>>((ref) {
+  if (!ozelBolumAktif(ref.watch(simdiProvider)())) {
+    return Stream.value(const <NewsArticle>[]);
+  }
+  return ref.watch(homeRepositoryProvider).ozelBolumuIzle(kOzelBolum);
+});
+
+/// COP31 bölümünde gösterilecek haberler.
+///
+/// Manşete giren haber buradan DÜŞÜYOR: yönetici önemli bir COP31 haberini
+/// manşetin ilk sıralarına sabitlediğinde aynı kart sayfada iki kez
+/// görünmesin diye. Yayın kararı "hero (tercihen)".
+final cop31ArticlesProvider = Provider<List<NewsArticle>>((ref) {
+  if (!ozelBolumAktif(ref.watch(simdiProvider)())) return const [];
+  final liste = ref.watch(ozelBolumAkisiProvider).valueOrNull ?? const [];
+  final mansettekiler = <String>{
+    for (final a in ref.watch(heroArticlesProvider)) a.id,
+  };
+  final kalan =
+      liste.where((a) => !mansettekiler.contains(a.id)).toList(growable: false);
+  return _bakaniOneAl(kalan, ref.watch(heroSeedProvider));
+});
+
+/// Bölümün büyük kartında geçmesi gereken ad.
+///
+/// Küçük harfle yazılı: karşılaştırma [kucukHarf] ile yapılıyor ve Türkçede
+/// `'YUMAKLI'.toLowerCase()` 'yumakli' üretip eşleşmeyi kaçırıyor (§39.5).
+const _kBakanAdi = 'yumaklı';
+
+bool _bakanGeciyor(NewsArticle a) => kucukHarf(
+      '${a.title} ${a.summary ?? ''} ${a.spot ?? ''}',
+      false,
+    ).contains(_kBakanAdi);
+
+/// Bölümün BÜYÜK kartı her zaman Bakan Yumaklı'nın geçtiği bir haber olur.
+///
+/// Yayın kararı (12 Kasım 2026): zirvenin Türkiye'deki yüzü bakan; bölümün
+/// açılış kartı da onu göstermeli. Sıradaki haberler bundan etkilenmiyor,
+/// yalnızca ilk sıra garanti altına alınıyor.
+///
+/// Kart DÖNÜYOR ama rastgele değil: en taze beş aday arasından ziyaret
+/// tohumuyla seçiliyor. Böylece bölüm ziyaretten ziyarete değişiyor, ziyaret
+/// boyunca yerinde duruyor (manşetin [heroSeedProvider] kuralının aynısı) ve
+/// aylık eski bir haber taze olanın önüne geçemiyor.
+///
+/// Aday yoksa liste OLDUĞU GİBİ kalıyor: bölümü boş bırakmaktansa en taze
+/// haberle açmak yeğ.
+List<NewsArticle> _bakaniOneAl(List<NewsArticle> liste, int tohum) {
+  if (liste.length < 2) return liste;
+  final adaylar = liste.where(_bakanGeciyor).toList(growable: false);
+  if (adaylar.isEmpty) return liste;
+  final secilen = adaylar[tohum.abs() % math.min(adaylar.length, 5)];
+  return [secilen, ...liste.where((a) => a.id != secilen.id)];
+}
 
 /// Türkiye'den Haberler
 /// Sadece region (bölge) alanının Türkiye olup olmadığına bakar.

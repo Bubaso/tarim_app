@@ -247,12 +247,17 @@ class _StoryViewerScreenState extends ConsumerState<StoryViewerScreen>
   bool get _ozetteyiz => _ozetVar(_currentGroup) &&
       _currentItemIndex >= _currentGroup.items.length;
 
-  /// Grubun sonuna özet kartı konuyor mu?
+  /// Grubun sonuna özet ("Rakamlarla") kartı konuyor mu?
   ///
-  /// TEK slaytlık grupta konmuyor: özet, tek bir rakamı ikinci kez
-  /// göstermekten ibaret olurdu. Aktif hikâyelerin çoğu tek slayt taşıyor
-  /// ve hepsine özet koymak kartı değersizleştirirdi.
-  static bool _ozetVar(StoryGroup g) => g.items.length >= 2;
+  /// KONMUYOR — yayın kararı, 12 Kasım 2026. Her bölümün sonundaki özet
+  /// slaytı istenmedi: okur hikâyeyi bitirip çıkmak isterken araya giren
+  /// fazladan bir ekran oluyordu.
+  ///
+  /// Mekanizma tek noktadan kapatıldı; [_slaytSayisi], [_ozetteyiz] ve
+  /// çizim dalı bu değere bağlı olduğu için hepsi birlikte susuyor.
+  /// `ozet_karti.dart` ve çizim dalı yerinde bırakıldı: karar geri alınmak
+  /// istenirse bu satır yeter.
+  static bool _ozetVar(StoryGroup g) => false;
 
   /// Gruptaki toplam ekran sayısı — özet dahil.
   static int _slaytSayisi(StoryGroup g) =>

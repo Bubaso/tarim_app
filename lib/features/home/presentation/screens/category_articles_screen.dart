@@ -141,7 +141,7 @@ class _CategoryArticlesScreenState
     // viewport ise yalnızca sliver kabul ediyor — ve bu hata derlemede
     // değil, ancak çalışma anında ortaya çıkardı.
     final izgaraSatirlari = articles.length > 1
-        ? _MixedGrid(
+        ? KategoriIzgarasi(
             articles: articles.sublist(1),
             isDark: isDark,
             isMobile: isMobile,
@@ -252,7 +252,7 @@ class _CategoryArticlesScreenState
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         // ── Hero ──────────────────────────────────────────────────────────
-                        _HeroArticle(
+                        KategoriHeroKarti(
                           article: articles.first,
                           categoryName: title,
                           isDark: isDark,
@@ -347,14 +347,18 @@ class _CategoryArticlesScreenState
 // Mixed grid: builds entire body as a single Column inside SliverToBoxAdapter
 // so there are ZERO Expanded widgets in a scrollable context.
 // ─────────────────────────────────────────────────────────────────────────────
-class _MixedGrid extends StatelessWidget {
+class KategoriIzgarasi extends StatelessWidget {
   final List<NewsArticle> articles;
   final bool isDark;
   final bool isMobile;
   final double fontScale;
 
-  const _MixedGrid(
-      {required this.articles, required this.isDark, required this.isMobile, this.fontScale = 1.0});
+  const KategoriIzgarasi(
+      {super.key,
+      required this.articles,
+      required this.isDark,
+      required this.isMobile,
+      this.fontScale = 1.0});
 
   @override
   Widget build(BuildContext context) => Column(
@@ -496,24 +500,25 @@ class _MixedGrid extends StatelessWidget {
 // ─────────────────────────────────────────────────────────────────────────────
 //  HERO (full-bleed cinematic)
 // ─────────────────────────────────────────────────────────────────────────────
-class _HeroArticle extends StatefulWidget {
+class KategoriHeroKarti extends StatefulWidget {
   final NewsArticle article;
   final String categoryName;
   final bool isDark;
   final bool isMobile;
   final double fontScale;
-  const _HeroArticle(
-      {required this.article,
+  const KategoriHeroKarti(
+      {super.key,
+      required this.article,
       required this.categoryName,
       required this.isDark,
       required this.isMobile,
       this.fontScale = 1.0});
 
   @override
-  State<_HeroArticle> createState() => _HeroArticleState();
+  State<KategoriHeroKarti> createState() => KategoriHeroKartiState();
 }
 
-class _HeroArticleState extends State<_HeroArticle> {
+class KategoriHeroKartiState extends State<KategoriHeroKarti> {
   bool _hovered = false;
 
   @override

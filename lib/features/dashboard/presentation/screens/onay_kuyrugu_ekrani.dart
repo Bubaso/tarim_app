@@ -96,6 +96,10 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   Color get _metin => isDark ? Colors.white : Colors.black;
   Color get _soluk => isDark ? Colors.grey[400]! : Colors.grey[700]!;
 
+  /// COP31 bölümünün vurgu rengi — bölüm widget'ındakiyle aynı iki ton.
+  Color get _cop31Renk =>
+      isDark ? const Color(0xFF57C9B0) : const Color(0xFF0E5C52);
+
   // ── Süzme ve sıralama ────────────────────────────────────────────────────
 
   List<NewsArticle> _suz(List<NewsArticle> ham) {
@@ -438,6 +442,61 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
+          // COP31 kararı KARAR OLARAK soruluyor, düğme kalabalığının arasına
+          // karışan bir seçenek olarak değil.
+          //
+          // Otomatik atama denendi ve bırakıldı (12 Kasım 2026): yargı
+          // "zirvede söylendi" ile "zirveden söz edildi" ayrımını tutarlı
+          // yapamıyordu. Hat artık hiçbir haberi kendiliğinden işaretlemiyor;
+          // bölüme ne girerse buradan giriyor.
+          //
+          // Satır yalnızca bölüm açıkken var; 25 Kasım'dan sonra kuyruk
+          // kendiliğinden sadeleşiyor.
+          if (ozelBolumAktif()) ...[
+            const SizedBox(height: 14),
+            Container(
+              padding: const EdgeInsets.fromLTRB(12, 2, 6, 2),
+              decoration: BoxDecoration(
+                color: _cop31Renk.withValues(alpha: isDark ? 0.16 : 0.08),
+                borderRadius: BorderRadius.circular(10),
+                border:
+                    Border.all(color: _cop31Renk.withValues(alpha: 0.38)),
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.eco_rounded, size: 18, color: _cop31Renk),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Bu haber COP31 özel bölümüne gitsin mi?',
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: _cop31Renk,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    article.ozelBolum == kOzelBolum ? 'Evet' : 'Hayır',
+                    style: GoogleFonts.inter(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w800,
+                      color: article.ozelBolum == kOzelBolum
+                          ? _cop31Renk
+                          : _soluk,
+                    ),
+                  ),
+                  Switch(
+                    value: article.ozelBolum == kOzelBolum,
+                    activeThumbColor: _cop31Renk,
+                    onChanged: _islemde
+                        ? null
+                        : (_) => _cop31Degistir(article),
+                  ),
+                ],
+              ),
+            ),
+          ],
           const SizedBox(height: 16),
           Wrap(
             alignment: WrapAlignment.end,
@@ -703,10 +762,31 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
         );
     _secili.remove(article.id);
     if (ok) {
-      _bildirGeriAlinabilir(
-          'Haber reddedildi. Arşivde duruyor, geri alınabilir.', article.id);
+      _bildir('Haber silindi. Geri alınamaz.');
     } else {
-      _bildir('Reddetme başarısız — yetki yok ya da kayıt yazılamadı.');
+      _bildir('Reddetme başarısız — yetki yok ya da kayıt silinemedi.');
+    }
+    _tazele();
+  }
+
+  /// Haberi COP31 bölümüne alır ya da çıkarır.
+  ///
+  /// `topic`/`region`'a DOKUNMUYOR: haber Türkiye/Dünya kimliğini koruyor,
+  /// bölümün ömrü dolunca oraya geri akıyor.
+  Future<void> _cop31Degistir(NewsArticle article) async {
+    final icindeydi = article.ozelBolum == kOzelBolum;
+    setState(() => _islemde = true);
+    final ok = await ref
+        .read(homeRepositoryProvider)
+        .ozelBolumAyarla(article.id, icindeydi ? null : kOzelBolum);
+    if (ok) {
+      _bildir(icindeydi
+          ? 'Haber COP31 bölümünden çıkarıldı.'
+          : 'Haber COP31 bölümüne alındı.');
+      // Bölüm kendi sorgusuyla besleniyor; ortak listeyi tazelemek yetmiyor.
+      ref.invalidate(ozelBolumAkisiProvider);
+    } else {
+      _bildir('Değiştirilemedi — yetki yok ya da kayıt yazılamadı.');
     }
     _tazele();
   }
@@ -722,8 +802,8 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
         title: Text('Toplu red',
             style: GoogleFonts.outfit(fontWeight: FontWeight.bold)),
         content: Text(
-          '${hedef.length} haber reddedilecek. Reddedilen adresler '
-          'kaydedilir, aynı haber tekrar kuyruğa düşmez.',
+          '${hedef.length} haber KALICI OLARAK SİLİNECEK. Geri alınamaz. '
+          'Adresleri kaydedilir, aynı haber tekrar kuyruğa düşmez.',
           style: GoogleFonts.inter(),
         ),
         actions: [
@@ -753,31 +833,14 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
         );
     _secili.clear();
     _bildir(sayi == hedef.length
-        ? '$sayi haber reddedildi. Arşivde duruyor, geri alınabilir.'
-        : '$sayi / ${hedef.length} haber reddedildi; kalanlar kuyrukta.');
+        ? '$sayi haber silindi. Geri alınamaz.'
+        : '$sayi / ${hedef.length} haber silindi; kalanlar kuyrukta.');
     _tazele();
   }
 
-  void _bildirGeriAlinabilir(String mesaj, String id) {
-    if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(mesaj),
-      // Sekiz saniye artık TEK şans değil: çubuk kapandıktan sonra
-      // Reddedilenler sekmesinden aynı haber geri alınabiliyor.
-      duration: const Duration(seconds: 8),
-      action: SnackBarAction(
-        label: 'Geri al',
-        onPressed: () async {
-          final repo = ref.read(homeRepositoryProvider);
-          final ok = await repo.reddiGeriAl(id);
-          _bildir(ok
-              ? 'Red geri alındı.'
-              : 'Geri alınamadı: ${repo.sonYazmaHatasi ?? 'yetki yok'}');
-          _tazele();
-        },
-      ),
-    ));
-  }
+  // `_bildirGeriAlinabilir` kaldırıldı (11 Kas 2026): red artık satırı
+  // siliyor, geri alınacak bir kayıt kalmıyor. "Geri al" düğmesini bırakmak
+  // çalışmayan bir söz vermek olurdu.
 
   void _bildir(String mesaj) {
     if (!mounted) return;

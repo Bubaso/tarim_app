@@ -22,6 +22,7 @@ import '../widgets/agenda_bento_grid.dart';
 import '../widgets/hero_fold.dart';
 import '../widgets/news_ticker.dart';
 import '../widgets/category_nav_bar.dart';
+import '../widgets/portal_sections/cop31_section.dart';
 import '../widgets/portal_sections/science_reports_dossier.dart';
 import '../widgets/portal_sections/turkey_news_grid.dart';
 import '../widgets/portal_sections/world_news_row.dart';
@@ -463,6 +464,10 @@ class _MobileContent extends ConsumerWidget {
           const SizedBox(height: 28),
           _TurkeyNewsSection(isDark: isDark),
           const SizedBox(height: 28),
+          // COP31, "Türkiye'den Haberler"in hemen altında. Boşluğu kendi
+          // içinde (sonrasında) taşıyor: 25 Kasım'da bölüm çizilmeyi
+          // bıraktığında arada iki boşluk üst üste binmesin.
+          Cop31Section(isDark: isDark, spacing: 28),
           DossierStrip(isDark: isDark, spacing: 28),
           VideoSerit(isDark: isDark, spacing: 28),
           _ScienceAndReportsSection(isDark: isDark),
@@ -537,6 +542,7 @@ class _TabletContent extends ConsumerWidget {
         const SizedBox(height: 36),
         _TurkeyNewsSection(isDark: isDark),
         const SizedBox(height: 36),
+        Cop31Section(isDark: isDark, spacing: 36),
         DossierStrip(isDark: isDark, spacing: 36),
         VideoSerit(isDark: isDark, spacing: 36),
         _ScienceAndReportsSection(isDark: isDark),
@@ -628,6 +634,10 @@ class _DesktopContent extends ConsumerWidget {
           padding: const EdgeInsets.only(bottom: 40),
           child: _TurkeyNewsSection(isDark: isDark),
         ),
+        // Türkiye bölümünün alt boşluğu COP31'in üstündeki aralığı veriyor;
+        // COP31 de kendi altındakini taşıyor. Bölüm kapandığında geriye
+        // tek bir 40'lık aralık kalıyor.
+        Cop31Section(isDark: isDark, spacing: 40),
         DossierStrip(isDark: isDark, spacing: 40),
         VideoSerit(isDark: isDark, spacing: 40),
         Padding(
