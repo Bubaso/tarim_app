@@ -1575,5 +1575,165 @@
     "lisans_adresi": null
    }
   }
- ]
+ ],
+ "izlemede_kalan_kaynaklar": {
+  "_ne": "Kaydedilmiş web sayfaları. Bunlar git izlemesinde KALIYOR; buradaki kayıt yalnızca kaynak adresleri içindir.",
+  "_neden_kaliyor": "Adresi kayıtlı bir PDF git'ten çıkınca kaybolmaz: yeniden indirilir ve sha256'sıyla doğrulanır. Bir web sayfasında o kurtarma yolu YOK — sayfa değişir ya da kalkarsa eldeki kopya tek nüsha olur. Yani en çok tutulması gereken kategori, en az yer kaplayanla aynı (25 dosya, 7,8 MB).",
+  "_sha256_yok": "Bu dosyalar git'te izlendiği için bütünlüklerini git tutuyor; ikinci bir karma eklemek eskimeye açık bir tekrar olurdu.",
+  "_adres_kurali": "Adres dosyanın kendi beyanından alındı (canonical ya da og:url). Aynı adresi birden fazla dosya beyan ediyorsa o etiket site geneli sabittir ve kullanılmadı: beş ayrı sayfaya aynı adresi yazmak, adressiz bırakmaktan kötü.",
+  "dosya_sayisi": 25,
+  "adresi_olan": 8,
+  "adresi_olmayan": 17,
+  "dosyalar": [
+   {
+    "yol": "content/dossiers/avustralya/_raw/kaynak_dosyalari/bom_kuraklik_arsiv.html",
+    "bayt": 79398,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/dunya_icid_brezilya.html",
+    "bayt": 187319,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/dunya_icid_hindistan.html",
+    "bayt": 661322,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/dunya_icid_iran.html",
+    "bayt": 425714,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/dunya_icid_italya.html",
+    "bayt": 246741,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/dunya_icid_japonya.html",
+    "bayt": 381093,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/dunya_icid_misir.html",
+    "bayt": 349358,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/site_hakkimizda.html",
+    "bayt": 2782578,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/site_istatistik.html",
+    "bayt": 72379,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/site_sulama_dairesi.html",
+    "bayt": 79361,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/dsi/_raw/site_toprak_su_kaynaklari.html",
+    "bayt": 1786195,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/irak/_raw/kaynak_dosyalari/bm_irak_gen_bankasi_2024.html",
+    "bayt": 57691,
+    "kaynak": {
+     "adres": "https://iraq.un.org/en/269099-fao-iraq-takes-strides-towards-preserving-agricultural-biodiversity-and-conservation-plant",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/tmo/_raw/anasayfa.html",
+    "bayt": 117033,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/tmo/_raw/site_anastatu.html",
+    "bayt": 44244,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/tmo/_raw/site_faaliyet.html",
+    "bayt": 42597,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/tmo/_raw/site_istatistik.html",
+    "bayt": 42902,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/tmo/_raw/site_kanunlar.html",
+    "bayt": 52003,
+    "kaynak": null
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_bugun.html",
+    "bayt": 41489,
+    "kaynak": {
+     "adres": "https://www.ziraatbank.com.tr/tr/bankamiz/hakkimizda/gunumuzde-ziraat-bankasi",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_creditagricole_profil.html",
+    "bayt": 215151,
+    "kaynak": {
+     "adres": "https://www.credit-agricole.com/en/group/discover-the-credit-agricole-group",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_creditagricole_tarih.html",
+    "bayt": 232843,
+    "kaynak": {
+     "adres": "https://www.credit-agricole.com/en/group/history-of-the-credit-agricole-group",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_finansal.html",
+    "bayt": 45924,
+    "kaynak": {
+     "adres": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri/finansal-bilgiler/yillik-faaliyet-raporlari",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_organizasyon.html",
+    "bayt": 45379,
+    "kaynak": {
+     "adres": "https://www.ziraatbank.com.tr/tr/bankamiz/hakkimizda/organizasyon-yapimiz/genel-mudurluk",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_tarihce.html",
+    "bayt": 84836,
+    "kaynak": {
+     "adres": "https://www.ziraatbank.com.tr/tr/bankamiz/hakkimizda/bankamiz-tarihcesi",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_tarim_bankaciligi.html",
+    "bayt": 61173,
+    "kaynak": {
+     "adres": "https://www.ziraatbank.com.tr/tr/ticari/tarim",
+     "nereden": "canonical"
+    }
+   },
+   {
+    "yol": "content/dossiers/ziraat-bankasi/_raw/site_tarimkredi.html",
+    "bayt": 36213,
+    "kaynak": null
+   }
+  ]
+ }
 }

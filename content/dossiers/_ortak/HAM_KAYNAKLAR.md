@@ -16,8 +16,27 @@ sorundu.
 Depoda kalan: künye ve veri JSON'ları, kaydedilmiş HTML sayfaları, betikler
 (144 dosya, 23,6 MB).
 
-HTML'ler bilerek kalıyor: metin oldukları için git onları iyi sıkıştırıyor ve
-diff'lenebiliyorlar. Kapsam yalnızca İKİLİ dosyalar.
+HTML'ler bilerek kalıyor. İlk gerekçe metin olmalarıydı — git iyi sıkıştırıyor
+ve diff'lenebiliyorlar. Ama asıl sebep daha güçlü:
+
+> Adresi kayıtlı bir PDF git'ten çıkınca **kaybolmaz**: yeniden indirilir ve
+> `sha256`'sıyla doğrulanır. Bir web sayfasında o kurtarma yolu **yok** —
+> sayfa değişir ya da kalkarsa eldeki kopya tek nüsha olur.
+
+Yani en çok tutulması gereken kategori, en az yer kaplayanla aynı: 25 dosya,
+7,8 MB. Kapsam yalnızca İKİLİ dosyalar.
+
+Kaydedilmiş sayfaların adresleri `ham_kaynaklar.json` içindeki
+`izlemede_kalan_kaynaklar` bölümünde. Bu dosyalar git'te izlendiği için
+`sha256` yazılmadı: bütünlüklerini git tutuyor, ikinci bir karma eskimeye açık
+bir tekrar olurdu.
+
+Adresler dosyanın **kendi beyanından** alındı (`canonical` ya da `og:url`).
+25 sayfanın 8'inde güvenilir bir adres çıktı. TMO'nun beş sayfası `canonical`
+olarak da `og:url` olarak da site kökünü (`https://www.tmo.gov.tr/`)
+gösteriyor — site geneli sabit bir etiket. Beş ayrı sayfaya aynı adresi
+yazmak, adressiz bırakmaktan kötü olurdu; boş bırakıldı. DSİ'nin 11'inde ve
+Avustralya'nın birinde hiçbir işaret yok.
 
 Kalanların kalması bilinçli: `kunye.json` görselin atfını ve lisansını,
 veri JSON'ları `_kaynak_adresi` ve `_ham_dosya` alanlarını taşıyor. Yani ham
