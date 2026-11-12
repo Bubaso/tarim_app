@@ -29,6 +29,29 @@ KOK = BURADA.parents[3]
 HEDEF = KOK / "supabase/migrations/20261111090000_tigem_icerik_draft.sql"
 SEED = KOK / "supabase/seed/dossier_tigem.sql"
 
+# ── UYGULANMIŞ GÖÇ YENİDEN YAZILMAZ (§4.1) ────────────────────────────────
+#
+# Bu betik 12 Kasım 2026'da, göç HENÜZ UYGULANMAMIŞKEN yazıldı. Devirden
+# sonra çalıştırılırsa iki şeyi birden bozar:
+#
+#   1. Uygulanmış bir göç dosyasını değiştirir. §37.6'da bunun ne demek
+#      olduğu yazılı: sürüm "uygulandı" sayıldığı için `db push` bir şey
+#      yapmaz, dosya ile veritabanı sessizce ayrışır.
+#   2. Seed artık `status = 'published'` taşıyor (yayin.json devirde
+#      güncellendi), yani üretilen göç "taslak içerik göçü" olmaktan çıkar.
+#
+# Devir göçünün varlığı, içerik göçünün uygulandığının yerel işareti.
+devir = list((KOK / "supabase/migrations").glob("*dosya_devri_tigem*.sql"))
+if devir and "--yeniden-yaz" not in sys.argv:
+    print("✗ İçerik göçü UYGULANMIŞ — yeniden üretilmeyecek (§4.1).",
+          file=sys.stderr)
+    print(f"  İşaret: {devir[0].name}", file=sys.stderr)
+    print("  Düzeltme gerekiyorsa YENİ bir göç yazılır; bu dosya kilitlidir.",
+          file=sys.stderr)
+    print("  Devirden ÖNCEki bir duruma dönüldüyse: --yeniden-yaz",
+          file=sys.stderr)
+    sys.exit(1)
+
 baslik = io.open(BURADA / "baslik_icerik.sql", encoding="utf-8").read().rstrip()
 seed = io.open(SEED, encoding="utf-8").read()
 saglama = io.open(BURADA / "saglama_icerik.sql", encoding="utf-8").read().rstrip()
