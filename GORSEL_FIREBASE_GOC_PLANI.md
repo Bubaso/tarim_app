@@ -189,10 +189,43 @@ Kırılma ana sayfada değil, arşiv sayfalarında ve paylaşım kartlarında
 görünür — şiddeti düşürüyor ama arşiv de yayın.
 
 Yani dosya görsellerinin ezici çoğunluğu Firebase Hosting'den servis ediliyor
-ve bu göç onlara dokunmuyor. Dokunacağı 21 adres için **o tarafı yürüten
-oturumla birlikte** hareket edilmeli: aynı SQL göçünde yeniden yazılabilirler
-ama kararı onlar vermeli, çünkü `yayin.json` dosyaları da aynı adresleri
-taşıyor ve bir sonraki seed güncellenmemiş bir değeri geri yazar.
+ve bu göç onlara dokunmuyor.
+
+#### O 21 adresin 20'si göç işi DEĞİL — depo/veritabanı ayrışması
+
+Ölçüldü (12 Kasım 2026):
+
+| | Depo (`yayin.json`) | Canlı veritabanı |
+|---|---|---|
+| **avustralya** | `tarimportali.net/dosya/` · 19 referans, 14 benzersiz | `supabase.co/dossier-images/` · 14 |
+| **hollanda** | `supabase.co` · 1 (video) | aynı · 1 |
+
+Avustralya'da depo çoktan yeni şemaya geçirilmiş, veritabanı hiç yeniden seed
+edilmemiş. İkisi ayrışmış ve kimse görmemiş, çünkü dosya 2 Kasım'da arşive
+düştü. **Hedef adreslerin on dördü de şu an canlıda çalışıyor: 14/14 → 200,
+`content-type: image/jpeg`.** Dosyalar `web/dosya/avustralya` altında (20
+izlenen dosya) ve hosting'den servis ediliyorlar.
+
+Dolayısıyla Avustralya için Firebase'e taşınacak bir şey yok: veritabanını
+deponun zaten gösterdiği adrese çekmek yetiyor. Varış noktası hazır ve
+doğrulanmış. Bu bir **düzeltme**, göç kararını beklemesi gerekmiyor — ve
+dosya tarafını yürüten oturumun işi.
+
+Hollanda'nın videosu ise depoda da veritabanında da Supabase diyor: **gerçek
+göç kalemi yalnızca bu.** Göçün dosya tarafı kapsamı **21 değil, 1.**
+
+#### Sıralama: önce veritabanı, sonra kova
+
+Avustralya şu an **canlıda Supabase deposundan** servis ediliyor. Kova önce
+boşaltılır da veritabanı sonra güncellenirse, arada arşiv sayfası ve paylaşım
+kartları kırılır. Güvenli sıra tersi:
+
+1. **Önce** veritabanını `tarimportali.net`e çek — hedef zaten ayakta, kırılma
+   penceresi sıfır.
+2. **Sonra** kova istendiği gibi boşaltılsın.
+
+`yayin.json` tarafı zaten doğru olduğu için Avustralya'da depo güncellemesi
+gerekmiyor; Hollanda'nın videosu taşınırsa orada gerekecek.
 
 ### deploy.sh tuzağı — taşıma sırasında buna çarpılacak
 
