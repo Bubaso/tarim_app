@@ -7,7 +7,6 @@ import '../../data/tni_veri.g.dart';
 import '../tni_tasarim.dart';
 import 'tni_gorsel.dart';
 import 'tni_parcalar.dart';
-import 'tni_paylas.dart';
 
 /// Anasayfadaki Turkuaz Bağlantısallık Girişimi şeridi.
 ///
@@ -50,9 +49,11 @@ class TniAnasayfaSeridi extends StatelessWidget {
 
     // Yükseklik üç kademe. Alçak kalıyor: şerit akışı bölmeden kendini
     // göstermeli.
-    // Paylaş düğmeleri de şeride girdiği için yükseklik bir kademe arttı
-    // (kullanıcı, 12 Kasım 2026). Hâlâ "alçak ve geniş": dört satır.
-    final boy = dar ? 158.0 : (orta ? 172.0 : 186.0);
+    // PAYLAŞ DÜĞMELERİ ŞERİTTE YOK (kullanıcı, 12 Kasım 2026). Bir ara
+    // konuldu ve yükseklik onlar için bir kademe artmıştı; ikisi de geri
+    // alındı. Şeridin işi çağırmak, paylaşmak değil — paylaşım düğmeleri
+    // sayfanın içinde iki yerde duruyor (başlığın altı ve künyenin üstü).
+    final boy = dar ? 124.0 : (orta ? 140.0 : 156.0);
     final onde = (isEn ? kimlik['ad_en'] : kimlik['ad_tr']) as String;
 
     return Padding(
@@ -151,24 +152,6 @@ class TniAnasayfaSeridi extends StatelessWidget {
                               renk: TniRenk.geceIkincil,
                               satir: 1.35,
                             ),
-                          ),
-                          SizedBox(height: dar ? 8 : 10),
-                          // PAYLAŞ DÜĞMELERİ ŞERİTTE DE (kullanıcı, 12 Kasım
-                          // 2026). Düğmelerin kendi `onTap`'leri şeridin
-                          // `InkWell`'inden önce davranıyor, yani paylaşmak
-                          // isteyen okur yanlışlıkla sayfaya gitmiyor.
-                          //
-                          // Şerit her zaman koyu olduğu için `karanlik: true`
-                          // sabit: burada sayfanın gece paleti geçerli.
-                          TniPaylas(
-                            isEn: isEn,
-                            karanlik: true,
-                            baslik: onde,
-                            ozet: isEn
-                                ? 'What Türkiye proposed at COP31, and what '
-                                    'is expected to come of it'
-                                : 'Türkiye\'nin COP31\'de ortaya koyduğu '
-                                    'girişim ve ondan beklenenler',
                           ),
                         ],
                       ),
