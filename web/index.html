@@ -115,7 +115,27 @@
   <!-- SOCIAL_META_START -->
   <title>Tarım Portalı - Tarımın Doğru Adresi</title>
   <meta name="description" content="Türkiye'nin en güncel tarım, hayvancılık ve ekonomi haber kaynağı. Sektördeki yenilikleri ilk siz öğrenin.">
-  <link rel="canonical" href="https://tarimportali.net/">
+  <!--
+    CANONICAL BURADA YOK, VE BİLEREK YOK — geri eklemeyin.
+
+    12 Kasım 2026'ya kadar burada `<link rel="canonical"
+    href="https://tarimportali.net/">` duruyordu: site KÖKÜ. Bu blok aynı
+    zamanda SSR'si olmayan HER rotanın varsayılanı olduğu için sonuç şuydu —
+    /kurum/<slug>, /yazarlar, /arama, /hikayeler, /kunye, /hakkimizda,
+    /piyasalar hepsi tarama motoruna "ben ana sayfanın kopyasıyım" diyordu.
+    Yani kendi başlıklarıyla aranabilir olmaktan çıkıyorlardı.
+
+    og etiketi yanlış olsa kozmetik kalırdı; canonical öyle değil.
+
+    SATIRIN KALKMASI NEYİ BOZMAZ:
+      · /haber/**, /kategori/**, /hafta/** — SSR bu bloğun TAMAMINI yeniden
+        yazıyor ve canonical'ı kendisi basıyor (functions/index.js:660).
+      · /ulke/<slug>, /kurum/<slug> — statik_sayfa.mjs kabuğa sayfanın kendi
+        adresini yazıyor (12 Kasım 2026'da eklendi).
+      · Geri kalan rotalar ve ANA SAYFA canonical'sız kalıyor; tarama motoru
+        o durumda sayfanın kendi adresini kanonik sayar. Yanlış bir kanonik
+        bildirmektense hiç bildirmemek doğru.
+  -->
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Tarım Portalı">

@@ -168,7 +168,12 @@ const html = `<!doctype html>
   </div>
   <div class="alt">
     ${rozet ? `<div class="rozet">${rozet}</div>` : '<div></div>'}
-    <div class="site">tarim-app-2026.web.app</div>
+    <!-- Kartın imzası sitenin KANONİK adı. 12 Kasım 2026'ya kadar
+         tarim-app-2026.web.app yazıyordu: dosya paylaşıldığında kartın
+         üstünde bir alan adı, bağlantısında başka bir alan adı
+         görünüyordu. Aynı eskime og:url ve statik kabuklarda da vardı,
+         üçü birden düzeltildi. -->
+    <div class="site">tarimportali.net</div>
   </div>
 </body></html>`;
 
