@@ -173,7 +173,13 @@ class _Kare extends StatelessWidget {
       button: true,
       label: eser.kunye(isEn),
       child: InkWell(
-        onTap: () => context.go('/sergi'),
+        // `go` DEĞİL `push`: `go` bütün yığını değiştiriyor, yani anasayfa
+        // yok edilip geri dönüldüğünde baştan kuruluyor ve okur sekiz ekran
+        // kaydırdığı yeri kaybedip sayfanın başına düşüyordu. `push`
+        // anasayfayı altta bırakıyor, kaydırma konumu duruyor. Sayfadaki
+        // öteki bağlantılar (haber, dosya) zaten `push` kullanıyor; burası
+        // tek istisnaydı.
+        onTap: () => context.push('/sergi'),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -249,7 +255,13 @@ class _Alt extends StatelessWidget {
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         InkWell(
-          onTap: () => context.go('/sergi'),
+          // `go` DEĞİL `push`: `go` bütün yığını değiştiriyor, yani anasayfa
+        // yok edilip geri dönüldüğünde baştan kuruluyor ve okur sekiz ekran
+        // kaydırdığı yeri kaybedip sayfanın başına düşüyordu. `push`
+        // anasayfayı altta bırakıyor, kaydırma konumu duruyor. Sayfadaki
+        // öteki bağlantılar (haber, dosya) zaten `push` kullanıyor; burası
+        // tek istisnaydı.
+        onTap: () => context.push('/sergi'),
           borderRadius: BorderRadius.circular(3),
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),

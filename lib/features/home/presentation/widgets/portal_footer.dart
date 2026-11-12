@@ -132,7 +132,8 @@ class PortalFooter extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 1,
-                      child: _buildSocials(isEn, linkColor, textColor),
+                      child: _buildSocials(isEn, linkColor, textColor,
+                          bultenAltta: true),
                     ),
                   ],
                 )
@@ -157,7 +158,14 @@ class PortalFooter extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 32),
-                    _buildSocials(isEn, linkColor, textColor),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildSocials(isEn, linkColor, textColor),
+                        const SizedBox(width: 24),
+                        Expanded(child: HaftalikBultenKaydi(isDark: isDark)),
+                      ],
+                    ),
                   ],
                 ),
               const SizedBox(height: 48),
@@ -271,7 +279,19 @@ class PortalFooter extends StatelessWidget {
     );
   }
 
-  Widget _buildSocials(bool isEn, Color titleColor, Color iconColor) {
+  /// Sosyal hesaplar ve — masaüstünde — altındaki bülten daveti.
+  ///
+  /// BÜLTEN ALTBİLGİYE GERİ DÖNDÜ (kullanıcı, 12 Kasım 2026). 6 Kasım'da
+  /// buradan "Günün sonu" bloğuna taşınmıştı; o blok kaldırıldığı için davet
+  /// yeniden künyeye ait. Yeri rastgele değil: takip etmeye en yakın duran
+  /// okur, haftalık özeti de isteyen okur.
+  ///
+  /// Masaüstünde logoların ALTINDA, telefonda SAĞINDA — iki yerleşimin
+  /// sebebi aynı: dar ekranda alt alta dizilen altbilgi zaten uzun, davet de
+  /// alta eklenirse kimse oraya varmıyor; geniş ekranda ise sütun dar, yan
+  /// yana sıkışıyorlar.
+  Widget _buildSocials(bool isEn, Color titleColor, Color iconColor,
+      {bool bultenAltta = false}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -308,6 +328,10 @@ class PortalFooter extends StatelessWidget {
             ),
           ],
         ),
+        if (bultenAltta) ...[
+          const SizedBox(height: 28),
+          HaftalikBultenKaydi(isDark: isDark),
+        ],
       ],
     );
   }

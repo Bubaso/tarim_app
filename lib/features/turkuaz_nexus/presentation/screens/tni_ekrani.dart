@@ -119,6 +119,22 @@ class TniEkrani extends ConsumerWidget {
                     _Haberler(karanlik: karanlik, isEn: isEn),
                     const TniAra(boy: 44),
 
+                    // Sayfanın sonundaki ikinci çubuk: okur sekiz bölümü
+                    // okuduktan sonra paylaşmak için başa dönmek zorunda
+                    // kalmasın.
+                    TniPaylas(
+                      isEn: isEn,
+                      karanlik: karanlik,
+                      baslik: (isEn
+                          ? tniVeri['kimlik']['ad_en']
+                          : tniVeri['kimlik']['ad_tr']) as String,
+                      ozet: isEn
+                          ? 'What Türkiye proposed at COP31, and what is '
+                              'expected to come of it'
+                          : 'Türkiye\'nin COP31\'de ortaya koyduğu girişim '
+                              've ondan beklenenler',
+                    ),
+                    const TniAra(boy: 34),
                     _Kunye(veri: veri, karanlik: karanlik, isEn: isEn),
                     const TniAra(boy: 56),
                   ],
@@ -155,8 +171,8 @@ class _Kapak extends StatelessWidget {
     final genislik = MediaQuery.of(context).size.width;
     final dar = genislik < 640;
 
-    final onde = isEn ? kimlik['ad_en'] : kimlik['ad_tr'];
-    final arkada = isEn ? kimlik['ad_tr'] : kimlik['ad_en'];
+    final onde = (isEn ? kimlik['ad_en'] : kimlik['ad_tr']) as String;
+    final arkada = (isEn ? kimlik['ad_tr'] : kimlik['ad_en']) as String;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,7 +194,7 @@ class _Kapak extends StatelessWidget {
         ),
         const TniAra(boy: 18),
         Text(
-          onde as String,
+          onde,
           style: TniYazi.gosterge(
             punto: dar ? 30 : 44,
             renk: TniRenk.metin(k),
@@ -189,7 +205,7 @@ class _Kapak extends StatelessWidget {
         ),
         const TniAra(boy: 8),
         Text(
-          arkada as String,
+          arkada,
           style: TniYazi.olcu(
             punto: dar ? 12 : 13.5,
             renk: TniRenk.ikincil(k),
@@ -209,6 +225,21 @@ class _Kapak extends StatelessWidget {
             ),
           ),
         ),
+        const TniAra(boy: 18),
+        // PAYLAŞIM, ANA BAŞLIĞIN HEMEN ALTINDA. Önce giriş bloğunun sonunda
+        // duruyordu ve orada kaybolu yordu: okur ne paylaşacağını başlıkta
+        // öğreniyor, kurumsal künyeyi okuduktan sonra değil. Sayfanın
+        // sonunda bir ikincisi daha var — uzun sayfada okur başa dönmesin.
+        TniPaylas(
+          isEn: isEn,
+          karanlik: k,
+          baslik: onde,
+          ozet: isEn
+              ? 'What Türkiye proposed at COP31, and what is expected to come '
+                  'of it'
+              : 'Türkiye\'nin COP31\'de ortaya koyduğu girişim ve ondan '
+                  'beklenenler',
+        ),
         const TniAra(boy: 26),
         TniGorsel(kod: 'kapak', karanlik: k, isEn: isEn),
         const TniAra(boy: 28),
@@ -225,19 +256,6 @@ class _Kapak extends StatelessWidget {
         ),
         const TniAra(boy: 22),
         _KimKarti(karanlik: k, isEn: isEn),
-        const TniAra(boy: 18),
-        // PAYLAŞIM ÇUBUĞU giriş bloğunun sonunda: okur sayfanın ne olduğunu
-        // öğrendikten SONRA paylaşmak ister, başlığı görür görmez değil.
-        TniPaylas(
-          isEn: isEn,
-          karanlik: k,
-          baslik: (isEn ? kimlik['ad_en'] : kimlik['ad_tr']) as String,
-          ozet: isEn
-              ? 'What Türkiye proposed at COP31, and what is expected to come '
-                  'of it'
-              : 'Türkiye\'nin COP31\'de ortaya koyduğu girişim ve ondan '
-                  'beklenenler',
-        ),
         const TniAra(boy: 24),
         // FAO'NUN KENDİ SESİ, AÇILIŞTA. Yukarıdaki kart girişimin çatısının
         // FAO olduğunu söylüyor; hemen ardından FAO'dan birinin girişimi

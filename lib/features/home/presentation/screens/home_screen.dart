@@ -49,7 +49,6 @@ import '../../../videos/presentation/widgets/video_serit.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/hava_ikonu.dart';
 import '../widgets/sektorel_blok.dart';
-import '../widgets/kapanis_blogu.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -479,7 +478,7 @@ class _MobileContent extends ConsumerWidget {
           // eşikte duruyor ve iki akışı birbirine bağlıyor.
           _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 28),
-          TniAnasayfaSeridi(spacing: 28),
+          const TniAnasayfaSeridi(spacing: 28),
           // Sektörler, Dünya'nın hemen peşinde: bölge bölümlerinden sonra
           // gelen ilk konu bölümü.
           SektorelBlok(isDark: isDark),
@@ -490,7 +489,6 @@ class _MobileContent extends ConsumerWidget {
           KisaKisaSection(isDark: isDark, spacing: 28),
           const SizedBox(height: 32),
           // Sayfanın bir sonu olsun (A10): arşiv ve bülten daveti.
-          KapanisBlogu(isDark: isDark),
           // SERGİ BANDI — sayfanın gerçekten sonunda, kapanış bloğundan
           // sonra, altbilgiden önce. Haber duvarı bitti; okur artık
           // okumuyor, bakıyor. Bant kenardan kenara ve koyu: portalın
@@ -560,7 +558,7 @@ class _TabletContent extends ConsumerWidget {
         const SizedBox(height: 36),
         _WorldNewsSection(isDark: isDark),
         const SizedBox(height: 36),
-        TniAnasayfaSeridi(spacing: 36),
+        const TniAnasayfaSeridi(spacing: 36),
         SektorelBlok(isDark: isDark),
         const SizedBox(height: 36),
         IcymiSection(isDark: isDark),
@@ -577,7 +575,6 @@ class _TabletContent extends ConsumerWidget {
                 ),
               ),
             ),
-          KapanisBlogu(isDark: isDark),
           // SERGİ BANDI — sayfanın gerçekten sonunda, kapanış bloğundan
           // sonra, altbilgiden önce. Haber duvarı bitti; okur artık
           // okumuyor, bakıyor. Bant kenardan kenara ve koyu: portalın
@@ -701,7 +698,6 @@ class _DesktopContent extends ConsumerWidget {
           child: Center(
             child: ConstrainedBox(
               constraints: BoxConstraints(maxWidth: maxWidth),
-              child: KapanisBlogu(isDark: isDark),
             ),
           ),
         ),
