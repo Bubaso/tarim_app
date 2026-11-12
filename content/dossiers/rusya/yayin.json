@@ -16,7 +16,7 @@
  "status": "archived",
  "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
  "kapak": {
-  "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_kulunda_bozkiri.jpg",
+  "url": "https://tarimportali.net/dosya/rusya/rusya_kulunda_bozkiri.jpg",
   "atif": "NASA Goddard Space Flight Center / MODIS Land Rapid Response Team",
   "lisans": "Kamu malı",
   "_commons": "Kulunda Steppe (MODIS 2026-07-06).jpg",
@@ -88,7 +88,7 @@
  },
  "bolum_gorselleri": {
   "2": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_cernozyom_monolit.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_cernozyom_monolit.jpg",
    "atif": "Rockwurm, ISRIC World Soil Information — CC BY-SA 3.0",
    "lisans": "CC BY-SA 3.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Chernozem.JPG",
@@ -96,7 +96,7 @@
    "alt_en": "A chernozem soil profile: a thick, almost black humus horizon on top, lightening with depth. The blackness is millennia of accumulated steppe grass."
   },
   "4": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_vavilov.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_vavilov.jpg",
    "atif": "Library of Congress, New York World-Telegram & Sun Collection — kamu malı",
    "lisans": "Kamu malı",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Nikolai_Vavilov_NYWTS.jpg",
@@ -104,7 +104,7 @@
    "alt_en": "Portrait of Nikolai Ivanovich Vavilov, the botanist who mounted 115 expeditions to 64 countries and gathered more than 250,000 seed samples."
   },
   "5": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_aycicegi_tarlasi.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_aycicegi_tarlasi.jpg",
    "atif": "andrew, Wikimedia Commons — CC BY 3.0",
    "lisans": "CC BY 3.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Sunflower_field_in_Russia.JPG",
@@ -112,7 +112,7 @@
    "alt_en": "A sunflower field stretching to the horizon in Russia — two centuries of production tradition as it stands today."
   },
   "6": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_1946_tahil_pulu.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_1946_tahil_pulu.jpg",
    "atif": "SSCB posta pulu, 1946 — kamu malı",
    "lisans": "Kamu malı",
    "kaynak": "https://commons.wikimedia.org/wiki/File:The_Soviet_Union_1946_CPA_1082_stamp_(Fourth_Five-Year_Plan._Give_the_country_each_year_127_million_tons_of_grain._Combine_harvester_and_wheat_sheaf)_large_resolution.jpg",
@@ -120,7 +120,7 @@
    "alt_en": "A 1946 Soviet postage stamp showing a combine harvester and a wheat sheaf — collective agriculture's target announced on postage."
   },
   "9": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_borodinski_ekmek.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_borodinski_ekmek.jpg",
    "atif": "Tiraspolsky, Wikimedia Commons — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Бородинский_хлеб.jpg",
@@ -128,7 +128,7 @@
    "alt_en": "Sliced Borodinsky bread: dark, made from rye flour, the best known of the Russian black breads."
   },
   "10": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_dacha_bahcesi.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_dacha_bahcesi.jpg",
    "atif": "Vovs Vtoroi, Wikimedia Commons — CC BY 3.0",
    "lisans": "CC BY 3.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Дача_-_panoramio_(25).jpg",
@@ -136,7 +136,7 @@
    "alt_en": "A dacha garden: small plots, rows of vegetables and a wooden house. Four-fifths of Russia's potatoes come from this scale."
   },
   "13": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_rize_cay.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_rize_cay.jpg",
    "atif": "Wikimol, Wikimedia Commons — CC BY-SA 2.5",
    "lisans": "CC BY-SA 2.5",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Rize_Tea_Plantation_2005-jk.jpg",
@@ -144,7 +144,7 @@
    "alt_en": "A tea garden spread across a hillside in Rize. The ancestor of this plant came from seed brought from Batumi in 1937."
   },
   "15": {
-   "url": "https://tarim-app-2026.web.app/dosya/rusya/rusya_ksk_terminali.jpg",
+   "url": "https://tarimportali.net/dosya/rusya/rusya_ksk_terminali.jpg",
    "atif": "IvanStudenov, Wikimedia Commons — CC BY-SA 4.0",
    "lisans": "CC BY-SA 4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Grain_shipments_at_KSK_terminal.jpg",
@@ -178,7 +178,7 @@
     "rakam_en": "$6.83 billion",
     "etiket": "2024'te Rusya'dan tarım ithalatımız",
     "etiket_en": "Our agricultural imports from Russia in 2024",
-    "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_ksk_terminali.jpg"
+    "gorsel": "https://tarimportali.net/dosya/rusya/rusya_ksk_terminali.jpg"
    },
    {
     "ust": "SİLO VE BUZDOLABI",
@@ -189,7 +189,7 @@
     "rakam_en": "74.6%",
     "etiket": "Rusya'ya sattığımızın bozulan payı",
     "etiket_en": "The perishable share of what we sell Russia",
-    "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_aycicegi_tarlasi.jpg"
+    "gorsel": "https://tarimportali.net/dosya/rusya/rusya_aycicegi_tarlasi.jpg"
    },
    {
     "ust": "BEKLENMEDİK BİR SIRA",
@@ -200,7 +200,7 @@
     "rakam_en": "16.4%",
     "etiket": "Rusya'nın tarım ihracatından aldığımız pay",
     "etiket_en": "Our share of Russia's agricultural exports",
-    "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_cernozyom_monolit.jpg"
+    "gorsel": "https://tarimportali.net/dosya/rusya/rusya_cernozyom_monolit.jpg"
    },
    {
     "ust": "TERS YÖNE AKAN",
@@ -211,7 +211,7 @@
     "rakam_en": "20 tonnes",
     "etiket": "1937'de Batum'dan alınan çay tohumu",
     "etiket_en": "Tea seed bought from Batumi in 1937",
-    "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_rize_cay.jpg"
+    "gorsel": "https://tarimportali.net/dosya/rusya/rusya_rize_cay.jpg"
    },
    {
     "ust": "RUSYA",
@@ -222,7 +222,7 @@
     "rakam_en": "20 sections",
     "etiket": "Ülke dosyamıza göz atın →",
     "etiket_en": "Take a look at our country dossier →",
-    "gorsel": "https://tarim-app-2026.web.app/dosya/rusya/rusya_kulunda_bozkiri.jpg"
+    "gorsel": "https://tarimportali.net/dosya/rusya/rusya_kulunda_bozkiri.jpg"
    }
   ]
  },
@@ -235,5 +235,6 @@
   "Rosstat"
  ],
  "_anahtar_kelimeler_notu": "Haber eşleştirmesinde aranacak terimler. KELİME OLARAK aranıyor (sözcük sınırı), alt dize olarak değil — \"Rus\" araması \"Prusya\"yı yakalamasın diye. Editör kararıdır: liste boşsa dosya hiçbir haberle eşleşmez, çünkü yanlış haber göstermektense hiç göstermemek doğru.",
- "_status_notu": "Yayında. Devir 29 Ağustos 2026'da öne çekildi (kullanıcı kararı): Hollanda'nın penceresi 13 Eylül yerine bugün kapatıldı, Rusya bugün açıldı."
+ "_status_notu": "Yayında. Devir 29 Ağustos 2026'da öne çekildi (kullanıcı kararı): Hollanda'nın penceresi 13 Eylül yerine bugün kapatıldı, Rusya bugün açıldı.",
+ "_gorsel_alan_adi_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Depo tarim-app-2026.web.app diyordu, canlı satır tarimportali.net. İkisi de aynı hosting'i gösteriyor, yani okur bir şey kaybetmiyordu — ama bu dosyanın seed'i yeniden koşsaydı CANLI adresleri kanonik olmayan alan adına çevirirdi. durum_bekcisi.mjs artık bu ayrışmayı dağıtımda bildiriyor."
 }

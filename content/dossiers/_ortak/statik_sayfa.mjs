@@ -20,7 +20,21 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const KOK = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
-const ADRES = 'https://tarim-app-2026.web.app';
+// KANONİK ALAN ADI. 12 Kasım 2026'ya kadar burada tarim-app-2026.web.app
+// yazıyordu ve sonucu canlıda ölçüldü: her dosyanın paylaşım kartı
+//
+//   og:url    https://tarim-app-2026.web.app/kurum/tigem
+//   og:image  https://tarim-app-2026.web.app/paylasim/tigem.jpg
+//
+// derken, sayfanın kendi etiketi `<link rel="canonical"
+// href="https://tarimportali.net/">` diyordu. Yani site kendini bir alan
+// adıyla tanıtıyor, paylaşıldığında başka bir alan adına çağırıyordu. İkisi
+// de aynı hosting'i servis ettiği için hiçbir şey KIRILMIYOR — bu yüzden
+// kimse fark etmedi. Kaybedilen şey tarama motorlarındaki bütünlük ve kartı
+// tıklayanın hangi alan adında kalacağı.
+//
+// statik_sayfa_db.mjs zaten tarimportali.net kullanıyordu; ikisi ayrışmıştı.
+const ADRES = 'https://tarimportali.net';
 
 const slug = process.argv[2];
 if (!slug) { console.error('Kullanım: … statik_sayfa.mjs <slug>'); process.exit(1); }

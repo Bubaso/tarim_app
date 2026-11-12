@@ -1,259 +1,260 @@
 {
-  "_dosya": "Hollanda — Ülke Dosyası · yayın künyesi",
-  "_amac": "İçerik (metin_*.md), tasarım (tasarim.json) ve veri (data.json) dışında kalan üçüncü şey: bu dosyanın NE ZAMAN ve HANGİ ADRESTE yayımlanacağı. seed_dossier.mjs yalnızca bu dosyadan okur; betikte hiçbir ülkeye özel değer gömülü değil.",
-  "slug": "hollanda",
-  "name_tr": "Hollanda",
-  "name_en": "Netherlands",
-  "iso3": "NLD",
-  "edition": 1,
-  "_iso3_notu": "FAOSTAT ve World Bank sorguları bu kodla yapıldı (_raw/wb_fetch.mjs, _raw/fetch_faostat.sh). Bir rakam tartışmaya açılırsa kaynağa dönmenin anahtarı bu.",
-  "pencere": {
-    "gun": 28,
-    "baslangic": null,
-    "_baslangic_notu": "null ise seed anında now() yazılır. Belirli bir tarihte açılacaksa ISO 8601 (örn. '2026-09-01T06:00:00+03:00') yazın; betik bitişi otomatik hesaplar.",
-    "_bitis_notu": "İkinci ülke hazır değilse pencere kapanınca ana sayfa bölümü boşalır. Bunu istemiyorsanız 'gun' değerini null yapın — dosya süresiz yayında kalır."
-  },
-  "status": "archived",
-  "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
-  "_status_notu": "draft | scheduled | published | archived. 'draft' RLS tarafından anon'a kapalıdır; yarım metin adres tahminiyle okunamaz.",
-  "kapak": {
-    "url": "https://tarim-app-2026.web.app/dosya/hollanda/hollanda_gece.jpg",
-    "atif": "NASA — ISS049-E-009356, Expedition 49, 24 Eylül 2016. Kamu malı",
-    "kaynak": "https://commons.wikimedia.org/wiki/File:ISS-49_Western_Europe.jpg",
-    "_notu": "tasarim.json kapak yönü \"gece parıltısı — havadan/yörüngeden\" diyordu ama görsel hiç aranmamıştı; dosya ilk yayında kapaksız çıktı. NASA açıklaması görüntüdeki yoğun ışığın Hollanda ve Belçika olduğunu yazıyor. SERA olduğu İDDİA EDİLMİYOR — kaynak öyle demiyor."
-  },
-  "video": {
-    "url": "https://xkwcyavcltrweunvooeu.supabase.co/storage/v1/object/public/country_folder_videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.mp4",
-    "_notu": "Kapaktaki tanıtım videosu. null ise kapakta video bloğu hiç çizilmez; kapak görselinde olduğu gibi sayfa videosuz da tam çalışır. Bu adres bir süre EKRAN KODUNDA gömülü durdu ve slug'a bakan bir koşulla çiziliyordu; ikinci ülkede koşul ikiye çıkacağı için buraya taşındı."
-  },
-  "bolum_grafikleri": {
-    "1": [
-      "tez_ikili"
-    ],
-    "2": [
-      "makro_ikili"
-    ],
-    "3": [
-      "toprak_ikili"
-    ],
-    "4": [
-      "verim_ortualti",
-      "verim_acik_tarla"
-    ],
-    "5": [
-      "sera_kunye",
-      "sera_urunler"
-    ],
-    "7": [
-      "ihracat_yigin",
-      "ilk_10_pazar"
-    ],
-    "8": [
-      "kakao_ikili"
-    ],
-    "9": [
-      "tarih_cizelge"
-    ],
-    "11": [
-      "kurumlar_kartlar"
-    ],
-    "12": [
-      "ihracat_cizgi",
-      "dunya_ilk10"
-    ],
-    "14": [
-      "ikili_ticaret_cizgi",
-      "ikili_hollanda_satar",
-      "ikili_turkiye_satar"
-    ],
-    "15": [
-      "cevre_kunye"
-    ],
-    "17": [],
-    "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin grafikler.json'da GERÇEKTEN tanımlı olduğunu doğrular; ayrıca hiçbir grafiğin sahipsiz kalmadığını. İkisi de sağlanmazsa üretim durur.",
-    "_neden_kimlik": "Önceki sürümde burada data.json blok adları yazıyordu ('tez', 'makro'…). Bir blok birden fazla grafiğe kaynaklık edebiliyor (sera → hem künye hem sıralama) ve bir grafik birden fazla bloktan beslenebiliyor. Eşleme bu yüzden veriye değil grafiğe yapılıyor."
-  },
-  "bolum_turleri": {
-    "1": "anlati",
-    "2": "veri",
-    "3": "anlati",
-    "4": "veri",
-    "5": "veri",
-    "6": "anlati",
-    "7": "veri",
-    "8": "anlati",
-    "9": "anlati",
-    "10": "anlati",
-    "11": "anlati",
-    "12": "veri",
-    "13": "anlati",
-    "14": "veri",
-    "15": "veri",
-    "16": "anlati",
-    "17": "anlati",
-    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis. Yazılmayan bölüm anlati sayılır.",
-    "_neden_elle": "Grafik varlığından türetilebilirdi ama iki yerde yanlış sonuç verirdi: 9. bölüm kart grafiği taşıdığı hâlde anlatı ritminde kalmalı, ve grafiksiz bir belge bölümü de mümkün. Tür bir yayın kararı.",
-    "_ritim": "1 anlatı · 2-5 yoğun veri · 6 anlatı nefesi · 7 veri · 8-11 anlatı · 12 veri · 13 anlatı · 14-15 veri · 16-17 anlatı kapanış. Okur on yedi bölümde altı kez zemin değiştiriyor.",
-    "_neden_degisti": "İlk yayında 13 bölüm vardı ve dördü anlatıydı. Rusya dosyası yazılırken yalnızca veriye dayanan bir metnin okuru yorduğu görüldü; dört anlatı bölümü eklendi (6, 10, 13, 16) ve tekrar eden tablolar grafiğe bırakıldı."
-  },
-  "bolum_gorselleri": {
-    "1": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/delta.jpg",
-      "atif": "Image provided by the USGS EROS Data Center Satellite Systems Branch as part of the Earth as Art II image series",
-      "kaynak": "https://science.nasa.gov/earth/earth-observatory/the-netherlands-4563/",
-      "_cekim": "24 Mayıs 2002 · Terra · ASTER",
-      "alt_tr": "Hollanda deltası uydudan: kıyı kumları arasında ada ve su yolları — dosyanın konusu olan ülkenin tamamı bu dar şeritte.",
-      "alt_en": "The Dutch delta from orbit: islands and waterways threaded between coastal sands — the whole country this dossier is about."
-    },
-    "3": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/delta_isleri.jpg",
-      "atif": "Image courtesy NASA/GSFC/METI/ERSDAC/JAROS, and U.S./Japan ASTER Science Team",
-      "kaynak": "https://science.nasa.gov/earth/earth-observatory/netherlands-dikes-5854/",
-      "_cekim": "24 Eylül 2002 · Terra · ASTER",
-      "alt_tr": "Güneybatı Hollanda kıyısı Delta İşleri sonrası: 1953 fırtınasından sonra kurulan set, baraj ve kilit sistemi adaları birbirine bağlamış.",
-      "alt_en": "The south-west Dutch coast after the Delta Works: the dikes, dams and locks built following the 1953 storm now tie the islands together."
-    },
-    "4": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/glastuinbouw.jpg",
-      "atif": "Wikimedia Commons — CC BY-SA 4.0",
-      "kaynak": "https://commons.wikimedia.org/wiki/File:Het_is_allemaal_glastuinbouw_wat_de_klok_slaat_in_Harmelerwaard.jpg",
-      "alt_tr": "Polder yolu boyunca uzanan modern cam sera kompleksi; önünde sazdan çatılı bir çiftlik evi, hendek ve ağaç sırası.",
-      "alt_en": "A modern glasshouse complex stretching along a polder road, with a thatched farmhouse, a ditch and a line of trees in front."
-    },
-    "5": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/westland.jpg",
-      "atif": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
-      "kaynak": "https://www.jpl.nasa.gov/images/pia21986-westland-the-netherlands/",
-      "_cekim": "12 Haziran 2014 · Terra · ASTER · 13,5 × 18,4 km",
-      "alt_tr": "Westland: dünyanın sera başkenti. Bu bölümün konusu olan cam, uydudan bakınca arazinin dokusu hâline geliyor.",
-      "alt_en": "Westland, the greenhouse capital of the world. Seen from orbit, the glass this section is about becomes the texture of the land itself."
-    },
-    "6": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/volkstuin.jpg",
-      "atif": "John - el - Castillo, Wikimedia Commons — CC BY 3.0",
-      "kaynak": "https://commons.wikimedia.org/wiki/File:Volkstuin_straatje_Garden_Calle_popular_-_panoramio.jpg",
-      "alt_tr": "Hollanda'da bir volkstuin sokağı: çitle ayrılmış küçük parseller, kulübeler ve çiçek tarhları. 1950'lere kadar buralar sebze bahçesiydi.",
-      "alt_en": "A volkstuin lane in the Netherlands: small fenced plots, sheds and flower beds. Until the 1950s these were vegetable gardens."
-    },
-    "7": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/rotterdam.jpg",
-      "atif": "NASA Earth Observatory images created by Jesse Allen and Robert Simmon, using Landsat data provided by the U.S. Geological Survey. Caption by Michon Scott.",
-      "kaynak": "https://science.nasa.gov/earth/earth-observatory/land-reclamation-at-rotterdam-47122/",
-      "_cekim": "4 Temmuz 2010 · Landsat 5",
-      "alt_tr": "Rotterdam limanının Maasvlakte 2 genişlemesi: deniz tabanından çıkarılan kumla kazanılmış konteyner sahası. Yeniden ihracatın geçtiği yer.",
-      "alt_en": "The Maasvlakte 2 expansion of the Port of Rotterdam: container ground built from seabed sand. This is where the re-export passes through."
-    },
-    "9": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/zuiderzee.jpg",
-      "atif": "NASA image by Alan Holmes/ NASA's Ocean Color Web, using data from SeaHawk/HawkEye",
-      "kaynak": "https://science.nasa.gov/earth/earth-observatory/zuiderzee-works-148799",
-      "_cekim": "1 Haziran 2021 · SeaHawk CubeSat · HawkEye",
-      "alt_tr": "Zuiderzee Works uydudan: Afsluitdijk barajı ve arkasında denizden kazanılmış polder parselleri.",
-      "alt_en": "The Zuiderzee Works from orbit: the Afsluitdijk dam and the polders reclaimed behind it."
-    },
-    "10": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/kokboya.jpg",
-      "atif": "H. Zell, Wikimedia Commons — CC BY-SA 3.0",
-      "kaynak": "https://commons.wikimedia.org/wiki/File:Rubia_tinctorum_001.JPG",
-      "alt_tr": "Rubia tinctorum — kökboya bitkisi. İnce gövdeli, halka biçiminde dizilmiş yapraklı bir bitki; kırmızı boya kökünden elde ediliyordu.",
-      "alt_en": "Rubia tinctorum — the madder plant. Slender stems with leaves in whorls; the red dye came from its root."
-    },
-    "11": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/aalsmeer_muzayede.jpg",
-      "atif": "Wikimedia Commons — CC0",
-      "kaynak": "https://commons.wikimedia.org/wiki/File:Aalsmeer_marche_aux_fleurs2.JPG",
-      "alt_tr": "Aalsmeer çiçek müzayedesinin salonu: ufka kadar uzanan, çiçek dolu tekerlekli raflar ve aralarında tek bir çalışan.",
-      "alt_en": "The floor of the Aalsmeer flower auction: wheeled racks loaded with flowers stretching to the horizon, a single worker among them."
-    },
-    "13": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/laleler.jpg",
-      "atif": "NASA Earth Observatory images by Lauren Dauphin, using Landsat data from the U.S. Geological Survey. Story by Emily Cassidy.",
-      "kaynak": "https://science.nasa.gov/earth/earth-observatory/a-tulip-frenzy-in-the-netherlands-152750/",
-      "_cekim": "29 Nisan 2024 · Landsat 9 · OLI-2",
-      "alt_tr": "Kuzey Hollanda’da çiçek soğanı tarlaları. Zincirin en yüksek katma değerli halkası — başlangıç materyali ihracatı — bu tarlalarda başlıyor.",
-      "alt_en": "Flower-bulb fields in North Holland. The highest value-added link in the chain — starting-material exports — begins here."
-    },
-    "15": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/koeien_weiland.jpg",
-      "atif": "Michielverbeek, Wikimedia Commons — CC BY-SA 4.0",
-      "kaynak": "https://commons.wikimedia.org/wiki/File:Woerdense_Verlaat,_koeien_in_weiland_langs_de_Bosweg_bij_Lusthof_de_Haeck_foto3_2017-07-09_11.11.jpg",
-      "alt_tr": "Polder çayırında sıkışmış siyah-beyaz süt sığırı sürüsü; önlerindeki hendek baştan başa parlak yeşil su mercimeğiyle kaplı.",
-      "alt_en": "A herd of black-and-white dairy cattle packed onto a polder meadow; the ditch in front of them is covered end to end in bright green duckweed."
-    },
-    "16": {
-      "url": "https://tarim-app-2026.web.app/dosya/hollanda/mansholt.jpg",
-      "atif": "Rob Mieremet, Anefo — Nationaal Archief, CC0",
-      "kaynak": "https://commons.wikimedia.org/wiki/File:Sicco_Mansholt_1974_(1).jpg",
-      "alt_tr": "Sicco Mansholt, 1974. Avrupa'nın ortak tarım politikasının mimarı, mektubunu yazmasından iki yıl sonra.",
-      "alt_en": "Sicco Mansholt in 1974 — the architect of Europe's common agricultural policy, two years after his letter."
-    },
-    "_amac": "Bölüm sırası → görsel. Grafik veriyi anlatır, görsel konuyu gösterir. Yazılmayan bölümde görsel yok.",
-    "_kunye": "_raw/gorseller/kunye.json",
-    "_not": "İlk yayında dosyanın bütün görselleri uydu çekimiydi. Tarih ve kültür bölümleri eklenince görsel dili de değişti: insan ve nesne girdi. Anlatı bölümünü yörüngeden fotoğraflayamıyorsunuz."
-  },
-  "_bolum_13_notu": "13. bölüm ('Türkiye ne alabilir') bilerek grafiksiz. Sonuç bölümü; oradaki iki rakam da (değer tutma oranı, tatlı su payı) 6. ve 3. bölümlerin grafiklerinde zaten görülmüş oluyor. 'bosluklar' bloğu bölüme değil, sayfa sonundaki veri notları paneline ait.",
-  "hikaye": {
-    "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
-    "_kural": "Metin elle yazıldı, modele yazdırılmadı. Rakamlar data.json’dan ve doğrulanmış: örtüaltı payı %0,56 (2025), yeniden ihracat payı %35,7 (2025), kara alanı 33.670 km² (2023).",
-    "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ fotoğraflardan; paylaşım kartı kullanılmıyor — kartın üstünde zaten yazı var ve görüntüleyici kendi metnini bindirince ikisi çakışıyordu.",
-    "_akis": "Üç merak kancası, sonda tek çağrı. Slaytlar birbirinin devamı: küçük ülke → cam altı yoğunluk → yeniden ihracat → dosyaya davet.",
-    "grup_tr": "Ülke Dosyası",
-    "grup_en": "Country Dossier",
-    "slaytlar": [
-      {
-        "ust": "ÜLKE DOSYASI · 01",
-        "ust_en": "COUNTRY DOSSIER · 01",
-        "baslik": "Türkiye’nin yirmi üçte biri kadar bir ülke, dünyanın en büyük tarım ihracatçılarından biri. Nasıl?",
-        "baslik_en": "A country a twenty-third the size of Türkiye is one of the world’s largest agricultural exporters. How?",
-        "rakam": "33.670 km²",
-        "rakam_en": "33,670 km²",
-        "etiket": "Hollanda’nın toplam kara alanı",
-        "etiket_en": "The Netherlands’ total land area",
-        "gorsel": "https://tarim-app-2026.web.app/dosya/hollanda/delta.jpg"
-      },
-      {
-        "ust": "CAM ALTINDA",
-        "ust_en": "UNDER GLASS",
-        "baslik": "Mucize bütün tarlada değil, tarım arazisinin yüzde yarımında yaşanıyor",
-        "baslik_en": "The miracle does not happen across the fields — it happens on half a per cent of the farmland",
-        "rakam": "%0,56",
-        "rakam_en": "0.56%",
-        "etiket": "Tarım arazisinin örtüaltı payı",
-        "etiket_en": "Share of farmland under cover",
-        "gorsel": "https://tarim-app-2026.web.app/dosya/hollanda/westland.jpg"
-      },
-      {
-        "ust": "MANŞETİN YARISI",
-        "ust_en": "HALF THE HEADLINE",
-        "baslik": "İhracat rakamının üçte biri aslında başka ülkelerin malı — Hollanda onu alıp yeniden satıyor",
-        "baslik_en": "A third of the export figure is other countries’ goods: the Netherlands buys and resells them",
-        "rakam": "%35,7",
-        "rakam_en": "35.7%",
-        "etiket": "Yeniden ihracatın toplam içindeki payı",
-        "etiket_en": "Re-exports as a share of the total",
-        "gorsel": "https://tarim-app-2026.web.app/dosya/hollanda/rotterdam.jpg"
-      },
-      {
-        "ust": "HOLLANDA",
-        "ust_en": "THE NETHERLANDS",
-        "baslik": "Denizden kazanılmış toprak, cam altında yoğunlaşan üretim, dünyaya satan bir sistem — hepsi 13 bölümde",
-        "baslik_en": "Land taken from the sea, production concentrated under glass, a system that sells to the world — all in 13 sections",
-        "rakam": "13 bölüm",
-        "rakam_en": "13 sections",
-        "etiket": "Ülke dosyamıza göz atın →",
-        "etiket_en": "Take a look at our country dossier →",
-        "gorsel": "https://tarim-app-2026.web.app/dosya/hollanda/zuiderzee.jpg"
-      }
-    ]
-  },
-  "anahtar_kelimeler": [
-    "Hollanda",
-    "Felemenk",
-    "Rotterdam",
-    "Amsterdam",
-    "Wageningen",
-    "Aalsmeer",
-    "FloraHolland"
+ "_dosya": "Hollanda — Ülke Dosyası · yayın künyesi",
+ "_amac": "İçerik (metin_*.md), tasarım (tasarim.json) ve veri (data.json) dışında kalan üçüncü şey: bu dosyanın NE ZAMAN ve HANGİ ADRESTE yayımlanacağı. seed_dossier.mjs yalnızca bu dosyadan okur; betikte hiçbir ülkeye özel değer gömülü değil.",
+ "slug": "hollanda",
+ "name_tr": "Hollanda",
+ "name_en": "Netherlands",
+ "iso3": "NLD",
+ "edition": 1,
+ "_iso3_notu": "FAOSTAT ve World Bank sorguları bu kodla yapıldı (_raw/wb_fetch.mjs, _raw/fetch_faostat.sh). Bir rakam tartışmaya açılırsa kaynağa dönmenin anahtarı bu.",
+ "pencere": {
+  "gun": 28,
+  "baslangic": null,
+  "_baslangic_notu": "null ise seed anında now() yazılır. Belirli bir tarihte açılacaksa ISO 8601 (örn. '2026-09-01T06:00:00+03:00') yazın; betik bitişi otomatik hesaplar.",
+  "_bitis_notu": "İkinci ülke hazır değilse pencere kapanınca ana sayfa bölümü boşalır. Bunu istemiyorsanız 'gun' değerini null yapın — dosya süresiz yayında kalır."
+ },
+ "status": "archived",
+ "_status_esitleme_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Arşivlenirken bu alan 'published' kalmıştı: arşiv göçü country_dossiers'ı güncelliyor, depodaki yayin.json'ı güncellemiyor. Og kabuğu etkilenmiyordu (statik_sayfa.mjs published ve archived için de kabuk üretiyor) ama depo gerçeği söylemiyordu. durum_bekcisi.mjs artık ayrışmayı dağıtımda bildiriyor.",
+ "_status_notu": "draft | scheduled | published | archived. 'draft' RLS tarafından anon'a kapalıdır; yarım metin adres tahminiyle okunamaz.",
+ "kapak": {
+  "url": "https://tarimportali.net/dosya/hollanda/hollanda_gece.jpg",
+  "atif": "NASA — ISS049-E-009356, Expedition 49, 24 Eylül 2016. Kamu malı",
+  "kaynak": "https://commons.wikimedia.org/wiki/File:ISS-49_Western_Europe.jpg",
+  "_notu": "tasarim.json kapak yönü \"gece parıltısı — havadan/yörüngeden\" diyordu ama görsel hiç aranmamıştı; dosya ilk yayında kapaksız çıktı. NASA açıklaması görüntüdeki yoğun ışığın Hollanda ve Belçika olduğunu yazıyor. SERA olduğu İDDİA EDİLMİYOR — kaynak öyle demiyor."
+ },
+ "video": {
+  "url": "https://xkwcyavcltrweunvooeu.supabase.co/storage/v1/object/public/country_folder_videos/copy_12951F0A-2908-4BF0-B083-73A1927D00B0.mp4",
+  "_notu": "Kapaktaki tanıtım videosu. null ise kapakta video bloğu hiç çizilmez; kapak görselinde olduğu gibi sayfa videosuz da tam çalışır. Bu adres bir süre EKRAN KODUNDA gömülü durdu ve slug'a bakan bir koşulla çiziliyordu; ikinci ülkede koşul ikiye çıkacağı için buraya taşındı."
+ },
+ "bolum_grafikleri": {
+  "1": [
+   "tez_ikili"
   ],
-  "_anahtar_kelimeler_notu": "Haber eşleştirmesinde aranacak terimler. KELİME OLARAK aranıyor (sözcük sınırı), alt dize olarak değil — \"Rus\" araması \"Prusya\"yı yakalamasın diye. Editör kararıdır: liste boşsa dosya hiçbir haberle eşleşmez, çünkü yanlış haber göstermektense hiç göstermemek doğru."
+  "2": [
+   "makro_ikili"
+  ],
+  "3": [
+   "toprak_ikili"
+  ],
+  "4": [
+   "verim_ortualti",
+   "verim_acik_tarla"
+  ],
+  "5": [
+   "sera_kunye",
+   "sera_urunler"
+  ],
+  "7": [
+   "ihracat_yigin",
+   "ilk_10_pazar"
+  ],
+  "8": [
+   "kakao_ikili"
+  ],
+  "9": [
+   "tarih_cizelge"
+  ],
+  "11": [
+   "kurumlar_kartlar"
+  ],
+  "12": [
+   "ihracat_cizgi",
+   "dunya_ilk10"
+  ],
+  "14": [
+   "ikili_ticaret_cizgi",
+   "ikili_hollanda_satar",
+   "ikili_turkiye_satar"
+  ],
+  "15": [
+   "cevre_kunye"
+  ],
+  "17": [],
+  "_amac": "Bölüm sırası → grafikler.json'daki grafik kimliği. Betik her kimliğin grafikler.json'da GERÇEKTEN tanımlı olduğunu doğrular; ayrıca hiçbir grafiğin sahipsiz kalmadığını. İkisi de sağlanmazsa üretim durur.",
+  "_neden_kimlik": "Önceki sürümde burada data.json blok adları yazıyordu ('tez', 'makro'…). Bir blok birden fazla grafiğe kaynaklık edebiliyor (sera → hem künye hem sıralama) ve bir grafik birden fazla bloktan beslenebiliyor. Eşleme bu yüzden veriye değil grafiğe yapılıyor."
+ },
+ "bolum_turleri": {
+  "1": "anlati",
+  "2": "veri",
+  "3": "anlati",
+  "4": "veri",
+  "5": "veri",
+  "6": "anlati",
+  "7": "veri",
+  "8": "anlati",
+  "9": "anlati",
+  "10": "anlati",
+  "11": "anlati",
+  "12": "veri",
+  "13": "anlati",
+  "14": "veri",
+  "15": "veri",
+  "16": "anlati",
+  "17": "anlati",
+  "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis. Yazılmayan bölüm anlati sayılır.",
+  "_neden_elle": "Grafik varlığından türetilebilirdi ama iki yerde yanlış sonuç verirdi: 9. bölüm kart grafiği taşıdığı hâlde anlatı ritminde kalmalı, ve grafiksiz bir belge bölümü de mümkün. Tür bir yayın kararı.",
+  "_ritim": "1 anlatı · 2-5 yoğun veri · 6 anlatı nefesi · 7 veri · 8-11 anlatı · 12 veri · 13 anlatı · 14-15 veri · 16-17 anlatı kapanış. Okur on yedi bölümde altı kez zemin değiştiriyor.",
+  "_neden_degisti": "İlk yayında 13 bölüm vardı ve dördü anlatıydı. Rusya dosyası yazılırken yalnızca veriye dayanan bir metnin okuru yorduğu görüldü; dört anlatı bölümü eklendi (6, 10, 13, 16) ve tekrar eden tablolar grafiğe bırakıldı."
+ },
+ "bolum_gorselleri": {
+  "1": {
+   "url": "https://tarimportali.net/dosya/hollanda/delta.jpg",
+   "atif": "Image provided by the USGS EROS Data Center Satellite Systems Branch as part of the Earth as Art II image series",
+   "kaynak": "https://science.nasa.gov/earth/earth-observatory/the-netherlands-4563/",
+   "_cekim": "24 Mayıs 2002 · Terra · ASTER",
+   "alt_tr": "Hollanda deltası uydudan: kıyı kumları arasında ada ve su yolları — dosyanın konusu olan ülkenin tamamı bu dar şeritte.",
+   "alt_en": "The Dutch delta from orbit: islands and waterways threaded between coastal sands — the whole country this dossier is about."
+  },
+  "3": {
+   "url": "https://tarimportali.net/dosya/hollanda/delta_isleri.jpg",
+   "atif": "Image courtesy NASA/GSFC/METI/ERSDAC/JAROS, and U.S./Japan ASTER Science Team",
+   "kaynak": "https://science.nasa.gov/earth/earth-observatory/netherlands-dikes-5854/",
+   "_cekim": "24 Eylül 2002 · Terra · ASTER",
+   "alt_tr": "Güneybatı Hollanda kıyısı Delta İşleri sonrası: 1953 fırtınasından sonra kurulan set, baraj ve kilit sistemi adaları birbirine bağlamış.",
+   "alt_en": "The south-west Dutch coast after the Delta Works: the dikes, dams and locks built following the 1953 storm now tie the islands together."
+  },
+  "4": {
+   "url": "https://tarimportali.net/dosya/hollanda/glastuinbouw.jpg",
+   "atif": "Wikimedia Commons — CC BY-SA 4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Het_is_allemaal_glastuinbouw_wat_de_klok_slaat_in_Harmelerwaard.jpg",
+   "alt_tr": "Polder yolu boyunca uzanan modern cam sera kompleksi; önünde sazdan çatılı bir çiftlik evi, hendek ve ağaç sırası.",
+   "alt_en": "A modern glasshouse complex stretching along a polder road, with a thatched farmhouse, a ditch and a line of trees in front."
+  },
+  "5": {
+   "url": "https://tarimportali.net/dosya/hollanda/westland.jpg",
+   "atif": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
+   "kaynak": "https://www.jpl.nasa.gov/images/pia21986-westland-the-netherlands/",
+   "_cekim": "12 Haziran 2014 · Terra · ASTER · 13,5 × 18,4 km",
+   "alt_tr": "Westland: dünyanın sera başkenti. Bu bölümün konusu olan cam, uydudan bakınca arazinin dokusu hâline geliyor.",
+   "alt_en": "Westland, the greenhouse capital of the world. Seen from orbit, the glass this section is about becomes the texture of the land itself."
+  },
+  "6": {
+   "url": "https://tarimportali.net/dosya/hollanda/volkstuin.jpg",
+   "atif": "John - el - Castillo, Wikimedia Commons — CC BY 3.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Volkstuin_straatje_Garden_Calle_popular_-_panoramio.jpg",
+   "alt_tr": "Hollanda'da bir volkstuin sokağı: çitle ayrılmış küçük parseller, kulübeler ve çiçek tarhları. 1950'lere kadar buralar sebze bahçesiydi.",
+   "alt_en": "A volkstuin lane in the Netherlands: small fenced plots, sheds and flower beds. Until the 1950s these were vegetable gardens."
+  },
+  "7": {
+   "url": "https://tarimportali.net/dosya/hollanda/rotterdam.jpg",
+   "atif": "NASA Earth Observatory images created by Jesse Allen and Robert Simmon, using Landsat data provided by the U.S. Geological Survey. Caption by Michon Scott.",
+   "kaynak": "https://science.nasa.gov/earth/earth-observatory/land-reclamation-at-rotterdam-47122/",
+   "_cekim": "4 Temmuz 2010 · Landsat 5",
+   "alt_tr": "Rotterdam limanının Maasvlakte 2 genişlemesi: deniz tabanından çıkarılan kumla kazanılmış konteyner sahası. Yeniden ihracatın geçtiği yer.",
+   "alt_en": "The Maasvlakte 2 expansion of the Port of Rotterdam: container ground built from seabed sand. This is where the re-export passes through."
+  },
+  "9": {
+   "url": "https://tarimportali.net/dosya/hollanda/zuiderzee.jpg",
+   "atif": "NASA image by Alan Holmes/ NASA's Ocean Color Web, using data from SeaHawk/HawkEye",
+   "kaynak": "https://science.nasa.gov/earth/earth-observatory/zuiderzee-works-148799",
+   "_cekim": "1 Haziran 2021 · SeaHawk CubeSat · HawkEye",
+   "alt_tr": "Zuiderzee Works uydudan: Afsluitdijk barajı ve arkasında denizden kazanılmış polder parselleri.",
+   "alt_en": "The Zuiderzee Works from orbit: the Afsluitdijk dam and the polders reclaimed behind it."
+  },
+  "10": {
+   "url": "https://tarimportali.net/dosya/hollanda/kokboya.jpg",
+   "atif": "H. Zell, Wikimedia Commons — CC BY-SA 3.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Rubia_tinctorum_001.JPG",
+   "alt_tr": "Rubia tinctorum — kökboya bitkisi. İnce gövdeli, halka biçiminde dizilmiş yapraklı bir bitki; kırmızı boya kökünden elde ediliyordu.",
+   "alt_en": "Rubia tinctorum — the madder plant. Slender stems with leaves in whorls; the red dye came from its root."
+  },
+  "11": {
+   "url": "https://tarimportali.net/dosya/hollanda/aalsmeer_muzayede.jpg",
+   "atif": "Wikimedia Commons — CC0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Aalsmeer_marche_aux_fleurs2.JPG",
+   "alt_tr": "Aalsmeer çiçek müzayedesinin salonu: ufka kadar uzanan, çiçek dolu tekerlekli raflar ve aralarında tek bir çalışan.",
+   "alt_en": "The floor of the Aalsmeer flower auction: wheeled racks loaded with flowers stretching to the horizon, a single worker among them."
+  },
+  "13": {
+   "url": "https://tarimportali.net/dosya/hollanda/laleler.jpg",
+   "atif": "NASA Earth Observatory images by Lauren Dauphin, using Landsat data from the U.S. Geological Survey. Story by Emily Cassidy.",
+   "kaynak": "https://science.nasa.gov/earth/earth-observatory/a-tulip-frenzy-in-the-netherlands-152750/",
+   "_cekim": "29 Nisan 2024 · Landsat 9 · OLI-2",
+   "alt_tr": "Kuzey Hollanda’da çiçek soğanı tarlaları. Zincirin en yüksek katma değerli halkası — başlangıç materyali ihracatı — bu tarlalarda başlıyor.",
+   "alt_en": "Flower-bulb fields in North Holland. The highest value-added link in the chain — starting-material exports — begins here."
+  },
+  "15": {
+   "url": "https://tarimportali.net/dosya/hollanda/koeien_weiland.jpg",
+   "atif": "Michielverbeek, Wikimedia Commons — CC BY-SA 4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Woerdense_Verlaat,_koeien_in_weiland_langs_de_Bosweg_bij_Lusthof_de_Haeck_foto3_2017-07-09_11.11.jpg",
+   "alt_tr": "Polder çayırında sıkışmış siyah-beyaz süt sığırı sürüsü; önlerindeki hendek baştan başa parlak yeşil su mercimeğiyle kaplı.",
+   "alt_en": "A herd of black-and-white dairy cattle packed onto a polder meadow; the ditch in front of them is covered end to end in bright green duckweed."
+  },
+  "16": {
+   "url": "https://tarimportali.net/dosya/hollanda/mansholt.jpg",
+   "atif": "Rob Mieremet, Anefo — Nationaal Archief, CC0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Sicco_Mansholt_1974_(1).jpg",
+   "alt_tr": "Sicco Mansholt, 1974. Avrupa'nın ortak tarım politikasının mimarı, mektubunu yazmasından iki yıl sonra.",
+   "alt_en": "Sicco Mansholt in 1974 — the architect of Europe's common agricultural policy, two years after his letter."
+  },
+  "_amac": "Bölüm sırası → görsel. Grafik veriyi anlatır, görsel konuyu gösterir. Yazılmayan bölümde görsel yok.",
+  "_kunye": "_raw/gorseller/kunye.json",
+  "_not": "İlk yayında dosyanın bütün görselleri uydu çekimiydi. Tarih ve kültür bölümleri eklenince görsel dili de değişti: insan ve nesne girdi. Anlatı bölümünü yörüngeden fotoğraflayamıyorsunuz."
+ },
+ "_bolum_13_notu": "13. bölüm ('Türkiye ne alabilir') bilerek grafiksiz. Sonuç bölümü; oradaki iki rakam da (değer tutma oranı, tatlı su payı) 6. ve 3. bölümlerin grafiklerinde zaten görülmüş oluyor. 'bosluklar' bloğu bölüme değil, sayfa sonundaki veri notları paneline ait.",
+ "hikaye": {
+  "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+  "_kural": "Metin elle yazıldı, modele yazdırılmadı. Rakamlar data.json’dan ve doğrulanmış: örtüaltı payı %0,56 (2025), yeniden ihracat payı %35,7 (2025), kara alanı 33.670 km² (2023).",
+  "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ fotoğraflardan; paylaşım kartı kullanılmıyor — kartın üstünde zaten yazı var ve görüntüleyici kendi metnini bindirince ikisi çakışıyordu.",
+  "_akis": "Üç merak kancası, sonda tek çağrı. Slaytlar birbirinin devamı: küçük ülke → cam altı yoğunluk → yeniden ihracat → dosyaya davet.",
+  "grup_tr": "Ülke Dosyası",
+  "grup_en": "Country Dossier",
+  "slaytlar": [
+   {
+    "ust": "ÜLKE DOSYASI · 01",
+    "ust_en": "COUNTRY DOSSIER · 01",
+    "baslik": "Türkiye’nin yirmi üçte biri kadar bir ülke, dünyanın en büyük tarım ihracatçılarından biri. Nasıl?",
+    "baslik_en": "A country a twenty-third the size of Türkiye is one of the world’s largest agricultural exporters. How?",
+    "rakam": "33.670 km²",
+    "rakam_en": "33,670 km²",
+    "etiket": "Hollanda’nın toplam kara alanı",
+    "etiket_en": "The Netherlands’ total land area",
+    "gorsel": "https://tarimportali.net/dosya/hollanda/delta.jpg"
+   },
+   {
+    "ust": "CAM ALTINDA",
+    "ust_en": "UNDER GLASS",
+    "baslik": "Mucize bütün tarlada değil, tarım arazisinin yüzde yarımında yaşanıyor",
+    "baslik_en": "The miracle does not happen across the fields — it happens on half a per cent of the farmland",
+    "rakam": "%0,56",
+    "rakam_en": "0.56%",
+    "etiket": "Tarım arazisinin örtüaltı payı",
+    "etiket_en": "Share of farmland under cover",
+    "gorsel": "https://tarimportali.net/dosya/hollanda/westland.jpg"
+   },
+   {
+    "ust": "MANŞETİN YARISI",
+    "ust_en": "HALF THE HEADLINE",
+    "baslik": "İhracat rakamının üçte biri aslında başka ülkelerin malı — Hollanda onu alıp yeniden satıyor",
+    "baslik_en": "A third of the export figure is other countries’ goods: the Netherlands buys and resells them",
+    "rakam": "%35,7",
+    "rakam_en": "35.7%",
+    "etiket": "Yeniden ihracatın toplam içindeki payı",
+    "etiket_en": "Re-exports as a share of the total",
+    "gorsel": "https://tarimportali.net/dosya/hollanda/rotterdam.jpg"
+   },
+   {
+    "ust": "HOLLANDA",
+    "ust_en": "THE NETHERLANDS",
+    "baslik": "Denizden kazanılmış toprak, cam altında yoğunlaşan üretim, dünyaya satan bir sistem — hepsi 13 bölümde",
+    "baslik_en": "Land taken from the sea, production concentrated under glass, a system that sells to the world — all in 13 sections",
+    "rakam": "13 bölüm",
+    "rakam_en": "13 sections",
+    "etiket": "Ülke dosyamıza göz atın →",
+    "etiket_en": "Take a look at our country dossier →",
+    "gorsel": "https://tarimportali.net/dosya/hollanda/zuiderzee.jpg"
+   }
+  ]
+ },
+ "anahtar_kelimeler": [
+  "Hollanda",
+  "Felemenk",
+  "Rotterdam",
+  "Amsterdam",
+  "Wageningen",
+  "Aalsmeer",
+  "FloraHolland"
+ ],
+ "_anahtar_kelimeler_notu": "Haber eşleştirmesinde aranacak terimler. KELİME OLARAK aranıyor (sözcük sınırı), alt dize olarak değil — \"Rus\" araması \"Prusya\"yı yakalamasın diye. Editör kararıdır: liste boşsa dosya hiçbir haberle eşleşmez, çünkü yanlış haber göstermektense hiç göstermemek doğru.",
+ "_gorsel_alan_adi_notu": "12 Kasım 2026'da veritabanıyla eşitlendi. Depo tarim-app-2026.web.app diyordu, canlı satır tarimportali.net. İkisi de aynı hosting'i gösteriyor, yani okur bir şey kaybetmiyordu — ama bu dosyanın seed'i yeniden koşsaydı CANLI adresleri kanonik olmayan alan adına çevirirdi. durum_bekcisi.mjs artık bu ayrışmayı dağıtımda bildiriyor."
 }

@@ -49,7 +49,7 @@ if (!U || !K) { console.error('✗ .env içinde SUPABASE_URL/ANON_KEY yok.'); pr
 let satirlar;
 try {
   const yanit = await fetch(
-    `${U}/rest/v1/country_dossiers?select=slug,status`,
+    `${U}/rest/v1/country_dossiers?select=id,slug,status,cover_url`,
     { headers: { apikey: K, Authorization: `Bearer ${K}` } });
   if (!yanit.ok) throw new Error(`Supabase ${yanit.status}`);
   satirlar = await yanit.json();
@@ -60,6 +60,86 @@ try {
 }
 
 const db = new Map(satirlar.map((r) => [r.slug, r.status]));
+
+// ── Görsel adresi ayrışması (12 Kasım 2026) ───────────────────────────────
+//
+// Bekçi DURUM ayrışmasını yakalıyordu, görsel adresini görmüyordu. Oysa aynı
+// sınıftan bir ayrışma yayındaydı ve kimse fark etmemişti:
+//
+//   content/dossiers/avustralya/yayin.json → tarimportali.net (14 görsel)
+//   canlı country_dossiers + dossier_sections → supabase.co/dossier-images/
+//
+// Depo yeni şemaya geçirilmiş, veritabanı hiç yeniden seed edilmemiş. İkisi
+// aylardır ayrı yeri gösteriyor. Görünmemesinin sebebi basit: Avustralya
+// 2 Kasım'da arşive düştü ve arşiv sayfalarına kimse bakmıyor.
+//
+// UYARI, DURDURMA DEĞİL. Durduran sınıf "dağıtımın KENDİSİ bir şeyi yok
+// ediyor" demek; bu ayrışma dağıtımdan etkilenmiyor (görsel adresi
+// veritabanından geliyor, hosting dağıtımı ona dokunmuyor). Hata sayılsaydı
+// bekçi, düzeltmesi açık onay isteyen bir iş yüzünden her dağıtımı
+// kilitlerdi — ve ilk sıkışan onu atlamanın yolunu arardı.
+const konak = (u) => {
+  try { return new URL(String(u)).host; } catch { return null; }
+};
+const GORSEL = /\.(jpg|jpeg|png|webp|gif)$/i;
+
+function konaklar(nesne) {
+  const bulunan = new Set();
+  const gez = (o) => {
+    if (typeof o === 'string') {
+      if (GORSEL.test(o.split('?')[0])) {
+        const h = konak(o);
+        if (h) bulunan.add(h);
+      }
+    } else if (Array.isArray(o)) {
+      o.forEach(gez);
+    } else if (o && typeof o === 'object') {
+      Object.values(o).forEach(gez);
+    }
+  };
+  gez(nesne);
+  return bulunan;
+}
+
+const gorselUyari = [];
+try {
+  const by = await fetch(`${U}/rest/v1/dossier_sections?select=dossier_id,gorsel`,
+    { headers: { apikey: K, Authorization: `Bearer ${K}` } });
+  if (!by.ok) throw new Error(`Supabase ${by.status}`);
+  const bolumler = await by.json();
+
+  const canliKonak = new Map();           // slug → Set(host)
+  const idSlug = new Map(satirlar.map((r) => [r.id, r.slug]));
+  for (const r of satirlar) {
+    canliKonak.set(r.slug, konaklar(r.cover_url));
+  }
+  for (const b of bolumler) {
+    const slug = idSlug.get(b.dossier_id);
+    if (!slug) continue;
+    for (const h of konaklar(b.gorsel)) canliKonak.get(slug)?.add(h);
+  }
+
+  for (const slug of readdirSync(DOSYALAR).sort()) {
+    if (slug.startsWith('_')) continue;
+    const yol = join(DOSYALAR, slug, 'yayin.json');
+    if (!existsSync(yol) || !canliKonak.has(slug)) continue;
+    let depo;
+    try { depo = konaklar(JSON.parse(readFileSync(yol, 'utf8'))); } catch { continue; }
+    const canli = canliKonak.get(slug);
+    if (depo.size === 0 || canli.size === 0) continue;
+
+    // Commons gibi dış kaynaklar iki tarafta da olabilir; kıyaslanan şey
+    // dosyanın KENDİ görsellerinin barındığı yer.
+    const dis = (h) => h.endsWith('wikimedia.org') || h.endsWith('wikipedia.org');
+    const d = [...depo].filter((h) => !dis(h)).sort();
+    const c = [...canli].filter((h) => !dis(h)).sort();
+    if (d.length && c.length && d.join(',') !== c.join(',')) {
+      gorselUyari.push(`${slug}: depo ${d.join(' ')} · veritabanı ${c.join(' ')}`);
+    }
+  }
+} catch (e) {
+  console.warn(`  ⚠ Görsel adresi ayrışması SINANAMADI (${e.message})`);
+}
 
 // İKİ AYRI AĞIRLIK VAR ve bu ayrım bekçinin işe yaraması için şart.
 //
@@ -128,6 +208,13 @@ if (durduran.length) {
   console.error('  veritabanındaki gerçekle eşitlemek. Devir yapılırken İKİSİ de');
   console.error('  güncellenmeli (CLAUDE.md §2.12).');
   process.exit(1);
+}
+
+if (gorselUyari.length) {
+  console.warn(`  ⚠ ${gorselUyari.length} dosyanın görselleri depoda ve veritabanında`);
+  console.warn('    AYRI YERİ gösteriyor (dağıtım etkilenmiyor, ama biri eskimiş):');
+  for (const a of gorselUyari) console.warn(`      · ${a}`);
+  console.warn('    Düzeltmesi canlı satır güncellemek demek — AÇIK ONAY ister.');
 }
 
 if (uyaran.length) {
