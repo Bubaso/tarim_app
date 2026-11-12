@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/utils/image_fallback_helper.dart';
 import '../../data/models/sergi_eseri.dart';
+import '../../providers/sergi_gorunum.dart';
 import '../../providers/sergi_providers.dart';
 
 /// SERGİ SAYFASI — 114 karenin tamamı.
@@ -33,12 +36,7 @@ const _metin = Color(0xFFEDF1F2);
 const _ikincil = Color(0xFF99A5A8);
 const _vurgu = Color(0xFFC9A15A);
 
-enum _Suzgec { hepsi, odul, sergileme }
-
 class _SergiEkraniDurumu extends ConsumerState<SergiEkrani> {
-  _Suzgec _suzgec = _Suzgec.hepsi;
-  String? _yer; // seçili il ya da ülke
-
   @override
   Widget build(BuildContext context) {
     final isEn = Localizations.localeOf(context).languageCode == 'en';
@@ -70,14 +68,8 @@ class _SergiEkraniDurumu extends ConsumerState<SergiEkrani> {
           child: CircularProgressIndicator(color: _vurgu, strokeWidth: 2),
         ),
         error: (_, __) => _Bos(isEn: isEn),
-        data: (v) => v == null ? _Bos(isEn: isEn) : _Govde(
-          veri: v,
-          isEn: isEn,
-          suzgec: _suzgec,
-          yer: _yer,
-          suzgecDegis: (s) => setState(() => _suzgec = s),
-          yerDegis: (y) => setState(() => _yer = _yer == y ? null : y),
-        ),
+        data: (v) =>
+            v == null ? _Bos(isEn: isEn) : _Govde(veri: v, isEn: isEn),
       ),
     );
   }
@@ -101,95 +93,97 @@ class _Bos extends StatelessWidget {
       );
 }
 
-class _Govde extends StatelessWidget {
+class _Govde extends ConsumerWidget {
   final SergiVerisi veri;
   final bool isEn;
-  final _Suzgec suzgec;
-  final String? yer;
-  final void Function(_Suzgec) suzgecDegis;
-  final void Function(String) yerDegis;
 
-  const _Govde({
-    required this.veri,
-    required this.isEn,
-    required this.suzgec,
-    required this.yer,
-    required this.suzgecDegis,
-    required this.yerDegis,
-  });
+  const _Govde({required this.veri, required this.isEn});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final g = MediaQuery.sizeOf(context).width;
     final kenar = g < 520 ? 16.0 : (g < 900 ? 24.0 : 40.0);
     final sutun = g >= 1240 ? 4 : (g >= 900 ? 3 : (g >= 560 ? 2 : 1));
+    final dar = g < 560;
 
-    var liste = veri.eserler;
-    if (suzgec == _Suzgec.odul) {
-      liste = liste.where((e) => e.odulluMu).toList();
-    } else if (suzgec == _Suzgec.sergileme) {
-      liste = liste.where((e) => !e.odulluMu).toList();
-    }
-    if (yer != null) {
-      liste = liste
-          .where((e) => e.il == yer || e.ulke(isEn) == yer)
-          .toList();
-    }
+    final liste = sergiListesi(
+      veri: veri,
+      suzgec: ref.watch(sergiSuzgeciProvider),
+      yer: ref.watch(sergiYeriProvider),
+      sira: ref.watch(sergiSirasiProvider),
+      tohum: ref.watch(sergiTohumuProvider),
+      isEn: isEn,
+    );
 
-    return ListView(
-      padding: EdgeInsets.fromLTRB(kenar, 8, kenar, 56),
-      children: [
-        Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 1240),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _Ust(veri: veri, isEn: isEn),
-                const SizedBox(height: 30),
-                _EmeginHaritasi(
-                  veri: veri,
-                  isEn: isEn,
-                  secili: yer,
-                  sec: yerDegis,
-                ),
-                const SizedBox(height: 26),
-                _SuzgecCubugu(
-                  secili: suzgec,
-                  degis: suzgecDegis,
-                  odul: veri.odullu.length,
-                  sergileme: veri.sergilenen.length,
-                  isEn: isEn,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  isEn ? '${liste.length} photographs'
-                       : '${liste.length} kare',
-                  style: GoogleFonts.inter(
-                    color: _ikincil.withValues(alpha: 0.8),
-                    fontSize: 12,
-                  ),
-                ),
-                const SizedBox(height: 18),
-                LayoutBuilder(builder: (context, kis) {
-                  const ara = 14.0;
-                  final kw = (kis.maxWidth - ara * (sutun - 1)) / sutun;
-                  return Wrap(
-                    spacing: ara,
-                    runSpacing: 22,
-                    children: [
-                      for (final e in liste)
-                        SizedBox(
-                          width: kw,
-                          child: _Kart(eser: e, isEn: isEn, tumu: liste),
-                        ),
-                    ],
-                  );
-                }),
-                const SizedBox(height: 40),
-                _Kunye(veri: veri, isEn: isEn),
-              ],
+    // İçerik 1240'ta duruyor ve ortalanıyor. Dilimlerde `Center` yok, o
+    // yüzden ortalamayı kenar boşluğu yapıyor.
+    final ic = math.min(g - kenar * 2, 1240.0);
+    final yatay = math.max(kenar, (g - 1240) / 2);
+    const ara = 14.0;
+    final kw = (ic - ara * (sutun - 1)) / sutun;
+    final satir = (liste.length / sutun).ceil();
+
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
+          padding: EdgeInsets.fromLTRB(yatay, 8, yatay, 0),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate.fixed([
+              _Ust(veri: veri, isEn: isEn),
+              SizedBox(height: dar ? 20 : 28),
+              _EmeginHaritasi(veri: veri, isEn: isEn, dar: dar),
+              const SizedBox(height: 16),
+            ]),
+          ),
+        ),
+
+        // YAPIŞKAN SÜZGEÇ. 114 karelik bir listede süzgeci yukarıda
+        // bırakmak, okuru her fikir değiştirdiğinde başa kaydırmaya
+        // zorluyordu.
+        SliverPersistentHeader(
+          pinned: true,
+          delegate: _SuzgecBasligi(
+            isEn: isEn,
+            yatay: yatay,
+            odul: veri.odullu.length,
+            sergileme: veri.sergilenen.length,
+            gorunen: liste.length,
+          ),
+        ),
+
+        // TEMBEL IZGARA. Eski hâli `Wrap` içinde 114 kartı birden kuruyor
+        // ve sayfa açılır açılmaz 114 görseli indiriyordu (4,8 MB). Satır
+        // satır kurulunca yalnız ekrana giren kareler iniyor.
+        SliverPadding(
+          padding: EdgeInsets.fromLTRB(yatay, 16, yatay, 0),
+          sliver: SliverList.builder(
+            itemCount: satir,
+            itemBuilder: (context, r) => Padding(
+              padding: const EdgeInsets.only(bottom: 22),
+              child: Row(
+                // Kareler üstten hizalanıyor: ızgarayı okutan şey
+                // görsellerin üst kenarı, künyelerin boyu değil.
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (var s = 0; s < sutun; s++) ...[
+                    if (s > 0) const SizedBox(width: ara),
+                    SizedBox(
+                      width: kw,
+                      child: r * sutun + s < liste.length
+                          ? _Kart(eser: liste[r * sutun + s], isEn: isEn)
+                          : const SizedBox.shrink(),
+                    ),
+                  ],
+                ],
+              ),
             ),
+          ),
+        ),
+
+        SliverPadding(
+          padding: EdgeInsets.fromLTRB(yatay, 22, yatay, 56),
+          sliver: SliverToBoxAdapter(
+            child: _Kunye(veri: veri, isEn: isEn),
           ),
         ),
       ],
@@ -259,45 +253,55 @@ class _Ust extends StatelessWidget {
 ///
 /// Yarışmanın kendi listesi bunu göstermiyor; biz gösterebiliyoruz çünkü
 /// künyeler zaten yer taşıyor. 42 il ve 11 ülke. Trabzon tek başına 11 kare.
-class _EmeginHaritasi extends StatefulWidget {
+///
+/// TELEFONDA KAPALI BAŞLIYOR. Ölçtük: açıkken ilk fotoğraf 812 piksellik
+/// ekranda 660. pikselde başlıyordu — yani sergi sayfasının ilk ekranında
+/// fotoğraf yoktu, aygıt vardı. Bir sergide okuru önce fotoğraf
+/// karşılamalı; harita bir adım ötede duruyor.
+class _EmeginHaritasi extends ConsumerStatefulWidget {
   final SergiVerisi veri;
   final bool isEn;
-  final String? secili;
-  final void Function(String) sec;
+  final bool dar;
 
   const _EmeginHaritasi({
     required this.veri,
     required this.isEn,
-    required this.secili,
-    required this.sec,
+    required this.dar,
   });
 
   @override
-  State<_EmeginHaritasi> createState() => _EmeginHaritasiDurumu();
+  ConsumerState<_EmeginHaritasi> createState() => _EmeginHaritasiDurumu();
 }
 
-class _EmeginHaritasiDurumu extends State<_EmeginHaritasi> {
+class _EmeginHaritasiDurumu extends ConsumerState<_EmeginHaritasi> {
   /// Açılışta kaç yer gösteriliyor.
   ///
-  /// NEDEN KISITLI. Elli üç rozetin tamamı altı satır tutuyor ve 800 piksel
-  /// genişlikte ilk kareyi ekranın tamamen altına itiyordu — bir sergi
-  /// sayfasında önce fotoğraf görünmeli. İlk on iki zaten listenin anlamlı
-  /// kısmı: Trabzon 11'den Çin 9'a kadar. Kuyruk tek kareli yerler ve
-  /// isteyen açıyor.
+  /// NEDEN KISITLI. Elli üç rozetin tamamı altı satır tutuyor. İlk on iki
+  /// zaten listenin anlamlı kısmı: Trabzon 11'den Çin 9'a kadar. Kuyruk
+  /// tek kareli yerler ve isteyen açıyor.
   static const _acilistaGosterilen = 12;
   bool _hepsi = false;
+  late bool _acik = !widget.dar;
 
   @override
   Widget build(BuildContext context) {
     final veri = widget.veri;
     final isEn = widget.isEn;
-    final secili = widget.secili;
-    final sec = widget.sec;
+    final secili = ref.watch(sergiYeriProvider);
+    void sec(String y) {
+      final n = ref.read(sergiYeriProvider.notifier);
+      n.state = n.state == y ? null : y;
+    }
+
     final iller = veri.illeGore;
-    final ulkeler = veri
-        .ulkeyeGore(isEn)
-        .where((e) => e.key != (isEn ? 'Türkiye' : 'Türkiye'))
-        .toList();
+    final ulkeler =
+        veri.ulkeyeGore(isEn).where((e) => e.key != 'Türkiye').toList();
+
+    final ozet = isEn
+        ? '${iller.length} provinces of Türkiye, ${ulkeler.length} other '
+            'countries'
+        : 'Türkiye\'den ${iller.length} il, ${ulkeler.length} ülke';
+
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
@@ -307,81 +311,115 @@ class _EmeginHaritasiDurumu extends State<_EmeginHaritasi> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            isEn ? 'THE MAP OF LABOUR' : 'EMEĞİN HARİTASI',
-            style: GoogleFonts.inter(
-              color: _vurgu,
-              fontSize: 10.5,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 1.6,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            isEn
-                ? '${iller.length} provinces of Türkiye, ${ulkeler.length} other '
-                  'countries. Tap a place to see only its photographs.'
-                : 'Türkiye\'den ${iller.length} il, ${ulkeler.length} ülke. '
-                  'Bir yere dokunun, yalnız oradan gelen kareler kalsın.',
-            style: GoogleFonts.inter(
-              color: _ikincil,
-              fontSize: 13,
-              height: 1.5,
-            ),
-          ),
-          const SizedBox(height: 14),
-          Builder(builder: (context) {
-            final tum = [...iller, ...ulkeler]
-              ..sort((a, b) {
-                final f = b.value.compareTo(a.value);
-                return f != 0 ? f : a.key.compareTo(b.key);
-              });
-            // Seçili yer kuyrukta kalmışsa listede TUTULUYOR; yoksa bir yeri
-            // seçip paneli kapatınca seçim görünmez olur ve okur neden az
-            // kare gördüğünü anlamaz.
-            final gorunen = _hepsi
-                ? tum
-                : [
-                    ...tum.take(_acilistaGosterilen),
-                    ...tum.skip(_acilistaGosterilen).where(
-                        (e) => e.key == secili),
-                  ];
-            final kalan = tum.length - gorunen.length;
-            return Wrap(
-              spacing: 7,
-              runSpacing: 7,
+          InkWell(
+            onTap: () => setState(() => _acik = !_acik),
+            child: Row(
               children: [
-                for (final e in gorunen)
-                  _YerRozeti(
-                    ad: e.key,
-                    sayi: e.value,
-                    secili: secili == e.key,
-                    bas: () => sec(e.key),
-                  ),
-                if (kalan > 0 || _hepsi)
-                  InkWell(
-                    onTap: () => setState(() => _hepsi = !_hepsi),
-                    borderRadius: BorderRadius.circular(3),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 9, vertical: 5),
-                      child: Text(
-                        _hepsi
-                            ? (isEn ? 'show fewer' : 'daha az göster')
-                            : (isEn ? '+$kalan more' : '+$kalan yer daha'),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        isEn ? 'THE MAP OF LABOUR' : 'EMEĞİN HARİTASI',
                         style: GoogleFonts.inter(
                           color: _vurgu,
-                          fontSize: 12.5,
-                          fontWeight: FontWeight.w600,
-                          decoration: TextDecoration.underline,
-                          decorationColor: _vurgu.withValues(alpha: 0.5),
+                          fontSize: 10.5,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.6,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        secili != null && !_acik
+                            ? (isEn ? 'Showing: $secili' : 'Seçili: $secili')
+                            : ozet,
+                        style: GoogleFonts.inter(
+                          color: secili != null && !_acik ? _vurgu : _ikincil,
+                          fontSize: 13,
+                          height: 1.45,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Icon(
+                  _acik
+                      ? Icons.keyboard_arrow_up_rounded
+                      : Icons.keyboard_arrow_down_rounded,
+                  color: _ikincil,
+                  size: 22,
+                ),
+              ],
+            ),
+          ),
+          if (_acik) ...[
+            const SizedBox(height: 10),
+            Text(
+              isEn
+                  ? 'Tap a place to see only its photographs.'
+                  : 'Bir yere dokunun, yalnız oradan gelen kareler kalsın.',
+              style: GoogleFonts.inter(
+                color: _ikincil,
+                fontSize: 13,
+                height: 1.5,
+              ),
+            ),
+            const SizedBox(height: 14),
+            Builder(builder: (context) {
+              final tum = [...iller, ...ulkeler]
+                ..sort((a, b) {
+                  final f = b.value.compareTo(a.value);
+                  return f != 0 ? f : a.key.compareTo(b.key);
+                });
+              // Seçili yer kuyrukta kalmışsa listede TUTULUYOR; yoksa bir
+              // yeri seçip paneli kapatınca seçim görünmez olur ve okur
+              // neden az kare gördüğünü anlamaz.
+              final gorunen = _hepsi
+                  ? tum
+                  : [
+                      ...tum.take(_acilistaGosterilen),
+                      ...tum
+                          .skip(_acilistaGosterilen)
+                          .where((e) => e.key == secili),
+                    ];
+              final kalan = tum.length - gorunen.length;
+              return Wrap(
+                spacing: 7,
+                runSpacing: 7,
+                children: [
+                  for (final e in gorunen)
+                    _YerRozeti(
+                      ad: e.key,
+                      sayi: e.value,
+                      secili: secili == e.key,
+                      bas: () => sec(e.key),
+                    ),
+                  if (kalan > 0 || _hepsi)
+                    InkWell(
+                      onTap: () => setState(() => _hepsi = !_hepsi),
+                      borderRadius: BorderRadius.circular(3),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 9, vertical: 5),
+                        child: Text(
+                          _hepsi
+                              ? (isEn ? 'show fewer' : 'daha az göster')
+                              : (isEn ? '+$kalan more' : '+$kalan yer daha'),
+                          style: GoogleFonts.inter(
+                            color: _vurgu,
+                            fontSize: 12.5,
+                            fontWeight: FontWeight.w600,
+                            decoration: TextDecoration.underline,
+                            decorationColor: _vurgu.withValues(alpha: 0.5),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-              ],
-            );
-          }),
+                ],
+              );
+            }),
+          ],
         ],
       ),
     );
@@ -443,50 +481,210 @@ class _YerRozeti extends StatelessWidget {
   }
 }
 
-class _SuzgecCubugu extends StatelessWidget {
-  final _Suzgec secili;
-  final void Function(_Suzgec) degis;
+/// YAPIŞKAN SÜZGEÇ ÇUBUĞU — süzgeç, sıralama ve sayım.
+///
+/// Sabit yükseklik, `SliverPersistentHeader`'ın şartı. Rozetler sığmazsa
+/// satır kırmak yerine YATAY KAYIYOR; iki satıra çıkmak çubuğun boyunu
+/// değiştirirdi.
+class _SuzgecBasligi extends SliverPersistentHeaderDelegate {
+  final bool isEn;
+  final double yatay;
   final int odul;
   final int sergileme;
-  final bool isEn;
+  final int gorunen;
 
-  const _SuzgecCubugu({
-    required this.secili,
-    required this.degis,
+  const _SuzgecBasligi({
+    required this.isEn,
+    required this.yatay,
     required this.odul,
     required this.sergileme,
-    required this.isEn,
+    required this.gorunen,
   });
 
   @override
-  Widget build(BuildContext context) {
-    final secenek = <(_Suzgec, String, int)>[
-      (_Suzgec.hepsi, isEn ? 'All' : 'Hepsi', odul + sergileme),
-      (_Suzgec.odul, isEn ? 'Awards' : 'Ödüller', odul),
-      (_Suzgec.sergileme, isEn ? 'Exhibited' : 'Sergileme', sergileme),
-    ];
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: [
-        for (final (s, ad, n) in secenek)
-          _YerRozeti(
-            ad: ad,
-            sayi: n,
-            secili: secili == s,
-            bas: () => degis(s),
+  double get minExtent => 56;
+
+  @override
+  double get maxExtent => 56;
+
+  @override
+  Widget build(BuildContext context, double kayma, bool ustuste) {
+    return Container(
+      color: _zemin,
+      padding: EdgeInsets.fromLTRB(yatay, 8, yatay, 8),
+      child: Column(
+        children: [
+          Expanded(
+            child: Consumer(builder: (context, ref, _) {
+              final suzgec = ref.watch(sergiSuzgeciProvider);
+              final sira = ref.watch(sergiSirasiProvider);
+              final secenek = <(SergiSuzgeci, String, int)>[
+                (SergiSuzgeci.hepsi, isEn ? 'All' : 'Hepsi',
+                    odul + sergileme),
+                (SergiSuzgeci.odul, isEn ? 'Awards' : 'Ödüller', odul),
+                (SergiSuzgeci.sergileme, isEn ? 'Exhibited' : 'Sergileme',
+                    sergileme),
+              ];
+              return Row(
+                children: [
+                  Expanded(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          for (final (s, ad, n) in secenek) ...[
+                            _YerRozeti(
+                              ad: ad,
+                              sayi: n,
+                              secili: suzgec == s,
+                              bas: () => ref
+                                  .read(sergiSuzgeciProvider.notifier)
+                                  .state = s,
+                            ),
+                            const SizedBox(width: 8),
+                          ],
+                          Container(
+                            width: 1,
+                            height: 18,
+                            color: Colors.white.withValues(alpha: 0.1),
+                          ),
+                          const SizedBox(width: 8),
+                          _SiralamaDugmesi(isEn: isEn, secili: sira),
+                        ],
+                      ),
+                    ),
+                  ),
+                  // Sayım yalnız YER süzgeci etkinken görünüyor. Aksi
+                  // halde seçili rozetin kendi sayısını tekrar ediyor ve
+                  // dar ekranda sıralama düğmesinin yerini yiyordu.
+                  if (ref.watch(sergiYeriProvider) != null) ...[
+                    const SizedBox(width: 10),
+                    Text(
+                      '$gorunen',
+                      style: GoogleFonts.robotoMono(
+                        color: _vurgu.withValues(alpha: 0.9),
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
+                ],
+              );
+            }),
+          ),
+          Container(
+            height: 1,
+            color: Colors.white.withValues(alpha: ustuste ? 0.08 : 0.0),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  bool shouldRebuild(covariant _SuzgecBasligi eski) =>
+      eski.gorunen != gorunen ||
+      eski.isEn != isEn ||
+      eski.yatay != yatay ||
+      eski.odul != odul ||
+      eski.sergileme != sergileme;
+}
+
+/// SIRALAMA. Üç düzen: yarışmanın kendi düzeni, yere göre kümelenmiş ve
+/// rastgele. Rastgele her seçilişte yeniden karıyor — 114 karelik bir
+/// gövdede tekrar ziyareti canlı tutan tek şey bu.
+class _SiralamaDugmesi extends ConsumerWidget {
+  final bool isEn;
+  final SergiSirasi secili;
+
+  const _SiralamaDugmesi({required this.isEn, required this.secili});
+
+  String _ad(SergiSirasi s) {
+    switch (s) {
+      case SergiSirasi.odulOnce:
+        return isEn ? 'Awards first' : 'Ödüller önce';
+      case SergiSirasi.yereGore:
+        return isEn ? 'By place' : 'Yere göre';
+      case SergiSirasi.rastgele:
+        return isEn ? 'Shuffle' : 'Rastgele';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return PopupMenuButton<SergiSirasi>(
+      color: _yuzey,
+      position: PopupMenuPosition.under,
+      tooltip: isEn ? 'Order' : 'Sıralama',
+      onSelected: (s) {
+        ref.read(sergiSirasiProvider.notifier).state = s;
+        if (s == SergiSirasi.rastgele) {
+          // Her seçişte yeni tohum: aynı seçenek yeniden karıyor.
+          ref.read(sergiTohumuProvider.notifier).state =
+              DateTime.now().millisecondsSinceEpoch & 0x7FFFFFFF;
+        }
+      },
+      itemBuilder: (context) => [
+        for (final s in SergiSirasi.values)
+          PopupMenuItem<SergiSirasi>(
+            value: s,
+            height: 40,
+            child: Row(
+              children: [
+                Icon(
+                  s == secili
+                      ? Icons.radio_button_checked_rounded
+                      : Icons.radio_button_unchecked_rounded,
+                  size: 15,
+                  color: s == secili ? _vurgu : _ikincil,
+                ),
+                const SizedBox(width: 9),
+                Text(
+                  _ad(s),
+                  style: GoogleFonts.inter(
+                    color: s == secili ? _vurgu : _metin,
+                    fontSize: 13,
+                    fontWeight:
+                        s == secili ? FontWeight.w600 : FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
           ),
       ],
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(3),
+          border: Border.all(color: _ikincil.withValues(alpha: 0.3)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.sort_rounded,
+                size: 14, color: _ikincil.withValues(alpha: 0.9)),
+            const SizedBox(width: 6),
+            Text(
+              _ad(secili),
+              style: GoogleFonts.inter(
+                color: _metin.withValues(alpha: 0.85),
+                fontSize: 12.5,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
 
+/// Izgaradaki tek kare. Dokununca İZLEYİCİYE gidiyor — eskiden bir
+/// diyalog açıyordu ve o diyalog çıkmaz sokaktı.
 class _Kart extends StatelessWidget {
   final SergiEseri eser;
   final bool isEn;
-  final List<SergiEseri> tumu;
 
-  const _Kart({required this.eser, required this.isEn, required this.tumu});
+  const _Kart({required this.eser, required this.isEn});
 
   @override
   Widget build(BuildContext context) {
@@ -494,7 +692,7 @@ class _Kart extends StatelessWidget {
       button: true,
       label: eser.kunye(isEn),
       child: InkWell(
-        onTap: () => _isikKutusu(context, eser, isEn),
+        onTap: () => context.push('/sergi/eser/${eser.kod}'),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -524,6 +722,7 @@ class _Kart extends StatelessWidget {
                   letterSpacing: 1.1,
                 ),
                 maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 4),
             ],
@@ -554,106 +753,6 @@ class _Kart extends StatelessWidget {
       ),
     );
   }
-}
-
-/// IŞIK KUTUSU. Kare BÜYÜTÜLMÜYOR — kaynaktaki boyu ne ise o. Büyüyen şey
-/// künye: fotoğrafçının adı burada başlık puntosunda.
-void _isikKutusu(BuildContext context, SergiEseri e, bool isEn) {
-  showDialog<void>(
-    context: context,
-    barrierColor: Colors.black.withValues(alpha: 0.93),
-    builder: (context) {
-      final g = MediaQuery.sizeOf(context).width;
-      final en = (e.en ?? 600).toDouble();
-      // Kaynak genişliğini AŞMA. Tek kısıt ekran darsa ekranın kendisi.
-      final hedef = en.clamp(240.0, (g - 48).clamp(240.0, en));
-      return Dialog(
-        backgroundColor: Colors.transparent,
-        insetPadding: const EdgeInsets.all(24),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                  icon: const Icon(Icons.close_rounded, color: _metin),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-              ),
-              SizedBox(
-                width: hedef,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(3),
-                  child: AspectRatio(
-                    aspectRatio: e.enBoy,
-                    child: NewsArticleImage(
-                      imageUrl: e.adres,
-                      fit: BoxFit.contain,
-                      isHighQuality: true,
-                      semanticLabel: e.kunye(isEn),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 18),
-              SizedBox(
-                width: hedef,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (e.odulluMu) ...[
-                      Text(
-                        e.odul(isEn).toUpperCase(),
-                        style: GoogleFonts.inter(
-                          color: _vurgu,
-                          fontSize: 10.5,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 1.4,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                    ],
-                    Text(
-                      e.eser,
-                      style: GoogleFonts.outfit(
-                        color: _metin,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        height: 1.3,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    // ADI BÜYÜK. Çözünürlük tavanı yüzünden kare büyüyemiyor;
-                    // büyüyen şey künye oluyor.
-                    Text(
-                      e.fotografci,
-                      style: GoogleFonts.outfit(
-                        color: _metin,
-                        fontSize: 27,
-                        fontWeight: FontWeight.w700,
-                        height: 1.15,
-                        letterSpacing: -0.5,
-                      ),
-                    ),
-                    const SizedBox(height: 6),
-                    Text(
-                      e.yer(isEn),
-                      style: GoogleFonts.inter(
-                        color: _ikincil,
-                        fontSize: 13.5,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      );
-    },
-  );
 }
 
 class _Kunye extends StatelessWidget {

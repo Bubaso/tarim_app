@@ -169,6 +169,63 @@ class SergiVerisi {
   List<MapEntry<String, int>> ulkeyeGore(bool isEn) =>
       _say((e) => e.ulke(isEn));
 
+  /// Bu karenin fotoğrafçısının BAŞKA kareleri.
+  ///
+  /// Sergide 2-3 karesi olan fotoğrafçılar var (Ufuk TURPCAN'ın üç, Said
+  /// Nuri SARGIN'ın üç karesi). İzleyicide tek kareden o kişinin damarına
+  /// geçmeyi sağlıyor. Kendisi listeye girmiyor.
+  List<SergiEseri> ayniFotografcidan(SergiEseri e) => eserler
+      .where((x) => x.kod != e.kod && x.fotografci == e.fotografci)
+      .toList(growable: false);
+
+  /// Aynı yerden gelen BAŞKA kareler. Yer, künyedeki yazımıyla eşleşiyor:
+  /// il varsa il, yoksa ülke.
+  List<SergiEseri> ayniYerden(SergiEseri e, bool isEn) {
+    final y = e.il?.trim().isNotEmpty == true ? e.il!.trim() : e.ulke(isEn);
+    return eserler
+        .where((x) {
+          if (x.kod == e.kod) return false;
+          final xy =
+              x.il?.trim().isNotEmpty == true ? x.il!.trim() : x.ulke(isEn);
+          return xy == y;
+        })
+        .toList(growable: false);
+  }
+
+  /// Sıralama. Okurun seçtiği düzen; ızgara da izleyici de aynı listeyi
+  /// görmek zorunda, yoksa "sonraki kare" ızgaradaki komşu olmaz.
+  ///
+  /// `tohum` yalnız rastgelede kullanılıyor ve DIŞARIDAN veriliyor: her
+  /// yeniden çizimde yeniden karmak, kaydırırken kareleri yerinden
+  /// oynatırdı.
+  List<SergiEseri> sirali(SergiSirasi s, bool isEn, {int tohum = 0}) {
+    final l = eserler.toList();
+    switch (s) {
+      case SergiSirasi.odulOnce:
+        return List.unmodifiable(l);
+      case SergiSirasi.yereGore:
+        l.sort((a, b) {
+          // Önce ülke, sonra il: Trabzon'un 11 karesi yan yana düşsün.
+          final u = a.ulke(isEn).compareTo(b.ulke(isEn));
+          if (u != 0) return u;
+          final i = (a.il ?? '').compareTo(b.il ?? '');
+          if (i != 0) return i;
+          return a.sira.compareTo(b.sira);
+        });
+        return List.unmodifiable(l);
+      case SergiSirasi.rastgele:
+        // Tohumdan türeyen sabit bir karma: aynı tohum aynı sırayı verir.
+        final r = _Karma(tohum == 0 ? 1 : tohum);
+        for (var i = l.length - 1; i > 0; i--) {
+          final j = r.sonraki(i + 1);
+          final t = l[i];
+          l[i] = l[j];
+          l[j] = t;
+        }
+        return List.unmodifiable(l);
+    }
+  }
+
   List<MapEntry<String, int>> _say(String? Function(SergiEseri) anahtar) {
     final sayac = <String, int>{};
     for (final e in eserler) {
@@ -182,5 +239,36 @@ class SergiVerisi {
         return f != 0 ? f : a.key.compareTo(b.key);
       });
     return liste;
+  }
+}
+
+/// Okurun seçebildiği sıralama.
+enum SergiSirasi {
+  /// Ödüller önce, sonra sergileme — yarışmanın kendi düzeni.
+  odulOnce,
+
+  /// Ülke ve il kümelenir.
+  yereGore,
+
+  /// Her gezinti farklı. 114 karelik bir gövdede tekrar ziyareti canlı
+  /// tutan tek düzen bu.
+  rastgele,
+}
+
+/// Küçük, kendi içinde kalan bir sözde-rastgele üreteç (xorshift).
+///
+/// `dart:math`'in Random'ı yerine bunun olmasının sebebi: tohum verilince
+/// her yerde AYNI sırayı üretmesi gerekiyor; ızgaradaki sıra ile
+/// izleyicideki sıra ayrışırsa "sonraki kare" yanlış kareye gider.
+class _Karma {
+  int _d;
+  _Karma(int tohum) : _d = tohum & 0x7FFFFFFF;
+
+  int sonraki(int sinir) {
+    _d ^= (_d << 13) & 0x7FFFFFFF;
+    _d ^= _d >> 17;
+    _d ^= (_d << 5) & 0x7FFFFFFF;
+    final v = _d & 0x7FFFFFFF;
+    return sinir <= 0 ? 0 : v % sinir;
   }
 }

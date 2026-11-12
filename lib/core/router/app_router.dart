@@ -32,6 +32,7 @@ import '../../features/settings/presentation/screens/settings_screen.dart';
 import 'gezinti_derinligi.dart';
 import '../../features/stories/presentation/screens/hikaye_arsivi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
+import '../../features/sergi/presentation/screens/sergi_izleyici.dart';
 import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -414,6 +415,25 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/sergi',
       pageBuilder: (context, state) => _fadePage(state, const SergiEkrani()),
+    ),
+
+    // TEK KARE. Paylaşılabilir adres: /sergi/eser/odul-01
+    //
+    // ANAHTAR SABİT, `state.pageKey` DEĞİL. İzleyici kareler arasında
+    // gezinirken adresi `replace` ile güncelliyor; anahtar adresten
+    // türeseydi her kaydırmada sayfa kimliği değişir, PageView yeniden
+    // kurulur ve kaydırma animasyonu kopardı. Sabit anahtarla sayfa aynı
+    // kalıyor, yalnız `kod` değişiyor.
+    GoRoute(
+      path: '/sergi/eser/:kod',
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
+        key: const ValueKey('sergi-izleyici'),
+        child: SergiIzleyici(kod: state.pathParameters['kod'] ?? ''),
+        transitionDuration: const Duration(milliseconds: 140),
+        reverseTransitionDuration: const Duration(milliseconds: 120),
+        transitionsBuilder: (_, animation, __, child) =>
+            FadeTransition(opacity: animation, child: child),
+      ),
     ),
 
     GoRoute(

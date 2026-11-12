@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -210,11 +211,46 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
       routerConfig: appRouter,
 
       builder: (context, child) {
-        return OrientationBuilder(
+        // YÖNLENDİRİCİYİ DİNLİYORUZ. `builder`, Router'ın ÜSTÜNDE duruyor
+        // ve gezinmede kendiliğinden yeniden çalışmıyor; aşağıdaki yatay
+        // istisnası bu yüzden hep "yol /" görüp kapalı kalıyordu.
+        // `routerDelegate` bir ChangeNotifier, rota değişince haber
+        // veriyor.
+        return ListenableBuilder(
+          listenable: appRouter.routerDelegate,
+          builder: (context, _) => OrientationBuilder(
           builder: (context, orientation) {
             // Telefonlarda (en kısa kenar < 600) yatay moda geçildiğinde uyarı göster
             final isPhone = MediaQuery.of(context).size.shortestSide < 600;
-            if (isPhone && orientation == Orientation.landscape) {
+
+            // TEK İSTİSNA: SERGİ İZLEYİCİSİ.
+            //
+            // Portal bir okuma uygulaması, o yüzden telefonda yatay
+            // kullanım kapalı — dar sütunlu metin yan çevrildiğinde
+            // okunmaz hale geliyor. Ama sergideki karelerin oranı 3:2 ve
+            // telefonu yan çevirmek kareyi neredeyse iki katına
+            // çıkarıyor. Fotoğrafa bakarken "telefonu dik tut" demek,
+            // okura elindeki en iyi ekranı yasaklamak olurdu.
+            //
+            // İstisna YALNIZ tek kare sayfasında (/sergi/eser/...). Izgara
+            // ve portalın geri kalanı eskisi gibi dikey.
+            // Yol YÖNLENDİRİCİDEN DEĞİL TARAYICIDAN okunuyor. Engel
+            // `child`'ı ağaca hiç sokmadığı için yönlendirici kurulmuyor
+            // ve `currentConfiguration` boş kalıyor — ona sormak
+            // kilitleniyor (ölçüldü: yol=[]). `Uri.base` ise adres
+            // çubuğunun kendisi; hem ilk açılışta hem de uygulama içi
+            // gezinmede doğru (pushState adresi günceller, yönlendirici de
+            // bizi yeniden çizdiriyor).
+            //
+            // Yalnız web. Telefonun kendi uygulamasında zaten
+            // `setPreferredOrientations` dikeye kilitliyor, yatay hiç
+            // oluşmuyor; `Uri.base` orada dosya yolu döner ve eşleşmez.
+            final sergiKaresi =
+                kIsWeb && Uri.base.path.startsWith('/sergi/eser/');
+
+            if (isPhone &&
+                orientation == Orientation.landscape &&
+                !sergiKaresi) {
               return const Directionality(
                 textDirection: TextDirection.ltr,
                 child: Scaffold(
@@ -244,7 +280,8 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
               );
             }
             return child ?? const SizedBox.shrink();
-          },
+            },
+          ),
         );
       },
 

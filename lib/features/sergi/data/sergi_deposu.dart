@@ -54,12 +54,23 @@ class SergiDeposu {
           .select()
           .eq('yarisma_kod', yarisma)
           .eq('yayinda', true)
-          .order('sira');
+          // ascending AÇIKÇA VERİLİYOR. PostgREST'in Dart istemcisinde
+          // `order`'ın varsayılanı AZALAN; `.order('sira')` yazıldığında
+          // sergi ters akıyor ve 14 ödüllü kare sayfanın en altına
+          // düşüyordu.
+          .order('sira', ascending: true);
+      // Sıra İSTEMCİDE DE güvenceye alınıyor. Sunucudan gelen düzene
+      // güvenmek bir kez pahalıya mal oldu (bkz. yukarıdaki `ascending`
+      // notu): sergi ters akıyordu ve kimse hata görmüyordu, çünkü ters
+      // bir liste de geçerli bir listedir. `sira` ödüller 1-14, sergileme
+      // 15-114 olacak şekilde tekil.
+      final eserler = (e as List)
+          .map((r) => SergiEseri.fromJson((r as Map).cast<String, dynamic>()))
+          .toList()
+        ..sort((a, b) => a.sira.compareTo(b.sira));
       return SergiVerisi(
         yarisma: SergiYarismasi.fromJson(y.cast<String, dynamic>()),
-        eserler: (e as List)
-            .map((r) => SergiEseri.fromJson((r as Map).cast<String, dynamic>()))
-            .toList(),
+        eserler: eserler,
       );
     } catch (ex) {
       if (kDebugMode) print('sergi okunamadı: $ex');

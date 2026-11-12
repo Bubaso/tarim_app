@@ -179,7 +179,10 @@ class _Kare extends StatelessWidget {
         // anasayfayı altta bırakıyor, kaydırma konumu duruyor. Sayfadaki
         // öteki bağlantılar (haber, dosya) zaten `push` kullanıyor; burası
         // tek istisnaydı.
-        onTap: () => context.push('/sergi'),
+        // Banttaki bir kareye dokunmak O KAREYİ açıyor, listeyi değil:
+        // okur zaten bir fotoğrafa bakıp dokunuyor. Listeye giden yol
+        // bandın altındaki "tümünü gör".
+        onTap: () => context.push('/sergi/eser/${eser.kod}'),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
