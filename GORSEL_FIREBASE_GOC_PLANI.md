@@ -162,10 +162,31 @@ eksikti: dosya tablolarında da Supabase deposuna bakan adresler var. 12 Kasım
 | `commons.wikimedia.org` | 40 | hayır — dış kaynak |
 | **Supabase deposu** | **20 görsel + 1 video** | **evet** |
 
-Etkilenen 21 adres yalnızca iki dosyaya dağılmış: `country_dossiers`'ta
-**avustralya** ve **hollanda**, bir `dossier_sections` satırı, bir
-`portal_stories` satırı. Kovalar: `dossier-images` (20) ve
-`country_folder_videos` (1).
+Etkilenen 21 adres iki dosyaya dağılmış: **avustralya** ve **hollanda**.
+Kovalar: `dossier-images` (20) ve `country_folder_videos` (1).
+
+**SATIR SAYISI İLE ADRES SAYISI AYNI DEĞİL** — göç sağlamasını yazarken
+buna dikkat:
+
+| Tablo | Satır | Adres |
+|---|---|---|
+| `country_dossiers` | 2 | 2 |
+| `dossier_sections` | **13** | 13 |
+| `portal_stories` | **1** | **6** |
+| **Toplam** | **16** | **21** |
+
+`dossier_sections`'ın 13 satırının tamamı avustralya'ya ait.
+`portal_stories`'in tek satırı `items` dizisinde altı adres taşıyor (biri iki
+slaytta tekrar ediyor).
+
+**Sağlama satır saymamalı.** "3 satır güncellendi" diye bir kontrol yazılsaydı
+göç geçer, on iki bölüm görseli eski adreste kalır ve kimse fark etmezdi.
+Doğru sağlama şu: *göç sonunda üç tabloda da eski taban adresi geçen hiçbir
+kayıt kalmamalı.*
+
+Her iki dosya da **arşivde** (avustralya 2 Kasım, hollanda 29 Ağustos).
+Kırılma ana sayfada değil, arşiv sayfalarında ve paylaşım kartlarında
+görünür — şiddeti düşürüyor ama arşiv de yayın.
 
 Yani dosya görsellerinin ezici çoğunluğu Firebase Hosting'den servis ediliyor
 ve bu göç onlara dokunmuyor. Dokunacağı 21 adres için **o tarafı yürüten
