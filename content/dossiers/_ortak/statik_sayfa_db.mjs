@@ -80,6 +80,28 @@ for (const d of await yanit.json()) {
   degistir('og:title', baslik);
   degistir('og:description', tez);
   degistir('og:url', adres);
+
+  // ── canonical ──────────────────────────────────────────────────────────────
+  //
+  // AYRI ELE ALINIYOR çünkü degistir() <meta> arıyor, bu ise bir <link>. Tam bu
+  // yüzden yıllarca atlandı: og etiketlerinin hepsi yeniden yazılıyordu,
+  // canonical web/index.html'deki VARSAYILANIYLA kalıyordu — ve o varsayılan
+  // site KÖKÜ.
+  //
+  // 12 Kasım 2026'da canlıda ölçüldü:
+  //
+  //   /haber/<id>       canonical = kendi adresi   ✓ ogRenderer yazıyor
+  //   /kurum/tigem      canonical = KÖK            ✗ bu dosya yazmıyordu
+  //
+  // canonical'ı og gibi düşünmemek lazım: yanlış og:title kozmetiktir, yanlış
+  // canonical tarama motoruna "bu sayfayı dizine alma, ana sayfayı al" demek.
+  // Yani dosya sayfaları kendi başlıklarıyla aranabilir olmaktan çıkıyordu.
+  const kanonikKalip = /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i;
+  const kanonik = `<link rel="canonical" href="${kac(adres)}">`;
+  html = kanonikKalip.test(html)
+    ? html.replace(kanonikKalip, kanonik)
+    : html.replace('</head>', `  ${kanonik}\n</head>`);
+
   degistir('og:image', gorsel);
   degistir('twitter:card', 'summary_large_image', 'name');
   degistir('twitter:title', baslik, 'name');
