@@ -1186,7 +1186,12 @@
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_orman_ciftligi_1929a.png",
    "bayt": 1133262,
    "sha256": "55520e4062dfcb93a2112b0867e6126ac61f6a8f8aa9878ae71a759691108cdf",
-   "kaynak": null
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929.png",
+    "atif": "Unknown authorUnknown author",
+    "lisans": "Public domain"
+   },
+   "_kaynak_nereden": "Depodaki kunye_ham.json'dan dolduruldu, 12 Kasım 2026. Künye yayına giren JPEG'i adlandırıyor; buradaki dosya onun indirilmiş PNG aslı (künyenin kendi notu: 'Kaynak PNG fotoğraftı; yayına JPEG olarak alındı'). Gövde adı birebir eşleşti."
   },
   {
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_orman_ciftligi_1929b.jpg",
@@ -1203,7 +1208,12 @@
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_orman_ciftligi_1929b.png",
    "bayt": 907534,
    "sha256": "558622aea697d6891f71d1360332a3f860ab2bf977bd4a781afb9e4eb67c8a10",
-   "kaynak": null
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929_%283%29.png",
+    "atif": "Unknown authorUnknown author",
+    "lisans": "Public domain"
+   },
+   "_kaynak_nereden": "Depodaki kunye_ham.json'dan dolduruldu, 12 Kasım 2026. Künye yayına giren JPEG'i adlandırıyor; buradaki dosya onun indirilmiş PNG aslı (künyenin kendi notu: 'Kaynak PNG fotoğraftı; yayına JPEG olarak alındı'). Gövde adı birebir eşleşti."
   },
   {
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_orman_ciftligi_1929c.jpg",
@@ -1220,7 +1230,12 @@
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_orman_ciftligi_1929c.png",
    "bayt": 866871,
    "sha256": "77ef746ae79d9d850fce33e6e175f475ae9ba32ae6116a5f8d0ae5f9eead00aa",
-   "kaynak": null
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Orman_%C3%87iftli%C4%9Fi%2C_Ankara%2C_14_Temmuz_1929_%286%29.png",
+    "atif": "Unknown authorUnknown author",
+    "lisans": "Public domain"
+   },
+   "_kaynak_nereden": "Depodaki kunye_ham.json'dan dolduruldu, 12 Kasım 2026. Künye yayına giren JPEG'i adlandırıyor; buradaki dosya onun indirilmiş PNG aslı (künyenin kendi notu: 'Kaynak PNG fotoğraftı; yayına JPEG olarak alındı'). Gövde adı birebir eşleşti."
   },
   {
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_resmi_gazete.jpg",
@@ -1237,7 +1252,12 @@
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_resmi_gazete.png",
    "bayt": 562185,
    "sha256": "004fedd5b085f2485685882956ffcaf3dd47e8064c8b2157d396b3235f085ef1",
-   "kaynak": null
+   "kaynak": {
+    "adres": "https://commons.wikimedia.org/wiki/File:Resmi_Gazete_sayfasi.png",
+    "atif": "Turkish government",
+    "lisans": "Public domain"
+   },
+   "_kaynak_nereden": "Depodaki kunye_ham.json'dan dolduruldu, 12 Kasım 2026. Künye yayına giren JPEG'i adlandırıyor; buradaki dosya onun indirilmiş PNG aslı (künyenin kendi notu: 'Kaynak PNG fotoğraftı; yayına JPEG olarak alındı'). Gövde adı birebir eşleşti."
   },
   {
    "yol": "content/dossiers/tigem/_raw/gorseller/tigem_tiftik_kecisi.jpg",
