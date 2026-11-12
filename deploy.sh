@@ -363,7 +363,19 @@ fi
 # Dağıtım genel dizini DEĞİŞTİRİYOR: yerelde olmayan varlık canlıdan SİLİNİR
 # (§40.1'de 33 dosya görseli, 28 Ekim'de 3 yazar görseli böyle gitti).
 for klasor in web/yazarlar web/dosya; do
-  if [[ -d "$klasor" ]] && [[ -z "$(find "$klasor" -type f -print -quit)" ]]; then
+  # Klasörün YOK olması, boş olmasından daha sinsi: `[[ -d ]]` false döndüğü
+  # için eski koşul bekçiyi sessizce ATLIYORDU ve dağıtım canlıdaki bütün
+  # görselleri silerdi. Boş klasör hiç olmazsa hata veriyordu; silinmiş
+  # klasör hiçbir şey vermiyordu.
+  #
+  # Görseller bir gün Supabase'den Firebase'e taşınırken "klasörü boşaltmak
+  # yerine silelim" kolaycılığı tam buraya çarpacaktı.
+  if [[ ! -d "$klasor" ]]; then
+    echo "✗ $klasor YOK — dağıtım oradaki dosyaları canlıdan silerdi." >&2
+    echo "  Klasör silinmiş olabilir; canlıdaki kopyaları depoya indirin." >&2
+    exit 1
+  fi
+  if [[ -z "$(find "$klasor" -type f -print -quit)" ]]; then
     echo "✗ $klasor BOŞ — dağıtım oradaki dosyaları canlıdan silerdi." >&2
     echo "  Canlıdaki kopyaları önce depoya indirin." >&2
     exit 1

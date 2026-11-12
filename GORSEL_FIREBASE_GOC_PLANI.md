@@ -149,9 +149,48 @@ ve `kucuk_gorsel`, `portal_stories` görsel sütunları.
 
 **Dokunulmayacak:**
 - `image_lqip` — bu bir adres değil, gömülü data URI. Değiştirilirse bozulur.
-- `country_dossiers`, `dossier_sections`, `dossier_takvim`, `active_country_dossier`
-  — dosya tarafı başka bir oturumun alanı. O tablolardaki görsel sütunları
-  listelenip **sana bildirilecek**, o oturum kendi göçünü yapsın. Ben dokunmuyorum.
+
+### Dosya (ülke/kurum) tarafı — ÖLÇÜLDÜ, kapsam küçük ama sıfır değil
+
+İlk planda "dosya tarafı başka oturumun alanı, dokunmuyorum" yazmıştım. Bu
+eksikti: dosya tablolarında da Supabase deposuna bakan adresler var. 12 Kasım
+2026'da ölçüldü:
+
+| Nereye bakıyor | Adet | Göçten etkilenir mi |
+|---|---|---|
+| `tarimportali.net` (Firebase Hosting, `web/dosya`) | 232 | **hayır** — zaten Firebase'de |
+| `commons.wikimedia.org` | 40 | hayır — dış kaynak |
+| **Supabase deposu** | **20 görsel + 1 video** | **evet** |
+
+Etkilenen 21 adres yalnızca iki dosyaya dağılmış: `country_dossiers`'ta
+**avustralya** ve **hollanda**, bir `dossier_sections` satırı, bir
+`portal_stories` satırı. Kovalar: `dossier-images` (20) ve
+`country_folder_videos` (1).
+
+Yani dosya görsellerinin ezici çoğunluğu Firebase Hosting'den servis ediliyor
+ve bu göç onlara dokunmuyor. Dokunacağı 21 adres için **o tarafı yürüten
+oturumla birlikte** hareket edilmeli: aynı SQL göçünde yeniden yazılabilirler
+ama kararı onlar vermeli, çünkü `yayin.json` dosyaları da aynı adresleri
+taşıyor ve bir sonraki seed güncellenmemiş bir değeri geri yazar.
+
+### deploy.sh tuzağı — taşıma sırasında buna çarpılacak
+
+`deploy.sh`'teki klasör bekçisi `web/dosya` ve `web/yazarlar` boşsa dağıtımı
+durduruyordu, ama klasör **silinmişse** `[[ -d ]]` false dönüp bekçiyi
+atlıyordu — ve dağıtım canlıdaki bütün görselleri silerdi (§40.1'in aynısı).
+Taşıma sırasında "klasörü boşaltmak yerine silelim" kolaycılığı tam buraya
+çarpardı. 12 Kasım 2026'da bekçi "klasör yoksa da dur" diye düzeltildi.
+
+### Sıra (dosya tarafı dahil)
+
+1. Görseller Firebase'e **yüklenir**, eskiler yerinde **kalır**.
+2. Yeni adresler tek tek sınanır: 200 mü dönüyor, `content-type: image/*` mı,
+   `access-control-allow-origin` var mı.
+3. Tablolar tek göçte yeniden yazılır. Sağlama: hiçbir satırda eski taban
+   adres kalmamalı.
+4. Depodaki `yayin.json` dosyaları da güncellenir — yoksa bir sonraki seed
+   eski adresleri geri yazar.
+5. Eskiler **ancak canlı doğrulandıktan sonra** kaldırılır.
 
 Sonrasında doğrulama: rastgele 10 haberin kapak + kare + gövde görseli
 `curl -I` ile 200 + `access-control-allow-origin`, sonra tarayıcıda gözle.
