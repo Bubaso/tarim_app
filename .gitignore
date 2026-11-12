@@ -97,11 +97,52 @@ supabase/.temp/
 # yolu, boyutu, sha256'sı ve bulunabildiği yerde kaynak adresi.
 # Künye ve veri JSON'ları, betikler depoda KALIYOR — yani ham dosya yeniden
 # indirildiğinde doğrulanabiliyor.
+#
+# Kapsam İKİLİ dosyalar. HTML, JSON, TXT, MD ve betikler bilerek DIŞARIDA:
+# onlar metin, git iyi sıkıştırıyor ve diff'lenebiliyorlar — künye ve veri
+# dosyalarının depoda kalması ham kaynağın doğrulanmasını sağlayan şey.
+#
+# Liste geniş tutuldu: ilk turda yalnız pdf/zip/jpg/png/webp/xlsx/csv
+# yazılmıştı ve izlemede kalan bir .docx'i dosya oturumu yakaladı. Eksik
+# kapsanan bir uzantının bedeli sessiz: dosya depoya geri sızar ve kimse
+# fark etmez.
+
+# Belgeler
 content/dossiers/*/_raw/**/*.pdf
+content/dossiers/*/_raw/**/*.doc
+content/dossiers/*/_raw/**/*.docx
+content/dossiers/*/_raw/**/*.odt
+content/dossiers/*/_raw/**/*.rtf
+content/dossiers/*/_raw/**/*.ppt
+content/dossiers/*/_raw/**/*.pptx
+
+# Tablolar
+content/dossiers/*/_raw/**/*.xls
+content/dossiers/*/_raw/**/*.xlsx
+content/dossiers/*/_raw/**/*.xlsm
+content/dossiers/*/_raw/**/*.xlsb
+content/dossiers/*/_raw/**/*.ods
+content/dossiers/*/_raw/**/*.csv
+
+# Arşivler
 content/dossiers/*/_raw/**/*.zip
+content/dossiers/*/_raw/**/*.7z
+content/dossiers/*/_raw/**/*.rar
+content/dossiers/*/_raw/**/*.tar
+content/dossiers/*/_raw/**/*.gz
+content/dossiers/*/_raw/**/*.tgz
+
+# Görsel ve ses
 content/dossiers/*/_raw/**/*.jpg
 content/dossiers/*/_raw/**/*.jpeg
 content/dossiers/*/_raw/**/*.png
 content/dossiers/*/_raw/**/*.webp
-content/dossiers/*/_raw/**/*.xlsx
-content/dossiers/*/_raw/**/*.csv
+content/dossiers/*/_raw/**/*.gif
+content/dossiers/*/_raw/**/*.tif
+content/dossiers/*/_raw/**/*.tiff
+content/dossiers/*/_raw/**/*.bmp
+content/dossiers/*/_raw/**/*.heic
+content/dossiers/*/_raw/**/*.mp4
+content/dossiers/*/_raw/**/*.mov
+content/dossiers/*/_raw/**/*.mp3
+content/dossiers/*/_raw/**/*.wav

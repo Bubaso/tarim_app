@@ -3,9 +3,9 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 177,
- "toplam_bayt": 486526739,
- "kaynak_adresi_olmayan": 81,
+ "dosya_sayisi": 178,
+ "toplam_bayt": 486540400,
+ "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
    "yol": "content/dossiers/avustralya/_raw/gorseller/avustralya_ana_kanal.jpg",
@@ -1269,6 +1269,12 @@
     "lisans": "Public domain",
     "lisans_adresi": null
    }
+  },
+  {
+   "yol": "content/dossiers/tigem/_raw/kaynak_dosyalari/kanun_3646_tescil.docx",
+   "bayt": 13661,
+   "sha256": "83c1fa0cec9e574f04b09c9f04f7950d7ba9bf0f1ca10961c23fccb2ef7a770a",
+   "kaynak": null
   },
   {
    "yol": "content/dossiers/tigem/_raw/kaynak_dosyalari/khk_233_kit.pdf",
