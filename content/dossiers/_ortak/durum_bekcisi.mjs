@@ -210,6 +210,42 @@ if (durduran.length) {
   process.exit(1);
 }
 
+// ── Paylaşım kartı (12 Kasım 2026) ────────────────────────────────────────
+//
+// §2.12.1 devir sırasını "paylaşım kartı → deploy → ..." diye yazıyor ama
+// hiçbir şey sınamıyordu. Ölçüm: YAYINDAKİ İKİ DOSYANIN DA KARTI YOKTU
+// (irak 2 Kasım'dan beri, tigem 12 Kasım'dan beri); arşivdeki dokuzunun
+// hepsinde vardı.
+//
+// Sebebi de tarihi de uyuyor: kartı `paylasim_karti.mjs` üretiyor ve o
+// puppeteer istiyor; depo 2 Kasım'da yeniden kurulduğunda
+// puppeteer_test/node_modules gelmedi. Adım o günden beri sessizce
+// başarısız, çünkü eksik kartın belirtisi YUMUŞAK 404: Firebase olmayan
+// yola SPA yakalayıcısıyla index.html veriyor, yani
+//
+//   curl -o /dev/null -w '%{http_code}'                 → 200      temiz görünür
+//   curl -o /dev/null -w '%{http_code} %{content_type}' → 200 text/html   gerçek
+//
+// Bu tam olarak §2.12.1'in İspanya'da yazdığı tuzak.
+//
+// UYARI, DURDURMA DEĞİL: eksik kartı dağıtım yaratmıyor ve dağıtım onu
+// kötüleştirmiyor. Durduran sınıf yalnız "dağıtımın kendisi bir şeyi yok
+// ediyor" hali.
+const kartEksik = [];
+for (const r of satirlar) {
+  if (r.status !== 'published' && r.status !== 'archived') continue;
+  if (!existsSync(join(KOK, 'web', 'paylasim', `${r.slug}.jpg`))) {
+    kartEksik.push(r.slug);
+  }
+}
+if (kartEksik.length) {
+  console.warn(`  ⚠ ${kartEksik.length} yayımlanmış dosyanın PAYLAŞIM KARTI yok:`);
+  for (const a of kartEksik) console.warn(`      · ${a}  → web/paylasim/${a}.jpg`);
+  console.warn('    Paylaşıldıklarında sitenin genel görseli çıkar. Üretmek için:');
+  console.warn(`      node content/dossiers/_ortak/paylasim_karti.mjs <slug>`);
+  console.warn('    (puppeteer gerekiyor: cd puppeteer_test && npm install)');
+}
+
 if (gorselUyari.length) {
   console.warn(`  ⚠ ${gorselUyari.length} dosyanın görselleri depoda ve veritabanında`);
   console.warn('    AYRI YERİ gösteriyor (dağıtım etkilenmiyor, ama biri eskimiş):');
