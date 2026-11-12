@@ -191,7 +191,25 @@ görünür — şiddeti düşürüyor ama arşiv de yayın.
 Yani dosya görsellerinin ezici çoğunluğu Firebase Hosting'den servis ediliyor
 ve bu göç onlara dokunmuyor.
 
-#### O 21 adresin 20'si göç işi DEĞİL — depo/veritabanı ayrışması
+#### Dosya tarafı KAPANDI — geriye tek bir video kaldı
+
+**12 Kasım 2026 akşamı, doğrulanmış son durum:**
+
+| Konak | Adet |
+|---|---|
+| `tarimportali.net` | 252 |
+| `commons.wikimedia.org` | 40 |
+| **`supabase.co`** | **1** |
+
+Kalan tek adres `country_folder_videos` kovasındaki Hollanda videosu
+(42,6 MB). Göçün dosya tarafı kapsamı budur; başka hiçbir şey yok.
+
+Avustralya'nın 14 adresi göçle değil **düzeltmeyle** kapandı (göç
+`20261112160000`, kullanıcı kendi terminalinden uyguladı): depo zaten doğru
+adresi gösteriyordu, veritabanı eski kalmıştı. Aşağıdaki bölüm o teşhisin
+kaydı; tekrar araştırılmasın diye duruyor.
+
+#### (Kapandı) O 21 adresin 20'si göç işi DEĞİLDİ — depo/veritabanı ayrışması
 
 Ölçüldü (12 Kasım 2026):
 
