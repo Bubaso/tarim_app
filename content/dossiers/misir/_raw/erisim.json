@@ -1,0 +1,187 @@
+{
+ "_ne": "Mısır dosyası tur 1 erişim haritası",
+ "_yontem": "kod + content-type + gövde birlikte okunuyor (§2.12.1)",
+ "_tarih": "2026-11-12",
+ "kaynaklar": [
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 1421,
+   "teshis": "KABUK — gövde 1421 bayt",
+   "ad": "CAPMAS — Mısır İstatistik Kurumu",
+   "adres": "https://www.capmas.gov.eg/",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 1421,
+   "teshis": "KABUK — gövde 1421 bayt",
+   "ad": "CAPMAS ingilizce",
+   "adres": "https://www.capmas.gov.eg/Pages/StaticPages.aspx?page_id=5034",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 60000,
+   "teshis": "açık",
+   "ad": "Mısır Tarım Bakanlığı",
+   "adres": "https://www.moa.gov.eg/",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 0,
+   "tur": null,
+   "bayt": null,
+   "teshis": "bağlantı yok — [Errno 54] Connection reset by peer",
+   "ad": "Mısır Su Kaynakları Bakanlığı",
+   "adres": "http://www.mwri.gov.eg/",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/plain",
+   "bayt": 269,
+   "teshis": "KABUK — gövde 269 bayt",
+   "ad": "Mısır Merkez Bankası",
+   "adres": "https://www.cbe.org.eg/en/economic-research/statistics",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 127497,
+   "teshis": "açık",
+   "ad": "Nile Basin Initiative",
+   "adres": "https://nilebasin.org/",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "application/x-directory",
+   "bayt": 0,
+   "teshis": "KABUK — gövde 0 bayt",
+   "ad": "FAOSTAT toplu indirme dizini",
+   "adres": "https://bulks-faostat.fao.org/production/",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "html"
+  },
+  {
+   "kod": 521,
+   "tur": null,
+   "bayt": null,
+   "teshis": "HTTP 521",
+   "ad": "FAOSTAT REST API",
+   "adres": "https://fenixservices.fao.org/faostat/api/v1/en/data/QCL",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "json"
+  },
+  {
+   "kod": 0,
+   "tur": null,
+   "bayt": null,
+   "teshis": "bağlantı yok — The read operation timed out",
+   "ad": "Dünya Bankası API",
+   "adres": "https://api.worldbank.org/v2/country/EGY/indicator/AG.LND.AGRI.K2?format=json",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "json"
+  },
+  {
+   "kod": 200,
+   "tur": "application/json",
+   "bayt": 957,
+   "teshis": "açık",
+   "ad": "UN Comtrade preview",
+   "adres": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=818&period=2023&partnerCode=792&flowCode=X&cmdCode=TOTAL",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "json"
+  },
+  {
+   "kod": 200,
+   "tur": "application/x-zip-compressed",
+   "bayt": 10458684,
+   "teshis": "açık",
+   "ad": "USDA FAS PSD toplu",
+   "adres": "https://apps.fas.usda.gov/psdonline/downloads/psd_alldata_csv.zip",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "zip"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 60000,
+   "teshis": "açık",
+   "ad": "FAO AQUASTAT ülke profili",
+   "adres": "https://www.fao.org/aquastat/en/countries-and-basins/country-profiles/country/EGY",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "application/pdf",
+   "bayt": 109072,
+   "teshis": "açık",
+   "ad": "FAO belge (fao.org/4)",
+   "adres": "https://www.fao.org/4/y5082e/y5082e00.pdf",
+   "sinif": "BAĞIMSIZ",
+   "beklenen": "pdf"
+  },
+  {
+   "kod": 200,
+   "tur": "application/pdf",
+   "bayt": 1266645,
+   "teshis": "açık",
+   "ad": "Resmî Gazete arşivi",
+   "adres": "https://www.resmigazete.gov.tr/arsiv/10127.pdf",
+   "sinif": "BİRİNCİL",
+   "beklenen": "pdf"
+  },
+  {
+   "kod": 308,
+   "tur": null,
+   "bayt": null,
+   "teshis": "HTTP 308",
+   "ad": "TBMM tutanak arşivi",
+   "adres": "https://www5.tbmm.gov.tr/tutanaklar/TUTANAK/TBMM/",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 3692,
+   "teshis": "açık",
+   "ad": "TÜİK dış ticaret",
+   "adres": "https://data.tuik.gov.tr/Kategori/GetKategori?p=dis-ticaret-104",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 60000,
+   "teshis": "açık",
+   "ad": "TİM ihracat rakamları",
+   "adres": "https://tim.org.tr/tr/ihracat-rakamlari",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 60000,
+   "teshis": "açık",
+   "ad": "Suez Canal Authority",
+   "adres": "https://www.suezcanal.gov.eg/English/Pages/default.aspx",
+   "sinif": "BİRİNCİL",
+   "beklenen": "html"
+  }
+ ]
+}

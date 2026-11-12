@@ -1,0 +1,65 @@
+{
+  "_ne": "§2.8'in iki açık kategorisi — tur 7'de kapatıldı",
+  "_tarih": "12 Kasım 2026",
+  "_kural": "Burada duran her cümlenin kaynağı var. Kaynağı olmayan bilgi yayına çıkmaz.",
+
+  "bilim_ve_kisi": {
+    "kim": "Louis Alexis Jumel (1785-1823), Fransız tekstil mühendisi",
+    "neden_bu_dosyada": "Dosyanın 'terk edilen ürün' bölümü (§10-11) Mısır pamuğunu anlatıyor: üretim 1965 zirvesinden %84,6, alan 1961'den %90,2 düştü. O pamuğın ADI bu kişiden geliyor — uzun elyaflı Mısır pamuğuna uzun süre 'Jumel pamuğu' dendi. Yani dosyanın en büyük düşüşü, bir kişinin adıyla başlamış bir ürünün düşüşü.",
+    "olgular": [
+      {
+        "iddia": "Jumel 1817'de bir iplik fabrikasını yönetmek üzere Mısır'a geldi.",
+        "kaynak": "Encyclopedia of Western Colonialism since 1450, 'Cotton' maddesi",
+        "adres": "https://www.encyclopedia.com/history/encyclopedias-almanacs-transcripts-and-maps/cotton",
+        "nitelik": "İKİNCİL — ansiklopedi maddesi; madde kendi künyesini tam vermiyor (yazar yok)."
+      },
+      {
+        "iddia": "Kahire'de bir bahçede uzun elyaflı, güçlü lifli pamuk veren bir çalı buldu; kendisi yetiştirdi ve Mısır'da o güne dek yetişenden çok daha iyi kalite elde etti.",
+        "kaynak": "aynı madde",
+        "nitelik": "İKİNCİL"
+      },
+      {
+        "iddia": "Mehmet Ali Paşa Jumel'in pamuk çalışmasını MALİ olarak destekledi; sonra fellahlara Nil deltasında Jumel pamuğu ektirildi ve pamuk ticaretini devlet denetledi.",
+        "kaynak": "aynı madde",
+        "nitelik": "İKİNCİL"
+      },
+      {
+        "iddia": "1821'de Mehmet Ali ile Jumel uzun elyaflı pamuk ekimini ilk kez denediğinde toplam üretim bin kantarı geçmiyordu; kırk yıl sonra yaklaşık 1,18 milyon kantara çıkmıştı. Kantar pamuk için kullanılan tarihsel birim, kabaca 45 kg.",
+        "kaynak": "Osama Diab, 'Cotton Specters | Agriculture and the making of Egyptian dependency', Al Manassa, 27 Temmuz 2026",
+        "adres": "https://almanassa.com/en/stories/32752",
+        "nitelik": "İKİNCİL — gazetecilik; rakamlar makalenin kendi aktarımı."
+      }
+    ],
+    "_TARIH_CELISKISI": "KEŞİF YILI KAYNAKLAR ARASINDA AYRIŞIYOR: 1818, 1819 ve 1821 ayrı ayrı geçiyor (bir popüler kaynakta 1918 var, açıkça 1818 dizgi hatası). Metin TEK BİR YIL İDDİA ETMEYECEK: 'Jumel 1817'de Mısır'a geldi, ilk ekim denemesi 1820'lerin başında' denecek ve çelişki dipnotla söylenecek. 1821 rakamı yalnız Al Manassa'nın cümlesine dayanıyor.",
+    "_BULUNAMAYAN": "Jumel'in kendi yazdığı bir metin, dönemin arşiv belgesi ya da akademik bir biyografi BULUNAMADI. Khaled Fahmy'nin 'Mehmed Ali' kitabının 5. bölümü PDF olarak erişilebilir görünüyor (psi427.cankaya.edu.tr) ama okunmadı. Birincil kaynak olmadan bu bölüm bir ANLATI bölümü olarak yazılacak, belge bölümü olarak değil."
+  },
+
+  "kulturel_aciklama": {
+    "soru": "Suyunun %96,9'u dışarıdan gelen, kişi başına 699 m³ suyu olan bir ülke neden pirinç ekiyor? Dosyanın §8'i bu çelişkiyi gösteriyor (pirinçte arzın yalnız %3,9'u ithal, buğdayda %58,1).",
+    "aciklama": "Su altında tutulan pirinç tarlasının fazla suyu kıyı akiferine süzülüyor ve deniz suyunun karaya doğru ilerlemesini geri itiyor. Yani pirinç yalnız su TÜKETMİYOR, tuzlanmaya karşı bir perde işi de görüyor.",
+    "kaynak": {
+      "yazar": "Abd-Elaty ve diğerleri",
+      "baslik": "Managing coastal aquifer salinity under sea level rise using rice cultivation recharge for sustainable land cover",
+      "dergi": "Journal of Hydrology: Regional Studies",
+      "cilt_makale": "48, 101466",
+      "yil": 2023,
+      "doi": "10.1016/j.ejrh.2023.101466",
+      "nitelik": "BİRİNCİL — hakemli dergi makalesi"
+    },
+    "olculen": [
+      "Kuzey deltada pirinç ekimi tuz hacminde en büyük azalmayı veriyor: %19.",
+      "Deniz seviyesi yükselmesi de modele katıldığında kuzey yerleşiminde azalma %17."
+    ],
+    "_SINIRLAR": [
+      "Bulgular SAYISAL MODELDEN (SEAWAT) geliyor, uzun süreli saha ölçümünden değil. Metin 'model' kelimesini kullanacak.",
+      "Sonuç NEREYE ekildiğine bağlı: orta ve güney bölgelerde azalma az ya da tuz hacmi ARTIYOR. Orta bölge için kaynaklar farklı rakam veriyor (%0,50 azalma / asgari azalma / artış) — ORTA BÖLGE RAKAMI KULLANILMAYACAK, tam metin okunmadı.",
+      "Pirincin BU AMAÇLA ekildiğini doğrulayan kaynak BULUNAMADI. Tuzlanmayı yavaşlatması sulamanın yan etkisi; metin 'bunun için ekiliyor' demeyecek.",
+      "Devletin deltanın bazı yerlerinde pirinç ekimini su tasarrufu için KISITLADIĞI haberlerde geçiyor (Reuters, 2022). Yani kamu politikası bu yan etkiyi desteklemiyor; çelişki metne bu haliyle girecek."
+    ],
+    "_destekleyici_haber": {
+      "kaynak": "Reuters, 'Egypt's Nile Delta farmland salts up as temperatures, and seas, rise', 2022",
+      "nitelik": "İKİNCİL — haber; iklim ve tuzlanma bağlamı için, rakam için değil.",
+      "kullanim": "Bir çiftçinin domatesten pirince geçtiği örneği ve pirincin toprağı yıkadığı ifadesi haberden; model bulgusuyla KARIŞTIRILMAYACAK."
+    }
+  }
+}

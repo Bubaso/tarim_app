@@ -31,6 +31,8 @@ import '../../features/legal/presentation/screens/legal_page_screen.dart';
 import '../../features/settings/presentation/screens/settings_screen.dart';
 import 'gezinti_derinligi.dart';
 import '../../features/stories/presentation/screens/hikaye_arsivi_ekrani.dart';
+import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
+import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -70,6 +72,21 @@ String countryPath(String slug) => '/ulke/$slug';
 
 /// Ülke dosyaları arşivi.
 const String dossierIndexPath = '/ulkeler';
+
+/// Turkuaz Bağlantısallık Girişimi sayfası.
+///
+/// Adres ASCII — ötekilerle aynı gerekçe (yüzde kodlaması).
+///
+/// NEDEN YALNIZ `/turkuaz` DEĞİL — ÖLÇÜLDÜ. Girişimin görselleri
+/// `web/turkuaz/` klasöründe duruyor, derlemede `build/web/turkuaz/` oluyor.
+/// Yerel SPA sunucusu `/turkuaz` isteğine o klasörün DİZİN LİSTESİNİ
+/// döndürdü ve sayfa hiç açılmadı. Firebase Hosting'de istek statik
+/// eşleşme bulamayıp yeniden yazma kuralına düşeceği için orada çalışması
+/// muhtemeldi — ama bir adresin açılması sunucunun hangi sırayla baktığına
+/// bağlı kalmamalı. Klasörü taşımak yerine ADRES değişti: görsellerin
+/// yayımlanmış adresleri (`tarimportali.net/turkuaz/...`) veri katmanında
+/// sabit ve paylaşım kartı onları kullanıyor.
+const String turkuazPath = '/turkuaz-girisimi';
 
 /// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
 /// Türkçe karakterli adresler kopyalanıp yapıştırıldığında ve mesajlaşma
@@ -129,6 +146,7 @@ class CategoryArgs {
     return (path: '/hikaye-arsivi', extra: null);
   }
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
+  if (page is TniEkrani) return (path: turkuazPath, extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
   if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
@@ -376,11 +394,28 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) =>
           _fadePage(state, const YYTDosyasiScreen()),
     ),
+
+    // Turkuaz Bağlantısallık Girişimi. Ekran hiçbir argüman almıyor: gömülü
+    // veri katmanı derlemenin içinde, canlı örtü Supabase'den geliyor. Yani
+    // adres tek başına sayfayı tam olarak kuruyor ve paylaşılabilir.
+    GoRoute(
+      path: turkuazPath,
+      pageBuilder: (context, state) => _fadePage(state, const TniEkrani()),
+    ),
+
     GoRoute(
       path: '/piyasalar',
       pageBuilder: (context, state) =>
           _fadePage(state, const FinancialTerminalScreen()),
     ),
+    // Fotoğraf sergisi. Adresten tamamen yeniden kurulabiliyor: ekran
+    // hiçbir argüman almıyor, yarışma kodu varsayılandan geliyor. Anasayfa
+    // bandındaki "tümünü gör" buraya geliyor.
+    GoRoute(
+      path: '/sergi',
+      pageBuilder: (context, state) => _fadePage(state, const SergiEkrani()),
+    ),
+
     GoRoute(
       path: '/hakkimizda',
       pageBuilder: (context, state) => _fadePage(state, const AboutScreen()),

@@ -3,9 +3,9 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 178,
- "toplam_bayt": 486540400,
- "kaynak_adresi_olmayan": 78,
+ "dosya_sayisi": 183,
+ "toplam_bayt": 516159007,
+ "kaynak_adresi_olmayan": 119,
  "dosyalar": [
   {
    "yol": "content/dossiers/avustralya/_raw/gorseller/avustralya_ana_kanal.jpg",
@@ -917,6 +917,30 @@
    "kaynak": null
   },
   {
+   "yol": "content/dossiers/misir/_raw/indirilen_ek/misir_sta_ekler.rar",
+   "bayt": 298052,
+   "sha256": "e5d60cffd008ec9d513c5a42140e7e1b208e2611dfaa9a7c823c965c4b6f97aa",
+   "kaynak": {
+    "adres": null,
+    "atif": "Türkiye–Mısır STA ekleri, 'Mısır STA Türkçe.rar'",
+    "lisans": null,
+    "lisans_adresi": null,
+    "_not": "İNDİRME ADRESİ KAYDEDİLMEMİŞ — tur 4'te indirildi, günlükte adres yok ve sonradan uydurulmayacak. Tarım tavizlerinin listesi içinde; bu makinede unrar/unar/7z yok, açılamadı. Açıcı kurulursa (`brew install unar`) dosyanın belge bölümü tarifeye dayanabilir."
+   }
+  },
+  {
+   "yol": "content/dossiers/misir/_raw/kaynak_dosyalari/fao_aquastat_misir_2016.pdf",
+   "bayt": 1008848,
+   "sha256": "2f54d489a4fd996d271197fe5ad77eb412361a2b5535dbdbe15ed9cb616d7e27",
+   "kaynak": {
+    "adres": "https://www.fao.org/4/i9729en/I9729EN.pdf",
+    "atif": "FAO AQUASTAT — Mısır ülke profili, 2016 taraması",
+    "lisans": "FAO yayını — lisans tek tek okunacak; 'BM yayını' açık lisans demek değildir",
+    "lisans_adresi": null,
+    "_not": "Dosyanın su bloğunun TEK birincil kaynağı. AQUASTAT'ın HTML sayfası JavaScript kabuğu (200 ama 1.659 karakter gövde); rakamlar yalnız bu PDF'te. Kaybolursa su bölümü yeniden kurulamaz."
+   }
+  },
+  {
    "yol": "content/dossiers/rusya/_raw/belgeler/CAYKUR_tarihce.pdf",
    "bayt": 4038769,
    "sha256": "a466c2db539bff6da5e9e3cca4beb8daaca5bf65a41d66aee76f80f45fddeb76",
@@ -1572,6 +1596,39 @@
     "adres": null,
     "atif": null,
     "lisans": "Kamu malı",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/utoify/_raw/kaynak_dosyalari/16th_utoify_odul.pdf",
+   "bayt": 3534448,
+   "sha256": "93f3730e5934757f5c9b1ce60db7c48cb953135085bdb42d76683a6ef3ac9648",
+   "kaynak": {
+    "adres": "https://www.tarimormaninsan.com/16th_utoify_odul.pdf",
+    "atif": "T.C. Tarım ve Orman Bakanlığı, Eğitim ve Yayın Dairesi Başkanlığı",
+    "lisans": "Lisans ilan edilmemiş — yarışmanın katılım şartları sayfası boş dönüyor",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/utoify/_raw/kaynak_dosyalari/16th_utoify_sergileme.pdf",
+   "bayt": 21073267,
+   "sha256": "f9271563a132180d0e603c82be0a2e09fc46712a2f01f118f889ba6639ceda15",
+   "kaynak": {
+    "adres": "https://www.tarimormaninsan.com/16th_utoify_sergileme.pdf",
+    "atif": "T.C. Tarım ve Orman Bakanlığı, Eğitim ve Yayın Dairesi Başkanlığı",
+    "lisans": "Lisans ilan edilmemiş — yarışmanın katılım şartları sayfası boş dönüyor",
+    "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/utoify/_raw/kaynak_dosyalari/brosur.pdf",
+   "bayt": 3703992,
+   "sha256": "e339cc1c90c25ef12a892fd448a78bdb177120f829d22af0d18b1c8201fbe45e",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/EYDB/Belgeler/utoify/16UTOIFYbrosur.pdf",
+    "atif": "T.C. Tarım ve Orman Bakanlığı, Eğitim ve Yayın Dairesi Başkanlığı",
+    "lisans": "Lisans ilan edilmemiş — yarışmanın katılım şartları sayfası boş dönüyor",
     "lisans_adresi": null
    }
   }

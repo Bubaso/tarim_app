@@ -1,0 +1,229 @@
+{
+ "_kaynak": "UN Comtrade · HS 01-24 · yıllık",
+ "_yil": 2024,
+ "_suzgec": "customsCode=C00, motCode=0, partner2Code=0 (çift sayım)",
+ "_bos_notu": "ham satır 0 ise değer null — SIFIR DEĞİL",
+ "tr_misira_tarim_ihracat": {
+  "ham_satir": 24,
+  "suzulmus_satir": 24,
+  "deger_usd": 424023474.0
+ },
+ "tr_misirdan_tarim_ithalat": {
+  "ham_satir": 22,
+  "suzulmus_satir": 22,
+  "deger_usd": 184199173.0
+ },
+ "tr_misira_toplam_ihracat": {
+  "ham_satir": 1,
+  "suzulmus_satir": 1,
+  "deger_usd": 4175857770.0
+ },
+ "tr_dunyaya_tarim_ihracat": {
+  "ham_satir": 24,
+  "suzulmus_satir": 24,
+  "deger_usd": 32541007957.0
+ },
+ "misir_trden_tarim_ithalat": {
+  "ham_satir": 22,
+  "suzulmus_satir": 22,
+  "deger_usd": 267043294.82699996
+ },
+ "misir_tre_tarim_ihracat": {
+  "ham_satir": 20,
+  "suzulmus_satir": 20,
+  "deger_usd": 281951888.598
+ },
+ "misir_dunyaya_tarim_ihracat": {
+  "ham_satir": 24,
+  "suzulmus_satir": 24,
+  "deger_usd": 9983528366.859999
+ },
+ "fasil_ihracat": [
+  {
+   "fasil": "15",
+   "deger": 84061216.0
+  },
+  {
+   "fasil": "07",
+   "deger": 57844083.0
+  },
+  {
+   "fasil": "08",
+   "deger": 56949173.0
+  },
+  {
+   "fasil": "20",
+   "deger": 36895237.0
+  },
+  {
+   "fasil": "04",
+   "deger": 31591683.0
+  },
+  {
+   "fasil": "11",
+   "deger": 23897136.0
+  },
+  {
+   "fasil": "17",
+   "deger": 23614584.0
+  },
+  {
+   "fasil": "10",
+   "deger": 21395459.0
+  },
+  {
+   "fasil": "16",
+   "deger": 20511910.0
+  },
+  {
+   "fasil": "24",
+   "deger": 16005371.0
+  },
+  {
+   "fasil": "18",
+   "deger": 14593608.0
+  },
+  {
+   "fasil": "12",
+   "deger": 7820532.0
+  },
+  {
+   "fasil": "23",
+   "deger": 7684298.0
+  },
+  {
+   "fasil": "09",
+   "deger": 7310166.0
+  },
+  {
+   "fasil": "19",
+   "deger": 7293196.0
+  },
+  {
+   "fasil": "21",
+   "deger": 4950914.0
+  },
+  {
+   "fasil": "05",
+   "deger": 677454.0
+  },
+  {
+   "fasil": "22",
+   "deger": 422607.0
+  },
+  {
+   "fasil": "03",
+   "deger": 167879.0
+  },
+  {
+   "fasil": "14",
+   "deger": 153595.0
+  },
+  {
+   "fasil": "02",
+   "deger": 83284.0
+  },
+  {
+   "fasil": "01",
+   "deger": 74488.0
+  },
+  {
+   "fasil": "13",
+   "deger": 14882.0
+  },
+  {
+   "fasil": "06",
+   "deger": 10719.0
+  }
+ ],
+ "fasil_ithalat": [
+  {
+   "fasil": "07",
+   "deger": 90098423.0
+  },
+  {
+   "fasil": "08",
+   "deger": 36916476.0
+  },
+  {
+   "fasil": "12",
+   "deger": 19286988.0
+  },
+  {
+   "fasil": "17",
+   "deger": 10119238.0
+  },
+  {
+   "fasil": "20",
+   "deger": 8945537.0
+  },
+  {
+   "fasil": "21",
+   "deger": 4226068.0
+  },
+  {
+   "fasil": "19",
+   "deger": 3542751.0
+  },
+  {
+   "fasil": "03",
+   "deger": 3436149.0
+  },
+  {
+   "fasil": "09",
+   "deger": 3180169.0
+  },
+  {
+   "fasil": "10",
+   "deger": 1264786.0
+  },
+  {
+   "fasil": "15",
+   "deger": 975574.0
+  },
+  {
+   "fasil": "14",
+   "deger": 769482.0
+  },
+  {
+   "fasil": "22",
+   "deger": 526360.0
+  },
+  {
+   "fasil": "06",
+   "deger": 435986.0
+  },
+  {
+   "fasil": "18",
+   "deger": 210223.0
+  },
+  {
+   "fasil": "23",
+   "deger": 123223.0
+  },
+  {
+   "fasil": "04",
+   "deger": 42140.0
+  },
+  {
+   "fasil": "01",
+   "deger": 39410.0
+  },
+  {
+   "fasil": "13",
+   "deger": 38900.0
+  },
+  {
+   "fasil": "05",
+   "deger": 13905.0
+  },
+  {
+   "fasil": "11",
+   "deger": 7375.0
+  },
+  {
+   "fasil": "16",
+   "deger": 10.0
+  }
+ ]
+}

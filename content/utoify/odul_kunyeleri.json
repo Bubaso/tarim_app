@@ -1,0 +1,22 @@
+{
+ "_ne": "16. UTOİFY ödül alan 14 eserin künyesi.",
+ "_neden_elle": "Ödül PDF'i 3 sütunlu bir ızgara ve sütun adları satır taşırdığında kayıyor; kerning de sözcükleri bölüyor ('Har vest', 'Ar tvin', 'Te k'). On dört kayıt için kırılgan bir ayrıştırıcı yazmak, yanlış eşleşmeyi sessizce üretmenin yolu. Metin PDF'ten okundu, buraya elle geçirildi, sonra görsellerle KONUMDAN eşleştirildi ve gözle sınandı.",
+ "_gorsel_eslesmesi": "PDF'teki görsel kaynak adları (/Im0 … /Im13) yerleşim sırası DEĞİL. Izgara konumundan çözüldü: satır y, sütun x. Sol sütun Im0,Im1,Im2,Im3,Im4 · orta Im5,Im6,Im7,Im8,Im9 · sağ Im10,Im11,Im12,Im13.",
+ "_kaynak": "_raw/kaynak_dosyalari/16th_utoify_odul.pdf (sha256 93f3730e5934757f5c9b1ce60db7c48cb953135085bdb42d76683a6ef3ac9648)",
+ "kayitlar": [
+  {"kod": "odul-01", "im": "/Im0",  "kategori": "genel",     "odul_tr": "Genel Birincilik Ödülü",  "odul_en": "International First Prize",  "fotografci": "Galib Rahman NADİM",  "eser": "Patterns of the Harvest", "yer": "Bangladeş",            "ulke": "Bangladeş"},
+  {"kod": "odul-02", "im": "/Im5",  "kategori": "genel",     "odul_tr": "Genel İkincilik Ödülü",   "odul_en": "International Second Prize", "fotografci": "Lihe ZHOU",           "eser": "Guard Our Home",        "yer": "Çin",                  "ulke": "Çin"},
+  {"kod": "odul-03", "im": "/Im10", "kategori": "genel",     "odul_tr": "Genel Üçüncülük Ödülü",   "odul_en": "International Third Prize",  "fotografci": "Prabır Kumar DAS",    "eser": "Evergreen Smile",       "yer": "Hindistan",            "ulke": "Hindistan"},
+  {"kod": "odul-04", "im": "/Im1",  "kategori": "ulusal",    "odul_tr": "Ulusal Birincilik Ödülü", "odul_en": "National First Prize",       "fotografci": "Şirzat TEMİZ",        "eser": "Ağ Onaran Kadın",       "yer": "Vietnam",              "ulke": "Vietnam"},
+  {"kod": "odul-05", "im": "/Im6",  "kategori": "ulusal",    "odul_tr": "Ulusal İkincilik Ödülü",  "odul_en": "National Second Prize",      "fotografci": "Gülbeyaz GENCER",     "eser": "Tatlı Miras",           "yer": "Adana, Türkiye",       "ulke": "Türkiye"},
+  {"kod": "odul-06", "im": "/Im11", "kategori": "ulusal",    "odul_tr": "Ulusal Üçüncülük Ödülü",  "odul_en": "National Third Prize",       "fotografci": "Hasan UÇAR",          "eser": "Üzüm Kurutma",          "yer": "Manisa, Türkiye",      "ulke": "Türkiye"},
+  {"kod": "odul-07", "im": "/Im2",  "kategori": "bakan",     "odul_tr": "Bakan Özel Ödülü",        "odul_en": "Minister's Special Award",   "fotografci": "Ömer Oğuz ÇAPANOĞLU", "eser": "Yün Dövme",             "yer": "Tunceli, Türkiye",     "ulke": "Türkiye"},
+  {"kod": "odul-08", "im": "/Im7",  "kategori": "su",        "odul_tr": "1313: Suya Vefa Ödülü",   "odul_en": "1313: Loyalty to Water Award","fotografci": "Esra BÜRÇÜN",        "eser": "Karagöl",               "yer": "Artvin, Türkiye",      "ulke": "Türkiye"},
+  {"kod": "odul-09", "im": "/Im12", "kategori": "orman",     "odul_tr": "Orman: Geleceğe Nefes Ödülü", "odul_en": "Forest: Breath for the Future Award", "fotografci": "Ali ACAR", "eser": "Tek",            "yer": "Kastamonu, Türkiye",   "ulke": "Türkiye"},
+  {"kod": "odul-10", "im": "/Im3",  "kategori": "denizbank", "odul_tr": "DenizBank Çalışanları Ödülü", "odul_en": "DenizBank Personnel Award", "fotografci": "Meral KAYA",       "eser": "Süpürge Yapımı",        "yer": "Adıyaman, Türkiye",    "ulke": "Türkiye"},
+  {"kod": "odul-11", "im": "/Im8",  "kategori": "tob",       "odul_tr": "Tarım ve Orman Bakanlığı Çalışanları Ödülü", "odul_en": "Ministry of Agriculture and Forestry Personnel Award", "fotografci": "Ender PEKŞEN", "eser": "Lahana", "yer": "Samsun, Türkiye", "ulke": "Türkiye"},
+  {"kod": "odul-12", "im": "/Im13", "kategori": "ogrenci",   "odul_tr": "Öğrenci Ödülü",           "odul_en": "Student Award",              "fotografci": "Berra Nur DEMİR",     "eser": "Kuzular",               "yer": "Manisa, Türkiye",      "ulke": "Türkiye"},
+  {"kod": "odul-13", "im": "/Im4",  "kategori": "tema",      "odul_tr": "Tema Ödülü: Kadının Emeği, Tarımın Geleceği", "odul_en": "Theme Award: Labour of Woman, Future of Agriculture", "fotografci": "Ahmet HARMANCI", "eser": "Emek", "yer": "Kütahya, Türkiye", "ulke": "Türkiye"},
+  {"kod": "odul-14", "im": "/Im9",  "kategori": "ciftci",    "odul_tr": "Çiftçi - Üretici Ödülü",  "odul_en": "Farmer & Producer Award",    "fotografci": "Ufuk SALUR",          "eser": "Orak",                  "yer": "Balıkesir, Türkiye",   "ulke": "Türkiye"}
+ ]
+}

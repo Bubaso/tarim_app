@@ -1,0 +1,40 @@
+{
+ "_kaynak": "FAO AQUASTAT · Irrigation in Africa in figures, AQUASTAT Survey 2016 — Country profile: Egypt",
+ "_belge": "kaynak_dosyalari/fao_aquastat_misir_2016.pdf",
+ "_adres": "https://www.fao.org/4/i9729en/I9729EN.pdf",
+ "_cekim": "12 Kasım 2026",
+ "_YIL_UYARISI": "Belge 2016 taraması; içindeki rakamların KENDİ yılları ayrı (çekim 2000, kişi başı 2014, baraj 2015). Hiçbiri 'bugün' diye yazılamaz — her cümlede rakamın yılı belirtilecek (§2.7).",
+ "disa_bagimlilik_yuzde": {
+  "deger": 96.9,
+  "yil": null,
+  "alinti": "Egypt's dependency ratio is one of the world's highest with 96.9 percent of the total renewable water resources flowing into the country from neighbouring countries.",
+  "_tablo_degeri": 97,
+  "_not": "Metinde 96,9; tabloda yuvarlanmış 97."
+ },
+ "ic_yenilenebilir_milyon_m3": {
+  "deger": 1800,
+  "yil": "uzun dönem ortalaması"
+ },
+ "toplam_yenilenebilir_milyon_m3": {
+  "deger": 58300,
+  "yil": null
+ },
+ "kisi_basi_m3": {
+  "deger": 699,
+  "yil": 2014
+ },
+ "baraj_kapasitesi_milyon_m3": {
+  "deger": 168200,
+  "yil": 2015
+ },
+ "toplam_cekim_milyon_m3": {
+  "deger": 68300,
+  "yil": 2000,
+  "dagilim_yuzde": {
+   "tarim": 86,
+   "belediye": 8,
+   "sanayi": 6
+  }
+ },
+ "_CEKIM_KAYNAKTAN_BUYUK": "DİKKAT: çekim (68.300) toplam yenilenebilir kaynaktan (58.300) BÜYÜK. Hata değil: belge sebebini yazıyor — tahliye suyu yeniden kullanılıyor ('secondary freshwater', bir kez çekilip sisteme geri dönen su). Bu iki rakam yan yana yazılırsa açıklamasız bırakılmayacak, yoksa okur veriyi yanlış sanır."
+}

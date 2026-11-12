@@ -1,0 +1,54 @@
+KAYNAK: FAO — resmî TNI sayfası (FAO at COP31 altında)
+ADRES : https://www.fao.org/climate-change/fao-at-cop31/the-turquoise-nexus-initiative/en
+ÇEKİM : 2026-11-12
+NOT   : Sayfanın iki katlanır bölümü ("How TNI works", "Who can participate")
+        JS ile açılıyor; metin aşağıda.
+
+TANIM (sayfadan)
+  "The Turquoise Nexus Initiative (TNI) is a country-led, multi-stakeholder
+   initiative proposed as a flagship programme of FAO's Food and Agriculture
+   for Sustainable Transformation (FAST) Partnership. The Initiative will be led
+   by the Ministry of Agriculture and Forestry of Türkiye under the coordination
+   of the COP31 Presidency."
+
+GEREKÇE (sayfadan — SAYFADA KULLANILACAK RAKAM BURADA)
+  "Agriculture accounts for 70 percent of global freshwater withdrawals, yet the
+   food–water–climate nexus remains underrepresented in national climate
+   commitments."
+
+TÜRKİYE'NİN MODELİ — DÖRT UNSUR (sayfadan birebir)
+  "Drawing on Türkiye's experience in water-centred agricultural transformation,
+   including large-scale irrigation modernization, national drought management
+   and early warning systems, drought-resistant and water-efficient crop
+   development programmes, and the integration of water management into national
+   food policy…"
+
+"WHO CAN PARTICIPATE" — TAM METİN
+
+  "Early expressions of interest following the Initiative's presentation during
+   the UNFCCC June Climate Meetings (SB64) highlight significant interest from
+   countries, technical institutions, civil society organizations, research
+   institutions and finance partners in engaging through policy coherence,
+   knowledge exchange, implementation support and investment alignment. The
+   online expression of interest form is open. Countries and organizations
+   interested in participating are encouraged to complete the form to register
+   their interest: https://forms.gle/27kGfnQ4LMVktiMg8
+   As a proposed flagship programme of the FAST Partnership, TNI will operate
+   within the Partnership's existing institutional framework. FAST Partnership
+   Members, Observers and Technical Partners, including governments,
+   international organizations, research institutions, civil society and the
+   private sector, will be encouraged to contribute according to their expertise
+   through knowledge sharing, technical cooperation and advocacy support.
+   Countries and organizations interested in participating in the Turquoise
+   Nexus Initiative that are not yet part of the FAST Partnership will be able
+   to engage through the Partnership's existing participation modalities,
+   including as Members, Observers or Technical Partners, as appropriate."
+
+  >>> ÖNEMLİ: "significant interest from countries" deniyor ama HİÇBİR ÜLKE
+      ADI GEÇMİYOR. Katılım hâlâ "ilgi beyan formu" aşamasında. Bu, sayfanın
+      "henüz bilinmeyenler" bölümünün en sağlam dayanağı.
+      Form adresi Google Forms; sayfaya KONULMAYACAK (üçüncü taraf, kalıcı
+      olmayabilir, okurdan veri ister).
+
+BELGENİN YAYIN TARİHİ
+  Sayfadaki "Relevant publications" bloğunda TNI belgesi: 09/07/2026

@@ -1,0 +1,348 @@
+{
+ "_kaynak": "Türkiye Cumhuriyeti ile Mısır Arap Cumhuriyeti Arasında Bir Serbest Ticaret Alanı Tesis Eden Anlaşma · PROTOKOL II (Madde 10'da atıfta bulunulan)",
+ "_belge": "indirilen_ek/misir_sta_ekler.rar → Mısır STA Türkçe/protokolII.doc",
+ "_nitelik": "BİRİNCİL — anlaşmanın Türkçe nüshasının eki",
+ "_resmi_gazete": "30 Ocak 2007 · sayı 26419 MÜKERRER",
+ "_yururluk": "1 Mart 2007",
+ "_acilma_notu": "Arşiv macOS'un kendi tar'ı (bsdtar/libarchive 3.7.4) ile açıldı, .doc dosyaları textutil ile çevrildi. unrar/unar/7z gerekmedi; sudo kullanılamıyor (hesap sudoers'da değil).",
+ "_tarim_disi_ekler": "Protokol I, Liste 1-4, ekler.xls ve EK I SANAYİ ürünlerine ait — Liste 1 tuz ve mineralle başlıyor, Liste 4 otomobil ve elektrik motoru. Protokol I'in takvim asimetrisi (Türkiye yürürlükle birlikte sıfırlıyor, Mısır 2020'ye kadar kademeli iniyor) bu yüzden TARIM tavizi değil ve metinde öyle yazılmayacak.",
+ "tablo_a": {
+  "_ne": "Türkiye menşeli ürünlerin Mısır'a ithalatında tavizler",
+  "kalemler": [
+   {
+    "kodlar": [
+     "0802.21",
+     "0802.22"
+    ],
+    "urun": "Fındıklar (Corylus spp)",
+    "kota_ton": 2000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0804.20"
+    ],
+    "urun": "İncirler",
+    "kota_ton": 500,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0809.20"
+    ],
+    "urun": "Kirazlar (vişneler dahil)",
+    "kota_ton": 500,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0813.10"
+    ],
+    "urun": "Kurutulmuş kayısılar",
+    "kota_ton": 500,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1507.90.91"
+    ],
+    "urun": "Soya-fasulyesi yağı, yarı rafine, dökme",
+    "kota_ton": 10000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1512.11",
+     "1512.19.91"
+    ],
+    "urun": "Ham ayçiçeği/aspir yağı ve yarı rafine ayçiçeği yağı",
+    "kota_ton": 20000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1515.21"
+    ],
+    "urun": "Ham mısır yağı",
+    "kota_ton": 10000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1517"
+    ],
+    "urun": "Margarin ve yenilen katı/sıvı yağ karışımları",
+    "kota_ton": 1000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1704"
+    ],
+    "urun": "Kakao içermeyen şeker mamulleri",
+    "kota_ton": 2000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "1806"
+    ],
+    "urun": "Çikolata ve kakao içeren gıda müstahzarları",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "1902"
+    ],
+    "urun": "Makarna ve benzerleri, kuskus",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "1905"
+    ],
+    "urun": "Ekmek, pasta, kek, bisküvi ve ekmekçi mamulleri",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2001.10"
+    ],
+    "urun": "Hıyar ve kornişon, sirkeyle hazırlanmış",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2008"
+    ],
+    "urun": "Meyva ve sert kabuklu meyva müstahzarları",
+    "kota_ton": 500,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2009"
+    ],
+    "urun": "Meyva ve sebze suları",
+    "kota_ton": 500,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2102.10"
+    ],
+    "urun": "Canlı mayalar",
+    "kota_ton": 3000,
+    "indirim_yuzde": 15
+   }
+  ],
+  "kota_grubu_sayisi": 16,
+  "tarife_pozisyonu_sayisi": 18,
+  "toplam_kota_ton": 54500,
+  "sinirsiz_satir": 0
+ },
+ "tablo_b": {
+  "_ne": "Mısır menşeli ürünlerin Türkiye'ye ithalatında tavizler",
+  "kalemler": [
+   {
+    "kodlar": [
+     "Fasıl 3"
+    ],
+    "urun": "Balıklar, kabuklu hayvanlar, yumuşakçalar (0301 hariç)",
+    "kota_ton": null,
+    "indirim_yuzde": 50
+   },
+   {
+    "kodlar": [
+     "0602"
+    ],
+    "urun": "Diğer canlı bitkiler, çelik ve daldırma, mantar miselleri",
+    "kota_ton": null,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0603"
+    ],
+    "urun": "Kesme çiçekler ve çiçek tomurcukları",
+    "kota_ton": 15,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0701.90"
+    ],
+    "urun": "Diğer patatesler, taze veya soğutulmuş",
+    "kota_ton": 400,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0703.20"
+    ],
+    "urun": "Sarımsak, taze veya soğutulmuş",
+    "kota_ton": 100,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0705",
+     "0706",
+     "0709",
+     "0710",
+     "0711",
+     "0712"
+    ],
+    "urun": "Marul, havuç ve diğer kökler, diğer sebzeler, dondurulmuş, geçici konserve ve kurutulmuş sebzeler — ALTI POZİSYON TEK KOTAYI PAYLAŞIYOR",
+    "kota_ton": 600,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0804.10"
+    ],
+    "urun": "Hurma, taze veya kurutulmuş",
+    "kota_ton": 5000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0804.50"
+    ],
+    "urun": "Guava, mango ve mangost",
+    "kota_ton": 1000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0810.10"
+    ],
+    "urun": "Çilekler, taze",
+    "kota_ton": 200,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0909"
+    ],
+    "urun": "Anason, rezene, kişniş, kimyon tohumları, ardıç",
+    "kota_ton": 100,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "0910"
+    ],
+    "urun": "Zencefil, safran, zerdeçal, kekik, defne, köri, baharat",
+    "kota_ton": 100,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1006.20"
+    ],
+    "urun": "Kavuzu çıkarılmış (kahverengi) pirinç",
+    "kota_ton": 30000,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1006.30"
+    ],
+    "urun": "Yarı/tam değirmenden geçirilmiş pirinç",
+    "kota_ton": 10000,
+    "indirim_yuzde": 50
+   },
+   {
+    "kodlar": [
+     "1202"
+    ],
+    "urun": "Yer fıstığı, kavrulmamış",
+    "kota_ton": 500,
+    "indirim_yuzde": 100
+   },
+   {
+    "kodlar": [
+     "1704"
+    ],
+    "urun": "Kakao içermeyen şeker mamulleri",
+    "kota_ton": 2000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "1806"
+    ],
+    "urun": "Çikolata ve kakao içeren gıda müstahzarları",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "1902"
+    ],
+    "urun": "Makarna ve benzerleri, kuskus",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "1905"
+    ],
+    "urun": "Ekmek, pasta, kek, bisküvi ve ekmekçi mamulleri",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2001.10"
+    ],
+    "urun": "Hıyar ve kornişon, sirkeyle hazırlanmış",
+    "kota_ton": 1000,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2008"
+    ],
+    "urun": "Meyva ve sert kabuklu meyva müstahzarları",
+    "kota_ton": 500,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2009"
+    ],
+    "urun": "Meyva ve sebze suları",
+    "kota_ton": 500,
+    "indirim_yuzde": 15
+   },
+   {
+    "kodlar": [
+     "2102.10"
+    ],
+    "urun": "Canlı mayalar",
+    "kota_ton": 3000,
+    "indirim_yuzde": 15
+   }
+  ],
+  "kota_grubu_sayisi": 22,
+  "tarife_pozisyonu_sayisi": 27,
+  "toplam_kota_ton": 58015,
+  "sinirsiz_satir": 2
+ },
+ "turetilmis": {
+  "pirinc_kotasi_ton": 40000,
+  "pirinc_payi_tablo_b_yuzde": 68.9,
+  "yag_kotasi_ton": 41000,
+  "yag_payi_tablo_a_yuzde": 75.2,
+  "sebze_kotasi_ton": 600,
+  "sebze_pozisyon_sayisi": 6
+ },
+ "_dipnot": "1704, 1806, 1902, 1905 ve 2102.10 AS kodlarının altında yer alan ürünlerde ad-valorem vergiler kaldırılacak ve indirimler tarım payı üzerindeki vergilerden yapılacaktır.",
+ "_simetrik_blok": "1704, 1806, 1902, 1905, 2001.10, 2008, 2009 ve 2102.10 iki tabloda da AYNI kota ve AYNI %15 indirimle duruyor — işlenmiş gıdada taviz birebir aynalı."
+}

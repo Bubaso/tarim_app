@@ -20,6 +20,8 @@ import 'features/dossiers/providers/dossier_providers.dart';
 import 'features/home/providers/hero_rotation.dart';
 import 'features/home/providers/home_providers.dart';
 import 'firebase_options.dart';
+import 'features/sergi/data/sergi_onizleme_deposu.dart';
+import 'features/sergi/providers/sergi_providers.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -103,6 +105,18 @@ void main() async {
     debugPrint('DOSYA ÖNİZLEME AÇIK → $onizlemeSlug');
   }
 
+  // Yayımlanmamış sergi önizlemesi. Aynı örüntü: boşsa hiçbir şey değişmez,
+  // dolu olduğunda YALNIZCA o yarışma yerel JSON'dan gelir.
+  //
+  //   flutter run -d web-server --web-port=8137 \
+  //       --dart-define=SERGI_ONIZLEME=utoify-16
+  //
+  // deploy.sh bu bayrağı da geçmiyor; üretim derlemesinde ölü kod.
+  const sergiOnizleme = String.fromEnvironment('SERGI_ONIZLEME');
+  if (sergiOnizleme.isNotEmpty) {
+    debugPrint('SERGİ ÖNİZLEME AÇIK → $sergiOnizleme');
+  }
+
   runApp(
     ProviderScope(
       overrides: [
@@ -112,6 +126,13 @@ void main() async {
             (ref) => OnizlemeDeposu(
               ref.watch(supabaseClientProvider),
               onizlemeSlug,
+            ),
+          ),
+        if (sergiOnizleme.isNotEmpty)
+          sergiDeposuProvider.overrideWith(
+            (ref) => SergiOnizlemeDeposu(
+              ref.watch(supabaseClientProvider),
+              sergiOnizleme,
             ),
           ),
       ],

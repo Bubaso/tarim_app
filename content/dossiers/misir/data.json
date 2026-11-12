@@ -1,0 +1,807 @@
+{
+ "arazi": {
+  "_kapsam": "Mısır ve Türkiye'nin arazi kullanımı, 2024",
+  "_kaynak_niteligi": "BAĞIMSIZ — FAOSTAT Inputs/LandUse toplu indirme",
+  "_birim": "bin hektar",
+  "misir": {
+   "kara_alani": 99545.0,
+   "tarim_arazisi": 4229.0,
+   "ekili_arazi": 4229.0,
+   "islenebilir_arazi": 3274.0,
+   "daimi_urun": 955.0,
+   "fiilen_sulanan_tarim": 4229.0
+  },
+  "turkiye": {
+   "kara_alani": 76963.0,
+   "tarim_arazisi": 38640.0,
+   "ekili_arazi": 24024.0,
+   "islenebilir_arazi": 20224.0,
+   "daimi_urun": 3799.0,
+   "fiilen_sulanan_tarim": 4914.0
+  },
+  "misir_tarim_arazisi_serisi": {
+   "1961": 2568.0,
+   "1990": 2648.0,
+   "2010": 3671.0,
+   "2020": 3971.0,
+   "2024": 4229.0
+  },
+  "_sulama_esitligi_siniri": "FAOSTAT'ta 'fiilen sulanan tarım alanı' ile 'tarım arazisi' Mısır için BİREBİR EŞİT, ama ikisinde birden veri olan tek dönem 2021-2024 (4 yıl). Atama olabilir. 'Mısır tarımının tamamı sulamadır' cümlesi bu veriye dayanarak kurulmayacak; AQUASTAT ikinci kaynak olarak kullanılacak.",
+  "feddan_ha": 0.4200833,
+  "_feddan_tanimi": "1 feddan = 4.200,833 m² = 0,4200833 ha. Mısır'ın kendi arazi birimi; resmî istatistik hektarla yayımlanıyor, tarla hâlâ feddanla konuşuluyor."
+ },
+ "su": {
+  "_kapsam": "Mısır'ın su kaynakları ve bağımlılığı",
+  "_kaynak_niteligi": "BİRİNCİL — FAO AQUASTAT ülke profili, 2016 taraması",
+  "_belge": "kaynak_dosyalari/fao_aquastat_misir_2016.pdf",
+  "disa_bagimlilik_yuzde": 96.9,
+  "_bagimlilik_alinti": "Egypt's dependency ratio is one of the world's highest with 96.9 percent of the total renewable water resources flowing into the country from neighbouring countries.",
+  "ic_yenilenebilir_milyon_m3": 1800,
+  "toplam_yenilenebilir_milyon_m3": 58300,
+  "kisi_basi_m3": 699,
+  "kisi_basi_yil": 2014,
+  "toplam_cekim_milyon_m3": 68300,
+  "cekim_yil": 2000,
+  "cekim_dagilim_yuzde": {
+   "tarim": 86,
+   "belediye": 8,
+   "sanayi": 6
+  },
+  "ekim_yogunlugu_yuzde": 175,
+  "ekim_yogunlugu_yil": 2010,
+  "_cekim_kaynaktan_buyuk": "DİKKAT: çekim (68.300) toplam yenilenebilir kaynaktan (58.300) BÜYÜK. Hata değil: belge sebebini yazıyor — tahliye suyu yeniden kullanılıyor ('secondary freshwater', bir kez çekilip sisteme geri dönen su). Bu iki rakam yan yana yazılırsa açıklamasız bırakılmayacak, yoksa okur veriyi yanlış sanır.",
+  "_yil_uyarisi": "Belge 2016 taraması; içindeki rakamların KENDİ yılları ayrı (çekim 2000, kişi başı 2014, baraj 2015). Hiçbiri 'bugün' diye yazılamaz — her cümlede rakamın yılı belirtilecek (§2.7)."
+ },
+ "tahil": {
+  "_kapsam": "Mısır'ın buğday, mısır ve pirinç dengesi · PSD pazarlama yılı",
+  "_kaynak_niteligi": "BAĞIMSIZ — USDA FAS PSD toplu CSV",
+  "_birim": "bin ton",
+  "_pazarlama_yili_notu": "PSD pazarlama yılı. Mısır'da buğday Temmuz-Haziran; takvim yılı serileriyle oran kurulamaz.",
+  "kesin_son_yil": 2024,
+  "_ham_son_yil": 2026,
+  "bugday": {
+   "ithalat": 12467.0,
+   "uretim": 9000.0,
+   "tuketim": 20000.0,
+   "ihracat": 2352.0,
+   "hasat_alani": 1300.0
+  },
+  "bugday_turkiye": {
+   "ithalat": 3318.0,
+   "uretim": 19000.0,
+   "tuketim": 18400.0,
+   "ihracat": 7282.0,
+   "hasat_alani": 7250.0
+  },
+  "dunya_bugday_ithalati": 201487.0,
+  "misir_dunya_sirasi": 1,
+  "turkiye_dunya_sirasi": 21,
+  "ithalat_ilk_6": [
+   {
+    "ulke": "Egypt",
+    "bin_ton": 12467.0
+   },
+   {
+    "ulke": "European Union",
+    "bin_ton": 10715.0
+   },
+   {
+    "ulke": "Indonesia",
+    "bin_ton": 10452.0
+   },
+   {
+    "ulke": "Algeria",
+    "bin_ton": 9100.0
+   },
+   {
+    "ulke": "Brazil",
+    "bin_ton": 7198.0
+   },
+   {
+    "ulke": "Philippines",
+    "bin_ton": 6351.0
+   }
+  ],
+  "_dunya_notu": "PSD'de World satırı yok; toplam ülkelerin toplamı. AB küme satırı var, üye satırı YOK — çift sayım ölçüldü ve yok.",
+  "tane_misir": {
+   "ithalat": 10564.0,
+   "uretim": 7000.0,
+   "tuketim": 17300.0,
+   "ihracat": 1.0,
+   "hasat_alani": 920.0,
+   "yemlik": 14700.0
+  },
+  "tane_misir_turkiye": {
+   "ithalat": 5654.0,
+   "uretim": 6800.0,
+   "tuketim": 11700.0,
+   "ihracat": 392.0,
+   "hasat_alani": 560.0,
+   "yemlik": 10300.0
+  },
+  "pirinc": {
+   "ithalat": 160.0,
+   "uretim": 3900.0,
+   "tuketim": 4050.0,
+   "ihracat": 154.0,
+   "hasat_alani": 670.0,
+   "yemlik": null
+  },
+  "pirinc_turkiye": {
+   "ithalat": 358.0,
+   "uretim": 580.0,
+   "tuketim": 795.0,
+   "ihracat": 248.0,
+   "hasat_alani": 97.0,
+   "yemlik": null
+  },
+  "_oteki_tane_yili": 2024,
+  "_ad_notu": "'tane_misir' TANE MISIR (Corn). Ülke Mısır her yerde 'misir'. İki kelime Türkçede aynı; karıştırılırsa betik hata vermez, sessizce yanlış rakam yazar.",
+  "bugday_ithalat_serisi": {
+   "1960": 996.0,
+   "1961": 1709.0,
+   "1962": 1730.0,
+   "1963": 1933.0,
+   "1964": 1977.0,
+   "1965": 2344.0,
+   "1966": 2498.0,
+   "1967": 2782.0,
+   "1968": 1940.0,
+   "1969": 2220.0,
+   "1970": 2835.0,
+   "1971": 2590.0,
+   "1972": 3040.0,
+   "1973": 3180.0,
+   "1974": 3490.0,
+   "1975": 3800.0,
+   "1976": 3883.0,
+   "1977": 4344.0,
+   "1978": 5119.0,
+   "1979": 4906.0,
+   "1980": 5423.0,
+   "1981": 5878.0,
+   "1982": 5503.0,
+   "1983": 5857.0,
+   "1984": 6302.0,
+   "1985": 6236.0,
+   "1986": 7022.0,
+   "1987": 7473.0,
+   "1988": 7408.0,
+   "1989": 7258.0,
+   "1990": 5680.0,
+   "1991": 5807.0,
+   "1992": 6004.0,
+   "1993": 5866.0,
+   "1994": 5856.0,
+   "1995": 5932.0,
+   "1996": 6893.0,
+   "1997": 7134.0,
+   "1998": 7454.0,
+   "1999": 5872.0,
+   "2000": 6050.0,
+   "2001": 6944.0,
+   "2002": 6327.0,
+   "2003": 7295.0,
+   "2004": 8150.0,
+   "2005": 7771.0,
+   "2006": 7300.0,
+   "2007": 7700.0,
+   "2008": 9900.0,
+   "2009": 10500.0,
+   "2010": 10600.0,
+   "2011": 11650.0,
+   "2012": 8400.0,
+   "2013": 10150.0,
+   "2014": 11300.0,
+   "2015": 11925.0,
+   "2016": 11181.0,
+   "2017": 12407.0,
+   "2018": 12354.0,
+   "2019": 12811.0,
+   "2020": 12149.0,
+   "2021": 11256.0,
+   "2022": 11218.0,
+   "2023": 12440.0,
+   "2024": 12467.0
+  }
+ },
+ "urunler": {
+  "_kapsam": "Rakip ürünlerde Mısır–Türkiye karşılaştırması, ortak son yıl",
+  "_kaynak_niteligi": "BAĞIMSIZ — FAOSTAT QCL toplu CSV",
+  "_birim": "ton",
+  "_ortak_son_yil": {
+   "narenciye_toplam": 2024,
+   "portakal": 2024,
+   "mandalina": 2024,
+   "limon": 2024,
+   "patates": 2024,
+   "kuru_sogan": 2024,
+   "domates": 2024,
+   "pirinc": 2024,
+   "cigit_pamuk": 2024,
+   "pamuk_lifi": 2023,
+   "bugday": 2024
+  },
+  "karsilastirma": {
+   "portakal": {
+    "yil": 2024,
+    "misir": 4200000.0,
+    "turkiye": 1610000.0
+   },
+   "pirinc": {
+    "yil": 2024,
+    "misir": 6430000.0,
+    "turkiye": 1019000.0
+   },
+   "kuru_sogan": {
+    "yil": 2024,
+    "misir": 3439646.05,
+    "turkiye": 2632000.0
+   },
+   "patates": {
+    "yil": 2024,
+    "misir": 8082290.82,
+    "turkiye": 6900000.0
+   },
+   "narenciye_toplam": {
+    "yil": 2024,
+    "misir": 5857699.84,
+    "turkiye": 5481576.0
+   },
+   "mandalina": {
+    "yil": 2024,
+    "misir": 1265813.33,
+    "turkiye": 1988000.0
+   },
+   "domates": {
+    "yil": 2024,
+    "misir": 7521071.26,
+    "turkiye": 14617000.0
+   },
+   "bugday": {
+    "yil": 2024,
+    "misir": 9400000.0,
+    "turkiye": 20800000.0
+   },
+   "limon": {
+    "yil": 2024,
+    "misir": 381920.58,
+    "turkiye": 1730000.0
+   },
+   "cigit_pamuk": {
+    "yil": 2024,
+    "misir": 228179.22,
+    "turkiye": 2243000.0
+   }
+  },
+  "pamuk_serisi": {
+   "1961": {
+    "uretim": 994098.0,
+    "alan": 834385.0
+   },
+   "1965": {
+    "uretim": 1481700.0,
+    "alan": 798200.0
+   },
+   "1980": {
+    "uretim": 1408267.0,
+    "alan": 522701.0
+   },
+   "2000": {
+    "uretim": 553883.0,
+    "alan": 217781.0
+   },
+   "2010": {
+    "uretim": 377527.0,
+    "alan": 155039.0
+   },
+   "2020": {
+    "uretim": 160000.0,
+    "alan": 76918.0
+   },
+   "2024": {
+    "uretim": 228179.22,
+    "alan": 81499.0
+   }
+  },
+  "pamuk_endeks": [
+   {
+    "yil": 1961,
+    "uretim": 100.0,
+    "alan": 100.0
+   },
+   {
+    "yil": 1966,
+    "uretim": 129.7,
+    "alan": 93.6
+   },
+   {
+    "yil": 1971,
+    "uretim": 142.6,
+    "alan": 76.8
+   },
+   {
+    "yil": 1976,
+    "uretim": 108.0,
+    "alan": 62.8
+   },
+   {
+    "yil": 1981,
+    "uretim": 133.4,
+    "alan": 59.3
+   },
+   {
+    "yil": 1986,
+    "uretim": 112.7,
+    "alan": 53.1
+   },
+   {
+    "yil": 1991,
+    "uretim": 81.9,
+    "alan": 42.9
+   },
+   {
+    "yil": 1996,
+    "uretim": 96.6,
+    "alan": 46.4
+   },
+   {
+    "yil": 2001,
+    "uretim": 83.7,
+    "alan": 36.8
+   },
+   {
+    "yil": 2006,
+    "uretim": 59.4,
+    "alan": 27.0
+   },
+   {
+    "yil": 2011,
+    "uretim": 63.8,
+    "alan": 26.2
+   },
+   {
+    "yil": 2016,
+    "uretim": 14.6,
+    "alan": 6.6
+   },
+   {
+    "yil": 2021,
+    "uretim": 30.7,
+    "alan": 12.0
+   },
+   {
+    "yil": 2024,
+    "uretim": 23.0,
+    "alan": 9.8
+   }
+  ],
+  "_pamuk_endeks_notu": "Taban 1961 = 100. İki seri aynı birimde (indeks) olduğu için tek eksende çizilebiliyor; ton ile hektar çizilemez.",
+  "portakal_cizgi": [
+   {
+    "yil": 1961,
+    "misir": 157000.0,
+    "turkiye": 177836.0
+   },
+   {
+    "yil": 1970,
+    "misir": 567000.0,
+    "turkiye": 445000.0
+   },
+   {
+    "yil": 1980,
+    "misir": 920881.0,
+    "turkiye": 679000.0
+   },
+   {
+    "yil": 1990,
+    "misir": 1574287.0,
+    "turkiye": 735000.0
+   },
+   {
+    "yil": 2000,
+    "misir": 1610520.0,
+    "turkiye": 1070000.0
+   },
+   {
+    "yil": 2010,
+    "misir": 2401015.0,
+    "turkiye": 1710500.0
+   },
+   {
+    "yil": 2020,
+    "misir": 3966200.0,
+    "turkiye": 1333975.0
+   },
+   {
+    "yil": 2024,
+    "misir": 4200000.0,
+    "turkiye": 1610000.0
+   }
+  ]
+ },
+ "ticaret": {
+  "_kapsam": "Türkiye–Mısır tarım ticareti, 2024 · HS 01-24",
+  "_kaynak_niteligi": "BAĞIMSIZ — UN Comtrade; İKİ TARAFIN da beyanı alındı",
+  "_birim": "ABD doları",
+  "_suzgec": "customsCode=C00, motCode=0, partner2Code=0 (çift sayım)",
+  "tr_beyani_giden": 424023474.0,
+  "misir_beyani_gelen": 267043294.82699996,
+  "misir_beyani_giden": 281951888.598,
+  "tr_beyani_gelen": 184199173.0,
+  "tr_dunyaya_tarim": 32541007957.0,
+  "misir_dunyaya_tarim": 9983528366.859999,
+  "tr_misira_toplam": 4175857770.0,
+  "fasil_giden": [
+   {
+    "fasil": "15",
+    "deger": 84061216.0
+   },
+   {
+    "fasil": "07",
+    "deger": 57844083.0
+   },
+   {
+    "fasil": "08",
+    "deger": 56949173.0
+   },
+   {
+    "fasil": "20",
+    "deger": 36895237.0
+   },
+   {
+    "fasil": "04",
+    "deger": 31591683.0
+   },
+   {
+    "fasil": "11",
+    "deger": 23897136.0
+   },
+   {
+    "fasil": "17",
+    "deger": 23614584.0
+   },
+   {
+    "fasil": "10",
+    "deger": 21395459.0
+   },
+   {
+    "fasil": "16",
+    "deger": 20511910.0
+   },
+   {
+    "fasil": "24",
+    "deger": 16005371.0
+   },
+   {
+    "fasil": "18",
+    "deger": 14593608.0
+   },
+   {
+    "fasil": "12",
+    "deger": 7820532.0
+   },
+   {
+    "fasil": "23",
+    "deger": 7684298.0
+   },
+   {
+    "fasil": "09",
+    "deger": 7310166.0
+   },
+   {
+    "fasil": "19",
+    "deger": 7293196.0
+   },
+   {
+    "fasil": "21",
+    "deger": 4950914.0
+   },
+   {
+    "fasil": "05",
+    "deger": 677454.0
+   },
+   {
+    "fasil": "22",
+    "deger": 422607.0
+   },
+   {
+    "fasil": "03",
+    "deger": 167879.0
+   },
+   {
+    "fasil": "14",
+    "deger": 153595.0
+   },
+   {
+    "fasil": "02",
+    "deger": 83284.0
+   },
+   {
+    "fasil": "01",
+    "deger": 74488.0
+   },
+   {
+    "fasil": "13",
+    "deger": 14882.0
+   },
+   {
+    "fasil": "06",
+    "deger": 10719.0
+   }
+  ],
+  "fasil_gelen": [
+   {
+    "fasil": "07",
+    "deger": 90098423.0
+   },
+   {
+    "fasil": "08",
+    "deger": 36916476.0
+   },
+   {
+    "fasil": "12",
+    "deger": 19286988.0
+   },
+   {
+    "fasil": "17",
+    "deger": 10119238.0
+   },
+   {
+    "fasil": "20",
+    "deger": 8945537.0
+   },
+   {
+    "fasil": "21",
+    "deger": 4226068.0
+   },
+   {
+    "fasil": "19",
+    "deger": 3542751.0
+   },
+   {
+    "fasil": "03",
+    "deger": 3436149.0
+   },
+   {
+    "fasil": "09",
+    "deger": 3180169.0
+   },
+   {
+    "fasil": "10",
+    "deger": 1264786.0
+   },
+   {
+    "fasil": "15",
+    "deger": 975574.0
+   },
+   {
+    "fasil": "14",
+    "deger": 769482.0
+   },
+   {
+    "fasil": "22",
+    "deger": 526360.0
+   },
+   {
+    "fasil": "06",
+    "deger": 435986.0
+   },
+   {
+    "fasil": "18",
+    "deger": 210223.0
+   },
+   {
+    "fasil": "23",
+    "deger": 123223.0
+   },
+   {
+    "fasil": "04",
+    "deger": 42140.0
+   },
+   {
+    "fasil": "01",
+    "deger": 39410.0
+   },
+   {
+    "fasil": "13",
+    "deger": 38900.0
+   },
+   {
+    "fasil": "05",
+    "deger": 13905.0
+   },
+   {
+    "fasil": "11",
+    "deger": 7375.0
+   },
+   {
+    "fasil": "16",
+    "deger": 10.0
+   }
+  ]
+ },
+ "makro": {
+  "_kapsam": "Nüfus, tarım istihdamı ve katma değer",
+  "_kaynak_niteligi": "BAĞIMSIZ — FAOSTAT Macro-Statistics / Population / Employment",
+  "_kapsam_uyarisi": "Katma değer kalemi ORMANCILIK VE BALIKÇILIK DAHİL (22016). Saf tarım kalemi (22010) bu iki ülke için FAOSTAT'ta yok.",
+  "_projeksiyon_uyarisi": "Nüfus serisi FAOSTAT'ta 2100'e kadar gidiyor ve BAYRAK AYIRMIYOR (1950-2100 arası hepsi 'X' = dış kuruluş rakamı). Tahmin ile PROJEKSİYON yıla göre ayrıldı: 2026'den sonrası projeksiyondur ve ayrı alanda duruyor. 'Mısır'ın nüfusu' cümlesi projeksiyon yılından kurulamaz.",
+  "_taban_notu": "GSYH payı US$ tabanlı (eleman 6103). Yerel para tabanıyla (61570) AYNI DEĞİL.",
+  "misir": {
+   "nufus_bin": 120101.175,
+   "nufus_yil": 2026,
+   "kirsal_bin": 63741.94,
+   "tarim_istihdami_bin": 5898.48,
+   "tarim_istihdami_yil": 2025,
+   "katma_deger_milyon_usd": 41971.684437,
+   "gsyh_milyon_usd": 368415.967998,
+   "katma_deger_yil": 2025
+  },
+  "turkiye": {
+   "nufus_bin": 87926.082,
+   "nufus_yil": 2026,
+   "kirsal_bin": 18414.903,
+   "tarim_istihdami_bin": 4898.75,
+   "tarim_istihdami_yil": 2025,
+   "katma_deger_milyon_usd": 68840.436456,
+   "gsyh_milyon_usd": 1557458.045609,
+   "katma_deger_yil": 2025
+  },
+  "_reddedilen_ilk_olcum_bin": 1102,
+  "_reddedilen_olcum_notu": "YANLIŞ RAKAM, kasıtlı olarak kayıtlı. Cinsiyet boyutu süzülmediği için yalnız bir dilim okunduğunda Mısır tarım istihdamı 1.102 bin çıkıyor. Doğrusu 5.898 bin. Metin bunu uyarı olarak anıyor."
+ },
+ "belge": {
+  "_kapsam": "Türkiye–Mısır Serbest Ticaret Anlaşması",
+  "_kaynak_niteligi": "BİRİNCİL — Resmî Gazete nüshası",
+  "ad": "Türkiye Cumhuriyeti ile Mısır Arap Cumhuriyeti Arasında Bir Serbest Ticaret Alanı Tesis Eden Anlaşma",
+  "imza": "27 Aralık 2005, Kahire",
+  "uygun_bulma_kanunu": "5563 sayılı Kanun, 13/12/2006",
+  "karar": "2007/11557, 15/1/2007",
+  "resmi_gazete": "30 Ocak 2007 · sayı 26419 MÜKERRER",
+  "yururluk": "1 Mart 2007",
+  "_mukerrer_notu": "Belge ana nüshanın içindekiler listesinde YOK, Mükerrer ekte. TİGEM'i kuran KHK de 18205 Mükerrer'deydi.",
+  "_ekler": "Açıldı: 19 dosya. Tarım tavizleri PROTOKOL II'de, iki tablo halinde. Protokol I, Liste 1-4, ekler.xls ve EK I sanayi ürünlerine ait.",
+  "taviz": {
+   "_kaynak_niteligi": "BİRİNCİL — anlaşmanın Türkçe nüshasının eki, Protokol II",
+   "_kapsam": "Temel tarım, işlenmiş tarım ve balıkçılık ürünlerinde taviz değişimi",
+   "tablo_a_kota_ton": 54500,
+   "tablo_a_kota_grubu": 16,
+   "tablo_a_pozisyon": 18,
+   "tablo_a_sinirsiz": 0,
+   "tablo_b_kota_ton": 58015,
+   "tablo_b_kota_grubu": 22,
+   "tablo_b_pozisyon": 27,
+   "tablo_b_sinirsiz": 2,
+   "pirinc_kotasi_ton": 40000,
+   "pirinc_kahverengi_ton": 30000,
+   "pirinc_degirmen_ton": 10000,
+   "pirinc_degirmen_indirim_yuzde": 50,
+   "pirinc_payi_tablo_b_yuzde": 68.9,
+   "yag_kotasi_ton": 41000,
+   "yag_payi_tablo_a_yuzde": 75.2,
+   "sebze_kotasi_ton": 600,
+   "sebze_pozisyon_sayisi": 6,
+   "_sinirsiz_notu": "'Sınırsız' SIFIR DEĞİL, sınır yok demek. Tablo B'de iki satır böyle (balıkçılık faslı %50, canlı bitkiler %100); Tablo A'da hiç yok. Toplam kotaya girmiyorlar, ayrıca sayılıyorlar.",
+   "_simetrik_blok": "1704, 1806, 1902, 1905, 2001.10, 2008, 2009 ve 2102.10 iki tabloda da AYNI kota ve AYNI %15 indirimle duruyor — işlenmiş gıdada taviz birebir aynalı."
+  }
+ },
+ "anlati": {
+  "_kapsam": "§2.8'in iki kategorisi — bilim/kişi ve kültürel açıklama",
+  "_kaynak_niteligi": "KARMA — ayrıntı ve nitelik _raw/bolum28.json'da",
+  "jumel": {
+   "dogum": 1785,
+   "olum": 1823,
+   "misira_gelis": 1817,
+   "ilk_ekim_denemesi": 1821,
+   "_yil_celiskisi": "Keşif/ilk ekim yılı kaynaklarda 1818, 1819 ve 1821 olarak AYRIŞIYOR. 1821 yalnız Al Manassa'nın cümlesine dayanıyor. Metin TEK YIL İDDİA ETMEYECEK; 1817 (Mısır'a geliş) sağlam, ekim yılı aralık.",
+   "kantar_kg": 45,
+   "ilk_uretim_kantar": 1000,
+   "kirk_yil_sonra_kantar": 1180000,
+   "_kantar_notu": "Kantar pamuğa mahsus tarihsel birim, kabaca 45 kg. İki üretim rakamı da Al Manassa'nın aktarımı — İKİNCİL kaynak, birincil belge bulunamadı."
+  },
+  "pirinc_suzulmesi": {
+   "yil": 2023,
+   "kuzey_azalma_yuzde": 19,
+   "kuzey_azalma_deniz_yukselmesiyle_yuzde": 17,
+   "_nitelik": "BİRİNCİL — Abd-Elaty vd., Journal of Hydrology: Regional Studies 48, 101466, doi 10.1016/j.ejrh.2023.101466",
+   "_sinir": "Bulgu SAYISAL MODELDEN (SEAWAT), saha ölçümünden değil. Sonuç nereye ekildiğine bağlı; orta ve güney bölge rakamları kaynaklar arasında tutarsız ve KULLANILMIYOR. Pirincin bu amaçla ekildiğini doğrulayan kaynak yok — yan etki. Devlet deltanın bazı yerlerinde pirinci su tasarrufu için kısıtlıyor."
+  }
+ },
+ "turetilmis": {
+  "_kapsam": "Metnin kullanacağı oranlar — cümlede hesap yapılmaz",
+  "_kaynak_niteligi": "TÜRETİLMİŞ — yukarıdaki bloklardan hesaplandı",
+  "tarim_arazisi_payi_misir": 4.25,
+  "tarim_arazisi_payi_turkiye": 50.21,
+  "sulanan_payi_misir": 100.0,
+  "sulanan_payi_turkiye": 12.72,
+  "ha_kisi_misir": 0.72,
+  "ha_kisi_turkiye": 7.89,
+  "ha_kisi_kat": 11.0,
+  "feddan_kisi_misir": 1.71,
+  "arazi_buyumesi_1961_2024_yuzde": 64.7,
+  "bugday_ithal_payi_yuzde": 62.3,
+  "bugday_dunya_payi_yuzde": 6.2,
+  "ayna_fark_giden_yuzde": 58.8,
+  "ayna_fark_gelen_yuzde": 53.1,
+  "misir_payi_tr_tarim_ihracatinda_yuzde": 1.3,
+  "tr_payi_misir_tarim_ihracatinda_yuzde": 2.82,
+  "kirsal_payi_misir_yuzde": 53.1,
+  "kirsal_payi_turkiye_yuzde": 20.9,
+  "katma_deger_payi_misir_yuzde": 11.39,
+  "katma_deger_payi_turkiye_yuzde": 4.42,
+  "pamuk_dusus_yuzde": -84.6,
+  "pamuk_alan_dusus_yuzde": -90.2,
+  "pamuk_dusus_1961_tabanli_yuzde": -77.0,
+  "oran_portakal": 2.61,
+  "oran_pirinc": 6.31,
+  "oran_kuru_sogan": 1.31,
+  "oran_patates": 1.17,
+  "oran_narenciye_toplam": 1.07,
+  "oran_mandalina": 0.64,
+  "oran_domates": 0.51,
+  "oran_bugday": 0.45,
+  "oran_limon": 0.22,
+  "oran_cigit_pamuk": 0.1,
+  "bugday_ithal_payi_arzda_yuzde": 58.1,
+  "tane_misir_ithal_payi_arzda_yuzde": 60.1,
+  "pirinc_ithal_payi_arzda_yuzde": 3.9,
+  "oran_portakal_1990": 2.14,
+  "oran_portakal_2024": 2.61,
+  "tarim_disi_payi_misir": 95.75,
+  "tarim_disi_payi_turkiye": 49.79,
+  "kentli_payi_misir_yuzde": 46.9,
+  "kentli_payi_turkiye_yuzde": 79.1,
+  "ic_kaynak_payi_yuzde": 3.1,
+  "tarim_istihdami_fark_bin": 1000,
+  "arazi_artis_1961_1990_bin_ha": 80,
+  "arazi_artis_1990_2010_bin_ha": 1023,
+  "kirsal_nufusun_tarim_calisani_payi_yuzde": 9.3,
+  "katma_deger_payi_kat": 2.58,
+  "uc_tane_hasat_alani_bin_ha": 2890,
+  "bugday_tane_misir_alani_bin_ha": 2220,
+  "su_aralik_kati": 37.9,
+  "katma_deger_disi_payi_misir_yuzde": 88.61,
+  "katma_deger_disi_payi_turkiye_yuzde": 95.58,
+  "bugday_ithalat_ilk_yil": 1960,
+  "bugday_ithalat_kati": 12.5,
+  "pamuk_verim_kati": 2.35,
+  "fasil_iki_yonlu": [
+   {
+    "fasil": "07",
+    "toplam_usd": 147942506.0,
+    "giden_yuzde": 39.1,
+    "gelen_yuzde": 60.9
+   },
+   {
+    "fasil": "08",
+    "toplam_usd": 93865649.0,
+    "giden_yuzde": 60.7,
+    "gelen_yuzde": 39.3
+   },
+   {
+    "fasil": "15",
+    "toplam_usd": 85036790.0,
+    "giden_yuzde": 98.9,
+    "gelen_yuzde": 1.1
+   },
+   {
+    "fasil": "20",
+    "toplam_usd": 45840774.0,
+    "giden_yuzde": 80.5,
+    "gelen_yuzde": 19.5
+   },
+   {
+    "fasil": "17",
+    "toplam_usd": 33733822.0,
+    "giden_yuzde": 70.0,
+    "gelen_yuzde": 30.0
+   }
+  ],
+  "_fasil_iki_yonlu_notu": "Pay O FASLIN iki yönlü toplamına göre, bütün ticarete göre değil. Yalnız iki yönde de satır bulunan fasıllar var; tek yönlü olanlar (yağ, süt) buraya girmiyor — tek yönlü faslın 'payı' yoktur."
+ },
+ "bosluklar": [],
+ "_dosya": "Mısır — Ülke Dosyası sayı 06",
+ "_eksen": "Kirayla tarım: toprağının kırkta birini ekiyor, suyunun %96,9'u dışarıdan geliyor, buğdayda dünyanın en büyük alıcısı — ve rafımızdaki rakip.",
+ "_imza": "Feddan (0,42 ha). Dosyanın birimi ülke değil bir tarla.",
+ "_uretim": "build_data.py · 12 Kasım 2026"
+}

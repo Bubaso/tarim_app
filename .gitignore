@@ -69,8 +69,8 @@ test_update.py
 .firebase/
 
 # Ülke dosyası — FAOSTAT toplu CSV geçici dizini (2,2 GB, betikle yeniden üretilir)
-content/dossiers/*/_raw/x/
-content/dossiers/*/_raw/*.zip
+content/**/_raw/x/
+content/**/_raw/*.zip
 
 # Dosya önizleme satırları — üretilmiş, yayımlanmamış dosya içeriği taşıyor.
 # Firebase'e de yüklenmiyor (firebase.json/hosting.ignore).
@@ -106,43 +106,49 @@ supabase/.temp/
 # yazılmıştı ve izlemede kalan bir .docx'i dosya oturumu yakaladı. Eksik
 # kapsanan bir uzantının bedeli sessiz: dosya depoya geri sızar ve kimse
 # fark etmez.
+#
+# YOL KALIBI DA GENİŞLETİLDİ (12 Kasım 2026). Kurallar `content/dossiers/*/`
+# ile yazılmıştı; content altındaki öteki hatlar — turkuaz_nexus, utoify —
+# kapsam DIŞINDAYDI ve 10 MB ham görsel izlenmeye hazır bekliyordu. Aynı
+# sessiz bedel: kimse hata görmez, dosyalar sadece içeri sızar.
+# `content/**/_raw/**/` her derinlikte eşleşiyor.
 
 # Belgeler
-content/dossiers/*/_raw/**/*.pdf
-content/dossiers/*/_raw/**/*.doc
-content/dossiers/*/_raw/**/*.docx
-content/dossiers/*/_raw/**/*.odt
-content/dossiers/*/_raw/**/*.rtf
-content/dossiers/*/_raw/**/*.ppt
-content/dossiers/*/_raw/**/*.pptx
+content/**/_raw/**/*.pdf
+content/**/_raw/**/*.doc
+content/**/_raw/**/*.docx
+content/**/_raw/**/*.odt
+content/**/_raw/**/*.rtf
+content/**/_raw/**/*.ppt
+content/**/_raw/**/*.pptx
 
 # Tablolar
-content/dossiers/*/_raw/**/*.xls
-content/dossiers/*/_raw/**/*.xlsx
-content/dossiers/*/_raw/**/*.xlsm
-content/dossiers/*/_raw/**/*.xlsb
-content/dossiers/*/_raw/**/*.ods
-content/dossiers/*/_raw/**/*.csv
+content/**/_raw/**/*.xls
+content/**/_raw/**/*.xlsx
+content/**/_raw/**/*.xlsm
+content/**/_raw/**/*.xlsb
+content/**/_raw/**/*.ods
+content/**/_raw/**/*.csv
 
 # Arşivler
-content/dossiers/*/_raw/**/*.zip
-content/dossiers/*/_raw/**/*.7z
-content/dossiers/*/_raw/**/*.rar
-content/dossiers/*/_raw/**/*.tar
-content/dossiers/*/_raw/**/*.gz
-content/dossiers/*/_raw/**/*.tgz
+content/**/_raw/**/*.zip
+content/**/_raw/**/*.7z
+content/**/_raw/**/*.rar
+content/**/_raw/**/*.tar
+content/**/_raw/**/*.gz
+content/**/_raw/**/*.tgz
 
 # Görsel ve ses
-content/dossiers/*/_raw/**/*.jpg
-content/dossiers/*/_raw/**/*.jpeg
-content/dossiers/*/_raw/**/*.png
-content/dossiers/*/_raw/**/*.webp
-content/dossiers/*/_raw/**/*.gif
-content/dossiers/*/_raw/**/*.tif
-content/dossiers/*/_raw/**/*.tiff
-content/dossiers/*/_raw/**/*.bmp
-content/dossiers/*/_raw/**/*.heic
-content/dossiers/*/_raw/**/*.mp4
-content/dossiers/*/_raw/**/*.mov
-content/dossiers/*/_raw/**/*.mp3
-content/dossiers/*/_raw/**/*.wav
+content/**/_raw/**/*.jpg
+content/**/_raw/**/*.jpeg
+content/**/_raw/**/*.png
+content/**/_raw/**/*.webp
+content/**/_raw/**/*.gif
+content/**/_raw/**/*.tif
+content/**/_raw/**/*.tiff
+content/**/_raw/**/*.bmp
+content/**/_raw/**/*.heic
+content/**/_raw/**/*.mp4
+content/**/_raw/**/*.mov
+content/**/_raw/**/*.mp3
+content/**/_raw/**/*.wav

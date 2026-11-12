@@ -1,0 +1,45 @@
+{
+ "_kaynak": "World Bank Open Data API v2",
+ "_cekim": "12 Kasım 2026",
+ "_not": "Tarım arazisi serisi FAOSTAT kaynaklı — bağımsız teyit DEĞİL, tutarlılık kontrolü.",
+ "tarim_gsyh_pay": {
+  "kod": "NV.AGR.TOTL.ZS",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "tarim_istihdam_pay": {
+  "kod": "SL.AGR.EMPL.ZS",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "tarim_arazi_pay": {
+  "kod": "AG.LND.AGRI.ZS",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "nufus": {
+  "kod": "SP.POP.TOTL",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "kirsal_pay": {
+  "kod": "SP.RUR.TOTL.ZS",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "gida_ithalat_pay": {
+  "kod": "TM.VAL.FOOD.ZS.UN",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "kisi_basi_su": {
+  "kod": "ER.H2O.INTR.PC",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ },
+ "tahil_verim": {
+  "kod": "AG.YLD.CREL.KG",
+  "misir": "HATA",
+  "turkiye": "HATA"
+ }
+}

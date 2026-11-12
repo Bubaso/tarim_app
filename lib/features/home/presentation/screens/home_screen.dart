@@ -24,6 +24,7 @@ import '../widgets/news_ticker.dart';
 import '../widgets/category_nav_bar.dart';
 import '../widgets/portal_sections/cop31_section.dart';
 import '../widgets/portal_sections/science_reports_dossier.dart';
+import '../../../turkuaz_nexus/presentation/widgets/tni_anasayfa_seridi.dart';
 import '../widgets/portal_sections/turkey_news_grid.dart';
 import '../widgets/portal_sections/world_news_row.dart';
 import '../../../../core/utils/fade_page_route.dart';
@@ -31,6 +32,7 @@ import '../../../../core/utils/image_fallback_helper.dart';
 import 'weather_detail_screen.dart';
 import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
+import '../../../sergi/presentation/widgets/sergi_bandi.dart';
 import '../widgets/yyt_dosyasi_section.dart';
 import '../widgets/kisa_kisa_section.dart';
 import '../widgets/icymi_section.dart';
@@ -472,8 +474,12 @@ class _MobileContent extends ConsumerWidget {
           VideoSerit(isDark: isDark, spacing: 28),
           _ScienceAndReportsSection(isDark: isDark),
           const SizedBox(height: 28),
+          // Turkuaz şeridi Dünya ile Sektörler ARASINDA: bölge
+          // bölümleri biter, konu bölümleri başlar. Şerit tam o
+          // eşikte duruyor ve iki akışı birbirine bağlıyor.
           _WorldNewsSection(isDark: isDark),
           const SizedBox(height: 28),
+          TniAnasayfaSeridi(spacing: 28),
           // Sektörler, Dünya'nın hemen peşinde: bölge bölümlerinden sonra
           // gelen ilk konu bölümü.
           SektorelBlok(isDark: isDark),
@@ -485,6 +491,11 @@ class _MobileContent extends ConsumerWidget {
           const SizedBox(height: 32),
           // Sayfanın bir sonu olsun (A10): arşiv ve bülten daveti.
           KapanisBlogu(isDark: isDark),
+          // SERGİ BANDI — sayfanın gerçekten sonunda, kapanış bloğundan
+          // sonra, altbilgiden önce. Haber duvarı bitti; okur artık
+          // okumuyor, bakıyor. Bant kenardan kenara ve koyu: portalın
+          // temasını izlemiyor, kendi salonunu kuruyor.
+          const SergiBandi(),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -549,6 +560,7 @@ class _TabletContent extends ConsumerWidget {
         const SizedBox(height: 36),
         _WorldNewsSection(isDark: isDark),
         const SizedBox(height: 36),
+        TniAnasayfaSeridi(spacing: 36),
         SektorelBlok(isDark: isDark),
         const SizedBox(height: 36),
         IcymiSection(isDark: isDark),
@@ -566,6 +578,11 @@ class _TabletContent extends ConsumerWidget {
               ),
             ),
           KapanisBlogu(isDark: isDark),
+          // SERGİ BANDI — sayfanın gerçekten sonunda, kapanış bloğundan
+          // sonra, altbilgiden önce. Haber duvarı bitti; okur artık
+          // okumuyor, bakıyor. Bant kenardan kenara ve koyu: portalın
+          // temasını izlemiyor, kendi salonunu kuruyor.
+          const SergiBandi(),
           PortalFooter(isDark: isDark),
         ],
       ),
@@ -648,6 +665,7 @@ class _DesktopContent extends ConsumerWidget {
           padding: const EdgeInsets.only(bottom: 40),
           child: _WorldNewsSection(isDark: isDark),
         ),
+        const TniAnasayfaSeridi(spacing: 40),
         // Üç ayrı sektörel bölüm TEK bloğa indi (Ö3): telefonda 2,4 ekran
         // 0,9 ekrana iniyor, içerik azalmıyor. Ayrıntı sektorel_blok.dart.
         // Yeri Dünya'nın peşi: bölge bölümleri biter, konu bölümü başlar.
@@ -687,6 +705,9 @@ class _DesktopContent extends ConsumerWidget {
             ),
           ),
         ),
+        // SERGİ BANDI — kapanış bloğundan sonra, altbilgiden önce.
+        // maxWidth ile sarılmıyor: bant kenardan kenara.
+        const SliverToBoxAdapter(child: SergiBandi()),
         SliverToBoxAdapter(
           child: PortalFooter(isDark: isDark),
         ),

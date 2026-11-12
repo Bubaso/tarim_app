@@ -1,0 +1,39 @@
+KAYNAK: IISD SDG Knowledge Hub
+ADRES : https://sdg.iisd.org/news/fao-turkiye-propose-initiative-for-action-at-food-water-climate-nexus/
+BAŞLIK: FAO, Türkiye Propose Initiative for Action at Food-Water-Climate Nexus
+YAYIN : 17 June 2026
+ÇEKİM : 2026-11-12 (tarayıcı paneli; WebFetch'e 403)
+NOT   : ENB özetinin haber hâli. Yeni bilgi getirmiyor, ENB'yi TEYİT ediyor.
+        Sayfanın fotoğrafı "© FAO/Phouthong Loungkhoth" künyeli — kullanılmayacak.
+
+STORY HIGHLIGHTS
+
+- The Turquoise Nexus Initiative aims to address fragmentation in the way
+  national climate commitments reflect water, agriculture, food security, and
+  adaptation measures.
+- TNI is a proposed programme of FAO's FAST Partnership that will "bring together
+  governments, international organizations, research institutions, civil society,
+  and the private sector around a common agenda for climate-resilient,
+  water-centered agriculture and food systems".
+- It will aim to support developing countries in integrating food-water-climate
+  approaches into their NDCs and implementation efforts under the Paris Agreement
+  on climate change.
+
+GÖVDE (ENB'den ayrışan kısımlar)
+
+"At a side event held during the 2026 Bonn Climate Change Conference, the Food
+and Agriculture Organization of the UN (FAO) and Türkiye's Presidency of the 2026
+UN Climate Change Conference (UNFCCC COP 31) presented an initiative to create a
+global mechanism to integrate food systems transformation, sustainable water
+management, and climate adaptation."
+
+"Umay Gökçe Özkan … said TNI is designed to address fragmentation through policy
+coherence, implementation support, knowledge generation, technical exchange,
+investment readiness, and finance alignment."
+
+"The side event took place in Bonn, Germany, on 16 June 2026."
+
+TARİH ÇELİŞKİSİ — ÇÖZÜLDÜ
+ENB fotoğraf dosya adları "15jun2026" diyor, ENB etkinlik sayfası ve bu haber
+"16 June 2026" diyor, bazı ikincil kaynaklar 17 Haziran diyor. Birincil iki IISD
+sayfası da 16 Haziran dediği için sayfada 16 HAZİRAN 2026 kullanılacak.
