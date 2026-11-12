@@ -88,3 +88,20 @@ test_*.py
 scripts/*.b64
 functions/node_modules.nosync/
 supabase/.temp/
+
+# ── Dosya ham kaynakları ───────────────────────────────────────────────────
+# İkili ham kaynaklar (PDF, ZIP, fotoğraf) git'te TUTULMUYOR: .git'i 581 MB'a
+# çıkardılar ve 12 Kasım 2026'da push 408 vermeye başladı.
+#
+# Kayıtları content/dossiers/_ortak/ham_kaynaklar.json içinde: her dosyanın
+# yolu, boyutu, sha256'sı ve bulunabildiği yerde kaynak adresi.
+# Künye ve veri JSON'ları, betikler depoda KALIYOR — yani ham dosya yeniden
+# indirildiğinde doğrulanabiliyor.
+content/dossiers/*/_raw/**/*.pdf
+content/dossiers/*/_raw/**/*.zip
+content/dossiers/*/_raw/**/*.jpg
+content/dossiers/*/_raw/**/*.jpeg
+content/dossiers/*/_raw/**/*.png
+content/dossiers/*/_raw/**/*.webp
+content/dossiers/*/_raw/**/*.xlsx
+content/dossiers/*/_raw/**/*.csv
