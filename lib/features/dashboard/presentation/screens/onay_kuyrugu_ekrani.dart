@@ -745,6 +745,12 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
 
   /// Haberi ileri bir saate programlar (madde 20).
   ///
+  /// MATERIAL TAKVİM VE SAAT SEÇİCİSİ KULLANILMIYOR. Ölçüldü: `showDatePicker`
+  /// ve `showTimePicker` birlikte paketi 52 KB (gzip) büyütüyor ve
+  /// `deploy.sh`'deki 1.800.000 baytlık tavanı aştırıyor. Yerine gün ve saat
+  /// için hazır seçenekler kondu — haber odasında zaten ihtiyaç bu: "yarın
+  /// sabah", "bu akşam". Keyfi bir takvim tarihi seçmek değil.
+  ///
   /// Haber kuyrukta `reviewing` olarak kalıyor; vakti gelince Firebase'deki
   /// `zamanlanmisYayin` fonksiyonu yayına alıyor. Yani program kurmak bir
   /// karar, yayınlamak değil — fikir değişirse "Programı kaldır" ile geri
@@ -788,25 +794,11 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
       }
     }
 
-    final gun = await showDatePicker(
+    final zaman = await showDialog<DateTime>(
       context: context,
-      initialDate: mevcut ?? simdi.add(const Duration(hours: 1)),
-      firstDate: DateTime(simdi.year, simdi.month, simdi.day),
-      lastDate: simdi.add(const Duration(days: 60)),
-      helpText: 'Yayın günü',
+      builder: (ctx) => _ZamanSecici(simdi: simdi, mevcut: mevcut),
     );
-    if (gun == null || !mounted) return;
-
-    final saat = await showTimePicker(
-      context: context,
-      initialTime: TimeOfDay.fromDateTime(
-          mevcut ?? simdi.add(const Duration(hours: 1))),
-      helpText: 'Yayın saati',
-    );
-    if (saat == null || !mounted) return;
-
-    final zaman =
-        DateTime(gun.year, gun.month, gun.day, saat.hour, saat.minute);
+    if (zaman == null || !mounted) return;
     if (zaman.isBefore(simdi)) {
       _bildir('Geçmiş bir saate program kurulamaz.');
       return;
@@ -987,5 +979,156 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     setState(() => _islemde = false);
     ref.invalidate(pendingArticlesProvider);
     ref.invalidate(latestArticlesProvider);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+//  Zaman seçici — gün ve saat, hazır seçeneklerle
+// ──────────────────────────────────────────────────────────────────────────
+//  Material'ın takvim ve saat seçicileri KULLANILMIYOR: ölçüldü, ikisi
+//  birlikte paketi 52 KB (gzip) büyütüyor ve dağıtım bekçisinin tavanını
+//  aştırıyor.
+//
+//  Kayıp yok, çünkü haber odasında ihtiyaç keyfi bir takvim tarihi değil:
+//  "bu akşam", "yarın sabah", "pazartesi 09:00". Dört gün ve altı saat
+//  seçeneği bunun tamamını karşılıyor; iki dokunuşla bitiyor, takvimde
+//  gezinmekten de hızlı.
+// ══════════════════════════════════════════════════════════════════════════
+class _ZamanSecici extends StatefulWidget {
+  const _ZamanSecici({required this.simdi, this.mevcut});
+
+  final DateTime simdi;
+  final DateTime? mevcut;
+
+  @override
+  State<_ZamanSecici> createState() => _ZamanSeciciState();
+}
+
+class _ZamanSeciciState extends State<_ZamanSecici> {
+  late int _gunFarki;
+  late int _saat;
+  int _dakika = 0;
+
+  static const _gunler = ['Bugün', 'Yarın', '2 gün sonra', '3 gün sonra'];
+  static const _saatler = [7, 9, 12, 15, 18, 21];
+  static const _aylar = [
+    'Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz',
+    'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara',
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    final m = widget.mevcut;
+    if (m != null) {
+      final bugun = DateTime(
+          widget.simdi.year, widget.simdi.month, widget.simdi.day);
+      _gunFarki =
+          DateTime(m.year, m.month, m.day).difference(bugun).inDays.clamp(0, 3);
+      _saat = m.hour;
+      _dakika = m.minute;
+    } else {
+      // Varsayılan: en yakın mantıklı an. Gün bitmişse yarın sabah.
+      final sonraki = _saatler.firstWhere((s) => s > widget.simdi.hour,
+          orElse: () => -1);
+      _gunFarki = sonraki == -1 ? 1 : 0;
+      _saat = sonraki == -1 ? 7 : sonraki;
+    }
+  }
+
+  DateTime get _secilen {
+    final g = widget.simdi.add(Duration(days: _gunFarki));
+    return DateTime(g.year, g.month, g.day, _saat, _dakika);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final gecmis = _secilen.isBefore(widget.simdi);
+    final s = _secilen;
+
+    return AlertDialog(
+      title: Text('Yayın zamanı',
+          style: GoogleFonts.outfit(fontWeight: FontWeight.bold)),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Gün', style: GoogleFonts.inter(fontSize: 12.5)),
+            const SizedBox(height: 6),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: List.generate(_gunler.length, (i) {
+                final g = widget.simdi.add(Duration(days: i));
+                return ChoiceChip(
+                  selected: _gunFarki == i,
+                  onSelected: (_) => setState(() => _gunFarki = i),
+                  label: Text(
+                    i < 2
+                        ? _gunler[i]
+                        : '${g.day} ${_aylar[g.month - 1]}',
+                    style: GoogleFonts.inter(fontSize: 12.5),
+                  ),
+                );
+              }),
+            ),
+            const SizedBox(height: 16),
+            Text('Saat', style: GoogleFonts.inter(fontSize: 12.5)),
+            const SizedBox(height: 6),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: _saatler
+                  .map((h) => ChoiceChip(
+                        selected: _saat == h && _dakika == 0,
+                        onSelected: (_) => setState(() {
+                          _saat = h;
+                          _dakika = 0;
+                        }),
+                        label: Text('${h.toString().padLeft(2, '0')}:00',
+                            style: GoogleFonts.inter(fontSize: 12.5)),
+                      ))
+                  .toList(),
+            ),
+            const SizedBox(height: 14),
+            // Seçilen an AÇIKÇA yazılıyor: çip seçmek ile "ne zaman
+            // çıkacak" arasında zihinden hesap yaptırmamak için.
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              decoration: BoxDecoration(
+                color: gecmis
+                    ? Colors.red.withValues(alpha: 0.10)
+                    : const Color(0xFF0E5C52).withValues(alpha: 0.10),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Text(
+                gecmis
+                    ? 'Bu an geçti — ileri bir saat seç.'
+                    : '${s.day} ${_aylar[s.month - 1]} ${s.year}, '
+                        '${s.hour.toString().padLeft(2, '0')}:'
+                        '${s.minute.toString().padLeft(2, '0')}',
+                style: GoogleFonts.inter(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    color: gecmis
+                        ? Colors.red.shade700
+                        : const Color(0xFF0E5C52)),
+              ),
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Vazgeç')),
+        FilledButton(
+          onPressed: gecmis ? null : () => Navigator.of(context).pop(_secilen),
+          child: const Text('Programla'),
+        ),
+      ],
+    );
   }
 }
