@@ -2208,3 +2208,36 @@ export const breakingNewsCheck = onSchedule(
   }
 );
 
+// ─── Zamanlanmış yayın (denetim maddesi 20) ────────────────────────────────
+//
+// Panelde "yarın 09:00'da çıksın" denen haber `scheduled_at` dolu ve
+// `status='reviewing'` olarak bekliyor. Bu fonksiyon beş dakikada bir bakıp
+// vakti gelenleri yayına alıyor.
+//
+// İŞİN TAMAMI VERİTABANINDA: `zamanlanmislari_yayinla()` seçmeyi ve yazmayı
+// TEK ifadede yapıyor. Burada seçip sonra ayrı bir istekle güncellemek,
+// iki çağrı arasında aynı haberi iki kez yayınlama ihtimali açardı.
+//
+// Beş dakika neden yeterli: yayın saati dakika hassasiyetinde bir söz değil.
+// Daha sık koşmak, boş geçen çağrıların sayısını on iki katına çıkarırdı.
+export const zamanlanmisYayin = onSchedule(
+  {
+    schedule: '*/5 * * * *',
+    timeZone: 'Europe/Istanbul',
+    region: REGION,
+  },
+  async () => {
+    try {
+      const sonuc = await supabaseRpc('zamanlanmislari_yayinla');
+      const sayi = typeof sonuc === 'number' ? sonuc : Number(sonuc) || 0;
+      if (sayi > 0) {
+        console.log(`[zamanlanmisYayin] ${sayi} haber yayına alındı.`);
+      }
+    } catch (hata) {
+      // Koşu düşse bile haberler kaybolmuyor: `scheduled_at` yerinde duruyor,
+      // bir sonraki koşu aynı haberleri yine bulur. O yüzden burada yeniden
+      // denemeye gerek yok.
+      console.error('[zamanlanmisYayin] hata:', hata);
+    }
+  },
+);

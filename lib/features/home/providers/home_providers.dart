@@ -971,15 +971,39 @@ final columnistArticlesProvider =
   return repository.fetchArticlesBySourceName(sourceName);
 });
 
-/// Kaynak karnesi — `source_scorecard` view'ı.
-///
-/// Yönetici "bu kaynak neden bu kadar çöp getiriyor?" sorusunu sayıyla
-/// cevaplayabilsin diye. View zaten veritabanında hazır; burada yalnızca
-/// okunuyor.
-final kaynakKarnesiProvider =
-    FutureProvider<List<Map<String, dynamic>>>((ref) async {
-  final repository = ref.watch(homeRepositoryProvider);
-  return repository.kaynakKarnesi();
+// ── PANEL ALTYAPISI ────────────────────────────────────────────────────────
+
+/// Panelin bütün sayaçları (madde 8, 17, 22). Veritabanında hesaplanıyor.
+final panelSayaclariProvider = FutureProvider<Map<String, dynamic>>((ref) {
+  return ref.watch(homeRepositoryProvider).panelSayaclari();
+});
+
+/// Mac'teki dinleyici açık mı — "Haber çek" düğmesi buna bakıyor.
+final dinleyiciAcikProvider = FutureProvider<bool>((ref) {
+  return ref.watch(homeRepositoryProvider).dinleyiciAcikMi();
+});
+
+/// Son hat koşuları.
+final hatIsleriProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
+  return ref.watch(homeRepositoryProvider).hatIsleri();
+});
+
+/// Bir koşunun canlı günlüğü.
+final hatGunluguProvider =
+    StreamProvider.family<List<String>, String>((ref, jobId) {
+  return ref.watch(homeRepositoryProvider).hatGunlugu(jobId);
+});
+
+/// Programlanmış haberler (madde 20).
+final zamanlanmisHaberlerProvider = FutureProvider<List<NewsArticle>>((ref) {
+  return ref.watch(homeRepositoryProvider).zamanlanmisHaberler();
+});
+
+/// Panel araması. Sorgu boşsa istek atılmıyor.
+final panelAramaProvider =
+    FutureProvider.family<List<NewsArticle>, String>((ref, sorgu) {
+  if (sorgu.trim().length < 2) return Future.value(const []);
+  return ref.watch(homeRepositoryProvider).panelAramasi(sorgu);
 });
 
 final adminTopReadArticlesProvider = StreamProvider<List<NewsArticle>>((ref) {

@@ -3,14 +3,10 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/ai_suggestion.dart';
 import '../models/news_article.dart';
 import '../models/weather_info.dart';
-import '../../../../core/constants/api_constants.dart';
 import '../models/market_data.dart';
-import 'package:uuid/uuid.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 class HomeRepository {
   final SupabaseClient _supabaseClient;
@@ -37,7 +33,7 @@ class HomeRepository {
     // STALE-WHILE-REVALIDATE: Çevrimdışı (veya yavaş bağlantı) anında "yükleniyor" 
     // ekranında takılmamak için önce yerel önbelleği (varsa) anında ekrana veriyoruz.
     if (_cachedDbArticles.isNotEmpty) {
-      yield [..._localDrafts, ..._cachedDbArticles];
+      yield _cachedDbArticles;
     }
 
     // 2. Sunucudan güncel veriyi çek ve önbelleği güncelle
@@ -65,7 +61,7 @@ class HomeRepository {
             //
             // Önbellek bir KOLAYLIK; ilk boyamanın önüne geçemez.
             unawaited(_onbellegeYaz(dbArticles));
-            return [..._localDrafts, ...dbArticles];
+            return dbArticles;
           });
     } catch (e) {
       if (kDebugMode) {
@@ -74,7 +70,7 @@ class HomeRepository {
       // Hata durumunda zaten yukarıda cache emit edildiği için ek bir şey yapmaya gerek yok,
       // ancak stream'in kapanmaması için boş bir stream veya son halini tekrar dönebiliriz.
       // Yield ile son hali tekrar gönderiyoruz ki akış kopmasın.
-      yield [..._localDrafts, ..._cachedDbArticles];
+      yield _cachedDbArticles;
     }
   }
 
@@ -103,7 +99,7 @@ class HomeRepository {
       'hero_pinned_at,source_chars,source_depth,extraction_method,'
       'article_format,published_at,story_image_url,thumb_image_url,'
       'image_lqip,rejection_reason,'
-      'rejected_at,source_modified_at,source_drift,publish_at,turkiye_pin,'
+      'rejected_at,source_modified_at,source_drift,scheduled_at,turkiye_pin,'
       'audio_url,audio_url_en,is_radio,radio_order,ses_deneme,ses_hatasi,'
       'ozel_bolum';
 
@@ -283,7 +279,7 @@ class HomeRepository {
       'id,title,summary,image_url,thumb_image_url,image_lqip,source_name,'
       'source_url,created_at,published_at,topic,region,category_id,'
       'hero_score,status,article_format,rejection_reason,rejected_at,'
-      'ozel_bolum';
+      'ozel_bolum,scheduled_at';
 
   // `reddedilenleriIzle` kaldırıldı (11 Kas 2026): red artık satırı siliyor,
   // `status = 'rejected'` diye bir kayıt oluşmuyor. Sorgu her zaman boş
@@ -349,8 +345,151 @@ class HomeRepository {
   // [rejectArticle] kaydı doğrudan siliyor ve geriye iz bırakmıyor. Aynı
   // kaynak ertesi gün aynı haberi yine getirdiğinde moderatör onu ilk kez
   // görüyormuş gibi tekrar eliyor. `rejected_sources` tablosu (433 kayıt)
-  // tam da bunun için var: reddedilen adres orada kalıyor, hem tekrarı
-  // önlüyor hem de `source_scorecard` karnesini besliyor.
+  // tam da bunun için var: reddedilen adres orada kalıyor ve aynı haberin
+  // ikinci kez kuyruğa düşmesini engelliyor.
+
+  // ── PANEL ALTYAPISI ────────────────────────────────────────────────────
+
+  /// Panelin bütün sayaçları — tek çağrı.
+  ///
+  /// Sayılar veritabanında hesaplanıyor (`panel_sayaclari`). Uygulamada
+  /// toplamak yanlış sonuç veriyordu: liste akışı 500 satırla sınırlı,
+  /// arşivde 1.400'den fazla haber var.
+  Future<Map<String, dynamic>> panelSayaclari() async {
+    try {
+      final veri = await _supabaseClient.rpc('panel_sayaclari');
+      return Map<String, dynamic>.from(veri as Map);
+    } catch (e) {
+      if (kDebugMode) print('panelSayaclari error: $e');
+      return const {};
+    }
+  }
+
+  /// Haber hattı için iş kaydı açar. Dönen kimlik günlüğü izlemekte
+  /// kullanılıyor; `null` dönerse iş yazılamamış demektir.
+  Future<String?> hatIsiAc() async {
+    try {
+      final satir = await _supabaseClient
+          .from('agent_jobs')
+          .insert({'status': 'pending', 'job_type': 'haber_cek'})
+          .select('id')
+          .single();
+      return satir['id'] as String?;
+    } catch (e) {
+      if (kDebugMode) print('hatIsiAc error: $e');
+      return null;
+    }
+  }
+
+  /// Son hat işleri — en yeni önce.
+  Future<List<Map<String, dynamic>>> hatIsleri({int limit = 10}) async {
+    try {
+      final veri = await _supabaseClient
+          .from('agent_jobs')
+          .select('id,status,created_at,started_at,finished_at,sonuc,hata')
+          .order('created_at', ascending: false)
+          .limit(limit);
+      return List<Map<String, dynamic>>.from(veri as List);
+    } catch (e) {
+      if (kDebugMode) print('hatIsleri error: $e');
+      return const [];
+    }
+  }
+
+  /// Bir işin canlı günlüğü. Akış: dinleyici yazdıkça panel görüyor.
+  Stream<List<String>> hatGunlugu(String jobId) {
+    return _supabaseClient
+        .from('live_terminal_logs')
+        .stream(primaryKey: ['id'])
+        .eq('job_id', jobId)
+        .order('id')
+        .map((satirlar) => satirlar
+            .map((x) => (x['log_text'] ?? '').toString())
+            .where((x) => x.isNotEmpty)
+            .toList());
+  }
+
+  /// Dinleyici açık mı?
+  ///
+  /// Düğme yalnız Mac'teki dinleyici çalışırken işe yarıyor. Panelin bunu
+  /// BİLMESİ gerekiyor; yoksa kullanıcı düğmeye basıyor, hiçbir şey olmuyor
+  /// ve sebebi görünmüyor. Dinleyici 20 saniyede bir damga basıyor, 60
+  /// saniyeden eski damga "kapalı" sayılıyor.
+  Future<bool> dinleyiciAcikMi() async {
+    try {
+      final satir = await _supabaseClient
+          .from('dinleyici_durumu')
+          .select('son_goruldu')
+          .eq('id', 1)
+          .maybeSingle();
+      if (satir == null) return false;
+      final t = DateTime.tryParse('${satir['son_goruldu']}');
+      if (t == null) return false;
+      return DateTime.now().toUtc().difference(t.toUtc()).inSeconds < 60;
+    } catch (e) {
+      if (kDebugMode) print('dinleyiciAcikMi error: $e');
+      return false;
+    }
+  }
+
+  /// Haberi ileri bir saate programlar. `null` vermek programı iptal eder.
+  Future<bool> yayinZamaniAyarla(String id, DateTime? zaman) =>
+      alanlariGuncelle(id, {
+        'scheduled_at': zaman?.toUtc().toIso8601String(),
+        // Programlanan haber kuyrukta bekler; vakti gelince fonksiyon
+        // yayına alır.
+        'status': 'reviewing',
+      });
+
+  /// Programlanmış haberler — en yakın tarih önce.
+  Future<List<NewsArticle>> zamanlanmisHaberler() async {
+    try {
+      final veri = await _supabaseClient
+          .from('articles')
+          .select(_listeSutunlari)
+          .not('scheduled_at', 'is', null)
+          .eq('status', 'reviewing')
+          .order('scheduled_at', ascending: true)
+          .limit(50);
+      return (veri as List)
+          .map((x) => NewsArticle.fromJson(x as Map<String, dynamic>))
+          .toList();
+    } catch (e) {
+      if (kDebugMode) print('zamanlanmisHaberler error: $e');
+      return const [];
+    }
+  }
+
+  /// Panel araması — BÜTÜN arşivde, her durumda.
+  ///
+  /// Okuyucu tarafındaki `searchArticles` bunun yerine geçmiyor: o yalnız
+  /// yayındakilere bakıyor ve yirmi satırla sınırlı. Panelde aranan şey
+  /// genellikle HENÜZ yayınlanmamış ya da yeni yayınlanmış bir haber.
+  ///
+  /// `latestArticlesProvider` de yetmiyor: o akış 500 satırla sınırlı ve
+  /// arşivde 1.400'den fazla haber var — aradığın haber listede olmayabilir
+  /// ve bunu göremezsin.
+  Future<List<NewsArticle>> panelAramasi(String sorgu) async {
+    final q = sorgu.trim();
+    if (q.length < 2) return const [];
+    try {
+      // Hem Türkçe hem İngilizce başlıkta aranıyor; `or` içinde virgül
+      // ayırıcı olduğu için sorgudaki virgüller temizleniyor.
+      final temiz = q.replaceAll(',', ' ');
+      final veri = await _supabaseClient
+          .from('articles')
+          .select(_listeSutunlari)
+          .or('title.ilike.%$temiz%,title_en.ilike.%$temiz%')
+          .order('created_at', ascending: false)
+          .limit(60);
+      return (veri as List)
+          .map((x) => NewsArticle.fromJson(x as Map<String, dynamic>))
+          .toList();
+    } catch (e) {
+      if (kDebugMode) print('panelAramasi error: $e');
+      return const [];
+    }
+  }
 
   /// Son yazma hatasının ham metni.
   ///
@@ -640,23 +779,6 @@ class HomeRepository {
     }
   }
 
-  /// Kaynak karnesi (`source_scorecard` view'ı).
-  ///
-  /// View hazır: kaynak başına toplam / yayınlanan / reddedilen / bekleyen
-  /// ve red yüzdesi. En çok reddedilen üstte — karnenin işe yaradığı yer
-  /// orası.
-  Future<List<Map<String, dynamic>>> kaynakKarnesi() async {
-    try {
-      final veri = await _supabaseClient
-          .from('source_scorecard')
-          .select()
-          .order('red_yuzdesi', ascending: false);
-      return List<Map<String, dynamic>>.from(veri as List);
-    } catch (e) {
-      if (kDebugMode) print('kaynakKarnesi error: $e');
-      return const [];
-    }
-  }
 
   /// Rejects (deletes) a pending article
   Future<bool> rejectArticle(String id) async {
@@ -1346,16 +1468,6 @@ class HomeRepository {
           'Kayıt yazılamadı: yetki yok ya da haber bulunamadı.';
     }
 
-    // Yerel taslak önbelleği anında güncellensin ki liste beklemesin.
-    final i = _localDrafts.indexWhere((a) => a.id == article.id);
-    if (i != -1) {
-      _localDrafts[i] = NewsArticle.fromJson({
-        ...article.toJson(),
-        'title_en': titleEn,
-        'summary_en': summaryEn,
-        'content_en': contentEn,
-      });
-    }
     return null;
   }
 
@@ -1374,13 +1486,6 @@ class HomeRepository {
       }
       if (json['content_en'] == null || json['content_en'].toString().trim().isEmpty) {
         json['content_en'] = await translateTextToEnglish(json['content']);
-      }
-
-      // Update local drafts cache for instant UI feedback
-      final index = _localDrafts.indexWhere((a) => a.id == article.id);
-      if (index != -1) {
-        // Create an updated article with translations
-        _localDrafts[index] = NewsArticle.fromJson({...article.toJson(), ...json});
       }
 
       // .select() ŞART. RLS yazmayı HATA VERMEDEN satır süzerek
@@ -1512,135 +1617,7 @@ class HomeRepository {
     }
   }
 
-  // Stateful fallback list for AI suggestions
-  static final List<AiSuggestion> _fallbackSuggestions = [
-    AiSuggestion(
-      id: 1,
-      sourceUrl: 'https://www.bloomberg.com/agri',
-      sourceArticleTitle: 'Global Wheat Supply Drops Amidst European Droughts',
-      suggestedTitle: 'Avrupa Kuraklığı Küresel Buğday Arzını Vurdu: Türkiye Ne Yapmalı?',
-      suggestionReason: 'Buğday fiyatlarındaki küresel artış, Türkiye\'deki un ihracatçılarının maliyetlerini doğrudan etkileme potansiyeline sahip. Acil bir uyarı yazısı trafik çekebilir.',
-      status: 'reviewing',
-      createdAt: DateTime.now(),
-    ),
-    AiSuggestion(
-      id: 2,
-      sourceUrl: 'https://www.reuters.com/markets',
-      sourceArticleTitle: 'Fertilizer Costs Subside in Q3 Reporting',
-      suggestedTitle: 'Gübre Fiyatlarında Düşüş Eğilimi: Çiftçi Bahar Ekimi İçin Beklemeli mi?',
-      suggestionReason: 'Üre gübresindeki düşüş, gübre alımı yapacak çiftçiler için stratejik bir karar anı yarattı. Analiz yazısı yüksek etkileşim alır.',
-      status: 'reviewing',
-      createdAt: DateTime.now().subtract(const Duration(hours: 2)),
-    )
-  ];
-
-  /// Fetches pending suggestions from the 'ai_suggestions' table.
-  Future<List<AiSuggestion>> fetchPendingSuggestions() async {
-    try {
-      final response = await _supabaseClient
-          .from('ai_suggestions')
-          .select('*')
-          .eq('status', 'reviewing')
-          .order('created_at', ascending: false);
-      
-      final list = response as List<dynamic>;
-      return list.map((map) => AiSuggestion.fromJson(map as Map<String, dynamic>)).toList();
-    } catch (e) {
-      // Fallback AI Suggestions if table doesn't exist
-      return _fallbackSuggestions.where((s) => s.status == 'reviewing').toList();
-    }
-  }
-
-  // A local list to hold AI generated drafts if the DB is offline or RLS fails
-  static final List<NewsArticle> _localDrafts = [];
   static List<NewsArticle> _cachedDbArticles = [];
-
-  /// Updates the status of an AI suggestion.
-  Future<bool> updateSuggestionStatus(AiSuggestion suggestion, String status) async {
-    // Simulate an AI workflow: If approved, "generate" a draft and submit it
-    if (status == 'approved') {
-      try {
-        String generatedContent = 'Yapay zeka ile içerik üretiliyor...';
-        
-        try {
-          final apiKey = ApiConstants.geminiApiKey;
-          if (apiKey.isNotEmpty) {
-            final model = GenerativeModel(
-              model: 'gemini-2.5-flash',
-              apiKey: apiKey,
-            );
-            
-            final prompt = '''
-Sen Türkiye'nin en saygın, profesyonel ve objektif tarım, ekonomi ve piyasa analistisin. 
-Aşağıdaki konu ve tavsiye edilen başlık üzerinden derinlemesine, gazetecilik etiğine uygun, sektörel verilerle desteklenmiş gerçekçi bir analiz/haber makalesi yazacaksın.
-
-Konu Başlığı: ${suggestion.suggestedTitle}
-Tavsiye Nedeni/Kapsamı: ${suggestion.suggestionReason}
-
-Yazım Kuralları:
-1. Kesinlikle uyduruk, kısa veya yüzeysel bir metin YAZMA. 
-2. Gerçek bir gazetede yayınlanacak düzeyde profesyonel bir dil kullan.
-3. İçeriği giriş, gelişme ve sonuç şeklinde bağlamlara oturt, sektörün geleceğine yönelik projeksiyonlar sun.
-4. Çiftçiyi, yatırımcıyı ve politika yapıcıları ilgilendirecek kritik noktalara değin.
-5. Sadece düz metin ver. Markdown (#, **, *) KULLANMA. Başlıklar veya alt başlıklar koyma, sadece temiz paragraflar halinde yaz.
-6. Bu yazının tamamen AI tarafından üretildiği anlaşılmamalı, usta bir editörün kaleminden çıkmış gibi kusursuz olmalı.
-''';
-            final response = await model.generateContent([Content.text(prompt)]);
-            generatedContent = response.text ?? 'Yapay zeka içeriği oluşturamadı.';
-          } else {
-            generatedContent = 'GEMINI_API_KEY bulunamadı. Lütfen .env dosyasına ekleyip uygulamayı yeniden başlatın.';
-          }
-        } catch (e) {
-          generatedContent = 'Yapay zeka ile içerik üretilirken hata oluştu: $e';
-        }
-
-        final generatedArticle = NewsArticle(
-          id: const Uuid().v4(),
-          title: suggestion.suggestedTitle,
-          summary: suggestion.suggestionReason,
-          content: generatedContent,
-          categoryId: '4753361f-3bbd-4118-9a46-ecccd5cf8367', // Default technology ID fallback
-          imageUrl: null,
-          createdAt: DateTime.now(),
-          status: 'reviewing', 
-        );
-        // Try to submit to DB
-        final success = await submitArticleByAuthor(generatedArticle);
-        if (!success) {
-          // If DB insert fails (e.g. RLS policy or missing table), add to local drafts
-          _localDrafts.add(generatedArticle);
-        }
-      } catch (e) {
-        // Ignore fallback simulation errors
-      }
-    }
-
-    try {
-      if (suggestion.id != null) {
-        await _supabaseClient
-            .from('ai_suggestions')
-            .update({'status': status})
-            .eq('id', suggestion.id!);
-      }
-      return true;
-    } catch (e) {
-      // Update fallback state if DB is missing
-      final index = _fallbackSuggestions.indexWhere((s) => s.id == suggestion.id);
-      if (index != -1) {
-        final old = _fallbackSuggestions[index];
-        _fallbackSuggestions[index] = AiSuggestion(
-          id: old.id,
-          suggestedTitle: old.suggestedTitle,
-          suggestionReason: old.suggestionReason,
-          sourceArticleTitle: old.sourceArticleTitle,
-          sourceUrl: old.sourceUrl,
-          status: status,
-          createdAt: old.createdAt,
-        );
-      }
-      return true;
-    }
-  }
 
   /// Automatically translates Turkish text to English using a free Google Translate API endpoint.
   /// This completely bypasses the Gemini API, costing $0.

@@ -143,7 +143,6 @@ class AppLocalizations {
       'dash_logout_success': 'Başarıyla çıkış yapıldı.',
       'dash_tab_write': 'Yeni Yazı Gönder',
       'dash_tab_my_articles': 'Gönderilen Makalelerim',
-      'dash_tab_ai_suggestions': 'Yayın Kurulu Önerileri',
       'dash_tab_stats': 'Portal Performans Özeti',
       // Write Article
       'write_article_title': 'Yeni Makale İncelemesi Gönder',
@@ -230,7 +229,6 @@ class AppLocalizations {
       'dash_logout_success': 'Successfully logged out.',
       'dash_tab_write': 'Submit Article',
       'dash_tab_my_articles': 'My Articles',
-      'dash_tab_ai_suggestions': 'Editorial Suggestions',
       'dash_tab_stats': 'Performance Overview',
       // Write Article
       'write_article_title': 'Submit a New Article for Review',

@@ -87,6 +87,16 @@ class NewsArticle {
   /// taşımak gerekmemesinin sebebi bu.
   final String? ozelBolum;
 
+  /// Zamanlanmış yayın anı (madde 20).
+  ///
+  /// Dolu VE `status == 'reviewing'` ise haber kuyrukta bekliyor demektir;
+  /// vakti gelince Firebase'deki zamanlanmış fonksiyon yayına alıyor.
+  ///
+  /// `publishedAt` ile KARIŞTIRILMAMALI: o alan haberin KAYNAKTA yayımlandığı
+  /// günü tutuyor ve yaş süzgeci ona bakıyor. İkisi aynı sütunda olsaydı
+  /// süzgeç bozulurdu.
+  final DateTime? scheduledAt;
+
   /// Reddin zamanı ve gerekçesi.
   ///
   /// Sütunlar veritabanında vardı ama modele hiç alınmamıştı; red artık
@@ -165,6 +175,7 @@ class NewsArticle {
     this.expertInsightEn,
     this.turkiyePin,
     this.ozelBolum,
+    this.scheduledAt,
     this.rejectedAt,
     this.rejectionReason,
     this.facts,
@@ -243,6 +254,9 @@ class NewsArticle {
       expertInsightEn: json['expert_insight_en']?.toString(),
       turkiyePin: json['turkiye_pin'] as bool?,
       ozelBolum: json['ozel_bolum']?.toString(),
+      scheduledAt: json['scheduled_at'] == null
+          ? null
+          : DateTime.tryParse(json['scheduled_at'].toString()),
       rejectedAt: json['rejected_at'] == null
           ? null
           : DateTime.tryParse(json['rejected_at'].toString()),
@@ -295,6 +309,7 @@ class NewsArticle {
       'expert_insight_en': expertInsightEn,
       'turkiye_pin': turkiyePin,
       'ozel_bolum': ozelBolum,
+      'scheduled_at': scheduledAt?.toUtc().toIso8601String(),
       // `rejected_at` ve `rejection_reason` toJson'a BİLEREK girmiyor.
       // İkisini de yazan tek yer `haberiReddet` ve o alan alan yazıyor.
       // toJson'a konsalardı, bu iki alanı taşımayan her çağrı (örneğin

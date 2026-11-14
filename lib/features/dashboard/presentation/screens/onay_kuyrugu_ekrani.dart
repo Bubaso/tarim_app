@@ -223,14 +223,23 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
         children: [
           Row(
             children: [
-              Text(
-                liste.length == ham.length
-                    ? '${ham.length} haber karar bekliyor'
-                    : '${liste.length} / ${ham.length} haber',
-                style: GoogleFonts.outfit(
-                    fontSize: 20, fontWeight: FontWeight.w900, color: _metin),
+              // ESNEK (15 Kasım 2026): metin `Expanded` içinde değildi ve
+              // sağındaki düğmeyle birlikte dar ekranda satırı taşırıyordu.
+              // `Spacer` taşmayı engellemiyor — boşluk ancak artan yer varsa
+              // iş görür.
+              Expanded(
+                child: Text(
+                  liste.length == ham.length
+                      ? '${ham.length} haber karar bekliyor'
+                      : '${liste.length} / ${ham.length} haber',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.outfit(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
+                      color: _metin),
+                ),
               ),
-              const Spacer(),
               IconButton(
                 tooltip: 'Kuyruğu tazele',
                 onPressed: _islemde
@@ -278,7 +287,11 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
             ],
           ),
           const Divider(height: 28),
-          Row(
+          // Dar ekranda düğmeler alta sarıyor: tek satıra sığdırmaya
+          // çalışmak hem taşırıyor hem de dokunma hedeflerini daraltıyordu.
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runSpacing: 6,
             children: [
               Checkbox(
                 value: hepsiSecili,
@@ -300,7 +313,7 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
                     fontWeight: FontWeight.w600,
                     color: isDark ? Colors.grey[300] : Colors.grey[800]),
               ),
-              const Spacer(),
+              const SizedBox(width: 8),
               if (_secili.isNotEmpty) ...[
                 TextButton.icon(
                   onPressed: _islemde ? null : () => _topluReddet(liste),
@@ -523,6 +536,19 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
                 label: Text('Önizle',
                     style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
               ),
+              // ZAMANLA (madde 20). Yayın anı = onay anı olmak zorunda
+              // değil artık: sabah hazırlanan haber öğlene, ambargolu
+              // duyuru saatine bırakılabiliyor.
+              TextButton.icon(
+                onPressed: _islemde ? null : () => _zamanla(article),
+                icon: Icon(
+                    article.scheduledAt == null
+                        ? Icons.schedule_rounded
+                        : Icons.event_available_rounded,
+                    size: 20),
+                label: Text(article.scheduledAt == null ? 'Zamanla' : 'Programlı',
+                    style: GoogleFonts.inter(fontWeight: FontWeight.w600)),
+              ),
               TextButton.icon(
                 onPressed: _islemde ? null : () => _tekReddet(article),
                 icon: const Icon(Icons.delete_outline,
@@ -663,6 +689,20 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     if (bolge.isNotEmpty) yaz(bolge);
     if (a.heroScore != null) yaz('skor ${a.heroScore}');
 
+    // Programlı haber kuyrukta duruyor ama kararı verilmiş: ne zaman
+    // çıkacağı kartın üstünde yazmalı, yoksa "neden hâlâ burada?" sorusu
+    // doğuyor.
+    final z = a.scheduledAt?.toLocal();
+    if (z != null) {
+      yaz(
+        '⏱ ${z.day} ${_ayKisa(z.month)} '
+        '${z.hour.toString().padLeft(2, '0')}:'
+        '${z.minute.toString().padLeft(2, '0')} yayına girecek',
+        renk: const Color(0xFF0E5C52),
+        kalin: true,
+      );
+    }
+
     return Wrap(spacing: 12, runSpacing: 4, children: parcalar);
   }
 
@@ -694,6 +734,101 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     final tam = await ref.read(articleByIdProvider(article.id).future);
     if (!mounted) return;
     pushScreen(context, ArticleDetailScreen(article: tam ?? article));
+  }
+
+  static const _aylar = [
+    'Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz',
+    'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara',
+  ];
+
+  String _ayKisa(int ay) => _aylar[ay - 1];
+
+  /// Haberi ileri bir saate programlar (madde 20).
+  ///
+  /// Haber kuyrukta `reviewing` olarak kalıyor; vakti gelince Firebase'deki
+  /// `zamanlanmisYayin` fonksiyonu yayına alıyor. Yani program kurmak bir
+  /// karar, yayınlamak değil — fikir değişirse "Programı kaldır" ile geri
+  /// alınıyor.
+  Future<void> _zamanla(NewsArticle article) async {
+    final simdi = DateTime.now();
+    final mevcut = article.scheduledAt?.toLocal();
+
+    if (mevcut != null) {
+      // Zaten programlı: kaldırma seçeneği de sunuluyor.
+      final karar = await showDialog<String>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('Programlı yayın',
+              style: GoogleFonts.outfit(fontWeight: FontWeight.bold)),
+          content: Text(
+            '"${article.title}"\n\n'
+            '${mevcut.day} ${_ayKisa(mevcut.month)} ${mevcut.year}, '
+            '${mevcut.hour.toString().padLeft(2, '0')}:'
+            '${mevcut.minute.toString().padLeft(2, '0')} '
+            'tarihinde yayına girecek.',
+          ),
+          actions: [
+            TextButton(
+                onPressed: () => Navigator.of(ctx).pop('kaldir'),
+                child: const Text('Programı kaldır',
+                    style: TextStyle(color: Colors.red))),
+            TextButton(
+                onPressed: () => Navigator.of(ctx).pop('degistir'),
+                child: const Text('Saati değiştir')),
+            TextButton(
+                onPressed: () => Navigator.of(ctx).pop(),
+                child: const Text('Kapat')),
+          ],
+        ),
+      );
+      if (karar == null || !mounted) return;
+      if (karar == 'kaldir') {
+        await _zamaniYaz(article, null);
+        return;
+      }
+    }
+
+    final gun = await showDatePicker(
+      context: context,
+      initialDate: mevcut ?? simdi.add(const Duration(hours: 1)),
+      firstDate: DateTime(simdi.year, simdi.month, simdi.day),
+      lastDate: simdi.add(const Duration(days: 60)),
+      helpText: 'Yayın günü',
+    );
+    if (gun == null || !mounted) return;
+
+    final saat = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.fromDateTime(
+          mevcut ?? simdi.add(const Duration(hours: 1))),
+      helpText: 'Yayın saati',
+    );
+    if (saat == null || !mounted) return;
+
+    final zaman =
+        DateTime(gun.year, gun.month, gun.day, saat.hour, saat.minute);
+    if (zaman.isBefore(simdi)) {
+      _bildir('Geçmiş bir saate program kurulamaz.');
+      return;
+    }
+    await _zamaniYaz(article, zaman);
+  }
+
+  Future<void> _zamaniYaz(NewsArticle article, DateTime? zaman) async {
+    setState(() => _islemde = true);
+    final ok = await ref
+        .read(homeRepositoryProvider)
+        .yayinZamaniAyarla(article.id, zaman);
+    if (!mounted) return;
+    _tazele();
+    ref.invalidate(panelSayaclariProvider);
+    _bildir(ok
+        ? (zaman == null
+            ? 'Program kaldırıldı. Haber kuyrukta bekliyor.'
+            : 'Programlandı: ${zaman.day} ${_ayKisa(zaman.month)} '
+                '${zaman.hour.toString().padLeft(2, '0')}:'
+                '${zaman.minute.toString().padLeft(2, '0')}')
+        : 'Program yazılamadı: yetki yok ya da haber bulunamadı.');
   }
 
   Future<void> _tekOnayla(NewsArticle article) async {
@@ -852,6 +987,5 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     setState(() => _islemde = false);
     ref.invalidate(pendingArticlesProvider);
     ref.invalidate(latestArticlesProvider);
-    ref.invalidate(kaynakKarnesiProvider);
   }
 }

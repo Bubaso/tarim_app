@@ -103,8 +103,11 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
   // YAYINDAKİLERİ listeliyor, yani "önce yayınla sonra düzelt" demek
   // bozuk başlığı okura göstermek demekti.
   //
-  // Başlıkla sınırlı tutuluyor: kuyruğun işi karar vermek, yazı işleri
-  // yapmak değil. Gövde zaten düzenlenebiliyor; aradaki tek boşluk buydu.
+  // 15 KASIM 2026: artık başlıkla sınırlı değil. Özet, spot ve gövde de
+  // buradan düzeltilebiliyor (madde 14). Eskiden özetteki tek bir yazım
+  // hatası için haberi önce yayınlayıp sonra Haberlerim sekmesinde, 500'lük
+  // listede bulup düzenleyiciyi açmak gerekiyordu — ya da haberi reddedip
+  // kaynağı kaybetmek.
   bool _basligiDuzenle = false;
   final TextEditingController _baslikDenetleyici = TextEditingController();
   bool _baslikKaydediliyor = false;
@@ -133,6 +136,122 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
     );
     if (ok) widget.onDegisti?.call();
   }
+
+  /// Tek bir metin alanını düzenler (özet, spot, gövde).
+  ///
+  /// Alt sayfada açılıyor: kart zaten uzun, satır içi bir kutu daha koymak
+  /// kararın verildiği yeri okunmaz hâle getirirdi. Telefonda tam ekran
+  /// açılıyor, klavye alanı itiyor.
+  Future<void> _alaniDuzenle({
+    required String alan,
+    required String etiket,
+    required String mevcut,
+    required bool hamHtml,
+  }) async {
+    final denetleyici = TextEditingController(text: mevcut);
+    final yeni = await showModalBottomSheet<String>(
+      context: context,
+      isScrollControlled: true,
+      builder: (ctx) => Padding(
+        padding: EdgeInsets.only(
+            bottom: MediaQuery.of(ctx).viewInsets.bottom,
+            left: 16,
+            right: 16,
+            top: 16),
+        child: SafeArea(
+          top: false,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Text('$etiket düzenle',
+                        style: GoogleFonts.outfit(
+                            fontSize: 17, fontWeight: FontWeight.w800)),
+                  ),
+                  IconButton(
+                      onPressed: () => Navigator.of(ctx).pop(),
+                      icon: const Icon(Icons.close_rounded)),
+                ],
+              ),
+              if (hamHtml)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    'Gövde HAM HTML olarak düzenleniyor. Etiketleri bozma; '
+                    'yalnız metni düzelt.',
+                    style: GoogleFonts.inter(
+                        fontSize: 12, color: Colors.orange.shade800),
+                  ),
+                ),
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxHeight: MediaQuery.of(ctx).size.height * 0.45),
+                child: TextField(
+                  controller: denetleyici,
+                  autofocus: true,
+                  maxLines: null,
+                  expands: false,
+                  keyboardType: TextInputType.multiline,
+                  style: hamHtml
+                      ? GoogleFonts.robotoMono(fontSize: 12.5, height: 1.5)
+                      : GoogleFonts.inter(fontSize: 14, height: 1.5),
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(), isDense: true),
+                ),
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  FilledButton(
+                    onPressed: () =>
+                        Navigator.of(ctx).pop(denetleyici.text),
+                    child: const Text('Kaydet'),
+                  ),
+                  const SizedBox(width: 8),
+                  TextButton(
+                      onPressed: () => Navigator.of(ctx).pop(),
+                      child: const Text('Vazgeç')),
+                ],
+              ),
+              const SizedBox(height: 12),
+            ],
+          ),
+        ),
+      ),
+    );
+    denetleyici.dispose();
+    if (yeni == null || yeni == mevcut || !mounted) return;
+
+    // BOŞALTMAYA KARŞI KORUMA: etiketler sökülünce geriye hiçbir şey
+    // kalmıyorsa kayıt yapılmıyor. Yanlışlıkla seçip silmek, yayındaki bir
+    // haberin metnini tek dokunuşla yok edebilirdi.
+    if (_duzMetin(yeni).trim().isEmpty) {
+      _bitir('Kaydedilmedi: alan boş kalıyordu.');
+      return;
+    }
+
+    setState(() => _islemde = true);
+    final repo = ref.read(homeRepositoryProvider);
+    final ok = await repo.alanlariGuncelle(a.id, {alan: yeni});
+    if (!mounted) return;
+    setState(() => _islemde = false);
+    _bitir(ok
+        ? '$etiket güncellendi.'
+        : '$etiket yazılamadı: ${repo.sonYazmaHatasi ?? 'yetki yok'}');
+    if (ok) widget.onDegisti?.call();
+  }
+
+  /// Düzenle düğmesi — başlık satırındakiyle aynı görünüm.
+  Widget _duzenleDugmesi(String ipucu, VoidCallback bas) => IconButton(
+        tooltip: ipucu,
+        iconSize: 18,
+        visualDensity: VisualDensity.compact,
+        onPressed: _islemde ? null : bas,
+        icon: Icon(Icons.edit_outlined, color: _soluk),
+      );
 
   Widget _baslik() {
     final kaynak = (a.sourceName ?? '').trim();
@@ -351,13 +470,24 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        // Telefonda tek satıra sığmıyordu: başlık + etiket + iki düğme.
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
+          spacing: 8,
+          runSpacing: 4,
           children: [
             _bolumBasligi('Yayınlanacak metin'),
-            const Spacer(),
+            _duzenleDugmesi(
+              'Gövdeyi düzenle',
+              () => _alaniDuzenle(
+                alan: _ingilizce ? 'content_en' : 'content',
+                etiket: _ingilizce ? 'İngilizce gövde' : 'Gövde',
+                mevcut: _ingilizce ? (a.contentEn ?? '') : a.content,
+                hamHtml: true,
+              ),
+            ),
             Text('Yayın Dili',
                 style: GoogleFonts.inter(fontSize: 12, color: _soluk)),
-            const SizedBox(width: 8),
             SegmentedButton<bool>(
               segments: const [
                 ButtonSegment(value: false, label: Text('TR')),
@@ -373,6 +503,19 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
               ),
             ),
           ],
+        ),
+        const SizedBox(height: 10),
+        // ÖZET VE SPOT (madde 14). İkisi de kartlarda ve haberin tepesinde
+        // görünüyor; en sık düzeltilen metinler bunlar.
+        _kisaAlan(
+          etiket: 'Özet',
+          deger: _ingilizce ? (a.summaryEn ?? '') : (a.summary ?? ''),
+          alan: _ingilizce ? 'summary_en' : 'summary',
+        ),
+        _kisaAlan(
+          etiket: 'Spot',
+          deger: _ingilizce ? (a.spotEn ?? '') : (a.spot ?? ''),
+          alan: _ingilizce ? 'spot_en' : 'spot',
         ),
         const SizedBox(height: 8),
         if (duz.isEmpty)
@@ -397,6 +540,48 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
             ),
           ),
       ],
+    );
+  }
+
+  /// Özet/spot satırı — metin, yanında düzenle düğmesi.
+  Widget _kisaAlan({
+    required String etiket,
+    required String deger,
+    required String alan,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 44,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Text(etiket,
+                  style: GoogleFonts.inter(
+                      fontSize: 11.5,
+                      fontWeight: FontWeight.w700,
+                      color: _soluk)),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 2),
+              child: Text(
+                deger.trim().isEmpty ? '—' : deger,
+                style: GoogleFonts.inter(
+                    fontSize: 13, height: 1.5, color: _metin),
+              ),
+            ),
+          ),
+          _duzenleDugmesi(
+            '$etiket düzenle',
+            () => _alaniDuzenle(
+                alan: alan, etiket: etiket, mevcut: deger, hamHtml: false),
+          ),
+        ],
+      ),
     );
   }
 
