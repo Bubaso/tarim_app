@@ -1,0 +1,24 @@
+{
+ "_kaynak": "NASA/TM-20250001897 · Space Crop Considerations for Human Exploration · Temmuz 2024 · Kennedy Uzay Merkezi",
+ "_nitelik": "BİRİNCİL — NASA teknik memorandumu",
+ "_belge": "kaynak_dosyalari/nasa_space_crops.pdf",
+ "_cekim": "2026-11-13",
+ "_NE": "Yetiştirme odasının donanımı. Şema durağında çizilen her parça buradaki bir cümleye dayanıyor.",
+ "pasajlar": {
+  "yastik": "grown using small plant pillows, essentially “space grow bags” that contain a porous ceramic substrate, a controlled release fertilizer, wicks secured by a foam gasket, and seeds which are glued in the wicks7. The plant pillows have an external irrigation tube which connects to an interior water distribution ring that is embedded in the substrate. Pillows are constructed from a Teflon™ coated Kevlar™ fabric with a gu",
+  "sulama": "The plant pillows have an external irrigation tube which connects to an interior water distribution ring that is embedded in the substrate. Pillows are constructed from a Teflon™ coated Kevlar™ fabric with a gusset that allows expansion as they fill with roots. The bottom surface is Nomex™, which allows wicking from a root mat r",
+  "aph_isik": "It provides independent control of red, green, blue, white, and far-red LED lights, and controls temperature, relative humidity, airflow, and CO2 inside the chamber. Volatile organics are removed from the atmosphere using scrubbers. Overhead and side cameras allow for plant imaging. Other sensors in",
+  "tutucular": "Volatile organics are removed from the atmosphere using scrubbers. Overhead and side cameras allow for plant imaging. Other sensors include light sensing and in",
+  "aph_sensor": "APH has over 180 sensors and controls almost every aspect of the crop growth environment. It provides independent control of red, green, blue, white,"
+ },
+ "elenen_ornekler": [
+  {
+   "ad": "havalandirma",
+   "satir": "Shungiku Experienced severe tip burn attributed to reduced airflow in Veggie analog"
+  },
+  {
+   "ad": "co2",
+   "satir": "‘Tokyo Bekana’ Chinese cabbage did not grow well under ISS conditions due to elevated CO"
+  }
+ ]
+}

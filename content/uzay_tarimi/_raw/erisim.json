@@ -1,0 +1,130 @@
+{
+ "_ne": "Uzayda Tarım — kaynakların ölçülmüş erişim durumu",
+ "_yontem": "Durum kodu TEK BAŞINA yetmez. Üç ölçüt birlikte: kod · içerik türü · gövde uzunluğu. Beklenen tür ile gelen tür karşılaştırılıyor.",
+ "_tarih": "2026-11-13",
+ "_PMC_NOTU": "PMC düz bir HTTP isteğine TAM MAKALEYİ veriyor (266 KB, doğru başlık, Outredgeous/Veggie/anthocyanin gövdede). Ama bazı getirici istemcilere 'Checking your browser' doğrulama sayfası çıkarıyor. Yani kaynak AÇIK; engel istemciye bağlı. Kural: PMC'den içerik alınacaksa düz istek (curl) kullanılır, getirici değil.",
+ "toplam": 12,
+ "acik": 10,
+ "kaynaklar": [
+  {
+   "kod": 200,
+   "tur": "application/json",
+   "bayt": 11408,
+   "beklenen": "json",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "NASA OSDR arama API",
+   "adres": "https://osdr.nasa.gov/osdr/data/search?term=plant&size=1&type=cgene"
+  },
+  {
+   "kod": 200,
+   "tur": "application/json",
+   "bayt": 197706,
+   "beklenen": "json",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "NASA görsel kütüphanesi API",
+   "adres": "https://images-api.nasa.gov/search?q=veggie%20plant&media_type=image"
+  },
+  {
+   "kod": 200,
+   "tur": "application/pdf",
+   "bayt": 400000,
+   "beklenen": "pdf",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "NASA NTRS — ekin belgesi",
+   "adres": "https://ntrs.nasa.gov/api/citations/20250001897/downloads/20231215%20Space%20Crops%20HRP%20FINAL%20STRIVES%203.pdf"
+  },
+  {
+   "kod": 200,
+   "tur": "application/pdf",
+   "bayt": 400000,
+   "beklenen": "pdf",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "Frontiers — marul makalesi",
+   "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.00199/pdf"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 266908,
+   "beklenen": "html",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "PMC — marul makalesi",
+   "adres": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7067979/"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 65079,
+   "beklenen": "html",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "Axiom — Extremophyte CRISPR",
+   "adres": "https://axiomspace.com/research/extremophyte-crispr"
+  },
+  {
+   "kod": 200,
+   "tur": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "bayt": 18023,
+   "beklenen": "docx",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "TÜBA — 13 deney belgesi",
+   "adres": "https://www.tuba.gov.tr/files/images/2024/AlperGezeravci/T%C3%BCrk%20Astronot%20Alper%20Gezeravc%C4%B1%E2%80%99n%C4%B1n%20Uzayda%20Yapaca%C4%9F%C4%B1%2013%20Bilimsel%20Deney.docx"
+  },
+  {
+   "kod": 404,
+   "tur": "text/html",
+   "bayt": 330739,
+   "beklenen": "html",
+   "duvar_imzasi": null,
+   "teshis": "YUMUŞAK 404 · kod 404 ama 330,739 bayt gövde",
+   "ad": "TÜBİTAK UZAY — biyoloji deneyleri",
+   "adres": "https://uzay.tubitak.gov.tr/en/manned-space-missions/international-space-station-science-mission/biology-biotechnology/"
+  },
+  {
+   "kod": 404,
+   "tur": "text/html",
+   "bayt": 183958,
+   "beklenen": "pdf",
+   "duvar_imzasi": null,
+   "teshis": "YUMUŞAK 404 · kod 404 ama 183,958 bayt gövde",
+   "ad": "TÜBİTAK bilimteknik — deney posteri",
+   "adres": "https://bilimteknik.tubitak.gov.tr/sites/default/files/posterler/turkiyenin_insanli_ilk_uzay_misyonunda_gerceklestirilen_deneyler_posteri.pdf"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 76666,
+   "beklenen": "html",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "TÜBİTAK — ikinci uzay yolculuğu",
+   "adres": "https://tubitak.gov.tr/tr/haber/turkiyenin-ikinci-uzay-yolculugu-basariyla-tamamlandi"
+  },
+  {
+   "kod": 200,
+   "tur": "application/xhtml+xml",
+   "bayt": 58863,
+   "beklenen": "html",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "IAF — IAC-26 program dizini",
+   "adres": "http://iafastro.directory/iac/browse/IAC-26/A1/IP/"
+  },
+  {
+   "kod": 200,
+   "tur": "text/html",
+   "bayt": 400000,
+   "beklenen": "html",
+   "duvar_imzasi": null,
+   "teshis": "açık",
+   "ad": "TUA — IAC 2026 Antalya",
+   "adres": "https://tua.gov.tr/en/international-activities/iac-2026-antalya-1"
+  }
+ ]
+}

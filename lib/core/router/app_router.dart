@@ -34,6 +34,7 @@ import '../../features/stories/presentation/screens/hikaye_arsivi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_izleyici.dart';
 import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
+import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -88,6 +89,9 @@ const String dossierIndexPath = '/ulkeler';
 /// yayımlanmış adresleri (`tarimportali.net/turkuaz/...`) veri katmanında
 /// sabit ve paylaşım kartı onları kullanıyor.
 const String turkuazPath = '/turkuaz-girisimi';
+
+/// Uzayda Tarım alanı.
+const String uzayTarimiPath = '/uzayda-tarim';
 
 /// Künye, iletişim ve yasal metinlerin adresi. Slug'lar ASCII tutulur —
 /// Türkçe karakterli adresler kopyalanıp yapıştırıldığında ve mesajlaşma
@@ -402,6 +406,13 @@ final appRouter = GoRouter(
     GoRoute(
       path: turkuazPath,
       pageBuilder: (context, state) => _fadePage(state, const TniEkrani()),
+    ),
+
+    // Uzayda Tarım. Ekran hiçbir argüman almıyor: veri katmanı derlemede
+    // gömülü, yani adres tek başına sayfayı tam kuruyor ve paylaşılabilir.
+    GoRoute(
+      path: uzayTarimiPath,
+      pageBuilder: (context, state) => _fadePage(state, const UzayEkrani()),
     ),
 
     GoRoute(

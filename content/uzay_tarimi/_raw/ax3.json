@@ -1,0 +1,140 @@
+{
+ "_kaynak": "TÜBA · 'Türk Astronot Alper Gezeravcı'nın Uzayda Yapacağı 13 Bilimsel Deney' · tuba.gov.tr",
+ "_nitelik": "BİRİNCİL — resmî deney listesi",
+ "_belge": "kaynak_dosyalari/tuba_13deney.docx",
+ "_gorev": {
+  "ad": "Axiom Mission 3 (Ax-3)",
+  "firlatis": "19 Ocak 2024",
+  "sure_gun": 14,
+  "yer": "Uluslararası Uzay İstasyonu",
+  "astronot": "Alper Gezeravcı"
+ },
+ "_secim_sureci": "Deneyler için çağrı yayımlandı; gelen başvurular TUA ve TÜBİTAK UZAY uzmanlarından oluşan bir komisyonca değerlendirildi.",
+ "_SINIFLANDIRMA_NOTU": "ELLE yapıldı. Otomatik anahtar kelime eşleştirmesi denendi ve güvenilmez çıktı: alaşım ve akışkan dinamiği deneylerini 'biyolojik' işaretledi, PRANET'i biçimi farklı olduğu için hiç görmedi. Her sınıf gerekçesiyle yazılı.",
+ "toplam": 13,
+ "bitki_alg_sayisi": 4,
+ "sinir_durum": [
+  "PRANET"
+ ],
+ "_ORAN": "On üç deneyin 4'ü bitki ya da mikroalg. Propolis (PRANET) tarımsal bir ürün ama deney yetiştirme değil antibakteriyel etki ölçümü; sayıya KATILMADI. Katılırsa 5 olur.",
+ "_IKI_ALG_NOTU": "Dördün İKİSİ mikroalg ve ikisi de YAŞAM DESTEK amaçlı — CO₂'den O₂ üretimi, su iyileştirme, ek gıda. Bu, ESA'nın MELiSSA'sı ve Çin'in Lunar Palace'ı ile aynı soruna çalışıyor: kapalı döngü.",
+ "deneyler": [
+  {
+   "no": 1,
+   "kisa_ad": "UYNA",
+   "misyon_adi": "Uzay İçin Yeni Nesil Alaşımlar",
+   "kurum": "TÜBİTAK MAM",
+   "proje_yoneticisi": "Ömür Can Odabaş",
+   "sinif": "malzeme",
+   "gerekce": "Yüksek entropili alaşımların ergime ve katılaşması."
+  },
+  {
+   "no": 2,
+   "kisa_ad": "gMETAL",
+   "misyon_adi": "Katı Fazdaki Parçacıkların Bir Akışkan İçindeki Dinamiğine Yerçekimsiz Ortam Etkisi",
+   "kurum": "TÜBİTAK MAM",
+   "proje_yoneticisi": "Prof. Dr. İskender Gökalp / Prof. Dr. Ahmet Yozgatlıgil",
+   "sinif": "fizik",
+   "gerekce": "İtki sistemleri için katı-akışkan karışımı."
+  },
+  {
+   "no": 3,
+   "kisa_ad": "UzMAn",
+   "misyon_adi": "Uzay Görevleri için Mikroalgal Yaşam Destek Üniteleri",
+   "kurum": "Boğaziçi Üniversitesi",
+   "proje_yoneticisi": "Dr. Öğr. Üyesi Berat Haznedaroğlu",
+   "sinif": "BİTKİ_ALG",
+   "gerekce": "Mikroalglerin yerçekimsiz ortamda büyümesi, CO₂ yakalama ve O₂ üretim kabiliyeti; TÜBİTAK MAM ile yaşam destek sistemi."
+  },
+  {
+   "no": 4,
+   "kisa_ad": "EXTREMOPHYTE",
+   "misyon_adi": "Ekstrem Halofit olan Schrenkiella Parvula'nın Tuz Stresine Verdiği Yanıtların Uzay Ortamında Araştırılması",
+   "kurum": "Ege Üniversitesi",
+   "proje_yoneticisi": "Prof. Dr. İsmail Türkan",
+   "sinif": "BİTKİ",
+   "gerekce": "A. thaliana ve S. parvula'da RNA-seq ile transkriptom; glikofit ile halofitin tuz stresi yanıtlarının mikroyerçekiminde karşılaştırılması."
+  },
+  {
+   "no": 5,
+   "kisa_ad": "METABOLOM",
+   "misyon_adi": "Astronotların Metabolom/Transkriptomlarındaki Değişimlerin Analizi",
+   "kurum": "Ankara Üniversitesi",
+   "proje_yoneticisi": "Prof. Dr. Emel Emregül",
+   "sinif": "insan",
+   "gerekce": "İnsan omik verisi."
+  },
+  {
+   "no": 6,
+   "kisa_ad": "MİYELOİD",
+   "misyon_adi": "Radyasyonun Miyeloid-Kökenli Baskılayıcı Hücrelere Etkisi",
+   "kurum": "Hacettepe Üniversitesi",
+   "proje_yoneticisi": "Prof. Dr. Güneş Esendağlı",
+   "sinif": "insan",
+   "gerekce": "İnsan bağışıklık hücreleri."
+  },
+  {
+   "no": 7,
+   "kisa_ad": "MESSAGE",
+   "misyon_adi": "Mikroyerçekimi İlişkili Genetik Bilim Misyonu",
+   "kurum": "Üsküdar Üniversitesi",
+   "proje_yoneticisi": "Dr. Öğr. Üyesi Cihan Taştan",
+   "sinif": "insan",
+   "gerekce": "Bağışıklık hücrelerinde CRISPR ile gen taraması. CRISPR geçiyor ama konu İNSAN hücresi, bitki değil."
+  },
+  {
+   "no": 8,
+   "kisa_ad": "ALGALSPACE",
+   "misyon_adi": "Uzay Koşullarında Antarktika ve Ilıman Mikroalg Yetiştiriciliğinin Karşılaştırmalı Bir Çalışması",
+   "kurum": "Yıldız Teknik Üniversitesi",
+   "proje_yoneticisi": "Prof. Dr. Didem Özçimen",
+   "sinif": "BİTKİ_ALG",
+   "gerekce": "Kutup ve ılıman bölge mikroalglerinin uzayda büyüme karşılaştırması; CO₂'den O₂ rejenerasyonu, ek gıda, su iyileştirme. Belgeye göre literatürde İLK KEZ kutup alglerinin uzayda kullanımı."
+  },
+  {
+   "no": 9,
+   "kisa_ad": "CRISPR-GEM",
+   "misyon_adi": "Mikro Yerçekimi Altında Bitkilerde CRISPR Gen Düzenleme Verimliliğinin Araştırılması",
+   "kurum": "Yıldız Teknik Üniversitesi",
+   "proje_yoneticisi": "Tuğçe Celayir",
+   "sinif": "BİTKİ",
+   "gerekce": "Biyorejeneratif yaşam destek sistemlerinin iskeleti olan bitkilerde CRISPR etkinliği."
+  },
+  {
+   "no": 10,
+   "kisa_ad": "PRANET",
+   "misyon_adi": "Propolisin Antibakteriyel Etkisi",
+   "kurum": "Muş Bilim ve Sanat Merkezi",
+   "proje_yoneticisi": "Birsen Geçer",
+   "sinif": "SINIR_TARIMSAL_URUN",
+   "gerekce": "Propolisin mikroyerçekiminde bakteriler üzerindeki etkisi. Propolis arı ürünü — tarımsal ürün sayılır ama deney BİTKİ YETİŞTİRME değil, antibakteriyel etki. Bitki/alg sayısına KATILMADI."
+  },
+  {
+   "no": 11,
+   "kisa_ad": "VOKALKORD",
+   "misyon_adi": "Vokal Kord Kaynaklı Değişimlerle Hayati Tepkimelerin Tespiti",
+   "kurum": "Haliç Üniversitesi",
+   "proje_yoneticisi": "Prof. Dr. Gökhan Aydemir",
+   "sinif": "insan",
+   "gerekce": "İnsan sesi."
+  },
+  {
+   "no": 12,
+   "kisa_ad": "OKSİJEN SATURASYONU",
+   "misyon_adi": "Verilen Havanın Oksijen Seviyesiyle Rahatsızlıkların Tanımlanması",
+   "kurum": "Nişantaşı Üniversitesi",
+   "proje_yoneticisi": "Oğuzhan Aydemir",
+   "sinif": "insan",
+   "gerekce": "İnsan solunumu."
+  },
+  {
+   "no": 13,
+   "kisa_ad": "MİYOKA",
+   "misyon_adi": "Mikro Yerçekimi Ortamında Kurşunsuz Lehimleme Araştırması",
+   "kurum": "TÜBİTAK UZAY",
+   "proje_yoneticisi": "Hakan Asan",
+   "sinif": "mühendislik",
+   "gerekce": "Elektronik kart montajı."
+  }
+ ]
+}

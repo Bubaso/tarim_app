@@ -284,6 +284,12 @@ done
 # Hosting dağıtımı genel dizini DEĞİŞTİRDİĞİ için kabuğu üretilmeyen dosya
 # og etiketlerini kaybeder. Bu adım boşluğu veritabanından kapatıyor.
 node content/dossiers/_ortak/statik_sayfa_db.mjs
+
+# Uzayda Tarım'ın paylaşım kabuğu. Ülke dosyalarıyla aynı desen ama
+# veritabanına BAKMIYOR: bu dosyanın veri katmanı derlemeye gömülü ve
+# durumu yok, yani üretilmemesi için bir sebep de yok. Kart web/paylasim/
+# altında depoda duruyor; kabuk onu adresliyor.
+node content/uzay_tarimi/paylasim_sayfasi.mjs
 fi
 
 # ╔══════════════════════════════════════════════════════════════════════╗

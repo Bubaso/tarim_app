@@ -1,0 +1,4357 @@
+{
+ "eleme": {
+  "_kapsam": "NASA'nın ekin eleme hattı — hangi ürün uzayda yenebildi",
+  "_kaynak_niteligi": "BİRİNCİL — NASA/TM-20250001897, Temmuz 2024",
+  "kultivar_ayristirilan": 419,
+  "tablo_sayisi": 13,
+  "ksc_kultivar": 205,
+  "gbe_kultivar": 214,
+  "belge_duzyazi_toplam": 376,
+  "belge_duzyazi_ksc": "204'ten fazla",
+  "belge_duzyazi_gbe": 191,
+  "crl3_bekleyen": 153,
+  "crl2_bekleyen": 47,
+  "crl9_gecen": 9,
+  "crl9_listesi": [
+   {
+    "kultivar": "Outredgeous lettuce",
+    "familya": "Asteraceae"
+   },
+   {
+    "kultivar": "Waldmann's Green lettuce",
+    "familya": "Asteraceae"
+   },
+   {
+    "kultivar": "Mizuna mustard",
+    "familya": "Brassicaceae"
+   },
+   {
+    "kultivar": "Wasabi mustard",
+    "familya": "Brassicaceae"
+   },
+   {
+    "kultivar": "Amara mustard",
+    "familya": "Brassicaceae"
+   },
+   {
+    "kultivar": "Extra Dwarf Pak Choi",
+    "familya": "Brassicaceae"
+   },
+   {
+    "kultivar": "Red Russian kale",
+    "familya": "Brassicaceae"
+   },
+   {
+    "kultivar": "Española Improved Pepper",
+    "familya": "Solanaceae"
+   },
+   {
+    "kultivar": "Cherry Belle Radish",
+    "familya": "Brassicaceae"
+   }
+  ],
+  "crl9_bos_kategoriler": [
+   "Herbs",
+   "Microgreens",
+   "Legumes"
+  ],
+  "_BOS_KATEGORI_NOTU": "Tablo A-3 geçmeyen kategorileri de açıkça yazıyor: Herbs None, Microgreens None, Legumes None. Eksiklik çıkarım değil, kaynağın beyanı.",
+  "familya_dagilimi": {
+   "Brassicaceae": 125,
+   "Solanaceae": 57,
+   "Lamiaceae": 55,
+   "Fabaceae": 44,
+   "Asteraceae": 43,
+   "Apiaceae": 28,
+   "Amaranthaceae": 23,
+   "Polygonaceae": 6,
+   "Cucurbitaceae": 5,
+   "Amaryllidaceae": 5,
+   "Portulacaceae": 4,
+   "Rosaceae": 4,
+   "Boraginaceae": 3,
+   "Caprifoliaceae": 2,
+   "Basellaceae": 2,
+   "Malvaceae": 2,
+   "Aizoaceae": 2,
+   "Chenopodiaceae": 1,
+   "Plantaginaceae": 1,
+   "Montiaceae": 1,
+   "Piperaceae": 1,
+   "Tropaeolaceae": 1,
+   "Alismataceae": 1,
+   "Araliaceae": 1,
+   "Moringaceae": 1
+  },
+  "_SAYIM_AYRISMASI": "ÜÇ SAYI VAR VE ÜÇÜ DE TUTMUYOR. (1) Belgenin kendi toplamı: 'the Growing Beyond Earth program has tested 191 crops and KSC has tested 204 crops listed above and in Appendix E (total 376)'. 191+204=395, 376 DEĞİL — toplama hatası KAYNAĞIN KENDİSİNDE. (2) Belgenin tür tür sayımı: 37 yeşillik + 10 domates + 41 biber + 16 ot + 25 baklagil + 67 mikro yeşillik + 3 çilek + 2 salatalık + 2 kavun = 203; aynı belge iki cümle ötede KSC için 204 diyor. (3) Tabloların ayrıştırması: 419 satır. Ayrıştırma belgenin tür tür sayımıyla YEDİ TABLODAN BEŞİNDE BİREBİR tutuyor (domates, biber, ot, baklagil, mikro yeşillik). Tutmayan ikisi: E-7'de ayrıştırma 8, düzyazı 7 diyor — düzyazı çilek/salatalık/kavun sayıyor ama aynı tablodaki 'Cherry Belle' turbunu hiç anmıyor, oysa o turp CRL 9'u geçen dokuz ekinden biri. E-1'de ayrıştırma 38, düzyazı 37 'yeşillik' diyor — tabloda iki baklagil satırı var ('Dwarf Grey' Sugar Pea ve Kudzu), düzyazının hangisini yeşillik saymadığı belli değil. METİN HANGİ SAYIYI KULLANIRSA KULLANSIN bu ayrışmayı söyleyecek.",
+  "_BELGE_TUTARSIZLIGI": "Belge bir yerde 'only 9 crops have passed CRL 9', Ek E'de 'there are 10 crops that have passed CRL 9' diyor. Tablo A-3'te DOKUZ satır var. Metin hangi sayıyı kullanırsa kullansın tutarsızlığı söyleyecek.",
+  "_SAYIM_KAYNAKLARI": {
+   "belgenin_toplami": 376,
+   "belgenin_bilesenleri": {
+    "gbe": 191,
+    "ksc": 204,
+    "aritmetik_toplam": 395
+   },
+   "belgenin_tur_tur_sayimi": {
+    "yesillik": 37,
+    "domates": 10,
+    "biber": 41,
+    "ot": 16,
+    "baklagil": 25,
+    "mikro_yesillik": 67,
+    "cilek": 3,
+    "salatalik": 2,
+    "kavun": 2,
+    "toplam": 203
+   },
+   "ayristirma": 419
+  },
+  "_CAPRAZ_SINAMA": [
+   {
+    "tablo": "E-1",
+    "belgenin_duzyazisi": 37,
+    "ayristirma": 38,
+    "tutuyor": false
+   },
+   {
+    "tablo": "E-2",
+    "belgenin_duzyazisi": 41,
+    "ayristirma": 41,
+    "tutuyor": true
+   },
+   {
+    "tablo": "E-3",
+    "belgenin_duzyazisi": 10,
+    "ayristirma": 10,
+    "tutuyor": true
+   },
+   {
+    "tablo": "E-4",
+    "belgenin_duzyazisi": 25,
+    "ayristirma": 25,
+    "tutuyor": true
+   },
+   {
+    "tablo": "E-5",
+    "belgenin_duzyazisi": 67,
+    "ayristirma": 67,
+    "tutuyor": true
+   },
+   {
+    "tablo": "E-6",
+    "belgenin_duzyazisi": 16,
+    "ayristirma": 16,
+    "tutuyor": true
+   },
+   {
+    "tablo": "E-7",
+    "belgenin_duzyazisi": 7,
+    "ayristirma": 8,
+    "tutuyor": false
+   }
+  ],
+  "_METIN_KURALI": "Metin ekin sayısı kullanırsa BELGENİN KENDİ sayısını (376) yazacak ve ayrıştırmanın 419 bulduğunu söyleyecek. Kendi sayımımı belgenin yerine koymam."
+ },
+ "kultivarlar": {
+  "_kapsam": "Kennedy ve Growing Beyond Earth'te denenen kültivarlar",
+  "_kaynak_niteligi": "BİRİNCİL — NASA/TM-20250001897 Ek E tabloları",
+  "toplam": 419,
+  "_ALAN_NOTU": "'kaldi' yalnız 'bir yerde F aldı' demek; NEREDE kaldığı metinden okunamıyor ve bu alanda YOK. 'isaret_guvenilir' false ise o satırı BELGENİN KENDİSİ '…' ile kısaltmış, işaret sayısı eksiktir.",
+  "_ONARIM_GUNLUGU": {
+   "isaretsiz": [],
+   "adsiz": [],
+   "familya_onarimi": [
+    {
+     "tablo_satiri": 14,
+     "kultivar": "Rubarb Chard",
+     "not": "Chenopodiacea → Chenopodiaceae (belgede tam hâli hiç geçmiyor)"
+    },
+    {
+     "tablo_satiri": 37,
+     "kultivar": "Lentils",
+     "not": "Fabacea → Fabaceae (PDF son harfi düşürmüş)"
+    },
+    {
+     "tablo_satiri": 42,
+     "kultivar": "Mung Beans",
+     "not": "Fabacea → Fabaceae (PDF son harfi düşürmüş)"
+    },
+    {
+     "tablo_satiri": 72,
+     "kultivar": "Waldmann's dark green MT0 OG lettuce (GBE108)",
+     "not": "Asteracea → Asteraceae (PDF son harfi düşürmüş)"
+    },
+    {
+     "tablo_satiri": 73,
+     "kultivar": "Wasabina Mustard (JS) (GBE109)",
+     "not": "Brassicacea → Brassicaceae (PDF son harfi düşürmüş)"
+    },
+    {
+     "tablo_satiri": 1,
+     "kultivar": "Dwarf grey sugar peas (GBE84)",
+     "not": "Fabacaea → Fabaceae (kaynakta dizgi hatası)"
+    }
+   ],
+   "familyasiz": [
+    {
+     "tablo_satiri": 8,
+     "kultivar": "Honey Snap (yellow)/274-1-2-1"
+    }
+   ],
+   "kaynakta_kisaltilmis": [
+    {
+     "tablo_satiri": 33,
+     "kultivar": "Tokyo Bekana"
+    },
+    {
+     "tablo_satiri": 5,
+     "kultivar": "Cherry Belle Radish"
+    }
+   ]
+  },
+  "_ONARIM_NOTU": "Ayrıştırma sessizce satır düşürüyordu ve bu ancak tablo satır numaraları sırayla sayılınca görüldü: 22 gerçek kültivar kayıptı. Sebepler ölçüldü ve giderildi — (a) sarkan kültivar kodu satır başı sanılıyordu, (b) familya yalnız dilim SONUNDA aranıyordu, (c) PDF metni bazı familya adlarının son harfini düşürüyor. Onarılan her familya ve familyası okunamayan her satır bu günlükte tek tek yazılı.",
+  "familyasi_okunamayan": 1,
+  "liste": [
+   {
+    "ad": "Vit Mache",
+    "familya": "Caprifoliaceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Arugula",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fiero Radicchio",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mizuna",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Outredgeous Lettuce",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Extra Dwarf Pak Choi",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bel Radicchio",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dragoon Lettuce",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Eros Escarole",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sorrel, Green",
+    "familya": "Polygonaceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Amara Mustard",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Shungiku",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Russian Kale",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rubarb Chard",
+    "familya": "Chenopodiaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wasabi Mustard",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Toscano Kale",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Giant Red Mustard",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Barese Swiss Chard",
+    "familya": "Amaranthaceae",
+    "tablo": "E-1",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wasabina Mustard",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wasabi Arugula",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Perseo Radicchio",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Indigo Radicchio",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dwarf Grey Sugar Pea",
+    "familya": "Fabaceae",
+    "tablo": "E-1",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bright Lights Swiss Chard",
+    "familya": "Amaranthaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Miz America Kale",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Redbor Kale",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rainbow Candy Crush Kale",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Tatsoi",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dandelion",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Purslane, Golden",
+    "familya": "Portulacaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Garlic Mustard",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Malabar Spinach",
+    "familya": "Basellaceae",
+    "tablo": "E-1",
+    "isaret": 1,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tokyo Bekana",
+    "familya": "Brassicaceae",
+    "tablo": "E-1",
+    "isaret": 8,
+    "kaldi": true,
+    "isaret_guvenilir": false
+   },
+   {
+    "ad": "Waldmann's Green Lettuce",
+    "familya": "Asteraceae",
+    "tablo": "E-1",
+    "isaret": 8,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bull's Blood Beet",
+    "familya": "Amaranthaceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tyee Spinach",
+    "familya": "Amaranthaceae",
+    "tablo": "E-1",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Flamingo Spinach",
+    "familya": "Amaranthaceae",
+    "tablo": "E-1",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kudzu",
+    "familya": "Fabaceae",
+    "tablo": "E-1",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rosette Red",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mimi Red",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Compact Red",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sweet Orange",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Skin",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Hot Fajita",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Joker",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Golden Pepper Yum Yum",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "NuMex Espanola Improved",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 9,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Numex Heritage 6-4",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bulgarian Carrot",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Big Jim Heritage",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Slovenia Hybrid",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Feher Ozon Paprika",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Ace F1 Bell",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Numex Piñata",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tangerine Dream",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Garden Sunshine",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Italico",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fruit Basket",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chablis",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pompeii",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mohawk",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cajun Belle",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Numex Halloween",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Numex Lemon Spice",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cueno dwarf red",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cueno Dwarf Yellow",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Martinez Chimayo",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chimayo",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "\"Altiplano F1\" Serrano",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Big Dipper",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Golden Baby Bell Hybrid",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Hot Italian Pepperoncini",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sweet Heat Pepper",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Hot Burrito Pepper",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Hot Joker",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tamale",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Taquito",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sweet Pickle Pepper",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Scorpion Pepper",
+    "familya": "Solanaceae",
+    "tablo": "E-2",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Ground Jewel-97",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Ground Dew-104",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dwarf High Yielding 851",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Golden Harvest Cherry",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sweet N Neat",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Robin",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 8,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mohamed",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 5,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Patio Princess",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tumbler",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tiny Tim",
+    "familya": "Solanaceae",
+    "tablo": "E-3",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "PLS 0120",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "PLS 0122",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Antigua",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "4921",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Very Early Snap Pea/351-6-1",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Snap Pea Thick Pod/404-35-1-2-1",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Snap Pea, Dark Green/412-1-1",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Honey Snap (yellow)/274-1-2-1",
+    "familya": null,
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Acacia Leaf (snow pea)/299",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Multi Leaf (snow pea)/220-1-2",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Royal Snow (purple snow)/99-7-1-1",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Feisty pea",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Snap Pea/91E",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Snap Pea Thick Pod/404-51-2",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Snap Pea Thick Pod/404-52-2-1",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Snap Pea/430-1-4-1-2",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Royal Snap (purple snap)/337-1-1-3",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Yellow Snap/485-2",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tom Thumb",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Earligreen",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Blue Bantam Dwarf",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Little SnapPea Crunch",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Little Marvel",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Velour Purple",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Russian peas",
+    "familya": "Fabaceae",
+    "tablo": "E-4",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Alfalfa",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Arugula",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Arugula, Wasabi",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Basil, Dark Opal",
+    "familya": "Lamiaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Basil, Lemon",
+    "familya": "Lamiaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Beet, Bulls Blood",
+    "familya": "Amaranthaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Broccoli",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Brussel Sprouts",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Borage",
+    "familya": "Boraginaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Buckwheat, Groats",
+    "familya": "Polygonaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Buckwheat, OG",
+    "familya": "Polygonaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Buckwheat, Shoot",
+    "familya": "Polygonaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cabbage, Mammoth Red Rock",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cabbage, Red",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cantaloupe",
+    "familya": "Cucurbitaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cauliflower, Y Improved",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chia",
+    "familya": "Lamiaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cilantro",
+    "familya": "Apiaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chinese Cabbage Tokyo Bekana",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chives, Garlic",
+    "familya": "Amaryllidaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Collards, Vates",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cress, Cressida",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cress, Persian",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cress, Upland",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dandelion, Red",
+    "familya": "Asteraceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dill",
+    "familya": "Apiaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fennel",
+    "familya": "Apiaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fenugreek",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mustard Golden Frills",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kale, Dwarf Siberian",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kale, Red Russian",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kale, Toscano",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kale, Vates Blue Scotch Curled",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kohlrabi, Purple",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kohlrabi, White",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Komatsuna",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lentils",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lettuce Mix, Mucelum",
+    "familya": "Asteraceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Marjaram",
+    "familya": "Lamiaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mizuna",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mizuna, Red Kingdom",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mung Beans",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mustard, Garnet Giant",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mustard, Scarlet Frills",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mustard, Wasabi",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 6,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Orach",
+    "familya": "Amaranthaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pac Choi, Red",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pac Choi, Rosi",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pac Choi, White Stem",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pac Choi, White Stem Extra Dwarf",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Parsley",
+    "familya": "Apiaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pea, Dun",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pea, Dwarf Grey Sugar",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pea, Mammoth Melting Sugar",
+    "familya": "Fabaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Quinoa",
+    "familya": "Amaranthaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Radish, Daikon",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Radish, Daikon (white)",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Radish, Red Rambo",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rutabaga",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Shiso",
+    "familya": "Lamiaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Shungiku",
+    "familya": "Asteraceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Shungiku, Broadleaf",
+    "familya": "Asteraceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sunflower, Black Oil",
+    "familya": "Asteraceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sunflower, Grey Striped",
+    "familya": "Asteraceae",
+    "tablo": "E-5",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Swiss Chard, Yellow",
+    "familya": "Amaranthaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tatsoi",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Turnip, Purple Top White Globe",
+    "familya": "Brassicaceae",
+    "tablo": "E-5",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lemon Basil",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Parsley",
+    "familya": "Apiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fernleaf Dill",
+    "familya": "Apiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Peppermint",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Basil Prospera Compact",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Oregano, Greek",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cilantro",
+    "familya": "Apiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Emily Basil",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lemon Balm",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chives",
+    "familya": "Amaryllidaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Amythyst Basil",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Teddy dill",
+    "familya": "Apiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fenugreek",
+    "familya": "Fabaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Spearmint",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mountain Mint",
+    "familya": "Lamiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fennel",
+    "familya": "Apiaceae",
+    "tablo": "E-6",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "H-10 Cucumber",
+    "familya": "Cucurbitaceae",
+    "tablo": "E-7",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Iznick Hybrid Cucumber",
+    "familya": "Cucurbitaceae",
+    "tablo": "E-7",
+    "isaret": 3,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Minnesota Midget Melon",
+    "familya": "Cucurbitaceae",
+    "tablo": "E-7",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Silverline Melon",
+    "familya": "Cucurbitaceae",
+    "tablo": "E-7",
+    "isaret": 4,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cherry Belle Radish",
+    "familya": "Brassicaceae",
+    "tablo": "E-7",
+    "isaret": 8,
+    "kaldi": false,
+    "isaret_guvenilir": false
+   },
+   {
+    "ad": "Delizz Strawberry",
+    "familya": "Rosaceae",
+    "tablo": "E-7",
+    "isaret": 5,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Temptation Strawberry",
+    "familya": "Rosaceae",
+    "tablo": "E-7",
+    "isaret": 5,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pineberry Strawberry",
+    "familya": "Rosaceae",
+    "tablo": "E-7",
+    "isaret": 3,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Outredgeous (GBE1)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tokyo Bekana (GBE2)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Redleaf amaranth (GBE3)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Orach (GBE4)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bright Lights Swiss Chard (GBE5)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Babybeat (GBE6)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Strawberry spinach (GBE7)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Saltwort (GBE8)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Kitten Spinach (GBE9)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Koidzumi Ashitaba (GBE11)",
+    "familya": "Apiaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Natacha Escarole (GBE14)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Shungiku (GBE15)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Starfighter Lettuce (GBE16)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rubra red malabar spinach (GBE17)",
+    "familya": "Basellaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Upland cress (GBE18)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Misome (GBE19)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Toscano Kale (GBE20)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Starbor Kale (GBE21)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Quickstar Kohlrabi (GBE22)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Komatsuna (GBE23)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mizuna (GBE24)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tatsoi (GBE25)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Minuet Chinese cabbage (GBE26)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "White wall rocket (GBE27)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sylvetta (GBE28)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Arugula (GBE29)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Persian cress (GBE30)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Molokhia (GBE33)",
+    "familya": "Malvaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Minutina (GBE34)",
+    "familya": "Plantaginaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sorrel (GBE35)",
+    "familya": "Polygonaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Goldberg golden purslane (GBE36)",
+    "familya": "Portulacaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Watercress (GBE37)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "New Zealand Spinach (GBE38)",
+    "familya": "Aizoaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Good King Henry (GBE39)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Spring Tower celtuce (GBE41)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Papalo (GBE42)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Collard (GBE43)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Win-win Choi (GBE45)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cressida (GBE46)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mache (GBE47)",
+    "familya": "Caprifoliaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Shiso (GBE48)",
+    "familya": "Lamiaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Green Shiso (GBE49)",
+    "familya": "Lamiaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Roselle (GBE50)",
+    "familya": "Malvaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Miner's lettuce (GBE51)",
+    "familya": "Montiaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pepper elder (GBE52)",
+    "familya": "Piperaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Water pepper (GBE53)",
+    "familya": "Polygonaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Salad burnet (GBE54)",
+    "familya": "Rosaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Empress of India nasturtium (GBE55)",
+    "familya": "Tropaeolaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Extra dwarf Pak Choi (GBE56)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cicoria spadena da taglia (chicory) (GBE57)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Emperor Chinese Kale (GBE58)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pak Choi (Purple magic) (GBE59)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Yhod Fah Chinese Kale (GBE60)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Garland round leaved shungiku (GBE61)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Large leaf tong ho shungiku (GBE68)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Yellow velvetleaf (GBE81)",
+    "familya": "Alismataceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Maquarie Island Cabbage (GBE82)",
+    "familya": "Araliaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dragoon Lettuce (GBE83)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Koji F1 (GBE90)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lime Streak mizuna (GBE95)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Yukina Savoy/chijimina chinese cabbage (GBE96)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Mizuna (E) (GBE97)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Tatsoi Pac Choi (GBE98)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Toy Choi/shakushina (GBE99)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Beka Santoh Chinese Cabbage (BS) (GBE100)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mibuna, Early (GBE101)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mizuna (GBE102)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mizuna (Seeds of Change) (GBE103)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Li Ren Pac Choi (GBE104)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Prizm Kale (GBE105)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wasabi Arugula (GBE107)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Waldmann's dark green MT0 OG lettuce (GBE108)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wasabina Mustard (JS) (GBE109)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Choho (GBE110)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Karashina Wasabina (GBE111)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Micro greens Borage (GBE112)",
+    "familya": "Boraginaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Amara Mustard (GBE113)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wasabi Mustard (MV) (GBE114)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Pac F1 Pac Choi (GBE115)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Black summer F1 Pac Choi (GBE116)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mei Quing Choi F1 Pac Choi (GBE117)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Shiro F1 Pac Choi (GBE118)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Truchas OG MT0 Romaine Lettuce (GBE119)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rosie F1 Hybrid Pac Choi (GBE120)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Salanova Red incised MT0 OG-Pelleted (GBE121)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Russian kale (GBE122)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Puerto Rican Lettuce (GBE123)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Purslane (GBE132)",
+    "familya": "Portulacaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lovage (GBE133)",
+    "familya": "Apiaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Delight Pak Choi (GBE135)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Butterhead Flandria (pelleted) lettuce (GBE136)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Flashy Trout's Back lettuce (GBE137)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Yuushou F1 Pac Choi (GBE138)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bopak F1 Pac Choi (GBE139)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Alkindus (pelleted) lettuce (GBE140)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Buttercrunch lettuce (GBE141)",
+    "familya": "Asteraceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Spike amaranth (GBE192)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Leaf Specialty amaranth (GBE193)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Garnet Red (microgreen) amaranth (GBE200)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Narinosa misome (GBE201)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pekinensis chinese cabbage (GBE202)",
+    "familya": "Brassicaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Seaside F1 smooth leaf spinach (GBE203)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-8",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Parade Bunching Onions (GBE10)",
+    "familya": "Amaryllidaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Samphire (GBE12)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pluto fine leaf basil (GBE32)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Calypso cilantro (GBE40)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Kinh gioi (GBE63)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mitsuba (GBE64)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Korean minari flamingo (GBE65)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fenugreek (GBE66)",
+    "familya": "Fabaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Toothache plant (GBE67)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Ice plant (GBE69)",
+    "familya": "Aizoaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Stevia (GBE70)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cook's scurvy grass (GBE71)",
+    "familya": "Brassicaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lemon Balm (GBE72)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lisette (GBE73)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dill (GBE74)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Rosemary (GBE79)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dwarf Moringa (GBE80)",
+    "familya": "Moringaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "“red gem” marigold (GBE85)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "“tangerine” marigold (GBE86)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Borage (GBE87)",
+    "familya": "Boraginaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cilantro (GBE91)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Savory (GBE92)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Thai Basil (GBE93)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Greek Oregano (GBE94)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Wega parsley (GBE147)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Oregano (GBE148)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Holy Green (GBE149)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sweet basil (GBE150)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Finocchio fennel (GBE159)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Broadleaf sage (GBE160)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Santo cilantro (GBE161)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fernleaf dill (GBE162)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Confetti cilantro (GBE163)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Persian basil (GBE164)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cinnamon basil (GBE165)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Chinese Sweet basil (GBE166)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Purple ball basil (GBE167)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Genovese “prosepera compact” (pelleted) basil (GBE168)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Genovese “prospera compact” (non-pelleted) basil (GBE169)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tarragon, French (GBE170)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Vertissimo chevril (GBE171)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Grossfruchtiger fennel (GBE172)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Darki parsley (GBE173)",
+    "familya": "Apiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lettuce Leaf basil (GBE174)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dark Purple Opal basil (GBE175)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mountain Mint (GBE176)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Peppermint (GBE178)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mammolo basil (GBE179)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Blue Spice basil (GBE180)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Emily basil (GBE181)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lime basil (GBE182)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Thai Sweet basil (GBE183)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Thai Hily “Kaprao” basil (GBE184)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "African Nunum basil (GBE185)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Lemon basil (GBE186)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Ghana Akokomesa basil (GBE187)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dolce Fresca basil (GBE188)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Newton basil (GBE189)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Everleaf Emerald Tower basil (GBE190)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Geisha garlic chives (GBE191)",
+    "familya": "Amaryllidaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pink Dandelion (GBE196)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sativa purslane (GBE199)",
+    "familya": "Portulacaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Ruben basil (GBE204)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Nebechan bunching onions (GBE205)",
+    "familya": "Amaryllidaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Common chamomile (GBE206)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Roman chamomile (GBE207)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Officinalis sage (GBE208)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pilosum mountain mint (GBE209)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Scardica mountain mint (GBE210)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Patula durango outback mix (GBE211)",
+    "familya": "Asteraceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Angustifolia lavendar (GBE212)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mandarina lemon balm (GBE213)",
+    "familya": "Lamiaceae",
+    "tablo": "E-9",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pepper sweet pickle (GBE77)",
+    "familya": "Solanaceae",
+    "tablo": "E-10",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sweet Chocolate pepper (GBE88)",
+    "familya": "Solanaceae",
+    "tablo": "E-10",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Hungarian Stuffing Pepper (GBE106)",
+    "familya": "Solanaceae",
+    "tablo": "E-10",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Martinez Farm pepper (GBE142)",
+    "familya": "Solanaceae",
+    "tablo": "E-10",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pepper chablis hybrid (GBE76)",
+    "familya": "Solanaceae",
+    "tablo": "E-10",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Tomato Red Robin (GBE75)",
+    "familya": "Solanaceae",
+    "tablo": "E-11",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dwarf grey sugar peas (GBE84)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Petite snap-greens peas (GBE89)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Feisty pea (GBE129)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Royal Snow pea (GBE130)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Golden Sweet pea (GBE131)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Little snowpea white pea (GBE145)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Little snowpea purple pea (GBE146)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "California Blackeye Pea cowpea (GBE197)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Ozark Razorback cowpea (GBE198)",
+    "familya": "Fabaceae",
+    "tablo": "E-12",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Atlantis mini broccoli (GBE44)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dark green cutting celery (GBE62)",
+    "familya": "Apiaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Baby Hybrid cauliflower (GBE143)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Green Stem Song TJS-65 (F1) cauliflower (GBE144)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Apollo brocolli (GBE230)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Hybrid Mini Broccoli (GBE233)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mokum Carrot (GBE13)",
+    "familya": "Apiaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cherriett radish (GBE31)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Mini Mak F1 radish (GBE124)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Sora radish (GBE125)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Easter Egg II radish (GBE126)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Pink Beauty radish (GBE127)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Bacchus F1 radish (GBE128)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Cherry Belle radish (GBE151)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Crunchy Crimson radish (GBE152)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Karami Green radish (GBE153)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": true,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "French Breakfast radish (GBE154)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Roxanne F1 Radish (GBE155)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Celesta F1 Radish (GBE156)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Dragon F1 Radish (GBE157)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Red Head Radish (GBE158)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Fresh Pak F1 beet (GBE194)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Early Wonder Tall Top beet (GBE195)",
+    "familya": "Amaranthaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Donato F1 radish (GBE218)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   },
+   {
+    "ad": "Longipinnatus radish (GBE219)",
+    "familya": "Brassicaceae",
+    "tablo": "E-13",
+    "isaret": 2,
+    "kaldi": false,
+    "isaret_guvenilir": true
+   }
+  ],
+  "tablo_adlari": {
+   "E-1": "Shows leafy green crops tested at Kennedy Space Center since about 2010.",
+   "E-2": "Shows pepper plant crops tested at Kennedy Space Center since about 2010.",
+   "E-3": "Shows tomato varieties tested at Kennedy Space Center since about 2010.",
+   "E-4": "Shows legume crops tested at Kennedy Space Center since about 2010.",
+   "E-5": "Shows microgreen crops tested at Kennedy Space Center since about 2010.",
+   "E-6": "Shows various herbs tested at Kennedy Space Center since about 2010.",
+   "E-7": "Shows various crops tested at Kennedy Space Center since about 2010.  The Cherry Belle Radish was tested at KSC and",
+   "E-8": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth leafy green crops tested between 2015",
+   "E-9": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth herb crops tested between 2015 and",
+   "E-10": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth pepper plant crops tested between",
+   "E-11": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth tomato plant crops tested between",
+   "E-12": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth legume crops tested between 2015",
+   "E-13": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth miscellaneous crops tested between"
+  }
+ },
+ "crl": {
+  "_kapsam": "Crop Readiness Level — dokuz basamaklı hazırlık merdiveni",
+  "_kaynak_niteligi": "BİRİNCİL — NASA/TM-20250001897 Ek E",
+  "basamaklar": [
+   {
+    "no": 1,
+    "ad": "Tarama",
+    "olcut": "tohum kataloğu ve literatürden ön değerlendirme"
+   },
+   {
+    "no": 2,
+    "ad": "Gözlem",
+    "olcut": "bitki sağlığı ve performansının genel gözlemi"
+   },
+   {
+    "no": 3,
+    "ad": "ISS benzeri ortam",
+    "olcut": "≈22°C · ≈%40 bağıl nem · ≈3000 ppm CO₂ · uçuş benzeri LED"
+   },
+   {
+    "no": 4,
+    "ad": "Mikrobiyoloji",
+    "olcut": "aerobik bakteri tek örnekte >2×10⁴ CFU/g KALIR; beş örneğin ikisinde >1×10⁴ KALIR; maya ve küf >1000 CFU/g KALIR. E. coli, koliform, Salmonella, S. aureus taranır"
+   },
+   {
+    "no": 5,
+    "ad": "Kimya ve kabul edilebilirlik",
+    "olcut": "K, Mg, Fe, Ca ölçümü; dokuz puanlık hedonik ölçekte ortalama EN AZ 6. Radicchio acılıktan kaldı"
+   },
+   {
+    "no": 6,
+    "ad": "Tohum yüzeyi",
+    "olcut": "çimlenme >%60 korunmalı ya da başlangıçtan <%30 düşüş"
+   },
+   {
+    "no": 7,
+    "ad": "Uçuş benzeri donanım",
+    "olcut": "Veggie ya da APH içinde yetiştirme"
+   },
+   {
+    "no": 8,
+    "ad": "Uzayda yetiştirme",
+    "olcut": "ISS ya da başka bir platformda"
+   },
+   {
+    "no": 9,
+    "ad": "Uzayda yeme",
+    "olcut": "yetiştirip TÜKETMEK"
+   }
+  ],
+  "_KONUM_KISITI": "Tablolar dokuz sütunlu (CRL 1-9) ve boş hücreler PDF metninde KONUMUNU KAYBEDİYOR. Betik KONUM İDDİA ETMİYOR: bir ürünün hangi basamakta kaldığı metinden okunamaz, yalnız 'bir yerde kaldı' denebilir. ESKİ NOT ÇÜRÜTÜLDÜ — 'dokuz işaret taşıyan satırda o ürün CRL 9'u geçmiştir' denmişti. Yanlış: Waldmann marulunun satırında SEKİZ işaret var (CRL 5 hücresi boş) ama ekin Tablo A-3'teki CRL 9 listesinde. İşaret sayısı düzeyi VERMİYOR; CRL 9 listesi bu yüzden A-3'ten doğrudan okunuyor. Konum gerekirse PDF'e bakılacak."
+ },
+ "osdr": {
+  "_kapsam": "NASA Açık Bilim Veri Deposu'ndaki bitki çalışmaları",
+  "_kaynak_niteligi": "BAĞIMSIZ — NASA'nın kendi kürate veri deposu",
+  "toplam": 78,
+  "model_organizma": 50,
+  "ekin_bitkisi": 5,
+  "ekin_calismalari": [
+   {
+    "erisim": "OSD-375",
+    "ekin": "yalancı brom",
+    "baslik": "Transcriptional profiling of roots and shoots from Brachypodium distachyon seedlings flown on the ISS"
+   },
+   {
+    "erisim": "OSD-581",
+    "ekin": "çim",
+    "baslik": "A molecular study of Italian ryegrass grown on Martian regolith simulant"
+   },
+   {
+    "erisim": "OSD-59",
+    "ekin": "lahanagiller",
+    "baslik": "RNA-Seq transcriptome analysis of reactive oxygen species gene network in Mizuna plants grown in long-term space flight"
+   },
+   {
+    "erisim": "OSD-622",
+    "ekin": "buğday",
+    "baslik": "Microgravity effects on leaf morphology, cell structure, carbon metabolism and mRNA expression of dwarf wheat"
+   },
+   {
+    "erisim": "OSD-767",
+    "ekin": "domates/patates",
+    "baslik": "Stress and light spectral quality influence the transcriptome of a tomato crop on the International Space Station"
+   }
+  ],
+  "cins_dagilimi": {
+   "Arabidopsis": 50,
+   "Microbiota": 14,
+   "Fusarium": 2,
+   "Burkholderia": 1,
+   "Beauveria": 1,
+   "Brassica": 1,
+   "Solanum": 1,
+   "Triticum": 1,
+   "Brachypodium": 1,
+   "Lolium": 1,
+   "Paraburkholderia": 1,
+   "Aspergillus": 1,
+   "?": 1,
+   "Chlamydomonas": 1,
+   "Rhodospirillum": 1
+  },
+  "_SORGU_KISITI": "Sorgu terimi 'plant'. Bu bir METİN eşleşmesi: bir çalışma başlığında ya da tarifinde 'plant' geçtiği için listeye giriyor. Yani sayı bitki çalışmalarının TAMAMI değil, 'plant' diyen kürate çalışmalar. Daha geniş bir liste için organizma bazlı ayrı sorgular gerekir."
+ },
+ "marul": {
+  "_kapsam": "ISS'te yetiştirilen marulun besin ve mikrobiyoloji analizi",
+  "_kaynak_niteligi": "BİRİNCİL — hakemli özgün araştırma",
+  "kaynak": "Khodadad vd. 2020 · Frontiers in Plant Science 11:199 · doi 10.3389/fpls.2020.00199 · açık erişim",
+  "bitki": "Lactuca sativa cv. 'Outredgeous' — kırmızı romaine marul",
+  "deneyler": [
+   "VEG-01A",
+   "VEG-01B",
+   "VEG-03A"
+  ],
+  "yer_kontrolu": "ISS çevre verisiyle, 24-72 saat GECİKMELİ olarak eş zamanlı yürütüldü",
+  "elemental": {
+   "_bulgu": "Her deneyin İÇİNDE uçuş ile yer arasında anlamlı fark YOK.",
+   "deneyler_arasi": [
+    {
+     "element": "Fe",
+     "bulgu": "VEG-03A, VEG-01A ve VEG-01B'den anlamlı DÜŞÜK",
+     "p": "≤0,001"
+    },
+    {
+     "element": "K",
+     "bulgu": "VEG-03A, VEG-01A ve VEG-01B'den anlamlı DÜŞÜK",
+     "p": "≤0,0001"
+    },
+    {
+     "element": "Na",
+     "bulgu": "VEG-01B, ötekilerden anlamlı YÜKSEK",
+     "p": "≤0,0001"
+    },
+    {
+     "element": "P",
+     "bulgu": "VEG-01B, ötekilerden YÜKSEK",
+     "p": "≤0,05"
+    },
+    {
+     "element": "S",
+     "bulgu": "VEG-01B, ötekilerden YÜKSEK",
+     "p": "≤0,05"
+    },
+    {
+     "element": "Zn",
+     "bulgu": "VEG-01B, ötekilerden YÜKSEK",
+     "p": "≤0,0001"
+    }
+   ],
+   "fark_bulunmayan": [
+    "Ca",
+    "Mg",
+    "Mn"
+   ]
+  },
+  "antioksidan": {
+   "toplam_fenolik": {
+    "_birim": "mg/g kuru ağırlık · gallik asit eşdeğeri",
+    "VEG-03A_yer": 15.0,
+    "VEG-03A_ucus": 19.6,
+    "bulgu": "VEG-03A, VEG-01A ve VEG-01B'den istatistiksel olarak EN DÜŞÜK (P≤0,001)"
+   },
+   "antosiyanin": {
+    "_olcum": "siyanidin-3-glukozit eşdeğeri",
+    "bulgu": "üç deney arasında fark YOK"
+   },
+   "orac": {
+    "bulgu": "ölçüldü — sonuç satırı PDF'ten tam okunmadı"
+   }
+  },
+  "mikrobiyoloji": {
+   "toplam_sayim_araligi": "2,14-4,86 log10 CFU/g",
+   "insan_patojeni": "taramada çıkmadı",
+   "_tablo2_notu": "Uçuş ve yer örneklerinden ayrı bakteri cinsleri geri kazanıldı; Tablo 2 varlık/yokluk veriyor, sayım değil."
+  },
+  "_OZET_SONUC_AYRISMASI": {
+   "ozet_cumlesi": "Flight and ground tissue showed differences in Fe, K, Na, P, S, and Zn content and total phenolic levels, but no differences in anthocyanin and ORAC levels.",
+   "sonuclar_cumlesi": "There was no significant differences between ground and flight samples within each experiment, however when comparing among all three experiments, Fe and K content were significantly lower in VEG-03A samples compared to VEG-01A and VEG-01B.",
+   "ayrim": "Özet farkı UÇUŞ↔YER arasına koyuyor; sonuçlar bölümü her deneyin içinde uçuş-yer farkı OLMADIĞINI, farkların ÜÇ DENEY ARASINDA olduğunu söylüyor.",
+   "karar": "Dosya SONUÇLAR bölümünü esas alıyor. 'Uzayda yetişen marulun besin içeriği değişiyor' cümlesi bu makaleye dayandırılamaz; makalenin kendi ölçümü bunun tersini söylüyor."
+  }
+ },
+ "ax3": {
+  "_kapsam": "Türkiye'nin ilk insanlı uzay görevindeki 13 bilimsel deney",
+  "_kaynak_niteligi": "BİRİNCİL — resmî deney listesi",
+  "gorev": {
+   "ad": "Axiom Mission 3 (Ax-3)",
+   "firlatis": "19 Ocak 2024",
+   "sure_gun": 14,
+   "yer": "Uluslararası Uzay İstasyonu",
+   "astronot": "Alper Gezeravcı"
+  },
+  "toplam_deney": 13,
+  "bitki_alg": 4,
+  "sinir_durum": [
+   "PRANET"
+  ],
+  "deneyler": [
+   {
+    "no": 1,
+    "kisa_ad": "UYNA",
+    "misyon_adi": "Uzay İçin Yeni Nesil Alaşımlar",
+    "kurum": "TÜBİTAK MAM",
+    "proje_yoneticisi": "Ömür Can Odabaş",
+    "sinif": "malzeme",
+    "gerekce": "Yüksek entropili alaşımların ergime ve katılaşması."
+   },
+   {
+    "no": 2,
+    "kisa_ad": "gMETAL",
+    "misyon_adi": "Katı Fazdaki Parçacıkların Bir Akışkan İçindeki Dinamiğine Yerçekimsiz Ortam Etkisi",
+    "kurum": "TÜBİTAK MAM",
+    "proje_yoneticisi": "Prof. Dr. İskender Gökalp / Prof. Dr. Ahmet Yozgatlıgil",
+    "sinif": "fizik",
+    "gerekce": "İtki sistemleri için katı-akışkan karışımı."
+   },
+   {
+    "no": 3,
+    "kisa_ad": "UzMAn",
+    "misyon_adi": "Uzay Görevleri için Mikroalgal Yaşam Destek Üniteleri",
+    "kurum": "Boğaziçi Üniversitesi",
+    "proje_yoneticisi": "Dr. Öğr. Üyesi Berat Haznedaroğlu",
+    "sinif": "BİTKİ_ALG",
+    "gerekce": "Mikroalglerin yerçekimsiz ortamda büyümesi, CO₂ yakalama ve O₂ üretim kabiliyeti; TÜBİTAK MAM ile yaşam destek sistemi."
+   },
+   {
+    "no": 4,
+    "kisa_ad": "EXTREMOPHYTE",
+    "misyon_adi": "Ekstrem Halofit olan Schrenkiella Parvula'nın Tuz Stresine Verdiği Yanıtların Uzay Ortamında Araştırılması",
+    "kurum": "Ege Üniversitesi",
+    "proje_yoneticisi": "Prof. Dr. İsmail Türkan",
+    "sinif": "BİTKİ",
+    "gerekce": "A. thaliana ve S. parvula'da RNA-seq ile transkriptom; glikofit ile halofitin tuz stresi yanıtlarının mikroyerçekiminde karşılaştırılması."
+   },
+   {
+    "no": 5,
+    "kisa_ad": "METABOLOM",
+    "misyon_adi": "Astronotların Metabolom/Transkriptomlarındaki Değişimlerin Analizi",
+    "kurum": "Ankara Üniversitesi",
+    "proje_yoneticisi": "Prof. Dr. Emel Emregül",
+    "sinif": "insan",
+    "gerekce": "İnsan omik verisi."
+   },
+   {
+    "no": 6,
+    "kisa_ad": "MİYELOİD",
+    "misyon_adi": "Radyasyonun Miyeloid-Kökenli Baskılayıcı Hücrelere Etkisi",
+    "kurum": "Hacettepe Üniversitesi",
+    "proje_yoneticisi": "Prof. Dr. Güneş Esendağlı",
+    "sinif": "insan",
+    "gerekce": "İnsan bağışıklık hücreleri."
+   },
+   {
+    "no": 7,
+    "kisa_ad": "MESSAGE",
+    "misyon_adi": "Mikroyerçekimi İlişkili Genetik Bilim Misyonu",
+    "kurum": "Üsküdar Üniversitesi",
+    "proje_yoneticisi": "Dr. Öğr. Üyesi Cihan Taştan",
+    "sinif": "insan",
+    "gerekce": "Bağışıklık hücrelerinde CRISPR ile gen taraması. CRISPR geçiyor ama konu İNSAN hücresi, bitki değil."
+   },
+   {
+    "no": 8,
+    "kisa_ad": "ALGALSPACE",
+    "misyon_adi": "Uzay Koşullarında Antarktika ve Ilıman Mikroalg Yetiştiriciliğinin Karşılaştırmalı Bir Çalışması",
+    "kurum": "Yıldız Teknik Üniversitesi",
+    "proje_yoneticisi": "Prof. Dr. Didem Özçimen",
+    "sinif": "BİTKİ_ALG",
+    "gerekce": "Kutup ve ılıman bölge mikroalglerinin uzayda büyüme karşılaştırması; CO₂'den O₂ rejenerasyonu, ek gıda, su iyileştirme. Belgeye göre literatürde İLK KEZ kutup alglerinin uzayda kullanımı."
+   },
+   {
+    "no": 9,
+    "kisa_ad": "CRISPR-GEM",
+    "misyon_adi": "Mikro Yerçekimi Altında Bitkilerde CRISPR Gen Düzenleme Verimliliğinin Araştırılması",
+    "kurum": "Yıldız Teknik Üniversitesi",
+    "proje_yoneticisi": "Tuğçe Celayir",
+    "sinif": "BİTKİ",
+    "gerekce": "Biyorejeneratif yaşam destek sistemlerinin iskeleti olan bitkilerde CRISPR etkinliği."
+   },
+   {
+    "no": 10,
+    "kisa_ad": "PRANET",
+    "misyon_adi": "Propolisin Antibakteriyel Etkisi",
+    "kurum": "Muş Bilim ve Sanat Merkezi",
+    "proje_yoneticisi": "Birsen Geçer",
+    "sinif": "SINIR_TARIMSAL_URUN",
+    "gerekce": "Propolisin mikroyerçekiminde bakteriler üzerindeki etkisi. Propolis arı ürünü — tarımsal ürün sayılır ama deney BİTKİ YETİŞTİRME değil, antibakteriyel etki. Bitki/alg sayısına KATILMADI."
+   },
+   {
+    "no": 11,
+    "kisa_ad": "VOKALKORD",
+    "misyon_adi": "Vokal Kord Kaynaklı Değişimlerle Hayati Tepkimelerin Tespiti",
+    "kurum": "Haliç Üniversitesi",
+    "proje_yoneticisi": "Prof. Dr. Gökhan Aydemir",
+    "sinif": "insan",
+    "gerekce": "İnsan sesi."
+   },
+   {
+    "no": 12,
+    "kisa_ad": "OKSİJEN SATURASYONU",
+    "misyon_adi": "Verilen Havanın Oksijen Seviyesiyle Rahatsızlıkların Tanımlanması",
+    "kurum": "Nişantaşı Üniversitesi",
+    "proje_yoneticisi": "Oğuzhan Aydemir",
+    "sinif": "insan",
+    "gerekce": "İnsan solunumu."
+   },
+   {
+    "no": 13,
+    "kisa_ad": "MİYOKA",
+    "misyon_adi": "Mikro Yerçekimi Ortamında Kurşunsuz Lehimleme Araştırması",
+    "kurum": "TÜBİTAK UZAY",
+    "proje_yoneticisi": "Hakan Asan",
+    "sinif": "mühendislik",
+    "gerekce": "Elektronik kart montajı."
+   }
+  ],
+  "_ORAN": "On üç deneyin 4'ü bitki ya da mikroalg. Propolis (PRANET) tarımsal bir ürün ama deney yetiştirme değil antibakteriyel etki ölçümü; sayıya KATILMADI. Katılırsa 5 olur.",
+  "_IKI_ALG": "Dördün İKİSİ mikroalg ve ikisi de YAŞAM DESTEK amaçlı — CO₂'den O₂ üretimi, su iyileştirme, ek gıda. Bu, ESA'nın MELiSSA'sı ve Çin'in Lunar Palace'ı ile aynı soruna çalışıyor: kapalı döngü."
+ },
+ "yorunge_alti": {
+  "_kapsam": "Türkiye'nin ikinci görevi — ve neden bu dosyanın dışında",
+  "_kaynak_niteligi": "BİRİNCİL — TÜBİTAK haber sayfası",
+  "astronot": "Tuva Cihangir Atasever",
+  "gorev": "Virgin Galactic · Galactic 07 · VSS Unity",
+  "tarih": "8 Haziran 2024",
+  "irtifa_km": 90,
+  "_irtifa_ayrismasi": "Kaynaklar 87,5 / 90 / ~80 km veriyor. TÜBİTAK'ın kendi haberi 90 diyor; kullanılan o, ayrışma yazılı.",
+  "deney_sayisi": 7,
+  "bitki_deneyi": 0,
+  "_YAPISAL_SEBEP": "Yörünge altı uçuşta mikroyerçekimi penceresi DAKİKALARLA ölçülüyor; astronotun kendi ifadesiyle üç deney için 'üç dakikalık sürem olacak'. Bitki biyolojisi GÜN istiyor. Yörünge altı ile yörüngesel arasındaki fark uzay tarımı için ayrıntı değil EŞİK."
+ },
+ "gorsel_kisiti": {
+  "_kapsam": "Dosyanın omurgasındaki bitkinin görsel durumu",
+  "_kaynak_niteligi": "ÖLÇÜM — Commons ve iNaturalist yoklaması",
+  "schrenkiella_acik_lisansli_foto": 0,
+  "inaturalist_gozlem": 4,
+  "inaturalist_lisans": "cc-by-nc — ticari kullanıma kapalı, kabul listesinde yok",
+  "tuz_golu_commons": 38157,
+  "_THELLUNGIELLA_TUZAGI": "'Thellungiella' 126 sonuç veriyor ama hepsi WASABI (Eutrema japonica) — bir zamanlar aynı cinse konulmuş başka bir tür. Sayıya aldanılmaz.",
+  "_KARAR": "Schrenkiella bölümü bitkinin fotoğrafıyla kurulamaz. Üç yol var: (1) türün değil YAŞAM ALANININ karesi — Tuz Gölü Commons'ta 38.157 sonuç veriyor; (2) çizim/şema; (3) Ege Üniversitesi ekibinden lisanslı kare istemek — ekibin kendi laboratuvar ve ISS kareleri var, izin verilirse en doğru çözüm bu."
+ },
+ "mir": {
+  "_kapsam": "Mir / Svet buğday deneyi ve kısırlığın sebebi",
+  "_kaynak_niteligi": "BİRİNCİL — iki hakemli makale",
+  "_NEDENSELLIK_NOTU": "Nedensellik iddiası ÇAPRAZ DENEYE dayanıyor, gözleme değil: Campbell ekibi yerde yetiştirdiği buğdayı Mir'de ölçülen etilen aralığına maruz bıraktı ve aynı kısırlığı üretti. 'Birlikte bulundu' değil, 'tekrarlandı'.",
+  "kaynaklar": [
+   {
+    "kod": "SALISBURY",
+    "kunye": "F.B. Salisbury, W.F. Campbell, J.G. Carman, G.E. Bingham, D.L. Bubenheim, B. Yendler, V. Sytchev, M.A. Levinskikh, I. Ivanova, L. Chernova, I. Podolsky · 'Plant growth during the Greenhouse II experiment on the Mir orbital station'",
+    "belge": "kaynak_dosyalari/mir_salisbury.pdf",
+    "adres": "https://ntrs.nasa.gov/api/citations/20020047053/downloads/20020047053.pdf"
+   },
+   {
+    "kod": "CAMPBELL",
+    "kunye": "W.F. Campbell, F.B. Salisbury, B. Bugbee ve ark. · 'Comparative floral development of Mir-grown and ethylene-treated, earth-grown Super Dwarf wheat' · J. Plant Physiol. 158: 1051-1060 (2001)",
+    "belge": "kaynak_dosyalari/mir_campbell.pdf",
+    "adres": "https://extension.usu.edu/apec/files/publications/publication/pub__4572067.pdf"
+   }
+  ],
+  "pasajlar": {
+   "basak_sayisi": {
+    "kaynak": "SAL",
+    "metin": "the ca. 280 wheat heads that were produced in 1996 contained no seeds. Ethylene in the cabin atmosphere was responsible. INTRODUCTION It is important to study the basic biology of"
+   },
+   "polen": {
+    "kaynak": "SAL",
+    "metin": "Microscopic analysis of a sizeable sample showed that the flowers in the heads had developed almost to the point of pollination, but that pollen was either not formed (rare) or was not released. Pollen grains were abnormal, usually with only one or two instead of three nuclei. These observations can account for the sterility. The plants showed other symptoms when we examined th"
+   },
+   "etilen_olcumu": {
+    "kaynak": "CAM",
+    "metin": "To ascertain if Super Dwarf wheat responded to the 1.1 to 1.7 µmol · mol–1 atmospheric levels of ethylene measured on the Mir prior to and during flowering, plants on earth were exposed to 0, 1, 3, 10, and 20 µmol · mol–1 of ethylene gas and 1200 µmol · mol–1 CO2 from 7d after emergence to matu- rit"
+   },
+   "kisirlik": {
+    "kaynak": "CAM",
+    "metin": "Upon harvest in space and return to earth, however, all inflorescences of the flight-grown plants were sterile. To ascertain if Super Dwarf wheat responded to t"
+   },
+   "anter": {
+    "kaynak": "CAM",
+    "metin": "examination of florets from Mir-grown and ethylene-treated, earth-grown plants showed that development ceased prior to anthesis, and the anthers did not dehisce. Laser scanning confocal microscopic (LSCM) examination of pollen grains from Mir and ethylene-trea"
+   },
+   "cekirdek": {
+    "kaynak": "CAM",
+    "metin": "examination of pollen grains from Mir and ethylene-treated plants on earth exhibited zero, one, and occasionally two, but rarely three nuclei; pollen produced in the absence of ethylene was always trinucleate, the normal condition. The scarcity of trinucleate pol- len, abrupt cessation of floret dev"
+   },
+   "oda": {
+    "kaynak": "CAM",
+    "metin": "we grew Super Dwarf wheat ( Triticum aestivum L.) in the Svet growth chamber onboard the orbiting Russian space station, Mir, and in identical ground control units at the Institute of BioMedical Problems in Moscow, Russi"
+   }
+  },
+  "basak": 280,
+  "tohum": 0,
+  "etilen_araligi": "1,1 - 1,7 µmol·mol⁻¹",
+  "cultivar": "Super Dwarf buğday (Triticum aestivum L.)"
+ },
+ "oda": {
+  "_kapsam": "Yetiştirme odasının donanımı — şemanın dayanağı",
+  "_kaynak_niteligi": "BİRİNCİL — NASA teknik memorandumu",
+  "_kaynak": "NASA/TM-20250001897 · Space Crop Considerations for Human Exploration · Temmuz 2024 · Kennedy Uzay Merkezi",
+  "pasajlar": {
+   "yastik": "grown using small plant pillows, essentially “space grow bags” that contain a porous ceramic substrate, a controlled release fertilizer, wicks secured by a foam gasket, and seeds which are glued in the wicks7. The plant pillows have an external irrigation tube which connects to an interior water distribution ring that is embedded in the substrate. Pillows are constructed from a Teflon™ coated Kevlar™ fabric with a gu",
+   "sulama": "The plant pillows have an external irrigation tube which connects to an interior water distribution ring that is embedded in the substrate. Pillows are constructed from a Teflon™ coated Kevlar™ fabric with a gusset that allows expansion as they fill with roots. The bottom surface is Nomex™, which allows wicking from a root mat r",
+   "aph_isik": "It provides independent control of red, green, blue, white, and far-red LED lights, and controls temperature, relative humidity, airflow, and CO2 inside the chamber. Volatile organics are removed from the atmosphere using scrubbers. Overhead and side cameras allow for plant imaging. Other sensors in",
+   "tutucular": "Volatile organics are removed from the atmosphere using scrubbers. Overhead and side cameras allow for plant imaging. Other sensors include light sensing and in",
+   "aph_sensor": "APH has over 180 sensors and controls almost every aspect of the crop growth environment. It provides independent control of red, green, blue, white,"
+  },
+  "elenen_ornekler": [
+   {
+    "ad": "havalandirma",
+    "satir": "Shungiku Experienced severe tip burn attributed to reduced airflow in Veggie analog"
+   },
+   {
+    "ad": "co2",
+    "satir": "‘Tokyo Bekana’ Chinese cabbage did not grow well under ISS conditions due to elevated CO"
+   }
+  ]
+ },
+ "dunya": {
+  "_kapsam": "Uzayda tarıma çalışan dünya hatları",
+  "_kaynak_niteligi": "KARMA — ajans sayfaları, üniversite duyuruları ve bir dergi makalesi",
+  "_YONTEM_NOTU": "Bu blok öncekilerden farklı bir türde. Ekin tabloları ve Ax-3 listesi BİRİNCİL belgelerden ayrıştırılmıştı; burada kaynak çoğunlukla kurum duyurusu ve haber. Her kalem kendi niteliğiyle işaretli ve metinde o nitelik gizlenmiyor.",
+  "_cekim": "2026-11-13",
+  "brezilya": {
+   "ad": "Space Farming Brazil Network",
+   "_nitelik": "BİRİNCİL-YAKIN — ağın kendi araştırmacılarıyla yapılmış saha röportajı",
+   "kaynak": "Michael Greshko / National Geographic · 'The Future of Space Travel Could Come Down to This Potato'",
+   "adres": "https://www.nationalgeographic.com/science/article/brazil-space-farming-plants-moon-mars",
+   "kurulus_yili": 2022,
+   "yuruten": "Embrapa (Brezilya tarım araştırma kurumu) ve Brezilya Uzay Ajansı",
+   "_SAYIM_BELIRSIZ": "Ağın kaç araştırmacı ve kaç kurum içerdiği kaynaklarda TUTMUYOR: bir yerde 45 araştırmacı/12 kurum, başka bir yerde 56/22 geçiyor. Makalenin kendisi sayı VERMİYOR. Metin bu yüzden sayı kullanmayacak.",
+   "kurumlar": [
+    "Instituto Agronômico de Campinas (IAC) — 1887 kuruluşlu",
+    "Embrapa",
+    "Brezilya Uzay Ajansı",
+    "Centro de Tecnologia da Informação Renato Archer",
+    "INPE — Ulusal Uzay Araştırmaları Enstitüsü, São José dos Campos",
+    "CENA — Tarımda Nükleer Enerji Merkezi, São Paulo Üniversitesi",
+    "Luiz de Queiroz Ziraat Fakültesi"
+   ],
+   "ekinler": {
+    "secim": "Aylarca süren tartışmadan sonra tatlı patates ve nohut seçildi.",
+    "tatli_patates": "Mor çeşit — antosiyanin bakımından zengin.",
+    "nohut": "Protein için.",
+    "_ELENEN_OLCUT": "Arı tozlaşmasına ihtiyaç duyan ekinler baştan elendi.",
+    "germplazm": "Brezilya iki ekinin de gen bankasını tutuyor."
+   },
+   "ucan": "Tatlı patates bitkileri ve nohut tohumları bir Blue Origin roketiyle uzayın kıyısına çıkarıldı; örnekler makale yazıldığında henüz Brezilya'ya ulaşmamıştı.",
+   "planlanan": "Brezilya'nın kendi rampasından kalkacak yörünge altı uçuşta soyaya azot bağlayan mikroplar taşınacak — azalan yerçekiminde nasıl davrandıklarına bakılacak.",
+   "yerdeki_calisma": {
+    "IAC": "Hindistan cevizi lifi harcı, yapay sulamayla verilen besin çözeltisi, ışık ve besin ayarlanarak ekin stresi sınanıyor.",
+    "CENA": "Nohut tohumları artan dozlarda gama ışınına tutularak mutasyon uyarıldı; hedef erken çiçeklenme gibi özellikleri seçmek."
+   },
+   "kisiler": [
+    {
+     "ad": "Luis Felipe Villani Purquerio",
+     "unvan": "IAC'de agronom, kapalı ortam tarımı laboratuvarını yürütüyor",
+     "soyledigi": "Uzaya gidince bitkilerin stres altında olacağını, bu yüzden ısı, ışık ve besin stresini çalıştıklarını söylüyor."
+    },
+    {
+     "ad": "Ricardo Lourenço Ogando",
+     "unvan": "Centro de Tecnologia da Informação Renato Archer'da astrofizikçi",
+     "alinti_en": "We are closer to turning Earth into Mars rather than the other way around",
+     "alinti_tr": "Dünya'yı Mars'a çevirmeye, tersinden daha yakınız",
+     "_ALINTI_NOTU": "Dosyada KISA ve ATIFLI olarak bir kez geçiyor; §11'in menteşesi."
+    },
+    {
+     "ad": "Alessandra Pereira Fávero",
+     "unvan": "Embrapa araştırmacısı"
+    },
+    {
+     "ad": "Augusto Tulmann Neto",
+     "unvan": "CENA'da bitki ıslahı uzmanı"
+    },
+    {
+     "ad": "Adenilson Roberto da Silva",
+     "unvan": "INPE uzay sistemleri bölümü direktörü"
+    }
+   ]
+  },
+  "cin_change4": {
+   "ad": "Chang'e-4 ay mini biyosferi",
+   "_nitelik": "HABER — Ocak 2019 basın kaynakları ve üniversite açıklaması",
+   "tasarim": "Chongqing Üniversitesi · Prof. Xie Gengxin",
+   "secim": "2015'te Çin genelinde öğrencilere açılan yarışmaya gelen 250'den fazla öneri arasından seçildi.",
+   "inis": "3 Ocak 2019 · Ay'ın uzak yüzü",
+   "kapsulde": [
+    "pamuk",
+    "kolza",
+    "patates",
+    "Arabidopsis",
+    "meyve sineği yumurtası",
+    "maya"
+   ],
+   "sonuc": "Yalnızca PAMUK çimlendi; kapsüldeki öteki tohumlar çimlenmedi.",
+   "son": "Deney ay gecesinde sona erdi. Kapsül içindeki sıcaklık düşüşüne hiçbir canlı dayanamadı; organizmalar kapalı kapsülde çözünecek.",
+   "_ONEM": "Ay yüzeyinde çimlenen ilk bitki. Ömrü birkaç gün sürdü.",
+   "kaynaklar": [
+    "https://www.ctvnews.ca/sci-tech/chinese-cotton-seeds-sprout-on-the-moon-1.4254143",
+    "https://cast.cn/3g/news/6461"
+   ]
+  },
+  "esa_melissa": {
+   "ad": "MELiSSA — Micro-Ecological Life Support System Alternative",
+   "_nitelik": "KURUM — ESA ve UAB'nin kendi sayfaları",
+   "yuruten": "Avrupa Uzay Ajansı",
+   "pilot_tesis": "Universitat Autònoma de Barcelona · ESA dış laboratuvarı",
+   "yapi": "Beş bölmeli bir döngü. Her bölmenin ayrı işi var: organik atığın mikrobiyal ayrıştırılması, nitrifikasyon, havanın yenilenmesi, yenebilir madde ve oksijen üretimi.",
+   "olcek": "Bölmeler BİR İNSANIN solunumuna denk oksijen üretecek ölçeğe çıkarıldı — günde 0,84 kg.",
+   "murettebat_maketi": "Mürettebatın solunumunu taklit etmek için tesiste laboratuvar fareleri tutuluyor.",
+   "kaynaklar": [
+    "https://www.esa.int/Our_Activities/Space_Engineering_Technology/MELiSSA_life_support_project_an_innovation_network_in_support_to_space_exploration",
+    "https://webs.uab.cat/melissapilotplant/en/?p=107"
+   ]
+  },
+  "cin_lunar_palace": {
+   "ad": "Lunar Palace 1 (Yuegong-1) · 'Lunar Palace 365' deneyi",
+   "_nitelik": "KURUM + HABER — Beihang Üniversitesi duyurusu ve Xinhua",
+   "yuruten": "Beihang Üniversitesi, Pekin",
+   "sure_gun": 370,
+   "baslangic": "10 Mayıs 2017",
+   "bitis": "15 Mayıs 2018",
+   "gonullu": "Sekiz Beihang öğrencisi, dönüşümlü olarak",
+   "alan_m2": 150,
+   "kapanma_orani": "%98",
+   "_KAPANMA_NE_DEMEK": "Sistemin oksijeni, suyu ve yiyeceği ne oranda kendi içinde geri kazandığı. %98 kapanma, dışarıdan yalnızca %2'lik bir katkı gerektiği anlamına geliyor.",
+   "onceki_rekor": "180 gün · üç kişi · Sovyetler Birliği · 1970'lerin başı",
+   "_SURE_NOTU": "370 gün SÜREKLİ tek bir ekibin kalışı değil; vardiyalı gruplarla ulaşılan toplam. Kaynaklar bu noktada farklı çerçeveliyor.",
+   "kaynaklar": [
+    "https://news.buaa.edu.cn/info/1006/43731.htm",
+    "https://www.space.com/40612-china-lunar-palace-1-mock-moon-mission.html"
+   ]
+  }
+ },
+ "gelecek": {
+  "_kapsam": "Gelecek bölümünün (durak 15-17) ve kapanışın dayanağı",
+  "_kaynak_niteligi": "BİRİNCİL — üç kurumun kendi belgeleri — üç kurumun kendi yayını; cümleler belgeden desenle çekildi, elle kopyalanmadı",
+  "_nitelik": "BİRİNCİL — üç kurumun kendi belgeleri",
+  "_cekim": "2026-11-14",
+  "_YONTEM": "Cümleler PDF'ten desenle çekildi; elle kopyalanmadı. Kaynaktan kalkan cümle betiği durdurur.",
+  "nasa_hedef": {
+   "_belge": "kaynak_dosyalari/nasa_space_crops_bpac2024.pdf",
+   "_kunye": "NASA Biological & Physical Sciences · 'NASA BPS Space Crops Program and Goal Update' · Elison Blancaflor, John Howard · BPS Advisory Committee Meeting · 22 Kasım 2024",
+   "m2m_as5lm": "AS-5LM: Define crop plant species, including methods for their productive growth, capable of providing sustainable and nutritious food sources for lunar, Deep Space transit, and Mars habitation.",
+   "m2m_hbs1lm": "HBS-1LM - Understand the effects of short- and long-duration exposure to the environments of the Moon, Mars, and deep space on biological systems and health, using humans, model organisms, systems of human physiology, and plants.",
+   "hedefin_adi": "Lunar Crops for Whole Food Nutrition and Mental Well-Being",
+   "vizyon_basamaklari": [
+    "Enable",
+    "Understand",
+    "Demonstrate",
+    "Implement"
+   ],
+   "vizyonun_sonu": "Early Lunar outpost for plant research and whole food crew nutrition",
+   "bugune_kadar": "Plants adapt well to the space environment, and to date, space-grown crops are safe to eat, nutritious, and highly acceptable to astronauts",
+   "leaf_amac": "Aims to understand how plants grow in partial gravity and in lunar surface radiation environment; provide data for future crop growth methods and technologies sustaining lunar habitation and beyond",
+   "leaf_turler": "LEAF Specimens:Arabidopsis thaliana, Wolffia australiana (duckweed), and Brassica rapa",
+   "leaf_secim": "Selected through the Artemis 3 Deployed Instruments solicitation as a candidate for lunar surface deployment"
+  },
+  "leaf_kunye": {
+   "_nitelik": "BİRİNCİL — NASA basın bülteni",
+   "kaynak": "NASA · 'NASA Selects First Lunar Instruments for Artemis Astronaut Deployment' · RELEASE 24-047 · 26 Mart 2024",
+   "adres": "https://www.nasa.gov/news-release/nasa-selects-first-lunar-instruments-for-artemis-astronaut-deployment/",
+   "yurutucu": "Christine Escobar · Space Lab Technologies, LLC · Boulder, Colorado",
+   "yoneten": "NASA Marshall Uzay Uçuş Merkezi",
+   "_TARIH_UYARISI": "Bülten Artemis III'ü 2026 hedefiyle anlatıyor. O tarih GEÇERSİZ. NASA Artemis III'ü Şubat 2026'da yeniden tanımladı: artık Ay'a iniş değil, Dünya yörüngesinde 14 günlük bir iniş aracı denemesi, 2027 yazı hedefli. İlk insanlı iniş Artemis IV'e, 2028 başına taşındı. LEAF Ay YÜZEYİNE bırakılmak üzere seçilmişti; inişi olmayan bir görevde yüzeye bırakılamaz. Dosya bu yüzden LEAF'i 'sıradaki deney' diye değil, 'hazır ama sırasını bekleyen deney' diye anlatıyor. Bu, dosyanın baştan beri söylediği şeyin aynısı: ilan edilen tarih ile gerçekleşen tarih aynı şey değil."
+  },
+  "yere_donen": {
+   "_belge": "kaynak_dosyalari/nasa_dikey_tarim.pdf",
+   "_kunye": "Raymond M. Wheeler · 'NASA's Contributions to Vertical Farming' · NASA/TM-20205008832 · Kennedy Uzay Merkezi · Ekim 2020",
+   "_NEDEN_ONEMLI": "Yazar, dosyanın 11. durağındaki 418 günlük patates odasını yürüten ekibin başındaki adam. Yerdeki odanın dikey tarıma dönüşünü kendi kurumunun belgesinde kendisi yazmış. Dosyanın kapanış mesajı bu yüzden yorum değil, kaynak.",
+   "oda_yillari": "NASA developed and operated its “Biomass Production Chamber” (BPC) at Kennedy Space Center, Florida, US from 1988 through 2000",
+   "dikey_istif": "To explore volume efficiency, concepts such as vertically stacked hydroponic systems and light banks were tested in NASA’s Biomass Production Chamber at Kennedy Space Center US from 1988 through 2000.",
+   "ilk_ornek": "This was perhaps one of the first examples of an operational vertical farms.",
+   "led_patent": "NASA funded research patented the use of LEDs for plant lighting in 1990 and supported the ir continued development for the next 15 years.",
+   "alan_orani": "about 20-25 m2 of crops could supply the O2 for one human, while about 50 m 2 would be required for food (dietary calories)."
+  },
+  "turkiye_sirada": {
+   "_belge": "kaynak_dosyalari/tua_performans.pdf",
+   "_kunye": "Türkiye Uzay Ajansı · 2025 Yılı İdare Faaliyet Raporu · Strateji Geliştirme Daire Başkanlığı · Şubat 2026",
+   "ayap1": "İki aşamadan oluşan Ay Araştırma Programı ilk aşamasında, milli imkanlarla tasarlanan ve geliştirilen uzay aracımız ile öncelikle Dünya yörüngesinden Ay yörüngesine ulaşılacak ve bu yörüngede keşif ve teknoloji gösterimi görevleri icra edecektir.",
+   "gecikme": "AYAP-1 projesinde, geliştirme ve test süreçlerinin planlanandan daha uzun sürmesi nedeniyle proje takviminde bazı gecikmeler meydana gelmiştir.",
+   "ayap2_erteleme": "AYAP- 1 aşamasının henüz tamamlanmamış olması sebebiyle programın ikinci aşaması olan AYAP-2 çalışmalarına geçiş de doğal olarak ertelenmiştir.",
+   "firlatma_hedefi": "Uzay aracının 2027 yılı içerisinde fırlatılması planlanmaktadır.",
+   "rapor_sayfa": 68,
+   "tohum_yuku": "TUA ile APSCO iş birliği kapsamında Çin’in Shijian-19 geri dönebilen uydusuna pasif görev yükü olarak Ege Üniversitesi, Fen Fakültesi, Biyoloji Bölümü’nden önerilen projeler kapsamında iki adet tohum yükü eklenmiştir.",
+   "uzay_islahi": "Bahse konu projeler Türkiye’nin ilk uzay ıslahı çalışmaları olma özelliğini taşımaktadır ve ülkemizi bu alanda çalışan sayılı ülkeler arasına sokmuştur.",
+   "_SIRADAKI_ADIM": "Türkiye'nin sıradaki bitki işi yörüngede yetiştirmek değil, UZAY ISLAHI: tohum yukarı çıkıyor, uzay ortamında kalıyor, geri dönüyor ve değişmiş olanlar arasından seçim yapılıyor. Bitkinin kendisi orada büyümüyor; değişen tohum yerde ekiliyor. Yükü taşıyan araç Çin'in Shijian-19 geri dönebilen uydusu, yolu açan iş birliği TUA–APSCO, öneren kurum Ege Üniversitesi Biyoloji Bölümü — yani 10. duraktaki Tuz Gölü halofiti deneyini yürüten üniversitenin ta kendisi.",
+   "_AYNI_YONTEM_BREZILYADA": "Brezilya'daki CENA nohut tohumlarını YERDE gama ışınına tutup mutasyon uyarıyor (bkz. dunya.json). Türkiye aynı işi uzaya yaptırıyor. İki hat aynı fikrin iki ucu."
+  }
+ },
+ "kaynaklar": {
+  "_kapsam": "Dosyanın dayandığı belgeler ve ölçülmüş erişim durumları",
+  "_kaynak_niteligi": "ÖLÇÜM — 12 adresin erişim durumu dört ölçütle sınandı",
+  "_YONTEM": "Durum kodu TEK BAŞINA yetmez. Üç ölçüt birlikte: kod · içerik türü · gövde uzunluğu. Beklenen tür ile gelen tür karşılaştırılıyor.",
+  "_PMC_NOTU": "PMC düz bir HTTP isteğine TAM MAKALEYİ veriyor (266 KB, doğru başlık, Outredgeous/Veggie/anthocyanin gövdede). Ama bazı getirici istemcilere 'Checking your browser' doğrulama sayfası çıkarıyor. Yani kaynak AÇIK; engel istemciye bağlı. Kural: PMC'den içerik alınacaksa düz istek (curl) kullanılır, getirici değil.",
+  "olcum_tarihi": "2026-11-13",
+  "olculen": 12,
+  "acik": 10,
+  "belgeler": [
+   {
+    "sira": 1,
+    "kunye": "NASA/TM-20250001897 · Space Crop Considerations for Human Exploration · Temmuz 2024 · Kennedy Uzay Merkezi",
+    "yazarlar": "Ralph Fritsche (emekli), Natasha Haveman, Gioia Massa, Matthew Mickens, Trent Smith, Raymond Wheeler (emekli), Bruce Link, LaShelle Spencer",
+    "nitelik": "BİRİNCİL — NASA teknik memorandumu",
+    "kullanildigi_yer": "Dokuz ekin · hazırlık merdiveni · familya defteri",
+    "adres": "https://ntrs.nasa.gov/api/citations/20250001897/downloads/20231215%20Space%20Crops%20HRP%20FINAL%20STRIVES%203.pdf",
+    "cekim": "2026-11-13"
+   },
+   {
+    "sira": 2,
+    "kunye": "Khodadad vd. 2020 · Frontiers in Plant Science 11:199 · doi 10.3389/fpls.2020.00199 · açık erişim",
+    "yazarlar": "Khodadad, C.L.M. ve ark.",
+    "nitelik": "BİRİNCİL — hakemli özgün araştırma",
+    "kullanildigi_yer": "Marul meselesi",
+    "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.00199/pdf",
+    "cekim": "2026-11-13"
+   },
+   {
+    "sira": 3,
+    "kunye": "TÜBA · 'Türk Astronot Alper Gezeravcı'nın Uzayda Yapacağı 13 Bilimsel Deney' · tuba.gov.tr",
+    "yazarlar": "Türkiye Bilimler Akademisi",
+    "nitelik": "BİRİNCİL — resmî deney listesi",
+    "kullanildigi_yer": "Türkiye yörüngede — on üç deney",
+    "adres": "https://www.tuba.gov.tr/files/images/2024/AlperGezeravci/T%C3%BCrk%20Astronot%20Alper%20Gezeravc%C4%B1%E2%80%99n%C4%B1n%20Uzayda%20Yapaca%C4%9F%C4%B1%2013%20Bilimsel%20Deney.docx",
+    "cekim": "2026-11-13"
+   },
+   {
+    "sira": 4,
+    "kunye": "NASA Open Science Data Repository (OSDR/GeneLab)",
+    "yazarlar": "NASA",
+    "nitelik": "BAĞIMSIZ — NASA'nın kendi kürate veri deposu",
+    "kullanildigi_yer": "Model organizma sorunu",
+    "adres": "https://osdr.nasa.gov/osdr/data/search?term=plant&size=1&type=cgene",
+    "cekim": "2026-11-13"
+   },
+   {
+    "sira": 5,
+    "kunye": "TÜBİTAK · 'Türkiye'nin ikinci uzay yolculuğu başarıyla tamamlandı' · tubitak.gov.tr",
+    "yazarlar": "TÜBİTAK",
+    "nitelik": "BİRİNCİL — kurum haberi",
+    "kullanildigi_yer": "Yörünge altı neden yetmez",
+    "adres": "https://tubitak.gov.tr/tr/haber/turkiyenin-ikinci-uzay-yolculugu-basariyla-tamamlandi",
+    "cekim": "2026-11-13"
+   },
+   {
+    "sira": 6,
+    "kunye": "NASA Biological & Physical Sciences · 'NASA BPS Space Crops Program and Goal Update' · Elison Blancaflor, John Howard · BPS Advisory Committee Meeting · 22 Kasım 2024",
+    "yazarlar": "Elison Blancaflor, John Howard · NASA BPS",
+    "nitelik": "BİRİNCİL — ajansın danışma kuruluna sunumu",
+    "kullanildigi_yer": "Ay'a gidecek saksı · Hedef yazıya döküldü",
+    "adres": "https://ntrs.nasa.gov/api/citations/20240014700/downloads/Space%20Crops%20BPAC%202024.pdf",
+    "cekim": "2026-11-14"
+   },
+   {
+    "sira": 7,
+    "kunye": "Raymond M. Wheeler · 'NASA's Contributions to Vertical Farming' · NASA/TM-20205008832 · Kennedy Uzay Merkezi · Ekim 2020",
+    "yazarlar": "Raymond M. Wheeler",
+    "nitelik": "BİRİNCİL — NASA teknik memorandumu",
+    "kullanildigi_yer": "Zaten inmişti",
+    "adres": "https://ntrs.nasa.gov/api/citations/20205008832/downloads/NASA%20TM-2020-5008832%20NASA's%20Contributions%20to%20Vertical%20Farming.pdf",
+    "cekim": "2026-11-14"
+   },
+   {
+    "sira": 8,
+    "kunye": "Türkiye Uzay Ajansı · 2025 Yılı İdare Faaliyet Raporu · Strateji Geliştirme Daire Başkanlığı · Şubat 2026",
+    "yazarlar": "Türkiye Uzay Ajansı",
+    "nitelik": "BİRİNCİL — resmî faaliyet raporu",
+    "kullanildigi_yer": "Tohum yukarı, değişmiş olarak geri",
+    "adres": "https://cdn.tua.gov.tr/69d63463e5f66.pdf",
+    "cekim": "2026-11-14"
+   }
+  ],
+  "erisim": [
+   {
+    "ad": "NASA OSDR arama API",
+    "adres": "https://osdr.nasa.gov/osdr/data/search?term=plant&size=1&type=cgene",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "application/json",
+    "bayt": 11408
+   },
+   {
+    "ad": "NASA görsel kütüphanesi API",
+    "adres": "https://images-api.nasa.gov/search?q=veggie%20plant&media_type=image",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "application/json",
+    "bayt": 197706
+   },
+   {
+    "ad": "NASA NTRS — ekin belgesi",
+    "adres": "https://ntrs.nasa.gov/api/citations/20250001897/downloads/20231215%20Space%20Crops%20HRP%20FINAL%20STRIVES%203.pdf",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "application/pdf",
+    "bayt": 400000
+   },
+   {
+    "ad": "Frontiers — marul makalesi",
+    "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.00199/pdf",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "application/pdf",
+    "bayt": 400000
+   },
+   {
+    "ad": "PMC — marul makalesi",
+    "adres": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7067979/",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "text/html",
+    "bayt": 266908
+   },
+   {
+    "ad": "Axiom — Extremophyte CRISPR",
+    "adres": "https://axiomspace.com/research/extremophyte-crispr",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "text/html",
+    "bayt": 65079
+   },
+   {
+    "ad": "TÜBA — 13 deney belgesi",
+    "adres": "https://www.tuba.gov.tr/files/images/2024/AlperGezeravci/T%C3%BCrk%20Astronot%20Alper%20Gezeravc%C4%B1%E2%80%99n%C4%B1n%20Uzayda%20Yapaca%C4%9F%C4%B1%2013%20Bilimsel%20Deney.docx",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "bayt": 18023
+   },
+   {
+    "ad": "TÜBİTAK UZAY — biyoloji deneyleri",
+    "adres": "https://uzay.tubitak.gov.tr/en/manned-space-missions/international-space-station-science-mission/biology-biotechnology/",
+    "teshis": "YUMUŞAK 404 · kod 404 ama 330,739 bayt gövde",
+    "kod": 404,
+    "tur": "text/html",
+    "bayt": 330739
+   },
+   {
+    "ad": "TÜBİTAK bilimteknik — deney posteri",
+    "adres": "https://bilimteknik.tubitak.gov.tr/sites/default/files/posterler/turkiyenin_insanli_ilk_uzay_misyonunda_gerceklestirilen_deneyler_posteri.pdf",
+    "teshis": "YUMUŞAK 404 · kod 404 ama 183,958 bayt gövde",
+    "kod": 404,
+    "tur": "text/html",
+    "bayt": 183958
+   },
+   {
+    "ad": "TÜBİTAK — ikinci uzay yolculuğu",
+    "adres": "https://tubitak.gov.tr/tr/haber/turkiyenin-ikinci-uzay-yolculugu-basariyla-tamamlandi",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "text/html",
+    "bayt": 76666
+   },
+   {
+    "ad": "IAF — IAC-26 program dizini",
+    "adres": "http://iafastro.directory/iac/browse/IAC-26/A1/IP/",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "application/xhtml+xml",
+    "bayt": 58863
+   },
+   {
+    "ad": "TUA — IAC 2026 Antalya",
+    "adres": "https://tua.gov.tr/en/international-activities/iac-2026-antalya-1",
+    "teshis": "açık",
+    "kod": 200,
+    "tur": "text/html",
+    "bayt": 400000
+   }
+  ]
+ },
+ "_dosya": "Uzayda Tarım — veri sayfası",
+ "_eksen": "Dünyada 376 ekin denendi, dokuzu uzayda yenebildi — aralarında ne bir tahıl var ne bir baklagil. Türkiye'nin ilk insanlı görevindeki 13 deneyin 4'ü bitki ve mikroalgdi, biri Tuz Gölü'nden gitti.",
+ "_uretim": "build_data.py · 2026-11-14",
+ "bosluklar": []
+}

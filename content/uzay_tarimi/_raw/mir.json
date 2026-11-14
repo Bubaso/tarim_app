@@ -1,0 +1,50 @@
+{
+ "_ne": "Mir / Svet buğday deneyi — durak 2 ve şemanın etilen adımı",
+ "_nitelik": "BİRİNCİL — iki hakemli makale",
+ "_cekim": "2026-11-13",
+ "_kaynaklar": [
+  {
+   "kod": "SALISBURY",
+   "kunye": "F.B. Salisbury, W.F. Campbell, J.G. Carman, G.E. Bingham, D.L. Bubenheim, B. Yendler, V. Sytchev, M.A. Levinskikh, I. Ivanova, L. Chernova, I. Podolsky · 'Plant growth during the Greenhouse II experiment on the Mir orbital station'",
+   "belge": "kaynak_dosyalari/mir_salisbury.pdf",
+   "adres": "https://ntrs.nasa.gov/api/citations/20020047053/downloads/20020047053.pdf"
+  },
+  {
+   "kod": "CAMPBELL",
+   "kunye": "W.F. Campbell, F.B. Salisbury, B. Bugbee ve ark. · 'Comparative floral development of Mir-grown and ethylene-treated, earth-grown Super Dwarf wheat' · J. Plant Physiol. 158: 1051-1060 (2001)",
+   "belge": "kaynak_dosyalari/mir_campbell.pdf",
+   "adres": "https://extension.usu.edu/apec/files/publications/publication/pub__4572067.pdf"
+  }
+ ],
+ "pasajlar": {
+  "basak_sayisi": {
+   "kaynak": "SAL",
+   "metin": "the ca. 280 wheat heads that were produced in 1996 contained no seeds. Ethylene in the cabin atmosphere was responsible. INTRODUCTION It is important to study the basic biology of"
+  },
+  "polen": {
+   "kaynak": "SAL",
+   "metin": "Microscopic analysis of a sizeable sample showed that the flowers in the heads had developed almost to the point of pollination, but that pollen was either not formed (rare) or was not released. Pollen grains were abnormal, usually with only one or two instead of three nuclei. These observations can account for the sterility. The plants showed other symptoms when we examined th"
+  },
+  "etilen_olcumu": {
+   "kaynak": "CAM",
+   "metin": "To ascertain if Super Dwarf wheat responded to the 1.1 to 1.7 µmol · mol–1 atmospheric levels of ethylene measured on the Mir prior to and during flowering, plants on earth were exposed to 0, 1, 3, 10, and 20 µmol · mol–1 of ethylene gas and 1200 µmol · mol–1 CO2 from 7d after emergence to matu- rit"
+  },
+  "kisirlik": {
+   "kaynak": "CAM",
+   "metin": "Upon harvest in space and return to earth, however, all inflorescences of the flight-grown plants were sterile. To ascertain if Super Dwarf wheat responded to t"
+  },
+  "anter": {
+   "kaynak": "CAM",
+   "metin": "examination of florets from Mir-grown and ethylene-treated, earth-grown plants showed that development ceased prior to anthesis, and the anthers did not dehisce. Laser scanning confocal microscopic (LSCM) examination of pollen grains from Mir and ethylene-trea"
+  },
+  "cekirdek": {
+   "kaynak": "CAM",
+   "metin": "examination of pollen grains from Mir and ethylene-treated plants on earth exhibited zero, one, and occasionally two, but rarely three nuclei; pollen produced in the absence of ethylene was always trinucleate, the normal condition. The scarcity of trinucleate pol- len, abrupt cessation of floret dev"
+  },
+  "oda": {
+   "kaynak": "CAM",
+   "metin": "we grew Super Dwarf wheat ( Triticum aestivum L.) in the Svet growth chamber onboard the orbiting Russian space station, Mir, and in identical ground control units at the Institute of BioMedical Problems in Moscow, Russi"
+  }
+ },
+ "_NEDENSELLIK_NOTU": "Nedensellik iddiası ÇAPRAZ DENEYE dayanıyor, gözleme değil: Campbell ekibi yerde yetiştirdiği buğdayı Mir'de ölçülen etilen aralığına maruz bıraktı ve aynı kısırlığı üretti. 'Birlikte bulundu' değil, 'tekrarlandı'."
+}

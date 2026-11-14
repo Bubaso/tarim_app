@@ -1,0 +1,98 @@
+{
+  "_ne": "Uzayda tarım üzerine çalışan dünya hatları — §10 ve §11'in dayanağı",
+  "_nitelik": "KARMA — ajans sayfaları, üniversite duyuruları ve bir dergi makalesi",
+  "_cekim": "2026-11-13",
+  "_YONTEM_NOTU": "Bu blok öncekilerden farklı bir türde. Ekin tabloları ve Ax-3 listesi BİRİNCİL belgelerden ayrıştırılmıştı; burada kaynak çoğunlukla kurum duyurusu ve haber. Her kalem kendi niteliğiyle işaretli ve metinde o nitelik gizlenmiyor.",
+
+  "brezilya": {
+    "ad": "Space Farming Brazil Network",
+    "_nitelik": "BİRİNCİL-YAKIN — ağın kendi araştırmacılarıyla yapılmış saha röportajı",
+    "kaynak": "Michael Greshko / National Geographic · 'The Future of Space Travel Could Come Down to This Potato'",
+    "adres": "https://www.nationalgeographic.com/science/article/brazil-space-farming-plants-moon-mars",
+    "kurulus_yili": 2022,
+    "yuruten": "Embrapa (Brezilya tarım araştırma kurumu) ve Brezilya Uzay Ajansı",
+    "_SAYIM_BELIRSIZ": "Ağın kaç araştırmacı ve kaç kurum içerdiği kaynaklarda TUTMUYOR: bir yerde 45 araştırmacı/12 kurum, başka bir yerde 56/22 geçiyor. Makalenin kendisi sayı VERMİYOR. Metin bu yüzden sayı kullanmayacak.",
+    "kurumlar": [
+      "Instituto Agronômico de Campinas (IAC) — 1887 kuruluşlu",
+      "Embrapa",
+      "Brezilya Uzay Ajansı",
+      "Centro de Tecnologia da Informação Renato Archer",
+      "INPE — Ulusal Uzay Araştırmaları Enstitüsü, São José dos Campos",
+      "CENA — Tarımda Nükleer Enerji Merkezi, São Paulo Üniversitesi",
+      "Luiz de Queiroz Ziraat Fakültesi"
+    ],
+    "ekinler": {
+      "secim": "Aylarca süren tartışmadan sonra tatlı patates ve nohut seçildi.",
+      "tatli_patates": "Mor çeşit — antosiyanin bakımından zengin.",
+      "nohut": "Protein için.",
+      "_ELENEN_OLCUT": "Arı tozlaşmasına ihtiyaç duyan ekinler baştan elendi.",
+      "germplazm": "Brezilya iki ekinin de gen bankasını tutuyor."
+    },
+    "ucan": "Tatlı patates bitkileri ve nohut tohumları bir Blue Origin roketiyle uzayın kıyısına çıkarıldı; örnekler makale yazıldığında henüz Brezilya'ya ulaşmamıştı.",
+    "planlanan": "Brezilya'nın kendi rampasından kalkacak yörünge altı uçuşta soyaya azot bağlayan mikroplar taşınacak — azalan yerçekiminde nasıl davrandıklarına bakılacak.",
+    "yerdeki_calisma": {
+      "IAC": "Hindistan cevizi lifi harcı, yapay sulamayla verilen besin çözeltisi, ışık ve besin ayarlanarak ekin stresi sınanıyor.",
+      "CENA": "Nohut tohumları artan dozlarda gama ışınına tutularak mutasyon uyarıldı; hedef erken çiçeklenme gibi özellikleri seçmek."
+    },
+    "kisiler": [
+      {"ad": "Luis Felipe Villani Purquerio", "unvan": "IAC'de agronom, kapalı ortam tarımı laboratuvarını yürütüyor",
+       "soyledigi": "Uzaya gidince bitkilerin stres altında olacağını, bu yüzden ısı, ışık ve besin stresini çalıştıklarını söylüyor."},
+      {"ad": "Ricardo Lourenço Ogando", "unvan": "Centro de Tecnologia da Informação Renato Archer'da astrofizikçi",
+       "alinti_en": "We are closer to turning Earth into Mars rather than the other way around",
+       "alinti_tr": "Dünya'yı Mars'a çevirmeye, tersinden daha yakınız",
+       "_ALINTI_NOTU": "Dosyada KISA ve ATIFLI olarak bir kez geçiyor; §11'in menteşesi."},
+      {"ad": "Alessandra Pereira Fávero", "unvan": "Embrapa araştırmacısı"},
+      {"ad": "Augusto Tulmann Neto", "unvan": "CENA'da bitki ıslahı uzmanı"},
+      {"ad": "Adenilson Roberto da Silva", "unvan": "INPE uzay sistemleri bölümü direktörü"}
+    ]
+  },
+
+  "cin_change4": {
+    "ad": "Chang'e-4 ay mini biyosferi",
+    "_nitelik": "HABER — Ocak 2019 basın kaynakları ve üniversite açıklaması",
+    "tasarim": "Chongqing Üniversitesi · Prof. Xie Gengxin",
+    "secim": "2015'te Çin genelinde öğrencilere açılan yarışmaya gelen 250'den fazla öneri arasından seçildi.",
+    "inis": "3 Ocak 2019 · Ay'ın uzak yüzü",
+    "kapsulde": ["pamuk", "kolza", "patates", "Arabidopsis", "meyve sineği yumurtası", "maya"],
+    "sonuc": "Yalnızca PAMUK çimlendi; kapsüldeki öteki tohumlar çimlenmedi.",
+    "son": "Deney ay gecesinde sona erdi. Kapsül içindeki sıcaklık düşüşüne hiçbir canlı dayanamadı; organizmalar kapalı kapsülde çözünecek.",
+    "_ONEM": "Ay yüzeyinde çimlenen ilk bitki. Ömrü birkaç gün sürdü.",
+    "kaynaklar": [
+      "https://www.ctvnews.ca/sci-tech/chinese-cotton-seeds-sprout-on-the-moon-1.4254143",
+      "https://cast.cn/3g/news/6461"
+    ]
+  },
+
+  "esa_melissa": {
+    "ad": "MELiSSA — Micro-Ecological Life Support System Alternative",
+    "_nitelik": "KURUM — ESA ve UAB'nin kendi sayfaları",
+    "yuruten": "Avrupa Uzay Ajansı",
+    "pilot_tesis": "Universitat Autònoma de Barcelona · ESA dış laboratuvarı",
+    "yapi": "Beş bölmeli bir döngü. Her bölmenin ayrı işi var: organik atığın mikrobiyal ayrıştırılması, nitrifikasyon, havanın yenilenmesi, yenebilir madde ve oksijen üretimi.",
+    "olcek": "Bölmeler BİR İNSANIN solunumuna denk oksijen üretecek ölçeğe çıkarıldı — günde 0,84 kg.",
+    "murettebat_maketi": "Mürettebatın solunumunu taklit etmek için tesiste laboratuvar fareleri tutuluyor.",
+    "kaynaklar": [
+      "https://www.esa.int/Our_Activities/Space_Engineering_Technology/MELiSSA_life_support_project_an_innovation_network_in_support_to_space_exploration",
+      "https://webs.uab.cat/melissapilotplant/en/?p=107"
+    ]
+  },
+
+  "cin_lunar_palace": {
+    "ad": "Lunar Palace 1 (Yuegong-1) · 'Lunar Palace 365' deneyi",
+    "_nitelik": "KURUM + HABER — Beihang Üniversitesi duyurusu ve Xinhua",
+    "yuruten": "Beihang Üniversitesi, Pekin",
+    "sure_gun": 370,
+    "baslangic": "10 Mayıs 2017",
+    "bitis": "15 Mayıs 2018",
+    "gonullu": "Sekiz Beihang öğrencisi, dönüşümlü olarak",
+    "alan_m2": 150,
+    "kapanma_orani": "%98",
+    "_KAPANMA_NE_DEMEK": "Sistemin oksijeni, suyu ve yiyeceği ne oranda kendi içinde geri kazandığı. %98 kapanma, dışarıdan yalnızca %2'lik bir katkı gerektiği anlamına geliyor.",
+    "onceki_rekor": "180 gün · üç kişi · Sovyetler Birliği · 1970'lerin başı",
+    "_SURE_NOTU": "370 gün SÜREKLİ tek bir ekibin kalışı değil; vardiyalı gruplarla ulaşılan toplam. Kaynaklar bu noktada farklı çerçeveliyor.",
+    "kaynaklar": [
+      "https://news.buaa.edu.cn/info/1006/43731.htm",
+      "https://www.space.com/40612-china-lunar-palace-1-mock-moon-mission.html"
+    ]
+  }
+}

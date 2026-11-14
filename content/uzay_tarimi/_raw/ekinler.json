@@ -1,0 +1,4076 @@
+{
+ "_kaynak": "NASA/TM-20250001897 · Space Crop Considerations for Human Exploration · Temmuz 2024 · Kennedy Uzay Merkezi",
+ "_yazarlar": "Ralph Fritsche (emekli), Natasha Haveman, Gioia Massa, Matthew Mickens, Trent Smith, Raymond Wheeler (emekli), Bruce Link, LaShelle Spencer",
+ "_nitelik": "BİRİNCİL — NASA teknik memorandumu",
+ "_belge": "kaynak_dosyalari/nasa_space_crops.pdf",
+ "_cekim": "2026-11-13",
+ "_AYRISTIRMA_SINIRI": "Tablolar dokuz sütunlu (CRL 1-9) ve boş hücreler PDF metninde KONUMUNU KAYBEDİYOR. Betik KONUM İDDİA ETMİYOR: bir ürünün hangi basamakta kaldığı metinden okunamaz, yalnız 'bir yerde kaldı' denebilir. ESKİ NOT ÇÜRÜTÜLDÜ — 'dokuz işaret taşıyan satırda o ürün CRL 9'u geçmiştir' denmişti. Yanlış: Waldmann marulunun satırında SEKİZ işaret var (CRL 5 hücresi boş) ama ekin Tablo A-3'teki CRL 9 listesinde. İşaret sayısı düzeyi VERMİYOR; CRL 9 listesi bu yüzden A-3'ten doğrudan okunuyor. Konum gerekirse PDF'e bakılacak.",
+ "_belgenin_kendi_tutarsizligi": "Belge bir yerde 'only 9 crops have passed CRL 9', Ek E'de 'there are 10 crops that have passed CRL 9' diyor. Tablo A-3'te DOKUZ satır var. Metin hangi sayıyı kullanırsa kullansın tutarsızlığı söyleyecek.",
+ "_crl9_kaynagi": "Tablo A-3'ten DOĞRUDAN okundu. E tablolarının P/F dizisinden ÇIKARILAMAZ — denendi, Waldmann marulu sekiz işaretle A-3'te yer aldığı için ölçüt düştü.",
+ "envanterde_bulunamayan_crl9": [],
+ "_SAYIM_AYRISMASI": "ÜÇ SAYI VAR VE ÜÇÜ DE TUTMUYOR. (1) Belgenin kendi toplamı: 'the Growing Beyond Earth program has tested 191 crops and KSC has tested 204 crops listed above and in Appendix E (total 376)'. 191+204=395, 376 DEĞİL — toplama hatası KAYNAĞIN KENDİSİNDE. (2) Belgenin tür tür sayımı: 37 yeşillik + 10 domates + 41 biber + 16 ot + 25 baklagil + 67 mikro yeşillik + 3 çilek + 2 salatalık + 2 kavun = 203; aynı belge iki cümle ötede KSC için 204 diyor. (3) Tabloların ayrıştırması: 419 satır. Ayrıştırma belgenin tür tür sayımıyla YEDİ TABLODAN BEŞİNDE BİREBİR tutuyor (domates, biber, ot, baklagil, mikro yeşillik). Tutmayan ikisi: E-7'de ayrıştırma 8, düzyazı 7 diyor — düzyazı çilek/salatalık/kavun sayıyor ama aynı tablodaki 'Cherry Belle' turbunu hiç anmıyor, oysa o turp CRL 9'u geçen dokuz ekinden biri. E-1'de ayrıştırma 38, düzyazı 37 'yeşillik' diyor — tabloda iki baklagil satırı var ('Dwarf Grey' Sugar Pea ve Kudzu), düzyazının hangisini yeşillik saymadığı belli değil. METİN HANGİ SAYIYI KULLANIRSA KULLANSIN bu ayrışmayı söyleyecek.",
+ "_SAYIM_KAYNAKLARI": {
+  "belgenin_toplami": 376,
+  "belgenin_bilesenleri": {
+   "gbe": 191,
+   "ksc": 204,
+   "aritmetik_toplam": 395
+  },
+  "belgenin_tur_tur_sayimi": {
+   "yesillik": 37,
+   "domates": 10,
+   "biber": 41,
+   "ot": 16,
+   "baklagil": 25,
+   "mikro_yesillik": 67,
+   "cilek": 3,
+   "salatalik": 2,
+   "kavun": 2,
+   "toplam": 203
+  },
+  "ayristirma": 419
+ },
+ "_CAPRAZ_SINAMA": [
+  {
+   "tablo": "E-1",
+   "belgenin_duzyazisi": 37,
+   "ayristirma": 38,
+   "tutuyor": false
+  },
+  {
+   "tablo": "E-2",
+   "belgenin_duzyazisi": 41,
+   "ayristirma": 41,
+   "tutuyor": true
+  },
+  {
+   "tablo": "E-3",
+   "belgenin_duzyazisi": 10,
+   "ayristirma": 10,
+   "tutuyor": true
+  },
+  {
+   "tablo": "E-4",
+   "belgenin_duzyazisi": 25,
+   "ayristirma": 25,
+   "tutuyor": true
+  },
+  {
+   "tablo": "E-5",
+   "belgenin_duzyazisi": 67,
+   "ayristirma": 67,
+   "tutuyor": true
+  },
+  {
+   "tablo": "E-6",
+   "belgenin_duzyazisi": 16,
+   "ayristirma": 16,
+   "tutuyor": true
+  },
+  {
+   "tablo": "E-7",
+   "belgenin_duzyazisi": 7,
+   "ayristirma": 8,
+   "tutuyor": false
+  }
+ ],
+ "_ONARIM_GUNLUGU": {
+  "isaretsiz": [],
+  "adsiz": [],
+  "familya_onarimi": [
+   {
+    "tablo_satiri": 14,
+    "kultivar": "Rubarb Chard",
+    "not": "Chenopodiacea → Chenopodiaceae (belgede tam hâli hiç geçmiyor)"
+   },
+   {
+    "tablo_satiri": 37,
+    "kultivar": "Lentils",
+    "not": "Fabacea → Fabaceae (PDF son harfi düşürmüş)"
+   },
+   {
+    "tablo_satiri": 42,
+    "kultivar": "Mung Beans",
+    "not": "Fabacea → Fabaceae (PDF son harfi düşürmüş)"
+   },
+   {
+    "tablo_satiri": 72,
+    "kultivar": "Waldmann's dark green MT0 OG lettuce (GBE108)",
+    "not": "Asteracea → Asteraceae (PDF son harfi düşürmüş)"
+   },
+   {
+    "tablo_satiri": 73,
+    "kultivar": "Wasabina Mustard (JS) (GBE109)",
+    "not": "Brassicacea → Brassicaceae (PDF son harfi düşürmüş)"
+   },
+   {
+    "tablo_satiri": 1,
+    "kultivar": "Dwarf grey sugar peas (GBE84)",
+    "not": "Fabacaea → Fabaceae (kaynakta dizgi hatası)"
+   }
+  ],
+  "familyasiz": [
+   {
+    "tablo_satiri": 8,
+    "kultivar": "Honey Snap (yellow)/274-1-2-1"
+   }
+  ],
+  "kaynakta_kisaltilmis": [
+   {
+    "tablo_satiri": 33,
+    "kultivar": "Tokyo Bekana"
+   },
+   {
+    "tablo_satiri": 5,
+    "kultivar": "Cherry Belle Radish"
+   }
+  ]
+ },
+ "_ONARIM_NOTU": "Ayrıştırma sessizce satır düşürüyordu ve bu ancak tablo satır numaraları sırayla sayılınca görüldü: 22 gerçek kültivar kayıptı. Sebepler ölçüldü ve giderildi — (a) sarkan kültivar kodu satır başı sanılıyordu, (b) familya yalnız dilim SONUNDA aranıyordu, (c) PDF metni bazı familya adlarının son harfini düşürüyor. Onarılan her familya ve familyası okunamayan her satır bu günlükte tek tek yazılı.",
+ "ksc_kultivar": 205,
+ "gbe_kultivar": 214,
+ "_belgenin_duzyazi_sayisi": {
+  "ksc": "204 (more than)",
+  "gbe": 191,
+  "toplam": 376
+ },
+ "tablo_sayisi": 13,
+ "kultivar_sayisi": 419,
+ "crl9_gecen_sayisi": 9,
+ "bir_yerde_kalan": 148,
+ "familya_dagilimi": {
+  "Brassicaceae": 125,
+  "Solanaceae": 57,
+  "Lamiaceae": 55,
+  "Fabaceae": 44,
+  "Asteraceae": 43,
+  "Apiaceae": 28,
+  "Amaranthaceae": 23,
+  "Polygonaceae": 6,
+  "Cucurbitaceae": 5,
+  "Amaryllidaceae": 5,
+  "Portulacaceae": 4,
+  "Rosaceae": 4,
+  "Boraginaceae": 3,
+  "Caprifoliaceae": 2,
+  "Basellaceae": 2,
+  "Malvaceae": 2,
+  "Aizoaceae": 2,
+  "Chenopodiaceae": 1,
+  "Plantaginaceae": 1,
+  "Montiaceae": 1,
+  "Piperaceae": 1,
+  "Tropaeolaceae": 1,
+  "Alismataceae": 1,
+  "Araliaceae": 1,
+  "Moringaceae": 1
+ },
+ "crl9_gecenler": [
+  {
+   "kultivar": "Outredgeous lettuce",
+   "familya": "Asteraceae"
+  },
+  {
+   "kultivar": "Waldmann's Green lettuce",
+   "familya": "Asteraceae"
+  },
+  {
+   "kultivar": "Mizuna mustard",
+   "familya": "Brassicaceae"
+  },
+  {
+   "kultivar": "Wasabi mustard",
+   "familya": "Brassicaceae"
+  },
+  {
+   "kultivar": "Amara mustard",
+   "familya": "Brassicaceae"
+  },
+  {
+   "kultivar": "Extra Dwarf Pak Choi",
+   "familya": "Brassicaceae"
+  },
+  {
+   "kultivar": "Red Russian kale",
+   "familya": "Brassicaceae"
+  },
+  {
+   "kultivar": "Española Improved Pepper",
+   "familya": "Solanaceae"
+  },
+  {
+   "kultivar": "Cherry Belle Radish",
+   "familya": "Brassicaceae"
+  }
+ ],
+ "crl9_bos_kategoriler": [
+  "Herbs",
+  "Microgreens",
+  "Legumes"
+ ],
+ "_BOS_KATEGORI_NOTU": "Tablo A-3 geçmeyen kategorileri de açıkça yazıyor: Herbs None, Microgreens None, Legumes None. Eksiklik çıkarım değil, kaynağın beyanı.",
+ "tablolar": [
+  {
+   "kod": "E-1",
+   "baslik": "Shows leafy green crops tested at Kennedy Space Center since about 2010.",
+   "kultivar_sayisi": 38,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Vit Mache",
+     "familya": "Caprifoliaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Arugula",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Fiero Radicchio",
+     "familya": "Asteraceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 4,
+     "kultivar": "Mizuna",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Outredgeous Lettuce",
+     "familya": "Asteraceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Extra Dwarf Pak Choi",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Bel Radicchio",
+     "familya": "Asteraceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 8,
+     "kultivar": "Dragoon Lettuce",
+     "familya": "Asteraceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 9,
+     "kultivar": "Eros Escarole",
+     "familya": "Asteraceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Sorrel, Green",
+     "familya": "Polygonaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 11,
+     "kultivar": "Amara Mustard",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 12,
+     "kultivar": "Shungiku",
+     "familya": "Asteraceae",
+     "isaretler": "PPPPF",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 13,
+     "kultivar": "Red Russian Kale",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Rubarb Chard",
+     "familya": "Chenopodiaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 15,
+     "kultivar": "Wasabi Mustard",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Toscano Kale",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 17,
+     "kultivar": "Giant Red Mustard",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 18,
+     "kultivar": "Barese Swiss Chard",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPPPF",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 19,
+     "kultivar": "Wasabina Mustard",
+     "familya": "Brassicaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 20,
+     "kultivar": "Wasabi Arugula",
+     "familya": "Brassicaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Perseo Radicchio",
+     "familya": "Asteraceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 22,
+     "kultivar": "Indigo Radicchio",
+     "familya": "Asteraceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 23,
+     "kultivar": "Dwarf Grey Sugar Pea",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "Bright Lights Swiss Chard",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 25,
+     "kultivar": "Miz America Kale",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 26,
+     "kultivar": "Redbor Kale",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 27,
+     "kultivar": "Rainbow Candy Crush Kale",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 28,
+     "kultivar": "Red Tatsoi",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 29,
+     "kultivar": "Dandelion",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 30,
+     "kultivar": "Purslane, Golden",
+     "familya": "Portulacaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 31,
+     "kultivar": "Garlic Mustard",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 32,
+     "kultivar": "Malabar Spinach",
+     "familya": "Basellaceae",
+     "isaretler": "P",
+     "isaret_sayisi": 1,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 33,
+     "kultivar": "Tokyo Bekana",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPFP",
+     "isaret_sayisi": 8,
+     "isaret_sayisi_guvenilir": false,
+     "kalmis": true
+    },
+    {
+     "sira": 34,
+     "kultivar": "Waldmann's Green Lettuce",
+     "familya": "Asteraceae",
+     "isaretler": "PPPPPPPP",
+     "isaret_sayisi": 8,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 35,
+     "kultivar": "Bull's Blood Beet",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 36,
+     "kultivar": "Tyee Spinach",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 37,
+     "kultivar": "Flamingo Spinach",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 38,
+     "kultivar": "Kudzu",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    }
+   ]
+  },
+  {
+   "kod": "E-2",
+   "baslik": "Shows pepper plant crops tested at Kennedy Space Center since about 2010.",
+   "kultivar_sayisi": 41,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Rosette Red",
+     "familya": "Solanaceae",
+     "isaretler": "PPPPF",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 2,
+     "kultivar": "Mimi Red",
+     "familya": "Solanaceae",
+     "isaretler": "PPPPF",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 3,
+     "kultivar": "Compact Red",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 4,
+     "kultivar": "Sweet Orange",
+     "familya": "Solanaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Red Skin",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Hot Fajita",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Joker",
+     "familya": "Solanaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 8,
+     "kultivar": "Golden Pepper Yum Yum",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 9,
+     "kultivar": "NuMex Espanola Improved",
+     "familya": "Solanaceae",
+     "isaretler": "PPPPPPPPP",
+     "isaret_sayisi": 9,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Numex Heritage 6-4",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 11,
+     "kultivar": "Bulgarian Carrot",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 12,
+     "kultivar": "Big Jim Heritage",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 13,
+     "kultivar": "Slovenia Hybrid",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Feher Ozon Paprika",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 15,
+     "kultivar": "Ace F1 Bell",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Numex Piñata",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 17,
+     "kultivar": "Tangerine Dream",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 18,
+     "kultivar": "Garden Sunshine",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 19,
+     "kultivar": "Italico",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 20,
+     "kultivar": "Fruit Basket",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Chablis",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 22,
+     "kultivar": "Pompeii",
+     "familya": "Solanaceae",
+     "isaretler": "PPFP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 23,
+     "kultivar": "Mohawk",
+     "familya": "Solanaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "Cajun Belle",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 25,
+     "kultivar": "Numex Halloween",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 26,
+     "kultivar": "Numex Lemon Spice",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 27,
+     "kultivar": "Cueno dwarf red",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 28,
+     "kultivar": "Cueno Dwarf Yellow",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 29,
+     "kultivar": "Martinez Chimayo",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 30,
+     "kultivar": "Chimayo",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 31,
+     "kultivar": "\"Altiplano F1\" Serrano",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 32,
+     "kultivar": "Big Dipper",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 33,
+     "kultivar": "Golden Baby Bell Hybrid",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 34,
+     "kultivar": "Hot Italian Pepperoncini",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 35,
+     "kultivar": "Sweet Heat Pepper",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 36,
+     "kultivar": "Hot Burrito Pepper",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 37,
+     "kultivar": "Hot Joker",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 38,
+     "kultivar": "Tamale",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 39,
+     "kultivar": "Taquito",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 40,
+     "kultivar": "Sweet Pickle Pepper",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 41,
+     "kultivar": "Scorpion Pepper",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-3",
+   "baslik": "Shows tomato varieties tested at Kennedy Space Center since about 2010.",
+   "kultivar_sayisi": 10,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Ground Jewel-97",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Ground Dew-104",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Dwarf High Yielding 851",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "Golden Harvest Cherry",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Sweet N Neat",
+     "familya": "Solanaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Red Robin",
+     "familya": "Solanaceae",
+     "isaretler": "PPPPPPPF",
+     "isaret_sayisi": 8,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 7,
+     "kultivar": "Mohamed",
+     "familya": "Solanaceae",
+     "isaretler": "PPPPP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 8,
+     "kultivar": "Patio Princess",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 9,
+     "kultivar": "Tumbler",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 10,
+     "kultivar": "Tiny Tim",
+     "familya": "Solanaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-4",
+   "baslik": "Shows legume crops tested at Kennedy Space Center since about 2010.",
+   "kultivar_sayisi": 25,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "PLS 0120",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "PLS 0122",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Antigua",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "4921",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Very Early Snap Pea/351-6-1",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Early Snap Pea Thick Pod/404-35-1-2-1",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Early Snap Pea, Dark Green/412-1-1",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 8,
+     "kultivar": "Honey Snap (yellow)/274-1-2-1",
+     "familya": null,
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 9,
+     "kultivar": "Acacia Leaf (snow pea)/299",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Multi Leaf (snow pea)/220-1-2",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 11,
+     "kultivar": "Royal Snow (purple snow)/99-7-1-1",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 12,
+     "kultivar": "Feisty pea",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 13,
+     "kultivar": "Early Snap Pea/91E",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Early Snap Pea Thick Pod/404-51-2",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 15,
+     "kultivar": "Early Snap Pea Thick Pod/404-52-2-1",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Early Snap Pea/430-1-4-1-2",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 17,
+     "kultivar": "Royal Snap (purple snap)/337-1-1-3",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 18,
+     "kultivar": "Yellow Snap/485-2",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 19,
+     "kultivar": "Tom Thumb",
+     "familya": "Fabaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 20,
+     "kultivar": "Earligreen",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Blue Bantam Dwarf",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 22,
+     "kultivar": "Little SnapPea Crunch",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 23,
+     "kultivar": "Little Marvel",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "Velour Purple",
+     "familya": "Fabaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 25,
+     "kultivar": "Russian peas",
+     "familya": "Fabaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-5",
+   "baslik": "Shows microgreen crops tested at Kennedy Space Center since about 2010.",
+   "kultivar_sayisi": 67,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Alfalfa",
+     "familya": "Fabaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 2,
+     "kultivar": "Arugula",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 3,
+     "kultivar": "Arugula, Wasabi",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 4,
+     "kultivar": "Basil, Dark Opal",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Basil, Lemon",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Beet, Bulls Blood",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Broccoli",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 8,
+     "kultivar": "Brussel Sprouts",
+     "familya": "Brassicaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 9,
+     "kultivar": "Borage",
+     "familya": "Boraginaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Buckwheat, Groats",
+     "familya": "Polygonaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 11,
+     "kultivar": "Buckwheat, OG",
+     "familya": "Polygonaceae",
+     "isaretler": "PPFF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 12,
+     "kultivar": "Buckwheat, Shoot",
+     "familya": "Polygonaceae",
+     "isaretler": "PPFF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 13,
+     "kultivar": "Cabbage, Mammoth Red Rock",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 14,
+     "kultivar": "Cabbage, Red",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 15,
+     "kultivar": "Cantaloupe",
+     "familya": "Cucurbitaceae",
+     "isaretler": "PPFP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 16,
+     "kultivar": "Cauliflower, Y Improved",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 17,
+     "kultivar": "Chia",
+     "familya": "Lamiaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 18,
+     "kultivar": "Cilantro",
+     "familya": "Apiaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 19,
+     "kultivar": "Chinese Cabbage Tokyo Bekana",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 20,
+     "kultivar": "Chives, Garlic",
+     "familya": "Amaryllidaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Collards, Vates",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 22,
+     "kultivar": "Cress, Cressida",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 23,
+     "kultivar": "Cress, Persian",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "Cress, Upland",
+     "familya": "Brassicaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 25,
+     "kultivar": "Dandelion, Red",
+     "familya": "Asteraceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 26,
+     "kultivar": "Dill",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 27,
+     "kultivar": "Fennel",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 28,
+     "kultivar": "Fenugreek",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 29,
+     "kultivar": "Mustard Golden Frills",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 30,
+     "kultivar": "Kale, Dwarf Siberian",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 31,
+     "kultivar": "Kale, Red Russian",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 32,
+     "kultivar": "Kale, Toscano",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 33,
+     "kultivar": "Kale, Vates Blue Scotch Curled",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 34,
+     "kultivar": "Kohlrabi, Purple",
+     "familya": "Brassicaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 35,
+     "kultivar": "Kohlrabi, White",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 36,
+     "kultivar": "Komatsuna",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 37,
+     "kultivar": "Lentils",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 38,
+     "kultivar": "Lettuce Mix, Mucelum",
+     "familya": "Asteraceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 39,
+     "kultivar": "Marjaram",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 40,
+     "kultivar": "Mizuna",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 41,
+     "kultivar": "Mizuna, Red Kingdom",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 42,
+     "kultivar": "Mung Beans",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 43,
+     "kultivar": "Mustard, Garnet Giant",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 44,
+     "kultivar": "Mustard, Scarlet Frills",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 45,
+     "kultivar": "Mustard, Wasabi",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFPP",
+     "isaret_sayisi": 6,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 46,
+     "kultivar": "Orach",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 47,
+     "kultivar": "Pac Choi, Red",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 48,
+     "kultivar": "Pac Choi, Rosi",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 49,
+     "kultivar": "Pac Choi, White Stem",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 50,
+     "kultivar": "Pac Choi, White Stem Extra Dwarf",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 51,
+     "kultivar": "Parsley",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 52,
+     "kultivar": "Pea, Dun",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 53,
+     "kultivar": "Pea, Dwarf Grey Sugar",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 54,
+     "kultivar": "Pea, Mammoth Melting Sugar",
+     "familya": "Fabaceae",
+     "isaretler": "PPPP",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 55,
+     "kultivar": "Quinoa",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 56,
+     "kultivar": "Radish, Daikon",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 57,
+     "kultivar": "Radish, Daikon (white)",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 58,
+     "kultivar": "Radish, Red Rambo",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 59,
+     "kultivar": "Rutabaga",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 60,
+     "kultivar": "Shiso",
+     "familya": "Lamiaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 61,
+     "kultivar": "Shungiku",
+     "familya": "Asteraceae",
+     "isaretler": "PPFF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 62,
+     "kultivar": "Shungiku, Broadleaf",
+     "familya": "Asteraceae",
+     "isaretler": "PPFF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 63,
+     "kultivar": "Sunflower, Black Oil",
+     "familya": "Asteraceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 64,
+     "kultivar": "Sunflower, Grey Striped",
+     "familya": "Asteraceae",
+     "isaretler": "PPPFP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 65,
+     "kultivar": "Swiss Chard, Yellow",
+     "familya": "Amaranthaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 66,
+     "kultivar": "Tatsoi",
+     "familya": "Brassicaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 67,
+     "kultivar": "Turnip, Purple Top White Globe",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-6",
+   "baslik": "Shows various herbs tested at Kennedy Space Center since about 2010.",
+   "kultivar_sayisi": 16,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Lemon Basil",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Parsley",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Fernleaf Dill",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "Peppermint",
+     "familya": "Lamiaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 5,
+     "kultivar": "Basil Prospera Compact",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Oregano, Greek",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Cilantro",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 8,
+     "kultivar": "Emily Basil",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 9,
+     "kultivar": "Lemon Balm",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Chives",
+     "familya": "Amaryllidaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 11,
+     "kultivar": "Amythyst Basil",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 12,
+     "kultivar": "Teddy dill",
+     "familya": "Apiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 13,
+     "kultivar": "Fenugreek",
+     "familya": "Fabaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Spearmint",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 15,
+     "kultivar": "Mountain Mint",
+     "familya": "Lamiaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Fennel",
+     "familya": "Apiaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-7",
+   "baslik": "Shows various crops tested at Kennedy Space Center since about 2010.  The Cherry Belle Radish was tested at KSC and",
+   "kultivar_sayisi": 8,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "H-10 Cucumber",
+     "familya": "Cucurbitaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Iznick Hybrid Cucumber",
+     "familya": "Cucurbitaceae",
+     "isaretler": "PPP",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Minnesota Midget Melon",
+     "familya": "Cucurbitaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 4,
+     "kultivar": "Early Silverline Melon",
+     "familya": "Cucurbitaceae",
+     "isaretler": "PPPF",
+     "isaret_sayisi": 4,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 5,
+     "kultivar": "Cherry Belle Radish",
+     "familya": "Brassicaceae",
+     "isaretler": "PPPPPPPP",
+     "isaret_sayisi": 8,
+     "isaret_sayisi_guvenilir": false,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Delizz Strawberry",
+     "familya": "Rosaceae",
+     "isaretler": "PPPPP",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Temptation Strawberry",
+     "familya": "Rosaceae",
+     "isaretler": "PPPPF",
+     "isaret_sayisi": 5,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 8,
+     "kultivar": "Pineberry Strawberry",
+     "familya": "Rosaceae",
+     "isaretler": "PPF",
+     "isaret_sayisi": 3,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-8",
+   "baslik": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth leafy green crops tested between 2015",
+   "kultivar_sayisi": 102,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Outredgeous (GBE1)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Tokyo Bekana (GBE2)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Redleaf amaranth (GBE3)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "Red Orach (GBE4)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 5,
+     "kultivar": "Bright Lights Swiss Chard (GBE5)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Babybeat (GBE6)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Strawberry spinach (GBE7)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 8,
+     "kultivar": "Saltwort (GBE8)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 9,
+     "kultivar": "Red Kitten Spinach (GBE9)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 10,
+     "kultivar": "Koidzumi Ashitaba (GBE11)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 11,
+     "kultivar": "Natacha Escarole (GBE14)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 12,
+     "kultivar": "Shungiku (GBE15)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 13,
+     "kultivar": "Starfighter Lettuce (GBE16)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Rubra red malabar spinach (GBE17)",
+     "familya": "Basellaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 15,
+     "kultivar": "Upland cress (GBE18)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Misome (GBE19)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 17,
+     "kultivar": "Toscano Kale (GBE20)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 18,
+     "kultivar": "Starbor Kale (GBE21)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 19,
+     "kultivar": "Quickstar Kohlrabi (GBE22)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 20,
+     "kultivar": "Komatsuna (GBE23)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Mizuna (GBE24)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 22,
+     "kultivar": "Tatsoi (GBE25)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 23,
+     "kultivar": "Minuet Chinese cabbage (GBE26)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "White wall rocket (GBE27)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 25,
+     "kultivar": "Sylvetta (GBE28)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 26,
+     "kultivar": "Arugula (GBE29)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 27,
+     "kultivar": "Persian cress (GBE30)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 28,
+     "kultivar": "Molokhia (GBE33)",
+     "familya": "Malvaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 29,
+     "kultivar": "Minutina (GBE34)",
+     "familya": "Plantaginaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 30,
+     "kultivar": "Sorrel (GBE35)",
+     "familya": "Polygonaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 31,
+     "kultivar": "Goldberg golden purslane (GBE36)",
+     "familya": "Portulacaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 32,
+     "kultivar": "Watercress (GBE37)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 33,
+     "kultivar": "New Zealand Spinach (GBE38)",
+     "familya": "Aizoaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 34,
+     "kultivar": "Good King Henry (GBE39)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 35,
+     "kultivar": "Spring Tower celtuce (GBE41)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 36,
+     "kultivar": "Papalo (GBE42)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 37,
+     "kultivar": "Collard (GBE43)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 38,
+     "kultivar": "Win-win Choi (GBE45)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 39,
+     "kultivar": "Cressida (GBE46)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 40,
+     "kultivar": "Mache (GBE47)",
+     "familya": "Caprifoliaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 41,
+     "kultivar": "Red Shiso (GBE48)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 42,
+     "kultivar": "Green Shiso (GBE49)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 43,
+     "kultivar": "Roselle (GBE50)",
+     "familya": "Malvaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 44,
+     "kultivar": "Miner's lettuce (GBE51)",
+     "familya": "Montiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 45,
+     "kultivar": "Pepper elder (GBE52)",
+     "familya": "Piperaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 46,
+     "kultivar": "Water pepper (GBE53)",
+     "familya": "Polygonaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 47,
+     "kultivar": "Salad burnet (GBE54)",
+     "familya": "Rosaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 48,
+     "kultivar": "Empress of India nasturtium (GBE55)",
+     "familya": "Tropaeolaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 49,
+     "kultivar": "Extra dwarf Pak Choi (GBE56)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 50,
+     "kultivar": "Cicoria spadena da taglia (chicory) (GBE57)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 51,
+     "kultivar": "Emperor Chinese Kale (GBE58)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 52,
+     "kultivar": "Pak Choi (Purple magic) (GBE59)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 53,
+     "kultivar": "Yhod Fah Chinese Kale (GBE60)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 54,
+     "kultivar": "Garland round leaved shungiku (GBE61)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 55,
+     "kultivar": "Large leaf tong ho shungiku (GBE68)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 56,
+     "kultivar": "Yellow velvetleaf (GBE81)",
+     "familya": "Alismataceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 57,
+     "kultivar": "Maquarie Island Cabbage (GBE82)",
+     "familya": "Araliaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 58,
+     "kultivar": "Dragoon Lettuce (GBE83)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 59,
+     "kultivar": "Koji F1 (GBE90)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 60,
+     "kultivar": "Lime Streak mizuna (GBE95)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 61,
+     "kultivar": "Yukina Savoy/chijimina chinese cabbage (GBE96)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 62,
+     "kultivar": "Early Mizuna (E) (GBE97)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 63,
+     "kultivar": "Red Tatsoi Pac Choi (GBE98)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 64,
+     "kultivar": "Toy Choi/shakushina (GBE99)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 65,
+     "kultivar": "Beka Santoh Chinese Cabbage (BS) (GBE100)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 66,
+     "kultivar": "Mibuna, Early (GBE101)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 67,
+     "kultivar": "Mizuna (GBE102)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 68,
+     "kultivar": "Mizuna (Seeds of Change) (GBE103)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 69,
+     "kultivar": "Li Ren Pac Choi (GBE104)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 70,
+     "kultivar": "Prizm Kale (GBE105)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 71,
+     "kultivar": "Wasabi Arugula (GBE107)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 72,
+     "kultivar": "Waldmann's dark green MT0 OG lettuce (GBE108)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 73,
+     "kultivar": "Wasabina Mustard (JS) (GBE109)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 74,
+     "kultivar": "Choho (GBE110)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 75,
+     "kultivar": "Karashina Wasabina (GBE111)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 76,
+     "kultivar": "Micro greens Borage (GBE112)",
+     "familya": "Boraginaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 77,
+     "kultivar": "Amara Mustard (GBE113)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 78,
+     "kultivar": "Wasabi Mustard (MV) (GBE114)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 79,
+     "kultivar": "Red Pac F1 Pac Choi (GBE115)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 80,
+     "kultivar": "Black summer F1 Pac Choi (GBE116)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 81,
+     "kultivar": "Mei Quing Choi F1 Pac Choi (GBE117)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 82,
+     "kultivar": "Shiro F1 Pac Choi (GBE118)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 83,
+     "kultivar": "Truchas OG MT0 Romaine Lettuce (GBE119)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 84,
+     "kultivar": "Rosie F1 Hybrid Pac Choi (GBE120)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 85,
+     "kultivar": "Salanova Red incised MT0 OG-Pelleted (GBE121)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 86,
+     "kultivar": "Red Russian kale (GBE122)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 87,
+     "kultivar": "Puerto Rican Lettuce (GBE123)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 88,
+     "kultivar": "Purslane (GBE132)",
+     "familya": "Portulacaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 89,
+     "kultivar": "Lovage (GBE133)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 90,
+     "kultivar": "Delight Pak Choi (GBE135)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 91,
+     "kultivar": "Butterhead Flandria (pelleted) lettuce (GBE136)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 92,
+     "kultivar": "Flashy Trout's Back lettuce (GBE137)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 93,
+     "kultivar": "Yuushou F1 Pac Choi (GBE138)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 94,
+     "kultivar": "Bopak F1 Pac Choi (GBE139)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 95,
+     "kultivar": "Alkindus (pelleted) lettuce (GBE140)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 96,
+     "kultivar": "Buttercrunch lettuce (GBE141)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 97,
+     "kultivar": "Red Spike amaranth (GBE192)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 98,
+     "kultivar": "Red Leaf Specialty amaranth (GBE193)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 99,
+     "kultivar": "Garnet Red (microgreen) amaranth (GBE200)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 100,
+     "kultivar": "Narinosa misome (GBE201)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 101,
+     "kultivar": "Pekinensis chinese cabbage (GBE202)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 102,
+     "kultivar": "Seaside F1 smooth leaf spinach (GBE203)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    }
+   ]
+  },
+  {
+   "kod": "E-9",
+   "baslik": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth herb crops tested between 2015 and",
+   "kultivar_sayisi": 72,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Parade Bunching Onions (GBE10)",
+     "familya": "Amaryllidaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 2,
+     "kultivar": "Samphire (GBE12)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 3,
+     "kultivar": "Pluto fine leaf basil (GBE32)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "Calypso cilantro (GBE40)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 5,
+     "kultivar": "Kinh gioi (GBE63)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 6,
+     "kultivar": "Mitsuba (GBE64)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 7,
+     "kultivar": "Korean minari flamingo (GBE65)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 8,
+     "kultivar": "Fenugreek (GBE66)",
+     "familya": "Fabaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 9,
+     "kultivar": "Toothache plant (GBE67)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Ice plant (GBE69)",
+     "familya": "Aizoaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 11,
+     "kultivar": "Stevia (GBE70)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 12,
+     "kultivar": "Cook's scurvy grass (GBE71)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 13,
+     "kultivar": "Lemon Balm (GBE72)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Lisette (GBE73)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 15,
+     "kultivar": "Dill (GBE74)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Rosemary (GBE79)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 17,
+     "kultivar": "Dwarf Moringa (GBE80)",
+     "familya": "Moringaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 18,
+     "kultivar": "“red gem” marigold (GBE85)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 19,
+     "kultivar": "“tangerine” marigold (GBE86)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 20,
+     "kultivar": "Borage (GBE87)",
+     "familya": "Boraginaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Cilantro (GBE91)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 22,
+     "kultivar": "Savory (GBE92)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 23,
+     "kultivar": "Thai Basil (GBE93)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "Greek Oregano (GBE94)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 25,
+     "kultivar": "Wega parsley (GBE147)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 26,
+     "kultivar": "Oregano (GBE148)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 27,
+     "kultivar": "Holy Green (GBE149)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 28,
+     "kultivar": "Sweet basil (GBE150)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 29,
+     "kultivar": "Finocchio fennel (GBE159)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 30,
+     "kultivar": "Broadleaf sage (GBE160)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 31,
+     "kultivar": "Santo cilantro (GBE161)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 32,
+     "kultivar": "Fernleaf dill (GBE162)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 33,
+     "kultivar": "Confetti cilantro (GBE163)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 34,
+     "kultivar": "Persian basil (GBE164)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 35,
+     "kultivar": "Cinnamon basil (GBE165)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 36,
+     "kultivar": "Chinese Sweet basil (GBE166)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 37,
+     "kultivar": "Purple ball basil (GBE167)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 38,
+     "kultivar": "Genovese “prosepera compact” (pelleted) basil (GBE168)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 39,
+     "kultivar": "Genovese “prospera compact” (non-pelleted) basil (GBE169)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 40,
+     "kultivar": "Tarragon, French (GBE170)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 41,
+     "kultivar": "Vertissimo chevril (GBE171)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 42,
+     "kultivar": "Grossfruchtiger fennel (GBE172)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 43,
+     "kultivar": "Darki parsley (GBE173)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 44,
+     "kultivar": "Lettuce Leaf basil (GBE174)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 45,
+     "kultivar": "Dark Purple Opal basil (GBE175)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 46,
+     "kultivar": "Mountain Mint (GBE176)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 47,
+     "kultivar": "Peppermint (GBE178)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 48,
+     "kultivar": "Mammolo basil (GBE179)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 49,
+     "kultivar": "Blue Spice basil (GBE180)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 50,
+     "kultivar": "Emily basil (GBE181)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 51,
+     "kultivar": "Lime basil (GBE182)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 52,
+     "kultivar": "Thai Sweet basil (GBE183)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 53,
+     "kultivar": "Thai Hily “Kaprao” basil (GBE184)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 54,
+     "kultivar": "African Nunum basil (GBE185)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 55,
+     "kultivar": "Lemon basil (GBE186)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 56,
+     "kultivar": "Ghana Akokomesa basil (GBE187)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 57,
+     "kultivar": "Dolce Fresca basil (GBE188)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 58,
+     "kultivar": "Newton basil (GBE189)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 59,
+     "kultivar": "Everleaf Emerald Tower basil (GBE190)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 60,
+     "kultivar": "Geisha garlic chives (GBE191)",
+     "familya": "Amaryllidaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 61,
+     "kultivar": "Pink Dandelion (GBE196)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 62,
+     "kultivar": "Sativa purslane (GBE199)",
+     "familya": "Portulacaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 63,
+     "kultivar": "Red Ruben basil (GBE204)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 64,
+     "kultivar": "Nebechan bunching onions (GBE205)",
+     "familya": "Amaryllidaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 65,
+     "kultivar": "Common chamomile (GBE206)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 66,
+     "kultivar": "Roman chamomile (GBE207)",
+     "familya": "Asteraceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 67,
+     "kultivar": "Officinalis sage (GBE208)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 68,
+     "kultivar": "Pilosum mountain mint (GBE209)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 69,
+     "kultivar": "Scardica mountain mint (GBE210)",
+     "familya": "Lamiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 70,
+     "kultivar": "Patula durango outback mix (GBE211)",
+     "familya": "Asteraceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 71,
+     "kultivar": "Angustifolia lavendar (GBE212)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 72,
+     "kultivar": "Mandarina lemon balm (GBE213)",
+     "familya": "Lamiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    }
+   ]
+  },
+  {
+   "kod": "E-10",
+   "baslik": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth pepper plant crops tested between",
+   "kultivar_sayisi": 5,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Pepper sweet pickle (GBE77)",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Sweet Chocolate pepper (GBE88)",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Hungarian Stuffing Pepper (GBE106)",
+     "familya": "Solanaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 4,
+     "kultivar": "Martinez Farm pepper (GBE142)",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Pepper chablis hybrid (GBE76)",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    }
+   ]
+  },
+  {
+   "kod": "E-11",
+   "baslik": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth tomato plant crops tested between",
+   "kultivar_sayisi": 1,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Tomato Red Robin (GBE75)",
+     "familya": "Solanaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    }
+   ]
+  },
+  {
+   "kod": "E-12",
+   "baslik": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth legume crops tested between 2015",
+   "kultivar_sayisi": 9,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Dwarf grey sugar peas (GBE84)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 2,
+     "kultivar": "Petite snap-greens peas (GBE89)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 3,
+     "kultivar": "Feisty pea (GBE129)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "Royal Snow pea (GBE130)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Golden Sweet pea (GBE131)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Little snowpea white pea (GBE145)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Little snowpea purple pea (GBE146)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 8,
+     "kultivar": "California Blackeye Pea cowpea (GBE197)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 9,
+     "kultivar": "Ozark Razorback cowpea (GBE198)",
+     "familya": "Fabaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    }
+   ]
+  },
+  {
+   "kod": "E-13",
+   "baslik": "NASA funded and Fairchild Tropical Botanic Garden led, Growing Beyond Earth miscellaneous crops tested between",
+   "kultivar_sayisi": 25,
+   "satirlar": [
+    {
+     "sira": 1,
+     "kultivar": "Atlantis mini broccoli (GBE44)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 2,
+     "kultivar": "Dark green cutting celery (GBE62)",
+     "familya": "Apiaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 3,
+     "kultivar": "Baby Hybrid cauliflower (GBE143)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 4,
+     "kultivar": "Green Stem Song TJS-65 (F1) cauliflower (GBE144)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 5,
+     "kultivar": "Apollo brocolli (GBE230)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 6,
+     "kultivar": "Hybrid Mini Broccoli (GBE233)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 7,
+     "kultivar": "Mokum Carrot (GBE13)",
+     "familya": "Apiaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 8,
+     "kultivar": "Cherriett radish (GBE31)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 9,
+     "kultivar": "Mini Mak F1 radish (GBE124)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 10,
+     "kultivar": "Sora radish (GBE125)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 11,
+     "kultivar": "Easter Egg II radish (GBE126)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 12,
+     "kultivar": "Pink Beauty radish (GBE127)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 13,
+     "kultivar": "Bacchus F1 radish (GBE128)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 14,
+     "kultivar": "Cherry Belle radish (GBE151)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 15,
+     "kultivar": "Crunchy Crimson radish (GBE152)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 16,
+     "kultivar": "Karami Green radish (GBE153)",
+     "familya": "Brassicaceae",
+     "isaretler": "PF",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": true
+    },
+    {
+     "sira": 17,
+     "kultivar": "French Breakfast radish (GBE154)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 18,
+     "kultivar": "Roxanne F1 Radish (GBE155)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 19,
+     "kultivar": "Celesta F1 Radish (GBE156)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 20,
+     "kultivar": "Dragon F1 Radish (GBE157)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 21,
+     "kultivar": "Red Head Radish (GBE158)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 22,
+     "kultivar": "Fresh Pak F1 beet (GBE194)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 23,
+     "kultivar": "Early Wonder Tall Top beet (GBE195)",
+     "familya": "Amaranthaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 24,
+     "kultivar": "Donato F1 radish (GBE218)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    },
+    {
+     "sira": 25,
+     "kultivar": "Longipinnatus radish (GBE219)",
+     "familya": "Brassicaceae",
+     "isaretler": "PP",
+     "isaret_sayisi": 2,
+     "isaret_sayisi_guvenilir": true,
+     "kalmis": false
+    }
+   ]
+  }
+ ]
+}

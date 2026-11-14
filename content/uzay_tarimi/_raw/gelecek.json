@@ -1,0 +1,55 @@
+{
+ "_ne": "Gelecek bölümünün (durak 15-17) ve kapanışın dayanağı",
+ "_nitelik": "BİRİNCİL — üç kurumun kendi belgeleri",
+ "_cekim": "2026-11-14",
+ "_YONTEM": "Cümleler PDF'ten desenle çekildi; elle kopyalanmadı. Kaynaktan kalkan cümle betiği durdurur.",
+ "nasa_hedef": {
+  "_belge": "kaynak_dosyalari/nasa_space_crops_bpac2024.pdf",
+  "_kunye": "NASA Biological & Physical Sciences · 'NASA BPS Space Crops Program and Goal Update' · Elison Blancaflor, John Howard · BPS Advisory Committee Meeting · 22 Kasım 2024",
+  "m2m_as5lm": "AS-5LM: Define crop plant species, including methods for their productive growth, capable of providing sustainable and nutritious food sources for lunar, Deep Space transit, and Mars habitation.",
+  "m2m_hbs1lm": "HBS-1LM - Understand the effects of short- and long-duration exposure to the environments of the Moon, Mars, and deep space on biological systems and health, using humans, model organisms, systems of human physiology, and plants.",
+  "hedefin_adi": "Lunar Crops for Whole Food Nutrition and Mental Well-Being",
+  "vizyon_basamaklari": [
+   "Enable",
+   "Understand",
+   "Demonstrate",
+   "Implement"
+  ],
+  "vizyonun_sonu": "Early Lunar outpost for plant research and whole food crew nutrition",
+  "bugune_kadar": "Plants adapt well to the space environment, and to date, space-grown crops are safe to eat, nutritious, and highly acceptable to astronauts",
+  "leaf_amac": "Aims to understand how plants grow in partial gravity and in lunar surface radiation environment; provide data for future crop growth methods and technologies sustaining lunar habitation and beyond",
+  "leaf_turler": "LEAF Specimens:Arabidopsis thaliana, Wolffia australiana (duckweed), and Brassica rapa",
+  "leaf_secim": "Selected through the Artemis 3 Deployed Instruments solicitation as a candidate for lunar surface deployment"
+ },
+ "leaf_kunye": {
+  "_nitelik": "BİRİNCİL — NASA basın bülteni",
+  "kaynak": "NASA · 'NASA Selects First Lunar Instruments for Artemis Astronaut Deployment' · RELEASE 24-047 · 26 Mart 2024",
+  "adres": "https://www.nasa.gov/news-release/nasa-selects-first-lunar-instruments-for-artemis-astronaut-deployment/",
+  "yurutucu": "Christine Escobar · Space Lab Technologies, LLC · Boulder, Colorado",
+  "yoneten": "NASA Marshall Uzay Uçuş Merkezi",
+  "_TARIH_UYARISI": "Bülten Artemis III'ü 2026 hedefiyle anlatıyor. O tarih GEÇERSİZ. NASA Artemis III'ü Şubat 2026'da yeniden tanımladı: artık Ay'a iniş değil, Dünya yörüngesinde 14 günlük bir iniş aracı denemesi, 2027 yazı hedefli. İlk insanlı iniş Artemis IV'e, 2028 başına taşındı. LEAF Ay YÜZEYİNE bırakılmak üzere seçilmişti; inişi olmayan bir görevde yüzeye bırakılamaz. Dosya bu yüzden LEAF'i 'sıradaki deney' diye değil, 'hazır ama sırasını bekleyen deney' diye anlatıyor. Bu, dosyanın baştan beri söylediği şeyin aynısı: ilan edilen tarih ile gerçekleşen tarih aynı şey değil."
+ },
+ "yere_donen": {
+  "_belge": "kaynak_dosyalari/nasa_dikey_tarim.pdf",
+  "_kunye": "Raymond M. Wheeler · 'NASA's Contributions to Vertical Farming' · NASA/TM-20205008832 · Kennedy Uzay Merkezi · Ekim 2020",
+  "_NEDEN_ONEMLI": "Yazar, dosyanın 11. durağındaki 418 günlük patates odasını yürüten ekibin başındaki adam. Yerdeki odanın dikey tarıma dönüşünü kendi kurumunun belgesinde kendisi yazmış. Dosyanın kapanış mesajı bu yüzden yorum değil, kaynak.",
+  "oda_yillari": "NASA developed and operated its “Biomass Production Chamber” (BPC) at Kennedy Space Center, Florida, US from 1988 through 2000",
+  "dikey_istif": "To explore volume efficiency, concepts such as vertically stacked hydroponic systems and light banks were tested in NASA’s Biomass Production Chamber at Kennedy Space Center US from 1988 through 2000.",
+  "ilk_ornek": "This was perhaps one of the first examples of an operational vertical farms.",
+  "led_patent": "NASA funded research patented the use of LEDs for plant lighting in 1990 and supported the ir continued development for the next 15 years.",
+  "alan_orani": "about 20-25 m2 of crops could supply the O2 for one human, while about 50 m 2 would be required for food (dietary calories)."
+ },
+ "turkiye_sirada": {
+  "_belge": "kaynak_dosyalari/tua_performans.pdf",
+  "_kunye": "Türkiye Uzay Ajansı · 2025 Yılı İdare Faaliyet Raporu · Strateji Geliştirme Daire Başkanlığı · Şubat 2026",
+  "ayap1": "İki aşamadan oluşan Ay Araştırma Programı ilk aşamasında, milli imkanlarla tasarlanan ve geliştirilen uzay aracımız ile öncelikle Dünya yörüngesinden Ay yörüngesine ulaşılacak ve bu yörüngede keşif ve teknoloji gösterimi görevleri icra edecektir.",
+  "gecikme": "AYAP-1 projesinde, geliştirme ve test süreçlerinin planlanandan daha uzun sürmesi nedeniyle proje takviminde bazı gecikmeler meydana gelmiştir.",
+  "ayap2_erteleme": "AYAP- 1 aşamasının henüz tamamlanmamış olması sebebiyle programın ikinci aşaması olan AYAP-2 çalışmalarına geçiş de doğal olarak ertelenmiştir.",
+  "firlatma_hedefi": "Uzay aracının 2027 yılı içerisinde fırlatılması planlanmaktadır.",
+  "rapor_sayfa": 68,
+  "tohum_yuku": "TUA ile APSCO iş birliği kapsamında Çin’in Shijian-19 geri dönebilen uydusuna pasif görev yükü olarak Ege Üniversitesi, Fen Fakültesi, Biyoloji Bölümü’nden önerilen projeler kapsamında iki adet tohum yükü eklenmiştir.",
+  "uzay_islahi": "Bahse konu projeler Türkiye’nin ilk uzay ıslahı çalışmaları olma özelliğini taşımaktadır ve ülkemizi bu alanda çalışan sayılı ülkeler arasına sokmuştur.",
+  "_SIRADAKI_ADIM": "Türkiye'nin sıradaki bitki işi yörüngede yetiştirmek değil, UZAY ISLAHI: tohum yukarı çıkıyor, uzay ortamında kalıyor, geri dönüyor ve değişmiş olanlar arasından seçim yapılıyor. Bitkinin kendisi orada büyümüyor; değişen tohum yerde ekiliyor. Yükü taşıyan araç Çin'in Shijian-19 geri dönebilen uydusu, yolu açan iş birliği TUA–APSCO, öneren kurum Ege Üniversitesi Biyoloji Bölümü — yani 10. duraktaki Tuz Gölü halofiti deneyini yürüten üniversitenin ta kendisi.",
+  "_AYNI_YONTEM_BREZILYADA": "Brezilya'daki CENA nohut tohumlarını YERDE gama ışınına tutup mutasyon uyarıyor (bkz. dunya.json). Türkiye aynı işi uzaya yaptırıyor. İki hat aynı fikrin iki ucu."
+ }
+}

@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""Khodadad vd. 2020 → marul.json — ISS'te yetişen marulun besin analizi.
+
+KAYNAK: Khodadad CLM, Hummerick ME, Spencer LE, Dixit AR, Richards JT,
+Romeyn MW, Smith TM, Wheeler RM, Massa GD (2020). "Microbiological and
+Nutritional Analysis of Lettuce Crops Grown on the International Space
+Station." Frontiers in Plant Science 11:199. doi 10.3389/fpls.2020.00199
+Açık erişim. Kennedy Uzay Merkezi · NASA UB ve AECOM/LASSO.
+
+══ ÖZET İLE SONUÇLAR BÖLÜMÜ AYRIŞIYOR — DOSYANIN KULLANACAĞI ŞEY SONUÇLAR ══
+
+ÖZET şöyle diyor:
+  "Flight and ground tissue showed differences in Fe, K, Na, P, S, and Zn
+   content and total phenolic levels, but no differences in anthocyanin and
+   ORAC levels."
+
+SONUÇLAR bölümü (Elemental Analysis) şöyle diyor:
+  "There was no significant differences between ground and flight samples
+   within each experiment, however when comparing among all three
+   experiments, Fe and K content were significantly lower in VEG-03A
+   samples compared to VEG-01A and VEG-01B..."
+
+İkisi aynı şeyi söylemiyor. Özet farkı UÇUŞ ile YER arasına koyuyor;
+sonuçlar bölümü her deneyin İÇİNDE uçuş-yer farkı OLMADIĞINI, farkların
+ÜÇ DENEY ARASINDA olduğunu söylüyor. Yani fark uzaydan değil, hangi
+yetiştirme koşusunda olduğundan geliyor.
+
+Yayılan cümle ÖZETİNKİ — arama motorları ve ikincil kaynaklar onu
+tekrarlıyor. Bu dosya SONUÇLAR bölümünü esas alıyor ve ayrışmayı yazıyor.
+"""
+from __future__ import annotations
+import json, pathlib, datetime
+
+KOK = pathlib.Path(__file__).parent
+
+d = {
+    "_kaynak": ("Khodadad vd. 2020 · Frontiers in Plant Science 11:199 · "
+                "doi 10.3389/fpls.2020.00199 · açık erişim"),
+    "_nitelik": "BİRİNCİL — hakemli özgün araştırma",
+    "_belge": "kaynak_dosyalari/marul.pdf",
+    "_kurum": "NASA Kennedy Uzay Merkezi · AECOM Management Services / LASSO",
+    "_yayim": "6 Mart 2020 · alınma 17 Ekim 2019 · kabul 11 Şubat 2020",
+    "_cekim": datetime.date.today().isoformat(),
+
+    "_OZET_SONUC_AYRISMASI": {
+        "ozet_cumlesi": ("Flight and ground tissue showed differences in Fe, "
+                         "K, Na, P, S, and Zn content and total phenolic "
+                         "levels, but no differences in anthocyanin and ORAC "
+                         "levels."),
+        "sonuclar_cumlesi": ("There was no significant differences between "
+                             "ground and flight samples within each "
+                             "experiment, however when comparing among all "
+                             "three experiments, Fe and K content were "
+                             "significantly lower in VEG-03A samples compared "
+                             "to VEG-01A and VEG-01B."),
+        "ayrim": ("Özet farkı UÇUŞ↔YER arasına koyuyor; sonuçlar bölümü her "
+                  "deneyin içinde uçuş-yer farkı OLMADIĞINI, farkların ÜÇ "
+                  "DENEY ARASINDA olduğunu söylüyor."),
+        "karar": ("Dosya SONUÇLAR bölümünü esas alıyor. 'Uzayda yetişen "
+                  "marulun besin içeriği değişiyor' cümlesi bu makaleye "
+                  "dayandırılamaz; makalenin kendi ölçümü bunun tersini "
+                  "söylüyor."),
+    },
+
+    "deneyler": ["VEG-01A", "VEG-01B", "VEG-03A"],
+    "bitki": "Lactuca sativa cv. 'Outredgeous' — kırmızı romaine marul",
+    "donanim": "Veggie (Vegetable Production System), ISS",
+    "yer_kontrolu": ("ISS çevre verisiyle, 24-72 saat GECİKMELİ olarak eş "
+                     "zamanlı yürütüldü"),
+
+    "elemental": {
+        "_bulgu": "Her deneyin İÇİNDE uçuş ile yer arasında anlamlı fark YOK.",
+        "deneyler_arasi": [
+            {"element": "Fe", "bulgu": "VEG-03A, VEG-01A ve VEG-01B'den anlamlı DÜŞÜK", "p": "≤0,001"},
+            {"element": "K",  "bulgu": "VEG-03A, VEG-01A ve VEG-01B'den anlamlı DÜŞÜK", "p": "≤0,0001"},
+            {"element": "Na", "bulgu": "VEG-01B, ötekilerden anlamlı YÜKSEK", "p": "≤0,0001"},
+            {"element": "P",  "bulgu": "VEG-01B, ötekilerden YÜKSEK", "p": "≤0,05"},
+            {"element": "S",  "bulgu": "VEG-01B, ötekilerden YÜKSEK", "p": "≤0,05"},
+            {"element": "Zn", "bulgu": "VEG-01B, ötekilerden YÜKSEK", "p": "≤0,0001"},
+        ],
+        "fark_bulunmayan": ["Ca", "Mg", "Mn"],
+    },
+
+    "antioksidan": {
+        "toplam_fenolik": {
+            "_birim": "mg/g kuru ağırlık · gallik asit eşdeğeri",
+            "VEG-03A_yer": 15.0,
+            "VEG-03A_ucus": 19.6,
+            "bulgu": ("VEG-03A, VEG-01A ve VEG-01B'den istatistiksel olarak "
+                      "EN DÜŞÜK (P≤0,001)"),
+        },
+        "antosiyanin": {"_olcum": "siyanidin-3-glukozit eşdeğeri",
+                        "bulgu": "üç deney arasında fark YOK"},
+        "orac": {"bulgu": "ölçüldü — sonuç satırı PDF'ten tam okunmadı"},
+    },
+
+    "mikrobiyoloji": {
+        "toplam_sayim_araligi": "2,14-4,86 log10 CFU/g",
+        "insan_patojeni": "taramada çıkmadı",
+        "_tablo2_notu": ("Uçuş ve yer örneklerinden ayrı bakteri cinsleri "
+                         "geri kazanıldı; Tablo 2 varlık/yokluk veriyor, "
+                         "sayım değil."),
+    },
+
+    "_EKSIK": ["Tablo 7 (elemental) ve Tablo 8 (antioksidan) sayısal "
+               "değerleri tam okunmadı — PDF'ten tablo çıkarımı yapılmadı. "
+               "Metin bu makaleden SAYI kullanacaksa tablolar tek tek "
+               "okunacak.",
+               "ORAC sonucunun yönü okunmadı."],
+}
+(KOK / "marul.json").write_text(json.dumps(d, ensure_ascii=False, indent=1) + "\n",
+                                encoding="utf-8")
+print("✓ marul.json")
+print("  KİLİT BULGU: her deneyin içinde uçuş↔yer farkı YOK;")
+print("  farklar üç DENEY ARASINDA. Özet bunu tersine okutuyor.")
+print(f"  eksik kalan: {len(d['_EKSIK'])} kalem")

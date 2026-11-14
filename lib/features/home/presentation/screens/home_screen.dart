@@ -36,6 +36,7 @@ import '../../../sergi/presentation/widgets/sergi_bandi.dart';
 import '../widgets/yyt_dosyasi_section.dart';
 import '../widgets/kisa_kisa_section.dart';
 import '../widgets/icymi_section.dart';
+import '../../../uzay_tarimi/presentation/widgets/uzay_seridi.dart';
 import '../widgets/home_skeleton.dart';
 import '../widgets/ios_pwa_prompt.dart';
 import '../widgets/notification_prompt_strip.dart';
@@ -473,6 +474,10 @@ class _MobileContent extends ConsumerWidget {
           VideoSerit(isDark: isDark, spacing: 28),
           _ScienceAndReportsSection(isDark: isDark),
           const SizedBox(height: 28),
+          // UZAYDA TARIM ŞERİDİ — Tarım-Bilim ve Raporlar'ın hemen altında.
+          // Komşuluk konuya göre: bilim ve rapor okuyan okur zaten burada.
+          // Alçak ve geniş duruyor, akışı kesmiyor; boşluğunu kendi taşıyor.
+          const UzaySeridi(spacing: 28),
           // Turkuaz şeridi Dünya ile Sektörler ARASINDA: bölge
           // bölümleri biter, konu bölümleri başlar. Şerit tam o
           // eşikte duruyor ve iki akışı birbirine bağlıyor.
@@ -556,6 +561,10 @@ class _TabletContent extends ConsumerWidget {
         VideoSerit(isDark: isDark, spacing: 36),
         _ScienceAndReportsSection(isDark: isDark),
         const SizedBox(height: 36),
+        // UZAYDA TARIM ŞERİDİ — Tarım-Bilim ve Raporlar'ın hemen altında.
+        // Komşuluk konuya göre: bilim ve rapor okuyan okur zaten burada.
+        // Alçak ve geniş duruyor, akışı kesmiyor; boşluğunu kendi taşıyor.
+        const UzaySeridi(spacing: 36),
         _WorldNewsSection(isDark: isDark),
         const SizedBox(height: 36),
         const TniAnasayfaSeridi(spacing: 36),
@@ -658,6 +667,10 @@ class _DesktopContent extends ConsumerWidget {
           padding: const EdgeInsets.only(bottom: 40),
           child: _ScienceAndReportsSection(isDark: isDark),
         ),
+        // UZAYDA TARIM ŞERİDİ — Tarım-Bilim ve Raporlar'ın hemen altında.
+        // Komşuluk konuya göre: bilim ve rapor okuyan okur zaten burada.
+        // Alçak ve geniş duruyor, akışı kesmiyor; boşluğunu kendi taşıyor.
+        const UzaySeridi(spacing: 40),
         Padding(
           padding: const EdgeInsets.only(bottom: 40),
           child: _WorldNewsSection(isDark: isDark),

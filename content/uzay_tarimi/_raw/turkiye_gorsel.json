@@ -1,0 +1,773 @@
+{
+ "_ne": "Türkiye görsellerinin lisans yoklaması",
+ "_neden": "NASA kareleri kamu malı; Türkiye tarafı değil. Ax-3 kareleri Axiom Space'in (ticari), üniversite ve basın kareleri ayrı telif. 'Basında yayımlandı' açık lisans DEĞİLDİR.",
+ "_kabul_listesi": [
+  "cc0",
+  "public domain",
+  "cc by",
+  "cc-by",
+  "pd-"
+ ],
+ "_tarih": "2026-11-13",
+ "_ELLE_OKUNACAK": [
+  "axiomspace.com medya sayfaları — ticari, lisans okunmalı",
+  "ege.edu.tr ve TÜBİTAK basın görselleri — açık lisans beklenmiyor",
+  "tua.gov.tr görselleri — lisans belirtilmemiş"
+ ],
+ "konular": {
+  "gezeravci": {
+   "sorgu": "Alper Gezeravcı",
+   "nasa": {
+    "toplam": 0,
+    "kayitlar": []
+   },
+   "commons": {
+    "toplam": 17,
+    "kayitlar": [
+     {
+      "ad": "Alper Gezeravcı.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "atif": "Janabaevazizbek",
+      "kabul": true,
+      "boyut": "3072×3072"
+     },
+     {
+      "ad": "Axiom-3 Launch (KSC-20240118-PH-CMS01 0025).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Kennedy Space Center / NASA/Chris Swanson",
+      "kabul": true,
+      "boyut": "6720×4480"
+     },
+     {
+      "ad": "Axiom Mission 3 Space Station Arrival & Welcome Remarks.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "2160×1203"
+     },
+     {
+      "ad": "Axiom Mission 3 Space Station Arrival & Welcome Remarks.png",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "2160×1620"
+     },
+     {
+      "ad": "Axiom Mission 3 Space Station Arrival & Welcome Remarks (Alper Gezeravcı).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "309×271"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS, Alper Gezeravcı (cropped).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "331×414"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "2082×1387"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS (cropped).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "1347×834"
+     },
+     {
+      "ad": "Axiom Mission 3 crew.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "2160×740"
+     },
+     {
+      "ad": "Movie night aboard the International Space Station (53516030807).jpg",
+      "lisans": "Public domain",
+      "atif": "Jasmin Moghbeli",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "Movie night aboard the International Space Station (53517346840).jpg",
+      "lisans": "Public domain",
+      "atif": "Jasmin Moghbeli",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "Walter Villadei.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "344×698"
+     }
+    ],
+    "kabul_edilebilir": 12
+   }
+  },
+  "ax3": {
+   "sorgu": "Axiom Mission 3",
+   "nasa": {
+    "toplam": 17,
+    "kayitlar": [
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0023",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0025",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0022",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0033",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0029",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "iss070e075419",
+      "baslik": "iss070e075419",
+      "tarih": "2024-01-20",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e075556",
+      "baslik": "iss070e075556",
+      "tarih": "2024-01-20",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e075551",
+      "baslik": "iss070e075551",
+      "tarih": "2024-01-20",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e083382",
+      "baslik": "iss070e083382",
+      "tarih": "2024-01-27",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e087496",
+      "baslik": "iss070e087496",
+      "tarih": "2024-02-07",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss073e0511155",
+      "baslik": "iss073e0511155",
+      "tarih": "2025-07-03",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e087501",
+      "baslik": "iss070e087501",
+      "tarih": "2024-02-07",
+      "merkez": "JSC",
+      "fotografci": null
+     }
+    ]
+   },
+   "commons": {
+    "toplam": 310,
+    "kayitlar": [
+     {
+      "ad": "Axiom Mission 3 Space Station Arrival & Welcome Remarks.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "2160×1203"
+     },
+     {
+      "ad": "Axiom Mission 3 Space Station Arrival & Welcome Remarks.png",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "2160×1620"
+     },
+     {
+      "ad": "Axiom Mission 3 Space Station Arrival & Welcome Remarks (Alper Gezeravcı).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "309×271"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS, Alper Gezeravcı (cropped).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "331×414"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "2082×1387"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS (cropped).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "1347×834"
+     },
+     {
+      "ad": "Axiom Mission 3 crew.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "2160×740"
+     },
+     {
+      "ad": "Axiom Mission 4 Mission Specialist Sławosz Uznański-Wiśniewski (iss073e0251659).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center / AXIOM SPACE",
+      "kabul": true,
+      "boyut": "3712×5568"
+     },
+     {
+      "ad": "Axiom Mission 4 Mission Specialist Sławosz Uznański-Wiśniewski (iss073e0251660).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center / AXIOM SPACE",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "The Axiom Mission 1 approaches the station inside the SpaceX Dragon Endeavour a.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Hq",
+      "kabul": true,
+      "boyut": "4928×2768"
+     },
+     {
+      "ad": "The Axiom Mission 1 approaches the station inside the SpaceX Dragon Endeavour c.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Hq",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "The Axiom Mission 4 and Expedition 73 crews take a group portrait (iss073e0249698).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center",
+      "kabul": true,
+      "boyut": "8256×5504"
+     }
+    ],
+    "kabul_edilebilir": 12
+   }
+  },
+  "ax3_murettebat": {
+   "sorgu": "Ax-3 crew",
+   "nasa": {
+    "toplam": 31,
+    "kayitlar": [
+     {
+      "nasa_id": "iss070e083382",
+      "baslik": "iss070e083382",
+      "tarih": "2024-01-27",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e083375",
+      "baslik": "iss070e083375",
+      "tarih": "2024-01-27",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e075419",
+      "baslik": "iss070e075419",
+      "tarih": "2024-01-20",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e075556",
+      "baslik": "iss070e075556",
+      "tarih": "2024-01-20",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0023",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0025",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0022",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0033",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "KSC-20240118-PH-CMS01_0029",
+      "baslik": "Axiom-3 Launch",
+      "tarih": "2024-01-18",
+      "merkez": "KSC",
+      "fotografci": "NASA/Chris Swanson"
+     },
+     {
+      "nasa_id": "iss073e0511059",
+      "baslik": "Expedition 73 and Ax-4 astronauts pose for a portrait",
+      "tarih": "2025-07-03",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "iss070e075551",
+      "baslik": "iss070e075551",
+      "tarih": "2024-01-20",
+      "merkez": "JSC",
+      "fotografci": null
+     },
+     {
+      "nasa_id": "KSC-20250303-PH-DW01_0005",
+      "baslik": "LM Imagery of Orion",
+      "tarih": "2016-01-06",
+      "merkez": "KSC",
+      "fotografci": "Lockheed Martin/David Wellendorf"
+     }
+    ]
+   },
+   "commons": {
+    "toplam": 259,
+    "kayitlar": [
+     {
+      "ad": "AX-2 Dragon Crew Members Arrival (iss069e013989).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center / Sultan Alneyadi",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "AX-2 Dragon Crew Members Arrival (iss069e013992).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center / Sultan Alneyadi",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "AX-2 Dragon Crew Members Arrival (iss069e013996).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center / Sultan Alneyadi",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "AX-2 Dragon Crew Members Arrival (iss069e013999).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA Johnson Space Center / Sultan Alneyadi",
+      "kabul": true,
+      "boyut": "5568×3712"
+     },
+     {
+      "ad": "Ax-2 Crew Portrait.jpg",
+      "lisans": "CC0",
+      "atif": "Montage: Erick Soares3Images: NASA",
+      "kabul": true,
+      "boyut": "1040×610"
+     },
+     {
+      "ad": "Axiom Mission 1 (Ax-1) launch 03.jpg",
+      "lisans": "Public domain",
+      "atif": "Joel Kowsky",
+      "kabul": true,
+      "boyut": "3535×3689"
+     },
+     {
+      "ad": "Axiom Mission 1 (Ax-1) launch 06.jpg",
+      "lisans": "Public domain",
+      "atif": "Joel Kowsky",
+      "kabul": true,
+      "boyut": "3114×4515"
+     },
+     {
+      "ad": "Axiom Mission 1 (Ax-1) launch 12.jpg",
+      "lisans": "Public domain",
+      "atif": "Joel Kowsky",
+      "kabul": true,
+      "boyut": "4376×4892"
+     },
+     {
+      "ad": "Axiom Mission 1 (Ax-1) launch 15.jpg",
+      "lisans": "Public domain",
+      "atif": "Joel Kowsky",
+      "kabul": true,
+      "boyut": "5958×3821"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS, Alper Gezeravcı (cropped).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "331×414"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "2082×1387"
+     },
+     {
+      "ad": "Axiom Mission 3 at the ISS (cropped).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/J. Moghbeli",
+      "kabul": true,
+      "boyut": "1347×834"
+     }
+    ],
+    "kabul_edilebilir": 12
+   }
+  },
+  "atasever": {
+   "sorgu": "Tuva Cihangir Atasever",
+   "nasa": {
+    "toplam": 0,
+    "kayitlar": []
+   },
+   "commons": {
+    "toplam": 0,
+    "kayitlar": [],
+    "kabul_edilebilir": 0
+   }
+  },
+  "tua": {
+   "sorgu": "Turkish Space Agency",
+   "nasa": {
+    "toplam": 6,
+    "kayitlar": [
+     {
+      "nasa_id": "NHQ202608310011",
+      "baslik": "Türkiye Artemis Accords Signing",
+      "tarih": "2026-08-31",
+      "merkez": "HQ",
+      "fotografci": "(NASA/Bill Ingalls)"
+     },
+     {
+      "nasa_id": "NHQ202608310009",
+      "baslik": "Türkiye Artemis Accords Signing",
+      "tarih": "2026-08-31",
+      "merkez": "HQ",
+      "fotografci": "(NASA/Bill Ingalls)"
+     },
+     {
+      "nasa_id": "NHQ202608310002",
+      "baslik": "Türkiye Artemis Accords Signing",
+      "tarih": "2026-08-31",
+      "merkez": "HQ",
+      "fotografci": "(NASA/Bill Ingalls)"
+     },
+     {
+      "nasa_id": "NHQ202608310012",
+      "baslik": "Türkiye Artemis Accords Signing",
+      "tarih": "2026-08-31",
+      "merkez": "HQ",
+      "fotografci": "(NASA/Bill Ingalls)"
+     },
+     {
+      "nasa_id": "NHQ202608310001",
+      "baslik": "Türkiye Artemis Accords Signing",
+      "tarih": "2026-08-31",
+      "merkez": "HQ",
+      "fotografci": "(NASA/Bill Ingalls)"
+     },
+     {
+      "nasa_id": "GSFC_20171208_Archive_e000716",
+      "baslik": "Blooms in the Sea of Marmara",
+      "tarih": "2017-12-08",
+      "merkez": "GSFC",
+      "fotografci": null
+     }
+    ]
+   },
+   "commons": {
+    "toplam": 6593,
+    "kayitlar": [
+     {
+      "ad": "2021 Turkish wildfires.jpg",
+      "lisans": "Public domain",
+      "atif": "MODIS",
+      "kabul": true,
+      "boyut": "4951×4390"
+     },
+     {
+      "ad": "Columbia.sts-1.01.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/KSC",
+      "kabul": true,
+      "boyut": "3000×2400"
+     },
+     {
+      "ad": "ISS March 2009.jpg",
+      "lisans": "Public domain",
+      "atif": "National Aeronautics and Space Administration",
+      "kabul": true,
+      "boyut": "2464×1856"
+     },
+     {
+      "ad": "OSIRIS Mars true color.jpg",
+      "lisans": "CC BY-SA 3.0 igo",
+      "atif": "ESA &amp; MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, ",
+      "kabul": true,
+      "boyut": "2205×2205"
+     },
+     {
+      "ad": "STS-125 Atlantis Liftoff 02.jpg",
+      "lisans": "Public domain",
+      "atif": "Scott Andrews, Canon",
+      "kabul": true,
+      "boyut": "3000×2007"
+     },
+     {
+      "ad": "STS 114 day before launch.jpg",
+      "lisans": "Public domain",
+      "atif": "User:FEXX, from NASA photo.",
+      "kabul": true,
+      "boyut": "3008×2000"
+     },
+     {
+      "ad": "Scandinavia.TMO2003050.jpg",
+      "lisans": "Public domain",
+      "atif": "Jacques Descloitres, MODIS Land Rapid Response Team at NASA GSFC",
+      "kabul": true,
+      "boyut": "5600×7200"
+     },
+     {
+      "ad": "Sombrero Galaxy in infrared light (Hubble Space Telescope and Spitzer Space Telescope).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA/JPL-Caltech and The Hubble Heritage Team (STScI/AURA)",
+      "kabul": true,
+      "boyut": "3000×1681"
+     },
+     {
+      "ad": "Space Shuttle Columbia launching.jpg",
+      "lisans": "Public domain",
+      "atif": "NASA",
+      "kabul": true,
+      "boyut": "6084×6084"
+     },
+     {
+      "ad": "Space suit of Turkish astronauts.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "atif": "BSRF",
+      "kabul": true,
+      "boyut": "2089×3713"
+     },
+     {
+      "ad": "TUA.png",
+      "lisans": "Public domain",
+      "atif": "Turkish Space Agency",
+      "kabul": true,
+      "boyut": "183×67"
+     },
+     {
+      "ad": "UGC 1810 and UGC 1813 in Arp 273 (captured by the Hubble Space Telescope).jpg",
+      "lisans": "Public domain",
+      "atif": "NASA, ESA, and the Hubble Heritage Team (STScI/AURA)",
+      "kabul": true,
+      "boyut": "7887×7994"
+     }
+    ],
+    "kabul_edilebilir": 12
+   }
+  },
+  "schrenkiella": {
+   "sorgu": "Schrenkiella parvula",
+   "nasa": {
+    "toplam": 0,
+    "kayitlar": []
+   },
+   "commons": {
+    "toplam": 0,
+    "kayitlar": [],
+    "kabul_edilebilir": 0
+   }
+  },
+  "tuz_golu": {
+   "sorgu": "Tuz Gölü salt lake Turkey",
+   "nasa": {
+    "toplam": 0,
+    "kayitlar": []
+   },
+   "commons": {
+    "toplam": 38157,
+    "kayitlar": [
+     {
+      "ad": "Anzac Cove and salt lake anzak koyu ve tuz gölü - panoramio.jpg",
+      "lisans": "CC BY 3.0",
+      "atif": "by rock",
+      "kabul": true,
+      "boyut": "4272×2848"
+     },
+     {
+      "ad": "Salt Lake Temple UT2.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "atif": "Acroterion",
+      "kabul": true,
+      "boyut": "2525×3525"
+     },
+     {
+      "ad": "Salt Lake Tuz Turkey.jpg",
+      "lisans": "CC BY-SA 3.0",
+      "atif": "386-DX",
+      "kabul": true,
+      "boyut": "640×480"
+     },
+     {
+      "ad": "Sleeping dog on Tuz Gölü (salt lake) - panoramio.jpg",
+      "lisans": "CC BY-SA 3.0",
+      "atif": "mayatomo",
+      "kabul": true,
+      "boyut": "2592×1944"
+     },
+     {
+      "ad": "Temple Square, Salt Lake City, 1899 retouched.jpg",
+      "lisans": "Public domain",
+      "atif": "William Henry Jackson",
+      "kabul": true,
+      "boyut": "3484×2794"
+     },
+     {
+      "ad": "Tuz Gölü, Lake Tuz, Salt Lake (52397064661).jpg",
+      "lisans": "CC BY 2.0",
+      "atif": "Sonse",
+      "kabul": true,
+      "boyut": "3421×1970"
+     },
+     {
+      "ad": "Tuz Gölü, Lake Tuz, Salt Lake (52397353264).jpg",
+      "lisans": "CC BY 2.0",
+      "atif": "Sonse",
+      "kabul": true,
+      "boyut": "3927×2462"
+     },
+     {
+      "ad": "Tuz Gölü, Lake Tuz, Salt Lake (52397494360).jpg",
+      "lisans": "CC BY 2.0",
+      "atif": "Sonse",
+      "kabul": true,
+      "boyut": "3761×2365"
+     },
+     {
+      "ad": "Tuz Gölü (9025779644).jpg",
+      "lisans": "CC BY 2.0",
+      "atif": "NATO E-3A Component",
+      "kabul": true,
+      "boyut": "4928×3264"
+     },
+     {
+      "ad": "Tuz Gölü 2.jpg",
+      "lisans": "CC0",
+      "atif": "Wokege",
+      "kabul": true,
+      "boyut": "5184×3456"
+     },
+     {
+      "ad": "Tuz golu.jpg",
+      "lisans": "CC BY-SA 4.0",
+      "atif": "MRasitAkgul",
+      "kabul": true,
+      "boyut": "5184×3456"
+     },
+     {
+      "ad": "Tuz gölü.png",
+      "lisans": "CC BY-SA 4.0",
+      "atif": "3.Nurcan",
+      "kabul": true,
+      "boyut": "1080×2160"
+     }
+    ],
+    "kabul_edilebilir": 12
+   }
+  }
+ },
+ "_SCHRENKIELLA_BULUNAMADI": {
+  "_ne": "Dosyanın omurgasındaki bitkinin AÇIK LİSANSLI fotoğrafı YOK. Eş adlarıyla ve ayrı havuzlarda ölçüldü.",
+  "commons": {
+   "Schrenkiella": 0,
+   "Schrenkiella parvula": 0,
+   "Thellungiella parvula": 0,
+   "Eutrema parvulum": "2 — ikisi de 19. yy kitap taraması, fotoğraf değil",
+   "_thellungiella_notu": "'Thellungiella' 126 sonuç veriyor ama hepsi WASABI (Eutrema japonica) — bir zamanlar aynı cinse konulmuş başka bir tür. Sayıya aldanılmaz."
+  },
+  "inaturalist": {
+   "takson": "kayıtlı",
+   "dunyadaki_gozlem": 4,
+   "varsayilan_foto_lisansi": "cc-by-nc",
+   "ticari_kullanima_acik_gozlem": 0,
+   "_karar": "CC BY-NC TİCARİ KULLANIMA KAPALI ve portalın kabul listesinde (CC0, CC BY, CC BY-SA, kamu malı) YOK. Kullanılamaz."
+  },
+  "_TASARIM_SONUCU": "Schrenkiella bölümü bitkinin fotoğrafıyla kurulamaz. Üç yol var: (1) türün değil YAŞAM ALANININ karesi — Tuz Gölü Commons'ta 38.157 sonuç veriyor; (2) çizim/şema; (3) Ege Üniversitesi ekibinden lisanslı kare istemek — ekibin kendi laboratuvar ve ISS kareleri var, izin verilirse en doğru çözüm bu."
+ },
+ "_OZET": {
+  "bol": [
+   "Ax-3 (Commons 310)",
+   "Ax-3 mürettebatı (259)",
+   "Gezeravcı (17)",
+   "Tuz Gölü (38.157)",
+   "TUA (6.593)"
+  ],
+  "yok": [
+   "Schrenkiella parvula — hiçbir havuzda açık lisanslı fotoğraf",
+   "Tuva Cihangir Atasever — NASA 0, Commons 0"
+  ],
+  "_atasever_notu": "Atasever'in görseli yok ama dosya için gerekmeyebilir: o uçuşta bitki deneyi de yoktu. Bölüm açılırsa görselsiz kurulur."
+ }
+}
