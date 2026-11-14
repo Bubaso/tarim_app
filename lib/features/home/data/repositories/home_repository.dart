@@ -100,7 +100,12 @@ class HomeRepository {
       'article_format,published_at,story_image_url,thumb_image_url,'
       'image_lqip,rejection_reason,'
       'rejected_at,source_modified_at,source_drift,scheduled_at,turkiye_pin,'
-      'audio_url,audio_url_en,is_radio,radio_order,ses_deneme,ses_hatasi,'
+      // Ses sütunları KALDIRILDI (15 Kasım 2026). Özellik hiçbir ekranda
+      // okunmuyordu, `article-audios` kovası boştu ve üreten fonksiyon beş
+      // dakikada bir koşup hiçbir şey üretmiyordu. Sütunlar da düşürülüyor
+      // ama ancak bu derleme yayına girdikten SONRA — olmayan bir sütunu
+      // istemek PostgREST'te hata, yani site kararması demek
+      // (bkz. supabase/dagitim_sonrasi/OKU.md).
       'ozel_bolum';
 
   //  Sütun daraltma yükü düşürüyor ama BÜYÜMEYİ durdurmuyor; sınırsız sorgu
