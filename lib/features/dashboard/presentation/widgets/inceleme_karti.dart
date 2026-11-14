@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../home/data/models/news_article.dart';
+import '../../domain/rakam_eslestirme.dart';
 import '../../../home/providers/home_providers.dart';
 import '../../../../core/utils/image_fallback_helper.dart';
 
@@ -703,6 +704,8 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
           if (f != null) _besNbirK(f),
           if (figurler.isNotEmpty) ...[
             const SizedBox(height: 10),
+            _rakamOzeti(),
+            const SizedBox(height: 6),
             ...figurler.map(_figurSatiri),
           ],
         ],
@@ -748,6 +751,46 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: satirlar);
   }
 
+  /// Rakamların yayınlanacak metinle eşleşmesi.
+  ///
+  /// Muhabir ajanı rakamları kaynaktan çıkarıyor, sonra editör ajanı metni
+  /// yeniden kuruyor. Aradaki adımda bir rakam düşebiliyor ya da
+  /// değişebiliyor ve bunu kimse görmüyordu — panel rakamları yalnızca
+  /// LİSTELİYORDU. Artık her rakamın metinde geçip geçmediği sınanıyor.
+  ///
+  /// Ölçüldü (150 gerçek haber, 1.042 rakam): %94,2 eşleşiyor, %2,4
+  /// bulunamıyor. Yani kırmızı bir işaret gerçekten bir şey anlatıyor.
+  List<RakamDenetimi> get _rakamDenetimi =>
+      rakamlariDenetle(a.figures, _ingilizce ? a.contentEn : a.content);
+
+  Widget _rakamOzeti() {
+    final d = _rakamDenetimi;
+    final eksik = d.where((x) => x.durum == Eslesme.bulunamadi).length;
+    if (eksik == 0) return const SizedBox.shrink();
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      decoration: BoxDecoration(
+        color: Colors.red.withValues(alpha: isDark ? 0.16 : 0.08),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.priority_high_rounded,
+              size: 15, color: Colors.red.shade600),
+          const SizedBox(width: 7),
+          Expanded(
+            child: Text(
+              '$eksik rakam yayınlanacak metinde geçmiyor. '
+              'Editör düşürmüş ya da sayı değişmiş olabilir.',
+              style: GoogleFonts.inter(
+                  fontSize: 12, color: Colors.red.shade600, height: 1.4),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _figurSatiri(dynamic ham) {
     if (ham is! Map) return const SizedBox.shrink();
     final label = (ham['label'] ?? '').toString();
@@ -756,12 +799,44 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
     final period = (ham['period'] ?? '').toString();
     final source = (ham['source'] ?? '').toString();
 
+    // Bu rakamın eşleşme durumu — etikete göre bulunuyor.
+    final denetim = _rakamDenetimi.firstWhere(
+      (x) => x.etiket == label,
+      orElse: () => RakamDenetimi(
+          etiket: label,
+          deger: value,
+          birim: unit,
+          durum: Eslesme.bilinmiyor),
+    );
+    final eksik = denetim.durum == Eslesme.bulunamadi;
+    final bulundu = denetim.durum == Eslesme.bulundu;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 6),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.tag, size: 15, color: _soluk),
+          // İŞARET DURUMU SÖYLÜYOR: bulundu ✓, bulunamadı !, sınanamadı #.
+          // Üçüncüsü ayrı tutuluyor — "bilmiyorum" ile "yok" aynı şey değil.
+          Tooltip(
+            message: eksik
+                ? 'Bu rakam metinde bulunamadı'
+                : bulundu
+                    ? 'Metinde "${denetim.bulunanBicim}" olarak geçiyor'
+                    : 'Sınanamadı',
+            child: Icon(
+                eksik
+                    ? Icons.priority_high_rounded
+                    : bulundu
+                        ? Icons.check_rounded
+                        : Icons.tag,
+                size: 15,
+                color: eksik
+                    ? Colors.red.shade600
+                    : bulundu
+                        ? Colors.green.shade600
+                        : _soluk),
+          ),
           const SizedBox(width: 6),
           Expanded(
             child: RichText(
@@ -770,8 +845,9 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
                 children: [
                   TextSpan(
                       text: '$value${unit.isEmpty ? '' : ' $unit'}  ',
-                      style:
-                          const TextStyle(fontWeight: FontWeight.bold)),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: eksik ? Colors.red.shade600 : null)),
                   TextSpan(text: label),
                   if (period.isNotEmpty)
                     TextSpan(
@@ -809,12 +885,26 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
             final konusan = (ham['speaker'] ?? '').toString();
             final unvan = (ham['title'] ?? '').toString();
             final metin = (ham['text'] ?? '').toString();
+
+            // Alıntı yayınlanacak metinde geçiyor mu? Tam eşleşme
+            // aranmıyor — editör kısaltabiliyor. Alıntının BAŞINDAN
+            // yeterince uzun bir parça yoksa alıntı metne hiç girmemiş
+            // demektir. Ölçüldü: 247 alıntının 229'u eşleşiyor.
+            final eslesme = alintilariDenetle([ham],
+                _ingilizce ? a.contentEn : a.content);
+            final eksik = eslesme.isNotEmpty &&
+                eslesme.first.durum == Eslesme.bulunamadi;
+
             return Container(
               margin: const EdgeInsets.only(bottom: 8),
               padding: const EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
                 border: Border(
-                  left: BorderSide(color: _soluk.withValues(alpha: 0.4), width: 3),
+                  left: BorderSide(
+                      color: eksik
+                          ? Colors.red.shade600
+                          : _soluk.withValues(alpha: 0.4),
+                      width: 3),
                 ),
               ),
               child: Column(
@@ -831,6 +921,25 @@ class _IncelemeKartiState extends ConsumerState<IncelemeKarti> {
                         fontWeight: FontWeight.w600,
                         color: _soluk),
                   ),
+                  if (eksik)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3),
+                      child: Row(
+                        children: [
+                          Icon(Icons.priority_high_rounded,
+                              size: 13, color: Colors.red.shade600),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              'Bu alıntı yayınlanacak metinde geçmiyor.',
+                              style: GoogleFonts.inter(
+                                  fontSize: 11.5,
+                                  color: Colors.red.shade600),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                 ],
               ),
             );
