@@ -48,6 +48,7 @@ function mesajlasma() {
 
 import {
   FALLBACK_IMAGE,
+  INDEXNOW_KEY,
   REGION,
   SITE_NAME,
   SITE_ORIGIN,
@@ -2238,6 +2239,82 @@ export const zamanlanmisYayin = onSchedule(
       // bir sonraki koşu aynı haberleri yine bulur. O yüzden burada yeniden
       // denemeye gerek yok.
       console.error('[zamanlanmisYayin] hata:', hata);
+    }
+  },
+);
+
+// ─── IndexNow — yeni haberi dakikalar içinde bildir ────────────────────────
+//
+// Bing, Yandex ve Seznam IndexNow'u destekliyor: bir adres bildirildiğinde
+// taramayı beklemeden kuyruğa alıyorlar. Google KATILMIYOR; oraya haber
+// sitemap'teki `lastmod` üzerinden gidiyor, bu fonksiyon Google'ı
+// etkilemiyor (CLAUDE.md §19.9).
+//
+// 15 KASIM 2026'DA DEPOYA YAZILDI. Fonksiyon canlıda çalışıyordu ama kaynağı
+// ne bu depoda ne de makinede vardı — yalnız Google'ın derleme kovasında.
+// Böyle bir fonksiyon değiştirilemez, denetlenemez ve bir kaza onu geri
+// getirilemez şekilde yok edebilir. Yeniden yazıldı; anahtar da yenilendi
+// (eskisi yalnız dağıtılmış pakette duruyordu).
+//
+// PENCERE BİLEREK ÖRTÜŞÜYOR: koşu her 30 dakikada, pencere son 45 dakika.
+// Bir koşu hata alırsa haber kaybolmasın diye. Aynı adresin iki kez
+// gönderilmesi IndexNow'da hata değil.
+export const indexNowPing = onSchedule(
+  {
+    schedule: '*/30 * * * *',
+    timeZone: 'Europe/Istanbul',
+    region: REGION,
+  },
+  async () => {
+    try {
+      const esik = new Date(Date.now() - 45 * 60 * 1000).toISOString();
+      const satirlar = await supabaseGet(
+        `articles?select=id,slug&status=eq.published` +
+          `&created_at=gte.${encodeURIComponent(esik)}` +
+          `&order=created_at.desc&limit=100`,
+        10000,
+      );
+
+      if (!Array.isArray(satirlar) || satirlar.length === 0) {
+        console.log('indexNow: bildirilecek yeni haber yok.');
+        return;
+      }
+
+      // Adresler uygulamanın yönlendirmesiyle AYNI biçimde kurulmalı:
+      // `/haber/:id`. Slug'a göre bir adres yok; yanlış adres bildirmek
+      // dizine 404 sokmak demek.
+      const urlList = satirlar.map((x) => `${SITE_ORIGIN}/haber/${x.id}`);
+
+      const yanit = await fetch('https://api.indexnow.org/indexnow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({
+          host: new URL(SITE_ORIGIN).host,
+          key: INDEXNOW_KEY,
+          keyLocation: `${SITE_ORIGIN}/${INDEXNOW_KEY}.txt`,
+          urlList,
+        }),
+      });
+
+      // 200 ve 202 başarı. 403 neredeyse her zaman tek bir şey demek:
+      // anahtar dosyası site kökünde yok ya da içeriği anahtarla
+      // uyuşmuyor. Sessiz geçilmemeli, yoksa aylarca hiçbir şey dizine
+      // girmez ve kimse fark etmez.
+      if (yanit.status === 403) {
+        console.error(
+          `indexNow: 403 — anahtar dosyası doğrulanamadı. ` +
+            `${SITE_ORIGIN}/${INDEXNOW_KEY}.txt yayında mı?`,
+        );
+        return;
+      }
+      if (!yanit.ok && yanit.status !== 202) {
+        console.error(`indexNow: beklenmeyen yanıt ${yanit.status}`);
+        return;
+      }
+      console.log(`indexNow: ${urlList.length} adres bildirildi (${yanit.status}).`);
+    } catch (hata) {
+      // Kaybolan bir şey yok: bir sonraki koşunun penceresi örtüşüyor.
+      console.error('indexNow hatası:', hata);
     }
   },
 );

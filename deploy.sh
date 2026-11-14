@@ -17,19 +17,21 @@
 #   ./deploy.sh --fn=ogRenderer  → hosting + YALNIZCA o fonksiyon
 #
 # `--fn=` neden var:
-#   Canlıda, bu depoda KARŞILIĞI OLMAYAN fonksiyonlar duruyor. 3 Kasım 2026
-#   ölçümü:
+#   Tek bir fonksiyonu güncellemek istendiğinde ötekilere hiç dokunmamak için.
 #
-#     columnistAudio · homeRenderer · indexNowPing · publishScheduled
+#   15 KASIM 2026'YA KADAR BAŞKA BİR SEBEBİ VARDI ve artık yok: canlıda bu
+#   depoda karşılığı olmayan dört fonksiyon duruyordu —
+#   columnistAudio · homeRenderer · indexNowPing · publishScheduled.
+#   Tam `functions` dağıtımı onları "yerel kaynakta yok" sayıp silmeye
+#   çalışıyordu.
 #
-#   Tam `functions` dağıtımı bunları "yerel kaynakta yok" sayıp SİLMEYE
-#   çalışıyor. Firebase etkileşimsiz kipte kendiliğinden duruyor — yani bugün
-#   bizi CLI kurtardı, bekçi değil. `--fn=` ile yalnızca adı verilen fonksiyon
-#   güncelleniyor ve ötekilere dokunulmuyor.
+#   O gün mesele kapandı: columnistAudio, homeRenderer ve publishScheduled
+#   canlıdan silindi (ilk ikisi hiçbir şey yapmıyordu, üçüncüsünün yerini
+#   depodaki `zamanlanmisYayin` aldı); indexNowPing yeniden yazılıp depoya
+#   kondu. Depo artık canlının kaynağı.
 #
-#   Bu bir ÇÖZÜM DEĞİL, geçici bir yol. Kalıcı çözüm dört fonksiyonu canlıdan
-#   okuyup depoya geri yazmak (CLAUDE.md §19.4'teki ogRenderer işiyle aynı
-#   iş). O yapılana kadar çıplak `./deploy.sh` fonksiyon tarafında kullanılmaz.
+#   Bir daha açılmasın diye aşağıya BEKÇİ eklendi: fonksiyon dağıtımından önce
+#   canlı liste depodaki `export const` listesiyle karşılaştırılıyor.
 
 set -euo pipefail
 
@@ -428,6 +430,52 @@ if [[ "$TARGETS" == *functions* ]]; then
     exit 1
   fi
   echo "  ✓ functions/ canlıdaki özellikleri taşıyor"
+
+  # ── CANLI/DEPO FONKSİYON KARŞILAŞTIRMASI ────────────────────────────────
+  #
+  # Yukarıdaki kontrol İMZA arıyor: belirli metinler `index.js` içinde var mı.
+  # Eksik bir FONKSİYONU hiç görmüyor. 3 Kasım - 15 Kasım arasında canlıda
+  # depoda karşılığı olmayan dört fonksiyon vardı ve bu betik onları hiç fark
+  # etmedi; tam dağıtım yapılsaydı CLI silmeyi önerecekti.
+  #
+  # Burası adları karşılaştırıyor. Canlıda olup depoda olmayan bir fonksiyon
+  # varsa dağıtım DURUYOR — çünkü o dağıtım onu silmeye kalkar ve kaynağı
+  # hiçbir yerde olmadığı için geri getirilemez.
+  #
+  # `--fn=` ile tek fonksiyon dağıtımında bu tehlike yok (hedef adlandırılmış,
+  # silme önerisi çıkmaz), o yüzden kontrol yalnız çıplak `functions` hedefinde
+  # çalışıyor.
+  if [[ "$TARGETS" == *"functions"* && "$TARGETS" != *"functions:"* ]]; then
+    echo "▸ Canlı fonksiyon listesi depoyla karşılaştırılıyor…"
+    canli_fn=$(firebase functions:list 2>/dev/null \
+      | grep -oE "^│ [a-zA-Z0-9_]+" | tr -d "│ " | grep -v "^Function$" | sort || true)
+    depo_fn=$(grep -oE "^export const [A-Za-z0-9_]+" functions/index.js \
+      | sed "s/export const //" | sort)
+
+    if [[ -z "$canli_fn" ]]; then
+      # Liste alınamadıysa (ağ, oturum) sessizce geçmiyoruz: bu kontrolün
+      # çalışmaması, geçmesiyle aynı şey değil.
+      echo "  ! canlı liste alınamadı — karşılaştırma yapılamadı." >&2
+      echo "    Emin değilsen ./deploy.sh --fn=<ad> ile tek fonksiyon dağıt." >&2
+    else
+      yalniz_canli=$(comm -23 <(echo "$canli_fn") <(echo "$depo_fn") || true)
+      if [[ -n "$yalniz_canli" ]]; then
+        echo "" >&2
+        echo "✗ FONKSİYON DAĞITIMI DURDURULDU — canlıda depoda olmayan fonksiyon var." >&2
+        echo "" >&2
+        for f in $yalniz_canli; do echo "      • $f" >&2; done
+        echo "" >&2
+        echo "  Bu dağıtım onları SİLMEYE kalkar ve kaynakları depoda yok." >&2
+        echo "  Yapılacak: ya fonksiyonu depoya geri yaz, ya da gerçekten" >&2
+        echo "  gereksizse önce canlıdan sil:" >&2
+        echo "      firebase functions:delete <ad> --region europe-west1" >&2
+        echo "" >&2
+        echo "  Tek fonksiyon dağıtmak için:  ./deploy.sh --fn=<ad>" >&2
+        exit 1
+      fi
+      echo "  ✓ canlıdaki her fonksiyonun depoda karşılığı var"
+    fi
+  fi
 fi
 
 echo "▸ Dağıtılıyor (${TARGETS})…"

@@ -39,3 +39,17 @@ export const SUPABASE_TIMEOUT_MS = 2500;
 /// Fonksiyonun çalıştığı bölge. Hosting rewrite'ındaki değerle
 /// (firebase.json) aynı olmak zorunda.
 export const REGION = 'europe-west1';
+
+/// IndexNow anahtarı — `indexNowPing` bununla gönderim yapıyor.
+///
+/// GİZLİ DEĞİL, gizli OLMAMALI: IndexNow doğrulamayı anahtarın aynısını
+/// taşıyan bir dosyayı site kökünden okuyarak yapıyor (`web/<anahtar>.txt`).
+/// Yani anahtar zaten herkese açık servis ediliyor; gizlemenin anlamı yok.
+///
+/// ANAHTAR DEĞİŞİRSE DOSYANIN ADI DA DEĞİŞMEK ZORUNDA. İkisi ayrışırsa
+/// gönderimler sessizce reddedilir — hata dönmez, yalnız dizine girmez.
+///
+/// 15 Kasım 2026'da YENİLENDİ: eski anahtar yalnızca canlıya dağıtılmış
+/// pakette duruyordu, depoda karşılığı yoktu (fonksiyonun kendisi de öyle).
+/// Depo artık canlının kaynağı; eski anahtar kullanılmıyor.
+export const INDEXNOW_KEY = 'e5bdb9ca71d05077abd2d0cc1c937b6e';

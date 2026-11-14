@@ -2383,7 +2383,14 @@ kaybolmasın. Aynı adresin bazen iki kez gitmesi IndexNow'da hata değil.
 
 Anahtar `functions/config.js` → `INDEXNOW_KEY`, doğrulama dosyası
 `web/<anahtar>.txt`. **Anahtar değişirse dosyanın adı da değişmek zorunda,**
-yoksa bütün gönderimler sessizce reddedilir. Kurulum canlıda sınandı: HTTP 202.
+yoksa bütün gönderimler sessizce reddedilir.
+
+**15 Kasım 2026'da fonksiyon DEPOYA YAZILDI ve anahtar yenilendi.** O güne
+kadar `indexNowPing`'in kaynağı ne bu depoda ne de makinede vardı — yalnız
+Google'ın derleme kovasında. Anahtar da öyle: `config.js`'te `INDEXNOW_KEY`
+yoktu, yalnız dağıtılmış pakette duruyordu. Yeni anahtar ve doğrulama dosyası
+depoda; ikisi de dağıtımla birlikte yayına girer. Dağıtılana kadar canlıdaki
+eski sürüm eski anahtarla çalışmaya devam ediyor.
 
 **Google IndexNow'a katılmıyor.** Oraya sitemap'teki `lastmod` üzerinden haber
 gidiyor; bu fonksiyon Google'ı etkilemiyor.
@@ -3440,6 +3447,13 @@ görünmüyor. Yönetici sesin onayla birlikte geldiğini sanıyordu.
 Köşe yazıları 9-14 bin karakter; dinleyen kişi yazının ortasında sesin
 bittiğini fark ediyor, hiçbir yerde uyarı çıkmıyor.
 
+> **BU BÖLÜM KAPANDI — 15 Kasım 2026.** Sesli haber özelliği tamamen
+> kaldırıldı (kullanıcı kararı: "kullanmıyorum"). `columnistAudio` canlıdan
+> silindi, `articles` tablosundaki altı ses sütunu düşürülüyor
+> (`supabase/dagitim_sonrasi/`), `article-audios` kovası zaten boştu ve
+> `sesleniyor` durumunda tek bir haber kalmamıştı (ölçüldü: 1.412 satırın
+> hepsi `published`). Aşağısı tarihsel kayıt olarak duruyor.
+
 ### 37.2 Akış: `sesleniyor` durumu
 
 ```
@@ -3949,6 +3963,14 @@ Ayrıca bu bir DONMA: `ogRenderer` geri yazılmadığı sürece hiçbir bulut
 fonksiyonu dağıtılamaz — `indexNowPing`, `publishScheduled`, `morningBriefing`,
 `weeklyBriefing`, `authorBulletin`, `breakingNewsCheck`, `columnistAudio`
 dahil. Fonksiyon tarafındaki her hata düzeltilemez durumda.
+
+> **DONMA ÇÖZÜLDÜ — 15 Kasım 2026.** Canlıda depoda karşılığı olmayan
+> fonksiyon kalmadı: `columnistAudio`, `homeRenderer` ve `publishScheduled`
+> silindi (ilk ikisi hiçbir şey yapmıyordu, üçüncüsünün yerini depodaki
+> `zamanlanmisYayin` aldı), `indexNowPing` yeniden yazılıp depoya kondu.
+> `deploy.sh` artık fonksiyon dağıtımından önce canlı listeyi depodaki
+> `export const` listesiyle karşılaştırıyor ve fark varsa duruyor — imza
+> aramasının göremediği delik buydu.
 
 ### Konan koruma
 
