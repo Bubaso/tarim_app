@@ -1,0 +1,97 @@
+{
+  "_dosya": "Mısır — görsel altyazıları",
+  "_kural": "Altyazı KÜNYEDİR: konu + yer + tarih. Fotoğrafın NE OLDUĞU yazılır, karede ne görüldüğü tahlil edilmez. Kullanıcı bu düzeltmeyi iki kez verdi (8 ve 12 Kasım 2026).",
+  "_yer_kurali": "Yer yalnız KAYNAK söylüyorsa yazıldı. Altı karenin açıklaması boştu ('Farm to Plate' ibaresinden ibaret); yerleri Commons KATEGORİLERİNDEN okundu (Şarkiye, Dakahliye, Feyyum). Kategori yalnız ülkeyi veriyorsa altyazı da yalnız ülkeyi söylüyor — 'Mısır' yazıp ili tahmin etmek uydurma olurdu.",
+  "_matson_notu": "Matson Koleksiyonu'nun 1900-1939 künyeleri üç karede 'Primitive irrigation' diyor. Bu sıfat dönemin sömürge dönemi dilinden geliyor ve bir ALET TARİFİ değil bir DEĞER YARGISI. Altyazılar aletin ne olduğunu yazıyor, sıfatı tekrarlamıyor. Künyenin kendisi `_dayanak` alanında birebir duruyor; isteyen oraya bakar.",
+  "misir_kapak_vadi": {
+    "tr": "Nil vadisi, Mısır. Planet Labs uydu görüntüsü, 13 Ağustos 2016.",
+    "en": "The Nile valley, Egypt. Planet Labs satellite image, 13 August 2016.",
+    "_dayanak": "nesne_adi 'Nile River Valley, Egypt by Planet Labs' + açıklama 'Nile River Valley Egypt August 13, 2016' + tarih 'Taken on 13 August 2016'"
+  },
+  "misir_tarla_at": {
+    "tr": "Atla tarla hazırlığı. Dakahliye, Mısır, 19 Mayıs 2024.",
+    "en": "Preparing a field with a horse. Dakahlia, Egypt, 19 May 2024.",
+    "_dayanak": "nesne_adi 'Preparing the Field by Horse' + kategori 'Dakahlia Governorate' + tarih 2024-05-19"
+  },
+  "misir_ciftciler": {
+    "tr": "Mısırlı çiftçiler, 15 Mart 2023. Kaynak ili kaydetmiyor.",
+    "en": "Egyptian farmers, 15 March 2023. The source does not record the governorate.",
+    "_dayanak": "nesne_adi 'Egyptian farmers' + kategori 'People of Egypt in 2023' + tarih 2023-03-15. Açıklama alanı boş; il bilgisi kaynakta YOK."
+  },
+  "misir_sakiye_deve": {
+    "tr": "Deveyle döndürülen su dolabı, Mısır, 1900. G. Eric ve Edith Matson Fotoğraf Koleksiyonu.",
+    "en": "A water wheel turned by a camel, Egypt, 1900. G. Eric and Edith Matson Photograph Collection.",
+    "_dayanak": "Künye başlığı: 'Egyptian characters, etc. Egyptian irrigating wheel with camel' · koleksiyon 'G. Eric and Edith Matson Photograph Collection' · tarih 1900"
+  },
+  "misir_su_cekme_1934": {
+    "tr": "Kanaldan su çıkarmakta kullanılan burgulu boru, Mısır, 1934. Matson Fotoğraf Koleksiyonu.",
+    "en": "A spiral tube used to raise water from a canal, Egypt, 1934. Matson Photograph Collection.",
+    "_dayanak": "Künye başlığı: 'Agriculture in Egypt. Primitive irrigation. Close-up showing method of raising water from canals by means of spiral tube' · tarih 1934. 'Primitive' sıfatı altyazıya alınmadı — bkz. _matson_notu."
+  },
+  "misir_col_tarimi": {
+    "tr": "Batı Çölü'nde sulamalı tarım, Nil'in batısı, Mısır. NASA, 9 Şubat 2018.",
+    "en": "Irrigated farming in the Western Desert, west of the Nile, Egypt. NASA, 9 February 2018.",
+    "_dayanak": "nesne_adi 'Cultivating Egypt's Desert' + açıklama 'Egypt's Western Desert… this part of the eastern Sahara (west of the Nile River)' + tarih 2018-02-09"
+  },
+  "misir_bugday_hasadi": {
+    "tr": "Buğday hasadı. Şarkiye, Mısır, 1 Mayıs 2024.",
+    "en": "Wheat harvest. Sharqia, Egypt, 1 May 2024.",
+    "_dayanak": "nesne_adi 'Wheat harvest in Egypt' + kategoriler 'Sharqia Governorate', 'Wheat fields in Egypt' + tarih 2024-05-01"
+  },
+  "misir_pirinc_hasat": {
+    "tr": "Pirinç hasadı, Mısır, 12 Ekim 2024. Kaynak ili kaydetmiyor.",
+    "en": "Rice harvest, Egypt, 12 October 2024. The source does not record the governorate.",
+    "_dayanak": "nesne_adi 'Rice harvest 4' + kategoriler 'Harvesting', 'Paddy fields in Egypt' + tarih 2024-10-12"
+  },
+  "misir_tane_misir_1934": {
+    "tr": "Nil boyunca tane mısır ekilişi, Mısır, 1934. Matson Fotoğraf Koleksiyonu.",
+    "en": "Maize growing along the Nile, Egypt, 1934. Matson Photograph Collection.",
+    "_dayanak": "Künye başlığı: 'Agriculture in Egypt. Maize, Indian corn. (Zea Mays). Luxuriant growth along the Nile' · tarih 1934"
+  },
+  "misir_pamuk_muzesi": {
+    "tr": "Pamuk Müzesi, Mısır, 27 Ağustos 2025.",
+    "en": "The Cotton Museum, Egypt, 27 August 2025.",
+    "_dayanak": "nesne_adi 'Cotton Museum, Egypt (60611)' + kategori 'Cotton Museum (Egypt)' + tarih 2025-08-27"
+  },
+  "misir_pamuk_tarlasi_1934": {
+    "tr": "Toplanmaya hazır pamuk tarlası, Mısır, 1934. Matson Fotoğraf Koleksiyonu.",
+    "en": "A cotton field ready to be picked, Egypt, 1934. Matson Photograph Collection.",
+    "_dayanak": "Künye başlığı: 'Agriculture in Egypt. Egyptian cotton. (Gossypium Peruvianum). Field of cotton ready to be picked' · tarih 1934"
+  },
+  "misir_portakal_bahcesi": {
+    "tr": "Hurma ağaçlı portakal bahçesi, Aşağı Mısır, Mart 1999.",
+    "en": "An orange orchard with date palms, Lower Egypt, March 1999.",
+    "_dayanak": "açıklama 'Orange orchard with date palm trees. Lower Egypt' + tarih 1999-03"
+  },
+  "misir_narenciye_kahire": {
+    "tr": "Narenciye, Kahire, Mısır, 15 Mart 2012.",
+    "en": "Citrus fruit, Cairo, Egypt, 15 March 2012.",
+    "_dayanak": "nesne_adi '2012 citrus Cairo' + açıklama 'Egypt, Cairo' + tarih 2012-03-15"
+  },
+  "misir_pirinc_ekim": {
+    "tr": "Pirinç ekimi, Mısır, 21 Haziran 2023. Kaynak ili kaydetmiyor.",
+    "en": "Rice planting, Egypt, 21 June 2023. The source does not record the governorate.",
+    "_dayanak": "nesne_adi 'Rice planting 1' + kategori 'Paddy fields in Egypt' + tarih 2023-06-21"
+  },
+  "misir_tarlada_calisan": {
+    "tr": "Tarlasında yabancı ot temizleyen çiftçi, Mısır, 1 Temmuz 2023.",
+    "en": "A farmer clearing weeds in his field, Egypt, 1 July 2023.",
+    "_dayanak": "açıklama 'A farmer works in his field, cleaning the weeds.' + kategori 'Farmers from Egypt' + tarih 2023-07-01"
+  },
+  "misir_bugday_fayyum": {
+    "tr": "Feyyum'da buğday hasadı, Mısır, 3 Mayıs 2023.",
+    "en": "Wheat harvest in Fayoum, Egypt, 3 May 2023.",
+    "_dayanak": "nesne_adi (Arapça) 'حصاد القمح بالفيوم' — 'Feyyum'da buğday hasadı' · kategori 'Agriculture in Egypt' · tarih 2023-05-03"
+  },
+  "misir_pamuk_toplama": {
+    "tr": "Pamuk toplama, Mısır, 1934-1939 arası. Matson Fotoğraf Koleksiyonu.",
+    "en": "Picking cotton, Egypt, between 1934 and 1939. Matson Photograph Collection.",
+    "_dayanak": "Künye başlığı: 'Egypt. Types & agriculture. Picking cotton' · tarih 'between 1934 and 1939'"
+  },
+  "misir_konteyner": {
+    "tr": "İskenderiye limanına götürülen yük konteyneri, Mısır, 2 Kasım 2008.",
+    "en": "A freight container on its way to the port of Alexandria, Egypt, 2 November 2008.",
+    "_dayanak": "açıklama 'CMA CGM container loaded on a truck to be delivered to ALexandria port, Egypt' + tarih 2008-11-02"
+  },
+  "_reddedilen_notu": "misir_nil_kopru GÖZLE REDDEDİLDİ: stereograf olduğu için kırpıldı, kırpımdan sonra kareler Nil'de FELUKA çıktı ve tasarim.json'un yasak listesi feluka siluetini ülke kartpostalı sayıyor. Devedeki gerekçe burada yok — deve bir tarım aletini çalıştırıyordu."
+}

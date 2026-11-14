@@ -1083,3 +1083,172 @@ kayıtlı**), iki arazi artış farkı, üç tanenin alan toplamı, kırsalın t
    anahtar kelimeler, ana sayfa hikâyesi.
 3. `dogrula_yayin.py`.
 4. Devir ve dağıtım — **kullanıcı onayı olmadan yapılmaz.**
+
+---
+
+## Tur 9 — GÖRSELLER VE YAYIN KÜNYESİ
+
+`gorsel_ara.mjs` · `gorsel_indir.mjs` · `altyazilar.json` ·
+`kur_gorseller.py` · `kur_yayin.py` · `dogrula_yayin.py` (12 kural).
+
+### Devralınan iki betikte üç değişiklik
+
+**1 · Kullanıcının e-postası istek başlığından çıkarıldı.** Dizideki bütün
+görsel betikleri (Irak, Avustralya, DSİ, Rusya, Ziraat) User-Agent'a
+kullanıcının adresini koyuyor. Mısır'ınkinden çıkarıldı.
+
+> **BEDELİ ÖLÇÜLDÜ.** `upload.wikimedia.org` dosya indirmelerine **429**
+> döndürüyor — doğrudan `curl` bile alıyor. Wikimedia'nın kullanım şartı
+> otomatik isteklerde iletişim adresi istiyor; öteki betikler tam bu yüzden
+> adresi koyuyor. Beş kare yaklaşık yirmi beş dakika sürdü.
+> **Kullanıcı kararı (13 Kasım 2026): beklemek.** Adres dışarı çıkmıyor.
+
+**2 · 429 geri çekilmesi eklendi.** Irak'ın betiğinde sorgular arasında hiç
+bekleme yoktu; dördüncü sorguda düştü. 2/4/6 sn de yetmedi. Şimdi
+5/10/20/40/80 sn, istekler arası 1,5 sn.
+
+**3 · Açıklama, tarih ve nesne adı alanları eklendi.** Irak'ın indiricisi
+yalnız atıf ve lisans alıyordu — oysa **altyazı tam o alanlardan yazılır**.
+
+### Künye tek toplu çağrıda alındı
+
+İndirici on sekiz başlığı tek tek sorguyor, yani on sekiz ayrı 429 riski.
+Künye bilgisi ayrıca **tek** `titles=a|b|c` çağrısıyla alındı ve altyazılar
+indirme bitmeden yazıldı.
+
+### ALTYAZILAR — yer yalnız kaynak söylüyorsa yazıldı
+
+Altı karenin açıklaması boştu (yalnız "Farm to Plate" ibaresi). Yerleri
+Commons **kategorilerinden** okundu:
+
+| kare | kaynağın verdiği yer |
+|---|---|
+| buğday hasadı | **Sharqia Governorate** → Şarkiye |
+| atla tarla hazırlığı | **Dakahlia Governorate** → Dakahliye |
+| buğday hasadı (Arapça başlık) | başlık **بالفيوم** → Feyyum |
+| pirinç hasadı / pirinç ekimi | yalnız "Paddy fields in Egypt" |
+| Mısırlı çiftçiler | yalnız "People of Egypt in 2023" |
+
+Son üçünün altyazısı **ili söylemiyor** ve bunu açıkça yazıyor: "Kaynak ili
+kaydetmiyor." Kategoriden ülke okunup ilin tahmin edilmesi uydurma olurdu.
+
+**Matson sıfatı alınmadı.** Koleksiyonun 1900-1939 künyeleri üç karede
+*"Primitive irrigation"* diyor. Bu sıfat dönemin sömürge dilinden geliyor ve
+bir alet tarifi değil, bir değer yargısı. Altyazılar aletin ne olduğunu
+yazıyor — "kanaldan su çıkarmakta kullanılan burgulu boru" — sıfatı
+tekrarlamıyor. Künye `_dayanak` alanında birebir duruyor.
+
+On sekiz altyazının on sekizi kadraj sözcüğü, görünüş envanteri ve tarih
+denetiminden geçiyor.
+
+### DEVE — yasağa gerekçeli istisna (kullanıcı kararı)
+
+`tasarim.json`'un yasak listesi "deve, palmiye silueti, gün batımı — ülke
+kartpostalı" diyordu ve §4'ün karesi deveyle döndürülen bir su dolabı.
+Çelişki kullanıcıya soruldu; karar: **kareyi bırak, yasağa gerekçeli istisna
+yaz.**
+
+İstisna kareye değil **AYRIMA** verildi: deve bir manzara süsü olarak
+kadraja girerse yasak geçerli, bir **tarım aletinin parçası** olarak girerse
+değil. Sakiye zaten §4'ün konusu — suyun tarlaya nasıl çıkarıldığı.
+
+### Başka bir dosyada bulunan hata
+
+`tigem/_raw/gorsel_yerlestir.py`'nin künyesi kuralın **yanlış hâlini**
+taşıyordu: *"karede NE GÖRÜNÜYORSA o"*. Altyazılar 12 Kasım'da düzeltilmiş
+ama bu satır atlanmış — ve bir sonraki dosya betiği kopyalarken kuralı da
+kopyalardı. Düzeltildi; yalnız açıklama satırı.
+
+### Yayın künyesi doğrulayıcısı — 12 kural
+
+Irak'tan sekiz yapısal kural, TİGEM'den üç altyazı kuralı (kadraj sözcüğü,
+görünüş envanteri, tarih zorunluluğu) ve bu dosyada doğan on ikincisi:
+
+> **Her altyazının `_dayanak` alanı var** — hangi künye alanından yazıldığı
+> yazılı. O alan olmadan öteki üç kural yalnız ÜSLUBU denetler; dayanak
+> alanı altyazının KAYNAĞINI denetlenebilir kılıyor.
+
+### Bölüm → görsel
+
+Kapak ve §2 **aynı** kareyi kullanıyor. Tekrar bilinçli: §2'nin konusu
+zaten vadinin çöl sınırı, yani kapağın gösterdiği şey. On sekiz bölüme on
+sekiz ayrı kare bulunamadığı için değil.
+
+### Ana sayfa hikâyesi — beş slayt
+
+Tarla → su → buğday → pirinç çelişkisi → portakal. İlk dördü Mısır'ın kendi
+tarımı; Türkiye yalnız beşinci slaytta. **Hiçbir slayt ticaret rakamı
+taşımıyor:** iki beyan birbirini tutmuyor (%58,8 ve %53,1) ve bir slayta
+sığmayacak kadar şerh ister.
+
+## Tur 9'da kalan
+
+1. İndirmenin bitmesi (arka planda, yavaş).
+2. `kur_gorseller.py` → kopyala, 1440 px'e küçült, `en_boy`'u **diskten**
+   yeniden ölç.
+3. `kur_yayin.py` → `yayin.json`.
+4. `dogrula_yayin.py`.
+5. **Kareleri gözle açmak.** Betik gözün yerine geçmez: Irak dosyasında on
+   dokuz adayın üçü gözle açıldığında reddedildi, iki başlık yalan
+   söylüyordu.
+6. Devir ve dağıtım — **kullanıcı onayı.**
+
+### TUR 9 EKİ — İNDİRME TIKANIKLIĞININ ASIL SEBEBİ
+
+Bekleme işe yaramadı: on sekiz karenin **on ikisi** 429'da kaldı, geri
+çekilme tükendi. Sebep e-postanın yokluğu değilmiş — **asılları
+indiriyordum.** Biri 17 MB, toplam 41 MB.
+
+Oysa yayına giden boyut 1440 px. `iiurlwidth=1600` ile Commons'ın kendi
+küçültücüsü çağrılınca aktarım elli kat azaldı ve sayı altıdan on dörde
+birkaç saniyede çıktı.
+
+> **DERS:** 429'u aşmanın yolu daha çok beklemek ya da kimlik göstermek
+> değil, **daha az veri istemek**ti. Asıl hiç gerekmiyordu.
+
+İki kare yine de takıldı — ikisi de 1600 px'ten **dar** olduğu için Commons
+küçültme üretmiyor ve betik asıl adrese düşüyor; tıkanan tam o adres.
+Asıldan bir tık dar istenince (900 ve 800 px) ikisi de indi.
+
+**Betik ayrıca hatayı GİZLİYORDU:** çıktısı `| tail`'e borulandığı için
+`process.exit(1)` kayboluyor ve kabuk 0 görüyordu. İlk koşuda "exit code 0"
+yazdığı hâlde on iki kare inmemişti.
+
+### GÖZLE DENETİM — betiğin göremediği üç şey
+
+Yayın künyesi 12 kuralın 12'sinden geçti. Sonra kareler gözle açıldı:
+
+**1 · §4 ve §14 STEREOGRAF.** Matson negatifleri yan yana iki kare taşıyor;
+sayfada çift görüntü çizilirdi. Ayraç ölçülerek bulundu (§4'te x=711 değeri
+30, ortam 138; §14'te x=722 değeri 22, ortam 122) ve sol kare ayrıldı.
+İlk kırpma denemesi kenarlığı KOYU sanıp beyaz boşluğu kesmedi; kenarlık
+beyazmış, ikinci denemede düzeldi.
+
+**2 · §14 KENDİ YASAĞIMI ÇİĞNİYORDU.** Kırpımdan SONRA görüldü: kareler
+Nil'de **feluka** ve `tasarim.json`'un yasak listesi "Nil'de feluka silueti
+— ülke kartpostalı" diyor. Devedeki gerekçe burada yok: deve bir tarım
+aletini çalıştırıyordu, bunlar yelkenli. Kare reddedildi, yerine
+İskenderiye limanına giden **yük konteyneri** kondu — §14 gümrük
+defterlerini anlatıyor ve konu mal geçişi. Red gerekçesi
+`kunye.json/_reddedilenler` ve `altyazilar.json` içinde yazılı.
+
+**3 · §11'İN KARESİ OKUNMUYORDU.** 1934 tarihli "toplanmaya hazır pamuk
+tarlası" o kadar karanlık ki pamuk olduğu seçilmiyor. §11 dosyanın en büyük
+düşüş hikâyesi (%−84,6); okunmayan bir kare oraya konamaz. **§11 ↔ §18**
+değiştirildi: okunabilen pamuk TOPLAMA karesi pamuk bölümüne, karanlık
+tarla karesi kaynakçaya.
+
+### `en_boy` KURALI İŞE YARADI
+
+Kırpılan sakiye karesinin oranı **1,3521 → 0,6715**. API'den kopyalansaydı
+sayfa onu yanlış oranla çizerdi. Irak dosyasında aynı kural aynı sebeple
+konmuştu; burada gerçekten kurtardı.
+
+Küçültme toplamı: **41,04 MB → 4,56 MB (%88,9).**
+
+## Tur 10'a kalan
+
+1. **Kullanıcının kareleri onaylaması** — özellikle §17 (buğday başağı
+   yakın çekimi; künye "hasat" diyor, kare bir başak) ve §18 (soluk tarama).
+2. Devir: `status` → `published`, pencere, "Yakında" kartı.
+3. Dağıtım — **kullanıcı onayı olmadan yapılmaz.**

@@ -9,9 +9,16 @@ Adımlar:
   4. kunye.json yaz (atıf ve lisans API'den; altyazılar elle)
   5. yayin.json/bolum_gorselleri ve hikaye slayt görsellerini yaz
 
-Altyazılar `altyazilar.json` dosyasından okunur ve ELLE yazılır: karede NE
-GÖRÜNÜYORSA o. Kullanıcı kuralı (8 Kasım 2026): "görselin ne olduğunu
-kullanıcı için yaz, teknik analiz tahlilini değil."
+Altyazılar `altyazilar.json` dosyasından okunur ve ELLE yazılır — ama
+KÜNYEDEN, kareden değil: konu + yer + tarih, kaynağın kendi açıklamasından.
+
+DÜZELTME (13 Kasım 2026). Bu künye kuralın YANLIŞ hâlini taşıyordu: "karede
+NE GÖRÜNÜYORSA o". Kullanıcı düzeltmeyi İKİ KEZ verdi (8 ve 12 Kasım 2026):
+"fotoda ne olduğunu analiz etme, fotonun ne olduğunu caption olarak yaz."
+Yanlış kayıt bu dosyanın on dört altyazısından dördünde maddi hata üretmişti
+(makineye ait sanılan logo, TİGEM'e atfedilen atlar, "aynı tarla" sayılan iki
+ayrı kare, orak diye yazılan tırpan). Altyazılar o gün düzeltildi, bu satır
+atlanmıştı — ve bir sonraki dosya betiği kopyalarken kuralı da kopyalardı.
 """
 from __future__ import annotations
 

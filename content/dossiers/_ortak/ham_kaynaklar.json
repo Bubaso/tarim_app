@@ -3,9 +3,9 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 183,
- "toplam_bayt": 516159007,
- "kaynak_adresi_olmayan": 119,
+ "dosya_sayisi": 185,
+ "toplam_bayt": 519897571,
+ "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
    "yol": "content/dossiers/avustralya/_raw/gorseller/avustralya_ana_kanal.jpg",
@@ -1630,6 +1630,30 @@
     "atif": "T.C. Tarım ve Orman Bakanlığı, Eğitim ve Yayın Dairesi Başkanlığı",
     "lisans": "Lisans ilan edilmemiş — yarışmanın katılım şartları sayfası boş dönüyor",
     "lisans_adresi": null
+   }
+  },
+  {
+   "yol": "content/uzay_tarimi/_raw/kaynak_dosyalari/marul.pdf",
+   "bayt": 1877785,
+   "sha256": "985a8cab4f614bf07bceffd56d4bc909538ff6760429efd209b4526ad9edaedf",
+   "kaynak": {
+    "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.00199/pdf",
+    "atif": "Khodadad vd. 2020 · Frontiers in Plant Science 11:199 · doi 10.3389/fpls.2020.00199",
+    "lisans": "Açık erişim — Frontiers, CC BY",
+    "lisans_adresi": "https://creativecommons.org/licenses/by/4.0",
+    "_not": "ÖZETİ İLE SONUÇLAR BÖLÜMÜ AYRIŞIYOR; ayrıntı `_raw/marul.json`. Özet 'uçuş↔yer farkı var' okutuyor, sonuçlar bölümü 'her deneyin içinde fark yok' diyor."
+   }
+  },
+  {
+   "yol": "content/uzay_tarimi/_raw/kaynak_dosyalari/nasa_space_crops.pdf",
+   "bayt": 1860779,
+   "sha256": "2acbba91b60513d14257e2dcc9b9aaf8f5321545cb0fc73b23b9fc346f504cbe",
+   "kaynak": {
+    "adres": "https://ntrs.nasa.gov/api/citations/20250001897/downloads/20231215%20Space%20Crops%20HRP%20FINAL%20STRIVES%203.pdf",
+    "atif": "NASA/TM-20250001897 · Space Crop Considerations for Human Exploration · Temmuz 2024 · Kennedy Uzay Merkezi",
+    "lisans": "NASA teknik memorandumu — ABD hükümeti eseri, kamu malı",
+    "lisans_adresi": null,
+    "_not": "Uzayda Tarım alanının birincil belgesi. Ek E'de 13 ekin tablosu, Tablo A-3'te CRL 9'u geçen dokuz ekin. `_raw/nasa_ekin_ayikla.py` bunu ayrıştırıyor."
    }
   }
  ],
