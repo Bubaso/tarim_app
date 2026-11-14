@@ -5,15 +5,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../core/network/supabase_client.dart';
 import '../../../core/utils/iso_week.dart';
 import '../../../core/utils/localization_helper.dart';
-import '../data/models/ai_suggestion.dart';
 import '../data/models/news_article.dart';
 import '../data/models/weather_info.dart';
 import '../data/models/market_data.dart';
 import '../data/repositories/home_repository.dart';
 import 'hero_rotation.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import '../../../core/utils/turkce_metin.dart';
 
 final homeRepositoryProvider = Provider<HomeRepository>((ref) {
@@ -897,14 +893,21 @@ class LocationData {
 }
 
 class ActiveLocationNotifier extends Notifier<LocationData> {
-  bool _hasAttemptedDetection = false;
-
+  /// ══ KONUM AÇILIŞTA SORULMUYOR ═══════════════════════════════════════
+  /// Burada `build()` içinden otomatik bir konum tespiti çalışıyordu ve o
+  /// tespit `Geolocator.requestPermission()` çağırıyordu. Tarayıcıda bunun
+  /// karşılığı şu: site her açıldığında konum izni kutusu çıkıyordu —
+  /// okur haber okumaya gelmişken, istemediği bir şey için.
+  ///
+  /// İzin artık yalnız okur AÇIKÇA isteyince soruluyor: hava durumu
+  /// ekranındaki "GPS Kullan (Tarlamın Konumu)" düğmesi. O akış konumu
+  /// alıp bu sağlayıcıyı `update()` ile güncelliyor, yani kaybedilen bir
+  /// yetenek yok — kaybedilen tek şey davetsiz soru.
+  ///
+  /// Varsayılan konum aşağıda duruyor ve okur düğmeye basana kadar o
+  /// kalıyor.
   @override
   LocationData build() {
-    if (!_hasAttemptedDetection) {
-      _hasAttemptedDetection = true;
-      Future.microtask(_detectLocation);
-    }
     return const LocationData(
       name: 'Polatlı, Ankara',
       latitude: 39.58,
@@ -916,52 +919,6 @@ class ActiveLocationNotifier extends Notifier<LocationData> {
     state = value;
   }
 
-  Future<void> _detectLocation() async {
-    try {
-      LocationPermission permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-      }
-      if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
-        return;
-      }
-
-      final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low,
-        timeLimit: const Duration(seconds: 5),
-      );
-
-      final isEn = ref.read(localeProvider).languageCode == 'en';
-      String name = isEn ? 'GPS Location' : 'GPS Konumu';
-      
-      try {
-        final res = await http.get(
-          Uri.parse('https://nominatim.openstreetmap.org/reverse?lat=${position.latitude}&lon=${position.longitude}&format=json&accept-language=${isEn ? "en" : "tr"}'),
-          headers: {'User-Agent': 'tarim_app_agent'},
-        ).timeout(const Duration(seconds: 3));
-        
-        if (res.statusCode == 200) {
-          final data = jsonDecode(res.body);
-          final address = data['address'];
-          if (address != null) {
-            name = address['suburb'] ?? address['town'] ?? address['district'] ?? address['city'] ?? address['province'] ?? name;
-            final prov = address['province'] ?? address['state'] ?? '';
-            if (prov.isNotEmpty && !name.contains(prov)) {
-              name = '$name, $prov';
-            }
-          }
-        }
-      } catch (_) {}
-
-      state = LocationData(
-        name: name,
-        latitude: position.latitude,
-        longitude: position.longitude,
-      );
-    } catch (_) {
-      // Ignore errors, keep default location
-    }
-  }
 }
 
 /// State provider for tracking active weather location. Defaults to Polatlı, Ankara.
@@ -990,11 +947,6 @@ final marketProvider = FutureProvider<MarketResult>((ref) {
 });
 
 /// Future provider for fetching pending AI suggestions.
-final pendingSuggestionsProvider = FutureProvider<List<AiSuggestion>>((ref) {
-  final repository = ref.watch(homeRepositoryProvider);
-  return repository.fetchPendingSuggestions();
-});
-
 /// Future provider for searching articles by query
 final searchArticlesProvider = FutureProvider.family<List<NewsArticle>, String>((ref, query) {
   if (query.isEmpty) return Future.value([]);
