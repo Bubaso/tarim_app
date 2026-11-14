@@ -280,11 +280,21 @@ class HomeRepository {
   /// `id` ve `created_at` kartta görünmüyor ama şart: biri kimlik, öteki
   /// sıralama. `published_at` kaynak tarihi rozetini, `hero_score` manşet
   /// skoru sıralamasını besliyor.
+  // `story_image_url` ve `title_en` onay ekranının denetimi için:
+  // "hikâye türevi var mı", "İngilizce başlık çevrilmiş mi".
+  // `is_hero` ve `is_breaking` kartın karar çipleri için.
+  //
+  // Gövde BİLEREK yok. Kuyruk hafif kalmalı; gövdeye bağlı kurallar yalnız
+  // haber tek tek açıldığında, tam satır alındığında çalışıyor.
+  //
+  // AÇIKLAMA DİZENİN DIŞINDA: sütun listesini kaynaktan okuyan sınavlar
+  // tanımı noktalı virgüle kadar ayrıştırıyor, yorumun içindeki bir noktalı
+  // virgül listeyi ortadan kesiyor (15 Kasım 2026'da tam olarak bu oldu).
   static const String _kuyrukSutunlari =
       'id,title,summary,image_url,thumb_image_url,image_lqip,source_name,'
       'source_url,created_at,published_at,topic,region,category_id,'
       'hero_score,status,article_format,rejection_reason,rejected_at,'
-      'ozel_bolum,scheduled_at';
+      'ozel_bolum,scheduled_at,story_image_url,title_en,is_hero,is_breaking';
 
   // `reddedilenleriIzle` kaldırıldı (11 Kas 2026): red artık satırı siliyor,
   // `status = 'rejected'` diye bir kayıt oluşmuyor. Sorgu her zaman boş

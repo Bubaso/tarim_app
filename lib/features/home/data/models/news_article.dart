@@ -37,6 +37,13 @@ class NewsArticle {
   /// türev 6 Kasım 2026'da eklendi, ondan eski haberlerin çoğunda yok.
   final String? thumbImageUrl;
 
+  /// 1080×2340 dikey hikâye türevi.
+  ///
+  /// Sorguda zaten çekiliyordu ama modele hiç alınmamıştı; onay ekranının
+  /// denetimi "hikâye türevi var mı" diye soruyor ve bunu okumadan
+  /// cevaplayamıyor. Yayındaki 1.412 haberin 437'sinde boş.
+  final String? storyImageUrl;
+
   /// 24 piksellik önizlemenin base64 `data:` URI'si.
   ///
   /// Tek işi görselin rengini İLK KAREDE ekrana koymak. Ağ isteği
@@ -154,6 +161,7 @@ class NewsArticle {
     required this.createdAt,
     this.publishedAt,
     this.thumbImageUrl,
+    this.storyImageUrl,
     this.imageLqip,
     this.status,
     this.categoryId,
@@ -231,6 +239,7 @@ class NewsArticle {
       // ayrıştırılamaması, tarihin boş kalmasından çok daha kötü.
       publishedAt: DateTime.tryParse(json['published_at']?.toString() ?? ''),
       thumbImageUrl: json['thumb_image_url']?.toString(),
+      storyImageUrl: json['story_image_url']?.toString(),
       imageLqip: json['image_lqip']?.toString(),
       status: json['status']?.toString(),
       categoryId: json['category_id']?.toString(),
@@ -288,6 +297,7 @@ class NewsArticle {
       'created_at': createdAt.toIso8601String(),
       'published_at': publishedAt?.toIso8601String(),
       'thumb_image_url': thumbImageUrl,
+      'story_image_url': storyImageUrl,
       'image_lqip': imageLqip,
       'status': status,
       'category_id': categoryId,
@@ -339,6 +349,7 @@ class NewsArticle {
     DateTime? createdAt,
     DateTime? publishedAt,
     String? thumbImageUrl,
+    String? storyImageUrl,
     String? imageLqip,
     String? status,
     String? categoryId,
@@ -377,6 +388,7 @@ class NewsArticle {
       createdAt: createdAt ?? this.createdAt,
       publishedAt: publishedAt ?? this.publishedAt,
       thumbImageUrl: thumbImageUrl ?? this.thumbImageUrl,
+      storyImageUrl: storyImageUrl ?? this.storyImageUrl,
       imageLqip: imageLqip ?? this.imageLqip,
       status: status ?? this.status,
       categoryId: categoryId ?? this.categoryId,

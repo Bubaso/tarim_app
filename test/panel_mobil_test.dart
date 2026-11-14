@@ -89,6 +89,26 @@ void main() {
     expect(n, 0);
   });
 
+  testWidgets('karar çipleri ve denetim çiziliyor', (t) async {
+    // Yeni onay ekranının üç parçası: denetim şeridi, manşet adayı ve
+    // son dakika çipleri. Üçü de kararın verildiği yerde olmalı.
+    await _tasma(t, const Size(375, 812), [
+      _h(1), // kapağı yok → denetim ağır bulgu üretir
+    ]);
+    expect(find.text('Manşet adayı'), findsOneWidget);
+    expect(find.text('Son dakika'), findsOneWidget);
+    expect(find.textContaining('ciddi sorun'), findsWidgets);
+  });
+
+  testWidgets('deste varsayılan · liste düğmesiyle geçiliyor', (t) async {
+    await _tasma(t, const Size(375, 812), [_h(1), _h(2), _h(3)]);
+    // Deste: tek haber görünür, sayaç 1/3 yazar.
+    expect(find.text('1 / 3'), findsOneWidget);
+    await t.tap(find.byTooltip('Liste görünümü'));
+    await t.pump(const Duration(milliseconds: 300));
+    expect(find.text('1 / 3'), findsNothing);
+  });
+
   testWidgets('kuyruk · masaüstü', (t) async {
     final n = await _tasma(t, const Size(1440, 900), [_h(1), _h(2)]);
     debugPrint('MASAÜSTÜ taşma: $n');
