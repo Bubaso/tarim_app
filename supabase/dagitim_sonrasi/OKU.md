@@ -28,5 +28,13 @@ kalır.
 
 ## Bekleyen
 
+Şu an bekleyen göç yok.
+
+## Geçmiş
+
 - `20261115150000_ses_ozelligi_kaldirildi.sql` — ses sütunları ve
-  kullanılmayan `publish_at` düşürülüyor.
+  kullanılmayan `publish_at`. **15 Kasım 2026'da doğru sırayla uygulandı:**
+  önce dağıtım yapıldı, canlının yeni derlemesinin artık o sütunları
+  istemediği `main.dart.js` içinde arama yapılarak doğrulandı (audio_url 0,
+  is_radio 0, publish_at 0 eşleşme), sonra göç uygulandı ve ana sayfa
+  yeniden sınandı. Göç `supabase/migrations/` altına taşındı.

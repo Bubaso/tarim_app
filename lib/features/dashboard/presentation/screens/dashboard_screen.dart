@@ -1370,7 +1370,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
                                             ScaffoldMessenger.of(context).showSnackBar(
                                               SnackBar(
                                                 content: Text(ok
-                                                    ? 'Reddedildi. Arşivde duruyor, geri alınabilir.'
+                                                    // MESAJ DOĞRUYU SÖYLÜYOR (15 Kasım 2026).
+                                                    // Burada "arşivde duruyor, geri alınabilir"
+                                                    // yazıyordu; red 11 Kasım'da satırı SİLMEYE
+                                                    // çevrildi ve arşiv diye bir yer kalmadı.
+                                                    // Olmayan bir geri dönüşü vaat ediyordu.
+                                                    ? 'Haber silindi. Geri alınamaz; hat bir daha getirmeyecek.'
                                                     : 'Reddedilemedi: ${repo.sonYazmaHatasi ?? 'yetki yok ya da oturum düşmüş'}'),
                                                 backgroundColor: ok ? null : Colors.redAccent,
                                               ),

@@ -21,16 +21,29 @@ Outfit
 #
 # 5 Kasım 2026: "Haberi reddet" belirteci KALDIRILDI çünkü düğmenin adı
 # "Reddet" oldu — kuyruk kendi sekmesine taşınırken. Yetenek kaybolmadı,
-# etiket kısaldı. Etiket yerine reddin ASIL davranışını söyleyen bildirim
-# metni bekçiye kondu: red artık silmiyor, geri alınabilir bir durum
-# değişikliği yapıyor. Etiket değişir, bu davranış değişmemeli.
-Arşivde duruyor, geri alınabilir
+# etiket kısaldı.
+#
+# 15 KASIM 2026: "Arşivde duruyor, geri alınabilir" belirteci de KALDIRILDI.
+# O metin reddin davranışını anlatıyordu ve davranış 11 Kasım'da değişti:
+# red artık satırı SİLİYOR (kullanıcı kararı — "reddedilen bir haberi bir
+# daha görmek istemiyorum"). Arşiv diye bir yer kalmadı, dolayısıyla o
+# cümle olmayan bir geri dönüşü vaat ediyordu. Yerine yeni davranışı
+# söyleyen cümle kondu.
+Geri alınamaz
 Toplu red
 Toplu onay
 Onay Kuyruğu
 
-# ── Kaynak karnesi (tablo: source_scorecard) ──
-Kaynak Karnesi
+# ── Kaynak karnesi — KALDIRILDI (kullanıcı kararı, 15 Kasım 2026) ──
+#
+# Ekranın tek işi kaynak başına red yüzdesini göstermekti. 11 Kasım'da red
+# satırı silmeye çevrilince `source_scorecard` görünümü redleri sayamaz
+# oldu ve 206 kaynağın HEPSİ için "0 red" döndürmeye başladı — gerçek red
+# sayısı 1.400'ün üzerindeyken. Kullanıcı: "redleri saymadığımız için artık
+# gereksiz oldu, sil."
+#
+# Ekran, sağlayıcısı, depo yöntemi ve veritabanı görünümü silindi. Bu
+# KAYIP DEĞİL, bilinçli düşürme — belirteç bu yüzden listede yok.
 
 # ── Sesli yayın / radyo — KAPSAM DIŞI (kullanıcı kararı, 28 Ekim 2026) ──
 #
