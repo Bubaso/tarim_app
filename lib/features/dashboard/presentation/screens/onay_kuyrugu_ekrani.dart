@@ -693,15 +693,25 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   Widget _denetimSeridi(NewsArticle article) {
     final bulgular = _bulgular(article);
     if (bulgular.isEmpty) return const SizedBox.shrink();
-    // Ağır bulgu varsa şerit açık doğuyor; hafif uyarıda kapalı duruyor.
-    final acik = _acikDenetim == article.id ||
-        (_acikDenetim == null && bulgular.any((b) => b.agir));
+    // ŞERİT AÇIK DOĞUYOR (15 Kasım 2026).
+    //
+    // Eskiden yalnız ağır bulguda açılıyordu; hafif uyarıda tek satırlık
+    // kapalı bir şerit kalıyordu ve düzeltme düğmeleri onun arkasında
+    // gizliydi. Kullanıcı "herhangi bir düzenleme düğmesi göremiyorum"
+    // dedi ve haklıydı: kuyruktaki 15 haberin 13'ü tertemizdi, kalan
+    // ikisinde yalnız hafif uyarı vardı, yani düğmelerin hiçbiri
+    // görünmüyordu.
+    //
+    // "Sakin ekran" ilkesi bozulmuyor: temiz haberde hâlâ HİÇBİR ŞEY
+    // çizilmiyor. Uyarı varsa zaten bakılması gereken bir şey var.
+    final acik = _acikDenetim != '';
     return DenetimSeridi(
       bulgular: bulgular,
       isDark: isDark,
       acikMi: acik,
+      // Kapatma hâlâ mümkün: şerit başlığına dokunulunca kapanıyor.
       acKapa: () => setState(
-          () => _acikDenetim = _acikDenetim == article.id ? '' : article.id),
+          () => _acikDenetim = _acikDenetim == '' ? null : ''),
       duzelt: (b) => _bulguyuDuzelt(article, b),
     );
   }
@@ -737,10 +747,15 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
               tam.contentEn ?? '', true);
         }
       case 'gorsel':
-        // Görsel araçları inceleme panelinde: kapak seçimi, gövdeden
-        // kaldırma, kaynak görselleri. Panel açılıyor ve oraya kayılıyor.
-        setState(() => _acikInceleme = article.id);
-        _bildir('Görsel araçları aşağıdaki inceleme panelinde.');
+        if (b.anahtar == 'kapak_yok') {
+          // Kapak seçimi inceleme panelinde: gövdedeki görsellerden biri
+          // kapak yapılıyor. Burada üretilecek bir şey yok, SEÇİLECEK bir
+          // şey var.
+          setState(() => _acikInceleme = article.id);
+          _bildir('Kapak seçimi aşağıdaki inceleme panelinde.');
+        } else {
+          await _turevUret(article);
+        }
       case 'mukerrer':
         // Mükerrer haberin tek doğru karşılığı reddetmek. Onay kutusu
         // `_tekReddet` içinde zaten sorulmuyor — red tek dokunuş, ama
@@ -749,6 +764,32 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
       default:
         _bildir('Bu uyarı için otomatik düzeltme yok.');
     }
+  }
+
+  /// Eksik görsel türevlerini üretir.
+  ///
+  /// Üretim tarayıcıda yapılamıyor: görseli indirip yeniden boyutlandırmak
+  /// ve depoya yazmak sunucu işi. İş kuyruğa yazılıyor, Mac'teki dinleyici
+  /// çalıştırıyor — "Haber çek" düğmesiyle aynı yol.
+  ///
+  /// Dinleyici kapalıysa iş beklemede kalır ve HİÇBİR ŞEY OLMAZ; o yüzden
+  /// önce dinleyicinin açık olup olmadığına bakılıyor ve kapalıysa sebebi
+  /// söyleniyor.
+  Future<void> _turevUret(NewsArticle article) async {
+    final acik = await ref.read(dinleyiciAcikProvider.future);
+    if (!mounted) return;
+    if (!acik) {
+      _bildir('Dinleyici kapalı — türev üretilemiyor. '
+          'Hat sekmesinde açma komutu yazıyor.');
+      return;
+    }
+    final id = await ref
+        .read(homeRepositoryProvider)
+        .hatIsiAc(tur: 'gorsel_turev', hedef: article.id);
+    if (!mounted) return;
+    _bildir(id == null
+        ? 'İş kaydı açılamadı.'
+        : 'Türevler üretiliyor. Birkaç saniye sonra kuyruğu tazele.');
   }
 
   /// Tek alanı düzenletip yazar.

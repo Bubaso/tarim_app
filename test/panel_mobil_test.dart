@@ -25,7 +25,8 @@ class _Depo extends HomeRepository {
             authOptions: const AuthClientOptions(autoRefreshToken: false)));
 }
 
-NewsArticle _h(int i, {DateTime? program}) => NewsArticle(
+NewsArticle _h(int i, {DateTime? program, bool kapakli = false}) =>
+    NewsArticle(
       id: 'a$i',
       title: 'TÜRKŞEKER pancar üreticisine sağlanan finansal destekleri açıkladı',
       content: '<p>g</p>',
@@ -37,6 +38,7 @@ NewsArticle _h(int i, {DateTime? program}) => NewsArticle(
       heroScore: 7,
       summary: 'özet metni',
       scheduledAt: program,
+      imageUrl: kapakli ? 'https://x/k_1200x630.jpg' : null,
     );
 
 Future<int> _tasma(WidgetTester t, Size olcu, List<NewsArticle> liste) async {
@@ -158,5 +160,16 @@ void _duzeltmeSinavlari() {
     // _h(1) kapaksız: ağır bulgu üretir, şerit açık doğar.
     expect(find.textContaining('ciddi sorun'), findsWidgets);
     expect(find.text('Kapak seç'), findsOneWidget);
+  });
+
+  testWidgets('yalnız HAFİF uyarı varken de düğmeler görünüyor', (t) async {
+    // 15 Kasım 2026: şerit yalnız ağır bulguda açılıyordu. Kuyruktaki 15
+    // haberin 13'ü tertemizdi, kalan ikisinde yalnız hafif uyarı vardı —
+    // yani kullanıcı hiçbir düzeltme düğmesi göremiyordu.
+    await _tasma(t, const Size(1440, 900), [
+      _h(2, kapakli: true), // kapak var, türevler yok → hafif uyarı
+    ]);
+    expect(find.textContaining('uyarı'), findsWidgets);
+    expect(find.text('Türevleri üret'), findsWidgets);
   });
 }

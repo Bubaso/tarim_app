@@ -382,11 +382,18 @@ class HomeRepository {
 
   /// Haber hattı için iş kaydı açar. Dönen kimlik günlüğü izlemekte
   /// kullanılıyor; `null` dönerse iş yazılamamış demektir.
-  Future<String?> hatIsiAc() async {
+  Future<String?> hatIsiAc({
+    String tur = 'haber_cek',
+    String? hedef,
+  }) async {
     try {
       final satir = await _supabaseClient
           .from('agent_jobs')
-          .insert({'status': 'pending', 'job_type': 'haber_cek'})
+          .insert({
+            'status': 'pending',
+            'job_type': tur,
+            if (hedef != null) 'hedef': hedef,
+          })
           .select('id')
           .single();
       return satir['id'] as String?;

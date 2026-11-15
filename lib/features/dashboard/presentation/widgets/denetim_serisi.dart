@@ -143,7 +143,7 @@ class _BulguSatiri extends StatelessWidget {
         'ozet_yok' || 'ozet_uzun' => 'Özeti düzenle',
         'govde_kisa' || 'govde_etiket' || 'govde_yarim' => 'Gövdeyi düzenle',
         'kapak_yok' => 'Kapak seç',
-        'kare_yok' || 'hikaye_yok' => 'Görsellere git',
+        'kare_yok' || 'hikaye_yok' => 'Türevleri üret',
         'ingilizce_eksik' || 'ingilizce_cevrilmemis' => 'İngilizceyi düzenle',
         'mukerrer_adres' || 'mukerrer_baslik' => 'Bu haberi reddet',
         _ => null,
