@@ -65,14 +65,12 @@ class _AdminHeroScreenState extends ConsumerState<AdminHeroScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Başlık yok: sekme zaten "Hero" diyor. Açıklama tek satıra
+            // indi — her gün çalışılan alandan yer çalan, bir kez okunup
+            // bir daha bakılmayan metin.
             Text(
-              'Hero Haber Yönetimi',
-              style: GoogleFonts.inter(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Burada Anasayfa Hero (Manşet) alanındaki 12 haberi sıralayabilir ve değiştirebilirsiniz. Bir haberi kaldırmak için yerine yenisini seçmelisiniz.',
-              style: GoogleFonts.inter(fontSize: 14, color: Colors.grey[600]),
+              'Manşetteki 12 haberi sırala · kaldırmak için yerine yenisini seç',
+              style: GoogleFonts.inter(fontSize: 12, color: Colors.grey[600]),
             ),
             const SizedBox(height: 12),
             _buildSabitlemeOzeti(),

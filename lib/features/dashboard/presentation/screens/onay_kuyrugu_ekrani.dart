@@ -521,7 +521,11 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     final hepsiSecili = liste.isNotEmpty && _secili.length == liste.length;
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(24, 20, 24, 16),
+      // Üst boşluk daraldı: panelin çerçevesi 46 piksele indi, burada da
+      // 20 piksel boşluk bırakmak çalışma alanından yer çalıyordu.
+      padding: EdgeInsets.fromLTRB(
+          MediaQuery.of(context).size.width < 600 ? 14 : 24, 10,
+          MediaQuery.of(context).size.width < 600 ? 14 : 24, 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

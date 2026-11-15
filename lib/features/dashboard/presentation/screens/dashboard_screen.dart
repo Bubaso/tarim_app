@@ -194,6 +194,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   static bool _dar(BuildContext context) =>
       MediaQuery.of(context).size.width < 600;
 
+  /// Sade sekme — ikon yok, yükseklik 46.
+  ///
+  /// İkonlar kaldırıldı: sekiz ikon hiçbir şeyi ayırt etmiyordu ve şeridi
+  /// 72 pikselden 46'ya indirmenin tek yolu onlardı. Etiket zaten yazıyor.
+  static Tab _sekme(String ad) => Tab(height: 46, text: ad);
+
   Future<void> _pickCoverImage() async {
     final StorageService storageService = StorageService();
     final url = await storageService.pickAndUploadImage();
@@ -538,76 +544,94 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
     final loc = AppLocalizations.of(context);
     final isEn = Localizations.localeOf(context).languageCode == 'en';
 
+    // ── PANEL ÇERÇEVESİ: TEK SATIR ───────────────────────────────────────
+    //
+    // Eskiden iki satır vardı: başlık çubuğu (56 px) ve altında ikonlu
+    // sekme şeridi (72 px) — 128 piksel, hiçbiri iş görmüyordu. Ekranların
+    // kendi başlıkları da üstüne binince çalışılacak alan ekranın dörtte
+    // birine iniyordu (kullanıcı ölçümü).
+    //
+    // Üçü birden kaldırıldı:
+    //   · Başlık çubuğu ile sekme şeridi TEK satırda birleşti.
+    //   · Sekmelerden ikonlar çıktı — sekiz ikon hiçbir şey ayırt
+    //     etmiyordu, etiketler zaten yazıyor.
+    //   · "Yönetim Paneli" yazısı gitti: zaten paneldesin.
+    //
+    // 128 piksel → 46 piksel.
+    final sekmeler = TabBar(
+      controller: _tabController,
+      // Kaydırılabilir: sekiz sekme eşit bölündüğünde 375 piksellik
+      // telefonda sekme başına 47 piksel düşüyordu, hiçbir etiket
+      // sığmıyordu.
+      isScrollable: true,
+      tabAlignment: TabAlignment.start,
+      labelColor: theme.colorScheme.primary,
+      unselectedLabelColor: theme.hintColor,
+      indicatorColor: theme.colorScheme.primary,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 14),
+      labelStyle: const TextStyle(
+          fontSize: 13.5, fontWeight: FontWeight.w700),
+      unselectedLabelStyle: const TextStyle(fontSize: 13.5),
+      tabs: [
+        // HAT İLK SIRADA: günün ilk işi haber çekmek ve "bugün ne oldu"
+        // sorusunu cevaplamak.
+        _sekme(isEn ? 'Pipeline' : 'Hat'),
+        _sekme(loc.translate('dash_tab_my_articles')),
+        // Onay kuyruğunda bekleyen sayısı etiketin yanında. İkon
+        // kalkınca rozet de oraya taşındı — sayı hangi sekmede olursan ol
+        // görünmeli.
+        Tab(
+          height: 46,
+          child: Consumer(
+            builder: (context, ref, _) {
+              final sayi = ref.watch(bekleyenSayisiProvider);
+              final ad = isEn ? 'Review Queue' : 'Onay Kuyruğu';
+              if (sayi == 0) return Text(ad);
+              return Row(mainAxisSize: MainAxisSize.min, children: [
+                Text(ad),
+                const SizedBox(width: 7),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 6, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary,
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: Text('$sayi',
+                      style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white)),
+                ),
+              ]);
+            },
+          ),
+        ),
+        _sekme(isEn ? 'Stories' : 'Hikâyeler'),
+        _sekme(isEn ? 'Hero News' : 'Hero'),
+        _sekme(isEn ? 'Video News' : 'Video'),
+        _sekme(loc.translate('dash_tab_stats')),
+        _sekme(isEn ? 'Columnists' : 'Yazarlar'),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc.translate('dash_title')),
-        bottom: TabBar(
-          controller: _tabController,
-          // KAYDIRILABİLİR (15 Kasım 2026). Sekmeler eşit bölünüyordu: sekiz
-          // sekme, 375 piksellik telefonda sekme başına 47 piksel — hiçbir
-          // etiket sığmıyordu. Kaydırılabilir şeritte her sekme kendi
-          // genişliğini alıyor, etiketler okunuyor.
-          isScrollable: true,
-          tabAlignment: TabAlignment.start,
-          labelColor: theme.colorScheme.primary,
-          unselectedLabelColor: theme.hintColor,
-          indicatorColor: theme.colorScheme.primary,
-          tabs: [
-            // HAT İLK SIRADA: günün ilk işi haber çekmek ve "bugün ne oldu"
-            // sorusunu cevaplamak. Panel açıldığında karşılayan ekran bu.
-            Tab(
-              icon: const Icon(Icons.rss_feed_rounded),
-              text: isEn ? 'Pipeline' : 'Hat',
-            ),
-            Tab(
-              icon: const Icon(Icons.newspaper_rounded),
-              text: loc.translate('dash_tab_my_articles'),
-            ),
-            // Onay kuyruğu İKİNCİ sırada ve rozetli: eskiden istatistik
-            // sekmesinin ortasına gömülüydü ve panele giren kişi kaç haberin
-            // kararını beklediğini ekranı bulup aşağı kaydırmadan
-            // öğrenemiyordu. Rozet hangi sekmede olursanız olun görünüyor.
-            Tab(
-              icon: Consumer(
-                builder: (context, ref, _) {
-                  final sayi = ref.watch(bekleyenSayisiProvider);
-                  final ikon = const Icon(Icons.inbox_rounded);
-                  if (sayi == 0) return ikon;
-                  return Badge.count(count: sayi, child: ikon);
-                },
-              ),
-              text: isEn ? 'Review Queue' : 'Onay Kuyruğu',
-            ),
-            Tab(
-              icon: const Icon(Icons.auto_stories_rounded),
-              text: isEn ? 'Stories' : 'Hikâyeler',
-            ),
-            Tab(
-              icon: const Icon(Icons.star_rounded),
-              text: isEn ? 'Hero News' : 'Hero Yönetimi',
-            ),
-
-            Tab(
-              icon: const Icon(Icons.play_circle_outline_rounded),
-              text: isEn ? 'Video News' : 'Video Haberler',
-            ),
-            Tab(
-              icon: const Icon(Icons.bar_chart_rounded),
-              text: loc.translate('dash_tab_stats'),
-            ),
-            Tab(
-              icon: const Icon(Icons.people_alt_rounded),
-              text: isEn ? 'Columnists' : 'Yazarlar',
+        // Tek satır: sekmeler + çıkış. Başlık yok.
+        toolbarHeight: 46,
+        titleSpacing: 8,
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Expanded(child: sekmeler),
+            IconButton(
+              icon: const Icon(Icons.logout_rounded, size: 20),
+              tooltip: loc.translate('dash_logout'),
+              visualDensity: VisualDensity.compact,
+              onPressed: _signOut,
             ),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout_rounded),
-            tooltip: loc.translate('dash_logout'),
-            onPressed: _signOut,
-          ),
-        ],
       ),
       body: TabBarView(
         controller: _tabController,

@@ -84,20 +84,27 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        // BAŞLIK BLOĞU DARALDI. Telefonda başlık + iki satır açıklama +
+        // boşluklar ekranın üçte birini yiyordu; üstünde zaten uygulamanın
+        // çubuğu ve sekme şeridi var. Açıklama tek satıra indi ve yalnız
+        // geniş ekranda görünüyor — telefonda sürükleme tutamağı zaten
+        // kendini anlatıyor.
+        padding: EdgeInsets.fromLTRB(
+            12, _dar(context) ? 10 : 16, 12, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Yazar Yönetimi',
-                style: GoogleFonts.outfit(
-                    fontSize: 24, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 6),
+            // BAŞLIK YOK. Sekmenin adı zaten "Yazarlar"; ekranın tepesine
+            // bir kez daha "Yazar Yönetimi" yazmak yalnızca yer yiyordu.
+            // Açıklama da tek satıra indi ve soluklaştı: bir kez okunup
+            // bir daha bakılmayan metin, her gün çalışılan alandan yer
+            // çalmamalı.
             Text(
-              'Sırayı sürükleyerek değiştirin; bırakıldığı anda kaydedilir. '
-              'Gizlenen yazar sitede görünmez, burada soluk kalır.',
-              style: GoogleFonts.inter(fontSize: 14, color: Colors.grey[600]),
+              'Sırayı tutamaktan sürükleyerek değiştir · gizlenen yazar '
+              'soluk görünür',
+              style: GoogleFonts.inter(fontSize: 12, color: Colors.grey[600]),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             if (_yazarlar.isEmpty)
               Expanded(
                 child: Center(
@@ -109,6 +116,17 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
             else
               Expanded(
                 child: ReorderableListView.builder(
+                  // SÜRÜKLEME YALNIZ TUTAMAKTAN (15 Kasım 2026).
+                  //
+                  // Varsayılanda HER KART bir sürükleme tutamağı oluyor.
+                  // Sonuç: parmakla kaydırmaya çalışınca sıralama başlıyor
+                  // ve liste hiç kaymıyor — kullanıcının "bloke" dediği şey
+                  // tam olarak buydu. Fare tekerleği çalışıyordu, dokunma
+                  // çalışmıyordu; telefonda liste tamamen kilitliydi.
+                  //
+                  // Artık sürükleme sağdaki tutamaktan yapılıyor, geri kalan
+                  // her yerde liste normal kayıyor.
+                  buildDefaultDragHandles: false,
                   itemCount: _yazarlar.length,
                   onReorder: _siraDegisti,
                   itemBuilder: (context, i) => _satir(_yazarlar[i], i),
@@ -119,6 +137,10 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
       ),
     );
   }
+
+  /// Dar ekran — telefon ve küçük tablet.
+  static bool _dar(BuildContext context) =>
+      MediaQuery.of(context).size.width < 600;
 
   Widget _satir(Map<String, dynamic> y, int index) {
     final aktif = y['is_active'] == true;
@@ -153,23 +175,54 @@ class _AdminYazarlarScreenState extends ConsumerState<AdminYazarlarScreen> {
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              TextButton.icon(
-                onPressed: _islemde ? null : () => _unvanDuzenle(y),
-                icon: const Icon(Icons.edit_outlined, size: 18),
-                label: Text('Unvan', style: GoogleFonts.inter(fontSize: 13)),
+              // Telefonda etiketler yok: iki etiketli düğme + tutamak
+              // satırı taşırıyordu. İkonlar ipucu taşıyor.
+              if (_dar(context))
+                IconButton(
+                  tooltip: 'Unvanı düzenle',
+                  onPressed: _islemde ? null : () => _unvanDuzenle(y),
+                  icon: const Icon(Icons.edit_outlined, size: 20),
+                )
+              else
+                TextButton.icon(
+                  onPressed: _islemde ? null : () => _unvanDuzenle(y),
+                  icon: const Icon(Icons.edit_outlined, size: 18),
+                  label: Text('Unvan', style: GoogleFonts.inter(fontSize: 13)),
+                ),
+              if (_dar(context))
+                IconButton(
+                  tooltip: aktif ? 'Gizle' : 'Göster',
+                  onPressed: _islemde ? null : () => _gizleAc(y, !aktif),
+                  icon: Icon(
+                      aktif
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                      size: 20),
+                )
+              else
+                TextButton.icon(
+                  onPressed: _islemde ? null : () => _gizleAc(y, !aktif),
+                  icon: Icon(
+                      aktif
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                      size: 18),
+                  label: Text(aktif ? 'Gizle' : 'Göster',
+                      style: GoogleFonts.inter(fontSize: 13)),
+                ),
+              // SÜRÜKLEME TUTAMAĞI. Eskiden burada süs olarak duran bir
+              // ikon vardı ve sürükleme kartın TAMAMINDAN başlıyordu —
+              // liste de bu yüzden kaymıyordu. Artık sürüklenen yer burası.
+              ReorderableDragStartListener(
+                index: index,
+                child: Padding(
+                  // Dokunma hedefi 44: tutamak parmakla yakalanabilmeli.
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10, vertical: 12),
+                  child: Icon(Icons.drag_handle_rounded,
+                      color: Colors.grey[600]),
+                ),
               ),
-              TextButton.icon(
-                onPressed: _islemde ? null : () => _gizleAc(y, !aktif),
-                icon: Icon(
-                    aktif
-                        ? Icons.visibility_off_outlined
-                        : Icons.visibility_outlined,
-                    size: 18),
-                label: Text(aktif ? 'Gizle' : 'Göster',
-                    style: GoogleFonts.inter(fontSize: 13)),
-              ),
-              const SizedBox(width: 4),
-              const Icon(Icons.drag_handle_rounded, color: Colors.grey),
             ],
           ),
         ),

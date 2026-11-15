@@ -60,15 +60,12 @@ class AdminStatisticsScreen extends ConsumerWidget {
           return ListView(
             padding: EdgeInsets.fromLTRB(dar ? 16 : 24, 20, dar ? 16 : 24, 36),
             children: [
-              Text(loc.translate('stats_title'),
-                  style: GoogleFonts.outfit(
-                      fontSize: dar ? 22 : 26,
-                      fontWeight: FontWeight.w900,
-                      color: metin)),
-              const SizedBox(height: 4),
+              // Başlık yok: sekme zaten "İstatistik" diyor. Tek satırlık
+              // künye kaldı — sayıların neyin üzerinden hesaplandığı
+              // bilinmesi gereken bir şey.
               Text('Arşivin tamamı üzerinden',
-                  style: GoogleFonts.inter(fontSize: 13, color: soluk)),
-              const SizedBox(height: 18),
+                  style: GoogleFonts.inter(fontSize: 12, color: soluk)),
+              const SizedBox(height: 10),
 
               // ── Gerçek toplamlar (madde 8) ────────────────────────────
               GridView.count(
