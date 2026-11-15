@@ -100,13 +100,14 @@ void main() {
     expect(find.textContaining('ciddi sorun'), findsWidgets);
   });
 
-  testWidgets('deste varsayılan · liste düğmesiyle geçiliyor', (t) async {
+  testWidgets('kuyruk kaydırılabilir bir listede, deste YOK', (t) async {
+    // 15 Kasım 2026: kısa süre "deste" (tek haber, tam ekran) denendi ve
+    // geri alındı — kullanıcı eski liste düzeninin daha işlevsel olduğunu
+    // söyledi: "işlevi önemsiz her şey büyük, önemli her şey daracık."
+    // Kuyruk bir liste; üst bar da sayfayla birlikte kayıp gidiyor.
     await _tasma(t, const Size(375, 812), [_h(1), _h(2), _h(3)]);
-    // Deste: tek haber görünür, sayaç 1/3 yazar.
-    expect(find.text('1 / 3'), findsOneWidget);
-    await t.tap(find.byTooltip('Liste görünümü'));
-    await t.pump(const Duration(milliseconds: 300));
     expect(find.text('1 / 3'), findsNothing);
+    expect(find.byType(CustomScrollView), findsOneWidget);
   });
 
   _kuyrukDuzeniSinavlari();

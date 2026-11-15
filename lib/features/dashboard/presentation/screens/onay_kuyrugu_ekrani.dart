@@ -66,8 +66,6 @@ int? bayatlikGunu(NewsArticle a, {DateTime? simdi}) {
   return fark < 0 ? 0 : fark;
 }
 
-enum _Gorunum { deste, liste }
-
 enum _Siralama { yeniOnce, eskiOnce, bayatOnce, skorOnce }
 
 extension on _Siralama {
@@ -90,16 +88,6 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   final Set<String> _secili = <String>{};
   String? _acikInceleme;
   bool _islemde = false;
-
-  /// Çalışma biçimi (kullanıcı kararı: "ikisi birden, düğmeyle geçiş").
-  ///
-  /// DESTE varsayılan: ekranda tek haber durur, karar verilince sıradaki
-  /// gelir. Kaydırma yok, dağılma yok — günde 20-40 haber için en hızlısı.
-  /// LİSTE toplu tarama için: hangi haberler geldi, neyi toplu reddedeceğim.
-  _Gorunum _gorunum = _Gorunum.deste;
-
-  /// Destede kaçıncı haberdeyiz.
-  int _sira = 0;
 
   /// Denetim şeridi açık mı (haber kimliğine göre).
   String? _acikDenetim;
@@ -189,316 +177,59 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
         ),
       ),
       data: (ham) {
-        if (ham.isEmpty) return _kuyrukBitti();
+        if (ham.isEmpty) {
+          return Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(Icons.inbox_rounded, size: 44, color: _soluk),
+                const SizedBox(height: 12),
+                Text('Kuyruk boş — onay bekleyen haber yok.',
+                    style: GoogleFonts.inter(fontSize: 15, color: _soluk)),
+              ],
+            ),
+          );
+        }
 
         final liste = _suz(ham);
         // Süzgeç değiştiyse görünmeyen bir haber seçili kalmasın: "3 seçili"
         // deyip ekranda 1 haber görünmesi, toplu işlemde sürpriz üretir.
         _secili.removeWhere((id) => !liste.any((a) => a.id == id));
 
-        if (liste.isEmpty) {
-          // Kuyrukta haber var ama süzgeç hepsini eledi. "Kuyruk boş"
-          // demek yanlış olurdu — sorun süzgeçte.
-          return Column(children: [
-            _ustCubuk(ham, liste),
-            Expanded(
-              child: Center(
-                child: Text('Süzgece uyan haber yok.',
-                    style: GoogleFonts.inter(fontSize: 14, color: _soluk)),
+        return CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: _ustCubuk(ham, liste)),
+            // Tembel: 39 kartın tamamını bir kerede kurmak, kuyruk
+            // büyüdüğünde panelin açılışını kilitliyordu.
+            SliverList.separated(
+              itemCount: liste.length,
+              separatorBuilder: (_, __) => const SizedBox(height: 12),
+              itemBuilder: (context, i) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: _kart(context, liste[i]),
               ),
             ),
-          ]);
-        }
-
-        if (_sira >= liste.length) _sira = liste.length - 1;
-        if (_sira < 0) _sira = 0;
-
-        return Column(
-          children: [
-            _ustCubuk(ham, liste),
-            Expanded(
-              child: _gorunum == _Gorunum.deste
-                  ? _deste(context, liste)
-                  : _listeGorunumu(context, liste),
-            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 48)),
           ],
         );
       },
     );
   }
 
-  // ── Deste: tek haber, tam ekran ─────────────────────────────────────────
-  //
-  // Kullanıcı kararı. Masaüstünde ekran ikiye bölünüyor: solda karar ve
-  // denetimler, sağda okurun göreceği sayfanın TA KENDİSİ. Önizleme için
-  // sayfa değiştirip geri dönmek gerekmiyor — "nasıl görünecek" sorusu
-  // kararın verildiği anda, aynı ekranda cevaplanıyor.
-  //
-  // Telefonda bölme yok (yan yana iki sütun 375 pikselde ikisini birden
-  // okunmaz yapar); önizleme "Önizle" düğmesiyle tam sayfa açılıyor.
-
-  Widget _deste(BuildContext context, List<NewsArticle> liste) {
-    final genislik = MediaQuery.of(context).size.width;
-    final dar = genislik < 600;
-    final article = liste[_sira];
-
-    // SAYFA BÜTÜN OLARAK KAYIYOR. Tek bir kaydırma var: karar sütunu
-    // ekranın genişliğini alıyor ve sayfa normal kayıyor.
-    //
-    // 15 KASIM 2026'DA KALDIRILAN DÜZEN
-    // Burada yan yana bir bölme vardı: solda 520 piksellik karar sütunu,
-    // sağda yayınlanacak sayfanın canlı hâli. Kullanıcı ölçtü ve kullandı:
-    // sağdaki önizleme ekranın ~%70'ini alıyor, içinde devasa ve yarısından
-    // kesik bir kapak görseli duruyor, hiçbir işe yaramıyor; karar alanı
-    // soldaki dar şeride sıkışıyor ve yalnız o şerit kendi içinde kayıyor.
-    //
-    // Önizleme kaybolmadı, YERİ değişti: "Önizle" düğmesi haberi tam
-    // sayfa açıyor — okurun gördüğü neyse o. Karar ekranının işi karar
-    // vermek; yayınlanmış hâli göstermek ayrı bir iş ve ayrı bir ekran.
-    return SingleChildScrollView(
-      padding: EdgeInsets.fromLTRB(dar ? 14 : 24, 2, dar ? 14 : 24, 36),
-      child: Center(
-        child: ConstrainedBox(
-          // Okuma oluğu: 980'den geniş bir kartta satırlar göz için fazla
-          // uzuyor. Geniş ekranda kart ortalanıyor, kenarlar boş kalıyor.
-          constraints: const BoxConstraints(maxWidth: 980),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              _desteBasligi(liste),
-              const SizedBox(height: 10),
-              _kart(context, article),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _desteBasligi(List<NewsArticle> liste) {
-    return Row(
-      children: [
-        IconButton(
-          tooltip: 'Önceki',
-          onPressed: _sira > 0 ? () => setState(() => _sira--) : null,
-          icon: const Icon(Icons.chevron_left_rounded),
-        ),
-        Expanded(
-          child: Text(
-            '${_sira + 1} / ${liste.length}',
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-                fontSize: 13, fontWeight: FontWeight.w700, color: _soluk),
-          ),
-        ),
-        IconButton(
-          tooltip: 'Sonraki',
-          onPressed: _sira < liste.length - 1
-              ? () => setState(() => _sira++)
-              : null,
-          icon: const Icon(Icons.chevron_right_rounded),
-        ),
-      ],
-    );
-  }
-
-  // ── Liste görünümü: toplu tarama ────────────────────────────────────────
-  //
-  // Kartlar deste görünümündekinden çok daha küçük: bir ekranda 8-10 haber
-  // görünüyor. Amaç karar vermek değil, NE GELDİĞİNİ görmek ve toplu red
-  // yapmak. Ayrıntı isteyince haber destede açılıyor.
-
-  Widget _listeGorunumu(BuildContext context, List<NewsArticle> liste) {
-    final dar = MediaQuery.of(context).size.width < 600;
-    return ListView.separated(
-      padding: EdgeInsets.fromLTRB(dar ? 12 : 24, 4, dar ? 12 : 24, 48),
-      itemCount: liste.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 8),
-      itemBuilder: (context, i) => _listeSatiri(liste[i], i),
-    );
-  }
-
-  Widget _listeSatiri(NewsArticle a, int i) {
-    final secili = _secili.contains(a.id);
-    final bulgular = haberiDenetle(a, govdeDenetle: false);
-    final agir = bulgular.any((b) => b.agir);
-    final gun = bayatlikGunu(a);
-
-    return InkWell(
-      onTap: () => setState(() {
-        _sira = i;
-        _gorunum = _Gorunum.deste;
-      }),
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(4, 8, 12, 8),
-        decoration: BoxDecoration(
-          color: isDark ? AppColors.darkGreen : Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-              color: secili ? Colors.red.shade300 : AppColors.wheat),
-        ),
-        child: Row(
-          children: [
-            Checkbox(
-              value: secili,
-              onChanged: _islemde
-                  ? null
-                  : (v) => setState(() {
-                        if (v == true) {
-                          _secili.add(a.id);
-                        } else {
-                          _secili.remove(a.id);
-                        }
-                      }),
-            ),
-            if (a.thumbImageUrl != null || a.imageUrl != null)
-              ClipRRect(
-                borderRadius: BorderRadius.circular(6),
-                child: Image.network(
-                  a.thumbImageUrl ?? a.imageUrl!,
-                  width: 44,
-                  height: 44,
-                  fit: BoxFit.cover,
-                  errorBuilder: (_, __, ___) => const SizedBox(width: 44),
-                ),
-              )
-            else
-              Icon(Icons.image_not_supported_outlined,
-                  size: 22, color: _soluk),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(a.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.inter(
-                          fontSize: 13.5,
-                          fontWeight: FontWeight.w600,
-                          color: _metin)),
-                  const SizedBox(height: 2),
-                  Text(
-                    [
-                      a.sourceName ?? '—',
-                      if (gun != null && gun >= 2) '$gun gün',
-                      if (a.scheduledAt != null) 'programlı',
-                    ].join(' · '),
-                    style: GoogleFonts.inter(fontSize: 11.5, color: _soluk),
-                  ),
-                ],
-              ),
-            ),
-            if (bulgular.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(left: 8),
-                child: Icon(
-                  agir
-                      ? Icons.error_rounded
-                      : Icons.info_outline_rounded,
-                  size: 17,
-                  color: agir
-                      ? Colors.red.shade600
-                      : Colors.orange.shade700,
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  // ── Kuyruk bittiğinde: günün özeti ve bekleyen işler ────────────────────
-
-  Widget _kuyrukBitti() {
-    final s = ref.watch(panelSayaclariProvider).valueOrNull ?? const {};
-    int al(String k) => (s[k] as num?)?.toInt() ?? 0;
-
-    final isler = <String>[
-      if (al('kapaksiz') > 0) '${al('kapaksiz')} yayındaki haberde kapak yok',
-      if (al('hikaye_eksik') > 0)
-        '${al('hikaye_eksik')} haberde hikâye türevi eksik',
-      if (al('zamanlanmis') > 0) '${al('zamanlanmis')} haber programlı',
-    ];
-
-    return Center(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(28),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.check_circle_outline_rounded,
-                size: 44, color: AppColors.primaryGreen),
-            const SizedBox(height: 14),
-            Text('Kuyruk boş',
-                style: GoogleFonts.outfit(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w900,
-                    color: _metin)),
-            const SizedBox(height: 6),
-            Text(
-              s.isEmpty
-                  ? 'Onay bekleyen haber yok.'
-                  : 'Bugün ${al('bugun_gelen')} haber geldi, '
-                      '${al('bugun_yayinlanan')} tanesi yayına girdi.',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(fontSize: 14, color: _soluk),
-            ),
-            if (isler.isNotEmpty) ...[
-              const SizedBox(height: 22),
-              Container(
-                constraints: const BoxConstraints(maxWidth: 420),
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: isDark ? Colors.white10 : const Color(0xFFF6F6F4),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Bekleyen işler',
-                        style: GoogleFonts.inter(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w800,
-                            color: _metin)),
-                    const SizedBox(height: 8),
-                    ...isler.map((x) => Padding(
-                          padding: const EdgeInsets.only(bottom: 5),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('· ',
-                                  style: GoogleFonts.inter(color: _soluk)),
-                              Expanded(
-                                child: Text(x,
-                                    style: GoogleFonts.inter(
-                                        fontSize: 13, color: _soluk)),
-                              ),
-                            ],
-                          ),
-                        )),
-                  ],
-                ),
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
-  }
-
   // ── Üst çubuk: sayaç · sıralama · süzgeçler · toplu işlem ───────────────
+
+  static bool _dar(BuildContext context) =>
+      MediaQuery.of(context).size.width < 600;
 
   Widget _ustCubuk(List<NewsArticle> ham, List<NewsArticle> liste) {
     final hepsiSecili = liste.isNotEmpty && _secili.length == liste.length;
 
     return Padding(
-      // Üst boşluk daraldı: panelin çerçevesi 46 piksele indi, burada da
-      // 20 piksel boşluk bırakmak çalışma alanından yer çalıyordu.
+      // Bu bar sayfayla birlikte yukarı kayıp gidiyor (SliverToBoxAdapter),
+      // ekranın tepesine sabitlenmiş DEĞİL. Bir ara sabitlenmişti ve kalıcı
+      // olarak ekranın %40'ını yiyordu.
       padding: EdgeInsets.fromLTRB(
-          MediaQuery.of(context).size.width < 600 ? 14 : 24, 10,
-          MediaQuery.of(context).size.width < 600 ? 14 : 24, 10),
+          _dar(context) ? 14 : 24, 10, _dar(context) ? 14 : 24, 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -515,26 +246,14 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
                       : '${liste.length} / ${ham.length} haber',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.outfit(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                      color: _metin),
+                  // Sayaç KÜÇÜLDÜ: bu bir bilgi satırı, başlık değil.
+                  // 20 puntoluk kalın bir "15 haber karar bekliyor" her gün
+                  // bakılan ekranın tepesinde yer harcıyordu.
+                  style: GoogleFonts.inter(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                      color: _soluk),
                 ),
-              ),
-              // GÖRÜNÜM DÜĞMESİ (kullanıcı kararı: "ikisi birden").
-              // Deste karar vermek, liste toplu bakmak için.
-              IconButton(
-                tooltip: _gorunum == _Gorunum.deste
-                    ? 'Liste görünümü'
-                    : 'Deste görünümü',
-                onPressed: () => setState(() {
-                  _gorunum = _gorunum == _Gorunum.deste
-                      ? _Gorunum.liste
-                      : _Gorunum.deste;
-                }),
-                icon: Icon(_gorunum == _Gorunum.deste
-                    ? Icons.view_list_rounded
-                    : Icons.view_agenda_rounded),
               ),
               IconButton(
                 tooltip: 'Kuyruğu tazele',
@@ -546,7 +265,7 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
             ],
           ),
           _programSeridi(),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Wrap(
             spacing: 10,
             runSpacing: 10,
@@ -583,7 +302,7 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
                 ),
             ],
           ),
-          const Divider(height: 28),
+          const Divider(height: 18),
           // Dar ekranda düğmeler alta sarıyor: tek satıra sığdırmaya
           // çalışmak hem taşırıyor hem de dokunma hedeflerini daraltıyordu.
           Wrap(
@@ -646,11 +365,7 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     );
   }
 
-  /// Programlanmış haberler şeridi (kullanıcı kararı: kuyruğun üstünde).
-  ///
-  /// Kapalıyken tek satır. Açılınca saatleriyle listeleniyor. Kuyruk
-  /// akışını bozmuyor: programlı haber kuyrukta da duruyor, burası yalnız
-  /// "ne zaman ne çıkacak" sorusunu tek bakışta cevaplıyor.
+  /// Programlanmış haberler şeridi — kapalıyken tek satır.
   Widget _programSeridi() {
     final liste = ref.watch(zamanlanmisHaberlerProvider).valueOrNull;
     if (liste == null || liste.isEmpty) return const SizedBox.shrink();
@@ -662,10 +377,12 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     );
 
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: 8),
       child: Theme(
         data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
+          dense: true,
+          visualDensity: VisualDensity.compact,
           tilePadding: const EdgeInsets.symmetric(horizontal: 12),
           childrenPadding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
           shape: kenar,
@@ -673,12 +390,10 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
           backgroundColor: renk.withValues(alpha: isDark ? 0.10 : 0.06),
           collapsedBackgroundColor:
               renk.withValues(alpha: isDark ? 0.10 : 0.06),
-          leading: Icon(Icons.event_available_rounded, size: 19, color: renk),
-          title: Text(
-            '${liste.length} haber programlı',
-            style: GoogleFonts.inter(
-                fontSize: 13, fontWeight: FontWeight.w700, color: renk),
-          ),
+          leading: Icon(Icons.event_available_rounded, size: 18, color: renk),
+          title: Text('${liste.length} haber programlı',
+              style: GoogleFonts.inter(
+                  fontSize: 12.5, fontWeight: FontWeight.w700, color: renk)),
           children: liste.map((a) {
             final z = a.scheduledAt?.toLocal();
             return Padding(
@@ -704,8 +419,8 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
                     child: Text(a.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.inter(
-                            fontSize: 12.5, color: _metin)),
+                        style:
+                            GoogleFonts.inter(fontSize: 12.5, color: _metin)),
                   ),
                 ],
               ),
@@ -782,10 +497,8 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // DENETİM ÖNCE. Bir sorun varsa yönetici onu başlığı okumadan
-          // görüyor; sorun yoksa burada hiçbir şey çizilmiyor (temiz
-          // haberde yeşil rozet bile yok — her haberde görünen bir işaret
-          // bir süre sonra görülmez oluyor).
+          // Denetim ÖNCE: bir sorun varsa başlığı okumadan görünüyor.
+          // Temiz haberde hiçbir şey çizilmiyor.
           _denetimSeridi(article),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -882,9 +595,9 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
               ),
             ),
           ],
-          const SizedBox(height: 14),
+          const SizedBox(height: 12),
           _yayinKararlari(article),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           Wrap(
             alignment: WrapAlignment.end,
             spacing: 8,
@@ -955,15 +668,13 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     );
   }
 
-  // ── Denetim ─────────────────────────────────────────────────────────────
+  // ── Denetim ve yayın kararları ─────────────────────────────────────────
 
   /// Haberin denetim bulguları.
   ///
-  /// Gövdeye bağlı kurallar yalnız TAM SATIR elde olduğunda çalışıyor.
-  /// Kuyruk akışı gövdeyi çekmiyor; gövdesi olmayan bir kaydı "gövdesi
-  /// kısa" diye işaretlemek her haberde yanlış uyarı üretirdi.
-  ///
-  /// Mükerrer denetimi yayındaki listeden besleniyor — ek sorgu yok.
+  /// Gövdeye bağlı kurallar yalnız TAM SATIR elde olduğunda çalışıyor:
+  /// kuyruk akışı gövdeyi çekmiyor ve gövdesiz bir kaydı "gövdesi kısa"
+  /// diye işaretlemek her haberde yanlış uyarı üretirdi.
   List<DenetimBulgusu> _bulgular(NewsArticle article) {
     final tam = ref.watch(articleByIdProvider(article.id)).valueOrNull;
     final yayinda = ref.watch(latestArticlesProvider).valueOrNull ?? const [];
@@ -981,7 +692,6 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   Widget _denetimSeridi(NewsArticle article) {
     final bulgular = _bulgular(article);
     if (bulgular.isEmpty) return const SizedBox.shrink();
-    // Kullanıcı kararı: "sakin, ama sorun varsa kendiliğinden açılsın."
     // Ağır bulgu varsa şerit açık doğuyor; hafif uyarıda kapalı duruyor.
     final acik = _acikDenetim == article.id ||
         (_acikDenetim == null && bulgular.any((b) => b.agir));
@@ -994,18 +704,15 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     );
   }
 
-  // ── Yayın kararları: manşet adayı · son dakika ──────────────────────────
-
+  /// Manşet adayı ve son dakika — kararın verildiği yerde.
   Widget _yayinKararlari(NewsArticle a) {
     return Wrap(
-      spacing: 10,
+      spacing: 8,
       runSpacing: 6,
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
-        // MANŞET ADAYI (kullanıcı kararı: "hızlı işaret + ayrı sekmede
-        // sıralama"). Burada yalnız aday işaretleniyor; sıra Hero
-        // sekmesinde veriliyor. `is_hero` bir kilit değil, skoru çarpan bir
-        // itki — yani işaretlemek haberi zorla manşete koymuyor.
+        // Burada yalnız ADAY işaretleniyor; sıra Hero sekmesinde veriliyor.
+        // `is_hero` bir kilit değil, skoru çarpan bir itki.
         _kararCipi(
           ikon: Icons.star_rounded,
           etiket: 'Manşet adayı',
@@ -1013,9 +720,8 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
           renk: const Color(0xFFB8860B),
           degistir: () => _mansetAdayi(a),
         ),
-        // SON DAKİKA (kullanıcı kararı: "açıkça sorulsun"). Varsayılan
-        // kapalı. Açmak onay istiyor: yayınlanınca bütün cihazlara anlık
-        // bildirim gidiyor ve geri alınamıyor.
+        // Varsayılan kapalı; açmak ONAY istiyor — yayınlanınca bütün
+        // cihazlara bildirim gidiyor ve geri alınamıyor.
         _kararCipi(
           ikon: Icons.notifications_active_rounded,
           etiket: 'Son dakika',
@@ -1036,14 +742,13 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   }) {
     return InkWell(
       onTap: _islemde ? null : degistir,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(18),
       child: Container(
-        // Dokunma hedefi 44: telefonda daha küçüğü parmakla ıskalanıyor.
-        constraints: const BoxConstraints(minHeight: 44),
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        constraints: const BoxConstraints(minHeight: 38),
+        padding: const EdgeInsets.symmetric(horizontal: 11),
         decoration: BoxDecoration(
           color: acik ? renk.withValues(alpha: 0.14) : Colors.transparent,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(18),
           border: Border.all(
               color: acik
                   ? renk.withValues(alpha: 0.6)
@@ -1052,11 +757,11 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(ikon, size: 17, color: acik ? renk : _soluk),
-            const SizedBox(width: 7),
+            Icon(ikon, size: 16, color: acik ? renk : _soluk),
+            const SizedBox(width: 6),
             Text(etiket,
                 style: GoogleFonts.inter(
-                    fontSize: 12.5,
+                    fontSize: 12,
                     fontWeight: acik ? FontWeight.w800 : FontWeight.w600,
                     color: acik ? renk : _soluk)),
           ],
@@ -1070,9 +775,8 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
     setState(() => _islemde = true);
     final ok = await ref.read(homeRepositoryProvider).alanlariGuncelle(a.id, {
       'is_hero': yeni,
-      // Manşet itkisi sabitleme anından itibaren sönüyor; işaretlenen an
-      // yazılmazsa haber `created_at`ten sayılır ve eski bir haber
-      // işaretlendiğinde itki hiç çalışmaz.
+      // Manşet itkisi sabitleme anından itibaren sönüyor; yazılmazsa eski
+      // bir haber işaretlendiğinde itki hiç çalışmaz.
       if (yeni) 'hero_pinned_at': DateTime.now().toUtc().toIso8601String(),
     });
     _tazele();
@@ -1365,14 +1069,7 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
   }
 
   Future<void> _tekOnayla(NewsArticle article) async {
-    // AĞIR BULGULAR BİR KEZ SORULUYOR (kullanıcı kararı).
-    //
-    // Hafif uyarı yayını hiç durdurmuyor; ağır bulgu — kapak yok, özet boş,
-    // aynı haber zaten yayında — "yine de?" diye soruyor. Soruda bulguların
-    // KENDİSİ yazıyor: ne olduğunu görmeden verilen onay, onay değildir.
-    //
-    // Üçüncü bir "engelle" basamağı bilerek yok. Ekran yöneticinin yerine
-    // karar vermiyor, gördüğünü söylüyor.
+    // Ağır bulgular bir kez soruluyor; hafif uyarı yayını durdurmuyor.
     final agirlar = _bulgular(article).where((b) => b.agir).toList();
     if (agirlar.isNotEmpty) {
       final devam = await agirUyariOnayi(context, agirlar);
