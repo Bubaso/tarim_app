@@ -111,6 +111,7 @@ void main() {
   });
 
   _kuyrukDuzeniSinavlari();
+  _duzeltmeSinavlari();
 
   testWidgets('kuyruk · masaüstü', (t) async {
     final n = await _tasma(t, const Size(1440, 900), [_h(1), _h(2)]);
@@ -143,5 +144,19 @@ void _kuyrukDuzeniSinavlari() {
     final kaydirilabilir = t.widgetList(find.byType(Scrollable)).length;
     expect(kaydirilabilir, lessThanOrEqualTo(2),
         reason: 'birden çok kaydırma alanı var — yan yana bölme mi geri geldi?');
+  });
+}
+
+// ── Uyarılar düzeltilebilir olmalı ──────────────────────────────────────
+void _duzeltmeSinavlari() {
+  testWidgets('her uyarının yanında ne yapacağını söyleyen düğme var',
+      (t) async {
+    // Kullanıcı: "uyarılara müdahale edemedikten sonra uyarıları görmenin
+    // ne anlamı var?" Her bulgunun yanında onu düzeltecek düğme olmalı ve
+    // düğmenin adı NE YAPACAĞINI söylemeli — "Düzelt" demek yetmiyor.
+    await _tasma(t, const Size(1440, 900), [_h(1)]);
+    // _h(1) kapaksız: ağır bulgu üretir, şerit açık doğar.
+    expect(find.textContaining('ciddi sorun'), findsWidgets);
+    expect(find.text('Kapak seç'), findsOneWidget);
   });
 }

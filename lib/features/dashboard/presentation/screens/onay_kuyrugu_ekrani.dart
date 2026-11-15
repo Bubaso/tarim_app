@@ -10,6 +10,7 @@ import '../../../home/presentation/screens/article_detail_screen.dart';
 import '../../../home/providers/home_providers.dart';
 import '../../domain/yayin_denetimi.dart';
 import '../widgets/denetim_serisi.dart';
+import '../widgets/metin_duzenleyici.dart';
 import '../widgets/inceleme_karti.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -701,7 +702,75 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
       acikMi: acik,
       acKapa: () => setState(
           () => _acikDenetim = _acikDenetim == article.id ? '' : article.id),
+      duzelt: (b) => _bulguyuDuzelt(article, b),
     );
+  }
+
+  /// Bir denetim bulgusunu düzeltir.
+  ///
+  /// Her uyarı kendi aracını açıyor. Uyarıyı gösterip düzeltmeyi başka bir
+  /// ekrana saklamak, yöneticiye yalnızca kaygı vermek olurdu.
+  ///
+  /// Gövde ve İngilizce gövde için TAM SATIR gerekiyor — kuyruk akışı
+  /// gövdeyi çekmiyor. Satır gelene kadar düzenleyici açılmıyor; yarım
+  /// veriyle kaydetmek metni siler.
+  Future<void> _bulguyuDuzelt(NewsArticle article, DenetimBulgusu b) async {
+    final tam =
+        await ref.read(articleByIdProvider(article.id).future) ?? article;
+    if (!mounted) return;
+
+    switch (b.alan) {
+      case 'baslik':
+        await _alaniYaz(tam, 'title', 'Başlık', tam.title, false);
+      case 'ozet':
+        await _alaniYaz(tam, 'summary', 'Özet', tam.summary ?? '', false);
+      case 'govde':
+        await _alaniYaz(tam, 'content', 'Gövde', tam.content, true);
+      case 'ingilizce':
+        // Başlık boşsa önce başlık, değilse gövde: eksik olan hangisiyse.
+        if ((tam.titleEn ?? '').trim().isEmpty ||
+            b.anahtar == 'ingilizce_cevrilmemis') {
+          await _alaniYaz(
+              tam, 'title_en', 'İngilizce başlık', tam.titleEn ?? '', false);
+        } else {
+          await _alaniYaz(tam, 'content_en', 'İngilizce gövde',
+              tam.contentEn ?? '', true);
+        }
+      case 'gorsel':
+        // Görsel araçları inceleme panelinde: kapak seçimi, gövdeden
+        // kaldırma, kaynak görselleri. Panel açılıyor ve oraya kayılıyor.
+        setState(() => _acikInceleme = article.id);
+        _bildir('Görsel araçları aşağıdaki inceleme panelinde.');
+      case 'mukerrer':
+        // Mükerrer haberin tek doğru karşılığı reddetmek. Onay kutusu
+        // `_tekReddet` içinde zaten sorulmuyor — red tek dokunuş, ama
+        // burada ne yapılacağı düğmenin adında yazıyor.
+        await _tekReddet(article);
+      default:
+        _bildir('Bu uyarı için otomatik düzeltme yok.');
+    }
+  }
+
+  /// Tek alanı düzenletip yazar.
+  Future<void> _alaniYaz(NewsArticle a, String alan, String etiket,
+      String mevcut, bool hamHtml) async {
+    final yeni = await metinDuzenle(context,
+        etiket: etiket, mevcut: mevcut, hamHtml: hamHtml);
+    if (yeni == null || !mounted) return;
+    if (yeni.isEmpty) {
+      _bildir('Kaydedilmedi: alan boş kalıyordu.');
+      return;
+    }
+    setState(() => _islemde = true);
+    final repo = ref.read(homeRepositoryProvider);
+    final ok = await repo.alanlariGuncelle(a.id, {alan: yeni});
+    // Tam satır sağlayıcısı önbellekli; yazdıktan sonra tazelenmeli yoksa
+    // denetim eski metni görmeye devam eder.
+    ref.invalidate(articleByIdProvider(a.id));
+    _tazele();
+    _bildir(ok
+        ? '$etiket güncellendi.'
+        : '$etiket yazılamadı: ${repo.sonYazmaHatasi ?? 'yetki yok'}');
   }
 
   /// Manşet adayı ve son dakika — kararın verildiği yerde.

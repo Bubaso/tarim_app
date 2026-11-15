@@ -27,12 +27,21 @@ class DenetimSeridi extends StatelessWidget {
     required this.isDark,
     this.acikMi = false,
     this.acKapa,
+    this.duzelt,
   });
 
   final List<DenetimBulgusu> bulgular;
   final bool isDark;
   final bool acikMi;
   final VoidCallback? acKapa;
+
+  /// Bir bulguyu düzeltmek için çağrılıyor.
+  ///
+  /// Kullanıcı: "uyarılara müdahale edemedikten sonra uyarıları görmenin ne
+  /// anlamı var?" Haklı — her bulgunun yanında onu düzeltecek düğme var ve
+  /// düğme doğrudan ilgili aracı açıyor. Düzeltmesi olmayan bir uyarı
+  /// göstermek, yöneticiye yalnızca kaygı vermek olurdu.
+  final void Function(DenetimBulgusu)? duzelt;
 
   static const _agirRenk = Color(0xFFB3261E);
   static const _agirKoyu = Color(0xFFFF8A75);
@@ -98,7 +107,8 @@ class DenetimSeridi extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: bulgular
-                    .map((b) => _BulguSatiri(bulgu: b, isDark: isDark))
+                    .map((b) => _BulguSatiri(
+                        bulgu: b, isDark: isDark, duzelt: duzelt))
                     .toList(),
               ),
             ),
@@ -117,10 +127,27 @@ class DenetimSeridi extends StatelessWidget {
 }
 
 class _BulguSatiri extends StatelessWidget {
-  const _BulguSatiri({required this.bulgu, required this.isDark});
+  const _BulguSatiri(
+      {required this.bulgu, required this.isDark, this.duzelt});
 
   final DenetimBulgusu bulgu;
   final bool isDark;
+  final void Function(DenetimBulgusu)? duzelt;
+
+  /// Bu bulgunun düzeltme düğmesinde ne yazacağı.
+  ///
+  /// Düğmenin adı NE YAPACAĞINI söylüyor, "Düzelt" demiyor: hangi aracın
+  /// açılacağını bilmeden basılan düğme, sürpriz üretir.
+  String? get _eylem => switch (bulgu.anahtar) {
+        'baslik_uzun' || 'baslik_kisa' => 'Başlığı düzenle',
+        'ozet_yok' || 'ozet_uzun' => 'Özeti düzenle',
+        'govde_kisa' || 'govde_etiket' || 'govde_yarim' => 'Gövdeyi düzenle',
+        'kapak_yok' => 'Kapak seç',
+        'kare_yok' || 'hikaye_yok' => 'Görsellere git',
+        'ingilizce_eksik' || 'ingilizce_cevrilmemis' => 'İngilizceyi düzenle',
+        'mukerrer_adres' || 'mukerrer_baslik' => 'Bu haberi reddet',
+        _ => null,
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -155,6 +182,23 @@ class _BulguSatiri extends StatelessWidget {
                 Text(bulgu.aciklama,
                     style: GoogleFonts.inter(
                         fontSize: 12, height: 1.4, color: soluk)),
+                if (duzelt != null && _eylem != null)
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: TextButton(
+                      onPressed: () => duzelt!(bulgu),
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
+                        minimumSize: const Size(0, 32),
+                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      child: Text(_eylem!,
+                          style: GoogleFonts.inter(
+                              fontSize: 12.5,
+                              fontWeight: FontWeight.w700)),
+                    ),
+                  ),
               ],
             ),
           ),
