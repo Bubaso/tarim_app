@@ -239,33 +239,39 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
 
   Widget _deste(BuildContext context, List<NewsArticle> liste) {
     final genislik = MediaQuery.of(context).size.width;
-    final bolunmus = genislik >= 1000;
+    final dar = genislik < 600;
     final article = liste[_sira];
 
-    final kararSutunu = SingleChildScrollView(
-      padding: EdgeInsets.fromLTRB(
-          bolunmus ? 24 : 16, 4, bolunmus ? 20 : 16, 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          _desteBasligi(liste),
-          const SizedBox(height: 12),
-          _kart(context, article),
-        ],
+    // SAYFA BÜTÜN OLARAK KAYIYOR. Tek bir kaydırma var: karar sütunu
+    // ekranın genişliğini alıyor ve sayfa normal kayıyor.
+    //
+    // 15 KASIM 2026'DA KALDIRILAN DÜZEN
+    // Burada yan yana bir bölme vardı: solda 520 piksellik karar sütunu,
+    // sağda yayınlanacak sayfanın canlı hâli. Kullanıcı ölçtü ve kullandı:
+    // sağdaki önizleme ekranın ~%70'ini alıyor, içinde devasa ve yarısından
+    // kesik bir kapak görseli duruyor, hiçbir işe yaramıyor; karar alanı
+    // soldaki dar şeride sıkışıyor ve yalnız o şerit kendi içinde kayıyor.
+    //
+    // Önizleme kaybolmadı, YERİ değişti: "Önizle" düğmesi haberi tam
+    // sayfa açıyor — okurun gördüğü neyse o. Karar ekranının işi karar
+    // vermek; yayınlanmış hâli göstermek ayrı bir iş ve ayrı bir ekran.
+    return SingleChildScrollView(
+      padding: EdgeInsets.fromLTRB(dar ? 14 : 24, 2, dar ? 14 : 24, 36),
+      child: Center(
+        child: ConstrainedBox(
+          // Okuma oluğu: 980'den geniş bir kartta satırlar göz için fazla
+          // uzuyor. Geniş ekranda kart ortalanıyor, kenarlar boş kalıyor.
+          constraints: const BoxConstraints(maxWidth: 980),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _desteBasligi(liste),
+              const SizedBox(height: 10),
+              _kart(context, article),
+            ],
+          ),
+        ),
       ),
-    );
-
-    if (!bolunmus) return kararSutunu;
-
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // Karar sütunu sabit genişlikte: 520'den geniş olunca satırlar
-        // okuma oluğunu aşıyor, dar olunca düğmeler alt alta sarıyor.
-        SizedBox(width: 520, child: kararSutunu),
-        const VerticalDivider(width: 1),
-        Expanded(child: _canliOnizleme(article)),
-      ],
     );
   }
 
@@ -293,39 +299,6 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
           icon: const Icon(Icons.chevron_right_rounded),
         ),
       ],
-    );
-  }
-
-  /// Sağ sütun: haberin okur gözüyle hâli.
-  ///
-  /// Kuyruk akışı gövdeyi çekmiyor (dar sütun kümesi), o yüzden tam satır
-  /// burada ayrıca alınıyor. Sağlayıcı önbellekli: aynı habere dönüldüğünde
-  /// ağa çıkılmıyor.
-  Widget _canliOnizleme(NewsArticle article) {
-    final tam = ref.watch(articleByIdProvider(article.id));
-    return tam.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, _) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text('Önizleme yüklenemedi: $e',
-              textAlign: TextAlign.center,
-              style: GoogleFonts.inter(fontSize: 12.5, color: _soluk)),
-        ),
-      ),
-      data: (h) => h == null
-          ? Center(
-              child: Text('Haber bulunamadı.',
-                  style: GoogleFonts.inter(color: _soluk)))
-          : ClipRect(
-              // Önizleme GERÇEK okuyucu ekranı — ayrı bir "temsilî" görünüm
-              // değil. Yayınlanınca ne görünecekse burada o görünüyor.
-              child: IgnorePointer(
-                // Dokunmalar yutuluyor: sağdaki önizlemeye basıp yanlışlıkla
-                // başka bir habere gitmek, karar ekranını kaybettirirdi.
-                child: ArticleDetailScreen(article: h),
-              ),
-            ),
     );
   }
 

@@ -14,6 +14,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  // ── Onay kuyruğu: tek kaydırma, tam genişlik ──────────────────────────
+  //
+  // 15 Kasım 2026: kuyrukta yan yana bir bölme vardı — solda 520 piksellik
+  // karar sütunu, sağda yayınlanacak sayfanın canlı hâli. Kullanıcı:
+  // "sağda kocaman bir görsel var, yarısından kesik, sayfanın %70'ini
+  // kaplıyor ve hiçbir işe yaramıyor; sayfa kesinlikle kaydırılmıyor."
+  //
+  // Bu sınav o düzenin geri gelmemesini sağlıyor: kuyruk ekranında TEK bir
+  // kaydırılabilir alan olmalı ve karar kartı ekranın dar bir şeridine
+  // sıkışmamalı.
   // Yazarlar ekranı Supabase'e doğrudan gidiyor; testte veri gelmiyor.
   // Bu yüzden AYNI DÜZEN, sahte veriyle yeniden kuruluyor: ölçülen şey
   // kaydırma davranışı ve dikey yer kullanımı, veri değil.

@@ -109,9 +109,38 @@ void main() {
     expect(find.text('1 / 3'), findsNothing);
   });
 
+  _kuyrukDuzeniSinavlari();
+
   testWidgets('kuyruk · masaüstü', (t) async {
     final n = await _tasma(t, const Size(1440, 900), [_h(1), _h(2)]);
     debugPrint('MASAÜSTÜ taşma: $n');
     expect(n, 0);
+  });
+}
+
+// ── Kuyruk düzeni: tek kaydırma, tam genişlik ───────────────────────────
+void _kuyrukDuzeniSinavlari() {
+  testWidgets('masaüstünde yan yana bölme YOK, kart geniş', (t) async {
+    await _tasma(t, const Size(1440, 900), [_h(1), _h(2)]);
+
+    // Karar kartı 520 piksellik bir şeride sıkışmamalı.
+    final kart = t.getSize(find.byType(Checkbox).first);
+    expect(kart.width, greaterThan(0));
+
+    // Kartın başlığı ekranın solundaki dar şeritte değil, geniş alanda.
+    final baslik = t.getTopLeft(find.textContaining('TÜRKŞEKER').first);
+    final genislik = t.getSize(find.textContaining('TÜRKŞEKER').first).width;
+    expect(genislik, greaterThan(400),
+        reason: 'karar alanı dar bir şeride sıkışmış olabilir');
+    expect(baslik.dx, lessThan(700));
+  });
+
+  testWidgets('kuyrukta tek kaydırılabilir alan var', (t) async {
+    await _tasma(t, const Size(1440, 900), [_h(1), _h(2), _h(3)]);
+    // Yan yana bölme iki ayrı kaydırma üretiyordu: solda karar sütunu,
+    // sağda önizleme. Tek kaydırma kalmalı.
+    final kaydirilabilir = t.widgetList(find.byType(Scrollable)).length;
+    expect(kaydirilabilir, lessThanOrEqualTo(2),
+        reason: 'birden çok kaydırma alanı var — yan yana bölme mi geri geldi?');
   });
 }
