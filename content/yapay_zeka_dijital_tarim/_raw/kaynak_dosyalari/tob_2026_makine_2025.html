@@ -1,0 +1,896 @@
+
+<!DOCTYPE html>
+
+
+<html lang="TR">
+<head>
+
+
+    <!-- meta -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>İstatistik B&#252;lteni</title>
+    <!-- favicon Dosyaları -->
+        <link rel="icon" type="image/png" href="/Custom/GidaBilgi/favicon/favicon.ico" sizes="16x16">
+
+    <!-- favicon Dosyaları -->
+    <!-- Font css Dosyaları -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.tarim.gov.tr/assets/webkor/Fonts/MyriadPro/css/myriadpro.css" rel="stylesheet" />
+    
+    <!-- Font css Dosyaları -->
+    <!-- CSS -->
+    
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- CSS -->
+    
+    
+    <!-- Bootstrap css Dosyaları -->
+    <!-- Bootstrap css Dosyaları -->
+
+    <link rel="stylesheet" href="/Custom/IstatistikBulten/css/style.css">
+    
+    
+
+    
+
+
+    <link href="https://cdn.tarim.gov.tr/assets/webkor/Fonts/Font-Awesome/6.5.1/all.min.css" rel="stylesheet" />
+
+    <!-- Jquery css Dosyaları -->
+    
+    
+
+    <link href="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/dataTables/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+
+
+
+    <!-- Jquery css Dosyaları -->
+    
+
+
+    <!-- Jquery script Dosyaları -->
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/jquery/3.7.1/js/jquery-3.7.1.min.js"></script>
+    
+
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/jquery/jqueryui/1.13.3/js/jquery-ui.min.js"></script>
+    
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/jquery/plugins/jquery.validation/1.19.1/js/jquery.validate.min.js"></script>
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/jquery/plugins/jquery.validation/1.19.1/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/jquery/plugins/jquery.datepickertr/1.0/js/jquery.datepickertr.min.js"></script>
+    <!-- Jquery script Dosyaları -->
+    <!-- Popper script Dosyaları -->
+    
+    <!-- Popper script Dosyaları -->
+    <!-- Bootstrap script Dosyaları -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    
+    <!-- Bootstrap script Dosyaları -->
+
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/bootbox/5.4.0/js/bootbox.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/dataTables/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    
+
+
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/floatlabels/floatlabels.min.js"></script>
+    
+
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/gthb.sitelib/sitelib.js"></script>
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/gthb.sitelib/site.js"></script>
+
+    <link href="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/gthb.autocomplete/css/autocomplete.css" rel="stylesheet" />
+    <script src="https://cdn.tarim.gov.tr/assets/webkor/Scripts/lib/gthb.autocomplete/js/autocomplete.js"></script>
+
+
+
+    <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+
+
+    </script>
+
+
+    
+</head>
+<body>
+    <header class="d-print-none">
+
+        <!--NAVBAR-->
+
+        <nav class="navbar navbar-dark navbar-expand-lg  bg-color">
+            <div class="container-fluid bg-color">
+                <div class="container">
+
+                   
+
+                    <!--TOGGLE BTN-->
+
+                    <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--NAVBAR END-->
+
+
+
+<!--Menu-->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar">
+
+    <ul class="navbar-nav flex-grow-1">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="https://www.tarimorman.gov.tr">
+                        Bakanlık Ana Sayfa
+                    </a>
+                </li>
+                <!-- 1. SEVİYE -->
+                <li class="nav-item dropdown">
+
+                    <a href="#"
+                       class="nav-link dropdown-toggle"
+                       data-bs-toggle="dropdown">
+                        İstatistik B&#252;ltenleri
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-dark">
+
+                                <!-- 2. SEVİYE (ALT DROPDOWN) -->
+                                <li class="dropdown-submenu">
+
+                                    <div class="dropdown-item d-flex align-items-center justify-content-between zn-submenu-toggle">
+
+                                        <!-- KATEGORİ LİNKİ (ÇALIŞIR) -->
+                                        <a href="#"
+                                           class="zn-submenu-toggle">
+                                            İstatistik B&#252;ltenleri - 2024
+                                        </a>
+
+                                        <!-- SADECE DROPDOWN AÇAR -->
+                                        <button type="button"
+                                                class="zn-submenu-toggle ac-menu"
+                                                aria-label="Alt menüyü aç">
+                                            ›
+                                        </button>
+
+                                    </div>
+
+                                    <!-- 3. SEVİYE -->
+                                    <ul class="dropdown-menu custom-scroll">
+
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/sayfa/detay/1902">
+                                                    Devlet Destekli Tarım Sigortası İstatistik B&#252;lteni, I.D&#246;nem, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1904">
+                                                    Tarımsal Destek &#214;demesi, III. &#199;eyrek: Temmuz-Eyl&#252;l 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/1889">
+                                                    Tarımsal Destek &#214;demesi, II. &#199;eyrek: Nisan-Haziran, 2024
+                                                </a>
+                                            </li>
+
+                                    </ul>
+                                </li>
+                                <!-- 2. SEVİYE (ALT DROPDOWN) -->
+                                <li class="dropdown-submenu">
+
+                                    <div class="dropdown-item d-flex align-items-center justify-content-between zn-submenu-toggle">
+
+                                        <!-- KATEGORİ LİNKİ (ÇALIŞIR) -->
+                                        <a href="#"
+                                           class="zn-submenu-toggle">
+                                            İstatistik B&#252;ltenleri - 2025
+                                        </a>
+
+                                        <!-- SADECE DROPDOWN AÇAR -->
+                                        <button type="button"
+                                                class="zn-submenu-toggle ac-menu"
+                                                aria-label="Alt menüyü aç">
+                                            ›
+                                        </button>
+
+                                    </div>
+
+                                    <!-- 3. SEVİYE -->
+                                    <ul class="dropdown-menu custom-scroll">
+
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2197">
+                                                    Bitkisel &#220;retim İstatistikleri 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2188">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Kasım, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2181">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Kasım 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2184">
+                                                    Su Kaynakları ve Tarımsal Sulama İstatistikleri, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2167">
+                                                    	İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Ekim 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2133">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Ekim 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2123">
+                                                    Bitkisel &#220;retim 2. Tahmini, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2121">
+                                                    Tarımsal Destek &#214;demesi, III. &#199;eyrek: Temmuz-Eyl&#252;l, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2122">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Eyl&#252;l 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2118">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Eyl&#252;l 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1995">
+                                                    Gıda İşletmeleri Yurti&#231;i Denetimleri, Ocak, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2116">
+                                                    Tarımsal Ama&#231;lı &#214;rg&#252;tler, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2115">
+                                                    Devlet Destekli Tarım Sigortası Uygulamaları, I. D&#246;nem: Ocak-Haziran 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2113">
+                                                    Hayvan Varlığı İstatistikleri, Haziran 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2114">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Ağustos 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2112">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Ağustos 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2089">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Temmuz 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2088">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Temmuz 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2059">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Haziran 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2057">
+                                                    Tarımsal Destek &#214;demesi, II. &#199;eyrek: Nisan-Haziran, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2056">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Haziran 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="Sayfa/Detay/2045">
+                                                    Ormancılık İstatistikleri, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2044">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Mayıs, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2042">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Mayıs 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2041">
+                                                    Su &#220;r&#252;nleri İstatistikleri, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2039">
+                                                    Gıda  İşletmeleri  Yurt İ&#231;i Denetimleri, Nisan 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2040">
+                                                    	Bitkisel &#220;retim I. Tahmini, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2038">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Nisan, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2007">
+                                                    Tarımsal Destek &#214;demesi, I. &#199;eyrek: Ocak-Mart, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2008">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Mart 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2006">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Mart 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2005	">
+                                                    Devlet Destekli Tarım Sigortası Uygulamaları, II. D&#246;nem ve Yıllık: Temmuz-Aralık 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2004">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Şubat 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2002">
+                                                    Gıda İşletmeleri Yurt İ&#231;i Denetimleri, Şubat, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1998">
+                                                    Kırsal Kalkınma Yatırımları, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1993">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Ocak, 2025	
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1992">
+                                                    Tarımsal Alet ve Makine İstatistikleri, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1934">
+                                                    Hayvan Varlığı İstatistikleri, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1933">
+                                                    Organize Tarım B&#246;lgeleri, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/1932">
+                                                    Gıda İşletmeleri Yurti&#231;i Denetimleri, Aralık ve Yıllık 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1931">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Aralık, 2024
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/1929">
+                                                    Tarımsal Destek &#214;demesi, IV. &#199;eyrek ve Yıllık: Ekim-Aralık, 2024
+                                                </a>
+                                            </li>
+
+                                    </ul>
+                                </li>
+                                <!-- 2. SEVİYE (ALT DROPDOWN) -->
+                                <li class="dropdown-submenu">
+
+                                    <div class="dropdown-item d-flex align-items-center justify-content-between zn-submenu-toggle">
+
+                                        <!-- KATEGORİ LİNKİ (ÇALIŞIR) -->
+                                        <a href="#"
+                                           class="zn-submenu-toggle">
+                                            İstatistik B&#252;ltenleri - 2026
+                                        </a>
+
+                                        <!-- SADECE DROPDOWN AÇAR -->
+                                        <button type="button"
+                                                class="zn-submenu-toggle ac-menu"
+                                                aria-label="Alt menüyü aç">
+                                            ›
+                                        </button>
+
+                                    </div>
+
+                                    <!-- 3. SEVİYE -->
+                                    <ul class="dropdown-menu custom-scroll">
+
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2391">
+                                                    Tarımsal Destek &#214;demesi, III. &#199;eyrek: Temmuz-Eyl&#252;l, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2392">
+                                                    Bitkisel &#220;retim 2. Tahmini, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2390">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Eyl&#252;l, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2388">
+                                                    Tarımsal Ama&#231;lı &#214;rg&#252;tler,2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2384">
+                                                    Yakıt Biyoetanol&#252; İstatistikleri, II. &#199;eyrek: Nisan-Haziran 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2387">
+                                                    Devlet Destekli Tarım Sigortası Uygulamaları, I. D&#246;nem: Ocak-Haziran 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2385">
+                                                    Hayvan Varlığı İstatistikleri, Haziran 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2386">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Ağustos, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2382">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Temmuz-2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2376">
+                                                    Tarımsal Destek &#214;demesi, II. &#199;eyrek: Nisan-Haziran, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2375">
+                                                    İklim, Fenolojik Durum Ve Sulama İzleme İstatistikleri, Haziran, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2362">
+                                                    Yakıt Biyoetanol&#252; İstatistikleri; I. &#199;eyrek; Ocak - Mart, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2363">
+                                                    Ormancılık İstatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2365">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Mayıs,2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2355">
+                                                    Yaban Hayatı İstatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2357">
+                                                    Korunan Alan İstatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2356">
+                                                    Biyolojik &#199;eşitlilik İstatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2353">
+                                                    Su &#252;r&#252;nleri istatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2347">
+                                                    Bitkisel &#220;retim I. Tahmini, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2346">
+                                                    Organik Tarım, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2345">
+                                                    İyi Tarım Uygulamaları, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2344">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Nisan 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2343">
+                                                    Tarımsal Destek &#214;demesi, I. &#199;eyrek: Ocak-Mart, 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2310">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Mart 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2307">
+                                                    Kırsal Kalkınma Yatırımları, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2291">
+                                                    Yakıt Biyoetanol&#252; İstatistikleri, IV. &#199;eyrek: Ekim-Aralık, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2292">
+                                                    Devlet Destekli Tarım Sigortası Uygulamaları, II. D&#246;nem ve Yıllık: Temmuz-Aralık 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2293">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Şubat 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260">
+                                                    Tarımsal Alet ve Makine İstatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2235">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Ocak 2026
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2234">
+                                                    Tohum &#220;retim Miktarları, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2233">
+                                                    Meyve ve Asma Fidanı &#220;retim Miktarları, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2232">
+                                                    &#199;ilek Fidesi &#220;retim Miktarları, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2222">
+                                                    Hayvan Varlığı İstatistikleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="/Sayfa/Detay/2210">
+                                                    Tarımsal Destek &#214;demesi, IV. &#199;eyrek ve Yıllık: Ekim-Aralık, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2207">
+                                                    Organize Tarım B&#246;lgeleri, 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2206">
+                                                    İklim, Fenolojik Durum ve Sulama İzleme İstatistikleri, Aralık 2025
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                   href="https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2287">
+                                                    Tarımsal G&#252;bre İstatistikleri, 2025
+                                                </a>
+                                            </li>
+
+                                    </ul>
+                                </li>
+
+                    </ul>
+                </li>
+
+    </ul>
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        document.querySelectorAll(".zn-submenu-toggle").forEach(function (btn) {
+
+            btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const submenu = this.closest(".dropdown-submenu");
+
+                // aynı seviyedeki diğerlerini kapat
+                submenu
+                    .closest(".dropdown-menu")
+                    .querySelectorAll(".dropdown-submenu.show")
+                    .forEach(function (open) {
+                        if (open !== submenu) {
+                            open.classList.remove("show");
+                        }
+                    });
+
+                submenu.classList.toggle("show");
+            });
+
+        });
+
+    });
+</script>
+
+
+
+                </div>
+            </div>
+        </nav>
+
+
+
+    </header>
+    <div role="main" class="main">
+         
+
+
+
+
+
+
+<!--/ Sub-Header content wrapper .d-flex -->
+<!-- Bottom mask style 3 -->
+<!--/ Page sub-header + Bottom mask style 3 -->
+<!-- Title + sub-title + Testimonials carousel element section with custom paddings -->
+<section class="hg_section pt-10 pb-10" style="background:#fff;">
+
+    
+        <div class="TekSayfa"><p style="text-align:justify;"><div style="zoom: auto">    <div class="container-fluid mgt-10">        <div class="container text-start">            <div class="row">                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 text-start" id="yazdir">                    <div class="card">                        <h5 class="card-header"></h5>                        <div class="card-body">                            <div class="d-flex justify-content-between">                                <div class="col-3 alan-txt"> <img class="d-flex justify-content-center lg-img-1" src="https://cdniys.tarimorman.gov.tr/api/File/GetLogo/469/Resim/Site/AnaLogo/0/analogo.png" alt=""> </div>                                <div class="col-6 text-center mgt-40 alan-txt"> <!--başlık-->                                    <h3 class="fnt-logo-1" style="color: red"> T.C. TARIM VE ORMAN BAKANLIĞI </h3>                                    <h4 class="fnt-logo-2" style="color: red"> TARIM REFORMU GENEL MÜDÜRLÜĞÜ </h4>                                    <h5 class="fnt-logo-3">İSTATİSTİK BÜLTENİ</h5>                                </div>                                <div class="col-3 alan-txt" style="margin-bottom: 30px"> <img class="d-flex justify-content-center lg-img-2" src="https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFileWithoutCache/482/ResimGaleri/7900/0/trgm_logo27.10.2025.jpg" alt=""> </div>                            </div>                        </div>                    </div>                    <!-- veri card plan-->                    <div class="card" style="margin-bottom: 10px"> <!-- Başlık -->                        <h5 class="card-header"></h5>                        <div class="container icon-none">                            <div class="row">                                <div class="col text-end" style="padding: 10px; margin: 10px"> <a target="_blank" href="https://twitter.com/intent/tweet?url=https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260" data-size="large" style="text-decoration: none"> <i class="fa-brands fa-square-x-twitter fa-xl" style="color: #000000"></i></a>                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260" target="_blank" rel="noopener"><i class="fa-brands fa-facebook fa-lg"></i></a>                                    <a href="mailto:istatistikbulten@tarimorman.gov.tr"><i class="fa-solid fa-envelope fa-lg"></i></a> <a href="" onclick="window.print();" class="noPrint"> <i class="fa-solid fa-print fa-lg"></i></a> </div>                            </div>                        </div>                        <div class="container">                            <div class="row" style="margin-top: 20px">                                <div class="col-8 text-start">                                    <h4 class="fnt-sz1" style="color: rgb(23, 170, 196)">                                         Tarımsal Alet ve Makine İstatistikleri, 2025                                     </h4>                                </div>                                <div class="col fnt-sz4 text-end"> <strong> Yayımlanma Tarihi/Saat:</strong> <br> 05 Mart 2026 <br>                                     <strong> Sonraki Bülten Tarihi:</strong><br> 05 Mart 2027<br>                                    <strong> Sayı: </strong>054  </div>                            </div>                        </div>                        <!-- End -->                        <div class="container">                            <div class="row" style="margin-top: 20px">                                <div class="col-12">                                    <h4 class="borderbg">Öne Çıkanlar</h4>                                </div>                                <div class="col-12 black-border"> <a class="twitter-share-button btn" target="_blank" href="https://twitter.com/intent/tweet?text=Ülkemizin tarım alet makine varlığı 2024 yılına oranla 2025 yılında yüzde 2,82 artarak 13 milyon 460 bin 339 adet oldu. &amp;url=https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260" data-size="large" style="text-decoration: none">                                        <p> <i class="fa-brands fa-square-x-twitter fa-2xl" style="color: #000000"></i>                                            Ülkemizin tarım alet makine varlığı 2024 yılına oranla 2025 yılında %2,82 artarak 13 milyon 460 bin 339 adet oldu.                                        </p>                                    </a>                                 </div>                            </div>                        </div>                        <div class="container">                            <div class="row">                                <div class="col" style="margin-top: 5px">                                    <p class="p1">                                         2025 yılında toplam traktör sayısı önceki yıla göre %0,7 oranında artarak 1 milyon 610 bin 133 olmuştur.                                     </p>                                    <p class="p1">                                         2025 yılında biçerdöver sayıları 21 bin 116 ve diğer alet ve makine sayısı 11 milyon 829 bin 090 olarak gerçekleşmiştir.                                      </p>                                    <p class="p1">                                         Toplam tarımsal alet ve makine sayısı 2024 yılına göre %2,8 artarak 13 milyon 460 bin 339 olarak gerçekleşmiştir.                                    </p>                                </div>                            </div>                        </div>                        <!--Tablo-->                        <div class="container tbl1" style="                margin-top: 10px;                padding: 50px;                padding-bottom: 20px !important;                padding-top: 0px !important;              ">                            <div class="col">                                <h5> <strong>Tarımsal alet ve makine sayıları, 2024-2025</strong> </h5>                                <hr>                            </div>                            <table class="table table-striped text-center">                                <thead>                                    <tr>                                        <th class="thl" scope="col">Cinsi<br>&nbsp;</th>                                        <th scope="col" class="text-end"> 2024 <br> (Adet) </th>                                        <th scope="col" class="text-end"> 2025<br> (Adet) </th>                                        <th scope="col" class="text-end"> Değişim <br> (%) </th>                                    </tr>                                </thead>                                <tbody>                                    <tr>                                        <th class="thl" scope="row">Traktör</th>                                        <td>1.598.659</td>                                        <td>1.610.133</td>                                        <td>0,7</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">Biçerdöver</th>                                        <td>20.783</td>                                        <td>21.116</td>                                        <td>1,6</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">Diğer</th>                                        <td>11.471.579</td>                                        <td>11.829.090</td>                                        <td>3,1</td>                                    </tr>                                    <tr>                                        <th scope="row">TOPLAM</th>                                        <td>13.091.021</td>                                        <td>13.460.339</td>                                        <td>2,8</td>                                    </tr>                                </tbody>                            </table>                        </div>                        <!--end-->                        <div class="container">                            <div class="row">                                <div class="col" style="margin-top: 5px">                                    <p class="p1">                                         Ülkemizde 35-70 beygir gücü arası olan traktör sayıları, toplam traktör sayılarının %71'ini oluşturmaktadır. Traktör sayısı son 10 yılda %28 artmıştır.                                     </p>                                </div>                            </div>                        </div>                        <!--end--> <!--Tablo-->                        <div class="container tbl1" style="                margin-top: 10px;                padding: 50px;                padding-bottom: 20px !important;                padding-top: 0px !important;              ">                            <div class="col">                                <h5> <strong>Beygir gücüne göre traktör sayıları, 2025</strong> </h5>                                <hr>                            </div>                            <hr>                            <table class="table table-striped text-center">                                <thead>                                    <tr>                                        <th class="thl" scope="col">Traktör beygir gücü</th>                                        <th scope="col" class="text-end">Adet</th>                                        <th scope="col" class="text-end"> Pay <br> (%) </th>                                    </tr>                                </thead>                                <tbody>                                    <tr>                                        <th class="thl" scope="row">Paletli (Tırtıllı)</th>                                        <td>130</td>                                        <td>0,0</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">Tek Akslı (1-5 Bg)</th>                                        <td>21.971</td>                                        <td>1,3</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">Tek Akslı (5 Bg'Den Fazla)</th>                                        <td>92.850</td>                                        <td>5,8</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">İki Akslı (1-10 Bg)</th>                                        <td>6.565</td>                                        <td>0,4</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">İki Akslı (11-24 Bg)</th>                                        <td>19.485</td>                                        <td>1,2</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">İki Akslı (25-34 Bg)</th>                                        <td>67.259</td>                                        <td>4,2</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">İki Akslı (35-50 Bg)</th>                                        <td>532.215</td>                                        <td>33,1</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">İki Akslı (51-70 Bg)</th>                                        <td>602.940</td>                                        <td>37,4</td>                                    </tr>                                    <tr>                                        <th class="thl" scope="row">İki Akslı (70 Bg'Den Fazla)</th>                                        <td>266.718</td>                                        <td>16,6</td>                                    </tr>                                    <tr>                                        <th scope="row">TOPLAM</th>                                        <td><strong>1.610.133</strong></td>                                        <td><strong>100,0</strong></td>                                    </tr>                                </tbody>                            </table>                        </div>                        <div class="container">                            <div class="row">                                <div class="col" style="margin-top: 5px">                                    <p class="p1">                                         Ülkemizde 10 yaş ve altı biçerdöver sayıları toplam biçerdöver sayılarının %49,3’ünü oluşturmaktadır.  Biçerdöver sayısı son 10 yılda %32 oranında artmıştır.                                    </p>                                </div>                            </div>                        </div>                        <!--Tablo-->                        <div class="container tbl1" style="                margin-top: 10px;                padding: 50px;                padding-bottom: 20px !important;                padding-top: 0px !important;              ">                            <div class="col">                                <h5><strong>Yaşına göre biçerdöver sayıları, 2025</strong></h5>                                <hr>                            </div>                            <table class="table table-striped text-center">                                <thead>                                    <tr>                                        <th scope="col" class="">Biçerdöver yaşı</th>                                        <th scope="col" class="text-end">Adet</th>                                        <th scope="col" class="text-end">Pay %</th>                                    </tr>                                </thead>                                <tbody>                                    <tr>                                        <th scope="row">0-5</th>                                        <td>5.290</td>                                        <td>25,1</td>                                    </tr>                                    <tr>                                        <th scope="row">6-10</th>                                        <td>5.124</td>                                        <td>24,3</td>                                    </tr>                                    <tr>                                        <th scope="row">11-20</th>                                        <td>5.314</td>                                        <td>25,2</td>                                    </tr>                                    <tr>                                        <th scope="row">21 Yaş ve Üzeri</th>                                        <td>5.388</td>                                        <td>25,5</td>                                    </tr>                                    <tr>                                        <th scope="row"><strong>TOPLAM</strong></th>                                        <td><strong>21.116</strong></td>                                        <td><strong>100,0</strong></td>                                    </tr>                                </tbody>                            </table>                        </div>                        <!--end--> <!--Footer-->                        <div class="container-fluid" id="yok" style="margin-bottom: 20px; margin-top: 10px">                            <div class="container">                                <div class="row" style="margin-bottom: 20px; margin-top: 20px">                                    <div class="col"> <strong>İletişim:                                            <hr>                                        </strong> </div>                                </div>                            </div>                            <div class="row text-center pe-5" style="margin-top: 0px; margin-bottom: 10px">                                <div class="col-sm-12 col-md-12 col-lg-4"> <i class="fa-solid fa-phone" style="padding: 5px"></i><br>0312 258 79 24 <br> </div>                                <div class="col-sm-12 col-md-12 col-lg-4"> <i class="fa-solid fa-envelope" style="padding: 5px"></i><br>istatistikbulten@tarimorman.gov.tr <br> </div>                                <div class="col-sm-12 col-md-12 col-lg-4"> <i class="fa-solid fa-location-dot" style="padding: 5px"></i><br>Tarım Reformu Genel Müdürlüğü<br><br> </div>                            </div>                        </div>                        <!--    sss      -->                    </div>                </div>                <!--end--> <!--Tablolar-->                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" id="alan">                    <div class="card mg-0" style="padding: 20px; height: min-content; width: 100%">                        <h5 class="card-header">Tablolar</h5>                        <div class="card-body" style="padding: 0px">                            <p class="card-text" style="padding: 5px"> <b><a href="https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/482/DosyaGaleri/9341/tablo_1_tarimsal_alet_ve_makine_sayilari_20152025.xls" target="_blank">Tablo-1</a></b><a href="https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/482/DosyaGaleri/9341/tablo_1_tarimsal_alet_ve_makine_sayilari_20152025.xls" target="_blank"> Tarımsal Alet ve Makine Sayıları, 2015-2025</a> </p>                        </div>                    </div>                    <!-- Meta Veri-->                    <div class="card mg-0" style="padding: 20px; height: min-content; width: 100%" id="alan">                        <h5 class="card-header">Metaveri</h5>                        <div class="card-body" style="padding: 0px">                            <div class="accordion" id="accordionExample">                                <div class="accordion-item">                                    <h2 class="accordion-header"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"> Analitik Çerçeve, Kapsam,                                            Tanımlar ve Sınıflamalar </button> </h2>                                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">                                        <div class="accordion-body text-justify">                                            <p> <strong>Verinin Tanımı: </strong>                                                 Tarımsal alet ve makine istatistikleri, tarımsal amaçlı kullanılan traktör, biçerdöver ve diğer tarımsal alet ve ekipmanların sayısal değerlerini kapsamaktadır.                                            </p>                                            <p><strong>Sınıflamalar: </strong> TAORBA, Prodcom</p>                                        </div>                                    </div>                                </div>                                <div class="accordion-item">                                    <h2 class="accordion-header"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Verinin Kapsamı </button>                                    </h2>                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">                                        <div class="accordion-body text-justify">                                            <p>Kapsam: Türkiye</p>                                            <p>Düzeyi: İlçe</p>                                            <p>                                                 İçeriği: Yıl itibariyle tarımsal amaçlı alet ve ekipmanların sayısal                                                verileri,                                             </p>                                        </div>                                    </div>                                </div>                                <div class="accordion-item">                                    <h2 class="accordion-header"> <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"> Derleme Uygulamaları                                        </button> </h2>                                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">                                        <div class="accordion-body text-justify">                                            <p> <strong>Yöntem:</strong>                                                 Veriler, Resmi İstatistik Programı kapsamında, İl ve İlçe Müdürlükleri tarafından toplanmakta ve web tabanlı İstatistik Bilgi Sistemine (İBS) girilmektedir. Veri girişlerinin eksiksiz olarak tamamlanmasının ardından elde edilen veriler; Türkiye Ziraat Odaları Birliği’nden temin edilen toplam biçerdöver sayıları ve Karayolu Trafik Kanunu gereğince tescili gerektiren ve Noterler Birliğinden temin edilen il bazlı traktör sayıları ile Tarım ve Orman Bakanlığı tarafından gerçek veya tüzel kişilere verilen hibe/proje bazlı tarımsal alet ve ekipman desteği verileri ile mukayese edilmek suretiyle raporlama yapılmaktadır. Derlenen veriler önceki yıllara göre karşılaştırmalı olarak analiz edilmekte ve nihai rapor oluşturulmaktadır.                                            </p>                                            <p> <strong> Veri Güncelleme Sıklığı: </strong>                                                 Tarımsal alet ve makine sayıları yılda 1 kez ve ait olduğu yılda (1 Ocak - 31 Aralık) derlenmekte/güncellenmektedir.                                            </p>                                        </div>                                    </div>                                </div>                            </div>                        </div>                    </div>                </div>            </div>        </div>    </div></div></div>
+
+
+    <!--/ row -->
+    <!--/ container -->
+</section>
+<!--/ Title + sub-title + Testimonials carousel element section with custom paddings -->
+
+
+
+
+    </div>
+
+
+    <!--Footer-->
+    <footer class="container-fluid f-boxshadow mt-5 d-print-none">
+        <div class="container">
+
+
+
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+                <p class="f-txt-he-link">
+                    Tüm Hakları Saklıdır. © Bilgi Teknolojileri Genel Müdürlüğü
+                </p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3">
+                        <a class="link-body-emphasis" href="https://www.facebook.com/G%C4%B1da-ve-Kontrol-Genel-M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC-102486042344583/">
+                            <i class="bi bi-facebook" width="24" height="24"></i>
+                        </a>
+                    </li>
+
+
+                    <li class="ms-3">
+                        <a class="link-body-emphasis" href="https://www.instagram.com/tr_gkgm">
+                            <i class="bi bi-instagram">
+                        </a></i>
+
+                    </li>
+
+
+                    <li class="ms-3">
+                        <a class="link-body-emphasis" href="https://twitter.com/tr_gkgm">
+                            <i class="bi bi-twitter" width="24" height="24"></i>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Footer End -->
+
+
+
+    <a href="#" id="totop">YUKARI</a>
+    <script src="/Custom/GuvenilirGida/js/own carousel/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.ath_carousel_se_03_carousel').owlCarousel({
+                items: 4,
+                nav: true,
+                dots: false,
+                loop: true,
+                mouseDrag: true,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                navText: ['<i class="fa-solid fa-chevron-left"></i>', '<i class="fa-solid fa-chevron-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 3
+                    },
+                    480: {
+                        items: 3
+                    },
+                    767: {
+                        items: 4
+                    },
+                    992: {
+                        items: 5
+                    },
+                    1200: {
+                        items: 6
+                    }
+                }
+            });
+        });
+    </script>
+
+    
+
+    
+
+</body>
+</html>
+
+
+

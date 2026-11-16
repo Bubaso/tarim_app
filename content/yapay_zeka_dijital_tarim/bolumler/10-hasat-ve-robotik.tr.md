@@ -33,6 +33,8 @@ Yapay zekânın katkısı robotun gözünde: kamera görüntüsünde meyveyi bul
 
 ## Türkiye
 
+Türkiye'de hasadın makine tarafı klasik mekanizasyon. Bakanlığın verisine göre 2025'te **1.610.133** traktör ve **21.116** biçerdöver vardı; biçerdöverlerin **%49,3**'ü 10 yaşında ya da daha genç, traktörlerin **%71**'i 35-70 beygir gücünde.
+
 2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirdiğini yazıyor (§6). Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ ise robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını da hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i.
 
 Araştırma tarafında Türkiye'deki hasat robotu çalışmaları görüntü tanıma aşamasında. Tekirdağ Namık Kemal Üniversitesi'nden Kahya ve arkadaşları 2024'te patlıcan ve kabak hasadı için derin öğrenme tabanlı nesne tanıma modelleri eğitti. Ölçülen şey modelin doğrulama görüntülerinde meyveyi tanıma başarısı; robotun tarlada meyveyi koparıp koparamadığı değil.

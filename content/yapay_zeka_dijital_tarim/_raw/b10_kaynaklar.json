@@ -4,7 +4,8 @@
   "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
   "_nitelik_tanimi": {
     "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
-    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin",
+    "KURUMSAL": "Kamu kurumunun kendi yayını"
   },
   "kaynaklar": {
     "bac_2014": {
@@ -15,7 +16,13 @@
       "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
       "tur": "derleme — 50 hasat robotu",
       "robot_sayisi": 50,
-      "ortalama_yuzde": {"yer_bulma": 85, "koparma": 75, "hasat": 66, "meyve_hasari": 5, "sap_hasari": 45},
+      "ortalama_yuzde": {
+        "yer_bulma": 85,
+        "koparma": 75,
+        "hasat": 66,
+        "meyve_hasari": 5,
+        "sap_hasari": 45
+      },
       "ortalama_dongu_sn": 33,
       "en_kisa_dongu_sn_kivi": 1,
       "alinti": [
@@ -98,6 +105,22 @@
         "These metrics are key indicators that measure the recognition success of a model and reflect the performance of the respective model on the validation dataset."
       ]
     },
+    "tob_makine_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Tarımsal Alet ve Makine İstatistikleri, 2025.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260",
+      "dosya": "kaynak_dosyalari/tob_2026_makine_2025.html",
+      "traktor_2025": 1610133,
+      "bicerdover_2025": 21116,
+      "on_yas_alti_bicerdover_yuzde": 49.3,
+      "traktor_35_70_bg_yuzde": 71,
+      "alinti": [
+        "2025 yılında toplam traktör sayısı önceki yıla göre %0,7 oranında artarak 1 milyon 610 bin 133 olmuştur.",
+        "2025 yılında biçerdöver sayıları 21 bin 116",
+        "Ülkemizde 35-70 beygir gücü arası olan traktör sayıları, toplam traktör sayılarının %71'ini oluşturmaktadır.",
+        "Ülkemizde 10 yaş ve altı biçerdöver sayıları toplam biçerdöver sayılarının %49,3’ünü oluşturmaktadır."
+      ]
+    },
     "yillik_program_2027": {
       "nitelik": "RESMI",
       "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
@@ -114,11 +137,10 @@
   },
   "turkiye": {
     "durum": "var",
-    "_not": "Programda mekanizasyon engeli ve robotiği de hedefleyen kırsal kalkınma hibeleri; akademide görüntüde meyve tanıma modelleri (patlıcan, kabak). Türkiye'de bir hasat robotunun tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü yayımlanmış bir deneme bu taramada bulunamadı."
+    "_not": "Bakanlığın makine istatistiği, programda mekanizasyon engeli ve robotiği de hedefleyen kırsal kalkınma hibeleri; akademide görüntüde meyve tanıma modelleri (patlıcan, kabak). Türkiye'de bir hasat robotunun tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü yayımlanmış bir deneme bu taramada bulunamadı."
   },
   "_reddedilen": {
     "kahya_2023_trabzonhurmasi": "Aynı ekibin trabzonhurması çalışması Zenodo'da; Zenodo otomatik isteği olağandışı trafik gerekçesiyle reddetti. Zorlanmadı, alınmadı.",
-    "demirel_2026_kavramsal": "Topraksız sera için hasat robotu: kavramsal tasarım; özetteki başarı aralıkları yazarların kendi ölçümü değil, literatürden aktarım. Alınmadı.",
-    "makine_istatistigi": "Bakanlığın Tarımsal Alet ve Makine İstatistikleri 2025 bülteni: bakanlık alan adları bu turda DNS'te çözülmedi, okunamadı. Okununca Türkiye kısmına girer."
+    "demirel_2026_kavramsal": "Topraksız sera için hasat robotu: kavramsal tasarım; özetteki başarı aralıkları yazarların kendi ölçümü değil, literatürden aktarım. Alınmadı."
   }
 }

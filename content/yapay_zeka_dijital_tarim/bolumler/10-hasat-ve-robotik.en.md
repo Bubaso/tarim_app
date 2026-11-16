@@ -33,6 +33,8 @@ AI's contribution is the robot's eye: finding the fruit in a camera image and ju
 
 ## Türkiye
 
+On the machinery side, harvesting in Türkiye rests on conventional mechanisation. According to the ministry's data there were **1,610,133** tractors and **21,116** combine harvesters in 2025; **49.3%** of the combines were 10 years old or younger, and **71%** of the tractors had 35-70 horsepower.
+
 The 2027 Programme writes that the small-scale, fragmented and scattered land structure of holdings makes effective use of mechanisation and modern production techniques harder (§6). A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
 
 On the research side, harvesting-robot work in Türkiye is at the image-recognition stage. In 2024, Kahya and colleagues at Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field.

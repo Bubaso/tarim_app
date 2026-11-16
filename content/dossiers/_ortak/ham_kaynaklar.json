@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 238,
- "toplam_bayt": 732889914,
+ "dosya_sayisi": 241,
+ "toplam_bayt": 733096954,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -2158,6 +2158,42 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlığın istatistik sitesi; yöntem metaverinin 'Derleme Uygulamaları' kısmında."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_hayvan_varligi_haziran.html",
+   "bayt": 66344,
+   "sha256": "267683c5289863b466beb904e89e824700a2aa80e67e2794fe8b39e2322fae2c",
+   "kaynak": {
+    "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2385",
+    "atif": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 23.09.2026. İstatistik Bülteni: Hayvan Varlığı İstatistikleri, Haziran 2026.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_makine_2025.html",
+   "bayt": 73334,
+   "sha256": "4f6968856ed267358913c42623884b58ea6d4f093f4267679287ac308f0b5258",
+   "kaynak": {
+    "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260",
+    "atif": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 05.03.2026. İstatistik Bülteni: Tarımsal Alet ve Makine İstatistikleri, 2025.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_ormancilik_2025.html",
+   "bayt": 67362,
+   "sha256": "c7679920015b63965d6e6f7ff82a5bb55e084e28b383b5ffcc343a1406de3508",
+   "kaynak": {
+    "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2363",
+    "atif": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 26.06.2026. İstatistik Bülteni: Ormancılık İstatistikleri, 2025.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
    }
   },
   {
