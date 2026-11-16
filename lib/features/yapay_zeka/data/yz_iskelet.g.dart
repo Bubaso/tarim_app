@@ -192,7 +192,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Aquaculture and fisheries",
       true,
       ["sensor", "goruntu", "tahmin"],
-      false,
+      true,
       "Yem, su kalitesi, balık sağlığı ve av takibi.",
       "Feed, water quality, fish health and catch monitoring."),
   YzBaslik(

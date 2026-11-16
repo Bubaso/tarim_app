@@ -448,12 +448,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Yem, su kalitesi, balık sağlığı ve av takibi.",
         "en": "Feed, water quality, fish health and catch monitoring."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

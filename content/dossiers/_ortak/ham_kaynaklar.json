@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 255,
- "toplam_bayt": 733462427,
+ "dosya_sayisi": 261,
+ "toplam_bayt": 733829796,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1861,6 +1861,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/bsgm_2026_bagis_yeni_cihaz.html",
+   "bayt": 101653,
+   "sha256": "47793deefce50301122f06d3473519f4706f14ceddabbf6725e035ecc829cd37",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/BSGM/Duyuru/221/Balikci-Gemilerine-Yeni-Bagis-Cihazi-Takilmasi-Hakkinda",
+    "atif": "Balıkçılık ve Su Ürünleri Genel Müdürlüğü. 29.04.2026. Balıkçı Gemilerine Yeni BAGİS Cihazı Takılması Hakkında (duyuru).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/dalla_betta_2026_crossref.json",
    "bayt": 12157,
    "sha256": "3e5e4370b07e9cedce9f851c2625461de1131ae5af40580ce1f86e5f0b61c958",
@@ -1906,6 +1918,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2024_sofia_haber.html",
+   "bayt": 74791,
+   "sha256": "4dc47b58a0142b85b0c576e4993b59bbcc21ee306b27e42d3d09af75accbca47",
+   "kaynak": {
+    "adres": "https://www.fao.org/newsroom/detail/fao-report-global-fisheries-and-aquaculture-production-reaches-a-new-record-high/en",
+    "atif": "FAO. 07.06.2024. FAO Report: Global fisheries and aquaculture production reaches a new record high (The State of World Fisheries and Aquaculture 2024).",
+    "lisans": "FAO içeriği (yeniden kullanım koşulları FAO sitesinde)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — FAO haber merkezi; raporun ana bulguları."
    }
   },
   {
@@ -2185,6 +2209,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ozdemir_2024_crossref.json",
+   "bayt": 16086,
+   "sha256": "e44049c591ed0d0c61e05741618930d6604effc8157d2d2d5bbcb424bee641bf",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.15832/ankutbd.1470111",
+    "atif": "Özdemir N., Çakır M., Yılmaz M., Şimşek H., Oral M., Oral O. 2025. Application of the machine learning methods to assess the impact of physico-chemical characteristics of water on feed consumption in fish farms. Journal of Agricultural Sciences (Tarım Bilimleri Dergisi) 31(1): 71-79. doi:10.15832/ankutbd.1470111",
+    "lisans": "CC BY (dergi)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/paolo_2024_europepmc.json",
+   "bayt": 14161,
+   "sha256": "429bad524645f75c64e1201c8ba1e451a8ae4c0a0ee824b63def51ea7b810a99",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Satellite%20mapping%20reveals%20extensive%20industrial%20activity%20at%20sea%22&resultType=core&format=json",
+    "atif": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625(7993): 85-91. doi:10.1038/s41586-023-06825-8 (PMC10764273)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/paudel_2021_ideas.html",
    "bayt": 62157,
    "sha256": "531f74c7c9a6e337eaecb41b546bbd8e7088b1350f3f7b6b1865854ed294e415",
@@ -2389,6 +2437,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+   "bayt": 138984,
+   "sha256": "b0465750ec5d03266b5a8509e76bcf25a00b987eee2cd54468fe0df40cca0fab",
+   "kaynak": {
+    "adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+    "atif": "Tarım ve Orman Bakanlığı (TÜBİTAK sitesinde, Haziran 2026). Balıkçı Gemileri İzleme Sistemi (BAGİS) Verilerinin Yapay Zekâ Destekli Analizi Yoluyla Politika Geliştirme, Simülasyon ve Senaryo Üretiminin Sağlanması Projesi — teknik ister dokümanı.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Bakanlığın teknik ister belgesi, TÜBİTAK sitesinde yayımlanmış."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usda_ers_2023_vrt_benimseme.html",
    "bayt": 38242,
    "sha256": "c392e566a7f88c73ff7a0923fe1be2d03d60c554c7ec286d32245c7b51e2a772",
@@ -2458,6 +2518,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/yang_2021_crossref.json",
+   "bayt": 21694,
+   "sha256": "5b27c607716ceecbef2560c3259a8b95bf12f31d95adf25b5efdad2751a30f29",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1111/raq.12464",
+    "atif": "Yang X., Zhang S., Liu J., Gao Q., Dong S., Zhou C. 2021. Deep learning for smart fish farming: applications, opportunities and challenges. Reviews in Aquaculture 13(1): 66-90. doi:10.1111/raq.12464",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {

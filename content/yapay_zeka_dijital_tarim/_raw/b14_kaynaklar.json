@@ -1,0 +1,152 @@
+{
+  "_ne": "§14 Su ürünleri — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun ya da kamu kurumunun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "fao_2024_sofia": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 07.06.2024. FAO Report: Global fisheries and aquaculture production reaches a new record high (SOFIA 2024).",
+      "adres": "https://www.fao.org/newsroom/detail/fao-report-global-fisheries-and-aquaculture-production-reaches-a-new-record-high/en",
+      "dosya": "kaynak_dosyalari/fao_2024_sofia_haber.html",
+      "veri_yili": 2022,
+      "toplam_uretim_milyon_ton": 223.2,
+      "yetistiricilik_su_hayvani_milyon_ton": 94.4,
+      "yetistiricilik_payi_yuzde": 51,
+      "surdurulebilir_stok_yuzde_2021": 62.3,
+      "alinti": [
+        "global fisheries and aquaculture production in 2022 surged to 223.2 million tonnes",
+        "In 2022 and for the first time in history, aquaculture surpassed capture fisheries as the main producer of aquatic animals.",
+        "Global aquaculture production reached an unprecedented 130.9 million tonnes, of which 94.4 million tonnes are aquatic animals, 51 percent of the total aquatic animal production.",
+        "The proportion of marine stocks fished within biologically sustainable levels, however, decreased to 62.3 percent in 2021, 2.3 percent lower than in 2019."
+      ]
+    },
+    "paolo_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625.",
+      "doi": "10.1038/s41586-023-06825-8",
+      "dosya": "kaynak_dosyalari/paolo_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC10764273)",
+      "donem": "2017-2021",
+      "izlenmeyen_bkg_yuzde": "72-76",
+      "izlenmeyen_tasima_enerji_yuzde": "21-30",
+      "salgin_dususu_yuzde": 12,
+      "alinti": [
+        "We combine satellite imagery, vessel GPS data and deep-learning models to map industrial vessel activities and offshore energy infrastructure across the world's coastal waters from 2017 to 2021.",
+        "We find that 72-76% of the world's industrial fishing vessels are not publicly tracked, with much of that fishing taking place around South Asia, Southeast Asia and Africa.",
+        "We also find that 21-30% of transport and energy vessel activity is missing from public tracking systems.",
+        "Globally, fishing decreased by 12 ± 1% at the onset of the COVID-19 pandemic in 2020 and had not recovered to pre-pandemic levels by 2021."
+      ]
+    },
+    "yang_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Yang X., Zhang S., Liu J., Gao Q., Dong S., Zhou C. 2021. Deep learning for smart fish farming: applications, opportunities and challenges. Reviews in Aquaculture 13(1).",
+      "doi": "10.1111/raq.12464",
+      "dosya": "kaynak_dosyalari/yang_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "including live fish identification, species classification, behavioural analysis, feeding decisions, size or biomass estimation, and water quality prediction.",
+        "The review results show that the most significant contribution of DL is its ability to automatically extract features.",
+        "DL is still in a weak artificial intelligence stage and requires large amounts of labelled data for training, which has become a bottleneck that restricts further DL applications in aquaculture."
+      ]
+    },
+    "tob_su_urunleri_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Su Ürünleri İstatistikleri, 2025.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2353",
+      "dosya": "kaynak_dosyalari/tob_2026_su_urunleri_2025.html",
+      "toplam_2025_ton": 1037019,
+      "avcilik_2025_ton": 410428,
+      "yetistiricilik_2025_ton": 626591,
+      "yetistiricilik_deniz_yuzde": 70.4,
+      "alabalik_ton": 185310,
+      "levrek_ton": 174859,
+      "cipura_ton": 164643,
+      "hamsi_ton": 245261,
+      "alinti": [
+        "2025 yılında denizlerde ve iç sularda, avcılık ve yetiştiricilik yoluyla toplam 1 milyon 37 bin 19 ton su ürünleri üretimi gerçekleşmiştir.",
+        "2025 yılında avcılık yoluyla 410 bin 428 ton, yetiştiricilik yoluyla 626 bin 591 ton üretim gerçekleşmiştir.",
+        "Bu üretimin 440 bin 817 tonu (%70,4) denizlerde, 185 bin 774 tonu (%29,6) ise iç sularda gerçekleştirilmiştir.",
+        "iç sularda 185 bin 310 ton ile alabalık ilk sırada yer alırken, denizlerde 174 bin 859 ton ile levrek ve 164 bin 643 ton ile çipura en fazla yetiştirilen türler olmuştur.",
+        "245 bin 261 tonluk üretimle hamsi en fazla avlanan balık türü olmuştur."
+      ]
+    },
+    "tob_bagis_yz_ister_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. Haziran 2026. Balıkçı Gemileri İzleme Sistemi (BAGİS) Verilerinin Yapay Zekâ Destekli Analizi Yoluyla Politika Geliştirme, Simülasyon ve Senaryo Üretiminin Sağlanması Projesi — teknik ister dokümanı (TÜBİTAK sitesinde).",
+      "adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+      "gemi_sayisi": 1629,
+      "gemi_boyu_en_az_m": 12,
+      "konum_araligi_dk": 10,
+      "bagis_veri_yili": 2016,
+      "subis_veri_yili": 2008,
+      "_program": "Belge projenin hangi TÜBİTAK programına bağlı olduğunu söylemiyor; metin program adı yazmaz.",
+      "alinti": [
+        "BALIKÇI GEMİLERİ İZLEME SİSTEMİ (BAGİS) VERİLERİNİN YAPAY ZEKÂ DESTEKLİ ANALİZİ YOLUYLA POLİTİKA GELİŞTİRME, SİMÜLASYON VE SENARYO ÜRETİMİNİN SAĞLANMASI PROJESİ",
+        "ticari su ürünleri avcılığı yapan 12 metre ve üzeri boylardaki gemilerin konum, rota ve hız bilgilerinin uydu ile GSM haberleşmesi üzerinden anlık olarak izlenmesi",
+        "SUBİS ise elektronik seyir defteri ve nakil belgeleri vasıtasıyla avlanan balık türü ile miktar verilerinin kaydına imkân sağlamaktadır.",
+        "halihazırda 12 metre ve üzerindeki 1629 balıkçı gemisine ait operasyonel veriler güncel, yapılandırılmış ve erişilebilir durumdadır.",
+        "bu veri havuzu hâlihazırda ağırlıklı olarak sadece izleme ve kayıt tutma amacıyla kullanılmaktadır.",
+        "kontroller ekran başındaki personel tarafından yapılmaktadır.",
+        "BAGİS cihazlarından veya veri iletim kanallarından kaynaklanan teknik arızalar ya da balıkçıların cihaza müdahale etmesi sonucu veri kesintileri oluşabilmektedir.",
+        "Gemiler ortalama 10 dakikada 1 kez konum bilgisi göndermektedir.",
+        "Mevcut BAGİS verilerinin yapay zekâ destekli analizleri yapılarak gemilerin yasak alanlardaki faaliyetleri hakkında olası ihlaller tespit edilerek ve ihlal uyarıları oluşturularak denetimlerde etkinlik artırılacaktır."
+      ]
+    },
+    "bsgm_bagis_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Balıkçılık ve Su Ürünleri Genel Müdürlüğü. 29.04.2026. Balıkçı Gemilerine Yeni BAGİS Cihazı Takılması Hakkında.",
+      "adres": "https://www.tarimorman.gov.tr/BSGM/Duyuru/221/Balikci-Gemilerine-Yeni-Bagis-Cihazi-Takilmasi-Hakkinda",
+      "dosya": "kaynak_dosyalari/bsgm_2026_bagis_yeni_cihaz.html",
+      "ilk_etap_gemi_boyu_m": 19,
+      "alinti": [
+        "12 metre ve üzeri boylardaki balıkçı gemilerinde bulunan BAGİS cihazları yenilenecektir.",
+        "İlk etapta 19 metre ve üzeri boylardaki balıkçı gemilerine yeni BAGİS cihazları takılacaktır.",
+        "cihaz montajlarının 2026 yılsonuna kadar tamamlanması planlanmaktadır."
+      ]
+    },
+    "ozdemir_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Özdemir N., Çakır M., Yılmaz M., Şimşek H., Oral M., Oral O. 2025. Application of the machine learning methods to assess the impact of physico-chemical characteristics of water on feed consumption in fish farms. Journal of Agricultural Sciences 31(1).",
+      "doi": "10.15832/ankutbd.1470111",
+      "dosya": "kaynak_dosyalari/ozdemir_2024_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "su_ozelligi_sayisi": 11,
+      "alinti": [
+        "MUĞLA SITKI KOÇMAN ÜNİVERSİTESİ",
+        "the relationship between changes in the physico-chemical characteristics of water and feed consumption was evaluated using machine learning methods.",
+        "Among all the measured physico-chemical characteristics of water, temperature was determined to be the most important parameter to be evaluated in fish feeding.",
+        "the models developed with RF, GBM and XGBoost algorithms yielded better results."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "tesis_sayisi": 2502,
+      "kapasite_bin_ton": 925,
+      "planli_tur": 17,
+      "planli_uretim_payi_yuzde": 80,
+      "alinti": [
+        "toplam 925 bin ton/yıl kapasiteli 2.502 su ürünleri yetiştiriciliği tesisi faaliyet göstermektedir.",
+        "toplam 17 tür üretim planlamasına dâhil edilmiştir. Böylece ülkemizdeki su ürünleri üretiminin yüzde 80’i planlı üretim kapsamına alınmıştır.",
+        "soğuk hava depolarında çapraz denetimler yapılmaktadır."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Bakanlığın üretim istatistiği, BAGİS gemi izleme ve SUBİS elektronik seyir defteri, BAGİS verisini yapay zekâyla analiz edecek projenin teknik ister belgesi (Haziran 2026), cihaz yenileme duyurusu, programdaki planlı üretim ve denetim; akademide makine öğrenmesiyle yem tüketimi çalışması. Türkiye'de bir çiftlikte ya da filoda yapay zekânın yem, sağlık ya da denetim sonucuna etkisini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "faolex_teblig": "BAGİS tebliğinin FAOLEX kopyası indirildi; Bakanlığın 2026 teknik ister belgesi sistemi daha güncel anlattığı için metne alınmadı.",
+    "zhao_2021": "Yetiştiricilikte makine öğrenmesi derlemesi: özeti Crossref'te yok. Alınmadı.",
+    "yem_cv_2026": "Yetiştiricilikte yem tutarlılığını görüntüyle izleyen 2026 bildirisi: özeti Crossref'te yok; yazarlardan biri Kuzey Kıbrıs kampüsünden. Alınmadı."
+  }
+}
