@@ -1,0 +1,124 @@
+{
+  "_ne": "§10 Hasat ve robotik — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "bac_2014": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting robots for high-value crops: state-of-the-art review and challenges ahead. Journal of Field Robotics 31(6).",
+      "doi": "10.1002/rob.21525",
+      "dosya": "kaynak_dosyalari/bac_2014_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "derleme — 50 hasat robotu",
+      "robot_sayisi": 50,
+      "ortalama_yuzde": {"yer_bulma": 85, "koparma": 75, "hasat": 66, "meyve_hasari": 5, "sap_hasari": 45},
+      "ortalama_dongu_sn": 33,
+      "en_kisa_dongu_sn_kivi": 1,
+      "alinti": [
+        "On average, localization success was 85%, detachment success was 75%, harvest success was 66%, fruit damage was 5%, peduncle damage was 45%, and cycle time was 33 s.",
+        "A kiwi harvesting robot achieved the shortest cycle time of 1 s.",
+        "Moreover, the performance of harvesting robots did not improve in the past three decades, and none of these 50 robots was commercialized.",
+        "(1) simplifying the task, (2) enhancing the robot, (3) defining requirements and measuring performance, and (4) considering additional requirements for successful implementation"
+      ]
+    },
+    "arad_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Arad B., Balendonck J., Barth R., Ben-Shahar O., Edan Y., Hellström T., Hemming J., Kurtser P., Ringdahl O., Tielen T., van Tuijl B. 2020. Development of a sweet pepper harvesting robot. Journal of Field Robotics 37(6).",
+      "doi": "10.1002/rob.21937",
+      "dosya": "kaynak_dosyalari/arad_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "ticari serada saha sınaması — SWEEPER biber hasat robotu",
+      "meyve_sayisi": 262,
+      "sinama_hafta": 4,
+      "dongu_sn": 24,
+      "laboratuvar_dongu_sn": 15,
+      "basari_uygun_kosul_yuzde": 61,
+      "basari_olagan_kosul_yuzde": 18,
+      "alinti": [
+        "This paper presents the development, testing and validation of SWEEPER, a robot for harvesting sweet pepper fruit in greenhouses.",
+        "A total of 262 fruits were involved in a 4‐week long testing period.",
+        "The average cycle time to harvest a fruit was 24 s.",
+        "Logistics took approximately 50% of this time",
+        "Laboratory experiments have proven that the cycle time can be reduced to 15 s by running the robot manipulator at a higher speed.",
+        "The harvest success rates were 61% for the best fit crop conditions and 18% in current crop conditions.",
+        "This reveals the importance of finding the best fit crop conditions and crop varieties for successful robotic harvesting."
+      ]
+    },
+    "kootstra_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kootstra G., Wang X., Blok P.M., Hemming J., van Henten E. 2021. Selective harvesting robotics: current research, trends, and future directions. Current Robotics Reports 2(1).",
+      "doi": "10.1007/s43154-020-00034-1",
+      "dosya": "kaynak_dosyalari/kootstra_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "despite the growing population, labor shortage becomes a limiting factor for agricultural production.",
+        "Selective harvesting of high-value crops, such as apples, tomatoes, and broccoli, is currently mainly performed by humans, rendering it one of the most labor-intensive and expensive agricultural tasks.",
+        "Selective harvesting, however, is a challenging task for a robot, due to the high levels of variation and incomplete information, as well as safety."
+      ]
+    },
+    "zhou_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Zhou H., Wang X., Au W., Kang H., Chen C. 2022. Intelligent robots for fruit harvesting: recent developments and future challenges. Precision Agriculture 23(5).",
+      "doi": "10.1007/s11119-022-09913-3",
+      "dosya": "kaynak_dosyalari/zhou_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "Despite significant advancements in this field, widespread use of harvesting robots in orchards is yet to be seen.",
+        "The potential reasons behind the inadequate performance of existing harvesting robots are analysed"
+      ]
+    },
+    "kahya_2024_patlican": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kahya E., Özdüven F.F., Aslan Y. 2024. YOLOv5 model application in real-time robotic eggplant harvesting. Journal of Agricultural Science 16(2).",
+      "doi": "10.5539/jas.v16n2p9",
+      "dosya": "kaynak_dosyalari/kahya_2024_patlican_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "görüntüde tanıma modeli — tarlada robotla toplama denemesi değil",
+      "_tutarsizlik": "Özette F1 puanı (%85,66) kesinlik (%95,65) ve duyarlılık (%96,15) ile tutmuyor: F1 bu ikisinin harmonik ortalaması olduğundan yaklaşık %96 olmalıydı. Rakamlar metne alınmadı.",
+      "alinti": [
+        "a machine learning study was carried out to be used in the robotic harvesting of eggplant fruit",
+        "YOLOv5 (nano-small-medium and large models) was used for the deep learning method.",
+        "These are key metrics that measure the detection success of a model and indicate the performance of the relevant model on the verification dataset."
+      ]
+    },
+    "kahya_2024_kabak": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kahya E. 2024. Use of YOLOv5 trained model for robotic courgette harvesting and efficiency analysis. Yüzüncü Yıl Üniversitesi Tarım Bilimleri Dergisi.",
+      "doi": "10.29133/yyutbd.1517109",
+      "dosya": "kaynak_dosyalari/kahya_2024_kabak_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumu, Crossref kaydı",
+      "tur": "görüntüde tanıma modeli — tarlada robotla toplama denemesi değil",
+      "alinti": [
+        "Namık Kemal Üniversitesi",
+        "In this study, a machine learning method was developed for harvesting courgette fruit.",
+        "These metrics are key indicators that measure the recognition success of a model and reflect the performance of the respective model on the validation dataset."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "hibe_orani_yuzde": "50-70",
+      "alinti": [
+        "Tarım sektöründe işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı üretim maliyetlerini artırmakta, tarımsal mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirmekte",
+        "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar ile 3 Nisan 2026 tarihli Kırsal Kalkınma Yatırım Programı Çerçevesinde Yapılacak Desteklemeler Hakkında Tebliğ",
+        "dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılması hedeflenmiştir.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Programda mekanizasyon engeli ve robotiği de hedefleyen kırsal kalkınma hibeleri; akademide görüntüde meyve tanıma modelleri (patlıcan, kabak). Türkiye'de bir hasat robotunun tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü yayımlanmış bir deneme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "kahya_2023_trabzonhurmasi": "Aynı ekibin trabzonhurması çalışması Zenodo'da; Zenodo otomatik isteği olağandışı trafik gerekçesiyle reddetti. Zorlanmadı, alınmadı.",
+    "demirel_2026_kavramsal": "Topraksız sera için hasat robotu: kavramsal tasarım; özetteki başarı aralıkları yazarların kendi ölçümü değil, literatürden aktarım. Alınmadı.",
+    "makine_istatistigi": "Bakanlığın Tarımsal Alet ve Makine İstatistikleri 2025 bülteni: bakanlık alan adları bu turda DNS'te çözülmedi, okunamadı. Okununca Türkiye kısmına girer."
+  }
+}

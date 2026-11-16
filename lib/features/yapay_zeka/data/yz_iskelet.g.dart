@@ -148,7 +148,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Harvest and robotics",
       true,
       ["robotik", "goruntu"],
-      false,
+      true,
       "Hasat zamanlaması ve robotik toplama — en zor mühendislik problemi neden meyvede.",
       "Harvest timing and robotic picking — why fruit is the hardest engineering problem."),
   YzBaslik(

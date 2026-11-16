@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 232,
- "toplam_bayt": 732734386,
+ "dosya_sayisi": 238,
+ "toplam_bayt": 732889914,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1813,6 +1813,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/arad_2020_crossref.json",
+   "bayt": 17426,
+   "sha256": "5e236aad6879b9e3131dd08dbcf7d1b3e3d27439622d6124199be1c17716edf3",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1002/rob.21937",
+    "atif": "Arad B., Balendonck J., Barth R., Ben-Shahar O., Edan Y., Hellström T., Hemming J., Kurtser P., Ringdahl O., Tielen T., van Tuijl B. 2020. Development of a sweet pepper harvesting robot. Journal of Field Robotics 37(6): 1027-1039. doi:10.1002/rob.21937",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/aula_2020_crossref.json",
    "bayt": 29301,
    "sha256": "008db54cb38cd9c7c395b8dcede27262ac299cfb65fa10b8be85e58acd0d4784",
@@ -1822,6 +1834,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı; mdpi.com otomatik isteğe erişimi reddetti (Access Denied)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/bac_2014_crossref.json",
+   "bayt": 26969,
+   "sha256": "06f787b2e16557d2b70f7832185479c92d3c56ba9e518e4b403f26917bb4cee1",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1002/rob.21525",
+    "atif": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting robots for high-value crops: state-of-the-art review and challenges ahead. Journal of Field Robotics 31(6): 888-911. doi:10.1002/rob.21525",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
@@ -1909,6 +1933,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kahya_2024_kabak_crossref.json",
+   "bayt": 18248,
+   "sha256": "e716f69befe2e9d832563b800421de9d6c1c259018156fe3972c8a1b703cd064",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.29133/yyutbd.1517109",
+    "atif": "Kahya E. 2024. Use of YOLOv5 trained model for robotic courgette harvesting and efficiency analysis. Yüzüncü Yıl Üniversitesi Tarım Bilimleri Dergisi: 669-689. doi:10.29133/yyutbd.1517109",
+    "lisans": "DergiPark açık erişim",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kahya_2024_patlican_crossref.json",
+   "bayt": 4391,
+   "sha256": "1b7b4e6bc73098ac3db3d5d6f8433948c2837a19b745c3a48cd849db2f3e72a3",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.5539/jas.v16n2p9",
+    "atif": "Kahya E., Özdüven F.F., Aslan Y. 2024. YOLOv5 model application in real-time robotic eggplant harvesting. Journal of Agricultural Science 16(2): 9. doi:10.5539/jas.v16n2p9",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaya_2022_openalex.json",
    "bayt": 24437,
    "sha256": "ef6ffe72220f2a5d795563e51947689562cbc405d008a07fa1d02970aad510d0",
@@ -1930,6 +1978,18 @@
     "lisans": "dergi sitesi (açık erişim)",
     "lisans_adresi": null,
     "_not": "Dergi sitesindeki özet sayfası."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kootstra_2021_crossref.json",
+   "bayt": 25435,
+   "sha256": "c56311cf8acd96299cd74fd24f82f8ecacd8a25214172ae001360c2bd2fa7467",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1007/s43154-020-00034-1",
+    "atif": "Kootstra G., Wang X., Blok P.M., Hemming J., van Henten E. 2021. Selective harvesting robotics: current research, trends, and future directions. Current Robotics Reports 2(1): 95-104. doi:10.1007/s43154-020-00034-1",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
@@ -2218,6 +2278,18 @@
     "lisans": "kamu belgesi",
     "lisans_adresi": null,
     "_not": "BİRİNCİL kaynak, programı hazırlayan kurumun sitesinden indirildi. Resmî Gazete kopyası (resmigazete.gov.tr/eskiler/2026/10/20261027M1-1.pdf) 16 Kasım 2026'da bu ortamdan da dış okuyucudan da 'connection reset' verdi; erişilince sayfa numaraları karşılaştırılacak."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/zhou_2022_crossref.json",
+   "bayt": 63059,
+   "sha256": "ef7d01798ae5d6ccd51298b1ca8c060c284e9fd87bb848a918afdc219369e0ca",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1007/s11119-022-09913-3",
+    "atif": "Zhou H., Wang X., Au W., Kang H., Chen C. 2022. Intelligent robots for fruit harvesting: recent developments and future challenges. Precision Agriculture 23(5): 1856-1907. doi:10.1007/s11119-022-09913-3",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   }
  ],

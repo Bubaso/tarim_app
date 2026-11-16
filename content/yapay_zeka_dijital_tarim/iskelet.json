@@ -342,12 +342,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Hasat zamanlaması ve robotik toplama — en zor mühendislik problemi neden meyvede.",
         "en": "Harvest timing and robotic picking — why fruit is the hardest engineering problem."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {
