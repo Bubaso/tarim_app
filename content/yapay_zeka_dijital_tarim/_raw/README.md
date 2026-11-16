@@ -553,3 +553,96 @@ satırı, paylaşım kabukları ve kartı.
 2. Kuyruktaki 47 önerinin okunması (panelden) ve onaylananların ilgili
    başlıklara işlenmesi.
 3. §30 Kaynakça — kilitli kayıtlardan kendiliğinden (karar 15).
+
+## Tur 5 — SÜREÇ EKSENİ: §4, §5, §6, §7, §9 · 16-17 Kasım 2026
+
+Kullanıcı: "tamamı yazılınca açılsın, dala commit et, tur 5'e geç."
+(Kararlar 51-53, KARARLAR.md § H.) Tur 4'ün "Tur 5'e kalanlar" listesi
+§1'i öne alıyordu; §1 bütün başlıkların özeti olduğu için sona (Tur 9)
+bırakıldı, Tur 5 süreç ekseninin tarladaki halkalarına ayrıldı.
+
+### 0 · Devralınan
+
+- **Dağıtım yapıldı** (karar 52): panel, kuyruk ve etiket satırı canlıda;
+  okur adresi canlıda genel başlıkla dönüyor, şerit çizilmiyor — ikisi de
+  canlı sitede sınandı.
+- `main` Tur 4'ün son commit'inde (`aa715bd`); Tur 5'in bütün commit'leri
+  `yapay-zeka-bolumu` dalında, GitHub'a gönderilmedi.
+
+### 1 · Yazılan başlıklar
+
+| § | başlık | kaynak | alıntı | sayı (TR = EN) | commit |
+|---|---|---|---|---|---|
+| 7 | Sulama ve su yönetimi | 6 | 31 | 48 | `1e19254` |
+| 4 | Toprak ve arazi | 5 | 43 | 52 | `8bd5468` |
+| 9 | Ürün izleme ve verim tahmini | 13 | 78 | 64 | `b385e0e` |
+| 6 | Ekim ve değişken oranlı uygulama | 10 | 56 | 70 | `eb96078` |
+| 5 | Tohum, ıslah ve genetik | 7 | 45 | 41 | `82b3690` |
+
+Yazılmış başlık: 8/30 (§4-§9, §23, §24). Her başlığın `turkiye` alanı
+artık `var`; her metin "bu taramada bulunamayan şey" satırıyla bitiyor.
+
+### 2 · Başlıklar arası desen
+
+Beş başlıkta da aynı şey görüldü: **ölçülmüş tasarruf ya da doğruluk var,
+kâr ve ölçek tutarsız; yapay zekâ yerleşik yöntemi çoğu yerde geçemedi.**
+§9'da makine öğrenmesi AB'nin işletimdeki verim tahmin sistemine kimi
+üründe yetişti, kimisinde iki kat hata yaptı; §6'da verimi benzer
+doğrulukla tahmin eden iki model çok farklı azot dozları önerdi; §5'te
+derin öğrenme genomik tahminde klasik modellere açık üstünlük göstermedi.
+Türkiye tarafında beş başlığın hiçbirinde yapay zekânın tarladaki etkisini
+ölçen yayımlanmış bir değerlendirme bulunamadı. Bu, §1 "Bugün nerede
+duruyoruz"un ana cümlesine aday.
+
+### 3 · Doğrulama sırasında yakalananlar
+
+1. **"Türkiye'nin ilk Dijital Toprak Haritası"** (iskelet özeti, Tur 0
+   notu) doğrulanamadı: TAGEM'in 2012-2015 projesi ulusal ölçekte toprak
+   özelliği haritaları üretmişti. Özetten çıkarıldı; Tur 0 notundaki "ilk"
+   de bu yüzden geçersiz.
+2. **SoilGrids'te "BDOD"** kısaltmasının açılımı sayfa metninde yok;
+   en yüksek başarı puanının ait olduğu özelliğin adı yazılmadı.
+3. **"En olası değer"** yanlıştı — makale her hücre için ortanca ve
+   ortalama veriyor; "tahmin" diye düzeltildi.
+4. **Sayısız doğruluk beyanı** (TRGM, "yüksek doğruluk oranları") oran
+   verilmediği söylenerek aktarıldı; doğruluk iddiası olarak kullanılmadı.
+5. **Yokluk iddiaları kayda bağlandı** (`_denetim`): dört bülten sayısında
+   dekara verim rakamı yok; AB 2021/2116'da makine öğrenmesi ve yapay zekâ
+   geçmiyor; programda "genom" yalnız hayvancılıkta ve Ar-Ge listesinde.
+6. **Erişim engeli aşılmadı:** bir derlemenin özetini veren iki site bot
+   doğrulaması ve oturum açma istedi; kullanılmadı, aynı soruyu yanıtlayan
+   açık erişimli derleme alındı. mdpi.com ve link.springer.com otomatik
+   isteği reddetti; özetler Crossref'ten (yayıncının yatırdığı) okundu.
+7. **Yanlış ülke:** buğday genotiplerini çok bantlı ölçümle ayıran bir
+   çalışma Türkiye sanılmıştı; yazarların hepsi Pakistan ve Çin'den. Elendi.
+8. **Farklı evren karşılaştırması** (ABD'de ekili alan payı ↔ dünyada
+   çiftlik payı) üzerine kurulan bir çıkarım silindi.
+9. **Gelecek zaman:** programdaki 2027 tedbirleri "yapılacak" diye yazıldı,
+   gerçekleşmiş gibi değil.
+
+### 4 · Sınama
+
+`test/yz_bolum_test.dart` artık sabit bir başlık listesi değil, **yazılmış
+her başlığı** ve yazılmamışların ilkini 360 ve 1280 pikselde, İngilizceyi
+360 pikselde çiziyor (`_sinanacakBasliklar`). Yeni yazılan başlık
+kendiliğinden teste giriyor; tur sonunda 45 test, hepsi geçiyor.
+`flutter analyze lib/features/yapay_zeka` temiz.
+
+### 5 · Kaynak deposu
+
+`ham_kaynaklar.json`: 198 → 232 dosya. PDF'ler depo dışı (`.gitignore`),
+SHA-256 ile kayıtlı; HTML ve JSON kaynaklar depoda. Yokluk denetimi için
+indirilen üç bülten de kayıtlı (`_denetim` onlara işaret ediyor).
+
+## Tur 6'ya kalanlar
+
+1. **§10-§15:** hasat ve robotik, hasat sonrası, hayvancılık, sera ve
+   kontrollü ortam, su ürünleri, ormancılık.
+2. **Kuyruk okuması** — 47 öneri panelde; kullanıcının kararı.
+3. **Eksik özellikler** (ilgili turlarda): seri tazeleme (karar 16), başlık
+   önerileri (karar 10), Türkiye dizini sayfası (karar 38, §25), sözlük
+   balonu (karar 14, §29), kaynakça (karar 15, §30).
+4. **Açılıştan önce (Tur 10):** her başlığın "otomatik güncellenenler"
+   paragrafı izleyicinin gerçekte yaptığıyla karşılaştırılacak; §8'in
+   kaydı (Tur 2) alıntı listesi taşımıyor, yeni biçime getirilecek.
+

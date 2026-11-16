@@ -142,3 +142,16 @@ mekanize çiftliklerde eğitiliyor, karışık ekim yapan küçük parsele yanl�
 bulunamadı**; kurumsal katman için yayın sayfalarının izlenmesi gerekecek.
 Tur 1'de her kaynağın erişilebilirliği tek tek ölçülecek (yumuşak 404'e
 karşı durum koduna değil içerik türüne ve gövde uzunluğuna bakılarak).
+
+## H · Yayın ve çalışma düzeni (Tur 4 sonunda eklendi · 16 Kasım 2026)
+
+Tur 4'ün sonunda kullanıcı dağıtım önerisini geri çevirdi ("bu haliyle
+yayımlayamayız. okura açılmasına daha var.") ve şunu söyledi: "tamamı
+yazılınca açılsın, dala commit et, tur 5'e geç. açılış eşiği: tamamı.
+paneli şimdi açabilirsin. sorun yok. commit konusunda sen karar ver."
+
+| # | karar |
+|---|---|
+| 51 | **Açılış eşiği: tamamı.** Bölüm okura 30 başlığın hepsi yazılınca açılır. Bayrak `yayin.json` → `okura_acik`; `dart_uret.py` eksik başlıkla `true`'yu reddeder (çıkış 1). Kapalıyken okur rotaları derlemeden düşer, ana sayfa şeridi çizilmez |
+| 52 | **Panel okura kapalıyken de canlıda.** Etiketleme, kuyruk ve "YZ Bölümü" sekmesi 16 Kasım 2026'da dağıtıldı (`./deploy.sh --hosting`) |
+| 53 | **Dalda çalış, commit kararı Claude'da.** Her başlık `yapay-zeka-bolumu` dalına ayrı commit. GitHub'a gönderme ve her dağıtım yine kullanıcının açık onayıyla |
