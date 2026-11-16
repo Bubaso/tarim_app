@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 241,
- "toplam_bayt": 733096954,
+ "dosya_sayisi": 247,
+ "toplam_bayt": 733310840,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1897,6 +1897,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2025_gida_kaybi_gunu.html",
+   "bayt": 64966,
+   "sha256": "c22ac914188bb813ffac3c048ae4d6da28a6fcc7a591fc6eb191f57113c9a81a",
+   "kaynak": {
+    "adres": "https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en",
+    "atif": "FAO Statistics. 29.09.2025. On the International Day of Awareness of Food Loss and Waste, learn how FAO is leveraging data to save food and advance the 2030 Agenda.",
+    "lisans": "FAO içeriği (yeniden kullanım koşulları FAO sitesinde)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — FAO istatistik bölümü."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_aquastat_2025.pdf",
    "bayt": 4195443,
    "sha256": "c90b2e79f92434c8ab1b07cf4441d86eb2dd7543f288e770b5a2ebbd5e6d533c",
@@ -1906,6 +1918,30 @@
     "lisans": "CC BY 4.0 (FAO)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — FAO açık bilgi arşivinden."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_sdg_1231_gida_kaybi.html",
+   "bayt": 100927,
+   "sha256": "30c7aa162806c443bb03a5b1409adc8648248edf070bf71a7849808203958ae3",
+   "kaynak": {
+    "adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en",
+    "atif": "FAO. SDG Indicators Data Portal — Indicator 12.3.1(a) Global food losses (erişim 17.11.2026).",
+    "lisans": "FAO içeriği (yeniden kullanım koşulları FAO sitesinde)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — göstergenin sorumlu kurumu FAO'nun kendi portalı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gadalla_oztekin_2023_crossref.json",
+   "bayt": 12404,
+   "sha256": "c5eab54a13f302fdf840c6cb64e69271d7c95aadb8b23215b0b74c2a15a9f78e",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.33462/jotaf.1165105",
+    "atif": "Gadalla O.A.A., Öztekin Y.B. 2023. Image processing and traditional machine learning based classification of brown marmorated stink bug (Halyomorpha halys) damaged hazelnuts. Tekirdağ Ziraat Fakültesi Dergisi 20(4): 784-798. doi:10.33462/jotaf.1165105",
+    "lisans": "DergiPark açık erişim",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
@@ -2005,6 +2041,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kumar_kalita_2017_europepmc.json",
+   "bayt": 4230,
+   "sha256": "f68d1cd6c40a056e492cbb39cea85fe7e1c19e6ddc5076aac96e09c6604f3073",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Reducing%20Postharvest%20Losses%20during%20Storage%20of%20Grain%20Crops%22&resultType=core&format=json",
+    "atif": "Kumar D., Kalita P. 2017. Reducing postharvest losses during storage of grain crops to strengthen food security in developing countries. Foods 6(1): 8. doi:10.3390/foods6010008 (PMC5296677)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
    "bayt": 1086247,
    "sha256": "5e87ec4b475b749c9645e89366ec6280451eeca76ba1a18e47ef13d8b7573679",
@@ -2050,6 +2098,30 @@
     "lisans": "CC BY (OpenAlex kaydına göre)",
     "lisans_adresi": null,
     "_not": "Dergi sayfası; özet ve tam metin. Yayıncının PDF bağlantısı 503 döndü."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/neupane_2023_europepmc.json",
+   "bayt": 5398,
+   "sha256": "421f7c1ef93fd3047ae4675bc302344e27687b31391ac92d2bb88d90b861d871",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3390/s23083868&resultType=core&format=json",
+    "atif": "Neupane C., Pereira M., Koirala A., Walsh K.B. 2023. Fruit sizing in orchard: a review from caliper to machine vision with deep learning. Sensors 23(8): 3868. doi:10.3390/s23083868 (PMC10144371)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ozcakmak_2024_crossref.json",
+   "bayt": 25961,
+   "sha256": "792926384e34a5b63f1cf0af2845014b73ed0c58e1950430689c34f2b42b2bca",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.2174/0115734013284484240105113607",
+    "atif": "Özçakmak S., AlMatar M., Akbulut O., Çetinkaya A. 2024. The effective sorting technologies for reducing aflatoxins in nuts and dried figs in Turkey. Current Nutrition & Food Science 20(10): 1282-1295. doi:10.2174/0115734013284484240105113607",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {

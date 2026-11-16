@@ -159,7 +159,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Post-harvest: grading, quality, storage",
       true,
       ["goruntu", "sensor", "tahmin"],
-      false,
+      true,
       "Ürünün tarladan çıktıktan sonra kaybolmaması: sınıflandırma ve depolama.",
       "Keeping produce from being lost after it leaves the field: grading and storage."),
   YzBaslik(

@@ -368,12 +368,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Ürünün tarladan çıktıktan sonra kaybolmaması: sınıflandırma ve depolama.",
         "en": "Keeping produce from being lost after it leaves the field: grading and storage."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

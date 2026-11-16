@@ -1,0 +1,118 @@
+{
+  "_ne": "§11 Hasat sonrası: sınıflandırma, kalite, depolama — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "fao_sdg_1231": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. SDG Indicators Data Portal — Indicator 12.3.1(a) Global food losses. Erişim 2026.",
+      "adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en",
+      "dosya": "kaynak_dosyalari/fao_sdg_1231_gida_kaybi.html",
+      "kayip_yuzde": {"2015": 13.0, "2023": 13.3},
+      "kuzey_amerika_avrupa_yuzde": 10.0,
+      "sahraalti_afrika_yuzde": 23.0,
+      "alinti": [
+        "The world has made no apparent progress in reducing food losses since 2015.",
+        "The percentage of food lost globally after harvest on farm, transport, storage, wholesale and processing levels is estimated at 13.3 percent in 2023, up slightly from 13.0 percent in 2015, when global monitoring began.",
+        "Northern America and Europe continue to report the lowest regional loss at 10.0 percent, up from 9.4 percent in 2015, while sub-Saharan Africa remains the highest at 23.0 percent"
+      ]
+    },
+    "fao_2025_gida_kaybi_gunu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO Statistics. 29.09.2025. On the International Day of Awareness of Food Loss and Waste, learn how FAO is leveraging data to save food and advance the 2030 Agenda.",
+      "adres": "https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en",
+      "dosya": "kaynak_dosyalari/fao_2025_gida_kaybi_gunu.html",
+      "kayip_milyar_ton": 1.31,
+      "meyve_sebze_kayip_yuzde": 25.4,
+      "et_hayvansal_kayip_yuzde": 14,
+      "alinti": [
+        "Every year, 13.3% of total production is lost between harvest and retail, equating to 1.31 billion tonnes of global food production.",
+        "Globally, fruit and vegetables have the highest loss rate at 25.4%, followed by meat and animal products at 14%."
+      ]
+    },
+    "kumar_kalita_2017": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kumar D., Kalita P. 2017. Reducing postharvest losses during storage of grain crops to strengthen food security in developing countries. Foods 6(1).",
+      "doi": "10.3390/foods6010008",
+      "dosya": "kaynak_dosyalari/kumar_kalita_2017_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC5296677)",
+      "depoda_kayip_yuzde": "50-60",
+      "bilimsel_depoda_kayip_yuzde": "1-2",
+      "alinti": [
+        "Cereal grains are the basis of staple food in most of the developing nations, and account for the maximum postharvest losses on a calorific basis among all agricultural commodities.",
+        "As much as 50%-60% cereal grains can be lost during the storage stage due only to the lack of technical inefficiency.",
+        "Use of scientific storage methods can reduce these losses to as low as 1%-2%.",
+        "The basics of hermetic storage, various technology options, and their effectiveness on several crops in different localities are discussed in detail."
+      ]
+    },
+    "neupane_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Neupane C., Pereira M., Koirala A., Walsh K.B. 2023. Fruit sizing in orchard: a review from caliper to machine vision with deep learning. Sensors 23(8).",
+      "doi": "10.3390/s23083868",
+      "dosya": "kaynak_dosyalari/neupane_2023_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC10144371)",
+      "alinti": [
+        "The task of sizing fruit and vegetables has been automated in the packhouse, progressing from mechanical methods to machine vision over the last three decades.",
+        "This shift is now occurring for size assessment of fruit on trees, i.e., in the orchard."
+      ]
+    },
+    "ozcakmak_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Özçakmak S., AlMatar M., Akbulut O., Çetinkaya A. 2024. The effective sorting technologies for reducing aflatoxins in nuts and dried figs in Turkey. Current Nutrition & Food Science 20(10).",
+      "doi": "10.2174/0115734013284484240105113607",
+      "dosya": "kaynak_dosyalari/ozcakmak_2024_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "rasff_bildirimi": {"findik": 84, "yer_fistigi": 283, "kuru_incir": 173},
+      "toplam_aflatoksin_ortalama": {"once": 13.56, "sonra": 7.21},
+      "yasal_sinira_uyan_yuzde": 79.16,
+      "_birim": "Özette ayıklama öncesi ve sonrası ortalamaların birimi yazmıyor; metin birim yazmaz.",
+      "alinti": [
+        "Provincial Directorate of Agriculture and Livestock",
+        "The number of RASFF notifications for hazelnuts, peanuts/groundnuts, dried figs, and their products for the period of 03/01/2020 to 01/06/2023 were 84, 283 and 173, respectively.",
+        "optical-laser-manual sorting and aflatoxin detection using UV light stages are accepted as CCPs.",
+        "The mean value of Aflatoxin B1(AFB1) and total aflatoxins were reduced from 7.80±1.08 and 13.56±1.06 to 3.63±0.39 and 7.21±0.71, respectively.",
+        "79.16% of all sorted samples were found to comply with legal limits."
+      ]
+    },
+    "gadalla_oztekin_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Gadalla O.A.A., Öztekin Y.B. 2023. Image processing and traditional machine learning based classification of brown marmorated stink bug (Halyomorpha halys) damaged hazelnuts. Tekirdağ Ziraat Fakültesi Dergisi 20(4).",
+      "doi": "10.33462/jotaf.1165105",
+      "dosya": "kaynak_dosyalari/gadalla_oztekin_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "goruntu_sayisi": 400,
+      "en_iyi_dogruluk_yuzde": 98.75,
+      "_sinir": "400 görüntülük laboratuvar veri seti; işletme hattında sınama değil.",
+      "alinti": [
+        "ONDOKUZ MAYIS ÜNİVERSİTESİ",
+        "Quality control of hazelnuts is a major concern in many regions across the world, but particularly in Turkey as the world's largest hazelnut producer.",
+        "A total of 400 RGB hazelnut images were captured to train machine learning models.",
+        "The SVM model with all feature vectors had the greatest classification accuracy of 98.75 %."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "alinti": [
+        "lisanslı depoculuğun yaygınlaştırılması ve yaş meyve -sebze tedarik zincirindeki lojistik altyapının geliştirilmesi çalışmalarına devam edilecektir.",
+        "Paketleme, nakliye, depolama ve perakende satış süreçlerinde standartların geliştirilmesi ile toptancı hallerinin modernizasyonu ve daha etkin çalıştırılmasına yönelik faaliyetlerin sürdürülmesi planlanmaktadır.",
+        "Birincil üretimden tüketime kadar gıda zincirinin her aşamasında gıda kayıplarını ve israfını azaltmak, gıda üretim ve ambalaj teknolojilerini geliştirmek ve gıda işleme süreçlerini iyileştirmek önem taşımaktadır."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Programda tedarik zinciri, lisanslı depoculuk ve kayıp-israf önceliği; akademide fındık ve kuru incirde aflatoksine karşı optik-lazer ayıklamanın ölçülmüş etkisi ve görüntüyle zararlı fındık sınıflandırması. Türkiye için hasat sonrası kayıp oranını ölçen ve kamuya açık bir resmî gösterge bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "ucte_bir_kayip_israf": "Depolama derlemesinin girişindeki gıdanın üçte birinden fazlasının kaybolduğu ya da israf edildiği cümlesi kaybı ve tüketici israfını birlikte sayıyor; hasat sonrası kayıp için FAO'nun kendi göstergesi kullanıldı.",
+    "findik_2026_scirep": "Fındıkları görüntüden sınıflandıran 2026 tarihli bir çalışmanın özeti Crossref ve Europe PMC'de yok. Alınmadı."
+  }
+}
