@@ -93,7 +93,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Seed, breeding and genetics",
       true,
       ["genomik", "tahmin", "goruntu"],
-      false,
+      true,
       "Fenotipleme, genomik seçilim, ıslah süresinin kısaltılması.",
       "Phenotyping, genomic selection, shortening the breeding cycle."),
   YzBaslik(

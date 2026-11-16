@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 226,
- "toplam_bayt": 732220356,
+ "dosya_sayisi": 232,
+ "toplam_bayt": 732734386,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1825,6 +1825,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/benlioglu_2024_crossref.json",
+   "bayt": 23917,
+   "sha256": "5f2150b0ed860f4e09997903ec7df0f019d921f46bb02434153b83ebf4f0b667",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/agriculture14020206",
+    "atif": "Benlioğlu B., Demirel F., Türkoğlu A., Haliloğlu K., Özaktan H., Kujawa S., Piekutowska M., Wojciechowski T., Niedbała G. 2024. Insights into drought tolerance of tetraploid wheat genotypes in the germination stage using machine learning algorithms. Agriculture 14(2): 206. doi:10.3390/agriculture14020206",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı; mdpi.com otomatik isteğe erişimi reddetti."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/dalla_betta_2026_crossref.json",
    "bayt": 12157,
    "sha256": "3e5e4370b07e9cedce9f851c2625461de1131ae5af40580ce1f86e5f0b61c958",
@@ -1945,6 +1957,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/michel_2016_europepmc.json",
+   "bayt": 8621,
+   "sha256": "52b681e138c29634eda58aebfb1adf05bba94f7b91f133bce1713135e6729187",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1007/s00122-016-2818-8&resultType=core&format=json",
+    "atif": "Michel S., Ametz C., Gungor H., Akgöl B., Epure D., Grausgruber H., Löschenberger F., Buerstmayr H. 2016. Genomic assisted selection for enhancing line breeding: merging genomic and phenotypic selection in winter wheat breeding programs with preliminary yield trials. Theoretical and Applied Genetics 130(2): 363-376. doi:10.1007/s00122-016-2818-8 (PMC5263211)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/montesinos_lopez_2021_europepmc.json",
+   "bayt": 8190,
+   "sha256": "446efc5f31728ef2638d0de88ac8e4d7100716afa905e2636320d69b440e0cce",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22review%20of%20deep%20learning%20applications%20for%20genomic%20selection%22&resultType=core&format=json",
+    "atif": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22: 19. doi:10.1186/s12864-020-07319-x (PMC7789712)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/morgounov_2019_iwwip.html",
+   "bayt": 378457,
+   "sha256": "84870ee9bfd8fb1ee607986f664cfb1f953b52c1d62269701ca000e566054ec6",
+   "kaynak": {
+    "adres": "https://journal.hep.com.cn/fase/EN/10.15302/J-FASE-2019261",
+    "atif": "Morgounov A., Özdemir F., Keser M., Akın B., Payne T., Braun H.-J. 2019. International Winter Wheat Improvement Program: history, activities, impact and future. Frontiers of Agricultural Science and Engineering 6(3): 240-250. doi:10.15302/J-FASE-2019261",
+    "lisans": "CC BY (OpenAlex kaydına göre)",
+    "lisans_adresi": null,
+    "_not": "Dergi sayfası; özet ve tam metin. Yayıncının PDF bağlantısı 503 döndü."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/paudel_2021_ideas.html",
    "bayt": 62157,
    "sha256": "531f74c7c9a6e337eaecb41b546bbd8e7088b1350f3f7b6b1865854ed294e415",
@@ -2053,6 +2101,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_tohum_uretim_2025.html",
+   "bayt": 75191,
+   "sha256": "cf1db8857f4b6e5646a75b5c3c229eeffebef96c51a473b4a998dae7130744ad",
+   "kaynak": {
+    "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2234",
+    "atif": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 16.02.2026. İstatistik Bülteni: Tohum Üretim Miktarları, 2025 (metaveri dahil).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/toprakgubre_agrosens_listesi.html",
    "bayt": 229852,
    "sha256": "f6a5ae4ae9f018a57ce394f65fbb2da719c3331fbe2d974cb98bd1956c9daca7",
@@ -2122,6 +2182,18 @@
     "lisans": "DergiPark açık erişim",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — hakemli dergi, DergiPark."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/watson_2018_europepmc.json",
+   "bayt": 19654,
+   "sha256": "8f8fd09632d0e157c5e0c8598c11716b0c2f60d8130f0833b0ef9e4565141815",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Speed%20breeding%20is%20a%20powerful%20tool%22&resultType=core&format=json",
+    "atif": "Watson A., Ghosh S., Williams M.J. ve ark. 2018. Speed breeding is a powerful tool to accelerate crop research and breeding. Nature Plants 4(1): 23-29. doi:10.1038/s41477-017-0083-8",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
    }
   },
   {

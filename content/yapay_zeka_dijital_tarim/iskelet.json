@@ -210,12 +210,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Fenotipleme, genomik seçilim, ıslah süresinin kısaltılması.",
         "en": "Phenotyping, genomic selection, shortening the breeding cycle."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

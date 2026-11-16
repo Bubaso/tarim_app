@@ -1,0 +1,156 @@
+{
+  "_ne": "§5 Tohum, ıslah ve genetik — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "michel_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Michel S., Ametz C., Gungor H., Akgöl B., Epure D., Grausgruber H., Löschenberger F., Buerstmayr H. 2016. Genomic assisted selection for enhancing line breeding: merging genomic and phenotypic selection in winter wheat breeding programs with preliminary yield trials. Theoretical and Applied Genetics 130(2).",
+      "doi": "10.1007/s00122-016-2818-8",
+      "dosya": "kaynak_dosyalari/michel_2016_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC5263211)",
+      "fenotipik_isabet_r": 0.21,
+      "genomik_isabet_r": 0.39,
+      "birlesik_artis_yuzde": 20,
+      "alinti": [
+        "Early generation genomic selection is superior to conventional phenotypic selection in line breeding",
+        "The selection of lines that enter resource-demanding multi-environment trials is a crucial decision in every line breeding program",
+        "The prediction accuracy using only phenotypic data was rather low (r = 0.21) for grain yield",
+        "Genomic selection models were nevertheless found to be superior to conventional phenotypic selection for predicting grain yield performance of lines across years (r = 0.39).",
+        "This genomic assisted selection led to a 20% increase in prediction accuracy"
+      ]
+    },
+    "watson_2018": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Watson A., Ghosh S., Williams M.J. ve ark. 2018. Speed breeding is a powerful tool to accelerate crop research and breeding. Nature Plants 4(1).",
+      "doi": "10.1038/s41477-017-0083-8",
+      "dosya": "kaynak_dosyalari/watson_2018_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "yillik_kusak_en_cok": 6,
+      "kanola_kusak": 4,
+      "normal_sera_kusak": "2-3",
+      "alinti": [
+        "This slow improvement rate is attributed partly to the long generation times of crop plants.",
+        "Speed breeding can be used to achieve up to 6 generations per year for spring wheat (Triticum aestivum), durum wheat (T. durum), barley (Hordeum vulgare), chickpea (Cicer arietinum) and pea (Pisum sativum), and 4 generations for canola (Brassica napus), instead of 2-3 under normal glasshouse conditions.",
+        "We envisage great potential for integrating speed breeding with other modern crop breeding technologies, including high-throughput genotyping, genome editing and genomic selection",
+        "We demonstrate that speed breeding in fully enclosed, controlled-environment growth chambers can accelerate plant development",
+        "The use of supplemental lighting in a glasshouse environment allows rapid generation cycling"
+      ]
+    },
+    "montesinos_lopez_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22.",
+      "doi": "10.1186/s12864-020-07319-x",
+      "dosya": "kaynak_dosyalari/montesinos_lopez_2021_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC7789712)",
+      "tur": "derleme — derin öğrenme ile genomik seçilim",
+      "alinti": [
+        "In recent years, deep learning (DL) methods have been considered in the context of genomic prediction.",
+        "The main requirement for using DL is the quality and sufficiently large training data.",
+        "we did not find clear superiority of DL in terms of prediction power compared to conventional genome based prediction models.",
+        "Nevertheless, there are clear evidences that DL algorithms capture nonlinear patterns more efficiently than conventional genome based.",
+        "Deep learning algorithms are able to integrate data from different sources as is usually needed in GS assisted breeding",
+        "It is important to apply DL to large training-testing data sets."
+      ]
+    },
+    "morgounov_2019_iwwip": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Morgounov A., Özdemir F., Keser M., Akın B., Payne T., Braun H.-J. 2019. International Winter Wheat Improvement Program: history, activities, impact and future. Frontiers of Agricultural Science and Engineering 6(3).",
+      "doi": "10.15302/J-FASE-2019261",
+      "dosya": "kaynak_dosyalari/morgounov_2019_iwwip.html",
+      "kurulus_yili": 1986,
+      "icarda_katilim_yili": 1991,
+      "is_birlikci_en_az": 100,
+      "cesit_sayisi": 93,
+      "ulke_sayisi": 11,
+      "yillik_alan_milyon_ha": "2,5-3,0",
+      "klasik_sure_yil": "9-10",
+      "hizli_islah_yili": 2018,
+      "isaretleyici_yili": 2017,
+      "isaretleyici_materyal_en_az": 1500,
+      "envanter_yillari": "2009-2014",
+      "il_sayisi": 81,
+      "gezilen_il_en_az": 60,
+      "ciftlik_en_az": 1500,
+      "_tarih": "Değerlendirme 2019'da yayımlandı; rakamlar o tarihin durumu. Metin tarihini yazar.",
+      "alinti": [
+        "International Winter Wheat Improvement Program (IWWIP) was established in 1986 between the Government of Turkey and CIMMYT",
+        "ICARDA joined the program in 1991 making it a three-way partnership",
+        "distributed to more than 100 cooperators in all continents",
+        "A total of 93 IWWIP cultivars have been released in 11 countries occupying annually an estimated 2.5–3.0 Mha.",
+        "This established winter wheat breeding system takes 9–10 years from the cross to international distribution.",
+        "An alternative faster system was started in 2018 using a speed breeding facility in Izmir allowing two to three generations per year.",
+        "Until recently, the IWWIP remained largely a conventional breeding program.",
+        "In 2017, IWWIP breeders analyzed functional and random KASP markers on a large germplasm set (exceeding 1500)",
+        "In 2018, all FAWWON candidates were genotyped for functional KASP markers.",
+        "Normalized difference vegetation index (NDVI) measurements taken with a hand-held crop sensor, have been routinely used for germplasm evaluation especially at a preliminary yield testing stage.",
+        "IWWIP organized phenotyping workshop in 2018 in Konya laying a foundation for wider application of modern phenotyping tools.",
+        "IWWIP initiated and conducted a national inventory of wheat landraces in Turkey in 2009–2014",
+        "More than 60 of the 81 provinces in Turkey were visited by survey and collection teams, and wheat landraces were identified and collected from more than 1500 farms.",
+        "The future strategy will be based on combining an effective conventional approach with application of new modern tools including precision and high throughput phenotyping, application of genomic tools and molecular markers, speed breeding to accelerate the genetic gains."
+      ]
+    },
+    "benlioglu_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Benlioğlu B., Demirel F., Türkoğlu A., Haliloğlu K., Özaktan H., Kujawa S., Piekutowska M., Wojciechowski T., Niedbała G. 2024. Insights into drought tolerance of tetraploid wheat genotypes in the germination stage using machine learning algorithms. Agriculture 14(2).",
+      "doi": "10.3390/agriculture14020206",
+      "dosya": "kaynak_dosyalari/benlioglu_2024_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "tur": "LABORATUVAR — çimlenme dönemi, tarla değil",
+      "ml_teknik_sayisi": 4,
+      "turkiye_universite_sayisi": 5,
+      "alinti": [
+        "Insights into Drought Tolerance of Tetraploid Wheat Genotypes in the Germination Stage Using Machine Learning Algorithms",
+        "Department of Field Crops, Faculty of Agriculture, Ankara University",
+        "Poznań University of Life Sciences",
+        "this study sought to evaluate the responses of distinct wheat genotypes to diverse levels of drought stress encountered during the germination stage",
+        "The induction of drought stress was achieved using polyethylene glycol at varying concentrations, and the assessment was conducted through the application of multivariate analysis and machine learning algorithms.",
+        "Predictions were then generated using four distinct machine learning techniques.",
+        "offering a fast and cost-effective approach"
+      ]
+    },
+    "tob_tohum_uretim_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Tohum Üretim Miktarları, 2025.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2234",
+      "dosya": "kaynak_dosyalari/tob_2026_tohum_uretim_2025.html",
+      "sertifikali_tohum_2025_ton": 1350627,
+      "sertifikali_tohum_2025_milyon_ton": 1.35,
+      "_turetme": "1 350 627 ton → 1,35 milyon ton (yuvarlama)",
+      "artis_yuzde": 3.7,
+      "bugday_2025_ton": 640829,
+      "alinti": [
+        "2025 yılı sertifikalı tohum üretimi bir önceki yıla göre %3,7 oranında artarak 1 milyon 350 bin 627 ton olarak gerçekleşti.",
+        "BUĞDAY 570.537 640.829 12%",
+        "Tohum üretim miktarlarına ilişkin veriler; 81 il müdürlüklerinden temin edilen standart tohum miktarlarına ilişkin idari kayıtlar ile Tohum Veri Yönetim Sistemine (TVYS) kayıtlı sertifikalı miktarlarının derlenmesiyle elde edilmektedir."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "_denetim": "Programın tamamında 'genom' üç kez geçiyor (17.11.2026 taraması): tarım bölümünde yalnız hayvancılık desteğindeki 'genomik test'; Ar-Ge bölümünde (pdf s225-226) 'genom düzenleme', yapay zekâyla birlikte Ar-Ge altyapısı kurulacak teknoloji alanları listesinde, tarıma bağlanmadan. Bitkisel üretim tedbirlerinde genomik seçilim ya da ıslaha özgü yapay zekâ kalemi yok.",
+      "alinti": [
+        "İklim değişikliğine uyumun ve bitkisel üretimde verimlilik artışının sağlanmasında bitki ıslahı ve genetik kaynakların korunması stratejik önem taşımaktadır.",
+        "Yerel çeşitlerin ve bitki gen kaynaklarının korunması, kuraklık, yüksek sıcaklık, hastalık ve zararlılara dayanıklı çeşitlerin geliştirilmesi, biyoteknoloji ve modern ıslah yöntemlerinin kullanım kapasitesinin artırılması ile sertifikalı tohumluk üretimi ve kullanımının yaygınlaştırılmasına yönelik çalışmaların sürdürülmesi gerekmektedir.",
+        "genomik test yaptırılan damızlık dişi buzağılar",
+        "yapay zekâ, nesnelerin interneti, artırılmış gerçeklik, büyük veri, siber güvenlik, ileri malzeme, robotik, mikro/nano/opto-elektronik, biyoteknoloji, hidrojen teknolojileri, yenilenebilir enerji teknolojileri, batarya teknolojileri, genom düzenleme",
+        "ilişkin gerekli Ar- Ge altyapısının tesis edilmesi ve ihtiyaç duyulan nitelikli insan kaynağının yetiştirilmesi sağlanacaktır"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Program düzeyinde öncelik, Türkiye merkezli uluslararası kışlık buğday ıslah programının genomik araçlara, hızlı ıslaha ve fenotiplemeye geçişi (2019 değerlendirmesi), tohum üretim istatistiği ve laboratuvar aşamasında makine öğrenmesi kullanan bir akademik çalışma var. Türkiye'de bir ıslah programında genomik seçilimin ya da yapay zekânın çeşit geliştirme süresine veya genetik ilerlemeye etkisini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "pakistan_cok_bantli": "Buğday genotiplerini çok bantlı radyometre ve makine öğrenmesiyle ayıran bir çalışma Türkiye kaynaklı sanılmıştı; yazarların hepsi Pakistan ve Çin kurumlarından. Türkiye kısmına alınmadı.",
+    "iwwip_genomik_dogruluk": "IWWIP'in ABD'li ortaklarıyla yaptığı kışa dayanıklılık için genomik seçilim çalışmasının doğruluk aralıkları değerlendirme makalesinde aktarılıyor; birincil çalışma bu turda okunmadı. Metne alınmadı."
+  }
+}
