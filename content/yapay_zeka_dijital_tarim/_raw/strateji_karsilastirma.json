@@ -1,0 +1,82 @@
+{
+  "_ne": "Türkiye'de tarımda yapay zekâ politikası — hangi belge, hangi kurum. BİRİNCİL kaynaklardan okundu",
+  "_tarih": "16 Kasım 2026",
+  "_kullanici_sorusu": "2024-2025'ten sonra ulusal yapay zeka stratejisi yayınlanmış mı, teyit et.",
+  "_cevap": "EVET. Türkiye Yapay Zekâ Eylem Planı (2026-2030) yayımlandı (Genelge 2026/9, Resmî Gazete 18 Ağustos 2026, sayı 33344). Tur 1'in 'ulusal stratejide tarım sıfır' bulgusu ESKİ plana aitti: yeni planda tarım bir uygulama sektörü olarak var. Değişmeyen şey: Tarım ve Orman Bakanlığı İKİ planda da ne sorumlu ne iş birliği kurumu.",
+  "_dogrulayici": "dogrula_alintilar.py bu dosyadaki sayıları PDF'lerden yeniden türetir; tutmazsa durur.",
+
+  "onceki": {
+    "ad": "Ulusal Yapay Zekâ Stratejisi 2024-2025 Eylem Planı",
+    "cerceve": "Ulusal Yapay Zekâ Stratejisi (2021-2025) — 2021/18 sayılı Genelge, Resmî Gazete 20 Ağustos 2021, sayı 31574",
+    "kaynak_dosyasi": "kaynak_dosyalari/uyzs_2024_2025.pdf",
+    "kaynak_notu": "Üçüncü taraf yansıması — cbddo.gov.tr bu ortamdan erişilemiyor. Resmî kopyaya erişilince karşılaştırılacak.",
+    "yapi": "6 stratejik öncelik, 71 eylem (1.1-6.19); her eylemde sorumlu ve ilgili kurum yazılı",
+    "sorumlu_ve_ilgili_bakanlik_sayisi": 11,
+    "tarim_gecis": 0,
+    "tarim_ve_orman_gecis": 0
+  },
+
+  "yeni": {
+    "ad": "Türkiye Yapay Zekâ Eylem Planı (2026-2030)",
+    "yururluk": "2026/9 sayılı Cumhurbaşkanlığı Genelgesi, 17 Ağustos 2026 · Resmî Gazete 18 Ağustos 2026, sayı 33344",
+    "kaynak_dosyasi": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+    "kaynak_adresi": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
+    "genelge_dosyasi": "kaynak_dosyalari/genelge_2026_9.pdf",
+    "genelge_adresi": "https://www.resmigazete.gov.tr/eskiler/2026/08/20260818-8.pdf",
+    "_dogrulanmayan": "Planın kamuoyuna ilk açıklandığı tarih ve yer bu turda birincil kaynaktan doğrulanmadı; kayda alınmadı. Hukuki yürürlük Resmî Gazete tarihidir.",
+    "yapi": "4 eksen ('Fark Et, İstifade Et, Üret ve Yönet'), 16 eylem, 44 sayfa. Her eylemde 'Ana sorumlu' kurum ve parantez içinde iş birliği kurumları yazılı.",
+    "ana_sorumlu_alani": 16,
+    "koordinasyon": "Sanayi ve Teknoloji Bakanlığı",
+    "sorumlu_alanlarindaki_bakanliklar": [
+      "Sanayi ve Teknoloji", "Millî Eğitim", "Çalışma ve Sosyal Güvenlik",
+      "Enerji ve Tabii Kaynaklar", "Ulaştırma ve Altyapı",
+      "Çevre, Şehircilik ve İklim Değişikliği", "Hazine ve Maliye",
+      "Ticaret", "Dışişleri"
+    ],
+    "tarim_ve_orman_gecis": 0,
+    "tarim_gecis_toplam": 19,
+    "tarim_gecis_benzersiz": 13,
+    "_tekrar_notu": "19 geçişin 6'sı metnin kendini tekrar etmesi (özet + ayrıntı). Benzersiz bağlam 13; bunların 2'si genel giriş cümlesi ('tarımdan enerjiye kadar hayatın bütün alanları'). Somut bağlam 11 — bu sayı bir YORUM, doğrulayıcı yalnız 19 ve 13'ü sınar.",
+    "tarimin_gectigi_yerler": [
+      {"ne": "Fiziksel yapay zekâ ve robotik", "alinti": "Savunma, üretim, tarım ve sağlık alanları için robotik çözümler"},
+      {"ne": "Yapay zekâ okuryazarlığı — meslek alanları", "alinti": "Mühendislik, sağlık, hukuk, finans, tarım ve kamu yönetimi gibi alanlarda çalışan profesyonellerin"},
+      {"ne": "Ulusal Yapay Zekâ Şampiyonları Programı — öncelikli dört sektör", "alinti": "Sağlık, tarım, savunma ve e-ticaret için veri ve mevzuat gereksinimleri, öncelikli kullanım senaryoları"},
+      {"ne": "Pilot uygulama alanları", "alinti": "Hastaneler, organize sanayi bölgeleri, tarım sahaları ve e-ticaret platformları gibi ilgili alanlarda"},
+      {"ne": "Ulusal veri birikimi — temel modeller için", "alinti": "Akdeniz ikliminin sağladığı tarımsal çeşitlilik"},
+      {"ne": "Temel model çağrısının öncelikli alanları", "alinti": "Sağlık, yeni ilaç keşfi, genom araştırmaları, afet yönetimi, enerji, tarım ve yeni malzemeler bu çağrıların öncelikli alanları arasında değerlendirilecektir"},
+      {"ne": "Robotik geliştirme programı", "alinti": "tarım robotları, sağlık destek robotları, afet ve arama-kurtarma sistemleri"},
+      {"ne": "Robotik test altyapısı", "alinti": "akıllı fabrika test hatları, tarım robotları, deneme alanları"},
+      {"ne": "Bölgesel ortak pilotlar", "alinti": "tarım ve enerji uygulamaları gibi karşılıklı fayda potansiyeli yüksek alanlarda dar kapsamlı pilotlar başlatılacak"},
+      {"ne": "D-8 iş birliği", "alinti": "D-8 üye ülkeleriyle tarım, enerji, ticaret ve sanayi alanlarında sektörel yapay zekâ uygulama iş birlikleri"},
+      {"ne": "Benzer ülkelerle ortak veri", "alinti": "ülkelerle tarım, enerji ve sağlık alanlarında ortak veri katalogları"}
+    ],
+    "sifir_kalanlar": ["çiftçi", "kırsal", "hayvancılık", "ziraat", "tarla", "sulama", "hasat", "köy"],
+    "gida_notu": "'gıda' bir kez geçiyor, SANAYİ alanı olarak: 'otomotiv, beyaz eşya, savunma, tekstil ve gıda'."
+  },
+
+  "bakanligin_kendi_belgesi": {
+    "ad": "Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı",
+    "durum": "beklemede",
+    "_karar_40": "Gerçekleşmemiş kalem 'beklemede' olarak gösterilir.",
+    "seyir": [
+      {"tarih": "24 Kasım 2025", "ne": "2026 bütçesi TBMM Plan ve Bütçe Komisyonu'nda: Yapay Zekâ Strateji Belgesi'nin 'yılın başında' paylaşılacağı söylendi.", "kaynak": "https://www.tarimorman.gov.tr/Haber/6863/Tarim-Ve-Orman-Bakanliginin-2026-Yili-Butcesi-Tbmm-Plan-Ve-Butce-Komisyonunda", "nitelik": "bakanlık sitesi"},
+      {"tarih": "4 Haziran 2026", "ne": "AI Tomorrow Summit 2026: belgenin ve eylem planının 'hazırlandığı' söylendi.", "kaynak": "https://www.alomaliye.com/2026/06/04/bakan-yumakli-tarimda-yerli-ve-milli-teknoloji-hamlesinde-kararliyiz/", "nitelik": "ikincil kaynak; haber metni dolaylı anlatım, birebir söz değil"},
+      {"tarih": "16 Kasım 2026", "ne": "Metnin yayımlandığına dair bir kayıt bulunamadı.", "nitelik": "bu dosyanın taraması"}
+    ]
+  },
+
+  "yillik_program_2027": "Ayrı kayıt: yillik_program_2027.json. Kalkınma Planı'nın 489. politikası ('Dijitalleşme, yapay zekâ ve veriye dayalı iş modelleriyle akıllı tarım uygulamaları yaygınlaştırılacaktır') ve 505. politikasının (sulamada bilgi ve iletişim teknolojileri) tedbirlerinde SORUMLU Tarım ve Orman Bakanlığı.",
+
+  "bulgu": {
+    "tr": "Türkiye'de tarımda yapay zekâ politikası iki ayrı hatta yürüyor. Ulusal Yapay Zekâ Eylem Planı (2026-2030) Sanayi ve Teknoloji Bakanlığı'nın koordinasyonunda; 2024-2025 planında hiç geçmeyen tarım artık öncelikli sektörlerden biri, pilot alan ve tarım robotları programı olarak 11 somut bağlamda anılıyor. Ama planın 16 eyleminin hiçbirinde Tarım ve Orman Bakanlığı ne sorumlu ne iş birliği kurumu; 'çiftçi' ve 'kırsal' kelimeleri iki planda da hiç geçmiyor. Tarımın kendi hattı Kalkınma Planı ve yıllık programlarda: 2027 Yıllık Programı'nda 'yapay zekâ' geçen tek politika cümlesinin sorumlusu Tarım ve Orman Bakanlığı; o politikanın 2027 faaliyetleri ortak makine parkı ve elektronik küpe, programın tek somut yapay zekâ işi ise TAKİS'te kuraklığın 1-4 hafta önceden tahmini ve 'planlanmaktadır' kipinde. Bölümün 15 performans göstergesinin hiçbiri dijitalleşmeyi ölçmüyor. Bakanlığın kendi yapay zekâ strateji belgesi 'yılın başında' paylaşılacaktı; Kasım 2026 itibarıyla yayımlanmadı.",
+    "en": "Agricultural AI policy in Türkiye runs on two separate tracks. The National AI Action Plan (2026-2030) is coordinated by the Ministry of Industry and Technology; agriculture, absent from the 2024-2025 plan, now appears in 11 concrete contexts — a priority sector, a pilot site, a farm-robotics programme. But in none of the plan's 16 actions is the Ministry of Agriculture and Forestry either the lead or a partner institution, and the words 'farmer' and 'rural' appear in neither plan. Agriculture's own track runs through the Development Plan and the annual programmes: in the 2027 Annual Programme the only policy sentence mentioning AI is assigned to the Ministry of Agriculture and Forestry; its 2027 activities are a shared machinery pool and electronic ear tags, and the programme's one concrete AI task — forecasting drought one to four weeks ahead in the TAKİS system — is described as 'planned'. None of the section's 15 performance indicators measures digitalisation. The ministry's own AI strategy was to be shared 'at the beginning of the year'; as of November 2026 it has not been published."
+  },
+
+  "_cikarma_tuzaklari": [
+    "GENELGE GÖVDESİ GÖRÜNTÜ: 213 KB'lık PDF'ten yalnız 192 karakter çıktı. Sağlama kontrolü olmasa 'tarım yok' denecekti. Görüntü çıkarılıp gözle okundu.",
+    "NOKTALI i BOZULMASI: plan PDF'inde noktalı i bir glif olarak yazılmış; çıkarma 13.625 yerde '/i.dot' üretti. 'çiftçi', 'dijital' gibi kelimeler aramada GÖRÜNMEZ oldu. Onarıldı ve yeniden sayıldı.",
+    "ALT DİZE SAHTESİ: 'orman' 36 kez geçiyordu — hepsi 'perf-ORMAN-s'. Kelime başı sınırıyla 0.",
+    "ANLAM SAHTESİ: 'tohum' 26 kez — hepsi girişim fonlamasındaki 'tohum ve atılım' aşaması, tarım değil.",
+    "BÜYÜK HARF TUZAĞI: 'Sorumlu Kurum' büyük harfle arandı, 0 çıktı ve 'yeni planda eylem başına sorumlu kurum yok' diye kayda geçti. Alanlar küçük harfle 'Ana sorumlu:' yazılmış — 16 eylemin 16'sında var. Yanlış kayıt aynı gün düzeltildi; karşılaştırma artık birebir yapılabiliyor ve bulguyu güçlendiriyor."
+  ]
+}

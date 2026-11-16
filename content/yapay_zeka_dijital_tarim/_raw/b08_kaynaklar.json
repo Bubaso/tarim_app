@@ -1,0 +1,103 @@
+{
+ "_ne": "§8 Görüntü işleme ve hedefli ilaçlama — doğrulanmış kaynak kayıtları",
+ "guncellendi": "2026-11-16",
+ "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez. Her kaydın `nitelik` alanı rakamın yanında okura gösterilir (karar 34).",
+ "_nitelik_tanimi": {
+  "HAKEMLI": "Hakemli dergide yayımlanmış saha ya da deney çalışması",
+  "KURUMSAL": "Kamu kurumu, üniversite yayım birimi ya da uluslararası kuruluş",
+  "SATICI": "Ürünü satan şirketin kendi beyanı — bağımsız doğrulanmadı"
+ },
+ "_dogrulama_yontemi": "Her rakam kaynağın KENDİ metninden doğrulandı: arXiv özeti, Europe PMC API'sinin döndürdüğü özet ve Frontiers'ın basılı PDF'i doğrudan okundu. Arama motoru özetinden alınan hiçbir rakam yok.",
+ "kaynaklar": {
+  "azghadi2025": {
+   "nitelik": "HAKEMLI",
+   "kunye": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025)",
+   "doi": "10.1016/j.compag.2025.110365",
+   "on_baski": "arXiv:2401.13931",
+   "dogrulandigi_yer": "arXiv özeti, doğrudan",
+   "urun": "şeker kamışı",
+   "ulke": "Avustralya",
+   "deneme_alani_ha": 25,
+   "ilac_azalmasi_yuzde": 35,
+   "dusuk_ot_yogunlugunda_azalma_yuzde": 65,
+   "yayma_ilaclamaya_gore_etkinlik_yuzde": 97,
+   "akis_suyunda_ortalama_yogunluk_azalmasi_yuzde": 39,
+   "akis_suyunda_ortalama_yuk_azalmasi_yuzde": 54,
+   "akis_olcum_suresi": "ilaçlamadan 3-6 gün sonra",
+   "_not": "Tasarruf ot yoğunluğuyla orantılı: ot azsa tasarruf büyüyor. 35 ortalama, 65 en iyi şerit."
+  },
+  "allmendinger2024": {
+   "nitelik": "HAKEMLI",
+   "kunye": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024)",
+   "doi": "10.3390/plants13152164",
+   "dogrulandigi_yer": "Europe PMC API, özet metni",
+   "urun": "mısır (tane)",
+   "ulke": "Almanya",
+   "ot_tanima_dogrulugu_yuzde": 94,
+   "ot_kontrol_etkinligi_yuzde": 86,
+   "erken_uygulamada_ilac_azalmasi_yuzde": 47,
+   "_not": "Kamera ilaçlayıcının üstünde değil İHA'da: önce hava haritası, sonra harita üzerinden ilaçlama. Etkinlik yayma ilaçlamaya EŞİT."
+  },
+  "mohanty2016": {
+   "nitelik": "HAKEMLI",
+   "kunye": "Mohanty S.P., Hughes D.P., Salathé M. Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7, 1419 (2016)",
+   "doi": "10.3389/fpls.2016.01419",
+   "yayim_tarihi": "2016-09-22",
+   "dogrulandigi_yer": "Frontiers basılı PDF, doğrudan (EPFL deposu)",
+   "goruntu_sayisi": 54306,
+   "sinif_sayisi": 38,
+   "urun_turu_sayisi": 14,
+   "hastalik_sayisi": 26,
+   "laboratuvar_dogrulugu_yuzde": 99.35,
+   "saha_veri_seti_1_goruntu": 121,
+   "saha_veri_seti_1_dogruluk_yuzde": 31.4,
+   "saha_veri_seti_2_goruntu": 119,
+   "saha_veri_seti_2_dogruluk_yuzde": 31.69,
+   "sans_tabani_yuzde": 2.6,
+   "_ON_BASKI_UYARISI": "Arama motoru özeti '31.4% yalnız ön baskıda, basılı sürümde doğrulanamadı' diyordu. Basılı PDF okundu: rakam BASILI SÜRÜMDE VAR ve daha kesin — iki veri setinde 31,40 ve 31,69. Ön baskıdan alıntı yapılmadı.",
+   "_not": "Laboratuvar görüntüleri denetimli ışık ve arka planla çekilmiş. Saha veri setleri farklı koşullarda çekilmiş internet görüntüleri. Yazarların kendi cümlesi: daha çeşitli eğitim verisi gerekiyor."
+  },
+  "deere2024": {
+   "nitelik": "SATICI",
+   "kunye": "John Deere, haber bülteni, 18 Eylül 2024",
+   "adres": "https://deere.com/en/news/all-news/see-spray-herbicide-savings",
+   "urun": "See & Spray",
+   "alan_milyon_akre": 1,
+   "ortalama_ilac_tasarrufu_yuzde": 59,
+   "_not": "Şirketin kendi müşteri verisi. Ölçü yöntemi bağımsız denetlenmedi."
+  },
+  "deere2025": {
+   "nitelik": "SATICI",
+   "kunye": "John Deere, haber bülteni, 4 Kasım 2025",
+   "adres": "https://www.deere.com/en/news/all-news/see-spray-technology-across-5-million-acres/",
+   "urun": "See & Spray",
+   "alan_milyon_akre": 5,
+   "ortalama_ilac_azalmasi_yuzde": 50,
+   "kapsam": "kalıcı olmayan (non-residual) ilaç",
+   "_OLCU_UYARISI": "2025 rakamı açıkça 'kalıcı olmayan ilaç' diyor; 2024 rakamının aynı ölçü olup olmadığı belirsiz. İki rakam arasında bir EĞİLİM iddia edilmez — iki ayrı beyan olarak yazılır.",
+   "_verim_iddiasi": "Bülten 4,8 bu/akre'ye kadar verim artışı da söylüyor ama bu, şirketin kendi desteklediği araştırmaya dayanıyor. Metne alınmadı."
+  }
+ },
+ "turkiye": {
+  "durum": "var — ama tespit düzeyinde",
+  "bulunan": [
+   "Pamukkale Üniversitesi yüksek lisans tezi (Bağcı; danışman Özdemir): mısırda YOLO ailesiyle yabancı ot tespiti, hedef lokal ilaçlama",
+   "Tokat Gaziosmanpaşa Üniversitesi doktora tezi (2022): buğdayda derin öğrenmeyle yabancı ot tespiti — içeriği doğrulanamadı",
+   "Şin ve Kadıoğlu (2019), Turkish Journal of Weed Science: İHA ve görüntü işlemeyle yabancı ot tespitine dair DERLEME, deney değil"
+  ],
+  "bulunamayan": "İlaç tasarrufunu ölçen, yayımlanmış bir Türkiye saha denemesi bulunamadı.",
+  "_kural": "Kullanıcı kararı 5: 'varsa yazılır yoksa dünya kalır'. Tez düzeyinde çalışma VAR, o yüzden kısa bir paragraf yazılıyor — ve boşluk açıkça söyleniyor."
+ },
+ "_reddedilen": {
+  "ceylanpinar_4200_goruntu": {
+   "adres_alani": "tprds.duckdns.org",
+   "sebep": "DİNAMİK DNS adresinde barınıyor (duckdns), künyesi ve kaynakçası tutarsız, yazarı belirsiz. Konu ilgi çekici — pamukta piksel düzeyinde etiketlenmiş 4.200 Ceylanpınar görüntüsü — ama doğrulanamayan bir kaynak bu bölüme girmez."
+  },
+  "blue_river_satin_almasi": {
+   "sebep": "John Deere'nin 2017'de Blue River Technology'yi satın aldığı biliniyor ama dolaşımdaki 305 milyon dolar rakamı bu turda birincil kaynaktan doğrulanamadı. Rakamsız olarak da yazılmadı; doğrulanınca §3 tarihçeye girer."
+  },
+  "satici_ust_rakamlari": {
+   "sebep": "Weedseeker 2 için %90'a, Solix için %98'e kadar tasarruf rakamları dolaşıyor. Kaynakları bir üniversite yayım sayfasının aktardığı satıcı beyanları ve çoğu yeşil-üstü-kahverengi (nadas, çıplak toprak) senaryosuna ait. Metinde yalnız bu bağlamla, sayı vermeden anılıyor."
+  }
+ }
+}

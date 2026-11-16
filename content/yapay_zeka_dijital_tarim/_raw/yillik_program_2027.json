@@ -1,0 +1,243 @@
+{
+  "_ne": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı — tarımda dijitalleşme ve yapay zekâya dair her madde, BİRİNCİL metinden",
+  "_tarih": "16 Kasım 2026",
+  "_neden": "Kullanıcı belgeyi verdi: 'aklında bulunsun. özellikle 160-170 sayfa arası'. Basılı 160-170 tam olarak 'Tarım ve Gıda' bölümünün destek bütçesi + politika ve tedbirler + hedefler kısmı.",
+  "_kural": "Her maddenin `alinti` alanı kaynakta BİREBİR geçer; `dogrula_alintilar.py` bunu PDF metninden sınar. Yorum `gozlem` alanında, alıntıdan ayrı durur.",
+
+  "kunye": {
+    "ad": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+    "karar": "Cumhurbaşkanı Kararı, karar sayısı 11934, 27 Ekim 2026",
+    "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+    "hazirlayan": "Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığı",
+    "kaynak_dosyasi": "kaynak_dosyalari/yillik_program_2027.pdf",
+    "kaynak_adresi": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+    "resmi_gazete_adresi": "https://www.resmigazete.gov.tr/eskiler/2026/10/20261027M1-1.pdf",
+    "_erisim_notu": "Resmî Gazete kopyası 16 Kasım 2026'da 'connection reset' verdi — hem bu bilgisayardan hem dış okuyucudan. Aynı programı hazırlayan kurumun (SBB) yayımladığı PDF okundu. Sayfa numaraları SBB kopyasının BASILI numaraları; Resmî Gazete kopyasında PDF sayfa sırası farklı olabilir.",
+    "_pdf_duzeni": "SBB PDF'inde 469 sayfa var; çift numaralı PDF sayfaları iki basılı sayfayı birlikte taşıyor (ör. PDF s178 = basılı 160+161). `pdf_sayfa` doğrulayıcının arayacağı yer.",
+    "bolum": "2.2.2.1. Tarım ve Gıda (2.2.2. Öncelikli Gelişme Alanları altında) · basılı s. 146-170"
+  },
+
+  "mevcut_durum": [
+    {
+      "kimlik": "takis",
+      "ad": "Tarımsal Kuraklık İzleme Sistemi (TAKİS)",
+      "basili_sayfa": 148, "pdf_sayfa": [165, 166],
+      "alinti": [
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır."
+      ],
+      "basliklar": [9, 17, 19, 23, 25],
+      "durum": "planlanıyor",
+      "gozlem": "Programdaki TEK somut yapay zekâ uygulaması. Tedbir tablosunda değil, mevcut durum metninde ve 'planlanmaktadır' kipinde."
+    },
+    {
+      "kimlik": "b_recete",
+      "ad": "B-Reçete Sistemi (bitki koruma ürünü reçetesi)",
+      "basili_sayfa": 148, "pdf_sayfa": [165, 166],
+      "alinti": ["reçetelendirme, satış, uygulama ve kayıt süreçlerini üretici kayıt sistemleriyle elektronik ortamda bütünleştiren B-Reçete Sistemi kurulmuş ve 1 Temmuz 2026 itibarıyla 81 ilde uygulanmaya başlanmıştır."],
+      "basliklar": [8, 24, 25],
+      "durum": "uygulamada",
+      "gozlem": "Yapay zekâ değil, kayıt sistemi. §8 (hedefli ilaçlama) Türkiye kısmı için bağlam: ilacın ne kadar kullanıldığını ölçecek altyapı."
+    },
+    {
+      "kimlik": "akilli_piyasa_gozetimi",
+      "ad": "Akıllı Piyasa Gözetimi ve Denetimi (gübre)",
+      "basili_sayfa": 148, "pdf_sayfa": [165, 166],
+      "alinti": ["Piyasaya arz edilen gübrelerin teknik mevzuata uygunluğunun daha etkin kontrol edilmesi amacıyla Akıllı Piyasa Gözetimi ve Denetimi uygulaması hayata geçirilmiştir."],
+      "basliklar": [24, 25],
+      "durum": "uygulamada",
+      "gozlem": "'Akıllı' sıfatının neyi kapsadığı programda tarif edilmiyor."
+    },
+    {
+      "kimlik": "bitki_karantinasi_kayit",
+      "ad": "Bitki Karantinası Kayıt ve Takip Sistemi",
+      "basili_sayfa": 149, "pdf_sayfa": [166, 167],
+      "alinti": ["işlemlerinin Bitki Karantinası Kayıt ve Takip Sistemi üzerinden elektronik ortamda yürütülmesi"],
+      "basliklar": [24],
+      "durum": "uygulamada"
+    },
+    {
+      "kimlik": "hassas_tarim_onceligi",
+      "ad": "Hassas tarım ve dijital teknolojiler — öncelikli konu",
+      "basili_sayfa": 152, "pdf_sayfa": [169, 170],
+      "alinti": ["hassas tarım ve dijital teknolojilerin kullanılması ile gübre, tohum ve diğer girdilerin etkin kullanımının sağlanması öncelikli konular arasında yer almaktadır."],
+      "basliklar": [1, 23]
+    },
+    {
+      "kimlik": "orman_yangini_iha",
+      "ad": "Orman yangınlarında insansız hava aracı",
+      "basili_sayfa": 158, "pdf_sayfa": [175, 176],
+      "alinti": ["2026 yılında 119 helikopter, 28 uçak ve 14 insansız hava aracı (İHA) ile yangınlara havadan müdahale edilmiştir."],
+      "basliklar": [15],
+      "durum": "uygulamada"
+    },
+    {
+      "kimlik": "kkydp_yz_onceligi",
+      "ad": "Kırsal Kalkınma Yatırım Programı — dijitalleşme ve yapay zekâ önceliği",
+      "basili_sayfa": 161, "pdf_sayfa": [178, 179, 180],
+      "alinti": [
+        "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar ile 3 Nisan 2026 tarihli Kırsal Kalkınma Yatırım Programı Çerçevesinde Yapılacak Desteklemeler Hakkında Tebliğ kapsamında aile işletmeleri, kadın",
+        "ve genç girişimciler ile tarımsal amaçlı örgütlere öncelik verilmiş, dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılması hedeflenmiştir.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50-70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması öngörülmüştür."
+      ],
+      "basliklar": [23, 25],
+      "durum": "yürürlükte",
+      "gozlem": "Yapay zekâ bir HEDEF olarak sayılıyor; programın kendisi yapay zekâ yatırımına ayrılan payı ya da sayısını vermiyor."
+    }
+  ],
+
+  "politika_ve_tedbirler": [
+    {
+      "kalkinma_plani_politikasi": "488",
+      "politika": "Tarım istatistikleri uluslararası standartlara uygun olarak geliştirilecek, tarım bilgi sistemleri tarımsal üretimin tüm süreçlerinin sağlıklı şekilde kayıt altına alınması ve izlenmesini temin edecek şekilde etkin işler hale getirilecektir.",
+      "basili_sayfa": 163, "pdf_sayfa": [180],
+      "tedbirler": [
+        {
+          "no": "488.3",
+          "tedbir": "Tarım istatistiklerinin derlenmesi, işlenmesi, analizi ve kontrolünün etkin bir şekilde yapılması amacıyla düzenlemeler yapılacaktır.",
+          "sorumlu": "Hazine ve Maliye Bakanlığı (S), Tarım ve Orman Bakanlığı",
+          "faaliyet": ["Genel Tarım Sayımı’nda elde edilen veriler kullanılarak tüm tarım işletmelerinin kayıt altına alındığı, kayıtların mekânsal verilerle entegre bir şekilde gerçek zamanlı olarak güncelleneceği Tarımsal İşletme Kayıt Sistemi oluşturulacaktır."],
+          "basliklar": [21, 25]
+        },
+        {
+          "no": "488.4",
+          "tedbir": "Kayıt ve bilgi sistemleri erken uyarı, piyasa kontrolleri, üretim planlaması ve stok yönetimini sağlayacak şekilde bütüncül bir yaklaşımla tasarlanacak, yazılım ve donanım altyapısı iyileştirilecektir.",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S), Hazine ve Maliye Bakanlığı",
+          "faaliyet": ["Tarım bilgi sistemlerinin iyileştirilmesi amacıyla veri merkezi kurulumu tamamlanacak ve yazılımların güncellenmesine yönelik çalışmalara hız verilecektir."],
+          "basliklar": [21, 25]
+        }
+      ]
+    },
+    {
+      "kalkinma_plani_politikasi": "489",
+      "politika": "Dijitalleşme, yapay zekâ ve veriye dayalı iş modelleriyle akıllı tarım uygulamaları yaygınlaştırılacaktır.",
+      "basili_sayfa": 163, "pdf_sayfa": [180],
+      "tedbirler": [
+        {
+          "no": "489.1",
+          "tedbir": "Tarım işletmeleri ve üretici örgütlerinin akıllı tarım uygulamaları konusundaki beşeri ve teknik altyapılarının geliştirilmesi desteklenecektir",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S)",
+          "faaliyet": ["Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır."],
+          "basliklar": [23, 25]
+        },
+        {
+          "no": "489.2",
+          "tedbir": "Akıllı tarım uygulamalarına yönelik yazılım ve ekipmanın yerli üretimi desteklenecektir.",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S)",
+          "faaliyet": ["Yerli imkânlarla geliştirilen Güvenli Elektronik Küpe ve İzleme Sistemi uygulamaya konulacaktır."],
+          "basliklar": [12, 23, 25]
+        }
+      ],
+      "gozlem": "Programda 'yapay zekâ' kelimesini taşıyan TEK politika cümlesi bu. Altındaki iki 2027 faaliyetinin (ortak makine parkı, elektronik küpe) tarifinde yapay zekâ geçmiyor."
+    },
+    {
+      "kalkinma_plani_politikasi": "490",
+      "basili_sayfa": 163, "pdf_sayfa": [180],
+      "tedbirler": [
+        {
+          "no": "490.1",
+          "tedbir": "Tarımsal arazi kullanım planlarının hazırlanması tamamlanacaktır.",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S), Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
+          "faaliyet": ["15 ilde 3,5 milyon hektar tarım arazisinin detaylı toprak etütleri ve haritalandırılması çalışmalarına devam edilecektir."],
+          "basliklar": [4]
+        }
+      ]
+    },
+    {
+      "kalkinma_plani_politikasi": "500",
+      "basili_sayfa": 165, "pdf_sayfa": [182, 183, 184],
+      "tedbirler": [
+        {
+          "no": "500.2",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S), Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
+          "faaliyet": ["Ulusal arazi örtüsü haritası yıllık olarak üretilecek ve arazi üstünde meydana gelen değişimler raporlanacaktır."],
+          "basliklar": [15, 19]
+        },
+        {
+          "no": "500.3",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S), Çevre, Şehircilik ve İklim Değişikliği Bakanlığı",
+          "faaliyet": ["İklim projeksiyonlarına dayalı su erozyonu ve sediment verimi analizlerine yönelik veri altyapısı ve metodolojinin geliştirilmesi çalışmaları yürütülecektir."],
+          "basliklar": [4, 17]
+        }
+      ]
+    },
+    {
+      "kalkinma_plani_politikasi": "504",
+      "basili_sayfa": 169, "pdf_sayfa": [186],
+      "tedbirler": [
+        {
+          "no": "504.3",
+          "tedbir": "Suyun kullanım miktarını esas alan yöntemlere göre fiyatlandırılması sağlanacaktır.",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S)",
+          "faaliyet": ["100 tesise elektronik ölçüm sistemi takılacaktır."],
+          "basliklar": [7]
+        }
+      ]
+    },
+    {
+      "kalkinma_plani_politikasi": "505",
+      "politika": "Sulama yönetiminde bilgi ve iletişim teknolojilerinin kullanımı yaygınlaştırılacaktır.",
+      "basili_sayfa": 169, "pdf_sayfa": [186],
+      "tedbirler": [
+        {
+          "no": "505.1",
+          "tedbir": "Uzaktan algılama teknolojisi ile coğrafi bilgi sistemi tabanlı tekniklerin sulama programlarının oluşturulmasında kullanımına yönelik Ar-Ge faaliyetleri yürütülecektir.",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S)",
+          "faaliyet": ["Dijital Sulama Yönetim Sisteminin Geliştirilmesi Projesi (DİSU) tamamlanacaktır."],
+          "basliklar": [7, 19, 25]
+        },
+        {
+          "no": "505.2",
+          "tedbir": "Sulama suyunun verimli kullanılması amacıyla işletmedeki mevcut sulama tesislerinde otomasyon ve karar destek sistemleri faaliyete geçirilecektir.",
+          "sorumlu": "Tarım ve Orman Bakanlığı (S)",
+          "faaliyet": ["Su kullanıcı teşkilatlarının faaliyetlerinde etkinliğin ve verimliliğin artırılması amacıyla sulama yönetiminde karar destek sistemlerinin kullanımı ve uygulamayı destekleyici mevzuat çalışmaları sürdürülecektir."],
+          "basliklar": [7, 25]
+        }
+      ]
+    }
+  ],
+
+  "hedefler": {
+    "basili_sayfa": 170, "pdf_sayfa": [187, 188],
+    "gostergeler": [
+      "Arazi Toplulaştırma Faaliyet Alanı",
+      "Tescil İşlemleri Tamamlanan Arazi Toplulaştırma",
+      "Merkezi Yönetim Bütçesinden Yapılan Toplam",
+      "Yağlı Tohum Üretimi",
+      "Hububat Ekiliş Alanı",
+      "Sığır Varlığı İçinde Kültür Irkı Oranı",
+      "Mera Islah ve Amenajman Alanı",
+      "Büyükbaş Hayvan Sayısı",
+      "Küçükbaş Hayvan Sayısı",
+      "Orman Alanlarının Ülke Yüzölçümüne Oranı",
+      "Endüstriyel Ağaçlandırma",
+      "Ekoturizm Alan Sayısı",
+      "Sulamaya Açılan Brüt Tarımsal Alan",
+      "Sulama Oranı",
+      "Yenilemesi Yapılan Brüt Sulama Alanı"
+    ],
+    "gozlem": "Bölümün 15 performans göstergesinin hiçbiri dijitalleşmeyi, akıllı tarımı ya da yapay zekâyı ölçmüyor. Politika 489 için ölçülebilir bir 2027 hedefi yok."
+  },
+
+  "bolum_disi": [
+    {
+      "kimlik": "makro_oncelik",
+      "basili_sayfa": 82, "pdf_sayfa": [99],
+      "alinti": ["Tarım, sanayi ve hizmetler sektörlerinde yüksek katma değerli üretimin artırılması, teknoloji ve yapay zekâ kullanımının yaygınlaştırılması ve verimlilik odaklı yapısal dönüşümün hızlandırılması önceliklendirilecektir."],
+      "basliklar": [23]
+    },
+    {
+      "kimlik": "universite_programlari",
+      "basili_sayfa": 262, "pdf_sayfa": [280],
+      "alinti": ["yeşil dönüşüm, tarımda dijitalleşme ve sağlıkta dijitalleşme alanlarında 3 lisans ve 24 ön lisans olmak üzere 27 yeni program açılmıştır."],
+      "basliklar": [23],
+      "gozlem": "27 programın kaçının tarımda dijitalleşme olduğu ayrıştırılmamış — sayı tarım için KULLANILAMAZ."
+    },
+    {
+      "kimlik": "kkydp_akilli_tarim_hibesi",
+      "basili_sayfa": 402, "pdf_sayfa": [419],
+      "alinti": ["tarımsal amaçlı örgütler bünyesinde ortak makine parklarının kurulmasına, yenilenebilir enerji tesislerinin inşasına ve akıllı tarım teknolojilerinin kullanımına yönelik yatırımlara hibe desteği verilmektedir."],
+      "basliklar": [23, 25]
+    }
+  ]
+}

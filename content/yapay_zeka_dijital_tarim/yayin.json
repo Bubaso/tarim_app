@@ -1,0 +1,8 @@
+{
+  "_ne": "Yapay Zeka ve Dijital Tarım — okura açılış bayrağı",
+  "_karar": "Kullanıcı kararı, 16 Kasım 2026: 'tamamı yazılınca açılsın' — açılış eşiği 30 başlığın TAMAMI. Panel (yönetici ekranları) bu bayraktan bağımsız, açık.",
+  "_nasil": "dart_uret.py bu değeri `kYzOkuraAcik` sabiti olarak gömer; sabit `false` iken okur rotaları kurulmaz, ana sayfa şeridi çizilmez ve paylaşım kabukları (paylasim_sayfasi.mjs) üretilmez. Sabit derleme anında bilindiği için okur ekranları pakete de girmez.",
+  "_bekci": "dart_uret.py `okura_acik: true` görürse iskeletteki 30 başlığın hepsinin `yazildi` olduğunu sınar; değilse DURUR. Açılış eşiği elle atlanamaz.",
+  "okura_acik": false,
+  "acilis_esigi": "tamami"
+}

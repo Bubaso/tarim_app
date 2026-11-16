@@ -1,0 +1,101 @@
+{
+  "_ne": "§24 Mevzuat ve politika — kilitli kayıt",
+  "guncellendi": "2026-11-16",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin İNGİLİZCE aslından birebir; dogrula_alintilar.py her alıntıyı `dosya`daki metinde arar.",
+  "_kapsam": "Tarımda yapay zekâyı düzenleyen kurallar ayrı bir tarım yasasından değil; araç, makine, veri ve genel yapay zekâ mevzuatından geliyor. Bu tur AB çerçevesi ve Türkiye. Öteki ülkelerin politikaları §22'de.",
+  "_nitelik_tanimi": {
+    "RESMI": "Resmî gazetede yayımlanmış birincil metin (AB için Yayın Ofisi'nin resmî metni)"
+  },
+  "kaynaklar": {
+    "ab_yz_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2024/1689 — Artificial Intelligence Act",
+      "dosya": "kaynak_dosyalari/ab_2024_1689_yapay_zeka_tuzugu.xhtml",
+      "sayi": "2024/1689",
+      "yayim": "AB Resmî Gazetesi, 12 Temmuz 2024",
+      "genel_uygulama": "2 Ağustos 2026",
+      "bolum_1_2_uygulama": "2 Şubat 2025",
+      "genel_amacli_modeller_uygulama": "2 Ağustos 2025",
+      "tarim_araclari_tuzugu": "167/2013",
+      "makine_direktifi": "2006/42",
+      "alinti": [
+        "It shall apply from 2 August 2026. However: (a) Chapters I and II shall apply from 2 February 2025; (b) Chapter III Section 4, Chapter V, Chapter VII and Chapter XII and Article 78 shall apply from 2 August 2025",
+        "Regulation (EU) No 167/2013 of the European Parliament and of the Council of 5 February 2013 on the approval and market surveillance of agricultural and forestry vehicles",
+        "For AI systems classified as high-risk AI systems in accordance with Article 6(1) related to products covered by the Union harmonisation legislation listed in Section B of Annex I, only Article 6(1), Articles 102 to 109 and Article 112 apply.",
+        "In Article 17(5) of Regulation (EU) No 167/2013, the following subparagraph is added: ‘When adopting delegated acts pursuant to the first subparagraph concerning artificial intelligence systems which are safety components within the meaning of Regulation (EU) 2024/1689",
+        "providers placing on the market or putting into service AI systems or placing on the market general-purpose AI models in the Union, irrespective of whether those providers are established or located within the Union or in a third country"
+      ]
+    },
+    "ab_dijital_omnibus": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2026/1744 — Digital Omnibus on AI",
+      "dosya": "kaynak_dosyalari/ab_2026_1744_dijital_omnibus.xhtml",
+      "sayi": "2026/1744",
+      "yayim": "AB Resmî Gazetesi, 24 Temmuz 2026",
+      "yururluk": "yayımdan sonraki üçüncü gün — 27 Temmuz 2026",
+      "ek_iii_yuksek_risk": "2 Aralık 2027",
+      "ek_i_yuksek_risk": "2 Ağustos 2028",
+      "makine_yz_gereklilikleri_en_gec": "2 Ağustos 2028",
+      "alinti": [
+        "(i) 2 December 2027 as regards AI systems classified as high-risk pursuant to Article 6(2) and Annex III; and (ii) 2 August 2028 as regards AI systems classified as high-risk pursuant to Article 6(1) and Annex I",
+        "in Section A, point 1 is deleted; (b) in Section B, the following point is added: ‘21. Regulation (EU) 2023/1230",
+        "This Regulation shall enter into force on the third day following that of its publication in the Official Journal of the European Union",
+        "Those delegated acts shall apply by 2 August 2028.",
+        "the delayed availability of standards, common specifications, and alternative guidance and the delayed establishment of national competent authorities"
+      ]
+    },
+    "ab_veri_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2023/2854 — Data Act",
+      "dosya": "kaynak_dosyalari/ab_2023_2854_veri_tuzugu.xhtml",
+      "sayi": "2023/2854",
+      "uygulama": "12 Eylül 2025",
+      "tasarim_yukumlulugu": "12 Eylül 2026 sonrasında piyasaya çıkan bağlantılı ürünler",
+      "alinti": [
+        "It shall apply from 12 September 2025. The obligation resulting from Article 3(1) shall apply to connected products and the services related to them placed on the market after 12 September 2026.",
+        "medical and health devices or agricultural and industrial machinery",
+        "by default, easily, securely, free of charge, in a comprehensive, structured, commonly used and machine-readable format, and, where relevant and technically feasible, directly accessible to the user",
+        "such as the Code of Conduct on agricultural data sharing by contract",
+        "using knowledge about the overall performance of a business or a farm in contractual negotiations with the user on the potential acquisition of the user’s products or agricultural produce to the user’s detriment, or using such information to feed into larger databases on certain markets in the aggregate, for example databases on crop yields for the upcoming harvesting season"
+      ]
+    },
+    "ab_makine_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2023/1230 — Machinery Regulation",
+      "dosya": "kaynak_dosyalari/ab_2023_1230_makine_tuzugu.xhtml",
+      "sayi": "2023/1230",
+      "uygulama": "14 Ocak 2027",
+      "_tarih_notu": "Yayın Ofisi'nin güncel resmî metni 14 Ocak 2027 diyor; yaygın anılan 20 Ocak 2027 değil. Metindeki tarih esas alındı.",
+      "alinti": [
+        "It shall apply from 14 January 2027.",
+        "the conformity assessment of a safety component or a system with self-evolving behaviour ensuring safety functions should be carried out by a third party",
+        "those provisions should not apply to software incapable of learning or evolving, and programmed only to execute certain automated functions of machinery or related products",
+        "‘Supervisory function’ means remote non permanent surveillance of autonomous mobile machinery"
+      ]
+    },
+    "tr_yz_eylem_plani": {
+      "nitelik": "RESMI",
+      "kunye": "Türkiye Yapay Zekâ Eylem Planı (2026-2030)",
+      "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "donem": "2026-2030",
+      "duzenleme_eylemi_no": 4,
+      "hedef_suresi_ay": 12,
+      "ana_sorumlu": "Sanayi ve Teknoloji Bakanlığı ve Siber Güvenlik Başkanlığı (KVKK, TÜİK, KOSGEB, TÜBİTAK, TİM ve sektörel düzenleyicilerle iş birliği içinde)",
+      "alinti": [
+        "Vatandaşın haklarını koruyan ve yatırımcıya öngörülebilirlik sağlayan bir düzenleyici ortam kurulacaktır.",
+        "Avrupa Birliği'nin orantılı risk yaklaşımını dikkate alan ulusal yapay zekâ hukuki-etik çerçevesi oluşturacaktır.",
+        "Risk düzeyine göre kademeli yükümlülükler tanımlanacaktır.",
+        "ilk 12 ayda orantılı risk rehberi ve sektör eklerinin yayımlanması, Ulusal Yapay Zekâ Etik Kurulu’nun teşkil edilmesi",
+        "en az beş öncelikli sektörde düzenleyici deney alanlarının hayata geçirilmesi"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Tarıma özgü bir yapay zekâ düzenlemesi yok; ulusal plan genel bir çerçeve öngörüyor. Yapay zekâya özgü bir kanun bu dosyanın Kasım 2026 taramasında Resmî Gazete'de bulunamadı; Meclis'teki teklifler yalnız ikincil haberlerden biliniyor ve metne alınmadı."
+  },
+  "_reddedilen": {
+    "meclis_teklifleri": "Yapay zekâya dair kanun teklifleri yalnız haber aktarımlarından biliniyor; TBMM'nin kendi kaydından okunmadan metne girmez.",
+    "omnibus_ikincil_tarihleri": "Hukuk büroları ve haber siteleri Parlamento oy tarihini farklı veriyor; yalnız tüzüğün kendi metnindeki tarihler kullanıldı."
+  }
+}

@@ -1,0 +1,879 @@
+{
+  "_ne": "Yapay Zeka ve Dijital Tarım — bölüm iskeleti",
+  "_uretim": "_raw/iskelet_uret.py — elle düzenlenmez",
+  "_kural": "Biçim serbest (karar 12), HEDEF KAYITLI: her başlığın `oto_hedefler`i taramanın o başlıkta neyi güncelleyebileceğini söylüyor. Listede olmayan alanı tarama ÖNERMEZ.",
+  "_turkiye_notu": "`turkiye` bir söz değil bir durum: 'var' ya da 'bilinmiyor'. Kullanıcı kararı (5): 'her başlıkta Türkiye ile ilgili bir şey yazacağım diye kasmayalım.' Yazım turu ölçüp günceller; ölçülmeden 'var' yazılmaz.",
+  "adres": "/yapay-zeka-dijital-tarim",
+  "ad": {
+    "tr": "Yapay Zeka ve Dijital Tarım",
+    "en": "AI and Digital Agriculture"
+  },
+  "katmanlar": {
+    "cerceve": {
+      "tr": "Çerçeve",
+      "en": "Framework"
+    },
+    "surec": {
+      "tr": "Tarlanın takvimi",
+      "en": "The field's calendar"
+    },
+    "alan": {
+      "tr": "Üretim alanları",
+      "en": "Production domains"
+    },
+    "zincir": {
+      "tr": "Zincirin öteki ucu",
+      "en": "Along the chain"
+    },
+    "altyapi": {
+      "tr": "Altyapı",
+      "en": "Infrastructure"
+    },
+    "cografya": {
+      "tr": "Dünya ve Türkiye",
+      "en": "World and Türkiye"
+    },
+    "elestiri": {
+      "tr": "Eleştirel bakış",
+      "en": "Critical view"
+    },
+    "basvuru": {
+      "tr": "Anlatı ve başvuru",
+      "en": "Stories and reference"
+    }
+  },
+  "teknoloji": {
+    "goruntu": {
+      "tr": "Görüntü işleme",
+      "en": "Computer vision"
+    },
+    "tahmin": {
+      "tr": "Tahmin modelleri",
+      "en": "Predictive models"
+    },
+    "uzaktan": {
+      "tr": "Uzaktan algılama",
+      "en": "Remote sensing"
+    },
+    "robotik": {
+      "tr": "Robotik ve otonom sistemler",
+      "en": "Robotics and autonomy"
+    },
+    "sensor": {
+      "tr": "Sensörler ve nesnelerin interneti",
+      "en": "Sensors and IoT"
+    },
+    "dil": {
+      "tr": "Dil modelleri",
+      "en": "Language models"
+    },
+    "karar": {
+      "tr": "Karar destek sistemleri",
+      "en": "Decision support"
+    },
+    "ikiz": {
+      "tr": "Dijital ikiz",
+      "en": "Digital twin"
+    },
+    "veri": {
+      "tr": "Veri platformları",
+      "en": "Data platforms"
+    },
+    "genomik": {
+      "tr": "Genomik ve ıslah",
+      "en": "Genomics and breeding"
+    }
+  },
+  "oto_hedef_tanimi": {
+    "sayi": "Sayılar ve seriler — kaynağı kilitli olanlar tazelenir",
+    "dizin": "Türkiye dizini — yeni kayıt taslak olarak önerilir",
+    "mevzuat": "Mevzuat ve politika — Resmî Gazete, bakanlık, AB",
+    "gelisme": "Yeni gelişme ve başlık önerisi"
+  },
+  "basliklar": [
+    {
+      "no": 1,
+      "slug": "bugun-nerede-duruyoruz",
+      "katman": "cerceve",
+      "baslik": {
+        "tr": "Bugün nerede duruyoruz",
+        "en": "Where things stand today"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "tahmin",
+        "goruntu",
+        "uzaktan",
+        "robotik",
+        "dil"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Tezin yerine geçen durum tespiti: alanın bugünkü hâli, ölçülmüş birkaç rakamla. Tarama bu özeti günceller.",
+        "en": "A status reading in place of a thesis: the field today in a few measured figures. The scan keeps it current."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 2,
+      "slug": "kavramlar",
+      "katman": "cerceve",
+      "baslik": {
+        "tr": "Kavramlar: yapay zeka, dijital tarım, hassas tarım",
+        "en": "Terms: AI, digital farming, precision farming"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "veri",
+        "karar"
+      ],
+      "oto_hedefler": [],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Üç kavram sık sık birbirinin yerine kullanılıyor ve aynı şey değiller.",
+        "en": "Three terms used as if interchangeable, which they are not."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 3,
+      "slug": "tarihce",
+      "katman": "cerceve",
+      "baslik": {
+        "tr": "Kısa tarihçe",
+        "en": "A short history"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "karar",
+        "uzaktan",
+        "goruntu"
+      ],
+      "oto_hedefler": [],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Uzman sistemlerden görüntü işlemeye, uydudan dil modellerine: dönüm noktaları ve kişiler.",
+        "en": "From expert systems to computer vision, from satellites to language models: turning points and people."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 4,
+      "slug": "toprak-ve-arazi",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Toprak ve arazi",
+        "en": "Soil and land"
+      },
+      "surec_sirasi": 1,
+      "teknoloji": [
+        "uzaktan",
+        "sensor",
+        "tahmin",
+        "veri"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Toprak haritalama, verimlilik bölgeleri, arazi planlaması. Türkiye'nin ilk Dijital Toprak Haritası burada.",
+        "en": "Soil mapping, productivity zones, land planning. Türkiye's first Digital Soil Map belongs here."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 5,
+      "slug": "tohum-islah-genetik",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Tohum, ıslah ve genetik",
+        "en": "Seed, breeding and genetics"
+      },
+      "surec_sirasi": 2,
+      "teknoloji": [
+        "genomik",
+        "tahmin",
+        "goruntu"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Fenotipleme, genomik seçilim, ıslah süresinin kısaltılması.",
+        "en": "Phenotyping, genomic selection, shortening the breeding cycle."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 6,
+      "slug": "ekim-ve-degisken-oran",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Ekim ve değişken oranlı uygulama",
+        "en": "Sowing and variable-rate application"
+      },
+      "surec_sirasi": 3,
+      "teknoloji": [
+        "karar",
+        "uzaktan",
+        "robotik",
+        "sensor"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Tarlanın her parçasına aynı muameleyi bırakmak: değişken oranlı tohum ve gübre.",
+        "en": "Ending uniform treatment of a field: variable-rate seed and fertiliser."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 7,
+      "slug": "sulama-ve-su",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Sulama ve su yönetimi",
+        "en": "Irrigation and water"
+      },
+      "surec_sirasi": 4,
+      "teknoloji": [
+        "sensor",
+        "tahmin",
+        "uzaktan",
+        "karar"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Ne zaman, ne kadar: sensör ve tahmine dayalı sulama.",
+        "en": "When and how much: irrigation driven by sensors and forecasts."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 8,
+      "slug": "goruntu-isleme-ve-hedefli-ilaclama",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Görüntü işleme ve hedefli ilaçlama",
+        "en": "Computer vision and targeted spraying"
+      },
+      "surec_sirasi": 5,
+      "teknoloji": [
+        "goruntu",
+        "robotik",
+        "tahmin"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "var",
+      "ozet": {
+        "tr": "Yabancı otu, hastalığı ve zararlıyı görmek — ve ilacı yalnız oraya atmak.",
+        "en": "Seeing weeds, disease and pests — and spraying only there."
+      },
+      "durum": "yazildi",
+      "haber_alir": true
+    },
+    {
+      "no": 9,
+      "slug": "urun-izleme-ve-verim-tahmini",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Ürün izleme ve verim tahmini",
+        "en": "Crop monitoring and yield forecasting"
+      },
+      "surec_sirasi": 6,
+      "teknoloji": [
+        "uzaktan",
+        "tahmin",
+        "goruntu"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Hasattan önce rekoltenin bilinmesi: uydu, model ve belirsizlik.",
+        "en": "Knowing the harvest before it comes: satellites, models and uncertainty."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 10,
+      "slug": "hasat-ve-robotik",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Hasat ve robotik",
+        "en": "Harvest and robotics"
+      },
+      "surec_sirasi": 7,
+      "teknoloji": [
+        "robotik",
+        "goruntu"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Hasat zamanlaması ve robotik toplama — en zor mühendislik problemi neden meyvede.",
+        "en": "Harvest timing and robotic picking — why fruit is the hardest engineering problem."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 11,
+      "slug": "hasat-sonrasi",
+      "katman": "surec",
+      "baslik": {
+        "tr": "Hasat sonrası: sınıflandırma, kalite, depolama",
+        "en": "Post-harvest: grading, quality, storage"
+      },
+      "surec_sirasi": 8,
+      "teknoloji": [
+        "goruntu",
+        "sensor",
+        "tahmin"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Ürünün tarladan çıktıktan sonra kaybolmaması: sınıflandırma ve depolama.",
+        "en": "Keeping produce from being lost after it leaves the field: grading and storage."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 12,
+      "slug": "hayvancilik",
+      "katman": "alan",
+      "baslik": {
+        "tr": "Hayvancılık",
+        "en": "Livestock"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "sensor",
+        "goruntu",
+        "tahmin",
+        "karar"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Hassas hayvancılık: hastalığı belirtiden önce görmek, sürüyü tek tek tanımak.",
+        "en": "Precision livestock farming: seeing disease before symptoms, knowing animals one by one."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 13,
+      "slug": "sera-ve-kontrollu-ortam",
+      "katman": "alan",
+      "baslik": {
+        "tr": "Sera ve kontrollü ortam",
+        "en": "Greenhouse and controlled environment"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "sensor",
+        "ikiz",
+        "karar",
+        "robotik"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Her değişkenin ölçüldüğü yer: iklim kontrolü, dikey tarım, dijital ikiz.",
+        "en": "Where every variable is measured: climate control, vertical farming, digital twins."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 14,
+      "slug": "su-urunleri",
+      "katman": "alan",
+      "baslik": {
+        "tr": "Su ürünleri",
+        "en": "Aquaculture and fisheries"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "sensor",
+        "goruntu",
+        "tahmin"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Yem, su kalitesi, balık sağlığı ve av takibi.",
+        "en": "Feed, water quality, fish health and catch monitoring."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 15,
+      "slug": "ormancilik",
+      "katman": "alan",
+      "baslik": {
+        "tr": "Ormancılık",
+        "en": "Forestry"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "uzaktan",
+        "goruntu",
+        "tahmin"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Yangın erken uyarısı, ağaç sayımı, kaçak kesim tespiti.",
+        "en": "Fire early warning, tree counting, detecting illegal logging."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 16,
+      "slug": "pazar-fiyat-tedarik",
+      "katman": "zincir",
+      "baslik": {
+        "tr": "Pazar, fiyat ve tedarik zinciri",
+        "en": "Markets, prices and supply chain"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "tahmin",
+        "veri"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Fiyat tahmini, talep planlaması, izlenebilirlik.",
+        "en": "Price forecasting, demand planning, traceability."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 17,
+      "slug": "iklim-risk-sigorta",
+      "katman": "zincir",
+      "baslik": {
+        "tr": "İklim, risk ve tarım sigortası",
+        "en": "Climate, risk and crop insurance"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "uzaktan",
+        "tahmin",
+        "karar"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Erken uyarı, hasar tespiti, endeks sigortası.",
+        "en": "Early warning, loss assessment, index insurance."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 18,
+      "slug": "danismanlik-ve-dil-modelleri",
+      "katman": "zincir",
+      "baslik": {
+        "tr": "Danışmanlık ve dil modelleri",
+        "en": "Advisory services and language models"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "dil",
+        "karar"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Çiftçinin sorusuna cevap veren makine: yayım hizmeti ve sohbet botları.",
+        "en": "A machine that answers the farmer: extension services and chatbots."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 19,
+      "slug": "uydu-ve-uzaktan-algilama",
+      "katman": "altyapi",
+      "baslik": {
+        "tr": "Uydu ve uzaktan algılama",
+        "en": "Satellites and remote sensing"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "uzaktan",
+        "goruntu",
+        "veri"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Tarımsal yapay zekanın en büyük açık veri kaynağı: Sentinel, Landsat, ticari uydular, İHA.",
+        "en": "The largest open data source for agricultural AI: Sentinel, Landsat, commercial satellites, drones."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 20,
+      "slug": "sensorler-ve-iot",
+      "katman": "altyapi",
+      "baslik": {
+        "tr": "Sensörler ve tarımsal nesnelerin interneti",
+        "en": "Sensors and agricultural IoT"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "sensor",
+        "veri"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dahil.",
+        "en": "Measuring devices in the field and the network that links them — rural connectivity included."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 21,
+      "slug": "veri-sahiplik-platform",
+      "katman": "altyapi",
+      "baslik": {
+        "tr": "Veri: sahiplik, platformlar, açık veri",
+        "en": "Data: ownership, platforms, open data"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "veri"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Tarladan çıkan verinin kime ait olduğu — çiftçi mi, makine üreticisi mi, platform mu.",
+        "en": "Who owns the data that leaves the field — the farmer, the machinery maker or the platform."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 22,
+      "slug": "dunyada-durum",
+      "katman": "cografya",
+      "baslik": {
+        "tr": "Dünyada durum: bölge bölge",
+        "en": "The world, region by region"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "tahmin",
+        "goruntu",
+        "uzaktan",
+        "robotik",
+        "dil"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "AB, ABD, Çin, Hindistan, İsrail, Afrika: kim nerede, hangi ölçekte.",
+        "en": "EU, US, China, India, Israel, Africa: who is where, at what scale."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 23,
+      "slug": "turkiyede-durum",
+      "katman": "cografya",
+      "baslik": {
+        "tr": "Türkiye'de durum",
+        "en": "Türkiye today"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "karar",
+        "uzaktan",
+        "veri",
+        "goruntu"
+      ],
+      "oto_hedefler": [
+        "dizin",
+        "gelisme",
+        "mevzuat",
+        "sayi"
+      ],
+      "turkiye": "var",
+      "ozet": {
+        "tr": "TAGEM'in araştırma merkezi, bakanlığın strateji belgesi, KKYDP, Dijital Toprak Haritası — ve ulusal yapay zeka stratejisinde tarımın yokluğu.",
+        "en": "TAGEM's research centre, the ministry's strategy, rural development grants, the Digital Soil Map — and agriculture's absence from the national AI strategy."
+      },
+      "durum": "yazildi",
+      "haber_alir": false
+    },
+    {
+      "no": 24,
+      "slug": "mevzuat-ve-politika",
+      "katman": "cografya",
+      "baslik": {
+        "tr": "Mevzuat ve politika",
+        "en": "Regulation and policy"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "veri",
+        "karar"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "mevzuat"
+      ],
+      "turkiye": "var",
+      "ozet": {
+        "tr": "AB Yapay Zeka Yasası, veri mevzuatı, destek programları — ve beklemedeki belgeler.",
+        "en": "The EU AI Act, data law, support programmes — and documents still pending."
+      },
+      "durum": "yazildi",
+      "haber_alir": true
+    },
+    {
+      "no": 25,
+      "slug": "turkiye-dizini",
+      "katman": "cografya",
+      "baslik": {
+        "tr": "Türkiye dizini: girişimler, üniversiteler, kamu projeleri",
+        "en": "Türkiye directory: start-ups, universities, public projects"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "goruntu",
+        "tahmin",
+        "robotik",
+        "sensor",
+        "dil",
+        "uzaktan"
+      ],
+      "oto_hedefler": [
+        "dizin",
+        "gelisme"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Yaşayan bir dizin. Tarama yeni kaydı taslak olarak önerir, onayla girer.",
+        "en": "A living directory. The scan proposes new entries as drafts; they enter on approval."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 26,
+      "slug": "riskler-ve-sinirlar",
+      "katman": "elestiri",
+      "baslik": {
+        "tr": "Riskler ve sınırlar",
+        "en": "Risks and limits"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "veri",
+        "tahmin",
+        "dil"
+      ],
+      "oto_hedefler": [
+        "gelisme",
+        "sayi"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Dijital uçurum, model yanlılığı, veri sahipliği, maliyet ve enerji.",
+        "en": "The digital divide, model bias, data ownership, cost and energy."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 27,
+      "slug": "basarisizliklar-ve-abartilar",
+      "katman": "elestiri",
+      "baslik": {
+        "tr": "Başarısız örnekler ve abartılar",
+        "en": "Failures and overstatements"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "tahmin",
+        "goruntu",
+        "robotik"
+      ],
+      "oto_hedefler": [
+        "gelisme"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Tutmayan vaatler, kapanan girişimler, kaynağı bulunamayan dolaşımdaki rakamlar.",
+        "en": "Promises that failed, start-ups that closed, circulating figures with no source."
+      },
+      "durum": "iskelet",
+      "haber_alir": true
+    },
+    {
+      "no": 28,
+      "slug": "saha-hikayeleri",
+      "katman": "basvuru",
+      "baslik": {
+        "tr": "Saha hikâyeleri",
+        "en": "Stories from the field"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "goruntu",
+        "sensor",
+        "dil",
+        "robotik"
+      ],
+      "oto_hedefler": [
+        "gelisme"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Teknolojiyi kullanan gerçek üreticiler ve tarlalar — kaynaklı.",
+        "en": "Real growers and fields using the technology — with sources."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 29,
+      "slug": "sozluk",
+      "katman": "basvuru",
+      "baslik": {
+        "tr": "Sözlük",
+        "en": "Glossary"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [
+        "goruntu",
+        "tahmin",
+        "uzaktan",
+        "robotik",
+        "sensor",
+        "dil",
+        "karar",
+        "ikiz",
+        "veri",
+        "genomik"
+      ],
+      "oto_hedefler": [
+        "gelisme"
+      ],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Metinde geçen her terim; metin içinde balon olarak da açılır.",
+        "en": "Every term used in the text; also opens as a tooltip in place."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    },
+    {
+      "no": 30,
+      "slug": "kaynakca",
+      "katman": "basvuru",
+      "baslik": {
+        "tr": "Kaynakça",
+        "en": "Sources"
+      },
+      "surec_sirasi": null,
+      "teknoloji": [],
+      "oto_hedefler": [],
+      "turkiye": "bilinmiyor",
+      "ozet": {
+        "tr": "Kaynakların listesi. Her rakamın niteliği kendi yanında duruyor.",
+        "en": "The list of sources. Each figure's standing is shown beside the figure itself."
+      },
+      "durum": "iskelet",
+      "haber_alir": false
+    }
+  ]
+}

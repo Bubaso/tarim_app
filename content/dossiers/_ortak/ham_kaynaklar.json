@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 185,
- "toplam_bayt": 519897571,
+ "dosya_sayisi": 193,
+ "toplam_bayt": 663028435,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1654,6 +1654,102 @@
     "lisans": "NASA teknik memorandumu — ABD hükümeti eseri, kamu malı",
     "lisans_adresi": null,
     "_not": "Uzayda Tarım alanının birincil belgesi. Ek E'de 13 ekin tablosu, Tablo A-3'te CRL 9'u geçen dokuz ekin. `_raw/nasa_ekin_ayikla.py` bunu ayrıştırıyor."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+   "bayt": 116414015,
+   "sha256": "71fe247f7623565133610615f4fb44b1251fd5d697390061fedb1ab4a0b798a0",
+   "kaynak": {
+    "adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
+    "atif": "Türkiye Yapay Zekâ Eylem Planı (2026-2030) · Sanayi ve Teknoloji Bakanlığı",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL kaynak, resmî siteden indirildi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2023_1230_makine_tuzugu.xhtml",
+   "bayt": 860932,
+   "sha256": "45172093d5547c21c9f7d5da2628e5c630b5e7e586e163aff6b7c936ded17b48",
+   "kaynak": {
+    "adres": "https://publications.europa.eu/resource/celex/32023R1230",
+    "atif": "Regulation (EU) 2023/1230 (Machinery Regulation) · OJ L 165, 29.6.2023",
+    "lisans": "AB mevzuatı — yeniden kullanım serbest (Komisyon Kararı 2011/833/AB)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL: AB Yayın Ofisi'nin (Cellar) resmî İngilizce metni. eur-lex.europa.eu otomatik isteğe boş 202 döndü; aynı belge Yayın Ofisi uç noktasından alındı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2023_2854_veri_tuzugu.xhtml",
+   "bayt": 590794,
+   "sha256": "1085b7fa3011970b65b1e4d56205202dceb37f72cd22336aa0c78af35ceaea66",
+   "kaynak": {
+    "adres": "https://publications.europa.eu/resource/celex/32023R2854",
+    "atif": "Regulation (EU) 2023/2854 (Data Act) · OJ L, 2023/2854, 22.12.2023",
+    "lisans": "AB mevzuatı — yeniden kullanım serbest (Komisyon Kararı 2011/833/AB)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL: AB Yayın Ofisi'nin (Cellar) resmî İngilizce metni. eur-lex.europa.eu otomatik isteğe boş 202 döndü; aynı belge Yayın Ofisi uç noktasından alındı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2024_1689_yapay_zeka_tuzugu.xhtml",
+   "bayt": 1262391,
+   "sha256": "8f0b656302f9864cc87e040c371f209a9d65ae1a6cecc25ca5eb737e872d721a",
+   "kaynak": {
+    "adres": "https://publications.europa.eu/resource/celex/32024R1689",
+    "atif": "Regulation (EU) 2024/1689 (Artificial Intelligence Act) · OJ L, 2024/1689, 12.7.2024",
+    "lisans": "AB mevzuatı — yeniden kullanım serbest (Komisyon Kararı 2011/833/AB)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL: AB Yayın Ofisi'nin (Cellar) resmî İngilizce metni. eur-lex.europa.eu otomatik isteğe boş 202 döndü; aynı belge Yayın Ofisi uç noktasından alındı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2026_1744_dijital_omnibus.xhtml",
+   "bayt": 351287,
+   "sha256": "9d754652b867722807e4219c85912ce354233e58a1b4eb8c7752b4d1922993db",
+   "kaynak": {
+    "adres": "https://publications.europa.eu/resource/celex/32026R1744",
+    "atif": "Regulation (EU) 2026/1744 (Digital Omnibus on AI) · OJ L, 2026/1744, 24.7.2026",
+    "lisans": "AB mevzuatı — yeniden kullanım serbest (Komisyon Kararı 2011/833/AB)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL: AB Yayın Ofisi'nin (Cellar) resmî İngilizce metni. eur-lex.europa.eu otomatik isteğe boş 202 döndü; aynı belge Yayın Ofisi uç noktasından alındı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/genelge_2026_9.pdf",
+   "bayt": 213346,
+   "sha256": "53eace3c697fb00cb4edfe32769a49d7057bdedf39f815fe9926280e11a60599",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2026/08/20260818-8.pdf",
+    "atif": "2026/9 sayılı Cumhurbaşkanlığı Genelgesi · Resmî Gazete 18 Ağustos 2026, sayı 33344",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL kaynak, resmî siteden indirildi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/uyzs_2024_2025.pdf",
+   "bayt": 282627,
+   "sha256": "7a99b2e50dd34cd940fc57c4c3b7ec18033da14673976b4d3bf9149f9869898f",
+   "kaynak": {
+    "adres": "https://www.cottgroup.com/file/Ulusal_Yapay_Zeka_Stratejisi_2024_2025.pdf",
+    "atif": "Ulusal Yapay Zekâ Stratejisi 2024-2025 Eylem Planı · Cumhurbaşkanlığı Dijital Dönüşüm Ofisi ve Sanayi ve Teknoloji Bakanlığı",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "ÜÇÜNCÜ TARAF YANSIMASI. Resmî kaynak cbddo.gov.tr bu ortamdan erişilemiyor: DNS çözülüyor (212.174.186.39) ama TLS el sıkışmasında bağlantı karşı taraftan kesiliyor; tarayıcı da açamıyor. Belge tam: 14 sayfa, 6 öncelik, 71 eylem (1.1-6.19), basının verdiği sayıyla birebir. Resmî kopyaya erişilince SHA-256 karşılaştırılacak."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/yillik_program_2027.pdf",
+   "bayt": 23155472,
+   "sha256": "3845918370c0759c40ccd479f5f04c96637d43ba48468c417acfe0a53a751d74",
+   "kaynak": {
+    "adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+    "atif": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı · Strateji ve Bütçe Başkanlığı · Resmî Gazete 27 Ekim 2026, sayı 33413 (Mükerrer)",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL kaynak, programı hazırlayan kurumun sitesinden indirildi. Resmî Gazete kopyası (resmigazete.gov.tr/eskiler/2026/10/20261027M1-1.pdf) 16 Kasım 2026'da bu ortamdan da dış okuyucudan da 'connection reset' verdi; erişilince sayfa numaraları karşılaştırılacak."
    }
   }
  ],
