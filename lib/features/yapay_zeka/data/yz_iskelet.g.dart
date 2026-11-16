@@ -104,7 +104,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Sowing and variable-rate application",
       true,
       ["karar", "uzaktan", "robotik", "sensor"],
-      false,
+      true,
       "Tarlanın her parçasına aynı muameleyi bırakmak: değişken oranlı tohum ve gübre.",
       "Ending uniform treatment of a field: variable-rate seed and fertiliser."),
   YzBaslik(

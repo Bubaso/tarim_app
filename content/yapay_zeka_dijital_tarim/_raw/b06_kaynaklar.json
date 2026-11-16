@@ -1,0 +1,202 @@
+{
+  "_ne": "§6 Ekim ve değişken oranlı uygulama — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "aula_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157.",
+      "doi": "10.3390/agronomy10081157",
+      "dosya": "kaynak_dosyalari/aula_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "derleme — kışlık buğday, sensörle azot yönetimi",
+      "calisma_sayisi": 26,
+      "azot_etkinligi_artisi_yuzde": 10.4,
+      "en_cok_azot_tasarrufu_kg_ha": 53,
+      "alinti": [
+        "The study included 26 peer-reviewed articles with data on NUE and grain yield.",
+        "This approach improved NUE by approximately 10.4% (±2.3%) when compared to the conventional method.",
+        "Grain yield was similar for both approaches of N management.",
+        "Optical sensors could save as much as 53 (±16) kg N ha−1.",
+        "This gain alone may not be adequate for increased adoption"
+      ]
+    },
+    "kortbein_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy.",
+      "doi": "10.3389/fagro.2025.1722488",
+      "dosya": "kaynak_dosyalari/kortbein_2026_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "saha denemesi — Nebraska, sulanmayan mısır",
+      "tarla_sayisi": 9,
+      "deneme_yillari": "2019-2020",
+      "azot_azalisi_kg_ha": 38.7,
+      "verim_kaybi_olmayan_tarla_yuzde": 77,
+      "kar_avantajli_tarla_yuzde": 35,
+      "alinti": [
+        "in field trials on nine non-irrigated maize (Zea mays L.) sites in eastern Nebraska, where rainfall often limits yield (2019–2020)",
+        "The sensor-based N management treatments were compared to each site’s grower treatment",
+        "The sensor-based N management reduced N application by an average of 38.7 ± 20.8 kg Nha -1 without a yield penalty in 77% of the sites (n = 9).",
+        "In terms of profit, 35% of sites demonstrated a profit advantage in sensor-based treatments.",
+        "adoption of active canopy crop sensors has been limited due to inconsistent results, potential yield losses, and lack of information from field-scale trials"
+      ]
+    },
+    "dalla_betta_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Dalla Betta M.M., Thompson L.J., Luck J.D., Paccioretti P., Mangel D., Conley S., Puntel L.A., Cafaro La Menza N. 2026. Determining site-specific optimal seeding rate in soybean using on-farm experimentation. Agronomy Journal 118(1).",
+      "doi": "10.1002/agj2.70296",
+      "dosya": "kaynak_dosyalari/dalla_betta_2026_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "çiftlik denemeleri — Nebraska, soya tohum sıklığı",
+      "deneme_sayisi": 11,
+      "azaltilabilen_tarla": 9,
+      "en_karli_siklik_tane_ha": {"en_az": 175000, "en_cok": 350000},
+      "alinti": [
+        "Soybean [ Glycine max (L.) Merr.] seeding rate is typically set uniformly across entire fields, overlooking within‐field variability.",
+        "Eleven on‐farm soybean seeding rate trials were conducted in Nebraska, using variable‐rate prescriptions and randomized block designs.",
+        "The EOSRs across fields varied from 175,000 to 350,000 ha −1 and could be reduced in nine out of 11 fields without impacting yield and partial profit."
+      ]
+    },
+    "de_lara_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023. Predicting site-specific economic optimal nitrogen rate using machine learning methods and on-farm precision experimentation. Precision Agriculture 24(5).",
+      "doi": "10.1007/s11119-023-10018-8",
+      "dosya": "kaynak_dosyalari/de_lara_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "deneme_sayisi": 20,
+      "verim_tahmin_hatasi_yuzde": 13.7,
+      "alinti": [
+        "Machine learning (ML) methods such as generalized additive models (GAM) and random forest (RF) are promising methods for estimating yields and EONR.",
+        "Twenty OFPE N trials in wheat and barley were conducted and analyzed with soil, terrain and remote-sensed variables",
+        "Machine learning techniques were able to model wheat and barley yield with an average error of 13.7%",
+        "However, similar yield prediction accuracy from RF and GAM resulted in widely different economic optimal nitrogen rates.",
+        "however, the magnitude and direction of the effect varied between fields.",
+        "These indicate that training a model using data coming from different fields may lead to unreliable site-specific EONR when it is applied to another field."
+      ]
+    },
+    "usda_ers_2023": {
+      "nitelik": "KURUMSAL",
+      "kunye": "McFadden J., Njuki E. 2023. Variable rate technology adoption is on the rise. USDA Economic Research Service, Charts of Note.",
+      "adres": "https://www.ers.usda.gov/data-products/charts-of-note/107116",
+      "dosya": "kaynak_dosyalari/usda_ers_2023_vrt_benimseme.html",
+      "veri": "ARMS çiftlik anketi",
+      "misir_ekili_alan_yuzde": {"2005": 11.5, "2016": 37.4},
+      "pamuk_ekili_alan_yuzde": {"2007": 5.4, "2019": 22.7},
+      "soya_2018_yuzde": 25.3,
+      "kislik_bugday_2017_yuzde": 18.8,
+      "alinti": [
+        "Farmers use variable rate technologies (VRT) to control the amount of farm inputs—such as seed, fertilizer, and chemicals—applied as farm machinery moves across a field.",
+        "initial adoption of VRT in the late 1990s and early 2000s was sluggish, remaining below 10 percent of planted acres for several field crops.",
+        "The VRT adoption rate for corn stood at 37.4 percent of planted acres in 2016, up from 11.5 percent in 2005.",
+        "Cotton acreage using VRT showed a similar increase, rising from 5.4 percent in 2007 to 22.7 percent in 2019.",
+        "18.8 percent of winter wheat planted acres in 2017, and 25.3 percent of soybean-planted acres in 2018.",
+        "higher adoption by large farms and lower adoption among smaller farms, in part because larger farms can spread the fixed costs of adoption over greater production amounts."
+      ]
+    },
+    "lowenberg_deboer_erickson_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lowenberg-DeBoer J., Erickson B. 2019. Setting the record straight on precision agriculture adoption. Agronomy Journal 111(4).",
+      "doi": "10.2134/agronj2018.12.0779",
+      "dosya": "kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
+      "vrt_ciftlik_payi_nadiren_ustu_yuzde": 20,
+      "alinti": [
+        "This study reviews the public data on farm level use of PA in crop production worldwide.",
+        "Global Navigation Satellite Systems (GNSS) guidance and associated automated technologies like sprayer boom control and planter row or section shutoffs have been adopted as fast as any major agricultural technology in history.",
+        "variable rate technology (VRT)—just one of many PA technologies, one of the first adopted by many farmers, but that now rarely exceeds 20% of farms.",
+        "This level of adoption suggests that farmers like the idea of VRT, but are not convinced of its value.",
+        "The biggest gap in PA adoption is for medium and small farms in the developing world that do not use motorized mechanization."
+      ]
+    },
+    "keskin_sekerli_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Keskin M., Sekerli Y.E. 2016. Awareness and adoption of precision agriculture in the Cukurova region of Turkey. Agronomy Research 14(4).",
+      "dosya": "kaynak_dosyalari/keskin_sekerli_2016_agronomy_research.html",
+      "dogrulandigi_yer": "dergi sitesindeki özet",
+      "katilimci": 164,
+      "terimi_duymamis_yuzde": 51.8,
+      "duyup_kavrami_bilen_yuzde": 29.3,
+      "gps_bilinirligi_yuzde": 81.7,
+      "degisken_oranli_bilinirligi_yuzde": 33.5,
+      "faydali_bulan_yuzde": 97.6,
+      "egitim_isteyen_yuzde": 88.4,
+      "_tarih": "Anket 2016'da yayımlandı; bugünkü durumu göstermez. Metin tarihini açıkça yazar.",
+      "alinti": [
+        "The study was conducted with 164 participants that were agricultural engineers, farm equipment dealers and farmers.",
+        "However, 51.8% of all participants indicated that they did not hear the term ‘PA’ before.",
+        "Only 29.3% of the participants who heard the term ‘PA’ knew its concept.",
+        "Most three well-known technologies by all participants were satellite positioning (GPS) (81.7%)",
+        "as the least known two ones were variable rate application (33.5%) and soil sampling and mapping (34.8%).",
+        "97.6% of the participants expressed that these technologies would be somehow beneficial for agriculture in Turkey.",
+        "88.4% of the participants wanted to get more detailed training on these technologies."
+      ]
+    },
+    "wardami_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Wardamı A.H.H., Erşahin S., Karahan G. 2024. Variable rate phosphorus fertilizer recommendations for rainfed wheat. Mediterranean Agricultural Sciences 37(1).",
+      "doi": "10.29136/mediterranean.1199628",
+      "dosya": "kaynak_dosyalari/wardami_ersahin_karahan_2024_fosfor.pdf",
+      "alan_ha": 300,
+      "merkeze_uzaklik_km": 20,
+      "kuru_tarim_yili_en_az": 70,
+      "toprak_ornegi": 155,
+      "fosfor_degiskenlik_katsayisi_yuzde": 21.3,
+      "bolge_sayisi": 3,
+      "alt_bolge_sayisi": 5,
+      "alinti": [
+        "This study was carried out on a 300 -ha sloping farmland, located 20 km from the center of Çankırı",
+        "The area has been under rainfed winter wheat production for more than 70 years.",
+        "The soils were sampled (155 samples) using a random spatial sampling technique",
+        "The values of P av showed moderate variablity (CV= 21.3%).",
+        "the area was divided into three uniform zones (low, medium, high) for fertilizer P application",
+        "The fertilizer recommended by the Ministry of Agriculture and Forestry (MAF) was calculated for five identical ly-sized sub - regions.",
+        "The results showed that P fertilizer rates calculated for all five sub -regions based on MAF were identical, suggesting that the MAF was insensitive to spatial variability of Pav in the study soils.",
+        "A more comprehensive study is needed to evaluate the efficiency and cost-benefit economics of variable P application in the study soils."
+      ]
+    },
+    "akdemir_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Akdemir B., Sağlam C., Atar E.S., Türen N., Özyürüyen L.C. 2022. Development of a multi-fertilizer spreader machine and variable rate controller for olive orchards. Erwerbs-Obstbau.",
+      "doi": "10.1007/s10341-022-00800-9",
+      "dosya": "kaynak_dosyalari/akdemir_2022_zeytin_openalex.json",
+      "dogrulandigi_yer": "OpenAlex bibliyografik kaydı — özet yok",
+      "tur": "YALNIZ KÜNYE — sonuç aktarılmıyor",
+      "alinti": [
+        "Development of a Multi-Fertilizer Spreader Machine and Variable Rate Controller for Olive Orchards",
+        "Erwerbs-Obstbau",
+        "Tekirdağ Namık Kemal University"
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "ortak_makine_parki_orgut": 14,
+      "hibe_orani_yuzde": "50-70",
+      "alinti": [
+        "hassas tarım ve dijital teknolojilerin kullanılması ile gübre, tohum ve diğer girdilerin etkin kullanımının sağlanması öncelikli konular arasında yer almaktadır.",
+        "28 Şubat 2026 tarihinde İran’a yönelik saldırıların başlamasının ardından Hürmüz Boğazı’nın kapanması ve bölgedeki üretim tesislerinin zarar görmesi, küresel gübre arzında aksamalara ve özellikle üre fiyatlarında artışa yol açmıştır.",
+        "Tarım sektöründe işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı üretim maliyetlerini artırmakta, tarımsal mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirmekte",
+        "Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır.",
+        "Akıllı tarım uygulamalarına yönelik yazılım ve ekipmanın yerli üretimi desteklenecektir.",
+        "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar ile 3 Nisan 2026 tarihli Kırsal Kalkınma Yatırım Programı Çerçevesinde Yapılacak Desteklemeler Hakkında Tebliğ",
+        "dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılması hedeflenmiştir.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Program düzeyinde öncelik ve destekler, 2016 tarihli bir farkındalık anketi, Bakanlığın fosfor tavsiyesinin alan içi farkı görmediğini gösteren 2024 çalışması ve künye düzeyinde bir makine geliştirme çalışması var. Türkiye'de değişken oranlı gübre ya da tohum uygulamasının verime ve kâra etkisini tarlada ölçen yayımlanmış bir deneme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "colaco_bramley_2018": "Sensörlü azot üzerine sık atıf alan bir derleme (Field Crops Research); özetini veren iki site otomatik erişimi bot doğrulaması ve oturum açmayla engelledi, özet birincil kaynaktan okunamadı. Aynı soruyu yanıtlayan açık erişimli derleme (Aula ve arkadaşları) kullanıldı.",
+    "barbosa_2020": "Evrişimli sinir ağıyla verimin tohum ve gübre dozuna tepkisini modelleyen çalışma: model doğruluğunu ölçüyor, reçetenin tarladaki sonucunu değil. Bu başlıkta reçete sorusu öne alındığı için kullanılmadı.",
+    "ucuncu_taraf_benimseme_rakami": "Bir ticari sitenin ABD Tarım Bakanlığı'na atfettiği daha yeni bir benimseme oranı birincil kaynakta bulunamadı. Alınmadı."
+  }
+}

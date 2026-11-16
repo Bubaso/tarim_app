@@ -237,12 +237,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Tarlanın her parçasına aynı muameleyi bırakmak: değişken oranlı tohum ve gübre.",
         "en": "Ending uniform treatment of a field: variable-rate seed and fertiliser."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {
