@@ -162,3 +162,22 @@ Okuduğunuz haberler burada birikir.
 
 # ── Haftalık bülten daveti (altbilgi) ──
 Haftalık Özet Bülteni
+
+# ── Yapay Zeka ve Dijital Tarım bölümü (16 Kasım 2026, Tur 4) ──
+#
+# Merkez sayfa ve başlık sayfaları (/yapay-zeka-dijital-tarim), ana sayfa
+# şeridi ve panelin "YZ Bölümü" sekmesi. Kararlar ve tur günlüğü:
+# content/yapay_zeka_dijital_tarim/_raw/{KARARLAR,README}.md
+#
+# OKURA KAPALI (yayin.json): okur sayfaları ve ana sayfa şeridi derlemeye
+# girmiyor, yani onların belirteçleri ("Kaynaklarından son okunduğu gün",
+# "Şu an öne çıkan") ŞİMDİ listede olamaz — bekçi her dağıtımı durdururdu.
+# Bölüm okura açıldığı dağıtımda ikisi buraya EKLENECEK.
+#
+# Şimdi canlıda olan: panelin bölüm sekmesi ve onay kartı satırı.
+#   · bölüm adı (panel başlığı ve onay kartı satırı)
+#   · panelin bölüm sekmesi (karar 47)
+#   · tek tıkla kaldır (karar 33)
+Yapay Zeka ve Dijital Tarım
+YZ Bölümü
+Bölümden kaldır

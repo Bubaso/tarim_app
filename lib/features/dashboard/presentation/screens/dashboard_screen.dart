@@ -19,6 +19,7 @@ import '../../../videos/presentation/screens/video_onay_ekrani.dart';
 import 'onay_kuyrugu_ekrani.dart';
 import 'hikaye_yonetimi_ekrani.dart';
 import 'hat_ekrani.dart';
+import '../../../yapay_zeka/presentation/yz_panel_ekrani.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -173,7 +174,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 8, vsync: this);
+    _tabController = TabController(length: 9, vsync: this);
   }
 
   @override
@@ -607,6 +608,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
             },
           ),
         ),
+        // Yapay Zeka ve Dijital Tarım bölümünün bakımı: sınırdaki haberler,
+        // bölümdekiler ve taramanın öneri kuyruğu (karar 47). Onay
+        // kuyruğunun hemen yanında, çünkü ikisi aynı iş akışı.
+        _sekme(isEn ? 'AI Section' : 'YZ Bölümü'),
         _sekme(isEn ? 'Stories' : 'Hikâyeler'),
         _sekme(isEn ? 'Hero News' : 'Hero'),
         _sekme(isEn ? 'Video News' : 'Video'),
@@ -639,6 +644,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
           const HatEkrani(),
           _buildArticlesAndFormTab(context, theme, user, isDesktop),
           const OnayKuyruguEkrani(),
+          const YzPanelEkrani(),
           const HikayeYonetimiEkrani(),
           const AdminHeroScreen(),
           const VideoOnayEkrani(),

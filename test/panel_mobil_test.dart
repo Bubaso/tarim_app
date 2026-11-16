@@ -18,6 +18,7 @@ import 'package:tarim_app/features/dashboard/presentation/screens/onay_kuyrugu_e
 import 'package:tarim_app/features/home/data/models/news_article.dart';
 import 'package:tarim_app/features/home/data/repositories/home_repository.dart';
 import 'package:tarim_app/features/home/providers/home_providers.dart';
+import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 class _Depo extends HomeRepository {
   _Depo()
@@ -61,6 +62,10 @@ Future<int> _tasma(WidgetTester t, Size olcu, List<NewsArticle> liste) async {
     overrides: [
       homeRepositoryProvider.overrideWithValue(_Depo()),
       pendingArticlesProvider.overrideWith((ref) => Stream.value(liste)),
+      // Yapay zeka satırının etiket kaynağı da sahte: yoksa sağlayıcı test
+      // ortamında gerçek bir Supabase istemcisi kurar ve istemcinin
+      // oturum yenileme zamanlayıcısı testi askıda bırakır.
+      yzEtiketHaritasiProvider.overrideWith((ref) async => const {}),
     ],
     child: const MaterialApp(home: Scaffold(body: OnayKuyruguEkrani())),
   ));

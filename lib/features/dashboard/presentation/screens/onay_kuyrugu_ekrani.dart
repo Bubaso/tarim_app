@@ -12,6 +12,8 @@ import '../../domain/yayin_denetimi.dart';
 import '../widgets/denetim_serisi.dart';
 import '../widgets/metin_duzenleyici.dart';
 import '../widgets/inceleme_karti.dart';
+import '../../../yapay_zeka/presentation/yz_etiket_satiri.dart';
+import '../../../yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
 //  Onay kuyruğu — yayın kararının verildiği ekran
@@ -596,6 +598,18 @@ class _OnayKuyruguEkraniState extends ConsumerState<OnayKuyruguEkrani> {
               ),
             ),
           ],
+          // Yapay Zeka ve Dijital Tarım — yalnız anahtar kelime kapısından
+          // geçen haberde (etiket satırı varsa). COP31'den farkı: kararı
+          // ajan KANITLA veriyor, editör tek tıkla düzeltiyor (karar 28, 33).
+          Builder(builder: (context) {
+            final etiket =
+                ref.watch(yzEtiketHaritasiProvider).valueOrNull?[article.id];
+            if (etiket == null) return const SizedBox.shrink();
+            return Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: YzEtiketSatiri(etiket: etiket),
+            );
+          }),
           const SizedBox(height: 12),
           _yayinKararlari(article),
           const SizedBox(height: 12),
