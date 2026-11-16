@@ -646,3 +646,83 @@ indirilen üç bülten de kayıtlı (`_denetim` onlara işaret ediyor).
    paragrafı izleyicinin gerçekte yaptığıyla karşılaştırılacak; §8'in
    kaydı (Tur 2) alıntı listesi taşımıyor, yeni biçime getirilecek.
 
+## Tur 6 — HASATTAN ORMANA: §10-§15 · 17 Kasım 2026
+
+Kullanıcı: "tur 6'ya geç."
+
+### 1 · Yazılan başlıklar
+
+| § | başlık | kaynak | alıntı | sayı (TR = EN) | commit |
+|---|---|---|---|---|---|
+| 10 | Hasat ve robotik | 8 | 30 | 43 | `02afefd`, `3c0df52` |
+| 11 | Hasat sonrası: sınıflandırma, kalite, depolama | 7 | 23 | 40 | `86527a6` |
+| 12 | Hayvancılık | 6 | 32 | 54 | `99f8abf` |
+| 13 | Sera ve kontrollü ortam | 4 | 23 | 14 | `9791b78` |
+| 14 | Su ürünleri | 8 | 35 | 50 | `c2d5981` |
+| 15 | Ormancılık | 9 | 40 | 64 | `acd9be6` |
+
+Yazılmış başlık: 14/30 (§4-§15, §23, §24).
+
+### 2 · Başlıklar arası desen
+
+Tur 5'in deseni burada da tuttu, bir farkla: yapay zekânın ölçülmüş en güçlü
+sonuçları **büyük ölçekte gözlem** işlerinden geliyor — uydu ve derin
+öğrenmeyle balıkçı gemilerinin %72-76'sının kamuya açık izlemede görünmediği
+(§14), 10 metrelik küresel ağaç boyu haritası (§15), seranın her değişkeni
+ölçülen ortamında beş yapay zekâ ekibinin hepsinin yetiştiriciyi geçmesi
+(§13). Fiziksel işte tablo zayıf: hasat robotları otuz yılda iyileşmemişti
+(§10); piyasadaki hayvan refahı sensörlerinin yalnız %14'ü bağımsız
+doğrulanmış (§12); kaybın büyük olduğu yerde açık ayıklamada değil depolamada
+(§11). Türkiye'de altı başlığın hepsinde "bulunamayan şey" yine aynı:
+yapay zekânın sahadaki etkisini ölçen yayımlanmış bağımsız değerlendirme.
+
+### 3 · Türkiye için yeni bulgular (öteki başlıklara da girecek)
+
+- **BAGİS yapay zekâ projesi** — Bakanlığın teknik ister belgesi (TÜBİTAK
+  sitesinde, Haziran 2026): 1.629 gemi, veri şimdilik izleme ve kayıt için,
+  ihlal kontrolünü ekran başındaki personel yapıyor. **§23 Türkiye'de durum**
+  ve **§24 mevzuat** güncellemesinde kullanılacak (kuyruğa önerilmeli).
+- **OGM Karar Destek Sistemi** (2022'den beri, yapay zekâ destekli) ve
+  kameralı Orman Yangın Uyarı Sistemi (TÜBİTAK 2013) — §23'e aday.
+- Bakanlığın istatistik bültenleri (makine, hayvan varlığı, su ürünleri,
+  ormancılık, tohum) metaveriyle birlikte kayıt defterinde; "sayı" hedefi
+  için seri tazelemede (karar 16) kaynak olacaklar.
+
+### 4 · Doğrulama sırasında yakalananlar
+
+1. **Özet içi tutarsızlık:** bir patlıcan çalışmasında F1 ile kesinlik ve
+   duyarlılık birbirini tutmuyor; rakamlar kullanılmadı (`_tutarsizlik`).
+2. **Doğrulanamayan ödül:** OGM sisteminin ITU ödülünü kazandığını yazan
+   haberler var; birincil kazanan listesinde doğrulanamadı, yalnız adaylık
+   yazıldı.
+3. **Birbirini tutmayan sayılar:** haberlerdeki kule ve kamera sayıları
+   farklı; yalnız TÜBİTAK duyurusundaki sayılar, tarihiyle alındı.
+4. **Yanlış künye:** kayıt defterine bir yazar adı yanlış girilmişti
+   (Abdikan 2022) ve bir makalenin yılı ile başlığı eksikti (Özdemir 2025);
+   ikisi de Crossref'e göre düzeltildi.
+5. **Erişim:** Bakanlık alan adları bir süre DNS'te çözülmedi; §10 önce
+   makine verisi olmadan yazıldı, alan adı dönünce eklendi. Zenodo isteği
+   "olağandışı trafik" diye reddetti; zorlanmadı.
+6. **Zaman kipi:** BAGİS cihaz yenileme ve programdaki 2027 tedbirleri
+   gelecek zamanla yazıldı.
+
+### 5 · Sınama — bir hata ve düzeltmesi
+
+§12 eklenince "öne çıkan başlık" testi düştü: test sabit on günde bütün
+yazılmış başlıkların dönmesini bekliyordu, yazılmış başlık 11 oldu. Ürün
+doğruydu; test N başlık için N gün dolaşacak şekilde düzeltildi (`7f8e82d`).
+**§12 commit'i (`99f8abf`) bu test düşükken atıldı:** komut zincirindeki
+`grep` test sonucunu maskeledi. O commit'ten sonra her commit yalnız test
+çıktısında "All tests passed" görülürse atılıyor. Tur sonunda bölüm ve panel
+testleri 63/63.
+
+## Tur 7'ye kalanlar
+
+1. **§16-§21:** pazar, fiyat ve tedarik zinciri; iklim, risk ve tarım
+   sigortası; danışmanlık ve dil modelleri; uydu ve uzaktan algılama;
+   sensörler ve tarımsal nesnelerin interneti; veri sahipliği ve platformlar.
+2. **§23 ve §24 güncellemesi:** BAGİS yapay zekâ projesi ve OGM sistemleri
+   (yukarıda § 3).
+3. Tur 5'ten kalanlar sürüyor: kuyruk okuması (kullanıcı), eksik özellikler
+   (karar 10, 14, 15, 16, 38), açılış öncesi denetim (Tur 10).
+
