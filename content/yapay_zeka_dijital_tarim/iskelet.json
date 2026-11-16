@@ -317,12 +317,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Hasattan önce rekoltenin bilinmesi: uydu, model ve belirsizlik.",
         "en": "Knowing the harvest before it comes: satellites, models and uncertainty."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

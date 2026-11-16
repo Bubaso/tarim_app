@@ -1,0 +1,746 @@
+<!DOCTYPE html> 
+<HTML lang="en">
+<HEAD>
+<TITLE>Machine learning for large-scale crop yield forecasting</TITLE>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" integrity="sha256-pdY4ejLKO67E0CM2tbPtq1DJ3VGDVVdqAR6j3ZwdiE4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awes
+ome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">-->
+<!--    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css" />-->
+    <link href="/css/normalnew.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/pushy.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" type="image.jpg" href="/favicon.ico">
+<!--[if lte IE 9]>
+  <script src="/css/html5shiv.min.js"></script>
+  <script src="/css/respond.min.js"></script>
+<![endif]-->
+  <script type='text/javascript'>
+    var captchaContainer = null;
+    var loadCaptcha = function() {
+      captchaContainer = grecaptcha.render('captcha_container', {
+        'sitekey' : '6LdQebIaAAAAACSKxvbloyrkQ_q-MqhOAGgD5PQV',
+        'callback' : function(response) {
+          console.log(response);
+        }
+      });
+    };
+  </script>
+
+<META NAME="handle" CONTENT="RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775"><META NAME="DOI" CONTENT="10.1016/j.agsy.2020.103016"><META NAME="description" CONTENT="Downloadable (with restrictions)! Many studies have applied machine learning to crop yield prediction with a focus on specific case studies. The data and methods they used may not be transferable to other crops and locations. On the other hand, operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning. Machine learning is a promising method especially when large amounts of data are being collected and published. We combined agronomic principles of crop modeling with machine learning to build a machine learning baseline for large-scale crop yield forecasting. The baseline is a workflow emphasizing correctness, modularity and reusability. For correctness, we focused on designing explainable predictors or features (in relation to crop growth and development) and applying machine learning without information leakage. We created features using crop simulation outputs and weather, remote sensing and soil data from the MCYFS database. We emphasized a modular and reusable workflow to support different crops and countries with small configuration changes. The workflow can be used to run repeatable experiments (e.g. early season or end of season predictions) using standard input data to obtain reproducible results. The results serve as a starting point for further optimizations. In our case studies, we predicted yield at regional level for five crops (soft wheat, spring barley, sunflower, sugar beet, potatoes) and three countries (the Netherlands (NL), Germany (DE), France (FR)). We compared the performance with a simple method with no prediction skill, which either predicted a linear yield trend or the average of the training set. We also aggregated the predictions to the national level and compared with past MCYFS forecasts. The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower). For example, NRMSE was 7.87 for soft wheat (NL) (6.32 for MCYFS) and 8.21 for sugar beet (DE) (8.79 for MCYFS). In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS. NRMSEs for end of season were still comparable to MCYFS for NL, but worse for DE and FR. The baseline can be improved by adding new data sources, designing more predictive features and evaluating different machine learning algorithms. The baseline will motivate the use of machine learning in large-scale crop yield forecasting.">
+<META NAME="robots" content="NOARCHIVE"><META NAME="keywords" CONTENT="Crop yield prediction; Machine learning; Modularity; Reusability; Large-scale crop yield forecasting">
+<META NAME="jel_code" CONTENT="">
+<META NAME="author" CONTENT="Paudel, Dilli & Boogaard, Hendrik & de Wit, Allard & Janssen, Sander & Osinga, Sjoukje & Pylianidis, Christos & Athanasiadis, Ioannis N.">
+<META NAME="author_shortid" CONTENT="">
+<META NAME="title" CONTENT="Machine learning for large-scale crop yield forecasting">
+<META NAME="download" CONTENT="1">
+<META NAME="freedownload" CONTENT="0">
+<META NAME="date" CONTENT="2021-02-02">
+<META NAME="citation_publication_date" CONTENT="2021">
+<META NAME="citation_authors" content="Paudel, Dilli; Boogaard, Hendrik; de Wit, Allard; Janssen, Sander; Osinga, Sjoukje; Pylianidis, Christos; Athanasiadis, Ioannis N.">
+<META NAME="citation_title" content="Machine learning for large-scale crop yield forecasting">
+<META NAME="citation_abstract" content="Many studies have applied machine learning to crop yield prediction with a focus on specific case studies. The data and methods they used may not be transferable to other crops and locations. On the other hand, operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning. Machine learning is a promising method especially when large amounts of data are being collected and published. We combined agronomic principles of crop modeling with machine learning to build a machine learning baseline for large-scale crop yield forecasting. The baseline is a workflow emphasizing correctness, modularity and reusability. For correctness, we focused on designing explainable predictors or features (in relation to crop growth and development) and applying machine learning without information leakage. We created features using crop simulation outputs and weather, remote sensing and soil data from the MCYFS database. We emphasized a modular and reusable workflow to support different crops and countries with small configuration changes. The workflow can be used to run repeatable experiments (e.g. early season or end of season predictions) using standard input data to obtain reproducible results. The results serve as a starting point for further optimizations. In our case studies, we predicted yield at regional level for five crops (soft wheat, spring barley, sunflower, sugar beet, potatoes) and three countries (the Netherlands (NL), Germany (DE), France (FR)). We compared the performance with a simple method with no prediction skill, which either predicted a linear yield trend or the average of the training set. We also aggregated the predictions to the national level and compared with past MCYFS forecasts. The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower). For example, NRMSE was 7.87 for soft wheat (NL) (6.32 for MCYFS) and 8.21 for sugar beet (DE) (8.79 for MCYFS). In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS. NRMSEs for end of season were still comparable to MCYFS for NL, but worse for DE and FR. The baseline can be improved by adding new data sources, designing more predictive features and evaluating different machine learning algorithms. The baseline will motivate the use of machine learning in large-scale crop yield forecasting.">
+<META NAME="citation_publisher" content="Elsevier">
+<META NAME="citation_journal_title" content="Agricultural Systems">
+<META NAME="citation_keywords" content="Crop yield prediction; Machine learning; Modularity; Reusability; Large-scale crop yield forecasting">
+<META NAME="citation_abstract_html_url" content="https://ideas.repec.org/a/eee/agisys/v187y2021ics0308521x20308775.html">
+<META NAME="citation_abstract_pdf_url" content="https://ideas.repec.org/a/eee/agisys/v187y2021ics0308521x20308775.html">
+<META NAME="redif-type" content="article">
+<META NAME="citation_type" content="redif-article">
+<META NAME="citation_year" content="2021">
+<META NAME="citation_volume" content="187">
+<META NAME="citation_issue" content="C">
+<META NAME="twitter:card" content="summary_large_image">
+<META NAME="twitter:site" content="@repec_org">
+<META NAME="twitter:title" content="Machine learning for large-scale crop yield forecasting, by Paudel, Di">
+<META NAME="twitter:description" content="Many studies have applied machine learning to crop yield prediction with a focus on specific case studies. The data and methods they used may not be transferable to other crops and locations. On the o">
+<META NAME="twitter:image" content="https://ideas.repec.org/cgi-bin/twimage.cgi?a&eee:agisys:v:187:y:2021:i:c:s0308521x20308775">
+<META PROPERTY="og:type" content="article">
+<META PROPERTY="og:title" content="Machine learning for large-scale crop yield forecasting">
+<META PROPERTY="og:description" content="Many studies have applied machine learning to crop yield prediction with a focus on specific case studies. The data and methods they used may not be transferable to other crops and locations. On the o">
+<META PROPERTY="og:url" content="https://ideas.repec.org//a/eee/agisys/v187y2021ics0308521x20308775.html">
+<META PROPERTY="og:image" content="https://ideas.repec.org/cgi-bin/twimage.cgi?a&eee:agisys:v:187:y:2021:i:c:s0308521x20308775">
+<script type="application/ld+json">
+    {
+	"@context": "http://schema.org",
+	"@graph": [
+	  {
+	    "@id": "#periodical",
+	    "@type": "Periodical",
+	    "name": "Agricultural Systems",
+	    "publisher": "Elsevier",
+	    "url": "https://ideas.repec.org/s/eee/agisys.html",
+	    "requiresSubscription": "false"
+          },
+	  {
+	    "@id": "#number",
+	    "@type": "PublicationIssue",
+	    "datePublished": "2021",
+	    "issueNumber": "C"
+          },
+	    {		
+	      "@id": "#volume",
+	      "@type": "PublicationVolume",
+	      "volumeNumber": "187"
+            },
+	  {
+	    "@id": "#article",
+	    "@type": "ScholarlyArticle",
+ 	    "name": "Machine learning for large-scale crop yield forecasting",
+	    "url": "https://ideas.repec.org//a/eee/agisys/v187y2021ics0308521x20308775.html",
+	    "description": "Many studies have applied machine learning to crop yield prediction with a focus on specific case studies. The data and methods they used may not be transferable to other crops and locations. On the other hand, operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning. Machine learning is a promising method especially when large amounts of data are being collected and published. We combined agronomic principles of crop modeling with machine learning to build a machine learning baseline for large-scale crop yield forecasting. The baseline is a workflow emphasizing correctness, modularity and reusability. For correctness, we focused on designing explainable predictors or features (in relation to crop growth and development) and applying machine learning without information leakage. We created features using crop simulation outputs and weather, remote sensing and soil data from the MCYFS database. We emphasized a modular and reusable workflow to support different crops and countries with small configuration changes. The workflow can be used to run repeatable experiments (e.g. early season or end of season predictions) using standard input data to obtain reproducible results. The results serve as a starting point for further optimizations. In our case studies, we predicted yield at regional level for five crops (soft wheat, spring barley, sunflower, sugar beet, potatoes) and three countries (the Netherlands (NL), Germany (DE), France (FR)). We compared the performance with a simple method with no prediction skill, which either predicted a linear yield trend or the average of the training set. We also aggregated the predictions to the national level and compared with past MCYFS forecasts. The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower). For example, NRMSE was 7.87 for soft wheat (NL) (6.32 for MCYFS) and 8.21 for sugar beet (DE) (8.79 for MCYFS). In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS. NRMSEs for end of season were still comparable to MCYFS for NL, but worse for DE and FR. The baseline can be improved by adding new data sources, designing more predictive features and evaluating different machine learning algorithms. The baseline will motivate the use of machine learning in large-scale crop yield forecasting.",
+	    "keywords": "Crop yield prediction; Machine learning; Modularity; Reusability; Large-scale crop yield forecasting",
+	    "author": "Paudel, Dilli & Boogaard, Hendrik & de Wit, Allard & Janssen, Sander & Osinga, Sjoukje & Pylianidis, Christos & Athanasiadis, Ioannis N.",
+	    "isPartOf": [
+	      {
+	        "@id": "#volume"
+	      },
+	      {	
+	        "@id": "#periodical"
+	      },
+	      {
+	        "@id": "#number"
+	      }
+	    ]
+	 }
+      ]
+    }
+    </script>
+    </HEAD><BODY>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G63YGSJVZ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G63YGSJVZ7');
+</script>
+
+<div class="container">
+    <div id="header" class="row">
+      <nav class="navbar navbar-collapse navbar-expand-md" role="navigation">
+          <a class="navbar-brand" href="/">
+            <img width="125" src="/ideas4.jpg" border="0" alt="IDEAS home">
+          </a>
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-target="#mobilesearch" aria-controls="mobilesearch" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"><i class="bi-search"></i></span>
+	</button>
+	<div class="collapse" id="mobilesearch">
+	  <div class="form-inline">
+	  <form method="POST" action="/cgi-bin/htsearch2" id="mobilesearch" role="search" class="card card-body">
+            <div class="input-group">
+              <input class="form-control" type="text" name="q" value="" placeholder="Search econ literature">
+              <span class="input-group-btn">
+		<button type="submit" class="btn" style="background-color: #2d4e8b; color: white;" aria-label="Search">
+                <i class="bi-search"></i>
+              </button>
+		<!--<input class="btn btn-default btn-lg fa" type="submit" value="&#xf002;" style="color:white;background-color:#2d4e8b;">-->
+              </span>
+            </div>
+            <a href="/search.html" class="advanced-search">Advanced search</a>
+	  </form>
+	  </div>
+	  </div>
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-toggle="collapse" data-target="#mobilemenu" aria-controls="mobilemenu" aria-expanded="false" aria-label="Toggle navigation">
+	  <span class="navbar-toggler-icon"><i class="bi bi-list"></i></span>
+	</button>
+	<div class="collapse" id="mobilemenu">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+	      <a class="nav-link" href="/">Economic literature:</a> <a href="/i/p.html">papers</A>, <a href="/i/a.html">articles</A>, <a href="/i/c.html">software</A>, <a href="/i/h.html">chapters</A>, <a href="/i/b.html">books</A>.
+	    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/i/e.html">Authors</a>
+	    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://edirc.repec.org/">Institutions</a>
+	    </li>
+            <li class="nav-item">
+	      <a class="nav-link" href="/top/">Rankings</a>
+	    </li>
+            <li class="nav-item">
+	      <a class="nav-link" href="/help.html" target="_blank">Help/FAQ  <i class="bi bi-box-arrow-up-right"></i></a>
+	    </li>
+            <li class="nav-item">
+	      <a class="nav-link" href="/cgi-bin/myideas.cgi">MyIDEAS <I class="bi bi-lightbulb"></I></a>
+	    </li>
+	    <li class="nav-item">
+	      <span class="nav-text">More options at page bottom</span>
+	    </li>
+          </ul>
+	</div>
+	<div class="d-none d-md-inline">
+          <ul class="nav nav-fill" id="topnav">
+            <li class="nav-item">
+	      <a class="nav-link" href="/">Economic literature</a>
+	    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/i/e.html">Authors</a>
+	    </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://edirc.repec.org/">Institutions</a>
+	    </li>
+            <li class="nav-item">
+	      <a class="nav-link" href="/top/">Rankings</a>
+	    </li>
+            <li class="nav-item">
+	      <a class="nav-link" href="/help.html" target="_blank">Help/FAQ  <i class="bi bi-box-arrow-up-right"></i></a>
+	    </li>
+            <li class="nav-item">
+	      <a class="nav-link" href="/cgi-bin/myideas.cgi" style="color:blue;">MyIDEAS <I class="bi bi-lightbulb"></I> <small>(now improved)</small></a>
+	    </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    
+    <div class="row">
+      <div class="col-12" style="margin-top: -10px;">
+	
+	
+	<div id="sidebar" class="sidebar-nav-fixed pull-right d-none d-print-none d-md-inline col-md-3">
+	  <div class="inline-form">
+	  <form method="POST" action="/cgi-bin/htsearch2" id="topsearch" role="search" class="navbar-form navbar-right">
+            <div class="input-group">
+              <input class="form-control" type="text" name="q" value="" placeholder="Search econ literature">
+              <button type="submit" class="btn" style="background-color: #2d4e8b; color: white;" aria-label="Search">
+                <i class="bi-search"></i>
+              </button>
+	      <!--<input class="btn fa" type="submit" value="&#xf002;" style="color:white;background-color:#2d4e8b;">-->
+            </div>
+            <a href="/search.html" class="advanced-search">Advanced search</a>
+	  </form>
+	  </div>
+	  <div id="menu">
+            <h3>Browse Econ Literature</h3>
+            <ul>
+              <li><a href="/i/p.html">Working papers</a></li>
+              <li><a href="/i/a.html">Journals</a></li>
+              <li><a href="/i/c.html">Software components</a></li>
+              <li><a href="/i/b.html">Books</a></li>
+              <li><a href="/i/h.html">Book chapters</a></li>
+              <li><a href="/j/">JEL classification</a></li>
+            </ul>
+	    
+            <h3>More features</h3>
+            <ul>
+	      <li><a href="http://nep.repec.org/">Subscribe to new research</a></li>
+	      <li><a href="https://biblio.repec.org/">RePEc Biblio</a></li>
+	      <li><a href="https://authors.repec.org/">Author registration</a></li>
+	      <li><a href="/v/">Economics Virtual Seminar Calendar</a></li>
+	      <li><a href="https://confwatcher.b2ideas.eu/"><font color="red">ConfWatcher</font></a> NEW!</li>
+            </ul>
+	    <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+	    <div google-add-preferred-source-btn></div>
+	  </div>
+	</div>
+	<div class="d-none d-print-block">
+	  <img width="145" src="/ideas4.jpg" border="0" alt="IDEAS home"> Printed from https://ideas.repec.org/a/eee/agisys/v187y2021ics0308521x20308775.html 
+	</div>
+	
+	<div id="main" class="col-12 col-md-9">
+	  <div class="site-overlay"></div>
+	  <div class="d-print-none">
+	    
+<div id="messages" class="col-xs-12">
+<span class="share-block">
+            &nbsp;<a href="https://bsky.app/intent/compose?text=Found%20on%20RePEc/IDEAS:%20https://ideas.repec.org//a/eee/agisys/v187y2021ics0308521x20308775.html%20&#128161;" target="_NEW"><i class="bi bi-bluesky"></i></a>&nbsp;
+            <share-to-mastodon message="Found on RePEc/IDEAS:" url='https://ideas.repec.org//a/eee/agisys/v187y2021ics0308521x20308775.html'><font color="#2d4e8b"><i class="bi bi-mastodon"></i></font></share-to-mastodon>
+            <a class="share-twitter bi bi-twitter-x" href="#" title="Share on Twitter"></a>
+            <a class="share-facebook bi bi-facebook" href="#" title="Share on Facebook"></a>
+            <a class="share-reddit bi bi-reddit" href="#" title="Share on Reddit"></a>
+            <a class="share-linkedin bi bi-linkedin" href="#"  title="Share on LinkedIn"></a>
+            <a class="share-email bi bi-envelope" href="#"  title="Share by Email"></a>
+            <a class="share-print bi bi-printer" href="#" title="Print this page"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span id="myideas">
+
+<a href="/cgi-bin/myideas.cgi" data-bs-toggle="tooltip" data-toggle="tooltip" title="MyIDEAS: not logged in">
+<i class="bi bi-lightbulb"></i>
+<i class="bi bi-lock"></i>&nbsp;</a>
+
+
+ <A HREF="/cgi-bin/myideas.cgi#myibiblio1unassigned"><I class="bi bi-archive-fill"></I>&nbsp;My&nbsp;bibliography</A> 
+ <i class="bi bi-bookmark"></i>&nbsp;<span onclick="loadDoc('https://ideas.repec.org/cgi-bin/myiadd2.cgi',myFunction);return true;">Save this article</span>
+
+
+
+
+</span>
+<script>
+function loadDoc(url,cfunc) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      cfunc(xhttp);
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+function myFunction(xhttp) {
+  document.getElementById("response").innerHTML = xhttp.responseText;
+}
+</script><span id="response"></span>
+</div>
+
+
+	  </div>
+	  <div id="content-block">
+	    
+	    
+
+<div id="title">
+<h1>Machine learning for large-scale crop yield forecasting</h1></div>
+<div>
+<ul class="nav nav-pills" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="author-abstract-tab" data-bs-toggle="tab" data-toggle="tab" href="#author-abstract" role="tab" aria-controls="author-abstract" aria-selected="true">Author & abstract</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link download-tab" id="download-tab" data-bs-toggle="tab" data-toggle="tab" href="#download" role="tab" aria-controls="download" aria-selected="false">Download</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="refs-tab" data-bs-toggle="tab" data-toggle="tab" href="#refs" role="tab" aria-controls="refs" aria-selected="false">7 References</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" id="cites-tab" data-bs-toggle="tab" data-toggle="tab" href="#cites" role="tab" aria-controls="cites" aria-selected="false">14 Citations</a>
+  </li>
+          <li class="nav-item">
+    <a class="nav-link" id="mrel-tab" data-bs-toggle="tab" data-toggle="tab" href="#mrel" role="tab" aria-controls="mrel" aria-selected="false">Most related</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="more-tab" data-bs-toggle="tab" data-toggle="tab" href="#more" role="tab" aria-controls="more" aria-selected="false">Related works & more</a>
+  </li>
+  <!-- Placeholder usernotes pill-->
+  <li class="nav-item">
+    <a class="nav-link" id="correct-tab" data-bs-toggle="tab" data-toggle="tab" href="#correct" role="tab" aria-controls="correct" aria-selected="false">Corrections</a>
+  </li>
+</ul>
+    
+
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="author-abstract" role="tabpanel" aria-labelledby="author-abstract-tab">
+
+<h2>Author</h2>
+    <div id="author-body">
+      <div id="authortable">
+        <div id="listed-authors">Listed:
+          <ul id="authorlist"><li class="authorname">Paudel, Dilli</li>
+<li class="authorname">Boogaard, Hendrik</li>
+<li class="authorname">de Wit, Allard</li>
+<li class="authorname">Janssen, Sander</li>
+<li class="authorname">Osinga, Sjoukje</li>
+<li class="authorname">Pylianidis, Christos</li>
+<li class="authorname">Athanasiadis, Ioannis N.</li>
+</ul></div><div id="registered-authors"> <a href="https://authors.repec.org/">Registered:</a> <ul id="authorregistered"></ul>
+</div>
+</div>
+</div>
+
+
+<h2 style="clear:left">Abstract</h2><div id="abstract-body">Many studies have applied machine learning to crop yield prediction with a focus on specific case studies. The data and methods they used may not be transferable to other crops and locations. On the other hand, operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning. Machine learning is a promising method especially when large amounts of data are being collected and published. We combined agronomic principles of crop modeling with machine learning to build a machine learning baseline for large-scale crop yield forecasting. The baseline is a workflow emphasizing correctness, modularity and reusability. For correctness, we focused on designing explainable predictors or features (in relation to crop growth and development) and applying machine learning without information leakage. We created features using crop simulation outputs and weather, remote sensing and soil data from the MCYFS database. We emphasized a modular and reusable workflow to support different crops and countries with small configuration changes. The workflow can be used to run repeatable experiments (e.g. early season or end of season predictions) using standard input data to obtain reproducible results. The results serve as a starting point for further optimizations. In our case studies, we predicted yield at regional level for five crops (soft wheat, spring barley, sunflower, sugar beet, potatoes) and three countries (the Netherlands (NL), Germany (DE), France (FR)). We compared the performance with a simple method with no prediction skill, which either predicted a linear yield trend or the average of the training set. We also aggregated the predictions to the national level and compared with past MCYFS forecasts. The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower). For example, NRMSE was 7.87 for soft wheat (NL) (6.32 for MCYFS) and 8.21 for sugar beet (DE) (8.79 for MCYFS). In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS. NRMSEs for end of season were still comparable to MCYFS for NL, but worse for DE and FR. The baseline can be improved by adding new data sources, designing more predictive features and evaluating different machine learning algorithms. The baseline will motivate the use of machine learning in large-scale crop yield forecasting.</div>
+<h2>Suggested Citation</h2>
+<div id="biblio-body">
+<LI class="list-group-item downgate">  Paudel, Dilli & Boogaard, Hendrik & de Wit, Allard & Janssen, Sander & Osinga, Sjoukje & Pylianidis, Christos & Athanasiadis, Ioannis N., 2021.
+"<B><A HREF="/a/eee/agisys/v187y2021ics0308521x20308775.html">Machine learning for large-scale crop yield forecasting</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 187(C).
+</li>
+Handle: <i style="word-break:break-all">RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775</i>
+<br>DOI: 10.1016/j.agsy.2020.103016
+<form method="post" action="/cgi-bin/refs.cgi" target="refs" class="form-inline" role="form" style="margin-bottom: 10px;">
+<input type="hidden" name="handle" value="RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775">
+<div class="pull-left" style="padding-right: 2px;">
+<span class="input-group-btn">
+<input class="btn btn-default btn-lg fa" type="submit" value="Export reference" style="background-color:lightgrey;"><i class="bi bi-box-arrow-up-right"></i> as
+<select name="output" size="1">
+<option value="0">HTML</option>
+<option value="0.5">HTML with abstract</option>
+<option value="1">plain text</option>
+<option value="1.5">plain text with abstract</option>
+<option value="2">BibTeX</option>
+<option value="3">RIS (EndNote, RefMan, ProCite)</option>
+<option value="4">ReDIF</option>
+<option value="6">JSON</option>
+</select> 
+</span>
+</div>
+</form></div>
+   </div>
+  <div class="tab-pane fade" id="download" role="tabpanel" aria-labelledby="download-tab">
+    <h2>Download full text from publisher</h2><p></p>
+       <FORM METHOD=GET ACTION="/cgi-bin/get_doc.cgi" target="_blank">
+       <INPUT TYPE=HIDDEN NAME="urn" VALUE="RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775"><INPUT TYPE="radio" NAME="url" VALUE="http://www.sciencedirect.com/science/article/pii/S0308521X20308775" checked><B>File URL:</B> <span style="word-break:break-all">http://www.sciencedirect.com/science/article/pii/S0308521X20308775</span><BR><B>Download Restriction:</B> Full text for ScienceDirect subscribers only<BR>
+<HR><INPUT TYPE="radio" NAME="url" VALUE="https://libkey.io/10.1016/j.agsy.2020.103016?utm_source=ideas">
+		<B>File URL:</B> <span style="word-break:break-all">https://libkey.io/10.1016/j.agsy.2020.103016?utm_source=ideas</span><BR>
+                <B>LibKey link</B>: if access is restricted and if your library uses this service, LibKey will redirect you to where you can use your library subscription to access this item<BR>
+<font size="+2" color="red">---><INPUT TYPE="SUBMIT" class="btn fa" VALUE="Download the selected file &#xf08e;" style="color:white;background-color:#2d4e8b;"><---</font></FORM><P>As the access to this document is restricted, you may want to <form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Machine+learning+for+large+scale+crop+yield+forecasting"><button type="submit" value="submit" class="link-button">search</button></form> for a different version of it.
+
+</div>
+
+  <div class="tab-pane fade" id="refs" role="tabpanel" aria-labelledby="refs-tab"><h2>References listed on IDEAS</h2><form method="post" action="/cgi-bin/refs.cgi" target="refs" class="form-inline" role="form" style="margin-bottom: 10px;">
+<input type="hidden" name="handle" value="repec:eee:agisys:v:141:y:2015:i:c:p:94-106#repec:eee:agisys:v:168:y:2019:i:c:p:154-167#repec:eee:agisys:v:168:y:2019:i:c:p:191-202#repec:eee:agisys:v:168:y:2019:i:c:p:203-212#repec:eee:agisys:v:168:y:2019:i:c:p:231-246#repec:eee:ecoser:v:33:y:2018:i:pb:p:165-174#repec:plo:pone00:0156571">
+<div class="pull-left" style="padding-right: 2px;">
+<span class="input-group-btn">
+<input class="btn btn-default btn-lg fa" type="submit" value="Export references" style="background-color:lightgrey;"><i class="bi bi-box-arrow-up-right"></i> as
+<select name="output" size="1">
+<option value="0">HTML</option>
+<option value="0.5">HTML with abstract</option>
+<option value="1">plain text</option>
+<option value="1.5">plain text with abstract</option>
+<option value="2">BibTeX</option>
+<option value="3">RIS (EndNote, RefMan, ProCite)</option>
+<option value="4">ReDIF</option>
+<option value="6">JSON</option>
+</select> 
+</span>
+</div>
+</form>
+<ol class="list-group"><LI class="list-group-item downgate">  López-Lozano, Raúl & Baruth, Bettina, 2019.
+"<B><A HREF="/a/eee/agisys/v168y2019icp231-246.html">An evaluation framework to build a cost-efficient crop monitoring system. Experiences from the extension of the European crop monitoring system</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 168(C), pages 231-246.
+<LI class="list-group-item downgate">  Lecerf, Rémi & Ceglar, Andrej & López-Lozano, Raúl & Van Der Velde, Marijn & Baruth, Bettina, 2019.
+"<B><A HREF="/a/eee/agisys/v168y2019icp191-202.html">Assessing the information in crop model and meteorological indicators to forecast crop yield over Europe</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 168(C), pages 191-202.
+<LI class="list-group-item downfree">  Jig Han Jeong & Jonathan P Resop & Nathaniel D Mueller & David H Fleisher & Kyungdahm Yun & Ethan E Butler & Dennis J Timlin & Kyo-Moon Shim & James S Gerber & Vangimalla R Reddy & Soo-Hyung Kim, 2016.
+"<B><A HREF="/a/plo/pone00/0156571.html">Random Forests for Global and Regional Crop Yield Predictions</A></B>,"
+<A HREF="/s/plo/pone00.html">PLOS ONE</A>, Public Library of Science, vol. 11(6), pages 1-15, June.
+<LI class="list-group-item downgate">  Willcock, Simon & Martínez-López, Javier & Hooftman, Danny A.P. & Bagstad, Kenneth J. & Balbi, Stefano & Marzo, Alessia & Prato, Carlo & Sciandrello, Saverio & Signorello, Giovanni & Voigt, Brian & Vi, 2018.
+"<B><A HREF="/a/eee/ecoser/v33y2018ipbp165-174.html">Machine learning for ecosystem services</A></B>,"
+<A HREF="/s/eee/ecoser.html">Ecosystem Services</A>, Elsevier, vol. 33(PB), pages 165-174.
+<LI class="list-group-item downgate">  de Wit, Allard & Boogaard, Hendrik & Fumagalli, Davide & Janssen, Sander & Knapen, Rob & van Kraalingen, Daniel & Supit, Iwan & van der Wijngaart, Raymond & van Diepen, Kees, 2019.
+"<B><A HREF="/a/eee/agisys/v168y2019icp154-167.html">25 years of the WOFOST cropping systems model</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 168(C), pages 154-167.
+<LI class="list-group-item downgate">  Bussay, Attila & van der Velde, Marijn & Fumagalli, Davide & Seguini, Lorenzo, 2015.
+"<B><A HREF="/a/eee/agisys/v141y2015icp94-106.html">Improving operational maize yield forecasting in Hungary</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 141(C), pages 94-106.
+<LI class="list-group-item downgate">  van der Velde, M. & Nisini, L., 2019.
+"<B><A HREF="/a/eee/agisys/v168y2019icp203-212.html">Performance of the MARS-crop yield forecasting system for the European Union: Assessing accuracy, in-season, and year-to-year improvements from 1993 to 2015</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 168(C), pages 203-212.
+</ol>
+<A TARGET="_blank" HREF="http://citec.repec.org/cgi-bin/get_data.pl?h=RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775&o=all"><B>Full references</B> <i class="bi bi-box-arrow-up-right"></i></A> (including those not matched with items on IDEAS)<P>
+</div>
+
+    <div class="tab-pane fade" id="cites" role="tabpanel" aria-labelledby="cites-tab">
+<H2>Citations</H2>
+
+Citations are extracted by the <A HREF="http://citec.repec.org/">CitEc Project</A>, subscribe to its <A HREF="http://citec.repec.org/cgi-bin/rss.pl?h=RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775">RSS feed</A> for this item.
+<form method="post" action="/cgi-bin/refs.cgi" target="refs" class="form-inline" role="form" style="margin-bottom: 10px;">
+<input type="hidden" name="handle" value="repec:eee:agisys:v:223:y:2025:i:c:s0308521x24003640#repec:plo:pone00:0291928#repec:gam:jagris:v:15:y:2025:i:9:p:984-:d:1647723#repec:plo:pone00:0315493#repec:plo:pone00:0316682#repec:bjc:journl:v:11:y:2024:i:7:p:1097-1104#repec:spr:ijsaem:v:13:y:2022:i:1:d:10.1007_s13198-021-01543-8#repec:gam:jagris:v:13:y:2023:i:9:p:1855-:d:1245105#repec:eee:agiwat:v:282:y:2023:i:c:s0378377423001452#repec:eee:agisys:v:209:y:2023:i:c:s0308521x23000720#repec:ags:gewi21:317075#repec:eee:agisys:v:192:y:2021:i:c:s0308521x21001347#repec:eee:agisys:v:237:y:2026:i:c:s0308521x26002015#repec:eee:agisys:v:236:y:2026:i:c:s0308521x26001368">
+<div class="pull-left" style="padding-right: 2px;">
+<span class="input-group-btn">
+<input class="btn btn-default btn-lg fa" type="submit" value="Export citations" style="background-color:lightgrey;"><i class="bi bi-box-arrow-up-right"></i> as
+<select name="output" size="1">
+<option value="0">HTML</option>
+<option value="0.5">HTML with abstract</option>
+<option value="1">plain text</option>
+<option value="1.5">plain text with abstract</option>
+<option value="2">BibTeX</option>
+<option value="3">RIS (EndNote, RefMan, ProCite)</option>
+<option value="4">ReDIF</option>
+<option value="6">JSON</option>
+</select> 
+</span>
+</div>
+</form><P>
+
+<BR><B>Cited by:</B><ol class="list-group"><LI class="list-group-item downgate">  Guo, Xinyu & Wang, Zilong & Zhao, Youzhu & Jiang, Qiuxiang, 2026.
+"<B><A HREF="/a/eee/agisys/v237y2026ics0308521x26002015.html">Nonlinear response patterns of grain yield to drought gradients and the underlying driving mechanisms</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 237(C).
+<LI class="list-group-item downfree"> Schmidt, Lorenz & Odening, Martin & Schlanstein, Johann & Ritter, Matthias, "undated".
+ "<B><A HREF="/p/ags/gewi21/317075.html">Estimation of the Farm-Level Yield-Weather-Relation Using Machine Learning</A></B>,"
+<A HREF="/s/ags/gewi21.html">61st Annual Conference, Berlin, Germany, September 22-24, 2021</A> 
+317075, German Association of Agricultural Economists (GEWISOLA).
+<LI class="list-group-item downfree">  Sebastian C. Ibañez & Christopher P. Monterola, 2023.
+"<B><A HREF="/a/gam/jagris/v13y2023i9p1855-d1245105.html">A Global Forecasting Approach to Large-Scale Crop Production Prediction with Time Series Transformers</A></B>,"
+<A HREF="/s/gam/jagris.html">Agriculture</A>, MDPI, vol. 13(9), pages 1-27, September.
+<LI class="list-group-item downfree">  Edyta Okupska & Dariusz Gozdowski & Rafał Pudełko & Elżbieta Wójcik-Gront, 2025.
+"<B><A HREF="/a/gam/jagris/v15y2025i9p984-d1647723.html">Cereal and Rapeseed Yield Forecast in Poland at Regional Level Using Machine Learning and Classical Statistical Models</A></B>,"
+<A HREF="/s/gam/jagris.html">Agriculture</A>, MDPI, vol. 15(9), pages 1-16, May.
+<LI class="list-group-item downgate">  Kalpana Jain & Naveen Choudhary, 2022.
+"<B><A HREF="/a/spr/ijsaem/v13y2022i1d10.1007_s13198-021-01543-8.html">Comparative analysis of machine learning techniques for predicting production capability of crop yield</A></B>,"
+<A HREF="/s/spr/ijsaem.html">International Journal of System Assurance Engineering and Management</A>, Springer;The Society for Reliability, Engineering Quality and Operations Management (SREQOM),India, and Division of Operation and Maintenance, Lulea University of Technology, Sweden, vol. 13(1), pages 583-593, March.
+<LI class="list-group-item downgate">  Timsina, Jagadish & Dutta, Sudarshan & Devkota, Krishna Prasad & Chakraborty, Somsubhra & Neupane, Ram Krishna & Bishta, Sudarshan & Amgain, Lal Prasad & Singh, Vinod K. & Islam, Saiful & Majumdar, Ka, 2021.
+"<B><A HREF="/a/eee/agisys/v192y2021ics0308521x21001347.html">Improved nutrient management in cereals using Nutrient Expert and machine learning tools: Productivity, profitability and nutrient use efficiency</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 192(C).
+<LI class="list-group-item downgate">  Gaona, Jaime & Benito-Verdugo, Pilar & Martínez-Fernández, José & González-Zamora, Ángel & Almendra-Martín, Laura & Herrero-Jiménez, Carlos Miguel, 2023.
+"<B><A HREF="/a/eee/agiwat/v282y2023ics0378377423001452.html">Predictive value of soil moisture and concurrent variables in the multivariate modelling of cereal yields in water-limited environments</A></B>,"
+<A HREF="/s/eee/agiwat.html">Agricultural Water Management</A>, Elsevier, vol. 282(C).
+<LI class="list-group-item downgate">  Kouame, Anselme K.K. & Bindraban, Prem S. & Kissiedu, Isaac N. & Atakora, Williams K. & El Mejahed, Khalil, 2023.
+"<B><A HREF="/a/eee/agisys/v209y2023ics0308521x23000720.html">Identifying drivers for variability in maize (Zea mays L.) yield in Ghana: A meta-regression approach</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 209(C).
+<LI class="list-group-item downgate">  Hao, Di & Chen, Liping & Chen, Guangfeng & Chen, Cheng & Zhu, Qingzhen & Zhangzhong, Lili, 2026.
+"<B><A HREF="/a/eee/agisys/v236y2026ics0308521x26001368.html">Improving maize yield prediction performance via a hybrid framework coupling an optimized crop model and deep learning</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 236(C).
+<LI class="list-group-item downgate">  Zhou, Hongkui & Huang, Fudeng & Lou, Weidong & Gu, Qing & Ye, Ziran & Hu, Hao & Zhang, Xiaobin, 2025.
+"<B><A HREF="/a/eee/agisys/v223y2025ics0308521x24003640.html">Yield prediction through UAV-based multispectral imaging and deep learning in rice breeding trials</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 223(C).
+<LI class="list-group-item downfree">  Oyenike Mary Olanrewaju & Eli Adama Jiya & Faith Oluwatosin Echobu, 2024.
+"<B><A HREF="/a/bjc/journl/v11y2024i7p1097-1104.html">Intelligent Maize Yield Prediction Model Based on Plant Attributes and Machine Learning Algorithms</A></B>,"
+<A HREF="/s/bjc/journl.html">International Journal of Research and Scientific Innovation</A>, International Journal of Research and Scientific Innovation (IJRSI), vol. 11(7), pages 1097-1104, July.
+<LI class="list-group-item downfree">  Oumnia Ennaji & Sfia Baha & Leonardus Vergutz & Achraf El Allali, 2024.
+"<B><A HREF="/a/plo/pone00/0315493.html">Gradient boosting for yield prediction of elite maize hybrid ZhengDan 958</A></B>,"
+<A HREF="/s/plo/pone00.html">PLOS ONE</A>, Public Library of Science, vol. 19(12), pages 1-16, December.
+<LI class="list-group-item downfree">  Ghulam Mustafa & Muhammad Ali Moazzam & Asif Nawaz & Tariq Ali & Deema Mohammed Alsekait & Ahmed Saleh Alattas & Diaa Salama AbdElminaam, 2025.
+"<B><A HREF="/a/plo/pone00/0316682.html">ECP-IEM: Enhancing seasonal crop productivity with deep integrated models</A></B>,"
+<A HREF="/s/plo/pone00.html">PLOS ONE</A>, Public Library of Science, vol. 20(2), pages 1-23, February.
+<LI class="list-group-item downfree">  Pavithra Mahesh & Rajkumar Soundrapandiyan, 2024.
+"<B><A HREF="/a/plo/pone00/0291928.html">Yield prediction for crops by gradient-based algorithms</A></B>,"
+<A HREF="/s/plo/pone00.html">PLOS ONE</A>, Public Library of Science, vol. 19(8), pages 1-20, August.
+</ol>
+</ol>
+</div>
+
+ <div class="tab-pane fade" id="mrel" role="tabpanel" aria-labelledby="mrel-tab">
+    <h2>Most related items</H2>
+These are the items that most often cite the same works as this one and are cited by the same works as this one.
+<ol class="list-group"><LI class="list-group-item downgate">  Alimagham, Seyyedmajid & van Loon, Marloes P. & Ramirez-Villegas, Julian & Berghuijs, Herman N.C. & Rosenstock, Todd S. & van Ittersum, Martin K., 2025.
+"<B><A HREF="/a/eee/agisys/v228y2025ics0308521x25001076.html">Integrating crop models and machine learning for projecting climate change impacts on crops in data-limited environments</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 228(C).
+<LI class="list-group-item downgate">  van der Velde, M. & Nisini, L., 2019.
+"<B><A HREF="/a/eee/agisys/v168y2019icp203-212.html">Performance of the MARS-crop yield forecasting system for the European Union: Assessing accuracy, in-season, and year-to-year improvements from 1993 to 2015</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 168(C), pages 203-212.
+<LI class="list-group-item downfree">  Tiecheng Bai & Nannan Zhang & Youqi Chen & Benoit Mercatoris, 2019.
+"<B><A HREF="/a/gam/jsusta/v11y2019i5p1466-d212520.html">Assessing the Performance of the WOFOST Model in Simulating Jujube Fruit Tree Growth under Different Irrigation Regimes</A></B>,"
+<A HREF="/s/gam/jsusta.html">Sustainability</A>, MDPI, vol. 11(5), pages 1-16, March.
+<LI class="list-group-item downfree">  Mahboobe Ghobadi & Mahdi Gheysari & Mohammad Shayannejad & Hamze Dokoohaki, 2023.
+"<B><A HREF="/a/gam/jagris/v13y2023i8p1514-d1205014.html">Analyzing the Effects of Planting Date on the Uncertainty of CERES-Maize and Its Potential to Reduce Yield Gap in Arid and Mediterranean Climates</A></B>,"
+<A HREF="/s/gam/jagris.html">Agriculture</A>, MDPI, vol. 13(8), pages 1-17, July.
+<LI class="list-group-item downgate">  Silva, J.F. & Santos, J.L. & Ribeiro, P.F. & Marta-Pedroso, C. & Magalhães, M.R. & Moreira, F., 2024.
+"<B><A HREF="/a/eee/ecoser/v65y2024ics2212041623000840.html">A farming systems approach to assess synergies and trade-offs among ecosystem services</A></B>,"
+<A HREF="/s/eee/ecoser.html">Ecosystem Services</A>, Elsevier, vol. 65(C).
+<LI class="list-group-item downgate">  Huang, Qiuhong & Heuvelink, Gerard B.M. & Berghuijs, Herman N.C. & Schut, Antonius G.T. & Leenaars, Johan G.B. & de Wit, Allard J.W. & He, Ping, 2026.
+"<B><A HREF="/a/eee/agisys/v236y2026ics0308521x26001125.html">What drives the potato yield gap in China?</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 236(C).
+<LI class="list-group-item downgate">  Ahmed, Moiz Uddin & Hussain, Iqbal, 2022.
+"<B><A HREF="/a/eee/telpol/v46y2022i6s0308596122000726.html">Prediction of Wheat Production Using Machine Learning Algorithms in northern areas of Pakistan</A></B>,"
+<A HREF="/s/eee/telpol.html">Telecommunications Policy</A>, Elsevier, vol. 46(6).
+<LI class="list-group-item downfree">  Cyprien Mugemangango, Joseph Nzabanita, Dieudonne Ndaruhuye Muhoza, Nathan Cahill, 2024.
+"<B><A HREF="/a/ags/reowae/348769.html">Comparative Analysis of Machine Learning Models for Predicting Rice Yield: Insights from Agricultural Inputs and Practices in Rwanda</A></B>,"
+<A HREF="/s/ags/reowae.html">Research on World Agricultural Economy</A>, Nan Yang Academy of Sciences Pte Ltd (NASS), vol. 5(4), November.
+<LI class="list-group-item downgate">  Javad Seyedmohammadi & Mir Naser Navidi & Ali Zeinadini & Richard W. McDowell, 2024.
+"<B><A HREF="/a/spr/endesu/v26y2024i1d10.1007_s10668-023-03926-2.html">Random forest, an efficient smart technique for analyzing the influence of soil properties on pistachio yield</A></B>,"
+<A HREF="/s/spr/endesu.html">Environment, Development and Sustainability: A Multidisciplinary Approach to the Theory and Practice of Sustainable Development</A>, Springer, vol. 26(1), pages 2615-2636, January.
+<LI class="list-group-item downgate">  Yao, Nengzhi(Chris) & Bai, Junhong & Yu, Zihao & Guo, Qiaozhe, 2025.
+"<B><A HREF="/a/eee/jbrese/v186y2025ics0148296324004983.html">Does AI orientation facilitate operational efficiency? A contingent strategic orientation perspective</A></B>,"
+<A HREF="/s/eee/jbrese.html">Journal of Business Research</A>, Elsevier, vol. 186(C).
+<LI class="list-group-item downgate">  Agudelo, César Augusto Ruiz & Bustos, Sandra Liliana Hurtado & Moreno, Carmen Alicia Parrado, 2020.
+"<B><A HREF="/a/eee/ecomod/v429y2020ics0304380020301757.html">Modeling interactions among multiple ecosystem services. A critical review</A></B>,"
+<A HREF="/s/eee/ecomod.html">Ecological Modelling</A>, Elsevier, vol. 429(C).
+<LI class="list-group-item downgate">  Chevuru, Sneha & Lamsal, Gambhir & (Rens) van Beek, L.P.H. & van Vliet, Michelle T.H. & Marston, Landon & Bierkens, Marc F.P., 2025.
+"<B><A HREF="/a/eee/agiwat/v311y2025ics0378377425001179.html">Comparing crop growth models across the contiguous USA with a focus on dry and warm spells</A></B>,"
+<A HREF="/s/eee/agiwat.html">Agricultural Water Management</A>, Elsevier, vol. 311(C).
+<LI class="list-group-item downfree"> Bohan, David & Schmucki, Reto & Abay, Abrha & Termansen, Mette & Bane, Miranda & Charalabiis, Alice & Cong, Rong-Gang & Derocles, Stephane & Dorner, Zita & Forster, Matthieu & Gibert, Caroline & Harro, 2020.
+ "<B><A HREF="/p/pra/mprapa/112313.html">Designing farmer-acceptable rotations that assure ecosystem service provision inthe face of climate change</A></B>,"
+<A HREF="/s/pra/mprapa.html">MPRA Paper</A> 
+112313, University Library of Munich, Germany.
+<LI class="list-group-item downgate">  Ghosh, Soham & Mukhoti, Sujay & Sharma, Pritee, 2025.
+"<B><A HREF="/a/eee/agiwat/v319y2025ics0378377425004895.html">Quantifying rainfall-induced climate risk in rainfed agriculture: A volatility-based time series study from semi-arid India</A></B>,"
+<A HREF="/s/eee/agiwat.html">Agricultural Water Management</A>, Elsevier, vol. 319(C).
+<LI class="list-group-item downgate">  Lorilla, Roxanne Suzette & Poirazidis, Konstantinos & Detsis, Vassilis & Kalogirou, Stamatis & Chalkias, Christos, 2020.
+"<B><A HREF="/a/eee/ecomod/v422y2020ics0304380020300661.html">Socio-ecological determinants of multiple ecosystem services on the Mediterranean landscapes of the Ionian Islands (Greece)</A></B>,"
+<A HREF="/s/eee/ecomod.html">Ecological Modelling</A>, Elsevier, vol. 422(C).
+<LI class="list-group-item downgate">  Schmidt, Lorenz & Odening, Martin & Schlanstein, Johann & Ritter, Matthias, 2022.
+"<B><A HREF="/a/eee/agisys/v196y2022ics0308521x21002985.html">Exploring the weather-yield nexus with artificial neural networks</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 196(C).
+<LI class="list-group-item downfree">  Windh, Jessica & Meredith, Gwendwr & Miller, Maryfrances & Lee, Katherine & Ritten, John & Thayer, Anastasia W. & Torell, Greg & Spiegal, Sheri & Wulfhorst, J.D., 2025.
+"<B><A HREF="/a/ags/weecfo/364766.html">Identifying a Path Forward: Evaluating Ranch Socio-Economic Sustainability and Impacts on Ranch Succession Planning</A></B>,"
+<A HREF="/s/ags/weecfo.html">Western Economics Forum</A>, Western Agricultural Economics Association, vol. 23(1).
+<LI class="list-group-item downgate">  Heinen, Marius & Mulder, Martin & van Dam, Jos & Bartholomeus, Ruud & de Jong van Lier, Quirijn & de Wit, Janine & de Wit, Allard & Hack - ten Broeke, Mirjam, 2024.
+"<B><A HREF="/a/eee/agiwat/v298y2024ics037837742400218x.html">SWAP 50 years: Advances in modelling soil-water-atmosphere-plant interactions</A></B>,"
+<A HREF="/s/eee/agiwat.html">Agricultural Water Management</A>, Elsevier, vol. 298(C).
+<LI class="list-group-item downgate">  Mulders, Puck J.A.M. & van Zutphen, Menno J.T.C. & Ravensbergen, Arie P.P. & Cobbenhagen, A.T.J.R. & van den Heuvel, Edwin R. & van de Molengraft, M.J.G. & Reidsma, Pytrik & Antunes, Duarte Guerreiro , 2025.
+"<B><A HREF="/a/eee/agisys/v225y2025ics0308521x25000113.html">Spatial and temporal optimization of potato planting based on on-farm collected data and field experiments</A></B>,"
+<A HREF="/s/eee/agisys.html">Agricultural Systems</A>, Elsevier, vol. 225(C).
+<LI class="list-group-item downgate">  Mgana, Adam Shaaban & Huo, Aidi & Zhao, Yilu & Joshi, Padam Raj & Firaouni, Abderrahim, 2026.
+"<B><A HREF="/a/eee/ecomod/v512y2026ics0304380025004016.html">Advancing crop growth modeling: Challenges, model integration, and pathways for improved decision support</A></B>,"
+<A HREF="/s/eee/ecomod.html">Ecological Modelling</A>, Elsevier, vol. 512(C).
+</ol>
+</div>
+
+  <div class="tab-pane fade" id="more" role="tabpanel" aria-labelledby="more-tab">
+    <H2> More about this item</H2>  <h3>Keywords</h3><form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Crop yield prediction"><button type="submit" value="submit" class="link-button">Crop yield prediction</button></form>; <form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Machine learning"><button type="submit" value="submit" class="link-button">Machine learning</button></form>; <form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Modularity"><button type="submit" value="submit" class="link-button">Modularity</button></form>; <form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Reusability"><button type="submit" value="submit" class="link-button">Reusability</button></form>; <form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Large-scale crop yield forecasting"><button type="submit" value="submit" class="link-button">Large-scale crop yield forecasting</button></form>; <form action="/cgi-bin/htsearch2" method="post" class="inline"><input type="hidden" name="q" value="Crop yield prediction Machine learning Modularity Reusability Large-scale crop yield forecasting "><button type="submit" value="submit" class="link-button">All these keywords</button></form><h3>Statistics</h3>
+ <A      HREF="http://logec.repec.org/scripts/paperstat.pl?h=RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775">Access and download statistics</A>
+</div>
+
+<!-- placeholder usernotes tab-->
+ <div class="tab-pane fade" id="correct" role="tabpanel" aria-labelledby="correct-tab">
+    <h2>Corrections</H2>
+    <P>All material on this site has been provided by the respective publishers and authors. You can help correct errors and omissions. When requesting a correction, please mention this item's handle: <I style="word-break:break-all;">RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775</I>. See <A HREF="/corrections.html">general information</A> about how to correct material in RePEc.
+      </P><P>
+      If you have authored this item and are not yet registered with RePEc, we encourage you to do it <A HREF="https://authors.repec.org/new-user">here</A>. This allows to link your profile to this item. It also allows you to accept potential citations to this item that we are uncertain about.
+      </P><p>If <A HREF="http://citec.repec.org/" target ="_blank">CitEc <i class="bi bi-box-arrow-up-right"></i></a> recognized a bibliographic reference but did not link an item in RePEc to it, you can help with <A HREF="http://citec.repec.org/cgi-bin/get_data.pl?h=RePEc:eee:agisys:v:187:y:2021:i:c:s0308521x20308775&o=all" target="_blank">this form <I class="bi bi-box-arrow-up-right"></I></A>.</p><P>
+      If you know of missing items citing this one, you can help us creating those links by adding the relevant references in the same way as above, for each refering item. If you are a registered author of this item, you may also want to check the "citations" tab in your <a href="https://authors.repec.org/">RePEc Author Service</A> profile, as there may be some citations waiting for confirmation.
+      </P><P>
+        For technical questions regarding this item, or to correct its authors, title, abstract, bibliographic or download information, contact: Catherine Liu (email available below). General contact details of provider: <A HREF="http://www.elsevier.com/locate/agsy" target="_blank" style="word-break:break-all;">http://www.elsevier.com/locate/agsy <i class="bi bi-box-arrow-up-right"></i></A>.
+
+<div id="viewemail">
+<form id="emailForm" action="/cgi-bin/getemail.cgi" method="POST">
+<input type="hidden" name="handle" value="repec:eee:agisys:m">
+<div id="captcha_container"></div>
+          <input type="submit" value="View email address">
+      </form>
+      <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
+<div id="emailResponse"></div>
+</div>
+</p><p>
+      Please note that corrections may take a couple of weeks to filter through
+      the various RePEc services.</p>
+</div>
+</div>
+</div>
+<div id="footer" class="row d-print-none">
+  <div class="col-sm-6 more-services">
+    <h3 style="border-bottom: 1px solid #111; position: relative; right:0.9em;">More services and features</h3>
+    <div class="row">
+      <div class="list-group col">
+        <a href="/cgi-bin/myideas.cgi" class="list-group-item">
+          <h4 class="list-group-item-heading">MyIDEAS</h4>
+          <p class="list-group-item-text">Follow serials, authors, keywords &amp; more</p>
+        </a>
+        <a href="http://authors.repec.org/" class="list-group-item">
+          <h4 class="list-group-item-heading">Author registration</h4>
+          <p class="list-group-item-text">Public profiles for Economics researchers</p>
+        </a>
+        <a href="http://ideas.repec.org/top/" class="list-group-item">
+          <h4 class="list-group-item-heading">Rankings</h4>
+          <p class="list-group-item-text">Various research rankings in Economics</p>
+        </a>
+        <a href="http://genealogy.repec.org/" class="list-group-item">
+          <h4 class="list-group-item-heading">RePEc Genealogy</h4>
+          <p class="list-group-item-text">Who was a student of whom, using RePEc</p>
+        </a>
+        <a href="http://biblio.repec.org/" class="list-group-item">
+          <h4 class="list-group-item-heading">RePEc Biblio</h4>
+          <p class="list-group-item-text">Curated articles &amp; papers on economics topics</p>
+        </a>
+      </div>
+      <div class="list-group col">
+        <a href="http://mpra.ub.uni-muenchen.de/" class="list-group-item" target="_blank">
+          <h4 class="list-group-item-heading">MPRA  <i class="bi bi-box-arrow-up-right"></i></h4>
+          <p class="list-group-item-text">Upload your paper to be listed on RePEc and IDEAS</p>
+        </a>
+        <a href="http://nep.repec.org/" class="list-group-item" target="_blank">
+          <h4 class="list-group-item-heading">New papers by email <i class="bi bi-box-arrow-up-right"></i></h4>
+          <p class="list-group-item-text">Subscribe to new additions to RePEc</p>
+        </a>
+        <a href="http://www.econacademics.org/" class="list-group-item">
+          <h4 class="list-group-item-heading">EconAcademics</h4>
+          <p class="list-group-item-text">Blog aggregator for economics research</p>
+        </a>
+        <a href="http://plagiarism.repec.org/" class="list-group-item">
+          <h4 class="list-group-item-heading">Plagiarism</h4>
+          <p class="list-group-item-text">Cases of plagiarism in Economics</p>
+        </a>
+      </div>
+      </div>
+    </div>
+    <div class="col-sm more-services">
+      <h3 style="border-bottom: 1px solid #111;">About RePEc</h3>
+      <div class="list-group col">
+        <a href="http://repec.org/" class="list-group-item" target="_blank">
+	  <h4 class="list-group-item-heading">RePEc home <i class="bi bi-box-arrow-up-right"></i></h4>
+	  <p class="list-group-item-text">Initiative for open bibliographies in Economics</p>
+	</a>
+        <a href="http://blog.repec.org/" class="list-group-item" target="_blank">
+          <h4 class="list-group-item-heading">Blog <i class="bi bi-box-arrow-up-right"></i></h4>
+          <p class="list-group-item-text">News about RePEc</p>
+	</a>
+        <a href="/help.html" class="list-group-item" target="_blank">
+          <h4 class="list-group-item-heading">Help/FAQ <i class="bi bi-box-arrow-up-right"></i></h4>
+          <p class="list-group-item-text">Questions about IDEAS and RePEc</p>
+	</a>
+        <a href="/team.html" class="list-group-item">
+          <h4 class="list-group-item-heading">RePEc team</h4>
+          <p class="list-group-item-text">RePEc volunteers</p>
+	</a>
+        <a href="/archives.html" class="list-group-item">
+          <h4 class="list-group-item-heading">Participating archives</h4>
+          <p class="list-group-item-text">Publishers indexing in RePEc</p>
+	</a>
+        <a href="https://ideas.repec.org/privacy.html" class="list-group-item" target="_blank">
+          <h4 class="list-group-item-heading">Privacy statement <i class="bi bi-box-arrow-up-right"></i></h4>
+	</a>
+      </div>
+    </div>
+    <div class="col-sm more-services">
+      <h3 style="border-bottom: 1px solid #111;">Help us</h3>
+      <div class="list-group col">
+        <a href="/corrections.html" class="list-group-item">
+          <h4 class="list-group-item-heading">Corrections</h4>
+          <p class="list-group-item-text">Found an error or omission?</p>
+	</a>
+        <a href="/volunteers.html" class="list-group-item">
+          <h4 class="list-group-item-heading">Volunteers</h4>
+          <p class="list-group-item-text">Opportunities to help RePEc</p>
+	</a>
+        <a href="/participate.html" class="list-group-item">
+          <h4 class="list-group-item-heading">Get papers listed</h4>
+          <p class="list-group-item-text">Have your research listed on RePEc</p>
+	</a>
+        <a href="/stepbystep.html" class="list-group-item">
+          <h4 class="list-group-item-heading">Open a RePEc archive</h4>
+          <p class="list-group-item-text">Have your institution's/publisher's output listed on RePEc</p>
+	</a>
+	<a href="/getdata.html" class="list-group-item">
+          <h4 class="list-group-item-heading">Get RePEc data</h4>
+          <p class="list-group-item-text">Use data assembled by RePEc</p>
+	</a>
+      </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-12" style="text-align: center; padding-top: 10px;">
+    <div id="sidelogos">
+      <a href="https://ideas.repec.org/">IDEAS</a> is a <a href="http://repec.org/" target="_blank">RePEc <i class="bi bi-box-arrow-up-right"></i></a> service. RePEc uses bibliographic data supplied by the respective publishers.
+    </div>
+  </div>
+  
+  
+</div>
+</div>
+
+</div>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/share-to-mastodon@0.2.0/dist/share-to-mastodon.js"></script>
+<script src="/css/ideas.js"></script>
+<script src="/css/pushy.js"></script>
+<script>
+$(document).ready(function() {
+    // show active tab on reload
+    if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
+
+    // remember the hash in the URL without jumping
+//    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+//       if(history.pushState) {
+//            history.pushState(null, null, '#'+$(e.target).attr('href').substr(1));
+//       } else {
+//            location.hash = '#'+$(e.target).attr('href').substr(1);
+//       }
+//    });
+});
+</script>
+
+</BODY>
+</HTML>

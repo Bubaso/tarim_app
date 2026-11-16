@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 202,
- "toplam_bayt": 668881886,
+ "dosya_sayisi": 217,
+ "toplam_bayt": 730110130,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1669,6 +1669,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2021_2116_otp_finansman_tuzugu.xhtml",
+   "bayt": 695693,
+   "sha256": "cc5bc16a7efeb82541e125137e6b881e47c0ca1a703f9c99824c8396bb516296",
+   "kaynak": {
+    "adres": "https://publications.europa.eu/resource/celex/32021R2116",
+    "atif": "Regulation (EU) 2021/2116 on the financing, management and monitoring of the common agricultural policy · OJ L 435, 6.12.2021",
+    "lisans": "AB mevzuatı — yeniden kullanım serbest (Komisyon Kararı 2011/833/AB)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL: AB Yayın Ofisi'nin resmî İngilizce metni."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2023_1230_makine_tuzugu.xhtml",
    "bayt": 860932,
    "sha256": "45172093d5547c21c9f7d5da2628e5c630b5e7e586e163aff6b7c936ded17b48",
@@ -1717,12 +1729,60 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/agrosens_2025_05.pdf",
+   "bayt": 11371555,
+   "sha256": "01bf9e721873b0dc9b13518256c04e6d5092041720b4d0abcd7f7ca548ccec7e",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+    "atif": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. Mayıs 2025. AGROSENS bülteni.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "DENETİM: içinde dekara verim rakamı aranıp bulunamadı (kg/da ve 'verim tahmini' geçmiyor)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/agrosens_2025_11.pdf",
+   "bayt": 26204260,
+   "sha256": "b5017ec0f326e4164dbd6ba4fe5736d6201ca4b8131822fb67dc922ae49a24df",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+    "atif": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. Kasım 2025. AGROSENS bülteni.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "DENETİM: içinde dekara verim rakamı aranıp bulunamadı (kg/da ve 'verim tahmini' geçmiyor)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/agrosens_2026_04.pdf",
+   "bayt": 4219340,
+   "sha256": "6f77ff4894d68f5c64907beccc4e5351a280494e526b59136a40743f437117cc",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Belgeler/Tar%C4%B1msal%20%C3%9Cr%C3%BCn%20%C4%B0zleme%20ve%20Verim%20Tahmin%20B%C3%BClteni/AGROSENS%20-%20Agrometeoroloji%20ve%20Uzaktan%20Alg%C4%B1lama%20Destekli%20Tar%C4%B1msal%20%C4%B0zleme%20B%C3%BClteni%20Nisan%202026.pdf",
+    "atif": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. Nisan 2026. AGROSENS — Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni, sayı 58.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/akin_unlenen_2017.pdf",
    "bayt": 364220,
    "sha256": "2d32572cd30da4e33c17e17aa5c9916b6faa3c20acc527370ca6d72296e084e1",
    "kaynak": {
     "adres": "https://dergipark.org.tr/en/download/article-file/341436",
     "atif": "Akın A.İ., Ünlenen L.A. 2017. Patates'te hassas damla sulama programlarının yapılmasında toprak nem sensörlerinin kullanılması. Toprak Su Dergisi Özel Sayı: 8-12. doi:10.21657/topraksu.338301",
+    "lisans": "DergiPark açık erişim",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — hakemli dergi, DergiPark."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/altun_turker_2021_kiziltepe.pdf",
+   "bayt": 2425393,
+   "sha256": "81b8ef2fe87822b4ab9c842ef25459fbe2709461ea52393a55b9d946485a391b",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/1615376",
+    "atif": "Altun M., Türker M. 2021. Çoklu zamanlı Sentinel-2 görüntülerinden tarımsal ürün tespiti: Mardin-Kızıltepe örneği. AKÜ FEMÜBİD 21: 881-899. doi:10.35414/akufemubid.890436",
     "lisans": "DergiPark açık erişim",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — hakemli dergi, DergiPark."
@@ -1777,6 +1837,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/izleme_bulteni_2024_05.pdf",
+   "bayt": 4473939,
+   "sha256": "2e056a8a57b758345c494f82472a60072b01d1da4f9981e24f5ce3d46b48be10",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+    "atif": "Mayıs 2024. Tarımsal Meteoroloji ve Ürün İzleme Bülteni.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "DENETİM: içinde dekara verim rakamı aranıp bulunamadı (kg/da ve 'verim tahmini' geçmiyor)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaya_2022_openalex.json",
    "bayt": 24437,
    "sha256": "ef6ffe72220f2a5d795563e51947689562cbc405d008a07fa1d02970aad510d0",
@@ -1786,6 +1858,18 @@
     "lisans": "bibliyografik kayıt",
     "lisans_adresi": null,
     "_not": "Yalnız künye: özet açık kaynaklarda (OpenAlex, Semantic Scholar) yok; sonuç aktarılmıyor."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/paudel_2021_ideas.html",
+   "bayt": 62157,
+   "sha256": "531f74c7c9a6e337eaecb41b546bbd8e7088b1350f3f7b6b1865854ed294e415",
+   "kaynak": {
+    "adres": "https://ideas.repec.org/a/eee/agisys/v187y2021ics0308521x20308775.html",
+    "atif": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. doi:10.1016/j.agsy.2020.103016",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Yayıncı özeti IDEAS/RePEc kaydından."
    }
   },
   {
@@ -1813,6 +1897,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/simsek_2023_apts_siniflandirma.pdf",
+   "bayt": 1712261,
+   "sha256": "be668b600fe1327737bc12addc93af87db84a372023c60685c92e3fcbb4b756e",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/3023466",
+    "atif": "Şimşek F.F. 2023. Arazi Parsel Tanımlama Sistemi verileri kullanılarak ülkesel ölçekte arazi örtüsü ve arazi kullanım sınıflandırması. Türk Uzaktan Algılama ve CBS Dergisi 4(2): 276-288. doi:10.48123/rsgis.1268155",
+    "lisans": "DergiPark açık erişim",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — hakemli dergi; yazar Tarım Reformu Genel Müdürlüğü'nden."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tagem_2017_ulkesel_toprak_bilgi_sistemi.html",
    "bayt": 148938,
    "sha256": "f908264bf9cc80fa0b14f6f935ab7043af9e6f15541da27761c5a3bf7a163650",
@@ -1822,6 +1918,30 @@
     "lisans": "kamu duyurusu",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tbmae_2020_05_verim_tahmin_bulteni.pdf",
+   "bayt": 5948558,
+   "sha256": "cc2d5dc1a50a23270a5656da1976ac8bac55e22a7176fd7f06e8bb14141a624c",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+    "atif": "Tarla Bitkileri Merkez Araştırma Enstitüsü, CBS ve Uzaktan Algılama Merkezi. Mayıs 2020. Tarımsal Ürün İzleme ve Verim Tahmin Bülteni, sayı 28.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tkb_2006_01_verim_tahmini_bulteni.pdf",
+   "bayt": 936979,
+   "sha256": "697667174c90137a472b37cae05bc2a4a419a8994b8f2f23029d42c133a18ff0",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+    "atif": "Tarım ve Köyişleri Bakanlığı — FAO TCP/TUR/3002-A. Bülten No 1: Ekim 2005-Ocak 2006, Kışlık Buğday Agro-Meteorolojik Ürün Verim Tahmini Bülteni.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — serinin ilk sayısı."
    }
   },
   {
@@ -1837,6 +1957,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_bitkisel_uretim_1_tahmin.html",
+   "bayt": 76169,
+   "sha256": "3e434dd269a70dae1358bcaeaa24292232cc21185c6dbd81506dea2501731b26",
+   "kaynak": {
+    "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2347",
+    "atif": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 03.06.2026. İstatistik Bülteni: Bitkisel Üretim I. Tahmini, 2026 (metaveri dahil).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlığın istatistik sitesi; yöntem metaverinin 'Derleme Uygulamaları' kısmında."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/toprakgubre_agrosens_listesi.html",
+   "bayt": 229852,
+   "sha256": "f6a5ae4ae9f018a57ce394f65fbb2da719c3331fbe2d974cb98bd1956c9daca7",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+    "atif": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. AGROSENS — bülten listesi (2005-2026).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "Bülten serisinin listesi; erişim 16.11.2026."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+   "bayt": 127565,
+   "sha256": "235392f555e3aeef94ee4773bc1b3a5c3665a37e4501e7d3ecfc7413676b2053",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+    "atif": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/uyzs_2024_2025.pdf",
    "bayt": 282627,
    "sha256": "7a99b2e50dd34cd940fc57c4c3b7ec18033da14673976b4d3bf9149f9869898f",
@@ -1846,6 +2002,30 @@
     "lisans": "kamu belgesi",
     "lisans_adresi": null,
     "_not": "ÜÇÜNCÜ TARAF YANSIMASI. Resmî kaynak cbddo.gov.tr bu ortamdan erişilemiyor: DNS çözülüyor (212.174.186.39) ama TLS el sıkışmasında bağlantı karşı taraftan kesiliyor; tarayıcı da açamıyor. Belge tam: 14 sayfa, 6 öncelik, 71 eylem (1.1-6.19), basının verdiği sayıyla birebir. Resmî kopyaya erişilince SHA-256 karşılaştırılacak."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/vandervelde_nisini_2019_europepmc.json",
+   "bayt": 5787,
+   "sha256": "b5ac9ab6f27684352883e90443cf65cc8ee21d1ffb302cf889e2e45de3b70b68",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:30774183%20AND%20SRC:MED&resultType=core&format=json",
+    "atif": "van der Velde M., Nisini L. 2019. Performance of the MARS-crop yield forecasting system for the European Union: Assessing accuracy, in-season, and year-to-year improvements from 1993 to 2015. Agricultural Systems 168: 203-212. doi:10.1016/j.agsy.2018.06.009 (PMC6360854)",
+    "lisans": "CC BY-NC-ND (Europe PMC kaydına göre)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/yasar_yagci_2024_yozgat.pdf",
+   "bayt": 2738736,
+   "sha256": "3e6c207f23caedd43eb9e23f3e1fb206ebb83af11211b2f08437db9b5d0c2f3e",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/3187958",
+    "atif": "Yaşar O., Yağcı A.L. 2024. Kadastro parsel sınırlarının obje olarak kullanılarak arpa ve buğday ürünlerinin çok zamanlı Sentinel-2 uydu görüntüleri ile belirlenmesi. Türk Uzaktan Algılama ve CBS Dergisi 5(1): 1-14. doi:10.48123/rsgis.1309618",
+    "lisans": "DergiPark açık erişim",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — hakemli dergi, DergiPark."
    }
   },
   {

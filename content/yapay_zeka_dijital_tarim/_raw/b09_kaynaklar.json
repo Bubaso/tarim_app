@@ -1,0 +1,241 @@
+{
+  "_ne": "§9 Ürün izleme ve verim tahmini — kilitli kayıt",
+  "guncellendi": "2026-11-16",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun kendi yayını ya da duyurusu",
+    "RESMI": "Resmî gazetede yayımlanmış birincil metin (AB için Yayın Ofisi'nin resmî metni)"
+  },
+  "kaynaklar": {
+    "van_der_velde_nisini_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "van der Velde M., Nisini L. 2019. Performance of the MARS-crop yield forecasting system for the European Union: Assessing accuracy, in-season, and year-to-year improvements from 1993 to 2015. Agricultural Systems 168: 203-212.",
+      "doi": "10.1016/j.agsy.2018.06.009",
+      "dosya": "kaynak_dosyalari/vandervelde_nisini_2019_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC6360854)",
+      "tahmin_sayisi": 19980,
+      "tahmin_donemi": "1993-2015",
+      "urun_sayisi": 7,
+      "dogruluk_donemi": "2006-2015",
+      "en_dusuk_ortanca_hata_yuzde": 3.73,
+      "en_dusuk_ulke": "Fransa",
+      "en_yuksek_ortanca_hata_yuzde": 14.37,
+      "en_yuksek_ulke": "Portekiz",
+      "alinti": [
+        "19,980 crop yield forecasts have been published for the European Union (EU) Member States (MS) during 1993-2015 using the MARS-Crop Yield Forecasting System (MCYFS).",
+        "We assess the performance of these forecasts for soft wheat, durum wheat, grain maize, rapeseed, sunflower, potato and sugar beet",
+        "the first forecasts during a season, forecasts one month pre-harvest, and the end-of-campaign (EOC) forecasts during 2006-2015 using reported yields",
+        "the lowest median MAPE across all crops is obtained for Europe's largest producer, France, equalling 3.73%.",
+        "the highest median MAPE is obtained for Portugal, at 14.37%.",
+        "Forecasts generally underestimated reported yields, with a systematic underestimation across all MS for soft wheat, rapeseed and sugar beet forecasts.",
+        "Forecasts generally improve during the growing season; both the forecast error and its variability tend to progressively decrease.",
+        "This is the case for the cereals, and to a lesser extent for the tuber crops, while seasonal forecast improvements are lower for the oilseed crops.",
+        "The median EU-12 yield forecasts for rapeseed, potato and sugar beet have significantly",
+        "neither was there any significant improvement in any of the crop forecasts from 2006 to 2015, evaluated at EU-27 level.",
+        "an increased volatility in yield statistics is observed",
+        "This underlines that renewed efforts to improve operational crop yield forecasting are needed"
+      ]
+    },
+    "paudel_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016.",
+      "doi": "10.1016/j.agsy.2020.103016",
+      "dosya": "kaynak_dosyalari/paudel_2021_ideas.html",
+      "dogrulandigi_yer": "yayıncı özeti, IDEAS/RePEc kaydı",
+      "ulke_sayisi": 3,
+      "urun_sayisi": 5,
+      "erken_sezon_ekimden_sonra_gun": 30,
+      "nrmse_yumusak_bugday_hollanda": {"makine_ogrenmesi": 7.87, "mcyfs": 6.32},
+      "nrmse_seker_pancari_almanya": {"makine_ogrenmesi": 8.21, "mcyfs": 8.79},
+      "alinti": [
+        "operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning.",
+        "We created features using crop simulation outputs and weather, remote sensing and soil data from the MCYFS database.",
+        "we predicted yield at regional level for five crops (soft wheat, spring barley, sunflower, sugar beet, potatoes) and three countries (the Netherlands (NL), Germany (DE), France (FR)).",
+        "We also aggregated the predictions to the national level and compared with past MCYFS forecasts.",
+        "The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower).",
+        "For example, NRMSE was 7.87 for soft wheat (NL) (6.32 for MCYFS) and 8.21 for sugar beet (DE) (8.79 for MCYFS).",
+        "In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS.",
+        "NRMSEs for end of season were still comparable to MCYFS for NL, but worse for DE and FR.",
+        "The baseline can be improved by adding new data sources, designing more predictive features and evaluating different machine learning algorithms."
+      ]
+    },
+    "ab_2021_2116": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2021/2116 of the European Parliament and of the Council of 2 December 2021 on the financing, management and monitoring of the common agricultural policy.",
+      "tuzuk_no": "2021/2116",
+      "dosya": "kaynak_dosyalari/ab_2021_2116_otp_finansman_tuzugu.xhtml",
+      "calisir_olma_tarihi": "1 Ocak 2023",
+      "tam_isler_olma_tarihi": "1 Ocak 2024",
+      "_denetim": "Tüzük metninde 'machine learning', 'artificial intelligence' ve 'algorithm' hiç geçmiyor; 'Copernicus' üç kez geçiyor (16.11.2026 sayımı). Metin bu yüzden 'tüzük uyduyu şart koşuyor, yöntemi değil' diyor.",
+      "alinti": [
+        "‘area monitoring system’ means a procedure of regular and systematic observation, tracking and assessment of agricultural activities and practices on agricultural areas by Copernicus Sentinels satellite data or other data with at least equivalent value",
+        "Member States shall set up and operate an area monitoring system, which shall be operational from 1 January 2023.",
+        "However, by 1 January 2024, an area monitoring system in all Member States shall be fully operational.",
+        "Member States shall annually assess the quality of the area monitoring system in accordance with the methodology set up at Union level."
+      ]
+    },
+    "tob_bitkisel_uretim_metaveri": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Bitkisel Üretim I. Tahmini, 2026 — metaveri.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2347",
+      "dosya": "kaynak_dosyalari/tob_2026_bitkisel_uretim_1_tahmin.html",
+      "yillik_aciklama_sayisi": 3,
+      "_yontem": "Metaverinin yöntem tarifinde uydu, uzaktan algılama ya da model geçmiyor.",
+      "alinti": [
+        "TARIM REFORMU GENEL MÜDÜRLÜĞÜ İSTATİSTİK BÜLTENİ Bitkisel Üretim I. Tahmini, 2026",
+        "Bitkisel üretim tahminleri kapsamında yılda 3 kez sonuç açıklanmaktadır.",
+        "Mayıs ve Ekim aylarında açıklanan istatistikler 1. ve 2. tahminler, Aralık ayında yayımlanan istatistikler nihai sonuçlardır.",
+        "Veriler, İl ve İlçe Müdürlükleri tarafından toplanmakta ve web tabanlı İstatistik Bilgi Sistemine (İBS) girilmektedir.",
+        "Bu bilgiler, ilçe müdürlüklerinin ellerindeki kaynak bilgiler, idari kayıtlar (ÇKS, havza sistemi bilgileri, STATİP vb.) ile tarım teknisyenlerinin kendi bölgeleri hakkındaki izlenimlerine dayanan bilgiler niteliğindedir."
+      ]
+    },
+    "tkb_2006_verim_bulteni": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Köyişleri Bakanlığı — FAO TCP/TUR/3002-A. Bülten No 1: Ekim 2005-Ocak 2006. Kışlık Buğday Agro-Meteorolojik Ürün Verim Tahmini Bülteni.",
+      "dosya": "kaynak_dosyalari/tkb_2006_01_verim_tahmini_bulteni.pdf",
+      "sezon": "2005-2006",
+      "model_calisma_araligi_gun": 10,
+      "alinti": [
+        "Bülten No 1: Ekim 2005-Ocak 2006 ÜRÜN ADI: Kışlık Buğday",
+        "FAO (Strengthening the Crop Yield and Production Forecasting Capability Project-TCP/TUR/3002-A )",
+        "meteorolojik verileri kullanarak kışlık buğdayda verim tahmini yapmak ve elde edilen sonuçları ilgili kuruluşlara bildirmektir",
+        "Bu bültende yer alan verim tahminleri FAO tarafından geliştirilen ve iklim faktörlerinin kullanıldığı Agrometeorolojik Simülasyon Yöntemine göre yapılmıştır.",
+        "Yöntemin mantığı bitki yetişme periyodu boyunca bitkinin ihtiyacı olan suyun yeterli olup olmadığının saptanmasına dayanmaktadır.",
+        "Modelden elde edilen bir seri parametre Devlet İstatistik Enstitüsü'nün uzun yıllar verim istatistikleri ile ilişkilendirilerek",
+        "Model her 10 günde bir çalıştırılarak o tarihe kadar olan iklim verileri değerlendirilmektedir."
+      ]
+    },
+    "tbmae_2020_verim_bulteni": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarla Bitkileri Merkez Araştırma Enstitüsü, CBS ve Uzaktan Algılama Merkezi. Mayıs 2020. Tarımsal Ürün İzleme ve Verim Tahmin Bülteni, sayı 28.",
+      "dosya": "kaynak_dosyalari/tbmae_2020_05_verim_tahmin_bulteni.pdf",
+      "bulten_sayisi": 28,
+      "tahmini_bugday_verimi_kg_da": 232.5,
+      "uzun_yillara_gore_azalis_yuzde": 7.9,
+      "alinti": [
+        "TARIMSAL ÜRÜN İZLEME ve VERİM TAHMİN BÜLTENİ E-BÜLTEN SAYI 28 MAYIS 2020",
+        "Bakanlık İzleme Erken Uyarı ve Tahmin Komitesine ve karar vericilerine düzenli bilgi akışı sağlanmaktadır",
+        "31 Mayıs 2020 tarihine kadar olan iklim verileri kullanılarak modelden elde edilen sonuçlara göre il bazında buğday verim tahminleri",
+        "Elde edilen sonuçlara göre bu yıl Türkiye geneli ortalama tahmini buğday verimi 232,5 kg/da olarak hesaplanmıştır.",
+        "Uzun yıllar ortalama verim değerlerine göre % 7,9 azalış olacağı tahmin edilmiştir."
+      ]
+    },
+    "bulten_listesi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. AGROSENS — bülten listesi.",
+      "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+      "dosya": "kaynak_dosyalari/toprakgubre_agrosens_listesi.html",
+      "alinti": [
+        "Bülten No 1 Ekim 2005-Ocak 2006 Agro-Meteorolojik Ürün Verim Tahmini Bülteni",
+        "Mayıs 2020 Tarımsal Ürün İzleme ve Verim Tahmin Bülteni",
+        "Nisan 2022 Tarımsal Meteoroloji ve Ürün İzleme Bülteni",
+        "Nisan 2026 Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni"
+      ]
+    },
+    "agrosens_2026_04": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. Nisan 2026. AGROSENS — Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni, sayı 58.",
+      "dosya": "kaynak_dosyalari/agrosens_2026_04.pdf",
+      "bulten_sayisi": 58,
+      "ndvi_cozunurluk_m": 250,
+      "denetlenen_sayilar": ["Mayıs 2024", "Mayıs 2025", "Kasım 2025", "Nisan 2026"],
+      "_denetim": "Dört sayının (izleme_bulteni_2024_05.pdf, agrosens_2025_05.pdf, agrosens_2025_11.pdf, agrosens_2026_04.pdf — hepsi ham_kaynaklar.json'da) metninde 'kg/da' ve 'verim tahmini' geçmiyor (16.11.2026 taraması). Mayıs 2020 sayısında ikisi de geçiyor. Bültenlerde bölgesel gözleme dayalı nitel verim beklentisi var, rakam yok.",
+      "alinti": [
+        "AGROSENS NİSAN 2026 - SAYI 58",
+        "uydu tabanlı NDVI, ASI ve fPAR göstergeleri, yağış ve sıcaklık analizleri ile birlikte ele alınmış",
+        "MODIS Terra+Aqua, 250 m",
+        "bölge genelinde verim beklentisinin olumlu yönde şekillenebileceği değerlendirilmektedir",
+        "ancak ilkbahar başı değerleri yıl sonu tarımsal performans için belirleyici değildir; asıl belirleyici dönem mayıs–temmuz aralığıdır"
+      ]
+    },
+    "trgm_2026_urun_belirleme": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+      "dosya": "kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+      "ilk_uygulama_yili": 2025,
+      "bolge_toplantisi": 12,
+      "duyuru_ayi": "Temmuz 2026",
+      "_dogruluk": "Duyuru 'yüksek doğruluk oranları' diyor ama oran vermiyor; bu taramada yayımlanmış bir doğruluk değeri bulunamadı.",
+      "alinti": [
+        "Genel Müdürlüğümüz tarafından yürütülen Ürün Belirleme Çalışmaları",
+        "Yapay Zekâ Destekli Ürün İzleme ve Uydu Takip Sistemlerine",
+        "12 bölge toplantısı gerçekleştirildi",
+        "Bakanlığımız tarafından 2025 üretim yılında ilk kez uygulamaya alınan Uzaktan Algılama ile Ürün Belirleme Çalışmaları",
+        "ülke genelindeki tarımsal üretim alanları yüksek doğruluk oranlarıyla analiz edilmekte",
+        "Sistem kapsamında sahadan toplanan referans parseller, uydu görüntüleriyle birlikte değerlendirilerek makine öğrenmesi süreçleri işletiliyor",
+        "ekili ürünlerin tespiti, sınıflandırılması ve üretim desenlerinin belirlenmesine yönelik analizler",
+        "Kışlık ürünlere ait referans parsellerin hasat öncesinde hızlı, doğru ve yeterli yoğunlukta toplanmasının sistem başarısını doğrudan etkilediği vurgulanırken",
+        "bu kapsamda gerçekleştirilecek ÇKS beyan doğruluk kontrolleri"
+      ]
+    },
+    "altun_turker_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Altun M., Türker M. 2021. Çoklu zamanlı Sentinel-2 görüntülerinden tarımsal ürün tespiti: Mardin-Kızıltepe örneği. AKÜ FEMÜBİD 21.",
+      "doi": "10.35414/akufemubid.890436",
+      "dosya": "kaynak_dosyalari/altun_turker_2021_kiziltepe.pdf",
+      "goruntu_yili": 2018,
+      "genel_dogruluk_yuzde": 96.35,
+      "_sinir": "Tek bölge, tek yıl; doğruluk çiftçi beyanına (ÇKS) göre ölçülmüş.",
+      "alinti": [
+        "2018 yılına ait çoklu tarihli Sentinel -2 uydu görüntülerinden",
+        "Sınıflandırmada, Rastgele Orman (RO) algoritması parsel -tabanlı yaklaşımla kullanılmıştır.",
+        "Tespit edilen ürünler mısır, buğday, pamuk, nohut, mercimek ve diğerleridir.",
+        "Görüntü olarak altı farklı tarihte",
+        "Eğitim alanı örnekleri ve sonuçların doğruluk analizleri için , mevcut Çiftçi Kayıt Sistemi (ÇKS) verilerinden yararlanılmıştır.",
+        "Sınıflandırma neticesinde % 96.35 genel doğruluk"
+      ]
+    },
+    "simsek_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Şimşek F.F. 2023. Arazi Parsel Tanımlama Sistemi verileri kullanılarak ülkesel ölçekte arazi örtüsü ve arazi kullanım sınıflandırması. Türk Uzaktan Algılama ve CBS Dergisi 4(2).",
+      "doi": "10.48123/rsgis.1268155",
+      "dosya": "kaynak_dosyalari/simsek_2023_apts_siniflandirma.pdf",
+      "fiziksel_blok_milyon": 13.5,
+      "sentinel_cerceve": 370,
+      "siniflandirma_yili": 2021,
+      "genel_dogruluk_yuzde": 86.07,
+      "alinti": [
+        "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü, Ankara",
+        "2016 yılında 30 cm çözünürlüklü ortofoto görüntüler kullanılarak ülke geneli boşluk kalmayacak şekilde APTS kapsamında sayısallaştırılmıştır.",
+        "fiziksel bloklar (13,5 milyon) ile çok zamanlı Sentinel-2 görüntüleri (370 çerçeve)",
+        "LightGBM makine öğrenme algoritması kullanılarak yapılmış olup % 86,07 genel doğruluk değerine ulaşılmıştır.",
+        "Sınıflandırma işlemi sonucu 2021 yılına ait arazi örtüsü ve kullanım sınıflarının belirlenmesinin"
+      ]
+    },
+    "yasar_yagci_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Yaşar O., Yağcı A.L. 2024. Kadastro parsel sınırlarının obje olarak kullanılarak arpa ve buğday ürünlerinin çok zamanlı Sentinel-2 uydu görüntüleri ile belirlenmesi. Türk Uzaktan Algılama ve CBS Dergisi 5(1).",
+      "doi": "10.48123/rsgis.1309618",
+      "dosya": "kaynak_dosyalari/yasar_yagci_2024_yozgat.pdf",
+      "alinti": [
+        "çiftçi beyanları temel alınarak maddi olarak desteklenmektedir",
+        "tam otomatik bir kontrol sistemi kurulması amaçlanmıştır",
+        "Yozgat ilinin Merkez ilçesinde toplanan yersel doğrulama verileri ile karşılaştırılmıştır",
+        "Ancak, bir parsele iki farklı ürün dikildiğinde yöntem hatalı sonuçlar vermektedir."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "genel_tarim_sayimi_yili": 2025,
+      "alinti": [
+        "Tedbir 488.3. Tarım istatistiklerinin derlenmesi, işlenmesi, analizi ve kontrolünün etkin bir şekilde yapılması amacıyla düzenlemeler yapılacaktır.",
+        "2025 yılında gerçekleştirilen Genel Tarım Sayımı’nda elde edilen veriler kullanılarak tüm tarım işletmelerinin kayıt altına alındığı, kayıtların mekânsal verilerle entegre bir şekilde gerçek zamanlı olarak güncelleneceği Tarımsal İşletme Kayıt Sistemi oluşturulacaktır.",
+        "Tedbir 488.4. Kayıt ve bilgi sistemleri erken uyarı, piyasa kontrolleri, üretim planlaması ve stok yönetimini sağlayacak şekilde bütüncül bir yaklaşımla tasarlanacak"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Resmî rekolte tahmininin yöntemi (metaveri), 2005'ten beri süren verim tahmini ve izleme bültenleri, Bakanlığın 2025'te başlattığı makine öğrenmeli ürün tespiti ve üç hakemli Türkiye çalışması var. Türkiye'de yapay zekâyla yapılmış bir rekolte tahminini resmî tahminle ya da gerçekleşen üretimle karşılaştıran yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "tuik_ikinci_tahmin_haberleri": "2026 ikinci tahmine dair haberler tahıl üretimi için birbirini tutmayan rakamlar veriyor; birincil bülten bu turda okunmadı. Alınmadı.",
+    "yuksek_dogruluk_beyani": "Bakanlık duyurusundaki 'yüksek doğruluk oranları' sayıyla desteklenmiyor; metinde oran verilmediği belirtilerek aktarıldı, doğruluk iddiası olarak kullanılmadı.",
+    "ispir_aybek_2022": "Kahramanmaraş'ta bir sulama birliği sahasında ürün sınıflandırması — konusu Mardin çalışmasıyla örtüşüyor; okundu, metne alınmadı."
+  }
+}

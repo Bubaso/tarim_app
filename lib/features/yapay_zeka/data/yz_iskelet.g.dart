@@ -137,7 +137,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Crop monitoring and yield forecasting",
       true,
       ["uzaktan", "tahmin", "goruntu"],
-      false,
+      true,
       "Hasattan önce rekoltenin bilinmesi: uydu, model ve belirsizlik.",
       "Knowing the harvest before it comes: satellites, models and uncertainty."),
   YzBaslik(
