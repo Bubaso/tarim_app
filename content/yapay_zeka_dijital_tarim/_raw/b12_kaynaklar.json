@@ -1,0 +1,155 @@
+{
+  "_ne": "§12 Hayvancılık — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "garcia_ruiz_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "García-Ruiz A., Cole J.B., VanRaden P.M., Wiggans G.R., Ruiz-López F.J., Van Tassell C.P. 2016. Changes in genetic selection differentials and generation intervals in US Holstein dairy cattle as a result of genomic selection. PNAS 113(28).",
+      "doi": "10.1073/pnas.1519061113",
+      "dosya": "kaynak_dosyalari/garcia_ruiz_2016_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC4948329)",
+      "yil_sonra": 7,
+      "boga_babasi_kusak_araligi_yil": {
+        "once": 7,
+        "sonra_en_cok": 2.5
+      },
+      "boga_annesi_kusak_araligi_yil": {
+        "once": 4,
+        "sonra": 2.5
+      },
+      "verim_ozelliklerinde_artis_yuzde": "50-100",
+      "dusuk_kalitimli_ozelliklerde_kat": "3-4",
+      "alinti": [
+        "Seven years after the introduction of genomic selection in the United States, it is now possible to evaluate the impact of this technology on the population.",
+        "The SB GI reduced from ∼7 y to less than 2.5 y, and the DB GI fell from about 4 y to nearly 2.5 y.",
+        "The most dramatic response to genomic selection was observed for the lowly heritable traits DPR, PL, and SCS.",
+        "resulting in rapid genetic improvement in fertility, lifespan, and health in a breed where these traits eroded over time.",
+        "rates of genetic gain per year increased from ∼50-100% for yield traits and from threefold to fourfold for lowly heritable traits."
+      ]
+    },
+    "stygar_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Stygar A.H., Gómez Y., Berteselli G.V., Dalla Costa E., Canali E., Niemi J.K., Llonch P., Pastell M. 2021. A systematic review on commercially available and validated sensor technologies for welfare assessment of dairy cattle. Frontiers in Veterinary Science 8.",
+      "doi": "10.3389/fvets.2021.634338",
+      "dosya": "kaynak_dosyalari/stygar_2021_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC8044875)",
+      "tur": "sistematik derleme",
+      "yayin_taranan": 1111,
+      "dis_dogrulamali_calisma": 42,
+      "arac_sayisi": 30,
+      "piyasadaki_teknoloji": 129,
+      "dis_dogrulanmis_satista": 18,
+      "dogrulanmis_pay_yuzde": 14,
+      "tur_bazinda_yuzde": {
+        "ivmeolcer": 30,
+        "kamera": 10,
+        "yuk_hucresi": 8,
+        "sut_sensoru": 8,
+        "bolus": 7
+      },
+      "alinti": [
+        "Out of 1,111 publications initially extracted from databases, only 42 studies describing 30 tools (including prototypes) met requirements for external validation.",
+        "Moreover, through market search, 129 different retailed technologies with application for animal-based welfare assessment were identified.",
+        "In total, only 18 currently retailed sensors have been externally validated (14%).",
+        "The highest validation rate was found for systems based on accelerometers (30% of tools available on the market have validation records), while the lower rates were obtained for cameras (10%), load cells (8%), miscellaneous milk sensors (8%), and boluses (7%).",
+        "Non-active behavior (lying and standing) and rumination were the most often validated for the high performance.",
+        "Also, tools used for physical condition (e.g., body condition scoring) and health evaluation (e.g., mastitis detection) were classified in lower performance group."
+      ]
+    },
+    "erhan_yaganoglu_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Erhan M.K., Yağanoğlu A.M. 2026. Artificial intelligence-assisted disease and welfare detection in farm animals: a diagnostic test accuracy systematic review and meta-analysis. Journal of Agricultural Production 7(3).",
+      "doi": "10.56430/japro.1979815",
+      "dosya": "kaynak_dosyalari/erhan_yaganoglu_2026_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "tur": "tanı doğruluğu meta-analizi",
+      "tam_metin_incelenen": 154,
+      "olcutu_karsilayan": 74,
+      "birlesik_analizdeki_calisma": 10,
+      "mastitis_calismasi": 7,
+      "topallik_calismasi": 3,
+      "birlesik_duyarlilik_yuzde": 83.5,
+      "birlesik_ozgulluk_yuzde": 90.1,
+      "alinti": [
+        "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ",
+        "ATATÜRK ÜNİVERSİTESİ, ZİRAAT FAKÜLTESİ",
+        "Seventy-four of 154 full texts met the inclusion criteria.",
+        "ten studies entered the primary meta-analysis (seven on mastitis and three on lameness).",
+        "Pooled sensitivity was 83.5% (95% confidence interval 74.0–90.0) and pooled specificity was 90.1% (95% confidence interval 85.4–93.3)",
+        "most studies could not be pooled because they reported performance at the record or quarter level rather than per animal.",
+        "Artificial intelligence-based detection appears promising, combining high specificity with good sensitivity, but wide heterogeneity, the small number of poolable studies, and low certainty of evidence all call for cautious interpretation."
+      ]
+    },
+    "ghafoor_sitkowska_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Abdul Ghafoor N., Sitkowska B. 2021. MasPA: a machine learning application to predict risk of mastitis in cattle from AMS sensor data. AgriEngineering 3(3).",
+      "doi": "10.3390/agriengineering3030037",
+      "dosya": "kaynak_dosyalari/ghafoor_sitkowska_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "hayvan_sayisi": 6600,
+      "bildirilen_dogruluk_yuzde": 98.1,
+      "_veri_ulkesi": "Özette verinin hangi ülkeden geldiği yazmıyor; metin bunu açıkça söyler.",
+      "alinti": [
+        "Mugla Sitki Kocman University, 48000 Mugla, Turkey",
+        "University of Science and Technology, 85-084 Bydgoszcz, Poland",
+        "In this study, we utilized a dataset of 6600 cattle along with several of their sensory parameters (collected via inexpensive sensors) and their prevalence to mastitis.",
+        "with an accuracy of 98.1% and sensitivity and specificity of 99.4% and 98.8%, respectively."
+      ]
+    },
+    "tob_hayvan_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Hayvan Varlığı İstatistikleri, Haziran 2026.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2385",
+      "dosya": "kaynak_dosyalari/tob_2026_hayvan_varligi_haziran.html",
+      "sigir_2026_06": 17640002,
+      "sigir_milyon": 17.6,
+      "koyun_2026_06": 49473446,
+      "koyun_milyon": 49.5,
+      "keci_2026_06": 11341731,
+      "keci_milyon": 11.3,
+      "_turetme": "milyon değerleri baş sayılarının yuvarlanmışı",
+      "alinti": [
+        "sığır sayısı bir önceki yıla göre %0,5 artarak 17 milyon 640 bin 2 baş",
+        "koyun sayısı bir önceki yıla göre %6,0 artarak 49 milyon 473 bin 446 baş",
+        "keçi sayısı ise bir önceki yıla göre %1,4 artarak 11 milyon 341 bin 731 baş olmuştur."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "sut_milyon_ton": {
+        "2024": 22.5,
+        "2025": 21.4
+      },
+      "kultur_irki_orani_yuzde": {
+        "2025": 48.8,
+        "2026_tahmin": 49.0,
+        "2027_hedef": 49.5
+      },
+      "alinti": [
+        "2024 yılında 22,5 milyon ton olan süt üretimi yüzde 4,9 azalarak 2025 yılında yaklaşık 21,4 milyon ton olarak gerçekleşmiştir.",
+        "genetik kapasitenin geliştirilmesine yönelik suni tohumlama uygulamalarının yaygınlaştırılması",
+        "genomik test yaptırılan damızlık dişi buzağılar",
+        "Yerli imkânlarla geliştirilen Güvenli Elektronik Küpe ve İzleme Sistemi uygulamaya konulacaktır.",
+        "Sığır Varlığı İçinde Kültür Irkı Oranı Yüzde 48,8 49,0 49,5",
+        "7 Eylül 2026 tarihli Resmî Gazete’de yayımlanan Kararla değiştirilmiştir.",
+        "için ilave katsayılar getirilmiştir."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Programda genomik test desteği, yerli elektronik küpe ve izleme sistemi, kültür ırkı hedefi; akademide yapay zekâlı teşhisin meta-analizi ve sağım robotu verisiyle mastitis tahmini. Türkiye'de bir çiftlikte sensör ya da yapay zekâyla erken teşhisin hayvan sağlığına veya verime etkisini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "lokomotor_2026": "Holstein ve Simental ineklerde hareket davranışıyla erken hastalık tespiti (2026): özeti Crossref'te yok, birincil kaynaktan okunamadı. Alınmadı."
+  }
+}

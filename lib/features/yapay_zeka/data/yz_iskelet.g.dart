@@ -170,7 +170,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Livestock",
       true,
       ["sensor", "goruntu", "tahmin", "karar"],
-      false,
+      true,
       "Hassas hayvancılık: hastalığı belirtiden önce görmek, sürüyü tek tek tanımak.",
       "Precision livestock farming: seeing disease before symptoms, knowing animals one by one."),
   YzBaslik(

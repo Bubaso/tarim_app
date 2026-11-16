@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 247,
- "toplam_bayt": 733310840,
+ "dosya_sayisi": 251,
+ "toplam_bayt": 733360683,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1897,6 +1897,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/erhan_yaganoglu_2026_crossref.json",
+   "bayt": 18563,
+   "sha256": "5a714ed9649d5fc73eb34c8a1af0ad19ec3f3587ef095b92e14b157011c76fee",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.56430/japro.1979815",
+    "atif": "Erhan M.K., Yağanoğlu A.M. 2026. Artificial intelligence-assisted disease and welfare detection in farm animals: a diagnostic test accuracy systematic review and meta-analysis. Journal of Agricultural Production 7(3): 170-181. doi:10.56430/japro.1979815",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2025_gida_kaybi_gunu.html",
    "bayt": 64966,
    "sha256": "c22ac914188bb813ffac3c048ae4d6da28a6fcc7a591fc6eb191f57113c9a81a",
@@ -1945,6 +1957,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/garcia_ruiz_2016_europepmc.json",
+   "bayt": 10573,
+   "sha256": "9e040ceefbefc4b91f621634f789b862df5630376ea460ad93f3df552ead2727",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22genetic%20selection%20differentials%20and%20generation%20intervals%22&resultType=core&format=json",
+    "atif": "García-Ruiz A., Cole J.B., VanRaden P.M., Wiggans G.R., Ruiz-López F.J., Van Tassell C.P. 2016. Changes in genetic selection differentials and generation intervals in US Holstein dairy cattle as a result of genomic selection. PNAS 113(28): E3995-E4004. doi:10.1073/pnas.1519061113 (PMC4948329)",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/genelge_2026_9.pdf",
    "bayt": 213346,
    "sha256": "53eace3c697fb00cb4edfe32769a49d7057bdedf39f815fe9926280e11a60599",
@@ -1954,6 +1978,18 @@
     "lisans": "kamu belgesi",
     "lisans_adresi": null,
     "_not": "BİRİNCİL kaynak, resmî siteden indirildi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ghafoor_sitkowska_2021_crossref.json",
+   "bayt": 12880,
+   "sha256": "51ee87e864cd40e3cf39517db7666270de26cfbb9260fa72544aed9dabcdf32c",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/agriengineering3030037",
+    "atif": "Abdul Ghafoor N., Sitkowska B. 2021. MasPA: a machine learning application to predict risk of mastitis in cattle from AMS sensor data. AgriEngineering 3(3): 575-583. doi:10.3390/agriengineering3030037",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
    }
   },
   {
@@ -2170,6 +2206,18 @@
     "lisans": "DergiPark açık erişim",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — hakemli dergi; yazar Tarım Reformu Genel Müdürlüğü'nden."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/stygar_2021_europepmc.json",
+   "bayt": 7827,
+   "sha256": "d1105ff98e8fc3796868852f8e81d3179bb3fd2ad1a5c9795bf3dd9d833ae755",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22commercially%20available%20and%20validated%20sensor%20technologies%22&resultType=core&format=json",
+    "atif": "Stygar A.H., Gómez Y., Berteselli G.V., Dalla Costa E., Canali E., Niemi J.K., Llonch P., Pastell M. 2021. A systematic review on commercially available and validated sensor technologies for welfare assessment of dairy cattle. Frontiers in Veterinary Science 8: 634338. doi:10.3389/fvets.2021.634338 (PMC8044875)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
    }
   },
   {

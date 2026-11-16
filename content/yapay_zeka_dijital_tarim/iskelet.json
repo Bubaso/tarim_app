@@ -395,12 +395,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Hassas hayvancılık: hastalığı belirtiden önce görmek, sürüyü tek tek tanımak.",
         "en": "Precision livestock farming: seeing disease before symptoms, knowing animals one by one."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {
