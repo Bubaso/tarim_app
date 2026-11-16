@@ -181,7 +181,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Greenhouse and controlled environment",
       true,
       ["sensor", "ikiz", "karar", "robotik"],
-      false,
+      true,
       "Her değişkenin ölçüldüğü yer: iklim kontrolü, dikey tarım, dijital ikiz.",
       "Where every variable is measured: climate control, vertical farming, digital twins."),
   YzBaslik(

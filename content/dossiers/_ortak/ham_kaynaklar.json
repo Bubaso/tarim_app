@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 251,
- "toplam_bayt": 733360683,
+ "dosya_sayisi": 255,
+ "toplam_bayt": 733462427,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1993,6 +1993,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hemming_2019_europepmc.json",
+   "bayt": 7531,
+   "sha256": "99f227843c38025f71301851eaf321f4878eaac3749a68c9e638f96aeca5ad99",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Remote%20Control%20of%20Greenhouse%20Vegetable%20Production%20with%20Artificial%20Intelligence%22&resultType=core&format=json",
+    "atif": "Hemming S., de Zwart F., Elings A., Righini I., Petropoulou A. 2019. Remote control of greenhouse vegetable production with artificial intelligence — greenhouse climate, irrigation, and crop production. Sensors 19(8): 1807. doi:10.3390/s19081807 (PMC6515393)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hemming_2020_europepmc.json",
+   "bayt": 7391,
+   "sha256": "feaf71b70e790c1373c07977309712b59bd35c77c8d84638ea1217b3d28c69dd",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Cherry%20Tomato%20Production%20in%20Intelligent%20Greenhouses%22&resultType=core&format=json",
+    "atif": "Hemming S., de Zwart F., Elings A., Petropoulou A., Righini I. 2020. Cherry tomato production in intelligent greenhouses — sensors and AI for control of climate, irrigation, crop yield, and quality. Sensors 20(22): 6430. doi:10.3390/s20226430 (PMC7698269)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/izleme_bulteni_2024_05.pdf",
    "bayt": 4473939,
    "sha256": "2e056a8a57b758345c494f82472a60072b01d1da4f9981e24f5ce3d46b48be10",
@@ -2317,6 +2341,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_su_urunleri_2025.html",
+   "bayt": 77043,
+   "sha256": "a3488340e506552384713ad1324ccf1f68c7c2a841eb09213adc20369ff9b75a",
+   "kaynak": {
+    "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2353",
+    "atif": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 09.06.2026. İstatistik Bülteni: Su Ürünleri İstatistikleri, 2025.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_tohum_uretim_2025.html",
    "bayt": 75191,
    "sha256": "cf1db8857f4b6e5646a75b5c3c229eeffebef96c51a473b4a998dae7130744ad",
@@ -2374,6 +2410,18 @@
     "lisans": "kamu belgesi",
     "lisans_adresi": null,
     "_not": "ÜÇÜNCÜ TARAF YANSIMASI. Resmî kaynak cbddo.gov.tr bu ortamdan erişilemiyor: DNS çözülüyor (212.174.186.39) ama TLS el sıkışmasında bağlantı karşı taraftan kesiliyor; tarayıcı da açamıyor. Belge tam: 14 sayfa, 6 öncelik, 71 eylem (1.1-6.19), basının verdiği sayıyla birebir. Resmî kopyaya erişilince SHA-256 karşılaştırılacak."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/van_delden_2021_europepmc.json",
+   "bayt": 9779,
+   "sha256": "2b93eef6ae55360080143cc3e5857840090659d14cecbfdcad122bb29541e595",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Current%20status%20and%20future%20challenges%20in%20implementing%20and%20upscaling%20vertical%20farming%20systems%22&resultType=core&format=json",
+    "atif": "van Delden S.H., SharathKumar M., Butturini M., Graamans L.J.A., Heuvelink E., Kacira M., Kaiser E., Klamer R.S., Klerkx L., Kootstra G., Loeber A., Schouten R.E., Stanghellini C., van Ieperen W., Verdonk J.C., Vialet-Chabrand S., Woltering E.J., van de Zedde R., Zhang Y., Marcelis L.F.M. 2021. Current status and future challenges in implementing and upscaling vertical farming systems. Nature Food 2(12): 944-956. doi:10.1038/s43016-021-00402-w",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
    }
   },
   {

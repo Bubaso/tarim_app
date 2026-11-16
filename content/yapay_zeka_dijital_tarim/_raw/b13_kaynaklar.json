@@ -1,0 +1,87 @@
+{
+  "_ne": "§13 Sera ve kontrollü ortam — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "hemming_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Hemming S., de Zwart F., Elings A., Righini I., Petropoulou A. 2019. Remote control of greenhouse vegetable production with artificial intelligence — greenhouse climate, irrigation, and crop production. Sensors 19(8).",
+      "doi": "10.3390/s19081807",
+      "dosya": "kaynak_dosyalari/hemming_2019_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC6515393)",
+      "tur": "yarışma deneyi — salatalık, Otonom Sera Yarışması'nın ilki",
+      "ekip_sayisi": 5,
+      "bolme_m2": 96,
+      "sure_ay": 4,
+      "referansi_gecen_ekip": 1,
+      "alinti": [
+        "encounters difficulties finding skilled staff to manage crop production",
+        "Artificial intelligence (AI) has reached breakthroughs in several areas, however, not yet in horticulture.",
+        "Each team had a 96 m2 modern greenhouse compartment to grow a cucumber crop remotely during a 4-month-period.",
+        "Control setpoints were remotely determined by teams using their own AI algorithms.",
+        "Achievements in AI-controlled compartments were compared with a manually operated reference.",
+        "We can conclude that in general AI performed well in controlling a greenhouse. One team outperformed the manually-grown reference.",
+        "Each compartment was equipped with standard actuators (heating, ventilation, screening, lighting, fogging, CO2 supply, water and nutrient supply).",
+        "Actuators were operated by a process computer.",
+        "Different sensors continuously collected measurements."
+      ]
+    },
+    "hemming_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Hemming S., de Zwart F., Elings A., Petropoulou A., Righini I. 2020. Cherry tomato production in intelligent greenhouses — sensors and AI for control of climate, irrigation, crop yield, and quality. Sensors 20(22).",
+      "doi": "10.3390/s20226430",
+      "dosya": "kaynak_dosyalari/hemming_2020_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC7698269)",
+      "tur": "yarışma deneyi — çeri domates, Otonom Sera Yarışması'nın ikincisi",
+      "bolme_sayisi": 6,
+      "sure_ay": 6,
+      "ekip_sayisi": 5,
+      "alinti": [
+        "highly skilled labor is increasingly lacking in the greenhouse sector.",
+        "This paper describes and analyzes the results of the second",
+        "In this challenge, an experiment was conducted in six high-tech greenhouse compartments during a period of six months of cherry tomato growing.",
+        "The primary goal of the greenhouse operation was to maximize net profit, by controlling the greenhouse climate and crop with AI techniques.",
+        "Five international teams with backgrounds in AI and horticulture were challenged in a competition to operate their own compartment remotely.",
+        "All AI supported teams outperformed a human-operated greenhouse that served as reference."
+      ]
+    },
+    "van_delden_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "van Delden S.H., SharathKumar M., Butturini M., Graamans L.J.A., Heuvelink E., Kacira M., Kaiser E., Klamer R.S., Klerkx L., Kootstra G., Loeber A., Schouten R.E., Stanghellini C., van Ieperen W., Verdonk J.C., Vialet-Chabrand S., Woltering E.J., van de Zedde R., Zhang Y., Marcelis L.F.M. 2021. Current status and future challenges in implementing and upscaling vertical farming systems. Nature Food 2(12).",
+      "doi": "10.1038/s43016-021-00402-w",
+      "dosya": "kaynak_dosyalari/van_delden_2021_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "alinti": [
+        "Vertical farming can produce food in a climate-resilient manner, potentially emitting zero pesticides and fertilizers, and with lower land and water use than conventional agriculture.",
+        "VFS currently produce a limited range of crops including fruits, vegetables and herbs, but successful implementation of vertical farming as part of mainstream agriculture will require improvements in profitability, energy efficiency, public policy and consumer acceptance.",
+        "Here we discuss VFS as multi-layer indoor crop cultivation systems"
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "jeotermal_otb": 5,
+      "alinti": [
+        "İklim koşullarından kaynaklanan üretim ve fiyat dalgalanmalarının azaltılması ve yıl boyunca düzenli ürün arzının sağlanması bakımından kontrollü örtü altı üretimin geliştirilmesi önem taşımaktadır.",
+        "jeotermal ve diğer yenilenebilir enerji kaynaklarının etkin kullanıldığı modern sera yatırımlarının ve organize tarım bölgelerinin geliştirilmesine devam edilmesi",
+        "başta nüfusu yüksek büyükşehirlerde olmak üzere örtü altı yetiştiriciliğinin geliştirilmesi yoluyla üretim artırılacaktır.",
+        "Tedbir 491.4. Örtü altı yetiştiriciliğine yönelik mevcut seraların modernize edilmesine ve modern seraların kurulmasına yatırım ve işletme finansman desteği sağlanacak, jeotermal sera organize tarım bölgesi sayısı artırılacaktır.",
+        "Enerji ihtiyacı jeotermal kaynakla karşılanan 5 sera organize tarım bölgesinin altyapısı tamamlanarak yatırımcıların hizmetine sunulacaktır."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Programda kontrollü örtü altı üretim önceliği, sera modernizasyonu ve jeotermal sera organize tarım bölgeleri. Türkiye'de yapay zekâyla iklim kontrolünü yetiştiricinin yönetimiyle karşılaştıran yayımlanmış bir sera denemesi bu taramada bulunamadı; Bakanlığın 2025 bitkisel üretim bülteninde örtü altı alanı yer almıyor."
+  },
+  "_reddedilen": {
+    "graamans_2018": "Bitki fabrikası ile serayı kaynak verimliliğinde karşılaştıran makale: özeti Crossref ve OpenAlex'te yok, birincil kaynaktan okunamadı. Alınmadı.",
+    "akilli_sera_prototipleri": "Türkiye'den akıllı sera üzerine bulunan çalışmalar sensör ve izleme prototipleri; yapay zekâlı kontrolün üretime etkisini ölçmüyor. Alınmadı."
+  }
+}

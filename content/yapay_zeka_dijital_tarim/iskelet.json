@@ -422,12 +422,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Her değişkenin ölçüldüğü yer: iklim kontrolü, dikey tarım, dijital ikiz.",
         "en": "Where every variable is measured: climate control, vertical farming, digital twins."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {
