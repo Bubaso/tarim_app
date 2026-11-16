@@ -85,8 +85,8 @@ BASLIKLAR = [
     # ── TARLANIN TAKVİMİ — süreç ekseni ───────────────────────────────
     b(4, "toprak-ve-arazi", "surec", "Toprak ve arazi", "Soil and land",
       ["uzaktan", "sensor", "tahmin", "veri"], {"sayi", "mevzuat", "gelisme"}, surec=1,
-      ozet_tr="Toprak haritalama, verimlilik bölgeleri, arazi planlaması. Türkiye'nin ilk Dijital Toprak Haritası burada.",
-      ozet_en="Soil mapping, productivity zones, land planning. Türkiye's first Digital Soil Map belongs here."),
+      ozet_tr="Toprak haritalama ve arazi planlaması: küresel haritanın gücü, tarla ölçeğinde sınırı, Türkiye'nin detaylı toprak etüdü.",
+      ozet_en="Soil mapping and land planning: the reach of the global map, its limits at field scale, Türkiye's detailed soil survey."),
     b(5, "tohum-islah-genetik", "surec", "Tohum, ıslah ve genetik", "Seed, breeding and genetics",
       ["genomik", "tahmin", "goruntu"], {"sayi", "gelisme"}, surec=2,
       ozet_tr="Fenotipleme, genomik seçilim, ıslah süresinin kısaltılması.",

@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 198,
- "toplam_bayt": 668035765,
+ "dosya_sayisi": 202,
+ "toplam_bayt": 668881886,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1777,6 +1777,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaya_2022_openalex.json",
+   "bayt": 24437,
+   "sha256": "ef6ffe72220f2a5d795563e51947689562cbc405d008a07fa1d02970aad510d0",
+   "kaynak": {
+    "adres": "https://api.openalex.org/works?search=Digital%20mapping%20for%20soil%20texture%20class%20prediction%20in%20northwestern%20T%C3%BCrkiye",
+    "atif": "Kaya F., Başayiğit L., Keshavarzi A., Francaviglia R. 2022. Digital mapping for soil texture class prediction in northwestern Türkiye by different machine learning algorithms. Geoderma Regional, e00584. doi:10.1016/j.geodrs.2022.e00584",
+    "lisans": "bibliyografik kayıt",
+    "lisans_adresi": null,
+    "_not": "Yalnız künye: özet açık kaynaklarda (OpenAlex, Semantic Scholar) yok; sonuç aktarılmıyor."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/poggio_2021_soilgrids.html",
+   "bayt": 426874,
+   "sha256": "045f78dfbb4b8cd06638dc5ca196ef88eb808b4a31fad5aa703232c64f02cb6a",
+   "kaynak": {
+    "adres": "https://soil.copernicus.org/articles/7/217/2021/",
+    "atif": "Poggio L., de Sousa L.M., Batjes N.H., Heuvelink G.B.M., Kempen B., Ribeiro E., Rossiter D. 2021. SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty. SOIL 7: 217-240. doi:10.5194/soil-7-217-2021",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — açık erişimli makale sayfası."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/saikai_2023_arxiv.xml",
    "bayt": 3597,
    "sha256": "b8e43056d3cbe2ea0ce735be7dcbbf1a7dabdb0053a5fb8fc29fc443dae4c28e",
@@ -1786,6 +1810,30 @@
     "lisans": "arXiv kaydı (özet)",
     "lisans_adresi": null,
     "_not": "Özet arXiv API'sinden; dergi künyesi aynı kayıtta."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tagem_2017_ulkesel_toprak_bilgi_sistemi.html",
+   "bayt": 148938,
+   "sha256": "f908264bf9cc80fa0b14f6f935ab7043af9e6f15541da27761c5a3bf7a163650",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/TAGEM/Haber/344",
+    "atif": "TAGEM, 13.09.2017. Ülkesel Toprak Bilgi Sistemi (duyuru).",
+    "lisans": "kamu duyurusu",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2025_dijital_toprak_haritasi_ihalesi.html",
+   "bayt": 245872,
+   "sha256": "56b88f5133d0ae8c792e84233adf3e2178af6ad0ded0442ff2d576ccdea1107c",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/Duyuru/2462/Toprak-Etut-Ve-Siniflandirma-Ihalesi-W-Trgm-Cs1-1-05",
+    "atif": "Tarım ve Orman Bakanlığı, 15.12.2025. Toprak Etüt ve Sınıflandırma İhalesi W.TRGM.CS1.1-05 (Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi).",
+    "lisans": "kamu duyurusu",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi."
    }
   },
   {

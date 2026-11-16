@@ -82,9 +82,9 @@ const List<YzBaslik> kYzBasliklar = [
       "Soil and land",
       true,
       ["uzaktan", "sensor", "tahmin", "veri"],
-      false,
-      "Toprak haritalama, verimlilik bölgeleri, arazi planlaması. Türkiye'nin ilk Dijital Toprak Haritası burada.",
-      "Soil mapping, productivity zones, land planning. Türkiye's first Digital Soil Map belongs here."),
+      true,
+      "Toprak haritalama ve arazi planlaması: küresel haritanın gücü, tarla ölçeğinde sınırı, Türkiye'nin detaylı toprak etüdü.",
+      "Soil mapping and land planning: the reach of the global map, its limits at field scale, Türkiye's detailed soil survey."),
   YzBaslik(
       5,
       "tohum-islah-genetik",

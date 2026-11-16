@@ -184,12 +184,12 @@
         "mevzuat",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
-        "tr": "Toprak haritalama, verimlilik bölgeleri, arazi planlaması. Türkiye'nin ilk Dijital Toprak Haritası burada.",
-        "en": "Soil mapping, productivity zones, land planning. Türkiye's first Digital Soil Map belongs here."
+        "tr": "Toprak haritalama ve arazi planlaması: küresel haritanın gücü, tarla ölçeğinde sınırı, Türkiye'nin detaylı toprak etüdü.",
+        "en": "Soil mapping and land planning: the reach of the global map, its limits at field scale, Türkiye's detailed soil survey."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

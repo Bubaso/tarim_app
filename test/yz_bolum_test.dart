@@ -162,8 +162,9 @@ devam ediyor.
       expect(t.takeException(), isNull);
     });
 
-    for (final slug in ['turkiyede-durum', 'goruntu-isleme-ve-hedefli-ilaclama',
-                        'mevzuat-ve-politika', 'hayvancilik']) {
+    // Yazılmış her başlık (tablo, uzun satır, § göndermesi ne varsa) ve
+    // yazılmamışlardan biri: yeni yazılan başlık kendiliğinden sınansın.
+    for (final slug in _sinanacakBasliklar) {
       testWidgets('başlık sayfası · $slug · $ad · taşmıyor', (t) async {
         t.view.physicalSize = olcu;
         t.view.devicePixelRatio = 1;
@@ -198,8 +199,8 @@ devam ediyor.
   // ekranda bir de İngilizce çizilsin.
   for (final sayfa in <String, Widget>{
     'merkez': const YzMerkezEkrani(),
-    'başlık §23': const YzBaslikEkrani(slug: 'turkiyede-durum'),
-    'başlık §12': const YzBaslikEkrani(slug: 'hayvancilik'),
+    for (final slug in _sinanacakBasliklar)
+      'başlık §${kYzBasliklar.firstWhere((b) => b.slug == slug).no}': YzBaslikEkrani(slug: slug),
     'şerit': const Scaffold(body: SingleChildScrollView(child: YzSeridi(okuraAcik: true))),
   }.entries) {
     testWidgets('İngilizce · ${sayfa.key} · 360 piksel · taşmıyor', (t) async {
@@ -227,3 +228,10 @@ devam ediyor.
     expect(find.text('Böyle bir başlık yok.'), findsOneWidget);
   });
 }
+
+/// Çizim testlerinin başlıkları: yazılmışların HEPSİ + yazılmamışlardan ilki
+/// ("Bu başlık yazılıyor." dalı da sınansın; hepsi yazılınca o dal düşer).
+final List<String> _sinanacakBasliklar = [
+  ...kYzBasliklar.where((b) => b.yazildi).map((b) => b.slug),
+  ...kYzBasliklar.where((b) => !b.yazildi).map((b) => b.slug).take(1),
+];

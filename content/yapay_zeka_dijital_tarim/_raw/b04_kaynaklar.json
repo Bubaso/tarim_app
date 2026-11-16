@@ -1,0 +1,147 @@
+{
+  "_ne": "§4 Toprak ve arazi — kilitli kayıt",
+  "guncellendi": "2026-11-16",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun kendi sitesindeki duyuru",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "poggio_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Poggio L., de Sousa L.M., Batjes N.H., Heuvelink G.B.M., Kempen B., Ribeiro E., Rossiter D. 2021. SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty. SOIL 7: 217-240.",
+      "doi": "10.5194/soil-7-217-2021",
+      "dosya": "kaynak_dosyalari/poggio_2021_soilgrids.html",
+      "lisans": "CC BY 4.0",
+      "tur": "küresel dijital toprak haritası — yöntem ve doğrulama makalesi",
+      "yontem": "kantil regresyon ormanları (quantile regression forests)",
+      "hucre_m": 250,
+      "hucre_alani_ha": 6.25,
+      "_turetme": "hucre_alani_ha = 250 m × 250 m = 62 500 m² = 6,25 ha",
+      "gozlem_noktasi_yaklasik": 240000,
+      "ortam_degiskeni_en_az": 400,
+      "derinlik_araligi": 6,
+      "en_derin_cm": 200,
+      "basari_puani_en_dusuk": 0.31,
+      "basari_puani_en_dusuk_ozellik": "iri parçalar (coarse fragments)",
+      "basari_puani_en_yuksek": 0.74,
+      "_basari_puani": "MEC: modelin açıkladığı varyans payı; 1 kusursuz tahmin. En yüksek değerin ait olduğu özellik makalede kısaltmayla (BDOD) veriliyor ve kısaltmanın açılımı sayfa metninde yok — metne özellik adı yazılmadı.",
+      "tahmin_araligi_yuzde": 90,
+      "yerel_sapma_yuzde": "20-30",
+      "alinti": [
+        "SoilGrids produces maps of soil properties for the entire globe at medium spatial resolution (250 m cell size) using state-of-the-art machine learning methods to generate the necessary models.",
+        "It takes as inputs soil observations from about 240 000 locations worldwide and over 400 global environmental covariates describing vegetation, terrain morphology, climate, geology and hydrology.",
+        "soil organic carbon content, total nitrogen, coarse fragments, pH (water), cation exchange capacity, bulk density and texture fractions at six standard depths (up to 200 cm)",
+        "This study uses quantile regression forests",
+        "the back-transformation was applied at the level of individual tree predictions and the quantiles of the tree prediction distributions obtained from the resulting values",
+        "the lower and upper limits of a 90 % prediction interval",
+        "quantification and mapping of the spatial uncertainty to provide users with a measure for and warning for users of the products",
+        "MEC is equal to the fraction of the explained variance based on the 1:1 line of predicted versus observed",
+        "The MEC varies from a minimum of 0.31 for coarse fragments to a maximum of 0.74 for BDOD.",
+        "Performances decreased with depth, in line with many other DSM studies",
+        "The qualitative evaluation showed that coarse-scale patterns are well reproduced.",
+        "The spatial uncertainty at global scale highlighted the need for more soil observations, especially in high-latitude regions.",
+        "For regions like Europe and North America there are over four profiles per 10 km 2 , whereas for large countries in Asia, such as Kazakhstan, India or Mongolia, the number of available profiles is still quite limited",
+        "a preliminary assessment of SoilGrids in the United States",
+        "soil geographic database based on a detailed field survey",
+        "SoilGrids may fail to account for local parent material transitions",
+        "so that the local PSC pattern is not accurate, sometimes on the order of 20 %–30 % of a particle-size class.",
+        "The actual use of SoilGrids 2.0 in global and wide-area regional applications, where soil properties are important model inputs, will be the real test of its applicability and usefulness.",
+        "SoilGrids predictions themselves are available to the public under the Creative Commons CC-BY 4.0 licence"
+      ]
+    },
+    "tagem_2017": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). 13.09.2017. Ülkesel Toprak Bilgi Sistemi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Haber/344",
+      "dosya": "kaynak_dosyalari/tagem_2017_ulkesel_toprak_bilgi_sistemi.html",
+      "duyuru_yili": 2017,
+      "proje_yillari": "2012-2015",
+      "_portal": "Portalın bugün çalışıp çalışmadığı bu taramada sınanmadı; metin yalnız 2017 duyurusunu aktarır.",
+      "alinti": [
+        "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü Müdürlüğümüzce FAO destekli olarak 2012-2015 yılları arasında",
+        "Ülkesel Coğrafi Toprak Verimliliği ve Organik Karbon (TOK) Bilgi Yönetim Sistemi",
+        "Türkiye Topraklarının Organik Karbon Dağılım (%) Haritası ile Türkiye Topraklarının Karbon Bütçesi Haritası (t/ha) oluşturulmuştur.",
+        "Türkiye topraklarının pH, Tuzluluk (EC), alınabilir fosfor (P2O5 kg/da), kireç (%), alınabilir potasyum (K2O kg/da), KDK, bünye haritaları oluşturulmuştur.",
+        "OGC tarafından tanımlanan WCS, WMS, WFS servis standartlarını da destekleyecek şekilde kurulmuştur.",
+        "Ülkesel Toprak Bilgi Sistemi portalında paylaşıma açılmıştır."
+      ]
+    },
+    "tob_ihale_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 15.12.2025. Toprak Etüt ve Sınıflandırma İhalesi W.TRGM.CS1.1-05 (duyuru).",
+      "adres": "https://www.tarimorman.gov.tr/Duyuru/2462/Toprak-Etut-Ve-Siniflandirma-Ihalesi-W-Trgm-Cs1-1-05",
+      "dosya": "kaynak_dosyalari/tob_2025_dijital_toprak_haritasi_ihalesi.html",
+      "duyuru_yili": 2025,
+      "finansman": "Dünya Bankası kredisi",
+      "il_sayisi": 13,
+      "tarim_alani_ha": 5163124,
+      "tarim_alani_milyon_ha": 5.16,
+      "toplam_alan_ha": 12297537,
+      "toplam_alan_milyon_ha": 12.3,
+      "_turetme": "milyon hektar alanları ha değerlerinin yuvarlanmışı: 5 163 124 ha → 5,16; 12 297 537 ha → 12,3",
+      "lot_sayisi": 10,
+      "sure_gun": 600,
+      "_yontem": "Duyuru haritaların hangi yöntemle üretileceğini söylemiyor; makine öğrenmesi kullanılıp kullanılmayacağı bu belgeden anlaşılmıyor.",
+      "alinti": [
+        "Proje Adı: Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi",
+        "Sözleşme Başlığı: Toprak Etüt ve Sınıflandırma; Toprak Analizleri ve Detaylı Dijital Toprak Haritalarının Hazırlanması",
+        "Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi giderlerinin karşılanması için Dünya Bankası'ndan finansman temin etmiştir",
+        "Ankara, İstanbul, Düzce, Sakarya, Bolu, Kocaeli, Zonguldak, Bartın, Karabük, Kastamonu, Konya, Karaman ve Mersin illerini kapsayan Tarım Alanı 5.163.124,00 (ha), Tarım Dışı Alan 1.426.700,00 (ha), geri kalanı yol-yerleşim ve orman alanlarından oluşan toplam 12.297.537,00 (ha) alan aşağıdaki tabloda görüldüğü üzere 10 lot olarak ihale edilecektir.",
+        "İşin Süresi işin başlama tarihinden başlamak üzere 600 takvim günü olarak belirlenmiştir."
+      ]
+    },
+    "kaya_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kaya F., Başayiğit L., Keshavarzi A., Francaviglia R. 2022. Digital mapping for soil texture class prediction in northwestern Türkiye by different machine learning algorithms. Geoderma Regional.",
+      "doi": "10.1016/j.geodrs.2022.e00584",
+      "dosya": "kaynak_dosyalari/kaya_2022_openalex.json",
+      "dogrulandigi_yer": "OpenAlex bibliyografik kaydı — özet yok",
+      "tur": "YALNIZ KÜNYE — özet açık kaynaklarda bulunamadı; sonuç aktarılmıyor",
+      "alinti": [
+        "Digital mapping for soil texture class prediction in northwestern Türkiye by different machine learning algorithms",
+        "Geoderma Regional"
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "tarim_arazisi_milyon_ha_2025": 24,
+      "detayli_etut_2024_bin_ha": 755,
+      "detayli_etut_2026_sonu_ilave_milyon_ha": 2.4,
+      "devam_eden_proje_sahasi_milyon_ha": 6.8,
+      "devam_eden_2027_milyon_ha": 3.5,
+      "devam_eden_2028_milyon_ha": 3.3,
+      "tedbir_490_1_il": 15,
+      "tedbir_490_1_milyon_ha": 3.5,
+      "_iki_belge": "Programın 15 il / 3,5 milyon hektar tedbiri ile Aralık 2025 ihalesinin 13 il / 5,16 milyon hektar tarım alanı aynı şeyi saymıyor olabilir; iki belge arasındaki ilişki belgelerde açıklanmıyor. Metin ikisini ayrı ayrı aktarır, toplamaz.",
+      "alinti": [
+        "2025 yılı itibarıyla 24 milyon hektar tarım arazisinin",
+        "Tarım sektöründe işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı üretim maliyetlerini artırmakta",
+        "Tarım arazilerinin korunmasının yanı sıra toprak özelliklerinin belirlenmesi ve arazi kullanım kararlarının güncel ve güvenilir verilere dayandırılması önemini korumaktadır.",
+        "Bu doğrultuda detaylı toprak etüt ve haritalama çalışmalarının sürdürülmesi, toprak veri tabanının geliştirilmesi ve arazi kullanım planlarının tamamlanması",
+        "arazi kullanım planlarının hazırlanmasına yönelik olarak 2024 yılında 755 bin hektar alanda detaylı",
+        "toprak etütleri ve haritalandırma çalışmaları tamamlanmıştır. 2026 yılı sonu itibarıyla ise ilave 2,4 milyon hektar alandaki çalışmaların tamamlanması öngörülmektedir.",
+        "Çalışmaların devam ettiği 6,8 milyon hektarlık proje sahasının 3,5 milyon hektarlık bölümünün 2027 yılında, kalan 3,3 milyon hektarlık bölümünün ise 2028 yılında tamamlanması öngörülmektedir.",
+        "Tedbir 490.1. Tarımsal arazi kullanım planlarının hazırlanması tamamlanacaktır.",
+        "15 ilde 3,5 milyon hektar tarım arazisinin detaylı toprak etütleri ve haritalandırılması çalışmalarına devam edilecektir.",
+        "Ulusal arazi örtüsü haritası yıllık olarak üretilecek ve arazi üstünde meydana gelen değişimler raporlanacaktır.",
+        "İklim projeksiyonlarına dayalı su erozyonu ve sediment verimi analizlerine yönelik veri altyapısı ve metodolojinin geliştirilmesi çalışmaları yürütülecektir."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Kamu tarafında 2012-2015 projesinden doğan ulusal toprak bilgi sistemi (2017 duyurusu), 2027 programında detaylı toprak etüdü takvimi ve Dünya Bankası kredili dijital toprak haritası ihalesi var; akademide Türkiye'de makine öğrenmesiyle toprak haritalayan çalışmalar var (biri künye düzeyinde aktarıldı). Yapay zekâyla üretilmiş bir toprak haritasının Türkiye tarlasında çiftçi kararına etkisini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "ilk_dijital_toprak_haritasi": "İskelet özetindeki 'Türkiye'nin ilk Dijital Toprak Haritası' ifadesi doğrulanamadı: TAGEM'in FAO destekli projesi ulusal ölçekte toprak özelliği haritaları üretmişti. İfade özetten çıkarıldı.",
+    "isric_haber": "ISRIC'in bir haber sayfası açılmadı (sayfa bulunamadı hatası); içeriği kullanılmadı.",
+    "kanun_cumlesi": "Bir kanun maddesinde toprakla ilgili sanılan cümle hayvan tazminatıyla ilgiliydi; alınmadı.",
+    "abiye_dengiz_2025": "Toprak aşınabilirliğini makine öğrenmesiyle haritalayan bir 2025 çalışması: özette havzanın yeri yazmıyor, Türkiye örneği olduğu doğrulanamadı. Alınmadı.",
+    "ozsahin_2024": "Istranca Dağları'nda orman örtüsü altındaki toprakları rastgele orman modeliyle haritalayan 2024 çalışması: tarım arazisi değil, başlığın kapsamı dışında. Alınmadı."
+  }
+}
