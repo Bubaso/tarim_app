@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 261,
- "toplam_bayt": 733829796,
+ "dosya_sayisi": 268,
+ "toplam_bayt": 734261655,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1729,6 +1729,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/abdikan_2022_crossref.json",
+   "bayt": 26755,
+   "sha256": "6b61763a34adbd0ef97a16a343f13112657cc37b4ef188af87e49643a8a3f34c",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/f13020347",
+    "atif": "Abdikan S., Bayik C., Sekertekin A., Bektas Balcik F., Karimzadeh S., Matsuoka M., Balik Sanli F. 2022. Burned area detection using multi-sensor SAR, optical, and thermal data in Mediterranean pine forest. Forests 13(2): 347. doi:10.3390/f13020347",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/agrosens_2025_05.pdf",
    "bayt": 11371555,
    "sha256": "01bf9e721873b0dc9b13518256c04e6d5092041720b4d0abcd7f7ca548ccec7e",
@@ -1933,6 +1945,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2025_fra_haber.html",
+   "bayt": 69541,
+   "sha256": "67efea31acb78677b5862a90165a4cfbbb2f4053a64c34f7b98f5ccbe882645a",
+   "kaynak": {
+    "adres": "https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows/en",
+    "atif": "FAO. 21.10.2025. Global deforestation slows, but forests remain under pressure, FAO report shows (Global Forest Resources Assessment 2025).",
+    "lisans": "FAO içeriği (yeniden kullanım koşulları FAO sitesinde)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — FAO haber merkezi; FRA 2025'in ana bulguları."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2025_gida_kaybi_gunu.html",
    "bayt": 64966,
    "sha256": "c22ac914188bb813ffac3c048ae4d6da28a6fcc7a591fc6eb191f57113c9a81a",
@@ -2014,6 +2038,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/govil_2020_crossref.json",
+   "bayt": 13276,
+   "sha256": "686b947676b05eb7f4cb2719b45aacaa3df1fdb99662f02853420eea845a88cf",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/rs12010166",
+    "atif": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1): 166. doi:10.3390/rs12010166",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
@@ -2131,6 +2167,18 @@
    "kaynak": {
     "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Reducing%20Postharvest%20Losses%20during%20Storage%20of%20Grain%20Crops%22&resultType=core&format=json",
     "atif": "Kumar D., Kalita P. 2017. Reducing postharvest losses during storage of grain crops to strengthen food security in developing countries. Foods 6(1): 8. doi:10.3390/foods6010008 (PMC5296677)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lang_2023_europepmc.json",
+   "bayt": 5831,
+   "sha256": "985bc02c1ce3233ef48ee4e5f9424f55678436dd20c08f5483dc04b461b51dec",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1038/s41559-023-02206-6&resultType=core&format=json",
+    "atif": "Lang N., Jetz W., Schindler K., Wegner J.D. 2023. A high-resolution canopy height model of the Earth. Nature Ecology & Evolution 7(11): 1778-1789. doi:10.1038/s41559-023-02206-6 (PMC10627820)",
     "lisans": "CC BY",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
@@ -2269,6 +2317,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/shamta_demir_2024_europepmc.json",
+   "bayt": 4974,
+   "sha256": "b97f73f11af5a7d743681552719f0105d9115e3657cdb9db49af2cd2f3f9e536",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1371/journal.pone.0299058&resultType=core&format=json",
+    "atif": "Shamta I., Demir B.E. 2024. Development of a deep learning-based surveillance system for forest fire detection and monitoring using UAV. PLOS ONE 19(3): e0299058. doi:10.1371/journal.pone.0299058 (PMC10931456)",
+    "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti ve yazar kurumu."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/simsek_2023_apts_siniflandirma.pdf",
    "bayt": 1712261,
    "sha256": "be668b600fe1327737bc12addc93af87db84a372023c60685c92e3fcbb4b756e",
@@ -2326,6 +2386,18 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — serinin ilk sayısı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
+   "bayt": 242864,
+   "sha256": "8fc6e1b453d27d9a37a130e38b9d2498d2329655f39542dbf9ef3f925641c64a",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+    "atif": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi."
    }
   },
   {
@@ -2434,6 +2506,18 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_2013_orman_yangin_uyari.html",
+   "bayt": 68618,
+   "sha256": "3f9723dfbb9d8621e4ef59dc97d87126209837a1b9b1ec6e4a287324f03e4bb2",
+   "kaynak": {
+    "adres": "https://tubitak.gov.tr/en/node/15137",
+    "atif": "TÜBİTAK. 01.05.2013. TÜBİTAK Desteğiyle 'Orman Yangın Uyarı Sistemi' Geliştirildi (duyuru).",
+    "lisans": "kamu belgesi (TÜBİTAK)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — TÜBİTAK sitesi; kurum beyanı."
    }
   },
   {

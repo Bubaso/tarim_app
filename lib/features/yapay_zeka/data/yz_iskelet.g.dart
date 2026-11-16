@@ -203,7 +203,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Forestry",
       true,
       ["uzaktan", "goruntu", "tahmin"],
-      false,
+      true,
       "Yangın erken uyarısı, ağaç sayımı, kaçak kesim tespiti.",
       "Fire early warning, tree counting, detecting illegal logging."),
   YzBaslik(

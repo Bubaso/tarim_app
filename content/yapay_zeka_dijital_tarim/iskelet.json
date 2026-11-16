@@ -475,12 +475,12 @@
         "mevzuat",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Yangın erken uyarısı, ağaç sayımı, kaçak kesim tespiti.",
         "en": "Fire early warning, tree counting, detecting illegal logging."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

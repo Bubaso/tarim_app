@@ -1,0 +1,179 @@
+{
+  "_ne": "§15 Ormancılık — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun ya da kamu kurumunun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "fao_2025_fra": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 21.10.2025. Global deforestation slows, but forests remain under pressure, FAO report shows (FRA 2025).",
+      "adres": "https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows/en",
+      "dosya": "kaynak_dosyalari/fao_2025_fra_haber.html",
+      "orman_milyar_ha": 4.14,
+      "kara_payi_yuzde": 32,
+      "ormansizlasma_milyon_ha_yil": {
+        "1990-2000": 17.6,
+        "2015-2025": 10.9
+      },
+      "net_kayip_milyon_ha_yil_2015_2025": 4.12,
+      "yangin_etkiledigi_milyon_ha_yil": 261,
+      "alinti": [
+        "Forests cover 4.14 billion hectares, or 32 percent of the global land area",
+        "Deforestation slowed to 10.9 million hectares per year in 2015–2025, down from 17.6 million in 1990–2000.",
+        "The annual rate of net forest loss fell from 10.7 million hectares in the 1990s to 4.12 million hectares in 2015–2025.",
+        "the current rate of deforestation at 10.9 million hectares per year still too high.",
+        "Fire affects an average of 261 million hectares of land annually, nearly half of which is forested.",
+        "Deforestation has slowed in all of the world’s regions in the last decade"
+      ]
+    },
+    "lang_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lang N., Jetz W., Schindler K., Wegner J.D. 2023. A high-resolution canopy height model of the Earth. Nature Ecology & Evolution 7(11).",
+      "doi": "10.1038/s41559-023-02206-6",
+      "dosya": "kaynak_dosyalari/lang_2023_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC10627820)",
+      "cozunurluk_m": 10,
+      "harita_yili": 2020,
+      "uzun_agac_m": 30,
+      "uzun_agacla_kapli_kara_yuzde": 5,
+      "koruma_alaninda_yuzde": 34,
+      "alinti": [
+        "Here we present a comprehensive global canopy height map at 10 m ground sampling distance for the year 2020.",
+        "We have developed a probabilistic deep learning model that fuses sparse height data from the Global Ecosystem Dynamics Investigation (GEDI) space-borne LiDAR mission with dense optical satellite images from Sentinel-2.",
+        "This model retrieves canopy-top height from Sentinel-2 images anywhere on Earth and quantifies the uncertainty in these estimates.",
+        "According to our map, only 5% of the global landmass is covered by trees taller than 30 m.",
+        "Further, we find that only 34% of these tall canopies are located within protected areas."
+      ]
+    },
+    "govil_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1).",
+      "doi": "10.3390/rs12010166",
+      "dosya": "kaynak_dosyalari/govil_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tespit_dakika": 15,
+      "alinti": [
+        "we have developed a functioning prototype system that can detect smoke from fires usually within 15 min of ignition, while averaging less than one false positive per day per camera.",
+        "This smoke detection system relies on machine learning-based image recognition software and a cloud-based work-flow capable of scanning hundreds of cameras every minute.",
+        "The system is operating around the clock in Southern California and has already detected some fires earlier than the current best methods",
+        "Ground-based cameras are not going to be able to detect every wildfire",
+        "people calling emergency agencies or satellite detection from the Geostationary Operational Environmental Satellite (GOES) satellites",
+        "so we are building a system that combines the best of terrestrial camera-based detection with the best approaches to satellite-based detection"
+      ]
+    },
+    "tob_ormancilik_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Ormancılık İstatistikleri, 2025.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2363",
+      "dosya": "kaynak_dosyalari/tob_2026_ormancilik_2025.html",
+      "orman_alani_2025_ha": 23375331,
+      "alinti": [
+        "2025 yılında toplam orman alanımız 23 milyon 375 bin 331 hektardır."
+      ]
+    },
+    "tubitak_2013": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK. 01.05.2013. TÜBİTAK Desteğiyle 'Orman Yangın Uyarı Sistemi' Geliştirildi (duyuru).",
+      "adres": "https://tubitak.gov.tr/en/node/15137",
+      "dosya": "kaynak_dosyalari/tubitak_2013_orman_yangin_uyari.html",
+      "duyuru_yili": 2013,
+      "kule": 77,
+      "kamera": 154,
+      "izlenen_milyon_ha": 3.2,
+      "tespit_sn": "15-25",
+      "_beyan": "Tespit süresi kurumun kendi beyanı; bağımsız bir değerlendirme bu taramada bulunamadı. Metin bunu açıkça söyler.",
+      "alinti": [
+        "Orman Genel Müdürlüğü ve Bilkent Üniversitesi iş birliğiyle geliştirilen projeyi TÜBİTAK ARDEB finanse ederek destekledi.",
+        "Geliştirilen sistemle yangın tehlikesinin olduğu arazilere yangın gözetleme kuleleri kurularak arazi kameralarla saniye saniye görüntüleniyor.",
+        "Yangına hassas olan kritik orman arazilerine kurulan 77 adet yangın gözetleme kulesinde 154 PZT kamera ile 3.2 milyon hektar orman alanının takip edildiğini belirtti.",
+        "Kameralarla 15 km çapındaki orman görüntüleri analiz edilerek 15-25 saniye arasında en ufak yangın tespit edip alarm veriliyor."
+      ]
+    },
+    "tob_2024_karar_destek": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+      "dosya": "kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
+      "kullanim_baslangici": 2022,
+      "_odul": "Haber adaylığı duyuruyor; sistemin ödülü kazandığı birincil kaynakta (ITU kazanan listesi) doğrulanamadı. Metin yalnız adaylığı yazar.",
+      "alinti": [
+        "Tarım ve Orman Bakanlığının orman yangınlarıyla mücadele çalışmalarında kullandığı Karar Destek Sistemi, Birleşmiş Milletlere bağlı Uluslararası Telekomünikasyon Birliğince “Dünya Bilgi Toplumu Zirvesi Ödülleri\"ne aday gösterildi.",
+        "Orman Genel Müdürlüğünün (OGM) 2022'den beri kullandığı yerli ve milli imkanlarla geliştirilen Karar ve Destek Sitemi",
+        "Sistemle meteorolojik veriler, ORBİS verileri, İHA ve uydu görüntüleri bir araya getirilerek orman yangınlarıyla mücadeleye büyük güç katıyor.",
+        "Karar Destek Sistemi ile meteorolojik veriler doğrultusunda orman yangını çıkma ihtimali ve meydana gelen orman yangınının sebebiyle ilgili tahminde bulunulabiliyor.",
+        "Değişen koşulları sürekli olarak analiz eden yapay zekâ destekli Karar Destek Sistemi, yangının anlık olarak davranışını ve ilerleyişini öngörebiliyor."
+      ]
+    },
+    "shamta_demir_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Shamta I., Demir B.E. 2024. Development of a deep learning-based surveillance system for forest fire detection and monitoring using UAV. PLOS ONE 19(3).",
+      "doi": "10.1371/journal.pone.0299058",
+      "dosya": "kaynak_dosyalari/shamta_demir_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumu, Europe PMC kaydı (PMC10931456)",
+      "siniflandirma_dogruluk_yuzde": 96,
+      "alinti": [
+        "Department of Mechatronics Engineering, Faculty of Technology, Karabük University, Karabük, Türkiye.",
+        "Deep learning is utilized for aerial detection of fires using images obtained from a camera mounted on a designed four-rotor Unmanned Aerial Vehicle (UAV).",
+        "The detection methods produced the following results: 96% accuracy for YOLOv8 classification, 89% accuracy for YOLOv8n object detection, 96% accuracy for CNN-RCNN classification, and 89% accuracy for YOLOv5n object detection."
+      ]
+    },
+    "abdikan_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Abdikan S., Bayik C., Sekertekin A., Bektas Balcik F., Karimzadeh S., Matsuoka M., Balik Sanli F. 2022. Burned area detection using multi-sensor SAR, optical, and thermal data in Mediterranean pine forest. Forests 13(2).",
+      "doi": "10.3390/f13020347",
+      "dosya": "kaynak_dosyalari/abdikan_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "genel_dogruluk_yuzde": 96,
+      "alinti": [
+        "Department of Geomatics Engineering, Hacettepe University",
+        "to extract BA information from the Turkish red pine (Pinus brutia Ten.) forest in a Mediterranean ecosystem.",
+        "The pixel-based random forest image classification method is applied to classify the BA detection in 24 scenarios created using these features.",
+        "achieved the highest accuracy, with an overall accuracy of 96% and a Kappa coefficient of 92.62%."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "yangin_2025": {
+        "sayi": 3224,
+        "ha": 81473
+      },
+      "yangin_2026_ilk_dokuz_ay": {
+        "sayi": 2009,
+        "ha": 24451
+      },
+      "yanan_1988_2025_ha": 634575,
+      "son_bes_yil_payi_yuzde": 43.6,
+      "nedeni_bilinmeyen_yuzde": 41.1,
+      "hava_araci_2026": {
+        "helikopter": 119,
+        "ucak": 28,
+        "iha": 14
+      },
+      "personel_bin": 28,
+      "gonullu_bin": 142,
+      "alinti": [
+        "Ülkemizde 2025 yılında 3.224 yangında 81.473 hektar ve 2026 yılının ilk dokuz ayında 2.009 orman yangınında 24.451 hektar orman alanı yanmıştır.",
+        "1988 yılından 2025 yılına kadar geçen 38 yılda toplam 634.575 hektar alanın yandığı, söz konusu alanın yüzde 43,6’sının ise son beş yıl içerisinde yandığı görülmektedir.",
+        "yüzde 41,1’i ise nedeni tespit edilemeyen yangınlardır",
+        "2026 yılında 119 helikopter, 28 uçak ve 14 insansız hava aracı (İHA) ile yangınlara havadan müdahale edilmiştir.",
+        "yaklaşık 28 bin personel ve 142 bini aşan gönüllü ile orman yangınlarına müdahale edilmektedir.",
+        "Ülkemizde son 10 yıllık dönemde çıkan orman yangınlarının adet olarak yaklaşık"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Orman alanı istatistiği, programdaki yangın verisi, OGM'nin kameralı Orman Yangın Uyarı Sistemi (TÜBİTAK 2013 duyurusu) ve yapay zekâ destekli Karar Destek Sistemi (Bakanlık 2024 haberi), akademide İHA ile yangın tespiti ve yanmış alan haritalama. Türkiye'de kameralı erken uyarının ya da karar destek sisteminin tespit süresine, yanan alana veya yanlış alarm oranına etkisini ölçen yayımlanmış bağımsız bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "wsis_odulu": "Bazı haberler sistemin ödülü kazandığını yazıyor; ITU'nun kazanan listesinde bu taramada doğrulanamadı. Yalnız adaylık yazıldı.",
+    "kamera_sayilari_haberler": "Haberlerde kule ve kamera sayıları birbirini tutmuyor; yalnız TÜBİTAK'ın kendi duyurusundaki sayılar alındı, tarihiyle birlikte."
+  }
+}
