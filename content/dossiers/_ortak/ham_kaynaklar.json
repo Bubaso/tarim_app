@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 193,
- "toplam_bayt": 663028435,
+ "dosya_sayisi": 198,
+ "toplam_bayt": 668035765,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1717,6 +1717,54 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/akin_unlenen_2017.pdf",
+   "bayt": 364220,
+   "sha256": "2d32572cd30da4e33c17e17aa5c9916b6faa3c20acc527370ca6d72296e084e1",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/341436",
+    "atif": "Akın A.İ., Ünlenen L.A. 2017. Patates'te hassas damla sulama programlarının yapılmasında toprak nem sensörlerinin kullanılması. Toprak Su Dergisi Özel Sayı: 8-12. doi:10.21657/topraksu.338301",
+    "lisans": "DergiPark açık erişim",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — hakemli dergi, DergiPark."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/aquatag_wur_283306.pdf",
+   "bayt": 394549,
+   "sha256": "0fd679fb419eaa48b81e8bb7e04516511f5c14d7a0d8136a5dc346c65774669e",
+   "kaynak": {
+    "adres": "https://edepot.wur.nl/283306",
+    "atif": "Balendonck J., Stenfert Kroese W., Hilhorst M., Tüzel İ.H. Düşük Maliyetli ve Kablosuz Toprak Nem Sensörü AquaTag ile Su ve Gübre Tasarrufu. Wageningen UR proje broşürü.",
+    "lisans": "Wageningen UR e-depot",
+    "lisans_adresi": null,
+    "_not": "Proje broşürü — sensörü geliştiren firma (STS) yazarlar arasında; hakemli yayın değil."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/datta_taghvaeian_2023_ideas.html",
+   "bayt": 49521,
+   "sha256": "e40f3f8d813f9bdb79fc6bdf38c93c63a36857c9fd011200819c6de25ba4a481",
+   "kaynak": {
+    "adres": "https://ideas.repec.org/a/eee/agiwat/v278y2023ics0378377423000136.html",
+    "atif": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. doi:10.1016/j.agwat.2023.108148",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Yayıncı özeti IDEAS/RePEc kaydından; tam metin kapalı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_aquastat_2025.pdf",
+   "bayt": 4195443,
+   "sha256": "c90b2e79f92434c8ab1b07cf4441d86eb2dd7543f288e770b5a2ebbd5e6d533c",
+   "kaynak": {
+    "adres": "https://openknowledge.fao.org/server/api/core/bitstreams/99a294b0-ba6c-4bd1-b707-ffb43907d412/content",
+    "atif": "FAO. 2025. AQUASTAT Water Data Snapshot 2025. Rome.",
+    "lisans": "CC BY 4.0 (FAO)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — FAO açık bilgi arşivinden."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/genelge_2026_9.pdf",
    "bayt": 213346,
    "sha256": "53eace3c697fb00cb4edfe32769a49d7057bdedf39f815fe9926280e11a60599",
@@ -1726,6 +1774,18 @@
     "lisans": "kamu belgesi",
     "lisans_adresi": null,
     "_not": "BİRİNCİL kaynak, resmî siteden indirildi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/saikai_2023_arxiv.xml",
+   "bayt": 3597,
+   "sha256": "b8e43056d3cbe2ea0ce735be7dcbbf1a7dabdb0053a5fb8fc29fc443dae4c28e",
+   "kaynak": {
+    "adres": "https://export.arxiv.org/api/query?id_list=2301.00899",
+    "atif": "Saikai Y., Peake A., Chenu K. 2023. Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback. PLOS Water 2(9): e0000169. doi:10.1371/journal.pwat.0000169",
+    "lisans": "arXiv kaydı (özet)",
+    "lisans_adresi": null,
+    "_not": "Özet arXiv API'sinden; dergi künyesi aynı kayıtta."
    }
   },
   {

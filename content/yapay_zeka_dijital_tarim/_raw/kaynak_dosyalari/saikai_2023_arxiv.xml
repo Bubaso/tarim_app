@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/yKoiX4iGUiW5PGE+9VTK1hSyNFg</id>
+  <title>arXiv Query: search_query=&amp;id_list=2301.00899&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-16T20:12:39Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2301.00899" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2301.00899v2</id>
+    <title>Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback</title>
+    <updated>2023-05-19T01:12:06Z</updated>
+    <link href="https://arxiv.org/abs/2301.00899v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2301.00899v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Deep reinforcement learning has considerable potential to improve irrigation scheduling in many cropping systems by applying adaptive amounts of water based on various measurements over time. The goal is to discover an intelligent decision rule that processes information available to growers and prescribes sensible irrigation amounts for the time steps considered. Due to the technical novelty, however, the research on the technique remains sparse and impractical. To accelerate the progress, the paper proposes a principled framework and actionable procedure that allow researchers to formulate their own optimisation problems and implement solution algorithms based on deep reinforcement learning. The effectiveness of the framework was demonstrated using a case study of irrigated wheat grown in a productive region of Australia where profits were maximised. Specifically, the decision rule takes nine state variable inputs: crop phenological stage, leaf area index, extractable soil water for each of the five top layers, cumulative rainfall and cumulative irrigation. It returns a probabilistic prescription over five candidate irrigation amounts (0, 10, 20, 30 and 40 mm) every day. The production system was simulated at Goondiwindi using the APSIM-Wheat crop model. After training in the learning environment using 1981-2010 weather data, the learned decision rule was tested individually for each year of 2011-2020. The results were compared against the benchmark profits obtained by a conventional rule common in the region. The discovered decision rule prescribed daily irrigation amounts that uniformly improved on the conventional rule for all the testing years, and the largest improvement reached 17% in 2018. The framework is general and applicable to a wide range of cropping systems with realistic optimisation problems.</summary>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2023-01-02T23:13:20Z</published>
+    <arxiv:primary_category term="cs.LG"/>
+    <arxiv:journal_ref>PLOS Water 2(9): e0000169 (2023)</arxiv:journal_ref>
+    <author>
+      <name>Yuji Saikai</name>
+    </author>
+    <author>
+      <name>Allan Peake</name>
+    </author>
+    <author>
+      <name>Karine Chenu</name>
+    </author>
+    <arxiv:doi>10.1371/journal.pwat.0000169</arxiv:doi>
+    <link rel="related" href="https://doi.org/10.1371/journal.pwat.0000169" title="doi"/>
+  </entry>
+</feed>

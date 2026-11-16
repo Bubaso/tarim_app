@@ -88,6 +88,9 @@ def metin_sayilari(metin: str, dil: str) -> list[tuple[float, int, str]]:
     for satir in metin.splitlines():
         if satir.startswith("# "):
             continue                        # başlık satırı: bölüm numarası
+        # "§8" bir veri değil, bölümün iç göndermesi; ayrıca sınanıyor
+        # (gönderilen başlık iskelette var mı — `gondermeler`).
+        satir = re.sub(r"§\d+", "§", satir)
         for m in desen.finditer(satir):
             ham = m.group(1)
             if re.fullmatch(rf"\d{{1,3}}(?:{binlik}\d{{3}})+", ham):
@@ -104,8 +107,13 @@ def izlenir(deger: float, bas: int, havuz: list[float]) -> bool:
     return any(abs(round(v, bas) - deger) < 1e-9 or abs(v - deger) < 1e-9 for v in havuz)
 
 
-SATICI_ETIKETI = {"tr": re.compile(r"[Şş]irket(in)? (kendi )?(beyan|rakam)|[Ss]atıcı"),
-                  "en": re.compile(r"[Vv]endor|[Cc]ompany('s)? (own )?(statement|figure)")}
+GECERLI_BASLIKLAR = {b["no"] for b in json.loads(
+    (BURASI.parent / "iskelet.json").read_text(encoding="utf-8"))["basliklar"]}
+
+# PROJE: teknolojiyi geliştiren firmanın da yazdığı proje broşürü (§7,
+# AquaTag). Satıcı beyanı gibi etiketlenir — karar 34.
+SATICI_ETIKETI = {"tr": re.compile(r"[Şş]irket(in)? (kendi )?(beyan|rakam)|[Ss]atıcı|proje beyan"),
+                  "en": re.compile(r"[Vv]endor|[Cc]ompany('s)? (own )?(statement|figure)|project statement")}
 
 
 def sina(no: str, dosyalar: dict[str, Path]) -> None:
@@ -116,9 +124,16 @@ def sina(no: str, dosyalar: dict[str, Path]) -> None:
     kayit = json.loads(kayit_yolu.read_text(encoding="utf-8"))
     havuz = kayit_sayilari({k: v for k, v in kayit.items() if not k.startswith("_")})
     red = {float(x) for x in re.findall(r"\d+", json.dumps(kayit.get("_reddedilen", {}), ensure_ascii=False))} - set(havuz)
-    saticilar = [v for v in kayit.get("kaynaklar", {}).values() if v.get("nitelik") == "SATICI"]
-    satici_sayilari = {float(x) for s in saticilar for a, x in s.items()
-                       if isinstance(x, (int, float)) and not isinstance(x, bool) and x not in (0, 1)}
+    saticilar = [v for v in kayit.get("kaynaklar", {}).values() if v.get("nitelik") in ("SATICI", "PROJE")]
+    satici_sayilari = {v for s in saticilar for v in kayit_sayilari(
+                           {a: x for a, x in s.items() if a not in ("alinti", "kunye")})
+                       if v not in (0, 1)}
+    # Satıcı rakamı başka bir kaynakta da geçiyorsa (aynı sayı, başka ölçüm)
+    # etiket zorunluluğu o satırda anlamsız olur: yalnız satıcıya ÖZGÜ sayılar.
+    oteki = {v for k, s in kayit.get("kaynaklar", {}).items()
+             if isinstance(s, dict) and s.get("nitelik") not in ("SATICI", "PROJE")
+             for v in kayit_sayilari({a: x for a, x in s.items() if a != "kunye"})}
+    satici_sayilari -= oteki
 
     kume = {}
     for dil, yol in dosyalar.items():
@@ -128,6 +143,9 @@ def sina(no: str, dosyalar: dict[str, Path]) -> None:
             hata(f"{yol.name}: başlık satırı '# {int(no)} · …' değil: {ilk[:50]!r}")
         if not any(s.startswith("> ") for s in metin.splitlines()):
             hata(f"{yol.name}: özet bloğu ('> ') yok")
+        for g in re.findall(r"§(\d+)", "\n".join(l for l in metin.splitlines() if not l.startswith("# "))):
+            if int(g) not in GECERLI_BASLIKLAR:
+                hata(f"{yol.name}: §{g} göndermesi iskelette yok")
         sayilar = metin_sayilari(metin, dil)
         for deger, bas, satir in sayilar:
             if not izlenir(deger, bas, havuz):

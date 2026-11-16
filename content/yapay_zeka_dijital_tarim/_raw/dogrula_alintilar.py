@@ -331,11 +331,32 @@ def dosya_metni(yol: Path) -> str:
     if yol not in _metin_onbellegi:
         if yol.suffix.lower() == ".pdf":
             _metin_onbellegi[yol] = onar(" ".join(sayfalar(yol)))
+        elif yol.suffix.lower() in (".txt", ".json"):
+            # API cevabı (Europe PMC, Crossref, OpenAlex) ya da düz metin:
+            # JSON'daki kaçışlar çözülsün diye metin olarak değil, değer
+            # olarak okunuyor.
+            ham = yol.read_text(encoding="utf-8", errors="replace")
+            if yol.suffix.lower() == ".json":
+                try:
+                    ham = " ".join(_json_metinleri(json.loads(ham)))
+                except ValueError:
+                    pass
+            _metin_onbellegi[yol] = onar(html_coz(re.sub(r"<[^>]+>", " ", ham)))
         else:
             ham = yol.read_text(encoding="utf-8", errors="replace")
             ham = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", ham, flags=re.S)
             _metin_onbellegi[yol] = onar(html_coz(re.sub(r"<[^>]+>", " ", ham)))
     return _metin_onbellegi[yol]
+
+
+def _json_metinleri(dugum) -> list[str]:
+    if isinstance(dugum, str):
+        return [dugum]
+    if isinstance(dugum, dict):
+        return [m for v in dugum.values() for m in _json_metinleri(v)]
+    if isinstance(dugum, list):
+        return [m for v in dugum for m in _json_metinleri(v)]
+    return [str(dugum)] if dugum is not None else []
 
 
 def html_coz(s: str) -> str:

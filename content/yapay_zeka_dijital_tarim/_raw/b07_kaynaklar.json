@@ -1,0 +1,142 @@
+{
+  "_ne": "§7 Sulama ve su yönetimi — kilitli kayıt",
+  "guncellendi": "2026-11-16",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluş ya da kamu kurumu yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin",
+    "PROJE": "Proje broşürü — teknolojiyi geliştiren firma yazarlar arasında; hakemli değil (karar 34: satıcı beyanı gibi etiketlenir)"
+  },
+  "kaynaklar": {
+    "fao_aquastat_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2025. AQUASTAT Water Data Snapshot 2025. Rome.",
+      "dosya": "kaynak_dosyalari/fao_aquastat_2025.pdf",
+      "veri_yili": 2022,
+      "dunya_tarim_payi_yuzde": 72,
+      "dunya_sanayi_payi_yuzde": 15,
+      "dunya_hizmet_payi_yuzde": 13,
+      "tr_tarim_payi_yuzde": 86.93,
+      "tr_sanayi_payi_yuzde": 2.01,
+      "tr_belediye_payi_yuzde": 11.06,
+      "tr_toplam_cekim_milyar_m3": 64.47,
+      "_kullanilmayan": "Aynı tablonun 'sulama donanımlı ekili alan' sütunu Türkiye için %14,93 diyor; 2027 Yıllık Programı'ndaki 7,34 milyon hektarlık sulamaya açılmış alanla tanım farkı açıklanamadığı için metne alınmadı.",
+      "alinti": [
+        "Agriculture remained by far the largest user of water, accounting for 72 percent of global freshwater withdrawals in 2022. In the same year, the industrial and service sectors accounted for 15 percent and 13 percent, respectively.",
+        "Agricultural water withdrawal as % of total water withdrawal (%)",
+        "Türkiye 2 430.55 86.93 2.01 11.06 64.47 14.93 20.94 47.89"
+      ]
+    },
+    "datta_taghvaeian_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148.",
+      "doi": "10.1016/j.agwat.2023.108148",
+      "dosya": "kaynak_dosyalari/datta_taghvaeian_2023_ideas.html",
+      "dogrulandigi_yer": "yayıncı özeti, IDEAS/RePEc kaydı",
+      "tur": "sistematik derleme — ABD, son yirmi yıl",
+      "tasarruf_bitki_sicakligina_gore_yuzde": 1,
+      "tasarruf_geleneksele_gore_yuzde": 38,
+      "alinti": [
+        "identify and analyze related literature published in the United States in the past two decades",
+        "The results showed that SWS accuracy was most susceptible to sensor calibration.",
+        "SWS-based scheduling resulted in water saving, with average amounts ranging from 1 % when compared to canopy temperature methods to 38 % in case of traditional approaches.",
+        "SWS-based scheduling led to larger or similar yields compared to other scheduling methods."
+      ]
+    },
+    "saikai_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Saikai Y., Peake A., Chenu K. 2023. Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback. PLOS Water 2(9): e0000169.",
+      "doi": "10.1371/journal.pwat.0000169",
+      "dosya": "kaynak_dosyalari/saikai_2023_arxiv.xml",
+      "dogrulandigi_yer": "arXiv özeti (dergi künyesi aynı kayıtta)",
+      "tur": "SİMÜLASYON — saha denemesi değil",
+      "egitim_yillari": "1981-2010",
+      "sinama_yillari": "2011-2020",
+      "en_buyuk_kar_artisi_yuzde": 17,
+      "en_buyuk_artis_yili": 2018,
+      "alinti": [
+        "The production system was simulated at Goondiwindi using the APSIM-Wheat crop model.",
+        "After training in the learning environment using 1981-2010 weather data, the learned decision rule was tested individually for each year of 2011-2020.",
+        "The discovered decision rule prescribed daily irrigation amounts that uniformly improved on the conventional rule for all the testing years, and the largest improvement reached 17% in 2018.",
+        "the research on the technique remains sparse and impractical"
+      ]
+    },
+    "akin_unlenen_2017": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Akın A.İ., Ünlenen L.A. 2017. Patates'te hassas damla sulama programlarının yapılmasında toprak nem sensörlerinin kullanılması. Toprak Su Dergisi Özel Sayı: 8-12.",
+      "doi": "10.21657/topraksu.338301",
+      "dosya": "kaynak_dosyalari/akin_unlenen_2017.pdf",
+      "tur": "sensör karşılaştırması — tasarruf denemesi değil",
+      "alinti": [
+        "Patates’te Hassas Damla Sulama Programlarının Yapılmasında Toprak Nem Sensörlerinin Kullanılması",
+        "Çalışmada farklı toprak nem ölçüm cihazları, siltli tınlı toprakta, hassas sulama programı yapılmasında test edilmişlerdir.",
+        "Nötron problar, frekans domain problar, tansiyometreler ve granüler matrix sensörler birbirleriyle",
+        "Patates Araştırma Enstitüsü Müdürlüğü, Niğde"
+      ]
+    },
+    "aquatag": {
+      "nitelik": "PROJE",
+      "kunye": "Balendonck J., Stenfert Kroese W., Hilhorst M., Tüzel İ.H. Düşük Maliyetli ve Kablosuz Toprak Nem Sensörü AquaTag ile Su ve Gübre Tasarrufu. Wageningen UR proje broşürü.",
+      "dosya": "kaynak_dosyalari/aquatag_wur_283306.pdf",
+      "uretici_sayisi": 9,
+      "tasarruf_yuzde": "13-24",
+      "organik_tasarruf_yuzde": 12,
+      "alinti": [
+        "Sensör ile kontrol edilen parsellerde üreticiler daha az değişken bir toprak nem içeriği ve % 13-24 su tasarrufu sağlamışlardır.",
+        "Organik üretimde su tasarrufu % 12 olarak ölçülmüştür.",
+        "Ege Üniversitesi sensörü Türkiye’deki uygulamalara adapte etmiş ve Orhanlı Köyü’nde 9 üretici ile denemeler gerçekleştirmiştir.",
+        "AquaTag, SensorTagSolutions firması tarafından"
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "sulama_orani_yuzde": {
+        "2025": 68,
+        "2026_tahmin": 71,
+        "2027_hedef": 72
+      },
+      "sulamaya_acilan_alan_milyon_ha": {
+        "2025": 7.28,
+        "2026_tahmin": 7.34,
+        "2027_hedef": 7.4
+      },
+      "yeni_sulama_bin_ha": 61,
+      "kapali_boru_bin_ha": 16,
+      "modern_sulama_hibesi_bin_ha": 30,
+      "elektronik_olcum_tesis": 100,
+      "su_kisitli_il": 11,
+      "su_kisitli_ilce": 52,
+      "takis_periyot_gun": 7,
+      "takis_tahmin_ufku": "1-4 hafta",
+      "takis_tahmin_yili": 2027,
+      "alinti": [
+        "Performans Göstergeleri Birim 2025 2026 (1) 2027 (2)",
+        "Sulama Oranı (5) Yüzde 68 71 72",
+        "Sulamaya Açılan Brüt Tarımsal Alan (Kümülatif) Milyon Hektar 7,28 7,34 7,40",
+        "Öncelik seti çerçevesinde 61 bin hektar alan sulamaya açılacaktır.",
+        "16 bin hektar alanda mevcut açık kanal sulama şebekelerinin kapalı borulu sisteme dönüştürülmesi çalışmaları tamamlanacaktır.",
+        "30 bin hektar alanda yağmurlama ve damla sulama gibi tarla içi modern sulama sistemlerinin kurulumuna yönelik hibe desteği verilecektir.",
+        "100 tesise elektronik ölçüm sistemi takılacaktır.",
+        "Dijital Sulama Yönetim Sisteminin Geliştirilmesi Projesi (DİSU) tamamlanacaktır.",
+        "sulama yönetiminde karar destek sistemlerinin kullanımı ve uygulamayı destekleyici mevzuat çalışmaları sürdürülecektir.",
+        "Su kısıtı olan 11 ilin 52 ilçesinde, su tüketimi az olan bazı ürünlere ilave destek verilerek yer altı su kaynaklarının sürdürülebilir kullanımının sağlanması hedeflenmektedir.",
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Kamu tarafı (program ve tedbirler) ve iki saha kaynağı var; yapay zekâyla sulama kararını Türkiye tarlasında ölçen yayımlanmış bir deneme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "aquastat_71": "Bir sektör dergisi FAO'yu '%71' diye aktarıyordu; FAO'nun kendi yayını %72 diyor. Dergi kullanılmadı.",
+    "arduino_meta_analizi": "Ön baskı bir 'meta-analiz' %30-60 su tasarrufu ve %15-25 verim artışı bildiriyor; hakem süzgecinden geçmemiş, yöntemi denetlenmemiş. Alınmadı.",
+    "satici_blogu": "Bir yazılım şirketinin blogu yapay zekâlı sulamada %20-50 tasarruf diyor; kaynaksız satıcı beyanı. Alınmadı.",
+    "pamukkale_tezi": "Güneş enerjili sensörlü sulamada %16,5 tasarruf bildiren bir yüksek lisans tezi; tez metni bu turda okunmadı. Okununca Türkiye kısmına girer."
+  }
+}

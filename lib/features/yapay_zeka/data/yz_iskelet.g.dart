@@ -115,7 +115,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Irrigation and water",
       true,
       ["sensor", "tahmin", "uzaktan", "karar"],
-      false,
+      true,
       "Ne zaman, ne kadar: sensör ve tahmine dayalı sulama.",
       "When and how much: irrigation driven by sensors and forecasts."),
   YzBaslik(

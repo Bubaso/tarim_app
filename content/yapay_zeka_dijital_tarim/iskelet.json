@@ -265,12 +265,12 @@
         "mevzuat",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Ne zaman, ne kadar: sensör ve tahmine dayalı sulama.",
         "en": "When and how much: irrigation driven by sensors and forecasts."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {
