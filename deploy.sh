@@ -292,6 +292,13 @@ node content/dossiers/_ortak/statik_sayfa_db.mjs
 # durumu yok, yani üretilmemesi için bir sebep de yok. Kart web/paylasim/
 # altında depoda duruyor; kabuk onu adresliyor.
 node content/uzay_tarimi/paylasim_sayfasi.mjs
+
+# Yapay Zeka ve Dijital Tarım'ın paylaşım kabukları — merkez sayfa ve
+# YAZILMIŞ her başlık. Uzayda Tarım'la aynı desen: veri katmanı derlemeye
+# gömülü, veritabanına bakmıyor. Açıklama her başlığın özet bloğundan.
+# Kart web/paylasim/yapay-zeka-dijital-tarim.jpg — başlık yazıldıkça
+# `node content/yapay_zeka_dijital_tarim/paylasim_karti.mjs` ile tazelenir.
+node content/yapay_zeka_dijital_tarim/paylasim_sayfasi.mjs
 fi
 
 # ╔══════════════════════════════════════════════════════════════════════╗

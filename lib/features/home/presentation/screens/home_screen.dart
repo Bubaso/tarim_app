@@ -50,6 +50,7 @@ import '../../../videos/presentation/widgets/video_serit.dart';
 import '../../providers/font_scale_provider.dart';
 import '../widgets/hava_ikonu.dart';
 import '../widgets/sektorel_blok.dart';
+import '../../../yapay_zeka/presentation/yz_seridi.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -478,6 +479,9 @@ class _MobileContent extends ConsumerWidget {
           // Komşuluk konuya göre: bilim ve rapor okuyan okur zaten burada.
           // Alçak ve geniş duruyor, akışı kesmiyor; boşluğunu kendi taşıyor.
           const UzaySeridi(spacing: 28),
+          // YAPAY ZEKA VE DİJİTAL TARIM ŞERİDİ — Uzayda Tarım'ın hemen altında:
+          // bilim ve teknoloji okuyan okurun komşuluğu. Açık zeminli, kendi ızgarasıyla.
+          const YzSeridi(spacing: 28),
           // Turkuaz şeridi Dünya ile Sektörler ARASINDA: bölge
           // bölümleri biter, konu bölümleri başlar. Şerit tam o
           // eşikte duruyor ve iki akışı birbirine bağlıyor.
@@ -565,6 +569,9 @@ class _TabletContent extends ConsumerWidget {
         // Komşuluk konuya göre: bilim ve rapor okuyan okur zaten burada.
         // Alçak ve geniş duruyor, akışı kesmiyor; boşluğunu kendi taşıyor.
         const UzaySeridi(spacing: 36),
+        // YAPAY ZEKA VE DİJİTAL TARIM ŞERİDİ — Uzayda Tarım'ın hemen altında:
+        // bilim ve teknoloji okuyan okurun komşuluğu. Açık zeminli, kendi ızgarasıyla.
+        const YzSeridi(spacing: 36),
         _WorldNewsSection(isDark: isDark),
         const SizedBox(height: 36),
         const TniAnasayfaSeridi(spacing: 36),
@@ -671,6 +678,9 @@ class _DesktopContent extends ConsumerWidget {
         // Komşuluk konuya göre: bilim ve rapor okuyan okur zaten burada.
         // Alçak ve geniş duruyor, akışı kesmiyor; boşluğunu kendi taşıyor.
         const UzaySeridi(spacing: 40),
+        // YAPAY ZEKA VE DİJİTAL TARIM ŞERİDİ — Uzayda Tarım'ın hemen altında:
+        // bilim ve teknoloji okuyan okurun komşuluğu. Açık zeminli, kendi ızgarasıyla.
+        const YzSeridi(spacing: 40),
         Padding(
           padding: const EdgeInsets.only(bottom: 40),
           child: _WorldNewsSection(isDark: isDark),

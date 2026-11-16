@@ -35,6 +35,10 @@ import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_izleyici.dart';
 import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
 import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
+import '../../features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
+import '../../features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
+import '../../features/yapay_zeka/presentation/yz_parcalar.dart';
+import '../../features/yapay_zeka/data/yz_iskelet.g.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  Uygulama yönlendirmesi (Router API)
@@ -152,6 +156,8 @@ class CategoryArgs {
   }
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
   if (page is TniEkrani) return (path: turkuazPath, extra: null);
+  if (page is YzMerkezEkrani) return (path: yzPath, extra: null);
+  if (page is YzBaslikEkrani) return (path: yzBaslikPath(page.slug), extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
   if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
@@ -414,6 +420,26 @@ final appRouter = GoRouter(
       path: uzayTarimiPath,
       pageBuilder: (context, state) => _fadePage(state, const UzayEkrani()),
     ),
+
+    // Yapay Zeka ve Dijital Tarım — merkez sayfa ve başlık sayfaları
+    // (karar 8). Ekranlar argüman almıyor ya da yalnız adresi alıyor:
+    // iskelet ve metinler derlemede gömülü, haber akışı veritabanından.
+    // Adres tek başına sayfayı kuruyor ve paylaşılabilir.
+    //
+    // OKURA KAPALI (kYzOkuraAcik, yayin.json): kullanıcı kararı — bölüm 30
+    // başlığın TAMAMI yazılınca açılır. Sabit derleme anında `false` olduğu
+    // için rotalar kurulmuyor ve okur ekranları pakete girmiyor.
+    if (kYzOkuraAcik) ...[
+      GoRoute(
+        path: yzPath,
+        pageBuilder: (context, state) => _fadePage(state, const YzMerkezEkrani()),
+      ),
+      GoRoute(
+        path: '$yzPath/:slug',
+        pageBuilder: (context, state) => _fadePage(
+            state, YzBaslikEkrani(slug: state.pathParameters['slug'] ?? '')),
+      ),
+    ],
 
     GoRoute(
       path: '/piyasalar',
