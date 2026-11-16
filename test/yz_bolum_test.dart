@@ -132,13 +132,16 @@ devam ediyor.
   test('öne çıkan başlık takvime bağlı dönüyor, yalnız yazılmıştan', () {
     final yazilan = kYzBasliklar.where((b) => b.yazildi).map((b) => b.no).toSet();
     final gorulen = <int>{};
-    for (var g = 0; g < 10; g++) {
+    // Her gün sıradaki başlık: yazılmış N başlığın hepsi art arda N günde
+    // bir kez dönmeli. (Önceki sürüm sabit on gün bekliyordu; yazılmış
+    // başlık sayısı ona çıkınca test kendiliğinden yanlış alarm verdi.)
+    for (var g = 0; g < yazilan.length; g++) {
       final b = yzOneCikan(DateTime(2026, 11, 1).add(Duration(days: g)));
       expect(b, isNotNull);
       expect(yazilan.contains(b!.no), isTrue);
       gorulen.add(b.no);
     }
-    expect(gorulen, yazilan, reason: 'on günde bütün yazılmış başlıklar dönmeli');
+    expect(gorulen, yazilan, reason: 'N günde yazılmış N başlığın hepsi dönmeli');
     expect(yzOneCikan(DateTime(2026, 11, 5))!.no, yzOneCikan(DateTime(2026, 11, 5, 23))!.no,
         reason: 'aynı gün aynı başlık');
   });
