@@ -790,12 +790,12 @@
       "oto_hedefler": [
         "gelisme"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
-        "tr": "Tutmayan vaatler, kapanan girişimler, kaynağı bulunamayan dolaşımdaki rakamlar.",
-        "en": "Promises that failed, start-ups that closed, circulating figures with no source."
+        "tr": "Yapay zekâ vaadiyle büyüyüp iflas eden şirketler, ticarileşmeyen hasat robotları, yeniden hesaplanan bir FAO rakamı ve hedeflerinin gerisinde kalan bir Türkiye projesi.",
+        "en": "Companies that grew on AI promises and went bankrupt, harvesting robots that never reached the market, a recalculated FAO figure and a Turkish project behind its targets."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

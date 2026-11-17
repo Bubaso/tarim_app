@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"761e715901",applicationID:"32397309"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(7),c=e(8),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(9);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e){return!(!e||!e.protocol||"file:"===e.protocol)}t.exports=r},{}],4:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(6),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],5:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],6:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],7:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],8:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],9:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(7),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=x.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+x.offset],null,"api"),c("timing",["load",n]);var r=l.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===l.readyState&&o()}function o(){c("mark",["domContent",a()+x.offset],null,"api")}var a=e(2),c=e("handle"),f=e(7),u=e("ee"),s=e(5),d=e(3),p=window,l=p.document,m="addEventListener",v="attachEvent",g=p.XMLHttpRequest,w=g&&g.prototype;if(d(p.location)){NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:g,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1208.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:b,userAgent:s};e(1),e(4),l[m]?(l[m]("DOMContentLoaded",o,!1),p[m]("load",r,!1)):(l[v]("onreadystatechange",i),p[v]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0}},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(8),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<meta property="og:site_name" content="AppHarvest" />
+<link rel="canonical" href="https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial" />
+<meta property="og:title" content="AppHarvest Acquires Agricultural Robotics and  Artificial Intelligence Company Root AI to Increase Efficiency | AppHarvest" />
+<meta property="og:description" content="Acquisition of Root AI and its signature robot, Virgo, bolsters company’s  intelligent tools to produce foods sustainably Root AI CEO Joins AppHarvest as Chief Technology Officer MOREHEAD, Ky., April 08, 2021 (GLOBE NEWSWIRE) -- AppHarvest, Inc. (NASDAQ: APPH, APPHW), a leading AgTech company and" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/sites/g/files/knoqqb58361/files/favicon.png" type="image/png" />
+<link rel="alternate" hreflang="en" href="https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial" />
+<link rel="revision" href="https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial" />
+
+    <title>AppHarvest Acquires Agricultural Robotics and  Artificial Intelligence Company Root AI to Increase Efficiency | AppHarvest</title>
+    <link rel="stylesheet" media="all" href="/sites/g/files/knoqqb58361/files/css/css_rfjm6CJ_0NMC2yDcg2-ndYMEx1qfufTwwHO3KArx5Oc.css" />
+<link rel="stylesheet" media="all" href="/sites/g/files/knoqqb58361/files/css/css_xYK7ZMZHqt13VazT6YnPcn2PFSNr7rqxYuKc1ZM478s.css" />
+<link rel="stylesheet" media="all" href="//use.typekit.net/vud1dgw.css" />
+<link rel="stylesheet" media="all" href="//fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&amp;display=swap" />
+<link rel="stylesheet" media="all" href="//fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&amp;display=swap" />
+<link rel="stylesheet" media="all" href="/sites/g/files/knoqqb58361/files/css/css_BpbmeXq4o5sJ4kNr9BsC_6DDYPMXrpIhTsTama0C_Vk.css" />
+<link rel="stylesheet" media="print" href="/sites/g/files/knoqqb58361/files/css/css_qZ-xVu9mpNqb_uFPyHpx31DNulcEFC3aDcyJ6gh4BTs.css" />
+<link rel="stylesheet" media="all" href="/sites/g/files/knoqqb58361/files/css/css__0mfqC-xst74AfusJJjlm02Nq28WtoSEMHMpjxVxWf0.css" />
+
+    
+<!--[if lte IE 8]>
+<script src="/sites/g/files/knoqqb58361/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+<script src="/core/assets/vendor/modernizr/modernizr.min.js?v=3.3.1"></script>
+
+    
+  </head>
+  <body class="body-sidebars-none nir-node nir-node--type-nir-news nir-node--7131 path-node page-node-type-nir-news">
+    <div id="skip">
+      <a class="visually-hidden focusable skip-link" href="#main-menu">
+        Skip to main navigation
+      </a>
+    </div>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="printLogo">
+    <img class="" src="/sites/g/files/knoqqb58361/themes/site/nir_pid3889/dist/images/logo_small.png" alt="AppHarvest"/>
+</div>
+<header class="">
+    <div class="top-bar row expanded" id="backtotop">
+        <div class="top-bar-left">
+            <a href="https://www.appharvest.com/">
+                                <img class="logo-orig" src="/sites/g/files/knoqqb58361/themes/site/nir_pid3889/dist/images/logo_small.png" alt="AppHarvest"/>
+            </a>
+        </div>
+        <div class="top-bar-right">
+            <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="large">
+                <button class="menu-icon" type="button" aria-label="Open Search" data-toggle></button>
+            </div>
+                              <div class="region region-navigation" id="main-menu">
+    
+
+                        
+    <h2 class="visually-hidden" id="block-nir-pid3889-investorrelations-menu">Investor Relations</h2>
+    
+
+                              <ul data-block-uuid="72ed68bf-ca7b-453d-8dfa-eb4c8cb5044e" class="menu vertical medium-horizontal expanded medium-text-center"  data-responsive-menu="drilldown large-dropdown">
+                                  <li>
+                  <a href="/investor-relations" data-drupal-link-system-path="node/5806">Overview</a>
+                  </li>
+                              <li class="has-submenu">
+                  <a href="/stock-information" data-drupal-link-system-path="node/5911">Stock Information</a>
+                                    <ul class="submenu menu vertical" data-submenu>
+                                  <li>
+                  <a href="/stock-information" data-drupal-link-system-path="node/5911">Stock Quote &amp; Chart</a>
+                  </li>
+                              <li>
+                  <a href="/stock-information/analyst-coverage" data-drupal-link-system-path="node/5896">Analyst Coverage</a>
+                  </li>
+          </ul>
+  
+                  </li>
+                              <li class="has-submenu">
+                  <a href="/news-and-events/news-releases" data-drupal-link-system-path="node/5816">News &amp; Events</a>
+                                    <ul class="submenu menu vertical" data-submenu>
+                                  <li>
+                  <a href="/news-and-events/news-releases" data-drupal-link-system-path="node/5816">News Releases</a>
+                  </li>
+                              <li>
+                  <a href="/news-and-events/events" data-drupal-link-system-path="node/5821">Events</a>
+                  </li>
+                              <li>
+                  <a href="/news-and-events/presentations" data-drupal-link-system-path="node/5831">Presentations</a>
+                  </li>
+          </ul>
+  
+                  </li>
+                              <li class="has-submenu">
+                  <a href="/financial-information/sec-filings" data-drupal-link-system-path="node/6016">Financial Information</a>
+                                    <ul class="submenu menu vertical" data-submenu>
+                                  <li>
+                  <a href="/financial-information/sec-filings" data-drupal-link-system-path="node/6016">SEC Filings</a>
+                  </li>
+          </ul>
+  
+                  </li>
+                              <li class="has-submenu">
+                  <a href="/corporate-governance" data-drupal-link-system-path="node/5836">Corporate Governance</a>
+                                    <ul class="submenu menu vertical" data-submenu>
+                                  <li>
+                  <a href="/corporate-governance" data-drupal-link-system-path="node/5836">Governance Highlights</a>
+                  </li>
+                              <li>
+                  <a href="https://www.appharvest.com/about-us/#leadership" target="_blank">Leadership</a>
+                  </li>
+                              <li>
+                  <a href="https://www.appharvest.com/about-us/#bod" target="_blank">Board of Directors</a>
+                  </li>
+                              <li>
+                  <a href="/corporate-governance/committee-composition" data-drupal-link-system-path="node/5851">Committee Composition</a>
+                  </li>
+          </ul>
+  
+                  </li>
+                              <li class="has-submenu">
+                  <a href="/investor-resources/email-alerts" data-drupal-link-system-path="node/5946">Investor Resources</a>
+                                    <ul class="submenu menu vertical" data-submenu>
+                                  <li>
+                  <a href="/investor-resources/investor-faqs" data-drupal-link-system-path="node/5941">Investor FAQs</a>
+                  </li>
+                              <li>
+                  <a href="/investor-resources/email-alerts" data-drupal-link-system-path="node/5946">Email Alerts</a>
+                  </li>
+                              <li>
+                  <a href="/investor-resources/contact-ir" data-drupal-link-system-path="node/5981">Contact IR</a>
+                  </li>
+          </ul>
+  
+                  </li>
+          </ul>
+  
+
+
+    
+  </div>
+
+                    </div>
+    </div>
+</header>
+
+
+
+        <div class="banner no-image" id="hero-banner">
+        <div class="row">
+                        <div class="large-12 columns" id="banner-descritption">
+                                    <h1>
+                                            News Release
+                                        </h1>
+                            </div>
+        </div>
+    </div>
+
+
+<div class="row expanded" data-equalizer="" data-equalize-on="" data-resize="" data-events="resize" id="profile">
+    
+        <div class="pointerBefore"></div>
+</div>
+
+
+
+
+<!-- Press Releases -->
+<div class="ndq-section">
+    <div id="ndq-content" class="row ndq-7131">
+        <div class="column large-12">
+          <div class="region region-content">
+    <div data-drupal-messages-fallback class="hidden"></div>
+<div id="block-nir-pid3889-content" class="block--system-main-block block--system-main-block--7131 block--content--system-main-block block--content--system-main-block--7131 block--55af00ea-e0f8-497d-8b5a-a28e3cf9dcdb block--55af00ea-e0f8-497d-8b5a-a28e3cf9dcdb--7131 block block-system block-system-main-block">
+  
+    
+      
+<article role="article" class="node node--nir-news--full node--type-nir-news node--view-mode-full node--promoted">
+
+  <h2>
+<div class="field field--name-field-nir-news-title field--type-string field--label-hidden">
+        <div class="field__item">AppHarvest Acquires Agricultural Robotics and  Artificial Intelligence Company Root AI to Increase Efficiency</div>
+    </div>
+</h2>
+        <div class="pdf_container">
+              <div class="file-link pdf-file-link">
+  <span class="file file--mime-application-pdf file--application-pdf"><a href="/node/7131/pdf" type="application/pdf" target="_blank">PDF Version</a></span>
+</div>
+          </div>
+  
+
+
+  <div class="node__content">
+          <div class="box__wrap">
+        
+                  <div class="box__right">
+            
+<div class="field field--name-field-nir-news-related-photos field--type-field-collection field--label-hidden">
+      <div class='field__items'>
+        <div class="field__item">
+<div class="supporting_image_wrapper">
+  <h5>
+            <div class="field field--name-field-related-photos-title field--type-string field--label-hidden field__item">AppHarvest intelligent robot harvester</div>
+      </h5>
+  <div class="supporting_image">
+    <a target="_blank" href="https://ml.globenewswire.com/Resource/Download/ddc83eaa-4466-407e-ab37-9bc31286e71d">
+      <img alt="AppHarvest intelligent robot harvester" src="https://ml.globenewswire.com/Resource/Download/ddc83eaa-4466-407e-ab37-9bc31286e71d">
+    </a>
+  </div>
+  <div class="supporting_image_description">
+    
+            <div class="clearfix text-formatted field field--name-field-related-photos-caption field--type-text-long field--label-hidden field__item"><p>AppHarvest has acquired the agricultural robotics and artificial intelligence company, Root AI, to improve efficiency and sustainability.</p>
+</div>
+      
+  </div>
+</div>
+</div>
+        </div>
+  </div>
+
+          </div>
+              </div>
+    
+                <p align="center"><em>Acquisition of Root AI and its signature robot, Virgo, bolsters company’s </em><br /><em>intelligent tools to produce foods sustainably</em><br /><em>Root AI CEO Joins AppHarvest as Chief Technology Officer</em></p>  <p>MOREHEAD, Ky., April  08, 2021  (GLOBE NEWSWIRE) -- AppHarvest, Inc. (NASDAQ: APPH, APPHW), a leading AgTech company and Certified B Corp focused on farming more sustainably using 90 percent less water than open-field agriculture and only recycled rainwater, announced today that it has acquired Root AI, an artificial intelligence farming startup that creates intelligent robots to help manage high-tech indoor farms. The acquisition of Root AI and its robotic universal harvester, Virgo, is expected to provide AppHarvest with a baseline of harvesting support working alongside crop care specialists focused on more complex tasks. AppHarvest expects the game-changing advantage of the technology to be in the data the robots can collect as they harvest, which can help evaluate crop health, precisely predict yield and optimize overall operations of the controlled environment agriculture (CEA) facility. </p>  <p>“Farming as we’ve known it is broken because of the increasing number of variables such as extreme weather, droughts, fire and contamination by animals that make our food system unreliable. Indoor farming solves for many of those challenges, and the data gathered can exponentially deliver more insights that help us predict and control crop quality and yield,” said AppHarvest Founder &amp; CEO Jonathan Webb. “One of the key challenges in agriculture is accurately predicting yield. Many downstream decisions from work scheduling to transportation to retail planning are based on that. Any deviation between projection and actual yield can result in fire drills for numerous functions to adjust for the change, and AI can help solve for that.”  </p>  <p>Root AI co-founder and CEO Josh Lessing will take on the role of Chief Technology Officer for AppHarvest where he will take the lead in continuing to develop the robots and their AI capabilities for the network of indoor farms that AppHarvest is building. Lessing, along with co-founder Ryan Knopf who will join AppHarvest as vice president of technology, helped establish Root AI as an early leader in employing artificial intelligence in CEA. Virgo is the world’s first universal harvester, which can be configured to identify and harvest multiple crops of varying sizes including tomatoes, peppers, cucumbers and more delicate fruits such as strawberries among others.</p>  <p>Though Virgo can work indoors or out, the robot’s focus has been on controlled environment agriculture. Over the past three years, it has collected the world’s largest data set of tomato images to enable it to identify more than 50 varieties in multiple growing environments and at varying stages of maturity to learn how and when to harvest. </p>  <p>Virgo uses a set of cameras combined with an infrared laser to generate a 3D color scan of an area to determine the work it can perform. Once it maps the tomatoes, it assesses their orientation and determines if they are ripe enough to pick. The robot can be programmed to make other quality assessments as well. The scan enables the robot to find the least obstructive and fastest route to pick the crop ahead of the arrival of the robotic arm and gripper. The robot can identify hundreds of tomatoes in a fraction of a second without having to connect to the cloud. Virgo keeps score on its success rate like a video game. A built-in feedback mechanism constantly evaluates its efficiency so it learns how to harvest any given configuration of fruit most effectively.</p>  <p>“A piece of food—whether that’s a tomato or a berry or a cucumber—is an outcome from many variables that are part of the growing process. Enhanced data collection for each plant through the robot can lead to insights that teach us precisely how to design better, more resilient food systems that are reliable and that produce more food with fewer resources,“ said Lessing. “Joining forces with AppHarvest is a natural fit: we want to ensure a stable, safe supply of the nutritious and healthy food that people should be eating -- grown sustainably -- and doing that at the scale of AppHarvest gives us the opportunity to make the greatest difference.” </p>  <p>Gathering more data through AI enables growers to use real-time information to improve a number of sustainability efforts such as detecting and eliminating pests naturally, helping indoor farms successfully grow chemical pesticide-free fruits and vegetables.<br /><br />AppHarvest is investing approximately $60 million, consisting of approximately $10 million in cash and the balance in AppHarvest common shares, to acquire Root AI. The Company will issue approximately 2,328,000 shares for the transaction.<br /><br />Founded in 2018, Root AI is based in Somerville, Mass., and has 19 full-time employees, all of whom are expected to join AppHarvest’s technology group to help advance the mission of building a resilient and sustainable food supply.</p>  <p><strong>About AppHarvest</strong><br />AppHarvest is an applied technology company building some of the world’s largest high-tech indoor farms in Appalachia that grow non-GMO, chemical pesticide-free produce using 90 percent less water than open-field agriculture and only recycled rainwater while producing yields up to 30 times that of traditional agriculture on the same amount of land with zero agricultural runoff. The Company combines conventional agricultural techniques with cutting-edge technology and is addressing key issues including improving access for all to nutritious food, farming more sustainably, building a domestic food supply, and increasing investment in Appalachia. The Company’s 60-acre Morehead, Ky. facility is among the largest indoor farms in the U.S. For more information, visit <a href="https://www.globenewswire.com/Tracker?data=S8pOVjw8a3y0v_a1NeErSDonwUwQjYqMQARth4SNSq3kHZMYmubcsr95Flu4jRt_L8Vl4_yhu4dObbj6JPQ_h6RpJuFTtNPzuQf4arXNGZE=" rel="nofollow" target="_blank"><u>https://www.appharvest.com/</u></a>.</p>  <p><strong>Forward-Looking Statements </strong><br />Certain statements included in this press release that are not historical facts are forward-looking statements for purposes of the safe harbor provisions under the United States Private Securities Litigation Reform Act of 1995. Forward-looking statements generally are accompanied by words such as “believe,” “may,” “will,” “estimate,” “continue,” “anticipate,” “intend,” “expect,” “should,” “would,” “plan,” “predict,” “potential,” “seem,” “seek,” “future,” “outlook,” and similar expressions that predict or indicate future events or trends or that are not statements of historical matters. All statements, other than statements of present or historical fact included in this press release, regarding AppHarvest’s future financial performance, as well as AppHarvest’s growth plans and strategy, ability to capitalize on commercial opportunities, future operations, estimated financial position, estimated adjusted EBITDA, revenues and losses, projected costs, prospects, plans and objectives of management are forward-looking statements. These statements are based on various assumptions, whether or not identified in this press release, and on the current expectations of AppHarvest’s management and are not predictions of actual performance. These forward-looking statements are provided for illustrative purposes only and are not intended to serve as, and must not be relied on as, a guarantee, an assurance, a prediction, or a definitive statement of fact or probability. Actual events and circumstances are difficult or impossible to predict and will differ from assumptions. Many actual events and circumstances are beyond the control of AppHarvest. These forward-looking statements are subject to a number of risks and uncertainties, including those discussed in the Registration Statement on Form S-1 (No. 333-252964) filed with the SEC by AppHarvest on February 10, 2021 under the heading “Risk Factors,” and other documents AppHarvest has filed, or that AppHarvest will file, with the SEC. If any of these risks materialize or our assumptions prove incorrect, actual results could differ materially from the results implied by these forward-looking statements. In addition, forward-looking statements reflect AppHarvest’s expectations, plans, or forecasts of future events and views as of the date of this press release. AppHarvest anticipates that subsequent events and developments will cause its assessments to change. However, while AppHarvest may elect to update these forward-looking statements at some point in the future, AppHarvest specifically disclaims any obligation to do so. These forward-looking statements should not be relied upon as representing AppHarvest’s assessments of any date subsequent to the date of this press release. Accordingly, undue reliance should not be placed upon the forward-looking statements.</p>  <p><strong>MEDIA CONTACT: </strong>Travis Parman, <a href="https://www.globenewswire.com/Tracker?data=OWBY_gNbLJhkQiWsc6V6lpGZXyeVPKkIvZLAXkRjlPFqRoPOjUQgDDuEYDHk8LmoABMeb1AevCqfI934QxdiaGJx_hFMxGq2SNGbflEVotVBWEzF3xO3MtStXgnNrMdw" rel="nofollow" target="_blank"><u>Travis.Parman@appharvest.com</u></a> <br /><strong>INVESTOR CONTACT:</strong> Matt Chesler, CFA, <a href="https://www.globenewswire.com/Tracker?data=UloeaKGetdagwgcRxfHVU-eI_5T2g4syvKkltblsHDBiZ0N2DnMtQMnZXQ6WjlUQU-4ApxG2LTOdxg0_G-8FZcE9hLA1TyfSyx0A4ASByeOmtZZBY9aCPzwps7NDqAge" rel="nofollow" target="_blank"><u>appharvestIR@appharvest.com</u></a><br /><strong>IMAGE/VIDEO GALLERY: </strong>Available <a href="https://www.globenewswire.com/Tracker?data=pZ8BDazrIS3TQ3uX1rZJdokD3krWYSJFwnjJDOOygAlzpMqz3fhNljmCNdKVlqMCjs8q46yWKMM7busGBpNPtz9TOU367XlJisnRLMa4UAaJuRicMoT1tX4PVwvDnxqe" rel="nofollow" target="_blank"><u>here</u></a></p>  <p>A photo accompanying this announcement is available at <a href="https://www.globenewswire.com/Tracker?data=S8pOVjw8a3y0v_a1NeErSJJScVUWbRbCjwIzM961vh6Y37DqXruyjepRKQJzp9LJ6eG_AhDEHbYzkBvjs-icfh2d9G97Y-aho9obIJ_6GkO1Pcfv8UX8nQSRWy0_Gze9C__JKr1pjEC0sMrmG6lA5TwIevE9cJ_R7bfeiS8kH8Uo7bYv1rj3MoO_1pKH3ujHQ_GKzgc3eqSy7mSwtTW578EWPDpOn-2lHWd57KhlXi_Rg_zy1f3YSZ0h4B0c6QHNy9kXiV5F78D1v_ZDLpvk9A==" rel="nofollow" target="_blank">https://www.globenewswire.com/NewsRoom/AttachmentNg/ddc83eaa-4466-407e-ab37-9bc31286e71d</a></p>
+  
+      </div>
+
+</article>
+
+  </div>
+<div id="block-nir-pid3889-websitenoticeblock" class="block--website-notice-block block--website-notice-block--7131 block--content--website-notice-block block--content--website-notice-block--7131 block--bc59b2c2-d379-4470-8485-f687705a8887 block--bc59b2c2-d379-4470-8485-f687705a8887--7131 block block-nir-website-notices block-website-notice-block">
+  
+    
+      
+  </div>
+
+  </div>
+
+        </div>
+    </div>
+</div>
+<!-- End of Press Releases -->
+
+
+
+
+
+
+<!-- Corporate Governance-->
+<!-- End of Corporate Governance-->
+
+
+
+<!-- Toolkit -->
+<div class="ndq_toolbar row expanded overlay-fade-in " data-equalizer="s05n9a-equalizer" data-equalize-on="medium" data-resize="e77siw-eq" data-events="resize">
+    <div class="column large-6 medium-12" data-equalizer-watch="">
+        
+
+<nav role="navigation" aria-labelledby="block-shareholdertools-menu" id="block-shareholdertools" class="block--system-menu-blockshareholder-tools block--system-menu-blockshareholder-tools--6016 block--toolbar--system-menu-block--shareholder-tools block--toolbar--system-menu-block--shareholder-tools--6016 block--5b74c2c1-5244-4193-918c-5a0b1ac52093 block--5b74c2c1-5244-4193-918c-5a0b1ac52093--6016 block block-menu navigation block-system-menublock menu--shareholder-tools">
+                        
+    <h2 class="visually-hidden" id="block-shareholdertools-menu">Shareholder Tools</h2>
+    
+
+                
+              <ul data-block-uuid="5b74c2c1-5244-4193-918c-5a0b1ac52093" class="toolbar-menu">
+                                                
+        
+      <li class="menu-item ndq_tool_print">
+        <a href="" class="print-page">Print Page</a>
+              </li>
+                                            
+        
+      <li class="menu-item ndq_tool_contact">
+        <a href="/investor-resources/email-alerts" data-drupal-link-system-path="node/5946">Email Alerts</a>
+              </li>
+                                            
+        
+      <li class="menu-item ndq_tool_rss">
+        <a href="/rss-feeds" data-drupal-link-system-path="node/5951">RSS</a>
+              </li>
+                                            
+        
+      <li class="menu-item ndq_tool_contact">
+        <a href="/investor-resources/contact-ir" data-drupal-link-system-path="node/5981">Contact IR</a>
+              </li>
+        </ul>
+  
+
+
+    </nav>
+
+    </div>
+    <div class="column large-6 medium-12 bg-dark-blue" data-equalizer-watch="">
+        <div class="ndq-footer-alerts-outer">
+            <div class="ndq-footer-alerts-inner">
+                <form class="ndq-footer-alerts" id="alerts-form" action="/investor-resources/email-alerts">
+                    <label>Request Email Alerts</label>
+                    <input aria-label="Request Email Alerts" type="email" name="nir_email_alerts_signup_email" placeholder="Email">
+                    <button aria-label="submit form" type="submit"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer role="contentinfo">
+    <div class="row expanded overlay-fade-in revealOnScroll-fadeInUp fadeInUp animated-fast">
+        <div class="large-8 medium-12 columns" id="footer-copyright">
+            <p>&copy; <strong>2021 AppHarvest.</strong> &nbsp;&nbsp;&nbsp;&nbsp;All rights reserved.</p>
+        </div>
+        <div class="large-4 medium-12 columns text-right" id="footer-links">
+                    </div>
+    </div>
+</footer>
+
+
+
+<!-- back to top -->
+<div id="back-top">
+    <a href="#" class="fa fa-chevron-up"></a>
+</div>
+
+
+  </div>
+
+    
+          <script type="text/javascript">var s_CCSWebHostingAccount = "trcgappharvest";</script>
+        <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/7131","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","themeUrl":"sites\/g\/files\/knoqqb58361\/themes\/site\/nir_pid3889"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"classy\/node,core\/html5shiv,nir_analytics\/nir_analytics.adobe_launch,nir_analytics\/nir_analytics.adobe_prod,nir_base\/gnw_photos,nir_base\/nir_icons,nir_base\/nir_toolbar,nir_ckeditor_datatables\/datatables,nir_multimedia\/nir_multimedia,nir_pid3889\/override,nir_website_notices\/nir_website_notices.notices,system\/base","theme":"nir_pid3889","theme_token":null},"ajaxTrustedUrl":[],"user":{"uid":0,"permissionsHash":"5959e3651ae0fe050d456e9d172d0782b1804d4b387c845c363b3d40dab7fcdc"}}</script>
+<script src="/sites/g/files/knoqqb58361/files/js/js_qJXdAtoUyCiREd3np9aF3dNlVGhazZLvWeATZVldLpg.js"></script>
+<script src="//assets.adobedtm.com/898335afd880/c52ee8aa1e90/launch-5ef258dce664.min.js" async></script>
+
+    
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"761e715901","applicationID":"32397309,24276188","transactionName":"ZlVXYRcAW0ZRW0QKX18fdFYRCFpbH3xCFkBQXGlbCgVQaXNXXhdCXlxZUBc9e1pUXWYKVUZzWlsRE1pZXF1CTg5HWVBC","queueTime":0,"applicationTime":208,"atts":"ShJUF18aSEg=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+</html>

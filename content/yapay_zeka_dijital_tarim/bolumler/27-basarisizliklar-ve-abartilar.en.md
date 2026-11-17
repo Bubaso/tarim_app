@@ -1,0 +1,39 @@
+# 27 · Failures and overstatements
+
+> **Summary.** The short history of AI in agriculture also includes promises that failed. According to the company's own statement, the vertical farming company Infarm had cut production costs by **80%** thanks to an AI-driven "farm brain"; it raised **200** million dollars in 2021 and went into administration less than two years later. AppHarvest filed for bankruptcy protection two years after buying Root AI, a developer of harvesting robots; Small Robot Company, which had announced an AI advice engine, went into liquidation in 2024. According to a review of harvesting robots, none of the **50** robots examined had been commercialised. FAO's 2009 estimate that food production must rise by **70%** was revised in 2017; the two figures rest on different starting years and scopes. In Türkiye, by the end of 2025 only **12.91%** of the loan for a World Bank-financed climate-smart agriculture project had been spent, and grant spending was zero.
+
+## Companies that grew on the promise of AI
+
+**Infarm.** Infarm, which ran vertical farms in cities, announced on 16 December 2021 that it had raised **200** million dollars; according to the company's own statement, it was valued at well over **1** billion dollars. According to the release, each farm was equipped with lab-grade sensors that had collected more than **60** billion data points from the company's global network, and its crop science team analysed the data with AI and its patented technology to improve yield, quality and nutritional value. According to the company's own statement, in the previous three years the analyses made possible by the "farm brain" had cut production costs by **80%** and raised yields by more than **250%**; the new farming model could be as much as **400** times more efficient than soil-based agriculture. The goal was **100** growing centres in **20** countries by 2030.
+
+According to the company's own announcement, Infarm – Indoor Urban Farming GmbH entered administration on 4 September 2023 under the insolvency rules of England and Wales; the UK companies register also records that the administration began on that date. The cost and yield figures in the investment release were the company's own statement.
+
+**AppHarvest.** AppHarvest, a US company growing produce indoors, announced on 8 April 2021 that it had bought Root AI, an agricultural robotics and AI company. According to the company's own statement, the price was about **60** million dollars, about **10** million of it in cash and the rest in AppHarvest shares. The release presented the robot, Virgo, as the world's first universal harvester, able to identify and harvest many crops of different sizes, from tomatoes to strawberries; the company said the real advantage would be using the data the robots collect as they harvest to assess crop health and predict yields precisely.
+
+On 23 July 2023, AppHarvest Products, LLC and eleven affiliated companies filed for protection under Chapter 11 of the US Bankruptcy Code. Even in the release announcing the filing, according to the company's own statement, its farms used up to **90%** less water than open fields and produced yields up to **30** times those of traditional agriculture.
+
+**Small Robot Company.** Small Robot Company, a farm robotics start-up in the United Kingdom, announced in 2020 that it had placed an AI-driven advice engine, Wilma, at the heart of its robotic farming system. According to the company's post, the aim was per-plant farming, which the company believed would become the dominant system in the fourth agricultural revolution, and that year it aimed to show that it could kill weeds autonomously without chemicals. The post said Wilma would be commercially available to early customers from October. According to the UK companies register, the company entered creditors' voluntary liquidation on 1 February 2024 and was dissolved on 30 April 2026.
+
+## The distance between the lab and the field
+
+According to a review of harvesting robots for high-value crops (Bac and colleagues, 2014), the robots located the fruit with an average success of **85%** and detached it with **75%**; harvest success stayed at **66%**. **5%** of the fruit and **45%** of the stalks were damaged; a harvest cycle took **33** seconds on average. According to the review, the performance of harvesting robots had not improved in the past three decades, and none of the **50** robots examined had been commercialised. Why harvesting is hard for a robot is covered in §10.
+
+In recognising disease from images, too, a headline figure and field performance can diverge: in a 2016 study, the model's **99.35%** accuracy refers to images taken in controlled conditions; on images taken in other conditions, accuracy falls to just above **31%** (§26).
+
+## A figure recalculated: 70%
+
+A background paper that FAO prepared in 2009 for an experts' forum wrote that the world's population would reach **9.1** billion by 2050, **34%** more than today, and that to feed it, food production (net of food used for biofuels) must increase by **70%**. FAO revised the estimate in 2017: in 2050 agriculture will need to produce almost **50%** more food, feed and biofuel than in 2012. This estimate rests on recent UN projections that the world's population would reach **9.73** billion in 2050.
+
+The two figures do not measure the same thing: the 2009 figure covers food production, the 2017 figure food, feed and biofuel; and their starting years differ. A 2012 projection called AT2050 foresaw an increase of **60%**; updating only the population projections raises the increase between 2005/07 and 2050 to more than **63%**. Because production grew by **15%** between 2005/07 and 2012, the remaining increase from 2013 to 2050 is about **49%**. So there was no fall from **70%** to **50%**; the figures were calculated from different starting points. In 2017 FAO also wrote that meeting the increased demand should not be a major challenge, if past achievements are a guide: between 1961 and 2011, global agricultural output more than tripled.
+
+## Türkiye: a project behind its targets
+
+The loan agreement for the Climate-Smart and Competitive Agricultural Growth Project (TUCSAP) between Türkiye and the World Bank's International Bank for Reconstruction and Development was signed on 16 May 2022; the loan is **304,800,000** euros. One of the project's sub-components is a digital blueprint for the ministry's collection and management of sectoral information. The project will end on 31 March 2028.
+
+According to an audit report by the Treasury Controllers Board of the Ministry of Treasury and Finance dated 16 June 2026, **12.91%** of the loan had been spent by the end of 2025. For 2025 the original budget was **108.8** million euros and the final budget **55.6** million euros; spending in the year was **27.9** million euros, **50.17%** of the final budget. In the grant category, where a total of **29.5** million euros is planned, nothing had been spent by the end of 2025. According to the World Bank's November 2024 monitoring report, the March 2028 target for the indicator on farmers adopting climate-smart agricultural technologies is **42,500**; in October 2024 the value was zero, and the bank writes that reporting on the indicator is delayed because of delays in deploying the grant financing. The related indicator in the ministry's 2025 activity report is covered in §20.
+
+What is missing is **published measurements that independently test the cost and yield claims companies attribute to AI.**
+
+## How this page is kept up to date
+
+This page watches bankruptcy and liquidation records of agricultural technology companies, new studies comparing AI promises with results in the field, and audit and monitoring reports on public projects. New information is added to the page after an editor's approval.

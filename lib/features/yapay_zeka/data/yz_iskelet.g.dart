@@ -335,9 +335,9 @@ const List<YzBaslik> kYzBasliklar = [
       "Failures and overstatements",
       true,
       ["tahmin", "goruntu", "robotik"],
-      false,
-      "Tutmayan vaatler, kapanan girişimler, kaynağı bulunamayan dolaşımdaki rakamlar.",
-      "Promises that failed, start-ups that closed, circulating figures with no source."),
+      true,
+      "Yapay zekâ vaadiyle büyüyüp iflas eden şirketler, ticarileşmeyen hasat robotları, yeniden hesaplanan bir FAO rakamı ve hedeflerinin gerisinde kalan bir Türkiye projesi.",
+      "Companies that grew on AI promises and went bankrupt, harvesting robots that never reached the market, a recalculated FAO figure and a Turkish project behind its targets."),
   YzBaslik(
       28,
       "saha-hikayeleri",

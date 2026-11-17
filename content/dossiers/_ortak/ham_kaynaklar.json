@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 372,
- "toplam_bayt": 1006948387,
+ "dosya_sayisi": 384,
+ "toplam_bayt": 1017455980,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1921,6 +1921,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/appharvest_2021_root_ai_bulteni_arsiv.html",
+   "bayt": 36430,
+   "sha256": "3bc2a4f28f3552133b49777e0bacc8bc2d8a5fb5c7d4382db9bba6a170f33383",
+   "kaynak": {
+    "adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
+    "atif": "AppHarvest, Inc. 8 Nisan 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 8 Nisan 2021).",
+    "lisans": "şirket basın bülteni (şirketin kendi iddiası; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Vaat şirketin kendi sözleriyle: yapay zekâlı hasat robotu ve robotların topladığı veriyle verim tahmini. İkinci alıntı bültenin tarih satırıdır (bültenin ilk cümlesi 300 karakteri aştığı için yalnız tarih satırı alındı); arşiv kopyasının kayıt tarihi de 8 Nisan 2021. Son alıntı kurucu CEO'nun sözünd"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/appharvest_2023_chapter11_bulteni_arsiv.html",
+   "bayt": 50848,
+   "sha256": "34da75112433412fa0d2021f5427bbd1e5f1f6acc47317de8d3eb86d2436954a",
+   "kaynak": {
+    "adres": "https://web.archive.org/web/20230724195230id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-announces-chapter-11-filing-support-financial-and",
+    "atif": "AppHarvest, Inc. 24 Temmuz 2023. AppHarvest announces Chapter 11 filing to support a financial and operational transition (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 24 Temmuz 2023).",
+    "lisans": "şirket basın bülteni (şirketin kendi iddiası; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Ana kayıttaki Stretto sayfasını tamamlar: şirketin kendi Chapter 11 bülteni ve iflas günündeki 'su %90'a kadar az, verim 30 kata kadar' iddiası. İlk alıntı tarih satırı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/appharvest_2023_stretto_dava_sayfasi.html",
+   "bayt": 91437,
+   "sha256": "ee2a6708d8e772040605f877c6cdb3f939c3761173717b15678e523dbfce72d3",
+   "kaynak": {
+    "adres": "https://cases.stretto.com/appharvest/",
+    "atif": "Stretto (şirketin talep ve bildirim ajanı). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: dava bilgi sayfası (erişim 17 Kasım 2026).",
+    "lisans": "kamuya açık dava bilgisi (talep ajanı sayfası)",
+    "lisans_adresi": null,
+    "_not": "İflas süreci için birincil kayıt: 23 Temmuz 2023'te AppHarvest Products, LLC ve on bir bağlı şirket Chapter 11 başvurusu yaptı. İkinci alıntı sayfadaki tarih alanıdır (yeniden yapılandırma planının yürürlük tarihi), cümle değil; planın içeriği (çiftliklerin akıbeti) bu sayfada yazmıyor. Sayfadaki ik"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/aquatag_wur_283306.pdf",
    "bayt": 394549,
    "sha256": "0fd679fb419eaa48b81e8bb7e04516511f5c14d7a0d8136a5dc346c65774669e",
@@ -2197,6 +2233,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/dunya_bankasi_tucsap_isr5_2024.pdf",
+   "bayt": 351096,
+   "sha256": "2d2cec73283d571fbb7e17b8d08d5eb79fd92f1ffca2ee9925ec21c7ba3ec32f",
+   "kaynak": {
+    "adres": "https://documents.worldbank.org/curated/en/099112724130524757/pdf/P1750111e0351b0911af591d4a379816e66.pdf",
+    "atif": "Dünya Bankası. 27 Kasım 2024. Implementation Status & Results Report: Turkey Climate Smart and Competitive Agricultural Growth Project (TUCSAP) (P175011), Seq No: 5.",
+    "lisans": "Dünya Bankası kamuya açık belge",
+    "lisans_adresi": null,
+    "_not": "Dünya Bankası'nın kendi izleme raporu: hibe finansmanının dağıtımında gecikme, çevrimiçi arazi planlama sisteminin 2025'e kayması. Ana kayıttaki denetim raporundan eski (Kasım 2024); ikinci alıntı tablo satırı (başlangıç, önceki, güncel, hedef)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eastwood_2026_europepmc_tam_metin.xml",
    "bayt": 88123,
    "sha256": "5e539092f413551a2e2b3ecddc337e860b1fa6a23b3c007ed4b35bc134ce2d34",
@@ -2278,6 +2326,30 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2009_how_to_feed_the_world_2050.pdf",
+   "bayt": 642477,
+   "sha256": "33b40d6eb6384c538d2e1881248962c6991b560f7260f62193ae118614f2373e",
+   "kaynak": {
+    "adres": "https://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf",
+    "atif": "FAO. 2009. How to Feed the World in 2050. FAO Yüksek Düzeyli Uzmanlar Forumu (Roma, 12-13 Ekim 2009) için arka plan belgesi. Roma: FAO.",
+    "lisans": "FAO belgesi; PDF'te lisans ifadesi yok (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Dolaşımdaki 'gıda üretimi 2050'ye kadar %70 artmalı' rakamının kaynağı (PDF s.2, yönetici özeti). Belge bir forumun arka plan notu, hakemli değil. %70 biyoyakıt hariç ve 'bugüne göre' veriliyor; baz dönem bu cümlede açıkça yazılmıyor. FAO 2017'de hesabı güncelledi (bkz. fao_2017_yaklasik50)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+   "bayt": 7593176,
+   "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
+   "kaynak": {
+    "adres": "https://www.fao.org/3/i6583e/i6583e.pdf",
+    "atif": "FAO. 2017. The future of food and agriculture – Trends and challenges. Rome. ISBN 978-92-5-109551-5.",
+    "lisans": "© FAO 2017; ticari olmayan kullanım için kaynak gösterilerek çoğaltılabilir (belgedeki ifade)",
+    "lisans_adresi": null,
+    "_not": "FAO'nun güncellenmiş 2050 hesabı (PDF s.60, basılı s.46): 2012'ye göre 'neredeyse %50'. Dikkat, iki şey değişti. Baz yıl: 2005/07 bazında, güncel nüfus projeksiyonuyla artış %63'ün üstünde; FAO'nun 2012 revizyonu (AT2050) bu bazda %60 demiş. Kapsam: 2009'daki %70 'biyoyakıt hariç gıda üretimi', 2017"
    }
   },
   {
@@ -2614,6 +2686,42 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Genel yapay zekâ bağlamı, tarıma özgü değil. Veri merkezleri 2024'te dünya elektriğinin yaklaşık %1,5'ini (415 TWh) kullandı; temel senaryoda 2030'da yaklaşık 945 TWh (bugünkü Japonya tüketiminden biraz fazla), 2035'te yaklaşık 1.200 TWh; artışın en önemli sürücüsü yapay zekâ. Belirsizlik büyük: 203"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/infarm_2021_yatirim_bulteni_arsiv.html",
+   "bayt": 144704,
+   "sha256": "6670dd6993cc2b3cb99ed8bfd41538022f493d362c6d33914446586264831f5c",
+   "kaynak": {
+    "adres": "https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms",
+    "atif": "Infarm. 16 Aralık 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (şirket basın bülteni, infarm.com; İnternet Arşivi kopyası, 8 Aralık 2022).",
+    "lisans": "şirket basın bülteni (şirketin kendi iddiası; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Şirketin kendi iddiaları, bağımsız doğrulaması yok: bulut bağlantılı 'çiftlik beyni' ve yapay zekâ sayesinde üç yılda üretim maliyeti %80 düşmüş, verim %250'nin üstünde artmış; 2030'a kadar 20 ülkede 100 büyüme merkezi hedefi. İki yıl dolmadan Infarm – Indoor Urban Farming GmbH kayyum yönetimine gir"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/infarm_2023_kayyum_duyurusu_arsiv.html",
+   "bayt": 43959,
+   "sha256": "cf7f0308d71d8bf214268a1cfaf9b243b586ce58349ef5a71ba7b8873fc834b9",
+   "kaynak": {
+    "adres": "https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders",
+    "atif": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (şirket duyurusu, infarm.com; İnternet Arşivi kopyası, 6 Aralık 2023).",
+    "lisans": "şirket duyurusu (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Şirketin kendi duyurusu: Infarm – Indoor Urban Farming GmbH, 4 Eylül 2023'te İngiltere ve Galler iflas kurallarına göre kayyum yönetimine (administration) girdi. Duyuruda atanan kayyumların ve iletişim kişilerinin adları var; alıntılanmadı. İngiltere şirket sicilinin (Companies House, FC040818) kayy"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/infarm_companies_house_iflas.html",
+   "bayt": 34884,
+   "sha256": "4c63715ed621365c2562eeff6b64f0a000a24e466d9afef5a43599a2863ca57c",
+   "kaynak": {
+    "adres": "https://find-and-update.company-information.service.gov.uk/company/FC040818/insolvency",
+    "atif": "Companies House (Birleşik Krallık şirketler sicili). INFARM - INDOOR URBAN FARMING GMBH (FC040818): iflas (insolvency) sayfası (erişim 17 Kasım 2026).",
+    "lisans": "kamu sicil kaydı",
+    "lisans_adresi": null,
+    "_not": "Infarm'ın kendi duyurusundaki tarihi resmî sicil doğruluyor; süreç 4 Eylül 2025'te bitmiş. Alıntı sicil alanlarıdır; kayyum adları alınmadı."
    }
   },
   {
@@ -3277,6 +3385,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/small_robot_company_2020_wilma_arsiv.html",
+   "bayt": 84077,
+   "sha256": "e39e5c1d0c777bed3f3b08e09a3287000bb30bbfffb6b406f40d5e94dca324c6",
+   "kaynak": {
+    "adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
+    "atif": "Small Robot Company. 2020 (adres yolundaki tarih 17 Temmuz 2020). Meet Wilma: artificial intelligence for Per Plant Farming (şirket blog yazısı, smallrobotcompany.com; İnternet Arşivi kopyası, 10 Kasım 2020).",
+    "lisans": "şirket yazısı (şirketin kendi iddiası; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "İngiliz tarım robotu girişiminin kendi sözleri: yapay zekâ destekli 'tavsiye motoru', bitki bazında çiftçilik ve kimyasalsız otonom ot imhası hedefi. Son alıntı sayfa altındaki şirket numarası (cümle değil); İngiltere şirket sicilindeki kayıtla aynı (bkz. small_robot_company_tasfiye). Hedeflerin ger"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/small_robot_company_companies_house_iflas.html",
+   "bayt": 37253,
+   "sha256": "514e0cf7fe271fb857e069cb8ba595bd1d8a8daab030d1629127d43c4e46146d",
+   "kaynak": {
+    "adres": "https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency",
+    "atif": "Companies House (Birleşik Krallık şirketler sicili). SMALL ROBOT COMPANY LIMITED (10846464): iflas (insolvency) sayfası (erişim 17 Kasım 2026).",
+    "lisans": "kamu sicil kaydı",
+    "lisans_adresi": null,
+    "_not": "Resmî sicil: şirket 1 Şubat 2024'te alacaklıların gönüllü tasfiyesine (creditors voluntary liquidation) girdi, 30 Nisan 2026'da sicilden silindi (dissolved). Alıntılar sicil sayfasındaki alanlardır, cümle değildir. Sayfada tasfiye memurlarının adları var; alıntılanmadı. Kapanışın nedeni sicilde yazm"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/stygar_2021_europepmc.json",
    "bayt": 7827,
    "sha256": "d1105ff98e8fc3796868852f8e81d3179bb3fd2ad1a5c9795bf3dd9d833ae755",
@@ -3706,6 +3838,18 @@
     "lisans": "kurumsal yayın (TÜBİTAK)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — TÜBİTAK UZAY sitesi (Haziran 2026 kataloğu)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tucsap_2026_hazine_kontrolorleri_denetim_raporu.pdf",
+   "bayt": 1397252,
+   "sha256": "fd5122134fbc080e68de7a6061c84e58490b10fd35397e04ebd1f2eec2d567ec",
+   "kaynak": {
+    "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf",
+    "atif": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı.",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "Dünya Bankası kredili İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi'nin (TUCSAP) resmî denetim raporu; projenin bir alt bileşeni Bakanlığın 'dijital yol haritası' (digital blueprint). Kredi 16.05.2022'de imzalandı, proje 31.03.2028'de bitecek; 2025 sonunda kredinin %12,91'i harcanmış, hibe kateg"
    }
   },
   {

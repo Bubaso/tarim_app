@@ -1,0 +1,263 @@
+{
+  "_ne": "§27 Başarısız örnekler ve abartılar — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun kendi yayını",
+    "RESMI": "Resmî sicil, mahkeme süreci kaydı ya da devletin denetim raporu",
+    "SATICI": "Şirketin kendi bülteni ya da yazısı: şirketin kendi iddiası (karar 34)"
+  },
+  "kaynaklar": {
+    "fao_2009_yuzde70": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2009. How to Feed the World in 2050. FAO Yüksek Düzeyli Uzmanlar Forumu (Roma, 12-13 Ekim 2009) için arka plan belgesi. Roma: FAO.",
+      "adres": "https://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf",
+      "dosya": "kaynak_dosyalari/fao_2009_how_to_feed_the_world_2050.pdf",
+      "nufus_2050_milyar": 9.1,
+      "nufus_artisi_yuzde": 34,
+      "gida_uretimi_artisi_yuzde": 70,
+      "tahil_uretimi_2050_milyar_ton_yaklasik": 3,
+      "tahil_uretimi_bugun_milyar_ton": 2.1,
+      "et_uretimi_ek_milyon_ton_ustu": 200,
+      "et_uretimi_2050_milyon_ton": 470,
+      "alinti": [
+        "By 2050 the world’s population will reach 9.1 billion, 34 percent higher than today.",
+        "In order to feed this larger, more urban and richer population, food production (net of food used for biofuels) must increase by 70 percent.",
+        "Annual cereal production will need to rise to about 3 billion tonnes from 2.1 billion today and annual meat production will need to rise by over 200 million tonnes to reach 470 million tonnes.",
+        "The following document takes major findings of that meeting into account and aims to serve as a basic background for the High-Level Experts Forum on “How to Feed the World in 2050”, to be convened at FAO Headquarters in Rome on 12-13 October 2009."
+      ]
+    },
+    "fao_2017_yaklasik50": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2017. The future of food and agriculture – Trends and challenges. Rome. ISBN 978-92-5-109551-5.",
+      "adres": "https://www.fao.org/3/i6583e/i6583e.pdf",
+      "dosya": "kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
+      "artis_2012_2050_yuzde_neredeyse": 50,
+      "nufus_2050_milyar": 9.73,
+      "at2050_2012_revizyonu_artis_yuzde": 60,
+      "artis_2005_07_2050_yuzde_ustu": 63,
+      "uretim_artisi_2005_07_2012_yuzde": 15,
+      "talep_artisi_2013_2050_yuzde_yaklasik": 49,
+      "alinti": [
+        "Citation: FAO. 2017. The future of food and agriculture – Trends and challenges. Rome.",
+        "To meet demand, agriculture in 2050 will need to produce almost 50 percent more food, feed and biofuel than it did in 2012.",
+        "This FAO estimate takes into account recent United Nations (UN) projections indicating that the world’s population would reach 9.73 billion in 2050.",
+        "The estimated increase to 2050 differs from AT2050’s projection of an increase of 60 percent (Alexandratos and Bruinsma, 2012).",
+        "Accounting only for the revised population projections, global agricultural demand is projected to increase by more than 63 percent between 2005/07 and 2050.",
+        "Since production expanded by 15 percent between 2005/07 and 2012, the projected increase in agricultural demand from 2013 to 2050 would amount to approximately 49 percent.",
+        "Meeting the increased demand should not be a major challenge, if past achievements are a guide.",
+        "Between 1961 and 2011, global agricultural output more than tripled."
+      ]
+    },
+    "mohanty_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419.",
+      "doi": "10.3389/fpls.2016.01419",
+      "dosya": "kaynak_dosyalari/mohanty_2016_frontiers.html",
+      "goruntu_sayisi": 54306,
+      "urun_turu": 14,
+      "hastalik": 26,
+      "ayni_veri_test_dogrulugu_yuzde": 99.35,
+      "dis_veri_seti_1_dogruluk_yuzde": 31.4,
+      "dis_veri_seti_2_dogruluk_yuzde": 31.69,
+      "sinif_sayisi": 38,
+      "rastgele_tahmin_dogrulugu_yuzde": 2.63,
+      "alinti": [
+        "Using a public dataset of 54,306 images of diseased and healthy plant leaves collected under controlled conditions, we train a deep convolutional neural network to identify 14 crop species and 26 diseases (or absence thereof).",
+        "The trained model achieves an accuracy of 99.35% on a held-out test set, demonstrating the feasibility of this approach.",
+        "While these approaches yield excellent results on the PlantVillage dataset which was collected in a controlled environment, we also assessed the model's performance on images sampled from trusted online sources, such as academic agriculture extension services.",
+        "Using the best model on these datasets, we obtained an overall accuracy of 31.40% in dataset 1, and 31.69% in dataset 2, in successfully predicting the correct class label (i.e., crop and disease information) from among 38 possible class labels.",
+        "We note that a random classifier will obtain an average accuracy of only 2.63%.",
+        "First, when tested on a set of images taken under conditions different from the images used for training, the model's accuracy is reduced substantially, to just above 31%.",
+        "The second limitation is that we are currently constrained to the classification of single leaves, facing up, on a homogeneous background."
+      ]
+    },
+    "bac_2014": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911.",
+      "doi": "10.1002/rob.21525",
+      "dosya": "kaynak_dosyalari/bac_2014_crossref.json",
+      "konum_bulma_basarisi_yuzde": 85,
+      "koparma_basarisi_yuzde": 75,
+      "hasat_basarisi_yuzde": 66,
+      "meyve_hasari_yuzde": 5,
+      "sap_hasari_yuzde": 45,
+      "cevrim_suresi_saniye": 33,
+      "incelenen_robot_sayisi": 50,
+      "alinti": [
+        "This review article analyzes state‐of‐the‐art and future perspectives for harvesting robots in high‐value crops.",
+        "On average, localization success was 85%, detachment success was 75%, harvest success was 66%, fruit damage was 5%, peduncle damage was 45%, and cycle time was 33 s.",
+        "Moreover, the performance of harvesting robots did not improve in the past three decades, and none of these 50 robots was commercialized."
+      ]
+    },
+    "infarm_2021_vaat": {
+      "nitelik": "SATICI",
+      "kunye": "Infarm. 16 Aralık 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (şirket basın bülteni, infarm.com; İnternet Arşivi kopyası, 8 Aralık 2022).",
+      "adres": "https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms",
+      "dosya": "kaynak_dosyalari/infarm_2021_yatirim_bulteni_arsiv.html",
+      "yatirim_milyon_usd": 200,
+      "hedef_2030_buyume_merkezi": 100,
+      "hedef_2030_ulke": 20,
+      "sirket_degeri_milyar_usd_ustu": 1,
+      "veri_noktasi_milyar_ustu": 60,
+      "uretim_maliyeti_dususu_yuzde": 80,
+      "verim_artisi_yuzde_ustu": 250,
+      "verimlilik_kat_en_fazla": 400,
+      "alinti": [
+        "Amsterdam, The Netherlands: December 16, 2021 - Infarm, a rapidly growing urban farming company with a global presence, announced today that it has raised $200 million in a Series D funding round.",
+        "By 2030, the company plans to significantly increase its presence to 100 Growing Centres in 20 countries and plans to grow the entire fruit and vegetable basket",
+        "Infarm is now valued at well over $1 bn",
+        "Each farm is equipped with numerous lab-grade sensors that have collected more than 60 billion data points from its global farming network.",
+        "Infarm’s crop science team analyses the data to continuously update the growing environment in each module and improve factors like yield, quality and nutritional value through the use of artificial intelligence and its patented technology.",
+        "In the last three years, through the analyses made possible by the “farm brain”, the company reduced production costs by 80% and improved yield by more than 250%.",
+        "This new farming model can be as much as 400 times more efficient than soil-based agriculture and uses no chemical pesticides."
+      ]
+    },
+    "infarm_2023_kayyum": {
+      "nitelik": "SATICI",
+      "kunye": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (şirket duyurusu, infarm.com; İnternet Arşivi kopyası, 6 Aralık 2023).",
+      "adres": "https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders",
+      "dosya": "kaynak_dosyalari/infarm_2023_kayyum_duyurusu_arsiv.html",
+      "alinti": [
+        "Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders",
+        "Please note that Infarm – Indoor Urban Farming GmbH (“the Company”) entered Administration on 4 September 2023, subject to England & Wales and Insolvency Rules."
+      ]
+    },
+    "appharvest_2021_root_ai": {
+      "nitelik": "SATICI",
+      "kunye": "AppHarvest, Inc. 8 Nisan 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 8 Nisan 2021).",
+      "adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
+      "dosya": "kaynak_dosyalari/appharvest_2021_root_ai_bulteni_arsiv.html",
+      "satin_alma_bedeli_milyon_usd_yaklasik": 60,
+      "nakit_kismi_milyon_usd_yaklasik": 10,
+      "alinti": [
+        "AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency",
+        "MOREHEAD, Ky., April 08, 2021 (GLOBE NEWSWIRE)",
+        "AppHarvest expects the game-changing advantage of the technology to be in the data the robots can collect as they harvest, which can help evaluate crop health, precisely predict yield and optimize overall operations of the controlled environment agriculture (CEA) facility.",
+        "Virgo is the world’s first universal harvester, which can be configured to identify and harvest multiple crops of varying sizes including tomatoes, peppers, cucumbers and more delicate fruits such as strawberries among others.",
+        "AppHarvest is investing approximately $60 million, consisting of approximately $10 million in cash and the balance in AppHarvest common shares, to acquire Root AI.",
+        "Any deviation between projection and actual yield can result in fire drills for numerous functions to adjust for the change, and AI can help solve for that."
+      ]
+    },
+    "appharvest_2023_chapter11": {
+      "nitelik": "RESMI",
+      "kunye": "Stretto (şirketin talep ve bildirim ajanı). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: dava bilgi sayfası (erişim 17 Kasım 2026).",
+      "adres": "https://cases.stretto.com/appharvest/",
+      "dosya": "kaynak_dosyalari/appharvest_2023_stretto_dava_sayfasi.html",
+      "alinti": [
+        "On July 23, 2023 (the \"Petition Date\"), AppHarvest Products, LLC, and eleven affiliated debtors (together, the \"Debtors\") filed voluntary petitions for relief under Chapter 11 of the United States Bankruptcy Code.",
+        "Effective Date December 05, 2023"
+      ]
+    },
+    "small_robot_company_2020_vaat": {
+      "nitelik": "SATICI",
+      "kunye": "Small Robot Company. 2020 (adres yolundaki tarih 17 Temmuz 2020). Meet Wilma: artificial intelligence for Per Plant Farming (şirket blog yazısı, smallrobotcompany.com; İnternet Arşivi kopyası, 10 Kasım 2020).",
+      "adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
+      "dosya": "kaynak_dosyalari/small_robot_company_2020_wilma_arsiv.html",
+      "alinti": [
+        "Meet Wilma: artificial intelligence for Per Plant Farming",
+        "At the heart of our robotic farming system is our AI-driven Advice Engine Wilma.",
+        "We believe per plant farming will become the dominant system as farming goes through the fourth agricultural revolution, maximising yields whilst reducing the impact on the environment.",
+        "This year we aim to demonstrate our ability to kill these weeds autonomously without using chemicals.",
+        "We are looking to build the ultimate Advice Engine for farmers.",
+        "Previewed at Cereals 2020, Wilma is now complete and being tested.",
+        "She will be commercially available to our early customers from October.",
+        "Company No. 10846464"
+      ]
+    },
+    "small_robot_company_tasfiye": {
+      "nitelik": "RESMI",
+      "kunye": "Companies House (Birleşik Krallık şirketler sicili). SMALL ROBOT COMPANY LIMITED (10846464): iflas (insolvency) sayfası (erişim 17 Kasım 2026).",
+      "adres": "https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency",
+      "dosya": "kaynak_dosyalari/small_robot_company_companies_house_iflas.html",
+      "alinti": [
+        "Company number 10846464",
+        "Creditors voluntary liquidation Commencement of winding up 1 February 2024 Dissolved on 30 April 2026"
+      ]
+    },
+    "tucsap_2025_denetim": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı.",
+      "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf",
+      "dosya": "kaynak_dosyalari/tucsap_2026_hazine_kontrolorleri_denetim_raporu.pdf",
+      "kredi_avro": 304800000,
+      "dijital_plan_kumulatif_harcama_avro": 97233.68,
+      "hibe_2025_nihai_butce_avro": 6000000,
+      "hibe_planlanan_toplam_avro": 29500000,
+      "hibe_kumulatif_harcama_avro": 0,
+      "harcama_2025_avro": 27880510.78,
+      "butce_2025_nihai_avro": 55568892.09,
+      "butce_2025_ilk_avro": 108817550.33,
+      "gerceklesme_2025_yuzde": 50.17,
+      "kumulatif_harcama_avro": 39343471.5,
+      "kumulatif_gerceklesme_yuzde": 12.91,
+      "butce_2025_ilk_milyon_avro": 108.8,
+      "butce_2025_nihai_milyon_avro": 55.6,
+      "harcama_2025_milyon_avro": 27.9,
+      "hibe_planlanan_toplam_milyon_avro": 29.5,
+      "_turetme": "Milyon avro alanları s.17 tablosundaki avro tutarlarından bir ondalığa yuvarlandı: 108.817.550,33 → 108,8 (2025 Original Budget); 55.568.892,09 → 55,6 (2025 Final Budget); 27.880.510,78 → 27,9 (2025 Actual); 29.500.000 → 29,5 (hibe, Planned). Sütunlar tablo başlığından: Actual (1), Final Budget (2), Original Budget, Progress % (3=1/2), Actual (4, kümülatif), Planned (5), Progress % (6=4/5).",
+      "alinti": [
+        "The objective of the audit is to express an opinion on the Financial Statements of the Türkiye Climate Smart and Competitive Agricultural Growth Project for the period 01.01.2025 - 31.12.2025.",
+        "The Loan Agreement between the Republic of Türkiye and International Bank for Reconstruction and Development (IBRD) for Türkiye Climate Smart and Competitive Agricultural Growth Project Loan Numbered 9372-TR was signed on 16.05.2022 and received a loan of € 304.800.000,00.",
+        "B. MoAF digital blueprint for sectoral information collection and management.",
+        "The project will end on March 31, 2028.",
+        "1.2 MoAF digital blueprint for sectoral information collection and management. 97,233.68 0.00 97,233.68",
+        "Category 3 (Grant) 0.00 6,000,000.00 4,465,672.34 0.00% 0.00 29,500,000.00 0.00%",
+        "Total Uses of Funds by Component 27,880,510.78 55,568,892.09 108,817,550.33 50.17% 39,343,471.50 304,800,000.00 12.91%",
+        "Actual Final Budget Original Budget Progress % Actual Planned Progress %",
+        "STATEMENT of COMPARISON BUDGET and ACTUAL AMOUNT"
+      ]
+    },
+    "appharvest_2023_bulten": {
+      "nitelik": "SATICI",
+      "kunye": "AppHarvest, Inc. 24 Temmuz 2023. AppHarvest announces Chapter 11 filing to support a financial and operational transition (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 24 Temmuz 2023).",
+      "adres": "https://web.archive.org/web/20230724195230id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-announces-chapter-11-filing-support-financial-and",
+      "dosya": "kaynak_dosyalari/appharvest_2023_chapter11_bulteni_arsiv.html",
+      "dip_finansmani_milyon_usd_yaklasik": 30,
+      "su_tasarrufu_yuzde_en_fazla": 90,
+      "verim_kat_en_fazla": 30,
+      "alinti": [
+        "MOREHEAD, Ky., July 24, 2023 (GLOBE NEWSWIRE)",
+        "To pursue its transition, AppHarvest, Inc. has filed voluntary petitions for protection under Chapter 11 of the U.S. Bankruptcy Code (the “Chapter 11 Cases”) in the U.S. Bankruptcy Court for the Southern District of Texas (the “Court”).",
+        "Company secures approximately $30 million debtor-in-possession financing commitment from Equilibrium",
+        "AppHarvest’s farms are designed to grow produce using sunshine, rainwater and up to 90% less water than open-field growing, all while producing yields up to 30 times that of traditional agriculture and preventing pollution from agricultural runoff."
+      ]
+    },
+    "infarm_sicil": {
+      "nitelik": "RESMI",
+      "kunye": "Companies House (Birleşik Krallık şirketler sicili). INFARM - INDOOR URBAN FARMING GMBH (FC040818): iflas (insolvency) sayfası (erişim 17 Kasım 2026).",
+      "adres": "https://find-and-update.company-information.service.gov.uk/company/FC040818/insolvency",
+      "dosya": "kaynak_dosyalari/infarm_companies_house_iflas.html",
+      "alinti": [
+        "In administration Administration started 4 September 2023 Administration ended 4 September 2025"
+      ]
+    },
+    "dunya_bankasi_tucsap_isr5": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Dünya Bankası. 27 Kasım 2024. Implementation Status & Results Report: Turkey Climate Smart and Competitive Agricultural Growth Project (TUCSAP) (P175011), Seq No: 5.",
+      "adres": "https://documents.worldbank.org/curated/en/099112724130524757/pdf/P1750111e0351b0911af591d4a379816e66.pdf",
+      "dosya": "kaynak_dosyalari/dunya_bankasi_tucsap_isr5_2024.pdf",
+      "iklim_akilli_teknoloji_benimseyen_ciftci_hedef_2028": 42500,
+      "iklim_akilli_teknoloji_benimseyen_ciftci_ekim_2024": 0,
+      "alinti": [
+        "Seq No: 5 | Archived on 27-Nov-2024",
+        "0.00 Mar/2022 0.00 22-Feb-2024 0.00 18-Oct-2024 42,500.00 Mar/2028Farmers adopting Climate- Smart Agricultural (CSA) technologies (Number)",
+        "Reporting on this indicator is scheduled to begin in the third year of implementation (2025).",
+        "Reporting of the indicator is delayed due to delays in the deployment of the grant financing (SC3.2) and activities under SC3.3.",
+        "The development and use of the online system for land use planning and management proposed to start by 2025, considering the software development process."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye örneği takvimi kayan bir kamu projesi: TUCSAP (Hazine Kontrolörleri Kurulu 2025 denetim raporu; Dünya Bankası Kasım 2024 izleme raporu). Kapanan bir tarım teknolojisi girişimine dair resmî ya da birincil kaynak bulunamadı."
+  },
+  "_reddedilen": {
+    "bowery_ironox_farmwise": "Kapanışları yalnız haberde; birincil kaynak alınamadı.",
+    "kalera": "Şirket bülteni erişilemeyen kaynaklarda; alınmadı.",
+    "hunter_2017": "FAO hedeflerinin yeniden hesabı; özete ve tam metne erişilemedi.",
+    "plenty_aerofarms": "Chapter 11'den çıkıp faaliyetini sürdürdüler; yapay zekâ vaadi kaynaklarda yok. Yedekte.",
+    "lowenberg_deboer_erickson": "Hassas tarımın benimsenmesi §6'da."
+  }
+}

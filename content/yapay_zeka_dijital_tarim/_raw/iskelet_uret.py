@@ -188,8 +188,8 @@ BASLIKLAR = [
       ozet_en="Model accuracy that falls outside the lab, the digital divide, labour, security and energy — and Türkiye's small, ageing farms."),
     b(27, "basarisizliklar-ve-abartilar", "elestiri", "Başarısız örnekler ve abartılar", "Failures and overstatements",
       ["tahmin", "goruntu", "robotik"], {"gelisme"},
-      ozet_tr="Tutmayan vaatler, kapanan girişimler, kaynağı bulunamayan dolaşımdaki rakamlar.",
-      ozet_en="Promises that failed, start-ups that closed, circulating figures with no source."),
+      ozet_tr="Yapay zekâ vaadiyle büyüyüp iflas eden şirketler, ticarileşmeyen hasat robotları, yeniden hesaplanan bir FAO rakamı ve hedeflerinin gerisinde kalan bir Türkiye projesi.",
+      ozet_en="Companies that grew on AI promises and went bankrupt, harvesting robots that never reached the market, a recalculated FAO figure and a Turkish project behind its targets."),
 
     # ── ANLATI VE BAŞVURU ─────────────────────────────────────────────
     b(28, "saha-hikayeleri", "basvuru", "Saha hikâyeleri", "Stories from the field",

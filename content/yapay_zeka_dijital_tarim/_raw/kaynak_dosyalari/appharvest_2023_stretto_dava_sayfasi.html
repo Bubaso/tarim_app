@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name = "format-detection" content = "telephone=no">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="https://cases.stretto.com/xmlrpc.php">
+
+	<!-- OptanonConsentNoticeStart -->
+    <script type="text/javascript" src="https://cdn.cookielaw.org/consent/019a82e7-6b15-73c8-a255-c6b0c579d749/OtAutoBlock.js" ></script>
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+            type="text/javascript" charset="UTF-8" data-domain-script="019a82e7-6b15-73c8-a255-c6b0c579d749" ></script>
+    <script type="text/javascript">
+        function OptanonWrapper() { }
+    </script>
+<!-- OptanonConsentNoticeEnd -->
+<title>AppHarvest Products, LLC, et al.</title>
+<meta name='robots' content='max-image-preview:large' />
+<!-- AWS WAF challenge.js -->
+<script type="text/javascript" src="https://353f95b63fc8.edge.sdk.awswaf.com/353f95b63fc8/626c29800578/challenge.js" defer></script>
+<!-- End AWS WAF challenge.js -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5T8CHQB');</script>
+<!-- End Google Tag Manager -->
+<!-- Full Story Integration -->
+<script>
+    window['_fs_host'] = 'fullstory.com';
+    window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
+    window['_fs_org'] = 'o-22NAYG-na1';
+    window['_fs_namespace'] = 'FS';
+    !function(m,n,e,t,l,o,g,y){var s,f,a=function(h){
+        return!(h in m)||(m.console&&m.console.log&&m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'),!1)}(e)
+    ;function p(b){var h,d=[];function j(){h&&(d.forEach((function(b){var d;try{d=b[h[0]]&&b[h[0]](h[1])}catch(h){return void(b[3]&&b[3](h))}
+        d&&d.then?d.then(b[2],b[3]):b[2]&&b[2](d)})),d.length=0)}function r(b){return function(d){h||(h=[b,d],j())}}return b(r(0),r(1)),{
+        then:function(b,h){return p((function(r,i){d.push([b,h,r,i]),j()}))}}}a&&(g=m[e]=function(){var b=function(b,d,j,r){function i(i,c){
+        h(b,d,j,i,c,r)}r=r||2;var c,u=/Async$/;return u.test(b)?(b=b.replace(u,""),"function"==typeof Promise?new Promise(i):p(i)):h(b,d,j,c,c,r)}
+    ;function h(h,d,j,r,i,c){return b._api?b._api(h,d,j,r,i,c):(b.q&&b.q.push([h,d,j,r,i,c]),null)}return b.q=[],b}(),y=function(b){function h(h){
+        "function"==typeof h[4]&&h[4](new Error(b))}var d=g.q;if(d){for(var j=0;j<d.length;j++)h(d[j]);d.length=0,d.push=h}},function(){
+        (o=n.createElement(t)).async=!0,o.crossOrigin="anonymous",o.src="https://"+l,o.onerror=function(){y("Error loading "+l)}
+        ;var b=n.getElementsByTagName(t)[0];b&&b.parentNode?b.parentNode.insertBefore(o,b):n.head.appendChild(o)}(),function(){function b(){}
+        function h(b,h,d){g(b,h,d,1)}function d(b,d,j){h("setProperties",{type:b,properties:d},j)}function j(b,h){d("user",b,h)}function r(b,h,d){j({
+            uid:b},d),h&&j(h,d)}g.identify=r,g.setUserVars=j,g.identifyAccount=b,g.clearUserCookie=b,g.setVars=d,g.event=function(b,d,j){h("trackEvent",{
+            name:b,properties:d},j)},g.anonymize=function(){r(!1)},g.shutdown=function(){h("shutdown")},g.restart=function(){h("restart")},
+            g.log=function(b,d){h("log",{level:b,msg:d})},g.consent=function(b){h("setIdentity",{consent:!arguments.length||b})}}(),s="fetch",
+        f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){return g._w[s].apply(this,arguments)}),g._v="2.0.0")
+    }(window,document,window._fs_namespace,"script",window._fs_script);
+</script>
+<!-- Full Story Integration -->
+<script>
+    function getLocaltime() {
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            fractionalSecondDigits: 3,
+            hour12: false
+        };
+        const now = new Date();
+        return now.toLocaleTimeString('en-US', options);
+    }
+    // Register an event listener to intercept click action on A tag
+    document.addEventListener('DOMContentLoaded', function () {
+        document.body.addEventListener("click", (e) => {
+            // Submit the click only after a token is available
+            const waf = globalThis.AwsWafIntegration;
+            if (!waf) {
+                console.warn("AwsWafIntegration is not defined, please check your configuration");
+                return;
+            }
+
+            if (e.target.tagName === 'A' && !waf.hasToken()) {
+                console.log(getLocaltime() +": A href link was clicked ");
+                e.preventDefault();
+                waf.getToken().then(() => {
+                    console.log(getLocaltime() +": Got token, continue click action");
+                    e.target.click();
+                }, (reason) => { console.log("Error in getToken:"+reason) });
+            }
+        });
+    });
+</script>
+<script>
+    const chatbotSession = new (function() {
+        const caseIdentifier = BigInt(
+            '1' +
+            Array.from('appharvest')
+                .map(char => char.charCodeAt(0).toString().padStart(3, '0')).join("")
+        ).toString(36);
+        let ttl = 14400000;
+        const session = getSessionForCase();
+
+        const generateUniqueId = () => {
+            const timestamp = Date.now().toString(36);
+            const randomPart = Math.random().toString(36).substring(2, 8);
+            const browserEntropy = performance.now().toString(36).replace('.', '');
+
+            return `${caseIdentifier}-${timestamp}-${randomPart}-${browserEntropy}`;
+        };
+
+        const getTimeout = () => Date.now() + ttl;
+
+        function getSessionFromStorage() {
+            return JSON.parse(sessionStorage.getItem('chatbot_session')) ?? {};
+        }
+
+        function getSessionForCase() {
+            let sessionFromStorage = getSessionFromStorage();
+
+            return sessionFromStorage[caseIdentifier] ?? {
+                sessionId: null,
+                timeout: null,
+            };
+        }
+
+        function putCaseSessionToStorage(object) {
+            let sessionFromStorage = getSessionFromStorage();
+
+            sessionFromStorage[caseIdentifier] = object;
+
+            sessionStorage.setItem('chatbot_session', JSON.stringify(sessionFromStorage));
+        }
+
+        this.isEmptyOrExpired = function isExpired() {
+            if (!session || !session.timeout || session.timeout < Date.now()) {
+                return true;
+            }
+
+            return false;
+        };
+
+        this.getSessionId = function getSessionId() {
+            this.extendOrCreateCaseSession();
+
+            return session.sessionId;
+        };
+
+        this.extendOrCreateCaseSession = function extendOrCreateCaseSession() {
+            if (!session || !session.timeout || session.timeout < Date.now()) {
+                session.sessionId = generateUniqueId();
+            }
+
+            session.timeout = getTimeout();
+
+            putCaseSessionToStorage(session);
+        }
+
+        this.destroyCaseSession = function destroyCaseSession() {
+            putCaseSessionToStorage({});
+        }
+
+        window.addEventListener("message", (event) => {
+            const acceptedUrls = [
+                chatBotParams.caseSummaryEndpoint,
+                chatBotParams.courtDocketSummaryEndpoint
+            ];
+
+            if (acceptedUrls.indexOf(event.origin) === -1) {
+                return;
+            }
+
+            const action = event.data;
+            if (action === "sessionExpired") {
+                session.timeout = null;
+                session.sessionId = null;
+
+                const chatbotIframe = document.querySelector('#chatBot iframe');
+                if (chatbotIframe !== null) {
+                    chatbotIframe.src = chatBotParams.caseSummaryEndpoint.replace("#session_id#", this.getSessionId());
+                }
+            } else if (action === "sessionExtended") {
+                this.getSessionId();             }
+
+            console.log(session);
+        });
+    })();
+</script>
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel='dns-prefetch' href='//use.typekit.net' />
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//edge.fullstory.com' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title=" &raquo; Feed" href="https://cases.stretto.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title=" &raquo; Comments Feed" href="https://cases.stretto.com/comments/feed/" />
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/cases.stretto.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.3.2"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css' href='https://cases.stretto.com/wp-includes/css/dist/block-library/style.min.css?ver=6.3.2' type='text/css' media='all' />
+<style id='wp-block-library-theme-inline-css' type='text/css'>
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='selectwocss-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/multiple-select.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='tooltip-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/tooltip.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='datatable-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/dataTables.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='datatable-responsive-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/responsive.dataTables.min.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='stylev2-css' href='https://cases.stretto.com/wp-content/themes/flash-child/stylev2.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='parent-style-css' href='https://cases.stretto.com/wp-content/themes/flash-child/style.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive_components-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/responsive_components.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='use.typekit.net-css' href='https://use.typekit.net/ctv4hmv.css?ver=6.3.2' type='text/css' media='' />
+<link rel='stylesheet' id='non-ie-style-css' href='https://cases.stretto.com/wp-content/themes/flash-child/non-ie-style.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='ie-style-css' href='https://cases.stretto.com/wp-content/themes/flash-child/ie-style.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='link-share-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/link-share.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='https://cases.stretto.com/wp-content/themes/flash/css/font-awesome.min.css?ver=6.3.2' type='text/css' media='' />
+<link rel='stylesheet' id='responsive-css' href='https://cases.stretto.com/wp-content/themes/flash/css/responsive.min.css?ver=6.3.2' type='text/css' media='' />
+<link rel='stylesheet' id='general-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/general.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='paw-jquery-ui-css' href='https://cases.stretto.com/wp-content/themes/flash-child/css/jquery-ui.min.css?ver=10.2.1-12' type='text/css' media='all' />
+<link rel='stylesheet' id='paw-responsive-css' href='https://cases.stretto.com/wp-content/themes/flash-child/style-responsive.css?ver=10.2.1-12' type='text/css' media='all' />
+<script type='text/javascript' src='https://cases.stretto.com/wp-content/themes/flash-child/js/jquery-3.5.1.js?ver=10.2.1-12' id='jquery-js'></script>
+<script type='text/javascript' src='https://cases.stretto.com/wp-content/themes/flash-child/js/jquery.validate.min.js?ver=10.2.1-12' id='jquery.validate-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/multiple-select.js?ver=10.2.1-12' id='selectwoojs-js'></script>
+<script type='text/javascript' src='https://cases.stretto.com/wp-content/themes/flash-child/js/jquery-deparam.js?ver=10.2.1-12' id='jquery-deparam-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/jquery-ui.min.js?ver=10.2.1-12' id='jquery-ui-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/moment.js?ver=10.2.1-12' id='moment1-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/moment-timezone.js?ver=10.2.1-12' id='moment-timezone.min1-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/purify.min.js?ver=10.2.1-12' id='purify-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/plyr.polyfilled.min.js?ver=10.2.1-12' id='plyr-polyfill-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/jszip.min.js?ver=10.2.1-12' id='datatables-zip-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/vfs_fonts.js?ver=10.2.1-12' id='datatables-btn-fonts-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/jquery.dataTables.min.js?ver=10.2.1-12' id='datatables-min-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/datatables.js?ver=10.2.1-12' id='datatables-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/dataTables.buttons.min.js?ver=10.2.1-12' id='datatables-btn-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/buttons.flash.min.js?ver=10.2.1-12' id='datatables-btn-flash-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/buttons.html5.min.js?ver=10.2.1-12' id='datatables-btn-html5-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/jquery.customDataTable.js?ver=10.2.1-12' id='customdatatable-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/common-functions.js?ver=10.2.1-12' id='commonfunctions-js'></script>
+<script type='text/javascript' id='svg-src-js-extra'>
+/* <![CDATA[ */
+var svgIcons = {"collapseRound":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"33px\" height=\"34px\" viewBox=\"0 0 33 34\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <!-- Generator: Sketch 52.5 (67469) - http:\/\/www.bohemiancoding.com\/sketch -->\n    <style>\n        #Shape {\n        stroke: var(--accent-color, #FF6743);\n        }\n        #Rectangle {\n        stroke: var(--accent-color, #FD7250);\n        fill: var(--accent-color, #FD7250);\n        }\n    <\/style>\n    <title>Click the - icon to collapse.<\/title>\n    <desc>Created with Sketch.<\/desc>\n    <g id=\"Landing\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"FAQs-Expanded\" transform=\"translate(-1268.000000, -612.000000)\" stroke=\"#FF6743\">\n            <g id=\"Group-5\" transform=\"translate(1268.000000, 613.000000)\">\n                <g id=\"outline-remove_circle-24px\" transform=\"translate(0.763514, 0.000000)\" fill-rule=\"nonzero\">\n                    <path d=\"M15.5675676,0 C6.97427027,0 0,7.168 0,16 C0,24.832 6.97427027,32 15.5675676,32 C24.1608649,32 31.1351351,24.832 31.1351351,16 C31.1351351,7.168 24.1608649,0 15.5675676,0 Z\" id=\"Shape\"><\/path>\n                <\/g>\n                <rect id=\"Rectangle\" x=\"7.41891892\" y=\"15.6111111\" width=\"17.1621622\" height=\"2.55555556\"><\/rect>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>\n","expandRound":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"34px\" height=\"33px\" viewBox=\"0 0 34 33\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <style>\n        #Shape {\n            stroke: var(--accent-color, #FF6743);\n        }\n        #Path {\n            fill: var(--accent-color, #FD7250);\n        }\n    <\/style>\n    <!-- Generator: Sketch 52.5 (67469) - http:\/\/www.bohemiancoding.com\/sketch -->\n    <title>Click the + icon for more information.<\/title>\n    <desc>Created with Sketch.<\/desc>\n    <g id=\"Landing\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"FAQs-Expanded\" transform=\"translate(-1266.000000, -535.000000)\" fill-rule=\"nonzero\">\n            <g id=\"Add-Button\" transform=\"translate(1267.000000, 536.000000)\">\n                <path d=\"M16,0 C7.168,0 0,6.944 0,15.5 C0,24.056 7.168,31 16,31 C24.832,31 32,24.056 32,15.5 C32,6.944 24.832,0 16,0 Z\" id=\"Shape\" stroke-width=\"1\"><\/path>\n                <path d=\"M22.4,17.05 L17.6,17.05 L17.6,21.7 C17.6,22.5525 16.88,23.25 16,23.25 C15.12,23.25 14.4,22.5525 14.4,21.7 L14.4,17.05 L9.6,17.05 C8.72,17.05 8,16.3525 8,15.5 C8,14.6475 8.72,13.95 9.6,13.95 L14.4,13.95 L14.4,9.3 C14.4,8.4475 15.12,7.75 16,7.75 C16.88,7.75 17.6,8.4475 17.6,9.3 L17.6,13.95 L22.4,13.95 C23.28,13.95 24,14.6475 24,15.5 C24,16.3525 23.28,17.05 22.4,17.05 Z\" id=\"Path\"><\/path>\n            <\/g>\n        <\/g>\n    <\/g>\n<\/svg>\n","checkmarkOutline":"<svg width=\"30\" height=\"31\" viewBox=\"0 0 30 31\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n    <style>\n        #checkmark {\n        fill: var(--accent-color, #FD7250);\n        }\n        #circle {\n        fill: var(--accent-color, #FD7250);\n        }\n    <\/style>\n<path id=\"checkmark\" d=\"M13.5484 21.211L8.70972 16.3713L10.0771 15.0039L13.5484 18.4742L20.8888 11.1329L22.2581 12.5023L13.5484 21.211Z\"\/>\n<path id=\"circle\" d=\"M15.4838 2.42322C12.8042 2.42322 10.1848 3.21782 7.95674 4.70653C5.72872 6.19525 3.99219 8.31122 2.96674 10.7869C1.9413 13.2625 1.67299 15.9866 2.19576 18.6148C2.71853 21.2429 4.00889 23.657 5.90366 25.5518C7.79844 27.4465 10.2125 28.7369 12.8407 29.2597C15.4688 29.7824 18.1929 29.5141 20.6686 28.4887C23.1442 27.4632 25.2602 25.7267 26.7489 23.4987C28.2376 21.2707 29.0322 18.6512 29.0322 15.9716C29.0322 12.3783 27.6048 8.93226 25.064 6.39145C22.5232 3.85063 19.0771 2.42322 15.4838 2.42322ZM15.4838 27.5845C13.187 27.5845 10.9418 26.9034 9.03203 25.6274C7.1223 24.3513 5.63385 22.5377 4.75489 20.4157C3.87594 18.2937 3.64597 15.9587 4.09405 13.706C4.54214 11.4534 5.64816 9.38414 7.27225 7.76004C8.89635 6.13595 10.9656 5.02993 13.2183 4.58184C15.4709 4.13375 17.8059 4.36373 19.9279 5.24268C22.0499 6.12163 23.8636 7.61009 25.1396 9.51982C26.4156 11.4296 27.0967 13.6748 27.0967 15.9716C27.0967 19.0515 25.8732 22.0053 23.6954 24.1832C21.5175 26.361 18.5638 27.5845 15.4838 27.5845Z\"\/>\n<\/svg>\n","share":"<svg width=\"35\" height=\"35\" viewBox=\"0 0 35 35\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n    <style>\n        #share-icon {\n            fill: var(--default-link-color, #00A3D3);\n        }\n    <\/style>\n<path id=\"share-icon\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M16.9375 5.6878C16.6063 6.04323 16.426 6.51333 16.4346 6.99907C16.4432 7.48482 16.6399 7.94827 16.9835 8.29179C17.327 8.63531 17.7904 8.83209 18.2762 8.84066C18.7619 8.84923 19.232 8.66893 19.5874 8.33773L22.7124 5.21281C23.1769 4.74827 23.7284 4.37978 24.3353 4.12838C24.9423 3.87697 25.5928 3.74757 26.2498 3.74757C26.9067 3.74757 27.5573 3.87697 28.1642 4.12838C28.7712 4.37978 29.3226 4.74827 29.7872 5.21281C30.2517 5.67735 30.6202 6.22884 30.8716 6.83579C31.123 7.44274 31.2524 8.09327 31.2524 8.75022C31.2524 9.40718 31.123 10.0577 30.8716 10.6647C30.6202 11.2716 30.2517 11.8231 29.7872 12.2876L23.5373 18.5375C23.073 19.0023 22.5216 19.3711 21.9146 19.6227C21.3076 19.8744 20.657 20.0039 19.9999 20.0039C19.3429 20.0039 18.6923 19.8744 18.0853 19.6227C17.4783 19.3711 16.9269 19.0023 16.4625 18.5375C16.1071 18.2063 15.637 18.026 15.1513 18.0345C14.6655 18.0431 14.2021 18.2399 13.8585 18.5834C13.515 18.9269 13.3182 19.3904 13.3097 19.8761C13.3011 20.3619 13.4814 20.832 13.8126 21.1874C14.6251 22 15.5897 22.6446 16.6513 23.0844C17.713 23.5241 18.8508 23.7505 19.9999 23.7505C21.149 23.7505 22.2869 23.5241 23.3485 23.0844C24.4102 22.6446 25.3748 22 26.1873 21.1874L32.4371 14.9376C34.0781 13.2966 35 11.0709 35 8.75022C35 6.42952 34.0781 4.20387 32.4371 2.56288C30.7961 0.921896 28.5705 0 26.2498 0C23.9291 0 21.7034 0.921896 20.0624 2.56288L16.9375 5.6878ZM5.21281 29.7872C4.74794 29.3228 4.37916 28.7714 4.12754 28.1644C3.87593 27.5575 3.74642 26.9068 3.74642 26.2498C3.74642 25.5927 3.87593 24.9421 4.12754 24.3351C4.37916 23.7281 4.74794 23.1767 5.21281 22.7124L11.4627 16.4625C11.927 15.9977 12.4784 15.6289 13.0854 15.3773C13.6924 15.1256 14.343 14.9961 15.0001 14.9961C15.6571 14.9961 16.3077 15.1256 16.9147 15.3773C17.5217 15.6289 18.0731 15.9977 18.5375 16.4625C18.8929 16.7937 19.363 16.974 19.8487 16.9655C20.3345 16.9569 20.7979 16.7601 21.1415 16.4166C21.485 16.0731 21.6818 15.6096 21.6903 15.1239C21.6989 14.6381 21.5186 14.168 21.1874 13.8126C20.3749 13 19.4103 12.3554 18.3487 11.9157C17.287 11.4759 16.1492 11.2495 15.0001 11.2495C13.851 11.2495 12.7131 11.4759 11.6515 11.9157C10.5898 12.3554 9.62523 13 8.81272 13.8126L2.56288 20.0624C0.921896 21.7034 -1.72906e-08 23.9291 0 26.2498C1.72906e-08 28.5705 0.921896 30.7961 2.56288 32.4371C4.20387 34.0781 6.42952 35 8.75022 35C11.0709 35 13.2966 34.0781 14.9376 32.4371L18.0625 29.3122C18.3937 28.9568 18.574 28.4867 18.5654 28.0009C18.5568 27.5152 18.3601 27.0517 18.0165 26.7082C17.673 26.3647 17.2096 26.1679 16.7238 26.1593C16.2381 26.1508 15.768 26.3311 15.4126 26.6623L12.2876 29.7872C11.8233 30.2521 11.2719 30.6208 10.6649 30.8725C10.0579 31.1241 9.40728 31.2536 8.75022 31.2536C8.09316 31.2536 7.44255 31.1241 6.83557 30.8725C6.2286 30.6208 5.67717 30.2521 5.21281 29.7872Z\"\/>\n<\/svg>\n","calendarIcsSingle":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<svg width=\"35px\" height=\"35px\" viewBox=\"0 0 35 35\" version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n    <!-- Generator: Sketch 52.5 (67469) - http:\/\/www.bohemiancoding.com\/sketch -->\n    <style>\n        #Dates {\n            fill: var(--default-link-color, #01A2D2);\n        }\n    <\/style>\n    <title>calendar-15<\/title>\n    <desc>Created with Sketch.<\/desc>\n    <g id=\"Landing\" stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n        <g id=\"Dates\" transform=\"translate(-1258.000000, -810.000000)\" fill-rule=\"nonzero\">\n            <path d=\"M1278.41667,831.666667 C1277.72631,831.666667 1277.16667,831.107023 1277.16667,830.416667 C1277.16667,829.726311 1277.72631,829.166667 1278.41667,829.166667 C1279.10702,829.166667 1279.66667,829.726311 1279.66667,830.416667 C1279.66667,831.107023 1279.10702,831.666667 1278.41667,831.666667 Z M1285.94802,829.550826 C1287.55839,827.927317 1290.18023,827.927317 1291.7915,829.551938 C1293.40283,831.176766 1293.40283,833.820386 1291.7915,835.445215 L1284.24432,843.040899 C1284.07626,843.210084 1283.8677,843.332458 1283.63888,843.396424 L1278.0787,844.949508 C1277.95727,844.983401 1277.83363,845 1277.71103,845 C1277.34481,845 1276.98781,844.852553 1276.7249,844.580927 C1276.37404,844.218318 1276.24682,843.691872 1276.39284,843.207236 L1278.03992,837.73963 C1278.10591,837.520718 1278.22438,837.321599 1278.385,837.159984 L1285.94802,829.550826 Z M1282.62855,840.920335 L1288,836.043375 L1285.93685,834.166667 L1280.53345,839.070893 L1279.66667,841.666667 L1282.62855,840.920335 Z M1290.11608,833.07884 C1290.62813,832.566497 1290.62813,831.73148 1290.11516,831.218282 C1289.60206,830.705017 1288.76721,830.705017 1288.25411,831.218282 L1288,831.471853 L1289.86111,833.333333 L1290.11608,833.07884 Z M1272.58333,837.5 C1271.89298,837.5 1271.33333,836.940356 1271.33333,836.25 C1271.33333,835.559644 1271.89298,835 1272.58333,835 C1273.27369,835 1273.83333,835.559644 1273.83333,836.25 C1273.83333,836.940356 1273.27369,837.5 1272.58333,837.5 Z M1272.58333,831.666667 C1271.89298,831.666667 1271.33333,831.107023 1271.33333,830.416667 C1271.33333,829.726311 1271.89298,829.166667 1272.58333,829.166667 C1273.27369,829.166667 1273.83333,829.726311 1273.83333,830.416667 C1273.83333,831.107023 1273.27369,831.666667 1272.58333,831.666667 Z M1272.58333,825.833333 C1271.89298,825.833333 1271.33333,825.273689 1271.33333,824.583333 C1271.33333,823.892977 1271.89298,823.333333 1272.58333,823.333333 C1273.27369,823.333333 1273.83333,823.892977 1273.83333,824.583333 C1273.83333,825.273689 1273.27369,825.833333 1272.58333,825.833333 Z M1266.75,831.666667 C1266.05964,831.666667 1265.5,831.107023 1265.5,830.416667 C1265.5,829.726311 1266.05964,829.166667 1266.75,829.166667 C1267.44036,829.166667 1268,829.726311 1268,830.416667 C1268,831.107023 1267.44036,831.666667 1266.75,831.666667 Z M1266.75,837.5 C1266.05964,837.5 1265.5,836.940356 1265.5,836.25 C1265.5,835.559644 1266.05964,835 1266.75,835 C1267.44036,835 1268,835.559644 1268,836.25 C1268,836.940356 1267.44036,837.5 1266.75,837.5 Z M1266.75,825.833333 C1266.05964,825.833333 1265.5,825.273689 1265.5,824.583333 C1265.5,823.892977 1266.05964,823.333333 1266.75,823.333333 C1267.44036,823.333333 1268,823.892977 1268,824.583333 C1268,825.273689 1267.44036,825.833333 1266.75,825.833333 Z M1284.25,825.833333 C1283.55964,825.833333 1283,825.273689 1283,824.583333 C1283,823.892977 1283.55964,823.333333 1284.25,823.333333 C1284.94036,823.333333 1285.5,823.892977 1285.5,824.583333 C1285.5,825.273689 1284.94036,825.833333 1284.25,825.833333 Z M1287.53125,812.734375 C1290.54686,812.734375 1293,815.187656 1293,818.203125 L1293,824.355469 C1293,825.110566 1292.38791,825.722656 1291.63281,825.722656 C1290.87771,825.722656 1290.26562,825.110566 1290.26562,824.355469 L1290.26562,818.203125 C1290.26562,816.695391 1289.03898,815.46875 1287.53125,815.46875 L1285.75391,815.46875 L1285.75391,816.835938 C1285.75391,817.591035 1285.14182,818.203125 1284.38672,818.203125 C1283.63162,818.203125 1283.01953,817.591035 1283.01953,816.835938 L1283.01953,815.46875 L1276.79883,815.46875 L1276.79883,816.835938 C1276.79883,817.591035 1276.18674,818.203125 1275.43164,818.203125 C1274.67654,818.203125 1274.06445,817.591035 1274.06445,816.835938 L1274.06445,815.46875 L1267.91211,815.46875 L1267.91211,816.835938 C1267.91211,817.591035 1267.30002,818.203125 1266.54492,818.203125 C1265.78982,818.203125 1265.17773,817.591035 1265.17773,816.835938 L1265.17773,815.46875 L1263.46875,815.46875 C1261.96102,815.46875 1260.73438,816.695391 1260.73438,818.203125 L1260.73438,839.53125 C1260.73438,841.038984 1261.96102,842.265625 1263.46875,842.265625 L1271.80859,842.265625 C1272.56369,842.265625 1273.17578,842.877715 1273.17578,843.632812 C1273.17578,844.38791 1272.56369,845 1271.80859,845 L1263.46875,845 C1260.45328,845 1258,842.546719 1258,839.53125 L1258,818.203125 C1258,815.187656 1260.45328,812.734375 1263.46875,812.734375 L1265.17773,812.734375 L1265.17773,811.367188 C1265.17773,810.61209 1265.78982,810 1266.54492,810 C1267.30002,810 1267.91211,810.61209 1267.91211,811.367188 L1267.91211,812.734375 L1274.06445,812.734375 L1274.06445,811.367188 C1274.06445,810.61209 1274.67654,810 1275.43164,810 C1276.18674,810 1276.79883,810.61209 1276.79883,811.367188 L1276.79883,812.734375 L1283.01953,812.734375 L1283.01953,811.367188 C1283.01953,810.61209 1283.63162,810 1284.38672,810 C1285.14182,810 1285.75391,810.61209 1285.75391,811.367188 L1285.75391,812.734375 L1287.53125,812.734375 Z M1278.41667,825.833333 C1277.72631,825.833333 1277.16667,825.273689 1277.16667,824.583333 C1277.16667,823.892977 1277.72631,823.333333 1278.41667,823.333333 C1279.10702,823.333333 1279.66667,823.892977 1279.66667,824.583333 C1279.66667,825.273689 1279.10702,825.833333 1278.41667,825.833333 Z\" id=\"calendar-15\"><\/path>\n        <\/g>\n    <\/g>\n<\/svg>\n"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/link-share.js?ver=10.2.1-12' id='link-share-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/component/basic-modal/basic-modal.js?ver=10.2.1-12' id='basic-modal-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/component/basic-modal/basic-modal.styles.js?ver=10.2.1-12' id='basic-modal.styles-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/http-interceptor.js?ver=10.2.1-12' id='http-interceptor-js'></script>
+<script type='text/javascript' id='chatbot-js-extra'>
+/* <![CDATA[ */
+var chatBotParams = {"enabled":"1","caseSummaryEndpoint":"https:\/\/bankruptcy-chatbot.stretto.ai\/chatbot?session=#session_id#&session_ttl=14400&caseReferenceID=%2FWHNJZ0MkHNLZj9ZJFFhqA%3D%3DDZmpRqjC3%2FbSP5vErH6uTv4joiYkfi4cU3cKfWIBdBpqes9DeJ3iy77yAyWVZehC","courtDocketSummaryEndpoint":"https:\/\/bankruptcy-chatbot.stretto.ai\/chatbot?session=#session_id#&session_ttl=14400&caseReferenceID=EFBSAH0DefdeBo%2BwJihn9w%3D%3Dkiea80ZZMAbpSNPncJs81MMvKTexvBblcHXCK1DZ7WquYsx2deNALGxvZeV3uNsf"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/chatbot.js?ver=10.2.1-12' id='chatbot-js'></script>
+<link rel="https://api.w.org/" href="https://cases.stretto.com/wp-json/" /><link rel="alternate" type="application/json" href="https://cases.stretto.com/wp-json/wp/v2/posts/1314" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://cases.stretto.com/xmlrpc.php?rsd" />
+<link rel="canonical" href="https://cases.stretto.com/appharvest/" />
+<link rel='shortlink' href='https://cases.stretto.com/?p=1314' />
+<link rel="alternate" type="application/json+oembed" href="https://cases.stretto.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcases.stretto.com%2Fappharvest%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://cases.stretto.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcases.stretto.com%2Fappharvest%2F&#038;format=xml" />
+        <style>
+            :root {
+                --accent-color: #fd7250;
+                --fg-on-accent-color: #fff;
+                --top-menu-font-family: Roboto;
+                --top-menu-font-size: 14px;
+                --main-banner-url: url('https://cases.stretto.com/wp-content/themes/flash-child/images/header.svg');
+                --main-banner-font-color: #fff;
+                --cookie-notice-container-background-color: #2c4146;
+                --cookie-notice-text-color: white;
+                --chatbot-color: #1f6f92;
+                --mobile-menu-background-color: #2c4146;
+                --default-link-color: #01a2d2;
+                --footer-background-color: #2c4146;
+            }
+        </style>
+        <meta name="build" content="10.2.1-12" />
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://cases.stretto.com/wp-content/uploads/2019/02/android-icon-192x192-1-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://cases.stretto.com/wp-content/uploads/2019/02/android-icon-192x192-1.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://cases.stretto.com/wp-content/uploads/2019/02/android-icon-192x192-1.png" />
+<meta name="msapplication-TileImage" content="https://cases.stretto.com/wp-content/uploads/2019/02/android-icon-192x192-1.png" />
+<style id="kirki-inline-styles">body{font-family:Montserrat;font-weight:400;}/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cases.stretto.com/wp-content/fonts/montserrat/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw0aXx-p7K4GLvztg.woff) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cases.stretto.com/wp-content/fonts/montserrat/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw9aXx-p7K4GLvztg.woff) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cases.stretto.com/wp-content/fonts/montserrat/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw2aXx-p7K4GLvztg.woff) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cases.stretto.com/wp-content/fonts/montserrat/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw3aXx-p7K4GLvztg.woff) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cases.stretto.com/wp-content/fonts/montserrat/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Hw5aXx-p7K4GLs.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style></head>
+
+<body class="post-template-default single single-post postid-1314 single-format-standard wp-custom-logo wp-embed-responsive  left-logo-right-menu full-width">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5T8CHQB"
+				  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-bottom">
+			<div class="top-header-bar">
+				<div class="logo case-logo">
+					<figure class="logo-image">
+                        						<a href="https://www.stretto.com"
+                                                           class="custom-logo-link desktop" rel="home" itemprop="url">
+							<img src="https://cases.stretto.com/wp-content/themes/flash-child/images/logo.svg"
+                                 class="custom-logo"  itemprop="logo" height="85" width="602">
+						</a>
+						<a href="https://www.stretto.com"
+                                                      class="custom-logo-link logo-mobile" rel="home" itemprop="url">
+							<img src="https://cases.stretto.com/wp-content/themes/flash-child/images/logo-mobile.svg""
+                                 class="custom-logo"  itemprop="logo" height="85" width="602">
+						</a>
+					</figure>
+				</div>
+				<div class="site-navigation-wrapper">
+					<nav id="site-navigation" class="main-navigation header-case-menu" role="navigation">
+                        <div class="menu-toggle">
+                            <div class="bar-icon"></div>
+                            <div class="bar-icon"></div>
+                            <div class="bar-icon"></div>
+                        </div>
+						<div class="menu-menu-container">
+							<ul id="primary-menu" class="menu nav-menu main-menu-with-more" aria-expanded="false">
+                                <li id="menu-item-2195" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2195 menu-item-has-children current_page_item"><a href="https://cases.stretto.com/appharvest/"class="nav-parent-text" data-document-popup-id="0" target="">Case Info</a><span class="nav-parent-text nav-parent-text-mobile-view"><span class="fa open-close-sub-menu fa-angle-down"></span></span><div class="clear"></div><ul class="sub-menu header-submenu"><li class="current_page_item"><a href="https://cases.stretto.com/appharvest/">Case Info</a></li><li class="current_page_item"><a href="https://cases.stretto.com/appharvest/debtor-list/">Debtors</a></li><li class="current_page_item"><a href="https://cases.stretto.com/appharvest/case-date-list/">Dates</a></li><li class="current_page_item"><a href="https://cases.stretto.com/appharvest/meeting-of-creditors/">Meeting of Creditors</a></li><li class="current_page_item"><a href="https://cases.stretto.com/appharvest/professionals/">Professionals</a></li><li class="current_page_item"><a href="https://cases.stretto.com/appharvest/court-information/">Court Information</a></li></ul></li><li id="menu-item-2196" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2196 menu-item-has-children "><a href="https://cases.stretto.com/appharvest/court-docket/"class="nav-parent-text" data-document-popup-id="1" target="">Court Docket</a><span class="nav-parent-text nav-parent-text-mobile-view"><span class="fa open-close-sub-menu fa-angle-down"></span></span><div class="clear"></div><ul class="sub-menu header-submenu"><li class=""><a href="https://cases.stretto.com/appharvest/court-docket/voluntary-petitions/">Voluntary Petitions</a></li><li class=""><a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1669-first-day-pleadings/">First-Day Pleadings</a></li><li class=""><a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1670-sale-documents/">Sale Documents</a></li><li class=""><a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1671-plan-solicitation/">Plan & Solicitation</a></li><li class=""><a href="https://cases.stretto.com/appharvest/court-docket/adversary-proceedings/">Adversary Proceedings</a></li><li class=""><a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1698-press-releases/">Press Releases</a></li></ul></li><li id="menu-item-2197" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2197 "><a href="https://cases.stretto.com/appharvest/claims/"class="nav-parent-text" data-document-popup-id="2" target="">Claims</a><div class="clear"></div></li><li id="menu-item-2198" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2198 "><a href="https://cases.stretto.com/appharvest/file-a-claim/"class="nav-parent-text" data-document-popup-id="3" target="">File a Claim</a><div class="clear"></div></li><li id="menu-item-2199" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2199 "><a href="https://forms.stretto.com"class="nav-parent-text" data-document-popup-id="4" target="_blank">Submit a Tax Form</a><div class="clear"></div></li><li id="menu-item-2200" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2200 "><a href="javascript:;" class="notice-drop-link nav-parent-text notice-mobile">Notice Lists</a><a href="https://cases.stretto.com/appharvest/notice-lists/" data-lightbox-target="#modal-overlay" data-lightbox-fit-viewport="false" class="modal-link nav-parent-text notice-desktop">Notice Lists</a><div class="clear"></div></li><li id="menu-item-2202" class="menu-item focus menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-for-more 2202 "><a href="https://cases.stretto.com/appharvest/contact-us/"class="nav-parent-text" data-document-popup-id="6" target="">Contact Us</a><div class="clear"></div></li><li onmouseover="arrowup('onmousevoer1')" onmouseout="arrowdown('onmousevoer1')" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item more-menu-li"><a href="javascript:;" class="nav-parent-text more-menu-text" target="">More <span id="onmousevoer1" class="fa fa-angle-down"></span></a><ul class="sub-menu solutions-sub-menu" id="more-sub-menu"></ul></li><li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-475 menu-item-mobile"><a href="https://cases.stretto.com/case-list" target="_blank" class="nav-parent-text">All Active Cases</a></li><li id="menu-item-10"class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-476 menu-item-mobile"><a href="https://corporaterestructuring.stretto.com/" target="_blank" class="nav-parent-text">Login</a></li>                            </ul>
+                        </div>
+
+					</nav><!-- #site-navigation -->
+					<div class="nav-login-case-container">
+						<ul>
+							<li id="menu-item-494"
+								class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-474 menu-item-494">
+								<a href="https://corporaterestructuring.stretto.com/<" target="_blank" class="login-btn-cls1 designer-button login-container">
+            <div>LOGIN</div>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+        </a>							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</header><!-- #masthead -->
+
+	    <div class="main-banner">
+        <div id="case-info-area" class=""><div class="flex-container apply-site-width-center">
+            <a href="https://cases.stretto.com"
+            target="_blank"
+            class="nav-case-btn back-to-case-list-button">
+                < Cases
+            </a>
+        </div><div class="flex-container apply-site-width-center"><div class="text-right pr-22-px company-banner-logo custom-logo-ie">
+            <div class="image wp-image-126  attachment-medium size-medium img-ie circle" style="background-image:url('https://cases.stretto.com/public/x263/12348/website_logo/ed20dd22-e666-4a2d-ba00-f38ab76b5f41.jpg')"></div>
+        </div>
+        <div class="text-right pr-22-px company-banner-logo custom-logo-non-ie">
+            <img src="https://cases.stretto.com/public/x263/12348/website_logo/ed20dd22-e666-4a2d-ba00-f38ab76b5f41.jpg"
+                 class="image wp-image-126  attachment-medium size-medium circle"
+                 alt="">
+        </div><div class="flex-1 text-left pl-22-px case-short-info">
+            <div class="section-title">AppHarvest Products, LLC, et al.</div>
+            <div class="case-intro">
+                <div class="case-number-details"><span class="section-description paw-case">Case Number: </span>
+                <span class="section-description paw-case-number">23-90745</span>
+                <span class="section-description paw-case-number">(CML)</span></div>
+                    <span class="section-description paw-case-district"><span>Southern District of Texas</span></span>
+                </div>
+            </div></div></div>
+        <div class="sub-menu" id="case-info-sub-menu">
+            <div class="sub-menu-inner-container">
+                <ul class="inner-links"><li id="menu-item-1668"
+            class="1668 ">
+            <a href="https://cases.stretto.com/appharvest/court-docket/voluntary-petitions/">
+                Voluntary Petitions
+            </a>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+            <span class="button-cut-container"
+                  style="border-right: 15px solid #283D42;"></span></li><li id="menu-item-1669"
+            class="1669 ">
+            <a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1669-first-day-pleadings/">
+                First-Day Pleadings
+            </a>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+            <span class="button-cut-container"
+                  style="border-right: 15px solid #283D42;"></span></li><li id="menu-item-1670"
+            class="1670 ">
+            <a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1670-sale-documents/">
+                Sale Documents
+            </a>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+            <span class="button-cut-container"
+                  style="border-right: 15px solid #283D42;"></span></li><li id="menu-item-1671"
+            class="1671 ">
+            <a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1671-plan-solicitation/">
+                Plan & Solicitation
+            </a>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+            <span class="button-cut-container"
+                  style="border-right: 15px solid #1c3237;"></span></li><li id="menu-item-1673"
+            class="1673 ">
+            <a href="https://cases.stretto.com/appharvest/court-docket/adversary-proceedings/">
+                Adversary Proceedings
+            </a>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+            <span class="button-cut-container"
+                  style="border-right: 15px solid #1c3237;"></span></li><li id="menu-item-1698"
+            class="1698 ">
+            <a href="https://cases.stretto.com/appharvest/court-docket/court-docket-category/1698-press-releases/">
+                Press Releases
+            </a>
+            <span class="li-right-border"></span>
+            <span class="button-style"></span>
+            <span class="li-bottom-border"></span>
+            <span class="button-cut-container"
+                  style="border-right: 15px solid #1c3237;"></span></li></ul></div></div></div>
+            <script>
+            var noticeList = {
+                download: "https://cases.stretto.com/wp-admin/admin-ajax.php?action=paw_download_notice_list&timeout=1794916046&signature=dnucmLhkHuUv%2BVkZu3EDefI4WCta3GvrucCwNBjibuR0tDIl5d9ppKF4e2TbnjdXRCqidbEn6GTLA5PxwOd7lA%3D%3D"
+            };
+        </script>
+            <script type="text/javascript"
+            src="https://cases.stretto.com/wp-content/themes/flash-child/js/notice-list.js?ver=10.2.1-12">
+    </script>
+    <script>
+                let var_pleading_id = null;
+    </script>
+    <div id="content" class="site-content">
+        <div class="tg-container">
+
+<div id="primary" class="content-area landing-page-id">
+    <main id="main" class="site-main" role="main">
+        <article id="case-main-page" class="post-560 post type-post status-publish format-standard hentry category-uncategorized only-cards-page">
+            <div class="entry-content-block">
+                <div class="entry-content">
+                    <div class="panel-layout">
+                        <div class="top-search-bar" id="top-search-buttons">
+        <div class="powered-by">
+        <span>Powered by <span class="powered-by-name">Stretto CORE</span><sup>TM</sup></span>
+    </div>
+    
+    <div class="mr-10-px         search-btn-container ">
+        <div class="search-link">
+            <a href="https://cases.stretto.com/appharvest/court-docket-subscription" data-lightbox-target="#modal-overlay"
+               data-lightbox-fit-viewport="false" class="modal-link subscription-lightbox" id="court-docket-subscription-modal">
+                Subscribe
+            </a>
+        </div>
+    </div>
+
+    <div id="export-excel-mobile-container" class="search-btn-container hidden">
+        <div class="search-link export-excel-mobile cursor-pointer">
+            <a>
+                Excel Export
+            </a>
+        </div>
+    </div>
+
+    <div class="mr-10-px             search-btn-container ">
+        <div class="search-link">
+            <a href="https://cases.stretto.com/appharvest/court-docket/#search">Search Court Docket</a>
+        </div>
+    </div>
+
+    <div class="search-btn-container ">
+        <div class="search-link">
+            <a href="https://cases.stretto.com/appharvest/claims/#search">Search Claims</a>
+        </div>
+    </div>
+</div>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le7hkshAAAAAPU8rSB0wB5A6sgnm6J-P5PYAnZg"></script>
+<script>
+    function runRecaptcha(action, deprecated) {
+        return new Promise(function (resolve, reject) {
+                        grecaptcha.ready(function () {
+                return grecaptcha.execute('6Le7hkshAAAAAPU8rSB0wB5A6sgnm6J-P5PYAnZg', {action: action})
+                    .then(function (token) {
+                        resolve(token);
+                    }, reject);
+            });
+                    });
+    }
+</script>
+                        <div class="panel-grid panel-no-style">
+                            <div class="panel-grid-cell">
+                                <div class="so-panel widget widget_text panel-first-child panel-last-child landing-page-case-desc" data-index="2">
+                                    <div class="textwidget">
+                                        <p>On July 23, 2023 (the &quot;<strong>Petition Date</strong>&quot;),&nbsp;AppHarvest Products, LLC, and eleven affiliated debtors (together, the &quot;<strong>Debtors</strong>&quot;) filed voluntary petitions for relief under Chapter 11 of the United States Bankruptcy Code. The Debtors&#39; bankruptcy cases are jointly administered under Case No. 23-90745 and are pending before the Honorable Judge Christopher M. Lopez in the United States Bankruptcy Court for the Southern District of Texas, Houston&nbsp;Division (the &quot;<strong>Bankruptcy Court</strong>&quot;).<br />
+<br />
+For immediate information about the bankruptcy case, ask Stretto Conductor. Additional information about the bankruptcy cases may be obtained by calling the case information line at&nbsp;<strong>833.216.0292</strong>&nbsp;(toll-free) and&nbsp;<strong>949.620.1088</strong>&nbsp;(international). You may also submit an inquiry via email by clicking&nbsp;<a href="mailto:AppHarvestInquiries@stretto.com?subject=In%20re%3A%20AppHarvest%20Products%2C%20LLC%2C%20et%20al.%20-%20Inquiry">HERE</a>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-grid panel-no-style mt-0-px">
+                            <div class="panel-grid-cell">
+                                <div class="so-panel widget widget_themegrill_flash_blog tg-widget blog-section panel-first-child panel-last-child" data-index="3">
+                                    <div id="primary-blog-container" class="panel-widget-style panel-widget-style-for-560-2-0-0">
+                                        <div class="blog-wrapper tg-column-wrapper">
+                                            <script>
+	var debtorList = new Array();
+</script>
+<div class="tg-blog-widget tg-column-3" id="case-info-debtor-card">
+    <div class="blog-content">
+        <div class="card-content-container">
+            <h3 class="entry-title">
+                <p class="cursor-pointer"
+                   onclick="openPage('https://cases.stretto.com/appharvest/debtor-list/');">
+                    Debtors                </p>
+            </h3>
+                        <div class="entry-summary underline-a debtor-greater-thank-5">
+                                    <div class='debtor-name paw-tooltip'>
+                                                AppHarvest Products, LLC                    </div>
+                    <div class='case-no'>Case No. 23-90745</div>
+                    <br/><div class='number-of-records'>12 Debtors</div>
+                    <div class='open-debtor-page'>
+                        <a href="https://cases.stretto.com/appharvest/debtor-list/">
+                            Click the Plus Icon for Full List of Debtors
+                        </a>
+                    </div>
+                                </div>
+        </div>
+        <div class="read-more-container">
+            <div class="read-more">
+                <a href="https://cases.stretto.com/appharvest/debtor-list/">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+/* Code for two liner ellipsis or three dots - START */
+	jQuery(document).ready(function () {
+		var totalContainer = jQuery(".block-with-text").length;
+		function twoLinerEllipses() {
+			function ellipsisText(index, e, etc) {
+				e.innerHTML = debtorList[index];
+				var wordArray = debtorList[index].split(" ");
+				while (e.scrollHeight > 50) {
+					wordArray.pop();
+					e.innerHTML = "<span class='tooltip-text'>" + debtorList[index] + "</span>"
+                        + wordArray.join(" ") + (etc || " ...");
+				}
+			}
+
+			[].forEach.call(
+				document.querySelectorAll(".block-with-text"),
+				function (elem, index) {
+				ellipsisText(index, elem);
+			});
+		}
+
+		jQuery(window).resize(function () {
+			twoLinerEllipses();
+			let lineCount = 0;
+			let allowedLineCount = 10;
+			let hideTdFrom = -1;
+			let currentLines = 1;
+
+			for(var i=0; i<totalContainer; i++){
+				jQuery("#debtor-tr-"+i).show();
+				if(jQuery("#debtor-name-"+i).innerHeight() <= 30 ) {
+					currentLines = 1;
+					lineCount += currentLines;
+				} else if (jQuery("#debtor-name-"+i).innerHeight() > 30 ) {
+					currentLines = 2;
+					lineCount += currentLines;
+				}
+
+				if(lineCount >= allowedLineCount) {
+					if(lineCount>allowedLineCount && currentLines == 2){
+						jQuery("#debtor-tr-"+i+" td:nth-child(2)").html(debtorList[i]);
+						var wordArray = debtorList[i].split(" ");
+						var eltID = document.getElementById("debtor-name-"+i);
+						while (eltID.scrollHeight > 30) {
+							wordArray.pop();
+							jQuery("#debtor-tr-"+i+" td:nth-child(2)").html(wordArray.join(" ") + ('' || " ..."));
+						}
+					}
+
+					hideTdFrom = i+1;
+					for(var j=hideTdFrom; j<=totalContainer; j++){
+						jQuery("#debtor-tr-"+j).hide();
+					}
+					break;
+				}
+			}
+		});
+
+        function tooltipTouchBind() {
+            jQuery('.paw-tooltip').on('touchstart', function (e) {
+                jQuery('.paw-tooltip').off('touchstart');
+                jQuery(e.currentTarget).find(".tooltip-text").addClass('visible');
+
+                jQuery(e.currentTarget).one('touchend', function () {
+                    jQuery(document).one('touchstart', function () {
+                        jQuery('.tooltip-text').removeClass('visible');
+                        tooltipTouchBind();
+                    });
+                });
+            });
+        }
+        tooltipTouchBind();
+	});
+/* Code for two liner ellipsis or three dots - START */
+</script>
+
+<div class="tg-blog-widget tg-column-3 case-date-card">
+    <div class="blog-content">
+        <div class="card-content-container">
+            <h3 class="entry-title">
+                <p onclick="openPage('https://cases.stretto.com/appharvest/case-date-list/');"
+                   class="cursor-pointer">
+                    Dates                </p>
+            </h3>
+            <div class="entry-summary underline-a">
+                                        <p class="mb-20-px">
+                            Effective Date                            <b class="display-block">
+                                December 05, 2023                            </b>
+                            <span>
+                                                            </span>
+                        </p>
+                                    </div>
+        </div>
+        <div class="read-more-container">
+            <div class="read-more">
+                <a href="https://cases.stretto.com/appharvest/case-date-list/">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tg-blog-widget tg-column-3 meeting-of-creditors-card">
+    <div class="blog-content">
+        <div class="card-content-container">
+            <h3 class="entry-title">
+                <p onclick="openPage('https://cases.stretto.com/appharvest/meeting-of-creditors/');"
+                   class="cursor-pointer">
+                    Meeting of Creditors                </p>
+            </h3>
+            <div class="entry-summary underline-a">
+                        <p>
+                Pursuant to section 341 of the Bankruptcy Code, the Meeting of Creditors was scheduled for August 25, 2023 at 2:00 PM (prevailing Central Time):            </p>
+            <p class="location-details">
+                Dial In Number: 866-707-5468<br>                Passcode: 6166997<br>                                			</p>
+        </div>
+        </div>
+        <div class="read-more-container">
+            <div class="read-more">
+                <a href="https://cases.stretto.com/appharvest/meeting-of-creditors/">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="tg-blog-widget tg-column-3">
+    <div class="blog-content">
+        <div class="card-content-container">
+            <h3 class="entry-title">
+                <p onclick="openPage('https://cases.stretto.com/appharvest/professionals/');"
+                class="cursor-pointer">
+                    Professionals                </p>
+            </h3>
+            <div class="entry-summary underline-a">
+            				<b class="display-block">Debtors' Co-Counsel</b>
+				SIDLEY AUSTIN LLP</br>JACKSON WALKER LLP</br><br>				<b class="display-block">Debtors' Financial Advisor</b>
+				PORTAGE POINT PARTNERS</br><br>				<b class="display-block">Office of the U.S. Trustee</b>
+				U.S. DEPARTMENT OF JUSTICE</br><br>            </p>
+        </div>
+        </div>
+        <div class="read-more-container">
+            <div class="read-more">
+                <a href="https://cases.stretto.com/appharvest/professionals/">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tg-blog-widget tg-column-3">
+    <div class="blog-content">
+        <div class="card-content-container">
+            <h3 class="entry-title">
+                <p onclick="openPage('https://cases.stretto.com/appharvest/court-information/');"
+                   class="cursor-pointer">
+                    Court Information                    </p></h3>
+            <div class="entry-summary underline-a court-information-card-content">
+                <p><a href="https://www.txs.uscourts.gov/" target="_blank">United States Bankruptcy Court,<br />
+Southern District of Texas</a><br />
+515 Rusk Street<br />
+Houston,&nbsp;TX&nbsp;77002<br />
+713.250.5500</p>
+            </div>
+        </div>
+        <div class="read-more-container">
+            <div class="read-more">
+                <a href="https://cases.stretto.com/appharvest/court-information/">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+                                        </div><!-- .blog-wrapper -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .entry-content -->
+            </div>
+        </article>
+    </main><!-- #main -->
+</div><!-- #primary -->
+
+
+</div><!-- .tg-container -->
+</div><!-- #content -->
+<footer id="colophon" class="colophon footer-layout footer-layout-generic site-footer" role="contentinfo">
+    	<div id="recaptcha-footer"></div>
+    <div id="top-footer">
+		<div class="tg-container">
+	<div class="tg-column-wrapper">
+		<div class="footer-block">
+			<section id="siteorigin-panels-builder-3" class="widget widget_siteorigin-panels-builder">
+				<div class="panel-layout">
+					<div class="panel-grid panel-has-style">
+						<div id="top-footer-desktop"
+							 class="panel-row-style">
+							<div class="panel-grid-cell">
+								<div class="so-panel widget widget_siteorigin-panels-builder panel-last-child"
+									 data-index="1">
+									<div id="footer-nav-container"
+										 class="panel-widget-style">
+										<div class="panel-layout">
+											<div class="panel-grid panel-no-style">
+												<div class="panel-grid-cell">
+													<div class="so-panel widget widget_siteorigin-panels-builder panel-first-child panel-last-child"
+														 data-index="0">
+														<div id="footer-nav-layout-builder"
+															 class="panel-widget-style">
+															<div class="panel-layout">
+																<div class="panel-grid panel-has-style">
+																	<div id="solutions-insights-container"
+																		 class="panel-row-style footer-block-solutions-row insight-container">
+																		<div class="panel-grid-cell footer-block-solutions-col footer-text-block" id="solutionpanelid">
+                                                                        <div class="panel-grid-cell footer-block-solutions-col footer-text-block" id="mobile-view-location-elm">
+                                                                            <div class="so-panel widget widget_text panel-first-child panel-last-child" id="locations">
+                                                                                <h3 class="widget-title">
+                                                                                    <a class="widget-title footer-sub-menu-text" href="javascript:;">
+                                                                                        locations
+                                                                                    </a>
+                                                                                    <span class="footer-open-close-sub-menu"><i class="fa fa-angle-down"></i></span>
+                                                                                </h3>
+                                                                                <div class="textwidget footer-sub-menu-data"><p>
+                                                                                    <div>
+                                                                                        <div class="title h5">California</div>
+                                                                                        <p class="paragraphclass">410 Exchange<br />
+                                                                                            Ste 100<br />
+                                                                                            Irvine, CA 92602</p>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <div class="title h5">
+                                                                                            Colorado
+                                                                                        </div>
+                                                                                        <p class="paragraphclass">1777 South Harrison St<br />
+                                                                                            Suite 1100<br />
+                                                                                            Denver, CO 80210</p>
+                                                                                    </div>
+                                                                                    <div>
+                                                                                        <div class="title h5">New York</div>
+                                                                                        <p class="paragraphclass">7 Times Square<br />
+                                                                                            16th Floor<br />
+                                                                                            New York, NY 10036</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!--next div started -->
+													</div>
+													<!--new div ended -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>
+		</section>
+	</div>
+</div>
+</div>
+<!-- start Head quarters -->
+<div class="head-quarters d-none d-lg-block desktop">
+	<div class="container d-flex justify-content-end">
+		<div class="head-quarters-title">
+			Head<br />Quarters
+		</div>
+		<div class="head-quarters-wrap row pt-6">
+			<div class="head-quarters-block col-md-4">
+				<div class="title h5">California</div>
+				<p class="paragraphclass">410 Exchange<br />
+					Ste 100<br />
+					Irvine, CA 92602</p>
+			</div>
+			<div class="head-quarters-block col-md-4">
+				<div class="title h5">
+					Colorado
+				</div>
+				<p class="paragraphclass">1777 South Harrison St<br />
+					Suite 1100<br />
+					Denver, CO 80210</p>
+			</div>
+			<div class="head-quarters-block col-md-4">
+			   <div class="title h5">New York</div>
+				<p class="paragraphclass">7 Times Square<br />
+					16th Floor<br />
+					New York, NY 10036</p>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+<!-- end Head quarters -->
+	<!-- end Head quarters -->
+	<div class="legal-policies pt-0 pt-lg-3 pb-0 pb-lg-3">
+        <div class="container">
+            <div class="legal-policies-wrap">
+                        
+                            <div class="panel-grid-cell legal-policies-wrap">
+								<div class="legal-policies-links col-lg-5">
+									<ul id="footerlegalpolicyid" class="d-flex">
+										<li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147">
+											<a href="https://stretto.com/legal-policies/">
+												Legal Policies
+											</a>
+										</li>
+                                        <li id="cookies-settings-footer" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                            <a class="ot-sdk-show-settings" href="javascript:void(0);" aria-controls="onetrust-pc-sdk">
+                                                Cookie settings
+                                            </a>
+                                        </li>
+									</ul>
+								</div>
+                                <!--<div class="so-panel widget widget_media_image panel-last-child screen-769"
+                                     data-index="2">
+                                    <div id="bottom-footer-linked-in-container"
+                                         class="panel-widget-style"><a
+                                                href="https://www.linkedin.com/company/stretto-com/">
+                                            <img class="image align-img"
+                                                 src="https://cases.stretto.com/wp-content/themes/flash-child/images/icon-linkedin.png"
+                                                 alt="" width="31" height="31"></a></div>
+                                </div> -->
+                            </div>
+                            <div class="panel-grid-cell terms-and-condition-elm">
+                                                                                                <!--<div class="so-panel widget widget_media_image panel-last-child desktop"
+                                     data-index="2">
+                                    <div id="bottom-footer-linked-in-container"
+                                         class="panel-widget-style"><a
+                                                href="https://www.linkedin.com/company/stretto-com/">
+                                            <img class="image"
+                                                 src="https://cases.stretto.com/wp-content/themes/flash-child/images/icon-linkedin.png"
+                                                 alt="" width="31" height="31"></a></div>
+                                </div> -->
+                            </div>
+							<div class="footer-logo-right">
+                                <div class="row with_linkedin justify-content-end">
+                                    <div id="bottom-footer-linked-in-container">
+                                        <a href="https://www.linkedin.com/company/stretto-com/">
+                                            <img class="lazy loaded linkedin_icon_margin_top"
+                                                    src="https://cases.stretto.com/wp-content/themes/flash-child/images/linkedin-circle.png"
+                                                    alt="" width="31" height="31"></a>
+                                    </div>
+                                    <div class="footer-logo ">
+                                        <a href="https://stretto.com/" class="logo">
+                                            <img class="lazy loaded" src="https://cases.stretto.com/wp-content/themes/flash-child/images/StrettoLogo_Footer@2x.png" alt="Footer-Logo" data-was-processed="true">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+                        <div class="powered-by">
+                <span>Powered by Stretto CORE<sup>TM</sup></span>
+            </div>
+                    </div>
+    </div>
+</footer>
+
+
+</div><!-- #page -->
+
+
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link rel="stylesheet" href="https://cases.stretto.com/wp-content/themes/flash-child/css/chatbot.css?ver=10.2.1-12">
+<!--Main Container for everythiing ChatBot [switch aria-expanded to open and close]-->
+<div class="chatbot-container" role="chat" id="chatBot" aria-label="ChatBot" aria-expanded="false">
+    <iframe class="chatbot-app" name="ChatBot interface" allow="clipboard-read; clipboard-write"></iframe>
+        <div class="tooltip-chatbot-button">
+            <div id="tooltip-chatbot-button-text" class="tooltip-text">
+                <div id="tooltip-overlay" onclick="onChatbotBtnClick()">
+                    <div class="tooltip-container">
+                        <div class="tooltip-header">
+                            <img src="https://cases.stretto.com/wp-content/themes/flash-child/images/chatbot_tooltip_logo.svg"/>                            <button class="tooltip-close" onclick="closeConductorTooltip(event)">
+                                <img src="https://cases.stretto.com/wp-content/themes/flash-child/images/chatbot_tooltip_close.svg"/>                            </button>
+                        </div>
+                        <div class="tooltip-body">
+                            <p>Have questions? I can help!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-bot-button" >
+                    <button class="shine-button" onclick="onChatbotBtnClick()">
+                    <img src="https://cases.stretto.com/wp-content/themes/flash-child/images/chatbot_button.svg"/>                    </button>
+            </div>
+        </div>
+</div>
+<div id="modal-overlay" class="hidden"><div id="modal-content"></div></div><script type='text/javascript' src='https://cases.stretto.com/wp-content/themes/flash/js/jquery.nav.min.js?ver=6.3.2' id='nav-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/flash.min.js?ver=10.2.1-12' id='flash-custom-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/navigation.min.js?ver=10.2.1-12' id='flash-navigation-js'></script>
+<script type='text/javascript' src='https://cases.stretto.com/wp-content/themes/flash/js/skip-link-focus-fix.js?ver=20151215' id='flash-skip-link-focus-fix-js'></script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/responsive_components.js?ver=10.2.1-12' id='responsive_components-js'></script>
+<script type='text/javascript' id='custom-js-extra'>
+/* <![CDATA[ */
+var paw_url = {"ajaxurl":"https:\/\/cases.stretto.com\/wp-admin\/admin-ajax.php","siteUrl":"https:\/\/cases.stretto.com\/appharvest\/","http_url":"https:\/\/","isVanity":"","legacySiteUrl":"https:\/\/case.stretto.com","currentTemplate":"https:\/\/cases.stretto.com\/wp-content\/themes\/flash-child","caseName":"appharvest","ExcelcaseName":"AppHarvest Products, LLC, et al.","dockets":{"court_dockets":"Court Dockets","voluntary_petitions":"Voluntary Petitions","first_day_motion_orders":"First Day and Motion Orders","sale_documents":"Sale Documents","plan_solicitation":"Plan Solicitations","schedules":"Schedules","statements":"Statements","adversary_listing":"Adversary Listing","custom_documents":"Documents"},"docketCategory":{"voluntary_petitions":1,"first_day_motion_orders":2,"sale_documents":3,"plan_solicitation":4,"schedule":5,"statements":6,"adversary_proceedings":7,"documents":8},"mapping_id":"","notice_list_preview_id":"","notice_list_preview_name":"","site_id":"x263","chatUrl":"https:\/\/clientchat.stretto.com","case_id":"264","is_ipad":"0"};
+/* ]]> */
+</script>
+<script type='text/javascript' defer src='https://cases.stretto.com/wp-content/themes/flash-child/js/custom.js?ver=10.2.1-12' id='custom-js'></script>
+
+<script type="text/javascript" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=2070864120" async></script></body>
+</html>
