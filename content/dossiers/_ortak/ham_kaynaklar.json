@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 272,
- "toplam_bayt": 736177777,
+ "dosya_sayisi": 280,
+ "toplam_bayt": 738287540,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -2125,6 +2125,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/karkanias_2026_europepmc.json",
+   "bayt": 5604,
+   "sha256": "ace1ccfdb2bf2845542f456fe5b2957054421dac603eab3f9d2a545ea105c361",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3390/foods15030447&resultType=core&format=json",
+    "atif": "Karkanias C., Malamakis A., Banias G.F. 2026. Blockchain and Megatrends in Agri-Food Systems: A Multi-Source Evidence Approach. Foods 15(3): 447. doi:10.3390/foods15030447",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti (PMC12896446)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaya_2022_openalex.json",
    "bayt": 24437,
    "sha256": "ef6ffe72220f2a5d795563e51947689562cbc405d008a07fa1d02970aad510d0",
@@ -2209,6 +2221,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/manogna_2025_europepmc.json",
+   "bayt": 5653,
+   "sha256": "d047edf01fd26523d6e5d3c3ab8006d6e3ac8f62b45e7ddca9a58e08bcdc93be",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1038/s41598-025-05103-z&resultType=core&format=json",
+    "atif": "Manogna R.L., Dharmaji V., Sarang S. 2025. Enhancing agricultural commodity price forecasting with deep learning. Scientific Reports 15(1): 20903. doi:10.1038/s41598-025-05103-z",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti (PMC12215695)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/menculini_2021_crossref.json",
+   "bayt": 16439,
+   "sha256": "5f033c326e4a02e791410ee0a043f380a98983ae08fe092b49229fe912e732c9",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/forecast3030040",
+    "atif": "Menculini L., Marini A., Proietti M., Garinei A., Bozza A., Moretti C., Marconi M. 2021. Comparing Prophet and Deep Learning to ARIMA in Forecasting Wholesale Food Prices. Forecasting 3(3): 644-662. doi:10.3390/forecast3030040",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/michel_2016_europepmc.json",
    "bayt": 8621,
    "sha256": "52b681e138c29634eda58aebfb1adf05bba94f7b91f133bce1713135e6729187",
@@ -2281,6 +2317,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ozden_2023_bsja.pdf",
+   "bayt": 528549,
+   "sha256": "4574446638cb6d4b97ac7b3bfc3d5b23788ff1c81753c8f89c3449000c5e556d",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/3171242",
+    "atif": "Özden C. 2023. Comparative Analysis of CNN, LSTM and Random Forest for Multivariate Agricultural Price Forecasting. Black Sea Journal of Agriculture 6(4): 422-426. doi:10.47115/bsagriculture.1304625",
+    "lisans": "CC BY-NC 4.0",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — DergiPark, yayıncı PDF'i."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/paolo_2024_europepmc.json",
    "bayt": 14161,
    "sha256": "429bad524645f75c64e1201c8ba1e451a8ae4c0a0ee824b63def51ea7b810a99",
@@ -2326,6 +2374,18 @@
     "lisans": "arXiv kaydı (özet)",
     "lisans_adresi": null,
     "_not": "Özet arXiv API'sinden; dergi künyesi aynı kayıtta."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/sendros_2022_crossref.json",
+   "bayt": 55168,
+   "sha256": "f7c05b222183df7cf784a2ae87e1da45f5f234d1ad692c4fbc1e93dec3921246",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/app12168061",
+    "atif": "Sendros A., Drosatos G., Efraimidis P.S., Tsirliganis N.C. 2022. Blockchain Applications in Agriculture: A Scoping Review. Applied Sciences 12(16): 8061. doi:10.3390/app12168061",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
@@ -2398,6 +2458,42 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tepge_2025_bugday_durum_tahmin.pdf",
+   "bayt": 1295697,
+   "sha256": "17fb1721e5d320282ea7869b0bdbbc84d72dbadba5089b32cb6aad486ff240a0",
+   "kaynak": {
+    "adres": "https://arastirma.tarimorman.gov.tr/tepge/Belgeler/PDF%20Durum-Tahmin%20Raporlar%C4%B1/2025%20Durum-Tahmin%20Raporlar%C4%B1/Bu%C4%9Fday%20Durum%20Tahmin%20Raporu%202025-428%20TEPGE.pdf",
+    "atif": "Özdemir D. 2025. Buğday Durum ve Tahmin 2025. TEPGE Yayın No: 428. Tarım ve Orman Bakanlığı Tarım Reformu Genel Müdürlüğü, Tarımsal Ekonomi ve Politika Geliştirme Enstitüsü, Ankara.",
+    "lisans": "kamu kurumu yayını — raporda 'izinsiz basılamaz, çoğaltılamaz' kaydı var; yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — TEPGE sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/theofilou_2025_crossref.json",
+   "bayt": 26006,
+   "sha256": "3eade1655645c4e6def6201313c60504e3e7d90c02386700b75c054c63547ed4",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/su17125456",
+    "atif": "Theofilou A., Nastis S.A., Michailidis A., Bournaris T., Mattas K. 2025. Predicting Prices of Staple Crops Using Machine Learning: A Systematic Review of Studies on Wheat, Corn, and Rice. Sustainability 17(12): 5456. doi:10.3390/su17125456",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ticaret_hks_yonetmelik_2012_konsolide.pdf",
+   "bayt": 176647,
+   "sha256": "fb09eea44ea97f0d9f3270a4c561b82bd29272101a8590d688ff1f4c7686652d",
+   "kaynak": {
+    "adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
+    "atif": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik. Resmî Gazete 7.7.2012, sayı 28346; değişikliklerle konsolide metin (son değişiklik Resmî Gazete 29.4.2023, sayı 32175). Mevzuat Bilgi Sistemi, MevzuatNo 16340.",
+    "lisans": "kamu belgesi (mevzuat metni)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Mevzuat Bilgi Sistemi'nin konsolide metni. Yönetmelikteki 'Bakanlık' tanımı 'Gümrük ve Ticaret Bakanlığı' (bugünkü Ticaret Bakanlığı)."
    }
   },
   {

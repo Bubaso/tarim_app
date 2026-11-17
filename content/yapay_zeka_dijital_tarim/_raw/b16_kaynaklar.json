@@ -1,0 +1,173 @@
+{
+  "_ne": "§16 Pazar, fiyat ve tedarik zinciri — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin ya da yayımlayan kurumun sitesindeki resmî belge"
+  },
+  "kaynaklar": {
+    "theofilou_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Theofilou A., Nastis S.A., Michailidis A., Bournaris T., Mattas K. 2025. Predicting Prices of Staple Crops Using Machine Learning: A Systematic Review of Studies on Wheat, Corn, and Rice. Sustainability 17(12): 5456.",
+      "doi": "10.3390/su17125456",
+      "dosya": "kaynak_dosyalari/theofilou_2025_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "_not": "Sistematik tarama; özet dahil edilen çalışma sayısını ve etki büyüklüğünü vermiyor. Metin 'tutarlı biçimde geçiyor' iddiasını taramanın sözü olarak aktarır, sınırlarıyla birlikte.",
+      "alinti": [
+        "This study presents a systematic literature review (SLR) of peer-reviewed original research articles focused on forecasting the prices of wheat, corn, and rice using machine learning (ML), deep learning (DL), ensemble learning (EL), and time series techniques.",
+        "The results of the study help uncover suitable forecasting methods, such as hybrid deep learning models that consistently outperform traditional methods",
+        "they identify important limitations in model interpretability and the use of region-specific datasets, highlighting the need for explainable and generalizable forecasting solutions.",
+        "This systematic review adheres to the PRISMA 2020 reporting guidelines."
+      ]
+    },
+    "manogna_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Manogna R.L., Dharmaji V., Sarang S. 2025. Enhancing agricultural commodity price forecasting with deep learning. Scientific Reports 15(1): 20903.",
+      "doi": "10.1038/s41598-025-05103-z",
+      "dosya": "kaynak_dosyalari/manogna_2025_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC12215695)",
+      "urun_sayisi": 23,
+      "veri_donemi": "Ocak 2010 - Haziran 2024",
+      "gru_rmse_sogan": 369.54,
+      "arima_rmse_sogan": 1564.62,
+      "gru_rmse_domates": 210.35,
+      "arima_rmse_domates": 1298.6,
+      "gru_mape_sogan_yuzde": 14.59,
+      "gru_mape_domates_yuzde": 10.58,
+      "_yuvarlama": "Metin RMSE değerlerini tam sayıya yuvarlar (370, 1.565, 210, 1.299). RMSE'nin birimi özette yok; oran türetilmez.",
+      "_not": "Tek ülke, tek çalışma. En iyi modelin yüzde hatası bile %10-15.",
+      "alinti": [
+        "This study evaluates the performance of traditional stochastic models, machine learning techniques, and deep learning approaches in forecasting the prices of 23 commodities using daily wholesale price data from January 2010 to June 2024.",
+        "Models assessed include Autoregressive Integrated Moving Average, Support Vector Regression, Extreme Gradient Boosting, Multilayer Perceptron, Recurrent Neural Networks, Long Short-Term Memory Networks, Gated Recurrent Units, and Echo State Networks.",
+        "For instance, the GRU model achieved a Root Mean Squared Error (RMSE) of 369.54 for onions and 210.35 for tomatoes, significantly outperforming the ARIMA model, which recorded RMSE values of 1564.62 and 1298.60, respectively.",
+        "Furthermore, the Mean Absolute Percentage Error (MAPE) for GRU was notably lower, at 14.59% for onions and 10.58% for tomatoes.",
+        "The study recommends exploring hybrid models and incorporating external factors like weather data to further enhance forecasting reliability."
+      ]
+    },
+    "menculini_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Menculini L., Marini A., Proietti M., Garinei A., Bozza A., Moretti C., Marconi M. 2021. Comparing Prophet and Deep Learning to ARIMA in Forecasting Wholesale Food Prices. Forecasting 3(3): 644-662.",
+      "doi": "10.3390/forecast3030040",
+      "dosya": "kaynak_dosyalari/menculini_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "_not": "Karşı ağırlık: tek bir İtalyan gıda toptancısında ARIMA ile LSTM benzer. Özette sayı yok.",
+      "alinti": [
+        "In this paper, we examine different techniques to forecast sale prices applied by an Italian food wholesaler, as a step towards the automation of pricing tasks usually taken care by human workforce.",
+        "ARIMA models are frequently used in econometric analyses, providing a good benchmark for the problem under study.",
+        "Our results indicate that ARIMA models and LSTM neural networks perform similarly for the forecasting task under consideration, while the combination of CNNs and LSTMs attains the best overall accuracy, but requires more time to be tuned.",
+        "On the contrary, Prophet is quick and easy to use, but considerably less accurate."
+      ]
+    },
+    "sendros_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Sendros A., Drosatos G., Efraimidis P.S., Tsirliganis N.C. 2022. Blockchain Applications in Agriculture: A Scoping Review. Applied Sciences 12(16): 8061.",
+      "doi": "10.3390/app12168061",
+      "dosya": "kaynak_dosyalari/sendros_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "makale_sayisi": 104,
+      "tarama": "Nisan 2021",
+      "_not": "Akademik makaleleri sayıyor, sahadaki ticari projeleri değil; özette oran yok. Tarama Nisan 2021.",
+      "alinti": [
+        "The literature search was conducted in April 2021 using Scopus and Google Scholar, and a systematic selection process identified 104 research articles for detailed study.",
+        "Our findings show that in the field, although still in the early stages, with the majority of the studies in the design phase, several experiments have been conducted, so a significant percentage of the work is in the implementation or piloting phase.",
+        "Finally, our research shows that the use of blockchain in this domain mainly concerns the integrity of agricultural production records, the monitoring of production steps, and the monitoring of products."
+      ]
+    },
+    "karkanias_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Karkanias C., Malamakis A., Banias G.F. 2026. Blockchain and Megatrends in Agri-Food Systems: A Multi-Source Evidence Approach. Foods 15(3): 447.",
+      "doi": "10.3390/foods15030447",
+      "dosya": "kaynak_dosyalari/karkanias_2026_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC12896446)",
+      "_not": "Pilot uygulamaların çapraz analizi; nicel etki ölçümü yok.",
+      "alinti": [
+        "Complementary analysis of a curated dataset of European and international pilot implementations evaluated technological architectures, governance models, and demonstrated performance outcomes.",
+        "Evidence from the literature and pilot cases indicates that blockchain can strengthen product-level traceability and improve verification of sustainability and safety claims.",
+        "Cross-case analysis also reveals persistent constraints, including heterogeneous technical standards, limited interoperability, high deployment costs for smallholders, and governance risks arising from consortium-led platforms."
+      ]
+    },
+    "hks_yonetmelik": {
+      "nitelik": "RESMI",
+      "kunye": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik. Resmî Gazete 7.7.2012, sayı 28346; değişikliklerle konsolide metin (son değişiklik Resmî Gazete 29.4.2023). Mevzuat Bilgi Sistemi.",
+      "adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
+      "dosya": "kaynak_dosyalari/ticaret_hks_yonetmelik_2012_konsolide.pdf",
+      "bildirim_esigi_kg": 100,
+      "bildirim_esigi_adet": 150,
+      "bildirim_esigi_bag": 50,
+      "_not": "Merkezi kayıt; blokzincir ya da yapay zekâ değil. HKS'nin bildirim ve künye sayıları bu taramada birincil kaynakta bulunamadı.",
+      "alinti": [
+        "Sistem: Bakanlık bünyesinde elektronik ortamda kurulan ve internet tabanlı çalışan merkezi hal kayıt sistemini",
+        "Bildirim miktarı: Adet ile yapılan satışlarda 150 adet, bağ ile yapılan satışlarda 50 bağ, kilogram ile yapılan satışlarda 100 kilogramı",
+        "Bildirim yapıldıktan sonra, sistem tarafından bu işleme ilişkin bir künye oluşturulur.",
+        "Künye, malın üretim yerini, cinsini, miktarını, hangi üretici/işletmeye ait olduğunu, varsa sertifika bilgilerini ve Bakanlıkça uygun görülen diğer hususları içerir.",
+        "Her bir künye için sistem tarafından özgün bir künye numarası üretilir.",
+        "Bildirim; bildirim miktarı veya üzerindeki malların üretildiği yerden veya girdiği gümrük kapısının bulunduğu yerden her ne sebeple olursa olsun sevkinden önce bildirimciler tarafından sisteme yapılan beyan işlemidir.",
+        "Toptan veya perakende mal satışında, malların üzerinde veya kap ya da ambalajlarının herkes tarafından kolaylıkla görülebilecek bir yerinde bu maddede belirtilen künyenin bulundurulması zorunludur."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "Cumhurbaşkanlığı. 2026. 2027 Yılı Cumhurbaşkanlığı Yıllık Programı (Cumhurbaşkanı Kararı, karar sayısı 11934). Resmî Gazete 27 Ekim 2026, sayı 33413 (Mükerrer).",
+      "adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "lisansli_depo_2025": 265,
+      "lisansli_depo_2026_tahmin": 288,
+      "lisansli_depo_2027_hedef": 295,
+      "_denetim": "Programda 'fiyat tahmin' geçmiyor; 'blokzincir' yalnız gümrük ve dış ticaret işlemlerinde geçiyor (PDF s266-268) — 17.11.2026 sayımı.",
+      "_yer": "PDF s167 (fiyat oluşumu, kayıt, lisanslı depo), s180, s262-263 (hedef tablosu: 2025 / 2026 gerçekleşme tahmini / 2027 program), s266, s421.",
+      "alinti": [
+        "Tarım ürünleri fiyatlarının sağlıklı oluşumunun sağlanması ve gıda arz zincirinin etkinliğinin artırılması amacıyla kayıt sistemlerinin güçlendirilmesi, lisanslı depoculuğun yaygınlaştırılması ve yaş meyve-sebze tedarik zincirindeki lojistik altyapının geliştirilmesi çalışmalarına devam edilecektir.",
+        "Kayıt ve bilgi sistemleri erken uyarı, piyasa kontrolleri, üretim planlaması ve stok yönetimini sağlayacak şekilde bütüncül bir yaklaşımla tasarlanacak, yazılım ve donanım altyapısı iyileştirilecektir.",
+        "Tarım bilgi sistemlerinin iyileştirilmesi amacıyla veri merkezi kurulumu tamamlanacak ve yazılımların güncellenmesine yönelik çalışmalara hız verilecektir.",
+        "Toptancı hallerinin işleyişini düzenleyen ikincil mevzuat çalışmaları tamamlanacaktır.",
+        "Sebze ve meyve ticaretinde tüm alıcılar için ödeme sürelerinin belirlenmesi yönünde mevzuat çalışmaları tamamlanacaktır.",
+        "Lisanslı Depo Sayısı Adet 265 288 295",
+        "KKYDP ve lisanslı depoculuk destekleme uygulamalarının etki analizleri yapılacaktır.",
+        "Dış ticaret işlemlerinde blokzincir ve otomatik karakter tanıma (OCR) gibi yenilikçi teknolojiler kullanılarak kâğıtsız ortamda gümrük uygulamaları yaygınlaştırılacaktır."
+      ]
+    },
+    "tepge_2025_bugday": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Özdemir D. 2025. Buğday Durum ve Tahmin 2025. TEPGE Yayın No: 428. Tarım ve Orman Bakanlığı Tarım Reformu Genel Müdürlüğü, Tarımsal Ekonomi ve Politika Geliştirme Enstitüsü, Ankara.",
+      "adres": "https://arastirma.tarimorman.gov.tr/tepge/Belgeler/PDF%20Durum-Tahmin%20Raporlar%C4%B1/2025%20Durum-Tahmin%20Raporlar%C4%B1/Bu%C4%9Fday%20Durum%20Tahmin%20Raporu%202025-428%20TEPGE.pdf",
+      "dosya": "kaynak_dosyalari/tepge_2025_bugday_durum_tahmin.pdf",
+      "_denetim": "Metinde 'yapay', 'makine öğren', 'uydu', 'ekonometri' geçmiyor; 'model' yalnız 'destekleme modeli' olarak geçiyor (17.11.2026 sayımı). Dünya tabloları 'Kaynak: USDA, 2025'. Yalnız buğday raporu incelendi.",
+      "alinti": [
+        "içinde bulunulan yıla ait gerçekleşen fakat tam netleşmeyen gelişmeler “Tahmin”; bir sonraki yıla ait muhtemel gelişmeler ise “Öngörü” adı altında sistematik olarak incelenmektedir.",
+        "Çalışmada yer alan veri ve istatistikler yayınlayıcı kurumların kaynaklarından alınmış ve araştırma amaçlı olarak kullanılmıştır.",
+        "6. TÜRKİYE’DE ÖNGÖRÜ: 2025/2026 USDA’nın 2025/26 pazarlama dönemi tahminlerine göre"
+      ]
+    },
+    "ozden_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Özden C. 2023. Comparative Analysis of CNN, LSTM and Random Forest for Multivariate Agricultural Price Forecasting. Black Sea Journal of Agriculture 6(4): 422-426.",
+      "doi": "10.47115/bsagriculture.1304625",
+      "dosya": "kaynak_dosyalari/ozden_2023_bsja.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "gun_sayisi": 1791,
+      "tahmin_ufku_gun": 10,
+      "veri_donemi": "Ocak 2018 - Kasım 2022",
+      "_not": "Değeri yöntem sonucu değil: HKS verisinin araştırmacıya hazır bir veri seti olarak değil, siteden elle derlenerek ulaştığını gösteriyor. Sonuç rakamları metne alınmadı (bkz. _reddedilen).",
+      "alinti": [
+        "In this study, a new dataset is composed through manual collection of data from the Ministry of Commerce of Turkish Republic.",
+        "In this study, we have curated daily trade volumes and prices of potato, onion and garlic from the official market website of Turkish Ministry of Commerce (www.hal.gov.tr).",
+        "The data pertains to the period between January 1, 2018 and November 26, 2022 (1791 days).",
+        "A simple CNN and LSTM architectures as well Random Forest machine learning method are used to predict the next 10-day prices of the products."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Hal Kayıt Sistemi: eşiği aşan sebze-meyve sevkiyatı sevkten önce sisteme bildiriliyor, her bildirime özgün numaralı künye; künyenin satışta malın üstünde bulunması zorunlu (Yönetmelik md. 41-42). 2027 Programı: kayıt sistemleri ve lisanslı depo; fiyat tahmininde yapay zekâ yok, blokzincir yalnız gümrükte. TEPGE'nin buğday raporu model tanımlamıyor. Akademide HKS verisini elle derleyen bir makine öğrenmesi denemesi. Türkiye'de yapay zekânın fiyat tahminine, talep planlamasına ya da izlenebilirliğe etkisini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "ozden_2023_sonuc": "Makalenin tablosunda evrişimli ağın hatası öteki iki yöntemden yaklaşık iki basamak düşük; bu bir ölçek tutarsızlığına işaret ediyor olabilir. Sonuç rakamları metne alınmadı, yalnız veri derleme yolu yazıldı.",
+    "fiyat_derlemeleri": "Sun ve Wang derlemeleri — özette sayısal bulgu yok.",
+    "m5_yarismasi": "Makridakis ve arkadaşlarının M5 yarışması — özete erişilemedi.",
+    "hks_sayilari": "HKS bildirim ve künye sayıları: hal.gov.tr istatistik sayfası içeriği betikle yükleniyor; birincil bir sayı bulunamadı.",
+    "diger_tr_denemeleri": "Türkiye'den başka makine öğrenmesi fiyat denemeleri (fındık, tahıl) var; HKS ile bağı yok ya da verisi yabancı. Metin Özden'in çalışmasını 'tek' diye anmaz.",
+    "motta_2020": "Altı vakalık blokzincir incelemesi — oran yok."
+  }
+}

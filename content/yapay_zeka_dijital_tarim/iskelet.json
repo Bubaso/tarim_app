@@ -500,12 +500,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Fiyat tahmini, talep planlaması, izlenebilirlik.",
         "en": "Price forecasting, demand planning, traceability."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

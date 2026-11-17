@@ -214,7 +214,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Markets, prices and supply chain",
       true,
       ["tahmin", "veri"],
-      false,
+      true,
       "Fiyat tahmini, talep planlaması, izlenebilirlik.",
       "Price forecasting, demand planning, traceability."),
   YzBaslik(
