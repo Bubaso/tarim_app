@@ -8,7 +8,11 @@ In conventional application, a machine crosses a field from end to end on one se
 
 The rate is set in one of two ways. In the first, a prescription map is prepared in advance: soil maps, past yields and satellite images divide the field into zones. In the second, a sensor on the machine measures the reflectance of the crop canopy and adjusts the nitrogen rate on the spot.
 
+[[gorsel:b06-degisken-oranli-ekim-recete-haritasi]]
+
 AI's place in this chain is the decision link: working out how much nitrogen or seed each point should receive by learning from the data of on-farm trials in which different rates are tested within a field.
+
+[[gorsel:b06-soya-ekim-sikligi-ciftlik]]
 
 ## What the field says
 
@@ -19,6 +23,8 @@ AI's place in this chain is the decision link: working out how much nitrogen or 
 | Dalla Betta and colleagues (2026): Nebraska, seeding trials in **11** soybean fields | Most profitable seeding rate | Between **175,000** and **350,000** seeds per hectare from field to field; in **9** of **11** fields seed could have been cut without losing yield or profit |
 
 The savings are real: sensor-based nitrogen cuts fertiliser without lowering yield, and the soybean trials show a similar margin for seed. On profit, however, the result changes: in Nebraska the sensor-based approach was more profitable in only **35%** of the fields. The review's authors say this gain alone may not be enough to drive adoption; the authors of the maize trial note that the spread of sensors has been held back by inconsistent results, potential yield losses and a lack of field-scale trials.
+
+[[gorsel:b06-bitki-ortusu-sensoruyle-azot]]
 
 [[grafik:b06-sensorlu-azot-tarlalar]]
 

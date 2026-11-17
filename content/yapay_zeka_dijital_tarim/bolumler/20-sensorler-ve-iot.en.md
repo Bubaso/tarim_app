@@ -34,8 +34,12 @@ One official measuring network that runs continuously in the field belongs to me
 
 In the ministry's 2025 activity report, the 2025 target for the indicator on the number of farms using climate-friendly smart farming technology systems is **410**, and the outcome is **0**. According to the report, the target was not reached because grant schemes under the World Bank-financed Türkiye Climate Smart and Competitive Agricultural Growth Project (TUCSAP) had not yet started; training of trainers was held in **15** pilot provinces. Which technologies the indicator covers has not been specified. The Digital Villages Initiative, launched by TAGEM and FAO in 2023 and covering Albania, Bosnia and Herzegovina, Georgia and Türkiye, was completed in December 2025; in Türkiye a village digital centre was set up in Boyalı, in Ankara's Güdül district.
 
+[[gorsel:b20-boyali-koy-dijital-merkezi]]
+
 [[grafik:b20-akilli-tarim-hedef]]
 
 No published study has measured the effect of agricultural sensor and IoT networks on farming in Türkiye; academic work is at the level of adoption surveys and prototypes. A survey of **325** farmers in six regions (Guldal, Sanli and Turker, 2025) found that **66** used at least one smart farming technology, **170** did not but wanted to, and **89** did not use any; non-users had smaller landholdings, did not use credit, had limited awareness and owned no tractor. The sample was not drawn at random: it consists of farmers who volunteered at ministry training sessions in the province with the most grants in each region. A study carried out at Çukurova University (Civelek, 2022) developed a tractor tracking system running on a LoRaWAN network: over **6** months, in two trials, the devices generated **49,121** and **52,766** data points, the batteries lasted **95** and **98** days, and position was measured with at most **3** metres of error. The hardware cost **55** dollars at May 2020 prices; a tractor manufacturer's 4G device cost **795** dollars. But the data transmission trials used dummy data; testing on a farm is mentioned in the paper as future work.
+
+[[gorsel:b20-lorawan-ile-calisan-traktor-izleme]]
 
 [[grafik:b20-akilli-tarim-anketi]]

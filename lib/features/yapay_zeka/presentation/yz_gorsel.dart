@@ -26,20 +26,25 @@ class YzGorselKarti extends StatelessWidget {
             onTap: () => _buyut(context),
             child: MouseRegion(
               cursor: SystemMouseCursors.zoomIn,
+              // Görselin tamamı görünür (şekil, harita ve grafikte kenar
+              // kesilmez); dikey görsel en çok 560 piksel boyunda kalır,
+              // yanları zeminle dolar.
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4),
-                child: AspectRatio(
-                  aspectRatio: g.oran.clamp(0.6, 2.4),
-                  child: Container(
+                child: LayoutBuilder(builder: (context, kis) {
+                  final boy = (kis.maxWidth / g.oran).clamp(120.0, 560.0).toDouble();
+                  return Container(
+                    height: boy,
                     color: YzRenk.zemin,
+                    alignment: Alignment.center,
                     child: Image.network(
                       g.adres,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                       errorBuilder: (c, h, i) => const Center(
                           child: Icon(Icons.image_not_supported_outlined, color: YzRenk.soluk)),
                     ),
-                  ),
-                ),
+                  );
+                }),
               ),
             ),
           ),

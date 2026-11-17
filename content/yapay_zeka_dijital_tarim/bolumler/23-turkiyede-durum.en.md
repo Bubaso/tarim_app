@@ -41,6 +41,8 @@ The announcements and documents of the ministry's own units show three more syst
 
 The General Directorate of Agrarian Reform put its remote-sensing crop identification work into practice for the first time in the 2025 production year: reference parcels collected in the field are assessed together with satellite imagery, and machine learning is used to detect and classify the crops sown. According to a July 2026 announcement, **12** regional meetings were held; checks on the accuracy of farmer registry (ÇKS) declarations are planned within the same work. The ministry says areas are analysed with high accuracy rates, but has not published a rate. The ministry's 2025 administrative activity report writes that satellite images were also analysed with deep learning and AI to detect idle farmland and orchards.
 
+[[gorsel:b23-uzaktan-algilamayla-urun-belirleme]]
+
 Since 2022 the General Directorate of Forestry has used a Decision Support System that combines meteorological data, forest information system data, UAV and satellite images; according to the ministry, it predicts a fire's behaviour and spread with AI support.
 
 The Fishing Vessel Monitoring System (BAGİS) tracks the position of commercial fishing vessels of **12** metres and over via satellite and GSM. According to the ministry's technical requirements document, published on TÜBİTAK's website in June 2026, data for **1,629** vessels are current and accessible; but for now these data are used mainly for monitoring and record keeping, and checks on prohibited areas are done by staff at screens. The document describes a project in which the data will be analysed with AI to detect possible violations.
@@ -66,5 +68,7 @@ According to the report, the VetAlarm project, which is to develop an AI-based e
 ## The layer beneath the AI
 
 The record-keeping and measurement layer that AI would be built on is more concrete in the programme, even though it is not AI. The B-Reçete System, which keeps prescriptions for plant protection products in electronic form, has been in use in **81** provinces since 1 July 2026. A Farm Holding Registration System is to link every agricultural holding to spatial data, using the General Agricultural Census; a data centre for the agricultural information systems is to be completed. Detailed soil surveys and mapping of **3.5 million** hectares of farmland in **15** provinces will continue. Electronic metering is to be installed at **100** facilities so that water can be priced by the amount used.
+
+[[gorsel:b23-b-recete-sistemi-bilgilendirme]]
 
 None of this is AI. But it is the data a model would learn from, the measurement a forecast would rest on and the record a decision would be written into.

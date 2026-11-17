@@ -18,6 +18,10 @@ According to the definition the International Society of Precision Agriculture (
 
 The US Department of Agriculture's Economic Research Service (ERS) dates the commercialisation of the yield monitor to 1993 and of variable-rate equipment to 1995; in 2023 the same service wrote that AI and machine learning have not yet been deployed at scale in agriculture, so there is little evidence of their contribution to productivity. FAO counts auto-steer guided by satellite positioning as a good example of precision farming technology.
 
+[[gorsel:b02-verim-haritasi]]
+
+[[gorsel:b02-uydu-konumuyla-otomatik-dumenleme]]
+
 Nor is precision farming the same as variable-rate application. According to Lowenberg-DeBoer and Erickson, precision farming is not one technology but a toolkit from which farmers choose what they need; variable-rate application is only one tool in the kit and, as of 2019, was rarely used on more than **20%** of farms. The authors note that there is no clear definition of precision farming, and that one research group compiled **27** different definitions from the scientific literature and the internet. According to a 2016 study for the European Parliament, precision farming can also be practised without machines: especially in developing countries, data are used while tasks such as planting, harvesting and irrigation are done by people.
 
 ## Digital farming, smart farming, Agriculture 4.0

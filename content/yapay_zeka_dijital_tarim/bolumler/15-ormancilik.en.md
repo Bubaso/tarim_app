@@ -8,6 +8,8 @@ AI stands out in two tasks in forestry: mapping forest structure from space and 
 
 In forestry, digital technology serves three purposes: measuring how much forest there is and what it is like (area, tree height, carbon), catching change (deforestation, fire, pests and disease), and early warning and response to fire. Satellites and spaceborne laser instruments see large areas; AI extracts tree height, burned area or smoke from these data. Cameras on the ground and unmanned aerial vehicles try to catch the first minutes of a fire.
 
+[[gorsel:b15-uydudan-orman-yangini-manavgat-ve]]
+
 ## What the field says
 
 From FAO's 2025 Global Forest Resources Assessment:
@@ -24,7 +26,11 @@ FAO says deforestation has slowed in every region, but that the current rate is 
 
 Lang and colleagues (2023) produced a global canopy height map at **10**-metre resolution for 2020 with a probabilistic deep learning model that fuses the sparse height data of the spaceborne GEDI laser instrument with Sentinel-2 satellite images; the model also reports the uncertainty of each estimate. According to the map, only **5%** of the global land surface is covered by trees taller than **30** metres, and only **34%** of these tall forests lie within protected areas.
 
+[[gorsel:b15-kuresel-agac-boyu-haritasi-2020]]
+
 Govil and colleagues (2020) developed a prototype smoke detection system in Southern California that scans hundreds of cameras every minute and recognises images with machine learning. The system usually caught smoke within **15** minutes of ignition, with on average less than one false alarm per camera per day, and it spotted some fires before they were reported or detected by satellite. The authors also write that ground cameras cannot see every fire, which is why they are building a system that combines camera and satellite detection.
+
+[[gorsel:b15-kamerayla-orman-yangini-dumani]]
 
 ## Where AI stands
 
@@ -39,3 +45,5 @@ Türkiye has a long record in early detection. According to a 2013 TÜBİTAK ann
 According to a 2024 ministry news item, the General Directorate of Forestry has since 2022 used a domestically developed Decision Support System: it combines meteorological data, forest information system (ORBİS) data, UAV and satellite images; it estimates the likelihood and cause of fires and, with AI support, predicts a fire's behaviour and spread. The system was nominated for the World Summit on the Information Society Prizes of the International Telecommunication Union, a UN agency.
 
 There is academic work as well. A study from Karabük University tested fire detection with deep learning embedded on a four-rotor UAV designed by the authors, reporting **96%** accuracy in classification (Shamta and Demir, 2024). A study involving Hacettepe University mapped burned area in a Turkish red pine forest in a Mediterranean ecosystem using radar, optical and thermal satellite data and the random forest method, with **96%** overall accuracy (Abdikan and colleagues, 2022).
+
+[[gorsel:b15-iha-ya-gomulu-derin-ogrenmeyle]]

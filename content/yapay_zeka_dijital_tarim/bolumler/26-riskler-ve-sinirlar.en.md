@@ -8,6 +8,8 @@ The best-known limit of models that recognise disease from images is that their 
 
 Ramcharan and colleagues (2019) put a model that recognises cassava diseases into a phone app and tested it on **720** diseased leaflets in a field in Tanzania. For pronounced symptoms, the F-1 score fell from **0.79** on the test set to **0.54** in field photos (a **32%** drop) and **0.48** in video (a **39%** drop). For early, mild symptoms the F-1 score stood at **0.26** in photos and **0.25** in video. In other words, the model performed worst at the early stage, where diagnosis is most useful. According to the authors, a model running on a phone faces new challenges such as lighting and orientation, and such models must be tested in real-world conditions.
 
+[[gorsel:b26-tanzanya-tarla-deneyinden-manyok]]
+
 [[grafik:b26-manyok-f1-tarlada]]
 
 ## Who benefits

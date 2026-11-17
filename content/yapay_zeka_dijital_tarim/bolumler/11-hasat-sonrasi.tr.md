@@ -8,6 +8,8 @@ Hasat sonrası zincir ürünün tarladan sofraya yolu: kurutma, temizleme, boyla
 
 Depolamada ise belirleyici olan çoğu zaman fiziksel teknoloji: ürünü nemden, zararlıdan ve küften koruyan ambar ve kap.
 
+[[gorsel:b11-pics-hava-gecirmez-depolama-torbasi]]
+
 ## Saha ne diyor
 
 FAO'nun gıda kaybı göstergesi hasattan sonra çiftlikte, taşımada, depoda, toptan satışta ve işlemede kaybolan gıdayı sayıyor; perakende ve tüketicideki israf bu sayıya girmiyor.
@@ -39,4 +41,8 @@ Ama FAO'nun tablosu depolama derlemesiyle birlikte okununca bir uyarı taşıyor
 
 AB'nin gıda ve yem hızlı alarm sisteminde (RASFF) 2020-2023 döneminde aflatoksin nedeniyle fındık ve ürünleri için **84**, yer fıstığı için **283**, kuru incir için **173** bildirim yapıldı. İl tarım müdürlüklerinden ve üniversitelerden araştırmacıların çalışmasında (Özçakmak ve arkadaşları, 2024), kabuklu fındıkta optik ve lazer ayıklamadan sonra ortalama toplam aflatoksin değeri **13,56**'dan **7,21**'e indi; ayıklanan örneklerin **%79,16**'sı yasal sınırlara uyuyordu. Çalışmanın tehlike analizinde optik, lazer ve elle ayıklama ile ultraviyole ışıkla aflatoksin tespiti kritik kontrol noktası olarak belirlendi.
 
+[[gorsel:b11-optik-lazer-ayiklama-makinesi]]
+
 Görüntüyle sınıflandırmada bir örnek de yine fındıktan. Ondokuz Mayıs Üniversitesi'nin de yer aldığı bir çalışma, kahverengi kokarcanın zarar verdiği fındıkları sağlam olanlardan görüntüyle ayırdı; destek vektör makinesi **400** görüntülük sette **%98,75** doğruluğa ulaştı (Gadalla ve Öztekin, 2023). Sonuç laboratuvar setine ait; bir işletme hattındaki başarıyı göstermiyor. Yapay zekâlı sınıflandırmanın bir işletmede kaybı ya da reddi ne kadar azalttığı ise henüz yayımlanmış bir değerlendirmeyle ölçülmedi.
+
+[[gorsel:b11-kahverengi-kokarcanin-zarar-verdigi]]

@@ -8,6 +8,8 @@ Görüntüden hastalık tanıyan modellerin en çok anılan sınırı, eğitildi
 
 Ramcharan ve arkadaşları (2019), manyok hastalıklarını tanıyan bir modeli telefon uygulamasına koyup Tanzanya'da bir tarlada **720** hastalıklı yaprakçıkla denedi. Belirgin belirtilerde F-1 skoru test setindeki **0,79**'dan tarla fotoğraflarında **0,54**'e (**%32** düşüş), videoda **0,48**'e (**%39** düşüş) indi. Erken, hafif belirtilerde F-1 skoru fotoğrafta **0,26**'da, videoda **0,25**'te kaldı. Yani model, teşhisin en çok işe yarayacağı erken evrede en düşük başarıyı gösterdi. Yazarlara göre telefonda çalışan bir model ışık ve açı gibi yeni güçlüklerle karşılaşıyor ve bu tür modellerin gerçek koşullarda sınanması şart.
 
+[[gorsel:b26-tanzanya-tarla-deneyinden-manyok]]
+
 [[grafik:b26-manyok-f1-tarlada]]
 
 ## Kimin işine yarıyor

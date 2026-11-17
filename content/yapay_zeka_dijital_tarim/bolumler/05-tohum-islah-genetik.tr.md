@@ -6,6 +6,8 @@ Türkiye merkezli Uluslararası Kışlık Buğday Islah Programı'nın klasik si
 
 Islah, binlerce melez arasından birkaçını yıllarca süren denemelerle ayıklama işi. En pahalı ve en yavaş halka sınama: bir hattın verimini, kuraklığa ve hastalığa dayanıklılığını görmek için onu farklı yerlerde ve yıllarda ekmek gerekiyor. Hangi hatların bu pahalı denemelere gireceğine karar vermek, her ıslah programının kritik seçimlerinden biri.
 
+[[gorsel:b05-turkiye-de-bugday-islah-parselleri]]
+
 Dijital araçlar bu darboğaza üç yerden giriyor. Genomik seçilimde hem DNA'sı okunmuş hem tarlada ölçülmüş bir bitki topluluğundan bir model kuruluyor; model yeni hatların başarısını DNA işaretleyicilerinden tahmin ediyor. Fenotiplemede bitkinin özellikleri sensörle ve görüntüyle ölçülüyor; elle ölçülemeyecek kadar çok hat aynı anda izlenebiliyor. Hızlı ıslah ise ışığı ve sıcaklığı denetleyerek bir yılda daha çok kuşak yetiştiriyor.
 
 Yapay zekâ bu zincirde özellikle genomik tahmin modelinde sınanıyor: klasik istatistik modellerinin yerine derin öğrenme.
@@ -17,6 +19,8 @@ Michel ve arkadaşları (2016), bir kışlık buğday hat ıslahı programının
 [[grafik:b05-genomik-secilim-isabeti]]
 
 Watson ve arkadaşları (2018) uzun kuşak süresini ıslahın yavaş ilerlemesinin nedenlerinden biri sayıyor ve hızlı ıslahla yazlık buğday, makarnalık buğday, arpa, nohut ve bezelyede yılda **6** kuşağa, kanolada **4** kuşağa ulaşılabildiğini gösteriyor; normal serada bu sayı **2-3**. Yazarlar yöntemi genomik seçilim gibi araçlarla birleştirmenin ıslahı daha da hızlandırabileceğini öngörüyor.
+
+[[gorsel:b05-hizli-islah-serasi]]
 
 [[grafik:b05-hizli-islah-kusak]]
 

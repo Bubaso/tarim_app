@@ -6,6 +6,8 @@ Hasat gelmeden rekolteyi bilmek, erken uyarı için de piyasa ve stok kararları
 
 Ürün izlemenin iki ayrı sorusu var. İlki: tarlada ne ekili? Uydu aynı tarlayı sezon boyunca tekrar tekrar görüntülediğinde her ürün kendine özgü bir yeşerme ve sararma eğrisi çiziyor; ekili ürünü bilinen tarlalardan bu eğrileri öğrenen bir model ötekileri sınıflandırıyor. İkincisi: ne kadar kalkacak? Verim tahmini bitki büyüme modellerini, hava verisini ve uydu göstergelerini birleştirip hasattan haftalar önce bir rakam üretmeye çalışıyor.
 
+[[gorsel:b09-makine-ogrenmesiyle-almanya-urun]]
+
 Yapay zekâ bu iki soruya farklı mesafede. Tarladaki ürünü bulmak, etiketli örneklerden öğrenen sınıflandırma modellerinin doğrudan işi; Türkiye'deki çalışmalar da Bakanlığın yeni sistemi de bu yolu izliyor. Verim tahmininde ise Avrupa Komisyonu'nun büyük ölçekli sistemi, 2021'de yayımlanan bir değerlendirmeye göre makine öğrenmesi kullanmıyordu.
 
 ## Verim tahmini ne kadar tutuyor
@@ -34,6 +36,8 @@ Erken sezonda Hollanda'da bütün ürünlerde, Almanya'da yumuşak buğday dış
 
 AB'de ürün tespitinde uydu verisi artık yasal bir gereklilik. AB'nin ortak tarım politikasının finansmanını ve izlenmesini düzenleyen 2021/2116 sayılı Tüzük, üye ülkelerden bir alan izleme sistemi kurmalarını istiyor: tarımsal faaliyetin Copernicus Sentinel uydu verisiyle ya da en az onun değerinde veriyle düzenli ve sistematik olarak gözlenmesi, izlenmesi ve değerlendirilmesi. Sistemin 1 Ocak 2023'ten itibaren çalışır, en geç 1 Ocak 2024'te bütün üye ülkelerde tam işler olması gerekiyor; ülkeler kalitesini her yıl Birlik düzeyinde belirlenen yönteme göre değerlendiriyor. Tüzük Sentinel verisini ya da eşdeğerini şart koşuyor; analiz yöntemini belirlemiyor.
 
+[[gorsel:b09-sen4cap-sentinel-1-ve-sentinel-2-ile]]
+
 ## Türkiye
 
 Türkiye'de resmî bitkisel üretim tahminleri Bakanlığın Tarım Reformu Genel Müdürlüğü'nün istatistik bülteninde yayımlanıyor: mayıs ve ekimde birinci ve ikinci tahmin, aralıkta nihai sonuç. Bakanlığın metaverisi yöntemi şöyle tarif ediyor: veriler il ve ilçe müdürlüklerince toplanıp web tabanlı bir istatistik sistemine giriliyor; bunlar ilçe müdürlüklerinin elindeki kaynak bilgilere, ÇKS gibi idari kayıtlara ve tarım teknisyenlerinin kendi bölgeleri hakkındaki izlenimlerine dayanan bilgiler. Tarif edilen yöntemde uydu ya da model kullanılmıyor.
@@ -45,5 +49,9 @@ Bu bültenlerin hepsi bugün Toprak Gübre ve Su Kaynakları Merkez Araştırma 
 Ürün izlemede resmî kullanıma yapay zekâ ürün tespitiyle girdi. Bakanlık 2025 üretim yılında Uzaktan Algılama ile Ürün Belirleme Çalışmaları'nı ilk kez uygulamaya aldı: sahadan toplanan referans parseller uydu görüntüleriyle birlikte değerlendiriliyor, makine öğrenmesiyle ekili ürünler tespit edilip sınıflandırılıyor ve üretim desenleri belirleniyor. Tarım Reformu Genel Müdürlüğü'nün Temmuz 2026 duyurusuna göre sistem için **12** bölge toplantısı yapıldı; ÇKS beyanlarının doğruluk kontrolü de bu kapsamda planlanıyor. Bakanlık alanların yüksek doğruluk oranlarıyla analiz edildiğini söylüyor, ama bir doğruluk oranı açıklamadı. Toplantılarda öne çıkan nokta öğretici: kışlık ürünlerde referans parsellerin hasattan önce hızlı, doğru ve yeterli yoğunlukta toplanması sistemin başarısını doğrudan etkiliyor. Resmî rekolte tahmini ile yapay zekâlı ürün tespiti aynı genel müdürlükte duruyor, ama ikincisinin birincisine girip girmediği açıklanmadı.
 
 Böyle bir sistemin ne kadar iyi çalışabileceğine dair en yakın ipuçları araştırmalardan geliyor. Mardin'de 2018 yılının altı farklı tarihli Sentinel-2 görüntüsüyle rastgele orman algoritması mısır, buğday, pamuk, nohut ve mercimeği parsel bazında ayırdı; doğruluk ÇKS kayıtlarına göre ölçüldü ve genel doğruluk **%96,35** çıktı (Altun ve Türker, 2021) — tek bölge, tek yıl. Tarım Reformu Genel Müdürlüğü'nde çalışan bir yazarın makalesi, Arazi Parsel Tanımlama Sistemi'ndeki **13,5** milyon fiziksel bloğu **370** Sentinel-2 karesiyle LightGBM algoritmasından geçirip 2021 için ülke ölçeğinde bir arazi örtüsü ve kullanımı haritası çıkardı; genel doğruluk **%86,07** (Şimşek, 2023). Yozgat'ta ise uydu verisi ve tapu kadastro parsel sınırlarıyla buğday ve arpa beyanlarını tam otomatik denetlemeyi amaçlayan bir sistem, sahada toplanan doğrulama verisiyle sınandı; bir parsele iki farklı ürün ekildiğinde yöntem hatalı sonuç verdi (Yaşar ve Yağcı, 2024). Üç çalışma da ekili ürünü ya da arazi örtüsünü belirlemeye yönelik; yapay zekâyla yapılmış bir rekolte tahminini resmî tahminle ya da gerçekleşen üretimle karşılaştıran, yayımlanmış bir Türkiye değerlendirmesi de bulunmuyor.
+
+[[gorsel:b09-mardin-kiziltepe-de-sentinel-2-ve]]
+
+[[gorsel:b09-turkiye-olceginde-arazi-ortusu-ve]]
 
 2027 Programı tarım istatistiklerinin derlenmesi ve kontrolü için düzenleme yapılmasını; 2025 Genel Tarım Sayımı'nın verisiyle bütün tarım işletmelerini kaydeden ve kayıtları mekânsal veriyle gerçek zamanlı güncelleyen bir Tarımsal İşletme Kayıt Sistemi kurulmasını; kayıt ve bilgi sistemlerinin erken uyarı, piyasa kontrolü, üretim planlaması ve stok yönetimine hizmet edecek biçimde tasarlanmasını öngörüyor.

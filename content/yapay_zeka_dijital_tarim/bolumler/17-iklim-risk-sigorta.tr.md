@@ -12,6 +12,10 @@ FAO'nun 2025 raporuna göre afetler 1991-2023 arasında dünya tarımına tahmin
 
 Hava tahmininde Lam ve arkadaşları (2023), doğrudan geçmiş hava verisinden öğrenen bir makine öğrenmesi modeli olan GraphCast'i tanıttı. Model yüzlerce hava değişkenini önümüzdeki **10** gün için, dünya genelinde **0,25** derecelik çözünürlükle, **1** dakikadan kısa sürede tahmin ediyor; **1.380** doğrulama hedefinin **%90**'ında en doğru operasyonel tahmin sistemlerinden belirgin biçimde iyi sonuç veriyor ve aşırı sıcaklıklar gibi şiddetli olayların tahminini de iyileştiriyor. Avrupa Orta Vadeli Hava Tahminleri Merkezi (ECMWF) 25 Şubat 2025'te kendi yapay zekâ tahmin sistemini fizik tabanlı modelinin yanında işletmeye aldı; kuruma göre sistem birçok ölçütte fizik tabanlı modelleri geçiyor, kazanç tropikal siklon rotası gibi ölçütlerde **%20**'ye varıyor.
 
+[[gorsel:b17-graphcast-in-isletimdeki-en-iyi]]
+
+[[gorsel:b17-graphcast-modelinin-semasi]]
+
 Endeks sigortası tarafında Benami ve arkadaşlarının (2021) derlemesine göre kayıp tahmini, pahalı tarla örneklemesinden hava ve uydu verisine dayanan daha ucuz tekniklere geçti; ama karmaşık arazide üretim kaybını güvenilir ve ucuz biçimde ölçmek hâlâ zor. Yazarlar, sözleşmenin sigortalı için değerinin büyük ölçüde, insanların en çok zarar gördüğü zamanda kaybı ne kadar iyi yakaladığına bağlı olduğunu; kaçınılmaz yanlış tahminler için denetim gerektiğini yazıyor. Kuzey Kenya'daki hayvancılık endeks sigortası üzerine bir çalışma (Jensen ve arkadaşları, 2016) sorunu sayıyla gösteriyor: sigorta, büyük kayıplarda ortak riski ortalama **%63** azaltıyor; ama poliçe sahipleri büyük kayıplardan doğan asıl risklerinin ortalama **%69**'unu taşımaya devam ediyor. Yazarlara göre baz riski yaygın biçimde bilinen ama nadiren ölçülen bir özellik.
 
 [[grafik:b17-baz-riski]]
@@ -24,6 +28,8 @@ Hava tahmininde ölçülen şey tahminin isabeti, tarladaki sonuç değil: bu ç
 
 2027 Programı'na göre kuraklık ve zirai don 2024-2025 üretim sezonunda önemli üretim kayıplarına yol açtı. 2025'teki zirai don için devlet destekli tarım sigortası olan üreticilere **23,1** milyar lira hasar tazminatı, ayrıca bir Cumhurbaşkanı Kararı'yla **23,86** milyar lira destekleme ödemesi yapıldı. 2026'da bitkisel üründe don teminatının devlet prim desteği **%70**'e çıkarıldı. Sözleşmeli üretimdeki ürünlerde tarım sigortası zorunlu hâle getirildi ve primlerde ürüne göre **%10-15** ek indirim sağlandı. Tarımsal destekleme bütçesinde tarım sigortasına ayrılan kaynak, cari fiyatlarla, 2025'te **19,2** milyar liraydı; 2027 programında **30** milyar lira.
 
+[[gorsel:b17-2025-zirai-donu-sonrasi-bahcelerde]]
+
 [[grafik:b17-zirai-don-2025]]
 
 Tarım Sigortaları Havuzu (TARSİM) 2025'te **3,8** milyon poliçe düzenledi (2022'de **3,1** milyon) ve sigortalı üreticilere **35** milyar lira hasar ödedi. Bitkisel ürün sigortasındaki **430.076** hasar ihbarının **171.558**'i, yani **%39,8**'i dondandı.
@@ -35,3 +41,5 @@ Köy Bazlı Verim Sigortası 2017'de ilçe bazlı kuraklık verim sigortası ola
 TARSİM uydu verisini araştırma düzeyinde kullanıyor. 2025 faaliyet raporuna göre köy bazlı verim sigortasında, ekimi yapılmayan sigortalı parsellerde uydu görüntüsüyle doğrudan hasar tespitine yönelik araştırmalar yapıldı; Sentinel-1 radar ve Sentinel-2 görüntüleriyle sel ve su baskını alanları incelenip kritik yerlerde hasar tespit raporları hazırlandı; MODIS uydu verisiyle Meteoroloji Genel Müdürlüğü verisinin birlikte kullanılmasından elde edilen sonuçlar köy ölçeğinde uygulanabilir hâle getirildi. Rapor yapay zekâ ya da makine öğrenmesi kullanan bir çalışma anlatmıyor. Bakan ise Mayıs 2025'te tarım sigortası sisteminde uydu teknolojilerini ve yapay zekâyı kullanacaklarını söylemişti. Yapay zekânın Türkiye'de hasar tespitine, tarım sigortasına ya da don ve kuraklık uyarısına etkisini ölçen yayımlanmış bir çalışma da yok.
 
 Erken uyarıda Meteoroloji Genel Müdürlüğü'nün Zirai Don Uyarı Sistemi, bütün il ve ilçeler için bitki bazında **5** günlük don tahmini ve risk durumu veriyor; önümüzdeki **5** günün don risk haritaları her gün internette yayımlanıyor, Tarımsal Hava Tahmini mobil uygulaması kuvvetli meteorolojik uyarıları çiftçiye ulaştırıyor. Meteorolojik kuraklık uluslararası kabul görmüş indekslerle (SPI, PNI, PDSI) analiz ediliyor. Kurum, 2026 performans programında 2025'ten bu yana yapay zekâ destekli tahmin sistemleri kullandığını söylüyor; hangi tahminlerde kullandığını ve isabetini açıklamadı. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verisiyle yedi günlük periyotlarla izliyor; yapay zekâyla kuraklığı **1-4** hafta önceden tahmin etmeye yönelik çalışmaların 2027'de başlatılması planlanıyor. Program ayrıca bütün havzalarda ulusal bir taşkın ve kuraklık tahmini ve erken uyarı sistemi kurulmasını öngörüyor.
+
+[[gorsel:b17-uydudan-kuraklik-izleme-turkiye-de]]

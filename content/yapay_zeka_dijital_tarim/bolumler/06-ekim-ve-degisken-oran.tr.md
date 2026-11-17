@@ -8,7 +8,11 @@ Klasik uygulamada makine tarlanın başından sonuna aynı ayarla gider: aynı t
 
 Doz iki yoldan belirleniyor. Birincisinde önceden bir reçete haritası hazırlanıyor: toprak haritaları, önceki yılların verimi ve uydu görüntüleri tarlayı bölgelere ayırıyor. İkincisinde makinenin üstündeki sensör bitki örtüsünün yansımasını ölçüp azot dozunu o an ayarlıyor.
 
+[[gorsel:b06-degisken-oranli-ekim-recete-haritasi]]
+
 Yapay zekânın bu zincirdeki yeri karar halkası: hangi noktaya ne kadar azot ya da tohum verileceğini, tarlada farklı dozların denendiği çiftlik denemelerinin verisinden öğrenerek hesaplamak.
+
+[[gorsel:b06-soya-ekim-sikligi-ciftlik]]
 
 ## Saha ne diyor
 
@@ -19,6 +23,8 @@ Yapay zekânın bu zincirdeki yeri karar halkası: hangi noktaya ne kadar azot y
 | Dalla Betta ve arkadaşları (2026): Nebraska, **11** soya tarlasında tohum denemesi | En kârlı tohum sıklığı | Tarladan tarlaya hektarda **175.000** ile **350.000** tane arasında; **11** tarlanın **9**'unda tohum, verim ve kâr düşmeden azaltılabilirdi |
 
 Tasarruf gerçek: sensörlü azot verimi düşürmeden gübreyi azaltıyor, soya denemeleri de tohumda benzer bir pay gösteriyor. Kâr tarafında ise sonuç değişiyor: Nebraska'da sensörlü uygulama tarlaların yalnız **%35**'inde daha kârlı çıktı. Derlemenin yazarları bu kazancın tek başına benimsemeyi artırmaya yetmeyebileceğini söylüyor; mısır denemesinin yazarları da sensörlerin yayılmasını tutarsız sonuçların, olası verim kayıplarının ve tarla ölçeğinde deneme eksikliğinin sınırladığını not ediyor.
+
+[[gorsel:b06-bitki-ortusu-sensoruyle-azot]]
 
 [[grafik:b06-sensorlu-azot-tarlalar]]
 

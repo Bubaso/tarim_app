@@ -12,6 +12,8 @@ Fabregas, Kremer ve Schilbach'ın (2019) derlemesi, cep telefonunun yayılmasın
 
 Tek tek denemeler ortalamanın arkasındaki farkı gösteriyor. Nijerya'da çeltikte gübrelemeyi çiftçiye özel öneren bir mobil uygulamanın randomize denemesinde (Arouna ve arkadaşları, 2021), öneriyi alan hanelerin verimi **%7**, kârı **%10** arttı; toplam gübre kullanımı artmadan. Hindistan'da pamuk üreticilerine sesli telefon danışmanlığının iki yıllık değerlendirmesinde (Cole ve Fernando, 2021) çiftçiler bilgi kaynaklarını değiştirdi ve önerilen girdileri tutarlı biçimde benimsedi; ama verimde ve kârlılıkta sistematik bir kazanç bulunmadı.
 
+[[gorsel:b18-africarice-in-riceadvice-uygulamasi]]
+
 Dil modelleri için en doğrudan karşılaştırma yine Nijerya'dan (Ibrahim ve arkadaşları, 2024). Kano eyaletinde çiftçilerden toplanan **32** sulu çeltik sorusunu rastgele seçilen altı yayım elemanı ve ChatGPT yanıtladı; yanıtları dört değerlendirici kalite ve yerel uygunluk bakımından puanladı. ChatGPT'nin yanıtları genel olarak belirgin biçimde daha yüksek puan aldı: en iyi puanı yayım elemanlarınınkinden neredeyse altı kat sık aldı (**%40**'a **%7**), değerlendiriciler vakaların **%78**'inde ChatGPT'yi tercih etti. Ama ekim zamanı, tohum miktarı, gübre miktarı ve zamanlaması konularında ChatGPT geride kaldı. Yazarlara göre yapay zekâ asistanlarının çiftçi tarafından doğrudan kullanılabilmesi için yere özgü girdi miktarı ve zamanlaması bilgisini içermesi kritik.
 
 [[grafik:b18-chatgpt-yayim-elemani]]
@@ -26,6 +28,10 @@ Bakanlığın 2025 faaliyet raporuna göre tarımsal yayım ve danışmanlık de
 
 Dijital tarafta bakanlığın **17** mobil uygulaması var. TAGEM'in geliştirdiği Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET), Tarım Cebimde uygulamasının "Su" sekmesinde üreticiye sulama programı veriyor. Bakanlık yapay zekâ kapsamında makine öğrenimi, derin öğrenme ve doğal dil işleme çalışmaları yürüttüğünü söylüyor. 2027 Programı'nda yapay zekâyla çalışan tek sohbet robotu tedbiri vergi idaresi için. Sanayi ve Teknoloji Bakanlığı'nın sorumluluğundaki Sektörel Türkçe Büyük Dil Modeli Çağrısı yerli dil modellerinin sektörlere uyarlanmasını teşvik edecek. Program tarımsal araştırma ile yayımın bağını güçlendirmeyi de hedefliyor. Yapay zekâ ya da dil modeli destekli danışmanlığın Türkiye'de çiftçinin verimine, gelirine ya da girdi kullanımına etkisi ise henüz ölçülüp yayımlanmış değil.
 
+[[gorsel:b18-tarim-ve-orman-bakanligi-nin]]
+
 Akademide dil modelleri tarım sorularında sınanmaya başladı. Karamanoğlu Mehmetbey Üniversitesi'nden bir çalışma (Eldem ve Eldem, 2026), dört seçenekli **90** soruluk bir tarım soru setinde GPT-4o'nun istem stratejisine göre ortalama **%84,8** ile **%95,3**, Gemini'nin **%74,8** ile **%88,4** arasında doğruluk verdiğini buldu; en düşük sonuç modele örneksiz sorulduğunda (zero-shot) alındı. Sorular üç çevrimiçi soru bankasından (agricultureinindia.net, sanfoundry.com, examveda.com) derlendi; yazarlar ince ayar, belgeye dayalı yanıt üretme (RAG) ya da geleneksel yöntemlerle bir karşılaştırma yapmadıklarını belirtiyor. Dil modellerini Türkçe, açık uçlu ve yere özgü çiftçi sorularıyla sınayan yayımlanmış bir çalışma yok. Bursa Karacabey'de **96** domates tarlasında yürütülen bir çalışma (Şahin ve arkadaşları, 2025) zararlıları görüntüden tanıyan bir modele ChatGPT-4'ü bağladı: tespit modeli **%98,91** kesinlik ve **%98,98** duyarlılık gösterdi. Ama makalede ölçülen başarı tespit modeline ait; dil modelinin verdiği açıklama ve önerilerin doğruluğu için bir ölçüm yok.
+
+[[gorsel:b18-domates-zararlilarini-goruntuden]]
 
 [[grafik:b18-dil-modeli-dogruluk-araligi]]

@@ -92,6 +92,8 @@ Resmî Gazete'de yayımlanan yönetmeliklerine ve üniversitelerin kendi sayfala
 
 FAO ile EBRD'nin raporundaki girişimler akıllı ve hassas tarım, tedarik zinciri yönetimi ve tarım finansmanı gibi alanlarda çalışıyor. Raporun girişim listesi 2022 tarihli Türkiye Tarım Ekosistemi haritasından alınmış, web araştırmasıyla ve girişimlerin yaklaşık yarısıyla yapılan görüşmelerle tamamlanmış; Türkiye'deki tarım teknolojisi girişimlerinin düzenli güncellenen bir listesi yok. FAO ve EBRD raporda adı geçen şirketleri önermediklerini belirtiyor. Rapordaki girişimlerden kendi sitesinde tarım teknolojisi hizmeti tanıtanların kuruluş yılı ve şehri rapordan; ne yaptıklarına dair tanımlar ise şirketlerin kendi beyanı:
 
+[[gorsel:b25-gorsentam-g-trap-dijital-feromon]]
+
 | Şirket | Kuruluş | Alan | Ne yapıyor (şirketin kendi tanımı) |
 |---|---|---|---|
 | Doktar | 2012, İzmir | Uydu, sensör | Uydu görüntülerini, tarladaki sensör verilerini ve yapay zekâyı birleştiren akıllı tarım sistemi; her tarla için dijital ikiz; sürdürülebilirliğin izlenmesi, raporlanması ve doğrulanması |
@@ -105,3 +107,7 @@ FAO ile EBRD'nin raporundaki girişimler akıllı ve hassas tarım, tedarik zinc
 | Tekno Kurgu | 2017, Kocaeli | Hassas tarım | Hassas yönlendirme, doz kontrolü ve tarla takibi; Augmenta tarla analiz sisteminin Türkiye münhasır distribütörü |
 
 Rapor Actimoo'yu ve BenimSürüm'ü yerleşik şirketlerin iştiraki olarak kurulan girişimler arasında sayıyor. Rapora göre Ankaref 2016'da Ankara Üniversitesi ve Algan Grup'la süt inekleri için düşük maliyetli bir kızgınlık tespit sistemi üzerine Ar-Ge'ye başladı ve 2020'de Actimoo markasıyla bir adımsayar piyasaya sürdü; BenimSürüm'ün ana şirketi Algan Grup. AgCurate Ankara'da kuruldu; şirketin sitesinde verdiği adres bugün Hollanda'da. Görsentam, TÜBİTAK 1711'deki akıllı sulama projesinin teknoloji sağlayıcısı.
+
+[[gorsel:b25-actimoo-aktivite-olcerle-kizginlik]]
+
+[[gorsel:b25-agcurate-platformu-uydu-ve-makine]]

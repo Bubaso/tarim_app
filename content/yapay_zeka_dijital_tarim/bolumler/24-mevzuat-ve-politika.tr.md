@@ -14,6 +14,8 @@ Tarımda yapay zekâyı düzenleyen kurallar ayrı bir tarım yasasından gelmiy
 
 Tarım tüzüğe Ek I'den giriyor. Yapay zekâ, Ek I'de sayılan mevzuatın kapsadığı bir ürünün güvenlik bileşeniyse yüksek riskli sayılıyor. Listede tarım ve orman araçlarının onayına ve piyasa gözetimine dair 167/2013 sayılı tüzük var; Temmuz 2026'dan beri makine tüzüğü (2023/1230) de aynı bölümde. Bu bölümdeki ürünlerde Yapay Zekâ Tüzüğü'nün gereklilikleri doğrudan değil, ürünün kendi mevzuatı üzerinden uygulanıyor: tarım araçları için çıkarılacak ikincil düzenlemeler, güvenlik bileşeni olan yapay zekâ sistemlerinde tüzüğün yüksek risk gerekliliklerini gözetmek zorunda.
 
+[[gorsel:b24-ab-yapay-zeka-tuzugu-risk-piramidi]]
+
 Değişiklik tüzüğü (2026/1744) AB Resmî Gazetesi'nde 24 Temmuz 2026'da yayımlandı ve üç gün sonra yürürlüğe girdi. Değişiklik tüzüğü ertelemeyi şu gerekçelere dayandırıyor: standartların, ortak şartnamelerin ve yol gösterici belgelerin gecikmesi, ulusal yetkili makamların kurulmasındaki gecikme. Makine tüzüğüne eklenecek yapay zekâ gereklilikleri de en geç 2 Ağustos 2028'de uygulanacak.
 
 Yapay Zekâ Tüzüğü, Birlik pazarına yapay zekâ sistemi sunan sağlayıcılara nerede kurulmuş olurlarsa olsunlar uygulanıyor; AB'ye yapay zekâ bileşenli makine ya da tarım aracı satan Türkiye üreticileri de bu takvime bağlı. Makine öğrenmesiyle davranışını kendisi geliştiren güvenlik bileşenleri için Makine Tüzüğü'nün bağımsız değerlendirme şartı ise daha erken, 14 Ocak 2027'de başlıyor.
@@ -27,6 +29,8 @@ Tüzüğün gerekçesi tarımdaki en somut kaygıyı adıyla anıyor: veriyi tut
 ## AB Makine Tüzüğü: öğrenen güvenlik bileşeni
 
 Makine Tüzüğü (2023/1230) 14 Ocak 2027'den itibaren uygulanacak. Makine öğrenmesiyle davranışını kendisi geliştiren ve güvenlik işlevi üstlenen bileşenlerin ve sistemlerin uygunluk değerlendirmesini bağımsız bir üçüncü tarafa veriyor. Öğrenmeyen, yalnız programlandığı otomatik işi yapan yazılım bu kapsamın dışında. Tüzük otonom mobil makineyi ve onu uzaktan izleyen gözetmeni de tanımlıyor.
+
+[[gorsel:b24-otonom-mobil-tarim-makinesi]]
 
 [[grafik:b24-ab-mevzuat-takvimi]]
 

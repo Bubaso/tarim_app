@@ -6,6 +6,8 @@ Knowing the harvest before it comes is needed both for early warning and for mar
 
 Crop monitoring asks two separate questions. The first: what is growing in the field? When a satellite images the same field again and again through the season, each crop traces its own curve of greening and yellowing; a model that learns these curves from fields whose crop is known classifies the rest. The second: how much will it yield? Yield forecasting combines crop growth models, weather data and satellite indicators to produce a figure weeks before harvest.
 
+[[gorsel:b09-makine-ogrenmesiyle-almanya-urun]]
+
 AI stands at a different distance from each question. Finding the crop in a field is the direct business of classification models that learn from labelled examples; studies in Türkiye and the ministry's new system both follow this path. In yield forecasting, by contrast, the European Commission's large-scale system did not use machine learning, according to an assessment published in 2021.
 
 ## How good yield forecasts are
@@ -34,6 +36,8 @@ Early in the season the two were comparable for all crops in the Netherlands, fo
 
 In the EU, satellite data are now a legal requirement for identifying crops. Regulation (EU) 2021/2116, which governs the financing and monitoring of the EU's common agricultural policy, requires member states to set up an area monitoring system: regular and systematic observation, tracking and assessment of agricultural activity with Copernicus Sentinel satellite data or other data of at least equivalent value. The system had to be operational from 1 January 2023 and fully operational in all member states by 1 January 2024; countries assess its quality every year against a methodology set at Union level. The regulation requires Sentinel data or equivalent; it does not prescribe the method of analysis.
 
+[[gorsel:b09-sen4cap-sentinel-1-ve-sentinel-2-ile]]
+
 ## Türkiye
 
 In Türkiye, official crop production estimates appear in the statistical bulletin of the ministry's General Directorate of Agrarian Reform: first and second estimates in May and October, final results in December. The ministry's metadata describes the method: data are collected by provincial and district directorates and entered into a web-based statistical system; they consist of the source information held by district directorates, administrative records such as the farmer registry (ÇKS), and agricultural technicians' impressions of their own areas. The method described uses neither satellites nor models.
@@ -45,5 +49,9 @@ All these bulletins are now listed on the AGROSENS page of the Soil, Fertilizer 
 In official crop monitoring in Türkiye, AI arrived through crop identification. In the 2025 production year the ministry put its Remote Sensing Crop Identification Work into practice for the first time: reference parcels collected in the field are assessed together with satellite imagery, and machine learning is used to detect and classify the crops sown and to determine production patterns. According to a July 2026 announcement by the General Directorate of Agrarian Reform, **12** regional meetings were held on the system; checks on the accuracy of farmer registry declarations are planned within the same work. The ministry says areas are analysed with high accuracy rates, but has not published an accuracy rate. One point stressed at the meetings is instructive: for winter crops, collecting reference parcels quickly, accurately and densely enough before harvest directly affects the system's success. Official harvest estimates and AI-based crop identification sit in the same general directorate, but whether the second feeds into the first has not been disclosed.
 
 The closest indications of how well such a system can work come from research. In Mardin, a random forest algorithm separated maize, wheat, cotton, chickpeas and lentils parcel by parcel using Sentinel-2 images from six dates in 2018; accuracy was measured against farmer registry records, and overall accuracy came out at **96.35%** (Altun and Türker, 2021) — one region, one year. A paper by an author at the General Directorate of Agrarian Reform ran the **13.5** million physical blocks of the Land Parcel Identification System through the LightGBM algorithm with **370** Sentinel-2 frames, producing a national land cover and land use map for 2021 with an overall accuracy of **86.07%** (Şimşek, 2023). In Yozgat, a system aiming to check wheat and barley declarations fully automatically with satellite data and land registry parcel boundaries was tested against validation data collected in the field; where two different crops were sown in one parcel, the method gave wrong results (Yaşar and Yağcı, 2024). All three studies aim at identifying the crop sown or the land cover, and there is no published assessment in Türkiye comparing an AI-based harvest forecast with official estimates or with actual production either.
+
+[[gorsel:b09-mardin-kiziltepe-de-sentinel-2-ve]]
+
+[[gorsel:b09-turkiye-olceginde-arazi-ortusu-ve]]
 
 The 2027 Programme plans regulations for compiling and checking agricultural statistics; a Farm Holding Registry System that records every holding using data from the 2025 General Agricultural Census and updates the records in real time with spatial data; and registry and information systems designed to serve early warning, market controls, production planning and stock management.

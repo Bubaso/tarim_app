@@ -8,6 +8,8 @@ The post-harvest chain is the produce's route from field to table: drying, clean
 
 In storage, what decides the outcome is often physical technology: the store and the container that protect produce from moisture, pests and mould.
 
+[[gorsel:b11-pics-hava-gecirmez-depolama-torbasi]]
+
 ## What the field says
 
 FAO's food loss indicator counts food lost after harvest on the farm, in transport, storage, wholesale and processing; waste at retail and by consumers is not included.
@@ -39,4 +41,8 @@ The 2027 Programme considers it important to reduce loss and waste at every stag
 
 In the EU's Rapid Alert System for Food and Feed (RASFF), **84** notifications for aflatoxin were made in 2020-2023 for hazelnuts and their products, **283** for peanuts and **173** for dried figs. In a study by researchers from provincial agriculture directorates and universities (Özçakmak and colleagues, 2024), the mean total aflatoxin value in in-shell hazelnuts fell from **13.56** to **7.21** after optical and laser sorting; **79.16%** of the sorted samples complied with legal limits. In the study's hazard analysis, optical, laser and manual sorting and aflatoxin detection under ultraviolet light were set as critical control points.
 
+[[gorsel:b11-optik-lazer-ayiklama-makinesi]]
+
 An example of image-based grading also comes from hazelnuts. A study involving Ondokuz Mayıs University separated hazelnuts damaged by the brown marmorated stink bug from healthy ones using images; a support vector machine reached **98.75%** accuracy on a set of **400** images (Gadalla and Öztekin, 2023). The result belongs to a laboratory image set; it does not show success on a processing line. How much AI-based grading reduces losses or rejections in a business has yet to be measured in a published assessment.
+
+[[gorsel:b11-kahverengi-kokarcanin-zarar-verdigi]]

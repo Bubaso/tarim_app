@@ -18,6 +18,10 @@ Uluslararası Hassas Tarım Derneği'nin (ISPA) Ocak 2024'te güncellediği tan�
 
 ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e, değişken oranlı uygulama ekipmanınınkini 1995'e tarihliyor; aynı servis 2023'te, yapay zekânın ve makine öğrenmesinin tarımda henüz ölçekli kullanılmadığını, bu yüzden verimliliğe katkılarına dair kanıtın az olduğunu yazıyor. FAO, uydu konumuyla çalışan otomatik dümenlemeyi hassas tarım teknolojisinin iyi bir örneği sayıyor.
 
+[[gorsel:b02-verim-haritasi]]
+
+[[gorsel:b02-uydu-konumuyla-otomatik-dumenleme]]
+
 Hassas tarım değişken oranlı uygulamaya da eşit değil. Lowenberg-DeBoer ve Erickson'a göre hassas tarım tek bir teknoloji değil, çiftçinin ihtiyacına göre seçtiği bir alet çantası; değişken oranlı uygulama bu çantadaki araçlardan yalnız biri ve 2019'da çiftliklerin nadiren **%20**'sinden fazlasında kullanılıyordu. Yazarlar hassas tarımın net bir tanımı olmadığını, bir araştırma grubunun bilimsel yayınlardan ve internetten **27** ayrı tanım derlediğini aktarıyor. Avrupa Parlamentosu'nun 2016 araştırmasına göre hassas tarım makinesiz de uygulanabiliyor: özellikle gelişmekte olan ülkelerde veri kullanılıyor, ama ekim, hasat ve sulama gibi işleri insanlar yapıyor.
 
 ## Dijital tarım, akıllı tarım, Tarım 4.0

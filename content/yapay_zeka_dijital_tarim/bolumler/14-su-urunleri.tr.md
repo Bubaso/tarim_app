@@ -14,6 +14,8 @@ FAO'nun 2024 raporuna göre dünya su ürünleri üretimi 2022'de **223,2** mily
 
 İzleme dışı gemileri gösteren harita, Paolo ve arkadaşlarının (2024) çalışmasından geliyor: araştırmacılar uydu görüntülerini, gemilerin GPS verisini ve derin öğrenme modellerini birleştirerek 2017-2021 arasında dünyanın kıyı sularındaki endüstriyel gemi faaliyetini haritaladı. Kamuya açık izlemede görünmeyen avcılığın büyük kısmı Güney Asya, Güneydoğu Asya ve Afrika çevresinde. Taşıma ve enerji gemilerinde izlemenin dışında kalan faaliyet **%21-30**. Avcılık COVID-19 salgınının başında **%12** azaldı ve 2021'e kadar salgın öncesi düzeyine dönmedi.
 
+[[gorsel:b14-kamuya-acik-izlemede-gorunmeyen]]
+
 [[grafik:b14-izlenmeyen-gemiler]]
 
 ## Yapay zekâ nerede duruyor
@@ -22,9 +24,13 @@ Yetiştiricilikte derin öğrenme canlı balık tanıma, tür sınıflandırma, 
 
 Av denetiminde ise yapay zekâ, insanın elle izleyemeyeceği ölçekte bir şey yapıyor: kamuya açık izlemenin dışında kalan gemileri görünür kılıyor.
 
+[[gorsel:b14-global-fishing-watch-yapay-zeka-ve]]
+
 ## Türkiye
 
 Bakanlığın verisine göre Türkiye'de 2025'te **1.037.019** ton su ürünü üretildi: **410.428** ton avcılıkla, **626.591** ton yetiştiricilikle. Yetiştiriciliğin **%70,4**'ü denizlerde. İç sularda alabalık (**185.310** ton), denizlerde levrek (**174.859** ton) ve çipura (**164.643** ton) başı çekiyor; avda en çok hamsi tutuldu (**245.261** ton). 2027 Programı'na göre **925** bin ton/yıl kapasiteli **2.502** yetiştiricilik tesisi faaliyette; avcılıkta ve yetiştiricilikte **17** tür üretim planlamasına alındı ve üretimin **%80**'i planlı üretim kapsamında.
+
+[[gorsel:b14-turkiye-de-deniz-kafeslerinde-balik]]
 
 Akademide makine öğrenmesi yetiştiricilikte yem tarafına girmiş durumda: Muğla Sıtkı Koçman Üniversitesi'nin de yer aldığı bir çalışma, suyun **11** fiziksel ve kimyasal özelliğinin balık yem tüketimiyle ilişkisini makine öğrenmesiyle inceledi; en önemli değişken sıcaklık çıktı (Özdemir ve arkadaşları, 2025). Yapay zekânın bir çiftlikte yeme ya da balık sağlığına, bir filoda av denetimine etkisi ise Türkiye'de henüz yayımlanmış bir değerlendirmeye konu olmadı.
 

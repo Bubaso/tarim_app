@@ -92,6 +92,8 @@ Universities' work is not limited to these centres:
 
 The start-ups in the FAO–EBRD report work in smart and precision agriculture and related fields such as supply chain management and agricultural finance. The report's list of start-ups was taken from the 2022 Türkiye Agriculture Ecosystem map and completed with web research and meetings with about half of the start-ups; there is no regularly updated list of agricultural technology start-ups in Türkiye. FAO and the EBRD state that they do not endorse the companies named in the report. For the start-ups in the report that present an agricultural technology service on their own websites, the founding year and city come from the report; the descriptions of what they do are the companies' own statements:
 
+[[gorsel:b25-gorsentam-g-trap-dijital-feromon]]
+
 | Company | Founded | Field | What it does (the company's own description) |
 |---|---|---|---|
 | Doktar | 2012, İzmir | Satellite, sensors | A smart farming system combining satellite images, in-field sensor data and AI; a digital twin of each field; monitoring, reporting and verification of sustainability |
@@ -105,3 +107,7 @@ The start-ups in the FAO–EBRD report work in smart and precision agriculture a
 | Tekno Kurgu | 2017, Kocaeli | Precision farming | Precision guidance, rate control and field monitoring; exclusive distributor in Türkiye of the Augmenta field analysis system |
 
 The report lists Actimoo and BenimSürüm among the start-ups set up as subsidiaries of established companies. According to the report, Ankaref began R&D on a low-cost oestrus detection system for dairy cows with Ankara University and Algan Group in 2016 and launched a pedometer under the Actimoo brand in 2020; BenimSürüm's parent company is Algan Group. AgCurate was founded in Ankara; the address the company gives on its website is now in the Netherlands. Görsentam is the technology provider of the smart irrigation project in TÜBİTAK 1711.
+
+[[gorsel:b25-actimoo-aktivite-olcerle-kizginlik]]
+
+[[gorsel:b25-agcurate-platformu-uydu-ve-makine]]

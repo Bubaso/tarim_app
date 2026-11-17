@@ -8,6 +8,8 @@ Klasik toprak etüdünde uzman araziye çıkar, profil açar, örnek alır; topr
 
 SoilGrids'in kullandığı yöntem kantil regresyon ormanları: çok sayıda karar ağacının tahminini bir arada tuttuğu için tek bir değer yerine bir dağılım veriyor. Her hücre için tahminin yanında, gerçek değerin **%90** olasılıkla içinde kalması beklenen bir aralık da hesaplanıyor. Haritayı kullanan için bu önemli: harita nerede emin olduğunu, nerede olmadığını da gösteriyor. Yazarlar bunu kullanıcıya hem bir ölçü hem bir uyarı olarak sunuyor.
 
+[[gorsel:b04-soilgrids-2-0-kuresel-toprak-organik]]
+
 ## Küresel harita ne kadar tutuyor
 
 SoilGrids'in 2.0 sürümünü anlatan makale (Poggio ve arkadaşları, 2021) haritanın nasıl üretildiğini ve ne kadar tuttuğunu birlikte veriyor:
@@ -24,6 +26,8 @@ Başarı puanı (MEC), modelin ölçülen değerlerdeki değişkenliğin ne kada
 
 Yazarların kendi değerlendirmesi iki yönlü. Kaba ölçekli desenler iyi yakalanıyor; ama belirsizlik haritası, özellikle yüksek enlemlerde daha çok toprak ölçümüne ihtiyaç olduğunu gösteriyor. Avrupa ve Kuzey Amerika'da her **10** km² için dörtten fazla toprak profili varken Kazakistan, Hindistan ve Moğolistan gibi büyük Asya ülkelerinde profil sayısı hâlâ oldukça sınırlı.
 
+[[gorsel:b04-soilgrids-2-0-da-toprak-olcum]]
+
 Tarla ölçeğine inildiğinde ise ABD'de, ayrıntılı saha etüdüne dayanan ulusal toprak veritabanıyla yapılan bir ön karşılaştırma, SoilGrids'in yerel ana materyal geçişlerini kaçırabildiğini gösterdi; yerel tane boyu deseni kimi yerde bir tane boyu sınıfının **%20-30**'u mertebesinde sapıyordu. Yazarlar ürünün asıl sınavını küresel ve geniş bölgesel uygulamalar olarak tarif ediyor.
 
 Bir hücre **6,25** hektarlık bir kare. 2027 Programı Türkiye'de işletmelerin arazi yapısını küçük ölçekli, parçalı ve dağınık diye tanımlıyor; böyle bir arazide küresel haritanın tek hücresi birden fazla tarlayı kapsayabilir. Küresel harita bir bölgenin toprağını anlamak için güçlü bir başlangıç; tarla ölçeğinde bir karar için — örneğin değişken oranlı gübreleme — yerel ölçümün yerini tutması beklenmemeli. Tahminler CC BY 4.0 lisansıyla herkese açık.
@@ -31,6 +35,8 @@ Bir hücre **6,25** hektarlık bir kare. 2027 Programı Türkiye'de işletmeleri
 ## Türkiye
 
 Türkiye'nin ulusal ölçekte toprak verisi yeni değil. TAGEM'in 2017 tarihli duyurusuna göre Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü, FAO destekli ve 2012-2015'te yürütülen bir projeyle tarım topraklarının pH, tuzluluk, kireç, alınabilir fosfor ve potasyum, katyon değişim kapasitesi ve bünye haritalarını; organik karbon dağılımı ve karbon bütçesi haritalarıyla birlikte üretti. Haritalar, standart harita servisleriyle Ülkesel Toprak Bilgi Sistemi portalında paylaşıma açıldı.
+
+[[gorsel:b04-fao-kuresel-toprak-organik-karbonu]]
 
 Makine öğrenmesiyle toprak haritalama akademide de sınanıyor: Kaya ve arkadaşlarının 2022 çalışması kuzeybatı Türkiye'de toprak bünye sınıfını farklı makine öğrenmesi algoritmalarıyla tahmin edip haritaladı. Ama yapay zekâyla üretilmiş bir toprak haritasının bir tarladaki kararı nasıl değiştirdiğini ölçen bir değerlendirme Türkiye'de henüz yayımlanmış değil.
 

@@ -6,6 +6,8 @@ In East Africa, a phone app that works without internet identified cassava disea
 
 PlantVillage Nuru is a phone app developed as a public good by Penn State University's PlantVillage project, FAO, the International Institute of Tropical Agriculture (IITA), CIMMYT and others: a deep learning model diagnoses diseases and pests from leaf symptoms without needing an internet connection. Mrisho and colleagues (2020) compared the app with extension officers and farmers in Tanzania's Mkuranga District and Kenya's Busia County, on two viral diseases and one pest of cassava.
 
+[[gorsel:b28-plantvillage-nuru-uygulamasi]]
+
 The 2020 version of Nuru identified symptoms with **65%** accuracy; extension officers reached **40-58%** and farmers **18-31%**. Looking at six leaves per plant raised accuracy to **74-88%**. Its weaknesses were measured too: with single leaves, accuracy for brown streak disease was only **21%**, and for mild symptoms **13-37%**; the model's first version dropped to **30-41%** on three other phones. Two weeks of use raised extension officers' diagnostic skill only slightly. The evaluators included researchers from IITA, one of the organisations that developed the app; the app's effect on yields or incomes was not measured.
 
 [[grafik:b28-nuru-teshis]]
@@ -15,6 +17,8 @@ The 2020 version of Nuru identified symptoms with **65%** accuracy; extension of
 The Hands Free Hectare project of Harper Adams University and the company Precision Decisions set out to grow a field from sowing to harvest using only autonomous vehicles and drones. A lightweight tractor did the spraying, drilling and rolling, and a combine harvester brought in the crop. Drones with multispectral and colour cameras imaged the field from above; a small scout vehicle filmed at crop level and took samples.
 
 The 2017 harvest yielded **4.5** tonnes of spring barley. The government's innovation agency, Innovate UK, put the predicted yield at **5** tonnes and announced the result as a demonstration that a whole crop can be grown from start to finish without anyone entering the field; the whole project cost less than **200,000** pounds. The team had to shift spraying and harvest times because of rain, and for safety did not let the tractor get too close to the combine.
+
+[[gorsel:b28-hands-free-hectare-otonom]]
 
 The project later grew into a Hands Free Farm of several fields. According to the project's own posts, in 2022 it harvested an average of **9.5** tonnes per hectare from **5** hectares of wheat and an average of **4.03** tonnes per hectare from spring barley; part of the barley was lost where the crop had gone flat. These are the results of a demonstration farm; no comparison with a conventionally farmed field has been published.
 
@@ -34,6 +38,8 @@ Water productivity in maize rose by more than **100%**, but among farmers both w
 
 In the Yaqui Valley, Mexico's largest wheat-growing region, CIMMYT and Oklahoma State University developed a cheap handheld sensor (GreenSeeker) that looks at the crop mid-season and gives a field-specific nitrogen recommendation. According to a 2017 RTI report, the sensor had been used on more than **48,000** hectares in total since the pilot phase in 2006 and brought farmers **37** dollars of extra profit per hectare; the cost of the device and the technician is not included in that figure. A 2022 peer-reviewed study by the same team estimates that on nearly **2,000** farmer fields covering more than **60,000** hectares in three regions of Mexico, the sensor brought a total of **2.6** million dollars in extra profit and avoided more than **14,300** tonnes of CO2-equivalent emissions. Farmers who did not follow the recommendations made lower profits.
 
+[[gorsel:b28-greenseeker-el-sensoru-yaqui-vadisi]]
+
 Even so, adoption fell rather than expanded in the 2015-2016 season. The report lists possible reasons: the farmer credit unions, which also sell fertiliser, were reluctant to approve a change that meant using less of it; funding for the technicians' sensor-based advice was shrinking; the credit unions' umbrella organisation changed its leadership; and the same season brought the worst climatic conditions in more than **35** years. The report's conclusion: profit and environmental benefit were not enough to sustain adoption. The 2022 study also writes that the scheme ran on subsidies and that further efforts would be needed to make it sustainable.
 
 ## Morocco: an irrigation schedule from satellites
@@ -43,6 +49,8 @@ On the Haouz plain near Marrakech, two plots of durum wheat in a farmer's field 
 ## New Zealand: virtual fencing
 
 On pasture-based dairy farms in New Zealand's Canterbury and Waikato regions, cows wear GPS-enabled collars; the system uses sound or electrical cues to limit the grazing area and move the herd. Eastwood and colleagues (2026) interviewed **20** dairy farmers who had been using this virtual fencing for **1-3** years, in 2023 and 2024 (**10** in each region).
+
+[[gorsel:b28-halter-sanal-cit-tasmasi]]
 
 The cows adapted to the system within a few days to two weeks; farm changes such as modifying laneways, adding water troughs and removing permanent fences took longer. Farmers described saving time and gaining more control over grazing and the herd; some said the time saved let them reduce a full or part-time employee. But the farmers themselves found it hard to put a financial return on the investment. High investment costs, being locked into the technology, risks to animal health from GPS error or device failure, and the pressure of always being connected were also raised. All the farmers interviewed used an early-stage system from a single brand, Halter; the study was funded by New Zealand's dairy farmers through DairyNZ.
 

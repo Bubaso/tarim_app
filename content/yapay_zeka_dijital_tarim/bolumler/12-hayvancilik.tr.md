@@ -33,8 +33,12 @@ Erhan ve Yağanoğlu (2026), Türkiye'den yazdıkları bir meta-analizde çiftli
 
 Tek çalışmalar çok daha yüksek rakamlar bildirebiliyor. Muğla Sıtkı Koçman Üniversitesi ile Polonya'daki Bydgoszcz Bilim ve Teknoloji Üniversitesi'nden araştırmacıların çalışması, **6.600** ineğin sağım robotu sensör verisiyle mastitis riskini **%98,1** doğrulukla tahmin ettiğini bildiriyor (Abdul Ghafoor ve Sitkowska, 2021). Meta-analiz, tek bir çalışmanın yüksek rakamıyla birleşik kanıt arasındaki farkın neden önemli olduğunu gösteriyor. Üstelik her iki sonuç da teşhisin isabetini ölçüyor; sensörle ya da yapay zekâyla erken teşhisin bir Türkiye çiftliğinde hayvan sağlığını ya da verimi ne kadar değiştirdiği sorusu ise yayımlanmış bir değerlendirmede henüz yanıt bulmadı.
 
+[[gorsel:b12-sagim-robotu]]
+
 ## Türkiye
 
 Bakanlığın Haziran 2026 verisine göre Türkiye'de **17,6** milyon sığır, **49,5** milyon koyun ve **11,3** milyon keçi var. 2027 Programı'na göre süt üretimi 2024'te **22,5** milyon tondan 2025'te yaklaşık **21,4** milyon tona geriledi. Program genetik kapasiteyi suni tohumlamayı yaygınlaştırarak geliştirmeyi amaçlıyor; sığır varlığında kültür ırkı oranı 2025'te **%48,8**, 2027 hedefi **%49,5**.
 
 Politika tarafında iki adım var. Hayvancılık desteklerini düzenleyen karar Eylül 2026'da değiştirildi; genomik test yaptırılan damızlık dişi buzağılar için ilave katsayı getirildi. 2027'de ise yerli imkânlarla geliştirilen Güvenli Elektronik Küpe ve İzleme Sistemi uygulamaya konulacak. Yapay zekâ tarafında hayvan hastalıklarında yapay zekâ tabanlı erken teşhis ve uyarı sistemi geliştirecek VetAlarm projesi 2025'te onaylandı.
+
+[[gorsel:b12-guvenli-elektronik-kupe-ve-izleme]]

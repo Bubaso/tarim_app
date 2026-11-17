@@ -12,6 +12,8 @@ Geleneksel ilaçlama tarlanın tamamına aynı dozu atar; buna yayma ilaçlama d
 
 Avustralya'daki ve Almanya'daki hakemli denemeler iki şeyi birlikte ölçtü: ilacın gerçekten azalıp azalmadığını ve ot kontrolünün bozulup bozulmadığını.
 
+[[gorsel:b08-autoweed-spot-ilaclama-sistemi]]
+
 | Deneme | Ürün | Ölçülen | Nitelik |
 |---|---|---|---|
 | Avustralya, 25 hektar (yayım 2025) | Şeker kamışı | İlaç **%35** azaldı; yayma ilaçlamanın etkinliğinin **%97**'si | Hakemli |
@@ -27,9 +29,13 @@ Aynı deneme bir şeyi daha ölçtü: ilaçlamadan sonraki günlerde tarladan ç
 
 Almanya'daki mısır denemesinde kamera ilaçlayıcının üstünde değil: önce bir insansız hava aracı tarlanın yüksek çözünürlüklü haritasını çıkarıyor, sonra ilaçlayıcı o haritayı izliyor. Yöntem farklı, sonuç aynı yönde.
 
+[[gorsel:b08-iha-ot-haritasiyla-misirda-spot]]
+
 ## Satıcılar ne diyor
 
 En yaygın ticari sistemlerden biri John Deere'nin See & Spray'i. Şirketin kendi rakamları:
+
+[[gorsel:b08-john-deere-see-spray-ultimate]]
 
 | Yıl | Alan | Şirketin beyanı | Nitelik |
 |---|---|---|---|
@@ -41,6 +47,8 @@ En yaygın ticari sistemlerden biri John Deere'nin See & Spray'i. Şirketin kend
 ## Laboratuvar ile tarla arasındaki açık
 
 Görüntü işlemenin tarımdaki en çok alıntılanan başarılarından biri 2016'da yayımlandı. Araştırmacılar 14 ürüne ve 26 hastalığa ait **54.306** yaprak görüntüsüyle bir model eğitti ve ayrı tutulan test görüntülerinde **%99,35** doğruluk elde etti.
+
+[[gorsel:b08-plantvillage-veri-setinden-yaprak]]
 
 Aynı makalenin daha az alıntılanan kısmı şu: model, farklı koşullarda çekilmiş görüntülerle sınandığında doğruluk **%31,40** ve **%31,69**'a düştü. Eğitim görüntüleri denetimli koşullarda, sade bir arka plan üzerinde tek yaprak olarak çekilmişti; sınama görüntüleri ise tarım yayım servisleri gibi güvenilir çevrim içi kaynaklardan toplandı. Yazarlar, gerçek bir uygulamanın hastalığı doğrudan bitkinin üzerinde göründüğü hâliyle tanıyabilmesi gerektiğini yazıyor. %31 rastgele tahminden — 38 sınıfta **%2,6** — çok daha iyi, ama %99'un yakınında değil. Yazarların kendi sonucu açık: daha çeşitli eğitim verisi gerekiyor.
 

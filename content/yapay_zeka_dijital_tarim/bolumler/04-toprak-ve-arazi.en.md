@@ -8,6 +8,8 @@ In a conventional soil survey, a surveyor goes into the field, digs profiles, ta
 
 The method SoilGrids uses is quantile regression forests: because it keeps the predictions of many decision trees together, it yields a distribution rather than a single value. For each cell, alongside the prediction, it computes an interval within which the true value is expected to fall with **90%** probability. That matters to anyone using the map: it shows where the map is confident and where it is not. The authors present this to users as both a measure and a warning.
 
+[[gorsel:b04-soilgrids-2-0-kuresel-toprak-organik]]
+
 ## How good the global map is
 
 The paper describing version 2.0 of SoilGrids (Poggio and colleagues, 2021) reports how the map was made and how well it holds up:
@@ -24,6 +26,8 @@ The accuracy score (MEC) shows how much of the variation in measured values the 
 
 The authors' own assessment cuts both ways. Broad patterns are well reproduced, but the uncertainty map shows that more soil measurements are needed, especially at high latitudes. Europe and North America have more than four soil profiles per **10** km²; in large Asian countries such as Kazakhstan, India and Mongolia, the number of profiles is still quite limited.
 
+[[gorsel:b04-soilgrids-2-0-da-toprak-olcum]]
+
 At field scale, a preliminary comparison in the United States with a national soil database built on detailed field surveys showed that SoilGrids can miss local transitions in parent material; the local particle-size pattern was off at times by around **20-30%** of a particle-size class. The authors describe global and wide-area regional applications as the real test of the product.
 
 One cell is a square of **6.25** hectares. The 2027 Programme describes the land structure of farms in Türkiye as small-scale, fragmented and scattered; on such land a single cell of the global map can cover more than one field. The global map is a strong starting point for understanding a region's soils; it should not be expected to replace local measurement for a decision at field scale — variable-rate fertilisation, for example. The predictions are openly available under a CC BY 4.0 licence.
@@ -31,6 +35,8 @@ One cell is a square of **6.25** hectares. The 2027 Programme describes the land
 ## Türkiye
 
 National-scale soil data are not new in Türkiye. According to a 2017 announcement by TAGEM, the Soil, Fertilizer and Water Resources Central Research Institute produced maps of pH, salinity, lime, available phosphorus and potassium, cation exchange capacity and texture for the country's farmland, together with maps of organic carbon distribution and the carbon budget, in an FAO-supported project run in 2012-2015. The maps were made available, through standard map services, on the National Soil Information System portal.
+
+[[gorsel:b04-fao-kuresel-toprak-organik-karbonu]]
 
 Soil mapping with machine learning is being tried in academia too: a 2022 study by Kaya and colleagues predicted and mapped soil texture classes in northwestern Türkiye with different machine learning algorithms. But no assessment measuring how a soil map produced with AI changes decisions in a field has yet been published in Türkiye.
 

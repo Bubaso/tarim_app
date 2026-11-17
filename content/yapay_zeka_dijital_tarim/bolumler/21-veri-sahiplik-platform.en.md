@@ -26,6 +26,8 @@ AI in agriculture grows on data; and data are shared only when they are trusted.
 
 According to the ministry's 2025 activity report, the Farmer Registration System (ÇKS) is the agricultural database in which the areas under crops, the producers and production information are recorded. Registration was made easier through e-Devlet; land actually farmed can be registered with a pledge, regardless of ownership. In **21** provinces, ÇKS applications and data entry were handed by protocol to the Chambers of Agriculture. The area registered in ÇKS reached **93%** of the 2025 target of **17.3** million hectares. The ministry has **185** web-based applications and **46** services on e-Devlet.
 
+[[gorsel:b21-cks-cbs-ve-uretim-planlamasi]]
+
 [[grafik:b21-cks-kayitli-alan]]
 
 According to the 2027 Programme, during the field work of the General Agricultural Census, conducted by the ministry with TÜİK, census offices were set up in **973** localities and about **3.4** million hectares of farmland not registered in ministry systems were entered ex officio into the Agricultural Production Registration System; the census results are expected to be shared with the public by the end of 2026. The Programme foresees a Farm Holding Registration System in which, using the census data, every farm holding will be registered and records will be updated in real time, integrated with spatial data, and the completion of a data centre for agricultural information systems. A legal framework for sharing public data is to be put in place and a national open data portal launched; open government data legislation and the alignment of Law No. **6698** on the Protection of Personal Data with the EU's data protection regulation are also among the tasks for 2027.

@@ -17,6 +17,7 @@ import io
 import json
 import sys
 import tempfile
+import urllib.error
 import urllib.request
 import urllib.robotparser
 from datetime import date
@@ -32,13 +33,21 @@ HEDEF = DEPO / "web" / "yz" / "gorsel"
 
 
 def robots_izin(adres: str) -> bool:
+    """robots.txt'ye uyum (RFC 9309). Dosya indirmedeki aynı tarayıcı
+    kimliğiyle okunur (Python'un kendi kimliğine 403 dönen siteler var).
+    4xx (429 dışında): dosya yok sayılır, erişim serbest (RFC 9309 2.3.1.3);
+    429, 5xx ya da ağ hatası: erişilemiyor, hiçbir şey alınmaz (2.3.1.4)."""
     u = urlparse(adres)
-    rp = urllib.robotparser.RobotFileParser()
-    rp.set_url(f"{u.scheme}://{u.netloc}/robots.txt")
+    istek = urllib.request.Request(f"{u.scheme}://{u.netloc}/robots.txt", headers={"User-Agent": UA})
     try:
-        rp.read()
+        with urllib.request.urlopen(istek, timeout=30) as y:
+            satirlar = y.read(2_000_000).decode("utf-8", "replace").splitlines()
+    except urllib.error.HTTPError as h:
+        return 400 <= h.code < 500 and h.code != 429
     except Exception:
-        return True                      # robots.txt okunamıyorsa yasak yok sayılır
+        return False
+    rp = urllib.robotparser.RobotFileParser()
+    rp.parse(satirlar)
     return rp.can_fetch("*", adres)
 
 
@@ -51,7 +60,7 @@ def main() -> int:
     if not adres.startswith("https://") and not adres.startswith("http://"):
         print("✗ adres http(s) değil"); return 1
     if not robots_izin(adres):
-        print("✗ robots.txt bu adresi yasaklıyor — alınmadı"); return 1
+        print("✗ robots.txt bu adresi yasaklıyor ya da okunamadı — alınmadı"); return 1
     istek = urllib.request.Request(adres, headers={"User-Agent": UA, "Accept": "image/*"})
     with tempfile.TemporaryDirectory(prefix="yz_gorsel_") as klasor:
         with urllib.request.urlopen(istek, timeout=40) as y:

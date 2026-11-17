@@ -41,6 +41,8 @@ Bakanlık birimlerinin kendi duyuruları ve belgeleri yapay zekâyı ya da makin
 
 Tarım Reformu Genel Müdürlüğü uzaktan algılamayla ürün belirleme çalışmasını 2025 üretim yılında ilk kez uyguladı: sahadan toplanan referans parseller uydu görüntüleriyle birlikte değerlendiriliyor, makine öğrenmesiyle ekili ürünler tespit edilip sınıflandırılıyor. Temmuz 2026 duyurusuna göre **12** bölge toplantısı yapıldı; ÇKS beyanlarının doğruluk kontrolü de bu kapsamda planlanıyor. Bakanlık alanların "yüksek doğruluk oranlarıyla" analiz edildiğini söylüyor, ama bir oran açıklamadı. Bakanlığın 2025 idare faaliyet raporu, işlenmeyen tarım arazilerinin ve dikili alanların tespiti için de uydu görüntülerinin derin öğrenme ve yapay zekâyla analiz edildiğini yazıyor.
 
+[[gorsel:b23-uzaktan-algilamayla-urun-belirleme]]
+
 Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor; bakanlığa göre sistem yangının davranışını ve ilerleyişini yapay zekâ desteğiyle öngörüyor.
 
 Balıkçı Gemileri İzleme Sistemi (BAGİS), **12** metre ve üzeri ticari balıkçı gemilerinin konumunu uydu ve GSM üzerinden izliyor. Bakanlığın Haziran 2026'da TÜBİTAK sitesinde yayımlanan teknik ister dokümanına göre **1.629** geminin verisi güncel ve erişilebilir; ama bu veri şimdilik ağırlıklı olarak izleme ve kayıt için kullanılıyor, yasak alan kontrolleri ekran başındaki personelce yapılıyor. Doküman, verinin yapay zekâyla incelenip olası ihlallerin tespit edileceği bir proje tarif ediyor.
@@ -66,5 +68,7 @@ Rapora göre hayvan hastalıklarında yapay zekâ tabanlı erken teşhis ve uyar
 ## Yapay zekânın altındaki katman
 
 Yıllık programda, kendisi yapay zekâ olmayan ama yapay zekânın üzerine kurulacağı kayıt ve ölçüm katmanı daha somut. Bitki koruma ürünlerinin reçetesini elektronik ortamda tutan B-Reçete Sistemi 1 Temmuz 2026'dan beri **81** ilde uygulamada. Genel Tarım Sayımı verileriyle bütün tarım işletmelerinin mekânsal verilerle bağlanacağı Tarımsal İşletme Kayıt Sistemi kurulacak; tarım bilgi sistemleri için veri merkezi tamamlanacak. **15** ilde **3,5 milyon** hektar tarım arazisinin detaylı toprak etüdü ve haritalandırması sürecek. Suyun kullanım miktarına göre fiyatlandırılması için **100** tesise elektronik ölçüm sistemi takılacak.
+
+[[gorsel:b23-b-recete-sistemi-bilgilendirme]]
 
 Bunlar yapay zekâ değil. Ama bir modelin öğreneceği veri, bir tahminin dayanacağı ölçüm ve bir kararın yazılacağı kayıt bunlar.

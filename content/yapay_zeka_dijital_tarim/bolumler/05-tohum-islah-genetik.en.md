@@ -6,6 +6,8 @@ In the conventional system of the Türkiye-based International Winter Wheat Impr
 
 Breeding means sifting a few lines out of thousands of crosses through years of trials. The most expensive and slowest link is testing: to see a line's yield and its tolerance of drought and disease, it has to be sown in different places and years. Deciding which lines enter these expensive trials is one of the critical choices of any breeding programme.
 
+[[gorsel:b05-turkiye-de-bugday-islah-parselleri]]
+
 Digital tools enter this bottleneck at three points. In genomic selection, a model is built from a population of plants whose DNA has been read and whose performance has been measured in the field; the model then predicts the performance of new lines from their DNA markers. In phenotyping, plant traits are measured with sensors and images, so that more lines can be followed at once than could ever be measured by hand. Speed breeding controls light and temperature to grow more generations in a year.
 
 In this chain, AI is being tested in particular in the genomic prediction model: deep learning in place of classical statistical models.
@@ -17,6 +19,8 @@ Michel and colleagues (2016) compared early-generation selection on several year
 [[grafik:b05-genomik-secilim-isabeti]]
 
 Watson and colleagues (2018) count long generation times among the reasons breeding progresses slowly, and show that speed breeding can reach up to **6** generations a year in spring wheat, durum wheat, barley, chickpea and pea, and **4** in canola, against **2-3** in a normal glasshouse. The authors expect that combining the method with tools such as genomic selection could speed breeding up further.
+
+[[gorsel:b05-hizli-islah-serasi]]
 
 [[grafik:b05-hizli-islah-kusak]]
 

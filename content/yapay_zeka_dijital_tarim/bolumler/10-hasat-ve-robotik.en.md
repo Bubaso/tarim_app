@@ -25,6 +25,8 @@ The fastest was a kiwi robot: **1** second. But the review's main finding lies e
 
 The pepper-harvesting robot SWEEPER showed what that recommendation means in practice (Arad and colleagues, 2020). The robot was tested on **262** fruits over four weeks in a commercial greenhouse. Picking one fruit took **24** seconds on average, about half of it logistics; in the laboratory, running the arm faster brought this down to **15** seconds. Harvest success was **61%** when the crop was grown in the conditions best suited to the robot, and **18%** under the greenhouse's usual conditions. The authors' conclusion: success in robotic harvesting depends on finding crop conditions and varieties that suit the robot.
 
+[[gorsel:b10-sweeper-biber-hasat-robotu]]
+
 [[grafik:b10-sweeper-kosullar]]
 
 Zhou and colleagues' 2022 review examines why, despite significant progress in the field, existing robots still perform inadequately.
@@ -42,3 +44,5 @@ On the machinery side, harvesting in Türkiye rests on conventional mechanisatio
 The 2027 Programme writes that the small-scale, fragmented and scattered land structure of holdings makes effective use of mechanisation and modern production techniques harder. A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
 
 On the research side, in two 2024 studies, one of them with co-authors, Kahya of Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field. No trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and had its success measured has yet been published. An autonomous greenhouse robot that will also be able to harvest, meanwhile, is being developed in a project that started with TÜBİTAK support in 2026.
+
+[[gorsel:b10-yolov5-ile-serada-kabak-tanima]]

@@ -25,6 +25,8 @@ En hızlısı bir kivi robotuydu: **1** saniye. Ama derlemenin asıl bulgusu ba�
 
 Bu önerinin sahadaki karşılığını biber hasat robotu SWEEPER gösterdi (Arad ve arkadaşları, 2020). Robot ticari bir serada dört hafta boyunca **262** meyve üzerinde sınandı. Bir meyveyi toplama süresi ortalama **24** saniye, bunun yaklaşık yarısı lojistik; laboratuvarda kol daha hızlı çalıştırılarak süre **15** saniyeye indi. Hasat başarısı, bitki robota en uygun koşullarda yetiştirildiğinde **%61**, seranın olağan koşullarında **%18**. Yazarların vardığı sonuç: robotla hasatta başarı, ona uygun ürün koşullarını ve çeşitleri bulmaya bağlı.
 
+[[gorsel:b10-sweeper-biber-hasat-robotu]]
+
 [[grafik:b10-sweeper-kosullar]]
 
 Zhou ve arkadaşlarının 2022 tarihli derlemesi, alandaki önemli ilerlemeye rağmen mevcut robotların performansının neden yetersiz kaldığını inceliyor.
@@ -42,3 +44,5 @@ Türkiye'de hasadın makine tarafı klasik mekanizasyon. Bakanlığın verisine 
 2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirdiğini yazıyor. Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ ise robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını da hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i.
 
 Araştırma tarafında Tekirdağ Namık Kemal Üniversitesi'nden Kahya, biri ekip arkadaşlarıyla yazdığı iki çalışmada (2024) patlıcan ve kabak hasadı için derin öğrenme tabanlı nesne tanıma modelleri eğitti. Ölçülen şey modelin doğrulama görüntülerinde meyveyi tanıma başarısı; robotun tarlada meyveyi koparıp koparamadığı değil. Bir hasat robotunun Türkiye'de tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü bir deneme henüz yayımlanmadı. Hasat da yapabilecek otonom bir sera robotu ise TÜBİTAK desteğiyle 2026'da başlayan bir projede geliştiriliyor.
+
+[[gorsel:b10-yolov5-ile-serada-kabak-tanima]]

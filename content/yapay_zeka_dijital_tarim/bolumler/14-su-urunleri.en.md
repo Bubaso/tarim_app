@@ -14,6 +14,8 @@ According to FAO's 2024 report, world fisheries and aquaculture production reach
 
 The map of untracked vessels comes from Paolo and colleagues (2024), who combined satellite imagery, vessel GPS data and deep-learning models to map industrial vessel activity in the world's coastal waters in 2017-2021. Much of the fishing missing from public tracking takes place around South Asia, Southeast Asia and Africa. For transport and energy vessels, the activity missing from tracking is **21-30%**. Fishing fell by **12%** at the onset of the COVID-19 pandemic and had not returned to pre-pandemic levels by 2021.
 
+[[gorsel:b14-kamuya-acik-izlemede-gorunmeyen]]
+
 [[grafik:b14-izlenmeyen-gemiler]]
 
 ## Where AI stands
@@ -22,9 +24,13 @@ In aquaculture, deep learning is being tried for live fish recognition, species 
 
 In catch monitoring, by contrast, AI does something at a scale no human could watch by hand: it makes visible the vessels that fall outside public tracking.
 
+[[gorsel:b14-global-fishing-watch-yapay-zeka-ve]]
+
 ## Türkiye
 
 According to the ministry's data, Türkiye produced **1,037,019** tonnes of fish and seafood in 2025: **410,428** tonnes from capture and **626,591** tonnes from aquaculture. **70.4%** of aquaculture is at sea. Trout leads in inland waters (**185,310** tonnes), sea bass (**174,859** tonnes) and sea bream (**164,643** tonnes) at sea; the most-caught fish was anchovy (**245,261** tonnes). According to the 2027 Programme, **2,502** aquaculture facilities with a capacity of **925** thousand tonnes a year are in operation; **17** species in capture and aquaculture have been brought into production planning, covering **80%** of production.
+
+[[gorsel:b14-turkiye-de-deniz-kafeslerinde-balik]]
 
 In academia, machine learning has reached the feeding side of aquaculture: a study involving Muğla Sıtkı Koçman University used machine learning to examine how **11** physical and chemical characteristics of water relate to fish feed consumption; temperature emerged as the most important variable (Özdemir and colleagues, 2025). The effect of AI on feeding or fish health on a farm, or on catch monitoring in a fleet, has not yet been the subject of a published assessment in Türkiye.
 

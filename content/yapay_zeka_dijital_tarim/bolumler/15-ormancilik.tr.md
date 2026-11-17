@@ -8,6 +8,8 @@ Yapay zekâ ormancılıkta iki işte öne çıkıyor: ormanın yapısını uydud
 
 Ormancılıkta dijital teknoloji üç işe yarıyor: ormanın ne kadar ve nasıl olduğunu ölçmek (alan, ağaç boyu, karbon), değişimi yakalamak (ormansızlaşma, yangın, zararlı ve hastalık) ve yangına karşı erken uyarı ve müdahale. Uydular ve uzaydaki lazer ölçerler geniş alanı görüyor; yapay zekâ bu verilerden ağaç boyunu, yanmış alanı ya da dumanı çıkarıyor. Yerdeki kameralar ve insansız hava araçları ise yangının ilk dakikalarını yakalamaya çalışıyor.
 
+[[gorsel:b15-uydudan-orman-yangini-manavgat-ve]]
+
 ## Saha ne diyor
 
 FAO'nun 2025 orman kaynakları değerlendirmesinden:
@@ -24,7 +26,11 @@ FAO ormansızlaşmanın bütün bölgelerde yavaşladığını, ama bugünkü h�
 
 Lang ve arkadaşları (2023), uzaydaki GEDI lazer ölçerinin seyrek yükseklik verisini Sentinel-2 uydu görüntüleriyle birleştiren olasılıksal bir derin öğrenme modeliyle 2020 yılı için **10** metre çözünürlüklü küresel bir ağaç boyu haritası üretti; model her tahminin belirsizliğini de veriyor. Haritaya göre karaların yalnız **%5**'i **30** metreden uzun ağaçlarla kaplı ve bu uzun ormanların yalnız **%34**'ü koruma alanlarında.
 
+[[gorsel:b15-kuresel-agac-boyu-haritasi-2020]]
+
 Govil ve arkadaşları (2020), Güney Kaliforniya'da yüzlerce kamerayı dakikada bir tarayan, makine öğrenmesiyle görüntü tanıyan bir duman tespit sistemi prototipi geliştirdi. Sistem dumanı çoğunlukla tutuşmadan sonraki **15** dakika içinde, kamera başına günde ortalama birden az yanlış alarmla yakalıyordu ve bazı yangınları ihbardan ya da uydu tespitinden önce gördü. Yazarlar yerdeki kameraların her yangını göremeyeceğini, bu yüzden kamera ile uydu tespitini birleştiren bir sistem kurduklarını da yazıyor.
+
+[[gorsel:b15-kamerayla-orman-yangini-dumani]]
 
 ## Yapay zekâ nerede duruyor
 
@@ -39,3 +45,5 @@ Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre 
 Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor: meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiriyor; yangın çıkma olasılığını ve nedenini tahmin ediyor ve yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistem, BM'ye bağlı Uluslararası Telekomünikasyon Birliği'nin Dünya Bilgi Toplumu Zirvesi Ödülleri'ne aday gösterildi.
 
 Akademide de çalışmalar var. Karabük Üniversitesi'nden bir çalışma, yazarların tasarladığı dört rotorlu bir İHA'ya gömülü derin öğrenmeyle yangın tespitini sınadı ve sınıflandırmada **%96** doğruluk bildiriyor (Shamta ve Demir, 2024). Hacettepe Üniversitesi'nin de yer aldığı bir çalışma, Akdeniz ekosistemindeki bir kızılçam ormanında yanmış alanı radar, optik ve termal uydu verisi ve rastgele orman yöntemiyle **%96** genel doğrulukla haritaladı (Abdikan ve arkadaşları, 2022).
+
+[[gorsel:b15-iha-ya-gomulu-derin-ogrenmeyle]]

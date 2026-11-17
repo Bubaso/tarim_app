@@ -14,6 +14,8 @@ The rules that govern AI in agriculture do not come from a separate farm law; th
 
 Agriculture enters the Act through Annex I. AI counts as high-risk when it is a safety component of a product covered by the legislation listed in Annex I. The list includes Regulation 167/2013 on the approval and market surveillance of agricultural and forestry vehicles; since July 2026 the Machinery Regulation (2023/1230) sits in the same section. For products in that section the AI Act's requirements apply not directly but through the product's own legislation: delegated acts adopted for agricultural vehicles must take the Act's high-risk requirements into account for AI systems that are safety components.
 
+[[gorsel:b24-ab-yapay-zeka-tuzugu-risk-piramidi]]
+
 The amending regulation (2026/1744) was published in the EU Official Journal on 24 July 2026 and entered into force three days later. The amending regulation gives its reasons: the delayed availability of standards, common specifications and guidance, and the delayed establishment of national competent authorities. The AI requirements to be added to the Machinery Regulation are also to apply by 2 August 2028.
 
 The AI Act applies to providers placing AI systems on the Union market wherever they are established; Turkish manufacturers selling AI-equipped machinery or farm vehicles into the EU are bound by the same timetable. The Machinery Regulation's third-party assessment requirement for safety components with self-evolving behaviour based on machine learning starts earlier, on 14 January 2027.
@@ -27,6 +29,8 @@ The Act's recitals name the most concrete concern in farming: the company holdin
 ## The EU Machinery Regulation: safety components that learn
 
 The Machinery Regulation (2023/1230) applies from 14 January 2027. It assigns the conformity assessment of safety components and systems whose behaviour evolves through machine learning to an independent third party. Software that does not learn, and only executes the automated functions it was programmed for, falls outside that scope. The Regulation also defines autonomous mobile machinery and the supervisor who monitors it remotely.
+
+[[gorsel:b24-otonom-mobil-tarim-makinesi]]
 
 [[grafik:b24-ab-mevzuat-takvimi]]
 

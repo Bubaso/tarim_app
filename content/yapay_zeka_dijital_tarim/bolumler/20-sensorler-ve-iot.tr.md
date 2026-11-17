@@ -34,8 +34,12 @@ Sahada sürekli çalışan resmî bir ölçüm ağı meteorolojinin. Meteoroloji
 
 Bakanlığın 2025 faaliyet raporunda, iklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı göstergesinin 2025 hedefi **410**, gerçekleşmesi **0**. Rapora göre Dünya Bankası'nın finanse ettiği Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında hibe uygulamalarına henüz başlanmadığı için hedefe ulaşılamadı; **15** pilot ilde eğiticilerin eğitimi yapıldı. Göstergenin hangi teknolojileri kapsadığı açıklanmadı. TAGEM ile FAO'nun 2023'te başlattığı ve Arnavutluk, Bosna-Hersek, Gürcistan ve Türkiye'yi kapsayan Dijital Köyler Girişimi Aralık 2025'te tamamlandı; Türkiye'de Ankara'nın Güdül ilçesine bağlı Boyalı'da bir köy dijital merkezi kuruldu.
 
+[[gorsel:b20-boyali-koy-dijital-merkezi]]
+
 [[grafik:b20-akilli-tarim-hedef]]
 
 Tarımsal sensör ve nesnelerin interneti ağlarının Türkiye'de tarıma etkisini ölçen yayımlanmış bir çalışma yok; akademideki çalışmalar benimseme ve prototip düzeyinde. Altı bölgede **325** çiftçiyle yapılan bir anket (Guldal, Sanli ve Turker, 2025), çiftçilerin **66**'sının akıllı tarım teknolojilerinden en az birini kullandığını, **170**'inin kullanmadığı ama kullanmak istediğini, **89**'unun ise kullanmadığını buldu; kullanmayanlar daha küçük araziye sahip, kredi kullanmayan, farkındalığı sınırlı ve traktörü olmayan çiftçiler. Örneklem rastgele seçilmedi: her bölgede hibesi en fazla olan ildeki bakanlık eğitimine gönüllü katılan çiftçiler. Çukurova Üniversitesi'nde yürütülen bir çalışma (Civelek, 2022) LoRaWAN ağıyla çalışan bir traktör izleme sistemi geliştirdi: **6** ayda iki denemede cihazlar **49.121** ve **52.766** veri noktası üretti, piller **95** ve **98** gün dayandı, konum en fazla **3** metre hatayla ölçüldü. Donanımın maliyeti Mayıs 2020 fiyatlarıyla **55** dolar; bir traktör üreticisinin 4G cihazı **795** dolardı. Ama veri iletim denemeleri sahte veriyle yapıldı; çiftlikteki deneme makalede gelecek çalışma olarak anılıyor.
+
+[[gorsel:b20-lorawan-ile-calisan-traktor-izleme]]
 
 [[grafik:b20-akilli-tarim-anketi]]

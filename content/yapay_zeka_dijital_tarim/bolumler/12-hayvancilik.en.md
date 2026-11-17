@@ -33,8 +33,12 @@ Erhan and Yağanoğlu (2026), writing from Türkiye, pooled in a meta-analysis h
 
 Single studies can report much higher figures. A study by researchers at Muğla Sıtkı Koçman University and the University of Science and Technology in Bydgoszcz, Poland, reports predicting mastitis risk from the milking-robot sensor data of **6,600** cows with **98.1%** accuracy (Abdul Ghafoor and Sitkowska, 2021). The meta-analysis shows why the gap between a single study's high figure and the pooled evidence matters. Both results, moreover, measure how accurately disease is detected; how much early detection with sensors or AI changes animal health or productivity on a farm in Türkiye is a question no published assessment has yet answered.
 
+[[gorsel:b12-sagim-robotu]]
+
 ## Türkiye
 
 According to the ministry's data for June 2026, Türkiye has **17.6** million cattle, **49.5** million sheep and **11.3** million goats. According to the 2027 Programme, milk production fell from **22.5** million tonnes in 2024 to about **21.4** million tonnes in 2025. The programme aims to develop genetic capacity by spreading artificial insemination; the share of improved breeds in the cattle population was **48.8%** in 2025, with **49.5%** targeted for 2027.
 
 On the policy side there are two steps. The decision governing livestock support was amended in September 2026, introducing an additional coefficient for breeding heifers that have undergone genomic testing. In 2027, a domestically developed Secure Electronic Ear Tag and Tracking System is to be put into use. On the AI side, the VetAlarm project to develop an AI-based early diagnosis and warning system for animal diseases was approved in 2025.
+
+[[gorsel:b12-guvenli-elektronik-kupe-ve-izleme]]

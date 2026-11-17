@@ -6,6 +6,8 @@ Doğu Afrika'da internetsiz çalışan bir telefon uygulaması manyok hastalıkl
 
 PlantVillage Nuru, Penn State Üniversitesi'nin PlantVillage projesi, FAO, Uluslararası Tropik Tarım Enstitüsü (IITA), CIMMYT ve başka kuruluşların kamu yararına geliştirdiği bir telefon uygulaması: derin öğrenmeyle çalışan bir model, internet bağlantısı gerektirmeden yapraktaki belirtiden hastalık ve zararlı teşhisi yapıyor. Mrisho ve arkadaşları (2020) uygulamayı Tanzanya'nın Mkuranga ilçesinde ve Kenya'nın Busia bölgesinde, manyokun iki viral hastalığı ve bir zararlısı üzerinde yayım elemanları ve çiftçilerle karşılaştırdı.
 
+[[gorsel:b28-plantvillage-nuru-uygulamasi]]
+
 Nuru'nun 2020 sürümü belirtileri **%65** doğrulukla tanıdı; yayım elemanları **%40-58**, çiftçiler **%18-31** doğrulukta kaldı. Bitki başına altı yaprağa bakılınca doğruluk **%74-88**'e çıktı. Zayıf yanları da ölçüldü: tek yaprakla kahverengi çizgi hastalığında doğruluk yalnız **%21**, hafif belirtilerde **%13-37**; modelin ilk sürümü başka üç telefonda **%30-41**'e düştü. İki haftalık kullanım yayım elemanlarının teşhis becerisini yalnız biraz artırdı. Değerlendirmeyi yapanlar arasında uygulamayı geliştiren kuruluşlardan IITA'nın araştırmacıları da vardı; uygulamanın verime ya da gelire etkisi ölçülmedi.
 
 [[grafik:b28-nuru-teshis]]
@@ -15,6 +17,8 @@ Nuru'nun 2020 sürümü belirtileri **%65** doğrulukla tanıdı; yayım elemanl
 Harper Adams Üniversitesi ile Precision Decisions şirketinin Hands Free Hectare projesi, bir tarlayı ekimden hasada yalnız otonom araçlar ve dronlarla yetiştirmeyi hedefledi. Hafif bir traktör ilaçlamayı, ekimi ve merdanelemeyi yaptı, hasadı bir biçerdöver kaldırdı. Dronlar multispektral ve renkli kameralarla tarlayı yukarıdan görüntüledi; küçük bir gözcü araç bitki boyunda video çekip numune aldı.
 
 2017 hasadında yazlık arpadan **4,5** ton alındı. Devletin yenilik ajansı Innovate UK, öngörülen verimin **5** ton olduğunu yazdı ve sonucu, tarlaya hiç insan girmeden bütün bir ürünün baştan sona yetiştirilebildiğinin gösterimi olarak duyurdu; projenin toplam maliyeti **200.000** sterlinin altındaydı. Ekip yağmur yüzünden ilaçlama ve hasat zamanlarını kaydırmak zorunda kaldı ve güvenlik için traktörün biçerdövere fazla yaklaşmasına izin vermedi.
+
+[[gorsel:b28-hands-free-hectare-otonom]]
 
 Proje sonra birkaç tarlalık bir Hands Free Farm'a dönüştü. Projenin kendi paylaşımlarına göre 2022'de **5** hektar buğdaydan hektar başına ortalama **9,5** ton, yazlık arpadan hektar başına ortalama **4,03** ton alındı; arpanın bir kısmı yattığı için kayıp oldu. Bunlar bir gösterim çiftliğinin sonuçları; geleneksel yöntemle ekilmiş bir tarlayla karşılaştırması yayımlanmadı.
 
@@ -34,6 +38,8 @@ Mısırda su verimliliği **%100**'den fazla arttı, ama hem sensörü olan hem 
 
 Meksika'nın en büyük buğday bölgesi Yaqui Vadisi'nde CIMMYT ile Oklahoma Eyalet Üniversitesi, sezon ortasında bitkiye bakarak tarlaya özel azot önerisi veren, elde taşınan ucuz bir sensör (GreenSeeker) geliştirdi. RTI'nın 2017 raporuna göre sensör 2006'daki pilot aşamadan beri toplam **48.000** hektarı aşan alanda kullanıldı ve çiftçiye hektar başına **37** dolar ek kâr getirdi; bu hesaba cihazın ve teknisyenin maliyeti dâhil değil. Aynı ekibin 2022 tarihli hakemli çalışması, Meksika'nın üç bölgesinde yaklaşık **2.000** çiftçi tarlasında, **60.000** hektarı aşan alanda sensörün toplam **2,6** milyon dolar ek kâr getirdiğini ve **14.300** tonu aşan karbondioksit eşdeğeri salımı önlediğini tahmin ediyor. Öneriye uymayan çiftçilerin kârı daha düşük kaldı.
 
+[[gorsel:b28-greenseeker-el-sensoru-yaqui-vadisi]]
+
 Yine de benimseme 2015-2016 sezonunda genişleyeceğine geriledi. Rapor olası nedenleri sayıyor: gübreyi de satan çiftçi kredi birliklerinin daha az gübre kullandıran bir değişikliği onaylamaya isteksiz olması, teknisyenlerin sensörle yaptığı danışmanlığı destekleyen fonun azalması, birliklerin çatı örgütündeki yönetim değişikliği ve aynı sezonda **35** yılı aşkın sürenin en kötü iklim koşulları. Raporun vardığı sonuç: kâr ve çevre faydası, benimsemenin sürmesine yetmedi. 2022 çalışması da uygulamanın sübvansiyonla yürüdüğünü ve sürdürülebilir olması için ek çaba gerektiğini yazıyor.
 
 ## Fas: uyduyla sulama takvimi
@@ -43,6 +49,8 @@ Fas'ın Haouz ovasında, Marakeş yakınında, 2012/13 sezonunda makarnalık bu�
 ## Yeni Zelanda: sanal çit
 
 Yeni Zelanda'nın Canterbury ve Waikato bölgelerinde, meraya dayalı süt işletmelerinde ineklere GPS'li tasma takılıyor; sistem ses ya da elektrik uyarısıyla otlatma alanını sınırlıyor ve sürüyü yönlendiriyor. Eastwood ve arkadaşları (2026), bu sanal çiti **1-3** yıldır kullanan **20** süt üreticisiyle 2023 ve 2024'te görüştü (her bölgede **10**).
+
+[[gorsel:b28-halter-sanal-cit-tasmasi]]
 
 İnekler sisteme birkaç günle iki hafta arasında alıştı; yolların düzenlenmesi, ek suluk ve kalıcı çitlerin kaldırılması gibi işletme değişiklikleri daha uzun sürdü. Çiftçiler zaman kazandığını, otlatmayı ve sürüyü daha iyi yönettiğini anlattı; bazıları kazandığı zamanla bir tam ya da yarı zamanlı çalışanı azaltabildiğini söyledi. Ama çiftçiler yatırımın mali getirisini hesaplamakta zorlandı. Yüksek yatırım maliyeti, teknolojiye bağımlı kalma, GPS hatası ya da cihaz arızasında hayvan sağlığı riski ve sürekli bağlı olma baskısı da dile getirildi. Görüşülen çiftçilerin hepsi Halter adlı tek bir markanın, henüz erken aşamadaki sistemini kullanıyordu; çalışmayı Yeni Zelanda'nın süt üreticileri DairyNZ aracılığıyla finanse etti.
 

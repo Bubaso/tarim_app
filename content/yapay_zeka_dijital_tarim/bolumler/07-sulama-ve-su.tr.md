@@ -25,6 +25,8 @@ Verim, karşılaştırılan yöntemlere göre aynı ya da daha yüksek. Ama derl
 
 Saikai, Peake ve Chenu (2023), sulanan buğday için derin pekiştirmeli öğrenmeyle bir sulama kuralı geliştirdi. Kural her gün toprak suyuna, bitkinin gelişme evresine ve yağışa bakıp ne kadar sulanacağına karar veriyor. Model 1981-2010 hava verisiyle eğitildi ve 2011-2020 yıllarının her biri için ayrı ayrı sınandı: bölgede yaygın kurala göre kârı bütün sınama yıllarında artırdı, en büyük artış 2018'de **%17**.
 
+[[gorsel:b07-derin-pekistirmeli-ogrenmeyle-sulama]]
+
 Bu sonuç bir saha denemesinden değil, bir bitki büyüme modelinden geliyor: üretim sistemi Avustralya'nın Goondiwindi bölgesinde APSIM-Wheat modeliyle simüle edildi. Yazarlar da bu tekniğe dair araştırmanın seyrek kaldığını ve pratikten uzak olduğunu kendileri belirtiyor.
 
 ## Türkiye
@@ -38,3 +40,5 @@ FAO verisine göre Türkiye'de 2022'de çekilen tatlı suyun **%86,93**'ü tarı
 Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı hazırlayacak Dijital Sulama Yönetim Sistemi projesi (DİSU) 2027'de tamamlanacak; su kullanıcı teşkilatlarında karar destek sistemlerinin kullanımı ve bunun mevzuatı üzerinde çalışılacak. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verisiyle **7** günlük periyotlarla izliyor; 2027'de yapay zekâ yöntemleriyle kuraklığı **1-4 hafta** önceden tahmin etmeye yönelik çalışmaların başlatılması planlanıyor. Bakanlığın araştırma kolu TAGEM'in geliştirdiği Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) ise Tarım Cebimde uygulamasının Su sekmesinde ve webde üreticiye sulama konusunda hizmet veriyor.
 
 Sahadan iki çalışma var ve ikisi de sensörü sınıyor; yapay zekâyla verilen bir sulama kararını Türkiye'de tarlada ölçen bir deneme henüz yayımlanmadı. Niğde'deki Patates Araştırma Enstitüsü'nün de yer aldığı bir çalışma (Akın ve Ünlenen, 2017), siltli tınlı toprakta farklı nem sensörlerini hassas damla sulama programı için karşılaştırdı; ölçtüğü şey tasarruf değil, hangi sensörün güvenilir okuduğu. Ege Üniversitesi'nin Wageningen'le ortak projesinde ise düşük maliyetli, kablosuz bir sensör Orhanlı Köyü'nde **9** üreticiyle denendi. Proje broşürü sensörle yönetilen parsellerde **%13-24**, organik üretimde **%12** su tasarrufu bildiriyor. Broşürü yazanlar arasında sensörü geliştiren firma da var; rakamlar bir proje beyanı.
+
+[[gorsel:b07-aquatag-kablosuz-toprak-nem-sensoru]]

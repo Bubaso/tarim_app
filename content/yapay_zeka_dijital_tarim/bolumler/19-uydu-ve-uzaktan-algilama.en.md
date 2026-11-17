@@ -10,11 +10,17 @@ A satellite is a measuring instrument that sees fields every few days, the same 
 
 The decision to make Landsat imagery free was taken by the US Geological Survey (USGS). According to a NASA page summarising a 2019 paper by Zhu and colleagues from the Landsat Science Team, scientific publications based on Landsat also rose four-fold after the decision; the authors say that losing the open data policy would have a significant impact on the research community. According to the USGS's own valuation, Landsat imagery gave domestic and international users an estimated **3.45** billion dollars in benefits in 2017 (**2.19** billion in 2011); much of that value stems from the free and open data policy. Charging even small fees would lead to a loss of users and, most likely, a steep decline in the amount of imagery downloaded; more than **50%** of users are expected to decline to pay.
 
+[[gorsel:b19-landsat-verisinin]]
+
 [[grafik:b19-landsat-acik-veri]]
 
 Sentinel-2, part of Europe's Copernicus programme, passes over the equator every **5** days with twin satellites flying in the same orbit. The multispectral optical instrument on the satellites measures in **13** bands, with a finest resolution of **10** metres; the swath is **290** kilometres wide. According to Copernicus, the satellites are used in fields such as agriculture, forestry and disaster management; Sentinel-2C was launched on 5 September 2024. The instrument is passive: it collects sunlight reflected from the Earth, which means it cannot see beneath cloud. Copernicus also runs an extension campaign that increases the revisit frequency over Europe and tropical regions of Africa and South America, which are often under heavy cloud.
 
+[[gorsel:b19-sentinel-2c-nin-vega-roketiyle]]
+
 Cloud is the real limit of optical satellites in agriculture. Using **10-13** years of MODIS cloud data, Whitcraft and colleagues (2015) showed that the start and middle of the growing season, which matter for identifying crop types and forecasting yields, are covered by cloud both frequently and extensively. In many important agricultural areas, less than half of the **8**-day composite images would be even **70%** clear; according to the authors, optical satellites are probably not a viable option for operational monitoring there, and alternatives such as radar should be considered. Morning acquisitions are more likely to return clear views.
+
+[[gorsel:b19-dunyanin-ortalama-bulutlulugu]]
 
 ## Where AI stands
 
@@ -23,6 +29,8 @@ With satellite data, AI can work at planetary scale: several of its strongest re
 ## Türkiye
 
 İMECE is the first domestic sub-metre-resolution satellite designed and built by TÜBİTAK UZAY; it was launched on 15 April 2023. According to the institute's 2026 catalogue, its resolution is **0.99** metres in panchromatic and **3.96** metres in multispectral imaging, and its orbit is **686** kilometres; its images are used in fields such as defence, disaster management, environment and urban planning, and agriculture and forestry. The project began in 2017 and was run under the coordination of the Ministry of National Defence and the Presidency of Defence Industries; according to a pre-launch TÜBİTAK announcement, the satellite was to join the Air Force Command's inventory after in-orbit tests, with a design life of **5** years. The 2027 Programme includes completing İMECE-2's integration, environmental testing and launch preparations, and İMECE-3's system integration; the Programme does not link this work to agriculture. In May 2025, however, the minister said that an agricultural observation satellite network would be set up.
+
+[[gorsel:b19-imece-yer-gozlem-uydusu]]
 
 The ministry's 2025 activity report writes that satellite images were analysed with deep learning and AI to detect idle farmland and orchards; the report's foreword says that satellite-based remote sensing data were integrated with AI, and that crop patterns, idle land and orchards were detected precisely. The ministry has not published the accuracy of these detections or the area they cover. Nor is there a published assessment showing how an AI application working on satellite data has affected production, input use or farm income in Türkiye. Under the World Bank-financed Türkiye Climate Smart and Competitive Agricultural Growth Project, tender documents were prepared for a remote sensing system and a decision support system; the tender is planned to be completed in 2026.
 

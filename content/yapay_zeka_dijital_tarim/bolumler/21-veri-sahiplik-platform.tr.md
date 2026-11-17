@@ -26,6 +26,8 @@ Tarımda yapay zekâ veriyle büyüyor; veri ise ancak güvenildiğinde paylaş�
 
 Bakanlığın 2025 faaliyet raporuna göre Çiftçi Kayıt Sistemi (ÇKS), bitkisel üretim yapılan alanların, üreticilerin ve üretim bilgilerinin kaydedildiği tarımsal veri tabanı. Kayıt e-Devlet üzerinden kolaylaştırıldı; fiilen üretim yapılan alan, bir taahhütnameyle mülkiyetten bağımsız olarak kaydedilebiliyor. **21** ilde ÇKS başvuruları ve veri girişi bir protokolle Ziraat Odalarına bırakıldı. ÇKS'ye kayıtlı alan **17,3** milyon hektarlık 2025 hedefinin **%93**'üne ulaştı. Bakanlığın **185** web tabanlı uygulaması ve e-Devlet üzerinden **46** hizmeti var.
 
+[[gorsel:b21-cks-cbs-ve-uretim-planlamasi]]
+
 [[grafik:b21-cks-kayitli-alan]]
 
 2027 Programı'na göre Bakanlık ile TÜİK'in iş birliğinde yürütülen Genel Tarım Sayımı'nın saha çalışmalarında **973** mahalde sayım bürosu kuruldu ve bakanlık sistemlerinde kayıtlı olmayan yaklaşık **3,4** milyon hektar tarım arazisi Tarımsal Üretim Kayıt Sistemi'ne re'sen kaydedildi; sayım sonuçlarının 2026 sonuna kadar kamuoyuyla paylaşılması öngörülüyor. Program, sayımın verisiyle bütün tarım işletmelerinin kaydedileceği ve kayıtların mekânsal veriyle gerçek zamanlı güncelleneceği bir Tarımsal İşletme Kayıt Sistemi kurulmasını, tarım bilgi sistemleri için veri merkezinin tamamlanmasını öngörüyor. Kamu verisinin paylaşımı için hukuki düzenleme yapılacak ve ulusal açık veri portalı hayata geçirilecek; açık devlet verisi mevzuatı ve **6698** sayılı Kişisel Verilerin Korunması Kanunu'nun AB veri koruma tüzüğüyle uyumu da 2027'nin işleri arasında.

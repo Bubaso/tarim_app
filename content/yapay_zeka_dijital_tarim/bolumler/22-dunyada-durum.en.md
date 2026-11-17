@@ -10,11 +10,15 @@ According to the US Department of Agriculture's statistics service (NASS), **85%
 
 The department's economic research service (ERS) measures the same technologies by planted acreage. According to its 2023 report, yield maps, soil maps and variable-rate application are used on only **5-25%** of the planted acreage of winter wheat, cotton, sorghum and rice, while automated guidance is used on more than half of the acreage of six major crops. Auto-steer was used on **5.3%** of planted corn acreage in 2001 and **58%** in 2016. The gap between large and small farms is wide: at least half of large farms rely on one of these technologies, while less than **25%** of the smallest farms use any of them. One example of federal support is conservation payments: in 2020, precision pesticide application was contracted on more than **2.24** million acres under these payments, the most common of the programme's digital-agriculture-related enhancements. According to the report's authors, several federal programmes that directly affect digital agriculture have been introduced in recent years, but no major study documents them; lack of broadband is one of the main barriers to adoption.
 
+[[gorsel:b22-abd-de-otomatik-dumen-ve-yonlendirme]]
+
 [[grafik:b22-abd-iki-olcu]]
 
 ## European Union: a small share, a large area
 
 According to Eurostat's July 2026 analysis based on the 2023 farm structure survey, about **43%** of EU farms have internet access; in Denmark, Germany, Slovakia, Latvia, Czechia and Austria the rate is above **90%**. One farm in ten uses a farm management information system, and robotics is used on about **7%**. About **18%** of farms apply a precision farming technique; the most common is soil analysis (about **11%**), followed by variable-rate application (about **5%**) and band spraying (about **4%**). But these farms manage about **44%** of the EU's farmland. **74%** of the farms with the largest economic size have internet access, against about **21%** of the smallest. According to Eurostat, the main barriers are high upfront costs and limited digital skills; most farmers buy new technology with their own resources.
+
+[[gorsel:b22-ab-de-ciftliklerin-internet-ve]]
 
 [[grafik:b22-ab-dijital-araclar]]
 
@@ -33,6 +37,8 @@ According to a report published in August 2026 by the Cyberspace Administration 
 In 2024 India launched a Digital Agriculture Mission with a budget of **2,817** crore rupees (**1** crore is **10** million). Its backbone is AgriStack: each farmer is given an ID by matching farmers' details with digitised land records. As of 3 August 2026, **10.31** crore, or more than **103** million, farmer IDs had been created; the target for 2026-27 is **11** crore. Farmer registries are kept at state level and the states own the data; AI and machine learning are among the methods envisaged for yield estimation on this infrastructure.
 
 According to a government note of February 2026, Kisan e-Mitra, a voice-enabled AI chatbot launched in 2023, answers farmers' questions about government schemes: by December 2025 it had answered more than **93** lakh, or **9.3** million, questions, and it handles more than **8,000** questions a day in **11** regional languages. Probabilistic forecasts of local monsoon onset were sent by text message to more than **3.88** crore (**38.8** million) farmers in **13** states; according to follow-up surveys in two states, **31-52%** of farmers changed their sowing decisions based on the forecasts.
+
+[[gorsel:b22-kisan-e-mitra-sohbet-robotunun]]
 
 ## Israel: companies, not farms
 

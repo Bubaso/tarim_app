@@ -8,6 +8,8 @@ Tarımda yapay zekâ en sağlam sonuçlarını geniş bir alanı ya da çok say�
 
 Yapay zekâ hava tahmininde araştırmadan işletmeye geçti. GraphCast, **10** günlük küresel tahminde **1.380** doğrulama hedefinin **%90**'ında en doğru operasyonel tahmin sistemlerini geride bıraktı; Avrupa Orta Vadeli Hava Tahminleri Merkezi kendi yapay zekâ modelini 25 Şubat 2025'ten beri fizik tabanlı modelinin yanında çalıştırıyor. Uydu görüntüsü ve derin öğrenmeyle hazırlanan bir harita, dünyadaki endüstriyel balıkçı gemilerinin **%72-76**'sının kamuya açık izleme sistemlerinde görünmediğini ortaya koydu. Kameralı bir prototip sistem, 2020'de yayımlanan ilk sonuçlarına göre, orman yangınının dumanını çoğunlukla tutuşmadan sonraki **15** dakika içinde, kamera başına günde ortalama birden az yanlış alarmla yakalıyordu.
 
+[[gorsel:b01-ecmwf-nin-yapay-zeka-tahmin-sistemi]]
+
 ## Tarladaki karar: tasarruf ölçülüyor, kâr tutarsız
 
 Kamerayla yabancı otu görüp ilacı yalnız otun üstüne atan sistemler, hakemli saha denemelerinde ilacı şeker kamışında **%35**, mısırda erken uygulamada **%47** azalttı. Sensörle azot yönetimi kışlık buğdayda azot kullanım etkinliğini yaklaşık **%10,4** artırıyor; ama Nebraska'da sulanmayan mısırda yapılan bir saha çalışmasında kâr avantajı tarlaların yalnız **%35**'inde görüldü. Sulamada en sağlam kanıt yapay zekâdan değil toprak nem sensöründen geliyor: geleneksel yöntemlere göre ortalama **%38** su tasarrufu, bitki örtüsü sıcaklığına dayalı yöntemlere göre ise yalnız **%1**. Makine öğrenmesi, Avrupa Komisyonu'nun makine öğrenmesi kullanmayan işletimdeki verim tahmin sistemine karşı sınandığında kimi üründe ona yetişti, kimisinde iki kat hata yaptı; derin öğrenme de genomik tahminde klasik modellere karşı açık bir üstünlük göstermedi.
