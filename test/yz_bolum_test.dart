@@ -15,7 +15,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
-import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show yzPath;
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show YzBaslikKarosu, yzPath;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
@@ -142,7 +142,13 @@ devam ediyor.
       for (final m in kYzMetinler.values) {
         for (final metin in [m.tr, m.en]) {
           final b = yzAyristir(metin);
-          expect(b.first.tur, YzBlokTuru.ozet, reason: '§${m.no}: özet bloğu ilk sırada değil');
+          // Karar 56: ayrı özet bloğu yok; metin doğrudan düz yazıyla başlıyor
+          // (üretilmiş §29 ve §30 harf başlığıyla).
+          expect(b.any((x) => x.tur == YzBlokTuru.ozet), isFalse, reason: '§${m.no}: özet bloğu var');
+          if (!{29, 30}.contains(m.no)) {
+            expect(b.first.tur, YzBlokTuru.paragraf, reason: '§${m.no}: metin doğrudan başlamıyor');
+          }
+          expect(metin.contains(RegExp(r'§\d')), isFalse, reason: '§${m.no}: metinde § göndermesi');
           expect(b.where((x) => x.tur == YzBlokTuru.altBaslik), isNotEmpty);
           expect(b.any((x) => x.metin.startsWith('# ')), isFalse);
         }
@@ -303,6 +309,11 @@ devam ediyor.
         }
         final satirlar = sozlukSayfasi!.metin(en).split('\n');
         final ek = RegExp(en ? r' · Appears in (.*)\.$' : r' · Geçtiği başlıklar: (.*)\.$');
+        // Sözlük başlığı numarayla değil kısa adıyla anıyor (karar 56):
+        // başlık adının iki noktadan önceki kısmı (sozluk_uret.kisa_adlar).
+        final noAdla = {
+          for (final b in kYzBasliklar) b.ad(en).split(':').first.trim(): b.no,
+        };
         for (final t in kYzSozluk) {
           final satir = satirlar.firstWhere((s) => s.startsWith('**${t.ad(en)}** ('),
               orElse: () => '');
@@ -312,7 +323,7 @@ devam ediyor.
           final m = ek.firstMatch(satir);
           final sayfada = m == null
               ? <int>[]
-              : [for (final x in m.group(1)!.split(', ')) int.parse(x.substring(1))];
+              : [for (final x in m.group(1)!.split('; ')) noAdla[x] ?? -1];
           final beklenen = (dart[t.kimlik] ?? <int>[])..sort();
           expect(sayfada, beklenen,
               reason: '${t.kimlik} (${en ? 'en' : 'tr'}): Python ile Dart eşleştiricisi ayrıştı');
@@ -398,12 +409,18 @@ devam ediyor.
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       expect(find.text(kYzAdTr), findsOneWidget);
-      expect(find.text('§23'), findsOneWidget, reason: 'harita karosu');
+      expect(find.widgetWithText(YzBaslikKarosu, "Türkiye'de durum"), findsOneWidget,
+          reason: 'harita karosu (numarasız, karar 56)');
+      expect(find.textContaining(RegExp(r'§\d')), findsNothing, reason: 'okura numara yok');
       expect(find.textContaining('Orman yangınlarıyla'), findsOneWidget, reason: 'haber akışı');
-      // §1 yazıldıysa özeti haritanın üstünde (karar 6), "Özet." etiketi düşmüş
+      // §1 yazıldıysa giriş paragrafı haritanın üstünde (karar 6, 56)
       if (kYzMetinler[1] != null) {
         expect(find.text('Durum tespitinin tamamı'), findsOneWidget);
-        expect(find.textContaining('Tarımda yapay zekâ bugün', findRichText: true), findsOneWidget);
+        final giris = yzAyristir(kYzMetinler[1]!.tr)
+            .firstWhere((b) => b.tur == YzBlokTuru.paragraf)
+            .metin
+            .replaceAll('**', '');
+        expect(find.textContaining(giris.substring(0, 30), findRichText: true), findsOneWidget);
         expect(find.textContaining('Özet.', findRichText: true), findsNothing);
       }
       // teknoloji süzgeci

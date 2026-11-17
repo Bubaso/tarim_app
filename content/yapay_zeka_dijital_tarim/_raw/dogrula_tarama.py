@@ -20,15 +20,9 @@ KURALLAR
      var (§24 genel mevzuat sayfalarıyla kapsanıyor) — ya da `elle_sayfa`da
      GEREKÇESİYLE duruyor. `dizin` hedefini haber hattının dizin adayları
      karşılıyor (src/utils/yz_bolumu.py).
-  6. GÜNCELLEME PARAGRAFI. Her başlığın "Bu sayfa nasıl güncelleniyor"
-     paragrafı yalnız taramanın gerçekten yaptığını söylüyor: "hakemli" diyen
-     başlığın akademik sorgusu, "haber" diyen başlığın haber sorgusu, "yeni
-     sürüm" diyen başlığın 'seri' sayfası, "resmî … / Resmî Gazete" diyen
-     başlığın `mevzuat` hedefi ya da 'resmi'/'seri' sayfası var (yalnız
-     "Resmî Gazete" diyen başlığa Resmî Gazete'yi süzen kendi sayfası da
-     yeter); "izliyor" diyen her başlığın en az bir
-     kendi izleme kaynağı (sorgu ya da sayfa) var. Paragraf okura söz
-     veriyor; tutulmayan söz yayına çıkmaz (karar 55).
+  6. GÜNCELLEME PARAGRAFI. Karar 56'dan beri başlıklarda "Bu sayfa nasıl
+     güncelleniyor" bölümü yok; taramanın neyi izlediği merkez sayfada tek
+     yerde anlatılıyor. Başlıkta yeniden belirirse durur.
 """
 import json, sys
 from pathlib import Path
@@ -117,43 +111,17 @@ for b in iskelet:
         hata(f"§{no} 'mevzuat' hedefli ama 'resmi' sayfası da 'elle_sayfa' gerekçesi de yok")
 
 print("6 · güncelleme paragrafları")
-import re as _re
+# Karar 56: başlıklarda "Bu sayfa nasıl güncelleniyor" bölümü yok; taramanın
+# ne izlediği okura merkez sayfada tek yerde anlatılıyor. Başlıkta yeniden
+# belirirse dogrula_bolumler.py (kural 8) de durdurur; burada izleme
+# listesiyle karşılaştırılacak bir söz kalmadığını not ediyoruz.
 BOLUMLER = BURASI.parent / "bolumler"
-sayac = 0
-for b in iskelet:
-    no = b["no"]
-    yol = next(iter(BOLUMLER.glob(f"{no:02d}-*.tr.md")), None)
-    if yol is None or no in (29, 30):
-        continue
-    metin = yol.read_text(encoding="utf-8")
-    m = _re.search(r"^## Bu sayfa nasıl güncelleniyor\s*\n(.*)", metin, _re.S | _re.M)
-    if not m:
-        hata(f"§{no}: 'Bu sayfa nasıl güncelleniyor' bölümü yok")
-        continue
-    p = m.group(1)
-    sayac += 1
-    kendi = (no in akademik) or (no in haber) or any(k.get("baslik_no") == no for k in ozel) \
-        or no in (22, 23, 24)            # genel sayfalar bu üç başlığa düşüyor
-    if "hakemli" in p and no not in akademik:
-        hata(f"§{no}: paragraf hakemli çalışma izlediğini söylüyor ama akademik sorgusu yok")
-    if _re.search(r"\bhaber", p) and no not in haber:
-        hata(f"§{no}: paragraf haber izlediğini söylüyor ama haber sorgusu yok")
-    if "yeni sürüm" in p and not sayfa_var(no, "seri"):
-        hata(f"§{no}: paragraf kaynakların yeni sürümlerini izlediğini söylüyor ama 'seri' sayfası yok")
-    resmi_soz = _re.search(r"[Rr]esmî (gelişme|düzenleme|istatistik|belge)", p)
-    rg_soz = "Resmî Gazete" in p
-    if resmi_soz or rg_soz:
-        dayanak = "mevzuat" in b["oto_hedefler"] or sayfa_var(no, "resmi") or sayfa_var(no, "seri")
-        # Resmî Gazete'yi kendi süzgeciyle izleyen bir 'dizin' ya da 'kayit'
-        # sayfası da yeter (ör. §25: üniversite merkezi yönetmelikleri).
-        if not dayanak and rg_soz and not resmi_soz:
-            dayanak = any(k.get("baslik_no") == no and "resmigazete.gov.tr" in k.get("adres", "")
-                          for k in ozel)
-        if not dayanak:
-            hata(f"§{no}: paragraf resmî belge izlediğini söylüyor ama 'mevzuat' hedefi ya da sayfası yok")
-    if "izliyor" in p and not kendi:
-        hata(f"§{no}: paragraf 'izliyor' diyor ama başlığın kendi izleme kaynağı yok")
-print(f"  · {sayac} paragraf yapılandırmayla karşılaştırıldı")
+import re as _re
+for yol in sorted(BOLUMLER.glob("[0-2][0-9]-*.md")):
+    if _re.search(r"^## (Bu sayfa nasıl güncelleniyor|How this page is kept up to date)",
+                  yol.read_text(encoding="utf-8"), _re.M):
+        hata(f"{yol.name}: başlıkta güncelleme paragrafı var (karar 56: yalnız merkez sayfada)")
+print("  · başlıklarda güncelleme paragrafı yok (karar 56)")
 
 print("\n✗ %d HATA" % len(hatalar) if hatalar else "\n✓ Tarama yapılandırması tutarlı")
 sys.exit(1 if hatalar else 0)

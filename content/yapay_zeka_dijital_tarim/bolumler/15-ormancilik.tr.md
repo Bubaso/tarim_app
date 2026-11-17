@@ -1,6 +1,6 @@
 # 15 · Ormancılık
 
-> **Özet.** Dünyada ormansızlaşma yavaşlıyor ama FAO'ya göre hâlâ yılda **10,9** milyon hektar. Ormancılıkta yapay zekâ iki yerde öne çıkıyor: uydudan ormanın yapısını haritalamak ve yangını erken görmek. Derin öğrenmeyle hazırlanan küresel ağaç boyu haritası bütün gezegeni **10** metrelik çözünürlükle ölçüyor; ABD'de 2020'de sınanan prototip bir kamera sistemi dumanı çoğunlukla tutuşmadan sonraki **15** dakika içinde, kamera başına günde ortalama birden az yanlış alarmla yakalıyordu. Türkiye'de yangın yükü artıyor: 1988-2025 arasında yanan **634.575** hektarın **%43,6**'sı son beş yılda yandı. Orman Genel Müdürlüğü'nün kameralı yangın uyarı sistemi 2013'te **77** kuleye yayılmıştı, yapay zekâ destekli karar destek sistemi 2022'den beri kullanılıyor; ikisinin de etkisini bağımsız olarak ölçen yayımlanmış bir değerlendirme bulunmuyor.
+Yapay zekâ ormancılıkta iki işte öne çıkıyor: ormanın yapısını uydudan haritalamak ve yangını erken görmek. Türkiye'de yangın yükü artıyor; resmî istatistiklerin başladığı 1988'den 2025'e kadar yanan **634.575** hektarın **%43,6**'sı son beş yılda yandı. Orman Genel Müdürlüğü önce kule kameralarına dayanan bir yangın uyarı sistemi kurdu, sonra yapay zekâ destekli bir karar destek sistemini devreye aldı; ama iki sistemin de tespit süresine, yanan alana ya da yanlış alarm oranına etkisini ölçen bağımsız bir değerlendirme yayımlanmış değil.
 
 ## Ne yapıyor
 
@@ -30,16 +30,10 @@ Yapay zekâ ormancılıkta ölçeği değiştiriyor: tek bir modelle bütün gez
 
 ## Türkiye
 
-Bakanlığın verisine göre Türkiye'nin orman alanı 2025'te **23.375.331** hektar. 2027 Programı'na göre 2025'te **3.224** yangında **81.473** hektar, 2026'nın ilk dokuz ayında **2.009** yangında **24.451** hektar orman yandı. Resmî istatistiklerin başladığı 1988'den 2025'e kadar yanan **634.575** hektarın **%43,6**'sı son beş yılda yandı. Son on yılda çıkan yangınların **%41,1**'inin nedeni tespit edilemedi. 2026'da yangınlara **119** helikopter, **28** uçak ve **14** insansız hava aracıyla havadan müdahale edildi; yaklaşık **28** bin personel ve **142** bini aşan gönüllü görev alıyor.
+Bakanlığın verisine göre Türkiye'nin orman alanı 2025'te **23.375.331** hektar. 2027 Programı'na göre 2025'te **3.224** yangında **81.473** hektar, 2026'nın ilk dokuz ayında **2.009** yangında **24.451** hektar orman yandı. Son on yılda çıkan yangınların **%41,1**'inin nedeni tespit edilemedi. 2026'da yangınlara **119** helikopter, **28** uçak ve **14** insansız hava aracıyla havadan müdahale edildi; yaklaşık **28** bin personel ve **142** bini aşan gönüllü görev alıyor.
 
 Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin TÜBİTAK desteğiyle geliştirdiği Orman Yangın Uyarı Sistemi, yangın gözetleme kulelerine kurulan kameraların görüntüsünü bir yazılımla işliyor; o tarihte **77** kulede **154** kamerayla **3,2** milyon hektar izleniyordu ve duyuru küçük bir yangının **15-25** saniyede tespit edildiğini söylüyor. Bu, kurumun kendi açıklaması; sistemin isabetini ve yanlış alarm oranını bağımsız olarak ölçen yayımlanmış bir değerlendirme bulunmuyor.
 
 Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor: meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiriyor; yangın çıkma olasılığını ve nedenini tahmin ediyor ve yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistem, BM'ye bağlı Uluslararası Telekomünikasyon Birliği'nin Dünya Bilgi Toplumu Zirvesi Ödülleri'ne aday gösterildi.
 
 Akademide de çalışmalar var. Karabük Üniversitesi'nden bir çalışma, yazarların tasarladığı dört rotorlu bir İHA'ya gömülü derin öğrenmeyle yangın tespitini sınadı ve sınıflandırmada **%96** doğruluk bildiriyor (Shamta ve Demir, 2024). Hacettepe Üniversitesi'nin de yer aldığı bir çalışma, Akdeniz ekosistemindeki bir kızılçam ormanında yanmış alanı radar, optik ve termal uydu verisi ve rastgele orman yöntemiyle **%96** genel doğrulukla haritaladı (Abdikan ve arkadaşları, 2022).
-
-Eksik olan ise **Türkiye'de kameralı erken uyarının ya da yapay zekâ destekli karar destek sisteminin tespit süresine, yanan alana veya yanlış alarm oranına etkisini ölçen, yayımlanmış bağımsız bir değerlendirme.**
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa üç şeyi izliyor: orman yangını, orman envanteri, ağaç türleri ve ormansızlaşma üzerine yeni gelişmeler — hakemli çalışmalar dâhil; Orman Genel Müdürlüğü'nün ormancılık ve orman yangınlarıyla ilgili duyuruları; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın ormancılık istatistiği ve FAO'nun orman kaynakları değerlendirmesi. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

@@ -1,6 +1,8 @@
 # 23 · Türkiye'de durum
 
-> **Özet.** Türkiye'de tarımda yapay zekâ iki ayrı hatta yürüyor. Türkiye Yapay Zekâ Eylem Planı (2026-2030) tarımı öncelikli sektörlerden biri sayıyor, ama planın **16** eyleminin hiçbirinde Tarım ve Orman Bakanlığı ne sorumlu ne iş birliği kurumu. Tarımın kendi yapay zekâ politikası Kalkınma Planı'nda ve yıllık programlarda, bakanlığın sorumluluğunda duruyor. 2027 Yıllık Programı'nın tarım bölümündeki tek somut yapay zekâ işi kuraklığı **1-4 hafta** önceden tahmin etmek ve bu iş henüz plan aşamasında. Programın dışında ise bakanlık birimleri yapay zekâyı üç izleme işinde kullanıyor ya da kullanmaya hazırlanıyor: uydudan ürün, işlenmeyen arazi ve dikili alan belirleme, orman yangınında karar desteği ve balıkçı gemilerinin izlenmesi. Bunların hiçbirinin isabetini ya da etkisini ölçen yayımlanmış bir değerlendirme bulunmuyor. Bakanlığın araştırma kolu TAGEM 2025'te üç yapay zekâ projesi başlattı; bakanlığın kendi yapay zekâ strateji belgesi ise henüz yayımlanmadı.
+Türkiye'de tarımda yapay zekâ iki ayrı hatta yürüyor. Türkiye Yapay Zekâ Eylem Planı (2026-2030) tarımı öncelikli sektörlerden biri sayıyor, ama planın **16** eyleminin hiçbirinde Tarım ve Orman Bakanlığı ne sorumlu ne iş birliği kurumu. Tarımın kendi yapay zekâ politikası ise Kalkınma Planı'nda ve yıllık programlarda, bakanlığın sorumluluğunda duruyor; 2027 Yıllık Programı'nın tarım bölümündeki tek somut yapay zekâ işi kuraklık tahmini ve o da henüz plan aşamasında.
+
+Programın dışında bakanlık birimleri yapay zekâyı üç izleme işinde kullanıyor ya da kullanmaya hazırlanıyor: uydudan ürün, işlenmeyen arazi ve dikili alan belirleme, orman yangınında karar desteği ve balıkçı gemilerinin izlenmesi. Bakanlığın araştırma kolu TAGEM 2025'te üç yapay zekâ projesi başlattı; bakanlığın kendi yapay zekâ strateji belgesi ise hâlâ beklemede.
 
 ## İki belge, iki hat
 
@@ -25,7 +27,7 @@ Değişmeyen şey kurum. Yeni planda her eylemin bir "ana sorumlu" kurumu ve iş
 
 Sulamada bilgi ve iletişim teknolojileri ayrı bir politika (**505.** paragraf). Dijital Sulama Yönetim Sistemi projesi (DİSU) tamamlanacak; işletmedeki sulama tesislerinde otomasyon ve karar destek sistemleri devreye girecek.
 
-Programın tarım bölümündeki tek somut yapay zekâ işi tedbir tablosunda değil, durum anlatımında duruyor. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verileriyle **7** günlük periyotlarla izliyor; **2027**'de yapay zekâ yöntemleriyle kuraklığın **1-4 hafta** önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanıyor.
+Kuraklık tahmini ise tedbir tablosunda değil, programın durum anlatımında duruyor. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verileriyle **7** günlük periyotlarla izliyor; **2027**'de yapay zekâ yöntemleriyle kuraklığın **1-4 hafta** önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanıyor.
 
 Kırsal Kalkınma Yatırım Programı yapay zekâyı hedefleri arasında sayıyor: dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılması hedefleniyor. Hibe, proje tutarının **%50-70**'i oranında; program bütçesinin en az **%20**'si kadın ve genç girişimcilere, **%30**'u aile işletmelerine ayrılıyor. Bu bütçeden yapay zekâya ne kadar gittiği açıklanmıyor.
 
@@ -33,15 +35,15 @@ Tarım bölümünün sonundaki **15** performans göstergesinin hiçbiri dijital
 
 ## Programın dışında: sahada çalışan sistemler
 
-Yıllık programın tarım bölümü somut olarak tek bir yapay zekâ işi anıyor. Bakanlık birimlerinin kendi duyuruları ve belgeleri ise yapay zekâyı ya da makine öğrenmesini kullanan, ya da kullanmaya hazırlanan üç sistem daha gösteriyor. Üçü de aynı türden iş: geniş bir alanı ya da çok sayıda nesneyi gözetlemek.
+Bakanlık birimlerinin kendi duyuruları ve belgeleri yapay zekâyı ya da makine öğrenmesini kullanan, ya da kullanmaya hazırlanan üç sistem daha gösteriyor. Üçü de aynı türden iş: geniş bir alanı ya da çok sayıda nesneyi gözetlemek.
 
-Tarım Reformu Genel Müdürlüğü uzaktan algılamayla ürün belirleme çalışmasını 2025 üretim yılında ilk kez uyguladı: sahadan toplanan referans parseller uydu görüntüleriyle birlikte değerlendiriliyor, makine öğrenmesiyle ekili ürünler tespit edilip sınıflandırılıyor (§9). Temmuz 2026 duyurusuna göre **12** bölge toplantısı yapıldı; ÇKS beyanlarının doğruluk kontrolü de bu kapsamda planlanıyor. Bakanlık alanların "yüksek doğruluk oranlarıyla" analiz edildiğini söylüyor, ama bir oran açıklamadı. Bakanlığın 2025 idare faaliyet raporu, işlenmeyen tarım arazilerinin ve dikili alanların tespiti için de uydu görüntülerinin derin öğrenme ve yapay zekâyla analiz edildiğini yazıyor (§19).
+Tarım Reformu Genel Müdürlüğü uzaktan algılamayla ürün belirleme çalışmasını 2025 üretim yılında ilk kez uyguladı: sahadan toplanan referans parseller uydu görüntüleriyle birlikte değerlendiriliyor, makine öğrenmesiyle ekili ürünler tespit edilip sınıflandırılıyor. Temmuz 2026 duyurusuna göre **12** bölge toplantısı yapıldı; ÇKS beyanlarının doğruluk kontrolü de bu kapsamda planlanıyor. Bakanlık alanların "yüksek doğruluk oranlarıyla" analiz edildiğini söylüyor, ama bir oran açıklamadı. Bakanlığın 2025 idare faaliyet raporu, işlenmeyen tarım arazilerinin ve dikili alanların tespiti için de uydu görüntülerinin derin öğrenme ve yapay zekâyla analiz edildiğini yazıyor.
 
-Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor; bakanlığa göre sistem yangının davranışını ve ilerleyişini yapay zekâ desteğiyle öngörüyor (§15).
+Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor; bakanlığa göre sistem yangının davranışını ve ilerleyişini yapay zekâ desteğiyle öngörüyor.
 
-Balıkçı Gemileri İzleme Sistemi (BAGİS), **12** metre ve üzeri ticari balıkçı gemilerinin konumunu uydu ve GSM üzerinden izliyor. Bakanlığın Haziran 2026'da TÜBİTAK sitesinde yayımlanan teknik ister dokümanına göre **1.629** geminin verisi güncel ve erişilebilir; ama bu veri şimdilik ağırlıklı olarak izleme ve kayıt için kullanılıyor, yasak alan kontrolleri ekran başındaki personelce yapılıyor. Doküman, verinin yapay zekâyla incelenip olası ihlallerin tespit edileceği bir proje tarif ediyor (§14).
+Balıkçı Gemileri İzleme Sistemi (BAGİS), **12** metre ve üzeri ticari balıkçı gemilerinin konumunu uydu ve GSM üzerinden izliyor. Bakanlığın Haziran 2026'da TÜBİTAK sitesinde yayımlanan teknik ister dokümanına göre **1.629** geminin verisi güncel ve erişilebilir; ama bu veri şimdilik ağırlıklı olarak izleme ve kayıt için kullanılıyor, yasak alan kontrolleri ekran başındaki personelce yapılıyor. Doküman, verinin yapay zekâyla incelenip olası ihlallerin tespit edileceği bir proje tarif ediyor.
 
-Bakan da Mayıs 2025'te, bakanlığın sitesinde yayımlanan bir konuşmasında, yapay zekâ destekli uzaktan algılamanın üretim planlamasında en büyük yardımcıları olduğunu, orman yangınlarında da yapay zekâ destekli teknolojilerden yararlandıklarını söyledi. Üç sistemin de isabetini ya da etkisini bağımsız olarak ölçen yayımlanmış bir değerlendirme bulunmuyor.
+Bakan da Mayıs 2025'te, bakanlığın sitesinde yayımlanan bir konuşmasında, yapay zekâ destekli uzaktan algılamanın üretim planlamasında en büyük yardımcıları olduğunu, orman yangınlarında da yapay zekâ destekli teknolojilerden yararlandıklarını söyledi. Ama bakanlığın yapay zekâ destekli sistemlerinin hiçbirinde isabet ya da sahadaki etki bağımsız olarak ölçülüp yayımlanmış değil.
 
 ## Bakanlığın kendi belgesi: beklemede
 
@@ -53,7 +55,7 @@ Belge 24 Kasım 2025'te, 2026 bütçesinin sunumunda, yılın başında paylaş�
 
 Bakanlığın araştırma kolu Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü'nün (TAGEM) Ocak 2026'da yayımlanan 2025 faaliyet raporu, yürüttüğü araştırma alanları arasında dijital tarım ve yapay zekâ araştırmalarını da sayıyor; 2026-2030 Tarımsal Araştırma Master Planı'nda ayrı bir Dijital Tarım ve Yapay Zekâ Araştırma Fırsat Alanı var.
 
-Rapor 2025'te başlayan üç yapay zekâ projesini anlatıyor. Birincisi bazı meyve türlerinde ve bağda önemli hastalık ve zararlıları derin öğrenmeyle tespit etmeyi amaçlıyor: TAGEM'e bağlı **8** araştırma enstitüsü ve **2** üniversitenin iş birliğiyle bir görüntü veri seti hazırlanacak, en iyi performansı veren model meyve üreticilerine ve uzmanlara web ve mobil yazılım olarak sunulacak. İkincisi kuru kayısıda kükürtdioksit ve nem oranını multispektral görüntüleme ve derin öğrenmeyle belirleyecek bir cihaz prototipi. Üçüncüsü mısır ve pamukta yabancı otların yerini kamerayla tespit edip ilaç memelerini yalnız hedefin üstünde açacak bir hassas ilaçlama makinesi prototipi (§8). Rapor yayımlandığında üç proje de sürüyordu; sonuçları henüz açıklanmadı.
+Raporun anlattığı üç yapay zekâ projesinden birincisi bazı meyve türlerinde ve bağda önemli hastalık ve zararlıları derin öğrenmeyle tespit etmeyi amaçlıyor: TAGEM'e bağlı **8** araştırma enstitüsü ve **2** üniversitenin iş birliğiyle bir görüntü veri seti hazırlanacak, en iyi performansı veren model meyve üreticilerine ve uzmanlara web ve mobil yazılım olarak sunulacak. İkincisi kuru kayısıda kükürtdioksit ve nem oranını multispektral görüntüleme ve derin öğrenmeyle belirleyecek bir cihaz prototipi. Üçüncüsü mısır ve pamukta yabancı otların yerini kamerayla tespit edip ilaç memelerini yalnız hedefin üstünde açacak bir hassas ilaçlama makinesi prototipi. Rapor yayımlandığında üç proje de sürüyordu; sonuçları henüz açıklanmadı.
 
 Rapora göre hayvan hastalıklarında yapay zekâ tabanlı erken teşhis ve uyarı sistemi geliştirecek VetAlarm projesi de 2025'te onaylandı. TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü ise yapay zekâ ve görüntü işlemeyle gübreleme, ilaçlama ve hasat yapabilecek otonom bir sera robotu projesinin ortağı; proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor.
 
@@ -62,9 +64,3 @@ Rapora göre hayvan hastalıklarında yapay zekâ tabanlı erken teşhis ve uyar
 Yıllık programda, kendisi yapay zekâ olmayan ama yapay zekânın üzerine kurulacağı kayıt ve ölçüm katmanı daha somut. Bitki koruma ürünlerinin reçetesini elektronik ortamda tutan B-Reçete Sistemi 1 Temmuz 2026'dan beri **81** ilde uygulamada. Genel Tarım Sayımı verileriyle bütün tarım işletmelerinin mekânsal verilerle bağlanacağı Tarımsal İşletme Kayıt Sistemi kurulacak; tarım bilgi sistemleri için veri merkezi tamamlanacak. **15** ilde **3,5 milyon** hektar tarım arazisinin detaylı toprak etüdü ve haritalandırması sürecek. Suyun kullanım miktarına göre fiyatlandırılması için **100** tesise elektronik ölçüm sistemi takılacak.
 
 Bunlar yapay zekâ değil. Ama bir modelin öğreneceği veri, bir tahminin dayanacağı ölçüm ve bir kararın yazılacağı kayıt bunlar.
-
-Eksik olan ise **bakanlığın yapay zekâ destekli sistemlerinden herhangi birinin isabetini ya da sahadaki etkisini ölçen, yayımlanmış bağımsız bir değerlendirme.**
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa üç şeyi izliyor: Resmî Gazete'de ve bakanlık duyurularında çıkan yeni düzenleme ve kararlar, Türkiye'de tarımda yapay zekâ üzerine çıkan haberler ve Türkiye dizinine aday kuruluşlar. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

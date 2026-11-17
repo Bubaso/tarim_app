@@ -1,6 +1,6 @@
 # 7 · Sulama ve su yönetimi
 
-> **Özet.** Tarım, dünyada çekilen tatlı suyun **%72**'sini kullanıyor; FAO verisine göre Türkiye'de bu pay **%86,93**. Sulamada dijital teknolojinin en sağlam kanıtı yapay zekâdan değil, toprak nem sensöründen geliyor: ABD'de son yirmi yılın çalışmalarını tarayan bir derlemeye göre sensörle yapılan sulama zamanlaması geleneksel yöntemlere göre ortalama **%38** su tasarrufu sağlıyor ve verimi düşürmüyor. Ama bitki örtüsü sıcaklığına dayalı yönteme karşı kazanç **%1**'e iniyor; sensörün doğruluğunu ise en çok kalibrasyon etkiliyor. Yapay zekânın sulama kararı verdiği öne çıkan çalışma bir simülasyon; yazarları bu teknik üzerine araştırmanın seyrek kaldığını söylüyor. Türkiye'nin 2027 programı, dijital sulama yönetim sistemi DİSU'nun tamamlanmasını ve sulama tesislerinde karar destek sistemlerini öngörüyor.
+Tarım, dünyada çekilen tatlı suyun **%72**'sini kullanıyor; Türkiye'de bu pay daha da yüksek. Sulamada dijital teknolojinin en sağlam kanıtı yapay zekâdan değil, toprak nem sensöründen geliyor; sensörün sağladığı su tasarrufu ise neyle karşılaştırıldığına göre çok değişiyor. Yapay zekâ sulama kararında bugün simülasyonda umut verici, tarlada henüz az sınanmış.
 
 ## Ne yapıyor
 
@@ -19,13 +19,13 @@ Datta ve Taghvaeian (2023), ABD'de son yirmi yılda yayımlanmış toprak nem se
 
 Verim, karşılaştırılan yöntemlere göre aynı ya da daha yüksek. Ama derlemenin en önemli bulgusu başka: sensörün doğruluğunu en çok etkileyen şey kalibrasyon. Fabrika ayarıyla takılmış bir sensör toprağı yanlış okuduğu sürece yanlış zamanda sulatır.
 
-İki rakam arasındaki fark §8'dekine benzer bir ders veriyor: orada tasarruf tarladaki ot yoğunluğuna bağlıydı, burada neyle karşılaştırıldığına. Takvime göre sulayan bir çiftçi için sensör büyük fark yaratıyor; bitkiyi zaten ölçerek sulayan biri için neredeyse hiç.
+İki rakam arasındaki farkın sahadaki karşılığı şu: takvime göre sulayan bir çiftçi için sensör büyük fark yaratıyor; bitkiyi zaten ölçerek sulayan biri için neredeyse hiç.
 
 ## Yapay zekâ nerede duruyor
 
 Saikai, Peake ve Chenu (2023), sulanan buğday için derin pekiştirmeli öğrenmeyle bir sulama kuralı geliştirdi. Kural her gün toprak suyuna, bitkinin gelişme evresine ve yağışa bakıp ne kadar sulanacağına karar veriyor. Model 1981-2010 hava verisiyle eğitildi ve 2011-2020 yıllarının her biri için ayrı ayrı sınandı: bölgede yaygın kurala göre kârı bütün sınama yıllarında artırdı, en büyük artış 2018'de **%17**.
 
-Bu sonuç bir saha denemesinden değil, bir bitki büyüme modelinden geliyor: üretim sistemi Avustralya'nın Goondiwindi bölgesinde APSIM-Wheat modeliyle simüle edildi. Yazarlar da bu tekniğe dair araştırmanın seyrek kaldığını ve pratikten uzak olduğunu kendileri belirtiyor. Sulamada yapay zekâ bugün burada duruyor: simülasyonda umut verici, tarlada henüz az sınanmış.
+Bu sonuç bir saha denemesinden değil, bir bitki büyüme modelinden geliyor: üretim sistemi Avustralya'nın Goondiwindi bölgesinde APSIM-Wheat modeliyle simüle edildi. Yazarlar da bu tekniğe dair araştırmanın seyrek kaldığını ve pratikten uzak olduğunu kendileri belirtiyor.
 
 ## Türkiye
 
@@ -33,12 +33,6 @@ FAO verisine göre Türkiye'de 2022'de çekilen tatlı suyun **%86,93**'ü tarı
 
 2027 Yıllık Programı'na göre sulama oranı 2025'te **%68**, 2026 tahmini **%71**, 2027 hedefi **%72**. Sulamaya açılmış brüt alan 2025'te **7,28**, 2027 hedefinde **7,40** milyon hektar. 2027 için yazılan tedbirler: **61** bin hektar yeni sulama alanı; **16** bin hektarda açık kanalların kapalı boruya çevrilmesi; **30** bin hektarda yağmurlama ve damla sulama için hibe; suyun kullanılan miktara göre fiyatlandırılması için **100** tesise elektronik ölçüm sistemi. Su kısıtı olan **11** ilin **52** ilçesinde az su tüketen ürünlere ek destek veriliyor.
 
-Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı hazırlayacak Dijital Sulama Yönetim Sistemi projesi (DİSU) 2027'de tamamlanacak; su kullanıcı teşkilatlarında karar destek sistemlerinin kullanımı ve bunun mevzuatı üzerinde çalışılacak. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verisiyle **7** günlük periyotlarla izliyor; 2027'de yapay zekâ yöntemleriyle kuraklığı **1-4 hafta** önceden tahmin etmeye yönelik çalışmaların başlatılması planlanıyor. Bakanlığın araştırma kolu TAGEM'in geliştirdiği Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) ise Tarım Cebimde uygulamasının Su sekmesinde ve webde üreticiye sulama konusunda hizmet veriyor (§18).
+Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı hazırlayacak Dijital Sulama Yönetim Sistemi projesi (DİSU) 2027'de tamamlanacak; su kullanıcı teşkilatlarında karar destek sistemlerinin kullanımı ve bunun mevzuatı üzerinde çalışılacak. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verisiyle **7** günlük periyotlarla izliyor; 2027'de yapay zekâ yöntemleriyle kuraklığı **1-4 hafta** önceden tahmin etmeye yönelik çalışmaların başlatılması planlanıyor. Bakanlığın araştırma kolu TAGEM'in geliştirdiği Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) ise Tarım Cebimde uygulamasının Su sekmesinde ve webde üreticiye sulama konusunda hizmet veriyor.
 
-Sahadan iki çalışma var. Niğde'deki Patates Araştırma Enstitüsü'nün de yer aldığı bir çalışma (Akın ve Ünlenen, 2017), siltli tınlı toprakta farklı nem sensörlerini hassas damla sulama programı için karşılaştırdı; ölçtüğü şey tasarruf değil, hangi sensörün güvenilir okuduğu. Ege Üniversitesi'nin Wageningen'le ortak projesinde ise düşük maliyetli, kablosuz bir sensör Orhanlı Köyü'nde **9** üreticiyle denendi. Proje broşürü sensörle yönetilen parsellerde **%13-24**, organik üretimde **%12** su tasarrufu bildiriyor. Broşürü yazanlar arasında sensörü geliştiren firma da var; rakamlar bir proje beyanı.
-
-Eksik olan ise **yapay zekâyla verilen sulama kararını Türkiye'de tarlada ölçen, yayımlanmış bir deneme.**
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa üç şeyi izliyor: sensörle ve yapay zekâyla sulama üzerine yeni hakemli çalışmalar; DİSU'ya ve sulamada karar destek sistemlerine dair bakanlık ve DSİ duyuruları; FAO su verisinin yeni sürümleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Sahadan iki çalışma var ve ikisi de sensörü sınıyor; yapay zekâyla verilen bir sulama kararını Türkiye'de tarlada ölçen bir deneme henüz yayımlanmadı. Niğde'deki Patates Araştırma Enstitüsü'nün de yer aldığı bir çalışma (Akın ve Ünlenen, 2017), siltli tınlı toprakta farklı nem sensörlerini hassas damla sulama programı için karşılaştırdı; ölçtüğü şey tasarruf değil, hangi sensörün güvenilir okuduğu. Ege Üniversitesi'nin Wageningen'le ortak projesinde ise düşük maliyetli, kablosuz bir sensör Orhanlı Köyü'nde **9** üreticiyle denendi. Proje broşürü sensörle yönetilen parsellerde **%13-24**, organik üretimde **%12** su tasarrufu bildiriyor. Broşürü yazanlar arasında sensörü geliştiren firma da var; rakamlar bir proje beyanı.

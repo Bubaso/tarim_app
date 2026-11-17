@@ -211,18 +211,12 @@ class YzBaslikKarosu extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(children: [
-                  Text('§${baslik.no}',
-                      style: YzYazi.veri(
-                          boy: 12,
-                          renk: y ? YzRenk.bitki : YzRenk.makine,
-                          kalinlik: FontWeight.w600)),
-                  const SizedBox(width: 8),
                   // Esnek: dar karoda İngilizce etiket ("in progress")
-                  // taşmasın, kısalsın.
+                  // taşmasın, kısalsın. Karoda numara yok: okur başlığı
+                  // adıyla tanıyor.
                   Expanded(
                     child: Text(
                       y ? (en ? 'written' : 'yazıldı') : (en ? 'in progress' : 'yazılıyor'),
-                      textAlign: TextAlign.end,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: YzYazi.veri(
@@ -315,7 +309,7 @@ class _HaberSatiri extends StatelessWidget {
                 if (baslikGoster && h.baslik != null)
                   InkWell(
                     onTap: () => context.push(yzBaslikPath(h.baslik!.slug)),
-                    child: Text('§${h.baslik!.no} ${h.baslik!.ad(en)}',
+                    child: Text(h.baslik!.ad(en),
                         style: YzYazi.veri(boy: 11.5, renk: YzRenk.bitki, kalinlik: FontWeight.w600)),
                   ),
               ],

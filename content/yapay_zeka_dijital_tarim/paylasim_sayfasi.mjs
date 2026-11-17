@@ -9,8 +9,9 @@
 // sonrası yazılan kabuk og etiketlerini taşıyor, Flutter uygulaması normal
 // açılıp GoRouter ile sayfaya gidiyor.
 //
-// Başlık sayfasının açıklaması o başlığın ÖZET bloğundan (`> **Özet.** …`)
-// alınıyor — metinden, hafızadan değil. Yazılmamış başlığın kabuğu yok:
+// Başlık sayfasının açıklaması o başlığın GİRİŞ paragrafından (başlık
+// satırından sonraki ilk düz paragraf; karar 56'dan beri ayrı özet bloğu
+// yok) alınıyor — metinden, hafızadan değil. Yazılmamış başlığın kabuğu yok:
 // paylaşılırsa bölümün genel kabuğuna düşmesi doğru, çünkü sayfada henüz
 // paylaşılacak bir metin yok.
 
@@ -54,12 +55,17 @@ const kac = (s) => String(s ?? '')
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;');
 
-/** Markdown'ın özet bloğunu düz metne çevirir ve ~200 karakterde keser. */
+/** Markdown'ın ilk düz paragrafını düz metne çevirir ve ~200 karakterde keser. */
 function ozetten(md) {
-  const satirlar = md.split('\n').filter((s) => s.trim().startsWith('>'));
-  let metin = satirlar.map((s) => s.trim().replace(/^>\s?/, '')).join(' ');
-  metin = metin.replace(/\*\*Özet\.\*\*\s*/, '').replace(/\*\*(.+?)\*\*/g, '$1')
-    .replace(/\*(.+?)\*/g, '$1').trim();
+  const paragraf = [];
+  for (const s of md.split('\n').slice(1)) {
+    const t = s.trim();
+    if (!t) { if (paragraf.length) break; continue; }
+    if (/^(#|>|\|)/.test(t)) { if (paragraf.length) break; continue; }
+    paragraf.push(t);
+  }
+  let metin = paragraf.join(' ');
+  metin = metin.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1').trim();
   if (metin.length <= 200) return metin;
   const kes = metin.slice(0, 200);
   return kes.slice(0, kes.lastIndexOf(' ')) + '…';
@@ -113,7 +119,7 @@ yaz(YOL, 'Yapay Zeka ve Dijital Tarım',
 for (const b of yazilanlar) {
   const on = `${String(b.no).padStart(2, '0')}-${b.slug}`;
   const md = readFileSync(join(BURASI, 'bolumler', `${on}.tr.md`), 'utf8');
-  yaz(`${YOL}/${b.slug}`, `§${b.no} ${b.baslik.tr} — Yapay Zeka ve Dijital Tarım`, ozetten(md));
+  yaz(`${YOL}/${b.slug}`, `${b.baslik.tr} — Yapay Zeka ve Dijital Tarım`, ozetten(md));
 }
 
 console.log(`✓ build/web${YOL}/index.html + ${yazilanlar.length} başlık kabuğu`);

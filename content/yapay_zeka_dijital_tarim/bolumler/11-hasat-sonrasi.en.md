@@ -1,6 +1,6 @@
 # 11 · After harvest: grading, quality, storage
 
-> **Summary.** Produce is also lost after it leaves the field: according to FAO, the share of food lost worldwide between harvest and retail was **13.3%** in 2023; it was **13.0%** in 2015, when monitoring began — in other words, no progress. Fruit and vegetables are lost most: **25.4%**. Part of the remedy is not AI but basic storage: in developing countries, storage losses of grain as high as **50-60%** can be brought down to **1-2%** with scientific storage methods. AI's real place is grading; in packhouses, sizing has moved from mechanical methods to machine vision over three decades. The most concrete measured example in Türkiye is optical and laser sorting against aflatoxin in hazelnuts.
+Produce is also lost after it leaves the field. According to FAO, the share of food lost worldwide between harvest and retail was **13.3%** in 2023; in 2015, when monitoring began, it was **13.0%**. Fruit and vegetables are lost most: **25.4%**. Part of the remedy is not AI but basic storage; AI's real place is grading. The most concrete measured example in Türkiye is optical and laser sorting against aflatoxin in hazelnuts.
 
 ## What it does
 
@@ -27,20 +27,14 @@ In most developing countries cereals are the staple food, and on a calorie basis
 
 ## Where AI stands
 
-Machine vision in grading is not new: in packhouses, the sizing of fruit and vegetables has moved from mechanical methods to machine vision over the last three decades; the same measurement is now moving to fruit on the tree, in the orchard (Neupane and colleagues, 2023). AI is a candidate for widening the range of defects this eye can recognise; a laboratory example reporting high accuracy comes from Türkiye, below.
+Machine vision in grading is not new: in packhouses, the sizing of fruit and vegetables has moved from mechanical methods to machine vision over the last three decades; the same measurement is now moving to fruit on the tree, in the orchard (Neupane and colleagues, 2023). AI is a candidate for widening the range of defects this eye can recognise.
 
 But read together with the storage review, FAO's table carries a warning: where losses are highest, the main gap appears to lie less in sorting produce than in protecting it.
 
 ## Türkiye
 
-The 2027 Programme considers it important to reduce loss and waste at every stage of the food chain and to develop food production and packaging technologies. Work will continue on spreading licensed warehousing, developing logistics infrastructure in the fresh fruit and vegetable supply chain, standards for packing, transport, storage and retail, and modernising wholesale markets.
+The 2027 Programme considers it important to reduce loss and waste at every stage of the food chain and to develop food production and packaging technologies. Work will continue on spreading licensed warehousing, developing logistics infrastructure in the fresh fruit and vegetable supply chain, standards for packing, transport, storage and retail, and modernising wholesale markets. Yet there is no public official indicator that regularly measures the post-harvest loss rate for Türkiye.
 
-The most concrete measured example concerns aflatoxin. In the EU's Rapid Alert System for Food and Feed (RASFF), **84** notifications for aflatoxin were made in 2020-2023 for hazelnuts and their products, **283** for peanuts and **173** for dried figs. In a study by researchers from provincial agriculture directorates and universities (Özçakmak and colleagues, 2024), the mean total aflatoxin value in in-shell hazelnuts fell from **13.56** to **7.21** after optical and laser sorting; **79.16%** of the sorted samples complied with legal limits. In the study's hazard analysis, optical, laser and manual sorting and aflatoxin detection under ultraviolet light were set as critical control points.
+In the EU's Rapid Alert System for Food and Feed (RASFF), **84** notifications for aflatoxin were made in 2020-2023 for hazelnuts and their products, **283** for peanuts and **173** for dried figs. In a study by researchers from provincial agriculture directorates and universities (Özçakmak and colleagues, 2024), the mean total aflatoxin value in in-shell hazelnuts fell from **13.56** to **7.21** after optical and laser sorting; **79.16%** of the sorted samples complied with legal limits. In the study's hazard analysis, optical, laser and manual sorting and aflatoxin detection under ultraviolet light were set as critical control points.
 
-An example of image-based grading also comes from hazelnuts. A study involving Ondokuz Mayıs University separated hazelnuts damaged by the brown marmorated stink bug from healthy ones using images; a support vector machine reached **98.75%** accuracy on a set of **400** images (Gadalla and Öztekin, 2023). The result belongs to a laboratory image set; it does not show success on a processing line.
-
-What is missing is twofold: **a public official indicator that regularly measures the post-harvest loss rate for Türkiye; and a published assessment measuring how much AI-based grading reduces losses or rejections in a business.**
-
-## How this page is kept up to date
-
-This page watches two things: new developments in produce grading, post-harvest loss, grain storage and food quality inspection — peer-reviewed studies included; and new releases of the sources behind the figures here, such as new values of FAO's food loss indicator. New information is added to the page after an editor's approval.
+An example of image-based grading also comes from hazelnuts. A study involving Ondokuz Mayıs University separated hazelnuts damaged by the brown marmorated stink bug from healthy ones using images; a support vector machine reached **98.75%** accuracy on a set of **400** images (Gadalla and Öztekin, 2023). The result belongs to a laboratory image set; it does not show success on a processing line. How much AI-based grading reduces losses or rejections in a business has yet to be measured in a published assessment.

@@ -1,6 +1,6 @@
 # 13 · Sera ve kontrollü ortam
 
-> **Özet.** Serada iklimin her değişkeni ölçülüyor ve ayarlanabiliyor; yapay zekânın yetiştiriciyle doğrudan yarıştırıldığı yerlerden biri de bu. Uluslararası Otonom Sera Yarışması'nın salatalıkla yapılan ilk turunda beş yapay zekâ ekibinden yalnız biri, insanın yönettiği referans bölmeyi geçti; çeri domatesle yapılan ikinci turda beşinin hepsi geçti. Dikey tarımda yaygınlaşmanın önündeki başlıca engeller ise kârlılık, enerji verimliliği, kamu politikası ve tüketici kabulü. Türkiye'de program örtü altı üretimi ve jeotermal sera bölgelerini öne çıkarıyor; yapay zekâyla sera iklim kontrolünü yetiştiricinin yönetimiyle karşılaştıran yayımlanmış bir Türkiye denemesi ise bulunmuyor.
+Bir serayı kim daha iyi yönetir: deneyimli bir yetiştirici mi, bir algoritma mı? Sera ve dikey tarım gibi kontrollü ortamlarda iklimin her değişkeni ölçülüyor ve ayarlanabiliyor; bu yüzden sera, yapay zekânın yetiştiriciyle doğrudan yarıştırıldığı yerlerden biri. Uluslararası Otonom Sera Yarışması'nın salatalıkla yapılan ilk turunda beş yapay zekâ ekibinden yalnız biri insanın yönettiği referans bölmeyi geçti; çeri domatesle yapılan ikinci turda beşinin hepsi geçti. Türkiye'de bu türden bir karşılaştırmanın yayımlanmış bir örneği yok; sera politikası örtü altı üretime ve jeotermal sera bölgelerine odaklanıyor.
 
 ## Ne yapıyor
 
@@ -23,16 +23,10 @@ Dikey tarım iklime dayanıklı, pestisit ve gübre salımını sıfıra indireb
 
 ## Yapay zekâ nerede duruyor
 
-Sera, yapay zekâ için tarladan daha elverişli bir alan: her şey ölçülüyor, her şey ayarlanabiliyor, sonuç net kâr olarak hesaplanabiliyor. Yarışmanın iki turu farklı ürün ve sürelerle yapıldı; yine de ilk turda beş ekipten biri, ikincide hepsi yetiştiricinin yönettiği bölmeyi geçti. Ama sonuçlar küçük deney bölmelerinden (ilk turda bölme başına **96** m²) ve birkaç aylık turlardan; ticari bir işletmede yıllar süren bir karşılaştırma değil.
+Tarlayla karşılaştırınca sera, yapay zekâ için elverişli bir alan: koşullar denetim altında, sonuç da net kâr olarak hesaplanabiliyor. Ama yarışmanın sonuçları küçük deney bölmelerinden (ilk turda bölme başına **96** m²) ve birkaç aylık turlardan geliyor; iki tur da farklı ürün ve sürelerle yapıldı. Bu, ticari bir işletmede yıllar süren bir karşılaştırma değil.
 
 ## Türkiye
 
 2027 Programı, iklimden kaynaklanan üretim ve fiyat dalgalanmalarını azaltmak ve yıl boyunca düzenli arz sağlamak için kontrollü örtü altı üretimi önemli sayıyor; jeotermal ve öteki yenilenebilir enerji kaynaklarını kullanan modern sera yatırımlarının ve organize tarım bölgelerinin geliştirilmesine devam edilmesini istiyor. Tedbirler: mevcut seraların modernizasyonuna ve modern sera kurulumuna yatırım ve işletme finansmanı desteği, jeotermal sera organize tarım bölgesi sayısının artırılması ve 2027'de enerjisi jeotermalden karşılanan **5** sera organize tarım bölgesinin altyapısının tamamlanması. Program, başta nüfusu yüksek büyükşehirler olmak üzere örtü altı yetiştiriciliğinin geliştirilmesini de öngörüyor. Bu tedbirler yapay zekâya ya da sera iklim kontrolüne yer vermiyor.
 
-Araştırma tarafında, TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü'nün ortak olduğu bir proje, yapay zekâ ve görüntü işlemeyle domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir mobil robot geliştiriyor; proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor (§10, §25). Proje sera iklimini değil, seradaki işleri hedefliyor.
-
-Eksik olan ise **Türkiye'de yapay zekâyla sera iklim kontrolünü yetiştiricinin yönetimiyle karşılaştıran, yayımlanmış bir deneme.**
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa sera, kontrollü ortam ve dikey tarım üzerine yeni gelişmeleri izliyor — hakemli çalışmalar dâhil. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Araştırma tarafında, TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü'nün ortak olduğu bir proje, yapay zekâ ve görüntü işlemeyle domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir mobil robot geliştiriyor; proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor. Proje sera iklimini değil, seradaki işleri hedefliyor.

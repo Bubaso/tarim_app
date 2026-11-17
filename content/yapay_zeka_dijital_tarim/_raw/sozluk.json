@@ -3,8 +3,8 @@
   "_desen": "Küçük harfli desen kelime başında aranır ve kelimenin sonuna kadar uzanır (Türkçe ekler); '=' önekli desen büyük-küçük harfe duyarlı ve tam kelime. Cümle ortasında büyük harfle başlayan geçiş özel adın parçası sayılır; tırnak içi, kalın/italik ve adres sayılmaz; uzun terimin geçişi kısa terime gölge olur. `yalniz`: balon yalnız bu başlıklarda; `haric`: terim bu başlıklarda başka anlamda geçtiği için balon açılmaz.",
   "terimler": [
     {"kimlik": "yapay-zeka", "tr": "Yapay zekâ", "en": "Artificial intelligence (AI)", "kaynak": "ab_yz_tuzugu",
-     "tanim_tr": "AB Yapay Zekâ Tüzüğü'nün tanımıyla yapay zekâ sistemi: değişen düzeylerde özerklikle çalışmak üzere tasarlanmış ve aldığı girdiden tahmin, içerik, öneri ya da karar gibi çıktıların nasıl üretileceğini çıkaran makine tabanlı sistem. Terimlerin karşılaştırması §2'de.",
-     "tanim_en": "In the EU AI Act's definition, an AI system is a machine-based system designed to operate with varying levels of autonomy that infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions. The terms are compared in §2.",
+     "tanim_tr": "AB Yapay Zekâ Tüzüğü'nün tanımıyla yapay zekâ sistemi: değişen düzeylerde özerklikle çalışmak üzere tasarlanmış ve aldığı girdiden tahmin, içerik, öneri ya da karar gibi çıktıların nasıl üretileceğini çıkaran makine tabanlı sistem.",
+     "tanim_en": "In the EU AI Act's definition, an AI system is a machine-based system designed to operate with varying levels of autonomy that infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions.",
      "kaynak_tr": "Kaynak: AB Yapay Zekâ Tüzüğü (2024).", "kaynak_en": "Source: EU AI Act (2024).",
      "desen_tr": ["yapay zekâ", "yapay zeka"], "desen_en": ["artificial intelligence", "=AI"]},
 
@@ -171,26 +171,26 @@
      "desen_tr": ["verim harita"], "desen_en": ["yield map"]},
 
     {"kimlik": "hassas-tarim", "tr": "Hassas tarım", "en": "Precision farming", "kaynak": "fao_2022_sofa",
-     "tanim_tr": "Zamana, mekâna ve tek tek bitki ve hayvana ait verileri toplayıp işleyen ve başka bilgilerle birleştiren; tarladaki farklılıkları doğru yönetmek ve yönetim kararlarını desteklemek için kullanılan yönetim stratejisi. Terimlerin karşılaştırması §2'de.",
-     "tanim_en": "A management strategy that gathers, processes and analyses temporal, spatial and individual data and combines them with other information, to manage variation in the field accurately and to support management decisions. The terms are compared in §2.",
+     "tanim_tr": "Zamana, mekâna ve tek tek bitki ve hayvana ait verileri toplayıp işleyen ve başka bilgilerle birleştiren; tarladaki farklılıkları doğru yönetmek ve yönetim kararlarını desteklemek için kullanılan yönetim stratejisi.",
+     "tanim_en": "A management strategy that gathers, processes and analyses temporal, spatial and individual data and combines them with other information, to manage variation in the field accurately and to support management decisions.",
      "kaynak_tr": "Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük.", "kaynak_en": "Source: FAO, The State of Food and Agriculture 2022, glossary.",
      "desen_tr": ["hassas tarım"], "desen_en": ["precision farming", "precision agriculture"]},
 
     {"kimlik": "akilli-tarim", "tr": "Akıllı tarım", "en": "Smart farming", "kaynak": "wolfert_2017",
-     "tanim_tr": "Bilgi ve iletişim teknolojisinin siber-fiziksel çiftlik yönetim döngüsünde kullanılmasını öne çıkaran gelişme. Terimlerin karşılaştırması §2'de.",
-     "tanim_en": "A development that emphasises the use of information and communication technology in the cyber-physical farm management cycle. The terms are compared in §2.",
+     "tanim_tr": "Bilgi ve iletişim teknolojisinin siber-fiziksel çiftlik yönetim döngüsünde kullanılmasını öne çıkaran gelişme.",
+     "tanim_en": "A development that emphasises the use of information and communication technology in the cyber-physical farm management cycle.",
      "kaynak_tr": "Kaynak: Wolfert ve arkadaşları (2017).", "kaynak_en": "Source: Wolfert and colleagues (2017).",
      "desen_tr": ["akıllı tarım"], "desen_en": ["smart farming", "smart agriculture"]},
 
     {"kimlik": "iklim-akilli-tarim", "tr": "İklim akıllı tarım", "en": "Climate-smart agriculture", "kaynak": "fao_2013_iklim_akilli_tarim",
-     "tanim_tr": "FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, mümkün olan yerlerde sera gazı salımını azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de.",
-     "tanim_en": "An approach defined and presented by FAO in 2010. It has three pillars: sustainably increasing agricultural productivity and incomes, adapting and building resilience to climate change, and reducing or removing greenhouse gas emissions where possible. It is not a single technology or practice that can be applied everywhere. The terms are compared in §2.",
+     "tanim_tr": "FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, mümkün olan yerlerde sera gazı salımını azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil.",
+     "tanim_en": "An approach defined and presented by FAO in 2010. It has three pillars: sustainably increasing agricultural productivity and incomes, adapting and building resilience to climate change, and reducing or removing greenhouse gas emissions where possible. It is not a single technology or practice that can be applied everywhere.",
      "kaynak_tr": "Kaynak: FAO, İklim Akıllı Tarım Kaynak Kitabı (2013).", "kaynak_en": "Source: FAO, Climate-Smart Agriculture Sourcebook (2013).",
      "desen_tr": ["iklim akıllı tarım"], "desen_en": ["climate-smart agriculture"]},
 
     {"kimlik": "dijital-tarim", "tr": "Dijital tarım", "en": "Digital farming", "kaynak": "abd_ers_2023",
-     "tanim_tr": "Tarımda dijital içeriğin toplanmasını, paylaşılmasını, birleştirilmesini, çözümlenmesini ve ona erişimi güçlendirmek için internet, nesnelerin interneti, mobil cihazlar ve tahmine dayalı analiz gibi bilgi teknolojilerinin yayılması. Terimlerin karşılaştırması §2'de.",
-     "tanim_en": "The diffusion of information technologies such as the internet, the Internet of Things, mobile devices and predictive analytics to enhance the collection, exchange, combination, analysis and access of digital content in agriculture. The terms are compared in §2.",
+     "tanim_tr": "Tarımda dijital içeriğin toplanmasını, paylaşılmasını, birleştirilmesini, çözümlenmesini ve ona erişimi güçlendirmek için internet, nesnelerin interneti, mobil cihazlar ve tahmine dayalı analiz gibi bilgi teknolojilerinin yayılması.",
+     "tanim_en": "The diffusion of information technologies such as the internet, the Internet of Things, mobile devices and predictive analytics to enhance the collection, exchange, combination, analysis and access of digital content in agriculture.",
      "kaynak_tr": "Kaynak: ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (2023).", "kaynak_en": "Source: USDA Economic Research Service (2023).",
      "desen_tr": ["dijital tarım"], "desen_en": ["digital farming", "digital agriculture"]},
 

@@ -157,3 +157,16 @@ paneli şimdi açabilirsin. sorun yok. commit konusunda sen karar ver."
 | 53 | **Dalda çalış, commit kararı Claude'da.** Her başlık `yapay-zeka-bolumu` dalına ayrı commit. GitHub'a gönderme ve her dağıtım yine kullanıcının açık onayıyla |
 | 54 | **Kaynak toplamayı araştırma ajanları yapabilir; kayda giren her şeyi Claude yeniden sınar** (Tur 7). Ajan kaynakları geçici bir çalışma klasörüne indirir ve aday kayıt (`bNN_aday.json`) üretir; aday kilitli kayıt değildir. Kilitli kayda giren her alıntı `dogrula_alintilar.py`'den geçer; metne giren her "geçmiyor", "bulunamadı", "ölçülmemiş" iddiası belgenin kendisinde ayrıca aranır, sayfa bağlamı okunur. Ajanın notu kaynak değildir |
 | 55 | **Yayına giden metin okur içindir** (kullanıcı, 17 Kasım 2026: "canlıya yansıyan metinler her zaman kullanıcı içindir"). Yazım notu, gerekçe, şerh ve süreç dili ("bu taramada bulunamadı", "belgede geçmiyor", "kipinde yazılmış", kaynak seçiminin gerekçesi) metne girmez; yeri kayıttaki `_not`, `_denetim`, `_reddedilen` alanları. Okurun bir rakamı doğru okuması için gereken çekince olgu olarak ve atıfla yazılır: "kurumun kendi açıklaması", "doğruluk oranı açıklanmadı", "… ölçen yayımlanmış bir değerlendirme bulunmuyor". Kapanış kalıbı: "Eksik olan ise **…**" |
+
+## I · Metin üslubu (Tur 10 sonrası · 17 Kasım 2026)
+
+Kullanıcı: "her metinde 'özet' adı altında bir bölüm var. buna gerek yok. bu
+çok amatör gösteriyor dosyayı. hem de her metinde olduğu için çok tekdüze.
+bu özet kısmını metinlere yedirmeliyiz. bir başlığı açınca metin direk
+başlamalı. … metinlerin hiçbir yerinde §23, §25 vb. gibi bizim kendi
+planlarımıza işaret eden şey, veya dosya hazırlanırken kullanılan prensipler,
+referanslar, gerekçeler vs. bulunmamalı." Ayrıntılar soruyla netleşti.
+
+| # | karar |
+|---|---|
+| 56 | **Metin doğrudan başlar; tekrar eden kalıp yok.** (a) Ayrı özet bloğu yok: özetin içeriği giriş paragrafına yedirilir; §1'in giriş paragrafı merkez sayfada da gösterilir, paylaşım açıklaması da ilk paragraftan. (b) Metinlerde § göndermesi ve başka başlığa işaret eden cümle yok. (c) Başlıklarda "Bu sayfa nasıl güncelleniyor" bölümü yok; güncelleme anlatımı merkez sayfada tek yerde. (d) "Eksik olan ise **…**" kapanış kalıbı yok (55'teki kapanış kalıbını kaldırır); eksik bilgi metnin akışında, her başlıkta farklı söylenir. (e) Hazırlık ilkesi ve gerekçe cümlesi yok; bilginin kaynağını söyleyen atıf kalır (yazar-yıl atıfları dâhil). (f) Okurun gördüğü arayüzde başlık numarası yok (üst etiket, harita karosu, önceki/sonraki, haber satırı, ana sayfa şeridi, paylaşım başlığı); sözlük ve kaynakça numara yerine başlığın kısa adını yazar. Editör paneli numarayı kullanmaya devam eder. `dogrula_bolumler.py` (a)-(d)'yi sınar |

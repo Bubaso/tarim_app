@@ -61,7 +61,7 @@ class YzBaslikEkrani extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          '§${b.no} · ${buyukHarf(kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman, en)}',
+                          buyukHarf(kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman, en),
                           style: YzYazi.ustEtiket(renk: YzRenk.makine),
                         ),
                         const SizedBox(height: 10),
@@ -250,7 +250,7 @@ class _KomsuBasliklar extends StatelessWidget {
                 Text(ileri ? (en ? 'NEXT →' : 'SONRAKİ →') : (en ? '← PREVIOUS' : '← ÖNCEKİ'),
                     style: YzYazi.ustEtiket()),
                 const SizedBox(height: 6),
-                Text('§${b.no} ${b.ad(en)}',
+                Text(b.ad(en),
                     textAlign: ileri ? TextAlign.end : TextAlign.start,
                     style: YzYazi.baslik(15)),
               ],

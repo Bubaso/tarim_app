@@ -1,6 +1,6 @@
 # 10 · Harvesting and robotics
 
-> **Summary.** The hardest job at harvest is picking selectively: seeing the ripe fruit, finding the one behind the leaf, detaching it without bruising. That is why harvesting robots long failed to leave the laboratory: in a review published in 2014, the **50** robots examined had an average harvest success of **66%** and took **33** seconds per fruit; performance had not improved in three decades and none had been commercialised. A pepper-harvesting robot tested in a commercial greenhouse picked **61%** of the fruit when the crop was grown to suit it, and **18%** under the greenhouse's usual conditions. According to a 2022 review, widespread use in orchards is still not in sight. Published work from Türkiye is so far at the stage of recognising fruit in images; a project for an autonomous greenhouse robot that will also be able to harvest started with TÜBİTAK support in 2026 (§25).
+The hardest job at harvest is picking ripe fruit selectively and detaching it without bruising, which is why harvesting robots long failed to leave the laboratory. In a review published in 2014, the **50** robots examined had an average harvest success of **66%** and took **33** seconds per fruit. With a pepper-harvesting robot tested in a commercial greenhouse, success turned out to depend heavily on whether the crop was grown to suit it, and according to a 2022 review, widespread use in orchards is still not in sight. Published work from Türkiye is so far at the stage of recognising fruit in images.
 
 ## What it does
 
@@ -10,7 +10,7 @@ A selective harvesting robot has to do three things at once: recognise the fruit
 
 ## What the field says
 
-Bac and colleagues (2014) compared **50** harvesting robots developed for high-value crops on the same measures:
+Bac and colleagues (2014) compared harvesting robots developed for high-value crops on the same measures:
 
 | Measure (average of 50 robots) | Value |
 |---|---|
@@ -21,11 +21,11 @@ Bac and colleagues (2014) compared **50** harvesting robots developed for high-v
 | Peduncle damage | **45%** |
 | Time per fruit | **33** seconds |
 
-The fastest was a kiwi robot: **1** second. But the review's main finding lies elsewhere: the performance of harvesting robots had not improved in the past three decades, and none of the **50** robots had been commercialised. The authors' first recommendation was therefore to simplify the task.
+The fastest was a kiwi robot: **1** second. But the review's main finding lies elsewhere: the performance of harvesting robots had not improved in the past three decades, and none of the robots examined had been commercialised. The authors' first recommendation was therefore to simplify the task.
 
 The pepper-harvesting robot SWEEPER showed what that recommendation means in practice (Arad and colleagues, 2020). The robot was tested on **262** fruits over four weeks in a commercial greenhouse. Picking one fruit took **24** seconds on average, about half of it logistics; in the laboratory, running the arm faster brought this down to **15** seconds. Harvest success was **61%** when the crop was grown in the conditions best suited to the robot, and **18%** under the greenhouse's usual conditions. The authors' conclusion: success in robotic harvesting depends on finding crop conditions and varieties that suit the robot.
 
-Zhou and colleagues' 2022 review stands in the same place: despite significant progress in the field, widespread use of harvesting robots in orchards is still not in sight; the authors analyse why existing robots perform inadequately.
+Zhou and colleagues' 2022 review examines why, despite significant progress in the field, existing robots still perform inadequately.
 
 ## Where AI stands
 
@@ -35,12 +35,6 @@ AI's contribution is the robot's eye: finding the fruit in a camera image and ju
 
 On the machinery side, harvesting in Türkiye rests on conventional mechanisation. According to the ministry's data there were **1,610,133** tractors and **21,116** combine harvesters in 2025; **49.3%** of the combines were 10 years old or younger, and **71%** of the tractors had 35-70 horsepower.
 
-The 2027 Programme writes that the small-scale, fragmented and scattered land structure of holdings makes effective use of mechanisation and modern production techniques harder (§6). A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
+The 2027 Programme writes that the small-scale, fragmented and scattered land structure of holdings makes effective use of mechanisation and modern production techniques harder. A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
 
-On the research side, published harvesting-robot work from Türkiye is at the image-recognition stage. In two 2024 studies, one of them with co-authors, Kahya of Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field.
-
-What is missing is **a published trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and its success was measured.**
-
-## How this page is kept up to date
-
-This page watches two things: new developments in harvesting robots and selective harvesting — peer-reviewed studies included; and new releases of the sources behind the figures here, such as the ministry's agricultural machinery statistics and the new annual programme. New information is added to the page after an editor's approval.
+On the research side, in two 2024 studies, one of them with co-authors, Kahya of Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field. No trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and had its success measured has yet been published. An autonomous greenhouse robot that will also be able to harvest, meanwhile, is being developed in a project that started with TÜBİTAK support in 2026.

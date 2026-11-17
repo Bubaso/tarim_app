@@ -1,6 +1,6 @@
 # 2 · Kavramlar: yapay zekâ, dijital tarım, hassas tarım
 
-> **Özet.** Üç terim çoğu zaman birbirinin yerine kullanılıyor ve aynı şeyi anlatmıyor. Yapay zekâ bir teknoloji ailesi: AB'ye ve OECD'ye göre aldığı girdiden tahmin, içerik, öneri ya da kararın nasıl üretileceğini çıkaran sistemler. Hassas tarım bir yönetim stratejisi: tarlanın, bitkinin ve hayvanın değişkenliğini veriyle ölçüp karara dökmek; ABD Tarım Bakanlığı'na göre temel teknolojileri 1993 ve 1995'te ticarileşti ve tanımı yapay zekâyı şart koşmuyor. Dijital tarım ikisini de kapsayan şemsiye: verinin toplanması, karar desteğine dönüşmesi ve ekipmana aktarılması. Türkiye'de bakanlık belgeleri "akıllı tarım"ı şemsiye terim olarak kullanıyor; bakanlığın Şûra çalışma belgesi de bu terimlerin Türkçeye çevrilirken karıştırılabildiğini yazıyor.
+Yapay zekâ, dijital tarım ve hassas tarım çoğu zaman birbirinin yerine kullanılıyor, ama üçü aynı şeyi anlatmıyor. Yapay zekâ bir teknoloji ailesi. Hassas tarım ise tarlanın, bitkinin ve hayvanın değişkenliğini veriyle ölçüp karara döken bir yönetim stratejisi; tanımı yapay zekâyı şart koşmuyor, temel teknolojileri de yapay zekâ yaygınlaşmadan önce ticarileşti. Dijital tarım ikisini de kapsayan şemsiye. Terimler Türkçeye çevrilirken de birbirine karışabiliyor; Türkiye'de bakanlık belgeleri şemsiye terim olarak "akıllı tarım"ı kullanıyor.
 
 ## Yapay zekâ
 
@@ -16,7 +16,7 @@ Türkiye'de Ulusal Yapay Zekâ Stratejisi (2021-2025) yapay zekâyı "bir bilgis
 
 Uluslararası Hassas Tarım Derneği'nin (ISPA) Ocak 2024'te güncellediği tanıma göre hassas tarım bir teknoloji değil, bir yönetim stratejisi: zamana, mekâna ve tek tek bitki ve hayvana ait verileri toplayıp işleyen, başka bilgilerle birleştiren ve tahmin edilen değişkenliğe göre yönetim kararlarını destekleyen; amacı kaynak kullanım etkinliğini, verimliliği, kaliteyi, kârlılığı ve sürdürülebilirliği artırmak. Derneğin ilk resmî tanımı 2018'de başlayan, üyelerin görüşlerinin ve **46** kişilik bir uzman panelinin katıldığı bir süreçle yazılmıştı; tanım 2023'teki genişletme kararının ardından Ocak 2024'te güncellendi. FAO'nun 2022 tanımı da hassas tarımı bir yönetim stratejisi olarak koyuyor.
 
-Hassas tarımın temel teknolojileri yapay zekâ yaygınlaşmadan önce ticarileşti. ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e, değişken oranlı uygulama ekipmanınınkini 1995'e tarihliyor; aynı servis 2023'te, yapay zekânın ve makine öğrenmesinin tarımda henüz ölçekli kullanılmadığını, bu yüzden verimliliğe katkılarına dair kanıtın az olduğunu yazıyor. FAO, uydu konumuyla çalışan otomatik dümenlemeyi hassas tarım teknolojisinin iyi bir örneği sayıyor.
+ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e, değişken oranlı uygulama ekipmanınınkini 1995'e tarihliyor; aynı servis 2023'te, yapay zekânın ve makine öğrenmesinin tarımda henüz ölçekli kullanılmadığını, bu yüzden verimliliğe katkılarına dair kanıtın az olduğunu yazıyor. FAO, uydu konumuyla çalışan otomatik dümenlemeyi hassas tarım teknolojisinin iyi bir örneği sayıyor.
 
 Hassas tarım değişken oranlı uygulamaya da eşit değil. Lowenberg-DeBoer ve Erickson'a göre hassas tarım tek bir teknoloji değil, çiftçinin ihtiyacına göre seçtiği bir alet çantası; değişken oranlı uygulama bu çantadaki araçlardan yalnız biri ve 2019'da çiftliklerin nadiren **%20**'sinden fazlasında kullanılıyordu. Yazarlar hassas tarımın net bir tanımı olmadığını, bir araştırma grubunun bilimsel yayınlardan ve internetten **27** ayrı tanım derlediğini aktarıyor. Avrupa Parlamentosu'nun 2016 araştırmasına göre hassas tarım makinesiz de uygulanabiliyor: özellikle gelişmekte olan ülkelerde veri kullanılıyor, ama ekim, hasat ve sulama gibi işleri insanlar yapıyor.
 
@@ -30,21 +30,15 @@ Adı benzeyen bir terim de karışıklık yaratıyor: iklim akıllı tarım. FAO
 
 ## Nerede örtüşüyor, nerede ayrışıyor
 
-| | Örnek | Ayrıntı |
-|---|---|---|
-| Hassas tarım | Uydu konumuyla otomatik dümenleme, verim haritası, değişken oranlı uygulama | §6, §22 |
-| Hassas tarımın içinde yapay zekâ | Kamerayla yabancı otu tanıyıp ilacı yalnız ona atmak | §8 |
-| Hassas tarımın dışında yapay zekâ | Fiyat tahmini, hava tahmini, danışmanlıkta dil modelleri | §16, §17, §18 |
-| Dijital tarımın kayıt tarafı | Çiftçi Kayıt Sistemi, e-Devlet üzerinden başvuru | §21 |
-
-Bu dosya dijital tarımı şemsiye olarak alıyor: yapay zekâ onun çekirdeğinde; sensörler, dronlar, robotik ve büyük veri de kapsamında.
+| | Örnek |
+|---|---|
+| Hassas tarım | Uydu konumuyla otomatik dümenleme, verim haritası, değişken oranlı uygulama |
+| Hassas tarımın içinde yapay zekâ | Kamerayla yabancı otu tanıyıp ilacı yalnız ona atmak |
+| Hassas tarımın dışında yapay zekâ | Fiyat tahmini, hava tahmini, danışmanlıkta dil modelleri |
+| Dijital tarımın kayıt tarafı | Çiftçi Kayıt Sistemi, e-Devlet üzerinden başvuru |
 
 ## Türkiye'de kullanım
 
 Tarım ve Orman Bakanlığı'nın 2024-2028 Stratejik Planı'nda (2025 güncellemesi) "akıllı tarım uygulamaları" bir şemsiye terim: ürün doğrulama, rekolte tahmini, yapay zekâ, coğrafi bilgi sistemleri ve algoritma gibi teknolojik gelişmelerin kullanımıyla yaygınlaştırılacak uygulamalar. Planda "Dijital Dönüşüm ve Tarım 4.0 Hizmetleri" adlı bir faaliyet var; bir performans göstergesi de iklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısını izliyor ve 2028 hedefi **585** işletme. Ulusal Kırsal Kalkınma Stratejisi (2024-2028) ise "akıllı tarım/iklim akıllı" ifadesiyle iki ayrı kavramı yan yana kullanıyor.
 
 IV. Tarım Orman Şûrası'nın dijital dönüşüm çalışma grubunun belgesi karışıklığı açıkça kabul ediyor: akıllı, dijital ve hassas tarım gibi terimler yabancı terimlerden Türkçeye çevrilirken karıştırılabiliyor; ilk başlarda uzmanlar "Hassas Tarım" terimini kullanırken sonra "Akıllı Tarım" ve "Dijital Tarım" daha yaygın kabul gördü. Belge, GPS'in halkın kullanımına açılmasıyla başlayan hassas tarım dönemini Tarım 3.0 sayıyor; 2010'larda başlayan döneme "Tarım 4.0", "Akıllı Tarım", "Dijital Tarım" ya da "E-Tarım" dendiğini yazıyor. FAO ile EBRD'nin 2025 raporuna göre Tarım 4.0 Türkiye'de yaygın olarak kullanılan bir terim; rapor, bakanlığın 2020 anketine dayanarak çiftçilerin **%3**'ünden azının uzaktan algılama, sensör, çiftlik ya da sürü yönetimi yazılımı, hassas tarım ya da robotik gibi akıllı tarım teknolojilerini kullandığını aktarıyor.
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa yapay zekânın ve dijital tarımın resmî tanımlarındaki değişiklikleri izliyor: Avrupa Komisyonu'nun Yapay Zekâ Tüzüğü sayfası, OECD'nin yapay zekâ ilkeleri, Resmî Gazete'de ve Mevzuat Bilgi Sistemi'nde çıkan yapay zekâ düzenlemeleri ve bakanlığın stratejik planı. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

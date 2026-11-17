@@ -1,6 +1,6 @@
 # 2 · Terms: AI, digital farming, precision farming
 
-> **Summary.** The three terms are often used as if interchangeable, and they do not describe the same thing. AI is a family of technologies: according to the EU and the OECD, systems that infer from the input they receive how to generate predictions, content, recommendations or decisions. Precision farming is a management strategy: measuring the variability of fields, plants and animals with data and turning it into decisions; according to the US Department of Agriculture, its core technologies were commercialised in 1993 and 1995, and its definition does not require AI. Digital farming is the umbrella that covers both: collecting data, turning it into decision support and passing it on to equipment. In Türkiye, ministry documents use "akıllı tarım" (smart farming) as an umbrella term, and the ministry's own working paper for its Agriculture and Forestry Council writes that these terms can be confused when translated into Turkish.
+AI, digital farming and precision farming are often used as if they were interchangeable, but the three do not describe the same thing. AI is a family of technologies. Precision farming, by contrast, is a management strategy that measures the variability of fields, plants and animals with data and turns it into decisions; its definition does not require AI, and its core technologies were commercialised before AI became widespread. Digital farming is the umbrella that covers both. The terms can also be confused with one another when translated into Turkish; in Türkiye, ministry documents use "akıllı tarım" (smart farming) as the umbrella term.
 
 ## Artificial intelligence
 
@@ -16,7 +16,7 @@ In Türkiye, the National AI Strategy (2021-2025) defines AI as "bir bilgisayar�
 
 According to the definition the International Society of Precision Agriculture (ISPA) updated in January 2024, precision farming is not a technology but a management strategy: it gathers, processes and analyses temporal, spatial and individual plant and animal data, combines them with other information and supports management decisions according to estimated variability, in order to improve resource use efficiency, productivity, quality, profitability and sustainability. The society's first official definition was written through a process that began in 2018 with feedback from its members and a panel of **46** experts; following a decision in 2023 to expand it, the definition was updated in January 2024. FAO's 2022 definition also frames precision farming as a management strategy.
 
-The core technologies of precision farming were commercialised before AI became widespread. The US Department of Agriculture's Economic Research Service (ERS) dates the commercialisation of the yield monitor to 1993 and of variable-rate equipment to 1995; in 2023 the same service wrote that AI and machine learning have not yet been deployed at scale in agriculture, so there is little evidence of their contribution to productivity. FAO counts auto-steer guided by satellite positioning as a good example of precision farming technology.
+The US Department of Agriculture's Economic Research Service (ERS) dates the commercialisation of the yield monitor to 1993 and of variable-rate equipment to 1995; in 2023 the same service wrote that AI and machine learning have not yet been deployed at scale in agriculture, so there is little evidence of their contribution to productivity. FAO counts auto-steer guided by satellite positioning as a good example of precision farming technology.
 
 Nor is precision farming the same as variable-rate application. According to Lowenberg-DeBoer and Erickson, precision farming is not one technology but a toolkit from which farmers choose what they need; variable-rate application is only one tool in the kit and, as of 2019, was rarely used on more than **20%** of farms. The authors note that there is no clear definition of precision farming, and that one research group compiled **27** different definitions from the scientific literature and the internet. According to a 2016 study for the European Parliament, precision farming can also be practised without machines: especially in developing countries, data are used while tasks such as planting, harvesting and irrigation are done by people.
 
@@ -30,21 +30,15 @@ A similarly named term adds to the confusion: climate-smart agriculture. Defined
 
 ## Where they overlap and where they part
 
-| | Example | More |
-|---|---|---|
-| Precision farming | Auto-steer with satellite positioning, yield maps, variable-rate application | §6, §22 |
-| AI within precision farming | Recognising weeds with a camera and spraying only them | §8 |
-| AI outside precision farming | Price forecasting, weather forecasting, language models in advisory work | §16, §17, §18 |
-| The registration side of digital farming | The Farmer Registration System, applications through e-Government | §21 |
-
-This guide takes digital farming as the umbrella: AI is at its core, and sensors, drones, robotics and big data also fall within its scope.
+| | Example |
+|---|---|
+| Precision farming | Auto-steer with satellite positioning, yield maps, variable-rate application |
+| AI within precision farming | Recognising weeds with a camera and spraying only them |
+| AI outside precision farming | Price forecasting, weather forecasting, language models in advisory work |
+| The registration side of digital farming | The Farmer Registration System, applications through e-Government |
 
 ## Usage in Türkiye
 
 In the Ministry of Agriculture and Forestry's 2024-2028 Strategic Plan (2025 update), "akıllı tarım uygulamaları" (smart farming applications) is an umbrella term: applications to be spread through the use of technological developments such as product verification, harvest forecasting, AI, geographic information systems and algorithms. The plan includes an activity named "Dijital Dönüşüm ve Tarım 4.0 Hizmetleri" (Digital Transformation and Agriculture 4.0 Services), and a performance indicator tracks the number of farms using climate-friendly smart farming technology systems, with a 2028 target of **585** farms. The National Rural Development Strategy (2024-2028) uses two separate concepts side by side in the phrase "akıllı tarım/iklim akıllı" (smart farming/climate-smart).
 
 The working paper of the digital transformation working group of the Fourth Agriculture and Forestry Council openly acknowledges the confusion: terms such as smart, digital and precision farming can be confused when translated into Turkish from foreign terms; at first experts used "Hassas Tarım" (precision farming), and later "Akıllı Tarım" (smart farming) and "Dijital Tarım" (digital farming) became more widely accepted. The paper calls the precision farming era, which began when GPS was opened to public use, Agriculture 3.0, and writes that the period that began in the 2010s is called "Tarım 4.0", "Akıllı Tarım", "Dijital Tarım" or "E-Tarım" (Agriculture 4.0, smart, digital or e-agriculture). According to a 2025 report by FAO and the EBRD, Agriculture 4.0 is a widely used term in Türkiye; based on a 2020 ministry survey, the report states that fewer than **3%** of farmers use smart farming technologies such as remote sensing, sensors, farm or herd management software, precision farming or robotics.
-
-## How this page is kept up to date
-
-This page watches for changes in the official definitions of AI and digital farming: the European Commission's AI Act page, the OECD AI principles, AI regulations published in Türkiye's Official Gazette (Resmî Gazete) and legislation database, and the ministry's strategic plan. New information is added to the page after an editor's approval.

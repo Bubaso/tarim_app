@@ -1,10 +1,8 @@
 # 22 · Dünyada durum: bölge bölge
 
-> **Özet.** Dijital tarımın dünyadaki yaygınlığı tek bir ölçüyle sıralanamıyor; her bölge başka bir şeyi sayıyor. ABD'de çiftliklerin **%22**'si 2025'te herhangi bir hassas tarım uygulaması kullandığını bildiriyor; ABD Tarım Bakanlığı'nın 2023 tarihli bir raporuna göre ise otomatik yönlendirme ana ürünlerin ekili alanının yarısından fazlasında kullanılıyordu. AB'de çiftliklerin yaklaşık **%18**'i hassas tarım uyguluyor, ama bu çiftlikler tarım alanının yaklaşık **%44**'ünü işliyor. Çin'de 2025 sonuna kadar tarım makinelerine toplam **3,5** milyonu aşkın uydu konum cihazı takıldı; tarım dronlarının sayısı **300.000**'i aşıyor. Hindistan'da **103** milyonu aşkın çiftçiye dijital kimlik verildi ve yapay zekâlı bir sohbet robotu **9,3** milyonu aşkın soruyu yanıtladı. İsrail'de ölçü çiftlik değil şirket: Start-Up Nation Central'ın kendi duyurusuna göre tarım ve gıda teknolojisinde **750**'yi aşkın şirket var. Afrika'da dijital tarım hizmetlerine kayıtlı **33** milyonu aşkın çiftçinin yalnız **%42**'si hizmeti herhangi bir sıklıkta kullanıyordu.
+Dijital tarımın dünyadaki yaygınlığı tek bir ölçüyle sıralanamıyor, çünkü her bölge başka bir şeyi sayıyor. ABD'nin çiftlik anketi ve AB, teknolojiyi kullanan çiftliklerin payına; ABD'nin ekonomik araştırma servisi ise ekili alanın payına bakıyor. Çin Tarım Bakanlığı kendi bileşik göstergesini izliyor, Hindistan idari kayıtları sayıyor; Afrika'da kıta ölçeğinde yapılan bir sayım kayıtlı çiftçiyle fiilen kullananı ayrı ayrı veriyor, İsrail ise çiftlikleri değil şirketleri ve sermayeyi ölçüyor. Bu kadar farklı ölçülerden bir sıralama çıkmıyor.
 
-## Rakamlar neden yan yana konamıyor
-
-Bölgeler dijital tarımı farklı birimlerle ölçüyor. ABD'nin çiftlik anketi ve AB, teknolojiyi kullanan çiftliklerin payını; ABD'nin ekonomik araştırma servisi ekili alanın payını; Çin Tarım Bakanlığı kendi bileşik göstergesini; Hindistan idari kayıtları; Afrika raporu kayıtlı ve fiilen kullanan çiftçiyi; İsrail ise şirketleri ve sermayeyi sayıyor. Bu yüzden aşağıdaki rakamlardan bir sıralama çıkmıyor. Yapay zekâ da çoğu yerde ayrıca ölçülmüyor: ABD'nin anketi hassas tarım uygulamalarını, AB'nin çiftlik yapı araştırması internet, yönetim bilgi sistemi, robotik ve hassas tarımı soruyor; Hindistan bir sohbet robotunun yanıtladığı soruları, Çin ise dronları ve uydu konum cihazlarını sayıyor.
+Yapay zekâ da çoğu yerde ayrıca ölçülmüyor. ABD'nin anketi hassas tarım uygulamalarını, AB'nin çiftlik yapı araştırması internet, yönetim bilgi sistemi, robotik ve hassas tarımı soruyor; Hindistan bir sohbet robotunun yanıtladığı soruları, Çin ise dronları ve uydu konum cihazlarını sayıyor.
 
 ## ABD: çiftlik payı ile alan payı
 
@@ -39,9 +37,3 @@ Hükümetin Şubat 2026 notuna göre 2023'te başlatılan, sesle çalışan yapa
 Afrika'da kıta ölçeğindeki kapsamlı sayımlardan biri CTA ile Dalberg'in 2019 raporu. Bu rapora göre kıtada en az **390** aktif dijital tarım çözümü vardı ve bunlar **33** milyonu aşkın küçük çiftçi ve çobanı kaydetmişti. Ama kayıtlıların yalnız **%42**'si hizmeti herhangi bir sıklıkta kullanıyordu; yüksek etkin kullanıcıların payı muhtemelen **%15-30** arasındaydı. Kayıtların yaklaşık **%20**'si mükerrerdi; tekil kullanıcı sayısı yaklaşık **26** milyon. Alana yılda yaklaşık **175** milyon avro bağış akarken özel yatırım 2018'de yaklaşık **47** milyon avroydu.
 
 Afrika Birliği'nin Temmuz 2024'te kabul ettiği kıtasal yapay zekâ stratejisi tarımı, sağlık ve eğitimle birlikte yapay zekâ benimsemesinde öncelikli üç sektörden biri sayıyor. Strateji ürün hastalığı teşhisi, fiyat tahmini, uzman danışmanlığı ve finansal hizmetlere erişim gibi küçük ölçekli kullanım örneklerinden söz ediyor ve tarımdaki örnekleri belgeleyecek bir mükemmeliyet merkezi öneriyor. Afrika'da internet kullanımı 2015'te **%20**'den 2023'te **%40**'a çıktı.
-
-Türkiye'deki durum §23'te.
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa bölgelerin resmî istatistiklerinin ve politika belgelerinin yeni sürümlerini izliyor: ABD Tarım Bakanlığı'nın anketleri, Eurostat'ın çiftlik yapı araştırması, Çin Tarım ve Köy İşleri Bakanlığı'nın akıllı tarım duyuruları, Afrika Birliği'nin belgeleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

@@ -1,6 +1,6 @@
 # 13 · Greenhouses and controlled environments
 
-> **Summary.** In a greenhouse every climate variable is measured and can be adjusted; it is one of the places where AI has been pitted directly against growers. In the first round of the international Autonomous Greenhouse Challenge, with cucumber, only one of five AI teams beat the human-operated reference compartment; in the second round, with cherry tomato, all five did. For vertical farming, the main obstacles to wider use are profitability, energy efficiency, public policy and consumer acceptance. In Türkiye, the programme puts forward protected cultivation and geothermal greenhouse zones; there is no published Turkish trial comparing AI greenhouse climate control with management by growers.
+Who runs a greenhouse better: an experienced grower or an algorithm? In controlled environments such as greenhouses and vertical farms, every climate variable is measured and can be adjusted, which makes the greenhouse one of the places where AI has been pitted directly against growers. In the first round of the international Autonomous Greenhouse Challenge, with cucumber, only one of five AI teams beat the human-operated reference compartment; in the second round, with cherry tomato, all five did. There is no published example of such a comparison in Türkiye; greenhouse policy there focuses on protected cultivation and geothermal greenhouse zones.
 
 ## What it does
 
@@ -23,16 +23,10 @@ Vertical farming promises production that is climate-resilient, potentially with
 
 ## Where AI stands
 
-The greenhouse is a more favourable arena for AI than the open field: everything is measured, everything can be adjusted, and the result can be counted as net profit. The challenge's two rounds used different crops and durations; still, in the first round one team out of five beat the compartment run by growers, and in the second all of them did. But the results come from small experimental compartments (**96** m² per compartment in the first round) and rounds lasting a few months, not from a multi-year comparison in a commercial operation.
+Compared with the open field, the greenhouse is a favourable arena for AI: conditions are under control, and the result can be counted as net profit. But the challenge's results come from small experimental compartments (**96** m² per compartment in the first round) and rounds lasting a few months, and the two rounds used different crops and durations. This is not a multi-year comparison in a commercial operation.
 
 ## Türkiye
 
 The 2027 Programme considers controlled protected cultivation important for reducing climate-driven swings in production and prices and for steady year-round supply; it calls for continued development of modern greenhouse investments and organised agricultural zones that use geothermal and other renewable energy. The measures: investment and operating finance support for modernising existing greenhouses and building modern ones, increasing the number of geothermal greenhouse organised agricultural zones, and completing in 2027 the infrastructure of **5** greenhouse organised agricultural zones whose energy comes from geothermal sources. The programme also foresees developing protected cultivation, above all in populous metropolitan areas. These measures give no role to AI or greenhouse climate control.
 
-On the research side, a project in which the Plant Protection Central Research Institute under TAGEM is a partner is developing an autonomous mobile robot to fertilise, spray and harvest in a tomato greenhouse using AI and image processing; the project was found worthy of support under TÜBİTAK's 1711 AI Ecosystem Call, started on 1 January 2026 and is planned to be completed at the end of 2027 (§10, §25). It targets the work inside the greenhouse, not the greenhouse climate.
-
-What is missing is **a published trial in Türkiye comparing AI greenhouse climate control with management by growers.**
-
-## How this page is kept up to date
-
-This page watches for new developments in greenhouses, controlled environments and vertical farming — peer-reviewed studies included. New information is added to the page after an editor's approval.
+On the research side, a project in which the Plant Protection Central Research Institute under TAGEM is a partner is developing an autonomous mobile robot to fertilise, spray and harvest in a tomato greenhouse using AI and image processing; the project was found worthy of support under TÜBİTAK's 1711 AI Ecosystem Call, started on 1 January 2026 and is planned to be completed at the end of 2027. It targets the work inside the greenhouse, not the greenhouse climate.

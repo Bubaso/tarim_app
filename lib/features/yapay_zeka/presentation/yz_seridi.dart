@@ -97,7 +97,7 @@ class YzSeridi extends ConsumerWidget {
                                     style: YzYazi.veri(boy: 12.5),
                                   ),
                                   TextSpan(
-                                    text: '§${oneCikan.no} ${oneCikan.ad(en)}',
+                                    text: oneCikan.ad(en),
                                     style: YzYazi.veri(
                                         boy: 12.5,
                                         renk: YzRenk.bitki,

@@ -21,7 +21,7 @@ KURALLAR
   4. İKİ DİL. TR ve EN sürümlerin sayı kümeleri aynı olmalı: bir dilde olup
      ötekinde olmayan sayı, çeviride düşen ya da eklenen bilgi demek.
   5. BİÇİM. Başlık satırı "# NN · …" ile başlamalı ve dosya adındaki
-     numarayla tutmalı; özet bloğu (">") bulunmalı.
+     numarayla tutmalı (dosya biçimi; okura görünmüyor).
   6. ÜRETİLMİŞ BAŞLIK. §30 Kaynakça elle yazılmıyor, bütün kayıtlardan
      üretiliyor (`kaynakca_uret.py`). Künyelerdeki DOI, tarih ve sayfa
      numaraları iki dilin sayı ayrıştırıcısında farklı okunduğu için §30 sayı
@@ -37,6 +37,11 @@ KURALLAR
      yeniden okunmalı. Alıntılar burada sınanmıyor: her alıntı belgenin
      kendisine karşı `dogrula_alintilar.py`de sınanıyor ve kopya aynı
      belgeden ek alıntı taşıyabilir.
+  8. ÜSLUP (karar 56). Metin başlık satırından sonra doğrudan düz yazıyla
+     başlar (alt başlık, tablo ya da alıntı bloğu ile değil); hiçbir yerde
+     özet/alıntı bloğu (">"), "§" göndermesi, "Bu sayfa nasıl güncelleniyor"
+     bölümü ya da "Eksik olan ise …" kalıbı yok. §29 ve §30 üretilmiş: ilk
+     satır kuralı onlara uygulanmaz, ötekiler uygulanır.
 """
 from __future__ import annotations
 
@@ -156,11 +161,6 @@ def sina(no: str, dosyalar: dict[str, Path]) -> None:
         ilk = metin.splitlines()[0] if metin else ""
         if not re.match(rf"# {int(no)} · \S", ilk):
             hata(f"{yol.name}: başlık satırı '# {int(no)} · …' değil: {ilk[:50]!r}")
-        if not any(s.startswith("> ") for s in metin.splitlines()):
-            hata(f"{yol.name}: özet bloğu ('> ') yok")
-        for g in re.findall(r"§(\d+)", "\n".join(l for l in metin.splitlines() if not l.startswith("# "))):
-            if int(g) not in GECERLI_BASLIKLAR:
-                hata(f"{yol.name}: §{g} göndermesi iskelette yok")
         sayilar = metin_sayilari(metin, dil)
         for deger, bas, satir in sayilar:
             if not izlenir(deger, bas, havuz):
@@ -188,7 +188,11 @@ def sina_uretilmis(no: str, dosyalar: dict[str, Path]) -> None:
     spec = importlib.util.spec_from_file_location(f"uretici_{no}", BURASI / URETICI[no])
     uretici = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(uretici)
-    tr, en, kayit = uretici.uret()
+    try:
+        tr, en, kayit = uretici.uret()
+    except SystemExit as e:                 # üretici kendi denetiminde durdu
+        hata(f"{URETICI[no]}: {e}")
+        return
     for dil, beklenen in (("tr", tr), ("en", en)):
         yol = dosyalar.get(dil)
         if yol is None:
@@ -204,6 +208,32 @@ def sina_uretilmis(no: str, dosyalar: dict[str, Path]) -> None:
         kayit_yolu = BURASI / f"b{no}_kaynaklar.json"
         if not kayit_yolu.exists() or kayit_yolu.read_text(encoding="utf-8") != kayit:
             hata(f"b{no}_kaynaklar.json üreticinin çıktısıyla aynı değil — {URETICI[no]} koşturulmalı")
+
+
+USLUP_YASAK = [
+    (re.compile(r"^> ", re.M), "özet ya da alıntı bloğu ('> ')"),
+    (re.compile(r"§\d"), "'§' göndermesi"),
+    (re.compile(r"^## (Bu sayfa nasıl güncelleniyor|How this page is kept up to date)", re.M),
+     "'Bu sayfa nasıl güncelleniyor' bölümü"),
+    (re.compile(r"Eksik olan ise|What is missing is"), "'Eksik olan ise' kalıbı"),
+]
+
+
+def sina_uslup(no: str, dosyalar: dict[str, Path]) -> None:
+    """Kural 8 (karar 56): metin doğrudan başlar; tekrar eden kalıp yok."""
+    for yol in dosyalar.values():
+        satirlar = yol.read_text(encoding="utf-8").splitlines()
+        govde = "\n".join(satirlar[1:])
+        for desen, ad in USLUP_YASAK:
+            m = desen.search(govde)
+            if m:
+                satir = govde[:m.start()].count("\n") + 2
+                hata(f"{yol.name}:{satir}: {ad} var (karar 56)")
+        if no in URETICI:
+            continue
+        ilk = next((s for s in satirlar[1:] if s.strip()), "")
+        if ilk.startswith(("#", "|", ">")):
+            hata(f"{yol.name}: metin doğrudan başlamıyor — ilk satır {ilk[:40]!r} (karar 56)")
 
 
 def sina_kopyalar() -> None:
@@ -260,6 +290,7 @@ def main() -> int:
             sina_uretilmis(no, dosyalar)
         if no not in SAYI_IZI_YOK:
             sina(no, dosyalar)
+        sina_uslup(no, dosyalar)
     sina_kopyalar()
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")

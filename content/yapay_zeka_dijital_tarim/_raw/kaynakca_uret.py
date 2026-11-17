@@ -305,6 +305,14 @@ def kaynak_satiri(grup, depo):
     return kunye, bag, bolumler
 
 
+def kisa_adlar() -> dict[str, dict[int, str]]:
+    """{dil: {no: kısa ad}} — sozluk_uret.kisa_adlar ile aynı kural: başlığın
+    iki noktadan önceki kısmı. Okura numara gösterilmiyor (karar 56)."""
+    iskelet = json.loads((BOLUMLER.parent / "iskelet.json").read_text(encoding="utf-8"))
+    return {dil: {b["no"]: b["baslik"][dil].split(":")[0].strip() for b in iskelet["basliklar"]}
+            for dil in ("tr", "en")}
+
+
 def uret():
     girdiler = girdileri_oku()
     gruplar = birlestir(girdiler)
@@ -317,11 +325,7 @@ def uret():
     def sayfa(dil):
         en = dil == "en"
         out = ["# 30 · Sources" if en else "# 30 · Kaynakça", ""]
-        if en:
-            out.append(f"> **Summary.** The **{n}** sources used across the **{bolum_sayisi}** written headings of this guide, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.")
-        else:
-            out.append(f"> **Özet.** Bu dosyanın yazılmış **{bolum_sayisi}** başlığında kullanılan **{n}** kaynak, alfabetik sırayla. Her rakamın niteliği (hakemli çalışma, kurumsal rapor, resmî belge ya da satıcı beyanı) metinde rakamın yanında yazıyor, burada değil. Her kaynağın ardından onu kullanan başlıklar geliyor.")
-        out.append("")
+        adlar = kisa_adlar()[dil]
         harf = None
         # Satır metni dile göre; İngilizce sayfa İngilizce metnin kendi
         # sırasıyla dizilir (çevrilen kurum adı başa gelebilir). Kayıttaki
@@ -340,14 +344,12 @@ def uret():
             parca = [metin]
             if bag:
                 parca.append(en_cevir(bag) if en else bag)
-            parca.append("· " + ", ".join(f"§{b}" for b in bolumler))
+            parca.append("· " + "; ".join(adlar[b] for b in bolumler))
             satir = " ".join(parca)
             out += [satir, ""]
             kayit_satirlari[i] = satir
-        out.append("## How this page is kept up to date" if en else "## Bu sayfa nasıl güncelleniyor")
-        out.append("")
-        out.append("This list is not written by hand: it is rebuilt from the source records of every heading each time a heading is written or updated. New sources are added after an editor's approval." if en
-                   else "Bu liste elle yazılmıyor: bir başlık her yazıldığında ya da güncellendiğinde bütün başlıkların kaynak kayıtlarından yeniden kuruluyor. Yeni kaynak, editör onayından sonra listeye ekleniyor.")
+        while out and out[-1] == "":
+            out.pop()
         return "\n".join(out) + "\n", kayit_satirlari
 
     tr, tr_satir = sayfa("tr")

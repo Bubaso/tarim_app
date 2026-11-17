@@ -229,6 +229,15 @@ def basliklar() -> dict[str, dict[int, str]]:
     return metinler
 
 
+def kisa_adlar() -> dict[str, dict[int, str]]:
+    """{dil: {no: kısa ad}} — başlığın iki noktadan önceki kısmı ("Kavramlar",
+    "Türkiye dizini"). Okura numara gösterilmiyor (karar 56); sözlük ve
+    kaynakça başlığı bu adla anıyor. yz_bolum_test.dart aynı kuralla çözüyor."""
+    iskelet = json.loads((BOLUMLER.parent / "iskelet.json").read_text(encoding="utf-8"))
+    return {dil: {b["no"]: b["baslik"][dil].split(":")[0].strip() for b in iskelet["basliklar"]}
+            for dil in ("tr", "en")}
+
+
 def uret():
     veri = json.loads(SOZLUK.read_text(encoding="utf-8"))
     terimler = veri["terimler"]
@@ -260,13 +269,8 @@ def uret():
         en = dil == "en"
         ad = "en" if en else "tr"
         sirali = sorted(terimler, key=lambda t: siralama(t[ad], en))
-        n = len(terimler)
         out = ["# 29 · Glossary" if en else "# 29 · Sözlük", ""]
-        if en:
-            out.append(f"> **Summary.** Short definitions of the **{n}** terms used across this guide. Where a term first appears on a page it is underlined with dots; tapping it opens the same definition in a bubble. The source of each definition is given beside it, together with the headings where the term appears.")
-        else:
-            out.append(f"> **Özet.** Bu dosyada geçen **{n}** terimin kısa tanımı. Bir terim bir sayfada ilk geçtiği yerde noktalı çizgiyle altı çizili görünür; üstüne dokununca aynı tanım bir balonda açılır. Her tanımın kaynağı ve terimin geçtiği başlıklar yanında yazıyor.")
-        out.append("")
+        adlar = kisa_adlar()[dil]
         harf = None
         for t in sirali:
             h = bas_harf(t[ad]) if not en else (t[ad][:1].upper() if t[ad][:1].isalpha() else "#")
@@ -279,12 +283,10 @@ def uret():
             bol = gecen(t, dil)
             satir = f"**{t[ad]}** (*{karsi}*). {tanim} *{kaynak}*"
             if bol:
-                satir += (" · Appears in " if en else " · Geçtiği başlıklar: ") + ", ".join(f"§{b}" for b in bol) + "."
+                satir += (" · Appears in " if en else " · Geçtiği başlıklar: ") + "; ".join(adlar[b] for b in bol) + "."
             out += [satir, ""]
-        out.append("## How this page is kept up to date" if en else "## Bu sayfa nasıl güncelleniyor")
-        out.append("")
-        out.append("This page is rebuilt each time a heading is written or updated: the headings where each term appears are read from the texts themselves. New terms are added to the glossary after an editor's approval." if en
-                   else "Bu sayfa, bir başlık her yazıldığında ya da güncellendiğinde yeniden kuruluyor: terimin geçtiği başlıklar metinlerin kendisinden okunuyor. Yeni terim, editör onayından sonra sözlüğe ekleniyor.")
+        while out and out[-1] == "":
+            out.pop()
         return "\n".join(out) + "\n"
 
     # Özetteki terim sayısı kayda da yazılıyor: dogrula_bolumler.py metindeki

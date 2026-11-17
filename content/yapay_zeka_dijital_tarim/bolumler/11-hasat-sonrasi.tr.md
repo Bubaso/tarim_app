@@ -1,6 +1,6 @@
 # 11 · Hasat sonrası: sınıflandırma, kalite, depolama
 
-> **Özet.** Ürün tarladan çıktıktan sonra da kayboluyor: FAO'ya göre dünyada hasattan perakendeye kadar kaybolan gıdanın payı 2023'te **%13,3**; izlemenin başladığı 2015'te **%13,0**'tı, yani ilerleme yok. En çok meyve ve sebze kayboluyor: **%25,4**. Kaybın bir bölümünün çaresi yapay zekâ değil, temel depolama: gelişmekte olan ülkelerde tahılın depoda **%50-60**'a varan kaybı bilimsel depolama yöntemleriyle **%1-2**'ye inebiliyor. Yapay zekânın asıl yeri sınıflandırma; paketleme tesislerinde boylama otuz yılda mekanikten makine görüşüne geçti. Türkiye'de ölçülmüş en somut örnek, fındıkta aflatoksine karşı optik ve lazer ayıklama.
+Ürün tarladan çıktıktan sonra da kayboluyor. FAO'ya göre dünyada hasattan perakendeye kadar kaybolan gıdanın payı 2023'te **%13,3**; izlemenin başladığı 2015'te bu oran **%13,0** idi. En çok kaybolan meyve ve sebze: **%25,4**. Bu kaybın bir bölümünün çaresi yapay zekâ değil, temel depolama; yapay zekânın asıl yeri sınıflandırma. Türkiye'de ölçülmüş en somut örnek ise fındıkta aflatoksine karşı optik ve lazer ayıklama.
 
 ## Ne yapıyor
 
@@ -27,20 +27,14 @@ Tahıl, gelişmekte olan ülkelerin çoğunda temel besin; kalori bakımından h
 
 ## Yapay zekâ nerede duruyor
 
-Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda mekanik yöntemlerden makine görüşüne geçti; şimdi aynı ölçüm ağaçtaki meyveye, bahçeye taşınıyor (Neupane ve arkadaşları, 2023). Yapay zekâ bu gözün tanıyabildiği kusurları çoğaltmaya aday; laboratuvarda yüksek isabet bildiren bir örnek Türkiye'den, aşağıda.
+Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda mekanik yöntemlerden makine görüşüne geçti; şimdi aynı ölçüm ağaçtaki meyveye, bahçeye taşınıyor (Neupane ve arkadaşları, 2023). Yapay zekâ bu gözün tanıyabildiği kusurları çoğaltmaya aday.
 
 Ama FAO'nun tablosu depolama derlemesiyle birlikte okununca bir uyarı taşıyor: kaybın en yüksek olduğu bölgelerde asıl açık, ürünü ayıklamaktan çok onu korumakta görünüyor.
 
 ## Türkiye
 
-2027 Programı gıda zincirinin her aşamasında kayıp ve israfı azaltmayı, gıda üretim ve ambalaj teknolojilerini geliştirmeyi önemli sayıyor. Lisanslı depoculuğun yaygınlaştırılması, yaş meyve-sebze tedarik zincirinde lojistik altyapının geliştirilmesi, paketleme, nakliye, depolama ve perakende standartları ve toptancı hallerinin modernizasyonu üzerindeki çalışmalar sürecek.
+2027 Programı gıda zincirinin her aşamasında kayıp ve israfı azaltmayı, gıda üretim ve ambalaj teknolojilerini geliştirmeyi önemli sayıyor. Lisanslı depoculuğun yaygınlaştırılması, yaş meyve-sebze tedarik zincirinde lojistik altyapının geliştirilmesi, paketleme, nakliye, depolama ve perakende standartları ve toptancı hallerinin modernizasyonu üzerindeki çalışmalar sürecek. Ne var ki Türkiye için hasat sonrası kayıp oranını düzenli ölçen, kamuya açık bir resmî gösterge yok.
 
-Ölçülmüş en somut örnek aflatoksin üzerine. AB'nin gıda ve yem hızlı alarm sisteminde (RASFF) 2020-2023 döneminde aflatoksin nedeniyle fındık ve ürünleri için **84**, yer fıstığı için **283**, kuru incir için **173** bildirim yapıldı. İl tarım müdürlüklerinden ve üniversitelerden araştırmacıların çalışmasında (Özçakmak ve arkadaşları, 2024), kabuklu fındıkta optik ve lazer ayıklamadan sonra ortalama toplam aflatoksin değeri **13,56**'dan **7,21**'e indi; ayıklanan örneklerin **%79,16**'sı yasal sınırlara uyuyordu. Çalışmanın tehlike analizinde optik, lazer ve elle ayıklama ile ultraviyole ışıkla aflatoksin tespiti kritik kontrol noktası olarak belirlendi.
+AB'nin gıda ve yem hızlı alarm sisteminde (RASFF) 2020-2023 döneminde aflatoksin nedeniyle fındık ve ürünleri için **84**, yer fıstığı için **283**, kuru incir için **173** bildirim yapıldı. İl tarım müdürlüklerinden ve üniversitelerden araştırmacıların çalışmasında (Özçakmak ve arkadaşları, 2024), kabuklu fındıkta optik ve lazer ayıklamadan sonra ortalama toplam aflatoksin değeri **13,56**'dan **7,21**'e indi; ayıklanan örneklerin **%79,16**'sı yasal sınırlara uyuyordu. Çalışmanın tehlike analizinde optik, lazer ve elle ayıklama ile ultraviyole ışıkla aflatoksin tespiti kritik kontrol noktası olarak belirlendi.
 
-Görüntüyle sınıflandırmada bir örnek de yine fındıktan. Ondokuz Mayıs Üniversitesi'nin de yer aldığı bir çalışma, kahverengi kokarcanın zarar verdiği fındıkları sağlam olanlardan görüntüyle ayırdı; destek vektör makinesi **400** görüntülük sette **%98,75** doğruluğa ulaştı (Gadalla ve Öztekin, 2023). Sonuç laboratuvar setine ait; bir işletme hattındaki başarıyı göstermiyor.
-
-Eksik olan ise iki şey: **Türkiye için hasat sonrası kayıp oranını düzenli ölçen, kamuya açık bir resmî gösterge; ve yapay zekâlı sınıflandırmanın bir işletmede kaybı ya da reddi ne kadar azalttığını ölçen, yayımlanmış bir değerlendirme.**
-
-## Bu sayfa nasıl güncelleniyor
-
-Bu sayfa iki şeyi izliyor: ürün sınıflandırma, hasat sonrası kayıp, tahıl depolama ve gıda kalite denetimi üzerine yeni gelişmeler — hakemli çalışmalar dâhil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin FAO'nun gıda kaybı göstergesinin yeni değerleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Görüntüyle sınıflandırmada bir örnek de yine fındıktan. Ondokuz Mayıs Üniversitesi'nin de yer aldığı bir çalışma, kahverengi kokarcanın zarar verdiği fındıkları sağlam olanlardan görüntüyle ayırdı; destek vektör makinesi **400** görüntülük sette **%98,75** doğruluğa ulaştı (Gadalla ve Öztekin, 2023). Sonuç laboratuvar setine ait; bir işletme hattındaki başarıyı göstermiyor. Yapay zekâlı sınıflandırmanın bir işletmede kaybı ya da reddi ne kadar azalttığı ise henüz yayımlanmış bir değerlendirmeyle ölçülmedi.

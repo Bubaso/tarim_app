@@ -155,9 +155,9 @@ class YzMerkezEkrani extends StatelessWidget {
   }
 }
 
-/// §1'in özet bloğu, merkez sayfada haritanın üstünde (karar 6: tez yerine
-/// durum tespiti). Metin §1'in kendisinden; "Özet." etiketi burada başlık
-/// zaten söylediği için düşüyor.
+/// §1'in giriş paragrafı, merkez sayfada haritanın üstünde (karar 6: tez
+/// yerine durum tespiti). Metin §1'in kendisinden: başlıklarda ayrı bir özet
+/// bloğu yok (karar 56), giriş paragrafı kendi başına okunacak biçimde yazılı.
 class _DurumOzeti extends StatelessWidget {
   const _DurumOzeti({required this.metin, required this.en});
   final String metin;
@@ -166,8 +166,8 @@ class _DurumOzeti extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ozet = yzAyristir(metin)
-        .where((b) => b.tur == YzBlokTuru.ozet)
-        .map((b) => b.metin.replaceFirst(RegExp(r'^\*\*(Özet|Summary)\.\*\*\s*'), ''))
+        .where((b) => b.tur == YzBlokTuru.paragraf)
+        .map((b) => b.metin)
         .firstOrNull;
     if (ozet == null) return const SizedBox.shrink();
     return ConstrainedBox(

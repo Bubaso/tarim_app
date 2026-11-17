@@ -1,6 +1,6 @@
 # 8 · Computer vision and targeted spraying
 
-> **Summary.** A camera looks at the field, a model tells weeds from crop, and herbicide goes only where the weed is. Peer-reviewed field trials show it works: herbicide falls by **35%** in sugarcane and by **47%** with early application in maize, while weed control stays equal to broadcast spraying. Vendors' figures are larger. The real gap lies elsewhere: a disease model that reaches **99.35%** in the lab falls to **just above 31%** on images taken under other conditions.
+The promise of targeted spraying is simple: herbicide goes not on the whole field but only on the weeds. Peer-reviewed field trials show the promise holds: herbicide fell by **35%** in sugarcane and by **47%** with early application in maize, while weed control stayed level with broadcast spraying. Vendors report even larger savings. The real gap lies between the lab and the field: a plant disease model that was nearly flawless under controlled conditions was wrong more often than right on images taken under other conditions.
 
 ## What it does
 
@@ -10,7 +10,7 @@ There are two distinct situations, and no figure can be read without separating 
 
 ## What the field trials say
 
-The peer-reviewed field trials below measured two things together: whether herbicide use actually fell and whether weed control suffered.
+Two peer-reviewed trials, in Australia and Germany, measured two things together: whether herbicide use actually fell and whether weed control suffered.
 
 | Trial | Crop | Measured | Standing |
 |---|---|---|---|
@@ -36,21 +36,16 @@ One of the most widespread commercial systems is John Deere's See & Spray. The c
 
 Placed side by side the two figures suggest a decline, but it cannot be read as a trend: the 2025 figure explicitly refers to non-residual herbicide, and whether the 2024 figure measures the same thing is unclear.
 
-
 ## The gap between lab and field
 
 One of the most cited successes of computer vision in agriculture was published in 2016. Researchers trained a model on **54,306** leaf images covering 14 crops and 26 diseases and reached **99.35%** accuracy on held-out test images.
 
 The less cited part of the same paper is this: when the model was tested on images taken under different conditions, accuracy fell to **31.40%** and **31.69%**. The training images were single leaves photographed under controlled conditions against a plain background; the test images were collected from trusted online sources such as agricultural extension services. The authors write that a real-world application would have to recognise a disease as it presents itself directly on the plant. 31% is far better than random guessing — **2.6%** across 38 classes — but nowhere near 99%. The authors' own conclusion is plain: a more diverse set of training data is needed.
 
-The distance between those two figures shows the question every success rate in this field should face: **measured on which images?**
+The distance between those two figures shows the question every success rate in this field should face: measured on which images?
 
 ## Türkiye
 
-In Türkiye, weed detection by computer vision is studied mostly at university thesis level. A master's thesis at Pamukkale University detects weeds in maize with a view to local spraying; there is a doctoral thesis at Tokat Gaziosmanpaşa University on weed detection in wheat. TAGEM, meanwhile, started a project in 2025 to build a prototype precision sprayer for maize and cotton that locates weeds with cameras and opens its nozzles only over the target (§23). A review article on drone-based weed detection has also been published in the Turkish literature.
+In Türkiye, weed detection by computer vision is studied mostly at university thesis level. A master's thesis at Pamukkale University detects weeds in maize with a view to local spraying; there is a doctoral thesis at Tokat Gaziosmanpaşa University on weed detection in wheat. A review article on drone-based weed detection has also been published in the Turkish literature. But no published Turkish trial has yet done what the Australian and German trials did: measure in the field the step from a detection model to an actual reduction in herbicide.
 
-What is missing is **a published Turkish trial measuring herbicide savings in the field.** The step from a detection model to a reduction of herbicide on the field is the step the trials above measured.
-
-## How this page is kept up to date
-
-This page watches for new peer-reviewed field trials of targeted spraying. New information is added to the page after an editor's approval.
+The project TAGEM started in 2025, for its part, aims at a prototype precision sprayer: the machine is to locate weeds in maize and cotton with cameras and open its nozzles only over the target.
