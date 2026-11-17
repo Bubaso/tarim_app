@@ -1,0 +1,364 @@
+{
+  "_ne": "§29 Sözlük — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun, kamu kurumunun, standart ya da sanayi birliğinin, şirketin kendi yayını ya da sayfası",
+    "RESMI": "Resmî belge: AB tüzüğü, Türkiye'nin plan belgeleri, devlet yayını"
+  },
+  "kaynaklar": {
+    "ab_yz_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2024/1689 — Artificial Intelligence Act (AB Yapay Zekâ Tüzüğü), madde 3(1).",
+      "adres": "https://publications.europa.eu/resource/celex/32024R1689",
+      "dosya": "kaynak_dosyalari/ab_2024_1689_yapay_zeka_tuzugu.xhtml",
+      "alinti": [
+        "‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs",
+        "such as predictions, content, recommendations, or decisions that can influence physical or virtual environments"
+      ]
+    },
+    "google_ml_sozluk": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Google for Developers. Machine Learning Glossary (son güncelleme 6 Kasım 2026). https://developers.google.com/machine-learning/glossary (erişim 17 Kasım 2026).",
+      "adres": "https://developers.google.com/machine-learning/glossary",
+      "dosya": "kaynak_dosyalari/google_ml_sozluk.html",
+      "alinti": [
+        "A program or system that trains a model from input data. The trained model can make useful predictions from new (never-before-seen) data drawn from the same distribution as the one used to train the model.",
+        "A very large pre-trained model trained on an enormous and diverse training set.",
+        "A chatbot is an application of a large language model.",
+        "A model whose prediction is a class.",
+        "The number of correct classification predictions divided by the total number of predictions.",
+        "A metric for classification models that answers the following question: When the model predicted the positive class, what percentage of the predictions were correct?",
+        "A metric for classification models that answers the following question: When ground truth was the positive class, what percentage of predictions did the model correctly identify as the positive class?",
+        "A \"roll-up\" binary classification metric that relies on both precision and recall.",
+        "An ensemble of decision trees in which each decision tree is trained with a specific random noise, such as bagging.",
+        "A classification algorithm that seeks to maximize the margin between positive and negative classes by mapping input data vectors to a higher dimensional space.",
+        "A prompt that does not provide an example of how you want the large language model to respond.",
+        "The subset of the dataset used to train a model.",
+        "A second, task-specific training pass performed on a pre-trained model to refine its parameters for a specific use case.",
+        "A technique for improving the quality of large language model (LLM) output by grounding it with sources of knowledge retrieved after the model was trained.",
+        "The field of teaching computers to process what a user said or typed using linguistic rules.",
+        "Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License",
+        "Last updated 2026-11-06 UTC.",
+        "The contents of a back-and-forth dialogue with an ML system, typically a large language model.",
+        "The previous interaction in a chat (what you typed and how the large language model responded) becomes the context for subsequent parts of the chat.",
+        "A model that predicts tree species (Maple? Oak? Baobab?)."
+      ]
+    },
+    "govuk_2025_yz_oyun_kitabi": {
+      "nitelik": "RESMI",
+      "kunye": "Government Digital Service (Birleşik Krallık). 10 Şubat 2025. Artificial Intelligence Playbook for the UK Government (HTML). GOV.UK.",
+      "adres": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+      "dosya": "kaynak_dosyalari/govuk_2025_yz_oyun_kitabi.html",
+      "alinti": [
+        "DL is a subset of ML that involves more complex model structures and architectures, including sophisticated NNs, to learn complex patterns and representations from large amounts of data.",
+        "NLP is a field within AI that focuses on processing human language.",
+        "CV is a field of AI and ML that enables computers to interpret, analyse and understand visual information (images and videos) to perform tasks such as object recognition, facial recognition and scene understanding.",
+        "This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated.",
+        "Published 10 February 2025"
+      ]
+    },
+    "yzep_2026_2030": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Sanayi ve Teknoloji Bakanlığı, Millî Teknoloji ve Yapay Zekâ Genel Müdürlüğü. Türkiye Yapay Zekâ Eylem Planı (2026-2030), bölüm 06 'Terimler Sözlüğü'.",
+      "adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "alinti": [
+        "Bu sözlükte yer alan tanımlar, plan kapsamında kullanılan politika ve uygulama kavramlarını açıklamak amacıyla hazırlanmıştır.",
+        "Büyük miktarda metin verisi üzerinde eğitilmiş, doğal dilde metin üretebilen, anlayabilen ve çevirebilen yapay zekâ modeli.",
+        "Şirketlerin ve kamu kurumlarının ortak kurallar, güvenli çalışma odaları ve standart lisanslar altında verilerini kontrollü biçimde paylaştığı yapılandırılmış ortam.",
+        "LLM (Büyük Dil Modeli):",
+        "Veri Alanı:"
+      ]
+    },
+    "google_mediapipe_nesne_tespiti": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Google AI Edge. Object Detector (MediaPipe Solutions görev kılavuzu; son güncelleme 16 Kasım 2026). https://ai.google.dev/edge/mediapipe/solutions/vision/object_detector (erişim 17 Kasım 2026).",
+      "adres": "https://ai.google.dev/edge/mediapipe/solutions/vision/object_detector",
+      "dosya": "kaynak_dosyalari/google_mediapipe_nesne_tespiti.html",
+      "alinti": [
+        "The MediaPipe Object Detector task lets you detect the presence and location of multiple classes of objects within images or videos. For example, an object detector can locate dogs in an image.",
+        "Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License"
+      ]
+    },
+    "schreinemakers_1988": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Schreinemakers J.F., Vos M.L., Brand A., Brée D.S., Verheijden J.H. 1988. The introduction of expert systems in animal husbandry. Veterinary Quarterly 10(4): 281-288.",
+      "doi": "10.1080/01652176.1988.9694187",
+      "dosya": "kaynak_dosyalari/vetq_1988_uzman_sistem_europepmc.json",
+      "alinti": [
+        "Expert systems are a new type of computer programmes which are able to handle problems in limited domains at an expert level, using expert knowledge and reasoning processes, within strictly defined problem limits.",
+        "Expert systems as they presently exist have the following components: a knowledge base (rule- and data-base), inference engine (deductive mechanism), user-interface (explanatory facilities, etc.)."
+      ]
+    },
+    "heilman_2005_ars": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Heilman P., Stone J., Sanchez Cohen I., Macias Rodriguez H., Mann R.S. 2005. Working Smarter: Research and Decision Support Systems in Mexican Agriculture. Kitap bölümü 12 (s. 211 vd.). Texas A&M Press. USDA-ARS Southwest Watershed Research Center yayın no. 1628.",
+      "adres": "https://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
+      "dosya": "kaynak_dosyalari/usda_ars_1628_karar_destek.pdf",
+      "alinti": [
+        "Computer programs designed explicitly to help people work smarter by making better decisions are called Decision Support Systems (DSS).",
+        "© 2005 by Texas A&M Press"
+      ]
+    },
+    "fao_2022_sofa": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. Sözlük (Glossary) s. x-xiii.",
+      "doi": "10.4060/cb9479en",
+      "dosya": "kaynak_dosyalari/fao_2022_sofa.pdf",
+      "alinti": [
+        "This work is made available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence",
+        "Big data. Large, diverse, complex data sets generated from instruments, sensors, financial transactions, social media, and other digital means, typically beyond the storage capacity and processing power of personal computers and basic analytical software.",
+        "Global navigation satellite system (GNSS). Any system that uses satellite signals to provide location information.",
+        "Autosteer. A GNSS-enabled technology that provides automated steering and positioning in the landscape for self-propelled agricultural machines (e.g. tractors, combine harvesters, forage harvesters, sprayers).",
+        "Internet of things (IoT). A system in which devices – including mobile phones, sensors, drones, machines and satellites – are connected to the internet.",
+        "Precision agriculture. A management strategy that gathers, processes and analyses temporal, spatial and individual data and combines them with other information, to manage variations in the field accurately and to support management decisions and precise machine action",
+        "Precision livestock farming. A data-based livestock management strategy that monitors and controls individual animal or group productivity, environment, health and welfare in a continuous, real-time and automated manner.",
+        "Robot. A machine capable of autonomous operation without direct human intervention.",
+        "Uncrewed aerial vehicle (UAV) or Drone. A flying autonomous machine. It can be guided by remote control or using a device that is software-controlled.",
+        "In agriculture, it is often used to collect aerial images or to apply fertilizer, seed, pesticides or other crop inputs.",
+        "Vertical farming. Indoor farming with a completely controlled environment, used for growing crops vertically year-round.",
+        "Virtual fencing. A technology based on equipping animals with GNSS transponders to determine their location that uses audio alerts, electric shocks or other prompts to keep animals within geolocated boundaries.",
+        "Electronic identification (EID). The use of a microchip or electronic transponder embedded in a tag, bolus or implant to identify an individual farm animal.",
+        "controlled environment agriculture (CEA), which includes greenhouse agriculture and vertical farming. Greenhouses are the most common form of CEA.",
+        "Global positioning system (GPS). The United States of America’s GNSS. Because it was the first GNSS available for civilian use, GPS is sometimes used as a generic term for GNSS."
+      ]
+    },
+    "usgs_uzaktan_algilama": {
+      "nitelik": "KURUMSAL",
+      "kunye": "USGS (ABD Jeoloji Araştırmaları Kurumu). What is remote sensing and what is it used for? (Sık sorulan sorular). https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used (erişim 17 Kasım 2026).",
+      "adres": "https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used",
+      "dosya": "kaynak_dosyalari/usgs_sss_uzaktan_algilama.html",
+      "alinti": [
+        "Remote sensing is the process of detecting and monitoring the physical characteristics of an area by measuring its reflected and emitted radiation at a distance (typically from satellite or aircraft)."
+      ]
+    },
+    "usgs_ndvi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "USGS. Landsat Normalized Difference Vegetation Index. Landsat Missions. https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index (erişim 17 Kasım 2026).",
+      "adres": "https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index",
+      "dosya": "kaynak_dosyalari/usgs_landsat_ndvi.html",
+      "alinti": [
+        "NDVI is used to quantify vegetation greenness and is useful in understanding vegetation density and assessing changes in plant health.",
+        "NDVI is calculated as a ratio between the red (R) and near infrared (NIR) values in traditional fashion: (NIR - R) / (NIR + R)"
+      ]
+    },
+    "nrcan_cok_bantli": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Natural Resources Canada (Kanada Doğal Kaynaklar Bakanlığı). Multispectral Scanning (Fundamentals of Remote Sensing eğitimi; son değişiklik 8 Ocak 2025). https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning (erişim 17 Kasım 2026).",
+      "adres": "https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning",
+      "dosya": "kaynak_dosyalari/nrcan_cok_bantli_tarama.html",
+      "alinti": [
+        "A scanning system used to collect data over a variety of different wavelength ranges is called a multispectral scanner (MSS) , and is the most commonly used scanning system."
+      ]
+    },
+    "sentiwiki_sentinel2": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Copernicus SentiWiki (ESA). S2 Mission: Overview of Sentinel-2 Mission. https://sentiwiki.copernicus.eu/web/s2-mission (erişim 17 Kasım 2026).",
+      "adres": "https://sentiwiki.copernicus.eu/web/s2-mission",
+      "dosya": "kaynak_dosyalari/copernicus_sentiwiki_sentinel2_gorev.html",
+      "alinti": [
+        "Each of the satellites in the Sentinel-2 mission carries a single payload: the optical Multi-Spectral Instrument (MSI) that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60 m spatial resolution."
+      ]
+    },
+    "nasa_sar": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Earthdata. Synthetic Aperture Radar (SAR). Earth Observation Data Basics. https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar (erişim 17 Kasım 2026).",
+      "adres": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
+      "dosya": "kaynak_dosyalari/nasa_earthdata_sar.html",
+      "alinti": [
+        "Synthetic aperture radar (SAR) is a type of active data collection where an instrument sends out a pulse of energy and then records the amount of that energy reflected back after it interacts with Earth.",
+        "SAR is one of the power technologies of remote sensing, and enables high resolution imagery to be created night or day, regardless of weather conditions."
+      ]
+    },
+    "abd_ers_2023": {
+      "nitelik": "RESMI",
+      "kunye": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023.",
+      "adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+      "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+      "alinti": [
+        "Digital agriculture (DA) refers to the diffusion of information technologies (e.g., the internet and Internet of Things (IoT), mobile devices, and predictive analytics) to enhance the collection, exchange, combination, analysis, and access of digital content within the agricultural sector.",
+        "Yield maps are physical maps that visually represent crop yields and variation in yields within and across fields.",
+        "Variable rate technologies Equipment that provides custom applications of seed, lime, fertilizer, and/or pesticides at rates that can change over small distances.",
+        "Guidance systems Equipment that reduces field overlaps or skips by either (1) instructing the operator to steer within predefined boundaries (e.g., lightbars) or (2) fully automates nearly all steering operations."
+      ]
+    },
+    "wolfert_2017": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Wolfert S., Ge L., Verdouw C., Bogaardt M.-J. 2017. Big Data in Smart Farming – A review. Agricultural Systems 153: 69-80.",
+      "doi": "10.1016/j.agsy.2017.01.023",
+      "dosya": "kaynak_dosyalari/wolfert_2017_akilli_tarim_wur_kayit.html",
+      "alinti": [
+        "Smart Farming is a development that emphasizes the use of information and communication technology in the cyber-physical farm management cycle.",
+        "Licence: CC BY-NC-ND"
+      ]
+    },
+    "lora_alliance": {
+      "nitelik": "KURUMSAL",
+      "kunye": "LoRa Alliance. About LoRaWAN® — What is LoRaWAN®? https://lora-alliance.org/about-lorawan/ (erişim 17 Kasım 2026).",
+      "adres": "https://lora-alliance.org/about-lorawan/",
+      "dosya": "kaynak_dosyalari/lora_alliance_lorawan_nedir.html",
+      "alinti": [
+        "The LoRaWAN ® specification is a Low Power, Wide Area (LPWA) networking specification designed to wirelessly connect battery operated ‘things’ to the internet in regional, national or global networks",
+        "Copyright © 2026 LoRa Alliance ®"
+      ]
+    },
+    "akin_unlenen_2017": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Akın A.İ., Ünlenen L.A. 2017. Patates'te hassas damla sulama programlarının yapılmasında toprak nem sensörlerinin kullanılması. Toprak Su Dergisi Özel Sayı: 8-12.",
+      "doi": "10.21657/topraksu.338301",
+      "dosya": "kaynak_dosyalari/akin_unlenen_2017.pdf",
+      "alinti": [
+        "Sulama programlarında bir toprak nem sensörünün kullanılması, topraktaki su ve toprakta suyun tutulma potansiyeli ile ilgili zamanında ve hassas bilgilerin alınmasını kolayca sağlar."
+      ]
+    },
+    "hayes_2009": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Hayes B.J., Bowman P.J., Chamberlain A.J., Goddard M.E. 2009. Invited review: Genomic selection in dairy cattle: progress and challenges. Journal of Dairy Science 92: 433-443.",
+      "doi": "10.3168/jds.2008-1646",
+      "dosya": "kaynak_dosyalari/hayes_2009_genomik_secilim_europepmc.json",
+      "alinti": [
+        "Genomic selection refers to selection decisions based on genomic breeding values (GEBV).",
+        "The GEBV are calculated as the sum of the effects of dense genetic markers, or haplotypes of these markers, across the entire genome, thereby potentially capturing all the quantitative trait loci (QTL) that contribute to variation in a trait."
+      ]
+    },
+    "walter_2015": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Walter A., Liebisch F., Hund A. 2015. Plant phenotyping: from bean weighing to image analysis. Plant Methods 11: 14.",
+      "doi": "10.1186/s13007-015-0056-8",
+      "dosya": "kaynak_dosyalari/walter_2015_fenotipleme_europepmc.json",
+      "alinti": [
+        "Plant phenotyping refers to a quantitative description of the plant's anatomical, ontogenetical, physiological and biochemical properties."
+      ]
+    },
+    "ifc_giif_sss": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Global Index Insurance Facility (GIIF, Dünya Bankası Grubu). Frequently Asked Questions. Index Insurance Forum. https://www.globalinclusiveinsuranceforum.org/faq-page (erişim 17 Kasım 2026).",
+      "adres": "https://www.globalinclusiveinsuranceforum.org/faq-page",
+      "dosya": "kaynak_dosyalari/ifc_giif_endeks_sigortasi_sss.html",
+      "alinti": [
+        "The Global Index Insurance Facility is a dedicated World Bank Group's program",
+        "Index insurance is a relatively new but innovative approach to insurance provision that pays out benefits on the basis of a predetermined index (e.g. rainfall level) for loss of assets and investments, primarily working capital, resulting from weather and catastrophic events.",
+        "Basis risk in index insurance arises when the index measurements do not match an individual insured’s actual losses.",
+        "© 2026 GIIF"
+      ]
+    },
+    "bm_a71_644": {
+      "nitelik": "KURUMSAL",
+      "kunye": "BM Genel Kurulu. 1 Aralık 2016. Report of the open-ended intergovernmental expert working group on indicators and terminology relating to disaster risk reduction (A/71/644).",
+      "adres": "https://documents.un.org/doc/undoc/gen/n16/410/23/pdf/n1641023.pdf",
+      "dosya": "kaynak_dosyalari/bm_2016_a71_644_afet_riski_terminolojisi.pdf",
+      "alinti": [
+        "Early warning system An integrated system of hazard monitoring, forecasting and prediction, disaster risk assessment, communication and preparedness activities systems and processes that enables individuals, communities, governments, businesses and others to take timely action",
+        "to take timely action to reduce disaster risks in advance of haz ardous events"
+      ]
+    },
+    "okfn_acik_tanim": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Open Knowledge Foundation. Open Definition 2.1. https://opendefinition.org/od/2.1/en/ (erişim 17 Kasım 2026).",
+      "adres": "https://opendefinition.org/od/2.1/en/",
+      "dosya": "kaynak_dosyalari/okfn_acik_tanim_2_1.html",
+      "alinti": [
+        "Knowledge is open if anyone is free to access, use, modify, and share it — subject, at most, to measures that preserve provenance and openness.",
+        "Content licensed under a CC Attribution 4.0 International License",
+        "Defining Open in Open Data, Open Content and Open Knowledge"
+      ]
+    },
+    "ab_veri_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2023/2854 — Data Act (AB Veri Tüzüğü), madde 33(1).",
+      "adres": "https://publications.europa.eu/resource/celex/32023R2854",
+      "dosya": "kaynak_dosyalari/ab_2023_2854_veri_tuzugu.xhtml",
+      "alinti": [
+        "common European data spaces which are purpose- or sector-specific or cross-sectoral interoperable frameworks for common standards and practices to share or jointly process data for, inter alia, the development of new products and services, scientific research or civil society initiatives"
+      ]
+    },
+    "nist_ir8202": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Yaga D., Mell P., Roby N., Scarfone K. 2018. Blockchain Technology Overview. NISTIR 8202. Gaithersburg: NIST, Ekim 2018.",
+      "doi": "10.6028/NIST.IR.8202",
+      "dosya": "kaynak_dosyalari/nist_ir8202_blokzincir.pdf",
+      "alinti": [
+        "Blockchains are tamper evident and tamper resistant digital ledgers implemented in a distributed fashion (i.e., without a central repository) and usually without a central authority (i.e., a bank, company, or government).",
+        "This publication is available free of charge from: https://doi.org/10.6028/NIST.IR.8202"
+      ]
+    },
+    "codex_cxg60": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Codex Alimentarius Komisyonu (FAO/WHO). 2006. Principles for traceability/product tracing as a tool within a food inspection and certification system (CAC/GL 60-2006).",
+      "adres": "https://www.fao.org/input/download/standards/10603/CXG_060e.pdf",
+      "dosya": "kaynak_dosyalari/codex_cxg60_2006_izlenebilirlik.pdf",
+      "alinti": [
+        "the ability to follow the movement of a food through specified stage(s) of production, processing and distribution."
+      ]
+    },
+    "cisa_fidye_yazilimi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "CISA (ABD Siber Güvenlik ve Altyapı Güvenliği Ajansı). Ransomware 101. #StopRansomware. https://www.cisa.gov/stopransomware/ransomware-101 (erişim 17 Kasım 2026).",
+      "adres": "https://www.cisa.gov/stopransomware/ransomware-101",
+      "dosya": "kaynak_dosyalari/cisa_fidye_yazilimi_101.html",
+      "alinti": [
+        "Ransomware is an ever-evolving form of malware designed to encrypt files on a device, rendering any files and the systems that rely on them unusable. Malicious actors then demand ransom in exchange for decryption."
+      ]
+    },
+    "fao_gfras_2010": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Christoplos I. 2010. Mobilizing the potential of rural and agricultural extension. Roma: FAO (Office of Knowledge Exchange, Research and Extension) ve GFRAS (Global Forum for Rural Advisory Services).",
+      "adres": "https://www.fao.org/4/i1444e/i1444e.pdf",
+      "dosya": "kaynak_dosyalari/fao_gfras_2010_tarimsal_yayim.pdf",
+      "alinti": [
+        "This paper uses ‘extension’ as an admittedly amorphous umbrella term for all the different activities that provide the information and advisory services that are needed and demanded by farmers and other actors in agrifood systems and rural development.",
+        "All rights reserved. FAO encourages reproduction and dissemination of material in this information product. Non-commercial uses will be authorized free of charge upon request."
+      ]
+    },
+    "nist_csrc_sensor": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NIST Computer Security Resource Center. Glossary: sensor (tanım kaynağı: NIST SP 800-82r3, The Automation, Systems, and Instrumentation Dictionary'den). https://csrc.nist.gov/glossary/term/sensor (erişim 17 Kasım 2026).",
+      "adres": "https://csrc.nist.gov/glossary/term/sensor",
+      "dosya": "kaynak_dosyalari/nist_csrc_sozluk_sensor.html",
+      "alinti": [
+        "A device that produces a voltage or current output that is representative of some physical property being measured (e.g., speed, temperature, flow)."
+      ]
+    },
+    "ab_makine_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2023/1230 — Machinery Regulation (AB Makine Tüzüğü), Ek III tanımları.",
+      "adres": "https://publications.europa.eu/resource/celex/32023R1230",
+      "dosya": "kaynak_dosyalari/ab_2023_1230_makine_tuzugu.xhtml",
+      "alinti": [
+        "‘Autonomous mobile machinery’ means mobile machinery which has an autonomous mode, in which all the essential safety functions of the mobile machinery are ensured in its travel and working operations area without permanent interaction of an operator"
+      ]
+    },
+    "fao_2013_iklim_akilli_tarim": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2013. Climate-Smart Agriculture Sourcebook — Executive Summary (I3484E/1/11.13). Roma: FAO.",
+      "adres": "https://openknowledge.fao.org/3/a-i3484e.pdf (yönlendirme: openknowledge.fao.org bitstream e9a8f414-b49e-4896-a0c1-1a45710322cc)",
+      "dosya": "kaynak_dosyalari/fao_2013_iklim_akilli_tarim_kaynak_kitabi.pdf",
+      "alinti": [
+        "Climate-smart agriculture (CSA), as defined and presented by FAO at the Hague Conference on Agriculture, Food Security and Climate Change in 2010, contributes to the achievement of sustainable development goals.",
+        "It is composed of three main pillars: 1 sustainably increasing agricultural productivity and incomes; 2 adapting and building resilience to climate change; 3 reducing and/or removing greenhouse gases emissions, where possible.",
+        "CSA is not a single specific agricultural technology or practice that can be universally applied."
+      ],
+      "_kopya": "b02_kaynaklar.json · fao_2013_iklim_akilli_tarim"
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye kaynakları: Yapay Zekâ Eylem Planı 2026-2030 terimler sözlüğü (büyük dil modeli, veri alanı); Akın ve Ünlenen 2017 (toprak nem sensörü). Öbür tanımlar uluslararası kaynaklardan; Türkçe karşılıklar başlık metinlerindeki kullanımı izliyor."
+  },
+  "_reddedilen": {
+    "google_ml_sozluk_tr": "Türkçe sürüm kayda girmedi: tanımlar İngilizce sürümden; Türkçe terimler başlık metinlerindeki kullanımı izliyor (Google'ın Türkçe sürümü recall için 'hatırlanabilirlik', zero-shot için 'sıfır görevli istem' diyor).",
+    "eurostat_2026": "Hassas tarım tanımı FAO sözlüğünden verildi.",
+    "benami_2021": "Baz riski tanımı GIIF'ten verildi.",
+    "nist_csrc_buyuk_veri": "Büyük veri tanımı FAO sözlüğünden verildi.",
+    "meuwissen_2001": "Genomik seçilim tanımı Hayes ve arkadaşlarından (2009); Meuwissen 2001 özeti terim adını kullanmıyor.",
+    "nist_csrc_dijital_ikiz": "Dijital ikiz yalnız §25'teki tabloda geçiyor; balon tabloda açılmıyor, terim sözlüğe girmedi.",
+    "fao56": "Bitki su tüketimi metinlerde yalnız bir sistemin adında (TAGEM-SuET) geçiyor; terim sözlüğe girmedi.",
+    "dijital_ucurum": "Metinlerde geçmiyor; tanım kaynaklarına erişilemedi (OECD, UNESCO bot korumalı).",
+    "rtk": "Metinlerde geçmiyor.",
+    "duyarlilik_12": "§12'deki tanı duyarlılığı (sensitivity) için kayıtta tanım yok; Google sözlüğü yalnız recall'u tanımlıyor. Balon yalnız §18'de.",
+    "model": "Genel 'model' terimi sözlüğe girmedi: iş modeli, ürün modeli gibi anlamlarla karışıyor."
+  },
+  "terim_sayisi": 58
+}

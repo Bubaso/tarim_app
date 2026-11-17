@@ -186,7 +186,8 @@ def main() -> int:
          "",
          "class YzTerim {",
          "  const YzTerim(this.kimlik, this.tr, this.en, this.tanimTr, this.tanimEn,",
-         "      this.kaynakTr, this.kaynakEn, this.desenTr, this.desenEn);",
+         "      this.kaynakTr, this.kaynakEn, this.desenTr, this.desenEn,",
+         "      {this.yalniz = const [], this.haric = const []});",
          "  final String kimlik;",
          "  final String tr;",
          "  final String en;",
@@ -204,6 +205,16 @@ def main() -> int:
          "  final List<String> desenTr;",
          "  final List<String> desenEn;",
          "",
+         "  /// Balonun açılabileceği başlıklar; boşsa hepsi. Terim başka başlıklarda",
+         "  /// başka anlamda da geçiyorsa (\"kesinlik\" §12'de kanıtın kesinliği) yalnız",
+         "  /// doğru başlıklarda açılır.",
+         "  final List<int> yalniz;",
+         "",
+         "  /// Balonun açılmayacağı başlıklar.",
+         "  final List<int> haric;",
+         "",
+         "  bool baslikta(int no) => (yalniz.isEmpty || yalniz.contains(no)) && !haric.contains(no);",
+         "",
          "  String ad(bool en) => en ? this.en : tr;",
          "  String tanim(bool en) => en ? tanimEn : tanimTr;",
          "  String kaynak(bool en) => en ? kaynakEn : kaynakTr;",
@@ -217,7 +228,12 @@ def main() -> int:
         z.append(f"      {dizgi(x['tanim_en'])},")
         z.append(f"      {dizgi(x['kaynak_tr'])}, {dizgi(x['kaynak_en'])},")
         z.append(f"      [{', '.join(dizgi(d) for d in x['desen_tr'])}],")
-        z.append(f"      [{', '.join(dizgi(d) for d in x['desen_en'])}]),")
+        ek = ""
+        if x.get("yalniz"):
+            ek += f", yalniz: [{', '.join(str(n) for n in x['yalniz'])}]"
+        if x.get("haric"):
+            ek += f", haric: [{', '.join(str(n) for n in x['haric'])}]"
+        z.append(f"      [{', '.join(dizgi(d) for d in x['desen_en'])}]{ek}),")
     z.append("];")
     z.append("")
     SOZLUK.write_text("\n".join(z), encoding="utf-8")

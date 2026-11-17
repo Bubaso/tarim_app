@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 427,
- "toplam_bayt": 1087266101,
+ "dosya_sayisi": 448,
+ "toplam_bayt": 1093853679,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -2125,6 +2125,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/bm_2016_a71_644_afet_riski_terminolojisi.pdf",
+   "bayt": 716331,
+   "sha256": "32b0d7ab0551c328c1355dd6f134d5bab3dfc2e80916c4c806b8644e03544f46",
+   "kaynak": {
+    "adres": "https://documents.un.org/doc/undoc/gen/n16/410/23/pdf/n1641023.pdf",
+    "atif": "BM Genel Kurulu. 1 Aralık 2016. Report of the open-ended intergovernmental expert working group on indicators and terminology relating to disaster risk reduction (A/71/644).",
+    "lisans": "belgede lisans ifadesi yok (BM Genel Kurulu belgesi)",
+    "lisans_adresi": null,
+    "_not": "UNDRR terminoloji sayfası (undrr.org/terminology/early-warning-system) 403 döndü (bot koruması, aşılmadı). UNDRR terminolojisinin dayandığı BM belgesi indirildi; tanım aynı."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/bsgm_2026_bagis_yeni_cihaz.html",
    "bayt": 101653,
    "sha256": "47793deefce50301122f06d3473519f4706f14ceddabbf6725e035ecc829cd37",
@@ -2209,6 +2221,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cisa_fidye_yazilimi_101.html",
+   "bayt": 27950,
+   "sha256": "ea04c332d2d6c8ed50cd61871e4b919760db2c88d632529043e3d0590a2e210d",
+   "kaynak": {
+    "adres": "https://www.cisa.gov/stopransomware/ransomware-101",
+    "atif": "CISA (ABD Siber Güvenlik ve Altyapı Güvenliği Ajansı). Ransomware 101. #StopRansomware. https://www.cisa.gov/stopransomware/ransomware-101 (erişim 17 Kasım 2026).",
+    "lisans": "sayfada lisans ifadesi yok ('An official website of the United States government')",
+    "lisans_adresi": null,
+    "_not": "§26 FBI uyarısını (kayıtlı) anıyor; tanım için CISA sayfası."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
    "bayt": 1589890,
    "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
@@ -2218,6 +2242,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — DergiPark, yayıncı PDF'i."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/codex_cxg60_2006_izlenebilirlik.pdf",
+   "bayt": 78928,
+   "sha256": "08b52f986352340fad18b651bd38b496c537e6cd8432214683e1f8b4bacb0c28",
+   "kaynak": {
+    "adres": "https://www.fao.org/input/download/standards/10603/CXG_060e.pdf",
+    "atif": "Codex Alimentarius Komisyonu (FAO/WHO). 2006. Principles for traceability/product tracing as a tool within a food inspection and certification system (CAC/GL 60-2006).",
+    "lisans": "belgede lisans ifadesi yok (Codex Alimentarius metni)",
+    "lisans_adresi": null,
+    "_not": "Tanımın kendi dipnotu Codex Usul El Kitabı'nı (Procedural Manual) gösteriyor. Codex 2023'te bu kılavuzun gözden geçirilmesini başlattı (aramada görüldü, indirilmedi); 2006 metni yürürlükteki son sürüm olarak alındı."
    }
   },
   {
@@ -2641,6 +2677,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_gfras_2010_tarimsal_yayim.pdf",
+   "bayt": 1144892,
+   "sha256": "6960d79e438aaec5d98f28370e2263d2a3c0112b0d7202bdac68eb591452f2f3",
+   "kaynak": {
+    "adres": "https://www.fao.org/4/i1444e/i1444e.pdf",
+    "atif": "Christoplos I. 2010. Mobilizing the potential of rural and agricultural extension. Roma: FAO (Office of Knowledge Exchange, Research and Extension) ve GFRAS (Global Forum for Rural Advisory Services).",
+    "lisans": "© FAO 2010; 'All rights reserved. FAO encourages reproduction and dissemination of material in this information product. Non-commercial uses will be authorized free of charge upon request.' (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "FAO ile GFRAS'ın ortak tutum belgesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_itu_2016_e_tarim_strateji_rehberi.pdf",
    "bayt": 9948571,
    "sha256": "7c8a993ac33efa1845f059d3be5f5c2cffe0008ddf62c08b1848d82a7bad1420",
@@ -2725,6 +2773,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/google_mediapipe_nesne_tespiti.html",
+   "bayt": 408676,
+   "sha256": "37adb6127ab3fc2ccd9105f73c7ad83718dc0a43955108b90fdec3f0c500e65f",
+   "kaynak": {
+    "adres": "https://ai.google.dev/edge/mediapipe/solutions/vision/object_detector",
+    "atif": "Google AI Edge. Object Detector (MediaPipe Solutions görev kılavuzu; son güncelleme 16 Kasım 2026). https://ai.google.dev/edge/mediapipe/solutions/vision/object_detector (erişim 17 Kasım 2026).",
+    "lisans": "Creative Commons Attribution 4.0 (sayfa altbilgisi: 'Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License')",
+    "lisans_adresi": null,
+    "_not": "Şirket (Google) geliştirici belgesi. Adres developers.google.com/edge/... adresine yönleniyor (canonical)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/google_ml_sozluk.html",
+   "bayt": 794917,
+   "sha256": "b0d9fe26170cc53c18326a3f0fd20618c98f5a66c68548d7317b45fa442368b2",
+   "kaynak": {
+    "adres": "https://developers.google.com/machine-learning/glossary",
+    "atif": "Google for Developers. Machine Learning Glossary (son güncelleme 6 Kasım 2026). https://developers.google.com/machine-learning/glossary (erişim 17 Kasım 2026).",
+    "lisans": "Creative Commons Attribution 4.0 (sayfa altbilgisi: 'Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License')",
+    "lisans_adresi": null,
+    "_not": "Şirket (Google) yayını; kamu kurumu değil, ama kapsamlı ve açık lisanslı. Terimler başlık + etiket (#fundamentals, #Metric) + tanım biçiminde; alıntılar yalnız tanım cümlesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gorsentam_2026_web.html",
    "bayt": 23124,
    "sha256": "95181e2327f4338afff43a548fb563449813594ea30fee4b2c243a7c0dbf65eb",
@@ -2758,6 +2830,18 @@
     "lisans": "Open Government Licence v3.0",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — GOV.UK (Innovate UK), 29 Eylül 2017."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/govuk_2025_yz_oyun_kitabi.html",
+   "bayt": 674035,
+   "sha256": "a9678c118070ea97743937fedae10968103374fb35b1d459e46318fad0b9a6c0",
+   "kaynak": {
+    "adres": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+    "atif": "Government Digital Service (Birleşik Krallık). 10 Şubat 2025. Artificial Intelligence Playbook for the UK Government (HTML). GOV.UK.",
+    "lisans": "© Crown copyright 2025; Open Government Licence v3.0 ('This publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated')",
+    "lisans_adresi": null,
+    "_not": "Hükümet içi rehber; 'Fields of AI' bölümü ML, DL, NLP, CV için kısa tanımlar veriyor. Kısaltmalar (CV, DL, NN) belgenin kendisinde açılıyor."
    }
   },
   {
@@ -2830,6 +2914,18 @@
     "lisans": "üniversite blog sayfası (kısa alıntı)",
     "lisans_adresi": null,
     "_not": "Harper Adams Üniversitesi blogu, 20 Eylül 2022; verimler projenin kendi paylaşımlarından."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hayes_2009_genomik_secilim_europepmc.json",
+   "bayt": 6530,
+   "sha256": "151adc3d3ab264c89512b10a3d8efa887de9429df644ee43d7fe2b8cc5a22df8",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3168/jds.2008-1646&resultType=core&format=json",
+    "atif": "Hayes B.J., Bowman P.J., Chamberlain A.J., Goddard M.E. 2009. Invited review: Genomic selection in dairy cattle: progress and challenges. Journal of Dairy Science 92: 433-443. doi:10.3168/jds.2008-1646",
+    "lisans": "Europe PMC kaydında lisans alanı boş — bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Meuwissen 2001 yöntemi kurdu ama özetinde 'genomic selection' adını kullanmıyor; terimin tanımı Hayes 2009 özetinde."
    }
   },
   {
@@ -2914,6 +3010,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Genel yapay zekâ bağlamı, tarıma özgü değil. Veri merkezleri 2024'te dünya elektriğinin yaklaşık %1,5'ini (415 TWh) kullandı; temel senaryoda 2030'da yaklaşık 945 TWh (bugünkü Japonya tüketiminden biraz fazla), 2035'te yaklaşık 1.200 TWh; artışın en önemli sürücüsü yapay zekâ. Belirsizlik büyük: 203"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ifc_giif_endeks_sigortasi_sss.html",
+   "bayt": 133385,
+   "sha256": "f1d700273d8161779e9cf29ed6b0c8375a2fc6f6cbc2eaf9d11bc6a0fdefa4ec",
+   "kaynak": {
+    "adres": "https://www.globalinclusiveinsuranceforum.org/faq-page",
+    "atif": "Global Index Insurance Facility (GIIF, Dünya Bankası Grubu). Frequently Asked Questions. Index Insurance Forum. https://www.globalinclusiveinsuranceforum.org/faq-page (erişim 17 Kasım 2026).",
+    "lisans": "© 2026 GIIF (sayfa altbilgisi; 'Copyright Policy' ve 'Terms of Use' bağlantıları) — kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "indexinsuranceforum.org/faq-page adresi bu adrese yönleniyor."
    }
   },
   {
@@ -3313,6 +3421,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lora_alliance_lorawan_nedir.html",
+   "bayt": 352997,
+   "sha256": "1aff4a254d71f8a0e542b52d6299b875cd66346d97726dc4659c997132715906",
+   "kaynak": {
+    "adres": "https://lora-alliance.org/about-lorawan/",
+    "atif": "LoRa Alliance. About LoRaWAN® — What is LoRaWAN®? https://lora-alliance.org/about-lorawan/ (erişim 17 Kasım 2026).",
+    "lisans": "Copyright © 2026 LoRa Alliance ® (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Standardı yöneten sektör birliğinin kendi sayfası (satıcı değil, ama tarafsız da değil)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
    "bayt": 1086247,
    "sha256": "5e87ec4b475b749c9645e89366ec6280451eeca76ba1a18e47ef13d8b7573679",
@@ -3505,6 +3625,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_earthdata_sar.html",
+   "bayt": 184870,
+   "sha256": "374e7a32df747c34c7bf7e729712ab64c2ce52bf8d8de8524bbded3d712cf539",
+   "kaynak": {
+    "adres": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
+    "atif": "NASA Earthdata. Synthetic Aperture Radar (SAR). Earth Observation Data Basics. https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar (erişim 17 Kasım 2026).",
+    "lisans": "sayfada lisans ifadesi yok (ABD federal kurumu NASA)",
+    "lisans_adresi": null,
+    "_not": "İkinci alıntı metindeki 'radar uydular bulutun ardını da görebiliyor' (§19) cümlesinin genel karşılığı."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_landsat1_gorev.html",
    "bayt": 431778,
    "sha256": "9a49bccc502273311119b74eeeb0324afea7466fe09ba0488595c7f7ac6b87ae",
@@ -3553,6 +3685,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nist_csrc_sozluk_sensor.html",
+   "bayt": 45917,
+   "sha256": "607d3b907258cbdd68cd026c326fb1c9ef084d2bc4144734fe3c72462fea8904",
+   "kaynak": {
+    "adres": "https://csrc.nist.gov/glossary/term/sensor",
+    "atif": "NIST Computer Security Resource Center. Glossary: sensor (tanım kaynağı: NIST SP 800-82r3, The Automation, Systems, and Instrumentation Dictionary'den). https://csrc.nist.gov/glossary/term/sensor (erişim 17 Kasım 2026).",
+    "lisans": "sayfada lisans ifadesi yok (ABD federal kurumu NIST; altbilgide 'Copyrights' bağlantısı)",
+    "lisans_adresi": null,
+    "_not": "Sayfada iki tanım var; ilki saldırı tespit sistemi bileşeni (ilgisiz), ikincisi fiziksel ölçüm cihazı (kullanılan)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nist_ir8202_blokzincir.pdf",
+   "bayt": 772424,
+   "sha256": "8cb346731900118be97a2eaf2a1613b2ed58922eb99ab1b766960932a741d0e6",
+   "kaynak": {
+    "adres": "https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf",
+    "atif": "Yaga D., Mell P., Roby N., Scarfone K. 2018. Blockchain Technology Overview. NISTIR 8202. Gaithersburg: NIST, Ekim 2018. doi:10.6028/NIST.IR.8202",
+    "lisans": "belgede lisans ifadesi yok; 'This publication is available free of charge' (ABD federal hükümeti yayını)",
+    "lisans_adresi": null,
+    "_not": ""
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nrcan_cok_bantli_tarama.html",
+   "bayt": 28793,
+   "sha256": "fb227620a07ad41136c9ea3d32bee74acf6feb797e9da207e8bb6997742b9764",
+   "kaynak": {
+    "adres": "https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning",
+    "atif": "Natural Resources Canada (Kanada Doğal Kaynaklar Bakanlığı). Multispectral Scanning (Fundamentals of Remote Sensing eğitimi; son değişiklik 8 Ocak 2025). https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning (erişim 17 Kasım 2026).",
+    "lisans": "sayfada lisans ifadesi yok (Kanada Hükümeti sayfası; altbilgide yalnız 'Terms and conditions' bağlantısı)",
+    "lisans_adresi": null,
+    "_not": "NASA Earthdata'nın uzaktan algılama ve sözlük sayfaları 'multispectral' tanımı içermiyor (sözlük sayfası betikle yükleniyor); USGS SSS yalnız Landsat MSS'yi anıyor. Tanım için NRCan."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/oecd_2024_yz_tanim_aciklayici_not.pdf",
    "bayt": 1710148,
    "sha256": "5ffca5c5b7a80e0a993618f5a8ca14285b6b822c56a43b9ad5dfbdab73904f89",
@@ -3574,6 +3742,18 @@
     "lisans": "Belgedeki ifade: 'This document is provided free of charge. It may be reproduced and distributed free of charge without requiring any further permissions, as long as it is not altered in any way. It may not be sold.'",
     "lisans_adresi": null,
     "_not": "Hükümetlerarası hukuki belge (Konsey Tavsiyesi; bağlayıcı antlaşma değil) — bu yüzden RESMI işaretlendi, tartışılabilir. Güncel OECD tanımı PDF s.7'de; tarihçe ve 2023 değişikliğinin gerekçeleri s.3-4. AB tanımıyla neredeyse aynı cümle; AB Tüzüğü'nün gerekçe 12'si tanımın 'uluslararası kuruluşların "
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/okfn_acik_tanim_2_1.html",
+   "bayt": 35129,
+   "sha256": "2e02b6b845f234629429bff9e2ee0459527ff2a25d838986b1189afa0d577580",
+   "kaynak": {
+    "adres": "https://opendefinition.org/od/2.1/en/",
+    "atif": "Open Knowledge Foundation. Open Definition 2.1. https://opendefinition.org/od/2.1/en/ (erişim 17 Kasım 2026).",
+    "lisans": "CC BY 4.0 (sayfada: 'Content licensed under a CC Attribution 4.0 International License')",
+    "lisans_adresi": null,
+    "_not": "Kâr amacı gütmeyen kuruluş; 'açık' tanımı veri ve içeriğin ikisini de kapsıyor."
    }
   },
   {
@@ -4393,6 +4573,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usda_ars_1628_karar_destek.pdf",
+   "bayt": 626565,
+   "sha256": "c9907e2156dec71639abc43c0e5898e2e5099322f7b37397fc991214f37f6f43",
+   "kaynak": {
+    "adres": "https://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
+    "atif": "Heilman P., Stone J., Sanchez Cohen I., Macias Rodriguez H., Mann R.S. 2005. Working Smarter: Research and Decision Support Systems in Mexican Agriculture. Kitap bölümü 12 (s. 211 vd.). Texas A&M Press. USDA-ARS Southwest Watershed Research Center yayın no. 1628.",
+    "lisans": "© 2005 by Texas A&M Press (belgede) — kısa alıntı; açık lisans DEĞİL",
+    "lisans_adresi": null,
+    "_not": "Kitap bölümü (hakemli dergi değil); yazarlar USDA-ARS araştırmacıları, PDF ARS sitesinde. Açık lisanslı genel bir DSS tanımı bulunamadı; daha iyi kaynak bulunursa değiştirilmeli."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usda_ers_2023_vrt_benimseme.html",
    "bayt": 38242,
    "sha256": "c392e566a7f88c73ff7a0923fe1be2d03d60c554c7ec286d32245c7b51e2a772",
@@ -4414,6 +4606,30 @@
     "lisans": "kamu malı (ABD federal yayını)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — USGS yayın sayfası (Open-File Report 2019-1112)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usgs_landsat_ndvi.html",
+   "bayt": 92259,
+   "sha256": "7204732430cdd2f4c30450bc6b93cf252bf847dc22bba3ab59727df409c13c00",
+   "kaynak": {
+    "adres": "https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index",
+    "atif": "USGS. Landsat Normalized Difference Vegetation Index. Landsat Missions. https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index (erişim 17 Kasım 2026).",
+    "lisans": "metin için lisans ifadesi yok; sayfadaki görsel için 'Media Sources/Usage: Public Domain.' (ABD federal kurumu)",
+    "lisans_adresi": null,
+    "_not": ""
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usgs_sss_uzaktan_algilama.html",
+   "bayt": 394313,
+   "sha256": "d86936385659cd488bc488e94118761698523705bf0db9ba38c50869645e12ce",
+   "kaynak": {
+    "adres": "https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used",
+    "atif": "USGS (ABD Jeoloji Araştırmaları Kurumu). What is remote sensing and what is it used for? (Sık sorulan sorular). https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used (erişim 17 Kasım 2026).",
+    "lisans": "sayfada lisans ifadesi yok (ABD federal kurumu; altbilgide 'DOI and USGS link policies apply')",
+    "lisans_adresi": null,
+    "_not": ""
    }
   },
   {
@@ -4453,6 +4669,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/vetq_1988_uzman_sistem_europepmc.json",
+   "bayt": 4024,
+   "sha256": "417d8cf79aa0d67e9da4fca472b46e930cf188bba05c9024ad2f41d69ba7bab3",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1080/01652176.1988.9694187&resultType=core&format=json",
+    "atif": "Schreinemakers J.F., Vos M.L., Brand A., Brée D.S., Verheijden J.H. 1988. The introduction of expert systems in animal husbandry. Veterinary Quarterly 10(4): 281-288. doi:10.1080/01652176.1988.9694187",
+    "lisans": "Europe PMC kaydında lisans alanı boş — bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Açık lisanslı bir kurumsal tanım bulunamadı (NIST CSRC'de terim yok; UF/IFAS sayfası yönlendirme döngüsüne girdi). Tarım (hayvancılık) bağlamlı hakemli özet."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/walter_2015_fenotipleme_europepmc.json",
+   "bayt": 4209,
+   "sha256": "a1932795a38573c9526deeafd830f6c208d1b8fbd97958069d88e554c389022c",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1186/s13007-015-0056-8&resultType=core&format=json",
+    "atif": "Walter A., Liebisch F., Hund A. 2015. Plant phenotyping: from bean weighing to image analysis. Plant Methods 11: 14. doi:10.1186/s13007-015-0056-8",
+    "lisans": "cc by (Europe PMC kaydı, PMC4357161)",
+    "lisans_adresi": null,
+    "_not": ""
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/wardami_ersahin_karahan_2024_fosfor.pdf",
    "bayt": 839824,
    "sha256": "2f6a66b95ab76848a50c6fe2985900f4f74b5f35c1023a78559698b92270946c",
@@ -4486,6 +4726,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/wolfert_2017_akilli_tarim_wur_kayit.html",
+   "bayt": 60434,
+   "sha256": "ecbbc490fd02a675816d076b168ff407a2723ad47366a159c1387af986521c7c",
+   "kaynak": {
+    "adres": "https://research.wur.nl/en/publications/big-data-in-smart-farming-a-review/",
+    "atif": "Wolfert S., Ge L., Verdouw C., Bogaardt M.-J. 2017. Big Data in Smart Farming – A review. Agricultural Systems 153: 69-80. doi:10.1016/j.agsy.2017.01.023",
+    "lisans": "CC BY-NC-ND (WUR araştırma portalı kaydında: 'Licence: CC BY-NC-ND')",
+    "lisans_adresi": null,
+    "_not": "Dosya WUR kurumsal deposundaki kayıt sayfası (özet + lisans); PDF bağlantısı 404 verdi."
    }
   },
   {

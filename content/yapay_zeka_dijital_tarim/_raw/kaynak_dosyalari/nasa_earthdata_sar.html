@@ -1,0 +1,3546 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="Background information on synthetic aperture radar, with details on wavelength and frequency, polarization, scattering mechanisms, and interferometry." />
+<meta name="abstract" content="SAR is one of the power technologies of remote sensing, and enables high resolution imagery to be created night or day, regardless of weather conditions." />
+<meta name="keywords" content="ASF DAAC,,,,,,," />
+<link rel="canonical" href="https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar" />
+<link rel="image_src" href="https://earthdata.nasa.gov/s3fs-public/2024-11/sar-th.jpg?VersionId=cb44z4mPQQZZOkRYf.jrfW4rV0wWiych" />
+<meta name="rating" content="general" />
+<meta name="earthdata:centers" content="ASF DAAC" />
+<meta name="earthdata:data_mechanics" content="Synthetic Aperture Radar (SAR)" />
+<meta property="og:site_name" content="NASA Earthdata" />
+<meta property="og:type" content="Data Basics" />
+<meta property="og:url" content="https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar" />
+<meta property="og:title" content="Synthetic Aperture Radar (SAR) | NASA Earthdata" />
+<meta property="og:description" content="Background information on synthetic aperture radar, with details on wavelength and frequency, polarization, scattering mechanisms, and interferometry." />
+<meta property="og:image" content="https://earthdata.nasa.gov/s3fs-public/2024-11/sar-th.jpg?VersionId=cb44z4mPQQZZOkRYf.jrfW4rV0wWiych" />
+<meta property="og:image:alt" content="Color Image of Death Valley, California from SIR-C" />
+<meta name="dcterms.title" content="Synthetic Aperture Radar (SAR) | NASA Earthdata" />
+<meta name="dcterms.subject" content=",," />
+<meta name="dcterms.description" content="Background information on synthetic aperture radar, with details on wavelength and frequency, polarization, scattering mechanisms, and interferometry." />
+<meta name="dcterms.publisher" content="Earth Science Data Systems, NASA" />
+<meta name="dcterms.contributor" content="Earth Science Data Systems, NASA" />
+<meta name="dcterms.date" content="2021-05-18T14:54:59-0400" />
+<meta name="dcterms.type" content="Data Basics" />
+<meta name="dcterms.format" content="text/html" />
+<meta name="dcterms.identifier" content="/learn/earth-observation-data-basics/sar" />
+<meta name="dcterms.language" content="en-US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Background information on synthetic aperture radar, with details on wavelength and frequency, polarization, scattering mechanisms, and interferometry." />
+<meta name="twitter:site" content="@nasaearth" />
+<meta name="twitter:title" content="Synthetic Aperture Radar (SAR) | NASA Earthdata" />
+<meta name="twitter:image" content="https://earthdata.nasa.gov/s3fs-public/2024-11/sar-th.jpg?VersionId=cb44z4mPQQZZOkRYf.jrfW4rV0wWiych" />
+<meta name="twitter:image:alt" content="Color Image of Death Valley, California from SIR-C" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Article",
+            "@id": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar/#article",
+            "url": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
+            "headline": "Synthetic Aperture Radar (SAR)",
+            "name": "Synthetic Aperture Radar (SAR) | NASA Earthdata",
+            "about": "ASF DAAC,,,,,,,",
+            "description": "Background information on synthetic aperture radar, with details on wavelength and frequency, polarization, scattering mechanisms, and interferometry.",
+            "image": {
+                "@type": "ImageObject",
+                "representativeOfPage": "True",
+                "url": "https://earthdata.nasa.gov/s3fs-public/2024-11/sar-th.jpg?VersionId=cb44z4mPQQZZOkRYf.jrfW4rV0wWiych"
+            },
+            "datePublished": "2021-05-18T14:54:59-0400",
+            "dateModified": "2026-07-09T13:01:01-0400",
+            "publisher": {
+                "@type": "GovernmentOrganization",
+                "@id": "https://earthdata.nasa.gov/#organization",
+                "name": "NASA Earthdata",
+                "url": "https://www.earthdata.nasa.gov",
+                "logo": {
+                    "@type": "ImageObject",
+                    "representativeOfPage": "True",
+                    "url": "https://www.earthdata.nasa.gov/themes/custom/project/hds_earthdata/nasa-earthdata-logo.png",
+                    "width": "300px",
+                    "height": "40px"
+                }
+            }
+        },
+        {
+            "@type": "GovernmentOrganization",
+            "@id": "https://earthdata.nasa.gov/#organization",
+            "name": "NASA Earthdata",
+            "parentOrganization": {
+                "@type": "GovernmentOrganization",
+                "@id": "https://nasa.gov/#organization",
+                "name": "National Aeronautics and Space Administration",
+                "url": "https://www.nasa.gov"
+            },
+            "url": "https://www.earthdata.nasa.gov",
+            "alternateName": "NASA"
+        },
+        {
+            "@type": "WebPage",
+            "@id": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar/#webpage",
+            "description": "Background information on synthetic aperture radar, with details on wavelength and frequency, polarization, scattering mechanisms, and interferometry.",
+            "inLanguage": "en-US"
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://earthdata.nasa.gov/#website",
+            "name": "NASA Earthdata",
+            "url": "https://www.earthdata.nasa.gov",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://earthdata.nasa.gov/search?keys={search_term_string}",
+                    "inLanguage": "en-US"
+                },
+                "query": "https://www.earthdata.nasa.gov/search?keys={search_term_string}",
+                "query-input": "required name=search_term_string"
+            },
+            "publisher": {
+                "@type": "GovernmentOrganization",
+                "@id": "https://earthdata.nasa.gov/#organization",
+                "name": "NASA Earthdata",
+                "url": "https://www.earthdata.nasa.gov",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.earthdata.nasa.gov/themes/custom/project/hds_earthdata/nasa-earthdata-logo.png",
+                    "width": "300px",
+                    "height": "40px"
+                }
+            },
+            "inLanguage": "en-US"
+        }
+    ]
+}</script>
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.earthdata.nasa.gov/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Learn",
+            "item": "https://www.earthdata.nasa.gov/learn"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Earth Observation Data Basics",
+            "item": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Synthetic Aperture Radar (SAR)"
+        }
+    ]
+}</script>
+<link rel="icon" href="/themes/custom/project/hds_earthdata/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="alternate" hreflang="en" href="https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar" />
+<script>window.a2a_config=window.a2a_config||{};a2a_config.callbacks=[];a2a_config.overlays=[];a2a_config.templates={};</script>
+<style>.a2a_kit.addtoany_list span.a2a_svg {
+  border-radius: 50%;
+}
+.a2a_kit.addtoany_list .a2a_svg svg {
+  top: 4px;
+  width: 24px;
+  height: 24px;
+} 
+.a2a_kit.addtoany_list .a2a_button_facebook .a2a_svg svg {
+  width: 18px;
+} 
+.a2a_kit.addtoany_list .a2a_button_x span.a2a_s_x {
+  background-color: #4fb4db !important;
+}
+.a2a_kit.addtoany_list .a2a_button_facebook span.a2a_s_facebook {
+  background-color: #5d77ac !important;
+}
+.a2a_kit.addtoany_list .a2a_button_linkedin span.a2a_s_linkedin {
+  background-color: #318cbc !important;
+}</style>
+
+    <title>Synthetic Aperture Radar (SAR) | NASA Earthdata</title>
+    <link rel="stylesheet" media="all" href="/sites/default/files/css/css_kkmL6KyyhHh8wWNe9VGV2-28QsXTZ0d7G4Pelwizwzo.css?delta=0&amp;language=en&amp;theme=hds_earthdata&amp;include=eJxtUVGWgzAIvFAqR8ojCdWsMfiAdOvtV1tr3e3-8CbDBAbAlIyxLoA76K7C1VxgNjXB2QcUyQxBCFOUNoXPXOVEJ3ZGwX4Fg8JBXt7kSam2FFKYS-tz7QLGsRduNfnIhaULLZfk4kgpG4vHGFlS5goHerqlelK9qxsGhS24tVzBWXMoHEdY_5J7dAh8h0RXbMUcodiQ0NBjITGFv8Tu9iR8lFNAiUO-0eZ682JP_TP7qVZDy3F_ndLbEn3EOBD8Rzq6W8l1hCRtxtLtTzck9YcetrBOvNn8negLByyXbYRce1dw4bZa7OFALy5ljXwjWYArrVtyp3Puvd9M1-rcQsk6UHK6qNEEAZWcBT9RjxPV9knsizSO_mu9EEd3y_St8IjdxKkV-gEJEgdU" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_MidmxeKArJaz0l_euSi0DYxb4-aIeiY-Qht2XMFNseA.css?delta=1&amp;language=en&amp;theme=hds_earthdata&amp;include=eJxtUVGWgzAIvFAqR8ojCdWsMfiAdOvtV1tr3e3-8CbDBAbAlIyxLoA76K7C1VxgNjXB2QcUyQxBCFOUNoXPXOVEJ3ZGwX4Fg8JBXt7kSam2FFKYS-tz7QLGsRduNfnIhaULLZfk4kgpG4vHGFlS5goHerqlelK9qxsGhS24tVzBWXMoHEdY_5J7dAh8h0RXbMUcodiQ0NBjITGFv8Tu9iR8lFNAiUO-0eZ682JP_TP7qVZDy3F_ndLbEn3EOBD8Rzq6W8l1hCRtxtLtTzck9YcetrBOvNn8negLByyXbYRce1dw4bZa7OFALy5ljXwjWYArrVtyp3Puvd9M1-rcQsk6UHK6qNEEAZWcBT9RjxPV9knsizSO_mu9EEd3y_St8IjdxKkV-gEJEgdU" />
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/9564","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJyFUuGaoyAMfCEqj8QXIAotEj8S9urbH7RutXX37g-GmSExyYD3QpBXDVswjIWyKEskLAUWY6GUSNoWBO9Kne2ZmxJZSBeWNcU8nflMHg_oAgWmFgTWL_Cygwdlz4isl1SnmAcL7jYVqtkbR4nKYGtMXrkb-ihUDDhHxUfK-hU9u8F8UO3ZBSzrfqiWLsHC0SZyN93eonpUsHTX38GOeByhJlFdp32pC6RB4owXH8dRIRQJHgQMJCzC-hPYujoIH2VZQ3EhfmHvrv-zPPVP9qxmAYluu_1Kz5jrfzVkY8KD9KDsqzMOXED9E6iC532in0bo5OuV7kebdm_9ncC7NPmtWUBc-OD-mfHKl7HVxnLGQ3NrwxOsVNsIJ_2KDGVsq1QzSLjCXTNKXdTBk9tGd2Soeak2RQ7oFa8sOGsLjEpsG9oEfXBnYNuykDPXZjNy6iviH9aPc4BW-g2YydeET8h01oTIza-r3r5_AQRRcnw","theme":"hds_earthdata","theme_token":null},"ajaxTrustedUrl":{"\/search":true},"data":{"extlink":{"extTarget":true,"extTargetAppendNewWindowDisplay":true,"extTargetAppendNewWindowLabel":"(opens in a new window)","extTargetNoOverride":false,"extNofollow":false,"extTitleNoOverride":false,"extNoreferrer":true,"extFollowNoOverride":false,"extClass":"ext","extLabel":"(link is external)","extImgClass":false,"extSubdomains":true,"extExclude":"","extInclude":"","extCssExclude":".no-extlink-icon, nav.navbar.menu--footer, nav.navbar.menu--footer-submenu, .sitebranding-footer-wrapper, button, a.btn, .block-tb-megamenu-menu-blockmain, .block-earthdata-blocks-static-mobile-menu-blocks, .views-field-field-ds-rel-url, .field--name-field-doi","extCssInclude":"","extCssExplicit":"","extAlert":true,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","extHideIcons":false,"mailtoClass":"mailto","telClass":"tel","mailtoLabel":"(link sends email)","telLabel":"(link is a phone number)","extUseFontAwesome":false,"extIconPlacement":"after","extPreventOrphan":false,"extFaLinkClasses":"fa fa-external-link","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"extlink-red-or-icon-rotate","extAdditionalMailtoClasses":"extlink-red-or-icon-rotate","extAdditionalTelClasses":"extlink-red-or-icon-rotate","extFaTelClasses":"fa fa-phone","allowedDomains":[".*nasa.gov","firms.modaps.eosdis.nasa.gov",".*cloudfront.net","nasaenterprise.webex.com","app.smartsheet.com\/b\/form\/8fa2f656feda4d70b888559bdb7a4107"],"extExcludeNoreferrer":""}},"ckeditorAccordion":{"accordionStyle":{"collapseAll":1,"keepRowsOpen":1,"animateAccordionOpenAndClose":1,"openTabsWithHash":1,"allowHtmlInTitles":0}},"collapsiblock":{"active_pages":false,"slide_speed":200,"cookie_lifetime":null,"switcher_enabled":false,"switcher_class":""},"mathjax":{"config_type":0,"config":{"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"processEscapes":"true"},"showProcessingMessages":"false","messageStyle":"none"}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"toc_js":{"toc-js-node-9564":{"back_to_top_label":"Back to top","back_to_toc_label":"Back to ToC"}},"TBMegaMenu":{"TBElementsCounter":{"column":null},"theme":"hds_earthdata","05c831df-9d32-46e0-9da7-3bb407b30740":{"arrows":"1"}},"viewsAjaxHistory":{"renderPageItem":0,"initialExposedInput":{"views_dom_id:ddf1e10d51e20994edb510ea4187bb40497f315bdc8f10deb362c5905caea919":null}},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:ddf1e10d51e20994edb510ea4187bb40497f315bdc8f10deb362c5905caea919":{"view_name":"news_events","view_display_id":"news_megamenu_block","view_args":"","view_path":"\/node\/13702","view_base_path":null,"view_dom_id":"ddf1e10d51e20994edb510ea4187bb40497f315bdc8f10deb362c5905caea919","pager_element":0}}},"user":{"uid":0,"permissionsHash":"a919e591199d7763add7b2b3c065e31dfa4dd0691e7ee1b2f479913649127ca8"}}</script>
+<script src="/sites/default/files/js/js_iVrW10mZLl58dVyVwTYEIRJvIqzDKvkwXYiakkBpihE.js?scope=header&amp;delta=0&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+<script src="//dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=GSFC&amp;dclink=true" id="_fed_an_ua_tag"></script>
+<script src="//script.crazyegg.com/pages/scripts/0013/2090.js" async></script>
+
+  </head>
+  <body class="layout-no-sidebars has-featured-top page-node-9564 path-node node--type-data-basics">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-WNP7MLF
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a href="#main-content" class="visually-hidden-focusable">
+      Skip to main content
+    </a>
+    
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    
+<div id="page-wrapper">
+  <div id="page" class="d-flex flex-column vh100-minus-admin">
+          <div class="site-wide-alerts-container" data-nosnippet>  <div class="container-fluid">
+    <section class="row region region-site-wide-alerts">
+      <div class="views-element-container block block-views block-views-blockearthdata-alerts-block-1" id="block-hds-earthdata-views-block-earthdata-alerts-block-1">
+  
+    
+      <div class="content">
+      <div>
+<div class="full-width-site-wide-alert container view view-earthdata-alerts view-id-earthdata_alerts view-display-id-block_1 js-view-dom-id-c371433a133a72b2070cd34f184098d287668ca0b19786b5a897a2cb90a30d93">
+  
+    
+      
+      <div class="view-content row">
+          <div class="g-0 views-row">
+    
+
+
+
+
+<article id="node-alert-96397"  data-history-node-id="96397" class="page-slug-news-feature-articles-celebrating-50-years-satellite-laser-ranging-nasas-goddard-space-flight node node--type-earthdata-alert node--view-mode-default clearfix site-wide-alert ed-alert-text-high dismissed">
+  <div class="container">
+    <div class="row alert alert-dismissible mb-0 p-0 border-0" role="alert">
+      <div class="d-flex col-auto alert-icon align-items-center ed-alert-icon-high">
+                  <i class="hdsi hdsi-ui-alert-high-priority font-size-24 text-white"></i>
+              </div>
+      <div class="col-12 py-1 px-2 order-1 col-sm my-sm-auto order-sm-0">
+        
+
+        
+        
+    <div class="field field--name-title field--type-string field--label-hidden">
+            <span class="me-2">Earthdata Forum is down due to unplanned maintenance. Please contact earthdata-support@nasa.gov with questions.</span>
+
+                            
+                
+                  <a class="more-info-link" href="/data/alerts-outages/earthdata-forum-down-maintenance-october-27-2026">See the alert</a>
+        
+      
+    </div>
+
+  
+      </div>
+      <button type="button" class="btn-dismiss col-auto ms-auto my-auto" data-bs-dismiss="alert" aria-label="Close">
+        <i class="hdsi hdsi-ui-close"></i>
+      </button>
+    </div>
+  </div>
+</article>
+
+  </div>
+
+    </div>
+  
+  
+  
+  
+  
+  </div>
+</div>
+
+    </div>
+  </div>
+<div class="views-element-container block block-views block-views-blockearthdata-alerts-block-2" id="block-hds-earthdata-views-block-earthdata-alerts-block-2">
+  
+    
+      <div class="content">
+      <div>
+<div class="full-width-site-wide-alert container view view-earthdata-alerts view-id-earthdata_alerts view-display-id-block_2 js-view-dom-id-4101dfc80381a2581bafbfb2480170283bfebc882e99c9cb7401c41707c85a0f">
+  
+    
+      
+      <div class="view-content row">
+          <div class="g-0 views-row">
+    
+
+
+
+
+<article id="node-alert-92348"  data-history-node-id="92348" class="page-slug-news-feature-articles-celebrating-50-years-satellite-laser-ranging-nasas-goddard-space-flight node node--type-earthdata-alert node--view-mode-default clearfix site-wide-alert ed-alert-text-medium dismissed">
+  <div class="container">
+    <div class="row alert alert-dismissible mb-0 p-0 border-0" role="alert">
+      <div class="d-flex col-auto alert-icon align-items-center ed-alert-icon-medium">
+                  <i class="hdsi hdsi-ui-alert-medium-priority font-size-24 text-white"></i>
+              </div>
+      <div class="col-12 py-1 px-2 order-1 col-sm my-sm-auto order-sm-0">
+        
+
+        
+        
+    <div class="field field--name-title field--type-string field--label-hidden">
+            <span class="me-2">Suomi NPP is no longer delivering new data. Users must transition to alternative products.</span>
+
+                            
+                
+                  <a class="more-info-link" href="/data/alerts-outages/reminder-new-suomi-npp-observations-cease-november-2-2026">Suomi NPP data announcement</a>
+        
+      
+    </div>
+
+  
+      </div>
+      <button type="button" class="btn-dismiss col-auto ms-auto my-auto" data-bs-dismiss="alert" aria-label="Close">
+        <i class="hdsi hdsi-ui-close"></i>
+      </button>
+    </div>
+  </div>
+</article>
+
+  </div>
+
+    </div>
+  
+  
+  
+  
+  
+  </div>
+</div>
+
+    </div>
+  </div>
+<div class="views-element-container block block-views block-views-blockearthdata-alerts-block-3" id="block-hds-earthdata-views-block-earthdata-alerts-block-3">
+  
+    
+      <div class="content">
+      <div>
+<div class="full-width-site-wide-alert view-empty-on-load container view view-earthdata-alerts view-id-earthdata_alerts view-display-id-block_3 js-view-dom-id-b513290e27feb8d3d53913495d3d8de6fcfd1e01c323b4306dd7c4cb5af98e94">
+  
+    
+      
+  
+  
+  
+  
+  
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </section>
+  </div>
+</div>
+        <header id="header" class="header" role="banner" aria-label="Site header">
+      <div data-nosnippet>
+                                        <nav class="navbar navbar-dark bg-dark navbar-expand-lg" id="navbar-main" data-bs-theme="dark">
+                            <div class="container">
+                              
+                                  <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                  <div class="collapse navbar-collapse justify-content-between" id="CollapsingNavbar">
+                                          
+
+<div  id="block-hds-earthdata-sitebranding" class="clearfix site-branding nowrap">
+  <a href="https://www.nasa.gov/" title="NASA Home" rel="home" class="d-inline-block">
+    <img src="/themes/custom/project/hds_earthdata/nasa-logo.svg" alt="NASA Home" width="50px" class="logo-svg img-fluid" />
+  </a>
+  <a href="/" title="Home" rel="home" class="d-inline-block navbar-brand">
+    <img src="/themes/custom/project/hds_earthdata/earthdata-logo-text.png" alt="Home" class="logo-text img-fluid" />
+  </a>
+</div>
+<div id="block-hds-earthdata-staticmobilemenublocks" class="block block-earthdata-blocks block-earthdata-blocks-static-mobile-menu-blocks col-12">
+  
+    
+      <div class="content">
+      
+
+<div id="header" class="header row static-mobile-menu-block">
+    <!-- Add to block inside header -->
+    <div class="col-2 nav-button">
+      <button id="mobile-nav-button" class="mobile-nav-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+    <div class="col-8 logo mobile-logo text-center">
+            <div  class="mobile-site-branding nowrap">
+        <a href="https://www.nasa.gov/" title="NASA Home" rel="home" class="d-inline-block me-05">
+          <img src="/themes/custom/project/hds_earthdata/nasa-logo.svg" alt="NASA Home" class="logo-svg img-fluid" />
+        </a>
+        <a href="/" title="Home" rel="home" class="d-inline-block">
+          <img src="/themes/custom/project/hds_earthdata/earthdata-logo-text.png" alt="Home" class="logo-text img-fluid" />
+        </a>
+      </div>
+    </div>
+    <div class="col-2 search-icon text-end">
+      <a href="/search">
+        <i class="hdsi hdsi-ui-search"></i>
+      </a>
+    </div>
+
+    <nav id="mobile-navigation">
+    <ul class="menu drilldown" data-drilldown>
+      <li><a href="/" class="pb-5">Home</a></li>
+          <li>
+        <a href="/data">Data</a>
+        <ul class="menu nested">
+          <li><a href="/data/catalog">Data Catalog</a></li>
+          <li><a href="/data/alerts-outages">Data Alerts and Outages</a></li>
+          <li>
+            <a href="/data/projects">Projects</a>
+            <ul class="menu nested">
+              <li><a href="/data/projects/lance">Land, Atmosphere Near real-time Capability for Earth observation (LANCE)</a></li>
+              <li><a href="/data/projects/hls">Harmonized Landsat and Sentinel-2 (HLS)</a></li>
+              <li><a href="/data/projects/arset">Applied Remote Sensing Training Program (ARSET)</a></li>
+            </ul>
+            <li><span class="section-title">Observation Methods</span></li>
+            <li><a href="/data/platforms">Platforms</a></li>
+            <li><a href="/data/instruments">Instruments</a></li>
+            <li><a href="/data/space-geodesy-techniques">Space Geodesy Techniques</a></li>
+            <li><a href="/data/tools" class="section-title-with-icon">Data Tools</a></li>
+            <li><a href="/data/tools/earthdata-search">Earthdata Search</a></li>
+            <li><a href="/data/tools/worldview">Worldview</a></li>
+            <li><a href="/data/tools/firms">Fire Information for Resource Management System (FIRMS)</a></li>
+            <li><a href="/data/tools/vertex">Vertex</a></li>
+            <li><a href="/data/tools/giovanni">Giovanni</a></li>
+            <li><a href="/data/tools/appeears">Application for Extracting and Exploring Analysis Ready Samples (AppEEARS)</a></li>
+            <li><a href="/data/tools/veda">Visualization, Exploration, and Data Analysis (VEDA)</a></li>
+            <li><a href="/data/tools/ocean-color-level-3-4-browser">Ocean Color Level 3 and 4 Browser</a></li>
+          </li>
+        </ul>
+      </li>
+          <li>
+        <a href="/topics">Topics</a>
+        <ul class="menu nested">
+          <li><a href="/topics/atmosphere">Atmosphere</a></li>
+          <li><a href="/topics/biosphere">Biosphere</a></li>
+          <li><a href="/topics/climate-indicators">Climate Indicators</a></li>
+          <li><a href="/topics/cryosphere">Cryosphere</a></li>
+          <li><a href="/topics/human-dimensions">Human Dimensions</a></li>
+          <li><a href="/topics/land-surface">Land Surface</a></li>
+          <li><a href="/topics/ocean">Ocean</a></li>
+          <li><a href="/topics/solid-earth">Solid Earth</a></li>
+          <li><a href="/topics/sun-earth-interactions">Sun-Earth Interactions</a></li>
+          <li><a href="/topics/terrestrial-hydrosphere">Terrestrial Hydrosphere</a></li>
+          <li><a href="/topics/glossary">View All Topics</a></li>
+        </ul>
+      </li>
+            <li>
+        <a href="/learn">Learn</a>
+        <ul class="menu nested">
+          <li><a href="/learn/earth-observation-data-basics">Earth Observation Data Basics</a></li>
+          <li><a href="/learn/gis">GIS Resources</a></li>
+          <li><a href="/learn/data-in-action">Data in Action</a></li>
+          <li><a href="/learn/data-recipes">Data Recipes</a></li>
+          <li><a href="/learn/trainings">Trainings</a></li>
+          <li><a href="/learn/tutorials">Tutorials</a></li>
+          <li><a href="/learn/webinars">Webinars</a></li>
+          <li><a href="/learn/Publications">Publications</a></li>
+        </ul>
+      </li>
+            <li>
+        <a href="/centers">Centers</a>
+        <ul class="menu nested">
+          <li>
+            <a href="">Distributed Active Archive Centers (DAACs)</a>
+            <ul class="menu nested">
+              <li><a href="/centers/asf-daac">Alaska Satellite Facility (ASF) DAAC</a></li>
+              <li><a href="/centers/asdc-daac">Atmospheric Science Data Center (ASDC)</a></li>
+              <li><a href="/centers/cddis-daac">Crustal Dynamics Data Information System (CDDIS)</a></li>
+              <li><a href="/centers/ghrc-daac">Global Hydrometeorology Resource Center (GHRC) DAAC</a></li>
+              <li><a href="/centers/gesdisc-daac">Goddard Earth Sciences Data and Information Services Center (GES DISC)</a></li>
+              <li><a href="/centers/lp-daac">Land Processes (LP) DAAC</a></li>
+              <li><a href="/centers/laads-daac">Level 1 and Atmosphere Archive and Distribution System (LAADS) DAAC</a></li>
+              <li><a href="/centers/nsidc-daac">National Snow and Ice Data Center (NSIDC) DAAC</a></li>
+              <li><a href="/centers/ornl-daac">Oak Ridge National Laboratory (ORNL) DAAC</a></li>
+              <li><a href="/centers/ob-daac">Ocean Biology DAAC (OB.DAAC)</a></li>
+              <li><a href="/centers/po-daac">Physical Oceanography DAAC (PO.DAAC)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/">Science Investigator-led Processing Systems (SIPS)
+            </a>
+            <ul class="menu nested">
+              <li><a href="/centers/modaps-sips">MODIS Adaptive Processing System (MODAPS) SIPS</a></li>
+              <li><a href="/centers/odps-sips">Ocean SIPS</a></li>
+              <li><a href="/centers/mls-sips">Microwave Limb Sounder (MLS) SIPS</a></li>
+              <li><a href="/centers/omi-sips">Ozone Monitoring Instrument (OMI) SIPS</a></li>
+              <li><a href="/centers/atmosphere-sips">Atmosphere SIPS</a></li>
+              <li><a href="/centers/land-sips">Land SIPS</a></li>
+              <li><a href="/centers/omps-sips">Ozone Mapping and Profiler Suite SIPS</a></li>
+              <li><a href="/centers/sounder-sips">Sounder SIPS</a></li>
+            </ul>
+          </li>
+          <li><a href="/centers/sdrc">Suborbital Data Resource Center</a></li>
+        </ul>
+      </li>
+
+            <li>
+        <a href="/engage">Engage</a>
+        <ul class="menu nested">
+          <li><a href="/engage/open-data-services-software">Open Data, Services, and Software Policies</a></li>
+          <li><a href="/engage/data-management-guidance/create-maintain-open-science-data-management-plan">Open Science and Data Management Plan</a></li>
+          <li>
+            <a href="#">For Researchers and Grantees</a>
+            <ul class="menu nested">
+              <li><a href="/engage/data-management-guidance">Data Management Guidance</a></li>
+              <li><a href="/engage/open-data-services-software/data-rights-related-issues">Data Rights and Related Issues</a></li>
+              <li><a href="/engage/open-data-services-software-policies/data-use-guidance">Data Use Guidance</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">For Developers</a>
+            <ul class="menu nested">
+              <li><a href="/engage/open-data-services-software/earthdata-developer-portal">APIs</a></li>
+              <li><a href="/about/esdis/eosdis/cmr">Common Metadata Repository</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">For Data Providers</a>
+            <ul class="menu nested">
+              <li><a href="/engage/submit-data">Adding New Data</a></li>
+              <li><a href="/engage/submit-data/doi-process">DOI Process</a></li>
+              <li><a href="/engage/submit-data/standards-templates">Standards</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+            <li>
+        <a href="/about">About</a>
+        <ul class="menu nested">
+          <li><a href="/about/program-leadership">ESDS Leadership</a></li>
+          <li><a href="/about/program-leadership/organization-chart">Organizational Chart</a></li>
+          <li><a href="/about/multi-mission-data-processing-system-study">Multi-Mission Data Processing System Study</a></li>
+          <li><a href="/about/esdis">Earth Science Data and Information System (ESDIS) Project</a></li>
+          <li><a href="/about/esds-digital-strategy-user-development-team">ESDS Digital Strategy and User Development Team</a></li>
+          <li><a href="/about/egist">Earth Science Data Systems Geographic Information Systems Team (EGIST)</a></li>
+          <li><a href="/about/competitive-programs">Competitive Programs</a></li>
+        </ul>
+      </li>
+            <li>
+        <a href="/news">News & Events</a>
+        <ul class="menu nested">
+          <li><a href="/news">News</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/news/wordview-archive">Worldview Image of the Week</a></li>
+          <li><a href="/news/feature-articles">Feature Articles</a></li>
+          <li><a href="/news/data-user-stories">Data User Stories</a></li>
+          <li><a href="/news/blog">Earthdata Blog</a></li>
+          <li><a href="/data/alerts-outages" title="Data Alerts System">Data Alerts System</a></li>
+          <li><a href="/subscribe">Subscribe to the Earthdata Newsletter</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+    </div>
+  </div>
+<div id="block-hds-earthdata-megamenu" class="block block-tb-megamenu block-tb-megamenu-menu-blockmain">
+  
+    
+      <div class="content">
+      <nav  class="tbm tbm-main tbm-arrows" id="05c831df-9d32-46e0-9da7-3bb407b30740" data-breakpoint="1200" aria-label="main navigation">
+      <button class="tbm-button" type="button">
+      <span class="tbm-button-container">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <div class="tbm-collapse  always-show">
+    <ul  class="tbm-nav level-0 items-7" >
+      
+    <li  class="tbm-item level-1 bg-dark tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="Data" aria-expanded="false">
+                Data
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0 pe-5">
+          <a class="h3 text-white text-decoration-none" href="/data" title="Data">
+            <span>Data</span>
+            <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+          </a>
+          <ul class="tbm-subnav level-1 mt-2" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/catalog" class="tbm-link level-2 active-trail text-light" title="Data Catalog">
+                  Data Catalog
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/alerts-outages" class="tbm-link level-2 active-trail text-light" title="Data Alerts and Outages">
+                  Data Alerts and Outages
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <div class="menu-header">
+            <a href="/data/projects" class="tbm-link level-2 active-trail text-light text-decoration-none" title="Data Alerts and Outages">
+              Projects
+            </a>
+          </div>
+          <ul class="tbm-subnav level-1" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/projects/lance" class="tbm-link level-2 active-trail text-light ps-4" title="Land, Atmosphere Near Real-Time Capability for EO (LANCE)">
+                  Land, Atmosphere Near real-time Capability for Earth observation (LANCE)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/projects/hls" class="tbm-link level-2 active-trail text-light ps-4" title="Harmonized Landsat and Sentinel-2 (HLS)">
+                  Harmonized Landsat and Sentinel-2 (HLS)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/projects/arset" class="tbm-link level-2 active-trail text-light ps-4" title="Applied Remote Sensing Training Program (ARSET)">
+                  Applied Remote Sensing Training Program (ARSET)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--2" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 g-0">
+          <span class="h3 text-light">Observation Methods</span>
+          <div class="menu-title-and-description mt-4">
+            <div class="menu-subheader pb-2">
+              <p class="h4 text-light"><a href="/data/platforms" title="Platforms">Platforms</a></p>
+              <p class="fs-6 text-light">NASA operates state-of-the-art platforms that collect critical information about our home planet. Drill down to the data and tools you need by exploring platforms on Earth and in the sky.</p>
+            </div>
+            <div class="menu-subheader pb-2">
+              <p class="h4 text-light"><a href="/data/instruments" title="Instruments">Instruments</a></p>
+              <p class="fs-6 text-light">From the ground and into space, instruments aboard NASA platforms collect a vast array of Earth science data.</p>
+            </div>
+            <div class="menu-subheader pb-2">
+              <p class="h4 text-light"><a href="/data/space-geodesy-techniques" title="Space Geodesy Techniques">Space Geodesy Techniques</a></p>
+              <p class="fs-6 text-light">These data are used to support scientific and societal applications Earth observations, positioning, navigation, and timing.</p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--3" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0 pe-5">
+          <a class="h3 text-white text-decoration-none" href="/data/tools" title="Data Tools">
+            <span>Data Tools</span>
+            <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+          </a>
+          <ul class="tbm-subnav level-1 mt-1" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/earthdata-search" class="tbm-link level-2 active-trail text-light" title="Earthdata Search">
+                  Earthdata Search
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/worldview" class="tbm-link level-2 active-trail text-light" title="Worldview">
+                  Worldview
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/firms" class="tbm-link level-2 active-trail text-light" title="Fire Information for Resource Management System (FIRMS)">
+                  Fire Information for Resource Management System (FIRMS)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/vertex" class="tbm-link level-2 active-trail text-light" title="Vertex">
+                  Vertex
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/giovanni" class="tbm-link level-2 active-trail text-light" title="Giovanni">
+                  Giovanni
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/appeears" class="tbm-link level-2 active-trail text-light" title="Application for Extracting and Exploring Analysis Ready Samples (AppEEARS)">
+                  Application for Extracting and Exploring Analysis Ready Samples (AppEEARS)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/veda" class="tbm-link level-2 active-trail text-light" title="Visualization, Exploration, and Data Analysis (VEDA)">
+                  Visualization, Exploration, and Data Analysis (VEDA)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/data/tools/ocean-color-level-3-4-browser" class="tbm-link level-2 active-trail text-light" title="Ocean Color Level 3 and 4 Browser">
+                  Ocean Color Level 3 and 4 Browser
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+  <div class="text-light tbm-column span6 mb-4">
+    <span class="fs-6 ps-1 white-circle-border">?</span>
+    <a href="https://forum.earthdata.nasa.gov/" title="Ask the Earthdata Forum" class="fs-6 align-middle">
+      Get help from experienced data users and managers on Earthdata Forum
+    </a>
+  </div>
+
+
+</div>
+
+  </div>
+
+</li>
+
+      
+    <li  class="tbm-item level-1 bg-dark tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="Topics" aria-expanded="false">
+                Topics
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--4" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 g-0">
+          <a class="h3 text-white text-decoration-none" href="/topics" title="Data Pathfinders by Topic">
+            <span>Data Pathfinders by Topic</span>
+            <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+          </a>
+        </div>
+
+        <div class="menu-wrapper col-2 gx-0 pe-5 mb-2 mt-4">
+          <a href="/topics/atmosphere" title="Atmosphere">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/atmosphere_icon.png" alt="An icon depicting Atmosphere" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2 mt-4">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/atmosphere" title="Atmosphere">Atmosphere</a></p>
+            <p class="fs-6 text-light">The atmosphere is a gaseous envelope surrounding and protecting our planet from the intense radiation of the Sun.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 gx-0 pe-5 mb-2">
+          <a href="/topics/biosphere" title="Biosphere">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/biosphere_icon.png" alt="An icon depicting Biosphere" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/biosphere" title="Biosphere">Biosphere</a></p>
+            <p class="fs-6 text-light">The biosphere encompasses all life on Earth and extends from root systems to mountaintops and all depths of the ocean.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 gx-0 pe-5 mb-2">
+          <a href="/topics/climate-indicators" title="Climate Indicators">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/climate_indicators_icon.png" alt="An icon depicting Climate Indicators" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/climate-indicators" title="Climate Indicators">Climate Indicators</a></p>
+            <p class="fs-6 text-light">Climate Indicators hold key information for the most relevant domains of climate change: temperature and energy, atmospheric composition, ocean and water as well as the cryosphere.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 gx-0 pe-5 mb-2">
+          <a href="/topics/cryosphere" title="Cryosphere">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/cryosphere_icon.png" alt="An icon depicting Cryosphere" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/cryosphere" title="Cryosphere">Cryosphere</a></p>
+            <p class="fs-6 text-light">The cryosphere encompasses the frozen parts of Earth, including glaciers and ice sheets, sea ice, and any other frozen body of water. </p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 gx-0 pe-5">
+          <a href="/topics/human-dimensions" title="Human Dimensions">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/human_dimensions_icon.png" alt="An icon depicting Human Dimensions" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/human-dimensions" title="Human Dimensions">Human Dimensions</a></p>
+            <p class="fs-6 text-light">The human dimensions discipline includes ways humans interact with the environment and how these interactions impact Earth’s systems.</p>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--5" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-2 mb-2 column-2-and-3">
+          <a href="/topics/land-surface" title="Land Surface">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/land_surface_icon.png" alt="An icon depicting Land Surface" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2 column-2-and-3">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/land-surface" title="Land Surface">Land Surface</a></p>
+            <p class="fs-6 text-light">The land surface discipline includes research into areas such as shrinking forests, warming land, and eroding soils.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 mb-2">
+          <a href="/topics/ocean" title="Ocean">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/ocean_icon.png" alt="An icon depicting Ocean" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/ocean" title="Ocean">Ocean</a></p>
+            <p class="fs-6 text-light">This vast, critical reservoir supports a diversity of life and helps regulate Earth&rsquo;s climate.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 mb-2">
+          <a href="/topics/solid-earth" title="Solid Earth">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/solid_earth_icon.png" alt="An icon depicting Solid Earth" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/solid-earth" title="Solid Earth">Solid Earth</a></p>
+            <p class="fs-6 text-light">Processes occurring deep within Earth constantly are shaping landforms.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2 mb-2">
+          <a href="/topics/sun-earth-interactions" title="Sun-Earth Interactions">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/sun_earth_interactions_icon.png" alt="An icon depicting Sun-Earth Interactions" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10 mb-2">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/sun-earth-interactions" title="Sun-Earth Interactions">Sun-Earth Interactions</a></p>
+            <p class="fs-6 text-light">The Sun influences physical and chemical processes in Earth&rsquo;s atmosphere.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-2">
+          <a href="/topics/terrestrial-hydrosphere" title="Terrestrial Hydrosphere">
+            <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/terrestrial_hydrosphere_icon.png" alt="An icon depicting Terrestrial Hydrosphere" class="topic-icon mx-auto d-block">
+          </a>
+        </div>
+        <div class="menu-wrapper col-10">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/topics/terrestrial-hydrosphere" title="Terrestrial Hydrosphere">Terrestrial Hydrosphere</a></p>
+            <p class="fs-6 text-light">The terrestrial hydrosphere includes water on the land surface and underground in the form of lakes, rivers, and groundwater along with total water storage.</p>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--6" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 ms-4 column-2-and-3">
+          <span class="h4 text-light">Featured Data Pathfinders by Topic</span>
+          <ul class="tbm-subnav level-1 me-5" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/topics/atmosphere/air-quality" class="tbm-link level-2 active-trail text-light" title="Air Quality">
+                  Air Quality
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/topics/human-dimensions/agriculture-production" class="tbm-link level-2 active-trail text-light" title="Agriculture Production">
+                  Agriculture Production
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/topics/human-dimensions/natural-hazards" class="tbm-link level-2 active-trail text-light" title="Natural Hazards">
+                  Natural Hazards
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/topics/ocean/water-quality" class="tbm-link level-2 active-trail text-light" title="Water Quality">
+                  Water Quality
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/topics/human-dimensions/climate-resilience" class="tbm-link level-2 active-trail text-light" title="Climate Resilience">
+                  Climate Resilience
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <div class="mt-5">
+            <a class="h4 text-white text-decoration-none" href="/topics/glossary" title="View all Topics">
+              <span>View all Topics</span>
+              <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+            </a>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+</div>
+
+  </div>
+
+</li>
+
+      
+    <li  class="tbm-item level-1 tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="Learn" aria-expanded="false">
+                Learn
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--7" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="mb-4 gx-0">
+          <a class="h3 text-white text-decoration-none" href="/learn" title="Learn">
+            <span>Learn</span>
+            <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+          </a>
+        </div>
+
+        <div class="menu-wrapper col-5 gx-0 pe-2">
+          <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/learn-1.jpg" alt="A representative image for Earth Observation Data Basics." class="img-fluid">
+        </div>
+        <div class="menu-wrapper col-7 gx-0 pe-5">
+          <div class="menu-subheader me-5">
+            <p class="h4 text-light"><a href="/learn/earth-observation-data-basics" title="Earth Observation Data Basics">Earth Observation Data Basics</a></p>
+            <p class="fs-6 text-light">Learn key terms and concepts like remote sensing and processing levels.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-5 mt-5 gx-0 pe-2">
+          <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/learn-2.jpg" alt="A representative image for GIS Resources." class="img-fluid">
+        </div>
+        <div class="menu-wrapper col-7 mt-5 gx-0 pe-5">
+          <div class="menu-subheader me-5">
+            <p class="h4 text-light"><a href="/learn/gis" title="Earth Observation Data Basics">GIS Resources</a></p>
+            <p class="fs-6 text-light">Explore resources for the Geographic Information Systems (GIS) community, including StoryMaps.</p>
+          </div>
+        </div>
+
+        <div class="menu-wrapper col-5 mt-5 gx-0 pe-2">
+          <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/learn-3.jpg" alt="A representative image for GIS Resources." class="img-fluid">
+        </div>
+        <div class="menu-wrapper col-7 mt-5 gx-0 pe-5">
+          <div class="menu-subheader me-5">
+            <p class="h4 text-light"><a href="https://forum.earthdata.nasa.gov/" title="Data Support">Data Support</a></p>
+            <p class="fs-6 text-light">Connect with experienced data users and managers through the Earthdata Forum for help with datasets, tools, and services.</p>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--8" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 mt-2">
+          <div class="menu-title-and-description column-2-and-3-alt ms-5 me-5">
+            <div class="menu-subheader pb-5">
+              <p class="h4 text-light"><a href="/learn/data-in-action" title="Data in Action">Data in Action</a></p>
+              <p class="fs-6 text-light">Data in Action demonstrates Earth science data applications with interactive explanations as to how the work was accomplished.</p>
+            </div>
+            <div class="menu-subheader pb-5">
+              <p class="h4 text-light"><a href="/learn/data-recipes" title="Data Recipes">Data Recipes</a></p>
+              <p class="fs-6 text-light">Data Recipes are code-based instructions that help data scientists accomplish a specific task, such as converting data into a specific format for analysis or visualization.</p>
+            </div>
+            <div class="menu-subheader pb-5">
+              <p class="h4 text-light"><a href="/learn/trainings" title="Trainings">Trainings</a></p>
+              <p class="fs-6 text-light">Trainings are interactive opportunities to develop technical skills with NASA Earth science data.</p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--9" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 mt-2">
+          <div class="menu-title-and-description column-2-and-3-alt me-5">
+            <div class="menu-subheader pb-5">
+              <p class="h4 text-light"><a href="/learn/tutorials" title="Tutorials">Tutorials</a></p>
+              <p class="fs-6 text-light">Tutorials are step by step “how to” content that cover a broad range of tasks, from data collection to visualization.</p>
+            </div>
+            <div class="menu-subheader pb-5">
+              <p class="h4 text-light"><a href="/learn/webinars" title="Webinars">Webinars</a></p>
+              <p class="fs-6 text-light">Webinars are video seminars featuring experts in various disciplines who share their knowledge in a particular subject area, from data in the cloud to specific data tools.</p>
+            </div>
+            <div class="menu-subheader pb-5">
+              <p class="h4 text-light"><a href="/learn/publications" title="Publications">Publications</a></p>
+              <p class="fs-6 text-light">Access publications citing NASA Earth science data.</p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+</div>
+
+  </div>
+
+</li>
+
+      
+    <li  class="tbm-item level-1 tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="Centers" aria-expanded="false">
+                Centers
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--10" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0">
+          <a class="h3 text-white text-decoration-none" href="/centers" title="Centers">
+            <span>Centers</span>
+            <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+          </a>
+          <div class="mt-4 mb-4">
+            <p class="h5 text-white hds-pointer hds-active">
+              <span class="daacs-trigger">Distributed Active Archive Centers (DAACs)</span>
+              <i class="hdsi hdsi-ui-arrow-chevron-right text-secondary align-bottom ms-1"></i>
+            </p>
+          </div>
+          <div class="mb-4">
+            <p class="h5 text-white hds-pointer">
+              <span class="sips-trigger">Science Investigator-led Processing Systems (SIPS)</span>
+              <i class="hdsi hdsi-ui-arrow-chevron-right text-secondary align-bottom ms-1"></i>
+            </p>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--11" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 g-0 daacs-target">
+          <ul class="tbm-subnav level-1 column-2-and-3-alt2" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/asf-daac" class="tbm-link level-2 active-trail text-light" title="Alaska Satellite Facility (ASF) DAAC">
+                  Alaska Satellite Facility (ASF) DAAC
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/asdc-daac" class="tbm-link level-2 active-trail text-light" title="Atmospheric Science Data Center (ASDC)">
+                  Atmospheric Science Data Center (ASDC)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/cddis-daac" class="tbm-link level-2 active-trail text-light" title="Crustal Dynamics Data Information System (CDDIS)">
+                  Crustal Dynamics Data Information System (CDDIS)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/ghrc-daac" class="tbm-link level-2 active-trail text-light" title="Global Hydrometeorology Resource Center (GHRC) DAAC">
+                  Global Hydrometeorology Resource Center (GHRC) DAAC
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/gesdisc-daac" class="tbm-link level-2 active-trail text-light" title="Goddard Earth Sciences Data and Information Services Center (GES DISC)">
+                  Goddard Earth Sciences Data and Information Services Center (GES DISC)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/lp-daac" class="tbm-link level-2 active-trail text-light" title="Land Processes (LP) DAAC">
+                  Land Processes (LP) DAAC
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/laads-daac" class="tbm-link level-2 active-trail text-light" title="Level 1 and Atmosphere Archive and Distribution System (LAADS) DAAC">
+                  Level 1 and Atmosphere Archive and Distribution System (LAADS) DAAC
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/nsidc-daac" class="tbm-link level-2 active-trail text-light" title="National Snow and Ice Data Center (NSIDC) DAAC">
+                  National Snow and Ice Data Center (NSIDC) DAAC
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/ornl-daac" class="tbm-link level-2 active-trail text-light" title="Oak Ridge National Laboratory (ORNL) DAAC">
+                  Oak Ridge National Laboratory (ORNL) DAAC
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/ob-daac" class="tbm-link level-2 active-trail text-light" title="Ocean Biology DAAC (OB.DAAC)">
+                  Ocean Biology DAAC (OB.DAAC)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/po-daac" class="tbm-link level-2 active-trail text-light" title="Physical Oceanography DAAC (PO.DAAC)">
+                  Physical Oceanography DAAC (PO.DAAC)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="menu-wrapper col-12 g-0 sips-target visually-hidden">
+          <ul class="tbm-subnav level-1 column-2-and-3-alt2" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/modaps-sips" class="tbm-link level-2 active-trail text-light" title="MODIS Adaptive Processing System (MODAPS) SIPS">
+                  MODIS Adaptive Processing System (MODAPS) SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/odps-sips" class="tbm-link level-2 active-trail text-light" title="Ocean SIPS">
+                  Ocean SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/mls-sips" class="tbm-link level-2 active-trail text-light" title="Microwave Limb Sounder (MLS) SIPS">
+                  Microwave Limb Sounder (MLS) SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/omi-sips" class="tbm-link level-2 active-trail text-light" title="Ozone Monitoring Instrument (OMI) SIPS">
+                  Ozone Monitoring Instrument (OMI) SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/atmosphere-sips" class="tbm-link level-2 active-trail text-light" title="Atmosphere SIPS">
+                  Atmosphere SIPS
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/land-sips" class="tbm-link level-2 active-trail text-light" title="Land SIPS">
+                  Land SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/omps-sips" class="tbm-link level-2 active-trail text-light" title="Ozone Mapping and Profiler Suite SIPS">
+                  Ozone Mapping and Profiler Suite SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/centers/sounder-sips" class="tbm-link level-2 active-trail text-light" title="Sounder SIPS">
+                  Sounder SIPS
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--12" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+         <div class="menu-wrapper col-12 gx-0 column-2-and-3-alt">
+          <div class="menu-title-and-description mt-1 ms-5 me-5">
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/centers/sdrc" title="Suborbital Data Resource Center">Suborbital Data Resource Center</a></p>
+              <p class="fs-6 text-light">All of the resources for the airborne and field data community within our program can be found here.</p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+</div>
+
+  </div>
+
+</li>
+
+      
+    <li  class="tbm-item level-1 tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="Engage" aria-expanded="false">
+                Engage
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--13" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0 pe-5">
+          <div class="mb-4">
+            <a class="h3 text-white text-decoration-none" href="/engage" title="Engage">
+              <span>Engage</span>
+              <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+            </a>
+          </div>
+          <div class="menu-title-and-description me-5">
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/engage/open-data-services-software" title="Open Data, Services, and Software Policies">Open Data, Services, and Software Policies</a></p>
+            </div>
+            <div class="menu-subheader">
+              <p class="h4 text-light"><a href="/engage/data-management-guidance/create-maintain-open-science-data-management-plan" title="Open Science and Data Management Plan">Open Science and Data Management Plan</a></p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--14" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0">
+          <div class="menu-header column-2-and-3-alt">
+            <span class="tbm-link text-light">For Researchers and Grantees</span>
+          </div>
+          <ul class="tbm-subnav level-1" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/data-management-guidance" class="tbm-link level-2 active-trail text-light ps-4" title="Data Management Guidance">
+                  Data Management Guidance
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/open-data-services-software/data-rights-related-issues" class="tbm-link level-2 active-trail text-light ps-4" title="Data Rights and Related Issues">
+                  Data Rights and Related Issues
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/open-data-services-software-policies/data-use-guidance" class="tbm-link level-2 active-trail text-light ps-4" title="Data Use Guidance">
+                  Data Use Guidance
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <div class="menu-header">
+            <span class="tbm-link text-light">For Developers</span>
+          </div>
+          <ul class="tbm-subnav level-1" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/open-data-services-software/earthdata-developer-portal" class="tbm-link level-2 active-trail text-light ps-4" title="APIs">
+                  APIs
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/about/esdis/eosdis/cmr" class="tbm-link level-2 active-trail text-light ps-4" title="Common Metadata Repository">
+                  Common Metadata Repository
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+          <div class="menu-header">
+            <span class="tbm-link text-light">For Data Providers</span>
+          </div>
+          <ul class="tbm-subnav level-1" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/submit-data" class="tbm-link level-2 active-trail text-light ps-4" title="Adding New Data">
+                  Adding New Data
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/submit-data/doi-process" class="tbm-link level-2 active-trail text-light ps-4" title="DOI Process">
+                  DOI Process
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/engage/submit-data/standards-templates" class="tbm-link level-2 active-trail text-light ps-4" title="Standards">
+                  Standards
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+</div>
+
+  </div>
+
+</li>
+
+      
+    <li  class="tbm-item level-1 tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="About" aria-expanded="false">
+                About
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--15" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0 pe-5">
+          <div class="mb-4">
+            <a class="h3 text-white text-decoration-none" href="/about" title="About">
+              <span>About</span>
+              <i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary font-size-24 align-bottom ms-1"></i>
+            </a>
+          </div>
+          <div class="menu-title-and-description">
+            <div class="menu-subheader pb-3">
+              <p class="h4 text-light"><a href="/about/program-leadership" title="ESDS Leadership">ESDS Leadership</a></p>
+              <p class="fs-6 text-light">Meet the Earth Science Data Systems Program leadership team.</p>
+            </div>
+            <div class="menu-subheader pb-3">
+              <p class="h4 text-light"><a href="/about/program-leadership/organization-chart" title="Organizational Chart">Organizational Chart</a></p>
+              <p class="fs-6 text-light">View the internal structure of the ESDS Program.</p>
+            </div>
+            <div class="menu-subheader pb-3">
+              <p class="h4 text-light"><a href="/about/multi-mission-data-processing-system-study" title="Multi-Mission Data Processing System Study">Multi-Mission Data Processing System Study</a></p>
+              <p class="fs-6 text-light">We are considering the right data processing system for open-source data.</p>
+            </div>
+            <div class="menu-subheader pb-3">
+              <p class="h4 text-light"><a href="/contact" title="Contact Us">Contact Us</a></p>
+              <p class="fs-6 text-light">Find the right contact for questions, feedback, or support related to NASA Earthdata.</p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--16" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 pe-5">
+          <ul class="tbm-subnav level-1 column-2-and-3-alt" role="list">
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/about/esdis" class="tbm-link level-2 active-trail text-light" title="Earth Science Data and Information System (ESDIS) Project ">
+                  Earth Science Data and Information System (ESDIS) Project
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/about/esds-digital-strategy-user-development-team" class="tbm-link level-2 active-trail text-light" title="ESDS Digital Strategy and User Development Team">
+                  ESDS Digital Strategy and User Development Team
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/about/egist" class="tbm-link level-2 active-trail text-light" title="Earth Science Data Systems Geographic Information Systems Team (EGIST)">
+                  Earth Science Data Systems Geographic Information Systems Team (EGIST)
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+            <li class="tbm-item level-2 active active-trail" aria-level="2">
+              <div class="tbm-link-container">
+                <a href="/about/competitive-programs" class="tbm-link level-2 active-trail text-light" title="Competitive Programs">
+                  Competitive Programs
+                  <i class="hdsi hdsi-ui-arrow-line-right float-end fs-8"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--17" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-5 column-2-and-3">
+          <img src="/modules/custom/project/earthdata_blocks/images/static_menu_blocks/about-1.png" alt="A representative image for Earth Observation Data Basics." class="img-fluid">
+        </div>
+        <div class="menu-wrapper col-7 column-2-and-3">
+          <div class="menu-subheader">
+            <p class="h4 text-light"><a href="/about/data-metrics" title="Program Performance and Metrics">Program Performance and Metrics</a></p>
+            <p class="fs-6 text-light">Access overall ingest, archive, and distribution metrics for the ESDS program.</p>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+</div>
+
+  </div>
+
+</li>
+
+      
+    <li  class="tbm-item level-1 tbm-center tbm-item--has-dropdown" aria-level="1" >
+      <div class="tbm-link-container">
+                <span class="tbm-link level-1 no-link tbm-toggle text-light" tabindex="0" title="News and Events" aria-expanded="false">
+                News &amp; Events
+          </span>
+                <button class="tbm-submenu-toggle always-show"><span class="visually-hidden">Toggle submenu</span></button>
+          </div>
+    
+<div  class="bg-dark pt-2 fullwidth tbm-submenu tbm-item-child" fullwidth-target="#navbar-main">
+      
+<div  class="tbm-row container">
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--18" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0 pe-5">
+          <div class="menu-title-and-description me-5">
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/news" title="News">News</a></p>
+              <p class="fs-6 text-light">View the latest updates from Earthdata.</p>
+            </div>
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/events" title="Events">Events</a></p>
+              <p class="fs-6 text-light">Sign up or watch a past recording of events covering Earth science data topics.</p>
+            </div>
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/news/wordview-archive" title="Worldview Image of the Week">Worldview Image of the Week</a></p>
+              <p class="fs-6 text-light">Learn about the Earth through the lens of NASA&rsquo;s Worldview.</p>
+            </div>
+          </div>
+
+          <p class="text-light mt-4 fs-6">
+            <i class="hdsi hdsi-tag-data-alerts align-middle"></i>
+            <a href="/data/alerts-outages" title="Data Alerts System">Data Alerts System</a>
+          </p>
+          <p class="text-light mt-4 fs-6">
+            <i class="hdsi hdsi-tag-subscribe align-middle"></i>
+            <a href="/subscribe" title="Subscribe to the Earthdata Newsletter">Subscribe to the Earthdata Newsletter</a>
+          </p>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--19" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <div class="menu-wrapper col-12 gx-0 pe-5">
+          <div class="menu-title-and-description me-5">
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/news/feature-articles" title="Feature Articles">Feature Articles</a></p>
+              <p class="fs-6 text-light">Read stories inspired by NASA Earth science data.</p>
+            </div>
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/news/data-user-stories" title="Data User Stories">Data User Stories</a></p>
+              <p class="fs-6 text-light"> Discover how people are researching with NASA Earth science data.</p>
+            </div>
+            <div class="menu-subheader pb-4">
+              <p class="h4 text-light"><a href="/news/blog" title="Earthdata Blog">Earthdata Blog</a></p>
+              <p class="fs-6 text-light">Take a deeper dive into NASA Earth science data.</p>
+            </div>
+          </div>
+        </div>
+
+            
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+      <div  class="tbm-column span4">
+  <div class="tbm-column-inner">
+                 <div  class="tbm-block">
+    <div class="block-inner">
+      <div id="block-earthdata-blocks-static-menu-blocks--20" class="block block-earthdata-blocks block-earthdata-blocks-static-menu-blocks">
+  
+    
+      <div class="content">
+      
+<div class="static-menu-block">
+  <div class="container pb-5">
+    <div class="row">
+
+            
+        <span class="menu-latest-news text-carbon-40 mb-3 g-0">Latest News</span>
+        <div class="megamenu-latest-news">
+          <div class="views-element-container">
+<div class="container view view-news-events view-id-news_events view-display-id-news_megamenu_block js-view-dom-id-ddf1e10d51e20994edb510ea4187bb40497f315bdc8f10deb362c5905caea919">
+  
+    
+      
+      <div class="view-content row">
+          <div class="views-view-grid vertical cols-1 clearfix col">
+            <div class="views-col clearfix col-1" style="width: 100%;">
+                  <div class="news-menu-item views-row row-1">
+            <div class="views-field views-field-nothing"><span class="field-content"><div class="row gx-0">
+    <div class="menu-wrapper col-5 g-0 me-2">
+          <a href="/news/feature-articles/nasa-has-big-impact-agu-dataset-compilation"><img loading="lazy" src="https://earthdata.nasa.gov/s3fs-public/styles/medium/public/2025-06/data-collection-th-8.jpg?VersionId=YFJckMdsELAI8xhWwatPFoicNqrc_8wj&amp;itok=QWAcrULQ" width="220" height="165" alt="chart bars over top of Earth" class="image-style-medium img-fluid" />
+
+</a>
+
+    </div>
+    <div class="menu-wrapper col-6">
+        <div class="menu-subheader">
+            <div class="field-read-time">13 MIN READ
+</div>
+            <div class="field-title"><span class="test-light text-decoration-none"><a href="/news/feature-articles/nasa-has-big-impact-agu-dataset-compilation" hreflang="en">NASA Has a Big Impact on AGU Dataset Compilation</a></span></div>
+            <div>
+
+            
+  <div class="field field--name-type field--type-entity-reference field--label-above field__item">
+    <i class="hdsi hdsi-tag-feature-article font-size-20 me-1 align-middle"></i>
+          <span>Feature Article</span>
+      </div>
+ <span class="field-published-at"><time datetime="2026-11-16T18:26:49-05:00" title="Nov 16, 2026" data-drupal-time-diff="{&quot;format&quot;:{&quot;future&quot;:&quot;@interval hence&quot;,&quot;past&quot;:&quot;@interval ago&quot;},&quot;granularity&quot;:1,&quot;refresh&quot;:60}" class="datetime">Nov 16, 2026</time>
+</span></div>
+        </div>
+    </div>
+</div></span></div>
+          </div>
+                  <div class="news-menu-item views-row row-2">
+            <div class="views-field views-field-nothing"><span class="field-content"><div class="row gx-0">
+    <div class="menu-wrapper col-5 g-0 me-2">
+          <a href="/news/worldview-image-archive/atmospheric-river-season-pacific-northwest"><img loading="lazy" src="https://earthdata.nasa.gov/s3fs-public/styles/medium/public/2026-11/AtmosphericRiver_PNW_12Nov2026_VIIRS_NOAA20_wiotw_th.jpeg?VersionId=kNaxiQaLf2M1e8L566uwS7gdLECOWTEz&amp;itok=H9agfRTp" width="220" height="166" alt="True-color corrected reflectance satellite image of an atmospheric river approaching the US Pacific Northwest on 12 November 2026 from the VIIRS instrument aboard the NOAA-20 sateliite." class="image-style-medium img-fluid" />
+
+</a>
+
+    </div>
+    <div class="menu-wrapper col-6">
+        <div class="menu-subheader">
+            <div class="field-read-time">2 MIN READ
+</div>
+            <div class="field-title"><span class="test-light text-decoration-none"><a href="/news/worldview-image-archive/atmospheric-river-season-pacific-northwest" hreflang="en">Atmospheric River Season for the Pacific Northwest</a></span></div>
+            <div>
+
+            
+  <div class="field field--name-type field--type-entity-reference field--label-above field__item">
+    <i class="hdsi hdsi-tag-worldview-image-of-the-week font-size-20 me-1 align-middle"></i>
+          <span>Worldview Image of the Week</span>
+      </div>
+ <span class="field-published-at"><time datetime="2026-11-13T17:46:19-05:00" title="Nov 13, 2026" data-drupal-time-diff="{&quot;format&quot;:{&quot;future&quot;:&quot;@interval hence&quot;,&quot;past&quot;:&quot;@interval ago&quot;},&quot;granularity&quot;:1,&quot;refresh&quot;:60}" class="datetime">Nov 13, 2026</time>
+</span></div>
+        </div>
+    </div>
+</div></span></div>
+          </div>
+              </div>
+      </div>
+
+    </div>
+  
+  
+  
+  
+  
+  </div>
+</div>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+      </div>
+</div>
+
+    
+
+</div>
+
+  </div>
+
+</li>
+
+  </ul>
+
+      </div>
+  </nav>
+
+<script>
+if (window.matchMedia("(max-width: 1200px)").matches) {
+  document.getElementById("05c831df-9d32-46e0-9da7-3bb407b30740").classList.add('tbm--mobile');
+}
+
+
+</script>
+
+    </div>
+  </div>
+<div class="search-block-form block block-solr-search" data-drupal-selector="search-block-form" id="block-hds-earthdata-solrsearch">
+  
+    
+      <div class="content">
+      <form action="/search" method="get" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form form-row">
+  
+
+
+
+        
+  <div class="js-form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label mb-0 me-1">
+          
+                    <input title="Enter search terms." data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" placeholder="Search" class="form-search form-control" />
+
+                      </div>
+<div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+<button class="visually-hidden-focusable button js-form-submit form-submit btn btn-primary search-button" data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="Search">Search</button>
+</div>
+
+</form>
+
+    </div>
+  </div>
+
+
+                                                          </div>
+                                                            </div>
+                          </nav>
+                                  </div>
+    </header>
+
+          <div class="breadcrumb m-0">
+        <aside class="container-fluid section clearfix">
+            <div id="block-hds-earthdata-breadcrumbs" class="block block-system block-system-breadcrumb-block container">
+  
+    
+      <div class="content">
+      
+
+    <nav role="navigation" aria-label="breadcrumb" class="position-absolute bg-transparent lh-lg pt-3 z-2" style="">
+    <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+          <a href="/">Home</a>
+        </li>
+                        <li class="breadcrumb-item">
+          <a href="/learn">Learn</a>
+        </li>
+                        <li class="breadcrumb-item">
+          <a href="/learn/earth-observation-data-basics">Earth Observation Data Basics</a>
+        </li>
+                        <li class="breadcrumb-item active">
+          Synthetic Aperture Radar (SAR)
+        </li>
+              </ol>
+  </nav>
+
+    </div>
+  </div>
+
+
+        </aside>
+      </div>
+    
+                  <div class="featured-top">
+          <aside class="featured-top__inner section container-fluid g-0 clearfix" role="complementary">
+              <section class="row g-0 region region-featured-top">
+    <div id="block-hds-earthdata-entityviewcontent" class="block block-ctools block-entity-viewnode">
+  
+    
+      <div class="content">
+      
+
+<article data-history-node-id="9564" class="page-slug-learn-earth-observation-data-basics-sar node node--type-data-basics node--view-mode-hero clearfix">
+  <div class="node__content clearfix">
+              <div class="layout-bg-section">
+      <div class="layout-bg-row">
+        <div class="layout-bg-bg-container">
+          <div style="background-color: #000000;" class="static-image layout-bg-bg-wrapper">
+            <div class="_none block block-layout-builder block-field-blocknodedata-basicsfield-hero-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-hero-image field--type-entity-reference field--label-hidden field__item">  <img loading="lazy" src="https://earthdata.nasa.gov/s3fs-public/styles/hero_background_745/public/2024-11/sar-hero.jpg?VersionId=08IXOuUcFy18YAvEWy4He36D6i8LClPv&amp;itok=P5JeqHVC" width="2500" height="745" alt="Color Image of Death Valley, California from SIR-C" class="image-style-hero-background-745 img-fluid" />
+
+
+</div>
+      
+    </div>
+  </div>
+
+          </div>
+                  </div>
+        <div  class="layout-bg-content-container">
+          <div class="container py-9">
+            <div>
+              <div class="block block-earthdata-blocks block-earthdata-blocks-archived-content-alert">
+  
+    
+      <div class="content">
+      
+
+    </div>
+  </div>
+
+            </div>
+              <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      <div class="_none container block block-layout-builder block-field-blocknodedata-basicstitle">
+  
+    
+      <div class="hero-title content">
+      <h1 class="field field--name-title field--type-string field--label-hidden">Synthetic Aperture Radar (SAR)</h1>
+
+    </div>
+  </div>
+<div class="_none container block block-layout-builder block-field-blocknodedata-basicsfield-summary">
+  
+    
+      <div class="hero-summary content">
+      
+            <div class="field field--name-field-summary field--type-string-long field--label-hidden field__item">SAR is one of the power technologies of remote sensing, and enables high resolution imagery to be created night or day, regardless of weather conditions.</div>
+      
+    </div>
+  </div>
+
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</article>
+
+    </div>
+  </div>
+
+  </section>
+
+          </aside>
+        </div>
+          
+          <div class="highlighted">
+        <aside class="container-fluid section clearfix" role="complementary">
+          
+        </aside>
+      </div>
+    
+    <div id="main-wrapper" class="layout-main-wrapper clearfix mt-8">
+              <div id="main" class="container-fluid px-0">
+          <div class="row row-offcanvas row-offcanvas-left clearfix">
+              <main id="content" role="main" class="main-content col mb-9">
+                <section class="section">
+                  <a href="#main-content" id="main-content" tabindex="-1"></a>
+                    <div data-drupal-messages-fallback class="hidden"></div><div id="block-hds-earthdata-messages" class="block block-earthdata-blocks block-earthdata-blocks-session-aware-messages">
+  
+    
+      <div class="content">
+      
+    </div>
+  </div>
+<div id="block-hds-earthdata-content" class="block block-system block-system-main-block">
+  
+    
+      <div class="content">
+      
+
+<article data-history-node-id="9564" class="page-slug-learn-earth-observation-data-basics-sar node node--type-data-basics node--view-mode-full clearfix">
+  <div class="node__content clearfix">
+    <div  class="_none"><div  class="container">  
+  <div  class="layout row layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-extra-field-blocknodedata-basicscontent-moderation-control">
+  
+    
+      <div class="content">
+      
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div><div  class="_none"><div  class="container">  
+  <div  class="layout row layout-builder__layout">
+    
+                        <div  class="col-xl-3 col-lg-3 col-md-0 col-12 pe-lg-4 pe-xl-7">
+          <div class="_none toc-js-sticky-container block block-layout-builder block-extra-field-blocknodedata-basicstoc-js">
+  
+    
+      <div class="content">
+      
+
+<div  class="toc-js" id="toc-js-node-9564" data-selectors="h2,h3" data-selectors-minimum="1" data-container=".toc-js-scan-container" data-prefix="toc" data-list-type="ul" data-list-classes="" data-li-classes="h6 fw-normal" data-heading-classes="" data-skip-invisible-headings="0" data-use-heading-html="0" data-collapsible-items="0" data-collapsible-expanded="1" data-back-to-top="0" data-back-to-top-selector="Back to top" data-heading-focus="0" data-back-to-toc="0" data-smooth-scrolling="1" data-scroll-to-offset="1.5rem" data-highlight-on-scroll="1" data-highlight-offset="100" data-sticky="1" data-sticky-offset="1.5rem" data-toc-container=".toc-js-sticky-container" data-ajax-page-updates="0" data-observable-selector="">
+  <nav role="navigation" aria-labelledby="toc-js-node-9564__title">
+          <div  id="toc-js-node-9564__title" class="toc-title h8 fw-bold text-uppercase">TABLE OF CONTENTS</div>
+      </nav>
+</div>
+
+    </div>
+  </div>
+
+        </div>
+                              <div  class="col-xl-8 col-lg-8 col-md-10 col-12 toc-js-scan-container">
+          <div class="block block-layout-builder block-field-blocknodedata-basicsfield-content">
+  
+    
+      <div class="content">
+      
+
+
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68023">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68024">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>What is Synthetic Aperture Radar?</h2><p>Synthetic aperture radar (SAR) is a type of active data collection where an instrument sends out a pulse of energy and then records the amount of that energy reflected back after it interacts with Earth. Unlike optical imagery, which is a passive data collection technique based on emitted energy, SAR imagery is created from the reaction of an emitted pulse of energy with physical structures (like mountains, forests, and sea ice) and conditions like soil moisture. SAR has been used in a wide range of applications, including studying Antarctic icebergs, tracking the paths of oil spills into sensitive marshes, and mapping the wetlands of Alaska.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68025">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68026">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>What's Synthetic About Synthetic Aperture Radar?</h2><p>The spatial resolution of radar data is directly related to the ratio of the sensor wavelength to the length of the sensor's antenna. For a given wavelength, the longer the antenna, the higher the spatial resolution. From a satellite in space operating at a wavelength of about 5 cm (C-band radar), in order to get a spatial resolution of 10 m, you would need a radar antenna about 4,250 m long. (That's over 47 football fields!)</p><p>An antenna of that size is not practical for a satellite sensor in space. Hence, scientists and engineers came up with a clever workaround—the synthetic aperture. In this concept, a sequence of acquisitions from a shorter antenna are combined to simulate a much larger antenna, thus providing higher resolution data.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68027">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--image-full-width paragraph--view-mode--default paragraph--id--68028">
+  <div class="paragraph__column">     <div  class="_none"><div  class="w-100">  
+  <div  class="layout row no-gutters layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-full-width-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-full-width-image field--type-entity-reference field--label-hidden field__item"><div>
+  
+  
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+<a href="https://earthdata.nasa.gov/s3fs-public/imported/SARticle_first-fig_redone-06.jpg?VersionId=Dub9F.ZNd_G1yhuhJ5SXr1VFbbFPmgB7" aria-label="{&quot;title&quot;:&quot;Geometry of observations used to form the synthetic aperture for target P at alongtrack position x = 0.&quot;,&quot;alt&quot;:&quot;Geometry of observations used to form the synthetic aperture for target P at alongtrack position x = 0.&quot;}" role="button"  title="" data-colorbox-gallery="" class="colorbox" aria-controls="colorbox-b0qnvlH2Y58" data-cbox-img-attrs="{&quot;title&quot;:&quot;Geometry of observations used to form the synthetic aperture for target P at alongtrack position x = 0.&quot;,&quot;alt&quot;:&quot;Geometry of observations used to form the synthetic aperture for target P at alongtrack position x = 0.&quot;}"><img id="colorbox-b0qnvlH2Y58" src="https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/imported/SARticle_first-fig_redone-06.jpg?VersionId=11gBrO_Iu4iytCaQyFr07YjmZJp9OXRn&amp;itok=KDTojCeZ" width="972" height="673" alt="Geometry of observations used to form the synthetic aperture for target P at alongtrack position x = 0." title="Geometry of observations used to form the synthetic aperture for target P at alongtrack position x = 0." loading="lazy" class="image-style-hds-large img-fluid" />
+
+</a>
+</div>
+          </div>
+
+</div>
+</div>
+      
+    </div>
+  </div>
+<div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-image-media-entity-caption">
+  
+    
+      <div class="content">
+      
+  <div class="clearfix text-formatted caption-text field field--name-field-image-media-entity-caption field--type-text-long field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image Caption</div>
+              <div class="field__item"><p>Geometry of observations used to form the synthetic aperture for target P at along-track position x = 0. Credit: NASA SAR Handbook.</p></div>
+          </div>
+
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68055">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68056">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Flight and Directional Terminology</h2><p>The instrument measures the distance between the sensor and the point on Earth’s surface where the signal is backscattered. This distance is the slant range, which can be projected on the ground representing the ground range.&nbsp;</p><p>The flight direction is also referred to as the along-track or azimuth direction, and the direction perpendicular to the flight path is the across-track or range direction.&nbsp;</p><p>The angle between the direction the antenna is pointing and the nadir is the look angle. The angle between the radar beam center and the normal to the local topography is the incidence angle. Both angles are sometimes used synonymously, which is only valid if the SAR geometry is simplified to neglect Earth’s curvature and local topography. Because the look angle of the sensor significantly affects the behavior of the backscatter, it is one of the main parameters determining the viewing geometry and the incidence angle of the backscattered signal. Depending on the characteristics of the illuminated terrain, areas of layover and shadow may occur in SAR imagery.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68057">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--image-full-width paragraph--view-mode--default paragraph--id--68058">
+  <div class="paragraph__column">     <div  class="_none"><div  class="w-100">  
+  <div  class="layout row no-gutters layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-full-width-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-full-width-image field--type-entity-reference field--label-hidden field__item"><div>
+  
+  
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+<a href="https://earthdata.nasa.gov/s3fs-public/2024-06/sar-flight-path-geometry_data.png?VersionId=ui.ef4jP62ItXr_dJLohS8PH6ziqZewK" aria-label="{&quot;title&quot;:&quot;SAR imagery flight path geometry&quot;,&quot;alt&quot;:&quot;Image of satellite with lines indicating various SAR imagery criteria&quot;}" role="button"  title="" data-colorbox-gallery="" class="colorbox" aria-controls="colorbox-XbNgseablXo" data-cbox-img-attrs="{&quot;title&quot;:&quot;SAR imagery flight path geometry&quot;,&quot;alt&quot;:&quot;Image of satellite with lines indicating various SAR imagery criteria&quot;}"><img id="colorbox-XbNgseablXo" src="https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/2024-06/sar-flight-path-geometry_data.png?VersionId=dbdohymUQ2_u..nUI8Q87hG3zxceGANR&amp;itok=VG8uibMt" width="972" height="826" alt="Image of satellite with lines indicating various SAR imagery criteria" title="SAR imagery flight path geometry" loading="lazy" class="image-style-hds-large img-fluid" />
+
+</a>
+</div>
+          </div>
+
+</div>
+</div>
+      
+    </div>
+  </div>
+<div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-image-media-entity-caption">
+  
+    
+      <div class="content">
+      
+  <div class="clearfix text-formatted caption-text field field--name-field-image-media-entity-caption field--type-text-long field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image Caption</div>
+              <div class="field__item"><p>Scanning configuration for a left looking SAR with a rectangular antenna. Credit: Coert Olmsted, Scientific SAR User's Guide. Alaska SAR Facility, 1993.</p></div>
+          </div>
+
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68029">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68030">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>The Roles of Frequency and Wavelength</h2><p>Optical instruments such as Landsat's Operational Land Imager (OLI) and Sentinel-2's Multispectral Instrument (MSI) collect data in the visible, near-infrared, and short-wave infrared portions of the electromagnetic spectrum. Radar instruments utilize longer wavelengths at the centimeter to meter scale, which enables them to create imagery of landforms that might be covered with clouds or under a dense canopy of trees. The different wavelengths of SAR are often referred to as bands, with letter designations such as X, C, L, and P.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68031">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--image-full-width paragraph--view-mode--default paragraph--id--68032">
+  <div class="paragraph__column">     <div  class="_none"><div  class="w-100">  
+  <div  class="layout row no-gutters layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-full-width-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-full-width-image field--type-entity-reference field--label-hidden field__item"><div>
+  
+  
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+<a href="https://earthdata.nasa.gov/s3fs-public/imported/SARticle_microwave_fig-05.jpg?VersionId=_o8z51LIRao_1OQCqZ5mujcmplSXAeNu" aria-label="{&quot;title&quot;:&quot;The electromagnetic spectrum with microwave bands inset.&quot;,&quot;alt&quot;:&quot;The electromagnetic spectrum with microwave bands inset.&quot;}" role="button"  title="" data-colorbox-gallery="" class="colorbox" aria-controls="colorbox-Bk4eUUk0rAg" data-cbox-img-attrs="{&quot;title&quot;:&quot;The electromagnetic spectrum with microwave bands inset.&quot;,&quot;alt&quot;:&quot;The electromagnetic spectrum with microwave bands inset.&quot;}"><img id="colorbox-Bk4eUUk0rAg" src="https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/imported/SARticle_microwave_fig-05.jpg?VersionId=IJhPiwT0hV00gAweSEwOeoES6rk239A0&amp;itok=sMm7ureF" width="972" height="673" alt="The electromagnetic spectrum with microwave bands inset." title="The electromagnetic spectrum with microwave bands inset." loading="lazy" class="image-style-hds-large img-fluid" />
+
+</a>
+</div>
+          </div>
+
+</div>
+</div>
+      
+    </div>
+  </div>
+<div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-image-media-entity-caption">
+  
+    
+      <div class="content">
+      
+  <div class="clearfix text-formatted caption-text field field--name-field-image-media-entity-caption field--type-text-long field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image Caption</div>
+              <div class="field__item"><p>The electromagnetic spectrum with SAR bands highlighted.</p></div>
+          </div>
+
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68033">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68034">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><p>The table below notes SAR bands with their associated frequency and wavelength along with typical applications for that band.</p><table class="table table-striped table-hover hds-datatable"><thead><tr><th>Band</th><th>Frequency</th><th>Wavelength</th><th>Typical Application</th></tr></thead><tbody><tr><td>Ka</td><td>27–40 GHz</td><td>1.1–0.8 cm</td><td>Rarely used</td></tr><tr><td>K</td><td>18–27 GHz</td><td>1.7–1.1 cm</td><td>Rarely used</td></tr><tr><td>Ku</td><td>12–18 GHz</td><td>2.4–1.7 cm</td><td>Rarely used</td></tr><tr><td>X</td><td>8–12 GHz</td><td>3.8–2.4 cm</td><td>High resolution SAR (urban monitoring,; ice and snow, little penetration into vegetation cover; fast coherence decay in vegetated areas)</td></tr><tr><td>C</td><td>4–8 GHz</td><td>7.5–3.8 cm</td><td>SAR Workhorse (global mapping, change detection, monitoring of areas with low to moderate penetration, higher coherence); ice, ocean, maritime navigation</td></tr><tr><td>S</td><td>2–4 GHz</td><td>15–7.5 cm</td><td>Increasing use for SAR-based Earth observation and agriculture monitoring (NISAR will carry an S-band channel; expends C-band applications to higher vegetation density)</td></tr><tr><td>L</td><td>1–2 GHz</td><td>30–15 cm</td><td>Medium resolution SAR (geophysical monitoring, biomass and vegetation mapping, high penetration, interferometric SAR [InSAR])</td></tr><tr><td>P</td><td>0.3–1 GHz</td><td>100–30 cm</td><td>Biomass, vegetation mapping, and assessment. Experimental SAR band.</td></tr></tbody></table><p>Wavelength is an important feature to consider when working with SAR, as it determines how the radar signal interacts with the surface and how far a signal can penetrate into a medium. For example, an X-band radar, which operates at a wavelength of about 3 cm, has very little capability to penetrate into broadleaf forest and mostly interacts with leaves at the top of the tree canopy. An L-band signal, on the other hand, has a wavelength of about 23 cm, which enables it to penetrate more deeply through a tree canopy and allows for more interaction between the radar signal and large branches and tree trunks.&nbsp;</p><p>Wavelength doesn't just impact the penetration depth into forests, but also into other land cover types such as soil and ice. For example, scientists and archaeologists are using SAR data to help uncover lost cities and urban-type infrastructures hidden over time by dense vegetation or desert sands. For information on the use of SAR in space archaeology, view NASA Earth Observatory's <a href="https://earthobservatory.nasa.gov/features/SpaceArchaeology">Peering through the Sands of Time</a> and <a href="https://earthobservatory.nasa.gov/images/90847/secrets-beneath-the-sand">Secrets Beneath the Sand</a>.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68035">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68036">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Polarization and Scattering Mechanisms</h2><p>Polarization refers to the orientation of the plane in which a transmitted electromagnetic wave oscillates. Radar can collect signals in different polarizations by controlling the analyzed polarization in both the transmit and receive paths. &nbsp;While the orientation can occur at any angle, SAR sensors typically transmit linearly polarized. The horizontal polarization is indicated by the letter H, and the vertical polarization is indicated by the letter V.</p><p>The advantage of radar sensors is that signal polarization can be precisely controlled on both transmit and receive. Signals emitted in vertical (V) and received in horizontal (H) polarization would be indicated VH. Alternatively, a signal that was emitted in horizontal (H) and received in horizontal (H) would be indicated HH, and so on. Examining the signal strength from these different polarizations carries information about the structure of the imaged surface based on the following types of scattering: rough surface, volume, and double bounce.</p><ul><li>Rough surface scattering, such as that caused by bare soil or water, is most sensitive to VV scattering</li><li>Volume scattering caused by the leaves and branches in a forest canopy is most sensitive to cross-polarized data like VH or HV</li><li>Double bounce scattering is caused by buildings, tree trunks, or inundated vegetation and is most sensitive to an HH polarized signal</li></ul></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68037">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--image-full-width paragraph--view-mode--default paragraph--id--68038">
+  <div class="paragraph__column">     <div  class="_none"><div  class="w-100">  
+  <div  class="layout row no-gutters layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-full-width-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-full-width-image field--type-entity-reference field--label-hidden field__item"><div>
+  
+  
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+<a href="https://earthdata.nasa.gov/s3fs-public/2022-02/SARPolarization.jpg?VersionId=kr0HdAM8xNOv1PHWQUD16A7TCovoIePK" aria-label="{&quot;title&quot;:&quot;SARPolarization&quot;,&quot;alt&quot;:&quot;SARPolarization&quot;}" role="button"  title="" data-colorbox-gallery="" class="colorbox" aria-controls="colorbox-6M_sHV07IVI" data-cbox-img-attrs="{&quot;title&quot;:&quot;SARPolarization&quot;,&quot;alt&quot;:&quot;SARPolarization&quot;}"><img id="colorbox-6M_sHV07IVI" src="https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/2022-02/SARPolarization.jpg?VersionId=KyQ7vrmGXFfSLVdRu6r8oMCEiSy.uiuu&amp;itok=TPctruIs" width="972" height="301" alt="SARPolarization" title="SARPolarization" loading="lazy" class="image-style-hds-large img-fluid" />
+
+</a>
+</div>
+          </div>
+
+</div>
+</div>
+      
+    </div>
+  </div>
+<div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-image-media-entity-caption">
+  
+    
+      <div class="content">
+      
+  <div class="clearfix text-formatted caption-text field field--name-field-image-media-entity-caption field--type-text-long field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image Caption</div>
+              <div class="field__item"><p>Strong scattering in HH indicates a predominance of double-bounce scattering (e.g., stemmy vegetation, human-created structures), while strong VV relates to rough surface scattering (e.g., bare ground, water); spatial variations in dual polarization indicate the distribution of volume scatterers (e.g., vegetation and high-penetration soil types such as sand or other dry porous soils). Credit: NASA SAR Handbook.</p></div>
+          </div>
+
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68039">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68040">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><p>It is important to note that the amount of signal attributed to different scattering types may change as a function of wavelength since changes in wavelength result in changes to the penetration depth of the emitted signal. For example, a C-band signal penetrates only into the top layers of the canopy of a forest, and therefore will experience mostly roughness scattering mixed with a limited amount of volume scattering. However an L-band or a P-band signal will have much deeper penetration and will experience strongly enhanced volume scattering as well as increasing amounts of double-bounce scattering caused by objects like tree trunks.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68041">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--image-full-width paragraph--view-mode--default paragraph--id--68042">
+  <div class="paragraph__column">     <div  class="_none"><div  class="w-100">  
+  <div  class="layout row no-gutters layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-full-width-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-full-width-image field--type-entity-reference field--label-hidden field__item"><div>
+  
+  
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+<a href="https://earthdata.nasa.gov/s3fs-public/imported/SARtree_figure2.jpg?VersionId=hLMHTjW6aRd1M3yNqStXeW0LWDr_yyQw" aria-label="{&quot;title&quot;:&quot;Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface.&quot;,&quot;alt&quot;:&quot;Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface.&quot;}" role="button"  title="" data-colorbox-gallery="" class="colorbox" aria-controls="colorbox-NiLP2_s3Huk" data-cbox-img-attrs="{&quot;title&quot;:&quot;Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface.&quot;,&quot;alt&quot;:&quot;Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface.&quot;}"><img id="colorbox-NiLP2_s3Huk" src="https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/imported/SARtree_figure2.jpg?VersionId=39oxzCRneDXVdpdJUtc_MO.Rgwnr4cDd&amp;itok=_u1-xSiS" width="972" height="219" alt="Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface." title="Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface." loading="lazy" class="image-style-hds-large img-fluid" />
+
+</a>
+</div>
+          </div>
+
+</div>
+</div>
+      
+    </div>
+  </div>
+<div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-image-media-entity-caption">
+  
+    
+      <div class="content">
+      
+  <div class="clearfix text-formatted caption-text field field--name-field-image-media-entity-caption field--type-text-long field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image Caption</div>
+              <div class="field__item"><p>Sensitivity of SAR measurements to forest structure and penetration into the canopy at different wavelengths used for airborne or spaceborne remote sensing observations of the land surface. Credit: NASA SAR Handbook.</p></div>
+          </div>
+
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68059">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68060">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Resolution and Speckle</h2><p>The spatial resolution of the radar defines the minimum separation between the measurements the instrument is able to discriminate and determines the amount of speckle introduced into the system. Speckle is a scattering phenomenon that arises because the spatial resolution of the instrument is not sufficient to resolve individual scatterers. Speckle can be reproduced if the acquisition conditions are identical, while noise is random in nature. Speckle is removed by multi-looking. The higher the spatial resolution of the radar, the more objects on the ground can be discriminated. The term spatial resolution is often confused with pixel size, which is the spacing of the pixels in the azimuth and ground range direction after processing the data.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68043">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68044">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Interferometry</h2><p>SAR data enable an analysis method called interferometry. When used with SAR, this analysis method is called interferometric SAR, or InSAR. InSAR uses the phase information recorded by the instrument to measure the distance from the instrument to the target. When at least two observations of the same target are made at different times, the distance, with additional geometric information from the instrument, can be used to measure changes in land surface topography. These measurements are very accurate (up to the centimeter level) and can be used to identify areas of deformation following events like volcanic eruptions and earthquakes.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68045">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--image-full-width paragraph--view-mode--default paragraph--id--68046">
+  <div class="paragraph__column">     <div  class="_none"><div  class="w-100">  
+  <div  class="layout row no-gutters layout-builder__layout">
+    
+                        <div  class="col-12">
+          <div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-full-width-image">
+  
+    
+      <div class="content">
+      
+            <div class="field field--name-field-full-width-image field--type-entity-reference field--label-hidden field__item"><div>
+  
+  
+  <div class="field field--name-field-media-image field--type-image field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image</div>
+              <div class="field__item">
+<a href="https://earthdata.nasa.gov/s3fs-public/2024-11/sar-interferometry-okmok-volcano.jpg?VersionId=Y_l0Cu3k_mTrxYcIfc_icNYrJQmNPxrC" aria-label="{&quot;title&quot;:&quot;SAR Okmok Volcano&quot;,&quot;alt&quot;:&quot;Surface deformation on Okmok, a volcano in the Aleutian Islands, is revealed in this interferometric SAR (InSAR) ERS-2 image. Each color cycle represents 2.8 cm of ground surface movement &quot;}" role="button"  title="" data-colorbox-gallery="" class="colorbox" aria-controls="colorbox-OGDSI3ARKxM" data-cbox-img-attrs="{&quot;title&quot;:&quot;SAR Okmok Volcano&quot;,&quot;alt&quot;:&quot;Surface deformation on Okmok, a volcano in the Aleutian Islands, is revealed in this interferometric SAR (InSAR) ERS-2 image. Each color cycle represents 2.8 cm of ground surface movement &quot;}"><img id="colorbox-OGDSI3ARKxM" src="https://earthdata.nasa.gov/s3fs-public/styles/hds_large/public/2024-11/sar-interferometry-okmok-volcano.jpg?VersionId=h4oxvSWUowkSCVMfVsLQsq4LRvUrOqKY&amp;itok=JMujJ3Sr" width="972" height="866" alt="Surface deformation on Okmok, a volcano in the Aleutian Islands, is revealed in this interferometric SAR (InSAR) ERS-2 image. Each color cycle represents 2.8 cm of ground surface movement " title="SAR Okmok Volcano" loading="lazy" class="image-style-hds-large img-fluid" />
+
+</a>
+</div>
+          </div>
+
+</div>
+</div>
+      
+    </div>
+  </div>
+<div class="_none block block-layout-builder block-field-blockparagraphimage-full-widthfield-image-media-entity-caption">
+  
+    
+      <div class="content">
+      
+  <div class="clearfix text-formatted caption-text field field--name-field-image-media-entity-caption field--type-text-long field--label-visually_hidden">
+    <div class="field__label visually-hidden">Image Caption</div>
+              <div class="field__item"><p>Surface deformation on Okmok, a volcano in the Aleutian Islands, is revealed in this interferometric SAR (InSAR) ERS-2 image. Each color cycle represents 2.8 cm of ground surface movement. Credit: NASA’s Alaska Satellite Facility Distributed Active Archive Center (<a href="/centers/asf-daac" data-entity-type="node" data-entity-uuid="e36b4833-cc17-48e1-b12e-235d9893a22e" data-entity-substitution="canonical" title="ASF DAAC">ASF DAAC</a>)</p></div>
+          </div>
+
+    </div>
+  </div>
+
+        </div>
+                                                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68047">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68048">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Data Availability</h2><p>The table below lists the SAR instruments that have or currently are producing data, as well as the data parameters.</p><table class="table table-striped table-hover hds-datatable"><thead><tr><th>Software</th><th>Developer</th><th>Analysis Type</th><th>Applicable Platforms</th></tr></thead><tbody><tr><td>Sentinel Application Platform (SNAP) Sentinel 1 Toolbox&nbsp;<br>(<a href="https://step.esa.int/main/download/snap-download/">S1TBX</a>)</td><td>ESA (European Space Agency)</td><td>A graphical user interface (GUI) used for both polarimetric and interferometric processing of SAR data. Start to finish processing includes algorithms for calibration, speckle filtering, coregistration, orthorectification, mosaicking, and data conversion.</td><td><ul><li>Sentinel-1</li><li>ERS-1 and 2</li><li>ENVISAT</li><li>ALOS PALSAR</li><li>TerraSAR-X</li><li>COSMO-SkyMed</li><li>RADARSAT-2</li></ul></td></tr><tr><td><a href="https://pypi.org/project/pyroSAR/">pyroSAR</a></td><td>John Truckenbrodt, Friedrich-Schiller-University Jena / Deutsches Zentrum<br><br>German Aerospace Center</td><td>A Python framework for large-scale SAR satellite data processing that can access GAMMA and SNAP processing capabilities. Specializes in the handling of acquisition metadata, formatting of preprocessed data for further analysis, and options for exporting data to Data Cube.</td><td>Sentinel and various past and present satellite platforms</td></tr><tr><td>Generic Mapping Tools Synthetic Aperture Radar&nbsp;<br>(<a href="https://topex.ucsd.edu/gmtsar/">GMTSAR</a>)</td><td>ConocoPhillips, Scripps Institution of Oceanography, and San Diego State University</td><td>GMTSAR adds interferometric processing capabilities to Generic Mapping Tools (GMT), command line tools used to manipulate geographic data and create maps. GMTSAR includes two main processors: 1. an InSAR processor that can focus and align stacks of images, maps topography into phase, conducts phase unwrapping, and forms complex interferograms, and 2. a postprocessor to filter the interferogram and create coherence, phase gradient, and line-of-sight displacement products.</td><td><ul><li>ERS-1/2</li><li>Envisat</li><li>ALOS-1</li><li>TerraSAR-X</li><li>COSMOS-SkyMed</li><li>Radarsat-2</li><li>Sentinel-1</li><li>ALOS-2</li></ul></td></tr><tr><td>Delft object-oriented radar interferometric software&nbsp;<br>(<a href="http://doris.tudelft.nl/">DORIS</a>)<br>&nbsp;</td><td>Delft University of Technology</td><td>Interferometric processing from single look complex (SLC) to complex interferogram and coherence map. Includes geocoding capability, but does not include phase unwrapping.</td><td>Single Look Complex data from ERS, ENVISAT, JERS, RADARSAT</td></tr><tr><td>Statistical-Cost, Network-Flow Algorithm for Phase Unwrapping&nbsp;<br>(<a href="https://web.stanford.edu/group/radar/softwareandlinks/sw/snaphu/">SNAPHU</a>)</td><td>Stanford Radar Interferometry Research Group</td><td>Software written in C that runs on most Unix/Linux platforms. Used for phase unwrapping (an interferometric process). The SNAPHU algorithm has been incorporated into other SAR processing software, including ISCE.</td><td>Input data is interferogram formatted as a raster, with single-precision (float, real*4, or complex*8) floating-point data types</td></tr><tr><td>Hybrid Pluggable Processing Pipeline&nbsp;<br>(<a href="/data/tools/hyp3" data-entity-type="node" data-entity-uuid="7652c183-ac79-46a0-9c6b-6d568809586a" data-entity-substitution="canonical" title="HyP3">HyP3</a>)</td><td>Alaska Satellite Facility</td><td>Online interface for InSAR processing, including steps such as phase unwrapping (using the Minimum Cost Flow algorithm). Includes access to some GAMMA and ISCE processing capabilities for interferometry. Also includes Radiometric Terrain Correction (RTC) and change detection tools.</td><td>Dependent on process</td></tr><tr><td>InSAR Scientific Computing Environment&nbsp;<br>(<a href="https://github.com/isce-framework/isce2">ISCE</a>)</td><td>NASA's Jet Propulsion Laboratory and Stanford University</td><td>Interferometric processing packaged as Python modules. Interferometric processing from raw or SLC to complex interferogram and coherence map. Includes geocoding, phase unwrapping, filtering, and more.</td><td><ul><li>ALOS</li><li>ALOS2</li><li>COSMO_SKYMED</li><li>ENVISAT</li><li>ERS</li><li>KOMPSAT5</li><li>RADARSAT1</li><li>RADARSAT2</li><li>RISAT1</li><li>Sentinel-1</li><li>TERRASARX</li><li>UAVSAR</li></ul></td></tr><tr><td><a href="/data/tools/asf-mapready" data-entity-type="node" data-entity-uuid="b89266a8-6651-4c7f-b163-ed45d5a9c924" data-entity-substitution="canonical" title="ASF MapReady">MapReady</a></td><td>Alaska Satellite Facility</td><td>A GUI used to terrain-correct, geocode, and apply polarimetric decompositions to multi-polarimetric SAR (PolSAR) data.</td><td>ALOS Palsar and other older datasets in ASF’s catalog (SNAP S1TBX recommended for Sentinel-1 datasets)</td></tr><tr><td>Python Radar Analysis Tools&nbsp;<br>(<a href="https://github.com/birgander2/PyRAT/blob/master/README.md">PyRat</a>)</td><td>Andreas Reigber</td><td>A GUI implemented in Python for post-processing of both airborne and space-based SAR imagery. Includes various filters, geometrical transformations and capabilities for both interferometric and polarimetric processing.</td><td>Airborne and space-based SAR data</td></tr><tr><td>Polarimetric SAR data Processing and Education Toolbox<br>(<a href="https://step.esa.int/main/download/polsarpro-v6-0-biomass-edition-toolbox-download/">PolSARpro</a>)</td><td>ESA</td><td>A GUI for high-level polarimetric processing. Includes analysis capabilities for PolSAR, PolinSAR, PolTomoSAR, and PolTimeSAR data, including functionalities such as elliptical polarimetric basis transformations, speckle filters, decompositions, parameter estimation, and classification/segmentation. Includes a fully polarimetric coherent SAR scattering and imaging simulator for forest and ground surfaces.</td><td><ul><li>ALOS-1 / PALSAR-1</li><li>ALOS-2 / PALSAR-2</li><li>COSMO-SKYMED</li><li>GaoFen-3</li><li>RADARSAT-2</li><li>RISAT</li><li>TerraSAR X</li><li>Tandem-X</li><li>SENTINEL-1A and -1B</li></ul><p>Supports upcoming missions:</p><ul><li>ALOS-4 / PALSAR-3</li><li>BIOMASS</li><li>SAOCOM</li><li>NISAR</li><li>NOVASAR-S</li><li>RCM / RADARSAT-3</li><li>TerraSAR-L</li></ul></td></tr></tbody></table><p>Several new sensors are also planned for launch in the next few years. These include the joint NASA/ISRO (Indian Space Research Organization) SAR (NISAR) platform, which will collect L-band and S-band SAR data. All data will be free and openly available to the public. ESA is also launching the P-band BIOMASS mission, which will have an open data policy. All free and publicly available SAR data can be accessed in <a href="https://search.earthdata.nasa.gov/search?q=SAR">Earthdata Search</a>.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68049">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68050">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Data Processing and Analysis</h2><p>One of the limitations of working with SAR data has been the somewhat tedious preprocessing steps that lower-level SAR data require. Depending on the type of analysis you want to do, these preprocessing steps can include: applying the orbit file, radiometric calibration, de-bursting, multilooking, speckle filtering, and terrain correction. These steps are described in more detail in this <a href="/s3fs-public/2024-06/SAR_DataProcessing_1page_new.pdf">SAR Pre-Processing one pager</a>.</p><p>More recently, data repositories like NASA's Alaska Satellite Facility Distributed Active Archive Center (ASF DAAC) are starting to provide radiometrically terrain-corrected products for select areas, reducing the amount of time and effort the user has to put into preprocessing on their own.</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+  <div class="field--entity-reference-revisions">
+
+
+
+<div class="paragraph paragraph--type--layout-paragraph paragraph--view-mode--default paragraph--id--68051">
+  <div class="paragraph__column">       <div class="layout layout--onecol">
+    <div  class="layout__region layout__region--content">
+      
+
+
+
+<div class="paragraph paragraph--type--text paragraph--view-mode--default paragraph--id--68052">
+  <div class="paragraph__column">     
+            <div class="clearfix text-formatted field field--name-field-text-content field--type-text-long field--label-hidden field__item"><div class="tex2jax_process"><h2>Resources</h2><p>Much of the information for this page is drawn from <a href="/learn/earth-observation-data-basics/sar-handbook" data-entity-type="node" data-entity-uuid="8c3b9caf-2780-4bf2-a0bb-9358739a9b3e" data-entity-substitution="canonical" title="The SAR Handbook">The SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation</a>. In particular, the following chapters provide good introductory material:</p><ul><li>Meyer, Franz. "Spaceborne Synthetic Aperture Radar – Principles, Data Access, and Basic Processing Techniques." SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation. Eds. Flores, A., Herndon, K., Thapa, R., Cherrington, E. NASA. 2019. <a href="https://doi.org/10.25966/ez4f-mg98">doi:10.25966/ez4f-mg98</a></li><li>Kellndorfer, Josef. "Using SAR Data for Mapping Deforestation and Forest Degradation." SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation. Eds. Flores, A., Herndon, K., Thapa, R., Cherrington, E. NASA. 2019. <a href="https://doi.org/10.25966/68c9-gw82">doi:10.25966/68c9-gw82</a></li><li>Saatchi, Sassan. "SAR Methods for Mapping and Monitoring Forest Biomass." SAR Handbook: Comprehensive Methodologies for Forest Monitoring and Biomass Estimation. Eds. Flores, A., Herndon, K., Thapa, R., Cherrington, E. NASA. 2019. <a href="https://doi.org/10.25966/hbm1-ej07">doi:10.25966/hbm1-ej07</a></li></ul><p>Olmstead, C. 1993. <a href="/s3fs-public/2024-06/sci-sar-userguide.pdf">SAR User's Guide</a>. Alaska SAR Facility. ASF-SD-003. PDF.</p><p>Jackson, C.R., Apel, J.R. 2004. <a href="https://www.sarusersmanual.com/">Synthetic Aperture Radar Marine User's Manual</a>. NOAA Office of Research and Applications.</p><p><a href="/s3fs-public/2024-06/noaasarmanual_ch01_pg001-024.pdf">Principles of SAR (NOAA) (PDF)</a></p><p><a href="/s3fs-public/2024-06/sar%20mathematical%20tutorial.pdf">A Mathematical Tutorial on Synthetic Aperture Radar (PDF)</a></p><h3>Other Helpful Resources</h3><p>NASA Applied Remote Sensing Training (ARSET) Program:</p><ul><li><a href="https://appliedsciences.nasa.gov/get-involved/training/english/arset-introduction-synthetic-aperture-radar-sar-and-its-applications">Introduction to Synthetic Aperture Radar</a> (available in English and Spanish)</li><li><a href="https://appliedsciences.nasa.gov/get-involved/training/english/arset-radar-remote-sensing-land-water-disaster-applications">Radar Remote Sensing for Land, Water, and Disaster Applications</a> (available in English and Spanish)</li><li><a href="https://appliedsciences.nasa.gov/get-involved/training/english/arset-sar-disasters-and-hydrological-applications">SAR for Disasters and Hydrological Applications</a></li></ul><p>ESA EO College: <a href="https://eo-college.org/courses/echoes-in-space/">Echoes in Space: Introduction into the Principles and Applications of Radar Remote Sensing</a></p><p>University of Alaska Fairbanks: <a href="https://radar.community.uaf.edu/">Microwave Remote Sensing</a></p><p>PCI Geomatics Live Stream: <a href="https://www.youtube.com/watch?v=SiCbE_SjHx4&amp;t=2395s">Advanced SAR Training Course</a> (video)</p><p>ISRO (Indian Space Research Organization): <a href="https://www.youtube.com/watch?v=V57v6Bg6tAs&amp;t=44s">SAR Data Processing Shri Shashi Kumar 19 Sep 2016</a> (video)</p></div></div>
+      
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  </div>
+</div>
+</div>
+
+    </div>
+  </div>
+<div class="views-element-container _none mt-7 block block-views block-views-blocktagged-dataset-info-block-2">
+  
+    
+      <div class="content">
+      <div>
+<div class="g-0 view-empty-on-load container view view-tagged-dataset-info view-id-tagged_dataset_info view-display-id-block_2 js-view-dom-id-94f4d5d0fda54e02cf190b740c4fc8eec5afe96dd5c492afb62d3bb94248a541">
+  
+    
+      
+  
+  
+  
+  
+  
+  </div>
+</div>
+
+    </div>
+  </div>
+
+        </div>
+                              <div  class="col-xl-1 col-lg-1 col-md-2 col-12">
+          
+        </div>
+                                                                                                                                                              
+  </div>
+
+</div></div><div  class="_none"><div  class="container">  
+  <div  class="layout row layout-builder__layout">
+    
+                        <div  class="col-xl-2 col-lg-2 col-md-3 col-12">
+          
+        </div>
+                              <div  class="col-xl-9 col-lg-9 col-md-9 col-12">
+          
+        </div>
+                              <div  class="col-xl-1 col-lg-1 col-md-0 col-12">
+          
+        </div>
+                                                                                                                                                              
+  </div>
+
+</div></div>
+  </div>
+</article>
+
+    </div>
+  </div>
+
+
+                </section>
+              </main>
+                      </div>
+        </div>
+          </div>
+          <div class="featured-bottom">
+        <aside class="container-fluid clearfix px-0" role="complementary">
+          
+          
+            <section class="row region region-featured-bottom-third g-0">
+    <div id="block-hds-earthdata-staticblocks" class="block block-earthdata-blocks block-earthdata-blocks-static-blocks">
+  
+    
+      <div class="content">
+      
+
+  <div class="find-data-wrapper bg-carbon-5 py-8">
+    <div class="container">
+      <div class="card-grid-header mb-5">
+        <h2 class="h1">Find Data</h2>
+      </div>
+      <div class="row text-white">
+        <div class="position-relative mb-4 col-12 col-md-6 col-lg-3">
+          <div class="card-image find-data-by-platform row flex-column justify-content-end">
+            <a class="text-decoration-none stretched-link" href="/data/platforms" aria-label="Find Data by Platform">
+              <h3 class="h2">By Platform<i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary align-bottom font-size-24 ms-1"></i></h3>
+            </a>
+            <p class="fs-6">Explore data collected by platforms in space, air, water, and land.</p>
+          </div>
+        </div>
+        <div class="position-relative mb-4 col-12 col-md-6 col-lg-3">
+          <div class="card-image find-data-by-topic row flex-column justify-content-end">
+            <a class="text-decoration-none stretched-link" href="/topics" aria-label="Find Data by Topic">
+              <h3 class="h2">By Topic<i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary align-bottom font-size-24 ms-1"></i></h3>
+            </a>
+            <p class="fs-6">Browse by topic to find relevant data, tools, learning resources, news, and more.</p>
+          </div>
+        </div>
+        <div class="position-relative mb-4 col-12 col-md-6 col-lg-3">
+          <div class="card-image find-data-data-catalog row flex-column justify-content-end">
+            <a class="text-decoration-none stretched-link" href="/data/catalog" aria-label="Browse the Data Catalog">
+              <h3 class="h2">Data Catalog<i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary align-bottom font-size-24 ms-1"></i></h3>
+            </a>
+            <p class="fs-6">Dive into one of the planet’s largest repositories of Earth science data.</p>
+          </div>
+        </div>
+        <div class="position-relative mb-4 col-12 col-md-6 col-lg-3">
+          <div class="card-image find-data-data-tools row flex-column justify-content-end">
+            <a class="text-decoration-none stretched-link" href="/data/tools" aria-label="Browse Data Tools">
+              <h3 class="h2">Data Tools<i class="hdsi hdsi-ui-arrow-line-right-circle-fill-opaque text-secondary align-bottom font-size-24 ms-1"></i></h3>
+            </a>
+            <p class="fs-6">Access a range of tools that enable data discovery, analysis, and visualization.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    </div>
+  </div>
+
+  </section>
+
+        </aside>
+      </div>
+        <footer class="site-footer bg-dark navbar-dark py-5 mt-auto">
+              <div class="container-fluid" data-nosnippet>
+                      <div class="site-footer__top clearfix">
+                <section class="region-wrapper-footer-first">
+        <div class=container-fluid>
+      <div class="row region region-footer-first">
+            
+<div class="sitebranding-footer-wrapper mt-6">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12 col-md mb-4">
+                  <a href="/" title="Home" rel="home" class="navbar-brand">
+                          <img src="/themes/custom/project/hds_earthdata/nasa-earthdata-logo.png" alt="Home" class="d-inline-block align-top img-fluid" width="300px" />
+                      </a>
+              </div>
+
+            <div class="col-12 col-md mb-5 text-md-end">
+        <ul class="sitebranding-footer-social-icons ps-0">
+          <li class="d-inline-block me-1">
+            <a href="https://www.facebook.com/nasaearth" title="NASA Earth on Facebook" target="_blank">
+              <img src="/themes/custom/project/hds_earthdata/images/icons/footer_icons/social-facebook.svg" width="32" height="32" alt="NASA Earth on Facebook">
+            </a>
+          </li>
+          <li class="d-inline-block me-1">
+            <a href="https://www.instagram.com/nasa/" title="NASA on Instagram" target="_blank">
+              <img src="/themes/custom/project/hds_earthdata/images/icons/footer_icons/social-instagram.svg" width="32" height="32" alt="NASA on Instagram">
+            </a>
+          </li>
+          <li class="d-inline-block me-1">
+            <a href="https://x.com/nasaearth" title="NASA Earth on X" target="_blank">
+              <img src="/themes/custom/project/hds_earthdata/images/icons/footer_icons/social-x.svg" width="32" height="32" alt="NASA Earth on X">
+            </a>
+          </li>
+          <li class="d-inline-block me-1">
+            <a href="https://www.youtube.com/@NASAEarthdata" title="NASA on YouTube" target="_blank">
+              <img src="/themes/custom/project/hds_earthdata/images/icons/footer_icons/social-youtube.svg" width="32" height="32" alt="NASA on YouTube">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<nav role="navigation" aria-labelledby="block-hds-earthdata-footer-menu" id="block-hds-earthdata-footer" class="block block-menu navigation menu--footer px-0">
+            
+  <h2 class="visually-hidden" id="block-hds-earthdata-footer-menu">Footer</h2>
+  
+
+        
+    
+          <nav class="navbar navbar-expand menu--footer">
+        <div class="container">
+          <ul class="clearfix nav navbar-nav navbar-nav-footer row">
+    
+
+                            <li class="nav-item menu-item--expanded col-6 col-md-4 col-lg-2 mb-4">
+                        <a href="/data" class="nav-link nav-link--data h4 px-1 py-05" data-drupal-link-system-path="node/13093">Find Data</a>
+                              
+          <ul class="menu list-unstyled">
+    
+
+                            <li class="nav-item">
+                        <a href="/data/catalog" class="nav-link nav-link--data-catalog h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12864">Data Catalog</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/data/tools" class="nav-link nav-link--data-tools h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13094">Data Tools</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/data/platforms" class="nav-link nav-link--data-platforms h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12706">Platforms</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/data/instruments" class="nav-link nav-link--data-instruments h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12718">Instruments</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/data/space-geodesy-techniques" class="nav-link nav-link--data-space-geodesy-techniques h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12723">Space Geodesy Techniques</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/data/projects" class="nav-link nav-link--data-projects h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12705">Projects</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/data/alerts-outages" class="nav-link nav-link--data-alerts-outages h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13707">Data Alerts and Outages</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="http://urs.earthdata.nasa.gov/" class="nav-link nav-link-http--ursearthdatanasagov- h5 fw-normal px-1 py-05">Earthdata Login</a>
+                      </li>
+        
+
+      </ul>
+    
+  
+                      </li>
+                            <li class="nav-item menu-item--expanded col-6 col-md-4 col-lg-2 mb-4">
+                        <a href="/topics" class="nav-link nav-link--topics h4 px-1 py-05" data-drupal-link-system-path="node/12702">Data Pathfinders by Topic</a>
+                              
+          <ul class="menu list-unstyled">
+    
+
+                            <li class="nav-item">
+                        <a href="/topics/atmosphere" class="nav-link nav-link--topics-atmosphere h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10729">Atmosphere</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/biosphere" class="nav-link nav-link--topics-biosphere h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11133">Biosphere</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/climate-indicators" class="nav-link nav-link--topics-climate-indicators h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11324">Climate Indicators</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/cryosphere" class="nav-link nav-link--topics-cryosphere h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11218">Cryosphere</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/human-dimensions" class="nav-link nav-link--topics-human-dimensions h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10951">Human Dimensions</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/land-surface" class="nav-link nav-link--topics-land-surface h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11070">Land Surface</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/ocean" class="nav-link nav-link--topics-ocean h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10873">Ocean</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/solid-earth" class="nav-link nav-link--topics-solid-earth h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11044">Solid Earth</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/sun-earth-interactions" class="nav-link nav-link--topics-sun-earth-interactions h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11313">Sun-Earth Interactions</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/topics/terrestrial-hydrosphere" class="nav-link nav-link--topics-terrestrial-hydrosphere h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11270">Terrestrial Hydrosphere</a>
+                      </li>
+        
+
+      </ul>
+    
+  
+                      </li>
+                            <li class="nav-item menu-item--expanded col-6 col-md-4 col-lg-2 mb-4">
+                        <a href="/learn" class="nav-link nav-link--learn h4 px-1 py-05" data-drupal-link-system-path="node/13702">Learn</a>
+                              
+          <ul class="menu list-unstyled">
+    
+
+                            <li class="nav-item">
+                        <a href="/learn/earth-observation-data-basics" class="nav-link nav-link--learn-earth-observation-data-basics h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13708">Earth Observation Data Basics</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="https://forum.earthdata.nasa.gov" class="nav-link nav-link-https--forumearthdatanasagov h5 fw-normal px-1 py-05">Earthdata Forum</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/webinars" class="nav-link nav-link--learn-webinars h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12843">Webinars</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/trainings" class="nav-link nav-link--learn-trainings h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/15236">Trainings</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/tutorials" class="nav-link nav-link--learn-tutorials h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12847">Tutorials</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/data-in-action" class="nav-link nav-link--learn-data-in-action h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13097">Data in Action</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/data-recipes" class="nav-link nav-link--learn-data-recipes h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13096">Data Recipes</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/gis" class="nav-link nav-link--learn-gis h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/14525">GIS Resources</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/gis/storymaps" title="Esri StoryMaps created by NASA explore emerging Earth science data." class="nav-link nav-link--learn-gis-storymaps h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/14290">StoryMaps</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/learn/publications" class="nav-link nav-link--learn-publications h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/16468">Publications</a>
+                      </li>
+        
+
+      </ul>
+    
+  
+                      </li>
+                            <li class="nav-item menu-item--expanded col-6 col-md-4 col-lg-2 mb-4">
+                        <a href="/centers" class="nav-link nav-link--centers h4 px-1 py-05" data-drupal-link-system-path="node/12155">Centers</a>
+                              
+          <ul class="menu list-unstyled">
+    
+
+                            <li class="nav-item">
+                        <a href="/centers/asf-daac" class="nav-link nav-link--centers-asf-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11511">ASF DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/asdc-daac" class="nav-link nav-link--centers-asdc-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10722">ASDC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/cddis-daac" class="nav-link nav-link--centers-cddis-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10723">CDDIS</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/ghrc-daac" class="nav-link nav-link--centers-ghrc-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10724">GHRC DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/gesdisc-daac" class="nav-link nav-link--centers-gesdisc-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10725">GES DISC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/lp-daac" class="nav-link nav-link--centers-lp-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10726">LP DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/laads-daac" class="nav-link nav-link--centers-laads-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10727">LAADS DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/nsidc-daac" class="nav-link nav-link--centers-nsidc-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10728">NSIDC DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/ornl-daac" class="nav-link nav-link--centers-ornl-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11342">ORNL DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/ob-daac" class="nav-link nav-link--centers-ob-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11343">OB.DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/po-daac" class="nav-link nav-link--centers-po-daac h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/11345">PO.DAAC</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="https://sealevel.nasa.gov" class="nav-link nav-link-https--sealevelnasagov h5 fw-normal px-1 py-05">Sea Level Change Portal</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/centers/sdrc" class="nav-link nav-link--centers-sdrc h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13584">Suborbital Data Resource Center</a>
+                      </li>
+        
+
+      </ul>
+    
+  
+                      </li>
+                            <li class="nav-item menu-item--expanded col-6 col-md-4 col-lg-2 mb-4">
+                        <a href="/engage" class="nav-link nav-link--engage h4 px-1 py-05" data-drupal-link-system-path="node/12220">Engage</a>
+                              
+          <ul class="menu list-unstyled">
+    
+
+                            <li class="nav-item">
+                        <a href="/engage/data-management-guidance" class="nav-link nav-link--engage-data-management-guidance h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12653">Data Management Guidance for ESD-funded Researchers</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/engage/open-data-services-software" class="nav-link nav-link--engage-open-data-services-software h5 fw-normal px-1 py-05">Open Data, Services, and Software Policies</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/engage/partnerships" class="nav-link nav-link--engage-partnerships h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12435">Public and Private Partnerships</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/engage/memberships-affiliations" class="nav-link nav-link--engage-memberships-affiliations h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/12598">Memberships and Affiliations</a>
+                      </li>
+        
+
+      </ul>
+    
+  
+                      </li>
+                            <li class="nav-item menu-item--expanded col-6 col-md-4 col-lg-2 mb-4">
+                        <a href="/news" class="nav-link nav-link--news h4 px-1 py-05" data-drupal-link-system-path="node/13467">News</a>
+                              
+          <ul class="menu list-unstyled">
+    
+
+                            <li class="nav-item">
+                        <a href="/events" class="nav-link nav-link--events h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/13468">Events</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/subscribe" class="nav-link nav-link--subscribe h5 fw-normal px-1 py-05" data-drupal-link-system-path="node/10133">Newsletter</a>
+                      </li>
+                            <li class="nav-item">
+                        <a href="/contact" class="nav-link nav-link--contact h5 fw-normal px-1 py-05" data-drupal-link-system-path="contact">Contact</a>
+                      </li>
+        
+
+      </ul>
+    
+  
+                      </li>
+        
+
+      </ul>
+            </div>
+      </nav>
+    
+  
+
+
+  </nav>
+
+          </div>
+    </div>
+      </section>
+
+                <section class="row region region-footer-second">
+    <nav role="navigation" aria-labelledby="block-hds-earthdata-footersubmenu-menu" id="block-hds-earthdata-footersubmenu" class="block block-menu navigation menu--footer-submenu px-0">
+            
+  <h2 class="visually-hidden" id="block-hds-earthdata-footersubmenu-menu">Footer Submenu</h2>
+  
+
+        
+    
+          <nav class="navbar navbar-expand menu--footer-submenu">
+        <div class="container pt-5 px-0">
+          <ul class="clearfix nav navbar-nav navbar-nav-footer-submenu">
+    
+
+                                      <li class="nav-item me-5">
+                        <a href="https://www.nasa.gov/nasa-web-privacy-policy-and-important-notices/" class="nav-link nav-link-https--wwwnasagov-nasa-web-privacy-policy-and-important-notices- h5 fw-normal text-carbon-20 pe-1 py-05">Web Privacy Policy</a>
+                      </li>
+                                      <li class="nav-item me-5">
+                        <a href="/engage/open-data-services-software-policies/data-information-guidance" class="nav-link nav-link--engage-open-data-services-software-policies-data-information-guidance h5 fw-normal text-carbon-20 pe-1 py-05" data-drupal-link-system-path="node/10112">Data and Information Guidance</a>
+                      </li>
+                                      <li class="nav-item me-5">
+                        <a href="https://www.nasa.gov/audience/formedia/features/communication_policy.html" class="nav-link nav-link-https--wwwnasagov-audience-formedia-features-communication-policyhtml h5 fw-normal text-carbon-20 pe-1 py-05">Communications Policy</a>
+                      </li>
+                                      <li class="nav-item me-5">
+                        <a href="https://www.nasa.gov/foia/" class="nav-link nav-link-https--wwwnasagov-foia- h5 fw-normal text-carbon-20 pe-1 py-05">FOIA</a>
+                      </li>
+                                      <li class="nav-item me-5">
+                        <a href="https://www.nasa.gov/accessibility/" class="nav-link nav-link-https--wwwnasagov-accessibility- h5 fw-normal text-carbon-20 pe-1 py-05">Accessibility</a>
+                      </li>
+                                      <li class="nav-item me-5">
+                        <a href="/sitemap.xml" class="nav-link nav-link--sitemapxml h5 fw-normal text-carbon-20 pe-1 py-05" data-drupal-link-system-path="sitemap.xml">Sitemap</a>
+                      </li>
+                                      <li class="nav-item me-5">
+                        <a href="https://www.usa.gov/" class="nav-link nav-link-https--wwwusagov- h5 fw-normal text-carbon-20 pe-1 py-05">USA.gov</a>
+                      </li>
+        
+
+      </ul>
+            </div>
+      </nav>
+    
+  
+
+
+<div class="container px-1 mt-2">
+  <ul class="px-0">
+    <li class="d-inline-block me-5">
+      <p class="h7 text-carbon-40"><span class="fw-normal me-1">Site last Updated:</span>Nov. 6, 2026</p>
+    </li>
+    <li class="d-inline-block">
+      <p class="h7 text-carbon-40"><span class="fw-normal me-1">NASA Official:</span>Katie Baynes</p>
+    </li>
+  </ul>
+</div>
+
+  </nav>
+
+  </section>
+
+              
+              
+            </div>
+                            </div>
+          </footer>
+  </div>
+</div>
+
+  </div>
+
+    
+    <script src="/sites/default/files/js/js_W1BjPhHe4at6OOEvvjFQGQ5Bv_nn2jmD50p5rMGyn2w.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+<script src="https://static.addtoany.com/menu/page.js" defer></script>
+<script src="/sites/default/files/js/js_585H9lzdnh9DmclYWg5j8xSvlxTsmvy_uVpe_XKVL00.js?scope=footer&amp;delta=2&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+<script src="/modules/contrib/ckeditor_accordion/js/accordion.frontend.min.js?to38k5"></script>
+<script src="/sites/default/files/js/js__DNWCat7XgLsmIP3COeis7tZYIXf3T7sbWUPjzCF1UQ.js?scope=footer&amp;delta=4&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+<script src="/modules/contrib/collapsiblock/theme/dist/collapsiblock.js?to38k5" type="module"></script>
+<script src="/sites/default/files/js/js_TJo3LqcpTGa-UVLiuAbCG6TJtF52f5pG70ePzyi1Jwc.js?scope=footer&amp;delta=6&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+<script src="//static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" defer async></script>
+<script src="//cdn.parsely.com/keys/earthdata.nasa.gov/p.js" id="parsely-cfg" defer async></script>
+<script src="/sites/default/files/js/js_igJH1yIJ7V9MVBkJxSa_wl3uNbF3Oqf9c5NtTJg9J-k.js?scope=footer&amp;delta=9&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+<script src="/libraries/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML,Safe"></script>
+<script src="/sites/default/files/js/js_a8BSRkAvHTtZmAl6xWks48yiRNvtpPhggLrQrCbk7tw.js?scope=footer&amp;delta=11&amp;language=en&amp;theme=hds_earthdata&amp;include=eJx1kWtyhSAMhTeEZklMgHhFkTgktrr7gtfeV6d_kjNfDpMHGIIy5gPwEv1QOKvxM4WoXCx6zyVEzvBQdwvl8HQ5ZhUtuFpFJ9CC8ZwSrhJdYj9DfUsNcXG8w694kkADbqk2rj4IZVsx9SFi4luPE-5vXONCXYjDYAiLjgEVLSYqKvAJrOiRSF6M5zgCoqjR24XydqH_PexioherGYPYhxtaqBu3Nu8F2jXFPHcrqh8_apN0Qz0alb98JAyVL6hj3RyEdFuNujrADdsQ4FDIKHs71VOzN1-RvgXOeD_WKW2TdoxSP-iAK_8AJJzCiw"></script>
+
+  </body>
+</html>

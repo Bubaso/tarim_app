@@ -368,9 +368,9 @@ const List<YzBaslik> kYzBasliklar = [
         "veri",
         "genomik"
       ],
-      false,
-      "Metinde geçen her terim; metin içinde balon olarak da açılır.",
-      "Every term used in the text; also opens as a tooltip in place."),
+      true,
+      "Başlıklarda geçen terimlerin kaynaklı tanımları; aynı tanım metinde terime dokununca balonda açılıyor.",
+      "Sourced definitions of the terms used in the headings; the same definition opens in a bubble when a term is tapped in the text."),
   YzBaslik(
       30,
       "kaynakca",

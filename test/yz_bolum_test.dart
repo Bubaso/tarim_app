@@ -212,6 +212,111 @@ devam ediyor.
       expect(isaretli('İMECE images and machine learning.', en: true), 'machine learning');
     });
 
+    // Uzun terimin BÜTÜN geçişleri kısa terime gölge: "iklim akıllı tarım"
+    // sayfada önceden işaretlenmiş olsa da içindeki "akıllı tarım" boş kalır.
+    test('uzun terim kısa terime gölge oluyor', () {
+      const ozel = [
+        YzTerim('iat', 'iklim akıllı tarım', 'climate-smart agriculture', 'T', 'D', 'K', 'S',
+            ['iklim akıllı tarım'], ['climate-smart agriculture']),
+        YzTerim('at', 'akıllı tarım', 'smart farming', 'T', 'D', 'K', 'S', ['akıllı tarım'],
+            ['smart agriculture']),
+        YzTerim('sr', 'sohbet robotu', 'chatbot', 'T', 'D', 'K', 'S', ['sohbet robot'],
+            ['chatbot']),
+        YzTerim('r', 'robot', 'robot', 'T', 'D', 'K', 'S', ['robot'], ['robot']),
+      ];
+      String bul(String m, Set<String> g, {bool en = false}) =>
+          yzTerimleriBul(m, en, g, sozluk: ozel)
+              .map((i) => '${i.bas}:${m.substring(i.bas, i.son)}')
+              .join(' | ');
+      final g = <String>{};
+      expect(bul('Proje iklim akıllı tarım üzerine.', g), '6:iklim akıllı tarım');
+      const ikinci = 'Yine iklim akıllı tarım teknolojileri; ayrıca akıllı tarım.';
+      expect(bul(ikinci, g), '${ikinci.indexOf('akıllı tarım.')}:akıllı tarım');
+      const robotlu = 'Bir sohbet robotu ve bir hasat robotu.';
+      expect(bul(robotlu, <String>{}),
+          '4:sohbet robotu | ${robotlu.indexOf('robotu.')}:robotu');
+      const ing = 'Climate-smart agriculture and smart agriculture.';
+      expect(bul(ing, <String>{}, en: true),
+          '0:Climate-smart agriculture | ${ing.indexOf('smart agriculture.')}:smart agriculture');
+    });
+
+    test('cümle ortasında büyük harfle başlayan geçiş özel adın parçası', () {
+      const ozel = [
+        YzTerim('yz', 'yapay zekâ', 'artificial intelligence', 'T', 'D', 'K', 'S',
+            ['yapay zekâ'], ['artificial intelligence', '=AI']),
+      ];
+      String bul(String m, {bool en = false}) => yzTerimleriBul(m, en, <String>{}, sozluk: ozel)
+          .map((i) => '${i.bas}:${m.substring(i.bas, i.son)}')
+          .join(' | ');
+      const ad = 'Türkiye Yapay Zekâ Eylem Planı tarımı sayıyor; yapay zekâ veriyle eğitiliyor.';
+      expect(bul(ad), '${ad.indexOf('yapay zekâ veriyle')}:yapay zekâ');
+      expect(bul('Yapay zekâ bir teknoloji ailesi.'), '0:Yapay zekâ', reason: 'blok başı');
+      expect(bul('Bu ölçüldü (§7). Yapay zekâ ise geride.'), '17:Yapay zekâ', reason: 'nokta sonrası');
+      expect(bul('**Özet.** Yapay zekâ ilerliyor.'), '10:Yapay zekâ', reason: 'özet etiketi sonrası');
+      // Kısaltma deseni (=AI) zaten büyük harfli; kural ona uygulanmıyor.
+      const ing = 'The EU Artificial Intelligence Act covers AI tools.';
+      expect(bul(ing, en: true), '${ing.indexOf('AI tools')}:AI');
+    });
+
+    test('tırnak içi (birebir alıntı) işaretlenmiyor', () {
+      const m = 'Belge "makine öğrenmesi teknikleri" diyor; burada makine öğrenmesi anlatılıyor.';
+      final k = yzTerimleriBul(m, false, <String>{}, sozluk: terimler).single;
+      expect(k.bas, m.indexOf('makine öğrenmesi anlatılıyor'));
+    });
+
+    test('başlık süzgeci: yalnız ve hariç', () {
+      const k = YzTerim('k', 'kesinlik', 'precision', 'T', 'D', 'K', 'S', ['kesinlik'],
+          ['precision'], yalniz: [18]);
+      expect(k.baslikta(18), isTrue);
+      expect(k.baslikta(12), isFalse);
+      const d = YzTerim('d', 'doğruluk', 'accuracy', 'T', 'D', 'K', 'S', ['doğrulu'],
+          ['accuracy'], haric: [7]);
+      expect(d.baslikta(7), isFalse);
+      expect(d.baslikta(8), isTrue);
+    });
+
+    // §29'daki "Geçtiği başlıklar" sozluk_uret.py'deki Python eşleştiricisiyle
+    // yazılıyor; sayfalar ise bu Dart eşleştiricisiyle çiziliyor. İkisi
+    // ayrışırsa sözlük, balonun açılmadığı bir başlığı gösterir — ya da tersi.
+    test('§29 sayfası Dart eşleştiricisiyle aynı başlıkları gösteriyor', () {
+      final sozlukSayfasi = kYzMetinler[29];
+      expect(sozlukSayfasi, isNotNull);
+      for (final en in [false, true]) {
+        final dart = <String, List<int>>{};
+        for (final b in kYzBasliklar) {
+          final m = kYzMetinler[b.no];
+          if (m == null || kYzSozluksuzBasliklar.contains(b.no)) continue;
+          final sozluk = kYzSozluk.where((t) => t.baslikta(b.no)).toList();
+          final gorulen = <String>{};
+          for (final blok in yzAyristir(m.metin(en))) {
+            if (blok.tur == YzBlokTuru.ozet || blok.tur == YzBlokTuru.paragraf) {
+              yzTerimleriBul(blok.metin, en, gorulen, sozluk: sozluk);
+            }
+          }
+          for (final k in gorulen) {
+            (dart[k] ??= []).add(b.no);
+          }
+        }
+        final satirlar = sozlukSayfasi!.metin(en).split('\n');
+        final ek = RegExp(en ? r' · Appears in (.*)\.$' : r' · Geçtiği başlıklar: (.*)\.$');
+        for (final t in kYzSozluk) {
+          final satir = satirlar.firstWhere((s) => s.startsWith('**${t.ad(en)}** ('),
+              orElse: () => '');
+          expect(satir, isNotEmpty, reason: '${t.ad(en)} §29 sayfasında yok');
+          expect(satir, contains(t.tanim(en)), reason: '${t.ad(en)}: tanım §29 ile aynı değil');
+          expect(satir, contains(t.kaynak(en)), reason: '${t.ad(en)}: kaynak §29 ile aynı değil');
+          final m = ek.firstMatch(satir);
+          final sayfada = m == null
+              ? <int>[]
+              : [for (final x in m.group(1)!.split(', ')) int.parse(x.substring(1))];
+          final beklenen = (dart[t.kimlik] ?? <int>[])..sort();
+          expect(sayfada, beklenen,
+              reason: '${t.kimlik} (${en ? 'en' : 'tr'}): Python ile Dart eşleştiricisi ayrıştı');
+          expect(beklenen, isNotEmpty, reason: '${t.kimlik}: hiçbir başlıkta balon açmıyor');
+        }
+      }
+    });
+
     test('adresin sonundaki noktalama ve kapanmamış parantez kırpılıyor', () {
       const m = '(liste sayfası: https://a.org/b?c=1).';
       final a = yzAdresler(m).single;

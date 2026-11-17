@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/utils/turkce_metin.dart';
+import '../data/yz_sozluk.g.dart';
 
 import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
@@ -183,7 +184,8 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
 }
 
 class YzMetinGorunumu extends StatefulWidget {
-  const YzMetinGorunumu({super.key, required this.metin, required this.en, this.sozluk = true});
+  const YzMetinGorunumu(
+      {super.key, required this.metin, required this.en, this.sozluk = true, this.bolumNo});
   final String metin;
 
   /// Tablo başlıkları büyük harfle yazılıyor; Türkçede `i` → `İ` olmalı
@@ -194,6 +196,10 @@ class YzMetinGorunumu extends StatefulWidget {
   /// Sözlük terimleri ilk geçtikleri yerde balonla açılsın mı (karar 14).
   /// Sözlük sayfasının kendisinde kapalı.
   final bool sozluk;
+
+  /// Başlığın numarası: terim başka başlıkta başka anlamda geçiyorsa
+  /// (`YzTerim.yalniz`, `haric`) balon yalnız doğru başlıkta açılır.
+  final int? bolumNo;
 
   @override
   State<YzMetinGorunumu> createState() => _YzMetinGorunumuState();
@@ -218,7 +224,10 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   @override
   void didUpdateWidget(covariant YzMetinGorunumu eski) {
     super.didUpdateWidget(eski);
-    if (eski.metin != widget.metin || eski.en != widget.en || eski.sozluk != widget.sozluk) {
+    if (eski.metin != widget.metin ||
+        eski.en != widget.en ||
+        eski.sozluk != widget.sozluk ||
+        eski.bolumNo != widget.bolumNo) {
       _birak();
       _hazirla();
     }
@@ -228,10 +237,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     _bloklar = yzAyristir(widget.metin);
     // Bir terim sayfada bir kez: bloklar sırayla, aynı küme taşınarak.
     final gorulen = <String>{};
+    final no = widget.bolumNo;
+    final sozluk = no == null ? kYzSozluk : kYzSozluk.where((t) => t.baslikta(no)).toList();
     _isaretler = [
       for (final b in _bloklar)
         widget.sozluk && (b.tur == YzBlokTuru.ozet || b.tur == YzBlokTuru.paragraf)
-            ? yzTerimleriBul(b.metin, widget.en, gorulen)
+            ? yzTerimleriBul(b.metin, widget.en, gorulen, sozluk: sozluk)
             : const <YzIsaret>[],
     ];
   }

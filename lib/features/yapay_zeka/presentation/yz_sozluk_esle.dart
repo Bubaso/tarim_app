@@ -24,8 +24,13 @@ class YzIsaret {
   final YzTerim terim;
 }
 
+/// Terim balonunun açılmadığı başlıklar: sözlüğün kendisi ve kaynakça
+/// (sozluk_uret.py'deki `SOZLUKSUZ` ile aynı).
+const Set<int> kYzSozluksuzBasliklar = {29, 30};
+
 final RegExp _harfVeRakam = RegExp(r'[\p{L}\p{N}]', unicode: true);
 final RegExp _bicim = RegExp(r'\*\*(.+?)\*\*|\*(.+?)\*');
+final RegExp _tirnak = RegExp(r'"[^"]*"|“[^”]*”');
 
 /// Metindeki adres. Sondaki noktalama ve kapanmamış parantez adrese dahil
 /// değil: "(liste sayfası: https://a.b/c)." içinden "https://a.b/c" çıkar.
@@ -70,6 +75,20 @@ bool _harfMi(String metin, int i) =>
 String _kucult(String s, bool en) =>
     en ? s.replaceAll('İ', 'i').toLowerCase() : kucukHarf(s, false);
 
+/// Önceki anlamlı karakter cümle sonu mu (ya da blok başı): "**Özet.** Yapay"
+/// ve "(§7). Makine" cümle başı; "Türkiye Yapay Zekâ Eylem Planı" değil.
+/// sozluk_uret.py'deki `_cumle_basi` ile aynı.
+bool _cumleBasi(String metin, int i) {
+  var k = i - 1;
+  while (k >= 0 && (metin[k].trim().isEmpty || '*"”’)'.contains(metin[k]))) {
+    k--;
+  }
+  return k < 0 || '.!?'.contains(metin[k]);
+}
+
+bool _ortusur(List<(int, int)> araliklar, int b, int s) =>
+    araliklar.any((y) => b < y.$2 && s > y.$1);
+
 /// [metin]de, [gorulen]de olmayan her terimin ilk geçişi. Bulunan terim
 /// [gorulen]e eklenir; sayfa boyunca aynı küme taşınır.
 ///
@@ -77,6 +96,16 @@ String _kucult(String s, bool en) =>
 /// ("makine öğrenmesiyle" bütünüyle işaretlenir). `=` ile başlayan desen
 /// büyük-küçük harfe duyarlı ve tam kelimedir; kesme işaretinden sonraki ek
 /// kelimenin parçası sayılmaz ("İHA'ya").
+///
+/// Terimler uzun desenliden kısaya taranır ve her terimin BÜTÜN geçişleri
+/// sonrakilere gölge olur: "iklim akıllı tarım"ın içindeki "akıllı tarım",
+/// "sohbet robotu"nun içindeki "robot" ayrıca işaretlenmez — iklim terimi o
+/// sayfada önceden işaretlenmiş olsa bile. Tırnak içi (birebir alıntı)
+/// işaretlenmez; cümle ortasında büyük harfle başlayan geçiş bir özel adın
+/// parçasıdır ("UCI Machine Learning Repository") ve sayılmaz.
+///
+/// sozluk_uret.py'deki `terimleri_bul` bunun birebir karşılığı; §29'daki
+/// "Geçtiği başlıklar" onunla yazılıyor (test/yz_bolum_test.dart sınıyor).
 List<YzIsaret> yzTerimleriBul(String metin, bool en, Set<String> gorulen,
     {List<YzTerim> sozluk = kYzSozluk}) {
   if (sozluk.isEmpty || metin.isEmpty) return const [];
@@ -84,19 +113,25 @@ List<YzIsaret> yzTerimleriBul(String metin, bool en, Set<String> gorulen,
   if (kucuk.length != metin.length) return const [];
   final yasak = <(int, int)>[
     for (final m in _bicim.allMatches(metin)) (m.start, m.end),
+    for (final m in _tirnak.allMatches(metin)) (m.start, m.end),
     ...yzAdresler(metin),
   ];
   final isaretler = <YzIsaret>[];
-  bool cakisir(int b, int s) =>
-      yasak.any((y) => b < y.$2 && s > y.$1) ||
-      isaretler.any((x) => b < x.son && s > x.bas);
+  final golge = <(int, int)>[];
 
   // Uzun desen önce: "büyük dil modeli" "dil modeli"nden önce yakalansın.
+  // Eşit uzunlukta sözlük sırası: List.sort kararlı değil, sozluk_uret.py
+  // ise bu sırayla "Geçtiği başlıklar"ı yazıyor.
+  final sira = {for (var k = 0; k < sozluk.length; k++) sozluk[k].kimlik: k};
   final sirali = [...sozluk]
-    ..sort((a, b) => _enUzunDesen(b, en).compareTo(_enUzunDesen(a, en)));
+    ..sort((a, b) {
+      final f = _enUzunDesen(b, en).compareTo(_enUzunDesen(a, en));
+      return f != 0 ? f : sira[a.kimlik]!.compareTo(sira[b.kimlik]!);
+    });
   for (final t in sirali) {
-    if (gorulen.contains(t.kimlik)) continue;
-    bulundu:
+    final goruldu = gorulen.contains(t.kimlik);
+    YzIsaret? bulunan;
+    final yeni = <(int, int)>[];
     for (final d in t.desen(en)) {
       final tam = d.startsWith('=');
       final aranan = tam ? d.substring(1) : d;
@@ -105,23 +140,28 @@ List<YzIsaret> yzTerimleriBul(String metin, bool en, Set<String> gorulen,
       var i = kaynak.indexOf(aranan);
       while (i >= 0) {
         var j = i + aranan.length;
-        final solSinir = !_harfMi(kaynak, i - 1);
-        final sagSinir = !tam || !_harfMi(kaynak, j);
-        if (solSinir && sagSinir) {
+        if (!_harfMi(kaynak, i - 1) && (!tam || !_harfMi(kaynak, j))) {
           if (!tam) {
             while (_harfMi(kaynak, j)) {
               j++;
             }
           }
-          if (!cakisir(i, j)) {
-            isaretler.add(YzIsaret(i, j, t));
-            gorulen.add(t.kimlik);
-            break bulundu;
+          final ad = !tam && metin[i] != kucuk[i] && !_cumleBasi(metin, i);
+          if (!ad && !_ortusur(yasak, i, j)) {
+            if (!goruldu && bulunan == null && !_ortusur(golge, i, j)) {
+              bulunan = YzIsaret(i, j, t);
+            }
+            yeni.add((i, j));
           }
         }
         i = kaynak.indexOf(aranan, i + 1);
       }
     }
+    if (bulunan != null) {
+      isaretler.add(bulunan);
+      gorulen.add(t.kimlik);
+    }
+    golge.addAll(yeni);
   }
   isaretler.sort((a, b) => a.bas.compareTo(b.bas));
   return isaretler;

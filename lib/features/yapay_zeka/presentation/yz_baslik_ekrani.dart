@@ -6,6 +6,7 @@ import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import 'yz_metin_gorunumu.dart';
 import 'yz_parcalar.dart';
+import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
 
 /// Bir başlığın sayfası — `/yapay-zeka-dijital-tarim/<adres>` (karar 8).
@@ -71,7 +72,11 @@ class YzBaslikEkrani extends StatelessWidget {
                         ),
                         const SizedBox(height: 26),
                         if (metin != null)
-                          YzMetinGorunumu(metin: metin.metin(en), en: en, sozluk: b.no != 29)
+                          YzMetinGorunumu(
+                              metin: metin.metin(en),
+                              en: en,
+                              sozluk: !kYzSozluksuzBasliklar.contains(b.no),
+                              bolumNo: b.no)
                         else
                           _Yaziliyor(baslik: b),
                         if (b.haberAlir) ...[

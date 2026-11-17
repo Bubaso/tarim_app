@@ -848,12 +848,12 @@
       "oto_hedefler": [
         "gelisme"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
-        "tr": "Metinde geçen her terim; metin içinde balon olarak da açılır.",
-        "en": "Every term used in the text; also opens as a tooltip in place."
+        "tr": "Başlıklarda geçen terimlerin kaynaklı tanımları; aynı tanım metinde terime dokununca balonda açılıyor.",
+        "en": "Sourced definitions of the terms used in the headings; the same definition opens in a bubble when a term is tapped in the text."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {
