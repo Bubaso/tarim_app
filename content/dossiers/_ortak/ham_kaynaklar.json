@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 302,
- "toplam_bayt": 866108490,
+ "dosya_sayisi": 311,
+ "toplam_bayt": 914675954,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1921,6 +1921,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/btk_2026_q2_pazar_verileri.pdf",
+   "bayt": 42939051,
+   "sha256": "d30dfd6e81d41ebea0d17e130471a03d5c96da54670c1cc1c9c185b5b48cc2ed",
+   "kaynak": {
+    "adres": "https://www.btk.gov.tr/s3/web-btk-site/7708c26c-5161-4919-8b3d-daa31d4ac8fb/2026/10/6a6ae76a-f3ad-4af1-95e3-bbb95b0d1a07.pdf (liste sayfası: https://www.btk.gov.tr/elektronik-haberlesme-pazar-verileri)",
+    "atif": "BTK. 2026. Türkiye Elektronik Haberleşme Sektörü Üç Aylık Pazar Verileri Raporu — 2026 Yılı 2. Çeyrek. Bilgi Teknolojileri ve İletişim Kurumu, Ankara.",
+    "lisans": "kamu belgesi (BTK)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — BTK pazar verileri raporu."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+   "bayt": 1589890,
+   "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/1201243",
+    "atif": "Civelek Ç. 2022. Development of an IoT-Based (LoRaWAN) Tractor Tracking System. Journal of Agricultural Sciences (Tarım Bilimleri Dergisi) 28(3): 438–448. doi:10.15832/ankutbd.769200",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — DergiPark, yayıncı PDF'i."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cole_fernando_2021_crossref.json",
    "bayt": 13543,
    "sha256": "9e42cfb401a46af74b69c47eca9d835d4e90a5f1623d8d846eb44e49b86eb2b4",
@@ -2173,6 +2197,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/guldal_sanli_turker_2025_agricecon.pdf",
+   "bayt": 987233,
+   "sha256": "ed8ba04e01d44c88d4afde988dfb2cc11f7a8c35185cc733def6c6175061ee41",
+   "kaynak": {
+    "adres": "https://agricecon.agriculturejournals.cz/pdfs/age/2025/05/01.pdf",
+    "atif": "Guldal H.T., Sanli H., Turker M. 2025. The path to smart farming: Profiling farmers' adoption of technologies in Türkiye. Agricultural Economics – Czech 71(5): 229–241. doi:10.17221/401/2023-AGRICECON",
+    "lisans": "CC BY-NC 4.0",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — yayıncı PDF'i (Agricultural Economics – Czech)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hemming_2019_europepmc.json",
    "bayt": 7531,
    "sha256": "99f227843c38025f71301851eaf321f4878eaac3749a68c9e638f96aeca5ad99",
@@ -2206,6 +2242,30 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/itu_2026_ff_kent_kir_internet.html",
+   "bayt": 44796,
+   "sha256": "54c7bafc56a95e2d7dd675b1039b6f91f5cc3089e1901ed0cf63fbfad276ec67",
+   "kaynak": {
+    "adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-internet-use-in-urban-and-rural-areas/",
+    "atif": "ITU. 2026. Measuring digital development: Facts and Figures 2026 — Internet use in urban and rural areas. International Telecommunication Union, Telecommunication Development Bureau, Geneva.",
+    "lisans": "© ITU 2026 (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — ITU Facts and Figures 2026."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/itu_2026_ff_kent_kir_kapsama.html",
+   "bayt": 45450,
+   "sha256": "456388cc0c958b96d1701bb7a0cb6c5e489052b610198e59704c8b5950307d03",
+   "kaynak": {
+    "adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-urban-rural-mobile-network-coverage/",
+    "atif": "ITU. 2026. Measuring digital development: Facts and Figures 2026 — Mobile network coverage in urban and rural areas. International Telecommunication Union, Telecommunication Development Bureau, Geneva.",
+    "lisans": "© ITU 2026 (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — ITU Facts and Figures 2026."
    }
   },
   {
@@ -2377,6 +2437,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/mehrabi_2021_nature.html",
+   "bayt": 305699,
+   "sha256": "3353f984b55162e59253aadc224500f072f4d6a21d2caa6cb729bb2e78b601ce",
+   "kaynak": {
+    "adres": "https://www.nature.com/articles/s41893-020-00631-0",
+    "atif": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. doi:10.1038/s41893-020-00631-0",
+    "lisans": "yayıncı sayfasındaki özet (makale abonelikli)",
+    "lisans_adresi": null,
+    "_not": "Yayıncı sayfası (Nature Sustainability); yalnız özet."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/menculini_2021_crossref.json",
    "bayt": 16439,
    "sha256": "5f033c326e4a02e791410ee0a043f380a98983ae08fe092b49229fe912e732c9",
@@ -2401,6 +2473,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+   "bayt": 2567467,
+   "sha256": "4efd65a3cc059d4367eeab3b81663cf308af0cce64eda0180453818a8117865f",
+   "kaynak": {
+    "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+    "atif": "Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara.",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — MGM sitesi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/michel_2016_europepmc.json",
    "bayt": 8621,
    "sha256": "52b681e138c29634eda58aebfb1adf05bba94f7b91f133bce1713135e6729187",
@@ -2408,6 +2492,18 @@
     "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1007/s00122-016-2818-8&resultType=core&format=json",
     "atif": "Michel S., Ametz C., Gungor H., Akgöl B., Epure D., Grausgruber H., Löschenberger F., Buerstmayr H. 2016. Genomic assisted selection for enhancing line breeding: merging genomic and phenotypic selection in winter wheat breeding programs with preliminary yield trials. Theoretical and Applied Genetics 130(2): 363-376. doi:10.1007/s00122-016-2818-8 (PMC5263211)",
     "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/miller_2025_europepmc.json",
+   "bayt": 7002,
+   "sha256": "efc0beee4f94d1264f7a38d61b68055f2f647b43af3971f9e4dcfeaf8b7a273a",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3390/s25123583&resultType=core&format=json",
+    "atif": "Miller T., Mikiciuk G., Durlik I., Mikiciuk M., Łobodzińska A., Śnieg M. 2025. The IoT and AI in Agriculture: The Time Is Now—A Systematic Review of Smart Sensing Technologies. Sensors 25(12): 3583. doi:10.3390/s25123583",
+    "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
    }
@@ -2902,6 +2998,18 @@
     "lisans": "kurumsal yayın (TÜBİTAK)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — TÜBİTAK UZAY sitesi (Haziran 2026 kataloğu)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/uab_2025_evrensel_hizmet_5565_yerlesim.html",
+   "bayt": 80876,
+   "sha256": "09c67c63994ad828172c15ac5de58208aaae36325d2bb4179c8d0bbfcc581ae6",
+   "kaynak": {
+    "adres": "https://www.uab.gov.tr/haberler/5-bin-565-yerlesim-yerine-elektronik-haberlesme-hizmeti",
+    "atif": "T.C. Ulaştırma ve Altyapı Bakanlığı. 2025. 5 Bin 565 Yerleşim Yerine Elektronik Haberleşme Hizmeti (Bakanlık haberi, 4 Şubat 2025). Ankara.",
+    "lisans": "kamu belgesi (Ulaştırma ve Altyapı Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi (haber, 4 Şubat 2025)."
    }
   },
   {

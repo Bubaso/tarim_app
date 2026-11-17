@@ -258,7 +258,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Sensors and agricultural IoT",
       true,
       ["sensor", "veri"],
-      false,
+      true,
       "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dahil.",
       "Measuring devices in the field and the network that links them — rural connectivity included."),
   YzBaslik(

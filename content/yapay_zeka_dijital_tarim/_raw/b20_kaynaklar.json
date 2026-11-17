@@ -1,0 +1,232 @@
+{
+  "_ne": "§20 Sensörler ve tarımsal nesnelerin interneti — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun, kamu kurumunun ya da bakanlığın kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "itu_2026_internet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ITU. 2026. Measuring digital development: Facts and Figures 2026 — Internet use in urban and rural areas. International Telecommunication Union, Telecommunication Development Bureau, Geneva.",
+      "adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-internet-use-in-urban-and-rural-areas/",
+      "dosya": "kaynak_dosyalari/itu_2026_ff_kent_kir_internet.html",
+      "kent_internet_yuzde": 82,
+      "kir_internet_yuzde": 63,
+      "oran_2023": 1.4,
+      "oran_2026": 1.3,
+      "avrupa_bdt_amerika_oran": 1.1,
+      "dusuk_gelir_kir_yuzde": 17,
+      "dusuk_gelir_kent_yuzde": 41,
+      "_not": "Küresel ve bölgesel tahmin; Türkiye için kent-kır rakamı yok.",
+      "alinti": [
+        "Globally, 82 per cent of urban dwellers use the Internet in 2026, compared with 63 per cent of the rural population.",
+        "The urban–rural gap, measured as the ratio of the two percentages, narrowed slightly from 1.4 in 2023 to 1.3 in 2026.",
+        "The gap is smallest in regions with high Internet use, including Europe, the CIS and the Americas, where the ratio is just 1.1.",
+        "In low-income countries, by contrast, the gap remains wide with only one in six rural dwellers (17 per cent) online, compared with four in ten urban residents (41 per cent)."
+      ]
+    },
+    "itu_2026_kapsama": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ITU. 2026. Measuring digital development: Facts and Figures 2026 — Mobile network coverage in urban and rural areas. International Telecommunication Union, Telecommunication Development Bureau, Geneva.",
+      "adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-urban-rural-mobile-network-coverage/",
+      "dosya": "kaynak_dosyalari/itu_2026_ff_kent_kir_kapsama.html",
+      "kent_5g_yuzde": 70,
+      "kir_5g_yuzde": 45,
+      "fark_puan": 25,
+      "yuksek_gelir_kent_5g": 90,
+      "yuksek_gelir_kir_5g": 72,
+      "kent_4g_yuzde": 99,
+      "kir_4g_yuzde": 87,
+      "kirsal_avrupa_sebekesiz_yuzde": 2,
+      "kirsal_afrika_sebekesiz_yuzde": 21,
+      "_not": "Nüfus kapsaması; tarla ya da arazi kapsaması değil.",
+      "alinti": [
+        "As a result, 70 per cent of people living in urban areas worldwide have access to a 5G network, compared with 45 per cent of those in rural areas, a gap of 25 percentage points.",
+        "In high-income countries, 90 per cent of the urban population is covered by 5G, compared with 72 per cent of the rural population.",
+        "4G networks cover 99 per cent of the urban population worldwide, but coverage drops to 87 per cent in rural areas.",
+        "These areas are exclusively rural, with the share of the affected population ranging from 2 per cent in rural Europe, to 21 per cent in rural Africa."
+      ]
+    },
+    "mehrabi_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160.",
+      "doi": "10.1038/s41893-020-00631-0",
+      "dosya": "kaynak_dosyalari/mehrabi_2021_nature.html",
+      "dogrulandigi_yer": "yayıncı sayfasındaki özet",
+      "kucuk_isletme_kapsama_yuzde": "24-37",
+      "buyuk_isletme_kapsama_yuzde": "74-80",
+      "kucuk_esik_ha": 1,
+      "buyuk_esik_ha": 200,
+      "afrika_internet_hane_ust_yuzde": 40,
+      "_not": "Yalnız 3G/4G kapsaması; Türkiye ayrıca raporlanmıyor.",
+      "alinti": [
+        "Yet the access of small-scale farmers to this technology is poorly understood.",
+        "We show that only 24–37% of farms of <1 ha in size are served by third generation (3G) or 4G services, compared to 74–80% of farms of >200 ha in size.",
+        "Furthermore, croplands with severe yield gaps, climate-stressed locations and food-insecure populations have poor service coverage.",
+        "Across many countries in Africa, less than ~40% of farming households have Internet access, and the cost of data remains prohibitive."
+      ]
+    },
+    "miller_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Miller T., Mikiciuk G., Durlik I., Mikiciuk M., Łobodzińska A., Śnieg M. 2025. The IoT and AI in Agriculture: The Time Is Now—A Systematic Review of Smart Sensing Technologies. Sensors 25(12): 3583.",
+      "doi": "10.3390/s25123583",
+      "dosya": "kaynak_dosyalari/miller_2025_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "literatur_baslangic": 2020,
+      "literatur_bitis": 2024,
+      "_not": "Engellerin sıklığına dair sayı yok.",
+      "alinti": [
+        "This systematic review, conducted in accordance with the PRISMA methodology, provides a comprehensive overview of recent advancements in smart sensing technologies for arable crops and grasslands.",
+        "We analyzed the peer-reviewed literature published between 2020 and 2024, focusing on the adoption of IoT-based sensor networks and AI-driven analytics across various agricultural applications.",
+        "However, this review also identifies critical challenges, including high infrastructure costs, limited interoperability, connectivity constraints in rural areas, and ethical concerns regarding transparency and data privacy.",
+        "Moreover, policy interventions are needed to ensure fair data ownership, cybersecurity, and equitable access to smart farming tools, especially in developing regions."
+      ]
+    },
+    "uab_2025_evrensel_hizmet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Ulaştırma ve Altyapı Bakanlığı. 2025. 5 Bin 565 Yerleşim Yerine Elektronik Haberleşme Hizmeti (Bakanlık haberi, 4 Şubat 2025). Ankara.",
+      "adres": "https://www.uab.gov.tr/haberler/5-bin-565-yerlesim-yerine-elektronik-haberlesme-hizmeti",
+      "dosya": "kaynak_dosyalari/uab_2025_evrensel_hizmet_5565_yerlesim.html",
+      "evrensel_hizmet_kanunu_no": 5369,
+      "mobil_proje": 3,
+      "mobil_yerlesim": 3521,
+      "sabit_kablosuz_yerlesim": 2044,
+      "toplam_yerlesim": 5565,
+      "nufus_alt": 50,
+      "nufus_ust": 1000,
+      "ek_yerlesim_2025_sonu_plan": 233,
+      "_not": "Bakan'ın açıklaması (bakanlık haberi). Hizmet götürülen yerlerde hız, kullanım ya da tarımsal kullanım verisi yok; 2025 sonu hedefinin gerçekleşmesi bulunamadı.",
+      "alinti": [
+        "04 Şubat 2025 5 BİN 565 YERLEŞİM YERİNE ELEKTRONİK HABERLEŞME HİZMETİ",
+        "Ülkemizde coğrafi koşullar bakımından ulaşımı zor ve altyapı kurulumu maliyeti daha yüksek olan kırsal yerleşim yerlerine, işletmeciler tarafından ticari olarak elektronik haberleşme hizmeti verilme zorunluluğu bulunmamaktadır.",
+        "Bakan Uraloğlu, Evrensel Hizmet Projeleri kapsamında bugüne kadar; 3 proje kapsamında 3521 yerleşim yerine mobil teknolojiler ile, WiMax projesi kapsamında 2044 yerleşim yerine sabit kablosuz erişim teknolojisi ile hizmet götürüldüğünü kaydetti.",
+        "Toplam 5 bin 565 yerleşim yerine elektronik haberleşme hizmeti verildi.",
+        "Bakanlığımız bu yerleşim yerlerine, 5369 sayılı Evrensel Hizmet Kanunu hükümleri çerçevesinde, tüm altyapı kurulum ve işletme maliyetleri kamu kaynaklarından karşılanmak üzere elektronik haberleşme hizmetinin götürülmesini sağlanmaktadır.",
+        "Uraloğlu, nüfusu 50 ile 1000 kişi arasında olan, mobil işletmecilerin kapsaması bulunmayan ve mobil işletmecilerin kapsama yükümlülüğü bulunmayan yerleşim yerlerinin evrensel hizmet projelerine dahil edilebildiğini sözlerine ekledi.",
+        "2025 yılı sonuna kadar ilave olarak 233 yerleşim yerine daha 2G ve 4.5 G mobil haberleşme hizmeti sunulmasını planlıyoruz."
+      ]
+    },
+    "btk_2026_q2": {
+      "nitelik": "KURUMSAL",
+      "kunye": "BTK. 2026. Türkiye Elektronik Haberleşme Sektörü Üç Aylık Pazar Verileri Raporu — 2026 Yılı 2. Çeyrek. Bilgi Teknolojileri ve İletişim Kurumu, Ankara.",
+      "adres": "https://www.btk.gov.tr/s3/web-btk-site/7708c26c-5161-4919-8b3d-daa31d4ac8fb/2026/10/6a6ae76a-f3ad-4af1-95e3-bbb95b0d1a07.pdf (liste sayfası: https://www.btk.gov.tr/elektronik-haberlesme-pazar-verileri)",
+      "dosya": "kaynak_dosyalari/btk_2026_q2_pazar_verileri.pdf",
+      "m2m_abone_milyon": 15.2,
+      "5g_abone_milyon": 44.5,
+      "5g_aktif_milyon": 26.1,
+      "fiber_bin_km": 720,
+      "_denetim": "Raporda 'kırsal' ve 'tarım' geçmiyor; kapsama oranı değil abonelik yayımlıyor (17.11.2026 metin taraması).",
+      "alinti": [
+        "TÜRKİYE ELEKTRONİK HABERLEŞME SEKTÖRÜ / ÜÇ AYLIK PAZAR VERİLERİ RAPORU 2026 Yılı 2. Çeyrek",
+        "Diğer taraftan, Haziran 2026 sonu itibarı ile abonelik bazlı makineler arası iletişim (M2M) abone sayısı yaklaşık 15,2 milyon olmuştur (Şekil 4.2).",
+        "1 Nisan 2026 tarihinde ülkemizde kullanılmaya başlanan 5G hizmetinin abone sayısı, 2026 yılı Haziran ayı sonunda 44,5 milyona ulaşmıştır.",
+        "Ancak bazı vatandaşlarımızın cihazı veya SIM kartının 5G hizmetine uyumlu olmaması nedeni ile aktif olarak bu hizmeti kullanabilenlerin sayısı ise 26,1 milyon olarak gerçekleşmiştir.",
+        "2026 yılı ikinci çeyreği itibarıyla işletmecilerin toplam fiber uzunluğu yaklaşık 720 bin km’dir."
+      ]
+    },
+    "mgm_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+      "gozlem_sistemi": 2059,
+      "omgi": 1717,
+      "_not": "Bütün ağın sayısı; tarıma ayrılmış istasyon sayısı değil. Bakanlık il müdürlüklerinin istasyon toplamı resmî kaynakta bulunamadı.",
+      "alinti": [
+        "MGM bünyesinde 2059 adet gözlem sistemi kurulu bulunmaktadır.",
+        "OMGİ, meteorolojik algılayıcılar, veri toplama, işleme ve arşivleme üniteleri ile iletişim, görüntüleme ve enerji ünitelerinden oluşmaktadır.",
+        "2025 yılı itibariyle 1717 adet OMGİ bulunmaktadır.",
+        "Tarımsal faaliyetlerde meteorolojik bilginin azami olarak kullanılabilmesini temin etmek ve tarımsal üretime katkıda bulunmak maksadıyla aşağıda verilen ürünler Kurumumuz tarafından kamuoyunun hizmetine sunulmaktadır."
+      ]
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "akilli_tarim_isletme_hedef_2025": 410,
+      "akilli_tarim_isletme_gerceklesen_2025": 0,
+      "pilot_il": 15,
+      "_not": "Göstergenin hangi teknolojileri kapsadığı raporda tanımlanmıyor. Tablo satırı: hedef, yıl sonu, gerçekleşme yüzdesi, durum.",
+      "alinti": [
+        "İklim dostu akıllı tarım teknolojileri konusunda eğitim ve farkındalık çalışmaları ile teknolojilerin tanıtımı yapılarak kullanımının yaygınlaşması sağlanacak ve verilecek hibe ile işletmelerin bu teknolojilere sahip olmaları desteklenmektedir.",
+        "İklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı (Kümülatif) Adet 410 0 0 Ulaşılamadı",
+        "Bu gösterge, İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında henüz hibe uygulamalarına başlanmadığı için gösterge değerine ulaşılamamıştır.",
+        "15 pilot ilde “Eğiticilerin Eğitimi ve Tarım Teknolojileri ve Mekanizasyon Komite Toplantısı” gerçekleştirilmiştir."
+      ]
+    },
+    "guldal_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Guldal H.T., Sanli H., Turker M. 2025. The path to smart farming: Profiling farmers' adoption of technologies in Türkiye. Agricultural Economics – Czech 71(5): 229–241.",
+      "doi": "10.17221/401/2023-AGRICECON",
+      "dosya": "kaynak_dosyalari/guldal_sanli_turker_2025_agricecon.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i",
+      "anket_ciftci": 325,
+      "kullanici": 66,
+      "istekli": 170,
+      "kullanmayan": 89,
+      "_not": "Temsilî değil: hibesi en fazla illerde, eğitime katılan gönüllü çiftçiler. 'Kullanıcı' her türlü teknolojiyi birlikte sayıyor; nesnelerin interneti ayrıca ölçülmüyor.",
+      "alinti": [
+        "By surveying 325 farmers across six regions in Türkiye, the research identifies key attributes influencing adoption patterns.",
+        "Within each region, we chose one province with the highest number of grants as a representative sample.",
+        "The survey was conducted voluntarily among farmers attending these training sessions on the date specified.",
+        "User using agricultural technologies 66 Eager not using agricultural technologies but want to use them 170 Non-user not using agricultural technologies 89 (N = 325)",
+        "Non-users, on the other hand, are characterised by smaller landholdings, lack of credit use, limited awareness, and absence of tractor ownership, reflecting structural barriers to adoption.",
+        "In this study, as detailed in the statistical analysis section, farmers who employed any of the identified technological applications were categorised as 'Users.'"
+      ]
+    },
+    "civelek_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Civelek Ç. 2022. Development of an IoT-Based (LoRaWAN) Tractor Tracking System. Journal of Agricultural Sciences (Tarım Bilimleri Dergisi) 28(3): 438–448.",
+      "doi": "10.15832/ankutbd.769200",
+      "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "deneme_ay": 6,
+      "gps_hata_m": 3,
+      "veri_noktasi_1": 49121,
+      "veri_noktasi_2": 52766,
+      "pil_gun_1": 95,
+      "pil_gun_2": 98,
+      "donanim_usd": 55,
+      "ticari_4g_usd": 795,
+      "fiyat_yili": 2020,
+      "_not": "Prototip: iletim denemeleri sahte veriyle; çiftlikte saha denemesi 'gelecek çalışma'.",
+      "alinti": [
+        "In this research by using the advantages of LoRaWAN, a new IoT-based tractor tracking system including a LoRaWAN module and a web-based software was developed, and the test results were evaluated.",
+        "To achieve this, the hardware was left to send dummy data to be saved in the developed database.",
+        "Two trials were ended in total 6 months, the hardware created 49121 and 52766 data points, and the batteries were drained in 95 and 98 days which confirms the assumptions that were given in by Aqeel-Ur-Rehman et al. (2014).",
+        "From the GPS tests that were conducted outside of the laboratory it was revealed that the position of the developed hardware was sensed with a maximum 3 meters of error which was declared by the producer of the GPS module.",
+        "From the BOM costs calculations, it was found out that the hardware could be produced for $55 including PCB manufacturing costs and taxes, excluding software development for the hardware according to prices in May 2020.",
+        "When one of the tractor manufacturer’s 4G LTE (long-term evolution) based unused device price was considered, which was $795 in the same date including taxes and excluding subscription to the service",
+        "As a future study, the developed hardware has been being tested on a farm, and the gathered data is being analyzed for further development of the web-based interface by using mathematical models and embedding artificial intelligence for providing farmers to make detailed analyzes.",
+        "For GPS data gathering and transmission tests, the developed hardware was taken several places in Cukurova University Campus."
+      ]
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "dvi_baslangic": 2023,
+      "_not": "Dijital Köyler Girişimi: tek köyde bir dijital merkez; kapsamı ve kullanımı raporda ölçülmüyor.",
+      "alinti": [
+        "Dünya Bankası tarafından finanse edilen “Türkiye İklim, Akıllı ve Rekabetçi Tarımsal Büyüme Projesi”",
+        "TAGEM&FAO Teknik İş birliği Projesi olan Dijital Köyler Girişimi ( Digital Villages Initiative-DVI) 2023 yılında başlatılan ve faydalanıcıları Arnavutluk, Bosna Hersek, Gürcistan ve Türkiye olan Proje",
+        "31.12.2025 yılında tamamlanan proje kapsamında Ankara Güdül-Boyalı'da Bir köy Dijital Merkezi oluşturularak kullanıcıların hizmetine sunulmuştur."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Kırsal bağlantı: piyasanın yükümlü olmadığı 5.565 yerleşime evrensel hizmetle kamu kaynağıyla hizmet. M2M 15,2 milyon abone, 5G 1 Nisan 2026'dan beri; tarım ya da kent-kır kırılımı yok. MGM 1.717 otomatik istasyon. Bakanlığın akıllı tarım göstergesi 2025'te 0 (hedef 410), hibe başlamadı. Akademide benimseme anketi ve LoRaWAN prototipi. Türkiye'de tarımsal sensör ve IoT ağlarının etkisini ölçen yayımlanmış bir değerlendirme ve kent-kır internet kullanımını ayrı veren resmî veri bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "tuik_kent_kir": "TÜİK veri portalı yalnız betikle açılıyor; Türkiye için kent-kır internet kullanımı birincil kaynaktan okunamadı.",
+    "uab_proje_sayfasi": "Evrensel hizmet proje sayfası bağlantıyı kesti; bakanlığın haber sayfası kullanıldı.",
+    "wiseman_zhang_dibbern": "Yayıncı erişimi engelledi; özetler okunamadı.",
+    "kirikkale_2026": "Bir benimseme anketi daha; Guldal ve arkadaşlarının çalışması yeterli."
+  }
+}
