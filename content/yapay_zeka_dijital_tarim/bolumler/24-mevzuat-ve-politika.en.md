@@ -1,6 +1,6 @@
 # 24 · Regulation and policy
 
-> **Summary.** The rules that govern AI in agriculture do not come from a separate farm law; they sit where vehicle, machinery, data and general AI legislation meet. The framework Türkiye follows most closely is the EU's. The EU AI Act treats AI that performs a safety function in a farm vehicle or a machine as high-risk, but a July 2026 amendment postponed those rules to **2 August 2028**. The text that matters most to farmers today is the Data Act: since **12 September 2025**, users have a right of access to the data their connected machines generate. Türkiye has no AI-specific law; its national plan foresees a framework that takes account of the EU's proportionate risk approach.
+> **Summary.** The rules that govern AI in agriculture do not come from a separate farm law; they sit where vehicle, machinery, data and general AI legislation meet. The framework Türkiye follows most closely is the EU's. The EU AI Act treats AI that performs a safety function in a farm vehicle or a machine as high-risk, but a July 2026 amendment postponed those rules to **2 August 2028**. The text that matters most to farmers today is the Data Act: since **12 September 2025**, users have a right of access to the data their connected machines generate. Rules that never mention AI play a part too: since 2023 the EU's common agricultural policy has required member states to run an area monitoring system based on satellite data. Türkiye has no AI-specific law; its national plan foresees a framework that takes account of the EU's proportionate risk approach, while the technical requirements of the ministry's own AI project demand compliance with the personal data protection law.
 
 ## The EU AI Act: where agriculture comes in
 
@@ -27,6 +27,12 @@ The Act's recitals name the most concrete concern in farming: the company holdin
 ## The EU Machinery Regulation: safety components that learn
 
 The Machinery Regulation (2023/1230) applies from 14 January 2027. It assigns the conformity assessment of safety components and systems whose behaviour evolves through machine learning to an independent third party. Software that does not learn, and only executes the automated functions it was programmed for, falls outside that scope. The Regulation also defines autonomous mobile machinery and the supervisor who monitors it remotely.
+
+## Rules that never mention AI
+
+Some of the rules that shape how AI is used in agriculture today never mention AI. Regulation 2021/2116, which governs the financing and monitoring of the EU's common agricultural policy, requires member states to have an area monitoring system working with Copernicus Sentinel satellite data or data of at least equivalent value: the system had to be operational from 1 January 2023 and fully operational in all member states by 1 January 2024 at the latest. The Regulation prescribes the satellite, not the method; machine learning and AI do not appear in its text. The methods that extract the crop sown from satellite imagery, and their counterpart in Türkiye, are covered in §9.
+
+In Türkiye, the technical requirements of one of the ministry's AI projects show what is demanded while no AI-specific rule exists. The requirements for the project that will analyse fishing vessel monitoring data with AI, published in June 2026, demand that the system comply with the legislation under Law No. 6698 on the Protection of Personal Data, run in-house on a closed network, and pass a penetration test by an independent body or the ministry before going live (§14).
 
 ## Türkiye: a framework on the way, no separate annex for agriculture
 

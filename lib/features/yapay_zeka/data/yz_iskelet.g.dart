@@ -303,8 +303,8 @@ const List<YzBaslik> kYzBasliklar = [
       true,
       ["veri", "karar"],
       true,
-      "AB Yapay Zeka Yasası, veri mevzuatı, destek programları — ve beklemedeki belgeler.",
-      "The EU AI Act, data law, support programmes — and documents still pending."),
+      "AB Yapay Zeka Tüzüğü, veri ve makine mevzuatı, uydu izlemesini şart koşan tarım kuralı — ve Türkiye'de yolda olan çerçeve.",
+      "The EU AI Act, data and machinery law, the farm rule that requires satellite monitoring — and the framework on its way in Türkiye."),
   YzBaslik(
       25,
       "turkiye-dizini",

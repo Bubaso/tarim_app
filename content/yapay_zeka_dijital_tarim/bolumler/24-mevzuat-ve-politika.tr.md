@@ -1,6 +1,6 @@
 # 24 · Mevzuat ve politika
 
-> **Özet.** Tarımda yapay zekâyı düzenleyen kurallar ayrı bir tarım yasasından gelmiyor; araç, makine, veri ve genel yapay zekâ mevzuatının kesiştiği yerde duruyor. Türkiye'nin en yakından izlediği çerçeve AB'ninki. AB Yapay Zekâ Tüzüğü, bir tarım aracının ya da makinenin güvenlik işlevini üstlenen yapay zekâyı yüksek riskli sayıyor; ama bu kurallar Temmuz 2026'daki bir değişiklikle **2 Ağustos 2028**'e ertelendi. Çiftçiyi bugün en doğrudan ilgilendiren metin Veri Tüzüğü: **12 Eylül 2025**'ten beri bağlantılı bir makinenin ürettiği veriye kullanıcının erişim hakkı var. Türkiye'de yapay zekâya özgü bir kanun yok; ulusal plan AB'nin orantılı risk yaklaşımını dikkate alan bir çerçeve öngörüyor.
+> **Özet.** Tarımda yapay zekâyı düzenleyen kurallar ayrı bir tarım yasasından gelmiyor; araç, makine, veri ve genel yapay zekâ mevzuatının kesiştiği yerde duruyor. Türkiye'nin en yakından izlediği çerçeve AB'ninki. AB Yapay Zekâ Tüzüğü, bir tarım aracının ya da makinenin güvenlik işlevini üstlenen yapay zekâyı yüksek riskli sayıyor; ama bu kurallar Temmuz 2026'daki bir değişiklikle **2 Ağustos 2028**'e ertelendi. Çiftçiyi bugün en doğrudan ilgilendiren metin Veri Tüzüğü: **12 Eylül 2025**'ten beri bağlantılı bir makinenin ürettiği veriye kullanıcının erişim hakkı var. Yapay zekâya hiç değinmeyen kurallar da işin içinde: AB'nin ortak tarım politikası 2023'ten beri üye ülkelere uydu verisiyle alan izleme sistemi işletmeyi şart koşuyor. Türkiye'de yapay zekâya özgü bir kanun yok; ulusal plan AB'nin orantılı risk yaklaşımını dikkate alan bir çerçeve öngörüyor, bakanlığın kendi yapay zekâ projesinin teknik isterleri ise kişisel verilerin korunması kanununa uyumu şart koşuyor.
 
 ## AB Yapay Zekâ Tüzüğü: tarım nereden giriyor
 
@@ -27,6 +27,12 @@ Tüzüğün gerekçesi tarımdaki en somut kaygıyı adıyla anıyor: veriyi tut
 ## AB Makine Tüzüğü: öğrenen güvenlik bileşeni
 
 Makine Tüzüğü (2023/1230) 14 Ocak 2027'den itibaren uygulanacak. Makine öğrenmesiyle davranışını kendisi geliştiren ve güvenlik işlevi üstlenen bileşenlerin ve sistemlerin uygunluk değerlendirmesini bağımsız bir üçüncü tarafa veriyor. Öğrenmeyen, yalnız programlandığı otomatik işi yapan yazılım bu kapsamın dışında. Tüzük otonom mobil makineyi ve onu uzaktan izleyen gözetmeni de tanımlıyor.
+
+## Yapay zekâya değinmeyen kurallar
+
+Tarımda yapay zekânın bugünkü kullanımına dokunan kuralların bir kısmı yapay zekâdan hiç söz etmiyor. AB'nin ortak tarım politikasının finansmanını ve izlenmesini düzenleyen 2021/2116 sayılı Tüzük, üye ülkelerden Copernicus Sentinel uydu verisiyle ya da en az onun değerinde veriyle çalışan bir alan izleme sistemi istiyor: sistem 1 Ocak 2023'ten itibaren çalışır, en geç 1 Ocak 2024'te bütün üye ülkelerde tam işler olmalıydı. Tüzük uyduyu şart koşuyor, yöntemi değil; metninde makine öğrenmesi ya da yapay zekâ geçmiyor. Uydu görüntüsünden ekili ürünü çıkaran yöntemler ve Türkiye'deki karşılığı §9'da.
+
+Türkiye'de bakanlığın yapay zekâ projelerinden birinin teknik isterleri, yapay zekâya özgü bir kural yokken neyin şart koşulduğunu gösteriyor. Balıkçı gemisi izleme verisini yapay zekâyla inceleyecek projenin Haziran 2026'da yayımlanan isterleri, geliştirilecek sistemin 6698 sayılı Kişisel Verilerin Korunması Kanunu mevzuatına uyumlu olmasını, kurum içinde kapalı devre çalışmasını ve canlıya alınmadan önce bağımsız bir kurumun ya da bakanlığın yapacağı sızma testinden geçmesini istiyor (§14).
 
 ## Türkiye: çerçeve yolda, tarım için ayrı bir ek yok
 

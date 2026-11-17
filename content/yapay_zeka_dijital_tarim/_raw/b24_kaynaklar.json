@@ -1,10 +1,11 @@
 {
   "_ne": "§24 Mevzuat ve politika — kilitli kayıt",
-  "guncellendi": "2026-11-16",
-  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin İNGİLİZCE aslından birebir; dogrula_alintilar.py her alıntıyı `dosya`daki metinde arar.",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin aslından (İngilizce ya da Türkçe) birebir; dogrula_alintilar.py her alıntıyı `dosya`daki metinde arar.",
   "_kapsam": "Tarımda yapay zekâyı düzenleyen kurallar ayrı bir tarım yasasından değil; araç, makine, veri ve genel yapay zekâ mevzuatından geliyor. Bu tur AB çerçevesi ve Türkiye. Öteki ülkelerin politikaları §22'de.",
   "_nitelik_tanimi": {
-    "RESMI": "Resmî gazetede yayımlanmış birincil metin (AB için Yayın Ofisi'nin resmî metni)"
+    "RESMI": "Resmî gazetede yayımlanmış birincil metin (AB için Yayın Ofisi'nin resmî metni)",
+    "KURUMSAL": "Bakanlığın kendi belgesi (TÜBİTAK sitesinde yayımlanan teknik ister dokümanı)"
   },
   "kaynaklar": {
     "ab_yz_tuzugu": {
@@ -87,6 +88,36 @@
         "Risk düzeyine göre kademeli yükümlülükler tanımlanacaktır.",
         "ilk 12 ayda orantılı risk rehberi ve sektör eklerinin yayımlanması, Ulusal Yapay Zekâ Etik Kurulu’nun teşkil edilmesi",
         "en az beş öncelikli sektörde düzenleyici deney alanlarının hayata geçirilmesi"
+      ]
+    },
+    "ab_2021_2116": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2021/2116 of the European Parliament and of the Council of 2 December 2021 on the financing, management and monitoring of the common agricultural policy.",
+      "tuzuk_no": "2021/2116",
+      "dosya": "kaynak_dosyalari/ab_2021_2116_otp_finansman_tuzugu.xhtml",
+      "calisir_olma_tarihi": "1 Ocak 2023",
+      "tam_isler_olma_tarihi": "1 Ocak 2024",
+      "_denetim": "Tüzük metninde 'machine learning', 'artificial intelligence' ve 'algorithm' hiç geçmiyor; 'Copernicus' üç kez geçiyor (16.11.2026 sayımı). Metin bu yüzden 'tüzük uyduyu şart koşuyor, yöntemi değil' diyor.",
+      "alinti": [
+        "‘area monitoring system’ means a procedure of regular and systematic observation, tracking and assessment of agricultural activities and practices on agricultural areas by Copernicus Sentinels satellite data or other data with at least equivalent value",
+        "Member States shall set up and operate an area monitoring system, which shall be operational from 1 January 2023.",
+        "However, by 1 January 2024, an area monitoring system in all Member States shall be fully operational.",
+        "Member States shall annually assess the quality of the area monitoring system in accordance with the methodology set up at Union level."
+      ]
+    },
+    "tob_bagis_yz_ister_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. Haziran 2026. Balıkçı Gemileri İzleme Sistemi (BAGİS) Verilerinin Yapay Zekâ Destekli Analizi Yoluyla Politika Geliştirme, Simülasyon ve Senaryo Üretiminin Sağlanması Projesi — teknik ister dokümanı (TÜBİTAK sitesinde).",
+      "adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+      "yayim": "Haziran 2026, TÜBİTAK sitesi",
+      "kvkk_kanun_no": 6698,
+      "_not": "Yapay zekâya özgü bir kural olmadan bir kamu yapay zekâ projesine neyin şart koşulduğunun örneği: KVKK uyumu, kurum içi kapalı devre, sızma testi. Proje henüz yürümüyor; isterler ihale belgesi.",
+      "alinti": [
+        "BALIKÇI GEMİLERİ İZLEME SİSTEMİ (BAGİS) VERİLERİNİN YAPAY ZEKÂ DESTEKLİ ANALİZİ YOLUYLA POLİTİKA GELİŞTİRME, SİMÜLASYON VE SENARYO ÜRETİMİNİN SAĞLANMASI PROJESİ",
+        "Geliştirilecek sistem kurum içi kapalı devre (on-premise) olarak çalışacaktır.",
+        "Geliştirilecek sistem 6698 sayılı KVKK mevzuatına uyumlu olacaktır.",
+        "Geliştirilecek sistem canlıya alınmadan önce bağımsız bir kurum veya İDARE tarafından yapılacak Sızma Testi'nden başarıyla geçecektir."
       ]
     }
   },
