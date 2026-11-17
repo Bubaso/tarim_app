@@ -1,0 +1,298 @@
+{
+  "_ne": "§28 Saha hikâyeleri — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Üniversitenin, araştırma kuruluşunun ya da kamu kurumunun kendi yayını",
+    "RESMI": "Devletin ya da bakanlığın resmî sayfası"
+  },
+  "kaynaklar": {
+    "mrisho_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mrisho L.M., Mbilinyi N.A., Ndalahwa M., Ramcharan A.M., Kehs A.K., McCloskey P.C., Murithi H., Hughes D.P., Legg J.P. 2020. Accuracy of a Smartphone-Based Object Detection Model, PlantVillage Nuru, in Identifying the Foliar Symptoms of the Viral Diseases of Cassava–CMD and CBSD. Frontiers in Plant Science 11: 590889.",
+      "doi": "10.3389/fpls.2020.590889",
+      "dosya": "kaynak_dosyalari/mrisho_2020_europepmc_tam_metin.xml",
+      "dogrulandigi_yer": "Europe PMC tam metin (PMC7775399)",
+      "nuru_dogruluk_yuzde": 65,
+      "yayim_elemani_yuzde": "40-58",
+      "ciftci_yuzde": "18-31",
+      "alti_yaprak_yuzde": "74-88",
+      "tek_yaprak_cbsd_yuzde": 21,
+      "hafif_belirti_yuzde": "13-37",
+      "diger_telefon_yuzde": "30-41",
+      "alinti": [
+        "Nuru is a deep learning object detection model for diagnosing plant diseases and pests developed as a public good by PlantVillage (Penn State University), FAO, IITA, CIMMYT, and others.",
+        "It provides a simple, inexpensive and robust means of conducting in-field diagnosis without requiring an internet connection.",
+        "Both sets of researchers were from IITA-Tanzania, whilst the sets of extension officers and farmers (both trained and untrained) were from Mkuranga District, south of Dar es Salaam, Tanzania.",
+        "CaSRAT was used to determine the disease diagnosis ability of 30 agricultural extension agents and 50 farmers from Busia County (western Kenya) prior to the introduction and use of PlantVillage Nuru.",
+        "Additionally, the CaSRAT assessment was conducted twice in order to evaluate potential improvements over time, firstly using PlantVillage Nuru V1.05 (released in March 2018) and secondly with PlantVillage Nuru V2.6.0-39 (released in June 2020).",
+        "Nuru could diagnose symptoms of cassava diseases at a higher accuracy (65% in 2020) than the agricultural extension agents (40–58%) and farmers (18–31%).",
+        "Nuru’s accuracy in diagnosing cassava disease and pest symptoms, in the field, was enhanced significantly by increasing the number of leaves assessed to six leaves per plant (74–88%).",
+        "When PlantVillage Nuru was used to identify the symptoms of CMD, CBSD, and CGM-damage (using single leaves), it was partially accurate for CMD (58% accuracy score) and CGM (56% accuracy score), but mostly inaccurate for CBSD (21% accuracy score).",
+        "For all disease/pest damage conditions, mild symptoms were correctly identified by PlantVillage Nuru with much lower accuracy (13–37%) than intermediate symptoms (27–83%), whilst symptoms that were considered to be unclear were identified with moderate accuracy (23–63%) (Table 3).",
+        "However, Nuru’s accuracy for symptom identification was lower (30–41%) for the other three phones assessed using the cassava model V1.05 (Nuru, 2018) (Table 4).",
+        "Two weeks of Nuru practical use provided a slight increase in the diagnostic skill of extension workers, suggesting that a longer duration of field experience with Nuru might result in significant improvements."
+      ]
+    },
+    "govuk_2017_hfh": {
+      "nitelik": "RESMI",
+      "kunye": "Innovate UK. 29 Eylül 2017. Autonomous vehicles for farming: world first achieved. GOV.UK haber sayfası.",
+      "adres": "https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved",
+      "dosya": "kaynak_dosyalari/govuk_2017_hfh_dunya_ilki.html",
+      "verim_ton": 4.5,
+      "ongorulen_ton": 5,
+      "maliyet_ust_sinir_sterlin": "200,000",
+      "alinti": [
+        "Harper Adams University and York-based Precision Decisions have announced the successful completion of ‘Hands Free Hectare’ – its project to plant, tend and harvest a crop using only autonomous vehicles and drones.",
+        "Using this method returned a yield of 4.5 tonnes of spring barley, against a predicted yield of 5 tonnes.",
+        "It demonstrates that an entire crop can be grown from start to finish without people ever needing to go into the field to directly work the land.",
+        "A lightweight Iseki tractor did the spraying, drilling and rolling.",
+        "The harvest was then completed with a Sampo combine harvester.",
+        "Drones with multispectral and RGB colour sensors were used to take aerial images of the field, while a smaller Scout vehicle was used to video at crop level and physically take samples.",
+        "The whole project cost less than £200,000, funded by Precision Decisions and Innovate UK.",
+        "Innovate UK awarded just under £160,000 to support a feasibility study of the modified agriculture machinery.",
+        "They now plan to replicate the trial with a winter crop."
+      ]
+    },
+    "hau_2017_hfh": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Harper Adams University. 8 Eylül 2017. Harvest completed at world-first project to farm a crop exclusively with robots. Üniversite haber sayfası.",
+      "adres": "https://www.harper-adams.ac.uk/news/203144/harvest-completed-at-worldfirst-project-to-farm-a-crop-exclusively-with-robots",
+      "dosya": "kaynak_dosyalari/hau_2017_hfh_hasat_tamam.html",
+      "alinti": [
+        "The ground-breaking Hands Free Hectare (HFHa), run by Harper Adams University and Precision Decisions, which aimed to be the first in the world to plant, tend and harvest a crop with only autonomous vehicles and drones, has come to an end after a successful harvest.",
+        "Just like anywhere in the UK, we’ve had to adjust our spraying times and harvest times due to the rain.",
+        "Unfortunately, we didn’t have the time to make the same adaptions to our tractor, so even though we’d practised a rolling team, as a precaution during the actual trial, we didn't allow the tractor to get too close to the combine to avoid any accidents.",
+        "Our agronomist predicted 4.5 tonnes and it looks like he’s on the money."
+      ]
+    },
+    "hau_2022_hff": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Harper Adams University. 20 Eylül 2022. Hands Free Harvest 2022 - another successful year of autonomous farming. All Harper Blog.",
+      "adres": "https://www.harper-adams.ac.uk/blog/post/2717/hands-free-harvest-2022--another-successful-year-of-autonomous-farming",
+      "dosya": "kaynak_dosyalari/hau_2022_hff_hasat_blog.html",
+      "baslangic_yili": 2016,
+      "bugday_alan_ha": 5,
+      "bugday_verim_t_ha": 9.5,
+      "arpa_ortalama_t_ha": 4.03,
+      "_beyan": "Verimler projenin kendi paylaşımları; aynı yıl karşılaştırma tarlası yok.",
+      "alinti": [
+        "The farm, based on the University estate in Shropshire, is the successor of the multi-award winning Hands Free Hectare, which started in 2016 with the aim to be the first in the world to grow, tend and harvest a crop without operators in the driving seats or agronomists on the ground.",
+        "The project has run in partnership between Harper Adams and Precision Decisions, along with the UK division of Australian precision agriculture specialist, Farmscan AG.",
+        "This year's harvest saw some of the delays any farm faces at this time of year - such as the changeable British weather and machinery issues - but by September, the crops had once again been brought autonomously in.",
+        "That's our wheat done, total of 47.84T total from 5ha averaging 9.5T/ha",
+        "Little late but the yield results for our spring barley are as follows: Middle Moor 41.44T from 9.92ha = 4.18T/ha Near Moor 49.36T from 12.61ha = 3.91T/ha Average of 4.03T/ha Some lost yield with patches of crop having gone flat."
+      ]
+    },
+    "baul_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Baul T., Karlan D., Toyama K., Vasilaky K. 2024. Improving smallholder agriculture via video-based group extension. Journal of Development Economics 169: 103267.",
+      "doi": "10.1016/j.jdeveco.2024.103267",
+      "dosya": "kaynak_dosyalari/baul_2024_europepmc_tam_metin.xml",
+      "dogrulandigi_yer": "Europe PMC tam metin (PMC11636748)",
+      "videolu_koy": 280,
+      "kontrol_koy": 120,
+      "uretim_artisi_yuzde": "5-12",
+      "verim_artisi_yuzde": "12-18",
+      "kar_artisi_yuzde": "9-24",
+      "ek_maliyet_rupi": 96,
+      "alinti": [
+        "We conducted the RCT with Digital Green (DG), a non-governmental organization recognized for its tailored video instruction aimed at hard-to-reach female farmers in rural Bihar, India.",
+        "We conducted the study in three districts in Bihar, India: Nalanda, Muzzaffapur, and Purnia.",
+        "We randomly assigned two-thirds of the villages (280) to the main treatment arm (video add-on to in-person training).",
+        "The remaining 120 villages were assigned to the control (standard NRLM in-person training with no DG video add-on).",
+        "The experiment compares traditional face-to-face training without videos to traditional training complemented by videos, and does not include a pure control group.",
+        "We conducted the first follow-up survey in August 2014, and reached 2340 of the 2520 households surveyed.",
+        "The baseline was compromised due to mud slides and difficulty reaching nearly half of the targeted sample.",
+        "The average treatment effects are economically large and positive for output and yields along the main DG arm (DG no messaging) but are not statistically significant after applying multiple hypothesis corrections.",
+        "Overall, the Bayesian estimation paints a clear picture that DG provides additive benefits to traditional NLRM training alone resulting in a 5%–12% increase in output, 12%–18% increase in yield and 9%–24% increase in estimated profits.",
+        "We find little to no effects of DG on inputs – labor and expenditures – both in quantile regressions and the Bayesian model.",
+        "The marginal cost of the DG arm is 96 Rps per farmer.",
+        "The study was pre-registered at Social Science Registry, Trial AEARCTR-0000313."
+      ]
+    },
+    "moyo_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Moyo M., Van Rooyen A., Bjornlund H., Parry K., Stirzaker R., Dube T., Maya M. 2020. The dynamics between irrigation frequency and soil nutrient management: transitioning smallholder irrigation towards more profitable and sustainable systems in Zimbabwe. International Journal of Water Resources Development 36(sup1): S102–S126.",
+      "doi": "10.1080/07900627.2020.1739513",
+      "dosya": "kaynak_dosyalari/moyo_2020_ijwrd.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (ICRISAT açık erişim deposu)",
+      "proje_donemi": "2013-2017",
+      "sensorlu_sulayici": 20,
+      "su_verimliligi_artisi_yuzde_ustu": 100,
+      "alinti": [
+        "This article quantifies the role of the Chameleon and the Wetting Front Detector, monitoring tools facilitating decision-making and learning about soil-water-nutrient dynamics.",
+        "The study was carried out at Mkoba and Silalatshani irrigation schemes, in Zimbabwe’s semi-arid areas, Natural Regions III and IV, respectively (Table 1).",
+        "Results are communicated of a project implemented between 2013 and 2017 and using two complementary entry points: the monitoring tools, and agricultural innovation platforms (AIPs) which strengthen social networks.",
+        "In 2014, at each scheme, 20 irrigators (of the 75 and 100 in Mkoba and Silalatshani, respectively) were given two WFDs and a Chameleon sensor array.",
+        "Farmers retained nutrients in the root zone by reducing irrigation frequency, number of siphons, and event duration.",
+        "Water productivity increased by more than 100% for farmers both with and without monitoring tools.",
+        "It is important to note that when the tools were introduced the WP was the same for those with and without the tools.",
+        "This has resulted in social learning, which is evidenced by the fact that changes in decision-making and action (and higher yields and income) also took place among farmers without tools as a result of observing and interacting with those that had the tools (Table 4).",
+        "Farmers reporting changes in yield and income during the project period report increased yields of 25% or more for their major irrigated crops, for 86% and 76% of households at Mkoba and Silalatshani, respectively (Figure 10).",
+        "Income increases of 25% or more were reported by 43% of households at Mkoba, and 56% at Silalatshani.",
+        "Note that the maize WP data relate to the farmers’ main crop, whereas the survey data relate to all crops grown in the last four years.",
+        "Although unquantified, farmers have reduced the quantity of fertilizer applied.",
+        "However, some attrition was encountered, and only 54 respondents were interviewed at Mkoba and 84 at Silalatshani in 2017.",
+        "However, it is important to acknowledge that improving crop production on smallholder farms cannot be achieved simply by introducing appropriate technology, no matter how good that technology is."
+      ]
+    },
+    "rti_2017_greenseeker": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lapidus D., Latané A., Ortiz-Monasterio I., Beach R., Cárdenas Castañeda M.E. 2017. The GreenSeeker Handheld: A Research Brief on Farmer Technology Adoption and Disadoption. RTI Press Research Brief RB-0014-1705. Research Triangle Park, NC: RTI Press.",
+      "doi": "10.3768/rtipress.2017.rb.0014.1705",
+      "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+      "pilot_yili": 2006,
+      "kumulatif_alan_ha": "48,000",
+      "ek_kar_usd_ha": 37,
+      "dusus_sezonu": "2015-2016",
+      "kotu_iklim_yil": 35,
+      "alinti": [
+        "The Yaqui Valley is Mexico’s largest wheat-producing region, and it is agro-ecologically similar to 40% of the developing world’s wheat production.",
+        "Wheat farmers throughout the Yaqui Valley in Sonora, Mexico, have widely adopted the GreenSeeker Handheld crop sensor to help them apply the right amount of nitrogen fertilizer, reducing their input costs and helping to increase their agricultural profits.",
+        "To address these issues, the International Maize and Wheat Improvement Center (CIMMYT) collaborated with Oklahoma State University to design an in-field, handheld, low-cost N diagnostic tool that provides site-specific fertilizer recommendations to farmers.",
+        "Since the initial pilot phase in 2006, farmers have applied the technology to more than 48,000 cumulative hectares of land throughout the Yaqui Valley (see regional distribution of application over last 3 years in Figure 1).",
+        "Initial data analysis conducted by RTI and CIMMYT reveals that the tool has led to $37 in additional farmer profits per hectare, totaling $1.8M of additional profits over an 8-year time period (see Table 1).",
+        "These are farm level revenues and costs and thus do not include the costs of the technology nor the GreenSeeker technician’s time.",
+        "So why did adoption in the Yaqui Valley decline in 2015–2016 rather than expand?",
+        "Because the credit unions even sell fertilizer to farmers, they have a disincentive to approve changes that result in less fertilizer being applied.",
+        "These technicians received a bonus of 120 pesos per hectare of sensor technology transferred.",
+        "The umbrella organization for the farmer credit unions, AOASS, had a change in leadership prior to the 2015–2016 growing season, coinciding with the worst climatic conditions in more than 35 years, resulting in extremely low yields.",
+        "Funding to support continued GreenSeeker Handheld diagnostics by farmer advisors began to decrease.",
+        "Despite the sustained farmer profits and the environmental benefits, these factors may have contributed to the farmer credit unions withdrawing their support prior to the 2015–2016 growing season.",
+        "The GreenSeeker Handheld has provided increased profits to Yaqui Valley farmers and environmental benefits in terms of reduced greenhouse gas emissions, but that has not been enough to ensure adoption."
+      ]
+    },
+    "lapidus_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lapidus D., Salem M.E., Beach R.H., Zayed S., Ortiz-Monasterio I. 2022. Greenhouse gas mitigation benefits and profitability of the GreenSeeker Handheld NDVI sensor: evidence from Mexico. Precision Agriculture 23(6): 2388–2406.",
+      "doi": "10.1007/s11119-022-09925-z",
+      "dosya": "kaynak_dosyalari/lapidus_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tarla": "2,000",
+      "alan_ha": "60,000",
+      "ek_kar_milyon_usd": 2.6,
+      "onlenen_emisyon_ton": "14,300",
+      "alinti": [
+        "The GreenSeeker Handheld is a low-cost technology that can be used to improve the efficiency of fertilizer applications by providing farmers with recommendations for the amount of nitrogen (N) to apply mid-season to meet the needs of their crops.",
+        "The technology has been utilized on nearly 2,000 farmer fields representing more than 60,000 hectares in three regions of Mexico.",
+        "Specifically, farmer field-level data and locally derived greenhouse gas emission factors were analyzed and use of the GreenSeeker Handheld was estimated to have led to a total of $2.6 M USD in additional profits and more than 14,300 tons CO2e of avoided emissions.",
+        "However, not all farmers utilizing this technology followed the resulting recommendations.",
+        "Participating farmers that did not follow the recommendations experienced lower profits, indicating that benefits would have been larger had participants applied fertilizer at the levels recommended for their fields.",
+        "However, development and implementation of the technology had been supported by subsidies and further efforts would be needed to make it sustainable."
+      ]
+    },
+    "lepage_2014": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Le Page M., Toumi J., Khabba S., Hagolle O., Tavernier A., Kharrou M.H., Er-Raki S., Huc M., Kasbani M., El Moutamanni A., Yousfi M., Jarlan L. 2014. A Life-Size and Near Real-Time Test of Irrigation Scheduling with a Sentinel-2 Like Time Series (SPOT4-Take5) in Morocco. Remote Sensing 6(11): 11182–11203.",
+      "doi": "10.3390/rs61111182",
+      "dosya": "kaynak_dosyalari/lepage_2014_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "sezon": "2012/13",
+      "su_tasarrufu_yuzde": 14,
+      "alinti": [
+        "This paper describes the setting and results of a real-time experiment of irrigation scheduling by a time series of optical satellite images under real conditions, which was carried out on durum wheat in the Haouz plain (Marrakech, Morocco), during the 2012/13 agricultural season.",
+        "For the purpose of this experiment, the irrigation of a reference plot was driven by the farmer according to, mainly empirical, irrigation scheduling while test plot irrigations were being managed following the FAO-56 method, driven by remote sensing.",
+        "Images were issued from the SPOT4 (Take5) data set, which aimed at delivering image time series at a decametric resolution with less than five-day satellite overpass similar to the time series ESA Sentinel-2 satellites will produce in the coming years.",
+        "Finally, despite a chaotic beginning of the experiment—the experimental plot had not been irrigated to get rid of a slaking crust, which prevented good emergence—our plot caught up and yielded almost the same grain crop with 14% less irrigation water.",
+        "This experiment opens up interesting opportunities for operational scheduling of flooding irrigation sectors that dominate in the semi-arid Mediterranean area."
+      ]
+    },
+    "itmec_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773.",
+      "doi": "10.30910/turkjans.2021721",
+      "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "operator": 71,
+      "yilda_500_ha_ustu_yuzde": 67.1,
+      "bugday_yuzde": 88.4,
+      "misir_yuzde": 76.8,
+      "kalibrasyon_yuzde": 14.1,
+      "suruklenme_yuzde": 80.3,
+      "ruzgar_yuzde": 98.6,
+      "bagil_nem_yuzde": 16.9,
+      "aricilik_yuzde": 78.6,
+      "yerlesim_yuzde": 61.4,
+      "alinti": [
+        "This study aimed to characterize current commercial UAV spraying practices, operational parameters, technical constraints, and environmental risk awareness in Türkiye through a cross-sectional descriptive survey of 71 active operators in May to August 2026.",
+        "The questionnaire was distributed to the operators through Google Forms.",
+        "During this period, 71 operators voluntarily completed the survey, and their responses were evaluated.",
+        "Sonuçlar, ZİHA ile ilaçlama hizmetlerinin Türkiye’de geniş alanlarda gerçekleştirildiğini ve hizmet veren işletmelerin %67.1’inin yılda 500 ha veya daha fazla alanda uygulama yaptığını göstermiştir.",
+        "Uygulamaların başlıca buğday (%88.4) ve mısır (%76.8) alanlarında gerçekleştirildiği belirlenmiştir.",
+        "Only 14.1% performed calibration before every application.",
+        "Rüzgâra bağlı sürüklenme (%80.3) ve sınırlı batarya ömrü (%64.8) operatörler tarafından en sık bildirilen uygulama sorunları olurken, püskürtme sistemi arızaları en yaygın teknik sorun (%57.7) olarak öne çıkmıştır.",
+        "Operatörlerin %98.6’sının uygulama sırasında rüzgâr hızını dikkate aldığı, buna karşılık bağıl nemi dikkate alanların oranının yalnızca %16.9 olduğu belirlenmiştir.",
+        "Ayrıca ZİHA ile ilaçlama uygulamalarının arıcılık faaliyetlerinin yürütüldüğü alanlarda veya bu alanların yakınında (%78.6) ve yerleşim alanlarında (%61.4) sıklıkla gerçekleştirildiği görülmüştür.",
+        "A mismatch between farmer expectations and application results was reported by 14.1% of the participants.",
+        "In Türkiye, UAV-based applications of plant protection products are not authorized for every crop, target pest, or type of application.",
+        "In this study, crops were recorded based on respondents’ reports; the plant protection products used, target pests, and application permits were not verified.",
+        "Bununla birlikte, sahadaki bazı uygulamaların literatürde önerilen uygulama koşullarıyla uyumlu olmadığı belirlenmiştir."
+      ]
+    },
+    "kaya_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kaya Z. 2024. Smart farms? Ethnographic insights from agricultural digitalization in Turkey. Anthropology Today 40(3): 13–17.",
+      "doi": "10.1111/1467-8322.12893",
+      "dosya": "kaynak_dosyalari/kaya_2024_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "This article examines farmers in western Turkey using so‐called ‘smart’ agriculture technologies, particularly drones.",
+        "Drones provide quantification and visualization of farms’ conditions and enable farmers to apply chemicals accordingly.",
+        "Yet, in Turkey, drones are not equally accessible to all farmers owing to their high cost and incompatibility with some farms’ ecologies and existing technologies.",
+        "Using drones also necessitates taking additional steps to align with Turkey's existing national security measures."
+      ]
+    },
+    "tob_gkgm_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Gıda ve Kontrol Genel Müdürlüğü. 9 Mart 2026. İHA sistemlerinin zirai mücadelede kullanımına ilişkin değerlendirme toplantısı gerçekleştirildi. GKGM haber sayfası.",
+      "adres": "https://www.tarimorman.gov.tr/GKGM/Haber/1280/",
+      "dosya": "kaynak_dosyalari/tob_gkgm_2026_iha_degerlendirme.html",
+      "izinli_zararli_organizma": 15,
+      "alinti": [
+        "Genel Müdürlüğümüzde, zirai mücadelede insansız hava aracı (İHA) sistemlerinin kullanımına ilişkin mevcut uygulamaların değerlendirilmesi amacıyla sektör temsilcilerinin katılımıyla bir toplantı gerçekleştirildi.",
+        "Toplantıda, İHA sistemlerinin kullanılmasına izin verilen 15 zararlı organizmaya yönelik uygulamalar ele alınarak sahadan gelen geri bildirimler değerlendirildi.",
+        "Ayrıca il müdürlükleri tarafından yürütülen izin süreçleri ve uygulamada karşılaşılan sorunlar da görüşüldü."
+      ]
+    },
+    "eastwood_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Eastwood C.R., Dela Rue B., Hall L. 2026. Farmer experiences with virtual fencing: Adoption, adaptation, and farm system change in New Zealand pasture-based dairy systems. JDS Communications 7(Suppl 1): 158–164.",
+      "doi": "10.3168/jdsc.2025-0983",
+      "dosya": "kaynak_dosyalari/eastwood_2026_europepmc_tam_metin.xml",
+      "dogrulandigi_yer": "Europe PMC tam metin (PMC13464204)",
+      "ciftci": 20,
+      "bolge_basina": 10,
+      "gorusme_yillari": "2023 and 2024",
+      "kullanim_suresi_yil": "1 to 3",
+      "alinti": [
+        "Virtual fencing (VF) is a livestock management technology that uses global positioning systems–enabled collars and audio or electrical cues to geo-fence and herd animals.",
+        "A qualitative research approach was used, with 60- to 90-min semistructured interviews conducted with 20 New Zealand dairy farmers (participants).",
+        "Twenty interviews were conducted in 2023 and 2024 by the authors, 10 each in the Canterbury and Waikato regions of NZ.",
+        "Farmers interviewed were using a VF technology (Halter, Auckland, NZ) that was in an early innovation stage (Marmont et al., 2024) and had been using the technology for 1 to 3 years.",
+        "This phase was relatively rapid, with farmers noting that it only took cows a few days to 2 weeks to adapt to the VF system.",
+        "Adaptation of animals and people to the new system occurred within a few days or weeks following implementation of VF; however, more time was required for farm system adaptations, such as laneway modifications, additional water troughs, and removal of some permanent fencing.",
+        "Post-adoption benefits, as perceived by participants, related to time savings, greater control of grazing and crop management, and herd management improvements.",
+        "Perceptions of time savings achieved varied among the farmers interviewed; some said they had saved sufficient time on farm to reduce a full (or part) employee, whereas others found more value from reducing undesirable tasks and improving attractiveness (Q8).",
+        "Although it was difficult for participants to place a financial return on their VF investment, almost all expressed an ongoing commitment to using the technology, indicating the presence of strong nonfinancial benefits.",
+        "The technology had implications such as high investment costs, potential need for infrastructure changes, changes to farm skills, and being locked into using the technology.",
+        "This was because it was not guaranteed that the VF system would prevent cows going into gateways and then being stuck on the wrong side of the fence as the herd moved along the laneway.",
+        "However, it was also highlighted that for some forage crops precise allocation was required due to acidosis risk, and error in the GPS location for cows or device malfunction could lead to overallocation and animal health issues.",
+        "On the negative side, the “always connected” nature of VF led some farmers and employees to feel they could not switch off.",
+        "This study was funded by the dairy farmers of New Zealand through DairyNZ Inc., Hamilton, New Zealand (contract BCF6384)."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye hikâyesi ilaçlama dronları: İtmeç 2026 operatör anketi (71 operatör; kalibrasyon, bağıl nem, arıcılık alanı), Kaya 2024 etnografisi (maliyet, erişim), Bakanlığın İHA ile zirai mücadelede izinli 15 zararlı organizması. Türkiye'den bir dijital aracın işletmede verime, suya ya da gelire etkisini ölçen yayımlanmış bir saha çalışması bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "hfh_2025_makalesi": "Hands Free Hectare'in hakemli makalesine erişilemedi; özet Crossref'te yok.",
+    "erdem_agir_2024": "Kahramanmaraş süt işletmelerinde teknoloji benimseme çalışmasına erişilemedi.",
+    "icrisat_ekim_uygulamasi": "Verim artışı iddiası geliştiricinin beyanı, kontrol grubu yok; kurum sayfası çalışmıyor.",
+    "rti_emisyon": "RTI özeti önlenen emisyonu iki farklı değerle veriyor; emisyon rakamı hakemli 2022 makalesinden alındı.",
+    "tr_sulama_pilotlari": "TAGEM-SuET, KOP ve GAP akıllı sulama pilotlarının ölçülmüş sonucu yayımlanmamış."
+  }
+}

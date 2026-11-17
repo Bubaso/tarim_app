@@ -816,12 +816,12 @@
       "oto_hedefler": [
         "gelisme"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Teknolojiyi kullanan gerçek üreticiler ve tarlalar — kaynaklı.",
         "en": "Real growers and fields using the technology — with sources."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {

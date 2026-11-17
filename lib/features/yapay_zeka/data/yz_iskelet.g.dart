@@ -346,7 +346,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Stories from the field",
       false,
       ["goruntu", "sensor", "dil", "robotik"],
-      false,
+      true,
       "Teknolojiyi kullanan gerçek üreticiler ve tarlalar — kaynaklı.",
       "Real growers and fields using the technology — with sources."),
   YzBaslik(

@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 317,
- "toplam_bayt": 922790788,
+ "dosya_sayisi": 330,
+ "toplam_bayt": 928559874,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1909,6 +1909,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/baul_2024_europepmc_tam_metin.xml",
+   "bayt": 387753,
+   "sha256": "a2cb8296c49678c13d189c02eb2177ee8616ecf9828cff4d3e0b7e551b85f01d",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11636748/fullTextXML",
+    "atif": "Baul T., Karlan D., Toyama K., Vasilaky K. 2024. Improving smallholder agriculture via video-based group extension. Journal of Development Economics 169: 103267. doi:10.1016/j.jdeveco.2024.103267",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Europe PMC tam metin (CC BY 4.0)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/benami_2021_nature.html",
    "bayt": 580775,
    "sha256": "376bce0cd9636738ba6c8c5002c4457ecbe9686009267060e77eaea07d4861d8",
@@ -2038,6 +2050,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "bibliyografik kayıt — Crossref (yayıncının yatırdığı özet); link.springer.com otomatik isteğe çerez sayfası döndü."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eastwood_2026_europepmc_tam_metin.xml",
+   "bayt": 88123,
+   "sha256": "5e539092f413551a2e2b3ecddc337e860b1fa6a23b3c007ed4b35bc134ce2d34",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13464204/fullTextXML",
+    "atif": "Eastwood C.R., Dela Rue B., Hall L. 2026. Farmer experiences with virtual fencing: Adoption, adaptation, and farm system change in New Zealand pasture-based dairy systems. JDS Communications 7(Suppl 1): 158–164. doi:10.3168/jdsc.2025-0983",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Europe PMC tam metin (CC BY 4.0)."
    }
   },
   {
@@ -2233,6 +2257,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/govuk_2017_hfh_dunya_ilki.html",
+   "bayt": 72199,
+   "sha256": "97b72b9fd613bd22b7ccccdbe3efe2d3f718829896ae93a9575da24385a26b41",
+   "kaynak": {
+    "adres": "https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved",
+    "atif": "Innovate UK. 29 Eylül 2017. Autonomous vehicles for farming: world first achieved. GOV.UK haber sayfası.",
+    "lisans": "Open Government Licence v3.0",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — GOV.UK (Innovate UK), 29 Eylül 2017."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/guldal_sanli_turker_2025_agricecon.pdf",
    "bayt": 987233,
    "sha256": "ed8ba04e01d44c88d4afde988dfb2cc11f7a8c35185cc733def6c6175061ee41",
@@ -2242,6 +2278,30 @@
     "lisans": "CC BY-NC 4.0",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — yayıncı PDF'i (Agricultural Economics – Czech)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hau_2017_hfh_hasat_tamam.html",
+   "bayt": 56770,
+   "sha256": "d34895e5b6f5341ade289ac0a215cb96b82625b41ba3e6b90b9ce0b8c429c3b4",
+   "kaynak": {
+    "adres": "https://www.harper-adams.ac.uk/news/203144/harvest-completed-at-worldfirst-project-to-farm-a-crop-exclusively-with-robots",
+    "atif": "Harper Adams University. 8 Eylül 2017. Harvest completed at world-first project to farm a crop exclusively with robots. Üniversite haber sayfası.",
+    "lisans": "üniversite haber sayfası (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Harper Adams Üniversitesi, 8 Eylül 2017."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hau_2022_hff_hasat_blog.html",
+   "bayt": 72277,
+   "sha256": "a28f50417b52d7b91dbb596a390cf5833c74f6610774d84ac1721fb7ed7f47b6",
+   "kaynak": {
+    "adres": "https://www.harper-adams.ac.uk/blog/post/2717/hands-free-harvest-2022--another-successful-year-of-autonomous-farming",
+    "atif": "Harper Adams University. 20 Eylül 2022. Hands Free Harvest 2022 - another successful year of autonomous farming. All Harper Blog.",
+    "lisans": "üniversite blog sayfası (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Harper Adams Üniversitesi blogu, 20 Eylül 2022; verimler projenin kendi paylaşımlarından."
    }
   },
   {
@@ -2278,6 +2338,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/itmec_2026_turkjans.pdf",
+   "bayt": 1009091,
+   "sha256": "53da2434f585ddf99244282e951b5aee66c3b515765ed717bc994088c076c816",
+   "kaynak": {
+    "adres": "https://dergipark.org.tr/en/download/article-file/6353857",
+    "atif": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. doi:10.30910/turkjans.2021721",
+    "lisans": "DergiPark açık erişim (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — DergiPark, yayıncı PDF'i."
    }
   },
   {
@@ -2389,6 +2461,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaya_2024_crossref.json",
+   "bayt": 8240,
+   "sha256": "78b664db807976c9ee4842d9b4051fd0fa9a8089b78b771ca0ebf4d0adfb5863",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1111/1467-8322.12893",
+    "atif": "Kaya Z. 2024. Smart farms? Ethnographic insights from agricultural digitalization in Turkey. Anthropology Today 40(3): 13–17. doi:10.1111/1467-8322.12893",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/keskin_sekerli_2016_agronomy_research.html",
    "bayt": 33919,
    "sha256": "148f7b9ab71ff689e52cd8a7b8e140bab0e05c1502253e4fe232b0ba371bdd90",
@@ -2470,6 +2554,30 @@
     "lisans": "CC BY",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lapidus_2022_crossref.json",
+   "bayt": 17204,
+   "sha256": "24784cb2a8198afbe2ab269146a88ed52793100d635953ec660570c79c0825ce",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1007/s11119-022-09925-z",
+    "atif": "Lapidus D., Salem M.E., Beach R.H., Zayed S., Ortiz-Monasterio I. 2022. Greenhouse gas mitigation benefits and profitability of the GreenSeeker Handheld NDVI sensor: evidence from Mexico. Precision Agriculture 23(6): 2388–2406. doi:10.1007/s11119-022-09925-z",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lepage_2014_crossref.json",
+   "bayt": 21805,
+   "sha256": "32ec53b767999aafecde21add8718dd6a02b15115abab869cb9074dc2c9c6fee",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/rs61111182",
+    "atif": "Le Page M., Toumi J., Khabba S., Hagolle O., Tavernier A., Kharrou M.H., Er-Raki S., Huc M., Kasbani M., El Moutamanni A., Yousfi M., Jarlan L. 2014. A Life-Size and Near Real-Time Test of Irrigation Scheduling with a Sentinel-2 Like Time Series (SPOT4-Take5) in Morocco. Remote Sensing 6(11): 11182–11203. doi:10.3390/rs61111182",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
@@ -2593,6 +2701,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/moyo_2020_ijwrd.pdf",
+   "bayt": 3540316,
+   "sha256": "0a5095021686fa30974d6c3e5f1f49b2c446036c2e634c8c3beb1f141380f245",
+   "kaynak": {
+    "adres": "http://oar.icrisat.org/11550/1/The%20dynamics%20between%20irrigation%20frequency%20and%20soil%20nutrient%20management%20transitioning%20smallholder%20irrigation%20towards%20more%20profitable%20and%20sustainable.pdf",
+    "atif": "Moyo M., Van Rooyen A., Bjornlund H., Parry K., Stirzaker R., Dube T., Maya M. 2020. The dynamics between irrigation frequency and soil nutrient management: transitioning smallholder irrigation towards more profitable and sustainable systems in Zimbabwe. International Journal of Water Resources Development 36(sup1): S102–S126. doi:10.1080/07900627.2020.1739513",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": null,
+    "_not": "Yayıncı PDF'i, ICRISAT açık erişim deposu."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/mrisho_2020_europepmc_tam_metin.xml",
+   "bayt": 138236,
+   "sha256": "b834295a5818e5210aca2ea6bc30494bbf94fb79d6538b8a5338c1c24c0f9738",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7775399/fullTextXML",
+    "atif": "Mrisho L.M., Mbilinyi N.A., Ndalahwa M., Ramcharan A.M., Kehs A.K., McCloskey P.C., Murithi H., Hughes D.P., Legg J.P. 2020. Accuracy of a Smartphone-Based Object Detection Model, PlantVillage Nuru, in Identifying the Foliar Symptoms of the Viral Diseases of Cassava–CMD and CBSD. Frontiers in Plant Science 11: 590889. doi:10.3389/fpls.2020.590889",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Europe PMC tam metin (CC BY 4.0)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_2019_landsat_acik_veri.html",
    "bayt": 269561,
    "sha256": "fd80960c2b37c4e2ba619629b16f7250760f73ade0d8456c090ca36b1fed86c4",
@@ -2686,6 +2818,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — açık erişimli makale sayfası."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rti_2017_greenseeker.pdf",
+   "bayt": 226347,
+   "sha256": "40e7bb2fc0087335b8f956839242e0aa0c61c955eabd548a04f2e80ad1de7470",
+   "kaynak": {
+    "adres": "https://www.rti.org/rti-press-publication/greenseeker-handheld/fulltext.pdf",
+    "atif": "Lapidus D., Latané A., Ortiz-Monasterio I., Beach R., Cárdenas Castañeda M.E. 2017. The GreenSeeker Handheld: A Research Brief on Farmer Technology Adoption and Disadoption. RTI Press Research Brief RB-0014-1705. Research Triangle Park, NC: RTI Press. doi:10.3768/rtipress.2017.rb.0014.1705",
+    "lisans": "CC BY-NC-ND 4.0 (Crossref) / PDF'te 'All rights reserved' — kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — RTI Press araştırma özeti."
    }
   },
   {
@@ -2986,6 +3130,18 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_gkgm_2026_iha_degerlendirme.html",
+   "bayt": 130725,
+   "sha256": "1bf956b63efdfce2c42108f5859576c676ef63da2778377159e4f64edea42a0c",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/GKGM/Haber/1280/",
+    "atif": "T.C. Tarım ve Orman Bakanlığı, Gıda ve Kontrol Genel Müdürlüğü. 9 Mart 2026. İHA sistemlerinin zirai mücadelede kullanımına ilişkin değerlendirme toplantısı gerçekleştirildi. GKGM haber sayfası.",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Gıda ve Kontrol Genel Müdürlüğü, 9 Mart 2026."
    }
   },
   {
