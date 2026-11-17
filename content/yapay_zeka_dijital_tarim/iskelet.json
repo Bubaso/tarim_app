@@ -627,12 +627,12 @@
         "gelisme",
         "mevzuat"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Tarladan çıkan verinin kime ait olduğu — çiftçi mi, makine üreticisi mi, platform mu.",
         "en": "Who owns the data that leaves the field — the farmer, the machinery maker or the platform."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

@@ -269,7 +269,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Data: ownership, platforms, open data",
       true,
       ["veri"],
-      false,
+      true,
       "Tarladan çıkan verinin kime ait olduğu — çiftçi mi, makine üreticisi mi, platform mu.",
       "Who owns the data that leaves the field — the farmer, the machinery maker or the platform."),
   YzBaslik(

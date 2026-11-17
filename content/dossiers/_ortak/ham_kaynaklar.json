@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 311,
- "toplam_bayt": 914675954,
+ "dosya_sayisi": 317,
+ "toplam_bayt": 922790788,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1669,6 +1669,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2018_tarim_verisi_davranis_kurallari.pdf",
+   "bayt": 7525694,
+   "sha256": "685f1ba4ad112a78b2f6ca4e85b8efb308fc10e2db7489bcccd65bad8be67167",
+   "kaynak": {
+    "adres": "https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf (imzacı CEMA'nın sitesi; Copa-Cogeca'daki özgün 2018 bağlantısı 404)",
+    "atif": "Copa-Cogeca, CEMA, Fertilizers Europe, CEETTAR, CEJA, ECPA, EFFAB, FEFAC, ESA. 2018. EU Code of conduct on agricultural data sharing by contractual agreement. Brüksel.",
+    "lisans": "© 2018 imzacı örgütler — tüm hakları saklı (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "İmzacı CEMA'nın sitesindeki İngilizce baskı; Copa-Cogeca'daki özgün bağlantı 404."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2021_2116_otp_finansman_tuzugu.xhtml",
    "bayt": 695693,
    "sha256": "cc5bc16a7efeb82541e125137e6b881e47c0ca1a703f9c99824c8396bb516296",
@@ -1726,6 +1738,18 @@
     "lisans": "AB mevzuatı — yeniden kullanım serbest (Komisyon Kararı 2011/833/AB)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL: AB Yayın Ofisi'nin (Cellar) resmî İngilizce metni. eur-lex.europa.eu otomatik isteğe boş 202 döndü; aynı belge Yayın Ofisi uç noktasından alındı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2026_ortak_avrupa_veri_alanlari.html",
+   "bayt": 62527,
+   "sha256": "e62b60a6528c2671fbfbc1fb37d5d82ec43fd7f402cd95888f3850530a352bc9",
+   "kaynak": {
+    "adres": "https://digital-strategy.ec.europa.eu/en/policies/data-spaces",
+    "atif": "European Commission. 2026. Common European data spaces (Shaping Europe’s digital future; son güncelleme 5 Kasım 2026). Brüksel.",
+    "lisans": "AB Komisyonu resmî sayfası (kaynak gösterilerek)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Komisyon sayfası, son güncelleme 5 Kasım 2026."
    }
   },
   {
@@ -1843,6 +1867,18 @@
    "kaynak": {
     "adres": "https://api.crossref.org/works/10.1111/ajae.12151",
     "atif": "Arouna A., Michler J.D., Yergo W.G., Saito K. 2021. One size fits all? Experimental evidence on the digital delivery of personalized extension advice in Nigeria. American Journal of Agricultural Economics 103(2): 596-619. doi:10.1111/ajae.12151",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/atik_2022_crossref.json",
+   "bayt": 34282,
+   "sha256": "c4b5ca7157b48840aa92bf1440054accf63e46110c15ad9c7939fe7eea4d5f13",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1007/s40319-022-01191-w",
+    "atif": "Atik C. 2022. Towards Comprehensive European Agricultural Data Governance: Moving Beyond the “Data Ownership” Debate. IIC – International Review of Intellectual Property and Competition Law 53(5): 701–742. doi:10.1007/s40319-022-01191-w",
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
@@ -2329,6 +2365,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaur_dara_2023_crossref.json",
+   "bayt": 16553,
+   "sha256": "2310e8b9c5a5ad47399bbc52c105f1a81d974fb28bae792195d25f66581a141a",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.3390/agriculture13112170",
+    "atif": "Kaur J., Dara R. 2023. Analysis of Farm Data License Agreements: Do Data Agreements Adequately Reflect on Farm Data Practices and Farmers’ Data Rights? Agriculture 13(11): 2170. doi:10.3390/agriculture13112170",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kaya_2022_openalex.json",
    "bayt": 24437,
    "sha256": "ef6ffe72220f2a5d795563e51947689562cbc405d008a07fa1d02970aad510d0",
@@ -2386,6 +2434,18 @@
     "lisans": "CC BY",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kvkk_6698_kanun.pdf",
+   "bayt": 465042,
+   "sha256": "1ad27253b0068d4c3d991b92b68c6bc1104439430160f4350a3f04fbb211f2b5",
+   "kaynak": {
+    "adres": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf",
+    "atif": "6698 sayılı Kişisel Verilerin Korunması Kanunu. Kabul 24.03.2016; Resmî Gazete 07.04.2016, Sayı 29677.",
+    "lisans": "kamu belgesi (mevzuat)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Mevzuat Bilgi Sistemi."
    }
   },
   {
@@ -2998,6 +3058,18 @@
     "lisans": "kurumsal yayın (TÜBİTAK)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — TÜBİTAK UZAY sitesi (Haziran 2026 kataloğu)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/turland_slade_2020_crossref.json",
+   "bayt": 10736,
+   "sha256": "96426ced8bada325af44885c18f4e4bad853dfed125e4ba4f7eed51bb97c3b4b",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1002/agr.21627",
+    "atif": "Turland M., Slade P. 2020. Farmers' willingness to participate in a big data platform. Agribusiness 36(1): 20–36. doi:10.1002/agr.21627",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
    }
   },
   {
