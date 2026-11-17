@@ -29,7 +29,7 @@ Aşağıdaki sistemler tarımın dijital kayıt ve ölçüm katmanı: bir modeli
 | B-Reçete Sistemi | Bitki koruma ürünlerinin reçete, satış, uygulama ve kayıt süreçlerini elektronik ortamda birleştiriyor; 1 Temmuz 2026'dan beri **81** ilde | §23 |
 | TAGEM-SuET · TAGEM | Sulama yönetimi ve bitki su tüketimi; webde ve Tarım Cebimde uygulamasının Su sekmesinde | §18 |
 | Dijital Sulama Yönetim Sistemi (DİSU) · Tarım ve Orman Bakanlığı | 2027 Yıllık Programı'na göre 2027'de tamamlanacak | §7, §23 |
-| Zirai Don Uyarı Sistemi (ZDUS) · Meteoroloji Genel Müdürlüğü | Önümüzdeki **5** günün don riskini haritada gösteriyor | §17 |
+| Zirai Don Uyarı Sistemi (ZDUS) · Meteoroloji Genel Müdürlüğü | Bütün il ve ilçeler için bitki bazında **5** günlük don tahmini ve risk durumu | §17 |
 | Köy Bazlı Verim Sigortası · TARSİM | 2017'de ilçe bazlı kuraklık verim sigortası olarak başladı, 2021'den beri köy bazlı; TARSİM 2025'te uydu görüntüleriyle hasar tespiti üzerine araştırmalar yaptı | §17 |
 | İMECE · TÜBİTAK UZAY | Türkiye'nin ilk yerli, metre altı çözünürlüklü yer gözlem uydusu; 15 Nisan 2023'te fırlatıldı; İMECE-2 ve İMECE-3'ün geliştirilmesi sürüyor | §19 |
 

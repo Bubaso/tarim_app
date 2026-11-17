@@ -29,7 +29,7 @@ The systems below are the digital record-keeping and measurement layer of agricu
 | B-Reçete System | Brings the prescription, sale, application and recording of plant protection products together electronically; in all **81** provinces since 1 July 2026 | §23 |
 | TAGEM-SuET · TAGEM | Irrigation management and crop water use; on the web and in the Water tab of the Tarım Cebimde app | §18 |
 | Digital Irrigation Management System (DİSU) · Ministry of Agriculture and Forestry | To be completed in 2027, according to the 2027 Annual Programme | §7, §23 |
-| Agricultural Frost Warning System (ZDUS) · General Directorate of Meteorology | Maps frost risk for the next **5** days | §17 |
+| Agricultural Frost Warning System (ZDUS) · General Directorate of Meteorology | **5**-day frost forecasts and risk status by crop for every province and district | §17 |
 | Village-Based Yield Insurance · TARSİM | Started in 2017 as district-based drought yield insurance and has been village-based since 2021; in 2025 TARSİM carried out research on damage assessment with satellite images | §17 |
 | İMECE · TÜBİTAK UZAY | Türkiye's first domestically built Earth observation satellite with sub-metre resolution; launched on 15 April 2023; development of İMECE-2 and İMECE-3 is under way | §19 |
 

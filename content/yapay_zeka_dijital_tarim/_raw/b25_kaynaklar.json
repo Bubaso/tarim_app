@@ -568,7 +568,7 @@
       "don_tahmin_ufku_gun": 5,
       "alinti": [
         "• Zirai Don Uyarı Sistemi (ZDUS),",
-        "Zirai Don Risk Tahmin Haritaları; haftanın her günü, meteorolojik tahminlerden yararlanılarak, önümüzdeki 5 günü kapsayacak şekilde, hafif-orta kuvvette, kuvvetli-çok kuvvetli don riski olan yerler harita üzerinde farklı renklerde gösterilerek, internet sitemizde yayımlanmaktadır."
+        "Programda, 5 günlük tahmin ve risk durumları tüm illerimizi ve ilçelerimizi kapsayacak şekilde bitki bazında görüntülenebilmektedir"
       ],
       "_kopya": "b17_kaynaklar.json · mgm_2025"
     },
