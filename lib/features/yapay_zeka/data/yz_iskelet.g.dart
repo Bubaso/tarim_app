@@ -60,7 +60,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Terms: AI, digital farming, precision farming",
       false,
       ["veri", "karar"],
-      false,
+      true,
       "Üç kavram sık sık birbirinin yerine kullanılıyor ve aynı şey değiller.",
       "Three terms used as if interchangeable, which they are not."),
   YzBaslik(

@@ -1,0 +1,409 @@
+{
+  "_ne": "§2 Kavramlar: yapay zekâ, dijital tarım, hassas tarım — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun, meslek ya da sanayi birliğinin, araştırma kuruluşunun kendi yayını ya da sayfası",
+    "RESMI": "Resmî belge: AB tüzüğü ve Komisyon kılavuzu, OECD konsey tavsiyesi, Türkiye'nin strateji ve plan belgeleri"
+  },
+  "kaynaklar": {
+    "ab_yz_tuzugu_2024_tanim": {
+      "nitelik": "RESMI",
+      "kunye": "Avrupa Parlamentosu ve Konsey. 2024. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), 13 Haziran 2024. Official Journal of the European Union, L series, 2024/1689, 12.7.2024.",
+      "adres": "https://publications.europa.eu/resource/celex/32024R1689",
+      "dosya": "kaynak_dosyalari/ab_2024_1689_yapay_zeka_tuzugu.xhtml",
+      "madde": 3,
+      "kabul_yili": 2024,
+      "alinti": [
+        "REGULATION (EU) 2024/1689 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL of 13 June 2024 laying down harmonised rules on artificial intelligence",
+        "Article 3 Definitions For the purposes of this Regulation, the following definitions apply:",
+        "(1) ‘AI system’ means a machine-based system that is designed to operate with varying levels of autonomy and that may exhibit adaptiveness after deployment, and that, for explicit or implicit objectives, infers, from the input it receives,",
+        "infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments;",
+        "Moreover, the definition should be based on key characteristics of AI systems that distinguish it from simpler traditional software systems or programming approaches and should not cover systems that are based on the rules defined solely by natural persons to automatically execute operations.",
+        "A key characteristic of AI systems is their capability to infer.",
+        "The techniques that enable inference while building an AI system include machine learning approaches that learn from data how to achieve certain objectives, and logic- and knowledge-based approaches that infer from encoded knowledge or symbolic representation of the task to be solved.",
+        "The capacity of an AI system to infer transcends basic data processing by enabling learning, reasoning or modelling."
+      ]
+    },
+    "ab_komisyon_2025_yz_tanim_kilavuzu": {
+      "nitelik": "RESMI",
+      "kunye": "Avrupa Komisyonu. 2025. Commission Guidelines on the definition of an artificial intelligence system established by Regulation (EU) 2024/1689 (AI Act). Communication from the Commission, C(2025) 5053 final, Brüksel, 29.7.2025.",
+      "adres": "https://ai-act-service-desk.ec.europa.eu/sites/default/files/2025-08/commission_guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_regulation_eu_20241689_ai_actenglish_nf2skcqfrtjdfggjavcodopcwz4_112455.PDF",
+      "dosya": "kaynak_dosyalari/ab_komisyon_2025_yz_sistemi_tanimi_kilavuzu.pdf",
+      "alinti": [
+        "Brussels, 29.7.2025 C(2025) 5053 final COMMUNICATION FROM THE COMMISSION Commission Guidelines on the definition of an artificial intelligence system established by Regulation (EU) 2024/1689 (AI Act)",
+        "The Guidelines are not binding. Any authoritative interpretation of the AI Act may ultimately only be given by the Court of Justice of the European Union (CJEU).",
+        "Systems used to improve mathematical optimisation or to accelerate and approximate traditional, well established optimisation methods, such as linear or logistic regression methods, fall outside the scope of the AI system definition.",
+        "Basic data processing system refers to a system that follows predefined, explicit instructions or operations.",
+        "These systems are developed and deployed to execute tasks based on manual inputs or rules, without any ‘learning, reasoning or modelling’ at any stage of the system lifecycle.",
+        "Classical heuristics typically involve rule-based approaches, pattern recognition, or trial-and-error strategies rather than data-driven learning.",
+        "All machine-based systems whose performance can be achieved via a basic statistical learning rule, while technically may be classified as relying on machine learning approaches fall outside the scope of the AI system definition, due to its performance.",
+        "Another example is using the average temperature of last week for predicting tomorrow’s temperature.",
+        "No automatic determination or exhaustive lists of systems that either fall within or outside the definition of an AI system are possible.",
+        "The vast majority of systems, even if they qualify as AI systems within the meaning of Article 3(1) AI Act, will not be subject to any regulatory requirements under the AI Act."
+      ]
+    },
+    "oecd_yz_tavsiyesi_tanim": {
+      "nitelik": "RESMI",
+      "kunye": "OECD. Recommendation of the Council on Artificial Intelligence, OECD/LEGAL/0449. İlk kabul 22 Mayıs 2019; 'AI system' tanımı 8 Kasım 2023'te, Tavsiye 3 Mayıs 2024'te revize edildi. OECD Legal Instruments (basılı sürüm © OECD 2026).",
+      "adres": "https://legalinstruments.oecd.org/api/print?ids=648&lang=en (sayfa: https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449)",
+      "dosya": "kaynak_dosyalari/oecd_legal_0449_yz_tavsiye_metni.pdf",
+      "ilk_kabul_yili": 2019,
+      "tanim_revizyon_yili": 2023,
+      "tavsiye_revizyon_yili": 2024,
+      "alinti": [
+        "Please cite this document as: OECD, Recommendation of the Council on Artificial Intelligence, OECD/LEGAL/0449",
+        "was adopted by the OECD Council meeting at Ministerial level on 22 May 2019 on the proposal of the Digital Policy Committee",
+        "The Recommendation was revised by the OECD Council on 8 November 2023 to update its definition of an “AI System”, in order to ensure the Recommendation continues to be technically accurate and reflect technological developments, including with respect to generative AI.",
+        "the Recommendation was revised by the OECD Council meeting at Ministerial level on 3 May 2024",
+        "AI system: An AI system is a machine-based system that, for explicit or implicit objectives, infers, from the input it receives, how to generate outputs such as predictions, content, recommendations, or decisions that can influence physical or virtual environments.",
+        "Different AI systems vary in their levels of autonomy and adaptiveness after deployment.",
+        "substituting the word “real” with “physical” for clarity and alignment with other international processes; reflecting the fact that some AI systems can continue to evolve after their design and deployment."
+      ]
+    },
+    "oecd_2024_aciklayici_not": {
+      "nitelik": "KURUMSAL",
+      "kunye": "OECD. 2024. Explanatory memorandum on the updated OECD definition of an AI system. OECD Artificial Intelligence Papers, No. 8, Mart 2024. Paris: OECD Publishing. doi:10.1787/623da898-en",
+      "doi": "10.1787/623da898-en",
+      "dosya": "kaynak_dosyalari/oecd_2024_yz_tanim_aciklayici_not.pdf",
+      "seri_no": 8,
+      "yayin_yili": 2024,
+      "alinti": [
+        "OECD ARTIFICIAL INTELLIGENCE PAPERS March 2024 No. 8 EXPLANATORY MEMORANDUM ON THE UPDATED OECD DEFINITION OF AN AI SYSTEM",
+        "This explanatory memorandum will accompanies the Recommendation but is not part of it and is not be submitted to the Council for adoption.",
+        "Topics typically encompassed by the term “AI” and in the definition of an AI system include categories of techniques such as machine learning and knowledge-based approaches,",
+        "and application areas such as computer vision, natural language processing, speech recognition, intelligent decision support systems, intelligent robotic systems, as well as the novel application of these tools to various domains.",
+        "The OECD definition aims to be flexible by reflecting a broad understanding of AI, and actors using this definition are encouraged to exercise judgement on its relevant scope, depending on the context it is being used in.",
+        "Adaptiveness (contained in the revised definition of an AI system) is usually related to AI systems based on machine learning that can continue to evolve after initial development.",
+        "Implicit in (typically human-specified) rules – rules dictate the action to be taken by the AI system according to the current circumstance.",
+        "For example, a driving system might have a rule, “If the traffic light is red, stop.”",
+        "Machine learning is a set of techniques that allows machines to improve their performance and usually generate models in an automated manner through exposure to training data, which can help identify patterns and regularities rather than through explicit instructions from a human.",
+        "Symbolic or knowledge-based AI systems typically use logical and/or probabilistic representations, which may be human-generated or machine-generated, to infer outputs such as predictions and decisions.",
+        "In addition, symbolic AI may use machine learning."
+      ]
+    },
+    "uyzs_2021_2025": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi ve Sanayi ve Teknoloji Bakanlığı. Ağustos 2021. Ulusal Yapay Zekâ Stratejisi 2021-2025. Ankara. (Yürürlük: 2021/18 sayılı Cumhurbaşkanlığı Genelgesi.)",
+      "adres": "https://bilgem.tubitak.gov.tr/wp-content/uploads/sites/8/TR-UlusalYZStratejisi2021-2025.pdf (belgenin kendi verdiği adres: https://www.cbddo.gov.tr/UYZS)",
+      "dosya": "kaynak_dosyalari/cbddo_sanayi_2021_uyzs_2021_2025_tubitak_kopyasi.pdf",
+      "donem_baslangic": 2021,
+      "donem_bitis": 2025,
+      "alinti": [
+        "ULUSAL YAPAY ZEKÂ STRATEJİSİ 2021-2025 https://www.cbddo.gov.tr/UYZS Ağustos 2021",
+        "CBDDO ve STB koordinasyonunda 2 adet çalıştay düzenlenerek",
+        "YZ; en genel haliyle, bir bilgisayarın veya bilgisayar kontrolündeki bir robotun çeşitli faaliyetleri zeki canlılara benzer şekilde yerine getirme kabiliyeti olarak tanımlanmaktadır.",
+        "YZ terimi; dinamik ve belirsiz ortamlarda akıl yürütme, anlam keşfetme, genelleme veya geçmiş deneyimlerden öğrenme gibi insanlara özgü bilişsel kabiliyetlerle donatılmış sistemler için kullanılmaktadır.",
+        "UYZS içerisinde, OECD ve AB’nin YZ ile ilgili tanımlamaları esas alınarak aşağıdaki terim ve kavramlar kullanılmıştır:",
+        "YZ: En genel haliyle, bir bilgisayarın veya bilgisayar kontrolündeki bir robotun çeşitli faaliyetleri zeki canlılara benzer şekilde yerine getirme kabiliyetidir.",
+        "YZ Sistemi: YZ teknolojileri kullanılarak yapılandırılmış ve yapılandırılmamış verileri toplama ve yorumlama yoluyla yazılımsal veya yazılım ve donanım bütününden oluşan, bir işlevi yerine getirmek üzere tasarlanmış sistemdir.",
+        "YZ’nin günümüzde en yaygın kullanıldığı alt uygulama alanları aşağıdaki gibidir:",
+        "Makine öğrenmesi: Veri kümelerinden öğrenebilen ve zaman içinde daha fazla veri ile performansı iyileştirilebilen algoritmalara dayalı sistemlerdir.",
+        "Bu sistemler geleneksel programlamanın kullanıldığı ve çoğunluğu kural tabanlı yaklaşımların yer aldığı emek yoğun sistemlerdir.",
+        "Tarım ve Orman Bakanlığı, yangın ve süneyle mücadele gibi hızlı karar alınması gereken alanlarda görüntü işlemeye dayalı YZ uygulamalarını aktif olarak kullanmaktadır."
+      ]
+    },
+    "yz_eylem_plani_2026_2030": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Sanayi ve Teknoloji Bakanlığı, Millî Teknoloji ve Yapay Zekâ Genel Müdürlüğü. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Ankara.",
+      "adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "alinti": [
+        "T.C. Sanayi ve Teknoloji Bakanlığı Millî Teknoloji ve Yapay Zekâ Genel Müdürlüğü",
+        "Bu sözlükte yer alan tanımlar, plan kapsamında kullanılan politika ve uygulama kavramlarını açıklamak amacıyla hazırlanmıştır.",
+        "Hukuki bağlayıcılık gerektiren kavramlar, ilgili mevzuat çalışmaları ve ikincil düzenlemeler kapsamında ayrıca tanımlanacaktır.",
+        "Eğitilmiş bir yapay zekâ modelinin yeni veriler üzerinde tahmin veya karar üretmek için çalıştırılması.",
+        "Robotlar, otonom sistemler, akıllı makineler, sensörlü saha sistemleri ve uç hesaplama donanımları aracılığıyla yapay zekânın fiziksel dünyada algılama, karar verme ve eylem üretme kapasitesi kazanması.",
+        "Sağlık, tarım, savunma ve e-ticaret için veri ve mevzuat gereksinimleri, öncelikli kullanım senaryoları, başarı göstergeleri ve takvim içeren sektörel yol haritaları yayımlanacak",
+        "Program; üretim hatlarında kalite kontrol ve kestirimci bakım, tarım robotları, sağlık destek robotları,"
+      ]
+    },
+    "ispa_2024_hassas_tarim_tanimi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "International Society of Precision Agriculture (ISPA). Precision Agriculture Definition (Ocak 2024'te revize edildi). ispag.org, erişim 17.11.2026.",
+      "adres": "https://ispag.org/resources/definition",
+      "dosya": "kaynak_dosyalari/ispa_2024_hassas_tarim_tanimi.html",
+      "revizyon_yili": 2024,
+      "alinti": [
+        "Precision Agriculture is a management strategy that gathers, processes and analyzes temporal, spatial and individual plant and animal data and combines it with other information to support management decisions according to estimated variability",
+        "to support management decisions according to estimated variability for improved resource use efficiency, productivity, quality, profitability and sustainability of agricultural production. Revised January 2024",
+        "Succinct Version Precision Agriculture is a management strategy that takes account of temporal and spatial variability to improve sustainability of agricultural production. January 2024",
+        "Precision Agriculture Definition Translations عربى Català Castellano/Español 中文 Basque/Euskera Français Galician/Galego Italiano 日本語 Magyar Polski Portuguesa Русский Svenska Українська"
+      ]
+    },
+    "ispa_tanim_tarihcesi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "International Society of Precision Agriculture (ISPA). History of ISPA. ispag.org, erişim 17.11.2026.",
+      "adres": "https://ispag.org/About/History",
+      "dosya": "kaynak_dosyalari/ispa_tarihce.html",
+      "surec_baslangic_yili": 2018,
+      "uzman_paneli_kisi": 46,
+      "genisletme_karari_yili": 2023,
+      "onay_yili": 2024,
+      "alinti": [
+        "In 2018, ISPA began the process of creating a Precision Agriculture (PA) definition.",
+        "They along with feedback from the ISPA membership and a panel of 46 PA experts worked together to come up with the first official Precision Agriculture definition of the International Society of Precision Agriculture.",
+        "In 2023 the ISPA Board, led by John Fulton, determined that is was time to expand upon the PA definition and ensure that the definition can be applied to all areas of agriculture.",
+        "Again, the ISPA membership provided feedback on revisions, and in January 2024 the updated Precision Agriculture definition was approved.",
+        "The mission of ISPA is to advance the science, education and practice of precision and digital agriculture globally."
+      ]
+    },
+    "eprs_stoa_2016_ozet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "European Parliamentary Research Service (EPRS), Scientific Foresight Unit (STOA). Aralık 2016. Precision agriculture and the future of farming in Europe — Scientific Foresight Study. PE 581.892. Brüksel: Avrupa Parlamentosu. doi:10.2861/020809",
+      "doi": "10.2861/020809",
+      "dosya": "kaynak_dosyalari/eprs_stoa_2016_hassas_tarim_avrupa.pdf",
+      "yayin_yili": 2016,
+      "alinti": [
+        "Precision agriculture (PA) or precision farming, is a modern farming management concept using digital techniques to monitor and optimise agricultural production processes.",
+        "Rather than applying the same amount of fertilisers over an entire agricultural field, or feeding a large animal population with equal amounts of feed, PA will measure variations in conditions within a field and adapt its fertilising or harvesting strategy accordingly.",
+        "The methods of PA rely mainly upon a combination of new sensor technologies, satellite navigation and positioning technology, and the Internet of Things.",
+        "especially in developing countries, we find examples of PA where with use of data (internet of things, data-analyses), PA is practised but the tasks of planting, harvesting, irrigation etc. are performed by people.",
+        "Manuscript completed in December 2016 Brussels, © European Union, 2016",
+        "Reproduction and translation for non-commercial purposes are authorised, provided the source is acknowledged and the European Parliament is given prior notice and sent a copy."
+      ]
+    },
+    "eprs_stoa_2016_ek1": {
+      "nitelik": "KURUMSAL",
+      "kunye": "European Parliamentary Research Service (EPRS), STOA. 2016. Precision agriculture and the future of farming in Europe — Annex 1: Technical Horizon Scan (Briefing paper 4: The economics and governance of digitalisation and precision agriculture). PE 581.892. doi:10.2861/763030 (teknik denetim: Krijn Poppe, Wageningen UR).",
+      "doi": "10.2861/763030",
+      "dosya": "kaynak_dosyalari/eprs_stoa_2016_ek1_teknik_ufuk_taramasi.pdf",
+      "yayin_yili": 2016,
+      "alinti": [
+        "Manuscript completed in August 2016 Brussels, © European Union, 2016",
+        "Global Navigation Satellite Systems (GNSS) are a key enabler for many precision agriculture techniques.",
+        "This ICT-revolution results in what is known as smart farming or precision agriculture",
+        "This briefing paper concentrates on smart or precision farming, adapted from the description given by JRC (Zarco-Tejada et al., 2014):",
+        "Precision Agriculture (PA) is a farming management concept based upon observing, measuring and responding to inter and intra-field variability and needs in crops and to variability and needs of individual animals with the use of digital techniques.",
+        "This description underlines a number of capabilities that Smart Farming performs.",
+        "PE 581.892 ISBN 978-92-823-9556-1 doi: 10.2861/763030"
+      ]
+    },
+    "abd_ers_2023_eib248": {
+      "nitelik": "RESMI",
+      "kunye": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023.",
+      "adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+      "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+      "verim_monitoru_ticari_yil": 1993,
+      "vrt_ticari_yil": 1995,
+      "alinti": [
+        "Digital agriculture (DA)—the ongoing transformation of farming that includes digitalization and automation of farming tasks, of which precision agriculture (PA) is a chief element—may be an important part of the solution to several challenges facing U.S. agriculture,",
+        "Many of the major components of digital agriculture can be decomposed into three features: (1) data and data collection systems, (2) decision support (DS) tools, and (3) data-driven equipment and input adjustments",
+        "Technologies falling under the third category are largely guidance systems, automated section control, and variable rate applicators.",
+        "Yield monitor In-cab device that displays crop yields (e.g., bushels/ acre)—and how those yields change over small areas. Data collection 1993",
+        "Variable rate technologies Equipment that provides custom applications of seed, lime, fertilizer, and/or pesticides at rates that can change over small distances. Data-driven equipment 1995",
+        "In short, satellite navigation systems like GPS are a fundamental technology that supports site-specific management.",
+        "Digitalization entails the use of data analytics, automated production processes, and development and commercialization of artificial intelligence applications.",
+        "Artificial intelligence (AI), machine learning, and associated computer innovations have been touted to enable greater productivity across agricultural sectors, although little evidence exists to date because they have not yet been deployed at scale.",
+        "Although gene editing and cellular agriculture are components of digital agriculture, they are not depicted here as they are beyond the scope of the report."
+      ]
+    },
+    "lowenberg_deboer_erickson_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lowenberg-DeBoer J., Erickson B. 2019. Setting the record straight on precision agriculture adoption. Agronomy Journal 111(4): 1552-1569.",
+      "doi": "10.2134/agronj2018.12.0779",
+      "dosya": "kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
+      "lleida_tanim_sayisi": 27,
+      "vrt_ciftlik_ust_yuzde": 20,
+      "gps_sivil_kullanim_yili": 1983,
+      "alinti": [
+        "Precision agriculture is not one technology but a toolkit from which farmers choose what they need.",
+        "The main reason for the perception that PA adoption is slow is because PA is often associated with variable rate technology (VRT)—just one of many PA technologies, one of the first adopted by many farmers, but that now rarely exceeds 20% of farms.",
+        "The lack of a clear definition of PA makes tracking adoption more difficult. One aspect of this problem is how to distinguish PA from other terms describing agricultural technology (e.g.,",
+        "site-specific farming, smart farming, and digital agriculture). From another perspective, there is no clear definition of what technologies are included in PA.",
+        "The Lleida University Research Group in AgroTIC and Precision Agriculture lists 27 definitions from the scientific literature and the Internet (Lleida University, 2018).",
+        "Some focus the definition on variable rate technology (VRT). Others concentrate on application of electronic information technology.",
+        "Site-specific crop management is ancient, but the idea of using electronic information technology to automate that process is relatively recent.",
+        "The modern age of PA is often linked to the announcement by US President Ronald Reagan in 1983 that would allow global positioning systems (GPS) for civilian use."
+      ]
+    },
+    "fao_2022_sofa_sozluk": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9.",
+      "doi": "10.4060/cb9479en",
+      "dosya": "kaynak_dosyalari/fao_2022_sofa.pdf",
+      "alinti": [
+        "Artificial intelligence (AI). Computer systems that use algorithms to analyse their environment and take actions – with some degree of autonomy – to achieve specific goals.",
+        "Machine learning. A type of AI and a method of data analysis that uses computer algorithms to automate analytical model building.",
+        "It is based on identifying patterns in data to improve machine performance by more accurately predicting outcomes without explicit human instructions.",
+        "Agricultural automation includes technologies for precision agriculture.",
+        "Digital automation in agriculture. The strengthening of automated processes in agricultural machinery and equipment (e.g. tractors and their implements, feeding systems, milking machines) by adding digital tools that increase their efficiency and precision",
+        "Precision agriculture. A management strategy that gathers, processes and analyses temporal, spatial and individual data and combines them with other information, to manage variations in the field accurately and to support management decisions and precise machine action",
+        "Precision livestock farming. A data-based livestock management strategy that monitors and controls individual animal or group productivity, environment, health and welfare in a continuous, real-time and automated manner.",
+        "Autosteer. A GNSS-enabled technology that provides automated steering and positioning in the landscape for self-propelled agricultural machines",
+        "It is a good example of a precision farming technology.",
+        "The technological evolution in agriculture can be summarized as a progressive move from manual tools to animal traction, to motorized mechanization, to digital equipment and finally, to robotics with artificial intelligence (AI).",
+        "11 ISPA (International Society of Precision Agriculture) . 2021. Precision Ag Definition."
+      ]
+    },
+    "fao_2020_tarim_40": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Santos Valle S., Kienzle J. 2020. Agriculture 4.0 – Agricultural robotics and automated equipment for sustainable crop production. Integrated Crop Management Vol. 24. Roma: FAO. ISSN 1020-4555.",
+      "adres": "https://www.fao.org/3/cb2186en/CB2186EN.pdf (yönlendirme: openknowledge.fao.org bitstream 14fc8bf7-fdeb-4c7c-a2ed-b2d59118a70b)",
+      "dosya": "kaynak_dosyalari/fao_2020_tarim40_robotik.pdf",
+      "yayin_yili": 2020,
+      "alinti": [
+        "Required citation: Santos Valle, S. and Kienzle, J. 2020. Agriculture 4.0 – Agricultural robotics and automated equipment for sustainable crop production. Integrated Crop Management Vol. 24. Rome, FAO.",
+        "Within this paradigm, digitalization, automation and artificial intelligence play a major role in crop production, including weeding and pest control.",
+        "Agriculture 4.0 Agriculture that integrates a series of innovations in order to produce agricultural products. These innovations englobe precision farming, IoT and big data in order to achieve greater production efficiency.",
+        "Precision farming Farming management concept based on observing, measuring and responding to inter- and intra-field variability in crops.",
+        "Artificial intelligence (AI) The ability of a digital computer or computer-controlled robot to perform tasks commonly associated with intelligent beings (Encyclopaedia Britannica, 2020).",
+        "This work is made available under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 IGO licence"
+      ]
+    },
+    "fao_2019_dijital_teknolojiler": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Trendov N.M., Varas S., Zeng M. 2019. Digital technologies in agriculture and rural areas – Briefing paper. Roma: FAO.",
+      "adres": "https://www.fao.org/3/ca4887en/ca4887en.pdf (yönlendirme: openknowledge.fao.org bitstream 885161de-dccf-4589-8376-07fe37b68799)",
+      "dosya": "kaynak_dosyalari/fao_2019_dijital_teknolojiler_brifing.pdf",
+      "yayin_yili": 2019,
+      "alinti": [
+        "BRIEFING PAPER by Nikola M. Trendov, Samuel Varas, and Meng Zeng Food and Agriculture Organization of the United Nations Rome, 2019",
+        "The term Industry 4.0 originated in Germany where it was applied to rapid transformations in the design, manufacture, operation and service of manufacturing systems and products",
+        "Digitalization will change every part of the agrifood chain.",
+        "Precision Agriculture (PA) is an example of an application of the Internet of Things (IoT) in agriculture.",
+        "The use of Guidance Systems during planting and fertilizer application can lead to cost savings in terms of seed, fertilizer and tractor fuel, and can reduce working hours in the field.",
+        "AI can improve resource use, support early decision making through predictive models and maintain 24/7 monitoring systems",
+        "Some rights reserved. This work is available under a CC BY-NC-SA 3.0 IGO licence © FAO, 2019"
+      ]
+    },
+    "fao_itu_2016_e_tarim": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO ve ITU. 2016. E-agriculture Strategy Guide: Piloted in Asia-Pacific countries. Bangkok: FAO ve ITU. ISBN 978-92-5-109186-9.",
+      "adres": "https://www.fao.org/3/i5564e/i5564e.pdf (yönlendirme: openknowledge.fao.org bitstream a3b0d0e6-0842-4827-9955-7887888ccb50)",
+      "dosya": "kaynak_dosyalari/fao_itu_2016_e_tarim_strateji_rehberi.pdf",
+      "yayin_yili": 2016,
+      "alinti": [
+        "STRATEGY GUIDE Piloted in Asia-Pacific countries Published by the Food and Agriculture Organization of the United Nations and International Telecommunication Union Bangkok, 2016",
+        "E-agriculture, or ICTs in agriculture, is about designing, developing and applying innovative ways to use ICTs in the rural domain, with a primary focus on agriculture.",
+        "E-agriculture is seen as an emerging field focusing on the enhancement of agricultural and rural development through improved information and communication processes.",
+        "© FAO and ITU, 2016 ISBN 978-92-5-109186-9 (FAO)"
+      ]
+    },
+    "cema_2017_dijital_tarim": {
+      "nitelik": "KURUMSAL",
+      "kunye": "CEMA – European Agricultural Machinery (Avrupa tarım makineleri sanayi birliği). 13 Şubat 2017. Digital Farming: what does it really mean? And what is the vision of Europe's farm machinery industry for Digital Farming? Brüksel. (Durum belgesi.)",
+      "adres": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
+      "dosya": "kaynak_dosyalari/cema_2017_dijital_tarim_tarim40.pdf",
+      "yayin_yili": 2017,
+      "alinti": [
+        "Digital Farming: what does it really mean? And what is the vision of Europe’s farm machinery industry for Digital Farming? 13 February 2017",
+        "Digital Farming describes the evolution in agriculture and agricultural engineering from Precision Farming to connected, knowledge-based farm production systems.",
+        "Digital Farming makes use of Precision Farming technology, yet – in addition – also takes recourse to intelligent networks and data management tools.",
+        "Precision Farming started when GPS signals were made available to the general public.",
+        "Agriculture 3.0 “Precision Farming” started once military GPS-signals were made available for public use.",
+        "In terms of definitions, Agriculture 4.0, in analogy to Industry 4.0, stands for the integrated internal and external networking of farming operations.",
+        "Other terms frequently used are “ Smart Agriculture ” and “ Digital Farming ”.",
+        "Agriculture 4.0 paves the way for the next evolution of farming consisting of unmanned operations and autonomous decision systems. Agriculture 5.0 will be based around robotics and (some form of) artificial intelligence."
+      ]
+    },
+    "wolfert_2017_akilli_tarim": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Wolfert S., Ge L., Verdouw C., Bogaardt M.-J. 2017. Big Data in Smart Farming – A review. Agricultural Systems 153: 69-80.",
+      "doi": "10.1016/j.agsy.2017.01.023",
+      "dosya": "kaynak_dosyalari/wolfert_2017_wur_arastirma_portali_kaydi.html",
+      "cilt": 153,
+      "alinti": [
+        "Smart Farming is a development that emphasizes the use of information and communication technology in the cyber-physical farm management cycle.",
+        "New technologies such as the Internet of Things and Cloud Computing are expected to leverage this development and introduce more robots and artificial intelligence in farming.",
+        "The review shows that the scope of Big Data applications in Smart Farming goes beyond primary production; it is influencing the entire food supply chain.",
+        "Wolfert, J. , Ge, L. , Verdouw, C. , & Bogaardt, M. J. (2017). Big Data in Smart Farming – A review . Agricultural Systems , 153 , 69-80.",
+        "Licence: CC BY-NC-ND"
+      ]
+    },
+    "fao_2013_iklim_akilli_tarim": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2013. Climate-Smart Agriculture Sourcebook — Executive Summary (I3484E/1/11.13). Roma: FAO.",
+      "adres": "https://openknowledge.fao.org/3/a-i3484e.pdf (yönlendirme: openknowledge.fao.org bitstream e9a8f414-b49e-4896-a0c1-1a45710322cc)",
+      "dosya": "kaynak_dosyalari/fao_2013_iklim_akilli_tarim_kaynak_kitabi.pdf",
+      "tanim_yili": 2010,
+      "alinti": [
+        "Climate-smart agriculture (CSA), as defined and presented by FAO at the Hague Conference on Agriculture, Food Security and Climate Change in 2010, contributes to the achievement of sustainable development goals.",
+        "It is composed of three main pillars: 1 sustainably increasing agricultural productivity and incomes; 2 adapting and building resilience to climate change; 3 reducing and/or removing greenhouse gases emissions, where possible.",
+        "CSA is not a single specific agricultural technology or practice that can be universally applied.",
+        "Sourcebook on Climate-Smart Agriculture Executive Summary + CD-ROM I3484E/1/11.13"
+      ]
+    },
+    "tob_stratejik_plan_2024_2028": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. 2024-2028 Stratejik Planı — Güncellenmiş Versiyon (2025). Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/BelgelerArsiv/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı)",
+      "dosya": "kaynak_dosyalari/tob_2024_2028_stratejik_plan.pdf",
+      "pg453_hedefe_etkisi_yuzde": 25,
+      "pg453_baslangic_2023": 0,
+      "pg453_hedef_2024": 40,
+      "pg453_hedef_2025": 150,
+      "pg453_hedef_2026": 275,
+      "pg453_hedef_2027": 425,
+      "pg453_hedef_2028": 585,
+      "alinti": [
+        "2024-2028 STRATEJİK PLANI Güncellenmiş Versiyon (2025) T.C. TARIM VE ORMAN BAKANLIĞI",
+        "Hedef (H4.5) Tarımda yenilikçi uygulamaları yaygınlaştırmak",
+        "İklim değişikliğiyle uyumlu, modern makine kullanımı özendirilecek, ortak makine kullanımı yaygınlaştırılacak ve üretim planlamasına yönelik yapay zekâ uygulamaları geliştirilecektir.",
+        "Tarım sektöründe ürün doğrulama, rekolte tahmini, yapay zekâ, coğrafi bilgi sistemleri, algoritma gibi teknolojik gelişmelerin kullanımı ile akıllı tarım uygulamaları yaygınlaştırılacaktır.",
+        "Performans Göstergeleri Hedefe Etkisi (%) Plan Dönemi Başlangıç Değeri (2023) 2024 2025 2026 2027 2028",
+        "PG 4.5.3 İklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı (TRGM)** 25 0 40 150 275 425 585",
+        "Dijital Dönüşüm ve Tarım 4.0 Hizmetleri",
+        "Tarım 4.0 uygulamalarının ulaşılabilir hale getirilerek yaygınlaştırılması",
+        "E-devlet üzerinden ÇKS başvuruları gibi dijital dönüşüm çalışmaları ile hem üreticide hem de kamuda emek ve zamandan tasarruf sağlanacaktır."
+      ]
+    },
+    "tob_ukks_iv_2024_2028": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
+      "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+      "alinti": [
+        "Akıllı tarıma yönelik çalışmalar kapsamında gerek kamu sektörü gerekse özel sektör tarafından çeşitli araştırma projeleri yürütülmektedir.",
+        "Anıza doğrudan ekim veya azaltılmış toprak işleme uygulamaları, girdinin ihtiyaç olunan alanda, ihtiyaç miktarında değişken oran ve oran kontrol uygulamaları ile doğru zamanda uygulanması ve ilaçlamada yeşil uygulamalar şeklinde hassas tarıma yönelik çiftlik yönetim sistemleri geliştirilmektedir.",
+        "gerekse ana hizmet birimlerinin faaliyet alanlarında dijital tarım uygulamalarına yönelik teknolojileri ve karar destek sistemleri, hassas tarım uygulamaları, tarım bilgi sistemleri, kayıt ve veri tabanı sistemleri gibi birçok teknolojiyi kullanarak",
+        "akıllı tarım/iklim akıllı teknolojilerin ve uygulamaların kullanımının desteklenmesi",
+        "Gündelik hayata etki eden boyutuyla teknoloji birçok yeni kavramı eklemekte olup dijitalleşme, yapay zekâ, internet teknolojisi de bunlardan birkaçıdır.",
+        "Tedbir 4.1.3 Yapay zekâ, akıllı teknoloji uygulamalarının kullanımının artırılması"
+      ]
+    },
+    "tob_iv_sura_g12_2025": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 12. Çalışma Grubu: Tarımda Dijital Dönüşüm, Veri Tabanlı Tarım, Teknolojik Gelişim — Çalışma Belgesi (Grup Başkanı: Prof. Dr. Ertuğrul Karaçuha). Ankara.",
+      "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__12._grup_raporutarimda_dijital_donusum_veri_tabanli_tarimteknolojik_gelisim_calisma_belgesi.pdf",
+      "dosya": "kaynak_dosyalari/tob_2025_iv_sura_g12_dijital_donusum_calisma_belgesi.pdf",
+      "iii_sura_yili": 2019,
+      "alinti": [
+        "12. ÇALIŞMA GRUBU Tarımda Dijital Dönüşüm, Veri Tabanlı Tarım, Teknolojik Gelişim",
+        "Askeri alanda kullanılan GPS cihazlarının halkın kullanımına açılmasıyla başlayan “Hassas Tarım” dönemi, Tarım 3.0 dönemi olarak adlandırılmıştır.",
+        "2010'lu yıllarda, sanayideki Endüstri 4.0 devrimine benzer bir süreç, tarım sektöründe de başlamıştır.",
+        "Bu döneme \"Tarım 4.0\", \"Akıllı Tarım\", \"Dijital Tarım\" veya \"E-Tarım\" gibi çeşitli isimler verilmektedir.",
+        "Terminolojik açıdan ele alındığında, akıllı, dijital ve hassas tarım gibi ifadeler literatürde kullanılmaktadır.",
+        "Bu terimler çoğu zaman yabancı terimlerden Türkçe'ye çevrildiğinde karıştırılabilmektedir.",
+        "İlk başlarda uzmanlar arasında \"Hassas Tarım\" terimi kullanılırken, daha sonra \"Akıllı Tarım\" ve \"Dijital Tarım\" terimleri daha yaygın olarak kabul görmüştür (Kılavuz ve Erdem, 2019).",
+        "Özellikle dijital tarım kavramının Türkiye gündemine taşınmasında, 2019 yılında gerçekleştirilen III. Tarım ve Orman Şûrası oldukça kritik bir rol oynamıştır."
+      ]
+    },
+    "fao_ebrd_2025_turkiye": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger F., Sener B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma: FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3.",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "tob_2020_anketi_akilli_tarim_kullanan_ciftci_ust_yuzde": 3,
+      "alinti": [
+        "Tarım 4.0, Türkiye’de yaygın olarak kullanılan bir terimdir.",
+        "Yeni bilgi ve iletişim teknolojilerinin koordine edilmiş kullanımıyla veri toplama, analiz ve değerlendirme süreçlerinde karar verme optimizasyonunu kapsar;",
+        "Yapay zekâ (AI) ve makine öğrenmesi (ML) alanındaki gelişmeler, artan veri mevcudiyeti ve büyük veri analizleriyle birlikte, analiz ve karar destek sistemlerinden hassas tarım ve otomasyona kadar uzanan çeşitli kullanım alanlarında çıktı doğruluğunu artırmaktadır.",
+        "Çalışmanın ana odağı, çiftçiler, kooperatifler ve sözleşmeli üretim yapan çiftçilerle çalışan tarım işletmeleri tarafından kullanılan akıllı tarım teknolojileridir.",
+        "TOB 2020 anketine göre, çiftçilerin yüzde 3'ünden azı uzaktan algılama, sensörler ve IoT cihazları, çiftlik veya sürü yönetimi yazılımı, hassas tarım veya hayvancılık teknolojileri veya robotik uygulamalar gibi akıllı tarım teknolojilerini kullanmaktadır."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye: UYZS 2021-2025 tanımı (kabiliyet tanımı), Eylem Planı 2026-2030 (bağlayıcı kavramlar ileride mevzuatta), TOB Stratejik Plan 2024-2028 (akıllı tarım şemsiyesi; iklim dostu akıllı tarım göstergesi), UKKS-IV (akıllı tarım/iklim akıllı), Şûra G12 çalışma belgesi (terim karışıklığı), FAO-EBRD 2025 (Tarım 4.0; TOB 2020 anketi: %3'ten azı)."
+  },
+  "_reddedilen": {
+    "mevzuatta_tanim_yok": "Üç tarım terimi için mevzuatta tanım bulunmadığı iddiası mevzuat.gov.tr tam metin aramasıyla sınanamadı; metne girmedi.",
+    "stratejik_planda_gecmeyen": "Stratejik Plan'da 'hassas tarım' ve 'dijital tarım' ifadelerinin geçmediği iddiası metne girmedi; plan olumlu kullanımıyla anlatıldı.",
+    "otomatik_dumen_yz_degil": "Hiçbir kaynak otomatik dümenlemenin yapay zekâ olmadığını söylemiyor; metin yalnız FAO'nun onu hassas tarım teknolojisi saymasını ve ERS'nin yapay zekânın henüz ölçekli kullanılmadığını aktarıyor.",
+    "tdk": "TDK maddesi metne girmedi (UYZS tanımıyla aynı türden).",
+    "klerkx_2019": "Erişilemedi (bot denetimi)."
+  }
+}

@@ -1,6 +1,6 @@
 # 30 · Sources
 
-> **Summary.** The **225** sources used across the **27** written headings of this file, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.
+> **Summary.** The **241** sources used across the **28** written headings of this file, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.
 
 ## Other
 
@@ -38,6 +38,10 @@ Atik C. 2022. Towards Comprehensive European Agricultural Data Governance: Movin
 
 Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §1, §6
 
+Avrupa Komisyonu. 2025. Commission Guidelines on the definition of an artificial intelligence system established by Regulation (EU) 2024/1689 (AI Act). Communication from the Commission, C(2025) 5053 final, Brüksel, 29.7.2025. https://ai-act-service-desk.ec.europa.eu/sites/default/files/2025-08/commission_guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_regulation_eu_20241689_ai_actenglish_nf2skcqfrtjdfggjavcodopcwz4_112455.PDF · §2
+
+Avrupa Parlamentosu ve Konsey. 2024. Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act), 13 June 2024. Official Journal of the European Union, L series, 2024/1689, 12.7.2024. https://publications.europa.eu/resource/celex/32024R1689 · §2, §24
+
 ## B
 
 Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §1, §10, §27
@@ -61,6 +65,8 @@ Bilgi Teknolojileri Genel Müdürlüğü. 4.11.2025. TRGM ev sahipliğinde gerç
 BTK. 2026. Türkiye Elektronik Haberleşme Sektörü Üç Aylık Pazar Verileri Raporu — 2026 Yılı 2. Çeyrek. Bilgi Teknolojileri ve İletişim Kurumu, Ankara. https://www.btk.gov.tr/s3/web-btk-site/7708c26c-5161-4919-8b3d-daa31d4ac8fb/2026/10/6a6ae76a-f3ad-4af1-95e3-bbb95b0d1a07.pdf (liste sayfası: https://www.btk.gov.tr/elektronik-haberlesme-pazar-verileri) · §20
 
 ## C
+
+CEMA – European Agricultural Machinery (Avrupa tarım makineleri sanayi birliği). 13 February 2017. Digital Farming: what does it really mean? And what is the vision of Europe's farm machinery industry for Digital Farming? Brüksel. (Durum belgesi.). https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf · §2
 
 Civelek Ç. 2022. Development of an IoT-Based (LoRaWAN) Tractor Tracking System. Journal of Agricultural Sciences (Tarım Bilimleri Dergisi) 28(3): 438–448. https://doi.org/10.15832/ankutbd.769200 · §20, §25
 
@@ -120,6 +126,10 @@ European Commission. 2026. Common European data spaces (Shaping Europe’s digit
 
 European Commission, DG Agriculture and Rural Development. 2025. Delivering on CAP Strategic Plans: 2023–2024 highlights (information note, June 2025). Brüksel. https://agriculture.ec.europa.eu/document/download/3cfb9e48-f33f-4f27-8b1b-2a952693e178_en?filename=delivering-cap-strategic-plans-2023-2024-highlights_en.pdf · §22
 
+European Parliamentary Research Service (EPRS), Scientific Foresight Unit (STOA). December 2016. Precision agriculture and the future of farming in Europe — Scientific Foresight Study. PE 581.892. Brüksel: Avrupa Parlamentosu. doi:10.2861/020809. https://doi.org/10.2861/020809 · §2
+
+European Parliamentary Research Service (EPRS), STOA. 2016. Precision agriculture and the future of farming in Europe — Annex 1: Technical Horizon Scan (Briefing paper 4: The economics and governance of digitalisation and precision agriculture). PE 581.892. doi:10.2861/763030 (teknik denetim: Krijn Poppe, Wageningen UR). https://doi.org/10.2861/763030 · §2
+
 Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi May 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §1, §22
 
 ## F
@@ -132,9 +142,11 @@ FAO. 14.11.2025. Disasters cost global agriculture $3.26 trillion over three dec
 
 FAO. 2009. How to Feed the World in 2050. FAO Yüksek Düzeyli Uzmanlar Forumu (Roma, 12-13 October 2009) için arka plan belgesi. Roma: FAO. https://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf · §27
 
+FAO. 2013. Climate-Smart Agriculture Sourcebook — Executive Summary (I3484E/1/11.13). Roma: FAO. https://openknowledge.fao.org/3/a-i3484e.pdf (yönlendirme: openknowledge.fao.org bitstream e9a8f414-b49e-4896-a0c1-1a45710322cc) · §2
+
 FAO. 2017. The future of food and agriculture – Trends and challenges. Rome. ISBN 978-92-5-109551-5. https://www.fao.org/3/i6583e/i6583e.pdf · §27
 
-FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §1, §26
+FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §1, §2, §26
 
 FAO. 2025. AQUASTAT Water Data Snapshot 2025. Rome. https://openknowledge.fao.org/server/api/core/bitstreams/99a294b0-ba6c-4bd1-b707-ffb43907d412/content · §7
 
@@ -145,6 +157,8 @@ FAO. 21.10.2025. Global deforestation slows, but forests remain under pressure, 
 FAO. SDG Indicators Data Portal — Indicator 12.3.1(a) Global food losses. Accessed 2026. https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en · §11
 
 FAO Statistics. 29.09.2025. On the International Day of Awareness of Food Loss and Waste, learn how FAO is leveraging data to save food and advance the 2030 Agenda. https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en · §11
+
+FAO ve ITU. 2016. E-agriculture Strategy Guide: Piloted in Asia-Pacific countries. Bangkok: FAO ve ITU. ISBN 978-92-5-109186-9. https://www.fao.org/3/i5564e/i5564e.pdf (yönlendirme: openknowledge.fao.org bitstream a3b0d0e6-0842-4827-9955-7887888ccb50) · §2
 
 FBI (ABD Federal Soruşturma Bürosu). 2022. Ransomware Attacks on Agricultural Cooperatives Potentially Timed to Critical Seasons. Private Industry Notification 20220420-001, 20 April 2022. TLP:WHITE. https://www.ic3.gov/CSA/2022/220420-2.pdf · §26
 
@@ -178,7 +192,7 @@ Hemming S., de Zwart F., Elings A., Righini I., Petropoulou A. 2019. Remote cont
 
 Hopkins A.M., Logan J.M., Kichenadasse G., Sorich M.J. 2023. Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift. JNCI Cancer Spectrum 7(2): pkad010. https://doi.org/10.1093/jncics/pkad010 · §3
 
-Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426. https://openknowledge.fao.org/handle/20.500.14283/cd3185tr · §3, §25
+Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426. https://openknowledge.fao.org/handle/20.500.14283/cd3185tr · §2, §3, §25
 
 ## I
 
@@ -191,6 +205,10 @@ Infarm. 16 December 2021. Infarm raises $200m to accelerate global expansion of 
 Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (company announcement, infarm.com; Internet Archive copy, 6 December 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §1, §27
 
 Innovate UK. 29 September 2017. Autonomous vehicles for farming: world first achieved. GOV.UK news page. https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved · §28
+
+International Society of Precision Agriculture (ISPA). History of ISPA. ispag.org, accessed 17.11.2026. https://ispag.org/About/History · §2
+
+International Society of Precision Agriculture (ISPA). Precision Agriculture Definition (January 2024'te revize edildi). ispag.org, accessed 17.11.2026. https://ispag.org/resources/definition · §2
 
 ISPA. ICPA Conference History. https://ispag.org/icpa/History (accessed 17 November 2026). · §3
 
@@ -258,7 +276,7 @@ Lemmon H. 1986. Comax: an expert system for cotton crop management. Science 233(
 
 Lemmon H.E. 1986. Cotton Crop Management Expert System - COMAX (özet). 1986 Proceedings: Beltwide Cotton Production Research Conferences, s. 451. Memphis: National Cotton Council. https://www.cotton.org/beltwide/proceedings/8395/abstracts/861.cfm · §3
 
-Lowenberg-DeBoer J., Erickson B. 2019. Setting the record straight on precision agriculture adoption. Agronomy Journal 111(4): 1552-1569. https://doi.org/10.2134/agronj2018.12.0779 · §3, §6
+Lowenberg-DeBoer J., Erickson B. 2019. Setting the record straight on precision agriculture adoption. Agronomy Journal 111(4): 1552-1569. https://doi.org/10.2134/agronj2018.12.0779 · §2, §3, §6
 
 ## M
 
@@ -266,7 +284,7 @@ Manogna R.L., Dharmaji V., Sarang S. 2025. Enhancing agricultural commodity pric
 
 McFadden J., Njuki E. 2023. Variable rate technology adoption is on the rise. USDA Economic Research Service, Charts of Note. https://www.ers.usda.gov/data-products/charts-of-note/107116 · §6
 
-McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, February 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §1, §3, §22
+McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, February 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §1, §2, §3, §22
 
 Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §1, §20
 
@@ -304,6 +322,12 @@ NASA Science. Landsat 2 (görev sayfası; LACIE bölümü). science.nasa.gov (ac
 
 Neupane C., Pereira M., Koirala A., Walsh K.B. 2023. Fruit sizing in orchard: a review from caliper to machine vision with deep learning. Sensors 23(8). https://doi.org/10.3390/s23083868 · §11
 
+## O
+
+OECD. 2024. Explanatory memorandum on the updated OECD definition of an AI system. OECD Artificial Intelligence Papers, No. 8, March 2024. Paris: OECD Publishing. doi:10.1787/623da898-en. https://doi.org/10.1787/623da898-en · §2
+
+OECD. Recommendation of the Council on Artificial Intelligence, OECD/LEGAL/0449. İlk kabul 22 May 2019; 'AI system' tanımı 8 November 2023'te, Tavsiye 3 May 2024'te revize edildi. OECD Legal Instruments (basılı sürüm © OECD 2026). https://legalinstruments.oecd.org/api/print?ids=648&lang=en (sayfa: https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449) · §2
+
 ## Ö
 
 Özçakmak S., AlMatar M., Akbulut O., Çetinkaya A. 2024. The effective sorting technologies for reducing aflatoxins in nuts and dried figs in Turkey. Current Nutrition & Food Science 20(10). https://doi.org/10.2174/0115734013284484240105113607 · §11
@@ -338,8 +362,6 @@ Regulation (EU) 2023/1230 — Machinery Regulation. https://publications.europa.
 
 Regulation (EU) 2023/2854 — Data Act. https://publications.europa.eu/resource/celex/32023R2854 · §24
 
-Regulation (EU) 2024/1689 — Artificial Intelligence Act. https://publications.europa.eu/resource/celex/32024R1689 · §24
-
 Regulation (EU) 2026/1744 — Digital Omnibus on AI. https://publications.europa.eu/resource/celex/32026R1744 · §24
 
 Resmî Gazete, 14 June 2002, issue 24785. Bakanlar Kurulu Kararı 2002/4165: Tarımsal Destekleme Politikaları Çerçevesinde Çiftçilere Doğrudan Gelir Desteği Sağlanması ve Kayıt Sisteminin Oluşturulmasına İlişkin Karar. https://www.resmigazete.gov.tr/eskiler/2002/06/20020614.htm · §3
@@ -357,6 +379,8 @@ Rotz S., Gravely E., Mosby I., Duncan E., Finnis E., Horgan M., LeBlanc J., Mart
 ## S
 
 Saikai Y., Peake A., Chenu K. 2023. Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback. PLOS Water 2(9): e0000169. https://doi.org/10.1371/journal.pwat.0000169 · §7
+
+Santos Valle S., Kienzle J. 2020. Agriculture 4.0 – Agricultural robotics and automated equipment for sustainable crop production. Integrated Crop Management Vol. 24. Roma: FAO. ISSN 1020-4555. https://www.fao.org/3/cb2186en/CB2186EN.pdf (yönlendirme: openknowledge.fao.org bitstream 14fc8bf7-fdeb-4c7c-a2ed-b2d59118a70b) · §2
 
 Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik. Resmî Gazete 7.7.2012, issue 28346; with amendments consolidated text (last amended Resmî Gazete 29.4.2023). Mevzuat Bilgi Sistemi. https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5 · §16, §25
 
@@ -424,13 +448,19 @@ TARSİM. Köy Bazlı Verim Sigortası — ürün sayfası. tarsim.gov.tr (undate
 
 TARSİM (Tarım Sigortaları Havuzu). Faaliyet Raporu 2025. İstanbul. https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf · §17, §25
 
-T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 August 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §1, §21, §23, §24
+T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi ve Sanayi ve Teknoloji Bakanlığı. August 2021. Ulusal Yapay Zekâ Stratejisi 2021-2025. Ankara. (Yürürlük: 2021/18 sayılı Cumhurbaşkanlığı Genelgesi.). https://bilgem.tubitak.gov.tr/wp-content/uploads/sites/8/TR-UlusalYZStratejisi2021-2025.pdf (belgenin kendi verdiği adres: https://www.cbddo.gov.tr/UYZS) · §2
 
 T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 June 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §1, §27
 
+T.C. Sanayi ve Teknoloji Bakanlığı, Millî Teknoloji ve Yapay Zekâ Genel Müdürlüğü. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Ankara. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §1, §2, §21, §23, §24
+
+T.C. Tarım ve Orman Bakanlığı. 2025. 2024-2028 Stratejik Planı — Güncellenmiş Versiyon (2025). Ankara. https://www.tarimorman.gov.tr/SGB/BelgelerArsiv/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı) · §2
+
+T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 12. Çalışma Grubu: Tarımda Dijital Dönüşüm, Veri Tabanlı Tarım, Teknolojik Gelişim — Çalışma Belgesi (Grup Başkanı: Prof. Dr. Ertuğrul Karaçuha). Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__12._grup_raporutarimda_dijital_donusum_veri_tabanli_tarimteknolojik_gelisim_calisma_belgesi.pdf · §2
+
 T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §1, §26
 
-T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §1, §26
+T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §1, §2, §26
 
 T.C. Tarım ve Orman Bakanlığı. Coğrafi Bilgi Sistemleri — Projeler (TARBİL bölümü). https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler (accessed 17 November 2026; içerik undated). · §3
 
@@ -451,6 +481,8 @@ The White House, Office of the Press Secretary. 1 May 2000. Statement by the Pre
 Theofilou A., Nastis S.A., Michailidis A., Bournaris T., Mattas K. 2025. Predicting Prices of Staple Crops Using Machine Learning: A Systematic Review of Studies on Wheat, Corn, and Rice. Sustainability 17(12): 5456. https://doi.org/10.3390/su17125456 · §16
 
 Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. April 2026. AGROSENS — Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni, issue 58. https://arastirma.tarimorman.gov.tr/toprakgubre/Belgeler/Tar%C4%B1msal%20%C3%9Cr%C3%BCn%20%C4%B0zleme%20ve%20Verim%20Tahmin%20B%C3%BClteni/AGROSENS%20-%20Agrometeoroloji%20ve%20Uzaktan%20Alg%C4%B1lama%20Destekli%20Tar%C4%B1msal%20%C4%B0zleme%20B%C3%BClteni%20Nisan%202026.pdf · §9
+
+Trendov N.M., Varas S., Zeng M. 2019. Digital technologies in agriculture and rural areas – Briefing paper. Roma: FAO. https://www.fao.org/3/ca4887en/ca4887en.pdf (yönlendirme: openknowledge.fao.org bitstream 885161de-dccf-4589-8376-07fe37b68799) · §2
 
 Tsan M., Totapally S., Hailu M., Addom B.K. 2019. The Digitalisation of African Agriculture Report 2018–2019. CTA (ACP-EU Technical Centre for Agricultural and Rural Cooperation) ve Dalberg Advisors, Wageningen. 1. baskı, June 2019. https://hdl.handle.net/10568/101498. https://cgspace.cgiar.org/server/api/core/bitstreams/510cad0e-2b82-4a00-9be3-38a5bf346280/content · §22
 
@@ -493,6 +525,8 @@ Wardamı A.H.H., Erşahin S., Karahan G. 2024. Variable rate phosphorus fertiliz
 Watson A., Ghosh S., Williams M.J. ve ark. 2018. Speed breeding is a powerful tool to accelerate crop research and breeding. Nature Plants 4(1). https://doi.org/10.1038/s41477-017-0083-8 · §5
 
 Whitcraft A.K., Vermote E.F., Becker-Reshef I., Justice C.O. 2015. Cloud cover throughout the agricultural growing season: Impacts on passive optical earth observations. Remote Sensing of Environment 156: 438-447. https://doi.org/10.1016/j.rse.2014.10.009 · §19
+
+Wolfert S., Ge L., Verdouw C., Bogaardt M.-J. 2017. Big Data in Smart Farming – A review. Agricultural Systems 153: 69-80. https://doi.org/10.1016/j.agsy.2017.01.023 · §2
 
 World Bank. 23 November 2009. Implementation Completion and Results Report (IBRD-46310) on a Loan in the Amount of US$600 Million to the Republic of Turkey for an Agricultural Reform Implementation Project. Report No: ICR00001155. https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf · §3
 

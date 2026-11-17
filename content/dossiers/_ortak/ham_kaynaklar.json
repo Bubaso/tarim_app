@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 411,
- "toplam_bayt": 1042992404,
+ "dosya_sayisi": 427,
+ "toplam_bayt": 1087266101,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1777,6 +1777,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_komisyon_2025_yz_sistemi_tanimi_kilavuzu.pdf",
+   "bayt": 333765,
+   "sha256": "fe39f41d061184a913c32f1f92aaaa30a096858fa168c6053e22a19eef58910e",
+   "kaynak": {
+    "adres": "https://ai-act-service-desk.ec.europa.eu/sites/default/files/2025-08/commission_guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_regulation_eu_20241689_ai_actenglish_nf2skcqfrtjdfggjavcodopcwz4_112455.PDF",
+    "atif": "Avrupa Komisyonu. 2025. Commission Guidelines on the definition of an artificial intelligence system established by Regulation (EU) 2024/1689 (AI Act). Communication from the Commission, C(2025) 5053 final, Brüksel, 29.7.2025.",
+    "lisans": "Belgede lisans ifadesi yok (AB kurumu belgesi; 'reuse', '2011/833', '©' aramaları 0 eşleşme).",
+    "lisans_adresi": null,
+    "_not": "'Ne yapay zekâ DEĞİLDİR' sorusunun resmî cevabı. Kılavuz bağlayıcı değil (kendisi söylüyor). Tanım dışı kalanlar: matematiksel optimizasyonu iyileştiren sistemler (doğrusal/lojistik regresyon gibi yerleşik yöntemler), temel veri işleme (önceden tanımlı açık talimatlar; elektronik tablo, sorgu), yaln"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
    "bayt": 4952103,
    "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
@@ -2149,6 +2161,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cbddo_sanayi_2021_uyzs_2021_2025_tubitak_kopyasi.pdf",
+   "bayt": 5737927,
+   "sha256": "230759403b44de1412a3815fadb043f835bd724a5537f8e64f88da5ef1509106",
+   "kaynak": {
+    "adres": "https://bilgem.tubitak.gov.tr/wp-content/uploads/sites/8/TR-UlusalYZStratejisi2021-2025.pdf (belgenin kendi verdiği adres: https://www.cbddo.gov.tr/UYZS)",
+    "atif": "T.C. Cumhurbaşkanlığı Dijital Dönüşüm Ofisi ve Sanayi ve Teknoloji Bakanlığı. Ağustos 2021. Ulusal Yapay Zekâ Stratejisi 2021-2025. Ankara. (Yürürlük: 2021/18 sayılı Cumhurbaşkanlığı Genelgesi.)",
+    "lisans": "Kamu belgesi; belgede lisans/kullanım ifadesi yok.",
+    "lisans_adresi": null,
+    "_not": "Türkiye'nin resmî yapay zekâ tanımı bu belgede (bulunabilen tek resmî tanım). PDF s.18 (basılı s.12) 'Yapay Zekâ Nedir?' ve PDF s.96 (basılı s.90) Ek 'YZ Terimleri ve Kavramları'. Belge terimlerin 'OECD ve AB tanımlamaları esas alınarak' kullanıldığını söylüyor; ancak 'YZ' tanımının cümlesi OECD'nin"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cema_2017_dijital_tarim_tarim40.pdf",
+   "bayt": 620661,
+   "sha256": "51759043de06da7358417c185e20eb90b88eb85f76185869c397ffe9d7c7fd2d",
+   "kaynak": {
+    "adres": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
+    "atif": "CEMA – European Agricultural Machinery (Avrupa tarım makineleri sanayi birliği). 13 Şubat 2017. Digital Farming: what does it really mean? And what is the vision of Europe's farm machinery industry for Digital Farming? Brüksel. (Durum belgesi.)",
+    "lisans": "Belgede lisans ifadesi yok.",
+    "lisans_adresi": null,
+    "_not": "SANAYİ BİRLİĞİ (satıcı tarafı) kaynağı — karar 34/35'e göre 'birliğin kendi tanımı' diye etiketlenmeli. Üç terimi açıkça ayıran tek kaynak: hassas tarım = Tarım 3.0 (GPS'in sivil kullanıma açılmasıyla başlar; dümenleme, algılama-kontrol, değişken oranlı uygulama); dijital tarım = hassas tarım teknol"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cin_cac_moa_2026_dijital_koy_raporu.pdf",
    "bayt": 662932,
    "sha256": "23a2f7d182417bdcdffedab2be277b26c64b902a6788eaabff41712f72053861",
@@ -2365,6 +2401,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eprs_stoa_2016_ek1_teknik_ufuk_taramasi.pdf",
+   "bayt": 4843624,
+   "sha256": "53a6b4401631d53bfb2ea5043fb4e3bb601e82031a66aa6dfacb4593743ed8e5",
+   "kaynak": {
+    "adres": "https://www.europarl.europa.eu/RegData/etudes/STUD/2016/581892/EPRS_STU(2016)581892(ANN)_EN.pdf",
+    "atif": "European Parliamentary Research Service (EPRS), STOA. 2016. Precision agriculture and the future of farming in Europe — Annex 1: Technical Horizon Scan (Briefing paper 4: The economics and governance of digitalisation and precision agriculture). PE 581.892. doi:10.2861/763030 (teknik denetim: Krijn Poppe, Wageningen UR). doi:10.2861/763030",
+    "lisans": "Belgedeki ifade: 'Reproduction and translation for non-commercial purposes are authorised, provided the source is acknowledged and the European Parliament is given prior notice and sent a copy.'",
+    "lisans_adresi": null,
+    "_not": "Aynı çalışmanın 274 sayfalık teknik eki. Kurumların terimleri birbirinin yerine kullandığının somut örneği: Brifing 4 'akıllı ya da hassas tarım' diyor ve 'akıllı tarım veya hassas tarım olarak bilinen' BİT devriminden söz ediyor; kullandığı hassas tarım tanımı JRC'nin (Zarco-Tejada vd., 2014) tanım"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eprs_stoa_2016_hassas_tarim_avrupa.pdf",
+   "bayt": 1869150,
+   "sha256": "7d1e346f6a05ba6f914829292acfee3eb040124b1f07325f72bb7072a2a353c1",
+   "kaynak": {
+    "adres": "https://www.europarl.europa.eu/RegData/etudes/STUD/2016/581892/EPRS_STU(2016)581892_EN.pdf",
+    "atif": "European Parliamentary Research Service (EPRS), Scientific Foresight Unit (STOA). Aralık 2016. Precision agriculture and the future of farming in Europe — Scientific Foresight Study. PE 581.892. Brüksel: Avrupa Parlamentosu. doi:10.2861/020809 doi:10.2861/020809",
+    "lisans": "Belgedeki ifade: 'Reproduction and translation for non-commercial purposes are authorised, provided the source is acknowledged and the European Parliament is given prior notice and sent a copy.' © European Union, 2016",
+    "lisans_adresi": null,
+    "_not": "Görevde istenen çalışma; 2016 sonunda yayımlanan ÖZET rapor (38 sayfa). Hassas tarımı 'dijital tekniklerle izleyen ve optimize eden bir yönetim kavramı' olarak tanımlıyor; yöntemlerin sensörler, uydu konumlama ve nesnelerin interneti üzerine kurulu olduğunu söylüyor — yapay zekâyı tanımın öğesi saym"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/erhan_yaganoglu_2026_crossref.json",
    "bayt": 18563,
    "sha256": "5a714ed9649d5fc73eb34c8a1af0ad19ec3f3587ef095b92e14b157011c76fee",
@@ -2437,6 +2497,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2013_iklim_akilli_tarim_kaynak_kitabi.pdf",
+   "bayt": 1038997,
+   "sha256": "e1d302382b101503cd3710ab3e4f6855656a6d7eb779a1654ee7d1baa3599eec",
+   "kaynak": {
+    "adres": "https://openknowledge.fao.org/3/a-i3484e.pdf (yönlendirme: openknowledge.fao.org bitstream e9a8f414-b49e-4896-a0c1-1a45710322cc)",
+    "atif": "FAO. 2013. Climate-Smart Agriculture Sourcebook — Executive Summary (I3484E/1/11.13). Roma: FAO.",
+    "lisans": "Belgede lisans ifadesi yok (yalnız fotoğraf künyeleri, ©FAO).",
+    "lisans_adresi": null,
+    "_not": "GÖREV DIŞI EK — Türkçe resmî belgelerde 'akıllı tarım' ile 'iklim akıllı tarım' (FAO'nun climate-smart agriculture kavramı) yan yana ve kimi zaman eğik çizgiyle birlikte kullanılıyor (UKKS-IV 'akıllı tarım/iklim akıllı teknolojiler'; Stratejik Plan 'İklim dostu akıllı tarım teknoloji sistemleri'; TU"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2017_future_of_food_and_agriculture.pdf",
    "bayt": 7593176,
    "sha256": "f4f29f7c32ab89495d64a5171fb4ec7ca6d53910370ac2cdfc8bd6b9361869f9",
@@ -2446,6 +2518,30 @@
     "lisans": "© FAO 2017; ticari olmayan kullanım için kaynak gösterilerek çoğaltılabilir (belgedeki ifade)",
     "lisans_adresi": null,
     "_not": "FAO'nun güncellenmiş 2050 hesabı (PDF s.60, basılı s.46): 2012'ye göre 'neredeyse %50'. Dikkat, iki şey değişti. Baz yıl: 2005/07 bazında, güncel nüfus projeksiyonuyla artış %63'ün üstünde; FAO'nun 2012 revizyonu (AT2050) bu bazda %60 demiş. Kapsam: 2009'daki %70 'biyoyakıt hariç gıda üretimi', 2017"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2019_dijital_teknolojiler_brifing.pdf",
+   "bayt": 676184,
+   "sha256": "dda715ef2eeb10c906080e8e4488e8d1137e65a2e999af813a9ef4a04a787a49",
+   "kaynak": {
+    "adres": "https://www.fao.org/3/ca4887en/ca4887en.pdf (yönlendirme: openknowledge.fao.org bitstream 885161de-dccf-4589-8376-07fe37b68799)",
+    "atif": "Trendov N.M., Varas S., Zeng M. 2019. Digital technologies in agriculture and rural areas – Briefing paper. Roma: FAO.",
+    "lisans": "Belgedeki ifade: 'Some rights reserved. This work is available under a CC BY-NC-SA 3.0 IGO licence © FAO, 2019'",
+    "lisans_adresi": null,
+    "_not": "Görevde sorulan FAO 2019 brifing notu. Dijital tarım için açık bir TANIM cümlesi yok ('defin' tek eşleşme, tanım değil); dijitalleşmeyi bütün tarım-gıda zincirine yayılan bir dönüşüm olarak anlatıyor. İlginç çerçeve: hassas tarımı 'tarımda nesnelerin interneti uygulamasının bir örneği' sayıyor — ISP"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2020_tarim40_robotik.pdf",
+   "bayt": 4021357,
+   "sha256": "81d39c9d6f9ee3ca6defbbf2f13f4285b2dadd274f4721bddc5739a8d57a4803",
+   "kaynak": {
+    "adres": "https://www.fao.org/3/cb2186en/CB2186EN.pdf (yönlendirme: openknowledge.fao.org bitstream 14fc8bf7-fdeb-4c7c-a2ed-b2d59118a70b)",
+    "atif": "Santos Valle S., Kienzle J. 2020. Agriculture 4.0 – Agricultural robotics and automated equipment for sustainable crop production. Integrated Crop Management Vol. 24. Roma: FAO. ISSN 1020-4555.",
+    "lisans": "CC BY-NC-SA 3.0 IGO (belgenin künye sayfası)",
+    "lisans_adresi": null,
+    "_not": "'Tarım 4.0' için FAO'nun kurumsal tanımı (Tablo 1, PDF s.15): hassas tarımı, nesnelerin internetini ve büyük veriyi kapsayan yenilikler bütünü — yani Tarım 4.0 hassas tarımdan GENİŞ ve onu içeriyor. Aynı tabloda yapay zekâ tanımı Encyclopaedia Britannica'ya (2020) atıflı ve UYZS 2021-2025'in tanım c"
    }
   },
   {
@@ -2542,6 +2638,18 @@
     "lisans": "CC BY-NC-SA 3.0 IGO (PDF künye sayfası)",
     "lisans_adresi": null,
     "_not": "FAO–EBRD 2025 Türkiye raporu (PDF). Lisans PDF'in künye sayfasından."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_itu_2016_e_tarim_strateji_rehberi.pdf",
+   "bayt": 9948571,
+   "sha256": "7c8a993ac33efa1845f059d3be5f5c2cffe0008ddf62c08b1848d82a7bad1420",
+   "kaynak": {
+    "adres": "https://www.fao.org/3/i5564e/i5564e.pdf (yönlendirme: openknowledge.fao.org bitstream a3b0d0e6-0842-4827-9955-7887888ccb50)",
+    "atif": "FAO ve ITU. 2016. E-agriculture Strategy Guide: Piloted in Asia-Pacific countries. Bangkok: FAO ve ITU. ISBN 978-92-5-109186-9.",
+    "lisans": "Belgedeki ifade: '© FAO and ITU, 2016'; özel çalışma, araştırma ve öğretim için ya da ticari olmayan kullanım için kaynak gösterilerek kopyalanabilir.",
+    "lisans_adresi": null,
+    "_not": "Dijital tarımın öncülü 'e-tarım' (BİT'in tarımda kullanımı). YOKLUK KANITI (kelime değişiminin göstergesi): 2016 rehberinin bütün düz metninde 'digital agriculture', 'precision agriculture', 'artificial intelligence', 'smart farming' 0 eşleşme; 'e-agriculture' 1.403 eşleşme. FAO'nun 'digital-agricul"
    }
   },
   {
@@ -2845,6 +2953,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ispa_2024_hassas_tarim_tanimi.html",
+   "bayt": 51577,
+   "sha256": "f49753a982a4b2d53fdda675a069f934bc6eb1383af8d877927be7fc2a55056d",
+   "kaynak": {
+    "adres": "https://ispag.org/resources/definition",
+    "atif": "International Society of Precision Agriculture (ISPA). Precision Agriculture Definition (Ocak 2024'te revize edildi). ispag.org, erişim 17.11.2026.",
+    "lisans": "Sayfadaki ifade: '© International Society of Precision Agriculture.' Ayrıca lisans ifadesi yok.",
+    "lisans_adresi": null,
+    "_not": "Hassas tarımın en otoriter kurumsal tanımı. Görev metnindeki 'precisionag.org' ISPA'nın sitesi değil; ISPA'nın sitesi ispag.org ('/About/Definition' adresi 404 sayfası döndürdü, tanım '/resources/definition' adresinde). Tam tanım 300 karakteri aştığı için iki örtüşen alıntıya bölündü. Tanım hassas t"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ispa_icpa_konferans_gecmisi.html",
    "bayt": 32689,
    "sha256": "de7f81b593692e54a2a95e72b70e934b0a700dc4df10fa776b1499646f4cf883",
@@ -2854,6 +2974,18 @@
     "lisans": "kurumsal sayfa (© ISPA; kısa alıntı)",
     "lisans_adresi": null,
     "_not": "Pierre Robert 1992-2000 arasındaki beş ICPA'nın başkanı (sayfaya göre). 'Hassas tarımın babası' türü nitelemeler yalnız erişilemeyen Minnesota Üniversitesi anma sayfasında (Cloudflare 403) ve arama özetlerinde görüldü — kayda girmedi. Seri 2026'da 17. konferansa ulaştı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ispa_tarihce.html",
+   "bayt": 24087,
+   "sha256": "d147c39c0274ec652ed111c581b26bcde3184ff6a346046794c963cf5b15d1c9",
+   "kaynak": {
+    "adres": "https://ispag.org/About/History",
+    "atif": "International Society of Precision Agriculture (ISPA). History of ISPA. ispag.org, erişim 17.11.2026.",
+    "lisans": "Sayfadaki ifade: '© International Society of Precision Agriculture.'",
+    "lisans_adresi": null,
+    "_not": "Tanımın nasıl üretildiği: 2018'de başlayan süreç, 46 kişilik uzman paneli, üyelerin görüşü; 2023'te yönetim kurulunun genişletme kararı, Ocak 2024'te onay. Cümledeki 'is was' yazım hatası sayfada öyle. Kamusal rolleriyle anılan kişiler (ISPA başkanları) metinde gerekmedikçe anılmamalı. ISPA'nın misy"
    }
   },
   {
@@ -3421,6 +3553,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/oecd_2024_yz_tanim_aciklayici_not.pdf",
+   "bayt": 1710148,
+   "sha256": "5ffca5c5b7a80e0a993618f5a8ca14285b6b822c56a43b9ad5dfbdab73904f89",
+   "kaynak": {
+    "adres": "https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/03/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system_3c815e51/623da898-en.pdf",
+    "atif": "OECD. 2024. Explanatory memorandum on the updated OECD definition of an AI system. OECD Artificial Intelligence Papers, No. 8, Mart 2024. Paris: OECD Publishing. doi:10.1787/623da898-en doi:10.1787/623da898-en",
+    "lisans": "Belgedeki ifade: 'The use of this work, whether digital or print, is governed by the Terms and Conditions to be found at http://www.oecd.org/termsandconditions.' © OECD 2024",
+    "lisans_adresi": null,
+    "_not": "Makine öğrenmesi–yapay zekâ ilişkisinin otoriter kaynağı: 'yapay zekâ' terimi teknik kategori olarak hem makine öğrenmesini hem bilgi tabanlı yaklaşımları kapsıyor; makine öğrenmesi 'teknikler kümesi'; sembolik YZ da makine öğrenmesi kullanabilir. Not, Tavsiye'nin parçası değil (kendisi söylüyor; cü"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/oecd_legal_0449_yz_tavsiye_metni.pdf",
+   "bayt": 679046,
+   "sha256": "88227000e69be9aad5864155bd3e06ebead1e76c5b7cf662d63c1605408e5060",
+   "kaynak": {
+    "adres": "https://legalinstruments.oecd.org/api/print?ids=648&lang=en (sayfa: https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0449)",
+    "atif": "OECD. Recommendation of the Council on Artificial Intelligence, OECD/LEGAL/0449. İlk kabul 22 Mayıs 2019; 'AI system' tanımı 8 Kasım 2023'te, Tavsiye 3 Mayıs 2024'te revize edildi. OECD Legal Instruments (basılı sürüm © OECD 2026).",
+    "lisans": "Belgedeki ifade: 'This document is provided free of charge. It may be reproduced and distributed free of charge without requiring any further permissions, as long as it is not altered in any way. It may not be sold.'",
+    "lisans_adresi": null,
+    "_not": "Hükümetlerarası hukuki belge (Konsey Tavsiyesi; bağlayıcı antlaşma değil) — bu yüzden RESMI işaretlendi, tartışılabilir. Güncel OECD tanımı PDF s.7'de; tarihçe ve 2023 değişikliğinin gerekçeleri s.3-4. AB tanımıyla neredeyse aynı cümle; AB Tüzüğü'nün gerekçe 12'si tanımın 'uluslararası kuruluşların "
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ozcakmak_2024_crossref.json",
    "bayt": 25961,
    "sha256": "792926384e34a5b63f1cf0af2845014b73ed0c58e1950430689c34f2b42b2bca",
@@ -3853,6 +4009,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2024_2028_stratejik_plan.pdf",
+   "bayt": 7370777,
+   "sha256": "3cc06b614c2d7042f36375eea0ef979fff51b9840d015b107cdbb110fb01501d",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/SGB/BelgelerArsiv/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı)",
+    "atif": "T.C. Tarım ve Orman Bakanlığı. 2025. 2024-2028 Stratejik Planı — Güncellenmiş Versiyon (2025). Ankara.",
+    "lisans": "Kamu belgesi; belgede lisans ifadesi yok.",
+    "lisans_adresi": null,
+    "_not": "Görevde istenen Stratejik Plan; indirilen dosya 2025 GÜNCELLENMİŞ sürümü (kapak). Kullanım biçimi: 'akıllı tarım uygulamaları' bir şemsiye; altına ürün doğrulama, rekolte tahmini, YAPAY ZEKÂ, coğrafi bilgi sistemleri ve 'algoritma' sayılıyor (Hedef H4.5, PDF s.73). Yani Bakanlık planında yapay zekâ "
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
    "bayt": 242864,
    "sha256": "8fc6e1b453d27d9a37a130e38b9d2498d2329655f39542dbf9ef3f925641c64a",
@@ -3886,6 +4054,18 @@
     "lisans": "kamu duyurusu",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2025_iv_sura_g12_dijital_donusum_calisma_belgesi.pdf",
+   "bayt": 5287392,
+   "sha256": "e408ef49c6f136e43bed9bf4de76552faef2d2d93e7b5e0fed4dd303dfb73daa",
+   "kaynak": {
+    "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__12._grup_raporutarimda_dijital_donusum_veri_tabanli_tarimteknolojik_gelisim_calisma_belgesi.pdf",
+    "atif": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 12. Çalışma Grubu: Tarımda Dijital Dönüşüm, Veri Tabanlı Tarım, Teknolojik Gelişim — Çalışma Belgesi (Grup Başkanı: Prof. Dr. Ertuğrul Karaçuha). Ankara.",
+    "lisans": "Kamu belgesi; belgede lisans ifadesi yok.",
+    "lisans_adresi": null,
+    "_not": "Bu başlığın Türkiye için en değerli kaynağı: Bakanlığın yayımladığı Şûra çalışma belgesi terim karışıklığını AÇIKÇA kabul ediyor — 2010'lardaki döneme 'Tarım 4.0', 'Akıllı Tarım', 'Dijital Tarım' veya 'E-Tarım' dendiği, terimlerin Türkçeye çevrilirken karıştırılabildiği, önce 'Hassas Tarım' sonra 'A"
    }
   },
   {
@@ -4306,6 +4486,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/wolfert_2017_wur_arastirma_portali_kaydi.html",
+   "bayt": 60434,
+   "sha256": "fd5a61b9a7bf0d336978cbd5f30d2a9dcb5a1028060e29bd27718c022f241ae0",
+   "kaynak": {
+    "adres": "https://research.wur.nl/en/publications/big-data-in-smart-farming-a-review/",
+    "atif": "Wolfert S., Ge L., Verdouw C., Bogaardt M.-J. 2017. Big Data in Smart Farming – A review. Agricultural Systems 153: 69-80. doi:10.1016/j.agsy.2017.01.023",
+    "lisans": "Sayfadaki ifade: 'Licence: CC BY-NC-ND'",
+    "lisans_adresi": null,
+    "_not": "Hakemli makalenin ÖZETİ, Wageningen Üniversitesi araştırma portalındaki kayıttan okundu (tam metin değil). Akıllı tarım tanımı: bilgi ve iletişim teknolojisinin 'siber-fiziksel çiftlik yönetim döngüsünde' kullanılmasını öne çıkaran gelişme; nesnelerin interneti ve bulut bilişimin tarıma daha çok rob"
    }
   },
   {

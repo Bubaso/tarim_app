@@ -133,12 +133,12 @@
         "karar"
       ],
       "oto_hedefler": [],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Üç kavram sık sık birbirinin yerine kullanılıyor ve aynı şey değiller.",
         "en": "Three terms used as if interchangeable, which they are not."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {
