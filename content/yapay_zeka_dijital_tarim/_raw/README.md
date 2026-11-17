@@ -1069,3 +1069,127 @@ balon yok; §30 yeni sayılarla (261 kaynak, 29 başlık) çiziliyor.
 6. Önceki turlardan: §23 kapanış cümlesi; TAGEM projelerinin §6, §7, §8,
    §12, §13'e girişi; kuyruk okuması (kullanıcı); eksik özellikler (karar
    10, 16, 38).
+
+## Tur 10 — AÇILIŞ ÖNCESİ DENETİM · 17 Kasım 2026
+
+Başlıklar okura KAPALI (karar 51). Denetim bitti; açılış (`yayin.json`),
+Supabase göçü, dağıtım ve GitHub'a gönderme kullanıcının ayrı ayrı açık
+onayını bekliyor (aşağıda "Açılış adımları").
+
+### 0 · Yöntem
+
+30 başlık üç denetim ajanıyla baştan sona okundu (§1-§9, §10-§19,
+§20-§28; §29 ve §30 üretilmiş, kendi denetleyicileri var). Her bulgu
+uygulanmadan önce kayda ve belgenin kendisine karşı tek tek sınandı;
+kaynağa uymayan öneri uygulanmadı ya da kaynağa göre yeniden yazıldı. Örnek:
+§22'de "devlet desteği ayrı bir dijital tarım programından gelmiyor"
+önerisi ERS raporuna aykırıydı (rapor son yıllarda birkaç doğrudan federal
+program uygulandığını yazıyor); cümle raporun dediğine göre kuruldu.
+
+### 1 · Eksik özellikler (karar 10, 16, 38)
+
+- **Karar 38** (614c392): §25'in "Dizine sonradan eklenenler" listesi;
+  panelde onay teyidi, "Dizinde" sekmesi, tek tıkla çıkarma. Okur yalnız
+  `yz_dizin_eklenenler()`in döndürdüğü alanları görüyor. **Göç yazıldı,
+  UYGULANMADI** (`supabase/migrations/20261117120000_yz_dizin_okur.sql`);
+  uygulanana kadar liste boş, sayfa bozulmuyor.
+- **Karar 16 ve 10** (haber hattı ff061cd, 82e150c — GitHub'a
+  gönderilmedi): başlığa bağlı sayfa izleme (`tarama_sorgulari.json`
+  `sayfalar`: 55 satır, 41 adres; 'seri' sayfa → `sayi_guncelleme`),
+  başlık başına süzgeç, RSS; başlık önerisi (en az 3 haber; model haber
+  numarası uyduramıyor, var olan başlığı yeniden öneremiyor). 11 test.
+- **Sözlükten geri yol:** "Sözlükte aç" `go` ile gidiyor, `?geri=`
+  sözlüğün geri okunu balonun açıldığı başlığa bağlıyor.
+
+### 2 · Metin denetimi — kaynağa göre düzeltilenler
+
+- **§26:** tarım istihdamının düşüşü belgenin kendi rakamlarıyla 525 bin;
+  belge "yaklaşık 800 bin" diyor. Metin farkı değil iki düzeyi yazıyor;
+  kayıtta `_tutarsizlik` notu.
+- **§24:** "2028'den önce bağlayıcı AB gerekliliği yok" yanlıştı — Makine
+  Tüzüğü'nün öğrenen güvenlik bileşenleri için bağımsız değerlendirme şartı
+  14 Ocak 2027'de başlıyor. Deney alanlarının sektörleri "belli değil"
+  değil: plan finans, sağlık, enerji, mobilite ve telekomünikasyonu
+  sayıyor; tarım yok (alıntı b24'e eklendi).
+- **§23, §25:** "merkezin bağlı birimi açıklanmadı" cümlesi çıktı
+  (haberler TAGEM bünyesinde diyor). Yıllık programın "tek yapay zekâ
+  işi" tarım bölümüyle sınırlandı (programın başka bölümlerinde yapay
+  zekâ çok geçiyor). Bakanlığın "üç izleme işi"ne idare faaliyet
+  raporundaki işlenmeyen arazi ve dikili alan tespiti eklendi; §25
+  tablosuna satır.
+- **§22:** Çin'deki BeiDou cihazları birikimli sayı; ABD'de çevre koruma
+  ödemeleri hassas ilaçlamayı "sözleşmeye bağladı"; Eurostat analizi 2023
+  araştırmasına dayanan Temmuz 2026 tarihli; Afrika sayımı "son" değil.
+- **§21:** "çiftçi en az devlete güveniyor" değil, verisini en az devletle
+  paylaşmak istiyor; KVKK m. 28'in iki istisnası ayrıldı.
+- **§20:** örneklem "temsilî değil" değil, rastgele seçilmedi (yazarlar
+  "representative" diyor). **§19:** İMECE için resmî kanal ya da somut tarım
+  projesi açıklanmış değil. **§25:** Dijital Köyler Girişimi 31.12.2025'te
+  tamamlandı. **§27:** %70'ten %50'ye görünen düşüşün büyük kısmı başlangıç
+  yılı ve kapsam farkı (küçük bir düşüş var). **§28:** Meksika'daki sensör
+  "bırakılmadı", benimsenmesi geriledi; Nuru yayım elemanlarıyla
+  karşılaştırıldı, "uzman"larla değil.
+- **Tutarlılık:** TUCSAP'ın adı tek biçim; "IV. Tarım Orman Şûrası";
+  B-Reçete; Zirai Mücadele Merkez Araştırma Enstitüsü'nün İngilizce adı;
+  "dâhil"; §2 başlığı "yapay zekâ".
+- **TAGEM projeleri:** §7'ye TAGEM-SuET, §13'e otonom sera robotu (domates
+  serası bilgisi TÜBİTAK 1711 kartından); §8, §10 ve §12'ye daha önce
+  girmişti. §6'ya uyan TAGEM projesi yok.
+- **Güncelleme paragrafları:** her başlık yalnız taramanın gerçekten
+  yaptığını söylüyor; `dogrula_tarama.py` kural 4-6 bunu sınıyor (Resmî
+  Gazete'yi kendi süzgeciyle izleyen dizin sayfası da kabul). Elle
+  derlenen §27 ve §28'de "editör tarafından derleniyor".
+- **§29:** iklim akıllı tarım tanımı ("mümkün olan yerlerde"); İngilizce
+  özette "this guide". **§30:** İngilizce sayfada künyelerdeki Türkçe
+  açıklamalar çevriliyor (~80 kalıp: kurum ve şehir adları, belge türleri,
+  tarih notları, adres notları); İngilizce sayfa kendi metninin alfabesiyle
+  sıralanıyor. Türkçe asıl başlıklar ve Türk kurumlarının adları olduğu
+  gibi.
+
+### 3 · Kayıtlar ve kaynak canlılığı
+
+- Bütün kayıtlarda belge dosyası ve birebir alıntı (yalnız yayımlanmamış
+  `bakanlik_belgesi` `_dayanak`la). Kopya kuralı (kural 7) 69 kopyayı
+  asılla sınıyor. Alıntı doğrulayıcı: 2049 alıntı belgede birebir.
+- `kaynak_canlilik.py` (yeni): kayıtlardaki her adres GET ile, sunucu
+  başına saniyede bir; rapor `kaynak_canlilik.json`. Son koşu (17 Kasım
+  2026): 209 açık, 3 kısa (FAO'nun
+  betikle yönlendiren sayfaları), 39 engelli, 2 kapalı — iki kapalı adres
+  (Çin bakanlığı sayfası, bir DOI) hemen ardından denendiğinde açıldı,
+  geçici.
+  - tucson.ars.ag.gov kapanmış (alan adı çözülmüyor): kaynak UNT End of
+    Term arşivindeki kopyaya bağlandı — yerel dosyayla sha256'ca aynı.
+  - Bakanlığın stratejik planı yeni adreste (SGB/Belgeler) — sha256 aynı.
+  - UKKS-IV PDF'i tarayıcıda da 401 döndürüyor; bakanlığın Yayınlarımız
+    sayfası hâlâ bu adrese bağlanıyor, başka resmî kopya bulunamadı.
+    Kayıtta `_erisim_notu`; yerel kopya duruyor (karar 24).
+  - "Engelli" satırların çoğu yayıncıların otomatik isteğe 403'ü (DOI);
+    doktar.com bağlantıyı sıfırlıyor. Bunlar aşılmadı.
+
+### 4 · Sınama ve önizleme
+
+129 test geçti; `dogrula_bolumler.py`, `dogrula_tarama.py`,
+`sozluk_uret.py --denetle`, `kaynakca_uret.py --denetle` yeşil; süreç dili
+taraması temiz. Önizleme (yz-onizleme, 8132)
+bu kez commit'ten açılan geçici bir `git worktree`'de, bayrak yalnız orada
+açılarak derlendi; depodaki bayrak hiç değişmedi. (İlk deneme oturum
+kesilince yarıda kaldı ve depodaki bayrak açık kaldı; `dart_uret.py` ile
+geri alındı, commit'e girmedi.) §13 (İngilizce), §23, §25 (yeni satır,
+kapanış, güncelleme paragrafı) ve §30 (iki dil) gözle görüldü. Konsoldaki
+tek hata `rpc/yz_dizin_eklenenler` 404'ü: göç uygulanmadığı için beklenen,
+liste boş kalıyor.
+
+## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
+
+1. **Supabase göçü:** `supabase/migrations/20261117120000_yz_dizin_okur.sql`
+   (canlı veritabanı). Uygulanmazsa §25'in dinamik listesi boş kalır.
+2. **Son canlılık koşusu:** `python3 -I _raw/kaynak_canlilik.py`, sonra
+   `--ozet`; yeni "kapali" satırı varsa adres düzeltilir.
+3. **Açılış:** `yayin.json` → `"okura_acik": true`; `python3 -I
+   dart_uret.py` (30/30'u sınar, eksik varsa durur). Doğrulayıcılar ve
+   `flutter test test/yz_bolum_test.dart test/yz_panel_test.dart`.
+4. **Dağıtım:** `./deploy.sh --hosting` (fonksiyon değişmedi; sürüm ve
+   durum bekçileri koşuyor). Bayrak açıkken paylaşım kabukları da
+   üretiliyor.
+5. **Git:** `yapay-zeka-bolumu` dalının birleştirilmesi ve GitHub'a
+   gönderilmesi; haber hattında ff061cd ve 82e150c (tarama ELLE koşuyor).

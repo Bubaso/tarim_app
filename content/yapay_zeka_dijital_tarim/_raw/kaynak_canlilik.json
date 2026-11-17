@@ -1,0 +1,2916 @@
+{
+ "_ne": "Kaynak adreslerinin canlılık denetimi (kaynak_canlilik.py)",
+ "tarih": "2026-11-17T19:01:24+00:00",
+ "sayac": {
+  "acik": 209,
+  "yonlendi": 0,
+  "kisa": 3,
+  "engelli": 39,
+  "kapali": 2
+ },
+ "adresler": [
+  {
+   "kod": 200,
+   "son_adres": "https://actimoo.com/",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 47573,
+   "adres": "https://actimoo.com/",
+   "kullanan": [
+    "b25 · actimoo_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://webgate.ec.europa.eu/circabc-ewpp/d/d/workspace/SpacesStore/7c95afcc-a34e-4e75-ae19-089642b6231f/download",
+   "tur": "application/pdf; charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://agriculture.ec.europa.eu/document/download/3cfb9e48-f33f-4f27-8b1b-2a952693e178_en?filename=delivering-cap-strategic-plans-2023-2024-highlights_en.pdf",
+   "kullanan": [
+    "b22 · ab_komisyon_okp_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ai-act-service-desk.ec.europa.eu/sites/default/files/2025-08/commission_guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_regulation_eu_20241689_ai_actenglish_nf2skcqfrtjdfggjavcodopcwz4_112455.PDF",
+   "tur": "application/pdf",
+   "boy": 333765,
+   "adres": "https://ai-act-service-desk.ec.europa.eu/sites/default/files/2025-08/commission_guidelines_on_the_definition_of_an_artificial_intelligence_system_established_by_regulation_eu_20241689_ai_actenglish_nf2skcqfrtjdfggjavcodopcwz4_112455.PDF",
+   "kullanan": [
+    "b02 · ab_komisyon_2025_yz_tanim_kilavuzu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://developers.google.com/edge/mediapipe/solutions/vision/object_detector",
+   "tur": "text/html; charset=utf-8",
+   "boy": 408676,
+   "adres": "https://ai.google.dev/edge/mediapipe/solutions/vision/object_detector",
+   "kullanan": [
+    "b29 · google_mediapipe_nesne_tespiti"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://arastirma.tarimorman.gov.tr/tepge/Belgeler/PDF%20Durum-Tahmin%20Raporlar%C4%B1/2025%20Durum-Tahmin%20Raporlar%C4%B1/Bu%C4%9Fday%20Durum%20Tahmin%20Raporu%202025-428%20TEPGE.pdf",
+   "tur": "application/pdf",
+   "boy": 1295697,
+   "adres": "https://arastirma.tarimorman.gov.tr/tepge/Belgeler/PDF%20Durum-Tahmin%20Raporlar%C4%B1/2025%20Durum-Tahmin%20Raporlar%C4%B1/Bu%C4%9Fday%20Durum%20Tahmin%20Raporu%202025-428%20TEPGE.pdf",
+   "kullanan": [
+    "b16 · tepge_2025_bugday"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+   "tur": "text/html; charset=utf-8",
+   "boy": 229852,
+   "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+   "kullanan": [
+    "b03 · tkb_2006_verim_bulteni",
+    "b03 · toprakgubre_agrosens_listesi",
+    "b09 · bulten_listesi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi",
+   "tur": "text/html; charset=utf-8",
+   "boy": 150664,
+   "adres": "https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi",
+   "kullanan": [
+    "b10 · zmmae_2026_sera_robotu",
+    "b13 · zmmae_2026_sera_robotu",
+    "b23 · zmmae_2026_sera_robotu",
+    "b25 · zmmae_2026_sera_robotu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://archive.ics.uci.edu/dataset/90/soybean+large",
+   "tur": "text/html",
+   "boy": 194912,
+   "adres": "https://archive.ics.uci.edu/dataset/90/soybean+large",
+   "kullanan": [
+    "b03 · uci_soybean_sayfa"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://au.int/sites/default/files/documents/44004-doc-EN-_Continental_AI_Strategy_July_2024.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://au.int/sites/default/files/documents/44004-doc-EN-_Continental_AI_Strategy_July_2024.pdf",
+   "kullanan": [
+    "b22 · afrika_au_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://bilgem.tubitak.gov.tr/wp-content/uploads/sites/8/TR-UlusalYZStratejisi2021-2025.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://bilgem.tubitak.gov.tr/wp-content/uploads/sites/8/TR-UlusalYZStratejisi2021-2025.pdf",
+   "kullanan": [
+    "b02 · uyzs_2021_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 793091,
+   "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/",
+   "kullanan": [
+    "b13 · tubitak_1711_tarim_projeleri",
+    "b25 · gorsentam_tubitak_1711",
+    "b25 · tubitak_1711_tarim_projeleri"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 766043,
+   "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik/",
+   "kullanan": [
+    "b25 · tubitak_yze_akilli_tarim_yetkinlik"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://cases.stretto.com/appharvest/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 91454,
+   "adres": "https://cases.stretto.com/appharvest/",
+   "kullanan": [
+    "b01 · appharvest_2023_chapter11",
+    "b27 · appharvest_2023_chapter11"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf",
+   "tur": "application/pdf",
+   "boy": 1397252,
+   "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf",
+   "kullanan": [
+    "b01 · tucsap_2025_denetim",
+    "b27 · tucsap_2025_denetim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__12._grup_raporutarimda_dijital_donusum_veri_tabanli_tarimteknolojik_gelisim_calisma_belgesi.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__12._grup_raporutarimda_dijital_donusum_veri_tabanli_tarimteknolojik_gelisim_calisma_belgesi.pdf",
+   "kullanan": [
+    "b02 · tob_iv_sura_g12_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf",
+   "tur": "application/pdf",
+   "boy": 1821404,
+   "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf",
+   "kullanan": [
+    "b01 · tob_sura_2025_kirsal_istihdam",
+    "b26 · tob_sura_2025_kirsal_istihdam"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf",
+   "kullanan": [
+    "b21 · ab_tarim_verisi_kurallari"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://cgspace.cgiar.org/server/api/core/bitstreams/510cad0e-2b82-4a00-9be3-38a5bf346280/content",
+   "tur": "application/pdf;charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://cgspace.cgiar.org/server/api/core/bitstreams/510cad0e-2b82-4a00-9be3-38a5bf346280/content",
+   "kullanan": [
+    "b22 · afrika_cta_2019"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://clintonwhitehouse3.archives.gov/WH/EOP/OSTP/html/0053_2.html",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 7847,
+   "adres": "https://clintonwhitehouse3.archives.gov/WH/EOP/OSTP/html/0053_2.html",
+   "kullanan": [
+    "b03 · beyazsaray_2000_clinton_sa"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://csrc.nist.gov/glossary/term/sensor",
+   "tur": "text/html; charset=utf-8",
+   "boy": 45917,
+   "adres": "https://csrc.nist.gov/glossary/term/sensor",
+   "kullanan": [
+    "b29 · nist_csrc_sensor"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://developers.google.com/machine-learning/glossary",
+   "tur": "text/html; charset=utf-8",
+   "boy": 794917,
+   "adres": "https://developers.google.com/machine-learning/glossary",
+   "kullanan": [
+    "b29 · google_ml_sozluk"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://digital-strategy.ec.europa.eu/en/policies/data-spaces",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 62527,
+   "adres": "https://digital-strategy.ec.europa.eu/en/policies/data-spaces",
+   "kullanan": [
+    "b21 · ab_veri_alanlari"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://documents.un.org/doc/undoc/gen/n16/410/23/pdf/n1641023.pdf",
+   "tur": "application/pdf",
+   "boy": 716331,
+   "adres": "https://documents.un.org/doc/undoc/gen/n16/410/23/pdf/n1641023.pdf",
+   "kullanan": [
+    "b29 · bm_a71_644"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://documents1.worldbank.org/curated/en/099112724130524757/pdf/P1750111e0351b0911af591d4a379816e66.pdf",
+   "tur": "application/pdf;charset=utf-8",
+   "boy": 351096,
+   "adres": "https://documents.worldbank.org/curated/en/099112724130524757/pdf/P1750111e0351b0911af591d4a379816e66.pdf",
+   "kullanan": [
+    "b27 · dunya_bankasi_tucsap_isr5"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
+   "kullanan": [
+    "b03 · dunya_bankasi_2009_arip"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://acsess.onlinelibrary.wiley.com/doi/10.1002/agj2.70296",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1002/agj2.70296",
+   "kullanan": [
+    "b06 · dalla_betta_2026"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://onlinelibrary.wiley.com/doi/10.1002/agr.21627",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1002/agr.21627",
+   "kullanan": [
+    "b21 · turland_slade_2020"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://onlinelibrary.wiley.com/doi/10.1002/rob.21525",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1002/rob.21525",
+   "kullanan": [
+    "b01 · bac_2014",
+    "b10 · bac_2014",
+    "b27 · bac_2014"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://onlinelibrary.wiley.com/doi/10.1002/rob.21937",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1002/rob.21937",
+   "kullanan": [
+    "b10 · arad_2020"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s00122-016-2818-8?error=cookies_not_supported&code=947523cc-6b9f-4649-80da-7b2d58d8fe5c",
+   "tur": "text/html; charset=utf-8",
+   "boy": 581420,
+   "adres": "https://doi.org/10.1007/s00122-016-2818-8",
+   "kullanan": [
+    "b05 · michel_2016"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s10341-022-00800-9?error=cookies_not_supported&code=4ba31035-6099-4e42-83bd-7ac4fb9b1eff",
+   "tur": "text/html; charset=utf-8",
+   "boy": 312100,
+   "adres": "https://doi.org/10.1007/s10341-022-00800-9",
+   "kullanan": [
+    "b06 · akdemir_2022",
+    "b25 · akdemir_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s11119-022-09913-3?error=cookies_not_supported&code=1efc4c94-cdb1-4d31-8f78-3056809c6771",
+   "tur": "text/html; charset=utf-8",
+   "boy": 679636,
+   "adres": "https://doi.org/10.1007/s11119-022-09913-3",
+   "kullanan": [
+    "b10 · zhou_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s11119-022-09925-z?error=cookies_not_supported&code=a65234ea-8b9a-43b9-8401-59991ee8c57a",
+   "tur": "text/html; charset=utf-8",
+   "boy": 379014,
+   "adres": "https://doi.org/10.1007/s11119-022-09925-z",
+   "kullanan": [
+    "b28 · lapidus_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s11119-023-10018-8?error=cookies_not_supported&code=7131a247-44e2-4d98-8b6d-f6b1b3f89d83",
+   "tur": "text/html; charset=utf-8",
+   "boy": 493853,
+   "adres": "https://doi.org/10.1007/s11119-023-10018-8",
+   "kullanan": [
+    "b06 · de_lara_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s40319-022-01191-w?error=cookies_not_supported&code=1bda5ffc-5ca5-41f3-aac3-ee9c901a9d52",
+   "tur": "text/html; charset=utf-8",
+   "boy": 701297,
+   "adres": "https://doi.org/10.1007/s40319-022-01191-w",
+   "kullanan": [
+    "b21 · atik_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1007/s43154-020-00034-1?error=cookies_not_supported&code=c7f25cb0-a071-48fd-9ee0-372fc7e0405d",
+   "tur": "text/html; charset=utf-8",
+   "boy": 377167,
+   "adres": "https://doi.org/10.1007/s43154-020-00034-1",
+   "kullanan": [
+    "b10 · kootstra_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S002073738080054X",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2741,
+   "adres": "https://doi.org/10.1016/S0020-7373(80)80054-X",
+   "kullanan": [
+    "b03 · michalski_chilausky_1980_ijmms"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0308521X16303754",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2655,
+   "adres": "https://doi.org/10.1016/j.agsy.2017.01.023",
+   "kullanan": [
+    "b02 · wolfert_2017_akilli_tarim",
+    "b29 · wolfert_2017"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0308521X18300179",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2769,
+   "adres": "https://doi.org/10.1016/j.agsy.2018.06.009",
+   "kullanan": [
+    "b09 · van_der_velde_nisini_2019"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0308521X20308775",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2668,
+   "adres": "https://doi.org/10.1016/j.agsy.2020.103016",
+   "kullanan": [
+    "b01 · paudel_2021",
+    "b09 · paudel_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0378377423000136",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2713,
+   "adres": "https://doi.org/10.1016/j.agwat.2023.108148",
+   "kullanan": [
+    "b01 · datta_taghvaeian_2023",
+    "b07 · datta_taghvaeian_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0168169925004715",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2718,
+   "adres": "https://doi.org/10.1016/j.compag.2025.110365",
+   "kullanan": [
+    "b01 · azghadi2025",
+    "b08 · azghadi2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S2352009422001043",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2732,
+   "adres": "https://doi.org/10.1016/j.geodrs.2022.e00584",
+   "kullanan": [
+    "b04 · kaya_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0304387824000166",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2678,
+   "adres": "https://doi.org/10.1016/j.jdeveco.2024.103267",
+   "kullanan": [
+    "b28 · baul_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0743016718307769",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2726,
+   "adres": "https://doi.org/10.1016/j.jrurstud.2019.01.023",
+   "kullanan": [
+    "b26 · rotz_2019_jrs"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0034425714004179",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2714,
+   "adres": "https://doi.org/10.1016/j.rse.2014.10.009",
+   "kullanan": [
+    "b19 · whitcraft_2015"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41477-017-0083-8?error=cookies_not_supported&code=a37badc7-3f21-4e18-888f-a364e7833a01",
+   "tur": "text/html; charset=utf-8",
+   "boy": 390333,
+   "adres": "https://doi.org/10.1038/s41477-017-0083-8",
+   "kullanan": [
+    "b05 · watson_2018"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41559-023-02206-6?error=cookies_not_supported&code=3dd30dd2-65e4-4a28-b948-9994a5ff26c4",
+   "tur": "text/html; charset=utf-8",
+   "boy": 467621,
+   "adres": "https://doi.org/10.1038/s41559-023-02206-6",
+   "kullanan": [
+    "b15 · lang_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41586-023-06825-8?error=cookies_not_supported&code=f22550dd-971d-490b-b299-f4f90a3394b4",
+   "tur": "text/html; charset=utf-8",
+   "boy": 490978,
+   "adres": "https://doi.org/10.1038/s41586-023-06825-8",
+   "kullanan": [
+    "b01 · paolo_2024",
+    "b14 · paolo_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41598-024-53916-1?error=cookies_not_supported&code=2646ee94-7c5c-4a38-a090-ea6b4a74d13e",
+   "tur": "text/html; charset=utf-8",
+   "boy": 279395,
+   "adres": "https://doi.org/10.1038/s41598-024-53916-1",
+   "kullanan": [
+    "b01 · ibrahim_2024",
+    "b18 · ibrahim_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41598-025-05103-z?error=cookies_not_supported&code=faa5c5d0-368f-40a1-b4ac-d498d1834385",
+   "tur": "text/html; charset=utf-8",
+   "boy": 409709,
+   "adres": "https://doi.org/10.1038/s41598-025-05103-z",
+   "kullanan": [
+    "b16 · manogna_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41598-026-35003-9?error=cookies_not_supported&code=20d99c53-9306-4e4d-a019-8b1884d9a33b",
+   "tur": "text/html; charset=utf-8",
+   "boy": 408838,
+   "adres": "https://doi.org/10.1038/s41598-026-35003-9",
+   "kullanan": [
+    "b18 · eldem_2026",
+    "b25 · eldem_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s41893-020-00631-0?error=cookies_not_supported&code=11fdd10a-dc80-46df-9867-a30e814e387d",
+   "tur": "text/html; charset=utf-8",
+   "boy": 305701,
+   "adres": "https://doi.org/10.1038/s41893-020-00631-0",
+   "kullanan": [
+    "b01 · mehrabi_2021",
+    "b20 · mehrabi_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s42256-022-00440-4?error=cookies_not_supported&code=feb394b4-8dfb-43ca-bd6f-8b2b99461a30",
+   "tur": "text/html; charset=utf-8",
+   "boy": 294462,
+   "adres": "https://doi.org/10.1038/s42256-022-00440-4",
+   "kullanan": [
+    "b26 · tzachor_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s43016-021-00402-w?error=cookies_not_supported&code=ed4d3041-fa57-479c-9cf5-9f196261997c",
+   "tur": "text/html; charset=utf-8",
+   "boy": 527274,
+   "adres": "https://doi.org/10.1038/s43016-021-00402-w",
+   "kullanan": [
+    "b13 · van_delden_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.nature.com/articles/s43017-020-00122-y?error=cookies_not_supported&code=41b77121-7f92-4b94-8394-d18ca688b056",
+   "tur": "text/html; charset=utf-8",
+   "boy": 580775,
+   "adres": "https://doi.org/10.1038/s43017-020-00122-y",
+   "kullanan": [
+    "b17 · benami_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://pnas.org/doi/full/10.1073/pnas.1519061113",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1073/pnas.1519061113",
+   "kullanan": [
+    "b12 · garcia_ruiz_2016"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.tandfonline.com/doi/abs/10.1080/01652176.1988.9694187",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1080/01652176.1988.9694187",
+   "kullanan": [
+    "b29 · schreinemakers_1988"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.tandfonline.com/doi/full/10.1080/07900627.2020.1739513",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1080/07900627.2020.1739513",
+   "kullanan": [
+    "b28 · moyo_2020"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://onlinelibrary.wiley.com/doi/10.1093/ajae/aaw046",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1093/ajae/aaw046",
+   "kullanan": [
+    "b17 · jensen_2016"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://academic.oup.com/ej/article/131/633/192/5867759",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1093/ej/ueaa084",
+   "kullanan": [
+    "b18 · cole_fernando_2021"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://academic.oup.com/jncics/article/doi/10.1093/jncics/pkad010/7049531",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1093/jncics/pkad010",
+   "kullanan": [
+    "b03 · hopkins_2023_jncics"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://rai.onlinelibrary.wiley.com/doi/10.1111/1467-8322.12893",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1111/1467-8322.12893",
+   "kullanan": [
+    "b28 · kaya_2024"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://onlinelibrary.wiley.com/doi/10.1111/ajae.12151",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1111/ajae.12151",
+   "kullanan": [
+    "b18 · arouna_2021"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://onlinelibrary.wiley.com/doi/10.1111/raq.12464",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1111/raq.12464",
+   "kullanan": [
+    "b14 · yang_2021"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.science.org/doi/10.1126/science.233.4759.29",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1126/science.233.4759.29",
+   "kullanan": [
+    "b03 · lemmon_1986_science"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.science.org/doi/10.1126/science.aay3038",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1126/science.aay3038",
+   "kullanan": [
+    "b18 · fabregas_2019"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.science.org/doi/10.1126/science.adi2336",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1126/science.adi2336",
+   "kullanan": [
+    "b01 · lam_2023",
+    "b03 · lam_2023_graphcast",
+    "b17 · lam_2023"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/article/10.1186/s12864-020-07319-x?error=cookies_not_supported&code=09110b03-122b-41bb-95fc-301df99e7f53",
+   "tur": "text/html; charset=utf-8",
+   "boy": 654706,
+   "adres": "https://doi.org/10.1186/s12864-020-07319-x",
+   "kullanan": [
+    "b01 · montesinos_lopez_2021",
+    "b05 · montesinos_lopez_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://link.springer.com/journal/13007?error=cookies_not_supported&code=2a7089eb-6041-45e5-aad2-d400cd09a3b9",
+   "tur": "text/html; charset=utf-8",
+   "boy": 214089,
+   "adres": "https://doi.org/10.1186/s13007-015-0056-8",
+   "kullanan": [
+    "b29 · walter_2015"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0299058",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 216818,
+   "adres": "https://doi.org/10.1371/journal.pone.0299058",
+   "kullanan": [
+    "b15 · shamta_demir_2024",
+    "b25 · shamta_demir_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://journals.plos.org/water/article?id=10.1371/journal.pwat.0000169",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 221265,
+   "adres": "https://doi.org/10.1371/journal.pwat.0000169",
+   "kullanan": [
+    "b07 · saikai_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": null,
+   "son_adres": null,
+   "tur": "",
+   "boy": 0,
+   "hata": "<urlopen error timed out>",
+   "adres": "https://doi.org/10.15302/J-FASE-2019261",
+   "kullanan": [
+    "b05 · morgounov_2019_iwwip"
+   ],
+   "sinif": "kapali"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/ankutbd/article/1470111",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 110497,
+   "adres": "https://doi.org/10.15832/ankutbd.1470111",
+   "kullanan": [
+    "b14 · ozdemir_2025",
+    "b25 · ozdemir_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/ankutbd/article/769200",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 91515,
+   "adres": "https://doi.org/10.15832/ankutbd.769200",
+   "kullanan": [
+    "b20 · civelek_2022",
+    "b25 · civelek_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "http://agricecon.agriculturejournals.cz/artkey/age-202505-0001_the-path-to-smart-farming-profiling-farmers-adoption-of-technologies-in-t-rkiye.php",
+   "tur": "text/html; charset=ISO-8859-2",
+   "boy": 69317,
+   "adres": "https://doi.org/10.17221/401/2023-AGRICECON",
+   "kullanan": [
+    "b20 · guldal_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.oecd.org/en/publications/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system_623da898-en.html",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.1787/623da898-en",
+   "kullanan": [
+    "b02 · oecd_2024_aciklayici_not"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://acsess.onlinelibrary.wiley.com/doi/10.2134/agronj2018.12.0779",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.2134/agronj2018.12.0779",
+   "kullanan": [
+    "b02 · lowenberg_deboer_erickson_2019",
+    "b03 · lowenberg_deboer_erickson_2019",
+    "b06 · lowenberg_deboer_erickson_2019"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/tr/pub/topraksu/article/338301",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 70761,
+   "adres": "https://doi.org/10.21657/topraksu.338301",
+   "kullanan": [
+    "b07 · akin_unlenen_2017",
+    "b29 · akin_unlenen_2017"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.eurekaselect.com/227106/article",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 0,
+   "adres": "https://doi.org/10.2174/0115734013284484240105113607",
+   "kullanan": [
+    "b11 · ozcakmak_2024"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://op.europa.eu/en/publication-detail/-/publication/40fe549e-cb49-11e7-a5d5-01aa75ed71a1/language-en",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 458686,
+   "adres": "https://doi.org/10.2861/020809",
+   "kullanan": [
+    "b02 · eprs_stoa_2016_ozet"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://op.europa.eu/en/publication-detail/-/publication/6a75e0ac-90ae-11e9-9369-01aa75ed71a1/language-en",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 450387,
+   "adres": "https://doi.org/10.2861/763030",
+   "kullanan": [
+    "b02 · eprs_stoa_2016_ek1"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/yyutbd/article/1517109",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 103765,
+   "adres": "https://doi.org/10.29133/yyutbd.1517109",
+   "kullanan": [
+    "b10 · kahya_2024_kabak",
+    "b25 · kahya_2024_kabak"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/mediterranean/article/1199628",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 108118,
+   "adres": "https://doi.org/10.29136/mediterranean.1199628",
+   "kullanan": [
+    "b06 · wardami_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/turkjans/article/2021721",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 100144,
+   "adres": "https://doi.org/10.30910/turkjans.2021721",
+   "kullanan": [
+    "b01 · itmec_2026",
+    "b28 · itmec_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://pubs.usgs.gov/publication/ofr20191112",
+   "tur": "text/html; charset=utf-8",
+   "boy": 57630,
+   "adres": "https://doi.org/10.3133/ofr20191112",
+   "kullanan": [
+    "b19 · usgs_2019_landsat"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S0022030209703479",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2667,
+   "adres": "https://doi.org/10.3168/jds.2008-1646",
+   "kullanan": [
+    "b29 · hayes_2009"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://linkinghub.elsevier.com/retrieve/pii/S2666910226000554",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2685,
+   "adres": "https://doi.org/10.3168/jdsc.2025-0983",
+   "kullanan": [
+    "b28 · eastwood_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/jotaf/article/1165105",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 108462,
+   "adres": "https://doi.org/10.33462/jotaf.1165105",
+   "kullanan": [
+    "b11 · gadalla_oztekin_2023",
+    "b25 · gadalla_oztekin_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.frontiersin.org/journals/agronomy/articles/10.3389/fagro.2025.1722488/full",
+   "tur": "text/html;charset=utf-8",
+   "boy": 1102144,
+   "adres": "https://doi.org/10.3389/fagro.2025.1722488",
+   "kullanan": [
+    "b01 · kortbein_2026",
+    "b06 · kortbein_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2016.01419/full",
+   "tur": "text/html;charset=utf-8",
+   "boy": 724292,
+   "adres": "https://doi.org/10.3389/fpls.2016.01419",
+   "kullanan": [
+    "b01 · mohanty_2016",
+    "b03 · mohanty_2016",
+    "b08 · mohanty2016",
+    "b26 · mohanty_2016",
+    "b27 · mohanty_2016"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.00272/full",
+   "tur": "text/html;charset=utf-8",
+   "boy": 633645,
+   "adres": "https://doi.org/10.3389/fpls.2019.00272",
+   "kullanan": [
+    "b26 · ramcharan_2019"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.590889/full",
+   "tur": "text/html;charset=utf-8",
+   "boy": 900733,
+   "adres": "https://doi.org/10.3389/fpls.2020.590889",
+   "kullanan": [
+    "b28 · mrisho_2020"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1468676/full",
+   "tur": "text/html;charset=utf-8",
+   "boy": 844436,
+   "adres": "https://doi.org/10.3389/fpls.2024.1468676",
+   "kullanan": [
+    "b18 · sahin_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2021.634338/full",
+   "tur": "text/html;charset=utf-8",
+   "boy": 1310805,
+   "adres": "https://doi.org/10.3389/fvets.2021.634338",
+   "kullanan": [
+    "b12 · stygar_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2077-0472/13/11/2170",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/agriculture13112170",
+   "kullanan": [
+    "b21 · kaur_dara_2023"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2077-0472/14/2/206",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/agriculture14020206",
+   "kullanan": [
+    "b05 · benlioglu_2024"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2624-7402/3/3/37",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/agriengineering3030037",
+   "kullanan": [
+    "b12 · ghafoor_sitkowska_2021",
+    "b25 · ghafoor_sitkowska_2021"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2073-4395/10/8/1157",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/agronomy10081157",
+   "kullanan": [
+    "b01 · aula_2020",
+    "b06 · aula_2020"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2076-3417/12/16/8061",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/app12168061",
+   "kullanan": [
+    "b16 · sendros_2022"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/1999-4907/13/2/347",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/f13020347",
+   "kullanan": [
+    "b15 · abdikan_2022",
+    "b25 · abdikan_2022"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2304-8158/15/3/447",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/foods15030447",
+   "kullanan": [
+    "b16 · karkanias_2026"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2304-8158/6/1/8",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/foods6010008",
+   "kullanan": [
+    "b11 · kumar_kalita_2017"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2571-9394/3/3/40",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/forecast3030040",
+   "kullanan": [
+    "b16 · menculini_2021"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2223-7747/13/15/2164",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/plants13152164",
+   "kullanan": [
+    "b01 · allmendinger2024",
+    "b08 · allmendinger2024"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2072-4292/12/1/166",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/rs12010166",
+   "kullanan": [
+    "b01 · govil_2020",
+    "b15 · govil_2020"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2072-4292/6/11/11182",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/rs61111182",
+   "kullanan": [
+    "b28 · lepage_2014"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/1424-8220/19/8/1807",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/s19081807",
+   "kullanan": [
+    "b13 · hemming_2019"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/1424-8220/20/22/6430",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/s20226430",
+   "kullanan": [
+    "b13 · hemming_2020"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/1424-8220/23/8/3868",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/s23083868",
+   "kullanan": [
+    "b11 · neupane_2023"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/1424-8220/25/12/3583",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/s25123583",
+   "kullanan": [
+    "b20 · miller_2025"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 403,
+   "son_adres": "https://www.mdpi.com/2071-1050/17/12/5456",
+   "tur": "text/html",
+   "boy": 0,
+   "adres": "https://doi.org/10.3390/su17125456",
+   "kullanan": [
+    "b16 · theofilou_2025"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/tr/pub/akufemubid/article/890436",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 108524,
+   "adres": "https://doi.org/10.35414/akufemubid.890436",
+   "kullanan": [
+    "b09 · altun_turker_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.rti.org:443/rti-press-publication/greenseeker-handheld-research-brief-farmer-technology-adoption-disadoption",
+   "tur": "text/html; charset=utf-8",
+   "boy": 277147,
+   "adres": "https://doi.org/10.3768/rtipress.2017.rb.0014.1705",
+   "kullanan": [
+    "b28 · rti_2017_greenseeker"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/handle/20.500.14283/cb9479en",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 945,
+   "adres": "https://doi.org/10.4060/cb9479en",
+   "kullanan": [
+    "b01 · fao_2022_sofa",
+    "b02 · fao_2022_sofa_sozluk",
+    "b26 · fao_2022_sofa",
+    "b29 · fao_2022_sofa"
+   ],
+   "sinif": "kisa"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/handle/20.500.14283/cd7185en",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 945,
+   "adres": "https://doi.org/10.4060/cd7185en",
+   "kullanan": [
+    "b17 · fao_2025_rapor"
+   ],
+   "sinif": "kisa"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/bsagriculture/article/1304625",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 97627,
+   "adres": "https://doi.org/10.47115/bsagriculture.1304625",
+   "kullanan": [
+    "b16 · ozden_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/tr/pub/rsgis/article/1268155",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 110922,
+   "adres": "https://doi.org/10.48123/rsgis.1268155",
+   "kullanan": [
+    "b09 · simsek_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/tr/pub/rsgis/article/1309618",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 100856,
+   "adres": "https://doi.org/10.48123/rsgis.1309618",
+   "kullanan": [
+    "b09 · yasar_yagci_2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://soil.copernicus.org/articles/7/217/2021/",
+   "tur": "text/html",
+   "boy": 426874,
+   "adres": "https://doi.org/10.5194/soil-7-217-2021",
+   "kullanan": [
+    "b04 · poggio_2021"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ccsenet.org/journal/index.php/jas/article/view/0/49707",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 20866,
+   "adres": "https://doi.org/10.5539/jas.v16n2p9",
+   "kullanan": [
+    "b10 · kahya_2024_patlican",
+    "b25 · kahya_2024_patlican"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://dergipark.org.tr/en/pub/japro/article/1979815",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 106725,
+   "adres": "https://doi.org/10.56430/japro.1979815",
+   "kullanan": [
+    "b12 · erhan_yaganoglu_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://nvlpubs.nist.gov/nistpubs/ir/2018/NIST.IR.8202.pdf",
+   "tur": "application/pdf",
+   "boy": 772424,
+   "adres": "https://doi.org/10.6028/NIST.IR.8202",
+   "kullanan": [
+    "b29 · nist_ir8202"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf",
+   "tur": "application/pdf",
+   "boy": 545128,
+   "adres": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf",
+   "kullanan": [
+    "b01 · eurostat_2026",
+    "b22 · eurostat_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+   "kullanan": [
+    "b01 · abd_ers_2023",
+    "b02 · abd_ers_2023_eib248",
+    "b03 · abd_ers_2023_eib248",
+    "b22 · abd_ers_2023",
+    "b29 · abd_ers_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt",
+   "tur": "text/plain",
+   "boy": 68252,
+   "adres": "https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt",
+   "kullanan": [
+    "b01 · abd_nass_2025",
+    "b22 · abd_nass_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://esular.com/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 154092,
+   "adres": "https://esular.com/",
+   "kullanan": [
+    "b25 · esular_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://export.arxiv.org/api/query?id_list=2409.08916",
+   "tur": "application/atom+xml; charset=utf-8",
+   "boy": 3243,
+   "adres": "https://export.arxiv.org/api/query?id_list=2409.08916",
+   "kullanan": [
+    "b03 · digital_green_2024_farmerchat_arxiv"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 37253,
+   "adres": "https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency",
+   "kullanan": [
+    "b01 · small_robot_company_tasfiye",
+    "b27 · small_robot_company_tasfiye"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://find-and-update.company-information.service.gov.uk/company/FC040818/insolvency",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 34884,
+   "adres": "https://find-and-update.company-information.service.gov.uk/company/FC040818/insolvency",
+   "kullanan": [
+    "b27 · infarm_sicil"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://innovationisrael.org.il/wp-content/uploads/2025/12/Annual-Report-The-State-of-High-Tech-2025.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://innovationisrael.org.il/wp-content/uploads/2025/12/Annual-Report-The-State-of-High-Tech-2025.pdf",
+   "kullanan": [
+    "b22 · israil_iia_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ispag.org/About/History",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 24087,
+   "adres": "https://ispag.org/About/History",
+   "kullanan": [
+    "b02 · ispa_tanim_tarihcesi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ispag.org/icpa/History",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 32689,
+   "adres": "https://ispag.org/icpa/History",
+   "kullanan": [
+    "b03 · ispa_icpa_gecmisi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ispag.org/resources/definition",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 51577,
+   "adres": "https://ispag.org/resources/definition",
+   "kullanan": [
+    "b02 · ispa_2024_hassas_tarim_tanimi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2234",
+   "tur": "text/html; charset=utf-8",
+   "boy": 75191,
+   "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2234",
+   "kullanan": [
+    "b05 · tob_tohum_uretim_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260",
+   "tur": "text/html; charset=utf-8",
+   "boy": 73334,
+   "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2260",
+   "kullanan": [
+    "b10 · tob_makine_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2347",
+   "tur": "text/html; charset=utf-8",
+   "boy": 76169,
+   "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2347",
+   "kullanan": [
+    "b09 · tob_bitkisel_uretim_metaveri"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2353",
+   "tur": "text/html; charset=utf-8",
+   "boy": 77043,
+   "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2353",
+   "kullanan": [
+    "b14 · tob_su_urunleri_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2363",
+   "tur": "text/html; charset=utf-8",
+   "boy": 67362,
+   "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2363",
+   "kullanan": [
+    "b15 · tob_ormancilik_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2385",
+   "tur": "text/html; charset=utf-8",
+   "boy": 66344,
+   "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2385",
+   "kullanan": [
+    "b12 · tob_hayvan_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://legalinstruments.oecd.org/api/print?ids=648&lang=en",
+   "tur": "application/pdf",
+   "boy": 679046,
+   "adres": "https://legalinstruments.oecd.org/api/print?ids=648&lang=en",
+   "kullanan": [
+    "b02 · oecd_yz_tavsiyesi_tanim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://lora-alliance.org/about-lorawan/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 352997,
+   "adres": "https://lora-alliance.org/about-lorawan/",
+   "kullanan": [
+    "b29 · lora_alliance"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 28793,
+   "adres": "https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning",
+   "kullanan": [
+    "b29 · nrcan_cok_bantli"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf",
+   "kullanan": [
+    "b03 · nasa_ntrs_1978_lacie"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://opendefinition.org/od/2.1/en/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 35129,
+   "adres": "https://opendefinition.org/od/2.1/en/",
+   "kullanan": [
+    "b29 · okfn_acik_tanim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/server/api/core/bitstreams/e9a8f414-b49e-4896-a0c1-1a45710322cc/content",
+   "tur": "application/pdf;charset=UTF-8",
+   "boy": 1038997,
+   "adres": "https://openknowledge.fao.org/3/a-i3484e.pdf",
+   "kullanan": [
+    "b02 · fao_2013_iklim_akilli_tarim",
+    "b29 · fao_2013_iklim_akilli_tarim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 945,
+   "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+   "kullanan": [
+    "b02 · fao_ebrd_2025_turkiye",
+    "b03 · fao_ebrd_2025_turkiye",
+    "b25 · doktar_fao",
+    "b25 · tarla_io_fao",
+    "b25 · agcurate_fao",
+    "b25 · gorsentam_fao",
+    "b25 · esular_fao",
+    "b25 · actimoo_fao",
+    "b25 · benimsurum_fao",
+    "b25 · baibars_fao",
+    "b25 · teknokurgu_fao",
+    "b25 · fao_2025_agtech_dizini",
+    "b26 · fao_ebrd_2025_turkiye"
+   ],
+   "sinif": "kisa"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+   "tur": "application/pdf",
+   "boy": 1418820,
+   "adres": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+   "kullanan": [
+    "b03 · krizhevsky_2012_nips"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "http://publications.europa.eu/resource/cellar/eb60c9ff-5102-11e3-8945-01aa75ed71a1/rdf/object/full",
+   "tur": "application/rdf+xml;charset=UTF-8",
+   "boy": 183247,
+   "adres": "https://publications.europa.eu/resource/celex/32013R1159",
+   "kullanan": [
+    "b03 · ab_2013_1159_sentinel_acik_veri"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "http://publications.europa.eu/resource/cellar/51ed7804-1617-11ee-806b-01aa75ed71a1/rdf/object/full",
+   "tur": "application/rdf+xml;charset=UTF-8",
+   "boy": 1857016,
+   "adres": "https://publications.europa.eu/resource/celex/32023R1230",
+   "kullanan": [
+    "b29 · ab_makine_tuzugu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "http://publications.europa.eu/resource/cellar/ef51c6ab-a06c-11ee-b164-01aa75ed71a1/rdf/object/full",
+   "tur": "application/rdf+xml;charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://publications.europa.eu/resource/celex/32023R2854",
+   "kullanan": [
+    "b29 · ab_veri_tuzugu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "http://publications.europa.eu/resource/cellar/dc8116a1-3fe6-11ef-865a-01aa75ed71a1/rdf/object/full",
+   "tur": "application/rdf+xml;charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://publications.europa.eu/resource/celex/32024R1689",
+   "kullanan": [
+    "b02 · ab_yz_tuzugu_2024_tanim",
+    "b29 · ab_yz_tuzugu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://science.nasa.gov/mission/landsat-1/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 432222,
+   "adres": "https://science.nasa.gov/mission/landsat-1/",
+   "kullanan": [
+    "b03 · nasa_landsat1"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://science.nasa.gov/mission/landsat-2/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 404284,
+   "adres": "https://science.nasa.gov/mission/landsat-2/",
+   "kullanan": [
+    "b03 · nasa_landsat2_lacie"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 269337,
+   "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+   "kullanan": [
+    "b03 · nasa_2019_landsat_acik_veri",
+    "b19 · nasa_2019_landsat"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": null,
+   "son_adres": null,
+   "tur": "",
+   "boy": 0,
+   "hata": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
+   "adres": "https://scs.moa.gov.cn/zcjd/202410/t20241028_6465095.htm",
+   "kullanan": [
+    "b22 · cin_moa_2024"
+   ],
+   "sinif": "kapali"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://sentiwiki.copernicus.eu/web/s2-mission",
+   "tur": "text/html",
+   "boy": 123805,
+   "adres": "https://sentiwiki.copernicus.eu/web/s2-mission",
+   "kullanan": [
+    "b19 · sentiwiki_sentinel2",
+    "b29 · sentiwiki_sentinel2"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": null,
+   "son_adres": null,
+   "tur": "",
+   "boy": 0,
+   "hata": "<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>",
+   "adres": "https://startupnationcentral.org/hub/news/startup-nation-central-growingil-launch-the-2025-israeli-agrifood-tech-landscape-map/",
+   "kullanan": [
+    "b22 · israil_snc_2025"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026214789901.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026214789901.pdf",
+   "kullanan": [
+    "b03 · hindistan_pib_2026_kisan_emitra",
+    "b22 · hindistan_pib_2026_yz"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://tubitak.gov.tr/en/node/15137",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 68618,
+   "adres": "https://tubitak.gov.tr/en/node/15137",
+   "kullanan": [
+    "b15 · tubitak_2013",
+    "b25 · tubitak_2013"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+   "tur": "application/pdf",
+   "boy": 138984,
+   "adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+   "kullanan": [
+    "b14 · tob_bagis_yz_ister_2026",
+    "b23 · tob_bagis_yz_ister_2026",
+    "b24 · tob_bagis_yz_ister_2026",
+    "b25 · tob_bagis_yz_ister_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 90814,
+   "adres": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+   "kullanan": [
+    "b03 · tubitak_1711_cagri",
+    "b25 · tubitak_1711_cagri"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://tubitak.gov.tr/tr/haber/imece-icin-geri-sayim-basladi",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 72688,
+   "adres": "https://tubitak.gov.tr/tr/haber/imece-icin-geri-sayim-basladi",
+   "kullanan": [
+    "b19 · tubitak_2023_imece"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://tubitak.gov.tr/tr/haber/tasarimi-ve-uretimi-turkiyede-gerceklestirilen-ilk-yer-gozlem-uydumuz-rasat-9-yasinda",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 68021,
+   "adres": "https://tubitak.gov.tr/tr/haber/tasarimi-ve-uretimi-turkiyede-gerceklestirilen-ilk-yer-gozlem-uydumuz-rasat-9-yasinda",
+   "kullanan": [
+    "b03 · tubitak_2020_rasat"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+   "kullanan": [
+    "b03 · tubitak_uzay_2026_katalog",
+    "b19 · tubitak_uzay_2026_katalog",
+    "b25 · tubitak_uzay_2026_katalog"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://web.archive.org/web/20170907120134id_/https://www.deere.com/en/our-company/news-and-announcements/news-releases/2017/corporate/2017sep06-blue-river-technology/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 57716,
+   "adres": "https://web.archive.org/web/20170907120134id_/https://www.deere.com/en/our-company/news-and-announcements/news-releases/2017/corporate/2017sep06-blue-river-technology/",
+   "kullanan": [
+    "b03 · deere_2017_blue_river_bulteni"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
+   "tur": "text/html;charset=utf-8",
+   "boy": 84077,
+   "adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
+   "kullanan": [
+    "b01 · small_robot_company_2020_vaat",
+    "b27 · small_robot_company_2020_vaat"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 36430,
+   "adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
+   "kullanan": [
+    "b01 · appharvest_2021_root_ai",
+    "b27 · appharvest_2021_root_ai"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms",
+   "tur": "text/html; charset=utf-8",
+   "boy": 144704,
+   "adres": "https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms",
+   "kullanan": [
+    "b01 · infarm_2021_vaat",
+    "b27 · infarm_2021_vaat"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://web.archive.org/web/20230724195230id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-announces-chapter-11-filing-support-financial-and",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 50848,
+   "adres": "https://web.archive.org/web/20230724195230id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-announces-chapter-11-filing-support-financial-and",
+   "kullanan": [
+    "b27 · appharvest_2023_bulten"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders",
+   "tur": "text/html; charset=utf-8",
+   "boy": 43959,
+   "adres": "https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders",
+   "kullanan": [
+    "b01 · infarm_2023_kayyum",
+    "b27 · infarm_2023_kayyum"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://webarchive.library.unt.edu/eot2008/20090109024233id_/http://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
+   "tur": "application/pdf",
+   "boy": 626565,
+   "adres": "https://webarchive.library.unt.edu/eot2008/20090109013924id_/http://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
+   "kullanan": [
+    "b29 · heilman_2005_ars"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.agcurate.com/",
+   "tur": "",
+   "boy": 704533,
+   "adres": "https://www.agcurate.com/",
+   "kullanan": [
+    "b25 · agcurate_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.baibars.com.tr/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 105534,
+   "adres": "https://www.baibars.com.tr/",
+   "kullanan": [
+    "b25 · baibars_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.benimsurum.com/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 96619,
+   "adres": "https://www.benimsurum.com/",
+   "kullanan": [
+    "b25 · benimsurum_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.btk.gov.tr/s3/web-btk-site/7708c26c-5161-4919-8b3d-daa31d4ac8fb/2026/10/6a6ae76a-f3ad-4af1-95e3-bbb95b0d1a07.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.btk.gov.tr/s3/web-btk-site/7708c26c-5161-4919-8b3d-daa31d4ac8fb/2026/10/6a6ae76a-f3ad-4af1-95e3-bbb95b0d1a07.pdf",
+   "kullanan": [
+    "b20 · btk_2026_q2"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.cac.gov.cn/rootimages/uploadimg/1790185052137856/1790185052137856.pdf",
+   "tur": "application/pdf",
+   "boy": 662932,
+   "adres": "https://www.cac.gov.cn/rootimages/uploadimg/1790185052137856/1790185052137856.pdf",
+   "kullanan": [
+    "b22 · cin_cac_moa_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
+   "tur": "application/pdf",
+   "boy": 620661,
+   "adres": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
+   "kullanan": [
+    "b02 · cema_2017_dijital_tarim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.cisa.gov/stopransomware/ransomware-101",
+   "tur": "text/html; charset=utf-8",
+   "boy": 27950,
+   "adres": "https://www.cisa.gov/stopransomware/ransomware-101",
+   "kullanan": [
+    "b29 · cisa_fidye_yazilimi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/1867.cfm",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 2741,
+   "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/1867.cfm",
+   "kullanan": [
+    "b03 · lambert_1989_beltwide"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/861.cfm",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 3111,
+   "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/861.cfm",
+   "kullanan": [
+    "b03 · lemmon_1986_beltwide"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.deere.com/assets/pdfs/common/our-company/sustainability/jdsustainabilityreport-f-2020rev.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.deere.com/assets/pdfs/common/our-company/sustainability/jdsustainabilityreport-f-2020rev.pdf",
+   "kullanan": [
+    "b03 · deere_2019_surdurulebilirlik"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.digitalgreen.org/farmerchat",
+   "tur": "text/html; charset=utf-8",
+   "boy": 142686,
+   "adres": "https://www.digitalgreen.org/farmerchat",
+   "kullanan": [
+    "b03 · digital_green_farmerchat_sayfa"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.doktar.com/tr/",
+   "tur": "text/html",
+   "boy": 880152,
+   "adres": "https://www.doktar.com/tr/",
+   "kullanan": [
+    "b25 · doktar_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 184870,
+   "adres": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
+   "kullanan": [
+    "b29 · nasa_sar"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 53731,
+   "adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+   "kullanan": [
+    "b01 · ecmwf_2025",
+    "b03 · ecmwf_2025_aifs",
+    "b17 · ecmwf_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.ers.usda.gov/data-products/charts-of-note/107116",
+   "tur": "text/html; charset=utf-8",
+   "boy": 38242,
+   "adres": "https://www.ers.usda.gov/data-products/charts-of-note/107116",
+   "kullanan": [
+    "b06 · usda_ers_2023"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.esa.int/articles/about-us/directorates/earth-observation-programmes/copernicus/sentinel-2/facts-and-figures",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 177158,
+   "adres": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures",
+   "kullanan": [
+    "b03 · esa_sentinel2_olgular"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/server/api/core/bitstreams/885161de-dccf-4589-8376-07fe37b68799/content",
+   "tur": "application/pdf;charset=UTF-8",
+   "boy": 676184,
+   "adres": "https://www.fao.org/3/ca4887en/ca4887en.pdf",
+   "kullanan": [
+    "b02 · fao_2019_dijital_teknolojiler"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/server/api/core/bitstreams/14fc8bf7-fdeb-4c7c-a2ed-b2d59118a70b/content",
+   "tur": "application/pdf;charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://www.fao.org/3/cb2186en/CB2186EN.pdf",
+   "kullanan": [
+    "b02 · fao_2020_tarim_40"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/server/api/core/bitstreams/a3b0d0e6-0842-4827-9955-7887888ccb50/content",
+   "tur": "application/pdf;charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://www.fao.org/3/i5564e/i5564e.pdf",
+   "kullanan": [
+    "b02 · fao_itu_2016_e_tarim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://openknowledge.fao.org/server/api/core/bitstreams/2e90c833-8e84-46f2-a675-ea2d7afa4e24/content",
+   "tur": "application/pdf;charset=UTF-8",
+   "boy": 2000000,
+   "adres": "https://www.fao.org/3/i6583e/i6583e.pdf",
+   "kullanan": [
+    "b27 · fao_2017_yaklasik50"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/4/i1444e/i1444e.pdf",
+   "tur": "application/pdf",
+   "boy": 1144892,
+   "adres": "https://www.fao.org/4/i1444e/i1444e.pdf",
+   "kullanan": [
+    "b29 · fao_gfras_2010"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf",
+   "tur": "application/pdf",
+   "boy": 642477,
+   "adres": "https://www.fao.org/fileadmin/templates/wsfs/docs/expert_paper/How_to_Feed_the_World_in_2050.pdf",
+   "kullanan": [
+    "b27 · fao_2009_yuzde70"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/input/download/standards/10603/CXG_060e.pdf",
+   "tur": "application/pdf",
+   "boy": 78928,
+   "adres": "https://www.fao.org/input/download/standards/10603/CXG_060e.pdf",
+   "kullanan": [
+    "b29 · codex_cxg60"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/newsroom/detail/disasters-cost-global-agriculture--3.26-trillion-over-three-decades--fao-report-reveals/en",
+   "tur": "text/html; charset=utf-8",
+   "boy": 68328,
+   "adres": "https://www.fao.org/newsroom/detail/disasters-cost-global-agriculture--3.26-trillion-over-three-decades--fao-report-reveals/en",
+   "kullanan": [
+    "b17 · fao_2025_haber"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/newsroom/detail/fao-report-global-fisheries-and-aquaculture-production-reaches-a-new-record-high/en",
+   "tur": "text/html; charset=utf-8",
+   "boy": 74335,
+   "adres": "https://www.fao.org/newsroom/detail/fao-report-global-fisheries-and-aquaculture-production-reaches-a-new-record-high/en",
+   "kullanan": [
+    "b14 · fao_2024_sofia"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows/en",
+   "tur": "text/html; charset=utf-8",
+   "boy": 69541,
+   "adres": "https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows/en",
+   "kullanan": [
+    "b15 · fao_2025_fra"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en",
+   "tur": "text/html; charset=utf-8",
+   "boy": 64744,
+   "adres": "https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en",
+   "kullanan": [
+    "b11 · fao_2025_gida_kaybi_gunu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en",
+   "tur": "text/html; charset=utf-8",
+   "boy": 100935,
+   "adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en",
+   "kullanan": [
+    "b11 · fao_sdg_1231"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.farms.com/news/farm-equipment/john-deere-customers-use-see-spray-technology-across-five-million-acres-in-2025-234561.aspx",
+   "tur": "text/html; charset=utf-8",
+   "boy": 92269,
+   "adres": "https://www.farms.com/news/farm-equipment/john-deere-customers-use-see-spray-technology-across-five-million-acres-in-2025-234561.aspx",
+   "kullanan": [
+    "b08 · deere2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.farms.com/news/farm-equipment/see-spray-customers-see-59-average-herbicide-savings-in-2024-215613.aspx",
+   "tur": "text/html; charset=utf-8",
+   "boy": 92814,
+   "adres": "https://www.farms.com/news/farm-equipment/see-spray-customers-see-59-average-herbicide-savings-in-2024-215613.aspx",
+   "kullanan": [
+    "b08 · deere2024"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.globalinclusiveinsuranceforum.org/faq-page",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 133385,
+   "adres": "https://www.globalinclusiveinsuranceforum.org/faq-page",
+   "kullanan": [
+    "b29 · ifc_giif_sss"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.gorsentam.com/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 23124,
+   "adres": "https://www.gorsentam.com/",
+   "kullanan": [
+    "b25 · gorsentam_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved",
+   "tur": "text/html; charset=utf-8",
+   "boy": 72199,
+   "adres": "https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved",
+   "kullanan": [
+    "b28 · govuk_2017_hfh"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+   "tur": "text/html; charset=utf-8",
+   "boy": 674035,
+   "adres": "https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html",
+   "kullanan": [
+    "b29 · govuk_2025_yz_oyun_kitabi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.gps.gov/faq",
+   "tur": "text/html; charset=utf-8",
+   "boy": 61652,
+   "adres": "https://www.gps.gov/faq",
+   "kullanan": [
+    "b03 · gpsgov_sss"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.gtu.edu.tr/fileman/Files/UserFiles/kalite/Y%C3%B6netmelikler/YN-0016%20Ak%C4%B1ll%C4%B1%20Tar%C4%B1m%20Uygulama%20ve%20Ara%C5%9Ft%C4%B1rma%20Merkezi%20Y%C3%B6netmeli%C4%9Fi%20R1.pdf",
+   "tur": "application/pdf",
+   "boy": 191810,
+   "adres": "https://www.gtu.edu.tr/fileman/Files/UserFiles/kalite/Y%C3%B6netmelikler/YN-0016%20Ak%C4%B1ll%C4%B1%20Tar%C4%B1m%20Uygulama%20ve%20Ara%C5%9Ft%C4%B1rma%20Merkezi%20Y%C3%B6netmeli%C4%9Fi%20R1.pdf",
+   "kullanan": [
+    "b25 · gtu_atam"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.gtu.edu.tr/icerik/2839/24930/display.aspx",
+   "tur": "text/html; charset=utf-8",
+   "boy": 58177,
+   "adres": "https://www.gtu.edu.tr/icerik/2839/24930/display.aspx",
+   "kullanan": [
+    "b25 · gtu_mam_gida_arz_merkezi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.harper-adams.ac.uk/blog/post/2717/hands-free-harvest-2022--another-successful-year-of-autonomous-farming",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 72277,
+   "adres": "https://www.harper-adams.ac.uk/blog/post/2717/hands-free-harvest-2022--another-successful-year-of-autonomous-farming",
+   "kullanan": [
+    "b28 · hau_2022_hff"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.harper-adams.ac.uk/news/203144/harvest-completed-at-worldfirst-project-to-farm-a-crop-exclusively-with-robots",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 56974,
+   "adres": "https://www.harper-adams.ac.uk/news/203144/harvest-completed-at-worldfirst-project-to-farm-a-crop-exclusively-with-robots",
+   "kullanan": [
+    "b28 · hau_2017_hfh"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.ic3.gov/CSA/2022/220420-2.pdf",
+   "tur": "application/pdf",
+   "boy": 1342213,
+   "adres": "https://www.ic3.gov/CSA/2022/220420-2.pdf",
+   "kullanan": [
+    "b26 · fbi_pin_2022"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+   "tur": "text/html; charset=utf-8",
+   "boy": 257292,
+   "adres": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+   "kullanan": [
+    "b26 · iea_2025_enerji_ve_yz"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://ijcai.org/proceedings/1983/63",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 63189,
+   "adres": "https://www.ijcai.org/proceedings/1983/63",
+   "kullanan": [
+    "b03 · michalski_baskin_1983_ijcai"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-internet-use-in-urban-and-rural-areas/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 44796,
+   "adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-internet-use-in-urban-and-rural-areas/",
+   "kullanan": [
+    "b20 · itu_2026_internet"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-urban-rural-mobile-network-coverage/",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 45450,
+   "adres": "https://www.itu.int/itu-d/reports/statistics/2026/10/13/ff26-urban-rural-mobile-network-coverage/",
+   "kullanan": [
+    "b20 · itu_2026_kapsama"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 151205,
+   "adres": "https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor",
+   "kullanan": [
+    "b25 · karatay_akitek"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
+   "tur": "application/pdf",
+   "boy": 175987,
+   "adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
+   "kullanan": [
+    "b16 · hks_yonetmelik",
+    "b25 · hks_yonetmelik"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf",
+   "tur": "application/pdf",
+   "boy": 465042,
+   "adres": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf",
+   "kullanan": [
+    "b21 · kvkk_6698"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf",
+   "kullanan": [
+    "b17 · mgm_2025",
+    "b25 · mgm_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+   "kullanan": [
+    "b17 · mgm_2026",
+    "b20 · mgm_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296209&reg=3&lang=1",
+   "tur": "text/html; charset=utf-8",
+   "boy": 90074,
+   "adres": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296209&reg=3&lang=1",
+   "kullanan": [
+    "b22 · hindistan_pib_2026_agristack"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.reaganlibrary.gov/archives/speech/statement-deputy-press-secretary-speakes-soviet-attack-korean-civilian-airliner-1",
+   "tur": "text/html; charset=UTF-8",
+   "boy": 43227,
+   "adres": "https://www.reaganlibrary.gov/archives/speech/statement-deputy-press-secretary-speakes-soviet-attack-korean-civilian-airliner-1",
+   "kullanan": [
+    "b03 · reagan_1983_gps_sivil"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.resmigazete.gov.tr/eskiler/2002/06/20020614.htm",
+   "tur": "text/html",
+   "boy": 93578,
+   "adres": "https://www.resmigazete.gov.tr/eskiler/2002/06/20020614.htm",
+   "kullanan": [
+    "b03 · rg_2002_dgd_kayit_sistemi_bkk"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416-6.htm",
+   "tur": "text/html",
+   "boy": 48975,
+   "adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416-6.htm",
+   "kullanan": [
+    "b03 · rg_2005_cks_yonetmeligi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416.htm",
+   "tur": "text/html",
+   "boy": 7955,
+   "adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416.htm",
+   "kullanan": [
+    "b03 · rg_2005_fihrist"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.resmigazete.gov.tr/eskiler/2018/11/20181105-5.htm",
+   "tur": "text/html",
+   "boy": 50632,
+   "adres": "https://www.resmigazete.gov.tr/eskiler/2018/11/20181105-5.htm",
+   "kullanan": [
+    "b25 · kgtu_tuam"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.resmigazete.gov.tr/eskiler/2021/08/20210822-3.htm",
+   "tur": "text/html",
+   "boy": 54805,
+   "adres": "https://www.resmigazete.gov.tr/eskiler/2021/08/20210822-3.htm",
+   "kullanan": [
+    "b25 · kaeu_au_su_jistuam"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.resmigazete.gov.tr/eskiler/2021/09/20210919-7.htm",
+   "tur": "text/html",
+   "boy": 43175,
+   "adres": "https://www.resmigazete.gov.tr/eskiler/2021/09/20210919-7.htm",
+   "kullanan": [
+    "b25 · klu_mau_nku_dijitallesme_merkezi"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
+   "tur": "text/html",
+   "boy": 49973,
+   "adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
+   "kullanan": [
+    "b02 · yz_eylem_plani_2026_2030",
+    "b29 · yzep_2026_2030"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+   "kullanan": [
+    "b16 · yillik_program_2027",
+    "b17 · yillik_program_2027",
+    "b18 · yillik_program_2027",
+    "b19 · yillik_program_2027"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/BSGM/Duyuru/221/Balikci-Gemilerine-Yeni-Bagis-Cihazi-Takilmasi-Hakkinda",
+   "tur": "text/html; charset=utf-8",
+   "boy": 101653,
+   "adres": "https://www.tarimorman.gov.tr/BSGM/Duyuru/221/Balikci-Gemilerine-Yeni-Bagis-Cihazi-Takilmasi-Hakkinda",
+   "kullanan": [
+    "b14 · bsgm_bagis_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/Duyuru/2462/Toprak-Etut-Ve-Siniflandirma-Ihalesi-W-Trgm-Cs1-1-05",
+   "tur": "text/html; charset=utf-8",
+   "boy": 245872,
+   "adres": "https://www.tarimorman.gov.tr/Duyuru/2462/Toprak-Etut-Ve-Siniflandirma-Ihalesi-W-Trgm-Cs1-1-05",
+   "kullanan": [
+    "b04 · tob_ihale_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/GKGM/Haber/1280/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 130725,
+   "adres": "https://www.tarimorman.gov.tr/GKGM/Haber/1280/",
+   "kullanan": [
+    "b28 · tob_gkgm_2026"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+   "tur": "text/html; charset=utf-8",
+   "boy": 243051,
+   "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+   "kullanan": [
+    "b01 · tob_2024_karar_destek",
+    "b15 · tob_2024_karar_destek",
+    "b23 · tob_2024_karar_destek",
+    "b25 · tob_2024_karar_destek"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
+   "tur": "text/html; charset=utf-8",
+   "boy": 246762,
+   "adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
+   "kullanan": [
+    "b23 · tob_2026_ai_tomorrow",
+    "b25 · tob_2026_ai_tomorrow"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler",
+   "tur": "text/html; charset=utf-8",
+   "boy": 776240,
+   "adres": "https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler",
+   "kullanan": [
+    "b03 · tob_cbs_projeler_tarbil"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+   "kullanan": [
+    "b18 · tob_2025_faaliyet_raporu",
+    "b19 · tob_2025_faaliyet_raporu",
+    "b20 · tob_2025_faaliyet_raporu",
+    "b21 · tob_2025_faaliyet_raporu",
+    "b23 · tob_2025_faaliyet_raporu",
+    "b25 · tob_2025_faaliyet_raporu"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/stratejikplan.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/stratejikplan.pdf",
+   "kullanan": [
+    "b02 · tob_stratejik_plan_2024_2028"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/Sayfalar/GormeEngellilerDetay.aspx?OgeId=6614&Liste=Haber",
+   "tur": "text/html; charset=utf-8",
+   "boy": 23873,
+   "adres": "https://www.tarimorman.gov.tr/Sayfalar/GormeEngellilerDetay.aspx?OgeId=6614&Liste=Haber",
+   "kullanan": [
+    "b17 · tob_2025_ai_tomorrow",
+    "b19 · tob_2025_ai_tomorrow",
+    "b23 · tob_2025_ai_tomorrow"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+   "tur": "application/pdf",
+   "boy": 1629673,
+   "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+   "kullanan": [
+    "b01 · tagem_faaliyet_2025",
+    "b03 · tagem_faaliyet_2025",
+    "b07 · tagem_faaliyet_2025",
+    "b08 · tagem_faaliyet_2025",
+    "b12 · tagem_faaliyet_2025",
+    "b18 · tagem_faaliyet_2025",
+    "b19 · tagem_faaliyet_2025",
+    "b20 · tagem_faaliyet_2025",
+    "b23 · tagem_faaliyet_2025",
+    "b25 · tagem_faaliyet_2025"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/TAGEM/Haber/344",
+   "tur": "text/html; charset=utf-8",
+   "boy": 148938,
+   "adres": "https://www.tarimorman.gov.tr/TAGEM/Haber/344",
+   "kullanan": [
+    "b04 · tagem_2017"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 401,
+   "son_adres": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
+   "tur": "text/plain; charset=utf-8",
+   "boy": 0,
+   "adres": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
+   "kullanan": [
+    "b01 · tob_ukks_iv_2024_2028",
+    "b02 · tob_ukks_iv_2024_2028",
+    "b26 · tob_ukks_iv_2024_2028"
+   ],
+   "sinif": "engelli"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+   "tur": "text/html; charset=utf-8",
+   "boy": 127565,
+   "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+   "kullanan": [
+    "b01 · trgm_2026_urun_belirleme",
+    "b09 · trgm_2026_urun_belirleme",
+    "b23 · trgm_2026_urun_belirleme",
+    "b25 · trgm_2026_urun_belirleme"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarimorman.gov.tr/btgm/Haber/138/Trgm-Ev-Sahipliginde-Gerceklestirilen-Tarim-Ve-Orman-Sektorunde-Yapay-Zek%C3%A2-Destekli-Dijital-Donusum-Calistayina-Destek-Verilerek-Aktif-Katilim-Saglandi",
+   "tur": "text/html; charset=utf-8",
+   "boy": 111912,
+   "adres": "https://www.tarimorman.gov.tr/btgm/Haber/138/Trgm-Ev-Sahipliginde-Gerceklestirilen-Tarim-Ve-Orman-Sektorunde-Yapay-Zek%C3%A2-Destekli-Dijital-Donusum-Calistayina-Destek-Verilerek-Aktif-Katilim-Saglandi",
+   "kullanan": [
+    "b23 · btgm_2025_calistay"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarla.io/tr-TR",
+   "tur": "text/html; charset=utf-8",
+   "boy": 170190,
+   "adres": "https://www.tarla.io/tr-TR",
+   "kullanan": [
+    "b25 · tarla_io_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf",
+   "tur": "application/pdf",
+   "boy": 2000000,
+   "adres": "https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf",
+   "kullanan": [
+    "b17 · tarsim_2025_faaliyet",
+    "b25 · tarsim_2025_faaliyet"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.tarsim.gov.tr/subPage/koy-bazli-verim-sigortasi",
+   "tur": "text/html;charset=UTF-8",
+   "boy": 31011,
+   "adres": "https://www.tarsim.gov.tr/subPage/koy-bazli-verim-sigortasi",
+   "kullanan": [
+    "b17 · tarsim_kbvs"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.teknofest.org/tr/yarismalar/tarim-teknolojileri-yarismasi/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 276388,
+   "adres": "https://www.teknofest.org/tr/yarismalar/tarim-teknolojileri-yarismasi/",
+   "kullanan": [
+    "b25 · teknofest_tarim"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.teknokurgu.com.tr/index.php/tr/",
+   "tur": "text/html; charset=utf-8",
+   "boy": 144534,
+   "adres": "https://www.teknokurgu.com.tr/index.php/tr/",
+   "kullanan": [
+    "b25 · teknokurgu_web"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.uab.gov.tr/haberler/5-bin-565-yerlesim-yerine-elektronik-haberlesme-hizmeti",
+   "tur": "text/html; charset=utf-8",
+   "boy": 80876,
+   "adres": "https://www.uab.gov.tr/haberler/5-bin-565-yerlesim-yerine-elektronik-haberlesme-hizmeti",
+   "kullanan": [
+    "b20 · uab_2025_evrensel_hizmet"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used",
+   "tur": "text/html; charset=utf-8",
+   "boy": 394313,
+   "adres": "https://www.usgs.gov/faqs/what-remote-sensing-and-what-it-used",
+   "kullanan": [
+    "b29 · usgs_uzaktan_algilama"
+   ],
+   "sinif": "acik"
+  },
+  {
+   "kod": 200,
+   "son_adres": "https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index",
+   "tur": "text/html; charset=utf-8",
+   "boy": 92259,
+   "adres": "https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index",
+   "kullanan": [
+    "b29 · usgs_ndvi"
+   ],
+   "sinif": "acik"
+  }
+ ]
+}
