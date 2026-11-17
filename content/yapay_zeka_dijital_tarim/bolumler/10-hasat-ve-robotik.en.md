@@ -25,11 +25,15 @@ The fastest was a kiwi robot: **1** second. But the review's main finding lies e
 
 The pepper-harvesting robot SWEEPER showed what that recommendation means in practice (Arad and colleagues, 2020). The robot was tested on **262** fruits over four weeks in a commercial greenhouse. Picking one fruit took **24** seconds on average, about half of it logistics; in the laboratory, running the arm faster brought this down to **15** seconds. Harvest success was **61%** when the crop was grown in the conditions best suited to the robot, and **18%** under the greenhouse's usual conditions. The authors' conclusion: success in robotic harvesting depends on finding crop conditions and varieties that suit the robot.
 
+[[grafik:b10-sweeper-kosullar]]
+
 Zhou and colleagues' 2022 review examines why, despite significant progress in the field, existing robots still perform inadequately.
 
 ## Where AI stands
 
 AI's contribution is the robot's eye: finding the fruit in a camera image and judging its ripeness. But the ranking in the review suggests the bottleneck is the hand, not the eye: locating (**85%**) succeeds more often than detaching (**75%**), and detaching more often than the whole harvest (**66%**). The pepper robot's drop to **18%** in the usual greenhouse says the same: unless leaves, branches and fruit are arranged to suit the robot, a better eye is not enough on its own.
+
+[[grafik:b10-hasat-robotu-basamaklari]]
 
 ## Türkiye
 

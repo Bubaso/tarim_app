@@ -14,6 +14,8 @@ Tarımda yapay zekânın kısa tarihinde tutmayan vaatler de var. Yapay zekâ va
 
 **Small Robot Company.** Birleşik Krallık'taki tarım robotu girişimi Small Robot Company, 2020'de robotik tarım sisteminin merkezine yapay zekâ destekli bir tavsiye motoru, Wilma'yı koyduğunu duyurdu. Şirketin yazısına göre amaç bitki bazında tarımdı; şirket bunun dördüncü tarım devriminde baskın sistem olacağına inanıyordu ve o yıl yabancı otları kimyasal kullanmadan, otonom olarak yok edebildiğini göstermeyi hedefliyordu. Wilma'nın ekimden itibaren ilk müşterilere ticari olarak sunulacağı yazılıydı. Birleşik Krallık şirketler siciline göre şirket 1 Şubat 2024'te alacaklıların gönüllü tasfiyesine girdi ve 30 Nisan 2026'da sicilden silindi.
 
+[[grafik:b27-vaatten-iflasa]]
+
 ## Laboratuvar ile tarla arasındaki mesafe
 
 Yüksek değerli ürünlerde hasat robotlarını inceleyen bir derlemeye göre (Bac ve arkadaşları, 2014) robotlar meyvenin yerini ortalama **%85** başarıyla buldu, **%75** başarıyla kopardı; hasat başarısı **%66**'da kaldı. Meyvelerin **%5**'i, sapların **%45**'i zarar gördü; bir hasat döngüsü ortalama **33** saniye sürdü. Derlemeye göre hasat robotlarının performansı son otuz yılda iyileşmemişti ve incelenen **50** robotun hiçbiri ticarileşmemişti.
@@ -31,3 +33,5 @@ FAO'nun 2009'da bir uzmanlar forumu için hazırladığı arka plan belgesi, 205
 Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) için Türkiye ile Dünya Bankası'nın Uluslararası İmar ve Kalkınma Bankası arasındaki kredi anlaşması 16 Mayıs 2022'de imzalandı; kredi **304.800.000** avro. Projenin alt bileşenlerinden biri, bakanlığın sektörel bilgi toplama ve yönetimi için dijital bir yol haritası. Proje 31 Mart 2028'de bitecek.
 
 Hazine ve Maliye Bakanlığı Hazine Kontrolörleri Kurulu'nun 16 Haziran 2026 tarihli denetim raporuna göre 2025 sonuna kadar kredinin **%12,91**'i harcanmıştı. 2025 için ilk bütçe **108,8** milyon avro, nihai bütçe **55,6** milyon avroydu; yılın harcaması **27,9** milyon avro, nihai bütçenin **%50,17**'si. Toplam **29,5** milyon avro planlanan hibe kategorisinde 2025 sonuna kadar harcama yapılmadı. Dünya Bankası'nın Kasım 2024 izleme raporuna göre iklim akıllı tarım teknolojilerini benimseyen çiftçi sayısı göstergesinin Mart 2028 hedefi **42.500**; Ekim 2024'te değer sıfırdı ve banka göstergenin raporlanmasının, hibe finansmanının dağıtımındaki gecikme nedeniyle geciktiğini yazıyor.
+
+[[grafik:b27-tucsap-harcama]]

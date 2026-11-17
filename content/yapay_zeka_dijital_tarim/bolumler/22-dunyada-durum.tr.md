@@ -10,9 +10,13 @@ ABD Tarım Bakanlığı'nın istatistik servisine (NASS) göre 2025'te çiftlikl
 
 Bakanlığın ekonomik araştırma servisi (ERS) aynı teknolojileri ekili alan üzerinden ölçüyor. 2023 raporuna göre verim haritası, toprak haritası ve değişken oranlı uygulama kışlık buğday, pamuk, sorgum ve pirinçte ekili alanın yalnız **%5-25**'inde kullanılıyor; otomatik yönlendirme ise altı ana ürünün ekili alanının yarısından fazlasında. Mısırda otomatik dümen 2001'de ekili alanın **%5,3**'ünde, 2016'da **%58**'inde kullanılıyordu. Büyük ile küçük çiftlik arasındaki fark büyük: büyük çiftliklerin en az yarısı bu teknolojilerden birine dayanıyor, en küçük çiftliklerin ise **%25**'inden azı bunlardan herhangi birini kullanıyor. Federal desteğe bir örnek çevre koruma ödemeleri: 2020'de bu ödemelerle **2,24** milyon akreyi aşkın alanda hassas ilaçlama sözleşmeye bağlandı; programın dijital tarımla ilgili ek uygulamaları arasında en yaygını buydu. Raporun yazarlarına göre son yıllarda dijital tarımı doğrudan etkileyen birkaç federal program uygulandı, ama bunları belgeleyen büyük bir çalışma bulunmuyor; geniş bant eksikliği ise benimsemenin önündeki önemli engellerden biri.
 
+[[grafik:b22-abd-iki-olcu]]
+
 ## Avrupa Birliği: küçük pay, büyük alan
 
 Eurostat'ın 2023 çiftlik yapı araştırmasına dayanan Temmuz 2026 tarihli analizine göre AB'de çiftliklerin yaklaşık **%43**'ü internete erişiyor; Danimarka, Almanya, Slovakya, Letonya, Çekya ve Avusturya'da oran **%90**'ın üstünde. Her on çiftlikten biri bir çiftlik yönetim bilgi sistemi kullanıyor, robotik yaklaşık **%7**'de. Çiftliklerin yaklaşık **%18**'i bir hassas tarım tekniği uyguluyor; en yaygını toprak analizi (yaklaşık **%11**), ardından değişken oranlı uygulama (yaklaşık **%5**) ve bant ilaçlama (yaklaşık **%4**). Ama bu çiftlikler AB tarım alanının yaklaşık **%44**'ünü işliyor. Ekonomik büyüklüğü en yüksek çiftliklerin **%74**'ü internete erişirken en küçüklerde bu oran yaklaşık **%21**. Eurostat'a göre başlıca engeller yüksek başlangıç maliyeti ve sınırlı dijital beceri; çiftçilerin çoğu yeni teknolojiyi kendi kaynağıyla alıyor.
+
+[[grafik:b22-ab-dijital-araclar]]
 
 Ortak tarım politikasında (2023-2027) dijitalleşme, bilgi ve yenilikle birlikte yatay bir hedef. Komisyon'un uygulama özetine göre **20.000**'i aşkın çiftlik dijital teknolojiye geçmek için destek aldı; aynı dönemde gelir desteği **5,6** milyon çiftliğe ulaştı. Komisyon, tarım ve gıda vizyonunda AB çapında bir dijital tarım stratejisi önerdi.
 
@@ -21,6 +25,8 @@ Ortak tarım politikasında (2023-2027) dijitalleşme, bilgi ve yenilikle birlik
 Çin Tarım ve Köy İşleri Bakanlığı Ekim 2024'te akıllı tarıma dair bir yönerge ve 2024-2028 ulusal akıllı tarım eylem planı yayımladı. Bakanlığın kendi izlediği bileşik gösterge olan tarımsal üretimin bilişimleşme oranı 2022'de **%27,6**; hedef 2030'da yaklaşık **%35**, 2035'te **%40**'ın üstü. Bakanlık, kilit teknoloji ve ekipmanda da uygulamanın genişliği ve derinliğinde de ABD ve Avrupa'nın hâlâ belirgin biçimde gerisinde olduğunu yazıyor.
 
 Çin Devlet İnternet Bilgi Ofisi ile Bakanlığın Ağustos 2026'da yayımladığı rapora göre kırsalda internet yaygınlığı 2018 sonundan 2025 sonuna **%38,4**'ten **%69,5**'e çıktı, kent ile kır arasındaki fark **36,2** puandan **15,6** puana indi. 2025 sonuna kadar tarım makinelerine toplam **3,5** milyonu aşkın BeiDou uydu konum cihazı takılmıştı ve tarım dronlarının sayısı **300.000**'i aşıyordu; **34** akıllı tarım yenilik merkezi ve alt merkezi ile **116** uygulama projesi kurulmuştu. 2024'te kırsaldaki yetişkinlerin **%50,57**'si temel ya da daha ileri dijital beceriye sahipti.
+
+[[grafik:b22-cin-kirsal-internet]]
 
 ## Hindistan: kimlik ve sohbet robotu
 
@@ -35,5 +41,7 @@ Hükümetin Şubat 2026 notuna göre 2023'te başlatılan, sesle çalışan yapa
 ## Afrika: kayıtlı ile kullanan arasındaki fark
 
 Afrika'da kıta ölçeğindeki kapsamlı sayımlardan biri CTA ile Dalberg'in 2019 raporu. Bu rapora göre kıtada en az **390** aktif dijital tarım çözümü vardı ve bunlar **33** milyonu aşkın küçük çiftçi ve çobanı kaydetmişti. Ama kayıtlıların yalnız **%42**'si hizmeti herhangi bir sıklıkta kullanıyordu; yüksek etkin kullanıcıların payı muhtemelen **%15-30** arasındaydı. Kayıtların yaklaşık **%20**'si mükerrerdi; tekil kullanıcı sayısı yaklaşık **26** milyon. Alana yılda yaklaşık **175** milyon avro bağış akarken özel yatırım 2018'de yaklaşık **47** milyon avroydu.
+
+[[grafik:b22-afrika-kayitli-kullanan]]
 
 Afrika Birliği'nin Temmuz 2024'te kabul ettiği kıtasal yapay zekâ stratejisi tarımı, sağlık ve eğitimle birlikte yapay zekâ benimsemesinde öncelikli üç sektörden biri sayıyor. Strateji ürün hastalığı teşhisi, fiyat tahmini, uzman danışmanlığı ve finansal hizmetlere erişim gibi küçük ölçekli kullanım örneklerinden söz ediyor ve tarımdaki örnekleri belgeleyecek bir mükemmeliyet merkezi öneriyor. Afrika'da internet kullanımı 2015'te **%20**'den 2023'te **%40**'a çıktı.

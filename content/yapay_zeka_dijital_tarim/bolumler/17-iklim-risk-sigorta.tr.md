@@ -14,6 +14,8 @@ Hava tahmininde Lam ve arkadaşları (2023), doğrudan geçmiş hava verisinden 
 
 Endeks sigortası tarafında Benami ve arkadaşlarının (2021) derlemesine göre kayıp tahmini, pahalı tarla örneklemesinden hava ve uydu verisine dayanan daha ucuz tekniklere geçti; ama karmaşık arazide üretim kaybını güvenilir ve ucuz biçimde ölçmek hâlâ zor. Yazarlar, sözleşmenin sigortalı için değerinin büyük ölçüde, insanların en çok zarar gördüğü zamanda kaybı ne kadar iyi yakaladığına bağlı olduğunu; kaçınılmaz yanlış tahminler için denetim gerektiğini yazıyor. Kuzey Kenya'daki hayvancılık endeks sigortası üzerine bir çalışma (Jensen ve arkadaşları, 2016) sorunu sayıyla gösteriyor: sigorta, büyük kayıplarda ortak riski ortalama **%63** azaltıyor; ama poliçe sahipleri büyük kayıplardan doğan asıl risklerinin ortalama **%69**'unu taşımaya devam ediyor. Yazarlara göre baz riski yaygın biçimde bilinen ama nadiren ölçülen bir özellik.
 
+[[grafik:b17-baz-riski]]
+
 ## Yapay zekâ nerede duruyor
 
 Hava tahmininde ölçülen şey tahminin isabeti, tarladaki sonuç değil: bu çalışmalar daha iyi bir don ya da kuraklık tahmininin çiftçinin kaybını ne kadar azalttığını ölçmüyor. Sigortada da ucuzlayan kayıp tahmini tek başına yetmiyor; sözleşmenin değeri kaybı en kötü yıllarda yakalamasına bağlı ve bu karmaşık arazide hâlâ zor.
@@ -22,7 +24,11 @@ Hava tahmininde ölçülen şey tahminin isabeti, tarladaki sonuç değil: bu ç
 
 2027 Programı'na göre kuraklık ve zirai don 2024-2025 üretim sezonunda önemli üretim kayıplarına yol açtı. 2025'teki zirai don için devlet destekli tarım sigortası olan üreticilere **23,1** milyar lira hasar tazminatı, ayrıca bir Cumhurbaşkanı Kararı'yla **23,86** milyar lira destekleme ödemesi yapıldı. 2026'da bitkisel üründe don teminatının devlet prim desteği **%70**'e çıkarıldı. Sözleşmeli üretimdeki ürünlerde tarım sigortası zorunlu hâle getirildi ve primlerde ürüne göre **%10-15** ek indirim sağlandı. Tarımsal destekleme bütçesinde tarım sigortasına ayrılan kaynak, cari fiyatlarla, 2025'te **19,2** milyar liraydı; 2027 programında **30** milyar lira.
 
+[[grafik:b17-zirai-don-2025]]
+
 Tarım Sigortaları Havuzu (TARSİM) 2025'te **3,8** milyon poliçe düzenledi (2022'de **3,1** milyon) ve sigortalı üreticilere **35** milyar lira hasar ödedi. Bitkisel ürün sigortasındaki **430.076** hasar ihbarının **171.558**'i, yani **%39,8**'i dondandı.
+
+[[grafik:b17-don-ihbarlari]]
 
 Köy Bazlı Verim Sigortası 2017'de ilçe bazlı kuraklık verim sigortası olarak başladı ve 2021'den beri köy bazlı yürüyor; devletin prim desteği 1 Ocak 2025'te **%60**'tan **%70**'e çıktı. Teminat, TÜİK ve TARSİM verisiyle belirlenen köyün eşik verimine kadar; çiftçinin hasar ihbarında bulunması gerekmiyor. Köyün gerçekleşen ortalama verimi eşiğin altında kalırsa köydeki bütün sigortalılar tazminat alıyor; tazminat, ortalama verimin ilanından sonra en geç **30** gün içinde ödeniyor. Ortalama eşiğe eşit ya da üzerindeyse kimse ödeme almıyor. Baz riski bu kuralın içinde: köy ortalaması eşiğin altına düşmezse, kendi tarlası zarar görmüş çiftçi de ödeme almıyor. Bu riskin ne kadar büyük olduğunu gösteren yayımlanmış bir ölçüm ise yok.
 

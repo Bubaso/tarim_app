@@ -2,6 +2,8 @@
 
 In Türkiye, work on AI and digital technology in agriculture is under way in four places: in the systems of public bodies, in the state's research and support programmes, in universities and in start-ups. In the public sector, AI is mostly used, or being prepared for use, in monitoring: identifying crops, idle land and orchards from satellites, decision support in forest fires, tracking fishing vessels. In the **10** projects accepted in smart agriculture, food and livestock under TÜBİTAK's 1711 AI Ecosystem Call, companies work together with universities and research institutes. On the start-up side, a 2025 report by FAO and the EBRD counts about **35** agricultural technology start-ups in Türkiye and finds this number relatively low for the size of the country and its farm sector.
 
+[[grafik:b25-ekosistem-baslangic-yillari]]
+
 ## Public sector: systems that use AI or are preparing to
 
 | System or project | What it does | Status |

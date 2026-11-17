@@ -2,6 +2,8 @@
 
 Yapay zekâ ormancılıkta iki işte öne çıkıyor: ormanın yapısını uydudan haritalamak ve yangını erken görmek. Türkiye'de yangın yükü artıyor; resmî istatistiklerin başladığı 1988'den 2025'e kadar yanan **634.575** hektarın **%43,6**'sı son beş yılda yandı. Orman Genel Müdürlüğü önce kule kameralarına dayanan bir yangın uyarı sistemi kurdu, sonra yapay zekâ destekli bir karar destek sistemini devreye aldı; ama iki sistemin de tespit süresine, yanan alana ya da yanlış alarm oranına etkisini ölçen bağımsız bir değerlendirme yayımlanmış değil.
 
+[[grafik:b15-yanan-alan-son-bes-yil]]
+
 ## Ne yapıyor
 
 Ormancılıkta dijital teknoloji üç işe yarıyor: ormanın ne kadar ve nasıl olduğunu ölçmek (alan, ağaç boyu, karbon), değişimi yakalamak (ormansızlaşma, yangın, zararlı ve hastalık) ve yangına karşı erken uyarı ve müdahale. Uydular ve uzaydaki lazer ölçerler geniş alanı görüyor; yapay zekâ bu verilerden ağaç boyunu, yanmış alanı ya da dumanı çıkarıyor. Yerdeki kameralar ve insansız hava araçları ise yangının ilk dakikalarını yakalamaya çalışıyor.

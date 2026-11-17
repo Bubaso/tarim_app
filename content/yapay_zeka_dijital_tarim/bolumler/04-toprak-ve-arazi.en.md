@@ -36,6 +36,8 @@ Soil mapping with machine learning is being tried in academia too: a 2022 study 
 
 The 2027 Annual Programme treats soil data as the basis for land-use decisions and sets a timetable for detailed soil surveys. In 2024, detailed soil surveys and mapping were completed on **755** thousand hectares; another **2.4** million hectares are expected to be finished by the end of 2026. Of the **6.8** million-hectare project area where work continues, **3.5** million hectares are expected to be completed in 2027 and the remaining **3.3** million in 2028. As a 2027 measure, survey and mapping work will continue on **3.5** million hectares of farmland in **15** provinces. For scale: Türkiye had **24** million hectares of agricultural land as of 2025.
 
+[[grafik:b04-detayli-toprak-etudu]]
+
 The programme also plans an annual national land-cover map, and work on the data infrastructure and methodology for analysing water erosion and sediment yield based on climate projections.
 
 The tender the ministry opened in December 2025, under the Türkiye Climate Smart and Competitive Agricultural Growth Project financed by a World Bank loan, covers soil survey and classification, soil analyses and the preparation of detailed digital soil maps. It spans **5.16** million hectares of farmland in **13** provinces (the full project boundary is **12.3** million hectares); the work is divided into **10** lots and runs for **600** days. How the maps will be produced, and whether machine learning will be used, has not been announced.

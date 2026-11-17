@@ -25,6 +25,8 @@ FAO'nun kendi değerlendirmesi açık: dünya 2015'ten bu yana gıda kaybını a
 
 Tahıl, gelişmekte olan ülkelerin çoğunda temel besin; kalori bakımından hasat sonrası kaybın en büyüğü de onda. Kumar ve Kalita (2017) depolamadaki kaybı derledi: teknik yetersizlik yüzünden tahılın **%50-60**'a varan kısmı depoda kaybolabiliyor; bilimsel depolama yöntemleri bu kaybı **%1-2**'ye indirebiliyor. Derlemenin ayrıntılı tartıştığı çözümler hava geçirmez (hermetik) depolama gibi fiziksel teknolojiler.
 
+[[grafik:b11-depolama-kaybi]]
+
 ## Yapay zekâ nerede duruyor
 
 Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda mekanik yöntemlerden makine görüşüne geçti; şimdi aynı ölçüm ağaçtaki meyveye, bahçeye taşınıyor (Neupane ve arkadaşları, 2023). Yapay zekâ bu gözün tanıyabildiği kusurları çoğaltmaya aday.

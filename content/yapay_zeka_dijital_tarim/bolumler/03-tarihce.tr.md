@@ -2,6 +2,8 @@
 
 1977'de uydu verisiyle yapılan bir tahmin, Sovyet buğday hasadını resmî rakamın yaklaşık **%1** yakınında buldu. O tahmin, bugün tarımdaki yapay zekâda birleşen üç eski damarın ilkinden çıkıyordu: 1972'den bu yana süren uydudan ürün izleme. Öbür ikisi, 1980'lerin uzman sistemleriyle bilgisayara karar verdirme ve 1990'larda GPS ve hassas tarımla tarlaya gelen konum bilgisi. Sonra üç gelişme geldi: Landsat ve Sentinel verisi ücretsizleşti, derin öğrenme görüntü tanımada sıçrama yaptı ve yapay zekâlı sohbet robotları çiftçinin sorusunu yanıtlamaya başladı. Türkiye'de ise hikâyenin temelinde bir kayıt var: Dünya Bankası'nın Türkiye'nin temel kırsal veri tabanı dediği çiftçi kaydı.
 
+[[grafik:b03-donum-noktalari]]
+
 ## Uydudan ürün izleme (1972-1978)
 
 Landsat 1, 23 Temmuz 1972'de fırlatıldı. NASA'nın anlatımına göre ABD, dünyadaki kıtlıktan habersiz, Sovyetler Birliği'ne **15** milyon ton buğdayı büyük bir indirimle sattı; Great Grain Robbery (Büyük Tahıl Soygunu) diye anılan bu satıştan sonra hükümet, ürünleri dünya ölçeğinde izleyecek doğru ve güncel bir sisteme ihtiyaç olduğunu gördü ve yeni fırlatılan Landsat 1'e yöneldi.
@@ -25,6 +27,8 @@ Hassas tarıma ayrılmış ilk uluslararası konferans Temmuz 1992'de Minnesota'
 ABD 2008'de Landsat arşivini ücretsiz yaptı; NASA'ya göre veri kullanımı **20** kat arttı. AB, 12 Temmuz 2013 tarihli bir tüzükle Sentinel uydularının verisine erişimin ücretsiz, tam ve açık olmasını kurala bağladı; Sentinel-2A 23 Haziran 2015'te fırlatıldı.
 
 2012'de derin evrişimli bir sinir ağı ImageNet görüntü tanıma yarışmasını, en iyi beş tahminde **%15,3** hata oranıyla kazandı; ikinci gelenin hata oranı **%26,2**'ydi (Krizhevsky, Sutskever ve Hinton). Yöntem kısa sürede tarıma taşındı: Mohanty ve arkadaşları, Krizhevsky'nin çalışmasına dayanarak eğittikleri modelin kontrollü koşullarda çekilmiş **54.306** yaprak görüntüsünden ayrılmış test görüntülerinde **%99,35** doğruluğa ulaştığını 2016'da yayımladı ve bunu akıllı telefonla bitki hastalığı teşhisine doğru ilk adım saydı; başka koşullarda çekilmiş görüntülerde doğruluk **%31**'in biraz üstünde kaldı.
+
+[[grafik:b03-imagenet-2012]]
 
 John Deere Eylül 2017'de, bilgisayarlı görü ve makine öğrenmesiyle yalnız yabancı otun olduğu yere ilaç atan bir teknoloji geliştiren Blue River Technology'yi satın alacağını duyurdu. Şirketin 2019 raporuna göre See & Spray adlı bu teknoloji o tarihte henüz tam olarak ticarileşmemişti.
 

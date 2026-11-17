@@ -14,6 +14,8 @@ FAO'nun 2024 raporuna göre dünya su ürünleri üretimi 2022'de **223,2** mily
 
 İzleme dışı gemileri gösteren harita, Paolo ve arkadaşlarının (2024) çalışmasından geliyor: araştırmacılar uydu görüntülerini, gemilerin GPS verisini ve derin öğrenme modellerini birleştirerek 2017-2021 arasında dünyanın kıyı sularındaki endüstriyel gemi faaliyetini haritaladı. Kamuya açık izlemede görünmeyen avcılığın büyük kısmı Güney Asya, Güneydoğu Asya ve Afrika çevresinde. Taşıma ve enerji gemilerinde izlemenin dışında kalan faaliyet **%21-30**. Avcılık COVID-19 salgınının başında **%12** azaldı ve 2021'e kadar salgın öncesi düzeyine dönmedi.
 
+[[grafik:b14-izlenmeyen-gemiler]]
+
 ## Yapay zekâ nerede duruyor
 
 Yetiştiricilikte derin öğrenme canlı balık tanıma, tür sınıflandırma, davranış analizi, yemleme kararları, boy ve biyokütle tahmini ve su kalitesi öngörüsünde deneniyor. Yang ve arkadaşlarının (2021) derlemesine göre en büyük katkısı, özellikleri verinin içinden kendiliğinden çıkarabilmesi. Ama yöntem hâlâ zayıf yapay zekâ aşamasında ve eğitim için çok miktarda etiketli veri istiyor; derlemeye göre bu ihtiyaç, yetiştiricilikte yayılmasının önündeki darboğaz.

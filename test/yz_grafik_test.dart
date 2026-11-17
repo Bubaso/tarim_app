@@ -13,10 +13,10 @@ YzGrafik _ornek(String tur) {
   const diziler = [YzGrafikDizi('a', 'Laboratuvar', 'Laboratory'), YzGrafikDizi('b', 'Tarla', 'Field')];
   final noktalar = switch (tur) {
     'aralik' => const [
-        YzGrafikNokta('1 hektardan küçük', 'Under 1 hectare', 'a', 24, 'alt'),
-        YzGrafikNokta('1 hektardan küçük', 'Under 1 hectare', 'a', 37, 'ust'),
-        YzGrafikNokta('200 hektardan büyük', 'Over 200 hectares', 'a', 74, 'alt'),
-        YzGrafikNokta('200 hektardan büyük', 'Over 200 hectares', 'a', 80, 'ust'),
+        YzGrafikNokta('1 hektardan küçük', 'Under 1 hectare', 'a', 24, uc: 'alt'),
+        YzGrafikNokta('1 hektardan küçük', 'Under 1 hectare', 'a', 37, uc: 'ust'),
+        YzGrafikNokta('200 hektardan büyük', 'Over 200 hectares', 'a', 74, uc: 'alt'),
+        YzGrafikNokta('200 hektardan büyük', 'Over 200 hectares', 'a', 80, uc: 'ust'),
       ],
     'zaman' => const [
         YzGrafikNokta('Landsat 1 fırlatıldı', 'Landsat 1 launched', 'a', 1972),
@@ -30,6 +30,16 @@ YzGrafik _ornek(String tur) {
     'pay' => const [
         YzGrafikNokta('Türkiye', 'Türkiye', 'a', 86.93),
         YzGrafikNokta('Türkiye', 'Türkiye', 'b', 13.07),
+      ],
+    'kucuk' => const [
+        YzGrafikNokta('Tarımda çalışanlar', 'Agricultural workers', 'a', 46,
+            panelTr: 'Ortalama yaş', panelEn: 'Average age', birimTr: 'yıl', birimEn: 'years'),
+        YzGrafikNokta('Bütün istihdam', 'All employment', 'b', 39,
+            panelTr: 'Ortalama yaş', panelEn: 'Average age', birimTr: 'yıl', birimEn: 'years'),
+        YzGrafikNokta('Tarımda çalışanlar', 'Agricultural workers', 'a', 68.4,
+            panelTr: '40 yaşın üzerindekilerin payı', panelEn: 'Share aged over 40'),
+        YzGrafikNokta('Bütün istihdam', 'All employment', 'b', 47.1,
+            panelTr: '40 yaşın üzerindekilerin payı', panelEn: 'Share aged over 40'),
       ],
     _ => const [
         YzGrafikNokta('Mohanty 2016', 'Mohanty 2016', 'a', 99.35),
@@ -55,7 +65,7 @@ YzGrafik _ornek(String tur) {
 }
 
 const _turler = ['yatay_cubuk', 'dikey_cubuk', 'cizgi', 'alan', 'dumbbell', 'aralik', 'pay',
-  'waffle', 'egim', 'kpi', 'isi', 'zaman'];
+  'waffle', 'egim', 'kpi', 'isi', 'zaman', 'kucuk'];
 
 Widget _sar(Widget w) => MaterialApp(home: Scaffold(body: SingleChildScrollView(
     child: Padding(padding: const EdgeInsets.all(16), child: w))));

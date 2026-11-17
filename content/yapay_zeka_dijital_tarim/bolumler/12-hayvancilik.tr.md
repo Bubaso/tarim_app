@@ -23,9 +23,13 @@ En çarpıcı etki doğurganlık, ömür ve sağlık gibi kalıtım derecesi dü
 
 Sensör tarafında Stygar ve arkadaşları (2021), süt sığırında refah değerlendirmesine yarayan ticari teknolojileri taradı. **1.111** yayından yalnız **42** çalışma, **30** aracı bağımsız (dış) doğrulamadan geçirmişti. Piyasada bulunan **129** teknolojiden yalnız **18**'i (**%14**) bağımsız olarak doğrulanmıştı. Doğrulanma oranı ivmeölçerlerde **%30**, kameralarda **%10**, yük hücrelerinde ve süt sensörlerinde **%8**, bolüslerde **%7**. Yatma, ayakta durma ve geviş getirme en sık ve en yüksek başarıyla doğrulanan davranışlar; vücut kondisyonu ve mastitis tespiti gibi sağlık ölçümleri daha düşük başarı grubunda.
 
+[[grafik:b12-sensor-dogrulama]]
+
 ## Yapay zekâ nerede duruyor
 
 Erhan ve Yağanoğlu (2026), Türkiye'den yazdıkları bir meta-analizde çiftlik hayvanlarında yapay zekâyla hastalık ve refah tespitinin isabetini bir referans standarda göre topladı. **154** tam metinden **74**'ü ölçütleri karşıladı, ama yalnız **10** çalışma (**7** mastitis, **3** topallık) birleşik analize girebildi; çoğu başarıyı hayvan başına değil kayıt ya da meme çeyreği düzeyinde verdiği için birleştirilemedi. Birleşik duyarlılık (hasta hayvanın ne kadarının yakalandığı) **%83,5**, özgüllük (sağlam hayvanın ne kadarının doğru sağlam sayıldığı) **%90,1**. Yazarların yorumu ölçülü: yöntem umut verici, ama çalışmalar arası farkın büyüklüğü, birleştirilebilen çalışmaların azlığı ve kanıtın düşük kesinliği temkinli okumayı gerektiriyor.
+
+[[grafik:b12-meta-analiz-eleme]]
 
 Tek çalışmalar çok daha yüksek rakamlar bildirebiliyor. Muğla Sıtkı Koçman Üniversitesi ile Polonya'daki Bydgoszcz Bilim ve Teknoloji Üniversitesi'nden araştırmacıların çalışması, **6.600** ineğin sağım robotu sensör verisiyle mastitis riskini **%98,1** doğrulukla tahmin ettiğini bildiriyor (Abdul Ghafoor ve Sitkowska, 2021). Meta-analiz, tek bir çalışmanın yüksek rakamıyla birleşik kanıt arasındaki farkın neden önemli olduğunu gösteriyor. Üstelik her iki sonuç da teşhisin isabetini ölçüyor; sensörle ya da yapay zekâyla erken teşhisin bir Türkiye çiftliğinde hayvan sağlığını ya da verimi ne kadar değiştirdiği sorusu ise yayımlanmış bir değerlendirmede henüz yanıt bulmadı.
 

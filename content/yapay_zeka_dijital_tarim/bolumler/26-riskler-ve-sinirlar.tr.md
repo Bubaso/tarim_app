@@ -8,9 +8,13 @@ Görüntüden hastalık tanıyan modellerin en çok anılan sınırı, eğitildi
 
 Ramcharan ve arkadaşları (2019), manyok hastalıklarını tanıyan bir modeli telefon uygulamasına koyup Tanzanya'da bir tarlada **720** hastalıklı yaprakçıkla denedi. Belirgin belirtilerde F-1 skoru test setindeki **0,79**'dan tarla fotoğraflarında **0,54**'e (**%32** düşüş), videoda **0,48**'e (**%39** düşüş) indi. Erken, hafif belirtilerde F-1 skoru fotoğrafta **0,26**'da, videoda **0,25**'te kaldı. Yani model, teşhisin en çok işe yarayacağı erken evrede en düşük başarıyı gösterdi. Yazarlara göre telefonda çalışan bir model ışık ve açı gibi yeni güçlüklerle karşılaşıyor ve bu tür modellerin gerçek koşullarda sınanması şart.
 
+[[grafik:b26-manyok-f1-tarlada]]
+
 ## Kimin işine yarıyor
 
 FAO'nun 2022 Gıda ve Tarımın Durumu raporuna göre dijital otomasyon teknolojilerinin kullanımı artıyor, ama çoğunlukla yüksek gelirli ülkelerde. Veri az olduğu için FAO, dijital otomasyon hizmeti sağlayan şirketlerle görüşmelere dayanan **27** vaka çalışması yaptı: bunlardan yalnız **10**'u kârlı ve finansal olarak sürdürülebilirdi. Bu şirketler çoğunlukla yüksek gelirli ülkelerde bulunuyor, yaygın biçimde benimsenmiş olgun çözümler kullanıyor ve çoğunlukla büyük üreticilere hizmet veriyor.
+
+[[grafik:b26-fao-27-vaka]]
 
 FAO benimsemenin önündeki en büyük engelleri kırsalda düşük dijital okuryazarlık, küçük üreticiye uygun teknolojilerin bulunmaması ve bu teknolojilerin görece yüksek maliyeti olarak sayıyor; bunlara çoğu zaman yaşlanan çiftçi nüfusuyla ilişkilendirilen bir değişim isteksizliği ekleniyor. Rapor otomasyonun toplumsal eşitsizlikleri derinleştirme riski taşıdığını da yazıyor: daha büyük ve daha eğitimli üreticilerin yeni teknolojiye yatırım yapacak, yeniden eğitim alıp yeni beceri öğrenecek kapasitesi daha fazla. Büyük ve küçük çiftlik arasındaki farkı ABD'nin ve AB'nin benimseme verileri de gösteriyor.
 
@@ -35,6 +39,8 @@ Uluslararası Enerji Ajansı'na (IEA) göre veri merkezleri 2024'te dünya elekt
 Tarım ve Orman Bakanlığı'nın Ulusal Kırsal Kalkınma Stratejisi'ne (2024-2028) göre Çiftçi Kayıt Sistemi'ndeki ortalama işletme büyüklüğü 2023'te **6,9** hektar; 2020'den beri **6,9** ile **7,1** hektar arasında. Aynı yıl ÇKS'de **2.245.215** işletme ve **306.033** genç çiftçi kayıtlıydı. Strateji, Türk tarımında dünya pazarlarına üreten orta ve büyük işletmelerle yerel pazara ve hane tüketimine üreten geleneksel küçük aile işletmelerinin bir arada olduğunu yazıyor. Zayıf yönler arasında tarımsal nüfusun yaşlanması ve gençlerin tarıma ilgisinin azalması, işletme ölçeğinin düşüklüğü ve akıllı tarım uygulamalarına erişim olanaklarının kısıtlı olması sayılıyor. Stratejinin tedbirleri arasında yapay zekâ ve akıllı teknoloji uygulamalarının kullanımının artırılması ve dijital okuryazarlığa yönelik eğitimler var.
 
 IV. Tarım Orman Şûrası'nın kırsal kalkınma çalışma belgesi, TÜİK'in 2023 işgücü verisine dayanarak tarımda çalışanların yaş ortalamasını **46**, bütün istihdamda yaklaşık **39** olarak veriyor; tarımda çalışanların **%68,4**'ü **40** yaşın üzerinde, genel istihdamda bu oran **%47,1**. Tarım istihdamı 2014'te **5** milyon **220** binken 2023'te **4** milyon **695** bine indi.
+
+[[grafik:b26-tarim-yaslanma]]
 
 2027 Yıllık Programı'na göre işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı üretim maliyetlerini artırıyor, tarımsal mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştiriyor. Köylerde **65** yaş ve üzeri nüfus **1.159.477** kişi. Tarımın toplam istihdamdaki payı 2025'te **%14**, 2026'nın ilk yarısında **%13,4**. Program tarım işletmelerinin ve üretici örgütlerinin akıllı tarım konusundaki beşeri ve teknik altyapısının geliştirilmesini desteklemeyi öngörüyor; 2025 Genel Tarım Sayımı'nın sonuçlarının 2026 sonunda paylaşılması bekleniyor.
 

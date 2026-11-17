@@ -8,6 +8,8 @@ PlantVillage Nuru is a phone app developed as a public good by Penn State Univer
 
 The 2020 version of Nuru identified symptoms with **65%** accuracy; extension officers reached **40-58%** and farmers **18-31%**. Looking at six leaves per plant raised accuracy to **74-88%**. Its weaknesses were measured too: with single leaves, accuracy for brown streak disease was only **21%**, and for mild symptoms **13-37%**; the model's first version dropped to **30-41%** on three other phones. Two weeks of use raised extension officers' diagnostic skill only slightly. The evaluators included researchers from IITA, one of the organisations that developed the app; the app's effect on yields or incomes was not measured.
 
+[[grafik:b28-nuru-teshis]]
+
 ## England: a field no one entered
 
 The Hands Free Hectare project of Harper Adams University and the company Precision Decisions set out to grow a field from sowing to harvest using only autonomous vehicles and drones. A lightweight tractor did the spraying, drilling and rolling, and a combine harvester brought in the crop. Drones with multispectral and colour cameras imaged the field from above; a small scout vehicle filmed at crop level and took samples.
@@ -47,6 +49,8 @@ The cows adapted to the system within a few days to two weeks; farm changes such
 ## Türkiye: spraying drones
 
 One of the digital farming technologies used over large areas in Türkiye is the spraying drone. According to an online survey of **71** operators providing this service, carried out in May-August 2026 (İtmeç, 2026), **67.1%** of the businesses spray **500** hectares or more a year; spraying is mainly on wheat (**88.4%**) and maize (**76.8%**) fields. The gaps in practice are clear: only **14.1%** of operators calibrate before every application; **98.6%** take wind into account, but only **16.9%** take relative humidity into account; spraying is often done in or near beekeeping areas (**78.6%**) and in residential areas (**61.4%**). The most frequently reported problem is wind drift (**80.3%**). The survey rests on what operators reported; it does not check the products used, the target pests or the permits.
+
+[[grafik:b28-dron-operatorleri]]
 
 In Türkiye, drone spraying is not permitted for every crop, pest or type of application. At an evaluation meeting of the General Directorate of Food and Control in March 2026, applications against the **15** harmful organisms for which drone use is permitted, and the permit procedures of provincial directorates, were discussed. An ethnographic study of farmers using drones in western Türkiye (Kaya, 2024) describes how drones measure and visualise a farm's condition and let farmers apply chemicals accordingly; but because of their high cost and their poor fit with some farms' ecologies and existing technologies, they are not equally available to all farmers, and using them requires extra steps to comply with national security rules. These studies show how drones are used in the field; there is, however, no published independent field study from Türkiye measuring the effect of a digital tool on a farm's yields, water use or income.
 

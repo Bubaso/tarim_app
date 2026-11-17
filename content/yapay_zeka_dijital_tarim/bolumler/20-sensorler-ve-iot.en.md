@@ -12,7 +12,11 @@ According to the 2026 estimate of the International Telecommunication Union (ITU
 
 Network coverage shows the same picture. Worldwide, **70%** of people living in urban areas have access to a 5G network, against **45%** of those in rural areas: a gap of **25** percentage points. In high-income countries 5G covers **90%** of the urban population and **72%** of the rural population. 4G reaches **99%** of the urban population and **87%** of the rural population. Places with no network at all or only 2G are all rural; the share of the population living in them ranges from **2%** in rural Europe to **21%** in rural Africa.
 
+[[grafik:b20-kent-kir-isi-haritasi]]
+
 According to the global analysis by Mehrabi and colleagues (2021), coverage is poor not only on small farms but also in croplands with large yield gaps, climate-stressed locations and food-insecure populations; in many African countries less than about **40%** of farming households have internet access, and the cost of data remains prohibitive.
+
+[[grafik:b20-baglanti-isletme-buyuklugu]]
 
 A systematic review of peer-reviewed studies published between 2020 and 2024 (Miller and colleagues, 2025) lists the critical obstacles to IoT-based sensor networks in agriculture as high infrastructure costs, limited interoperability, connectivity constraints in rural areas, and ethical concerns about transparency and data privacy. According to the authors, policy intervention is needed to ensure fair data ownership, cybersecurity and equitable access to smart farming tools, especially in developing regions.
 
@@ -30,4 +34,8 @@ One official measuring network that runs continuously in the field belongs to me
 
 In the ministry's 2025 activity report, the 2025 target for the indicator on the number of farms using climate-friendly smart farming technology systems is **410**, and the outcome is **0**. According to the report, the target was not reached because grant schemes under the World Bank-financed Türkiye Climate Smart and Competitive Agricultural Growth Project (TUCSAP) had not yet started; training of trainers was held in **15** pilot provinces. Which technologies the indicator covers has not been specified. The Digital Villages Initiative, launched by TAGEM and FAO in 2023 and covering Albania, Bosnia and Herzegovina, Georgia and Türkiye, was completed in December 2025; in Türkiye a village digital centre was set up in Boyalı, in Ankara's Güdül district.
 
+[[grafik:b20-akilli-tarim-hedef]]
+
 No published study has measured the effect of agricultural sensor and IoT networks on farming in Türkiye; academic work is at the level of adoption surveys and prototypes. A survey of **325** farmers in six regions (Guldal, Sanli and Turker, 2025) found that **66** used at least one smart farming technology, **170** did not but wanted to, and **89** did not use any; non-users had smaller landholdings, did not use credit, had limited awareness and owned no tractor. The sample was not drawn at random: it consists of farmers who volunteered at ministry training sessions in the province with the most grants in each region. A study carried out at Çukurova University (Civelek, 2022) developed a tractor tracking system running on a LoRaWAN network: over **6** months, in two trials, the devices generated **49,121** and **52,766** data points, the batteries lasted **95** and **98** days, and position was measured with at most **3** metres of error. The hardware cost **55** dollars at May 2020 prices; a tractor manufacturer's 4G device cost **795** dollars. But the data transmission trials used dummy data; testing on a farm is mentioned in the paper as future work.
+
+[[grafik:b20-akilli-tarim-anketi]]

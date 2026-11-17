@@ -14,6 +14,8 @@ On 23 July 2023, AppHarvest Products, LLC and eleven affiliated companies filed 
 
 **Small Robot Company.** Small Robot Company, a farm robotics start-up in the United Kingdom, announced in 2020 that it had placed an AI-driven advice engine, Wilma, at the heart of its robotic farming system. According to the company's post, the aim was per-plant farming, which the company believed would become the dominant system in the fourth agricultural revolution, and that year it aimed to show that it could kill weeds autonomously without chemicals. The post said Wilma would be commercially available to early customers from October. According to the UK companies register, the company entered creditors' voluntary liquidation on 1 February 2024 and was dissolved on 30 April 2026.
 
+[[grafik:b27-vaatten-iflasa]]
+
 ## The distance between the lab and the field
 
 According to a review of harvesting robots for high-value crops (Bac and colleagues, 2014), the robots located the fruit with an average success of **85%** and detached it with **75%**; harvest success stayed at **66%**. **5%** of the fruit and **45%** of the stalks were damaged; a harvest cycle took **33** seconds on average. According to the review, the performance of harvesting robots had not improved in the past three decades, and none of the **50** robots examined had been commercialised.
@@ -31,3 +33,5 @@ The two figures do not measure the same thing: the 2009 figure covers food produ
 The loan agreement for the Türkiye Climate Smart and Competitive Agricultural Growth Project (TUCSAP) between Türkiye and the World Bank's International Bank for Reconstruction and Development was signed on 16 May 2022; the loan is **304,800,000** euros. One of the project's sub-components is a digital blueprint for the ministry's collection and management of sectoral information. The project will end on 31 March 2028.
 
 According to an audit report by the Treasury Controllers Board of the Ministry of Treasury and Finance dated 16 June 2026, **12.91%** of the loan had been spent by the end of 2025. For 2025 the original budget was **108.8** million euros and the final budget **55.6** million euros; spending in the year was **27.9** million euros, **50.17%** of the final budget. In the grant category, where a total of **29.5** million euros is planned, nothing had been spent by the end of 2025. According to the World Bank's November 2024 monitoring report, the March 2028 target for the indicator on farmers adopting climate-smart agricultural technologies is **42,500**; in October 2024 the value was zero, and the bank writes that reporting on the indicator is delayed because of delays in deploying the grant financing.
+
+[[grafik:b27-tucsap-harcama]]

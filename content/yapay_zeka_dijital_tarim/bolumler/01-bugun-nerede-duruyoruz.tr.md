@@ -2,6 +2,8 @@
 
 Tarımda yapay zekâ en sağlam sonuçlarını geniş bir alanı ya da çok sayıda nesneyi sürekli gözetleyen işlerde veriyor: hava tahmininde, uydudan haritalamada ve av denetiminde; orman yangınını erken görmede de umut veren ilk sonuçlar var. İş tek bir tarlanın kararına indiğinde tablo karışıyor: tasarruf çoğu denemede ölçülüyor ama kâr her tarlada görülmüyor, laboratuvarda yüksek başarı gösteren modeller de sahada düşüyor. Teknolojiyi en çok büyük işletmeler kullanıyor: AB'de hassas tarım uygulayan çiftlikler, bütün çiftliklerin yaklaşık **%18**'i oldukları hâlde tarım alanının yaklaşık **%44**'ünü işliyor. Türkiye'de bakanlık yapay zekâyı izleme işlerinde kullanmaya başladı; yapay zekânın tarlada verime, girdi kullanımına ya da çiftçinin gelirine etkisini ölçen, yayımlanmış bir değerlendirme ise bulunmuyor.
 
+[[grafik:b01-ab-hassas-tarim-pay-ve-alan]]
+
 ## Geniş alanı gözetlemek: en sağlam sonuçlar
 
 Yapay zekâ hava tahmininde araştırmadan işletmeye geçti. GraphCast, **10** günlük küresel tahminde **1.380** doğrulama hedefinin **%90**'ında en doğru operasyonel tahmin sistemlerini geride bıraktı; Avrupa Orta Vadeli Hava Tahminleri Merkezi kendi yapay zekâ modelini 25 Şubat 2025'ten beri fizik tabanlı modelinin yanında çalıştırıyor. Uydu görüntüsü ve derin öğrenmeyle hazırlanan bir harita, dünyadaki endüstriyel balıkçı gemilerinin **%72-76**'sının kamuya açık izleme sistemlerinde görünmediğini ortaya koydu. Kameralı bir prototip sistem, 2020'de yayımlanan ilk sonuçlarına göre, orman yangınının dumanını çoğunlukla tutuşmadan sonraki **15** dakika içinde, kamera başına günde ortalama birden az yanlış alarmla yakalıyordu.

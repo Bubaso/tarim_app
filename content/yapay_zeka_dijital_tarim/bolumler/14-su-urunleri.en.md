@@ -14,6 +14,8 @@ According to FAO's 2024 report, world fisheries and aquaculture production reach
 
 The map of untracked vessels comes from Paolo and colleagues (2024), who combined satellite imagery, vessel GPS data and deep-learning models to map industrial vessel activity in the world's coastal waters in 2017-2021. Much of the fishing missing from public tracking takes place around South Asia, Southeast Asia and Africa. For transport and energy vessels, the activity missing from tracking is **21-30%**. Fishing fell by **12%** at the onset of the COVID-19 pandemic and had not returned to pre-pandemic levels by 2021.
 
+[[grafik:b14-izlenmeyen-gemiler]]
+
 ## Where AI stands
 
 In aquaculture, deep learning is being tried for live fish recognition, species classification, behavioural analysis, feeding decisions, size and biomass estimation, and water-quality prediction. According to the review by Yang and colleagues (2021), its greatest contribution is its ability to extract features from the data automatically. But the method is still at a weak artificial intelligence stage and needs large amounts of labelled data for training; according to the review, this need is the bottleneck holding back its spread in aquaculture.

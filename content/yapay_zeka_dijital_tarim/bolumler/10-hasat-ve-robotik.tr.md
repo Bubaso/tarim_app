@@ -25,11 +25,15 @@ En hızlısı bir kivi robotuydu: **1** saniye. Ama derlemenin asıl bulgusu ba�
 
 Bu önerinin sahadaki karşılığını biber hasat robotu SWEEPER gösterdi (Arad ve arkadaşları, 2020). Robot ticari bir serada dört hafta boyunca **262** meyve üzerinde sınandı. Bir meyveyi toplama süresi ortalama **24** saniye, bunun yaklaşık yarısı lojistik; laboratuvarda kol daha hızlı çalıştırılarak süre **15** saniyeye indi. Hasat başarısı, bitki robota en uygun koşullarda yetiştirildiğinde **%61**, seranın olağan koşullarında **%18**. Yazarların vardığı sonuç: robotla hasatta başarı, ona uygun ürün koşullarını ve çeşitleri bulmaya bağlı.
 
+[[grafik:b10-sweeper-kosullar]]
+
 Zhou ve arkadaşlarının 2022 tarihli derlemesi, alandaki önemli ilerlemeye rağmen mevcut robotların performansının neden yetersiz kaldığını inceliyor.
 
 ## Yapay zekâ nerede duruyor
 
 Yapay zekânın katkısı robotun gözünde: kamera görüntüsünde meyveyi bulmak ve olgunluğunu ayırt etmek. Ama derlemedeki sıralama darboğazın gözde değil elde olduğunu düşündürüyor: yer bulma (**%85**) koparmadan (**%75**), koparma da bütün hasattan (**%66**) daha başarılı. Biber robotunun olağan serada **%18**'e düşmesi aynı şeyi söylüyor: yaprak, dal ve meyve dizilişi robota göre düzenlenmedikçe daha iyi bir göz tek başına yetmiyor.
+
+[[grafik:b10-hasat-robotu-basamaklari]]
 
 ## Türkiye
 

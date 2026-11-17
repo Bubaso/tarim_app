@@ -20,9 +20,13 @@ Yapay zekânın bu zincirdeki yeri karar halkası: hangi noktaya ne kadar azot y
 
 Tasarruf gerçek: sensörlü azot verimi düşürmeden gübreyi azaltıyor, soya denemeleri de tohumda benzer bir pay gösteriyor. Kâr tarafında ise sonuç değişiyor: Nebraska'da sensörlü uygulama tarlaların yalnız **%35**'inde daha kârlı çıktı. Derlemenin yazarları bu kazancın tek başına benimsemeyi artırmaya yetmeyebileceğini söylüyor; mısır denemesinin yazarları da sensörlerin yayılmasını tutarsız sonuçların, olası verim kayıplarının ve tarla ölçeğinde deneme eksikliğinin sınırladığını not ediyor.
 
+[[grafik:b06-sensorlu-azot-tarlalar]]
+
 ## Ne kadar yaygın
 
 ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin çiftlik anketine göre değişken oranlı teknoloji 1990'ların sonu ve 2000'lerin başında birçok tarla ürününde ekili alanın **%10**'unun altında kaldı. Sonra hızlandı: mısırda ekili alanın payı 2005'te **%11,5**'ten 2016'da **%37,4**'e, pamukta 2007'de **%5,4**'ten 2019'da **%22,7**'ye çıktı. Kışlık buğdayda 2017'de **%18,8**, soyada 2018'de **%25,3**. Büyük çiftlikler daha çok benimsiyor; Servis'e göre bunun bir nedeni, sabit maliyeti daha çok üretime yayabilmeleri.
+
+[[grafik:b06-vrt-ekili-alan]]
 
 Lowenberg-DeBoer ve Erickson (2019) dünyadaki kamuya açık verileri tarayıp ayrımı netleştiriyor: uydu güdümlü dümenleme ve ona bağlı otomasyonlar (ilaçlama bumu denetimi, ekim makinesinde sıra ya da bölüm kapatma gibi) tarihteki her büyük tarım teknolojisi kadar hızlı yayıldı; değişken oranlı teknoloji ise 2019 itibarıyla nadiren çiftliklerin **%20**'sini aşıyordu. Yazarlara göre bu, çiftçinin fikri sevdiğini ama değerine ikna olmadığını gösteriyor. Hassas tarımın en büyük boşluğu da gelişmekte olan ülkelerde motorlu mekanizasyon kullanmayan küçük ve orta ölçekli çiftlikler.
 
@@ -37,6 +41,8 @@ Değişken oranlı uygulamanın zor kısmı makine değil, reçete: tarlanın ha
 2027 için iki somut tedbir yazılı: **14** tarımsal üretici örgütünde ortak makine parkı kurulmasına destek verilecek; akıllı tarım yazılım ve ekipmanının yerli üretimi desteklenecek. Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ de dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i.
 
 Türkiye'de benimsemeye dair yayımlanmış veri ise eski. Çukurova'da **164** tarım mühendisi, bayi ve çiftçiyle yapılan ve 2016'da yayımlanan ankette katılımcıların **%51,8**'i hassas tarım terimini hiç duymamıştı; terimi duyanların yalnız **%29,3**'ü kavramı biliyordu. Uydu konumlamayı katılımcıların **%81,7**'si tanıyordu; değişken oranlı uygulama ise en az bilinen teknolojiydi (**%33,5**). Buna karşılık katılımcıların **%97,6**'sı bu teknolojilerin Türkiye tarımına bir ölçüde yararlı olacağını düşünüyordu, **%88,4**'ü daha ayrıntılı eğitim istiyordu (Keskin ve Sekerli, 2016).
+
+[[grafik:b06-cukurova-farkindalik]]
 
 Sahadan bir ölçüm de var. Çankırı merkezine **20** km uzaklıkta, **70** yılı aşkın süredir kuru tarımla buğday ekilen **300** hektarlık eğimli bir arazide **155** toprak örneği alındı (Wardamı, Erşahin ve Karahan, 2024). Bitkinin alabileceği fosfor arazinin içinde orta düzeyde değişiyordu (değişkenlik katsayısı **%21,3**) ve arazi düşük, orta ve yüksek olmak üzere üç gübreleme bölgesine ayrılabildi. Bakanlığın gübre tavsiye yöntemiyle aynı büyüklükteki beş alt bölge için hesaplanan fosfor dozları ise birebir aynı çıktı: yazarlara göre yöntem, bu topraklardaki fosfor farkına duyarsız. Değişken fosfor uygulamasının etkinliğini ve maliyet-faydasını ölçmek için daha kapsamlı bir çalışma gerektiğini yazarlar kendileri belirtiyor. Değişken oranlı gübre ya da tohum uygulamasının verime ve kâra etkisini Türkiye'de tarlada ölçen, yayımlanmış bir deneme de henüz yok.
 

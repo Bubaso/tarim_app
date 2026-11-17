@@ -8,6 +8,8 @@ PlantVillage Nuru, Penn State Üniversitesi'nin PlantVillage projesi, FAO, Ulusl
 
 Nuru'nun 2020 sürümü belirtileri **%65** doğrulukla tanıdı; yayım elemanları **%40-58**, çiftçiler **%18-31** doğrulukta kaldı. Bitki başına altı yaprağa bakılınca doğruluk **%74-88**'e çıktı. Zayıf yanları da ölçüldü: tek yaprakla kahverengi çizgi hastalığında doğruluk yalnız **%21**, hafif belirtilerde **%13-37**; modelin ilk sürümü başka üç telefonda **%30-41**'e düştü. İki haftalık kullanım yayım elemanlarının teşhis becerisini yalnız biraz artırdı. Değerlendirmeyi yapanlar arasında uygulamayı geliştiren kuruluşlardan IITA'nın araştırmacıları da vardı; uygulamanın verime ya da gelire etkisi ölçülmedi.
 
+[[grafik:b28-nuru-teshis]]
+
 ## İngiltere: insanın girmediği tarla
 
 Harper Adams Üniversitesi ile Precision Decisions şirketinin Hands Free Hectare projesi, bir tarlayı ekimden hasada yalnız otonom araçlar ve dronlarla yetiştirmeyi hedefledi. Hafif bir traktör ilaçlamayı, ekimi ve merdanelemeyi yaptı, hasadı bir biçerdöver kaldırdı. Dronlar multispektral ve renkli kameralarla tarlayı yukarıdan görüntüledi; küçük bir gözcü araç bitki boyunda video çekip numune aldı.
@@ -47,6 +49,8 @@ Yeni Zelanda'nın Canterbury ve Waikato bölgelerinde, meraya dayalı süt işle
 ## Türkiye: ilaçlama dronları
 
 Türkiye'de geniş alanlarda kullanılan dijital tarım teknolojilerinden biri ilaçlama dronları. Bu hizmeti veren **71** operatörle Mayıs-Ağustos 2026'da yapılan çevrimiçi bir ankete (İtmeç, 2026) göre işletmelerin **%67,1**'i yılda **500** hektar ve üzerinde ilaçlama yapıyor; uygulamalar başlıca buğday (**%88,4**) ve mısır (**%76,8**) tarlalarında. Uygulamadaki açıklar da belirgin: operatörlerin yalnız **%14,1**'i her uygulamadan önce kalibrasyon yapıyor; **%98,6**'sı rüzgârı dikkate alırken bağıl nemi dikkate alanlar yalnız **%16,9**; ilaçlama sıklıkla arıcılık alanlarında ya da yakınında (**%78,6**) ve yerleşim alanlarında (**%61,4**) yapılıyor. En sık bildirilen sorun rüzgârla sürüklenme (**%80,3**). Anket operatörlerin beyanına dayanıyor; kullanılan ilaçları, hedef zararlıları ve izinleri sınamıyor.
+
+[[grafik:b28-dron-operatorleri]]
 
 Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil. Gıda ve Kontrol Genel Müdürlüğü'nün Mart 2026'daki değerlendirme toplantısında, dronla mücadeleye izin verilen **15** zararlı organizmaya yönelik uygulamalar ve il müdürlüklerinin izin süreçleri ele alındı. Batı Türkiye'de dron kullanan çiftçilerle yapılan etnografik bir çalışma (Kaya, 2024), dronların tarlanın durumunu ölçüp görselleştirdiğini ve ilacı buna göre uygulattığını; ama yüksek maliyet ve bazı işletmelerin ekolojisine ve mevcut teknolojisine uymaması yüzünden her çiftçiye eşit ulaşmadığını, dron kullanımının ulusal güvenlik düzenlemelerine uyum için ek adımlar gerektirdiğini anlatıyor. Bu çalışmalar dronların sahada nasıl kullanıldığını gösteriyor; dijital bir aracın Türkiye'de bir işletmede verime, su kullanımına ya da gelire etkisini ölçen, yayımlanmış bağımsız bir saha çalışması ise yok.
 

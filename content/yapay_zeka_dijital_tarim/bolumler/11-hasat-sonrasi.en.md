@@ -25,6 +25,8 @@ FAO's own assessment is plain: the world has made no apparent progress in reduci
 
 In most developing countries cereals are the staple food, and on a calorie basis they account for the largest post-harvest losses. Kumar and Kalita (2017) reviewed losses in storage: because of technical inefficiency, as much as **50-60%** of grain can be lost in storage; scientific storage methods can bring this down to **1-2%**. The solutions the review discusses in detail are physical technologies such as hermetic storage.
 
+[[grafik:b11-depolama-kaybi]]
+
 ## Where AI stands
 
 Machine vision in grading is not new: in packhouses, the sizing of fruit and vegetables has moved from mechanical methods to machine vision over the last three decades; the same measurement is now moving to fruit on the tree, in the orchard (Neupane and colleagues, 2023). AI is a candidate for widening the range of defects this eye can recognise.

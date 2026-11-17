@@ -28,6 +28,8 @@ Tüzüğün gerekçesi tarımdaki en somut kaygıyı adıyla anıyor: veriyi tut
 
 Makine Tüzüğü (2023/1230) 14 Ocak 2027'den itibaren uygulanacak. Makine öğrenmesiyle davranışını kendisi geliştiren ve güvenlik işlevi üstlenen bileşenlerin ve sistemlerin uygunluk değerlendirmesini bağımsız bir üçüncü tarafa veriyor. Öğrenmeyen, yalnız programlandığı otomatik işi yapan yazılım bu kapsamın dışında. Tüzük otonom mobil makineyi ve onu uzaktan izleyen gözetmeni de tanımlıyor.
 
+[[grafik:b24-ab-mevzuat-takvimi]]
+
 ## Yapay zekâya değinmeyen kurallar
 
 Tarımda yapay zekânın bugünkü kullanımına dokunan kuralların bir kısmı yapay zekâdan hiç söz etmiyor. AB'nin ortak tarım politikasının finansmanını ve izlenmesini düzenleyen 2021/2116 sayılı Tüzük, üye ülkelerden Copernicus Sentinel uydu verisiyle ya da en az onun değerinde veriyle çalışan bir alan izleme sistemi istiyor: sistem 1 Ocak 2023'ten itibaren çalışır, en geç 1 Ocak 2024'te bütün üye ülkelerde tam işler olmalıydı. Tüzük uyduyu şart koşuyor, yöntemi değil; makine öğrenmesinden ya da yapay zekâdan söz etmiyor.

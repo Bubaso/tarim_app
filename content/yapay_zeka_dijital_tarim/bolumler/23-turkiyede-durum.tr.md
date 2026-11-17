@@ -33,6 +33,8 @@ Kırsal Kalkınma Yatırım Programı yapay zekâyı hedefleri arasında sayıyo
 
 Tarım bölümünün sonundaki **15** performans göstergesinin hiçbiri dijitalleşmeyi, akıllı tarımı ya da yapay zekâyı ölçmüyor. Yapay zekâ politikasının ölçülebilir bir 2027 hedefi yok.
 
+[[grafik:b23-uc-belgede-sifir]]
+
 ## Programın dışında: sahada çalışan sistemler
 
 Bakanlık birimlerinin kendi duyuruları ve belgeleri yapay zekâyı ya da makine öğrenmesini kullanan, ya da kullanmaya hazırlanan üç sistem daha gösteriyor. Üçü de aynı türden iş: geniş bir alanı ya da çok sayıda nesneyi gözetlemek.
@@ -50,6 +52,8 @@ Bakan da Mayıs 2025'te, bakanlığın sitesinde yayımlanan bir konuşmasında,
 Bakanlığın hazırladığı belgenin adı Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı. Bakan Mayıs 2025'teki aynı konuşmasında, IV. Tarım Orman Şûrası'nda yapay zekâ konusunda önemli tespitler yapıldığını aktararak planlarını sıraladı: dijital tarım, yapay zekâ ve ileri tarım teknolojileri araştırmaları için bir araştırma enstitüsü, kuraklık ve aşırı hava olaylarına karşı erken uyarı sistemleri ve dijital kuraklık izleme sistemi, tarım sigortasında uydu teknolojilerinin ve yapay zekânın kullanılması, bir tarımsal gözlem uydu ağı, tarımsal üretim için yapay zekâ destekli tahmin ve izleme sistemleri. 23-24 Ekim 2025'te Tarım Reformu Genel Müdürlüğü'nün ev sahipliğinde, Şûra kararlarına dayanan bir çalıştay yapıldı; hazırlanacak strateji ve eylem planına altlık olmak üzere bitkisel üretim, hayvancılık, kırsal kalkınma, orman ve su yönetimi için yapay zekâ destekli dijital dönüşüm eylem önerileri belirlendi. Önerilere kamu, akademi ve özel sektörden uzmanlarla birlikte Gartner uzmanları da katkı verdi.
 
 Belge 24 Kasım 2025'te, 2026 bütçesinin sunumunda, yılın başında paylaşılacak bir belge olarak anıldı. Bakan 4 Haziran 2026'daki bir zirvede belgenin hazırlandığını ve en kısa zamanda paylaşılacağını söyledi; aynı konuşmada bir Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezi kurduklarını açıkladı. Kasım 2026 itibarıyla strateji belgesinin metni yayımlanmadı.
+
+[[grafik:b23-strateji-belgesi-takvimi]]
 
 ## Araştırma tarafı: TAGEM
 

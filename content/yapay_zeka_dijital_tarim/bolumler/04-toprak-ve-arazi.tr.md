@@ -36,6 +36,8 @@ Makine öğrenmesiyle toprak haritalama akademide de sınanıyor: Kaya ve arkada
 
 2027 Yıllık Programı toprak verisini arazi kullanım kararlarının dayanağı sayıyor ve detaylı toprak etüdüne bir takvim veriyor. 2024'te **755** bin hektarda detaylı toprak etüdü ve haritalama tamamlandı; 2026 sonuna kadar **2,4** milyon hektarın daha bitmesi öngörülüyor. Çalışmaların sürdüğü **6,8** milyon hektarlık proje sahasının **3,5** milyon hektarının 2027'de, kalan **3,3** milyon hektarının 2028'de tamamlanması öngörülüyor. 2027 tedbiri olarak **15** ilde **3,5** milyon hektar tarım arazisinde etüt ve haritalamaya devam edilecek. Ölçek için: Türkiye'nin tarım arazisi 2025 itibarıyla **24** milyon hektar.
 
+[[grafik:b04-detayli-toprak-etudu]]
+
 Program bunun yanında ulusal arazi örtüsü haritasının her yıl üretilmesini, iklim projeksiyonlarına dayalı su erozyonu ve sediment analizleri için de veri altyapısı ve yöntem geliştirme çalışmalarını öngörüyor.
 
 Bakanlığın Aralık 2025'te açtığı ihale, Dünya Bankası kredisiyle yürütülen Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi kapsamında; toprak etüdü ve sınıflandırmasını, toprak analizlerini ve detaylı dijital toprak haritalarının hazırlanmasını kapsıyor. İhale **13** ilde **5,16** milyon hektar tarım alanını içine alıyor (proje sınırının tamamı **12,3** milyon hektar); iş **10** kısma bölünmüş, süresi **600** gün. Haritaların hangi yöntemle, makine öğrenmesiyle mi üretileceği açıklanmadı.

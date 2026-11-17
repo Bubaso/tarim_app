@@ -2,6 +2,8 @@
 
 Türkiye'de tarımda yapay zekâ ve dijital teknoloji üzerine çalışmalar dört yerde yürüyor: kamu kurumlarının sistemlerinde, devletin araştırma ve destek programlarında, üniversitelerde ve girişimlerde. Kamuda yapay zekâ en çok izleme işlerinde kullanılıyor ya da kullanılmaya hazırlanıyor: uydudan ürün, işlenmeyen arazi ve dikili alan belirleme, orman yangınında karar desteği, balıkçı gemilerinin izlenmesi. TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda akıllı tarım, gıda ve hayvancılık alanında kabul edilen **10** projede şirketler üniversitelerle ve araştırma kurumlarıyla birlikte çalışıyor. Girişim tarafında ise FAO ile EBRD'nin 2025 raporu Türkiye'de yaklaşık **35** tarım teknolojisi girişimi sayıyor ve bu sayıyı ülkenin ve tarım sektörünün büyüklüğüne göre görece düşük buluyor.
 
+[[grafik:b25-ekosistem-baslangic-yillari]]
+
 ## Kamu: yapay zekâ kullanan ya da kullanmaya hazırlanan sistemler
 
 | Sistem ya da proje | Ne yapıyor | Durum |

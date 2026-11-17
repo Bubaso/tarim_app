@@ -33,6 +33,8 @@ The Rural Development Investment Programme lists AI among its aims: it aims to s
 
 None of the **15** performance indicators at the end of the agriculture chapter measures digitalisation, smart agriculture or AI. The AI policy has no measurable target for 2027.
 
+[[grafik:b23-uc-belgede-sifir]]
+
 ## Outside the programme: systems at work in the field
 
 The announcements and documents of the ministry's own units show three more systems that use AI or machine learning, or are preparing to. All three do the same kind of work: watching over a large area or a large number of objects.
@@ -50,6 +52,8 @@ In a May 2025 speech published on the ministry's website, the minister also said
 The ministry's document is the AI-Supported Digital Transformation Strategy and Action Plan for the Agriculture and Forestry Sector. In the same May 2025 speech, noting that the Fourth Agriculture and Forestry Council had made important findings on AI, the minister listed their plans: a research institute for research on digital agriculture, AI and advanced agricultural technologies, early warning systems against drought and extreme weather and a digital drought monitoring system, the use of satellite technologies and AI in agricultural insurance, an agricultural observation satellite network, and AI-supported forecasting and monitoring systems for agricultural production. On 23-24 October 2025 a workshop based on the Council's decisions was held, hosted by the General Directorate of Agrarian Reform; as groundwork for the strategy and action plan to be prepared, it set out AI-supported digital transformation action proposals for crop production, livestock, rural development, forestry and water management. Experts from Gartner contributed to the proposals alongside experts from the public sector, academia and the private sector.
 
 The document was mentioned on 24 November 2025, during the 2026 budget hearing, as one to be shared at the beginning of the year. At a summit on 4 June 2026 the minister said the document had been prepared and would be shared as soon as possible; the same speech announced the setting up of an Artificial Intelligence and Digital Agriculture Technologies Research Centre. As of November 2026 the text of the strategy has not been published.
+
+[[grafik:b23-strateji-belgesi-takvimi]]
 
 ## The research side: TAGEM
 

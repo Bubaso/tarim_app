@@ -14,6 +14,8 @@ In weather forecasting, Lam and colleagues (2023) introduced GraphCast, a machin
 
 On index insurance, according to a review by Benami and colleagues (2021), loss estimation has moved from costly field sampling towards cheaper techniques based on weather and satellite data; but assessing production losses reliably and cheaply in complex landscapes remains difficult. The authors write that the value of a contract to the insured depends largely on how well it captures losses when people suffer most, and that audits are needed for inevitable misestimation. A study of livestock index insurance in northern Kenya (Jensen and colleagues, 2016) shows the problem in numbers: the insurance reduces exposure to shared risk from large losses by an average of **63%**, but policyholders are left with an average of **69%** of their original risk from large losses. According to the authors, basis risk is a widely recognised but rarely measured feature.
 
+[[grafik:b17-baz-riski]]
+
 ## Where AI stands
 
 In weather forecasting, what is measured is the accuracy of the forecast, not the outcome in the field: these studies do not measure how much a better frost or drought forecast reduces a farmer's losses. In insurance, too, cheaper loss estimation is not enough on its own; a contract's value depends on capturing losses in the worst years, and that is still hard in complex landscapes.
@@ -22,7 +24,11 @@ In weather forecasting, what is measured is the accuracy of the forecast, not th
 
 According to the 2027 Programme, drought and frost caused significant production losses in the 2024-2025 season. For the 2025 frost, producers with state-supported crop insurance received **23.1** billion lira in claims, and a Presidential Decision added **23.86** billion lira in support payments. In 2026 the state premium support for frost cover on crops was raised to **70%**. Crop insurance was made compulsory for products under contract farming, with an extra premium discount of **10-15%** depending on the product. In current prices, the funds for crop insurance in the agricultural support budget were **19.2** billion lira in 2025; the 2027 programme sets **30** billion lira.
 
+[[grafik:b17-zirai-don-2025]]
+
 The Agricultural Insurance Pool (TARSİM) issued **3.8** million policies in 2025 (**3.1** million in 2022) and paid **35** billion lira in claims to insured producers. Of the **430,076** claims under crop insurance, **171,558**, or **39.8%**, were for frost.
+
+[[grafik:b17-don-ihbarlari]]
 
 Village-Based Yield Insurance was launched in 2017 as district-based drought yield insurance and has run at village level since 2021; the state premium support rose from **60%** to **70%** on 1 January 2025. Cover runs up to the village's threshold yield, set using TÜİK and TARSİM data, and farmers do not need to file a claim. If the village's actual average yield falls below the threshold, all insured farmers in the village are compensated, within **30** days at the latest of the average yield being announced. If the average is equal to or above the threshold, no one is paid. Basis risk is built into this rule: if the village average does not fall below the threshold, a farmer whose own field was damaged is not paid either. No published measurement, however, shows how large this risk is.
 

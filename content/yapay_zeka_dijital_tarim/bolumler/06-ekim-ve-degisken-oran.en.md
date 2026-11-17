@@ -20,9 +20,13 @@ AI's place in this chain is the decision link: working out how much nitrogen or 
 
 The savings are real: sensor-based nitrogen cuts fertiliser without lowering yield, and the soybean trials show a similar margin for seed. On profit, however, the result changes: in Nebraska the sensor-based approach was more profitable in only **35%** of the fields. The review's authors say this gain alone may not be enough to drive adoption; the authors of the maize trial note that the spread of sensors has been held back by inconsistent results, potential yield losses and a lack of field-scale trials.
 
+[[grafik:b06-sensorlu-azot-tarlalar]]
+
 ## How widespread it is
 
 According to the farm survey of the US Department of Agriculture's Economic Research Service, variable-rate technology stayed below **10%** of planted area for several field crops in the late 1990s and early 2000s. Then it picked up: in maize its share of planted area rose from **11.5%** in 2005 to **37.4%** in 2016, in cotton from **5.4%** in 2007 to **22.7%** in 2019. Winter wheat stood at **18.8%** in 2017 and soybeans at **25.3%** in 2018. Large farms adopt more; according to the Service, this is in part because they can spread the fixed costs over more production.
+
+[[grafik:b06-vrt-ekili-alan]]
 
 Lowenberg-DeBoer and Erickson (2019) reviewed the public data worldwide and drew a sharp distinction: satellite guidance and the automation that comes with it (such as sprayer boom control and row or section shutoff on planters) spread as fast as any major agricultural technology in history, whereas variable-rate technology, as of 2019, rarely exceeded **20%** of farms. In the authors' reading, farmers like the idea but are not convinced of its value. The biggest gap in precision agriculture is small and medium farms in the developing world that do not use motorised mechanisation.
 
@@ -37,6 +41,8 @@ The 2027 Programme counts the efficient use of fertiliser, seed and other inputs
 The programme sets out two concrete measures for 2027: shared machinery parks will be supported in **14** agricultural producer organisations, and domestic production of smart farming software and equipment will be supported. A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread digitalisation, AI, smart farming, robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
 
 Published data on adoption in Türkiye, however, are old. In a survey published in 2016 with **164** agricultural engineers, dealers and farmers in Çukurova, **51.8%** of participants had never heard the term precision agriculture; of those who had, only **29.3%** knew the concept. Satellite positioning was known to **81.7%** of participants; variable-rate application was the least known technology (**33.5%**). At the same time, **97.6%** thought these technologies would be of some benefit to Turkish agriculture, and **88.4%** wanted more detailed training (Keskin and Sekerli, 2016).
+
+[[grafik:b06-cukurova-farkindalik]]
 
 There is a field measurement too. On **300** hectares of sloping land **20** km from the centre of Çankırı, under rainfed wheat for more than **70** years, **155** soil samples were taken (Wardamı, Erşahin and Karahan, 2024). Plant-available phosphorus varied moderately across the land (coefficient of variation **21.3%**), and the land could be divided into three fertilisation zones: low, medium and high. Yet the phosphorus rates calculated with the ministry's recommendation method for five equal-sized sub-regions came out exactly the same: in the authors' reading, the method is insensitive to the phosphorus differences in these soils. The authors themselves note that a more comprehensive study is needed to measure the efficiency and cost-benefit of variable phosphorus application. No published trial has yet measured, in a field in Türkiye, the effect of variable-rate fertiliser or seed application on yield and profit.
 

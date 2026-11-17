@@ -14,7 +14,11 @@ In this chain, AI is being tested in particular in the genomic prediction model:
 
 Michel and colleagues (2016) compared early-generation selection on several years of data from a winter wheat line breeding programme. Prediction based on field measurements alone was not very accurate for grain yield (correlation **0.21**); genomic selection models were more accurate across years (**0.39**). Genomic assisted selection, which combines the two, raised prediction accuracy by **20%**.
 
+[[grafik:b05-genomik-secilim-isabeti]]
+
 Watson and colleagues (2018) count long generation times among the reasons breeding progresses slowly, and show that speed breeding can reach up to **6** generations a year in spring wheat, durum wheat, barley, chickpea and pea, and **4** in canola, against **2-3** in a normal glasshouse. The authors expect that combining the method with tools such as genomic selection could speed breeding up further.
+
+[[grafik:b05-hizli-islah-kusak]]
 
 ## Where AI stands
 

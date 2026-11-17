@@ -14,6 +14,8 @@ The ownership framing itself is disputed. According to a legal analysis by Atik 
 
 In Turland and Slade's (2020) hypothetical choice experiment, who ran the platform was decisive: farmers were most willing to share their data with university researchers and least willing to share them with government. Yet relatively small financial or non-financial benefits significantly increased participation, even among farmers who stated strong privacy preferences. How data actually flow is shown by the agreements: according to a study of **141** terms of use for agricultural apps (Kaur and Dara, 2023), the agreements are long, complex and hard to understand; **95%** fall into the difficult-to-read category, close to **75%** require university-level education to understand, and some data management practices are not given adequate attention.
 
+[[grafik:b21-sozlesme-okunabilirlik]]
+
 On the EU side, the February 2020 data strategy listed agriculture among the strategic fields in which common European data spaces would be created. According to the Commission's page, updated in November 2026, common data spaces are being developed across **14** sectors; in agriculture there are initiatives named AgriDataSpace, Divine, CrackSense, ScaleAgData, AgDataValue, 4Growth, Dig4Live and CEADS. The Commission's aim is for businesses, public administrations and individuals to control the data they generate.
 
 ## Where AI stands
@@ -23,6 +25,8 @@ AI in agriculture grows on data; and data are shared only when they are trusted.
 ## Türkiye
 
 According to the ministry's 2025 activity report, the Farmer Registration System (ÇKS) is the agricultural database in which the areas under crops, the producers and production information are recorded. Registration was made easier through e-Devlet; land actually farmed can be registered with a pledge, regardless of ownership. In **21** provinces, ÇKS applications and data entry were handed by protocol to the Chambers of Agriculture. The area registered in ÇKS reached **93%** of the 2025 target of **17.3** million hectares. The ministry has **185** web-based applications and **46** services on e-Devlet.
+
+[[grafik:b21-cks-kayitli-alan]]
 
 According to the 2027 Programme, during the field work of the General Agricultural Census, conducted by the ministry with TÜİK, census offices were set up in **973** localities and about **3.4** million hectares of farmland not registered in ministry systems were entered ex officio into the Agricultural Production Registration System; the census results are expected to be shared with the public by the end of 2026. The Programme foresees a Farm Holding Registration System in which, using the census data, every farm holding will be registered and records will be updated in real time, integrated with spatial data, and the completion of a data centre for agricultural information systems. A legal framework for sharing public data is to be put in place and a national open data portal launched; open government data legislation and the alignment of Law No. **6698** on the Protection of Personal Data with the EU's data protection regulation are also among the tasks for 2027.
 

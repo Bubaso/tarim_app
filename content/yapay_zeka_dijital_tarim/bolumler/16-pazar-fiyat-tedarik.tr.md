@@ -12,6 +12,8 @@ Buğday, mısır ve pirinç fiyatlarının makine öğrenmesi, derin öğrenme v
 
 Hindistan'da **23** ürünün Ocak 2010–Haziran 2024 arasındaki günlük toptan fiyatlarıyla yapılan bir karşılaştırmada (Manogna ve arkadaşları, 2025) derin öğrenme modellerinden GRU, klasik ARIMA modelinden belirgin biçimde iyi sonuç verdi: hata ölçüsü (RMSE) soğanda **370**'e karşı **1.565**, domateste **210**'a karşı **1.299**. Yazarlar güvenilirliği artırmak için hava verisi gibi dış etkenlerin modele katılmasını öneriyor.
 
+[[grafik:b16-gru-arima-hata]]
+
 Üstünlük her yerde görülmüyor. İtalyan bir gıda toptancısının satış fiyatlarında (Menculini ve arkadaşları, 2021) klasik ARIMA ile LSTM ağları benzer sonuç verdi; en iyi doğruluğu iki derin öğrenme yöntemini birleştiren model sağladı, ama ayarlanması daha uzun sürdü.
 
 İzlenebilirlik tarafında, tarımda blokzinciri inceleyen bir tarama (Sendros ve arkadaşları, 2022) Nisan 2021'de **104** araştırma makalesini ele aldı: alan hâlâ erken aşamada ve çalışmaların çoğu tasarım aşamasında, önemli bir kısmı ise uygulama ya da pilot aşamasına geçmiş. Kullanım çoğunlukla üretim kayıtlarının bütünlüğü, üretim adımlarının ve ürünlerin izlenmesi üzerine. Avrupa'daki ve dünyadaki pilot uygulamaları karşılaştıran yeni bir çalışma (Karkanias ve arkadaşları, 2026), blokzincirin ürün düzeyinde izlenebilirliği ve sürdürülebilirlik ve gıda güvenliği beyanlarının doğrulanmasını güçlendirebileceğini gösteriyor; ama dağınık teknik standartların, sınırlı birlikte çalışabilirliğin, küçük üretici için yüksek kurulum maliyetinin ve konsorsiyumların yönettiği platformlardaki yönetişim riskinin sürdüğünü de.

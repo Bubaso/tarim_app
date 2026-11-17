@@ -21,6 +21,8 @@ Two peer-reviewed trials, in Australia and Germany, measured two things together
 
 The most important finding of the Australian trial is not the average but how the average arises: herbicide use is proportional to weed density, so the saving grows as weeds become sparser. In a lightly weeded strip two thirds of the herbicide is removed; in a heavily weeded strip targeted spraying approaches broadcast spraying — because herbicide is needed nearly everywhere anyway. The return on targeted spraying depends less on the technology than on the field itself.
 
+[[grafik:b08-hedefli-ilaclama-azalmalar]]
+
 The same trial measured one more thing: herbicide in the water leaving the field in the days after spraying. Agrochemicals reaching streams and groundwater is a problem independent of what the herbicide costs. Targeted spraying makes a measurable difference there too.
 
 In the German maize trial the camera is not on the sprayer: a drone first maps the field at high resolution, and the sprayer then follows the map. A different method, with results pointing the same way.
@@ -41,6 +43,8 @@ Placed side by side the two figures suggest a decline, but it cannot be read as 
 One of the most cited successes of computer vision in agriculture was published in 2016. Researchers trained a model on **54,306** leaf images covering 14 crops and 26 diseases and reached **99.35%** accuracy on held-out test images.
 
 The less cited part of the same paper is this: when the model was tested on images taken under different conditions, accuracy fell to **31.40%** and **31.69%**. The training images were single leaves photographed under controlled conditions against a plain background; the test images were collected from trusted online sources such as agricultural extension services. The authors write that a real-world application would have to recognise a disease as it presents itself directly on the plant. 31% is far better than random guessing — **2.6%** across 38 classes — but nowhere near 99%. The authors' own conclusion is plain: a more diverse set of training data is needed.
+
+[[grafik:b08-laboratuvar-tarla-dogruluk]]
 
 The distance between those two figures shows the question every success rate in this field should face: measured on which images?
 

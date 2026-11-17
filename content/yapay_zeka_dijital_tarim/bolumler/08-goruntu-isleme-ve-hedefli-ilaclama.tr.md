@@ -21,6 +21,8 @@ Avustralya'daki ve Almanya'daki hakemli denemeler iki şeyi birlikte ölçtü: i
 
 Avustralya denemesinin en önemli bulgusu ortalamadan çok ortalamanın nasıl oluştuğu: kullanılan ilaç ot yoğunluğuyla orantılı, yani tasarruf ot azaldıkça büyüyor. Az otlu bir şeritte ilacın üçte ikisi kalkıyor, yoğun otlu bir şeritte ise hedefli ilaçlama yayma ilaçlamaya yaklaşıyor — çünkü her yere zaten ilaç gerekiyor. Yani hedefli ilaçlamanın getirisi teknolojiden çok tarlanın kendisine bağlı.
 
+[[grafik:b08-hedefli-ilaclama-azalmalar]]
+
 Aynı deneme bir şeyi daha ölçtü: ilaçlamadan sonraki günlerde tarladan çıkan sudaki ilaç. Tarım ilacının akarsuya ve yer altı suyuna karışması, ilacın maliyetinden bağımsız bir sorun. Hedefli ilaçlama orada da ölçülebilir bir fark yaratıyor.
 
 Almanya'daki mısır denemesinde kamera ilaçlayıcının üstünde değil: önce bir insansız hava aracı tarlanın yüksek çözünürlüklü haritasını çıkarıyor, sonra ilaçlayıcı o haritayı izliyor. Yöntem farklı, sonuç aynı yönde.
@@ -41,6 +43,8 @@ En yaygın ticari sistemlerden biri John Deere'nin See & Spray'i. Şirketin kend
 Görüntü işlemenin tarımdaki en çok alıntılanan başarılarından biri 2016'da yayımlandı. Araştırmacılar 14 ürüne ve 26 hastalığa ait **54.306** yaprak görüntüsüyle bir model eğitti ve ayrı tutulan test görüntülerinde **%99,35** doğruluk elde etti.
 
 Aynı makalenin daha az alıntılanan kısmı şu: model, farklı koşullarda çekilmiş görüntülerle sınandığında doğruluk **%31,40** ve **%31,69**'a düştü. Eğitim görüntüleri denetimli koşullarda, sade bir arka plan üzerinde tek yaprak olarak çekilmişti; sınama görüntüleri ise tarım yayım servisleri gibi güvenilir çevrim içi kaynaklardan toplandı. Yazarlar, gerçek bir uygulamanın hastalığı doğrudan bitkinin üzerinde göründüğü hâliyle tanıyabilmesi gerektiğini yazıyor. %31 rastgele tahminden — 38 sınıfta **%2,6** — çok daha iyi, ama %99'un yakınında değil. Yazarların kendi sonucu açık: daha çeşitli eğitim verisi gerekiyor.
+
+[[grafik:b08-laboratuvar-tarla-dogruluk]]
 
 Bu iki rakam arasındaki fark, bu alanda okunan her başarı oranının sorulması gereken soruyu gösteriyor: hangi görüntüde ölçüldü?
 

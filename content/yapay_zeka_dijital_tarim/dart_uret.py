@@ -360,16 +360,36 @@ def main() -> int:
         gr.append(f"    aciklamaTr: {at}, aciklamaEn: {ae},")
         gr.append(f"    kaynakTr: {kt}, kaynakEn: {ke},")
         gr.append(f"    birimTr: {brt}, birimEn: {bre},")
-        gr.append(f"    satici: {'true' if x.get('satici') else 'false'},")
+        if x.get("eksen"):
+            et, ee = ikidil(x, "eksen")
+            gr.append(f"    eksenTr: {et}, eksenEn: {ee},")
+        if x.get("ust") is not None:
+            gr.append(f"    ust: {float(x['ust'])!r},")
+        if x.get("ondalik") is not None:
+            gr.append(f"    ondalik: {int(x['ondalik'])},")
+        gr.append(f"    satici: {'true' if x.get('satici') or any(n.get('satici') for n in x.get('noktalar', [])) else 'false'},")
         gr.append("    diziler: [")
         for dz in x.get("diziler", []):
-            gr.append(f"      YzGrafikDizi({dizgi(dz['kod'])}, {dizgi(dz['tr'])}, {dizgi(dz['en'])}),")
+            rol = f", rol: {dizgi(dz['rol'])}" if dz.get("rol") else ""
+            gr.append(f"      YzGrafikDizi({dizgi(dz['kod'])}, {dizgi(dz['tr'])}, {dizgi(dz['en'])}{rol}),")
         gr.append("    ],")
         gr.append("    noktalar: [")
         for n in x.get("noktalar", []):
             kt_, ke_ = dizgi(n["kategori"]["tr"]), dizgi(n["kategori"]["en"])
-            uc = f", {dizgi(n['uc'])}" if n.get("uc") else ""
-            gr.append(f"      YzGrafikNokta({kt_}, {ke_}, {dizgi(n.get('dizi', ''))}, {float(n['deger'])!r}{uc}),")
+            # Çizilen değer: kayıttaki değer × çarpan (birim dönüşümü, ör. bin ha → milyon ha).
+            deger = float(n["deger"]) * float(n.get("carpan", 1))
+            ek = []
+            if n.get("uc"):
+                ek.append(f"uc: {dizgi(n['uc'])}")
+            for alan, ad in (("ek", "ek"), ("panel", "panel")):
+                if n.get(alan):
+                    ek.append(f"{ad}Tr: {dizgi(n[alan]['tr'])}, {ad}En: {dizgi(n[alan]['en'])}")
+            if n.get("birim"):
+                ek.append(f"birimTr: {dizgi(n['birim']['tr'])}, birimEn: {dizgi(n['birim']['en'])}")
+            if n.get("satici"):
+                ek.append("satici: true")
+            ekler = (", " + ", ".join(ek)) if ek else ""
+            gr.append(f"      YzGrafikNokta({kt_}, {ke_}, {dizgi(n.get('dizi', ''))}, {round(deger, 10)!r}{ekler}),")
         gr.append("    ],")
         gr.append("  ),")
     gr.append("};")

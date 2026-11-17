@@ -8,9 +8,13 @@ The best-known limit of models that recognise disease from images is that their 
 
 Ramcharan and colleagues (2019) put a model that recognises cassava diseases into a phone app and tested it on **720** diseased leaflets in a field in Tanzania. For pronounced symptoms, the F-1 score fell from **0.79** on the test set to **0.54** in field photos (a **32%** drop) and **0.48** in video (a **39%** drop). For early, mild symptoms the F-1 score stood at **0.26** in photos and **0.25** in video. In other words, the model performed worst at the early stage, where diagnosis is most useful. According to the authors, a model running on a phone faces new challenges such as lighting and orientation, and such models must be tested in real-world conditions.
 
+[[grafik:b26-manyok-f1-tarlada]]
+
 ## Who benefits
 
 According to FAO's 2022 State of Food and Agriculture report, the use of digital automation technologies is growing, but mostly in high-income countries. Because data are scarce, FAO carried out **27** case studies based on interviews with companies providing digital automation services: only **10** of them were profitable and financially sustainable. These companies are mostly based in high-income countries, use mature, widely adopted solutions and mostly serve large-scale producers.
+
+[[grafik:b26-fao-27-vaka]]
 
 FAO names the biggest barriers to adoption as low digital literacy in rural areas, the lack of technologies suited to small-scale producers and the relatively high cost of these technologies; these are often compounded by a reluctance to change, generally associated with ageing farming populations. The report also writes that automation carries the risk of deepening social inequalities: larger and more educated producers have more capacity to invest in new technology, retrain and learn new skills. The adoption data of the US and the EU show the same gap between large and small farms.
 
@@ -35,6 +39,8 @@ According to the International Energy Agency (IEA), data centres used about **1.
 According to the Ministry of Agriculture and Forestry's National Rural Development Strategy (2024-2028), the average farm in the Farmer Registration System was **6.9** hectares in 2023, and has been between **6.9** and **7.1** hectares since 2020. In the same year, **2,245,215** farms and **306,033** young farmers were registered in the system. The strategy writes that Turkish agriculture combines medium and large farms producing for world markets with traditional small family farms producing for local markets and household consumption. Its list of weaknesses includes the ageing of the farming population and young people's declining interest in farming, the small scale of farms, and limited access to smart farming applications. The strategy's measures include increasing the use of AI and smart technology applications and training to raise digital literacy.
 
 A working paper on rural development for the Fourth Agriculture and Forestry Council, based on TÜİK's 2023 labour data, puts the average age of people working in agriculture at **46**, against about **39** across all employment; **68.4%** of agricultural workers are over **40**, compared with **47.1%** in overall employment. Agricultural employment fell from **5** million **220** thousand in 2014 to **4** million **695** thousand in 2023.
+
+[[grafik:b26-tarim-yaslanma]]
 
 According to the 2027 Annual Programme, the small, fragmented and scattered land structure of farms raises production costs and hinders the effective use of mechanisation and modern production techniques. In villages, **1,159,477** people are aged **65** or over. Agriculture's share of total employment was **14%** in 2025 and **13.4%** in the first half of 2026. The programme plans to support the development of the human and technical capacity of farms and producer organisations for smart farming; the results of the 2025 General Agricultural Census are expected to be shared at the end of 2026.
 

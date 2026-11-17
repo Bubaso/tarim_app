@@ -2,6 +2,8 @@
 
 In 1977 an estimate made with satellite data put the Soviet wheat harvest within about **1%** of the official figure. That estimate came from the first of three older strands that meet today in agricultural AI: monitoring crops from satellites, under way since 1972. The other two are letting computers make decisions, with the expert systems of the 1980s, and knowing position in the field, with GPS and precision farming in the 1990s. Then came three developments: Landsat and Sentinel data became free, deep learning made a leap in image recognition, and AI chatbots began answering farmers' questions. In Türkiye the story rests on a register: the farmer registry that the World Bank calls Türkiye's basic rural database.
 
+[[grafik:b03-donum-noktalari]]
+
 ## Monitoring crops from satellites (1972-1978)
 
 Landsat 1 was launched on 23 July 1972. According to NASA, the US, unaware of a worldwide shortage, sold **15** million tons of wheat to the Soviet Union at a large discount; after this sale, known as the Great Grain Robbery, the government recognised the need for an accurate, up-to-date system to track crops globally and turned to the newly launched Landsat 1.
@@ -25,6 +27,8 @@ The first international conference dedicated to precision agriculture met in Jul
 In 2008 the US made the Landsat archive free; according to NASA, data use increased **20**-fold. In a regulation of 12 July 2013, the EU made access to the data of the Sentinel satellites free, full and open; Sentinel-2A was launched on 23 June 2015.
 
 In 2012 a deep convolutional neural network won the ImageNet image recognition competition with a top-five error rate of **15.3%**; the second-best entry's error rate was **26.2%** (Krizhevsky, Sutskever and Hinton). The method soon reached agriculture: in 2016 Mohanty and colleagues published that their model, built on Krizhevsky's work, reached **99.35%** accuracy on test images held out from **54,306** leaf images taken in controlled conditions, and called this a first step towards plant disease diagnosis with a smartphone; on images taken in other conditions, accuracy stayed just above **31%**.
+
+[[grafik:b03-imagenet-2012]]
 
 In September 2017 John Deere announced that it would acquire Blue River Technology, which had developed technology that uses computer vision and machine learning to spray herbicide only where weeds are present. According to the company's 2019 report, this technology, called See & Spray, had not yet been fully commercialised at the time.
 

@@ -14,7 +14,11 @@ Yapay zekâ bu zincirde özellikle genomik tahmin modelinde sınanıyor: klasik 
 
 Michel ve arkadaşları (2016), bir kışlık buğday hat ıslahı programının birkaç yıllık verisinde erken kuşak seçimini karşılaştırdı. Yalnız tarladaki ölçüme dayalı tahminin tane verimi için isabeti düşüktü (korelasyon **0,21**); genomik seçilim modelleri yıllar arasında daha isabetliydi (**0,39**). İkisini birleştiren genomik destekli seçim, tahmin isabetini **%20** artırdı.
 
+[[grafik:b05-genomik-secilim-isabeti]]
+
 Watson ve arkadaşları (2018) uzun kuşak süresini ıslahın yavaş ilerlemesinin nedenlerinden biri sayıyor ve hızlı ıslahla yazlık buğday, makarnalık buğday, arpa, nohut ve bezelyede yılda **6** kuşağa, kanolada **4** kuşağa ulaşılabildiğini gösteriyor; normal serada bu sayı **2-3**. Yazarlar yöntemi genomik seçilim gibi araçlarla birleştirmenin ıslahı daha da hızlandırabileceğini öngörüyor.
+
+[[grafik:b05-hizli-islah-kusak]]
 
 ## Yapay zekâ nerede duruyor
 

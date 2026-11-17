@@ -1,0 +1,4735 @@
+{
+ "_ne": "Yayımlanan grafikler (karar 58). Envanter: grafik_envanteri.json; her değer kayda bağlı (dogrula_bolumler.py kural 11). Yönerge: metinde [[grafik:<kimlik>]] satırı, 'yer' paragrafının ardında.",
+ "grafikler": {
+  "b01-ab-hassas-tarim-pay-ve-alan": {
+   "baslik_no": 1,
+   "tur": "pay",
+   "baslik": {
+    "tr": "AB'de hassas tarım: çiftliklerin %18'i, tarım alanının %44'ü",
+    "en": "Precision farming in the EU: 18% of farms, 44% of farmland"
+   },
+   "aciklama": {
+    "tr": "2023'te AB'de bir hassas tarım tekniği uygulayan çiftlikler bütün çiftliklerin yaklaşık %18'iydi, ama tarım alanının yaklaşık %44'ünü işliyordu.",
+    "en": "In 2023, EU farms applying a precision farming technique were about 18% of all farms but managed about 44% of the utilised agricultural area."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Eurostat (2026), 2023 Çiftlik Yapı Araştırması",
+    "en": "Source: Eurostat (2026), 2023 Farm Structure Survey"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "hassas-tarim-uygulayan",
+     "tr": "Hassas tarım uygulayan çiftlikler",
+     "en": "Farms using precision farming"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Çiftlik sayısı içindeki payı",
+      "en": "Share of farms"
+     },
+     "dizi": "hassas-tarim-uygulayan",
+     "deger": 18,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "hassas_tarim_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Tarım alanı içindeki payı",
+      "en": "Share of utilised agricultural area"
+     },
+     "dizi": "hassas-tarim-uygulayan",
+     "deger": 44,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "hassas_tarim_alan_payi_yuzde"
+    }
+   ],
+   "yer": "Tarımda yapay zekâ en sağlam sonuçlarını geniş bir alanı"
+  },
+  "b03-donum-noktalari": {
+   "baslik_no": 3,
+   "tur": "zaman",
+   "baslik": {
+    "tr": "Uydudan sohbet robotuna: dönüm noktaları, 1972-2025",
+    "en": "From satellites to chatbots: milestones, 1972–2025"
+   },
+   "aciklama": {
+    "tr": "Uydudan ürün izleme, uzman sistemler, GPS ve hassas tarım, açık uydu verisi, derin öğrenme ve sohbet robotlarına uzanan olaylar, dünya ve Türkiye için iki ayrı şeritte tarih sırasıyla.",
+    "en": "Milestones in satellite crop monitoring, expert systems, GPS and precision agriculture, open satellite data, deep learning and chatbots, in chronological order on separate lanes for the world and Türkiye."
+   },
+   "kaynak": {
+    "tr": "Kaynak: NASA; LACIE Proje Ekibi (1978); Lambert (1989); ABD Beyaz Saray (1983, 2000); ISPA; GPS.gov; Krizhevsky ve ark. (2012); AB Resmî Gazetesi (2013); ESA; Mohanty ve ark. (2016); Deere & Company (2017, şirket bülteni); Hopkins ve ark. (2023); Hindistan PIB (2026); ECMWF (2025); Dünya Bankası (2009); Resmî Gazete; TÜBİTAK; TÜBİTAK UZAY (2026); Tarım ve Köy İşleri Bakanlığı–FAO (2006); Tarım ve Orman Bakanlığı",
+    "en": "Source: NASA; LACIE Project Team (1978); Lambert (1989); The White House (1983, 2000); ISPA; GPS.gov; Krizhevsky et al. (2012); Official Journal of the EU (2013); ESA; Mohanty et al. (2016); Deere & Company (2017, press release); Hopkins et al. (2023); PIB India (2026); ECMWF (2025); World Bank (2009); Official Gazette of Türkiye; TÜBİTAK; TÜBİTAK UZAY (2026); Ministry of Agriculture and Rural Affairs–FAO (2006); Ministry of Agriculture and Forestry"
+   },
+   "diziler": [
+    {
+     "kod": "dunya",
+     "tr": "Dünya",
+     "en": "World"
+    },
+    {
+     "kod": "turkiye",
+     "tr": "Türkiye",
+     "en": "Türkiye"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Landsat 1 fırlatıldı",
+      "en": "Landsat 1 launched"
+     },
+     "dizi": "dunya",
+     "deger": 1972.5591,
+     "ek": {
+      "tr": "23 Temmuz 1972",
+      "en": "23 July 1972"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "nasa_landsat1",
+     "alan": "firlatma"
+    },
+    {
+     "kategori": {
+      "tr": "LACIE deneyi başladı",
+      "en": "LACIE experiment begins"
+     },
+     "dizi": "dunya",
+     "deger": 1974.0,
+     "ek": {
+      "tr": "1974",
+      "en": "1974"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "nasa_ntrs_1978_lacie",
+     "alan": "baslangic"
+    },
+    {
+     "kategori": {
+      "tr": "LACIE, Sovyet yazlık buğdayındaki açığı önceden gösterdi",
+      "en": "LACIE flags the Soviet spring wheat shortfall"
+     },
+     "dizi": "dunya",
+     "deger": 1977.5833,
+     "ek": {
+      "tr": "Ağustos 1977",
+      "en": "August 1977"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "nasa_ntrs_1978_lacie",
+     "alan": "sscb_uyari"
+    },
+    {
+     "kategori": {
+      "tr": "LACIE tamamlandı",
+      "en": "LACIE completed"
+     },
+     "dizi": "dunya",
+     "deger": 1978.4946,
+     "ek": {
+      "tr": "30 Haziran 1978",
+      "en": "30 June 1978"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "nasa_ntrs_1978_lacie",
+     "alan": "tamamlanma"
+    },
+    {
+     "kategori": {
+      "tr": "ABD, GPS'i sivil uçaklara açmaya hazır olduğunu duyurdu",
+      "en": "US says GPS will be made available to civil aircraft"
+     },
+     "dizi": "dunya",
+     "deger": 1983.707,
+     "ek": {
+      "tr": "16 Eylül 1983",
+      "en": "16 September 1983"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "reagan_1983_gps_sivil",
+     "alan": "tarih"
+    },
+    {
+     "kategori": {
+      "tr": "GOSSYM-COMAX'ı 150'ye yakın çiftçi kullandı",
+      "en": "Nearly 150 farmers use GOSSYM-COMAX"
+     },
+     "dizi": "dunya",
+     "deger": 1988.0,
+     "ek": {
+      "tr": "1988",
+      "en": "1988"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "lambert_1989_beltwide",
+     "alan": "yil"
+    },
+    {
+     "kategori": {
+      "tr": "Hassas tarımın ilk uluslararası konferansı",
+      "en": "First international precision agriculture conference"
+     },
+     "dizi": "dunya",
+     "deger": 1992.5,
+     "ek": {
+      "tr": "Temmuz 1992",
+      "en": "July 1992"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "ispa_icpa_gecmisi",
+     "alan": "ilk_icpa"
+    },
+    {
+     "kategori": {
+      "tr": "GPS işletimde ilan edildi",
+      "en": "GPS declared operational"
+     },
+     "dizi": "dunya",
+     "deger": 1995.0,
+     "ek": {
+      "tr": "1995",
+      "en": "1995"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "gpsgov_sss",
+     "alan": "isletim_ilani"
+    },
+    {
+     "kategori": {
+      "tr": "Kamuya açık GPS sinyalinin kasıtlı bozulması durduruldu",
+      "en": "Intentional degradation of public GPS signals ends"
+     },
+     "dizi": "dunya",
+     "deger": 2000.3333,
+     "ek": {
+      "tr": "1 Mayıs 2000",
+      "en": "1 May 2000"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "beyazsaray_2000_clinton_sa",
+     "alan": "tarih"
+    },
+    {
+     "kategori": {
+      "tr": "Landsat arşivi ücretsiz oldu",
+      "en": "Landsat archive made free"
+     },
+     "dizi": "dunya",
+     "deger": 2008.0,
+     "ek": {
+      "tr": "2008",
+      "en": "2008"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "nasa_2019_landsat_acik_veri",
+     "alan": "ucretsiz_karar"
+    },
+    {
+     "kategori": {
+      "tr": "Derin evrişimli ağ ImageNet yarışmasını kazandı",
+      "en": "Deep convolutional network wins ImageNet"
+     },
+     "dizi": "dunya",
+     "deger": 2012.0,
+     "ek": {
+      "tr": "2012",
+      "en": "2012"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "krizhevsky_2012_nips",
+     "alinti": "We also entered a variant of this model in the ILSVRC-2012 competition"
+    },
+    {
+     "kategori": {
+      "tr": "Sentinel verisine ücretsiz, tam ve açık erişim kurala bağlandı",
+      "en": "Free, full and open access to Sentinel data written into EU law"
+     },
+     "dizi": "dunya",
+     "deger": 2013.5296,
+     "ek": {
+      "tr": "12 Temmuz 2013",
+      "en": "12 July 2013"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "ab_2013_1159_sentinel_acik_veri",
+     "alan": "tuzuk_tarihi"
+    },
+    {
+     "kategori": {
+      "tr": "Sentinel-2A fırlatıldı",
+      "en": "Sentinel-2A launched"
+     },
+     "dizi": "dunya",
+     "deger": 2015.4758,
+     "ek": {
+      "tr": "23 Haziran 2015",
+      "en": "23 June 2015"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "esa_sentinel2_olgular",
+     "alan": "s2a"
+    },
+    {
+     "kategori": {
+      "tr": "Yaprak görüntüsünden hastalık teşhisi makalesi (Mohanty ve ark.)",
+      "en": "Leaf-image disease diagnosis paper (Mohanty et al.)"
+     },
+     "dizi": "dunya",
+     "deger": 2016.7231,
+     "ek": {
+      "tr": "22 Eylül 2016",
+      "en": "22 September 2016"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "mohanty_2016",
+     "alan": "yayim"
+    },
+    {
+     "kategori": {
+      "tr": "Deere, Blue River Technology'yi satın alacağını duyurdu",
+      "en": "Deere announces Blue River Technology acquisition"
+     },
+     "dizi": "dunya",
+     "deger": 2017.6801,
+     "ek": {
+      "tr": "6 Eylül 2017",
+      "en": "6 September 2017"
+     },
+     "satici": true,
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "deere_2017_blue_river_bulteni",
+     "alinti": "MOLINE, Illinois (September 6, 2017)"
+    },
+    {
+     "kategori": {
+      "tr": "ChatGPT kamuya açıldı",
+      "en": "ChatGPT opened to the public"
+     },
+     "dizi": "dunya",
+     "deger": 2022.9113,
+     "ek": {
+      "tr": "30 Kasım 2022",
+      "en": "30 November 2022"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "hopkins_2023_jncics",
+     "alan": "tarih"
+    },
+    {
+     "kategori": {
+      "tr": "Hindistan'da Kisan e-Mitra başladı",
+      "en": "India launches Kisan e-Mitra"
+     },
+     "dizi": "dunya",
+     "deger": 2023.0,
+     "ek": {
+      "tr": "2023",
+      "en": "2023"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "hindistan_pib_2026_kisan_emitra",
+     "alan": "yil"
+    },
+    {
+     "kategori": {
+      "tr": "ECMWF yapay zekâ tahmin sistemini işletime aldı",
+      "en": "ECMWF puts its AI forecasting system into operation"
+     },
+     "dizi": "dunya",
+     "deger": 2025.1478,
+     "ek": {
+      "tr": "25 Şubat 2025",
+      "en": "25 February 2025"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "ecmwf_2025_aifs",
+     "alan": "tarih"
+    },
+    {
+     "kategori": {
+      "tr": "Çiftçi kaydı için beş köyde pilot",
+      "en": "Farmer registry pilot in five villages"
+     },
+     "dizi": "turkiye",
+     "deger": 2000.0,
+     "ek": {
+      "tr": "2000",
+      "en": "2000"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "dunya_bankasi_2009_arip",
+     "alan": "pilot_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Kayıt sistemi Bakanlar Kurulu kararıyla Resmî Gazete'de",
+      "en": "Registry decree published in the Official Gazette"
+     },
+     "dizi": "turkiye",
+     "deger": 2002.4516,
+     "ek": {
+      "tr": "14 Haziran 2002",
+      "en": "14 June 2002"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "rg_2002_dgd_kayit_sistemi_bkk",
+     "alinti": "14 Haziran 2002 CUMA Sayı : 24785"
+    },
+    {
+     "kategori": {
+      "tr": "BİLSAT fırlatıldı",
+      "en": "BİLSAT launched"
+     },
+     "dizi": "turkiye",
+     "deger": 2003.0,
+     "ek": {
+      "tr": "2003",
+      "en": "2003"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "tubitak_2020_rasat",
+     "alan": "bilsat"
+    },
+    {
+     "kategori": {
+      "tr": "Çiftçi Kayıt Sistemi Yönetmeliği",
+      "en": "Farmer Registration System Regulation"
+     },
+     "dizi": "turkiye",
+     "deger": 2005.2903,
+     "ek": {
+      "tr": "16 Nisan 2005",
+      "en": "16 April 2005"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "rg_2005_fihrist",
+     "alan": "tarih"
+    },
+    {
+     "kategori": {
+      "tr": "İlk kışlık buğday verim tahmini bülteni",
+      "en": "First winter wheat yield forecast bulletin"
+     },
+     "dizi": "turkiye",
+     "deger": 2005.75,
+     "ek": {
+      "tr": "Ekim 2005 – Ocak 2006",
+      "en": "October 2005 – January 2006"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "tkb_2006_verim_bulteni",
+     "alan": "donem"
+    },
+    {
+     "kategori": {
+      "tr": "TARİT (bugünkü TARBİL) pilotu başladı",
+      "en": "TARİT (today's TARBİL) pilot begins"
+     },
+     "dizi": "turkiye",
+     "deger": 2008.0,
+     "ek": {
+      "tr": "2008",
+      "en": "2008"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "tob_cbs_projeler_tarbil",
+     "alan": "baslangic"
+    },
+    {
+     "kategori": {
+      "tr": "RASAT fırlatıldı",
+      "en": "RASAT launched"
+     },
+     "dizi": "turkiye",
+     "deger": 2011.6263,
+     "ek": {
+      "tr": "17 Ağustos 2011",
+      "en": "17 August 2011"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "tubitak_uzay_2026_katalog",
+     "alan": "rasat_firlatma"
+    },
+    {
+     "kategori": {
+      "tr": "TÜBİTAK 1711 Yapay Zekâ Ekosistem Çağrısı'nın ilki",
+      "en": "First TÜBİTAK 1711 AI Ecosystem Call"
+     },
+     "dizi": "turkiye",
+     "deger": 2022.0,
+     "ek": {
+      "tr": "2022",
+      "en": "2022"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "tubitak_1711_cagri",
+     "alan": "ilk_cagri_yili"
+    },
+    {
+     "kategori": {
+      "tr": "İMECE fırlatıldı",
+      "en": "İMECE launched"
+     },
+     "dizi": "turkiye",
+     "deger": 2023.2876,
+     "ek": {
+      "tr": "15 Nisan 2023",
+      "en": "15 April 2023"
+     },
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "tubitak_uzay_2026_katalog",
+     "alan": "imece_firlatma"
+    }
+   ],
+   "yer": "1977'de uydu verisiyle yapılan bir tahmin, Sovyet buğday hasadını resmî"
+  },
+  "b03-imagenet-2012": {
+   "baslik_no": 3,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "ImageNet 2012: kazananın hatası %15,3, ikincinin %26,2",
+    "en": "ImageNet 2012: the winner's error 15.3%, the runner-up's 26.2%"
+   },
+   "aciklama": {
+    "tr": "2012 ImageNet yarışmasında derin evrişimli sinir ağı en iyi beş tahminde %15,3 hata oranıyla kazandı; ikinci gelenin hata oranı %26,2'ydi.",
+    "en": "In the 2012 ImageNet competition a deep convolutional neural network won with a top-5 error rate of 15.3%; the second-best entry's error rate was 26.2%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Krizhevsky, Sutskever ve Hinton (2012)",
+    "en": "Source: Krizhevsky, Sutskever and Hinton (2012)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Hata oranı, en iyi beş tahmin",
+    "en": "Top-5 error rate"
+   },
+   "diziler": [
+    {
+     "kod": "2012",
+     "tr": "2012",
+     "en": "2012"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Kazanan: derin evrişimli ağ",
+      "en": "Winner: deep convolutional network"
+     },
+     "dizi": "2012",
+     "deger": 15.3,
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "krizhevsky_2012_nips",
+     "alan": "kazanan_top5_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "İkinci gelen",
+      "en": "Second-best entry"
+     },
+     "dizi": "2012",
+     "deger": 26.2,
+     "kayit": "b03_kaynaklar.json",
+     "kaynak": "krizhevsky_2012_nips",
+     "alan": "ikinci_top5_yuzde"
+    }
+   ],
+   "yer": "2012'de derin evrişimli bir sinir ağı ImageNet görüntü tanıma yarışmasını,"
+  },
+  "b04-detayli-toprak-etudu": {
+   "baslik_no": 4,
+   "tur": "dikey_cubuk",
+   "baslik": {
+    "tr": "Detaylı toprak etüdü: 2024'te tamamlanan ve sonraki yıllar için öngörülen alan",
+    "en": "Detailed soil survey: area completed in 2024 and planned for the following years"
+   },
+   "aciklama": {
+    "tr": "2027 Yıllık Programı'na göre detaylı toprak etüdü ve haritalama 2024'te 755 bin hektarda tamamlandı; 2026 sonuna kadar 2,4 milyon hektarın daha, 2027'de 3,5 milyon ve 2028'de 3,3 milyon hektarın tamamlanması öngörülüyor.",
+    "en": "According to the 2027 Annual Programme, detailed soil survey and mapping was completed on 755 thousand hectares in 2024; another 2.4 million hectares are planned by the end of 2026, 3.5 million in 2027 and 3.3 million in 2028."
+   },
+   "kaynak": {
+    "tr": "Kaynak: 2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+    "en": "Source: 2027 Annual Programme of the Presidency of Türkiye"
+   },
+   "birim": {
+    "tr": "milyon ha",
+    "en": "million ha"
+   },
+   "eksen": {
+    "tr": "Etüdü tamamlanan ya da öngörülen alan",
+    "en": "Area surveyed or planned"
+   },
+   "diziler": [
+    {
+     "kod": "tamamlanan",
+     "tr": "Tamamlanan",
+     "en": "Completed"
+    },
+    {
+     "kod": "ongorulen",
+     "tr": "Öngörülen",
+     "en": "Planned",
+     "rol": "ongoru"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "2024 · tamamlandı",
+      "en": "2024 · completed"
+     },
+     "dizi": "tamamlanan",
+     "deger": 755,
+     "carpan": 0.001,
+     "kayit": "b04_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "detayli_etut_2024_bin_ha"
+    },
+    {
+     "kategori": {
+      "tr": "2026 sonuna kadar · öngörülen",
+      "en": "By end-2026 · planned"
+     },
+     "dizi": "ongorulen",
+     "deger": 2.4,
+     "kayit": "b04_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "detayli_etut_2026_sonu_ilave_milyon_ha"
+    },
+    {
+     "kategori": {
+      "tr": "2027 · öngörülen",
+      "en": "2027 · planned"
+     },
+     "dizi": "ongorulen",
+     "deger": 3.5,
+     "kayit": "b04_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "devam_eden_2027_milyon_ha"
+    },
+    {
+     "kategori": {
+      "tr": "2028 · öngörülen",
+      "en": "2028 · planned"
+     },
+     "dizi": "ongorulen",
+     "deger": 3.3,
+     "kayit": "b04_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "devam_eden_2028_milyon_ha"
+    }
+   ],
+   "yer": "2027 Yıllık Programı toprak verisini arazi kullanım kararlarının dayanağı sayıyor"
+  },
+  "b05-genomik-secilim-isabeti": {
+   "baslik_no": 5,
+   "tur": "dikey_cubuk",
+   "baslik": {
+    "tr": "Erken kuşak seçimde isabet: tarla ölçümü 0,21, genomik model 0,39",
+    "en": "Early-generation selection accuracy: field data 0.21, genomic models 0.39"
+   },
+   "aciklama": {
+    "tr": "Bir kışlık buğday ıslah programında tane verimi için yalnız tarladaki ölçüme dayalı tahminin isabeti (korelasyon) 0,21, genomik seçilim modellerininki 0,39 çıktı; ikisini birleştiren seçim isabeti %20 artırdı.",
+    "en": "In a winter wheat breeding programme, the accuracy (correlation) of grain yield prediction based on field data alone was 0.21, against 0.39 for genomic selection models; combining the two raised accuracy by 20%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Michel ve ark. (2016)",
+    "en": "Source: Michel et al. (2016)"
+   },
+   "eksen": {
+    "tr": "Seçim isabeti (korelasyon, r)",
+    "en": "Selection accuracy (correlation, r)"
+   },
+   "ust": 1,
+   "diziler": [
+    {
+     "kod": "tane-verimi",
+     "tr": "Tane verimi",
+     "en": "Grain yield"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Yalnız tarla ölçümüne dayalı tahmin",
+      "en": "Prediction from field data alone"
+     },
+     "dizi": "tane-verimi",
+     "deger": 0.21,
+     "kayit": "b05_kaynaklar.json",
+     "kaynak": "michel_2016",
+     "alan": "fenotipik_isabet_r"
+    },
+    {
+     "kategori": {
+      "tr": "Genomik seçilim modelleri",
+      "en": "Genomic selection models"
+     },
+     "dizi": "tane-verimi",
+     "deger": 0.39,
+     "kayit": "b05_kaynaklar.json",
+     "kaynak": "michel_2016",
+     "alan": "genomik_isabet_r"
+    }
+   ],
+   "yer": "Michel ve arkadaşları (2016), bir kışlık buğday hat ıslahı programının"
+  },
+  "b05-hizli-islah-kusak": {
+   "baslik_no": 5,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "Hızlı ıslah bir yıla 6 kuşağa kadar sığdırıyor; normal serada 2-3",
+    "en": "Speed breeding fits up to 6 generations into a year; a normal glasshouse 2–3"
+   },
+   "aciklama": {
+    "tr": "Watson ve arkadaşlarına (2018) göre normal serada yılda 2-3 kuşak alınırken hızlı ıslahla kanolada 4, yazlık buğday, makarnalık buğday, arpa, nohut ve bezelyede 6 kuşağa ulaşılabiliyor.",
+    "en": "According to Watson et al. (2018), a normal glasshouse gives 2–3 generations a year, while speed breeding reaches 4 in canola and 6 in spring wheat, durum wheat, barley, chickpea and pea."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Watson ve ark. (2018)",
+    "en": "Source: Watson et al. (2018)"
+   },
+   "birim": {
+    "tr": "kuşak",
+    "en": "generations"
+   },
+   "eksen": {
+    "tr": "Bir yılda alınan kuşak sayısı",
+    "en": "Generations per year"
+   },
+   "diziler": [
+    {
+     "kod": "normal-sera",
+     "tr": "Normal sera",
+     "en": "Normal glasshouse"
+    },
+    {
+     "kod": "hizli-islah",
+     "tr": "Hızlı ıslah",
+     "en": "Speed breeding"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Normal sera",
+      "en": "Normal glasshouse"
+     },
+     "dizi": "normal-sera",
+     "deger": 2,
+     "uc": "alt",
+     "kayit": "b05_kaynaklar.json",
+     "kaynak": "watson_2018",
+     "alan": "normal_sera_kusak"
+    },
+    {
+     "kategori": {
+      "tr": "Normal sera",
+      "en": "Normal glasshouse"
+     },
+     "dizi": "normal-sera",
+     "deger": 3,
+     "uc": "ust",
+     "kayit": "b05_kaynaklar.json",
+     "kaynak": "watson_2018",
+     "alan": "normal_sera_kusak"
+    },
+    {
+     "kategori": {
+      "tr": "Hızlı ıslah · kanola",
+      "en": "Speed breeding · canola"
+     },
+     "dizi": "hizli-islah",
+     "deger": 4,
+     "kayit": "b05_kaynaklar.json",
+     "kaynak": "watson_2018",
+     "alan": "kanola_kusak"
+    },
+    {
+     "kategori": {
+      "tr": "Hızlı ıslah · buğday, arpa, nohut, bezelye",
+      "en": "Speed breeding · wheat, barley, chickpea, pea"
+     },
+     "dizi": "hizli-islah",
+     "deger": 6,
+     "kayit": "b05_kaynaklar.json",
+     "kaynak": "watson_2018",
+     "alan": "yillik_kusak_en_cok"
+    }
+   ],
+   "yer": "Watson ve arkadaşları (2018) uzun kuşak süresini ıslahın yavaş ilerlemesinin"
+  },
+  "b06-vrt-ekili-alan": {
+   "baslik_no": 6,
+   "tur": "dumbbell",
+   "baslik": {
+    "tr": "ABD'de değişken oranlı teknolojinin ekili alandaki payı büyüdü",
+    "en": "Variable rate technology's share of US planted acres has grown"
+   },
+   "aciklama": {
+    "tr": "ABD'de değişken oranlı teknolojinin ekili alandaki payı mısırda 2005'te %11,5'ten 2016'da %37,4'e, pamukta 2007'de %5,4'ten 2019'da %22,7'ye çıktı; kışlık buğdayda 2017'de %18,8, soyada 2018'de %25,3.",
+    "en": "In the US, variable rate technology's share of planted acres rose from 11.5% in 2005 to 37.4% in 2016 for corn and from 5.4% in 2007 to 22.7% in 2019 for cotton; it was 18.8% for winter wheat in 2017 and 25.3% for soybeans in 2018."
+   },
+   "kaynak": {
+    "tr": "Kaynak: ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (McFadden ve Njuki, 2023)",
+    "en": "Source: USDA Economic Research Service (McFadden and Njuki, 2023)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Ekili alandaki payı",
+    "en": "Share of planted acres"
+   },
+   "diziler": [
+    {
+     "kod": "ilk-olcum",
+     "tr": "Ilk ölçüm",
+     "en": "First measurement"
+    },
+    {
+     "kod": "son-olcum",
+     "tr": "Son ölçüm",
+     "en": "Latest measurement"
+    },
+    {
+     "kod": "tek-olcum",
+     "tr": "Tek ölçüm",
+     "en": "Single measurement"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Mısır",
+      "en": "Corn"
+     },
+     "dizi": "ilk-olcum",
+     "deger": 11.5,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "usda_ers_2023",
+     "alan": "misir_ekili_alan_yuzde.2005",
+     "ek": {
+      "tr": "2005",
+      "en": "2005"
+     }
+    },
+    {
+     "kategori": {
+      "tr": "Mısır",
+      "en": "Corn"
+     },
+     "dizi": "son-olcum",
+     "deger": 37.4,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "usda_ers_2023",
+     "alan": "misir_ekili_alan_yuzde.2016",
+     "ek": {
+      "tr": "2016",
+      "en": "2016"
+     }
+    },
+    {
+     "kategori": {
+      "tr": "Pamuk",
+      "en": "Cotton"
+     },
+     "dizi": "ilk-olcum",
+     "deger": 5.4,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "usda_ers_2023",
+     "alan": "pamuk_ekili_alan_yuzde.2007",
+     "ek": {
+      "tr": "2007",
+      "en": "2007"
+     }
+    },
+    {
+     "kategori": {
+      "tr": "Pamuk",
+      "en": "Cotton"
+     },
+     "dizi": "son-olcum",
+     "deger": 22.7,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "usda_ers_2023",
+     "alan": "pamuk_ekili_alan_yuzde.2019",
+     "ek": {
+      "tr": "2019",
+      "en": "2019"
+     }
+    },
+    {
+     "kategori": {
+      "tr": "Kışlık buğday",
+      "en": "Winter wheat"
+     },
+     "dizi": "tek-olcum",
+     "deger": 18.8,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "usda_ers_2023",
+     "alan": "kislik_bugday_2017_yuzde",
+     "ek": {
+      "tr": "2017",
+      "en": "2017"
+     }
+    },
+    {
+     "kategori": {
+      "tr": "Soya",
+      "en": "Soybeans"
+     },
+     "dizi": "tek-olcum",
+     "deger": 25.3,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "usda_ers_2023",
+     "alan": "soya_2018_yuzde",
+     "ek": {
+      "tr": "2018",
+      "en": "2018"
+     }
+    }
+   ],
+   "yer": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin çiftlik anketine göre değişken"
+  },
+  "b06-sensorlu-azot-tarlalar": {
+   "baslik_no": 6,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "Sensörlü azot: tarlaların %77'sinde verim kaybı yok, %35'inde kâr avantajı",
+    "en": "Sensor-based nitrogen: no yield loss on 77% of sites, a profit advantage on 35%"
+   },
+   "aciklama": {
+    "tr": "Nebraska'da sulanmayan mısır tarlalarında sensörle azot yönetimi tarlaların %77'sinde verimi düşürmeden azotu azalttı, ama yalnız %35'inde çiftçinin kendi uygulamasından daha kârlı çıktı.",
+    "en": "On rainfed maize sites in Nebraska, sensor-based nitrogen management cut nitrogen without a yield penalty on 77% of sites, but was more profitable than the grower's own practice on only 35%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Kortbein ve ark. (2026)",
+    "en": "Source: Kortbein et al. (2026)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Tarlaların payı",
+    "en": "Share of sites"
+   },
+   "diziler": [
+    {
+     "kod": "verim",
+     "tr": "Verim",
+     "en": "Yield"
+    },
+    {
+     "kod": "kar",
+     "tr": "Kâr",
+     "en": "Profit"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Verim kaybı olmayan tarlalar",
+      "en": "Sites with no yield penalty"
+     },
+     "dizi": "verim",
+     "deger": 77,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "kortbein_2026",
+     "alan": "verim_kaybi_olmayan_tarla_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Kâr avantajı görülen tarlalar",
+      "en": "Sites with a profit advantage"
+     },
+     "dizi": "kar",
+     "deger": 35,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "kortbein_2026",
+     "alan": "kar_avantajli_tarla_yuzde"
+    }
+   ],
+   "yer": "Tasarruf gerçek: sensörlü azot verimi düşürmeden gübreyi azaltıyor, soya denemeleri"
+  },
+  "b06-cukurova-farkindalik": {
+   "baslik_no": 6,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "Çukurova anketi (2016): faydalı bulan çok, değişken oranlı uygulamayı tanıyan az",
+    "en": "Çukurova survey (2016): most see benefits, few know variable rate application"
+   },
+   "aciklama": {
+    "tr": "2016'da yayımlanan ve 164 tarım mühendisi, bayi ve çiftçiyle yapılan ankette katılımcıların %97,6'sı bu teknolojileri Türkiye tarımı için faydalı buldu, %88,4'ü eğitim istedi, %81,7'si uydu konumlamayı tanıyordu; %51,8'i hassas tarım terimini hiç duymamıştı, değişken oranlı uygulamayı tanıyanlar %33,5'te kaldı.",
+    "en": "In a survey of 164 agricultural engineers, dealers and farmers published in 2016, 97.6% found these technologies beneficial for Turkish agriculture, 88.4% wanted training and 81.7% knew satellite positioning, while 51.8% had never heard the term precision agriculture and only 33.5% knew variable rate application."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Keskin ve Sekerli (2016)",
+    "en": "Source: Keskin and Sekerli (2016)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Katılımcıların payı",
+    "en": "Share of respondents"
+   },
+   "diziler": [
+    {
+     "kod": "beklenti",
+     "tr": "Beklenti",
+     "en": "Expectations"
+    },
+    {
+     "kod": "bilgi",
+     "tr": "Bilgi",
+     "en": "Knowledge"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Faydalı buluyor",
+      "en": "Find them beneficial"
+     },
+     "dizi": "beklenti",
+     "deger": 97.6,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "keskin_sekerli_2016",
+     "alan": "faydali_bulan_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Daha ayrıntılı eğitim istiyor",
+      "en": "Want more detailed training"
+     },
+     "dizi": "beklenti",
+     "deger": 88.4,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "keskin_sekerli_2016",
+     "alan": "egitim_isteyen_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Uydu konumlamayı (GPS) tanıyor",
+      "en": "Know satellite positioning (GPS)"
+     },
+     "dizi": "bilgi",
+     "deger": 81.7,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "keskin_sekerli_2016",
+     "alan": "gps_bilinirligi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Hassas tarım terimini hiç duymamış",
+      "en": "Never heard the term precision agriculture"
+     },
+     "dizi": "bilgi",
+     "deger": 51.8,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "keskin_sekerli_2016",
+     "alan": "terimi_duymamis_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Değişken oranlı uygulamayı tanıyor",
+      "en": "Know variable rate application"
+     },
+     "dizi": "bilgi",
+     "deger": 33.5,
+     "kayit": "b06_kaynaklar.json",
+     "kaynak": "keskin_sekerli_2016",
+     "alan": "degisken_oranli_bilinirligi_yuzde"
+    }
+   ],
+   "yer": "Türkiye'de benimsemeye dair yayımlanmış veri ise eski. Çukurova'da"
+  },
+  "b07-su-cekimi-paylari": {
+   "baslik_no": 7,
+   "tur": "pay",
+   "baslik": {
+    "tr": "Tatlı su çekiminde tarımın payı: dünyada %72, Türkiye'de %86,93",
+    "en": "Agriculture's share of freshwater withdrawals: 72% worldwide, 86.93% in Türkiye"
+   },
+   "aciklama": {
+    "tr": "2022'de dünyada çekilen tatlı suyun %72'si tarıma, %15'i sanayiye, %13'ü hizmet sektörüne gitti; Türkiye'de tarımın payı %86,93, sanayinin %2,01, belediyelerin %11,06.",
+    "en": "In 2022, 72% of global freshwater withdrawals went to agriculture, 15% to industry and 13% to services; in Türkiye agriculture took 86.93%, industry 2.01% and municipalities 11.06%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: FAO AQUASTAT (2025), 2022 verisi",
+    "en": "Source: FAO AQUASTAT (2025), 2022 data"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Çekilen tatlı suyun payı",
+    "en": "Share of freshwater withdrawn"
+   },
+   "diziler": [
+    {
+     "kod": "tarim",
+     "tr": "Tarım",
+     "en": "Agriculture"
+    },
+    {
+     "kod": "sanayi",
+     "tr": "Sanayi",
+     "en": "Industry"
+    },
+    {
+     "kod": "hizmet-belediye",
+     "tr": "Hizmet / belediye",
+     "en": "Services / municipal"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Dünya",
+      "en": "World"
+     },
+     "dizi": "tarim",
+     "deger": 72,
+     "kayit": "b07_kaynaklar.json",
+     "kaynak": "fao_aquastat_2025",
+     "alan": "dunya_tarim_payi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Dünya",
+      "en": "World"
+     },
+     "dizi": "sanayi",
+     "deger": 15,
+     "kayit": "b07_kaynaklar.json",
+     "kaynak": "fao_aquastat_2025",
+     "alan": "dunya_sanayi_payi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Dünya",
+      "en": "World"
+     },
+     "dizi": "hizmet-belediye",
+     "deger": 13,
+     "kayit": "b07_kaynaklar.json",
+     "kaynak": "fao_aquastat_2025",
+     "alan": "dunya_hizmet_payi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Türkiye",
+      "en": "Türkiye"
+     },
+     "dizi": "tarim",
+     "deger": 86.93,
+     "kayit": "b07_kaynaklar.json",
+     "kaynak": "fao_aquastat_2025",
+     "alan": "tr_tarim_payi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Türkiye",
+      "en": "Türkiye"
+     },
+     "dizi": "sanayi",
+     "deger": 2.01,
+     "kayit": "b07_kaynaklar.json",
+     "kaynak": "fao_aquastat_2025",
+     "alan": "tr_sanayi_payi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Türkiye",
+      "en": "Türkiye"
+     },
+     "dizi": "hizmet-belediye",
+     "deger": 11.06,
+     "kayit": "b07_kaynaklar.json",
+     "kaynak": "fao_aquastat_2025",
+     "alan": "tr_belediye_payi_yuzde"
+    }
+   ],
+   "yer": "FAO verisine göre Türkiye'de 2022'de çekilen tatlı suyun"
+  },
+  "b08-laboratuvar-tarla-dogruluk": {
+   "baslik_no": 8,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "Aynı model: ayrılmış test görüntülerinde %99,35, başka koşullarda %31",
+    "en": "Same model: 99.35% on held-out test images, about 31% under other conditions"
+   },
+   "aciklama": {
+    "tr": "Mohanty ve arkadaşlarının (2016) bitki hastalığı modeli denetimli koşullarda çekilmiş setten ayrılmış test görüntülerinde %99,35, çevrim içi kaynaklardan toplanmış iki sette %31,40 ve %31,69 doğruluk gösterdi; 38 sınıfta rastgele tahminin başarısı %2,6.",
+    "en": "Mohanty et al.'s (2016) plant disease model reached 99.35% accuracy on held-out test images from a set shot under controlled conditions, but 31.40% and 31.69% on two sets collected from online sources; random guessing among 38 classes scores 2.6%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Mohanty, Hughes ve Salathé (2016)",
+    "en": "Source: Mohanty, Hughes and Salathé (2016)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Doğruluk",
+    "en": "Accuracy"
+   },
+   "diziler": [
+    {
+     "kod": "laboratuvar",
+     "tr": "Denetimli koşullar",
+     "en": "Controlled conditions"
+    },
+    {
+     "kod": "baska-kosullar",
+     "tr": "Başka koşullar",
+     "en": "Other conditions"
+    },
+    {
+     "kod": "referans",
+     "tr": "Rastgele tahmin",
+     "en": "Random guess",
+     "rol": "referans"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Ayrılmış test seti (denetimli koşullar)",
+      "en": "Held-out test set (controlled conditions)"
+     },
+     "dizi": "laboratuvar",
+     "deger": 99.35,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "mohanty2016",
+     "alan": "laboratuvar_dogrulugu_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Başka koşullar · set 1 (121 görüntü)",
+      "en": "Other conditions · set 1 (121 images)"
+     },
+     "dizi": "baska-kosullar",
+     "deger": 31.4,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "mohanty2016",
+     "alan": "saha_veri_seti_1_dogruluk_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Başka koşullar · set 2 (119 görüntü)",
+      "en": "Other conditions · set 2 (119 images)"
+     },
+     "dizi": "baska-kosullar",
+     "deger": 31.69,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "mohanty2016",
+     "alan": "saha_veri_seti_2_dogruluk_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Rastgele tahmin (38 sınıf)",
+      "en": "Random guess (38 classes)"
+     },
+     "dizi": "referans",
+     "deger": 2.6,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "mohanty2016",
+     "alan": "sans_tabani_yuzde"
+    }
+   ],
+   "yer": "Aynı makalenin daha az alıntılanan kısmı şu: model, farklı koşullarda"
+  },
+  "b08-hedefli-ilaclama-azalmalar": {
+   "baslik_no": 8,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "Şeker kamışında hedefli ilaçlama: ilaçta ve akış suyunda azalma",
+    "en": "Targeted spraying in sugarcane: cuts in herbicide use and in runoff"
+   },
+   "aciklama": {
+    "tr": "Avustralya'daki 25 hektarlık denemede hedefli ilaçlama kullanılan ilacı ortalama %35, ot yoğunluğu düşük şeritlerde %65'e kadar azalttı; ilaçlamadan 3-6 gün sonra akış suyundaki ilaç yoğunluğu %39, toplam ilaç yükü %54 düşük çıktı.",
+    "en": "In a 25-hectare trial in Australia, targeted spraying cut herbicide use by 35% on average and by up to 65% in low weed-density strips; 3–6 days after spraying, herbicide concentration in runoff was 39% lower and the total load 54% lower."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Rahimi Azghadi ve ark. (2025)",
+    "en": "Source: Rahimi Azghadi et al. (2025)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Yayma ilaçlamaya göre azalma",
+    "en": "Reduction compared with broadcast spraying"
+   },
+   "diziler": [
+    {
+     "kod": "ilac",
+     "tr": "Ilaç",
+     "en": "Herbicide use"
+    },
+    {
+     "kod": "akis-suyu",
+     "tr": "Akış suyu",
+     "en": "Runoff"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Kullanılan ilaç · ortalama",
+      "en": "Herbicide used · average"
+     },
+     "dizi": "ilac",
+     "deger": 35,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "azghadi2025",
+     "alan": "ilac_azalmasi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Kullanılan ilaç · ot yoğunluğu düşük şeritler (en çok)",
+      "en": "Herbicide used · low weed-density strips (up to)"
+     },
+     "dizi": "ilac",
+     "deger": 65,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "azghadi2025",
+     "alan": "dusuk_ot_yogunlugunda_azalma_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Akış suyunda ilaç yoğunluğu",
+      "en": "Herbicide concentration in runoff"
+     },
+     "dizi": "akis-suyu",
+     "deger": 39,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "azghadi2025",
+     "alan": "akis_suyunda_ortalama_yogunluk_azalmasi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Akış suyunda toplam ilaç yükü",
+      "en": "Total herbicide load in runoff"
+     },
+     "dizi": "akis-suyu",
+     "deger": 54,
+     "kayit": "b08_kaynaklar.json",
+     "kaynak": "azghadi2025",
+     "alan": "akis_suyunda_ortalama_yuk_azalmasi_yuzde"
+    }
+   ],
+   "yer": "Avustralya denemesinin en önemli bulgusu ortalamadan çok ortalamanın nasıl oluştuğu:"
+  },
+  "b10-sweeper-kosullar": {
+   "baslik_no": 10,
+   "tur": "dumbbell",
+   "baslik": {
+    "tr": "Biber hasat robotu: uygun koşulda %61, olağan serada %18",
+    "en": "Sweet pepper harvesting robot: 61% in best-fit conditions, 18% in current conditions"
+   },
+   "aciklama": {
+    "tr": "SWEEPER robotunun hasat başarısı, bitki robota en uygun koşullarda yetiştirildiğinde %61, ticari seranın olağan koşullarında %18 oldu.",
+    "en": "The SWEEPER robot's harvest success was 61% when plants were grown in the conditions best suited to the robot and 18% in the commercial greenhouse's current conditions."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Arad ve ark. (2020)",
+    "en": "Source: Arad et al. (2020)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Hasat başarısı",
+    "en": "Harvest success"
+   },
+   "diziler": [
+    {
+     "kod": "robota-en-uygun-urun-kosullari",
+     "tr": "Robota en uygun ürün koşulları",
+     "en": "Best-fit crop conditions"
+    },
+    {
+     "kod": "seranin-olagan-kosullari",
+     "tr": "Seranın olağan koşulları",
+     "en": "Current crop conditions"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "SWEEPER biber hasat robotu",
+      "en": "SWEEPER sweet pepper harvesting robot"
+     },
+     "dizi": "robota-en-uygun-urun-kosullari",
+     "deger": 61,
+     "kayit": "b10_kaynaklar.json",
+     "kaynak": "arad_2020",
+     "alan": "basari_uygun_kosul_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "SWEEPER biber hasat robotu",
+      "en": "SWEEPER sweet pepper harvesting robot"
+     },
+     "dizi": "seranin-olagan-kosullari",
+     "deger": 18,
+     "kayit": "b10_kaynaklar.json",
+     "kaynak": "arad_2020",
+     "alan": "basari_olagan_kosul_yuzde"
+    }
+   ],
+   "yer": "Bu önerinin sahadaki karşılığını biber hasat robotu SWEEPER gösterdi (Arad"
+  },
+  "b10-hasat-robotu-basamaklari": {
+   "baslik_no": 10,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "Hasat robotlarında başarı adım adım düşüyor: %85, %75, %66",
+    "en": "Harvesting robots lose ground at each step: 85%, 75%, 66%"
+   },
+   "aciklama": {
+    "tr": "Bac ve arkadaşlarının (2014) incelediği 50 hasat robotunda ortalama başarı meyvenin yerini bulmada %85, koparmada %75, hasadın tamamında %66.",
+    "en": "Across the 50 harvesting robots reviewed by Bac et al. (2014), average success was 85% for locating the fruit, 75% for detaching it and 66% for the whole harvest."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Bac ve ark. (2014)",
+    "en": "Source: Bac et al. (2014)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Başarı oranı, robotların ortalaması",
+    "en": "Success rate, average across robots"
+   },
+   "diziler": [
+    {
+     "kod": "ortalama-basari",
+     "tr": "Ortalama başarı",
+     "en": "Average success"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Meyvenin yerini bulma",
+      "en": "Locating the fruit"
+     },
+     "dizi": "ortalama-basari",
+     "deger": 85,
+     "kayit": "b10_kaynaklar.json",
+     "kaynak": "bac_2014",
+     "alan": "ortalama_yuzde.yer_bulma"
+    },
+    {
+     "kategori": {
+      "tr": "Koparma",
+      "en": "Detaching"
+     },
+     "dizi": "ortalama-basari",
+     "deger": 75,
+     "kayit": "b10_kaynaklar.json",
+     "kaynak": "bac_2014",
+     "alan": "ortalama_yuzde.koparma"
+    },
+    {
+     "kategori": {
+      "tr": "Hasadın tamamı",
+      "en": "Whole harvest"
+     },
+     "dizi": "ortalama-basari",
+     "deger": 66,
+     "kayit": "b10_kaynaklar.json",
+     "kaynak": "bac_2014",
+     "alan": "ortalama_yuzde.hasat"
+    }
+   ],
+   "yer": "Yapay zekânın katkısı robotun gözünde: kamera görüntüsünde meyveyi bulmak ve"
+  },
+  "b11-depolama-kaybi": {
+   "baslik_no": 11,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "Tahılda depo kaybı: yetersiz depoda %50-60'a kadar, bilimsel depolamada %1-2",
+    "en": "Grain storage loss: up to 50–60% in poor storage, 1–2% with scientific storage"
+   },
+   "aciklama": {
+    "tr": "Kumar ve Kalita'nın (2017) derlemesine göre teknik yetersizlik yüzünden tahılın %50-60'a varan kısmı depoda kaybolabiliyor; bilimsel depolama yöntemleri bu kaybı %1-2'ye indirebiliyor.",
+    "en": "According to Kumar and Kalita's (2017) review, as much as 50–60% of grain can be lost in storage because of technical shortcomings; scientific storage methods can bring this loss down to 1–2%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Kumar ve Kalita (2017)",
+    "en": "Source: Kumar and Kalita (2017)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Depoda kaybolan tahılın payı",
+    "en": "Share of grain lost in storage"
+   },
+   "diziler": [
+    {
+     "kod": "geleneksel-depo",
+     "tr": "Geleneksel depo",
+     "en": "Deficient storage"
+    },
+    {
+     "kod": "bilimsel-depolama",
+     "tr": "Bilimsel depolama",
+     "en": "Scientific storage"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Teknik yetersizlik olan depo",
+      "en": "Technically deficient storage"
+     },
+     "dizi": "geleneksel-depo",
+     "deger": 50,
+     "uc": "alt",
+     "kayit": "b11_kaynaklar.json",
+     "kaynak": "kumar_kalita_2017",
+     "alan": "depoda_kayip_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Teknik yetersizlik olan depo",
+      "en": "Technically deficient storage"
+     },
+     "dizi": "geleneksel-depo",
+     "deger": 60,
+     "uc": "ust",
+     "kayit": "b11_kaynaklar.json",
+     "kaynak": "kumar_kalita_2017",
+     "alan": "depoda_kayip_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Bilimsel depolama yöntemleri",
+      "en": "Scientific storage methods"
+     },
+     "dizi": "bilimsel-depolama",
+     "deger": 1,
+     "uc": "alt",
+     "kayit": "b11_kaynaklar.json",
+     "kaynak": "kumar_kalita_2017",
+     "alan": "bilimsel_depoda_kayip_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Bilimsel depolama yöntemleri",
+      "en": "Scientific storage methods"
+     },
+     "dizi": "bilimsel-depolama",
+     "deger": 2,
+     "uc": "ust",
+     "kayit": "b11_kaynaklar.json",
+     "kaynak": "kumar_kalita_2017",
+     "alan": "bilimsel_depoda_kayip_yuzde"
+    }
+   ],
+   "yer": "Tahıl, gelişmekte olan ülkelerin çoğunda temel besin; kalori bakımından hasat"
+  },
+  "b12-sensor-dogrulama": {
+   "baslik_no": 12,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "Süt sığırı sensörlerinde bağımsız doğrulama: ivmeölçerde %30, bolüste %7",
+    "en": "Independent validation of dairy cattle sensors: 30% for accelerometers, 7% for boluses"
+   },
+   "aciklama": {
+    "tr": "Stygar ve arkadaşlarına (2021) göre piyasadaki 129 refah teknolojisinin %14'ü bağımsız olarak doğrulanmıştı; oran ivmeölçerlerde %30, kameralarda %10, yük hücrelerinde ve süt sensörlerinde %8, bolüslerde %7.",
+    "en": "According to Stygar et al. (2021), 14% of the 129 welfare technologies on the market had been externally validated; the rate was 30% for accelerometers, 10% for cameras, 8% for load cells and milk sensors and 7% for boluses."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Stygar ve ark. (2021)",
+    "en": "Source: Stygar et al. (2021)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Bağımsız olarak doğrulanmış olanların payı",
+    "en": "Share independently validated"
+   },
+   "diziler": [
+    {
+     "kod": "ture-gore",
+     "tr": "Türe göre",
+     "en": "By type"
+    },
+    {
+     "kod": "genel",
+     "tr": "Bütün teknolojiler",
+     "en": "All technologies",
+     "rol": "referans"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "İvmeölçer",
+      "en": "Accelerometers"
+     },
+     "dizi": "ture-gore",
+     "deger": 30,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "stygar_2021",
+     "alan": "tur_bazinda_yuzde.ivmeolcer"
+    },
+    {
+     "kategori": {
+      "tr": "Kamera",
+      "en": "Cameras"
+     },
+     "dizi": "ture-gore",
+     "deger": 10,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "stygar_2021",
+     "alan": "tur_bazinda_yuzde.kamera"
+    },
+    {
+     "kategori": {
+      "tr": "Yük hücresi",
+      "en": "Load cells"
+     },
+     "dizi": "ture-gore",
+     "deger": 8,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "stygar_2021",
+     "alan": "tur_bazinda_yuzde.yuk_hucresi"
+    },
+    {
+     "kategori": {
+      "tr": "Süt sensörü",
+      "en": "Milk sensors"
+     },
+     "dizi": "ture-gore",
+     "deger": 8,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "stygar_2021",
+     "alan": "tur_bazinda_yuzde.sut_sensoru"
+    },
+    {
+     "kategori": {
+      "tr": "Bolüs",
+      "en": "Boluses"
+     },
+     "dizi": "ture-gore",
+     "deger": 7,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "stygar_2021",
+     "alan": "tur_bazinda_yuzde.bolus"
+    },
+    {
+     "kategori": {
+      "tr": "Bütün teknolojiler (18 / 129)",
+      "en": "All technologies (18 / 129)"
+     },
+     "dizi": "genel",
+     "deger": 14,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "stygar_2021",
+     "alan": "dogrulanmis_pay_yuzde"
+    }
+   ],
+   "yer": "Sensör tarafında Stygar ve arkadaşları (2021), süt sığırında refah değerlendirmesine"
+  },
+  "b12-meta-analiz-eleme": {
+   "baslik_no": 12,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "154 tam metinden birleşik analize 10 çalışma kaldı",
+    "en": "Of 154 full texts, 10 studies made it into the pooled analysis"
+   },
+   "aciklama": {
+    "tr": "Erhan ve Yağanoğlu'nun (2026) meta-analizinde incelenen 154 tam metinden 74'ü ölçütleri karşıladı; birleşik analize yalnız 10 çalışma (7 mastitis, 3 topallık) girebildi.",
+    "en": "In Erhan and Yağanoğlu's (2026) meta-analysis, 74 of the 154 full texts reviewed met the inclusion criteria, and only 10 studies (7 on mastitis, 3 on lameness) entered the pooled analysis."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Erhan ve Yağanoğlu (2026)",
+    "en": "Source: Erhan and Yağanoğlu (2026)"
+   },
+   "birim": {
+    "tr": "çalışma",
+    "en": "studies"
+   },
+   "diziler": [
+    {
+     "kod": "eleme",
+     "tr": "Eleme",
+     "en": "Screening"
+    },
+    {
+     "kod": "birlesik-analiz-dokumu",
+     "tr": "Birleşik analizin dökümü",
+     "en": "Pooled analysis breakdown",
+     "rol": "alt"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "İncelenen tam metin",
+      "en": "Full texts reviewed"
+     },
+     "dizi": "eleme",
+     "deger": 154,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "erhan_yaganoglu_2026",
+     "alan": "tam_metin_incelenen"
+    },
+    {
+     "kategori": {
+      "tr": "Ölçütleri karşılayan",
+      "en": "Met inclusion criteria"
+     },
+     "dizi": "eleme",
+     "deger": 74,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "erhan_yaganoglu_2026",
+     "alan": "olcutu_karsilayan"
+    },
+    {
+     "kategori": {
+      "tr": "Birleşik analize giren",
+      "en": "Entered the pooled analysis"
+     },
+     "dizi": "eleme",
+     "deger": 10,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "erhan_yaganoglu_2026",
+     "alan": "birlesik_analizdeki_calisma"
+    },
+    {
+     "kategori": {
+      "tr": "Birleşik analiz · mastitis",
+      "en": "Pooled analysis · mastitis"
+     },
+     "dizi": "birlesik-analiz-dokumu",
+     "deger": 7,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "erhan_yaganoglu_2026",
+     "alan": "mastitis_calismasi"
+    },
+    {
+     "kategori": {
+      "tr": "Birleşik analiz · topallık",
+      "en": "Pooled analysis · lameness"
+     },
+     "dizi": "birlesik-analiz-dokumu",
+     "deger": 3,
+     "kayit": "b12_kaynaklar.json",
+     "kaynak": "erhan_yaganoglu_2026",
+     "alan": "topallik_calismasi"
+    }
+   ],
+   "yer": "Erhan ve Yağanoğlu (2026), Türkiye'den yazdıkları bir meta-analizde çiftlik hayvanlarında"
+  },
+  "b14-izlenmeyen-gemiler": {
+   "baslik_no": 14,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "Kamuya açık izlemede görünmeyen gemi faaliyeti: balıkçılıkta %72-76, taşıma ve enerjide %21-30",
+    "en": "Vessel activity missing from public tracking: 72–76% for fishing, 21–30% for transport and energy"
+   },
+   "aciklama": {
+    "tr": "Paolo ve arkadaşlarına (2024) göre 2017-2021'de dünyadaki endüstriyel balıkçı gemilerinin %72-76'sı, taşıma ve enerji gemisi faaliyetinin %21-30'u kamuya açık izleme sistemlerinde görünmüyordu.",
+    "en": "According to Paolo et al. (2024), in 2017–2021 72–76% of the world's industrial fishing vessels and 21–30% of transport and energy vessel activity were missing from public tracking systems."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Paolo ve ark. (2024)",
+    "en": "Source: Paolo et al. (2024)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Kamuya açık izlemede görünmeyen pay",
+    "en": "Share missing from public tracking"
+   },
+   "diziler": [
+    {
+     "kod": "balikcilik",
+     "tr": "Balıkçılık",
+     "en": "Fishing"
+    },
+    {
+     "kod": "tasima-ve-enerji",
+     "tr": "Taşıma ve enerji",
+     "en": "Transport and energy"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Endüstriyel balıkçı gemileri",
+      "en": "Industrial fishing vessels"
+     },
+     "dizi": "balikcilik",
+     "deger": 72,
+     "uc": "alt",
+     "kayit": "b14_kaynaklar.json",
+     "kaynak": "paolo_2024",
+     "alan": "izlenmeyen_bkg_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Endüstriyel balıkçı gemileri",
+      "en": "Industrial fishing vessels"
+     },
+     "dizi": "balikcilik",
+     "deger": 76,
+     "uc": "ust",
+     "kayit": "b14_kaynaklar.json",
+     "kaynak": "paolo_2024",
+     "alan": "izlenmeyen_bkg_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Taşıma ve enerji gemisi faaliyeti",
+      "en": "Transport and energy vessel activity"
+     },
+     "dizi": "tasima-ve-enerji",
+     "deger": 21,
+     "uc": "alt",
+     "kayit": "b14_kaynaklar.json",
+     "kaynak": "paolo_2024",
+     "alan": "izlenmeyen_tasima_enerji_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Taşıma ve enerji gemisi faaliyeti",
+      "en": "Transport and energy vessel activity"
+     },
+     "dizi": "tasima-ve-enerji",
+     "deger": 30,
+     "uc": "ust",
+     "kayit": "b14_kaynaklar.json",
+     "kaynak": "paolo_2024",
+     "alan": "izlenmeyen_tasima_enerji_yuzde"
+    }
+   ],
+   "yer": "İzleme dışı gemileri gösteren harita, Paolo ve arkadaşlarının (2024) çalışmasından"
+  },
+  "b15-yanan-alan-son-bes-yil": {
+   "baslik_no": 15,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "1988'den bu yana yanan orman alanının %43,6'sı son beş yılda yandı",
+    "en": "43.6% of the forest area burned since 1988 burned in the last five years"
+   },
+   "aciklama": {
+    "tr": "2027 Programı'na göre resmî istatistiklerin başladığı 1988'den 2025'e kadar Türkiye'de yanan 634.575 hektar orman alanının %43,6'sı son beş yılda yandı.",
+    "en": "According to the 2027 Annual Programme, 43.6% of the 634,575 hectares of forest burned in Türkiye between 1988, when official statistics began, and 2025 burned in the last five years."
+   },
+   "kaynak": {
+    "tr": "Kaynak: 2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+    "en": "Source: 2027 Annual Programme of the Presidency of Türkiye"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "son-bes-yil",
+     "tr": "Son beş yıl",
+     "en": "Last five years"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Son beş yılda yanan",
+      "en": "Burned in the last five years"
+     },
+     "dizi": "son-bes-yil",
+     "deger": 43.6,
+     "kayit": "b15_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "son_bes_yil_payi_yuzde"
+    }
+   ],
+   "yer": "Yapay zekâ ormancılıkta iki işte öne çıkıyor: ormanın yapısını uydudan"
+  },
+  "b16-gru-arima-hata": {
+   "baslik_no": 16,
+   "tur": "dikey_cubuk",
+   "baslik": {
+    "tr": "Fiyat tahmininde hata: derin öğrenme modeli (GRU) klasik ARIMA'nın çok altında",
+    "en": "Price forecasting error: the deep learning model (GRU) far below classic ARIMA"
+   },
+   "aciklama": {
+    "tr": "Hindistan'da günlük toptan fiyatlarla yapılan karşılaştırmada hata ölçüsü (RMSE) soğanda GRU modelinde 370, ARIMA'da 1.565; domateste 210 ve 1.299.",
+    "en": "In a comparison using daily wholesale prices in India, the error measure (RMSE) was 370 for the GRU model against 1,565 for ARIMA for onions, and 210 against 1,299 for tomatoes."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Manogna, Dharmaji ve Sarang (2025)",
+    "en": "Source: Manogna, Dharmaji and Sarang (2025)"
+   },
+   "eksen": {
+    "tr": "Hata (RMSE): düşük olan daha iyi",
+    "en": "Error (RMSE): lower is better"
+   },
+   "ondalik": 0,
+   "diziler": [
+    {
+     "kod": "gru-derin-ogrenme",
+     "tr": "GRU (derin öğrenme)",
+     "en": "GRU (deep learning)"
+    },
+    {
+     "kod": "arima-klasik",
+     "tr": "ARIMA (klasik)",
+     "en": "ARIMA (classic)"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Soğan",
+      "en": "Onion"
+     },
+     "dizi": "gru-derin-ogrenme",
+     "deger": 369.54,
+     "kayit": "b16_kaynaklar.json",
+     "kaynak": "manogna_2025",
+     "alan": "gru_rmse_sogan"
+    },
+    {
+     "kategori": {
+      "tr": "Soğan",
+      "en": "Onion"
+     },
+     "dizi": "arima-klasik",
+     "deger": 1564.62,
+     "kayit": "b16_kaynaklar.json",
+     "kaynak": "manogna_2025",
+     "alan": "arima_rmse_sogan"
+    },
+    {
+     "kategori": {
+      "tr": "Domates",
+      "en": "Tomato"
+     },
+     "dizi": "gru-derin-ogrenme",
+     "deger": 210.35,
+     "kayit": "b16_kaynaklar.json",
+     "kaynak": "manogna_2025",
+     "alan": "gru_rmse_domates"
+    },
+    {
+     "kategori": {
+      "tr": "Domates",
+      "en": "Tomato"
+     },
+     "dizi": "arima-klasik",
+     "deger": 1298.6,
+     "kayit": "b16_kaynaklar.json",
+     "kaynak": "manogna_2025",
+     "alan": "arima_rmse_domates"
+    }
+   ],
+   "yer": "Hindistan'da **23** ürünün Ocak 2010–Haziran 2024 arasındaki günlük toptan fiyatlarıyla"
+  },
+  "b17-zirai-don-2025": {
+   "baslik_no": 17,
+   "tur": "pay",
+   "baslik": {
+    "tr": "2025 zirai donu: 23,1 milyar lira sigorta tazminatı, 23,86 milyar lira destekleme ödemesi",
+    "en": "2025 frost: 23.1 billion lira in insurance indemnities, 23.86 billion lira in support payments"
+   },
+   "aciklama": {
+    "tr": "2025'teki zirai don için devlet destekli tarım sigortası olan üreticilere 23,1 milyar lira hasar tazminatı, ayrıca bir Cumhurbaşkanı Kararı'yla 23,86 milyar lira destekleme ödemesi yapıldı; toplam yaklaşık 47 milyar lira.",
+    "en": "For the 2025 frost, producers with state-subsidised crop insurance received 23.1 billion lira in indemnities, and a Presidential Decision added 23.86 billion lira in support payments, roughly 47 billion lira in total."
+   },
+   "kaynak": {
+    "tr": "Kaynak: 2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+    "en": "Source: 2027 Annual Programme of the Presidency of Türkiye"
+   },
+   "birim": {
+    "tr": "milyar TL",
+    "en": "billion TL"
+   },
+   "diziler": [
+    {
+     "kod": "sigorta",
+     "tr": "Sigorta hasar tazminatı",
+     "en": "Insurance indemnities"
+    },
+    {
+     "kod": "destekleme",
+     "tr": "Cumhurbaşkanı Kararı'yla destekleme ödemesi",
+     "en": "Support payment by Presidential Decision"
+    },
+    {
+     "kod": "toplam",
+     "tr": "Toplam",
+     "en": "Total",
+     "rol": "toplam"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "2025 zirai donu için yapılan ödemeler",
+      "en": "Payments for the 2025 frost"
+     },
+     "dizi": "sigorta",
+     "deger": 23.1,
+     "kayit": "b17_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "zirai_don_2025_sigorta_tazminati_milyar_tl"
+    },
+    {
+     "kategori": {
+      "tr": "2025 zirai donu için yapılan ödemeler",
+      "en": "Payments for the 2025 frost"
+     },
+     "dizi": "destekleme",
+     "deger": 23.86,
+     "kayit": "b17_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "zirai_don_2025_destekleme_milyar_tl"
+    },
+    {
+     "kategori": {
+      "tr": "Toplam (yaklaşık)",
+      "en": "Total (approx.)"
+     },
+     "dizi": "toplam",
+     "deger": 47,
+     "kayit": "b17_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "zirai_don_2025_toplam_milyar_tl_yaklasik"
+    }
+   ],
+   "yer": "2027 Programı'na göre kuraklık ve zirai don 2024-2025 üretim sezonunda"
+  },
+  "b17-baz-riski": {
+   "baslik_no": 17,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "Kenya'da endeks sigortası: ortak risk %63 azaldı, asıl riskin %69'u poliçe sahibinde kaldı",
+    "en": "Index insurance in Kenya: covariate risk down 63%, yet 69% of original risk stays with policyholders"
+   },
+   "aciklama": {
+    "tr": "Kuzey Kenya'daki hayvancılık endeks sigortası büyük kayıplardan doğan ortak riski ortalama %63 azalttı; poliçe sahipleri ise büyük kayıplardan doğan asıl risklerinin ortalama %69'unu taşımaya devam etti.",
+    "en": "Livestock index insurance in northern Kenya reduced exposure to covariate risk from high-loss events by 63% on average, yet policyholders were left with an average of 69% of their original risk from such events."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Jensen, Barrett ve Mude (2016)",
+    "en": "Source: Jensen, Barrett and Mude (2016)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "ortak-risk",
+     "tr": "Ortak risk",
+     "en": "Covariate risk"
+    },
+    {
+     "kod": "asil-risk",
+     "tr": "Asıl risk",
+     "en": "Original risk"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Ortak riskteki ortalama azalma",
+      "en": "Average reduction in covariate risk"
+     },
+     "dizi": "ortak-risk",
+     "deger": 63,
+     "kayit": "b17_kaynaklar.json",
+     "kaynak": "jensen_2016",
+     "alan": "ortak_risk_azalma_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Poliçe sahibinde kalan asıl risk",
+      "en": "Original risk left with policyholders"
+     },
+     "dizi": "asil-risk",
+     "deger": 69,
+     "kayit": "b17_kaynaklar.json",
+     "kaynak": "jensen_2016",
+     "alan": "kalan_risk_yuzde"
+    }
+   ],
+   "yer": "Endeks sigortası tarafında Benami ve arkadaşlarının (2021) derlemesine göre kayıp"
+  },
+  "b17-don-ihbarlari": {
+   "baslik_no": 17,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "2025'te bitkisel ürün hasar ihbarlarının %39,8'i dondandı",
+    "en": "Frost accounted for 39.8% of crop insurance loss notifications in 2025"
+   },
+   "aciklama": {
+    "tr": "TARSİM'e 2025'te bitkisel ürün sigortasında yapılan 430.076 hasar ihbarının 171.558'i, yani %39,8'i dondandı.",
+    "en": "Of the 430,076 crop insurance loss notifications made to TARSİM in 2025, 171,558, or 39.8%, were due to frost."
+   },
+   "kaynak": {
+    "tr": "Kaynak: TARSİM, 2025 Faaliyet Raporu",
+    "en": "Source: TARSİM, Annual Report 2025"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "don",
+     "tr": "Don",
+     "en": "Frost"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Don kaynaklı ihbarların payı",
+      "en": "Share of frost notifications"
+     },
+     "dizi": "don",
+     "deger": 39.8,
+     "kayit": "b17_kaynaklar.json",
+     "kaynak": "tarsim_2025_faaliyet",
+     "alan": "don_ihbari_payi_yuzde"
+    }
+   ],
+   "yer": "Tarım Sigortaları Havuzu (TARSİM) 2025'te **3,8** milyon poliçe düzenledi"
+  },
+  "b18-chatgpt-yayim-elemani": {
+   "baslik_no": 18,
+   "tur": "dumbbell",
+   "baslik": {
+    "tr": "En iyi puanı alma sıklığı: ChatGPT %40, yayım elemanları %7",
+    "en": "How often answers got the best score: ChatGPT 40%, extension agents 7%"
+   },
+   "aciklama": {
+    "tr": "Nijerya'da 32 sulu çeltik sorusuna verilen yanıtlarda ChatGPT en iyi puanı %40, yayım elemanları %7 sıklıkla aldı; değerlendiriciler vakaların %78'inde ChatGPT'yi tercih etti, ama ekim zamanı, tohum miktarı, gübre miktarı ve zamanlamasında ChatGPT geride kaldı.",
+    "en": "Answering 32 irrigated rice questions in Nigeria, ChatGPT received the best score 40% of the time and extension agents 7%; evaluators preferred ChatGPT in 78% of cases, but it fell behind on planting time, seed rate and fertiliser rate and timing."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Ibrahim, Senthilkumar ve Saito (2024)",
+    "en": "Source: Ibrahim, Senthilkumar and Saito (2024)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "chatgpt",
+     "tr": "ChatGPT",
+     "en": "ChatGPT"
+    },
+    {
+     "kod": "yayim-elemanlari",
+     "tr": "Yayım elemanları",
+     "en": "Extension agents"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Yanıtların en iyi puanı alma sıklığı",
+      "en": "How often answers got the best score"
+     },
+     "dizi": "chatgpt",
+     "deger": 40,
+     "kayit": "b18_kaynaklar.json",
+     "kaynak": "ibrahim_2024",
+     "alan": "en_iyi_puan_chatbot_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Yanıtların en iyi puanı alma sıklığı",
+      "en": "How often answers got the best score"
+     },
+     "dizi": "yayim-elemanlari",
+     "deger": 7,
+     "kayit": "b18_kaynaklar.json",
+     "kaynak": "ibrahim_2024",
+     "alan": "en_iyi_puan_yayim_elemani_yuzde"
+    }
+   ],
+   "yer": "Dil modelleri için en doğrudan karşılaştırma yine Nijerya'dan (Ibrahim ve"
+  },
+  "b18-dil-modeli-dogruluk-araligi": {
+   "baslik_no": 18,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "Dört seçenekli tarım sorularında doğruluk, soruyu sorma biçimine göre değişiyor",
+    "en": "Accuracy on four-option farm questions shifts with the prompting strategy"
+   },
+   "aciklama": {
+    "tr": "90 soruluk çoktan seçmeli bir sette GPT-4o'nun doğruluğu istem stratejisine göre %84,8 ile %95,3, Gemini'ninki %74,8 ile %88,4 arasında değişti; en düşük sonuçlar modele örneksiz sorulduğunda alındı.",
+    "en": "On a 90-question multiple-choice set, GPT-4o's accuracy ranged from 84.8% to 95.3% and Gemini's from 74.8% to 88.4% depending on the prompting strategy; the lowest results came with zero-shot prompts."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Eldem ve Eldem (2026)",
+    "en": "Source: Eldem and Eldem (2026)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Doğruluk: istem stratejisine göre en düşük ve en yüksek",
+    "en": "Accuracy: lowest and highest by prompting strategy"
+   },
+   "diziler": [
+    {
+     "kod": "gpt-4o",
+     "tr": "GPT-4o",
+     "en": "GPT-4o"
+    },
+    {
+     "kod": "gemini",
+     "tr": "Gemini",
+     "en": "Gemini"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "GPT-4o",
+      "en": "GPT-4o"
+     },
+     "dizi": "gpt-4o",
+     "deger": 84.8,
+     "uc": "alt",
+     "kayit": "b18_kaynaklar.json",
+     "kaynak": "eldem_2026",
+     "alan": "gpt4o_dogruluk_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "GPT-4o",
+      "en": "GPT-4o"
+     },
+     "dizi": "gpt-4o",
+     "deger": 95.3,
+     "uc": "ust",
+     "kayit": "b18_kaynaklar.json",
+     "kaynak": "eldem_2026",
+     "alan": "gpt4o_dogruluk_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Gemini",
+      "en": "Gemini"
+     },
+     "dizi": "gemini",
+     "deger": 74.8,
+     "uc": "alt",
+     "kayit": "b18_kaynaklar.json",
+     "kaynak": "eldem_2026",
+     "alan": "gemini_dogruluk_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Gemini",
+      "en": "Gemini"
+     },
+     "dizi": "gemini",
+     "deger": 88.4,
+     "uc": "ust",
+     "kayit": "b18_kaynaklar.json",
+     "kaynak": "eldem_2026",
+     "alan": "gemini_dogruluk_yuzde"
+    }
+   ],
+   "yer": "Akademide dil modelleri tarım sorularında sınanmaya başladı. Karamanoğlu Mehmetbey Üniversitesi'nden"
+  },
+  "b19-landsat-acik-veri": {
+   "baslik_no": 19,
+   "tur": "kpi",
+   "baslik": {
+    "tr": "Landsat ücretsizleşince: veri kullanımı 20 kat, bilimsel yayın dört kat",
+    "en": "After Landsat became free: data use up 20-fold, scientific publications four-fold"
+   },
+   "aciklama": {
+    "tr": "NASA'nın aktardığına göre ABD 2008'de Landsat görüntülerini ücretsiz yapınca veri kullanımı 20 kat, Landsat'a dayanan bilimsel yayınlar dört kat arttı.",
+    "en": "According to NASA, after the US made Landsat imagery free in 2008, data use rose 20-fold and Landsat-based scientific publications four-fold."
+   },
+   "kaynak": {
+    "tr": "Kaynak: NASA Landsat Science (2019), Zhu ve ark. (2019) makalesinin özeti",
+    "en": "Source: NASA Landsat Science (2019), summarising Zhu et al. (2019)"
+   },
+   "birim": {
+    "tr": "kat",
+    "en": "×"
+   },
+   "eksen": {
+    "tr": "Artış",
+    "en": "Increase"
+   },
+   "diziler": [
+    {
+     "kod": "artis",
+     "tr": "Artış",
+     "en": "Increase"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Veri kullanımı",
+      "en": "Data use"
+     },
+     "dizi": "artis",
+     "deger": 20,
+     "kayit": "b19_kaynaklar.json",
+     "kaynak": "nasa_2019_landsat",
+     "alan": "veri_kullanimi_artisi_kat"
+    },
+    {
+     "kategori": {
+      "tr": "Landsat'a dayanan bilimsel yayınlar",
+      "en": "Landsat-based scientific publications"
+     },
+     "dizi": "artis",
+     "deger": 4,
+     "kayit": "b19_kaynaklar.json",
+     "kaynak": "nasa_2019_landsat",
+     "alinti": "Landsat-based scientific publications has increased four-fold"
+    }
+   ],
+   "yer": "Landsat görüntülerini ücretsiz dağıtma kararını ABD Jeoloji Araştırmaları Kurumu (USGS)"
+  },
+  "b20-baglanti-isletme-buyuklugu": {
+   "baslik_no": 20,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "3G/4G kapsaması: 1 hektardan küçük işletmelerde %24-37, 200 hektarın üstündekilerde %74-80",
+    "en": "3G/4G coverage: 24–37% of farms under 1 ha, 74–80% of farms over 200 ha"
+   },
+   "aciklama": {
+    "tr": "Mehrabi ve arkadaşlarının (2021) küresel analizine göre 1 hektardan küçük işletmelerin %24-37'si, 200 hektarın üstündekilerin %74-80'i 3G ya da 4G kapsamasında.",
+    "en": "According to Mehrabi et al.'s (2021) global analysis, 24–37% of farms under 1 ha are served by 3G or 4G, compared with 74–80% of farms over 200 ha."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Mehrabi ve ark. (2021)",
+    "en": "Source: Mehrabi et al. (2021)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Kapsama alanındaki işletmelerin payı",
+    "en": "Share of farms with coverage"
+   },
+   "diziler": [
+    {
+     "kod": "kucuk-isletme",
+     "tr": "Küçük işletme",
+     "en": "Small farms"
+    },
+    {
+     "kod": "buyuk-isletme",
+     "tr": "Büyük işletme",
+     "en": "Large farms"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "1 hektardan küçük",
+      "en": "Under 1 ha"
+     },
+     "dizi": "kucuk-isletme",
+     "deger": 24,
+     "uc": "alt",
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "mehrabi_2021",
+     "alan": "kucuk_isletme_kapsama_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "1 hektardan küçük",
+      "en": "Under 1 ha"
+     },
+     "dizi": "kucuk-isletme",
+     "deger": 37,
+     "uc": "ust",
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "mehrabi_2021",
+     "alan": "kucuk_isletme_kapsama_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "200 hektarın üstü",
+      "en": "Over 200 ha"
+     },
+     "dizi": "buyuk-isletme",
+     "deger": 74,
+     "uc": "alt",
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "mehrabi_2021",
+     "alan": "buyuk_isletme_kapsama_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "200 hektarın üstü",
+      "en": "Over 200 ha"
+     },
+     "dizi": "buyuk-isletme",
+     "deger": 80,
+     "uc": "ust",
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "mehrabi_2021",
+     "alan": "buyuk_isletme_kapsama_yuzde"
+    }
+   ],
+   "yer": "Mehrabi ve arkadaşlarının (2021) küresel analizine göre kapsama yalnız küçük"
+  },
+  "b20-kent-kir-isi-haritasi": {
+   "baslik_no": 20,
+   "tur": "isi",
+   "baslik": {
+    "tr": "Kentte ve kırda internet kullanımı ile mobil şebeke kapsaması, 2026",
+    "en": "Internet use and mobile network coverage in urban and rural areas, 2026"
+   },
+   "aciklama": {
+    "tr": "ITU'nun 2026 tahminine göre internet kullanımı dünyada kentte %82, kırda %63, düşük gelirli ülkelerde %41 ve %17; 5G kapsaması dünyada %70 ve %45, yüksek gelirli ülkelerde %90 ve %72; 4G kapsaması dünyada %99 ve %87.",
+    "en": "According to ITU's 2026 estimates, internet use is 82% in urban and 63% in rural areas worldwide, and 41% and 17% in low-income countries; 5G covers 70% and 45% worldwide and 90% and 72% in high-income countries; 4G covers 99% and 87% worldwide."
+   },
+   "kaynak": {
+    "tr": "Kaynak: ITU, Facts and Figures 2026",
+    "en": "Source: ITU, Facts and Figures 2026"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Nüfusun payı",
+    "en": "Share of population"
+   },
+   "diziler": [
+    {
+     "kod": "kent",
+     "tr": "Kent",
+     "en": "Urban"
+    },
+    {
+     "kod": "kir",
+     "tr": "Kır",
+     "en": "Rural"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "İnternet kullanımı · dünya",
+      "en": "Internet use · world"
+     },
+     "dizi": "kent",
+     "deger": 82,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_internet",
+     "alan": "kent_internet_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "İnternet kullanımı · dünya",
+      "en": "Internet use · world"
+     },
+     "dizi": "kir",
+     "deger": 63,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_internet",
+     "alan": "kir_internet_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "İnternet kullanımı · düşük gelirli ülkeler",
+      "en": "Internet use · low-income countries"
+     },
+     "dizi": "kent",
+     "deger": 41,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_internet",
+     "alan": "dusuk_gelir_kent_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "İnternet kullanımı · düşük gelirli ülkeler",
+      "en": "Internet use · low-income countries"
+     },
+     "dizi": "kir",
+     "deger": 17,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_internet",
+     "alan": "dusuk_gelir_kir_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "5G kapsaması · dünya",
+      "en": "5G coverage · world"
+     },
+     "dizi": "kent",
+     "deger": 70,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_kapsama",
+     "alan": "kent_5g_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "5G kapsaması · dünya",
+      "en": "5G coverage · world"
+     },
+     "dizi": "kir",
+     "deger": 45,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_kapsama",
+     "alan": "kir_5g_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "5G kapsaması · yüksek gelirli ülkeler",
+      "en": "5G coverage · high-income countries"
+     },
+     "dizi": "kent",
+     "deger": 90,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_kapsama",
+     "alan": "yuksek_gelir_kent_5g"
+    },
+    {
+     "kategori": {
+      "tr": "5G kapsaması · yüksek gelirli ülkeler",
+      "en": "5G coverage · high-income countries"
+     },
+     "dizi": "kir",
+     "deger": 72,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_kapsama",
+     "alan": "yuksek_gelir_kir_5g"
+    },
+    {
+     "kategori": {
+      "tr": "4G kapsaması · dünya",
+      "en": "4G coverage · world"
+     },
+     "dizi": "kent",
+     "deger": 99,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_kapsama",
+     "alan": "kent_4g_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "4G kapsaması · dünya",
+      "en": "4G coverage · world"
+     },
+     "dizi": "kir",
+     "deger": 87,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "itu_2026_kapsama",
+     "alan": "kir_4g_yuzde"
+    }
+   ],
+   "yer": "Şebeke kapsaması da aynı tabloyu gösteriyor. Dünyada kentte yaşayanların **%70**'i"
+  },
+  "b20-akilli-tarim-anketi": {
+   "baslik_no": 20,
+   "tur": "pay",
+   "baslik": {
+    "tr": "Ankete katılan 325 çiftçi: 66'sı kullanıyor, 170'i kullanmak istiyor, 89'u kullanmıyor",
+    "en": "Of 325 surveyed farmers, 66 use smart farming technology, 170 want to and 89 do not"
+   },
+   "aciklama": {
+    "tr": "Altı bölgede, hibesi en fazla illerde bakanlık eğitimine gönüllü katılan 325 çiftçiden 66'sı akıllı tarım teknolojilerinden en az birini kullanıyor, 170'i kullanmıyor ama kullanmak istiyor, 89'u kullanmıyor.",
+    "en": "Of 325 farmers who voluntarily attended ministry training in the provinces with the most grants across six regions, 66 use at least one smart farming technology, 170 do not but would like to, and 89 do not."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Guldal, Sanli ve Turker (2025)",
+    "en": "Source: Guldal, Sanli and Turker (2025)"
+   },
+   "birim": {
+    "tr": "çiftçi",
+    "en": "farmers"
+   },
+   "diziler": [
+    {
+     "kod": "kullanan",
+     "tr": "Kullanıyor",
+     "en": "Users"
+    },
+    {
+     "kod": "istekli",
+     "tr": "Kullanmıyor ama istiyor",
+     "en": "Not using but keen to"
+    },
+    {
+     "kod": "kullanmayan",
+     "tr": "Kullanmıyor",
+     "en": "Non-users"
+    },
+    {
+     "kod": "toplam",
+     "tr": "Toplam",
+     "en": "Total",
+     "rol": "toplam"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Ankete katılan çiftçiler",
+      "en": "Surveyed farmers"
+     },
+     "dizi": "kullanan",
+     "deger": 66,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "guldal_2025",
+     "alan": "kullanici"
+    },
+    {
+     "kategori": {
+      "tr": "Ankete katılan çiftçiler",
+      "en": "Surveyed farmers"
+     },
+     "dizi": "istekli",
+     "deger": 170,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "guldal_2025",
+     "alan": "istekli"
+    },
+    {
+     "kategori": {
+      "tr": "Ankete katılan çiftçiler",
+      "en": "Surveyed farmers"
+     },
+     "dizi": "kullanmayan",
+     "deger": 89,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "guldal_2025",
+     "alan": "kullanmayan"
+    },
+    {
+     "kategori": {
+      "tr": "Toplam",
+      "en": "Total"
+     },
+     "dizi": "toplam",
+     "deger": 325,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "guldal_2025",
+     "alan": "anket_ciftci"
+    }
+   ],
+   "yer": "Tarımsal sensör ve nesnelerin interneti ağlarının Türkiye'de tarıma etkisini ölçen"
+  },
+  "b20-akilli-tarim-hedef": {
+   "baslik_no": 20,
+   "tur": "kpi",
+   "baslik": {
+    "tr": "İklim dostu akıllı tarım teknolojisi kullanan işletme: 2025 hedefi 410, gerçekleşme 0",
+    "en": "Farms using climate-friendly smart farming technology: 2025 target 410, actual 0"
+   },
+   "aciklama": {
+    "tr": "Bakanlığın 2025 faaliyet raporuna göre iklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı göstergesinin 2025 hedefi 410, gerçekleşmesi 0; hibe uygulamaları henüz başlamamıştı.",
+    "en": "According to the ministry's 2025 activity report, the indicator for farms using climate-friendly smart farming technology systems had a 2025 target of 410 and an actual value of 0, as grant schemes had not yet started."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Tarım ve Orman Bakanlığı, 2025 Yılı İdare Faaliyet Raporu",
+    "en": "Source: Ministry of Agriculture and Forestry, 2025 Activity Report"
+   },
+   "birim": {
+    "tr": "işletme",
+    "en": "farms"
+   },
+   "diziler": [
+    {
+     "kod": "hedef",
+     "tr": "Hedef",
+     "en": "Target",
+     "rol": "ongoru"
+    },
+    {
+     "kod": "gerceklesme",
+     "tr": "Gerçekleşme",
+     "en": "Actual"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "2025 hedefi",
+      "en": "2025 target"
+     },
+     "dizi": "hedef",
+     "deger": 410,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "tob_2025_faaliyet_raporu",
+     "alan": "akilli_tarim_isletme_hedef_2025"
+    },
+    {
+     "kategori": {
+      "tr": "2025 gerçekleşme",
+      "en": "2025 actual"
+     },
+     "dizi": "gerceklesme",
+     "deger": 0,
+     "kayit": "b20_kaynaklar.json",
+     "kaynak": "tob_2025_faaliyet_raporu",
+     "alan": "akilli_tarim_isletme_gerceklesen_2025"
+    }
+   ],
+   "yer": "Bakanlığın 2025 faaliyet raporunda, iklim dostu akıllı tarım teknoloji sistemleri"
+  },
+  "b21-sozlesme-okunabilirlik": {
+   "baslik_no": 21,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "Tarım uygulaması sözleşmeleri: %95'i okunması zor, yaklaşık %75'i üniversite düzeyi istiyor",
+    "en": "Farm app data agreements: 95% hard to read, about 75% need university-level education"
+   },
+   "aciklama": {
+    "tr": "Kaur ve Dara'nın (2023) incelediği 141 tarım uygulaması kullanım sözleşmesinin %95'i okunması zor kategorisinde, yaklaşık %75'i anlaşılmak için üniversite düzeyinde eğitim gerektiriyor.",
+    "en": "Of the 141 agricultural terms-of-use agreements analysed by Kaur and Dara (2023), 95% fall in the difficult-to-read category and close to 75% require university-level education to understand."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Kaur ve Dara (2023)",
+    "en": "Source: Kaur and Dara (2023)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Sözleşmelerin payı",
+    "en": "Share of agreements"
+   },
+   "diziler": [
+    {
+     "kod": "okunabilirlik",
+     "tr": "Okunabilirlik",
+     "en": "Readability"
+    },
+    {
+     "kod": "egitim-duzeyi",
+     "tr": "Eğitim düzeyi",
+     "en": "Education level"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Okunması zor",
+      "en": "Difficult to read"
+     },
+     "dizi": "okunabilirlik",
+     "deger": 95,
+     "kayit": "b21_kaynaklar.json",
+     "kaynak": "kaur_dara_2023",
+     "alan": "okunmasi_zor_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Üniversite düzeyinde eğitim gerektiriyor (yaklaşık)",
+      "en": "Need university-level education (approx.)"
+     },
+     "dizi": "egitim-duzeyi",
+     "deger": 75,
+     "kayit": "b21_kaynaklar.json",
+     "kaynak": "kaur_dara_2023",
+     "alan": "universite_duzeyi_yuzde"
+    }
+   ],
+   "yer": "Turland ve Slade'in (2020) varsayımsal seçim deneyinde platformu kimin işlettiği"
+  },
+  "b21-cks-kayitli-alan": {
+   "baslik_no": 21,
+   "tur": "kpi",
+   "baslik": {
+    "tr": "ÇKS'ye kayıtlı alan: 17,3 milyon hektarlık 2025 hedefinin %93'ü",
+    "en": "Area in the Farmer Registration System: 93% of the 17.3 million ha target for 2025"
+   },
+   "aciklama": {
+    "tr": "Bakanlığın 2025 faaliyet raporuna göre Çiftçi Kayıt Sistemi'ne kayıtlı alan 16,1 milyon hektarla 17,3 milyon hektarlık 2025 hedefinin %93'üne ulaştı.",
+    "en": "According to the ministry's 2025 activity report, the area registered in the Farmer Registration System reached 16.1 million hectares, 93% of the 17.3 million hectare target for 2025."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Tarım ve Orman Bakanlığı, 2025 Yılı İdare Faaliyet Raporu",
+    "en": "Source: Ministry of Agriculture and Forestry, 2025 Activity Report"
+   },
+   "birim": {
+    "tr": "milyon ha",
+    "en": "million ha"
+   },
+   "diziler": [
+    {
+     "kod": "gerceklesme",
+     "tr": "Gerçekleşme",
+     "en": "Actual"
+    },
+    {
+     "kod": "hedef",
+     "tr": "Hedef",
+     "en": "Target",
+     "rol": "ongoru"
+    },
+    {
+     "kod": "oran",
+     "tr": "Oran",
+     "en": "Rate"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Kayıtlı alan, 2025",
+      "en": "Registered area, 2025"
+     },
+     "dizi": "gerceklesme",
+     "deger": 16.1,
+     "kayit": "b21_kaynaklar.json",
+     "kaynak": "tob_2025_faaliyet_raporu",
+     "alan": "cks_gerceklesen_milyon_ha"
+    },
+    {
+     "kategori": {
+      "tr": "2025 hedefi",
+      "en": "2025 target"
+     },
+     "dizi": "hedef",
+     "deger": 17.3,
+     "kayit": "b21_kaynaklar.json",
+     "kaynak": "tob_2025_faaliyet_raporu",
+     "alan": "cks_hedef_milyon_ha"
+    },
+    {
+     "kategori": {
+      "tr": "Gerçekleşme oranı",
+      "en": "Achievement rate"
+     },
+     "dizi": "oran",
+     "deger": 93,
+     "birim": {
+      "tr": "%",
+      "en": "%"
+     },
+     "kayit": "b21_kaynaklar.json",
+     "kaynak": "tob_2025_faaliyet_raporu",
+     "alan": "cks_gerceklesme_yuzde"
+    }
+   ],
+   "yer": "Bakanlığın 2025 faaliyet raporuna göre Çiftçi Kayıt Sistemi (ÇKS), bitkisel"
+  },
+  "b22-abd-iki-olcu": {
+   "baslik_no": 22,
+   "tur": "kucuk",
+   "baslik": {
+    "tr": "ABD'de iki ayrı ölçü: çiftlik payı %27'den %22'ye, mısırda otomatik dümenin alan payı %5,3'ten %58'e",
+    "en": "Two US measures: farm share from 27% to 22%, auto-steer's share of corn acres from 5.3% to 58%"
+   },
+   "aciklama": {
+    "tr": "NASS anketine göre hassas tarım uygulaması kullandığını bildiren çiftliklerin payı 2023'te %27, 2025'te %22; ERS'e göre mısırda otomatik dümenin kullanıldığı ekili alanın payı 2001'de %5,3, 2016'da %58.",
+    "en": "According to the NASS survey, the share of farms reporting precision agriculture practices was 27% in 2023 and 22% in 2025; according to ERS, auto-steer was used on 5.3% of corn acres in 2001 and 58% in 2016."
+   },
+   "kaynak": {
+    "tr": "Kaynak: USDA NASS (2025); USDA ERS (McFadden, Njuki ve Griffin, 2023)",
+    "en": "Source: USDA NASS (2025); USDA ERS (McFadden, Njuki and Griffin, 2023)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "ciftlik-payi",
+     "tr": "Çiftlik payı",
+     "en": "Share of farms"
+    },
+    {
+     "kod": "alan-payi",
+     "tr": "Alan payı",
+     "en": "Share of acres"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "2023",
+      "en": "2023"
+     },
+     "dizi": "ciftlik-payi",
+     "deger": 27,
+     "panel": {
+      "tr": "Çiftlik payı · hassas tarım uygulaması (NASS)",
+      "en": "Share of farms · precision agriculture practices (NASS)"
+     },
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "abd_nass_2025",
+     "alan": "hassas_tarim_yuzde_2023"
+    },
+    {
+     "kategori": {
+      "tr": "2025",
+      "en": "2025"
+     },
+     "dizi": "ciftlik-payi",
+     "deger": 22,
+     "panel": {
+      "tr": "Çiftlik payı · hassas tarım uygulaması (NASS)",
+      "en": "Share of farms · precision agriculture practices (NASS)"
+     },
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "abd_nass_2025",
+     "alan": "hassas_tarim_yuzde_2025"
+    },
+    {
+     "kategori": {
+      "tr": "2001",
+      "en": "2001"
+     },
+     "dizi": "alan-payi",
+     "deger": 5.3,
+     "panel": {
+      "tr": "Ekili alan payı · mısırda otomatik dümen (ERS)",
+      "en": "Share of planted acres · auto-steer on corn (ERS)"
+     },
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "abd_ers_2023",
+     "alan": "otomatik_dumen_misir_2001"
+    },
+    {
+     "kategori": {
+      "tr": "2016",
+      "en": "2016"
+     },
+     "dizi": "alan-payi",
+     "deger": 58,
+     "panel": {
+      "tr": "Ekili alan payı · mısırda otomatik dümen (ERS)",
+      "en": "Share of planted acres · auto-steer on corn (ERS)"
+     },
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "abd_ers_2023",
+     "alan": "otomatik_dumen_misir_2016"
+    }
+   ],
+   "yer": "Bakanlığın ekonomik araştırma servisi (ERS) aynı teknolojileri ekili alan üzerinden"
+  },
+  "b22-ab-dijital-araclar": {
+   "baslik_no": 22,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "AB çiftliklerinde dijital araçlar: internet %43, hassas tarım %18, robotik %7",
+    "en": "Digital tools on EU farms: internet 43%, precision farming 18%, robotics 7%"
+   },
+   "aciklama": {
+    "tr": "Eurostat'a göre 2023'te AB çiftliklerinin yaklaşık %43'ü internete erişiyordu, %18'i bir hassas tarım tekniği uyguluyordu (toprak analizi %11, değişken oranlı uygulama %5, bant ilaçlama %4) ve %7'si robotik kullanıyordu.",
+    "en": "According to Eurostat, in 2023 about 43% of EU farms had internet access, 18% applied a precision farming technique (soil analysis 11%, variable rate techniques 5%, band spraying 4%) and 7% used robotics."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Eurostat (2026), 2023 Çiftlik Yapı Araştırması",
+    "en": "Source: Eurostat (2026), 2023 Farm Structure Survey"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Çiftliklerin payı",
+    "en": "Share of farms"
+   },
+   "diziler": [
+    {
+     "kod": "dijital-arac",
+     "tr": "Dijital araç",
+     "en": "Digital tools"
+    },
+    {
+     "kod": "hassas-tarim",
+     "tr": "Hassas tarım",
+     "en": "Precision farming"
+    },
+    {
+     "kod": "hassas-tarim-alt-kalemi",
+     "tr": "Hassas tarım teknikleri",
+     "en": "Precision farming techniques",
+     "rol": "alt"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "İnternet erişimi",
+      "en": "Internet access"
+     },
+     "dizi": "dijital-arac",
+     "deger": 43,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "internet_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Herhangi bir hassas tarım tekniği",
+      "en": "Any precision farming technique"
+     },
+     "dizi": "hassas-tarim",
+     "deger": 18,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "hassas_tarim_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "toprak analizi",
+      "en": "soil analysis"
+     },
+     "dizi": "hassas-tarim-alt-kalemi",
+     "deger": 11,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "toprak_analizi_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "değişken oranlı uygulama",
+      "en": "variable rate techniques"
+     },
+     "dizi": "hassas-tarim-alt-kalemi",
+     "deger": 5,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "vrt_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "bant ilaçlama",
+      "en": "band spraying"
+     },
+     "dizi": "hassas-tarim-alt-kalemi",
+     "deger": 4,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "bant_ilaclama_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Robotik",
+      "en": "Robotics"
+     },
+     "dizi": "dijital-arac",
+     "deger": 7,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "eurostat_2026",
+     "alan": "robotik_yuzde"
+    }
+   ],
+   "yer": "Eurostat'ın 2023 çiftlik yapı araştırmasına dayanan Temmuz 2026 tarihli analizine"
+  },
+  "b22-cin-kirsal-internet": {
+   "baslik_no": 22,
+   "tur": "egim",
+   "baslik": {
+    "tr": "Çin'de kırsal internet yaygınlığı %38,4'ten %69,5'e çıktı, kent-kır farkı daraldı",
+    "en": "In China, rural internet penetration rose from 38.4% to 69.5% and the urban–rural gap narrowed"
+   },
+   "aciklama": {
+    "tr": "Çin'de kırsal internet yaygınlığı 2018 sonundan 2025 sonuna %38,4'ten %69,5'e çıktı; kent ile kır arasındaki fark 36,2 puandan 15,6 puana indi.",
+    "en": "In China, rural internet penetration rose from 38.4% at the end of 2018 to 69.5% at the end of 2025, while the urban–rural gap fell from 36.2 to 15.6 percentage points."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Çin Devlet İnternet Bilgi Ofisi ve Tarım ve Köy İşleri Bakanlığı (2026)",
+    "en": "Source: Cyberspace Administration of China and Ministry of Agriculture and Rural Affairs (2026)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "diziler": [
+    {
+     "kod": "2018-sonu",
+     "tr": "2018 sonu",
+     "en": "End-2018"
+    },
+    {
+     "kod": "2025-sonu",
+     "tr": "2025 sonu",
+     "en": "End-2025"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Kırsal internet yaygınlığı",
+      "en": "Rural internet penetration"
+     },
+     "dizi": "2018-sonu",
+     "deger": 38.4,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "cin_cac_moa_2026",
+     "alan": "kirsal_internet_2018"
+    },
+    {
+     "kategori": {
+      "tr": "Kırsal internet yaygınlığı",
+      "en": "Rural internet penetration"
+     },
+     "dizi": "2025-sonu",
+     "deger": 69.5,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "cin_cac_moa_2026",
+     "alan": "kirsal_internet_2025"
+    },
+    {
+     "kategori": {
+      "tr": "Kent ile kır arasındaki fark",
+      "en": "Urban–rural gap"
+     },
+     "dizi": "2018-sonu",
+     "deger": 36.2,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "cin_cac_moa_2026",
+     "alan": "kent_kir_fark_2018",
+     "birim": {
+      "tr": "puan",
+      "en": "points"
+     }
+    },
+    {
+     "kategori": {
+      "tr": "Kent ile kır arasındaki fark",
+      "en": "Urban–rural gap"
+     },
+     "dizi": "2025-sonu",
+     "deger": 15.6,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "cin_cac_moa_2026",
+     "alan": "kent_kir_fark_2025",
+     "birim": {
+      "tr": "puan",
+      "en": "points"
+     }
+    }
+   ],
+   "yer": "Çin Devlet İnternet Bilgi Ofisi ile Bakanlığın Ağustos 2026'da yayımladığı"
+  },
+  "b22-afrika-kayitli-kullanan": {
+   "baslik_no": 22,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "Afrika'da dijital tarım hizmetleri: kayıtlıların %42'si kullanıyor, yüksek etkin olanlar muhtemelen %15-30",
+    "en": "Digital farming services in Africa: 42% of registered users use them, highly active users likely 15–30%"
+   },
+   "aciklama": {
+    "tr": "CTA ile Dalberg'in 2019 raporuna göre 33 milyonu aşkın kayıtlı küçük çiftçi ve çobanın %42'si hizmeti herhangi bir sıklıkta kullanıyordu; yüksek etkin kullanıcıların payı muhtemelen %15-30 arasındaydı.",
+    "en": "According to the 2019 CTA–Dalberg report, 42% of the more than 33 million registered smallholder farmers and pastoralists used the services with any frequency; highly active users were likely in the 15–30% range."
+   },
+   "kaynak": {
+    "tr": "Kaynak: CTA ve Dalberg (Tsan ve ark., 2019)",
+    "en": "Source: CTA and Dalberg (Tsan et al., 2019)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Kayıtlı kullanıcıların payı",
+    "en": "Share of registered users"
+   },
+   "diziler": [
+    {
+     "kod": "kullanan",
+     "tr": "Kullanan",
+     "en": "Users"
+    },
+    {
+     "kod": "yuksek-etkin",
+     "tr": "Yüksek etkin",
+     "en": "Highly active"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Herhangi bir sıklıkta kullanan",
+      "en": "Used with any frequency"
+     },
+     "dizi": "kullanan",
+     "deger": 42,
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "afrika_cta_2019",
+     "alan": "kullanan_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Yüksek etkin (muhtemel aralık)",
+      "en": "Highly active (likely range)"
+     },
+     "dizi": "yuksek-etkin",
+     "deger": 15,
+     "uc": "alt",
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "afrika_cta_2019",
+     "alan": "yuksek_aktif_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Yüksek etkin (muhtemel aralık)",
+      "en": "Highly active (likely range)"
+     },
+     "dizi": "yuksek-etkin",
+     "deger": 30,
+     "uc": "ust",
+     "kayit": "b22_kaynaklar.json",
+     "kaynak": "afrika_cta_2019",
+     "alan": "yuksek_aktif_yuzde"
+    }
+   ],
+   "yer": "Afrika'da kıta ölçeğindeki kapsamlı sayımlardan biri CTA ile Dalberg'in 2019"
+  },
+  "b23-uc-belgede-sifir": {
+   "baslik_no": 23,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "Üç belgede tarımın kurumu ve ölçüsü: 71 eylemde 0, 16 eylemde 0, 15 göstergede 0",
+    "en": "Agriculture's institution and metrics in three documents: 0 of 71 actions, 0 of 16 actions, 0 of 15 indicators"
+   },
+   "aciklama": {
+    "tr": "Ulusal Yapay Zekâ Stratejisi'nin 2024-2025 Eylem Planı'ndaki 71 eylemin hiçbiri tarımı anmıyor; Türkiye Yapay Zekâ Eylem Planı'nın (2026-2030) 16 eyleminin hiçbirinde Tarım ve Orman Bakanlığı sorumlu ya da iş birliği kurumu değil; 2027 Yıllık Programı'nın tarım bölümündeki 15 performans göstergesinin hiçbiri dijitalleşmeyi, akıllı tarımı ya da yapay zekâyı ölçmüyor.",
+    "en": "None of the 71 actions in the 2024–2025 Action Plan of the National AI Strategy mentions agriculture; in none of the 16 actions of Türkiye's AI Action Plan (2026–2030) is the Ministry of Agriculture and Forestry a lead or partner institution; and none of the 15 performance indicators in the agriculture chapter of the 2027 Annual Programme measures digitalisation, smart farming or AI."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Ulusal Yapay Zekâ Stratejisi 2024-2025 Eylem Planı; Türkiye Yapay Zekâ Eylem Planı (2026-2030); 2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+    "en": "Source: National AI Strategy 2024–2025 Action Plan; Türkiye AI Action Plan (2026–2030); 2027 Annual Programme of the Presidency of Türkiye"
+   },
+   "diziler": [
+    {
+     "kod": "toplam",
+     "tr": "Toplam",
+     "en": "Total",
+     "rol": "toplam"
+    },
+    {
+     "kod": "vurgu",
+     "tr": "Vurgu",
+     "en": "Highlighted"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Eylem",
+      "en": "Actions"
+     },
+     "dizi": "toplam",
+     "deger": 71,
+     "panel": {
+      "tr": "Ulusal YZ Stratejisi 2024-2025 Eylem Planı",
+      "en": "National AI Strategy 2024–2025 Action Plan"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "uyzs_2024_2025",
+     "alan": "eylem_sayisi"
+    },
+    {
+     "kategori": {
+      "tr": "Tarımı anan eylem",
+      "en": "Actions mentioning agriculture"
+     },
+     "dizi": "vurgu",
+     "deger": 0,
+     "panel": {
+      "tr": "Ulusal YZ Stratejisi 2024-2025 Eylem Planı",
+      "en": "National AI Strategy 2024–2025 Action Plan"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "uyzs_2024_2025",
+     "alan": "tarim_gecis"
+    },
+    {
+     "kategori": {
+      "tr": "Eylem",
+      "en": "Actions"
+     },
+     "dizi": "toplam",
+     "deger": 16,
+     "panel": {
+      "tr": "Türkiye Yapay Zekâ Eylem Planı (2026-2030)",
+      "en": "Türkiye AI Action Plan (2026–2030)"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "yzep_2026_2030",
+     "alan": "eylem_sayisi"
+    },
+    {
+     "kategori": {
+      "tr": "Tarım ve Orman Bakanlığı'nın sorumlu ya da iş birliği kurumu olduğu eylem",
+      "en": "Actions with the Ministry of Agriculture and Forestry as lead or partner"
+     },
+     "dizi": "vurgu",
+     "deger": 0,
+     "panel": {
+      "tr": "Türkiye Yapay Zekâ Eylem Planı (2026-2030)",
+      "en": "Türkiye AI Action Plan (2026–2030)"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "yzep_2026_2030",
+     "alan": "tarim_ve_orman_gecis"
+    },
+    {
+     "kategori": {
+      "tr": "Tarım bölümü performans göstergesi",
+      "en": "Agriculture chapter performance indicators"
+     },
+     "dizi": "toplam",
+     "deger": 15,
+     "panel": {
+      "tr": "2027 Yıllık Programı",
+      "en": "2027 Annual Programme"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "gosterge_sayisi"
+    },
+    {
+     "kategori": {
+      "tr": "Dijitalleşmeyi, akıllı tarımı ya da yapay zekâyı ölçen gösterge",
+      "en": "Indicators measuring digitalisation, smart farming or AI"
+     },
+     "dizi": "vurgu",
+     "deger": 0,
+     "panel": {
+      "tr": "2027 Yıllık Programı",
+      "en": "2027 Annual Programme"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "yillik_program_2027",
+     "alan": "dijital_gosterge_sayisi"
+    }
+   ],
+   "yer": "Tarım bölümünün sonundaki **15** performans göstergesinin hiçbiri dijitalleşmeyi, akıllı tarımı"
+  },
+  "b23-strateji-belgesi-takvimi": {
+   "baslik_no": 23,
+   "tur": "zaman",
+   "baslik": {
+    "tr": "Bakanlığın yapay zekâ strateji belgesi: planlardan bugüne",
+    "en": "The ministry's AI strategy document: from plans to today"
+   },
+   "aciklama": {
+    "tr": "Bakan planlarını Mayıs 2025'te sıraladı; 23-24 Ekim 2025'te belgeye altlık olacak çalıştay yapıldı; 24 Kasım 2025'te belge yılın başında paylaşılacak diye anıldı; 4 Haziran 2026'da 'hazırladık' denildi; Kasım 2026 itibarıyla metin yayımlanmadı.",
+    "en": "The minister set out the plans in May 2025; a workshop to underpin the document was held on 23–24 October 2025; on 24 November 2025 it was said the document would be shared early in the year; on 4 June 2026 the ministry said it had been prepared; as of November 2026 the text had not been published."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Tarım ve Orman Bakanlığı (2025, 2026); Bilgi Teknolojileri Genel Müdürlüğü (2025)",
+    "en": "Source: Ministry of Agriculture and Forestry (2025, 2026); Directorate General of Information Technologies (2025)"
+   },
+   "diziler": [
+    {
+     "kod": "surec",
+     "tr": "Süreç",
+     "en": "Process"
+    },
+    {
+     "kod": "vaat",
+     "tr": "Vaat",
+     "en": "Promise"
+    },
+    {
+     "kod": "durum",
+     "tr": "Durum",
+     "en": "Status"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Bakan yapay zekâ planlarını sıraladı",
+      "en": "Minister sets out AI plans"
+     },
+     "dizi": "surec",
+     "deger": 2025.3925,
+     "ek": {
+      "tr": "23 Mayıs 2025",
+      "en": "23 May 2025"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "tob_2025_ai_tomorrow",
+     "alinti": "Yayın Tarihi : 23.05.2025"
+    },
+    {
+     "kategori": {
+      "tr": "Strateji ve eylem planına altlık çalıştay",
+      "en": "Workshop to underpin the strategy and action plan"
+     },
+     "dizi": "surec",
+     "deger": 2025.8091,
+     "ek": {
+      "tr": "23-24 Ekim 2025",
+      "en": "23–24 October 2025"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "btgm_2025_calistay",
+     "alan": "calistay_tarihi"
+    },
+    {
+     "kategori": {
+      "tr": "Bütçe sunumu: 'yılın başında paylaşılacak'",
+      "en": "Budget presentation: 'to be shared early in the year'"
+     },
+     "dizi": "vaat",
+     "deger": 2025.8952,
+     "ek": {
+      "tr": "24 Kasım 2025",
+      "en": "24 November 2025"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "bakanlik_belgesi",
+     "alan": "vaat"
+    },
+    {
+     "kategori": {
+      "tr": "'Hazırladık, en kısa zamanda paylaşacağız'",
+      "en": "'We have prepared it and will share it soon'"
+     },
+     "dizi": "vaat",
+     "deger": 2026.4247,
+     "ek": {
+      "tr": "4 Haziran 2026",
+      "en": "4 June 2026"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "tob_2026_ai_tomorrow",
+     "alan": "yayim"
+    },
+    {
+     "kategori": {
+      "tr": "Kasım 2026 itibarıyla metin yayımlanmadı",
+      "en": "Text still unpublished as of November 2026"
+     },
+     "dizi": "durum",
+     "deger": 2026.8333,
+     "ek": {
+      "tr": "Kasım 2026",
+      "en": "November 2026"
+     },
+     "kayit": "b23_kaynaklar.json",
+     "kaynak": "bakanlik_belgesi",
+     "alan": "yayim"
+    }
+   ],
+   "yer": "Belge 24 Kasım 2025'te, 2026 bütçesinin sunumunda, yılın başında paylaşılacak"
+  },
+  "b24-ab-mevzuat-takvimi": {
+   "baslik_no": 24,
+   "tur": "zaman",
+   "baslik": {
+    "tr": "Tarım makinesindeki yapay zekâyı ilgilendiren AB takvimi, 2025-2028",
+    "en": "EU timeline for AI in farm machinery, 2025–2028"
+   },
+   "aciklama": {
+    "tr": "AB Yapay Zekâ Tüzüğü'nün yasakları ve genel hükümleri 2 Şubat 2025'te, genel amaçlı modellere dair yükümlülükleri 2 Ağustos 2025'te, genel uygulaması 2 Ağustos 2026'da başlıyor; Ek III'teki yüksek riskli sistemler 2 Aralık 2027'ye, bir ürünün güvenlik bileşeni olanlar 2 Ağustos 2028'e ertelendi; Veri Tüzüğü 12 Eylül 2025'ten beri uygulanıyor ve 12 Eylül 2026 sonrasında piyasaya çıkan bağlantılı ürünlere tasarım yükümlülüğü getiriyor; Makine Tüzüğü 14 Ocak 2027'de uygulanmaya başlıyor.",
+    "en": "The EU AI Act's prohibitions and general provisions apply from 2 February 2025, obligations for general-purpose models from 2 August 2025 and general application from 2 August 2026; high-risk systems in Annex III were postponed to 2 December 2027 and those that are safety components of products to 2 August 2028; the Data Act has applied since 12 September 2025 and sets design obligations for connected products placed on the market after 12 September 2026; the Machinery Regulation applies from 14 January 2027."
+   },
+   "kaynak": {
+    "tr": "Kaynak: AB Resmî Gazetesi — Tüzük 2024/1689, 2026/1744, 2023/2854, 2023/1230",
+    "en": "Source: Official Journal of the EU — Regulations 2024/1689, 2026/1744, 2023/2854, 2023/1230"
+   },
+   "diziler": [
+    {
+     "kod": "yapay-zeka-tuzugu",
+     "tr": "Yapay Zekâ Tüzüğü",
+     "en": "AI Act"
+    },
+    {
+     "kod": "veri-tuzugu",
+     "tr": "Veri Tüzüğü",
+     "en": "Data Act"
+    },
+    {
+     "kod": "makine-tuzugu",
+     "tr": "Makine Tüzüğü",
+     "en": "Machinery Regulation"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Yasaklar ve genel hükümler",
+      "en": "Prohibitions and general provisions"
+     },
+     "dizi": "yapay-zeka-tuzugu",
+     "deger": 2025.086,
+     "ek": {
+      "tr": "2 Şubat 2025",
+      "en": "2 February 2025"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_yz_tuzugu",
+     "alan": "bolum_1_2_uygulama"
+    },
+    {
+     "kategori": {
+      "tr": "Genel amaçlı modellere dair yükümlülükler",
+      "en": "Obligations for general-purpose models"
+     },
+     "dizi": "yapay-zeka-tuzugu",
+     "deger": 2025.586,
+     "ek": {
+      "tr": "2 Ağustos 2025",
+      "en": "2 August 2025"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_yz_tuzugu",
+     "alan": "genel_amacli_modeller_uygulama"
+    },
+    {
+     "kategori": {
+      "tr": "Genel uygulama",
+      "en": "General application"
+     },
+     "dizi": "yapay-zeka-tuzugu",
+     "deger": 2026.586,
+     "ek": {
+      "tr": "2 Ağustos 2026",
+      "en": "2 August 2026"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_yz_tuzugu",
+     "alan": "genel_uygulama"
+    },
+    {
+     "kategori": {
+      "tr": "Değişiklik tüzüğü (2026/1744) yayımlandı",
+      "en": "Amending regulation (2026/1744) published"
+     },
+     "dizi": "yapay-zeka-tuzugu",
+     "deger": 2026.5618,
+     "ek": {
+      "tr": "24 Temmuz 2026",
+      "en": "24 July 2026"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_dijital_omnibus",
+     "alan": "yayim"
+    },
+    {
+     "kategori": {
+      "tr": "Ek III yüksek riskli sistemler",
+      "en": "Annex III high-risk systems"
+     },
+     "dizi": "yapay-zeka-tuzugu",
+     "deger": 2027.9194,
+     "ek": {
+      "tr": "2 Aralık 2027",
+      "en": "2 December 2027"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_dijital_omnibus",
+     "alan": "ek_iii_yuksek_risk"
+    },
+    {
+     "kategori": {
+      "tr": "Ek I: ürünün güvenlik bileşeni olan yüksek riskli sistemler (tarım araçları burada)",
+      "en": "Annex I: high-risk systems that are product safety components (farm vehicles fall here)"
+     },
+     "dizi": "yapay-zeka-tuzugu",
+     "deger": 2028.586,
+     "ek": {
+      "tr": "2 Ağustos 2028",
+      "en": "2 August 2028"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_dijital_omnibus",
+     "alan": "ek_i_yuksek_risk"
+    },
+    {
+     "kategori": {
+      "tr": "Veri Tüzüğü uygulanmaya başladı",
+      "en": "Data Act applies"
+     },
+     "dizi": "veri-tuzugu",
+     "deger": 2025.6962,
+     "ek": {
+      "tr": "12 Eylül 2025",
+      "en": "12 September 2025"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_veri_tuzugu",
+     "alan": "uygulama"
+    },
+    {
+     "kategori": {
+      "tr": "Bağlantılı ürünlerde tasarım yükümlülüğü",
+      "en": "Design obligations for connected products"
+     },
+     "dizi": "veri-tuzugu",
+     "deger": 2026.6962,
+     "ek": {
+      "tr": "12 Eylül 2026",
+      "en": "12 September 2026"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_veri_tuzugu",
+     "alan": "tasarim_yukumlulugu"
+    },
+    {
+     "kategori": {
+      "tr": "Makine Tüzüğü uygulanmaya başlıyor",
+      "en": "Machinery Regulation applies"
+     },
+     "dizi": "makine-tuzugu",
+     "deger": 2027.0349,
+     "ek": {
+      "tr": "14 Ocak 2027",
+      "en": "14 January 2027"
+     },
+     "kayit": "b24_kaynaklar.json",
+     "kaynak": "ab_makine_tuzugu",
+     "alan": "uygulama"
+    }
+   ],
+   "yer": "Makine Tüzüğü (2023/1230) 14 Ocak 2027'den itibaren uygulanacak. Makine öğrenmesiyle"
+  },
+  "b25-ekosistem-baslangic-yillari": {
+   "baslik_no": 25,
+   "tur": "zaman",
+   "baslik": {
+    "tr": "Türkiye'nin tarım teknolojisi ekosistemi: girişimlerin, merkezlerin ve programların başlangıç yılları",
+    "en": "Türkiye's agritech ecosystem: start years of startups, university centres and programmes"
+   },
+   "aciklama": {
+    "tr": "FAO-EBRD raporundaki girişimler 2012 ile 2020 arasında kuruldu; dijital ya da akıllı tarımı amaçları arasında sayan üniversite merkezlerinin yönetmelikleri 2018 ve 2021'de yayımlandı; TEKNOFEST tarım yarışması 2020'de, TÜBİTAK 1711 çağrısı 2022'de başladı.",
+    "en": "The startups listed in the FAO–EBRD report were founded between 2012 and 2020; regulations for university centres listing digital or smart farming among their aims were published in 2018 and 2021; the TEKNOFEST agriculture competition began in 2020 and the TÜBİTAK 1711 call in 2022."
+   },
+   "kaynak": {
+    "tr": "Kaynak: FAO ve EBRD (Höllinger ve Sener, 2025); Resmî Gazete; Gebze Teknik Üniversitesi; TEKNOFEST; TÜBİTAK",
+    "en": "Source: FAO and EBRD (Höllinger and Sener, 2025); Official Gazette of Türkiye; Gebze Technical University; TEKNOFEST; TÜBİTAK"
+   },
+   "diziler": [
+    {
+     "kod": "girisimler",
+     "tr": "Girişimler",
+     "en": "Startups"
+    },
+    {
+     "kod": "universite-merkezleri",
+     "tr": "Üniversite merkezleri",
+     "en": "University centres"
+    },
+    {
+     "kod": "programlar",
+     "tr": "Programlar",
+     "en": "Programmes"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Doktar kuruldu",
+      "en": "Doktar founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2012.0,
+     "ek": {
+      "tr": "2012",
+      "en": "2012"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "doktar_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Tarla.io kuruldu",
+      "en": "Tarla.io founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2014.0,
+     "ek": {
+      "tr": "2014",
+      "en": "2014"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "tarla_io_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Baibars Mekatronik kuruldu",
+      "en": "Baibars Mekatronik founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2015.0,
+     "ek": {
+      "tr": "2015",
+      "en": "2015"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "baibars_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "BenimSürüm kuruldu",
+      "en": "BenimSürüm founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2016.0,
+     "ek": {
+      "tr": "2016",
+      "en": "2016"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "benimsurum_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Tekno Kurgu kuruldu",
+      "en": "Tekno Kurgu founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2017.0,
+     "ek": {
+      "tr": "2017",
+      "en": "2017"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "teknokurgu_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Esular kuruldu",
+      "en": "Esular founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2019.0,
+     "ek": {
+      "tr": "2019",
+      "en": "2019"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "esular_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "AgCurate kuruldu",
+      "en": "AgCurate founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2020.0,
+     "ek": {
+      "tr": "2020",
+      "en": "2020"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "agcurate_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Görsentam kuruldu",
+      "en": "Görsentam founded"
+     },
+     "dizi": "girisimler",
+     "deger": 2020.0,
+     "ek": {
+      "tr": "2020",
+      "en": "2020"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "gorsentam_fao",
+     "alan": "kurulus_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Actimoo ürünü piyasaya çıktı (Ar-Ge 2016)",
+      "en": "Actimoo product launched (R&D from 2016)"
+     },
+     "dizi": "girisimler",
+     "deger": 2020.0,
+     "ek": {
+      "tr": "2020",
+      "en": "2020"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "actimoo_fao",
+     "alan": "piyasaya_cikis_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Konya Gıda ve Tarım Üniversitesi İleri Tarım Araştırmaları Merkezi",
+      "en": "Advanced Agricultural Research Centre, KGTÜ"
+     },
+     "dizi": "universite-merkezleri",
+     "deger": 2018.0,
+     "ek": {
+      "tr": "2018",
+      "en": "2018"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "kgtu_tuam",
+     "alan": "kurulus_yonetmeligi_yili"
+    },
+    {
+     "kategori": {
+      "tr": "GTÜ Akıllı Tarım Uygulama ve Araştırma Merkezi",
+      "en": "Smart Agriculture Centre, Gebze Technical University"
+     },
+     "dizi": "universite-merkezleri",
+     "deger": 2021.0,
+     "ek": {
+      "tr": "2021",
+      "en": "2021"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "gtu_atam",
+     "alan": "kurulus_yonetmeligi_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Jeotermal İleri Sera Teknolojileri Ortak Merkezi",
+      "en": "Joint Centre for Advanced Geothermal Greenhouse Technologies"
+     },
+     "dizi": "universite-merkezleri",
+     "deger": 2021.0,
+     "ek": {
+      "tr": "2021",
+      "en": "2021"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "kaeu_au_su_jistuam",
+     "alan": "kurulus_yonetmeligi_yili"
+    },
+    {
+     "kategori": {
+      "tr": "Gıda Arzı Güvenliği ve Dijitalleşme Ortak Merkezi",
+      "en": "Joint Centre for Food Supply Security and Digitalisation"
+     },
+     "dizi": "universite-merkezleri",
+     "deger": 2021.0,
+     "ek": {
+      "tr": "2021",
+      "en": "2021"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "klu_mau_nku_dijitallesme_merkezi",
+     "alan": "kurulus_yonetmeligi_yili"
+    },
+    {
+     "kategori": {
+      "tr": "GTÜ–TÜBİTAK MAM akıllı uygulamalar merkezi protokolü",
+      "en": "GTÜ–TÜBİTAK MAM smart applications centre protocol"
+     },
+     "dizi": "universite-merkezleri",
+     "deger": 2023.0,
+     "ek": {
+      "tr": "2023",
+      "en": "2023"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "gtu_mam_gida_arz_merkezi",
+     "alan": "protokol_yili"
+    },
+    {
+     "kategori": {
+      "tr": "TEKNOFEST Tarım Teknolojileri Yarışması'nda ilk dereceler",
+      "en": "First TEKNOFEST Agricultural Technologies awards"
+     },
+     "dizi": "programlar",
+     "deger": 2020.0,
+     "ek": {
+      "tr": "2020",
+      "en": "2020"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "teknofest_tarim",
+     "alan": "ilk_derece_yili"
+    },
+    {
+     "kategori": {
+      "tr": "TÜBİTAK 1711 Yapay Zekâ Ekosistem Çağrısı'nın ilki",
+      "en": "First TÜBİTAK 1711 AI Ecosystem Call"
+     },
+     "dizi": "programlar",
+     "deger": 2022.0,
+     "ek": {
+      "tr": "2022",
+      "en": "2022"
+     },
+     "kayit": "b25_kaynaklar.json",
+     "kaynak": "tubitak_1711_cagri",
+     "alan": "ilk_cagri_yili"
+    }
+   ],
+   "yer": "Türkiye'de tarımda yapay zekâ ve dijital teknoloji üzerine çalışmalar dört"
+  },
+  "b26-manyok-f1-tarlada": {
+   "baslik_no": 26,
+   "tur": "cizgi",
+   "baslik": {
+    "tr": "Manyok hastalığı modeli tarlada: F-1 skoru test setinde 0,79, tarla videosunda 0,48, hafif belirtide 0,25",
+    "en": "Cassava disease model in the field: F-1 score 0.79 on the test set, 0.48 on field video, 0.25 for mild symptoms"
+   },
+   "aciklama": {
+    "tr": "Ramcharan ve arkadaşlarının (2019) Tanzanya'da sınadığı modelin F-1 skoru belirgin belirtilerde test setindeki 0,79'dan tarla fotoğraflarında 0,54'e, tarla videosunda 0,48'e indi; hafif belirtilerde tarla fotoğrafında 0,26, videoda 0,25'te kaldı.",
+    "en": "The F-1 score of the model Ramcharan et al. (2019) tested in Tanzania fell for pronounced symptoms from 0.79 on the test set to 0.54 on field photos and 0.48 on field video; for mild symptoms it stayed at 0.26 on photos and 0.25 on video."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Ramcharan ve ark. (2019)",
+    "en": "Source: Ramcharan et al. (2019)"
+   },
+   "eksen": {
+    "tr": "F-1 skoru",
+    "en": "F1 score"
+   },
+   "ust": 1,
+   "diziler": [
+    {
+     "kod": "belirgin-belirti",
+     "tr": "Belirgin belirti",
+     "en": "Clear symptoms"
+    },
+    {
+     "kod": "hafif-belirti",
+     "tr": "Hafif belirti",
+     "en": "Mild symptoms"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Test seti",
+      "en": "Test set"
+     },
+     "dizi": "belirgin-belirti",
+     "deger": 0.79,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "ramcharan_2019",
+     "alan": "f1_test_seti_belirgin"
+    },
+    {
+     "kategori": {
+      "tr": "Tarla fotoğrafı",
+      "en": "Field photo"
+     },
+     "dizi": "belirgin-belirti",
+     "deger": 0.54,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "ramcharan_2019",
+     "alan": "f1_tarla_belirgin_goruntu"
+    },
+    {
+     "kategori": {
+      "tr": "Tarla videosu",
+      "en": "Field video"
+     },
+     "dizi": "belirgin-belirti",
+     "deger": 0.48,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "ramcharan_2019",
+     "alan": "f1_tarla_belirgin_video"
+    },
+    {
+     "kategori": {
+      "tr": "Tarla fotoğrafı",
+      "en": "Field photo"
+     },
+     "dizi": "hafif-belirti",
+     "deger": 0.26,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "ramcharan_2019",
+     "alan": "f1_tarla_hafif_goruntu"
+    },
+    {
+     "kategori": {
+      "tr": "Tarla videosu",
+      "en": "Field video"
+     },
+     "dizi": "hafif-belirti",
+     "deger": 0.25,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "ramcharan_2019",
+     "alan": "f1_tarla_hafif_video"
+    }
+   ],
+   "yer": "Ramcharan ve arkadaşları (2019), manyok hastalıklarını tanıyan bir modeli telefon"
+  },
+  "b26-fao-27-vaka": {
+   "baslik_no": 26,
+   "tur": "waffle",
+   "baslik": {
+    "tr": "FAO'nun incelediği 27 dijital otomasyon hizmet sağlayıcısından 10'u kârlı",
+    "en": "Of 27 digital automation service providers studied by FAO, 10 were profitable"
+   },
+   "aciklama": {
+    "tr": "FAO'nun 2022 raporu için yapılan 27 vaka çalışmasında dijital otomasyon hizmet sağlayıcılarından yalnız 10'u kârlı ve finansal olarak sürdürülebilirdi; bunlar çoğunlukla yüksek gelirli ülkelerde ve büyük üreticilere hizmet veriyordu.",
+    "en": "Of the 27 digital automation service providers in FAO's 2022 case studies, only 10 were profitable and financially sustainable; these were mostly based in high-income countries and served large-scale producers."
+   },
+   "kaynak": {
+    "tr": "Kaynak: FAO, Gıda ve Tarımın Durumu 2022",
+    "en": "Source: FAO, The State of Food and Agriculture 2022"
+   },
+   "diziler": [
+    {
+     "kod": "toplam",
+     "tr": "Toplam",
+     "en": "Total",
+     "rol": "toplam"
+    },
+    {
+     "kod": "karli",
+     "tr": "Kârlı",
+     "en": "Profitable"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "İncelenen hizmet sağlayıcı",
+      "en": "Service providers studied"
+     },
+     "dizi": "toplam",
+     "deger": 27,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "fao_2022_sofa",
+     "alan": "vaka_calismasi_sayisi"
+    },
+    {
+     "kategori": {
+      "tr": "Kârlı ve finansal olarak sürdürülebilir",
+      "en": "Profitable and financially sustainable"
+     },
+     "dizi": "karli",
+     "deger": 10,
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "fao_2022_sofa",
+     "alan": "karli_hizmet_saglayici_sayisi"
+    }
+   ],
+   "yer": "FAO'nun 2022 Gıda ve Tarımın Durumu raporuna göre dijital otomasyon"
+  },
+  "b26-tarim-yaslanma": {
+   "baslik_no": 26,
+   "tur": "kucuk",
+   "baslik": {
+    "tr": "Tarımda çalışanlar daha yaşlı: ortalama yaş 46'ya 39, 40 yaş üstü payı %68,4'e %47,1",
+    "en": "Farm workers are older: average age 46 vs 39; share over 40, 68.4% vs 47.1%"
+   },
+   "aciklama": {
+    "tr": "TÜİK'in 2023 işgücü verisine göre tarımda çalışanların yaş ortalaması 46, bütün istihdamda yaklaşık 39; tarımda çalışanların %68,4'ü, bütün istihdamın %47,1'i 40 yaşın üzerinde.",
+    "en": "According to TurkStat's 2023 labour data, the average age of people working in agriculture is 46 against about 39 across all employment; 68.4% of agricultural workers are over 40, compared with 47.1% of all employed people."
+   },
+   "kaynak": {
+    "tr": "Kaynak: IV. Tarım Orman Şûrası, 8. Çalışma Grubu belgesi (2025), TÜİK 2023 işgücü verisine dayanarak",
+    "en": "Source: 4th Agriculture and Forestry Council, Working Group 8 paper (2025), based on TurkStat 2023 labour data"
+   },
+   "diziler": [
+    {
+     "kod": "tarim",
+     "tr": "Tarım",
+     "en": "Agriculture"
+    },
+    {
+     "kod": "butun-istihdam",
+     "tr": "Bütün istihdam",
+     "en": "All employment"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Tarımda çalışanlar",
+      "en": "Agricultural workers"
+     },
+     "dizi": "tarim",
+     "deger": 46,
+     "panel": {
+      "tr": "Ortalama yaş",
+      "en": "Average age"
+     },
+     "birim": {
+      "tr": "yıl",
+      "en": "years"
+     },
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "tob_sura_2025_kirsal_istihdam",
+     "alan": "tarim_calisan_ortalama_yas_2023"
+    },
+    {
+     "kategori": {
+      "tr": "Bütün istihdam",
+      "en": "All employment"
+     },
+     "dizi": "butun-istihdam",
+     "deger": 39,
+     "panel": {
+      "tr": "Ortalama yaş",
+      "en": "Average age"
+     },
+     "birim": {
+      "tr": "yıl",
+      "en": "years"
+     },
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "tob_sura_2025_kirsal_istihdam",
+     "alan": "tum_istihdam_ortalama_yas_2023"
+    },
+    {
+     "kategori": {
+      "tr": "Tarımda çalışanlar",
+      "en": "Agricultural workers"
+     },
+     "dizi": "tarim",
+     "deger": 68.4,
+     "panel": {
+      "tr": "40 yaşın üzerindekilerin payı",
+      "en": "Share aged over 40"
+     },
+     "birim": {
+      "tr": "%",
+      "en": "%"
+     },
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "tob_sura_2025_kirsal_istihdam",
+     "alan": "tarim_calisan_40_yas_ustu_yuzde_2023"
+    },
+    {
+     "kategori": {
+      "tr": "Bütün istihdam",
+      "en": "All employment"
+     },
+     "dizi": "butun-istihdam",
+     "deger": 47.1,
+     "panel": {
+      "tr": "40 yaşın üzerindekilerin payı",
+      "en": "Share aged over 40"
+     },
+     "birim": {
+      "tr": "%",
+      "en": "%"
+     },
+     "kayit": "b26_kaynaklar.json",
+     "kaynak": "tob_sura_2025_kirsal_istihdam",
+     "alan": "tum_istihdam_40_yas_ustu_yuzde_2023"
+    }
+   ],
+   "yer": "IV. Tarım Orman Şûrası'nın kırsal kalkınma çalışma belgesi, TÜİK'in 2023"
+  },
+  "b27-tucsap-harcama": {
+   "baslik_no": 27,
+   "tur": "kucuk",
+   "baslik": {
+    "tr": "TUCSAP: 2025 bütçesi 108,8'den 55,6 milyon avroya indi, harcama 27,9'da kaldı; hibe ve benimseyen çiftçi sıfır",
+    "en": "TUCSAP: the 2025 budget fell from €108.8m to €55.6m and spending reached €27.9m; grants and adopting farmers at zero"
+   },
+   "aciklama": {
+    "tr": "Hazine Kontrolörleri Kurulu'na göre TUCSAP'ın 2025 ilk bütçesi 108,8, nihai bütçesi 55,6 milyon avroydu, harcama 27,9 milyon avroda (nihai bütçenin %50,17'si) kaldı; 2025 sonuna kadar kredinin %12,91'i harcandı ve 29,5 milyon avroluk hibe kategorisinde harcama yapılmadı; Dünya Bankası'na göre iklim akıllı teknoloji benimseyen çiftçi göstergesi Ekim 2024'te sıfırdı, Mart 2028 hedefi 42.500.",
+    "en": "According to the Board of Treasury Controllers, TUCSAP's original 2025 budget was €108.8m and its final budget €55.6m, while spending reached €27.9m (50.17% of the final budget); by end-2025, 12.91% of the loan had been spent and nothing in the €29.5m grant category; according to the World Bank, the indicator for farmers adopting climate-smart technologies stood at zero in October 2024 against a March 2028 target of 42,500."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu (2026); Dünya Bankası (2024)",
+    "en": "Source: Ministry of Treasury and Finance, Board of Treasury Controllers (2026); World Bank (2024)"
+   },
+   "diziler": [
+    {
+     "kod": "butce",
+     "tr": "Bütçe",
+     "en": "Budget"
+    },
+    {
+     "kod": "harcama",
+     "tr": "Harcama",
+     "en": "Spending"
+    },
+    {
+     "kod": "harcanan",
+     "tr": "Harcanan",
+     "en": "Spent"
+    },
+    {
+     "kod": "planlanan",
+     "tr": "Planlanan",
+     "en": "Planned",
+     "rol": "ongoru"
+    },
+    {
+     "kod": "hedef",
+     "tr": "Hedef",
+     "en": "Target",
+     "rol": "ongoru"
+    },
+    {
+     "kod": "gerceklesme",
+     "tr": "Gerçekleşme",
+     "en": "Actual"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "2025 ilk bütçe",
+      "en": "2025 original budget"
+     },
+     "dizi": "butce",
+     "deger": 108.8,
+     "panel": {
+      "tr": "2025 bütçesi ve harcama",
+      "en": "2025 budget and spending"
+     },
+     "birim": {
+      "tr": "milyon avro",
+      "en": "million euros"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "tucsap_2025_denetim",
+     "alan": "butce_2025_ilk_milyon_avro"
+    },
+    {
+     "kategori": {
+      "tr": "2025 nihai bütçe",
+      "en": "2025 final budget"
+     },
+     "dizi": "butce",
+     "deger": 55.6,
+     "panel": {
+      "tr": "2025 bütçesi ve harcama",
+      "en": "2025 budget and spending"
+     },
+     "birim": {
+      "tr": "milyon avro",
+      "en": "million euros"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "tucsap_2025_denetim",
+     "alan": "butce_2025_nihai_milyon_avro"
+    },
+    {
+     "kategori": {
+      "tr": "2025 harcama",
+      "en": "2025 spending"
+     },
+     "dizi": "harcama",
+     "deger": 27.9,
+     "panel": {
+      "tr": "2025 bütçesi ve harcama",
+      "en": "2025 budget and spending"
+     },
+     "birim": {
+      "tr": "milyon avro",
+      "en": "million euros"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "tucsap_2025_denetim",
+     "alan": "harcama_2025_milyon_avro"
+    },
+    {
+     "kategori": {
+      "tr": "Kredinin harcanan payı, 2025 sonu",
+      "en": "Share of the loan spent, end-2025"
+     },
+     "dizi": "harcanan",
+     "deger": 12.91,
+     "panel": {
+      "tr": "Kredi",
+      "en": "Loan"
+     },
+     "birim": {
+      "tr": "%",
+      "en": "%"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "tucsap_2025_denetim",
+     "alan": "kumulatif_gerceklesme_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Hibe · planlanan",
+      "en": "Grants · planned"
+     },
+     "dizi": "planlanan",
+     "deger": 29.5,
+     "panel": {
+      "tr": "Hibe",
+      "en": "Grants"
+     },
+     "birim": {
+      "tr": "milyon avro",
+      "en": "million euros"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "tucsap_2025_denetim",
+     "alan": "hibe_planlanan_toplam_milyon_avro"
+    },
+    {
+     "kategori": {
+      "tr": "Hibe · harcanan",
+      "en": "Grants · spent"
+     },
+     "dizi": "harcanan",
+     "deger": 0,
+     "panel": {
+      "tr": "Hibe",
+      "en": "Grants"
+     },
+     "carpan": 1e-06,
+     "birim": {
+      "tr": "milyon avro",
+      "en": "million euros"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "tucsap_2025_denetim",
+     "alan": "hibe_kumulatif_harcama_avro"
+    },
+    {
+     "kategori": {
+      "tr": "Benimseyen çiftçi · Mart 2028 hedefi",
+      "en": "Adopting farmers · March 2028 target"
+     },
+     "dizi": "hedef",
+     "deger": 42500,
+     "panel": {
+      "tr": "İklim akıllı teknoloji benimseyen çiftçi",
+      "en": "Farmers adopting climate-smart technology"
+     },
+     "birim": {
+      "tr": "çiftçi",
+      "en": "farmers"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "dunya_bankasi_tucsap_isr5",
+     "alan": "iklim_akilli_teknoloji_benimseyen_ciftci_hedef_2028"
+    },
+    {
+     "kategori": {
+      "tr": "Benimseyen çiftçi · Ekim 2024",
+      "en": "Adopting farmers · October 2024"
+     },
+     "dizi": "gerceklesme",
+     "deger": 0,
+     "panel": {
+      "tr": "İklim akıllı teknoloji benimseyen çiftçi",
+      "en": "Farmers adopting climate-smart technology"
+     },
+     "birim": {
+      "tr": "çiftçi",
+      "en": "farmers"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "dunya_bankasi_tucsap_isr5",
+     "alan": "iklim_akilli_teknoloji_benimseyen_ciftci_ekim_2024"
+    }
+   ],
+   "yer": "Hazine ve Maliye Bakanlığı Hazine Kontrolörleri Kurulu'nun 16 Haziran 2026"
+  },
+  "b27-vaatten-iflasa": {
+   "baslik_no": 27,
+   "tur": "zaman",
+   "baslik": {
+    "tr": "Yapay zekâ vaadinden iflasa: üç şirketin takvimi",
+    "en": "From AI promise to insolvency: three companies' timelines"
+   },
+   "aciklama": {
+    "tr": "Infarm 16 Aralık 2021'de 200 milyon dolarlık yatırımı duyurdu ve 4 Eylül 2023'te kayyum yönetimine girdi; AppHarvest 8 Nisan 2021'de Root AI'ı satın aldığını duyurdu ve 23 Temmuz 2023'te iflas koruması istedi; Small Robot Company 2020'de Wilma'yı duyurdu, 1 Şubat 2024'te tasfiyeye girdi ve 30 Nisan 2026'da sicilden silindi.",
+    "en": "Infarm announced a $200m investment on 16 December 2021 and entered administration on 4 September 2023; AppHarvest announced its acquisition of Root AI on 8 April 2021 and filed for Chapter 11 on 23 July 2023; Small Robot Company announced Wilma in 2020, entered liquidation on 1 February 2024 and was dissolved on 30 April 2026."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Infarm, AppHarvest ve Small Robot Company duyuruları (şirket beyanı); Birleşik Krallık şirketler sicili; ABD İflas Mahkemesi dava kaydı (Stretto)",
+    "en": "Source: Infarm, AppHarvest and Small Robot Company announcements (company statements); Companies House (UK); US Bankruptcy Court case record (Stretto)"
+   },
+   "diziler": [
+    {
+     "kod": "infarm",
+     "tr": "Infarm",
+     "en": "Infarm"
+    },
+    {
+     "kod": "appharvest",
+     "tr": "AppHarvest",
+     "en": "AppHarvest"
+    },
+    {
+     "kod": "small-robot-company",
+     "tr": "Small Robot Company",
+     "en": "Small Robot Company"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Infarm: 200 milyon dolarlık yatırım duyurusu",
+      "en": "Infarm: $200m funding announced"
+     },
+     "dizi": "infarm",
+     "deger": 2021.957,
+     "ek": {
+      "tr": "16 Aralık 2021",
+      "en": "16 December 2021"
+     },
+     "satici": true,
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "infarm_2021_vaat",
+     "alinti": "December 16, 2021 - Infarm"
+    },
+    {
+     "kategori": {
+      "tr": "Infarm: kayyum yönetimi başladı",
+      "en": "Infarm: administration begins"
+     },
+     "dizi": "infarm",
+     "deger": 2023.6747,
+     "ek": {
+      "tr": "4 Eylül 2023",
+      "en": "4 September 2023"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "infarm_sicil",
+     "alinti": "Administration started 4 September 2023"
+    },
+    {
+     "kategori": {
+      "tr": "AppHarvest: Root AI'ın satın alınması duyuruldu",
+      "en": "AppHarvest: Root AI acquisition announced"
+     },
+     "dizi": "appharvest",
+     "deger": 2021.2688,
+     "ek": {
+      "tr": "8 Nisan 2021",
+      "en": "8 April 2021"
+     },
+     "satici": true,
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "appharvest_2021_root_ai",
+     "alinti": "MOREHEAD, Ky., April 08, 2021 (GLOBE NEWSWIRE)"
+    },
+    {
+     "kategori": {
+      "tr": "AppHarvest: Chapter 11 başvurusu",
+      "en": "AppHarvest: Chapter 11 petition"
+     },
+     "dizi": "appharvest",
+     "deger": 2023.5591,
+     "ek": {
+      "tr": "23 Temmuz 2023",
+      "en": "23 July 2023"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "appharvest_2023_chapter11",
+     "alinti": "On July 23, 2023"
+    },
+    {
+     "kategori": {
+      "tr": "Small Robot Company: Wilma duyuruldu",
+      "en": "Small Robot Company: Wilma announced"
+     },
+     "dizi": "small-robot-company",
+     "deger": 2020.0,
+     "ek": {
+      "tr": "2020",
+      "en": "2020"
+     },
+     "satici": true,
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "small_robot_company_2020_vaat",
+     "alinti": "Previewed at Cereals 2020, Wilma is now complete and being tested."
+    },
+    {
+     "kategori": {
+      "tr": "Small Robot Company: gönüllü tasfiye başladı",
+      "en": "Small Robot Company: voluntary liquidation begins"
+     },
+     "dizi": "small-robot-company",
+     "deger": 2024.0833,
+     "ek": {
+      "tr": "1 Şubat 2024",
+      "en": "1 February 2024"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "small_robot_company_tasfiye",
+     "alinti": "Commencement of winding up 1 February 2024"
+    },
+    {
+     "kategori": {
+      "tr": "Small Robot Company: sicilden silindi",
+      "en": "Small Robot Company: dissolved"
+     },
+     "dizi": "small-robot-company",
+     "deger": 2026.328,
+     "ek": {
+      "tr": "30 Nisan 2026",
+      "en": "30 April 2026"
+     },
+     "kayit": "b27_kaynaklar.json",
+     "kaynak": "small_robot_company_tasfiye",
+     "alinti": "Dissolved on 30 April 2026"
+    }
+   ],
+   "yer": "**Small Robot Company.** Birleşik Krallık'taki tarım robotu girişimi Small Robot"
+  },
+  "b28-nuru-teshis": {
+   "baslik_no": 28,
+   "tur": "aralik",
+   "baslik": {
+    "tr": "Manyok hastalığı teşhisi: uygulama %65, yayım elemanları %40-58, çiftçiler %18-31",
+    "en": "Cassava disease diagnosis: the app 65%, extension agents 40–58%, farmers 18–31%"
+   },
+   "aciklama": {
+    "tr": "Mrisho ve arkadaşlarına (2020) göre PlantVillage Nuru'nun 2020 sürümü belirtileri %65 doğrulukla tanıdı; yayım elemanları %40-58, çiftçiler %18-31 doğrulukta kaldı; bitki başına altı yaprağa bakılınca uygulamanın doğruluğu %74-88'e çıktı.",
+    "en": "According to Mrisho et al. (2020), the 2020 version of PlantVillage Nuru identified symptoms with 65% accuracy, against 40–58% for extension agents and 18–31% for farmers; assessing six leaves per plant raised the app's accuracy to 74–88%."
+   },
+   "kaynak": {
+    "tr": "Kaynak: Mrisho ve ark. (2020)",
+    "en": "Source: Mrisho et al. (2020)"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Doğru teşhis oranı",
+    "en": "Diagnostic accuracy"
+   },
+   "diziler": [
+    {
+     "kod": "insan",
+     "tr": "Insan",
+     "en": "People"
+    },
+    {
+     "kod": "uygulama",
+     "tr": "Uygulama",
+     "en": "App"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Çiftçiler",
+      "en": "Farmers"
+     },
+     "dizi": "insan",
+     "deger": 18,
+     "uc": "alt",
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "ciftci_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Çiftçiler",
+      "en": "Farmers"
+     },
+     "dizi": "insan",
+     "deger": 31,
+     "uc": "ust",
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "ciftci_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Yayım elemanları",
+      "en": "Extension agents"
+     },
+     "dizi": "insan",
+     "deger": 40,
+     "uc": "alt",
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "yayim_elemani_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Yayım elemanları",
+      "en": "Extension agents"
+     },
+     "dizi": "insan",
+     "deger": 58,
+     "uc": "ust",
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "yayim_elemani_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Nuru (2020 sürümü)",
+      "en": "Nuru (2020 version)"
+     },
+     "dizi": "uygulama",
+     "deger": 65,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "nuru_dogruluk_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Nuru, bitki başına altı yaprak",
+      "en": "Nuru, six leaves per plant"
+     },
+     "dizi": "uygulama",
+     "deger": 74,
+     "uc": "alt",
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "alti_yaprak_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Nuru, bitki başına altı yaprak",
+      "en": "Nuru, six leaves per plant"
+     },
+     "dizi": "uygulama",
+     "deger": 88,
+     "uc": "ust",
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "mrisho_2020",
+     "alan": "alti_yaprak_yuzde"
+    }
+   ],
+   "yer": "Nuru'nun 2020 sürümü belirtileri **%65** doğrulukla tanıdı; yayım elemanları **%40-58**,"
+  },
+  "b28-dron-operatorleri": {
+   "baslik_no": 28,
+   "tur": "yatay_cubuk",
+   "baslik": {
+    "tr": "İlaçlama dronu operatörleri: rüzgârı %98,6'sı gözetiyor, bağıl nemi %16,9'u",
+    "en": "Spraying drone operators: 98.6% consider wind, 16.9% relative humidity"
+   },
+   "aciklama": {
+    "tr": "71 operatörle yapılan ankete göre operatörlerin %98,6'sı rüzgârı, %16,9'u bağıl nemi dikkate alıyor, %14,1'i her uygulamadan önce kalibrasyon yapıyor; ilaçlama sıklıkla arıcılık alanlarında ya da yakınında (%78,6) ve yerleşim alanlarında (%61,4) yapılıyor; en sık bildirilen sorun rüzgârla sürüklenme (%80,3).",
+    "en": "In a survey of 71 operators, 98.6% consider wind speed and 16.9% relative humidity, and 14.1% calibrate before every application; spraying often takes place in or near beekeeping areas (78.6%) and in residential areas (61.4%); the most reported problem is wind drift (80.3%)."
+   },
+   "kaynak": {
+    "tr": "Kaynak: İtmeç (2026), operatör anketi",
+    "en": "Source: İtmeç (2026), operator survey"
+   },
+   "birim": {
+    "tr": "%",
+    "en": "%"
+   },
+   "eksen": {
+    "tr": "Operatörlerin payı",
+    "en": "Share of operators"
+   },
+   "diziler": [
+    {
+     "kod": "uygulama-kosulu",
+     "tr": "Uygulama koşulu",
+     "en": "Application practice"
+    },
+    {
+     "kod": "risk-ve-sorun",
+     "tr": "Risk ve sorun",
+     "en": "Risks and problems"
+    }
+   ],
+   "noktalar": [
+    {
+     "kategori": {
+      "tr": "Rüzgârı dikkate alıyor",
+      "en": "Consider wind speed"
+     },
+     "dizi": "uygulama-kosulu",
+     "deger": 98.6,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "itmec_2026",
+     "alan": "ruzgar_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Bağıl nemi dikkate alıyor",
+      "en": "Consider relative humidity"
+     },
+     "dizi": "uygulama-kosulu",
+     "deger": 16.9,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "itmec_2026",
+     "alan": "bagil_nem_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Her uygulamadan önce kalibrasyon yapıyor",
+      "en": "Calibrate before every application"
+     },
+     "dizi": "uygulama-kosulu",
+     "deger": 14.1,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "itmec_2026",
+     "alan": "kalibrasyon_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Rüzgârla sürüklenme sorunu bildiriyor",
+      "en": "Report wind drift problems"
+     },
+     "dizi": "risk-ve-sorun",
+     "deger": 80.3,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "itmec_2026",
+     "alan": "suruklenme_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Arıcılık alanlarında ya da yakınında ilaçlıyor",
+      "en": "Spray in or near beekeeping areas"
+     },
+     "dizi": "risk-ve-sorun",
+     "deger": 78.6,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "itmec_2026",
+     "alan": "aricilik_yuzde"
+    },
+    {
+     "kategori": {
+      "tr": "Yerleşim alanlarında ilaçlıyor",
+      "en": "Spray in residential areas"
+     },
+     "dizi": "risk-ve-sorun",
+     "deger": 61.4,
+     "kayit": "b28_kaynaklar.json",
+     "kaynak": "itmec_2026",
+     "alan": "yerlesim_yuzde"
+    }
+   ],
+   "yer": "Türkiye'de geniş alanlarda kullanılan dijital tarım teknolojilerinden biri ilaçlama dronları."
+  }
+ }
+}

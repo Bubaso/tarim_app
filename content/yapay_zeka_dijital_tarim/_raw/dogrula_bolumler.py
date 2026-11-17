@@ -60,6 +60,7 @@ KURALLAR
 from __future__ import annotations
 
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -326,7 +327,8 @@ def sina_kesisimler() -> None:
 
 
 GRAFIK_TURLERI = {"yatay_cubuk", "dikey_cubuk", "cizgi", "alan", "dumbbell", "aralik", "pay",
-                  "waffle", "egim", "kpi", "isi", "zaman"}
+                  "waffle", "egim", "kpi", "isi", "zaman", "kucuk"}
+DIZI_ROLLERI = {"", "ongoru", "referans", "toplam", "alt"}
 YONERGE_DESENI = re.compile(r"^\[\[(grafik|gorsel):([a-z0-9-]+)\]\]$", re.M)
 
 
@@ -339,11 +341,38 @@ def _alan_degerleri(deger) -> list[float]:
     return []
 
 
+def _alan_degeri(kaynak: dict, yol: str):
+    """Kaynağın alanı; sözlük alanlarda alt anahtar noktayla (kayip_yuzde.2015)."""
+    if yol in kaynak:
+        return kaynak[yol]
+    dugum = kaynak
+    for parca in yol.split("."):
+        if not isinstance(dugum, dict) or parca not in dugum:
+            return None
+        dugum = dugum[parca]
+    return dugum
+
+
+# Alıntıda yazıyla geçen sayılar ("four-fold", "dört kat"): grafik değeri
+# yazıyla verilmiş bir oransa alıntıyla böyle eşleşiyor.
+YAZIYLA = {"two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9,
+           "ten": 10, "twenty": 20, "iki": 2, "üç": 3, "dört": 4, "beş": 5, "altı": 6, "yedi": 7,
+           "sekiz": 8, "dokuz": 9, "on": 10, "yirmi": 20}
+
+
+def _yaziyla_sayilar(alinti: str) -> list[float]:
+    return [float(v) for s_, v in YAZIYLA.items()
+            if re.search(rf"(?<![\w-]){s_}(?:-?fold| kat)\b", alinti, re.I)]
+
+
 def sina_grafikler() -> None:
     """Kural 11 (karar 58): her grafik değeri bir kaydın sayısal alanına
-    birebir eşit (ya da kaydın kendi alıntısında geçiyor); metinlerdeki her
-    [[grafik:…]] yönergesi tanımlı bir grafiğe gidiyor; iki dilin yönergeleri
-    aynı sırada; tanımlanıp hiçbir yerde kullanılmayan grafik yok."""
+    birebir eşit (ya da kaydın kendi alıntısında geçiyor); zaman
+    çizelgesinde olayın yılı kaydın tarih alanında geçiyor; grafiğin başlığı
+    ve açıklamasındaki her rakam bağlandığı kayıtlardan türetilebiliyor;
+    metinlerdeki her [[grafik:…]] yönergesi tanımlı bir grafiğe gidiyor; iki
+    dilin yönergeleri aynı sırada; tanımlanıp hiçbir yerde kullanılmayan
+    grafik yok."""
     print("\nGrafikler")
     yol = BURASI / "grafikler.json"
     grafikler = json.loads(yol.read_text(encoding="utf-8")).get("grafikler", {}) if yol.exists() else {}
@@ -361,30 +390,67 @@ def sina_grafikler() -> None:
         for a in ("baslik", "aciklama", "kaynak"):
             if not all((g.get(a) or {}).get(d, "").strip() for d in ("tr", "en")):
                 hata(f"grafik {kimlik}: {a} iki dilde de dolu değil")
+        for a in ("birim", "eksen"):
+            if g.get(a) and bool((g[a].get("tr") or "").strip()) != bool((g[a].get("en") or "").strip()):
+                hata(f"grafik {kimlik}: {a} iki dilde aynı doluluğta değil")
         if not g.get("noktalar"):
             hata(f"grafik {kimlik}: nokta yok")
-        dizi_kodlari = {d["kod"] for d in g.get("diziler", [])}
+        diziler = {d["kod"]: d for d in g.get("diziler", [])}
+        for d in diziler.values():
+            if d.get("rol", "") not in DIZI_ROLLERI:
+                hata(f"grafik {kimlik}: dizi {d['kod']!r} rolü bilinmiyor ({d.get('rol')!r})")
+            if not (d.get("tr") or "").strip() or not (d.get("en") or "").strip():
+                hata(f"grafik {kimlik}: dizi {d['kod']!r} adı iki dilde de dolu değil")
+        kullanilan_kayitlar: set[str] = set()
         for n in g.get("noktalar", []):
-            if dizi_kodlari and n.get("dizi") not in dizi_kodlari:
+            if diziler and n.get("dizi") not in diziler:
                 hata(f"grafik {kimlik}: nokta dizisi {n.get('dizi')!r} tanımlı değil")
+            for a in ("kategori", "ek", "panel", "birim"):
+                if a in n and not all(isinstance((n[a] or {}).get(d), str) for d in ("tr", "en")):
+                    hata(f"grafik {kimlik}: noktanın {a} alanı iki dilde değil")
+            if g.get("tur") == "kucuk" and not (n.get("panel") or {}).get("tr"):
+                hata(f"grafik {kimlik}: küçük çoklu grafikte noktanın paneli yok")
             k = kayit(n.get("kayit", ""))
+            kullanilan_kayitlar.add(n.get("kayit", ""))
             kaynak = (k.get("kaynaklar") or {}).get(n.get("kaynak", ""))
             if kaynak is None:
                 hata(f"grafik {kimlik}: {n.get('kayit')} · {n.get('kaynak')} kaynağı yok")
                 continue
             v = float(n["deger"])
+            # Zaman çizelgesinde değer olayın yılı (kesirli: ay ve gün);
+            # kayıtta sınanan yılın kendisi.
+            aranan = float(math.floor(v)) if g.get("tur") == "zaman" else v
             if n.get("alan"):
-                adaylar = _alan_degerleri(kaynak.get(n["alan"]))
-                if not any(abs(v - x) < 1e-9 for x in adaylar):
-                    hata(f"grafik {kimlik}: {v:g} ≠ {n['kayit']} · {n['kaynak']} · {n['alan']} ({kaynak.get(n['alan'])!r})")
+                ham = _alan_degeri(kaynak, n["alan"])
+                if ham is None:
+                    hata(f"grafik {kimlik}: {n['kayit']} · {n['kaynak']} kaynağında {n['alan']!r} alanı yok")
+                    continue
+                adaylar = _alan_degerleri(ham if not isinstance(ham, (list, dict)) else json.dumps(ham, ensure_ascii=False))
+                if not any(abs(aranan - x) < 1e-9 for x in adaylar):
+                    hata(f"grafik {kimlik}: {aranan:g} ≠ {n['kayit']} · {n['kaynak']} · {n['alan']} ({ham!r})")
             elif n.get("alinti"):
                 if n["alinti"] not in json.dumps(kaynak.get("alinti", []), ensure_ascii=False):
                     hata(f"grafik {kimlik}: alıntı kaynağın alıntılarında yok — {n['alinti'][:60]!r}")
-                elif not any(abs(v - x) < 1e-9 for x in _alan_degerleri(n["alinti"].replace(",", ""))
-                             + _alan_degerleri(n["alinti"])):
-                    hata(f"grafik {kimlik}: {v:g} alıntıda geçmiyor — {n['alinti'][:60]!r}")
+                elif not any(abs(aranan - x) < 1e-9 for x in _alan_degerleri(n["alinti"].replace(",", ""))
+                             + _alan_degerleri(n["alinti"]) + _yaziyla_sayilar(n["alinti"])):
+                    hata(f"grafik {kimlik}: {aranan:g} alıntıda geçmiyor — {n['alinti'][:60]!r}")
             else:
                 hata(f"grafik {kimlik}: değerin alanı da alıntısı da yok")
+        # Başlık, açıklama, eksen, kategori ve not metinlerindeki rakamlar:
+        # bağlanan kayıtların bütününden türetilebilmeli (metin kuralı 1 gibi).
+        havuz: list[float] = []
+        for ad in kullanilan_kayitlar | set(g.get("ek_kayitlar", [])):
+            kk = kayit(ad)
+            havuz += kayit_sayilari({x: y for x, y in kk.items() if not x.startswith("_")})
+        for dil in ("tr", "en"):
+            parcalar = [(g.get(a) or {}).get(dil, "") for a in ("baslik", "aciklama", "eksen")]
+            for n in g.get("noktalar", []):
+                parcalar += [(n.get(a) or {}).get(dil, "") for a in ("kategori", "ek", "panel")]
+            for d in diziler.values():
+                parcalar.append(d.get(dil, ""))
+            for deger, bas, satir in metin_sayilari("\n".join(p for p in parcalar if p), dil):
+                if not izlenir(deger, bas, havuz):
+                    hata(f"grafik {kimlik} ({dil}): {deger:g} kayıtlardan türetilemiyor — {satir[:90]!r}")
 
     kullanilan: set[str] = set()
     sayfalar = [*sorted(BOLUMLER.glob("[0-2][0-9]-*.tr.md")), *sorted(TEKNOLOJILER.glob("*.tr.md"))]

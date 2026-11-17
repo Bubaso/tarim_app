@@ -31,6 +31,8 @@ That result comes not from a field trial but from a crop growth model: the produ
 
 By FAO's data, **86.93%** of the freshwater withdrawn in Türkiye in 2022 went to agriculture; industry's share was **2.01%** and municipalities' **11.06%**. Total withdrawal was **64.47** billion m³.
 
+[[grafik:b07-su-cekimi-paylari]]
+
 According to the 2027 Annual Programme, the irrigation rate was **68%** in 2025, an estimated **71%** in 2026, with a target of **72%** for 2027. The gross area opened to irrigation was **7.28** million hectares in 2025, with **7.40** million targeted for 2027. The measures set out for 2027: **61** thousand hectares of new irrigation; converting open canals to closed pipes on **16** thousand hectares; grants for sprinkler and drip irrigation on **30** thousand hectares; electronic metering at **100** facilities so that water can be priced by the amount used. In **52** districts of **11** provinces with water constraints, crops that use little water receive extra support.
 
 On the digital side there are two measures. The Digital Irrigation Management System project (DİSU), which will prepare irrigation schedules with remote sensing and geographic information systems, is to be completed in 2027; work will continue on the use of decision-support systems by water user organisations and on the regulations for it. The Agricultural Drought Monitoring System (TAKİS) tracks drought with satellite data at **7**-day intervals; work on forecasting drought **1-4 weeks** ahead with AI methods is planned to begin in 2027. The Irrigation Management and Crop Water Use System developed by TAGEM, the ministry's research arm (TAGEM-SuET), serves producers with irrigation advice on the web and in the "Su" (water) tab of the Tarım Cebimde app.

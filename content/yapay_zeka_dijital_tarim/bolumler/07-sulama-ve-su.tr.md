@@ -31,6 +31,8 @@ Bu sonuç bir saha denemesinden değil, bir bitki büyüme modelinden geliyor: �
 
 FAO verisine göre Türkiye'de 2022'de çekilen tatlı suyun **%86,93**'ü tarıma gitti; sanayinin payı **%2,01**, belediyelerin **%11,06**. Toplam çekim **64,47** milyar m³.
 
+[[grafik:b07-su-cekimi-paylari]]
+
 2027 Yıllık Programı'na göre sulama oranı 2025'te **%68**, 2026 tahmini **%71**, 2027 hedefi **%72**. Sulamaya açılmış brüt alan 2025'te **7,28**, 2027 hedefinde **7,40** milyon hektar. 2027 için yazılan tedbirler: **61** bin hektar yeni sulama alanı; **16** bin hektarda açık kanalların kapalı boruya çevrilmesi; **30** bin hektarda yağmurlama ve damla sulama için hibe; suyun kullanılan miktara göre fiyatlandırılması için **100** tesise elektronik ölçüm sistemi. Su kısıtı olan **11** ilin **52** ilçesinde az su tüketen ürünlere ek destek veriliyor.
 
 Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı hazırlayacak Dijital Sulama Yönetim Sistemi projesi (DİSU) 2027'de tamamlanacak; su kullanıcı teşkilatlarında karar destek sistemlerinin kullanımı ve bunun mevzuatı üzerinde çalışılacak. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verisiyle **7** günlük periyotlarla izliyor; 2027'de yapay zekâ yöntemleriyle kuraklığı **1-4 hafta** önceden tahmin etmeye yönelik çalışmaların başlatılması planlanıyor. Bakanlığın araştırma kolu TAGEM'in geliştirdiği Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) ise Tarım Cebimde uygulamasının Su sekmesinde ve webde üreticiye sulama konusunda hizmet veriyor.

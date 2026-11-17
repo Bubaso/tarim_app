@@ -196,3 +196,17 @@ niteliklerde olsun. … her türlü grafik kütüphanesini kullanabilirsin."
 | # | karar |
 |---|---|
 | 58 | **Görsel:** kaynağı altında açıkça yazılarak her görsel kullanılabilir; indirme yasağı olan (site koşulları, robots.txt) ya da yalnız oturumla/bot korumasını aşarak alınabilen görsel alınmaz. Altyazı künyedir (görselin ne olduğu, kim, nerede, ne zaman) + kaynak satırı; her görselin kaynağı, adresi ve indirme günü bir kayıtta tutulur, hak sahibi itiraz ederse tek satırla kaldırılır. Yapay zekâ üretimi FOTOĞRAF yok (çok gerekli olursa istisna, kullanıcıya sorulur); yapay zekâ üretimi şema ve illüstrasyon olabilir, üretildiği altyazıda yazar. **Grafik:** modern, sade ve çeşitli; her değeri kayıttan gelir ve doğrulayıcıdan geçer; her grafiğin tablo karşılığı ve metin açıklaması var; hazır kütüphane kullanılabilir. **Etkileşim:** rakamdan kaynağa, içindekiler, teknoloji × başlık ısı haritası, zaman çizelgesi, harita |
+
+**Grafiklerin uygulanışı (18 Kasım 2026).** Envanter (`grafik_envanteri.json`)
+54 öneri çıkardı; 47'si yayımlanıyor (`grafikler.json`, `grafik_donustur.py`).
+Atlanan yedi: metindeki tabloyu birebir tekrar eden beşi (§9 MARS, §11 bölgeler,
+§12 kuşak aralığı, §13 sera turları, §15 ormansızlaşma) ve cümleye bir şey
+katmayan ikisi (§7 sulama oranı, §22 Çin bilişimleşme hedefi). Grafik, `yer`
+paragrafının ardında, iki dilde aynı blok sırasında. Doğrulayıcı (kural 11)
+artık başlık, açıklama, eksen, kategori ve dizi adlarındaki rakamları da
+bağlanan kayıtların bütününe karşı sınıyor; zaman çizelgesinde olayın yılı
+kaydın tarih alanında geçmeli. Çizim: değerler grafiğin üstünde, öngörü/hedef
+açık tonla ve kenarlı, referans değer ince dikey işaret, alt kalem girintili,
+yüzde pay çubuğu 100'e tamamlanır, sayı karesi (ör. 71 eylemde 0), küçük
+çoklu (ayrı eksenler), iki şeritli zaman çizelgesi (geniş ekranda eksenin iki
+yanı), şirket beyanı içi boş işaret.

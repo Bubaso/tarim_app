@@ -2,6 +2,8 @@
 
 AI in agriculture delivers its most solid results in work that keeps constant watch over a large area or a large number of objects: weather forecasting, mapping from satellites and fishing surveillance, with promising early results in detecting forest fires. When the work comes down to decisions on a single field, the picture becomes mixed: savings are measured in most trials, but profit does not show up on every field, and models that perform well in the lab fall short in the field. The technology is used most by large farms: in the EU, farms that apply precision farming make up roughly **18%** of all farms yet manage about **44%** of the farmland. In Türkiye the ministry has begun to use AI in monitoring work, but there is no published evaluation measuring the effect of AI on yields, input use or farmers' income in the field.
 
+[[grafik:b01-ab-hassas-tarim-pay-ve-alan]]
+
 ## Watching over large areas: the most solid results
 
 AI has moved from research to operations in weather forecasting. GraphCast outperformed the most accurate operational forecasting systems on **90%** of **1,380** verification targets in **10**-day global forecasts; the European Centre for Medium-Range Weather Forecasts has been running its own AI model alongside its physics-based model since 25 February 2025. A map built from satellite imagery and deep learning revealed that **72-76%** of the world's industrial fishing vessels are not publicly tracked. According to its preliminary results published in 2020, a camera-based prototype system usually detected the smoke of a forest fire within **15** minutes of ignition, with less than one false alarm per camera per day on average.

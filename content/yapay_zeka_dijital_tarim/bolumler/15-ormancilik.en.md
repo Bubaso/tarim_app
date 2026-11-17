@@ -2,6 +2,8 @@
 
 AI stands out in two tasks in forestry: mapping forest structure from space and spotting fire early. In Türkiye the fire burden is growing; of the **634,575** hectares burned from 1988, when official statistics began, to 2025, **43.6%** burned in the last five years. The General Directorate of Forestry first set up a fire warning system based on lookout-tower cameras and later put an AI-supported decision support system into service; but there is no published independent assessment measuring the effect of either on detection time, burned area or false alarm rate.
 
+[[grafik:b15-yanan-alan-son-bes-yil]]
+
 ## What it does
 
 In forestry, digital technology serves three purposes: measuring how much forest there is and what it is like (area, tree height, carbon), catching change (deforestation, fire, pests and disease), and early warning and response to fire. Satellites and spaceborne laser instruments see large areas; AI extracts tree height, burned area or smoke from these data. Cameras on the ground and unmanned aerial vehicles try to catch the first minutes of a fire.

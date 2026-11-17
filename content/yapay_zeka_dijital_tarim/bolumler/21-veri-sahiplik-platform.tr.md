@@ -14,6 +14,8 @@ Mülkiyet çerçevesinin kendisi de tartışmalı. Atik'in (2022) hukuki çözü
 
 Turland ve Slade'in (2020) varsayımsal seçim deneyinde platformu kimin işlettiği belirleyiciydi: çiftçiler verilerini en çok üniversite araştırmacılarıyla, en az devletle paylaşmaya istekliydi. Ama küçük mali ya da mali olmayan faydalar, mahremiyete güçlü önem verdiğini söyleyen çiftçilerde bile katılımı belirgin biçimde artırdı. Verinin fiilen nasıl aktığını ise sözleşmeler gösteriyor: **141** tarım uygulaması kullanım sözleşmesini inceleyen bir çalışmaya (Kaur ve Dara, 2023) göre sözleşmeler uzun, karmaşık ve anlaşılması zor; **%95**'i okunması zor kategorisinde, yaklaşık **%75**'i anlaşılmak için üniversite düzeyinde eğitim gerektiriyor ve bazı veri yönetimi uygulamalarına gereken yer verilmiyor.
 
+[[grafik:b21-sozlesme-okunabilirlik]]
+
 AB tarafında Şubat 2020 veri stratejisi, ortak Avrupa veri alanlarının kurulacağı stratejik alanlar arasında tarımı da saydı. Komisyon'un Kasım 2026'da güncellenen sayfasına göre ortak veri alanları **14** sektörde geliştiriliyor; tarımda AgriDataSpace, Divine, CrackSense, ScaleAgData, AgDataValue, 4Growth, Dig4Live ve CEADS adlı girişimler var. Komisyon'un hedefi, şirketlerin, kamu idarelerinin ve bireylerin ürettikleri veriyi kontrol etmesi.
 
 ## Yapay zekâ nerede duruyor
@@ -23,6 +25,8 @@ Tarımda yapay zekâ veriyle büyüyor; veri ise ancak güvenildiğinde paylaş�
 ## Türkiye
 
 Bakanlığın 2025 faaliyet raporuna göre Çiftçi Kayıt Sistemi (ÇKS), bitkisel üretim yapılan alanların, üreticilerin ve üretim bilgilerinin kaydedildiği tarımsal veri tabanı. Kayıt e-Devlet üzerinden kolaylaştırıldı; fiilen üretim yapılan alan, bir taahhütnameyle mülkiyetten bağımsız olarak kaydedilebiliyor. **21** ilde ÇKS başvuruları ve veri girişi bir protokolle Ziraat Odalarına bırakıldı. ÇKS'ye kayıtlı alan **17,3** milyon hektarlık 2025 hedefinin **%93**'üne ulaştı. Bakanlığın **185** web tabanlı uygulaması ve e-Devlet üzerinden **46** hizmeti var.
+
+[[grafik:b21-cks-kayitli-alan]]
 
 2027 Programı'na göre Bakanlık ile TÜİK'in iş birliğinde yürütülen Genel Tarım Sayımı'nın saha çalışmalarında **973** mahalde sayım bürosu kuruldu ve bakanlık sistemlerinde kayıtlı olmayan yaklaşık **3,4** milyon hektar tarım arazisi Tarımsal Üretim Kayıt Sistemi'ne re'sen kaydedildi; sayım sonuçlarının 2026 sonuna kadar kamuoyuyla paylaşılması öngörülüyor. Program, sayımın verisiyle bütün tarım işletmelerinin kaydedileceği ve kayıtların mekânsal veriyle gerçek zamanlı güncelleneceği bir Tarımsal İşletme Kayıt Sistemi kurulmasını, tarım bilgi sistemleri için veri merkezinin tamamlanmasını öngörüyor. Kamu verisinin paylaşımı için hukuki düzenleme yapılacak ve ulusal açık veri portalı hayata geçirilecek; açık devlet verisi mevzuatı ve **6698** sayılı Kişisel Verilerin Korunması Kanunu'nun AB veri koruma tüzüğüyle uyumu da 2027'nin işleri arasında.
 

@@ -28,6 +28,8 @@ The Act's recitals name the most concrete concern in farming: the company holdin
 
 The Machinery Regulation (2023/1230) applies from 14 January 2027. It assigns the conformity assessment of safety components and systems whose behaviour evolves through machine learning to an independent third party. Software that does not learn, and only executes the automated functions it was programmed for, falls outside that scope. The Regulation also defines autonomous mobile machinery and the supervisor who monitors it remotely.
 
+[[grafik:b24-ab-mevzuat-takvimi]]
+
 ## Rules that never mention AI
 
 Some of the rules that shape how AI is used in agriculture today never mention AI. Regulation 2021/2116, which governs the financing and monitoring of the EU's common agricultural policy, requires member states to have an area monitoring system working with Copernicus Sentinel satellite data or data of at least equivalent value: the system had to be operational from 1 January 2023 and fully operational in all member states by 1 January 2024 at the latest. The Regulation prescribes the satellite, not the method; it does not mention machine learning or AI.
