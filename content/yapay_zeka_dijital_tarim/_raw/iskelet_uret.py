@@ -178,8 +178,8 @@ BASLIKLAR = [
       ozet_en="The EU AI Act, data and machinery law, the farm rule that requires satellite monitoring — and the framework on its way in Türkiye."),
     b(25, "turkiye-dizini", "cografya", "Türkiye dizini: girişimler, üniversiteler, kamu projeleri", "Türkiye directory: start-ups, universities, public projects",
       ["goruntu", "tahmin", "robotik", "sensor", "dil", "uzaktan"], {"dizin", "gelisme"},
-      ozet_tr="Yaşayan bir dizin. Tarama yeni kaydı taslak olarak önerir, onayla girer.",
-      ozet_en="A living directory. The scan proposes new entries as drafts; they enter on approval."),
+      ozet_tr="Kamunun yapay zekâ sistemleri ve projeleri, TÜBİTAK'ın tarım projeleri, üniversite merkezleri ve girişimler — her biri kaynağıyla.",
+      ozet_en="Public AI systems and projects, TÜBİTAK's agriculture projects, university centres and start-ups — each with its source."),
 
     # ── ELEŞTİREL BAKIŞ ───────────────────────────────────────────────
     b(26, "riskler-ve-sinirlar", "elestiri", "Riskler ve sınırlar", "Risks and limits",

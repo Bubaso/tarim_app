@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 343,
- "toplam_bayt": 972742425,
+ "dosya_sayisi": 363,
+ "toplam_bayt": 987430019,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1801,6 +1801,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/actimoo_2026_web.html",
+   "bayt": 47573,
+   "sha256": "bb3d8d6cf5c72ebaa2638cbb52131a4936c32ba371502aabc38e914606bbac23",
+   "kaynak": {
+    "adres": "https://actimoo.com/",
+    "atif": "Actimoo İzleme Sistemleri, ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI (İngilizce): ineklerde aktivite ölçerle kızgınlık (östrus) tespiti, mobil uygulama. Sitedeki 'dünyanın en kullanıcı dostu' türü üstünlük iddiası ve başarı hikâyeleri alınmadı. Sitede adres Ankara'da bir teknokent; adres ayrıntısı alınmadı. Bağımsız kayıt: actimoo_fao."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/afrika_au_2024_yz_stratejisi.pdf",
    "bayt": 2572777,
    "sha256": "c5429f73786c0a0c170a78278016339ab86f914b239290ba1d6623cc07734e3f",
@@ -1822,6 +1834,18 @@
     "lisans": "Telifli; yalnız ticari olmayan kullanım (kısa alıntı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — CTA ve Dalberg, Haziran 2019 (CGSpace)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/agcurate_2026_web.html",
+   "bayt": 704533,
+   "sha256": "b3b26c39f742e812326c468b82e760b425395310525597f6a2fd309f01bfa42e",
+   "kaynak": {
+    "adres": "https://www.agcurate.com/",
+    "atif": "Agcurate, ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI (İngilizce): uydu görüntüsü + makine öğrenmesiyle tarım işletmelerine kırsal veri, rekolte tahmini, kredi/sigorta skoru. DİKKAT: sitenin alt bilgisi merkezi Hollanda (Agcurate BV) gösteriyor; FAO kaydı Ankara'da 2020 kuruluş diyor. Türkiye dizinine alınıp alınmayacağı editör ka"
    }
   },
   {
@@ -1969,6 +1993,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/baibars_2026_web.html",
+   "bayt": 105534,
+   "sha256": "26083a480fb7e291ff2470fb2034842e1d085d7ae143fd4733463e6bf69195b0",
+   "kaynak": {
+    "adres": "https://www.baibars.com.tr/",
+    "atif": "baibars mekatronik havacılık sanayi A.Ş., ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: tarım ve endüstri dronu üreticisi (ilaçlama/gübre tanklı modeller). Sitedeki 'lider', 'maksimum verimlilik', 'en genç' gibi iddialar alınmadı. Sitede Mersin'de fabrika ve Ar-Ge birimi anılıyor. Bağımsız kayıt: baibars_fao."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/baul_2024_europepmc_tam_metin.xml",
    "bayt": 387753,
    "sha256": "a2cb8296c49678c13d189c02eb2177ee8616ecf9828cff4d3e0b7e551b85f01d",
@@ -1990,6 +2026,18 @@
     "lisans": "yayıncı sayfasındaki özet (makale abonelikli)",
     "lisans_adresi": null,
     "_not": "Yayıncı sayfası (Nature Reviews Earth & Environment); yalnız özet."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/benimsurum_2026_web.html",
+   "bayt": 96619,
+   "sha256": "dee51a075b5236ca92f3c6e6e688633fbc08e30eb74261ee2006a8a98d4447e6",
+   "kaynak": {
+    "adres": "https://www.benimsurum.com/",
+    "atif": "BenimSürüm, ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: büyükbaş sürü yönetim yazılımı + sensörler (sitede MastiPro, WashLog, M2Moo, PartuSense cihazları). 'Devrim yaratıyor', 'maksimize ediyor' gibi ifadeler reklamdır, alınmadı. Site alt bilgisi '© 2023'. Bağımsız kayıt: benimsurum_fao."
    }
   },
   {
@@ -2137,6 +2185,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/doktar_2026_web.html",
+   "bayt": 880175,
+   "sha256": "0ac4e02b887e47a58801af01eb07639f45ff575ee1afaaac904ada2bcb3de113",
+   "kaynak": {
+    "adres": "https://www.doktar.com/tr/",
+    "atif": "Doktar Technologies, ana sayfa (Türkçe), erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: uydu görüntüsü + saha sensörü + yapay zekâ ile tarla izleme, dijital ikiz ve sürdürülebilirlik (MRV) raporlaması. Performans iddiası alınmadı. Bağımsız kayıt: doktar_fao."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eastwood_2026_europepmc_tam_metin.xml",
    "bayt": 88123,
    "sha256": "5e539092f413551a2e2b3ecddc337e860b1fa6a23b3c007ed4b35bc134ce2d34",
@@ -2182,6 +2242,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/esular_2026_web.html",
+   "bayt": 154092,
+   "sha256": "e1606631f6dfa2e5357e06e64a4c4c733aaa18d412c3ac0d4bb7ddf60e31e388",
+   "kaynak": {
+    "adres": "https://esular.com/",
+    "atif": "Esular Dijital Tarım Teknolojileri, ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: kablosuz toprak nem sensörü, sulama otomasyonu, sera iklim kontrolü ve yapay zekâlı teşhis/uyarı. Sitedeki enerji/su tasarrufu yüzdeleri müşteri yorumu ve şirket iddiasıdır, alınmadı. Bağımsız kayıt: esular_fao."
    }
   },
   {
@@ -2281,6 +2353,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+   "bayt": 9880701,
+   "sha256": "6a4fd744f40a835e2088ab5a7cf64c585f3cd538ecdc854af042a670c5bdbe08",
+   "kaynak": {
+    "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+    "atif": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+    "lisans": "CC BY-NC-SA 3.0 IGO (PDF künye sayfası)",
+    "lisans_adresi": null,
+    "_not": "FAO–EBRD 2025 Türkiye raporu (PDF). Lisans PDF'in künye sayfasından."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_sdg_1231_gida_kaybi.html",
    "bayt": 100927,
    "sha256": "30c7aa162806c443bb03a5b1409adc8648248edf070bf71a7849808203958ae3",
@@ -2341,6 +2425,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gorsentam_2026_web.html",
+   "bayt": 23124,
+   "sha256": "95181e2327f4338afff43a548fb563449813594ea30fee4b2c243a7c0dbf65eb",
+   "kaynak": {
+    "adres": "https://www.gorsentam.com/",
+    "atif": "GÖRSENTAM Tarım Teknolojileri, ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: tarımsal meteoroloji istasyonu, kameralı feromon tuzağı (G-TRAP) ve yapay zekâ ile hastalık/zararlı riski uyarısı. Sitedeki çiftçi yorumlarındaki verim iddiaları alınmadı. Alıntılardaki yazım (veriler, aldıgı, ögrenme) sitedeki gibidir. Bağımsız kayıtlar: gorsentam_fao, gorsen"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/govil_2020_crossref.json",
    "bayt": 13276,
    "sha256": "686b947676b05eb7f4cb2719b45aacaa3df1fdb99662f02853420eea845a88cf",
@@ -2362,6 +2458,30 @@
     "lisans": "Open Government Licence v3.0",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — GOV.UK (Innovate UK), 29 Eylül 2017."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gtu_2023_akilli_tarim_merkezi_yonetmelik.pdf",
+   "bayt": 191810,
+   "sha256": "03864da126260e93493381f37cd60fc782065af09bce938d6672618f7d542079",
+   "kaynak": {
+    "adres": "https://www.gtu.edu.tr/fileman/Files/UserFiles/kalite/Y%C3%B6netmelikler/YN-0016%20Ak%C4%B1ll%C4%B1%20Tar%C4%B1m%20Uygulama%20ve%20Ara%C5%9Ft%C4%B1rma%20Merkezi%20Y%C3%B6netmeli%C4%9Fi%20R1.pdf",
+    "atif": "Gebze Teknik Üniversitesi, Akıllı Tarım Uygulama ve Araştırma Merkezi Yönetmeliği (YN-0016, Rev. 1, 02.10.2023); Resmî Gazete 16.05.2021, sayı 31483",
+    "lisans": "mevzuat metni (kamu); kaynak gösterilerek alıntı",
+    "lisans_adresi": null,
+    "_not": "Üniversitenin kendi yayımladığı yönetmelik metni (2023 değişikliği işlenmiş). Kuruluş yılı = yönetmeliğin Resmî Gazete'de yayımı (16.05.2021). Merkezin güncel faaliyetine dair resmî sayfa bulunamadı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gtu_2024_tubitak_mam_gida_arz_merkezi.html",
+   "bayt": 58177,
+   "sha256": "6a815d984a1238023900e6effa7a5422828b27173e415696a0c3331ce59f522f",
+   "kaynak": {
+    "adres": "https://www.gtu.edu.tr/icerik/2839/24930/display.aspx",
+    "atif": "Gebze Teknik Üniversitesi, 'Biyoteknoloji Enstitüsü - TÜBİTAK MAM İş Birliği: Gıda Arz Güvenliğinde Akıllı Uygulamalar Araştırma Merkezi' (son güncelleme 30 Aralık 2024)",
+    "lisans": "üniversite sayfası; kaynak gösterilerek kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "KURULUŞ AŞAMASINDA: sayfa (30.12.2024) kontrollü ortam, topraksız ve dikey tarıma odaklanacak merkezin 2025'te açılmasını 'öngörüyor'; açıldığına dair resmî kayıt bulunamadı. Fon kaynağı (Strateji ve Bütçe Başkanlığı) aynı sayfada 300 karakteri aşan bir cümlede geçiyor, alıntılanmadı. Sayfadaki kişi"
    }
   },
   {
@@ -2566,6 +2686,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/karatay_2023_akitek_tarim_makineleri.html",
+   "bayt": 151463,
+   "sha256": "3b49106227d7a1d068139fc6f82530bec9180617a276bd964df3fb6cd34a1e4a",
+   "kaynak": {
+    "adres": "https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor",
+    "atif": "KTO Karatay Üniversitesi haberi, 'Konya'da Üniversite Sanayi İş Birliğiyle Tarım Makineleri İleri Teknolojiyle Geliştiriliyor', 13.10.2023",
+    "lisans": "üniversite sayfası; kaynak gösterilerek kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "Üniversite merkezi; AB–Türkiye ortak finansmanlı (IPA II Rekabetçi Sektörler) projeyle akıllı tarım makinesi prototipleri. Merkez genel 'akıllı teknolojiler' merkezi, yalnız tarıma ayrılmış değil. Kuruluş yılı bulunamadı. Haber metnindeki kişi adları alınmadı; 'ileri teknoloji' nitelemeleri üniversi"
    }
   },
   {
@@ -2965,6 +3097,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2018_kgtu_tuam_yonetmelik.html",
+   "bayt": 52074,
+   "sha256": "108ddbf1718b00fb3426b69ef8b06957e121a7f57978a5930296d8b5f8cd95dd",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2018/11/20181105-5.htm",
+    "atif": "Resmî Gazete, 5 Kasım 2018, sayı 30586, Yönetmelik (Konya Gıda ve Tarım Üniversitesinden)",
+    "lisans": "mevzuat metni (kamu malı)",
+    "lisans_adresi": null,
+    "_not": "Vakıf üniversitesi merkezi; yönetmelik faaliyetleri dijital tarım, Tarım 4.0, hassas tarım, robot, uydu destekli karar destek ve 'SERA 4.0' içeriyor. Güncel faaliyet sayfası denetlenmedi. Dosya windows-1254'ten UTF-8'e kayıpsız dönüştürüldü."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2021_kaeu_au_su_jistuam_yonetmelik.html",
+   "bayt": 56389,
+   "sha256": "0921b9290b61dbdb288822b80acf601ec319c12e6b0cad46f58eb5952c778ae0",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2021/08/20210822-3.htm",
+    "atif": "Resmî Gazete, 22 Ağustos 2021, sayı 31576, Yönetmelik (Kırşehir Ahi Evran Üniversitesinden)",
+    "lisans": "mevzuat metni (kamu malı)",
+    "lisans_adresi": null,
+    "_not": "Üç üniversitenin ortak ileri sera merkezi (koordinatör Kırşehir Ahi Evran). Yapay zekâ ve otomasyon amaçlardan biri; merkez yalnız dijital tarıma ayrılmış değil. Dosya windows-1254'ten UTF-8'e kayıpsız dönüştürüldü."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2021_klu_mau_nku_gida_arzi_dijitallesme_merkezi.html",
+   "bayt": 44270,
+   "sha256": "a5d890ac8a4835b59cc7e3dbd55fb3faf6ec729ec9b4c17aa4009da3864fad3f",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2021/09/20210919-7.htm",
+    "atif": "Resmî Gazete, 19 Eylül 2021, sayı 31603, Yönetmelik (Kırklareli Üniversitesinden)",
+    "lisans": "mevzuat metni (kamu malı)",
+    "lisans_adresi": null,
+    "_not": "Üç üniversitenin ortak merkezi (koordinatör Kırklareli). Odağı gıda arzı güvenliği; dijitalleşme (dijital platform, izlenebilirlik) amaçlarından biri — salt dijital tarım merkezi değil. Dosya, Resmî Gazete'nin windows-1254 HTML'inden UTF-8'e kayıpsız dönüştürüldü (içerik değişmedi)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rti_2017_greenseeker.pdf",
    "bayt": 226347,
    "sha256": "40e7bb2fc0087335b8f956839242e0aa0c61c955eabd548a04f2e80ad1de7470",
@@ -3073,6 +3241,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tarla_io_2026_web.html",
+   "bayt": 170190,
+   "sha256": "6e49dd7e1f0d24eadcf8bd31ecd5236c3a43f7c7a4e092277ad47a4ead4384df",
+   "kaynak": {
+    "adres": "https://www.tarla.io/tr-TR",
+    "atif": "Tarla.io, ana sayfa (tr-TR), erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: uydu endeksi tabanlı tarla izleme, iklim/hastalık riski uyarısı, kurumsal API; sitede parametrik sigorta ve WhatsApp asistanı da tanıtılıyor. Site alt bilgisi '© 2019-2024'. Bağımsız kayıt: tarla_io_fao."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
    "bayt": 12730480,
    "sha256": "27e9842bbde03093c23cb37d16b25f35c69e1c1ac7de184c2e786b38ae804398",
@@ -3106,6 +3286,30 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/teknofest_tarim_teknolojileri_yarismasi.html",
+   "bayt": 276388,
+   "sha256": "853050b4ee255258f3f3e37a16f22b4c0ca7b9a2a8f23a9e70f8803ed5856383",
+   "kaynak": {
+    "adres": "https://www.teknofest.org/tr/yarismalar/tarim-teknolojileri-yarismasi/",
+    "atif": "TEKNOFEST resmî sitesi, 'Tarım Teknolojileri Yarışması' sayfası (2020–2025 dereceler), erişim 17.11.2026",
+    "lisans": "resmî yarışma sayfası; kaynak gösterilerek alıntı",
+    "lisans_adresi": null,
+    "_not": "Resmî yarışma sonuç sayfası: 2020'den 2025'e her yıl derece alan TAKIM adları var (çoğu öğrenci takımı; şirket adı değil, kişi adı yok). Takımların şirket olup olmadığı sayfadan anlaşılmıyor; dizinde şirket gibi yazılmamalı. 2026 finali (Şanlıurfa) sonrası üniversite dereceleri sayfada HTML olarak y"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/teknokurgu_2026_web.html",
+   "bayt": 144534,
+   "sha256": "a158fe52b34634e911f8d7f4da1b1b26b9418172cc8d8e53421120f66e9e4079",
+   "kaynak": {
+    "adres": "https://www.teknokurgu.com.tr/index.php/tr/",
+    "atif": "Tekno Kurgu Tarım Teknolojileri ve Dijital Çözümler, ana sayfa, erişim 17.11.2026",
+    "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "ŞİRKETİN KENDİ TANIMI: hassas tarım (otomatik dümenleme, değişken oranlı uygulama/doz kontrolü), sensör ve İHA hizmetleri; yabancı bir tarla analiz sisteminin Türkiye distribütörü. Alan 'diger' = hassas tarım/makine. Bağımsız kayıt: teknokurgu_fao."
    }
   },
   {
@@ -3325,6 +3529,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_1711_cagri_sayfasi.html",
+   "bayt": 90814,
+   "sha256": "b24b7287323fc0861480a5aed7460bef9178832802655ba0e0d0b5e4612c9354",
+   "kaynak": {
+    "adres": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+    "atif": "TÜBİTAK, '1711 - Yapay Zekâ Ekosistem Çağrısı' program sayfası, erişim 17.11.2026",
+    "lisans": "kamu kurumu sayfası; kaynak gösterilerek alıntı",
+    "lisans_adresi": null,
+    "_not": "Resmî program sayfası: akıllı tarım, gıda ve hayvancılık beş öncelikli alandan biri. 64 proje ve 325.089.753 TL TÜM alanların toplamıdır, yalnız tarım değil."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_2013_orman_yangin_uyari.html",
    "bayt": 68618,
    "sha256": "3f9723dfbb9d8621e4ef59dc97d87126209837a1b9b1ec6e4a287324f03e4bb2",
@@ -3358,6 +3574,30 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — Bakanlığın teknik ister belgesi, TÜBİTAK sitesinde yayımlanmış."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_bilgem_1711_akilli_tarim_projeler.html",
+   "bayt": 793091,
+   "sha256": "af481d67221ba3367ef7dd0933b261416ebc64aa63a7a17a83cb798d92a359de",
+   "kaynak": {
+    "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/",
+    "atif": "TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü, 'Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler' (1711 Yapay Zekâ Ekosistem Çağrısı), erişim 17.11.2026",
+    "lisans": "kamu kurumu sayfası; kaynak gösterilerek alıntı",
+    "lisans_adresi": null,
+    "_not": "İKİNCİ BAĞIMSIZ KAYIT (resmî): TÜBİTAK 1711 kabul listesinde 'Camandıra Projesi' (yapay zekâ tabanlı akıllı sulama karar destek sistemi) için Görsentam teknoloji sağlayıcı, Bursa Teknik Üniversitesi üniversite ortağı. Sayfa proje başlangıç yılını vermiyor."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_bilgem_yze_akilli_tarim.html",
+   "bayt": 766043,
+   "sha256": "7e4d66ded3a70d3a262d0ed33563e1d36499202bbe2b7a5d197675d96e1e09d2",
+   "kaynak": {
+    "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik/",
+    "atif": "TÜBİTAK BİLGEM YZE, 'Akıllı Tarım, Gıda ve Hayvancılık' yetkinlik merkezi sayfası, erişim 17.11.2026",
+    "lisans": "kamu kurumu sayfası; kaynak gösterilerek alıntı",
+    "lisans_adresi": null,
+    "_not": "Kamu araştırma enstitüsünün (TÜBİTAK YZE) tarım/gıda/hayvancılık yetkinlik merkezi: çalışma alanları ve hedef iş birlikleri. Kuruluş yılı sayfada yok."
    }
   },
   {

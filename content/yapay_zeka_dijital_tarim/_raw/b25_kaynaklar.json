@@ -1,0 +1,763 @@
+{
+  "_ne": "§25 Türkiye dizini: girişimler, üniversiteler, kamu projeleri — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Üniversitenin, araştırma kuruluşunun, uluslararası kuruluşun ya da kamu kurumunun kendi yayını",
+    "RESMI": "Devletin resmî sayfası ya da mevzuat metni",
+    "SATICI": "Şirketin kendi sitesi: şirketin ne yaptığına dair kendi tanımı (karar 34)",
+    "PROJE": "Teknolojiyi geliştiren firmanın da yazdığı proje broşürü (karar 34)"
+  },
+  "kaynaklar": {
+    "doktar_web": {
+      "nitelik": "SATICI",
+      "kunye": "Doktar Technologies, ana sayfa (Türkçe), erişim 17.11.2026",
+      "adres": "https://www.doktar.com/tr/",
+      "dosya": "kaynak_dosyalari/doktar_2026_web.html",
+      "alinti": [
+        "Doktar, uydu görüntülerini, saha düzeyinde sensör verilerini ve tarımsal yapay zekayı bir araya getirerek çiftçiler için kapsamlı akıllı tarım uygulamaları sunan tam bir sistem oluşturur.",
+        "Doktar, yapay zeka, veri, rejeneratif tarım uygulamaları ve sahada uygulama desteğini birleştirerek sürdürülebilirlik hedeflerini ölçülebilir sonuçlara dönüştürür.",
+        "Verileri her tarla için canlı, doğru ve sürekli güncellenen bir dijital ikize dönüştürün.",
+        "Sürecimiz; tarım teknolojisi kurulumu, çiftçi eğitimi, sürekli tarımsal destek ve performans izlemeyi kapsar.",
+        "Dijital İzleme, Raporlama ve Doğrulama (MRV)"
+      ]
+    },
+    "tarla_io_web": {
+      "nitelik": "SATICI",
+      "kunye": "Tarla.io, ana sayfa (tr-TR), erişim 17.11.2026",
+      "adres": "https://www.tarla.io/tr-TR",
+      "dosya": "kaynak_dosyalari/tarla_io_2026_web.html",
+      "alinti": [
+        "Tarla.io yapay zekâ, uydu görüntüleri ve iklim verilerini kurumsal karar desteğine dönüştürür.",
+        "Uydu endekslerini kullanarak tarlanız takip edin ve sorunlu alanları bulun.",
+        "Tarlanıza özel riskleri, hastalık olasılıklarını, şiddetli hava olaylarını gerçek zamanlı mesajlar ile bildirir.",
+        "Tarla.io'nun zengin algoritma ve servislerini içeren API servisimizle, tarım ve iklim sektörü için yenilikçi uygulamalar yaratın."
+      ]
+    },
+    "agcurate_web": {
+      "nitelik": "SATICI",
+      "kunye": "Agcurate, ana sayfa, erişim 17.11.2026",
+      "adres": "https://www.agcurate.com/",
+      "dosya": "kaynak_dosyalari/agcurate_2026_web.html",
+      "alinti": [
+        "Agri-businesses suffer a lack of rural agricultural intelligence.",
+        "We are here to connect your business with reliable and rich rural data and analytics easily.",
+        "We use various sources of satellite imagery and power our platform with proprietary machine learning algorithms.",
+        "De-risk credit/insurance scoring with agri feasibility scores.",
+        "Arnhem, Netherlands",
+        "Agcurate BV"
+      ]
+    },
+    "gorsentam_web": {
+      "nitelik": "SATICI",
+      "kunye": "GÖRSENTAM Tarım Teknolojileri, ana sayfa, erişim 17.11.2026",
+      "adres": "https://www.gorsentam.com/",
+      "dosya": "kaynak_dosyalari/gorsentam_2026_web.html",
+      "alinti": [
+        "İstasyon arazinizden topladığı meteoroloji veriler ile feromon kamerasından aldıgı görüntüleri yapay zeka algoritmaları ile işleyerek kararlı sonuçları kullanıcıya gönderir.",
+        "G-TRAP, yapışkan yüzeyin yüksek çözünürlüklü fotoğrafını çeker ve derin ögrenme algoritmaları ile zararlının teşhisi ve sayımını yapar.",
+        "Yüksek doğruluğa sahip sensörlerden alınan veriler ile hastalık enfeksiyon riskini belirler ve kritik durumlarda uyarılar verir."
+      ]
+    },
+    "esular_web": {
+      "nitelik": "SATICI",
+      "kunye": "Esular Dijital Tarım Teknolojileri, ana sayfa, erişim 17.11.2026",
+      "adres": "https://esular.com/",
+      "dosya": "kaynak_dosyalari/esular_2026_web.html",
+      "alinti": [
+        "IoT sensörler, bulut tabanlı yönetim platformları ve akıllı otomasyon çözümleri ile su tasarrufu sağlayın, veriminizi artırın.",
+        "Kablosuz, pilli, 4 farklı derinlikte ölçüm yapan profesyonel toprak nem sensörü.",
+        "Esular yapay zekası üç yönden çalışır: fotoğraftan zararlı ve hastalığı tanır; iklim verisinden riski belirti çıkmadan önce haber verir; SCADA'nızı konuşarak yönetmenizi sağlar.",
+        "İTÜ Teknokent, İstanbul"
+      ]
+    },
+    "actimoo_web": {
+      "nitelik": "SATICI",
+      "kunye": "Actimoo İzleme Sistemleri, ana sayfa, erişim 17.11.2026",
+      "adres": "https://actimoo.com/",
+      "dosya": "kaynak_dosyalari/actimoo_2026_web.html",
+      "alinti": [
+        "Actimoo | New Generation Activitymeter",
+        "Monitoring the estrus of your animals which has the activity meter on them is done easily on your smartphone, tablet, or computer with our application that is available on iOS and Android operating systems.",
+        "ACTİMOO İZLEME SİSTEMLERİ TEKNOLOJİ SANAYİ VE TİCARET A.Ş"
+      ]
+    },
+    "benimsurum_web": {
+      "nitelik": "SATICI",
+      "kunye": "BenimSürüm, ana sayfa, erişim 17.11.2026",
+      "adres": "https://www.benimsurum.com/",
+      "dosya": "kaynak_dosyalari/benimsurum_2026_web.html",
+      "alinti": [
+        "BenimSürüm, büyükbaş hayvan kayıt sistemini yeni bir boyuta taşıyor.",
+        "Çiftlik bilgi sistemi özelliğiyle, sürü yönetim programı olarak da öne çıkan bu platform, tüm çiftlik verilerinizi tek bir yerde topluyor.",
+        "İneklerde kızgınlık, sağlık ve davranış takibini çoklu sensörlerle otomatikleştirin.",
+        "BenimSürüm, süt çiftlikleri, besi çiftlikleri ve damızlık işletmeleri için kapsamlı ve yenilikçi çözümler sunuyor."
+      ]
+    },
+    "baibars_web": {
+      "nitelik": "SATICI",
+      "kunye": "baibars mekatronik havacılık sanayi A.Ş., ana sayfa, erişim 17.11.2026",
+      "adres": "https://www.baibars.com.tr/",
+      "dosya": "kaynak_dosyalari/baibars_2026_web.html",
+      "alinti": [
+        "Otonom Tarımsal Drone Sistemleri",
+        "Tarım ve Endüstri Dronu Çözümleri",
+        "Tarımda, endüstride ve afet müdahalede yerli üretimin arkasındayız.",
+        "baibars mekatronik havacılık sanayi A.Ş."
+      ]
+    },
+    "teknokurgu_web": {
+      "nitelik": "SATICI",
+      "kunye": "Tekno Kurgu Tarım Teknolojileri ve Dijital Çözümler, ana sayfa, erişim 17.11.2026",
+      "adres": "https://www.teknokurgu.com.tr/index.php/tr/",
+      "dosya": "kaynak_dosyalari/teknokurgu_2026_web.html",
+      "alinti": [
+        "Hassas yönlendirme, doz kontrolü ve tarla takibi.",
+        "2019'dan beri partnerlik yaptığımız Augmenta ile bu tarihten itibaren Türkiye Münhasır Distribütörü olarak yolumuza devam ediyoruz.",
+        "İHA | Uydu görüntüleri, Ağaç | Toprak | Hava sensörlerimizi, ROTA dümenleme sistemimizi ve AUGMENTA Tarla Analiz Sistemini kullanarak 360 derece ürünler ve hizmet & destek sağlıyoruz.."
+      ]
+    },
+    "gorsentam_tubitak_1711": {
+      "nitelik": "RESMI",
+      "kunye": "TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü, 'Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler' (1711 Yapay Zekâ Ekosistem Çağrısı), erişim 17.11.2026",
+      "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/",
+      "dosya": "kaynak_dosyalari/tubitak_bilgem_1711_akilli_tarim_projeler.html",
+      "alinti": [
+        "Sensör Verileriyle Desteklenen Yapay Zeka Tabanlı Akıllı Sulama Sistemi",
+        "Camandıra Meyve Sebzecilik Tarım Ürünleri İthalat İhracat Ticaret Sanayi Limited Şirketi",
+        "Görsentam Tarım Teknolojileri Anonim Şirketi",
+        "Bursa Teknik Üniversitesi"
+      ]
+    },
+    "tubitak_1711_tarim_projeleri": {
+      "nitelik": "RESMI",
+      "kunye": "TÜBİTAK BİLGEM YZE, 'Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler', erişim 17.11.2026",
+      "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/",
+      "dosya": "kaynak_dosyalari/tubitak_bilgem_1711_akilli_tarim_projeler.html",
+      "kabul_edilen_proje_karti": 10,
+      "_sayim": "10 = sayfadaki 'Müşteri Kuruluş' satırı olan proje kartları (Yıldırım Plastik, Koluman, Uzbaş, Ülker Çikolata, Ak Gıda, Doğanlar, Merlab, Protel Bilgisayar, Easyflex, Camandıra); 17.11.2026'da sayıldı.",
+      "_tutarsizlik": "Doğanlar kartında müşteri kuruluş 'Merlab' yazıyor; Easyflex kartının başlığı (akıllı kaynak yönetimi) açıklamasıyla (meyve hasat tutucusu) uyuşmuyor. Metin müşteri kuruluşu yazmıyor; Easyflex için açıklamayı esas alıyor.",
+      "alinti": [
+        "Arıcılıkta Yapay Zekâ Tabanlı Polen Sınıflandırma Makinesi Tasarımı",
+        "Hayvancılıkta FPGA Tabanlı 2D veya 3D Teknolojileri ile Sürü Yönetim Uygulaması Tasarımı – Sürü Yönetiminde Yapay Zekâ Çözümleri",
+        "Yapay Zekâ ve İHA Destekli, Otonom Bitki Sağlığı Tespiti ve Püskürtme Yeteneğine Sahip Hassas Tarım Sistemi Projesi",
+        "Türkiye'de Çiğ Süt Arz Miktar ve Fiyat Tahminleme ve Sonuçlarına Göre İşletme Karlılık Simülasyonu",
+        "Toprak İşleme Ekipmanlarına Yönelik Nesnelerin İnterneti Tabanlı Toprak Analizi Yapabilen Akıllı Hassas Tarım Yönetim Sistemi (NİTAS)",
+        "Yapay Zeka Tabanlı Sürü Yönetim Sistemi",
+        "Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi",
+        "Sensör Verileriyle Desteklenen Yapay Zeka Tabanlı Akıllı Sulama Sistemi",
+        "Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler",
+        "Yıldırım Plastik Projesi",
+        "Projenin amacı, karışım polenlerden tek bitki poleni (monofloral) elde etmek için yapay zekâ tabanlı bir sınıflandırma makinası tasarlamaktır.",
+        "Vitex Honey Alinda Arıcılık Tarım ve Ticaret Limited Şirketi",
+        "Ankara Üniversitesi",
+        "Koluman Projesi",
+        "Hayvanların kızgınlık dönemine özgü davranışlarını doğru tespit edebilen, yüksek çözünürlüğe sahip, hızlı görüntü verileri aktarımı yapabilen ve kendi kendine karar verebilen FPGA tabanlı görüntüleme sistemi tasarımı ve prototipinin yapılması amaçlanmıştır.",
+        "Eltassan Elektronik Makina Bilişim Teknolojileri Sanayi ve Ticaret Limited Şirketi",
+        "Çukurova Üniversitesi",
+        "Uzbaş Projesi",
+        "üzüm bağı yetiştiricilerinin karşılaştığı bağ mildiyösü hastalığı, salkım güvesi zararlısı ve bitki besin eksikliği (kloroz)",
+        "MET İleri Teknoloji Sistemleri Sanayi ve Ticaret. Limited Şirketi",
+        "Ege Üniversitesi, İzmir Yüksek Teknoloji Enstitüsü",
+        "Ülker Çikolata Projesi",
+        "Yapay Zekâ Tabanlı Fonksiyonel Gıda Dizaynı Projesi",
+        "Dynamis Biyolojik Araştırma Ve Deney Faaliyetleri Sanayi Ve Ticaret Anonim Şirketi",
+        "İstanbul Teknik Üniversitesi",
+        "Ak Gıda Projesi",
+        "Medyasoft Danışmanlık ve Eğitim Anonim Şirketi",
+        "Yıldız Teknik Üniversitesi",
+        "Doğanlar Projesi",
+        "Gökdoğan Teknoloji Sanayi ve Ticaret A.Ş.",
+        "Marmara Üniversitesi, Karamanoğlu Mehmetbey Üniversitesi, Ankara Üniversitesi",
+        "Merlab Projesi",
+        "Gençtar Makine Sanayi İç ve Dış Tic. Ltd. Şti.",
+        "T.C. Tarım ve Orman Bakanlığı, Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM)",
+        "Protel Bilgisayar Projesi",
+        "otonom mobil bir robot ile domates serasında gübrelemenin, ilaçlamanın ve hasatın insan faktörü olmadan yapılarak",
+        "Sistematik Atölye Limited Şirketi",
+        "Bursa Uludağ Üniversitesi, TAGEM",
+        "Easyflex Projesi",
+        "Meyve hasat robotlarında kullanılmak üzere yapay zekâ destekli, uyarlanabilir silikon tabanlı bir tutucu sistem geliştirmektir.",
+        "Filossoft Yazılım Arge Gıda İnşaat Turizm Sanayi Ticaret Limited Şirketi",
+        "Camandıra Projesi"
+      ]
+    },
+    "gtu_atam": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Gebze Teknik Üniversitesi, Akıllı Tarım Uygulama ve Araştırma Merkezi Yönetmeliği (YN-0016, Rev. 1, 02.10.2023); Resmî Gazete 16.05.2021, sayı 31483",
+      "adres": "https://www.gtu.edu.tr/fileman/Files/UserFiles/kalite/Y%C3%B6netmelikler/YN-0016%20Ak%C4%B1ll%C4%B1%20Tar%C4%B1m%20Uygulama%20ve%20Ara%C5%9Ft%C4%B1rma%20Merkezi%20Y%C3%B6netmeli%C4%9Fi%20R1.pdf",
+      "dosya": "kaynak_dosyalari/gtu_2023_akilli_tarim_merkezi_yonetmelik.pdf",
+      "kurulus_yonetmeligi_yili": 2021,
+      "resmi_gazete_sayisi": 31483,
+      "alinti": [
+        "Akıllı tarım alanındaki araştırmalara gerekli desteği sağlayacak her türlü altyapıyı kurmak ve çalıştırmak.",
+        "Tarımsal çiftlik yönetim konusunda araştırma, geliştirme ve uygulama faaliyetleri yürütmek.",
+        "Akıllı tarım ile üretim için her türlü donanım ve yazılımın geliştirilmesi konusunda AR-GE faaliyetleri yapmak.",
+        "Yönetmeliğin Yayımlandığı Resmi Gazete Tarihi Sayısı 16.05.2021 31483",
+        "Gebze Teknik Üniversitesi Akıllı Tarım Uygulama ve Araştırma Merkezi"
+      ]
+    },
+    "gtu_mam_gida_arz_merkezi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Gebze Teknik Üniversitesi, 'Biyoteknoloji Enstitüsü - TÜBİTAK MAM İş Birliği: Gıda Arz Güvenliğinde Akıllı Uygulamalar Araştırma Merkezi' (son güncelleme 30 Aralık 2024)",
+      "adres": "https://www.gtu.edu.tr/icerik/2839/24930/display.aspx",
+      "dosya": "kaynak_dosyalari/gtu_2024_tubitak_mam_gida_arz_merkezi.html",
+      "protokol_yili": 2023,
+      "protokol_suresi_yil": 5,
+      "ongorulen_acilis_yili": 2025,
+      "alinti": [
+        "Ocak 2023'te GTÜ ile TÜBİTAK MAM arasında \"Gıda Arz Güvenliğinde Akıllı Uygulamalar Araştırma Merkezi\"nin kurulması ile ilgili 5 yıllık bir iş birliği protokolü imzalanmıştı.",
+        "Merkezin kapalı mekan tarımı ve akıllı tarım ile ilgili konularda hem ulusal ve uluslararası projeler kapsamında akademik araştırmalar için hem de üniversite-sanayi-kamu iş birlikleri dahilinde özel sektörün Ar-Ge ihtiyaçlarına cevap verebilmek için hizmet vermesi planlanıyor.",
+        "Merkezin 2025 yılı içinde inşaatının ve kurulumunun tamamlanması ve kullanıma açılması öngörülüyor."
+      ]
+    },
+    "klu_mau_nku_dijitallesme_merkezi": {
+      "nitelik": "RESMI",
+      "kunye": "Resmî Gazete, 19 Eylül 2021, sayı 31603, Yönetmelik (Kırklareli Üniversitesinden)",
+      "adres": "https://www.resmigazete.gov.tr/eskiler/2021/09/20210919-7.htm",
+      "dosya": "kaynak_dosyalari/rg_2021_klu_mau_nku_gida_arzi_dijitallesme_merkezi.html",
+      "kurulus_yonetmeligi_yili": 2021,
+      "resmi_gazete_sayisi": 31603,
+      "alinti": [
+        "19 Eylül 2021 PAZAR Resmî Gazete Sayı : 31603",
+        "Merkezin amacı, ülkemizin ihtiyaçlarına odaklanarak gıda arzı güvenliği ve dijitalleşme konusunda bilimsel ve teknolojik gelişmeye katkı sağlayacak nitelikte araştırma, geliştirme ve uygulama yapmaktır.",
+        "Üretici, çiftçi, sanayici ve tüketiciyi buluşturan bir dijital platform tasarlamak.",
+        "Tarım, gıda ve hayvancılık alanlarında dijitalleşme ile makro ve mikro düzeyde doğru ve güvenilir veri teminini sağlayarak tarladan çatala kadar olan tedarik zincirinin izlenebilirliğini sağlamak amacına yönelik çalışmalar yapmak.",
+        "Kırklareli Üniversitesi, Burdur Mehmet Akif Ersoy Üniversitesi ve Tekirdağ Namık Kemal Üniversitesi Gıda Arzı Güvenliği ve Dijitalleşme Ortak Uygulama ve Araştırma Merkezi"
+      ]
+    },
+    "kgtu_tuam": {
+      "nitelik": "RESMI",
+      "kunye": "Resmî Gazete, 5 Kasım 2018, sayı 30586, Yönetmelik (Konya Gıda ve Tarım Üniversitesinden)",
+      "adres": "https://www.resmigazete.gov.tr/eskiler/2018/11/20181105-5.htm",
+      "dosya": "kaynak_dosyalari/rg_2018_kgtu_tuam_yonetmelik.html",
+      "kurulus_yonetmeligi_yili": 2018,
+      "resmi_gazete_sayisi": 30586,
+      "alinti": [
+        "5 Kasım 2018 PAZARTESİ Resmî Gazete Sayı : 30586",
+        "Ulusal ve uluslararası düzeyde dijital tarıma geçişin sağlanmasına ve ülkemizin sosyo -ekonomik gelişmesine katkı sağlamak,",
+        "Dijitalleşme, hassas tarım, tarımsal mekanizasyon ve entegrasyon , sürdürülebilir kaynak yönetimi, biyotabanlı ekonomi, değişken oranlı (DOU) sulama, gübreleme, ilaçlama uygulamaları konularında çalışmalar yapmak ve teknolojik uygulamaların geliştirilmesini desteklemek.",
+        "Hassas tarım ve robot uygulamalarının tarımsal alanlarda tespit, karar verme, izleme, uygulama ve değerlendirmeleri faaliyetlerini en etkin biçimde uygulamak ve geliştirmek,",
+        "Konya Gıda ve Tarım Üniversitesi İleri Tarım Araştırmaları Uygulama ve Araştırma Merkezi"
+      ]
+    },
+    "kaeu_au_su_jistuam": {
+      "nitelik": "RESMI",
+      "kunye": "Resmî Gazete, 22 Ağustos 2021, sayı 31576, Yönetmelik (Kırşehir Ahi Evran Üniversitesinden)",
+      "adres": "https://www.resmigazete.gov.tr/eskiler/2021/08/20210822-3.htm",
+      "dosya": "kaynak_dosyalari/rg_2021_kaeu_au_su_jistuam_yonetmelik.html",
+      "kurulus_yonetmeligi_yili": 2021,
+      "resmi_gazete_sayisi": 31576,
+      "alinti": [
+        "22 Ağustos 2021 PAZAR Resmî Gazete Sayı : 31576",
+        "Özellikle seracılık alanında pek çok otomasyon sistemlerinin optimizasyonuna yönelik araştırmalar ve bu araştırmalarla kazanılan bilgiler ile yeni üretim teknolojilerini geliştirmek.",
+        "Sera içi kültürel uygulamalarına yönelik, yapay zekâ, makine öğrenmesi, bitki-bilgisayar-makine etkileşimi alanlarında araştırma ve geliştirme yapmak.",
+        "Kırşehir Ahi Evran Üniversitesi, Ankara Üniversitesi ve Selçuk Üniversitesi Jeotermal İleri Sera Teknolojileri ve Üretim Teknikleri Ortak Uygulama ve Araştırma Merkezi"
+      ]
+    },
+    "karatay_akitek": {
+      "nitelik": "KURUMSAL",
+      "kunye": "KTO Karatay Üniversitesi haberi, 'Konya'da Üniversite Sanayi İş Birliğiyle Tarım Makineleri İleri Teknolojiyle Geliştiriliyor', 13.10.2023",
+      "adres": "https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor",
+      "dosya": "kaynak_dosyalari/karatay_2023_akitek_tarim_makineleri.html",
+      "ab_tr_es_finansman_milyon_avro": 5,
+      "pilot_uygulama_sayisi": 8,
+      "alinti": [
+        "Konya Ticaret Odası (KTO) Karatay Üniversitesi Akıllı Teknolojiler Merkezi (AKİTEK) ve sanayi kuruluşlarının iş birliğiyle, ileri teknolojilerle donatılmış tarım makineleri üretiliyor.",
+        "Sanayi ve Teknoloji Bakanlığının Rekabetçi Sektörler Programı altında, Avrupa Birliği ve Türkiye Cumhuriyeti'nin 5 milyon avroluk eş finansmanıyla yürütülen, merkezle aynı ismi alan AKİTEK projesi kapsamında 8 pilot uygulama gerçekleştiriliyor.",
+        "AKİTEK'in sağladığı AR-GE ve inovasyon desteğiyle, Konya Organize Sanayi Bölgesi'nde faaliyet gösteren üç sanayi kuruluşunca geliştirilen ağaçlara duyarlı bahçe ilaçlama makinesi, ekim hatası yapmayan mibzer ve tarla ilaçlama makinesinin prototipi tamamlandı."
+      ]
+    },
+    "tubitak_1711_cagri": {
+      "nitelik": "RESMI",
+      "kunye": "TÜBİTAK, '1711 - Yapay Zekâ Ekosistem Çağrısı' program sayfası, erişim 17.11.2026",
+      "adres": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+      "dosya": "kaynak_dosyalari/tubitak_1711_cagri_sayfasi.html",
+      "ilk_cagri_yili": 2022,
+      "desteklenen_proje_toplam": 64,
+      "toplam_destek_tl": 325089753,
+      "alinti": [
+        "Bu program kapsamında beş öncelikli alan desteklenmektedir.",
+        "(2) Akıllı Tarım, Gıda ve Hayvancılık,",
+        "Yapay Zekâ Ekosistem Çağrısının ilki 2022 yılında açılmıştır.",
+        "Bugüne kadar her yıl açılan periyodik çağrılarda 64 proje 325.089.753 TL ile desteklenmiştir.",
+        "1711 Yapay Zekâ Ekosistem Çağrısı, Yapay zekâ teknolojilerinin müşteri kuruluşların ihtiyaçları doğrultusunda ürün ya da çözümlere dönüştürülmesine katkı sağlamayı ve Türkiye Yapay Zekâ Ekosistemini harekete geçirmeyi amaçlamaktadır.",
+        "1711 - Yapay Zekâ Ekosistem Çağrısı"
+      ]
+    },
+    "tubitak_yze_akilli_tarim_yetkinlik": {
+      "nitelik": "RESMI",
+      "kunye": "TÜBİTAK BİLGEM YZE, 'Akıllı Tarım, Gıda ve Hayvancılık' yetkinlik merkezi sayfası, erişim 17.11.2026",
+      "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik/",
+      "dosya": "kaynak_dosyalari/tubitak_bilgem_yze_akilli_tarim.html",
+      "alinti": [
+        "Tarım sektöründe, uydu görüntülerinden ve toprak analizi sonuçlarından üretim miktarlarının kestirilmesi ve benzeri uygulamalar.",
+        "Hayvancılık senaryolarında ise, hayvanlardan ya da üretim tesislerinden alınan sürekli ölçümler üzerinden hayvanların et, süt ve benzeri çıktı performanslarının artırılmasına yönelik uygulamalar.",
+        "Tarım ve Orman Bakanlığı özelinde Gıda ve Kontrol Genel Müdürlüğü ve Hayvancılık Genel Müdürlüğü ile iş birliği",
+        "Akıllı Tarım, Gıda ve Hayvancılık Çalışma Alanları"
+      ]
+    },
+    "teknofest_tarim": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TEKNOFEST resmî sitesi, 'Tarım Teknolojileri Yarışması' sayfası (2020–2025 dereceler), erişim 17.11.2026",
+      "adres": "https://www.teknofest.org/tr/yarismalar/tarim-teknolojileri-yarismasi/",
+      "dosya": "kaynak_dosyalari/teknofest_tarim_teknolojileri_yarismasi.html",
+      "ilk_derece_yili": 2020,
+      "son_derece_yili": 2025,
+      "alinti": [
+        "Tarım Teknolojileri Yarışması, yarışmacılardan tarım süreçlerini iyileştiren, teknoloji entegrasyonuyla sürdürülebilir, yenilikçi ve çevre dostu çözümler sunan projeler geliştirmelerini beklemektedir.",
+        "Yarışmaya, Türkiye ve yurt dışında öğrenim gören tüm lise (Açık Öğretim dahil) ve üniversite öğrencileri (Lisans, Ön lisans, Yüksek Lisans, Doktora ve Açık Öğretim dahil), mezunlar, girişim ve özel sektör katılabilir.",
+        "Tarım Teknolojileri Yarışması 2020 Dereceler",
+        "Tarım Teknolojileri Yarışması 2025 Dereceler"
+      ]
+    },
+    "doktar_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2012,
+      "orbit_baslangic_yili": 2015,
+      "iot_cihazlari_baslangic_yili": 2019,
+      "alinti": [
+        "Doktar A.Ş. 2012 yılında İzmir'de Ege Üniversitesi Teknoparkı'nda tüm tarım-gıda sistemi için veri odaklı çözümler geliştirmeye çalışan bir AgTech şirketi olarak kurulmuştur.",
+        "2015 yılında bu hizmetin yerine Orbit adlı bir tarla keşif ve mahsul izleme uygulaması kullanılmaya başlandı ve bu uygulama 10 ziraatçıdan oluşan bir tarım danışma hattı ile tamamlandı.",
+        "Doktar, 2019'dan bu yana uzaktan algılamaya dayalı hizmetlerini, toprak besin analizi için taşınabilir bir toprak tarayıcı, bir tarımsal meteoroloji istasyonu ve zararlı tuzakları da dahil olmak üzere düşük maliyetli IoT cihazları aracılığıyla tamamlamaktadır.",
+        "Doktar GIS, IoT, çağrı merkezi 2012 İzmir Erken VC aşaması"
+      ]
+    },
+    "tarla_io_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2014,
+      "alinti": [
+        "Tarla.io 2014 yılında Ankara'da Bilkent Üniversitesi teknoparkında kurulmuştur.",
+        "Şirket, uzaktan algılama, hava durumu verileri, kitle kaynaklı veriler ve bitki büyüme modellerinin bir kombinasyonuna dayalı olarak çeşitli müşteriler için bir dizi hava durumu bilgisi ve tarımsal danışmanlık hizmeti geliştirmiştir.",
+        "Tarla I.O. Veri akışı, uydu görüntüleri 2014 Ankara Tohum/erken VC"
+      ]
+    },
+    "agcurate_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2020,
+      "alinti": [
+        "Ek IV Akıllı tarım ve tedarik zinciri yönetimi ve izlenebilirlik alanındaki startup'lar",
+        "AgCurate Uydu görüntüleri 2020 Ankara Tohum",
+        "Uydu tabanlı hizmetler Agrovisio, AgCurate, Bitkim, Doktar, Tarla I.O., ImeceMobil, Agrotics",
+        "Agcurate CBS uygulamaları"
+      ]
+    },
+    "gorsentam_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2020,
+      "alinti": [
+        "Ek IV Akıllı tarım ve tedarik zinciri yönetimi ve izlenebilirlik alanındaki startup'lar",
+        "Görsentam Tarımsal meteoroloji istasyonları 2020 Bursa Tohum",
+        "Saha sensörleri ve istasyonları Doktar, Görsentam, Suyabakan; Topraq*"
+      ]
+    },
+    "esular_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2019,
+      "alinti": [
+        "Esular, 2019 yılında İstanbul'da kurulan bir startup olarak kablosuz toprak nem sensörleri ve sulama vanaları aracılığıyla akıllı sulama otomasyonu çözümleri sunmaktadır.",
+        "Esular Sulama otomasyonu 2019 Ankara Ön tohum/fikir"
+      ]
+    },
+    "actimoo_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "arge_baslangic_yili": 2016,
+      "piyasaya_cikis_yili": 2020,
+      "alinti": [
+        "Ankaref, 2016 yılında Ankara Üniversitesi ve Algan Grup ile birlikte süt inekleri için düşük maliyetli östrus tespit sistemi için AR-GE çalışmalarına başlamıştır.",
+        "Ankaref, yaptığı araştırmalara dayanarak 2020 yılında Actimoo markası altında bir adımsayar piyasaya sürmüştür.",
+        "Sistem, hayvan hareketlerinin ve sıcaklığının sürekli izlenmesine dayanarak östrusu tahmin etmektedir ve tahmin edilen östrustan birkaç saat önce çiftçiye ve veterinerine bir SMS mesajı göndermektedir.",
+        "Actimoo* Hassas hayvancılık 2020 Ankara Tohum"
+      ]
+    },
+    "benimsurum_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2016,
+      "alinti": [
+        "BenimSürüm* Hassas hayvancılık 2016 Ankara Tohum",
+        "Benim Sürüm 2016 Sürü yönetimi yazılımı Algan Grup",
+        "Hassas hayvancılık BenimSürüm, Aktimoo*"
+      ]
+    },
+    "baibars_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2015,
+      "alinti": [
+        "Baibars Drone görüntüleri ve ilaçlama 2015 Mersin Tohum",
+        "Drone ile ilaçlama AirAgro, Baibars Mechatronics, Depar"
+      ]
+    },
+    "teknokurgu_fao": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "kurulus_yili": 2017,
+      "alinti": [
+        "TeknoKurgu Değişken oranlı uygulama 2017 Kocaeli Tohum",
+        "TeknoKurgu Augmenta otomatik navigasyon sistemlerinin yetkili satıcısı ve hassas tarım hizmeti sağlayıcısı",
+        "Hassas tarım Farmlabs, Farmingo, TeknoKurgu"
+      ]
+    },
+    "fao_2025_agtech_dizini": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "agtech_startup_yaklasik": 35,
+      "ekosistem_haritasi_yili": 2022,
+      "alinti": [
+        "The mention of specific companies or products of manufacturers, whether or not these have been patented, does not imply that these have been endorsed or recommended by FAO or EBRD in preference to others of a similar nature that are not mentioned.",
+        "Türkiye'de akıllı ve hassas tarım ile tedarik zinciri yönetimi ve tarım finansmanı gibi ilgili alanlarda yaklaşık 35 AgTech startup'ı bulunmaktadır.",
+        "Bu sayı, ülkenin ve tarım sektörünün büyüklüğü ve diğer sektörlerdeki startup'ların sayısı göz önüne alındığında nispeten düşüktür.",
+        "Bu çalışmaya dahil edilen startup'lar, Kök Projekt tarafından hazırlanan 2022 Türkiye Tarım Ekosistemi haritasından alınmış ve web araştırması ve startup'ların yaklaşık yarısı ile yapılan toplantılar yoluyla toplanan bilgilerle tamamlanmıştır.",
+        "Ek IV Akıllı tarım ve tedarik zinciri yönetimi ve izlenebilirlik alanındaki startup'lar",
+        "Örneğin, Ankara Kalkınma Ajansı’nın, çiftçilere ve AgTech startup’larına saha entegrasyonu ve AR-GE desteği sağlayan TAGTech Programı buna bir örnektir.",
+        "Türkiye'den iki AgTech startup'ı, Windagrotech ve Farmlabs, bu programların mezunları arasındadır.",
+        "*Yerleşik şirketlerin iştirakleri olarak kurulan startup'lar",
+        "Tablo 4 Yerli IT şirketlerinin AgTech iştirakleri."
+      ]
+    },
+    "trgm_2026_urun_belirleme": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+      "dosya": "kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+      "ilk_uygulama_yili": 2025,
+      "alinti": [
+        "Bakanlığımız tarafından 2025 üretim yılında ilk kez uygulamaya alınan Uzaktan Algılama ile Ürün Belirleme Çalışmaları",
+        "Sistem kapsamında sahadan toplanan referans parseller, uydu görüntüleriyle birlikte değerlendirilerek makine öğrenmesi süreçleri işletiliyor",
+        "ekili ürünlerin tespiti, sınıflandırılması ve üretim desenlerinin belirlenmesine yönelik analizler",
+        "Genel Müdürlüğümüz tarafından yürütülen Ürün Belirleme Çalışmaları"
+      ],
+      "_kopya": "b23_kaynaklar.json · trgm_2026_urun_belirleme"
+    },
+    "tob_2024_karar_destek": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+      "dosya": "kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
+      "kullanim_baslangici": 2022,
+      "alinti": [
+        "Orman Genel Müdürlüğünün (OGM) 2022'den beri kullandığı yerli ve milli imkanlarla geliştirilen Karar ve Destek Sitemi",
+        "Sistemle meteorolojik veriler, ORBİS verileri, İHA ve uydu görüntüleri bir araya getirilerek orman yangınlarıyla mücadeleye büyük güç katıyor.",
+        "Değişen koşulları sürekli olarak analiz eden yapay zekâ destekli Karar Destek Sistemi, yangının anlık olarak davranışını ve ilerleyişini öngörebiliyor."
+      ],
+      "_kopya": "b23_kaynaklar.json · tob_2024_karar_destek"
+    },
+    "tob_bagis_yz_ister_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. Haziran 2026. Balıkçı Gemileri İzleme Sistemi (BAGİS) Verilerinin Yapay Zekâ Destekli Analizi Yoluyla Politika Geliştirme, Simülasyon ve Senaryo Üretiminin Sağlanması Projesi — teknik ister dokümanı (TÜBİTAK sitesinde).",
+      "adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+      "yayim": "Haziran 2026, TÜBİTAK sitesi",
+      "alinti": [
+        "Mevcut BAGİS verilerinin yapay zekâ destekli analizleri yapılarak gemilerin yasak alanlardaki faaliyetleri hakkında olası ihlaller tespit edilerek ve ihlal uyarıları oluşturularak denetimlerde etkinlik artırılacaktır."
+      ],
+      "_kopya": "b23_kaynaklar.json · tob_bagis_yz_ister_2026"
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "yayim": "Ocak 2026",
+      "vetalarm_onay_yili": 2025,
+      "yz_proje_2025_sayisi": 3,
+      "alinti": [
+        "2025 Yılında Başlayan Dijital Tarım ve Yapay Zeka Çalışmaları",
+        "Bazı Meyve Türlerinde Bağda Önemli Hastalık ve Zararlıların Derin Öğrenme Yöntemleri ile Tespiti",
+        "Kuru Kayısılarda Kükürtdioksit ve Nem İçeriklerinin Multispektral Görüntüleme ve Derin Öğrenme Yöntemleri İle Belirlenmesi",
+        "Mısır ve Pamukta Yabancı Ot Kontrolünde Derin Öğrenme Yöntemiyle Hassas İlaçlama Makinesi Prototipi Geliştirilmesi",
+        "“VetAlarm: Hayvan Hastalıklarında Yapay Zeka Tabanlı Erken Teşhis ve Uyarı Sistemi”, güdümlü projesi 2025 yılında onaylanmıştır.",
+        "Tarımda suyun etkin ve verimli kullanımı için Genel Müdürlüğümüzce geliştirilen Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) sistemi hem webde hem de mobilde Tarım Cebimde mobil uygulamasının “Su” sekmesinde üreticilere sulama konusunda hizmet vermektedir.",
+        "TAGEM&FAO Teknik İş birliği Projesi olan Dijital Köyler Girişimi ( Digital Villages Initiative-DVI) 2023 yılında başlatılan ve faydalanıcıları Arnavutluk, Bosna Hersek, Gürcistan ve Türkiye olan Proje",
+        "Dünya Bankası tarafından finanse edilen “Türkiye İklim, Akıllı ve Rekabetçi Tarımsal Büyüme Projesi”"
+      ],
+      "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025 · b18 ve b20'deki aynı dosyanın alıntılarıyla"
+    },
+    "zmmae_2026_sera_robotu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü. 9.01.2026. Yapay Zeka ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama ve Hasat Yapabilen Otonom Sera Robotu Tasarımı ve Geliştirilmesi (haber).",
+      "adres": "https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi",
+      "dosya": "kaynak_dosyalari/zmmae_2026_otonom_sera_robotu.html",
+      "baslangic": "1 Ocak 2026",
+      "bitis_plani": "31 Aralık 2027",
+      "alinti": [
+        "Enstitümüzün proje ortağı olarak yer aldığı “Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi” başlıklı proje önerimiz",
+        "TÜBİTAK 1711- Yapay Zeka Ekosistem Çağrısı kapsamında desteklenmeye değer bulunmuştur.",
+        "01.01.2026 tarihinde başlayan projenin süresi 2 yıl olup, 31.12.2027 tarihinde tamamlanması planlanmaktadır."
+      ],
+      "_kopya": "b23_kaynaklar.json · zmmae_2026_sera_robotu"
+    },
+    "tob_2026_ai_tomorrow": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 4.06.2026. Bakan Yumaklı: Tarımda yerli ve milli teknoloji hamlesine ilişkin kararlılığımız sürüyor (haber; AI Tomorrow Summit 2026 konuşması).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
+      "dosya": "kaynak_dosyalari/tob_2026_ai_tomorrow_summit_konusma.html",
+      "yayim": "4 Haziran 2026",
+      "alinti": [
+        "BAKAN YUMAKLI: “TARIMDA YERLİ VE MİLLİ TEKNOLOJİ HAMLESİNE İLİŞKİN KARARLILIĞIMIZ SÜRÜYOR” 4.06.2026",
+        "Bu doğrultuda, Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezini kurduk.",
+        "Tarım ve orman sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı'mızı da hazırladık.",
+        "Bu belgeyi de en kısa zamanda paylaşacağız."
+      ],
+      "_kopya": "b23_kaynaklar.json · tob_2026_ai_tomorrow"
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "takis_izleme_periyodu_gun": 7,
+      "takis_tahmin_yili": 2027,
+      "takis_tahmin_ufku": "1-4 hafta",
+      "b_recete_il": 81,
+      "b_recete_baslangic": "1 Temmuz 2026",
+      "alinti": [
+        "Dijital Sulama Yönetim Sisteminin Geliştirilmesi Projesi (DİSU) tamamlanacaktır.",
+        "2026 yılı itibarıyla Yüksek Çözünürlüklü Takım Uydu Geliştirilmesi projesi kapsamında İMECE-2 ve İMECE-3 uydularının geliştirme faaliyetleri devam etmektedir.",
+        "Tarım ve Orman Bakanlığı (S) 1. Dijital Sulama Yönetim Sisteminin Geliştirilmesi Projesi (DİSU) tamamlanacaktır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların",
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Bitki koruma ürünlerinin hatalı ve gereğinden fazla kullanımının önlenmesi amacıyla reçetelendirme, satış, uygulama ve kayıt süreçlerini üretici kayıt sistemleriyle elektronik ortamda bütünleştiren"
+      ],
+      "_kopya": "b23_kaynaklar.json · yillik_program_2027 · b07 ve b19'daki aynı dosyanın alıntılarıyla; üç alıntı PDF'ten eklendi"
+    },
+    "tubitak_uzay_2026_katalog": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK UZAY. 2026. TÜBİTAK UZAY Katalog (Haziran 2026). Ankara: TÜBİTAK Uzay Teknolojileri Araştırma Enstitüsü.",
+      "adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+      "imece_firlatma_yili": 2023,
+      "alinti": [
+        "TÜBİTAK UZAY tarafından tasarlanıp geliştirilen ve üretilen İMECE, Türkiye’nin ilk yerli ve milli metrealtı çözünürlüklü yer gözlem uydusudur.",
+        "15 Nisan 2023 tarihinde saat 09.48’de başarıyla uzaya fırlatılmıştır."
+      ],
+      "_kopya": "b19_kaynaklar.json · tubitak_uzay_2026_katalog"
+    },
+    "mgm_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. 2025. 2025 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2025_performans_programi.pdf",
+      "don_tahmin_ufku_gun": 5,
+      "alinti": [
+        "• Zirai Don Uyarı Sistemi (ZDUS),",
+        "Zirai Don Risk Tahmin Haritaları; haftanın her günü, meteorolojik tahminlerden yararlanılarak, önümüzdeki 5 günü kapsayacak şekilde, hafif-orta kuvvette, kuvvetli-çok kuvvetli don riski olan yerler harita üzerinde farklı renklerde gösterilerek, internet sitemizde yayımlanmaktadır."
+      ],
+      "_kopya": "b17_kaynaklar.json · mgm_2025"
+    },
+    "tarsim_2025_faaliyet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TARSİM (Tarım Sigortaları Havuzu). Faaliyet Raporu 2025. İstanbul.",
+      "adres": "https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf",
+      "dosya": "kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+      "alinti": [
+        "2017 yılında uygulamaya alınan İlçe Bazlı Kuraklık Verim Sigortası, 2021 yılından itibaren köy bazlı uygulanmaya başladı.",
+        "Köy bazlı verim sigortası kapsamında, Google Earth Engine platformu kullanılarak, ekimi yapılmayan sigortalı parseller için doğrudan uydu görüntüleri aracılığıyla hasar tespitine yönelik araştırmalar gerçekleştirildi."
+      ],
+      "_kopya": "b17_kaynaklar.json · tarsim_2025_faaliyet"
+    },
+    "hks_yonetmelik": {
+      "nitelik": "RESMI",
+      "kunye": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik. Resmî Gazete 7.7.2012, sayı 28346; değişikliklerle konsolide metin (son değişiklik Resmî Gazete 29.4.2023). Mevzuat Bilgi Sistemi.",
+      "adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
+      "dosya": "kaynak_dosyalari/ticaret_hks_yonetmelik_2012_konsolide.pdf",
+      "alinti": [
+        "Sistem: Bakanlık bünyesinde elektronik ortamda kurulan ve internet tabanlı çalışan merkezi hal kayıt sistemini"
+      ],
+      "_kopya": "b16_kaynaklar.json · hks_yonetmelik"
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "alinti": [
+        "Bitkisel üretim faaliyeti yapılan alanların, faaliyeti yapan üreticilerin, üretim bilgilerinin kayıt altına alındığı tarımsal veri tabanı olan Çiftçi Kayıt Sistemine kayıtlı alanın takibi ve artırılmasına yönelik çalışmalar yürütülmektedir.",
+        "Bu gösterge, İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında henüz hibe uygulamalarına başlanmadığı için gösterge değerine ulaşılamamıştır."
+      ],
+      "_kopya": "b21_kaynaklar.json · tob_2025_faaliyet_raporu"
+    },
+    "akdemir_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Akdemir B., Sağlam C., Atar E.S., Türen N., Özyürüyen L.C. 2022. Development of a multi-fertilizer spreader machine and variable rate controller for olive orchards. Erwerbs-Obstbau.",
+      "doi": "10.1007/s10341-022-00800-9",
+      "dosya": "kaynak_dosyalari/akdemir_2022_zeytin_openalex.json",
+      "dogrulandigi_yer": "OpenAlex bibliyografik kaydı — özet yok",
+      "alinti": [
+        "Development of a Multi-Fertilizer Spreader Machine and Variable Rate Controller for Olive Orchards",
+        "Tekirdağ Namık Kemal University"
+      ],
+      "_kopya": "b06_kaynaklar.json · akdemir_2022"
+    },
+    "aquatag": {
+      "nitelik": "PROJE",
+      "kunye": "Balendonck J., Stenfert Kroese W., Hilhorst M., Tüzel İ.H. Düşük Maliyetli ve Kablosuz Toprak Nem Sensörü AquaTag ile Su ve Gübre Tasarrufu. Wageningen UR proje broşürü.",
+      "dosya": "kaynak_dosyalari/aquatag_wur_283306.pdf",
+      "alinti": [
+        "Ege Üniversitesi sensörü Türkiye’deki uygulamalara adapte etmiş ve Orhanlı Köyü’nde 9 üretici ile denemeler gerçekleştirmiştir."
+      ],
+      "_kopya": "b07_kaynaklar.json · aquatag"
+    },
+    "kahya_2024_patlican": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kahya E., Özdüven F.F., Aslan Y. 2024. YOLOv5 model application in real-time robotic eggplant harvesting. Journal of Agricultural Science 16(2).",
+      "doi": "10.5539/jas.v16n2p9",
+      "dosya": "kaynak_dosyalari/kahya_2024_patlican_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "a machine learning study was carried out to be used in the robotic harvesting of eggplant fruit"
+      ],
+      "_kopya": "b10_kaynaklar.json · kahya_2024_patlican"
+    },
+    "kahya_2024_kabak": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kahya E. 2024. Use of YOLOv5 trained model for robotic courgette harvesting and efficiency analysis. Yüzüncü Yıl Üniversitesi Tarım Bilimleri Dergisi.",
+      "doi": "10.29133/yyutbd.1517109",
+      "dosya": "kaynak_dosyalari/kahya_2024_kabak_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumu, Crossref kaydı",
+      "alinti": [
+        "Namık Kemal Üniversitesi",
+        "In this study, a machine learning method was developed for harvesting courgette fruit."
+      ],
+      "_kopya": "b10_kaynaklar.json · kahya_2024_kabak"
+    },
+    "gadalla_oztekin_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Gadalla O.A.A., Öztekin Y.B. 2023. Image processing and traditional machine learning based classification of brown marmorated stink bug (Halyomorpha halys) damaged hazelnuts. Tekirdağ Ziraat Fakültesi Dergisi 20(4).",
+      "doi": "10.33462/jotaf.1165105",
+      "dosya": "kaynak_dosyalari/gadalla_oztekin_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "alinti": [
+        "ONDOKUZ MAYIS ÜNİVERSİTESİ",
+        "Quality control of hazelnuts is a major concern in many regions across the world, but particularly in Turkey as the world's largest hazelnut producer."
+      ],
+      "_kopya": "b11_kaynaklar.json · gadalla_oztekin_2023"
+    },
+    "ghafoor_sitkowska_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Abdul Ghafoor N., Sitkowska B. 2021. MasPA: a machine learning application to predict risk of mastitis in cattle from AMS sensor data. AgriEngineering 3(3).",
+      "doi": "10.3390/agriengineering3030037",
+      "dosya": "kaynak_dosyalari/ghafoor_sitkowska_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "alinti": [
+        "Mugla Sitki Kocman University, 48000 Mugla, Turkey"
+      ],
+      "_kopya": "b12_kaynaklar.json · ghafoor_sitkowska_2021"
+    },
+    "ozdemir_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Özdemir N., Çakır M., Yılmaz M., Şimşek H., Oral M., Oral O. 2025. Application of the machine learning methods to assess the impact of physico-chemical characteristics of water on feed consumption in fish farms. Journal of Agricultural Sciences 31(1).",
+      "doi": "10.15832/ankutbd.1470111",
+      "dosya": "kaynak_dosyalari/ozdemir_2024_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "alinti": [
+        "MUĞLA SITKI KOÇMAN ÜNİVERSİTESİ",
+        "the relationship between changes in the physico-chemical characteristics of water and feed consumption was evaluated using machine learning methods."
+      ],
+      "_kopya": "b14_kaynaklar.json · ozdemir_2025"
+    },
+    "tubitak_2013": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK. 01.05.2013. TÜBİTAK Desteğiyle 'Orman Yangın Uyarı Sistemi' Geliştirildi (duyuru).",
+      "adres": "https://tubitak.gov.tr/en/node/15137",
+      "dosya": "kaynak_dosyalari/tubitak_2013_orman_yangin_uyari.html",
+      "alinti": [
+        "Orman Genel Müdürlüğü ve Bilkent Üniversitesi iş birliğiyle geliştirilen projeyi TÜBİTAK ARDEB finanse ederek destekledi.",
+        "Geliştirilen sistemle yangın tehlikesinin olduğu arazilere yangın gözetleme kuleleri kurularak arazi kameralarla saniye saniye görüntüleniyor."
+      ],
+      "_kopya": "b15_kaynaklar.json · tubitak_2013"
+    },
+    "shamta_demir_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Shamta I., Demir B.E. 2024. Development of a deep learning-based surveillance system for forest fire detection and monitoring using UAV. PLOS ONE 19(3).",
+      "doi": "10.1371/journal.pone.0299058",
+      "dosya": "kaynak_dosyalari/shamta_demir_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumu, Europe PMC kaydı (PMC10931456)",
+      "alinti": [
+        "Department of Mechatronics Engineering, Faculty of Technology, Karabük University, Karabük, Türkiye.",
+        "Deep learning is utilized for aerial detection of fires using images obtained from a camera mounted on a designed four-rotor Unmanned Aerial Vehicle (UAV)."
+      ],
+      "_kopya": "b15_kaynaklar.json · shamta_demir_2024"
+    },
+    "abdikan_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Abdikan S., Bayik C., Sekertekin A., Bektas Balcik F., Karimzadeh S., Matsuoka M., Balik Sanli F. 2022. Burned area detection using multi-sensor SAR, optical, and thermal data in Mediterranean pine forest. Forests 13(2).",
+      "doi": "10.3390/f13020347",
+      "dosya": "kaynak_dosyalari/abdikan_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "alinti": [
+        "Department of Geomatics Engineering, Hacettepe University",
+        "to extract BA information from the Turkish red pine (Pinus brutia Ten.) forest in a Mediterranean ecosystem.",
+        "The pixel-based random forest image classification method is applied to classify the BA detection in 24 scenarios created using these features."
+      ],
+      "_kopya": "b15_kaynaklar.json · abdikan_2022"
+    },
+    "eldem_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Eldem A., Eldem H. 2026. The development and evaluation of agricultural question-answering systems based on large language models. Scientific Reports 16: 5357.",
+      "doi": "10.1038/s41598-026-35003-9",
+      "dosya": "kaynak_dosyalari/eldem_2026_scirep.html",
+      "dogrulandigi_yer": "yayıncı sayfası (tam metin)",
+      "alinti": [
+        "Department of Computer Engineering, Karamanoğlu Mehmetbey University, Karaman",
+        "A set of multiple-choice questions was developed, covering three topics (General, Horticulture, Crop Production) and three difficulty levels (Easy, Medium, Difficult)."
+      ],
+      "_kopya": "b18_kaynaklar.json · eldem_2026"
+    },
+    "civelek_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Civelek Ç. 2022. Development of an IoT-Based (LoRaWAN) Tractor Tracking System. Journal of Agricultural Sciences (Tarım Bilimleri Dergisi) 28(3): 438–448.",
+      "doi": "10.15832/ankutbd.769200",
+      "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "alinti": [
+        "In this research by using the advantages of LoRaWAN, a new IoT-based tractor tracking system including a LoRaWAN module and a web-based software was developed, and the test results were evaluated.",
+        "For GPS data gathering and transmission tests, the developed hardware was taken several places in Cukurova University Campus."
+      ],
+      "_kopya": "b20_kaynaklar.json · civelek_2022"
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Bölümün tamamı Türkiye. Girişimlerin bağımsız kaydı FAO–EBRD 2025 raporu (Ek IV; liste 2022 Kök Projekt haritası ve görüşmeler); Görsentam için ayrıca TÜBİTAK 1711 kabul listesi. Üniversite merkezlerinin dayanağı Resmî Gazete yönetmelikleri ve üniversite sayfaları. Kamu sistemleri §7, §9, §14-§21, §23 kayıtlarından kopyalandı."
+  },
+  "_reddedilen": {
+    "agrovisio": "FAO listesinde var; sitesi yalnız JavaScript, şirketin tanımı metin olarak alınamadı.",
+    "erisilemeyen_girisimler": "Topraq, Provea, WiCow, Hummingdrone, Depar, Farmer Expert: denenen alan adlarına erişilemedi.",
+    "farmlabs": "Alan adları park edilmiş ya da satılık; ana şirketin sitesi tarımı anlatmıyor.",
+    "seracel_enio": "Seracel alan adı park edilmiş, ikinci alan adı yönlendirme döngüsüne giriyor; EN/IO alan adı başka firmaya geçmiş.",
+    "skysens_suyabakan_imecemobil": "Skysens sitesi artık sanayi bakımını anlatıyor; Suyabakan sitesi metinsiz; İmeceMobil ana sayfasında dijital tarım hizmeti tanımı yok.",
+    "tarfin": "Girdi finansmanı; dizinin kapsamı dışında.",
+    "yalniz_haber": "Generative Nature ve Türksat uydu projesi: yalnız haber kaynağı var.",
+    "teknofest_takimlari": "Derece alan takımlar çoğunlukla öğrenci takımı; şirket olarak yazılmadı.",
+    "bakanlik_ar_ge_merkezleri": "Bakanın Mayıs 2025'te andığı Ar-Ge inovasyon merkezlerinden dijital tarıma ayrılanların adları yayımlanmış bir kaynakta bulunamadı.",
+    "tagtech_mezunlari": "FAO'nun mezun olarak andığı iki girişimin hangi programdan mezun olduğu cümleden açık değil; alınmadı."
+  }
+}

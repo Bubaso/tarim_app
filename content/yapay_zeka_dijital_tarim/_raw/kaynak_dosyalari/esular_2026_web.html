@@ -1,0 +1,3868 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Akıllı Tarım ve Sulama Teknolojileri - Esular Akıllı Tarım Teknolojileri</title>
+    <meta name="description" content="Esular ile akıllı tarım teknolojilerini keşfedin. Kablosuz toprak nem sensörleri, akıllı sulama sistemleri, sera otomasyonu ve IoT çözümleri ile tarımınızı dijitalleştirin.">
+    <meta name="keywords" content="akıllı tarım, akıllı sulama, toprak nem sensörü, sera otomasyonu, IoT tarım, dijital tarım, sulama otomasyonu, tarım teknolojileri, esular">
+    <meta name="author" content="Esular">
+    <meta name="robots" content="index, follow">
+    
+
+    <!-- Favicon - Multiple formats for better compatibility -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png?v=3.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=3.0">
+    <link rel="shortcut icon" href="/favicon.png?v=3.0" type="image/png">
+    <meta name="theme-color" content="#f24726">
+    <link rel="manifest" href="/manifest.json?v=3.0">
+
+    <!-- CRITICAL CSS INLINE - Eliminates render-blocking request -->
+            <style>/* ===== Critical CSS for above-the-fold content + Layout Structure ===== */
+/* Prevents CLS when style.css loads async */
+/* All @font-face inline — no external font CSS needed */
+
+/* Poppins Font - All self-hosted */
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('/fonts/poppins-800.woff2') format('woff2');
+}
+
+/* Font Awesome 6 - Self-hosted */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('/fonts/webfonts/fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/webfonts/fa-regular-400.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/webfonts/fa-brands-400.woff2') format('woff2');
+}
+
+
+/* ===== CSS Variables ===== */
+:root {
+    --esular-orange: #f24726;
+    --esular-orange-dark: #d93d1f;
+    --esular-orange-light: #ff6b4a;
+    --esular-blue: #6ABDE6;
+    --white: #fff;
+    --gray-100: #f8f9fa;
+    --gray-200: #f1f2f6;
+    --gray-400: #a8a7b5;
+    --gray-500: #89879b;
+    --gray-600: #706e81;
+    --gray-800: #41404e;
+    --gray-900: #2b2a35;
+    --dark-bg: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    --dark-solid: #1a1a1a;
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 12px;
+    --border-radius-lg: 24px;
+    --section-padding: 120px 0;
+    --container-max: 1200px;
+    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* AOS DISABLED - Tüm elementleri hemen görünür yap */
+[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--gray-800);
+    background: var(--white);
+    overflow-x: clip;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== Typography ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+h2 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.375rem;
+    font-weight: 600;
+}
+
+p {
+    color: var(--gray-600);
+    margin-bottom: 1.25rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: var(--section-padding);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-header p {
+    font-size: 1.125rem;
+    color: var(--gray-600);
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 36px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--esular-orange) 0%, var(--esular-orange-dark) 100%);
+    color: var(--white);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--esular-orange);
+    border: 2px solid var(--esular-orange);
+}
+
+.btn-white {
+    background: var(--white);
+    color: var(--esular-orange);
+}
+
+.btn-lg {
+    padding: 20px 48px;
+    font-size: 1.125rem;
+}
+
+.btn-sm {
+    padding: 12px 24px;
+    font-size: 0.875rem;
+}
+
+/* ===== Header ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-logo img {
+    height: 40px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.header-nav a {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--gray-800);
+    position: relative;
+}
+
+/* Underline pseudo-element - must be in critical to prevent CLS */
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--esular-orange);
+}
+
+/* Nav highlight button style */
+.header-nav a.nav-highlight {
+    background: linear-gradient(135deg, var(--esular-orange) 0%, var(--esular-orange-light) 100%);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+}
+
+.header-nav a.nav-highlight::after {
+    display: none;
+}
+
+/* Mega dropdown - position critical for CLS */
+.nav-mega-dropdown {
+    position: relative;
+}
+
+.nav-mega-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    min-width: 720px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Badge */
+.badge-new {
+    background: #2ecc71;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-left: 6px;
+}
+
+@media (max-width: 1024px) {
+    .nav-mega-dropdown {
+        display: none;
+    }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gray-800);
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--dark-bg);
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+    contain: layout style;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    color: var(--white);
+    min-height: 400px;
+    contain: layout style;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    color: var(--white);
+    margin-bottom: 8px;
+    min-height: 1.2em;
+}
+
+.hero-typing {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.hero-typing-text {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    min-width: 300px;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--gray-400);
+    margin-bottom: 32px;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 48px;
+}
+
+.hero-stat {
+    text-align: left;
+}
+
+.hero-stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.hero-stat-label {
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image-main {
+    width: 100%;
+    max-width: 600px;
+    border-radius: var(--border-radius-lg);
+}
+
+.hero-float-card {
+    position: absolute;
+    border-radius: var(--border-radius);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero-float-card:nth-child(2) {
+    top: 20%;
+    right: -20px;
+}
+
+.hero-float-card:nth-child(3) {
+    bottom: 20%;
+    left: -20px;
+}
+
+/* ===== Features Section - Layout ===== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.feature-card h4 {
+    margin-bottom: 16px;
+    font-size: 1.375rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+/* ===== Solutions Section - Layout ===== */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.solutions-grid>.solution-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+.solution-card {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.solution-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.solution-card-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    z-index: 1;
+}
+
+.solution-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 32px;
+}
+
+/* ===== Statistics Section - Layout ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: var(--border-radius);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* ===== Footer - Layout ===== */
+.footer {
+    background: var(--dark-solid);
+    color: var(--white);
+    padding: 80px 0 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-bottom {
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 24px;
+}
+
+/* ===== FAQ Section ===== */
+.blog-content .faq-section,
+.blog-content h2:has(+ .faq-item),
+.faq-section {
+    color: #1a1a2e;
+}
+
+.blog-content .faq-section h2,
+.faq-section h2,
+.faq-title {
+    color: #1a1a2e !important;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.faq-item,
+.blog-content .faq-item {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question,
+.blog-content .faq-question,
+.blog-content h3,
+.blog-content strong {
+    color: #2c3e50 !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.faq-answer,
+.faq-answer p,
+.blog-content .faq-answer,
+.blog-content .faq-answer p,
+.blog-content p {
+    color: #333 !important;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* ===== WhatsApp Float ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.whatsapp-float a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 60px !important;
+    height: 60px !important;
+    background-color: #25D366 !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    font-size: 32px !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4) !important;
+    transition: all 0.3s ease;
+    animation: pulse-whatsapp 2s infinite;
+}
+
+.whatsapp-float a:hover {
+    background-color: #128C7E !important;
+    color: #fff !important;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5) !important;
+}
+
+.whatsapp-float a i {
+    color: #fff !important;
+    line-height: 1;
+}
+
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float a {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ===== Trusted By - Layout ===== */
+.trusted-by-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.trusted-by-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+
+.trusted-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-item {
+    flex: 0 0 auto;
+}
+
+.logo-item img {
+    height: 40px;
+    width: auto;
+    max-width: 150px;
+}
+
+/* ===== Mobile Menu - Layout ===== */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    z-index: 999;
+    transform: translateX(100%);
+    overflow-y: auto;
+    padding-top: 80px;
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-menu-content {
+    padding: 24px 20px 100px;
+    min-height: calc(100vh - 80px);
+}
+
+/* ===== Responsive - Structural ===== */
+@media (max-width: 1200px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .trusted-logos {
+        gap: 2rem;
+    }
+
+    .logo-item img {
+        height: 35px;
+        max-width: 130px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        order: 1;
+    }
+
+    .hero-image {
+        order: 0;
+        margin-bottom: 40px;
+    }
+
+    .hero-description {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .solutions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 80px 0;
+    }
+
+    h1 {
+        font-size: clamp(2.25rem, 8vw, 3rem);
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: clamp(1.375rem, 4vw, 1.75rem);
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 28px;
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 32px;
+    }
+
+    .hero-stat {
+        text-align: center;
+        padding: 16px 24px;
+    }
+
+    .hero-stat-number {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .trusted-by-section {
+        padding: 3rem 0;
+    }
+
+    .trusted-logos {
+        gap: 1.5rem 2rem;
+    }
+
+    .logo-item img {
+        height: 30px;
+        max-width: 110px;
+    }
+
+    /* Hero - Mobil (async CSS'i beklemeden tam stil) */
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+
+    .hero-content {
+        min-height: auto;
+        text-align: center;
+        padding: 0 16px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        color: #fff;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .hero::before,
+    .hero::after {
+        display: none !important;
+    }
+
+    /* Blog hero */
+    section.blog-detail-hero h1 {
+        font-size: 1.1rem !important;
+        line-height: 1.4 !important;
+        white-space: normal !important;
+    }
+
+    .blog-content h1 {
+        font-size: 1.3rem !important;
+    }
+
+    .blog-content h2 {
+        font-size: 1.15rem !important;
+    }
+
+    .blog-content h3 {
+        font-size: 1rem !important;
+    }
+
+    /* Animasyonları kapat */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .hero-typing-text {
+        min-width: auto;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.9375rem;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    .trusted-by-section {
+        padding: 2.5rem 0;
+    }
+
+    .trusted-logos {
+        gap: 1rem 1.5rem;
+    }
+
+    .logo-item img {
+        height: 25px;
+        max-width: 90px;
+    }
+}
+
+/* ===== Product Hero - Layout ===== */
+.product-hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background: var(--dark-bg);
+    padding-top: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .product-hero {
+        min-height: auto;
+        padding: 120px 0 60px;
+    }
+
+    .product-hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .product-hero-content {
+        order: 1;
+    }
+
+    .product-hero-image {
+        order: 0;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-hero {
+        padding: 100px 0 48px;
+    }
+
+    .product-hero-container {
+        gap: 32px;
+    }
+
+    .product-hero-image {
+        max-width: 280px;
+    }
+}
+
+/* ===== RTL Support - Layout ===== */
+html[dir="rtl"] body,
+body.rtl-mode {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .header-container,
+.rtl-mode .header-container {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .header-nav,
+.rtl-mode .header-nav {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .header-actions,
+.rtl-mode .header-actions {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .hero-container,
+.rtl-mode .hero-container {
+    direction: rtl;
+}
+
+html[dir="rtl"] .hero-content,
+.rtl-mode .hero-content {
+    text-align: right;
+}
+
+html[dir="rtl"] .hero-buttons,
+.rtl-mode .hero-buttons {
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .hero-stats,
+.rtl-mode .hero-stats {
+    flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .mobile-menu,
+.rtl-mode .mobile-menu {
+    direction: rtl;
+    text-align: right;
+}
+
+@media (max-width: 992px) {
+
+    html[dir="rtl"] .hero-content,
+    .rtl-mode .hero-content {
+        text-align: center;
+    }
+
+    html[dir="rtl"] .hero-buttons,
+    .rtl-mode .hero-buttons {
+        justify-content: center;
+    }
+}</style>
+    
+    <!-- FontAwesome ALWAYS async - 131KB icons never cause layout shift -->
+    <link rel="stylesheet" href="/css/fontawesome.min.css?v=7.1" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/fontawesome.min.css?v=7.1"></noscript>
+    <!-- Style: mobile-optimized for mobile/bot, full for desktop -->
+        <link rel="stylesheet" href="/css/style.css?v=7.1">
+
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <!-- LCP Image Preload - Only for homepage desktop (mobile: hero-image is display:none) -->
+        <link rel="preload" href="/uploads/products/kablosuz-pilli-toprak-nem-sensoru.webp?w=800" as="image" type="image/webp">
+
+
+    <!-- Google Analytics 4 - Deferred for LCP performance -->
+    <script>
+        // gtag GLOBAL: çerez bandı (_CookieConsent) onay güncellemesini buradan yapar; script gelene dek dataLayer'da kuyruklanır.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        // KVKK / Consent Mode v2 TEMEL mod: GA4 script'i YALNIZ analitik onayı varsa yüklenir — onaysız ziyaretçide
+        // Google'a hiçbir istek gitmez. Tercih localStorage 'esular_cookie_consent'te (_CookieConsent); bant "Kabul"
+        // deyince enableAnalytics() → window.loadGA() çağırır. Varsayılan tüm izinler 'denied'.
+        gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500 });
+        var __cc = null;
+        try { __cc = JSON.parse(localStorage.getItem('esular_cookie_consent') || 'null'); } catch (e) { }
+        if (__cc) gtag('consent', 'update', {
+            analytics_storage: __cc.analytics ? 'granted' : 'denied',
+            ad_storage: __cc.marketing ? 'granted' : 'denied',
+            ad_user_data: __cc.marketing ? 'granted' : 'denied',
+            ad_personalization: __cc.marketing ? 'granted' : 'denied'
+        });
+
+        // GA4'ü başlat (tek sefer): js + config onay güncellemesinden SONRA kuyruğa girer → ilk page_view onaylı işlenir.
+        window.loadGA = function () {
+            if (window.__gaLoaded) return;
+            window.__gaLoaded = true;
+            gtag('js', new Date());
+            gtag('config', 'G-7C6CD172K1');
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-7C6CD172K1';
+            document.head.appendChild(s);
+        };
+
+        // Kayıtlı onay varsa: tarayıcı boşta olduğunda veya 2-3 saniye sonra yükle (LCP optimizasyonu)
+        if (__cc && __cc.analytics) {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(window.loadGA, { timeout: 3000 });
+            } else {
+                setTimeout(window.loadGA, 2000);
+            }
+        }
+    </script>
+
+    <!-- Canonical URL (self-referencing, full absolute) -->
+    <link rel="canonical" href="https://esular.com/">
+
+    <!-- Hreflang Links for Multilingual SEO -->
+            <link rel="alternate" hreflang="tr" href="https://esular.com/?lang=tr">
+            <link rel="alternate" hreflang="en" href="https://esular.com/?lang=en">
+            <link rel="alternate" hreflang="de" href="https://esular.com/?lang=de">
+            <link rel="alternate" hreflang="ar" href="https://esular.com/?lang=ar">
+            <link rel="alternate" hreflang="ru" href="https://esular.com/?lang=ru">
+            <link rel="alternate" hreflang="az" href="https://esular.com/?lang=az">
+            <link rel="alternate" hreflang="es" href="https://esular.com/?lang=es">
+            <link rel="alternate" hreflang="zh" href="https://esular.com/?lang=zh">
+        <link rel="alternate" hreflang="x-default" href="https://esular.com/">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://esular.com/">
+    <meta property="og:title" content="Akıllı Tarım ve Sulama Teknolojileri - Esular Akıllı Tarım Teknolojileri">
+    <meta property="og:description" content="Esular ile akıllı tarım teknolojilerini keşfedin. Kablosuz toprak nem sensörleri, akıllı sulama sistemleri, sera otomasyonu ve IoT çözümleri ile tarımınızı dijitalleştirin.">
+    <meta property="og:image" content="https://esular.com/uploads/blog/esular-og-image.png">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="Esular Akıllı Tarım Teknolojileri">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@esularr">
+    <meta name="twitter:title" content="Akıllı Tarım ve Sulama Teknolojileri - Esular Akıllı Tarım Teknolojileri">
+    <meta name="twitter:description" content="Esular ile akıllı tarım teknolojilerini keşfedin. Kablosuz toprak nem sensörleri, akıllı sulama sistemleri, sera otomasyonu ve IoT çözümleri ile tarımınızı dijitalleştirin.">
+    <meta name="twitter:image" content="https://esular.com/uploads/blog/esular-og-image.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Esular",
+        "alternateName": "Esular Akıllı Tarım Teknolojileri",
+        "url": "https://esular.com",
+        "logo": "https://esular.com/images/logo.png",
+        "description": "Akıllı tarım teknolojileri, kablosuz sensörler ve IoT sulama çözümleri",
+        "foundingDate": "2018",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "İstanbul",
+            "addressCountry": "TR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+90-850-303-49-91",
+            "contactType": "customer service",
+            "availableLanguage": ["Turkish", "English"]
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/esular",
+            "https://www.instagram.com/esular1/",
+            "https://www.facebook.com/esularr",
+            "https://www.youtube.com/@esular",
+            "https://x.com/esularr",
+            "https://www.tiktok.com/@esular.com"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Esular",
+        "url": "https://esular.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://esular.com/arama?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Critical Font Preloads - Start downloading BEFORE CSS parse -->
+    <link rel="preload" href="/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- fonts.css - Non-blocking (loads remaining font weights) -->
+    <link rel="preload" href="/css/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/fonts.css"></noscript>
+
+
+    <!-- AOS Animation Library - DISABLED for CLS performance -->
+    <!-- AOS attributes are left in HTML but library is not loaded -->
+
+
+    <!-- Flag Icons CSS - Non-blocking -->
+    <link rel="stylesheet" href="/css/flag-icons.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/flag-icons.min.css"></noscript>
+
+    
+</head>
+<body class="">
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-container">
+                <!-- Logo - her zaman ana sayfaya git (cookie dili yönetiyor) -->
+                <a href="/" class="header-logo" style="margin-right: 2rem;">
+                    <img src="/images/logo.png" alt="Esular Logo" class="logo-img" width="120" height="44" loading="eager" fetchpriority="high">
+                </a>
+
+                <!-- Navigation with Dropdown (Papara Style) -->
+                <nav class="header-nav">
+                    <!-- Ürünler Mega Dropdown -->
+                    <div class="nav-mega-dropdown">
+                        <a href="#" class="nav-mega-trigger">
+                            Ürünler
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="nav-mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-main">
+                                    <div class="mega-menu-header">
+                                        <h3>Akıllı Tarım Ürünleri</h3>
+                                        <p>Yenilikçi IoT ürünlerimizi <a href="/urunler" class="mega-menu-link">keşfet</a></p>
+                                    </div>
+                                    <div class="mega-menu-grid">
+                                        <a href="/urunler/toprak-nem-sensoru" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-blue">
+                                                <i class="fas fa-tint"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Toprak Nem Sensörü</span>
+                                                <span class="mega-item-desc">Kablosuz LoRaWAN teknolojisi</span>
+                                            </div>
+                                        </a>
+                                        <a href="/urunler/kablosuz-sulama" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-cyan">
+                                                <i class="fas fa-faucet"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Kablosuz Sulama</span>
+                                                <span class="mega-item-desc">Akıllı vana ve pompa kontrolü</span>
+                                            </div>
+                                        </a>
+                                        <a href="/urunler/sera-urunleri" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-purple">
+                                                <i class="fas fa-warehouse"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Sera Ürünleri</span>
+                                                <span class="mega-item-desc">Sensör ve kontrol cihazları</span>
+                                            </div>
+                                        </a>
+                                        <a href="/urunler/meteoroloji-istasyonu" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-orange">
+                                                <i class="fas fa-cloud-sun"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Meteoroloji İstasyonu</span>
+                                                <span class="mega-item-desc">İklim ve hava durumu ölçümü</span>
+                                            </div>
+                                        </a>
+                                        <a href="/smart-garden-akilli-bahce-sulama-sistemi" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-green">
+                                                <i class="fas fa-leaf"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Smart-Garden <span class="badge-new">YENİ</span></span>
+                                                <span class="mega-item-desc">Bahçe ve peyzaj için akıllı sulama</span>
+                                            </div>
+                                        </a>
+                                        <a href="/urunler/smart-agro-gubreleme" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-teal">
+                                                <i class="fas fa-flask"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Smart Agro <span class="badge-new">YENİ</span></span>
+                                                <span class="mega-item-desc">Otomatik sıvı gübreleme sistemi</span>
+                                            </div>
+                                        </a>
+                                        <a href="/urunler/sera-iklimlendirme" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-red">
+                                                <i class="fas fa-temperature-high"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Sera İklimlendirme <span class="badge-new">YENİ</span></span>
+                                                <span class="mega-item-desc">Pencere, perde ve fan kontrolü</span>
+                                            </div>
+                                        </a>
+                                        <a href="/platform" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-indigo">
+                                                <i class="fas fa-cloud"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Bulut Platform</span>
+                                                <span class="mega-item-desc">Tüm cihazlarınızı tek noktadan yönetin</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu-preview">
+                                    <div class="mega-preview-card mega-preview-green">
+                                        <div class="mega-preview-illustration">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <h4>Akıllı Sensörler</h4>
+                                        <p>7/24 kesintisiz veri toplama.<br>Tarımınızı uzaktan yönetin.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Çözümler Mega Dropdown -->
+                    <div class="nav-mega-dropdown">
+                        <a href="#" class="nav-mega-trigger">
+                            Çözümler
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="nav-mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-main">
+                                    <div class="mega-menu-header">
+                                        <h3>Akıllı Tarım Çözümleri</h3>
+                                        <p>İhtiyacınıza uygun çözümleri <a href="/akilli-tarim-sulama-cozumleri" class="mega-menu-link">keşfet</a></p>
+                                    </div>
+                                    <div class="mega-menu-grid">
+                                        <a href="/otomatik-sulama-sistemi" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-blue">
+                                                <i class="fas fa-tint"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Otomatik Sulama</span>
+                                                <span class="mega-item-desc">Kablosuz sulama otomasyonu</span>
+                                            </div>
+                                        </a>
+                                        <a href="/acik-alan-tarim-sulama" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-green">
+                                                <i class="fas fa-tree"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Açık Alan Tarımı</span>
+                                                <span class="mega-item-desc">Bahçe ve tarla çözümleri</span>
+                                            </div>
+                                        </a>
+                                        <a href="/sera-sulama-otomasyonu" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-teal">
+                                                <i class="fas fa-seedling"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Sera Sistemleri</span>
+                                                <span class="mega-item-desc">Tam otomasyon çözümleri</span>
+                                            </div>
+                                        </a>
+                                        <a href="/pivot-sulama-sistemi" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-blue">
+                                                <i class="fas fa-circle-notch"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Pivot Sulama</span>
+                                                <span class="mega-item-desc">Center pivot kontrolü</span>
+                                            </div>
+                                        </a>
+                                        <a href="/dikey-tarim-hidroponik-sulama" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-purple">
+                                                <i class="fas fa-layer-group"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Dikey Tarım</span>
+                                                <span class="mega-item-desc">Hidroponik sistemler</span>
+                                            </div>
+                                        </a>
+                                        <a href="/bulut-tabanli-tarim-yazilimi" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-indigo">
+                                                <i class="fas fa-cloud"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Bulut Tabanlı Yazılım</span>
+                                                <span class="mega-item-desc">Tarım yönetim platformu</span>
+                                            </div>
+                                        </a>
+                                        <a href="/sera-pencere-iklimlendirme-kontrol" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-orange">
+                                                <i class="fas fa-temperature-high"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Sera İklimlendirme</span>
+                                                <span class="mega-item-desc">Pencere ve iklim kontrolü</span>
+                                            </div>
+                                        </a>
+                                        <a href="/park-bahce-sulama" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-emerald">
+                                                <i class="fas fa-leaf"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Park & Bahçe</span>
+                                                <span class="mega-item-desc">Özel alan sulama sistemleri</span>
+                                            </div>
+                                        </a>
+                                        <a href="/gubreleme-otomasyon-yazilim" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-red">
+                                                <i class="fas fa-flask"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Gübreleme & Otomasyon</span>
+                                                <span class="mega-item-desc">AI destekli fertigasyon</span>
+                                            </div>
+                                        </a>
+                                        <a href="/ozel-cozumler" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-gold">
+                                                <i class="fas fa-cogs"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Özel Çözümler</span>
+                                                <span class="mega-item-desc">Projenize özel tasarım</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu-preview">
+                                    <div class="mega-preview-card mega-preview-blue">
+                                        <div class="mega-preview-illustration">
+                                            <i class="fas fa-water"></i>
+                                        </div>
+                                        <h4>Akıllı Sulama</h4>
+                                        <p>%40'a varan su tasarrufu.<br>Otomatik sulama programları.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform -->
+                    <a href="/platform">Platform</a>
+
+                    <!-- Blog -->
+                    <a href="/blog">Blog</a>
+
+                    <!-- Destek -->
+                    <a href="/destek">Destek</a>
+
+                    <!-- Kurumsal Mega Dropdown -->
+                    <div class="nav-mega-dropdown">
+                        <a href="#" class="nav-mega-trigger">
+                            Kurumsal
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="nav-mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-main">
+                                    <div class="mega-menu-header">
+                                        <h3>Esular Hakkında</h3>
+                                        <p>Bizi daha yakından <a href="/hakkimizda" class="mega-menu-link">tanıyın</a></p>
+                                    </div>
+                                    <div class="mega-menu-grid">
+                                        <a href="/hakkimizda" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-orange">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Hakkımızda</span>
+                                                <span class="mega-item-desc">Esular'ı tanıyın</span>
+                                            </div>
+                                        </a>
+                                        <a href="/teknolojimiz" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-blue">
+                                                <i class="fas fa-microchip"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Teknolojimiz</span>
+                                                <span class="mega-item-desc">LoRaWAN ve IoT altyapısı</span>
+                                            </div>
+                                        </a>
+                                        <a href="/akilli-sulama-projeleri" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-green">
+                                                <i class="fas fa-project-diagram"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Projelerimiz</span>
+                                                <span class="mega-item-desc">Başarı hikayelerimiz</span>
+                                            </div>
+                                        </a>
+                                        <a href="/yenilikler" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-purple">
+                                                <i class="fas fa-lightbulb"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Yenilikler</span>
+                                                <span class="mega-item-desc">Son güncellemeler</span>
+                                            </div>
+                                        </a>
+                                        <a href="/iletisim" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-cyan">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">İletişim</span>
+                                                <span class="mega-item-desc">Bize ulaşın</span>
+                                            </div>
+                                        </a>
+                                        <a href="/destek" class="mega-menu-item">
+                                            <div class="mega-icon mega-icon-teal">
+                                                <i class="fas fa-headset"></i>
+                                            </div>
+                                            <div class="mega-item-content">
+                                                <span class="mega-item-title">Destek Merkezi</span>
+                                                <span class="mega-item-desc">Yardım ve SSS</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu-preview">
+                                    <div class="mega-preview-card mega-preview-orange">
+                                        <div class="mega-preview-illustration">
+                                            <i class="fas fa-hands-helping"></i>
+                                        </div>
+                                        <h4>Destek Ekibimiz</h4>
+                                        <p>7/24 teknik destek.<br>Uzman ekibimiz yanınızda.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Actions -->
+                <div class="header-actions">
+                    <!-- Language Selector -->
+                    <div class="language-dropdown" id="languageDropdown">
+                        <button class="language-btn" id="languageBtn" aria-label="Dil Seçimi">
+                            <span class="current-flag fi fi-tr" id="currentFlag"></span>
+                            <span class="current-lang" id="currentLang">TR</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-menu" id="languageMenu">
+                                <a href="#" class="language-option" data-lang="tr" data-flag="tr">
+                                    <span class="fi fi-tr"></span> T&#xFC;rk&#xE7;e
+                                </a>
+                                <a href="#" class="language-option" data-lang="en" data-flag="us">
+                                    <span class="fi fi-us"></span> English
+                                </a>
+                                <a href="#" class="language-option" data-lang="de" data-flag="de">
+                                    <span class="fi fi-de"></span> Deutsch
+                                </a>
+                                <a href="#" class="language-option" data-lang="ar" data-flag="sa">
+                                    <span class="fi fi-sa"></span> &#x627;&#x644;&#x639;&#x631;&#x628;&#x64A;&#x629;
+                                </a>
+                                <a href="#" class="language-option" data-lang="ru" data-flag="ru">
+                                    <span class="fi fi-ru"></span> &#x420;&#x443;&#x441;&#x441;&#x43A;&#x438;&#x439;
+                                </a>
+                                <a href="#" class="language-option" data-lang="az" data-flag="az">
+                                    <span class="fi fi-az"></span> Az&#x259;rbaycanca
+                                </a>
+                                <a href="#" class="language-option" data-lang="es" data-flag="es">
+                                    <span class="fi fi-es"></span> Espa&#xF1;ol
+                                </a>
+                                <a href="#" class="language-option" data-lang="zh" data-flag="zh">
+                                    <span class="fi fi-zh"></span> &#x4E2D;&#x6587;
+                                </a>
+                        </div>
+                    </div>
+
+                    <a href="https://esular.com/magaza?lang=tr" class="btn btn-outline" target="_blank">
+                        <i class="fas fa-shopping-cart"></i> Store
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-section">
+                <h4>Ürünler</h4>
+                <a href="/urunler/toprak-nem-sensoru"><i class="fas fa-tint"></i> Toprak Nem Sensörü</a>
+                <a href="/urunler/kablosuz-sulama"><i class="fas fa-faucet"></i> Kablosuz Sulama</a>
+                <a href="/urunler/sera-urunleri"><i class="fas fa-warehouse"></i> Sera Ürünleri</a>
+                <a href="/urunler/meteoroloji-istasyonu"><i class="fas fa-cloud-sun"></i> Meteoroloji İstasyonu</a>
+                <a href="/smart-garden-akilli-bahce-sulama-sistemi" class="mobile-highlight-new"><i class="fas fa-leaf"></i> Smart-Garden <span class="badge-new">YENİ</span></a>
+                <a href="/urunler/smart-agro-gubreleme" class="mobile-highlight-new"><i class="fas fa-flask"></i> Smart Agro <span class="badge-new">YENİ</span></a>
+                <a href="/urunler/sera-iklimlendirme" class="mobile-highlight-new"><i class="fas fa-temperature-high"></i> Sera İklimlendirme <span class="badge-new">YENİ</span></a>
+            </div>
+            <div class="mobile-menu-section">
+                <h4>Çözümler</h4>
+                <a href="/acik-alan-tarim-sulama"><i class="fas fa-tree"></i> Açık Alan Tarımı</a>
+                <a href="/sera-sulama-otomasyonu"><i class="fas fa-seedling"></i> Sera Sistemleri</a>
+                <a href="/pivot-sulama-sistemi"><i class="fas fa-circle-notch"></i> Pivot Sulama</a>
+                <a href="/dikey-tarim-hidroponik-sulama"><i class="fas fa-layer-group"></i> Dikey Tarım</a>
+                <a href="/bulut-tabanli-tarim-yazilimi"><i class="fas fa-cloud"></i> Bulut Tabanlı Yazılım</a>
+                <a href="/sera-pencere-iklimlendirme-kontrol"><i class="fas fa-temperature-high"></i> Sera İklimlendirme</a>
+                <a href="/park-bahce-sulama"><i class="fas fa-leaf"></i> Park & Bahçe</a>
+                <a href="/dusuk-basinc-otomatik-sulama-sistemi"><i class="fas fa-water"></i> Düşük Basınç Sulama</a>
+            </div>
+            <div class="mobile-menu-section">
+                <a href="/platform"><i class="fas fa-cloud"></i> Platform</a>
+                <a href="/blog"><i class="fas fa-newspaper"></i> Blog</a>
+                <a href="/destek"><i class="fas fa-headset"></i> Destek</a>
+            </div>
+            <div class="mobile-menu-section">
+                <h4>Kurumsal</h4>
+                <a href="/hakkimizda"><i class="fas fa-building"></i> Hakkımızda</a>
+                <a href="/teknolojimiz"><i class="fas fa-microchip"></i> Teknolojimiz</a>
+                <a href="/akilli-sulama-projeleri"><i class="fas fa-project-diagram"></i> Projelerimiz</a>
+                <a href="/yenilikler"><i class="fas fa-lightbulb"></i> Yenilikler</a>
+                <a href="/iletisim"><i class="fas fa-envelope"></i> İletişim</a>
+            </div>
+            <div class="mobile-menu-cta">
+                <a href="https://esular.com/magaza?lang=tr" class="btn btn-outline btn-block" target="_blank">
+                    <i class="fas fa-shopping-cart"></i> Store
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-container">
+            <!-- Hero Content -->
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="800">
+                <div class="hero-tag">
+                    <i class="fas fa-seedling"></i>
+                    Dijital Tarım Teknolojileri
+                </div>
+                <h1>Tarımınızı<br>Geleceğe Taşıyın</h1>
+                <div class="hero-typing">
+                    <span class="hero-typing-text" id="typingText" 
+                          data-words='["Akıllı Sulama", "Toprak Sensörleri", "Sera Otomasyonu", "IoT Teknolojisi", "Bulut SCADA", "Mobil Yönetim", "Pivot Kontrol", "Gübreleme Sistemi", "Meteoroloji İstasyonu"]'>
+                        Akıllı Sulama
+                    </span>
+                    <span class="hero-typing-cursor"></span>
+                </div>
+                <p class="hero-description">
+                    IoT sensörler, bulut tabanlı yönetim platformları ve akıllı otomasyon çözümleri ile su tasarrufu sağlayın, veriminizi artırın.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Hemen Başla
+                    </a>
+                    <a href="/teknolojimiz" class="btn btn-white">
+                        <i class="fas fa-microchip"></i>
+                        Teknolojiyi Keşfet
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">%40</div>
+                        <div class="hero-stat-label">Su Tasarrufu</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">%30</div>
+                        <div class="hero-stat-label">Verim Artışı</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">300+</div>
+                        <div class="hero-stat-label">Aktif Proje</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image - No AOS for LCP performance -->
+            <div class="hero-image">
+                <img src="/uploads/products/kablosuz-pilli-toprak-nem-sensoru.webp"
+                     srcset="/uploads/products/kablosuz-pilli-toprak-nem-sensoru.webp?w=400 400w,
+                             /uploads/products/kablosuz-pilli-toprak-nem-sensoru.webp?w=600 600w,
+                             /uploads/products/kablosuz-pilli-toprak-nem-sensoru.webp?w=800 800w"
+                     sizes="(max-width: 480px) 400px, (max-width: 768px) 600px, 800px"
+                     alt="Esular Akıllı Tarım Sensörü"
+                     class="hero-image-main"
+                     width="600" height="450" loading="eager" fetchpriority="high">
+                <div class="hero-float-card">
+                    <i class="fas fa-water"></i>
+                    <span>Nem: %65</span>
+                </div>
+                <div class="hero-float-card">
+                    <i class="fas fa-temperature-high"></i>
+                    <span>Sıcaklık: 24°C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Referanslar / Trusted By Section -->
+
+
+<!-- Referans Galerisi Section -->
+<section class="ref-gallery-section">
+    <div class="container">
+        <!-- Başlık -->
+        <h2 class="ref-gallery-title">Akıllı Tarım ve Sulama Teknolojileri</h2>
+
+            <!-- Tab Butonları -->
+            <div class="ref-tabs">
+                <button class="ref-tab" data-tab="sulama">Akıllı Sulama</button>
+                <button class="ref-tab" data-tab="sera">Sera Otomasyonu</button>
+                <button class="ref-tab active" data-tab="sensör">Sensör Çözümleri</button>
+                <button class="ref-tab" data-tab="yazilim">Bulut Yazılım</button>
+                <button class="ref-tab" data-tab="pivot">Pivot Sulama</button>
+            </div>
+
+        <!-- Carousel Container -->
+        <div class="ref-carousel-wrapper">
+            <!-- Sol Ok -->
+            <button class="ref-carousel-arrow ref-arrow-left" aria-label="Önceki">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- Carousel Track -->
+            <div class="ref-carousel">
+                <!-- Slide 1 - Akıllı Sulama -->
+                <div class="ref-slide" data-category="sulama">
+                    <div class="ref-card">
+                        <div class="ref-card-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="ref-card-title">Akıllı Sulama</h3>
+                        <ul class="ref-card-features">
+                            <li><i class="fas fa-check"></i> Otomatik sulama programlama</li>
+                            <li><i class="fas fa-check"></i> Nem bazlı sulama kontrolü</li>
+                            <li><i class="fas fa-check"></i> %40 su tasarrufu sağlayın</li>
+                        </ul>
+                        <div class="ref-card-image">
+                            <img src="/images/referanslar/akilli-sulama-demo.svg" alt="Akıllı Sulama Sistemi" width="200" height="150" loading="lazy">
+                        </div>
+                        <a href="/acik-alan-tarim-sulama" class="ref-card-btn">Keşfet</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 - Sera Otomasyonu -->
+                <div class="ref-slide" data-category="sera">
+                    <div class="ref-card">
+                        <div class="ref-card-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h3 class="ref-card-title">Sera Otomasyonu</h3>
+                        <ul class="ref-card-features">
+                            <li><i class="fas fa-check"></i> İklim ve sıcaklık kontrolü</li>
+                            <li><i class="fas fa-check"></i> Pencere ve perde otomasyonu</li>
+                            <li><i class="fas fa-check"></i> CO2 ve nem yönetimi</li>
+                        </ul>
+                        <div class="ref-card-image">
+                            <img src="/images/referanslar/sera-otomasyon-demo.svg" alt="Sera Otomasyonu" width="200" height="150" loading="lazy">
+                        </div>
+                        <a href="/sera-sulama-otomasyonu" class="ref-card-btn">Keşfet</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - Sensör Çözümleri (Aktif) -->
+                <div class="ref-slide active" data-category="sensör">
+                    <div class="ref-card">
+                        <div class="ref-card-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <h3 class="ref-card-title">Sensör Çözümleri</h3>
+                        <ul class="ref-card-features">
+                            <li><i class="fas fa-check"></i> Toprak nem ve sıcaklık ölçümü</li>
+                            <li><i class="fas fa-check"></i> LoRaWAN kablosuz iletişim</li>
+                            <li><i class="fas fa-check"></i> 5-10 km menzil, 10 yıla kadar pil ömrü</li>
+                        </ul>
+                        <div class="ref-card-image">
+                            <img src="/images/referanslar/sensor-demo.svg" alt="Sensör Çözümleri" width="200" height="150" loading="lazy">
+                        </div>
+                        <a href="/urunler/toprak-nem-sensoru" class="ref-card-btn">Keşfet</a>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Bulut Yazılım -->
+                <div class="ref-slide" data-category="yazilim">
+                    <div class="ref-card">
+                        <div class="ref-card-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="ref-card-title">Bulut Yazılım</h3>
+                        <ul class="ref-card-features">
+                            <li><i class="fas fa-check"></i> Web ve mobil uygulama</li>
+                            <li><i class="fas fa-check"></i> Gerçek zamanlı izleme</li>
+                            <li><i class="fas fa-check"></i> Raporlama ve analiz</li>
+                        </ul>
+                        <div class="ref-card-image">
+                            <img src="/images/referanslar/yazilim-demo.svg" alt="Bulut Yazılım" width="200" height="150" loading="lazy">
+                        </div>
+                        <a href="/bulut-tabanli-tarim-yazilimi" class="ref-card-btn">Keşfet</a>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Pivot Sulama -->
+                <div class="ref-slide" data-category="pivot">
+                    <div class="ref-card">
+                        <div class="ref-card-icon">
+                            <i class="fas fa-circle-notch"></i>
+                        </div>
+                        <h3 class="ref-card-title">Pivot Sulama</h3>
+                        <ul class="ref-card-features">
+                            <li><i class="fas fa-check"></i> Center pivot kontrolü</li>
+                            <li><i class="fas fa-check"></i> Sektör bazlı sulama</li>
+                            <li><i class="fas fa-check"></i> Uzaktan izleme ve yönetim</li>
+                        </ul>
+                        <div class="ref-card-image">
+                            <img src="/images/referanslar/pivot-demo.svg" alt="Pivot Sulama" width="200" height="150" loading="lazy">
+                        </div>
+                        <a href="/pivot-sulama-sistemi" class="ref-card-btn">Keşfet</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sağ Ok -->
+            <button class="ref-carousel-arrow ref-arrow-right" aria-label="Sonraki">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+            <!-- Alt Logo Carousel Bölümü -->
+            <div class="ref-logos-section">
+                <p class="ref-logos-title">Türkiye'nin Lider Tarım İşletmeleri Tarafından Tercih Ediliyor</p>
+                <div class="logo-carousel-wrapper">
+                    <!-- Sol Ok -->
+                    <button class="logo-carousel-arrow logo-arrow-left" aria-label="Önceki">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <!-- Logo Carousel Track -->
+                    <div class="logo-carousel-track">
+                        <div class="logo-carousel-inner">
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/1.png" alt="Referans Firma 1" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/2.png" alt="Referans Firma 2" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/3.png" alt="Referans Firma 3" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/4.png" alt="Referans Firma 4" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/5.png" alt="Referans Firma 5" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/6.png" alt="Referans Firma 6" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/7.png" alt="Referans Firma 7" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/8.png" alt="Referans Firma 8" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/9.png" alt="Referans Firma 9" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/10.png" alt="Referans Firma 10" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/11.png" alt="Referans Firma 11" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/12.png" alt="Referans Firma 12" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/13.png" alt="Referans Firma 13" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/14.png" alt="Referans Firma 14" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/15.png" alt="Referans Firma 15" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/16.png" alt="Referans Firma 16" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/17.png" alt="Referans Firma 17" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/18.png" alt="Referans Firma 18" width="140" height="70" loading="lazy">
+                                </div>
+                                <div class="logo-carousel-item">
+                                    <img src="/images/referans-calisma/19.png" alt="Referans Firma 19" width="140" height="70" loading="lazy">
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- Sağ Ok -->
+                    <button class="logo-carousel-arrow logo-arrow-right" aria-label="Sonraki">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Carousel functionality
+    const carousel = document.querySelector('.ref-carousel');
+    const slides = document.querySelectorAll('.ref-slide');
+    const tabs = document.querySelectorAll('.ref-tab');
+    const leftArrow = document.querySelector('.ref-arrow-left');
+    const rightArrow = document.querySelector('.ref-arrow-right');
+
+    let currentIndex = 2; // Start with middle slide (Sensör Çözümleri)
+    const totalSlides = slides.length;
+
+    function updateCarousel() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active', 'prev', 'next', 'far-prev', 'far-next');
+
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            } else if (index === currentIndex - 1 || (currentIndex === 0 && index === totalSlides - 1)) {
+                slide.classList.add('prev');
+            } else if (index === currentIndex + 1 || (currentIndex === totalSlides - 1 && index === 0)) {
+                slide.classList.add('next');
+            } else if (index < currentIndex - 1) {
+                slide.classList.add('far-prev');
+            } else {
+                slide.classList.add('far-next');
+            }
+        });
+
+        // Update tabs
+        const activeCategory = slides[currentIndex].dataset.category;
+        tabs.forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.tab === activeCategory);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = (index + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+
+    // Event listeners
+    if (leftArrow) leftArrow.addEventListener('click', prevSlide);
+    if (rightArrow) rightArrow.addEventListener('click', nextSlide);
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => {
+            const category = tab.dataset.tab;
+            slides.forEach((slide, slideIndex) => {
+                if (slide.dataset.category === category) {
+                    goToSlide(slideIndex);
+                }
+            });
+        });
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (carousel) {
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        }, { passive: true });
+    }
+
+    // Initialize
+    updateCarousel();
+
+    // ===== Logo Carousel =====
+    const logoCarouselInner = document.querySelector('.logo-carousel-inner');
+    const logoItems = document.querySelectorAll('.logo-carousel-item');
+    const logoLeftArrow = document.querySelector('.logo-arrow-left');
+    const logoRightArrow = document.querySelector('.logo-arrow-right');
+
+    if (logoCarouselInner && logoItems.length > 0) {
+        let logoPosition = 0;
+        const logoItemWidth = 160; // item width + gap
+        const visibleLogos = Math.floor(document.querySelector('.logo-carousel-track').offsetWidth / logoItemWidth);
+        const maxPosition = Math.max(0, (logoItems.length - visibleLogos) * logoItemWidth);
+
+        function updateLogoCarousel() {
+            logoCarouselInner.style.transform = `translateX(-${logoPosition}px)`;
+
+            // Update arrow states
+            if (logoLeftArrow) logoLeftArrow.style.opacity = logoPosition <= 0 ? '0.5' : '1';
+            if (logoRightArrow) logoRightArrow.style.opacity = logoPosition >= maxPosition ? '0.5' : '1';
+        }
+
+        function slideLogosRight() {
+            logoPosition = Math.min(logoPosition + logoItemWidth * 3, maxPosition);
+            updateLogoCarousel();
+        }
+
+        function slideLogosLeft() {
+            logoPosition = Math.max(logoPosition - logoItemWidth * 3, 0);
+            updateLogoCarousel();
+        }
+
+        if (logoLeftArrow) logoLeftArrow.addEventListener('click', slideLogosLeft);
+        if (logoRightArrow) logoRightArrow.addEventListener('click', slideLogosRight);
+
+        // Touch support for logo carousel
+        let logoTouchStartX = 0;
+        const logoTrack = document.querySelector('.logo-carousel-track');
+
+        if (logoTrack) {
+            logoTrack.addEventListener('touchstart', (e) => {
+                logoTouchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            logoTrack.addEventListener('touchend', (e) => {
+                const logoTouchEndX = e.changedTouches[0].screenX;
+                if (logoTouchStartX - logoTouchEndX > 50) slideLogosRight();
+                if (logoTouchEndX - logoTouchStartX > 50) slideLogosLeft();
+            }, { passive: true });
+        }
+
+        // Initialize logo carousel
+        updateLogoCarousel();
+
+        // Recalculate on resize
+        window.addEventListener('resize', () => {
+            const newVisibleLogos = Math.floor(document.querySelector('.logo-carousel-track').offsetWidth / logoItemWidth);
+            const newMaxPosition = Math.max(0, (logoItems.length - newVisibleLogos) * logoItemWidth);
+            logoPosition = Math.min(logoPosition, newMaxPosition);
+            updateLogoCarousel();
+        });
+    }
+});
+</script>
+
+
+<!-- Features Section -->
+<section class="features section" id="features">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">Ürünlerimiz</span>
+            <h2>Akıllı Tarım Çözümleri</h2>
+            <p>LoRaWAN teknolojisi ile uzun menzil, düşük enerji tüketimi ve güvenilir veri iletimi sağlayan profesyonel tarım ürünleri.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- Feature 1 -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h4>Toprak Nem Sensörü</h4>
+                <p>Kablosuz, pilli, 4 farklı derinlikte ölçüm yapan profesyonel toprak nem sensörü. 5-10 km LoRaWAN menzili.</p>
+                <a href="/urunler/toprak-nem-sensoru" class="feature-link">
+                    Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-faucet"></i>
+                </div>
+                <h4>Akıllı Sulama Sistemi</h4>
+                <p>Otomatik sulama programlama, nem bazlı kontrol ve uzaktan yönetim özellikleri ile su tasarrufu sağlayın.</p>
+                <a href="/otomatik-sulama-sistemi" class="feature-link">
+                    Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <h4>Sera Otomasyonu</h4>
+                <p>Sıcaklık, nem, CO2 kontrolü ve pencere/perde otomasyonu ile ideal sera iklimi oluşturun.</p>
+                <a href="/urunler/sera-urunleri" class="feature-link">
+                    Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud-sun"></i>
+                </div>
+                <h4>Meteoroloji İstasyonu</h4>
+                <p>Rüzgar, yağış, sıcaklık, nem ve UV ölçümü yapan profesyonel iklim istasyonları.</p>
+                <a href="/urunler/meteoroloji-istasyonu" class="feature-link">
+                    Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Feature 5 -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h4>Mobil Uygulama</h4>
+                <p>iOS ve Android uygulamaları ile tarlanızı cebinizden yönetin, anlık bildirimler alın.</p>
+                <a href="/platform" class="feature-link">
+                    Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Feature 6 -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h4>SCADA Yazılımı</h4>
+                <p>Web tabanlı izleme ve kontrol paneli, raporlama ve analiz araçları ile verilerinizi yönetin.</p>
+                <a href="/platform" class="feature-link">
+                    Detaylı Bilgi <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Yapay Zeka (Esular AI) Section -->
+<section class="features section" style="background: var(--white);" id="yapay-zeka">
+    <style>
+        #yapay-zeka .ai-note { text-align: center; margin-top: 28px; color: #6e6e73; font-size: 0.95rem; }
+    </style>
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">Yapay Zeka</span>
+            <h2>Yapay Zeka ile Teşhis, Erken Uyarı ve Otomasyon</h2>
+            <p>Esular yapay zekası üç yönden çalışır: fotoğraftan zararlı ve hastalığı tanır; iklim verisinden riski belirti çıkmadan önce haber verir; SCADA'nızı konuşarak yönetmenizi sağlar.</p>
+        </div>
+
+        <div class="features-grid">
+            <!-- CropVision -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+                <h4>CropVision — Fotoğraftan Teşhis</h4>
+                <p>Yaprağın, zararlının ya da bitkinin fotoğrafını yükleyin; yapay görü zararlıyı sayar, hastalığı çoklu-model uzlaşısıyla teşhis eder ve Türkçe reçete verir.</p>
+                <a href="/l/cropvision-nasil-calisir" class="feature-link">
+                    Nasıl Çalışır? <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- İklimsel Hastalık Erken Uyarı -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-triangle-exclamation"></i>
+                </div>
+                <h4>İklimsel Hastalık Erken Uyarı</h4>
+                <p>İklim istasyonu verisinden bilimsel epidemiyoloji modelleriyle 100+ hastalığın riskini 0–100 skorlar; belirti çıkmadan günler önce ilaçlama penceresini verir.</p>
+                <a href="/l/iklimsel-hastalik-erken-uyari" class="feature-link">
+                    Nasıl Çalışır? <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- AI Destekli Otomasyon (SCADA Asistanı) -->
+            <div class="feature-card" data-aos="fade-up">
+                <div class="feature-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h4>AI Destekli Otomasyon Sistemi</h4>
+                <p>SCADA'nızı yazarak ya da konuşarak yönetin: 9 uzman ajan pivot, vana, pompa ve sulamayı yönetir — yalnız yetkiniz kadarı, cihaz komutu için onaylı.</p>
+                <a href="/l/ai-destekli-otomasyon-scada-asistani" class="feature-link">
+                    Nasıl Çalışır? <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <p class="ai-note" data-aos="fade-up">Üçü de tek platformda: tanıyın, belirti çıkmadan uyarılın, konuşarak yönetin.</p>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section class="solutions section" id="solutions">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">Çözümlerimiz</span>
+            <h2>Her Tarım Alanına Özel Çözümler</h2>
+            <p>Açık alan tarımından seracılığa, pivot sistemlerinden dikey tarıma kadar geniş çözüm yelpazesi.</p>
+        </div>
+
+        <div class="solutions-grid">
+            <!-- Solution 1 -->
+            <div class="solution-card" data-aos="fade-up">
+                <div class="solution-card-bg">
+                    <img src="/uploads/products/esular-tarimsal-iklim-istasyonu.jpg" 
+                         alt="Açık Alan Tarımı" width="600" height="400" loading="lazy">
+                </div>
+                <div class="solution-card-content">
+                    <h3>Açık Alan Tarımı</h3>
+                    <p>Geniş tarım arazileri için kablosuz sensör ağları ve otomatik sulama sistemleri.</p>
+                    <a href="/acik-alan-tarim-sulama" class="btn btn-white">İncele</a>
+                </div>
+            </div>
+
+            <!-- Solution 2 -->
+            <div class="solution-card" data-aos="fade-up">
+                <div class="solution-card-bg">
+                    <img src="/uploads/blog/esular-karbondioksit-sera-kontrol-web-01-1.webp" 
+                         alt="Sera Sistemleri" width="600" height="400" loading="lazy">
+                </div>
+                <div class="solution-card-content">
+                    <h3>Sera Sistemleri</h3>
+                    <p>Tam otomatik iklim kontrolü, sulama ve gübreleme sistemleri ile yüksek verimli sera tarımı.</p>
+                    <a href="/sera-sulama-otomasyonu" class="btn btn-white">İncele</a>
+                </div>
+            </div>
+
+            <!-- Solution 3 -->
+            <div class="solution-card" data-aos="fade-up">
+                <div class="solution-card-bg">
+                    <img src="/uploads/blog/center-pivot-saha-kontrolu.webp" 
+                         alt="Pivot Sulama" width="600" height="400" loading="lazy">
+                </div>
+                <div class="solution-card-content">
+                    <h3>Pivot Sulama</h3>
+                    <p>Center pivot ve lineer sistemler için akıllı kontrol ve izleme çözümleri.</p>
+                    <a href="/pivot-sulama-sistemi" class="btn btn-white">İncele</a>
+                </div>
+            </div>
+
+            <!-- Solution 4 -->
+            <div class="solution-card" data-aos="fade-up">
+                <div class="solution-card-bg">
+                    <img src="/uploads/blog/dikey-tarim-digital-tarim.webp" 
+                         alt="Dikey Tarım" width="600" height="400" loading="lazy">
+                </div>
+                <div class="solution-card-content">
+                    <h3>Dikey Tarım</h3>
+                    <p>Hidroponik ve aeroponik sistemler için özel tasarlanmış otomasyon çözümleri.</p>
+                    <a href="/dikey-tarim-hidroponik-sulama" class="btn btn-white">İncele</a>
+                </div>
+            </div>
+
+            <!-- Solution 5: Hassas Sulama -->
+            <div class="solution-card" data-aos="fade-up">
+                <div class="solution-card-bg">
+                    <img src="/uploads/products/kablosuz-pilli-toprak-nem-sensoru.webp" 
+                         alt="Hassas Sulama" width="600" height="400" loading="lazy">
+                </div>
+                <div class="solution-card-content">
+                    <h3>Hassas Sulama</h3>
+                    <p>Toprak nem sensörleri ve iklim verileri ile öngörülü, veri odaklı sulama teknolojileri.</p>
+                    <a href="/hassas-sulama" class="btn btn-white">İncele</a>
+                </div>
+            </div>
+
+            <!-- Solution 6: Sürdürülebilirlik -->
+            <div class="solution-card" data-aos="fade-up">
+                <div class="solution-card-bg">
+                    <img src="/uploads/blog/akilli-tarim-sulama-sistemleri.webp" 
+                         alt="Sürdürülebilirlik" width="600" height="400" loading="lazy">
+                </div>
+                <div class="solution-card-content">
+                    <h3>Sürdürülebilirlik</h3>
+                    <p>Su tasarrufu, enerji verimliliği ve çevre dostu tarım için sürdürülebilir çözümler.</p>
+                    <a href="/surdurulebilirlik" class="btn btn-white">İncele</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Hassas Gübreleme / Fertigasyon Mega Section -->
+<section class="section fertigasyon-mega-section" id="fertigasyon">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">Akıllı Gübreleme</span>
+            <h2>Hassas Fertigasyon Çözümleri</h2>
+            <p>Otomatik dozajlama, yapay zeka destekli analiz ve bulut tabanlı yönetim ile tarımınızı optimize edin</p>
+        </div>
+
+        <!-- Hero Stats Banner -->
+        <div class="fertigasyon-hero-banner" data-aos="fade-up">
+            <div class="fertigasyon-hero-stat">
+                <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+                <div class="stat-value">%25</div>
+                <div class="stat-label">Gübre Tasarrufu</div>
+            </div>
+            <div class="fertigasyon-hero-stat">
+                <div class="stat-icon"><i class="fas fa-flask"></i></div>
+                <div class="stat-value">6</div>
+                <div class="stat-label">Kanal Kapasitesi</div>
+            </div>
+            <div class="fertigasyon-hero-stat">
+                <div class="stat-icon"><i class="fas fa-sync-alt"></i></div>
+                <div class="stat-value">7/24</div>
+                <div class="stat-label">Otomatik Kontrol</div>
+            </div>
+            <div class="fertigasyon-hero-stat">
+                <div class="stat-icon"><i class="fas fa-brain"></i></div>
+                <div class="stat-value">AI</div>
+                <div class="stat-label">Yapay Zeka</div>
+            </div>
+        </div>
+
+        <!-- 3 Main Sections Grid -->
+        <div class="fertigasyon-sections-grid">
+
+            <!-- Section 1: Gübreleme Makineleri -->
+            <div class="fertigasyon-main-card" data-aos="fade-up">
+                <div class="fertigasyon-card-header">
+                    <div class="fertigasyon-card-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <span class="fertigasyon-card-number">01</span>
+                </div>
+                <div class="fertigasyon-card-image">
+                    <img src="/uploads/blog/otomatik-gubreleme-smart-agro-serisi-4.webp"
+                         alt="Smart Agro Gübreleme Makineleri"
+                         width="400" height="300" loading="lazy">
+                </div>
+                <div class="fertigasyon-card-content">
+                    <h3>Gübreleme Makineleri</h3>
+                    <p class="fertigasyon-card-desc">Smart Agro serisi ile endüstriyel kalitede otomatik sıvı gübreleme. Hobi seracılığından büyük çiftliklere kadar her ölçekte profesyonel çözümler.</p>
+
+                    <div class="fertigasyon-features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>6 kanala kadar gübre girişi</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>pH ve EC otomatik kontrolü</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mix tank sistemi</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>4000 L/saat kapasite</span>
+                        </div>
+                    </div>
+
+                    <div class="fertigasyon-models">
+                        <span class="models-label">Modeller:</span>
+                        <div class="model-tags">
+                            <a href="/urunler/smart-agro-gubreleme#smart-agro-pool" class="model-tag">Pool</a>
+                            <a href="/urunler/smart-agro-gubreleme#smart-agro-mini" class="model-tag">Mini</a>
+                            <a href="/urunler/smart-agro-gubreleme#smart-agro-maxi" class="model-tag">Maxi</a>
+                            <a href="/urunler/smart-agro-gubreleme#smart-agro-mega" class="model-tag">Mega</a>
+                        </div>
+                    </div>
+
+                    <a href="/urunler/smart-agro-gubreleme" class="btn btn-primary">
+                        <i class="fas fa-arrow-right"></i> Ürünleri İncele
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 2: Otomasyon Yazılımları -->
+            <div class="fertigasyon-main-card" data-aos="fade-up">
+                <div class="fertigasyon-card-header">
+                    <div class="fertigasyon-card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <span class="fertigasyon-card-number">02</span>
+                </div>
+                <div class="fertigasyon-card-image">
+                    <img src="/uploads/blog/otomatik-sivi-gubreleme-sistemi-smart-agro-serisi-esular.png"
+                         alt="SCADA Gübreleme Yazılımı"
+                         width="400" height="300" loading="lazy">
+                </div>
+                <div class="fertigasyon-card-content">
+                    <h3>Otomasyon Yazılımları</h3>
+                    <p class="fertigasyon-card-desc">Bulut tabanlı SCADA ve mobil uygulamalar ile gübreleme süreçlerinizi her yerden yönetin. Gerçek zamanlı izleme ve uzaktan kontrol.</p>
+
+                    <div class="fertigasyon-features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mobil uygulama (iOS/Android)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Web tabanlı SCADA paneli</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Otomatik reçete yönetimi</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Anlık bildirimler ve alarmlar</span>
+                        </div>
+                    </div>
+
+                    <div class="software-platforms">
+                        <span class="platforms-label">Platformlar:</span>
+                        <div class="platform-icons">
+                            <div class="platform-icon" title="iOS">
+                                <i class="fab fa-apple"></i>
+                            </div>
+                            <div class="platform-icon" title="Android">
+                                <i class="fab fa-android"></i>
+                            </div>
+                            <div class="platform-icon" title="Web">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="platform-icon" title="Windows">
+                                <i class="fab fa-windows"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/platform" class="btn btn-outline">
+                        <i class="fas fa-desktop"></i> Yazılımı Keşfet
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 3: Yapay Zeka Destekli Gübreleme -->
+            <div class="fertigasyon-main-card featured" data-aos="fade-up">
+                <div class="fertigasyon-card-badge">Yeni Nesil</div>
+                <div class="fertigasyon-card-header">
+                    <div class="fertigasyon-card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span class="fertigasyon-card-number">03</span>
+                </div>
+                <div class="fertigasyon-card-image ai-gradient">
+                    <div class="ai-visual">
+                        <i class="fas fa-microchip"></i>
+                        <div class="ai-pulse"></div>
+                    </div>
+                </div>
+                <div class="fertigasyon-card-content">
+                    <h3>Yapay Zeka Destekli Gübreleme</h3>
+                    <p class="fertigasyon-card-desc">Makine öğrenimi algoritmaları ile bitki ihtiyaçlarını tahmin edin, sensör verilerini analiz edin ve optimal gübreleme reçeteleri oluşturun.</p>
+
+                    <div class="fertigasyon-features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bitki ihtiyaç tahmini</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Gübreleme takvimi oluşturma</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Anomali tespiti</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Otomatik reçete optimizasyonu</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Verim tahminleme</span>
+                        </div>
+                    </div>
+
+                    <div class="ai-capabilities">
+                        <span class="ai-label">AI Yetenekleri:</span>
+                        <div class="ai-tags">
+                            <span class="ai-tag"><i class="fas fa-calendar-alt"></i> Takvim</span>
+                            <span class="ai-tag"><i class="fas fa-chart-line"></i> Tahmin</span>
+                            <span class="ai-tag"><i class="fas fa-search"></i> Analiz</span>
+                            <span class="ai-tag"><i class="fas fa-cogs"></i> Optimizasyon</span>
+                        </div>
+                    </div>
+
+                    <a href="/teknolojimiz" class="btn btn-primary">
+                        <i class="fas fa-robot"></i> AI Teknolojimiz
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="fertigasyon-bottom-cta" data-aos="fade-up">
+            <div class="cta-content">
+                <h3>Fertigasyon Çözümü mü Arıyorsunuz?</h3>
+                <p>Uzman ekibimiz projenize özel çözüm önerisi hazırlasın.</p>
+            </div>
+            <div class="cta-buttons">
+                <a href="https://wa.me/905412474505?text=Merhaba%2C%20Fertigasyon%20ve%20g%C3%BCbreleme%20sistemleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+                   target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp İletişim
+                </a>
+                <a href="/iletisim" class="btn btn-outline-white">
+                    <i class="fas fa-envelope"></i> Teklif Al
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="statistics section" id="statistics">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="section-tag">Rakamlarla Esular</span>
+            <h2>Güvenilir Teknoloji Ortağınız</h2>
+            <p>Türkiye'nin dört bir yanında binlerce çiftçiye akıllı tarım çözümleri sunuyoruz.</p>
+        </div>
+
+        <div class="stats-grid">
+            <!-- Stat 1 -->
+            <div class="stat-card" data-aos="fade-up">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-label">Mutlu Müşteri</div>
+                <!-- DEBUG: Config Value = 500 -->
+            </div>
+
+            <!-- Stat 2 -->
+            <div class="stat-card" data-aos="fade-up">
+                <div class="stat-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="stat-number" data-count="100000">0</div>
+                <div class="stat-label">Dekar Alan</div>
+            </div>
+
+            <!-- Stat 3 -->
+            <div class="stat-card" data-aos="fade-up">
+                <div class="stat-icon">
+                    <i class="fas fa-broadcast-tower"></i>
+                </div>
+                <div class="stat-number" data-count="3000">0</div>
+                <div class="stat-label">Aktif Sensör</div>
+            </div>
+
+            <!-- Stat 4 -->
+            <div class="stat-card" data-aos="fade-up">
+                <div class="stat-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="stat-number" data-count="10">0</div>
+                <div class="stat-label">Yıllık Deneyim</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+
+
+<section class="testimonial-carousel-section">
+    <div class="container">
+        <h2 class="testimonial-carousel-title" data-aos="fade-up">Ak&#x131;ll&#x131; Tar&#x131;m ve Sulama Teknolojileri</h2>
+
+        <!-- Tab Butonları -->
+        <div class="testimonial-tabs" data-aos="fade-up" data-aos-delay="100">
+            <button class="testimonial-tab active" data-tab="all">Tümü</button>
+            <button class="testimonial-tab" data-tab="sulama">Akıllı Sulama</button>
+            <button class="testimonial-tab" data-tab="sera">Sera</button>
+            <button class="testimonial-tab" data-tab="sensor">Sensör</button>
+        </div>
+
+        <!-- Testimonial Card -->
+        <div class="testimonial-card-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="testimonial-carousel-card">
+                <!-- Navigation -->
+                <div class="testimonial-nav">
+                    <button class="testimonial-arrow testimonial-prev" aria-label="Önceki">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <span class="testimonial-counter">
+                        <span class="current">1</span> / <span class="total">7</span>
+                    </span>
+                    <button class="testimonial-arrow testimonial-next" aria-label="Sonraki">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Testimonials -->
+                <div class="testimonial-slides">
+                    <div class="testimonial-slide active" data-category="sulama">
+                        <p class="testimonial-quote">"Enerjide %30, suda yaklaşık %50 tasarruf sağladık. Toprak nemine göre sulama yapıyorum, ağaçlar artık fazla veya az sulamaya maruz kalmıyor. Bahçeye sadece gübrelemek için gidiyorum."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">KK</div>
+                            <div class="testimonial-info">
+                                <strong>Kemal K.</strong>
+                                <span>Turunçgil Üreticisi - Tarsus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide" data-category="sera">
+                        <p class="testimonial-quote">"Enerji, su ve bahçeye gidip gelmede gözle görülür tasarruf sağladı. Haftada 4 kez giderdim, şimdi 2 kez yeterli. En çok işçilik giderinde katkı sağladı, sondaj motoru hiç arıza vermedi."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">HA</div>
+                            <div class="testimonial-info">
+                                <strong>Hasan A.</strong>
+                                <span>Muz Serası - 10 Dekar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide" data-category="sensor">
+                        <p class="testimonial-quote">"Ekibin yakın iletişimi ve samimiyeti bence sistemden daha önemli. Nem oranını anlık takip edebiliyorum. Sistem kurulumu kolay, kullanıcı dostu. Bütçem elverdiğince sistemi genişleteceğim."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">KK</div>
+                            <div class="testimonial-info">
+                                <strong>Kubilay K.</strong>
+                                <span>Üzüm Üreticisi - Bursa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide" data-category="sulama">
+                        <p class="testimonial-quote">"İş gücüne baya faydası var, özellikle vana değişimlerinde kafamız çok rahatladı. Ağaç gelişiminde çok fayda görüyoruz, sulama düzeni olduğu için çok memnunuz. Herkese tavsiye ediyoruz."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">UK</div>
+                            <div class="testimonial-info">
+                                <strong>Umut K.</strong>
+                                <span>Mandalina & Limon - Adana (500 Dönüm)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide" data-category="sulama">
+                        <p class="testimonial-quote">"Enerji, su tüketimi, iş gücü ve bitki verimliliğinde sistemin faydaları tartışılmaz. Çok parselli ekim alanlarında günün yarı zamanını sulama işi alıyordu, artık öyle değil."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DA</div>
+                            <div class="testimonial-info">
+                                <strong>Dilaver A.</strong>
+                                <span>Tarım İşletmesi - Manisa (50 Dekar)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide" data-category="sensor">
+                        <p class="testimonial-quote">"Telefondan takip ediyorum, işçilerin bahçeyi sulayıp sulamadığını uzaktan görüyorum. İnvertör takınca elektriğimiz düştü. Ben memnunum sistemden."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MO</div>
+                            <div class="testimonial-info">
+                                <strong>Murat O.</strong>
+                                <span>Tarım İşletmesi - Tarsus (500 Dönüm)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-slide" data-category="sulama">
+                        <p class="testimonial-quote">"2 yıldır kullanıyorum. Hiç bahçeye gitmeden kuyudan su çekebiliyorum, kaçak olup olmadığını ve parsellere ne kadar su verildiğini görebiliyorum. Yapılan masraf 2 senede çıkıyor. Sistemi herkese tavsiye ediyorum."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">AG</div>
+                            <div class="testimonial-info">
+                                <strong>Adil G.</strong>
+                                <span>Tarım İşletmesi Sahibi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="testimonial-cta" data-aos="fade-up" data-aos-delay="300">
+            <h3>Esular ile Akıllı Tarıma Bugün Başlayın</h3>
+            <p>Ücretsiz demo talep edin, size özel çözümlerimizi keşfedin.</p>
+            <a href="https://wa.me/905412474505?text=Merhaba%2C%20Esular%20sistemleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+               class="testimonial-cta-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Hemen İletişime Geçin
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const tabs = document.querySelectorAll('.testimonial-tab');
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
+    const currentSpan = document.querySelector('.testimonial-counter .current');
+    const totalSpan = document.querySelector('.testimonial-counter .total');
+
+    let currentIndex = 0;
+    let filteredSlides = [...slides];
+
+    function updateSlides() {
+        slides.forEach(s => s.classList.remove('active'));
+        if (filteredSlides[currentIndex]) {
+            filteredSlides[currentIndex].classList.add('active');
+            currentSpan.textContent = currentIndex + 1;
+            totalSpan.textContent = filteredSlides.length;
+        }
+    }
+
+    function filterByCategory(category) {
+        if (category === 'all') {
+            filteredSlides = [...slides];
+        } else {
+            filteredSlides = [...slides].filter(s => s.dataset.category === category);
+        }
+        currentIndex = 0;
+        updateSlides();
+    }
+
+    prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + filteredSlides.length) % filteredSlides.length;
+        updateSlides();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % filteredSlides.length;
+        updateSlides();
+    });
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            filterByCategory(tab.dataset.tab);
+        });
+    });
+
+    // Auto-play
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % filteredSlides.length;
+        updateSlides();
+    }, 6000);
+});
+</script>
+
+
+<!-- AI CTA Banner Section -->
+
+<!-- AI CTA Banner Section -->
+<section class="ai-cta-banner">
+    <div class="ai-cta-gradient-overlay"></div>
+    <div class="container">
+        <div class="ai-cta-wrapper" data-aos="fade-up">
+            <!-- Sol Taraf - İçerik -->
+            <div class="ai-cta-content">
+                <h2 class="ai-cta-title">
+                    Dijital Tarımda<br>
+                    <span class="ai-cta-highlight">Yapay Zeka</span> Gücü
+                </h2>
+                <p class="ai-cta-description">
+                    Esular AI ile tarımınızı geleceğe taşıyın. Akıllı sulama kararları, hastalık tespiti ve verim tahminleri artık tek platformda.
+                </p>
+                <div class="ai-cta-buttons">
+                    <a href="/teknolojimiz" class="ai-cta-btn ai-cta-btn-primary">
+                        <i class="fas fa-microchip"></i>
+                        Teknolojiyi Keşfet
+                    </a>
+                    <a href="https://wa.me/905412474505?text=Merhaba%2C%20Esular%20yapay%20zeka%20%C3%A7%C3%B6z%C3%BCmleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum."
+                       class="ai-cta-btn ai-cta-btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        Hemen Başlayın
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sağ Taraf - İstatistikler -->
+            <div class="ai-cta-stats-box">
+                <div class="ai-cta-stats-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="ai-cta-stat-item">
+                    <span class="ai-cta-stat-number">500+</span>
+                    <span class="ai-cta-stat-label">Aktif Kullanıcı</span>
+                </div>
+                <div class="ai-cta-stat-item">
+                    <span class="ai-cta-stat-number">%40</span>
+                    <span class="ai-cta-stat-label">Su Tasarrufu</span>
+                </div>
+                <div class="ai-cta-stat-item">
+                    <span class="ai-cta-stat-number">7/24</span>
+                    <span class="ai-cta-stat-label">Destek</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section class="contact section" id="contact">
+    <div class="container">
+        <div class="contact-container">
+            <!-- Contact Info -->
+            <div class="contact-info" data-aos="fade-right">
+                <span class="section-tag">İletişim</span>
+                <h2>Bize Ulaşın</h2>
+                <p>Akıllı tarım çözümlerimiz hakkında bilgi almak veya demo talep etmek için bizimle iletişime geçin.</p>
+
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h5>Adres</h5>
+                            <p>REŞİTPAŞA Mah. KATAR Cad.<br>Arı 4 Binası No: 2/50/6<br>SARIYER / İSTANBUL<br>(İTÜ Teknokent Arı 4 Binası)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h5>Telefon</h5>
+                            <p><a href="tel:08503034991">0850 303 49 91</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h5>WhatsApp</h5>
+                            <p><a href="https://wa.me/905412474505" target="_blank">0541 247 45 05</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-item-content">
+                            <h5>E-posta</h5>
+                            <p>
+                                <a href="/cdn-cgi/l/email-protection#51383f373e113422243d30237f323e3c"><span class="__cf_email__" data-cfemail="e28b8c848da28791978e8390cc818d8f">[email&#160;protected]</span></a><br>
+                                <a href="/cdn-cgi/l/email-protection#fd99988e899896bd988e88919c8fd39e9290"><span class="__cf_email__" data-cfemail="1c78796f6879775c796f69707d6e327f7371">[email&#160;protected]</span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form" data-aos="fade-left">
+                <h3>Demo Talep Formu</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Ad Soyad *</label>
+                            <input type="text" id="name" name="name" required placeholder="Adınız Soyadınız">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0541 000 00 00">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-posta *</label>
+                        <input type="email" id="email" name="email" required placeholder="ornek@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Şirket / Çiftlik Adı</label>
+                        <input type="text" id="company" name="company" placeholder="Şirket veya çiftlik adınız">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">İlgilendiğiniz Ürün</label>
+                        <select id="interest" name="interest">
+                            <option value="">Seçiniz</option>
+                            <option value="toprak-nem-sensoru">Toprak Nem Sensörü</option>
+                            <option value="akilli-sulama">Akıllı Sulama Sistemi</option>
+                            <option value="sera-otomasyonu">Sera Otomasyonu</option>
+                            <option value="meteoroloji">Meteoroloji İstasyonu</option>
+                            <option value="scada">SCADA Yazılımı</option>
+                            <option value="diger">Diğer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Projeniz hakkında kısaca bilgi verin..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        Gönder
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="/" class="header-logo" style="margin-right: 2rem;">
+                        <img src="/images/logo.png" alt="Esular Logo" class="logo-img" width="120" height="40" loading="lazy">
+                    </a>
+                    <p>Akıllı tarım teknolojileri ile tarımınızı geleceğe taşıyoruz. IoT sensörler, bulut tabanlı yönetim ve otomasyon çözümleri.</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/esularr" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/esular1/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/esular" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@esular" target="_blank" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://x.com/esularr" target="_blank" aria-label="Twitter (X)">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@esular.com" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                    <a href="/bayilik" class="btn btn-primary btn-dealer">
+                        <i class="fas fa-handshake"></i> Esular Bayisi Ol
+                    </a>
+                </div>
+
+                <!-- Products Column -->
+                <div class="footer-column">
+                    <h5>Ürünler</h5>
+                    <div class="footer-links">
+                        <a href="/urunler/toprak-nem-sensoru">Toprak Nem Sensörü</a>
+                        <a href="/urunler/kablosuz-sulama">Kablosuz Sulama</a>
+                        <a href="/urunler/sera-urunleri">Sera Ürünleri</a>
+                        <a href="/urunler/meteoroloji-istasyonu">Meteoroloji İstasyonu</a>
+                        <a href="/smart-garden-akilli-bahce-sulama-sistemi">Smart-Garden Serisi</a>
+                        <a href="/urunler/smart-agro-gubreleme">Smart Agro Serisi</a>
+                        <a href="/urunler/sera-iklimlendirme">Sera İklimlendirme</a>
+                    </div>
+                </div>
+
+                <!-- Solutions Column -->
+                <div class="footer-column">
+                    <h5>Çözümler</h5>
+                    <div class="footer-links">
+                        <a href="/otomatik-sulama-sistemi">Otomatik Sulama Sistemi</a>
+                        <a href="/acik-alan-tarim-sulama">Açık Alan Tarımı</a>
+                        <a href="/sera-sulama-otomasyonu">Sera Sistemleri</a>
+                        <a href="/pivot-sulama-sistemi">Pivot Sulama</a>
+                        <a href="/dikey-tarim-hidroponik-sulama">Dikey Tarım</a>
+                        <a href="/park-bahce-sulama">Park & Bahçe</a>
+                        <a href="/dusuk-basinc-otomatik-sulama-sistemi">Düşük Basınç Sulama</a>
+                        <a href="/otomatik-sulama-zamanlayici">Otomatik Sulama Zamanlayıcı</a>
+                        <a href="/platform">Platform</a>
+                    </div>
+                    <h5 style="margin-top: 1.5rem;">Kurumsal</h5>
+                    <div class="footer-links">
+                        <a href="/hakkimizda">Hakkımızda</a>
+                        <a href="/teknolojimiz">Teknolojimiz</a>
+                        <a href="/akilli-sulama-projeleri">Projelerimiz</a>
+                        <a href="/yenilikler">Yenilikler</a>
+                        <a href="/hizmetler">Hizmetlerimiz</a>
+                    </div>
+                </div>
+
+                <!-- Guides + Contact Column -->
+                <div class="footer-column">
+                    <h5>Rehberler</h5>
+                    <div class="footer-links">
+                        <a href="/akilli-sulama-cozumleri-secim-rehberi">Akıllı Sulama Rehberi</a>
+                        <a href="/iklim-meteoroloji-istasyonu-secim-rehberi">İklim İstasyonu Rehberi</a>
+                        <a href="/selenoid-vanalar">Selenoid Vana Rehberi</a>
+                        <a href="/vana-secim-rehberi">Vana Seçim Rehberi</a>
+                        <a href="/damla-sulama-sistemleri">Damla Sulama Rehberi</a>
+                        <a href="/tarimsal-akilli-sulama-sistemi">Akıllı Sulama Sistemi Rehberi</a>
+                        <a href="/tarimsal-sulama-sistemi">Tarımsal Sulama Rehberi</a>
+                        <a href="/akilli-sulama-sss">Akıllı Sulama SSS</a>
+                        <a href="/sikca-sorulan-sorular">Sıkça Sorulan Sorular</a>
+                    </div>
+                    <h5 style="margin-top: 1.5rem;">İletişim</h5>
+                    <div class="footer-links">
+                        <a href="tel:08503034991">
+                            <i class="fas fa-phone"></i> 0850 303 49 91
+                        </a>
+                        <a href="https://wa.me/905412474505" target="_blank">
+                            <i class="fab fa-whatsapp"></i> 0541 247 45 05
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#5930373f36193c2a2c35382b773a3634">
+                            <i class="fas fa-envelope"></i> <span class="__cf_email__" data-cfemail="1d74737b725d786e68717c6f337e7270">[email&#160;protected]</span>
+                        </a>
+                        <a href="https://maps.google.com/?q=İTÜ+Teknokent+ARI+4+Binası+Sarıyer+İstanbul" target="_blank">
+                            <i class="fas fa-map-marker-alt"></i> İTÜ Teknokent, İstanbul
+                        </a>
+                        <a href="/destek">
+                            <i class="fas fa-headset"></i> Destek Merkezi
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="footer-newsletter">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h5><i class="fas fa-envelope-open-text"></i> Bültenimize Abone Olun</h5>
+                        <p>Tarım teknolojileri, yeni ürünler ve kampanyalardan haberdar olun.</p>
+                    </div>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" id="newsletterEmail" placeholder="E-posta adresiniz" required>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Abone Ol</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Esular Dijital Tarım Teknolojileri. Tüm hakları saklıdır.</p>
+                <div class="footer-bottom-links">
+                    <a href="/gizlilik-politikasi">Gizlilik Politikası</a>
+                    <a href="/kullanim-kosullari">Kullanım Koşulları</a>
+                    <a href="/kvkk">KVKK</a>
+                    <a href="#" onclick="openCookieSettings(); return false;">Çerez Tercihleri</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container for notifications -->
+    <div id="globalToastContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/905412474505?text=Merhaba, akıllı tarım çözümleri hakkında bilgi almak istiyorum."
+           target="_blank"
+           aria-label="WhatsApp ile iletişime geçin">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- AOS JS - DISABLED for CLS performance -->
+
+    <!-- Esular Config (localized strings) -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        window.esularConfig = {
+            currentLanguage: 'tr',
+            strings: {
+                success: 'Başarılı',
+                error: 'Hata',
+                thanks: 'Teşekkürler!',
+                errorMessage: 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.'
+            }
+        };
+    </script>
+
+    <!-- Application Scripts - Deferred -->
+    <script src="/js/main.js?v=4.0" defer></script>
+    <script src="/js/global.js?v=4.0" defer></script>
+    <script src="/js/language-switcher.js?v=4.0" defer></script>
+    <script src="/js/analytics.js?v=1.0" defer></script>
+
+    
+    <script>
+        // Form submission - redirect to WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const interestSelect = document.getElementById('interest');
+            const interestText = interestSelect.options[interestSelect.selectedIndex].text;
+            const message = document.getElementById('message').value;
+
+            let whatsappMessage = `Merhaba, Esular web sitesinden iletişime geçiyorum.\n\n`;
+            whatsappMessage += `*Ad Soyad:* ${name}\n`;
+            whatsappMessage += `*Telefon:* ${phone}\n`;
+            whatsappMessage += `*E-posta:* ${email}\n`;
+            if (company) whatsappMessage += `*Şirket:* ${company}\n`;
+            if (interestText && interestText !== 'Seçiniz') whatsappMessage += `*İlgilendiğim Ürün:* ${interestText}\n`;
+            if (message) whatsappMessage += `*Mesaj:* ${message}\n`;
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            window.open(`https://wa.me/905412474505?text=${encodedMessage}`, '_blank');
+        });
+    </script>
+
+
+    <!-- Cookie Consent -->
+    <!-- Cookie Consent Banner -->
+<div id="cookieConsent" class="cookie-consent" style="display: none;">
+    <div class="cookie-consent-content">
+        <div class="cookie-consent-text">
+            <i class="fas fa-shield-alt cookie-icon"></i>
+            <div>
+                <strong>Çerez Kullanımı</strong>
+                <p>Size daha iyi bir deneyim sunmak için çerezler kullanıyoruz. <a href="/gizlilik">Gizlilik Politikası</a></p>
+            </div>
+        </div>
+        <div class="cookie-consent-actions">
+            <button type="button" class="btn-cookie-reject" onclick="rejectOptionalCookies()">
+                Sadece Gerekli
+            </button>
+            <button type="button" class="btn-cookie-settings" onclick="openCookieSettings()">
+                <i class="fas fa-cog"></i> Ayarlar
+            </button>
+            <button type="button" class="btn-cookie-accept" onclick="acceptAllCookies()">
+                <i class="fas fa-check"></i> Kabul Et
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Cookie Settings Modal -->
+<div id="cookieSettingsModal" class="cookie-modal" style="display: none;">
+    <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+            <h5><i class="fas fa-sliders-h"></i> Çerez Tercihleri</h5>
+            <button type="button" class="cookie-modal-close" onclick="closeCookieSettings()">&times;</button>
+        </div>
+        <div class="cookie-modal-body">
+            <p class="cookie-modal-desc">Hangi çerezlerin kullanılacağını aşağıdan yönetebilirsiniz. Zorunlu çerezler site işlevselliği için gereklidir ve kapatılamaz.</p>
+
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <strong>Zorunlu Çerezler</strong>
+                    <span class="cookie-badge required">Gerekli</span>
+                    <p>Site'nin temel işlevleri için gereklidir. Oturum yönetimi ve güvenlik.</p>
+                </div>
+                <label class="cookie-switch disabled">
+                    <input type="checkbox" checked disabled>
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <strong>Analitik Çerezler</strong>
+                    <p>Site kullanımını analiz etmemize yardımcı olur. Google Analytics vb.</p>
+                </div>
+                <label class="cookie-switch">
+                    <input type="checkbox" id="cookieAnalytics">
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+
+            <div class="cookie-option">
+                <div class="cookie-option-info">
+                    <strong>Pazarlama Çerezler</strong>
+                    <p>Kişiselleştirilmiş reklamlar göstermek için kullanılır.</p>
+                </div>
+                <label class="cookie-switch">
+                    <input type="checkbox" id="cookieMarketing">
+                    <span class="cookie-slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="cookie-modal-footer">
+            <button type="button" class="btn-cookie-reject" onclick="rejectOptionalCookies()">Sadece Zorunlu</button>
+            <button type="button" class="btn-cookie-save" onclick="saveCookieSettings()">Tercihleri Kaydet</button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Cookie Consent Banner */
+.cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    z-index: 10000;
+    padding: 16px 0;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cookie-consent-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cookie-consent-text {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.cookie-icon {
+    font-size: 2rem;
+    color: var(--esular-orange);
+}
+
+.cookie-consent-text strong {
+    display: block;
+    font-size: 1rem;
+    color: #1a1a1a; /* Daha koyu - WCAG uyumlu */
+    margin-bottom: 4px;
+}
+
+.cookie-consent-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #4a4a4a; /* Daha koyu - WCAG uyumlu */
+}
+
+.cookie-consent-text a {
+    color: #c65000; /* Daha koyu turuncu - kontrast için */
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.cookie-consent-text a:hover {
+    color: #a04000;
+    text-decoration: underline;
+}
+
+.cookie-consent-actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn-cookie-settings,
+.btn-cookie-accept,
+.btn-cookie-reject,
+.btn-cookie-save {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: none;
+}
+
+.btn-cookie-settings {
+    background: var(--gray-100);
+    color: var(--gray-700);
+    border: 1px solid var(--gray-300);
+}
+
+.btn-cookie-settings:hover {
+    background: var(--gray-200);
+}
+
+.btn-cookie-accept,
+.btn-cookie-save {
+    background: #d35400; /* Daha koyu turuncu - WCAG uyumlu */
+    color: #fff;
+    font-weight: 700;
+}
+
+.btn-cookie-accept:hover,
+.btn-cookie-save:hover {
+    background: #b84600;
+    transform: translateY(-1px);
+}
+
+.btn-cookie-reject {
+    background: #fff;
+    color: var(--gray-600);
+    border: 1px solid var(--gray-300);
+}
+
+.btn-cookie-reject:hover {
+    background: var(--gray-100);
+}
+
+/* Cookie Settings Modal */
+.cookie-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.cookie-modal-content {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+@keyframes modalFadeIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cookie-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-modal-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--gray-800);
+}
+
+.cookie-modal-header h5 i {
+    color: var(--esular-orange);
+}
+
+.cookie-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.cookie-modal-close:hover {
+    color: var(--gray-800);
+}
+
+.cookie-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+
+.cookie-modal-desc {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.cookie-option {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-200);
+    gap: 16px;
+}
+
+.cookie-option:last-child {
+    border-bottom: none;
+}
+
+.cookie-option-info {
+    flex: 1;
+}
+
+.cookie-option-info strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--gray-800);
+    margin-bottom: 4px;
+}
+
+.cookie-option-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    line-height: 1.5;
+}
+
+.cookie-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.cookie-badge.required {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4CAF50;
+}
+
+/* Cookie Switch */
+.cookie-switch {
+    position: relative;
+    width: 50px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.cookie-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cookie-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gray-300);
+    border-radius: 28px;
+    transition: 0.3s;
+}
+
+.cookie-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cookie-switch input:checked + .cookie-slider {
+    background: var(--esular-orange);
+}
+
+.cookie-switch input:checked + .cookie-slider:before {
+    transform: translateX(22px);
+}
+
+.cookie-switch.disabled .cookie-slider {
+    background: #4caf50;
+    cursor: not-allowed;
+}
+
+.cookie-modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--gray-200);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    background: var(--gray-100);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .cookie-consent-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-consent-text {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cookie-consent-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cookie-modal-footer {
+        flex-direction: column;
+    }
+
+    .btn-cookie-reject,
+    .btn-cookie-save {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+
+<script>
+// Cookie Consent Management
+(function() {
+    const COOKIE_CONSENT_KEY = 'esular_cookie_consent';
+
+    // Check if consent was already given
+    function checkCookieConsent() {
+        const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+        if (!consent) {
+            document.getElementById('cookieConsent').style.display = 'block';
+        } else {
+            // Apply saved preferences
+            const preferences = JSON.parse(consent);
+            applyCookiePreferences(preferences);
+        }
+    }
+
+    // Apply cookie preferences
+    function applyCookiePreferences(preferences) {
+        if (preferences.analytics) {
+            enableAnalytics();
+        } else {
+            disableAnalytics();
+        }
+
+        if (preferences.marketing) {
+            enableMarketing();
+        } else {
+            disableMarketing();
+        }
+    }
+
+    // Tercihler Google Consent Mode v2 ile GA4'e iletilir (layout'taki gtag('consent','default') = hepsi 'denied').
+    // Eski "ga-disable-UA-XXXXX-Y" bayrağı GA4'ü durdurmuyordu — Reddet etkisizdi.
+    function updateConsent(fields) {
+        if (typeof window.gtag === 'function') window.gtag('consent', 'update', fields);
+    }
+
+    // Enable/Disable Analytics — GA4 script'i yalnız onayla yüklenir (layout: window.loadGA, tek sefer)
+    function enableAnalytics() {
+        updateConsent({ analytics_storage: 'granted' });
+        if (typeof window.loadGA === 'function') window.loadGA();
+    }
+
+    function disableAnalytics() {
+        updateConsent({ analytics_storage: 'denied' });
+        // Remove existing GA cookies (GA4: _ga + _ga_<ölçüm kimliği>)
+        deleteCookie('_ga');
+        deleteCookie('_ga_7C6CD172K1');
+        deleteCookie('_gid');
+        deleteCookie('_gat');
+    }
+
+    // Enable/Disable Marketing
+    function enableMarketing() {
+        updateConsent({ ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+    }
+
+    function disableMarketing() {
+        updateConsent({ ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+        deleteCookie('_fbp');
+        deleteCookie('_fbc');
+    }
+
+    // Delete a cookie — GA çerezleri ana alan adına (.esular.com) yazılır; o varyant da silinir
+    function deleteCookie(name) {
+        var expired = '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        document.cookie = name + expired;
+        var host = location.hostname.replace(/^www\./, '');
+        if (host.indexOf('.') > 0) document.cookie = name + expired + ' domain=.' + host + ';';
+    }
+
+    // Accept all cookies
+    window.acceptAllCookies = function() {
+        const preferences = {
+            necessary: true,
+            analytics: true,
+            marketing: true,
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));
+        applyCookiePreferences(preferences);
+        document.getElementById('cookieConsent').style.display = 'none';
+    };
+
+    // Reject optional cookies
+    window.rejectOptionalCookies = function() {
+        const preferences = {
+            necessary: true,
+            analytics: false,
+            marketing: false,
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));
+        applyCookiePreferences(preferences);
+        closeCookieSettings();
+        document.getElementById('cookieConsent').style.display = 'none';
+    };
+
+    // Open cookie settings modal
+    window.openCookieSettings = function() {
+        // Load current preferences
+        const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
+        if (consent) {
+            const preferences = JSON.parse(consent);
+            document.getElementById('cookieAnalytics').checked = preferences.analytics;
+            document.getElementById('cookieMarketing').checked = preferences.marketing;
+        }
+        document.getElementById('cookieSettingsModal').style.display = 'flex';
+    };
+
+    // Close cookie settings modal
+    window.closeCookieSettings = function() {
+        document.getElementById('cookieSettingsModal').style.display = 'none';
+    };
+
+    // Save cookie settings
+    window.saveCookieSettings = function() {
+        const preferences = {
+            necessary: true,
+            analytics: document.getElementById('cookieAnalytics').checked,
+            marketing: document.getElementById('cookieMarketing').checked,
+            timestamp: new Date().toISOString()
+        };
+        localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(preferences));
+        applyCookiePreferences(preferences);
+        closeCookieSettings();
+        document.getElementById('cookieConsent').style.display = 'none';
+    };
+
+    // Close modal when clicking outside
+    document.addEventListener('click', function(e) {
+        const modal = document.getElementById('cookieSettingsModal');
+        if (e.target === modal) {
+            closeCookieSettings();
+        }
+    });
+
+    // Initialize on DOM ready
+    document.addEventListener('DOMContentLoaded', checkCookieConsent);
+})();
+</script>
+
+
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5be2ed8f8c2fa35',t:'MTc5NDkxMjcxNQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5be2ed8f8c2fa35',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -739,12 +739,12 @@
         "dizin",
         "gelisme"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
-        "tr": "Yaşayan bir dizin. Tarama yeni kaydı taslak olarak önerir, onayla girer.",
-        "en": "A living directory. The scan proposes new entries as drafts; they enter on approval."
+        "tr": "Kamunun yapay zekâ sistemleri ve projeleri, TÜBİTAK'ın tarım projeleri, üniversite merkezleri ve girişimler — her biri kaynağıyla.",
+        "en": "Public AI systems and projects, TÜBİTAK's agriculture projects, university centres and start-ups — each with its source."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {

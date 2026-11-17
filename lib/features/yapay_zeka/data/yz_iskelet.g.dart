@@ -313,9 +313,9 @@ const List<YzBaslik> kYzBasliklar = [
       "Türkiye directory: start-ups, universities, public projects",
       false,
       ["goruntu", "tahmin", "robotik", "sensor", "dil", "uzaktan"],
-      false,
-      "Yaşayan bir dizin. Tarama yeni kaydı taslak olarak önerir, onayla girer.",
-      "A living directory. The scan proposes new entries as drafts; they enter on approval."),
+      true,
+      "Kamunun yapay zekâ sistemleri ve projeleri, TÜBİTAK'ın tarım projeleri, üniversite merkezleri ve girişimler — her biri kaynağıyla.",
+      "Public AI systems and projects, TÜBİTAK's agriculture projects, university centres and start-ups — each with its source."),
   YzBaslik(
       26,
       "riskler-ve-sinirlar",
