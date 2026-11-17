@@ -240,6 +240,17 @@
         "Grafik 5. İstihdam edilenlerde ortalama yaş (2023) Kaynak: TÜİK, 2024a",
         "TÜİK. 2024a. İşgücü İstatistikleri -2023."
       ]
+    },
+    "fao_ebrd_2025_turkiye": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger F., Sener B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma: FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3.",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "tob_2020_anketi_akilli_tarim_kullanan_ciftci_ust_yuzde": 3,
+      "alinti": [
+        "TOB 2020 anketine göre, çiftçilerin yüzde 3'ünden azı uzaktan algılama, sensörler ve IoT cihazları, çiftlik veya sürü yönetimi yazılımı, hassas tarım veya hayvancılık teknolojileri veya robotik uygulamalar gibi akıllı tarım teknolojilerini kullanmaktadır."
+      ],
+      "_kopya": "b02_kaynaklar.json · fao_ebrd_2025_turkiye"
     }
   },
   "turkiye": {

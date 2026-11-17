@@ -38,7 +38,9 @@ IV. Tarım Orman Şûrası'nın kırsal kalkınma çalışma belgesi, TÜİK'in 
 
 2027 Yıllık Programı'na göre işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı üretim maliyetlerini artırıyor, tarımsal mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştiriyor. Köylerde **65** yaş ve üzeri nüfus **1.159.477** kişi. Tarımın toplam istihdamdaki payı 2025'te **%14**, 2026'nın ilk yarısında **%13,4**. Program tarım işletmelerinin ve üretici örgütlerinin akıllı tarım konusundaki beşeri ve teknik altyapısının geliştirilmesini desteklemeyi öngörüyor; 2025 Genel Tarım Sayımı'nın sonuçlarının 2026 sonunda paylaşılması bekleniyor.
 
-Eksik olan ise **Türkiye'de çiftçilerin dijital araçları ve yapay zekâyı ne ölçüde kullandığını gösteren, yayımlanmış resmî bir istatistik.**
+Çiftçilerin dijital teknolojiyi ne ölçüde kullandığına dair bir ölçüm bakanlığın 2020 anketinden geliyor: FAO ile EBRD'nin 2025 raporu, bu ankete dayanarak çiftçilerin **%3**'ünden azının uzaktan algılama, sensör, çiftlik ya da sürü yönetimi yazılımı, hassas tarım ya da robotik gibi akıllı tarım teknolojilerini kullandığını aktarıyor.
+
+Eksik olan ise **Türkiye'de çiftçilerin dijital araçları ve yapay zekâyı ne ölçüde kullandığını düzenli olarak ölçen, yayımlanmış resmî bir istatistik.**
 
 ## Bu sayfa nasıl güncelleniyor
 

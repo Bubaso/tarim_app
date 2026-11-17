@@ -38,7 +38,9 @@ A working paper on rural development for the Fourth Agriculture and Forestry Cou
 
 According to the 2027 Annual Programme, the small, fragmented and scattered land structure of farms raises production costs and hinders the effective use of mechanisation and modern production techniques. In villages, **1,159,477** people are aged **65** or over. Agriculture's share of total employment was **14%** in 2025 and **13.4%** in the first half of 2026. The programme plans to support the development of the human and technical capacity of farms and producer organisations for smart farming; the results of the 2025 General Agricultural Census are expected to be shared at the end of 2026.
 
-What is missing is **a published official statistic showing to what extent farmers in Türkiye use digital tools and AI.**
+One measurement of how far farmers use digital technology comes from a 2020 ministry survey: based on it, a 2025 report by FAO and the EBRD states that fewer than **3%** of farmers use smart farming technologies such as remote sensing, sensors, farm or herd management software, precision farming or robotics.
+
+What is missing is **a published official statistic that regularly measures to what extent farmers in Türkiye use digital tools and AI.**
 
 ## How this page is kept up to date
 

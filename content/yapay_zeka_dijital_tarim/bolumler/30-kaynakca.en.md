@@ -192,7 +192,7 @@ Hemming S., de Zwart F., Elings A., Righini I., Petropoulou A. 2019. Remote cont
 
 Hopkins A.M., Logan J.M., Kichenadasse G., Sorich M.J. 2023. Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift. JNCI Cancer Spectrum 7(2): pkad010. https://doi.org/10.1093/jncics/pkad010 · §3
 
-Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426. https://openknowledge.fao.org/handle/20.500.14283/cd3185tr · §2, §3, §25
+Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma, FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3. PDF: openknowledge.fao.org bitstream 525da5a1-316b-45ea-bef3-d78fad712426. https://openknowledge.fao.org/handle/20.500.14283/cd3185tr · §2, §3, §25, §26
 
 ## I
 
