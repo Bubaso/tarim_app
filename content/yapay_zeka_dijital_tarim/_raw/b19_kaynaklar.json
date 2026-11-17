@@ -1,0 +1,189 @@
+{
+  "_ne": "§19 Uydu ve uzaktan algılama — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Kamu kurumunun ya da uzay ajansının kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "nasa_2019_landsat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Landsat Science (Rocchio L.E.P.). 2019. Landsat Science Team members support the free and open Landsat data policy. 20 Mart 2019. [Zhu Z. ve ark. 2019, Benefits of the free and open Landsat data policy, Remote Sensing of Environment 224: 382-385 makalesinin kurumsal özeti]",
+      "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+      "dosya": "kaynak_dosyalari/nasa_2019_landsat_acik_veri.html",
+      "ucretsiz_erisim_yili": 2008,
+      "veri_kullanimi_artisi_kat": 20,
+      "_not": "Zhu ve ark. 2019 (Remote Sensing of Environment 224) makalesinin NASA özeti. Yayın artışı 'four-fold' yazıyla; metin 'dört kat' diye yazıyla aktarır.",
+      "alinti": [
+        "Keep Landsat data free and open—this is the resounding takeaway from a recent Remote Sensing of Environment article penned by fourteen members of the 2018-2023 Landsat Science Team.",
+        "After the 2008 USGS decision to make Landsat data available at no cost, data use has increased 20-fold, and Landsat-based scientific publications has increased four-fold.",
+        "In the paper Dr. Zhe Zhu and co-authors describe how the free and open data policy has allowed researchers to harness the nearly half-century of information contained in the Landsat archive to do robust, global time series analysis",
+        "They emphatically state that loss of the free and open data policy would have a significant impact on the research community."
+      ]
+    },
+    "usgs_2019_landsat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Straub C.L., Koontz S.R., Loomis J.B. 2019. Economic valuation of Landsat imagery. U.S. Geological Survey Open-File Report 2019-1112. 13 s.",
+      "doi": "10.3133/ofr20191112",
+      "dosya": "kaynak_dosyalari/usgs_2019_landsat_ekonomik_deger.html",
+      "ucretsiz_erisim_yili": 2008,
+      "yillik_fayda_2017_milyar_usd": 3.45,
+      "yillik_fayda_2011_milyar_usd": 2.19,
+      "odemeyecek_kullanici_yuzde_en_az": 50,
+      "_not": "Kullanıcı anketine dayalı değerleme; tarım dahil bütün kullanımlar.",
+      "alinti": [
+        "Landsat imagery has been available at no cost to the public since 2008, resulting in the distribution of millions of scenes each subsequent year.",
+        "Landsat imagery provided domestic and international users an estimated $3.45 billion in benefits in 2017 compared to $2.19 billion in 2011, with U.S. users accounting for $2.06 billion of those benefits.",
+        "Much of the societal value of Landsat stems from the free and open data policy that allows users to access as much imagery as is necessary for their analysis at no cost.",
+        "Charging even small fees would result in a loss of users and, most likely, a steep decline in the amount of imagery downloaded.",
+        "It is reasonable that more than 50 percent of users will decline to pay."
+      ]
+    },
+    "sentiwiki_sentinel2": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Copernicus SentiWiki (ESA). S2 Mission: Overview of Sentinel-2 Mission. https://sentiwiki.copernicus.eu/web/s2-mission (erişim 17 Kasım 2026).",
+      "adres": "https://sentiwiki.copernicus.eu/web/s2-mission",
+      "dosya": "kaynak_dosyalari/copernicus_sentiwiki_sentinel2_gorev.html",
+      "yeniden_gecis_gun": 5,
+      "spektral_bant": 13,
+      "en_ince_cozunurluk_m": 10,
+      "serit_km": 290,
+      "sentinel2c_firlatma_yili": 2024,
+      "alinti": [
+        "The full mission specification of the twin satellites flying in the same orbit but phased at 180°, is designed to give a high revisit frequency of 5 days at the Equator.",
+        "Each of the satellites in the Sentinel-2 mission carries a single payload: the optical Multi-Spectral Instrument (MSI) that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60 m spatial resolution.",
+        "The orbital swath width is 290 km.",
+        "These satellites are used to support a variety of services and applications offered by Copernicus, including land management, agriculture, forestry, disaster control, humanitarian relief operations, risk mapping, and security concerns.",
+        "Sentinel-2C was launched on September 5th, 2024, and joined the other two satellites, starting to operate alongside Sentinel-2A to ensure seamless calibration and uninterrupted data collection.",
+        "The MSI works passively, by collecting sunlight reflected from the Earth.",
+        "the Sentinel-2 extension campaign complements the nominal constellation operations, enhancing the revisit frequency over Europe and tropical regions of Africa and South America, frequently impacted by high cloud cover"
+      ]
+    },
+    "whitcraft_2015": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Whitcraft A.K., Vermote E.F., Becker-Reshef I., Justice C.O. 2015. Cloud cover throughout the agricultural growing season: Impacts on passive optical earth observations. Remote Sensing of Environment 156: 438-447.",
+      "doi": "10.1016/j.rse.2014.10.009",
+      "dosya": "kaynak_dosyalari/whitcraft_2015_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "modis_veri_yil": "10-13",
+      "bilesik_gun": 8,
+      "netlik_esigi_yuzde": 70,
+      "_not": "Küresel ölçek; Türkiye için ayrı değer yok.",
+      "alinti": [
+        "Cloud cover impedes optical satellite remote sensing instruments from obtaining clear views of the Earth's surface.",
+        "Meanwhile, agriculture is a highly dynamic process, with significant changes in crop biomass and condition often occurring within roughly a week.",
+        "we employ 10–13years of twice daily 0.05° MODIS Terra (AM) and Aqua (PM) surface reflectance quality assessment cloud flags",
+        "This research shows that the early and mid-agricultural growing season, which are important periods for crop type area identification and crop yield forecasting, are characterized by both frequent and pervasive cloud extent.",
+        "Many important agricultural areas during this and other portions of the agricultural growing season are so persistently and pervasively occluded by clouds that less than half of their 8day composites would be even 70% clear",
+        "optical, polar-orbiting imaging is not likely to be a viable option for operational monitoring and alternatives (e.g. microwave synthetic aperture radar, SAR) ought to be considered",
+        "for most agricultural areas of the world, regardless of seasonality, morning acquisitions are more likely to return reasonably clear views"
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı. Cumhurbaşkanı Kararı sayı 11934. Resmî Gazete 27 Ekim 2026, sayı 33413 (Mükerrer).",
+      "adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "islenmeyen_tespit_2024_bin_ha": 29.5,
+      "uretime_donen_bin_ha": 16.1,
+      "_denetim": "İMECE-2 ve İMECE-3 satırlarında tarım geçmiyor. İşlenmeyen arazinin üretime dönüşü re'sen kiralama uygulamasına bağlanıyor; program tespit yöntemini yazmıyor — metin uydu ile nedensel bağ kurmaz (PDF s164).",
+      "alinti": [
+        "2026 yılı itibarıyla Yüksek Çözünürlüklü Takım Uydu Geliştirilmesi projesi kapsamında İMECE-2 ve İMECE-3 uydularının geliştirme faaliyetleri devam etmektedir.",
+        "Yüksek Çözünürlüklü Takım Uydu Geliştirilmesi Projesi kapsamında İMECE-2 Uydusu entegrasyon, çevresel test ve fırlatma hazırlıkları tamamlanacaktır.",
+        "İMECE-3 Uydusu sistem entegrasyon faaliyetleri gerçekleştirilecektir.",
+        "Uygulamanın da etkisiyle 2024 yılında işlenmediği tespit edilen 29,5 bin hektar alanın 16,1 bin hektarında arazi sahipleri tarafından yeniden tarımsal üretime başlanmıştır.",
+        "Tarım arazilerinin etkin kullanımına yönelik olarak üst üste iki yıl işlenmeyen arazilerin re’sen kiralanması uygulamasına başlanmıştır."
+      ]
+    },
+    "tubitak_uzay_2026_katalog": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK UZAY. 2026. TÜBİTAK UZAY Katalog (Haziran 2026). Ankara: TÜBİTAK Uzay Teknolojileri Araştırma Enstitüsü.",
+      "adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+      "imece_firlatma_yili": 2023,
+      "imece_yorunge_km": 686,
+      "imece_pan_cozunurluk_m": 0.99,
+      "imece_msi_cozunurluk_m": 3.96,
+      "gap_gubre_tasarrufu_en_fazla_yuzde": 25,
+      "_beyan": "GAP'ta %25'e kadar gübre tasarrufu TÜBİTAK'ın kendi beyanı: yöntem, yıl ve örneklem yok; hakemli değerlendirmesi bulunamadı. İngilizce cümle bozuk yazılmış; Türkçe parçası 'tasarruf' diyor. 'Tarımda kullanılıyor' beyanının arkasında somut bir proje ya da veri kanalı verilmiyor.",
+      "alinti": [
+        "TÜBİTAK UZAY tarafından tasarlanıp geliştirilen ve üretilen İMECE, Türkiye’nin ilk yerli ve milli metrealtı çözünürlüklü yer gözlem uydusudur.",
+        "15 Nisan 2023 tarihinde saat 09.48’de başarıyla uzaya fırlatılmıştır.",
+        "Elde edilen görüntüler savunma, afet yönetimi, çevre ve şehircilik, tarım ve ormancılık gibi birçok alanda kullanılmaktadır.",
+        "ÇÖZÜNÜRLÜK / SPATIAL RESOLUTION PAN 0.99 m - MSI 3.96 m",
+        "YÖRÜNGE / ORBIT 686 km dairesel / 686 km circular",
+        "RASAT görüntüleri; haritacılık, afet izleme, ormancılık, kentsel planlama gibi alanlarda kullanılmaktadır.",
+        "Variable rate fertilization was executed by using UAV and satellite imagery resulted in the fertilization use by 25% in test fields.",
+        "kullanımında %25’e kadar tasarruf sağlanmıştır.",
+        "These precision agriculture analysis are available to the farmers and consultants in the Southeastern Anatolia Region via Farmer-Agricultural Consultant Web Interface in order to monitor development of their crops to optimize their crop yields."
+      ]
+    },
+    "tubitak_2023_imece": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK. 2023. İMECE İçin Geri Sayım Başladı. Haber, 9 Nisan 2023.",
+      "adres": "https://tubitak.gov.tr/tr/haber/imece-icin-geri-sayim-basladi",
+      "dosya": "kaynak_dosyalari/tubitak_2023_imece_geri_sayim.html",
+      "proje_baslangic_yili": 2017,
+      "tasarim_gorev_omru_yil": 5,
+      "_not": "Fırlatma öncesi duyuru: Hava Kuvvetleri envanterine girişi bir plan olarak yazılı; teslimi doğrulayan sonraki bir resmî metin okunmadı. Metin 'duyuruya göre ... girecekti' diye yazar.",
+      "alinti": [
+        "2017 yılında başlayan İMECE projesi, 6 yılda gelecek nesil uydu platformlarına temel oluşturacak önemli kazanımlar elde etti.",
+        "Milli Savunma Bakanlığı ve Cumhurbaşkanlığı Savunma Sanayi Başkanlığı koordinasyonu ile yürütülen proje kapsamında geliştirilen İMECE Uydusu, yörüngedeki testleri tamamlandıktan sonra Hava Kuvvetleri Komutanlığı envanterine dahil olacak.",
+        "Coğrafi kısıt olmaksızın Dünya’nın her yerinden görüntü çekebilecek uydu, hedef tespit ve teşhis, doğal afet, haritalama, tarımsal uygulamalar gibi birçok alanda Türkiye’ye hizmet verecek.",
+        "Sivil ve güvenlik amaçlı kullanılabilecek uydunun tasarım görev ömrü 5 yıl olarak planlandı."
+      ]
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "uzaktan_algilama_ihalesi_hedef_yili": 2026,
+      "_denetim": "PDF s4 (önsöz) ve s14'te bu tespitlerin doğruluğuna ya da kapsadığı alana dair rakam yok (17.11.2026).",
+      "alinti": [
+        "Yapay zekâ destekli uydu teknolojileriyle ürün deseninden işlenmeyen arazilerin tespitine kadar pek çok alanda hassas tarım uygulamalarını başlattık.",
+        "İşlenmeyen tarım arazilerinin ve dikili alanların tespitine yönelik uydu görüntüleri, derin öğrenme ve yapay zekâ teknolojisinden faydalanılarak analiz çalışmaları yapılmıştır.",
+        "Tarım Bilgi Sistemlerinin İyileştirilmesi-Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme",
+        "bu sistemler üzerinde çalışacak karar destek sistemi ile veri toplamaya ilişkin uzaktan algılama sisteminin kurulumu hizmetlerine yönelik ihale dokümanları hazırlanmıştır.",
+        "2026 yılı içerisinde de ihale sürecinin tamamlanması ve işe başlanması planlanmıştır.",
+        "Sürdürülebilir tarımsal üretim için teknolojiyi tarımla buluşturduk ve uydu temelli uzaktan algılama verilerini yapay zekâ ile bütünleştirdik.",
+        "Bu sayede ürün desenini, işlenmeyen tarım arazilerini ve dikili alanları hassas bir şekilde tespit ettik."
+      ]
+    },
+    "tob_2025_ai_tomorrow": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 23.05.2025. Tarım ve Orman Bakanı Yumaklı, 'AI Tomorrow Summit 2025' etkinliğinde konuştu (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Sayfalar/GormeEngellilerDetay.aspx?OgeId=6614&Liste=Haber",
+      "dosya": "kaynak_dosyalari/tob_2025_ai_tomorrow_summit_konusma.html",
+      "yayim": "Mayıs 2025",
+      "_beyan": "Bakan'ın planı; uygulama kanıtı değil.",
+      "alinti": [
+        "Yayın Tarihi : 23.05.2025",
+        "Tarımsal gözlem uydu ağını hayata geçireceğiz, tarımsal üretime yönelik yapay zekâ destekli tahmin ve izleme sistemlerini kuracağız."
+      ]
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "_not": "Projenin Dünya Bankası finansmanını gösteren cümle (PDF s76).",
+      "alinti": [
+        "Dünya Bankası tarafından finanse edilen “Türkiye İklim, Akıllı ve Rekabetçi Tarımsal Büyüme Projesi”"
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "İMECE (0,99 m; 15 Nisan 2023) tarımı kullanım alanları arasında sayıyor; görüntülerin tarıma ulaştığı resmî bir kanal bulunamadı; İMECE-2/3 programda tarımla anılmıyor. Bakanlık uydu görüntüsünü derin öğrenmeyle işlenmeyen arazi ve dikili alan tespitinde kullandığını yazıyor; doğruluk ya da alan rakamı yok. Bakan 2025'te tarımsal gözlem uydu ağı sözü verdi. TÜBİTAK'ın GAP'ta %25'e kadar gübre tasarrufu beyanı yöntemsiz. Türkiye'de uydu verisiyle çalışan yapay zekânın üretime etkisini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "zhu_2019_tam_metin": "Makalenin kendisine erişilemedi (yayıncı ve NOAA deposu erişimi engelledi); rakamlar NASA'nın özet sayfasından alındı, metin 'NASA'nın özetine göre' diye aktarır.",
+    "imece_irtifa": "Fırlatma öncesi duyurudaki irtifa kataloğundakinden farklı; metin kataloğu kullanır.",
+    "acik_portal": "Açık görüntü portalının kapsamına dair birincil bir alıntı kayda girmedi; metin portaldan söz etmez.",
+    "burke_lobell_2017": "Küçük çiftçi tarlalarında uydudan verim tahmini — §9'un kapsamında; burada kullanılmadı.",
+    "tua_sitesi": "Türkiye Uzay Ajansı sitesinin içeriği betikle yükleniyor; okunamadı."
+  }
+}

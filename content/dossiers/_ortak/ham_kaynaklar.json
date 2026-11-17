@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 296,
- "toplam_bayt": 778278811,
+ "dosya_sayisi": 302,
+ "toplam_bayt": 866108490,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1933,6 +1933,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/copernicus_sentiwiki_sentinel2_gorev.html",
+   "bayt": 123805,
+   "sha256": "5674052397a2f4610edb29ad8cbfdf0ce5d555ca5415ada63b920e06216cfce7",
+   "kaynak": {
+    "adres": "https://sentiwiki.copernicus.eu/web/s2-mission",
+    "atif": "Copernicus SentiWiki (ESA). S2 Mission: Overview of Sentinel-2 Mission. https://sentiwiki.copernicus.eu/web/s2-mission (erişim 17 Kasım 2026).",
+    "lisans": "kurumsal sayfa (ESA / Copernicus)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Copernicus SentiWiki (ESA), 17.11.2026'da indirildi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/dalla_betta_2026_crossref.json",
    "bayt": 12157,
    "sha256": "3e5e4370b07e9cedce9f851c2625461de1131ae5af40580ce1f86e5f0b61c958",
@@ -2425,6 +2437,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_2019_landsat_acik_veri.html",
+   "bayt": 269561,
+   "sha256": "fd80960c2b37c4e2ba619629b16f7250760f73ade0d8456c090ca36b1fed86c4",
+   "kaynak": {
+    "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+    "atif": "NASA Landsat Science (Rocchio L.E.P.). 2019. Landsat Science Team members support the free and open Landsat data policy. 20 Mart 2019. [Zhu Z. ve ark. 2019, Benefits of the free and open Landsat data policy, Remote Sensing of Environment 224: 382-385 makalesinin kurumsal özeti]",
+    "lisans": "kamu malı (ABD federal kurumu sayfası)",
+    "lisans_adresi": null,
+    "_not": "NASA'nın Zhu ve arkadaşları 2019 makalesini özetleyen sayfası; makalenin kendisine erişilemedi."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/neupane_2023_europepmc.json",
    "bayt": 5398,
    "sha256": "421f7c1ef93fd3047ae4675bc302344e27687b31391ac92d2bb88d90b861d871",
@@ -2845,6 +2869,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_2023_imece_geri_sayim.html",
+   "bayt": 72688,
+   "sha256": "b729bcc4d40c5eb367d86c2b3c0d9f4a083344718eb8b57c85f48cc3230aeb59",
+   "kaynak": {
+    "adres": "https://tubitak.gov.tr/tr/haber/imece-icin-geri-sayim-basladi",
+    "atif": "TÜBİTAK. 2023. İMECE İçin Geri Sayım Başladı. Haber, 9 Nisan 2023.",
+    "lisans": "kurumsal sayfa (TÜBİTAK)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — TÜBİTAK sitesi; fırlatma öncesi duyuru."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
    "bayt": 138984,
    "sha256": "b0465750ec5d03266b5a8509e76bcf25a00b987eee2cd54468fe0df40cca0fab",
@@ -2857,6 +2893,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+   "bayt": 87301005,
+   "sha256": "285ec21a37e44db4dba4ff2fcff5970005d52deba0ee4a9dca30f1927e3c59a5",
+   "kaynak": {
+    "adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+    "atif": "TÜBİTAK UZAY. 2026. TÜBİTAK UZAY Katalog (Haziran 2026). Ankara: TÜBİTAK Uzay Teknolojileri Araştırma Enstitüsü.",
+    "lisans": "kurumsal yayın (TÜBİTAK)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — TÜBİTAK UZAY sitesi (Haziran 2026 kataloğu)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usda_ers_2023_vrt_benimseme.html",
    "bayt": 38242,
    "sha256": "c392e566a7f88c73ff7a0923fe1be2d03d60c554c7ec286d32245c7b51e2a772",
@@ -2866,6 +2914,18 @@
     "lisans": "ABD kamu malı (ABD federal hükümeti yayını)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — ABD Tarım Bakanlığı Ekonomik Araştırma Servisi; veri ARMS anketi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/usgs_2019_landsat_ekonomik_deger.html",
+   "bayt": 57630,
+   "sha256": "c046853c91c8696bb13604d01c3b9b8481628d51aff3bb41432da138af230083",
+   "kaynak": {
+    "adres": "https://pubs.usgs.gov/publication/ofr20191112",
+    "atif": "Straub C.L., Koontz S.R., Loomis J.B. 2019. Economic valuation of Landsat imagery. U.S. Geological Survey Open-File Report 2019-1112. 13 s. doi:10.3133/ofr20191112",
+    "lisans": "kamu malı (ABD federal yayını)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — USGS yayın sayfası (Open-File Report 2019-1112)."
    }
   },
   {
@@ -2923,6 +2983,18 @@
    "kaynak": {
     "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Speed%20breeding%20is%20a%20powerful%20tool%22&resultType=core&format=json",
     "atif": "Watson A., Ghosh S., Williams M.J. ve ark. 2018. Speed breeding is a powerful tool to accelerate crop research and breeding. Nature Plants 4(1): 23-29. doi:10.1038/s41477-017-0083-8",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/whitcraft_2015_europepmc.json",
+   "bayt": 4990,
+   "sha256": "af7e821695e7e778452fccb80ef6290897d30918dfefcef18f679158400e1564",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1016/j.rse.2014.10.009&resultType=core&format=json",
+    "atif": "Whitcraft A.K., Vermote E.F., Becker-Reshef I., Justice C.O. 2015. Cloud cover throughout the agricultural growing season: Impacts on passive optical earth observations. Remote Sensing of Environment 156: 438-447. doi:10.1016/j.rse.2014.10.009",
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."

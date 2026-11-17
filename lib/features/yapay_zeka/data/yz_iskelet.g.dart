@@ -247,7 +247,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Satellites and remote sensing",
       true,
       ["uzaktan", "goruntu", "veri"],
-      false,
+      true,
       "Tarımsal yapay zekanın en büyük açık veri kaynağı: Sentinel, Landsat, ticari uydular, İHA.",
       "The largest open data source for agricultural AI: Sentinel, Landsat, commercial satellites, drones."),
   YzBaslik(

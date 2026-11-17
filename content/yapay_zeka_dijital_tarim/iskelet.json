@@ -578,12 +578,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Tarımsal yapay zekanın en büyük açık veri kaynağı: Sentinel, Landsat, ticari uydular, İHA.",
         "en": "The largest open data source for agricultural AI: Sentinel, Landsat, commercial satellites, drones."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {
