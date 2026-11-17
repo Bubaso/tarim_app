@@ -324,9 +324,9 @@ const List<YzBaslik> kYzBasliklar = [
       "Risks and limits",
       true,
       ["veri", "tahmin", "dil"],
-      false,
-      "Dijital uçurum, model yanlılığı, veri sahipliği, maliyet ve enerji.",
-      "The digital divide, model bias, data ownership, cost and energy."),
+      true,
+      "Laboratuvarın dışında düşen model başarısı, dijital uçurum, emek, güvenlik ve enerji — ve Türkiye'nin küçük, yaşlanan işletmeleri.",
+      "Model accuracy that falls outside the lab, the digital divide, labour, security and energy — and Türkiye's small, ageing farms."),
   YzBaslik(
       27,
       "basarisizliklar-ve-abartilar",

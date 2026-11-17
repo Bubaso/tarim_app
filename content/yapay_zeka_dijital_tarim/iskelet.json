@@ -765,12 +765,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
-        "tr": "Dijital uçurum, model yanlılığı, veri sahipliği, maliyet ve enerji.",
-        "en": "The digital divide, model bias, data ownership, cost and energy."
+        "tr": "Laboratuvarın dışında düşen model başarısı, dijital uçurum, emek, güvenlik ve enerji — ve Türkiye'nin küçük, yaşlanan işletmeleri.",
+        "en": "Model accuracy that falls outside the lab, the digital divide, labour, security and energy — and Türkiye's small, ageing farms."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

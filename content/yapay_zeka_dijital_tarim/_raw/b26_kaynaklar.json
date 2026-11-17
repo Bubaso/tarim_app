@@ -1,0 +1,257 @@
+{
+  "_ne": "§26 Riskler ve sınırlar — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun ya da kamu kurumunun kendi yayını",
+    "RESMI": "Devletin resmî belgesi"
+  },
+  "kaynaklar": {
+    "mohanty_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419.",
+      "doi": "10.3389/fpls.2016.01419",
+      "dosya": "kaynak_dosyalari/mohanty_2016_frontiers.html",
+      "egitim_goruntu_sayisi": 54306,
+      "bitki_turu_sayisi": 14,
+      "hastalik_sayisi": 26,
+      "ayrilmis_test_dogrulugu_yuzde": 99.35,
+      "dis_veri_seti_1_goruntu": 121,
+      "dis_veri_seti_2_goruntu": 119,
+      "dis_veri_seti_1_dogruluk_yuzde": 31.4,
+      "dis_veri_seti_2_dogruluk_yuzde": 31.69,
+      "sinif_sayisi": 38,
+      "rastgele_tahmin_dogrulugu_yuzde": 2.63,
+      "alinti": [
+        "Using a public dataset of 54,306 images of diseased and healthy plant leaves collected under controlled conditions, we train a deep convolutional neural network to identify 14 crop species and 26 diseases (or absence thereof).",
+        "The trained model achieves an accuracy of 99.35% on a held-out test set, demonstrating the feasibility of this approach.",
+        "While these approaches yield excellent results on the PlantVillage dataset which was collected in a controlled environment, we also assessed the model's performance on images sampled from trusted online sources, such as academic agriculture extension services.",
+        "we obtained two small, verified datasets of 121 (dataset 1) and 119 images (dataset 2), respectively",
+        "Using the best model on these datasets, we obtained an overall accuracy of 31.40% in dataset 1, and 31.69% in dataset 2, in successfully predicting the correct class label (i.e., crop and disease information) from among 38 possible class labels.",
+        "We note that a random classifier will obtain an average accuracy of only 2.63%.",
+        "First, when tested on a set of images taken under conditions different from the images used for training, the model's accuracy is reduced substantially, to just above 31%.",
+        "The second limitation is that we are currently constrained to the classification of single leaves, facing up, on a homogeneous background.",
+        "Laboratory tests are ultimately always more reliable than diagnoses based on visual symptoms alone, and oftentimes early-stage diagnosis via visual inspection alone is challenging.",
+        "Copyright © 2016 Mohanty, Hughes and Salathé."
+      ]
+    },
+    "ramcharan_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Ramcharan A., McCloskey P., Baranowski K., Mbilinyi N., Mrisho L., Ndalahwa M., Legg J., Hughes D.P. 2019. A Mobile-Based Deep Learning Model for Cassava Disease Diagnosis. Frontiers in Plant Science 10: 272.",
+      "doi": "10.3389/fpls.2019.00272",
+      "dosya": "kaynak_dosyalari/ramcharan_2019_frontiers.html",
+      "tarla_yaprakcik_sayisi": 720,
+      "f1_dusus_belirgin_belirti_goruntu_yuzde": 32,
+      "f1_dusus_belirgin_belirti_video_yuzde": 39,
+      "f1_dusus_hafif_belirti_yuzde": 67,
+      "f1_test_seti_belirgin": 0.79,
+      "f1_tarla_belirgin_goruntu": 0.54,
+      "f1_tarla_belirgin_video": 0.48,
+      "f1_tarla_hafif_goruntu": 0.26,
+      "f1_tarla_hafif_video": 0.25,
+      "alinti": [
+        "In scenarios where a CNN is deployed on mobile devices, models are presented with new challenges due to lighting and orientation.",
+        "It is essential for model assessment to be conducted in real world conditions if such models are to be reliably integrated with computer vision products for plant disease phenotyping.",
+        "We then deploy the model in a mobile app and test its performance on mobile images and video of 720 diseased leaflets in an agricultural field in Tanzania.",
+        "The F-1 score dropped by 32% for pronounced symptoms in real world images (the closest data to the training data) due to a decrease in model recall.",
+        "For pronounced symptoms in real world video the F-1 score is reduced by 39%.",
+        "Comparing the test dataset to real world mild symptoms the F-1 score drops by 67% for images and video.",
+        "Test dataset Pronounced 0.79 Real world image Pronounced 0.54 Real world video Pronounced 0.48 Real world image Mild 0.26 Real world video Mild 0.25",
+        "Copyright © 2019 Ramcharan, McCloskey, Baranowski, Mbilinyi, Mrisho, Ndalahwa, Legg and Hughes."
+      ]
+    },
+    "tzachor_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Tzachor A., Devare M., King B., Avin S., Ó hÉigeartaigh S. 2022. Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities. Nature Machine Intelligence 4(2): 104–109.",
+      "doi": "10.1038/s42256-022-00440-4",
+      "dosya": "kaynak_dosyalari/tzachor_2022_nature.html",
+      "alinti": [
+        "AI in agriculture could improve crop management and agricultural productivity through plant phenotyping, rapid diagnosis of plant disease, efficient application of agrochemicals and assistance for growers with location-relevant agronomic advice.",
+        "However, the ramifications of machine learning (ML) models, expert systems and autonomous machines for farms, farmers and food security are poorly understood and under-appreciated.",
+        "Namely, we review risks relating to interoperability, reliability and relevance of agricultural data, unintended socio-ecological consequences resulting from ML models optimized for yields, and safety and security concerns associated with deployment of ML platforms at scale.",
+        "As a response, we suggest risk-mitigation measures, including inviting rural anthropologists and applied ecologists into the technology design process, applying frameworks for responsible and human-centred innovation",
+        "setting data cooperatives for improved data transparency and ownership rights, and initial deployment of agricultural AI in digital sandboxes."
+      ]
+    },
+    "rotz_2019_jrs": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Rotz S., Gravely E., Mosby I., Duncan E., Finnis E., Horgan M., LeBlanc J., Martin R., Neufeld H., Nixon A., Pant L., Shalla V., Fraser E. 2019. Automated pastures and the digital divide: How agricultural technologies are shaping labour and rural communities. Journal of Rural Studies 68: 112–122.",
+      "doi": "10.1016/j.jrurstud.2019.01.023",
+      "dosya": "kaynak_dosyalari/rotz_2019_jrs_gala.html",
+      "alinti": [
+        "Advanced technologies like sensors, artificial intelligence, and robotics are increasingly being promoted as a means to increase food production efficiency while minimizing resource use.",
+        "In the process, agricultural digitalization raises critical social questions about the implications for diverse agricultural labourers and rural spaces as digitalization evolves.",
+        "In this paper, we use literature and field data to outline some key trends being observed at the nexus of agricultural production, technology, and labour in North America, with a particular focus on the Canadian context.",
+        "Using the data, we highlight three key tensions observed: rising land costs and automation; the development of a high-skill/low-skilled bifurcated labour market; and issues around the control of digital data.",
+        "With these tensions in mind, we use a social justice lens to consider the potential implications of digital agricultural technologies for farm labour and rural communities, which directs our attention to racial exploitation in agricultural labour specifically.",
+        "We emphasize that the current enthusiasm for digital agriculture should not blind us to the specific ways that new technologies intensify exploitation and deepen both labour and spatial marginalization."
+      ]
+    },
+    "fao_2022_sofa": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9.",
+      "doi": "10.4060/cb9479en",
+      "dosya": "kaynak_dosyalari/fao_2022_sofa.pdf",
+      "vaka_calismasi_sayisi": 27,
+      "karli_hizmet_saglayici_sayisi": 10,
+      "alinti": [
+        "The use of digital automation technologies is growing, but mostly in high-income countries.",
+        "Where rural labour is abundant and wages are low, agricultural automation can lead to unemployment.",
+        "This can happen if subsidies make automation artificially cheap or sudden technological breakthroughs bring automation costs down very rapidly.",
+        "Common fears that automation leads to growing unemployment, although understandable, are questionable and generally not supported by historical realities.",
+        "On the other hand, agricultural automation can carry the risk of exacerbating social inequalities, as larger and more educated producers have greater capacities (e.g. finance, rural infrastructure, skills) to invest in new technologies or to retrain and learn new skills.",
+        "Furthermore, automation is expected to reduce jobs that involve routine tasks, such as planting and harvesting, but increase skilled jobs requiring, for example, secondary education.",
+        "However, low digital literacy in rural areas, lack of available technologies suited to small-scale producers, and the relatively high cost of these technologies remain the biggest barriers to adoption.",
+        "Given the scarcity of data, 27 case studies, based on interviews with digital automation service providers, were used to shed light on the business case for digital automation in agriculture.",
+        "The results reveal only 10 out of the 27 service providers to be profitable and financially sustainable.",
+        "These ten providers – mostly based in high-income countries – use solutions that are in the mature phase (i.e. widely adopted) and mostly serve large-scale producers.",
+        "These are often compounded by a reluctance to change, generally associated with ageing farming populations.",
+        "It is vital to strengthen institutional and political capacity to guide the development of automation technologies; if, on the other hand, powerful private technology companies get there first, the consequences are potentially negative with spillover effects on wider society."
+      ]
+    },
+    "iea_2025_enerji_ve_yz": {
+      "nitelik": "KURUMSAL",
+      "kunye": "IEA. 2025. Energy and AI (Executive summary). Paris: Uluslararası Enerji Ajansı.",
+      "adres": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+      "dosya": "kaynak_dosyalari/iea_2025_energy_ai_ozet.html",
+      "veri_merkezi_elektrik_2024_twh": 415,
+      "kuresel_elektrik_payi_2024_yuzde": 1.5,
+      "abd_payi_2024_yuzde": 45,
+      "cin_payi_2024_yuzde": 25,
+      "avrupa_payi_2024_yuzde": 15,
+      "yillik_artis_2017den_beri_yuzde": 12,
+      "tahmin_2030_twh": 945,
+      "temel_senaryo_2035_twh": 1200,
+      "senaryo_araligi_2035_alt_twh": 700,
+      "senaryo_araligi_2035_ust_twh": 1700,
+      "gelismekte_olan_ekonomilerde_talep_artisindaki_pay_yuzde": 5,
+      "alinti": [
+        "Data centres accounted for around 1.5% of the world’s electricity consumption in 2024, or 415 terawatt-hours (TWh).",
+        "The United States accounted for the largest share of global data centre electricity consumption in 2024 (45%), followed by China (25%) and Europe (15%).",
+        "Globally, data centre electricity consumption has grown by around 12% per year since 2017, more than four times faster than the rate of total electricity consumption.",
+        "Data centre electricity consumption is set to more than double to around 945 TWh by 2030.",
+        "This is slightly more than Japan’s total electricity consumption today.",
+        "AI is the most important driver of this growth, alongside growing demand for other digital services.",
+        "Uncertainties widen further after 2030, but our Base Case sees global data centre electricity consumption rising to around 1 200 TWh by 2035.",
+        "By 2035, the range of data centre electricity demand across our cases spans from 700 to 1 700 TWh.",
+        "Data centres account for around one-tenth of global electricity demand growth to 2030, less than the share from industrial motors, air conditioning in homes and offices, or electric vehicles.",
+        "Emerging and developing economies are already experiencing rapid electricity demand growth. In these countries, data centres account for around 5% of the increase in electricity demand to 2030.",
+        "IEA (2025), Energy and AI, IEA, Paris https://www.iea.org/reports/energy-and-ai, Licence: CC BY 4.0"
+      ]
+    },
+    "fbi_pin_2022": {
+      "nitelik": "RESMI",
+      "kunye": "FBI (ABD Federal Soruşturma Bürosu). 2022. Ransomware Attacks on Agricultural Cooperatives Potentially Timed to Critical Seasons. Private Industry Notification 20220420-001, 20 Nisan 2022. TLP:WHITE.",
+      "adres": "https://www.ic3.gov/CSA/2022/220420-2.pdf",
+      "dosya": "kaynak_dosyalari/fbi_pin_2022_tarim_kooperatifleri.pdf",
+      "tahil_kooperatifi_saldirisi_2021_hasat": 6,
+      "erken_2022_saldirisi": 2,
+      "fidye_yazilimi_gorulen_kritik_altyapi_sektoru": 14,
+      "abd_kritik_altyapi_sektoru_toplam": 16,
+      "fidye_talebi_milyon_usd": 30,
+      "alinti": [
+        "20 April 2022 20220420-001 Ransomware Attacks on Agricultural Cooperatives Potentially Timed to Critical Seasons",
+        "The Federal Bureau of Investigation (FBI) is informing Food and Agriculture (FA) sector partners that ransomware actors may be more likely to attack agricultural cooperatives during critical planting and harvest seasons",
+        "The FBI noted ransomware attacks during these seasons against six grain cooperatives during the fall 2021 harvest and two attacks in early 2022 that could impact the planting season by disrupting the supply of seeds and fertilizer.",
+        "Cyber actors may perceive cooperatives as lucrative targets with a willingness to pay due to the time-sensitive role they play in agricultural production.",
+        "The FBI, the Cybersecurity and Infrastructure Security Agency (CISA), and the National Security Agency (NSA) observed incidents involving ransomware against 14 of the 16 U.S. critical infrastructure sectors",
+        "Initial intrusion vectors included known but unpatched common vulnerabilities and exploits, as well as secondary infections from the exploitation of shared network resources or compromise of managed services.",
+        "Between 15 September and 6 October 2021, six grain cooperatives experienced ransomware attacks.",
+        "Some targeted entities had to completely halt production while others lost administrative functions.",
+        "The threat actor demanded $30 million USD ransom.",
+        "The ransomware attack on the company led to secondary ransomware infections on a number of its clients, which included several agricultural cooperatives.",
+        "A significant disruption of grain production could impact the entire food chain, since grain is not only consumed by humans but also used for animal feed.",
+        "In July 2021, a business management software company found malicious activity on its network"
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Cumhurbaşkanlığı. 2026. 2027 Yılı Cumhurbaşkanlığı Yıllık Programı. Resmî Gazete, 27 Ekim 2026, Sayı 33413 (Mükerrer).",
+      "adres": "yerel kaynak dosyası (Resmî Gazete 27.10.2026, sayı 33413 Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "toplulastirma_tamamlanan_alan_2026_sonu_milyon_ha": 9.9,
+      "tescilli_toplulastirma_alani_2026_sonu_milyon_ha": 8.2,
+      "tarim_istihdam_payi_2025_yuzde": 14,
+      "tarim_istihdam_payi_2026_ilk_yari_yuzde": 13.4,
+      "belde_ve_koy_nufusu_2025": 5536693,
+      "koy_65_yas_ustu_nufus_2025": 1159477,
+      "koy_65_yas_ustu_kadin_2025": 634629,
+      "kirsal_hibe_destek_orani_alt_yuzde": 50,
+      "kirsal_hibe_destek_orani_ust_yuzde": 70,
+      "kadin_ve_genc_girisimci_butce_payi_en_az_yuzde": 20,
+      "aile_isletmesi_butce_payi_yuzde": 30,
+      "ortak_makine_parki_uretici_orgutu_sayisi": 14,
+      "alinti": [
+        "Tarım sektöründe işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı üretim maliyetlerini artırmakta, tarımsal mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirmekte ve sulama yatırımlarından sağlanan faydayı sınırlandırmaktadır.",
+        "Bu kapsamda yürütülen arazi toplulaştırma çalışmalarında, toplulaştırması tamamlanan alanın 2026 yılı sonunda 9,9 milyon hektara, tescili tamamlanmış toplulaştırma alanının ise 8,2 milyon hektara ulaşması beklenmektedir.",
+        "Sayım sonuçlarının analiz edilerek 2026 yılı sonu itibarıyla kamuoyuyla paylaşılması öngörülmektedir.",
+        "Tarım sektöründe çalışanların toplam istihdam içindeki payı 2025 yılında yüzde 14 iken 2026 yılının ilk yarısında ortalama yüzde 13,4 olarak gerçekleşmiştir.",
+        "TÜİK’in ADNKS sonuçlarına göre 2025 yılında belde ve köy nüfusu 5.536.693 kişi olmuştur.",
+        "Köylerimizde nüfus yaşlanmakta olup 65 yaş ve üzeri nüfus, 634.629’u kadın olmak üzere toplam 1.159.477 kişidir.",
+        "dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılması hedeflenmiştir.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması öngörülmüştür.",
+        "Tarım işletmeleri ve üretici örgütlerinin akıllı tarım uygulamaları konusundaki beşeri ve teknik altyapılarının geliştirilmesi desteklenecektir",
+        "Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır.",
+        "2025 yılında gerçekleştirilen Genel Tarım Sayımı’nda elde edilen veriler kullanılarak tüm tarım işletmelerinin kayıt altına alındığı, kayıtların mekânsal verilerle entegre bir şekilde gerçek zamanlı olarak güncelleneceği Tarımsal İşletme Kayıt Sistemi oluşturulacaktır."
+      ]
+    },
+    "tob_ukks_iv_2024_2028": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
+      "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+      "cks_ortalama_isletme_buyuklugu_ha_2020": 7.1,
+      "cks_ortalama_isletme_buyuklugu_ha_2021": 6.9,
+      "cks_ortalama_isletme_buyuklugu_ha_2022": 7.0,
+      "cks_ortalama_isletme_buyuklugu_ha_2023": 6.9,
+      "cks_tarimsal_isletme_sayisi_2020": 2127957,
+      "cks_tarimsal_isletme_sayisi_2023": 2245215,
+      "cks_genc_ciftci_sayisi_2020": 262202,
+      "cks_genc_ciftci_sayisi_2023": 306033,
+      "alinti": [
+        "Türk tarımının işletme profili, bir tarafta dünya pazarları için üretim yapan rekabetçi güce sahip orta ve büyük işletmeler ile diğer tarafta da yakın yerel pazarlar ve hane halkının tüketimine yönelik üretim yapan geleneksel küçük ölçekli aile işletmelerinin bir arada olduğu bir yapıdadır.",
+        "Tarımsal faaliyet yapan nüfusun yaşlanması ve gençlerin tarımsal faaliyete olan ilgisinin azalması",
+        "Tarımsal işletme ölçek büyüklüğünün düşük olması ve ürün birim maliyetlerinin yüksek olması",
+        "Akıllı tarım uygulamalarına erişim olanaklarının kısıtlı olması",
+        "Tedbir 4.1.3 Yapay zekâ, akıllı teknoloji uygulamalarının kullanımının artırılması",
+        "Tedbir 5.2.3 Dijital okuryazarlığın artırılması, dijital uygulamaların kullanılması ve dijital yetkinliğin artırılmasına yönelik eğitimler verilmesi amacıyla yeni yöntemler geliştirilmesi",
+        "EK-2: Kırsal Göstergeler Tablosu Sıra No Göstergeler Birimi 2020 2021 2022 2023 Kaynak",
+        "ÇKS kayıt sistemlerinde bulunan genç çiftçi sayısı Sayı 262.202 268.606 266.037 306.033 TOB",
+        "ÇKS kayıt sistemlerine göre ortalama işletme büyüklüğü Hektar 7,1 6,9 7,0 6,9 TOB",
+        "ÇKS kayıt sistemlerine göre tarımsal işletme sayısı Sayı 2.127.957 2.173.009 2.177.880 2.245.215 TOB"
+      ]
+    },
+    "tob_sura_2025_kirsal_istihdam": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara.",
+      "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf",
+      "dosya": "kaynak_dosyalari/tob_2025_iv_tarim_orman_surasi_g8_kirsal.pdf",
+      "tum_istihdam_ortalama_yas_2023": 39,
+      "tarim_calisan_ortalama_yas_2023": 46,
+      "tarim_calisan_40_yas_ustu_yuzde_2023": 68.4,
+      "tum_istihdam_40_yas_ustu_yuzde_2023": 47.1,
+      "tarim_istihdami_azalma_2014_2023_bin_kisi": 800,
+      "alinti": [
+        "TÜİK verilerine göre, tarım sektöründe istihdam edilenlerin sayısı 2014 yılında 5 milyon 220 bin iken 2023 yılında yaklaşık 800 bin kişi azalarak 4 milyon 695 bine düşmüştür (TÜİK, 2024a).",
+        "Türkiye'de istihdam edilenlerin ortalama yaşı yaklaşık 39 iken tarım sektöründe çalışanların ortalama yaşı 46’dır (Grafik 5).",
+        "Ayrıca, tarım sektöründe çalışanların %68,4’ü 40 yaşın üzerindeyken genel istihdamda 40 yaşın üzerinde olanların oranı %47,1'dir (Grafik 6).",
+        "Bu durum, tarım sektöründe hem yaşlanmanın varlığını hem de tarım sektöründe genç işgücünün yetersiz olduğunu göstermektedir.",
+        "Grafik 5. İstihdam edilenlerde ortalama yaş (2023) Kaynak: TÜİK, 2024a",
+        "TÜİK. 2024a. İşgücü İstatistikleri -2023."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye'nin riskle karşılaştığı zemin: ÇKS'de ortalama işletme 6,9 ha (UKKS-IV, 2023), tarımda çalışanların yaş ortalaması 46 (Şûra belgesi, TÜİK 2023), parçalı arazi yapısı ve köylerde 65 yaş üstü nüfus (2027 Programı). Çiftçilerin dijital/yapay zekâ aracı kullanma oranını ölçen resmî istatistik bulunamadı; Genel Tarım Sayımı sonuçları 2026 sonunda bekleniyor."
+  },
+  "_reddedilen": {
+    "klerkx_2019": "Klerkx, Jakku ve Labarthe 2019: yayıncı sayfalarına erişilemedi; yalnız kurum portalındaki özet var, yedekte.",
+    "rotz_2019_sr": "Rotz, Duncan vd. 2019 (veri sahipliği): konu §21'de; yedekte.",
+    "fbi_2021": "FBI 2021 gıda-tarım uyarısı: 2022 notuyla örtüşüyor; yedekte.",
+    "tzob_yas": "TZOB'un çiftçi yaş ortalaması resmî istatistik değil; alınmadı.",
+    "nakalembe_kerner_2023": "Özeti Crossref'te yok; alınmadı.",
+    "tuik_portal": "TÜİK işletme yapısı verileri portalda yalnız JavaScript ile açılıyor; alınamadı."
+  }
+}

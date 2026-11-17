@@ -184,8 +184,8 @@ BASLIKLAR = [
     # ── ELEŞTİREL BAKIŞ ───────────────────────────────────────────────
     b(26, "riskler-ve-sinirlar", "elestiri", "Riskler ve sınırlar", "Risks and limits",
       ["veri", "tahmin", "dil"], {"sayi", "gelisme"},
-      ozet_tr="Dijital uçurum, model yanlılığı, veri sahipliği, maliyet ve enerji.",
-      ozet_en="The digital divide, model bias, data ownership, cost and energy."),
+      ozet_tr="Laboratuvarın dışında düşen model başarısı, dijital uçurum, emek, güvenlik ve enerji — ve Türkiye'nin küçük, yaşlanan işletmeleri.",
+      ozet_en="Model accuracy that falls outside the lab, the digital divide, labour, security and energy — and Türkiye's small, ageing farms."),
     b(27, "basarisizliklar-ve-abartilar", "elestiri", "Başarısız örnekler ve abartılar", "Failures and overstatements",
       ["tahmin", "goruntu", "robotik"], {"gelisme"},
       ozet_tr="Tutmayan vaatler, kapanan girişimler, kaynağı bulunamayan dolaşımdaki rakamlar.",

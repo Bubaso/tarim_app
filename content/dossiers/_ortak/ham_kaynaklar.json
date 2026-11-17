@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 363,
- "toplam_bayt": 987430019,
+ "dosya_sayisi": 372,
+ "toplam_bayt": 1006948387,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -2281,6 +2281,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2022_sofa.pdf",
+   "bayt": 12556725,
+   "sha256": "eb437b274cb540753b6041a73e81af9ef536f7a8b0c90ce8b5aaba3d74c3cec0",
+   "kaynak": {
+    "adres": "https://www.fao.org/3/cb9479en/cb9479en.pdf",
+    "atif": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. doi:10.4060/cb9479en",
+    "lisans": "CC BY-NC-SA 3.0 IGO",
+    "lisans_adresi": null,
+    "_not": "Dijital tarımın kimin işine yaradığını sayıyla gösteren kurumsal kaynak: incelenen 27 dijital otomasyon hizmet sağlayıcısından yalnız 10'u kârlı ve sürdürülebilir; bunlar çoğunlukla yüksek gelirli ülkelerde ve çoğunlukla büyük üreticilere hizmet veriyor. Benimsemenin en büyük engelleri kırsalda düşü"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2024_sofia_haber.html",
    "bayt": 74791,
    "sha256": "4dc47b58a0142b85b0c576e4993b59bbcc21ee306b27e42d3d09af75accbca47",
@@ -2374,6 +2386,18 @@
     "lisans": "FAO içeriği (yeniden kullanım koşulları FAO sitesinde)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — göstergenin sorumlu kurumu FAO'nun kendi portalı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fbi_pin_2022_tarim_kooperatifleri.pdf",
+   "bayt": 1342213,
+   "sha256": "9f47d51da3e11db00225502560e59c10c406b52081130327cd6294be8de8fcdd",
+   "kaynak": {
+    "adres": "https://www.ic3.gov/CSA/2022/220420-2.pdf",
+    "atif": "FBI (ABD Federal Soruşturma Bürosu). 2022. Ransomware Attacks on Agricultural Cooperatives Potentially Timed to Critical Seasons. Private Industry Notification 20220420-001, 20 Nisan 2022. TLP:WHITE.",
+    "lisans": "ABD federal hükümeti belgesi (kamu malı); TLP:WHITE, dağıtımı kısıtsız",
+    "lisans_adresi": null,
+    "_not": "ABD Federal Soruşturma Bürosu'nun DHS/CISA ve USDA ile eşgüdümlü özel sektör uyarısı. Fidye yazılımcılar tarım kooperatiflerini ekim ve hasat gibi zamana bağlı dönemlerde, ödemeye daha istekli oldukları düşüncesiyle hedefliyor olabilir. 15 Eylül–6 Ekim 2021 arasında altı tahıl kooperatifi saldırıya "
    }
   },
   {
@@ -2578,6 +2602,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/iea_2025_energy_ai_ozet.html",
+   "bayt": 257292,
+   "sha256": "1e9d9c137ac7039378458e8711f3e3e7c444f67ecf5831512635a8e99562f984",
+   "kaynak": {
+    "adres": "https://www.iea.org/reports/energy-and-ai/executive-summary",
+    "atif": "IEA. 2025. Energy and AI (Executive summary). Paris: Uluslararası Enerji Ajansı.",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Genel yapay zekâ bağlamı, tarıma özgü değil. Veri merkezleri 2024'te dünya elektriğinin yaklaşık %1,5'ini (415 TWh) kullandı; temel senaryoda 2030'da yaklaşık 945 TWh (bugünkü Japonya tüketiminden biraz fazla), 2035'te yaklaşık 1.200 TWh; artışın en önemli sürücüsü yapay zekâ. Belirsizlik büyük: 203"
    }
   },
   {
@@ -2953,6 +2989,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/mohanty_2016_frontiers.html",
+   "bayt": 724292,
+   "sha256": "e222bf57d31a4dccf16c736889a86557c77cfb31bc5c1cb159f4745564a1fb3c",
+   "kaynak": {
+    "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2016.01419/full",
+    "atif": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419. doi:10.3389/fpls.2016.01419",
+    "lisans": "CC BY (yayıncı sayfası: 'Creative Commons Attribution License (CC BY)')",
+    "lisans_adresi": null,
+    "_not": "Model bozulmasının en çok anılan örneği. Kontrollü ortamda çekilmiş PlantVillage görüntüleriyle eğitilen model, aynı setten ayrılmış test görüntülerinde %99,35 doğrulukta; eğitimden farklı koşullarda çekilmiş, güvenilir çevrim içi kaynaklardan toplanan iki küçük sette (121 ve 119 görüntü) %31,40 ve "
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/montesinos_lopez_2021_europepmc.json",
    "bayt": 8190,
    "sha256": "446efc5f31728ef2638d0de88ac8e4d7100716afa905e2636320d69b440e0cce",
@@ -3097,6 +3145,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ramcharan_2019_frontiers.html",
+   "bayt": 634029,
+   "sha256": "200f32746f99d1d839329ef539dbb6afc950374be6c39c015ef1f2b2636af72d",
+   "kaynak": {
+    "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.00272/full",
+    "atif": "Ramcharan A., McCloskey P., Baranowski K., Mbilinyi N., Mrisho L., Ndalahwa M., Legg J., Hughes D.P. 2019. A Mobile-Based Deep Learning Model for Cassava Disease Diagnosis. Frontiers in Plant Science 10: 272. doi:10.3389/fpls.2019.00272",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Aynı PlantVillage ekibinin Tanzanya'da gerçek tarlada yaptığı test. Manyok hastalıklarını tanıyan telefon modelinin F-1 skoru test setinde 0,79; belirgin belirtili yaprakların tarla fotoğraflarında 0,54'e (%32 düşüş), videoda 0,48'e (%39 düşüş) iniyor. Erken, hafif belirtilerde düşüş %67 (0,26 ve 0,"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2018_kgtu_tuam_yonetmelik.html",
    "bayt": 52074,
    "sha256": "108ddbf1718b00fb3426b69ef8b06957e121a7f57978a5930296d8b5f8cd95dd",
@@ -3130,6 +3190,18 @@
     "lisans": "mevzuat metni (kamu malı)",
     "lisans_adresi": null,
     "_not": "Üç üniversitenin ortak merkezi (koordinatör Kırklareli). Odağı gıda arzı güvenliği; dijitalleşme (dijital platform, izlenebilirlik) amaçlarından biri — salt dijital tarım merkezi değil. Dosya, Resmî Gazete'nin windows-1254 HTML'inden UTF-8'e kayıpsız dönüştürüldü (içerik değişmedi)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rotz_2019_jrs_gala.html",
+   "bayt": 52942,
+   "sha256": "3845dd2de3bf8ac479edff4bfbf8d0575d61ea378eba353e7e7027ed4aec5ca5",
+   "kaynak": {
+    "adres": "https://gala.gre.ac.uk/id/eprint/26562/",
+    "atif": "Rotz S., Gravely E., Mosby I., Duncan E., Finnis E., Horgan M., LeBlanc J., Martin R., Neufeld H., Nixon A., Pant L., Shalla V., Fraser E. 2019. Automated pastures and the digital divide: How agricultural technologies are shaping labour and rural communities. Journal of Rural Studies 68: 112–122. doi:10.1016/j.jrurstud.2019.01.023",
+    "lisans": "CC BY-NC-ND 4.0 (yayıncı lisansı, Crossref); özet University of Greenwich deposundaki kayıttan",
+    "lisans_adresi": null,
+    "_not": "Dijital tarımın emek ve kırsal topluluk üzerindeki etkisine dair hakemli çalışma (Kanada odaklı; literatür ve alan verisi). Üç gerilim: arazi maliyetlerinin otomasyonla birlikte artması, emek piyasasının yüksek ve düşük becerili diye ikiye bölünmesi, dijital verinin kimin denetiminde olduğu. Göçmen "
    }
   },
   {
@@ -3397,6 +3469,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2025_iv_tarim_orman_surasi_g8_kirsal.pdf",
+   "bayt": 1821404,
+   "sha256": "1b2ffcb5249e3fccaa5ac3986ae0b0b1430d06c70706ae9d6a5af3716d2ed299",
+   "kaynak": {
+    "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf",
+    "atif": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara.",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "Bakanlığın yayımladığı IV. Tarım Orman Şûrası çalışma belgesi (2025); yaş rakamları TÜİK İşgücü İstatistikleri 2023'e dayanıyor. Tarımda çalışanların ortalama yaşı 46, tüm istihdamda yaklaşık 39; tarımda çalışanların %68,4'ü 40 yaşın üzerinde (genelde %47,1). Tarım istihdamı 2014'te 5 milyon 220 bin"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+   "bayt": 1835009,
+   "sha256": "6ba051260c224eca47cd9ebde44afaa38a43069b03fc887de12b386094773118",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
+    "atif": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara.",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "Bakanlığın 2024–2028 kırsal kalkınma stratejisi; Türkiye'de işletme ölçeğine dair bulunabilen en güncel resmî sayı burada. ÇKS'ye göre ortalama işletme büyüklüğü 2023'te 6,9 hektar (yaklaşık 69 dekar); 2020–2023 arasında 6,9–7,1 hektar bandında. ÇKS'de 2023'te 2.245.215 işletme ve 306.033 genç çiftç"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_ai_tomorrow_summit_konusma.html",
    "bayt": 246762,
    "sha256": "e7a5ec32e186f2ef5f76d9c47be09f4d0cd6c9e9dfacbd030663c762465ef915",
@@ -3622,6 +3718,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tzachor_2022_nature.html",
+   "bayt": 294462,
+   "sha256": "4a07153e905fc37b0c5529d776793b7aa7eeef0f2fcbb00f7a31985ab9364cc0",
+   "kaynak": {
+    "adres": "https://www.nature.com/articles/s42256-022-00440-4",
+    "atif": "Tzachor A., Devare M., King B., Avin S., Ó hÉigeartaigh S. 2022. Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities. Nature Machine Intelligence 4(2): 104–109. doi:10.1038/s42256-022-00440-4",
+    "lisans": "© Springer Nature (abonelikli; yalnız yayıncı sayfasındaki özet, kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Tarımda yapay zekânın sistemik risklerini sınıflandıran görüş yazısı (Perspective). Üç risk sayıyor: tarım verisinin birlikte çalışabilirliği, güvenilirliği ve temsil gücü (yanlılık); yalnız verime göre eniyilenmiş modellerin istenmeyen sosyo-ekolojik sonuçları; ölçekte kurulan sistemlerin emniyet v"
    }
   },
   {
