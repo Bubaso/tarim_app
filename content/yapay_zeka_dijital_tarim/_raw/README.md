@@ -948,3 +948,124 @@ kart olarak ve doğru Türkçe büyük harfle görüldü.
 4. Önceki turlardan: §23 kapanış cümlesi; TAGEM projelerinin §6, §7, §8,
    §12, §13'e girişi; kuyruk okuması (kullanıcı); eksik özellikler (karar
    10, 14, 15, 16, 38); açılış öncesi denetim (Tur 10).
+
+## Tur 9 — DURUM, KAVRAMLAR, TARİHÇE, SÖZLÜK VE KAYNAKÇA: §1-§3, §29, §30 · 17 Kasım 2026
+
+Başlıklar okura KAPALI (karar 51). 30 başlığın **30'u** yazıldı: açılış
+eşiği (tamamı) doldu. Açılış (`yayin.json`), dağıtım ve GitHub'a gönderme
+kullanıcının ayrı ayrı açık onayını bekliyor.
+
+### 1 · Yazılan başlıklar
+
+| § | başlık | kayıt (kaynak · alıntı) | commit |
+|---|---|---|---|
+| 30 | Kaynakça | üretilmiş · 261 kaynak, 29 başlık | 4386efa |
+| 1 | Bugün nerede duruyoruz | 33 · 43 (hepsi öbür kayıtlardan kopya) | d220bc4 |
+| 3 | Kısa tarihçe | 40 · 177 | a8b30c3 |
+| 2 | Kavramlar | 23 · 166 | e9cdc4b |
+| 29 | Sözlük | 30 · 93 · 58 terim | d205d12 |
+
+§26 düzeltildi (85907be): FAO-EBRD 2025 raporundaki bakanlık anketi
+(2020; çiftçilerin %3'ünden azı akıllı tarım teknolojisi kullanıyor)
+eklendi, kapanış "düzenli olarak ölçen" diye daraltıldı.
+
+### 2 · Altyapı
+
+- **§30 kaynakça** (`kaynakca_uret.py`, karar 15): bütün kayıtlardan
+  kendiliğinden. Aynı belge tek satır (künye, DOI ve adres birleşimi),
+  Türk alfabesiyle sıralı, her satırda geçtiği başlıklar; İngilizce
+  sayfada künyenin Türkçe parçaları çevriliyor. Elle yazılmıyor:
+  `dogrula_bolumler.py` sayfanın ve `b30` kaydının üreticinin çıktısıyla
+  birebir olduğunu sınıyor (§30'da sayı izi yok, yalnız bu).
+- **§29 sözlük ve balon** (karar 14): `sozluk.json` → `sozluk_uret.py` →
+  §29 sayfası + `b29` kaydındaki `terim_sayisi`; `dart_uret.py` →
+  `yz_sozluk.g.dart`. Her tanım kayıttaki alıntıya dayanıyor. Balon
+  terimin sayfadaki ilk uygun geçişinde açılıyor; kurallar:
+  - Türkçe ek kelimenin sonuna kadar işaretleniyor; `=` önekli desen
+    (kısaltma) büyük-küçük harfe duyarlı ve tam kelime.
+  - Kalın/italik parça, tırnak içi (birebir alıntı) ve adres sayılmıyor.
+  - Cümle ortasında büyük harfle başlayan geçiş özel adın parçası:
+    "Türkiye Yapay Zekâ Eylem Planı", "UCI Machine Learning Repository",
+    "Bitki Su Tüketimi Sistemi" işaretlenmiyor.
+  - Uzun terimin BÜTÜN geçişleri kısa terime gölge: "iklim akıllı
+    tarım"ın içindeki "akıllı tarım", "sohbet robotu"nun içindeki "robot"
+    ayrıca işaretlenmiyor — uzun terim sayfada önceden işaretlenmiş olsa
+    bile.
+  - Başka anlamda geçtiği başlıklar `haric`/`yalniz` ile dışarıda
+    (doğruluk: sensör doğruluğu §7, beyan doğruluğu §9 ve §23, regresyon
+    ve tahmin isabeti §4-§6, §16, §17; sınıflandırma: CEMA'nın
+    sınıflandırması §2, toprak sınıflandırması §4; açık veri: "kamuya açık
+    veri" §6; kontrollü ortam: §26'daki çekim koşulu; otonom: §13'teki
+    sera yarışması; kesinlik ve duyarlılık yalnız §18).
+  - §29 ve §30 sayfalarında balon yok (`kYzSozluksuzBasliklar`).
+  - Python eşleştiricisi (`terimleri_bul`) Dart'ınkinin (`yzTerimleriBul`)
+    birebir karşılığı; Dart'ın `List.sort`'u kararlı olmadığı için eşit
+    uzunlukta desenlerde sözlük sırası kullanılıyor. Test §29'daki
+    "Geçtiği başlıklar"ı Dart'ın hesabıyla karşılaştırıyor. Üretici, iki
+    dilde de hiçbir başlıkta balon açmayan terimi kabul etmiyor.
+  - Tablo hücrelerinde balon yok.
+- **Adres bağlantıları:** metindeki adresler dokunulabilir (§30); sondaki
+  noktalama ve kapanmamış parantez adrese dahil değil.
+- **Merkez sayfada §1:** özetin ilk paragrafı haritanın üstünde, "Durum
+  tespitinin tamamı" bağlantısıyla (karar 6).
+
+### 3 · Doğrulama sırasında yakalananlar
+
+- §1-§3: Michalski ve Baskin'in ortak yazarlığı; FarmerChat'in kimin
+  ürünü olduğu cümlesi; OECD 2019 tavsiyesinin tarihi; ISPA panelinin
+  zamanı; "bilinen tek ölçüm" iddiası yumuşatıldı. EN §2'de tırnak
+  içindeki çeviri terimler Türkçe asıllarıyla değişti, çevirisi parantezde.
+- §26'nın kapanışı, bakanlığın 2020 anketi bulununca daraltıldı.
+- Sözlük bağlam taramasında (`sozluk_uret.py --baglam`) eşleştirici yanlış
+  yerleri işaretliyordu: "büyük veri" deseni "Büyük verim açığı"nı (§20),
+  "akıllı tarım" "iklim akıllı tarım"ın içini (§27), "robot" "sohbet
+  robotu"nu (§3, §18), "doğruluk" ÇKS beyanlarının doğruluk kontrolünü (§9,
+  §23) ve sensör doğruluğunu (§7), "sınıflandırma" CEMA'nın
+  sınıflandırmasını (§2); §2'de UYZS'nin tırnak içindeki tanımında
+  "robotun"u. Büyük veri desenleri ek ek yazıldı ("verim" dışarıda), gölge,
+  özel ad ve tırnak kuralları eklendi.
+- Gölge ve özel ad kuralları geçici olarak bozulunca hem kendi testleri
+  hem §29 eşlik testi düşüyor.
+- §12'deki tanı duyarlılığı (sensitivity) için kayıtta tanım yok; Google
+  sözlüğü yalnız recall'u tanımlıyor. Duyarlılık balonu yalnız §18'de.
+- "Dijital ikiz" yalnız §25'in tablosunda, "bitki su tüketimi" yalnız
+  TAGEM-SuET'in adında geçiyor; balon açmadıkları için sözlüğe girmedi.
+- Eylem Planı sözlüğünde terim adları ayrı sütunda; pypdf tanımı adından
+  ayırıyor. "LLM (Büyük Dil Modeli)" ve "Veri Alanı" tanımları etiket
+  listesinin ve tanımların alfabetik sırasıyla eşleştirildi; etiketler de
+  alıntı olarak kayıtta.
+- Değişken oranlı uygulamanın kaynağı (ERS) ekipmanı tanımlıyor; tanım
+  "uygulama" ile "ekipman" ayrımına göre yazıldı.
+- §2'nin araştırma ajanı bir adrese HEAD isteği gönderdi (veri
+  gönderilmedi); ajan talimatlarına "yalnız GET" açıkça yazılacak.
+
+### 4 · Sınama ve önizleme
+
+125 test geçti. Kaynak deposu 448 dosya.
+Önizleme (yz-onizleme, 8132) bölüm açık bayrakla yeniden kuruldu; bayrak
+derlemeden sonra yedekten geri yüklendi (`build/web`'e dokunulmadı).
+Masaüstünde ve telefon genişliğinde balon açılıyor (ekranın altındaki
+terimde yukarı doğru), "Sözlükte aç" §29'a götürüyor, §29 sayfasında
+balon yok; §30 yeni sayılarla (261 kaynak, 29 başlık) çiziliyor.
+
+## Tur 10'a kalanlar (açılış öncesi)
+
+1. **Açılış kararı kullanıcının:** eşik doldu. `yayin.json`'daki
+   `okura_acik` ancak açık onayla değişir; dağıtım ve GitHub'a gönderme
+   ayrı onay ister (dal `yapay-zeka-bolumu`).
+2. **Açılış öncesi denetim:** 30 başlığın baştan sona okunması (karar 55
+   dili, TR/EN tutarlılığı, iç göndermeler, §1 özetinin öbür başlıklarla
+   uyumu); telefonda ve masaüstünde balon, bağlantı ve tablo denetimi;
+   kaynak adreslerinin canlılığı.
+3. **Karar 38:** §25'in dinamik kısmı — taramanın önerdiği dizin
+   adaylarının onayla dizine girmesi (panel kuyruğu).
+4. **Sözlük:** tablo hücrelerinde balon yok (dijital ikiz §25'te yalnız
+   tabloda); §12'deki tanı duyarlılığı ve özgüllüğü için kaynaklı tanım;
+   web'de "Sözlükte aç" (`push`) adres çubuğunu değiştirmiyor — uygulamanın
+   geri oku başlığa dönüyor, tarayıcının geri tuşu başlığı atlıyor.
+5. Tur 8'den: TÜBİTAK 1711 sayfasındaki iki kart; §25'teki girişim
+   sitelerinin ve FAO listesinin güncelliği; §27'deki şirketlerin sonraki
+   durumu.
+6. Önceki turlardan: §23 kapanış cümlesi; TAGEM projelerinin §6, §7, §8,
+   §12, §13'e girişi; kuyruk okuması (kullanıcı); eksik özellikler (karar
+   10, 16, 38).
