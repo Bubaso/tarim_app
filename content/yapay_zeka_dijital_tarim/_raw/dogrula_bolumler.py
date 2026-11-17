@@ -22,6 +22,11 @@ KURALLAR
      ötekinde olmayan sayı, çeviride düşen ya da eklenen bilgi demek.
   5. BİÇİM. Başlık satırı "# NN · …" ile başlamalı ve dosya adındaki
      numarayla tutmalı; özet bloğu (">") bulunmalı.
+  6. ÜRETİLMİŞ BAŞLIK. §30 Kaynakça elle yazılmıyor, bütün kayıtlardan
+     üretiliyor (`kaynakca_uret.py`). Künyelerdeki DOI, tarih ve sayfa
+     numaraları iki dilin sayı ayrıştırıcısında farklı okunduğu için §30 sayı
+     izine değil, üreticinin o anki çıktısına karşı sınanır: kayıtlar
+     değişip kaynakça eski kalırsa DURUR.
 """
 from __future__ import annotations
 
@@ -162,6 +167,32 @@ def sina(no: str, dosyalar: dict[str, Path]) -> None:
         hata(f"§{int(no)}: iki dilin sayıları farklı — yalnız TR {yalniz_tr}, yalnız EN {yalniz_en}")
 
 
+URETILMIS = {"30"}
+
+
+def sina_uretilmis(no: str, dosyalar: dict[str, Path]) -> None:
+    """§30: dosyalar ve kayıt, üreticinin şimdiki çıktısıyla birebir mi."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("kaynakca_uret", BURASI / "kaynakca_uret.py")
+    uretici = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(uretici)
+    tr, en, kayit = uretici.uret()
+    for dil, beklenen in (("tr", tr), ("en", en)):
+        yol = dosyalar.get(dil)
+        if yol is None:
+            continue
+        ilk = yol.read_text(encoding="utf-8").splitlines()[0]
+        if not re.match(rf"# {int(no)} · \S", ilk):
+            hata(f"{yol.name}: başlık satırı '# {int(no)} · …' değil")
+        if yol.read_text(encoding="utf-8") != beklenen:
+            hata(f"{yol.name}: kayıtlardan üretilen kaynakçayla aynı değil — kaynakca_uret.py koşturulmalı")
+        else:
+            print(f"  · {yol.name}: üreticinin çıktısıyla birebir")
+    kayit_yolu = BURASI / f"b{no}_kaynaklar.json"
+    if not kayit_yolu.exists() or kayit_yolu.read_text(encoding="utf-8") != kayit:
+        hata(f"b{no}_kaynaklar.json üreticinin çıktısıyla aynı değil — kaynakca_uret.py koşturulmalı")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -184,7 +215,10 @@ def main() -> int:
         if set(dosyalar) != {"tr", "en"}:
             hata(f"§{int(no)}: iki dilden biri eksik ({', '.join(dosyalar)}) — karar 7")
         print(f"\n§{int(no)}")
-        sina(no, dosyalar)
+        if no in URETILMIS:
+            sina_uretilmis(no, dosyalar)
+        else:
+            sina(no, dosyalar)
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
         return 1

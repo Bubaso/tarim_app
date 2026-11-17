@@ -379,7 +379,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Sources",
       false,
       [],
-      false,
+      true,
       "Kaynakların listesi. Her rakamın niteliği kendi yanında duruyor.",
       "The list of sources. Each figure's standing is shown beside the figure itself."),
 ];

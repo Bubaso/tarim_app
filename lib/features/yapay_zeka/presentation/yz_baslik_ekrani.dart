@@ -71,7 +71,7 @@ class YzBaslikEkrani extends StatelessWidget {
                         ),
                         const SizedBox(height: 26),
                         if (metin != null)
-                          YzMetinGorunumu(metin: metin.metin(en), en: en)
+                          YzMetinGorunumu(metin: metin.metin(en), en: en, sozluk: b.no != 29)
                         else
                           _Yaziliyor(baslik: b),
                         if (b.haberAlir) ...[

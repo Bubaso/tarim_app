@@ -867,12 +867,12 @@
       "surec_sirasi": null,
       "teknoloji": [],
       "oto_hedefler": [],
-      "turkiye": "bilinmiyor",
+      "turkiye": "yok",
       "ozet": {
         "tr": "Kaynakların listesi. Her rakamın niteliği kendi yanında duruyor.",
         "en": "The list of sources. Each figure's standing is shown beside the figure itself."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     }
   ]

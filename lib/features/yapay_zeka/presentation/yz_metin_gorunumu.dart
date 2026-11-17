@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/utils/turkce_metin.dart';
 
+import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
 
 /// Bölüm metinlerinin çizicisi.
@@ -96,14 +99,66 @@ List<YzBlok> yzAyristir(String md) {
 /// Satır içi biçim: `**kalın**`, `*italik*`. Rakam taşıyan kalın parça
 /// "makinenin sesiyle" — eşit genişlikli, çelik mavisi — çiziliyor: metindeki
 /// ölçülmüş sayılar böyle yazılıyor (bkz. §8, §23).
-TextSpan yzSatirIci(String metin, TextStyle taban) {
+///
+/// [etkilesim] verilirse düz metindeki adresler bağlantı (§30 kaynakça) ve
+/// [isaretler]deki sözlük terimleri balon açan parça olur (karar 14).
+TextSpan yzSatirIci(String metin, TextStyle taban,
+    {YzEtkilesim? etkilesim, List<YzIsaret> isaretler = const []}) {
   final parcalar = <InlineSpan>[];
   final desen = RegExp(r'\*\*(.+?)\*\*|\*(.+?)\*');
+
+  // Dokunulabilir aralıklar (ikisi de kalın/italik parçaların dışında).
+  final etkin = <(int, int, Object)>[
+    if (etkilesim != null) ...[
+      for (final a in yzAdresler(metin)) (a.$1, a.$2, metin.substring(a.$1, a.$2)),
+      for (final i in isaretler) (i.bas, i.son, i),
+    ],
+  ]..sort((a, b) => a.$1.compareTo(b.$1));
+
+  void duz(int bas, int bitis) {
+    var k = bas;
+    for (final e in etkin) {
+      if (e.$1 < k || e.$2 > bitis) continue;
+      if (e.$1 > k) parcalar.add(TextSpan(text: metin.substring(k, e.$1)));
+      final parca = metin.substring(e.$1, e.$2);
+      final yuk = e.$3;
+      if (yuk is YzIsaret) {
+        final r = TapGestureRecognizer()
+          ..onTapUp = (d) => etkilesim!.terimAc(yuk.terim, d.globalPosition);
+        etkilesim!.tanicilar.add(r);
+        parcalar.add(TextSpan(
+          text: parca,
+          recognizer: r,
+          mouseCursor: SystemMouseCursors.click,
+          style: const TextStyle(
+            decoration: TextDecoration.underline,
+            decorationStyle: TextDecorationStyle.dotted,
+            decorationColor: YzRenk.makine,
+            decorationThickness: 1.6,
+          ),
+        ));
+      } else {
+        final r = TapGestureRecognizer()..onTap = () => etkilesim!.baglantiAc(parca);
+        etkilesim!.tanicilar.add(r);
+        parcalar.add(TextSpan(
+          text: parca,
+          recognizer: r,
+          mouseCursor: SystemMouseCursors.click,
+          style: TextStyle(
+            color: YzRenk.makine,
+            decoration: TextDecoration.underline,
+            decorationColor: YzRenk.makine.withValues(alpha: 0.5),
+          ),
+        ));
+      }
+      k = e.$2;
+    }
+    if (bitis > k) parcalar.add(TextSpan(text: metin.substring(k, bitis)));
+  }
+
   var son = 0;
   for (final m in desen.allMatches(metin)) {
-    if (m.start > son) {
-      parcalar.add(TextSpan(text: metin.substring(son, m.start)));
-    }
+    if (m.start > son) duz(son, m.start);
     if (m.group(1) != null) {
       final ic = m.group(1)!;
       final rakamli = RegExp(r'\d').hasMatch(ic);
@@ -123,61 +178,139 @@ TextSpan yzSatirIci(String metin, TextStyle taban) {
     }
     son = m.end;
   }
-  if (son < metin.length) parcalar.add(TextSpan(text: metin.substring(son)));
+  if (son < metin.length) duz(son, metin.length);
   return TextSpan(style: taban, children: parcalar);
 }
 
-class YzMetinGorunumu extends StatelessWidget {
-  const YzMetinGorunumu({super.key, required this.metin, required this.en});
+class YzMetinGorunumu extends StatefulWidget {
+  const YzMetinGorunumu({super.key, required this.metin, required this.en, this.sozluk = true});
   final String metin;
 
   /// Tablo başlıkları büyük harfle yazılıyor; Türkçede `i` → `İ` olmalı
   /// (`buyukHarf`), ham `toUpperCase()` "ŞIRKET", "ÜNIVERSITE" üretiyor.
+  /// Sözlük terimleri de dile göre aranıyor.
   final bool en;
+
+  /// Sözlük terimleri ilk geçtikleri yerde balonla açılsın mı (karar 14).
+  /// Sözlük sayfasının kendisinde kapalı.
+  final bool sozluk;
+
+  @override
+  State<YzMetinGorunumu> createState() => _YzMetinGorunumuState();
+}
+
+/// Dokunma tanıyıcıları her çizimde yeniden kurulmuyor: metin, dil ya da
+/// ekran sınıfı (dar/geniş) değişmedikçe aynı bloklar kullanılıyor; tanıyıcılar
+/// yalnız metin değişince ve bileşen kapanınca bırakılıyor — bir dokunuş
+/// sürerken bırakılan tanıyıcı hata verirdi.
+class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
+  final _tanicilar = <GestureRecognizer>[];
+  final _onbellek = <bool, List<Widget>>{};
+  late List<YzBlok> _bloklar;
+  late List<List<YzIsaret>> _isaretler;
+
+  @override
+  void initState() {
+    super.initState();
+    _hazirla();
+  }
+
+  @override
+  void didUpdateWidget(covariant YzMetinGorunumu eski) {
+    super.didUpdateWidget(eski);
+    if (eski.metin != widget.metin || eski.en != widget.en || eski.sozluk != widget.sozluk) {
+      _birak();
+      _hazirla();
+    }
+  }
+
+  void _hazirla() {
+    _bloklar = yzAyristir(widget.metin);
+    // Bir terim sayfada bir kez: bloklar sırayla, aynı küme taşınarak.
+    final gorulen = <String>{};
+    _isaretler = [
+      for (final b in _bloklar)
+        widget.sozluk && (b.tur == YzBlokTuru.ozet || b.tur == YzBlokTuru.paragraf)
+            ? yzTerimleriBul(b.metin, widget.en, gorulen)
+            : const <YzIsaret>[],
+    ];
+  }
+
+  void _birak() {
+    for (final t in _tanicilar) {
+      t.dispose();
+    }
+    _tanicilar.clear();
+    _onbellek.clear();
+  }
+
+  @override
+  void dispose() {
+    _birak();
+    super.dispose();
+  }
+
+  YzEtkilesim get _etkilesim => YzEtkilesim(
+        tanicilar: _tanicilar,
+        baglantiAc: (a) {
+          final uri = Uri.tryParse(a);
+          if (uri != null) launchUrl(uri, mode: LaunchMode.externalApplication);
+        },
+        terimAc: (t, konum) => yzTerimBalonu(context, t, konum, widget.en),
+      );
 
   @override
   Widget build(BuildContext context) {
-    final bloklar = yzAyristir(metin);
     return LayoutBuilder(builder: (context, kis) {
       final dar = kis.maxWidth < 560;
-      final govde = YzYazi.govde(boy: dar ? 17.5 : 18.5);
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          for (final b in bloklar)
-            switch (b.tur) {
-              YzBlokTuru.ozet => Padding(
-                  padding: const EdgeInsets.only(bottom: 28),
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(dar ? 16 : 22, 18, dar ? 16 : 22, 18),
-                    decoration: BoxDecoration(
-                      color: YzRenk.bitkiAcik,
-                      borderRadius: BorderRadius.circular(4),
-                      border: Border.all(color: YzRenk.bitki.withValues(alpha: 0.22)),
-                    ),
-                    child: SelectableText.rich(
-                        yzSatirIci(b.metin, govde.copyWith(height: 1.55))),
-                  ),
-                ),
-              YzBlokTuru.altBaslik => Padding(
-                  padding: const EdgeInsets.only(top: 22, bottom: 12),
-                  child: Semantics(
-                    header: true,
-                    child: Text(b.metin, style: YzYazi.baslik(dar ? 21 : 24)),
-                  ),
-                ),
-              YzBlokTuru.paragraf => Padding(
-                  padding: const EdgeInsets.only(bottom: 16),
-                  child: SelectableText.rich(yzSatirIci(b.metin, govde)),
-                ),
-              YzBlokTuru.tablo => Padding(
-                  padding: const EdgeInsets.only(top: 4, bottom: 22),
-                  child: dar ? _KartTablo(b.satirlar, en) : _GenisTablo(b.satirlar, en),
-                ),
-            },
-        ],
+        children: _onbellek.putIfAbsent(dar, () => _ciz(dar)),
       );
     });
+  }
+
+  List<Widget> _ciz(bool dar) {
+    final govde = YzYazi.govde(boy: dar ? 17.5 : 18.5);
+    final etkilesim = _etkilesim;
+    final en = widget.en;
+    return [
+      for (var i = 0; i < _bloklar.length; i++)
+        switch (_bloklar[i].tur) {
+          YzBlokTuru.ozet => Padding(
+              padding: const EdgeInsets.only(bottom: 28),
+              child: Container(
+                padding: EdgeInsets.fromLTRB(dar ? 16 : 22, 18, dar ? 16 : 22, 18),
+                decoration: BoxDecoration(
+                  color: YzRenk.bitkiAcik,
+                  borderRadius: BorderRadius.circular(4),
+                  border: Border.all(color: YzRenk.bitki.withValues(alpha: 0.22)),
+                ),
+                child: SelectableText.rich(yzSatirIci(
+                    _bloklar[i].metin, govde.copyWith(height: 1.55),
+                    etkilesim: etkilesim, isaretler: _isaretler[i])),
+              ),
+            ),
+          YzBlokTuru.altBaslik => Padding(
+              padding: const EdgeInsets.only(top: 22, bottom: 12),
+              child: Semantics(
+                header: true,
+                child: Text(_bloklar[i].metin, style: YzYazi.baslik(dar ? 21 : 24)),
+              ),
+            ),
+          YzBlokTuru.paragraf => Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: SelectableText.rich(yzSatirIci(_bloklar[i].metin, govde,
+                  etkilesim: etkilesim, isaretler: _isaretler[i])),
+            ),
+          YzBlokTuru.tablo => Padding(
+              padding: const EdgeInsets.only(top: 4, bottom: 22),
+              child: dar
+                  ? _KartTablo(_bloklar[i].satirlar, en)
+                  : _GenisTablo(_bloklar[i].satirlar, en),
+            ),
+        },
+    ];
   }
 }
 

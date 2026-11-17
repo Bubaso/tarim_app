@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,8 +12,10 @@ import 'package:tarim_app/features/yapay_zeka/data/yz_iskelet.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_metinler.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
+import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -140,6 +143,104 @@ devam ediyor.
           expect(b.any((x) => x.metin.startsWith('# ')), isFalse);
         }
       }
+    });
+  });
+
+  // ── Sözlük balonu (karar 14) ve kaynakçadaki adresler ──────────────────
+  // Eşleştirici Türkçe ekleri kelimenin sonuna kadar alıyor, kısaltmayı tam
+  // kelime ve büyük-küçük harfe duyarlı arıyor, bir terimi sayfada bir kez
+  // işaretliyor; kalın parçanın (ölçülmüş sayı) ve adresin içine girmiyor.
+  group('sözlük ve bağlantılar', () {
+    const terimler = [
+      YzTerim('ml', 'makine öğrenmesi', 'machine learning', 'Tanım ML.', 'Def ML.', 'Kaynak: X',
+          'Source: X', ['makine öğrenme'], ['machine learning']),
+      YzTerim('sar', 'sentetik açıklıklı radar', 'synthetic aperture radar', 'Tanım SAR.',
+          'Def SAR.', 'K', 'S', ['sentetik açıklıklı radar', '=SAR'],
+          ['synthetic aperture radar', '=SAR']),
+      YzTerim('iha', 'insansız hava aracı', 'drone', 'Tanım İHA.', 'Def drone.', 'K', 'S',
+          ['insansız hava arac', '=İHA', 'dron'], ['drone', '=UAV']),
+      YzTerim('bdm', 'büyük dil modeli', 'large language model', 'T', 'D', 'K', 'S',
+          ['büyük dil model'], ['large language model']),
+      YzTerim('dm', 'dil modeli', 'language model', 'T', 'D', 'K', 'S', ['dil model'],
+          ['language model']),
+    ];
+    String isaretli(String metin, {bool en = false, Set<String>? gorulen}) =>
+        yzTerimleriBul(metin, en, gorulen ?? <String>{}, sozluk: terimler)
+            .map((i) => metin.substring(i.bas, i.son))
+            .join(' | ');
+
+    test('Türkçe ek kelimenin sonuna kadar işaretleniyor', () {
+      expect(isaretli('Model makine öğrenmesiyle eğitildi.'), 'makine öğrenmesiyle');
+    });
+
+    test('kısaltma büyük-küçük harfe duyarlı ve tam kelime', () {
+      expect(isaretli('Sarımsak tarlası SAR verisiyle izlendi.'), 'SAR');
+      expect(isaretli("Tarlaya İHA'yla ilaç atıldı."), 'İHA');
+    });
+
+    test('kelimenin ortası yakalanmıyor', () {
+      expect(isaretli('Andron adlı çiftlikte dronlar uçtu.'), 'dronlar');
+    });
+
+    test('kalın parçanın ve adresin içi işaretlenmiyor', () {
+      const kalin = '**makine öğrenmesi** ve makine öğrenmesi';
+      final k = yzTerimleriBul(kalin, false, <String>{}, sozluk: terimler).single;
+      expect(k.bas, greaterThan(kalin.indexOf(' ve ')));
+      const adresli = 'Rapor: https://ornek.org/dron-raporu ve dron uçuşu.';
+      final a = yzTerimleriBul(adresli, false, <String>{}, sozluk: terimler).single;
+      expect(a.bas, greaterThan(adresli.indexOf(' ve ')));
+    });
+
+    test('bir terim sayfada bir kez', () {
+      final gorulen = <String>{};
+      expect(isaretli('İlk paragrafta makine öğrenmesi.', gorulen: gorulen), 'makine öğrenmesi');
+      expect(isaretli('İkincide yine makine öğrenmesi.', gorulen: gorulen), '');
+    });
+
+    test('uzun terim önce: büyük dil modeli ile dil modeli karışmıyor', () {
+      expect(isaretli('Büyük dil modelleri ve küçük bir dil modeli.'),
+          'Büyük dil modelleri | dil modeli');
+    });
+
+    test('İngilizce metinde İngilizce desen', () {
+      expect(isaretli('A drone and a UAV; machine learning-based.', en: true),
+          'drone | machine learning');
+    });
+
+    test('adresin sonundaki noktalama ve kapanmamış parantez kırpılıyor', () {
+      const m = '(liste sayfası: https://a.org/b?c=1).';
+      final a = yzAdresler(m).single;
+      expect(m.substring(a.$1, a.$2), 'https://a.org/b?c=1');
+    });
+
+    testWidgets('terime dokununca balon açılıyor; adrese dokununca adres veriliyor', (t) async {
+      String? acilan;
+      await t.pumpWidget(MaterialApp(
+          home: Scaffold(body: Builder(builder: (context) {
+        final etkilesim = YzEtkilesim(
+          tanicilar: <GestureRecognizer>[],
+          baglantiAc: (a) => acilan = a,
+          terimAc: (terim, konum) => yzTerimBalonu(context, terim, konum, false),
+        );
+        const metin = 'makine öğrenmesi';
+        return Column(children: [
+          SelectableText.rich(yzSatirIci(metin, const TextStyle(fontSize: 18),
+              etkilesim: etkilesim,
+              isaretler: yzTerimleriBul(metin, false, <String>{}, sozluk: terimler))),
+          SelectableText.rich(yzSatirIci('https://ornek.org/x', const TextStyle(fontSize: 18),
+              etkilesim: etkilesim)),
+        ]);
+      }))));
+      await t.tap(find.byType(SelectableText).first);
+      await t.pumpAndSettle();
+      expect(find.text('Tanım ML.'), findsOneWidget);
+      expect(find.text('Sözlükte aç'), findsOneWidget);
+      await t.tapAt(const Offset(5, 590)); // dışarı dokunuş balonu kapatıyor
+      await t.pumpAndSettle();
+      expect(find.text('Tanım ML.'), findsNothing);
+      await t.tap(find.byType(SelectableText).last);
+      await t.pump();
+      expect(acilan, 'https://ornek.org/x');
     });
   });
 

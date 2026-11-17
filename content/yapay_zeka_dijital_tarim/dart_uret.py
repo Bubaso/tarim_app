@@ -169,14 +169,67 @@ def main() -> int:
     m.append("")
     METIN = KOK / "lib/features/yapay_zeka/data/yz_metinler.g.dart"
     METIN.write_text("\n".join(m), encoding="utf-8")
+
+    # ── sözlük — §29 sayfası ve metin içi balon (karar 14) ────────────
+    # Tanımlar `_raw/sozluk.json`dan; aynı metin §29'un .md dosyasına da
+    # `_raw/sozluk_uret.py` ile yazılıyor ve orada kayda karşı sınanıyor.
+    # Dosya yoksa liste boş: hiçbir terim işaretlenmez.
+    SOZLUK = KOK / "lib/features/yapay_zeka/data/yz_sozluk.g.dart"
+    kaynak = KOK / "content/yapay_zeka_dijital_tarim/_raw/sozluk.json"
+    terimler = json.loads(kaynak.read_text(encoding="utf-8"))["terimler"] if kaynak.exists() else []
+    z = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+         "// Kaynak: content/yapay_zeka_dijital_tarim/_raw/sozluk.json",
+         "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+         "//",
+         "// Sözlük (karar 14): §29 sayfası ve bölüm metinlerinde terimin ilk",
+         "// geçtiği yerde açılan balon aynı tanımı gösteriyor.",
+         "",
+         "class YzTerim {",
+         "  const YzTerim(this.kimlik, this.tr, this.en, this.tanimTr, this.tanimEn,",
+         "      this.kaynakTr, this.kaynakEn, this.desenTr, this.desenEn);",
+         "  final String kimlik;",
+         "  final String tr;",
+         "  final String en;",
+         "  final String tanimTr;",
+         "  final String tanimEn;",
+         "",
+         "  /// Tanımın dayandığı kaynak, okura gösterildiği biçimiyle.",
+         "  final String kaynakTr;",
+         "  final String kaynakEn;",
+         "",
+         "  /// Metinde terimi yakalayan desenler. Küçük harfli desen kelime başında",
+         "  /// aranır ve kelimenin sonuna kadar uzanır (Türkçe ekler: \"makine",
+         "  /// öğrenmesiyle\"). `=` ile başlayan desen büyük-küçük harfe duyarlı ve",
+         "  /// tam kelime (\"=SAR\" \"sarımsak\"ın içinde yakalanmaz).",
+         "  final List<String> desenTr;",
+         "  final List<String> desenEn;",
+         "",
+         "  String ad(bool en) => en ? this.en : tr;",
+         "  String tanim(bool en) => en ? tanimEn : tanimTr;",
+         "  String kaynak(bool en) => en ? kaynakEn : kaynakTr;",
+         "  List<String> desen(bool en) => en ? desenEn : desenTr;",
+         "}",
+         "",
+         "const List<YzTerim> kYzSozluk = ["]
+    for x in terimler:
+        z.append(f"  YzTerim({dizgi(x['kimlik'])}, {dizgi(x['tr'])}, {dizgi(x['en'])},")
+        z.append(f"      {dizgi(x['tanim_tr'])},")
+        z.append(f"      {dizgi(x['tanim_en'])},")
+        z.append(f"      {dizgi(x['kaynak_tr'])}, {dizgi(x['kaynak_en'])},")
+        z.append(f"      [{', '.join(dizgi(d) for d in x['desen_tr'])}],")
+        z.append(f"      [{', '.join(dizgi(d) for d in x['desen_en'])}]),")
+    z.append("];")
+    z.append("")
+    SOZLUK.write_text("\n".join(z), encoding="utf-8")
     try:
-        subprocess.run(["dart", "format", str(CIKIS), str(METIN)], check=False,
+        subprocess.run(["dart", "format", str(CIKIS), str(METIN), str(SOZLUK)], check=False,
                        capture_output=True, timeout=60)
     except Exception:
         pass
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")
+    print(f"✓ {SOZLUK.relative_to(KOK)} · {len(terimler)} terim")
     print(f"✓ okura {'AÇIK' if acik else 'KAPALI'} (yayin.json) · eşik: {yayin.get('acilis_esigi')} · eksik {len(eksik)} başlık")
     return 0
 

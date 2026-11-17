@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
+import 'yz_metin_gorunumu.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 
@@ -9,8 +11,8 @@ import 'yz_tasarim.dart';
 ///
 /// Bir giriş sayfası değil, bir HARİTA: okur ilk bakışta bölümün neyi
 /// kapsadığını, ne kadarının yazıldığını ve son haberleri görüyor. Tez yok
-/// (karar 6); "bugün nerede duruyoruz" başlığı yazıldığında en üste o
-/// gelecek. Şimdilik durum satırı sayılarla, sayılar iskeletten.
+/// (karar 6); yerine §1 "Bugün nerede duruyoruz"un özeti haritanın üstünde
+/// duruyor — §1 yazılmadıysa o kutu çizilmiyor, durum satırı sayılarla.
 ///
 /// Ekran argüman almıyor: iskelet ve metinler derlemede gömülü, haber
 /// akışı veritabanından (karar 21). Adres tek başına sayfayı kuruyor.
@@ -106,6 +108,12 @@ class YzMerkezEkrani extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            if (kYzMetinler[1] != null) ...[
+                              YzBolumBasligi(
+                                  en ? 'Where things stand today' : 'Bugün nerede duruyoruz'),
+                              _DurumOzeti(metin: kYzMetinler[1]!.metin(en), en: en),
+                              const SizedBox(height: 34),
+                            ],
                             YzBolumBasligi(
                               en ? 'The headings' : 'Başlıklar',
                               alt: en
@@ -143,6 +151,49 @@ class YzMerkezEkrani extends StatelessWidget {
           }),
         ),
       ]),
+    );
+  }
+}
+
+/// §1'in özet bloğu, merkez sayfada haritanın üstünde (karar 6: tez yerine
+/// durum tespiti). Metin §1'in kendisinden; "Özet." etiketi burada başlık
+/// zaten söylediği için düşüyor.
+class _DurumOzeti extends StatelessWidget {
+  const _DurumOzeti({required this.metin, required this.en});
+  final String metin;
+  final bool en;
+
+  @override
+  Widget build(BuildContext context) {
+    final ozet = yzAyristir(metin)
+        .where((b) => b.tur == YzBlokTuru.ozet)
+        .map((b) => b.metin.replaceFirst(RegExp(r'^\*\*(Özet|Summary)\.\*\*\s*'), ''))
+        .firstOrNull;
+    if (ozet == null) return const SizedBox.shrink();
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 820),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 8),
+        decoration: BoxDecoration(
+          color: YzRenk.bitkiAcik,
+          borderRadius: BorderRadius.circular(4),
+          border: Border.all(color: YzRenk.bitki.withValues(alpha: 0.22)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SelectableText.rich(
+                yzSatirIci(ozet, YzYazi.govde(boy: 18).copyWith(height: 1.55))),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () => context.push(yzBaslikPath('bugun-nerede-duruyoruz')),
+                child: Text(en ? 'Read the full status reading' : 'Durum tespitinin tamamı'),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
