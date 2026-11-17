@@ -726,3 +726,120 @@ testleri 63/63.
 3. Tur 5'ten kalanlar sürüyor: kuyruk okuması (kullanıcı), eksik özellikler
    (karar 10, 14, 15, 16, 38), açılış öncesi denetim (Tur 10).
 
+
+## Tur 7 — ZİNCİR VE ALTYAPI: §16-§21, §23 ve §24 güncellemesi · 17 Kasım 2026
+
+Kullanıcı: "tur 7'ye ilgili diğer dahil işlere devam et", ardından
+"sonuçlar gelince başlıkları yazmaya geç."
+
+### 0 · Yöntem: araştırma ajanları (karar 54)
+
+Kaynak taraması üç paralel araştırma ajanına bölündü (§16-§17, §18-§19,
+§20-§21). Her ajan kaynakları geçici bir klasöre indirdi, alıntıları
+`dogrula_alintilar.py` ile aynı kuralı uygulayan bir sınayıcıdan geçirdi ve
+aday kayıt bıraktı. Adaylar kilitli kayıt sayılmadı: her kaynak yeniden
+okundu, metne giren her "geçmiyor / bulunamadı / ölçülmemiş" iddiası
+belgenin kendisinde arandı (aşağıda § 4). Ajanlar çalışırken §23 ve §24
+güncellendi.
+
+### 1 · Yazılan ve güncellenen başlıklar
+
+| § | başlık | kaynak | alıntı | sayı (TR = EN) | commit |
+|---|---|---|---|---|---|
+| 23 | Türkiye'de durum — güncelleme | 11 | 42 | 78 | `e79b6c9` |
+| 24 | Mevzuat ve politika — güncelleme | 7 | 32 | 61 | `ec53c22` |
+| 16 | Pazar, fiyat ve tedarik zinciri | 9 | 41 | 38 | `9f8fd08` |
+| 17 | İklim, risk ve tarım sigortası | 11 | 64 | 72 | `e86f1bb` |
+| 18 | Danışmanlık ve dil modelleri | 9 | 59 | 42 | `457d960` |
+| 19 | Uydu ve uzaktan algılama | 10 | 51 | 50 | `6f13a20` |
+| 20 | Sensörler ve tarımsal nesnelerin interneti | 11 | 53 | 100 | `a002597` |
+| 21 | Veri: sahiplik, platformlar, açık veri | 9 | 56 | 40 | `664fc2c` |
+
+Yazılmış başlık: 20/30 (§4-§21, §23, §24). Kaynak kaydı 317 dosya.
+
+**§23'e eklenenler:** "Programın dışında: sahada çalışan sistemler" (TRGM ürün
+belirleme, OGM Karar Destek Sistemi, BAGİS yapay zekâ projesi); "Araştırma
+tarafı: TAGEM" (2025 faaliyet raporu: üç yapay zekâ projesi, VetAlarm,
+Master Plan'daki fırsat alanı; ZMMAE otonom sera robotu ortaklığı); strateji
+belgesinin hazırlığı birincil kaynakla (Bakan'ın Mayıs 2025 konuşması, Ekim
+2025 çalıştayı). TAGEM araştırma merkezinin kurulduğu hâlâ yalnız haberde —
+metne plan olarak girdi. **§24'e eklenen:** "Yapay zekâya değinmeyen
+kurallar" (AB 2021/2116 alan izleme zorunluluğu; BAGİS isterlerinde KVKK,
+kapalı devre, sızma testi).
+
+### 2 · Başlıklar arası desen
+
+Zincir ve altyapı başlıklarında yapay zekâ için ölçülen şey çoğunlukla
+**modelin isabeti**, tarladaki sonuç değil: GraphCast 1.380 hedefin %90'ında
+önde (§17), ChatGPT yanıtları yayım elemanınınkinden yüksek puanlı (§18),
+fiyat modelinin hatası ARIMA'nın altında (§16). Çiftçide ölçülmüş sonuç
+yalnız dijital danışmanlıkta var ve mütevazı (§18: verim %4; kişiye özel
+öneri %7). Altyapıda engel algoritma değil: kırsal bağlantı, küçük işletme,
+maliyet, birlikte çalışabilirlik, güven (§20, §21).
+
+Türkiye'de devletin dijital altyapısı kayda değer ve zorunlu: HKS künyesi
+(§16), ÇKS (§21), Köy Bazlı Verim Sigortası (§17), MGM'nin 1.717 otomatik
+istasyonu (§20), evrensel hizmet (§20). Ama bu altyapının üstündeki yapay
+zekâ plan ya da araştırma düzeyinde: TARSİM raporunda, MGM programında, TEPGE
+raporunda yapay zekâ geçmiyor; eylem planı veriyi konuşuyor ama çiftçiyi
+değil. Altı başlığın altısında da "bulunamayan şey" aynı yere çıkıyor.
+
+### 3 · Türkiye için yeni bulgular (öteki başlıklara da girecek)
+
+- **TAGEM 2025 faaliyet raporu:** meyve ve bağda derin öğrenmeyle hastalık
+  tespiti (8 enstitü, 2 üniversite), kuru kayısıda multispektral ölçüm,
+  mısır ve pamukta yabancı ota hedefli ilaçlama prototipi (§8 adayı),
+  VetAlarm (§12 adayı), ZMMAE otonom sera robotu (§13 adayı), TAGEM-SuET
+  (§7 ve §18'de anıldı), toprak veri tabanı (§4 adayı).
+- **Bakan'ın Mayıs 2025 konuşması:** otomatik sulama 3 ilde 45 bin dekar
+  (kurum beyanı; §7 adayı — alıntı henüz kayda girmedi).
+- **TÜBİTAK UZAY kataloğu:** GAP'ta değişken oranlı gübrelemede %25'e kadar
+  tasarruf beyanı (yöntemsiz) — §19'da anıldı; §6'ya girip girmeyeceği Tur
+  10'da kararlaştırılacak.
+
+### 4 · Doğrulama sırasında yakalananlar
+
+1. **Paydası belirsiz oran (§17):** TARSİM'in don ihbar oranı (%39,8) bütün
+   ihbarların değil bitkisel ürün ihbarlarının payı; paydayı veren cümle
+   kayda eklendi.
+2. **Kayıtta olmayan yıl (§17):** tablodaki "2022" sütun başlığındaydı;
+   doğrulayıcı yakaladı, başlık satırı alıntılandı.
+3. **Tutarsız tablo (§16):** Türkiye'den bir fiyat tahmini çalışmasında bir
+   modelin hatası ötekilerden yaklaşık iki basamak düşük; sonuç rakamları
+   alınmadı, yalnız verinin HKS sitesinden elle derlendiği yazıldı.
+4. **Nedensellik tuzağı (§19):** programda işlenmeyen arazinin üretime
+   dönüşü re'sen kiralama uygulamasına bağlanıyor ve tespit yöntemi
+   yazmıyor; bakanlık raporundaki "uydu + derin öğrenme" cümlesiyle
+   birleştirilmedi.
+5. **Ölçülmemiş öneri (§18):** domates zararlısı çalışmasında ölçülen başarı
+   tespit modeline ait; tam metin okunarak dil modelinin önerilerinin
+   ölçülmediği doğrulandı.
+6. **Yeniden hesaplanmış rakam (§17):** FAO'nun 2023 ve 2025 kayıp toplamları
+   farklı yöntemle hesaplandı; yan yana konmadı.
+7. **"Geçmiyor" iddiaları belgede sayıldı:** TARSİM raporu, MGM programı,
+   TEPGE raporu, bakanlık faaliyet raporu, BTK raporu, eylem planı (çiftçi,
+   kırsal, köy, veri sahipliği), program (sohbet robotu, blokzincir, fiyat
+   tahmini).
+8. **Bağlantı/kurum:** Çukurova Üniversitesi bağı, Eldem'in üniversitesi ve
+   KVKK'nın istisna maddesi belgeden alıntılanarak kayda girdi; bir "en
+   geniş" üstün sıfatı çıkarıldı.
+
+### 5 · Sınama ve önizleme
+
+Her başlık ayrı commit; her commit "All tests passed" görüldükten sonra.
+Bölüm ve panel testleri tur sonunda 81/81. Yerel önizleme: bölüm yalnız
+önizleme derlemesinde açık (`build/yz_onizleme`, port 8132, `.claude/
+launch.json` → `yz-onizleme`); `deploy.sh --no-build`'in kullandığı
+`build/web`'e dokunulmadı, bayrak depoda kapalı.
+
+## Tur 8'e kalanlar
+
+1. **§22** dünyada durum (bölge bölge), **§25** Türkiye dizini (veritabanından,
+   karar 38), **§26** riskler ve sınırlar, **§27** başarısız örnekler ve
+   abartılar, **§28** saha hikâyeleri.
+2. **Tur 10 denetimine eklenenler:** §23'ün kapanış cümlesi bütün başlıkların
+   kapanışıyla yeniden sınanacak; § 3'teki TAGEM projeleri ve Bakan'ın
+   sulama beyanı ilgili başlıklara (§6, §7, §8, §12, §13) girecek mi
+   kararlaştırılacak.
+3. Tur 5'ten kalanlar sürüyor: kuyruk okuması (kullanıcı), eksik özellikler
+   (karar 10, 14, 15, 16, 38), açılış öncesi denetim (Tur 10).
