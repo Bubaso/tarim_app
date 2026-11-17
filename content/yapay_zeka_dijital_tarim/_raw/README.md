@@ -843,3 +843,99 @@ launch.json` → `yz-onizleme`); `deploy.sh --no-build`'in kullandığı
    kararlaştırılacak.
 3. Tur 5'ten kalanlar sürüyor: kuyruk okuması (kullanıcı), eksik özellikler
    (karar 10, 14, 15, 16, 38), açılış öncesi denetim (Tur 10).
+
+---
+
+## Tur 8 — DÜNYA, DİZİN VE ELEŞTİRİ: §22, §25-§28 · 17 Kasım 2026
+
+Başlıklar okura KAPALI (karar 51). 30 başlığın **25'i** yazıldı; kalan beşi
+Tur 9'un (§1-§3, §29, §30).
+
+### 0 · Yöntem
+
+Beş başlığın aday kaydını araştırma ajanları hazırladı (karar 54). Kayıt
+kilitlenmeden önce her alıntı belgede yeniden sınandı; ajanın yorumu
+(`_not`) metne doğrudan girmedi, iddialar alıntı ve sayısal alanlarla
+karşılaştırıldı. Karar 55 (yayın metni okur içindir) bu turun bütün
+metinlerine uygulandı; önceki 20 başlığın metni de turun başında okur
+diline çevrildi (a5f08d1).
+
+### 1 · Yazılan başlıklar
+
+| § | başlık | kayıt (kaynak · alıntı) | commit |
+|---|---|---|---|
+| 28 | Saha hikâyeleri | 13 · 113 | 8de380e |
+| 22 | Dünyada durum: bölge bölge | 12 · 106 | 99db4e7 |
+| 25 | Türkiye dizini | 54 · 218 | 528897f |
+| 26 | Riskler ve sınırlar | 10 · 91 | 8714cc4 |
+| 27 | Başarısız örnekler ve abartılar | 14 · 68 | 7f3ebe1 |
+
+Ayrıca §23 düzeltildi (dbf20d1): Bakanlığın 4 Haziran 2026 tarihli
+sayfasına göre Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezi
+"kurduk", strateji belgesi "hazırladık" — eski cümle haberlere dayanıyordu.
+Merkezin birimi ve yeri sayfada yok; metin TAGEM demiyor.
+
+### 2 · Başlıklar arası desen
+
+- **Satıcı etiketi (karar 34/35)** §25 ve §27'de yoğun: şirketin ne yaptığı
+  ya da ne vaat ettiği "şirketin kendi tanımı/beyanı"; bağımsız kayıt ayrı
+  (FAO–EBRD 2025 raporu, TÜBİTAK listesi, Companies House, mahkeme süreci
+  sayfası).
+- **Kopya kaynak:** §25'teki kamu sistemleri ve üniversite çalışmaları
+  b06-b23 kayıtlarından seçili alan ve alıntılarla kopyalandı (`_kopya`
+  alanı); sayısal alanların çoğu taşınmadı, havuz dar tutuldu.
+- **Tekrar eden kaynaklar:** Mohanty 2016 §8'de anılıyor, §26'da ayrıntılı,
+  §27'de gönderme. Bac 2014 §10 ve §27'de. Aynı belge birden çok kayıtta
+  aynı dosyayı gösteriyor (kayıtta tek dosya).
+
+### 3 · Türkiye için yeni bulgular
+
+- TÜBİTAK 1711'in akıllı tarım, gıda ve hayvancılık alanında **10** kabul
+  kartı (elle sayıldı, `_sayim`); her kartta müşteri, teknoloji sağlayıcı
+  ve üniversite. İki kartta sayfa tutarsızlığı: Doğanlar kartının müşterisi
+  "Merlab", Easyflex kartının başlığı açıklamasıyla uyuşmuyor. Metin
+  müşteri kuruluşu yazmıyor; Easyflex için açıklamayı esas alıyor.
+- TUCSAP (Hazine Kontrolörleri, 2025 denetimi): kredinin %12,91'i
+  harcanmış, hibe sıfır; 2025 bütçesi 108,8 → 55,6 milyon avro. Sütunlar
+  s.17 tablo başlığından okundu.
+- ÇKS'de ortalama işletme 6,9 ha (UKKS-IV, 2023); tarımda çalışanların yaş
+  ortalaması 46, bütün istihdamda 39 (Şûra belgesi, TÜİK 2023).
+- Türkiye'de kapanan bir tarım teknolojisi girişimine dair birincil kaynak
+  bulunamadı; §27'nin Türkiye örneği takvimi kayan kamu projesi.
+
+### 4 · Doğrulama sırasında yakalananlar
+
+- §17/§19 EN'de Bakan için cinsiyetli zamir — kaldırıldı.
+- AgCurate: "merkezi Hollanda'da" yerine "sitesinde verdiği adres".
+- Actimoo: "ineklere" yerine şirket tanımındaki "hayvanlara".
+- TAKİS'in yürütücü kurumu programda yazmıyor; tabloda kurum adı yok.
+- HKS yönetmeliğinde "Bakanlık" 2012 metninde Gümrük ve Ticaret
+  Bakanlığı; tabloda bakanlık adı yazılmadı.
+- AppHarvest dava sayfasındaki "Effective Date" alanı plan yürürlüğü diye
+  yorumlanmadı, metne girmedi.
+- FAO %70: 2009 belgesindeki cümle başlangıç yılını yazmıyor; metin
+  2005/07 bazını yalnız AT2050 ve 2017 güncellemesi için kullanıyor.
+- TEKNOFEST'in "her yıl derece veriyor" cümlesi 2020-2025 derece
+  başlıklarının hepsi görülerek yazıldı.
+
+### 5 · Sınama ve önizleme
+
+96 test geçti. Kaynak deposu 384 dosya (`_ortak/ham_kaynaklar.json`).
+Önizleme (yz-onizleme, 8132) bölüm açık bayrakla yeniden kuruldu; bayrak
+derlemeden sonra geri alındı.
+
+## Tur 9'a kalanlar
+
+1. **§1-§3** (durum tespiti, kavramlar, tarihçe), **§29** sözlük ve balon
+   (karar 14), **§30** kaynakça (karar 15). Bunlarla açılış eşiği (30/30)
+   dolar.
+2. **Karar 38:** §25'in dinamik kısmı — taramanın önerdiği dizin
+   adaylarının onayla dizine girmesi (panel kuyruğu). b25 kaydı veritabanı
+   için tohum olabilir.
+3. **Tur 10 denetimine eklenenler:** TÜBİTAK 1711 sayfasındaki iki kart;
+   §25'teki girişim sitelerinin ve FAO listesinin (2022 haritası)
+   güncelliği; §27'deki şirketlerin sonraki durumu (Infarm'ın kayyum süreci
+   sicile göre 4 Eylül 2025'te bitti, sonucu kaynakta yok).
+4. Önceki turlardan: §23 kapanış cümlesi; TAGEM projelerinin §6, §7, §8,
+   §12, §13'e girişi; kuyruk okuması (kullanıcı); eksik özellikler (karar
+   10, 14, 15, 16, 38); açılış öncesi denetim (Tur 10).
