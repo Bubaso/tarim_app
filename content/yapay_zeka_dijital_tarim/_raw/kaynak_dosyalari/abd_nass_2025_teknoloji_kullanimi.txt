@@ -1,0 +1,711 @@
+
+United States
+Department of
+Agriculture
+
+National
+Agricultural
+Statistics
+Service
+
+ISSN: 1949-
+0887
+
+Technology Use 
+(Farm Computer
+Usage and 
+Ownership)
+
+August 2025
+
+Contents
+               
+Farm Technology Use and Ownership Highlights..................................................  5
+
+Farm Technology Use - States and United States: 2023 and 2025.................................  6
+
+Farm Internet Access - States and United States: 2023 and 2025................................  7
+
+Use of Internet - States and United States: 2023 and 2025.....................................  8
+
+Internet Access of Reports, Services, and Websites - States and United States: 2023 and 2025..  9
+
+Conducting Business on the Internet - States and United States: 2023 and 2025................. 10
+
+Methods of Internet Access - States and United States: 2025................................... 11
+
+Farm Precision Agriculture Practices - States and United States: 2023 and 2025................ 12
+
+Number of Farms - States and United States: 2022 - 2024....................................... 13
+
+Statistical Methodology....................................................................... 14
+
+Information Contacts.......................................................................... 14
+
+	
+
+This page intentionally left blank
+
+Farm Technology Use and Ownership Highlights
+
+Nationally, 85 percent of farms reported having access to the internet. In 
+2025, 50 percent of farms used the internet to purchase agricultural inputs, 
+which was an increase of 18 percent from 2023. Additionally, 29 percent of 
+farms used the internet to market agricultural activities, which was an 
+increase of 6 percent from 2023. Farms which conducted business with non-
+agricultural websites in 2025 decreased by 4 percent to 45 percent.  
+
+In 2025, 55 percent of farms utilized a broadband connection to access the 
+internet while 74 percent of farms had access to the internet through a 
+cellular data plan. Additionally, 68 percent of farms had a desktop or laptop 
+computer while 82 percent of farms had a smart phone. 
+
+Farm Technology Use - States and United States: 2023 and 2025
+--------------------------------------------------------------------------------------------------------------------------------------------
+                    :                 Farms                 :                                                                               
+                    :-----------------------------------------------------------------------------------------------------------------------
+        State       :         Own or use desktop or         :              Own or use               :Own or use a tablet:  Own or use some  
+                    :            laptop computer            :              smart phone              : or other portable :   other type of   
+                    :                                       :                                       : wireless computer :     computer      
+                    :-----------------------------------------------------------------------------------------------------------------------
+                    :       2023        :       2025        :       2023        :       2025        :       2025        :       2025        
+--------------------------------------------------------------------------------------------------------------------------------------------
+                    :        ------- percent ------                  ------- percent ------                  ------- percent ------         
+                    :                                                                                                                       
+Alabama ............:        60                  61                  91                  83                  32                   1         
+Arizona 1/ .........:        50                  60                  56                  71                  30                   1         
+Arkansas ...........:        64                  59                  81                  84                  29                   4         
+California .........:        85                  88                  85                  89                  45                   3         
+Colorado ...........:        75                  73                  82                  85                  35                   2         
+Florida ............:        62                  63                  85                  86                  35                   4         
+Georgia ............:        75                  71                  92                  88                  43                   1         
+Idaho ..............:        85                  80                  87                  89                  37                   2         
+Illinois ...........:        72                  72                  89                  83                  41                   5         
+Indiana ............:        63                  62                  59                  72                  34                   1         
+                    :                                                                                                                       
+Iowa ...............:        75                  72                  80                  84                  40                   5         
+Kansas .............:        85                  75                  92                  88                  42                   3         
+Kentucky ...........:        60                  63                  81                  79                  30                   4         
+Louisiana ..........:        73                  72                  86                  90                  37                   2         
+Maryland 2/ ........:        73                  75                  70                  77                  40                   4         
+Michigan ...........:        75                  67                  81                  79                  35                   5         
+Minnesota ..........:        70                  72                  85                  81                  37                   4         
+Mississippi ........:        53                  58                  88                  82                  30                   5         
+Missouri ...........:        62                  60                  79                  79                  31                   3         
+Montana ............:        81                  80                  85                  87                  42                   2         
+                    :                                                                                                                       
+Nebraska ...........:        77                  69                  85                  85                  39                   2         
+New Hampshire 3/ ...:        85                  83                  73                  81                  42                   2         
+New Jersey .........:        82                  80                  79                  82                  45                   4         
+New Mexico .........:        40                  65                  55                  77                  32                   3         
+New York ...........:        67                  67                  70                  74                  36                   1         
+North Carolina .....:        71                  66                  90                  85                  35                   6         
+North Dakota .......:        77                  74                  81                  89                  43                   3         
+Ohio ...............:        60                  64                  65                  74                  31                   2         
+Oklahoma ...........:        56                  64                  88                  84                  28                   3         
+Oregon .............:        88                  80                  87                  92                  34                   2         
+                    :                                                                                                                       
+Pennsylvania .......:        51                  56                  61                  67                  24                   5         
+South Carolina .....:        70                  77                  88                  84                  35                   5         
+South Dakota .......:        82                  73                  89                  86                  42                   5         
+Tennessee ..........:        69                  60                  85                  79                  32                   4         
+Texas ..............:        68                  68                  92                  84                  34                   2         
+Utah ...............:        74                  73                  91                  88                  42                   2         
+Virginia ...........:        63                  63                  80                  80                  31                   4         
+Washington .........:        81                  80                  70                  82                  43                   1         
+West Virginia ......:        54                  54                  65                  71                  27                   2         
+Wisconsin ..........:        70                  63                  73                  71                  26                   4         
+Wyoming ............:        73                  77                  92                  90                  40                   3         
+                    :                                                                                                                       
+United States 4/ ...:        69                  68                  82                  82                  35                   3         
+--------------------------------------------------------------------------------------------------------------------------------------------
+1/ Includes Arizona and Nevada.                                                                                                             
+2/ Includes Delaware and Maryland.                                                                                                          
+3/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont.                                                    
+4/ Excludes Alaska and Hawaii.                                                                                                              
+
+Farm Internet Access - States and United States: 2023 and 2025
+--------------------------------------------------------------------
+                    :                     Farms                     
+                    :-----------------------------------------------
+                    :                                               
+                    :                                               
+        State       :             With internet access              
+                    :                                               
+                    :                                               
+                    :-----------------------------------------------
+                    :         2023          :         2025          
+--------------------------------------------------------------------
+                    :                    percent                    
+                    :                                               
+Alabama ............:          86                      81           
+Arizona 1/ .........:          65                      74           
+Arkansas ...........:          80                      82           
+California .........:          91                      92           
+Colorado ...........:          87                      88           
+Florida ............:          84                      83           
+Georgia ............:          95                      90           
+Idaho ..............:          96                      92           
+Illinois ...........:          91                      87           
+Indiana ............:          80                      79           
+                    :                                               
+Iowa ...............:          85                      87           
+Kansas .............:          92                      89           
+Kentucky ...........:          85                      80           
+Louisiana ..........:          86                      87           
+Maryland 2/ ........:          85                      89           
+Michigan ...........:          88                      85           
+Minnesota ..........:          86                      87           
+Mississippi ........:          80                      82           
+Missouri ...........:          84                      80           
+Montana ............:          93                      90           
+                    :                                               
+Nebraska ...........:          90                      87           
+New Hampshire 3/ ...:          98                      93           
+New Jersey .........:          92                      87           
+New Mexico .........:          55                      70           
+New York ...........:          82                      81           
+North Carolina .....:          87                      87           
+North Dakota .......:          85                      90           
+Ohio ...............:          69                      77           
+Oklahoma ...........:          85                      87           
+Oregon .............:          92                      94           
+                    :                                               
+Pennsylvania .......:          66                      73           
+South Carolina .....:          83                      87           
+South Dakota .......:          93                      88           
+Tennessee ..........:          84                      82           
+Texas ..............:          89                      85           
+Utah ...............:          97                      92           
+Virginia ...........:          79                      81           
+Washington .........:          91                      90           
+West Virginia ......:          74                      79           
+Wisconsin ..........:          83                      79           
+Wyoming ............:          90                      91           
+                    :                                               
+United States 4/ ...:          85                      85           
+--------------------------------------------------------------------
+1/ Includes Arizona and Nevada.                                     
+2/ Includes Delaware and Maryland.                                  
+3/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode 
+   Island, and Vermont.                                             
+4/ Excludes Alaska and Hawaii.                                      
+
+Use of Internet - States and United States: 2023 and 2025
+[Agricultural inputs include seed, fertilizer, chemicals, veterinarian supplies, feed, machinery, replacement
+parts, farm supplies, office equipment, etc. Agricultural marketing activities include direct sales of commodities,
+on-line crop and livestock auctions, on-line market advisory services, commodity price tracking, etc.]
+--------------------------------------------------------------------------------------------------------------------
+                    :                                             Farms                                             
+                    :-----------------------------------------------------------------------------------------------
+                    :             Purchase agricultural             :             Conduct agricultural              
+        State       :                    inputs                     :             marketing activities              
+                    :                 over internet                 :                 over internet                 
+                    :-----------------------------------------------------------------------------------------------
+                    :         2023          :         2025          :         2023          :         2025          
+--------------------------------------------------------------------------------------------------------------------
+                    :                                            percent                                            
+                    :                                                                                               
+Alabama ............:          22                      44                       9                      19           
+Arizona 1/ .........:          23                      47                      18                      26           
+Arkansas ...........:          29                      45                      26                      28           
+California .........:          37                      61                      33                      32           
+Colorado ...........:          47                      54                      40                      31           
+Florida ............:          31                      57                      16                      24           
+Georgia ............:          46                      51                      30                      23           
+Idaho ..............:          51                      58                      26                      36           
+Illinois ...........:          36                      49                      37                      39           
+Indiana ............:          31                      46                      25                      30           
+                    :                                                                                               
+Iowa ...............:          29                      45                      28                      38           
+Kansas .............:          46                      47                      37                      33           
+Kentucky ...........:          29                      49                      16                      27           
+Louisiana ..........:          23                      53                      12                      27           
+Maryland 2/ ........:          46                      54                      42                      32           
+Michigan ...........:          37                      54                      23                      32           
+Minnesota ..........:          31                      47                      34                      38           
+Mississippi ........:          20                      48                       7                      26           
+Missouri ...........:          27                      43                      26                      24           
+Montana ............:          47                      58                      23                      36           
+                    :                                                                                               
+Nebraska ...........:          39                      44                      31                      36           
+New Hampshire 3/ ...:          49                      61                      36                      35           
+New Jersey .........:          49                      63                      26                      20           
+New Mexico .........:          27                      50                      13                      22           
+New York ...........:          41                      64                      25                      38           
+North Carolina .....:          35                      58                      32                      29           
+North Dakota .......:          43                      45                      39                      40           
+Ohio ...............:          28                      48                      25                      26           
+Oklahoma ...........:          27                      51                      20                      29           
+Oregon .............:          40                      59                      21                      32           
+                    :                                                                                               
+Pennsylvania .......:          26                      47                      18                      19           
+South Carolina .....:          22                      57                      17                      25           
+South Dakota .......:          40                      44                      35                      34           
+Tennessee ..........:          25                      47                      18                      22           
+Texas ..............:          21                      51                      10                      23           
+Utah ...............:          46                      59                      31                      34           
+Virginia ...........:          39                      48                      15                      28           
+Washington .........:          54                      57                      40                      29           
+West Virginia ......:          30                      44                      12                      13           
+Wisconsin ..........:          32                      42                      17                      21           
+Wyoming ............:          18                      54                      13                      28           
+                    :                                                                                               
+United States 4/ ...:          32                      50                      23                      29           
+--------------------------------------------------------------------------------------------------------------------
+1/ Includes Arizona and Nevada.                                                                                     
+2/ Includes Delaware and Maryland.                                                                                  
+3/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont.                            
+4/ Excludes Alaska and Hawaii.                                                                                      
+
+Internet Access of Reports, Services, and Websites - States and United States: 2023 and 2025
+[Reference period for access and usage of USDA reports, research information, and services is the last 12 months
+prior to the survey completion date]
+--------------------------------------------------------------------------------------------------------------------
+                    :                                             Farms                                             
+                    :-----------------------------------------------------------------------------------------------
+                    :       Access USDA/NASS        :       Access other USDA       :     Access other Federal      
+                    :            reports            :       reports/services        :      government websites      
+        State       :         over internet         :         over internet         :         over internet         
+                    :-----------------------------------------------------------------------------------------------
+                    :     2023      :     2025      :     2023      :     2025      :     2023      :     2025      
+--------------------------------------------------------------------------------------------------------------------
+                    :      ----- percent ----              ----- percent ----              ----- percent ----       
+                    :                                                                                               
+Alabama ............:      11              12              12              16              11              21       
+Arizona 1/ .........:       6               8              17              20              21              23       
+Arkansas ...........:      22              12              29              25              23              24       
+California .........:      16              21              26              32              30              37       
+Colorado ...........:      20              11              30              22              22              27       
+Florida ............:      12              13              20              19              25              27       
+Georgia ............:      15              14              15              25              23              29       
+Idaho ..............:      23              16              26              23              24              33       
+Illinois ...........:      25              17              33              26              23              29       
+Indiana ............:      12              11              21              22              19              21       
+                    :                                                                                               
+Iowa ...............:      13              14              20              27              17              26       
+Kansas .............:      21              14              33              27              37              30       
+Kentucky ...........:      12              11              21              26              16              22       
+Louisiana ..........:      15              12              13              25              12              22       
+Maryland 2/ ........:      14              10              27              18              23              33       
+Michigan ...........:      12              11              19              23              20              27       
+Minnesota ..........:      16              11              27              22              20              26       
+Mississippi ........:       6              11               9              18              11              21       
+Missouri ...........:      14              10              25              21              19              21       
+Montana ............:      15              15              24              30              24              34       
+                    :                                                                                               
+Nebraska ...........:      22              15              33              26              20              28       
+New Hampshire 3/ ...:      17              11              26              24              24              33       
+New Jersey .........:       8              15              15              23              21              30       
+New Mexico .........:       9              14               9              18              15              24       
+New York ...........:      14              11              14              22              17              31       
+North Carolina .....:      18              14              26              20              22              24       
+North Dakota .......:      24              23              34              33              32              33       
+Ohio ...............:       9               7              13              17               9              19       
+Oklahoma ...........:      10              13              19              25              14              26       
+Oregon .............:      16              10              13              17              27              32       
+                    :                                                                                               
+Pennsylvania .......:       9               7              12              17              12              16       
+South Carolina .....:      16              18              15              26              20              30       
+South Dakota .......:      19              16              38              30              28              32       
+Tennessee ..........:      10               4              20              17              22              23       
+Texas ..............:       6               5              10              14              12              19       
+Utah ...............:      19              13              25              20              27              30       
+Virginia ...........:       8              12              16              22              18              26       
+Washington .........:      15              14              30              21              38              28       
+West Virginia ......:      10               6              15              15              13              17       
+Wisconsin ..........:      12               7              23              16              22              19       
+Wyoming ............:       8              14              17              23              16              28       
+                    :                                                                                               
+United States 4/ ...:      13              11              20              22              19              25       
+--------------------------------------------------------------------------------------------------------------------
+1/ Includes Arizona and Nevada.                                                                                     
+2/ Includes Delaware and Maryland.                                                                                  
+3/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont.                            
+4/ Excludes Alaska and Hawaii.                                                                                      
+
+Conducting Business on the Internet - States and United States: 2023 and 2025
+--------------------------------------------------------------------------------------------------------------------
+                    :                                             Farms                                             
+                    :-----------------------------------------------------------------------------------------------
+                    :       Conduct business        :       Conduct business        :       Conduct business        
+        State       :           with any            :        with any other         :           with any            
+                    :         USDA website          :  Federal government website   :   non-agricultural website    
+                    :-----------------------------------------------------------------------------------------------
+                    :     2023      :     2025      :     2023      :     2025      :     2023      :     2025      
+--------------------------------------------------------------------------------------------------------------------
+                    :      ----- percent ----              ----- percent ----              ----- percent ----       
+                    :                                                                                               
+Alabama ............:      11              10               9               4              32              29       
+Arizona 1/ .........:      11              12               4              10              22              42       
+Arkansas ...........:      23              18              18              14              38              37       
+California .........:      26              27              16              19              55              62       
+Colorado ...........:      28              16              14              10              56              59       
+Florida ............:      11              21               9              11              23              32       
+Georgia ............:      14              18              14              12              59              43       
+Idaho ..............:      21              18               8              13              61              63       
+Illinois ...........:      31              25              16              12              61              49       
+Indiana ............:      14              19              11               9              42              44       
+                    :                                                                                               
+Iowa ...............:      21              24               8              12              52              48       
+Kansas .............:      30              28              25              16              66              47       
+Kentucky ...........:      13              14               8               8              40              28       
+Louisiana ..........:      11              21               8              13              45              47       
+Maryland 2/ ........:      14              17               8              11              43              55       
+Michigan ...........:      15              19               7              11              42              46       
+Minnesota ..........:      28              27              16              12              63              49       
+Mississippi ........:       7              19               7               7              38              38       
+Missouri ...........:      19              19              13              10              47              40       
+Montana ............:      15              23              11              15              61              60       
+                    :                                                                                               
+Nebraska ...........:      27              22              13              13              62              49       
+New Hampshire 3/ ...:      12              15              16              13              54              56       
+New Jersey .........:       7               9              10               7              42              45       
+New Mexico .........:       9              18               9              12              32              41       
+New York ...........:      11              14               6              12              51              54       
+North Carolina .....:      15              13              11              13              58              48       
+North Dakota .......:      28              27              19              19              64              58       
+Ohio ...............:      12              14               5               9              39              39       
+Oklahoma ...........:      14              23              10              13              56              46       
+Oregon .............:      14              13              13              10              67              58       
+                    :                                                                                               
+Pennsylvania .......:      10              10               7               8              29              40       
+South Carolina .....:       9              18               3               9              42              39       
+South Dakota .......:      33              26              20              17              57              53       
+Tennessee ..........:      11              11              15               7              36              35       
+Texas ..............:       7              10               5               6              53              44       
+Utah ...............:      22              16              13              13              63              54       
+Virginia ...........:      10              15               7              10              42              40       
+Washington .........:      21              12               8              10              69              54       
+West Virginia ......:      13               6               4               7              26              31       
+Wisconsin ..........:      16              16               8               9              55              39       
+Wyoming ............:      10              19               4              13              44              54       
+                    :                                                                                               
+United States 4/ ...:      16              18              11              11              49              45       
+--------------------------------------------------------------------------------------------------------------------
+1/ Includes Arizona and Nevada.                                                                                     
+2/ Includes Delaware and Maryland.                                                                                  
+3/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont.                            
+4/ Excludes Alaska and Hawaii.                                                                                      
+
+Methods of Internet Access - States and United States: 2025
+[Various methods of internet access for operators accessing the Internet. May not add to 100% due to operators with
+multiple types of internet access]
+--------------------------------------------------------------------------------------------------------------------
+                    :                                             Farms                                             
+                    :-----------------------------------------------------------------------------------------------
+                    :                   :    Broadband     :                  :                  :                  
+        State       :      Dialup       :   (DSL, cable,   :     Cellular     :    Satellite     :      Other       
+                    :                   :   fiber optic)   :                  :                  :                  
+                    :-----------------------------------------------------------------------------------------------
+                    :                                             2025                                              
+--------------------------------------------------------------------------------------------------------------------
+                    :                                            percent                                            
+                    :                                                                                               
+Alabama ............:         2                  52                 72                 19                (Z)        
+Arizona 1/ .........:         3                  42                 62                 30                  1        
+Arkansas ...........:         3                  55                 70                 19                  1        
+California .........:         3                  53                 85                 44                  1        
+Colorado ...........:         3                  49                 76                 29                  2        
+Florida ............:         3                  59                 79                 20                  3        
+Georgia ............:         4                  60                 77                 24                  2        
+Idaho ..............:         4                  59                 78                 30                (Z)        
+Illinois ...........:         3                  53                 76                 29                  2        
+Indiana ............:         2                  52                 70                 15                  1        
+                    :                                                                                               
+Iowa ...............:         4                  61                 75                 25                  2        
+Kansas .............:         2                  60                 78                 24                  1        
+Kentucky ...........:         4                  58                 71                 18                  1        
+Louisiana ..........:         1                  58                 85                 32                (Z)        
+Maryland 2/ ........:         1                  62                 81                 24                  1        
+Michigan ...........:         5                  47                 72                 23                (Z)        
+Minnesota ..........:         5                  62                 74                 18                  1        
+Mississippi ........:         2                  57                 78                 22                (Z)        
+Missouri ...........:         4                  47                 70                 23                  1        
+Montana ............:         5                  59                 75                 27                  2        
+                    :                                                                                               
+Nebraska ...........:         5                  54                 74                 28                  1        
+New Hampshire 3/ ...:         4                  74                 78                 13                (Z)        
+New Jersey .........:         4                  71                 80                 15                (Z)        
+New Mexico .........:         5                  48                 68                 27                  2        
+New York ...........:         4                  61                 72                 13                (Z)        
+North Carolina .....:         4                  59                 74                 25                (Z)        
+North Dakota .......:         4                  78                 80                 17                  1        
+Ohio ...............:         4                  52                 68                 22                  1        
+Oklahoma ...........:         4                  50                 78                 27                (Z)        
+Oregon .............:         2                  59                 83                 29                (Z)        
+                    :                                                                                               
+Pennsylvania .......:         3                  52                 59                 16                  1        
+South Carolina .....:         5                  56                 84                 20                  1        
+South Dakota .......:         3                  70                 76                 19                (Z)        
+Tennessee ..........:         2                  65                 74                 12                (Z)        
+Texas ..............:         2                  49                 76                 31                  1        
+Utah ...............:         4                  60                 76                 22                  2        
+Virginia ...........:         1                  50                 71                 25                  2        
+Washington .........:         2                  56                 77                 23                (Z)        
+West Virginia ......:         6                  47                 62                 25                  1        
+Wisconsin ..........:         6                  55                 63                 22                  2        
+Wyoming ............:         4                  55                 81                 36                  1        
+                    :                                                                                               
+United States 4/ ...:         3                  55                 74                 24                  1        
+--------------------------------------------------------------------------------------------------------------------
+(Z) Less than half of the unit shown.                                                                               
+1/  Includes Arizona and Nevada.                                                                                    
+2/  Includes Delaware and Maryland.                                                                                 
+3/  Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont.                           
+4/  Excludes Alaska and Hawaii.                                                                                     
+
+ Precision Agriculture Practices
+
+Beginning in 2021, data were collected for precision agriculture practices 
+with the question: "In the last 12 months, did this farm or ranch use 
+precision agriculture practices to manage crops or livestock? This would 
+include the use of global positioning (GPS) guidance systems, GPS yield 
+monitoring and soil mapping, variable rate input applications, use of drones 
+for scouting fields or monitoring livestock, electronic tagging, precision 
+feeding, robotic milking, etc.." Results are presented in the following 
+table.
+
+Farm Precision Agriculture Practices - States and United States: 2023 and 2025
+------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            :                                          Farms                                          
+                                                            :-----------------------------------------------------------------------------------------
+                            State                           :                          Using precision agriculture practices                          
+                                                            :                              to manage crops or livestock                               
+                                                            :-----------------------------------------------------------------------------------------
+                                                            :                    2023                    :                    2025                    
+------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                            :                  percent                                      percent                   
+                                                            :                                                                                         
+Alabama ....................................................:                     22                                           15                     
+Arizona 1/ .................................................:                     23                                           16                     
+Arkansas ...................................................:                     27                                           20                     
+California .................................................:                     40                                           24                     
+Colorado ...................................................:                     27                                           19                     
+Florida ....................................................:                     12                                           17                     
+Georgia ....................................................:                     13                                           18                     
+Idaho ......................................................:                     27                                           20                     
+Illinois ...................................................:                     51                                           42                     
+Indiana ....................................................:                     32                                           30                     
+                                                            :                                                                                         
+Iowa .......................................................:                     54                                           42                     
+Kansas .....................................................:                     49                                           34                     
+Kentucky ...................................................:                     11                                           13                     
+Louisiana ..................................................:                     31                                           22                     
+Maryland 2/ ................................................:                     31                                           19                     
+Michigan ...................................................:                     36                                           36                     
+Minnesota ..................................................:                     32                                           36                     
+Mississippi ................................................:                     20                                           19                     
+Missouri ...................................................:                     23                                           22                     
+Montana ....................................................:                     28                                           23                     
+                                                            :                                                                                         
+Nebraska ...................................................:                     55                                           41                     
+New Hampshire 3/ ...........................................:                     24                                           13                     
+New Jersey .................................................:                     27                                            9                     
+New Mexico .................................................:                     14                                           17                     
+New York ...................................................:                     26                                           12                     
+North Carolina .............................................:                     27                                           17                     
+North Dakota ...............................................:                     57                                           50                     
+Ohio .......................................................:                     31                                           23                     
+Oklahoma ...................................................:                     18                                           22                     
+Oregon .....................................................:                     20                                           12                     
+                                                            :                                                                                         
+Pennsylvania ...............................................:                     20                                           14                     
+South Carolina .............................................:                     14                                           17                     
+South Dakota ...............................................:                     53                                           41                     
+Tennessee ..................................................:                     31                                           12                     
+Texas ......................................................:                     13                                           14                     
+Utah .......................................................:                     31                                           13                     
+Virginia ...................................................:                     11                                           14                     
+Washington .................................................:                     25                                           18                     
+West Virginia ..............................................:                      8                                            4                     
+Wisconsin ..................................................:                     18                                           18                     
+Wyoming ....................................................:                     33                                           17                     
+                                                            :                                                                                         
+United States 4/ ...........................................:                     27                                           22                     
+------------------------------------------------------------------------------------------------------------------------------------------------------
+1/ Includes Arizona and Nevada.                                                                                                                       
+2/ Includes Delaware and Maryland.                                                                                                                    
+3/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont.                                                              
+4/ Excludes Alaska and Hawaii.                                                                                                                        
+
+ Farm Numbers
+
+To help equate the percentages published in this report to actual farm 
+counts, a table showing "Number of Farms by States and United States" from 
+the February 2025 NASS publication Farms, Land in Farms is included below. A 
+farm is "any place from which $1,000 or more of agricultural products were 
+produced and sold, or normally would have been sold, during the year."
+
+Number of Farms - States and United States: 2022 - 2024
+[2025 number of farms not available until 2026]
+--------------------------------------------------------------------------------------
+                    :                              Farms                              
+                    :-----------------------------------------------------------------
+        State       :        2022         :        2023         :        2024         
+                    :-----------------------------------------------------------------
+                    :       number               ------------ number -----------      
+                    :                                                                 
+Alabama ............:         37,400                37,100                37,100      
+Arizona ............:         16,700                16,400                15,100      
+Arkansas ...........:         37,800                37,400                37,200      
+California .........:         63,100                62,900                62,500      
+Colorado ...........:         36,100                35,900                35,000      
+Delaware ...........:          2,150                 2,150                 2,150      
+Florida ............:         44,700                44,400                44,400      
+Georgia ............:         39,200                39,000                38,300      
+Idaho ..............:         22,900                22,600                22,500      
+Illinois ...........:         71,100                70,700                70,000      
+                    :                                                                 
+Indiana ............:         53,600                53,300                52,000      
+Iowa ...............:         86,900                86,800                86,700      
+Kansas .............:         55,700                55,500                55,500      
+Kentucky ...........:         69,400                69,100                69,100      
+Louisiana ..........:         25,000                24,800                24,600      
+Maryland ...........:         12,600                12,600                12,600      
+Michigan ...........:         45,600                45,300                44,000      
+Minnesota ..........:         65,500                65,300                65,300      
+Mississippi ........:         31,300                31,100                30,800      
+Missouri ...........:         87,900                87,600                85,700      
+                    :                                                                 
+Montana ............:         24,300                24,300                23,800      
+Nebraska ...........:         44,500                44,400                44,300      
+Nevada .............:          3,100                 3,100                 3,100      
+New Hampshire 1/ ...:         30,700                30,700                29,950      
+New Jersey .........:         10,000                10,000                 9,900      
+New Mexico .........:         20,900                20,900                20,800      
+New York ...........:         30,700                30,700                30,500      
+North Carolina .....:         42,800                42,500                42,100      
+North Dakota .......:         25,100                24,800                24,800      
+Ohio ...............:         76,000                75,800                74,000      
+                    :                                                                 
+Oklahoma ...........:         70,300                70,300                70,000      
+Oregon .............:         35,500                35,500                35,500      
+Pennsylvania .......:         49,000                49,000                48,800      
+South Carolina .....:         22,600                22,600                22,600      
+South Dakota .......:         28,300                28,300                28,300      
+Tennessee ..........:         63,100                63,100                62,900      
+Texas ..............:        231,000               231,000               231,000      
+Utah ...............:         17,400                17,400                17,300      
+Virginia ...........:         39,000                39,000                39,000      
+Washington .........:         32,100                32,000                31,800      
+                    :                                                                 
+West Virginia ......:         22,800                22,800                22,600      
+Wisconsin ..........:         58,500                58,500                58,200      
+Wyoming ............:         10,500                10,500                10,500      
+                    :                                                                 
+United States 2/ ...:      1,892,850             1,887,150             1,872,300      
+--------------------------------------------------------------------------------------
+1/ Includes Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and       
+   Vermont.                                                                           
+2/ Excludes Alaska and Hawaii.                                                        
+
+Statistical Methodology
+Survey Procedures: The estimates of farm technology use in this report are 
+based primarily on the Agricultural Land Values and Technology Use Survey, 
+conducted from April to June. This annual survey uses a stratified random 
+sample from the NASS list frame. A sample of approximately 28,000 operations 
+were included.  In the odd-numbered years since 1997, operators have been 
+asked about their access and use of computers and other technology. Some 
+states were combined due to their low number of responses. When this occurs, 
+it is footnoted in the tables. Estimates are revised periodically to provide 
+a better foundation for current and future estimates. Revisions are made when 
+sufficient data become available to check the accuracy of the original 
+estimates.
+ 
+Estimating Procedures: Since all States conduct identical surveys, the State 
+data can be pooled, and national survey results computed. The summary results 
+provide point estimates and their standard errors for each data series being 
+estimated. Once editing is complete, the data are summarized. Survey results 
+are reviewed and estimates for State and National are established.
+
+Survey results are delivered to a subject matter specialist for review and 
+acceptance. All review is performed in NASS's Washington, D.C. Headquarters. 
+Current results are reviewed, in tabular form, against the historical data 
+series for consistency and reasonableness.
+
+Revision Policy: For non-census years, Technology use values are subject to a 
+biennial revision. After the 5-year Census of Agriculture is completed, 
+Technology use estimates are subject to revisions.
+
+Published Estimates: The Farm Technology Use and Ownership estimates for 
+State and National are published in August in odd numbered years. While the 
+Agricultural Land Values and Technology Use Survey is the primary source of 
+data for the estimates, supplemental survey data and potential previous 
+revisions are also considered, as described in the more detailed NASS 
+Technology Use Methodology and Quality Measures publication.
+
+Information Contacts
+
+Listed below are the commodity statisticians in the Environmental, Economics, and Demographics Branch of the 
+National Agricultural Statistics Service to contact for additional information. E-mail inquiries may be sent to 
+nass@usda.gov.
+
+Bryan Combs, Chief, Environmental, Economics, and Demographics Branch.......................... (202) 720-5084
+
+Julie Weber, Head, Environmental, and Demographics Section..................................... (202) 720-7216
+ 
+   William Cumberland - Census of Agriculture, Irrigation and Water Management, Farm Tech Use.. (202) 690-1348
+   Virginia Harris - Census of Agriculture, Farm Demographics, TOTAL........................... (502) 907-3211
+   Mallory Johnson - Census of Agriculture, Organics, CEAP..................................... (502) 907-3208 
+   Jamila Sani - Census of Agriculture, Census of Horticulture, CPAMS.......................... (202) 690-3226
+   Dominique Sims - Census of Agriculture, Farm Demographics, American Indian Reservations..... (202) 690-1719
+   Irvin Yeager - Census of Agriculture, PR and Outlying Areas, Local Foods Marketing.......... (202) 720-7492
+
+Access to NASS Reports
+
+For your convenience, you may access NASS reports and products the following 
+ways:
+
+ 	All reports are available electronically, at no cost, on the NASS web 
+site: www.nass.usda.gov.
+
+ 	The national specific reports are available via a free e-mail 
+subscription. To set-up this free subscription, visit www.nass.usda.gov 
+and click on "National" in upper right corner above "search" box to 
+create an account and select the reports you would like to receive.
+
+ 	Cornell's Mann Library website houses NASS's and other agency's 
+archived reports at https://usda.library.cornell.edu. All email 
+subscriptions containing reports will be sent from 
+https://usda.library.cornell.edu. To receive the reports via e-mail, 
+you will have to go to the website and subscribe to the reports. If you 
+need instructions to set up an account or subscribe, they are located 
+at: https://usda.library.cornell.edu/help. You should whitelist 
+notifications@usda-esmis.library.cornell.edu in your email client to 
+avoid the emails going into spam/junk folders. 
+
+For more information on NASS surveys and reports, call the NASS Agricultural 
+Statistics Hotline at (800) 727-9540, 7:30 a.m. to 4:00 p.m. ET, or e-mail: 
+nass@usda.gov. 
+
+If you have specific questions you would like an expert to respond to, please 
+visit our "Ask A Specialist" website at 
+www.nass.usda.gov/Contact_Us/Ask_a_Specialist. 
+In accordance with Federal civil rights law and U.S. Department of 
+Agriculture (USDA) civil rights regulations and policies, the USDA, its 
+Agencies, offices, and employees, and institutions participating in or 
+administering USDA programs are prohibited from discriminating based on race, 
+color, national origin, religion, sex, disability, age, marital status, 
+family/parental status, income derived from a public assistance program, 
+political beliefs, or reprisal or retaliation for prior civil rights 
+activity, in any program or activity conducted or funded by USDA (not all 
+bases apply to all programs). Remedies and complaint filing deadlines vary by 
+program or incident.
+Persons with disabilities who require alternative means of communication for 
+program information (e.g., Braille, large print, audiotape, American Sign 
+Language, etc.) should contact the responsible Agency or USDA's TARGET Center 
+at (202) 720-2600 (voice and TTY) or contact USDA through the Federal Relay 
+Service at (800) 877-8339. Additionally, program information may be made 
+available in languages other than English.
+To file a program discrimination complaint, complete the USDA Program 
+Discrimination Complaint Form, AD-3027, found online at How to File a Program 
+Discrimination Complaint and at any USDA office or write a letter addressed 
+to USDA and provide in the letter all of the information requested in the 
+form. To request a copy of the complaint form, call (866) 632-9992. Submit 
+your completed form or letter to USDA by: (1) mail: U.S. Department of 
+Agriculture, Office of the Assistant Secretary for Civil Rights, 1400 
+Independence Avenue, SW, Washington, D.C. 20250-9410; (2) fax: (202) 690-
+7442; or (3) email: program.intake@usda.gov.
+USDA is an equal opportunity provider, employer, and lender.
+

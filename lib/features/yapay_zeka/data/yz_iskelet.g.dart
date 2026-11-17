@@ -280,7 +280,7 @@ const List<YzBaslik> kYzBasliklar = [
       "The world, region by region",
       false,
       ["tahmin", "goruntu", "uzaktan", "robotik", "dil"],
-      false,
+      true,
       "AB, ABD, Çin, Hindistan, İsrail, Afrika: kim nerede, hangi ölçekte.",
       "EU, US, China, India, Israel, Africa: who is where, at what scale."),
   YzBaslik(

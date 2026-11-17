@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 330,
- "toplam_bayt": 928559874,
+ "dosya_sayisi": 342,
+ "toplam_bayt": 972495663,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1753,6 +1753,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_komisyon_2025_okp_2023_2024_ozet.pdf",
+   "bayt": 2694947,
+   "sha256": "e965f02bc311089568a3e202bae32b5d840ffc9c75954ec778cdc55545f2204d",
+   "kaynak": {
+    "adres": "https://agriculture.ec.europa.eu/document/download/3cfb9e48-f33f-4f27-8b1b-2a952693e178_en?filename=delivering-cap-strategic-plans-2023-2024-highlights_en.pdf",
+    "atif": "European Commission, DG Agriculture and Rural Development. 2025. Delivering on CAP Strategic Plans: 2023–2024 highlights (bilgi notu, Haziran 2025). Brüksel.",
+    "lisans": "© Avrupa Birliği (2011/833/AB, kaynak gösterilerek)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Avrupa Komisyonu, Haziran 2025."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+   "bayt": 4952103,
+   "sha256": "4af28c57c3a44066650cdbe697f78c36d7334dfb3b0ee31c11ca296cc0fb9f0e",
+   "kaynak": {
+    "adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+    "atif": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023.",
+    "lisans": "kamu malı (ABD federal hükümeti eseri)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — USDA ERS, EIB-248, Şubat 2023."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/abd_nass_2025_teknoloji_kullanimi.txt",
+   "bayt": 68252,
+   "sha256": "080e228209d2209e65bc162d6552d0fc3dcbefc02f24e30ab83f140f29c0f216",
+   "kaynak": {
+    "adres": "https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf)",
+    "atif": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC.",
+    "lisans": "kamu malı (ABD federal hükümeti eseri)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — USDA NASS, Ağustos 2025 (metin sürümü)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/abdikan_2022_crossref.json",
    "bayt": 26755,
    "sha256": "6b61763a34adbd0ef97a16a343f13112657cc37b4ef188af87e49643a8a3f34c",
@@ -1762,6 +1798,30 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/afrika_au_2024_yz_stratejisi.pdf",
+   "bayt": 2572777,
+   "sha256": "c5429f73786c0a0c170a78278016339ab86f914b239290ba1d6623cc07734e3f",
+   "kaynak": {
+    "adres": "https://au.int/sites/default/files/documents/44004-doc-EN-_Continental_AI_Strategy_July_2024.pdf",
+    "atif": "African Union. 2024. Continental Artificial Intelligence Strategy: Harnessing AI for Africa’s Development and Prosperity. Temmuz 2024 (AU Yürütme Konseyi 45. olağan oturumu, Akra, 18–19 Temmuz 2024'te kabul).",
+    "lisans": "© African Union (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Afrika Birliği, Temmuz 2024."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/afrika_cta_dalberg_2019_d4ag.pdf",
+   "bayt": 20750802,
+   "sha256": "ac76487ced0a6af9ebd4c7fa7f32ade9c677bd998afbf819dc13c57edb48cd93",
+   "kaynak": {
+    "adres": "https://cgspace.cgiar.org/server/api/core/bitstreams/510cad0e-2b82-4a00-9be3-38a5bf346280/content",
+    "atif": "Tsan M., Totapally S., Hailu M., Addom B.K. 2019. The Digitalisation of African Agriculture Report 2018–2019. CTA (ACP-EU Technical Centre for Agricultural and Rural Cooperation) ve Dalberg Advisors, Wageningen. 1. baskı, Haziran 2019. https://hdl.handle.net/10568/101498",
+    "lisans": "Telifli; yalnız ticari olmayan kullanım (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — CTA ve Dalberg, Haziran 2019 (CGSpace)."
    }
   },
   {
@@ -1981,6 +2041,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cin_cac_moa_2026_dijital_koy_raporu.pdf",
+   "bayt": 662932,
+   "sha256": "23a2f7d182417bdcdffedab2be277b26c64b902a6788eaabff41712f72053861",
+   "kaynak": {
+    "adres": "https://www.cac.gov.cn/rootimages/uploadimg/1790185052137856/1790185052137856.pdf",
+    "atif": "Çin Devlet İnternet Bilgi Ofisi (国家互联网信息办公室) ve Tarım ve Köy İşleri Bakanlığı (农业农村部). 2026. 中国数字乡村发展报告（2019—2025年）[Çin Dijital Köy Gelişim Raporu 2019–2025]. Pekin. Yayın duyurusu 31.08.2026: https://www.cac.gov.cn/2026-08/31/c_1789924786220368.htm (b22/cac_2026_08_31_b.htm).",
+    "lisans": "© 国家互联网信息办公室 / 农业农村部 (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Çin Devlet İnternet Bilgi Ofisi ve Tarım ve Köy İşleri Bakanlığı; duyuru 31.08.2026."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cin_moa_2024_akilli_tarim_yonerge.htm",
+   "bayt": 60962,
+   "sha256": "edff0c1b660dd7cff510354d29098d87b2e0ebc3344ede45218a353ce502ae62",
+   "kaynak": {
+    "adres": "https://scs.moa.gov.cn/zcjd/202410/t20241028_6465095.htm",
+    "atif": "Çin Tarım ve Köy İşleri Bakanlığı (农业农村部) Pazar ve Bilişim Dairesi. 2024. 大力推进智慧农业发展 赋能农业现代化建设——农业农村部市场与信息化司负责人解读《农业农村部关于大力发展智慧农业的指导意见》《全国智慧农业行动计划（2024—2028年）》. MARA Basın Ofisi, 28.10.2024.",
+    "lisans": "© 农业农村部 (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Çin Tarım ve Köy İşleri Bakanlığı, 28.10.2024."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
    "bayt": 1589890,
    "sha256": "fb64733ae86521989144daed1d1f3cd59bb553bfa3591f175780e1bd737f095c",
@@ -2098,6 +2182,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+   "bayt": 545128,
+   "sha256": "71f98d806350f8fd02f2bf3bd64a5069c54514d9f2386b9c5ab1cd7dba475804",
+   "kaynak": {
+    "adres": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf",
+    "atif": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi Mayıs 2026; kaynak: 2023 Çiftlik Yapı Araştırması).",
+    "lisans": "© Avrupa Birliği — Eurostat yeniden kullanım politikası (kaynak gösterilerek)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — Eurostat Statistics Explained, 3 Temmuz 2026 (2023 çiftlik yapı araştırması)."
    }
   },
   {
@@ -2329,6 +2425,30 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hindistan_pib_2026_agristack.html",
+   "bayt": 90064,
+   "sha256": "6520608cb83ec502657d71c090d82f2aa363c617e2a793d5ab4af48b0add53ea",
+   "kaynak": {
+    "adres": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296209&reg=3&lang=1",
+    "atif": "Press Information Bureau (PIB), Tarım ve Çiftçi Refahı Bakanlığı. 2026. Implementation of AgriStack and Digital Agriculture Mission (Rajya Sabha yazılı yanıtı), 07.08.2026. Release ID 2296209. Yeni Delhi.",
+    "lisans": "Hindistan Hükümeti (PIB) basın materyali (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — PIB, 7 Ağustos 2026 (Release ID 2296209)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+   "bayt": 2356206,
+   "sha256": "b8e68fad942bf0a3da7e446411b18bb4e0364b45b521dc80ec4a0637e5b9fbdb",
+   "kaynak": {
+    "adres": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026214789901.pdf",
+    "atif": "Press Information Bureau (PIB), Hindistan Hükümeti. 2026. Artificial Intelligence (AI) Transforming Indian Agriculture (arka plan notu, 14 Şubat 2026). Yeni Delhi.",
+    "lisans": "Hindistan Hükümeti (PIB) basın materyali (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — PIB arka plan notu, 14 Şubat 2026."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ibrahim_2024_europepmc.json",
    "bayt": 5681,
    "sha256": "f22af0eec82e3fbcc23516636768dbbcdac2e2fe9168b2ba08a67da4a31627c8",
@@ -2338,6 +2458,30 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/israil_iia_2025_yuksek_teknoloji.pdf",
+   "bayt": 9100095,
+   "sha256": "13f5686e39917ba3863e2b5e583053c4838fd6efab2a5fc274e168fdbb185629",
+   "kaynak": {
+    "adres": "https://innovationisrael.org.il/wp-content/uploads/2025/12/Annual-Report-The-State-of-High-Tech-2025.pdf",
+    "atif": "Israel Innovation Authority. 2025. The State of High-Tech 2025 — Annual Report (High-Tech Macro 2025). Aralık 2025.",
+    "lisans": "© Israel Innovation Authority (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — İsrail İnovasyon Otoritesi, Aralık 2025."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/israil_snc_2025_agrifood_harita.html",
+   "bayt": 81521,
+   "sha256": "cc4e316ff54812af513f5c53981de9109a262c60dcdab63e6ba68e17af873ab4",
+   "kaynak": {
+    "adres": "https://startupnationcentral.org/hub/news/startup-nation-central-growingil-launch-the-2025-israeli-agrifood-tech-landscape-map/",
+    "atif": "Start-Up Nation Central ve GrowingIL. 2025. PR: 2025 Israeli AgriFood Tech Landscape Map Launched (Tel Aviv, 6 Şubat 2025; sayfa güncellemesi 3 Aralık 2025).",
+    "lisans": "© Start-Up Nation Central (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Start-Up Nation Central tanıtım duyurusu, 6 Şubat 2025."
    }
   },
   {

@@ -656,12 +656,12 @@
         "mevzuat",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "yok",
       "ozet": {
         "tr": "AB, ABD, Çin, Hindistan, İsrail, Afrika: kim nerede, hangi ölçekte.",
         "en": "EU, US, China, India, Israel, Africa: who is where, at what scale."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {
