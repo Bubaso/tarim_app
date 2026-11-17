@@ -15,7 +15,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
-import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show YzBaslikKarosu, yzPath;
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show YzBaslikKarosu, YzTeknolojiCipi, yzPath;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_izi.dart';
@@ -23,6 +23,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_ekrani.d
 import 'package:tarim_app/features/yapay_zeka/data/yz_teknoloji.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_rakam_kaynaklari.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_kaynak_balonu.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_matris.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -430,9 +431,11 @@ devam ediyor.
       }
       // teknoloji süzgeci (karar 57): seçilince kaç başlıkta geçtiği ve
       // karolarda geçtiği yer sayısı
-      await t.ensureVisible(find.text('Dil modelleri'));
+      // Isı haritasının sütun başlığında da aynı ad var: çip ayrıca aranıyor.
+      final cip = find.widgetWithText(YzTeknolojiCipi, 'Dil modelleri');
+      await t.ensureVisible(cip);
       await t.pumpAndSettle();
-      await t.tap(find.text('Dil modelleri'));
+      await t.tap(cip);
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       final dilSayisi = kYzBasliklar.where((b) => b.teknoloji.contains('dil')).length;
@@ -700,6 +703,24 @@ devam ediyor.
       await t.pumpAndSettle();
       expect(find.text('Böyle bir teknoloji yok.'), findsOneWidget);
     });
+  });
+
+  testWidgets('içindekiler: alt başlığa kaydırıyor; ısı haritası çiziliyor', (t) async {
+    t.view.physicalSize = const Size(1280, 900);
+    t.view.devicePixelRatio = 1;
+    addTearDown(t.view.reset);
+    await t.pumpWidget(_sarmala(const YzBaslikEkrani(slug: 'turkiye-dizini')));
+    await t.pumpAndSettle();
+    expect(find.text('İÇİNDEKİLER'), findsOneWidget);
+    final ilk = yzAyristir(kYzMetinler[25]!.tr).firstWhere((b) => b.tur == YzBlokTuru.altBaslik).metin;
+    await t.tap(find.text(ilk).first);
+    await t.pumpAndSettle();
+    expect(t.takeException(), isNull);
+    await t.pumpWidget(const SizedBox());
+    await t.pumpWidget(_sarmala(const YzMerkezEkrani()));
+    await t.pumpAndSettle();
+    expect(find.byType(YzTeknolojiMatrisi), findsOneWidget);
+    expect(t.takeException(), isNull);
   });
 
   group('rakamdan kaynağa (karar 58)', () {

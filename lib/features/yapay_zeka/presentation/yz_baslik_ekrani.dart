@@ -130,6 +130,15 @@ class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
                         ),
                         const SizedBox(height: 26),
                         if (metin != null)
+                          _Icindekiler(
+                            basliklar: [
+                              for (final x in yzAyristir(metin.metin(en)))
+                                if (x.tur == YzBlokTuru.altBaslik) x.metin,
+                            ],
+                            en: en,
+                            git: _vurgu.basligaGit,
+                          ),
+                        if (metin != null)
                           YzMetinGorunumu(
                               metin: metin.metin(en),
                               en: en,
@@ -397,6 +406,45 @@ class _VurguSeridi extends StatelessWidget {
             onPressed: kapat,
           ),
       ]),
+    );
+  }
+}
+
+
+/// İçindekiler: üç ya da daha çok alt başlığı olan metinde, metnin üstünde.
+/// Alt başlığa dokununca o bölüme kaydırıyor.
+class _Icindekiler extends StatelessWidget {
+  const _Icindekiler({required this.basliklar, required this.en, required this.git});
+  final List<String> basliklar;
+  final bool en;
+  final void Function(int) git;
+
+  @override
+  Widget build(BuildContext context) {
+    if (basliklar.length < 3) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 22),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(14, 10, 14, 6),
+        decoration: BoxDecoration(
+          border: Border(left: BorderSide(color: YzRenk.bitki.withValues(alpha: 0.6), width: 2)),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(buyukHarf(en ? 'Contents' : 'İçindekiler', en), style: YzYazi.ustEtiket()),
+            const SizedBox(height: 4),
+            for (var i = 0; i < basliklar.length; i++)
+              InkWell(
+                onTap: () => git(i),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4),
+                  child: Text(basliklar[i], style: YzYazi.govde(boy: 15, renk: YzRenk.makine)),
+                ),
+              ),
+          ],
+        ),
+      ),
     );
   }
 }

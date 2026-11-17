@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import 'yz_metin_gorunumu.dart';
+import 'yz_matris.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 
@@ -117,10 +118,18 @@ class YzMerkezEkrani extends StatelessWidget {
                             YzBolumBasligi(
                               en ? 'The headings' : 'Başlıklar',
                               alt: en
-                                  ? 'From the soil to the market, in the order of the farming year. Filled tiles are written; empty ones are in progress. Pick a technology to see where it appears.'
-                                  : 'Topraktan pazara, tarım yılının sırasıyla. Dolu karolar yazıldı, boş olanlar yazılıyor. Bir teknoloji seçin, hangi başlıklarda geçtiğini görün.',
+                                  ? 'From the soil to the market, in the order of the farming year. Pick a technology: the tiles show what each heading says about it, and the technology has a page of its own across agriculture.'
+                                  : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: karolar o teknolojinin her başlıktaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.',
                             ),
                             const YzHarita(),
+                            const SizedBox(height: 34),
+                            YzBolumBasligi(
+                              en ? 'Technology by field' : 'Teknoloji ve alan',
+                              alt: en
+                                  ? 'Each cell counts the passages where a technology comes up in a heading. Tap a cell to open the heading with those passages marked, or a technology to open its page.'
+                                  : 'Her hücre, bir teknolojinin bir başlıkta geçtiği yer sayısı. Hücreye dokununca başlık o yerler işaretli açılır; teknolojinin adına dokununca kendi sayfası.',
+                            ),
+                            const YzTeknolojiMatrisi(),
                             const SizedBox(height: 34),
                             YzBolumBasligi(
                               en ? 'Latest news' : 'Son haberler',

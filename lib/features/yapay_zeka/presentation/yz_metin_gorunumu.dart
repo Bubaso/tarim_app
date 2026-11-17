@@ -218,6 +218,24 @@ class YzVurguDenetcisi {
   final List<GlobalKey> _anahtarlar = [];
   int _sira = -1;
 
+  /// İçindekiler: alt başlıkların anahtarları, metindeki sırayla.
+  final List<GlobalKey> _basliklar = [];
+
+  void _basliklariKur(List<GlobalKey> a) {
+    _basliklar
+      ..clear()
+      ..addAll(a);
+  }
+
+  /// [i]. alt başlığa kaydırır (içindekilerden).
+  void basligaGit(int i) {
+    if (i < 0 || i >= _basliklar.length) return;
+    final c = _basliklar[i].currentContext;
+    if (c != null) {
+      Scrollable.ensureVisible(c, duration: const Duration(milliseconds: 350), alignment: 0.04);
+    }
+  }
+
   int get sayi => _anahtarlar.length;
 
   void _kur(List<GlobalKey> anahtarlar) {
@@ -293,6 +311,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   late List<bool> _vurguluParagraf;
   late List<Set<int>> _vurguluSatir;
   late List<GlobalKey?> _anahtar;
+  late List<GlobalKey?> _baslikAnahtari;
 
   @override
   void initState() {
@@ -313,6 +332,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
       _hazirla();
     } else if (eski.vurguDenetcisi != widget.vurguDenetcisi) {
       widget.vurguDenetcisi?._kur([for (final a in _anahtar) if (a != null) a]);
+      widget.vurguDenetcisi?._basliklariKur([for (final a in _baslikAnahtari) if (a != null) a]);
     }
   }
 
@@ -349,6 +369,10 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         _vurguluParagraf[i] || _vurguluSatir[i].isNotEmpty ? GlobalKey() : null,
     ];
     widget.vurguDenetcisi?._kur([for (final a in _anahtar) if (a != null) a]);
+    _baslikAnahtari = [
+      for (final b in _bloklar) b.tur == YzBlokTuru.altBaslik ? GlobalKey() : null,
+    ];
+    widget.vurguDenetcisi?._basliklariKur([for (final a in _baslikAnahtari) if (a != null) a]);
   }
 
   void _birak() {
@@ -422,6 +446,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
               ),
             ),
           YzBlokTuru.altBaslik => Padding(
+              key: _baslikAnahtari[i],
               padding: const EdgeInsets.only(top: 22, bottom: 12),
               child: Semantics(
                 header: true,
