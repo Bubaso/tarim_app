@@ -105,6 +105,32 @@ devam ediyor.
       expect(b[4].metin, '- liste satırı düz metin kalır');
     });
 
+    // Tablo başlıkları büyük harfle çiziliyor. Ham `toUpperCase()` Türkçede
+    // "ŞIRKET", "ÜNIVERSITE" üretiyordu (§25'in tabloları); dar ekranda kart,
+    // geniş ekranda tablo — ikisi ayrı kod yolu, ikisi de sınanıyor.
+    for (final olcu in const [Size(360, 800), Size(1280, 900)]) {
+      testWidgets('tablo başlığı dile göre büyütülüyor · ${olcu.width.toInt()} piksel',
+          (t) async {
+        t.view.physicalSize = olcu;
+        t.view.devicePixelRatio = 1;
+        addTearDown(t.view.reset);
+        Future<void> ciz(String md, bool en) => t.pumpWidget(MaterialApp(
+            home: Scaffold(
+                body: SingleChildScrollView(child: YzMetinGorunumu(metin: md, en: en)))));
+
+        await ciz('# 25 · Dizin\n\n> Özet.\n\n## Tablo\n\n| Şirket | Üniversite |\n|---|---|\n| a | b |\n',
+            false);
+        expect(find.text('ŞİRKET'), findsOneWidget);
+        expect(find.text('ÜNİVERSİTE'), findsOneWidget);
+        expect(find.text('ŞIRKET'), findsNothing, reason: 'ham toUpperCase geri dönmüş');
+
+        await ciz('# 25 · Directory\n\n> Summary.\n\n## Table\n\n| Company | Field |\n|---|---|\n| a | b |\n',
+            true);
+        expect(find.text('COMPANY'), findsOneWidget);
+        expect(find.text('FIELD'), findsOneWidget, reason: 'İngilizcede i → I');
+      });
+    }
+
     test('bütün gömülü metinler bloklara ayrılıyor ve başlık satırı düşüyor', () {
       for (final m in kYzMetinler.values) {
         for (final metin in [m.tr, m.en]) {

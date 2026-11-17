@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/router/app_router.dart';
+import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
@@ -43,7 +44,7 @@ class YzUstSerit extends StatelessWidget {
           child: InkWell(
             onTap: () => context.go(yzPath),
             child: Text(
-              (en ? kYzAdEn : kYzAdTr).toUpperCase(),
+              buyukHarf(en ? kYzAdEn : kYzAdTr, en),
               overflow: TextOverflow.ellipsis,
               style: YzYazi.ustEtiket(renk: YzRenk.murekkep),
             ),
@@ -149,7 +150,7 @@ class _YzHaritaState extends State<YzHarita> {
   Widget _katmanSatiri(String katman, List<YzBaslik> basliklar, bool genis,
       double karoGenisligi, bool en) {
     final etiket = Text(
-      (kYzKatmanlar[katman]?[en ? 'en' : 'tr'] ?? katman).toUpperCase(),
+      buyukHarf(kYzKatmanlar[katman]?[en ? 'en' : 'tr'] ?? katman, en),
       style: YzYazi.ustEtiket(),
     );
     final karolar = Wrap(spacing: 8, runSpacing: 8, children: [

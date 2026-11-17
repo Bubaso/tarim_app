@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 
 /// Panelde bölümün vurgu rengi. Bölüm sayfasının paleti ("makine ve bitki",
@@ -47,7 +48,7 @@ Future<int?> yzBaslikSec(BuildContext context, {int? secili}) {
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 12, 24, 4),
               child: Text(
-                (kYzKatmanlar[g.key]?['tr'] ?? g.key).toUpperCase(),
+                buyukHarf(kYzKatmanlar[g.key]?['tr'] ?? g.key, false),
                 style: GoogleFonts.inter(
                     fontSize: 11,
                     letterSpacing: 0.8,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/utils/turkce_metin.dart';
+
 import 'yz_tasarim.dart';
 
 /// Bölüm metinlerinin çizicisi.
@@ -126,8 +128,12 @@ TextSpan yzSatirIci(String metin, TextStyle taban) {
 }
 
 class YzMetinGorunumu extends StatelessWidget {
-  const YzMetinGorunumu({super.key, required this.metin});
+  const YzMetinGorunumu({super.key, required this.metin, required this.en});
   final String metin;
+
+  /// Tablo başlıkları büyük harfle yazılıyor; Türkçede `i` → `İ` olmalı
+  /// (`buyukHarf`), ham `toUpperCase()` "ŞIRKET", "ÜNIVERSITE" üretiyor.
+  final bool en;
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +172,7 @@ class YzMetinGorunumu extends StatelessWidget {
                 ),
               YzBlokTuru.tablo => Padding(
                   padding: const EdgeInsets.only(top: 4, bottom: 22),
-                  child: dar ? _KartTablo(b.satirlar) : _GenisTablo(b.satirlar),
+                  child: dar ? _KartTablo(b.satirlar, en) : _GenisTablo(b.satirlar, en),
                 ),
             },
         ],
@@ -178,8 +184,9 @@ class YzMetinGorunumu extends StatelessWidget {
 /// Geniş ekran: gerçek tablo. Başlık satırı künye yazısıyla, satırlar
 /// saç çizgisiyle ayrılıyor.
 class _GenisTablo extends StatelessWidget {
-  const _GenisTablo(this.satirlar);
+  const _GenisTablo(this.satirlar, this.en);
   final List<List<String>> satirlar;
+  final bool en;
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +212,7 @@ class _GenisTablo extends StatelessWidget {
               for (final h in baslik)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
-                  child: Text(h.toUpperCase(), style: YzYazi.ustEtiket(renk: YzRenk.makine)),
+                  child: Text(buyukHarf(h, en), style: YzYazi.ustEtiket(renk: YzRenk.makine)),
                 ),
             ],
           ),
@@ -231,8 +238,9 @@ class _GenisTablo extends StatelessWidget {
 /// Dar ekran: her satır bir kart, sütun adı hücrenin üstünde. Telefonda
 /// yatay kaydırılan bir tablo okunmuyor; satırı dikey okumak doğal.
 class _KartTablo extends StatelessWidget {
-  const _KartTablo(this.satirlar);
+  const _KartTablo(this.satirlar, this.en);
   final List<List<String>> satirlar;
+  final bool en;
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +276,7 @@ class _KartTablo extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         if (baslik[i].isNotEmpty)
-                          Text(baslik[i].toUpperCase(),
+                          Text(buyukHarf(baslik[i], en),
                               style: YzYazi.ustEtiket(renk: YzRenk.makine)),
                         const SizedBox(height: 2),
                         SelectableText.rich(

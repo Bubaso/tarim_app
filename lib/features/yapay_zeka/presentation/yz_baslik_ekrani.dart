@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import 'yz_metin_gorunumu.dart';
@@ -45,7 +46,7 @@ class YzBaslikEkrani extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          '§${b.no} · ${(kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman).toUpperCase()}',
+                          '§${b.no} · ${buyukHarf(kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman, en)}',
                           style: YzYazi.ustEtiket(renk: YzRenk.makine),
                         ),
                         const SizedBox(height: 10),
@@ -70,7 +71,7 @@ class YzBaslikEkrani extends StatelessWidget {
                         ),
                         const SizedBox(height: 26),
                         if (metin != null)
-                          YzMetinGorunumu(metin: metin.metin(en))
+                          YzMetinGorunumu(metin: metin.metin(en), en: en)
                         else
                           _Yaziliyor(baslik: b),
                         if (b.haberAlir) ...[
