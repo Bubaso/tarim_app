@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/sS3C5ZknGz7C0Hhxi67PQR7P+EA</id>
+  <title>arXiv Query: search_query=&amp;id_list=2409.08916&amp;start=0&amp;max_results=10</title>
+  <updated>2026-11-17T12:46:06Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2409.08916" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2409.08916v2</id>
+    <title>Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers</title>
+    <updated>2024-10-08T06:03:41Z</updated>
+    <link href="https://arxiv.org/abs/2409.08916v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2409.08916v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Small and medium-sized agricultural holders face challenges like limited access to localized, timely information, impacting productivity and sustainability. Traditional extension services, which rely on in-person agents, struggle with scalability and timely delivery, especially in remote areas. We introduce FarmerChat, a generative AI-powered chatbot designed to address these issues. Leveraging Generative AI, FarmerChat offers personalized, reliable, and contextually relevant advice, overcoming limitations of previous chatbots in deterministic dialogue flows, language support, and unstructured data processing. Deployed in four countries, FarmerChat has engaged over 15,000 farmers and answered over 300,000 queries. This paper highlights how FarmerChat's innovative use of GenAI enhances agricultural service scalability and effectiveness. Our evaluation, combining quantitative analysis and qualitative insights, highlights FarmerChat's effectiveness in improving farming practices, enhancing trust, response quality, and user engagement.</summary>
+    <category term="cs.ET" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.HC" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2024-09-13T15:31:33Z</published>
+    <arxiv:comment>35 pages</arxiv:comment>
+    <arxiv:primary_category term="cs.ET"/>
+    <author>
+      <name>Namita Singh</name>
+    </author>
+    <author>
+      <name>Jacqueline Wang'ombe</name>
+    </author>
+    <author>
+      <name>Nereah Okanga</name>
+    </author>
+    <author>
+      <name>Tetyana Zelenska</name>
+    </author>
+    <author>
+      <name>Jona Repishti</name>
+    </author>
+    <author>
+      <name>Jayasankar G K</name>
+    </author>
+    <author>
+      <name>Sanjeev Mishra</name>
+    </author>
+    <author>
+      <name>Rajsekar Manokaran</name>
+    </author>
+    <author>
+      <name>Vineet Singh</name>
+    </author>
+    <author>
+      <name>Mohammed Irfan Rafiq</name>
+    </author>
+    <author>
+      <name>Rikin Gandhi</name>
+    </author>
+    <author>
+      <name>Akshay Nambi</name>
+    </author>
+  </entry>
+</feed>

@@ -71,7 +71,7 @@ const List<YzBaslik> kYzBasliklar = [
       "A short history",
       false,
       ["karar", "uzaktan", "goruntu"],
-      false,
+      true,
       "Uzman sistemlerden görüntü işlemeye, uydudan dil modellerine: dönüm noktaları ve kişiler.",
       "From expert systems to computer vision, from satellites to language models: turning points and people."),
   YzBaslik(

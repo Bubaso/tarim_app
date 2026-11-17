@@ -1,0 +1,648 @@
+{
+  "_ne": "§3 Kısa tarihçe — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide ya da bildiri kitabında yayımlanmış çalışma",
+    "KURUMSAL": "Kurumun, uluslararası kuruluşun ya da kamu kurumunun kendi yayını ya da sayfası",
+    "RESMI": "Resmî belge: Resmî Gazete, AB tüzüğü, devlet başkanlığı açıklaması",
+    "SATICI": "Şirketin kendi bülteni ya da raporu (karar 34)"
+  },
+  "kaynaklar": {
+    "nasa_landsat1": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Science. Landsat 1 (görev sayfası). science.nasa.gov (erişim 17 Kasım 2026).",
+      "adres": "https://science.nasa.gov/mission/landsat-1/",
+      "dosya": "kaynak_dosyalari/nasa_landsat1_gorev.html",
+      "firlatma": "July 23, 1972",
+      "sscb_bugday_satisi_milyon_ton": 15,
+      "alinti": [
+        "Landsat 1 (originally ERTS-1) launched on July 23, 1972, marking the beginning of the world's longest-running Earth observation satellite program.",
+        "Unaware of a worldwide shortage, the U.S. sold 15 million tons of wheat to the Soviet Union at a large discount.",
+        "Following the Great Grain Robbery, the U.S. government recognized the need for an accurate, up-to-date system to track crops globally and avoid being caught off-guard again.",
+        "They turned to the newly-launched Landsat 1.",
+        "The MSS was the first space-based instrument to digitally encode, record, and transmit Earth data."
+      ]
+    },
+    "nasa_ntrs_1978_lacie": {
+      "nitelik": "KURUMSAL",
+      "kunye": "LACIE Project Team (NASA, USDA, NOAA). 15 Ağustos 1978. Large Area Crop Inventory Experiment (LACIE): Executive Summary. Houston: NASA Lyndon B. Johnson Space Center. NTRS 19790010237 (N79-18408).",
+      "adres": "https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf",
+      "dosya": "kaynak_dosyalari/nasa_ntrs_1978_lacie_yonetici_ozeti.pdf",
+      "baslangic": 1974,
+      "tamamlanma": "June 30, 1978",
+      "dogruluk_yuzde": 90,
+      "guven_yuzde": 90,
+      "sscb_uyari": "August 1977",
+      "sscb_lacie_son_mmt": 91.4,
+      "sscb_resmi_mmt": 92.0,
+      "fark": "about 1 percent",
+      "alinti": [
+        "The Large Area Crop Inventory Experiment (LACIE), completed June 30, 1978, has met the USDA at harvest goals (90% accuracy with a 90% confidence level) in the U.S. Great Plains and U.S.S.R. for two consecutive years.",
+        "The Large Area Crop Inventory Experiment (LACIE) has been a joint venture of the U.S. Department of Agriculture, the National Oceanic and Atmospheric Administration of the Department of Commerce, and the National Aeronautics and Space Administration.",
+        "LACIE was initiated in 1974 as a \"proof of concept\" experiment to assimilate remote sensing and associated technology into an experimental system",
+        "The accuracy goal was set for production estimates at-harvest to be, within ±10 percent of true country production 90 percent of the time",
+        "Notably, LACIE produced in August 1977 what proved to be an accurate indication of the USSR spring wheat shortfall.",
+        "but only 6 percent above the final Soviet wheat figure of 92.0 MMT.",
+        "The final LACIE estimate of 91.4 MMT differed from the Soviet final-figure by about 1 percent.",
+        "Application of the technology in Canada was less successful",
+        "The USDA system is now in initial operation with a team skilled in the analysis of remotely sensed data and other aspects of the LACIE technology."
+      ]
+    },
+    "nasa_landsat2_lacie": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Science. Landsat 2 (görev sayfası; LACIE bölümü). science.nasa.gov (erişim 17 Kasım 2026).",
+      "adres": "https://science.nasa.gov/mission/landsat-2/",
+      "dosya": "kaynak_dosyalari/nasa_landsat2_gorev.html",
+      "citars": 1973,
+      "lacie_donem": "1974–1978",
+      "landsat2_firlatma": "January 22, 1975",
+      "sscb_tahmin_yili": 1977,
+      "alinti": [
+        "It played a vital role in agricultural monitoring by supporting major programs like the Large Area Crop Inventory Experiment (LACIE) and expanded international collaboration through a growing network of global ground stations.",
+        "Launched January 22, 1975 decommissioned February 25, 1982",
+        "Following the 1973 Crop Identification Technology Assessment for Remote Sensing (CITARS) project, LACIE (1974–1978) used MSS data to monitor and estimate global wheat production.",
+        "LACIE marked a shift from visual interpretation to digital image processing.",
+        "In 1977, it successfully estimated Soviet wheat harvest within one percent of the final reported total, proving that automated analysis could produce accurate global crop forecasts.",
+        "As a result of the LACIE program, future Landsat sensors were built with higher spatial, spectral, and temporal resolution to better discriminate among land cover types."
+      ]
+    },
+    "michalski_chilausky_1980_ijmms": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Michalski R.S., Chilausky R.L. 1980. Knowledge acquisition by encoding expert rules versus computer induction from examples: a case study involving soybean pathology. International Journal of Man-Machine Studies 12(1): 63-87.",
+      "doi": "10.1016/S0020-7373(80)80054-X",
+      "dosya": "kaynak_dosyalari/michalski_chilausky_1980_ijmms_crossref.json",
+      "alinti": [
+        "Knowledge acquisition by encoding expert rules versus computer induction from examples: a case study involving soybean pathology",
+        "International Journal of Man-Machine Studies"
+      ]
+    },
+    "michalski_baskin_1983_ijcai": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Michalski R.S., Baskin A.B. 1983. Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System. Proceedings of the Eighth International Joint Conference on Artificial Intelligence (IJCAI-83), Expert Systems, s. 256-257.",
+      "adres": "https://www.ijcai.org/proceedings/1983/63",
+      "dosya": "kaynak_dosyalari/michalski_baskin_1983_ijcai_advise.html",
+      "yil": 1983,
+      "sayfalar": "256-257",
+      "alinti": [
+        "The program is a modified version of the inductive program AQ11",
+        "The feasibility of using this program for inductive knowledge acquisition for an expert system has been proven by its successful application in the development of an expert system for soybean pathology (Michalski and Chilausky, 1980; Michalski, et al., 1982).",
+        "Pages 256-257. © 1983 International Joint Conferences on Artificial Intelligence"
+      ]
+    },
+    "uci_soybean_sayfa": {
+      "nitelik": "KURUMSAL",
+      "kunye": "UCI Machine Learning Repository. Soybean (Large). https://archive.ics.uci.edu/dataset/90/soybean+large (erişim 17 Kasım 2026).",
+      "adres": "https://archive.ics.uci.edu/dataset/90/soybean+large",
+      "dosya": "kaynak_dosyalari/uci_soybean_large_sayfa.html",
+      "bagis": "7/10/1988",
+      "alinti": [
+        "Michalski's famous soybean disease database",
+        "Donated on 7/10/1988",
+        "Michalski, R. & Chilausky, R. (1980). Soybean (Large) [Dataset]. UCI Machine Learning Repository."
+      ]
+    },
+    "lemmon_1986_science": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lemmon H. 1986. Comax: an expert system for cotton crop management. Science 233(4759): 29-33.",
+      "doi": "10.1126/science.233.4759.29",
+      "dosya": "kaynak_dosyalari/lemmon_1986_europepmc.json",
+      "alinti": [
+        "Comax: an expert system for cotton crop management.",
+        "One expert system, Comax, has been developed that acts as an expert in cotton crop management.",
+        "The system has a knowledge base consisting of a sophisticated cotton plant simulation computer program, a set of \"if-then\" rules, and a computer program called an inference engine.",
+        "Sensors in the cotton fields automatically report weather conditions to the system, and Comax reevaluates its recommendations daily.",
+        "Comax was tested on a large farm and demonstrated excellent results in reducing the unit costs of production."
+      ]
+    },
+    "lemmon_1986_beltwide": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lemmon H.E. 1986. Cotton Crop Management Expert System - COMAX (özet). 1986 Proceedings: Beltwide Cotton Production Research Conferences, s. 451. Memphis: National Cotton Council.",
+      "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/861.cfm",
+      "dosya": "kaynak_dosyalari/lemmon_1986_beltwide_comax_ozet.html",
+      "gossym_gelistirme": "twelve years",
+      "sayfa": 451,
+      "alinti": [
+        "The Agricultural Research Service of the USDA has developed the cotton Crop Management Expert System--COMAX, which advises cotton growers regarding the application of nitrogen, irrigation and growth regulators.",
+        "The third component to COMAX is a cotton plant model called GOSSYM.",
+        "This model was developed by a team of agriculture researchers over a period of twelve years.",
+        "Reprinted from 1986 Proceedings: Beltwide Cotton Production Research Conferences pg. 451"
+      ]
+    },
+    "lambert_1989_beltwide": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lambert J.R. 1989. Crop Simulation for the Analysis and Management of Cotton Production Systems: Extension Applications (özet). Proceedings: 1989 Beltwide Cotton Production Conference, s. 14-15. Memphis: National Cotton Council.",
+      "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/1867.cfm",
+      "dosya": "kaynak_dosyalari/lambert_1989_beltwide_gossym_comax_yayim.html",
+      "ciftci_1988": "Near 150",
+      "yil": 1988,
+      "alinti": [
+        "The program is sufficiently well developed to be used by farmers for realtime decision support in planting date, water and nitrogen management, and defoliation timing.",
+        "Near 150 farmers used the model in 1988 from California to North Carolina.",
+        "USDA ARS and ES have chosen GOSSYM-COMAX as the initial crop simulation model to implement on the farm.",
+        "Reprinted from Proceedings: 1989 Beltwide Cotton Production Conference pp. 14 - 15"
+      ]
+    },
+    "reagan_1983_gps_sivil": {
+      "nitelik": "RESMI",
+      "kunye": "The White House (Deputy Press Secretary Larry Speakes). 16 Eylül 1983. Statement by Deputy Press Secretary Speakes on the Soviet Attack on a Korean Civilian Airliner. Ronald Reagan Presidential Library arşivi.",
+      "adres": "https://www.reaganlibrary.gov/archives/speech/statement-deputy-press-secretary-speakes-soviet-attack-korean-civilian-airliner-1 (gps.gov'un verdiği eski adres: https://www.reaganlibrary.gov/research/speeches/91683c)",
+      "dosya": "kaynak_dosyalari/reagan_1983_09_16_gps_sivil_kullanim.html",
+      "tarih": "September 16, 1983",
+      "ongorulen_isletim": 1988,
+      "alinti": [
+        "Statement by Deputy Press Secretary Speakes on the Soviet Attack on a Korean Civilian Airliner September 16, 1983",
+        "As a contribution to the achievement of this objective, the President has determined that the United States is prepared to make available to civilian aircraft the facilities of its Global Positioning System when it becomes operational in 1988."
+      ]
+    },
+    "gpsgov_sss": {
+      "nitelik": "KURUMSAL",
+      "kunye": "GPS.gov (National Coordination Office for Space-Based PNT). FAQ. https://www.gps.gov/faq (erişim 17 Kasım 2026).",
+      "adres": "https://www.gps.gov/faq",
+      "dosya": "kaynak_dosyalari/gpsgov_sss.html",
+      "isletim_ilani": 1995,
+      "alinti": [
+        "Since it was declared operational in 1995, the Global Positioning System has never been deactivated, despite U.S. involvement in wars, anti-terrorism, and other military activities."
+      ]
+    },
+    "beyazsaray_2000_clinton_sa": {
+      "nitelik": "RESMI",
+      "kunye": "The White House, Office of the Press Secretary. 1 Mayıs 2000. Statement by the President Regarding the United States' Decision to Stop Degrading Global Positioning System Accuracy. (Clinton Beyaz Saray arşivi, NARA)",
+      "adres": "https://clintonwhitehouse3.archives.gov/WH/EOP/OSTP/html/0053_2.html",
+      "dosya": "kaynak_dosyalari/beyazsaray_2000_05_01_clinton_sa_aciklamasi.html",
+      "tarih": "May 1, 2000",
+      "dogruluk": "up to ten times",
+      "sa_taahhut": 2006,
+      "alinti": [
+        "For Immediate Release May 1, 2000",
+        "Today, I am pleased to announce that the United States will stop the intentional degradation of the Global Positioning System (GPS) signals available to the public beginning at midnight tonight.",
+        "This will mean that civilian users of GPS will be able to pinpoint locations up to ten times more accurately than they do now.",
+        "To meet these goals, I committed the U.S. to discontinuing the use of SA by 2006 with an annual assessment of its continued use beginning this year."
+      ]
+    },
+    "ispa_icpa_gecmisi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ISPA. ICPA Conference History. https://ispag.org/icpa/History (erişim 17 Kasım 2026).",
+      "adres": "https://ispag.org/icpa/History",
+      "dosya": "kaynak_dosyalari/ispa_icpa_konferans_gecmisi.html",
+      "ilk_icpa": "July 1992",
+      "ikinci": "July 1994",
+      "besinci": "July 16-19, 2000",
+      "on_yedinci": "July 13-16, 2026",
+      "alinti": [
+        "1 st ICPA Date: July 1992 Location: St. Paul, MN Conference Chair: Dr. Pierre Robert",
+        "2 nd ICPA Date: July 1994 Location: Minneapolis, MN Conference Chair: Dr. Pierre Robert",
+        "5 th ICPA Date: July 16-19, 2000 Location: Bloomington, MN Conference Chair: Dr. Pierre Robert",
+        "17 th ICPA Date: July 13-16, 2026 Location: Porto Alegre, Brazil"
+      ]
+    },
+    "lowenberg_deboer_erickson_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lowenberg-DeBoer J., Erickson B. 2019. Setting the record straight on precision agriculture adoption. Agronomy Journal 111(4): 1552-1569.",
+      "doi": "10.2134/agronj2018.12.0779",
+      "dosya": "kaynak_dosyalari/lowenberg_deboer_erickson_2019.pdf",
+      "verim_monitoru": 1992,
+      "icpa": 1992,
+      "sa_sonu": 2000,
+      "gnss_rehber": "late 1990s",
+      "hfh": 2017,
+      "sivil_gps": 1983,
+      "alinti": [
+        "The first commercially successful grain yield monitors were introduced in 1992.",
+        "Global Navigation Satellite Systems equipment guidance was commercialized in the late 1990s, first in Australia and shortly after in North America.",
+        "Table 1. Key precision agriculture milestones.",
+        "1983 Executive order that allowed civilian use of GPS US government",
+        "1992 First conference dedicated to precision agriculture research International Conference on Precision Agriculture Khosla, 2010",
+        "1992 Impact plate grain yield monitor Ag Leader, Yield Monitor 2000 Ag Leader, 2018",
+        "2000 End of GNSS selective availability US government Coalition to Save Our GPS, 2012",
+        "2017 First fully autonomous field crop production Harper Adams University Hands Free Hectare, 2018"
+      ]
+    },
+    "abd_ers_2023_eib248": {
+      "nitelik": "KURUMSAL",
+      "kunye": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023.",
+      "adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+      "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+      "gps": 1978,
+      "sivil": 1983,
+      "verim_monitoru": 1993,
+      "vrt": 1995,
+      "verim_izleme_teknolojisi": "1960s",
+      "oto_dumen_misir_2001_yuzde": 5.3,
+      "oto_dumen_misir_2016_yuzde": 58,
+      "gps_alan_payi_yuzde": 40,
+      "alinti": [
+        "Underlying the widespread use of nearly all these technologies, however, was the advent of the U.S. Department of Defense’s Global Positioning System (GPS) in 1978, which was made “selectively available” to civilians starting in 1983.",
+        "Yield-monitoring technologies date to the 1960s, though the advent of GPS for civilian purposes has rendered yield monitoring much more available.",
+        "Table 1 Key component technologies of digital agriculture, 1996–2019 Technology Description Category Year commercialized",
+        "Yield monitor In-cab device that displays crop yields (e.g., bushels/ acre)—and how those yields change over small areas. Data collection 1993",
+        "Variable rate technologies Equipment that provides custom applications of seed, lime, fertilizer, and/or pesticides at rates that can change over small distances. Data-driven equipment 1995",
+        "Auto-steer guidance systems were used on only 5.3 percent of planted corn acres in 2001, growing to 58 percent in 2016.",
+        "In the same year, GPS applications were used on 40 percent of all U.S. farm and ranchland acreage for on-farm production."
+      ]
+    },
+    "nasa_2019_landsat_acik_veri": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Landsat Science (Rocchio L.E.P.). 20 Mart 2019. Landsat Science Team members support the free and open Landsat data policy. [Zhu Z. ve ark. 2019, Remote Sensing of Environment 224: 382-385'in kurumsal özeti]",
+      "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+      "dosya": "kaynak_dosyalari/nasa_2019_landsat_acik_veri.html",
+      "ucretsiz_karar": 2008,
+      "veri_kullanimi": "20-fold",
+      "alinti": [
+        "After the 2008 USGS decision to make Landsat data available at no cost, data use has increased 20-fold, and Landsat-based scientific publications has increased four-fold."
+      ]
+    },
+    "ab_2013_1159_sentinel_acik_veri": {
+      "nitelik": "RESMI",
+      "kunye": "Commission Delegated Regulation (EU) No 1159/2013 of 12 July 2013 supplementing Regulation (EU) No 911/2010 on the European Earth monitoring programme (GMES) by establishing registration and licensing conditions for GMES users and defining criteria for restricting access to GMES dedicated data and GMES service information. OJ L 309, 19.11.2013, s. 1.",
+      "adres": "https://publications.europa.eu/resource/celex/32013R1159",
+      "dosya": "kaynak_dosyalari/ab_2013_1159_copernicus_veri_politikasi.xhtml",
+      "tuzuk_tarihi": "12 July 2013",
+      "rg": "19.11.2013",
+      "alinti": [
+        "COMMISSION DELEGATED REGULATION (EU) No 1159/2013 of 12 July 2013",
+        "19.11.2013 EN Official Journal of the European Union L 309/1",
+        "Access to Sentinel data should be free, full and open",
+        "Users shall have free, full and open access to GMES dedicated data and GMES service information under the conditions laid down in Articles 4 to 10, subject to the restrictions laid down in Articles 11 to 16."
+      ]
+    },
+    "esa_sentinel2_olgular": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ESA. Sentinel-2: Facts and figures. https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures (erişim 17 Kasım 2026).",
+      "adres": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures",
+      "dosya": "kaynak_dosyalari/esa_sentinel2_olgular.html",
+      "s2a": "23 June 2015",
+      "s2b": "7 March 2017",
+      "s2c": "5 September 2024",
+      "ziyaret": "Five days",
+      "alinti": [
+        "Launch: Sentinel-2A on 23 June 2015; Sentinel-2B on 7 March 2017; Sentinel-2C on 5 September 2024",
+        "Launcher: Vega rocket from Kourou, French Guiana",
+        "Revisit time: Five days from two-satellite constellation (at equator)"
+      ]
+    },
+    "krizhevsky_2012_nips": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Krizhevsky A., Sutskever I., Hinton G.E. 2012. ImageNet Classification with Deep Convolutional Neural Networks. Advances in Neural Information Processing Systems 25 (NIPS 2012).",
+      "adres": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+      "dosya": "kaynak_dosyalari/krizhevsky_2012_nips_imagenet.pdf",
+      "kazanan_top5_yuzde": 15.3,
+      "ikinci_top5_yuzde": 26.2,
+      "bes_cnn_top5_yuzde": 16.4,
+      "goruntu": "1.2 million",
+      "sinif": 1000,
+      "top1_yuzde": 37.5,
+      "top5_yuzde": 17.0,
+      "alinti": [
+        "ImageNet Classification with Deep Convolutional Neural Networks",
+        "We trained a large, deep convolutional neural network to classify the 1.2 million high-resolution images in the ImageNet LSVRC-2010 contest into the 1000 different classes.",
+        "On the test data, we achieved top-1 and top-5 error rates of 37.5% and 17.0% which is considerably better than the previous state-of-the-art.",
+        "We also entered a variant of this model in the ILSVRC-2012 competition and achieved a winning top-5 test error rate of 15.3%, compared to 26.2% achieved by the second-best entry.",
+        "Averaging the predictions of five similar CNNs gives an error rate of 16.4%."
+      ]
+    },
+    "mohanty_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419.",
+      "doi": "10.3389/fpls.2016.01419",
+      "dosya": "kaynak_dosyalari/mohanty_2016_frontiers.html",
+      "goruntu": "54,306",
+      "tur": 14,
+      "hastalik": 26,
+      "dogruluk_yuzde": 99.35,
+      "dis_veri_1": "31.40%",
+      "dis_veri_2": "31.69%",
+      "yayim": "22 September 2016",
+      "imagenet_2012_top5": "16.4%",
+      "alinti": [
+        "Using a public dataset of 54,306 images of diseased and healthy plant leaves collected under controlled conditions, we train a deep convolutional neural network to identify 14 crop species and 26 diseases (or absence thereof).",
+        "The trained model achieves an accuracy of 99.35% on a held-out test set, demonstrating the feasibility of this approach.",
+        "Using the best model on these datasets, we obtained an overall accuracy of 31.40% in dataset 1, and 31.69% in dataset 2, in successfully predicting the correct class label (i.e., crop and disease information) from among 38 possible class labels.",
+        "In 2012, a large, deep convolutional neural network achieved a top-5 error of 16.4% for the classification of images into 1000 possible categories (Krizhevsky et al., 2012 ).",
+        "Received 19 June 2016 Accepted 06 September 2016 Published 22 September 2016",
+        "Our results are a first step toward a smartphone-assisted plant disease diagnosis system.",
+        "Our approach is based on recent work Krizhevsky et al. ( 2012 ) which showed for the first time that end-to-end supervised training using a deep convolutional neural network architecture is a practical possibility"
+      ]
+    },
+    "deere_2017_blue_river_bulteni": {
+      "nitelik": "SATICI",
+      "kunye": "Deere & Company. 6 Eylül 2017. Deere to Advance Machine Learning Capabilities in Acquisition of Blue River Technology (haber bülteni). İnternet Arşivi kopyası, 7 Eylül 2017.",
+      "adres": "https://web.archive.org/web/20170907120134id_/https://www.deere.com/en/our-company/news-and-announcements/news-releases/2017/corporate/2017sep06-blue-river-technology/ (özgün adres 17.11.2026'da 404)",
+      "dosya": "kaynak_dosyalari/deere_2017_blue_river_bulteni_arsiv.html",
+      "alinti": [
+        "Deere to Advance Machine Learning Capabilities in Acquisition of Blue River Technology",
+        "MOLINE, Illinois (September 6, 2017) — Deere & Company (NYSE: DE) has signed a definitive agreement to acquire Blue River Technology, which is based in Sunnyvale, California and is a leader in applying machine learning to agriculture.",
+        "Blue River has designed and integrated computer vision and machine learning technology that will enable growers to reduce the use of herbicides by spraying only where weeds are present, optimizing the use of inputs in farming – a key objective of precision agriculture.",
+        "\"Blue River is advancing precision agriculture by moving farm management decisions from the field level to the plant level,\" said Jorge Heraud, co-founder and CEO of Blue River Technology.",
+        "Deere said it will invest $305 million to fully acquire Blue River Technology.",
+        "Deere plans to have the 60-person firm remain in Sunnyvale",
+        "The transaction is expected to close in September.",
+        "May said the investment in Blue River Technology is similar to Deere's acquisition of NavCom Technology in 1999 that established Deere as a leader in the use of GPS technology for agriculture"
+      ]
+    },
+    "deere_2019_surdurulebilirlik": {
+      "nitelik": "SATICI",
+      "kunye": "Deere & Company. 2019 Sustainability Report (Eylül 2019) — '2019 Sustainability Metrics Update' ekiyle yayımlanan PDF.",
+      "adres": "https://www.deere.com/assets/pdfs/common/our-company/sustainability/jdsustainabilityreport-f-2020rev.pdf",
+      "dosya": "kaynak_dosyalari/deere_2019_surdurulebilirlik_raporu.pdf",
+      "alinti": [
+        "Addendum to Deere & Company 2019 Sustainability Report issued September 2019",
+        "Our 2017 acquisition of Blue River Technology is allowing us to test these innovations in the field today.",
+        "concept—See & SprayTM—uses machine learning and a complex vision system to differentiate between a crop (cotton, for example) and a weed, and the machine selectively sprays herbicide only on the weed.",
+        "Blue River Technology’s innovation can reduce the use of herbicides by up to 90%",
+        "Although we have not fully commercialized this technology, we are aggressively testing it and at the same time we’re making enhancements to build a smarter See & Spray machine."
+      ]
+    },
+    "hopkins_2023_jncics": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Hopkins A.M., Logan J.M., Kichenadasse G., Sorich M.J. 2023. Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift. JNCI Cancer Spectrum 7(2): pkad010.",
+      "doi": "10.1093/jncics/pkad010",
+      "dosya": "kaynak_dosyalari/hopkins_2023_jncics_europepmc.json",
+      "tarih": "November 30, 2022",
+      "alinti": [
+        "On November 30, 2022, OpenAI enabled public access to ChatGPT, a next-generation artificial intelligence with a highly sophisticated ability to write, solve coding issues, and answer questions.",
+        "Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift."
+      ]
+    },
+    "hindistan_pib_2026_kisan_emitra": {
+      "nitelik": "RESMI",
+      "kunye": "Press Information Bureau (PIB), Hindistan Hükümeti. 14 Şubat 2026. Artificial Intelligence (AI) Transforming Indian Agriculture (arka plan notu). Yeni Delhi.",
+      "adres": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026214789901.pdf",
+      "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+      "yil": 2023,
+      "soru_lakh": 93,
+      "gunluk": "8,000",
+      "dil": 11,
+      "alinti": [
+        "Transforming Indian Agriculture 14 February, 2026",
+        "Kisan e-Mitra, launched in 2023, is a voice-enabled, AI-powered chatbot designed to support farmers by answering queries on key government schemes, including PM Kisan Samman Nidhi, the Kisan Credit Card, and the Pradhan Mantri Fasal Bima Yojana.",
+        "As of December 2025, the Kisan e-Mitra chatbot has answered more than 93 lakh queries, handling over 8,000 farmer queries daily in 11 regional languages."
+      ]
+    },
+    "digital_green_2024_farmerchat_arxiv": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Singh N., Wang'ombe J., Okanga N., Zelenska T., Repishti J., G K J., Mishra S., Manokaran R., Singh V., Rafiq M.I., Gandhi R., Nambi A. 2024. Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers. arXiv:2409.08916 (v1 13 Eylül 2024; v2 8 Ekim 2024).",
+      "adres": "https://export.arxiv.org/api/query?id_list=2409.08916",
+      "dosya": "kaynak_dosyalari/digital_green_2024_farmer_chat_arxiv.xml",
+      "ulke": "four",
+      "ciftci": "15,000",
+      "sorgu": "300,000",
+      "alinti": [
+        "Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers",
+        "We introduce FarmerChat, a generative AI-powered chatbot designed to address these issues.",
+        "Deployed in four countries, FarmerChat has engaged over 15,000 farmers and answered over 300,000 queries."
+      ]
+    },
+    "digital_green_farmerchat_sayfa": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Digital Green. FarmerChat: Farming answers in seconds. https://www.digitalgreen.org/farmerchat (erişim 17 Kasım 2026).",
+      "adres": "https://www.digitalgreen.org/farmerchat",
+      "dosya": "kaynak_dosyalari/digital_green_farmerchat_sayfa.html",
+      "alinti": [
+        "FarmerChat: Farming answers in seconds | Digital Green",
+        "FarmerChat meets farmers where they are: in their language, on their phone, in seconds."
+      ]
+    },
+    "lam_2023_graphcast": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421.",
+      "doi": "10.1126/science.adi2336",
+      "dosya": "kaynak_dosyalari/lam_2023_europepmc.json",
+      "gun": 10,
+      "cozunurluk": "0.25°",
+      "hedef_yuzde": "90%",
+      "hedef": 1380,
+      "alinti": [
+        "Learning skillful medium-range global weather forecasting.",
+        "Here, we introduce GraphCast, a machine learning-based method trained directly from reanalysis data.",
+        "It predicts hundreds of weather variables for the next 10 days at 0.25° resolution globally in under 1 minute.",
+        "GraphCast significantly outperforms the most accurate operational deterministic systems on 90% of 1380 verification targets, and its forecasts support better severe event prediction, including tropical cyclone tracking, atmospheric rivers, and extreme temperatures."
+      ]
+    },
+    "ecmwf_2025_aifs": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ECMWF. 25 Şubat 2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası.",
+      "adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      "dosya": "kaynak_dosyalari/ecmwf_2025_aifs_operasyonel.html",
+      "tarih": "25 February 2025",
+      "kazanc": "up to 20%",
+      "enerji_kat": "1,000",
+      "izgara_km": 28,
+      "alinti": [
+        "ECMWF has taken the Artificial Intelligence Forecasting System (AIFS) into operations today, 25 February 2025, to run side by side with its traditional physics-based Integrated Forecasting System (IFS) to advance numerical weather prediction.",
+        "The AIFS outperforms state-of-the-art physics-based models for many measures, including tropical cyclone tracks, with gains of up to 20%.",
+        "These include increased speed and a reduction of approximately 1,000 times in energy use for making a forecast.",
+        "The AIFS is the first fully operational weather prediction open model using machine learning with the widest range of parameters.",
+        "The AIFS has a grid spacing of currently 28 km."
+      ]
+    },
+    "dunya_bankasi_2009_arip": {
+      "nitelik": "KURUMSAL",
+      "kunye": "World Bank. 23 Kasım 2009. Implementation Completion and Results Report (IBRD-46310) on a Loan in the Amount of US$600 Million to the Republic of Turkey for an Agricultural Reform Implementation Project. Report No: ICR00001155.",
+      "adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
+      "dosya": "kaynak_dosyalari/dunya_bankasi_2009_arip_icr.pdf",
+      "rapor_tarihi": "November 23, 2009",
+      "kredi": "US$600 MILLION",
+      "dgd_donemi": "2000-2002",
+      "pilot_yili": 2000,
+      "onay": "07/12/2001",
+      "dgd_sonu": 2008,
+      "alinti": [
+        "IMPLEMENTATION COMPLETION AND RESULTS REPORT (IBRD-46310) ON A LOAN IN THE AMOUNT OF US$600 MILLION TO THE REPUBLIC OF TURKEY FOR AN AGRICULTURAL REFORM IMPLEMENTATION PROJECT November 23, 2009",
+        "The ERL Letter of Development Policy also spelled out the main features of the impending DIS, to be introduced in 2000-2002 following a piloting phase and the preparation of a National Farmer Registry.",
+        "A pilot project was executed during the agricultural year of 2000, in five villages across Turkey",
+        "Approval: 07/12/2001",
+        "This supported the Ministry of Agriculture and Rural Affairs (MARA) to create the National Registry of Farmers (NRF) throughout Turkey",
+        "Two activities of the original DIS component have left highly sustainable legacies - the creation of the National Registry of Farmers (NRF), and the virtual completion of the coverage of the Turkish cadastre.",
+        "The NRF has become the basic rural database of Turkey, and will become increasingly valuable in that role as the base for several major EU pre- and post-accession funding programs.",
+        "When the program was discontinued in 2008, two new programs with more conventional names were instituted, ostensible subsidy programs for diesel and fertilizer.",
+        "Almost 100% of 2.75 eligible and registrable farms are registered."
+      ]
+    },
+    "rg_2002_dgd_kayit_sistemi_bkk": {
+      "nitelik": "RESMI",
+      "kunye": "Resmî Gazete, 14 Haziran 2002, sayı 24785. Bakanlar Kurulu Kararı 2002/4165: Tarımsal Destekleme Politikaları Çerçevesinde Çiftçilere Doğrudan Gelir Desteği Sağlanması ve Kayıt Sisteminin Oluşturulmasına İlişkin Karar.",
+      "adres": "https://www.resmigazete.gov.tr/eskiler/2002/06/20020614.htm",
+      "dosya": "kaynak_dosyalari/rg_2002_06_14_dgd_kayit_sistemi_bkk.htm",
+      "rg_sayi": 24785,
+      "karar": "2002/4165",
+      "kararlastirma": "4/5/2002",
+      "alinti": [
+        "14 Haziran 2002 CUMA Sayı : 24785",
+        "Karar Sayısı : 2002/4165",
+        "Tarımsal destekleme politikaları çerçevesinde çiftçilere doğrudan gelir desteği sağlanması ve kayıt sisteminin oluşturulmasına ilişkin ekli Karar’ın yürürlüğe konulması",
+        "Bakanlar Kurulu’nca 4/5/2002 tarihinde kararlaştırılmıştır."
+      ]
+    },
+    "rg_2005_cks_yonetmeligi": {
+      "nitelik": "RESMI",
+      "kunye": "Tarım ve Köyişleri Bakanlığı. Çiftçi Kayıt Sistemi Yönetmeliği. Resmî Gazete, 16 Nisan 2005, sayı 25788.",
+      "adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416-6.htm",
+      "dosya": "kaynak_dosyalari/rg_2005_04_16_cks_yonetmeligi.htm",
+      "alinti": [
+        "Tarım ve Köyişleri Bakanlığından: Çiftçi Kayıt Sistemi Yönetmeliği",
+        "Madde 1 — Bu Yönetmeliğin amacı, sağlıklı tarım politikalarının oluşturulması için kurulan Çiftçi Kayıt Sisteminin güncellenmesi, geliştirilmesi ve tarımsal desteklemelerin denetlenebilir, izlenebilir bir şekilde yürütülmesini sağlamaktır.",
+        "Bakanlıkça yürütülen uygulamalarla ilgili elde edilen elektronik ortamdaki verilerin ÇKS’ye entegre edilmesi esastır.",
+        "Madde 13 — Bu Yönetmelik yayımı tarihinde yürürlüğe girer."
+      ]
+    },
+    "rg_2005_fihrist": {
+      "nitelik": "RESMI",
+      "kunye": "Resmî Gazete, 16 Nisan 2005, sayı 25788 — günlük fihrist.",
+      "adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416.htm",
+      "dosya": "kaynak_dosyalari/rg_2005_04_16_fihrist.htm",
+      "tarih": "16 Nisan 2005",
+      "sayi": 25788,
+      "alinti": [
+        "16 Nisan 2005 CUMARTESİ - Sayı : 25788",
+        "— Çiftçi Kayıt Sistemi Yönetmeliği"
+      ]
+    },
+    "tkb_2006_verim_bulteni": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Köyişleri Bakanlığı — FAO TCP/TUR/3002-A. 2006. Bülten No 1: Ekim 2005-Ocak 2006. Kışlık Buğday Agro-Meteorolojik Ürün Verim Tahmini Bülteni.",
+      "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+      "dosya": "kaynak_dosyalari/tkb_2006_01_verim_tahmini_bulteni.pdf",
+      "bulten_no": 1,
+      "donem": "Ekim 2005-Ocak 2006",
+      "model_araligi_gun": 10,
+      "alinti": [
+        "Bülten No 1: Ekim 2005-Ocak 2006 ÜRÜN ADI: Kışlık Buğday",
+        "FAO (Strengthening the Crop Yield and Production Forecasting Capability Project-TCP/TUR/3002-A )",
+        "Bu bültende yer alan verim tahminleri FAO tarafından geliştirilen ve iklim faktörlerinin kullanıldığı Agrometeorolojik Simülasyon Yöntemine göre yapılmıştır.",
+        "Model her 10 günde bir çalıştırılarak o tarihe kadar olan iklim verileri değerlendirilmektedir."
+      ]
+    },
+    "toprakgubre_agrosens_listesi": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. AGROSENS — bülten listesi (2005-2026).",
+      "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+      "dosya": "kaynak_dosyalari/toprakgubre_agrosens_listesi.html",
+      "alinti": [
+        "Bülten No 1 Ekim 2005-Ocak 2006 Agro-Meteorolojik Ürün Verim Tahmini Bülteni",
+        "Nisan 2026 Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni"
+      ]
+    },
+    "tubitak_2020_rasat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK. 17 Ağustos 2020. Tasarımı ve Üretimi Türkiye’de Gerçekleştirilen İlk Yer Gözlem Uydumuz RASAT, 9 Yaşında! (haber).",
+      "adres": "https://tubitak.gov.tr/tr/haber/tasarimi-ve-uretimi-turkiyede-gerceklestirilen-ilk-yer-gozlem-uydumuz-rasat-9-yasinda",
+      "dosya": "kaynak_dosyalari/tubitak_2020_rasat_9_yasinda.html",
+      "bilsat": 2003,
+      "rasat_firlatma": "17 Ağustos 2011",
+      "irtifa_km": 700,
+      "pan_m": "7,5",
+      "msi_m": 15,
+      "kutle_kg": 93,
+      "alinti": [
+        "TÜBİTAK UZAY tarafından tasarlanan ve üretilen ülkemizin ilk yerli yer gözlem uydusu RASAT, yörüngedeki 9. yılını geride bıraktı.",
+        "17 Ağustos 2011'de Rusya'dan fırlatılan ve hiçbir sınırlama olmadan dünyanın her yerinden görüntü alabilen RASAT, 93 kg ağırlığında olup dünyanın çevresini 98 dakikada turlayabilmektedir.",
+        "7,5 m siyah-beyaz (pankromatik) ve 15 m çok bantlı konumsal çözünürlükte (pushbroom) alınan görüntüler; haritacılık, afet izleme, tarım, çevre, şehircilik ve planlama çalışmalarında kullanılmaktadır.",
+        "TÜBİTAK UZAY, 2003 yılında teknoloji transferi yöntemi ile fırlatılan ülkemizin ilk optik uzaktan algılama uydusu olan BİLSAT’tan edindiği deneyimle RASAT’ı danışmanlık ya da dış destek almadan üretmiştir.",
+        "Tasarım ömrü üç yıl olarak öngörülen ve 700 kilometre irtifada başarıyla görev yapan RASAT"
+      ]
+    },
+    "tubitak_uzay_2026_katalog": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK UZAY. 2026. TÜBİTAK UZAY Katalog (Haziran 2026). Ankara: TÜBİTAK Uzay Teknolojileri Araştırma Enstitüsü.",
+      "adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+      "rasat_firlatma": "August 17, 2011",
+      "rasat_irtifa_km": 687,
+      "rasat_hizmet_yil": 11,
+      "iletisim_kesildi": "23 Ağustos 2022",
+      "imece_firlatma": "15 Nisan 2023",
+      "imece_pan_m": 0.99,
+      "imece_yorunge_km": 686,
+      "alinti": [
+        "RASAT, Türkiye's first Earth observation satellite, was developed entirely with domestic resources by TÜBİTAK UZAY and launched into orbit from Russia's Yasny launch site on August 17, 2011.",
+        "RASAT, Türkiye’nin ilk yerli yer gözlem uydusu olarak TÜBİTAK UZAY tarafından geliştirilmiş ve 17 Ağustos 2011’de Rusya'nın Yasny fırlatma üssünden yörüngesine gönderilmiştir.",
+        "Operating in a sun-synchronous orbit at an altitude of 687 kilometers, RASAT represents a significant step towards Türkiye's goal of independence in space technologies.",
+        "Initially designed for a three-year mission, RASAT provided valuable data in various fields such as agriculture, urban planning, disaster management, mapping, and environmental monitoring for approximately 11 years.",
+        "23 Ağustos 2022 tarihinde iletişimimizin kesildiği RASAT’tan elde edilen bilgi ve deneyimler, Türkiye'nin uzay çalışmalarını ilerletmiş ve İMECE uydusu gibi daha ileri projelere temel oluşturmuştur.",
+        "TÜBİTAK UZAY tarafından tasarlanıp geliştirilen ve üretilen İMECE, Türkiye’nin ilk yerli ve milli metrealtı çözünürlüklü yer gözlem uydusudur.",
+        "15 Nisan 2023 tarihinde saat 09.48’de başarıyla uzaya fırlatılmıştır.",
+        "Elde edilen görüntüler savunma, afet yönetimi, çevre ve şehircilik, tarım ve ormancılık gibi birçok alanda kullanılmaktadır.",
+        "ÇÖZÜNÜRLÜK / SPATIAL RESOLUTION PAN 0.99 m - MSI 3.96 m",
+        "YÖRÜNGE / ORBIT 686 km dairesel / 686 km circular"
+      ]
+    },
+    "tob_cbs_projeler_tarbil": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. Coğrafi Bilgi Sistemleri — Projeler (TARBİL bölümü). https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler (erişim 17 Kasım 2026; içerik tarihsiz).",
+      "adres": "https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler",
+      "dosya": "kaynak_dosyalari/tob_cbs_projeler_tarbil.html",
+      "baslangic": 2008,
+      "pilot_yil": 3,
+      "sanliurfa_istasyon": 25,
+      "ilave": 25,
+      "istasyon_2012": 100,
+      "ilave_2012": 50,
+      "alinti": [
+        "TARIMSAL İZLEME VE BİLGİ SİSTEMİ PROJESİ (TARBİL)",
+        "TARBİL Projesi 2008 yılında “Tarımsal Rekolte Tahmin ve Kuraklık İzleme” projesi (TARİT) olarak, Devlet Planlama Teşkilatının (DPT) yönlendirmesi",
+        "önce 3 yıllık pilot proje olarak başlatılmıştır.",
+        "Tarımsal Araştırmalar Genel Müdürlüğü (TAGEM) ve İstanbul Teknik Üniversitesi Uydu Haberleşmesi ve Uzaktan Algılama Merkezlerinin (İTÜ-UHUZAM) İşbirliği ile Güneydoğu Anadolu Bölgesinde (GAP) tarımsal gelişimin anlık izlenebildiği TARİT sistem bileşenleri geliştirilmiştir.",
+        "Pilot uygulama alanı olarak seçilen Şanlıurfa İli’nde çalışmalar başlamış 25 adet istasyon kurulumu yapılmıştır.",
+        "Daha sonra, Diyarbakır, Mardin ve Gaziantep illerinde ilave 25 istasyon kurulumu daha gerçekleştirilmiş olup 2012 yılında 50 istasyon ilave ile 100 istasyona ulaşılmıştır.",
+        "Ülke genelinde kurulacak zirai ve meteorolojik istasyonlar vasıtasıyla"
+      ]
+    },
+    "fao_ebrd_2025_turkiye": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger F., Sener B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma: FAO (FAO Yatırım Merkezi–EBRD).",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "cks_yil": 2005,
+      "cks_ciftci_milyon": "2,2",
+      "tarbil_yil": 2015,
+      "parametre": 39,
+      "istasyon_hedef": "1 200",
+      "veritabani": 42,
+      "alinti": [
+        "Çiftçi Kayıt Sistemi (ÇKS) 2005 yılından bu yana faaliyette olan ÇKS, tarımsal destek ve sübvansiyonları yöneten ana sistemdir.",
+        "Yaklaşık 2,2 milyon çiftçi kayıtlıdır.",
+        "Tarımsal İzleme ve Bilgi Sistemi (TARBİL) , risk yönetimi ve erken uyarı, tarımsal yayım, destek dağıtımı ve resmi istatistikler gibi tüm tarımsal destek hizmetlerini tek bir platformda toplamak amacıyla 2015 yılında başlatılmıştır.",
+        "İstanbul Teknik Üniversitesi'ndeki veri analiz merkezine yerel rüzgar, toprak nemi ve sıcaklık gibi 39 parametreye ilişkin gerçek zamanlı veri sağlayacak 1 200 adet meteoroloji istasyonunun kurulumu",
+        "Toplamda, TARBİL portalı kapsamında 42 ayrı veritabanının entegre edilmesi planlanmıştır.",
+        "Proje tamamlanmamış olup mevcut durumu bilinmemektedir.",
+        "FAO-Avrupa İmar ve Kalkınma Bankası (EBRD) raporu için yapılan saha çalışmaları ve çiftçiler ile uygulayıcılarla gerçekleştirilen görüşmeler, kurulan birçok meteoroloji istasyonunun şu anda çalışmadığını ortaya koymuştur."
+      ]
+    },
+    "tubitak_1711_cagri": {
+      "nitelik": "RESMI",
+      "kunye": "TÜBİTAK, '1711 - Yapay Zekâ Ekosistem Çağrısı' program sayfası, erişim 17.11.2026",
+      "adres": "https://tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari/1711-yapay-zeka-ekosistem-cagrisi",
+      "dosya": "kaynak_dosyalari/tubitak_1711_cagri_sayfasi.html",
+      "alinti": [
+        "Bu program kapsamında beş öncelikli alan desteklenmektedir.",
+        "Yapay Zekâ Ekosistem Çağrısının ilki 2022 yılında açılmıştır.",
+        "(2) Akıllı Tarım, Gıda ve Hayvancılık,"
+      ],
+      "_kopya": "b25_kaynaklar.json · tubitak_1711_cagri"
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "yz_proje_2025_sayisi": 3,
+      "alinti": [
+        "2025 Yılında Başlayan Dijital Tarım ve Yapay Zeka Çalışmaları"
+      ],
+      "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025"
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye: Ulusal Çiftçi Kaydı (Dünya Bankası 2009; RG 2002 BKK; RG 2005 ÇKS Yönetmeliği), verim tahmin bülteni (2005-06), BİLSAT/RASAT/İMECE, TARBİL (bakanlık sayfası 2008; FAO-EBRD 2025'e göre tamamlanmadı), TÜBİTAK 1711 (2022) ve TAGEM (2025)."
+  },
+  "_reddedilen": {
+    "michalski_1980_sayisal": "Michalski ve Chilausky 1980'in sayısal sonucu birincil kaynaktan alınamadı; ikincil kaynaklardaki oranlar birbirini tutmuyor.",
+    "blue_river_bedeli": "Satın alma bedeli iki ayrı tanımla (yatırım ve edinim maliyeti) şirketin kendi belgelerinde; metne girmedi.",
+    "ilk_uzman_sistem": "Çiftçinin kullandığı ilk uzman sistem iddiası hiçbir kaynakta yok.",
+    "tarbil_2015": "FAO-EBRD TARBİL'in başlangıcını 2015 veriyor, bakanlığın kendi sayfası 2008; metin bakanlığın tarihini kullanıyor.",
+    "kisan_emitra_llm": "Kisan e-Mitra'nın dil modeli kullandığı kaynakta yazmıyor; metin 'yapay zekâlı sohbet robotu' diyor.",
+    "hfh_2017": "Hands Free Hectare §28'de."
+  }
+}

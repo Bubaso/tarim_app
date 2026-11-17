@@ -156,12 +156,12 @@
         "goruntu"
       ],
       "oto_hedefler": [],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Uzman sistemlerden görüntü işlemeye, uydudan dil modellerine: dönüm noktaları ve kişiler.",
         "en": "From expert systems to computer vision, from satellites to language models: turning points and people."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {

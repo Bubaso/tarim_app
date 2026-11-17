@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System | IJCAI</title>
+<meta name='robots' content='max-image-preview:large' />
+<meta name="citation_title" content="Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System">
+<meta name="citation_author" content="Michalski, Ryszard S.">
+<meta name="citation_author_institution" content="Department of Computer Science University of lllinois Urbana , Illinois 61801-2987">
+<meta name="citation_author" content="Baskin, Arthur B.">
+<meta name="citation_author_institution" content="Department of Computer Science University of lllinois Urbana , Illinois 61801-2987">
+<meta name="citation_publication_date" content="1983">
+<meta name="citation_conference_title" content="Proceedings of the Eighth International Joint Conference on Artificial Intelligence">
+<meta name="citation_publisher" content="International Joint Conferences on Artificial Intelligence">
+<meta name="citation_firstpage" content="256">
+<meta name="citation_lastpage" content="257">
+<meta name="citation_pdf_url" content="https://ijcai.org/proceedings/1983/0063.pdf">
+<meta name="citation_abstract_html_url" content="https://ijcai.org/proceedings/1983/63">
+<link rel="canonical" href="https://ijcai.org/proceedings/1983/63">
+<link rel="alternate" type="text/markdown" href="https://ijcai.org/proceedings/1983/63.md">
+<link rel="alternate" type="application/json" href="https://ijcai.org/proceedings/1983/63.json">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System","name":"Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System","abstract":"The ADVISE system is an integrated set of tools for the development of and experimentation with expert systems in various specific application domains. It functions as a multi-purpose inference system that employs three knowledge representations : a rule-base, a conceptual network and a relational data base. In addition, it includes learning capabilities by incorporating the inductive learning program s GEM (for learning from examples) and CLUSTER (for constructing cl assifications). Three expert syste ms ha ve bee n developed using ADVISE: PLANT/ds (venion 2)--for diagnosing soybean di seases, PLANT fed--for predicting cutworm damage to corn, and BABY--a cons ultant for the neo-natal intensive care unit.","author":[{"@type":"Person","name":"Ryszard S. Michalski","url":"https://ijcai.org/authors/ryszard-s-michalski/","affiliation":{"@type":"Organization","name":"Department of Computer Science University of lllinois Urbana , Illinois 61801-2987"}},{"@type":"Person","name":"Arthur B. Baskin","url":"https://ijcai.org/authors/arthur-b-baskin/","affiliation":{"@type":"Organization","name":"Department of Computer Science University of lllinois Urbana , Illinois 61801-2987"}}],"datePublished":"1983","isPartOf":{"@type":"Book","name":"Proceedings of the Eighth International Joint Conference on Artificial Intelligence","isbn":"","url":"https://ijcai.org/proceedings/1983/"},"publisher":{"@type":"Organization","name":"International Joint Conferences on Artificial Intelligence"},"url":"https://ijcai.org/proceedings/1983/63","keywords":"","pageStart":256,"pageEnd":257,"encoding":{"@type":"MediaObject","encodingFormat":"application/pdf","contentUrl":"https://ijcai.org/proceedings/1983/0063.pdf"}}</script>
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="wp-block-library-inline-css">
+:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root .has-very-light-gray-color{color:#eee}:root .has-very-dark-gray-color{color:#313131}:root .has-vivid-green-cyan-to-vivid-cyan-blue-gradient-background{background:linear-gradient(135deg,#00d084,#0693e3)}:root .has-purple-crush-gradient-background{background:linear-gradient(135deg,#34e2e4,#4721fb 50%,#ab1dfe)}:root .has-hazy-dawn-gradient-background{background:linear-gradient(135deg,#faaca8,#dad0ec)}:root .has-subdued-olive-gradient-background{background:linear-gradient(135deg,#fafae1,#67a671)}:root .has-atomic-cream-gradient-background{background:linear-gradient(135deg,#fdd79a,#004a59)}:root .has-nightshade-gradient-background{background:linear-gradient(135deg,#330968,#31cdcf)}:root .has-midnight-gradient-background{background:linear-gradient(135deg,#020381,#2874fc)}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}.has-regular-font-size{font-size:1em}.has-larger-font-size{font-size:2.625em}.has-normal-font-size{font-size:var(--wp--preset--font-size--normal)}.has-huge-font-size{font-size:var(--wp--preset--font-size--huge)}:root .has-text-align-center{text-align:center}:root .has-text-align-left{text-align:left}:root .has-text-align-right{text-align:right}.has-fit-text{white-space:nowrap!important}#end-resizable-editor-section{display:none}.aligncenter{clear:both}.items-justified-left{justify-content:flex-start}.items-justified-center{justify-content:center}.items-justified-right{justify-content:flex-end}.items-justified-space-between{justify-content:space-between}.screen-reader-text{word-wrap:normal!important;border:0;clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-break:normal!important}.screen-reader-text:focus{background-color:#ddd;clip-path:none;color:#444;display:block;font-size:1em;height:auto;left:5px;line-height:normal;padding:15px 23px 14px;text-decoration:none;top:5px;width:auto;z-index:100000}html :where(.has-border-color){border-style:solid}html :where([style^=border-color],[style*=";border-color"],[style*="; border-color"]){border-style:solid}html :where([style^=border-top-color],[style*=";border-top-color"],[style*="; border-top-color"]){border-top-style:solid}html :where([style^=border-right-color],[style*=";border-right-color"],[style*="; border-right-color"]){border-right-style:solid}html :where([style^=border-bottom-color],[style*=";border-bottom-color"],[style*="; border-bottom-color"]){border-bottom-style:solid}html :where([style^=border-left-color],[style*=";border-left-color"],[style*="; border-left-color"]){border-left-style:solid}html :where([style^=border-width],[style*=";border-width"],[style*="; border-width"]){border-style:solid}html :where([style^=border-top-width],[style*=";border-top-width"],[style*="; border-top-width"]){border-top-style:solid}html :where([style^=border-right-width],[style*=";border-right-width"],[style*="; border-right-width"]){border-right-style:solid}html :where([style^=border-bottom-width],[style*=";border-bottom-width"],[style*="; border-bottom-width"]){border-bottom-style:solid}html :where([style^=border-left-width],[style*=";border-left-width"],[style*="; border-left-width"]){border-left-style:solid}html :where(img[class*=wp-image-]){height:auto;max-width:100%}:where(figure){margin:0 0 1em}html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:var(--wp-admin--admin-bar--height,0px)}@media screen and (max-width:600px){html :where(.is-position-sticky){--wp-admin--admin-bar--position-offset:0px}}
+/*# sourceURL=/wp-includes/css/dist/block-library/common.min.css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="wp-block-styles-placeholder-inline-css">
+:root { --wp-internal-comment: "Placeholder for wp_hoist_late_printed_styles() to replace with the block styles printed at wp_footer." }
+/*# sourceURL=wp-block-styles-placeholder-inline-css */
+</style>
+<style id="wp-global-styles-placeholder-inline-css">
+:root { --wp-internal-comment: "Placeholder for wp_hoist_late_printed_styles() to replace with the global-styles printed at wp_footer." }
+/*# sourceURL=wp-global-styles-placeholder-inline-css */
+</style>
+<link rel='stylesheet' id='ijcai-main-css' href='https://ijcai.org/wp-content/themes/ijcai/assets/css/main.css?ver=1.0.14' media='all' />
+<link rel='stylesheet' id='ijcai-archive-css' href='https://ijcai.org/wp-content/themes/ijcai/assets/css/archive.css?ver=1.1.1' media='all' />
+<link rel="https://api.w.org/" href="https://ijcai.org/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ijcai.org/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel="icon" href="https://ijcai.org/wp-content/themes/ijcai/assets/img/favicon.ico?v=2" sizes="any">
+<link rel="icon" href="https://ijcai.org/wp-content/themes/ijcai/assets/img/favicon.svg?v=2" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://ijcai.org/wp-content/themes/ijcai/assets/img/apple-touch-icon.png?v=2">
+</head>
+<body class="wp-theme-ijcai ijcai-archive ijcai-archive--article">
+
+<header class="site-header">
+    <div class="site-header__bar">
+        <span class="site-header__spacer"></span>
+        <a href="https://ijcai.org/" class="site-logo">
+            <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/logo.svg"
+                 width="247" height="105" alt="IJCAI">
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation"
+                aria-expanded="false" aria-controls="nav-panel">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+    <nav id="nav-panel" class="nav-panel" aria-label="Primary Navigation">
+        <ul id="menu-primary" class="nav-panel__menu"><li id="menu-item-230" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-230"><a href="https://ijcai.org/future_conferences/">Conferences</a>
+<ul class="sub-menu">
+	<li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231"><a href="https://ijcai.org/future_conferences/">Future Conferences</a></li>
+	<li id="menu-item-232" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-232"><a href="https://ijcai.org/past_conferences/">Past Conferences</a></li>
+</ul>
+</li>
+<li id="menu-item-233" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-233"><a href="https://ijcai.org/all_proceedings/">Proceedings</a>
+<ul class="sub-menu">
+	<li id="menu-item-234" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-234"><a href="/proceedings/2026/">IJCAI 2026 Proceedings</a></li>
+	<li id="menu-item-235" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-235"><a href="https://ijcai.org/all_proceedings/">All Proceedings</a></li>
+</ul>
+</li>
+<li id="menu-item-236" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-236"><a href="https://ijcai.org/awards/">Awards</a></li>
+<li id="menu-item-237" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-237"><a href="https://ijcai.org/trustees/current_trustees/">Trustees/officers</a>
+<ul class="sub-menu">
+	<li id="menu-item-238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-238"><a href="https://ijcai.org/trustees/current_trustees/">Current trustees</a></li>
+	<li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-239"><a href="https://ijcai.org/trustees/trustees_elect/">Trustees Elect</a></li>
+	<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a href="https://ijcai.org/officers/ijcai_secretariat/">IJCAI Secretariat</a></li>
+	<li id="menu-item-241" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-241"><a href="https://ijcai.org/officers/sponsorship_publicity/">IJCAI Sponsorship and Publicity Officers</a></li>
+	<li id="menu-item-242" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-242"><a href="https://ijcai.org/officers/ijcai_team/">IJCAI Team</a></li>
+	<li id="menu-item-243" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-243"><a href="https://ijcai.org/officers/local_arrangements_chairs/">Local Arrangements Chairs</a></li>
+	<li id="menu-item-244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-244"><a href="https://ijcai.org/trustees/former_trustees_serving_on_the_executive_committee/">Former Trustees serving on the Executive Committee</a></li>
+	<li id="menu-item-245" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-245"><a href="https://ijcai.org/officers/other_former_officers/">Other Former Officers</a></li>
+</ul>
+</li>
+<li id="menu-item-246" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-246"><a href="https://ijcai.org/aijd/">AI Journal</a></li>
+<li id="menu-item-247" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-247"><a href="https://ijcai.org/aboutijcai/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-248" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-248"><a href="https://ijcai.org/aboutijcai/">About IJCAI</a></li>
+	<li id="menu-item-314" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-314"><a href="https://ijcai.org/documents/">Documents</a></li>
+	<li id="menu-item-249" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-249"><a href="https://ijcai.org/contact/">Contact Information</a></li>
+</ul>
+</li>
+</ul>    </nav>
+</header>
+
+<main id="main" class="site-main">
+    <div class="page-banner" style="background-image: url('https://ijcai.org/wp-content/themes/ijcai/assets/img/banners/proceedings.jpg?v=1');">
+    <details class="section-nav section-nav--overlay">
+    <summary>Proceedings</summary>
+    <ul>
+                    <li>
+                <a href="/proceedings/2026/">
+                    IJCAI 2026 Proceedings                </a>
+            </li>
+                    <li>
+                <a href="https://ijcai.org/all_proceedings/">
+                    All Proceedings                </a>
+            </li>
+            </ul>
+</details>
+</div>
+    <article class="panel archive-record">
+        <nav class="archive-crumbs" aria-label="Breadcrumb">
+            <a href="https://ijcai.org/all_proceedings/">Proceedings</a>
+                            <span aria-hidden="true">›</span>
+                <a href="https://ijcai.org/proceedings/1983/">IJCAI 1983</a>
+                    </nav>
+
+        
+        <div class="entry-content">
+            <div class="article">
+    <div class="article__grid">
+        <div class="article__main">
+            <h1 class="article__title">Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System</h1>
+
+            <p class="article__authors">
+                <span title="Department of Computer Science University of lllinois Urbana , Illinois 61801-2987"><a href="https://ijcai.org/authors/ryszard-s-michalski/">Ryszard S. Michalski</a></span>, <span title="Department of Computer Science University of lllinois Urbana , Illinois 61801-2987"><a href="https://ijcai.org/authors/arthur-b-baskin/">Arthur B. Baskin</a></span>            </p>
+
+            <div class="article__actions">
+                                                    <a class="action action--pdf" href="/proceedings/1983/0063.pdf"><span class="action__icon" aria-hidden="true">PDF</span>Download</a>
+                                <a class="action action--bib" href="/proceedings/1983/bibtex/63"><span class="action__icon" aria-hidden="true">Bib</span>BibTeX</a>
+                <a class="action action--cite" href="#cite" data-tab-open="cite"><span class="action__icon" aria-hidden="true">“”</span>Cite</a>
+            </div>
+
+            <p class="article__venue">
+                <a href="/proceedings/1983/">Proceedings of the Eighth International Joint Conference on Artificial Intelligence</a>.
+                Expert Systems. Pages 256-257.
+            </p>
+                                    <p class="article__copyright">&copy; 1983 International Joint Conferences on Artificial Intelligence</p>
+
+                    </div>
+
+        <div class="article__abstract">
+            <p class="eyebrow">Abstract</p>
+                            <p>The ADVISE system is an integrated set of tools for the development of and experimentation with expert systems in various specific application domains. It functions as a multi-purpose inference system that employs three knowledge representations : a rule-base, a conceptual network and a relational data base. In addition, it includes learning capabilities by incorporating the inductive learning program s GEM (for learning from examples) and CLUSTER (for constructing cl assifications). Three expert syste ms ha ve bee n developed using ADVISE: PLANT/ds (venion 2)--for diagnosing soybean di seases, PLANT fed--for predicting cutworm damage to corn, and BABY--a cons ultant for the neo-natal intensive care unit.</p>                    </div>
+    </div>
+
+    <div class="article-tabs" data-tabs>
+        <div class="article-tabs__list" role="tablist">
+                            <button role="tab" id="tab-references" aria-controls="references" aria-selected="true">References (15)</button>
+                                        <button role="tab" id="tab-fulltext" aria-controls="fulltext" aria-selected="false">Full text</button>
+                                    <button role="tab" id="tab-cite" aria-controls="cite" aria-selected="false">Cite</button>
+            <button role="tab" id="tab-data" aria-controls="data" aria-selected="false">Data</button>
+        </div>
+
+                    <section role="tabpanel" id="references" aria-labelledby="tab-references">
+                <ol class="references">
+                                            <li value="1">
+                            Baskin, A. B., &quot;LOGIC NETS : Variable-valued Logic plus Semantic Networks.t&quot; in Policy Analy1i1 and Information Sy1tem1, No. 3, l98u.                                                                                </li>
+                                            <li value="2">
+                            Boulanger, A., &quot;The Expert System PLANT/cd: A case study in applying the general purpose inference system ADVISE to predicting black cutworm damage to corn ,&quot; M.S. Thesis, Department of Computer Science, University of Illinois, Urbana, Illinois, 1983.                                                                                </li>
+                                            <li value="3">
+                            Buchanan, B. and Duda, R ., &quot;Principles of Rule-B ased Ex- pert Systems ,&quot; Hueristic Programming Project, Report No. HP P-82-14 , August 1982.                                                                                </li>
+                                            <li value="4">
+                            Davis, R. and King, J ., &quot;An Overview of Production Sys- tems&quot; in Machine Intelligence 8, Elcock and Michie (eds.), 1976.                                                                                </li>
+                                            <li value="5">
+                            Duda, R. 0 ., Hart, P. E . and Sutherland, G. L. , &quot;Semantic Network Representation in Rule-Based Inferenc e Systems,&quot; in Pattern Directed Inference S y1tem1, D. A .. Waterman and F . Hayes-Roth (eds .), Academic Press, 1978.                                                                                </li>
+                                            <li value="6">
+                            Feigenbaum, E. A., &quot;Knowledge Engineering for the 1980&#039;s,&quot; Computer Science Departm ent, Stanford Universi- ty, 1982.                                                                                </li>
+                                            <li value="7">
+                            Michalski, R. S. and Larson, J . B., &quot;Selection of Most Representative Training Examples and Incremental Gen- eratio n of VL 1 Hypothes is: The Underlyi ng Methodology and t he Descriptions of Progr ams ESEL and AQ II, &quot; Re- port No. 877, Department 9f Computer Science, University of Illinois, Urbana, Illinois, 1978.                                                                                </li>
+                                            <li value="8">
+                            Michalski, R . S. and C hilausky, R . L., &quot;Learning by Being Told and Learning from Examples: An Experimental Com parison of the Two Methods of Knowledge Acquisition in t he Context of Developing an Ex pert System for Soybe- an Disease Diagnosis ,&quot; International Journal of Policy Analy1i1 and Information Sy1tem1, Vol. 4, No.2, 1980.                                                                                </li>
+                                            <li value="9">
+                            Michalski, R. S., Davis, J. H., Bisht, V. S. and Si nclair, J . B., &quot;PLANT /ds: An Expert System for the Diagnosis of Soy bean Diseases,&quot; European Conference on Artificial In- telligence, Orsay, France, July 12-14, 1982.                                                                                </li>
+                                            <li value="10">
+                            Michalski , R. S., &quot;A Theory and Methodology of Inductive Learning,&quot; C hapter in the book, MACHINE LEA RNING: An Artificial Intelligence Approach, TIOGA Publishing Co., R. S. Michalski , J . Carbonell and T . Mitchell (eds. ). 1983.                                                                                </li>
+                                            <li value="11">
+                            Michalski, R. S. and Stepp, R ., MACHINE LEARNING: A n Artificial Intelligence Approach, TIOGA Publishing Co., &#039;l. S. Michalski, J . Carbonell and T. Mitchell (eds.), 1983.                                                                                </li>
+                                            <li value="12">
+                            Michalski, R . S., Baskin , A. B., Boulanger, A. G., Seyler, M. R., &quot;A Technical Description of the ADVISE Meta- ex pert system,&quot; in preparation.                                                                                </li>
+                                            <li value="13">
+                            Rodewald, L. E., &quot;BABY: An expert system for interpre- tive reporting in a neo-natal intensive care unit,&quot; M.S. Thesis, Department of Computer Science, University of Illi- nois, Urbana, Illinois, 1983.                                                                                </li>
+                                            <li value="14">
+                            Spackman, Kent, &quot; Integration of Inferential Operators with a Relational Database in an Expert System,&quot; Masters Thesis, Department of Computer Science, University of Illi- nois, Urbana, Illinois, 1983.                                                                                </li>
+                                            <li value="15">
+                            Van Melle , W ., &quot;A Domain Independent Production Rule System for Consultation Programs,&quot; Pro c. Sizth /JCAI, 1979.                                                            <a class="ref-link ref-link--ijcai" href="/proceedings/1979/204">IJCAI</a>
+                                                                                </li>
+                                    </ol>
+                <p class="tab-note">References were extracted automatically from the PDF and may contain errors.</p>
+            </section>
+        
+                    <section role="tabpanel" id="fulltext" aria-labelledby="tab-fulltext" hidden>
+                <p class="tab-note">Full text extracted automatically from the PDF; figures, tables and equations may differ. The PDF is the version of record.</p>
+                <div class="fulltext"><div class='page'>
+<h2>Integrating Multiple Knowledge Repret!entations and Learning Capabilitii)ll in an Expert System: The ADVISE Syetem</h2>
+<p>R. S. Michalski A. B. Baskin Department of Computer Science University of lllinois Urbana, Illinois 61801-2987</p>
+<h2>ABSTRACT</h2>
+<p>The ADVISE system is an integrated set of tools for the development of and experimentation with expert sys­ tems in various specific application domains. It functions as a multi-purpose inference system that employs three knowledge representations: a rule-base, a conceptual net­ work and a relational data base. In addition, it includes learning capabilities by incorporating the inductive learn­ ing programs GEM (for learning from examples) and CLUSTER (for constructing classifications).</p>
+<p>Three expert systems have been developed using AD­ VISE: PLANT/ds (venion 2)--for diagnosing soybean diseases, PLANT fed--for predicting cutworm damage to corn, and BABY--a consultant for the neo-natal intensive care unit .</p>
+<h2>I INTRODUCTION</h2>
+<p>At present , the technology of ex pert systems is under­ going very rapid growth and is being applied to a wide spectrum of pract ical problems. Current systems, however, suffer from a number of limitations that restrict their use­ fulness. They typically employ only one form of know ledge representation, usually a rule- base representa­ tion (Davis &amp; King, 1976; Buchanan &amp; Duda, 1982). They have no learning abilities, use only one type of inference procedure, and use only a single control strategy. Our research on the ADVISE "meta-expert" system has the goal of overcoming these limitations. Some of the relevant papers to our research are by Duda, Hart &amp; Sutherland (1978), Van Melle (1979) and Feigenbaum (1983).</p>
+<h2>IT MAJOR FEATURES OF ADVISE</h2>
+<p>The tools which comprise ADVISE form a "knowledge engineer's workbench" for developing expert systems in particular domains, specifically, for building knowledge bases and implementing appropriate inference procedures on them. Main features of ADVISE are:</p>
+<ul>
+<li style="list-style-type: '· ';">allows use or three different forms of knowledge/data representation (a rule-base, a conceptual network, and a relational database),</li>
+<li style="list-style-type: '· ';">supports different schemes for uncertainty propaga­ tion in a knowledge base (probabilistic, approximate Bayesian, min/max logic, weighting evidence),</li>
+<li style="list-style-type: '· ';">separates control and planning during a consultation {8tralegic information) from more procedural informa­ tion such as specific action rules (tactical informa­ tion),</li>
+<li style="list-style-type: '· ';">supports different control strategies chosen when the knowledge base is built (utility optimization, proba-</li>
+</ul>
+<p>bilistic network traversal, forward rule chai'ling, backward rule chaining),</p>
+<ul>
+<li style="list-style-type: '· ';">incorporates a number or existing tools for inductively deriving decision rules and control information from examples, and</li>
+<li style="list-style-type: '· ';">is implemented in Pascal and operates in a standard UNIX environment.</li>
+</ul>
+<p>ADVISE supports multiple knowledge representations because different types of i.nformation about a problem domain can best be expressed using different formal struc­ tures. For instance, situation-action pairs can be efficiently represented as rules; interrelationships between concepts, constraints, or clues used in planning can be more suitably described in a network; a large collection of facts (e.g. pa­ tient records) can be stored and manipulated a5 a relation­ al database. For similar reasons, ADVISE supports a number of different schemes for defining aspects of the con­ sultation process on a problem specific basis. Even within a single knowledge base, it is frequently useful to mix stra­ tegies.</p>
+<p>Another major feature of the system is that knowledge is acquired not only through the standard tech­ nique of "learning by instruction," but also · through " learning from examples" and "learning fro:n observa­ tion."</p>
+<p>The latter two modes of learning have been imple­ mented by modifying and adapting the inductive learning programs GEM and CLUSTER. The GEM program gen­ eralizes examples of different concepts and creates formal logic rules for recognizing these concepts. The program is a modified version of the inductive program AQ11 (Michal­ ski &amp; Larson, 1978). The feasibility of using this program for inductive knowledge acquisition for an expert system has been proven by its successful application in the development of an expert system for soybean pathology (Michalski and Chilausky, 1980; Michalski, et al., 1982).</p>
+<p>The second program, CLUSTER, automatically con­ structs a classification of given entities using an approach called "conceptual clustering." Each grouping in the ob­ tained classification corresponds to a class of entities ( ob­ jects, situations, etc.) closely described by a single conjunc­ tive concept representing a logical product of relations on selected object attributes. Nodes with the same parent in the hierarchy are optimized according to some global "quality" criterion of classification (Michalski &amp; Stepp, 1983).</p>
+<p>The system also includes several inferential programs lhat support inductive learning and deal with the selection of most relevant attributes,. selection of most representa­ tive learning examples, etc. (Spackman, 1983).</p>
+<h2>ill COMPONENTS OF ADVISE</h2>
+<p>A functional diagram o~ the ADVISE system is shown 1n Figure I. The system consists of four major com­ ponents: A) Control block and user interface, B) Knowledge base, C) Query block and D) Knowledge ac­ quisiti&lt;&gt;n block.</p>
+<figure><figcaption><div class="caption">Figure I. A block J1agram of ADVISE showing the major functional components of the svst, :. &quot;</div></figcaption><img src="/proceedings/1983/fulltext/63/image_000000_e136a7d57485bb6d8ac2fb6ffeae1fc563dfbea5c5b2e8b334be426f6fa5214a.png"></figure>
+<h2>A. Control Block and User Interface</h2>
+<p>This component provides three modes of user interaction with other components:</p>
+<ul>
+<li style="list-style-type: '· ';">Query mode</li>
+<li style="list-style-type: '· ';">Knowledge acquisition mode</li>
+<li style="list-style-type: '· ';">Explanation mode.</li>
+</ul>
+<p>The user interlace portion of the system provides util­ ity routines to manage the terminal screen and supports the explanation of internal data representations and opera­ tions .in a textual and graphical form.</p>
+<h2>I. Query mode (Q-mode)</h2>
+<p>Query mode is used during consultation. In this mode, the system:</p>
+<ul>
+<li style="list-style-type: '· ';">selects questions to ask the user,</li>
+<li style="list-style-type: '· ';">accepts user answers and</li>
+<li style="list-style-type: '· ';">conducts an inference process involving the knowledge base and information provided by the user in order to compute advice with an associated strength of sup­ porting evidence.</li>
+</ul>
+<p>In one respect, the consulting portion of the system is radical in design. There is no single problem solving stra­ tegy. Rather, localized problem solving behavior is defined by the choice of an ev.aluation scheme (three of which are implemented) and global problem solving behavior is governed by a choice of control scheme (three of which are also implemented). Explicit provision has been made in the design for the inclusion of additional control schemes and additional evaluation schemes.</p>
+<h2>2. Knowledge acquisition mode (K-mode)</h2>
+<p>The knowledge acquisition mode coordinates both the encoding of expert derived rules in a knowledge base and the interactive invocation of the separate induction pro­ grains. This mode includes modules for defining expert rules, manual refinement of rules, induction of rules from examples, and automated correction and improvement of the rules. The system also provides facilities for testing rules in interactive mode on individual cases, as well as in batch mode on a collection of cases.</p>
+<h2>3. Explanation mode (E-mode)</h2>
+<p>The explanation mode paraphrases decision rules, en­ ables a user to understand the organization and function­ ing of the system in query and knowledge acquisition modes, allows simple interrogation of the contents of the knowledge base, and displays the steps in the process which led to a given advice.</p>
+<h2>B. Knowledge Base</h2>
+<p>The knowledge base integrates three types of representation through a unified "access protocol:"</p>
+<ul>
+<li style="list-style-type: '· ';">a network base (e.g., conceptual network),</li>
+<li style="list-style-type: '· ';">a rule base, and</li>
+<li style="list-style-type: '· ';">a relational data base.</li>
+</ul>
+<p>The network base contains structures for representing domain knowledge about relationships among various con­ ceptual units. The network organization is a form of the "Logic Net" formalism described in (Baskin 1980).</p>
+<p>The rule base consists of inference rules in the form:</p>
+<p>CTX CONDITION==* CONCLUSION: a,{J</p>
+<p>where CTX is a logical expression defining the context in which the rule is applicable, CONDITION is a logical expression defining the conditions that have to be satisfied to assert the CONCLUSION,</p>
+<ul>
+<li>a - the strength of forward implication (from CON­ DITION to CONCLUSION),</li>
+<li>fJ- the strength of backward implication (from CONCLUSION to CONDITION).</li>
+</ul>
+<p>The relational data base consists of a collection of re­ lational tables. The tables can be created, modified and re­ trieved through ordinary relational database operators. In addition, a variety of inferential operators can be applied to the database through the facilities of QUIN (Q..y_ery &amp; Inference) subsystem (Spackman, 1983) .</p>
+<h2>C. Ouerv Block</h2>
+<p>The Query block contains the programs supporting retrieval from the knowledge base. Direct retrieval is sup­ ported as a relational algebra for tables and a simple infix display of rules. Retrieval with inference will deductively and inductively extend the knowledge base in response to a user query.</p>
+<h2>D. Knowledge Acquisition Block</h2>
+<p>The system supports knowledge acqms1t1on for net­ works, tables, and rules. Direct encoding is supported by input of tables or rules ("learning by being told") and knowledge acquisition through induction is supported by linkage to learning programs. Additional details about the Query and Knowledge Acquisition blocks can be found in (Michalski, et . al., 1983).</p>
+<h2>IV SUMMARY</h2>
+<p>The major modules of the ADVISE system have been implemented In the PASCAL language (approximately 45000 lines of code) for the VAX 780 computer under Berkeley-Unix operating system. The knowledge base management component of the system is well developed and has been used extensively. The query block is partial­ ly complete and is best developed for the relational data­ base. Knowledge acquisition currently supports direct representation of information supplied by a human expert as well as induction of class ifications. and rules . The expla­ nation mode is least developed and currently provides little more than an English paraphrase of rules and links within the network.</p>
+<p>The system has already been applied for the develop­ ment of three expert systems: PLANT/ds (v.2), PLANT/de, and BABY. PLANT/ds (v.2) provides advice on the diagnosis of common soybean diseases in Illinois . PLANT /de predicts damage to corn due to black cutworms. Its operation is based on a close cooperation "surface" model utilizing a rule base, and a "deep" model simulating the black cutworm corn development (Boulanger, 1983 ). The system called BABY provides ex­ pert advice on monitor and laboratory data for the neo­ natal intensive care unit. The system reasons from the available data toward specific pathologic states using a Bayesian update scheme (Rodewald, 1983).</p>
+<h2>ACKNOWLEDGEMENTS</h2>
+<p>The research described here has been supported in part by the Office of Naval Research, Grant No. N0001482-K-0186 and in part by the National Science Foundation, Grant No. MCS 82-05166. The authors thank A. Boulanger, M. Seyler, L. Rodewald. K. Spackman, C. Uhrik and R. Reinke for their contribution to the develop­ ment of ADVISE, its first experimental applications and comments on this paper.</p></div>
+            </section>
+        
+        
+        <section role="tabpanel" id="cite" aria-labelledby="tab-cite" hidden>
+            <div class="cite" data-cite>
+                <div class="cite__formats" role="radiogroup" aria-label="Citation format">
+                                            <button type="button" data-format="acm" aria-pressed="true">ACM</button>
+                                            <button type="button" data-format="apa" aria-pressed="false">APA</button>
+                                            <button type="button" data-format="bibtex" aria-pressed="false">BibTeX</button>
+                                            <button type="button" data-format="ris" aria-pressed="false">RIS</button>
+                                    </div>
+                                    <div class="cite__text" data-format-text="acm" >Ryszard S. Michalski, and Arthur B. Baskin. 1983. Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System. In <i>Proceedings of the Eighth International Joint Conference on Artificial Intelligence, IJCAI-83</i>. IJCAI, 256–257. https://ijcai.org/proceedings/1983/63</div>
+                                    <div class="cite__text" data-format-text="apa" hidden>Michalski, R. S., &amp; Baskin, A. B. (1983). Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System. In <i>Proceedings of the Eighth International Joint Conference on Artificial Intelligence, IJCAI-83</i> (pp. 256–257). IJCAI. https://ijcai.org/proceedings/1983/63</div>
+                                                    <pre class="cite__text" data-format-text="bibtex" hidden>@inproceedings{ijcai1983p63,
+  title     = {Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System},
+  author    = {Michalski, Ryszard S. and Baskin, Arthur B.},
+  booktitle = {Proceedings of the Eighth International Joint Conference on
+               Artificial Intelligence, {IJCAI-83}},
+  publisher = {International Joint Conferences on Artificial Intelligence},
+  editor    = {Alan Bundy},
+  pages     = {256--257},
+  year      = {1983},
+  note      = {Expert Systems},
+  url       = {https://ijcai.org/proceedings/1983/63},
+}
+</pre>
+                                    <pre class="cite__text" data-format-text="ris" hidden>TY  - CPAPER
+TI  - Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System
+AU  - Michalski, Ryszard S.
+AU  - Baskin, Arthur B.
+T2  - Proceedings of the Eighth International Joint Conference on Artificial Intelligence, IJCAI-83
+PB  - International Joint Conferences on Artificial Intelligence
+PY  - 1983
+SP  - 256
+EP  - 257
+UR  - https://ijcai.org/proceedings/1983/63
+ER  - 
+</pre>
+                                <button type="button" class="button" data-copy>Copy</button>
+                <span class="cite__copied" role="status" hidden>Copied</span>
+            </div>
+        </section>
+
+        <section role="tabpanel" id="data" aria-labelledby="tab-data" hidden>
+            <p>Machine-readable versions of this paper, for tools and AI agents:</p>
+            <ul>
+                <li><a href="/proceedings/1983/63.md">Markdown</a> — metadata, abstract, full text and references</li>
+                <li><a href="/proceedings/1983/63.json">JSON</a> — metadata and structured references</li>
+                <li><a href="/proceedings/1983/bibtex/63">BibTeX</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <nav class="article-nav" aria-label="Previous and next paper">
+                    <a class="article-nav__prev" href="/proceedings/1983/62" title="Representation of Experts&#039; Knowledge in a Subdomain of Chess Intelligence">◀ <span class="screen-reader-text">Previous paper</span></a>
+                            <a class="article-nav__next" href="/proceedings/1983/64" title="An Expert System for Indications and Warning Analysis"><span class="screen-reader-text">Next paper</span> ▶</a>
+            </nav>
+</div>
+        </div>
+    </article>
+</main>
+
+<section class="image-grid">
+            <a class="image-grid__tile" href="https://ijcai.org/">
+            <span class="image-grid__img">
+                <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/grid/welcome.jpg" alt="" loading="lazy">
+            </span>
+            <span class="image-grid__caption">Welcome</span>
+        </a>
+            <a class="image-grid__tile" href="https://ijcai.org/future_conferences/">
+            <span class="image-grid__img">
+                <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/grid/future-conferences.jpg" alt="" loading="lazy">
+            </span>
+            <span class="image-grid__caption">Future Conferences</span>
+        </a>
+            <a class="image-grid__tile" href="https://ijcai.org/aijd/">
+            <span class="image-grid__img">
+                <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/grid/ai-journal.png" alt="" loading="lazy">
+            </span>
+            <span class="image-grid__caption">AI Journal Division</span>
+        </a>
+            <a class="image-grid__tile" href="https://ijcai.org/all_proceedings/">
+            <span class="image-grid__img">
+                <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/grid/proceedings.jpg" alt="" loading="lazy">
+            </span>
+            <span class="image-grid__caption">IJCAI Proceedings</span>
+        </a>
+            <a class="image-grid__tile" href="https://ijcai.org/aboutijcai/">
+            <span class="image-grid__img">
+                <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/grid/about.jpg" alt="" loading="lazy">
+            </span>
+            <span class="image-grid__caption">About IJCAI</span>
+        </a>
+            <a class="image-grid__tile" href="https://ijcai.org/awards/">
+            <span class="image-grid__img">
+                <img src="https://ijcai.org/wp-content/themes/ijcai/assets/img/grid/awards.jpg" alt="" loading="lazy">
+            </span>
+            <span class="image-grid__caption">IJCAI Awards</span>
+        </a>
+    </section>
+
+<footer class="site-footer">
+    <div class="site-footer__bottom">
+        <div class="container">
+            <div class="footer-columns">
+                                    <div class="footer-column">
+                        <ul id="menu-footer-1" class="footer-menu"><li id="menu-item-250" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-250"><a href="https://ijcai.org/future_conferences/">Conferences</a>
+<ul class="sub-menu">
+	<li id="menu-item-251" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-251"><a href="https://ijcai.org/future_conferences/">Future Conferences</a></li>
+	<li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-252"><a href="https://ijcai.org/past_conferences/">Past Conferences</a></li>
+</ul>
+</li>
+<li id="menu-item-253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-253"><a href="https://ijcai.org/all_proceedings/">Proceedings</a>
+<ul class="sub-menu">
+	<li id="menu-item-254" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-254"><a href="/proceedings/2026/">IJCAI 2026 Proceedings</a></li>
+	<li id="menu-item-255" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-255"><a href="https://ijcai.org/all_proceedings/">All Proceedings</a></li>
+</ul>
+</li>
+<li id="menu-item-256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-256"><a href="https://ijcai.org/awards/">Awards</a></li>
+</ul>                    </div>
+                                    <div class="footer-column">
+                        <ul id="menu-footer-2" class="footer-menu"><li id="menu-item-257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-257"><a href="https://ijcai.org/trustees/current_trustees/">Trustees/officers</a>
+<ul class="sub-menu">
+	<li id="menu-item-258" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-258"><a href="https://ijcai.org/trustees/current_trustees/">Current trustees</a></li>
+	<li id="menu-item-259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-259"><a href="https://ijcai.org/trustees/trustees_elect/">Trustees Elect</a></li>
+	<li id="menu-item-260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-260"><a href="https://ijcai.org/officers/ijcai_secretariat/">IJCAI Secretariat</a></li>
+	<li id="menu-item-261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-261"><a href="https://ijcai.org/officers/sponsorship_publicity/">IJCAI Sponsorship and Publicity Officers</a></li>
+	<li id="menu-item-262" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-262"><a href="https://ijcai.org/officers/ijcai_team/">IJCAI Team</a></li>
+	<li id="menu-item-263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-263"><a href="https://ijcai.org/officers/local_arrangements_chairs/">Local Arrangements Chairs</a></li>
+	<li id="menu-item-264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-264"><a href="https://ijcai.org/trustees/former_trustees_serving_on_the_executive_committee/">Former Trustees serving on the Executive Committee</a></li>
+	<li id="menu-item-265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-265"><a href="https://ijcai.org/officers/other_former_officers/">Other Former Officers</a></li>
+</ul>
+</li>
+</ul>                    </div>
+                                    <div class="footer-column">
+                        <ul id="menu-footer-3" class="footer-menu"><li id="menu-item-266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-266"><a href="https://ijcai.org/aijd/">AI Journal</a></li>
+<li id="menu-item-267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-267"><a href="https://ijcai.org/aboutijcai/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-268"><a href="https://ijcai.org/aboutijcai/">About IJCAI</a></li>
+	<li id="menu-item-313" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-313"><a href="https://ijcai.org/documents/">Documents</a></li>
+	<li id="menu-item-269" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-269"><a href="https://ijcai.org/contact/">Contact Information</a></li>
+</ul>
+</li>
+</ul>                    </div>
+                            </div>
+
+            <a href="#top" class="back-to-top">
+                <span class="back-to-top__triangle"></span>
+                <span>Back to top</span>
+            </a>
+
+            <div class="legal-row">
+                                <a href="https://ijcai.org/publication_ethics/">Publication Ethics</a>
+                                                    <a href="https://ijcai.org/privacy_policy/">Privacy</a>
+                                <span>&copy; 2026 International Joint Conferences on Artificial Intelligence</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/ijcai/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<script id="ijcai-archive-js" src="https://ijcai.org/wp-content/themes/ijcai/assets/js/archive.js?ver=1.1.0"></script>
+<script id="ijcai-main-js" src="https://ijcai.org/wp-content/themes/ijcai/assets/js/main.js?ver=1.0.2"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://ijcai.org/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://ijcai.org/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>

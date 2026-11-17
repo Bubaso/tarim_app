@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 384,
- "toplam_bayt": 1017455980,
+ "dosya_sayisi": 411,
+ "toplam_bayt": 1042992404,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1669,6 +1669,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2013_1159_copernicus_veri_politikasi.xhtml",
+   "bayt": 64527,
+   "sha256": "2976b5b7bcdbcb2bf553f6dd99f10dc22609eba61ebe7367903eb93cd732bba7",
+   "kaynak": {
+    "adres": "https://publications.europa.eu/resource/celex/32013R1159",
+    "atif": "Commission Delegated Regulation (EU) No 1159/2013 of 12 July 2013 supplementing Regulation (EU) No 911/2010 on the European Earth monitoring programme (GMES) by establishing registration and licensing conditions for GMES users and defining criteria for restricting access to GMES dedicated data and GMES service information. OJ L 309, 19.11.2013, s. 1.",
+    "lisans": "AB mevzuatı (EUR-Lex; yeniden kullanım serbest)",
+    "lisans_adresi": null,
+    "_not": "Tüzük 'GMES' adını kullanıyor; 'Copernicus' sözcüğü bu metinde YOK (GMES→Copernicus ad değişikliği için ayrı kaynak gerekir; bu turda aranmadı). Metin 'Sentinel verisine ücretsiz, tam ve açık erişim' diyebilir."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ab_2018_tarim_verisi_davranis_kurallari.pdf",
    "bayt": 7525694,
    "sha256": "685f1ba4ad112a78b2f6ca4e85b8efb308fc10e2db7489bcccd65bad8be67167",
@@ -2089,6 +2101,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/beyazsaray_2000_05_01_clinton_sa_aciklamasi.html",
+   "bayt": 7847,
+   "sha256": "d2ebc52a24f2943d8321c39598584ba475f9e4004fd9390637c63c5fe93c8f5b",
+   "kaynak": {
+    "adres": "https://clintonwhitehouse3.archives.gov/WH/EOP/OSTP/html/0053_2.html",
+    "atif": "The White House, Office of the Press Secretary. 1 Mayıs 2000. Statement by the President Regarding the United States' Decision to Stop Degrading Global Positioning System Accuracy. (Clinton Beyaz Saray arşivi, NARA)",
+    "lisans": "ABD hükümeti belgesi — kamu malı",
+    "lisans_adresi": null,
+    "_not": "NARA'nın dondurulmuş Beyaz Saray arşivi (resmî arşiv; İnternet Arşivi kopyası değil). 'On kata kadar daha doğru' Başkan'ın açıklaması. Sayfadaki kurumsal e-posta kayda alınmadı."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/bsgm_2026_bagis_yeni_cihaz.html",
    "bayt": 101653,
    "sha256": "47793deefce50301122f06d3473519f4706f14ceddabbf6725e035ecc829cd37",
@@ -2221,6 +2245,54 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/deere_2017_blue_river_bulteni_arsiv.html",
+   "bayt": 57716,
+   "sha256": "3c2488b28fb315e0ab7b59d8c539db1a0d045517dd3ec7d1683dd595857e07e3",
+   "kaynak": {
+    "adres": "https://web.archive.org/web/20170907120134id_/https://www.deere.com/en/our-company/news-and-announcements/news-releases/2017/corporate/2017sep06-blue-river-technology/ (özgün adres 17.11.2026'da 404)",
+    "atif": "Deere & Company. 6 Eylül 2017. Deere to Advance Machine Learning Capabilities in Acquisition of Blue River Technology (haber bülteni). İnternet Arşivi kopyası, 7 Eylül 2017.",
+    "lisans": "© Deere & Company (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "ARŞİV KOPYASI: bülten deere.com'dan kalkmış (17.11.2026'da hem bu adres hem /en/news/all-news/2017sep06-blue-river-technology/ 404); İnternet Arşivi yalnız bu yüzden kullanıldı. 305 milyon dolar 'fully acquire' için 'invest' tutarı — §8 kaydının (b08 _reddedilen.blue_river_satin_almasi) doğrulanamay"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/deere_2019_surdurulebilirlik_raporu.pdf",
+   "bayt": 17137458,
+   "sha256": "fdd91b1f38e4abe478ade7a535989e6dd29146f70e861a79344ff0139b1b969b",
+   "kaynak": {
+    "adres": "https://www.deere.com/assets/pdfs/common/our-company/sustainability/jdsustainabilityreport-f-2020rev.pdf",
+    "atif": "Deere & Company. 2019 Sustainability Report (Eylül 2019) — '2019 Sustainability Metrics Update' ekiyle yayımlanan PDF.",
+    "lisans": "© Deere & Company (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "SATICI BEYANI. 'See & Spray' adı ve '2019 itibarıyla tam ticarileşmedi' bilgisi buradan. '%90'a varan herbisit azaltma' yöntemsiz şirket iddiası. Sonraki alan/tasarruf beyanları (2024'te 1 milyon akre, 2025'te 5 milyon akre) §8 kaydında (b08 deere2024/deere2025) dosyasız duruyor; Deere'nin yeni habe"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/digital_green_2024_farmer_chat_arxiv.xml",
+   "bayt": 3243,
+   "sha256": "9f2288fb7fcfe26e2401c8ef531cc4cafc359bc58455cacf053d07d72b76d427",
+   "kaynak": {
+    "adres": "https://export.arxiv.org/api/query?id_list=2409.08916",
+    "atif": "Singh N., Wang'ombe J., Okanga N., Zelenska T., Repishti J., G K J., Mishra S., Manokaran R., Singh V., Rafiq M.I., Gandhi R., Nambi A. 2024. Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers. arXiv:2409.08916 (v1 13 Eylül 2024; v2 8 Ekim 2024).",
+    "lisans": "arXiv üstverisi (özet)",
+    "lisans_adresi": null,
+    "_not": "HAKEMSİZ ÖN BASKI; geliştiricilerin kendi sistemini anlattığı yayın — çiftçi ve sorgu sayıları geliştirici beyanı (§18 kuralı: bağımsız değerlendirme değil). Yazarların kurum bilgisi bu kayıtta yok; ürünün Digital Green'e ait olduğu digital_green_farmerchat_sayfa'dan. Yayına giriş yılı özette yok."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/digital_green_farmerchat_sayfa.html",
+   "bayt": 142686,
+   "sha256": "fe8774d7422ac88eb76edc9bf8e2a73ab6f56adee549fdf88d091104c8c799b5",
+   "kaynak": {
+    "adres": "https://www.digitalgreen.org/farmerchat",
+    "atif": "Digital Green. FarmerChat: Farming answers in seconds. https://www.digitalgreen.org/farmerchat (erişim 17 Kasım 2026).",
+    "lisans": "kurumsal sayfa (© Digital Green; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Yalnız ürün–kuruluş eşleştirmesi için. Sayfadaki sayaçlar betikle dolduruluyor (HTML'de '0.0 M' görünüyor) — rakam alınmadı. 'Milyonlarca çiftçi' kurumun tanıtım dili."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/doktar_2026_web.html",
    "bayt": 880175,
    "sha256": "0ac4e02b887e47a58801af01eb07639f45ff575ee1afaaac904ada2bcb3de113",
@@ -2230,6 +2302,18 @@
     "lisans": "şirketin kendi sitesi; tüm hakları saklı, yalnız kısa alıntı",
     "lisans_adresi": null,
     "_not": "ŞİRKETİN KENDİ TANIMI: uydu görüntüsü + saha sensörü + yapay zekâ ile tarla izleme, dijital ikiz ve sürdürülebilirlik (MRV) raporlaması. Performans iddiası alınmadı. Bağımsız kayıt: doktar_fao."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/dunya_bankasi_2009_arip_icr.pdf",
+   "bayt": 1101459,
+   "sha256": "a95e591aa648466b5dfd1a276a875713928439feb5dae10f8fa5c8d615922fb3",
+   "kaynak": {
+    "adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
+    "atif": "World Bank. 23 Kasım 2009. Implementation Completion and Results Report (IBRD-46310) on a Loan in the Amount of US$600 Million to the Republic of Turkey for an Agricultural Reform Implementation Project. Report No: ICR00001155.",
+    "lisans": "Dünya Bankası belgesi (Public Disclosure Authorized; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Raporun 'National Registry of Farmers (NRF)' dediği kayıt doğrudan gelir desteğinin (DIS/DGD) altyapısı; Türkçe adı (ÇKS) raporda GEÇMİYOR (aranan 'ÇKS', 'Çiftçi Kayıt', 'Farmer Registration': 0; 'CKS' yalnız başka İngilizce sözcüklerin içinde) — NRF=ÇKS eşleştirmesi bağlamdan; metin 'Dünya Bankası'"
    }
   },
   {
@@ -2290,6 +2374,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/esa_sentinel2_olgular.html",
+   "bayt": 177158,
+   "sha256": "be30d0c3dd3c6f0934bf456f89894d5d9fa1e73e609f3a92d6f3e1dc8f8f1fe1",
+   "kaynak": {
+    "adres": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures",
+    "atif": "ESA. Sentinel-2: Facts and figures. https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures (erişim 17 Kasım 2026).",
+    "lisans": "© ESA (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Sayfa üst bilgisi '20 APR. 2015 publication date' diyor ama içerik güncellenmiş (2024 fırlatışını içeriyor)."
    }
   },
   {
@@ -2557,6 +2653,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gpsgov_sss.html",
+   "bayt": 61652,
+   "sha256": "cf0420b09c99abf6d78430d5316fdaa7b703e20d9c5c586cd3e6ae2d1bdda94b",
+   "kaynak": {
+    "adres": "https://www.gps.gov/faq",
+    "atif": "GPS.gov (National Coordination Office for Space-Based PNT). FAQ. https://www.gps.gov/faq (erişim 17 Kasım 2026).",
+    "lisans": "ABD hükümeti sitesi — kamu malı",
+    "lisans_adresi": null,
+    "_not": "Tam işletim yeteneğinin (FOC) gün düzeyinde tarihi gps.gov'da bulunamadı: /gps, /gps-space, /faq, /selective-availability, /major-gps-policy-documents sayfalarında 'full operational', 'FOC', '1995' arandı; yalnız bu cümle var ('declared operational in 1995'). gps.gov 2025'te yeniden düzenlenmiş; esk"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/gtu_2023_akilli_tarim_merkezi_yonetmelik.pdf",
    "bayt": 191810,
    "sha256": "03864da126260e93493381f37cd60fc782065af09bce938d6672618f7d542079",
@@ -2665,6 +2773,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/hopkins_2023_jncics_europepmc.json",
+   "bayt": 5835,
+   "sha256": "4dd8815ff51aec4d927f709d6d7198852fc473f320dce0c0f9ddcd00e74f5475",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1093/jncics/pkad010&resultType=core&format=json",
+    "atif": "Hopkins A.M., Logan J.M., Kichenadasse G., Sorich M.J. 2023. Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift. JNCI Cancer Spectrum 7(2): pkad010. doi:10.1093/jncics/pkad010",
+    "lisans": "bibliyografik kayıt (yayıncı özeti; PMID 36808255)",
+    "lisans_adresi": null,
+    "_not": "OpenAI'nin kendi duyurusu (openai.com/index/chatgpt/) bu ortamdan 403 (bot koruması) döndü — aşılmadı; tarih hakemli dergilerden. Yazı 'commentary' türünde."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ibrahim_2024_europepmc.json",
    "bayt": 5681,
    "sha256": "f22af0eec82e3fbcc23516636768dbbcdac2e2fe9168b2ba08a67da4a31627c8",
@@ -2722,6 +2842,18 @@
     "lisans": "kamu sicil kaydı",
     "lisans_adresi": null,
     "_not": "Infarm'ın kendi duyurusundaki tarihi resmî sicil doğruluyor; süreç 4 Eylül 2025'te bitmiş. Alıntı sicil alanlarıdır; kayyum adları alınmadı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ispa_icpa_konferans_gecmisi.html",
+   "bayt": 32689,
+   "sha256": "de7f81b593692e54a2a95e72b70e934b0a700dc4df10fa776b1499646f4cf883",
+   "kaynak": {
+    "adres": "https://ispag.org/icpa/History",
+    "atif": "ISPA. ICPA Conference History. https://ispag.org/icpa/History (erişim 17 Kasım 2026).",
+    "lisans": "kurumsal sayfa (© ISPA; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Pierre Robert 1992-2000 arasındaki beş ICPA'nın başkanı (sayfaya göre). 'Hassas tarımın babası' türü nitelemeler yalnız erişilemeyen Minnesota Üniversitesi anma sayfasında (Cloudflare 403) ve arama özetlerinde görüldü — kayda girmedi. Seri 2026'da 17. konferansa ulaştı."
    }
   },
   {
@@ -2929,6 +3061,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/krizhevsky_2012_nips_imagenet.pdf",
+   "bayt": 1418820,
+   "sha256": "90137160c57217953d5f61857e64ca58e85f06e1b13b4f475c918b1b582b9771",
+   "kaynak": {
+    "adres": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+    "atif": "Krizhevsky A., Sutskever I., Hinton G.E. 2012. ImageNet Classification with Deep Convolutional Neural Networks. Advances in Neural Information Processing Systems 25 (NIPS 2012).",
+    "lisans": "NeurIPS bildirisi (© yazarlar; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Tarım çalışması değil; genel dönüm noktası. Mohanty vd. (2016) bu çalışmayı '2012'de %16,4 top-5 hata' diye anıyor: makalede %16,4 beş CNN'in ortalaması, yarışmayı kazanan girdi (ek ön eğitimli yedi CNN) %15,3. PDF'teki yazar e-postaları kayda alınmadı. 'İlk kez' (for the first time) nitelemesi bu m"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kumar_kalita_2017_europepmc.json",
    "bayt": 4230,
    "sha256": "f68d1cd6c40a056e492cbb39cea85fe7e1c19e6ddc5076aac96e09c6604f3073",
@@ -2965,6 +3109,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lambert_1989_beltwide_gossym_comax_yayim.html",
+   "bayt": 2741,
+   "sha256": "ea5c5862b740418fc62d3a3c2da6757e8fd6aca4cefb96a22caf3eac3ed3a961",
+   "kaynak": {
+    "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/1867.cfm",
+    "atif": "Lambert J.R. 1989. Crop Simulation for the Analysis and Management of Cotton Production Systems: Extension Applications (özet). Proceedings: 1989 Beltwide Cotton Production Conference, s. 14-15. Memphis: National Cotton Council.",
+    "lisans": "© National Cotton Council (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "'Sonradan ne oldu' ölçüsü: 1988'de yaklaşık 150 çiftçi. 'Initial' Lambert'in ifadesi: USDA ARS ve Yayım Servisi'nin çiftlikte uygulamaya seçtiği İLK ÜRÜN SİMÜLASYON MODELİ — 'çiftçinin kullandığı ilk uzman sistem' iddiası DEĞİL; o iddia hiçbir kaynakta bulunmadı."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lang_2023_europepmc.json",
    "bayt": 5831,
    "sha256": "985bc02c1ce3233ef48ee4e5f9424f55678436dd20c08f5483dc04b461b51dec",
@@ -2986,6 +3142,30 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lemmon_1986_beltwide_comax_ozet.html",
+   "bayt": 3111,
+   "sha256": "4db4ff79bc8f27b613e1a684e169510ef6dad210dd1d4d82a53a7a4f6e6321b2",
+   "kaynak": {
+    "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/861.cfm",
+    "atif": "Lemmon H.E. 1986. Cotton Crop Management Expert System - COMAX (özet). 1986 Proceedings: Beltwide Cotton Production Research Conferences, s. 451. Memphis: National Cotton Council.",
+    "lisans": "© National Cotton Council (kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Konferans özeti, hakemli değil; yazar USDA ARS araştırmacısı. GOSSYM'in 'on iki yılda' geliştirildiği yazarın ifadesi — başlangıç yılı verilmiyor, metin yıl türetmemeli."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lemmon_1986_europepmc.json",
+   "bayt": 2358,
+   "sha256": "1f05b47a89b9d1d3a67ad684ecb3a43f9d2a1f8114e352d8175becd193aef2bc",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1126/science.233.4759.29&resultType=core&format=json",
+    "atif": "Lemmon H. 1986. Comax: an expert system for cotton crop management. Science 233(4759): 29-33. doi:10.1126/science.233.4759.29",
+    "lisans": "bibliyografik kayıt (yayıncı özeti; PMID 17812886)",
+    "lisans_adresi": null,
+    "_not": "Özette 'ilk' iddiası YOK (aranan: first, ilk, pioneer). Simülasyon programının adı (GOSSYM) özette geçmiyor; ad Lemmon'ın 1986 Beltwide özetinde. 'Büyük bir çiftlikte sınandı' yazarın ifadesi; ölçüm verilmiyor."
    }
   },
   {
@@ -3070,6 +3250,30 @@
     "lisans": "kamu belgesi",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — MGM sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/michalski_baskin_1983_ijcai_advise.html",
+   "bayt": 63189,
+   "sha256": "a2c972681e93c17022873522414eb89b33880016063cac2d12823102086ca43c",
+   "kaynak": {
+    "adres": "https://www.ijcai.org/proceedings/1983/63",
+    "atif": "Michalski R.S., Baskin A.B. 1983. Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System. Proceedings of the Eighth International Joint Conference on Artificial Intelligence (IJCAI-83), Expert Systems, s. 256-257.",
+    "lisans": "IJCAI bildiri sayfası (© IJCAI; kısa alıntı)",
+    "lisans_adresi": null,
+    "_not": "Başarı cümlesi yazarın KENDİ beyanı (Michalski ortak yazar); sayısal sonuç vermiyor. Örnekten öğrenen programın AQ11 türevi olduğu ve soya patolojisi uzman sisteminde (PLANT/ds) kullanıldığı buradan. Sayfa metni OCR ('venion' vb.); alıntılar temiz parçalardan. GMU deposu (digitalcollections.gmu.edu,"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/michalski_chilausky_1980_ijmms_crossref.json",
+   "bayt": 6848,
+   "sha256": "61ea5d3a031e5806d2132f889b12dd0315d6ca31ab5f849c73c5b49e9fd5d99c",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1016/S0020-7373(80)80054-X",
+    "atif": "Michalski R.S., Chilausky R.L. 1980. Knowledge acquisition by encoding expert rules versus computer induction from examples: a case study involving soybean pathology. International Journal of Man-Machine Studies 12(1): 63-87. doi:10.1016/S0020-7373(80)80054-X",
+    "lisans": "bibliyografik üstveri (Crossref)",
+    "lisans_adresi": null,
+    "_not": "YALNIZ KÜNYE. Crossref kaydında özet yok; Semantic Scholar özeti 'yayıncı tarafından gizlendi' diyor; ScienceDirect 403 döndü. Başlık karşılaştırmanın kendisini söylüyor (uzman kuralını kodlamak ↔ örnekten tümevarım), SONUCU değil. 'Örnekten öğrenilen kurallar daha iyi çalıştı' cümlesi bu kayıttan k"
    }
   },
   {
@@ -3169,6 +3373,42 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_landsat1_gorev.html",
+   "bayt": 431778,
+   "sha256": "9a49bccc502273311119b74eeeb0324afea7466fe09ba0488595c7f7ac6b87ae",
+   "kaynak": {
+    "adres": "https://science.nasa.gov/mission/landsat-1/",
+    "atif": "NASA Science. Landsat 1 (görev sayfası). science.nasa.gov (erişim 17 Kasım 2026).",
+    "lisans": "ABD federal kurumu sayfası — kamu malı (NASA içerik yönergeleri)",
+    "lisans_adresi": null,
+    "_not": "Fırlatma tarihi NASA'nın görev sayfasından. 'Great Grain Robbery' anlatısı (1970'lerin başında ABD'nin SSCB'ye 15 milyon ton indirimli buğday satışı) ve 'MSS ilk dijital uzay aracı' nitelemesi NASA'nın kendi ifadesi; 'ilk' NASA'ya atfedilerek yazılmalı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_landsat2_gorev.html",
+   "bayt": 403177,
+   "sha256": "f80fade2b8ca24e381efaf0b3c3208410df5ce9b624b379f627ad75bb6118311",
+   "kaynak": {
+    "adres": "https://science.nasa.gov/mission/landsat-2/",
+    "atif": "NASA Science. Landsat 2 (görev sayfası; LACIE bölümü). science.nasa.gov (erişim 17 Kasım 2026).",
+    "lisans": "ABD federal kurumu sayfası — kamu malı",
+    "lisans_adresi": null,
+    "_not": "NASA LACIE'yi '1974–1978' diye veriyor; görevdeki '1974-1977' ifadesi bununla uyuşmuyor. LACIE yönetici özeti (nasa_ntrs_1978_lacie) deneyin 1974'te başladığını ve 30 Haziran 1978'de tamamlandığını yazıyor — metin 1974-1978 kullanmalı. 'Yüzde bir' SSCB 1977 hasadı için NASA'nın özetlemesi; birincil "
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/nasa_ntrs_1978_lacie_yonetici_ozeti.pdf",
+   "bayt": 3173720,
+   "sha256": "c110454f6633e4aa3cf349ca486de3391be6ecea6c9b6204da419dc89b9159d5",
+   "kaynak": {
+    "adres": "https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf",
+    "atif": "LACIE Project Team (NASA, USDA, NOAA). 15 Ağustos 1978. Large Area Crop Inventory Experiment (LACIE): Executive Summary. Houston: NASA Lyndon B. Johnson Space Center. NTRS 19790010237 (N79-18408).",
+    "lisans": "ABD federal hükümeti eseri — kamu malı (NTRS: GOV_PUBLIC_USE_PERMITTED)",
+    "lisans_adresi": null,
+    "_not": "Birincil teknik rapor; onaylayan R. B. MacDonald (LACIE yöneticisi). Taranmış belge, OCR hataları var ('inthe', 'criteri6n', 'Aeronuatics'); alıntılar hatasız cümlelerden seçildi (doğrulayıcı boşluk ve noktalamayı yok sayar). 90/90 hedefi ABD Büyük Ovaları ve SSCB'de iki ardışık yıl tutturuldu; Kana"
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/neupane_2023_europepmc.json",
    "bayt": 5398,
    "sha256": "421f7c1ef93fd3047ae4675bc302344e27687b31391ac92d2bb88d90b861d871",
@@ -3262,6 +3502,54 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Aynı PlantVillage ekibinin Tanzanya'da gerçek tarlada yaptığı test. Manyok hastalıklarını tanıyan telefon modelinin F-1 skoru test setinde 0,79; belirgin belirtili yaprakların tarla fotoğraflarında 0,54'e (%32 düşüş), videoda 0,48'e (%39 düşüş) iniyor. Erken, hafif belirtilerde düşüş %67 (0,26 ve 0,"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/reagan_1983_09_16_gps_sivil_kullanim.html",
+   "bayt": 43221,
+   "sha256": "36048338a06cc250a769dcef0c777fdb03a23107bc198b6aa323f98b8321cf6f",
+   "kaynak": {
+    "adres": "https://www.reaganlibrary.gov/archives/speech/statement-deputy-press-secretary-speakes-soviet-attack-korean-civilian-airliner-1 (gps.gov'un verdiği eski adres: https://www.reaganlibrary.gov/research/speeches/91683c)",
+    "atif": "The White House (Deputy Press Secretary Larry Speakes). 16 Eylül 1983. Statement by Deputy Press Secretary Speakes on the Soviet Attack on a Korean Civilian Airliner. Ronald Reagan Presidential Library arşivi.",
+    "lisans": "ABD hükümeti belgesi — kamu malı",
+    "lisans_adresi": null,
+    "_not": "gps.gov 'Major GPS Policy Documents' bu metni '1983 Decision to Make GPS Available to Civilian Community' diye anıyor. Bir basın sözcüsü açıklaması: Lowenberg-DeBoer ve Erickson (2019) tablosunun '1983 Executive order' ifadesiyle çelişiyor. Açıklama GPS'in 1988'de işletime gireceğini öngörüyordu; gp"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2002_06_14_dgd_kayit_sistemi_bkk.htm",
+   "bayt": 96201,
+   "sha256": "e44f1d52d1922a608e53339f4e9940640f52cbf5e1401c5c4dfe1aee01362156",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2002/06/20020614.htm",
+    "atif": "Resmî Gazete, 14 Haziran 2002, sayı 24785. Bakanlar Kurulu Kararı 2002/4165: Tarımsal Destekleme Politikaları Çerçevesinde Çiftçilere Doğrudan Gelir Desteği Sağlanması ve Kayıt Sisteminin Oluşturulmasına İlişkin Karar.",
+    "lisans": "mevzuat metni (kamu malı)",
+    "lisans_adresi": null,
+    "_not": "Dosya Resmî Gazete'nin windows-1254 HTML'inden UTF-8'e kayıpsız dönüştürüldü (içerik değişmedi; depodaki rg_2018/rg_2021 dosyalarıyla aynı yol). Özgün bayt kopyası: b03/_kesif/orijinal_cp1254/rg_2002_06_14_dgd_kayit_sistemi_bkk.cp1254.htm (sha256 895609078e9240769c41f2009c0d64baf3756300f44ab2ac61304"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2005_04_16_cks_yonetmeligi.htm",
+   "bayt": 51822,
+   "sha256": "faba8c9f72a724fbbf7b4cab278954981f0138a785d25f39d79d48ff62de137a",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416-6.htm",
+    "atif": "Tarım ve Köyişleri Bakanlığı. Çiftçi Kayıt Sistemi Yönetmeliği. Resmî Gazete, 16 Nisan 2005, sayı 25788.",
+    "lisans": "mevzuat metni (kamu malı)",
+    "lisans_adresi": null,
+    "_not": "Dosya Resmî Gazete'nin windows-1254 HTML'inden UTF-8'e kayıpsız dönüştürüldü (içerik değişmedi; depodaki rg_2018/rg_2021 dosyalarıyla aynı yol). Özgün bayt kopyası: b03/_kesif/orijinal_cp1254/rg_2005_04_16_cks_yonetmeligi.cp1254.htm (sha256 8a3115f522d705bf475b293482152e41944503b145eb98d28fd08efb046"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/rg_2005_04_16_fihrist.htm",
+   "bayt": 7993,
+   "sha256": "cce898661fe1624626b5b884a0d8e88176582b51ad98bf14406e5023edb67424",
+   "kaynak": {
+    "adres": "https://www.resmigazete.gov.tr/eskiler/2005/04/20050416.htm",
+    "atif": "Resmî Gazete, 16 Nisan 2005, sayı 25788 — günlük fihrist.",
+    "lisans": "mevzuat metni (kamu malı)",
+    "lisans_adresi": null,
+    "_not": "Dosya Resmî Gazete'nin windows-1254 HTML'inden UTF-8'e kayıpsız dönüştürüldü (içerik değişmedi; depodaki rg_2018/rg_2021 dosyalarıyla aynı yol). Özgün bayt kopyası: b03/_kesif/orijinal_cp1254/rg_2005_04_16_fihrist.cp1254.htm (sha256 0db1b1ed18aabf91a0c247dd4c9bd2c78f4e35260a0b4a8574ee21bccaf05b22). "
    }
   },
   {
@@ -3721,6 +4009,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_cbs_projeler_tarbil.html",
+   "bayt": 776240,
+   "sha256": "0ab2841bb2f82b04e7b5d1213d85d08aba67a7ff047c31f4ac50fb10dbf7d4ab",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler",
+    "atif": "T.C. Tarım ve Orman Bakanlığı. Coğrafi Bilgi Sistemleri — Projeler (TARBİL bölümü). https://www.tarimorman.gov.tr/Konular/Cografi-Bilgi-Sistemleri/Projeler (erişim 17 Kasım 2026; içerik tarihsiz).",
+    "lisans": "kamu kurumu sayfası",
+    "lisans_adresi": null,
+    "_not": "Sayfa tarihsiz; metindeki '2013 yılı içerisinde ... sağlanacaktır' gibi gelecek zaman ifadeleri içeriğin 2012-2013'te yazıldığını düşündürüyor (çıkarım, metne girmez). Sayfadaki 'fnansal' (ligatür kaybı) sözcüğü alıntı dışında bırakıldı. HTML'de harflerin arasında boşluklar var; doğrulayıcının sade "
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_gkgm_2026_iha_degerlendirme.html",
    "bayt": 130725,
    "sha256": "1bf956b63efdfce2c42108f5859576c676ef63da2778377159e4f64edea42a0c",
@@ -3778,6 +4078,18 @@
     "lisans": "kamu belgesi (TÜBİTAK)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — TÜBİTAK sitesi; kurum beyanı."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tubitak_2020_rasat_9_yasinda.html",
+   "bayt": 68021,
+   "sha256": "32fe9c56c2ffd9b1179e33d35f58cbd4dc2c36bcf43faf437a2ab0cbe1d77b28",
+   "kaynak": {
+    "adres": "https://tubitak.gov.tr/tr/haber/tasarimi-ve-uretimi-turkiyede-gerceklestirilen-ilk-yer-gozlem-uydumuz-rasat-9-yasinda",
+    "atif": "TÜBİTAK. 17 Ağustos 2020. Tasarımı ve Üretimi Türkiye’de Gerçekleştirilen İlk Yer Gözlem Uydumuz RASAT, 9 Yaşında! (haber).",
+    "lisans": "kurumsal sayfa (TÜBİTAK)",
+    "lisans_adresi": null,
+    "_not": "'İlk' nitelemeleri TÜBİTAK'ın: BİLSAT (2003, teknoloji transferiyle) 'ilk optik uzaktan algılama uydusu', RASAT 'ilk yerli yer gözlem uydusu'. ÇELİŞKİ: 2026 kataloğunun İngilizce cümlesi RASAT'ı 'Türkiye's first Earth observation satellite' diye yazıyor ('indigenous' düşmüş). İrtifa bu haberde 700 k"
    }
   },
   {
@@ -3886,6 +4198,18 @@
     "lisans": "kamu belgesi (Ulaştırma ve Altyapı Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlık sitesi (haber, 4 Şubat 2025)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/uci_soybean_large_sayfa.html",
+   "bayt": 194914,
+   "sha256": "9039da270a183d10b9794c700be6353447656d25af4a887fab6f29bda31b2c30",
+   "kaynak": {
+    "adres": "https://archive.ics.uci.edu/dataset/90/soybean+large",
+    "atif": "UCI Machine Learning Repository. Soybean (Large). https://archive.ics.uci.edu/dataset/90/soybean+large (erişim 17 Kasım 2026).",
+    "lisans": "CC BY 4.0 (sayfadaki beyan)",
+    "lisans_adresi": null,
+    "_not": "'Famous' UCI'nin nitelemesi. Bağış tarihi sayfada 7/10/1988 (ABD biçimi), .names dosyasında 11 July 1988 — bir günlük fark."
    }
   },
   {
