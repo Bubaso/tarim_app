@@ -133,6 +133,10 @@ class _YzHaritaState extends State<YzHarita> {
                     () => _teknoloji = _teknoloji == kod ? null : kod),
               ),
           ]),
+          if (_teknoloji != null) ...[
+            const SizedBox(height: 12),
+            _TeknolojiOzeti(kod: _teknoloji!, en: en),
+          ],
           const SizedBox(height: 18),
           for (final k in katmanlar.entries)
             Padding(
@@ -160,6 +164,8 @@ class _YzHaritaState extends State<YzHarita> {
           child: YzBaslikKarosu(
             baslik: b,
             sonuk: _teknoloji != null && !b.teknoloji.contains(_teknoloji),
+            teknoloji: _teknoloji,
+            ana: _teknoloji != null && (kYzTeknolojiAna[_teknoloji]?.contains(b.no) ?? false),
           ),
         ),
     ]);
@@ -180,31 +186,82 @@ class _YzHaritaState extends State<YzHarita> {
   }
 }
 
+/// Seçili teknolojinin haritadaki özeti (karar 57): kaç başlıkta geçtiği ve
+/// asıl konu olduğu başlık. Sayılar iskeletten; etiketler metinden çıkıyor.
+class _TeknolojiOzeti extends StatelessWidget {
+  const _TeknolojiOzeti({required this.kod, required this.en});
+  final String kod;
+  final bool en;
+
+  @override
+  Widget build(BuildContext context) {
+    final ad = kYzTeknoloji[kod]?[en ? 'en' : 'tr'] ?? kod;
+    final sayi = kYzBasliklar.where((b) => b.teknoloji.contains(kod)).length;
+    final ana = [
+      for (final no in kYzTeknolojiAna[kod] ?? const <int>[]) yzBaslik(no)?.ad(en),
+    ].whereType<String>().toList();
+    final anaMetni = ana.isEmpty
+        ? ''
+        : (en
+            ? ' Main heading${ana.length > 1 ? 's' : ''}: ${ana.join('; ')}.'
+            : ' Asıl konu olduğu başlık${ana.length > 1 ? 'lar' : ''}: ${ana.join('; ')}.');
+    return Text(
+      en
+          ? '$ad comes up in $sayi headings; tap one to open it with the passages marked.$anaMetni'
+          : '$ad $sayi başlıkta geçiyor; açtığınız başlıkta geçtiği yerler işaretli gelir.$anaMetni',
+      style: YzYazi.govde(boy: 15, renk: YzRenk.makine),
+    );
+  }
+}
+
 class YzBaslikKarosu extends StatelessWidget {
-  const YzBaslikKarosu({super.key, required this.baslik, this.sonuk = false});
+  const YzBaslikKarosu(
+      {super.key, required this.baslik, this.sonuk = false, this.teknoloji, this.ana = false});
   final YzBaslik baslik;
   final bool sonuk;
+
+  /// Merkez sayfada seçili teknoloji (karar 57). Karo o teknolojiyi
+  /// taşıyorsa geçtiği yer sayısını gösteriyor ve dokununca başlık sayfası
+  /// o teknolojinin geçtiği yerler işaretli açılıyor.
+  final String? teknoloji;
+
+  /// Teknolojinin asıl konu olduğu başlık.
+  final bool ana;
 
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
     final y = baslik.yazildi;
+    final secili = teknoloji != null && !sonuk;
+    final izSayisi = secili ? (kYzTeknolojiIzi[baslik.no]?[teknoloji]?[en ? 1 : 0] ?? 0) : 0;
+    final durum = secili
+        ? (ana
+            ? (en ? 'main heading · $izSayisi mentions' : 'ana başlık · $izSayisi yerde geçiyor')
+            : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'))
+        : (y ? (en ? 'written' : 'yazıldı') : (en ? 'in progress' : 'yazılıyor'));
+    final adres = secili
+        ? Uri(path: yzBaslikPath(baslik.slug), queryParameters: {'teknoloji': teknoloji!})
+            .toString()
+        : yzBaslikPath(baslik.slug);
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 180),
       opacity: sonuk ? 0.32 : 1,
       child: Material(
-        color: y ? YzRenk.bitkiAcik : YzRenk.yuzey,
+        color: secili && ana ? YzRenk.makineAcik : (y ? YzRenk.bitkiAcik : YzRenk.yuzey),
         borderRadius: BorderRadius.circular(4),
         child: InkWell(
           borderRadius: BorderRadius.circular(4),
-          onTap: () => context.push(yzBaslikPath(baslik.slug)),
+          onTap: () => context.push(adres),
           child: Container(
             constraints: const BoxConstraints(minHeight: 76),
             padding: const EdgeInsets.fromLTRB(11, 9, 11, 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               border: Border.all(
-                color: y ? YzRenk.bitki.withValues(alpha: 0.55) : YzRenk.cizgi,
+                color: secili
+                    ? YzRenk.makine
+                    : (y ? YzRenk.bitki.withValues(alpha: 0.55) : YzRenk.cizgi),
+                width: secili && ana ? 2 : 1,
               ),
             ),
             child: Column(
@@ -216,11 +273,14 @@ class YzBaslikKarosu extends StatelessWidget {
                   // adıyla tanıyor.
                   Expanded(
                     child: Text(
-                      y ? (en ? 'written' : 'yazıldı') : (en ? 'in progress' : 'yazılıyor'),
+                      durum,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: YzYazi.veri(
-                          boy: 10.5, renk: y ? YzRenk.bitki : YzRenk.bekleyenMetin),
+                          boy: 10.5,
+                          renk: secili
+                              ? YzRenk.makine
+                              : (y ? YzRenk.bitki : YzRenk.bekleyenMetin)),
                     ),
                   ),
                 ]),

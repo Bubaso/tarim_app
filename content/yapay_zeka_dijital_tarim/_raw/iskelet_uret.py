@@ -33,10 +33,22 @@ TEKNOLOJI = {
     "sensor":    {"tr": "Sensörler ve nesnelerin interneti", "en": "Sensors and IoT"},
     "dil":       {"tr": "Dil modelleri",               "en": "Language models"},
     "karar":     {"tr": "Karar destek sistemleri",     "en": "Decision support"},
-    "ikiz":      {"tr": "Dijital ikiz",                "en": "Digital twin"},
     "veri":      {"tr": "Veri platformları",           "en": "Data platforms"},
     "genomik":   {"tr": "Genomik ve ıslah",            "en": "Genomics and breeding"},
 }
+
+# ── TEKNOLOJİNİN METİNDEKİ İZİ ────────────────────────────────────────
+# Etiketler elle konmuyor (karar 57): teknoloji_izi.py desenlerini her
+# başlığın metninde arıyor; iki dilde de eşiği geçen teknoloji etiket olur.
+# Desenler iskelete de yazılıyor: Dart (yz_teknoloji_izi.dart) seçili
+# teknolojinin geçtiği paragrafları aynı desenlerle işaretliyor.
+import importlib.util as _iu
+_spec = _iu.spec_from_file_location("teknoloji_izi", KOK / "teknoloji_izi.py")
+IZ_MODUL = _iu.module_from_spec(_spec)
+_spec.loader.exec_module(IZ_MODUL)
+for _kod, _iz in IZ_MODUL.IZ.items():
+    TEKNOLOJI[_kod].update({k: _iz.get(k, []) for k in ("desen_tr", "desen_en", "haric_tr", "haric_en")})
+    TEKNOLOJI[_kod]["ana"] = IZ_MODUL.ANA.get(_kod, [])
 
 # ── OTOMATİK GÜNCELLEME HEDEFLERİ (karar 16) ──────────────────────────
 OTO = {"sayi", "dizin", "mevzuat", "gelisme"}
@@ -123,9 +135,9 @@ BASLIKLAR = [
       ozet_tr="Hassas hayvancılık: hastalığı belirtiden önce görmek, sürüyü tek tek tanımak.",
       ozet_en="Precision livestock farming: seeing disease before symptoms, knowing animals one by one."),
     b(13, "sera-ve-kontrollu-ortam", "alan", "Sera ve kontrollü ortam", "Greenhouse and controlled environment",
-      ["sensor", "ikiz", "karar", "robotik"], {"sayi", "gelisme"},
-      ozet_tr="Her değişkenin ölçüldüğü yer: iklim kontrolü, dikey tarım, dijital ikiz.",
-      ozet_en="Where every variable is measured: climate control, vertical farming, digital twins."),
+      ["sensor", "karar", "robotik"], {"sayi", "gelisme"},
+      ozet_tr="Her değişkenin ölçüldüğü yer: yapay zekânın yetiştiriciyle yarıştığı sera, dikey tarım, sera robotu.",
+      ozet_en="Where every variable is measured: the greenhouse where AI competes with growers, vertical farming, a greenhouse robot."),
     b(14, "su-urunleri", "alan", "Su ürünleri", "Aquaculture and fisheries",
       ["sensor", "goruntu", "tahmin"], {"sayi", "gelisme"},
       ozet_tr="Yem, su kalitesi, balık sağlığı ve av takibi.",
@@ -231,6 +243,20 @@ for x in BASLIKLAR:
         t = (json.loads(kayit.read_text(encoding="utf-8")).get("turkiye") or {}).get("durum", "")
         x["turkiye"] = "var" if str(t).startswith("var") else ("yok" if str(t).startswith("yok") else "bilinmiyor")
 
+# ── TEKNOLOJİ ETİKETLERİ — elle değil, metinden (karar 57) ─────────────
+# Yazılmış başlığın etiketi metninden hesaplanıyor: yukarıdaki listeler
+# yalnız yazılmamış başlık için tahmin. Sözlük ve kaynakça her terimi
+# andığı için etiket almıyor (teknoloji_izi.IZSIZ). Sayılar iskelete de
+# yazılıyor; Dart'taki eşleştirici aynı sayıyı bulmak zorunda (eşlik testi).
+IZ_SAYILARI = IZ_MODUL.iz()
+for x in BASLIKLAR:
+    if x["no"] in IZ_MODUL.IZSIZ:
+        x["teknoloji"] = []
+    elif x.get("durum") == "yazildi" and x["no"] in IZ_SAYILARI:
+        x["teknoloji"] = IZ_MODUL.etiketler(IZ_SAYILARI)[x["no"]]
+        x["teknoloji_izi"] = {k: v for k, v in IZ_SAYILARI[x["no"]].items()
+                              if v.get("tr") or v.get("en")}
+
 # ══ KURALLAR — iskelet bunları geçmeden yazılmaz ══════════════════════
 hata = []
 if not HABER_ALMAYAN <= {x["no"] for x in BASLIKLAR}:
@@ -271,6 +297,12 @@ for gerekli, karar in (("riskler-ve-sinirlar", 36), ("basarisizliklar-ve-abartil
                        ("bugun-nerede-duruyoruz", 6)):
     if gerekli not in sluglar:
         hata.append(f"karar {karar} gereği '{gerekli}' başlığı yok")
+# Ana başlık gerçekten o teknolojiyle etiketli olmalı (karar 57)
+for _kod, _t in TEKNOLOJI.items():
+    for _no in _t.get("ana", []):
+        _b = next((x for x in BASLIKLAR if x["no"] == _no), None)
+        if _b is None or _kod not in _b["teknoloji"]:
+            hata.append(f"teknoloji {_kod}: ana başlık §{_no} bu teknolojiyle etiketli değil")
 # Her teknoloji etiketi en az bir başlıkta kullanılıyor — ölü etiket olmasın
 kullanilan = {t for x in BASLIKLAR for t in x["teknoloji"]}
 olu = set(TEKNOLOJI) - kullanilan

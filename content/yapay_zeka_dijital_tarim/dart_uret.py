@@ -119,6 +119,34 @@ def main() -> int:
         s.append(f"  {dizgi(k)}: {{'tr': {dizgi(v['tr'])}, 'en': {dizgi(v['en'])}}},")
     s.append("};")
     s.append("")
+    # Karar 57: teknolojinin metindeki izi. Desenler _raw/teknoloji_izi.py'den
+    # (iskelet üzerinden); kurallar orada. Dart'taki eşleştirici
+    # (yz_teknoloji_izi.dart) aynı sayıyı bulmak zorunda — eşlik testi.
+    s.append("/// Teknoloji desenleri (karar 57): 'desen_tr', 'desen_en', 'haric_tr', 'haric_en'.")
+    s.append("const Map<String, Map<String, List<String>>> kYzTeknolojiDesen = {")
+    for k, v in d["teknoloji"].items():
+        parcalar = ", ".join(f"{dizgi(a)}: [{', '.join(dizgi(x) for x in v.get(a, []))}]"
+                             for a in ("desen_tr", "desen_en", "haric_tr", "haric_en"))
+        s.append(f"  {dizgi(k)}: {{{parcalar}}},")
+    s.append("};")
+    s.append("")
+    s.append("/// Teknolojinin asıl konu olduğu başlıklar (karar 57).")
+    s.append("const Map<String, List<int>> kYzTeknolojiAna = {")
+    for k, v in d["teknoloji"].items():
+        s.append(f"  {dizgi(k)}: [{', '.join(str(n) for n in v.get('ana', []))}],")
+    s.append("};")
+    s.append("")
+    s.append("/// Python eşleştiricisinin her başlıkta saydığı paragraf (ve tablo satırı)")
+    s.append("/// sayısı: {no: {teknoloji: [tr, en]}}. Yalnız eşlik testi için.")
+    s.append("const Map<int, Map<String, List<int>>> kYzTeknolojiIzi = {")
+    for x in b:
+        iz = x.get("teknoloji_izi") or {}
+        if not iz:
+            continue
+        parcalar = ", ".join(f"{dizgi(k)}: [{v.get('tr', 0)}, {v.get('en', 0)}]" for k, v in iz.items())
+        s.append(f"  {x['no']}: {{{parcalar}}},")
+    s.append("};")
+    s.append("")
 
     CIKIS.parent.mkdir(parents=True, exist_ok=True)
     CIKIS.write_text("\n".join(s), encoding="utf-8")

@@ -48,7 +48,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Bugün nerede duruyoruz",
       "Where things stand today",
       false,
-      ["tahmin", "goruntu", "uzaktan", "robotik", "dil"],
+      ["goruntu", "tahmin", "uzaktan", "robotik"],
       true,
       "Bütün başlıkların özeti: yapay zekânın nerede sağlam sonuç verdiği, nerede tutarsız kaldığı ve Türkiye'de neyin ölçülmediği.",
       "The summary of all headings: where AI delivers solid results, where it is inconsistent, and what has not been measured in Türkiye."),
@@ -59,7 +59,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Kavramlar: yapay zekâ, dijital tarım, hassas tarım",
       "Terms: AI, digital farming, precision farming",
       false,
-      ["veri", "karar"],
+      ["tahmin", "robotik", "sensor", "karar"],
       true,
       "Üç kavram sık sık birbirinin yerine kullanılıyor ve aynı şey değiller.",
       "Three terms used as if interchangeable, which they are not."),
@@ -70,7 +70,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Kısa tarihçe",
       "A short history",
       false,
-      ["karar", "uzaktan", "goruntu"],
+      ["goruntu", "tahmin", "uzaktan", "dil", "veri"],
       true,
       "Uzman sistemlerden görüntü işlemeye, uydudan dil modellerine: dönüm noktaları ve kişiler.",
       "From expert systems to computer vision, from satellites to language models: turning points and people."),
@@ -81,7 +81,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Toprak ve arazi",
       "Soil and land",
       true,
-      ["uzaktan", "sensor", "tahmin", "veri"],
+      ["tahmin"],
       true,
       "Toprak haritalama ve arazi planlaması: küresel haritanın gücü, tarla ölçeğinde sınırı, Türkiye'nin detaylı toprak etüdü.",
       "Soil mapping and land planning: the reach of the global map, its limits at field scale, Türkiye's detailed soil survey."),
@@ -92,7 +92,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Tohum, ıslah ve genetik",
       "Seed, breeding and genetics",
       true,
-      ["genomik", "tahmin", "goruntu"],
+      ["tahmin", "sensor", "genomik"],
       true,
       "Fenotipleme, genomik seçilim, ıslah süresinin kısaltılması.",
       "Phenotyping, genomic selection, shortening the breeding cycle."),
@@ -103,7 +103,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Ekim ve değişken oranlı uygulama",
       "Sowing and variable-rate application",
       true,
-      ["karar", "uzaktan", "robotik", "sensor"],
+      ["tahmin", "uzaktan", "sensor", "karar"],
       true,
       "Tarlanın her parçasına aynı muameleyi bırakmak: değişken oranlı tohum ve gübre.",
       "Ending uniform treatment of a field: variable-rate seed and fertiliser."),
@@ -114,7 +114,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Sulama ve su yönetimi",
       "Irrigation and water",
       true,
-      ["sensor", "tahmin", "uzaktan", "karar"],
+      ["uzaktan", "sensor", "karar"],
       true,
       "Ne zaman, ne kadar: sensör ve tahmine dayalı sulama.",
       "When and how much: irrigation driven by sensors and forecasts."),
@@ -125,7 +125,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Görüntü işleme ve hedefli ilaçlama",
       "Computer vision and targeted spraying",
       true,
-      ["goruntu", "robotik", "tahmin"],
+      ["goruntu"],
       true,
       "Yabancı otu, hastalığı ve zararlıyı görmek — ve ilacı yalnız oraya atmak.",
       "Seeing weeds, disease and pests — and spraying only there."),
@@ -136,7 +136,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Ürün izleme ve verim tahmini",
       "Crop monitoring and yield forecasting",
       true,
-      ["uzaktan", "tahmin", "goruntu"],
+      ["tahmin", "uzaktan"],
       true,
       "Hasattan önce rekoltenin bilinmesi: uydu, model ve belirsizlik.",
       "Knowing the harvest before it comes: satellites, models and uncertainty."),
@@ -147,7 +147,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Hasat ve robotik",
       "Harvest and robotics",
       true,
-      ["robotik", "goruntu"],
+      ["goruntu", "robotik"],
       true,
       "Hasat zamanlaması ve robotik toplama — en zor mühendislik problemi neden meyvede.",
       "Harvest timing and robotic picking — why fruit is the hardest engineering problem."),
@@ -158,7 +158,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Hasat sonrası: sınıflandırma, kalite, depolama",
       "Post-harvest: grading, quality, storage",
       true,
-      ["goruntu", "sensor", "tahmin"],
+      ["goruntu"],
       true,
       "Ürünün tarladan çıktıktan sonra kaybolmaması: sınıflandırma ve depolama.",
       "Keeping produce from being lost after it leaves the field: grading and storage."),
@@ -169,7 +169,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Hayvancılık",
       "Livestock",
       true,
-      ["sensor", "goruntu", "tahmin", "karar"],
+      ["goruntu", "tahmin", "robotik", "sensor", "genomik"],
       true,
       "Hassas hayvancılık: hastalığı belirtiden önce görmek, sürüyü tek tek tanımak.",
       "Precision livestock farming: seeing disease before symptoms, knowing animals one by one."),
@@ -180,10 +180,10 @@ const List<YzBaslik> kYzBasliklar = [
       "Sera ve kontrollü ortam",
       "Greenhouse and controlled environment",
       true,
-      ["sensor", "ikiz", "karar", "robotik"],
+      ["robotik"],
       true,
-      "Her değişkenin ölçüldüğü yer: iklim kontrolü, dikey tarım, dijital ikiz.",
-      "Where every variable is measured: climate control, vertical farming, digital twins."),
+      "Her değişkenin ölçüldüğü yer: yapay zekânın yetiştiriciyle yarıştığı sera, dikey tarım, sera robotu.",
+      "Where every variable is measured: the greenhouse where AI competes with growers, vertical farming, a greenhouse robot."),
   YzBaslik(
       14,
       "su-urunleri",
@@ -191,7 +191,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Su ürünleri",
       "Aquaculture and fisheries",
       true,
-      ["sensor", "goruntu", "tahmin"],
+      ["goruntu", "uzaktan"],
       true,
       "Yem, su kalitesi, balık sağlığı ve av takibi.",
       "Feed, water quality, fish health and catch monitoring."),
@@ -202,7 +202,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Ormancılık",
       "Forestry",
       true,
-      ["uzaktan", "goruntu", "tahmin"],
+      ["goruntu", "tahmin", "uzaktan", "karar"],
       true,
       "Yangın erken uyarısı, ağaç sayımı, kaçak kesim tespiti.",
       "Fire early warning, tree counting, detecting illegal logging."),
@@ -224,7 +224,7 @@ const List<YzBaslik> kYzBasliklar = [
       "İklim, risk ve tarım sigortası",
       "Climate, risk and crop insurance",
       true,
-      ["uzaktan", "tahmin", "karar"],
+      ["tahmin", "uzaktan"],
       true,
       "Erken uyarı, hasar tespiti, endeks sigortası.",
       "Early warning, loss assessment, index insurance."),
@@ -235,7 +235,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Danışmanlık ve dil modelleri",
       "Advisory services and language models",
       true,
-      ["dil", "karar"],
+      ["dil"],
       true,
       "Çiftçinin sorusuna cevap veren makine: yayım hizmeti ve sohbet botları.",
       "A machine that answers the farmer: extension services and chatbots."),
@@ -246,7 +246,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Uydu ve uzaktan algılama",
       "Satellites and remote sensing",
       true,
-      ["uzaktan", "goruntu", "veri"],
+      ["goruntu", "tahmin", "uzaktan", "veri"],
       true,
       "Tarımsal yapay zekanın en büyük açık veri kaynağı: Sentinel, Landsat, ticari uydular, İHA.",
       "The largest open data source for agricultural AI: Sentinel, Landsat, commercial satellites, drones."),
@@ -257,7 +257,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Sensörler ve tarımsal nesnelerin interneti",
       "Sensors and agricultural IoT",
       true,
-      ["sensor", "veri"],
+      ["sensor"],
       true,
       "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dâhil.",
       "Measuring devices in the field and the network that links them — rural connectivity included."),
@@ -279,7 +279,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Dünyada durum: bölge bölge",
       "The world, region by region",
       false,
-      ["tahmin", "goruntu", "uzaktan", "robotik", "dil"],
+      ["tahmin", "robotik", "dil"],
       true,
       "AB, ABD, Çin, Hindistan, İsrail, Afrika: kim nerede, hangi ölçekte.",
       "EU, US, China, India, Israel, Africa: who is where, at what scale."),
@@ -290,7 +290,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Türkiye'de durum",
       "Türkiye today",
       false,
-      ["karar", "uzaktan", "veri", "goruntu"],
+      ["goruntu", "tahmin", "uzaktan", "robotik", "karar"],
       true,
       "Ulusal planda tarım var, bakanlık yok; yıllık programın tarımdaki tek yapay zekâ işi, bakanlığın sahadaki izleme sistemleri, TAGEM'in projeleri ve beklemedeki strateji belgesi.",
       "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task for agriculture, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."),
@@ -301,7 +301,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Mevzuat ve politika",
       "Regulation and policy",
       true,
-      ["veri", "karar"],
+      ["veri"],
       true,
       "AB Yapay Zeka Tüzüğü, veri ve makine mevzuatı, uydu izlemesini şart koşan tarım kuralı — ve Türkiye'de yolda olan çerçeve.",
       "The EU AI Act, data and machinery law, the farm rule that requires satellite monitoring — and the framework on its way in Türkiye."),
@@ -312,7 +312,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Türkiye dizini: girişimler, üniversiteler, kamu projeleri",
       "Türkiye directory: start-ups, universities, public projects",
       false,
-      ["goruntu", "tahmin", "robotik", "sensor", "dil", "uzaktan"],
+      ["goruntu", "tahmin", "uzaktan", "robotik", "sensor", "veri"],
       true,
       "Kamunun yapay zekâ sistemleri ve projeleri, TÜBİTAK'ın tarım projeleri, üniversite merkezleri ve girişimler — her biri kaynağıyla.",
       "Public AI systems and projects, TÜBİTAK's agriculture projects, university centres and start-ups — each with its source."),
@@ -323,7 +323,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Riskler ve sınırlar",
       "Risks and limits",
       true,
-      ["veri", "tahmin", "dil"],
+      ["goruntu", "robotik"],
       true,
       "Laboratuvarın dışında düşen model başarısı, dijital uçurum, emek, güvenlik ve enerji — ve Türkiye'nin küçük, yaşlanan işletmeleri.",
       "Model accuracy that falls outside the lab, the digital divide, labour, security and energy — and Türkiye's small, ageing farms."),
@@ -334,7 +334,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Başarısız örnekler ve abartılar",
       "Failures and overstatements",
       true,
-      ["tahmin", "goruntu", "robotik"],
+      ["robotik"],
       true,
       "Yapay zekâ vaadiyle büyüyüp iflas eden şirketler, ticarileşmeyen hasat robotları, yeniden hesaplanan bir FAO rakamı ve hedeflerinin gerisinde kalan bir Türkiye projesi.",
       "Companies that grew on AI promises and went bankrupt, harvesting robots that never reached the market, a recalculated FAO figure and a Turkish project behind its targets."),
@@ -345,7 +345,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Saha hikâyeleri",
       "Stories from the field",
       false,
-      ["goruntu", "sensor", "dil", "robotik"],
+      ["goruntu", "uzaktan", "sensor"],
       true,
       "Teknolojiyi kullanan gerçek üreticiler ve tarlalar — kaynaklı.",
       "Real growers and fields using the technology — with sources."),
@@ -356,18 +356,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Sözlük",
       "Glossary",
       false,
-      [
-        "goruntu",
-        "tahmin",
-        "uzaktan",
-        "robotik",
-        "sensor",
-        "dil",
-        "karar",
-        "ikiz",
-        "veri",
-        "genomik"
-      ],
+      [],
       true,
       "Başlıklarda geçen terimlerin kaynaklı tanımları; aynı tanım metinde terime dokununca balonda açılıyor.",
       "Sourced definitions of the terms used in the headings; the same definition opens in a bubble when a term is tapped in the text."),
@@ -422,7 +411,356 @@ const Map<String, Map<String, String>> kYzTeknoloji = {
   },
   "dil": {'tr': "Dil modelleri", 'en': "Language models"},
   "karar": {'tr': "Karar destek sistemleri", 'en': "Decision support"},
-  "ikiz": {'tr': "Dijital ikiz", 'en': "Digital twin"},
   "veri": {'tr': "Veri platformları", 'en': "Data platforms"},
   "genomik": {'tr': "Genomik ve ıslah", 'en': "Genomics and breeding"},
+};
+
+/// Teknoloji desenleri (karar 57): 'desen_tr', 'desen_en', 'haric_tr', 'haric_en'.
+const Map<String, Map<String, List<String>>> kYzTeknolojiDesen = {
+  "goruntu": {
+    "desen_tr": [
+      "görüntü işleme",
+      "görüntü tanıma",
+      "görüntüden",
+      "görüntüde",
+      "görüntülerde",
+      "görüntülerden",
+      "görüntü veri",
+      "yaprak görüntü",
+      "bilgisayarlı görü",
+      "kamera",
+      "fotoğraf",
+      "multispektral görüntüleme",
+      "görüntüyle",
+      "görüntülük",
+      "optik",
+      "yapraktaki belirti"
+    ],
+    "desen_en": [
+      "image processing",
+      "image recognition",
+      "from images",
+      "in images",
+      "on images",
+      "from an image",
+      "image dataset",
+      "image data set",
+      "leaf images",
+      "computer vision",
+      "camera",
+      "photo",
+      "multispectral imaging",
+      "using images",
+      "image set",
+      "optical",
+      "leaf symptom"
+    ],
+    "haric_tr": ["uydu görüntü", "optik uydu"],
+    "haric_en": ["satellite image", "optical satellite"]
+  },
+  "tahmin": {
+    "desen_tr": ["tahmin", "öngörü model", "erken uyarı"],
+    "desen_en": ["forecast", "predict", "early warning"],
+    "haric_tr": ["tahminen", "=Hava Tahminleri Merkezi"],
+    "haric_en": ["=Medium-Range Weather Forecasts"]
+  },
+  "uzaktan": {
+    "desen_tr": [
+      "uzaktan algılama",
+      "uydu",
+      "=Sentinel",
+      "=Landsat",
+      "=İMECE",
+      "radar"
+    ],
+    "desen_en": [
+      "remote sensing",
+      "satellite",
+      "=Sentinel",
+      "=Landsat",
+      "=İMECE",
+      "radar"
+    ],
+    "haric_tr": ["uydu konum"],
+    "haric_en": ["satellite positioning"]
+  },
+  "robotik": {
+    "desen_tr": ["robot", "otonom", "otomatik dümen", "otomatik yönlendirme"],
+    "desen_en": [
+      "robot",
+      "autonomous",
+      "autonomy",
+      "auto-steer",
+      "automated guidance"
+    ],
+    "haric_tr": ["sohbet robot"],
+    "haric_en": []
+  },
+  "sensor": {
+    "desen_tr": ["sensör", "nesnelerin interneti", "=IoT", "=LoRaWAN"],
+    "desen_en": ["sensor", "internet of things", "=IoT", "=LoRaWAN"],
+    "haric_tr": [],
+    "haric_en": []
+  },
+  "dil": {
+    "desen_tr": [
+      "dil model",
+      "sohbet robot",
+      "büyük dil",
+      "=LLM",
+      "yapay zekâ asistan"
+    ],
+    "desen_en": ["language model", "chatbot", "=LLM", "AI assistant"],
+    "haric_tr": [],
+    "haric_en": []
+  },
+  "karar": {
+    "desen_tr": ["karar destek", "tavsiye"],
+    "desen_en": [
+      "decision support",
+      "decision-support",
+      "recommendation",
+      "advice engine"
+    ],
+    "haric_tr": [],
+    "haric_en": ["=Recommendation of the Council"]
+  },
+  "veri": {
+    "desen_tr": [
+      "veri platform",
+      "açık veri",
+      "veri paylaş",
+      "veri alanı",
+      "veri alanları",
+      "veri sahipliğ",
+      "veri tabanı",
+      "verisine erişim",
+      "veriye erişim",
+      "kayıt sistem",
+      "=Veri Tüzüğü"
+    ],
+    "desen_en": [
+      "data platform",
+      "open data",
+      "data sharing",
+      "data space",
+      "data ownership",
+      "database",
+      "access to the data",
+      "access to data",
+      "registration system",
+      "register",
+      "=Data Act"
+    ],
+    "haric_tr": [],
+    "haric_en": []
+  },
+  "genomik": {
+    "desen_tr": ["genomik", "ıslah", "genetik"],
+    "desen_en": ["genomic", "breeding", "genetic"],
+    "haric_tr": [],
+    "haric_en": []
+  },
+};
+
+/// Teknolojinin asıl konu olduğu başlıklar (karar 57).
+const Map<String, List<int>> kYzTeknolojiAna = {
+  "goruntu": [8],
+  "tahmin": [9, 17],
+  "uzaktan": [19],
+  "robotik": [10],
+  "sensor": [20],
+  "dil": [18],
+  "karar": [],
+  "veri": [21],
+  "genomik": [5],
+};
+
+/// Python eşleştiricisinin her başlıkta saydığı paragraf (ve tablo satırı)
+/// sayısı: {no: {teknoloji: [tr, en]}}. Yalnız eşlik testi için.
+const Map<int, Map<String, List<int>>> kYzTeknolojiIzi = {
+  1: {
+    "goruntu": [3, 3],
+    "tahmin": [3, 3],
+    "uzaktan": [3, 3],
+    "robotik": [2, 2],
+    "sensor": [1, 1],
+    "karar": [1, 1],
+    "veri": [1, 1],
+    "genomik": [1, 1]
+  },
+  2: {
+    "goruntu": [1, 1],
+    "tahmin": [5, 4],
+    "uzaktan": [1, 1],
+    "robotik": [5, 6],
+    "sensor": [2, 2],
+    "dil": [1, 1],
+    "karar": [2, 2],
+    "veri": [1, 1]
+  },
+  3: {
+    "goruntu": [5, 5],
+    "tahmin": [6, 3],
+    "uzaktan": [7, 7],
+    "robotik": [1, 0],
+    "sensor": [1, 1],
+    "dil": [2, 2],
+    "karar": [0, 1],
+    "veri": [3, 4]
+  },
+  4: {
+    "tahmin": [5, 5],
+    "uzaktan": [1, 1],
+    "veri": [0, 1]
+  },
+  5: {
+    "goruntu": [1, 0],
+    "tahmin": [4, 4],
+    "sensor": [2, 2],
+    "genomik": [12, 10]
+  },
+  6: {
+    "tahmin": [2, 2],
+    "uzaktan": [3, 3],
+    "robotik": [1, 1],
+    "sensor": [4, 4],
+    "karar": [2, 2],
+    "veri": [1, 0]
+  },
+  7: {
+    "tahmin": [2, 1],
+    "uzaktan": [2, 2],
+    "sensor": [7, 7],
+    "karar": [2, 2]
+  },
+  8: {
+    "goruntu": [7, 7],
+    "tahmin": [1, 0]
+  },
+  9: {
+    "goruntu": [0, 1],
+    "tahmin": [13, 11],
+    "uzaktan": [8, 7],
+    "veri": [1, 1]
+  },
+  10: {
+    "goruntu": [3, 3],
+    "robotik": [11, 11],
+    "karar": [0, 2]
+  },
+  11: {
+    "goruntu": [4, 4],
+    "sensor": [1, 1]
+  },
+  12: {
+    "goruntu": [2, 2],
+    "tahmin": [2, 2],
+    "robotik": [2, 2],
+    "sensor": [4, 4],
+    "genomik": [8, 8]
+  },
+  13: {
+    "goruntu": [1, 1],
+    "robotik": [3, 3],
+    "sensor": [1, 1]
+  },
+  14: {
+    "goruntu": [2, 2],
+    "tahmin": [2, 1],
+    "uzaktan": [4, 4],
+    "sensor": [1, 1]
+  },
+  15: {
+    "goruntu": [6, 6],
+    "tahmin": [3, 2],
+    "uzaktan": [6, 5],
+    "karar": [2, 2]
+  },
+  16: {
+    "tahmin": [7, 8],
+    "veri": [3, 4]
+  },
+  17: {
+    "tahmin": [7, 6],
+    "uzaktan": [6, 6],
+    "sensor": [1, 1],
+    "veri": [1, 1]
+  },
+  18: {
+    "goruntu": [1, 1],
+    "dil": [6, 6],
+    "karar": [0, 1],
+    "veri": [0, 1]
+  },
+  19: {
+    "goruntu": [4, 3],
+    "tahmin": [2, 2],
+    "uzaktan": [9, 9],
+    "karar": [1, 1],
+    "veri": [2, 2]
+  },
+  20: {
+    "tahmin": [1, 0],
+    "sensor": [5, 6],
+    "veri": [1, 1]
+  },
+  21: {
+    "sensor": [1, 1],
+    "veri": [6, 8]
+  },
+  22: {
+    "tahmin": [3, 2],
+    "robotik": [5, 5],
+    "dil": [2, 2],
+    "veri": [0, 2]
+  },
+  23: {
+    "goruntu": [2, 2],
+    "tahmin": [4, 5],
+    "uzaktan": [7, 7],
+    "robotik": [4, 4],
+    "karar": [2, 3],
+    "veri": [1, 1]
+  },
+  24: {
+    "tahmin": [0, 1],
+    "uzaktan": [1, 1],
+    "robotik": [1, 1],
+    "veri": [3, 3]
+  },
+  25: {
+    "goruntu": [7, 6],
+    "tahmin": [5, 6],
+    "uzaktan": [12, 12],
+    "robotik": [7, 7],
+    "sensor": [9, 9],
+    "dil": [1, 1],
+    "karar": [1, 2],
+    "veri": [2, 2]
+  },
+  26: {
+    "goruntu": [2, 2],
+    "tahmin": [1, 0],
+    "uzaktan": [1, 1],
+    "robotik": [2, 2],
+    "sensor": [1, 1],
+    "veri": [1, 1]
+  },
+  27: {
+    "goruntu": [1, 1],
+    "tahmin": [2, 1],
+    "robotik": [4, 4],
+    "sensor": [1, 1],
+    "karar": [1, 1],
+    "veri": [0, 2]
+  },
+  28: {
+    "goruntu": [2, 2],
+    "tahmin": [2, 1],
+    "uzaktan": [2, 2],
+    "robotik": [1, 1],
+    "sensor": [5, 5],
+    "karar": [0, 1]
+  },
 };

@@ -13,6 +13,7 @@ import 'yz_ortak.dart' show yzDizinTuruAdi;
 import 'yz_parcalar.dart';
 import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
+import 'yz_teknoloji_izi.dart';
 
 /// Bir başlığın sayfası — `/yapay-zeka-dijital-tarim/<adres>` (karar 8).
 ///
@@ -20,9 +21,28 @@ import 'yz_tasarim.dart';
 /// "yazılıyor" durumu (karar 40'ın ruhu: gerçekleşmemiş olan gizlenmiyor,
 /// durumuyla gösteriliyor). Haber alan başlıkta altında kendi haberleri
 /// (karar 32). Güncellik başlık bazında (karar 23).
-class YzBaslikEkrani extends StatelessWidget {
+class YzBaslikEkrani extends StatefulWidget {
   const YzBaslikEkrani({super.key, required this.slug});
   final String slug;
+
+  @override
+  State<YzBaslikEkrani> createState() => _YzBaslikEkraniState();
+}
+
+class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
+  final _vurgu = YzVurguDenetcisi();
+
+  String get slug => widget.slug;
+
+  /// Teknoloji işaretini değiştiren adres (karar 57): `?teknoloji=` aynı
+  /// sayfada açılıp kapanıyor; balondan gelindiyse `?geri=` korunuyor.
+  String _adres(String? teknoloji, String? geri) => Uri(
+        path: yzBaslikPath(slug),
+        queryParameters: {
+          if (teknoloji != null) 'teknoloji': teknoloji,
+          if (geri != null) 'geri': geri,
+        },
+      ).toString().replaceFirst(RegExp(r'\?$'), '');
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +56,14 @@ class YzBaslikEkrani extends StatelessWidget {
 
     // Sözlüğe bir terim balonundan gelindiyse (`?geri=<adres>`) geri ok o
     // başlığa dönüyor; öbür durumlarda bölümün merkez sayfasına.
-    final geri = GoRouter.maybeOf(context) == null
-        ? null
-        : GoRouterState.of(context).uri.queryParameters['geri'];
+    final parametreler = GoRouter.maybeOf(context) == null
+        ? const <String, String>{}
+        : GoRouterState.of(context).uri.queryParameters;
+    final geri = parametreler['geri'];
+    // Merkez sayfada seçilen teknoloji (karar 57): geçtiği yerler işaretli.
+    final vurgu = yzTeknolojiVar(parametreler['teknoloji']) ? parametreler['teknoloji'] : null;
+    final vurguSayisi =
+        vurgu != null && metin != null ? yzTeknolojiSay(metin.metin(en), vurgu, en) : 0;
     final geriAdres = geri != null && kYzBasliklar.any((x) => x.slug == geri)
         ? yzBaslikPath(geri)
         : yzPath;
@@ -71,8 +96,27 @@ class YzBaslikEkrani extends StatelessWidget {
                         ),
                         const SizedBox(height: 14),
                         Wrap(spacing: 6, runSpacing: 6, children: [
-                          for (final t in b.teknoloji) YzTeknolojiCipi(kod: t),
+                          for (final t in b.teknoloji)
+                            YzTeknolojiCipi(
+                              kod: t,
+                              secili: t == vurgu,
+                              onTap: GoRouter.maybeOf(context) == null || metin == null
+                                  ? null
+                                  : () => context.go(_adres(t == vurgu ? null : t, geri)),
+                            ),
                         ]),
+                        if (vurgu != null && metin != null) ...[
+                          const SizedBox(height: 14),
+                          _VurguSeridi(
+                            kod: vurgu,
+                            sayi: vurguSayisi,
+                            en: en,
+                            sonraki: _vurgu.sonraki,
+                            kapat: GoRouter.maybeOf(context) == null
+                                ? null
+                                : () => context.go(_adres(null, geri)),
+                          ),
+                        ],
                         const SizedBox(height: 14),
                         Text(
                           metin != null
@@ -90,7 +134,9 @@ class YzBaslikEkrani extends StatelessWidget {
                               metin: metin.metin(en),
                               en: en,
                               sozluk: !kYzSozluksuzBasliklar.contains(b.no),
-                              bolumNo: b.no)
+                              bolumNo: b.no,
+                              vurgu: vurgu,
+                              vurguDenetcisi: _vurgu)
                         else
                           _Yaziliyor(baslik: b),
                         // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.
@@ -307,3 +353,48 @@ class _Bulunamadi extends StatelessWidget {
     );
   }
 }
+
+
+/// Seçili teknolojinin bu sayfadaki izi (karar 57): kaç yerde geçtiği,
+/// sıradaki işaretli yere gitme ve işareti kaldırma.
+class _VurguSeridi extends StatelessWidget {
+  const _VurguSeridi(
+      {required this.kod, required this.sayi, required this.en, required this.sonraki, this.kapat});
+  final String kod;
+  final int sayi;
+  final bool en;
+  final VoidCallback sonraki;
+  final VoidCallback? kapat;
+
+  @override
+  Widget build(BuildContext context) {
+    final ad = kYzTeknoloji[kod]?[en ? 'en' : 'tr'] ?? kod;
+    final metin = sayi == 0
+        ? (en ? '$ad does not come up on this page.' : '$ad bu sayfada geçmiyor.')
+        : (en
+            ? '$ad comes up in $sayi places on this page; they are marked.'
+            : '$ad bu sayfada $sayi yerde geçiyor; geçtiği yerler işaretli.');
+    return Container(
+      padding: const EdgeInsets.fromLTRB(12, 6, 4, 6),
+      decoration: const BoxDecoration(
+        color: YzRenk.makineAcik,
+        border: Border(left: BorderSide(color: YzRenk.makine, width: 3)),
+      ),
+      child: Row(children: [
+        Expanded(child: Text(metin, style: YzYazi.govde(boy: 15))),
+        if (sayi > 0)
+          TextButton(
+            onPressed: sonraki,
+            child: Text(en ? 'Next ↓' : 'Sonraki ↓', style: YzYazi.veri(boy: 13, renk: YzRenk.makine)),
+          ),
+        if (kapat != null)
+          IconButton(
+            tooltip: en ? 'Remove marking' : 'İşareti kaldır',
+            icon: const Icon(Icons.close_rounded, size: 18, color: YzRenk.makine),
+            onPressed: kapat,
+          ),
+      ]),
+    );
+  }
+}
+

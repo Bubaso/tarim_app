@@ -45,43 +45,249 @@
   "teknoloji": {
     "goruntu": {
       "tr": "Görüntü işleme",
-      "en": "Computer vision"
+      "en": "Computer vision",
+      "desen_tr": [
+        "görüntü işleme",
+        "görüntü tanıma",
+        "görüntüden",
+        "görüntüde",
+        "görüntülerde",
+        "görüntülerden",
+        "görüntü veri",
+        "yaprak görüntü",
+        "bilgisayarlı görü",
+        "kamera",
+        "fotoğraf",
+        "multispektral görüntüleme",
+        "görüntüyle",
+        "görüntülük",
+        "optik",
+        "yapraktaki belirti"
+      ],
+      "desen_en": [
+        "image processing",
+        "image recognition",
+        "from images",
+        "in images",
+        "on images",
+        "from an image",
+        "image dataset",
+        "image data set",
+        "leaf images",
+        "computer vision",
+        "camera",
+        "photo",
+        "multispectral imaging",
+        "using images",
+        "image set",
+        "optical",
+        "leaf symptom"
+      ],
+      "haric_tr": [
+        "uydu görüntü",
+        "optik uydu"
+      ],
+      "haric_en": [
+        "satellite image",
+        "optical satellite"
+      ],
+      "ana": [
+        8
+      ]
     },
     "tahmin": {
       "tr": "Tahmin modelleri",
-      "en": "Predictive models"
+      "en": "Predictive models",
+      "desen_tr": [
+        "tahmin",
+        "öngörü model",
+        "erken uyarı"
+      ],
+      "desen_en": [
+        "forecast",
+        "predict",
+        "early warning"
+      ],
+      "haric_tr": [
+        "tahminen",
+        "=Hava Tahminleri Merkezi"
+      ],
+      "haric_en": [
+        "=Medium-Range Weather Forecasts"
+      ],
+      "ana": [
+        9,
+        17
+      ]
     },
     "uzaktan": {
       "tr": "Uzaktan algılama",
-      "en": "Remote sensing"
+      "en": "Remote sensing",
+      "desen_tr": [
+        "uzaktan algılama",
+        "uydu",
+        "=Sentinel",
+        "=Landsat",
+        "=İMECE",
+        "radar"
+      ],
+      "desen_en": [
+        "remote sensing",
+        "satellite",
+        "=Sentinel",
+        "=Landsat",
+        "=İMECE",
+        "radar"
+      ],
+      "haric_tr": [
+        "uydu konum"
+      ],
+      "haric_en": [
+        "satellite positioning"
+      ],
+      "ana": [
+        19
+      ]
     },
     "robotik": {
       "tr": "Robotik ve otonom sistemler",
-      "en": "Robotics and autonomy"
+      "en": "Robotics and autonomy",
+      "desen_tr": [
+        "robot",
+        "otonom",
+        "otomatik dümen",
+        "otomatik yönlendirme"
+      ],
+      "desen_en": [
+        "robot",
+        "autonomous",
+        "autonomy",
+        "auto-steer",
+        "automated guidance"
+      ],
+      "haric_tr": [
+        "sohbet robot"
+      ],
+      "haric_en": [],
+      "ana": [
+        10
+      ]
     },
     "sensor": {
       "tr": "Sensörler ve nesnelerin interneti",
-      "en": "Sensors and IoT"
+      "en": "Sensors and IoT",
+      "desen_tr": [
+        "sensör",
+        "nesnelerin interneti",
+        "=IoT",
+        "=LoRaWAN"
+      ],
+      "desen_en": [
+        "sensor",
+        "internet of things",
+        "=IoT",
+        "=LoRaWAN"
+      ],
+      "haric_tr": [],
+      "haric_en": [],
+      "ana": [
+        20
+      ]
     },
     "dil": {
       "tr": "Dil modelleri",
-      "en": "Language models"
+      "en": "Language models",
+      "desen_tr": [
+        "dil model",
+        "sohbet robot",
+        "büyük dil",
+        "=LLM",
+        "yapay zekâ asistan"
+      ],
+      "desen_en": [
+        "language model",
+        "chatbot",
+        "=LLM",
+        "AI assistant"
+      ],
+      "haric_tr": [],
+      "haric_en": [],
+      "ana": [
+        18
+      ]
     },
     "karar": {
       "tr": "Karar destek sistemleri",
-      "en": "Decision support"
-    },
-    "ikiz": {
-      "tr": "Dijital ikiz",
-      "en": "Digital twin"
+      "en": "Decision support",
+      "desen_tr": [
+        "karar destek",
+        "tavsiye"
+      ],
+      "desen_en": [
+        "decision support",
+        "decision-support",
+        "recommendation",
+        "advice engine"
+      ],
+      "haric_tr": [],
+      "haric_en": [
+        "=Recommendation of the Council"
+      ],
+      "ana": []
     },
     "veri": {
       "tr": "Veri platformları",
-      "en": "Data platforms"
+      "en": "Data platforms",
+      "desen_tr": [
+        "veri platform",
+        "açık veri",
+        "veri paylaş",
+        "veri alanı",
+        "veri alanları",
+        "veri sahipliğ",
+        "veri tabanı",
+        "verisine erişim",
+        "veriye erişim",
+        "kayıt sistem",
+        "=Veri Tüzüğü"
+      ],
+      "desen_en": [
+        "data platform",
+        "open data",
+        "data sharing",
+        "data space",
+        "data ownership",
+        "database",
+        "access to the data",
+        "access to data",
+        "registration system",
+        "register",
+        "=Data Act"
+      ],
+      "haric_tr": [],
+      "haric_en": [],
+      "ana": [
+        21
+      ]
     },
     "genomik": {
       "tr": "Genomik ve ıslah",
-      "en": "Genomics and breeding"
+      "en": "Genomics and breeding",
+      "desen_tr": [
+        "genomik",
+        "ıslah",
+        "genetik"
+      ],
+      "desen_en": [
+        "genomic",
+        "breeding",
+        "genetic"
+      ],
+      "haric_tr": [],
+      "haric_en": [],
+      "ana": [
+        5
+      ]
     }
   },
   "oto_hedef_tanimi": {
@@ -101,11 +307,10 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "tahmin",
         "goruntu",
+        "tahmin",
         "uzaktan",
-        "robotik",
-        "dil"
+        "robotik"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -117,7 +322,41 @@
         "en": "The summary of all headings: where AI delivers solid results, where it is inconsistent, and what has not been measured in Türkiye."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 3,
+          "tr": 3
+        },
+        "tahmin": {
+          "en": 3,
+          "tr": 3
+        },
+        "uzaktan": {
+          "en": 3,
+          "tr": 3
+        },
+        "robotik": {
+          "en": 2,
+          "tr": 2
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        },
+        "karar": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        },
+        "genomik": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 2,
@@ -129,7 +368,9 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "veri",
+        "tahmin",
+        "robotik",
+        "sensor",
         "karar"
       ],
       "oto_hedefler": [
@@ -141,7 +382,41 @@
         "en": "Three terms used as if interchangeable, which they are not."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 1,
+          "tr": 1
+        },
+        "tahmin": {
+          "en": 4,
+          "tr": 5
+        },
+        "uzaktan": {
+          "en": 1,
+          "tr": 1
+        },
+        "robotik": {
+          "en": 6,
+          "tr": 5
+        },
+        "sensor": {
+          "en": 2,
+          "tr": 2
+        },
+        "dil": {
+          "en": 1,
+          "tr": 1
+        },
+        "karar": {
+          "en": 2,
+          "tr": 2
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 3,
@@ -153,9 +428,11 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "karar",
+        "goruntu",
+        "tahmin",
         "uzaktan",
-        "goruntu"
+        "dil",
+        "veri"
       ],
       "oto_hedefler": [],
       "turkiye": "var",
@@ -164,7 +441,41 @@
         "en": "From expert systems to computer vision, from satellites to language models: turning points and people."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 5,
+          "tr": 5
+        },
+        "tahmin": {
+          "en": 3,
+          "tr": 6
+        },
+        "uzaktan": {
+          "en": 7,
+          "tr": 7
+        },
+        "robotik": {
+          "en": 0,
+          "tr": 1
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        },
+        "dil": {
+          "en": 2,
+          "tr": 2
+        },
+        "karar": {
+          "en": 1,
+          "tr": 0
+        },
+        "veri": {
+          "en": 4,
+          "tr": 3
+        }
+      }
     },
     {
       "no": 4,
@@ -176,10 +487,7 @@
       },
       "surec_sirasi": 1,
       "teknoloji": [
-        "uzaktan",
-        "sensor",
-        "tahmin",
-        "veri"
+        "tahmin"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -192,7 +500,21 @@
         "en": "Soil mapping and land planning: the reach of the global map, its limits at field scale, Türkiye's detailed soil survey."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 5,
+          "tr": 5
+        },
+        "uzaktan": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 1,
+          "tr": 0
+        }
+      }
     },
     {
       "no": 5,
@@ -204,9 +526,9 @@
       },
       "surec_sirasi": 2,
       "teknoloji": [
-        "genomik",
         "tahmin",
-        "goruntu"
+        "sensor",
+        "genomik"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -218,7 +540,25 @@
         "en": "Phenotyping, genomic selection, shortening the breeding cycle."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 0,
+          "tr": 1
+        },
+        "tahmin": {
+          "en": 4,
+          "tr": 4
+        },
+        "sensor": {
+          "en": 2,
+          "tr": 2
+        },
+        "genomik": {
+          "en": 10,
+          "tr": 12
+        }
+      }
     },
     {
       "no": 6,
@@ -230,10 +570,10 @@
       },
       "surec_sirasi": 3,
       "teknoloji": [
-        "karar",
+        "tahmin",
         "uzaktan",
-        "robotik",
-        "sensor"
+        "sensor",
+        "karar"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -245,7 +585,33 @@
         "en": "Ending uniform treatment of a field: variable-rate seed and fertiliser."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 2,
+          "tr": 2
+        },
+        "uzaktan": {
+          "en": 3,
+          "tr": 3
+        },
+        "robotik": {
+          "en": 1,
+          "tr": 1
+        },
+        "sensor": {
+          "en": 4,
+          "tr": 4
+        },
+        "karar": {
+          "en": 2,
+          "tr": 2
+        },
+        "veri": {
+          "en": 0,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 7,
@@ -257,9 +623,8 @@
       },
       "surec_sirasi": 4,
       "teknoloji": [
-        "sensor",
-        "tahmin",
         "uzaktan",
+        "sensor",
         "karar"
       ],
       "oto_hedefler": [
@@ -273,7 +638,25 @@
         "en": "When and how much: irrigation driven by sensors and forecasts."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 1,
+          "tr": 2
+        },
+        "uzaktan": {
+          "en": 2,
+          "tr": 2
+        },
+        "sensor": {
+          "en": 7,
+          "tr": 7
+        },
+        "karar": {
+          "en": 2,
+          "tr": 2
+        }
+      }
     },
     {
       "no": 8,
@@ -285,9 +668,7 @@
       },
       "surec_sirasi": 5,
       "teknoloji": [
-        "goruntu",
-        "robotik",
-        "tahmin"
+        "goruntu"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -299,7 +680,17 @@
         "en": "Seeing weeds, disease and pests — and spraying only there."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 7,
+          "tr": 7
+        },
+        "tahmin": {
+          "en": 0,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 9,
@@ -311,9 +702,8 @@
       },
       "surec_sirasi": 6,
       "teknoloji": [
-        "uzaktan",
         "tahmin",
-        "goruntu"
+        "uzaktan"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -325,7 +715,25 @@
         "en": "Knowing the harvest before it comes: satellites, models and uncertainty."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 1,
+          "tr": 0
+        },
+        "tahmin": {
+          "en": 11,
+          "tr": 13
+        },
+        "uzaktan": {
+          "en": 7,
+          "tr": 8
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 10,
@@ -337,8 +745,8 @@
       },
       "surec_sirasi": 7,
       "teknoloji": [
-        "robotik",
-        "goruntu"
+        "goruntu",
+        "robotik"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -350,7 +758,21 @@
         "en": "Harvest timing and robotic picking — why fruit is the hardest engineering problem."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 3,
+          "tr": 3
+        },
+        "robotik": {
+          "en": 11,
+          "tr": 11
+        },
+        "karar": {
+          "en": 2,
+          "tr": 0
+        }
+      }
     },
     {
       "no": 11,
@@ -362,9 +784,7 @@
       },
       "surec_sirasi": 8,
       "teknoloji": [
-        "goruntu",
-        "sensor",
-        "tahmin"
+        "goruntu"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -376,7 +796,17 @@
         "en": "Keeping produce from being lost after it leaves the field: grading and storage."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 4,
+          "tr": 4
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 12,
@@ -388,10 +818,11 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "sensor",
         "goruntu",
         "tahmin",
-        "karar"
+        "robotik",
+        "sensor",
+        "genomik"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -403,7 +834,29 @@
         "en": "Precision livestock farming: seeing disease before symptoms, knowing animals one by one."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 2,
+          "tr": 2
+        },
+        "tahmin": {
+          "en": 2,
+          "tr": 2
+        },
+        "robotik": {
+          "en": 2,
+          "tr": 2
+        },
+        "sensor": {
+          "en": 4,
+          "tr": 4
+        },
+        "genomik": {
+          "en": 8,
+          "tr": 8
+        }
+      }
     },
     {
       "no": 13,
@@ -415,9 +868,6 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "sensor",
-        "ikiz",
-        "karar",
         "robotik"
       ],
       "oto_hedefler": [
@@ -426,11 +876,25 @@
       ],
       "turkiye": "var",
       "ozet": {
-        "tr": "Her değişkenin ölçüldüğü yer: iklim kontrolü, dikey tarım, dijital ikiz.",
-        "en": "Where every variable is measured: climate control, vertical farming, digital twins."
+        "tr": "Her değişkenin ölçüldüğü yer: yapay zekânın yetiştiriciyle yarıştığı sera, dikey tarım, sera robotu.",
+        "en": "Where every variable is measured: the greenhouse where AI competes with growers, vertical farming, a greenhouse robot."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 1,
+          "tr": 1
+        },
+        "robotik": {
+          "en": 3,
+          "tr": 3
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 14,
@@ -442,9 +906,8 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "sensor",
         "goruntu",
-        "tahmin"
+        "uzaktan"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -456,7 +919,25 @@
         "en": "Feed, water quality, fish health and catch monitoring."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 2,
+          "tr": 2
+        },
+        "tahmin": {
+          "en": 1,
+          "tr": 2
+        },
+        "uzaktan": {
+          "en": 4,
+          "tr": 4
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 15,
@@ -468,9 +949,10 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "uzaktan",
         "goruntu",
-        "tahmin"
+        "tahmin",
+        "uzaktan",
+        "karar"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -483,7 +965,25 @@
         "en": "Fire early warning, tree counting, detecting illegal logging."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 6,
+          "tr": 6
+        },
+        "tahmin": {
+          "en": 2,
+          "tr": 3
+        },
+        "uzaktan": {
+          "en": 5,
+          "tr": 6
+        },
+        "karar": {
+          "en": 2,
+          "tr": 2
+        }
+      }
     },
     {
       "no": 16,
@@ -508,7 +1008,17 @@
         "en": "Price forecasting, demand planning, traceability."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 8,
+          "tr": 7
+        },
+        "veri": {
+          "en": 4,
+          "tr": 3
+        }
+      }
     },
     {
       "no": 17,
@@ -520,9 +1030,8 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "uzaktan",
         "tahmin",
-        "karar"
+        "uzaktan"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -535,7 +1044,25 @@
         "en": "Early warning, loss assessment, index insurance."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 6,
+          "tr": 7
+        },
+        "uzaktan": {
+          "en": 6,
+          "tr": 6
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 18,
@@ -547,8 +1074,7 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "dil",
-        "karar"
+        "dil"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -560,7 +1086,25 @@
         "en": "A machine that answers the farmer: extension services and chatbots."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 1,
+          "tr": 1
+        },
+        "dil": {
+          "en": 6,
+          "tr": 6
+        },
+        "karar": {
+          "en": 1,
+          "tr": 0
+        },
+        "veri": {
+          "en": 1,
+          "tr": 0
+        }
+      }
     },
     {
       "no": 19,
@@ -572,8 +1116,9 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "uzaktan",
         "goruntu",
+        "tahmin",
+        "uzaktan",
         "veri"
       ],
       "oto_hedefler": [
@@ -586,7 +1131,29 @@
         "en": "The largest open data source for agricultural AI: Sentinel, Landsat, commercial satellites, drones."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 3,
+          "tr": 4
+        },
+        "tahmin": {
+          "en": 2,
+          "tr": 2
+        },
+        "uzaktan": {
+          "en": 9,
+          "tr": 9
+        },
+        "karar": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 2,
+          "tr": 2
+        }
+      }
     },
     {
       "no": 20,
@@ -598,8 +1165,7 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "sensor",
-        "veri"
+        "sensor"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -611,7 +1177,21 @@
         "en": "Measuring devices in the field and the network that links them — rural connectivity included."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 0,
+          "tr": 1
+        },
+        "sensor": {
+          "en": 6,
+          "tr": 5
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 21,
@@ -635,7 +1215,17 @@
         "en": "Who owns the data that leaves the field — the farmer, the machinery maker or the platform."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 8,
+          "tr": 6
+        }
+      }
     },
     {
       "no": 22,
@@ -648,8 +1238,6 @@
       "surec_sirasi": null,
       "teknoloji": [
         "tahmin",
-        "goruntu",
-        "uzaktan",
         "robotik",
         "dil"
       ],
@@ -664,7 +1252,25 @@
         "en": "EU, US, China, India, Israel, Africa: who is where, at what scale."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 2,
+          "tr": 3
+        },
+        "robotik": {
+          "en": 5,
+          "tr": 5
+        },
+        "dil": {
+          "en": 2,
+          "tr": 2
+        },
+        "veri": {
+          "en": 2,
+          "tr": 0
+        }
+      }
     },
     {
       "no": 23,
@@ -676,10 +1282,11 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "karar",
+        "goruntu",
+        "tahmin",
         "uzaktan",
-        "veri",
-        "goruntu"
+        "robotik",
+        "karar"
       ],
       "oto_hedefler": [
         "dizin",
@@ -693,7 +1300,33 @@
         "en": "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task for agriculture, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 2,
+          "tr": 2
+        },
+        "tahmin": {
+          "en": 5,
+          "tr": 4
+        },
+        "uzaktan": {
+          "en": 7,
+          "tr": 7
+        },
+        "robotik": {
+          "en": 4,
+          "tr": 4
+        },
+        "karar": {
+          "en": 3,
+          "tr": 2
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 24,
@@ -705,8 +1338,7 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "veri",
-        "karar"
+        "veri"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -718,7 +1350,25 @@
         "en": "The EU AI Act, data and machinery law, the farm rule that requires satellite monitoring — and the framework on its way in Türkiye."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "tahmin": {
+          "en": 1,
+          "tr": 0
+        },
+        "uzaktan": {
+          "en": 1,
+          "tr": 1
+        },
+        "robotik": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 3,
+          "tr": 3
+        }
+      }
     },
     {
       "no": 25,
@@ -732,10 +1382,10 @@
       "teknoloji": [
         "goruntu",
         "tahmin",
+        "uzaktan",
         "robotik",
         "sensor",
-        "dil",
-        "uzaktan"
+        "veri"
       ],
       "oto_hedefler": [
         "dizin",
@@ -747,7 +1397,41 @@
         "en": "Public AI systems and projects, TÜBİTAK's agriculture projects, university centres and start-ups — each with its source."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 6,
+          "tr": 7
+        },
+        "tahmin": {
+          "en": 6,
+          "tr": 5
+        },
+        "uzaktan": {
+          "en": 12,
+          "tr": 12
+        },
+        "robotik": {
+          "en": 7,
+          "tr": 7
+        },
+        "sensor": {
+          "en": 9,
+          "tr": 9
+        },
+        "dil": {
+          "en": 1,
+          "tr": 1
+        },
+        "karar": {
+          "en": 2,
+          "tr": 1
+        },
+        "veri": {
+          "en": 2,
+          "tr": 2
+        }
+      }
     },
     {
       "no": 26,
@@ -759,9 +1443,8 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "veri",
-        "tahmin",
-        "dil"
+        "goruntu",
+        "robotik"
       ],
       "oto_hedefler": [
         "gelisme",
@@ -773,7 +1456,33 @@
         "en": "Model accuracy that falls outside the lab, the digital divide, labour, security and energy — and Türkiye's small, ageing farms."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 2,
+          "tr": 2
+        },
+        "tahmin": {
+          "en": 0,
+          "tr": 1
+        },
+        "uzaktan": {
+          "en": 1,
+          "tr": 1
+        },
+        "robotik": {
+          "en": 2,
+          "tr": 2
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 1,
+          "tr": 1
+        }
+      }
     },
     {
       "no": 27,
@@ -785,8 +1494,6 @@
       },
       "surec_sirasi": null,
       "teknoloji": [
-        "tahmin",
-        "goruntu",
         "robotik"
       ],
       "oto_hedefler": [
@@ -798,7 +1505,33 @@
         "en": "Companies that grew on AI promises and went bankrupt, harvesting robots that never reached the market, a recalculated FAO figure and a Turkish project behind its targets."
       },
       "durum": "yazildi",
-      "haber_alir": true
+      "haber_alir": true,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 1,
+          "tr": 1
+        },
+        "tahmin": {
+          "en": 1,
+          "tr": 2
+        },
+        "robotik": {
+          "en": 4,
+          "tr": 4
+        },
+        "sensor": {
+          "en": 1,
+          "tr": 1
+        },
+        "karar": {
+          "en": 1,
+          "tr": 1
+        },
+        "veri": {
+          "en": 2,
+          "tr": 0
+        }
+      }
     },
     {
       "no": 28,
@@ -811,9 +1544,8 @@
       "surec_sirasi": null,
       "teknoloji": [
         "goruntu",
-        "sensor",
-        "dil",
-        "robotik"
+        "uzaktan",
+        "sensor"
       ],
       "oto_hedefler": [
         "gelisme"
@@ -824,7 +1556,33 @@
         "en": "Real growers and fields using the technology — with sources."
       },
       "durum": "yazildi",
-      "haber_alir": false
+      "haber_alir": false,
+      "teknoloji_izi": {
+        "goruntu": {
+          "en": 2,
+          "tr": 2
+        },
+        "tahmin": {
+          "en": 1,
+          "tr": 2
+        },
+        "uzaktan": {
+          "en": 2,
+          "tr": 2
+        },
+        "robotik": {
+          "en": 1,
+          "tr": 1
+        },
+        "sensor": {
+          "en": 5,
+          "tr": 5
+        },
+        "karar": {
+          "en": 1,
+          "tr": 0
+        }
+      }
     },
     {
       "no": 29,
@@ -835,18 +1593,7 @@
         "en": "Glossary"
       },
       "surec_sirasi": null,
-      "teknoloji": [
-        "goruntu",
-        "tahmin",
-        "uzaktan",
-        "robotik",
-        "sensor",
-        "dil",
-        "karar",
-        "ikiz",
-        "veri",
-        "genomik"
-      ],
+      "teknoloji": [],
       "oto_hedefler": [
         "gelisme"
       ],

@@ -8,6 +8,7 @@ import '../data/yz_sozluk.g.dart';
 
 import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
+import 'yz_teknoloji_izi.dart';
 
 /// Bölüm metinlerinin çizicisi.
 ///
@@ -184,10 +185,51 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
   return TextSpan(style: taban, children: parcalar);
 }
 
+/// Başlık sayfasındaki "sonraki işaretli yer" düğmesinin eli: çizici
+/// işaretlediği her bloğa bir anahtar veriyor, düğme sırayla onlara kaydırıyor.
+class YzVurguDenetcisi {
+  final List<GlobalKey> _anahtarlar = [];
+  int _sira = -1;
+
+  int get sayi => _anahtarlar.length;
+
+  void _kur(List<GlobalKey> anahtarlar) {
+    _anahtarlar
+      ..clear()
+      ..addAll(anahtarlar);
+    _sira = -1;
+  }
+
+  /// Bir sonraki işaretli bloğa kaydırır (sondan sonra başa döner).
+  void sonraki() {
+    if (_anahtarlar.isEmpty) return;
+    for (var deneme = 0; deneme < _anahtarlar.length; deneme++) {
+      _sira = (_sira + 1) % _anahtarlar.length;
+      final c = _anahtarlar[_sira].currentContext;
+      if (c != null) {
+        Scrollable.ensureVisible(c,
+            duration: const Duration(milliseconds: 350), alignment: 0.12);
+        return;
+      }
+    }
+  }
+}
+
 class YzMetinGorunumu extends StatefulWidget {
   const YzMetinGorunumu(
-      {super.key, required this.metin, required this.en, this.sozluk = true, this.bolumNo});
+      {super.key,
+      required this.metin,
+      required this.en,
+      this.sozluk = true,
+      this.bolumNo,
+      this.vurgu,
+      this.vurguDenetcisi});
   final String metin;
+
+  /// Merkez sayfada seçilen teknoloji (karar 57): geçtiği paragraflar ve
+  /// tablo satırları işaretleniyor. Yoksa hiçbir şey işaretlenmiyor.
+  final String? vurgu;
+  final YzVurguDenetcisi? vurguDenetcisi;
 
   /// Tablo başlıkları büyük harfle yazılıyor; Türkçede `i` → `İ` olmalı
   /// (`buyukHarf`), ham `toUpperCase()` "ŞIRKET", "ÜNIVERSITE" üretiyor.
@@ -215,6 +257,10 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   final _onbellek = <bool, List<Widget>>{};
   late List<YzBlok> _bloklar;
   late List<List<YzIsaret>> _isaretler;
+  // Karar 57: seçili teknolojinin geçtiği paragraflar ve tablo satırları.
+  late List<bool> _vurguluParagraf;
+  late List<Set<int>> _vurguluSatir;
+  late List<GlobalKey?> _anahtar;
 
   @override
   void initState() {
@@ -228,9 +274,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     if (eski.metin != widget.metin ||
         eski.en != widget.en ||
         eski.sozluk != widget.sozluk ||
-        eski.bolumNo != widget.bolumNo) {
+        eski.bolumNo != widget.bolumNo ||
+        eski.vurgu != widget.vurgu) {
       _birak();
       _hazirla();
+    } else if (eski.vurguDenetcisi != widget.vurguDenetcisi) {
+      widget.vurguDenetcisi?._kur([for (final a in _anahtar) if (a != null) a]);
     }
   }
 
@@ -246,6 +295,27 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
             ? yzTerimleriBul(b.metin, widget.en, gorulen, sozluk: sozluk)
             : const <YzIsaret>[],
     ];
+    final kod = yzTeknolojiVar(widget.vurgu) ? widget.vurgu! : null;
+    _vurguluParagraf = [
+      for (final b in _bloklar)
+        kod != null &&
+            (b.tur == YzBlokTuru.paragraf || b.tur == YzBlokTuru.ozet) &&
+            yzTeknolojiGeciyor(b.metin, kod, widget.en),
+    ];
+    _vurguluSatir = [
+      for (final b in _bloklar)
+        kod != null && b.tur == YzBlokTuru.tablo
+            ? {
+                for (var r = 0; r < b.satirlar.length; r++)
+                  if (yzTeknolojiGeciyor(yzTabloSatiri(b.satirlar[r]), kod, widget.en)) r,
+              }
+            : <int>{},
+    ];
+    _anahtar = [
+      for (var i = 0; i < _bloklar.length; i++)
+        _vurguluParagraf[i] || _vurguluSatir[i].isNotEmpty ? GlobalKey() : null,
+    ];
+    widget.vurguDenetcisi?._kur([for (final a in _anahtar) if (a != null) a]);
   }
 
   void _birak() {
@@ -319,16 +389,29 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                 child: Text(_bloklar[i].metin, style: YzYazi.baslik(dar ? 21 : 24)),
               ),
             ),
-          YzBlokTuru.paragraf => Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: SelectableText.rich(yzSatirIci(_bloklar[i].metin, govde,
-                  etkilesim: etkilesim, isaretler: _isaretler[i])),
-            ),
+          YzBlokTuru.paragraf => _vurguluParagraf[i]
+              ? Container(
+                  key: _anahtar[i],
+                  margin: const EdgeInsets.only(bottom: 16),
+                  padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
+                  decoration: const BoxDecoration(
+                    color: YzRenk.makineAcik,
+                    border: Border(left: BorderSide(color: YzRenk.makine, width: 3)),
+                  ),
+                  child: SelectableText.rich(yzSatirIci(_bloklar[i].metin, govde,
+                      etkilesim: etkilesim, isaretler: _isaretler[i])),
+                )
+              : Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: SelectableText.rich(yzSatirIci(_bloklar[i].metin, govde,
+                      etkilesim: etkilesim, isaretler: _isaretler[i])),
+                ),
           YzBlokTuru.tablo => Padding(
+              key: _anahtar[i],
               padding: const EdgeInsets.only(top: 4, bottom: 22),
               child: dar
-                  ? _KartTablo(_bloklar[i].satirlar, en)
-                  : _GenisTablo(_bloklar[i].satirlar, en),
+                  ? _KartTablo(_bloklar[i].satirlar, en, vurgulu: _vurguluSatir[i])
+                  : _GenisTablo(_bloklar[i].satirlar, en, vurgulu: _vurguluSatir[i]),
             ),
         },
     ];
@@ -338,9 +421,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
 /// Geniş ekran: gerçek tablo. Başlık satırı künye yazısıyla, satırlar
 /// saç çizgisiyle ayrılıyor.
 class _GenisTablo extends StatelessWidget {
-  const _GenisTablo(this.satirlar, this.en);
+  const _GenisTablo(this.satirlar, this.en, {this.vurgulu = const {}});
   final List<List<String>> satirlar;
   final bool en;
+
+  /// Seçili teknolojinin geçtiği satırlar (satirlar içindeki sıra; 0 başlık).
+  final Set<int> vurgulu;
 
   @override
   Widget build(BuildContext context) {
@@ -370,8 +456,12 @@ class _GenisTablo extends StatelessWidget {
                 ),
             ],
           ),
-          for (final s in govde)
-            TableRow(children: [
+          for (final (r, s) in govde.indexed)
+            TableRow(
+                decoration: vurgulu.contains(r + 1)
+                    ? const BoxDecoration(color: YzRenk.makineAcik)
+                    : null,
+                children: [
               for (var i = 0; i < baslik.length; i++)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(14, 11, 14, 11),
@@ -392,9 +482,10 @@ class _GenisTablo extends StatelessWidget {
 /// Dar ekran: her satır bir kart, sütun adı hücrenin üstünde. Telefonda
 /// yatay kaydırılan bir tablo okunmuyor; satırı dikey okumak doğal.
 class _KartTablo extends StatelessWidget {
-  const _KartTablo(this.satirlar, this.en);
+  const _KartTablo(this.satirlar, this.en, {this.vurgulu = const {}});
   final List<List<String>> satirlar;
   final bool en;
+  final Set<int> vurgulu;
 
   @override
   Widget build(BuildContext context) {
@@ -406,14 +497,20 @@ class _KartTablo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        for (final s in satirlar.skip(1))
+        for (final (r, s) in satirlar.skip(1).indexed)
           Container(
             margin: const EdgeInsets.only(bottom: 10),
             padding: const EdgeInsets.fromLTRB(14, 12, 14, 6),
             decoration: BoxDecoration(
-              color: YzRenk.yuzey,
-              border: Border.all(color: YzRenk.cizgi),
-              borderRadius: BorderRadius.circular(4),
+              color: vurgulu.contains(r + 1) ? YzRenk.makineAcik : YzRenk.yuzey,
+              border: vurgulu.contains(r + 1)
+                  ? const Border(
+                      left: BorderSide(color: YzRenk.makine, width: 3),
+                      top: BorderSide(color: YzRenk.cizgi),
+                      right: BorderSide(color: YzRenk.cizgi),
+                      bottom: BorderSide(color: YzRenk.cizgi))
+                  : Border.all(color: YzRenk.cizgi),
+              borderRadius: vurgulu.contains(r + 1) ? null : BorderRadius.circular(4),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

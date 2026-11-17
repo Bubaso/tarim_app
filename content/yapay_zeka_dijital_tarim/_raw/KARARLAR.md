@@ -170,3 +170,16 @@ referanslar, gerekçeler vs. bulunmamalı." Ayrıntılar soruyla netleşti.
 | # | karar |
 |---|---|
 | 56 | **Metin doğrudan başlar; tekrar eden kalıp yok.** (a) Ayrı özet bloğu yok: özetin içeriği giriş paragrafına yedirilir; §1'in giriş paragrafı merkez sayfada da gösterilir, paylaşım açıklaması da ilk paragraftan. (b) Metinlerde § göndermesi ve başka başlığa işaret eden cümle yok. (c) Başlıklarda "Bu sayfa nasıl güncelleniyor" bölümü yok; güncelleme anlatımı merkez sayfada tek yerde. (d) "Eksik olan ise **…**" kapanış kalıbı yok (55'teki kapanış kalıbını kaldırır); eksik bilgi metnin akışında, her başlıkta farklı söylenir. (e) Hazırlık ilkesi ve gerekçe cümlesi yok; bilginin kaynağını söyleyen atıf kalır (yazar-yıl atıfları dâhil). (f) Okurun gördüğü arayüzde başlık numarası yok (üst etiket, harita karosu, önceki/sonraki, haber satırı, ana sayfa şeridi, paylaşım başlığı); sözlük ve kaynakça numara yerine başlığın kısa adını yazar. Editör paneli numarayı kullanmaya devam eder. `dogrula_bolumler.py` (a)-(d)'yi sınar |
+
+## J · Teknoloji ekseni (17 Kasım 2026)
+
+Kullanıcı: "her başlığın tek bir metni olması saçma. o zaman yukarıdan neden
+teknoloji seçiyoruz." Claude yapıyı savundu (kanıt alana bağlı; 10 × 30
+matris çoğunlukla boş) ve zayıflıkları sıraladı (süzgeç sığ, seçim sayfaya
+taşınmıyor, etiketler elle ve kaba, ayırt ediciliği düşük, teknolojinin
+bütün resmi yok). Kullanıcı: "zayıf taraflar olarak bildirdiğin her şeyi
+çözecek, önerilerinle uyumlu ve ilişkili her türlü iyileştirmeyi yap."
+
+| # | karar |
+|---|---|
+| 57 | **Teknoloji ekseni metinden okunur ve sayfaya taşınır.** (a) Etiketler elle konmuyor: `teknoloji_izi.py` her teknolojinin desenlerini başlık metninde arıyor; iki dilde de en az 2 paragrafta (ya da tablo satırında) geçen teknoloji etiket olur. Dart'taki eşleştirici aynı sayıyı bulmak zorunda (eşlik testi). (b) Merkez sayfada seçilen teknoloji başlığa taşınıyor (`?teknoloji=`): geçtiği yerler işaretli, "Sonraki ↓" ile geziliyor; başlık sayfasındaki teknoloji çipleri de aynı işareti açıp kapıyor. (c) Karolar seçili teknolojinin kaç yerde geçtiğini gösteriyor; teknolojinin asıl konu olduğu başlık ("ana başlık") ayrıca belirgin. (d) "Dijital ikiz" çıktı: hiçbir başlıkta gerçek içeriği yok. (e) Sırada: her kesişim için kısa not ve her teknoloji için alanlar arası durum sayfası |

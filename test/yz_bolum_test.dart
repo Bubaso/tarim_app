@@ -18,6 +18,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dar
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show YzBaslikKarosu, yzPath;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_izi.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -423,10 +424,16 @@ devam ediyor.
         expect(find.textContaining(giris.substring(0, 30), findRichText: true), findsOneWidget);
         expect(find.textContaining('Özet.', findRichText: true), findsNothing);
       }
-      // teknoloji süzgeci
+      // teknoloji süzgeci (karar 57): seçilince kaç başlıkta geçtiği ve
+      // karolarda geçtiği yer sayısı
+      await t.ensureVisible(find.text('Dil modelleri'));
+      await t.pumpAndSettle();
       await t.tap(find.text('Dil modelleri'));
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
+      final dilSayisi = kYzBasliklar.where((b) => b.teknoloji.contains('dil')).length;
+      expect(find.textContaining('Dil modelleri $dilSayisi başlıkta geçiyor'), findsOneWidget);
+      expect(find.textContaining('yerde geçiyor'), findsWidgets);
     });
 
     // Yazılmış her başlık (tablo, uzun satır, § göndermesi ne varsa) ve
@@ -574,6 +581,75 @@ devam ediyor.
     await t.tap(find.byIcon(Icons.arrow_back_rounded));
     await t.pumpAndSettle();
     expect(find.text('MERKEZ'), findsOneWidget, reason: 'geçersiz geri adresi merkeze döner');
+  });
+
+  group('teknoloji izi (karar 57)', () {
+    test('Dart eşleştiricisi Python sayımıyla aynı; etiketler sayımdan çıkıyor', () {
+      for (final b in kYzBasliklar) {
+        final m = kYzMetinler[b.no];
+        if (m == null || {29, 30}.contains(b.no)) continue;
+        final beklenen = <String>[];
+        for (final kod in kYzTeknolojiDesen.keys) {
+          final py = kYzTeknolojiIzi[b.no]?[kod] ?? const [0, 0];
+          final dart = [yzTeknolojiSay(m.tr, kod, false), yzTeknolojiSay(m.en, kod, true)];
+          expect(dart, py, reason: '§${b.no} $kod: Dart ile Python eşleştiricisi ayrıştı');
+          if (dart[0] >= 2 && dart[1] >= 2) beklenen.add(kod);
+        }
+        expect(b.teknoloji, beklenen, reason: '§${b.no}: etiket metinden çıkmıyor');
+      }
+      for (final e in kYzTeknolojiAna.entries) {
+        for (final no in e.value) {
+          expect(yzBaslik(no)!.teknoloji, contains(e.key),
+              reason: '${e.key}: ana başlık §$no bu teknolojiyle etiketli değil');
+        }
+      }
+      expect(yzTeknolojiGeciyor('Bir sohbet robotu yanıtladı.', 'robotik', false), isFalse,
+          reason: 'sohbet robotu robotik değil');
+      expect(yzTeknolojiGeciyor('Bir sohbet robotu yanıtladı.', 'dil', false), isTrue);
+      expect(yzTeknolojiGeciyor('Ürünü uydu görüntüsünden ayırdı.', 'goruntu', false), isFalse,
+          reason: 'uydu görüntüsü uzaktan algılama');
+    });
+
+    testWidgets('başlık sayfası ?teknoloji= ile geçtiği yerleri işaretliyor', (t) async {
+      t.view.physicalSize = const Size(1280, 900);
+      t.view.devicePixelRatio = 1;
+      addTearDown(t.view.reset);
+      final r = GoRouter(
+          initialLocation: '$yzPath/goruntu-isleme-ve-hedefli-ilaclama?teknoloji=goruntu',
+          routes: [
+            GoRoute(path: yzPath, builder: (c, s) => const Scaffold(body: Text('MERKEZ'))),
+            GoRoute(
+                path: '$yzPath/:slug',
+                builder: (c, s) => YzBaslikEkrani(slug: s.pathParameters['slug'] ?? '')),
+          ]);
+      await t.pumpWidget(ProviderScope(
+        overrides: [
+          yzBolumHaberleriProvider.overrideWith((ref, no) async => const <YzHaber>[]),
+          yzDizinEklenenlerProvider.overrideWith((ref) async => const <YzDizinKaydi>[]),
+        ],
+        child: MaterialApp.router(routerConfig: r),
+      ));
+      await t.pumpAndSettle();
+      // Test dili İngilizce: sayı EN metninden.
+      final sayi = kYzTeknolojiIzi[8]!['goruntu']![1];
+      expect(sayi, greaterThan(0));
+      expect(find.textContaining('comes up in $sayi places on this page'), findsOneWidget);
+      await t.tap(find.text('Next ↓'));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      await t.ensureVisible(find.byTooltip('Remove marking'));
+      await t.pumpAndSettle();
+      await t.tap(find.byTooltip('Remove marking'));
+      await t.pumpAndSettle();
+      expect(r.routerDelegate.currentConfiguration.uri.queryParameters.containsKey('teknoloji'),
+          isFalse);
+      expect(find.textContaining('places on this page'), findsNothing);
+      // Geçersiz kod sessizce yok sayılıyor.
+      r.go('$yzPath/goruntu-isleme-ve-hedefli-ilaclama?teknoloji=yok');
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      expect(find.textContaining('places on this page'), findsNothing);
+    });
   });
 
   testWidgets('bilinmeyen adres: bulunamadı, çökmüyor', (t) async {
