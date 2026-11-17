@@ -68,7 +68,7 @@
       "kunye": "Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı",
       "durum": "beklemede",
       "vaat": "24 Kasım 2025 · 2026 bütçesi TBMM Plan ve Bütçe Komisyonu — 'yılın başında' paylaşılacak (bakanlık sitesi)",
-      "hazirlandi_beyani": "4 Haziran 2026 · AI Tomorrow Summit 2026 — 'hazırlandı' (haber aktarımı, nitelik HABER)",
+      "hazirlandi_beyani": "4 Haziran 2026 · AI Tomorrow Summit 2026 — 'hazırladık', 'en kısa zamanda paylaşacağız' (bakanlık sitesi; bkz. tob_2026_ai_tomorrow)",
       "yayim": "16 Kasım 2026 taramasında yayımlanmış metin bulunamadı"
     },
     "trgm_2026_urun_belirleme": {
@@ -195,6 +195,21 @@
         "TÜBİTAK 1711- Yapay Zeka Ekosistem Çağrısı kapsamında desteklenmeye değer bulunmuştur.",
         "01.01.2026 tarihinde başlayan projenin süresi 2 yıl olup, 31.12.2027 tarihinde tamamlanması planlanmaktadır."
       ]
+    },
+    "tob_2026_ai_tomorrow": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 4.06.2026. Bakan Yumaklı: Tarımda yerli ve milli teknoloji hamlesine ilişkin kararlılığımız sürüyor (haber; AI Tomorrow Summit 2026 konuşması).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
+      "dosya": "kaynak_dosyalari/tob_2026_ai_tomorrow_summit_konusma.html",
+      "yayim": "4 Haziran 2026",
+      "_not": "Merkezin bağlı olduğu birim ve yeri sayfada yok; haberlerdeki 'TAGEM bünyesinde' ifadesi bu sayfada geçmiyor — metin birimi yazmaz.",
+      "alinti": [
+        "BAKAN YUMAKLI: “TARIMDA YERLİ VE MİLLİ TEKNOLOJİ HAMLESİNE İLİŞKİN KARARLILIĞIMIZ SÜRÜYOR” 4.06.2026",
+        "Yapay Zekâ Politikaları Derneği (AIPA) tarafından düzenlenen, Anadolu Ajansının global iletişim ortağı olduğu \"AI Tomorrow Summit 2026\" etkinliğinde yaptığı konuşmada",
+        "Bu doğrultuda, Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezini kurduk.",
+        "Tarım ve orman sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı'mızı da hazırladık.",
+        "Bu belgeyi de en kısa zamanda paylaşacağız."
+      ]
     }
   },
   "turkiye": {
@@ -202,8 +217,8 @@
     "_not": "Başlığın konusu Türkiye; karar 5'in 'zorlama' uyarısı burada geçerli değil."
   },
   "_reddedilen": {
-    "tagem_arastirma_merkezi": "TAGEM bünyesinde 'Yapay Zeka ve Dijital Tarım Teknolojileri Araştırma Merkezi' kurulduğu hâlâ yalnız Bakan'ın Haziran 2026 konuşmasının haber aktarımlarından biliniyor; ad haberlerde farklı yazılıyor. Birincil kaynakta olan: Bakan'ın Mayıs 2025'te (bakanlık sitesi) böyle bir enstitüyü kuracaklarını söylemesi — metne PLAN olarak girdi. TAGEM'in Ocak 2026 faaliyet raporu böyle bir merkez saymıyor. Kuruluşu birincil kaynakta doğrulanınca §23 ve §25'e girer.",
     "trakya_kuraklik_tahmini": "Gebze Teknik Üniversitesi ve Kırklareli'deki araştırma enstitüsünün derin öğrenmeyle kuraklık tahmini — yalnız ikincil haber (doğruluk oranları dahil). Kuyrukta; kaynağından okunmadan girmez.",
-    "yangin_karar_destek_bir_hafta": "Orman yangınlarında 'yapay zekâ tabanlı Karar Destek Sistemi ile riskin bir hafta önceden belirlenmesi' Bakan'ın beyanı olarak haberlerde geçiyor; bölümün haber akışında (§15) duruyor, metne birincil kaynak bulununca girer."
+    "yangin_karar_destek_bir_hafta": "Orman yangınlarında 'yapay zekâ tabanlı Karar Destek Sistemi ile riskin bir hafta önceden belirlenmesi' Bakan'ın beyanı olarak haberlerde geçiyor; bölümün haber akışında (§15) duruyor, metne birincil kaynak bulununca girer.",
+    "merkezin_birimi": "Haberler merkezin TAGEM bünyesinde kurulduğunu yazıyor; Bakanlığın Haziran 2026 sayfası birimi ve yeri söylemiyor. Metin bağlı birimi yazmaz."
   }
 }

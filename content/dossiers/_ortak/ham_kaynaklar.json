@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 342,
- "toplam_bayt": 972495663,
+ "dosya_sayisi": 343,
+ "toplam_bayt": 972742425,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -3190,6 +3190,18 @@
     "lisans": "kamu duyurusu",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlık sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_ai_tomorrow_summit_konusma.html",
+   "bayt": 246762,
+   "sha256": "e7a5ec32e186f2ef5f76d9c47be09f4d0cd6c9e9dfacbd030663c762465ef915",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
+    "atif": "Tarım ve Orman Bakanlığı. 4.06.2026. Bakan Yumaklı: Tarımda yerli ve milli teknoloji hamlesine ilişkin kararlılığımız sürüyor (haber; AI Tomorrow Summit 2026 konuşması).",
+    "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi; Bakan'ın konuşmasının bakanlıkça yayımlanan özeti."
    }
   },
   {
