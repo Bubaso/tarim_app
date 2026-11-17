@@ -64,6 +64,12 @@ int _enUzunDesen(YzTerim t, bool en) =>
 bool _harfMi(String metin, int i) =>
     i >= 0 && i < metin.length && _harfVeRakam.hasMatch(metin[i]);
 
+/// Uzunluğu koruyan küçültme (sozluk_uret.py'deki `kucult` ile aynı).
+/// İngilizce metinde de "İMECE" gibi özel adlar var: İ önce i'ye iner, yoksa
+/// `toLowerCase()` onu iki karaktere açar ve konumlar kayar.
+String _kucult(String s, bool en) =>
+    en ? s.replaceAll('İ', 'i').toLowerCase() : kucukHarf(s, false);
+
 /// [metin]de, [gorulen]de olmayan her terimin ilk geçişi. Bulunan terim
 /// [gorulen]e eklenir; sayfa boyunca aynı küme taşınır.
 ///
@@ -74,7 +80,7 @@ bool _harfMi(String metin, int i) =>
 List<YzIsaret> yzTerimleriBul(String metin, bool en, Set<String> gorulen,
     {List<YzTerim> sozluk = kYzSozluk}) {
   if (sozluk.isEmpty || metin.isEmpty) return const [];
-  final kucuk = kucukHarf(metin, en);
+  final kucuk = _kucult(metin, en);
   if (kucuk.length != metin.length) return const [];
   final yasak = <(int, int)>[
     for (final m in _bicim.allMatches(metin)) (m.start, m.end),

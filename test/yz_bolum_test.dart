@@ -207,6 +207,11 @@ devam ediyor.
           'drone | machine learning');
     });
 
+    test('İngilizce metindeki "İ" konumları kaydırmıyor', () {
+      // `toLowerCase()` İ'yi iki karaktere açıyordu; işaret bir harf kayardı.
+      expect(isaretli('İMECE images and machine learning.', en: true), 'machine learning');
+    });
+
     test('adresin sonundaki noktalama ve kapanmamış parantez kırpılıyor', () {
       const m = '(liste sayfası: https://a.org/b?c=1).';
       final a = yzAdresler(m).single;

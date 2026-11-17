@@ -26,7 +26,9 @@ KURALLAR
      üretiliyor (`kaynakca_uret.py`). Künyelerdeki DOI, tarih ve sayfa
      numaraları iki dilin sayı ayrıştırıcısında farklı okunduğu için §30 sayı
      izine değil, üreticinin o anki çıktısına karşı sınanır: kayıtlar
-     değişip kaynakça eski kalırsa DURUR.
+     değişip kaynakça eski kalırsa DURUR. §29 Sözlük de üretiliyor
+     (`sozluk_uret.py`, `sozluk.json`dan); tanımları elle yazıldığı için hem
+     sayı izine hem üreticinin çıktısına karşı sınanır.
 """
 from __future__ import annotations
 
@@ -167,13 +169,15 @@ def sina(no: str, dosyalar: dict[str, Path]) -> None:
         hata(f"§{int(no)}: iki dilin sayıları farklı — yalnız TR {yalniz_tr}, yalnız EN {yalniz_en}")
 
 
-URETILMIS = {"30"}
+URETICI = {"29": "sozluk_uret.py", "30": "kaynakca_uret.py"}
+SAYI_IZI_YOK = {"30"}
 
 
 def sina_uretilmis(no: str, dosyalar: dict[str, Path]) -> None:
-    """§30: dosyalar ve kayıt, üreticinin şimdiki çıktısıyla birebir mi."""
+    """Üretilmiş başlık: dosyalar (ve üretici kayıt da yazıyorsa kayıt),
+    üreticinin şimdiki çıktısıyla birebir mi."""
     import importlib.util
-    spec = importlib.util.spec_from_file_location("kaynakca_uret", BURASI / "kaynakca_uret.py")
+    spec = importlib.util.spec_from_file_location(f"uretici_{no}", BURASI / URETICI[no])
     uretici = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(uretici)
     tr, en, kayit = uretici.uret()
@@ -185,12 +189,13 @@ def sina_uretilmis(no: str, dosyalar: dict[str, Path]) -> None:
         if not re.match(rf"# {int(no)} · \S", ilk):
             hata(f"{yol.name}: başlık satırı '# {int(no)} · …' değil")
         if yol.read_text(encoding="utf-8") != beklenen:
-            hata(f"{yol.name}: kayıtlardan üretilen kaynakçayla aynı değil — kaynakca_uret.py koşturulmalı")
+            hata(f"{yol.name}: üreticinin çıktısıyla aynı değil — {URETICI[no]} koşturulmalı")
         else:
             print(f"  · {yol.name}: üreticinin çıktısıyla birebir")
-    kayit_yolu = BURASI / f"b{no}_kaynaklar.json"
-    if not kayit_yolu.exists() or kayit_yolu.read_text(encoding="utf-8") != kayit:
-        hata(f"b{no}_kaynaklar.json üreticinin çıktısıyla aynı değil — kaynakca_uret.py koşturulmalı")
+    if kayit is not None:
+        kayit_yolu = BURASI / f"b{no}_kaynaklar.json"
+        if not kayit_yolu.exists() or kayit_yolu.read_text(encoding="utf-8") != kayit:
+            hata(f"b{no}_kaynaklar.json üreticinin çıktısıyla aynı değil — {URETICI[no]} koşturulmalı")
 
 
 def main() -> int:
@@ -215,9 +220,9 @@ def main() -> int:
         if set(dosyalar) != {"tr", "en"}:
             hata(f"§{int(no)}: iki dilden biri eksik ({', '.join(dosyalar)}) — karar 7")
         print(f"\n§{int(no)}")
-        if no in URETILMIS:
+        if no in URETICI:
             sina_uretilmis(no, dosyalar)
-        else:
+        if no not in SAYI_IZI_YOK:
             sina(no, dosyalar)
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
