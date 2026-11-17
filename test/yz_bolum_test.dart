@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tarim_app/features/home/data/models/news_article.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
@@ -14,6 +15,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show yzPath;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
@@ -52,10 +54,12 @@ final _haberler = [
   ),
 ];
 
-Widget _sarmala(Widget cocuk, {String dil = 'tr'}) => ProviderScope(
+Widget _sarmala(Widget cocuk, {String dil = 'tr', List<YzDizinKaydi> dizin = const []}) =>
+    ProviderScope(
       overrides: [
         yzBolumHaberleriProvider.overrideWith((ref, no) async =>
             no == null ? _haberler : _haberler.where((h) => h.baslikNo == no).toList()),
+        yzDizinEklenenlerProvider.overrideWith((ref) async => dizin),
       ],
       // Bölüm metni dile göre seçiliyor; varsayılan test dili İngilizce.
       child: MaterialApp(
@@ -466,6 +470,93 @@ devam ediyor.
     await t.pumpAndSettle();
     expect(find.text(kYzAdTr), findsNothing);
     expect(find.byType(SizedBox), findsWidgets);
+  });
+
+  // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar metnin altında;
+  // liste boşsa (ya da veritabanı fonksiyonu yoksa) hiçbir şey çizilmiyor.
+  for (final olcu in const [Size(360, 800), Size(1280, 900)]) {
+    testWidgets('§25 sonradan eklenenler · ${olcu.width.toInt()} piksel', (t) async {
+      t.view.physicalSize = olcu;
+      t.view.devicePixelRatio = 1;
+      addTearDown(t.view.reset);
+      final dizin = [
+        YzDizinKaydi(
+          id: 'd1',
+          ad: 'Örnek Tarım Teknolojileri',
+          tur: 'girisim',
+          eklendi: DateTime(2026, 11, 16),
+          haberId: 'h9',
+          haberBaslik: 'Örnek Tarım Teknolojileri yapay zekâlı sulama uygulamasını tanıttı',
+          haberBaslikEn: 'Örnek Tarım Teknolojileri unveils AI irrigation app',
+          haberTarihi: DateTime(2026, 11, 15),
+        ),
+        YzDizinKaydi(id: 'd2', ad: 'Haberi yayından kalkmış kuruluş', tur: 'diger',
+            eklendi: DateTime(2026, 11, 14)),
+      ];
+      await t.pumpWidget(_sarmala(const YzBaslikEkrani(slug: 'turkiye-dizini'), dizin: dizin));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      expect(find.text('Dizine sonradan eklenenler'), findsOneWidget);
+      expect(find.text('Örnek Tarım Teknolojileri'), findsOneWidget);
+      expect(find.text('GİRİŞİM'), findsOneWidget, reason: 'Türkçe büyük harf');
+      expect(find.textContaining('Haberde: Örnek Tarım'), findsOneWidget);
+      expect(find.text('Haberi yayından kalkmış kuruluş'), findsOneWidget);
+      expect(find.textContaining('Haberde:'), findsOneWidget,
+          reason: 'yayında haberi olmayan kayıt bağlantı çizmez');
+
+      await t.pumpWidget(_sarmala(const YzBaslikEkrani(slug: 'turkiye-dizini'),
+          dil: 'en', dizin: dizin));
+      await t.pumpAndSettle();
+      expect(find.text('Later additions to the directory'), findsOneWidget);
+      expect(find.text('START-UP'), findsOneWidget);
+      expect(find.textContaining('In the news: Örnek Tarım Teknolojileri unveils'), findsOneWidget);
+
+      // Yeni sağlayıcı kapsamı: aynı ProviderScope'un önbelleği taşınmasın.
+      await t.pumpWidget(const SizedBox());
+      await t.pumpWidget(_sarmala(const YzBaslikEkrani(slug: 'turkiye-dizini')));
+      await t.pumpAndSettle();
+      expect(find.text('Dizine sonradan eklenenler'), findsNothing, reason: 'boş liste çizilmez');
+      await t.pumpWidget(const SizedBox());
+      await t.pumpWidget(_sarmala(const YzBaslikEkrani(slug: 'riskler-ve-sinirlar'), dizin: dizin));
+      await t.pumpAndSettle();
+      expect(find.text('Dizine sonradan eklenenler'), findsNothing, reason: 'yalnız §25');
+    });
+  }
+
+  // "Sözlükte aç" sözlüğe `go` ile gidiyor (webde adres değişsin) ve
+  // `?geri=` ile geri oku balonun açıldığı başlığa bağlıyor.
+  testWidgets('sözlükten geri: balonun açıldığı başlığa, yoksa merkeze', (t) async {
+    t.view.physicalSize = const Size(1280, 900);
+    t.view.devicePixelRatio = 1;
+    addTearDown(t.view.reset);
+    Future<GoRouter> kur(String ilk) async {
+      final r = GoRouter(initialLocation: ilk, routes: [
+        GoRoute(path: yzPath, builder: (c, s) => const Scaffold(body: Text('MERKEZ'))),
+        GoRoute(
+            path: '$yzPath/:slug',
+            builder: (c, s) => YzBaslikEkrani(slug: s.pathParameters['slug'] ?? '')),
+      ]);
+      await t.pumpWidget(ProviderScope(
+        overrides: [
+          yzBolumHaberleriProvider.overrideWith((ref, no) async => const <YzHaber>[]),
+          yzDizinEklenenlerProvider.overrideWith((ref) async => const <YzDizinKaydi>[]),
+        ],
+        child: MaterialApp.router(routerConfig: r),
+      ));
+      await t.pumpAndSettle();
+      return r;
+    }
+
+    var r = await kur('$yzPath/sozluk?geri=danismanlik-ve-dil-modelleri');
+    await t.tap(find.byIcon(Icons.arrow_back_rounded));
+    await t.pumpAndSettle();
+    expect(r.routerDelegate.currentConfiguration.uri.path, '$yzPath/danismanlik-ve-dil-modelleri');
+
+    await t.pumpWidget(const SizedBox());
+    r = await kur('$yzPath/sozluk?geri=boyle-bir-baslik-yok');
+    await t.tap(find.byIcon(Icons.arrow_back_rounded));
+    await t.pumpAndSettle();
+    expect(find.text('MERKEZ'), findsOneWidget, reason: 'geçersiz geri adresi merkeze döner');
   });
 
   testWidgets('bilinmeyen adres: bulunamadı, çökmüyor', (t) async {

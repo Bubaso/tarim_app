@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/router/app_router.dart';
 import '../../../core/utils/turkce_metin.dart';
+import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
+import '../yz_providers.dart';
 import 'yz_metin_gorunumu.dart';
+import 'yz_ortak.dart' show yzDizinTuruAdi;
 import 'yz_parcalar.dart';
 import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
@@ -29,10 +34,19 @@ class YzBaslikEkrani extends StatelessWidget {
     final onceki = sira > 0 ? kYzBasliklar[sira - 1] : null;
     final sonraki = sira < kYzBasliklar.length - 1 ? kYzBasliklar[sira + 1] : null;
 
+    // Sözlüğe bir terim balonundan gelindiyse (`?geri=<adres>`) geri ok o
+    // başlığa dönüyor; öbür durumlarda bölümün merkez sayfasına.
+    final geri = GoRouter.maybeOf(context) == null
+        ? null
+        : GoRouterState.of(context).uri.queryParameters['geri'];
+    final geriAdres = geri != null && kYzBasliklar.any((x) => x.slug == geri)
+        ? yzBaslikPath(geri)
+        : yzPath;
+
     return Scaffold(
       backgroundColor: YzRenk.zemin,
       body: Column(children: [
-        const YzUstSerit(geriAdres: yzPath),
+        YzUstSerit(geriAdres: geriAdres),
         Expanded(
           child: LayoutBuilder(builder: (context, kis) {
             final dar = kis.maxWidth < 640;
@@ -79,6 +93,8 @@ class YzBaslikEkrani extends StatelessWidget {
                               bolumNo: b.no)
                         else
                           _Yaziliyor(baslik: b),
+                        // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.
+                        if (b.slug == kYzDizinAdresi) const _DizinEklenenler(),
                         if (b.haberAlir) ...[
                           const SizedBox(height: 30),
                           YzBolumBasligi(en ? 'News under this heading' : 'Bu başlıktaki haberler'),
@@ -95,6 +111,84 @@ class YzBaslikEkrani extends StatelessWidget {
           }),
         ),
       ]),
+    );
+  }
+}
+
+/// §25 Türkiye dizininin adresi — dinamik kısım yalnız bu sayfada.
+const String kYzDizinAdresi = 'turkiye-dizini';
+
+/// §25'in dinamik kısmı (karar 38): haberlerde adı geçen ve editörün
+/// panelde onayladığı kuruluşlar. Liste boşsa — ya da veritabanı fonksiyonu
+/// henüz yoksa — hiçbir şey çizilmiyor.
+class _DizinEklenenler extends ConsumerWidget {
+  const _DizinEklenenler();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final en = yzIsEn(context);
+    final liste = ref.watch(yzDizinEklenenlerProvider).valueOrNull ?? const [];
+    if (liste.isEmpty) return const SizedBox.shrink();
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          YzBolumBasligi(
+            en ? 'Later additions to the directory' : 'Dizine sonradan eklenenler',
+            alt: en
+                ? 'Organisations named in the news and added after an editor\'s approval.'
+                : 'Haberlerde adı geçen ve editör onayından sonra dizine eklenen kuruluşlar.',
+          ),
+          for (final k in liste) _DizinSatiri(kayit: k, en: en),
+        ],
+      ),
+    );
+  }
+}
+
+class _DizinSatiri extends StatelessWidget {
+  const _DizinSatiri({required this.kayit, required this.en});
+  final YzDizinKaydi kayit;
+  final bool en;
+
+  @override
+  Widget build(BuildContext context) {
+    final haber = kayit.haberBasligi(en);
+    final tarih = kayit.haberTarihi ?? kayit.eklendi;
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: YzRenk.cizgi)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 10,
+            runSpacing: 4,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Text(kayit.ad, style: YzYazi.baslik(17)),
+              Text(buyukHarf(yzDizinTuruAdi(kayit.tur, en), en),
+                  style: YzYazi.ustEtiket(renk: YzRenk.makine)),
+            ],
+          ),
+          if (haber != null && kayit.haberId != null) ...[
+            const SizedBox(height: 6),
+            InkWell(
+              onTap: () => context.push(articlePath(kayit.haberId!)),
+              child: Text(
+                '${en ? 'In the news' : 'Haberde'}: $haber'
+                '${tarih != null ? ' · ${yzTarih(tarih.toIso8601String(), en)}' : ''}',
+                style: YzYazi.govde(boy: 15, renk: YzRenk.makine).copyWith(
+                    decoration: TextDecoration.underline,
+                    decorationColor: YzRenk.makine.withValues(alpha: 0.5)),
+              ),
+            ),
+          ],
+        ],
+      ),
     );
   }
 }

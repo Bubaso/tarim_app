@@ -178,7 +178,11 @@ class YzEtkilesim {
 
 /// Terimin balonu: dokunulan yerin altında (ekranın alt kısmındaysa üstünde)
 /// açılan küçük kart. Dışarı dokununca ya da Esc ile kapanıyor.
-Future<void> yzTerimBalonu(BuildContext context, YzTerim terim, Offset konum, bool en) {
+/// [geri]: balonun açıldığı başlığın adresi. "Sözlükte aç" sözlüğe `go` ile
+/// gidiyor — webde adres çubuğu da değişsin, tarayıcının geri tuşu başlığa
+/// dönsün — ve `?geri=` ile sözlük sayfasının geri okunu o başlığa bağlıyor.
+Future<void> yzTerimBalonu(BuildContext context, YzTerim terim, Offset konum, bool en,
+    {String? geri}) {
   final yonlendirici = GoRouter.maybeOf(context);
   return showDialog<void>(
     context: context,
@@ -227,7 +231,10 @@ Future<void> yzTerimBalonu(BuildContext context, YzTerim terim, Offset konum, bo
                       child: TextButton(
                         onPressed: () {
                           Navigator.of(ctx).pop();
-                          yonlendirici?.push(yzBaslikPath('sozluk'));
+                          yonlendirici?.go(Uri(
+                            path: yzBaslikPath('sozluk'),
+                            queryParameters: geri == null ? null : {'geri': geri},
+                          ).toString());
                         },
                         child: Text(en ? 'Open the glossary' : 'Sözlükte aç'),
                       ),

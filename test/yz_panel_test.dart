@@ -106,12 +106,52 @@ final _oneriler = [
   }),
 ];
 
+final _dizinAdayi = YzGuncelleme.fromJson({
+  'id': 'g3',
+  'tur': 'dizin_adayi',
+  'baslik_no': 25,
+  'kaynak': 'haber',
+  'icerik': {
+    'ad': 'Örnek Tarım Teknolojileri',
+    'tur': 'girisim',
+    'kanit': 'Örnek Tarım Teknolojileri yapay zekâ destekli bir sulama '
+        'uygulaması geliştirdi.',
+  },
+  'durum': 'bekliyor',
+  'created_at': '2026-11-16T13:28:00Z',
+});
+
+final _baslikOnerisi = YzGuncelleme.fromJson({
+  'id': 'g5',
+  'tur': 'baslik_onerisi',
+  'kaynak': 'tarama:baslik',
+  'icerik': {
+    'baslik': 'Tarım dronlarının düzenlenmesi',
+    'gerekce': 'Dört haber aynı düzenlemeyi anlatıyor.',
+    'haber_sayisi': 4,
+    'ornekler': ['Birinci dron haberi', 'İkinci dron haberi', 'Üçüncü dron haberi', 'Dördüncü dron haberi'],
+  },
+  'durum': 'bekliyor',
+  'created_at': '2026-11-16T13:29:00Z',
+});
+
+final _dizinde = YzGuncelleme.fromJson({
+  'id': 'g4',
+  'tur': 'dizin_adayi',
+  'baslik_no': 25,
+  'kaynak': 'haber',
+  'icerik': {'ad': 'Onaylı Ajans', 'tur': 'kamu', 'kanit': 'Onaylı Ajans duyurdu.'},
+  'durum': 'onaylandi',
+  'created_at': '2026-11-15T10:00:00Z',
+});
+
 Widget _sarmala(Widget cocuk, {Map<String, dynamic>? tarama}) =>
     ProviderScope(
       overrides: [
         yzEtiketListesiProvider.overrideWith((ref, durum) async =>
             durum == 'aktif' ? [_aktif] : (durum == 'sinirda' ? [_sinirda] : [])),
-        yzKuyrukProvider.overrideWith((ref) async => _oneriler),
+        yzKuyrukProvider.overrideWith((ref) async => [..._oneriler, _dizinAdayi, _baslikOnerisi]),
+        yzDizindeProvider.overrideWith((ref) async => [_dizinde]),
         yzSonTaramaProvider.overrideWith((ref) async => tarama),
         dinleyiciAcikProvider.overrideWith((ref) async => false),
       ],
@@ -162,7 +202,8 @@ void main() {
 
       expect(find.text('Sınırda (1)'), findsOneWidget);
       expect(find.text('Bölümde (1)'), findsOneWidget);
-      expect(find.text('Kuyruk (2)'), findsOneWidget);
+      expect(find.text('Kuyruk (4)'), findsOneWidget);
+      expect(find.text('Dizinde (1)'), findsOneWidget);
       expect(find.textContaining('Aylık kapsamlı tarama zamanı geldi'),
           findsOneWidget);
       expect(find.textContaining('dinleyici kapalı'), findsOneWidget);
@@ -176,15 +217,65 @@ void main() {
       expect(tester.takeException(), isNull);
 
       // Kuyruk: yeni bağlantıların ilk üçü + "… ve 1 bağlantı daha"
-      await tester.tap(find.text('Kuyruk (2)'));
+      await tester.tap(find.text('Kuyruk (4)'));
       await tester.pumpAndSettle();
       expect(find.text('Sayfada yeni bağlantı'), findsOneWidget);
       expect(find.textContaining('ve 1 bağlantı daha'), findsOneWidget);
       expect(find.text('Kaynağı aç'), findsOneWidget,
           reason: 'yalnız adresi olan öneri düğme çizer');
+      await tester.scrollUntilVisible(find.text('Türkiye dizini adayı'), 300,
+          scrollable: find.byType(Scrollable).last);
+      expect(find.text('Türkiye dizini adayı'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('Başlık önerisi'), 300,
+          scrollable: find.byType(Scrollable).last);
+      expect(find.text('Tarım dronlarının düzenlenmesi'), findsOneWidget);
+      expect(find.textContaining('Gerekçe: Dört haber'), findsOneWidget);
+      expect(find.textContaining('Haber: Üçüncü dron'), findsOneWidget);
+      expect(find.textContaining('ve 1 haber daha'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+
+      // Dizinde: onaylı kayıt ve "Dizinden çıkar"
+      await tester.tap(find.text('Dizinde (1)'));
+      await tester.pumpAndSettle();
+      expect(find.text('Onaylı Ajans'), findsOneWidget);
+      expect(find.textContaining('Kamu kurumu'), findsOneWidget);
+      expect(find.text('Dizinden çıkar'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   }
+
+  // Dizin adayının onayı doğrudan okura gidiyor (karar 38): önce sorulmalı;
+  // "Vazgeç" hiçbir şey yazmamalı (yazım denenseydi oturum yokluğu hatası
+  // bildirimi çıkardı).
+  testWidgets('dizin adayı onayı ayrıca soruluyor; vazgeçilince yazılmıyor',
+      (tester) async {
+    tester.view.physicalSize = const Size(1200, 900);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+    await tester.pumpWidget(_sarmala(const YzPanelEkrani()));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Kuyruk (4)'));
+    await tester.pumpAndSettle();
+    // Dizin adayının kartındaki "Onayla" (kart: adı taşıyan en yakın kutu).
+    await tester.scrollUntilVisible(find.text('Örnek Tarım Teknolojileri'), 300,
+        scrollable: find.byType(Scrollable).last);
+    await tester.pumpAndSettle();
+    final kart = find
+        .ancestor(of: find.text('Örnek Tarım Teknolojileri'), matching: find.byType(Container))
+        .first;
+    final onayla = find.descendant(of: kart, matching: find.widgetWithText(FilledButton, 'Onayla'));
+    expect(onayla, findsOneWidget);
+    await tester.ensureVisible(onayla);
+    await tester.pumpAndSettle();
+    await tester.tap(onayla);
+    await tester.pumpAndSettle();
+    expect(find.text('Dizine eklensin mi?'), findsOneWidget);
+    expect(find.textContaining('Örnek Tarım Teknolojileri'), findsWidgets);
+    await tester.tap(find.text('Vazgeç'));
+    await tester.pumpAndSettle();
+    expect(find.text('Dizine eklensin mi?'), findsNothing);
+    expect(find.byType(SnackBar), findsNothing, reason: 'vazgeçince yazım denenmemeli');
+  });
 
   testWidgets('tarama 30 günden yeniyse hatırlatma YOK', (tester) async {
     await tester.pumpWidget(_sarmala(const YzPanelEkrani(), tarama: {

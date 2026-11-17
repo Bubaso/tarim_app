@@ -18,6 +18,16 @@ String yzKaynakAdi(String kaynak) => switch (kaynak) {
       _ => kaynak,
     };
 
+/// Kuruluş türünün okura gösterilen adı (haber hattının seçenekleri;
+/// panelde ve §25'in dinamik listesinde).
+String yzDizinTuruAdi(String? tur, bool en) => switch (tur) {
+      'girisim' => en ? 'Start-up' : 'Girişim',
+      'sirket' => en ? 'Company' : 'Şirket',
+      'universite' => en ? 'University' : 'Üniversite',
+      'kamu' => en ? 'Public body' : 'Kamu kurumu',
+      _ => en ? 'Other' : 'Diğer',
+    };
+
 /// Kuyruk önerisinin türü, okunur biçimde.
 String yzOneriTuru(String tur) => switch (tur) {
       'dizin_adayi' => 'Türkiye dizini adayı',

@@ -15,8 +15,8 @@ Bu yüzden sınıflandırma üç şeye birden bakıyor:
 Beklenen tür ile gelen tür ayrışıyorsa ya da gövde eşiğin altındaysa
 kaynak AÇIK sayılmıyor.
 
-KULLANICI ADRESİ GÖNDERİLMİYOR. Dizideki bazı betikler User-Agent'a
-kullanıcının e-postasını koyuyor; burada genel bir istemci adı var.
+KİMLİK GÖNDERİLMİYOR. User-Agent genel bir istemci adı: kullanıcının
+adresi de, sitenin ya da projenin adı da dış sunuculara gitmez.
 
 Çalıştırma: python3 content/yapay_zeka_dijital_tarim/_raw/erisim_haritasi.py
 """
@@ -31,7 +31,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 KOK = pathlib.Path(__file__).parent
-UA = "tarimportali.net bolum arastirmasi"
+UA = "Mozilla/5.0 (compatible; bolum-taramasi/1.0)"   # genel; proje adı ve adres taşımaz
 ZAMAN_ASIMI = 20
 GOVDE_ESIGI = 2000          # bunun altı kabuk sayılıyor
 

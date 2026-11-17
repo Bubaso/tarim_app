@@ -23,6 +23,17 @@ final yzKuyrukProvider = FutureProvider<List<YzGuncelleme>>((ref) {
   return ref.read(yzDeposuProvider).kuyruk();
 });
 
+/// Panel — dizinde duran (onaylanmış) Türkiye dizini kayıtları; "Dizinde"
+/// sekmesinden tek tıkla çıkarılıyor (karar 38).
+final yzDizindeProvider = FutureProvider<List<YzGuncelleme>>((ref) {
+  return ref.read(yzDeposuProvider).kuyruk(durum: 'onaylandi', tur: 'dizin_adayi');
+});
+
+/// OKUR TARAFI — §25'e onayla eklenen kuruluşlar (karar 38).
+final yzDizinEklenenlerProvider = FutureProvider<List<YzDizinKaydi>>((ref) {
+  return ref.read(yzDeposuProvider).dizinEklenenler();
+});
+
 /// Son kapsamlı tarama (aylık hatırlatma — karar 19).
 final yzSonTaramaProvider = FutureProvider<Map<String, dynamic>?>((ref) {
   return ref.read(yzDeposuProvider).sonKapsamliTarama();
@@ -41,6 +52,8 @@ void yzTazele(WidgetRef ref) {
   ref.invalidate(yzEtiketHaritasiProvider);
   ref.invalidate(yzEtiketListesiProvider);
   ref.invalidate(yzKuyrukProvider);
+  ref.invalidate(yzDizindeProvider);
+  ref.invalidate(yzDizinEklenenlerProvider);
   ref.invalidate(yzSonTaramaProvider);
   ref.invalidate(yzBolumHaberleriProvider);
 }

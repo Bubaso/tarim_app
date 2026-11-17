@@ -13,15 +13,17 @@ import 'yz_ortak.dart';
 /// Panelin "YZ Bölümü" sekmesi — Yapay Zeka ve Dijital Tarım bölümünün
 /// bakımı (karar 47: onay yönetim panelinde kuyruk).
 ///
-/// Üç liste:
+/// Dört liste:
 ///   * Sınırda  — anahtar kelime geçti, ajan kanıt gösteremedi. Tek tıkla
 ///                bölüme alınır (başlık seçtirilir, karar 32).
 ///   * Bölümde  — aktif etiketler. Tek tıkla kaldırılır (karar 33);
 ///                başlığı değiştirilebilir.
-///   * Kuyruk   — taramanın ve hattın önerileri. Onay hiçbir şeyi YAYINA
-///                koymuyor: onaylanan öneri bir sonraki yazım turunun
-///                malzemesi oluyor (karar 17). Bildirim yok, yalnız burası
-///                (karar 20).
+///   * Kuyruk   — taramanın ve hattın önerileri. Onaylanan öneri bir
+///                sonraki yazım turunun malzemesi oluyor (karar 17) — tek
+///                istisna Türkiye dizini adayı: onaylanınca §25'te okura
+///                görünüyor (karar 38), bu yüzden onay ayrıca soruluyor.
+///                Bildirim yok, yalnız burası (karar 20).
+///   * Dizinde  — onaylanmış dizin kayıtları; tek tıkla dizinden çıkarılır.
 /// Üstte son kapsamlı taramanın tarihi; 30 günü geçince hatırlatma
 /// (karar 19) ve taramayı başlatan düğme (dinleyici açıkken).
 class YzPanelEkrani extends ConsumerStatefulWidget {
@@ -68,6 +70,9 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
   }
 
   Future<void> _karar(YzGuncelleme g, {required bool onay}) async {
+    final dizin = g.tur == 'dizin_adayi';
+    // Dizin adayının onayı doğrudan okura gidiyor (karar 38): ayrıca sor.
+    if (onay && dizin && !await _dizinOnayiSor(g)) return;
     setState(() => _islemde.add(g.id));
     final depo = ref.read(yzDeposuProvider);
     final ok = await depo.kuyrukKarari(g.id, onay: onay);
@@ -75,10 +80,35 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
     setState(() => _islemde.remove(g.id));
     _bildir(ok
         ? (onay
-            ? 'Onaylandı — bir sonraki yazım turunun malzemesi.'
-            : 'Reddedildi.')
+            ? (dizin
+                ? 'Onaylandı — §25\'te "Dizine sonradan eklenenler" listesinde.'
+                : 'Onaylandı — bir sonraki yazım turunun malzemesi.')
+            : (g.durum == 'onaylandi' ? 'Dizinden çıkarıldı.' : 'Reddedildi.'))
         : 'Yazılamadı — ${depo.sonHata ?? 'bilinmeyen hata'}');
-    if (ok) ref.invalidate(yzKuyrukProvider);
+    if (ok) yzTazele(ref);
+  }
+
+  Future<bool> _dizinOnayiSor(YzGuncelleme g) async {
+    final evet = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Dizine eklensin mi?'),
+        content: Text(
+          '"${g.baslikMetni}" §25 Türkiye dizininin "Dizine sonradan '
+          'eklenenler" listesinde okura görünecek. Adı ve türü doğru mu?',
+        ),
+        actions: [
+          TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: const Text('Vazgeç')),
+          FilledButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              style: FilledButton.styleFrom(backgroundColor: _renk),
+              child: const Text('Dizine ekle')),
+        ],
+      ),
+    );
+    return evet ?? false;
   }
 
   Future<void> _taramaBaslat() async {
@@ -105,9 +135,10 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
     final aktif =
         ref.watch(yzEtiketListesiProvider('aktif')).valueOrNull ?? const [];
     final kuyruk = ref.watch(yzKuyrukProvider).valueOrNull ?? const [];
+    final dizinde = ref.watch(yzDizindeProvider).valueOrNull ?? const [];
 
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -125,6 +156,7 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
               Tab(height: 42, text: 'Sınırda (${sinirda.length})'),
               Tab(height: 42, text: 'Bölümde (${aktif.length})'),
               Tab(height: 42, text: 'Kuyruk (${kuyruk.length})'),
+              Tab(height: 42, text: 'Dizinde (${dizinde.length})'),
             ],
           ),
           const Divider(height: 1),
@@ -142,6 +174,10 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
                     bos: 'Bölümde henüz haber yok.', kart: _aktifKarti),
                 _liste(kuyruk,
                     bos: 'Onay bekleyen öneri yok.', kart: _oneriKarti),
+                _liste(dizinde,
+                    bos: 'Dizine onayla eklenmiş kuruluş yok. Kuyruktaki '
+                        'dizin adayları onaylanınca burada ve §25\'te görünür.',
+                    kart: _dizindeKarti),
               ]),
             ),
           ),
@@ -353,10 +389,37 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
         ),
       ]);
 
+  /// Onaylanmış dizin kaydı: §25'te okura görünüyor; tek tıkla çıkarılır.
+  Widget _dizindeKarti(YzGuncelleme g) {
+    final i = g.icerik;
+    return _kutu(cocuklar: [
+      _baslik(g.baslikMetni.isEmpty ? '(adsız kayıt)' : g.baslikMetni),
+      _kunye([
+        yzDizinTuruAdi(i['tur'] as String?, false),
+        if (g.olusturuldu != null) 'önerildi ${_tarih(g.olusturuldu!)}',
+        g.kaynak,
+      ]),
+      _kanit(i['kanit'] as String?),
+      Align(
+        alignment: Alignment.centerRight,
+        child: TextButton.icon(
+          onPressed:
+              _islemde.contains(g.id) ? null : () => _karar(g, onay: false),
+          icon: const Icon(Icons.remove_circle_outline_rounded, size: 18),
+          label: const Text('Dizinden çıkar'),
+        ),
+      ),
+    ]);
+  }
+
   Widget _oneriKarti(YzGuncelleme g) {
     final i = g.icerik;
     final yeniBaglantilar = (i['yeni_baglantilar'] is List)
         ? List<String>.from((i['yeni_baglantilar'] as List).map((x) => '$x'))
+        : const <String>[];
+    // Başlık önerisi (karar 10): dayandığı haberler.
+    final ornekler = (i['ornekler'] is List)
+        ? List<String>.from((i['ornekler'] as List).map((x) => '$x'))
         : const <String>[];
     return _kutu(cocuklar: [
       Wrap(spacing: 6, runSpacing: 4, children: [
@@ -372,6 +435,11 @@ class _YzPanelEkraniState extends ConsumerState<YzPanelEkrani> {
         g.kaynak.replaceFirst('tarama:', ''),
       ]),
       _kanit(i['kanit'] as String?),
+      if ((i['gerekce'] ?? '').toString().isNotEmpty)
+        _kunye(['Gerekçe: ${i['gerekce']}']),
+      for (final h in ornekler.take(3)) _kunye(['Haber: $h']),
+      if ((i['haber_sayisi'] as num? ?? ornekler.length) > 3)
+        _kunye(['… ve ${(i['haber_sayisi'] as num? ?? ornekler.length).toInt() - 3} haber daha']),
       for (final b in yeniBaglantilar.take(3))
         _kunye(['Yeni: ${b.split(' | ').last}']),
       if (yeniBaglantilar.length > 3)

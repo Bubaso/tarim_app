@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/utils/turkce_metin.dart';
+import '../data/yz_iskelet.g.dart';
 import '../data/yz_sozluk.g.dart';
 
 import 'yz_sozluk_esle.dart';
@@ -261,13 +262,22 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     super.dispose();
   }
 
+  static String? _baslikAdresi(int? no) {
+    if (no == null) return null;
+    for (final b in kYzBasliklar) {
+      if (b.no == no) return b.slug;
+    }
+    return null;
+  }
+
   YzEtkilesim get _etkilesim => YzEtkilesim(
         tanicilar: _tanicilar,
         baglantiAc: (a) {
           final uri = Uri.tryParse(a);
           if (uri != null) launchUrl(uri, mode: LaunchMode.externalApplication);
         },
-        terimAc: (t, konum) => yzTerimBalonu(context, t, konum, widget.en),
+        terimAc: (t, konum) => yzTerimBalonu(context, t, konum, widget.en,
+            geri: _baslikAdresi(widget.bolumNo)),
       );
 
   @override

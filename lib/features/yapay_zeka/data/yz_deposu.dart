@@ -136,6 +136,50 @@ class YzGuncelleme {
       );
 }
 
+/// §25'e editör onayıyla eklenen bir Türkiye kuruluşu (karar 38). Okur
+/// tarafı kuyruk tablosunu görmüyor; satır `yz_dizin_eklenenler()`
+/// fonksiyonundan geliyor ve yalnız okura açık alanları taşıyor.
+class YzDizinKaydi {
+  const YzDizinKaydi({
+    required this.id,
+    required this.ad,
+    this.tur,
+    this.eklendi,
+    this.haberId,
+    this.haberBaslik,
+    this.haberBaslikEn,
+    this.haberTarihi,
+  });
+
+  final String id;
+  final String ad;
+
+  /// `girisim`, `sirket`, `universite`, `kamu` ya da `diger` (haber hattının
+  /// sorusundaki seçenekler).
+  final String? tur;
+  final DateTime? eklendi;
+
+  /// Kuruluşun adının geçtiği haber — yalnız yayındaysa dolu.
+  final String? haberId;
+  final String? haberBaslik;
+  final String? haberBaslikEn;
+  final DateTime? haberTarihi;
+
+  String? haberBasligi(bool en) =>
+      en && (haberBaslikEn?.trim().isNotEmpty ?? false) ? haberBaslikEn : haberBaslik;
+
+  factory YzDizinKaydi.fromJson(Map<String, dynamic> m) => YzDizinKaydi(
+        id: '${m['id']}',
+        ad: '${m['ad'] ?? ''}'.trim(),
+        tur: m['tur'] as String?,
+        eklendi: DateTime.tryParse('${m['eklendi']}'),
+        haberId: m['haber_id'] as String?,
+        haberBaslik: m['haber_baslik'] as String?,
+        haberBaslikEn: m['haber_baslik_en'] as String?,
+        haberTarihi: DateTime.tryParse('${m['haber_tarih']}'),
+      );
+}
+
 /// Yapay Zeka ve Dijital Tarım bölümünün panel verisi.
 ///
 /// Yazan her metot iki şeyi denetliyor — `HomeRepository.alanlariGuncelle`
@@ -263,17 +307,20 @@ class YzDeposu {
     }
   }
 
-  /// Onay bekleyen güncelleme önerileri, en yeni önce.
+  /// Kuyruktaki öneriler, en yeni önce. Varsayılan: onay bekleyenler.
+  /// [tur] verilirse yalnız o türden (panelin "Dizinde" sekmesi
+  /// onaylanmış `dizin_adayi` satırlarını böyle okuyor).
   Future<List<YzGuncelleme>> kuyruk(
-      {String durum = 'bekliyor', int limit = 300}) async {
+      {String durum = 'bekliyor', String? tur, int limit = 300}) async {
     try {
-      final veri = await _db
+      var sorgu = _db
           .from('bekleyen_guncellemeler')
           .select('id,tur,baslik_no,kaynak,icerik,durum,created_at')
           .eq('bolum', kYzBolumu)
-          .eq('durum', durum)
-          .order('created_at', ascending: false)
-          .limit(limit);
+          .eq('durum', durum);
+      if (tur != null) sorgu = sorgu.eq('tur', tur);
+      final veri =
+          await sorgu.order('created_at', ascending: false).limit(limit);
       return List<Map<String, dynamic>>.from(veri as List)
           .map(YzGuncelleme.fromJson)
           .toList(growable: false);
@@ -283,8 +330,11 @@ class YzDeposu {
     }
   }
 
-  /// Öneriyi onaylar ya da reddeder. Onay hiçbir şeyi YAYINA koymuyor:
-  /// öneri bir sonraki yazım turunun malzemesi oluyor (karar 17).
+  /// Öneriyi onaylar ya da reddeder. Onaylanan öneri bir sonraki yazım
+  /// turunun malzemesi oluyor (karar 17) — TEK İSTİSNA `dizin_adayi`:
+  /// onaylanan kuruluş §25'in "Dizine sonradan eklenenler" listesinde okura
+  /// görünüyor (karar 38). Onaylanmış dizin kaydını reddetmek onu dizinden
+  /// çıkarıyor.
   Future<bool> kuyrukKarari(String id, {required bool onay}) async {
     sonHata = _oturumSorunu();
     if (sonHata != null) return false;
@@ -345,6 +395,24 @@ class YzDeposu {
       ];
     } catch (e) {
       if (kDebugMode) print('YzDeposu.bolumHaberleri: $e');
+      return const [];
+    }
+  }
+
+  /// OKUR TARAFI — §25'in dinamik kısmı (karar 38): editörün onayladığı
+  /// Türkiye dizini kayıtları, en yeni önce. Kuyruk tablosu okura kapalı;
+  /// `yz_dizin_eklenenler()` yalnız okura açık alanları döndürüyor
+  /// (supabase/migrations/20261117120000_yz_dizin_okur.sql). Fonksiyon
+  /// yoksa — göç uygulanmamışsa — liste boş, sayfa bozulmuyor.
+  Future<List<YzDizinKaydi>> dizinEklenenler() async {
+    try {
+      final veri = await _db.rpc('yz_dizin_eklenenler');
+      return [
+        for (final m in List<Map<String, dynamic>>.from(veri as List))
+          if ('${m['ad'] ?? ''}'.trim().isNotEmpty) YzDizinKaydi.fromJson(m),
+      ];
+    } catch (e) {
+      if (kDebugMode) print('YzDeposu.dizinEklenenler: $e');
       return const [];
     }
   }
