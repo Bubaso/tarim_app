@@ -1179,6 +1179,65 @@ kapanış, güncelleme paragrafı) ve §30 (iki dil) gözle görüldü. Konsolda
 tek hata `rpc/yz_dizin_eklenenler` 404'ü: göç uygulanmadığı için beklenen,
 liste boş kalıyor.
 
+## Tur 11 — ÜSLUP, TEKNOLOJİ EKSENİ, GRAFİK, GÖRSEL VE ETKİLEŞİM · 17-18 Kasım 2026
+
+Kullanıcının üç isteği: metinler doğrudan başlasın ve iç atıf, gerekçe,
+özet bloğu taşımasın (karar 56); yukarıdan seçilen teknoloji başlığın
+okunuşunu değiştirsin (karar 57); metinlere olabildiğince çok görsel,
+modern grafik ve etkileşim (karar 58).
+
+### 1 · Üslup (karar 56) — aa7058c
+Özet bölümleri metne yedirildi; §NN iç atıfları, güncelleme paragrafları,
+"Eksik olan ise" gibi tekrar eden kalıplar kalktı. Doğrulayıcı kural 8
+bunları yakalıyor; `dogrula_tarama.py` kural 6 güncelleme paragrafının
+yokluğunu sınıyor.
+
+### 2 · Teknoloji ekseni (karar 57) — 0b4100a, fc12706, 14c5b56
+Etiketler metinden türüyor (`teknoloji_izi.py`, eşik 2 paragraf, iki dilde;
+Dart eşleştiricisiyle eşlik testi). `?teknoloji=` ile başlık o teknolojinin
+geçtiği paragraflar ve tablo satırları işaretli açılıyor, "sonraki ↓" ile
+geziliyor. 9 teknoloji sayfası (`teknolojiler/`, kaynakları `tek_<kod>_kaynaklar.json`),
+74 kesişim notu, ana sayfada teknoloji × başlık ısı haritası, başlıklarda
+içindekiler.
+
+### 3 · Rakamdan kaynağa (karar 58) — 92d62c3
+1674/1674 kalın rakam kaynağına bağlı (`rakam_kaynaklari.py`); dokununca
+künye, belgeden birebir alıntı ve bağlantı.
+
+### 4 · Grafikler (karar 58) — 12f2c2c
+Envanter 54 öneri; 47'si yayımlanıyor (`grafikler.json`,
+`grafik_donustur.py`). Tabloyu birebir tekrar eden beşi ve cümleye bir şey
+katmayan ikisi atlandı (KARARLAR K). Kural 11 başlık, açıklama, eksen ve
+etiket rakamlarını da kayıtlara karşı sınıyor. Yeni çizim: küçük çoklu,
+sayı kareleri, 100'e tamamlanan pay, referans işareti, öngörü tonu,
+iki şeritli zaman çizelgesi.
+
+### 5 · Görseller (karar 58) — 69e29ec
+Aday taraması 28 başlıkta 83 aday (kota kesintisinde yarım kalan parçalar
+tamamlandı). 73 görsel yayımlanıyor (`gorseller.json`,
+`web/yz/gorsel/`, 13 MB). Akış: `gorsel_isle.py <aday klasörü>` →
+`gorsel_al.py` (indirme, WebP) ya da `gorsel_kirp.py` + `pdf_sayfa.swift`
+(makale PDF'indeki şekli kırpma; altı şekil). robots.txt RFC 9309'a göre
+okunuyor (4xx dosya yok sayılır; 429, 5xx ve ağ hatasında alınmaz);
+Wikimedia Commons'tan 1280 piksellik küçük resim alınıyor (özgün dosyada
+hız sınırı). Alınmayanlar: grafiğimizin ya da tablonun aynısı olan yedi
+kaynak grafiği, iki kapak, iki logo. §27 için izinli ve bilgi taşıyan
+görsel bulunamadı (Commons'ta yalnız logolar); başlıkta iki grafik var.
+Künyeler görselin ne olduğu; kaynak satırındaki iç notlar ("PMC kopyası")
+okura gitmiyor. Görsel kartı görselin tamamını gösteriyor (şekil ve haritada
+kenar kesilmez), dokununca yakınlaştırılabilir açılıyor.
+
+### 6 · Sınama ve önizleme
+`flutter test test/yz_bolum_test.dart test/yz_panel_test.dart test/yz_grafik_test.dart`: 145 geçti (47 grafik ve 73 görsel kartı 360 ve 1280 pikselde, iki dilde). Önizleme worktree'de (bayrak yalnız orada) derlendi:
+`build/yz_onizleme`, `yz-onizleme` (8132).
+
+### Açık kalanlar
+- §25 Türkiye haritası (karar 58 etkileşim listesinde): dizindeki
+  üniversitelerin çoğunun ili kayıtlarda yok; kaynaklı konum turu
+  gerekiyor.
+- §7 tablosundaki "Nitelik" sütunu sorusu kullanıcıda.
+- `genel-user-agent` dalı (9bfcde3) birleştirilmedi.
+
 ## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
 
 1. **Supabase göçü:** `supabase/migrations/20261117120000_yz_dizin_okur.sql`
@@ -1187,7 +1246,7 @@ liste boş kalıyor.
    `--ozet`; yeni "kapali" satırı varsa adres düzeltilir.
 3. **Açılış:** `yayin.json` → `"okura_acik": true`; `python3 -I
    dart_uret.py` (30/30'u sınar, eksik varsa durur). Doğrulayıcılar ve
-   `flutter test test/yz_bolum_test.dart test/yz_panel_test.dart`.
+   `flutter test test/yz_bolum_test.dart test/yz_panel_test.dart test/yz_grafik_test.dart`.
 4. **Dağıtım:** `./deploy.sh --hosting` (fonksiyon değişmedi; sürüm ve
    durum bekçileri koşuyor). Bayrak açıkken paylaşım kabukları da
    üretiliyor.
