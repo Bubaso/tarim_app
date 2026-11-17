@@ -1,0 +1,2109 @@
+
+<!DOCTYPE html >
+<html lang="tr" dir="ltr">
+    <head><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta name="GENERATOR" content="Microsoft SharePoint" /><meta http-equiv="Content-type" content="text/html; charset=utf-8" /><meta http-equiv="Expires" content="0" /><title>
+	Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi
+</title>
+        <link id="CssLink-224ed86023034d24aaa8510277d0b6dc" rel="stylesheet" type="text/css" href="/_layouts/15/1055/styles/Themable/corev15.css?rev=gc4DA1x61F9NyAlKLztx4A%3D%3DTAG0"/>
+<style id="SPThemeHideForms" type="text/css">body {opacity:0 !important}</style>
+        <script type="text/javascript">// <![CDATA[ 
+
+var g_SPOffSwitches={};
+// ]]>
+</script>
+<script type="text/javascript" src="/_layouts/15/1055/initstrings.js?rev=eu93auIfi2sGOOHA8d5e8Q%3D%3DTAG0"></script>
+<script type="text/javascript" src="/_layouts/15/init.js?rev=DYE3cedRmoawSt01VBdEbg%3D%3DTAG0"></script>
+<script type="text/javascript" src="/_layouts/15/theming.js?rev=1ynWt6nLEOEdBs3AwvIoMw%3D%3DTAG0"></script>
+<script type="text/javascript" src="/ScriptResource.axd?d=NJmAwtEo3Ipnlaxl6CMhvvz_uoNZwycflM7yBEg8ErMz901BW8tGnR1Td_XaePZD4R1u8n6pRFnvUzuG8npzw1C64VxYpE82P_iJufmwh8QlHE0XQMY4NC6O2331Za8dU2mYlIbvtlTgGPm5yvo4FEKynZvYyKyCOR5pz7yq0f01&amp;t=2a9d95e3"></script>
+<script type="text/javascript" src="/_layouts/15/blank.js?rev=E5awR%2Bfykt6gXvqtGE19XA%3D%3DTAG0"></script>
+<script type="text/javascript" src="/ScriptResource.axd?d=dwY9oWetJoJoVpgL6Zq8OIwzaeCFxaaq0plwbXNdfhDzOTx4_8Byvzsis-XvEZ06fJIGTGAH0r7G9QRhwn_k0DgVMeTRdeov2lQ9KZSnI4vhcs4ONXMe8Fsou8gxfnaMN2A1fMQ1QDaHjmAcBnu2TOj1t6jSmq1LwROGBIQuav01&amp;t=2a9d95e3"></script>
+<script type="text/javascript">RegisterSod("require.js", "\u002f_layouts\u002f15\u002frequire.js?rev=bv3fWJhk0uFGpVwBxnZKNQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("strings.js", "\u002f_layouts\u002f15\u002f1055\u002fstrings.js?rev=TR6j3AsLy64CyCJwcdagjQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.res.resx", "\u002f_layouts\u002f15\u002f1055\u002fsp.res.js?rev=ylUi69B\u00252BXadKQIgGXY2PkQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.runtime.js", "\u002f_layouts\u002f15\u002fsp.runtime.js?rev=gn1bgwGnSSrUbvO1caHCZQ\u00253D\u00253DTAG0");RegisterSodDep("sp.runtime.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("sp.js", "\u002f_layouts\u002f15\u002fsp.js?rev=PMf7njZbc8Nm3GKFDpwANA\u00253D\u00253DTAG0");RegisterSodDep("sp.js", "sp.runtime.js");RegisterSodDep("sp.js", "sp.ui.dialog.js");RegisterSodDep("sp.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("sp.init.js", "\u002f_layouts\u002f15\u002fsp.init.js?rev=KQnMQPWHD\u00252BSGM95KBVXUJg\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.ui.dialog.js", "\u002f_layouts\u002f15\u002fsp.ui.dialog.js?rev=1z5KO1B3h6J\u00252B\u00252FkJjbDQCbg\u00253D\u00253DTAG0");RegisterSodDep("sp.ui.dialog.js", "sp.init.js");RegisterSodDep("sp.ui.dialog.js", "sp.res.resx");</script>
+<script type="text/javascript">RegisterSod("core.js", "\u002f_layouts\u002f15\u002fcore.js?rev=vtdjq\u00252FlvuyzKJJob1Dc1SQ\u00253D\u00253DTAG0");RegisterSodDep("core.js", "strings.js");</script>
+<script type="text/javascript">RegisterSod("menu.js", "\u002f_layouts\u002f15\u002fmenu.js?rev=2M5kK3FkZDlKYPrDGZ2yNQ\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("mQuery.js", "\u002f_layouts\u002f15\u002fmquery.js?rev=YiFSlddzACF6APr5AV8JLA\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("callout.js", "\u002f_layouts\u002f15\u002fcallout.js?rev=dhdk00o\u00252BsgeT\u00252BsAiJby49w\u00253D\u00253DTAG0");RegisterSodDep("callout.js", "strings.js");RegisterSodDep("callout.js", "mQuery.js");RegisterSodDep("callout.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("sp.core.js", "\u002f_layouts\u002f15\u002fsp.core.js?rev=gUVctsjfaq\u00252F1h8zQ6UNkFw\u00253D\u00253DTAG0");RegisterSodDep("sp.core.js", "strings.js");RegisterSodDep("sp.core.js", "sp.init.js");RegisterSodDep("sp.core.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("clienttemplates.js", "\u002f_layouts\u002f15\u002fclienttemplates.js?rev=pY197cLBjyA9E5D15QUTVw\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sharing.js", "\u002f_layouts\u002f15\u002fsharing.js?rev=hJGnqDBFlr\u00252FbOXAgOAhAyw\u00253D\u00253DTAG0");RegisterSodDep("sharing.js", "strings.js");RegisterSodDep("sharing.js", "mQuery.js");RegisterSodDep("sharing.js", "clienttemplates.js");RegisterSodDep("sharing.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("suitelinks.js", "\u002f_layouts\u002f15\u002fsuitelinks.js?rev=mqZnNbQIqD4p1KH9a6sGog\u00253D\u00253DTAG0");RegisterSodDep("suitelinks.js", "strings.js");RegisterSodDep("suitelinks.js", "core.js");</script>
+<script type="text/javascript">RegisterSod("userprofile", "\u002f_layouts\u002f15\u002fsp.userprofiles.js?rev=J0M1pzLkfDXcJflabMvTYA\u00253D\u00253DTAG0");RegisterSodDep("userprofile", "sp.runtime.js");</script>
+<script type="text/javascript">RegisterSod("followingcommon.js", "\u002f_layouts\u002f15\u002ffollowingcommon.js?rev=oTJm5M3M5tEQNaPADF2qAw\u00253D\u00253DTAG0");RegisterSodDep("followingcommon.js", "strings.js");RegisterSodDep("followingcommon.js", "sp.js");RegisterSodDep("followingcommon.js", "userprofile");RegisterSodDep("followingcommon.js", "core.js");RegisterSodDep("followingcommon.js", "mQuery.js");</script>
+<script type="text/javascript">RegisterSod("profilebrowserscriptres.resx", "\u002f_layouts\u002f15\u002f1055\u002fprofilebrowserscriptres.js?rev=gKOqOF4sJazOiuxO8wWpQA\u00253D\u00253DTAG0");</script>
+<script type="text/javascript">RegisterSod("sp.ui.mysitecommon.js", "\u002f_layouts\u002f15\u002fsp.ui.mysitecommon.js?rev=pj3X\u00252BVborHNas1qYiOC1fw\u00253D\u00253DTAG0");RegisterSodDep("sp.ui.mysitecommon.js", "sp.init.js");RegisterSodDep("sp.ui.mysitecommon.js", "sp.runtime.js");RegisterSodDep("sp.ui.mysitecommon.js", "userprofile");RegisterSodDep("sp.ui.mysitecommon.js", "profilebrowserscriptres.resx");</script>
+<script type="text/javascript">RegisterSod("browserScript", "\u002f_layouts\u002f15\u002fie55up.js?rev=4Cv6YDu1NGxy3Y\u00252FwLKDRtw\u00253D\u00253DTAG0");RegisterSodDep("browserScript", "strings.js");</script>
+<script type="text/javascript">RegisterSod("inplview", "\u002f_layouts\u002f15\u002finplview.js?rev=ApSfwlQx8y\u00252BHO0akuk0N5Q\u00253D\u00253DTAG0");RegisterSodDep("inplview", "strings.js");RegisterSodDep("inplview", "core.js");RegisterSodDep("inplview", "clienttemplates.js");RegisterSodDep("inplview", "sp.js");</script>
+<link type="text/xml" rel="alternate" href="/zmmae/_vti_bin/spsdisco.aspx" />
+            
+            
+            <link rel="canonical" href="https://arastirma.tarimorman.gov.tr:443/zmmae/Sayfalar/Detay.aspx?TermStoreId=368e785b-af33-487d-a98d-c11d5495130b&amp;TermSetId=77ae4fba-c85a-484a-bc09-499ea14f134d&amp;TermId=44b2ed5a-917d-46dd-a1c1-5fea50069eb3&amp;UrlSuffix=1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi" />
+            
+            
+        <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <script src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/js/jquery.min.js">//<![CDATA[
+      
+
+
+              
+    
+        //]]></script>
+        <link rel="shortcut icon" href="https://www.tarimorman.gov.tr/Style Library/TarimOrmanUI/images/favicons/favicon.ico" /><link rel="stylesheet" href="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/css/bakanlik.css" /><link rel="stylesheet" href="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/css/ms.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /><link rel="stylesheet" href="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/css/owl.carousel.css" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></head>
+    <body class="bg-light" onhashchange="if (typeof(_spBodyOnHashChange) != 'undefined') _spBodyOnHashChange();"><form method="post" action="./Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi?TermStoreId=368e785b-af33-487d-a98d-c11d5495130b&amp;TermSetId=77ae4fba-c85a-484a-bc09-499ea14f134d&amp;TermId=44b2ed5a-917d-46dd-a1c1-5fea50069eb3&amp;UrlSuffix=1063%2fYapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="_wpcmWpid" id="_wpcmWpid" value="" />
+<input type="hidden" name="wpcmVal" id="wpcmVal" value="" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="noDigest" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_ExitingDesignMode" id="MSOSPWebPartManager_ExitingDesignMode" value="false" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="_wpSelected" id="_wpSelected" value="" />
+<input type="hidden" name="_wzSelected" id="_wzSelected" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="MSOSPWebPartManager_EndWebPartEditing" id="MSOSPWebPartManager_EndWebPartEditing" value="false" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=pynGkmcFUV13He1Qd6_TZJpMNdc8gh28iQwIBW1jY-XhszWDd3Q6kkXVkzBn-Xo_-bGXiDl4eY4bg-Fd7dKvsA2&amp;t=638628315619783110" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var MSOWebPartPageFormName = 'aspnetForm';
+var g_presenceEnabled = true;
+var g_wsaEnabled = false;
+
+var g_correlationId = '17a94fa2-7281-50b4-d7a1-ee94b751918b';
+var g_wsaQoSEnabled = false;
+var g_wsaQoSDataPoints = [];
+var g_wsaRUMEnabled = false;
+var g_wsaLCID = 1055;
+var g_wsaListTemplateId = 850;
+var g_wsaSiteTemplateId = 'STS#0';
+var _spPageContextInfo={"webServerRelativeUrl":"/zmmae","webAbsoluteUrl":"https://arastirma.tarimorman.gov.tr/zmmae","viewId":"","listId":"{1a14a64c-85d1-4d14-abdd-583e5de3d774}","listPermsMask":{"High":16,"Low":196705},"listUrl":"/zmmae/Sayfalar","listTitle":"Sayfalar","listBaseTemplate":850,"viewOnlyExperienceEnabled":false,"blockDownloadsExperienceEnabled":false,"idleSessionSignOutEnabled":false,"cdnPrefix":"","siteAbsoluteUrl":"https://arastirma.tarimorman.gov.tr","siteId":"{42616a01-0392-434d-b5c7-8d1561636b33}","showNGSCDialogForSyncOnTS":false,"supportPoundStorePath":true,"supportPercentStorePath":true,"siteSubscriptionId":null,"CustomMarkupInCalculatedFieldDisabled":true,"AllowCustomMarkupInCalculatedField":false,"peoplePickerAutoSearchDelayMilliseconds":0,"peoplePickerRequireExplicitSearch":false,"isSPO":false,"farmLabel":null,"serverRequestPath":"/zmmae/Sayfalar/Detay.aspx","layoutsUrl":"_layouts/15","webId":"{7e5ee954-375f-46b0-8131-b2ec23bd64ff}","webTitle":"Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü","webTemplate":"1","webTemplateConfiguration":"STS#0","webDescription":"","tenantAppVersion":"0","isAppWeb":false,"webLogoUrl":"_layouts/15/images/siteicon.png","webLanguage":1055,"currentLanguage":1055,"currentUICultureName":"tr-TR","currentCultureName":"tr-TR","currentCultureLCID":1055,"spDocIntelligence":{"isEnabled":false,"isDocSummarizeEnabled":false,"isDocTranslateEnabled":false},"env":null,"nid":0,"fid":0,"serverTime":"2026-11-17T07:24:31.1466200Z","siteClientTag":"12598$$16.0.20326.20190","crossDomainPhotosEnabled":false,"openInClient":false,"Has2019Era":true,"webUIVersion":15,"webPermMasks":{"High":16,"Low":196705},"pageListId":"{1a14a64c-85d1-4d14-abdd-583e5de3d774}","pageItemId":97,"pagePermsMask":{"High":16,"Low":196705},"pagePersonalizationScope":1,"userEmail":"","userId":0,"userLoginName":null,"userDisplayName":null,"isAnonymousUser":true,"isAnonymousGuestUser":false,"isEmailAuthenticationGuestUser":false,"isExternalGuestUser":false,"sideBysideToken":"","systemUserKey":null,"alertsEnabled":true,"siteServerRelativeUrl":"/","allowSilverlightPrompt":"True","themeCacheToken":"/zmmae::18:","themedCssFolderUrl":null,"themedImageFileNames":null,"modernThemingEnabled":true,"isSiteAdmin":false,"ExpFeatures":[480216468,1884350801,1158731092,62197791,538521105,335811073,4194306,34614301,268500996,-1946025984,28445328,-2147475455,134291456,65544,288,950272,1282,808326148,134217873,0,0,-1073217536,545285252,18350656,-467402752,6291457,-2147483644,1074794496,-1728053184,1845537108,622628,4102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"IsHybridEnabled":false,"SPOnPremFlights":[1737243,1635110,1608625,1615140,1574820,1551268,1554278,1536594,1451530,1437361,1293572,1281075,1266854,1262861,1263396,1261158,1245315,1242554,1241972,1232868,1227765,1225014,1220075,1218539,1175952,1174945,1165662,1159162,1149960,1149522,1113916,1111397,1101858,1099085,1086764,1080816,1079075,1075954,1073830,1073759,95255,1062921,1055593,1052809,1043614,1041859,1040063,1039112,1036486,1035189,1033993,1030381,1030382,1030364,1030362,1029854,1029586,1029565,1029556,1029555,1028671,1025113,1021288,1021275,1021274,1021272,1020637,1020043,1018275,1018016,1012433,1011886,1010592,1009740,1009585,1008744,1007603,1004459,1003886,1002806,1001164,116041,114176,114166,112973,108499,108186,107054,100994,100425,99885,99722,96075,94920],"InternalValidAuthorities":["www.tarimorman.gov.tr","www.tarimorman.gov.tr","sp1.tarimorman.gov.tr","sp2.tarimorman.gov.tr","sp3.tarimorman.gov.tr","sp4.tarimorman.gov.tr"],"CorrelationId":"17a94fa2-7281-50b4-d7a1-ee94b751918b","hasManageWebPermissions":false,"isNoScriptEnabled":false,"groupId":null,"groupHasHomepage":true,"groupHasQuickLaunchConversationsLink":false,"departmentId":null,"hubSiteId":null,"hasPendingWebTemplateExtension":false,"isHubSite":false,"isWebWelcomePage":false,"siteClassification":"","hideSyncButtonOnODB":false,"showNGSCDialogForSyncOnODB":false,"sitePagesEnabled":false,"sitePagesFeatureVersion":0,"suiteNavInfo":{"suiteBarBackground":null,"suiteBarText":null,"suiteNavAccentColor":null,"suiteNavAllowCustom":false,"suiteNavAllowOverwrite":false,"suiteNavBrandingLogoNavigationUrl":null,"suiteNavBrandingLogoTitle":null,"suiteNavBrandingLogoUrl":null,"suiteNavBrandingText":null},"DesignPackageId":"00000000-0000-0000-0000-000000000000","groupType":null,"groupColor":"#e3068b","siteColor":"#e3068b","headerEmphasis":0,"navigationInfo":null,"guestsEnabled":false,"MenuData":{"SignInUrl":"/zmmae/_layouts/15/Authenticate.aspx?Source=%2Fzmmae%2FHaber%2F1063%2FYapay%2DZeka%2DVe%2DGoruntu%2DIsleme%2DTabanli%2DHassas%2DGubreleme%2DIlaclama%2DVe%2DHasat%2DYapabilen%2DOtonom%2DSera%2DRobotu%2DTasarimi%2DVe%2DGelistirilmesi"},"RecycleBinItemCount":-1,"PublishingFeatureOn":true,"PreviewFeaturesEnabled":false,"disableAppViews":false,"disableFlows":false,"serverRedirectedUrl":null,"formDigestValue":"0x4C5C043A895D148AE5E9FE875E197CD0B0124D1A70DBEA308DBB4AABE206BA33B3CAB76C2379C1E8FFB77DD5D71A5FD1C6301ED8E0CA6ADE97062937A9A97E65,17 Nov 2026 07:24:31 -0000","maximumFileSize":25,"formDigestTimeoutSeconds":1800,"canUserCreateMicrosoftForm":false,"canUserCreateVisioDrawing":true,"readOnlyState":null,"isTenantDevSite":false,"preferUserTimeZone":false,"userTimeZoneData":null,"userTime24":false,"userFirstDayOfWeek":null,"webTimeZoneData":null,"webTime24":false,"webFirstDayOfWeek":null,"isSelfServiceSiteCreationEnabled":null,"alternateWebAppHost":"","aadTenantId":"","aadUserId":"","aadInstanceUrl":"","msGraphEndpointUrl":"https://","allowInfectedDownload":true};_spPageContextInfo.updateFormDigestPageLoaded=new Date();_spPageContextInfo.clientServerTimeDelta=new Date(_spPageContextInfo.serverTime)-new Date();if(typeof(define)=='function'){define('SPPageContextInfo',[],function(){return _spPageContextInfo;});}var L_Menu_BaseUrl="/zmmae";
+var L_Menu_LCID="1055";
+var L_Menu_SiteTheme="null";
+document.onreadystatechange=fnRemoveAllStatus; function fnRemoveAllStatus(){removeAllStatus(true)};Flighting.ExpFeatures = [480216468,1884350801,1158731092,62197791,538521105,335811073,4194306,34614301,268500996,-1946025984,28445328,-2147475455,134291456,65544,288,950272,1282,808326148,134217873,0,0,-1073217536,545285252,18350656,-467402752,6291457,-2147483644,1074794496,-1728053184,1845537108,622628,4102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; (function()
+{
+    if(typeof(window.SP) == "undefined") window.SP = {};
+    if(typeof(window.SP.YammerSwitch) == "undefined") window.SP.YammerSwitch = {};
+
+    var ysObj = window.SP.YammerSwitch;
+    ysObj.IsEnabled = false;
+    ysObj.TargetYammerHostName = "www.yammer.com";
+} )(); var _spWebPartComponents = new Object();//]]>
+</script>
+
+<script src="/_layouts/15/blank.js?rev=E5awR%2Bfykt6gXvqtGE19XA%3D%3DTAG0" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+window.__SP_THEMING_EVAL_FIX_DISABLED=false;window.SPThemeUtils && SPThemeUtils.RegisterCssReferences([{"Url":"\u002f_layouts\u002f15\u002f1055\u002fstyles\u002fThemable\u002fcorev15.css?rev=gc4DA1x61F9NyAlKLztx4A\u00253D\u00253DTAG0","OriginalUrl":"\u002f_layouts\u002f15\u002f1055\u002fstyles\u002fThemable\u002fcorev15.css?rev=gc4DA1x61F9NyAlKLztx4A\u00253D\u00253DTAG0","Id":"CssLink-224ed86023034d24aaa8510277d0b6dc","ConditionalExpression":"","After":"","RevealToNonIE":"false"}]);
+(function(){
+
+        if (typeof(_spBodyOnLoadFunctions) === 'undefined' || _spBodyOnLoadFunctions === null) {
+            return;
+        }
+        _spBodyOnLoadFunctions.push(function() {
+            SP.SOD.executeFunc('core.js', 'FollowingCallout', function() { FollowingCallout(); });
+        });
+    })();(function(){
+
+        if (typeof(_spBodyOnLoadFunctions) === 'undefined' || _spBodyOnLoadFunctions === null) {
+            return;
+        }
+        _spBodyOnLoadFunctions.push(function() {
+            SP.SOD.executeFunc('core.js', 'FollowingDocument', function() { FollowingDocument(); });
+        });
+    })();if (typeof(DeferWebFormInitCallback) == 'function') DeferWebFormInitCallback();function WebForm_OnSubmit() {
+UpdateFormDigest('\u002fzmmae', 1440000);if (typeof(_spFormOnSubmitWrapper) != 'undefined') {return _spFormOnSubmitWrapper();} else {return true;};
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="BAB98CB3" />
+</div><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        
+        
+        
+        <div>
+	
+            <div id="TurnOnAccessibility" style="display: none" class="s4-notdlg noindex">
+                <a id="linkTurnOnAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                    Daha yüksek erişilebilirlik modunu aç
+                </a>
+            </div>
+            <div id="TurnOffAccessibility" style="display: none" class="s4-notdlg noindex">
+                <a id="linkTurnOffAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                    Daha yüksek erişilebilirlik modunu kapat
+                </a>
+            </div>
+        
+</div>
+        <div id="ms-designer-ribbon">
+            <div>
+	
+	<div id="s4-ribbonrow" style="visibility:hidden;display:none"></div>
+
+</div>
+
+
+            
+        </div>
+        
+        <span id="DeltaSPWebPartManager">
+            
+        </span>
+        <div id="s4-workspace">
+            <div id="s4-bodyContainer">
+                <header class="sticky-top bg-light hdr-img">
+                    <!-- Logo Alanı -->
+                    <section class="top-bar">
+                        <div class="container">
+                            <div class="row gy-2 align-items-center">
+                                <div class="col-lg-6 col-md-6 col-9">
+                                    <!--<img src="images/bknLogo.png" class="img-fluid" alt=""/>-->
+                                    <div data-name="SiteLogo">
+                                        
+                                        
+                                        <div id="ctl00_g_8b5c519a_12e9_4c0e_b841_bc7c874c5a41" __MarkupType="vsattributemarkup" __WebPartId="{8b5c519a-12e9-4c0e-b841-bc7c874c5a41}" WebPart="true" IsClosed="false">
+	
+
+
+ 
+<div class="site-header-top-left d-flex">
+    <div class="align-self-center lg-bs" id="logo">
+            <a id="ctl00_g_8b5c519a_12e9_4c0e_b841_bc7c874c5a41_bakanlikLink" href="//www.tarimorman.gov.tr/Sayfalar/AnaSayfa.aspx"><img id="ctl00_g_8b5c519a_12e9_4c0e_b841_bc7c874c5a41_imgLogo" class="img-fluid" src="https://www.tarimorman.gov.tr/Style%20Library/TarimUI/img/gthbLogo.png" /></a>
+    </div>
+    <div class="align-self-center fntt">
+            <a id="ctl00_g_8b5c519a_12e9_4c0e_b841_bc7c874c5a41_lnk_SiteAdi" href="https://arastirma.tarimorman.gov.tr/zmmae">T.C. TARIM VE ORMAN BAKANLIĞI<br>ZİRAİ MÜCADELE MERKEZ ARAŞTIRMA ENSTİTÜSÜ MÜDÜRLÜĞÜ</a>
+    </div>
+</div>
+</div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-3">
+                                    <div class="row">
+                                        <div class="col-9">
+                                        </div>
+                                        <div class="col-3 d-flex justify-content-end">
+                                            <img src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/turkiye-yuzyili-logo.svg" alt="" class="img-fluid yuzYil" />
+                                            <img src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/tarimataturk.svg" alt="" class="img-fluid ataturk" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-5 col-lg-6 col-7">
+                                        </div>
+                                        <div class="col-sm-12 col-md-7 col-lg-6 col-5 d-flex justify-content-end">
+                                            <div>
+                                                <a href="#" alt="" id="lang">
+                                                    <i class="fa fa-globe">
+                                                    </i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12 text-item-end">
+                                    <!-- <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Arama Yapınız"/>
+                                <button class="btn btn-primary">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Navigasyon Menu Alanı -->
+                    
+                    
+                    <div id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b" __MarkupType="vsattributemarkup" __WebPartId="{b9387db9-d1b0-4db6-b539-689e9edffe4b}" WebPart="true" IsClosed="false">
+	
+
+
+
+<header class="bakanlik-header">
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <div class="bakanlik-navbar">
+
+        <nav
+            class="navbar navbar-expand-lg bakanlik-navbar__nav"
+            aria-label="Ana menü">
+
+            <div class="container bakanlik-navbar__container">
+
+
+                <!-- =================================================
+                     DESKTOP MENU
+                     ================================================= -->
+
+                <div
+                    class="collapse navbar-collapse bakanlik-navbar__collapse"
+                    id="bakanlikDesktopNav">
+
+                    <ul class="navbar-nav bakanlik-navbar__menu">
+
+
+                        <!-- =================================================
+                             ANA SAYFA
+                             ================================================= -->
+
+                        <li class="nav-item bakanlik-navbar__item">
+
+                            <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_lnk_anasayfa" class="nav-link bakanlik-navbar__link" href="https://arastirma.tarimorman.gov.tr/zmmae">ANA SAYFA</a>
+
+                        </li>
+
+
+                        <!-- =================================================
+                             DİNAMİK ANA MENÜ
+                             ================================================= -->
+
+                        
+
+                                <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_parentItem" class="nav-item dropdown bakanlik-navbar__item">
+
+                                    <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_lnk_link" title="KURUMSAL YAPI" class="nav-link dropdown-toggle bakanlik-navbar__link" data-bs-toggle="dropdown" aria-expanded="false" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/1/Kurumsal-Yapi">KURUMSAL YAPI <span class="bakanlik-navbar__down-arrow"></span></a>
+
+
+                                    <!-- =================================================
+                                         2. SEVİYE MENÜ
+                                         ================================================= -->
+
+                                    
+
+                                            <ul class="dropdown-menu bakanlik-navbar__dropdown">
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl01_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl01_lnk_link" title="MÜDÜR" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/5/Mudur">MÜDÜR</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl02_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl02_lnk_link" title="MÜDÜR YARDIMCISI" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/132/Mudur-Yardimcisi">MÜDÜR YARDIMCISI</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_childItem" class="bakanlik-navbar__has-submenu">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_lnk_link" title="BÖLÜMLER" class="dropdown-item bakanlik-navbar__dropdown-link bakanlik-navbar__submenu-toggle" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/11/Bolumler">BÖLÜMLER <span class="bakanlik-navbar__right-arrow"></span></a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                                        <ul class="dropdown-menu bakanlik-navbar__dropdown bakanlik-navbar__dropdown--third">
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl01_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/15/Bitki-Zararlilari-_entomoloji_" class="dropdown-item bakanlik-navbar__dropdown-link">BİTKİ ZARARLILARI (ENTOMOLOJİ)</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl02_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/18/Bitki-Hastaliklari-_fitopatoloji_" class="dropdown-item bakanlik-navbar__dropdown-link">BİTKİ HASTALIKLARI (FİTOPATOLOJİ)</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl03_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/126/Fizyoloji-Ve-Toksikoloji" class="dropdown-item bakanlik-navbar__dropdown-link">FİZYOLOJİ VE TOKSİKOLOJİ</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl04_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/19/Yabanci-Ot-_herboloji_" class="dropdown-item bakanlik-navbar__dropdown-link">YABANCI OT (HERBOLOJİ)</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl05_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/21/Tarimsal-Fauna-Ve-Mikroflora" class="dropdown-item bakanlik-navbar__dropdown-link">TARIMSAL FAUNA VE MİKROFLORA</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl06_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/20/Biyolojik-Mucadele" class="dropdown-item bakanlik-navbar__dropdown-link">BİYOLOJİK M&#220;CADELE</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl07_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/23/Zirai-Mucadele-Ilaclari" class="dropdown-item bakanlik-navbar__dropdown-link">ZİRAİ M&#220;CADELE İLA&#199;LARI</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl08_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/24/Zirai-Mucadele-Makinalari" class="dropdown-item bakanlik-navbar__dropdown-link">ZİRAİ M&#220;CADELE MAKİNALARI</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl09_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/25/Egitim-Ve-Yayim" class="dropdown-item bakanlik-navbar__dropdown-link">EĞİTİM VE YAYIM</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl10_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/27/Uretim-Ve-Isletme" class="dropdown-item bakanlik-navbar__dropdown-link">&#220;RETİM VE İŞLETME</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl03_rpt_AltMenuAlt_ctl11_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/102/Idari-Birimler" class="dropdown-item bakanlik-navbar__dropdown-link">İDARİ BİRİMLER</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        </ul>
+
+                                                    
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl04_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl04_lnk_link" title="ORGANİZASYON ŞEMASI" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/7/Organizasyon-Semasi">ORGANİZASYON ŞEMASI</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl05_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl05_lnk_link" title="TARİHÇE" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/6/Tarihce">TARİHÇE</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl06_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl06_lnk_link" title="GÖREVLERİMİZ" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/99/Gorevlerimiz">GÖREVLERİMİZ</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl07_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl07_lnk_link" title="MİSYON VE VİZYONUMUZ" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/8/Misyon-Ve-Vizyonumuz">MİSYON VE VİZYONUMUZ</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl08_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl08_lnk_link" title="KALİTE POLİTİKAMIZ" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/137/Kalite-Politikamiz">KALİTE POLİTİKAMIZ</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl09_childItem" class="bakanlik-navbar__has-submenu">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl09_lnk_link" title="HİZMET STANDARTLARIMIZ" class="dropdown-item bakanlik-navbar__dropdown-link bakanlik-navbar__submenu-toggle" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/138/Hizmet-Standartlarimiz">HİZMET STANDARTLARIMIZ <span class="bakanlik-navbar__right-arrow"></span></a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                                        <ul class="dropdown-menu bakanlik-navbar__dropdown bakanlik-navbar__dropdown--third">
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl09_rpt_AltMenuAlt_ctl01_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/100/Hakkimizda" class="dropdown-item bakanlik-navbar__dropdown-link">HAKKIMIZDA</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl09_rpt_AltMenuAlt_ctl02_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/101/Etik-Ilkeler" class="dropdown-item bakanlik-navbar__dropdown-link">ETİK İLKELER</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl00_rpt_AltMenu_ctl09_rpt_AltMenuAlt_ctl03_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/107/Ulke-Tarimina-Katkilarimiz" class="dropdown-item bakanlik-navbar__dropdown-link">&#220;LKE TARIMINA KATKILARIMIZ</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        </ul>
+
+                                                    
+
+                                            </li>
+
+                                        
+
+                                            </ul>
+
+                                        
+
+                                </li>
+
+                            
+
+                                <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl01_parentItem" class="nav-item bakanlik-navbar__item">
+
+                                    <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl01_lnk_link" title="LABORATUVARLAR" class="nav-link bakanlik-navbar__link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/136/Laboratuvarlar">LABORATUVARLAR</a>
+
+
+                                    <!-- =================================================
+                                         2. SEVİYE MENÜ
+                                         ================================================= -->
+
+                                    
+
+                                </li>
+
+                            
+
+                                <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_parentItem" class="nav-item dropdown bakanlik-navbar__item">
+
+                                    <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_lnk_link" title="ÜRÜNLER" class="nav-link dropdown-toggle bakanlik-navbar__link" data-bs-toggle="dropdown" aria-expanded="false" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/31/Urunler">ÜRÜNLER <span class="bakanlik-navbar__down-arrow"></span></a>
+
+
+                                    <!-- =================================================
+                                         2. SEVİYE MENÜ
+                                         ================================================= -->
+
+                                    
+
+                                            <ul class="dropdown-menu bakanlik-navbar__dropdown">
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl01_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl01_lnk_link" title="ZEYTİN SİNEĞİ CEZBEDİCİSİ (ZİRAY)" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/38/Zeytin-Sinegi-Cezbedicisi-_ziray_">ZEYTİN SİNEĞİ CEZBEDİCİSİ (ZİRAY)</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl02_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl02_lnk_link" title="HİZMETİÇİ EĞİTİM" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/40/Hizmetici-Egitim">HİZMETİÇİ EĞİTİM</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl03_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl03_lnk_link" title="ANALİZLER" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/106/Analizler">ANALİZLER</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl04_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl02_rpt_AltMenu_ctl04_lnk_link" title="ANALİZ VE DENETLEME ÜCRETLERİ" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/139/Analiz-Ve-Denetleme-Ucretleri">ANALİZ VE DENETLEME ÜCRETLERİ</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            </ul>
+
+                                        
+
+                                </li>
+
+                            
+
+                                <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl03_parentItem" class="nav-item dropdown bakanlik-navbar__item">
+
+                                    <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl03_lnk_link" title="PROJELER" class="nav-link dropdown-toggle bakanlik-navbar__link" data-bs-toggle="dropdown" aria-expanded="false" href="https://arastirma.tarimorman.gov.tr/zmmae/Sayfalar/Detay.aspx?SayfaId=63">PROJELER <span class="bakanlik-navbar__down-arrow"></span></a>
+
+
+                                    <!-- =================================================
+                                         2. SEVİYE MENÜ
+                                         ================================================= -->
+
+                                    
+
+                                            <ul class="dropdown-menu bakanlik-navbar__dropdown">
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl03_rpt_AltMenu_ctl01_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl03_rpt_AltMenu_ctl01_lnk_link" title="SONUÇLANAN PROJELER (2024)" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/134/Sonuclanan-Projeler-_2024_">SONUÇLANAN PROJELER (2024)</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl03_rpt_AltMenu_ctl02_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl03_rpt_AltMenu_ctl02_lnk_link" title="DEVAM EDEN PROJELER" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/135/Devam-Eden-Projeler">DEVAM EDEN PROJELER</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            </ul>
+
+                                        
+
+                                </li>
+
+                            
+
+                                <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_parentItem" class="nav-item dropdown bakanlik-navbar__item">
+
+                                    <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_lnk_link" title="YAYINLAR" class="nav-link dropdown-toggle bakanlik-navbar__link" data-bs-toggle="dropdown" aria-expanded="false" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/29/Yayinlar">YAYINLAR <span class="bakanlik-navbar__down-arrow"></span></a>
+
+
+                                    <!-- =================================================
+                                         2. SEVİYE MENÜ
+                                         ================================================= -->
+
+                                    
+
+                                            <ul class="dropdown-menu bakanlik-navbar__dropdown">
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl01_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl01_lnk_link" title="MAKALE" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Sayfalar/Detay.aspx?SayfaId=62">MAKALE</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl02_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl02_lnk_link" title="BİTKİ KORUMA BÜLTENİ" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/103/Bitki-Koruma-Bulteni">BİTKİ KORUMA BÜLTENİ</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl03_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl03_lnk_link" title="KİTAP" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/34/Kitap">KİTAP</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl04_childItem" class="">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl04_lnk_link" title="ZİRAİ MÜCADELE ARAŞTIRMA YILLIKLARI" class="dropdown-item bakanlik-navbar__dropdown-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/35/Zirai-Mucadele-Arastirma-Yilliklari">ZİRAİ MÜCADELE ARAŞTIRMA YILLIKLARI</a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                            </li>
+
+                                        
+
+                                            <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl05_childItem" class="bakanlik-navbar__has-submenu">
+
+                                                <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl05_lnk_link" title="LİFLET" class="dropdown-item bakanlik-navbar__dropdown-link bakanlik-navbar__submenu-toggle" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/122/Liflet">LİFLET <span class="bakanlik-navbar__right-arrow"></span></a>
+
+
+                                                <!-- =================================================
+                                                     3. SEVİYE MENÜ
+                                                     ================================================= -->
+
+                                                
+
+                                                        <ul class="dropdown-menu bakanlik-navbar__dropdown bakanlik-navbar__dropdown--third">
+
+                                                    
+
+                                                        <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl04_rpt_AltMenu_ctl05_rpt_AltMenuAlt_ctl01_subMenuChildItem">
+
+                                                            <a href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/123/Liflet-2025" class="dropdown-item bakanlik-navbar__dropdown-link">LİFLET 2025</a>
+
+                                                        </li>
+
+                                                    
+
+                                                        </ul>
+
+                                                    
+
+                                            </li>
+
+                                        
+
+                                            </ul>
+
+                                        
+
+                                </li>
+
+                            
+
+                                <li id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl05_parentItem" class="nav-item bakanlik-navbar__item">
+
+                                    <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_rpt_Menu_ctl05_lnk_link" title="BASIN" class="nav-link bakanlik-navbar__link" href="https://arastirma.tarimorman.gov.tr/zmmae/Menu/105/Basin">BASIN</a>
+
+
+                                    <!-- =================================================
+                                         2. SEVİYE MENÜ
+                                         ================================================= -->
+
+                                    
+
+                                </li>
+
+                            
+
+
+                        <!-- =================================================
+                             İLETİŞİM
+                             ================================================= -->
+
+                        <li class="nav-item bakanlik-navbar__item">
+
+                            <a id="ctl00_g_b9387db9_d1b0_4db6_b539_689e9edffe4b_lnk_iletisim" class="nav-link bakanlik-navbar__link" href="https://arastirma.tarimorman.gov.tr/zmmae/Iletisim">İLETİŞİM</a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOBILE HAMBURGER
+                     ================================================= -->
+
+                <button
+                    class="navbar-toggler bakanlik-navbar__toggler"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#bakanlikMobileOffcanvas"
+                    aria-controls="bakanlikMobileOffcanvas"
+                    aria-label="Menüyü aç">
+
+                    <span class="bakanlik-navbar__hamburger">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </nav>
+
+    </div>
+
+
+    <!-- =====================================================
+         MOBILE OFFCANVAS
+         ===================================================== -->
+
+    <div
+        class="offcanvas offcanvas-end bakanlik-mobile"
+        tabindex="-1"
+        id="bakanlikMobileOffcanvas"
+        aria-labelledby="bakanlikMobileTitle">
+
+
+        <!-- =====================================================
+             MOBILE ÜST BAR
+             ===================================================== -->
+
+        <div class="bakanlik-mobile__topbar">
+
+            <button
+                type="button"
+                class="bakanlik-mobile__back"
+                id="bakanlikMobileBack"
+                aria-label="Geri">
+
+                ‹
+
+            </button>
+
+
+            <div
+                class="bakanlik-mobile__title"
+                id="bakanlikMobileTitle">
+
+                MENÜ
+
+            </div>
+
+
+            <button
+                type="button"
+                class="bakanlik-mobile__close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Kapat">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             MOBILE CONTENT
+             ===================================================== -->
+
+        <div class="offcanvas-body bakanlik-mobile__body">
+
+            <div
+                class="bakanlik-mobile__root"
+                id="bakanlikMobileRoot">
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+</div>
+                    
+                </header>
+                <!-- Slider Alanı -->
+                <!--Bradcrumb-->
+                <div class="container breadcrumb">
+                    
+                        <span><a href="#ctl00_PlaceHolderPageTitleInTitleArea2_ctl00_SkipLink" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Skip Navigation Links</a><span><a href="/zmmae">Zirai M&#252;cadele Merkez Araştırma Enstit&#252;s&#252; M&#252;d&#252;rl&#252;ğ&#252;</a></span><span>
+
+
+          &gt;
+                                      </span><span><a href="/zmmae/Haber">Haber</a></span><a id="ctl00_PlaceHolderPageTitleInTitleArea2_ctl00_SkipLink"></a></span>
+                    
+                </div>
+                <!--Bradcrumb-->
+                <div data-name="ContentPlaceHolderMain">
+                    
+                    
+                    <span id="DeltaPlaceHolderMain">
+                        
+	<div role="main" class="main" style="background:#fff;">
+        <div class="container print-content">
+			<div class="row">
+		<div id="ustResim" class="col-md-12">		
+			<menu class="ms-hide">
+	<ie:menuitem id="MSOMenu_Help" iconsrc="/_layouts/15/images/HelpIcon.gif" onmenuclick="MSOWebPartPage_SetNewWindowLocation(MenuWebPart.getAttribute(&#39;helpLink&#39;), MenuWebPart.getAttribute(&#39;helpMode&#39;))" text="Yardım" type="option" style="display:none">
+
+	</ie:menuitem>
+</menu>		
+		</div>
+		<div id="detayIcerik1" class="col-md-12">
+			<div class="ms-webpart-zone ms-fullWidth">
+	<div id="MSOZoneCell_WebPartctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743" class="s4-wpcell-plain ms-webpartzone-cell ms-webpart-cell-vertical-inline-table ms-webpart-cell-vertical ms-fullWidth ">
+		<div class="ms-webpart-chrome ms-webpart-chrome-vertical ms-webpart-chrome-fullWidth ">
+			<div WebPartID="738441e0-935e-4781-ac03-d0181e2c9743" HasPers="false" id="WebPartctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743" width="100%" class="ms-WPBody noindex " allowDelete="false" allowExport="false" style="" ><div id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743">
+				
+<style>
+    @media (max-width: 1162px) {
+        p img {
+            max-width: 100% !important;
+            height: auto !important;
+            width: auto !important;
+            margin: 0px !important;
+        }
+
+        div img {
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 0px !important;
+        }
+
+        li div img {
+            max-width: 100% !important;
+            height: 120px !important;
+            margin: 0px !important;
+        }
+    }
+
+    @media (max-width: 1036px) {
+        li div img {
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 0px !important;
+        }
+    }
+
+    @media (max-width: 430px) {
+        li div img {
+            max-width: 100% !important;
+            height: auto !important;
+            margin: 0px !important;
+        }
+    }
+</style>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://www5.tarimorman.gov.tr/_catalogs/masterpage/tob/css/fancybox.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<div id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_divContainer" class="detayKapsayici" itemscope="" itemtype="http://schema.org/Article">
+    <div class="row">
+        <div id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_content" class="col-md-12 col-lg-9 order-lg-1">
+            <!-- Post content -->
+            <div id="th-content-post">
+                <!-- Post div wrapper -->
+                <div>
+                    <!-- Post page title -->
+                    <h3 id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_detaybaslik" class="page-title black" itemprop="name">Yapay Zeka Ve G&#246;r&#252;nt&#252; İşleme Tabanlı Hassas G&#252;breleme, İla&#231;lama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi</h3>
+                    <!--/ Post page title -->
+
+                    <!-- Post layout -->
+                    <div class="itemView eBlog">
+                        <!-- Post header -->
+                        <div class="itemHeader">
+                            <!-- Post details -->
+                            <div class="post_details mb-3">
+                                <!-- Date created -->
+                                <span class="itemDateCreated">
+                                    <span class='far fa-calendar-alt'></span> 9.01.2026 /
+                                </span>
+                                <!--/ Date created -->
+
+                                <!-- Author -->
+                                <span class="itemAuthor">
+                                    Gösterim Sayısı : 744 / 
+                                </span>
+
+                                <span class="itemAuthor">
+                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_lnk_arsivadres" class="arsivTumu" href="https://arastirma.tarimorman.gov.tr/zmmae/Sayfalar/Arsiv.aspx?Liste=Haber">Arşiv</a></span>
+                                <!--/ Author -->
+                            </div>
+                            <!--/ Post details -->
+                        </div>
+                        <!--/ Post header -->
+
+                        <!-- Post body -->
+                        <div class="itemBody">
+                            <!-- Blog Image -->
+                            <div class="hoverBorder">
+                                <span class="hoverBorderWrapper">
+                                    <img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_img_resim" class="shadow addthis_shareable hbrImg img-fluid" itemprop="image" src="/zmmae/IcerikResimleri/HaberResimleri/2026/tubitak1.jpg?RenditionId=3" />
+                                    <span class="theHoverBorder"></span>
+                                </span>
+                            </div>
+                            <!--/ Blog Image -->
+
+                            <div class="clearfix"></div>
+
+                            
+
+                            <!-- Blog Content -->
+                            <div class="ExternalClass109DBBCA96A349BE8787BCBE0FDF7052"><p style="text-align&#58;justify;">​Enstitümüzün proje ortağı olarak yer aldığı “Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi” başlıklı proje önerimiz yapılan değerlendirme neticesinde; TÜBİTAK 1711- Yapay Zeka Ekosistem Çağrısı kapsamında desteklenmeye değer bulunmuştur. 01.01.2026 tarihinde başlayan projenin süresi 2 yıl olup, 31.12.2027 tarihinde tamamlanması planlanmaktadır.<br></p></div>
+                            <!--haber altfotogaleri -->
+
+                            <section class="news-gallery">
+                                
+                            </section>
+                            <!-- -->
+                            <!--haber altvideogaleri -->
+
+                            <section class="news-gallery-vid">
+
+                                
+
+
+                            </section>
+
+                            <!-- -->
+
+
+                            <div class="latest_posts style2 pt-0 pl-0 pr-0">
+                                <ul class="posts">
+                                    
+                                    
+                                </ul>
+                            </div>
+
+                            <div class="latest_posts style2 pt-0 pl-0 pr-0">
+                                
+                            </div>
+
+                            
+                            
+
+                            <!-- Akordeon-->
+
+                            
+                            <!--/ Blog Content -->
+                        </div>
+                        <!--/ Post body -->
+
+                        <div class="clear"></div>
+                    </div>
+                    <!--/ Post layout -->
+                </div>
+                <!--/ Post div wrapper -->
+            </div>
+            <!--/ Post content -->
+        </div>
+        <!--/ son haberler -->
+        <div id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_sidebar" class="col-sm-12 col-md-12 col-lg-3">
+            <!-- Sidebar -->
+            <div id="sidebar-widget" class="sidebar">
+
+
+
+                
+
+                <div id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_divSonHaberler" class="card w-100">
+                    <a href="#" class="card-link">
+                        <h5 class="card-header bg-primary text-white">
+                            Güncel Haberler</h5>
+                    </a>
+                    <div class="card-body">
+                        <div class="row row-cols-1 ">
+                            
+                                
+                                    <div class="col">
+                                        <div class="card mb-2">
+                                            <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl01_lnk_resim" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1119/Yesil-Vatan-Seferberlignde-Biz-De-Variz"><img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl01_img_resim" class="card-img-top img-fluid" alt="..." src="/zmmae/IcerikResimleri/HaberResimleri/2026/1.jpg?RenditionID=2" /></a>
+                                            <div class="card-body">
+                                                <h6 class="card-title ilHaber-baslik">
+                                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl01_lnk_title" title="Yeşil Vatan Seferberliğnde Biz de Varız" class="stretched-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1119/Yesil-Vatan-Seferberlignde-Biz-De-Variz">Yeşil Vatan Seferberliğnde Biz De Varız</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col">
+                                        <div class="card mb-2">
+                                            <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl02_lnk_resim" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1118/Weed-Genomics-Training-Course-And-Workshop-_yabanci-Ot-Genomigi-Egitim-Kursu-Ve-Calistayi_na-Katilim-Saglandi"><img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl02_img_resim" class="card-img-top img-fluid" alt="..." src="/zmmae/IcerikResimleri/HaberResimleri/2026/yabanc%c4%b1%20ot%20genomigi.jpeg?RenditionID=2" /></a>
+                                            <div class="card-body">
+                                                <h6 class="card-title ilHaber-baslik">
+                                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl02_lnk_title" title="Weed Genomics Training Course and Workshop (Yabancı Ot Genomiği Eğitim Kursu ve Çalıştayı)na katılım sağlandı" class="stretched-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1118/Weed-Genomics-Training-Course-And-Workshop-_yabanci-Ot-Genomigi-Egitim-Kursu-Ve-Calistayi_na-Katilim-Saglandi">Weed Genomics Training Course And Workshop (Ya ...</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col">
+                                        <div class="card mb-2">
+                                            <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl03_lnk_resim" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1117/Ic-Anadolu-Bolgesi-2026-Yili-Bitki-Sagligi-Degerlendirme-Toplantisi-Gerceklestirildi"><img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl03_img_resim" class="card-img-top img-fluid" alt="..." src="/zmmae/IcerikResimleri/HaberResimleri/2026/b%c3%b6lge%20toplant%c4%b1s%c4%b1.jpeg?RenditionID=2" /></a>
+                                            <div class="card-body">
+                                                <h6 class="card-title ilHaber-baslik">
+                                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl03_lnk_title" title="İç Anadolu Bölgesi 2026 Yılı Bitki Sağlığı Değerlendirme Toplantısı Gerçekleştirildi" class="stretched-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1117/Ic-Anadolu-Bolgesi-2026-Yili-Bitki-Sagligi-Degerlendirme-Toplantisi-Gerceklestirildi">İç Anadolu Bölgesi 2026 Yılı Bitki Sağlığı Değ ...</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col">
+                                        <div class="card mb-2">
+                                            <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl04_lnk_resim" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1116/Ankara-Ticaret-Odasi-Ilkokulu-Ogrencilerine-Bocek-Farkindalik-Egitimi-Verilmistir"><img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl04_img_resim" class="card-img-top img-fluid" alt="..." src="/zmmae/FotografGalerisi/Ankara%20Ticaret%20Odas%c4%b1%20%c4%b0lkokulu/22.jpeg?RenditionID=2" /></a>
+                                            <div class="card-body">
+                                                <h6 class="card-title ilHaber-baslik">
+                                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl04_lnk_title" title="Ankara Ticaret Odası İlkokulu öğrencilerine böcek farkındalık eğitimi verilmiştir" class="stretched-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1116/Ankara-Ticaret-Odasi-Ilkokulu-Ogrencilerine-Bocek-Farkindalik-Egitimi-Verilmistir">Ankara Ticaret Odası İlkokulu Öğrencilerine Bö ...</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col">
+                                        <div class="card mb-2">
+                                            <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl05_lnk_resim" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1115/Fao_iaea-Atoms4food-Girisimi-Ulke-Degerlendirme-Misyonu-Toplantisi-Enstitumuzde-Yapildi"><img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl05_img_resim" class="card-img-top img-fluid" alt="..." src="/zmmae/IcerikResimleri/HaberResimleri/2026/FAOIAEA%20Atoms4Food%20Giri%c5%9fimi%20%c3%9clke%20De%c4%9ferlendirme%20Misyonu%20Toplant%c4%b1s%c4%b1%20Enstit%c3%bcm%c3%bczde%20yap%c4%b1ld%c4%b1.jpg?RenditionID=2" /></a>
+                                            <div class="card-body">
+                                                <h6 class="card-title ilHaber-baslik">
+                                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl05_lnk_title" title="FAO/IAEA Atoms4Food Girişimi Ülke Değerlendirme Misyonu Toplantısı Enstitümüzde Yapıldı" class="stretched-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1115/Fao_iaea-Atoms4food-Girisimi-Ulke-Degerlendirme-Misyonu-Toplantisi-Enstitumuzde-Yapildi">Fao/Iaea Atoms4food Girişimi Ülke Değerlendirm ...</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col">
+                                        <div class="card mb-2">
+                                            <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl06_lnk_resim" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1114/Bartin-Bilimfest-Etkinligine-Katilim"><img id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl06_img_resim" class="card-img-top img-fluid" alt="..." src="/zmmae/IcerikResimleri/HaberResimleri/2026/bart%c4%b1n%20bilim%20fest.jpeg?RenditionID=2" /></a>
+                                            <div class="card-body">
+                                                <h6 class="card-title ilHaber-baslik">
+                                                    <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_rpt_sonHaberler_ctl06_lnk_title" title="Bartın Bilimfest Etkinliğine katılım" class="stretched-link" href="https://arastirma.tarimorman.gov.tr/zmmae/Haber/1114/Bartin-Bilimfest-Etkinligine-Katilim">Bartın Bilimfest Etkinliğine Katılım</a>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                
+                            <hr />
+                            <div class="d-flex justify-content-center ">
+                                <a id="ctl00_ctl51_g_738441e0_935e_4781_ac03_d0181e2c9743_haber_arsiv_lnk" class="btn btn-primary btn-sm" href="https://arastirma.tarimorman.gov.tr/zmmae/Sayfalar/Arsiv.aspx?Liste=Haber">Haber Arşiv</a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var collapsed = false;
+        var clickedContent = -1;
+
+        $(".acc-group").click(function () {
+            var itemIndexId = $(this).attr("data-attr-id");
+
+
+            if (collapsed == false) {
+                $("#acc" + itemIndexId).collapse("hide");
+                collapsed = true;
+                $("#acc" + itemIndexId).collapse("show");
+                clickedContent = itemIndexId;
+
+            }
+            else {
+                collapsed = false;
+                $("#acc" + clickedContent).collapse("hide");
+                clickedContent = itemIndexId
+            }
+
+        });
+    })
+
+</script>
+<script>
+    $('[data-fancybox="news-gallery"]').fancybox({
+        thumbs: {
+            autoStart: true
+        },
+
+        buttons: [
+            "zoom",
+
+            "slideShow",
+            "fullScreen",
+            "download",
+            "thumbs",
+            "close"
+        ],
+
+        clickContent: "zoom",
+        dblclickContent: "zoom",
+        wheel: "zoom",
+
+        animationEffect: "zoom",
+        transitionEffect: "slide"
+    });
+</script>
+<script>
+    $('[data-fancybox="video-gallery"]').fancybox({
+
+        buttons: [
+            "fullScreen",
+            "thumbs",
+            "close"
+        ],
+
+        thumbs: {
+            autoStart: true
+        },
+
+        animationEffect: "zoom",
+        transitionEffect: "slide",
+
+        video: {
+            autoStart: false
+        }
+    });
+</script>
+
+			</div><div class="ms-clear"></div></div>
+		</div>
+	</div>
+</div>
+		</div>
+	</div>
+	</div>
+	</div>
+<div style='display:none' id='hidZone'></div>
+                    </span>
+                    
+                </div>
+                <!-- Footer Alanı -->
+                <footer class="bg-primary" data-footer-style="5" style="color: #ffffff; font-family: sans-serif; padding-top: 30px; box-sizing: border-box;  border-radius: 10px 10px 0px 0px;">
+                    <div class="main-footer">
+                        <div class="container" style="padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+                            <div class="row" style="display: flex !important; flex-wrap: wrap !important; margin-right: -15px; margin-left: -15px;">
+                                <div style="display: none !important;">
+                                    <!-- Gizli Alanlar ve SharePoint Parçacıkları (Tasarımı bozmaması için display: none yapıldı) -->
+                                    <div class="col-sm-6 col-md-3 col-lg-3 mb-20">
+                                    </div>
+                                    <div id="h_pot">
+                                        <p>satis@tarimorman.gov.tr
+                                        </p>
+                                        <p>sales@tarimorman.gov.tr
+                                        </p>
+                                        <p>abuse@tarimorman.gov.tr
+                                        </p>
+                                        <p>webmaster@tarim.gov.tr
+                                        </p>
+                                        <p>abuse@tarim.gov.tr
+                                        </p>
+                                        <p>hr@tarim.gov.tr
+                                        </p>
+                                        <p>info@tarim.gov.tr
+                                        </p>
+                                        <p>ik@tarim.gov.tr
+                                        </p>
+                                        <p>contact@tarim.gov.tr
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-md-3 mb-20">
+                                    <h4 class="simple-title" style="font-weight: 700; margin-bottom: 12px; font-size: 13px; color: #ffffff; letter-spacing: 0.5px;">HIZLI MENÜ
+                                    </h4>
+                                    <ul class="list-unstyled" style="padding-left: 0; line-height: 2; font-size: 12px; list-style: none; margin-top: 0;">
+                                        <li style="margin-bottom: 4px;">
+                                            <i class="fa fa-caret-right" style="margin-right: 6px; opacity: 0.8;">
+                                            </i>
+                                            <a href="" id="userLoginURL" class="color-1white">Kullanıcı Girişi
+                                            </a>
+                                        </li>
+                                        <li style="margin-bottom: 4px;">
+                                            <i class="fa fa-caret-right" style="margin-right: 6px; opacity: 0.8;">
+                                            </i>
+                                            <a href="https://portal.tarimorman.gov.tr" class="color-1white">Intranet
+                                            </a>
+                                        </li>
+                                        <li style="margin-bottom: 4px;">
+                                            <i class="fa fa-caret-right" style="margin-right: 6px; opacity: 0.8;">
+                                            </i>
+                                            <a href="https://mail.tarimorman.gov.tr/" class="color-1white">Bakanlık e-Posta
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 col-md-3 mb-20">
+                                    <h4 class="simple-title" style="font-weight: 700; margin-bottom: 12px; font-size: 13px; color: #ffffff; letter-spacing: 0.5px;">ACİL NUMARALAR
+                                    </h4>
+                                    <ul class="list-unstyled" style="padding-left: 0; line-height: 2; font-size: 12px; list-style: none; margin-top: 0;">
+                                        <li style="margin-bottom: 6px;">
+                                            <i class="fa fa-caret-right" style="margin-right: 6px; opacity: 0.8;">
+                                            </i>
+                                            <a href="tel:180" class="color-1white">
+                                                <strong style="color: #ffffff;">180
+                                                </strong>
+ / Tarım İletişim Merkez
+                                                                          </a>
+                                        </li>
+                                        <li style="margin-bottom: 6px;">
+                                            <i class="fa fa-caret-right" style="margin-right: 6px; opacity: 0.8;">
+                                            </i>
+                                            <a href="tel:174" class="color-1white">
+                                                <strong style="color: #ffffff;">174
+                                                </strong>
+ / Gıda Hattı
+                                                                          </a>
+                                        </li>
+                                        <li style="margin-bottom: 6px;">
+                                            <i class="fa fa-caret-right" style="margin-right: 6px; opacity: 0.8;">
+                                            </i>
+                                            <a href="tel:112" class="color-1white">
+                                                <strong style="color: #ffffff;">112
+                                                </strong>
+ / Orman Yangın
+                                                                          </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-6 col-md-3 mb-20">
+                                    <!--   <h4 class="simple-title" style="font-weight: 700; margin-bottom: 12px; font-size: 13px; color: #ffffff; letter-spacing: 0.5px;">İLETİŞİM</h4>
+                          <ul class="list-unstyled" style="padding-left: 0; line-height: 2; font-size: 12px; list-style: none; margin-top: 0;">
+                            <li style="margin-bottom: 4px;">
+                              <i class="fa fa-map-marker-alt" style="margin-right: 6px; opacity: 0.8; width: 12px;"></i>
+                              <span style="color: rgba(255,255,255,0.85);">Üniversiteler Mah. Dumlupınar Bulvarı, No: 161, 06800, Çankaya/ANKARA</span>
+                            </li>
+                            <li style="margin-bottom: 4px;">
+                              <i class="fa fa-phone" style="margin-right: 6px; opacity: 0.8; width: 12px;"></i>
+                              <a href="tel:03122873360" style="color: rgba(255,255,255,0.85); text-decoration: none;"> 0312 287 33 60 (PBX)</a>
+                            </li>
+                            <li style="margin-bottom: 4px;">
+                              <i class="fa fa-envelope" style="margin-right: 6px; opacity: 0.8; width: 12px;"></i>
+                              <a href="mailto:info@tarimorman.gov.tr" style="color: rgba(255,255,255,0.85); text-decoration: none;"> tarimveormanbakanligi@hs01.kep.tr</a>
+                            </li>
+                          </ul> -->
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0" WebPart="true" __WebPartId="{c69ffe70-0f74-4da1-b710-616a461bdfa0}" __MarkupType="vsattributemarkup" IsClosed="false">
+	
+
+<h4 data-role="title" class="simple-title iletisim-baslik">
+    İLETİŞİM</h4>
+
+<ul id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_divIletisim" class="contact_ic">
+   <li>
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litBaslik">Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü</span><br />
+    </li> 
+    <li>
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litAdres"><li><p><i class='fa fa-map-marker'></i> Adres : Gayret Mahallesi. Fatih Sultan Mehmet Bulvarı. No: 66, 06172  Yenimahalle / ANKARA</p></li></span>
+    </li>
+    <li> 
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litCopy"></span>
+    </li> 
+    <li>
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litTelefon"><li><p><i class='fa fa-phone'></i> Telefon : 0 312 344 59 93 -96 (4 Hat)</p></li></span>
+    </li> 
+    <li>
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litFaks"><li><p><i class='fa fa-fax'></i> Faks : 0 312 315 15 31</p></li></span>
+    </li> 
+    <li>
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litEPosta"><li><p><i class='fa fa-envelope'></i> E-Posta : zmaem@tarimorman.gov.tr</p></li></span>
+    </li> 
+    <li>
+    <span id="ctl00_g_c69ffe70_0f74_4da1_b710_616a461bdfa0_litKEP"><li><p><i class='fa fa-envelope'></i> KEP : tarimveormanbakanligi@hs01.kep.tr</p></li></span>
+    </li> 
+    <li>
+    
+    </li> 
+</ul>
+
+</div>
+                                    
+                                </div>
+                                <div class="col-6 col-md-3 mb-20">
+                                    <h4 class="simple-title" style="font-weight: 700; margin-bottom: 12px; font-size: 13px; color: #ffffff; letter-spacing: 0.5px;">MOBİL UYGULAMALAR
+                                    </h4>
+                                    <div class="mobil-marketler" style="display: flex !important; flex-direction: column !important; gap: 8px; max-width: 110px;">
+                                        <a href="https://apps.apple.com/tr/developer/t-c-tarim-ve-orman-bakanligi/id1565523483" style="display: block;">
+                                            <img src="http://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/app_store.png" alt="App Store" style="width:auto; max-width: 130px; height: auto; display: block;" />
+                                        </a>
+                                        <a href="https://play.google.com/store/apps/developer?id=Tar%C4%B1m+ve+Orman+Bakanl%C4%B1%C4%9F%C4%B1" style="display: block;">
+                                            <img src="http://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/google_play.png" alt="Google Play" style="width: auto; max-width: 130px; height: auto; display: block;" />
+                                        </a>
+                                        <a href="https://appgallery.huawei.com/tab/appdetailCommon%7CC107515357" style="display: block;">
+                                            <img src="http://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/huawei.png" alt="AppGallery" style="width: auto; max-width: 130px; height: auto; display: block;" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-footer" style="padding-bottom: 20px; font-size: 12px; color: #ffffff;">
+                        <div style="border-top: 1px solid rgba(255, 255, 255, 0.5); margin-top: 20px; margin-bottom: 15px;">
+                        </div>
+                        <div class="container footer-container-sosyal">
+                            <div class="footer-sosyal-medya">
+                                <!-- SOL GRUP: Sosyal Medya ve Bağlantılar Yan Yana -->
+                                <div class="footer-sosyal-sol-alan">
+                                    <!-- 1. Sosyal Medya -->
+                                    <div class="sosyal-div">
+                                        <span class="sosyal-span">Bakanlığımızı Takip Edin
+                                        </span>
+                                        <div class="sosyal-bar-alan">
+                                            <!-- Sosyal Medya iconBar -->
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            <div id="ctl00_g_58791aec_9ed5_4677_82b9_8f344e81ada2" __MarkupType="vsattributemarkup" __WebPartId="{58791aec-9ed5-4677-82b9-8f344e81ada2}" WebPart="true" IsClosed="false">
+	
+
+<div class="icon-bar">
+   
+        
+
+                <a aria-label='Facebook' title='Facebook' target="_blank" href='https://www.facebook.com/zmmaem/' class='facebook social-btn'>
+                     <i class='fab fa-facebook-f' aria-hidden="true"></i>
+                </a>
+            
+
+                <a aria-label='Twitter' title='Twitter' target="_blank" href='https://twitter.com/ankara_zmmae' class='twitter social-btn'>
+                     <i class='fab fa-twitter' aria-hidden="true"></i>
+                </a>
+            
+
+                <a aria-label='Instagram' title='Instagram' target="_blank" href='https://www.instagram.com/ankara_zmmae/?hl=tr' class='instagram social-btn'>
+                     <i class='fab fa-instagram' aria-hidden="true"></i>
+                </a>
+            
+
+                <a aria-label='Youtube' title='Youtube' target="_blank" href='https://www.youtube.com/channel/UCPiDIgIw3KTUd_17XdhFQ8w/featured' class='youtube social-btn'>
+                     <i class='fab fa-youtube' aria-hidden="true"></i>
+                </a>
+            
+
+                 
+    </div>
+   
+
+
+</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- 2. Bağlantılar -->
+                                    <div class="footer-links footer-sosyal-sag-alan">
+                                        <a href="https://www.tarimorman.gov.tr/Sayfalar/Detay.aspx?SayfaId=71" class="color-1white">KVKK
+                                        </a>
+                                        <a href="https://www.tarimorman.gov.tr/btgm/Sayfalar/Bilgi-G%c3%bcvenligi-Ihlal-Bildirimi.aspx" class="color-1white">Bilgi Güvenliği İhlal Bildirimi
+                                        </a>
+                                        </div>
+                                </div>
+                                <!-- SAĞ GRUP: TSE Logosu -->
+                                <div class="tse-container footer-logo-iso">
+                                    <a href="https://www.tarimorman.gov.tr/btgm/Link/14/Bilgi-Guvenligi-Politikamiz">
+                                        <img src="http://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/iso-27001-duz.png" alt="ISO-IEC 27001" style="height: 58px; width: auto; max-width: 100%; opacity: 0.95;" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="border-top: 1px solid rgba(255, 255, 255, 0.5); margin-top: 15px; margin-bottom: 15px;">
+                        </div>
+                        <div class="container" style="padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto;">
+                            <div class="row" style="display: flex !important; margin-right: -15px; margin-left: -15px;">
+                                <div class="col-12 footer-copyright" style="flex: 0 0 100%; max-width: 100%; padding-right: 15px; padding-left: 15px;">
+                                    <small style="font-size: 11px; opacity: 0.75; display: block; letter-spacing: 0.2px;">
+                            © 
+                                        <span id="currentYear">
+                                        </span>
+  Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.
+                                                              </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Erişilebilirilik Menüsü -->
+                <!-- Sağ Kenar Sosyal Medya Altı Erişilebilirlik Butonu (Ekran okuyucudan gizlendi) -->
+                <a id="ax-corporate-btn" onclick="toggleAxMenu()" title="Erişilebilirlik Menüsü (Ctrl + Y)" aria-hidden="true">
+                    <img src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/images/ac-logo-t-o-b.png" alt="Erişilebilirlik Menüsü" class="ac-logo" />
+                </a>
+                <!-- Erişilebilirlik Paneli Ana Gövde (Ekran okuyucu bu bölümü tamamen atlar) -->
+                <div id="ax-panel" class="ax-closed" aria-hidden="true" data-html2canvas-ignore="true">
+                    <div class="ax-header">
+                        <h2>Erişilebilirlik Menüsü
+                        </h2>
+                        <button type="button" class="ax-close-btn" onclick="toggleAxMenu()">×
+                        </button>
+                    </div>
+                    <div class="ax-content">
+                        <!-- AYARLAR BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Ayarlar 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-2">
+                                <button type="button" onclick="axResetAll()">
+                                    <span class="ax-icon">🔄
+                                    </span>
+                                    <span class="ax-label">Ayarları Temizle
+                                    </span>
+                                </button>
+                                <button type="button" onclick="axToggleBigUI()">
+                                    <span class="ax-icon">⛶
+                                    </span>
+                                    <span class="ax-label">Büyük Boyutlu Panel
+                                    </span>
+                                </button>
+                                <button type="button" id="btn-ax-shortcuts" onclick="axShowShortcuts()">
+                                    <span class="ax-icon">⌨️
+                                    </span>
+                                    <span class="ax-label">Kısayollar
+                                    </span>
+                                </button>
+                                <button type="button" onclick="axToggleImages()">
+                                    <span class="ax-icon">👁️‍🗨️
+                                    </span>
+                                    <span class="ax-label">Resimleri Gizle
+                                    </span>
+                                </button>
+                            </div>
+                            <div id="ax-shortcuts-info" class="ax-shortcuts-panel">
+                                <p>Ctrl + Y / Ctrl + y: Erişilebilirlik Menüsünü Açma
+                                </p>
+                                <p>Tab: Butonlar Arasında Gezinme
+                                </p>
+                            </div>
+                        </div>
+                        <!-- EKRAN OKUYUCU BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Ekran Okuyucu 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-screen-reader">
+                                <div class="ax-sr-controls">
+                                    <button type="button" onclick="axPlaySpeech()" title="Oynat">▶ Oynat
+                                    </button>
+                                    <button type="button" onclick="axPauseSpeech()" title="Duraklat">⏸ Duraklat
+                                    </button>
+                                    <button type="button" onclick="axStopSpeech()" title="Sustur">🔄 Sustur
+                                    </button>
+                                </div>
+                                <div class="ax-range-container">
+                                    <label for="ax-speed">Okuma Hızı
+                                    </label>
+                                    <input type="range" id="ax-speed" min="0.5" max="2" step="0.1" value="1" onchange="axUpdateSpeechRate()" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- METNİ HİZALA BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Metni Hizala 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-3">
+                                <button type="button" onclick="axSetTextAlign('left')">
+                                    <span class="ax-icon">📋
+                                    </span>
+                                    <span class="ax-label">Sola Hizala
+                                    </span>
+                                </button>
+                                <button type="button" onclick="axSetTextAlign('center')">
+                                    <span class="ax-icon">📊
+                                    </span>
+                                    <span class="ax-label">Ortala
+                                    </span>
+                                </button>
+                                <button type="button" onclick="axSetTextAlign('right')">
+                                    <span class="ax-icon">📉
+                                    </span>
+                                    <span class="ax-label">Sağa Hizala
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- OKUMA ARAÇLARI BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Okuma Araçları 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-2">
+                                <button type="button" id="btn-reading-guide" onclick="axToggleReadingGuide()">
+                                    <span class="ax-icon">📖
+                                    </span>
+                                    <span class="ax-label">Okuma Rehberi
+                                    </span>
+                                </button>
+                                <button type="button" id="btn-reading-mask" onclick="axToggleReadingMask()">
+                                    <span class="ax-icon">🔲
+                                    </span>
+                                    <span class="ax-label">Okuma Maskesi
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- METİN VE BAĞLANTILAR BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Metin ve Bağlantılar 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-2">
+                                <button type="button" onclick="axToggleLinks()">
+                                    <span class="ax-icon">🔗
+                                    </span>
+                                    <span class="ax-label">Bağlantıları Vurgula
+                                    </span>
+                                </button>
+                                <div class="ax-split-button">
+                                    <span class="ax-split-label">Büyük Metin
+                                    </span>
+                                    <div class="ax-split-actions">
+                                        <button type="button" onclick="axChangeFontSize(1)">➕
+                                        </button>
+                                        <button type="button" onclick="axChangeFontSize(-1)">➖
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- YAZI TİPİ BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Yazı Tipi 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-2">
+                                <button type="button" id="btn-font-dyslexic" onclick="axSetFont('dyslexic')">
+                                    <span class="ax-icon">🔤
+                                    </span>
+                                    <span class="ax-label">Disleksi Dostu
+                                    </span>
+                                </button>
+                                <button type="button" id="btn-font-readable" onclick="axSetFont('readable')">
+                                    <span class="ax-icon">Aa
+                                    </span>
+                                    <span class="ax-label">Okunaklı Font
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- SADE VE TEKİL BÜYÜK İMLEÇ BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">İmleç 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-1">
+                                <button type="button" id="btn-big-cursor" onclick="axToggleBigCursor()">
+                                    <span class="ax-icon">🖱️
+                                    </span>
+                                    <span class="ax-label">Büyük İmleç (Aç/Kapat)
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- RENK VE KONTRAST BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Renk ve Kontrast 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-2">
+                                <button type="button" id="btn-contrast-high" onclick="axSetContrast('high')">
+                                    <span class="ax-icon">🌗
+                                    </span>
+                                    <span class="ax-label">Yüksek Kontrast
+                                    </span>
+                                </button>
+                                <button type="button" id="btn-contrast-grayscale" onclick="axSetContrast('grayscale')">
+                                    <span class="ax-icon">🔆
+                                    </span>
+                                    <span class="ax-label">Solgunlaştırma
+                                    </span>
+                                </button>
+                                <button type="button" id="btn-contrast-low-sat" onclick="axSetContrast('low-sat')">
+                                    <span class="ax-icon">🔅
+                                    </span>
+                                    <span class="ax-label">Düşük Doygunluk
+                                    </span>
+                                </button>
+                                <button type="button" id="btn-contrast-high-sat" onclick="axSetContrast('high-sat')">
+                                    <span class="ax-icon">☀️
+                                    </span>
+                                    <span class="ax-label">Yüksek Doygunluk
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- METİN ARALIKLARI BÖLÜMÜ -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Metin Aralıkları 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-grid-3">
+                                <button type="button" onclick="axStepSpacing('letter')">
+                                    <span class="ax-icon">↔
+                                    </span>
+                                    <span class="ax-label">Harf Boşluğu
+                                    </span>
+                                </button>
+                                <button type="button" onclick="axStepSpacing('line')">
+                                    <span class="ax-icon">↕
+                                    </span>
+                                    <span class="ax-label">Satır Aralığı
+                                    </span>
+                                </button>
+                                <button type="button" onclick="axStepSpacing('word')">
+                                    <span class="ax-icon">⇦⇨
+                                    </span>
+                                    <span class="ax-label">Kelime Aralığı
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- RENK SEÇİCİLER -->
+                        <div class="ax-section">
+                            <div class="ax-section-title">Renk 
+                                <span class="ax-dots">
+                                </span>
+                            </div>
+                            <div class="ax-color-selector-group">
+                                <span class="ax-color-title">Metin Renkleri
+                                </span>
+                                <div class="ax-color-row">
+                                    <div class="ax-color-patch" data-color="#007bff" style="background-color: #007bff;" onclick="axApplyElementColor('text', '#007bff')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#6f42c1" style="background-color: #6f42c1;" onclick="axApplyElementColor('text', '#6f42c1')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#c61616" style="background-color: #c61616;" onclick="axApplyElementColor('text', '#c61616')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#fd7e14" style="background-color: #fd7e14;" onclick="axApplyElementColor('text', '#fd7e14')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#17a2b8" style="background-color: #17a2b8;" onclick="axApplyElementColor('text', '#17a2b8')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#28a745" style="background-color: #28a745;" onclick="axApplyElementColor('text', '#28a745')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#ffffff" style="background-color: #ffffff; border:1px solid #ccc;" onclick="axApplyElementColor('text', '#ffffff')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#000000" style="background-color: #000000;" onclick="axApplyElementColor('text', '#000000')">
+                                    </div>
+                                    <button type="button" class="ax-color-reset" onclick="axResetElementColor('text')">🔄
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="ax-color-selector-group">
+                                <span class="ax-color-title">Başlık Renkleri
+                                </span>
+                                <div class="ax-color-row">
+                                    <div class="ax-color-patch" data-color="#007bff" style="background-color: #007bff;" onclick="axApplyElementColor('heading', '#007bff')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#6f42c1" style="background-color: #6f42c1;" onclick="axApplyElementColor('heading', '#6f42c1')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#c61616" style="background-color: #c61616;" onclick="axApplyElementColor('heading', '#c61616')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#fd7e14" style="background-color: #fd7e14;" onclick="axApplyElementColor('heading', '#fd7e14')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#17a2b8" style="background-color: #17a2b8;" onclick="axApplyElementColor('heading', '#17a2b8')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#28a745" style="background-color: #28a745;" onclick="axApplyElementColor('heading', '#28a745')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#ffffff" style="background-color: #ffffff; border:1px solid #ccc;" onclick="axApplyElementColor('heading', '#ffffff')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#000000" style="background-color: #000000;" onclick="axApplyElementColor('heading', '#000000')">
+                                    </div>
+                                    <button type="button" class="ax-color-reset" onclick="axResetElementColor('heading')">🔄
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="ax-color-selector-group">
+                                <span class="ax-color-title">Arkaplan Renkleri
+                                </span>
+                                <div class="ax-color-row">
+                                    <div class="ax-color-patch" data-color="#007bff" style="background-color: #007bff;" onclick="axApplyElementColor('bg', '#007bff')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#6f42c1" style="background-color: #6f42c1;" onclick="axApplyElementColor('bg', '#6f42c1')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#c61616" style="background-color: #c61616;" onclick="axApplyElementColor('bg', '#c61616')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#fd7e14" style="background-color: #fd7e14;" onclick="axApplyElementColor('bg', '#fd7e14')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#17a2b8" style="background-color: #17a2b8;" onclick="axApplyElementColor('bg', '#17a2b8')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#28a745" style="background-color: #28a745;" onclick="axApplyElementColor('bg', '#28a745')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#ffffff" style="background-color: #ffffff; border:1px solid #ccc;" onclick="axApplyElementColor('bg', '#ffffff')">
+                                    </div>
+                                    <div class="ax-color-patch" data-color="#000000" style="background-color: #000000;" onclick="axApplyElementColor('bg', '#000000')">
+                                    </div>
+                                    <button type="button" class="ax-color-reset" onclick="axResetElementColor('bg')">🔄
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kılavuz Çizgileri Katmanları (Ekran okuyucudan gizlendi) -->
+                <div id="ax-reading-line" aria-hidden="true">
+                </div>
+                <div id="ax-mask-top" class="ax-mask-layer" aria-hidden="true">
+                </div>
+                <div id="ax-mask-bottom" class="ax-mask-layer" aria-hidden="true">
+                </div>
+                <div id="ax-reading-guide-line" aria-hidden="true">
+                </div>
+                <!-- Erişebilirlik son -->
+                <script src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/js/bootstrap.bundle.js">//<![CDATA[
+          
+
+
+                          
+        
+                //]]></script>
+                <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">//<![CDATA[
+                //]]></script>
+                <script src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/js/script.js">//<![CDATA[
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+        
+                //]]></script>
+                <!-- Tab Menü -->
+                <script src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/js/jquery.bbq.js">//<![CDATA[
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+        
+                //]]></script>
+                <script src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/js/jquery.atAccordionOrTabs.js">//<![CDATA[
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+        
+                //]]></script>
+                <script type="text/javascript">//<![CDATA[
+          
+          $(".demo").accordionortabs();
+
+          
+        
+                //]]></script>
+                <!-- Yuvarlak Logolar -->
+                <script src="https://www.tarimorman.gov.tr/_catalogs/masterpage/tob/js/owl.carousel.min.js">//<![CDATA[
+        
+                //]]></script>
+                <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js">//<![CDATA[
+        
+                //]]></script>
+                <script>//<![CDATA[
+          $(document).ready(function ($) {
+            $(".ath_carousel_se_03_carousel").owlCarousel({
+              items: 4,
+              nav: true,
+              dots: false,
+              loop: true,
+
+              mouseDrag: true,
+              responsiveClass: true,
+              autoplay: true,
+              autoplayTimeout: 3000,
+              autoplayHoverPause: true,
+              navText: [
+                '<i class="fa-solid fa-chevron-left"></i>',
+                '<i class="fa-solid fa-chevron-right"></i>',
+              ],
+              responsive: {
+                0: {
+                  items: 1,
+                },
+                480: {
+                  items: 1,
+                },
+                767: {
+                  items: 3,
+                },
+                992: {
+                  items: 4,
+                },
+                1200: {
+                  items: 5,
+                },
+              },
+            });
+          });
+        
+                //]]></script>
+            </div>
+        </div>
+    <div id="DeltaFormDigest">
+<script type="text/javascript">//<![CDATA[
+        var formDigestElement = document.getElementsByName('__REQUESTDIGEST')[0];
+        if (!((formDigestElement == null) || (formDigestElement.tagName.toLowerCase() != 'input') || (formDigestElement.type.toLowerCase() != 'hidden') ||
+            (formDigestElement.value == null) || (formDigestElement.value.length <= 0)))
+        {
+            formDigestElement.value = '0x33B351BEBF12729394BEE81A568E40F76E5DE373A145AA0049795069866ED59EBD723BC2433EB5D83B63693CE5BDF92EA3EF52160A51312B29ACC64E03CDD114,17 Nov 2026 07:24:32 -0000';_spPageContextInfo.updateFormDigestPageLoaded = new Date();
+        }
+        //]]>
+        </script>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var _spFormDigestRefreshInterval = 1440000;window.SPThemeUtils && SPThemeUtils.ApplyCurrentTheme(true); IsSPSocialSwitchEnabled = function() { return true; };var _fV4UI = true;
+function _RegisterWebPartPageCUI()
+{
+    var initInfo = {editable: false,isEditMode: false,allowWebPartAdder: false,listId: "{1a14a64c-85d1-4d14-abdd-583e5de3d774}",itemId: 97,recycleBinEnabled: true,enableMinorVersioning: true,enableModeration: false,forceCheckout: true,rootFolderUrl: "\u002fzmmae\u002fSayfalar",itemPermissions:{High:16,Low:196705}};
+    SP.Ribbon.WebPartComponent.registerWithPageManager(initInfo);
+    var wpcomp = SP.Ribbon.WebPartComponent.get_instance();
+    var hid;
+    hid = document.getElementById("_wpSelected");
+    if (hid != null)
+    {
+        var wpid = hid.value;
+        if (wpid.length > 0)
+        {
+            var zc = document.getElementById(wpid);
+            if (zc != null)
+                wpcomp.selectWebPart(zc, false);
+        }
+    }
+    hid = document.getElementById("_wzSelected");
+    if (hid != null)
+    {
+        var wzid = hid.value;
+        if (wzid.length > 0)
+        {
+            wpcomp.selectWebPartZone(null, wzid);
+        }
+    }
+};
+function __RegisterWebPartPageCUI() {
+ExecuteOrDelayUntilScriptLoaded(_RegisterWebPartPageCUI, "sp.ribbon.js");}
+_spBodyOnLoadFunctionNames.push("__RegisterWebPartPageCUI");var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';var g_clientIdDeltaPlaceHolderMain = "DeltaPlaceHolderMain";
+var g_clientIdDeltaPlaceHolderUtilityContent = "DeltaPlaceHolderUtilityContent";
+//]]>
+</script>
+</form><span id="DeltaPlaceHolderUtilityContent"></span></body>
+</html>

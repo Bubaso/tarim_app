@@ -1,10 +1,10 @@
 {
   "_ne": "§23 Türkiye'de durum — kilitli kayıt",
-  "guncellendi": "2026-11-16",
+  "guncellendi": "2026-11-17",
   "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Ayrıntılı alıntılar ve sayfa numaraları strateji_karsilastirma.json ile yillik_program_2027.json'da — oradaki her alıntı dogrula_alintilar.py ile PDF'in kendisinden sınanıyor.",
   "_nitelik_tanimi": {
     "RESMI": "Resmî Gazete'de yayımlanmış ya da yayımlayan kurumun sitesindeki birincil belge",
-    "KURUMSAL": "Bakanlığın kendi sitesindeki duyuru",
+    "KURUMSAL": "Bakanlığın ya da bir biriminin kendi sitesindeki duyuru, rapor veya belge",
     "HABER": "Haber aktarımı — birebir söz değil"
   },
   "kaynaklar": {
@@ -70,6 +70,131 @@
       "vaat": "24 Kasım 2025 · 2026 bütçesi TBMM Plan ve Bütçe Komisyonu — 'yılın başında' paylaşılacak (bakanlık sitesi)",
       "hazirlandi_beyani": "4 Haziran 2026 · AI Tomorrow Summit 2026 — 'hazırlandı' (haber aktarımı, nitelik HABER)",
       "yayim": "16 Kasım 2026 taramasında yayımlanmış metin bulunamadı"
+    },
+    "trgm_2026_urun_belirleme": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+      "dosya": "kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+      "ilk_uygulama_yili": 2025,
+      "bolge_toplantisi": 12,
+      "duyuru": "Temmuz 2026",
+      "_dogruluk": "Duyuru 'yüksek doğruluk oranları' diyor ama oran vermiyor; ayrıntı §9 kaydında.",
+      "alinti": [
+        "Bakanlığımız tarafından 2025 üretim yılında ilk kez uygulamaya alınan Uzaktan Algılama ile Ürün Belirleme Çalışmaları",
+        "Sistem kapsamında sahadan toplanan referans parseller, uydu görüntüleriyle birlikte değerlendirilerek makine öğrenmesi süreçleri işletiliyor",
+        "ekili ürünlerin tespiti, sınıflandırılması ve üretim desenlerinin belirlenmesine yönelik analizler",
+        "12 bölge toplantısı gerçekleştirildi",
+        "ülke genelindeki tarımsal üretim alanları yüksek doğruluk oranlarıyla analiz edilmekte",
+        "bu kapsamda gerçekleştirilecek ÇKS beyan doğruluk kontrolleri"
+      ]
+    },
+    "tob_2024_karar_destek": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+      "dosya": "kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
+      "kullanim_baslangici": 2022,
+      "_beyan": "Bakanlık haberi; sistemin isabeti yayımlanmamış. Ayrıntı §15 kaydında.",
+      "alinti": [
+        "Orman Genel Müdürlüğünün (OGM) 2022'den beri kullandığı yerli ve milli imkanlarla geliştirilen Karar ve Destek Sitemi",
+        "Sistemle meteorolojik veriler, ORBİS verileri, İHA ve uydu görüntüleri bir araya getirilerek orman yangınlarıyla mücadeleye büyük güç katıyor.",
+        "Değişen koşulları sürekli olarak analiz eden yapay zekâ destekli Karar Destek Sistemi, yangının anlık olarak davranışını ve ilerleyişini öngörebiliyor."
+      ]
+    },
+    "tob_bagis_yz_ister_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. Haziran 2026. Balıkçı Gemileri İzleme Sistemi (BAGİS) Verilerinin Yapay Zekâ Destekli Analizi Yoluyla Politika Geliştirme, Simülasyon ve Senaryo Üretiminin Sağlanması Projesi — teknik ister dokümanı (TÜBİTAK sitesinde).",
+      "adres": "https://tubitak.gov.tr/sites/default/files/2026-06/TOB_Teknik_Ister_Dokumani.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_2026_tob_bagis_yz_ister.pdf",
+      "gemi_sayisi": 1629,
+      "gemi_boyu_en_az_m": 12,
+      "yayim": "Haziran 2026, TÜBİTAK sitesi",
+      "_not": "Proje dokümanı; analiz henüz yapılmadı. Ayrıntı §14 kaydında.",
+      "alinti": [
+        "ticari su ürünleri avcılığı yapan 12 metre ve üzeri boylardaki gemilerin konum, rota ve hız bilgilerinin uydu ile GSM haberleşmesi üzerinden anlık olarak izlenmesi",
+        "halihazırda 12 metre ve üzerindeki 1629 balıkçı gemisine ait operasyonel veriler güncel, yapılandırılmış ve erişilebilir durumdadır.",
+        "bu veri havuzu hâlihazırda ağırlıklı olarak sadece izleme ve kayıt tutma amacıyla kullanılmaktadır.",
+        "kontroller ekran başındaki personel tarafından yapılmaktadır.",
+        "Mevcut BAGİS verilerinin yapay zekâ destekli analizleri yapılarak gemilerin yasak alanlardaki faaliyetleri hakkında olası ihlaller tespit edilerek ve ihlal uyarıları oluşturularak denetimlerde etkinlik artırılacaktır."
+      ]
+    },
+    "tob_2025_ai_tomorrow": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 23.05.2025. Tarım ve Orman Bakanı Yumaklı, 'AI Tomorrow Summit 2025' etkinliğinde konuştu (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Sayfalar/GormeEngellilerDetay.aspx?OgeId=6614&Liste=Haber",
+      "dosya": "kaynak_dosyalari/tob_2025_ai_tomorrow_summit_konusma.html",
+      "yayim": "Mayıs 2025",
+      "_beyan": "Bakan'ın sözleri ve planları, bakanlığın kendi sitesinde. Uygulama kanıtı değil; metin 'söyledi' diye aktarır. Şûra'nın tespitlerine dayandığını kendisi söylüyor.",
+      "alinti": [
+        "Yayın Tarihi : 23.05.2025",
+        "Yumaklı, yapay zekâ destekli uzaktan algılama coğrafi bilgi sistemlerinin üretim planlaması konusunda en büyük yardımcıları olduğunu, orman yangınlarında da yapay zeka destekli teknolojilerden yararlandıklarını belirtti.",
+        "4. Tarım Orman Şurası'nda yapay zekâ konusunda çok önemli tespitler yapıldığını aktaran Yumaklı",
+        "Dijital tarım, yapay zekâ ve ileri tarım teknolojileriyle ilgili araştırmaların yürütüleceği bir araştırma enstitüsünü hayata geçireceğiz.",
+        "Kuraklık ve aşırı hava olaylarına karşı erken uyarı sistemleri kurup, dijital kuraklık izleme sistemini hayata geçireceğiz.",
+        "Tarım sigortası sisteminde uydu teknolojileri ve yapay zekayı kullanacağız.",
+        "Tarımsal gözlem uydu ağını hayata geçireceğiz, tarımsal üretime yönelik yapay zekâ destekli tahmin ve izleme sistemlerini kuracağız."
+      ]
+    },
+    "btgm_2025_calistay": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Bilgi Teknolojileri Genel Müdürlüğü. 4.11.2025. TRGM ev sahipliğinde gerçekleştirilen 'Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Çalıştayı'na destek verilerek aktif katılım sağlandı (haber).",
+      "adres": "https://www.tarimorman.gov.tr/btgm/Haber/138/Trgm-Ev-Sahipliginde-Gerceklestirilen-Tarim-Ve-Orman-Sektorunde-Yapay-Zek%C3%A2-Destekli-Dijital-Donusum-Calistayina-Destek-Verilerek-Aktif-Katilim-Saglandi",
+      "dosya": "kaynak_dosyalari/btgm_2025_yz_dijital_donusum_calistayi.html",
+      "calistay_tarihi": "23-24 Ekim 2025",
+      "_not": "Strateji belgesinin altlığı. Eylem önerilerinin kendisi yayımlanmadı; yalnız beş sektörün adı var.",
+      "alinti": [
+        "Tarım Reformu Genel Müdürlüğü (TRGM) koordinasyonu ve ev sahipliğinde",
+        "Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Çalıştayı\" 23–24 Ekim 2025 tarihlerinde gerçekleştirildi.",
+        "IV. Tarım ve Orman Şûrası kararları temel alınarak düzenlenen çalıştay, tarım ve orman sektörünün mevcut sorunlarına ve vizyonuna yapay zekâ ve dijitalleşme yoluyla çözüm üretilmesini hedefledi.",
+        "hazırlanacak “Tarım ve Orman Sektöründe Yapay Zekâ Stratejisi ve Eylem Planı\"na altlık oluşturmak amacıyla planlandı.",
+        "Çalıştay kapsamında bitkisel üretim, hayvancılık, kırsal kalkınma, orman ve su yönetimi olmak üzere beş sektöre ilişkin yapay zekâ destekli dijital dönüşüm eylem önerileri",
+        "kamu, akademi, özel sektör ve Gartner uzmanları ile Genel Müdürlüğümüzde yapay zeka alanında çalışan uzmanların katkılarıyla belirlendi."
+      ]
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "yayim": "Ocak 2026",
+      "enstitu_sayisi": 8,
+      "universite_sayisi": 2,
+      "master_plan_donemi": "2026-2030",
+      "vetalarm_onay_yili": 2025,
+      "yz_proje_2025_sayisi": 3,
+      "_turetme": "yz_proje_2025_sayisi: raporun '2025 Yılında Başlayan Dijital Tarım ve Yapay Zeka Çalışmaları' başlığı altında üç proje var (s. 59-60 / PDF s73-74): meyve ve bağda hastalık-zararlı tespiti, kuru kayısıda kükürtdioksit ve nem, mısır ve pamukta yabancı ot için hassas ilaçlama. Metin sayıyı yazıyla verir.",
+      "_kip": "Üç proje de raporda gelecek kipinde, hedef olarak anlatılıyor; sonuç yok. Metin bunu söyler.",
+      "_merkez": "Rapor TAGEM bünyesinde bir yapay zekâ araştırma merkezi saymıyor; yalnız 'Dijital Tarım ve Yapay Zeka Araştırmaları' çalışma alanı var (PDF s17).",
+      "alinti": [
+        "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü 2025 YILI BİRİM FAALİYET RAPORU Ocak 2026",
+        "Dijital Tarım ve Yapay Zeka Araştırmaları çalışmaları yürütülmektedir.",
+        "Tarımsal Araştırma Master Planı (2026 –2030) çalışmaları kapsamında, Tarımsal Mekanizasyon ve Bilişim Teknolojileri Araştırma Fırsat Alanı (AFA) altında ve Dijital Tarım ve Yapay Zekâ Araştırma Fırsat Alanı (AFA) altında",
+        "2025 Yılında Başlayan Dijital Tarım ve Yapay Zeka Çalışmaları",
+        "Bazı Meyve Türlerinde Bağda Önemli Hastalık ve Zararlıların Derin Öğrenme Yöntemleri ile Tespiti",
+        "TAGEM ’e bağlı 8 araştırma enstitüsü ve 2 üniversite iş birliğinde gerçekleştirilecek çalışmalar ile bitki hastalık ve zararlıları görüntü veri seti hazırlanacak ve derin öğrenme yöntemleri bu veri seti üzerinde eğitilecektir.",
+        "Proje sonucunda en iyi performansı sağlayan tahmin modeli web tabanlı ve mobil bir yazılım olarak meyve üreticilerinin ve konu uzmanların kullanımına sunulacaktır.",
+        "Kuru Kayısılarda Kükürtdioksit ve Nem İçeriklerinin Multispektral Görüntüleme ve Derin Öğrenme Yöntemleri İle Belirlenmesi",
+        "Bu araştırma projesi ile kuru kayısılar için kükürtdioksit ve nem oranı derin öğrenme yöntemleri kullanılarak belirlenmesi sağlanacak ve tayin cihazı prototipi geliştirilmesi amaçlanmaktadır.",
+        "Mısır ve Pamukta Yabancı Ot Kontrolünde Derin Öğrenme Yöntemiyle Hassas İlaçlama Makinesi Prototipi Geliştirilmesi",
+        "Geliştirilmesi düşünülen ilaçlama makinesi Prototipine kamera sensörleri yerleştirilerek yabancı otların konumu tespit edilecek ve ilaçlama makinesi üzerinde birbirinden bağımsız çalışan ilaçlama memeleri ile sadece hedef bitki üzerine geldiğinde açılıp kapanacaktır.",
+        "“VetAlarm: Hayvan Hastalıklarında Yapay Zeka Tabanlı Erken Teşhis ve Uyarı Sistemi”, güdümlü projesi 2025 yılında onaylanmıştır."
+      ]
+    },
+    "zmmae_2026_sera_robotu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü. 9.01.2026. Yapay Zeka ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama ve Hasat Yapabilen Otonom Sera Robotu Tasarımı ve Geliştirilmesi (haber).",
+      "adres": "https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi",
+      "dosya": "kaynak_dosyalari/zmmae_2026_otonom_sera_robotu.html",
+      "baslangic": "1 Ocak 2026",
+      "sure_yil": 2,
+      "bitis_plani": "31 Aralık 2027",
+      "_not": "Enstitü proje ortağı; yürütücü kurum duyuruda yazmıyor.",
+      "alinti": [
+        "Enstitümüzün proje ortağı olarak yer aldığı “Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi” başlıklı proje önerimiz",
+        "TÜBİTAK 1711- Yapay Zeka Ekosistem Çağrısı kapsamında desteklenmeye değer bulunmuştur.",
+        "01.01.2026 tarihinde başlayan projenin süresi 2 yıl olup, 31.12.2027 tarihinde tamamlanması planlanmaktadır."
+      ]
     }
   },
   "turkiye": {
@@ -77,7 +202,7 @@
     "_not": "Başlığın konusu Türkiye; karar 5'in 'zorlama' uyarısı burada geçerli değil."
   },
   "_reddedilen": {
-    "tagem_arastirma_merkezi": "TAGEM bünyesinde 'Yapay Zeka ve Dijital Tarım Teknolojileri Araştırma Merkezi' kurulduğu yalnız Bakan'ın Haziran 2026 konuşmasının haber aktarımlarından biliniyor; birincil duyuru bulunamadı, ad haberlerde farklı yazılıyor. Doğrulanınca §23 ve §25'e girer.",
+    "tagem_arastirma_merkezi": "TAGEM bünyesinde 'Yapay Zeka ve Dijital Tarım Teknolojileri Araştırma Merkezi' kurulduğu hâlâ yalnız Bakan'ın Haziran 2026 konuşmasının haber aktarımlarından biliniyor; ad haberlerde farklı yazılıyor. Birincil kaynakta olan: Bakan'ın Mayıs 2025'te (bakanlık sitesi) böyle bir enstitüyü kuracaklarını söylemesi — metne PLAN olarak girdi. TAGEM'in Ocak 2026 faaliyet raporu böyle bir merkez saymıyor. Kuruluşu birincil kaynakta doğrulanınca §23 ve §25'e girer.",
     "trakya_kuraklik_tahmini": "Gebze Teknik Üniversitesi ve Kırklareli'deki araştırma enstitüsünün derin öğrenmeyle kuraklık tahmini — yalnız ikincil haber (doğruluk oranları dahil). Kuyrukta; kaynağından okunmadan girmez.",
     "yangin_karar_destek_bir_hafta": "Orman yangınlarında 'yapay zekâ tabanlı Karar Destek Sistemi ile riskin bir hafta önceden belirlenmesi' Bakan'ın beyanı olarak haberlerde geçiyor; bölümün haber akışında (§15) duruyor, metne birincil kaynak bulununca girer."
   }

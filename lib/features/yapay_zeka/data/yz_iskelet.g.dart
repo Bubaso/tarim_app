@@ -292,8 +292,8 @@ const List<YzBaslik> kYzBasliklar = [
       false,
       ["karar", "uzaktan", "veri", "goruntu"],
       true,
-      "TAGEM'in araştırma merkezi, bakanlığın strateji belgesi, KKYDP, Dijital Toprak Haritası — ve ulusal yapay zeka stratejisinde tarımın yokluğu.",
-      "TAGEM's research centre, the ministry's strategy, rural development grants, the Digital Soil Map — and agriculture's absence from the national AI strategy."),
+      "Ulusal planda tarım var, bakanlık yok; yıllık programın tek yapay zeka işi, bakanlığın sahadaki izleme sistemleri, TAGEM'in projeleri ve beklemedeki strateji belgesi.",
+      "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."),
   YzBaslik(
       24,
       "mevzuat-ve-politika",
