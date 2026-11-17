@@ -917,12 +917,21 @@ Merkezin birimi ve yeri sayfada yok; metin TAGEM demiyor.
   2005/07 bazını yalnız AT2050 ve 2017 güncellemesi için kullanıyor.
 - TEKNOFEST'in "her yıl derece veriyor" cümlesi 2020-2025 derece
   başlıklarının hepsi görülerek yazıldı.
+- §25'in ZDUS satırı, MGM belgesinde ayrı bir ürün olan Zirai Don Risk
+  Tahmin Haritaları'nı ZDUS'a bağlamıştı; §17'deki ifadeye (bitki bazında
+  5 günlük tahmin ve risk durumu) çekildi (67fa9d5).
+- **Çizici:** tablo başlıkları, bölüm adı ve katman etiketleri ham
+  `toUpperCase()` ile büyütülüyordu ("ŞIRKET", "ÜNIVERSITE", "DIJITAL").
+  Beş yer `core/utils/turkce_metin.dart`'taki `buyukHarf(metin, isEn)` ile
+  değişti; `YzMetinGorunumu` artık dili alıyor. Sınama eski kodla düşüyor
+  (b33ceba).
 
 ### 5 · Sınama ve önizleme
 
-96 test geçti. Kaynak deposu 384 dosya (`_ortak/ham_kaynaklar.json`).
+98 test geçti. Kaynak deposu 384 dosya (`_ortak/ham_kaynaklar.json`).
 Önizleme (yz-onizleme, 8132) bölüm açık bayrakla yeniden kuruldu; bayrak
-derlemeden sonra geri alındı.
+derlemeden sonra geri alındı. §25'in tabloları geniş ekranda tablo, telefonda
+kart olarak ve doğru Türkçe büyük harfle görüldü.
 
 ## Tur 9'a kalanlar
 
