@@ -263,7 +263,7 @@ def uret():
         n = len(terimler)
         out = ["# 29 · Glossary" if en else "# 29 · Sözlük", ""]
         if en:
-            out.append(f"> **Summary.** Short definitions of the **{n}** terms used across this file. Where a term first appears on a page it is underlined with dots; tapping it opens the same definition in a bubble. The source of each definition is given beside it, together with the headings where the term appears.")
+            out.append(f"> **Summary.** Short definitions of the **{n}** terms used across this guide. Where a term first appears on a page it is underlined with dots; tapping it opens the same definition in a bubble. The source of each definition is given beside it, together with the headings where the term appears.")
         else:
             out.append(f"> **Özet.** Bu dosyada geçen **{n}** terimin kısa tanımı. Bir terim bir sayfada ilk geçtiği yerde noktalı çizgiyle altı çizili görünür; üstüne dokununca aynı tanım bir balonda açılır. Her tanımın kaynağı ve terimin geçtiği başlıklar yanında yazıyor.")
         out.append("")

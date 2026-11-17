@@ -36,7 +36,7 @@ Türkiye'nin ulusal ölçekte toprak verisi yeni değil. TAGEM'in 2017 tarihli d
 
 Program bunun yanında ulusal arazi örtüsü haritasının her yıl üretilmesini, iklim projeksiyonlarına dayalı su erozyonu ve sediment analizleri için de veri altyapısı ve yöntem geliştirme çalışmalarını öngörüyor.
 
-Bakanlık Aralık 2025'te, Dünya Bankası kredisiyle yürütülen Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi kapsamında toprak etüdü, toprak analizleri ve detaylı dijital toprak haritalarının hazırlanması için ihaleye çıktı. İhale **13** ilde **5,16** milyon hektar tarım alanını kapsıyor (proje sınırının tamamı **12,3** milyon hektar); iş **10** kısma bölünmüş, süresi **600** gün. Haritaların hangi yöntemle, makine öğrenmesiyle mi üretileceği açıklanmadı.
+Bakanlık Aralık 2025'te, Dünya Bankası kredisiyle yürütülen Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi kapsamında toprak etüdü ve sınıflandırması, toprak analizleri ve detaylı dijital toprak haritalarının hazırlanması için ihaleye çıktı. İhale **13** ilde **5,16** milyon hektar tarım alanını kapsıyor (proje sınırının tamamı **12,3** milyon hektar); iş **10** kısma bölünmüş, süresi **600** gün. Haritaların hangi yöntemle, makine öğrenmesiyle mi üretileceği açıklanmadı.
 
 Akademide de bu yöntemle çalışılıyor: Kaya ve arkadaşlarının 2022 çalışması kuzeybatı Türkiye'de toprak bünye sınıfını farklı makine öğrenmesi algoritmalarıyla tahmin edip haritaladı.
 
@@ -44,4 +44,4 @@ Eksik olan ise **yapay zekâyla üretilmiş bir toprak haritasının Türkiye'de
 
 ## Bu sayfa nasıl güncelleniyor
 
-Bu sayfa üç şeyi izliyor: dijital toprak haritacılığı, toprak organik karbonu ve arazi uygunluğu üzerine yeni hakemli çalışmalar; detaylı toprak etüdü ve arazi kullanım planlamasına dair resmî gelişmeler; ve buradaki sayıların kaynaklarının yeni sürümleri — yeni yıllık program, SoilGrids'in yeni sürümü. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Bu sayfa üç şeyi izliyor: dijital toprak haritacılığı, toprak organik karbonu ve arazi uygunluğu üzerine yeni hakemli çalışmalar; Tarım Reformu Genel Müdürlüğü'nün detaylı toprak etüdü ve arazi kullanım planlamasına dair duyuruları; ve buradaki sayıların kaynaklarının yeni sürümleri — yeni yıllık program, SoilGrids'in yeni sürümü. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

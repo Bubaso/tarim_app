@@ -1,16 +1,17 @@
 # 25 · Türkiye dizini: girişimler, üniversiteler, kamu projeleri
 
-> **Özet.** Türkiye'de tarımda yapay zekâ ve dijital teknoloji üzerinde çalışan kuruluşlar dört grupta toplanıyor: kamu kurumlarının sistemleri, devletin araştırma ve destek programları, üniversiteler ve girişimler. Kamuda yapay zekâ en çok izleme işlerinde kullanılıyor ya da kullanılmaya hazırlanıyor: uydudan ürün belirleme, orman yangınında karar desteği, balıkçı gemilerinin izlenmesi. TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı beş öncelikli alanından birini akıllı tarım, gıda ve hayvancılığa ayırıyor; bu alanda kabul edilen **10** projede şirketler ile üniversiteler ve araştırma kurumları birlikte çalışıyor. FAO ile EBRD'nin 2025 raporu Türkiye'de yaklaşık **35** tarım teknolojisi girişimi sayıyor ve bu sayıyı ülkenin ve tarım sektörünün büyüklüğüne göre görece düşük buluyor.
+> **Özet.** Türkiye'de tarımda yapay zekâ ve dijital teknoloji üzerinde çalışan kuruluşlar dört grupta toplanıyor: kamu kurumlarının sistemleri, devletin araştırma ve destek programları, üniversiteler ve girişimler. Kamuda yapay zekâ en çok izleme işlerinde kullanılıyor ya da kullanılmaya hazırlanıyor: uydudan ürün, işlenmeyen arazi ve dikili alan belirleme, orman yangınında karar desteği, balıkçı gemilerinin izlenmesi. TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı beş öncelikli alanından birini akıllı tarım, gıda ve hayvancılığa ayırıyor; bu alanda kabul edilen **10** projede şirketler ile üniversiteler ve araştırma kurumları birlikte çalışıyor. FAO ile EBRD'nin 2025 raporu Türkiye'de yaklaşık **35** tarım teknolojisi girişimi sayıyor ve bu sayıyı ülkenin ve tarım sektörünün büyüklüğüne göre görece düşük buluyor.
 
 ## Dizine giren kayıtlar
 
-Dizindeki her kuruluşun bağımsız bir kaydı var: bir bakanlık ya da TÜBİTAK sayfası, Resmî Gazete'de yayımlanmış bir yönetmelik, hakemli bir yayın ya da uluslararası bir kurumun raporu. Şirketlerin ne yaptığı kendi sitelerindeki tanımla veriliyor; bu tanımlar şirketlerin kendi beyanı. Dizinde yer almak bir öneri ya da sıralama değil.
+Dizindeki her kuruluşun yazılı bir dayanağı var: bir bakanlık ya da TÜBİTAK sayfası, Resmî Gazete'de yayımlanmış bir yönetmelik, hakemli bir yayın, uluslararası bir kurumun raporu ya da kurumun kendi sayfası. Şirketlerin ne yaptığı kendi sitelerindeki tanımla veriliyor; bu tanımlar şirketlerin kendi beyanı. Dizinde yer almak bir öneri ya da sıralama değil.
 
 ## Kamu: yapay zekâ kullanan ya da kullanmaya hazırlanan sistemler
 
 | Sistem ya da proje | Ne yapıyor | Durum | Ayrıntı |
 |---|---|---|---|
 | Uzaktan Algılama ile Ürün Belirleme · Tarım Reformu Genel Müdürlüğü | Sahadan toplanan referans parselleri uydu görüntüleriyle birlikte değerlendiriyor; ekili ürünleri makine öğrenmesiyle tespit edip sınıflandırıyor | 2025 üretim yılında ilk kez uygulandı | §9, §23 |
+| İşlenmeyen arazi ve dikili alan tespiti · Tarım ve Orman Bakanlığı | Uydu görüntülerini derin öğrenme ve yapay zekâyla analiz ederek işlenmeyen tarım arazilerini ve dikili alanları tespit ediyor | Bakanlığın 2025 idare faaliyet raporuna göre analiz çalışmaları yapıldı | §19, §23 |
 | Orman yangını Karar Destek Sistemi · Orman Genel Müdürlüğü | Meteoroloji verisini, orman bilgi sistemi verisini, İHA ve uydu görüntülerini birleştiriyor; yangının davranışını ve ilerleyişini yapay zekâ desteğiyle öngörüyor | 2022'den beri kullanılıyor | §15, §23 |
 | BAGİS verilerinin yapay zekâ destekli analizi · Tarım ve Orman Bakanlığı | Balıkçı gemilerinin izleme verisinden yasak alanlardaki olası ihlalleri tespit edip uyarı üretecek | Teknik ister dokümanı Haziran 2026'da yayımlandı | §14, §23 |
 | Tarımsal Kuraklık İzleme Sistemi (TAKİS) | Kuraklığı uydu verileriyle **7** günlük periyotlarla izliyor | Kuraklığı yapay zekâyla **1-4 hafta** önceden tahmin etme çalışmalarının 2027'de başlatılması planlanıyor | §23 |
@@ -31,7 +32,7 @@ Aşağıdaki sistemler tarımın dijital kayıt ve ölçüm katmanı: bir modeli
 | Dijital Sulama Yönetim Sistemi (DİSU) · Tarım ve Orman Bakanlığı | 2027 Yıllık Programı'na göre 2027'de tamamlanacak | §7, §23 |
 | Zirai Don Uyarı Sistemi (ZDUS) · Meteoroloji Genel Müdürlüğü | Bütün il ve ilçeler için bitki bazında **5** günlük don tahmini ve risk durumu | §17 |
 | Köy Bazlı Verim Sigortası · TARSİM | 2017'de ilçe bazlı kuraklık verim sigortası olarak başladı, 2021'den beri köy bazlı; TARSİM 2025'te uydu görüntüleriyle hasar tespiti üzerine araştırmalar yaptı | §17 |
-| İMECE · TÜBİTAK UZAY | Türkiye'nin ilk yerli, metre altı çözünürlüklü yer gözlem uydusu; 15 Nisan 2023'te fırlatıldı; İMECE-2 ve İMECE-3'ün geliştirilmesi sürüyor | §19 |
+| İMECE · TÜBİTAK UZAY | Türkiye'nin metre altı çözünürlüklü ilk yerli yer gözlem uydusu; 15 Nisan 2023'te fırlatıldı; İMECE-2 ve İMECE-3'ün geliştirilmesi sürüyor | §19 |
 
 ## Araştırma ve destek programları
 
@@ -54,11 +55,11 @@ Bunlar desteklenmeye değer bulunan projeler. Sera robotu projesi, ortaklarında
 
 **TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü**'nün bir Akıllı Tarım, Gıda ve Hayvancılık yetkinlik merkezi var. Çalışma alanları arasında uydu görüntülerinden ve toprak analizi sonuçlarından üretim miktarını kestirmek ve hayvanlardan alınan sürekli ölçümlerle et ve süt verimini artırmak sayılıyor. Merkezin sayfası Tarım ve Orman Bakanlığı'nın Gıda ve Kontrol ile Hayvancılık genel müdürlükleriyle iş birliğini de anıyor.
 
-**Tarım ve Orman Bakanlığı**, Bakan'ın 4 Haziran 2026'daki açıklamasına göre bir Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezi kurdu; merkezin hangi birime bağlı olduğu ve nerede çalıştığı açıklanmadı (§23).
+**Tarım ve Orman Bakanlığı**, Bakan'ın 4 Haziran 2026'daki açıklamasına göre bir Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezi kurdu (§23).
 
-**İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP)** Dünya Bankası'nın finanse ettiği bir proje; bakanlığın 2025 faaliyet raporuna göre proje kapsamında hibe uygulamalarına henüz başlanmamıştı (§20).
+**Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP)** Dünya Bankası'nın finanse ettiği bir proje; bakanlığın 2025 faaliyet raporuna göre proje kapsamında hibe uygulamalarına henüz başlanmamıştı (§20).
 
-**Dijital Köyler Girişimi**, TAGEM ile FAO'nun teknik iş birliği projesi: 2023'te başladı; Arnavutluk, Bosna-Hersek, Gürcistan ve Türkiye'yi kapsıyor.
+**Dijital Köyler Girişimi**, TAGEM ile FAO'nun teknik iş birliği projesi: 2023'te başladı, Aralık 2025'te tamamlandı; Arnavutluk, Bosna-Hersek, Gürcistan ve Türkiye'yi kapsıyordu (§20).
 
 **TEKNOFEST Tarım Teknolojileri Yarışması** 2020'den beri her yıl derece veriyor; lise ve üniversite öğrencileri, mezunlar, girişimler ve özel sektör katılabiliyor. Ankara Kalkınma Ajansı'nın **TAGTech Programı** ise FAO–EBRD raporuna göre çiftçilere ve tarım teknolojisi girişimlerine saha entegrasyonu ve Ar-Ge desteği sağlıyor.
 
@@ -107,8 +108,8 @@ FAO ile EBRD'nin 2025 raporu Türkiye'de akıllı ve hassas tarım, tedarik zinc
 
 Rapor Actimoo'yu ve BenimSürüm'ü yerleşik şirketlerin iştiraki olarak kurulan girişimler arasında sayıyor. Rapora göre Ankaref 2016'da Ankara Üniversitesi ve Algan Grup'la süt inekleri için düşük maliyetli bir kızgınlık tespit sistemi üzerine Ar-Ge'ye başladı ve 2020'de Actimoo markasıyla bir adımsayar piyasaya sürdü; BenimSürüm'ün ana şirketi Algan Grup. AgCurate Ankara'da kuruldu; şirketin sitesinde verdiği adres bugün Hollanda'da. Görsentam, TÜBİTAK 1711'deki akıllı sulama projesinin teknoloji sağlayıcısı.
 
-Eksik olan ise **Türkiye'deki tarım teknolojisi girişimlerinin düzenli güncellenen bir listesi: bilinen en kapsamlı liste, 2022 tarihli bir ekosistem haritasına dayanıyor.**
+Eksik olan ise **Türkiye'deki tarım teknolojisi girişimlerinin düzenli güncellenen bir listesi: FAO ile EBRD'nin raporundaki liste 2022 tarihli bir ekosistem haritasına dayanıyor.**
 
 ## Bu sayfa nasıl güncelleniyor
 
-Bu dizin Resmî Gazete'de yayımlanan üniversite merkezi yönetmeliklerini, TÜBİTAK'ın kabul listelerini, kamu kurumlarının duyurularını ve girişimlere dair bağımsız kayıtları izliyor. Yeni kayıt, editör onayından sonra dizine ekleniyor.
+Bu dizin Resmî Gazete'de yayımlanan üniversite merkezi yönetmeliklerini, TÜBİTAK'ın kabul listelerini ve duyurularını, kamu kurumlarının duyurularını ve girişimlere dair bağımsız kayıtları izliyor; haberlerde adı geçen kuruluşlar da dizine aday olarak öneriliyor ve onaylananlar metnin sonunda, adlarının geçtiği haberle birlikte listeleniyor. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

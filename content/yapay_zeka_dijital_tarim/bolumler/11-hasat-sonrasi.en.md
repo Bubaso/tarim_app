@@ -1,6 +1,6 @@
 # 11 · After harvest: grading, quality, storage
 
-> **Summary.** Produce is also lost after it leaves the field: according to FAO, the share of food lost worldwide between harvest and retail was **13.3%** in 2023; it was **13.0%** in 2015, when monitoring began — in other words, no progress. Fruit and vegetables are lost most: **25.4%**. Part of the remedy is not AI but basic storage: in developing countries, storage losses of grain as high as **50-60%** can be brought down to **1-2%** with scientific storage methods. AI's real place is grading; in packhouses, sizing has moved from mechanical methods to machine vision over three decades. The most concrete measured example in Türkiye is optical and laser sorting against aflatoxin in hazelnuts and dried figs.
+> **Summary.** Produce is also lost after it leaves the field: according to FAO, the share of food lost worldwide between harvest and retail was **13.3%** in 2023; it was **13.0%** in 2015, when monitoring began — in other words, no progress. Fruit and vegetables are lost most: **25.4%**. Part of the remedy is not AI but basic storage: in developing countries, storage losses of grain as high as **50-60%** can be brought down to **1-2%** with scientific storage methods. AI's real place is grading; in packhouses, sizing has moved from mechanical methods to machine vision over three decades. The most concrete measured example in Türkiye is optical and laser sorting against aflatoxin in hazelnuts.
 
 ## What it does
 
@@ -29,7 +29,7 @@ In most developing countries cereals are the staple food, and on a calorie basis
 
 Machine vision in grading is not new: in packhouses, the sizing of fruit and vegetables has moved from mechanical methods to machine vision over the last three decades; the same measurement is now moving to fruit on the tree, in the orchard (Neupane and colleagues, 2023). AI is a candidate for widening the range of defects this eye can recognise; a laboratory example reporting high accuracy comes from Türkiye, below.
 
-But FAO's table carries a warning: in the regions where losses are highest, the storage review suggests the main gap is not in sorting produce but in protecting it.
+But read together with the storage review, FAO's table carries a warning: where losses are highest, the main gap appears to lie less in sorting produce than in protecting it.
 
 ## Türkiye
 

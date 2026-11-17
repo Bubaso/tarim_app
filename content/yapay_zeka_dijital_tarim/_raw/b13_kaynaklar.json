@@ -74,6 +74,29 @@
         "Tedbir 491.4. Örtü altı yetiştiriciliğine yönelik mevcut seraların modernize edilmesine ve modern seraların kurulmasına yatırım ve işletme finansman desteği sağlanacak, jeotermal sera organize tarım bölgesi sayısı artırılacaktır.",
         "Enerji ihtiyacı jeotermal kaynakla karşılanan 5 sera organize tarım bölgesinin altyapısı tamamlanarak yatırımcıların hizmetine sunulacaktır."
       ]
+    },
+    "zmmae_2026_sera_robotu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü. 9.01.2026. Yapay Zeka ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama ve Hasat Yapabilen Otonom Sera Robotu Tasarımı ve Geliştirilmesi (haber).",
+      "adres": "https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi",
+      "dosya": "kaynak_dosyalari/zmmae_2026_otonom_sera_robotu.html",
+      "alinti": [
+        "Enstitümüzün proje ortağı olarak yer aldığı “Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi” başlıklı proje önerimiz",
+        "TÜBİTAK 1711- Yapay Zeka Ekosistem Çağrısı kapsamında desteklenmeye değer bulunmuştur.",
+        "01.01.2026 tarihinde başlayan projenin süresi 2 yıl olup, 31.12.2027 tarihinde tamamlanması planlanmaktadır."
+      ],
+      "_kopya": "b23_kaynaklar.json · zmmae_2026_sera_robotu"
+    },
+    "tubitak_1711_tarim_projeleri": {
+      "nitelik": "RESMI",
+      "kunye": "TÜBİTAK BİLGEM YZE, 'Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler', erişim 17.11.2026",
+      "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/",
+      "dosya": "kaynak_dosyalari/tubitak_bilgem_1711_akilli_tarim_projeler.html",
+      "alinti": [
+        "Protel Bilgisayar Projesi",
+        "otonom mobil bir robot ile domates serasında gübrelemenin, ilaçlamanın ve hasatın insan faktörü olmadan yapılarak"
+      ],
+      "_kopya": "b25_kaynaklar.json · tubitak_1711_tarim_projeleri"
     }
   },
   "turkiye": {

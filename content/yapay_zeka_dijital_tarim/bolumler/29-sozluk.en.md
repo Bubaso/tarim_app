@@ -1,16 +1,16 @@
 # 29 · Glossary
 
-> **Summary.** Short definitions of the **58** terms used across this file. Where a term first appears on a page it is underlined with dots; tapping it opens the same definition in a bubble. The source of each definition is given beside it, together with the headings where the term appears.
+> **Summary.** Short definitions of the **58** terms used across this guide. Where a term first appears on a page it is underlined with dots; tapping it opens the same definition in a bubble. The source of each definition is given beside it, together with the headings where the term appears.
 
 ## A
 
 **Accuracy** (*Doğruluk*). In a classification model, the number of correct predictions divided by the total number of predictions. *Source: Google, Machine Learning Glossary.* · Appears in §3, §8, §11, §12, §15, §18, §19, §26, §27, §28.
 
-**Agricultural extension** (*Tarımsal yayım*). An umbrella term for all the activities that provide the information and advisory services needed by farmers and other actors in agrifood systems. *Source: FAO (Christoplos, 2010).* · Appears in §1, §18, §26, §28.
+**Agricultural extension** (*Tarımsal yayım*). An umbrella term for all the activities that provide the information and advisory services needed by farmers and other actors in agrifood systems. *Source: FAO (Christoplos, 2010).* · Appears in §1, §8, §18, §26, §28.
 
 **Artificial intelligence (AI)** (*Yapay zekâ*). In the EU AI Act's definition, an AI system is a machine-based system designed to operate with varying levels of autonomy that infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions. The terms are compared in §2. *Source: EU AI Act (2024).* · Appears in §1, §2, §3, §4, §5, §6, §7, §9, §10, §11, §12, §13, §14, §15, §16, §17, §18, §19, §20, §21, §22, §23, §24, §25, §26, §27.
 
-**Autonomous mobile machinery** (*Otonom mobil makine*). In the EU Machinery Regulation's definition, mobile machinery with an autonomous mode, in which all its essential safety functions are ensured in its travel and working area without permanent interaction of an operator. *Source: EU Machinery Regulation (2023).* · Appears in §23, §24, §26, §27, §28.
+**Autonomous mobile machinery** (*Otonom mobil makine*). In the EU Machinery Regulation's definition, mobile machinery with an autonomous mode, in which all its essential safety functions are ensured in its travel and working area without permanent interaction of an operator. *Source: EU Machinery Regulation (2023).* · Appears in §10, §23, §24, §26, §27, §28.
 
 **Auto-steer (automated guidance)** (*Otomatik dümenleme (otomatik yönlendirme)*). Satellite-positioning technology that steers self-propelled farm machines such as tractors, combine harvesters and sprayers automatically. It reduces overlaps and skips in the field. *Source: FAO, The State of Food and Agriculture 2022, glossary; USDA Economic Research Service (2023).* · Appears in §1, §2, §22.
 
@@ -30,7 +30,7 @@
 
 **Climate-smart agriculture** (*İklim akıllı tarım*). An approach defined and presented by FAO in 2010. It has three pillars: sustainably increasing agricultural productivity and incomes, adapting and building resilience to climate change, and reducing or removing greenhouse gas emissions where possible. It is not a single technology or practice that can be applied everywhere. The terms are compared in §2. *Source: FAO, Climate-Smart Agriculture Sourcebook (2013).* · Appears in §1, §2, §27.
 
-**Computer vision (image processing)** (*Görüntü işleme (bilgisayarlı görü)*). A field of AI and machine learning that enables computers to interpret, analyse and understand visual information (images and videos) to perform tasks such as object recognition, facial recognition and scene understanding. *Source: UK Government, Artificial Intelligence Playbook (2025).* · Appears in §3, §8, §11, §23.
+**Computer vision (image processing)** (*Görüntü işleme (bilgisayarlı görü)*). A field of AI and machine learning that enables computers to interpret, analyse and understand visual information (images and videos) to perform tasks such as object recognition, facial recognition and scene understanding. *Source: UK Government, Artificial Intelligence Playbook (2025).* · Appears in §3, §8, §11, §13, §23.
 
 **Controlled environment agriculture** (*Kontrollü ortam tarımı*). Agriculture that includes greenhouse farming and vertical farming; greenhouses are its most common form. *Source: FAO, The State of Food and Agriculture 2022.* · Appears in §13.
 
@@ -120,7 +120,7 @@
 
 **Retrieval-augmented generation (RAG)** (*Belgeye dayalı yanıt üretme (RAG)*). A technique that improves the output of a large language model by grounding it in sources of knowledge retrieved after the model was trained. *Source: Google, Machine Learning Glossary.* · Appears in §18.
 
-**Robot** (*Robot*). A machine capable of autonomous operation without direct human intervention. *Source: FAO, The State of Food and Agriculture 2022, glossary.* · Appears in §1, §2, §6, §10, §12, §22, §23, §25, §26, §27.
+**Robot** (*Robot*). A machine capable of autonomous operation without direct human intervention. *Source: FAO, The State of Food and Agriculture 2022, glossary.* · Appears in §1, §2, §6, §10, §12, §13, §22, §23, §25, §26, §27.
 
 ## S
 

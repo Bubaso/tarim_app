@@ -133,6 +133,18 @@
         "dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılması hedeflenmiştir.",
         "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması"
       ]
+    },
+    "zmmae_2026_sera_robotu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü. 9.01.2026. Yapay Zeka ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama ve Hasat Yapabilen Otonom Sera Robotu Tasarımı ve Geliştirilmesi (haber).",
+      "adres": "https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi",
+      "dosya": "kaynak_dosyalari/zmmae_2026_otonom_sera_robotu.html",
+      "alinti": [
+        "Enstitümüzün proje ortağı olarak yer aldığı “Yapay Zeka Ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama Ve Hasat Yapabilen Otonom Sera Robotu Tasarımı Ve Geliştirilmesi” başlıklı proje önerimiz",
+        "TÜBİTAK 1711- Yapay Zeka Ekosistem Çağrısı kapsamında desteklenmeye değer bulunmuştur.",
+        "01.01.2026 tarihinde başlayan projenin süresi 2 yıl olup, 31.12.2027 tarihinde tamamlanması planlanmaktadır."
+      ],
+      "_kopya": "b23_kaynaklar.json · zmmae_2026_sera_robotu"
     }
   },
   "turkiye": {

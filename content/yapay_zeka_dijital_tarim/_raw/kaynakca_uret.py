@@ -48,6 +48,91 @@ AYLAR = {"Ocak": "January", "Şubat": "February", "Mart": "March", "Nisan": "Apr
 # İngilizce sayfada çevrilen açıklama kalıpları (künyenin başlık kısmına
 # dokunulmaz; bunlar kayıtlarda parantez içinde ya da sonda duran notlar).
 EN_KALIPLAR = [
+    # Kurum ve yer adları (Türkçe yazılmış yabancı adlar özgün adlarına döner)
+    (r"\bAvrupa Parlamentosu ve Konsey\b", "European Parliament and Council"),
+    (r"\bAvrupa Komisyonu\b", "European Commission"),
+    (r"\bAvrupa Parlamentosu\b", "European Parliament"),
+    (r"\(Avrupa tarım makineleri sanayi birliği\)", "(European agricultural machinery industry association)"),
+    (r"\(Durum belgesi\.\)", "(Position paper.)"),
+    (r"\(ABD Siber Güvenlik ve Altyapı Güvenliği Ajansı\)", "(US Cybersecurity and Infrastructure Security Agency)"),
+    (r"\(ABD Federal Soruşturma Bürosu\)", "(US Federal Bureau of Investigation)"),
+    (r"\(ABD Jeoloji Araştırmaları Kurumu\)", "(US Geological Survey)"),
+    (r"ABD İflas Mahkemesi, Teksas Güney Bölgesi", "US Bankruptcy Court for the Southern District of Texas"),
+    (r"\bDava No\.", "Case No."),
+    (r"^Çin Devlet İnternet Bilgi Ofisi", "Cyberspace Administration of China"),
+    (r"\) ve Tarım ve Köy İşleri Bakanlığı \(", ") and Ministry of Agriculture and Rural Affairs ("),
+    (r"\[Çin Dijital Köy Gelişim Raporu 2019–2025\]", "[China Digital Village Development Report 2019–2025]"),
+    (r"^Çin Tarım ve Köy İşleri Bakanlığı \(农业农村部\) Pazar ve Bilişim Dairesi",
+     "Ministry of Agriculture and Rural Affairs of China (农业农村部), Department of Market and Information Technology"),
+    (r"\bMARA Basın Ofisi\b", "MARA Press Office"),
+    (r"Tarım ve Çiftçi Refahı Bakanlığı", "Ministry of Agriculture and Farmers Welfare"),
+    (r"\(Rajya Sabha yazılı yanıtı\)", "(Rajya Sabha written reply)"),
+    (r"Paris: Uluslararası Enerji Ajansı", "Paris: International Energy Agency"),
+    (r"FAO Yüksek Düzeyli Uzmanlar Forumu \(Roma, (12-13 [A-Za-z]+ 2009)\) için arka plan belgesi",
+     r"Background paper for the FAO High-Level Experts Forum (Rome, \1)"),
+    (r"\(AU Yürütme Konseyi 45\. olağan oturumu, Akra, (18–19 [A-Za-z]+ 2024)'te kabul\)",
+     r"(adopted at the 45th ordinary session of the AU Executive Council, Accra, \1)"),
+    (r"\bRoma\b", "Rome"),
+    (r"\bPekin\b", "Beijing"),
+    (r"\bBrüksel\b", "Brussels"),
+    (r"\bYeni Delhi\b", "New Delhi"),
+    (r"\bFAO ve ITU\b", "FAO and ITU"),
+    (r"\) ve GFRAS \(", ") and GFRAS ("),
+    (r"\) ve Dalberg Advisors", ") and Dalberg Advisors"),
+    (r"\bStart-Up Nation Central ve GrowingIL\b", "Start-Up Nation Central and GrowingIL"),
+    (r"\bve ark\.", "et al."),
+    # Belge türü ve künye notları
+    (r"^6698 sayılı Kişisel Verilerin Korunması Kanunu\. Kabul (\S+); Resmî Gazete (\S+)\.",
+     r"Law No. 6698 on the Protection of Personal Data (Kişisel Verilerin Korunması Kanunu). Adopted \1; Resmî Gazete (Official Gazette) \2."),
+    (r"\(Yürürlük: (\d{4}/\d+) sayılı Cumhurbaşkanlığı Genelgesi\.\)", r"(In force under Presidential Circular No. \1.)"),
+    (r"\bBakanlar Kurulu Kararı\b", "Council of Ministers Decision"),
+    (r"Yönetmelik \(Konya Gıda ve Tarım Üniversitesinden\)", "Regulation (from Konya Food and Agriculture University)"),
+    (r"\(AB Makine Tüzüğü\), Ek III tanımları", "(EU Machinery Regulation), Annex III definitions"),
+    (r"\(IBRD Kredisi (\S+)\): (\S+) dönemi bağımsız denetim raporu\. Tarım ve Orman Bakanlığı sitesinde yayımlandı\.",
+     r"(IBRD Loan \1): independent audit report for \2. Published on the Ministry of Agriculture and Forestry website."),
+    (r"\(TÜBİTAK sitesinde\)", "(on TÜBİTAK's website)"),
+    (r"— teknik ister dokümanı", "— technical requirements document"),
+    (r"\(2021-2025 stratejisinin eylem planı\)", "(action plan of the 2021-2025 strategy)"),
+    (r"\(Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı\)", "(link on the ministry's 'Stratejik Plan' page)"),
+    (r"\(Grup Başkanı: ", "(Group chair: "),
+    (r"İlk kabul (\d+ \S+ \d{4}); 'AI system' tanımı (\d+ \S+ \d{4})'te, Tavsiye (\d+ \S+ \d{4})'te revize edildi\.",
+     r"First adopted \1; the 'AI system' definition was revised on \2 and the Recommendation on \3."),
+    (r"\(basılı sürüm © OECD (\d{4})\)", r"(print version © OECD \1)"),
+    (r"\(([A-Za-z]+ \d{4})'te revize edildi\)", r"(revised \1)"),
+    (r"makalesinin kurumsal özeti\]", "— institutional summary of the article]"),
+    (r"Kitap bölümü (\d+) \(s\. (\d+) vd\.\)", r"Book chapter \1 (pp. \2 ff.)"),
+    (r"\byayın no\.", "publication no."),
+    (r"Ülke Bazında Öne Çıkan Yatırımlar", "Country Investment Highlights"),
+    (r"\(FAO Yatırım Merkezi ve EBRD ortak çalışması\)", "(joint work of the FAO Investment Centre and EBRD)"),
+    (r"Sözlük \(Glossary\) s\. ", "Glossary, pp. "),
+    (r"Wageningen UR proje broşürü", "Wageningen UR project brochure"),
+    (r"\(görev sayfası; LACIE bölümü\)", "(mission page; LACIE section)"),
+    (r"\(görev sayfası\)", "(mission page)"),
+    (r"\(Sık sorulan sorular\)", "(Frequently asked questions)"),
+    (r"\bresmî sitesi\b", "official website"),
+    (r"' sayfası \((\d{4}–\d{4}) dereceler\)", r"' page (\1 rankings)"),
+    (r"— ürün sayfası", "— product page"),
+    (r"\byetkinlik merkezi sayfası\b", "competence centre page"),
+    (r"\bprogram sayfası\b", "programme page"),
+    (r"— metaveri\b", "— metadata"),
+    (r"\((?:haber|news); AI Tomorrow Summit (\d{4}) konuşması\)", r"(news; AI Tomorrow Summit \1 speech)"),
+    (r"\(Türkçe\)", "(Turkish)"),
+    (r"\b1\. baskı\b", "1st edition"),
+    (r"\bBülten No\b", "Bulletin No"),
+    (r"\bHaber, (?=\d)", "News, "),
+    (r"\(yönlendirme: ", "(redirects to: "),
+    (r"\(sayfa: ", "(page: "),
+    (r"\(liste sayfası: ", "(list page: "),
+    (r"(\d{1,2}\.\d{1,2}\.\d{4})'(?:da|de|ta|te) indirildi", r"downloaded \1"),
+    (r"\biçerik tarihsiz\b", "content undated"),
+    (r"\bdeğişikliklerle konsolide metin\b", "consolidated text with amendments"),
+    (r"\bÖzel Sayı\b", "Special Issue"),
+    (r"— bölüm (\d)", r"— section \1"),
+    (r"\bbölüm (\d)", r"section \1"),
+    (r"\(TARBİL bölümü\)", "(TARBİL section)"),
+    (r"\(özet\)", "(abstract)"),
+    (r", s\. (\d+[-–]\d+)\.", r", pp. \1."),
+    (r", s\. (\d+)\.", r", p. \1."),
     (r"\(haber\)", "(news)"),
     (r"\(duyuru\)", "(announcement)"),
     (r"\(haber; ", "(news; "),
@@ -65,6 +150,7 @@ EN_KALIPLAR = [
     (r"\bşirketin talep ve bildirim ajanı\b", "the company's claims and noticing agent"),
     (r"\btalep ajanı\b", "claims agent"),
     (r"\bİnternet Arşivi kopyası\b", "Internet Archive copy"),
+    (r"\bUNT Kütüphaneleri web arşivi kopyası\b", "UNT Libraries web archive copy"),
     (r"\bFarms\.com'da yeniden yayımlandı\b", "republished by Farms.com"),
     (r"\bana sayfa\b", "home page"),
     (r"\berişim\b", "accessed"),
@@ -232,25 +318,32 @@ def uret():
         en = dil == "en"
         out = ["# 30 · Sources" if en else "# 30 · Kaynakça", ""]
         if en:
-            out.append(f"> **Summary.** The **{n}** sources used across the **{bolum_sayisi}** written headings of this file, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.")
+            out.append(f"> **Summary.** The **{n}** sources used across the **{bolum_sayisi}** written headings of this guide, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.")
         else:
             out.append(f"> **Özet.** Bu dosyanın yazılmış **{bolum_sayisi}** başlığında kullanılan **{n}** kaynak, alfabetik sırayla. Her rakamın niteliği (hakemli çalışma, kurumsal rapor, resmî belge ya da satıcı beyanı) metinde rakamın yanında yazıyor, burada değil. Her kaynağın ardından onu kullanan başlıklar geliyor.")
         out.append("")
         harf = None
-        kayit_satirlari = []
-        for kunye, bag, bolumler in satirlar:
-            h = bas_harf(kunye)
+        # Satır metni dile göre; İngilizce sayfa İngilizce metnin kendi
+        # sırasıyla dizilir (çevrilen kurum adı başa gelebilir). Kayıttaki
+        # satır_tr/satır_en eşleşmesi kaynak numarasına göre kalır.
+        metinler = [(en_cevir(k) if en else k) for k, _, _ in satirlar]
+        sira = sorted(range(len(satirlar)), key=lambda i: siralama_anahtari(metinler[i])) if en \
+            else list(range(len(satirlar)))
+        kayit_satirlari = [None] * len(satirlar)
+        for i in sira:
+            _, bag, bolumler = satirlar[i]
+            metin = metinler[i]
+            h = bas_harf(metin)
             if h != harf:
                 harf = h
                 out += [f"## {'Other' if en and h == '#' else ('Diğer' if h == '#' else h)}", ""]
-            metin = en_cevir(kunye) if en else kunye
             parca = [metin]
             if bag:
-                parca.append(bag)
+                parca.append(en_cevir(bag) if en else bag)
             parca.append("· " + ", ".join(f"§{b}" for b in bolumler))
             satir = " ".join(parca)
             out += [satir, ""]
-            kayit_satirlari.append(satir)
+            kayit_satirlari[i] = satir
         out.append("## How this page is kept up to date" if en else "## Bu sayfa nasıl güncelleniyor")
         out.append("")
         out.append("This list is not written by hand: it is rebuilt from the source records of every heading each time a heading is written or updated. New sources are added after an editor's approval." if en

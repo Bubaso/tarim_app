@@ -1,6 +1,6 @@
 # 10 · Hasat ve robotik
 
-> **Özet.** Hasatta en zor iş seçerek toplamak: olgun meyveyi görmek, yaprağın arkasındakini bulmak, ezmeden koparmak. Hasat robotları bu yüzden uzun süre laboratuvardan çıkamadı: 2014'te yayımlanan bir derlemedeki **50** robotun ortalama hasat başarısı **%66**, bir meyveyi toplama süresi **33** saniyeydi; performans otuz yılda iyileşmemişti ve hiçbiri ticarileşmemişti. Ticari bir serada sınanan biber robotu, bitki ona uygun yetiştirildiğinde meyvelerin **%61**'ini, seranın olağan koşullarında **%18**'ini toplayabildi. 2022 tarihli bir derlemeye göre bahçelerde yaygın kullanım hâlâ yok. Türkiye'de araştırma şimdilik görüntüde meyveyi tanıma aşamasında.
+> **Özet.** Hasatta en zor iş seçerek toplamak: olgun meyveyi görmek, yaprağın arkasındakini bulmak, ezmeden koparmak. Hasat robotları bu yüzden uzun süre laboratuvardan çıkamadı: 2014'te yayımlanan bir derlemedeki **50** robotun ortalama hasat başarısı **%66**, bir meyveyi toplama süresi **33** saniyeydi; performans otuz yılda iyileşmemişti ve hiçbiri ticarileşmemişti. Ticari bir serada sınanan biber robotu, bitki ona uygun yetiştirildiğinde meyvelerin **%61**'ini, seranın olağan koşullarında **%18**'ini toplayabildi. 2022 tarihli bir derlemeye göre bahçelerde yaygın kullanım hâlâ yok. Türkiye'den yayımlanmış çalışmalar şimdilik görüntüde meyveyi tanıma aşamasında; hasat da yapabilecek otonom bir sera robotu projesi TÜBİTAK desteğiyle 2026'da başladı (§25).
 
 ## Ne yapıyor
 
@@ -37,10 +37,10 @@ Türkiye'de hasadın makine tarafı klasik mekanizasyon. Bakanlığın verisine 
 
 2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirdiğini yazıyor (§6). Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ ise robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını da hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i.
 
-Araştırma tarafında Türkiye'deki hasat robotu çalışmaları görüntü tanıma aşamasında. Tekirdağ Namık Kemal Üniversitesi'nden Kahya ve arkadaşları 2024'te patlıcan ve kabak hasadı için derin öğrenme tabanlı nesne tanıma modelleri eğitti. Ölçülen şey modelin doğrulama görüntülerinde meyveyi tanıma başarısı; robotun tarlada meyveyi koparıp koparamadığı değil.
+Araştırma tarafında Türkiye'den yayımlanmış hasat robotu çalışmaları görüntü tanıma aşamasında. Tekirdağ Namık Kemal Üniversitesi'nden Kahya, biri ekip arkadaşlarıyla yazdığı iki çalışmada (2024) patlıcan ve kabak hasadı için derin öğrenme tabanlı nesne tanıma modelleri eğitti. Ölçülen şey modelin doğrulama görüntülerinde meyveyi tanıma başarısı; robotun tarlada meyveyi koparıp koparamadığı değil.
 
 Eksik olan ise **Türkiye'de bir hasat robotunun tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü, yayımlanmış bir deneme.**
 
 ## Bu sayfa nasıl güncelleniyor
 
-Bu sayfa iki şeyi izliyor: hasat robotları ve seçici hasat üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Bu sayfa iki şeyi izliyor: hasat robotları ve seçici hasat üzerine yeni gelişmeler — hakemli çalışmalar dâhil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin bakanlığın tarımsal alet ve makine istatistiği ve yeni yıllık program. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

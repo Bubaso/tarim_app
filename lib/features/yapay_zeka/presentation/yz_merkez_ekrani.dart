@@ -130,7 +130,7 @@ class YzMerkezEkrani extends StatelessWidget {
                             ),
                             const YzHaberListesi(enCok: 10),
                             const SizedBox(height: 34),
-                            YzBolumBasligi(en ? 'How this file is kept up to date' : 'Bu dosya nasıl güncel tutuluyor'),
+                            YzBolumBasligi(en ? 'How this guide is kept up to date' : 'Bu dosya nasıl güncel tutuluyor'),
                             ConstrainedBox(
                               constraints: const BoxConstraints(maxWidth: 720),
                               child: Text(

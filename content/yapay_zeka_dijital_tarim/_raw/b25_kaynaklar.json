@@ -181,7 +181,8 @@
         "Meyve hasat robotlarında kullanılmak üzere yapay zekâ destekli, uyarlanabilir silikon tabanlı bir tutucu sistem geliştirmektir.",
         "Filossoft Yazılım Arge Gıda İnşaat Turizm Sanayi Ticaret Limited Şirketi",
         "Camandıra Projesi"
-      ]
+      ],
+      "_denetim_tur10": "17 Kasım 2026 (Tur 10): sayfa yeniden indirildi, kayıttaki kopyayla bayt bayt aynı (sha256 af481d67221b…); iki tutarsızlık sayfada sürüyor. Metin iki karta da dayanmadığı için değişiklik yok."
     },
     "gtu_atam": {
       "nitelik": "KURUMSAL",
@@ -497,7 +498,8 @@
         "“VetAlarm: Hayvan Hastalıklarında Yapay Zeka Tabanlı Erken Teşhis ve Uyarı Sistemi”, güdümlü projesi 2025 yılında onaylanmıştır.",
         "Tarımda suyun etkin ve verimli kullanımı için Genel Müdürlüğümüzce geliştirilen Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) sistemi hem webde hem de mobilde Tarım Cebimde mobil uygulamasının “Su” sekmesinde üreticilere sulama konusunda hizmet vermektedir.",
         "TAGEM&FAO Teknik İş birliği Projesi olan Dijital Köyler Girişimi ( Digital Villages Initiative-DVI) 2023 yılında başlatılan ve faydalanıcıları Arnavutluk, Bosna Hersek, Gürcistan ve Türkiye olan Proje",
-        "Dünya Bankası tarafından finanse edilen “Türkiye İklim, Akıllı ve Rekabetçi Tarımsal Büyüme Projesi”"
+        "Dünya Bankası tarafından finanse edilen “Türkiye İklim, Akıllı ve Rekabetçi Tarımsal Büyüme Projesi”",
+        "31.12.2025 yılında tamamlanan proje kapsamında Ankara Güdül-Boyalı'da Bir köy Dijital Merkezi oluşturularak kullanıcıların hizmetine sunulmuştur."
       ],
       "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025 · b18 ve b20'deki aynı dosyanın alıntılarıyla"
     },
@@ -600,7 +602,8 @@
       "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
       "alinti": [
         "Bitkisel üretim faaliyeti yapılan alanların, faaliyeti yapan üreticilerin, üretim bilgilerinin kayıt altına alındığı tarımsal veri tabanı olan Çiftçi Kayıt Sistemine kayıtlı alanın takibi ve artırılmasına yönelik çalışmalar yürütülmektedir.",
-        "Bu gösterge, İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında henüz hibe uygulamalarına başlanmadığı için gösterge değerine ulaşılamamıştır."
+        "Bu gösterge, İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında henüz hibe uygulamalarına başlanmadığı için gösterge değerine ulaşılamamıştır.",
+        "İşlenmeyen tarım arazilerinin ve dikili alanların tespitine yönelik uydu görüntüleri, derin öğrenme ve yapay zekâ teknolojisinden faydalanılarak analiz çalışmaları yapılmıştır."
       ],
       "_kopya": "b21_kaynaklar.json · tob_2025_faaliyet_raporu"
     },

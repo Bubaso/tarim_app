@@ -1,6 +1,6 @@
 # 11 · Hasat sonrası: sınıflandırma, kalite, depolama
 
-> **Özet.** Ürün tarladan çıktıktan sonra da kayboluyor: FAO'ya göre dünyada hasattan perakendeye kadar kaybolan gıdanın payı 2023'te **%13,3**; izlemenin başladığı 2015'te **%13,0**'tı, yani ilerleme yok. En çok meyve ve sebze kayboluyor: **%25,4**. Kaybın bir bölümünün çaresi yapay zekâ değil, temel depolama: gelişmekte olan ülkelerde tahılın depoda **%50-60**'a varan kaybı bilimsel depolama yöntemleriyle **%1-2**'ye inebiliyor. Yapay zekânın asıl yeri sınıflandırma; paketleme tesislerinde boylama otuz yılda mekanikten makine görüşüne geçti. Türkiye'de ölçülmüş en somut örnek, fındık ve kuru incirde aflatoksine karşı optik ve lazer ayıklama.
+> **Özet.** Ürün tarladan çıktıktan sonra da kayboluyor: FAO'ya göre dünyada hasattan perakendeye kadar kaybolan gıdanın payı 2023'te **%13,3**; izlemenin başladığı 2015'te **%13,0**'tı, yani ilerleme yok. En çok meyve ve sebze kayboluyor: **%25,4**. Kaybın bir bölümünün çaresi yapay zekâ değil, temel depolama: gelişmekte olan ülkelerde tahılın depoda **%50-60**'a varan kaybı bilimsel depolama yöntemleriyle **%1-2**'ye inebiliyor. Yapay zekânın asıl yeri sınıflandırma; paketleme tesislerinde boylama otuz yılda mekanikten makine görüşüne geçti. Türkiye'de ölçülmüş en somut örnek, fındıkta aflatoksine karşı optik ve lazer ayıklama.
 
 ## Ne yapıyor
 
@@ -23,13 +23,13 @@ FAO'nun gıda kaybı göstergesi hasattan sonra çiftlikte, taşımada, depoda, 
 
 FAO'nun kendi değerlendirmesi açık: dünya 2015'ten bu yana gıda kaybını azaltmada belirgin bir ilerleme kaydetmedi. Yılda kaybolan miktar **1,31** milyar ton.
 
-Tahıl, gelişmekte olan ülkelerin çoğunda temel besin ve kalori bakımından hasat sonrası kaybın en büyüğü onda. Kumar ve Kalita (2017) depolamadaki kaybı derledi: teknik yetersizlik yüzünden tahılın **%50-60**'ı depoda kaybolabiliyor; bilimsel depolama yöntemleri bu kaybı **%1-2**'ye indirebiliyor. Derlemenin ayrıntılı tartıştığı çözümler hava geçirmez (hermetik) depolama gibi fiziksel teknolojiler.
+Tahıl, gelişmekte olan ülkelerin çoğunda temel besin; kalori bakımından hasat sonrası kaybın en büyüğü de onda. Kumar ve Kalita (2017) depolamadaki kaybı derledi: teknik yetersizlik yüzünden tahılın **%50-60**'a varan kısmı depoda kaybolabiliyor; bilimsel depolama yöntemleri bu kaybı **%1-2**'ye indirebiliyor. Derlemenin ayrıntılı tartıştığı çözümler hava geçirmez (hermetik) depolama gibi fiziksel teknolojiler.
 
 ## Yapay zekâ nerede duruyor
 
 Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda mekanik yöntemlerden makine görüşüne geçti; şimdi aynı ölçüm ağaçtaki meyveye, bahçeye taşınıyor (Neupane ve arkadaşları, 2023). Yapay zekâ bu gözün tanıyabildiği kusurları çoğaltmaya aday; laboratuvarda yüksek isabet bildiren bir örnek Türkiye'den, aşağıda.
 
-Ama FAO'nun tablosu bir uyarı taşıyor: kaybın en yüksek olduğu bölgelerde, depolama derlemesine göre, asıl açık ürünü ayıklamakta değil, onu korumakta.
+Ama FAO'nun tablosu depolama derlemesiyle birlikte okununca bir uyarı taşıyor: kaybın en yüksek olduğu bölgelerde asıl açık, ürünü ayıklamaktan çok onu korumakta görünüyor.
 
 ## Türkiye
 
@@ -43,4 +43,4 @@ Eksik olan ise iki şey: **Türkiye için hasat sonrası kayıp oranını düzen
 
 ## Bu sayfa nasıl güncelleniyor
 
-Bu sayfa iki şeyi izliyor: ürün sınıflandırma, hasat sonrası kayıp, tahıl depolama ve gıda kalite denetimi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin FAO'nun gıda kaybı göstergesinin yeni değerleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Bu sayfa iki şeyi izliyor: ürün sınıflandırma, hasat sonrası kayıp, tahıl depolama ve gıda kalite denetimi üzerine yeni gelişmeler — hakemli çalışmalar dâhil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin FAO'nun gıda kaybı göstergesinin yeni değerleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

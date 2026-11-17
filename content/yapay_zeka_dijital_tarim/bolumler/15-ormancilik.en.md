@@ -1,6 +1,6 @@
 # 15 · Forestry
 
-> **Summary.** Deforestation is slowing worldwide, but according to FAO it still runs at **10.9** million hectares a year. In forestry, AI stands out in two places: mapping forest structure from space and spotting fire early. A global canopy height map built with deep learning measures the whole planet at **10**-metre resolution; a camera-based system operating in the United States usually catches smoke within **15** minutes of ignition, with on average less than one false alarm per camera per day. In Türkiye the fire burden is growing: of the **634,575** hectares burned in 1988-2025, **43.6%** burned in the last five years. The General Directorate of Forestry's camera-based fire warning system had spread to **77** towers by 2013, and its AI-supported decision support system has been in use since 2022; there is no published assessment independently measuring the effect of either.
+> **Summary.** Deforestation is slowing worldwide, but according to FAO it still runs at **10.9** million hectares a year. In forestry, AI stands out in two places: mapping forest structure from space and spotting fire early. A global canopy height map built with deep learning measures the whole planet at **10**-metre resolution; a prototype camera system tested in the United States in 2020 usually caught smoke within **15** minutes of ignition, with on average less than one false alarm per camera per day. In Türkiye the fire burden is growing: of the **634,575** hectares burned in 1988-2025, **43.6%** burned in the last five years. The General Directorate of Forestry's camera-based fire warning system had spread to **77** towers by 2013, and its AI-supported decision support system has been in use since 2022; there is no published assessment independently measuring the effect of either.
 
 ## What it does
 
@@ -22,7 +22,7 @@ FAO says deforestation has slowed in every region, but that the current rate is 
 
 Lang and colleagues (2023) produced a global canopy height map at **10**-metre resolution for 2020 with a probabilistic deep learning model that fuses the sparse height data of the spaceborne GEDI laser instrument with Sentinel-2 satellite images; the model also reports the uncertainty of each estimate. According to the map, only **5%** of the global land surface is covered by trees taller than **30** metres, and only **34%** of these tall forests lie within protected areas.
 
-Govil and colleagues (2020) developed a smoke detection system in Southern California that scans hundreds of cameras every minute and recognises images with machine learning. The system usually catches smoke within **15** minutes of ignition, with on average less than one false alarm per camera per day, and it spotted some fires before they were reported or detected by satellite. The authors also write that ground cameras cannot see every fire, which is why they are building a system that combines camera and satellite detection.
+Govil and colleagues (2020) developed a prototype smoke detection system in Southern California that scans hundreds of cameras every minute and recognises images with machine learning. The system usually caught smoke within **15** minutes of ignition, with on average less than one false alarm per camera per day, and it spotted some fires before they were reported or detected by satellite. The authors also write that ground cameras cannot see every fire, which is why they are building a system that combines camera and satellite detection.
 
 ## Where AI stands
 
@@ -42,4 +42,4 @@ What is missing is **a published independent assessment measuring, in Türkiye, 
 
 ## How this page is kept up to date
 
-This page watches three things: new developments in forest fire, forest inventory, tree species and deforestation — peer-reviewed studies included; official developments on forestry and forest fires; and new releases of the sources behind the figures here, such as the ministry's forestry statistics and FAO's forest resources assessment. New information is added to the page after an editor's approval.
+This page watches three things: new developments in forest fire, forest inventory, tree species and deforestation — peer-reviewed studies included; the General Directorate of Forestry's announcements on forestry and forest fires; and new releases of the sources behind the figures here, such as the ministry's forestry statistics and FAO's forest resources assessment. New information is added to the page after an editor's approval.

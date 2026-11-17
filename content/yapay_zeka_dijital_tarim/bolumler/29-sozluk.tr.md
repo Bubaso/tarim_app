@@ -62,7 +62,7 @@
 
 **GNSS ve GPS (uydu konumlama)** (*GNSS and GPS (satellite positioning)*). Uydu sinyalleriyle konum bilgisi sağlayan her sistem bir küresel uydu konumlama sistemi (GNSS). GPS, ABD'nin sistemi; sivillerin kullanımına açılan ilk sistem olduğu için adı bazen bütün bu sistemler için kullanılıyor. *Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük.* · Geçtiği başlıklar: §2, §3, §6, §14, §22, §28.
 
-**Görüntü işleme (bilgisayarlı görü)** (*Computer vision (image processing)*). Bilgisayarın görsel bilgiyi (görüntü ve video) yorumlamasını, çözümlemesini ve anlamasını sağlayan yapay zekâ ve makine öğrenmesi alanı; nesne tanıma, yüz tanıma ve sahne anlama gibi işler yapıyor. *Kaynak: Birleşik Krallık hükümeti, Artificial Intelligence Playbook (2025).* · Geçtiği başlıklar: §3, §8, §11, §23.
+**Görüntü işleme (bilgisayarlı görü)** (*Computer vision (image processing)*). Bilgisayarın görsel bilgiyi (görüntü ve video) yorumlamasını, çözümlemesini ve anlamasını sağlayan yapay zekâ ve makine öğrenmesi alanı; nesne tanıma, yüz tanıma ve sahne anlama gibi işler yapıyor. *Kaynak: Birleşik Krallık hükümeti, Artificial Intelligence Playbook (2025).* · Geçtiği başlıklar: §3, §8, §11, §13, §23.
 
 ## H
 
@@ -72,7 +72,7 @@
 
 ## İ
 
-**İklim akıllı tarım** (*Climate-smart agriculture*). FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, sera gazı salımını mümkün olduğunca azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de. *Kaynak: FAO, İklim Akıllı Tarım Kaynak Kitabı (2013).* · Geçtiği başlıklar: §1, §2, §27.
+**İklim akıllı tarım** (*Climate-smart agriculture*). FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, mümkün olan yerlerde sera gazı salımını azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de. *Kaynak: FAO, İklim Akıllı Tarım Kaynak Kitabı (2013).* · Geçtiği başlıklar: §1, §2, §27.
 
 **İnce ayar** (*Fine-tuning*). Önceden eğitilmiş bir modelin parametrelerini belirli bir kullanım için iyileştirmek üzere yapılan, göreve özgü ikinci eğitim. *Kaynak: Google, Machine Learning Glossary.* · Geçtiği başlıklar: §18.
 
@@ -110,7 +110,7 @@
 
 **Otomatik dümenleme (otomatik yönlendirme)** (*Auto-steer (automated guidance)*). Uydu konumlamayla çalışan; traktör, biçerdöver, ilaçlama makinesi gibi kendi gücüyle hareket eden tarım makinelerini otomatik olarak yönlendiren teknoloji. Tarlada üst üste binen ya da atlanan şeritleri azaltıyor. *Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük; ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (2023).* · Geçtiği başlıklar: §1, §2, §3, §22.
 
-**Otonom mobil makine** (*Autonomous mobile machinery*). AB Makine Tüzüğü'nün tanımıyla otonom modu olan mobil makine: bu modda makinenin bütün temel güvenlik işlevleri, hareket ve çalışma alanında, bir operatörün sürekli müdahalesi olmadan sağlanıyor. *Kaynak: AB Makine Tüzüğü (2023).* · Geçtiği başlıklar: §23, §24, §26, §27, §28.
+**Otonom mobil makine** (*Autonomous mobile machinery*). AB Makine Tüzüğü'nün tanımıyla otonom modu olan mobil makine: bu modda makinenin bütün temel güvenlik işlevleri, hareket ve çalışma alanında, bir operatörün sürekli müdahalesi olmadan sağlanıyor. *Kaynak: AB Makine Tüzüğü (2023).* · Geçtiği başlıklar: §10, §23, §24, §26, §27, §28.
 
 ## Ö
 
@@ -120,7 +120,7 @@
 
 **Rastgele orman** (*Random forest*). Her biri belirli bir rastgele gürültüyle eğitilmiş karar ağaçlarından oluşan topluluk modeli. *Kaynak: Google, Machine Learning Glossary.* · Geçtiği başlıklar: §6, §9, §15.
 
-**Robot** (*Robot*). Doğrudan insan müdahalesi olmadan özerk çalışabilen makine. *Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük.* · Geçtiği başlıklar: §1, §2, §6, §10, §12, §22, §23, §25, §26, §27.
+**Robot** (*Robot*). Doğrudan insan müdahalesi olmadan özerk çalışabilen makine. *Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük.* · Geçtiği başlıklar: §1, §2, §6, §10, §12, §13, §22, §23, §25, §26, §27.
 
 ## S
 
@@ -136,7 +136,7 @@
 
 ## T
 
-**Tarımsal yayım** (*Agricultural extension*). Çiftçilerin ve tarım-gıda sistemlerindeki öbür aktörlerin ihtiyaç duyduğu bilgi ve danışmanlık hizmetlerini sağlayan bütün faaliyetler için kullanılan şemsiye terim. *Kaynak: FAO (Christoplos, 2010).* · Geçtiği başlıklar: §1, §18, §26, §28.
+**Tarımsal yayım** (*Agricultural extension*). Çiftçilerin ve tarım-gıda sistemlerindeki öbür aktörlerin ihtiyaç duyduğu bilgi ve danışmanlık hizmetlerini sağlayan bütün faaliyetler için kullanılan şemsiye terim. *Kaynak: FAO (Christoplos, 2010).* · Geçtiği başlıklar: §1, §8, §18, §26, §28.
 
 **Temel model** (*Foundation model*). Çok büyük ve çeşitli bir eğitim setiyle önceden eğitilmiş, çok büyük bir model. *Kaynak: Google, Machine Learning Glossary.* · Geçtiği başlıklar: §23.
 

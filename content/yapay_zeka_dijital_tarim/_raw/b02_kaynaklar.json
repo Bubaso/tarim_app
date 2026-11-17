@@ -328,7 +328,7 @@
     "tob_stratejik_plan_2024_2028": {
       "nitelik": "RESMI",
       "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. 2024-2028 Stratejik Planı — Güncellenmiş Versiyon (2025). Ankara.",
-      "adres": "https://www.tarimorman.gov.tr/SGB/BelgelerArsiv/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı)",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı)",
       "dosya": "kaynak_dosyalari/tob_2024_2028_stratejik_plan.pdf",
       "pg453_hedefe_etkisi_yuzde": 25,
       "pg453_baslangic_2023": 0,
@@ -347,7 +347,9 @@
         "Dijital Dönüşüm ve Tarım 4.0 Hizmetleri",
         "Tarım 4.0 uygulamalarının ulaşılabilir hale getirilerek yaygınlaştırılması",
         "E-devlet üzerinden ÇKS başvuruları gibi dijital dönüşüm çalışmaları ile hem üreticide hem de kamuda emek ve zamandan tasarruf sağlanacaktır."
-      ]
+      ],
+      "_ilk_adres": "https://www.tarimorman.gov.tr/SGB/BelgelerArsiv/Belgeler/stratejikplan.pdf",
+      "_adres_notu": "17.11.2026: eski BelgelerArsiv adresi 401 döndürüyor; SGB sayfasındaki güncel bağlantı yerel dosyayla sha256'ca aynı."
     },
     "tob_ukks_iv_2024_2028": {
       "nitelik": "RESMI",
@@ -361,7 +363,8 @@
         "akıllı tarım/iklim akıllı teknolojilerin ve uygulamaların kullanımının desteklenmesi",
         "Gündelik hayata etki eden boyutuyla teknoloji birçok yeni kavramı eklemekte olup dijitalleşme, yapay zekâ, internet teknolojisi de bunlardan birkaçıdır.",
         "Tedbir 4.1.3 Yapay zekâ, akıllı teknoloji uygulamalarının kullanımının artırılması"
-      ]
+      ],
+      "_erisim_notu": "17.11.2026: adres tarayıcıda da 401 döndürüyor; bakanlığın Yayınlarımız sayfası hâlâ bu adrese bağlanıyor, başka resmî kopya bulunamadı. Yerel kopya kayıtlı."
     },
     "tob_iv_sura_g12_2025": {
       "nitelik": "RESMI",

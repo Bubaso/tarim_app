@@ -143,6 +143,17 @@
         "7 Eylül 2026 tarihli Resmî Gazete’de yayımlanan Kararla değiştirilmiştir.",
         "için ilave katsayılar getirilmiştir."
       ]
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "alinti": [
+        "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü 2025 YILI BİRİM FAALİYET RAPORU Ocak 2026",
+        "“VetAlarm: Hayvan Hastalıklarında Yapay Zeka Tabanlı Erken Teşhis ve Uyarı Sistemi”, güdümlü projesi 2025 yılında onaylanmıştır."
+      ],
+      "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025"
     }
   },
   "turkiye": {

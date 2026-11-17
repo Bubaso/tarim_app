@@ -34,4 +34,4 @@ Eksik olan ise **Türkiye'de bir çiftlikte ya da filoda yapay zekânın yem, ba
 
 ## Bu sayfa nasıl güncelleniyor
 
-Bu sayfa iki şeyi izliyor: yetiştiricilik, balık çiftçiliği ve balıkçılık üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın su ürünleri istatistiği ve FAO'nun yeni dünya balıkçılık raporu. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Bu sayfa iki şeyi izliyor: yetiştiricilik, balık çiftçiliği ve balıkçılık üzerine yeni gelişmeler — hakemli çalışmalar dâhil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın su ürünleri istatistiği ve FAO'nun yeni dünya balıkçılık raporu. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

@@ -56,7 +56,7 @@ const List<YzBaslik> kYzBasliklar = [
       2,
       "kavramlar",
       "cerceve",
-      "Kavramlar: yapay zeka, dijital tarım, hassas tarım",
+      "Kavramlar: yapay zekâ, dijital tarım, hassas tarım",
       "Terms: AI, digital farming, precision farming",
       false,
       ["veri", "karar"],
@@ -259,7 +259,7 @@ const List<YzBaslik> kYzBasliklar = [
       true,
       ["sensor", "veri"],
       true,
-      "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dahil.",
+      "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dâhil.",
       "Measuring devices in the field and the network that links them — rural connectivity included."),
   YzBaslik(
       21,
@@ -292,8 +292,8 @@ const List<YzBaslik> kYzBasliklar = [
       false,
       ["karar", "uzaktan", "veri", "goruntu"],
       true,
-      "Ulusal planda tarım var, bakanlık yok; yıllık programın tek yapay zeka işi, bakanlığın sahadaki izleme sistemleri, TAGEM'in projeleri ve beklemedeki strateji belgesi.",
-      "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."),
+      "Ulusal planda tarım var, bakanlık yok; yıllık programın tarımdaki tek yapay zekâ işi, bakanlığın sahadaki izleme sistemleri, TAGEM'in projeleri ve beklemedeki strateji belgesi.",
+      "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task for agriculture, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."),
   YzBaslik(
       24,
       "mevzuat-ve-politika",

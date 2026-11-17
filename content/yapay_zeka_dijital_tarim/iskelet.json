@@ -124,7 +124,7 @@
       "slug": "kavramlar",
       "katman": "cerceve",
       "baslik": {
-        "tr": "Kavramlar: yapay zeka, dijital tarım, hassas tarım",
+        "tr": "Kavramlar: yapay zekâ, dijital tarım, hassas tarım",
         "en": "Terms: AI, digital farming, precision farming"
       },
       "surec_sirasi": null,
@@ -132,7 +132,9 @@
         "veri",
         "karar"
       ],
-      "oto_hedefler": [],
+      "oto_hedefler": [
+        "mevzuat"
+      ],
       "turkiye": "var",
       "ozet": {
         "tr": "Üç kavram sık sık birbirinin yerine kullanılıyor ve aynı şey değiller.",
@@ -605,7 +607,7 @@
       ],
       "turkiye": "var",
       "ozet": {
-        "tr": "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dahil.",
+        "tr": "Tarladaki ölçüm cihazları ve onları birbirine bağlayan ağ — kırsal bağlantı sorunu dâhil.",
         "en": "Measuring devices in the field and the network that links them — rural connectivity included."
       },
       "durum": "yazildi",
@@ -687,8 +689,8 @@
       ],
       "turkiye": "var",
       "ozet": {
-        "tr": "Ulusal planda tarım var, bakanlık yok; yıllık programın tek yapay zeka işi, bakanlığın sahadaki izleme sistemleri, TAGEM'in projeleri ve beklemedeki strateji belgesi.",
-        "en": "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."
+        "tr": "Ulusal planda tarım var, bakanlık yok; yıllık programın tarımdaki tek yapay zekâ işi, bakanlığın sahadaki izleme sistemleri, TAGEM'in projeleri ve beklemedeki strateji belgesi.",
+        "en": "Agriculture is in the national plan, the ministry is not; the annual programme's single AI task for agriculture, the ministry's monitoring systems in the field, TAGEM's projects and the pending strategy."
       },
       "durum": "yazildi",
       "haber_alir": false

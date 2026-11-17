@@ -127,6 +127,16 @@
         "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
         "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır."
       ]
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "alinti": [
+        "Tarımda suyun etkin ve verimli kullanımı için Genel Müdürlüğümüzce geliştirilen Sulama Yönetimi ve Bitki Su Tüketimi Sistemi (TAGEM-SuET) sistemi hem webde hem de mobilde Tarım Cebimde mobil uygulamasının “Su” sekmesinde üreticilere sulama konusunda hizmet vermektedir."
+      ],
+      "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025"
     }
   },
   "turkiye": {

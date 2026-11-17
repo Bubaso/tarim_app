@@ -1,6 +1,6 @@
 # 10 · Harvesting and robotics
 
-> **Summary.** The hardest job at harvest is picking selectively: seeing the ripe fruit, finding the one behind the leaf, detaching it without bruising. That is why harvesting robots long failed to leave the laboratory: in a review published in 2014, the **50** robots examined had an average harvest success of **66%** and took **33** seconds per fruit; performance had not improved in three decades and none had been commercialised. A pepper-harvesting robot tested in a commercial greenhouse picked **61%** of the fruit when the crop was grown to suit it, and **18%** under the greenhouse's usual conditions. According to a 2022 review, widespread use in orchards is still not in sight. In Türkiye, research is so far at the stage of recognising fruit in images.
+> **Summary.** The hardest job at harvest is picking selectively: seeing the ripe fruit, finding the one behind the leaf, detaching it without bruising. That is why harvesting robots long failed to leave the laboratory: in a review published in 2014, the **50** robots examined had an average harvest success of **66%** and took **33** seconds per fruit; performance had not improved in three decades and none had been commercialised. A pepper-harvesting robot tested in a commercial greenhouse picked **61%** of the fruit when the crop was grown to suit it, and **18%** under the greenhouse's usual conditions. According to a 2022 review, widespread use in orchards is still not in sight. Published work from Türkiye is so far at the stage of recognising fruit in images; a project for an autonomous greenhouse robot that will also be able to harvest started with TÜBİTAK support in 2026 (§25).
 
 ## What it does
 
@@ -37,10 +37,10 @@ On the machinery side, harvesting in Türkiye rests on conventional mechanisatio
 
 The 2027 Programme writes that the small-scale, fragmented and scattered land structure of holdings makes effective use of mechanisation and modern production techniques harder (§6). A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
 
-On the research side, harvesting-robot work in Türkiye is at the image-recognition stage. In 2024, Kahya and colleagues at Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field.
+On the research side, published harvesting-robot work from Türkiye is at the image-recognition stage. In two 2024 studies, one of them with co-authors, Kahya of Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field.
 
 What is missing is **a published trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and its success was measured.**
 
 ## How this page is kept up to date
 
-This page watches two things: new developments in harvesting robots and selective harvesting — peer-reviewed studies included; and new releases of the sources behind the figures here. New information is added to the page after an editor's approval.
+This page watches two things: new developments in harvesting robots and selective harvesting — peer-reviewed studies included; and new releases of the sources behind the figures here, such as the ministry's agricultural machinery statistics and the new annual programme. New information is added to the page after an editor's approval.

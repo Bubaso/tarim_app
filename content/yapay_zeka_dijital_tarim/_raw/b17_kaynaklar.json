@@ -223,6 +223,17 @@
         "Yayın Tarihi : 23.05.2025",
         "Tarım sigortası sisteminde uydu teknolojileri ve yapay zekayı kullanacağız."
       ]
+    },
+    "mgm_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+      "alinti": [
+        "2025 yılı itibarıyla Kurumumuz; dijital dönüşüm, yüksek çözünürlüklü modelleme, yapay zekâ destekli tahmin sistemleri ve mobil iletişim teknolojileriyle meteorolojik bilgilerin erişilebilirliğini en üst seviyeye taşımıştır.",
+        "Yapay Zekâ ile veri işleme ve analiz servisleri"
+      ],
+      "_kopya": "b20_kaynaklar.json · mgm_2026"
     }
   },
   "turkiye": {

@@ -74,7 +74,9 @@
         "within the PlantVillage data set of 54,306 images containing 38 classes of 14 crop species and 26 diseases (or absence thereof), this goal has been achieved as demonstrated by the top accuracy of 99.35%.",
         "we obtained two small, verified datasets of 121 (dataset 1) and 119 images (dataset 2), respectively",
         "Using the best model on these datasets, we obtained an overall accuracy of 31.40% in dataset 1, and 31.69% in dataset 2, in successfully predicting the correct class label (i.e., crop and disease information) from among 38 possible class labels.",
-        "is much higher than the one based on random selection of 38 classes (2.6%), but nevertheless, a more diverse set of training data is needed to improve the accuracy."
+        "is much higher than the one based on random selection of 38 classes (2.6%), but nevertheless, a more diverse set of training data is needed to improve the accuracy.",
+        "While these approaches yield excellent results on the PlantVillage dataset which was collected in a controlled environment, we also assessed the model's performance on images sampled from trusted online sources, such as academic agriculture extension services.",
+        "While these are straightforward conditions, a real world application should be able to classify images of a disease as it presents itself directly on the plant."
       ]
     },
     "deere2024": {
@@ -110,6 +112,18 @@
         "In 2025, John Deere customers reduced non-residual herbicide use by an average of nearly 50%—saving nearly 31 million gallons of herbicide mix"
       ],
       "_adres_notu": "Bültenin deere.com'daki asıl adresi 17 Kasım 2026'da içerik kütüphanesine yönleniyor (kaldırılmış); aynı metin Farms.com'da birebir. Rakamlar Tur 2'de asıl sayfadan okunmuştu."
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "alinti": [
+        "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü 2025 YILI BİRİM FAALİYET RAPORU Ocak 2026",
+        "Mısır ve Pamukta Yabancı Ot Kontrolünde Derin Öğrenme Yöntemiyle Hassas İlaçlama Makinesi Prototipi Geliştirilmesi",
+        "Geliştirilmesi düşünülen ilaçlama makinesi Prototipine kamera sensörleri yerleştirilerek yabancı otların konumu tespit edilecek ve ilaçlama makinesi üzerinde birbirinden bağımsız çalışan ilaçlama memeleri ile sadece hedef bitki üzerine geldiğinde açılıp kapanacaktır."
+      ],
+      "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025"
     }
   },
   "turkiye": {

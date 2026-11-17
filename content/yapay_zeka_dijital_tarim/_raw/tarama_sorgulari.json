@@ -1,243 +1,700 @@
 {
-  "_ne": "Kapsamlı taramanın başlık başına akademik sorguları",
-  "_kural": "Sorgu = (alan terimlerinden biri) VE (teknoloji terimlerinden biri). `teknoloji` boşsa alan terimleri tek başına yeterli (başlık zaten bir teknoloji). Bir kaydın kuyruğa düşmesi için BAŞLIĞINDA hem bir alan hem (varsa) bir teknoloji terimi geçmeli — özetinde geçmesi yetmiyor; aylık kuyruk okunabilir kalsın diye.",
-  "_kullanan": "~/tarim_ai_pipeline/src/yz_tarama.py · doğrulayan: dogrula_tarama.py",
-  "varsayilan_teknoloji": [
-    "machine learning",
-    "deep learning",
-    "artificial intelligence",
-    "computer vision",
-    "neural network"
-  ],
-  "kaynak_basina_en_cok": 3,
-  "basliklar": [
-    {
-      "no": 4,
-      "alan": [
-        "soil mapping",
-        "digital soil",
-        "soil organic carbon",
-        "land suitability",
-        "soil moisture"
-      ]
-    },
-    {
-      "no": 5,
-      "alan": [
-        "plant breeding",
-        "genomic selection",
-        "phenotyping",
-        "seed quality"
-      ]
-    },
-    {
-      "no": 6,
-      "alan": [
-        "variable rate",
-        "precision seeding",
-        "site-specific fertilization",
-        "nitrogen recommendation"
-      ]
-    },
-    {
-      "no": 7,
-      "alan": [
-        "irrigation",
-        "crop water stress",
-        "evapotranspiration"
-      ]
-    },
-    {
-      "no": 8,
-      "alan": [
-        "weed detection",
-        "targeted spraying",
-        "precision spraying",
-        "plant disease detection",
-        "weed"
-      ]
-    },
-    {
-      "no": 9,
-      "alan": [
-        "crop yield prediction",
-        "yield forecasting",
-        "crop monitoring",
-        "crop classification",
-        "crop yield"
-      ]
-    },
-    {
-      "no": 10,
-      "alan": [
-        "harvesting robot",
-        "fruit picking",
-        "agricultural robot",
-        "robotic harvesting"
-      ],
-      "teknoloji": []
-    },
-    {
-      "no": 11,
-      "alan": [
-        "fruit grading",
-        "postharvest",
-        "grain storage",
-        "food quality inspection"
-      ]
-    },
-    {
-      "no": 12,
-      "alan": [
-        "livestock",
-        "dairy cattle",
-        "precision livestock farming",
-        "poultry",
-        "animal behavior"
-      ]
-    },
-    {
-      "no": 13,
-      "alan": [
-        "greenhouse",
-        "controlled environment agriculture",
-        "vertical farming"
-      ]
-    },
-    {
-      "no": 14,
-      "alan": [
-        "aquaculture",
-        "fish farming",
-        "fisheries"
-      ]
-    },
-    {
-      "no": 15,
-      "alan": [
-        "forest fire",
-        "forest inventory",
-        "tree species",
-        "deforestation",
-        "forestry"
-      ]
-    },
-    {
-      "no": 16,
-      "alan": [
-        "agricultural commodity price",
-        "crop price",
-        "agri-food supply chain",
-        "agricultural market"
-      ]
-    },
-    {
-      "no": 17,
-      "alan": [
-        "crop insurance",
-        "drought forecasting",
-        "agricultural drought",
-        "weather index insurance"
-      ]
-    },
-    {
-      "no": 18,
-      "alan": [
-        "agricultural extension",
-        "farmer advisory",
-        "agriculture",
-        "farmers"
-      ],
-      "teknoloji": [
-        "large language model",
-        "LLM",
-        "chatbot",
-        "generative AI"
-      ]
-    },
-    {
-      "no": 19,
-      "alan": [
-        "crop",
-        "agricultural",
-        "farmland",
-        "cropland"
-      ],
-      "teknoloji": [
-        "remote sensing",
-        "satellite imagery",
-        "Sentinel-2",
-        "Landsat"
-      ]
-    },
-    {
-      "no": 20,
-      "alan": [
-        "agriculture",
-        "agricultural",
-        "farm",
-        "crop"
-      ],
-      "teknoloji": [
-        "internet of things",
-        "IoT",
-        "wireless sensor network"
-      ]
-    },
-    {
-      "no": 21,
-      "alan": [
-        "agricultural data",
-        "farm data",
-        "agri-food data",
-        "agricultural"
-      ],
-      "teknoloji": [
-        "data sharing",
-        "data ownership",
-        "data platform",
-        "data governance"
-      ]
-    },
-    {
-      "no": 26,
-      "alan": [
-        "agriculture",
-        "agricultural",
-        "farming",
-        "smallholder"
-      ],
-      "teknoloji": [
-        "algorithmic bias",
-        "digital divide",
-        "AI ethics",
-        "data privacy"
-      ]
-    }
-  ],
-  "turkiye_haber_sorgulari": [
-    {
-      "baslik_no": 23,
-      "sorgu": "tarım yapay zeka"
-    },
-    {
-      "baslik_no": 23,
-      "sorgu": "akıllı tarım Türkiye"
-    },
-    {
-      "baslik_no": 24,
-      "sorgu": "Tarım ve Orman Bakanlığı dijital dönüşüm strateji"
-    },
-    {
-      "baslik_no": 25,
-      "sorgu": "tarım teknolojisi girişim yatırım"
-    }
-  ],
-  "elle": {
-    "1": "Durum özeti — öteki başlıkların taramasından beslenir, kendi sorgusu yok",
-    "22": "Dünya özeti — kurumsal raporlar (FAO, OECD, Dünya Bankası) sayfa izlemeyle yakalanır, elle okunur",
-    "27": "Başarısızlık ve abartı örnekleri akademik sorguyla bulunmuyor; elle derlenir",
-    "28": "Saha hikâyeleri elle derlenir",
-    "29": "Sözlük — yeni terim, yeni_kaynak önerilerinden elle çıkarılır"
+ "_ne": "Kapsamlı taramanın başlık başına akademik sorguları",
+ "_kural": "Sorgu = (alan terimlerinden biri) VE (teknoloji terimlerinden biri). `teknoloji` boşsa alan terimleri tek başına yeterli (başlık zaten bir teknoloji). Bir kaydın kuyruğa düşmesi için BAŞLIĞINDA hem bir alan hem (varsa) bir teknoloji terimi geçmeli — özetinde geçmesi yetmiyor; aylık kuyruk okunabilir kalsın diye.",
+ "_kullanan": "~/tarim_ai_pipeline/src/yz_tarama.py · doğrulayan: dogrula_tarama.py",
+ "varsayilan_teknoloji": [
+  "machine learning",
+  "deep learning",
+  "artificial intelligence",
+  "computer vision",
+  "neural network"
+ ],
+ "kaynak_basina_en_cok": 3,
+ "basliklar": [
+  {
+   "no": 4,
+   "alan": [
+    "soil mapping",
+    "digital soil",
+    "soil organic carbon",
+    "land suitability",
+    "soil moisture"
+   ]
+  },
+  {
+   "no": 5,
+   "alan": [
+    "plant breeding",
+    "genomic selection",
+    "phenotyping",
+    "seed quality"
+   ]
+  },
+  {
+   "no": 6,
+   "alan": [
+    "variable rate",
+    "precision seeding",
+    "site-specific fertilization",
+    "nitrogen recommendation"
+   ]
+  },
+  {
+   "no": 7,
+   "alan": [
+    "irrigation",
+    "crop water stress",
+    "evapotranspiration"
+   ]
+  },
+  {
+   "no": 8,
+   "alan": [
+    "weed detection",
+    "targeted spraying",
+    "precision spraying",
+    "plant disease detection",
+    "weed"
+   ]
+  },
+  {
+   "no": 9,
+   "alan": [
+    "crop yield prediction",
+    "yield forecasting",
+    "crop monitoring",
+    "crop classification",
+    "crop yield"
+   ]
+  },
+  {
+   "no": 10,
+   "alan": [
+    "harvesting robot",
+    "fruit picking",
+    "agricultural robot",
+    "robotic harvesting"
+   ],
+   "teknoloji": []
+  },
+  {
+   "no": 11,
+   "alan": [
+    "fruit grading",
+    "postharvest",
+    "grain storage",
+    "food quality inspection"
+   ]
+  },
+  {
+   "no": 12,
+   "alan": [
+    "livestock",
+    "dairy cattle",
+    "precision livestock farming",
+    "poultry",
+    "animal behavior"
+   ]
+  },
+  {
+   "no": 13,
+   "alan": [
+    "greenhouse",
+    "controlled environment agriculture",
+    "vertical farming"
+   ]
+  },
+  {
+   "no": 14,
+   "alan": [
+    "aquaculture",
+    "fish farming",
+    "fisheries"
+   ]
+  },
+  {
+   "no": 15,
+   "alan": [
+    "forest fire",
+    "forest inventory",
+    "tree species",
+    "deforestation",
+    "forestry"
+   ]
+  },
+  {
+   "no": 16,
+   "alan": [
+    "agricultural commodity price",
+    "crop price",
+    "agri-food supply chain",
+    "agricultural market"
+   ]
+  },
+  {
+   "no": 17,
+   "alan": [
+    "crop insurance",
+    "drought forecasting",
+    "agricultural drought",
+    "weather index insurance"
+   ]
+  },
+  {
+   "no": 18,
+   "alan": [
+    "agricultural extension",
+    "farmer advisory",
+    "agriculture",
+    "farmers"
+   ],
+   "teknoloji": [
+    "large language model",
+    "LLM",
+    "chatbot",
+    "generative AI"
+   ]
+  },
+  {
+   "no": 19,
+   "alan": [
+    "crop",
+    "agricultural",
+    "farmland",
+    "cropland"
+   ],
+   "teknoloji": [
+    "remote sensing",
+    "satellite imagery",
+    "Sentinel-2",
+    "Landsat"
+   ]
+  },
+  {
+   "no": 20,
+   "alan": [
+    "agriculture",
+    "agricultural",
+    "farm",
+    "crop"
+   ],
+   "teknoloji": [
+    "internet of things",
+    "IoT",
+    "wireless sensor network"
+   ]
+  },
+  {
+   "no": 21,
+   "alan": [
+    "agricultural data",
+    "farm data",
+    "agri-food data",
+    "agricultural"
+   ],
+   "teknoloji": [
+    "data sharing",
+    "data ownership",
+    "data platform",
+    "data governance"
+   ]
+  },
+  {
+   "no": 26,
+   "alan": [
+    "agriculture",
+    "agricultural",
+    "farming",
+    "smallholder"
+   ],
+   "teknoloji": [
+    "algorithmic bias",
+    "digital divide",
+    "AI ethics",
+    "data privacy"
+   ]
   }
+ ],
+ "turkiye_haber_sorgulari": [
+  {
+   "baslik_no": 23,
+   "sorgu": "tarım yapay zeka"
+  },
+  {
+   "baslik_no": 23,
+   "sorgu": "akıllı tarım Türkiye"
+  },
+  {
+   "baslik_no": 24,
+   "sorgu": "Tarım ve Orman Bakanlığı dijital dönüşüm strateji"
+  },
+  {
+   "baslik_no": 25,
+   "sorgu": "tarım teknolojisi girişim yatırım"
+  }
+ ],
+ "elle": {
+  "1": "Durum özeti — öteki başlıkların taramasından beslenir, kendi sorgusu yok",
+  "22": "Dünya özeti — kurumsal raporlar (FAO, OECD, Dünya Bankası) sayfa izlemeyle yakalanır, elle okunur",
+  "27": "Başarısızlık ve abartı örnekleri akademik sorguyla bulunmuyor; elle derlenir",
+  "28": "Saha hikâyeleri elle derlenir",
+  "29": "Sözlük — yeni terim, yeni_kaynak önerilerinden elle çıkarılır"
+ },
+ "sayfalar": [
+  {
+   "baslik_no": 2,
+   "tur": "resmi",
+   "ad": "Avrupa Komisyonu · Yapay Zekâ Tüzüğü politika sayfası",
+   "adres": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+  },
+  {
+   "baslik_no": 2,
+   "tur": "resmi",
+   "ad": "OECD.AI · yapay zekâ ilkeleri ve tanım sayfası",
+   "adres": "https://oecd.ai/en/ai-principles"
+  },
+  {
+   "baslik_no": 2,
+   "tur": "resmi",
+   "ad": "Mevzuat Bilgi Sistemi (yapay zekâ düzenlemeleri)",
+   "adres": "https://www.mevzuat.gov.tr/",
+   "suzgec": [
+    "yapay zek"
+   ]
+  },
+  {
+   "baslik_no": 2,
+   "tur": "resmi",
+   "ad": "Resmî Gazete · günlük dizin (yapay zekâ düzenlemeleri)",
+   "adres": "https://www.resmigazete.gov.tr/",
+   "suzgec": [
+    "yapay zek"
+   ]
+  },
+  {
+   "baslik_no": 2,
+   "tur": "resmi",
+   "ad": "Tarım ve Orman Bakanlığı · Strateji Geliştirme Başkanlığı ana sayfası",
+   "adres": "https://www.tarimorman.gov.tr/SGB",
+   "suzgec": [
+    "Stratejik Plan"
+   ]
+  },
+  {
+   "baslik_no": 4,
+   "tur": "seri",
+   "ad": "ISRIC · SoilGrids belgelendirme sayfası",
+   "adres": "https://docs.isric.org/globaldata/soilgrids/"
+  },
+  {
+   "baslik_no": 4,
+   "tur": "seri",
+   "ad": "Strateji ve Bütçe Başkanlığı · Yıllık Programlar",
+   "adres": "https://www.sbb.gov.tr/yillik-programlar/",
+   "suzgec": [
+    "Yıllık Program"
+   ]
+  },
+  {
+   "baslik_no": 4,
+   "tur": "resmi",
+   "ad": "Tarım Reformu Genel Müdürlüğü · haber arşivi",
+   "adres": "https://www.tarimorman.gov.tr/TRGM/HaberArsivi",
+   "suzgec": [
+    "toprak",
+    "arazi",
+    "etüt"
+   ]
+  },
+  {
+   "baslik_no": 5,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · istatistik bültenleri (tohum üretim miktarları)",
+   "adres": "https://istatistik.tarimorman.gov.tr/",
+   "suzgec": [
+    "Tohum"
+   ]
+  },
+  {
+   "baslik_no": 6,
+   "tur": "seri",
+   "ad": "ABD Tarım Bakanlığı ERS · bitkisel ve hayvansal üretim uygulamaları konu sayfası",
+   "adres": "https://www.ers.usda.gov/topics/farm-practices-management/crop-livestock-practices"
+  },
+  {
+   "baslik_no": 7,
+   "tur": "resmi",
+   "ad": "DSİ · ana sayfa (sulama duyuruları)",
+   "adres": "https://www.dsi.gov.tr/",
+   "suzgec": [
+    "sulama",
+    "DİSU",
+    "dijital"
+   ]
+  },
+  {
+   "baslik_no": 7,
+   "tur": "seri",
+   "ad": "FAO SDG veri portalı · 6.4.2 su stresi göstergesi",
+   "adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/642-water-stress/en"
+  },
+  {
+   "baslik_no": 7,
+   "tur": "resmi",
+   "ad": "Tarım Reformu Genel Müdürlüğü · haber arşivi",
+   "adres": "https://www.tarimorman.gov.tr/TRGM/HaberArsivi",
+   "suzgec": [
+    "sulama",
+    "DİSU",
+    "karar destek"
+   ]
+  },
+  {
+   "baslik_no": 9,
+   "tur": "seri",
+   "ad": "Toprak Gübre ve Su Kaynakları MAE · AGROSENS bülten listesi",
+   "adres": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens"
+  },
+  {
+   "baslik_no": 9,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · istatistik bültenleri (bitkisel üretim tahmini)",
+   "adres": "https://istatistik.tarimorman.gov.tr/",
+   "suzgec": [
+    "Bitkisel Üretim"
+   ]
+  },
+  {
+   "baslik_no": 9,
+   "tur": "resmi",
+   "ad": "Tarım Reformu Genel Müdürlüğü · haber arşivi",
+   "adres": "https://www.tarimorman.gov.tr/TRGM/HaberArsivi",
+   "suzgec": [
+    "ürün belirleme",
+    "uzaktan algılama",
+    "uydu"
+   ]
+  },
+  {
+   "baslik_no": 10,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · istatistik bültenleri (tarımsal alet ve makine)",
+   "adres": "https://istatistik.tarimorman.gov.tr/",
+   "suzgec": [
+    "Alet",
+    "Makine"
+   ]
+  },
+  {
+   "baslik_no": 10,
+   "tur": "seri",
+   "ad": "Strateji ve Bütçe Başkanlığı · Yıllık Programlar",
+   "adres": "https://www.sbb.gov.tr/yillik-programlar/",
+   "suzgec": [
+    "Yıllık Program"
+   ]
+  },
+  {
+   "baslik_no": 11,
+   "tur": "seri",
+   "ad": "FAO SDG veri portalı · analitik raporlar (Tracking progress)",
+   "adres": "https://www.fao.org/sustainable-development-goals-data-portal/resources/analytical-reports/en",
+   "suzgec": [
+    "Tracking progress",
+    "12.3",
+    "food loss"
+   ]
+  },
+  {
+   "baslik_no": 12,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · istatistik bültenleri (hayvan varlığı)",
+   "adres": "https://istatistik.tarimorman.gov.tr/",
+   "suzgec": [
+    "Hayvan"
+   ]
+  },
+  {
+   "baslik_no": 14,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · istatistik bültenleri (su ürünleri)",
+   "adres": "https://istatistik.tarimorman.gov.tr/",
+   "suzgec": [
+    "Su Ürünleri"
+   ]
+  },
+  {
+   "baslik_no": 14,
+   "tur": "seri",
+   "ad": "FAO · Dünya Balıkçılık ve Su Ürünleri Durumu (SOFIA) yayın sayfası",
+   "adres": "https://www.fao.org/publications/fao-flagship-publications/the-state-of-world-fisheries-and-aquaculture/en"
+  },
+  {
+   "baslik_no": 15,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · istatistik bültenleri (ormancılık)",
+   "adres": "https://istatistik.tarimorman.gov.tr/",
+   "suzgec": [
+    "Ormancılık"
+   ]
+  },
+  {
+   "baslik_no": 15,
+   "tur": "seri",
+   "ad": "FAO · Küresel Orman Kaynakları Değerlendirmesi (FRA) ana sayfası",
+   "adres": "https://www.fao.org/forest-resources-assessment/en/"
+  },
+  {
+   "baslik_no": 15,
+   "tur": "resmi",
+   "ad": "Orman Genel Müdürlüğü · haberler (RSS akışı)",
+   "adres": "https://www.ogm.gov.tr/tr/haber-sitesi/_layouts/15/listfeed.aspx?List=%7b2B7C95DD-2EE4-45AF-8C0E-248300D5EB7D%7d&Source=https%3a//www.ogm.gov.tr/tr/haber-sitesi/Pages/Forms/AllItems.aspx"
+  },
+  {
+   "baslik_no": 16,
+   "tur": "seri",
+   "ad": "TEPGE · Durum ve Tahmin Raporları",
+   "adres": "https://arastirma.tarimorman.gov.tr/tepge/Menu/36/Durum-Ve-Tahmin-Raporlari"
+  },
+  {
+   "baslik_no": 16,
+   "tur": "seri",
+   "ad": "Strateji ve Bütçe Başkanlığı · Yıllık Programlar",
+   "adres": "https://www.sbb.gov.tr/yillik-programlar/",
+   "suzgec": [
+    "Yıllık Program"
+   ]
+  },
+  {
+   "baslik_no": 17,
+   "tur": "resmi",
+   "ad": "TARSİM · Cumhurbaşkanı Kararları (tarım sigortası mevzuatı)",
+   "adres": "https://www.tarsim.gov.tr/subPage/cumhurbaskani-kararlari"
+  },
+  {
+   "baslik_no": 17,
+   "tur": "seri",
+   "ad": "TARSİM · Faaliyet Raporları",
+   "adres": "https://www.tarsim.gov.tr/subPage/faaliyet-raporlari"
+  },
+  {
+   "baslik_no": 18,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · Faaliyet Raporları",
+   "adres": "https://www.tarimorman.gov.tr/Konular/Plan-Program-Ve-Faaliyet-Raporlari/faaliyet-raporlar%c4%b1",
+   "suzgec": [
+    "Faaliyet Raporu"
+   ]
+  },
+  {
+   "baslik_no": 19,
+   "tur": "seri",
+   "ad": "Copernicus SentiWiki · Sentinel-2 görev sayfası",
+   "adres": "https://sentiwiki.copernicus.eu/web/s2-mission"
+  },
+  {
+   "baslik_no": 19,
+   "tur": "seri",
+   "ad": "Tarım ve Orman Bakanlığı · Faaliyet Raporları",
+   "adres": "https://www.tarimorman.gov.tr/Konular/Plan-Program-Ve-Faaliyet-Raporlari/faaliyet-raporlar%c4%b1",
+   "suzgec": [
+    "Faaliyet Raporu"
+   ]
+  },
+  {
+   "baslik_no": 19,
+   "tur": "seri",
+   "ad": "USGS · Landsat uydu görevleri sayfası",
+   "adres": "https://www.usgs.gov/landsat-missions/landsat-satellite-missions"
+  },
+  {
+   "baslik_no": 20,
+   "tur": "seri",
+   "ad": "BTK · Elektronik Haberleşme Pazar Verileri",
+   "adres": "https://www.btk.gov.tr/elektronik-haberlesme-pazar-verileri"
+  },
+  {
+   "baslik_no": 20,
+   "tur": "seri",
+   "ad": "ITU · Facts and Figures baskıları",
+   "adres": "https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx"
+  },
+  {
+   "baslik_no": 21,
+   "tur": "resmi",
+   "ad": "KVKK · Yönetmelikler",
+   "adres": "https://www.kvkk.gov.tr/Icerik/5257/yonetmelikler"
+  },
+  {
+   "baslik_no": 21,
+   "tur": "resmi",
+   "ad": "Tarım Reformu Genel Müdürlüğü · haber arşivi",
+   "adres": "https://www.tarimorman.gov.tr/TRGM/HaberArsivi",
+   "suzgec": [
+    "kayıt sistemi",
+    "TARBİS",
+    "veri"
+   ]
+  },
+  {
+   "baslik_no": 22,
+   "tur": "resmi",
+   "ad": "Afrika Birliği · Son belgeler",
+   "adres": "https://au.int/en/documents",
+   "suzgec": [
+    "agricult",
+    "digital",
+    "food"
+   ]
+  },
+  {
+   "baslik_no": 22,
+   "tur": "seri",
+   "ad": "Eurostat Statistics Explained · Tarım kategorisi",
+   "adres": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Category:Agriculture",
+   "suzgec": [
+    "machinery",
+    "digital",
+    "farm structure"
+   ]
+  },
+  {
+   "baslik_no": 22,
+   "tur": "seri",
+   "ad": "USDA NASS · Technology Use (Farm Computer Usage and Ownership) yayın sayfası",
+   "adres": "https://esmis.nal.usda.gov/publication/technology-use-farm-computer-usage-and-ownership"
+  },
+  {
+   "baslik_no": 22,
+   "tur": "resmi",
+   "ad": "Çin Tarım ve Köy İşleri Bakanlığı · Akıllı tarım eylemde (智慧农业在行动) özel sayfası",
+   "adres": "https://www.moa.gov.cn/ztzl/zhnyzxd/"
+  },
+  {
+   "baslik_no": 23,
+   "tur": "resmi",
+   "ad": "Resmî Gazete · günlük dizin (tarım ve orman)",
+   "adres": "https://www.resmigazete.gov.tr/",
+   "suzgec": [
+    "tarım",
+    "orman",
+    "yapay zek"
+   ]
+  },
+  {
+   "baslik_no": 24,
+   "tur": "resmi",
+   "ad": "Avrupa Komisyonu · tarım ve orman traktörleri mevzuatı (167/2013)",
+   "adres": "https://single-market-economy.ec.europa.eu/sectors/automotive-industry/legislation/wheeled-agricultural-or-forestry-tractors_en"
+  },
+  {
+   "baslik_no": 24,
+   "tur": "resmi",
+   "ad": "Avrupa Komisyonu · makine mevzuatı sayfası (2023/1230)",
+   "adres": "https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en"
+  },
+  {
+   "baslik_no": 25,
+   "tur": "dizin",
+   "ad": "TÜBİTAK BİLGEM YZE · akıllı tarım alanında kabul edilen projeler (1711)",
+   "adres": "https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/"
+  },
+  {
+   "baslik_no": 25,
+   "tur": "dizin",
+   "ad": "Startups.watch · ana sayfa (yeni eklenen girişimler)",
+   "adres": "https://startups.watch/",
+   "suzgec": [
+    "agri",
+    "tarım",
+    "food",
+    "gıda"
+   ]
+  },
+  {
+   "baslik_no": 25,
+   "tur": "dizin",
+   "ad": "TÜBİTAK · Duyuru arşivi",
+   "adres": "https://tubitak.gov.tr/tr/duyuru",
+   "suzgec": [
+    "1711",
+    "yapay zek",
+    "tarım"
+   ]
+  },
+  {
+   "baslik_no": 25,
+   "tur": "dizin",
+   "ad": "Resmî Gazete · günlük dizin (üniversite araştırma merkezleri)",
+   "adres": "https://www.resmigazete.gov.tr/",
+   "suzgec": [
+    "Araştırma Merkezi"
+   ]
+  },
+  {
+   "baslik_no": 26,
+   "tur": "resmi",
+   "ad": "CISA · Gıda ve tarım sektörü sayfası",
+   "adres": "https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors/food-and-agriculture-sector"
+  },
+  {
+   "baslik_no": 26,
+   "tur": "seri",
+   "ad": "FAO · yayınlar (dijitalleşme ve otomasyon)",
+   "adres": "https://www.fao.org/publications/en",
+   "suzgec": [
+    "digital",
+    "automation",
+    "artificial intelligence"
+   ]
+  },
+  {
+   "baslik_no": 26,
+   "tur": "seri",
+   "ad": "IEA · Raporlar",
+   "adres": "https://www.iea.org/reports",
+   "suzgec": [
+    "Energy and AI",
+    "artificial intelligence",
+    "data cent"
+   ]
+  },
+  {
+   "baslik_no": 26,
+   "tur": "seri",
+   "ad": "Strateji ve Bütçe Başkanlığı · Yıllık Programlar",
+   "adres": "https://www.sbb.gov.tr/yillik-programlar/",
+   "suzgec": [
+    "Yıllık Program"
+   ]
+  },
+  {
+   "baslik_no": 27,
+   "tur": "kayit",
+   "ad": "Companies House · Small Robot Company (10846464) dosya geçmişi",
+   "adres": "https://find-and-update.company-information.service.gov.uk/company/10846464/filing-history"
+  },
+  {
+   "baslik_no": 27,
+   "tur": "kayit",
+   "ad": "Companies House · Infarm (FC040818) dosya geçmişi",
+   "adres": "https://find-and-update.company-information.service.gov.uk/company/FC040818/filing-history"
+  },
+  {
+   "baslik_no": 27,
+   "tur": "kayit",
+   "ad": "TUCSAP · duyuru listesi (bağımsız denetim raporları)",
+   "adres": "https://tucsap.tarimorman.gov.tr/Duyuru/DuyuruListe"
+  }
+ ],
+ "_sayfalar": "Başlığa bağlı izleme listesi (karar 16, Tur 10): her başlığın 'Bu sayfa nasıl güncelleniyor' paragrafında saydığı kaynakların liste sayfaları. tur: seri → 'sayi_guncelleme'; resmi, dizin, kayit → 'sayfa_degisti'. suzgec: yeni bağlantı yalnız metni bu kelimelerden birini taşıyorsa o başlığa düşer. Okunabilirlik 17 Kasım 2026'da ölçüldü (HTTP 200, HTML, ≥1.500 karakter görünür metin, ≥10 bağlantı; OGM RSS akışı).",
+ "elle_sayfa": {
+  "1": "Durum özeti — sayıları öbür başlıkların kayıtlarından kopya; asıl değişince dogrula_bolumler.py (kural 7) durduruyor.",
+  "8": "Satıcı rakamları (See & Spray) şirketin bülteninden okunuyor; deere.com otomatik isteği engelliyor (403). Yeni bülten haber hattından ya da elle yakalanır.",
+  "13": "Otonom Sera Yarışması'nın iki alan adına bağlantı kurulamıyor (17 Kasım 2026); yeni turlar akademik sorgunun yakaladığı yayınlardan izleniyor.",
+  "17": "Mevzuat tarafı TARSİM'in Cumhurbaşkanı kararları sayfasıyla izleniyor ('resmi' türünde); FAO'nun afet raporu serisinin okunur bir liste sayfası yok.",
+  "21": "Ulusal açık veri portalı henüz kurulmadı (2027 Programı); Dijital Dönüşüm Ofisi'ne bağlantı kurulamıyor.",
+  "22": "Hindistan tarım bakanlığı sitesi otomatik isteği engelliyor (403); öbür bölgeler sayfa izlemesinde.",
+  "23": "Sayılar §25 ve öbür başlıkların kayıtlarından; yeni Türkiye gelişmeleri haber sorguları ve Resmî Gazete süzgeciyle izleniyor."
+ }
 }

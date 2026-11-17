@@ -220,7 +220,8 @@
         "ÇKS kayıt sistemlerinde bulunan genç çiftçi sayısı Sayı 262.202 268.606 266.037 306.033 TOB",
         "ÇKS kayıt sistemlerine göre ortalama işletme büyüklüğü Hektar 7,1 6,9 7,0 6,9 TOB",
         "ÇKS kayıt sistemlerine göre tarımsal işletme sayısı Sayı 2.127.957 2.173.009 2.177.880 2.245.215 TOB"
-      ]
+      ],
+      "_erisim_notu": "17.11.2026: adres tarayıcıda da 401 döndürüyor; bakanlığın Yayınlarımız sayfası hâlâ bu adrese bağlanıyor, başka resmî kopya bulunamadı. Yerel kopya kayıtlı."
     },
     "tob_sura_2025_kirsal_istihdam": {
       "nitelik": "RESMI",
@@ -239,7 +240,8 @@
         "Bu durum, tarım sektöründe hem yaşlanmanın varlığını hem de tarım sektöründe genç işgücünün yetersiz olduğunu göstermektedir.",
         "Grafik 5. İstihdam edilenlerde ortalama yaş (2023) Kaynak: TÜİK, 2024a",
         "TÜİK. 2024a. İşgücü İstatistikleri -2023."
-      ]
+      ],
+      "_tutarsizlik": "Belge 5 milyon 220 binden 4 milyon 695 bine düşüşü 'yaklaşık 800 bin' diye veriyor; kendi rakamlarıyla fark 525 bin. Metin farkı yazmaz, iki düzeyi yazar (Tur 10)."
     },
     "fao_ebrd_2025_turkiye": {
       "nitelik": "KURUMSAL",

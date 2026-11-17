@@ -87,8 +87,10 @@
         "Avrupa Birliği'nin orantılı risk yaklaşımını dikkate alan ulusal yapay zekâ hukuki-etik çerçevesi oluşturacaktır.",
         "Risk düzeyine göre kademeli yükümlülükler tanımlanacaktır.",
         "ilk 12 ayda orantılı risk rehberi ve sektör eklerinin yayımlanması, Ulusal Yapay Zekâ Etik Kurulu’nun teşkil edilmesi",
-        "en az beş öncelikli sektörde düzenleyici deney alanlarının hayata geçirilmesi"
-      ]
+        "en az beş öncelikli sektörde düzenleyici deney alanlarının hayata geçirilmesi",
+        "Finans, sağlık, enerji, mobilite ve telekomünikasyon başta olmak üzere öncelikli alanlarda tek dijital başvuru noktası"
+      ],
+      "deney_alani_oncelikli": "finans, sağlık, enerji, mobilite, telekomünikasyon (PDF s35, Eylem 16)"
     },
     "ab_2021_2116": {
       "nitelik": "RESMI",

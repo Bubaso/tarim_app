@@ -242,6 +242,16 @@
         "Tarım ve orman sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı'mızı da hazırladık.",
         "Bu belgeyi de en kısa zamanda paylaşacağız."
       ]
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "alinti": [
+        "İşlenmeyen tarım arazilerinin ve dikili alanların tespitine yönelik uydu görüntüleri, derin öğrenme ve yapay zekâ teknolojisinden faydalanılarak analiz çalışmaları yapılmıştır."
+      ],
+      "_kopya": "b19_kaynaklar.json · tob_2025_faaliyet_raporu"
     }
   },
   "turkiye": {

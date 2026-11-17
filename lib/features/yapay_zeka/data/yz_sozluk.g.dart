@@ -363,7 +363,7 @@ const List<YzTerim> kYzSozluk = [
       "iklim-akilli-tarim",
       "İklim akıllı tarım",
       "Climate-smart agriculture",
-      "FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, sera gazı salımını mümkün olduğunca azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de.",
+      "FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, mümkün olan yerlerde sera gazı salımını azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de.",
       "An approach defined and presented by FAO in 2010. It has three pillars: sustainably increasing agricultural productivity and incomes, adapting and building resilience to climate change, and reducing or removing greenhouse gas emissions where possible. It is not a single technology or practice that can be applied everywhere. The terms are compared in §2.",
       "Kaynak: FAO, İklim Akıllı Tarım Kaynak Kitabı (2013).",
       "Source: FAO, Climate-Smart Agriculture Sourcebook (2013).",

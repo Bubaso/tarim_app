@@ -94,13 +94,15 @@
     },
     "heilman_2005_ars": {
       "nitelik": "KURUMSAL",
-      "kunye": "Heilman P., Stone J., Sanchez Cohen I., Macias Rodriguez H., Mann R.S. 2005. Working Smarter: Research and Decision Support Systems in Mexican Agriculture. Kitap bölümü 12 (s. 211 vd.). Texas A&M Press. USDA-ARS Southwest Watershed Research Center yayın no. 1628.",
-      "adres": "https://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
+      "kunye": "Heilman P., Stone J., Sanchez Cohen I., Macias Rodriguez H., Mann R.S. 2005. Working Smarter: Research and Decision Support Systems in Mexican Agriculture. Kitap bölümü 12 (s. 211 vd.). Texas A&M Press. USDA-ARS Southwest Watershed Research Center yayın no. 1628. UNT Kütüphaneleri web arşivi kopyası, 9 Ocak 2009.",
+      "adres": "https://webarchive.library.unt.edu/eot2008/20090109013924id_/http://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
       "dosya": "kaynak_dosyalari/usda_ars_1628_karar_destek.pdf",
       "alinti": [
         "Computer programs designed explicitly to help people work smarter by making better decisions are called Decision Support Systems (DSS).",
         "© 2005 by Texas A&M Press"
-      ]
+      ],
+      "_ilk_adres": "https://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf",
+      "_adres_notu": "17.11.2026: tucson.ars.ag.gov alan adı çözülmüyor; UNT End of Term 2008 arşivindeki kopya yerel dosyayla sha256'ca aynı."
     },
     "fao_2022_sofa": {
       "nitelik": "KURUMSAL",

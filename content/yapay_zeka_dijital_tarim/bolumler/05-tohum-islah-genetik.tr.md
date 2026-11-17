@@ -1,6 +1,6 @@
 # 5 · Tohum, ıslah ve genetik
 
-> **Özet.** Bir kışlık buğday programında melezlemeden uluslararası dağıtıma **9-10** yıl geçiyor; ıslahtaki dijital araçlar bu süreyi kısaltmaya ve seçimin isabetini artırmaya çalışıyor. Genomik seçilim bitkiyi DNA'sından değerlendirmeye izin veriyor ve bir kışlık buğday programında erken kuşakta, tarladaki ölçüme dayalı seçimden daha isabetli çıktı. Derin öğrenme ise genomik tahminde klasik istatistik modellerinden açıkça üstün bulunmadı; ilk şartı büyük ve kaliteli veri. Kuşak süresini kısaltan hızlı ıslahla bazı ürünlerde yılda **6** kuşağa çıkılabiliyor. Türkiye merkezli Uluslararası Kışlık Buğday Islah Programı **1986**'dan beri çalışıyor; 2018'de İzmir'deki bir hızlı ıslah tesisiyle daha hızlı bir sisteme geçti ve moleküler işaretleyicileri ıslaha katmaya başladı.
+> **Özet.** Bir kışlık buğday programında melezlemeden uluslararası dağıtıma **9-10** yıl geçiyor; ıslahtaki dijital araçlar bu süreyi kısaltmaya ve seçimin isabetini artırmaya çalışıyor. Genomik seçilim bitkiyi DNA'sından değerlendirmeye izin veriyor ve başka bir kışlık buğday programında erken kuşakta, tarladaki ölçüme dayalı seçimden daha isabetli çıktı. Derin öğrenme ise genomik tahminde klasik istatistik modellerinden açıkça üstün bulunmadı; ilk şartı büyük ve kaliteli veri. Kuşak süresini kısaltan hızlı ıslahla bazı ürünlerde yılda **6** kuşağa çıkılabiliyor. Türkiye merkezli Uluslararası Kışlık Buğday Islah Programı **1986**'da kuruldu; 2019'da yayımlanan bir değerlendirmeye göre 2018'de İzmir'deki bir hızlı ıslah tesisiyle klasik sistemin yanına daha hızlı bir yol açtı, moleküler işaretleyicileri ise 2017'den itibaren ıslaha katmaya başladı.
 
 ## Ne yapıyor
 
@@ -20,11 +20,11 @@ Watson ve arkadaşları (2018) uzun kuşak süresini ıslahın yavaş ilerlemesi
 
 Montesinos-López ve arkadaşları (2021), derin öğrenmenin genomik seçilimdeki uygulamalarını derledi. Sonuç ölçülü: bitki ve hayvan ıslahı literatüründe derin öğrenmenin tahmin gücünde klasik genomik modellere açık bir üstünlüğü bulunmadı. Güçlü yanları da var: doğrusal olmayan ilişkileri daha iyi yakalıyor ve farklı kaynaklardan gelen veriyi birleştirebiliyor. Ama ilk şartı kaliteli ve yeterince büyük eğitim verisi; yazarlar yöntemin büyük veri setlerinde uygulanması gerektiğini vurguluyor.
 
-Islahta yapay zekânın bugünkü yeri bu: umut veren bir araç, ama klasik istatistiğin yerini almış değil; verisi küçük bir program için üstünlüğü belirsiz.
+2021 tarihli bu derlemeye göre ıslahta yapay zekânın yeri şu: umut veren bir araç, ama klasik istatistiğin yerini almış değil; verisi küçük bir program için üstünlüğü belirsiz.
 
 ## Türkiye
 
-2027 Programı bitki ıslahını ve genetik kaynakların korunmasını iklim değişikliğine uyum ve verimlilik için stratejik sayıyor; yerel çeşitlerin ve gen kaynaklarının korunmasını, kuraklığa, sıcağa, hastalık ve zararlılara dayanıklı çeşit geliştirilmesini, biyoteknoloji ve modern ıslah yöntemlerinin kullanım kapasitesinin artırılmasını sürdürülmesi gereken çalışmalar arasında yazıyor. Programın tarım tedbirlerinde ise genomik seçilime ya da ıslahta yapay zekâya ayrılmış bir kalem yok; tarım bölümünde genomik kelimesi yalnız hayvancılık desteklerinde geçiyor (§12). Ar-Ge bölümü genom düzenlemeyi, yapay zekâyla birlikte, Ar-Ge altyapısı kurulacak teknoloji alanları arasında sayıyor; ama bunu tarıma bağlamıyor.
+2027 Programı bitki ıslahını ve genetik kaynakların korunmasını iklim değişikliğine uyum ve verimlilik için stratejik sayıyor; yerel çeşitlerin ve gen kaynaklarının korunmasını, kuraklığa, sıcağa, hastalık ve zararlılara dayanıklı çeşit geliştirilmesini, biyoteknoloji ve modern ıslah yöntemlerinin kullanım kapasitesinin artırılmasını sürdürülmesi gereken çalışmalar arasında yazıyor. Programın tarım tedbirlerinde ise genomik seçilime ya da ıslahta yapay zekâya ayrılmış bir kalem yok; tarım bölümünde genomikle ilgili tek kalem hayvancılıkta: genomik test yaptırılmış damızlık dişi buzağılara getirilen ilave destek katsayısı (§12). Ar-Ge bölümü genom düzenlemeyi, yapay zekâyla birlikte, Ar-Ge altyapısı kurulacak teknoloji alanları arasında sayıyor; ama bunu tarıma bağlamıyor.
 
 Türkiye merkezli Uluslararası Kışlık Buğday Islah Programı (IWWIP), **1986**'da Türkiye Hükümeti ile CIMMYT arasında kuruldu; ICARDA **1991**'de katıldı. 2019'da yayımlanan bir değerlendirmeye göre programdan çıkan **93** çeşit **11** ülkede tescil edilmişti ve her yıl tahminen **2,5-3,0** milyon hektarda ekiliyordu; program materyalini her kıtadan **100**'den fazla iş birlikçiye dağıtıyor.
 
@@ -40,4 +40,4 @@ Eksik olan ise **Türkiye'de bir ıslah programında genomik seçilimin ya da ya
 
 ## Bu sayfa nasıl güncelleniyor
 
-Bu sayfa iki şeyi izliyor: ıslah, genomik seçilim, fenotipleme ve tohum kalitesi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın yıllık tohum üretim istatistiği. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
+Bu sayfa iki şeyi izliyor: ıslah, genomik seçilim, fenotipleme ve tohum kalitesi üzerine yeni gelişmeler — hakemli çalışmalar dâhil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın yıllık tohum üretim istatistiği. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

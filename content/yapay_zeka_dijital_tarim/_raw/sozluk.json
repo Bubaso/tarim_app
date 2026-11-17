@@ -183,7 +183,7 @@
      "desen_tr": ["akıllı tarım"], "desen_en": ["smart farming", "smart agriculture"]},
 
     {"kimlik": "iklim-akilli-tarim", "tr": "İklim akıllı tarım", "en": "Climate-smart agriculture", "kaynak": "fao_2013_iklim_akilli_tarim",
-     "tanim_tr": "FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, sera gazı salımını mümkün olduğunca azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de.",
+     "tanim_tr": "FAO'nun 2010'da tanımlayıp sunduğu yaklaşım. Üç dayanağı var: tarımsal üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlayıp dayanıklılık kazanmak, mümkün olan yerlerde sera gazı salımını azaltmak ya da gidermek. Her yere uygulanabilecek tek bir teknoloji ya da uygulama değil. Terimlerin karşılaştırması §2'de.",
      "tanim_en": "An approach defined and presented by FAO in 2010. It has three pillars: sustainably increasing agricultural productivity and incomes, adapting and building resilience to climate change, and reducing or removing greenhouse gas emissions where possible. It is not a single technology or practice that can be applied everywhere. The terms are compared in §2.",
      "kaynak_tr": "Kaynak: FAO, İklim Akıllı Tarım Kaynak Kitabı (2013).", "kaynak_en": "Source: FAO, Climate-Smart Agriculture Sourcebook (2013).",
      "desen_tr": ["iklim akıllı tarım"], "desen_en": ["climate-smart agriculture"]},

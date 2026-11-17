@@ -36,7 +36,7 @@ The 2027 Annual Programme treats soil data as the basis for land-use decisions a
 
 The programme also plans an annual national land-cover map, and work on the data infrastructure and methodology for analysing water erosion and sediment yield based on climate projections.
 
-In December 2025 the ministry invited bids for soil survey and classification, soil analyses and the preparation of detailed digital soil maps under the Türkiye Climate-Smart and Competitive Agricultural Growth Project, financed by a World Bank loan. The tender covers **5.16** million hectares of farmland in **13** provinces (the full project boundary is **12.3** million hectares); the work is divided into **10** lots and runs for **600** days. How the maps will be produced, and whether machine learning will be used, has not been announced.
+In December 2025 the ministry invited bids for soil survey and classification, soil analyses and the preparation of detailed digital soil maps under the Türkiye Climate Smart and Competitive Agricultural Growth Project, financed by a World Bank loan. The tender covers **5.16** million hectares of farmland in **13** provinces (the full project boundary is **12.3** million hectares); the work is divided into **10** lots and runs for **600** days. How the maps will be produced, and whether machine learning will be used, has not been announced.
 
 Researchers in Türkiye work with these methods too: a 2022 study by Kaya and colleagues predicted and mapped soil texture classes in northwestern Türkiye with different machine learning algorithms.
 
@@ -44,4 +44,4 @@ What is missing is **a published assessment measuring how a soil map produced wi
 
 ## How this page is kept up to date
 
-This page watches three things: new peer-reviewed studies on digital soil mapping, soil organic carbon and land suitability; official developments on detailed soil surveys and land-use planning; and new releases of the sources behind the figures here — a new annual programme, a new version of SoilGrids. New information is added to the page after an editor's approval.
+This page watches three things: new peer-reviewed studies on digital soil mapping, soil organic carbon and land suitability; the General Directorate of Agrarian Reform's announcements on detailed soil surveys and land-use planning; and new releases of the sources behind the figures here — a new annual programme, a new version of SoilGrids. New information is added to the page after an editor's approval.

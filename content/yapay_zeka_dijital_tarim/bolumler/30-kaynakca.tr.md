@@ -204,7 +204,7 @@ Harper Adams University. 8 Eylül 2017. Harvest completed at world-first project
 
 Hayes B.J., Bowman P.J., Chamberlain A.J., Goddard M.E. 2009. Invited review: Genomic selection in dairy cattle: progress and challenges. Journal of Dairy Science 92: 433-443. https://doi.org/10.3168/jds.2008-1646 · §29
 
-Heilman P., Stone J., Sanchez Cohen I., Macias Rodriguez H., Mann R.S. 2005. Working Smarter: Research and Decision Support Systems in Mexican Agriculture. Kitap bölümü 12 (s. 211 vd.). Texas A&M Press. USDA-ARS Southwest Watershed Research Center yayın no. 1628. https://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf · §29
+Heilman P., Stone J., Sanchez Cohen I., Macias Rodriguez H., Mann R.S. 2005. Working Smarter: Research and Decision Support Systems in Mexican Agriculture. Kitap bölümü 12 (s. 211 vd.). Texas A&M Press. USDA-ARS Southwest Watershed Research Center yayın no. 1628. UNT Kütüphaneleri web arşivi kopyası, 9 Ocak 2009. https://webarchive.library.unt.edu/eot2008/20090109013924id_/http://www.tucson.ars.ag.gov/unit/Publications/PDFfiles/1628.pdf · §29
 
 Hemming S., de Zwart F., Elings A., Petropoulou A., Righini I. 2020. Cherry tomato production in intelligent greenhouses — sensors and AI for control of climate, irrigation, crop yield, and quality. Sensors 20(22). https://doi.org/10.3390/s20226430 · §13
 
@@ -314,7 +314,7 @@ Menculini L., Marini A., Proietti M., Garinei A., Bozza A., Moretti C., Marconi 
 
 Meteoroloji Genel Müdürlüğü. 2025. 2025 Yılı Performans Programı. Ankara. https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf · §17, §25
 
-Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara. https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf · §20
+Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara. https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf · §17, §20
 
 Michalski R.S., Baskin A.B. 1983. Integrating Multiple Knowledge Representations and Learning Capabilities in an Expert System: The ADVISE System. Proceedings of the Eighth International Joint Conference on Artificial Intelligence (IJCAI-83), Expert Systems, s. 256-257. https://www.ijcai.org/proceedings/1983/63 · §3
 
@@ -470,7 +470,7 @@ Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstati
 
 Tarım ve Orman Bakanlığı, Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). 13.09.2017. Ülkesel Toprak Bilgi Sistemi (haber). https://www.tarimorman.gov.tr/TAGEM/Haber/344 · §4
 
-Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §1, §3, §18, §19, §20, §23, §25
+Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §1, §3, §7, §8, §12, §18, §19, §20, §23, §25
 
 Tarla Bitkileri Merkez Araştırma Enstitüsü, CBS ve Uzaktan Algılama Merkezi. Mayıs 2020. Tarımsal Ürün İzleme ve Verim Tahmin Bülteni, sayı 28. https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens · §9
 
@@ -486,7 +486,7 @@ T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 202
 
 T.C. Sanayi ve Teknoloji Bakanlığı, Millî Teknoloji ve Yapay Zekâ Genel Müdürlüğü. Türkiye Yapay Zekâ Eylem Planı (2026-2030), bölüm 06 'Terimler Sözlüğü'. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §1, §2, §21, §23, §24, §29
 
-T.C. Tarım ve Orman Bakanlığı. 2025. 2024-2028 Stratejik Planı — Güncellenmiş Versiyon (2025). Ankara. https://www.tarimorman.gov.tr/SGB/BelgelerArsiv/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı) · §2
+T.C. Tarım ve Orman Bakanlığı. 2025. 2024-2028 Stratejik Planı — Güncellenmiş Versiyon (2025). Ankara. https://www.tarimorman.gov.tr/SGB/Belgeler/stratejikplan.pdf (Bakanlığın 'Stratejik Plan' sayfasındaki bağlantı) · §2
 
 T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 12. Çalışma Grubu: Tarımda Dijital Dönüşüm, Veri Tabanlı Tarım, Teknolojik Gelişim — Çalışma Belgesi (Grup Başkanı: Prof. Dr. Ertuğrul Karaçuha). Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__12._grup_raporutarimda_dijital_donusum_veri_tabanli_tarimteknolojik_gelisim_calisma_belgesi.pdf · §2
 
@@ -498,7 +498,7 @@ T.C. Tarım ve Orman Bakanlığı. Coğrafi Bilgi Sistemleri — Projeler (TARB�
 
 T.C. Tarım ve Orman Bakanlığı, Gıda ve Kontrol Genel Müdürlüğü. 9 Mart 2026. İHA sistemlerinin zirai mücadelede kullanımına ilişkin değerlendirme toplantısı gerçekleştirildi. GKGM haber sayfası. https://www.tarimorman.gov.tr/GKGM/Haber/1280/ · §28
 
-T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara. https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf · §18, §19, §20, §21, §25
+T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara. https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf · §18, §19, §20, §21, §23, §25
 
 T.C. Ulaştırma ve Altyapı Bakanlığı. 2025. 5 Bin 565 Yerleşim Yerine Elektronik Haberleşme Hizmeti (Bakanlık haberi, 4 Şubat 2025). Ankara. https://www.uab.gov.tr/haberler/5-bin-565-yerlesim-yerine-elektronik-haberlesme-hizmeti · §20
 
@@ -528,7 +528,7 @@ TÜBİTAK, '1711 - Yapay Zekâ Ekosistem Çağrısı' program sayfası, erişim 
 
 TÜBİTAK. 2023. İMECE İçin Geri Sayım Başladı. Haber, 9 Nisan 2023. https://tubitak.gov.tr/tr/haber/imece-icin-geri-sayim-basladi · §19
 
-TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü, 'Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler' (1711 Yapay Zekâ Ekosistem Çağrısı), erişim 17.11.2026. https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/ · §25
+TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü, 'Akıllı Tarım, Gıda ve Hayvancılık Alanında Kabul Edilen Projeler' (1711 Yapay Zekâ Ekosistem Çağrısı), erişim 17.11.2026. https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik-alaninda-kabul-edilen-projeler/ · §13, §25
 
 TÜBİTAK BİLGEM YZE, 'Akıllı Tarım, Gıda ve Hayvancılık' yetkinlik merkezi sayfası, erişim 17.11.2026. https://bilgem.tubitak.gov.tr/yze-akilli-tarim-gida-ve-hayvancilik/ · §25
 
@@ -580,7 +580,7 @@ Yaşar O., Yağcı A.L. 2024. Kadastro parsel sınırlarının obje olarak kulla
 
 Zhou H., Wang X., Au W., Kang H., Chen C. 2022. Intelligent robots for fruit harvesting: recent developments and future challenges. Precision Agriculture 23(5). https://doi.org/10.1007/s11119-022-09913-3 · §10
 
-Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü. 9.01.2026. Yapay Zeka ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama ve Hasat Yapabilen Otonom Sera Robotu Tasarımı ve Geliştirilmesi (haber). https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi · §23, §25
+Zirai Mücadele Merkez Araştırma Enstitüsü Müdürlüğü. 9.01.2026. Yapay Zeka ve Görüntü İşleme Tabanlı Hassas Gübreleme, İlaçlama ve Hasat Yapabilen Otonom Sera Robotu Tasarımı ve Geliştirilmesi (haber). https://arastirma.tarimorman.gov.tr/zmmae/Haber/1063/Yapay-Zeka-Ve-Goruntu-Isleme-Tabanli-Hassas-Gubreleme-Ilaclama-Ve-Hasat-Yapabilen-Otonom-Sera-Robotu-Tasarimi-Ve-Gelistirilmesi · §10, §13, §23, §25
 
 ## Bu sayfa nasıl güncelleniyor
 
