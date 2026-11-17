@@ -3,7 +3,7 @@
   "guncellendi": "2026-11-17",
   "_kural": "Bütün başlıkların kilitli kayıtlarından tekilleştirilerek üretilir; dogrula_bolumler.py §30'u sayı izine değil, bu üreticinin çıktısına karşı sınar.",
   "kaynak_sayisi": 199,
-  "bolum_sayisi": 25,
+  "bolum_sayisi": 26,
   "kaynaklar": {
     "k000": {
       "kunye": "6698 sayılı Kişisel Verilerin Korunması Kanunu. Kabul 24.03.2016; Resmî Gazete 07.04.2016.",
@@ -84,10 +84,11 @@
       "kunye": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024).",
       "baglanti": "https://doi.org/10.3390/plants13152164",
       "bolumler": [
+        1,
         8
       ],
-      "satir_tr": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024). https://doi.org/10.3390/plants13152164 · §8",
-      "satir_en": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024). https://doi.org/10.3390/plants13152164 · §8"
+      "satir_tr": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024). https://doi.org/10.3390/plants13152164 · §1, §8",
+      "satir_en": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024). https://doi.org/10.3390/plants13152164 · §1, §8"
     },
     "k009": {
       "kunye": "Altun M., Türker M. 2021. Çoklu zamanlı Sentinel-2 görüntülerinden tarımsal ürün tespiti: Mardin-Kızıltepe örneği. AKÜ FEMÜBİD 21.",
@@ -111,10 +112,11 @@
       "kunye": "AppHarvest, Inc. 8 Nisan 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 8 Nisan 2021).",
       "baglanti": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "AppHarvest, Inc. 8 Nisan 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 8 Nisan 2021). https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/ · §27",
-      "satir_en": "AppHarvest, Inc. 8 April 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (company press release, GlobeNewswire; investors.appharvest.com, Internet Archive copy, 8 April 2021). https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/ · §27"
+      "satir_tr": "AppHarvest, Inc. 8 Nisan 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 8 Nisan 2021). https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/ · §1, §27",
+      "satir_en": "AppHarvest, Inc. 8 April 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (company press release, GlobeNewswire; investors.appharvest.com, Internet Archive copy, 8 April 2021). https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/ · §1, §27"
     },
     "k012": {
       "kunye": "Arad B., Balendonck J., Barth R., Ben-Shahar O., Edan Y., Hellström T., Hemming J., Kurtser P., Ringdahl O., Tielen T., van Tuijl B. 2020. Development of a sweet pepper harvesting robot. Journal of Field Robotics 37(6).",
@@ -147,20 +149,22 @@
       "kunye": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157.",
       "baglanti": "https://doi.org/10.3390/agronomy10081157",
       "bolumler": [
+        1,
         6
       ],
-      "satir_tr": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §6",
-      "satir_en": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §6"
+      "satir_tr": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §1, §6",
+      "satir_en": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §1, §6"
     },
     "k016": {
       "kunye": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911.",
       "baglanti": "https://doi.org/10.1002/rob.21525",
       "bolumler": [
+        1,
         10,
         27
       ],
-      "satir_tr": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §10, §27",
-      "satir_en": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §10, §27"
+      "satir_tr": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §1, §10, §27",
+      "satir_en": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §1, §10, §27"
     },
     "k017": {
       "kunye": "baibars mekatronik havacılık sanayi A.Ş., ana sayfa, erişim 17.11.2026.",
@@ -276,10 +280,11 @@
       "kunye": "Companies House (Birleşik Krallık şirketler sicili). SMALL ROBOT COMPANY LIMITED (10846464): iflas (insolvency) sayfası (erişim 17 Kasım 2026).",
       "baglanti": "https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "Companies House (Birleşik Krallık şirketler sicili). SMALL ROBOT COMPANY LIMITED (10846464): iflas (insolvency) sayfası (erişim 17 Kasım 2026). https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency · §27",
-      "satir_en": "Companies House (UK companies register). SMALL ROBOT COMPANY LIMITED (10846464): insolvency page (accessed 17 November 2026). https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency · §27"
+      "satir_tr": "Companies House (Birleşik Krallık şirketler sicili). SMALL ROBOT COMPANY LIMITED (10846464): iflas (insolvency) sayfası (erişim 17 Kasım 2026). https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency · §1, §27",
+      "satir_en": "Companies House (UK companies register). SMALL ROBOT COMPANY LIMITED (10846464): insolvency page (accessed 17 November 2026). https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency · §1, §27"
     },
     "k030": {
       "kunye": "Copa-Cogeca, CEMA, Fertilizers Europe, CEETTAR, CEJA, ECPA, EFFAB, FEFAC, ESA. 2018. EU Code of conduct on agricultural data sharing by contractual agreement. Brüksel.",
@@ -357,10 +362,11 @@
       "kunye": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148.",
       "baglanti": "https://doi.org/10.1016/j.agwat.2023.108148",
       "bolumler": [
+        1,
         7
       ],
-      "satir_tr": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. https://doi.org/10.1016/j.agwat.2023.108148 · §7",
-      "satir_en": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. https://doi.org/10.1016/j.agwat.2023.108148 · §7"
+      "satir_tr": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. https://doi.org/10.1016/j.agwat.2023.108148 · §1, §7",
+      "satir_en": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. https://doi.org/10.1016/j.agwat.2023.108148 · §1, §7"
     },
     "k037": {
       "kunye": "de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023. Predicting site-specific economic optimal nitrogen rate using machine learning methods and on-farm precision experimentation. Precision Agriculture 24(5).",
@@ -402,10 +408,11 @@
       "kunye": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası.",
       "baglanti": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
       "bolumler": [
+        1,
         17
       ],
-      "satir_tr": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası. https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational · §17",
-      "satir_en": "ECMWF (European Centre for Medium-Range Weather Forecasts). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF news page. https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational · §17"
+      "satir_tr": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası. https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational · §1, §17",
+      "satir_en": "ECMWF (European Centre for Medium-Range Weather Forecasts). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF news page. https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational · §1, §17"
     },
     "k042": {
       "kunye": "Eldem A., Eldem H. 2026. The development and evaluation of agricultural question-answering systems based on large language models. Scientific Reports 16: 5357.",
@@ -457,10 +464,11 @@
       "kunye": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi Mayıs 2026; kaynak: 2023 Çiftlik Yapı Araştırması).",
       "baglanti": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf",
       "bolumler": [
+        1,
         22
       ],
-      "satir_tr": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi Mayıs 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §22",
-      "satir_en": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi May 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §22"
+      "satir_tr": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi Mayıs 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §1, §22",
+      "satir_en": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi May 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §1, §22"
     },
     "k048": {
       "kunye": "Fabregas R., Kremer M., Schilbach F. 2019. Realizing the potential of digital development: The case of agricultural advice. Science 366(6471): eaay3038.",
@@ -511,10 +519,11 @@
       "kunye": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9.",
       "baglanti": "https://doi.org/10.4060/cb9479en",
       "bolumler": [
+        1,
         26
       ],
-      "satir_tr": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §26",
-      "satir_en": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §26"
+      "satir_tr": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §1, §26",
+      "satir_en": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §1, §26"
     },
     "k054": {
       "kunye": "FAO. 2025. AQUASTAT Water Data Snapshot 2025. Rome.",
@@ -611,10 +620,11 @@
       "kunye": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1).",
       "baglanti": "https://doi.org/10.3390/rs12010166",
       "bolumler": [
+        1,
         15
       ],
-      "satir_tr": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1). https://doi.org/10.3390/rs12010166 · §15",
-      "satir_en": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1). https://doi.org/10.3390/rs12010166 · §15"
+      "satir_tr": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1). https://doi.org/10.3390/rs12010166 · §1, §15",
+      "satir_en": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1). https://doi.org/10.3390/rs12010166 · §1, §15"
     },
     "k065": {
       "kunye": "GÖRSENTAM Tarım Teknolojileri, ana sayfa, erişim 17.11.2026.",
@@ -683,10 +693,11 @@
       "kunye": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407.",
       "baglanti": "https://doi.org/10.1038/s41598-024-53916-1",
       "bolumler": [
+        1,
         18
       ],
-      "satir_tr": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. https://doi.org/10.1038/s41598-024-53916-1 · §18",
-      "satir_en": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. https://doi.org/10.1038/s41598-024-53916-1 · §18"
+      "satir_tr": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. https://doi.org/10.1038/s41598-024-53916-1 · §1, §18",
+      "satir_en": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. https://doi.org/10.1038/s41598-024-53916-1 · §1, §18"
     },
     "k073": {
       "kunye": "IEA. 2025. Energy and AI (Executive summary). Paris: Uluslararası Enerji Ajansı.",
@@ -701,19 +712,21 @@
       "kunye": "Infarm. 16 Aralık 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (şirket basın bülteni, infarm.com; İnternet Arşivi kopyası, 8 Aralık 2022).",
       "baglanti": "https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "Infarm. 16 Aralık 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (şirket basın bülteni, infarm.com; İnternet Arşivi kopyası, 8 Aralık 2022). https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms · §27",
-      "satir_en": "Infarm. 16 December 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (company press release, infarm.com; Internet Archive copy, 8 December 2022). https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms · §27"
+      "satir_tr": "Infarm. 16 Aralık 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (şirket basın bülteni, infarm.com; İnternet Arşivi kopyası, 8 Aralık 2022). https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms · §1, §27",
+      "satir_en": "Infarm. 16 December 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (company press release, infarm.com; Internet Archive copy, 8 December 2022). https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms · §1, §27"
     },
     "k075": {
       "kunye": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (şirket duyurusu, infarm.com; İnternet Arşivi kopyası, 6 Aralık 2023).",
       "baglanti": "https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (şirket duyurusu, infarm.com; İnternet Arşivi kopyası, 6 Aralık 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §27",
-      "satir_en": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (company announcement, infarm.com; Internet Archive copy, 6 December 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §27"
+      "satir_tr": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (şirket duyurusu, infarm.com; İnternet Arşivi kopyası, 6 Aralık 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §1, §27",
+      "satir_en": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (company announcement, infarm.com; Internet Archive copy, 6 December 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §1, §27"
     },
     "k076": {
       "kunye": "Innovate UK. 29 Eylül 2017. Autonomous vehicles for farming: world first achieved. GOV.UK haber sayfası.",
@@ -755,10 +768,11 @@
       "kunye": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773.",
       "baglanti": "https://doi.org/10.30910/turkjans.2021721",
       "bolumler": [
+        1,
         28
       ],
-      "satir_tr": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. https://doi.org/10.30910/turkjans.2021721 · §28",
-      "satir_en": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. https://doi.org/10.30910/turkjans.2021721 · §28"
+      "satir_tr": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. https://doi.org/10.30910/turkjans.2021721 · §1, §28",
+      "satir_en": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. https://doi.org/10.30910/turkjans.2021721 · §1, §28"
     },
     "k081": {
       "kunye": "Jensen N.D., Barrett C.B., Mude A.G. 2016. Index Insurance Quality and Basis Risk: Evidence from Northern Kenya. American Journal of Agricultural Economics 98(5): 1450-1469.",
@@ -865,10 +879,11 @@
       "kunye": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy.",
       "baglanti": "https://doi.org/10.3389/fagro.2025.1722488",
       "bolumler": [
+        1,
         6
       ],
-      "satir_tr": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy. https://doi.org/10.3389/fagro.2025.1722488 · §6",
-      "satir_en": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy. https://doi.org/10.3389/fagro.2025.1722488 · §6"
+      "satir_tr": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy. https://doi.org/10.3389/fagro.2025.1722488 · §1, §6",
+      "satir_en": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy. https://doi.org/10.3389/fagro.2025.1722488 · §1, §6"
     },
     "k093": {
       "kunye": "KTO Karatay Üniversitesi haberi, 'Konya'da Üniversite Sanayi İş Birliğiyle Tarım Makineleri İleri Teknolojiyle Geliştiriliyor', 13.10.2023.",
@@ -892,10 +907,11 @@
       "kunye": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421.",
       "baglanti": "https://doi.org/10.1126/science.adi2336",
       "bolumler": [
+        1,
         17
       ],
-      "satir_tr": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. https://doi.org/10.1126/science.adi2336 · §17",
-      "satir_en": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. https://doi.org/10.1126/science.adi2336 · §17"
+      "satir_tr": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. https://doi.org/10.1126/science.adi2336 · §1, §17",
+      "satir_en": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. https://doi.org/10.1126/science.adi2336 · §1, §17"
     },
     "k096": {
       "kunye": "Lang N., Jetz W., Schindler K., Wegner J.D. 2023. A high-resolution canopy height model of the Earth. Nature Ecology & Evolution 7(11).",
@@ -964,19 +980,21 @@
       "kunye": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023.",
       "baglanti": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
       "bolumler": [
+        1,
         22
       ],
-      "satir_tr": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §22",
-      "satir_en": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, February 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §22"
+      "satir_tr": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §1, §22",
+      "satir_en": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, February 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §1, §22"
     },
     "k104": {
       "kunye": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160.",
       "baglanti": "https://doi.org/10.1038/s41893-020-00631-0",
       "bolumler": [
+        1,
         20
       ],
-      "satir_tr": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §20",
-      "satir_en": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §20"
+      "satir_tr": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §1, §20",
+      "satir_en": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §1, §20"
     },
     "k105": {
       "kunye": "Menculini L., Marini A., Proietti M., Garinei A., Bozza A., Moretti C., Marconi M. 2021. Comparing Prophet and Deep Learning to ARIMA in Forecasting Wholesale Food Prices. Forecasting 3(3): 644-662.",
@@ -1025,24 +1043,26 @@
       "satir_en": "Miller T., Mikiciuk G., Durlik I., Mikiciuk M., Łobodzińska A., Śnieg M. 2025. The IoT and AI in Agriculture: The Time Is Now—A Systematic Review of Smart Sensing Technologies. Sensors 25(12): 3583. https://doi.org/10.3390/s25123583 · §20"
     },
     "k110": {
-      "kunye": "Mohanty S.P., Hughes D.P., Salathé M. Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7, 1419 (2016).",
+      "kunye": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419.",
       "baglanti": "https://doi.org/10.3389/fpls.2016.01419",
       "bolumler": [
+        1,
         8,
         26,
         27
       ],
-      "satir_tr": "Mohanty S.P., Hughes D.P., Salathé M. Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7, 1419 (2016). https://doi.org/10.3389/fpls.2016.01419 · §8, §26, §27",
-      "satir_en": "Mohanty S.P., Hughes D.P., Salathé M. Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7, 1419 (2016). https://doi.org/10.3389/fpls.2016.01419 · §8, §26, §27"
+      "satir_tr": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419. https://doi.org/10.3389/fpls.2016.01419 · §1, §8, §26, §27",
+      "satir_en": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419. https://doi.org/10.3389/fpls.2016.01419 · §1, §8, §26, §27"
     },
     "k111": {
       "kunye": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22.",
       "baglanti": "https://doi.org/10.1186/s12864-020-07319-x",
       "bolumler": [
+        1,
         5
       ],
-      "satir_tr": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22. https://doi.org/10.1186/s12864-020-07319-x · §5",
-      "satir_en": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22. https://doi.org/10.1186/s12864-020-07319-x · §5"
+      "satir_tr": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22. https://doi.org/10.1186/s12864-020-07319-x · §1, §5",
+      "satir_en": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22. https://doi.org/10.1186/s12864-020-07319-x · §1, §5"
     },
     "k112": {
       "kunye": "Morgounov A., Özdemir F., Keser M., Akın B., Payne T., Braun H.-J. 2019. International Winter Wheat Improvement Program: history, activities, impact and future. Frontiers of Agricultural Science and Engineering 6(3).",
@@ -1130,19 +1150,21 @@
       "kunye": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625.",
       "baglanti": "https://doi.org/10.1038/s41586-023-06825-8",
       "bolumler": [
+        1,
         14
       ],
-      "satir_tr": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625. https://doi.org/10.1038/s41586-023-06825-8 · §14",
-      "satir_en": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625. https://doi.org/10.1038/s41586-023-06825-8 · §14"
+      "satir_tr": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625. https://doi.org/10.1038/s41586-023-06825-8 · §1, §14",
+      "satir_en": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625. https://doi.org/10.1038/s41586-023-06825-8 · §1, §14"
     },
     "k122": {
       "kunye": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016.",
       "baglanti": "https://doi.org/10.1016/j.agsy.2020.103016",
       "bolumler": [
+        1,
         9
       ],
-      "satir_tr": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. https://doi.org/10.1016/j.agsy.2020.103016 · §9",
-      "satir_en": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. https://doi.org/10.1016/j.agsy.2020.103016 · §9"
+      "satir_tr": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. https://doi.org/10.1016/j.agsy.2020.103016 · §1, §9",
+      "satir_en": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. https://doi.org/10.1016/j.agsy.2020.103016 · §1, §9"
     },
     "k123": {
       "kunye": "Poggio L., de Sousa L.M., Batjes N.H., Heuvelink G.B.M., Kempen B., Ribeiro E., Rossiter D. 2021. SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty. SOIL 7: 217-240.",
@@ -1175,10 +1197,11 @@
       "kunye": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025).",
       "baglanti": "https://doi.org/10.1016/j.compag.2025.110365",
       "bolumler": [
+        1,
         8
       ],
-      "satir_tr": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025). https://doi.org/10.1016/j.compag.2025.110365 · §8",
-      "satir_en": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025). https://doi.org/10.1016/j.compag.2025.110365 · §8"
+      "satir_tr": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025). https://doi.org/10.1016/j.compag.2025.110365 · §1, §8",
+      "satir_en": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025). https://doi.org/10.1016/j.compag.2025.110365 · §1, §8"
     },
     "k127": {
       "kunye": "Ramcharan A., McCloskey P., Baranowski K., Mbilinyi N., Mrisho L., Ndalahwa M., Legg J., Hughes D.P. 2019. A Mobile-Based Deep Learning Model for Cassava Disease Diagnosis. Frontiers in Plant Science 10: 272.",
@@ -1313,10 +1336,11 @@
       "kunye": "Small Robot Company. 2020 (adres yolundaki tarih 17 Temmuz 2020). Meet Wilma: artificial intelligence for Per Plant Farming (şirket blog yazısı, smallrobotcompany.com; İnternet Arşivi kopyası, 10 Kasım 2020).",
       "baglanti": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "Small Robot Company. 2020 (adres yolundaki tarih 17 Temmuz 2020). Meet Wilma: artificial intelligence for Per Plant Farming (şirket blog yazısı, smallrobotcompany.com; İnternet Arşivi kopyası, 10 Kasım 2020). https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming · §27",
-      "satir_en": "Small Robot Company. 2020 (adres yolundaki tarih 17 July 2020). Meet Wilma: artificial intelligence for Per Plant Farming (company blog post, smallrobotcompany.com; Internet Archive copy, 10 November 2020). https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming · §27"
+      "satir_tr": "Small Robot Company. 2020 (adres yolundaki tarih 17 Temmuz 2020). Meet Wilma: artificial intelligence for Per Plant Farming (şirket blog yazısı, smallrobotcompany.com; İnternet Arşivi kopyası, 10 Kasım 2020). https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming · §1, §27",
+      "satir_en": "Small Robot Company. 2020 (adres yolundaki tarih 17 July 2020). Meet Wilma: artificial intelligence for Per Plant Farming (company blog post, smallrobotcompany.com; Internet Archive copy, 10 November 2020). https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming · §1, §27"
     },
     "k142": {
       "kunye": "Start-Up Nation Central ve GrowingIL. 2025. PR: 2025 Israeli AgriFood Tech Landscape Map Launched (Tel Aviv, 6 Şubat 2025; sayfa güncellemesi 3 Aralık 2025).",
@@ -1340,10 +1364,11 @@
       "kunye": "Stretto (şirketin talep ve bildirim ajanı). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: dava bilgi sayfası (erişim 17 Kasım 2026).",
       "baglanti": "https://cases.stretto.com/appharvest/",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "Stretto (şirketin talep ve bildirim ajanı). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: dava bilgi sayfası (erişim 17 Kasım 2026). https://cases.stretto.com/appharvest/ · §27",
-      "satir_en": "Stretto (the company's claims and noticing agent). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: case information page (accessed 17 November 2026). https://cases.stretto.com/appharvest/ · §27"
+      "satir_tr": "Stretto (şirketin talep ve bildirim ajanı). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: dava bilgi sayfası (erişim 17 Kasım 2026). https://cases.stretto.com/appharvest/ · §1, §27",
+      "satir_en": "Stretto (the company's claims and noticing agent). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: case information page (accessed 17 November 2026). https://cases.stretto.com/appharvest/ · §1, §27"
     },
     "k145": {
       "kunye": "Stygar A.H., Gómez Y., Berteselli G.V., Dalla Costa E., Canali E., Niemi J.K., Llonch P., Pastell M. 2021. A systematic review on commercially available and validated sensor technologies for welfare assessment of dairy cattle. Frontiers in Veterinary Science 8.",
@@ -1376,12 +1401,13 @@
       "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
       "baglanti": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
       "bolumler": [
+        1,
         9,
         23,
         25
       ],
-      "satir_tr": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber). https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi · §9, §23, §25",
-      "satir_en": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (news). https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi · §9, §23, §25"
+      "satir_tr": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber). https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi · §1, §9, §23, §25",
+      "satir_en": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (news). https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi · §1, §9, §23, §25"
     },
     "k149": {
       "kunye": "Tarım ve Köyişleri Bakanlığı — FAO TCP/TUR/3002-A. Bülten No 1: Ekim 2005-Ocak 2006. Kışlık Buğday Agro-Meteorolojik Ürün Verim Tahmini Bülteni.",
@@ -1416,12 +1442,13 @@
       "kunye": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
       "baglanti": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
       "bolumler": [
+        1,
         15,
         23,
         25
       ],
-      "satir_tr": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber). https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday · §15, §23, §25",
-      "satir_en": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (news). https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday · §15, §23, §25"
+      "satir_tr": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber). https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday · §1, §15, §23, §25",
+      "satir_en": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (news). https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday · §1, §15, §23, §25"
     },
     "k153": {
       "kunye": "Tarım ve Orman Bakanlığı. 4.06.2026. Bakan Yumaklı: Tarımda yerli ve milli teknoloji hamlesine ilişkin kararlılığımız sürüyor (haber; AI Tomorrow Summit 2026 konuşması).",
@@ -1512,14 +1539,15 @@
       "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
       "baglanti": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
       "bolumler": [
+        1,
         18,
         19,
         20,
         23,
         25
       ],
-      "satir_tr": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §18, §19, §20, §23, §25",
-      "satir_en": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). January 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §18, §19, §20, §23, §25"
+      "satir_tr": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §1, §18, §19, §20, §23, §25",
+      "satir_en": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). January 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §1, §18, §19, §20, §23, §25"
     },
     "k163": {
       "kunye": "Tarla Bitkileri Merkez Araştırma Enstitüsü, CBS ve Uzaktan Algılama Merkezi. Mayıs 2020. Tarımsal Ürün İzleme ve Verim Tahmin Bülteni, sayı 28.",
@@ -1562,39 +1590,43 @@
       "kunye": "T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 Ağustos 2026.",
       "baglanti": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
       "bolumler": [
+        1,
         21,
         23,
         24
       ],
-      "satir_tr": "T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 Ağustos 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §21, §23, §24",
-      "satir_en": "T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 August 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §21, §23, §24"
+      "satir_tr": "T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 Ağustos 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §1, §21, §23, §24",
+      "satir_en": "T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 August 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §1, §21, §23, §24"
     },
     "k168": {
       "kunye": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı.",
       "baglanti": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf",
       "bolumler": [
+        1,
         27
       ],
-      "satir_tr": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §27",
-      "satir_en": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 June 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §27"
+      "satir_tr": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §1, §27",
+      "satir_en": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 June 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §1, §27"
     },
     "k169": {
       "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara.",
       "baglanti": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf",
       "bolumler": [
+        1,
         26
       ],
-      "satir_tr": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §26",
-      "satir_en": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §26"
+      "satir_tr": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §1, §26",
+      "satir_en": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §1, §26"
     },
     "k170": {
       "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara.",
       "baglanti": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
       "bolumler": [
+        1,
         26
       ],
-      "satir_tr": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §26",
-      "satir_en": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §26"
+      "satir_tr": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §1, §26",
+      "satir_en": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §1, §26"
     },
     "k171": {
       "kunye": "T.C. Tarım ve Orman Bakanlığı, Gıda ve Kontrol Genel Müdürlüğü. 9 Mart 2026. İHA sistemlerinin zirai mücadelede kullanımına ilişkin değerlendirme toplantısı gerçekleştirildi. GKGM haber sayfası.",
@@ -1768,10 +1800,11 @@
       "kunye": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC.",
       "baglanti": "https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf)",
       "bolumler": [
+        1,
         22
       ],
-      "satir_tr": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC. https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf) · §22",
-      "satir_en": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC. https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf) · §22"
+      "satir_tr": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC. https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf) · §1, §22",
+      "satir_en": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC. https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf) · §1, §22"
     },
     "k190": {
       "kunye": "van Delden S.H., SharathKumar M., Butturini M., Graamans L.J.A., Heuvelink E., Kacira M., Kaiser E., Klamer R.S., Klerkx L., Kootstra G., Loeber A., Schouten R.E., Stanghellini C., van Ieperen W., Verdonk J.C., Vialet-Chabrand S., Woltering E.J., van de Zedde R., Zhang Y., Marcelis L.F.M. 2021. Current status and future challenges in implementing and upscaling vertical farming systems. Nature Food 2(12).",

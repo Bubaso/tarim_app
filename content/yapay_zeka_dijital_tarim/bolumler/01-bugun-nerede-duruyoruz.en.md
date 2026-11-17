@@ -1,0 +1,29 @@
+# 1 · Where things stand today
+
+> **Summary.** AI in agriculture delivers its most solid results today in work that watches over large areas: weather forecasting, mapping from satellites, forest fire and fishing surveillance. When the work comes down to decisions on a single field, the picture becomes mixed: savings are measured in most trials, but profit does not show up on every field, and models that perform well in the lab fall back in the field. The technology is used most by large farms: in the EU, the roughly **18%** of farms that apply precision farming manage about **44%** of the farmland. In Türkiye the ministry has begun to use AI in monitoring work; but most of this file's headings on Türkiye close on the same gap: there is no published evaluation measuring the effect of AI in the field.
+
+## Watching over large areas: the most solid results
+
+AI has moved from research to operations in weather forecasting. GraphCast outperformed the most accurate operational forecasting systems on **90%** of **1,380** verification targets in **10**-day global forecasts; the European Centre for Medium-Range Weather Forecasts has been running its own AI model alongside its physics-based model since 25 February 2025 (§17). A map built from satellite imagery and deep learning revealed that **72-76%** of the world's industrial fishing vessels are not publicly tracked (§14). A camera-based prototype system usually detects the smoke of a forest fire within **15** minutes of ignition, with less than one false alarm per camera per day on average (§15). What these tasks have in common is constant watch over a large area or a large number of objects; the tasks in which the ministry in Türkiye has started to use AI are of the same kind.
+
+## Decisions on the field: savings are measured, profit is inconsistent
+
+When it comes down to decisions on a single field, the evidence becomes mixed. Systems that see weeds with a camera and spray only on the weeds cut herbicide use by **35%** in sugarcane and by **47%** in early applications in maize in peer-reviewed field trials (§8). Sensor-based nitrogen management raises nitrogen use efficiency in winter wheat by about **10.4%**; but in a field study in dryland maize in Nebraska, a profit advantage appeared on only **35%** of the fields (§6). In irrigation the most solid evidence comes not from AI but from soil moisture sensors: an average water saving of **38%** compared with traditional methods, but only **1%** compared with methods based on canopy temperature (§7). When machine learning was tested against the European Commission's operational yield forecasting system, which does not use machine learning, it matched the system for some crops and made twice the error for others (§9); deep learning showed no clear superiority over conventional models in genomic prediction (§5).
+
+## The distance between the lab and the field
+
+Success measured in the lab does not always carry over to the field. A plant disease model trained on images taken in controlled conditions was **99.35%** accurate on images held out from the same set, but fell to just above **31%** on images taken in other conditions (§26). The **50** harvesting robots in a review published in 2014 had an average harvest success of **66%**, and none had been commercialised (§10). On **32** real questions from farmers in Nigeria, ChatGPT's answers scored higher than those of extension officers, but fell behind on site-specific matters such as planting time and seed and fertiliser rates (§18). Three agricultural technology companies that presented AI-based systems, Infarm, AppHarvest and Small Robot Company, went into administration, bankruptcy protection or liquidation in 2023-2024 (§27).
+
+## Who uses it
+
+Adoption is concentrated on large farms. In the US, **22%** of farms reported using some precision agriculture practice in 2025, while automated guidance is used on more than half of the planted acreage of six major crops (§22). In the EU, the roughly **18%** of farms that apply precision farming manage about **44%** of the farmland. According to a global analysis, only **24-37%** of farms smaller than **1** hectare are covered by 3G or 4G, against **74-80%** of those larger than **200** hectares (§20). Of the **27** digital automation service providers FAO examined, only **10** were profitable, and they mostly served large-scale producers (§26).
+
+## Türkiye
+
+The Türkiye Artificial Intelligence Action Plan (2026-2030) counts agriculture among four priority sectors, but the Ministry of Agriculture and Forestry is neither the responsible body nor a partner in any of the plan's **16** actions (§23). Units of the ministry use AI, or are preparing to, in monitoring work: crop identification from satellites was applied for the first time in the 2025 production year, and an AI-assisted decision support system for forest fires has been in use since 2022; the ministry's research arm TAGEM started three AI projects in 2025 (§23, §25). What these technologies meet is a structure of small and ageing farms: the average farm in the Farmer Registration System is **6.9** hectares, and the average age of people working in agriculture is **46** (§26). By the end of 2025, **12.91%** of the loan for a World Bank-financed climate-smart agriculture project had been spent, and grant spending was zero (§27). As for spraying drones, according to a survey of **71** operators, only **14.1%** of operators calibrate before every application (§28).
+
+What is missing is **a published evaluation measuring the effect of AI on yields, input use or farmers' income in the field in Türkiye.**
+
+## How this page is kept up to date
+
+This page is the summary of all the headings: when a new measurement is published in one of them, the picture here is read again. New information is added to the page after an editor's approval.

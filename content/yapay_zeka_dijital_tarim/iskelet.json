@@ -111,12 +111,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
-        "tr": "Tezin yerine geçen durum tespiti: alanın bugünkü hâli, ölçülmüş birkaç rakamla. Tarama bu özeti günceller.",
-        "en": "A status reading in place of a thesis: the field today in a few measured figures. The scan keeps it current."
+        "tr": "Bütün başlıkların özeti: yapay zekânın nerede sağlam sonuç verdiği, nerede tutarsız kaldığı ve Türkiye'de neyin ölçülmediği.",
+        "en": "The summary of all headings: where AI delivers solid results, where it is inconsistent, and what has not been measured in Türkiye."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": false
     },
     {

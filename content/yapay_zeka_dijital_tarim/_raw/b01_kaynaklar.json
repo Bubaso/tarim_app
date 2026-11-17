@@ -1,0 +1,376 @@
+{
+  "_ne": "§1 Bugün nerede duruyoruz — kilitli kayıt. Bütün kaynaklar öbür başlıkların kayıtlarından seçili alan ve alıntılarla kopyalandı (_kopya).",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun, araştırma kuruluşunun ya da kamu kurumunun kendi yayını",
+    "RESMI": "Devletin resmî belgesi, istatistiği ya da sicil kaydı",
+    "SATICI": "Şirketin kendi duyurusu (karar 34)"
+  },
+  "kaynaklar": {
+    "lam_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421.",
+      "doi": "10.1126/science.adi2336",
+      "dosya": "kaynak_dosyalari/lam_2023_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMID 37962497)",
+      "alinti": [
+        "It predicts hundreds of weather variables for the next 10 days at 0.25° resolution globally in under 1 minute.",
+        "GraphCast significantly outperforms the most accurate operational deterministic systems on 90% of 1380 verification targets, and its forecasts support better severe event prediction, including tropical cyclone tracking, atmospheric rivers, and extreme temperatures."
+      ],
+      "_kopya": "b17_kaynaklar.json · lam_2023"
+    },
+    "ecmwf_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası.",
+      "adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      "dosya": "kaynak_dosyalari/ecmwf_2025_aifs_operasyonel.html",
+      "operasyonel_tarih": "25 Şubat 2025",
+      "alinti": [
+        "ECMWF has taken the Artificial Intelligence Forecasting System (AIFS) into operations today, 25 February 2025, to run side by side with its traditional physics-based Integrated Forecasting System (IFS) to advance numerical weather prediction."
+      ],
+      "_kopya": "b17_kaynaklar.json · ecmwf_2025"
+    },
+    "paolo_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625.",
+      "doi": "10.1038/s41586-023-06825-8",
+      "dosya": "kaynak_dosyalari/paolo_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC10764273)",
+      "alinti": [
+        "We combine satellite imagery, vessel GPS data and deep-learning models to map industrial vessel activities and offshore energy infrastructure across the world's coastal waters from 2017 to 2021.",
+        "We find that 72-76% of the world's industrial fishing vessels are not publicly tracked, with much of that fishing taking place around South Asia, Southeast Asia and Africa."
+      ],
+      "_kopya": "b14_kaynaklar.json · paolo_2024"
+    },
+    "govil_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1).",
+      "doi": "10.3390/rs12010166",
+      "dosya": "kaynak_dosyalari/govil_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "we have developed a functioning prototype system that can detect smoke from fires usually within 15 min of ignition, while averaging less than one false positive per day per camera."
+      ],
+      "_kopya": "b15_kaynaklar.json · govil_2020"
+    },
+    "azghadi2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025)",
+      "doi": "10.1016/j.compag.2025.110365",
+      "dogrulandigi_yer": "arXiv özeti, doğrudan",
+      "urun": "şeker kamışı",
+      "ilac_azalmasi_yuzde": 35,
+      "_kopya": "b08_kaynaklar.json · azghadi2025"
+    },
+    "allmendinger2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024)",
+      "doi": "10.3390/plants13152164",
+      "dogrulandigi_yer": "Europe PMC API, özet metni",
+      "urun": "mısır (tane)",
+      "erken_uygulamada_ilac_azalmasi_yuzde": 47,
+      "_kopya": "b08_kaynaklar.json · allmendinger2024"
+    },
+    "aula_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157.",
+      "doi": "10.3390/agronomy10081157",
+      "dosya": "kaynak_dosyalari/aula_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "alinti": [
+        "This approach improved NUE by approximately 10.4% (±2.3%) when compared to the conventional method."
+      ],
+      "_kopya": "b06_kaynaklar.json · aula_2020"
+    },
+    "kortbein_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy.",
+      "doi": "10.3389/fagro.2025.1722488",
+      "dosya": "kaynak_dosyalari/kortbein_2026_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "saha denemesi — Nebraska, sulanmayan mısır",
+      "kar_avantajli_tarla_yuzde": 35,
+      "alinti": [
+        "In terms of profit, 35% of sites demonstrated a profit advantage in sensor-based treatments."
+      ],
+      "_kopya": "b06_kaynaklar.json · kortbein_2026"
+    },
+    "datta_taghvaeian_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148.",
+      "doi": "10.1016/j.agwat.2023.108148",
+      "dosya": "kaynak_dosyalari/datta_taghvaeian_2023_ideas.html",
+      "dogrulandigi_yer": "yayıncı özeti, IDEAS/RePEc kaydı",
+      "alinti": [
+        "SWS-based scheduling resulted in water saving, with average amounts ranging from 1 % when compared to canopy temperature methods to 38 % in case of traditional approaches.",
+        "SWS-based scheduling led to larger or similar yields compared to other scheduling methods."
+      ],
+      "_kopya": "b07_kaynaklar.json · datta_taghvaeian_2023"
+    },
+    "paudel_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016.",
+      "doi": "10.1016/j.agsy.2020.103016",
+      "dosya": "kaynak_dosyalari/paudel_2021_ideas.html",
+      "dogrulandigi_yer": "yayıncı özeti, IDEAS/RePEc kaydı",
+      "alinti": [
+        "operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning.",
+        "The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower).",
+        "In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS."
+      ],
+      "_kopya": "b09_kaynaklar.json · paudel_2021"
+    },
+    "montesinos_lopez_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22.",
+      "doi": "10.1186/s12864-020-07319-x",
+      "dosya": "kaynak_dosyalari/montesinos_lopez_2021_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC7789712)",
+      "alinti": [
+        "we did not find clear superiority of DL in terms of prediction power compared to conventional genome based prediction models."
+      ],
+      "_kopya": "b05_kaynaklar.json · montesinos_lopez_2021"
+    },
+    "mohanty_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419.",
+      "doi": "10.3389/fpls.2016.01419",
+      "dosya": "kaynak_dosyalari/mohanty_2016_frontiers.html",
+      "alinti": [
+        "Using a public dataset of 54,306 images of diseased and healthy plant leaves collected under controlled conditions, we train a deep convolutional neural network to identify 14 crop species and 26 diseases (or absence thereof).",
+        "The trained model achieves an accuracy of 99.35% on a held-out test set, demonstrating the feasibility of this approach.",
+        "First, when tested on a set of images taken under conditions different from the images used for training, the model's accuracy is reduced substantially, to just above 31%."
+      ],
+      "_kopya": "b26_kaynaklar.json · mohanty_2016"
+    },
+    "infarm_2021_vaat": {
+      "nitelik": "SATICI",
+      "kunye": "Infarm. 16 Aralık 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (şirket basın bülteni, infarm.com; İnternet Arşivi kopyası, 8 Aralık 2022).",
+      "adres": "https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms",
+      "dosya": "kaynak_dosyalari/infarm_2021_yatirim_bulteni_arsiv.html",
+      "alinti": [
+        "Infarm’s crop science team analyses the data to continuously update the growing environment in each module and improve factors like yield, quality and nutritional value through the use of artificial intelligence and its patented technology."
+      ],
+      "_kopya": "b27_kaynaklar.json · infarm_2021_vaat"
+    },
+    "appharvest_2021_root_ai": {
+      "nitelik": "SATICI",
+      "kunye": "AppHarvest, Inc. 8 Nisan 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (şirket basın bülteni, GlobeNewswire; investors.appharvest.com, İnternet Arşivi kopyası, 8 Nisan 2021).",
+      "adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
+      "dosya": "kaynak_dosyalari/appharvest_2021_root_ai_bulteni_arsiv.html",
+      "alinti": [
+        "AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency"
+      ],
+      "_kopya": "b27_kaynaklar.json · appharvest_2021_root_ai"
+    },
+    "small_robot_company_2020_vaat": {
+      "nitelik": "SATICI",
+      "kunye": "Small Robot Company. 2020 (adres yolundaki tarih 17 Temmuz 2020). Meet Wilma: artificial intelligence for Per Plant Farming (şirket blog yazısı, smallrobotcompany.com; İnternet Arşivi kopyası, 10 Kasım 2020).",
+      "adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
+      "dosya": "kaynak_dosyalari/small_robot_company_2020_wilma_arsiv.html",
+      "alinti": [
+        "At the heart of our robotic farming system is our AI-driven Advice Engine Wilma."
+      ],
+      "_kopya": "b27_kaynaklar.json · small_robot_company_2020_vaat"
+    },
+    "bac_2014": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911.",
+      "doi": "10.1002/rob.21525",
+      "dosya": "kaynak_dosyalari/bac_2014_crossref.json",
+      "alinti": [
+        "On average, localization success was 85%, detachment success was 75%, harvest success was 66%, fruit damage was 5%, peduncle damage was 45%, and cycle time was 33 s.",
+        "Moreover, the performance of harvesting robots did not improve in the past three decades, and none of these 50 robots was commercialized."
+      ],
+      "_kopya": "b27_kaynaklar.json · bac_2014"
+    },
+    "ibrahim_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407.",
+      "doi": "10.1038/s41598-024-53916-1",
+      "dosya": "kaynak_dosyalari/ibrahim_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "alinti": [
+        "We compiled a list of 32 questions related to irrigated rice cultivation from farmers in Kano State, Nigeria.",
+        "Overall, chatbot responses were rated significantly higher quality than EAs' responses.",
+        "The topics for which the chatbot responses received poorer scores than those by EAs included planting time, seed rate, and fertilizer application rate and timing."
+      ],
+      "_kopya": "b18_kaynaklar.json · ibrahim_2024"
+    },
+    "infarm_2023_kayyum": {
+      "nitelik": "SATICI",
+      "kunye": "Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (şirket duyurusu, infarm.com; İnternet Arşivi kopyası, 6 Aralık 2023).",
+      "adres": "https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders",
+      "dosya": "kaynak_dosyalari/infarm_2023_kayyum_duyurusu_arsiv.html",
+      "alinti": [
+        "Please note that Infarm – Indoor Urban Farming GmbH (“the Company”) entered Administration on 4 September 2023, subject to England & Wales and Insolvency Rules."
+      ],
+      "_kopya": "b27_kaynaklar.json · infarm_2023_kayyum"
+    },
+    "appharvest_2023_chapter11": {
+      "nitelik": "RESMI",
+      "kunye": "Stretto (şirketin talep ve bildirim ajanı). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: dava bilgi sayfası (erişim 17 Kasım 2026).",
+      "adres": "https://cases.stretto.com/appharvest/",
+      "dosya": "kaynak_dosyalari/appharvest_2023_stretto_dava_sayfasi.html",
+      "alinti": [
+        "On July 23, 2023 (the \"Petition Date\"), AppHarvest Products, LLC, and eleven affiliated debtors (together, the \"Debtors\") filed voluntary petitions for relief under Chapter 11 of the United States Bankruptcy Code."
+      ],
+      "_kopya": "b27_kaynaklar.json · appharvest_2023_chapter11"
+    },
+    "small_robot_company_tasfiye": {
+      "nitelik": "RESMI",
+      "kunye": "Companies House (Birleşik Krallık şirketler sicili). SMALL ROBOT COMPANY LIMITED (10846464): iflas (insolvency) sayfası (erişim 17 Kasım 2026).",
+      "adres": "https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency",
+      "dosya": "kaynak_dosyalari/small_robot_company_companies_house_iflas.html",
+      "alinti": [
+        "Creditors voluntary liquidation Commencement of winding up 1 February 2024 Dissolved on 30 April 2026"
+      ],
+      "_kopya": "b27_kaynaklar.json · small_robot_company_tasfiye"
+    },
+    "abd_nass_2025": {
+      "nitelik": "RESMI",
+      "kunye": "USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC.",
+      "adres": "https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf)",
+      "dosya": "kaynak_dosyalari/abd_nass_2025_teknoloji_kullanimi.txt",
+      "hassas_tarim_yuzde_2025": 22,
+      "alinti": [
+        "Using precision agriculture practices : to manage crops or livestock",
+        "United States 4/ ...........................................: 27 22"
+      ],
+      "_kopya": "b22_kaynaklar.json · abd_nass_2025"
+    },
+    "abd_ers_2023": {
+      "nitelik": "RESMI",
+      "kunye": "McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, Şubat 2023.",
+      "adres": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+      "dosya": "kaynak_dosyalari/abd_ers_2023_eib248_hassas_tarim.pdf",
+      "alinti": [
+        "However, adoption of automated guidance has increased sharply in the past 20 years, with application on well over 50 percent of the acreage planted to corn, cotton, rice, sorghum, soybeans, and winter wheat."
+      ],
+      "_kopya": "b22_kaynaklar.json · abd_ers_2023"
+    },
+    "eurostat_2026": {
+      "nitelik": "RESMI",
+      "kunye": "Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi Mayıs 2026; kaynak: 2023 Çiftlik Yapı Araştırması).",
+      "adres": "https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf",
+      "dosya": "kaynak_dosyalari/eurostat_2026_tarim_makine_dijital.pdf",
+      "alinti": [
+        "Although only about 18% of EU farms with UAA adopted precision farming technologies or practices, these farms",
+        "managed about 44% of the EU’s total UAA (see Figure 5)."
+      ],
+      "_kopya": "b22_kaynaklar.json · eurostat_2026"
+    },
+    "mehrabi_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160.",
+      "doi": "10.1038/s41893-020-00631-0",
+      "dosya": "kaynak_dosyalari/mehrabi_2021_nature.html",
+      "dogrulandigi_yer": "yayıncı sayfasındaki özet",
+      "alinti": [
+        "We show that only 24–37% of farms of <1 ha in size are served by third generation (3G) or 4G services, compared to 74–80% of farms of >200 ha in size."
+      ],
+      "_kopya": "b20_kaynaklar.json · mehrabi_2021"
+    },
+    "fao_2022_sofa": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9.",
+      "doi": "10.4060/cb9479en",
+      "dosya": "kaynak_dosyalari/fao_2022_sofa.pdf",
+      "alinti": [
+        "The results reveal only 10 out of the 27 service providers to be profitable and financially sustainable.",
+        "These ten providers – mostly based in high-income countries – use solutions that are in the mature phase (i.e. widely adopted) and mostly serve large-scale producers."
+      ],
+      "_kopya": "b26_kaynaklar.json · fao_2022_sofa"
+    },
+    "yzep_2026_2030": {
+      "nitelik": "RESMI",
+      "kunye": "Türkiye Yapay Zekâ Eylem Planı (2026-2030)",
+      "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "eylem_sayisi": 16,
+      "tarim_ve_orman_gecis": 0,
+      "oncelikli_dort_sektor": "sağlık, tarım, savunma, e-ticaret",
+      "_kopya": "b23_kaynaklar.json · yzep_2026_2030"
+    },
+    "trgm_2026_urun_belirleme": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+      "dosya": "kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+      "ilk_uygulama_yili": 2025,
+      "alinti": [
+        "Bakanlığımız tarafından 2025 üretim yılında ilk kez uygulamaya alınan Uzaktan Algılama ile Ürün Belirleme Çalışmaları"
+      ],
+      "_kopya": "b23_kaynaklar.json · trgm_2026_urun_belirleme"
+    },
+    "tob_2024_karar_destek": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+      "dosya": "kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
+      "kullanim_baslangici": 2022,
+      "alinti": [
+        "Orman Genel Müdürlüğünün (OGM) 2022'den beri kullandığı yerli ve milli imkanlarla geliştirilen Karar ve Destek Sitemi"
+      ],
+      "_kopya": "b23_kaynaklar.json · tob_2024_karar_destek"
+    },
+    "tagem_faaliyet_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). Ocak 2026. 2025 Yılı Birim Faaliyet Raporu.",
+      "adres": "https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf",
+      "dosya": "kaynak_dosyalari/tagem_2026_faaliyet_raporu_2025.pdf",
+      "yz_proje_2025_sayisi": 3,
+      "alinti": [
+        "2025 Yılında Başlayan Dijital Tarım ve Yapay Zeka Çalışmaları"
+      ],
+      "_kopya": "b23_kaynaklar.json · tagem_faaliyet_2025"
+    },
+    "tob_ukks_iv_2024_2028": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF",
+      "dosya": "kaynak_dosyalari/tob_2025_ukks_iv_2024_2028.pdf",
+      "alinti": [
+        "ÇKS kayıt sistemlerine göre ortalama işletme büyüklüğü Hektar 7,1 6,9 7,0 6,9 TOB"
+      ],
+      "_kopya": "b26_kaynaklar.json · tob_ukks_iv_2024_2028"
+    },
+    "tob_sura_2025_kirsal_istihdam": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara.",
+      "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf",
+      "dosya": "kaynak_dosyalari/tob_2025_iv_tarim_orman_surasi_g8_kirsal.pdf",
+      "alinti": [
+        "Türkiye'de istihdam edilenlerin ortalama yaşı yaklaşık 39 iken tarım sektöründe çalışanların ortalama yaşı 46’dır (Grafik 5)."
+      ],
+      "_kopya": "b26_kaynaklar.json · tob_sura_2025_kirsal_istihdam"
+    },
+    "tucsap_2025_denetim": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 Haziran 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı.",
+      "adres": "https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf",
+      "dosya": "kaynak_dosyalari/tucsap_2026_hazine_kontrolorleri_denetim_raporu.pdf",
+      "alinti": [
+        "Category 3 (Grant) 0.00 6,000,000.00 4,465,672.34 0.00% 0.00 29,500,000.00 0.00%",
+        "Total Uses of Funds by Component 27,880,510.78 55,568,892.09 108,817,550.33 50.17% 39,343,471.50 304,800,000.00 12.91%"
+      ],
+      "_kopya": "b27_kaynaklar.json · tucsap_2025_denetim"
+    },
+    "itmec_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773.",
+      "doi": "10.30910/turkjans.2021721",
+      "dosya": "kaynak_dosyalari/itmec_2026_turkjans.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "operator": 71,
+      "kalibrasyon_yuzde": 14.1,
+      "_kopya": "b28_kaynaklar.json · itmec_2026"
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "Türkiye paragrafı §23, §26, §27 ve §28 kayıtlarından. Ortak eksik (yapay zekânın tarladaki etkisini ölçen yayımlanmış değerlendirme) bu başlıkların kapanışlarından; her biri kendi kaydında sınandı."
+  },
+  "_reddedilen": {}
+}

@@ -49,9 +49,9 @@ const List<YzBaslik> kYzBasliklar = [
       "Where things stand today",
       false,
       ["tahmin", "goruntu", "uzaktan", "robotik", "dil"],
-      false,
-      "Tezin yerine geçen durum tespiti: alanın bugünkü hâli, ölçülmüş birkaç rakamla. Tarama bu özeti günceller.",
-      "A status reading in place of a thesis: the field today in a few measured figures. The scan keeps it current."),
+      true,
+      "Bütün başlıkların özeti: yapay zekânın nerede sağlam sonuç verdiği, nerede tutarsız kaldığı ve Türkiye'de neyin ölçülmediği.",
+      "The summary of all headings: where AI delivers solid results, where it is inconsistent, and what has not been measured in Türkiye."),
   YzBaslik(
       2,
       "kavramlar",

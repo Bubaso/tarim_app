@@ -1,6 +1,6 @@
 # 30 · Sources
 
-> **Summary.** The **199** sources used across the **25** written headings of this file, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.
+> **Summary.** The **199** sources used across the **26** written headings of this file, in alphabetical order. The standing of each figure — peer-reviewed study, institutional report, official document or vendor claim — is stated in the text next to the figure itself, not here. After each source come the headings that use it.
 
 ## Other
 
@@ -22,13 +22,13 @@ Akdemir B., Sağlam C., Atar E.S., Türen N., Özyürüyen L.C. 2022. Developmen
 
 Akın A.İ., Ünlenen L.A. 2017. Patates'te hassas damla sulama programlarının yapılmasında toprak nem sensörlerinin kullanılması. Toprak Su Dergisi Özel Issue: 8-12. https://doi.org/10.21657/topraksu.338301 · §7
 
-Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024). https://doi.org/10.3390/plants13152164 · §8
+Allmendinger A., Spaeth M., Saile M., Peteinatos G.G., Gerhards R. Agronomic and technical evaluation of herbicide spot spraying in maize based on high-resolution aerial weed maps — an on-farm trial. Plants 13 (2024). https://doi.org/10.3390/plants13152164 · §1, §8
 
 Altun M., Türker M. 2021. Çoklu zamanlı Sentinel-2 görüntülerinden tarımsal ürün tespiti: Mardin-Kızıltepe örneği. AKÜ FEMÜBİD 21. https://doi.org/10.35414/akufemubid.890436 · §9
 
 AppHarvest, Inc. 24 July 2023. AppHarvest announces Chapter 11 filing to support a financial and operational transition (company press release, GlobeNewswire; investors.appharvest.com, Internet Archive copy, 24 July 2023). https://web.archive.org/web/20230724195230id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-announces-chapter-11-filing-support-financial-and · §27
 
-AppHarvest, Inc. 8 April 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (company press release, GlobeNewswire; investors.appharvest.com, Internet Archive copy, 8 April 2021). https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/ · §27
+AppHarvest, Inc. 8 April 2021. AppHarvest Acquires Agricultural Robotics and Artificial Intelligence Company Root AI to Increase Efficiency (company press release, GlobeNewswire; investors.appharvest.com, Internet Archive copy, 8 April 2021). https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/ · §1, §27
 
 Arad B., Balendonck J., Barth R., Ben-Shahar O., Edan Y., Hellström T., Hemming J., Kurtser P., Ringdahl O., Tielen T., van Tuijl B. 2020. Development of a sweet pepper harvesting robot. Journal of Field Robotics 37(6). https://doi.org/10.1002/rob.21937 · §10
 
@@ -36,11 +36,11 @@ Arouna A., Michler J.D., Yergo W.G., Saito K. 2021. One size fits all? Experimen
 
 Atik C. 2022. Towards Comprehensive European Agricultural Data Governance: Moving Beyond the “Data Ownership” Debate. IIC – International Review of Intellectual Property and Competition Law 53(5): 701–742. https://doi.org/10.1007/s40319-022-01191-w · §21
 
-Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §6
+Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157. https://doi.org/10.3390/agronomy10081157 · §1, §6
 
 ## B
 
-Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §10, §27
+Bac C.W., van Henten E.J., Hemming J., Edan Y. 2014. Harvesting Robots for High-value Crops: State-of-the-art Review and Challenges Ahead. Journal of Field Robotics 31(6): 888-911. https://doi.org/10.1002/rob.21525 · §1, §10, §27
 
 baibars mekatronik havacılık sanayi A.Ş., home page, accessed 17.11.2026. https://www.baibars.com.tr/ · §25
 
@@ -68,7 +68,7 @@ Cole S.A., Fernando A.N. 2021. 'Mobile'izing agricultural advice: Technology ado
 
 Companies House (UK companies register). INFARM - INDOOR URBAN FARMING GMBH (FC040818): insolvency page (accessed 17 November 2026). https://find-and-update.company-information.service.gov.uk/company/FC040818/insolvency · §27
 
-Companies House (UK companies register). SMALL ROBOT COMPANY LIMITED (10846464): insolvency page (accessed 17 November 2026). https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency · §27
+Companies House (UK companies register). SMALL ROBOT COMPANY LIMITED (10846464): insolvency page (accessed 17 November 2026). https://find-and-update.company-information.service.gov.uk/company/10846464/insolvency · §1, §27
 
 Copa-Cogeca, CEMA, Fertilizers Europe, CEETTAR, CEJA, ECPA, EFFAB, FEFAC, ESA. 2018. EU Code of conduct on agricultural data sharing by contractual agreement. Brüksel. https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf (imzacı CEMA'nın sitesi; Copa-Cogeca'daki özgün 2018 bağlantısı 404) · §21
 
@@ -86,7 +86,7 @@ Cumhurbaşkanlığı. 2026. 2027 Yılı Cumhurbaşkanlığı Yıllık Programı 
 
 Dalla Betta M.M., Thompson L.J., Luck J.D., Paccioretti P., Mangel D., Conley S., Puntel L.A., Cafaro La Menza N. 2026. Determining site-specific optimal seeding rate in soybean using on-farm experimentation. Agronomy Journal 118(1). https://doi.org/10.1002/agj2.70296 · §6
 
-Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. https://doi.org/10.1016/j.agwat.2023.108148 · §7
+Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148. https://doi.org/10.1016/j.agwat.2023.108148 · §1, §7
 
 de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023. Predicting site-specific economic optimal nitrogen rate using machine learning methods and on-farm precision experimentation. Precision Agriculture 24(5). https://doi.org/10.1007/s11119-023-10018-8 · §6
 
@@ -98,7 +98,7 @@ Dünya Bankası. 27 November 2024. Implementation Status & Results Report: Turke
 
 Eastwood C.R., Dela Rue B., Hall L. 2026. Farmer experiences with virtual fencing: Adoption, adaptation, and farm system change in New Zealand pasture-based dairy systems. JDS Communications 7(Suppl 1): 158–164. https://doi.org/10.3168/jdsc.2025-0983 · §28
 
-ECMWF (European Centre for Medium-Range Weather Forecasts). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF news page. https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational · §17
+ECMWF (European Centre for Medium-Range Weather Forecasts). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF news page. https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational · §1, §17
 
 Eldem A., Eldem H. 2026. The development and evaluation of agricultural question-answering systems based on large language models. Scientific Reports 16: 5357. https://doi.org/10.1038/s41598-026-35003-9 · §18, §25
 
@@ -110,7 +110,7 @@ European Commission. 2026. Common European data spaces (Shaping Europe’s digit
 
 European Commission, DG Agriculture and Rural Development. 2025. Delivering on CAP Strategic Plans: 2023–2024 highlights (information note, June 2025). Brüksel. https://agriculture.ec.europa.eu/document/download/3cfb9e48-f33f-4f27-8b1b-2a952693e178_en?filename=delivering-cap-strategic-plans-2023-2024-highlights_en.pdf · §22
 
-Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi May 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §22
+Eurostat. 2026. Agriculture statistics – machinery and digitalisation. Statistics Explained, 03.07.2026 (veri çekimi May 2026; kaynak: 2023 Çiftlik Yapı Araştırması). https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/146710.pdf · §1, §22
 
 ## F
 
@@ -124,7 +124,7 @@ FAO. 2009. How to Feed the World in 2050. FAO Yüksek Düzeyli Uzmanlar Forumu (
 
 FAO. 2017. The future of food and agriculture – Trends and challenges. Rome. ISBN 978-92-5-109551-5. https://www.fao.org/3/i6583e/i6583e.pdf · §27
 
-FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §26
+FAO. 2022. The State of Food and Agriculture 2022. Leveraging automation in agriculture for transforming agrifood systems. Roma: FAO. ISBN 978-92-5-136043-9. https://doi.org/10.4060/cb9479en · §1, §26
 
 FAO. 2025. AQUASTAT Water Data Snapshot 2025. Rome. https://openknowledge.fao.org/server/api/core/bitstreams/99a294b0-ba6c-4bd1-b707-ffb43907d412/content · §7
 
@@ -148,7 +148,7 @@ Gebze Teknik Üniversitesi, Akıllı Tarım Uygulama ve Araştırma Merkezi Yön
 
 Gebze Teknik Üniversitesi, 'Biyoteknoloji Enstitüsü - TÜBİTAK MAM İş Birliği: Gıda Arz Güvenliğinde Akıllı Uygulamalar Araştırma Merkezi' (last updated 30 December 2024). https://www.gtu.edu.tr/icerik/2839/24930/display.aspx · §25
 
-Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1). https://doi.org/10.3390/rs12010166 · §15
+Govil K., Welch M.L., Ball J.T., Pennypacker C.R. 2020. Preliminary results from a wildfire detection system using deep learning on remote camera images. Remote Sensing 12(1). https://doi.org/10.3390/rs12010166 · §1, §15
 
 GÖRSENTAM Tarım Teknolojileri, home page, accessed 17.11.2026. https://www.gorsentam.com/ · §25
 
@@ -168,13 +168,13 @@ Höllinger, F. & Sener, B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknoloj
 
 ## I
 
-Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. https://doi.org/10.1038/s41598-024-53916-1 · §18
+Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. https://doi.org/10.1038/s41598-024-53916-1 · §1, §18
 
 IEA. 2025. Energy and AI (Executive summary). Paris: Uluslararası Enerji Ajansı. https://www.iea.org/reports/energy-and-ai/executive-summary · §26
 
-Infarm. 16 December 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (company press release, infarm.com; Internet Archive copy, 8 December 2022). https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms · §27
+Infarm. 16 December 2021. Infarm raises $200m to accelerate global expansion of climate-resilient vertical farms (company press release, infarm.com; Internet Archive copy, 8 December 2022). https://web.archive.org/web/20221208151556id_/https://www.infarm.com/news/infarm-raises-usd200m-to-accelerate-global-expansion-of-climate-resilient-vertical-farms · §1, §27
 
-Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (company announcement, infarm.com; Internet Archive copy, 6 December 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §27
+Infarm. 2023. Infarm - Indoor Urban Farming GmbH enters administration: Important Update for Stakeholders (company announcement, infarm.com; Internet Archive copy, 6 December 2023). https://web.archive.org/web/20231206211829id_/https://www.infarm.com/news/infarm-indoor-urban-farming-gmbh-enters-administration-important-update-for-stakeholders · §1, §27
 
 Innovate UK. 29 September 2017. Autonomous vehicles for farming: world first achieved. GOV.UK news page. https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved · §28
 
@@ -186,7 +186,7 @@ ITU. 2026. Measuring digital development: Facts and Figures 2026 — Mobile netw
 
 ## İ
 
-İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. https://doi.org/10.30910/turkjans.2021721 · §28
+İtmeç M. 2026. Practices and Awareness of Drone-Based Pesticide Application Service Providers in Türkiye: A Survey Study. Türk Tarım ve Doğa Bilimleri Dergisi (Turkish Journal of Agricultural and Natural Sciences) 13(4): 761–773. https://doi.org/10.30910/turkjans.2021721 · §1, §28
 
 ## J
 
@@ -214,7 +214,7 @@ Keskin M., Sekerli Y.E. 2016. Awareness and adoption of precision agriculture in
 
 Kootstra G., Wang X., Blok P.M., Hemming J., van Henten E. 2021. Selective harvesting robotics: current research, trends, and future directions. Current Robotics Reports 2(1). https://doi.org/10.1007/s43154-020-00034-1 · §10
 
-Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy. https://doi.org/10.3389/fagro.2025.1722488 · §6
+Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy. https://doi.org/10.3389/fagro.2025.1722488 · §1, §6
 
 KTO Karatay Üniversitesi news, 'Konya'da Üniversite Sanayi İş Birliğiyle Tarım Makineleri İleri Teknolojiyle Geliştiriliyor', 13.10.2023. https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor · §25
 
@@ -222,7 +222,7 @@ Kumar D., Kalita P. 2017. Reducing postharvest losses during storage of grain cr
 
 ## L
 
-Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. https://doi.org/10.1126/science.adi2336 · §17
+Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. https://doi.org/10.1126/science.adi2336 · §1, §17
 
 Lang N., Jetz W., Schindler K., Wegner J.D. 2023. A high-resolution canopy height model of the Earth. Nature Ecology & Evolution 7(11). https://doi.org/10.1038/s41559-023-02206-6 · §15
 
@@ -240,9 +240,9 @@ Manogna R.L., Dharmaji V., Sarang S. 2025. Enhancing agricultural commodity pric
 
 McFadden J., Njuki E. 2023. Variable rate technology adoption is on the rise. USDA Economic Research Service, Charts of Note. https://www.ers.usda.gov/data-products/charts-of-note/107116 · §6
 
-McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, February 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §22
+McFadden J., Njuki E., Griffin T. 2023. Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms. Economic Information Bulletin No. 248 (EIB-248). USDA Economic Research Service, February 2023. https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908 · §1, §22
 
-Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §20
+Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160. https://doi.org/10.1038/s41893-020-00631-0 · §1, §20
 
 Menculini L., Marini A., Proietti M., Garinei A., Bozza A., Moretti C., Marconi M. 2021. Comparing Prophet and Deep Learning to ARIMA in Forecasting Wholesale Food Prices. Forecasting 3(3): 644-662. https://doi.org/10.3390/forecast3030040 · §16
 
@@ -254,9 +254,9 @@ Michel S., Ametz C., Gungor H., Akgöl B., Epure D., Grausgruber H., Löschenber
 
 Miller T., Mikiciuk G., Durlik I., Mikiciuk M., Łobodzińska A., Śnieg M. 2025. The IoT and AI in Agriculture: The Time Is Now—A Systematic Review of Smart Sensing Technologies. Sensors 25(12): 3583. https://doi.org/10.3390/s25123583 · §20
 
-Mohanty S.P., Hughes D.P., Salathé M. Using deep learning for image-based plant disease detection. Frontiers in Plant Science 7, 1419 (2016). https://doi.org/10.3389/fpls.2016.01419 · §8, §26, §27
+Mohanty S.P., Hughes D.P., Salathé M. 2016. Using Deep Learning for Image-Based Plant Disease Detection. Frontiers in Plant Science 7: 1419. https://doi.org/10.3389/fpls.2016.01419 · §1, §8, §26, §27
 
-Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22. https://doi.org/10.1186/s12864-020-07319-x · §5
+Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22. https://doi.org/10.1186/s12864-020-07319-x · §1, §5
 
 Morgounov A., Özdemir F., Keser M., Akın B., Payne T., Braun H.-J. 2019. International Winter Wheat Improvement Program: history, activities, impact and future. Frontiers of Agricultural Science and Engineering 6(3). https://doi.org/10.15302/j-fase-2019261 · §5
 
@@ -282,9 +282,9 @@ Neupane C., Pereira M., Koirala A., Walsh K.B. 2023. Fruit sizing in orchard: a 
 
 ## P
 
-Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625. https://doi.org/10.1038/s41586-023-06825-8 · §14
+Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625. https://doi.org/10.1038/s41586-023-06825-8 · §1, §14
 
-Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. https://doi.org/10.1016/j.agsy.2020.103016 · §9
+Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016. https://doi.org/10.1016/j.agsy.2020.103016 · §1, §9
 
 Poggio L., de Sousa L.M., Batjes N.H., Heuvelink G.B.M., Kempen B., Ribeiro E., Rossiter D. 2021. SoilGrids 2.0: producing soil information for the globe with quantified spatial uncertainty. SOIL 7: 217-240. https://doi.org/10.5194/soil-7-217-2021 · §4
 
@@ -294,7 +294,7 @@ Press Information Bureau (PIB), Tarım ve Çiftçi Refahı Bakanlığı. 2026. I
 
 ## R
 
-Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025). https://doi.org/10.1016/j.compag.2025.110365 · §8
+Rahimi Azghadi M., Olsen A., Wood J., Saleh A., Calvert B., Granshaw T., Fillols E., Philippa B. Precision robotic spot-spraying: reducing herbicide use and enhancing environmental outcomes in sugarcane. Computers and Electronics in Agriculture 235 (2025). https://doi.org/10.1016/j.compag.2025.110365 · §1, §8
 
 Ramcharan A., McCloskey P., Baranowski K., Mbilinyi N., Mrisho L., Ndalahwa M., Legg J., Hughes D.P. 2019. A Mobile-Based Deep Learning Model for Cassava Disease Diagnosis. Frontiers in Plant Science 10: 272. https://doi.org/10.3389/fpls.2019.00272 · §26
 
@@ -326,13 +326,13 @@ Sendros A., Drosatos G., Efraimidis P.S., Tsirliganis N.C. 2022. Blockchain Appl
 
 Shamta I., Demir B.E. 2024. Development of a deep learning-based surveillance system for forest fire detection and monitoring using UAV. PLOS ONE 19(3). https://doi.org/10.1371/journal.pone.0299058 · §15, §25
 
-Small Robot Company. 2020 (adres yolundaki tarih 17 July 2020). Meet Wilma: artificial intelligence for Per Plant Farming (company blog post, smallrobotcompany.com; Internet Archive copy, 10 November 2020). https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming · §27
+Small Robot Company. 2020 (adres yolundaki tarih 17 July 2020). Meet Wilma: artificial intelligence for Per Plant Farming (company blog post, smallrobotcompany.com; Internet Archive copy, 10 November 2020). https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming · §1, §27
 
 Start-Up Nation Central ve GrowingIL. 2025. PR: 2025 Israeli AgriFood Tech Landscape Map Launched (Tel Aviv, 6 February 2025; page update 3 December 2025). https://startupnationcentral.org/hub/news/startup-nation-central-growingil-launch-the-2025-israeli-agrifood-tech-landscape-map/ · §22
 
 Straub C.L., Koontz S.R., Loomis J.B. 2019. Economic valuation of Landsat imagery. U.S. Geological Survey Open-File Report 2019-1112. 13 s. https://doi.org/10.3133/ofr20191112 · §19
 
-Stretto (the company's claims and noticing agent). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: case information page (accessed 17 November 2026). https://cases.stretto.com/appharvest/ · §27
+Stretto (the company's claims and noticing agent). In re AppHarvest Products, LLC, et al., Dava No. 23-90745 (CML), ABD İflas Mahkemesi, Teksas Güney Bölgesi: case information page (accessed 17 November 2026). https://cases.stretto.com/appharvest/ · §1, §27
 
 Stygar A.H., Gómez Y., Berteselli G.V., Dalla Costa E., Canali E., Niemi J.K., Llonch P., Pastell M. 2021. A systematic review on commercially available and validated sensor technologies for welfare assessment of dairy cattle. Frontiers in Veterinary Science 8. https://doi.org/10.3389/fvets.2021.634338 · §12
 
@@ -344,7 +344,7 @@ Stygar A.H., Gómez Y., Berteselli G.V., Dalla Costa E., Canali E., Niemi J.K., 
 
 ## T
 
-Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (news). https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi · §9, §23, §25
+Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (news). https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi · §1, §9, §23, §25
 
 Tarım ve Köyişleri Bakanlığı — FAO TCP/TUR/3002-A. Bülten No 1: October 2005-January 2006. Kışlık Buğday Agro-Meteorolojik Ürün Verim Tahmini Bülteni. https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens · §9
 
@@ -352,7 +352,7 @@ Tarım ve Orman Bakanlığı. 15.12.2025. Toprak Etüt ve Sınıflandırma İhal
 
 Tarım ve Orman Bakanlığı. 23.05.2025. Tarım ve Orman Bakanı Yumaklı, 'AI Tomorrow Summit 2025' etkinliğinde konuştu (news). https://www.tarimorman.gov.tr/Sayfalar/GormeEngellilerDetay.aspx?OgeId=6614&Liste=Haber · §17, §19, §23
 
-Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (news). https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday · §15, §23, §25
+Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (news). https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday · §1, §15, §23, §25
 
 Tarım ve Orman Bakanlığı. 4.06.2026. Bakan Yumaklı: Tarımda yerli ve milli teknoloji hamlesine ilişkin kararlılığımız sürüyor (news; AI Tomorrow Summit 2026 konuşması). https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor · §23, §25
 
@@ -372,7 +372,7 @@ Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstati
 
 Tarım ve Orman Bakanlığı, Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). 13.09.2017. Ülkesel Toprak Bilgi Sistemi (news). https://www.tarimorman.gov.tr/TAGEM/Haber/344 · §4
 
-Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). January 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §18, §19, §20, §23, §25
+Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü (TAGEM). January 2026. 2025 Yılı Birim Faaliyet Raporu. https://www.tarimorman.gov.tr/TAGEM/Belgeler/Faaliyet%20Raporlar%C4%B1/TAGEM%20Faaliyet%20Raporu%202025.pdf · §1, §18, §19, §20, §23, §25
 
 Tarla Bitkileri Merkez Araştırma Enstitüsü, CBS ve Uzaktan Algılama Merkezi. May 2020. Tarımsal Ürün İzleme ve Verim Tahmin Bülteni, issue 28. https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens · §9
 
@@ -382,13 +382,13 @@ TARSİM. Köy Bazlı Verim Sigortası — ürün sayfası. tarsim.gov.tr (undate
 
 TARSİM (Tarım Sigortaları Havuzu). Faaliyet Raporu 2025. İstanbul. https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf · §17, §25
 
-T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 August 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §21, §23, §24
+T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 August 2026. https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf · §1, §21, §23, §24
 
-T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 June 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §27
+T.C. Hazine ve Maliye Bakanlığı, Hazine Kontrolörleri Kurulu. 16 June 2026. Türkiye Climate Smart and Competitive Agricultural Growth Project (IBRD Kredisi 9372-TR): 01.01.2025-31.12.2025 dönemi bağımsız denetim raporu. Tarım ve Orman Bakanlığı sitesinde yayımlandı. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/469/DosyaGaleri/10086/audit_report_tucsap_2025.pdf · §1, §27
 
-T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §26
+T.C. Tarım ve Orman Bakanlığı. 2025. IV. Tarım Orman Şûrası, 8. Çalışma Grubu: Kırsal Kalkınma, Kırsalda Yaşamın Geleceği ve İstihdam — Çalışma Belgesi. Ankara. https://cdniys.tarimorman.gov.tr/api/File/GetGaleriFile/505/DosyaGaleri/8547/iv._tarim_orman_surasi__8._grup_kirsal_kalkinma_kirsalda_yasamin_gelecegi_ve_istihdam_calisma_belgesi.pdf · §1, §26
 
-T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §26
+T.C. Tarım ve Orman Bakanlığı. 2025. Ulusal Kırsal Kalkınma Stratejisi-IV (2024-2028). Ankara. https://www.tarimorman.gov.tr/TRGM/BelgelerArsiv/0Yay%C4%B1nlar%C4%B1m%C4%B1z/UKKS%20IV.PDF · §1, §26
 
 T.C. Tarım ve Orman Bakanlığı, Gıda ve Kontrol Genel Müdürlüğü. 9 March 2026. İHA sistemlerinin zirai mücadelede kullanımına ilişkin değerlendirme toplantısı gerçekleştirildi. GKGM news page. https://www.tarimorman.gov.tr/GKGM/Haber/1280/ · §28
 
@@ -428,7 +428,7 @@ Tzachor A., Devare M., King B., Avin S., Ó hÉigeartaigh S. 2022. Responsible a
 
 Ulusal Yapay Zekâ Stratejisi 2024-2025 Eylem Planı (2021-2025 stratejisinin eylem planı). https://www.cottgroup.com/file/Ulusal_Yapay_Zeka_Stratejisi_2024_2025.pdf · §23
 
-USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC. https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf) · §22
+USDA National Agricultural Statistics Service (NASS). 2025. Technology Use (Farm Computer Usage and Ownership), August 2025. ISSN 1949-0887. Washington, DC. https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/1c18gf445/fmpc0825.txt (aynı yayının PDF'i: https://esmis.nal.usda.gov/sites/default/release-files/h128nd689/bv73dz25x/n8711q81s/fmpc0825.pdf — b22/nass_fmpc0825.pdf) · §1, §22
 
 ## V
 

@@ -286,6 +286,12 @@ devam ediyor.
       expect(find.text(kYzAdTr), findsOneWidget);
       expect(find.text('§23'), findsOneWidget, reason: 'harita karosu');
       expect(find.textContaining('Orman yangınlarıyla'), findsOneWidget, reason: 'haber akışı');
+      // §1 yazıldıysa özeti haritanın üstünde (karar 6), "Özet." etiketi düşmüş
+      if (kYzMetinler[1] != null) {
+        expect(find.text('Durum tespitinin tamamı'), findsOneWidget);
+        expect(find.textContaining('Tarımda yapay zekâ bugün', findRichText: true), findsOneWidget);
+        expect(find.textContaining('Özet.', findRichText: true), findsNothing);
+      }
       // teknoloji süzgeci
       await t.tap(find.text('Dil modelleri'));
       await t.pumpAndSettle();
