@@ -236,7 +236,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Advisory services and language models",
       true,
       ["dil", "karar"],
-      false,
+      true,
       "Çiftçinin sorusuna cevap veren makine: yayım hizmeti ve sohbet botları.",
       "A machine that answers the farmer: extension services and chatbots."),
   YzBaslik(

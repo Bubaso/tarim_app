@@ -552,12 +552,12 @@
         "gelisme",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Çiftçinin sorusuna cevap veren makine: yayım hizmeti ve sohbet botları.",
         "en": "A machine that answers the farmer: extension services and chatbots."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

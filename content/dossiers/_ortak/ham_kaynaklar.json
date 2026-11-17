@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 289,
- "toplam_bayt": 754779074,
+ "dosya_sayisi": 296,
+ "toplam_bayt": 778278811,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1837,6 +1837,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/arouna_2021_crossref.json",
+   "bayt": 10150,
+   "sha256": "efafe06bc72006603716a91348d9b61c3a792ddf8358e42ad2ce4b0d89dbadeb",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1111/ajae.12151",
+    "atif": "Arouna A., Michler J.D., Yergo W.G., Saito K. 2021. One size fits all? Experimental evidence on the digital delivery of personalized extension advice in Nigeria. American Journal of Agricultural Economics 103(2): 596-619. doi:10.1111/ajae.12151",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/aula_2020_crossref.json",
    "bayt": 29301,
    "sha256": "008db54cb38cd9c7c395b8dcede27262ac299cfb65fa10b8be85e58acd0d4784",
@@ -1909,6 +1921,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/cole_fernando_2021_crossref.json",
+   "bayt": 13543,
+   "sha256": "9e42cfb401a46af74b69c47eca9d835d4e90a5f1623d8d846eb44e49b86eb2b4",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1093/ej/ueaa084",
+    "atif": "Cole S.A., Fernando A.N. 2021. 'Mobile'izing agricultural advice: Technology adoption, diffusion and sustainability. The Economic Journal 131(633): 192-219. doi:10.1093/ej/ueaa084",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/dalla_betta_2026_crossref.json",
    "bayt": 12157,
    "sha256": "3e5e4370b07e9cedce9f851c2625461de1131ae5af40580ce1f86e5f0b61c958",
@@ -1957,6 +1981,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/eldem_2026_scirep.html",
+   "bayt": 408840,
+   "sha256": "1575c1a4a6653e4d193f9c65bba0f8f56a66e59cfdf24684bed8cd685f6df387",
+   "kaynak": {
+    "adres": "https://www.nature.com/articles/s41598-026-35003-9",
+    "atif": "Eldem A., Eldem H. 2026. The development and evaluation of agricultural question-answering systems based on large language models. Scientific Reports 16: 5357. doi:10.1038/s41598-026-35003-9",
+    "lisans": "CC BY-NC-ND 4.0",
+    "lisans_adresi": null,
+    "_not": "Yayıncı sayfası (Scientific Reports), tam metin."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/erhan_yaganoglu_2026_crossref.json",
    "bayt": 18563,
    "sha256": "5a714ed9649d5fc73eb34c8a1af0ad19ec3f3587ef095b92e14b157011c76fee",
@@ -1966,6 +2002,18 @@
     "lisans": "bibliyografik kayıt (yayıncı özeti)",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet ve yazar kurumları)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fabregas_2019_europepmc.json",
+   "bayt": 5299,
+   "sha256": "838513fe4e28f140b8c6255b0e6de6d1fcb97a47555ac50428332c26f67c4b81",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1126/science.aay3038&resultType=core&format=json",
+    "atif": "Fabregas R., Kremer M., Schilbach F. 2019. Realizing the potential of digital development: The case of agricultural advice. Science 366(6471): eaay3038. doi:10.1126/science.aay3038",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
    }
   },
   {
@@ -2132,6 +2180,18 @@
     "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=TITLE:%22Cherry%20Tomato%20Production%20in%20Intelligent%20Greenhouses%22&resultType=core&format=json",
     "atif": "Hemming S., de Zwart F., Elings A., Petropoulou A., Righini I. 2020. Cherry tomato production in intelligent greenhouses — sensors and AI for control of climate, irrigation, crop yield, and quality. Sensors 20(22): 6430. doi:10.3390/s20226430 (PMC7698269)",
     "lisans": "CC BY",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ibrahim_2024_europepmc.json",
+   "bayt": 5681,
+   "sha256": "f22af0eec82e3fbcc23516636768dbbcdac2e2fe9168b2ba08a67da4a31627c8",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1038/s41598-024-53916-1&resultType=core&format=json",
+    "atif": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407. doi:10.1038/s41598-024-53916-1",
+    "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Europe PMC API cevabı: yayıncı özeti."
    }
@@ -2449,6 +2509,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/sahin_2025_frontiers.html",
+   "bayt": 853368,
+   "sha256": "1b41dfa2bf276768c0c60807d94df0ee773d635e31ac4a4def323533b5c2f3f2",
+   "kaynak": {
+    "adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1468676/full",
+    "atif": "Şahin Y.S., Gençer N.S., Şahin H. 2025. Integrating AI detection and language models for real-time pest management in Tomato cultivation. Frontiers in Plant Science 15: 1468676. doi:10.3389/fpls.2024.1468676",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "Yayıncı sayfası (Frontiers in Plant Science), tam metin."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/saikai_2023_arxiv.xml",
    "bayt": 3597,
    "sha256": "b8e43056d3cbe2ea0ce735be7dcbbf1a7dabdb0053a5fb8fc29fc443dae4c28e",
@@ -2674,6 +2746,18 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — bakanlığın istatistik sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+   "bayt": 22202856,
+   "sha256": "2bfe8a41636c67f1630c932caa7b84d85cfb45bb6b33185065479d08cf17d644",
+   "kaynak": {
+    "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+    "atif": "T.C. Tarım ve Orman Bakanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara: Strateji Geliştirme Başkanlığı.",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — bakanlık sitesi (SGB)."
    }
   },
   {
