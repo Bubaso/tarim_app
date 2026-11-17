@@ -1,0 +1,216 @@
+{
+  "_ne": "Teknoloji sayfası — Dil modelleri (karar 57)",
+  "guncellendi": "2026-11-17",
+  "kaynaklar": {
+    "hopkins_2023_jncics": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Hopkins A.M., Logan J.M., Kichenadasse G., Sorich M.J. 2023. Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift. JNCI Cancer Spectrum 7(2): pkad010.",
+      "doi": "10.1093/jncics/pkad010",
+      "dosya": "kaynak_dosyalari/hopkins_2023_jncics_europepmc.json",
+      "tarih": "November 30, 2022",
+      "alinti": [
+        "On November 30, 2022, OpenAI enabled public access to ChatGPT, a next-generation artificial intelligence with a highly sophisticated ability to write, solve coding issues, and answer questions.",
+        "Artificial intelligence chatbots will revolutionize how cancer patients access information: ChatGPT represents a paradigm-shift."
+      ],
+      "_kopya": "b03_kaynaklar.json · hopkins_2023_jncics"
+    },
+    "hindistan_pib_2026_yz": {
+      "nitelik": "RESMI",
+      "kunye": "Press Information Bureau (PIB), Hindistan Hükümeti. 2026. Artificial Intelligence (AI) Transforming Indian Agriculture (arka plan notu, 14 Şubat 2026). Yeni Delhi.",
+      "adres": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026214789901.pdf",
+      "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+      "e_mitra_soru_lakh": 93,
+      "e_mitra_soru_milyon": 9.3,
+      "e_mitra_gunluk_soru": 8000,
+      "e_mitra_dil": 11,
+      "e_mitra_yil": 2023,
+      "muson_ciftci_crore": 3.88,
+      "muson_ciftci_milyon": 38.8,
+      "muson_eyalet": 13,
+      "karar_degistiren_yuzde": "31-52",
+      "misyon_butce_crore": 2817,
+      "misyon_yili": 2024,
+      "kimlik_hedef_crore": 11,
+      "crore_milyon": 10,
+      "_turetme": "1 lakh = 100 bin, 1 crore = 10 milyon: 93 lakh = 9,3 milyon; 3,88 crore = 38,8 milyon.",
+      "_not": "e-Mitra rakamı soru sayısı, tekil kullanıcı değil; muson tahmini yapay zekâ diye anılmıyor, metin de anmaz.",
+      "alinti": [
+        "Transforming Indian Agriculture 14 February, 2026",
+        "As of December 2025, the Kisan e-Mitra chatbot has answered more than 93 lakh queries, handling over 8,000 farmer queries daily in 11 regional languages.",
+        "Kisan e-Mitra, launched in 2023, is a voice-enabled, AI-powered chatbot designed to support farmers by answering queries on key government schemes, including PM Kisan Samman Nidhi, the Kisan Credit Card, and the Pradhan Mantri Fasal Bima Yojana.",
+        "To guide optimal sowing decisions, focusing on local monsoon onset, probabilistic forecasts were disseminated via SMS through the mKisan portal to over 3.88 crore farmers in five regional languages across 13 states.",
+        "Follow-up surveys in Madhya Pradesh and Bihar indicated that 31–52 percent of farmers modified their planting decisions based on the forecasts, primarily by adjusting land preparation, sowing timelines, and crop and input choices.",
+        "The Digital Agriculture Mission, launched in 2024 with a total outlay of ₹2,817 crore",
+        "Against a target of 11 crore Farmer IDs by 2026–27, over 7.63 crore IDs have been generated as of 27 November 2025, including 1.93 crore IDs for women farmers."
+      ],
+      "_kopya": "b22_kaynaklar.json · hindistan_pib_2026_yz"
+    },
+    "digital_green_2024_farmerchat_arxiv": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Singh N., Wang'ombe J., Okanga N., Zelenska T., Repishti J., G K J., Mishra S., Manokaran R., Singh V., Rafiq M.I., Gandhi R., Nambi A. 2024. Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers. arXiv:2409.08916 (v1 13 Eylül 2024; v2 8 Ekim 2024).",
+      "adres": "https://export.arxiv.org/api/query?id_list=2409.08916",
+      "dosya": "kaynak_dosyalari/digital_green_2024_farmer_chat_arxiv.xml",
+      "ulke": "four",
+      "ciftci": "15,000",
+      "sorgu": "300,000",
+      "alinti": [
+        "Farmer.Chat: Scaling AI-Powered Agricultural Services for Smallholder Farmers",
+        "We introduce FarmerChat, a generative AI-powered chatbot designed to address these issues.",
+        "Deployed in four countries, FarmerChat has engaged over 15,000 farmers and answered over 300,000 queries."
+      ],
+      "_kopya": "b03_kaynaklar.json · digital_green_2024_farmerchat_arxiv"
+    },
+    "fabregas_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Fabregas R., Kremer M., Schilbach F. 2019. Realizing the potential of digital development: The case of agricultural advice. Science 366(6471): eaay3038.",
+      "doi": "10.1126/science.aay3038",
+      "dosya": "kaynak_dosyalari/fabregas_2019_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMID 31831641)",
+      "kucuk_ciftci_hanesi_milyar_kisi": 2,
+      "verim_artisi_yuzde": 4,
+      "benimseme_olasiligi_artisi_yuzde": 22,
+      "_not": "Meta-analizlerin ortalaması; dil modelleri dönemi öncesi.",
+      "alinti": [
+        "The rapid spread of mobile phones creates potential for sustainably raising agricultural productivity for the 2 billion people living in smallholder farming households.",
+        "Meta-analyses suggest that providing agricultural information via digital technologies increased yields by 4% and the odds of adopting recommended inputs by 22%.",
+        "Benefits likely exceed the cost of information transmission by an order of magnitude.",
+        "There is a clear role for public support for digital agricultural extension, but messages designed by agricultural ministries are often difficult for farmers to understand and use.",
+        "Realizing the potential of mobile communication systems requires feedback mechanisms to enable rigorous testing and continuous improvement."
+      ],
+      "_kopya": "b18_kaynaklar.json · fabregas_2019"
+    },
+    "arouna_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Arouna A., Michler J.D., Yergo W.G., Saito K. 2021. One size fits all? Experimental evidence on the digital delivery of personalized extension advice in Nigeria. American Journal of Agricultural Economics 103(2): 596-619.",
+      "doi": "10.1111/ajae.12151",
+      "dosya": "kaynak_dosyalari/arouna_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "verim_artisi_yuzde": 7,
+      "kar_artisi_yuzde": 10,
+      "_not": "Randomize deneme; dil modeli değil, kişiye özel öneri veren karar destek uygulaması. Tek ürün, tek ülke.",
+      "alinti": [
+        "Blanket advice on optimal fertilizer application rates has failed to achieve potential yield gains for crop production in much of Sub‐Saharan Africa.",
+        "However, digital technology now makes it possible to deliver personalized extension services to farmers at a much lower cost.",
+        "We present results from a randomized control trial designed to evaluate the effectiveness of a mobile application that provides personalized advice on rice nutrient management.",
+        "We find that households who were just given the personalized advice increase their yield by 7% and increase their profit by 10%.",
+        "On average, personalized advice increases yields without increasing the overall quantity of fertilizer used."
+      ],
+      "_kopya": "b18_kaynaklar.json · arouna_2021"
+    },
+    "ibrahim_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Ibrahim A., Senthilkumar K., Saito K. 2024. Evaluating responses by ChatGPT to farmers' questions on irrigated lowland rice cultivation in Nigeria. Scientific Reports 14: 3407.",
+      "doi": "10.1038/s41598-024-53916-1",
+      "dosya": "kaynak_dosyalari/ibrahim_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "ciftci_sorusu": 32,
+      "en_iyi_puan_chatbot_yuzde": 40,
+      "en_iyi_puan_yayim_elemani_yuzde": 7,
+      "chatbot_tercih_yuzde": 78,
+      "_not": "Uzman puanlaması; çiftçi sonucu ölçülmedi. Yayım elemanı (altı) ve değerlendirici (dört) sayısı metinde yazıyla.",
+      "alinti": [
+        "The limited number of agricultural extension agents (EAs) in sub-Saharan Africa limits farmers' access to extension services.",
+        "We compiled a list of 32 questions related to irrigated rice cultivation from farmers in Kano State, Nigeria.",
+        "Six EAs from the state were randomly selected to answer these questions.",
+        "Their answers, along with those of ChatGPT, were assessed by four evaluators in terms of quality and local relevancy.",
+        "Overall, chatbot responses were rated significantly higher quality than EAs' responses.",
+        "Chatbot responses received the best score nearly six times as often as the EAs' (40% vs. 7%).",
+        "The evaluators preferred chatbot responses to EAs in 78% of cases.",
+        "The topics for which the chatbot responses received poorer scores than those by EAs included planting time, seed rate, and fertilizer application rate and timing.",
+        "In conclusion, while the chatbot could offer an alternative source for providing agricultural advisory services to farmers, incorporating site-specific input rate-and-timing agronomic practices into AI assistants is critical for their direct use by farmers."
+      ],
+      "_kopya": "b18_kaynaklar.json · ibrahim_2024"
+    },
+    "eldem_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Eldem A., Eldem H. 2026. The development and evaluation of agricultural question-answering systems based on large language models. Scientific Reports 16: 5357.",
+      "doi": "10.1038/s41598-026-35003-9",
+      "dosya": "kaynak_dosyalari/eldem_2026_scirep.html",
+      "dogrulandigi_yer": "yayıncı sayfası (tam metin)",
+      "soru_sayisi": 90,
+      "secenek_sayisi": 4,
+      "gpt4o_dogruluk_yuzde": "84,8-95,3",
+      "gemini_dogruluk_yuzde": "74,8-88,4",
+      "_not": "Çoktan seçmeli 90 soru; sorular üç çevrimiçi soru bankasından (kaynakça Data1-3). Açık uçlu çiftçi sorusu ve çiftçi sonucu ölçülmedi; yazarlar ince ayar, RAG ya da geleneksel yöntemle karşılaştırma yapmadıklarını yazıyor.",
+      "alinti": [
+        "A set of multiple-choice questions was developed, covering three topics (General, Horticulture, Crop Production) and three difficulty levels (Easy, Medium, Difficult).",
+        "For each question, answers were generated using GPT-4o and Gemini-2.0-flash LLMs.",
+        "Within the scope of this study, the question set named AgriQAs created about agriculture consists of 90 multiple choice questions and answers in total.",
+        "There are 4 options for each question and the answer to each question is also available in the system.",
+        "The average success rate for prompts run with GPT-4o ranged from 84.8% to 95.3%.",
+        "The accuracy values for prompts run with Gemini-2.0-flash ranged from 74.8% to 88.4%.",
+        "In both GPT-4o and Gemini-2.0-flash, the lowest performance was obtained with Zero-Shot.",
+        "The findings revealed that LLMs were generally successful, but their results varied significantly depending on the preferred LLM and prompt strategy.",
+        "Importantly, our study focused on the use of LLMs with different prompting techniques in the agricultural field without comparing them with fine-tuning, RAG pipelines, domain-fine-tuned models, or traditional methods.",
+        "Data1. (2025). https://www.agricultureinindia.net (Accessed on 5 May 2025).",
+        "Data2. (2025). https://www.sanfoundry.com/ (Accessed on 3 May 2025).",
+        "Data3. (2025). https://www.examveda.com/agriculture (Accessed on 5 May 2025).",
+        "Department of Computer Engineering, Karamanoğlu Mehmetbey University, Karaman"
+      ],
+      "_kopya": "b18_kaynaklar.json · eldem_2026"
+    },
+    "sahin_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Şahin Y.S., Gençer N.S., Şahin H. 2025. Integrating AI detection and language models for real-time pest management in Tomato cultivation. Frontiers in Plant Science 15: 1468676.",
+      "doi": "10.3389/fpls.2024.1468676",
+      "dosya": "kaynak_dosyalari/sahin_2025_frontiers.html",
+      "dogrulandigi_yer": "yayıncı sayfası (tam metin)",
+      "tespit_kesinligi_yuzde": 98.91,
+      "tespit_duyarliligi_yuzde": 98.98,
+      "incelenen_domates_tarlasi": 96,
+      "donem": "Mart 2022 - Eylül 2023",
+      "_denetim": "Makalede değerlendirme yöntemi yalnız tespit ve segmentasyon için (precision, recall, mAP); ChatGPT-4'ün verdiği açıklama ve önerilerin doğruluğu için bir ölçüm yok (17.11.2026 tam metin okuması).",
+      "alinti": [
+        "Specifically, it integrates YOLOv8 for detection and segmentation tasks and ChatGPT-4 for generating detailed, actionable insights on the detected pests.",
+        "The integration of ChatGPT-4 further enhances the system by providing detailed explanations and recommendations based on detected pests.",
+        "This approach facilitates real-time expert consultation, making pest management accessible to untrained producers, especially in remote areas.",
+        "Future research should focus on training these models with domain-specific data to improve accuracy and reliability.",
+        "This study was conducted from March 2022 to September 2023 in Bakirköy village, located in the Karacabey district of Bursa province in the northwest of Turkey",
+        "The model achieved a precision of 98.91%, recall of 98.98%",
+        "a total of 96 tomato fields were investigated.",
+        "Detection and segmentation performances were evaluated at various IOU thresholds using precision (P), recall (R), and mean average precision (mAP)."
+      ],
+      "_kopya": "b18_kaynaklar.json · sahin_2025"
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "destek_alan_kisi_kurulus": 493,
+      "destek_alan_tarim_danismani": 709,
+      "odeme_yapilan_isletme_sahibi": 36831,
+      "egitim_yayim_faaliyeti": 45804,
+      "faaliyetlere_ciftci_katilimi": 1123252,
+      "mobil_uygulama": 17,
+      "akademi_kayitli_kullanici": 100086,
+      "_denetim": "Raporda 'asistan', 'sohbet', 'chatbot', 'dil model' geçmiyor; 'doğal dil' yalnız bilgi teknolojileri altyapısı anlatımında (PDF s13) — 17.11.2026 taraması.",
+      "_katilim": "1.123.252 bir katılım sayısı; raporda tekil çiftçi sayısı olup olmadığı yazmıyor. Metin 'katılım' der.",
+      "alinti": [
+        "Tarımsal yayım ve danışmanlık destekleme ödemesi kapsamında 493 kişi/kuruluş, 709 tarım danışmanı ve 36.831 tarımsal işletme sahibine ödeme yapılmıştır.",
+        "47’si uzaktan olmak üzere toplam 67 eğitim düzenlenmiş olup bu eğitimlere 5.186 tarım danışmanı katılım sağlamıştır.",
+        "Tarımsal yayım ve danışmanlık hizmetleri kapsamında 3.990 kişinin katıldığı memnuniyet anketi uygulanmıştır.",
+        "MEB protokolü iş birliği ile yürütülen çiftçi kursları başlıklarında 45.804 eğitim ve yayım faaliyetine 1.123.252 çiftçi katılmıştır.",
+        "Uzaktan eğitim faaliyetlerinin yürütüldüğü Tarım Orman Akademisi’nde 2025 yılında toplam eğitim sayısı 347, eğitim içeriği sayısı 860, katılım belgeli eğitim sayısı 90, verilen belgesi sayısı 56.000 ve kayıtlı kullanıcı sayısı 100.086 olmuştur.",
+        "Bakanlığımızda 17 adet mobil uygulama mevcuttur.",
+        "Yapay zekâ işlemleri kapsamında makine öğrenimi, derin öğrenme, doğal dil işlemleri gibi çalışmalar yürütülmektedir.",
+        "Çalıştay sonucunda Yapay Zeka Strateji Belgesi hazırlanacaktır."
+      ],
+      "_kopya": "b18_kaynaklar.json · tob_2025_faaliyet_raporu"
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı. Cumhurbaşkanı Kararı sayı 11934. Resmî Gazete 27 Ekim 2026, sayı 33413 (Mükerrer).",
+      "adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "_denetim": "Programda 'sohbet robot' yalnız GİB tedbirinde (PDF s124); 'dil model' yalnız Sektörel Türkçe Büyük Dil Modeli Çağrısı'nda (PDF s245) geçiyor — 17.11.2026 sayımı. Çağrının hangi sektörleri kapsadığı programda yazmıyor.",
+      "alinti": [
+        "Tarımsal araştırmalar ile eğitim ve yayım çalışmalarında kurumlar arası koordinasyon sağlanarak etkinlik artırılacak, tarımsal Ar-Ge ve yayımın bağı güçlendirilecektir.",
+        "Dijitalleşme, yapay zekâ ve veriye dayalı iş modelleriyle akıllı tarım uygulamaları yaygınlaştırılacaktır.",
+        "Yapay zekâ teknolojisi kullanılarak 7/24 çalışan özelleştirilmiş bir sohbet robotunun geliştirilmesini de içeren Dijital Mükellef Temsilcisi Projesi (Yeni GİBİ) hayata geçirilecektir.",
+        "Sanayi ve Teknoloji Bakanlığı (S), KOSGEB, TÜBİTAK, TİM, İlgili Kurum ve Kuruluşlar 1. Rekabet Öncesi İşbirliği Programı kapsamında Sektörel Türkçe Büyük Dil Modeli Çağrısıyla ülkemizde yerli dil modellerinin sektörlere uyarlanması teşvik edilecektir."
+      ],
+      "_kopya": "b18_kaynaklar.json · yillik_program_2027"
+    }
+  }
+}

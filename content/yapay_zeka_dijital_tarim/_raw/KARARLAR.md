@@ -183,3 +183,16 @@ bütün resmi yok). Kullanıcı: "zayıf taraflar olarak bildirdiğin her şeyi
 | # | karar |
 |---|---|
 | 57 | **Teknoloji ekseni metinden okunur ve sayfaya taşınır.** (a) Etiketler elle konmuyor: `teknoloji_izi.py` her teknolojinin desenlerini başlık metninde arıyor; iki dilde de en az 2 paragrafta (ya da tablo satırında) geçen teknoloji etiket olur. Dart'taki eşleştirici aynı sayıyı bulmak zorunda (eşlik testi). (b) Merkez sayfada seçilen teknoloji başlığa taşınıyor (`?teknoloji=`): geçtiği yerler işaretli, "Sonraki ↓" ile geziliyor; başlık sayfasındaki teknoloji çipleri de aynı işareti açıp kapıyor. (c) Karolar seçili teknolojinin kaç yerde geçtiğini gösteriyor; teknolojinin asıl konu olduğu başlık ("ana başlık") ayrıca belirgin. (d) "Dijital ikiz" çıktı: hiçbir başlıkta gerçek içeriği yok. (e) Sırada: her kesişim için kısa not ve her teknoloji için alanlar arası durum sayfası |
+
+## K · Görsel, grafik ve etkileşim (18 Kasım 2026)
+
+Kullanıcı: "yalnız açık lisanslı olmasına gerek yok. lisans olmasa da izne de
+gerek yok. her türlü görseli altında kaynağını belirterek kullanabiliriz.
+indirme yasağı olmadıkça … kullanalım. yapay zekâ foto görseli olmasın ancak
+çok gerekli olursa olabilir. ayrıca şema veya illüstrasyon da olabilir yapay
+zeka üretimi olsa da. grafikler çok modern, kibar, estetik ve farklı
+niteliklerde olsun. … her türlü grafik kütüphanesini kullanabilirsin."
+
+| # | karar |
+|---|---|
+| 58 | **Görsel:** kaynağı altında açıkça yazılarak her görsel kullanılabilir; indirme yasağı olan (site koşulları, robots.txt) ya da yalnız oturumla/bot korumasını aşarak alınabilen görsel alınmaz. Altyazı künyedir (görselin ne olduğu, kim, nerede, ne zaman) + kaynak satırı; her görselin kaynağı, adresi ve indirme günü bir kayıtta tutulur, hak sahibi itiraz ederse tek satırla kaldırılır. Yapay zekâ üretimi FOTOĞRAF yok (çok gerekli olursa istisna, kullanıcıya sorulur); yapay zekâ üretimi şema ve illüstrasyon olabilir, üretildiği altyazıda yazar. **Grafik:** modern, sade ve çeşitli; her değeri kayıttan gelir ve doğrulayıcıdan geçer; her grafiğin tablo karşılığı ve metin açıklaması var; hazır kütüphane kullanılabilir. **Etkileşim:** rakamdan kaynağa, içindekiler, teknoloji × başlık ısı haritası, zaman çizelgesi, harita |

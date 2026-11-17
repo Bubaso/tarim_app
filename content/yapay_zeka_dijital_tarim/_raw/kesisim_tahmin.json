@@ -1,0 +1,65 @@
+{
+  "_ne": "Kesişim notları — Tahmin modelleri (karar 57)",
+  "notlar": {
+    "1": {
+      "tr": "Hava tahmininde yapay zekâ işletmeye geçti; verim tahmininde ise makine öğrenmesi, Avrupa Komisyonu'nun yerleşik sistemiyle kimi üründe başa baş gitti, kimisinde hatası iki katına çıktı.",
+      "en": "In weather forecasting AI has moved into operations; in yield forecasting, machine learning was on a par with the European Commission's established system for some crops and made twice its error for others."
+    },
+    "2": {
+      "tr": "AB tanımında tahmin, yapay zekâ sisteminin çıktılarından biri; ama Komisyon'un Temmuz 2025 kılavuzu yarının sıcaklığını geçen haftanın ortalamasıyla tahmin etmeyi yapay zekâ saymıyor.",
+      "en": "In the EU definition, predictions are one of an AI system's outputs, but the Commission's July 2025 guidelines do not count forecasting tomorrow's temperature from last week's average as AI."
+    },
+    "3": {
+      "tr": "Uydu verisiyle yapılan LACIE tahmini 1977'de Sovyet buğday hasadını 91,4 milyon ton buldu; Sovyetlerin resmî rakamı 92,0 milyon tondu.",
+      "en": "In 1977 the satellite-based LACIE estimate put the Soviet wheat harvest at 91.4 million tons, against an official Soviet figure of 92.0 million tons."
+    },
+    "4": {
+      "tr": "SoilGrids'in makine öğrenmesiyle ürettiği küresel toprak tahminlerinin başarı puanı özelliğe göre 0,31 ile 0,74 arasında; 6,25 hektarlık tek hücresi parçalı arazide birden fazla tarlayı kapsayabiliyor.",
+      "en": "The accuracy score of SoilGrids' machine-learning global soil predictions ranges from 0.31 to 0.74 by property, and on fragmented land a single 6.25-hectare cell can cover more than one field."
+    },
+    "5": {
+      "tr": "Buğdayda genomik seçilim tane verimini yalnız tarla ölçümüne dayalı tahminden daha isabetli öngördü (korelasyon 0,39'a 0,21), ama derin öğrenme klasik genomik modellere açık bir üstünlük göstermedi.",
+      "en": "In wheat, genomic selection predicted grain yield better than prediction from field measurement alone (correlation 0.39 against 0.21), but deep learning showed no clear edge over conventional genomic models."
+    },
+    "6": {
+      "tr": "İyi verim tahmini doğru doz demek değil: buğday ve arpa verimini ortalama %13,7 hatayla tahmin eden benzer doğruluktaki iki model, çok farklı ekonomik en uygun azot dozları çıkardı.",
+      "en": "A good yield prediction is not the right rate: two models that predicted wheat and barley yields with similar accuracy, an average error of 13.7%, produced very different economically optimal nitrogen rates."
+    },
+    "9": {
+      "tr": "Avrupa Komisyonu'nun verim tahminlerinde ortanca hata Fransa'da %3,73, Portekiz'de %14,37; Türkiye'nin resmî rekolte tahmini ise Bakanlığın tarifine göre kayıtlara ve teknisyen izlenimine dayanıyor.",
+      "en": "The European Commission's yield forecasts had a median error of 3.73% in France and 14.37% in Portugal; Türkiye's official estimate, the ministry says, rests on records and technicians' impressions."
+    },
+    "12": {
+      "tr": "Hayvancılıkta ölçülmüş büyük bir etki, genetik değeri DNA'dan tahmin eden genomik seçilimden geliyor: ABD'de Holstein boğa babalarının kuşak aralığı yaklaşık 7 yıldan 2,5 yılın altına indi.",
+      "en": "One large measured effect in livestock comes from genomic selection, which predicts genetic merit from DNA: in US Holsteins the generation interval of sires of bulls fell from about 7 years to under 2.5."
+    },
+    "15": {
+      "tr": "Orman Genel Müdürlüğü 2022'den beri yangın çıkma olasılığını ve yangının ilerleyişini tahmin eden bir karar destek sistemi kullanıyor, ama etkisini ölçen bağımsız bir değerlendirme yayımlanmadı.",
+      "en": "Since 2022 the General Directorate of Forestry has used a decision support system that predicts the likelihood and spread of fires, but no independent evaluation of its effect has been published."
+    },
+    "16": {
+      "tr": "Hindistan'da klasik modeli açık farkla geçen derin öğrenme modelinin ortalama yüzde hatası bile domateste %10,58, soğanda %14,59; İtalyan bir toptancıda iki yöntem benzer çıktı.",
+      "en": "In India even the deep learning model that clearly beat the classical one had a mean percentage error of 10.58% for tomatoes and 14.59% for onions; at an Italian wholesaler the two performed similarly."
+    },
+    "17": {
+      "tr": "GraphCast 10 günlük küresel tahminde 1.380 doğrulama hedefinin %90'ında işletimdeki en doğru sistemleri geçti; ölçülen şey isabet, çiftçinin kaybındaki azalma değil.",
+      "en": "GraphCast beat the most accurate operational systems on 90% of 1,380 verification targets in 10-day global forecasts; what was measured is accuracy, not any cut in farmers' losses."
+    },
+    "19": {
+      "tr": "Verim tahmini için önemli olan sezon başı ve ortasında, birçok tarım bölgesinde 8 günlük bileşik uydu görüntülerinin yarısından azı %70 açık çıkabiliyor.",
+      "en": "In the early and mid season, which matter for yield forecasting, fewer than half of 8-day composite satellite images are even 70% clear in many farming regions."
+    },
+    "22": {
+      "tr": "Yerel muson başlangıcına dair olasılıklı tahminler Hindistan'da 38,8 milyonu aşkın çiftçiye kısa mesajla ulaştı ve iki eyaletteki anketlere göre çiftçilerin %31-52'si ekim kararını değiştirdi.",
+      "en": "Probabilistic forecasts of local monsoon onset reached more than 38.8 million farmers in India by text message, and surveys in two states found 31-52% of farmers changed their sowing decisions."
+    },
+    "23": {
+      "tr": "2027 Yıllık Programı'nın tarım bölümünde yapay zekâya bağlanan tek somut iş, kuraklığı 1-4 hafta önceden tahmin etme çalışması; o da henüz plan aşamasında.",
+      "en": "The only concrete AI task in the agriculture part of the 2027 Annual Programme is work on forecasting drought 1-4 weeks ahead, and it is still only a plan."
+    },
+    "25": {
+      "tr": "Meteoroloji Genel Müdürlüğü bitki bazında 5 günlük don tahmini yayımlıyor; TÜBİTAK 1711 çağrısında kabul edilen bir proje de çiğ süt arzını ve fiyatını tahmin etmeyi hedefliyor.",
+      "en": "The General Directorate of Meteorology publishes 5-day frost forecasts by crop, and a project accepted under TÜBİTAK's 1711 call aims to forecast raw milk supply and prices."
+    }
+  }
+}

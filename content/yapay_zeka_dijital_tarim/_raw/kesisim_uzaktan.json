@@ -1,0 +1,53 @@
+{
+  "_ne": "Kesişim notları — Uzaktan algılama (karar 57)",
+  "notlar": {
+    "1": {
+      "tr": "Yapay zekâ tarımdaki en sağlam sonuçlarını uydudan haritalama gibi geniş alanı sürekli gözetleyen işlerde veriyor; iş tek bir tarlanın kararına indiğinde tablo karışıyor.",
+      "en": "AI delivers its most solid results in agriculture in work that keeps constant watch over large areas, such as mapping from satellites; once the work comes down to one field's decisions, the picture is mixed."
+    },
+    "3": {
+      "tr": "LACIE 1977'de uydu görüntüsünün otomatik analiziyle doğru küresel ürün tahmini yapılabileceğini gösterdi: son tahmini Sovyet buğday hasadını 91,4 milyon ton buldu, resmî rakam 92,0 milyon tondu.",
+      "en": "In 1977 LACIE showed that automated analysis of satellite images could give accurate global crop forecasts: its final estimate put the Soviet wheat harvest at 91.4 million tons, against an official 92.0 million."
+    },
+    "6": {
+      "tr": "Uydu, toprak ve arazi değişkenleriyle 20 çiftlik denemesinde eğitilen modeller verimi ortalama %13,7 hatayla tahmin etti, ama benzer doğruluktaki iki model çok farklı azot dozları çıkardı.",
+      "en": "Models trained on satellite, soil and terrain variables from 20 on-farm trials predicted yield with an average error of 13.7%, yet two models of similar accuracy produced very different nitrogen rates."
+    },
+    "7": {
+      "tr": "Uydu, bitkinin tükettiği suyu tarla ölçeğinde hesaplayan katman; Türkiye'de uzaktan algılamayla sulama programı hazırlayacak DİSU projesi 2027'de tamamlanacak.",
+      "en": "Satellites are the layer that estimates crop water use at field scale; in Türkiye, the DİSU project, which will prepare irrigation schedules with remote sensing, is to be completed in 2027."
+    },
+    "9": {
+      "tr": "Mardin'de altı tarihli Sentinel-2 görüntüsüyle ürünler parsel bazında %96,35 genel doğrulukla ayrıldı, ama tek bölgede ve tek yılda; Bakanlığın 2025'te başlattığı ürün belirlemenin doğruluk oranı açıklanmadı.",
+      "en": "In Mardin, Sentinel-2 images from six dates separated crops parcel by parcel with 96.35% overall accuracy, in one region and one year; the ministry's crop identification, begun in 2025, has no published accuracy rate."
+    },
+    "14": {
+      "tr": "Endüstriyel balıkçı gemilerinin %72-76'sı kamuya açık izleme sistemlerinde görünmüyor; bunu uydu görüntüsünü, gemi GPS verisini ve derin öğrenmeyi birleştiren bir dünya haritası ortaya çıkardı.",
+      "en": "Between 72% and 76% of industrial fishing vessels do not appear in public tracking systems, as a world map combining satellite imagery, vessel GPS data and deep learning revealed."
+    },
+    "15": {
+      "tr": "Sentinel-2 görüntülerini uzaydaki GEDI lazer ölçümleriyle birleştiren bir derin öğrenme modeli, 2020 için 10 metre çözünürlüklü küresel ağaç boyu haritası üretti ve her tahminin belirsizliğini verdi.",
+      "en": "A deep learning model fusing Sentinel-2 images with the spaceborne GEDI laser's measurements produced a global canopy height map at 10-metre resolution for 2020, with the uncertainty of each estimate."
+    },
+    "17": {
+      "tr": "TARSİM uyduyu henüz araştırma düzeyinde kullanıyor: 2025'te Sentinel-1 radar ve Sentinel-2 görüntüleriyle sel hasarını inceledi, ekilmeyen sigortalı parsellerde uydudan hasar tespitini araştırdı.",
+      "en": "TARSİM still uses satellites at research level: in 2025 it examined flood damage with Sentinel-1 radar and Sentinel-2 images and researched satellite damage assessment for insured parcels left unsown."
+    },
+    "19": {
+      "tr": "Landsat görüntüleri 2008'de ücretsiz olunca NASA'ya göre kullanım 20 kat arttı; buna karşılık birçok önemli tarım bölgesinde 8 günlük bileşik görüntülerin yarısından azı %70 açık çıkabiliyor.",
+      "en": "Once Landsat imagery became free in 2008, use rose 20-fold according to NASA; yet in many important farming regions fewer than half of 8-day composite images are even 70% clear."
+    },
+    "23": {
+      "tr": "2027 Programı'nın tarımdaki tek somut yapay zekâ işi uydu tabanlı bir sistemde: kuraklığı uydu verisiyle 7 günlük periyotlarla izleyen TAKİS için 1-4 hafta önceden tahmin çalışmaları 2027'de planlanıyor.",
+      "en": "The only concrete AI task in the 2027 Programme's agriculture chapter sits in a satellite-based system: for TAKİS, which tracks drought at 7-day intervals, forecasting 1-4 weeks ahead is planned from 2027."
+    },
+    "25": {
+      "tr": "Kamuda uydu görüntüsü ürün ve işlenmeyen arazi belirlemede, kuraklık izlemede ve sigorta araştırmasında kullanılıyor; FAO ile EBRD'nin raporu Doktar, Tarla.io ve AgCurate'i uydu tabanlı girişimler arasında sayıyor.",
+      "en": "In the public sector, satellite imagery serves crop and idle land identification, drought monitoring and insurance research; an FAO and EBRD report lists Doktar, Tarla.io and AgCurate among satellite-based start-ups."
+    },
+    "28": {
+      "tr": "Tek tarla ve tek sezonluk bir denemede, Fas'ta Sentinel-2 benzeri uydu görüntüleriyle planlanan sulama çiftçinin parseliyle neredeyse aynı buğday verimini %14 daha az suyla aldı.",
+      "en": "In a one-field, one-season trial in Morocco, irrigation scheduled with Sentinel-2-like satellite images gave almost the same wheat yield as the farmer's own plot with 14% less water."
+    }
+  }
+}

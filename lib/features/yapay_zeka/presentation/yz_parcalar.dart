@@ -7,11 +7,15 @@ import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
+import '../data/yz_teknoloji.g.dart';
 import 'yz_tasarim.dart';
 
 /// Bölümün adresleri. Adres ASCII (öteki bölümlerle aynı gerekçe).
 const String yzPath = '/yapay-zeka-dijital-tarim';
 String yzBaslikPath(String slug) => '$yzPath/$slug';
+
+/// Teknolojinin alanlar arası durum sayfası (karar 57).
+String yzTeknolojiPath(String kod) => '$yzPath/teknoloji/$kod';
 
 bool yzIsEn(BuildContext context) =>
     Localizations.localeOf(context).languageCode == 'en';
@@ -205,11 +209,25 @@ class _TeknolojiOzeti extends StatelessWidget {
         : (en
             ? ' Main heading${ana.length > 1 ? 's' : ''}: ${ana.join('; ')}.'
             : ' Asıl konu olduğu başlık${ana.length > 1 ? 'lar' : ''}: ${ana.join('; ')}.');
-    return Text(
-      en
-          ? '$ad comes up in $sayi headings; tap one to open it with the passages marked.$anaMetni'
-          : '$ad $sayi başlıkta geçiyor; açtığınız başlıkta geçtiği yerler işaretli gelir.$anaMetni',
-      style: YzYazi.govde(boy: 15, renk: YzRenk.makine),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          en
+              ? '$ad comes up in $sayi headings; tap one to open it with the passages marked.$anaMetni'
+              : '$ad $sayi başlıkta geçiyor; açtığınız başlıkta geçtiği yerler işaretli gelir.$anaMetni',
+          style: YzYazi.govde(boy: 15, renk: YzRenk.makine),
+        ),
+        if (kYzTeknolojiMetinleri.containsKey(kod))
+          TextButton(
+            style: TextButton.styleFrom(padding: EdgeInsets.zero),
+            onPressed: () => context.push(yzTeknolojiPath(kod)),
+            child: Text(
+              en ? '$ad across agriculture →' : '$ad: alanlar arası durum →',
+              style: YzYazi.veri(boy: 13.5, renk: YzRenk.makine, kalinlik: FontWeight.w700),
+            ),
+          ),
+      ],
     );
   }
 }
@@ -289,6 +307,14 @@ class YzBaslikKarosu extends StatelessWidget {
                     style: YzYazi.baslik(14.5).copyWith(height: 1.25),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis),
+                // Karar 57: seçili teknolojinin bu başlıktaki durumu, tek cümle.
+                if (secili && kYzKesisim[teknoloji]?[baslik.no] != null) ...[
+                  const SizedBox(height: 6),
+                  Text(kYzKesisim[teknoloji]![baslik.no]![en ? 1 : 0],
+                      style: YzYazi.govde(boy: 12.5).copyWith(height: 1.35),
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis),
+                ],
               ],
             ),
           ),

@@ -1,0 +1,45 @@
+{
+  "_ne": "Kesişim notları — Robotik ve otonom sistemler (karar 57)",
+  "notlar": {
+    "1": {
+      "tr": "Otomatik yönlendirme ABD'de altı ana ürünün ekili alanının yarısından fazlasına yayılırken 2014 tarihli bir derlemedeki 50 hasat robotunun hiçbiri ticarileşmemişti; ortalama başarıları %66'ydı.",
+      "en": "While automated guidance spread to more than half the planted acreage of six major US crops, none of the 50 harvesting robots in a 2014 review had been commercialised; their average success was 66%."
+    },
+    "2": {
+      "tr": "Avrupa tarım makineleri sanayi birliği CEMA, robotik ve yapay zekâyı hassas tarımdan iki aşama sonraya, Tarım 5.0'a koyuyor; FAO uydu konumuyla çalışan otomatik dümeni hassas tarımın iyi bir örneği sayıyor.",
+      "en": "CEMA, the association of Europe's farm machinery industry, places robotics and AI two stages after precision farming, in Agriculture 5.0; FAO counts satellite-guided auto-steer as a good example of precision farming."
+    },
+    "10": {
+      "tr": "Bitki robota göre yetiştirildiğinde %61 olan hasat başarısı seranın olağan koşullarında %18'e indi: biber robotu SWEEPER ticari bir serada 262 meyvede sınandı.",
+      "en": "Harvest success was 61% when the crop was grown to suit the robot and 18% under the greenhouse's usual conditions: the SWEEPER pepper robot was tested on 262 fruits in a commercial greenhouse."
+    },
+    "12": {
+      "tr": "Sağım robotu sensör verisiyle 6.600 inekte %98,1 doğrulukla mastitis riski tahmini tek bir çalışmanın sonucu; yapay zekâyla teşhisin birleşik kanıtının kesinliği düşük.",
+      "en": "Predicting mastitis risk in 6,600 cows from milking-robot sensor data with 98.1% accuracy is the result of a single study; the pooled evidence on AI-based detection is of low certainty."
+    },
+    "13": {
+      "tr": "Otonom Sera Yarışması'nda insanın yönettiği referans bölmeyi salatalık turunda beş yapay zekâ ekibinden yalnız biri geçti, çeri domates turunda beşi de.",
+      "en": "In the Autonomous Greenhouse Challenge, the human-run reference compartment was beaten by only one of five AI teams in the cucumber round, and by all five in the cherry tomato round."
+    },
+    "22": {
+      "tr": "Otomatik dümenin ABD'de mısır ekili alanındaki payı 2001'de %5,3'ten 2016'da %58'e çıktı; AB'de otonom çalışabilen robotik çiftliklerin yaklaşık %7'sinde.",
+      "en": "Auto-steer's share of US planted corn acreage rose from 5.3% in 2001 to 58% in 2016; in the EU, robotics capable of autonomous operation is used on about 7% of farms."
+    },
+    "23": {
+      "tr": "Yapay Zekâ Eylem Planı'nın fiziksel yapay zekâ ve robotik programında tarım robotları var; ama planın 16 eyleminin hiçbirinde Tarım ve Orman Bakanlığı ne sorumlu ne iş birliği kurumu.",
+      "en": "The physical AI and robotics programme of the AI Action Plan includes farm robots, yet the Ministry of Agriculture and Forestry is neither lead nor partner in any of the plan's 16 actions."
+    },
+    "25": {
+      "tr": "TÜBİTAK 1711'de desteklenmeye değer bulunan tarım projeleri arasında domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir robot ile meyve hasat robotları için silikon tutucu var.",
+      "en": "Projects found worthy of support under TÜBİTAK 1711 include an autonomous robot to fertilise, spray and harvest in a tomato greenhouse and a silicone gripper for fruit-harvesting robots."
+    },
+    "26": {
+      "tr": "Türkiye'de bakanlığın 2020 anketine göre çiftçilerin %3'ünden azı robotik, sensör ya da sürü yönetimi yazılımı gibi akıllı tarım teknolojilerini kullanıyordu; bunu düzenli ölçen resmî istatistik yok.",
+      "en": "In Türkiye, a 2020 ministry survey found fewer than 3% of farmers using smart farming technologies such as robotics, sensors or herd management software; no official statistic tracks this regularly."
+    },
+    "27": {
+      "tr": "Satın aldığı Root AI'ın robotunu dünyanın ilk evrensel hasat robotu diye tanıtan AppHarvest 2023'te iflas koruması istedi; otonom ot mücadelesi vaat eden Small Robot Company 2024'te tasfiyeye girdi.",
+      "en": "AppHarvest, which billed its acquisition Root AI's robot as the world's first universal harvester, sought bankruptcy protection in 2023; Small Robot Company, promising autonomous weeding, entered liquidation in 2024."
+    }
+  }
+}

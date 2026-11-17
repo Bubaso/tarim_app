@@ -108,6 +108,9 @@ def bloklar(md: str) -> list[tuple[str, str]]:
             while i < len(satirlar) and satirlar[i].strip().startswith(">"):
                 parca.append(re.sub(r"^>\s?", "", satirlar[i].strip(), count=1)); i += 1
             out.append(("ozet", " ".join(parca).strip()))
+        elif re.fullmatch(r"\[\[(grafik|gorsel):[a-z0-9-]+\]\]", t):
+            # Grafik ya da görsel yönergesi (karar 58): metin değil, terim aranmaz.
+            kapat(); out.append(("yonerge", t)); i += 1
         elif t.startswith("|"):
             kapat()
             while i < len(satirlar) and satirlar[i].strip().startswith("|"):

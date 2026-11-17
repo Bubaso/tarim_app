@@ -1,0 +1,214 @@
+{
+  "_ne": "Teknoloji sayfası — Karar destek sistemleri (karar 57)",
+  "guncellendi": "2026-11-17",
+  "kaynaklar": {
+    "lemmon_1986_science": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lemmon H. 1986. Comax: an expert system for cotton crop management. Science 233(4759): 29-33.",
+      "doi": "10.1126/science.233.4759.29",
+      "dosya": "kaynak_dosyalari/lemmon_1986_europepmc.json",
+      "alinti": [
+        "Comax: an expert system for cotton crop management.",
+        "One expert system, Comax, has been developed that acts as an expert in cotton crop management.",
+        "The system has a knowledge base consisting of a sophisticated cotton plant simulation computer program, a set of \"if-then\" rules, and a computer program called an inference engine.",
+        "Sensors in the cotton fields automatically report weather conditions to the system, and Comax reevaluates its recommendations daily.",
+        "Comax was tested on a large farm and demonstrated excellent results in reducing the unit costs of production."
+      ],
+      "_kopya": "b03_kaynaklar.json · lemmon_1986_science"
+    },
+    "lemmon_1986_beltwide": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lemmon H.E. 1986. Cotton Crop Management Expert System - COMAX (özet). 1986 Proceedings: Beltwide Cotton Production Research Conferences, s. 451. Memphis: National Cotton Council.",
+      "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/861.cfm",
+      "dosya": "kaynak_dosyalari/lemmon_1986_beltwide_comax_ozet.html",
+      "gossym_gelistirme": "twelve years",
+      "sayfa": 451,
+      "alinti": [
+        "The Agricultural Research Service of the USDA has developed the cotton Crop Management Expert System--COMAX, which advises cotton growers regarding the application of nitrogen, irrigation and growth regulators.",
+        "The third component to COMAX is a cotton plant model called GOSSYM.",
+        "This model was developed by a team of agriculture researchers over a period of twelve years.",
+        "Reprinted from 1986 Proceedings: Beltwide Cotton Production Research Conferences pg. 451"
+      ],
+      "_kopya": "b03_kaynaklar.json · lemmon_1986_beltwide"
+    },
+    "lambert_1989_beltwide": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lambert J.R. 1989. Crop Simulation for the Analysis and Management of Cotton Production Systems: Extension Applications (özet). Proceedings: 1989 Beltwide Cotton Production Conference, s. 14-15. Memphis: National Cotton Council.",
+      "adres": "https://www.cotton.org/beltwide/proceedings/8395/abstracts/1867.cfm",
+      "dosya": "kaynak_dosyalari/lambert_1989_beltwide_gossym_comax_yayim.html",
+      "ciftci_1988": "Near 150",
+      "yil": 1988,
+      "alinti": [
+        "The program is sufficiently well developed to be used by farmers for realtime decision support in planting date, water and nitrogen management, and defoliation timing.",
+        "Near 150 farmers used the model in 1988 from California to North Carolina.",
+        "USDA ARS and ES have chosen GOSSYM-COMAX as the initial crop simulation model to implement on the farm.",
+        "Reprinted from Proceedings: 1989 Beltwide Cotton Production Conference pp. 14 - 15"
+      ],
+      "_kopya": "b03_kaynaklar.json · lambert_1989_beltwide"
+    },
+    "de_lara_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023. Predicting site-specific economic optimal nitrogen rate using machine learning methods and on-farm precision experimentation. Precision Agriculture 24(5).",
+      "doi": "10.1007/s11119-023-10018-8",
+      "dosya": "kaynak_dosyalari/de_lara_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "deneme_sayisi": 20,
+      "verim_tahmin_hatasi_yuzde": 13.7,
+      "alinti": [
+        "Machine learning (ML) methods such as generalized additive models (GAM) and random forest (RF) are promising methods for estimating yields and EONR.",
+        "Twenty OFPE N trials in wheat and barley were conducted and analyzed with soil, terrain and remote-sensed variables",
+        "Machine learning techniques were able to model wheat and barley yield with an average error of 13.7%",
+        "However, similar yield prediction accuracy from RF and GAM resulted in widely different economic optimal nitrogen rates.",
+        "however, the magnitude and direction of the effect varied between fields.",
+        "These indicate that training a model using data coming from different fields may lead to unreliable site-specific EONR when it is applied to another field."
+      ],
+      "_kopya": "b06_kaynaklar.json · de_lara_2023"
+    },
+    "saikai_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Saikai Y., Peake A., Chenu K. 2023. Deep reinforcement learning for irrigation scheduling using high-dimensional sensor feedback. PLOS Water 2(9): e0000169.",
+      "doi": "10.1371/journal.pwat.0000169",
+      "dosya": "kaynak_dosyalari/saikai_2023_arxiv.xml",
+      "dogrulandigi_yer": "arXiv özeti (dergi künyesi aynı kayıtta)",
+      "tur": "SİMÜLASYON — saha denemesi değil",
+      "egitim_yillari": "1981-2010",
+      "sinama_yillari": "2011-2020",
+      "en_buyuk_kar_artisi_yuzde": 17,
+      "en_buyuk_artis_yili": 2018,
+      "alinti": [
+        "The production system was simulated at Goondiwindi using the APSIM-Wheat crop model.",
+        "After training in the learning environment using 1981-2010 weather data, the learned decision rule was tested individually for each year of 2011-2020.",
+        "The discovered decision rule prescribed daily irrigation amounts that uniformly improved on the conventional rule for all the testing years, and the largest improvement reached 17% in 2018.",
+        "the research on the technique remains sparse and impractical"
+      ],
+      "_kopya": "b07_kaynaklar.json · saikai_2023"
+    },
+    "rti_2017_greenseeker": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lapidus D., Latané A., Ortiz-Monasterio I., Beach R., Cárdenas Castañeda M.E. 2017. The GreenSeeker Handheld: A Research Brief on Farmer Technology Adoption and Disadoption. RTI Press Research Brief RB-0014-1705. Research Triangle Park, NC: RTI Press.",
+      "doi": "10.3768/rtipress.2017.rb.0014.1705",
+      "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+      "pilot_yili": 2006,
+      "kumulatif_alan_ha": "48,000",
+      "ek_kar_usd_ha": 37,
+      "dusus_sezonu": "2015-2016",
+      "kotu_iklim_yil": 35,
+      "alinti": [
+        "The Yaqui Valley is Mexico’s largest wheat-producing region, and it is agro-ecologically similar to 40% of the developing world’s wheat production.",
+        "Wheat farmers throughout the Yaqui Valley in Sonora, Mexico, have widely adopted the GreenSeeker Handheld crop sensor to help them apply the right amount of nitrogen fertilizer, reducing their input costs and helping to increase their agricultural profits.",
+        "To address these issues, the International Maize and Wheat Improvement Center (CIMMYT) collaborated with Oklahoma State University to design an in-field, handheld, low-cost N diagnostic tool that provides site-specific fertilizer recommendations to farmers.",
+        "Since the initial pilot phase in 2006, farmers have applied the technology to more than 48,000 cumulative hectares of land throughout the Yaqui Valley (see regional distribution of application over last 3 years in Figure 1).",
+        "Initial data analysis conducted by RTI and CIMMYT reveals that the tool has led to $37 in additional farmer profits per hectare, totaling $1.8M of additional profits over an 8-year time period (see Table 1).",
+        "These are farm level revenues and costs and thus do not include the costs of the technology nor the GreenSeeker technician’s time.",
+        "So why did adoption in the Yaqui Valley decline in 2015–2016 rather than expand?",
+        "Because the credit unions even sell fertilizer to farmers, they have a disincentive to approve changes that result in less fertilizer being applied.",
+        "These technicians received a bonus of 120 pesos per hectare of sensor technology transferred.",
+        "The umbrella organization for the farmer credit unions, AOASS, had a change in leadership prior to the 2015–2016 growing season, coinciding with the worst climatic conditions in more than 35 years, resulting in extremely low yields.",
+        "Funding to support continued GreenSeeker Handheld diagnostics by farmer advisors began to decrease.",
+        "Despite the sustained farmer profits and the environmental benefits, these factors may have contributed to the farmer credit unions withdrawing their support prior to the 2015–2016 growing season.",
+        "The GreenSeeker Handheld has provided increased profits to Yaqui Valley farmers and environmental benefits in terms of reduced greenhouse gas emissions, but that has not been enough to ensure adoption."
+      ],
+      "_kopya": "b28_kaynaklar.json · rti_2017_greenseeker"
+    },
+    "lapidus_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lapidus D., Salem M.E., Beach R.H., Zayed S., Ortiz-Monasterio I. 2022. Greenhouse gas mitigation benefits and profitability of the GreenSeeker Handheld NDVI sensor: evidence from Mexico. Precision Agriculture 23(6): 2388–2406.",
+      "doi": "10.1007/s11119-022-09925-z",
+      "dosya": "kaynak_dosyalari/lapidus_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tarla": "2,000",
+      "alan_ha": "60,000",
+      "ek_kar_milyon_usd": 2.6,
+      "onlenen_emisyon_ton": "14,300",
+      "alinti": [
+        "The GreenSeeker Handheld is a low-cost technology that can be used to improve the efficiency of fertilizer applications by providing farmers with recommendations for the amount of nitrogen (N) to apply mid-season to meet the needs of their crops.",
+        "The technology has been utilized on nearly 2,000 farmer fields representing more than 60,000 hectares in three regions of Mexico.",
+        "Specifically, farmer field-level data and locally derived greenhouse gas emission factors were analyzed and use of the GreenSeeker Handheld was estimated to have led to a total of $2.6 M USD in additional profits and more than 14,300 tons CO2e of avoided emissions.",
+        "However, not all farmers utilizing this technology followed the resulting recommendations.",
+        "Participating farmers that did not follow the recommendations experienced lower profits, indicating that benefits would have been larger had participants applied fertilizer at the levels recommended for their fields.",
+        "However, development and implementation of the technology had been supported by subsidies and further efforts would be needed to make it sustainable."
+      ],
+      "_kopya": "b28_kaynaklar.json · lapidus_2022"
+    },
+    "tob_2024_karar_destek": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 29.03.2024. Orman Yangınlarıyla Mücadelede Kullanılan Yapay Zekâ Sistemi Uluslararası Ödüle Aday (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
+      "dosya": "kaynak_dosyalari/tob_2024_yangin_karar_destek.html",
+      "kullanim_baslangici": 2022,
+      "_odul": "Haber adaylığı duyuruyor; sistemin ödülü kazandığı birincil kaynakta (ITU kazanan listesi) doğrulanamadı. Metin yalnız adaylığı yazar.",
+      "alinti": [
+        "Tarım ve Orman Bakanlığının orman yangınlarıyla mücadele çalışmalarında kullandığı Karar Destek Sistemi, Birleşmiş Milletlere bağlı Uluslararası Telekomünikasyon Birliğince “Dünya Bilgi Toplumu Zirvesi Ödülleri\"ne aday gösterildi.",
+        "Orman Genel Müdürlüğünün (OGM) 2022'den beri kullandığı yerli ve milli imkanlarla geliştirilen Karar ve Destek Sitemi",
+        "Sistemle meteorolojik veriler, ORBİS verileri, İHA ve uydu görüntüleri bir araya getirilerek orman yangınlarıyla mücadeleye büyük güç katıyor.",
+        "Karar Destek Sistemi ile meteorolojik veriler doğrultusunda orman yangını çıkma ihtimali ve meydana gelen orman yangınının sebebiyle ilgili tahminde bulunulabiliyor.",
+        "Değişen koşulları sürekli olarak analiz eden yapay zekâ destekli Karar Destek Sistemi, yangının anlık olarak davranışını ve ilerleyişini öngörebiliyor."
+      ],
+      "_kopya": "b15_kaynaklar.json · tob_2024_karar_destek"
+    },
+    "wardami_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Wardamı A.H.H., Erşahin S., Karahan G. 2024. Variable rate phosphorus fertilizer recommendations for rainfed wheat. Mediterranean Agricultural Sciences 37(1).",
+      "doi": "10.29136/mediterranean.1199628",
+      "dosya": "kaynak_dosyalari/wardami_ersahin_karahan_2024_fosfor.pdf",
+      "alan_ha": 300,
+      "merkeze_uzaklik_km": 20,
+      "kuru_tarim_yili_en_az": 70,
+      "toprak_ornegi": 155,
+      "fosfor_degiskenlik_katsayisi_yuzde": 21.3,
+      "bolge_sayisi": 3,
+      "alt_bolge_sayisi": 5,
+      "alinti": [
+        "This study was carried out on a 300 -ha sloping farmland, located 20 km from the center of Çankırı",
+        "The area has been under rainfed winter wheat production for more than 70 years.",
+        "The soils were sampled (155 samples) using a random spatial sampling technique",
+        "The values of P av showed moderate variablity (CV= 21.3%).",
+        "the area was divided into three uniform zones (low, medium, high) for fertilizer P application",
+        "The fertilizer recommended by the Ministry of Agriculture and Forestry (MAF) was calculated for five identical ly-sized sub - regions.",
+        "The results showed that P fertilizer rates calculated for all five sub -regions based on MAF were identical, suggesting that the MAF was insensitive to spatial variability of Pav in the study soils.",
+        "A more comprehensive study is needed to evaluate the efficiency and cost-benefit economics of variable P application in the study soils."
+      ],
+      "_kopya": "b06_kaynaklar.json · wardami_2024"
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "sulama_orani_yuzde": {
+        "2025": 68,
+        "2026_tahmin": 71,
+        "2027_hedef": 72
+      },
+      "sulamaya_acilan_alan_milyon_ha": {
+        "2025": 7.28,
+        "2026_tahmin": 7.34,
+        "2027_hedef": 7.4
+      },
+      "yeni_sulama_bin_ha": 61,
+      "kapali_boru_bin_ha": 16,
+      "modern_sulama_hibesi_bin_ha": 30,
+      "elektronik_olcum_tesis": 100,
+      "su_kisitli_il": 11,
+      "su_kisitli_ilce": 52,
+      "takis_periyot_gun": 7,
+      "takis_tahmin_ufku": "1-4 hafta",
+      "takis_tahmin_yili": 2027,
+      "alinti": [
+        "Performans Göstergeleri Birim 2025 2026 (1) 2027 (2)",
+        "Sulama Oranı (5) Yüzde 68 71 72",
+        "Sulamaya Açılan Brüt Tarımsal Alan (Kümülatif) Milyon Hektar 7,28 7,34 7,40",
+        "Öncelik seti çerçevesinde 61 bin hektar alan sulamaya açılacaktır.",
+        "16 bin hektar alanda mevcut açık kanal sulama şebekelerinin kapalı borulu sisteme dönüştürülmesi çalışmaları tamamlanacaktır.",
+        "30 bin hektar alanda yağmurlama ve damla sulama gibi tarla içi modern sulama sistemlerinin kurulumuna yönelik hibe desteği verilecektir.",
+        "100 tesise elektronik ölçüm sistemi takılacaktır.",
+        "Dijital Sulama Yönetim Sisteminin Geliştirilmesi Projesi (DİSU) tamamlanacaktır.",
+        "sulama yönetiminde karar destek sistemlerinin kullanımı ve uygulamayı destekleyici mevzuat çalışmaları sürdürülecektir.",
+        "Su kısıtı olan 11 ilin 52 ilçesinde, su tüketimi az olan bazı ürünlere ilave destek verilerek yer altı su kaynaklarının sürdürülebilir kullanımının sağlanması hedeflenmektedir.",
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır."
+      ],
+      "_kopya": "b07_kaynaklar.json · yillik_program_2027"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "_ne": "Kesişim notları — Karar destek sistemleri (karar 57)",
+  "notlar": {
+    "2": {
+      "tr": "ERS karar destek araçlarını dijital tarımın üç bileşeninden biri sayıyor; ISPA ise hassas tarımı bir teknoloji olarak değil, yönetim kararlarını destekleyen bir strateji olarak tanımlıyor.",
+      "en": "ERS counts decision support tools among the three components of digital agriculture, while ISPA defines precision agriculture not as a technology but as a strategy that supports management decisions."
+    },
+    "6": {
+      "tr": "Çankırı'da 300 hektarlık bir arazide fosforun değişkenlik katsayısı %21,3 iken Bakanlığın gübre tavsiye yöntemi beş alt bölgenin hepsine birebir aynı dozu verdi.",
+      "en": "On 300 hectares near Çankırı where phosphorus had a coefficient of variation of 21.3%, the ministry's fertiliser recommendation method gave exactly the same rate to all five sub-regions."
+    },
+    "7": {
+      "tr": "Derin pekiştirmeli öğrenmeyle kurulan bir sulama kuralı kârı bütün sınama yıllarında artırdı, en çok 2018'de %17; sonuç bir saha denemesinden değil, bir bitki büyüme modeliyle yapılan simülasyondan.",
+      "en": "An irrigation rule built with deep reinforcement learning raised profit in every test year, most of all in 2018, by 17%; the result comes not from a field trial but from a simulation with a crop growth model."
+    },
+    "15": {
+      "tr": "Orman Genel Müdürlüğü 2022'den beri meteoroloji, ORBİS, İHA ve uydu verisini birleştiren yapay zekâ destekli bir karar destek sistemi kullanıyor; yangına etkisini ölçen bağımsız bir değerlendirme yayımlanmadı.",
+      "en": "Since 2022 the General Directorate of Forestry has used an AI-supported decision support system combining weather, ORBİS, drone and satellite data; no independent assessment of its effect on fires has been published."
+    },
+    "23": {
+      "tr": "Kalkınma Planı'nın 505. paragrafına bağlı sulama politikasında Dijital Sulama Yönetim Sistemi tamamlanacak, işletmedeki sulama tesislerinde otomasyon ve karar destek sistemleri devreye girecek.",
+      "en": "Under the irrigation policy linked to paragraph 505 of the Development Plan, the Digital Irrigation Management System is to be completed and automation and decision support introduced at irrigation facilities."
+    }
+  }
+}

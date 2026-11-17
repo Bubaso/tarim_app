@@ -1,0 +1,21 @@
+# Robotics and autonomy
+
+In agriculture, robotics has two report cards, depending on how orderly the task and its setting are. Steering a tractor by satellite positioning spread fast: in the US, auto-steer was used on **5.3%** of planted corn acreage in 2001 and on **58%** in 2016. Picking a single fruit from among the leaves, by contrast, has failed to leave the laboratory for decades: the **50** harvesting robots in a review published in 2014 had an average success of **66%**, and none had been commercialised. Published harvesting-robot research from Türkiye is at the stage of recognising fruit in images, and an autonomous greenhouse robot is in development.
+
+## A demonstration field, a greenhouse contest
+
+Full autonomy has spread relatively little: according to Eurostat, about **7%** of EU farms used robotics able to operate without direct human intervention in 2023. A field without people is so far a demonstration. In 2017 the Hands Free Hectare project in England grew spring barley from sowing to harvest using only autonomous vehicles and drones: it yielded **4.5** tonnes against a predicted **5**, at a cost of less than **200,000** pounds.
+
+When conditions are under control, an algorithm can compete with a grower. In the Autonomous Greenhouse Challenge, teams ran compartments remotely with their own AI: in the first round, with cucumber, only one of five teams beat the human-run reference compartment; in the second, with cherry tomato, all five did (Hemming and colleagues, 2019 and 2020). But the results come from small experimental compartments (**96** m² in the first round) and rounds lasting a few months.
+
+## The hand that picks the fruit
+
+A harvesting robot must find the fruit, reach it through the branches and detach it without bruising. The robots compared by Bac and colleagues (2014) located fruit with an average success of **85%** and detached it with **75%**; one fruit took **33** seconds, and performance had not improved in three decades. When the pepper robot SWEEPER was tested on **262** fruits in a commercial greenhouse, success was **61%** with the crop grown in the conditions best suited to the robot and **18%** under the greenhouse's usual conditions (Arad and colleagues, 2020). That locating succeeds more often than detaching suggests the bottleneck is the hand, not the eye. According to a 2022 review by Zhou and colleagues, widespread use of harvesting robots in orchards is still not in sight.
+
+Some companies that invested in robots and AI did not survive. On 8 April 2021 AppHarvest announced that it had bought the agricultural robotics and AI company Root AI and presented its robot Virgo as the world's first universal harvester; on 23 July 2023 it sought bankruptcy protection in the US. In 2020 Small Robot Company aimed to show that it could kill weeds autonomously without chemicals; according to the UK companies register, it went into liquidation on 1 February 2024. Of the **27** digital automation service providers FAO examined, only **10** were profitable, and they mostly served large-scale producers.
+
+## Combines in the field, robots in projects
+
+In Türkiye, harvesting machinery is conventional: the ministry counted **1,610,133** tractors and **21,116** combine harvesters in 2025. The 2027 Programme writes that small, fragmented and scattered landholdings make mechanisation harder; rural development support also aims to spread robotics and automation, with grants covering **50-70%** of the project amount. The physical AI and robotics programme of the Türkiye AI Action Plan (2026-2030) includes farm robots, but the Ministry of Agriculture and Forestry is absent from all **16** of the plan's actions.
+
+In two 2024 studies, Kahya of Tekirdağ Namık Kemal University trained models that recognise fruit in images for harvesting eggplant and courgette; whether a robot could detach the fruit was not measured. A project found worthy of support under TÜBİTAK's 1711 AI Ecosystem Call is developing an autonomous robot to fertilise, spray and harvest in a tomato greenhouse: it started on 1 January 2026 and is planned to finish at the end of 2027. According to a 2020 ministry survey, fewer than **3%** of farmers used smart farming technologies such as robotics.

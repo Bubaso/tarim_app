@@ -1,0 +1,29 @@
+{
+  "_ne": "Kesişim notları — Veri platformları (karar 57)",
+  "notlar": {
+    "3": {
+      "tr": "Dünya Bankası'nın Türkiye'nin temel kırsal veri tabanı dediği Ulusal Çiftçi Kaydı, 2000 tarım yılında beş köyde yapılan pilotun ardından doğrudan gelir desteğiyle birlikte kuruldu.",
+      "en": "The National Registry of Farmers, which the World Bank calls Türkiye's basic rural database, was created together with direct income support after a pilot in five villages in the 2000 agricultural year."
+    },
+    "16": {
+      "tr": "Sebze ve meyvede izlenebilirlik blokzincirle değil merkezî bir kayıtla sağlanıyor: kilogramla satışta 100 kilogram ve üzerindeki her sevkiyat, sevkten önce Hal Kayıt Sistemi'ne bildiriliyor.",
+      "en": "Traceability for fruit and vegetables rests not on blockchain but on a central register: every consignment of 100 kilograms or more sold by weight is notified to the Wholesale Market Registration System before shipment."
+    },
+    "19": {
+      "tr": "USGS'nin değerlemesine göre Landsat görüntülerinin faydası 2017'de 3,45 milyar dolardı ve büyük kısmı açık veri politikasından geliyor; ücret konursa kullanıcıların %50'den fazlasının ödemeyi reddetmesi bekleniyor.",
+      "en": "By the USGS's valuation, Landsat imagery yielded 3.45 billion dollars in benefits in 2017, much of it owed to the open data policy; with fees, more than 50% of users are expected to decline to pay."
+    },
+    "21": {
+      "tr": "Bir seçim deneyinde çiftçilerin ortalama %36'sı çiftlik verisini büyük bir veri platformuyla paylaşmaya istekliydi; verilerini en çok üniversite araştırmacılarıyla, en az devletle paylaşmak istediler.",
+      "en": "In a choice experiment, on average 36% of farmers were willing to share their farm data with a big data platform; they were most willing to share with university researchers and least with government."
+    },
+    "24": {
+      "tr": "AB Veri Tüzüğü 12 Eylül 2025'ten beri bağlantılı makinenin verisine kullanıcı erişimini hak olarak tanıyor; gerekçesine göre veriyi tutan şirket çiftliğin performans bilgisini pazarlıkta çiftçinin aleyhine kullanmamalı.",
+      "en": "Since 12 September 2025 the EU Data Act has given users a right of access to their connected machine's data; its recitals say the data holder should not use a farm's performance data against the farmer in negotiations."
+    },
+    "25": {
+      "tr": "Tarımın dijital kayıt katmanı kamunun elinde: ÇKS üretim alanlarını ve üreticileri, HKS sebze ve meyve ticaretini, B-Reçete de 1 Temmuz 2026'dan beri 81 ilde bitki koruma ürünü reçetelerini kaydediyor.",
+      "en": "Agriculture's digital record layer is in public hands: ÇKS registers farmland and producers, HKS the fruit and vegetable trade, and B-Reçete, since 1 July 2026, plant protection prescriptions in 81 provinces."
+    }
+  }
+}

@@ -38,6 +38,7 @@ import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_parcalar.dart';
+import '../../features/yapay_zeka/presentation/yz_teknoloji_ekrani.dart';
 import '../../features/yapay_zeka/data/yz_iskelet.g.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -158,6 +159,7 @@ class CategoryArgs {
   if (page is TniEkrani) return (path: turkuazPath, extra: null);
   if (page is YzMerkezEkrani) return (path: yzPath, extra: null);
   if (page is YzBaslikEkrani) return (path: yzBaslikPath(page.slug), extra: null);
+  if (page is YzTeknolojiEkrani) return (path: yzTeknolojiPath(page.kod), extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
   if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
@@ -433,6 +435,11 @@ final appRouter = GoRouter(
       GoRoute(
         path: yzPath,
         pageBuilder: (context, state) => _fadePage(state, const YzMerkezEkrani()),
+      ),
+      GoRoute(
+        path: '$yzPath/teknoloji/:kod',
+        pageBuilder: (context, state) => _fadePage(
+            state, YzTeknolojiEkrani(kod: state.pathParameters['kod'] ?? '')),
       ),
       GoRoute(
         path: '$yzPath/:slug',

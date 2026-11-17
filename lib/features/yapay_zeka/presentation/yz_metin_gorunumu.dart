@@ -6,6 +6,9 @@ import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_sozluk.g.dart';
 
+import '../data/yz_grafikler.g.dart';
+import 'yz_gorsel.dart';
+import 'yz_grafik.dart';
 import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
 import 'yz_teknoloji_izi.dart';
@@ -26,7 +29,9 @@ import 'yz_teknoloji_izi.dart';
 ///
 /// Tanınmayan biçim (liste, bağlantı) DÜZ METİN olarak çizilir — sessizce
 /// yutulmaz. Metin dogrula_bolumler.py'den geçerek buraya geliyor.
-enum YzBlokTuru { ozet, altBaslik, paragraf, tablo }
+/// `grafik` ve `gorsel`: `[[grafik:<kimlik>]]` / `[[gorsel:<kimlik>]]` yönerge
+/// satırı (karar 58); metin değil, terim ve teknoloji aranmaz.
+enum YzBlokTuru { ozet, altBaslik, paragraf, tablo, grafik, gorsel }
 
 class YzBlok {
   const YzBlok(this.tur, {this.metin = '', this.satirlar = const []});
@@ -46,6 +51,8 @@ List<String> _hucreler(String satir) {
 
 bool _ayiracMi(String satir) =>
     RegExp(r'^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$').hasMatch(satir.trim());
+
+final RegExp _yonerge = RegExp(r'^\[\[(grafik|gorsel):([a-z0-9-]+)\]\]$');
 
 /// Metni bloklara ayırır. Testler doğrudan bunu sınıyor.
 List<YzBlok> yzAyristir(String md) {
@@ -70,6 +77,12 @@ List<YzBlok> yzAyristir(String md) {
     } else if (t.startsWith('# ')) {
       paragrafiKapat();
       i++; // sayfa başlığı
+    } else if (_yonerge.hasMatch(t)) {
+      paragrafiKapat();
+      final m = _yonerge.firstMatch(t)!;
+      bloklar.add(YzBlok(m.group(1) == 'grafik' ? YzBlokTuru.grafik : YzBlokTuru.gorsel,
+          metin: m.group(2)!));
+      i++;
     } else if (t.startsWith('## ')) {
       paragrafiKapat();
       bloklar.add(YzBlok(YzBlokTuru.altBaslik, metin: t.substring(3).trim()));
@@ -406,6 +419,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                   child: SelectableText.rich(yzSatirIci(_bloklar[i].metin, govde,
                       etkilesim: etkilesim, isaretler: _isaretler[i])),
                 ),
+          YzBlokTuru.grafik => kYzGrafikler[_bloklar[i].metin] == null
+              ? const SizedBox.shrink()
+              : YzGrafikKarti(grafik: kYzGrafikler[_bloklar[i].metin]!, en: en),
+          YzBlokTuru.gorsel => kYzGorseller[_bloklar[i].metin] == null
+              ? const SizedBox.shrink()
+              : YzGorselKarti(gorsel: kYzGorseller[_bloklar[i].metin]!, en: en),
           YzBlokTuru.tablo => Padding(
               key: _anahtar[i],
               padding: const EdgeInsets.only(top: 4, bottom: 22),

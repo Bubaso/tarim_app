@@ -270,8 +270,130 @@ def main() -> int:
                        capture_output=True, timeout=60)
     except Exception:
         pass
+    # ── teknoloji sayfaları ve kesişim notları (karar 57) ─────────────
+    # Sayfa: teknolojiler/<kod>.{tr,en}.md, tarihi tek_<kod>_kaynaklar.json'dan.
+    # Not: _raw/kesisim_<kod>.json. Eksik olan atlanıyor (dogrula_bolumler.py
+    # eksiği yakalıyor); çizici olmayanı göstermiyor.
+    TEK = KOK / "lib/features/yapay_zeka/data/yz_teknoloji.g.dart"
+    raw = KOK / "content/yapay_zeka_dijital_tarim/_raw"
+    sayfa_klasoru = KOK / "content/yapay_zeka_dijital_tarim/teknolojiler"
+    k = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+         "// Kaynak: content/yapay_zeka_dijital_tarim/teknolojiler/*.md, _raw/tek_*_kaynaklar.json,",
+         "//         _raw/kesisim_*.json",
+         "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+         "//",
+         "// Teknoloji ekseni (karar 57): her teknolojinin alanlar arası durum sayfası",
+         "// ve her teknoloji–başlık kesişiminin tek cümlelik notu.",
+         "",
+         "class YzTeknolojiMetni {",
+         "  const YzTeknolojiMetni(this.kod, this.tr, this.en, this.guncellendi);",
+         "  final String kod;",
+         "  final String tr;",
+         "  final String en;",
+         "",
+         "  /// Kaydın en son okunduğu gün (YYYY-AA-GG).",
+         "  final String guncellendi;",
+         "",
+         "  String metin(bool isEn) => isEn ? en : tr;",
+         "}",
+         "",
+         "const Map<String, YzTeknolojiMetni> kYzTeknolojiMetinleri = {"]
+    sayfa_sayisi = 0
+    for kod in d["teknoloji"]:
+        tr_yol, en_yol = sayfa_klasoru / f"{kod}.tr.md", sayfa_klasoru / f"{kod}.en.md"
+        kayit_yol = raw / f"tek_{kod}_kaynaklar.json"
+        if not (tr_yol.exists() and en_yol.exists() and kayit_yol.exists()):
+            continue
+        tarih = json.loads(kayit_yol.read_text(encoding="utf-8")).get("guncellendi", "")
+        k.append(f"  {dizgi(kod)}: YzTeknolojiMetni({dizgi(kod)},")
+        k.append(f"      {dizgi(tr_yol.read_text(encoding='utf-8'))},")
+        k.append(f"      {dizgi(en_yol.read_text(encoding='utf-8'))},")
+        k.append(f"      {dizgi(tarih)}),")
+        sayfa_sayisi += 1
+    k.append("};")
+    k.append("")
+    k.append("/// Kesişim notları: {teknoloji: {başlık no: [tr, en]}}.")
+    k.append("const Map<String, Map<int, List<String>>> kYzKesisim = {")
+    not_sayisi = 0
+    for kod in d["teknoloji"]:
+        yol = raw / f"kesisim_{kod}.json"
+        if not yol.exists():
+            continue
+        notlar = json.loads(yol.read_text(encoding="utf-8")).get("notlar", {})
+        k.append(f"  {dizgi(kod)}: {{")
+        for no in sorted(notlar, key=int):
+            n = notlar[no]
+            k.append(f"    {int(no)}: [{dizgi(n.get('tr', ''))}, {dizgi(n.get('en', ''))}],")
+            not_sayisi += 1
+        k.append("  },")
+    k.append("};")
+    k.append("")
+    TEK.write_text("\n".join(k), encoding="utf-8")
+
+    # ── grafikler (karar 58) ───────────────────────────────────────────
+    # _raw/grafikler.json → yz_grafikler.g.dart. Değerler kayda karşı
+    # dogrula_bolumler.py (kural 11) ile sınanıyor; burada yalnız gömülüyor.
+    GRAFIK = KOK / "lib/features/yapay_zeka/data/yz_grafikler.g.dart"
+    gyol = raw / "grafikler.json"
+    grafikler = json.loads(gyol.read_text(encoding="utf-8")).get("grafikler", {}) if gyol.exists() else {}
+    def ikidil(x, a):
+        v = x.get(a) or {}
+        return dizgi(v.get("tr", "")), dizgi(v.get("en", ""))
+    gr = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+          "// Kaynak: content/yapay_zeka_dijital_tarim/_raw/grafikler.json",
+          "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+          "//",
+          "// Grafikler (karar 58): her değer bir kaydın sayısal alanından.",
+          "",
+          "import 'yz_grafik_veri.dart';",
+          "",
+          "const Map<String, YzGrafik> kYzGrafikler = {"]
+    for kimlik, x in grafikler.items():
+        bt, be = ikidil(x, "baslik")
+        at, ae = ikidil(x, "aciklama")
+        kt, ke = ikidil(x, "kaynak")
+        brt, bre = ikidil(x, "birim")
+        gr.append(f"  {dizgi(kimlik)}: YzGrafik(")
+        gr.append(f"    kimlik: {dizgi(kimlik)},")
+        gr.append(f"    tur: {dizgi(x['tur'])},")
+        gr.append(f"    baslikTr: {bt}, baslikEn: {be},")
+        gr.append(f"    aciklamaTr: {at}, aciklamaEn: {ae},")
+        gr.append(f"    kaynakTr: {kt}, kaynakEn: {ke},")
+        gr.append(f"    birimTr: {brt}, birimEn: {bre},")
+        gr.append(f"    satici: {'true' if x.get('satici') else 'false'},")
+        gr.append("    diziler: [")
+        for dz in x.get("diziler", []):
+            gr.append(f"      YzGrafikDizi({dizgi(dz['kod'])}, {dizgi(dz['tr'])}, {dizgi(dz['en'])}),")
+        gr.append("    ],")
+        gr.append("    noktalar: [")
+        for n in x.get("noktalar", []):
+            kt_, ke_ = dizgi(n["kategori"]["tr"]), dizgi(n["kategori"]["en"])
+            uc = f", {dizgi(n['uc'])}" if n.get("uc") else ""
+            gr.append(f"      YzGrafikNokta({kt_}, {ke_}, {dizgi(n.get('dizi', ''))}, {float(n['deger'])!r}{uc}),")
+        gr.append("    ],")
+        gr.append("  ),")
+    gr.append("};")
+    gr.append("")
+    # Görseller (karar 58): _raw/gorseller.json; dosyalar web/yz/gorsel/ altında.
+    vyol = raw / "gorseller.json"
+    gorseller = json.loads(vyol.read_text(encoding="utf-8")).get("gorseller", {}) if vyol.exists() else {}
+    gr.append("const Map<String, YzGorsel> kYzGorseller = {")
+    for kimlik, x in gorseller.items():
+        kt, ke = ikidil(x, "kunye")
+        st, se = ikidil(x, "kaynak")
+        adres = "/" + x["dosya"].removeprefix("web/")
+        gr.append(f"  {dizgi(kimlik)}: YzGorsel(kimlik: {dizgi(kimlik)}, adres: {dizgi(adres)},")
+        gr.append(f"      genislik: {int(x.get('genislik', 0))}, yukseklik: {int(x.get('yukseklik', 0))},")
+        gr.append(f"      kunyeTr: {kt}, kunyeEn: {ke}, kaynakTr: {st}, kaynakEn: {se},")
+        gr.append(f"      yapayZeka: {'true' if x.get('yapay_zeka') else 'false'}),")
+    gr.append("};")
+    gr.append("")
+    GRAFIK.write_text("\n".join(gr), encoding="utf-8")
+
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
+    print(f"✓ {GRAFIK.relative_to(KOK)} · {len(grafikler)} grafik, {len(gorseller)} görsel")
+    print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")
     print(f"✓ {SOZLUK.relative_to(KOK)} · {len(terimler)} terim")
     print(f"✓ okura {'AÇIK' if acik else 'KAPALI'} (yayin.json) · eşik: {yayin.get('acilis_esigi')} · eksik {len(eksik)} başlık")

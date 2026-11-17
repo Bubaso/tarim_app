@@ -19,6 +19,8 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' sho
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_izi.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_ekrani.dart';
+import 'package:tarim_app/features/yapay_zeka/data/yz_teknoloji.g.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -433,6 +435,8 @@ devam ediyor.
       expect(t.takeException(), isNull);
       final dilSayisi = kYzBasliklar.where((b) => b.teknoloji.contains('dil')).length;
       expect(find.textContaining('Dil modelleri $dilSayisi başlıkta geçiyor'), findsOneWidget);
+      expect(find.text('Dil modelleri: alanlar arası durum →'), findsOneWidget,
+          reason: 'teknoloji sayfasına bağlantı');
       expect(find.textContaining('yerde geçiyor'), findsWidgets);
     });
 
@@ -649,6 +653,50 @@ devam ediyor.
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       expect(find.textContaining('places on this page'), findsNothing);
+    });
+  });
+
+  group('teknoloji sayfaları ve kesişim notları (karar 57)', () {
+    test('her teknolojinin sayfası ve her etiketli kesişimin notu var', () {
+      for (final kod in kYzTeknoloji.keys) {
+        final m = kYzTeknolojiMetinleri[kod];
+        expect(m, isNotNull, reason: '$kod: teknoloji sayfası yok');
+        for (final metin in [m!.tr, m.en]) {
+          final b = yzAyristir(metin);
+          expect(b.first.tur, YzBlokTuru.paragraf, reason: '$kod: metin doğrudan başlamıyor');
+          expect(metin.contains(RegExp(r'§\d')), isFalse, reason: '$kod: § göndermesi');
+        }
+        final etiketli = {for (final b in kYzBasliklar) if (b.teknoloji.contains(kod)) b.no};
+        expect((kYzKesisim[kod] ?? const {}).keys.toSet(), etiketli,
+            reason: '$kod: notlar etiketli başlıklarla birebir değil');
+      }
+    });
+
+    for (final olcu in const [Size(360, 800), Size(1280, 900)]) {
+      for (final dil in const ['tr', 'en']) {
+        testWidgets('teknoloji sayfaları · $dil · ${olcu.width.toInt()} piksel · taşmıyor',
+            (t) async {
+          t.view.physicalSize = olcu;
+          t.view.devicePixelRatio = 1;
+          addTearDown(t.view.reset);
+          for (final kod in kYzTeknoloji.keys) {
+            await t.pumpWidget(_sarmala(YzTeknolojiEkrani(kod: kod), dil: dil));
+            await t.pumpAndSettle();
+            expect(t.takeException(), isNull, reason: kod);
+            expect(find.text(kYzTeknoloji[kod]![dil]!), findsOneWidget, reason: kod);
+            final etiketli = kYzBasliklar.where((b) => b.teknoloji.contains(kod)).length;
+            expect(find.byType(YzKesisimSatiri, skipOffstage: false), findsNWidgets(etiketli),
+                reason: '$kod: geçtiği başlıklar');
+            await t.pumpWidget(const SizedBox());
+          }
+        });
+      }
+    }
+
+    testWidgets('bilinmeyen teknoloji: çökmüyor', (t) async {
+      await t.pumpWidget(_sarmala(const YzTeknolojiEkrani(kod: 'yok')));
+      await t.pumpAndSettle();
+      expect(find.text('Böyle bir teknoloji yok.'), findsOneWidget);
     });
   });
 

@@ -1,0 +1,310 @@
+{
+  "_ne": "Teknoloji sayfası — Sensörler ve nesnelerin interneti (karar 57)",
+  "guncellendi": "2026-11-17",
+  "kaynaklar": {
+    "datta_taghvaeian_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Datta S., Taghvaeian S. 2023. Soil water sensors for irrigation scheduling in the United States: A systematic review of literature. Agricultural Water Management 278, 108148.",
+      "doi": "10.1016/j.agwat.2023.108148",
+      "dosya": "kaynak_dosyalari/datta_taghvaeian_2023_ideas.html",
+      "dogrulandigi_yer": "yayıncı özeti, IDEAS/RePEc kaydı",
+      "tur": "sistematik derleme — ABD, son yirmi yıl",
+      "tasarruf_bitki_sicakligina_gore_yuzde": 1,
+      "tasarruf_geleneksele_gore_yuzde": 38,
+      "alinti": [
+        "identify and analyze related literature published in the United States in the past two decades",
+        "The results showed that SWS accuracy was most susceptible to sensor calibration.",
+        "SWS-based scheduling resulted in water saving, with average amounts ranging from 1 % when compared to canopy temperature methods to 38 % in case of traditional approaches.",
+        "SWS-based scheduling led to larger or similar yields compared to other scheduling methods."
+      ],
+      "_kopya": "b07_kaynaklar.json · datta_taghvaeian_2023"
+    },
+    "aula_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Aula L., Omara P., Nambi E., Oyebiyi F.B., Raun W.R. 2020. Review of active optical sensors for improving winter wheat nitrogen use efficiency. Agronomy 10(8): 1157.",
+      "doi": "10.3390/agronomy10081157",
+      "dosya": "kaynak_dosyalari/aula_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "derleme — kışlık buğday, sensörle azot yönetimi",
+      "calisma_sayisi": 26,
+      "azot_etkinligi_artisi_yuzde": 10.4,
+      "en_cok_azot_tasarrufu_kg_ha": 53,
+      "alinti": [
+        "The study included 26 peer-reviewed articles with data on NUE and grain yield.",
+        "This approach improved NUE by approximately 10.4% (±2.3%) when compared to the conventional method.",
+        "Grain yield was similar for both approaches of N management.",
+        "Optical sensors could save as much as 53 (±16) kg N ha−1.",
+        "This gain alone may not be adequate for increased adoption"
+      ],
+      "_kopya": "b06_kaynaklar.json · aula_2020"
+    },
+    "kortbein_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kortbein S.L., Bathke K.J., Luck J.D., Puntel L., Thompson L.J., Balboa G.R. 2026. Active crop canopy sensors improve nitrogen use efficiency in dryland maize. Frontiers in Agronomy.",
+      "doi": "10.3389/fagro.2025.1722488",
+      "dosya": "kaynak_dosyalari/kortbein_2026_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "tur": "saha denemesi — Nebraska, sulanmayan mısır",
+      "tarla_sayisi": 9,
+      "deneme_yillari": "2019-2020",
+      "azot_azalisi_kg_ha": 38.7,
+      "verim_kaybi_olmayan_tarla_yuzde": 77,
+      "kar_avantajli_tarla_yuzde": 35,
+      "alinti": [
+        "in field trials on nine non-irrigated maize (Zea mays L.) sites in eastern Nebraska, where rainfall often limits yield (2019–2020)",
+        "The sensor-based N management treatments were compared to each site’s grower treatment",
+        "The sensor-based N management reduced N application by an average of 38.7 ± 20.8 kg Nha -1 without a yield penalty in 77% of the sites (n = 9).",
+        "In terms of profit, 35% of sites demonstrated a profit advantage in sensor-based treatments.",
+        "adoption of active canopy crop sensors has been limited due to inconsistent results, potential yield losses, and lack of information from field-scale trials"
+      ],
+      "_kopya": "b06_kaynaklar.json · kortbein_2026"
+    },
+    "rti_2017_greenseeker": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Lapidus D., Latané A., Ortiz-Monasterio I., Beach R., Cárdenas Castañeda M.E. 2017. The GreenSeeker Handheld: A Research Brief on Farmer Technology Adoption and Disadoption. RTI Press Research Brief RB-0014-1705. Research Triangle Park, NC: RTI Press.",
+      "doi": "10.3768/rtipress.2017.rb.0014.1705",
+      "dosya": "kaynak_dosyalari/rti_2017_greenseeker.pdf",
+      "pilot_yili": 2006,
+      "kumulatif_alan_ha": "48,000",
+      "ek_kar_usd_ha": 37,
+      "dusus_sezonu": "2015-2016",
+      "kotu_iklim_yil": 35,
+      "alinti": [
+        "The Yaqui Valley is Mexico’s largest wheat-producing region, and it is agro-ecologically similar to 40% of the developing world’s wheat production.",
+        "Wheat farmers throughout the Yaqui Valley in Sonora, Mexico, have widely adopted the GreenSeeker Handheld crop sensor to help them apply the right amount of nitrogen fertilizer, reducing their input costs and helping to increase their agricultural profits.",
+        "To address these issues, the International Maize and Wheat Improvement Center (CIMMYT) collaborated with Oklahoma State University to design an in-field, handheld, low-cost N diagnostic tool that provides site-specific fertilizer recommendations to farmers.",
+        "Since the initial pilot phase in 2006, farmers have applied the technology to more than 48,000 cumulative hectares of land throughout the Yaqui Valley (see regional distribution of application over last 3 years in Figure 1).",
+        "Initial data analysis conducted by RTI and CIMMYT reveals that the tool has led to $37 in additional farmer profits per hectare, totaling $1.8M of additional profits over an 8-year time period (see Table 1).",
+        "These are farm level revenues and costs and thus do not include the costs of the technology nor the GreenSeeker technician’s time.",
+        "So why did adoption in the Yaqui Valley decline in 2015–2016 rather than expand?",
+        "Because the credit unions even sell fertilizer to farmers, they have a disincentive to approve changes that result in less fertilizer being applied.",
+        "These technicians received a bonus of 120 pesos per hectare of sensor technology transferred.",
+        "The umbrella organization for the farmer credit unions, AOASS, had a change in leadership prior to the 2015–2016 growing season, coinciding with the worst climatic conditions in more than 35 years, resulting in extremely low yields.",
+        "Funding to support continued GreenSeeker Handheld diagnostics by farmer advisors began to decrease.",
+        "Despite the sustained farmer profits and the environmental benefits, these factors may have contributed to the farmer credit unions withdrawing their support prior to the 2015–2016 growing season.",
+        "The GreenSeeker Handheld has provided increased profits to Yaqui Valley farmers and environmental benefits in terms of reduced greenhouse gas emissions, but that has not been enough to ensure adoption."
+      ],
+      "_kopya": "b28_kaynaklar.json · rti_2017_greenseeker"
+    },
+    "moyo_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Moyo M., Van Rooyen A., Bjornlund H., Parry K., Stirzaker R., Dube T., Maya M. 2020. The dynamics between irrigation frequency and soil nutrient management: transitioning smallholder irrigation towards more profitable and sustainable systems in Zimbabwe. International Journal of Water Resources Development 36(sup1): S102–S126.",
+      "doi": "10.1080/07900627.2020.1739513",
+      "dosya": "kaynak_dosyalari/moyo_2020_ijwrd.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (ICRISAT açık erişim deposu)",
+      "proje_donemi": "2013-2017",
+      "sensorlu_sulayici": 20,
+      "su_verimliligi_artisi_yuzde_ustu": 100,
+      "alinti": [
+        "This article quantifies the role of the Chameleon and the Wetting Front Detector, monitoring tools facilitating decision-making and learning about soil-water-nutrient dynamics.",
+        "The study was carried out at Mkoba and Silalatshani irrigation schemes, in Zimbabwe’s semi-arid areas, Natural Regions III and IV, respectively (Table 1).",
+        "Results are communicated of a project implemented between 2013 and 2017 and using two complementary entry points: the monitoring tools, and agricultural innovation platforms (AIPs) which strengthen social networks.",
+        "In 2014, at each scheme, 20 irrigators (of the 75 and 100 in Mkoba and Silalatshani, respectively) were given two WFDs and a Chameleon sensor array.",
+        "Farmers retained nutrients in the root zone by reducing irrigation frequency, number of siphons, and event duration.",
+        "Water productivity increased by more than 100% for farmers both with and without monitoring tools.",
+        "It is important to note that when the tools were introduced the WP was the same for those with and without the tools.",
+        "This has resulted in social learning, which is evidenced by the fact that changes in decision-making and action (and higher yields and income) also took place among farmers without tools as a result of observing and interacting with those that had the tools (Table 4).",
+        "Farmers reporting changes in yield and income during the project period report increased yields of 25% or more for their major irrigated crops, for 86% and 76% of households at Mkoba and Silalatshani, respectively (Figure 10).",
+        "Income increases of 25% or more were reported by 43% of households at Mkoba, and 56% at Silalatshani.",
+        "Note that the maize WP data relate to the farmers’ main crop, whereas the survey data relate to all crops grown in the last four years.",
+        "Although unquantified, farmers have reduced the quantity of fertilizer applied.",
+        "However, some attrition was encountered, and only 54 respondents were interviewed at Mkoba and 84 at Silalatshani in 2017.",
+        "However, it is important to acknowledge that improving crop production on smallholder farms cannot be achieved simply by introducing appropriate technology, no matter how good that technology is."
+      ],
+      "_kopya": "b28_kaynaklar.json · moyo_2020"
+    },
+    "stygar_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Stygar A.H., Gómez Y., Berteselli G.V., Dalla Costa E., Canali E., Niemi J.K., Llonch P., Pastell M. 2021. A systematic review on commercially available and validated sensor technologies for welfare assessment of dairy cattle. Frontiers in Veterinary Science 8.",
+      "doi": "10.3389/fvets.2021.634338",
+      "dosya": "kaynak_dosyalari/stygar_2021_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC8044875)",
+      "tur": "sistematik derleme",
+      "yayin_taranan": 1111,
+      "dis_dogrulamali_calisma": 42,
+      "arac_sayisi": 30,
+      "piyasadaki_teknoloji": 129,
+      "dis_dogrulanmis_satista": 18,
+      "dogrulanmis_pay_yuzde": 14,
+      "tur_bazinda_yuzde": {
+        "ivmeolcer": 30,
+        "kamera": 10,
+        "yuk_hucresi": 8,
+        "sut_sensoru": 8,
+        "bolus": 7
+      },
+      "alinti": [
+        "Out of 1,111 publications initially extracted from databases, only 42 studies describing 30 tools (including prototypes) met requirements for external validation.",
+        "Moreover, through market search, 129 different retailed technologies with application for animal-based welfare assessment were identified.",
+        "In total, only 18 currently retailed sensors have been externally validated (14%).",
+        "The highest validation rate was found for systems based on accelerometers (30% of tools available on the market have validation records), while the lower rates were obtained for cameras (10%), load cells (8%), miscellaneous milk sensors (8%), and boluses (7%).",
+        "Non-active behavior (lying and standing) and rumination were the most often validated for the high performance.",
+        "Also, tools used for physical condition (e.g., body condition scoring) and health evaluation (e.g., mastitis detection) were classified in lower performance group."
+      ],
+      "_kopya": "b12_kaynaklar.json · stygar_2021"
+    },
+    "ghafoor_sitkowska_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Abdul Ghafoor N., Sitkowska B. 2021. MasPA: a machine learning application to predict risk of mastitis in cattle from AMS sensor data. AgriEngineering 3(3).",
+      "doi": "10.3390/agriengineering3030037",
+      "dosya": "kaynak_dosyalari/ghafoor_sitkowska_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "hayvan_sayisi": 6600,
+      "bildirilen_dogruluk_yuzde": 98.1,
+      "_veri_ulkesi": "Özette verinin hangi ülkeden geldiği yazmıyor; metin bunu açıkça söyler.",
+      "alinti": [
+        "Mugla Sitki Kocman University, 48000 Mugla, Turkey",
+        "University of Science and Technology, 85-084 Bydgoszcz, Poland",
+        "In this study, we utilized a dataset of 6600 cattle along with several of their sensory parameters (collected via inexpensive sensors) and their prevalence to mastitis.",
+        "with an accuracy of 98.1% and sensitivity and specificity of 99.4% and 98.8%, respectively."
+      ],
+      "_kopya": "b12_kaynaklar.json · ghafoor_sitkowska_2021"
+    },
+    "erhan_yaganoglu_2026": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Erhan M.K., Yağanoğlu A.M. 2026. Artificial intelligence-assisted disease and welfare detection in farm animals: a diagnostic test accuracy systematic review and meta-analysis. Journal of Agricultural Production 7(3).",
+      "doi": "10.56430/japro.1979815",
+      "dosya": "kaynak_dosyalari/erhan_yaganoglu_2026_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti ve yazar kurumları, Crossref kaydı",
+      "tur": "tanı doğruluğu meta-analizi",
+      "tam_metin_incelenen": 154,
+      "olcutu_karsilayan": 74,
+      "birlesik_analizdeki_calisma": 10,
+      "mastitis_calismasi": 7,
+      "topallik_calismasi": 3,
+      "birlesik_duyarlilik_yuzde": 83.5,
+      "birlesik_ozgulluk_yuzde": 90.1,
+      "alinti": [
+        "AĞRI İBRAHİM ÇEÇEN ÜNİVERSİTESİ",
+        "ATATÜRK ÜNİVERSİTESİ, ZİRAAT FAKÜLTESİ",
+        "Seventy-four of 154 full texts met the inclusion criteria.",
+        "ten studies entered the primary meta-analysis (seven on mastitis and three on lameness).",
+        "Pooled sensitivity was 83.5% (95% confidence interval 74.0–90.0) and pooled specificity was 90.1% (95% confidence interval 85.4–93.3)",
+        "most studies could not be pooled because they reported performance at the record or quarter level rather than per animal.",
+        "Artificial intelligence-based detection appears promising, combining high specificity with good sensitivity, but wide heterogeneity, the small number of poolable studies, and low certainty of evidence all call for cautious interpretation."
+      ],
+      "_kopya": "b12_kaynaklar.json · erhan_yaganoglu_2026"
+    },
+    "mehrabi_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Mehrabi Z., McDowell M.J., Ricciardi V., Levers C., Martinez J.D., Mehrabi N., Wittman H., Ramankutty N., Jarvis A. 2021. The global divide in data-driven farming. Nature Sustainability 4(2): 154–160.",
+      "doi": "10.1038/s41893-020-00631-0",
+      "dosya": "kaynak_dosyalari/mehrabi_2021_nature.html",
+      "dogrulandigi_yer": "yayıncı sayfasındaki özet",
+      "kucuk_isletme_kapsama_yuzde": "24-37",
+      "buyuk_isletme_kapsama_yuzde": "74-80",
+      "kucuk_esik_ha": 1,
+      "buyuk_esik_ha": 200,
+      "afrika_internet_hane_ust_yuzde": 40,
+      "_not": "Yalnız 3G/4G kapsaması; Türkiye ayrıca raporlanmıyor.",
+      "alinti": [
+        "Yet the access of small-scale farmers to this technology is poorly understood.",
+        "We show that only 24–37% of farms of <1 ha in size are served by third generation (3G) or 4G services, compared to 74–80% of farms of >200 ha in size.",
+        "Furthermore, croplands with severe yield gaps, climate-stressed locations and food-insecure populations have poor service coverage.",
+        "Across many countries in Africa, less than ~40% of farming households have Internet access, and the cost of data remains prohibitive."
+      ],
+      "_kopya": "b20_kaynaklar.json · mehrabi_2021"
+    },
+    "miller_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Miller T., Mikiciuk G., Durlik I., Mikiciuk M., Łobodzińska A., Śnieg M. 2025. The IoT and AI in Agriculture: The Time Is Now—A Systematic Review of Smart Sensing Technologies. Sensors 25(12): 3583.",
+      "doi": "10.3390/s25123583",
+      "dosya": "kaynak_dosyalari/miller_2025_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "literatur_baslangic": 2020,
+      "literatur_bitis": 2024,
+      "_not": "Engellerin sıklığına dair sayı yok.",
+      "alinti": [
+        "This systematic review, conducted in accordance with the PRISMA methodology, provides a comprehensive overview of recent advancements in smart sensing technologies for arable crops and grasslands.",
+        "We analyzed the peer-reviewed literature published between 2020 and 2024, focusing on the adoption of IoT-based sensor networks and AI-driven analytics across various agricultural applications.",
+        "However, this review also identifies critical challenges, including high infrastructure costs, limited interoperability, connectivity constraints in rural areas, and ethical concerns regarding transparency and data privacy.",
+        "Moreover, policy interventions are needed to ensure fair data ownership, cybersecurity, and equitable access to smart farming tools, especially in developing regions."
+      ],
+      "_kopya": "b20_kaynaklar.json · miller_2025"
+    },
+    "uab_2025_evrensel_hizmet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Ulaştırma ve Altyapı Bakanlığı. 2025. 5 Bin 565 Yerleşim Yerine Elektronik Haberleşme Hizmeti (Bakanlık haberi, 4 Şubat 2025). Ankara.",
+      "adres": "https://www.uab.gov.tr/haberler/5-bin-565-yerlesim-yerine-elektronik-haberlesme-hizmeti",
+      "dosya": "kaynak_dosyalari/uab_2025_evrensel_hizmet_5565_yerlesim.html",
+      "evrensel_hizmet_kanunu_no": 5369,
+      "mobil_proje": 3,
+      "mobil_yerlesim": 3521,
+      "sabit_kablosuz_yerlesim": 2044,
+      "toplam_yerlesim": 5565,
+      "nufus_alt": 50,
+      "nufus_ust": 1000,
+      "ek_yerlesim_2025_sonu_plan": 233,
+      "_not": "Bakan'ın açıklaması (bakanlık haberi). Hizmet götürülen yerlerde hız, kullanım ya da tarımsal kullanım verisi yok; 2025 sonu hedefinin gerçekleşmesi bulunamadı.",
+      "alinti": [
+        "04 Şubat 2025 5 BİN 565 YERLEŞİM YERİNE ELEKTRONİK HABERLEŞME HİZMETİ",
+        "Ülkemizde coğrafi koşullar bakımından ulaşımı zor ve altyapı kurulumu maliyeti daha yüksek olan kırsal yerleşim yerlerine, işletmeciler tarafından ticari olarak elektronik haberleşme hizmeti verilme zorunluluğu bulunmamaktadır.",
+        "Bakan Uraloğlu, Evrensel Hizmet Projeleri kapsamında bugüne kadar; 3 proje kapsamında 3521 yerleşim yerine mobil teknolojiler ile, WiMax projesi kapsamında 2044 yerleşim yerine sabit kablosuz erişim teknolojisi ile hizmet götürüldüğünü kaydetti.",
+        "Toplam 5 bin 565 yerleşim yerine elektronik haberleşme hizmeti verildi.",
+        "Bakanlığımız bu yerleşim yerlerine, 5369 sayılı Evrensel Hizmet Kanunu hükümleri çerçevesinde, tüm altyapı kurulum ve işletme maliyetleri kamu kaynaklarından karşılanmak üzere elektronik haberleşme hizmetinin götürülmesini sağlanmaktadır.",
+        "Uraloğlu, nüfusu 50 ile 1000 kişi arasında olan, mobil işletmecilerin kapsaması bulunmayan ve mobil işletmecilerin kapsama yükümlülüğü bulunmayan yerleşim yerlerinin evrensel hizmet projelerine dahil edilebildiğini sözlerine ekledi.",
+        "2025 yılı sonuna kadar ilave olarak 233 yerleşim yerine daha 2G ve 4.5 G mobil haberleşme hizmeti sunulmasını planlıyoruz."
+      ],
+      "_kopya": "b20_kaynaklar.json · uab_2025_evrensel_hizmet"
+    },
+    "mgm_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+      "gozlem_sistemi": 2059,
+      "omgi": 1717,
+      "_not": "Bütün ağın sayısı; tarıma ayrılmış istasyon sayısı değil. Bakanlık il müdürlüklerinin istasyon toplamı resmî kaynakta bulunamadı.",
+      "alinti": [
+        "MGM bünyesinde 2059 adet gözlem sistemi kurulu bulunmaktadır.",
+        "OMGİ, meteorolojik algılayıcılar, veri toplama, işleme ve arşivleme üniteleri ile iletişim, görüntüleme ve enerji ünitelerinden oluşmaktadır.",
+        "2025 yılı itibariyle 1717 adet OMGİ bulunmaktadır.",
+        "Tarımsal faaliyetlerde meteorolojik bilginin azami olarak kullanılabilmesini temin etmek ve tarımsal üretime katkıda bulunmak maksadıyla aşağıda verilen ürünler Kurumumuz tarafından kamuoyunun hizmetine sunulmaktadır."
+      ],
+      "_kopya": "b20_kaynaklar.json · mgm_2026"
+    },
+    "civelek_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Civelek Ç. 2022. Development of an IoT-Based (LoRaWAN) Tractor Tracking System. Journal of Agricultural Sciences (Tarım Bilimleri Dergisi) 28(3): 438–448.",
+      "doi": "10.15832/ankutbd.769200",
+      "dosya": "kaynak_dosyalari/civelek_2022_tarim_bilimleri_dergisi.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "deneme_ay": 6,
+      "gps_hata_m": 3,
+      "veri_noktasi_1": 49121,
+      "veri_noktasi_2": 52766,
+      "pil_gun_1": 95,
+      "pil_gun_2": 98,
+      "donanim_usd": 55,
+      "ticari_4g_usd": 795,
+      "fiyat_yili": 2020,
+      "_not": "Prototip: iletim denemeleri sahte veriyle; çiftlikte saha denemesi 'gelecek çalışma'.",
+      "alinti": [
+        "In this research by using the advantages of LoRaWAN, a new IoT-based tractor tracking system including a LoRaWAN module and a web-based software was developed, and the test results were evaluated.",
+        "To achieve this, the hardware was left to send dummy data to be saved in the developed database.",
+        "Two trials were ended in total 6 months, the hardware created 49121 and 52766 data points, and the batteries were drained in 95 and 98 days which confirms the assumptions that were given in by Aqeel-Ur-Rehman et al. (2014).",
+        "From the GPS tests that were conducted outside of the laboratory it was revealed that the position of the developed hardware was sensed with a maximum 3 meters of error which was declared by the producer of the GPS module.",
+        "From the BOM costs calculations, it was found out that the hardware could be produced for $55 including PCB manufacturing costs and taxes, excluding software development for the hardware according to prices in May 2020.",
+        "When one of the tractor manufacturer’s 4G LTE (long-term evolution) based unused device price was considered, which was $795 in the same date including taxes and excluding subscription to the service",
+        "As a future study, the developed hardware has been being tested on a farm, and the gathered data is being analyzed for further development of the web-based interface by using mathematical models and embedding artificial intelligence for providing farmers to make detailed analyzes.",
+        "For GPS data gathering and transmission tests, the developed hardware was taken several places in Cukurova University Campus."
+      ],
+      "_kopya": "b20_kaynaklar.json · civelek_2022"
+    },
+    "aquatag": {
+      "nitelik": "PROJE",
+      "kunye": "Balendonck J., Stenfert Kroese W., Hilhorst M., Tüzel İ.H. Düşük Maliyetli ve Kablosuz Toprak Nem Sensörü AquaTag ile Su ve Gübre Tasarrufu. Wageningen UR proje broşürü.",
+      "dosya": "kaynak_dosyalari/aquatag_wur_283306.pdf",
+      "uretici_sayisi": 9,
+      "tasarruf_yuzde": "13-24",
+      "organik_tasarruf_yuzde": 12,
+      "alinti": [
+        "Sensör ile kontrol edilen parsellerde üreticiler daha az değişken bir toprak nem içeriği ve % 13-24 su tasarrufu sağlamışlardır.",
+        "Organik üretimde su tasarrufu % 12 olarak ölçülmüştür.",
+        "Ege Üniversitesi sensörü Türkiye’deki uygulamalara adapte etmiş ve Orhanlı Köyü’nde 9 üretici ile denemeler gerçekleştirmiştir.",
+        "AquaTag, SensorTagSolutions firması tarafından"
+      ],
+      "_kopya": "b07_kaynaklar.json · aquatag"
+    }
+  }
+}

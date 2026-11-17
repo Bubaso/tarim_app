@@ -1,0 +1,304 @@
+{
+  "_ne": "Teknoloji sayfası — Veri platformları (karar 57)",
+  "guncellendi": "2026-11-17",
+  "kaynaklar": {
+    "nasa_2019_landsat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Landsat Science (Rocchio L.E.P.). 2019. Landsat Science Team members support the free and open Landsat data policy. 20 Mart 2019. [Zhu Z. ve ark. 2019, Benefits of the free and open Landsat data policy, Remote Sensing of Environment 224: 382-385 makalesinin kurumsal özeti]",
+      "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+      "dosya": "kaynak_dosyalari/nasa_2019_landsat_acik_veri.html",
+      "ucretsiz_erisim_yili": 2008,
+      "veri_kullanimi_artisi_kat": 20,
+      "_not": "Zhu ve ark. 2019 (Remote Sensing of Environment 224) makalesinin NASA özeti. Yayın artışı 'four-fold' yazıyla; metin 'dört kat' diye yazıyla aktarır.",
+      "alinti": [
+        "Keep Landsat data free and open—this is the resounding takeaway from a recent Remote Sensing of Environment article penned by fourteen members of the 2018-2023 Landsat Science Team.",
+        "After the 2008 USGS decision to make Landsat data available at no cost, data use has increased 20-fold, and Landsat-based scientific publications has increased four-fold.",
+        "In the paper Dr. Zhe Zhu and co-authors describe how the free and open data policy has allowed researchers to harness the nearly half-century of information contained in the Landsat archive to do robust, global time series analysis",
+        "They emphatically state that loss of the free and open data policy would have a significant impact on the research community."
+      ],
+      "_kopya": "b19_kaynaklar.json · nasa_2019_landsat"
+    },
+    "usgs_2019_landsat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Straub C.L., Koontz S.R., Loomis J.B. 2019. Economic valuation of Landsat imagery. U.S. Geological Survey Open-File Report 2019-1112. 13 s.",
+      "doi": "10.3133/ofr20191112",
+      "dosya": "kaynak_dosyalari/usgs_2019_landsat_ekonomik_deger.html",
+      "ucretsiz_erisim_yili": 2008,
+      "yillik_fayda_2017_milyar_usd": 3.45,
+      "yillik_fayda_2011_milyar_usd": 2.19,
+      "odemeyecek_kullanici_yuzde_en_az": 50,
+      "_not": "Kullanıcı anketine dayalı değerleme; tarım dahil bütün kullanımlar.",
+      "alinti": [
+        "Landsat imagery has been available at no cost to the public since 2008, resulting in the distribution of millions of scenes each subsequent year.",
+        "Landsat imagery provided domestic and international users an estimated $3.45 billion in benefits in 2017 compared to $2.19 billion in 2011, with U.S. users accounting for $2.06 billion of those benefits.",
+        "Much of the societal value of Landsat stems from the free and open data policy that allows users to access as much imagery as is necessary for their analysis at no cost.",
+        "Charging even small fees would result in a loss of users and, most likely, a steep decline in the amount of imagery downloaded.",
+        "It is reasonable that more than 50 percent of users will decline to pay."
+      ],
+      "_kopya": "b19_kaynaklar.json · usgs_2019_landsat"
+    },
+    "turland_slade_2020": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Turland M., Slade P. 2020. Farmers' willingness to participate in a big data platform. Agribusiness 36(1): 20–36.",
+      "doi": "10.1002/agr.21627",
+      "dosya": "kaynak_dosyalari/turland_slade_2020_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "istekli_ciftci_yuzde": 36,
+      "_not": "Varsayımsal seçim deneyi; beyan edilen tercih. Örneklemin ülkesi özette yazmıyor.",
+      "alinti": [
+        "This paper uses a hypothetical choice experiment to examine farmers' willingness to share their farm data with a big data platform.",
+        "We found that, on average, 36% of farmers are willing to join such a platform.",
+        "The organization operating the big data platform is particularly important: farmers are most willing to share their data with university researchers and least willing to share their data with government.",
+        "However, we found that relatively small financial and nonfinancial benefits significantly increased participation, even among farmers who stated strong privacy preferences."
+      ],
+      "_kopya": "b21_kaynaklar.json · turland_slade_2020"
+    },
+    "kaur_dara_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Kaur J., Dara R. 2023. Analysis of Farm Data License Agreements: Do Data Agreements Adequately Reflect on Farm Data Practices and Farmers’ Data Rights? Agriculture 13(11): 2170.",
+      "doi": "10.3390/agriculture13112170",
+      "dosya": "kaynak_dosyalari/kaur_dara_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "sozlesme": 141,
+      "okunmasi_zor_yuzde": 95,
+      "universite_duzeyi_yuzde": 75,
+      "alinti": [
+        "We collected 141 agricultural terms of use agreements",
+        "The findings show that data agreements are long, complex, and difficult to read and comprehend.",
+        "The results suggest that 95% of the agreements fall under the difficult-to-read category and close to 75% of the policies require university-level education to understand the content.",
+        "Furthermore, it is noted that some of the data management practices are not given adequate attention and are not as frequently mentioned in the agreements as expected."
+      ],
+      "_kopya": "b21_kaynaklar.json · kaur_dara_2023"
+    },
+    "ab_tarim_verisi_kurallari": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Copa-Cogeca, CEMA, Fertilizers Europe, CEETTAR, CEJA, ECPA, EFFAB, FEFAC, ESA. 2018. EU Code of conduct on agricultural data sharing by contractual agreement. Brüksel.",
+      "adres": "https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf (imzacı CEMA'nın sitesi; Copa-Cogeca'daki özgün 2018 bağlantısı 404)",
+      "dosya": "kaynak_dosyalari/ab_2018_tarim_verisi_davranis_kurallari.pdf",
+      "yayim_yili": 2018,
+      "_not": "Bağlayıcı olmayan sektör kuralı; uygulanma düzeyini ölçen bir çalışma bulunamadı. AB Veri Tüzüğü bu kuralı öncül olarak anıyor (§24).",
+      "alinti": [
+        "For instance, the rights regarding data produced on the farm or during farming operations are granted to (“owned by”) the farmer and may be used extensively by them.",
+        "Data cannot be owned in the same way as physical assets.",
+        "Parties may not use, process or share data without the consent of the data originator.",
+        "The data originator shall have the right to receive the data concerning their operation as specified in the contract, in a structured, frequently used and machine-readable format.",
+        "All contracts shall use simple and understandable language in order to explain the content or be accompanied by an informal document that explains data-related aspects.",
+        "This should be done without compromising restricted access to machine data or sensitive data (only relevant to the correct functioning of the machinery).",
+        "Data must not be used to assess the originator’s ability to pay for a service or machine",
+        "Nevertheless, if data is linked to a person who is identifiable through a contract, land register, coordinates, etc., it is considered as personal data and falls under the General Data Protection Regulation.",
+        "Compliance with the code of conduct is voluntary."
+      ],
+      "_kopya": "b21_kaynaklar.json · ab_tarim_verisi_kurallari"
+    },
+    "atik_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Atik C. 2022. Towards Comprehensive European Agricultural Data Governance: Moving Beyond the “Data Ownership” Debate. IIC – International Review of Intellectual Property and Competition Law 53(5): 701–742.",
+      "doi": "10.1007/s40319-022-01191-w",
+      "dosya": "kaynak_dosyalari/atik_2022_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "_not": "Hukuki çözümleme; ampirik veri yok. Veri Tüzüğü'nden önce yazıldı.",
+      "alinti": [
+        "However, this new form of “smart farming” has also brought about data-related concerns connected with the ambiguity regarding who owns the data, who has what rights over it, and ultimately whether there is a need for regulation.",
+        "The idea of providing a “data ownership” right to farmers is predominantly defended by the sectoral literature and has even been adopted already through the voluntary agricultural data codes of conduct developed by stakeholders both in Europe and the US.",
+        "This paper approaches this debate from the perspective of the sectoral market failures including data lock-in, data fragmentation, data access problems, and a lack of trust on the part of farmers.",
+        "It demonstrates that the way in which ownership is framed is not adequate to address these problems and has the potential to exacerbate them."
+      ],
+      "_kopya": "b21_kaynaklar.json · atik_2022"
+    },
+    "ab_veri_tuzugu": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2023/2854 — Data Act",
+      "dosya": "kaynak_dosyalari/ab_2023_2854_veri_tuzugu.xhtml",
+      "sayi": "2023/2854",
+      "uygulama": "12 Eylül 2025",
+      "tasarim_yukumlulugu": "12 Eylül 2026 sonrasında piyasaya çıkan bağlantılı ürünler",
+      "alinti": [
+        "It shall apply from 12 September 2025. The obligation resulting from Article 3(1) shall apply to connected products and the services related to them placed on the market after 12 September 2026.",
+        "medical and health devices or agricultural and industrial machinery",
+        "by default, easily, securely, free of charge, in a comprehensive, structured, commonly used and machine-readable format, and, where relevant and technically feasible, directly accessible to the user",
+        "such as the Code of Conduct on agricultural data sharing by contract",
+        "using knowledge about the overall performance of a business or a farm in contractual negotiations with the user on the potential acquisition of the user’s products or agricultural produce to the user’s detriment, or using such information to feed into larger databases on certain markets in the aggregate, for example databases on crop yields for the upcoming harvesting season"
+      ],
+      "_kopya": "b24_kaynaklar.json · ab_veri_tuzugu"
+    },
+    "ab_veri_alanlari": {
+      "nitelik": "KURUMSAL",
+      "kunye": "European Commission. 2026. Common European data spaces (Shaping Europe’s digital future; son güncelleme 5 Kasım 2026). Brüksel.",
+      "adres": "https://digital-strategy.ec.europa.eu/en/policies/data-spaces",
+      "dosya": "kaynak_dosyalari/ab_2026_ortak_avrupa_veri_alanlari.html",
+      "veri_stratejisi_yili": 2020,
+      "veri_alani_sektor": 14,
+      "_not": "Tarım veri alanının işler hâle geldiğine ya da etkisine dair veri yok; sekiz girişimin adı var.",
+      "alinti": [
+        "the European strategy for data of February 2020 set out the path to the creation of Common European Data Spaces in a number of strategic fields: health, agriculture, manufacturing, energy, mobility, finance, public administration, skills, the European Open Science Cloud, and the green deal.",
+        "EU businesses, public administrations, and individuals will control the data they generate.",
+        "empower data holders to make their data available for reuse for free or against compensation.",
+        "Common European Data Spaces are currently being developed across 14 sectors/domains.",
+        "Agriculture AgriDataSpace, Divine, CrackSense, ScaleAgData, AgDataValue, 4Growth, Dig4Live, CEADS",
+        "Last update 5 November 2026"
+      ],
+      "_kopya": "b21_kaynaklar.json · ab_veri_alanlari"
+    },
+    "tzachor_2022": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Tzachor A., Devare M., King B., Avin S., Ó hÉigeartaigh S. 2022. Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities. Nature Machine Intelligence 4(2): 104–109.",
+      "doi": "10.1038/s42256-022-00440-4",
+      "dosya": "kaynak_dosyalari/tzachor_2022_nature.html",
+      "alinti": [
+        "AI in agriculture could improve crop management and agricultural productivity through plant phenotyping, rapid diagnosis of plant disease, efficient application of agrochemicals and assistance for growers with location-relevant agronomic advice.",
+        "However, the ramifications of machine learning (ML) models, expert systems and autonomous machines for farms, farmers and food security are poorly understood and under-appreciated.",
+        "Namely, we review risks relating to interoperability, reliability and relevance of agricultural data, unintended socio-ecological consequences resulting from ML models optimized for yields, and safety and security concerns associated with deployment of ML platforms at scale.",
+        "As a response, we suggest risk-mitigation measures, including inviting rural anthropologists and applied ecologists into the technology design process, applying frameworks for responsible and human-centred innovation",
+        "setting data cooperatives for improved data transparency and ownership rights, and initial deployment of agricultural AI in digital sandboxes."
+      ],
+      "_kopya": "b26_kaynaklar.json · tzachor_2022"
+    },
+    "dunya_bankasi_2009_arip": {
+      "nitelik": "KURUMSAL",
+      "kunye": "World Bank. 23 Kasım 2009. Implementation Completion and Results Report (IBRD-46310) on a Loan in the Amount of US$600 Million to the Republic of Turkey for an Agricultural Reform Implementation Project. Report No: ICR00001155.",
+      "adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
+      "dosya": "kaynak_dosyalari/dunya_bankasi_2009_arip_icr.pdf",
+      "rapor_tarihi": "November 23, 2009",
+      "kredi": "US$600 MILLION",
+      "dgd_donemi": "2000-2002",
+      "pilot_yili": 2000,
+      "onay": "07/12/2001",
+      "dgd_sonu": 2008,
+      "alinti": [
+        "IMPLEMENTATION COMPLETION AND RESULTS REPORT (IBRD-46310) ON A LOAN IN THE AMOUNT OF US$600 MILLION TO THE REPUBLIC OF TURKEY FOR AN AGRICULTURAL REFORM IMPLEMENTATION PROJECT November 23, 2009",
+        "The ERL Letter of Development Policy also spelled out the main features of the impending DIS, to be introduced in 2000-2002 following a piloting phase and the preparation of a National Farmer Registry.",
+        "A pilot project was executed during the agricultural year of 2000, in five villages across Turkey",
+        "Approval: 07/12/2001",
+        "This supported the Ministry of Agriculture and Rural Affairs (MARA) to create the National Registry of Farmers (NRF) throughout Turkey",
+        "Two activities of the original DIS component have left highly sustainable legacies - the creation of the National Registry of Farmers (NRF), and the virtual completion of the coverage of the Turkish cadastre.",
+        "The NRF has become the basic rural database of Turkey, and will become increasingly valuable in that role as the base for several major EU pre- and post-accession funding programs.",
+        "When the program was discontinued in 2008, two new programs with more conventional names were instituted, ostensible subsidy programs for diesel and fertilizer.",
+        "Almost 100% of 2.75 eligible and registrable farms are registered."
+      ],
+      "_kopya": "b03_kaynaklar.json · dunya_bankasi_2009_arip"
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "web_uygulama": 185,
+      "e_devlet_hizmeti": 46,
+      "ziraat_odasi_il": 21,
+      "cks_hedef_bin_ha": 17339,
+      "cks_gerceklesen_bin_ha": 16117,
+      "cks_gerceklesme_yuzde": 93,
+      "cks_hedef_milyon_ha": 17.3,
+      "cks_gerceklesen_milyon_ha": 16.1,
+      "_turetme": "cks_milyon_ha: tablo satırı 'Bin Hektar 17.339 16.117' → 17,3 ve 16,1 milyon hektar.",
+      "_denetim": "Raporda 'açık veri', 'veri paylaş', 'veri sahipliği' geçmiyor (17.11.2026 metin taraması); çiftçinin kendi verisine erişimi tanımlanmıyor.",
+      "alinti": [
+        "Bakanlığımızda 185 adet web tabanlı uygulama mevcuttur.",
+        "Tarımsal üretimin ve üreticilerin kayıt altına alındığı sistemler başta olmak üzere tarım ve ormancılık alanlarında birbirinden farklı büyüklüklere sahip bilgi sistemleri geliştirilmektedir.",
+        "Bakanlığımız tarafından e-Devlet üzerinden 46 hizmet sunulmaktadır.",
+        "Bitkisel üretim faaliyeti yapılan alanların, faaliyeti yapan üreticilerin, üretim bilgilerinin kayıt altına alındığı tarımsal veri tabanı olan Çiftçi Kayıt Sistemine kayıtlı alanın takibi ve artırılmasına yönelik çalışmalar yürütülmektedir.",
+        "Tam ve güvenilir verinin sağlanması ve ÇKS’ye kayıtlılık oranının artırılması için e-Devlet kapısı üzerinden başvuru süreç ve şartları kolaylaştırılmış ve fiilen üretim yapılan alanların taahhütname belgesi ile mülkiyetten bağımsız olarak kaydedilebilmesine imkân tanınmıştır.",
+        "Protokol gereği 21 ilde ÇKS başvurularının alınması ve veri girişleri Ziraat Odaları tarafından yürütülmüştür.",
+        "Çiftçi Kayıt Sistemine kayıtlı alan Bin Hektar 17.339 16.117 93 Kısmen Ulaşıldı"
+      ],
+      "_kopya": "b21_kaynaklar.json · tob_2025_faaliyet_raporu"
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Cumhurbaşkanlığı. 2026. 2027 Yılı Cumhurbaşkanlığı Yıllık Programı. Resmî Gazete, 27 Ekim 2026, Sayı 33413 (Mükerrer).",
+      "adres": "yerel kaynak dosyası (Resmî Gazete 27.10.2026, sayı 33413 Mükerrer)",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "sayim_burosu_mahal": 973,
+      "resen_kayit_milyon_ha": 3.4,
+      "genel_tarim_sayimi_yili": 2025,
+      "kvkk_kanun_no": 6698,
+      "_yer": "PDF s164 (sayım), s180 (Tarımsal İşletme Kayıt Sistemi, veri merkezi), s451 (açık veri portalı, açık devlet verisi), s106 (KVKK-GDPR).",
+      "alinti": [
+        "Saha çalışmaları kapsamında 973 mahalde sayım bürosu oluşturulmuş, Bakanlık sistemlerinde kayıtlı olmayan yaklaşık 3,4 milyon hektar tarım arazisi Tarımsal Üretim Kayıt Sistemine re’sen kaydedilmiştir.",
+        "2025 yılında gerçekleştirilen Genel Tarım Sayımı’nda elde edilen veriler kullanılarak tüm tarım işletmelerinin kayıt altına alındığı, kayıtların mekânsal verilerle entegre bir şekilde gerçek zamanlı olarak güncelleneceği Tarımsal İşletme Kayıt Sistemi oluşturulacaktır.",
+        "Tarım bilgi sistemlerinin iyileştirilmesi amacıyla veri merkezi kurulumu tamamlanacak ve yazılımların güncellenmesine yönelik çalışmalara hız verilecektir.",
+        "Kamu verisinin paylaşımına yönelik hukuki düzenlenme yapılacak, ulusal açık veri portalı hayata geçirilecektir.",
+        "Açık devlet verisi mevzuat çalışması tamamlanacaktır.",
+        "6698 sayılı Kişisel Verilerin Korunması Kanununun Avrupa Birliği Veri Koruma Tüzüğü (GDPR) ile uyumlaştırılmasına yönelik çalışmalar tamamlanacaktır.",
+        "Tarımsal üretim planlamasının sağlıklı ve güncel verilerle desteklenmesi amacıyla Tarım ve Orman Bakanlığı ile TÜİK işbirliğinde Genel Tarım Sayımı çalışmaları yürütülmüştür.",
+        "Sayım sonuçlarının analiz edilerek 2026 yılı sonu itibarıyla kamuoyuyla paylaşılması öngörülmektedir."
+      ],
+      "_kopya": "b21_kaynaklar.json · yillik_program_2027"
+    },
+    "hks_yonetmelik": {
+      "nitelik": "RESMI",
+      "kunye": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik. Resmî Gazete 7.7.2012, sayı 28346; değişikliklerle konsolide metin (son değişiklik Resmî Gazete 29.4.2023). Mevzuat Bilgi Sistemi.",
+      "adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
+      "dosya": "kaynak_dosyalari/ticaret_hks_yonetmelik_2012_konsolide.pdf",
+      "bildirim_esigi_kg": 100,
+      "bildirim_esigi_adet": 150,
+      "bildirim_esigi_bag": 50,
+      "_not": "Merkezi kayıt; blokzincir ya da yapay zekâ değil. HKS'nin bildirim ve künye sayıları bu taramada birincil kaynakta bulunamadı.",
+      "alinti": [
+        "Sistem: Bakanlık bünyesinde elektronik ortamda kurulan ve internet tabanlı çalışan merkezi hal kayıt sistemini",
+        "Bildirim miktarı: Adet ile yapılan satışlarda 150 adet, bağ ile yapılan satışlarda 50 bağ, kilogram ile yapılan satışlarda 100 kilogramı",
+        "Bildirim yapıldıktan sonra, sistem tarafından bu işleme ilişkin bir künye oluşturulur.",
+        "Künye, malın üretim yerini, cinsini, miktarını, hangi üretici/işletmeye ait olduğunu, varsa sertifika bilgilerini ve Bakanlıkça uygun görülen diğer hususları içerir.",
+        "Her bir künye için sistem tarafından özgün bir künye numarası üretilir.",
+        "Bildirim; bildirim miktarı veya üzerindeki malların üretildiği yerden veya girdiği gümrük kapısının bulunduğu yerden her ne sebeple olursa olsun sevkinden önce bildirimciler tarafından sisteme yapılan beyan işlemidir.",
+        "Toptan veya perakende mal satışında, malların üzerinde veya kap ya da ambalajlarının herkes tarafından kolaylıkla görülebilecek bir yerinde bu maddede belirtilen künyenin bulundurulması zorunludur."
+      ],
+      "_kopya": "b16_kaynaklar.json · hks_yonetmelik"
+    },
+    "ozden_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Özden C. 2023. Comparative Analysis of CNN, LSTM and Random Forest for Multivariate Agricultural Price Forecasting. Black Sea Journal of Agriculture 6(4): 422-426.",
+      "doi": "10.47115/bsagriculture.1304625",
+      "dosya": "kaynak_dosyalari/ozden_2023_bsja.pdf",
+      "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
+      "gun_sayisi": 1791,
+      "tahmin_ufku_gun": 10,
+      "veri_donemi": "Ocak 2018 - Kasım 2022",
+      "_not": "Değeri yöntem sonucu değil: HKS verisinin araştırmacıya hazır bir veri seti olarak değil, siteden elle derlenerek ulaştığını gösteriyor. Sonuç rakamları metne alınmadı (bkz. _reddedilen).",
+      "alinti": [
+        "In this study, a new dataset is composed through manual collection of data from the Ministry of Commerce of Turkish Republic.",
+        "In this study, we have curated daily trade volumes and prices of potato, onion and garlic from the official market website of Turkish Ministry of Commerce (www.hal.gov.tr).",
+        "The data pertains to the period between January 1, 2018 and November 26, 2022 (1791 days).",
+        "A simple CNN and LSTM architectures as well Random Forest machine learning method are used to predict the next 10-day prices of the products."
+      ],
+      "_kopya": "b16_kaynaklar.json · ozden_2023"
+    },
+    "yzep_2026_2030": {
+      "nitelik": "RESMI",
+      "kunye": "T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 Ağustos 2026.",
+      "adres": "yerel kaynak dosyası (Genelge 2026/9, Resmî Gazete 18.08.2026)",
+      "dosya": "kaynak_dosyalari/TurkiyeYapayZekaEylemPlani20262030.pdf",
+      "ortak_veri_seti_en_az": 25,
+      "kamu_veri_seti_en_az": 2000,
+      "_denetim": "Planda 'veri sahipliği', 'veri sahibi', 'çiftçi', 'kırsal', 'köy' geçmiyor (17.11.2026 metin taraması). Pilot veri alanı hedefi yazıyla ('en az üç').",
+      "alinti": [
+        "Eylem 3- Veri temelli yapay zekâ atılımı sağlanacaktır.",
+        "Yapay zekâ projelerinin önündeki en büyük engellerden biri olan nitelikli veri erişimi bütüncül bir çerçeveye kavuşturulacaktır.",
+        "Veri erişimi, Veri Alanları ve Güvenli Veri Paylaşım Programı ile Açık Veri Politikası aracılığıyla sağlanacaktır.",
+        "Şirketler ve kamu kurumları; gönüllülük ve karşılıklı fayda esasıyla, ortak kurallar, güvenli çalışma odaları, standart veri paylaşım sözleşmeleri, lisanslama modelleri, anonimleştirme standartları ve hukuki güvence mekanizmaları altında verilerini kontrollü biçimde paylaşabilecektir.",
+        "Ulusal Veri Kütüphanesi’nde yayımlanacak veri setlerinin kişisel veri içermemesi veya anonim hale getirilmiş olması esas alınacaktır.",
+        "Sağlık, tarım, savunma ve e-ticaret için veri ve mevzuat gereksinimleri, öncelikli kullanım senaryoları, başarı göstergeleri ve takvim içeren sektörel yol haritaları yayımlanacak; kamu, özel sektör ve akademi temsilcilerinin katkısıyla yıllık hedefler gözden geçirilecektir.",
+        "Hedefimiz; sektörel yol haritalarının yayımlandığı; en az üç pilot veri alanı ile en az 25 ortak veri setinin hayata geçirildiği; en az 2.000 kamu veri setinin Ulusal Veri Kütüphanesi'nde makine okunabilir formatta, standart meta veri ve açık lisans bilgisiyle yayımlandığı",
+        "2026-2027 döneminde temel yönetişim yapılarının kurulması, veri alanlarının pilotlanması, kamu kurumlarında ilk yapay zekâ uygulamalarının başlatılması ve hesaplama kapasitesi için yatırım süreçlerinin netleştirilmesi önceliklendirilecektir.",
+        "Benzer iklim, dil ailesi veya sektörel yapıya sahip ülkelerle tarım, enerji ve sağlık alanlarında ortak veri katalogları, federe veri erişim mekanizmaları ve model adaptasyon programları oluşturulacaktır."
+      ],
+      "_kopya": "b21_kaynaklar.json · yzep_2026_2030"
+    },
+    "kvkk_6698": {
+      "nitelik": "RESMI",
+      "kunye": "6698 sayılı Kişisel Verilerin Korunması Kanunu. Kabul 24.03.2016; Resmî Gazete 07.04.2016.",
+      "adres": "https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf",
+      "dosya": "kaynak_dosyalari/kvkk_6698_kanun.pdf",
+      "kanun_no": 6698,
+      "_not": "Tarım verisine özgü hüküm yok. Metin 'bir çiftçiye bağlanabilen veri kişisel veri sayılabilir' diye kanunun tanımını uygular; kesin bir hukuki görüş değil.",
+      "alinti": [
+        "Kişisel veri: Kimliği belirli veya belirlenebilir gerçek kişiye ilişkin her türlü bilgiyi",
+        "Anonim hâle getirme: Kişisel verilerin, başka verilerle eşleştirilerek dahi hiçbir surette kimliği belirli veya belirlenebilir bir gerçek kişiyle ilişkilendirilemeyecek hâle getirilmesini",
+        "Kişisel veriler ilgili kişinin açık rızası olmaksızın işlenemez.",
+        "Kişisel verilerin resmi istatistik ile anonim hâle getirilmek suretiyle araştırma, planlama ve istatistik gibi amaçlarla işlenmesi.",
+        "İstisnalar MADDE 28- (1) Bu Kanun hükümleri aşağıdaki hâllerde uygulanmaz:"
+      ],
+      "_kopya": "b21_kaynaklar.json · kvkk_6698"
+    }
+  }
+}

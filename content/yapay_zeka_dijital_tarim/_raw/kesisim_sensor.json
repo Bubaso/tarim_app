@@ -1,0 +1,37 @@
+{
+  "_ne": "Kesişim notları — Sensörler ve nesnelerin interneti (karar 57)",
+  "notlar": {
+    "2": {
+      "tr": "FAO'nun 2019 brifingine göre hassas tarım, nesnelerin internetinin tarımdaki uygulamalarından biri; Türkiye'de bakanlığın 2020 anketinde sensör gibi teknolojileri kullanan çiftçilerin payı %3'ün altındaydı.",
+      "en": "In a 2019 FAO briefing, precision agriculture is one application of the Internet of Things in agriculture; in a 2020 ministry survey in Türkiye, fewer than 3% of farmers used technologies such as sensors."
+    },
+    "5": {
+      "tr": "Türkiye merkezli kışlık buğday ıslah programında elde taşınan bir bitki sensörüyle NDVI ölçümü ön verim denemelerinde rutin; sensörle fenotipleme çok sayıda hattı aynı anda izlemeyi sağlıyor.",
+      "en": "In the Türkiye-based winter wheat breeding programme, NDVI readings with a hand-held crop sensor are routine in preliminary yield trials; sensor-based phenotyping lets many lines be followed at once."
+    },
+    "6": {
+      "tr": "Nebraska'da sulanmayan mısırda sensörle azot yönetimi azotu hektarda ortalama 38,7 kg azalttı, ama kâr avantajı tarlaların yalnız %35'inde görüldü.",
+      "en": "In dryland maize in Nebraska, sensor-based nitrogen management cut nitrogen by an average of 38.7 kg per hectare, but a profit advantage appeared on only 35% of the fields."
+    },
+    "7": {
+      "tr": "Toprak nem sensörüyle zamanlanan sulama geleneksel yöntemlere göre ortalama %38, bitki örtüsü sıcaklığına dayalı zamanlamaya göre yalnız %1 su tasarrufu sağlıyor; doğruluğu en çok kalibrasyona bağlı.",
+      "en": "Irrigation timed by soil moisture sensors saves an average of 38% of water against traditional methods but only 1% against canopy-temperature scheduling; accuracy depends most on calibration."
+    },
+    "12": {
+      "tr": "Süt sığırı refahı için piyasadaki 129 teknolojiden yalnız 18'i bağımsız doğrulamadan geçmişti; oran ivmeölçerlerde %30, kameralarda %10, bolüslerde %7.",
+      "en": "Of 129 welfare technologies for dairy cattle on the market, only 18 had been independently validated; the rate was 30% for accelerometers, 10% for cameras and 7% for boluses."
+    },
+    "20": {
+      "tr": "Sensörün değeri bağlantıya bağlı: 1 hektardan küçük işletmelerin yalnız %24-37'si 3G ya da 4G kapsamasında, 200 hektarın üstündekilerin ise %74-80'i.",
+      "en": "A sensor is only as useful as its connection: just 24-37% of farms under 1 hectare are covered by 3G or 4G, against 74-80% of those over 200 hectares."
+    },
+    "25": {
+      "tr": "TÜBİTAK 1711'de desteklenmeye değer bulunan projeler arasında ekipmana takılan sensörle toprak analizi ve sensör verisiyle akıllı sulama var; Esular ve Görsentam gibi girişimler de kendi tanımlarıyla sensör sunuyor.",
+      "en": "Projects found worthy of support under TÜBİTAK 1711 include soil analysis with sensors on tillage equipment and sensor-driven smart irrigation; start-ups such as Esular and Görsentam describe their own sensor products."
+    },
+    "28": {
+      "tr": "Meksika'da hektar başına 37 dolar ek kâr getiren, azot önerisi veren elde taşınan sensörün kullanımı 2015-2016'da geriledi; Zimbabve'de sensörsüz komşular da aynı sulama değişikliğini yaptı.",
+      "en": "In Mexico, use of a hand-held sensor for nitrogen advice that earned 37 dollars extra profit per hectare declined in 2015-2016; in Zimbabwe, neighbours without sensors made the same irrigation changes."
+    }
+  }
+}

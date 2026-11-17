@@ -122,4 +122,14 @@ for (const b of yazilanlar) {
   yaz(`${YOL}/${b.slug}`, `${b.baslik.tr} — Yapay Zeka ve Dijital Tarım`, ozetten(md));
 }
 
-console.log(`✓ build/web${YOL}/index.html + ${yazilanlar.length} başlık kabuğu`);
+// Teknoloji sayfaları (karar 57): açıklama yine giriş paragrafından.
+let teknolojiSayisi = 0;
+for (const [kod, t] of Object.entries(iskelet.teknoloji ?? {})) {
+  const yol = join(BURASI, 'teknolojiler', `${kod}.tr.md`);
+  if (!existsSync(yol)) continue;
+  yaz(`${YOL}/teknoloji/${kod}`, `${t.tr} — Yapay Zeka ve Dijital Tarım`,
+    ozetten(readFileSync(yol, 'utf8')));
+  teknolojiSayisi++;
+}
+
+console.log(`✓ build/web${YOL}/index.html + ${yazilanlar.length} başlık + ${teknolojiSayisi} teknoloji kabuğu`);

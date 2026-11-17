@@ -1,0 +1,57 @@
+{
+  "_ne": "Kesişim notları — Görüntü işleme (karar 57)",
+  "notlar": {
+    "1": {
+      "tr": "Hem kazanç hem sınır ölçülmüş: kamerayla hedefli ilaçlama hakemli denemelerde ilacı %35 ve %47 azalttı, kontrollü görüntülerde %99,35 doğru bir hastalık modeli başka koşullarda %31'in biraz üstüne indi.",
+      "en": "Both the gain and the limit are measured: camera-guided spraying cut herbicide by 35% and 47% in peer-reviewed trials, and a disease model 99.35% accurate on controlled images fell to just above 31% on other images."
+    },
+    "3": {
+      "tr": "NASA'ya göre LACIE uydu görüntüsünü gözle yorumlamaktan sayısal görüntü işlemeye geçişi işaret ediyordu; 2012'de ImageNet yarışmasını %15,3 hatayla kazanan derin ağ yöntemi dört yılda yaprak hastalığı teşhisine taşındı.",
+      "en": "NASA says LACIE marked the move from reading satellite images by eye to digital image processing; the deep-network approach that won ImageNet in 2012 with a 15.3% error rate reached leaf disease diagnosis in four years."
+    },
+    "8": {
+      "tr": "Avustralya'daki şeker kamışı denemesinde ilaç ortalama %35, az otlu şeritlerde %65'e kadar azaldı ve etkinlik yayma ilaçlamanın %97'si düzeyinde kaldı; tasarruf otun yoğunluğuyla orantılı.",
+      "en": "In the Australian sugarcane trial, herbicide fell by 35% on average and by up to 65% in lightly weeded strips while efficacy stayed at 97% of broadcast spraying; the saving is proportional to weed density."
+    },
+    "10": {
+      "tr": "50 hasat robotunun ortalamasında meyvenin yerini bulma %85, koparma %75, hasadın tamamı %66 başarılıydı; bu sıralama darboğazın gözde değil elde olduğunu düşündürüyor.",
+      "en": "Across 50 harvesting robots, locating the fruit succeeded 85% of the time, detaching it 75% and the whole harvest 66%, a ranking that points to the hand rather than the eye as the bottleneck."
+    },
+    "11": {
+      "tr": "Paketleme tesislerinde meyve boylaması son otuz yılda makine görüşüne geçti; Türkiye'den bir çalışma ise kokarcanın zarar verdiği fındıkları 400 görüntülük laboratuvar setinde %98,75 doğrulukla ayırdı.",
+      "en": "Fruit sizing in packhouses has moved to machine vision over the last three decades; a study from Türkiye separated stink-bug-damaged hazelnuts on a 400-image laboratory set with 98.75% accuracy."
+    },
+    "12": {
+      "tr": "Süt sığırında refahı ölçen ticari kameraların yalnız %10'u bağımsız doğrulamadan geçmişti; ivmeölçerlerde bu oran %30'du.",
+      "en": "Only 10% of commercial cameras for assessing dairy cattle welfare had been independently validated, against 30% of accelerometers."
+    },
+    "14": {
+      "tr": "Yetiştiricilikte balığı görüntüden tanımak, boyunu ve biyokütlesini kestirmek derin öğrenmeyle deneniyor, ama yöntem çok miktarda etiketli eğitim verisi istiyor ve yayılmasının darboğazı bu.",
+      "en": "In fish farming, deep learning is being tried for recognising fish in images and estimating their size and biomass, but it needs large amounts of labelled training data, and that is the bottleneck to its spread."
+    },
+    "15": {
+      "tr": "Kaliforniya'da yüzlerce kamerayı dakikada bir tarayan bir prototip dumanı çoğunlukla tutuşmadan sonraki 15 dakikada yakaladı; Türkiye'deki kule kameralarının isabetini bağımsız ölçen yayımlanmış bir değerlendirme yok.",
+      "en": "A prototype scanning hundreds of cameras every minute in California usually caught smoke within 15 minutes of ignition; no published assessment has independently measured the accuracy of Türkiye's tower cameras."
+    },
+    "19": {
+      "tr": "Bulut, optik görüntünün tarımdaki asıl sınırı: birçok önemli tarım bölgesinde 8 günlük bileşik görüntülerin yarısından azı %70 açık çıkabiliyor.",
+      "en": "Cloud is the main limit of optical imagery in farming: in many key agricultural regions, fewer than half of 8-day composite images can come out 70% clear."
+    },
+    "23": {
+      "tr": "TAGEM'in 2025'te başlattığı üç yapay zekâ projesi de görüntüye dayanıyor (meyve ve bağda hastalık ve zararlı tespiti, kuru kayısıda multispektral ölçüm, kameralı ilaçlama makinesi) ve sonuçları henüz açıklanmadı.",
+      "en": "All three AI projects TAGEM launched in 2025 rest on images (disease and pest detection in fruit and vineyards, multispectral measurement of dried apricots, a camera-guided sprayer), and none has published results yet."
+    },
+    "25": {
+      "tr": "TÜBİTAK'ın akıllı tarım, gıda ve hayvancılık alanında desteğe değer bulduğu 10 projeden birinin konusu kızgınlığın görüntüden tespiti; iki girişim de kendi tanımına göre zararlıyı kamerayla ya da fotoğraftan tanıyor.",
+      "en": "One of the 10 projects in smart agriculture, food and livestock that TÜBİTAK found worth supporting detects animals' oestrus from images; two start-ups, by their own account, recognise pests by camera or from photos."
+    },
+    "26": {
+      "tr": "Tanzanya'da telefona yüklenen manyok modelinin F-1 skoru tarlada erken ve hafif belirtilerde 0,26'ya indi; teşhisin en çok işe yarayacağı evre, modelin en zayıf olduğu evre çıktı.",
+      "en": "On a phone in a Tanzanian field, a cassava model's F-1 score fell to 0.26 for early, mild symptoms; the stage at which diagnosis is most useful turned out to be the one where the model was weakest."
+    },
+    "28": {
+      "tr": "Manyok belirtilerinde yayım elemanlarını (%40-58) %65 doğrulukla geride bırakan internetsiz Nuru uygulaması, hafif belirtilerde %13-37 doğruluğa indi.",
+      "en": "The offline Nuru app, which beat extension officers (40-58%) with 65% accuracy on cassava symptoms, fell to 13-37% accuracy on mild symptoms."
+    }
+  }
+}

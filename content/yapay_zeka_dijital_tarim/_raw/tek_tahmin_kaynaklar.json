@@ -1,0 +1,384 @@
+{
+  "_ne": "Teknoloji sayfası — Tahmin modelleri (karar 57)",
+  "guncellendi": "2026-11-17",
+  "kaynaklar": {
+    "lam_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421.",
+      "doi": "10.1126/science.adi2336",
+      "dosya": "kaynak_dosyalari/lam_2023_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMID 37962497)",
+      "tahmin_ufku_gun": 10,
+      "cozunurluk_derece": 0.25,
+      "sure_dakika_alti": 1,
+      "ustun_hedef_yuzde": 90,
+      "dogrulama_hedefi": 1380,
+      "_not": "Tahminin isabeti ölçülüyor; tarımda bir sonuç (don, verim, sigorta) ölçülmüyor.",
+      "alinti": [
+        "Traditional numerical weather prediction uses increased compute resources to improve forecast accuracy but does not directly use historical weather data to improve the underlying model.",
+        "Here, we introduce GraphCast, a machine learning-based method trained directly from reanalysis data.",
+        "It predicts hundreds of weather variables for the next 10 days at 0.25° resolution globally in under 1 minute.",
+        "GraphCast significantly outperforms the most accurate operational deterministic systems on 90% of 1380 verification targets, and its forecasts support better severe event prediction, including tropical cyclone tracking, atmospheric rivers, and extreme temperatures."
+      ],
+      "_kopya": "b17_kaynaklar.json · lam_2023"
+    },
+    "ecmwf_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası.",
+      "adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      "dosya": "kaynak_dosyalari/ecmwf_2025_aifs_operasyonel.html",
+      "operasyonel_tarih": "25 Şubat 2025",
+      "kazanc_ust_sinir_yuzde": 20,
+      "_beyan": "Kurumun kendi beyanı; '%20'ye varan kazanç' bazı ölçütler için. Metin 'kuruma göre' diye aktarır.",
+      "alinti": [
+        "ECMWF has taken the Artificial Intelligence Forecasting System (AIFS) into operations today, 25 February 2025, to run side by side with its traditional physics-based Integrated Forecasting System (IFS) to advance numerical weather prediction.",
+        "The AIFS outperforms state-of-the-art physics-based models for many measures, including tropical cyclone tracks, with gains of up to 20%."
+      ],
+      "_kopya": "b17_kaynaklar.json · ecmwf_2025"
+    },
+    "hindistan_pib_2026_yz": {
+      "nitelik": "RESMI",
+      "kunye": "Press Information Bureau (PIB), Hindistan Hükümeti. 2026. Artificial Intelligence (AI) Transforming Indian Agriculture (arka plan notu, 14 Şubat 2026). Yeni Delhi.",
+      "adres": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc2026214789901.pdf",
+      "dosya": "kaynak_dosyalari/hindistan_pib_2026_yz_tarim.pdf",
+      "e_mitra_soru_lakh": 93,
+      "e_mitra_soru_milyon": 9.3,
+      "e_mitra_gunluk_soru": 8000,
+      "e_mitra_dil": 11,
+      "e_mitra_yil": 2023,
+      "muson_ciftci_crore": 3.88,
+      "muson_ciftci_milyon": 38.8,
+      "muson_eyalet": 13,
+      "karar_degistiren_yuzde": "31-52",
+      "misyon_butce_crore": 2817,
+      "misyon_yili": 2024,
+      "kimlik_hedef_crore": 11,
+      "crore_milyon": 10,
+      "_turetme": "1 lakh = 100 bin, 1 crore = 10 milyon: 93 lakh = 9,3 milyon; 3,88 crore = 38,8 milyon.",
+      "_not": "e-Mitra rakamı soru sayısı, tekil kullanıcı değil; muson tahmini yapay zekâ diye anılmıyor, metin de anmaz.",
+      "alinti": [
+        "Transforming Indian Agriculture 14 February, 2026",
+        "As of December 2025, the Kisan e-Mitra chatbot has answered more than 93 lakh queries, handling over 8,000 farmer queries daily in 11 regional languages.",
+        "Kisan e-Mitra, launched in 2023, is a voice-enabled, AI-powered chatbot designed to support farmers by answering queries on key government schemes, including PM Kisan Samman Nidhi, the Kisan Credit Card, and the Pradhan Mantri Fasal Bima Yojana.",
+        "To guide optimal sowing decisions, focusing on local monsoon onset, probabilistic forecasts were disseminated via SMS through the mKisan portal to over 3.88 crore farmers in five regional languages across 13 states.",
+        "Follow-up surveys in Madhya Pradesh and Bihar indicated that 31–52 percent of farmers modified their planting decisions based on the forecasts, primarily by adjusting land preparation, sowing timelines, and crop and input choices.",
+        "The Digital Agriculture Mission, launched in 2024 with a total outlay of ₹2,817 crore",
+        "Against a target of 11 crore Farmer IDs by 2026–27, over 7.63 crore IDs have been generated as of 27 November 2025, including 1.93 crore IDs for women farmers."
+      ],
+      "_kopya": "b22_kaynaklar.json · hindistan_pib_2026_yz"
+    },
+    "van_der_velde_nisini_2019": {
+      "nitelik": "HAKEMLI",
+      "kunye": "van der Velde M., Nisini L. 2019. Performance of the MARS-crop yield forecasting system for the European Union: Assessing accuracy, in-season, and year-to-year improvements from 1993 to 2015. Agricultural Systems 168: 203-212.",
+      "doi": "10.1016/j.agsy.2018.06.009",
+      "dosya": "kaynak_dosyalari/vandervelde_nisini_2019_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC6360854)",
+      "tahmin_sayisi": 19980,
+      "tahmin_donemi": "1993-2015",
+      "urun_sayisi": 7,
+      "dogruluk_donemi": "2006-2015",
+      "en_dusuk_ortanca_hata_yuzde": 3.73,
+      "en_dusuk_ulke": "Fransa",
+      "en_yuksek_ortanca_hata_yuzde": 14.37,
+      "en_yuksek_ulke": "Portekiz",
+      "alinti": [
+        "19,980 crop yield forecasts have been published for the European Union (EU) Member States (MS) during 1993-2015 using the MARS-Crop Yield Forecasting System (MCYFS).",
+        "We assess the performance of these forecasts for soft wheat, durum wheat, grain maize, rapeseed, sunflower, potato and sugar beet",
+        "the first forecasts during a season, forecasts one month pre-harvest, and the end-of-campaign (EOC) forecasts during 2006-2015 using reported yields",
+        "the lowest median MAPE across all crops is obtained for Europe's largest producer, France, equalling 3.73%.",
+        "the highest median MAPE is obtained for Portugal, at 14.37%.",
+        "Forecasts generally underestimated reported yields, with a systematic underestimation across all MS for soft wheat, rapeseed and sugar beet forecasts.",
+        "Forecasts generally improve during the growing season; both the forecast error and its variability tend to progressively decrease.",
+        "This is the case for the cereals, and to a lesser extent for the tuber crops, while seasonal forecast improvements are lower for the oilseed crops.",
+        "The median EU-12 yield forecasts for rapeseed, potato and sugar beet have significantly",
+        "neither was there any significant improvement in any of the crop forecasts from 2006 to 2015, evaluated at EU-27 level.",
+        "an increased volatility in yield statistics is observed",
+        "This underlines that renewed efforts to improve operational crop yield forecasting are needed"
+      ],
+      "_kopya": "b09_kaynaklar.json · van_der_velde_nisini_2019"
+    },
+    "paudel_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Paudel D., Boogaard H., de Wit A., Janssen S., Osinga S., Pylianidis C., Athanasiadis I.N. 2021. Machine learning for large-scale crop yield forecasting. Agricultural Systems 187: 103016.",
+      "doi": "10.1016/j.agsy.2020.103016",
+      "dosya": "kaynak_dosyalari/paudel_2021_ideas.html",
+      "dogrulandigi_yer": "yayıncı özeti, IDEAS/RePEc kaydı",
+      "ulke_sayisi": 3,
+      "urun_sayisi": 5,
+      "erken_sezon_ekimden_sonra_gun": 30,
+      "nrmse_yumusak_bugday_hollanda": {
+        "makine_ogrenmesi": 7.87,
+        "mcyfs": 6.32
+      },
+      "nrmse_seker_pancari_almanya": {
+        "makine_ogrenmesi": 8.21,
+        "mcyfs": 8.79
+      },
+      "alinti": [
+        "operational large-scale systems, such as the European Commission's MARS Crop Yield Forecasting System (MCYFS), do not use machine learning.",
+        "We created features using crop simulation outputs and weather, remote sensing and soil data from the MCYFS database.",
+        "we predicted yield at regional level for five crops (soft wheat, spring barley, sunflower, sugar beet, potatoes) and three countries (the Netherlands (NL), Germany (DE), France (FR)).",
+        "We also aggregated the predictions to the national level and compared with past MCYFS forecasts.",
+        "The normalized RMSE (NRMSE) for early season predictions (30 days after planting) were comparable for NL (all crops), DE (all except soft wheat) and FR (soft wheat, spring barley, sunflower).",
+        "For example, NRMSE was 7.87 for soft wheat (NL) (6.32 for MCYFS) and 8.21 for sugar beet (DE) (8.79 for MCYFS).",
+        "In contrast, NRMSEs for soft wheat (DE), sugar beet (FR) and potatoes (FR) were twice as much compared to MCYFS.",
+        "NRMSEs for end of season were still comparable to MCYFS for NL, but worse for DE and FR.",
+        "The baseline can be improved by adding new data sources, designing more predictive features and evaluating different machine learning algorithms."
+      ],
+      "_kopya": "b09_kaynaklar.json · paudel_2021"
+    },
+    "manogna_2025": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Manogna R.L., Dharmaji V., Sarang S. 2025. Enhancing agricultural commodity price forecasting with deep learning. Scientific Reports 15(1): 20903.",
+      "doi": "10.1038/s41598-025-05103-z",
+      "dosya": "kaynak_dosyalari/manogna_2025_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC12215695)",
+      "urun_sayisi": 23,
+      "veri_donemi": "Ocak 2010 - Haziran 2024",
+      "gru_rmse_sogan": 369.54,
+      "arima_rmse_sogan": 1564.62,
+      "gru_rmse_domates": 210.35,
+      "arima_rmse_domates": 1298.6,
+      "gru_mape_sogan_yuzde": 14.59,
+      "gru_mape_domates_yuzde": 10.58,
+      "_yuvarlama": "Metin RMSE değerlerini tam sayıya yuvarlar (370, 1.565, 210, 1.299). RMSE'nin birimi özette yok; oran türetilmez.",
+      "_not": "Tek ülke, tek çalışma. En iyi modelin yüzde hatası bile %10-15.",
+      "alinti": [
+        "This study evaluates the performance of traditional stochastic models, machine learning techniques, and deep learning approaches in forecasting the prices of 23 commodities using daily wholesale price data from January 2010 to June 2024.",
+        "Models assessed include Autoregressive Integrated Moving Average, Support Vector Regression, Extreme Gradient Boosting, Multilayer Perceptron, Recurrent Neural Networks, Long Short-Term Memory Networks, Gated Recurrent Units, and Echo State Networks.",
+        "For instance, the GRU model achieved a Root Mean Squared Error (RMSE) of 369.54 for onions and 210.35 for tomatoes, significantly outperforming the ARIMA model, which recorded RMSE values of 1564.62 and 1298.60, respectively.",
+        "Furthermore, the Mean Absolute Percentage Error (MAPE) for GRU was notably lower, at 14.59% for onions and 10.58% for tomatoes.",
+        "The study recommends exploring hybrid models and incorporating external factors like weather data to further enhance forecasting reliability."
+      ],
+      "_kopya": "b16_kaynaklar.json · manogna_2025"
+    },
+    "menculini_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Menculini L., Marini A., Proietti M., Garinei A., Bozza A., Moretti C., Marconi M. 2021. Comparing Prophet and Deep Learning to ARIMA in Forecasting Wholesale Food Prices. Forecasting 3(3): 644-662.",
+      "doi": "10.3390/forecast3030040",
+      "dosya": "kaynak_dosyalari/menculini_2021_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "_not": "Karşı ağırlık: tek bir İtalyan gıda toptancısında ARIMA ile LSTM benzer. Özette sayı yok.",
+      "alinti": [
+        "In this paper, we examine different techniques to forecast sale prices applied by an Italian food wholesaler, as a step towards the automation of pricing tasks usually taken care by human workforce.",
+        "ARIMA models are frequently used in econometric analyses, providing a good benchmark for the problem under study.",
+        "Our results indicate that ARIMA models and LSTM neural networks perform similarly for the forecasting task under consideration, while the combination of CNNs and LSTMs attains the best overall accuracy, but requires more time to be tuned.",
+        "On the contrary, Prophet is quick and easy to use, but considerably less accurate."
+      ],
+      "_kopya": "b16_kaynaklar.json · menculini_2021"
+    },
+    "montesinos_lopez_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Montesinos-López O.A., Montesinos-López A., Pérez-Rodríguez P., Barrón-López J.A., Martini J.W.R., Fajardo-Flores S.B., Gaytan-Lugo L.S., Santana-Mancilla P.C., Crossa J. 2021. A review of deep learning applications for genomic selection. BMC Genomics 22.",
+      "doi": "10.1186/s12864-020-07319-x",
+      "dosya": "kaynak_dosyalari/montesinos_lopez_2021_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC7789712)",
+      "tur": "derleme — derin öğrenme ile genomik seçilim",
+      "alinti": [
+        "In recent years, deep learning (DL) methods have been considered in the context of genomic prediction.",
+        "The main requirement for using DL is the quality and sufficiently large training data.",
+        "we did not find clear superiority of DL in terms of prediction power compared to conventional genome based prediction models.",
+        "Nevertheless, there are clear evidences that DL algorithms capture nonlinear patterns more efficiently than conventional genome based.",
+        "Deep learning algorithms are able to integrate data from different sources as is usually needed in GS assisted breeding",
+        "It is important to apply DL to large training-testing data sets."
+      ],
+      "_kopya": "b05_kaynaklar.json · montesinos_lopez_2021"
+    },
+    "de_lara_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023. Predicting site-specific economic optimal nitrogen rate using machine learning methods and on-farm precision experimentation. Precision Agriculture 24(5).",
+      "doi": "10.1007/s11119-023-10018-8",
+      "dosya": "kaynak_dosyalari/de_lara_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "deneme_sayisi": 20,
+      "verim_tahmin_hatasi_yuzde": 13.7,
+      "alinti": [
+        "Machine learning (ML) methods such as generalized additive models (GAM) and random forest (RF) are promising methods for estimating yields and EONR.",
+        "Twenty OFPE N trials in wheat and barley were conducted and analyzed with soil, terrain and remote-sensed variables",
+        "Machine learning techniques were able to model wheat and barley yield with an average error of 13.7%",
+        "However, similar yield prediction accuracy from RF and GAM resulted in widely different economic optimal nitrogen rates.",
+        "however, the magnitude and direction of the effect varied between fields.",
+        "These indicate that training a model using data coming from different fields may lead to unreliable site-specific EONR when it is applied to another field."
+      ],
+      "_kopya": "b06_kaynaklar.json · de_lara_2023"
+    },
+    "garcia_ruiz_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "García-Ruiz A., Cole J.B., VanRaden P.M., Wiggans G.R., Ruiz-López F.J., Van Tassell C.P. 2016. Changes in genetic selection differentials and generation intervals in US Holstein dairy cattle as a result of genomic selection. PNAS 113(28).",
+      "doi": "10.1073/pnas.1519061113",
+      "dosya": "kaynak_dosyalari/garcia_ruiz_2016_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC4948329)",
+      "yil_sonra": 7,
+      "boga_babasi_kusak_araligi_yil": {
+        "once": 7,
+        "sonra_en_cok": 2.5
+      },
+      "boga_annesi_kusak_araligi_yil": {
+        "once": 4,
+        "sonra": 2.5
+      },
+      "verim_ozelliklerinde_artis_yuzde": "50-100",
+      "dusuk_kalitimli_ozelliklerde_kat": "3-4",
+      "alinti": [
+        "Seven years after the introduction of genomic selection in the United States, it is now possible to evaluate the impact of this technology on the population.",
+        "The SB GI reduced from ∼7 y to less than 2.5 y, and the DB GI fell from about 4 y to nearly 2.5 y.",
+        "The most dramatic response to genomic selection was observed for the lowly heritable traits DPR, PL, and SCS.",
+        "resulting in rapid genetic improvement in fertility, lifespan, and health in a breed where these traits eroded over time.",
+        "rates of genetic gain per year increased from ∼50-100% for yield traits and from threefold to fourfold for lowly heritable traits."
+      ],
+      "_kopya": "b12_kaynaklar.json · garcia_ruiz_2016"
+    },
+    "tob_bitkisel_uretim_metaveri": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı, Tarım Reformu Genel Müdürlüğü. 2026. İstatistik Bülteni: Bitkisel Üretim I. Tahmini, 2026 — metaveri.",
+      "adres": "https://istatistik.tarimorman.gov.tr/Sayfa/Detay/2347",
+      "dosya": "kaynak_dosyalari/tob_2026_bitkisel_uretim_1_tahmin.html",
+      "yillik_aciklama_sayisi": 3,
+      "_yontem": "Metaverinin yöntem tarifinde uydu, uzaktan algılama ya da model geçmiyor.",
+      "alinti": [
+        "TARIM REFORMU GENEL MÜDÜRLÜĞÜ İSTATİSTİK BÜLTENİ Bitkisel Üretim I. Tahmini, 2026",
+        "Bitkisel üretim tahminleri kapsamında yılda 3 kez sonuç açıklanmaktadır.",
+        "Mayıs ve Ekim aylarında açıklanan istatistikler 1. ve 2. tahminler, Aralık ayında yayımlanan istatistikler nihai sonuçlardır.",
+        "Veriler, İl ve İlçe Müdürlükleri tarafından toplanmakta ve web tabanlı İstatistik Bilgi Sistemine (İBS) girilmektedir.",
+        "Bu bilgiler, ilçe müdürlüklerinin ellerindeki kaynak bilgiler, idari kayıtlar (ÇKS, havza sistemi bilgileri, STATİP vb.) ile tarım teknisyenlerinin kendi bölgeleri hakkındaki izlenimlerine dayanan bilgiler niteliğindedir."
+      ],
+      "_kopya": "b09_kaynaklar.json · tob_bitkisel_uretim_metaveri"
+    },
+    "tkb_2006_verim_bulteni": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Köyişleri Bakanlığı — FAO TCP/TUR/3002-A. Bülten No 1: Ekim 2005-Ocak 2006. Kışlık Buğday Agro-Meteorolojik Ürün Verim Tahmini Bülteni.",
+      "dosya": "kaynak_dosyalari/tkb_2006_01_verim_tahmini_bulteni.pdf",
+      "sezon": "2005-2006",
+      "model_calisma_araligi_gun": 10,
+      "alinti": [
+        "Bülten No 1: Ekim 2005-Ocak 2006 ÜRÜN ADI: Kışlık Buğday",
+        "FAO (Strengthening the Crop Yield and Production Forecasting Capability Project-TCP/TUR/3002-A )",
+        "meteorolojik verileri kullanarak kışlık buğdayda verim tahmini yapmak ve elde edilen sonuçları ilgili kuruluşlara bildirmektir",
+        "Bu bültende yer alan verim tahminleri FAO tarafından geliştirilen ve iklim faktörlerinin kullanıldığı Agrometeorolojik Simülasyon Yöntemine göre yapılmıştır.",
+        "Yöntemin mantığı bitki yetişme periyodu boyunca bitkinin ihtiyacı olan suyun yeterli olup olmadığının saptanmasına dayanmaktadır.",
+        "Modelden elde edilen bir seri parametre Devlet İstatistik Enstitüsü'nün uzun yıllar verim istatistikleri ile ilişkilendirilerek",
+        "Model her 10 günde bir çalıştırılarak o tarihe kadar olan iklim verileri değerlendirilmektedir."
+      ],
+      "_kopya": "b09_kaynaklar.json · tkb_2006_verim_bulteni"
+    },
+    "agrosens_2026_04": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü. Nisan 2026. AGROSENS — Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni, sayı 58.",
+      "dosya": "kaynak_dosyalari/agrosens_2026_04.pdf",
+      "bulten_sayisi": 58,
+      "ndvi_cozunurluk_m": 250,
+      "denetlenen_sayilar": [
+        "Mayıs 2024",
+        "Mayıs 2025",
+        "Kasım 2025",
+        "Nisan 2026"
+      ],
+      "_denetim": "Dört sayının (izleme_bulteni_2024_05.pdf, agrosens_2025_05.pdf, agrosens_2025_11.pdf, agrosens_2026_04.pdf — hepsi ham_kaynaklar.json'da) metninde 'kg/da' ve 'verim tahmini' geçmiyor (16.11.2026 taraması). Mayıs 2020 sayısında ikisi de geçiyor. Bültenlerde bölgesel gözleme dayalı nitel verim beklentisi var, rakam yok.",
+      "alinti": [
+        "AGROSENS NİSAN 2026 - SAYI 58",
+        "uydu tabanlı NDVI, ASI ve fPAR göstergeleri, yağış ve sıcaklık analizleri ile birlikte ele alınmış",
+        "MODIS Terra+Aqua, 250 m",
+        "bölge genelinde verim beklentisinin olumlu yönde şekillenebileceği değerlendirilmektedir",
+        "ancak ilkbahar başı değerleri yıl sonu tarımsal performans için belirleyici değildir; asıl belirleyici dönem mayıs–temmuz aralığıdır"
+      ],
+      "_kopya": "b09_kaynaklar.json · agrosens_2026_04"
+    },
+    "trgm_2026_urun_belirleme": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+      "dosya": "kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+      "ilk_uygulama_yili": 2025,
+      "bolge_toplantisi": 12,
+      "duyuru_ayi": "Temmuz 2026",
+      "_dogruluk": "Duyuru 'yüksek doğruluk oranları' diyor ama oran vermiyor; bu taramada yayımlanmış bir doğruluk değeri bulunamadı.",
+      "alinti": [
+        "Genel Müdürlüğümüz tarafından yürütülen Ürün Belirleme Çalışmaları",
+        "Yapay Zekâ Destekli Ürün İzleme ve Uydu Takip Sistemlerine",
+        "12 bölge toplantısı gerçekleştirildi",
+        "Bakanlığımız tarafından 2025 üretim yılında ilk kez uygulamaya alınan Uzaktan Algılama ile Ürün Belirleme Çalışmaları",
+        "ülke genelindeki tarımsal üretim alanları yüksek doğruluk oranlarıyla analiz edilmekte",
+        "Sistem kapsamında sahadan toplanan referans parseller, uydu görüntüleriyle birlikte değerlendirilerek makine öğrenmesi süreçleri işletiliyor",
+        "ekili ürünlerin tespiti, sınıflandırılması ve üretim desenlerinin belirlenmesine yönelik analizler",
+        "Kışlık ürünlere ait referans parsellerin hasat öncesinde hızlı, doğru ve yeterli yoğunlukta toplanmasının sistem başarısını doğrudan etkilediği vurgulanırken",
+        "bu kapsamda gerçekleştirilecek ÇKS beyan doğruluk kontrolleri"
+      ],
+      "_kopya": "b09_kaynaklar.json · trgm_2026_urun_belirleme"
+    },
+    "mgm_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. 2025. 2025 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2025_performans_programi.pdf",
+      "don_tahmin_ufku_gun": 5,
+      "_denetim": "Belgede 'yapay zek', 'makine öğren', 'derin öğren', 'artificial' geçmiyor (17.11.2026).",
+      "alinti": [
+        "Programda, 5 günlük tahmin ve risk durumları tüm illerimizi ve ilçelerimizi kapsayacak şekilde bitki bazında görüntülenebilmektedir",
+        "Zirai Don Risk Tahmin Haritaları; haftanın her günü, meteorolojik tahminlerden yararlanılarak, önümüzdeki 5 günü kapsayacak şekilde, hafif-orta kuvvette, kuvvetli-çok kuvvetli don riski olan yerler harita üzerinde farklı renklerde gösterilerek, internet sitemizde yayımlanmaktadır.",
+        "Bu uygulama ile tarımsal faaliyetleri olumsuz etkileyebilecek kuvvetli meteorolojik uyarılara çiftçilerimiz uygulama üzerinden kolayca ulaşabilmektedir.",
+        "Meteorolojik kuraklık analizleri, uluslararası alanda kabul görmüş yöntemler olan Standart Yağış İndeksi (SPI), Normalin Yüzdesi İndeksi (PNI) ve PALMER Kuraklık Şiddet İndeksi (PDSI) metotları kullanılarak",
+        "• Zirai Don Uyarı Sistemi (ZDUS),",
+        "Tarımsal Hava Tahmini web sayfasında yer alan meteorolojik bilgilere anlık olarak ulaşabilmesi amacıyla “Tarımsal Hava Tahmini Mobil Uygulaması” geliştirilmiştir."
+      ],
+      "_kopya": "b17_kaynaklar.json · mgm_2025"
+    },
+    "mgm_2026": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. [2026]. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Meteoroloji Genel Müdürlüğü 2026 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2026-performans-program.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2026_performans_programi.pdf",
+      "gozlem_sistemi": 2059,
+      "omgi": 1717,
+      "_not": "Bütün ağın sayısı; tarıma ayrılmış istasyon sayısı değil. Bakanlık il müdürlüklerinin istasyon toplamı resmî kaynakta bulunamadı.",
+      "alinti": [
+        "MGM bünyesinde 2059 adet gözlem sistemi kurulu bulunmaktadır.",
+        "OMGİ, meteorolojik algılayıcılar, veri toplama, işleme ve arşivleme üniteleri ile iletişim, görüntüleme ve enerji ünitelerinden oluşmaktadır.",
+        "2025 yılı itibariyle 1717 adet OMGİ bulunmaktadır.",
+        "Tarımsal faaliyetlerde meteorolojik bilginin azami olarak kullanılabilmesini temin etmek ve tarımsal üretime katkıda bulunmak maksadıyla aşağıda verilen ürünler Kurumumuz tarafından kamuoyunun hizmetine sunulmaktadır.",
+        "2025 yılı itibarıyla Kurumumuz; dijital dönüşüm, yüksek çözünürlüklü modelleme, yapay zekâ destekli tahmin sistemleri ve mobil iletişim teknolojileriyle meteorolojik bilgilerin erişilebilirliğini en üst seviyeye taşımıştır.",
+        "Yapay Zekâ ile veri işleme ve analiz servisleri"
+      ],
+      "_kopya": "b20_kaynaklar.json · mgm_2026 · b17'deki aynı dosyanın alıntılarıyla"
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "hazirlayan": "Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığı",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "kalkinma_plani": "On İkinci Kalkınma Planı",
+      "yz_politikasi_paragraf": 489,
+      "sulama_bit_politikasi_paragraf": 505,
+      "makine_parki_orgut_sayisi": 14,
+      "takis_izleme_periyodu_gun": 7,
+      "takis_tahmin_yili": 2027,
+      "takis_tahmin_ufku": "1-4 hafta",
+      "kkydp_hibe_orani_yuzde": "50-70",
+      "kkydp_kadin_genc_payi_en_az_yuzde": 20,
+      "kkydp_aile_isletmesi_payi_yuzde": 30,
+      "kkydp_dayanak": "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar · 3 Nisan 2026 tarihli Tebliğ",
+      "gosterge_sayisi": 15,
+      "dijital_gosterge_sayisi": 0,
+      "b_recete_il": 81,
+      "b_recete_baslangic": "1 Temmuz 2026",
+      "toprak_etudu_il": 15,
+      "toprak_etudu_milyon_ha": 3.5,
+      "elektronik_olcum_tesis": 100,
+      "karar_sayisi": 11934,
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "alinti": [
+        "Karar Sayısı: 11934 Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığınca hazırlanan ekli “2027 Yılı Cumhurbaşkanlığı Yıllık Programı”nın onaylanmasına karar verilmiştir. 27 Ekim 2026",
+        "2027 Yılı Cumhurbaşkanlığı Yıllık Programı 27 Ekim 2026 tarihli ve 33413 Mükerrer Sayılı Resmî Gazete’de yayımlanmıştır.",
+        "Dijitalleşme, yapay zekâ ve veriye dayalı iş modelleriyle akıllı tarım uygulamaları yaygınlaştırılacaktır. (Kalkınma Planı p.489)",
+        "Sulama yönetiminde bilgi ve iletişim teknolojilerinin kullanımı yaygınlaştırılacaktır. (Kalkınma Planı p.505)",
+        "Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır.",
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması",
+        "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar ile 3 Nisan 2026 tarihli Kırsal Kalkınma Yatırım Programı Çerçevesinde Yapılacak Desteklemeler Hakkında Tebliğ",
+        "15 ilde 3,5 milyon hektar tarım arazisinin detaylı toprak etütleri ve haritalandırılması çalışmalarına devam edilecektir.",
+        "100 tesise elektronik ölçüm sistemi takılacaktır."
+      ],
+      "_kopya": "b23_kaynaklar.json · yillik_program_2027"
+    }
+  }
+}

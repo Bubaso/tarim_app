@@ -1,0 +1,19 @@
+# Karar destek sistemleri
+
+Karar destek sistemi ölçümü bir öneriye çeviriyor: hangi noktaya ne kadar azot verileceğini, ne zaman sulanacağını, yangının nereye ilerleyeceğini. Fikir makine öğrenmesinden eski: ABD Tarım Bakanlığı'nın pamuk için geliştirdiği uzman sistem COMAX, tarladaki sensörlerin bildirdiği hava koşullarıyla önerilerini her gün yeniden değerlendiriyordu ve 1988'de **150**'ye yakın çiftçi bu modeli kullandı. Bugün makine öğrenmesi öneriyi doğrudan veriden çıkarmaya aday, ama alanları kesen iki bulgu var: verimi iyi tahmin eden bir model doğru dozu bulamayabiliyor, kâr getiren bir öneri de benimsenmeyebiliyor. Türkiye'de yapay zekâ destekli bir karar destek sistemi orman yangınında 2022'den beri kullanılıyor, ama etkisini ölçen bağımsız bir değerlendirme yayımlanmadı; Bakanlığın gübre tavsiye yöntemi ise sınandığı bir arazide fosfor farkını görmedi.
+
+## İyi tahmin, farklı doz
+
+Değişken oranlı uygulamada zor olan makine değil, reçete. De Lara ve arkadaşları (2023), buğday ve arpada **20** çiftlik denemesinin verisini toprak, arazi ve uydu değişkenleriyle iki makine öğrenmesi yöntemine verdi. Modeller verimi ortalama **%13,7** hatayla tahmin etti; ama benzer doğrulukla tahmin eden iki model, ekonomik en uygun azot dozu için birbirinden çok farklı sonuçlar çıkardı. Etkili değişkenlerin büyüklüğü ve yönü tarladan tarlaya değişti; yazarlara göre başka tarlaların verisiyle eğitilen bir model yeni bir tarlada güvenilmez doz önerebilir.
+
+Sulamada yapay zekâ simülasyonda umut verici, tarlada az sınanmış. Saikai, Peake ve Chenu (2023), her gün toprak suyuna, bitkinin gelişme evresine ve yağışa bakıp ne kadar sulanacağına karar veren bir kuralı derin pekiştirmeli öğrenmeyle geliştirdi. Kural, bölgede yaygın kurala göre kârı 2011-2020'nin bütün sınama yıllarında artırdı, en çok 2018'de **%17**. Sonuç bir saha denemesinden değil, Avustralya'nın Goondiwindi bölgesi için bir bitki büyüme modeliyle yapılan simülasyondan; yazarlar bu tekniğe dair araştırmanın seyrek ve pratikten uzak kaldığını kendileri belirtiyor.
+
+## Kâr getiren öneri de bırakılabiliyor
+
+Meksika'nın Yaqui Vadisi'nde CIMMYT ile Oklahoma Eyalet Üniversitesi'nin geliştirdiği GreenSeeker, sezon ortasında bitkiye bakıp tarlaya özel azot önerisi veren, elde taşınan ucuz bir sensör. RTI'nın 2017 raporuna göre sensör 2006'daki pilot aşamadan beri **48.000** hektarı aşan alanda kullanıldı ve çiftçiye hektar başına **37** dolar ek kâr getirdi; bu hesaba cihazın ve teknisyenin maliyeti dâhil değil. Aynı ekibin 2022 tarihli hakemli çalışmasına göre öneriye uymayan çiftçilerin kârı daha düşük kaldı. Yine de benimseme 2015-2016 sezonunda genişleyeceğine geriledi: gübreyi de satan çiftçi kredi birlikleri daha az gübre kullandıran bir değişikliği onaylamaya isteksizdi, teknisyenlerin sensörle verdiği danışmanlığın fonu azaldı. Raporun vardığı sonuç, kârın ve çevre faydasının benimsemenin sürmesine yetmediği.
+
+## Kamunun tavsiyesi: yangın, gübre, sulama
+
+Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor; sistem yangın çıkma olasılığını ve nedenini tahmin ediyor, yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistemin tespit süresine, yanan alana ya da yanlış alarm oranına etkisi bağımsız olarak ölçülüp yayımlanmış değil.
+
+Tarlada ise kamunun kendi tavsiyesi sınandı: Çankırı'da **300** hektarlık bir arazide fosfor orta düzeyde değişirken (değişkenlik katsayısı **%21,3**), Bakanlığın gübre tavsiye yöntemi aynı büyüklükteki beş alt bölgenin hepsine birebir aynı fosfor dozunu verdi (Wardamı, Erşahin ve Karahan, 2024). Sulamada karar desteği kuruluş aşamasında: 2027 Programı'na göre Dijital Sulama Yönetim Sistemi (DİSU) tamamlanacak, sulama yönetiminde karar destek sistemlerinin kullanımı ve bunu destekleyecek mevzuat üzerinde çalışılacak.

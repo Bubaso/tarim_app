@@ -1,0 +1,371 @@
+{
+  "_ne": "Teknoloji sayfası — Uzaktan algılama (karar 57)",
+  "guncellendi": "2026-11-17",
+  "kaynaklar": {
+    "nasa_2019_landsat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "NASA Landsat Science (Rocchio L.E.P.). 2019. Landsat Science Team members support the free and open Landsat data policy. 20 Mart 2019. [Zhu Z. ve ark. 2019, Benefits of the free and open Landsat data policy, Remote Sensing of Environment 224: 382-385 makalesinin kurumsal özeti]",
+      "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
+      "dosya": "kaynak_dosyalari/nasa_2019_landsat_acik_veri.html",
+      "ucretsiz_erisim_yili": 2008,
+      "veri_kullanimi_artisi_kat": 20,
+      "_not": "Zhu ve ark. 2019 (Remote Sensing of Environment 224) makalesinin NASA özeti. Yayın artışı 'four-fold' yazıyla; metin 'dört kat' diye yazıyla aktarır.",
+      "alinti": [
+        "Keep Landsat data free and open—this is the resounding takeaway from a recent Remote Sensing of Environment article penned by fourteen members of the 2018-2023 Landsat Science Team.",
+        "After the 2008 USGS decision to make Landsat data available at no cost, data use has increased 20-fold, and Landsat-based scientific publications has increased four-fold.",
+        "In the paper Dr. Zhe Zhu and co-authors describe how the free and open data policy has allowed researchers to harness the nearly half-century of information contained in the Landsat archive to do robust, global time series analysis",
+        "They emphatically state that loss of the free and open data policy would have a significant impact on the research community."
+      ],
+      "_kopya": "b19_kaynaklar.json · nasa_2019_landsat"
+    },
+    "usgs_2019_landsat": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Straub C.L., Koontz S.R., Loomis J.B. 2019. Economic valuation of Landsat imagery. U.S. Geological Survey Open-File Report 2019-1112. 13 s.",
+      "doi": "10.3133/ofr20191112",
+      "dosya": "kaynak_dosyalari/usgs_2019_landsat_ekonomik_deger.html",
+      "ucretsiz_erisim_yili": 2008,
+      "yillik_fayda_2017_milyar_usd": 3.45,
+      "yillik_fayda_2011_milyar_usd": 2.19,
+      "odemeyecek_kullanici_yuzde_en_az": 50,
+      "_not": "Kullanıcı anketine dayalı değerleme; tarım dahil bütün kullanımlar.",
+      "alinti": [
+        "Landsat imagery has been available at no cost to the public since 2008, resulting in the distribution of millions of scenes each subsequent year.",
+        "Landsat imagery provided domestic and international users an estimated $3.45 billion in benefits in 2017 compared to $2.19 billion in 2011, with U.S. users accounting for $2.06 billion of those benefits.",
+        "Much of the societal value of Landsat stems from the free and open data policy that allows users to access as much imagery as is necessary for their analysis at no cost.",
+        "Charging even small fees would result in a loss of users and, most likely, a steep decline in the amount of imagery downloaded.",
+        "It is reasonable that more than 50 percent of users will decline to pay."
+      ],
+      "_kopya": "b19_kaynaklar.json · usgs_2019_landsat"
+    },
+    "ab_2013_1159_sentinel_acik_veri": {
+      "nitelik": "RESMI",
+      "kunye": "Commission Delegated Regulation (EU) No 1159/2013 of 12 July 2013 supplementing Regulation (EU) No 911/2010 on the European Earth monitoring programme (GMES) by establishing registration and licensing conditions for GMES users and defining criteria for restricting access to GMES dedicated data and GMES service information. OJ L 309, 19.11.2013, s. 1.",
+      "adres": "https://publications.europa.eu/resource/celex/32013R1159",
+      "dosya": "kaynak_dosyalari/ab_2013_1159_copernicus_veri_politikasi.xhtml",
+      "tuzuk_tarihi": "12 July 2013",
+      "rg": "19.11.2013",
+      "alinti": [
+        "COMMISSION DELEGATED REGULATION (EU) No 1159/2013 of 12 July 2013",
+        "19.11.2013 EN Official Journal of the European Union L 309/1",
+        "Access to Sentinel data should be free, full and open",
+        "Users shall have free, full and open access to GMES dedicated data and GMES service information under the conditions laid down in Articles 4 to 10, subject to the restrictions laid down in Articles 11 to 16."
+      ],
+      "_kopya": "b03_kaynaklar.json · ab_2013_1159_sentinel_acik_veri"
+    },
+    "sentiwiki_sentinel2": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Copernicus SentiWiki (ESA). S2 Mission: Overview of Sentinel-2 Mission. https://sentiwiki.copernicus.eu/web/s2-mission (erişim 17 Kasım 2026).",
+      "adres": "https://sentiwiki.copernicus.eu/web/s2-mission",
+      "dosya": "kaynak_dosyalari/copernicus_sentiwiki_sentinel2_gorev.html",
+      "yeniden_gecis_gun": 5,
+      "spektral_bant": 13,
+      "en_ince_cozunurluk_m": 10,
+      "serit_km": 290,
+      "sentinel2c_firlatma_yili": 2024,
+      "alinti": [
+        "The full mission specification of the twin satellites flying in the same orbit but phased at 180°, is designed to give a high revisit frequency of 5 days at the Equator.",
+        "Each of the satellites in the Sentinel-2 mission carries a single payload: the optical Multi-Spectral Instrument (MSI) that samples 13 spectral bands: four bands at 10 m, six bands at 20 m and three bands at 60 m spatial resolution.",
+        "The orbital swath width is 290 km.",
+        "These satellites are used to support a variety of services and applications offered by Copernicus, including land management, agriculture, forestry, disaster control, humanitarian relief operations, risk mapping, and security concerns.",
+        "Sentinel-2C was launched on September 5th, 2024, and joined the other two satellites, starting to operate alongside Sentinel-2A to ensure seamless calibration and uninterrupted data collection.",
+        "The MSI works passively, by collecting sunlight reflected from the Earth.",
+        "the Sentinel-2 extension campaign complements the nominal constellation operations, enhancing the revisit frequency over Europe and tropical regions of Africa and South America, frequently impacted by high cloud cover"
+      ],
+      "_kopya": "b19_kaynaklar.json · sentiwiki_sentinel2"
+    },
+    "ab_2021_2116": {
+      "nitelik": "RESMI",
+      "kunye": "Regulation (EU) 2021/2116 of the European Parliament and of the Council of 2 December 2021 on the financing, management and monitoring of the common agricultural policy.",
+      "tuzuk_no": "2021/2116",
+      "dosya": "kaynak_dosyalari/ab_2021_2116_otp_finansman_tuzugu.xhtml",
+      "calisir_olma_tarihi": "1 Ocak 2023",
+      "tam_isler_olma_tarihi": "1 Ocak 2024",
+      "_denetim": "Tüzük metninde 'machine learning', 'artificial intelligence' ve 'algorithm' hiç geçmiyor; 'Copernicus' üç kez geçiyor (16.11.2026 sayımı). Metin bu yüzden 'tüzük uyduyu şart koşuyor, yöntemi değil' diyor.",
+      "alinti": [
+        "‘area monitoring system’ means a procedure of regular and systematic observation, tracking and assessment of agricultural activities and practices on agricultural areas by Copernicus Sentinels satellite data or other data with at least equivalent value",
+        "Member States shall set up and operate an area monitoring system, which shall be operational from 1 January 2023.",
+        "However, by 1 January 2024, an area monitoring system in all Member States shall be fully operational.",
+        "Member States shall annually assess the quality of the area monitoring system in accordance with the methodology set up at Union level."
+      ],
+      "_kopya": "b09_kaynaklar.json · ab_2021_2116"
+    },
+    "lang_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lang N., Jetz W., Schindler K., Wegner J.D. 2023. A high-resolution canopy height model of the Earth. Nature Ecology & Evolution 7(11).",
+      "doi": "10.1038/s41559-023-02206-6",
+      "dosya": "kaynak_dosyalari/lang_2023_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC10627820)",
+      "cozunurluk_m": 10,
+      "harita_yili": 2020,
+      "uzun_agac_m": 30,
+      "uzun_agacla_kapli_kara_yuzde": 5,
+      "koruma_alaninda_yuzde": 34,
+      "alinti": [
+        "Here we present a comprehensive global canopy height map at 10 m ground sampling distance for the year 2020.",
+        "We have developed a probabilistic deep learning model that fuses sparse height data from the Global Ecosystem Dynamics Investigation (GEDI) space-borne LiDAR mission with dense optical satellite images from Sentinel-2.",
+        "This model retrieves canopy-top height from Sentinel-2 images anywhere on Earth and quantifies the uncertainty in these estimates.",
+        "According to our map, only 5% of the global landmass is covered by trees taller than 30 m.",
+        "Further, we find that only 34% of these tall canopies are located within protected areas."
+      ],
+      "_kopya": "b15_kaynaklar.json · lang_2023"
+    },
+    "paolo_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Paolo F.S., Kroodsma D., Raynor J., Hochberg T., Davis P., Cleary J., Marsaglia L., Orofino S., Thomas C., Halpin P. 2024. Satellite mapping reveals extensive industrial activity at sea. Nature 625.",
+      "doi": "10.1038/s41586-023-06825-8",
+      "dosya": "kaynak_dosyalari/paolo_2024_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMC10764273)",
+      "donem": "2017-2021",
+      "izlenmeyen_bkg_yuzde": "72-76",
+      "izlenmeyen_tasima_enerji_yuzde": "21-30",
+      "salgin_dususu_yuzde": 12,
+      "alinti": [
+        "We combine satellite imagery, vessel GPS data and deep-learning models to map industrial vessel activities and offshore energy infrastructure across the world's coastal waters from 2017 to 2021.",
+        "We find that 72-76% of the world's industrial fishing vessels are not publicly tracked, with much of that fishing taking place around South Asia, Southeast Asia and Africa.",
+        "We also find that 21-30% of transport and energy vessel activity is missing from public tracking systems.",
+        "Globally, fishing decreased by 12 ± 1% at the onset of the COVID-19 pandemic in 2020 and had not recovered to pre-pandemic levels by 2021."
+      ],
+      "_kopya": "b14_kaynaklar.json · paolo_2024"
+    },
+    "altun_turker_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Altun M., Türker M. 2021. Çoklu zamanlı Sentinel-2 görüntülerinden tarımsal ürün tespiti: Mardin-Kızıltepe örneği. AKÜ FEMÜBİD 21.",
+      "doi": "10.35414/akufemubid.890436",
+      "dosya": "kaynak_dosyalari/altun_turker_2021_kiziltepe.pdf",
+      "goruntu_yili": 2018,
+      "genel_dogruluk_yuzde": 96.35,
+      "_sinir": "Tek bölge, tek yıl; doğruluk çiftçi beyanına (ÇKS) göre ölçülmüş.",
+      "alinti": [
+        "2018 yılına ait çoklu tarihli Sentinel -2 uydu görüntülerinden",
+        "Sınıflandırmada, Rastgele Orman (RO) algoritması parsel -tabanlı yaklaşımla kullanılmıştır.",
+        "Tespit edilen ürünler mısır, buğday, pamuk, nohut, mercimek ve diğerleridir.",
+        "Görüntü olarak altı farklı tarihte",
+        "Eğitim alanı örnekleri ve sonuçların doğruluk analizleri için , mevcut Çiftçi Kayıt Sistemi (ÇKS) verilerinden yararlanılmıştır.",
+        "Sınıflandırma neticesinde % 96.35 genel doğruluk"
+      ],
+      "_kopya": "b09_kaynaklar.json · altun_turker_2021"
+    },
+    "de_lara_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023. Predicting site-specific economic optimal nitrogen rate using machine learning methods and on-farm precision experimentation. Precision Agriculture 24(5).",
+      "doi": "10.1007/s11119-023-10018-8",
+      "dosya": "kaynak_dosyalari/de_lara_2023_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "deneme_sayisi": 20,
+      "verim_tahmin_hatasi_yuzde": 13.7,
+      "alinti": [
+        "Machine learning (ML) methods such as generalized additive models (GAM) and random forest (RF) are promising methods for estimating yields and EONR.",
+        "Twenty OFPE N trials in wheat and barley were conducted and analyzed with soil, terrain and remote-sensed variables",
+        "Machine learning techniques were able to model wheat and barley yield with an average error of 13.7%",
+        "However, similar yield prediction accuracy from RF and GAM resulted in widely different economic optimal nitrogen rates.",
+        "however, the magnitude and direction of the effect varied between fields.",
+        "These indicate that training a model using data coming from different fields may lead to unreliable site-specific EONR when it is applied to another field."
+      ],
+      "_kopya": "b06_kaynaklar.json · de_lara_2023"
+    },
+    "lepage_2014": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Le Page M., Toumi J., Khabba S., Hagolle O., Tavernier A., Kharrou M.H., Er-Raki S., Huc M., Kasbani M., El Moutamanni A., Yousfi M., Jarlan L. 2014. A Life-Size and Near Real-Time Test of Irrigation Scheduling with a Sentinel-2 Like Time Series (SPOT4-Take5) in Morocco. Remote Sensing 6(11): 11182–11203.",
+      "doi": "10.3390/rs61111182",
+      "dosya": "kaynak_dosyalari/lepage_2014_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "sezon": "2012/13",
+      "su_tasarrufu_yuzde": 14,
+      "alinti": [
+        "This paper describes the setting and results of a real-time experiment of irrigation scheduling by a time series of optical satellite images under real conditions, which was carried out on durum wheat in the Haouz plain (Marrakech, Morocco), during the 2012/13 agricultural season.",
+        "For the purpose of this experiment, the irrigation of a reference plot was driven by the farmer according to, mainly empirical, irrigation scheduling while test plot irrigations were being managed following the FAO-56 method, driven by remote sensing.",
+        "Images were issued from the SPOT4 (Take5) data set, which aimed at delivering image time series at a decametric resolution with less than five-day satellite overpass similar to the time series ESA Sentinel-2 satellites will produce in the coming years.",
+        "Finally, despite a chaotic beginning of the experiment—the experimental plot had not been irrigated to get rid of a slaking crust, which prevented good emergence—our plot caught up and yielded almost the same grain crop with 14% less irrigation water.",
+        "This experiment opens up interesting opportunities for operational scheduling of flooding irrigation sectors that dominate in the semi-arid Mediterranean area."
+      ],
+      "_kopya": "b28_kaynaklar.json · lepage_2014"
+    },
+    "whitcraft_2015": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Whitcraft A.K., Vermote E.F., Becker-Reshef I., Justice C.O. 2015. Cloud cover throughout the agricultural growing season: Impacts on passive optical earth observations. Remote Sensing of Environment 156: 438-447.",
+      "doi": "10.1016/j.rse.2014.10.009",
+      "dosya": "kaynak_dosyalari/whitcraft_2015_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı",
+      "modis_veri_yil": "10-13",
+      "bilesik_gun": 8,
+      "netlik_esigi_yuzde": 70,
+      "_not": "Küresel ölçek; Türkiye için ayrı değer yok.",
+      "alinti": [
+        "Cloud cover impedes optical satellite remote sensing instruments from obtaining clear views of the Earth's surface.",
+        "Meanwhile, agriculture is a highly dynamic process, with significant changes in crop biomass and condition often occurring within roughly a week.",
+        "we employ 10–13years of twice daily 0.05° MODIS Terra (AM) and Aqua (PM) surface reflectance quality assessment cloud flags",
+        "This research shows that the early and mid-agricultural growing season, which are important periods for crop type area identification and crop yield forecasting, are characterized by both frequent and pervasive cloud extent.",
+        "Many important agricultural areas during this and other portions of the agricultural growing season are so persistently and pervasively occluded by clouds that less than half of their 8day composites would be even 70% clear",
+        "optical, polar-orbiting imaging is not likely to be a viable option for operational monitoring and alternatives (e.g. microwave synthetic aperture radar, SAR) ought to be considered",
+        "for most agricultural areas of the world, regardless of seasonality, morning acquisitions are more likely to return reasonably clear views"
+      ],
+      "_kopya": "b19_kaynaklar.json · whitcraft_2015"
+    },
+    "tarsim_2025_faaliyet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TARSİM (Tarım Sigortaları Havuzu). Faaliyet Raporu 2025. İstanbul.",
+      "adres": "https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf",
+      "dosya": "kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+      "police_sayisi_2022": 3077908,
+      "police_sayisi_2025": 3807514,
+      "police_milyon_2022": 3.1,
+      "police_milyon_2025": 3.8,
+      "hasar_odemesi_milyar_tl_2025": 35,
+      "bitkisel_hasar_ihbari_2025": 430076,
+      "don_ihbari_2025": 171558,
+      "don_ihbari_payi_yuzde": 39.8,
+      "kbvs_destek_onceki_yuzde": 60,
+      "kbvs_destek_2025_yuzde": 70,
+      "ilce_bazli_baslangic": 2017,
+      "koy_bazli_baslangic": 2021,
+      "_turetme": "police_milyon: tablo 'Genel Toplam' satırı — 3.077.908 → 3,1 milyon (2022), 3.807.514 → 3,8 milyon (2025). bitkisel_hasar_ihbari ve don_ihbari: '430 bin 76' ve '171 bin 558' yazımı.",
+      "_denetim": "Raporda 'yapay zek', 'makine öğren', 'derin öğren', 'artificial' geçmiyor (17.11.2026 metin taraması). Uzaktan algılama 'araştırmalar gerçekleştirildi' düzeyinde.",
+      "alinti": [
+        "2017 yılında uygulamaya alınan İlçe Bazlı Kuraklık Verim Sigortası, 2021 yılından itibaren köy bazlı uygulanmaya başladı.",
+        "1 Ocak 2025 Köy Bazlı Verim Sigortasında Devlet desteği %60’tan %70’e çıkarıldı.",
+        "Poliçe Sayısı (Adet) Branş Adı 2022 2023 2024 2025",
+        "Genel Toplam 3.077.908 3.086.697 3.261.191 3.807.514",
+        "Sigortalı üreticilere 35 milyar TL hasar ödemesi gerçekleştirilmiştir.",
+        "İhbar nedenleri incelendiğinde, don hasarları, 171 bin 558 adet ihbar ile tüm hasar ihbarları içerisinde %39,8’lik oranla ilk sırada yer alırken",
+        "Köy bazlı verim sigortası kapsamında, Google Earth Engine platformu kullanılarak, ekimi yapılmayan sigortalı parseller için doğrudan uydu görüntüleri aracılığıyla hasar tespitine yönelik araştırmalar gerçekleştirildi.",
+        "Google Earth Engine servis ağı aracılığıyla, Sentinel-1 Sar ve Sentinel-2 uydu görüntüleri kullanılarak, sel ve su baskını alanlarının incelenmesi için Phyton yazılım dili kullanıldı ve kritik lokasyonlarda sel ve su baskını hasarları incelenerek, hasar tespit sonuç raporları hazırlandı.",
+        "MODIS ve MGM verilerinin birlikte kullanılmasıyla elde edilen sonuçlar köy ölçeğinde uygulanabilir hale getirildi.",
+        "AgroMetShell kullanılarak, köy bazlı verim sigortasında sigortalı parsellerde yağış yeterliliği belirlenerek, verim tahmini üzerine araştırmalar gerçekleştirildi.",
+        "Bitkisel ürün sigortasında, 2025 yılı 430 bin 76 adet hasar ihbarı ile tamamlandı."
+      ],
+      "_kopya": "b17_kaynaklar.json · tarsim_2025_faaliyet"
+    },
+    "trgm_2026_urun_belirleme": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım Reformu Genel Müdürlüğü. 14.07.2026. Ürün Belirleme Çalışması Bölge Değerlendirme Toplantıları Gerçekleştirildi (haber).",
+      "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
+      "dosya": "kaynak_dosyalari/trgm_2026_urun_belirleme.html",
+      "ilk_uygulama_yili": 2025,
+      "bolge_toplantisi": 12,
+      "duyuru_ayi": "Temmuz 2026",
+      "_dogruluk": "Duyuru 'yüksek doğruluk oranları' diyor ama oran vermiyor; bu taramada yayımlanmış bir doğruluk değeri bulunamadı.",
+      "alinti": [
+        "Genel Müdürlüğümüz tarafından yürütülen Ürün Belirleme Çalışmaları",
+        "Yapay Zekâ Destekli Ürün İzleme ve Uydu Takip Sistemlerine",
+        "12 bölge toplantısı gerçekleştirildi",
+        "Bakanlığımız tarafından 2025 üretim yılında ilk kez uygulamaya alınan Uzaktan Algılama ile Ürün Belirleme Çalışmaları",
+        "ülke genelindeki tarımsal üretim alanları yüksek doğruluk oranlarıyla analiz edilmekte",
+        "Sistem kapsamında sahadan toplanan referans parseller, uydu görüntüleriyle birlikte değerlendirilerek makine öğrenmesi süreçleri işletiliyor",
+        "ekili ürünlerin tespiti, sınıflandırılması ve üretim desenlerinin belirlenmesine yönelik analizler",
+        "Kışlık ürünlere ait referans parsellerin hasat öncesinde hızlı, doğru ve yeterli yoğunlukta toplanmasının sistem başarısını doğrudan etkilediği vurgulanırken",
+        "bu kapsamda gerçekleştirilecek ÇKS beyan doğruluk kontrolleri"
+      ],
+      "_kopya": "b09_kaynaklar.json · trgm_2026_urun_belirleme"
+    },
+    "yasar_yagci_2024": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Yaşar O., Yağcı A.L. 2024. Kadastro parsel sınırlarının obje olarak kullanılarak arpa ve buğday ürünlerinin çok zamanlı Sentinel-2 uydu görüntüleri ile belirlenmesi. Türk Uzaktan Algılama ve CBS Dergisi 5(1).",
+      "doi": "10.48123/rsgis.1309618",
+      "dosya": "kaynak_dosyalari/yasar_yagci_2024_yozgat.pdf",
+      "alinti": [
+        "çiftçi beyanları temel alınarak maddi olarak desteklenmektedir",
+        "tam otomatik bir kontrol sistemi kurulması amaçlanmıştır",
+        "Yozgat ilinin Merkez ilçesinde toplanan yersel doğrulama verileri ile karşılaştırılmıştır",
+        "Ancak, bir parsele iki farklı ürün dikildiğinde yöntem hatalı sonuçlar vermektedir."
+      ],
+      "_kopya": "b09_kaynaklar.json · yasar_yagci_2024"
+    },
+    "tob_2025_faaliyet_raporu": {
+      "nitelik": "KURUMSAL",
+      "kunye": "T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara.",
+      "adres": "https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf",
+      "dosya": "kaynak_dosyalari/tob_2026_idare_faaliyet_raporu_2025.pdf",
+      "uzaktan_algilama_ihalesi_hedef_yili": 2026,
+      "_denetim": "PDF s4 (önsöz) ve s14'te bu tespitlerin doğruluğuna ya da kapsadığı alana dair rakam yok (17.11.2026).",
+      "alinti": [
+        "Yapay zekâ destekli uydu teknolojileriyle ürün deseninden işlenmeyen arazilerin tespitine kadar pek çok alanda hassas tarım uygulamalarını başlattık.",
+        "İşlenmeyen tarım arazilerinin ve dikili alanların tespitine yönelik uydu görüntüleri, derin öğrenme ve yapay zekâ teknolojisinden faydalanılarak analiz çalışmaları yapılmıştır.",
+        "Tarım Bilgi Sistemlerinin İyileştirilmesi-Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme",
+        "bu sistemler üzerinde çalışacak karar destek sistemi ile veri toplamaya ilişkin uzaktan algılama sisteminin kurulumu hizmetlerine yönelik ihale dokümanları hazırlanmıştır.",
+        "2026 yılı içerisinde de ihale sürecinin tamamlanması ve işe başlanması planlanmıştır.",
+        "Sürdürülebilir tarımsal üretim için teknolojiyi tarımla buluşturduk ve uydu temelli uzaktan algılama verilerini yapay zekâ ile bütünleştirdik.",
+        "Bu sayede ürün desenini, işlenmeyen tarım arazilerini ve dikili alanları hassas bir şekilde tespit ettik."
+      ],
+      "_kopya": "b19_kaynaklar.json · tob_2025_faaliyet_raporu"
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "2027 Yılı Cumhurbaşkanlığı Yıllık Programı",
+      "hazirlayan": "Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığı",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "kalkinma_plani": "On İkinci Kalkınma Planı",
+      "yz_politikasi_paragraf": 489,
+      "sulama_bit_politikasi_paragraf": 505,
+      "makine_parki_orgut_sayisi": 14,
+      "takis_izleme_periyodu_gun": 7,
+      "takis_tahmin_yili": 2027,
+      "takis_tahmin_ufku": "1-4 hafta",
+      "kkydp_hibe_orani_yuzde": "50-70",
+      "kkydp_kadin_genc_payi_en_az_yuzde": 20,
+      "kkydp_aile_isletmesi_payi_yuzde": 30,
+      "kkydp_dayanak": "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar · 3 Nisan 2026 tarihli Tebliğ",
+      "gosterge_sayisi": 15,
+      "dijital_gosterge_sayisi": 0,
+      "b_recete_il": 81,
+      "b_recete_baslangic": "1 Temmuz 2026",
+      "toprak_etudu_il": 15,
+      "toprak_etudu_milyon_ha": 3.5,
+      "elektronik_olcum_tesis": 100,
+      "karar_sayisi": 11934,
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "alinti": [
+        "Karar Sayısı: 11934 Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığınca hazırlanan ekli “2027 Yılı Cumhurbaşkanlığı Yıllık Programı”nın onaylanmasına karar verilmiştir. 27 Ekim 2026",
+        "2027 Yılı Cumhurbaşkanlığı Yıllık Programı 27 Ekim 2026 tarihli ve 33413 Mükerrer Sayılı Resmî Gazete’de yayımlanmıştır.",
+        "Dijitalleşme, yapay zekâ ve veriye dayalı iş modelleriyle akıllı tarım uygulamaları yaygınlaştırılacaktır. (Kalkınma Planı p.489)",
+        "Sulama yönetiminde bilgi ve iletişim teknolojilerinin kullanımı yaygınlaştırılacaktır. (Kalkınma Planı p.505)",
+        "Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır.",
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması",
+        "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar ile 3 Nisan 2026 tarihli Kırsal Kalkınma Yatırım Programı Çerçevesinde Yapılacak Desteklemeler Hakkında Tebliğ",
+        "15 ilde 3,5 milyon hektar tarım arazisinin detaylı toprak etütleri ve haritalandırılması çalışmalarına devam edilecektir.",
+        "100 tesise elektronik ölçüm sistemi takılacaktır."
+      ],
+      "_kopya": "b23_kaynaklar.json · yillik_program_2027"
+    },
+    "tubitak_uzay_2026_katalog": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TÜBİTAK UZAY. 2026. TÜBİTAK UZAY Katalog (Haziran 2026). Ankara: TÜBİTAK Uzay Teknolojileri Araştırma Enstitüsü.",
+      "adres": "https://uzay.tubitak.gov.tr/wp-content/uploads/sites/132/2026/06/TUBITAK-UZAY_catalog.pdf",
+      "dosya": "kaynak_dosyalari/tubitak_uzay_2026_katalog.pdf",
+      "imece_firlatma_yili": 2023,
+      "imece_yorunge_km": 686,
+      "imece_pan_cozunurluk_m": 0.99,
+      "imece_msi_cozunurluk_m": 3.96,
+      "gap_gubre_tasarrufu_en_fazla_yuzde": 25,
+      "_beyan": "GAP'ta %25'e kadar gübre tasarrufu TÜBİTAK'ın kendi beyanı: yöntem, yıl ve örneklem yok; hakemli değerlendirmesi bulunamadı. İngilizce cümle bozuk yazılmış; Türkçe parçası 'tasarruf' diyor. 'Tarımda kullanılıyor' beyanının arkasında somut bir proje ya da veri kanalı verilmiyor.",
+      "alinti": [
+        "TÜBİTAK UZAY tarafından tasarlanıp geliştirilen ve üretilen İMECE, Türkiye’nin ilk yerli ve milli metrealtı çözünürlüklü yer gözlem uydusudur.",
+        "15 Nisan 2023 tarihinde saat 09.48’de başarıyla uzaya fırlatılmıştır.",
+        "Elde edilen görüntüler savunma, afet yönetimi, çevre ve şehircilik, tarım ve ormancılık gibi birçok alanda kullanılmaktadır.",
+        "ÇÖZÜNÜRLÜK / SPATIAL RESOLUTION PAN 0.99 m - MSI 3.96 m",
+        "YÖRÜNGE / ORBIT 686 km dairesel / 686 km circular",
+        "RASAT görüntüleri; haritacılık, afet izleme, ormancılık, kentsel planlama gibi alanlarda kullanılmaktadır.",
+        "Variable rate fertilization was executed by using UAV and satellite imagery resulted in the fertilization use by 25% in test fields.",
+        "kullanımında %25’e kadar tasarruf sağlanmıştır.",
+        "These precision agriculture analysis are available to the farmers and consultants in the Southeastern Anatolia Region via Farmer-Agricultural Consultant Web Interface in order to monitor development of their crops to optimize their crop yields."
+      ],
+      "_kopya": "b19_kaynaklar.json · tubitak_uzay_2026_katalog"
+    },
+    "fao_ebrd_2025_turkiye": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Höllinger F., Sener B.S. 2025. Türkiye'de Tarıma Yönelik Dijital Teknolojiler – Bir inceleme. Ülke Bazında Öne Çıkan Yatırımlar, No. 25. Roma: FAO (FAO Yatırım Merkezi ve EBRD ortak çalışması). ISBN 978-92-5-139718-3.",
+      "adres": "https://openknowledge.fao.org/handle/20.500.14283/cd3185tr",
+      "dosya": "kaynak_dosyalari/fao_ebrd_2025_turkiye_dijital_tarim.pdf",
+      "tob_2020_anketi_akilli_tarim_kullanan_ciftci_ust_yuzde": 3,
+      "alinti": [
+        "Tarım 4.0, Türkiye’de yaygın olarak kullanılan bir terimdir.",
+        "Yeni bilgi ve iletişim teknolojilerinin koordine edilmiş kullanımıyla veri toplama, analiz ve değerlendirme süreçlerinde karar verme optimizasyonunu kapsar;",
+        "Yapay zekâ (AI) ve makine öğrenmesi (ML) alanındaki gelişmeler, artan veri mevcudiyeti ve büyük veri analizleriyle birlikte, analiz ve karar destek sistemlerinden hassas tarım ve otomasyona kadar uzanan çeşitli kullanım alanlarında çıktı doğruluğunu artırmaktadır.",
+        "Çalışmanın ana odağı, çiftçiler, kooperatifler ve sözleşmeli üretim yapan çiftçilerle çalışan tarım işletmeleri tarafından kullanılan akıllı tarım teknolojileridir.",
+        "TOB 2020 anketine göre, çiftçilerin yüzde 3'ünden azı uzaktan algılama, sensörler ve IoT cihazları, çiftlik veya sürü yönetimi yazılımı, hassas tarım veya hayvancılık teknolojileri veya robotik uygulamalar gibi akıllı tarım teknolojilerini kullanmaktadır."
+      ],
+      "_kopya": "b02_kaynaklar.json · fao_ebrd_2025_turkiye"
+    }
+  }
+}

@@ -367,7 +367,8 @@ def html_coz(s: str) -> str:
 def kayit_alintilari() -> None:
     """bNN_kaynaklar.json'larda `dosya` + `alinti` taşıyan her kaynak:
     alıntılar belgenin kendisinde BİREBİR geçmeli; dosya kayıtlı olmalı."""
-    kayitlar = sorted(BURASI.glob("b[0-9][0-9]_kaynaklar.json"))
+    kayitlar = sorted([*BURASI.glob("b[0-9][0-9]_kaynaklar.json"),
+                       *BURASI.glob("tek_*_kaynaklar.json")])   # teknoloji sayfaları (karar 57)
     print("\n5 · bölüm kayıtlarındaki alıntılar — belgenin kendisinden")
     kayit = {d["yol"]: d for d in json.loads(KAYIT.read_text(encoding="utf-8"))["dosyalar"]}
     for k in kayitlar:
