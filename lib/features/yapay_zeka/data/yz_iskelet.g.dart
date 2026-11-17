@@ -225,7 +225,7 @@ const List<YzBaslik> kYzBasliklar = [
       "Climate, risk and crop insurance",
       true,
       ["uzaktan", "tahmin", "karar"],
-      false,
+      true,
       "Erken uyarı, hasar tespiti, endeks sigortası.",
       "Early warning, loss assessment, index insurance."),
   YzBaslik(

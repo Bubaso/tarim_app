@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 280,
- "toplam_bayt": 738287540,
+ "dosya_sayisi": 289,
+ "toplam_bayt": 754779074,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1861,6 +1861,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/benami_2021_nature.html",
+   "bayt": 580775,
+   "sha256": "376bce0cd9636738ba6c8c5002c4457ecbe9686009267060e77eaea07d4861d8",
+   "kaynak": {
+    "adres": "https://www.nature.com/articles/s43017-020-00122-y",
+    "atif": "Benami E., Jin Z., Carter M.R., Ghosh A., Hijmans R.J., Hobbs A., Kenduiywo B., Lobell D.B. 2021. Uniting remote sensing, crop modelling and economics for agricultural risk management. Nature Reviews Earth & Environment 2(2): 140-159. doi:10.1038/s43017-020-00122-y",
+    "lisans": "yayıncı sayfasındaki özet (makale abonelikli)",
+    "lisans_adresi": null,
+    "_not": "Yayıncı sayfası (Nature Reviews Earth & Environment); yalnız özet."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/benlioglu_2024_crossref.json",
    "bayt": 23917,
    "sha256": "5f2150b0ed860f4e09997903ec7df0f019d921f46bb02434153b83ebf4f0b667",
@@ -1933,6 +1945,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/ecmwf_2025_aifs_operasyonel.html",
+   "bayt": 53731,
+   "sha256": "d1f9e8aa2211be5d408fe6dc6206bb796568c68b64d6d86b0acdc1f04a308829",
+   "kaynak": {
+    "adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+    "atif": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası.",
+    "lisans": "kurum haber sayfası (© ECMWF)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — ECMWF sitesi; kurum beyanı."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/erhan_yaganoglu_2026_crossref.json",
    "bayt": 18563,
    "sha256": "5a714ed9649d5fc73eb34c8a1af0ad19ec3f3587ef095b92e14b157011c76fee",
@@ -1954,6 +1978,30 @@
     "lisans": "FAO içeriği (yeniden kullanım koşulları FAO sitesinde)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — FAO haber merkezi; raporun ana bulguları."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2025_afet_rapor_bolum_2_3.html",
+   "bayt": 211137,
+   "sha256": "fbcf8fe6fd00f28061207708b26c6383b3114458508f0c1ad7133c1ce6a99584",
+   "kaynak": {
+    "adres": "https://openknowledge.fao.org/server/api/core/bitstreams/d18d9cb5-3e78-469a-b268-0aed1799d147/content/impact-of-disasters-on-agriculture-and-food-2025/measurement-evidence-on-crops-and-livestock.html",
+    "atif": "FAO. 2025. The Impact of Disasters on Agriculture and Food Security 2025 — bölüm 2.3, Global assessment and sectoral analysis of losses. Roma: FAO. doi:10.4060/cd7185en",
+    "lisans": "CC BY 4.0",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — FAO Open Knowledge, raporun 2.3 bölümü (HTML)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/fao_2025_afet_tarim_haber.html",
+   "bayt": 68328,
+   "sha256": "b74f57bd7ba57d5da9e0b8ebe57efe3ea30508bc06e472b41a7d30275dec475d",
+   "kaynak": {
+    "adres": "https://www.fao.org/newsroom/detail/disasters-cost-global-agriculture--3.26-trillion-over-three-decades--fao-report-reveals/en",
+    "atif": "FAO. 14.11.2025. Disasters cost global agriculture $3.26 trillion over three decades, FAO report reveals. FAO Newsroom.",
+    "lisans": "FAO haber sayfası (© FAO)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — FAO Newsroom, raporun duyurusu."
    }
   },
   {
@@ -2101,6 +2149,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/jensen_2016_crossref.json",
+   "bayt": 8947,
+   "sha256": "8d4604eb51a9fa66a78400fb15034a23525af9199dbb2c0f0a18885d1e301e38",
+   "kaynak": {
+    "adres": "https://api.crossref.org/works/10.1093/ajae/aaw046",
+    "atif": "Jensen N.D., Barrett C.B., Mude A.G. 2016. Index Insurance Quality and Basis Risk: Evidence from Northern Kenya. American Journal of Agricultural Economics 98(5): 1450-1469. doi:10.1093/ajae/aaw046",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/kahya_2024_kabak_crossref.json",
    "bayt": 18248,
    "sha256": "e716f69befe2e9d832563b800421de9d6c1c259018156fe3972c8a1b703cd064",
@@ -2197,6 +2257,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lam_2023_europepmc.json",
+   "bayt": 7921,
+   "sha256": "5c0200c9802d81cd82af0991d3f5cace5f4d6d594bd50001cfa90adbe988bbfc",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.1126/science.adi2336&resultType=core&format=json",
+    "atif": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421. doi:10.1126/science.adi2336",
+    "lisans": "bibliyografik kayıt (yayıncı özeti)",
+    "lisans_adresi": null,
+    "_not": "Europe PMC API cevabı: yayıncı özeti."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/lang_2023_europepmc.json",
    "bayt": 5831,
    "sha256": "985bc02c1ce3233ef48ee4e5f9424f55678436dd20c08f5483dc04b461b51dec",
@@ -2242,6 +2314,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı (yayıncının yatırdığı özet)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/mgm_2025_performans_programi.pdf",
+   "bayt": 2799204,
+   "sha256": "b03866000a6760e18b74c159010abfd0c1c14a05cf500bdd4caf8803e6fadc9f",
+   "kaynak": {
+    "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf",
+    "atif": "Meteoroloji Genel Müdürlüğü. 2025. 2025 Yılı Performans Programı. Ankara.",
+    "lisans": "kamu belgesi",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — MGM sitesi."
    }
   },
   {
@@ -2446,6 +2530,30 @@
     "lisans": "kamu belgesi (Tarım ve Orman Bakanlığı)",
     "lisans_adresi": null,
     "_not": "BİRİNCİL — TAGEM'in kendi faaliyet raporu, bakanlık sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+   "bayt": 12730480,
+   "sha256": "27e9842bbde03093c23cb37d16b25f35c69e1c1ac7de184c2e786b38ae804398",
+   "kaynak": {
+    "adres": "https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf",
+    "atif": "TARSİM (Tarım Sigortaları Havuzu). Faaliyet Raporu 2025 (2025 faaliyet yılı; yayım tarihi belgede yok). İstanbul.",
+    "lisans": "kurum yayını (TARSİM)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — TARSİM sitesi."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/tarsim_koy_bazli_verim_sigortasi.html",
+   "bayt": 31011,
+   "sha256": "989c2f24ed7b5a428a8816bd3f045aa691a9fb56c04280167b5ee0d9f935fd7b",
+   "kaynak": {
+    "adres": "https://www.tarsim.gov.tr/subPage/koy-bazli-verim-sigortasi",
+    "atif": "TARSİM. Köy Bazlı Verim Sigortası — ürün sayfası. tarsim.gov.tr (tarihsiz; 17.11.2026'da indirildi).",
+    "lisans": "kurum web sayfası (TARSİM)",
+    "lisans_adresi": null,
+    "_not": "BİRİNCİL — TARSİM sitesi, ürün sayfası (17.11.2026'da indirildi)."
    }
   },
   {

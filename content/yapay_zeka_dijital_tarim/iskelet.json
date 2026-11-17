@@ -527,12 +527,12 @@
         "mevzuat",
         "sayi"
       ],
-      "turkiye": "bilinmiyor",
+      "turkiye": "var",
       "ozet": {
         "tr": "Erken uyarı, hasar tespiti, endeks sigortası.",
         "en": "Early warning, loss assessment, index insurance."
       },
-      "durum": "iskelet",
+      "durum": "yazildi",
       "haber_alir": true
     },
     {

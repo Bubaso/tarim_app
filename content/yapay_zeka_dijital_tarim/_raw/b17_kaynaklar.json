@@ -1,0 +1,239 @@
+{
+  "_ne": "§17 İklim, risk ve tarım sigortası — kilitli kayıt",
+  "guncellendi": "2026-11-17",
+  "_kural": "Metin bu kayıtlardan yazılır; burada olmayan rakam metne girmez (dogrula_bolumler.py). Her kaynağın `alinti` listesi belgenin kendisinden BİREBİR; dogrula_alintilar.py her birini `dosya`da arar.",
+  "_nitelik_tanimi": {
+    "HAKEMLI": "Hakemli dergide yayımlanmış çalışma",
+    "KURUMSAL": "Uluslararası kuruluşun, kamu kurumunun ya da bakanlığın kendi yayını",
+    "RESMI": "Resmî Gazete'de yayımlanmış birincil metin"
+  },
+  "kaynaklar": {
+    "lam_2023": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Lam R., Sanchez-Gonzalez A., Willson M., Wirnsberger P., Fortunato M., Alet F., Ravuri S., Ewalds T., Eaton-Rosen Z., Hu W., Merose A., Hoyer S., Holland G., Vinyals O., Stott J., Pritzel A., Mohamed S., Battaglia P. 2023. Learning skillful medium-range global weather forecasting. Science 382(6677): 1416-1421.",
+      "doi": "10.1126/science.adi2336",
+      "dosya": "kaynak_dosyalari/lam_2023_europepmc.json",
+      "dogrulandigi_yer": "yayıncı özeti, Europe PMC kaydı (PMID 37962497)",
+      "tahmin_ufku_gun": 10,
+      "cozunurluk_derece": 0.25,
+      "sure_dakika_alti": 1,
+      "ustun_hedef_yuzde": 90,
+      "dogrulama_hedefi": 1380,
+      "_not": "Tahminin isabeti ölçülüyor; tarımda bir sonuç (don, verim, sigorta) ölçülmüyor.",
+      "alinti": [
+        "Traditional numerical weather prediction uses increased compute resources to improve forecast accuracy but does not directly use historical weather data to improve the underlying model.",
+        "Here, we introduce GraphCast, a machine learning-based method trained directly from reanalysis data.",
+        "It predicts hundreds of weather variables for the next 10 days at 0.25° resolution globally in under 1 minute.",
+        "GraphCast significantly outperforms the most accurate operational deterministic systems on 90% of 1380 verification targets, and its forecasts support better severe event prediction, including tropical cyclone tracking, atmospheric rivers, and extreme temperatures."
+      ]
+    },
+    "ecmwf_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "ECMWF (Avrupa Orta Vadeli Hava Tahminleri Merkezi). 25.02.2025. ECMWF’s AI forecasts become operational. ECMWF haber sayfası.",
+      "adres": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",
+      "dosya": "kaynak_dosyalari/ecmwf_2025_aifs_operasyonel.html",
+      "operasyonel_tarih": "25 Şubat 2025",
+      "kazanc_ust_sinir_yuzde": 20,
+      "_beyan": "Kurumun kendi beyanı; '%20'ye varan kazanç' bazı ölçütler için. Metin 'kuruma göre' diye aktarır.",
+      "alinti": [
+        "ECMWF has taken the Artificial Intelligence Forecasting System (AIFS) into operations today, 25 February 2025, to run side by side with its traditional physics-based Integrated Forecasting System (IFS) to advance numerical weather prediction.",
+        "The AIFS outperforms state-of-the-art physics-based models for many measures, including tropical cyclone tracks, with gains of up to 20%."
+      ]
+    },
+    "jensen_2016": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Jensen N.D., Barrett C.B., Mude A.G. 2016. Index Insurance Quality and Basis Risk: Evidence from Northern Kenya. American Journal of Agricultural Economics 98(5): 1450-1469.",
+      "doi": "10.1093/ajae/aaw046",
+      "dosya": "kaynak_dosyalari/jensen_2016_crossref.json",
+      "dogrulandigi_yer": "yayıncı özeti, Crossref kaydı",
+      "ortak_risk_azalma_yuzde": 63,
+      "kalan_risk_yuzde": 69,
+      "_not": "Hayvancılık endeks sigortası, Kuzey Kenya. Özet endeksin uydu temelli olduğunu söylemiyor; metin 'uydu endeksi' yazmaz.",
+      "alinti": [
+        "The number of index insurance pilots in developing countries has grown tremendously in recent years, but there has been little progress in our understanding of the quality of those products.",
+        "Basis risk, or remaining uninsured risk, is a widely recognized but rarely measured feature of index insurance product quality.",
+        "But index insurance is no magic bullet; insured households continue to face considerable basis risk.",
+        "Examining the components of basis risk, we find that IBLI reduces exposure to covariate risk due to high loss events by an average of 63%.",
+        "The result is that IBLI policyholders are left with an average of 69% of their original risk due to high loss events."
+      ]
+    },
+    "benami_2021": {
+      "nitelik": "HAKEMLI",
+      "kunye": "Benami E., Jin Z., Carter M.R., Ghosh A., Hijmans R.J., Hobbs A., Kenduiywo B., Lobell D.B. 2021. Uniting remote sensing, crop modelling and economics for agricultural risk management. Nature Reviews Earth & Environment 2(2): 140-159.",
+      "doi": "10.1038/s43017-020-00122-y",
+      "dosya": "kaynak_dosyalari/benami_2021_nature.html",
+      "dogrulandigi_yer": "yayıncı sayfasındaki özet",
+      "_not": "Derleme; rakam yok.",
+      "alinti": [
+        "The increasing availability of satellite data at higher spatial, temporal and spectral resolutions is enabling new applications in agriculture and economic development, including agricultural insurance.",
+        "In this Review, we discuss how approaches to estimate agricultural losses for index insurance have evolved from costly field-sampling-based campaigns towards lower-cost techniques using weather and satellite data.",
+        "We identify advances in remote sensing and crop modelling for assessing agricultural conditions, but reliably and cheaply assessing production losses remains challenging in complex landscapes.",
+        "even as yield-estimation techniques improve, the value of an index insurance contract for the insured depends largely on how well it captures the losses when people suffer most",
+        "Audits to account for inevitable misestimation complement efforts to detect and protect against large losses."
+      ]
+    },
+    "fao_2025_haber": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 14.11.2025. Disasters cost global agriculture $3.26 trillion over three decades, FAO report reveals. FAO Newsroom.",
+      "adres": "https://www.fao.org/newsroom/detail/disasters-cost-global-agriculture--3.26-trillion-over-three-decades--fao-report-reveals/en",
+      "dosya": "kaynak_dosyalari/fao_2025_afet_tarim_haber.html",
+      "kayip_trilyon_usd": 3.26,
+      "donem": "1991-2023",
+      "donem_yil": 33,
+      "yillik_ortalama_milyar_usd": 99,
+      "tarim_gsyh_payi_yuzde": 4,
+      "parametrik_sigortali_ciftci_milyon": 9.1,
+      "_beyan": "9,1 milyon çiftçi rakamı Genel Direktör'ün rapor önsözündeki beyanı; yöntemi açıklanmıyor. Metin 'Genel Direktör'e göre' diye aktarır.",
+      "alinti": [
+        "Disasters have inflicted an estimated $3.26 trillion in agricultural losses worldwide over the past 33 years – an average of $99 billion annually, roughly 4 percent of global agricultural GDP",
+        "Emerging tools such as artificial intelligence (AI), remote sensing, mobile connectivity, drones and sensors are now enabling hyperlocal, real-time insights that improve early warning, advisory services, risk transfer mechanisms and anticipatory action.",
+        "From the 9.1 million farmers now accessing parametric insurance through digital platforms to the communities using our early warning systems to evacuate 90 percent of at-risk populations before disasters strike",
+        "said FAO Director-General QU Dongyu in the foreword to the report."
+      ]
+    },
+    "fao_2025_rapor": {
+      "nitelik": "KURUMSAL",
+      "kunye": "FAO. 2025. The Impact of Disasters on Agriculture and Food Security 2025 — bölüm 2.3, Global assessment and sectoral analysis of losses. Roma: FAO.",
+      "doi": "10.4060/cd7185en",
+      "dosya": "kaynak_dosyalari/fao_2025_afet_rapor_bolum_2_3.html",
+      "kayip_trilyon_usd": 3.26,
+      "iklim_kaynakli_trilyon_usd": 2.9,
+      "yillik_ortalama_milyar_usd": 99,
+      "donem_yil": 33,
+      "_uyari": "2023 raporunun rakamları yeni yöntemle yeniden hesaplandı ve toplam düştü; iki rapor yan yana konmaz (bkz. _reddedilen).",
+      "alinti": [
+        "The results reveal patterns that demonstrate the significant scale of disaster losses in agriculture, totalling USD 3.26 trillion, and the increasing magnitude of these losses over the last 33 years.",
+        "Of this total loss, nearly USD 2.9 trillion was attributed to climate-related hazards, including floods, droughts and heatwaves, highlighting the significant impact of climate-related extreme events on the agricultural sector.",
+        "This amounts to an average annual loss of USD 99 billion over the last 33 years.",
+        "Although the sharp increase after 2010 can partly be explained by the improved reporting of disaster events in the EM-DAT database, it also coincides with the intensification of climate-related disasters globally.",
+        "Together, these improvements led to a re-estimation of loss figures for the 2023 report.",
+        "The updated model shows a lower global total of losses and a refined picture of regional and subregional trends."
+      ]
+    },
+    "yillik_program_2027": {
+      "nitelik": "RESMI",
+      "kunye": "Cumhurbaşkanlığı. 2026. 2027 Yılı Cumhurbaşkanlığı Yıllık Programı (Cumhurbaşkanı Kararı, karar sayısı 11934). Resmî Gazete 27 Ekim 2026, sayı 33413 (Mükerrer).",
+      "adres": "https://www.sbb.gov.tr/wp-content/uploads/2026/10/2027-yilli-cumhurbaskanligi-yillik-programi.pdf",
+      "dosya": "kaynak_dosyalari/yillik_program_2027.pdf",
+      "kuraklik_tahmin_ufku_hafta": "1-4",
+      "kuraklik_ai_baslangic_yili": 2027,
+      "zirai_don_2025_sigorta_tazminati_milyar_tl": 23.1,
+      "zirai_don_2025_destekleme_milyar_tl": 23.86,
+      "zirai_don_2025_toplam_milyar_tl_yaklasik": 47,
+      "don_teminati_devlet_prim_destegi_yuzde": 70,
+      "sozlesmeli_uretim_ek_indirim_yuzde": "10-15",
+      "tarim_sigortasi_destegi_milyon_tl_2025": 19200,
+      "tarim_sigortasi_destegi_milyon_tl_2027": 30000,
+      "tarim_sigortasi_destegi_milyar_tl_2025": 19.2,
+      "tarim_sigortasi_destegi_milyar_tl_2027": 30,
+      "_turetme": "tarim_sigortasi_destegi_milyar_tl: Tablo II:11 (cari fiyatlarla, milyon TL; sütunlar 2025, 2026, 2027): 19 200,0 → 19,2 milyar; 30 000,0 → 30 milyar.",
+      "_yer": "PDF s165 (TAKİS), s167 (sözleşmeli üretimde zorunlu sigorta), s170 (2024-2025 kayıpları), s178 (Tablo II:11), s179-180 (zirai don, TARSİM), s182, s389.",
+      "_kismi_yil": "3 Ekim 2026'ya kadarki poliçe ve tazminat rakamları kısmi yıl; metne alınmadı.",
+      "alinti": [
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır.",
+        "Kuraklık ve zirai don nedeniyle 2024-2025 üretim sezonunda önemli seviyede üretim kayıpları yaşanmıştır.",
+        "Böylece zirai don kapsamında üreticilere sigorta ve destekleme mekanizmaları yoluyla toplamda yaklaşık 47 milyar TL kaynak aktarılmıştır.",
+        "Tarım sigortalarında 2026 yılında yapılan düzenlemelerle bitkisel ürünlerde don teminatına ilişkin devlet prim desteği yüzde 70'e çıkarılmıştır.",
+        "sözleşmeli üretim kapsamındaki ürünlerde tarım sigortası zorunlu hale getirilmiş ve sigorta primlerinde farklı ürünler için ilave yüzde 10-15 oranında indirim sağlanmıştır.",
+        "Tarım Sigortası Destekleme Hizmetleri 19 200,0 23 000,0 30 000,0",
+        "Üretici talepleri, Ar-Ge çalışmaları ve aktüeryal hesaplar sonucunda belirlenen riskler ve ürünler tarım sigortaları teminatına dâhil edilecek, farklı sigorta ürünleri uygulamaya konulacaktır.",
+        "Tüm havzalarda ulusal taşkın ve kuraklık tahmini ve erken uyarı sistemi kurulacaktır.",
+        "Kuraklık Tahmini ve Erken Uyarı Sisteminin Kurulması Projesinin işletilmesine yönelik çalışmalar tamamlanacaktır.",
+        "2025 yılında meydana gelen zirai don nedeniyle zarar gören üreticilerin kayıplarının telafisine yönelik destekleme ve tarım sigortası ödemeleri gerçekleştirilmiştir.",
+        "Devlet destekli tarım sigortası bulunan üreticilere 23,1 milyar TL hasar tazminatı, 2025 Yılında Meydana Gelen Zirai Don Nedeniyle Ürünleri Hasar Gören Çiftçilere Destekleme Ödemesi Yapılmasına İlişkin Cumhurbaşkanı Kararı kapsamında ise 23,86 milyar TL destekleme ödemesi yapılmıştır.",
+        "TABLO II: 11- Tarımsal Destekleme Bütçesinin Dağılımı"
+      ]
+    },
+    "tarsim_2025_faaliyet": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TARSİM (Tarım Sigortaları Havuzu). Faaliyet Raporu 2025. İstanbul.",
+      "adres": "https://www.tarsim.gov.tr/staticweb/krm-web/dergi/faaliyet-raporlari/2025.pdf",
+      "dosya": "kaynak_dosyalari/tarsim_2026_faaliyet_raporu_2025.pdf",
+      "police_sayisi_2022": 3077908,
+      "police_sayisi_2025": 3807514,
+      "police_milyon_2022": 3.1,
+      "police_milyon_2025": 3.8,
+      "hasar_odemesi_milyar_tl_2025": 35,
+      "bitkisel_hasar_ihbari_2025": 430076,
+      "don_ihbari_2025": 171558,
+      "don_ihbari_payi_yuzde": 39.8,
+      "kbvs_destek_onceki_yuzde": 60,
+      "kbvs_destek_2025_yuzde": 70,
+      "ilce_bazli_baslangic": 2017,
+      "koy_bazli_baslangic": 2021,
+      "_turetme": "police_milyon: tablo 'Genel Toplam' satırı — 3.077.908 → 3,1 milyon (2022), 3.807.514 → 3,8 milyon (2025). bitkisel_hasar_ihbari ve don_ihbari: '430 bin 76' ve '171 bin 558' yazımı.",
+      "_denetim": "Raporda 'yapay zek', 'makine öğren', 'derin öğren', 'artificial' geçmiyor (17.11.2026 metin taraması). Uzaktan algılama 'araştırmalar gerçekleştirildi' düzeyinde.",
+      "alinti": [
+        "2017 yılında uygulamaya alınan İlçe Bazlı Kuraklık Verim Sigortası, 2021 yılından itibaren köy bazlı uygulanmaya başladı.",
+        "1 Ocak 2025 Köy Bazlı Verim Sigortasında Devlet desteği %60’tan %70’e çıkarıldı.",
+        "Poliçe Sayısı (Adet) Branş Adı 2022 2023 2024 2025",
+        "Genel Toplam 3.077.908 3.086.697 3.261.191 3.807.514",
+        "Sigortalı üreticilere 35 milyar TL hasar ödemesi gerçekleştirilmiştir.",
+        "İhbar nedenleri incelendiğinde, don hasarları, 171 bin 558 adet ihbar ile tüm hasar ihbarları içerisinde %39,8’lik oranla ilk sırada yer alırken",
+        "Köy bazlı verim sigortası kapsamında, Google Earth Engine platformu kullanılarak, ekimi yapılmayan sigortalı parseller için doğrudan uydu görüntüleri aracılığıyla hasar tespitine yönelik araştırmalar gerçekleştirildi.",
+        "Google Earth Engine servis ağı aracılığıyla, Sentinel-1 Sar ve Sentinel-2 uydu görüntüleri kullanılarak, sel ve su baskını alanlarının incelenmesi için Phyton yazılım dili kullanıldı ve kritik lokasyonlarda sel ve su baskını hasarları incelenerek, hasar tespit sonuç raporları hazırlandı.",
+        "MODIS ve MGM verilerinin birlikte kullanılmasıyla elde edilen sonuçlar köy ölçeğinde uygulanabilir hale getirildi.",
+        "AgroMetShell kullanılarak, köy bazlı verim sigortasında sigortalı parsellerde yağış yeterliliği belirlenerek, verim tahmini üzerine araştırmalar gerçekleştirildi.",
+        "Bitkisel ürün sigortasında, 2025 yılı 430 bin 76 adet hasar ihbarı ile tamamlandı."
+      ]
+    },
+    "tarsim_kbvs": {
+      "nitelik": "KURUMSAL",
+      "kunye": "TARSİM. Köy Bazlı Verim Sigortası — ürün sayfası. tarsim.gov.tr (tarihsiz; 17.11.2026'da indirildi).",
+      "adres": "https://www.tarsim.gov.tr/subPage/koy-bazli-verim-sigortasi",
+      "dosya": "kaynak_dosyalari/tarsim_koy_bazli_verim_sigortasi.html",
+      "devlet_prim_destegi_yuzde": 70,
+      "odeme_suresi_gun_en_gec": 30,
+      "_denetim": "Sayfada 'uydu' ve 'uzaktan' geçmiyor (17.11.2026).",
+      "_baz_riski": "Son iki ödeme kuralı baz riskini tanımlıyor: köy ortalaması eşiğin üstündeyse kaybı olan çiftçi de ödeme almıyor. Metin bunu kuralın sonucu olarak yazar; ölçülmüş bir baz riski değil.",
+      "alinti": [
+        "Türkiye İstatistik Kurumu (TÜİK) ve Tarım Sigortaları Havuzu verileri esas alınarak tespit edilen köyün eşik verim değerine kadar teminat altına alınmaktadır.",
+        "Köy Bazlı Verim Sigortası Sigortasında, poliçede yazılı primin %70'i Devlet tarafından karşılanır.",
+        "Sigorta ettirenin/sigortalının rizikonun gerçekleşmesi durumunda hasar ihbarına ilişkin herhangi bir beyan yükümlülüğü bulunmamaktadır.",
+        "İlgili yıl ve ürün için köyün gerçekleşen verim ortalamasının, köyün poliçede yazılı eşik verim değerinin altında kalması durumunda köyde bulunan tüm sigortalı üreticiler tazminat almaya hak kazanır.",
+        "Köyün gerçekleşen verim ortalamasının köyün eşik verim değerine eşit veya üzerinde olması durumunda ise köyde bulunan sigortalı üreticilere herhangi bir tazminat ödemesi yapılmaz.",
+        "Köyün gerçekleşen verim ortalamasının ilanından itibaren en geç 30 gün içerisinde, hesaplanan tazminat tutarı sigortalıya ödenir."
+      ]
+    },
+    "mgm_2025": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Meteoroloji Genel Müdürlüğü. 2025. 2025 Yılı Performans Programı. Ankara.",
+      "adres": "https://www.mgm.gov.tr/FILES/kurumsal/yatirimfaaliyet/2025-performans-programi.pdf",
+      "dosya": "kaynak_dosyalari/mgm_2025_performans_programi.pdf",
+      "don_tahmin_ufku_gun": 5,
+      "_denetim": "Belgede 'yapay zek', 'makine öğren', 'derin öğren', 'artificial' geçmiyor (17.11.2026).",
+      "alinti": [
+        "Programda, 5 günlük tahmin ve risk durumları tüm illerimizi ve ilçelerimizi kapsayacak şekilde bitki bazında görüntülenebilmektedir",
+        "Zirai Don Risk Tahmin Haritaları; haftanın her günü, meteorolojik tahminlerden yararlanılarak, önümüzdeki 5 günü kapsayacak şekilde, hafif-orta kuvvette, kuvvetli-çok kuvvetli don riski olan yerler harita üzerinde farklı renklerde gösterilerek, internet sitemizde yayımlanmaktadır.",
+        "Bu uygulama ile tarımsal faaliyetleri olumsuz etkileyebilecek kuvvetli meteorolojik uyarılara çiftçilerimiz uygulama üzerinden kolayca ulaşabilmektedir.",
+        "Meteorolojik kuraklık analizleri, uluslararası alanda kabul görmüş yöntemler olan Standart Yağış İndeksi (SPI), Normalin Yüzdesi İndeksi (PNI) ve PALMER Kuraklık Şiddet İndeksi (PDSI) metotları kullanılarak",
+        "• Zirai Don Uyarı Sistemi (ZDUS),",
+        "Tarımsal Hava Tahmini web sayfasında yer alan meteorolojik bilgilere anlık olarak ulaşabilmesi amacıyla “Tarımsal Hava Tahmini Mobil Uygulaması” geliştirilmiştir."
+      ]
+    },
+    "tob_2025_ai_tomorrow": {
+      "nitelik": "KURUMSAL",
+      "kunye": "Tarım ve Orman Bakanlığı. 23.05.2025. Tarım ve Orman Bakanı Yumaklı, 'AI Tomorrow Summit 2025' etkinliğinde konuştu (haber).",
+      "adres": "https://www.tarimorman.gov.tr/Sayfalar/GormeEngellilerDetay.aspx?OgeId=6614&Liste=Haber",
+      "dosya": "kaynak_dosyalari/tob_2025_ai_tomorrow_summit_konusma.html",
+      "yayim": "Mayıs 2025",
+      "_beyan": "Bakan'ın planı; uygulama kanıtı değil.",
+      "alinti": [
+        "Yayın Tarihi : 23.05.2025",
+        "Tarım sigortası sisteminde uydu teknolojileri ve yapay zekayı kullanacağız."
+      ]
+    }
+  },
+  "turkiye": {
+    "durum": "var",
+    "_not": "2025 zirai donu: sigorta ve destekleme yoluyla yaklaşık 47 milyar TL. TARSİM 2025: 3,8 milyon poliçe, 35 milyar TL hasar ödemesi. Köy Bazlı Verim Sigortası fiilen işleyen bir alan-verim endeks sigortası (prim desteği %70, ihbar yok). TARSİM'de uydu araştırma düzeyinde; TARSİM raporunda ve MGM programında yapay zekâ geçmiyor; TAKİS'te yapay zekâ 2027 planı. Türkiye'de yapay zekânın erken uyarıya, hasar tespitine ya da sigortaya etkisini ölçen, ya da KBVS'nin baz riskini ölçen yayımlanmış bir değerlendirme bu taramada bulunamadı."
+  },
+  "_reddedilen": {
+    "fao_2023_rakamlari": "FAO'nun 2023 raporundaki kayıp toplamı 2025 raporunda yeni yöntemle yeniden hesaplandı ve düştü; iki rapor yan yana konup 'kayıp azaldı' denmez. Metin yalnız 2025 rakamlarını kullanır.",
+    "gencast": "Aynı ekibin olasılıksal modeli GenCast indirildi; metne GraphCast yetti.",
+    "almanya_hava_endeksi": "Almanya'da hava endeksli sigorta çalışmaları — Türkiye'ye aktarılabilirliği sınırlı.",
+    "tr_kuraklik_denemesi": "Türkiye'den bir kuraklık tahmini yöntem denemesi — etki ölçümü değil.",
+    "kismi_yil_police": "Programdaki Ekim 2026'ya kadarki poliçe sayısı kısmi yıl; TARSİM'in tam yıl sayısıyla karşılaştırılmaz."
+  }
+}

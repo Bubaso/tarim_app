@@ -1,0 +1,680 @@
+ 
+    
+<!doctype html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>TARSİM | Tarım Sigortaları</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Open+Sans:wght@500;700&display=swap"
+          rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/css/main-class.css" rel="stylesheet">
+
+    <link href="https://www.tarsim.gov.tr/assets/pflip/css/pdfflip.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://www.tarsim.gov.tr/assets/pflip/css/bookshelf.css"/>
+     
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <style>
+    .sub-content{
+    text-align: justify;
+}
+
+.bself {
+  position: relative;
+}
+
+.bself:hover .bself-text {
+  display: block;
+}
+
+
+.bself-text {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Arka plan rengi ve opaklık ayarları */
+  padding: 10px;
+  box-sizing: border-box;
+}
+.raf {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+  border-radius: 2px;
+  z-index: 1;
+  box-shadow: 0px -5px 3px 0px rgba(170, 170, 170, 0.2), 0px 15px 20px 0px rgba(170, 170, 170, 0.7), 0px 5px 5px 0px rgba(119, 119, 119, 0.3);
+}
+
+.faq-group{
+  font-size:14px;
+}
+
+.faq-group-title{
+  font-size:14px;
+}
+.s-page-h{
+font-size:40px;
+}
+
+.insurance-list{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    margin:0;
+    list-style:none;
+    width: 100%;
+    height: 100%;
+}
+.insurance-list li{
+    list-style:none;
+    height:100px;
+    margin:0;
+    text-align:center;
+    box-shadow: 0 10px 20px -10px rgb(0 0 0 / 20%);
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.insurance-list li:hover{
+    box-shadow: 0 10px 20px -10px rgb(0 0 0 / 40%);
+
+}
+
+.ins-img {
+    -webkit-transition: -webkit-transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1);
+    max-width: 100%;
+height: auto;
+    border: 0;
+}
+.ins-img:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    outline: 0;
+}
+
+
+.is_shown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    display: block !important
+}
+
+.il-isimleri{
+  position: absolute !important;
+  top: 90% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  padding: 10px !important;
+}
+
+ .bookshelf-2022 {
+      width: 900px;
+      margin: 5rem auto;
+      text-align: center;
+      position: relative;
+    }
+
+    .book-grid-2022 {
+      z-index: 2;
+      position: relative;
+      transform: translateY(-15px);
+    }
+
+    .book-grid-2022 ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .book-grid-2022 ul li {
+      justify-self: center;
+    }
+
+    .book-grid-2022 ul img {
+      display: block;
+      box-shadow: 0px -5px 20px 2px rgba(0, 0, 0, 0.3);
+      width: 100px;
+      height: 150px;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+
+    .shelf-shadows-2022 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1rem;
+      border-radius: 2px;
+      z-index: 1;
+      box-shadow: 0px -5px 3px 0px rgba(170, 170, 170, 0.2), 0px 15px 20px 0px rgba(170, 170, 170, 0.7), 0px 5px 5px 0px rgba(119, 119, 119, 0.3);
+    }
+
+    .shelf-2022 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1rem;
+      background-color: #f9f9f9;
+      border-radius: 2px;
+      z-index: 3;
+    }
+
+.blog-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.col-lg-3 {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 15px;
+}
+
+.blog-img img {
+    max-width: 100%;
+    height: auto; 
+}
+
+.news-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .col-lg-3 {
+        flex: 0 0 100%; 
+        max-width: 100%; 
+    }
+}
+
+.sub-content li {
+    line-height: 2; 
+}
+
+.searchResultEl{
+    border-radius:10px;
+    background-color:#F2F2F2;
+    padding:10px;
+}
+
+    </style>
+</head>
+<body onload="setOnLoad()">
+
+<div class="row container mx-auto mt-3">
+  <div class="col-5 col-md-4">
+    <div class="row">
+      <div class="col-md-3 col-6">
+       <a href="https://www.tarimorman.gov.tr/"> <img
+          alt=""
+          src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=400&type=image/png"
+          width="80px"
+        /></a>
+      </div>
+      <div class="col-md-3 col-6">
+        <a href="https://www.hmb.gov.tr/"><img
+          alt=""
+          src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=401&type=image/png"
+          width="80px"
+          style="margin-left:0"
+        /></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-2 text-center"></div>
+  <div class="col-5 text-end">
+<a href="https://turkiyeyuzyili.com/anasayfa ">    
+<img
+      src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=271&type=image/png"
+      width="120"
+    />
+</a>
+  </div>
+</div>
+<hr class="mx-auto d-flex container" style="opacity: 0.1" />
+
+
+<div class="sticky-top" style="z-index:999">
+  <nav class="navbar navbar-expand-lg shadow-sm bg-light navbar-light ">
+    <div class="container">
+      <a class="navbar-brand mb-2" href="/"><img
+              src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=272&type=image/png"></a>
+      <a class="d-none d-sm-block" href="tel:172"><img src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=273&type=image/png"></a>
+      <a class="navbar-brand " href="#"></a>
+      <div class="d-flex justify-content-start align-items-center">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</div>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Anasayfa</a>
+          </li>
+          <li class="nav-item" onclick="showMenu('m-aboutUs')">
+            <label class="nav-link" role="button">
+              Hakkımızda
+            </label>
+          </li>
+          <li class="nav-item" onclick="showMenu('m-insurances')">
+            <label class="nav-link" role="button">
+              Sigortalar
+            </label>
+          </li>
+          <li class="nav-item" onclick="showMenu('m-legislation')">
+            <label class="nav-link" role="button">
+              Mevzuat
+            </label>
+          </li>
+          <li class="nav-item">
+         <a href="/subPage/iletisim"><label class="nav-link" style="cursor:pointer">İletişim</label></a> 
+          </li>
+        </ul>
+        <div class="search m-2">
+          <a class=" nav-link" href="/subPage/searchPage">
+<i class="bi bi-search"></i>
+</a>
+        </div>
+        <div class="language">
+          <a class=" nav-link" href="/en"><b>EN</b></a>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+  <div class="menu justify-content-center align-self-center p-5 " id="m-aboutUs">
+    <div class="row">
+      <div class="col-6 d-none d-sm-block">
+        <div class="justify-content-center align-self-center text-center">
+          <img alt="..." class="rounded-4 shadow"
+               height="300" src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=278&type=image/png" width="400">
+        </div>
+      </div>
+      <div class="col-md-3 col-6 justify-content-center align-self-center">
+        <ul class="list-group">
+
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/kurum-hakkinda">Kurum Hakkında</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/kurum-politikamiz">Kurum Politikamız</a></li>
+
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/misyon-vizyon">Misyon ve Vizyon</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/yonetim-kurulu">Yönetim Kurulu</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/sigorta-sirketleri">Sigorta Şirketleri</a></li>
+
+
+         
+        </ul>
+      </div>
+      <div class="col-md-3 col-6 justify-content-center align-self-center">
+        <ul class="list-group">
+
+
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/kurum-tanitim-sunumu">Kurum Tanıtım Sunumu</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/faaliyet-raporlari">Faaliyet Raporları</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/tanitim-ve-basin-odasi">Tanıtım ve Basın Odası</a></li>
+
+ <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/sikca-sorulan-sorular">Sıkça Sorulan Sorular</a></li>
+
+
+          <li class="list-group-item" style="visibility: hidden">s</li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu justify-content-center align-self-center p-5" id="m-insurances">
+    <div class="row">
+      <div class="col-6 d-none d-sm-block">
+        <div class="justify-content-center align-self-center text-center ">
+          <img alt="..." class="rounded-4 shadow-sm "
+               height="300" src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=279&type=image/png" width="400">
+        </div>
+      </div>
+      <div class="col-md-3 col-6 justify-content-center align-self-center">
+        <ul class="list-group">
+         <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/bitkisel-urun-sigortasi">Bitkisel Ürün Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/sera-sigortasi">Sera Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/koy-bazli-verim-sigortasi">Köy Bazlı Verim Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/gelir-koruma-sigortasi">Gelir Koruma Sigortası</a></li>          
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/temel-sigorta-paketi">Temel Sigorta Paketi</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/katilim-sigortaciligi">Katılım Sigortacılığı</a></li>
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/tanimlar">Tanımlar</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 col-6 justify-content-center align-self-center">
+        <ul class="list-group">
+          
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/buyukbas-hayvan-hayat-sigortasi">Büyükbaş Hayvan Hayat Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/kucukbas-hayvan-hayat-sigortasi">Küçükbaş Hayvan Hayat Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/aricilik-sigortasi">Arıcılık Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/kumes-hayvanlari-sigortasi">Kümes Hayvanları Hayat Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/su-urunleri-hayat-sigortasi">Su Ürünleri Hayat Sigortası</a></li>
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/ipek-bocegi-sigortasi ">İpek Böceği Sigortası</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu justify-content-center align-self-center p-5" id="m-legislation">
+    <div class="row">
+      <div class="col-6 d-none d-sm-block">
+        <div class="justify-content-center align-self-center text-center">
+          <img alt="..." class="rounded-4"
+               height="300" src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=280&type=image/png" width="400">
+        </div>
+      </div>
+      <div class="col-md-3 col-6 justify-content-center align-self-center">
+        <ul class="list-group">
+
+     <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/kanunlar">Kanunlar</a></li>
+
+     <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/cumhurbaskani-kararlari">Cumhurbaşkanı Kararları</a></li>
+
+     <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/bakanlar-kurulu-kararlari">Bakanlar Kurulu Kararları</a></li>
+          
+     <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/yonetmelikler">Yönetmelikler</a></li>
+
+     <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/yonergeler">Yönergeler</a></li>
+
+          
+
+          
+        </ul>
+      </div>
+
+
+      <div class="col-md-3 col-6 justify-content-center align-self-center">
+        <ul class="list-group">
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/mevzuat-ve-duyurular">Mevzuat ve Duyurular</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/genel-sartlar">Genel Şartlar</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/tarife-ve-talimatlar">Tarife ve Talimatlar</a></li>
+
+<li class="list-group-item"><a class="hover-underline-animation" href="/subPage/musterek-sigorta-ve-muafiyetler">Müşterek Sigorta ve Muafiyetler</a></li>
+
+          <li class="list-group-item"><a class="hover-underline-animation" href="/subPage/tehlike-bolgeleri">Tehlike Bölgeleri</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="container" id="banner" ></div> 
+<div class="s-banner container-fluid" >
+        <img src="/assets/img/s-banner/kuraklik.png" alt="" class="img-fluid" width="100%">
+    </div>
+ 
+    <div class="container mt-5">
+        <nav style="--bs-breadcrumb-divider: '>>';" aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sigortalar</li>
+            </ol>
+        </nav>
+    </div>
+
+<div class="container mb-5">
+    <h1 class="s-page-h text-center">Köy Bazlı Verim Sigortası</h1>
+    <h4 class="bus-aciklama text-center"></h4>
+</div>
+
+<section class="sub-content">
+
+	<div class="container">
+		<div class="row">
+
+			<div
+				class="col-12 col-sm-12 col-md-12 col-lg-12 text-justify sub-main ">
+				<h2>SİGORTA KAPSAMI VE SİGORTALANAN TEHLİKELER</h2>
+<p>Bu sigorta ile Tarım Sigortaları Havuzu, 5363 sayılı Tarım Sigortaları Kanunu'nun 12'nci maddesine istinaden, Cumhurbaşkanı kararı ile kapsama alınan risklerin, Tarım ve Orman Bakanlığı'nca belirlenen kayıt sistemlerine kayıtlı kuru tarım alanlarında üretimi yapılan buğday, arpa, çavdar, yulaf, tritikale, nohut, kırmızı mercimek, yeşil mercimek ve yağlık ayçiçeği ürünleri ile bu ürünlerin sertifikalı tohumluk ürünlerinde; kuraklık, don, sıcak rüzgar ve sıcak hava dalgası, aşırı nem, aşırı yağış ile dolu paketi (dolu, fırtına, hortum, yangın, heyelan, sel ve su baskını, deprem, taşıt çarpması, yaban domuzu ve geyik zararı ) dışındaki  risklerin ürünlerde köy genelinde neden olduğu verim kaybı, Türkiye İstatistik Kurumu (TÜİK) ve Tarım Sigortaları Havuzu verileri esas alınarak tespit edilen köyün eşik verim değerine kadar teminat altına alınmaktadır. </p>
+
+<p>Buğday, arpa, çavdar, yulaf, tritikale ürünleri ile bu ürünlerin sertifikalı tohumluklarının sap kısmı isteğe bağlı olarak ek prim karşılığında teminat kapsamına alınabilir.</p>
+
+<h2>POLİ&Ccedil;ELEŞME S&Uuml;RECİ</h2>
+<p>&Ccedil;ift&ccedil;inin, sigorta işlemlerini ger&ccedil;ekleştirebilmesi i&ccedil;in &ouml;ncelikle o yıla ait arazi ve &uuml;r&uuml;n bilgilerine dair Tarım ve Orman Bakanlığı&rsquo;nca belirlenen kayıt sistemlerine kayıtlarını yaptırmış olması veya g&uuml;ncellemiş olması gerekmektedir. Tarım ve Orman Bakanlığı&rsquo;nca belirlenen kayıt sistemlerindeki kayıtlarını g&uuml;ncellemiş olan &ccedil;ift&ccedil;i &uuml;r&uuml;n&uuml;n&uuml; sigortalatmak i&ccedil;in Tarım Sigortaları Havuzuna (TARSİM' e) &uuml;ye sigorta şirketine veya acentesine başvurur. Sigorta şirketi veya acente Tarım Sigortaları Havuzunun (TARSİM&rsquo; in) sistemine girerek &ccedil;ift&ccedil;i bilgilerinin sorgulanmasını yapar. Genel Şartlar ile Tarife ve Talimatlar doğrultusunda acente sistemde poli&ccedil;eyi tanzim eder. Gerekli g&ouml;r&uuml;len durumlarda risk analiz sonucuna g&ouml;re poli&ccedil;e d&uuml;zenlenmektedir. Tanzim edilen poli&ccedil;e i&ccedil;in Kişisel Verilerin Korunması Kanunu (KVKK) kapsamındaki Aydınlatma Metni, Poli&ccedil;e Bilgilendirme Formu, Poli&ccedil;e &ccedil;ıktıları TARSİM tarafından sigortalı &uuml;reticilerimize tercihine g&ouml;re SMS veya e-posta olarak g&ouml;nderilir. Sigortalı &uuml;reticimiz poli&ccedil;esini &ccedil;ıktı olarak almayı tercih ederse, acente &ouml;ncelikle; Kişisel Verilerin Korunması Kanunu (KVKK) kapsamındaki Aydınlatma Metni, Poli&ccedil;e Bilgilendirme Formunu iki n&uuml;sha olarak sistemden alır ve birer n&uuml;shasını sigortalıya imza karşılığı verir. Sonrasında tanzim edilen poli&ccedil;eden iki n&uuml;sha d&uuml;zenleyerek bir n&uuml;shasını sigorta ettiren/sigortalıya verir.</p>
+<img alt="köy bazlı sigorta" src="https://www.tarsim.gov.tr/staticweb/krm-web/web_content/sigorta/sub_buyuk_1.png">
+
+<h2>PRİMLERİN &Ouml;DENMESİ</h2>
+<p>K&ouml;y Bazlı Verim Sigortası Sigortasında, poli&ccedil;ede yazılı primin %70'i Devlet tarafından karşılanır.</p>
+<p>Sigortalı tarafından &ouml;denecek olan primin %15'i peşin alınır; kalan prim tutarı da en ge&ccedil; poli&ccedil;e bitiş tarihinden itibaren 1 ay i&ccedil;inde tahsil edilir.</p>
+<h2>HASAR İHBAR / EKSPERTİZ / &Ouml;DEME S&Uuml;RECİ</h2>
+<p>Sigorta ettirenin/sigortalının rizikonun ger&ccedil;ekleşmesi durumunda hasar ihbarına ilişkin herhangi bir beyan y&uuml;k&uuml;ml&uuml;l&uuml;ğ&uuml; bulunmamaktadır.</p>
+
+<p>İlgili yıl ve ürün için köyün gerçekleşen verim ortalamasının, k&ouml;y&uuml;n poli&ccedil;ede yazılı eşik verim değerinin altında kalması durumunda k&ouml;yde bulunan t&uuml;m sigortalı &uuml;reticiler tazminat almaya hak kazanır. K&ouml;y&uuml;n ger&ccedil;ekleşen verim ortalamasının k&ouml;y&uuml;n eşik verim değerine eşit veya &uuml;zerinde olması durumunda ise k&ouml;yde bulunan sigortalı &uuml;reticilere herhangi bir tazminat &ouml;demesi yapılmaz.</p>
+<p>K&ouml;y&uuml;n ger&ccedil;ekleşen verim ortalamasının ilanından itibaren en ge&ccedil; 30 g&uuml;n i&ccedil;erisinde, hesaplanan tazminat tutarı sigortalıya &ouml;denir.</p>
+
+
+<img alt="su ürünleri sigortası" width="800" src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=208&type=image/png">
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+
+<footer class="footer p-5 mt-5 text-light text-center">
+  <img alt="" src="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=274&type=image/png"><br><br>
+  <p>Sahrayıcedit Mah. Atatürk Cad. No:48 34734
+    Kadıköy / İSTANBUL</p>
+<p>ALO TARSİM 172 - Faks: 0216 322 00 93</p>
+  <div class="row col-md-4 col-12 mx-auto">
+  
+<ul class="mt-1" style="list-style-type: none;display: flex;
+  justify-content: space-between;">
+  <li style="float: left;"> <a href="https://www.facebook.com/tarimsigortalari"> <i
+        class="bi bi-facebook sm-icon col"></i></a> </li>
+  <li style="float: left;"> <a href="https://www.instagram.com/tarim_sigortasi/"> <i
+        class="bi bi-instagram sm-icon col"></i></a> </li>
+  <li style="float: left;"> <a href="https://www.linkedin.com/company/tarsim/"> <i
+        class="bi bi-linkedin sm-icon col"></i></a> </li>
+  <li style="float: left;"> <a href="https://www.youtube.com/@tarsim4534"> <i class="bi bi-youtube sm-icon col"></i></a>
+  </li>
+
+  <li style="float: left;">
+    <a href="https://twitter.com/tarim_sigortasi">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+        class="bi bi-twitter-x sm-icon col" viewBox="0 0 16 16">
+        <path
+          d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z" />
+      </svg>
+    </a>
+  </li>
+  <li>
+    <a rel="me" href="https://sosyal.teknofest.app/@tarim_sigortasi">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30" role="img" aria-label="Turuncu logo" class="sm-icon col" fill="currentColor">
+
+  <path class="st0" d="M26.61,14.28H1.63v71.55h24.98V14.28ZM31.59,14.28l12.61,36.14,9.56,27.39c1.67,4.8,6.21,8.02,11.29,8.02h16.48l-12.36-35.41-12.62-36.14h-24.97ZM74.18,47.5c0,1.34.22,2.66.66,3.93l11.95,34.4h.4c6.61,0,11.96-5.35,11.96-11.96V14.28h-24.98v33.22Z"/>
+</svg>
+    </a>
+  </li>
+</ul>
+  
+  
+    
+   
+   
+
+  </div>
+  <div class="row mt-5" >
+    <div class="col-md-3">
+      <h5 class="f-header">Hakkımızda</h5>
+      <ul class="f-bullet">
+      	<li><a href="/subPage/kurum-hakkinda" style="text-decoration:none; color:white;">Kurum Hakkında</a></li>
+      	<li><a href="/subPage/kurum-politikamiz">Kurum Politikamız</a></li>
+        <li><a href="/subPage/misyon-vizyon">Misyon ve Vizyon</a></li>
+        <li><a href="/subPage/yonetim-kurulu">Yönetim Kurulu</a></li>
+        <li><a href="/subPage/tanitim-ve-basin-odasi">Tanıtım ve Basın Odası</a></li>
+        <li><a href="/subPage/kurum-tanitim-sunumu">Kurum Tanıtım Sunumu</a></li>
+        <li><a href="/subPage/faaliyet-raporlari">Faaliyet Raporları</a></li>
+        <li><a href="https://web.tarsim.gov.tr/zk/bilgiFormu.jsp?L3oyiwsFoKYZsMdEHz4P4dI5AK2=LKAKJDSD4872">İletişim Formu</a></li>
+        <li><a href="/subPage/sigorta-sirketleri">Sigorta Şirketleri</a></li>
+
+
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h5 class="f-header">Sigortalar</h5>
+      <ul class="f-bullet">
+        <li><a href="/subPage/bitkisel-urun-sigortasi">Bitkisel Ürün Sigortası</a></li>
+      
+<li><a href="/subPage/sera-sigortasi">Sera Sigortası</a></li>
+<li><a href="/subPage/koy-bazli-verim-sigortasi">Köy Bazlı Verim Sigortası</a></li>  
+<li><a href="/subPage/gelir-koruma-sigortasi">Gelir Koruma Sigortası</a></li>
+<li><a href="/subPage/temel-sigorta-paketi">Temel Sigorta Paketi</a></li>
+<li><a href="/subPage/katilim-sigortaciligi">Katılım Sigortacılığı</a></li>
+<li><a href="/subPage/buyukbas-hayvan-hayat-sigortasi">Büyükbaş Hayvan Hayat Sigortası</a></li>
+<li><a href="/subPage/kucukbas-hayvan-hayat-sigortasi">Küçükbaş Hayvan Hayat Sigortası</a></li>
+<li><a href="/subPage/aricilik-sigortasi">Arıcılık Sigortası</a></li>
+<li><a href="/subPage/kumes-hayvanlari-sigortasi">Kümes Hayvanları Hayat Sigortası</a></li>
+<li><a href="/subPage/su-urunleri-hayat-sigortasi">Su Ürünleri Hayat Sigortası</a></li>     
+<li><a href="/subPage/ipek-bocegi-sigortasi">İpek Böceği Sigortası</a></li>
+        
+       
+
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <h5 class="f-header">Mevzuat</h5>
+      <ul class="f-bullet">
+        <li><a href="/subPage/kanunlar">Kanunlar</a></li>
+        <li><a href="/subPage/yonetmelikler">Yönetmelikler</a></li>
+        <li><a href="/subPage/cumhurbaskani-kararlari">Cumhurbaşkanı Kararları</a></li>
+        <li><a href="/subPage/bakanlar-kurulu-kararlari">Bakanlar Kurulu Kararları</a></li>
+        <li><a href="/subPage/yonergeler">Yönergeler</a></li>
+        <li><a href="/subPage/mevzuat-ve-duyurular">Mevzuat Duyuruları</a></li>
+        <li><a href="/subPage/musterek-sigorta-ve-muafiyetler">Müşterek Sigorta ve Muafiyetler</a></li>
+        <li><a href="/subPage/genel-sartlar">Genel Şartlar</a></li>
+        <li><a href="/subPage/tarife-ve-talimatlar">Tarife ve Talimatlar</a></li>
+        <li><a href="/subPage/tehlike-bolgeleri">Tehlike Bölgeleri</a></li>
+      </ul>
+    </div>
+    <div class="col-md-3">
+      <label class="f-header">Yasal Bilgilendirme</label>
+      <ul class="f-bullet">
+        <li class="pa-icon">
+          <a href="#collapse-4" title="" data-bs-toggle="collapse"> <i class="p-icon fas fa-plus"></i>
+            Kişisel Verilerin Korunması
+          </a>
+      </li>
+      <div id="collapse-4" class="collapse">
+        
+        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=473&type=image/png" target="_blank">Kişisel Verilerin Korunması ve İşlenmesi Politikası</a></li>
+        <li><a href="https://www.tarsim.gov.tr/staticweb/krm-web/mevzuatlar/KVKK-basvuru-formu.pdf" target="_blank">Kişisel Verilerin Korunması Kanunu Kapsamında İlgili Kişi Başvuru Formu</a></li>
+
+                <li class="pa-icon">
+                    <a href="#collapse-1" title="" data-bs-toggle="collapse"> <i class="p-icon fas fa-plus"></i>
+                        Aydınlatma Metinleri
+                    </a>
+                </li>
+                <div id="collapse-1" class="collapse">
+                    <li class="pa-icon">
+                        <a href="#collapse-2" title="" data-bs-toggle="collapse"> <i class="p-icon fas fa-plus"></i>
+                            Tarım Sigortaları Havuzu
+                        </a>
+                    </li>
+                    <div id="collapse-2" class="collapse">
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=552&type=image/png" target="_blank">Üretici</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=553&type=image/png" target="_blank">Eksper</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=554&type=image/png" target="_blank">Potansiyel Ürün ve Hizmet Alıcısı</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=555&type=image/png" target="_blank">Tedarikçi Yetkilisi</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=556&type=image/png" target="_blank">Tedarikçi Çalışanı</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=557&type=image/png" target="_blank">Çağrı Merkezi</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=558&type=image/png" target="_blank">Sigorta ve Acente Çalışanı</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=559&type=image/png" target="_blank">Dijital Asistan</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=560&type=image/png" target="_blank">WEB İletişim Formu</a></li>
+                    </div>
+                    <li class="pa-icon">
+                        <a href="#collapse-3" title="" data-bs-toggle="collapse"> <i class="p-icon fas fa-plus"></i>
+                            Tarım Sigortaları Havuz İşletmesi A.Ş.
+                        </a>
+                    </li>
+                    <div id="collapse-3" class="collapse">
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=548&type=image/png" target="_blank">Çalışan Adayı</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=549&type=image/png" target="_blank">Tedarikçi Yetkilisi</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=550&type=image/png" target="_blank">Tedarikçi Çalışanı</a></li>
+                        <li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=551&type=image/png" target="_blank">Ziyaretçi</a></li>
+                    </div>
+                </div>
+    </div>
+        
+
+        <li><a href="https://web.tarsim.gov.tr/tzk/hakSahipSorgu.jsp?_key_=sss" target="_blank">Hak Sahiplerince Aranmayan Paralar</a></li>
+<li><a href="https://trsm.tarsim.gov.tr/rest/api/anonymous/getKMHaberDuyuruDokumanFile?id=386&type=image/png" target="_blank">Yanlış Sigorta Uygulamaları Bilgilendirmesi</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/script/main-class.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<script>
+
+function search(page,language){
+var term = document.getElementById("searchInput").value;
+window.location.href = "/"+page+"/search/"+language+"/"+term;
+}
+
+document.getElementById("searchInput").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("searchButton").click();
+  }
+});
+</script>
+</body>
+</html>
