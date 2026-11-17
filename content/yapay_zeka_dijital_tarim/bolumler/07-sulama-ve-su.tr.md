@@ -35,10 +35,10 @@ FAO verisine göre Türkiye'de 2022'de çekilen tatlı suyun **%86,93**'ü tarı
 
 Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı hazırlayacak Dijital Sulama Yönetim Sistemi projesi (DİSU) 2027'de tamamlanacak; su kullanıcı teşkilatlarında karar destek sistemlerinin kullanımı ve bunun mevzuatı üzerinde çalışılacak. Tarımsal Kuraklık İzleme Sistemi (TAKİS) kuraklığı uydu verisiyle **7** günlük periyotlarla izliyor; 2027'de yapay zekâ yöntemleriyle kuraklığı **1-4 hafta** önceden tahmin etmeye yönelik çalışmaların başlatılması planlanıyor.
 
-Sahada iki kaynak bulundu. Niğde'deki Patates Araştırma Enstitüsü'nün de yer aldığı bir çalışma (Akın ve Ünlenen, 2017), siltli tınlı toprakta farklı nem sensörlerini hassas damla sulama programı için karşılaştırdı; ölçtüğü şey tasarruf değil, hangi sensörün güvenilir okuduğu. Ege Üniversitesi'nin Wageningen'le ortak projesinde ise düşük maliyetli, kablosuz bir sensör Orhanlı Köyü'nde **9** üreticiyle denendi. Proje broşürü sensörle yönetilen parsellerde **%13-24**, organik üretimde **%12** su tasarrufu bildiriyor. Broşürü yazanlar arasında sensörü geliştiren firma da var; rakamlar bir proje beyanı.
+Sahadan iki çalışma var. Niğde'deki Patates Araştırma Enstitüsü'nün de yer aldığı bir çalışma (Akın ve Ünlenen, 2017), siltli tınlı toprakta farklı nem sensörlerini hassas damla sulama programı için karşılaştırdı; ölçtüğü şey tasarruf değil, hangi sensörün güvenilir okuduğu. Ege Üniversitesi'nin Wageningen'le ortak projesinde ise düşük maliyetli, kablosuz bir sensör Orhanlı Köyü'nde **9** üreticiyle denendi. Proje broşürü sensörle yönetilen parsellerde **%13-24**, organik üretimde **%12** su tasarrufu bildiriyor. Broşürü yazanlar arasında sensörü geliştiren firma da var; rakamlar bir proje beyanı.
 
-Bu dosyanın taramasında bulunamayan şey ise **yapay zekâyla verilen sulama kararını Türkiye'de tarlada ölçen, yayımlanmış bir deneme.**
+Eksik olan ise **yapay zekâyla verilen sulama kararını Türkiye'de tarlada ölçen, yayımlanmış bir deneme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık üç şeyi izliyor: sensörle ve yapay zekâyla sulama üzerine yeni hakemli çalışmalar, DİSU ve karar destek sistemlerine dair resmî gelişmeler, ve FAO su verisinin yeni sürümleri. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa üç şeyi izliyor: sensörle ve yapay zekâyla sulama üzerine yeni hakemli çalışmalar, DİSU ve karar destek sistemlerine dair resmî gelişmeler, ve FAO su verisinin yeni sürümleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

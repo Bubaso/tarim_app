@@ -35,10 +35,10 @@ According to the 2027 Annual Programme, the irrigation rate was **68%** in 2025,
 
 On the digital side there are two measures. The Digital Irrigation Management System project (DİSU), which will prepare irrigation schedules with remote sensing and geographic information systems, is to be completed in 2027; work will continue on the use of decision-support systems by water user organisations and on the regulations for it. The Agricultural Drought Monitoring System (TAKİS) tracks drought with satellite data at **7**-day intervals; work on forecasting drought **1-4 weeks** ahead with AI methods is planned to begin in 2027.
 
-Two field sources were found. A study involving the Potato Research Institute in Niğde (Akın and Ünlenen, 2017) compared different moisture sensors for precise drip irrigation scheduling in a silty loam soil; what it measured was not water saved but which sensor reads reliably. In a joint project of Ege University and Wageningen, a low-cost wireless sensor was tried with **9** growers in the village of Orhanlı. The project leaflet reports water savings of **13-24%** on sensor-managed plots and **12%** in organic production. The company that developed the sensor is among the leaflet's authors; the figures are a project statement.
+There are two field studies. A study involving the Potato Research Institute in Niğde (Akın and Ünlenen, 2017) compared different moisture sensors for precise drip irrigation scheduling in a silty loam soil; what it measured was not water saved but which sensor reads reliably. In a joint project of Ege University and Wageningen, a low-cost wireless sensor was tried with **9** growers in the village of Orhanlı. The project leaflet reports water savings of **13-24%** on sensor-managed plots and **12%** in organic production. The company that developed the sensor is among the leaflet's authors; the figures are a project statement.
 
-What this dossier's scan did not find is **a published trial measuring, in a field in Türkiye, irrigation decisions made by AI.**
+What is missing is **a published trial measuring, in a field in Türkiye, irrigation decisions made by AI.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches three things: new peer-reviewed studies on sensor-based and AI-based irrigation, official developments on DİSU and decision-support systems, and new releases of FAO's water data. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches three things: new peer-reviewed studies on sensor-based and AI-based irrigation, official developments on DİSU and decision-support systems, and new releases of FAO's water data. New information is added to the page after an editor's approval.

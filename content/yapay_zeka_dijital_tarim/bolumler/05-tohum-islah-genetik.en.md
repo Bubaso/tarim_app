@@ -36,8 +36,8 @@ In academia, machine learning is entering early-stage screening. A study by five
 
 The scale of seed itself is large: according to the ministry's data, certified seed production rose by **3.7%** in 2025 on the previous year to about **1.35** million tonnes; the largest item is wheat, at **640,829** tonnes.
 
-What this dossier's scan did not find is **a published assessment measuring the effect of genomic selection or AI on variety development time or genetic gain in a breeding programme in Türkiye.**
+What is missing is **a published assessment measuring the effect of genomic selection or AI on variety development time or genetic gain in a breeding programme in Türkiye.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches two things: new developments in breeding, genomic selection, phenotyping and seed quality — peer-reviewed studies included; and new releases of the sources behind the figures here, such as the ministry's annual seed production statistics. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches two things: new developments in breeding, genomic selection, phenotyping and seed quality — peer-reviewed studies included; and new releases of the sources behind the figures here, such as the ministry's annual seed production statistics. New information is added to the page after an editor's approval.

@@ -30,18 +30,18 @@ One cell is a square of **6.25** hectares. The 2027 Programme describes the land
 
 ## Türkiye
 
-National-scale soil data are not new in Türkiye. According to a 2017 announcement by TAGEM, the Soil, Fertilizer and Water Resources Central Research Institute produced maps of pH, salinity, lime, available phosphorus and potassium, cation exchange capacity and texture for the country's farmland, together with maps of organic carbon distribution and the carbon budget, in an FAO-supported project run in 2012-2015. The maps were made available, through standard map services, on the National Soil Information System portal. This scan did not test whether the portal still works today.
+National-scale soil data are not new in Türkiye. According to a 2017 announcement by TAGEM, the Soil, Fertilizer and Water Resources Central Research Institute produced maps of pH, salinity, lime, available phosphorus and potassium, cation exchange capacity and texture for the country's farmland, together with maps of organic carbon distribution and the carbon budget, in an FAO-supported project run in 2012-2015. The maps were made available, through standard map services, on the National Soil Information System portal.
 
 The 2027 Annual Programme treats soil data as the basis for land-use decisions and sets a timetable for detailed soil surveys. In 2024, detailed soil surveys and mapping were completed on **755** thousand hectares; another **2.4** million hectares are expected to be finished by the end of 2026. Of the **6.8** million-hectare project area where work continues, **3.5** million hectares are expected to be completed in 2027 and the remaining **3.3** million in 2028. As a 2027 measure, survey and mapping work will continue on **3.5** million hectares of farmland in **15** provinces. For scale: Türkiye had **24** million hectares of agricultural land as of 2025.
 
 The programme also plans an annual national land-cover map, and work on the data infrastructure and methodology for analysing water erosion and sediment yield based on climate projections.
 
-In December 2025 the ministry invited bids for soil survey and classification, soil analyses and the preparation of detailed digital soil maps under the Türkiye Climate-Smart and Competitive Agricultural Growth Project, financed by a World Bank loan. The tender covers **5.16** million hectares of farmland in **13** provinces (the full project boundary is **12.3** million hectares); the work is divided into **10** lots and runs for **600** days. The announcement does not say how the maps will be produced; whether machine learning will be used cannot be told from this document. Nor do the documents explain how the programme's **15** provinces relate to the tender's **13**.
+In December 2025 the ministry invited bids for soil survey and classification, soil analyses and the preparation of detailed digital soil maps under the Türkiye Climate-Smart and Competitive Agricultural Growth Project, financed by a World Bank loan. The tender covers **5.16** million hectares of farmland in **13** provinces (the full project boundary is **12.3** million hectares); the work is divided into **10** lots and runs for **600** days. How the maps will be produced, and whether machine learning will be used, has not been announced.
 
-Researchers in Türkiye work with these methods too: a 2022 study by Kaya and colleagues predicted and mapped soil texture classes in northwestern Türkiye with different machine learning algorithms. The study's abstract is not available in open sources, so its results are not reported here.
+Researchers in Türkiye work with these methods too: a 2022 study by Kaya and colleagues predicted and mapped soil texture classes in northwestern Türkiye with different machine learning algorithms.
 
-What this dossier's scan did not find is **a published assessment measuring how a soil map produced with AI changes decisions in a field in Türkiye.**
+What is missing is **a published assessment measuring how a soil map produced with AI changes decisions in a field in Türkiye.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches three things: new peer-reviewed studies on digital soil mapping, soil organic carbon and land suitability; official developments on detailed soil surveys and land-use planning; and new releases of the sources behind the figures here — a new annual programme, a new version of SoilGrids. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches three things: new peer-reviewed studies on digital soil mapping, soil organic carbon and land suitability; official developments on detailed soil surveys and land-use planning; and new releases of the sources behind the figures here — a new annual programme, a new version of SoilGrids. New information is added to the page after an editor's approval.

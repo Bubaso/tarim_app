@@ -39,8 +39,8 @@ Ama FAO'nun tablosu bir uyarı taşıyor: kaybın en yüksek olduğu bölgelerde
 
 Görüntüyle sınıflandırmada bir örnek de yine fındıktan. Ondokuz Mayıs Üniversitesi'nin de yer aldığı bir çalışma, kahverengi kokarcanın zarar verdiği fındıkları sağlam olanlardan görüntüyle ayırdı; destek vektör makinesi **400** görüntülük sette **%98,75** doğruluğa ulaştı (Gadalla ve Öztekin, 2023). Sonuç laboratuvar setine ait; bir işletme hattındaki başarıyı göstermiyor.
 
-Bu dosyanın taramasında bulunamayan şey ise iki tane: **Türkiye için hasat sonrası kayıp oranını düzenli ölçen, kamuya açık bir resmî gösterge; ve yapay zekâlı sınıflandırmanın bir işletmede kaybı ya da reddi ne kadar azalttığını ölçen, yayımlanmış bir değerlendirme.**
+Eksik olan ise iki şey: **Türkiye için hasat sonrası kayıp oranını düzenli ölçen, kamuya açık bir resmî gösterge; ve yapay zekâlı sınıflandırmanın bir işletmede kaybı ya da reddi ne kadar azalttığını ölçen, yayımlanmış bir değerlendirme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: ürün sınıflandırma, hasat sonrası kayıp, tahıl depolama ve gıda kalite denetimi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin FAO'nun gıda kaybı göstergesinin yeni değerleri. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: ürün sınıflandırma, hasat sonrası kayıp, tahıl depolama ve gıda kalite denetimi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin FAO'nun gıda kaybı göstergesinin yeni değerleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

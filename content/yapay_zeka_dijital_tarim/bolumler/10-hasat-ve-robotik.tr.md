@@ -39,8 +39,8 @@ Türkiye'de hasadın makine tarafı klasik mekanizasyon. Bakanlığın verisine 
 
 Araştırma tarafında Türkiye'deki hasat robotu çalışmaları görüntü tanıma aşamasında. Tekirdağ Namık Kemal Üniversitesi'nden Kahya ve arkadaşları 2024'te patlıcan ve kabak hasadı için derin öğrenme tabanlı nesne tanıma modelleri eğitti. Ölçülen şey modelin doğrulama görüntülerinde meyveyi tanıma başarısı; robotun tarlada meyveyi koparıp koparamadığı değil.
 
-Bu dosyanın taramasında bulunamayan şey ise **Türkiye'de bir hasat robotunun tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü, yayımlanmış bir deneme.**
+Eksik olan ise **Türkiye'de bir hasat robotunun tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü, yayımlanmış bir deneme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: hasat robotları ve seçici hasat üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: hasat robotları ve seçici hasat üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

@@ -30,22 +30,22 @@ Lowenberg-DeBoer ve Erickson (2019) dünyadaki kamuya açık verileri tarayıp a
 
 Değişken oranlı uygulamanın zor kısmı makine değil, reçete: tarlanın hangi noktasına ne kadar? de Lara ve arkadaşları (2023), buğday ve arpada **20** çiftlik denemesinin verisini toprak, arazi ve uydu değişkenleriyle iki makine öğrenmesi yöntemine, genelleştirilmiş toplamsal modele ve rastgele ormana verdi. Modeller verimi ortalama **%13,7** hatayla tahmin etti. Ama benzer doğrulukla tahmin eden iki model, ekonomik en uygun azot dozu için birbirinden çok farklı sonuçlar çıkardı. Etkili değişkenlerin büyüklüğü ve yönü tarladan tarlaya değişti; yazarlar, başka tarlaların verisiyle eğitilen bir modelin yeni bir tarlada güvenilmez doz önerebileceği uyarısında bulunuyor.
 
-Bu başlıkta yapay zekânın bugünkü sınırı bu: verimi iyi tahmin etmek, doğru dozu bulmakla aynı şey değil.
+Bu alanda yapay zekânın bugünkü sınırı bu: verimi iyi tahmin etmek, doğru dozu bulmakla aynı şey değil.
 
 ## Türkiye
 
 2027 Programı, hassas tarım ve dijital teknolojilerle gübre, tohum ve diğer girdilerin etkin kullanılmasını bitkisel üretimin öncelikli konuları arasında sayıyor. Program 2026'da küresel gübre arzının aksadığını ve özellikle üre fiyatlarının arttığını da kaydediyor. Engeli de yazıyor: işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısı, mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştiriyor.
 
-2027 için iki somut tedbir yazılı: **14** tarımsal üretici örgütünde ortak makine parkı kurulmasına destek verilecek; akıllı tarım yazılım ve ekipmanının yerli üretimi desteklenecek. Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ de dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i. Değişken oranlı makinelerin bu kapsamda olup olmadığı programda yazmıyor.
+2027 için iki somut tedbir yazılı: **14** tarımsal üretici örgütünde ortak makine parkı kurulmasına destek verilecek; akıllı tarım yazılım ve ekipmanının yerli üretimi desteklenecek. Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ de dijitalleşme, yapay zekâ, akıllı tarım, robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i.
 
-Bu taramada bulunan benimseme verisi ise eski. Çukurova'da **164** tarım mühendisi, bayi ve çiftçiyle yapılan ve 2016'da yayımlanan ankette katılımcıların **%51,8**'i hassas tarım terimini hiç duymamıştı; terimi duyanların yalnız **%29,3**'ü kavramı biliyordu. Uydu konumlamayı katılımcıların **%81,7**'si tanıyordu; değişken oranlı uygulama ise en az bilinen teknolojiydi (**%33,5**). Buna karşılık katılımcıların **%97,6**'sı bu teknolojilerin Türkiye tarımına bir ölçüde yararlı olacağını düşünüyor, **%88,4**'ü daha ayrıntılı eğitim istiyordu (Keskin ve Sekerli, 2016). Anket 2016'nın durumunu gösteriyor.
+Türkiye'de benimsemeye dair yayımlanmış veri ise eski. Çukurova'da **164** tarım mühendisi, bayi ve çiftçiyle yapılan ve 2016'da yayımlanan ankette katılımcıların **%51,8**'i hassas tarım terimini hiç duymamıştı; terimi duyanların yalnız **%29,3**'ü kavramı biliyordu. Uydu konumlamayı katılımcıların **%81,7**'si tanıyordu; değişken oranlı uygulama ise en az bilinen teknolojiydi (**%33,5**). Buna karşılık katılımcıların **%97,6**'sı bu teknolojilerin Türkiye tarımına bir ölçüde yararlı olacağını düşünüyor, **%88,4**'ü daha ayrıntılı eğitim istiyordu (Keskin ve Sekerli, 2016). Anket 2016'nın durumunu gösteriyor.
 
 Sahadan bir ölçüm de var. Çankırı merkezine **20** km uzaklıkta, **70** yılı aşkın süredir kuru tarımla buğday ekilen **300** hektarlık eğimli bir arazide **155** toprak örneği alındı (Wardamı, Erşahin ve Karahan, 2024). Bitkinin alabileceği fosfor arazinin içinde orta düzeyde değişiyordu (değişkenlik katsayısı **%21,3**) ve arazi düşük, orta ve yüksek olmak üzere üç gübreleme bölgesine ayrılabildi. Bakanlığın gübre tavsiye yöntemiyle aynı büyüklükteki beş alt bölge için hesaplanan fosfor dozları ise birebir aynı çıktı: yazarlara göre yöntem, bu topraklardaki fosfor farkına duyarsız. Değişken fosfor uygulamasının etkinliğini ve maliyet-faydasını ölçmek için daha kapsamlı bir çalışma gerektiğini yazarlar kendileri belirtiyor.
 
-Makine tarafında da bir çalışma var: Tekirdağ Namık Kemal Üniversitesi'nden bir ekip, zeytin bahçeleri için çoklu gübre dağıtma makinesi ve değişken oranlı denetleyici geliştirdi (Akdemir ve arkadaşları, 2022). Özeti açık kaynaklarda bulunmadığından sonuçları burada aktarılmıyor.
+Makine tarafında da bir çalışma var: Tekirdağ Namık Kemal Üniversitesi'nden bir ekip, zeytin bahçeleri için çoklu gübre dağıtma makinesi ve değişken oranlı denetleyici geliştirdi (Akdemir ve arkadaşları, 2022).
 
-Bu dosyanın taramasında bulunamayan şey ise **Türkiye'de değişken oranlı gübre ya da tohum uygulamasının verime ve kâra etkisini tarlada ölçen, yayımlanmış bir deneme.**
+Eksik olan ise **Türkiye'de değişken oranlı gübre ya da tohum uygulamasının verime ve kâra etkisini tarlada ölçen, yayımlanmış bir deneme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: değişken oranlı uygulama, hassas ekim, yere özgü gübreleme ve azot önerisi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin ABD Tarım Bakanlığı'nın yeni benimseme verileri. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: değişken oranlı uygulama, hassas ekim, yere özgü gübreleme ve azot önerisi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin ABD Tarım Bakanlığı'nın yeni benimseme verileri. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

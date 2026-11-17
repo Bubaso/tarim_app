@@ -36,8 +36,8 @@ Akademide makine öğrenmesi ıslahın ön elemesine giriyor. Türkiye'den beş 
 
 Tohumun kendisinde ölçek büyük: Bakanlığın verisine göre sertifikalı tohum üretimi 2025'te bir önceki yıla göre **%3,7** artarak yaklaşık **1,35** milyon tona çıktı; en büyük kalem **640.829** tonla buğday.
 
-Bu dosyanın taramasında bulunamayan şey ise **Türkiye'de bir ıslah programında genomik seçilimin ya da yapay zekânın çeşit geliştirme süresine veya genetik ilerlemeye etkisini ölçen, yayımlanmış bir değerlendirme.**
+Eksik olan ise **Türkiye'de bir ıslah programında genomik seçilimin ya da yapay zekânın çeşit geliştirme süresine veya genetik ilerlemeye etkisini ölçen, yayımlanmış bir değerlendirme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: ıslah, genomik seçilim, fenotipleme ve tohum kalitesi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın yıllık tohum üretim istatistiği. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: ıslah, genomik seçilim, fenotipleme ve tohum kalitesi üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın yıllık tohum üretim istatistiği. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

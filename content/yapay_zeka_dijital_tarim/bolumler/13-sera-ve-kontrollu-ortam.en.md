@@ -1,6 +1,6 @@
 # 13 · Greenhouses and controlled environments
 
-> **Summary.** In a greenhouse every climate variable is measured and can be adjusted; it is one of the places where AI has been pitted directly against growers. In the first round of the international Autonomous Greenhouse Challenge, with cucumber, only one of five AI teams beat the human-operated reference compartment; in the second round, with cherry tomato, all five did. For vertical farming, the main obstacles to wider use are profitability, energy efficiency, public policy and consumer acceptance. In Türkiye, the programme puts forward protected cultivation and geothermal greenhouse zones; no published Turkish trial testing AI climate control in greenhouses was found.
+> **Summary.** In a greenhouse every climate variable is measured and can be adjusted; it is one of the places where AI has been pitted directly against growers. In the first round of the international Autonomous Greenhouse Challenge, with cucumber, only one of five AI teams beat the human-operated reference compartment; in the second round, with cherry tomato, all five did. For vertical farming, the main obstacles to wider use are profitability, energy efficiency, public policy and consumer acceptance. In Türkiye, the programme puts forward protected cultivation and geothermal greenhouse zones; there is no published Turkish trial testing AI climate control in greenhouses.
 
 ## What it does
 
@@ -23,14 +23,14 @@ Vertical farming promises production that is climate-resilient, potentially with
 
 ## Where AI stands
 
-The greenhouse is a more favourable arena for AI than the open field: everything is measured, everything can be adjusted, and the result can be counted as net profit. That is why the difference between the challenge's two rounds matters: in the first round one team out of five beat the compartment run by growers, in the second all of them did. But the results come from small experimental compartments (**96** m² per compartment in the first round); this scan found no published measurement showing the same difference holding in a commercial operation over several years.
+The greenhouse is a more favourable arena for AI than the open field: everything is measured, everything can be adjusted, and the result can be counted as net profit. That is why the difference between the challenge's two rounds matters: in the first round one team out of five beat the compartment run by growers, in the second all of them did. But the results come from small experimental compartments (**96** m² per compartment in the first round); there is no published measurement showing the same difference holding in a commercial operation over several years.
 
 ## Türkiye
 
-The 2027 Programme considers controlled protected cultivation important for reducing climate-driven swings in production and prices and for steady year-round supply; it calls for continued development of modern greenhouse investments and organised agricultural zones that use geothermal and other renewable energy. The measures: investment and operating finance support for modernising existing greenhouses and building modern ones, increasing the number of geothermal greenhouse organised agricultural zones, and completing in 2027 the infrastructure of **5** greenhouse organised agricultural zones whose energy comes from geothermal sources. The programme also foresees developing protected cultivation, above all in populous metropolitan areas. Neither AI nor greenhouse climate control is mentioned in these measures.
+The 2027 Programme considers controlled protected cultivation important for reducing climate-driven swings in production and prices and for steady year-round supply; it calls for continued development of modern greenhouse investments and organised agricultural zones that use geothermal and other renewable energy. The measures: investment and operating finance support for modernising existing greenhouses and building modern ones, increasing the number of geothermal greenhouse organised agricultural zones, and completing in 2027 the infrastructure of **5** greenhouse organised agricultural zones whose energy comes from geothermal sources. The programme also foresees developing protected cultivation, above all in populous metropolitan areas. These measures give no role to AI or greenhouse climate control.
 
-What this dossier's scan did not find is **a published trial in Türkiye comparing AI greenhouse climate control with management by growers.**
+What is missing is **a published trial in Türkiye comparing AI greenhouse climate control with management by growers.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches two things: new developments in greenhouses, controlled environments and vertical farming — peer-reviewed studies included; and new releases of the sources behind the figures here, such as publications on new rounds of the Autonomous Greenhouse Challenge. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches two things: new developments in greenhouses, controlled environments and vertical farming — peer-reviewed studies included; and new releases of the sources behind the figures here, such as publications on new rounds of the Autonomous Greenhouse Challenge. New information is added to the page after an editor's approval.

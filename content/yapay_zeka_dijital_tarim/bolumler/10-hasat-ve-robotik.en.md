@@ -39,8 +39,8 @@ The 2027 Programme writes that the small-scale, fragmented and scattered land st
 
 On the research side, harvesting-robot work in Türkiye is at the image-recognition stage. In 2024, Kahya and colleagues at Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field.
 
-What this dossier's scan did not find is **a published trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and its success was measured.**
+What is missing is **a published trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and its success was measured.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches two things: new developments in harvesting robots and selective harvesting — peer-reviewed studies included; and new releases of the sources behind the figures here. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches two things: new developments in harvesting robots and selective harvesting — peer-reviewed studies included; and new releases of the sources behind the figures here. New information is added to the page after an editor's approval.

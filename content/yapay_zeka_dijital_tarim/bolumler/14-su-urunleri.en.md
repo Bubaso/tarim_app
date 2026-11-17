@@ -1,6 +1,6 @@
 # 14 · Fisheries and aquaculture
 
-> **Summary.** In 2022 aquaculture overtook capture fisheries in aquatic animal production for the first time in history (**51%**); meanwhile, the share of marine stocks fished within biologically sustainable levels fell to **62.3%**. The most striking AI result this dossier found comes from catch monitoring: a map built from satellite imagery and deep learning revealed that **72-76%** of the world's industrial fishing vessels are not visible in public tracking systems. In aquaculture, deep learning is being tried for fish recognition, feeding and biomass estimation, but its need for labelled data limits its spread. In Türkiye, data from **1,629** fishing vessels of **12** metres and over are collected via satellite and GSM; for now these data are used mainly for monitoring and record keeping, and the technical requirements document for a ministry project to analyse them with AI was published in 2026.
+> **Summary.** In 2022 aquaculture overtook capture fisheries in aquatic animal production for the first time in history (**51%**); meanwhile, the share of marine stocks fished within biologically sustainable levels fell to **62.3%**. The most striking AI result in this field comes from catch monitoring: a map built from satellite imagery and deep learning revealed that **72-76%** of the world's industrial fishing vessels are not visible in public tracking systems. In aquaculture, deep learning is being tried for fish recognition, feeding and biomass estimation, but its need for labelled data limits its spread. In Türkiye, data from **1,629** fishing vessels of **12** metres and over are collected via satellite and GSM; for now these data are used mainly for monitoring and record keeping, and the technical requirements document for a ministry project to analyse them with AI was published in 2026.
 
 ## What it does
 
@@ -30,8 +30,8 @@ According to an announcement of April 2026, BAGİS devices on vessels of 12 metr
 
 In academia, machine learning has reached the feeding side of aquaculture: a study involving Muğla Sıtkı Koçman University used machine learning to examine how **11** physical and chemical characteristics of water relate to fish feed consumption; temperature emerged as the most important variable (Özdemir and colleagues, 2025).
 
-What this dossier's scan did not find is **a published assessment measuring, on a farm or in a fleet in Türkiye, the effect of AI on feeding, fish health or catch-monitoring outcomes.**
+What is missing is **a published assessment measuring, on a farm or in a fleet in Türkiye, the effect of AI on feeding, fish health or catch-monitoring outcomes.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches two things: new developments in aquaculture, fish farming and fisheries — peer-reviewed studies included; and new releases of the sources behind the figures here, such as the ministry's fisheries statistics and FAO's next world fisheries report. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches two things: new developments in aquaculture, fish farming and fisheries — peer-reviewed studies included; and new releases of the sources behind the figures here, such as the ministry's fisheries statistics and FAO's next world fisheries report. New information is added to the page after an editor's approval.

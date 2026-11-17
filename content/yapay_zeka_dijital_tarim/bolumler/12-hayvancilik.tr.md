@@ -1,6 +1,6 @@
 # 12 · Hayvancılık
 
-> **Özet.** Bu dosyanın hayvancılıkta bulduğu ölçülmüş en büyük etki sensörden değil genomdan geliyor: ABD'de Holstein ırkında genomik seçilimle boğa babalarının kuşak aralığı yaklaşık **7** yıldan **2,5** yılın altına indi, yıllık genetik ilerleme verim özelliklerinde **%50-100** arttı. Sensör tarafında tablo daha zayıf: piyasadaki **129** hayvan refahı teknolojisinden yalnız **18**'i (**%14**) bağımsız olarak doğrulanmış. Türkiye'den bir meta-analiz yapay zekâlı mastitis ve topallık tespitinde birleşik duyarlılığı **%83,5**, özgüllüğü **%90,1** buluyor, ama kanıtın kesinliğini düşük sayıyor. Türkiye'de destekler genomik testi de kapsıyor ve 2027'de yerli bir elektronik küpe ve izleme sistemi uygulamaya konulacak.
+> **Özet.** Hayvancılıkta ölçülmüş büyük bir etki sensörden değil genomdan geliyor: ABD'de Holstein ırkında genomik seçilimle boğa babalarının kuşak aralığı yaklaşık **7** yıldan **2,5** yılın altına indi, yıllık genetik ilerleme verim özelliklerinde **%50-100** arttı. Sensör tarafında tablo daha zayıf: piyasadaki **129** hayvan refahı teknolojisinden yalnız **18**'i (**%14**) bağımsız olarak doğrulanmış. Türkiye'den bir meta-analiz yapay zekâlı mastitis ve topallık tespitinde birleşik duyarlılığı **%83,5**, özgüllüğü **%90,1** buluyor, ama kanıtın kesinliğini düşük sayıyor. Türkiye'de destekler genomik testi de kapsıyor ve 2027'de yerli bir elektronik küpe ve izleme sistemi uygulamaya konulacak.
 
 ## Ne yapıyor
 
@@ -27,7 +27,7 @@ Sensör tarafında tablo daha zayıf. Stygar ve arkadaşları (2021) süt sığ�
 
 Erhan ve Yağanoğlu (2026), Türkiye'den yazdıkları bir meta-analizde çiftlik hayvanlarında yapay zekâyla hastalık ve refah tespitinin isabetini bir referans standarda göre topladı. **154** tam metinden **74**'ü ölçütleri karşıladı, ama yalnız **10** çalışma (**7** mastitis, **3** topallık) birleşik analize girebildi; çoğu başarıyı hayvan başına değil kayıt ya da meme çeyreği düzeyinde verdiği için birleştirilemedi. Birleşik duyarlılık (hasta hayvanın ne kadarının yakalandığı) **%83,5**, özgüllük (sağlam hayvanın ne kadarının doğru sağlam sayıldığı) **%90,1**. Yazarların yorumu ölçülü: yöntem umut verici, ama çalışmalar arası farkın büyüklüğü, birleştirilebilen çalışmaların azlığı ve kanıtın düşük kesinliği temkinli okumayı gerektiriyor.
 
-Tek çalışmalar çok daha yüksek rakamlar bildirebiliyor. Muğla Sıtkı Koçman Üniversitesi'nden bir araştırmacının Polonyalı bir ortakla yaptığı çalışma, **6.600** ineğin sağım robotu sensör verisiyle mastitis riskini **%98,1** doğrulukla tahmin ettiğini bildiriyor (Abdul Ghafoor ve Sitkowska, 2021); verinin hangi ülkeden geldiği özette yazmıyor. Meta-analiz, tek bir çalışmanın yüksek rakamıyla birleşik kanıt arasındaki farkın neden önemli olduğunu gösteriyor.
+Tek çalışmalar çok daha yüksek rakamlar bildirebiliyor. Muğla Sıtkı Koçman Üniversitesi'nden bir araştırmacının Polonyalı bir ortakla yaptığı çalışma, **6.600** ineğin sağım robotu sensör verisiyle mastitis riskini **%98,1** doğrulukla tahmin ettiğini bildiriyor (Abdul Ghafoor ve Sitkowska, 2021). Meta-analiz, tek bir çalışmanın yüksek rakamıyla birleşik kanıt arasındaki farkın neden önemli olduğunu gösteriyor.
 
 ## Türkiye
 
@@ -35,8 +35,8 @@ Bakanlığın Haziran 2026 verisine göre Türkiye'de **17,6** milyon sığır, 
 
 Dijital tarafta iki adım var. Hayvancılık desteklerini düzenleyen karar Eylül 2026'da değiştirildi; genomik test yaptırılan damızlık dişi buzağılar için ilave katsayı getirildi. 2027'de ise yerli imkânlarla geliştirilen Güvenli Elektronik Küpe ve İzleme Sistemi uygulamaya konulacak.
 
-Bu dosyanın taramasında bulunamayan şey ise **Türkiye'de bir çiftlikte sensör ya da yapay zekâyla erken teşhisin hayvan sağlığına veya verime etkisini ölçen, yayımlanmış bir değerlendirme.**
+Eksik olan ise **Türkiye'de bir çiftlikte sensör ya da yapay zekâyla erken teşhisin hayvan sağlığına veya verime etkisini ölçen, yayımlanmış bir değerlendirme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: hassas hayvancılık, süt sığırcılığı, kanatlı ve hayvan davranışı üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın hayvan varlığı istatistiği. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: hassas hayvancılık, süt sığırcılığı, kanatlı ve hayvan davranışı üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın hayvan varlığı istatistiği. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

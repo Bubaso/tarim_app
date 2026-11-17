@@ -34,9 +34,9 @@ En yaygın ticari sistemlerden biri John Deere'nin See & Spray'i. Şirketin kend
 | 2024 | 1 milyon akre | Ortalama **%59** ilaç tasarrufu | Şirket beyanı |
 | 2025 | 5 milyon akre | Kalıcı olmayan ilaçta ortalama yaklaşık **%50** azalma | Şirket beyanı |
 
-İki rakam yan yana konunca bir düşüş görünüyor, ama bu dosya bir eğilim iddia etmiyor: 2025 rakamı açıkça "kalıcı olmayan ilaç" diyor ve 2024 rakamının aynı şeyi ölçüp ölçmediği belirsiz. Şirket verisi bağımsız olarak denetlenmedi.
+İki rakam yan yana konunca bir düşüş görünüyor, ama bu bir eğilim sayılamaz: 2025 rakamı açıkça "kalıcı olmayan ilaç" diyor ve 2024 rakamının aynı şeyi ölçüp ölçmediği belirsiz. Şirket verisi bağımsız olarak denetlenmedi.
 
-Bazı sistemler için bundan da yüksek tasarruf rakamları dolaşıyor. Kaynakları satıcı beyanları ve çoğu çıplak toprak üstündeki ot senaryosuna ait — yani yukarıda anlatılan kolay duruma. Bu yüzden bu dosyada sayı olarak verilmiyor.
+Bazı sistemler için bundan da yüksek tasarruf rakamları dolaşıyor; ama bunlar satıcı beyanı ve çoğu çıplak toprak üstündeki ota, yani yukarıda anlatılan kolay duruma ait.
 
 ## Laboratuvar ile tarla arasındaki açık
 
@@ -50,8 +50,8 @@ Bu iki rakam arasındaki fark, bu alanda okunan her başarı oranının sorulmas
 
 Türkiye'de görüntü işlemeyle yabancı ot tespiti üniversitelerde tez düzeyinde çalışılıyor. Pamukkale Üniversitesi'ndeki bir yüksek lisans tezi mısırda yabancı otları tespit edip lokal ilaçlamayı hedefliyor; Tokat Gaziosmanpaşa Üniversitesi'nde buğdayda yabancı ot tespitine dair bir doktora tezi var. Türkçe literatürde insansız hava aracıyla ot tespitine dair derleme çalışmaları da yayımlanmış.
 
-Bu dosyanın taramasında bulunamayan şey ise **ilaç tasarrufunu sahada ölçen, yayımlanmış bir Türkiye denemesi.** Tespit modeli ile tarladaki ilaç azalması arasındaki bu adım, yukarıdaki denemelerin ölçtüğü adım.
+Eksik olan ise **ilaç tasarrufunu sahada ölçen, yayımlanmış bir Türkiye denemesi.** Tespit modeli ile tarladaki ilaç azalması arasındaki bu adım, yukarıdaki denemelerin ölçtüğü adım.
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: hedefli ilaçlamaya dair yeni hakemli saha denemeleri ve satıcıların yeni beyanları. Yeni bir rakam bulunduğunda sayfaya doğrudan girmiyor; onaya düşüyor.
+Bu sayfa iki şeyi izliyor: hedefli ilaçlamaya dair yeni hakemli saha denemeleri ve satıcıların yeni beyanları. Yeni bir rakam, editör onayından sonra sayfaya ekleniyor.

@@ -1,6 +1,6 @@
 # 14 · Su ürünleri
 
-> **Özet.** Dünyada su hayvanı üretiminde yetiştiricilik 2022'de tarihte ilk kez avcılığı geçti (**%51**); öte yandan biyolojik olarak sürdürülebilir düzeyde avlanan deniz stoklarının payı **%62,3**'e düştü. Bu dosyanın bulduğu en çarpıcı yapay zekâ sonucu av denetiminden: uydu görüntüsü ve derin öğrenmeyle hazırlanan bir harita, dünyadaki endüstriyel balıkçı gemilerinin **%72-76**'sının kamuya açık izleme sistemlerinde görünmediğini ortaya koydu. Yetiştiricilikte derin öğrenme balık tanıma, yemleme ve biyokütle tahmininde deneniyor ama etiketli veri ihtiyacı yayılmasını sınırlıyor. Türkiye'de **12** metre ve üzeri **1.629** balıkçı gemisinin verisi uydu ve GSM üzerinden toplanıyor; bu veri şimdilik ağırlıkla izleme ve kayıt için kullanılıyor, Bakanlığın onu yapay zekâyla analiz edecek projesinin teknik ister belgesi 2026'da yayımlandı.
+> **Özet.** Dünyada su hayvanı üretiminde yetiştiricilik 2022'de tarihte ilk kez avcılığı geçti (**%51**); öte yandan biyolojik olarak sürdürülebilir düzeyde avlanan deniz stoklarının payı **%62,3**'e düştü. Bu alanda yapay zekânın en çarpıcı sonucu av denetiminden geliyor: uydu görüntüsü ve derin öğrenmeyle hazırlanan bir harita, dünyadaki endüstriyel balıkçı gemilerinin **%72-76**'sının kamuya açık izleme sistemlerinde görünmediğini ortaya koydu. Yetiştiricilikte derin öğrenme balık tanıma, yemleme ve biyokütle tahmininde deneniyor ama etiketli veri ihtiyacı yayılmasını sınırlıyor. Türkiye'de **12** metre ve üzeri **1.629** balıkçı gemisinin verisi uydu ve GSM üzerinden toplanıyor; bu veri şimdilik ağırlıkla izleme ve kayıt için kullanılıyor, Bakanlığın onu yapay zekâyla analiz edecek projesinin teknik ister belgesi 2026'da yayımlandı.
 
 ## Ne yapıyor
 
@@ -30,8 +30,8 @@ Nisan 2026 tarihli duyuruya göre 12 metre ve üzeri gemilerdeki BAGİS cihazlar
 
 Akademide makine öğrenmesi yetiştiricilikte yem tarafına girmiş durumda: Muğla Sıtkı Koçman Üniversitesi'nin de yer aldığı bir çalışma, suyun **11** fiziksel ve kimyasal özelliğinin balık yem tüketimiyle ilişkisini makine öğrenmesiyle inceledi; en önemli değişken sıcaklık çıktı (Özdemir ve arkadaşları, 2025).
 
-Bu dosyanın taramasında bulunamayan şey ise **Türkiye'de bir çiftlikte ya da filoda yapay zekânın yem, balık sağlığı ya da av denetimi sonucuna etkisini ölçen, yayımlanmış bir değerlendirme.**
+Eksik olan ise **Türkiye'de bir çiftlikte ya da filoda yapay zekânın yem, balık sağlığı ya da av denetimi sonucuna etkisini ölçen, yayımlanmış bir değerlendirme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: yetiştiricilik, balık çiftçiliği ve balıkçılık üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın su ürünleri istatistiği ve FAO'nun yeni dünya balıkçılık raporu. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: yetiştiricilik, balık çiftçiliği ve balıkçılık üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Bakanlığın su ürünleri istatistiği ve FAO'nun yeni dünya balıkçılık raporu. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.

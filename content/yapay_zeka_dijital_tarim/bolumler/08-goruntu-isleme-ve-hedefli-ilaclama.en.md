@@ -34,9 +34,9 @@ One of the most widespread commercial systems is John Deere's See & Spray. The c
 | 2024 | 1 million acres | Average herbicide saving of **59%** | Vendor statement |
 | 2025 | 5 million acres | Average reduction of nearly **50%** in non-residual herbicide | Vendor statement |
 
-Placed side by side the two figures suggest a decline, but this dossier asserts no trend: the 2025 figure explicitly refers to non-residual herbicide, and whether the 2024 figure measures the same thing is unclear. The company's data have not been independently audited.
+Placed side by side the two figures suggest a decline, but it cannot be read as a trend: the 2025 figure explicitly refers to non-residual herbicide, and whether the 2024 figure measures the same thing is unclear. The company's data have not been independently audited.
 
-Still higher savings figures circulate for some systems. Their source is vendor statements, and most belong to the weeds-on-bare-soil scenario — the easy case described above. For that reason they are not given as numbers here.
+Still higher savings figures circulate for some systems; but they are vendor statements, and most belong to the weeds-on-bare-soil scenario, the easy case described above.
 
 ## The gap between lab and field
 
@@ -50,8 +50,8 @@ The distance between those two figures shows the question every success rate in 
 
 In Türkiye, weed detection by computer vision is being studied at university thesis level. A master's thesis at Pamukkale University detects weeds in maize with a view to local spraying; there is a doctoral thesis at Tokat Gaziosmanpaşa University on weed detection in wheat. Review articles on drone-based weed detection have also been published in the Turkish literature.
 
-What this dossier's scan did not find is **a published Turkish trial measuring herbicide savings in the field.** The step from a detection model to a reduction of herbicide on the field is the step the trials above measured.
+What is missing is **a published Turkish trial measuring herbicide savings in the field.** The step from a detection model to a reduction of herbicide on the field is the step the trials above measured.
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches for two things: new peer-reviewed field trials of targeted spraying, and new vendor statements. When a new figure is found it does not enter the page directly; it goes to the approval queue.
+This page watches for two things: new peer-reviewed field trials of targeted spraying, and new vendor statements. A new figure is added to the page after an editor's approval.

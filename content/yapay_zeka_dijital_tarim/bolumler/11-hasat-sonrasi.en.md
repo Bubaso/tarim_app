@@ -39,8 +39,8 @@ The most concrete measured example concerns aflatoxin. In the EU's Rapid Alert S
 
 An example of image-based grading also comes from hazelnuts. A study involving Ondokuz Mayıs University separated hazelnuts damaged by the brown marmorated stink bug from healthy ones using images; a support vector machine reached **98.75%** accuracy on a set of **400** images (Gadalla and Öztekin, 2023). The result belongs to a laboratory image set; it does not show success on a processing line.
 
-What this dossier's scan did not find is twofold: **a public official indicator that regularly measures the post-harvest loss rate for Türkiye; and a published assessment measuring how much AI-based grading reduces losses or rejections in a business.**
+What is missing is twofold: **a public official indicator that regularly measures the post-harvest loss rate for Türkiye; and a published assessment measuring how much AI-based grading reduces losses or rejections in a business.**
 
-## What updates automatically under this heading
+## How this page is kept up to date
 
-This heading watches two things: new developments in produce grading, post-harvest loss, grain storage and food quality inspection — peer-reviewed studies included; and new releases of the sources behind the figures here, such as new values of FAO's food loss indicator. Anything found does not enter the page directly; it goes to the approval queue first.
+This page watches two things: new developments in produce grading, post-harvest loss, grain storage and food quality inspection — peer-reviewed studies included; and new releases of the sources behind the figures here, such as new values of FAO's food loss indicator. New information is added to the page after an editor's approval.

@@ -1,6 +1,6 @@
 # 13 · Sera ve kontrollü ortam
 
-> **Özet.** Serada iklimin her değişkeni ölçülüyor ve ayarlanabiliyor; yapay zekânın yetiştiriciyle doğrudan yarıştırıldığı yerlerden biri de bu. Uluslararası Otonom Sera Yarışması'nın salatalıkla yapılan ilk turunda beş yapay zekâ ekibinden yalnız biri, insanın yönettiği referans bölmeyi geçti; çeri domatesle yapılan ikinci turda beşinin hepsi geçti. Dikey tarımda yaygınlaşmanın önündeki başlıca engeller ise kârlılık, enerji verimliliği, kamu politikası ve tüketici kabulü. Türkiye'de program örtü altı üretimi ve jeotermal sera bölgelerini öne çıkarıyor; yapay zekâyla sera iklim kontrolünü sınayan yayımlanmış bir Türkiye denemesi bulunamadı.
+> **Özet.** Serada iklimin her değişkeni ölçülüyor ve ayarlanabiliyor; yapay zekânın yetiştiriciyle doğrudan yarıştırıldığı yerlerden biri de bu. Uluslararası Otonom Sera Yarışması'nın salatalıkla yapılan ilk turunda beş yapay zekâ ekibinden yalnız biri, insanın yönettiği referans bölmeyi geçti; çeri domatesle yapılan ikinci turda beşinin hepsi geçti. Dikey tarımda yaygınlaşmanın önündeki başlıca engeller ise kârlılık, enerji verimliliği, kamu politikası ve tüketici kabulü. Türkiye'de program örtü altı üretimi ve jeotermal sera bölgelerini öne çıkarıyor; yapay zekâyla sera iklim kontrolünü sınayan yayımlanmış bir Türkiye denemesi ise bulunmuyor.
 
 ## Ne yapıyor
 
@@ -23,14 +23,14 @@ Dikey tarım iklime dayanıklı, pestisit ve gübre salımını sıfıra indireb
 
 ## Yapay zekâ nerede duruyor
 
-Sera, yapay zekâ için tarladan daha elverişli bir alan: her şey ölçülüyor, her şey ayarlanabiliyor, sonuç net kâr olarak hesaplanabiliyor. Yarışmanın iki turu arasındaki fark bu yüzden anlamlı: ilk turda beş ekipten biri, ikincide hepsi yetiştiricinin yönettiği bölmeyi geçti. Ama sonuçlar küçük deney bölmelerinden (ilk turda bölme başına **96** m²); ticari bir işletmede, yıllar boyunca aynı farkın sürdüğünü gösteren yayımlanmış bir ölçüm bu taramada bulunamadı.
+Sera, yapay zekâ için tarladan daha elverişli bir alan: her şey ölçülüyor, her şey ayarlanabiliyor, sonuç net kâr olarak hesaplanabiliyor. Yarışmanın iki turu arasındaki fark bu yüzden anlamlı: ilk turda beş ekipten biri, ikincide hepsi yetiştiricinin yönettiği bölmeyi geçti. Ama sonuçlar küçük deney bölmelerinden (ilk turda bölme başına **96** m²); ticari bir işletmede, yıllar boyunca aynı farkın sürdüğünü gösteren yayımlanmış bir ölçüm bulunmuyor.
 
 ## Türkiye
 
-2027 Programı, iklimden kaynaklanan üretim ve fiyat dalgalanmalarını azaltmak ve yıl boyunca düzenli arz sağlamak için kontrollü örtü altı üretimi önemli sayıyor; jeotermal ve öteki yenilenebilir enerji kaynaklarını kullanan modern sera yatırımlarının ve organize tarım bölgelerinin geliştirilmesine devam edilmesini istiyor. Tedbirler: mevcut seraların modernizasyonuna ve modern sera kurulumuna yatırım ve işletme finansmanı desteği, jeotermal sera organize tarım bölgesi sayısının artırılması ve 2027'de enerjisi jeotermalden karşılanan **5** sera organize tarım bölgesinin altyapısının tamamlanması. Program, nüfusu yüksek büyükşehirlerde örtü altı yetiştiriciliğinin geliştirilmesini de öngörüyor. Bu tedbirlerde yapay zekâ ya da sera iklim kontrolü anılmıyor.
+2027 Programı, iklimden kaynaklanan üretim ve fiyat dalgalanmalarını azaltmak ve yıl boyunca düzenli arz sağlamak için kontrollü örtü altı üretimi önemli sayıyor; jeotermal ve öteki yenilenebilir enerji kaynaklarını kullanan modern sera yatırımlarının ve organize tarım bölgelerinin geliştirilmesine devam edilmesini istiyor. Tedbirler: mevcut seraların modernizasyonuna ve modern sera kurulumuna yatırım ve işletme finansmanı desteği, jeotermal sera organize tarım bölgesi sayısının artırılması ve 2027'de enerjisi jeotermalden karşılanan **5** sera organize tarım bölgesinin altyapısının tamamlanması. Program, nüfusu yüksek büyükşehirlerde örtü altı yetiştiriciliğinin geliştirilmesini de öngörüyor. Bu tedbirler yapay zekâya ya da sera iklim kontrolüne yer vermiyor.
 
-Bu dosyanın taramasında bulunamayan şey ise **Türkiye'de yapay zekâyla sera iklim kontrolünü yetiştiricinin yönetimiyle karşılaştıran, yayımlanmış bir deneme.**
+Eksik olan ise **Türkiye'de yapay zekâyla sera iklim kontrolünü yetiştiricinin yönetimiyle karşılaştıran, yayımlanmış bir deneme.**
 
-## Bu başlıkta otomatik güncellenenler
+## Bu sayfa nasıl güncelleniyor
 
-Bu başlık iki şeyi izliyor: sera, kontrollü ortam ve dikey tarım üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Otonom Sera Yarışması'nın yeni turlarını anlatan yayınlar. Bulunan her şey sayfaya doğrudan girmiyor; önce onay kuyruğuna düşüyor.
+Bu sayfa iki şeyi izliyor: sera, kontrollü ortam ve dikey tarım üzerine yeni gelişmeler — hakemli çalışmalar dahil; ve buradaki sayıların kaynaklarının yeni sürümleri, örneğin Otonom Sera Yarışması'nın yeni turlarını anlatan yayınlar. Yeni bilgi, editör onayından sonra sayfaya ekleniyor.
