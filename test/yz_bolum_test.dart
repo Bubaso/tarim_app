@@ -21,6 +21,8 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_izi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_teknoloji.g.dart';
+import 'package:tarim_app/features/yapay_zeka/data/yz_rakam_kaynaklari.g.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_kaynak_balonu.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -697,6 +699,54 @@ devam ediyor.
       await t.pumpWidget(_sarmala(const YzTeknolojiEkrani(kod: 'yok')));
       await t.pumpAndSettle();
       expect(find.text('Böyle bir teknoloji yok.'), findsOneWidget);
+    });
+  });
+
+  group('rakamdan kaynağa (karar 58)', () {
+    final kalin = RegExp(r'\*\*(.+?)\*\*');
+    test('her kalın rakam bir kaynağa bağlı (başlıklar ve teknoloji sayfaları)', () {
+      void sina(String sayfa, String metin, bool en) {
+        for (final m in kalin.allMatches(metin)) {
+          final ic = m.group(1)!;
+          if (!RegExp(r'\d').hasMatch(ic)) continue;
+          expect(yzRakamKaynagiVar(sayfa, ic, en), isTrue, reason: '$sayfa ${en ? 'en' : 'tr'}: $ic');
+        }
+      }
+      for (final b in kYzBasliklar) {
+        final m = kYzMetinler[b.no];
+        if (m == null || kYzSozluksuzBasliklar.contains(b.no)) continue;
+        final s = 'b${b.no.toString().padLeft(2, '0')}';
+        sina(s, m.tr, false);
+        sina(s, m.en, true);
+      }
+      for (final e in kYzTeknolojiMetinleri.entries) {
+        sina('tek_${e.key}', e.value.tr, false);
+        sina('tek_${e.key}', e.value.en, true);
+      }
+    });
+
+    testWidgets('balon künyeyi, alıntıyı ve bağlantıyı gösteriyor', (t) async {
+      t.view.physicalSize = const Size(390, 844);
+      t.view.devicePixelRatio = 1;
+      addTearDown(t.view.reset);
+      final adaylar = kYzRakamKaynak['b07:tr']!['%72']!;
+      await t.pumpWidget(MaterialApp(
+        home: Scaffold(
+          body: Builder(
+            builder: (c) => TextButton(
+              onPressed: () => yzKaynakBalonu(c, 'b07', '%72', const Offset(180, 120), false),
+              child: const Text('AÇ'),
+            ),
+          ),
+        ),
+      ));
+      await t.tap(find.text('AÇ'));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      expect(find.text(kYzKaynakKunye['b07']![adaylar.first[0]]![0]), findsOneWidget);
+      if (adaylar.first[1].isNotEmpty) {
+        expect(find.textContaining(adaylar.first[1].substring(0, 20)), findsOneWidget);
+      }
     });
   });
 

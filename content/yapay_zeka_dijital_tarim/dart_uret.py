@@ -390,8 +390,44 @@ def main() -> int:
     gr.append("")
     GRAFIK.write_text("\n".join(gr), encoding="utf-8")
 
+    # ── rakamdan kaynağa (karar 58, etkileşim) ─────────────────────────
+    # Her kalın rakamın kaynağı: _raw/rakam_kaynaklari.py eşliyor.
+    import importlib.util as _iu
+    _sp = _iu.spec_from_file_location("rakam_kaynaklari", raw / "rakam_kaynaklari.py")
+    _rk = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_rk)
+    esleme, kunyeler, kapsama = _rk.esle()
+    RK = KOK / "lib/features/yapay_zeka/data/yz_rakam_kaynaklari.g.dart"
+    rk = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+          "// Kaynak: bölüm ve teknoloji metinleri + kayıtlar; eşleyici _raw/rakam_kaynaklari.py",
+          "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+          "//",
+          "// Rakamdan kaynağa (karar 58): {\"sayfa:dil\": {kalın parça: [[kaynak, alıntı], …]}}.",
+          "",
+          "const Map<String, Map<String, List<List<String>>>> kYzRakamKaynak = {"]
+    for sayfa, diller in esleme.items():
+        for dil, kalinlar in diller.items():
+            rk.append(f"  {dizgi(sayfa + ':' + dil)}: {{")
+            for kalin, adaylar in kalinlar.items():
+                ic = ", ".join(f"[{dizgi(a)}, {dizgi(p)}]" for a, p in adaylar)
+                rk.append(f"    {dizgi(kalin)}: [{ic}],")
+            rk.append("  },")
+    rk.append("};")
+    rk.append("")
+    rk.append("/// {sayfa: {kaynak: [künye, bağlantı]}}")
+    rk.append("const Map<String, Map<String, List<String>>> kYzKaynakKunye = {")
+    for sayfa, ky in kunyeler.items():
+        rk.append(f"  {dizgi(sayfa)}: {{")
+        for a, (kunye, bag) in ky.items():
+            rk.append(f"    {dizgi(a)}: [{dizgi(kunye)}, {dizgi(bag)}],")
+        rk.append("  },")
+    rk.append("};")
+    rk.append("")
+    RK.write_text("\n".join(rk), encoding="utf-8")
+
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
+    print(f"✓ {RK.relative_to(KOK)} · {sum(e for e, _ in kapsama.values())}/{sum(t for _, t in kapsama.values())} kalın rakam kaynağa bağlı")
     print(f"✓ {GRAFIK.relative_to(KOK)} · {len(grafikler)} grafik, {len(gorseller)} görsel")
     print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")

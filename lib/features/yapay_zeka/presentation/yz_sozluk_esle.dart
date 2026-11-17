@@ -170,10 +170,20 @@ List<YzIsaret> yzTerimleriBul(String metin, bool en, Set<String> gorulen,
 /// Satır içi çizimde dokunulabilir parçaların bağlamı. Tanıyıcılar burada
 /// toplanıyor; çizen bileşen kendini atarken hepsini bırakıyor.
 class YzEtkilesim {
-  YzEtkilesim({required this.tanicilar, required this.baglantiAc, required this.terimAc});
+  YzEtkilesim(
+      {required this.tanicilar,
+      required this.baglantiAc,
+      required this.terimAc,
+      this.rakamVar,
+      this.rakamAc});
   final List<GestureRecognizer> tanicilar;
   final void Function(String adres) baglantiAc;
   final void Function(YzTerim terim, Offset konum) terimAc;
+
+  /// Rakamdan kaynağa (karar 58): kalın rakamın bağlı bir kaynağı var mı ve
+  /// dokununca balonu açan.
+  final bool Function(String kalin)? rakamVar;
+  final void Function(String kalin, Offset konum)? rakamAc;
 }
 
 /// Terimin balonu: dokunulan yerin altında (ekranın alt kısmındaysa üstünde)

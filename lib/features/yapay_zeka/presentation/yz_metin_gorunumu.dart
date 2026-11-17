@@ -8,6 +8,7 @@ import '../data/yz_sozluk.g.dart';
 
 import '../data/yz_grafikler.g.dart';
 import 'yz_gorsel.dart';
+import 'yz_kaynak_balonu.dart';
 import 'yz_grafik.dart';
 import 'yz_sozluk_esle.dart';
 import 'yz_tasarim.dart';
@@ -178,13 +179,26 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
     if (m.group(1) != null) {
       final ic = m.group(1)!;
       final rakamli = RegExp(r'\d').hasMatch(ic);
+      // Karar 58: kaynağı bağlı rakam dokunulabilir; noktalı alt çizgi.
+      final kaynakli = rakamli && etkilesim != null && (etkilesim.rakamVar?.call(ic) ?? false);
+      TapGestureRecognizer? r;
+      if (kaynakli) {
+        r = TapGestureRecognizer()..onTapUp = (d) => etkilesim.rakamAc?.call(ic, d.globalPosition);
+        etkilesim.tanicilar.add(r);
+      }
       parcalar.add(TextSpan(
         text: ic,
+        recognizer: r,
+        mouseCursor: kaynakli ? SystemMouseCursors.click : null,
         style: rakamli
             ? YzYazi.veri(
                 boy: (taban.fontSize ?? 18) * 0.86,
                 renk: YzRenk.makine,
                 kalinlik: FontWeight.w600,
+              ).copyWith(
+                decoration: kaynakli ? TextDecoration.underline : null,
+                decorationStyle: TextDecorationStyle.dotted,
+                decorationColor: YzRenk.makine.withValues(alpha: 0.55),
               )
             : const TextStyle(fontWeight: FontWeight.w700),
       ));
@@ -236,8 +250,13 @@ class YzMetinGorunumu extends StatefulWidget {
       this.sozluk = true,
       this.bolumNo,
       this.vurgu,
-      this.vurguDenetcisi});
+      this.vurguDenetcisi,
+      this.kaynakSayfasi});
   final String metin;
+
+  /// Rakamdan kaynağa (karar 58): "bNN" ya da "tek_<kod>"; verilirse kalın
+  /// rakamlar dokunulabilir ve kaynağın balonunu açıyor.
+  final String? kaynakSayfasi;
 
   /// Merkez sayfada seçilen teknoloji (karar 57): geçtiği paragraflar ve
   /// tablo satırları işaretleniyor. Yoksa hiçbir şey işaretlenmiyor.
@@ -288,7 +307,8 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         eski.en != widget.en ||
         eski.sozluk != widget.sozluk ||
         eski.bolumNo != widget.bolumNo ||
-        eski.vurgu != widget.vurgu) {
+        eski.vurgu != widget.vurgu ||
+        eski.kaynakSayfasi != widget.kaynakSayfasi) {
       _birak();
       _hazirla();
     } else if (eski.vurguDenetcisi != widget.vurguDenetcisi) {
@@ -361,6 +381,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         },
         terimAc: (t, konum) => yzTerimBalonu(context, t, konum, widget.en,
             geri: _baslikAdresi(widget.bolumNo)),
+        rakamVar: widget.kaynakSayfasi == null
+            ? null
+            : (k) => yzRakamKaynagiVar(widget.kaynakSayfasi!, k, widget.en),
+        rakamAc: widget.kaynakSayfasi == null
+            ? null
+            : (k, konum) => yzKaynakBalonu(context, widget.kaynakSayfasi!, k, konum, widget.en),
       );
 
   @override

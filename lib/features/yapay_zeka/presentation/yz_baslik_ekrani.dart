@@ -136,7 +136,10 @@ class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
                               sozluk: !kYzSozluksuzBasliklar.contains(b.no),
                               bolumNo: b.no,
                               vurgu: vurgu,
-                              vurguDenetcisi: _vurgu)
+                              vurguDenetcisi: _vurgu,
+                              kaynakSayfasi: kYzSozluksuzBasliklar.contains(b.no)
+                                  ? null
+                                  : 'b${b.no.toString().padLeft(2, '0')}')
                         else
                           _Yaziliyor(baslik: b),
                         // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.

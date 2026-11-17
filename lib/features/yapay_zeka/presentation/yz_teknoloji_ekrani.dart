@@ -67,7 +67,7 @@ class YzTeknolojiEkrani extends StatelessWidget {
                             style: YzYazi.veri(boy: 12.5, renk: YzRenk.soluk),
                           ),
                           const SizedBox(height: 26),
-                          YzMetinGorunumu(metin: metin.metin(en), en: en),
+                          YzMetinGorunumu(metin: metin.metin(en), en: en, kaynakSayfasi: 'tek_$kod'),
                         ] else
                           Text(en ? 'This page is being written.' : 'Bu sayfa yazılıyor.',
                               style: YzYazi.veri(boy: 12.5, renk: YzRenk.bekleyenMetin)),
