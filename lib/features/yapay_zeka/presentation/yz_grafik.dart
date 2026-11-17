@@ -999,6 +999,20 @@ class _Egim extends StatelessWidget {
           final w = kis.maxWidth;
           final kenar = math.min(110.0, w * 0.26);
           double y(double v) => 26 + (1 - (v / ust).clamp(0.0, 1.0)) * (h - 44);
+          // Yakın değerlerin etiketleri üst üste binmesin: aralarında en az 17 piksel.
+          Map<int, double> ayir(String dz) {
+            final ys = <int, double>{
+              for (var i = 0; i < kat.length; i++)
+                if (nokta(kat[i], dz) case final n?) i: y(n.deger),
+            };
+            final sira = ys.keys.toList()..sort((a, b) => ys[a]!.compareTo(ys[b]!));
+            for (var k = 1; k < sira.length; k++) {
+              if (ys[sira[k]]! - ys[sira[k - 1]]! < 17) ys[sira[k]] = ys[sira[k - 1]]! + 17;
+            }
+            return ys;
+          }
+
+          final solY = ayir(d[0].kod), sagY = ayir(d[1].kod);
           return Stack(clipBehavior: Clip.none, children: [
             CustomPaint(
               size: Size(w, h),
@@ -1028,7 +1042,7 @@ class _Egim extends StatelessWidget {
                 Positioned(
                   left: 0,
                   width: kenar - 10,
-                  top: y(a.deger) - 9,
+                  top: solY[i]! - 9,
                   child: Text(g.yaz(a, en),
                       textAlign: TextAlign.right,
                       style: YzYazi.veri(boy: 12, renk: renk(i), kalinlik: FontWeight.w700)),
@@ -1037,7 +1051,7 @@ class _Egim extends StatelessWidget {
                 Positioned(
                   right: 0,
                   width: kenar - 10,
-                  top: y(b.deger) - 9,
+                  top: sagY[i]! - 9,
                   child: Text(g.yaz(b, en), style: YzYazi.veri(boy: 12, renk: renk(i), kalinlik: FontWeight.w700)),
                 ),
             ],
@@ -1326,7 +1340,7 @@ class _Kucuk extends StatelessWidget {
                     ),
                     const SizedBox(width: 8),
                     SizedBox(
-                      width: 108,
+                      width: 128,
                       child: Text(g.yaz(n, en),
                           style: YzYazi.veri(boy: 12.5, renk: YzRenk.murekkep, kalinlik: FontWeight.w600)),
                     ),

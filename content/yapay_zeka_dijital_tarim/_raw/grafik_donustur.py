@@ -171,7 +171,7 @@ PANEL_EN = {
 }
 NOKTA_BIRIMI = {
     "yıl": {"tr": "yıl", "en": "years"}, "%": YUZDE, "milyon €": {"tr": "milyon avro", "en": "million euros"},
-    "avro": {"tr": "milyon avro", "en": "million euros"}, "çiftçi": {"tr": "çiftçi", "en": "farmers"},
+    "avro": {"tr": "avro", "en": "euros"}, "çiftçi": {"tr": "çiftçi", "en": "farmers"},
     "bin ha": None,  # b04: milyon ha'ya çevriliyor (çarpan)
 }
 # Grafiğe girmeyen, başlıkta ya da açıklamada kalan bağlam rakamları.
@@ -183,6 +183,13 @@ DUS = {
 AY = {"tr": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
       "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
              "November", "December"]}
+
+
+def bas_buyuk_tr(ad: str) -> str:
+    """Türkçe baş harf büyütme: i → İ, ı → I (str.upper 'i'yi 'I' yapar)."""
+    if not ad or ad[0].isupper():
+        return ad
+    return {"i": "İ", "ı": "I"}.get(ad[0], ad[0].upper()) + ad[1:]
 
 
 def kod(ad: str) -> str:
@@ -242,9 +249,6 @@ def donustur(o: dict) -> dict:
             b = NOKTA_BIRIMI.get(x["birim"])
             if x["birim"] == "bin ha":
                 n["carpan"] = 0.001
-            elif x["birim"] == "avro":
-                n["carpan"] = 0.000001
-                n["birim"] = b
             elif b is not None:
                 n["birim"] = b
         if x.get("satici"):
@@ -260,7 +264,7 @@ def donustur(o: dict) -> dict:
         noktalar.append(n)
     diziler = []
     for dz in dizi_sirasi:
-        d = {"kod": kod(dz), "tr": DIZI_TR.get(dz, dz[:1].upper() + dz[1:] if dz and not dz[0].isupper() else dz),
+        d = {"kod": kod(dz), "tr": DIZI_TR.get(dz, bas_buyuk_tr(dz)),
              "en": DIZI_EN[dz][:1].upper() + DIZI_EN[dz][1:]}
         if ROL.get((kimlik, dz)):
             d["rol"] = ROL[(kimlik, dz)]

@@ -795,7 +795,7 @@
    "diziler": [
     {
      "kod": "ilk-olcum",
-     "tr": "Ilk ölçüm",
+     "tr": "İlk ölçüm",
      "en": "First measurement"
     },
     {
@@ -1283,7 +1283,7 @@
    "diziler": [
     {
      "kod": "ilac",
-     "tr": "Ilaç",
+     "tr": "İlaç",
      "en": "Herbicide use"
     },
     {
@@ -4310,10 +4310,9 @@
       "tr": "Hibe",
       "en": "Grants"
      },
-     "carpan": 1e-06,
      "birim": {
-      "tr": "milyon avro",
-      "en": "million euros"
+      "tr": "avro",
+      "en": "euros"
      },
      "kayit": "b27_kaynaklar.json",
      "kaynak": "tucsap_2025_denetim",
@@ -4530,7 +4529,7 @@
    "diziler": [
     {
      "kod": "insan",
-     "tr": "Insan",
+     "tr": "İnsan",
      "en": "People"
     },
     {

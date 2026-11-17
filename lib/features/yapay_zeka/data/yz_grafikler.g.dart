@@ -150,7 +150,7 @@ const Map<String, YzGrafik> kYzGrafikler = {
     eksenTr: "Ekili alandaki payı", eksenEn: "Share of planted acres",
     satici: false,
     diziler: [
-      YzGrafikDizi("ilk-olcum", "Ilk ölçüm", "First measurement"),
+      YzGrafikDizi("ilk-olcum", "İlk ölçüm", "First measurement"),
       YzGrafikDizi("son-olcum", "Son ölçüm", "Latest measurement"),
       YzGrafikDizi("tek-olcum", "Tek ölçüm", "Single measurement"),
     ],
@@ -256,7 +256,7 @@ const Map<String, YzGrafik> kYzGrafikler = {
     eksenTr: "Yayma ilaçlamaya göre azalma", eksenEn: "Reduction compared with broadcast spraying",
     satici: false,
     diziler: [
-      YzGrafikDizi("ilac", "Ilaç", "Herbicide use"),
+      YzGrafikDizi("ilac", "İlaç", "Herbicide use"),
       YzGrafikDizi("akis-suyu", "Akış suyu", "Runoff"),
     ],
     noktalar: [
@@ -905,7 +905,7 @@ const Map<String, YzGrafik> kYzGrafikler = {
       YzGrafikNokta("2025 harcama", "2025 spending", "harcama", 27.9, panelTr: "2025 bütçesi ve harcama", panelEn: "2025 budget and spending", birimTr: "milyon avro", birimEn: "million euros"),
       YzGrafikNokta("Kredinin harcanan payı, 2025 sonu", "Share of the loan spent, end-2025", "harcanan", 12.91, panelTr: "Kredi", panelEn: "Loan", birimTr: "%", birimEn: "%"),
       YzGrafikNokta("Hibe · planlanan", "Grants · planned", "planlanan", 29.5, panelTr: "Hibe", panelEn: "Grants", birimTr: "milyon avro", birimEn: "million euros"),
-      YzGrafikNokta("Hibe · harcanan", "Grants · spent", "harcanan", 0.0, panelTr: "Hibe", panelEn: "Grants", birimTr: "milyon avro", birimEn: "million euros"),
+      YzGrafikNokta("Hibe · harcanan", "Grants · spent", "harcanan", 0.0, panelTr: "Hibe", panelEn: "Grants", birimTr: "avro", birimEn: "euros"),
       YzGrafikNokta("Benimseyen çiftçi · Mart 2028 hedefi", "Adopting farmers · March 2028 target", "hedef", 42500.0, panelTr: "İklim akıllı teknoloji benimseyen çiftçi", panelEn: "Farmers adopting climate-smart technology", birimTr: "çiftçi", birimEn: "farmers"),
       YzGrafikNokta("Benimseyen çiftçi · Ekim 2024", "Adopting farmers · October 2024", "gerceklesme", 0.0, panelTr: "İklim akıllı teknoloji benimseyen çiftçi", panelEn: "Farmers adopting climate-smart technology", birimTr: "çiftçi", birimEn: "farmers"),
     ],
@@ -943,7 +943,7 @@ const Map<String, YzGrafik> kYzGrafikler = {
     eksenTr: "Doğru teşhis oranı", eksenEn: "Diagnostic accuracy",
     satici: false,
     diziler: [
-      YzGrafikDizi("insan", "Insan", "People"),
+      YzGrafikDizi("insan", "İnsan", "People"),
       YzGrafikDizi("uygulama", "Uygulama", "App"),
     ],
     noktalar: [
