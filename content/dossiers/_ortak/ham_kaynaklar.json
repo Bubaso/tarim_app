@@ -3,8 +3,8 @@
  "_neden": "Ham PDF/ZIP/fotoğraflar .git'i 581 MB'a çıkardı ve push'lar zaman aşımına uğramaya başladı (12 Kasım 2026'da 408).",
  "_uyari": "git rm --cached GEÇMİŞİ küçültmez; eski blob'lar .git içinde kalır. Küçültmek geçmişi yeniden yazıp force-push demek, yapılmadı.",
  "_tarih": "2026-11-12",
- "dosya_sayisi": 448,
- "toplam_bayt": 1093853679,
+ "dosya_sayisi": 452,
+ "toplam_bayt": 1094089975,
  "kaynak_adresi_olmayan": 78,
  "dosyalar": [
   {
@@ -1933,6 +1933,18 @@
    }
   },
   {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/allmendinger_2024_europepmc.json",
+   "bayt": 5789,
+   "sha256": "a66f32804fad8772ba6cecf135cc7ed337bb1e6f7fd0bc38680485eb15868fed",
+   "kaynak": {
+    "adres": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI:10.3390/plants13152164&resultType=core&format=json",
+    "atif": "Allmendinger A. ve ark. 2024. Agronomic and Technical Evaluation of Herbicide Spot Spraying in Maize Based on High-Resolution Aerial Weed Maps—An On-Farm Trial. Plants 13: 2164. doi:10.3390/plants13152164",
+    "lisans": "cc by (Europe PMC kaydı)",
+    "lisans_adresi": null,
+    "_not": "Tur 10: §8 kaydı alıntı biçimine getirildi; rakamlar özet metninden."
+   }
+  },
+  {
    "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/altun_turker_2021_kiziltepe.pdf",
    "bayt": 2425393,
    "sha256": "81b8ef2fe87822b4ab9c842ef25459fbe2709461ea52393a55b9d946485a391b",
@@ -2038,6 +2050,18 @@
     "lisans": "CC BY 4.0",
     "lisans_adresi": null,
     "_not": "Crossref kaydı; mdpi.com otomatik isteğe erişimi reddetti (Access Denied)."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/azghadi_2025_arxiv_ozet.html",
+   "bayt": 45424,
+   "sha256": "d4b1850b0d2914cfba9a43a0f1a67497e2c99f3bcca8645af5f9dc563cb7407c",
+   "kaynak": {
+    "adres": "https://arxiv.org/abs/2401.13931",
+    "atif": "Rahimi Azghadi M. ve ark. Precision Robotic Spot-Spraying: Reducing Herbicide Use and Enhancing Environmental Outcomes in Sugarcane. arXiv:2401.13931 (özet sayfası); yayımlanmış sürüm Computers and Electronics in Agriculture 235 (2025), doi:10.1016/j.compag.2025.110365",
+    "lisans": "CC BY-NC-ND 4.0 (arXiv sayfasındaki makale lisansı)",
+    "lisans_adresi": null,
+    "_not": "Tur 10: §8 kaydı alıntı biçimine getirildi; rakamlar özet metninden."
    }
   },
   {
@@ -2338,6 +2362,30 @@
     "lisans": "© Deere & Company (kısa alıntı)",
     "lisans_adresi": null,
     "_not": "SATICI BEYANI. 'See & Spray' adı ve '2019 itibarıyla tam ticarileşmedi' bilgisi buradan. '%90'a varan herbisit azaltma' yöntemsiz şirket iddiası. Sonraki alan/tasarruf beyanları (2024'te 1 milyon akre, 2025'te 5 milyon akre) §8 kaydında (b08 deere2024/deere2025) dosyasız duruyor; Deere'nin yeni habe"
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/deere_2024_see_spray_farms_com.html",
+   "bayt": 92814,
+   "sha256": "dba09b82700f7e160d3850bd73661295c593086c1d1e5f9cfd6a470a5d7445a9",
+   "kaynak": {
+    "adres": "https://www.farms.com/news/farm-equipment/see-spray-customers-see-59-average-herbicide-savings-in-2024-215613.aspx",
+    "atif": "John Deere. 18 Eylül 2024. See & Spray Customers See 59% Average Herbicide Savings in 2024 (haber bülteni; Farms.com'da 19 Eylül 2024'te yeniden yayımlandı)",
+    "lisans": "© Farms.com / John Deere — kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "Bültenin deere.com'daki asıl adresi 17 Kasım 2026'da içerik kütüphanesine yönleniyor; aynı metin Farms.com'da."
+   }
+  },
+  {
+   "yol": "content/yapay_zeka_dijital_tarim/_raw/kaynak_dosyalari/deere_2025_see_spray_farms_com.html",
+   "bayt": 92269,
+   "sha256": "128ab6d80bee9554808c5b0f4b412c2507abbf62d4a5954f1e6b972b15a8b5a0",
+   "kaynak": {
+    "adres": "https://www.farms.com/news/farm-equipment/john-deere-customers-use-see-spray-technology-across-five-million-acres-in-2025-234561.aspx",
+    "atif": "John Deere. 4 Kasım 2025. John Deere Customers Use See & Spray Technology Across Five Million Acres in 2025 (haber bülteni; Farms.com'da 6 Kasım 2025'te yeniden yayımlandı)",
+    "lisans": "© Farms.com / John Deere — kısa alıntı",
+    "lisans_adresi": null,
+    "_not": "Bültenin deere.com'daki asıl adresi 17 Kasım 2026'da içerik kütüphanesine yönleniyor; aynı metin Farms.com'da."
    }
   },
   {

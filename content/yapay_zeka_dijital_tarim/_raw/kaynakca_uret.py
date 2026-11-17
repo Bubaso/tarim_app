@@ -65,6 +65,7 @@ EN_KALIPLAR = [
     (r"\bşirketin talep ve bildirim ajanı\b", "the company's claims and noticing agent"),
     (r"\btalep ajanı\b", "claims agent"),
     (r"\bİnternet Arşivi kopyası\b", "Internet Archive copy"),
+    (r"\bFarms\.com'da yeniden yayımlandı\b", "republished by Farms.com"),
     (r"\bana sayfa\b", "home page"),
     (r"\berişim\b", "accessed"),
     (r"\bdava bilgi sayfası\b", "case information page"),

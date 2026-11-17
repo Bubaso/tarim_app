@@ -62,7 +62,11 @@
       "dogrulandigi_yer": "arXiv özeti, doğrudan",
       "urun": "şeker kamışı",
       "ilac_azalmasi_yuzde": 35,
-      "_kopya": "b08_kaynaklar.json · azghadi2025"
+      "_kopya": "b08_kaynaklar.json · azghadi2025",
+      "dosya": "kaynak_dosyalari/azghadi_2025_arxiv_ozet.html",
+      "alinti": [
+        "The average results across 25 hectares of field trials show that spot spraying on sugarcane farms is 97\\% as effective as broadcast spraying and reduces herbicide usage by 35\\%, proportionally to the weed density."
+      ]
     },
     "allmendinger2024": {
       "nitelik": "HAKEMLI",
@@ -71,7 +75,11 @@
       "dogrulandigi_yer": "Europe PMC API, özet metni",
       "urun": "mısır (tane)",
       "erken_uygulamada_ilac_azalmasi_yuzde": 47,
-      "_kopya": "b08_kaynaklar.json · allmendinger2024"
+      "_kopya": "b08_kaynaklar.json · allmendinger2024",
+      "dosya": "kaynak_dosyalari/allmendinger_2024_europepmc.json",
+      "alinti": [
+        "Early spot spraying saved 47% of herbicides compared to the broadcast herbicide application."
+      ]
     },
     "aula_2020": {
       "nitelik": "HAKEMLI",
@@ -291,7 +299,11 @@
       "eylem_sayisi": 16,
       "tarim_ve_orman_gecis": 0,
       "oncelikli_dort_sektor": "sağlık, tarım, savunma, e-ticaret",
-      "_kopya": "b23_kaynaklar.json · yzep_2026_2030"
+      "_kopya": "b23_kaynaklar.json · yzep_2026_2030",
+      "alinti": [
+        "Yapay zekâ ekosistemimizin 5 temel katmanını (enerji, hesaplama-donanım, altyapı, modeller-veri, uygulamalar) ve 3 bileşenini (yetenek, finansman, düzenleme-güven) beslemek üzere 16 eylem belirledik.",
+        "Sağlık, tarım, savunma ve e-ticaret için veri ve mevzuat gereksinimleri, öncelikli kullanım senaryoları, başarı göstergeleri ve takvim içeren sektörel yol haritaları yayımlanacak"
+      ]
     },
     "trgm_2026_urun_belirleme": {
       "nitelik": "KURUMSAL",
@@ -365,7 +377,11 @@
       "dogrulandigi_yer": "yayıncı PDF'i (DergiPark)",
       "operator": 71,
       "kalibrasyon_yuzde": 14.1,
-      "_kopya": "b28_kaynaklar.json · itmec_2026"
+      "_kopya": "b28_kaynaklar.json · itmec_2026",
+      "alinti": [
+        "During this period, 71 operators voluntarily completed the survey, and their responses were evaluated.",
+        "Only 14.1% performed calibration before every application."
+      ]
     }
   },
   "turkiye": {

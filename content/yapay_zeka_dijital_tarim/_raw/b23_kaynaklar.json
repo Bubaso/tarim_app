@@ -17,7 +17,14 @@
       "eylem_sayisi": 71,
       "sorumlu_ve_ilgili_bakanlik_sayisi": 11,
       "tarim_gecis": 0,
-      "tarim_ve_orman_gecis": 0
+      "tarim_ve_orman_gecis": 0,
+      "alinti": [
+        "ULUSAL YAPAY ZEKÂ STRATEJİSİ 2024-2025 EYLEM PLANI",
+        "No Stratejik Öncelik Eylem Sorumlusu Kurum İlgili Kurum Eylem Adı",
+        "71 Yapısal ve İş Gücü Dönüşümünü Hızlandırmak",
+        "Eylem 6.19_YZ’nin mesleklerin dönüşümü ve iş gücüne etkisinin değerlendirilmesi amacıyla kurum bünyesinde bir çalışma takımı oluşturulacaktır."
+      ],
+      "_sayim": "71 satır, 6 stratejik öncelik (eylem kimlikleri 1.x-6.x); sorumlu ve ilgili bakanlık sayısı ile tarım geçişleri elle sayıldı (strateji_karsilastirma.json)."
     },
     "yzep_2026_2030": {
       "nitelik": "RESMI",
@@ -35,7 +42,14 @@
       "oncelikli_dort_sektor": "sağlık, tarım, savunma, e-ticaret",
       "uluslararasi": "D-8 üye ülkeleriyle tarım, enerji, ticaret ve sanayi alanlarında sektörel yapay zekâ uygulama iş birlikleri",
       "tarim_gecis_toplam": 19,
-      "_tarim_gecis_notu": "19 geçiş; tekrarlar ve iki genel giriş cümlesi düşülünce 11 somut bağlam (strateji_karsilastirma.json)."
+      "_tarim_gecis_notu": "19 geçiş; tekrarlar ve iki genel giriş cümlesi düşülünce 11 somut bağlam (strateji_karsilastirma.json).",
+      "alinti": [
+        "T.C. Sanayi ve Teknoloji Bakanlığı Millî Teknoloji ve Yapay Zekâ Genel Müdürlüğü",
+        "Bu doğrultuda Eylem Planımızı; “Fark et, İstifade et, Üret, Yönet” olmak üzere 4 temel eksen üzerine inşa ettik.",
+        "Yapay zekâ ekosistemimizin 5 temel katmanını (enerji, hesaplama-donanım, altyapı, modeller-veri, uygulamalar) ve 3 bileşenini (yetenek, finansman, düzenleme-güven) beslemek üzere 16 eylem belirledik.",
+        "Sağlık, tarım, savunma ve e-ticaret için veri ve mevzuat gereksinimleri, öncelikli kullanım senaryoları, başarı göstergeleri ve takvim içeren sektörel yol haritaları yayımlanacak",
+        "D-8 üye ülkeleriyle tarım, enerji, ticaret ve sanayi alanlarında sektörel yapay zekâ uygulama iş birlikleri ve ortak pilot programları yürütülecektir."
+      ]
     },
     "yillik_program_2027": {
       "nitelik": "RESMI",
@@ -61,7 +75,20 @@
       "toprak_etudu_milyon_ha": 3.5,
       "elektronik_olcum_tesis": 100,
       "karar_sayisi": 11934,
-      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)"
+      "resmi_gazete": "27 Ekim 2026, sayı 33413 (Mükerrer)",
+      "alinti": [
+        "Karar Sayısı: 11934 Hazine ve Maliye Bakanlığı ile Strateji ve Bütçe Başkanlığınca hazırlanan ekli “2027 Yılı Cumhurbaşkanlığı Yıllık Programı”nın onaylanmasına karar verilmiştir. 27 Ekim 2026",
+        "2027 Yılı Cumhurbaşkanlığı Yıllık Programı 27 Ekim 2026 tarihli ve 33413 Mükerrer Sayılı Resmî Gazete’de yayımlanmıştır.",
+        "Dijitalleşme, yapay zekâ ve veriye dayalı iş modelleriyle akıllı tarım uygulamaları yaygınlaştırılacaktır. (Kalkınma Planı p.489)",
+        "Sulama yönetiminde bilgi ve iletişim teknolojilerinin kullanımı yaygınlaştırılacaktır. (Kalkınma Planı p.505)",
+        "Birinci derece tarımsal örgüt belgesine sahip 14 tarımsal üretici örgütü bünyesinde ortak makine parkı kurulmasına destek sağlanacaktır.",
+        "Sistem aracılığıyla tarımsal kuraklığın ülke genelinde uydu verileri kullanılarak yedi günlük periyotlarla izlenmesi sağlanmaktadır.",
+        "Sistemin tahmin kapasitesinin geliştirilmesi amacıyla 2027 yılında yapay zekâ yöntemlerinden yararlanılarak kuraklık koşullarının 1-4 hafta önceden tahmin edilmesine yönelik çalışmaların başlatılması planlanmaktadır.",
+        "Yatırımın niteliğine göre hibeye esas proje tutarının yüzde 50 -70’i oranında destek sağlanması, program bütçesinin en az yüzde 20’sinin kadın ve genç girişimcilerin, yüzde 30’unun ise aile işletmelerinin yatırımlarına ayrılması",
+        "31 Aralık 2025 tarihli Kırsal Kalkınma Desteklerine İlişkin Karar ile 3 Nisan 2026 tarihli Kırsal Kalkınma Yatırım Programı Çerçevesinde Yapılacak Desteklemeler Hakkında Tebliğ",
+        "15 ilde 3,5 milyon hektar tarım arazisinin detaylı toprak etütleri ve haritalandırılması çalışmalarına devam edilecektir.",
+        "100 tesise elektronik ölçüm sistemi takılacaktır."
+      ]
     },
     "bakanlik_belgesi": {
       "nitelik": "KURUMSAL",
@@ -69,7 +96,12 @@
       "durum": "beklemede",
       "vaat": "24 Kasım 2025 · 2026 bütçesi TBMM Plan ve Bütçe Komisyonu — 'yılın başında' paylaşılacak (bakanlık sitesi)",
       "hazirlandi_beyani": "4 Haziran 2026 · AI Tomorrow Summit 2026 — 'hazırladık', 'en kısa zamanda paylaşacağız' (bakanlık sitesi; bkz. tob_2026_ai_tomorrow)",
-      "yayim": "16 Kasım 2026 taramasında yayımlanmış metin bulunamadı"
+      "yayim": "16 Kasım 2026 taramasında yayımlanmış metin bulunamadı",
+      "_dayanak": [
+        "tob_2026_ai_tomorrow",
+        "tob_2025_ai_tomorrow"
+      ],
+      "_bicim": "Belge yayımlanmadığı için dosyası yok; 'hazırladık' ve 'en kısa zamanda paylaşacağız' beyanları tob_2026_ai_tomorrow kaydının alıntılarında."
     },
     "trgm_2026_urun_belirleme": {
       "nitelik": "KURUMSAL",

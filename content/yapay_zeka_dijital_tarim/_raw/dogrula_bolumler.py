@@ -29,6 +29,14 @@ KURALLAR
      değişip kaynakça eski kalırsa DURUR. §29 Sözlük de üretiliyor
      (`sozluk_uret.py`, `sozluk.json`dan); tanımları elle yazıldığı için hem
      sayı izine hem üreticinin çıktısına karşı sınanır.
+  7. KOPYA. Bir kayıttaki kaynak başka bir başlığın kaydından kopyalanmışsa
+     (`_kopya`: "bNN_kaynaklar.json · anahtar[ · not]") kopyanın her alanı
+     (künye, dosya, sayısal alanlar) asıldakiyle aynı olmalı. Asıl değişip
+     kopya eski kalırsa DURUR: §1'in özeti ve §25'in dizini öbür başlıkların
+     kayıtlarından kopyalanıyor; bir başlıkta ölçüm değişince onlar da
+     yeniden okunmalı. Alıntılar burada sınanmıyor: her alıntı belgenin
+     kendisine karşı `dogrula_alintilar.py`de sınanıyor ve kopya aynı
+     belgeden ek alıntı taşıyabilir.
 """
 from __future__ import annotations
 
@@ -198,6 +206,34 @@ def sina_uretilmis(no: str, dosyalar: dict[str, Path]) -> None:
             hata(f"b{no}_kaynaklar.json üreticinin çıktısıyla aynı değil — {URETICI[no]} koşturulmalı")
 
 
+def sina_kopyalar() -> None:
+    """Kural 7: kopya kaynak asılla aynı mı."""
+    kayitlar = {y.name: json.loads(y.read_text(encoding="utf-8"))
+                for y in sorted(BURASI.glob("b[0-9][0-9]_kaynaklar.json"))}
+    sayi = 0
+    print("\nKopyalar")
+    for ad, kayit in kayitlar.items():
+        for anahtar, k in kayit.get("kaynaklar", {}).items():
+            iz = k.get("_kopya")
+            if not iz:
+                continue
+            sayi += 1
+            m = re.fullmatch(r"(b\d{2}_kaynaklar\.json) · (\S+)(?: · .*)?", iz)
+            if not m or m.group(1) not in kayitlar:
+                hata(f"{ad} · {anahtar}: _kopya '{iz}' çözülemiyor")
+                continue
+            asil = kayitlar[m.group(1)].get("kaynaklar", {}).get(m.group(2))
+            if asil is None:
+                hata(f"{ad} · {anahtar}: asıl kaynak {iz} artık yok")
+                continue
+            for alan, deger in k.items():
+                if alan.startswith("_") or alan == "alinti":
+                    continue
+                if asil.get(alan) != deger:
+                    hata(f"{ad} · {anahtar}: '{alan}' asıldan ({iz}) ayrışmış — kopya yeniden okunmalı")
+    print(f"  · {sayi} kopya kaynak asıllarıyla sınandı")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -224,6 +260,7 @@ def main() -> int:
             sina_uretilmis(no, dosyalar)
         if no not in SAYI_IZI_YOK:
             sina(no, dosyalar)
+    sina_kopyalar()
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
         return 1

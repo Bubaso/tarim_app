@@ -246,9 +246,9 @@ ITU. 2026. Measuring digital development: Facts and Figures 2026 — Mobile netw
 
 Jensen N.D., Barrett C.B., Mude A.G. 2016. Index Insurance Quality and Basis Risk: Evidence from Northern Kenya. American Journal of Agricultural Economics 98(5): 1450-1469. https://doi.org/10.1093/ajae/aaw046 · §17
 
-John Deere, press release, 18 September 2024. https://deere.com/en/news/all-news/see-spray-herbicide-savings · §8
+John Deere. 18 September 2024. See & Spray Customers See 59% Average Herbicide Savings in 2024 (press release; republished by Farms.com). https://www.farms.com/news/farm-equipment/see-spray-customers-see-59-average-herbicide-savings-in-2024-215613.aspx · §8
 
-John Deere, press release, 4 November 2025. https://www.deere.com/en/news/all-news/see-spray-technology-across-5-million-acres/ · §8
+John Deere. 4 November 2025. John Deere Customers Use See & Spray Technology Across Five Million Acres in 2025 (press release; republished by Farms.com). https://www.farms.com/news/farm-equipment/john-deere-customers-use-see-spray-technology-across-five-million-acres-in-2025-234561.aspx · §8
 
 ## K
 
