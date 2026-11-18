@@ -1228,7 +1228,7 @@ okura gitmiyor. Görsel kartı görselin tamamını gösteriyor (şekil ve harit
 kenar kesilmez), dokununca yakınlaştırılabilir açılıyor.
 
 ### 6 · Sınama ve önizleme
-`flutter test test/yz_bolum_test.dart test/yz_panel_test.dart test/yz_grafik_test.dart`: 145 geçti (47 grafik ve 73 görsel kartı 360 ve 1280 pikselde, iki dilde). Önizleme worktree'de (bayrak yalnız orada) derlendi:
+`flutter test test/yz_bolum_test.dart test/yz_panel_test.dart test/yz_grafik_test.dart test/yz_okuma_test.dart`: 145 geçti (47 grafik ve 73 görsel kartı 360 ve 1280 pikselde, iki dilde). Önizleme worktree'de (bayrak yalnız orada) derlendi:
 `build/yz_onizleme`, `yz-onizleme` (8132).
 
 ### Açık kalanlar
@@ -1260,6 +1260,45 @@ görsel var.
 ve Wikimedia Commons'ta API'ye gitmiyor (Commons robots.txt `/w/` yolunu
 kapatıyor): küçük resim adresi standart desenden kuruluyor (1280, 960,
 500 px). Testler: 151 geçti.
+
+## Tur 13 — OKUMA DENEYİMİ · 18 Kasım 2026
+
+Kullanıcı: metin güçlü, kesilmesin; son okurun kolay okuyup
+içselleştirmesi için bir tur. Ölçüm: başlıklar 470-1.170 kelime (3-6 dk),
+görselsiz en uzun ardışık metin 325 kelime, 726 paragraftan 13'ü 120
+kelimeyi aşıyor; sorun hacim değil yoğunluk. Ateşman okunabilirliği
+ortanca 34 ("zor"); en düşükler kapı sayfaları (Kavramlar 25, Bugün nerede
+duruyoruz 26, teknoloji sayfaları 25-37). 55 cümle 40 kelimeyi aşıyordu.
+Telefonda metin ilk ekranın beşte dördünün altında başlıyordu (Saha
+hikâyeleri); masaüstünde satır ~85 harfti. 26 öneri; kullanıcı yıldızlı
+16'sını istedi, ardından 25 (sesli dinleme) dışındaki öbürlerini (karar 60).
+
+### 1 · Yıldızlı maddeler — 0f09ae0 ve sonrası
+
+- Çizici: madde listesi (`- `), giriş paragrafı bir punto büyük, metin
+  sütunu 610 px (grafik, görsel, tablo 760), rakamla birim arasında
+  bölünmez boşluk, arama vurgusu, yazı boyu.
+- `yz_makale.dart` (başlık ve teknoloji sayfalarının iskeleti):
+  ≥1100 px'te içindekiler rayı ve okunan bölüm, telefonda katlanan
+  içindekiler, kaydırınca "İçindekiler / Başa dön" düğmesi, okuma süresi,
+  sözlükten dönüşte kaldığı yer (`YzOkumaKonumu`), `?ara=` ve `?terim=`.
+- Bölüm içi arama `/yapay-zeka-dijital-tarim/ara` (`yz_arama_ekrani.dart`):
+  30 başlık, 9 teknoloji sayfası, sözlük ve kaynakça; Türkçe karakter ve
+  harf büyüklüğü fark etmez, birden çok kelime aynı paragrafta aranır.
+  Üst şeritte arama ve yazı boyu düğmeleri, merkez sayfada arama kutusu.
+- Kısaltma balonu: `kisaltmalar.json` (27 balonlu, `bilinen`, `ad`) →
+  `yz_kisaltmalar.g.dart`; kural 13 açılımsız yeni kısaltmayı yakalıyor.
+  Temel terimler (yapay zekâ, sensör, robot, dijital tarım) `temel`:
+  balonu yalnız Kavramlar'da.
+- Metin: 20 sayım listeye döndü (TR ve EN aynı yapı, kural 14), 43 uzun
+  cümle bölündü (içerik aynen), "makine öğrenimi"/"drone" birliği (kural 15).
+  Teknoloji izi Python'da da listeyi tek blok sayıyor; sözlük eşleştiricisi
+  her maddeyi ayrı tarıyor (Dart ile eşlik).
+- İngilizce yazılı 13 şekil ve grafik: Türkçe sayfada Türkçeye uyarlanmış
+  kopya (`<kimlik>.tr.webp`; `gorsel_turkce.py` + `gorsel_turkce.json`,
+  kutular `ocr_kutular.swift` ile); `gorsel_isle.py --turkce` kopyaları
+  kayda işliyor (`dosya_tr`, `sha256_tr`, kaynak "Türkçeye uyarlandı").
+- Testler: `test/yz_okuma_test.dart` eklendi.
 
 ## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
 

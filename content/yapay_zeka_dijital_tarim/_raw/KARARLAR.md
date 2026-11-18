@@ -223,3 +223,17 @@ metin olan bir infografik var … mümkünse bunu türkçe yeniden üret."
 | # | karar |
 |---|---|
 | 59 | **Merkez sayfada özet kutusu yok:** §1 haritada bir başlık olarak duruyor (karar 6'daki "§1 özeti haritanın üstünde" kalktı). **Haberler görselli vitrin:** liste değil; merkez sayfada manşet + küçük resimli yan haberler + kart ızgarası, başlık sayfalarında kart ızgarası, dar ekranda küçük resimli satırlar (`yz_haber_vitrini.dart`). **İngilizce bilgi şeması Türkçe sayfada Türkçe çizimle:** özgünün teması ve akışı korunarak sitede çizilir (`yz_aifs_semasi.dart`), metin özgünün çevirisidir, künye ve kaynak "Türkçeye uyarlandı" der; İngilizce sayfada özgün görsel. |
+
+## M · Okuma deneyimi (18 Kasım 2026)
+
+Kullanıcı: "dosya metin yönünden çok güçlü. sana şunu çıkar diyemem. …
+son kullanıcıyı düşünerek, onun metni en kolay şekilde okuyup,
+içselleştirebilmesi, rahat bir okuyuş tecrübesi için gerekli her türlü imkan
+ve gelişmeyi tespit etmek üzere bir tur atıp bana tüm önerilerini
+sıralayabilir misin?" Claude 26 öneri sıraladı (16'sı yıldızlı). Kullanıcı:
+"yıldızlıların hepsi şimdi yapılsın. onlar tamamen bitince o olarları sadece
+25. madde (sesli dinleme) olmadan gerçekleştireceğiz."
+
+| # | karar |
+|---|---|
+| 60 | **Metin kesilmez; okuma kolaylaştırılır.** (a) Madde listesi: noktalı virgülle dizilen sayım listeye döner, TR ve EN aynı yapıda (kural 14). (b) 40 kelimeyi aşan cümle içerik aynen kalarak bölünür. (c) Az bilinen kısaltma sayfada ilk geçtiği yerde açılmıyorsa balonla açılır (`kisaltmalar.json`, kural 13); temel terimlerin (yapay zekâ, sensör, robot, dijital tarım) sözlük balonu yalnız Kavramlar'da. (d) Terim birliği: "makine öğrenmesi", "dron" (kural 15). (e) Sayfa: metin sütunu ~610 px, giriş paragrafı bir punto büyük, geniş ekranda içindekiler rayı, telefonda katlanan içindekiler ve "İçindekiler / Başa dön" düğmesi, okuma süresi, yazı boyu (A−/A+), bölüm içi arama (`/ara`, `?ara=`), sözlükten dönüşte kaldığı yer, rakamla birim arasında bölünmez boşluk. (f) İngilizce yazılı şekil ve grafik Türkçe sayfada Türkçeye uyarlanmış kopyayla (`<kimlik>.tr.webp`, `gorsel_turkce.py`; kaynak satırı "Türkçeye uyarlandı"); İngilizce sayfada özgünü. (g) Sesli dinleme yapılmaz (kullanıcı, 25. madde) |

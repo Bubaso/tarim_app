@@ -185,6 +185,40 @@ def kunye_duzelt(gorseller: dict) -> None:
         for dil in ("tr", "en"):
             m = g["kunye"][dil].rstrip()
             g["kunye"][dil] = m if m.endswith((".", "!", "?")) else m + "."
+        turkce_kopya(k, g)
+
+
+GORSEL_KLASORU = BURASI.parents[2] / "web" / "yz" / "gorsel"
+UYARLANDI = "; Türkçeye uyarlandı"
+
+
+def turkce_kopya(kimlik: str, g: dict) -> None:
+    """Türkçeye uyarlanmış kopya (karar 60): İngilizce yazılı şekil ve
+    grafiğin yazıları Türkçeye çevrilmiş hâli `web/yz/gorsel/<kimlik>.tr.webp`
+    (gorsel_turkce.py üretiyor). Varsa Türkçe sayfa onu gösterir; kaynak
+    satırı uyarlandığını söyler. Künye değişmez: görsel aynı görsel."""
+    import hashlib
+    yol = GORSEL_KLASORU / f"{kimlik}.tr.webp"
+    if yol.exists():
+        g["dosya_tr"] = f"web/yz/gorsel/{kimlik}.tr.webp"
+        g["sha256_tr"] = hashlib.sha256(yol.read_bytes()).hexdigest()
+        if UYARLANDI not in g["kaynak"]["tr"]:
+            g["kaynak"]["tr"] = g["kaynak"]["tr"].rstrip(". ") + UYARLANDI
+    else:
+        g.pop("dosya_tr", None)
+        g.pop("sha256_tr", None)
+
+
+def turkce_kopyalari_isle() -> int:
+    """Yalnız Türkçe kopyaları kayda işler (aday klasörü olmadan):
+    `python3 -I gorsel_isle.py --turkce`."""
+    kayit = json.loads(KAYIT.read_text(encoding="utf-8"))
+    for k, g in kayit["gorseller"].items():
+        turkce_kopya(k, g)
+    KAYIT.write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    n = sum(1 for g in kayit["gorseller"].values() if g.get("dosya_tr"))
+    print(f"✓ {n} görselin Türkçe kopyası kayıtta")
+    return 0
 
 
 TUR = {"Fotoğraf": "foto", "Görsel": "gorsel", "Görüntü": "goruntu", "Şekil": "sema", "Şema": "sema",
@@ -269,6 +303,8 @@ def main() -> int:
     if len(sys.argv) < 2:
         print(__doc__)
         return 2
+    if sys.argv[1] == "--turkce":
+        return turkce_kopyalari_isle()
     klasor = Path(sys.argv[1])
     kuru = "--kuru" in sys.argv
     adaylar, gorulen = [], set()

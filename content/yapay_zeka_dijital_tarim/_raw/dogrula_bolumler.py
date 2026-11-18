@@ -52,7 +52,9 @@ KURALLAR
      aynı sırada; kullanılmayan grafik yok.
  12. GÖRSEL (karar 58). `gorseller.json`'daki her görselin dosyası
      `web/yz/gorsel/` altında, sha256'sı tutuyor; künye ve kaynak iki dilde;
-     adres ve indirme günü yazılı; yapay zekâ üretimi fotoğraf yok.
+     adres ve indirme günü yazılı; yapay zekâ üretimi fotoğraf yok. Türkçeye
+     uyarlanmış kopyası (`dosya_tr`, karar 60) varsa o da yerinde ve kaynak
+     satırı "Türkçeye uyarlandı" diyor.
  13. KISALTMA (karar 60). Başlık ve teknoloji metinlerinde büyük harfli bir
      kısaltma bir sayfada ilk geçtiği yerde açılmıyorsa ("Uzun Ad (KISA)" ya
      da "KISA (uzun ad)") `kisaltmalar.json`da olmalı: balonla açılan
@@ -498,6 +500,16 @@ def sina_gorseller() -> None:
             hata(f"görsel {kimlik}: dosya yok ya da yanlış yerde ({g.get('dosya')!r})")
         elif hashlib.sha256(dosya.read_bytes()).hexdigest() != g.get("sha256"):
             hata(f"görsel {kimlik}: sha256 tutmuyor")
+        # Türkçeye uyarlanmış kopya (karar 60): dosyası yerinde, sha256'sı
+        # tutuyor, kaynak satırı uyarlandığını söylüyor.
+        if g.get("dosya_tr"):
+            dt = depo / g["dosya_tr"]
+            if not g["dosya_tr"].startswith("web/yz/gorsel/") or not dt.exists():
+                hata(f"görsel {kimlik}: Türkçe kopya yok ({g['dosya_tr']!r})")
+            elif hashlib.sha256(dt.read_bytes()).hexdigest() != g.get("sha256_tr"):
+                hata(f"görsel {kimlik}: Türkçe kopyanın sha256'sı tutmuyor")
+            if "Türkçeye uyarlandı" not in (g.get("kaynak") or {}).get("tr", ""):
+                hata(f"görsel {kimlik}: Türkçe kopyanın kaynak satırı uyarlandığını söylemiyor")
         for a in ("kunye", "kaynak"):
             if not all((g.get(a) or {}).get(d, "").strip() for d in ("tr", "en")):
                 hata(f"görsel {kimlik}: {a} iki dilde de dolu değil")
