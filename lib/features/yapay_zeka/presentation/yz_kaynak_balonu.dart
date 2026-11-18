@@ -70,10 +70,14 @@ Future<void> yzKaynakBalonu(
                               style: YzYazi.govde(boy: 14).copyWith(height: 1.4)),
                           if (a[1].isNotEmpty) ...[
                             const SizedBox(height: 6),
+                            // Belgeden birebir alıntı: yumuşak zeminli, yuvarlak
+                            // köşeli kutu; sol çizgi yok (kullanıcı, 18 Kas 2026).
                             Container(
-                              padding: const EdgeInsets.only(left: 10),
-                              decoration: const BoxDecoration(
-                                border: Border(left: BorderSide(color: YzRenk.cizgi, width: 2)),
+                              width: double.infinity,
+                              padding: const EdgeInsets.fromLTRB(10, 8, 10, 8),
+                              decoration: BoxDecoration(
+                                color: YzRenk.zemin,
+                                borderRadius: BorderRadius.circular(6),
                               ),
                               child: Text('“${a[1]}”',
                                   style: YzYazi.govde(boy: 13.5, renk: YzRenk.soluk)

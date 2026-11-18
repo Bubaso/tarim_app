@@ -1115,9 +1115,12 @@ class _Kpi extends StatelessWidget {
         Container(
           constraints: const BoxConstraints(minWidth: 140, maxWidth: 230),
           padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+          // Rakam kartı: dizinin renginde yumuşak zemin ve ince çerçeve,
+          // yuvarlak köşe; sol şerit yok (kullanıcı, 18 Kas 2026).
           decoration: BoxDecoration(
             color: _temelRenk(g, n.dizi).withValues(alpha: 0.08),
-            border: Border(left: BorderSide(color: _temelRenk(g, n.dizi), width: 3)),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: _temelRenk(g, n.dizi).withValues(alpha: 0.28)),
           ),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(g.yaz(n, en), style: YzYazi.baslik(28, renk: _temelRenk(g, n.dizi))),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -407,6 +409,16 @@ void main() {
     expect(k.adresi(false), endsWith('.tr.webp'));
     expect(k.adresi(true), isNot(endsWith('.tr.webp')));
     expect(k.kaynak(false), contains('Türkçeye uyarlandı'));
+  });
+
+  test('bölümün arayüzünde hiçbir yerde sol çizgi yok (kullanıcı, 18 Kas 2026)', () {
+    final desen = RegExp(r'Border\(\s*left:|left:\s*BorderSide');
+    for (final f in Directory('lib/features/yapay_zeka/presentation')
+        .listSync()
+        .whereType<File>()
+        .where((f) => f.path.endsWith('.dart'))) {
+      expect(desen.hasMatch(f.readAsStringSync()), isFalse, reason: '${f.path}: sol çizgi');
+    }
   });
 
   test('her teknoloji sayfasında ve başlıkta listeler iki dilde aynı', () {
