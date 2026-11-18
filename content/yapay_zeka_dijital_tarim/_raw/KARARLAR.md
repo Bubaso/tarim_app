@@ -247,3 +247,11 @@ Kullanıcı: "inceledim. dosyayı canlıya alalım. bir kere de canlıda göreli
 | # | karar |
 |---|---|
 | 61 | **Bölüm okura açıldı; çalışma canlıda sürüyor.** Karar 51'in eşiği (30/30) tuttu; `yayin.json` `okura_acik: true` (e48ebe8), göç `20261117120000_yz_dizin_okur.sql` canlıda, `./deploy.sh --hosting` ile yayında, uygulama deposu main'de ve GitHub'da. Bundan sonraki her düzeltme canlı siteye gidiyor: her dağıtım yine ayrı onayla ve biriktirilerek. Bölümün ekranları ERTELİ pakette — sitenin ilk yükünü ağırlaştırmıyor (bkz. README "Açılış"). |
+
+## O · Mobil okuma (18 Kasım 2026)
+
+Kullanıcı: "uygulama halen mobil ekran versiyonda bir hayli ağır yüklü görünüyor okurken. yine metinde bir değişikliğe varmadan, sadece mobil ekrana özgü …" → "yıldızlıların hepsini hayata geçir."
+
+| # | karar |
+|---|---|
+| 62 | **Telefonda (< 640 px) okuma ekranında yalnız metin.** Üst bölüm sıkışık, içindekiler/yazı boyu/ara/paylaş alt çubukta, çubuklar kaydırınca gizlenir, balonlar alttan açılır, fotoğraf kenardan kenara. Masaüstü değişmez. (a) Merkez sayfada başlık KAROLARI kalır — satır listesi reddedildi. (b) Teknoloji sayfası kartı yumuşak (açık zemin), koyu dolgu yok. (c) Görsel künyesi uzunsa katlı, "Devamını oku". (d) Merkez girişinde "Her rakamın niteliği…" cümlesi yok. (e) Telefonda merkezde arama kutusu yok; arama üst şeritte. |

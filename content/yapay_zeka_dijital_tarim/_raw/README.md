@@ -1402,3 +1402,38 @@ etiketleri doğru; `/yz/yazdir/` sayfaları açılıyor.
   site geneli, bölüme özgü değil.
 - Canlılık koşusunun dört kapalı adresi (yukarıda adım 2).
 - Haber hattı deposunun gönderimi (adım 5).
+
+## Tur 14 — MOBİL OKUMA · 18 Kasım 2026 (karar 62) — CANLIDA
+
+Kullanıcı: mobilde okurken ekran "bir hayli ağır yüklü"; metne dokunmadan
+yalnız telefona özgü bir tur. 375 px'te ölçüldü: metin ilk ekranın %60'ından
+sonra başlıyordu (teknoloji seçiliyken %80), kayan "İçindekiler" düğmesi
+satırları örtüyordu, eşit genişlikli yazı her yerdeydi. 24 öneriden ★16'sı
+istendi; dört grup paralel worktree'de yaptı, her grubu bağımsız gözden
+geçirici denetledi (iş akışı), sonra birleştirildi (cb7665d..cf20fdc).
+
+Yalnız < 640 px (yz_mobil.dart: yzTelefon, yzAltSayfa); masaüstü değişmedi.
+- Çerçeve (yz_makale.dart, yz_cerceve_mobil.dart): tek satır künye ("4 dk ·
+  kaynaklar 17 Kas 2026"), kenarı solan çip satırı, ipucu alttan yüzen kart,
+  içindekiler alttan açılan sayfada, teknoloji işareti altta ince çubuk,
+  kaydırınca gizlenen üst şerit (okunan ara başlığı gösteriyor), alt çubuk
+  (İçindekiler · Yazı boyu · Ara · Paylaş; Yazdır/PDF paylaşımda), 2 px
+  ilerleme çizgisi, ara başlık bağlantı simgesi yok. Metin artık ~240 px'te.
+- Metin/görsel: düz yazılı künye ve lejant, ara başlık öncesi 44 px,
+  fotoğraf kenardan kenara + tam ekran yakınlaştırma, uzun şema katlı.
+- Balonlar (kaynak, sözlük, kısaltma) alttan açılan sayfada.
+- Merkez: çip satırı kayar. Tek sütun satır listesi DENENDİ, kullanıcı
+  beğenmedi ("başlık kutuları eski haliyle daha iyiydi") → karolar kaldı.
+- firebase.json: .otf/.ttf ve Asset/FontManifest `no-cache` (ikon fontu bir
+  saat önbellekte kalıp dağıtımdan sonra simgeler görünmüyordu).
+
+Aynı tur, kullanıcı istekleri (her ekran): teknoloji sayfası kartı
+yumuşatıldı (koyu dolgu yerine açık mavi); görsel künyesi iki satır + kaynak
+tek satır, "Devamını oku" (yz_gorsel_altyazi.dart; 123 künyede ortanca 249
+harf); merkez girişinden "Her rakamın niteliği…" cümlesi silindi (TR+EN);
+telefonda "Bölümde ara" kutusu yok.
+
+Bilinen sınırlar: tam ekran görsel tarayıcının geri tuşuyla kapanmıyor
+(kapat düğmesi var); Outfit w500/w600 gömülü değil (site genelinde de
+ağdan iniyor). Ölçüm notu: tarayıcı bölmesi gizliyken Flutter kare
+çizmiyor, yazı tipi istekleri gecikmiş görünür — ölçüm hatası.
