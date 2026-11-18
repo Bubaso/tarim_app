@@ -14,11 +14,18 @@ Uluslararası Telekomünikasyon Birliği'nin (ITU) 2026 tahminine göre dünyada
 
 [[grafik:b20-kent-kir-isi-haritasi]]
 
-Mehrabi ve arkadaşlarının (2021) küresel analizine göre kapsama yalnız küçük işletmede değil, büyük verim açığı olan, iklim baskısı altındaki ve gıda güvencesizliği yaşanan tarım alanlarında da zayıf; Afrika'nın birçok ülkesinde çiftçi hanelerinin yaklaşık **%40**'ından azı internete erişebiliyor ve veri maliyeti hâlâ engelleyici.
+Mehrabi ve arkadaşlarının (2021) küresel analizine göre kapsama yalnız küçük işletmede değil, büyük verim açığı olan, iklim baskısı altındaki ve gıda güvencesizliği yaşanan tarım alanlarında da zayıf. Afrika'nın birçok ülkesinde çiftçi hanelerinin yaklaşık **%40**'ından azı internete erişebiliyor ve veri maliyeti hâlâ engelleyici.
 
 [[grafik:b20-baglanti-isletme-buyuklugu]]
 
-2020-2024 arasında yayımlanmış hakemli çalışmaları tarayan bir sistematik derleme (Miller ve arkadaşları, 2025), tarımda nesnelerin internetine dayalı sensör ağlarının önündeki kritik engelleri yüksek altyapı maliyeti, sınırlı birlikte çalışabilirlik, kırsalda bağlantı kısıtı ve şeffaflık ile veri mahremiyetine dair etik kaygılar olarak sıralıyor. Yazarlara göre özellikle gelişmekte olan bölgelerde adil veri sahipliği, siber güvenlik ve akıllı tarım araçlarına eşit erişim için politika müdahalesi gerekiyor.
+2020-2024 arasında yayımlanmış hakemli çalışmaları tarayan bir sistematik derleme (Miller ve arkadaşları, 2025), tarımda nesnelerin internetine dayalı sensör ağlarının önündeki kritik engelleri şöyle sıralıyor:
+
+- Yüksek altyapı maliyeti
+- Sınırlı birlikte çalışabilirlik
+- Kırsalda bağlantı kısıtı
+- Şeffaflık ile veri mahremiyetine dair etik kaygılar
+
+Yazarlara göre özellikle gelişmekte olan bölgelerde adil veri sahipliği, siber güvenlik ve akıllı tarım araçlarına eşit erişim için politika müdahalesi gerekiyor.
 
 ## Yapay zekâ nerede duruyor
 
@@ -26,7 +33,7 @@ Sensörler ve nesnelerin interneti, yapay zekânın tarladan sürekli veri topla
 
 ## Türkiye
 
-Ulaştırma ve Altyapı Bakanlığı'na göre coğrafi koşullar yüzünden ulaşımı zor ve altyapı kurulumu pahalı kırsal yerleşimlere işletmecilerin ticari olarak hizmet verme zorunluluğu yok; bu yerlere **5369** sayılı Evrensel Hizmet Kanunu çerçevesinde, bütün kurulum ve işletme maliyeti kamu kaynağından karşılanarak hizmet götürülüyor. Bakan'ın Şubat 2025'teki açıklamasına göre o güne kadar **3.521** yerleşime mobil teknolojiyle, **2.044** yerleşime sabit kablosuz erişimle hizmet götürüldü; nüfusu **50** ile **1.000** arasında olan ve işletmecilerin kapsamadığı yerleşimler bu projelere alınabiliyor. 2025 sonuna kadar **233** yerleşime daha mobil hizmet planlanıyordu; bu hedefin gerçekleşip gerçekleşmediği açıklanmadı. Bu yatırımların tarıma ne kazandırdığı da ölçülüp yayımlanmış değil.
+Ulaştırma ve Altyapı Bakanlığı'na göre coğrafi koşullar yüzünden ulaşımı zor ve altyapı kurulumu pahalı kırsal yerleşimlere işletmecilerin ticari olarak hizmet verme zorunluluğu yok. Bu yerlere **5369** sayılı Evrensel Hizmet Kanunu çerçevesinde, bütün kurulum ve işletme maliyeti kamu kaynağından karşılanarak hizmet götürülüyor. Bakan'ın Şubat 2025'teki açıklamasına göre o güne kadar **3.521** yerleşime mobil teknolojiyle, **2.044** yerleşime sabit kablosuz erişimle hizmet götürüldü; nüfusu **50** ile **1.000** arasında olan ve işletmecilerin kapsamadığı yerleşimler bu projelere alınabiliyor. 2025 sonuna kadar **233** yerleşime daha mobil hizmet planlanıyordu; bu hedefin gerçekleşip gerçekleşmediği açıklanmadı. Bu yatırımların tarıma ne kazandırdığı da ölçülüp yayımlanmış değil.
 
 Bilgi Teknolojileri ve İletişim Kurumu'na (BTK) göre Haziran 2026 sonunda abonelik bazlı makineler arası iletişim (M2M) abone sayısı yaklaşık **15,2** milyon. 1 Nisan 2026'da başlayan 5G'nin abone sayısı haziran sonunda **44,5** milyona ulaştı; ama bazı abonelerin cihazı ya da SIM kartı uyumlu olmadığı için hizmeti fiilen kullanabilenler **26,1** milyon. İşletmecilerin toplam fiber uzunluğu yaklaşık **720** bin kilometre. Abonelik rakamları kapsamayı göstermiyor; hiçbirinde tarım ya da kırsal için ayrı kırılım yok.
 
@@ -38,7 +45,7 @@ Bakanlığın 2025 faaliyet raporunda, iklim dostu akıllı tarım teknoloji sis
 
 [[grafik:b20-akilli-tarim-hedef]]
 
-Tarımsal sensör ve nesnelerin interneti ağlarının Türkiye'de tarıma etkisini ölçen yayımlanmış bir çalışma yok; akademideki çalışmalar benimseme ve prototip düzeyinde. Altı bölgede **325** çiftçiyle yapılan bir anket (Guldal, Sanli ve Turker, 2025), çiftçilerin **66**'sının akıllı tarım teknolojilerinden en az birini kullandığını, **170**'inin kullanmadığı ama kullanmak istediğini, **89**'unun ise kullanmadığını buldu; kullanmayanlar daha küçük araziye sahip, kredi kullanmayan, farkındalığı sınırlı ve traktörü olmayan çiftçiler. Örneklem rastgele seçilmedi: her bölgede hibesi en fazla olan ildeki bakanlık eğitimine gönüllü katılan çiftçiler. Çukurova Üniversitesi'nde yürütülen bir çalışma (Civelek, 2022) LoRaWAN ağıyla çalışan bir traktör izleme sistemi geliştirdi: **6** ayda iki denemede cihazlar **49.121** ve **52.766** veri noktası üretti, piller **95** ve **98** gün dayandı, konum en fazla **3** metre hatayla ölçüldü. Donanımın maliyeti Mayıs 2020 fiyatlarıyla **55** dolar; bir traktör üreticisinin 4G cihazı **795** dolardı. Ama veri iletim denemeleri sahte veriyle yapıldı; çiftlikteki deneme makalede gelecek çalışma olarak anılıyor.
+Tarımsal sensör ve nesnelerin interneti ağlarının Türkiye'de tarıma etkisini ölçen yayımlanmış bir çalışma yok; akademideki çalışmalar benimseme ve prototip düzeyinde. Altı bölgede **325** çiftçiyle yapılan bir anket (Guldal, Sanli ve Turker, 2025), çiftçilerin **66**'sının akıllı tarım teknolojilerinden en az birini kullandığını, **170**'inin kullanmadığı ama kullanmak istediğini, **89**'unun ise kullanmadığını buldu. Kullanmayanlar daha küçük araziye sahip, kredi kullanmayan, farkındalığı sınırlı ve traktörü olmayan çiftçiler. Örneklem rastgele seçilmedi: her bölgede hibesi en fazla olan ildeki bakanlık eğitimine gönüllü katılan çiftçiler. Çukurova Üniversitesi'nde yürütülen bir çalışma (Civelek, 2022) LoRaWAN ağıyla çalışan bir traktör izleme sistemi geliştirdi: **6** ayda iki denemede cihazlar **49.121** ve **52.766** veri noktası üretti, piller **95** ve **98** gün dayandı, konum en fazla **3** metre hatayla ölçüldü. Donanımın maliyeti Mayıs 2020 fiyatlarıyla **55** dolar; bir traktör üreticisinin 4G cihazı **795** dolardı. Ama veri iletim denemeleri sahte veriyle yapıldı; çiftlikteki deneme makalede gelecek çalışma olarak anılıyor.
 
 [[gorsel:b20-lorawan-ile-calisan-traktor-izleme]]
 

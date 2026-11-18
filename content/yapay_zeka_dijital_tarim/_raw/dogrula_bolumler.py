@@ -53,6 +53,17 @@ KURALLAR
  12. GÖRSEL (karar 58). `gorseller.json`'daki her görselin dosyası
      `web/yz/gorsel/` altında, sha256'sı tutuyor; künye ve kaynak iki dilde;
      adres ve indirme günü yazılı; yapay zekâ üretimi fotoğraf yok.
+ 13. KISALTMA (karar 60). Başlık ve teknoloji metinlerinde büyük harfli bir
+     kısaltma bir sayfada ilk geçtiği yerde açılmıyorsa ("Uzun Ad (KISA)" ya
+     da "KISA (uzun ad)") `kisaltmalar.json`da olmalı: balonla açılan
+     (`kisaltmalar`), herkesin bildiği (`bilinen`) ya da kısaltma olmayan ad
+     (`ad`). Okur her başlığa doğrudan gelebiliyor.
+ 14. LİSTE (karar 60). Madde listesi ("- " ile başlayan satırlar) bir boş
+     satırla başlar ve biter; iç içe liste yok; TR ve EN'de listeler aynı
+     sırada, aynı madde sayısıyla.
+ 15. TERİM BİRLİĞİ (karar 60). Türkçe metinde aynı kavram tek adla:
+     "makine öğrenmesi" ("makine öğrenimi" değil), "dron" ("drone" değil).
+     Tırnak ve italik içi (özgün ad, alıntı) sayılmaz.
  10. KESİŞİM NOTU (karar 57). Bir başlık bir teknolojiyle etiketliyse
      `kesisim_<kod>.json`'da o başlığın tek cümlelik notu var, değilse yok.
      Notun sayıları başlığın kendi kaydından, iki dilde aynı.
@@ -537,6 +548,134 @@ def sina_kopyalar() -> None:
     print(f"  · {sayi} kopya kaynak asıllarıyla sınandı")
 
 
+# ── Kural 13-15 (karar 60, okuma deneyimi turu) ───────────────────────────
+
+KISALTMA_DESENI = re.compile(r"(?<![\wÇĞİÖŞÜçğıöşü])([A-ZÇĞİÖŞÜ][A-ZÇĞİÖŞÜ0-9-]*[A-ZÇĞİÖŞÜ0-9])(?![\wÇĞİÖŞÜçğıöşü])")
+_SONRA_ACILIM = re.compile(r"^ \((?![^)]*\d)[^)]{6,}\)")
+_BICIMLI = re.compile(r"\*\*.+?\*\*|\*[^*]+?\*")
+
+
+def metin_parcalari(md: str) -> list[str]:
+    """Okurun okuduğu parçalar sırayla: paragraflar ve liste maddeleri
+    (tablo, alt başlık, yönerge hariç) — yzAyristir'in parcalar'ı."""
+    cikti, par = [], []
+    for satir in md.split("\n")[1:]:
+        t = satir.strip()
+        if not t or t.startswith(("#", "|", ">")) or YONERGE_DESENI.fullmatch(t):
+            if par:
+                cikti.append(" ".join(par)); par = []
+            continue
+        if t.startswith("- "):
+            if par:
+                cikti.append(" ".join(par)); par = []
+            cikti.append(t[2:].strip())
+            continue
+        par.append(t)
+    if par:
+        cikti.append(" ".join(par))
+    return cikti
+
+
+def kisaltma_acilmis(metin: str, bas: int, son: int) -> bool:
+    """yzKisaltmaAcilmis ile aynı: "(KISA)" ya da "KISA (uzun ad)"."""
+    once = bas > 0 and metin[bas - 1] == "(" and son < len(metin) and metin[son] in ")-"
+    return once or bool(_SONRA_ACILIM.match(metin[son:]))
+
+
+def _okur_sayfalari() -> list[Path]:
+    return [*sorted(p for p in BOLUMLER.glob("[0-2][0-9]-*.md") if p.name[:2] not in ("29", "30")),
+            *sorted(TEKNOLOJILER.glob("*.md"))]
+
+
+def sina_kisaltmalar() -> None:
+    """Kural 13: açılmayan her kısaltma kisaltmalar.json'da."""
+    print("\nKısaltmalar")
+    yol = BURASI / "kisaltmalar.json"
+    if not yol.exists():
+        hata("kisaltmalar.json yok")
+        return
+    k = json.loads(yol.read_text(encoding="utf-8"))
+    balonlu = k.get("kisaltmalar", {})
+    disi = set(k.get("bilinen", [])) | set(k.get("ad", []))
+    for ad, x in balonlu.items():
+        if not (x.get("tr") or "").strip() or not (x.get("en") or "").strip():
+            hata(f"kisaltmalar.json · {ad}: açılım iki dilde de dolu değil")
+        if ad in disi:
+            hata(f"kisaltmalar.json · {ad}: hem balonlu hem bilinen/ad listesinde")
+    sayac = 0
+    for md in _okur_sayfalari():
+        gorulen: set[str] = set()
+        for par in metin_parcalari(md.read_text(encoding="utf-8")):
+            bicimli = [(m.start(), m.end()) for m in _BICIMLI.finditer(par)]
+            for m in KISALTMA_DESENI.finditer(par):
+                kis = m.group(1)
+                if len(re.sub(r"[^A-ZÇĞİÖŞÜ]", "", kis)) < 2 or kis in gorulen:
+                    continue
+                if any(a <= m.start() < b for a, b in bicimli):
+                    continue
+                gorulen.add(kis)
+                sayac += 1
+                if kis in balonlu or kis in disi or kisaltma_acilmis(par, m.start(), m.end()):
+                    continue
+                hata(f"{md.name}: '{kis}' sayfada ilk geçtiği yerde açılmıyor — metinde aç "
+                     "ya da kisaltmalar.json'a ekle (kural 13)")
+    print(f"  · {sayac} ilk geçiş, {len(balonlu)} balonlu kısaltma sınandı")
+
+
+def _liste_yapisi(md: str, ad: str) -> list[int]:
+    satirlar = md.split("\n")
+    yapi: list[int] = []
+    for i, satir in enumerate(satirlar):
+        t = satir.strip()
+        if not t.startswith("- "):
+            continue
+        if satir != satir.lstrip():
+            hata(f"{ad}:{i + 1}: iç içe liste yok — madde satır başında")
+        onceki = satirlar[i - 1].strip() if i > 0 else ""
+        sonraki = satirlar[i + 1].strip() if i + 1 < len(satirlar) else ""
+        if not onceki.startswith("- "):
+            if onceki:
+                hata(f"{ad}:{i + 1}: listeden önce boş satır yok (kural 14)")
+            yapi.append(0)
+        yapi[-1] += 1
+        if sonraki and not sonraki.startswith("- "):
+            hata(f"{ad}:{i + 1}: listeden sonra boş satır yok (kural 14)")
+    return yapi
+
+
+def sina_listeler() -> None:
+    """Kural 14: liste biçimi ve iki dilde aynı liste yapısı."""
+    print("\nListeler")
+    sayi = 0
+    for tr in [*sorted(BOLUMLER.glob("[0-2][0-9]-*.tr.md")), *sorted(TEKNOLOJILER.glob("*.tr.md"))]:
+        en = tr.with_name(tr.name.replace(".tr.md", ".en.md"))
+        y_tr = _liste_yapisi(tr.read_text(encoding="utf-8"), tr.name)
+        y_en = _liste_yapisi(en.read_text(encoding="utf-8"), en.name) if en.exists() else []
+        if y_tr != y_en:
+            hata(f"{tr.name}: TR ve EN'nin listeleri aynı değil — TR {y_tr}, EN {y_en} (kural 14)")
+        sayi += len(y_tr)
+    print(f"  · {sayi} liste sınandı")
+
+
+TERIM_BIRLIGI = [
+    (re.compile(r"makine öğrenim", re.I), "“makine öğrenmesi” yazılır"),
+    (re.compile(r"(?<![\wçğıöşü])drone(?![\wçğıöşü])", re.I), "“dron” yazılır"),
+]
+_TIRNAK_ITALIK = re.compile(r'"[^"\n]*"|“[^”\n]*”|(?<!\*)\*[^*\n]+\*(?!\*)')
+
+
+def sina_terim_birligi() -> None:
+    """Kural 15: Türkçe metinde aynı kavram tek adla."""
+    print("\nTerim birliği")
+    for md in [p for p in _okur_sayfalari() if p.name.endswith(".tr.md")]:
+        metin = _TIRNAK_ITALIK.sub(lambda m: " " * len(m.group(0)), md.read_text(encoding="utf-8"))
+        for desen, oneri in TERIM_BIRLIGI:
+            for m in desen.finditer(metin):
+                satir = metin[:m.start()].count("\n") + 1
+                hata(f"{md.name}:{satir}: '{m.group(0)}' — {oneri} (kural 15)")
+    print("  · tamam")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -569,6 +708,9 @@ def main() -> int:
     sina_grafikler()
     sina_gorseller()
     sina_kopyalar()
+    sina_kisaltmalar()
+    sina_listeler()
+    sina_terim_birligi()
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
         return 1

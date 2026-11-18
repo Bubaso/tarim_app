@@ -44,7 +44,14 @@ Meksika'nın en büyük buğday bölgesi Yaqui Vadisi'nde CIMMYT ile Oklahoma Ey
 
 [[gorsel:b28-greenseeker-el-sensoru-yaqui-vadisi]]
 
-Yine de benimseme 2015-2016 sezonunda genişleyeceğine geriledi. Rapor olası nedenleri sayıyor: gübreyi de satan çiftçi kredi birliklerinin daha az gübre kullandıran bir değişikliği onaylamaya isteksiz olması, teknisyenlerin sensörle yaptığı danışmanlığı destekleyen fonun azalması, birliklerin çatı örgütündeki yönetim değişikliği ve aynı sezonda **35** yılı aşkın sürenin en kötü iklim koşulları. Raporun vardığı sonuç: kâr ve çevre faydası, benimsemenin sürmesine yetmedi. 2022 çalışması da uygulamanın sübvansiyonla yürüdüğünü ve sürdürülebilir olması için ek çaba gerektiğini yazıyor.
+Yine de benimseme 2015-2016 sezonunda genişleyeceğine geriledi. Rapor olası nedenleri sayıyor:
+
+- Gübreyi de satan çiftçi kredi birliklerinin daha az gübre kullandıran bir değişikliği onaylamaya isteksiz olması
+- Teknisyenlerin sensörle yaptığı danışmanlığı destekleyen fonun azalması
+- Birliklerin çatı örgütündeki yönetim değişikliği
+- Aynı sezonda **35** yılı aşkın sürenin en kötü iklim koşulları
+
+Raporun vardığı sonuç: kâr ve çevre faydası, benimsemenin sürmesine yetmedi. 2022 çalışması da uygulamanın sübvansiyonla yürüdüğünü ve sürdürülebilir olması için ek çaba gerektiğini yazıyor.
 
 ## Fas: uyduyla sulama takvimi
 
@@ -60,14 +67,26 @@ Yeni Zelanda'nın Canterbury ve Waikato bölgelerinde, meraya dayalı süt işle
 
 ## Türkiye: ilaçlama dronları
 
-Türkiye'de geniş alanlarda kullanılan dijital tarım teknolojilerinden biri ilaçlama dronları. Bu hizmeti veren **71** operatörle Mayıs-Ağustos 2026'da yapılan çevrimiçi bir ankete (İtmeç, 2026) göre işletmelerin **%67,1**'i yılda **500** hektar ve üzerinde ilaçlama yapıyor; uygulamalar başlıca buğday (**%88,4**) ve mısır (**%76,8**) tarlalarında. Uygulamadaki açıklar da belirgin: operatörlerin yalnız **%14,1**'i her uygulamadan önce kalibrasyon yapıyor; **%98,6**'sı rüzgârı dikkate alırken bağıl nemi dikkate alanlar yalnız **%16,9**; ilaçlama sıklıkla arıcılık alanlarında ya da yakınında (**%78,6**) ve yerleşim alanlarında (**%61,4**) yapılıyor. En sık bildirilen sorun rüzgârla sürüklenme (**%80,3**). Anket operatörlerin beyanına dayanıyor; kullanılan ilaçları, hedef zararlıları ve izinleri sınamıyor.
+Türkiye'de geniş alanlarda kullanılan dijital tarım teknolojilerinden biri ilaçlama dronları. Bu hizmeti veren **71** operatörle Mayıs-Ağustos 2026'da yapılan çevrimiçi bir ankete (İtmeç, 2026) göre işletmelerin **%67,1**'i yılda **500** hektar ve üzerinde ilaçlama yapıyor; uygulamalar başlıca buğday (**%88,4**) ve mısır (**%76,8**) tarlalarında. Uygulamadaki açıklar da belirgin:
+
+- Operatörlerin yalnız **%14,1**'i her uygulamadan önce kalibrasyon yapıyor.
+- Operatörlerin **%98,6**'sı rüzgârı dikkate alırken bağıl nemi dikkate alanlar yalnız **%16,9**.
+- İlaçlama sıklıkla arıcılık alanlarında ya da yakınında (**%78,6**) ve yerleşim alanlarında (**%61,4**) yapılıyor.
+
+En sık bildirilen sorun rüzgârla sürüklenme (**%80,3**). Anket operatörlerin beyanına dayanıyor; kullanılan ilaçları, hedef zararlıları ve izinleri sınamıyor.
 
 [[grafik:b28-dron-operatorleri]]
 
-Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil. Gıda ve Kontrol Genel Müdürlüğü'nün Mart 2026'daki değerlendirme toplantısında, dronla mücadeleye izin verilen **15** zararlı organizmaya yönelik uygulamalar ve il müdürlüklerinin izin süreçleri ele alındı. Batı Türkiye'de dron kullanan çiftçilerle yapılan etnografik bir çalışma (Kaya, 2024), dronların tarlanın durumunu ölçüp görselleştirdiğini ve ilacı buna göre uygulattığını; ama yüksek maliyet ve bazı işletmelerin ekolojisine ve mevcut teknolojisine uymaması yüzünden her çiftçiye eşit ulaşmadığını, dron kullanımının ulusal güvenlik düzenlemelerine uyum için ek adımlar gerektirdiğini anlatıyor. Bu çalışmalar dronların sahada nasıl kullanıldığını gösteriyor; dijital bir aracın Türkiye'de bir işletmede verime, su kullanımına ya da gelire etkisini ölçen, yayımlanmış bağımsız bir saha çalışması ise yok.
+Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil. Gıda ve Kontrol Genel Müdürlüğü'nün Mart 2026'daki değerlendirme toplantısında, dronla mücadeleye izin verilen **15** zararlı organizmaya yönelik uygulamalar ve il müdürlüklerinin izin süreçleri ele alındı. Batı Türkiye'de dron kullanan çiftçilerle yapılan etnografik bir çalışma (Kaya, 2024), dronların tarlanın durumunu ölçüp görselleştirdiğini ve ilacı buna göre uygulattığını anlatıyor. Ama çalışmaya göre dronlar, yüksek maliyet ve bazı işletmelerin ekolojisine ve mevcut teknolojisine uymaması yüzünden her çiftçiye eşit ulaşmıyor; dron kullanımı ulusal güvenlik düzenlemelerine uyum için ek adımlar gerektiriyor. Bu çalışmalar dronların sahada nasıl kullanıldığını gösteriyor; dijital bir aracın Türkiye'de bir işletmede verime, su kullanımına ya da gelire etkisini ölçen, yayımlanmış bağımsız bir saha çalışması ise yok.
 
 [[gorsel:b28-zirai-ilaclama-dronu-mugla-il-tarim]]
 
 ## Hikâyelerin ortak noktası
 
-Teknoloji çoğu zaman teknik olarak işe yarıyor. Ama sonucu çoğu zaman teknoloji değil, etrafındaki kurumlar ve insanlar belirliyor: Meksika'da kâr getiren sensörün benimsenmesi geriledi ve raporun saydığı olası nedenler arasında gübre de satan kredi birlikleri ile azalan fon var; Zimbabve'de komşular sensörsüz de öğrendi; Hindistan'da etkiler büyük ama istatistik olarak belirsiz; Yeni Zelanda'da çiftçiler faydayı görüyor ama parasal karşılığını hesaplamakta zorlanıyor; Türkiye'de dronlar geniş alanlarda kullanılıyor, ama iyi uygulama koşulları sahada her zaman izlenmiyor.
+Teknoloji çoğu zaman teknik olarak işe yarıyor. Ama sonucu çoğu zaman teknoloji değil, etrafındaki kurumlar ve insanlar belirliyor:
+
+- Meksika'da kâr getiren sensörün benimsenmesi geriledi; raporun saydığı olası nedenler arasında gübre de satan kredi birlikleri ile azalan fon var.
+- Zimbabve'de komşular sensörsüz de öğrendi.
+- Hindistan'da etkiler büyük ama istatistik olarak belirsiz.
+- Yeni Zelanda'da çiftçiler faydayı görüyor ama parasal karşılığını hesaplamakta zorlanıyor.
+- Türkiye'de dronlar geniş alanlarda kullanılıyor, ama iyi uygulama koşulları sahada her zaman izlenmiyor.

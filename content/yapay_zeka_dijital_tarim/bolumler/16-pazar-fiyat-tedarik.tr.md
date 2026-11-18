@@ -8,15 +8,20 @@ Pazarda ve tedarik zincirinde dijital teknoloji üç işe yarıyor: fiyatı tahm
 
 ## Saha ne diyor
 
-Buğday, mısır ve pirinç fiyatlarının makine öğrenmesi, derin öğrenme ve zaman serisi yöntemleriyle tahminini inceleyen bir sistematik tarama (Theofilou ve arkadaşları, 2025), hibrit derin öğrenme modellerinin geleneksel yöntemleri tutarlı biçimde geçtiğini yazıyor; ama modellerin yorumlanabilirliğini ve bölgeye özgü veri setlerine dayanmasını önemli sınırlar olarak gösteriyor.
+Buğday, mısır ve pirinç fiyatlarının makine öğrenmesi, derin öğrenme ve zaman serisi yöntemleriyle tahminini inceleyen bir sistematik tarama (Theofilou ve arkadaşları, 2025), hibrit derin öğrenme modellerinin geleneksel yöntemleri tutarlı biçimde geçtiğini yazıyor. Ama modellerin yorumlanabilirliğini ve bölgeye özgü veri setlerine dayanmasını önemli sınırlar olarak gösteriyor.
 
-Hindistan'da **23** ürünün Ocak 2010–Haziran 2024 arasındaki günlük toptan fiyatlarıyla yapılan bir karşılaştırmada (Manogna ve arkadaşları, 2025) derin öğrenme modellerinden GRU, klasik ARIMA modelinden belirgin biçimde iyi sonuç verdi: hata ölçüsü (RMSE) soğanda **370**'e karşı **1.565**, domateste **210**'a karşı **1.299**. Yazarlar güvenilirliği artırmak için hava verisi gibi dış etkenlerin modele katılmasını öneriyor.
+Hindistan'da **23** ürünün Ocak 2010–Haziran 2024 arasındaki günlük toptan fiyatlarıyla yapılan bir karşılaştırmada (Manogna ve arkadaşları, 2025) derin öğrenme modellerinden GRU, klasik ARIMA modelinden belirgin biçimde iyi sonuç verdi. Hata ölçüsü (RMSE) soğanda **370**'e karşı **1.565**, domateste **210**'a karşı **1.299**. Yazarlar güvenilirliği artırmak için hava verisi gibi dış etkenlerin modele katılmasını öneriyor.
 
 [[grafik:b16-gru-arima-hata]]
 
 Üstünlük her yerde görülmüyor. İtalyan bir gıda toptancısının satış fiyatlarında (Menculini ve arkadaşları, 2021) klasik ARIMA ile LSTM ağları benzer sonuç verdi; en iyi doğruluğu iki derin öğrenme yöntemini birleştiren model sağladı, ama ayarlanması daha uzun sürdü.
 
-İzlenebilirlik tarafında, tarımda blokzinciri inceleyen bir tarama (Sendros ve arkadaşları, 2022) Nisan 2021'de **104** araştırma makalesini ele aldı: alan hâlâ erken aşamada ve çalışmaların çoğu tasarım aşamasında, önemli bir kısmı ise uygulama ya da pilot aşamasına geçmiş. Kullanım çoğunlukla üretim kayıtlarının bütünlüğü, üretim adımlarının ve ürünlerin izlenmesi üzerine. Avrupa'daki ve dünyadaki pilot uygulamaları karşılaştıran yeni bir çalışma (Karkanias ve arkadaşları, 2026), blokzincirin ürün düzeyinde izlenebilirliği ve sürdürülebilirlik ve gıda güvenliği beyanlarının doğrulanmasını güçlendirebileceğini gösteriyor; ama dağınık teknik standartların, sınırlı birlikte çalışabilirliğin, küçük üretici için yüksek kurulum maliyetinin ve konsorsiyumların yönettiği platformlardaki yönetişim riskinin sürdüğünü de.
+İzlenebilirlik tarafında, tarımda blokzinciri inceleyen bir tarama (Sendros ve arkadaşları, 2022) Nisan 2021'de **104** araştırma makalesini ele aldı: alan hâlâ erken aşamada ve çalışmaların çoğu tasarım aşamasında, önemli bir kısmı ise uygulama ya da pilot aşamasına geçmiş. Kullanım çoğunlukla üretim kayıtlarının bütünlüğü, üretim adımlarının ve ürünlerin izlenmesi üzerine. Avrupa'daki ve dünyadaki pilot uygulamaları karşılaştıran yeni bir çalışma (Karkanias ve arkadaşları, 2026), blokzincirin ürün düzeyinde izlenebilirliği ve sürdürülebilirlik ve gıda güvenliği beyanlarının doğrulanmasını güçlendirebileceğini gösteriyor. Ama şunların sürdüğünü de gösteriyor:
+
+- Dağınık teknik standartlar
+- Sınırlı birlikte çalışabilirlik
+- Küçük üretici için yüksek kurulum maliyeti
+- Konsorsiyumların yönettiği platformlardaki yönetişim riski
 
 ## Yapay zekâ nerede duruyor
 
@@ -32,6 +37,6 @@ Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012; son 
 
 Bu kaydın verisi araştırmada da kullanılıyor. Türkiye'den hakemli bir makine öğrenmesi denemesi (Özden, 2023), patates, soğan ve sarımsağın 2018 başından Kasım 2022'ye kadarki **1.791** günlük işlem hacmini ve fiyatını Ticaret Bakanlığı'nın resmî hal sitesinden elle derleyerek **10** günlük fiyat tahmini denedi. Ama yapay zekânın Türkiye'de fiyat tahminine, talep planlamasına ya da izlenebilirliğe gerçekte ne kattığını gösteren yayımlanmış bir değerlendirme yok.
 
-2027 Programı, tarım ürünü fiyatlarının sağlıklı oluşması ve gıda arz zincirinin etkinliği için kayıt sistemlerinin güçlendirilmesini, lisanslı depoculuğun yaygınlaştırılmasını ve yaş meyve-sebze tedarik zincirinde lojistik altyapının geliştirilmesini öngörüyor; kayıt ve bilgi sistemleri erken uyarı, piyasa kontrolü, üretim planlaması ve stok yönetimine hizmet edecek biçimde tasarlanacak. 2025'te **265** olan lisanslı depo sayısının 2026'da **288** olması bekleniyor; 2027 hedefi **295**. Lisanslı depoculuk desteklerinin etki analizi ise yapılacak işler arasında. Program tarım ürünü fiyat tahminine yer vermiyor; blokzinciri yalnız gümrük ve dış ticaret işlemleri için öngörüyor.
+2027 Programı, tarım ürünü fiyatlarının sağlıklı oluşması ve gıda arz zincirinin etkinliği için kayıt sistemlerinin güçlendirilmesini, lisanslı depoculuğun yaygınlaştırılmasını ve yaş meyve-sebze tedarik zincirinde lojistik altyapının geliştirilmesini öngörüyor. Kayıt ve bilgi sistemleri erken uyarı, piyasa kontrolü, üretim planlaması ve stok yönetimine hizmet edecek biçimde tasarlanacak. 2025'te **265** olan lisanslı depo sayısının 2026'da **288** olması bekleniyor; 2027 hedefi **295**. Lisanslı depoculuk desteklerinin etki analizi ise yapılacak işler arasında. Program tarım ürünü fiyat tahminine yer vermiyor; blokzinciri yalnız gümrük ve dış ticaret işlemleri için öngörüyor.
 
 Bakanlığa bağlı Tarımsal Ekonomi ve Politika Geliştirme Enstitüsü'nün (TEPGE) ürün raporları içinde bulunulan yılın gelişmelerini "Tahmin", bir sonraki yılınkileri "Öngörü" başlığı altında inceliyor. Buğday için 2025 raporu tahminlerini hangi yöntemle yaptığını açıklamıyor. Raporun Türkiye'ye dair öngörü bölümü ABD Tarım Bakanlığı'nın (USDA) tahminleriyle açılıyor.

@@ -24,11 +24,23 @@ FAO benimsemenin önündeki en büyük engelleri kırsalda düşük dijital okur
 
 FAO'ya göre kırsalda işgücünün bol, ücretlerin düşük olduğu yerlerde tarımsal otomasyon işsizliğe yol açabilir; bu özellikle sübvansiyonlar otomasyonu yapay olarak ucuzlattığında ya da ani teknolojik atılımlar maliyeti hızla düşürdüğünde olabilir. Ama rapor, otomasyonun işsizliği artıracağına dair yaygın korkuların anlaşılır olsa da tarihsel gerçeklerce genellikle desteklenmediğini yazıyor. Beklenen değişim işin niteliğinde: ekim ve hasat gibi rutin işlerin azalması, örneğin ortaöğretim gerektiren nitelikli işlerin artması bekleniyor.
 
-Kanada'ya odaklanan Rotz ve arkadaşları (2019), literatür ve alan verisiyle tarımsal üretim, teknoloji ve emek arasında üç gerilim saptıyor: yükselen arazi maliyetleri ve otomasyon, yüksek ve düşük becerili diye ikiye bölünen bir emek piyasası ve dijital verinin kimin denetiminde olduğu. Yazarlar, dijital tarıma duyulan güncel heyecanın, yeni teknolojilerin sömürüyü yoğunlaştırdığı ve hem emeği hem mekânı daha da kenara ittiği somut yolları gözden kaçırtmaması gerektiğini vurguluyor; tarım emeğindeki ırksal sömürüye özellikle dikkat çekiyor.
+Kanada'ya odaklanan Rotz ve arkadaşları (2019), literatür ve alan verisiyle tarımsal üretim, teknoloji ve emek arasında üç gerilim saptıyor:
+
+- Yükselen arazi maliyetleri ve otomasyon
+- Yüksek ve düşük becerili diye ikiye bölünen bir emek piyasası
+- Dijital verinin kimin denetiminde olduğu
+
+Yazarlar, dijital tarıma duyulan güncel heyecanın, yeni teknolojilerin sömürüyü yoğunlaştırdığı ve hem emeği hem mekânı daha da kenara ittiği somut yolları gözden kaçırtmaması gerektiğini vurguluyor; tarım emeğindeki ırksal sömürüye özellikle dikkat çekiyor.
 
 ## Sistemik riskler ve güvenlik
 
-Tzachor ve arkadaşları (2022) tarımda yapay zekânın risklerini üç başlıkta topluyor: tarım verisinin birlikte çalışabilirliği, güvenilirliği ve temsil gücü; yalnız verime göre eniyilenmiş makine öğrenmesi modellerinin istenmeyen toplumsal ve ekolojik sonuçları; ve bu sistemlerin geniş ölçekte kurulmasının emniyet ve güvenlik kaygıları. Yazarlara göre makine öğrenmesi modellerinin, uzman sistemlerin ve otonom makinelerin çiftliklere, çiftçilere ve gıda güvenliğine etkileri yeterince anlaşılmış değil. Önerdikleri önlemler arasında teknoloji tasarımına kırsal antropologların ve uygulamalı ekologların katılması, veri şeffaflığı ve sahiplik hakları için veri kooperatifleri kurulması ve tarımsal yapay zekânın önce dijital deneme ortamlarında kullanılması var.
+Tzachor ve arkadaşları (2022) tarımda yapay zekânın risklerini üç başlıkta topluyor:
+
+- Tarım verisinin birlikte çalışabilirliği, güvenilirliği ve temsil gücü
+- Yalnız verime göre eniyilenmiş makine öğrenmesi modellerinin istenmeyen toplumsal ve ekolojik sonuçları
+- Bu sistemlerin geniş ölçekte kurulmasının emniyet ve güvenlik kaygıları
+
+Yazarlara göre makine öğrenmesi modellerinin, uzman sistemlerin ve otonom makinelerin çiftliklere, çiftçilere ve gıda güvenliğine etkileri yeterince anlaşılmış değil. Önerdikleri önlemler arasında teknoloji tasarımına kırsal antropologların ve uygulamalı ekologların katılması, veri şeffaflığı ve sahiplik hakları için veri kooperatifleri kurulması ve tarımsal yapay zekânın önce dijital deneme ortamlarında kullanılması var.
 
 Güvenlik riskinin somut örnekleri de var. ABD Federal Soruşturma Bürosu'nun (FBI) Nisan 2022 uyarısına göre fidye yazılımcılar tarım kooperatiflerine ekim ve hasat gibi kritik dönemlerde saldırmaya daha yatkın olabilir; kooperatifler, üretimdeki zamana bağlı rolleri nedeniyle ödemeye istekli hedefler olarak görülebiliyor. 15 Eylül-6 Ekim 2021 arasında altı tahıl kooperatifi fidye yazılımı saldırısına uğradı; bazıları üretimi tamamen durdurmak zorunda kaldı, bazıları idari işlevlerini kaybetti. 2022 başındaki iki saldırı tohum ve gübre arzını aksatarak ekim dönemini etkileyebilirdi. Temmuz 2021'de bir işletme yönetimi yazılımı şirketine yapılan saldırıda saldırgan **30** milyon dolar fidye istedi; saldırı, şirketin müşterileri arasındaki birkaç tarım kooperatifine de sıçradı. FBI'ın saydığı ilk giriş yolları arasında bilinen ama yaması yapılmamış güvenlik açıkları ve ortak ağ kaynakları ya da dışarıdan yönetilen hizmetler üzerinden bulaşma var.
 

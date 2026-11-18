@@ -16,7 +16,12 @@ In a comparison using daily wholesale prices of **23** products in India from Ja
 
 The advantage does not show up everywhere. For the sale prices of an Italian food wholesaler (Menculini and colleagues, 2021), classical ARIMA and LSTM networks performed similarly; the best accuracy came from a model combining two deep learning methods, but it took longer to tune.
 
-On traceability, a review of blockchain in agriculture (Sendros and colleagues, 2022) examined **104** research papers in April 2021: the field is still at an early stage and most studies are at the design stage, while a significant share has moved into implementation or pilots. The use is mostly about the integrity of production records and tracing production steps and products. A recent study comparing European and international pilot implementations (Karkanias and colleagues, 2026) shows that blockchain can strengthen product-level traceability and the verification of sustainability and food safety claims; but also that heterogeneous technical standards, limited interoperability, high deployment costs for smallholders and governance risks in consortium-led platforms persist.
+On traceability, a review of blockchain in agriculture (Sendros and colleagues, 2022) examined **104** research papers in April 2021: the field is still at an early stage and most studies are at the design stage, while a significant share has moved into implementation or pilots. The use is mostly about the integrity of production records and tracing production steps and products. A recent study comparing European and international pilot implementations (Karkanias and colleagues, 2026) shows that blockchain can strengthen product-level traceability and the verification of sustainability and food safety claims. But it also shows that the following persist:
+
+- Heterogeneous technical standards
+- Limited interoperability
+- High deployment costs for smallholders
+- Governance risks in consortium-led platforms
 
 ## Where AI stands
 

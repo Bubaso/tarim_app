@@ -202,12 +202,20 @@ class YzGorsel {
     required this.kaynakTr,
     required this.kaynakEn,
     this.yapayZeka = false,
+    this.adresTr,
   });
 
   final String kimlik;
 
   /// Sitedeki yolu (`/yz/gorsel/…webp`).
   final String adres;
+
+  /// Türkçeye uyarlanmış kopyası (karar 60): İngilizce yazılı şekil ve
+  /// grafikte Türkçe sayfa bunu gösteriyor; İngilizce sayfa özgününü.
+  final String? adresTr;
+
+  /// Sayfanın diline göre gösterilecek dosya.
+  String adresi(bool en) => !en && adresTr != null ? adresTr! : adres;
   final int genislik;
   final int yukseklik;
   final String kunyeTr, kunyeEn;

@@ -103,7 +103,7 @@ FAO ile EBRD'nin raporundaki girişimler akıllı ve hassas tarım, tedarik zinc
 | Esular | 2019, İstanbul | Sensör | Kablosuz toprak nem sensörü ve sulama otomasyonu; fotoğraftan zararlı ve hastalık tanıma, iklim verisinden risk uyarısı |
 | Actimoo | 2020, Ankara | Hayvancılık | Hayvanlara takılan aktivite ölçerle kızgınlık takibi; akıllı telefondan, tabletten ve bilgisayardan |
 | BenimSürüm | 2016, Ankara | Hayvancılık | Büyükbaş sürü kayıt ve yönetim yazılımı; sensörlerle kızgınlık, sağlık ve davranış takibi |
-| Baibars Mekatronik | 2015, Mersin | İHA | Tarım ve endüstri dronları; otonom tarımsal drone sistemleri |
+| Baibars Mekatronik | 2015, Mersin | İHA | Tarım ve endüstri dronları; otonom tarımsal dron sistemleri |
 | Tekno Kurgu | 2017, Kocaeli | Hassas tarım | Hassas yönlendirme, doz kontrolü ve tarla takibi; Augmenta tarla analiz sisteminin Türkiye münhasır distribütörü |
 
 Rapor Actimoo'yu ve BenimSürüm'ü yerleşik şirketlerin iştiraki olarak kurulan girişimler arasında sayıyor. Rapora göre Ankaref 2016'da Ankara Üniversitesi ve Algan Grup'la süt inekleri için düşük maliyetli bir kızgınlık tespit sistemi üzerine Ar-Ge'ye başladı ve 2020'de Actimoo markasıyla bir adımsayar piyasaya sürdü; BenimSürüm'ün ana şirketi Algan Grup. AgCurate Ankara'da kuruldu; şirketin sitesinde verdiği adres bugün Hollanda'da. Görsentam, TÜBİTAK 1711'deki akıllı sulama projesinin teknoloji sağlayıcısı.

@@ -56,4 +56,8 @@ The closest indications of how well such a system can work come from research. I
 
 [[gorsel:b09-turkiye-olceginde-arazi-ortusu-ve]]
 
-The 2027 Programme plans regulations for compiling and checking agricultural statistics; a Farm Holding Registry System that records every holding using data from the 2025 General Agricultural Census and updates the records in real time with spatial data; and registry and information systems designed to serve early warning, market controls, production planning and stock management.
+The 2027 Programme plans:
+
+- Regulations for compiling and checking agricultural statistics
+- A Farm Holding Registry System that records every holding using data from the 2025 General Agricultural Census and updates the records in real time with spatial data
+- Registry and information systems designed to serve early warning, market controls, production planning and stock management

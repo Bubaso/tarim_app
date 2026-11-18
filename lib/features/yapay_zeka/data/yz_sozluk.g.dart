@@ -8,7 +8,7 @@
 class YzTerim {
   const YzTerim(this.kimlik, this.tr, this.en, this.tanimTr, this.tanimEn,
       this.kaynakTr, this.kaynakEn, this.desenTr, this.desenEn,
-      {this.yalniz = const [], this.haric = const []});
+      {this.yalniz = const [], this.haric = const [], this.temel = false});
   final String kimlik;
   final String tr;
   final String en;
@@ -34,6 +34,15 @@ class YzTerim {
   /// Balonun açılmayacağı başlıklar.
   final List<int> haric;
 
+  /// Temel terim (karar 60): bölümün her sayfasında geçen kavram (yapay
+  /// zekâ, sensör…). Balonu yalnız Kavramlar sayfasında açılır; sözlükteki
+  /// "geçtiği başlıklar" listesi bundan etkilenmez.
+  final bool temel;
+
+  /// Balonun bu sayfada açılıp açılmadığı ([no] null: teknoloji sayfası).
+  bool balonda(int? no) =>
+      no == null ? !temel : baslikta(no) && (!temel || no == kYzKavramlarNo);
+
   bool baslikta(int no) =>
       (yalniz.isEmpty || yalniz.contains(no)) && !haric.contains(no);
 
@@ -42,6 +51,9 @@ class YzTerim {
   String kaynak(bool en) => en ? kaynakEn : kaynakTr;
   List<String> desen(bool en) => en ? desenEn : desenTr;
 }
+
+/// Kavramlar başlığının numarası: temel terimlerin balonu yalnız orada.
+const int kYzKavramlarNo = 2;
 
 const List<YzTerim> kYzSozluk = [
   YzTerim(
@@ -53,7 +65,8 @@ const List<YzTerim> kYzSozluk = [
       "Kaynak: AB Yapay Zekâ Tüzüğü (2024).",
       "Source: EU AI Act (2024).",
       ["yapay zekâ", "yapay zeka"],
-      ["artificial intelligence", "=AI"]),
+      ["artificial intelligence", "=AI"],
+      temel: true),
   YzTerim(
       "makine-ogrenmesi",
       "Makine öğrenmesi",
@@ -378,7 +391,8 @@ const List<YzTerim> kYzSozluk = [
       "Kaynak: ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (2023).",
       "Source: USDA Economic Research Service (2023).",
       ["dijital tarım"],
-      ["digital farming", "digital agriculture"]),
+      ["digital farming", "digital agriculture"],
+      temel: true),
   YzTerim(
       "nesnelerin-interneti",
       "Nesnelerin interneti (IoT)",
@@ -571,7 +585,8 @@ const List<YzTerim> kYzSozluk = [
       "Kaynak: NIST, CSRC sözlüğü.",
       "Source: NIST, CSRC glossary.",
       ["sensör"],
-      ["sensor"]),
+      ["sensor"],
+      temel: true),
   YzTerim(
       "robot",
       "Robot",
@@ -581,7 +596,8 @@ const List<YzTerim> kYzSozluk = [
       "Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük.",
       "Source: FAO, The State of Food and Agriculture 2022, glossary.",
       ["robot"],
-      ["robot"]),
+      ["robot"],
+      temel: true),
   YzTerim(
       "otonom-makine",
       "Otonom mobil makine",

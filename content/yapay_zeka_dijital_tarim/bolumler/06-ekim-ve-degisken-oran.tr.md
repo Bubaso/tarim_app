@@ -34,7 +34,7 @@ ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin çiftlik anketine göre
 
 [[grafik:b06-vrt-ekili-alan]]
 
-Lowenberg-DeBoer ve Erickson (2019) dünyadaki kamuya açık verileri tarayıp ayrımı netleştiriyor: uydu güdümlü dümenleme ve ona bağlı otomasyonlar (ilaçlama bumu denetimi, ekim makinesinde sıra ya da bölüm kapatma gibi) tarihteki her büyük tarım teknolojisi kadar hızlı yayıldı; değişken oranlı teknoloji ise 2019 itibarıyla nadiren çiftliklerin **%20**'sini aşıyordu. Yazarlara göre bu, çiftçinin fikri sevdiğini ama değerine ikna olmadığını gösteriyor. Hassas tarımın en büyük boşluğu da gelişmekte olan ülkelerde motorlu mekanizasyon kullanmayan küçük ve orta ölçekli çiftlikler.
+Lowenberg-DeBoer ve Erickson (2019) dünyadaki kamuya açık verileri tarayıp ayrımı netleştiriyor: uydu güdümlü dümenleme ve ona bağlı otomasyonlar (ilaçlama bumu denetimi, ekim makinesinde sıra ya da bölüm kapatma gibi) tarihteki her büyük tarım teknolojisi kadar hızlı yayıldı. Değişken oranlı teknoloji ise 2019 itibarıyla nadiren çiftliklerin **%20**'sini aşıyordu. Yazarlara göre bu, çiftçinin fikri sevdiğini ama değerine ikna olmadığını gösteriyor. Hassas tarımın en büyük boşluğu da gelişmekte olan ülkelerde motorlu mekanizasyon kullanmayan küçük ve orta ölçekli çiftlikler.
 
 ## Yapay zekâ nerede duruyor
 

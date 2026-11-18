@@ -44,7 +44,14 @@ In the Yaqui Valley, Mexico's largest wheat-growing region, CIMMYT and Oklahoma 
 
 [[gorsel:b28-greenseeker-el-sensoru-yaqui-vadisi]]
 
-Even so, adoption fell rather than expanded in the 2015-2016 season. The report lists possible reasons: the farmer credit unions, which also sell fertiliser, were reluctant to approve a change that meant using less of it; funding for the technicians' sensor-based advice was shrinking; the credit unions' umbrella organisation changed its leadership; and the same season brought the worst climatic conditions in more than **35** years. The report's conclusion: profit and environmental benefit were not enough to sustain adoption. The 2022 study also writes that the scheme ran on subsidies and that further efforts would be needed to make it sustainable.
+Even so, adoption fell rather than expanded in the 2015-2016 season. The report lists possible reasons:
+
+- The farmer credit unions, which also sell fertiliser, were reluctant to approve a change that meant using less of it.
+- Funding for the technicians' sensor-based advice was shrinking.
+- The credit unions' umbrella organisation changed its leadership.
+- The same season brought the worst climatic conditions in more than **35** years.
+
+The report's conclusion: profit and environmental benefit were not enough to sustain adoption. The 2022 study also writes that the scheme ran on subsidies and that further efforts would be needed to make it sustainable.
 
 ## Morocco: an irrigation schedule from satellites
 
@@ -60,7 +67,13 @@ The cows adapted to the system within a few days to two weeks; farm changes such
 
 ## Türkiye: spraying drones
 
-One of the digital farming technologies used over large areas in Türkiye is the spraying drone. According to an online survey of **71** operators providing this service, carried out in May-August 2026 (İtmeç, 2026), **67.1%** of the businesses spray **500** hectares or more a year; spraying is mainly on wheat (**88.4%**) and maize (**76.8%**) fields. The gaps in practice are clear: only **14.1%** of operators calibrate before every application; **98.6%** take wind into account, but only **16.9%** take relative humidity into account; spraying is often done in or near beekeeping areas (**78.6%**) and in residential areas (**61.4%**). The most frequently reported problem is wind drift (**80.3%**). The survey rests on what operators reported; it does not check the products used, the target pests or the permits.
+One of the digital farming technologies used over large areas in Türkiye is the spraying drone. According to an online survey of **71** operators providing this service, carried out in May-August 2026 (İtmeç, 2026), **67.1%** of the businesses spray **500** hectares or more a year; spraying is mainly on wheat (**88.4%**) and maize (**76.8%**) fields. The gaps in practice are clear:
+
+- Only **14.1%** of operators calibrate before every application.
+- **98.6%** take wind into account, but only **16.9%** take relative humidity into account.
+- Spraying is often done in or near beekeeping areas (**78.6%**) and in residential areas (**61.4%**).
+
+The most frequently reported problem is wind drift (**80.3%**). The survey rests on what operators reported; it does not check the products used, the target pests or the permits.
 
 [[grafik:b28-dron-operatorleri]]
 
@@ -70,4 +83,10 @@ In Türkiye, drone spraying is not permitted for every crop, pest or type of app
 
 ## What the stories have in common
 
-The technology often works technically. But the outcome is often decided not by the technology but by the institutions and people around it: in Mexico, adoption of a profitable sensor declined, and the possible reasons the report lists include credit unions that also sell fertiliser and shrinking funds; in Zimbabwe, neighbours learned without sensors; in India the effects are large but statistically uncertain; in New Zealand farmers see the benefit but find it hard to put a financial value on it; in Türkiye drones are used over large areas, but good practice is not always followed in the field.
+The technology often works technically. But the outcome is often decided not by the technology but by the institutions and people around it:
+
+- In Mexico, adoption of a profitable sensor declined; the possible reasons the report lists include credit unions that also sell fertiliser and shrinking funds.
+- In Zimbabwe, neighbours learned without sensors.
+- In India the effects are large but statistically uncertain.
+- In New Zealand farmers see the benefit but find it hard to put a financial value on it.
+- In Türkiye drones are used over large areas, but good practice is not always followed in the field.

@@ -32,4 +32,10 @@ Figures from academia are high, but they measure recognition: on a laboratory se
 
 [[gorsel:t-goruntu-bursa-karacabey-domates-calismasinda]]
 
-All three AI projects TAGEM launched in 2025 rest on images: a dataset of disease and pest images from fruit and vineyards, built with **8** research institutes and **2** universities; multispectral imaging of dried apricots; and a camera-guided sprayer prototype for maize and cotton. Their results have not yet been published.
+All three AI projects TAGEM launched in 2025 rest on images:
+
+- A dataset of disease and pest images from fruit and vineyards, built with **8** research institutes and **2** universities
+- Multispectral imaging of dried apricots
+- A camera-guided sprayer prototype for maize and cotton
+
+Their results have not yet been published.

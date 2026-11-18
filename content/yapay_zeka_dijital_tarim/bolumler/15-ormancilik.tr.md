@@ -1,6 +1,6 @@
 # 15 · Ormancılık
 
-Yapay zekâ ormancılıkta iki işte öne çıkıyor: ormanın yapısını uydudan haritalamak ve yangını erken görmek. Türkiye'de yangın yükü artıyor; resmî istatistiklerin başladığı 1988'den 2025'e kadar yanan **634.575** hektarın **%43,6**'sı son beş yılda yandı. Orman Genel Müdürlüğü önce kule kameralarına dayanan bir yangın uyarı sistemi kurdu, sonra yapay zekâ destekli bir karar destek sistemini devreye aldı; ama iki sistemin de tespit süresine, yanan alana ya da yanlış alarm oranına etkisini ölçen bağımsız bir değerlendirme yayımlanmış değil.
+Yapay zekâ ormancılıkta iki işte öne çıkıyor: ormanın yapısını uydudan haritalamak ve yangını erken görmek. Türkiye'de yangın yükü artıyor; resmî istatistiklerin başladığı 1988'den 2025'e kadar yanan **634.575** hektarın **%43,6**'sı son beş yılda yandı. Orman Genel Müdürlüğü önce kule kameralarına dayanan bir yangın uyarı sistemi kurdu, sonra yapay zekâ destekli bir karar destek sistemini devreye aldı. Ama iki sistemin de tespit süresine, yanan alana ya da yanlış alarm oranına etkisini ölçen bağımsız bir değerlendirme yayımlanmış değil.
 
 [[grafik:b15-yanan-alan-son-bes-yil]]
 
@@ -40,11 +40,11 @@ Yapay zekâ ormancılıkta ölçeği değiştiriyor: tek bir modelle bütün gez
 
 Bakanlığın verisine göre Türkiye'nin orman alanı 2025'te **23.375.331** hektar. 2027 Programı'na göre 2025'te **3.224** yangında **81.473** hektar, 2026'nın ilk dokuz ayında **2.009** yangında **24.451** hektar orman yandı. Son on yılda çıkan yangınların **%41,1**'inin nedeni tespit edilemedi. 2026'da yangınlara **119** helikopter, **28** uçak ve **14** insansız hava aracıyla havadan müdahale edildi; yaklaşık **28** bin personel ve **142** bini aşan gönüllü görev alıyor.
 
-Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin TÜBİTAK desteğiyle geliştirdiği Orman Yangın Uyarı Sistemi, yangın gözetleme kulelerine kurulan kameraların görüntüsünü bir yazılımla işliyor; o tarihte **77** kulede **154** kamerayla **3,2** milyon hektar izleniyordu ve duyuru küçük bir yangının **15-25** saniyede tespit edildiğini söylüyor. Bu, kurumun kendi açıklaması; sistemin isabetini ve yanlış alarm oranını bağımsız olarak ölçen yayımlanmış bir değerlendirme bulunmuyor.
+Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin TÜBİTAK desteğiyle geliştirdiği Orman Yangın Uyarı Sistemi, yangın gözetleme kulelerine kurulan kameraların görüntüsünü bir yazılımla işliyor. O tarihte **77** kulede **154** kamerayla **3,2** milyon hektar izleniyordu ve duyuru küçük bir yangının **15-25** saniyede tespit edildiğini söylüyor. Bu, kurumun kendi açıklaması; sistemin isabetini ve yanlış alarm oranını bağımsız olarak ölçen yayımlanmış bir değerlendirme bulunmuyor.
 
 [[gorsel:b15-kamerali-insansiz-yangin-gozetleme]]
 
-Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor: meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiriyor; yangın çıkma olasılığını ve nedenini tahmin ediyor ve yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistem, BM'ye bağlı Uluslararası Telekomünikasyon Birliği'nin Dünya Bilgi Toplumu Zirvesi Ödülleri'ne aday gösterildi.
+Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor: meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiriyor. Sistem yangın çıkma olasılığını ve nedenini tahmin ediyor ve yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistem, BM'ye bağlı Uluslararası Telekomünikasyon Birliği'nin Dünya Bilgi Toplumu Zirvesi Ödülleri'ne aday gösterildi.
 
 [[gorsel:b15-orman-genel-mudurlugu-nun-yapay-zeka]]
 

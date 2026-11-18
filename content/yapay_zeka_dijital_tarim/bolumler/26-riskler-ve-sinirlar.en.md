@@ -24,11 +24,23 @@ FAO names the biggest barriers to adoption as low digital literacy in rural area
 
 According to FAO, where rural labour is abundant and wages are low, agricultural automation can lead to unemployment; this can happen especially when subsidies make automation artificially cheap or sudden technological breakthroughs bring its cost down rapidly. But the report writes that common fears that automation leads to growing unemployment, although understandable, are generally not supported by historical realities. The expected change is in the nature of work: routine jobs such as planting and harvesting are expected to decline, and skilled jobs requiring, for example, secondary education to grow.
 
-Focusing on Canada, Rotz and colleagues (2019) use literature and field data to identify three tensions between agricultural production, technology and labour: rising land costs and automation, a labour market split into high-skilled and low-skilled, and the question of who controls digital data. The authors stress that the current enthusiasm for digital agriculture should not blind us to the specific ways new technologies intensify exploitation and deepen the marginalisation of both labour and places; they draw particular attention to racial exploitation in farm labour.
+Focusing on Canada, Rotz and colleagues (2019) use literature and field data to identify three tensions between agricultural production, technology and labour:
+
+- Rising land costs and automation
+- A labour market split into high-skilled and low-skilled
+- The question of who controls digital data
+
+The authors stress that the current enthusiasm for digital agriculture should not blind us to the specific ways new technologies intensify exploitation and deepen the marginalisation of both labour and places; they draw particular attention to racial exploitation in farm labour.
 
 ## Systemic risks and security
 
-Tzachor and colleagues (2022) group the risks of AI in agriculture under three headings: the interoperability, reliability and relevance of agricultural data; the unintended social and ecological consequences of machine learning models optimised for yields alone; and the safety and security concerns of deploying these systems at scale. According to the authors, the effects of machine learning models, expert systems and autonomous machines on farms, farmers and food security are poorly understood. The measures they propose include bringing rural anthropologists and applied ecologists into technology design, setting up data cooperatives for data transparency and ownership rights, and deploying agricultural AI first in digital sandboxes.
+Tzachor and colleagues (2022) group the risks of AI in agriculture under three headings:
+
+- The interoperability, reliability and relevance of agricultural data
+- The unintended social and ecological consequences of machine learning models optimised for yields alone
+- The safety and security concerns of deploying these systems at scale
+
+According to the authors, the effects of machine learning models, expert systems and autonomous machines on farms, farmers and food security are poorly understood. The measures they propose include bringing rural anthropologists and applied ecologists into technology design, setting up data cooperatives for data transparency and ownership rights, and deploying agricultural AI first in digital sandboxes.
 
 The security risk has concrete examples too. According to an April 2022 notice from the US Federal Bureau of Investigation (FBI), ransomware actors may be more likely to attack farm cooperatives during critical seasons such as planting and harvest; because of their time-sensitive role in production, cooperatives may be seen as targets willing to pay. Between 15 September and 6 October 2021, six grain cooperatives were hit by ransomware; some had to halt production completely, others lost administrative functions. Two attacks in early 2022 could have affected the planting season by disrupting the supply of seeds and fertiliser. In July 2021, in an attack on a business management software company, the attacker demanded a ransom of **30** million dollars; the attack spread to several farm cooperatives among the company's clients. The initial entry points the FBI lists include known but unpatched vulnerabilities and infections through shared network resources or externally managed services.
 

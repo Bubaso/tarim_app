@@ -14,7 +14,7 @@ Meksika'nın Yaqui Vadisi'nde CIMMYT ile Oklahoma Eyalet Üniversitesi'nin geli�
 
 ## Kamunun tavsiyesi: yangın, gübre, sulama
 
-Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor; sistem yangın çıkma olasılığını ve nedenini tahmin ediyor, yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistemin tespit süresine, yanan alana ya da yanlış alarm oranına etkisi bağımsız olarak ölçülüp yayımlanmış değil.
+Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor. Sistem yangın çıkma olasılığını ve nedenini tahmin ediyor, yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistemin tespit süresine, yanan alana ya da yanlış alarm oranına etkisi bağımsız olarak ölçülüp yayımlanmış değil.
 
 [[gorsel:t-karar-ogm-yangin-karar-destek-sistemi]]
 

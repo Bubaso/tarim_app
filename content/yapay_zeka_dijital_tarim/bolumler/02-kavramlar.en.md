@@ -8,7 +8,14 @@ The EU's AI Act (2024) defines not "AI" but an "AI system": a machine-based syst
 
 The common criterion of these definitions is inference. According to the Act's recitals, the techniques that enable inference include both machine learning approaches that learn from data and logic- and knowledge-based approaches that infer from encoded knowledge; simple software that executes operations automatically on rules defined solely by people falls outside the definition. According to the OECD's explanatory memorandum, machine learning is a set of techniques that allows machines to improve their performance through exposure to training data; AI covers both machine learning and knowledge-based approaches. In other words, machine learning is part of AI, not AI itself.
 
-The European Commission's guidelines of July 2025 give examples of what does not count as AI: systems that accelerate well-established optimisation methods such as linear or logistic regression, basic data processing that follows predefined instructions, classical heuristics, and simple predictions such as forecasting tomorrow's temperature from last week's average. The guidelines are not binding; only the Court of Justice of the EU can give an authoritative interpretation of the Act.
+The European Commission's guidelines of July 2025 give examples of what does not count as AI:
+
+- Systems that accelerate well-established optimisation methods such as linear or logistic regression
+- Basic data processing that follows predefined instructions
+- Classical heuristics
+- Simple predictions such as forecasting tomorrow's temperature from last week's average
+
+The guidelines are not binding; only the Court of Justice of the EU can give an authoritative interpretation of the Act.
 
 In Türkiye, the National AI Strategy (2021-2025) defines AI as "bir bilgisayarın veya bilgisayar kontrolündeki bir robotun çeşitli faaliyetleri zeki canlılara benzer şekilde yerine getirme kabiliyeti" (the capability of a computer or a computer-controlled robot to perform various activities in a way similar to intelligent beings) and counts machine learning among AI's sub-fields of application. The document says it uses its terms on the basis of the OECD and EU definitions; but its definition of AI describes a capability, not a system; it defines "YZ Sistemi" (AI system) separately, as a system designed to perform a function by collecting and interpreting data. The Türkiye Artificial Intelligence Action Plan (2026-2030) writes that its glossary was prepared to explain policy concepts, and that concepts requiring legal force will be defined separately in the relevant legislation.
 
@@ -26,11 +33,21 @@ Nor is precision farming the same as variable-rate application. According to Low
 
 ## Digital farming, smart farming, Agriculture 4.0
 
-ERS defines digital agriculture as a transformation that includes the digitalisation and automation of farming tasks, with precision agriculture as its chief element. According to the service, the components of digital agriculture fall into three groups: data and data collection systems, decision support tools, and data-driven equipment and input adjustments.
+ERS defines digital agriculture as a transformation that includes the digitalisation and automation of farming tasks, with precision agriculture as its chief element. According to the service, the components of digital agriculture fall into three groups:
+
+- Data and data collection systems
+- Decision support tools
+- Data-driven equipment and input adjustments
 
 [[gorsel:b02-ers-nin-dijital-tarim-bilesenleri]]
 
-Other bodies order the terms differently. According to a 2020 FAO publication, Agriculture 4.0 is a set of innovations covering precision farming, the Internet of Things and big data; in a 2019 FAO briefing, precision agriculture is one application of the Internet of Things in agriculture. In CEMA's own classification (CEMA is the association of Europe's farm machinery industry), precision farming is Agriculture 3.0, which began when GPS signals were opened to the public; digital farming is the stage that adds intelligent networks and data management to precision farming technology; and robotics and AI come only with Agriculture 5.0. The technical annex of the 2016 study for the European Parliament uses smart farming and precision agriculture as synonyms. According to Wolfert and colleagues (2017), smart farming is the use of information and communication technology in the farm management cycle; robots and AI are an expected outcome of this development. A 2016 guide by FAO and the International Telecommunication Union called the same field e-agriculture.
+Other bodies order the terms differently. According to a 2020 FAO publication, Agriculture 4.0 is a set of innovations covering precision farming, the Internet of Things and big data; in a 2019 FAO briefing, precision agriculture is one application of the Internet of Things in agriculture. CEMA, the association of Europe's farm machinery industry, has its own classification:
+
+- Precision farming is Agriculture 3.0, which began when GPS signals were opened to the public.
+- Digital farming is the stage that adds intelligent networks and data management to precision farming technology.
+- Robotics and AI come only with Agriculture 5.0.
+
+The technical annex of the 2016 study for the European Parliament uses smart farming and precision agriculture as synonyms. According to Wolfert and colleagues (2017), smart farming is the use of information and communication technology in the farm management cycle; robots and AI are an expected outcome of this development. A 2016 guide by FAO and the International Telecommunication Union called the same field e-agriculture.
 
 [[gorsel:b02-cema-nin-dijital-tarim-tarifi]]
 

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_sozluk.g.dart';
+import 'yz_okuma.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 
@@ -175,7 +176,8 @@ class YzEtkilesim {
       required this.baglantiAc,
       required this.terimAc,
       this.rakamVar,
-      this.rakamAc});
+      this.rakamAc,
+      this.kisaltmaAc});
   final List<GestureRecognizer> tanicilar;
   final void Function(String adres) baglantiAc;
   final void Function(YzTerim terim, Offset konum) terimAc;
@@ -184,6 +186,9 @@ class YzEtkilesim {
   /// dokununca balonu açan.
   final bool Function(String kalin)? rakamVar;
   final void Function(String kalin, Offset konum)? rakamAc;
+
+  /// Kısaltma balonu (karar 60).
+  final void Function(String kisaltma, Offset konum)? kisaltmaAc;
 }
 
 /// Terimin balonu: dokunulan yerin altında (ekranın alt kısmındaysa üstünde)
@@ -191,6 +196,9 @@ class YzEtkilesim {
 /// [geri]: balonun açıldığı başlığın adresi. "Sözlükte aç" sözlüğe `go` ile
 /// gidiyor — webde adres çubuğu da değişsin, tarayıcının geri tuşu başlığa
 /// dönsün — ve `?geri=` ile sözlük sayfasının geri okunu o başlığa bağlıyor.
+/// Sözlük `?terim=` ile o terimin üstünde, işaretli açılıyor; başlığın
+/// kaydırma konumu saklanıyor, okur dönünce kaldığı paragraftan devam ediyor
+/// (karar 60).
 Future<void> yzTerimBalonu(BuildContext context, YzTerim terim, Offset konum, bool en,
     {String? geri}) {
   final yonlendirici = GoRouter.maybeOf(context);
@@ -240,10 +248,13 @@ Future<void> yzTerimBalonu(BuildContext context, YzTerim terim, Offset konum, bo
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
+                          // Okur dönünce başlık kaldığı yerden açılsın (karar 60).
+                          final konum = Scrollable.maybeOf(context)?.position.pixels;
+                          if (geri != null && konum != null) YzOkumaKonumu.kaydet(geri, konum);
                           Navigator.of(ctx).pop();
                           yonlendirici?.go(Uri(
                             path: yzBaslikPath('sozluk'),
-                            queryParameters: geri == null ? null : {'geri': geri},
+                            queryParameters: {'terim': terim.kimlik, if (geri != null) 'geri': geri},
                           ).toString());
                         },
                         child: Text(en ? 'Open the glossary' : 'Sözlükte aç'),

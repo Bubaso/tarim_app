@@ -40,7 +40,11 @@ Some of the rules that shape how AI is used in agriculture today never mention A
 
 [[gorsel:b24-alan-izleme-sistemi-irlanda-da-bir]]
 
-In Türkiye, the technical requirements of one of the ministry's AI projects show what is demanded while no AI-specific rule exists. The requirements for the project that will analyse fishing vessel monitoring data with AI, published in June 2026, demand that the system comply with the legislation under Law No. 6698 on the Protection of Personal Data, run in-house on a closed network, and pass a penetration test by an independent body or the ministry before going live.
+In Türkiye, the technical requirements of one of the ministry's AI projects show what is demanded while no AI-specific rule exists. The requirements for the project that will analyse fishing vessel monitoring data with AI, published in June 2026, demand that the system:
+
+- Comply with the legislation under Law No. 6698 on the Protection of Personal Data
+- Run in-house on a closed network
+- Pass a penetration test by an independent body or the ministry before going live
 
 ## Türkiye: a framework on the way, no separate annex for agriculture
 

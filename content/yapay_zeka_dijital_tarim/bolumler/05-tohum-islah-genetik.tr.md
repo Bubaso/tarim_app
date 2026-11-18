@@ -30,7 +30,13 @@ Montesinos-López ve arkadaşları (2021), derin öğrenmenin genomik seçilimde
 
 ## Türkiye
 
-2027 Programı bitki ıslahını ve genetik kaynakların korunmasını iklim değişikliğine uyum ve verimlilik için stratejik sayıyor; yerel çeşitlerin ve gen kaynaklarının korunmasını, kuraklığa, sıcağa, hastalık ve zararlılara dayanıklı çeşit geliştirilmesini, biyoteknoloji ve modern ıslah yöntemlerinin kullanım kapasitesinin artırılmasını sürdürülmesi gereken çalışmalar arasında yazıyor. Programın tarım tedbirlerinde ise genomik seçilime ya da ıslahta yapay zekâya ayrılmış bir kalem yok; tarım bölümünde genomikle ilgili tek kalem hayvancılıkta: genomik test yaptırılmış damızlık dişi buzağılara getirilen ilave destek katsayısı. Ar-Ge bölümü genom düzenlemeyi, yapay zekâyla birlikte, Ar-Ge altyapısı kurulacak teknoloji alanları arasında sayıyor; ama bunu tarıma bağlamıyor.
+2027 Programı bitki ıslahını ve genetik kaynakların korunmasını iklim değişikliğine uyum ve verimlilik için stratejik sayıyor. Sürdürülmesi gereken çalışmalar arasında şunları yazıyor:
+
+- Yerel çeşitlerin ve gen kaynaklarının korunması
+- Kuraklığa, sıcağa, hastalık ve zararlılara dayanıklı çeşit geliştirilmesi
+- Biyoteknoloji ve modern ıslah yöntemlerinin kullanım kapasitesinin artırılması
+
+Programın tarım tedbirlerinde ise genomik seçilime ya da ıslahta yapay zekâya ayrılmış bir kalem yok; tarım bölümünde genomikle ilgili tek kalem hayvancılıkta: genomik test yaptırılmış damızlık dişi buzağılara getirilen ilave destek katsayısı. Ar-Ge bölümü genom düzenlemeyi, yapay zekâyla birlikte, Ar-Ge altyapısı kurulacak teknoloji alanları arasında sayıyor; ama bunu tarıma bağlamıyor.
 
 Türkiye merkezli Uluslararası Kışlık Buğday Islah Programı (IWWIP), **1986**'da Türkiye Hükümeti ile CIMMYT arasında kuruldu; ICARDA **1991**'de katıldı. 2019'da yayımlanan bir değerlendirmeye göre programdan çıkan **93** çeşit **11** ülkede tescil edilmişti ve her yıl tahminen **2,5-3,0** milyon hektarda ekiliyordu; program materyalini her kıtadan **100**'den fazla iş birlikçiye dağıtıyor.
 

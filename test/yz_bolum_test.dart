@@ -100,13 +100,16 @@ devam ediyor.
 |---|---|
 | 1 | **%35** |
 
-- liste satırı düz metin kalır
+- birinci madde **%12**
+- ikinci madde
+Liste bitti, paragraf başladı.
 ''');
       expect(b.map((x) => x.tur).toList(), [
         YzBlokTuru.ozet,
         YzBlokTuru.altBaslik,
         YzBlokTuru.paragraf,
         YzBlokTuru.tablo,
+        YzBlokTuru.liste,
         YzBlokTuru.paragraf,
       ]);
       expect(b[0].metin, '**Özet.** Birinci satır ikinci satır.');
@@ -116,7 +119,13 @@ devam ediyor.
         ['A', 'B'],
         ['1', '**%35**'],
       ], reason: 'ayıraç satırı tabloya girmemeli');
-      expect(b[4].metin, '- liste satırı düz metin kalır');
+      // Madde listesi (karar 60): ardışık "- " satırları tek liste, her satır
+      // bir madde; liste dışı ilk satırda paragraf başlıyor.
+      expect(b[4].ogeler, ['birinci madde **%12**', 'ikinci madde']);
+      expect(b[4].parcalar, b[4].ogeler);
+      expect(b[5].metin, 'Liste bitti, paragraf başladı.');
+      expect(yzListeMetni(b[4].ogeler), '- birinci madde **%12** - ikinci madde',
+          reason: 'teknoloji eşleştiricisi Python gibi satırları birleşik görmeli');
     });
 
     // Tablo başlıkları büyük harfle çiziliyor. Ham `toUpperCase()` Türkçede
@@ -306,8 +315,8 @@ devam ediyor.
           final sozluk = kYzSozluk.where((t) => t.baslikta(b.no)).toList();
           final gorulen = <String>{};
           for (final blok in yzAyristir(m.metin(en))) {
-            if (blok.tur == YzBlokTuru.ozet || blok.tur == YzBlokTuru.paragraf) {
-              yzTerimleriBul(blok.metin, en, gorulen, sozluk: sozluk);
+            for (final p in blok.parcalar) {
+              yzTerimleriBul(p, en, gorulen, sozluk: sozluk);
             }
           }
           for (final k in gorulen) {

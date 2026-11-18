@@ -18,7 +18,14 @@ According to the global analysis by Mehrabi and colleagues (2021), coverage is p
 
 [[grafik:b20-baglanti-isletme-buyuklugu]]
 
-A systematic review of peer-reviewed studies published between 2020 and 2024 (Miller and colleagues, 2025) lists the critical obstacles to IoT-based sensor networks in agriculture as high infrastructure costs, limited interoperability, connectivity constraints in rural areas, and ethical concerns about transparency and data privacy. According to the authors, policy intervention is needed to ensure fair data ownership, cybersecurity and equitable access to smart farming tools, especially in developing regions.
+A systematic review of peer-reviewed studies published between 2020 and 2024 (Miller and colleagues, 2025) lists the critical obstacles to IoT-based sensor networks in agriculture:
+
+- High infrastructure costs
+- Limited interoperability
+- Connectivity constraints in rural areas
+- Ethical concerns about transparency and data privacy
+
+According to the authors, policy intervention is needed to ensure fair data ownership, cybersecurity and equitable access to smart farming tools, especially in developing regions.
 
 ## Where AI stands
 

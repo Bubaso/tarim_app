@@ -6,7 +6,9 @@ import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
 import '../data/yz_teknoloji.g.dart';
+import '../data/yz_metinler.g.dart';
 import 'yz_haber_vitrini.dart';
+import 'yz_okuma.dart';
 import 'yz_tasarim.dart';
 
 /// Bölümün adresleri. Adres ASCII (öteki bölümlerle aynı gerekçe).
@@ -16,49 +18,203 @@ String yzBaslikPath(String slug) => '$yzPath/$slug';
 /// Teknolojinin alanlar arası durum sayfası (karar 57).
 String yzTeknolojiPath(String kod) => '$yzPath/teknoloji/$kod';
 
+/// Bölüm içi arama (karar 60).
+const String yzAramaPath = '$yzPath/ara';
+
 bool yzIsEn(BuildContext context) =>
     Localizations.localeOf(context).languageCode == 'en';
 
 /// Sayfaların üst şeridi: geri ve bölümün adı. Site çubuğu değil — bölüm
 /// bir başvuru dosyası, okurun dikkati metinde kalsın.
 class YzUstSerit extends StatelessWidget {
-  const YzUstSerit({super.key, this.geriAdres = '/'});
+  const YzUstSerit({super.key, this.geriAdres = '/', this.aramaDugmesi = true});
   final String geriAdres;
+
+  /// Bölüm içi aramanın düğmesi (karar 60); arama sayfasının kendisinde yok.
+  final bool aramaDugmesi;
 
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
-    return Container(
-      height: 52,
-      decoration: const BoxDecoration(
-        color: YzRenk.zemin,
-        border: Border(bottom: BorderSide(color: YzRenk.cizgi)),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      child: Row(children: [
-        IconButton(
-          tooltip: en ? 'Back' : 'Geri',
-          icon: const Icon(Icons.arrow_back_rounded, color: YzRenk.murekkep),
-          onPressed: () =>
-              context.canPop() ? context.pop() : context.go(geriAdres),
+    final yonlendirici = GoRouter.maybeOf(context);
+    return LayoutBuilder(builder: (context, kis) {
+      // Telefonda "Tarım Portalı" yazısı yerine ev simgesi: bölümün adı sığsın.
+      final dar = kis.maxWidth < 480;
+      return Container(
+        height: 52,
+        decoration: const BoxDecoration(
+          color: YzRenk.zemin,
+          border: Border(bottom: BorderSide(color: YzRenk.cizgi)),
         ),
-        const SizedBox(width: 4),
-        Expanded(
-          child: InkWell(
-            onTap: () => context.go(yzPath),
-            child: Text(
-              buyukHarf(en ? kYzAdEn : kYzAdTr, en),
-              overflow: TextOverflow.ellipsis,
-              style: YzYazi.ustEtiket(renk: YzRenk.murekkep),
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(children: [
+          IconButton(
+            tooltip: en ? 'Back' : 'Geri',
+            icon: const Icon(Icons.arrow_back_rounded, color: YzRenk.murekkep),
+            onPressed: yonlendirici == null
+                ? null
+                : () => context.canPop() ? context.pop() : context.go(geriAdres),
+          ),
+          const SizedBox(width: 4),
+          Expanded(
+            child: InkWell(
+              onTap: yonlendirici == null ? null : () => context.go(yzPath),
+              child: Text(
+                buyukHarf(en ? kYzAdEn : kYzAdTr, en),
+                overflow: TextOverflow.ellipsis,
+                style: YzYazi.ustEtiket(renk: YzRenk.murekkep),
+              ),
             ),
           ),
+          if (aramaDugmesi)
+            IconButton(
+              tooltip: en ? 'Search the section' : 'Bölümde ara',
+              icon: const Icon(Icons.search_rounded, color: YzRenk.makine),
+              onPressed: yonlendirici == null ? null : () => context.push(yzAramaPath),
+            ),
+          const YzYaziBoyuDugmesi(),
+          if (dar)
+            IconButton(
+              tooltip: 'Tarım Portalı',
+              icon: const Icon(Icons.home_outlined, color: YzRenk.makine),
+              onPressed: yonlendirici == null ? null : () => context.go('/'),
+            )
+          else
+            TextButton(
+              onPressed: yonlendirici == null ? null : () => context.go('/'),
+              child: Text('Tarım Portalı',
+                  style: YzYazi.veri(boy: 12, renk: YzRenk.makine)),
+            ),
+        ]),
+      );
+    });
+  }
+}
+
+/// Merkez sayfadaki arama kutusu (karar 60): dokununca arama sayfası açılıyor.
+class YzAramaKutusu extends StatelessWidget {
+  const YzAramaKutusu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final en = yzIsEn(context);
+    return Semantics(
+      button: true,
+      label: en ? 'Search the section' : 'Bölümde ara',
+      child: Material(
+        color: YzRenk.yuzey,
+        borderRadius: BorderRadius.circular(4),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(4),
+          onTap: GoRouter.maybeOf(context) == null ? null : () => context.push(yzAramaPath),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              border: Border.all(color: YzRenk.cizgi),
+            ),
+            child: Row(children: [
+              const Icon(Icons.search_rounded, color: YzRenk.makine, size: 22),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  en
+                      ? 'Search the section: a concept, an institution, a product…'
+                      : 'Bölümde ara: kavram, kurum, ürün…',
+                  overflow: TextOverflow.ellipsis,
+                  style: YzYazi.govde(boy: 17, renk: YzRenk.soluk),
+                ),
+              ),
+            ]),
+          ),
         ),
-        TextButton(
-          onPressed: () => context.go('/'),
-          child: Text('Tarım Portalı',
-              style: YzYazi.veri(boy: 12, renk: YzRenk.makine)),
-        ),
-      ]),
+      ),
+    );
+  }
+}
+
+/// Yazı boyu (karar 60): telefonda sayfa iki parmakla büyütülemiyor
+/// (`user-scalable=no`); okur metnin boyunu buradan seçiyor. Seçim
+/// tarayıcıda hatırlanıyor.
+class YzYaziBoyuDugmesi extends ConsumerWidget {
+  const YzYaziBoyuDugmesi({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final en = yzIsEn(context);
+    return IconButton(
+      tooltip: en ? 'Text size' : 'Yazı boyu',
+      icon: const Icon(Icons.format_size_rounded, color: YzRenk.makine),
+      onPressed: () {
+        final kutu = context.findRenderObject() as RenderBox?;
+        final konum = kutu?.localToGlobal(Offset.zero) ?? Offset.zero;
+        final ekran = MediaQuery.sizeOf(context);
+        showDialog<void>(
+          context: context,
+          barrierColor: Colors.transparent,
+          barrierDismissible: true,
+          barrierLabel: en ? 'Close' : 'Kapat',
+          useSafeArea: false,
+          builder: (c) => Stack(children: [
+            Positioned(
+              top: konum.dy + 46,
+              right: (ekran.width - konum.dx - 48).clamp(8.0, ekran.width - 228),
+              width: 220,
+              child: Material(
+                color: YzRenk.yuzey,
+                elevation: 6,
+                borderRadius: BorderRadius.circular(6),
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(14, 12, 10, 8),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: YzRenk.cizgi),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Consumer(builder: (c, ref, _) {
+                    final olcek = ref.watch(yzYaziOlcegiProvider);
+                    final denetci = ref.read(yzYaziOlcegiProvider.notifier);
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(buyukHarf(en ? 'Text size' : 'Yazı boyu', en),
+                            style: YzYazi.ustEtiket()),
+                        const SizedBox(height: 6),
+                        Row(children: [
+                          IconButton(
+                            tooltip: en ? 'Smaller' : 'Küçült',
+                            onPressed: denetci.kuculebilir ? denetci.kucult : null,
+                            icon: Text('A−', style: YzYazi.baslik(15, renk: denetci.kuculebilir ? YzRenk.makine : YzRenk.cizgi)),
+                          ),
+                          Expanded(
+                            child: Text('%${(olcek * 100).round()}',
+                                textAlign: TextAlign.center,
+                                style: YzYazi.veri(boy: 13.5, renk: YzRenk.murekkep)),
+                          ),
+                          IconButton(
+                            tooltip: en ? 'Larger' : 'Büyüt',
+                            onPressed: denetci.buyuyebilir ? denetci.buyut : null,
+                            icon: Text('A+', style: YzYazi.baslik(20, renk: denetci.buyuyebilir ? YzRenk.makine : YzRenk.cizgi)),
+                          ),
+                        ]),
+                        if (olcek != 1.0)
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              onPressed: denetci.sifirla,
+                              child: Text(en ? 'Default' : 'Varsayılan',
+                                  style: YzYazi.veri(boy: 12, renk: YzRenk.makine)),
+                            ),
+                          ),
+                      ],
+                    );
+                  }),
+                ),
+              ),
+            ),
+          ]),
+        );
+      },
     );
   }
 }
@@ -127,15 +283,33 @@ class _YzHaritaState extends State<YzHarita> {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrap(spacing: 6, runSpacing: 6, children: [
-            for (final kod in kYzTeknoloji.keys)
-              YzTeknolojiCipi(
-                kod: kod,
-                secili: _teknoloji == kod,
-                onTap: () => setState(
-                    () => _teknoloji = _teknoloji == kod ? null : kod),
-              ),
-          ]),
+          // Telefonda çipler tek satırda yana kayıyor: başlık haritası ilk
+          // ekrana yaklaşsın (karar 60).
+          if (kis.maxWidth < 640)
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [
+                for (final kod in kYzTeknoloji.keys)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 6),
+                    child: YzTeknolojiCipi(
+                      kod: kod,
+                      secili: _teknoloji == kod,
+                      onTap: () => setState(() => _teknoloji = _teknoloji == kod ? null : kod),
+                    ),
+                  ),
+              ]),
+            )
+          else
+            Wrap(spacing: 6, runSpacing: 6, children: [
+              for (final kod in kYzTeknoloji.keys)
+                YzTeknolojiCipi(
+                  kod: kod,
+                  secili: _teknoloji == kod,
+                  onTap: () => setState(
+                      () => _teknoloji = _teknoloji == kod ? null : kod),
+                ),
+            ]),
           if (_teknoloji != null) ...[
             const SizedBox(height: 12),
             _TeknolojiOzeti(kod: _teknoloji!, en: en),
@@ -252,8 +426,13 @@ class YzBaslikKarosu extends StatelessWidget {
     final izSayisi = secili ? (kYzTeknolojiIzi[baslik.no]?[teknoloji]?[en ? 1 : 0] ?? 0) : 0;
     // Karoda yazım durumu yok (iç not; kullanıcı, 18 Kas 2026): yalnız seçili
     // teknolojinin bu başlıkta kaç yerde geçtiği.
+    final metin = kYzMetinler[baslik.no];
     final durum = !secili
-        ? null
+        ? (metin == null
+            ? null
+            : (en
+                ? '${yzOkumaSuresi(metin.metin(true), true)} min'
+                : '${yzOkumaSuresi(metin.metin(false), false)} dk okuma'))
         : (ana
             ? (en ? 'main heading · $izSayisi mentions' : 'ana başlık · $izSayisi yerde geçiyor')
             : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'));
@@ -289,7 +468,7 @@ class YzBaslikKarosu extends StatelessWidget {
                     durum,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: YzYazi.veri(boy: 10.5, renk: YzRenk.makine),
+                    style: YzYazi.veri(boy: 10.5, renk: secili ? YzRenk.makine : YzRenk.soluk),
                   ),
                   const SizedBox(height: 5),
                 ],

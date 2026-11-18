@@ -6,7 +6,7 @@
 
 ## Uydudan ürün izleme (1972-1978)
 
-Landsat 1, 23 Temmuz 1972'de fırlatıldı. NASA'nın anlatımına göre ABD, dünyadaki kıtlıktan habersiz, Sovyetler Birliği'ne **15** milyon ton buğdayı büyük bir indirimle sattı; Great Grain Robbery (Büyük Tahıl Soygunu) diye anılan bu satıştan sonra hükümet, ürünleri dünya ölçeğinde izleyecek doğru ve güncel bir sisteme ihtiyaç olduğunu gördü ve yeni fırlatılan Landsat 1'e yöneldi.
+Landsat 1, 23 Temmuz 1972'de fırlatıldı. NASA'nın anlatımına göre ABD, dünyadaki kıtlıktan habersiz, Sovyetler Birliği'ne **15** milyon ton buğdayı büyük bir indirimle sattı. Great Grain Robbery (Büyük Tahıl Soygunu) diye anılan bu satıştan sonra hükümet, ürünleri dünya ölçeğinde izleyecek doğru ve güncel bir sisteme ihtiyaç olduğunu gördü ve yeni fırlatılan Landsat 1'e yöneldi.
 
 [[gorsel:b03-landsat-1-uydusu]]
 
@@ -34,7 +34,7 @@ ABD 2008'de Landsat arşivini ücretsiz yaptı; NASA'ya göre veri kullanımı *
 
 [[gorsel:b03-sentinel-2a-nin-firlatilisi]]
 
-2012'de derin evrişimli bir sinir ağı ImageNet görüntü tanıma yarışmasını, en iyi beş tahminde **%15,3** hata oranıyla kazandı; ikinci gelenin hata oranı **%26,2**'ydi (Krizhevsky, Sutskever ve Hinton). Yöntem kısa sürede tarıma taşındı: Mohanty ve arkadaşları, Krizhevsky'nin çalışmasına dayanarak eğittikleri modelin kontrollü koşullarda çekilmiş **54.306** yaprak görüntüsünden ayrılmış test görüntülerinde **%99,35** doğruluğa ulaştığını 2016'da yayımladı ve bunu akıllı telefonla bitki hastalığı teşhisine doğru ilk adım saydı; başka koşullarda çekilmiş görüntülerde doğruluk **%31**'in biraz üstünde kaldı.
+2012'de derin evrişimli bir sinir ağı ImageNet görüntü tanıma yarışmasını, en iyi beş tahminde **%15,3** hata oranıyla kazandı; ikinci gelenin hata oranı **%26,2**'ydi (Krizhevsky, Sutskever ve Hinton). Yöntem kısa sürede tarıma taşındı: Mohanty ve arkadaşları, Krizhevsky'nin çalışmasına dayanarak eğittikleri modelin kontrollü koşullarda çekilmiş **54.306** yaprak görüntüsünden ayrılmış test görüntülerinde **%99,35** doğruluğa ulaştığını 2016'da yayımladı ve bunu akıllı telefonla bitki hastalığı teşhisine doğru ilk adım saydı. Başka koşullarda çekilmiş görüntülerde doğruluk **%31**'in biraz üstünde kaldı.
 
 [[grafik:b03-imagenet-2012]]
 
@@ -42,7 +42,7 @@ John Deere Eylül 2017'de, bilgisayarlı görü ve makine öğrenmesiyle yalnız
 
 ## Tahmin ve dil (2022-2025)
 
-ChatGPT 30 Kasım 2022'de kamuya açıldı. Ardından yapay zekâlı sohbet robotları çiftçi danışmanlığına girdi: Hindistan'ın sesle çalışan, yapay zekâlı sohbet robotu Kisan e-Mitra 2023'te devlet programlarına dair soruları yanıtlamaya başladı; Digital Green'in üretken yapay zekâyla çalışan sohbet robotu FarmerChat, geliştiricilerinin hakem değerlendirmesinden geçmemiş çalışmasına göre dört ülkede **15.000**'i aşkın çiftçiye ulaştı. Hava tahmininde GraphCast 2023'te **1.380** doğrulama hedefinin **%90**'ında işletimdeki en doğru sistemleri geçti; Avrupa Orta Vadeli Hava Tahminleri Merkezi kendi yapay zekâ modelini 25 Şubat 2025'te işletime aldı.
+ChatGPT 30 Kasım 2022'de kamuya açıldı. Ardından yapay zekâlı sohbet robotları çiftçi danışmanlığına girdi: Hindistan'ın sesle çalışan, yapay zekâlı sohbet robotu Kisan e-Mitra 2023'te devlet programlarına dair soruları yanıtlamaya başladı. Digital Green'in üretken yapay zekâyla çalışan sohbet robotu FarmerChat, geliştiricilerinin hakem değerlendirmesinden geçmemiş çalışmasına göre dört ülkede **15.000**'i aşkın çiftçiye ulaştı. Hava tahmininde GraphCast 2023'te **1.380** doğrulama hedefinin **%90**'ında işletimdeki en doğru sistemleri geçti; Avrupa Orta Vadeli Hava Tahminleri Merkezi kendi yapay zekâ modelini 25 Şubat 2025'te işletime aldı.
 
 ## Türkiye
 

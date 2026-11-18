@@ -4,7 +4,7 @@ Uzaktan algılama, tarımda yapay zekânın en geniş ölçekte çalıştığı 
 
 ## Açık arşivin etkisi
 
-ABD 2008'de Landsat görüntülerini ücretsiz yapınca, NASA'nın aktardığına göre veri kullanımı **20** kat arttı. USGS, görüntülerin kullanıcılara faydasını 2017 için tahminen **3,45** milyar dolar olarak hesaplıyor ve bunun büyük kısmını açık veri politikasına bağlıyor; ücret konursa kullanıcıların **%50**'den fazlasının ödemeyi reddetmesi bekleniyor. AB'de 2013 tarihli bir tüzük Sentinel verisine erişimi ücretsiz, tam ve açık kıldı ve uydu verisi bugün Avrupa'da yasal bir gereklilik: 2021/2116 sayılı Tüzük, üye ülkelerden tarımsal faaliyeti Copernicus Sentinel verisiyle ya da en az onun değerinde veriyle izlemelerini istiyor, analiz yöntemini ise belirlemiyor.
+ABD 2008'de Landsat görüntülerini ücretsiz yapınca, NASA'nın aktardığına göre veri kullanımı **20** kat arttı. USGS, görüntülerin kullanıcılara faydasını 2017 için tahminen **3,45** milyar dolar olarak hesaplıyor ve bunun büyük kısmını açık veri politikasına bağlıyor; ücret konursa kullanıcıların **%50**'den fazlasının ödemeyi reddetmesi bekleniyor. AB'de 2013 tarihli bir tüzük Sentinel verisine erişimi ücretsiz, tam ve açık kıldı ve uydu verisi bugün Avrupa'da yasal bir gereklilik. 2021/2116 sayılı Tüzük, üye ülkelerden tarımsal faaliyeti Copernicus Sentinel verisiyle ya da en az onun değerinde veriyle izlemelerini istiyor, analiz yöntemini ise belirlemiyor.
 
 ## Haritalamada güçlü, kararda temkinli
 

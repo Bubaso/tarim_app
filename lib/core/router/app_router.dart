@@ -35,6 +35,7 @@ import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_izleyici.dart';
 import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
 import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
+import '../../features/yapay_zeka/presentation/yz_arama_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_parcalar.dart';
@@ -160,6 +161,7 @@ class CategoryArgs {
   if (page is YzMerkezEkrani) return (path: yzPath, extra: null);
   if (page is YzBaslikEkrani) return (path: yzBaslikPath(page.slug), extra: null);
   if (page is YzTeknolojiEkrani) return (path: yzTeknolojiPath(page.kod), extra: null);
+  if (page is YzAramaEkrani) return (path: yzAramaPath, extra: null);
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
   if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
@@ -435,6 +437,11 @@ final appRouter = GoRouter(
       GoRoute(
         path: yzPath,
         pageBuilder: (context, state) => _fadePage(state, const YzMerkezEkrani()),
+      ),
+      GoRoute(
+        path: yzAramaPath,
+        pageBuilder: (context, state) => _fadePage(
+            state, YzAramaEkrani(sorgu: state.uri.queryParameters['q'] ?? '')),
       ),
       GoRoute(
         path: '$yzPath/teknoloji/:kod',

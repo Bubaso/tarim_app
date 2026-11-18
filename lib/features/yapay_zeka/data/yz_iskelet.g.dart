@@ -593,7 +593,7 @@ const Map<int, Map<String, List<int>>> kYzTeknolojiIzi = {
     "goruntu": [1, 1],
     "tahmin": [5, 4],
     "uzaktan": [1, 1],
-    "robotik": [5, 6],
+    "robotik": [6, 7],
     "sensor": [2, 2],
     "dil": [1, 1],
     "karar": [2, 2],
@@ -618,7 +618,7 @@ const Map<int, Map<String, List<int>>> kYzTeknolojiIzi = {
     "goruntu": [1, 0],
     "tahmin": [4, 4],
     "sensor": [2, 2],
-    "genomik": [12, 10]
+    "genomik": [14, 12]
   },
   6: {
     "tahmin": [2, 2],
@@ -683,7 +683,7 @@ const Map<int, Map<String, List<int>>> kYzTeknolojiIzi = {
   },
   17: {
     "tahmin": [7, 6],
-    "uzaktan": [6, 6],
+    "uzaktan": [8, 8],
     "sensor": [1, 1],
     "veri": [1, 1]
   },
@@ -707,7 +707,7 @@ const Map<int, Map<String, List<int>>> kYzTeknolojiIzi = {
   },
   21: {
     "sensor": [1, 1],
-    "veri": [6, 8]
+    "veri": [7, 9]
   },
   22: {
     "tahmin": [3, 2],

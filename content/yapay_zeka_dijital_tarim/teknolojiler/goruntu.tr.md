@@ -28,8 +28,14 @@ Ormanda kamera ölçeği değiştiriyor: Güney Kaliforniya'da yüzlerce kameray
 
 TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin geliştirdiği Orman Yangın Uyarı Sistemi o tarihte **77** kulede **154** kamerayla **3,2** milyon hektarı izliyor, küçük bir yangını **15-25** saniyede tespit ediyordu. Bu, kurumun kendi açıklaması; sistemin isabeti bağımsız olarak ölçülüp yayımlanmadı.
 
-Akademiden gelen rakamlar yüksek, ama tanımanın başarısını ölçüyor: kokarcanın zarar verdiği fındıklar **400** görüntülük bir laboratuvar setinde **%98,75** doğrulukla ayrıldı (Gadalla ve Öztekin, 2023); Bursa Karacabey'de **96** domates tarlasında zararlıları görüntüden tanıyan model **%98,91** kesinliğe ulaştı (Şahin ve arkadaşları, 2025). Tanımanın ardından gelen adımı, yani tarlada ilacın ya da kaybın azalıp azalmadığını, bir robotun meyveyi koparıp koparamadığını ölçen yayımlanmış bir Türkiye çalışması yok.
+Akademiden gelen rakamlar yüksek, ama tanımanın başarısını ölçüyor: kokarcanın zarar verdiği fındıklar **400** görüntülük bir laboratuvar setinde **%98,75** doğrulukla ayrıldı (Gadalla ve Öztekin, 2023). Bursa Karacabey'de **96** domates tarlasında zararlıları görüntüden tanıyan model **%98,91** kesinliğe ulaştı (Şahin ve arkadaşları, 2025). Tanımanın ardından gelen adımı, yani tarlada ilacın ya da kaybın azalıp azalmadığını, bir robotun meyveyi koparıp koparamadığını ölçen yayımlanmış bir Türkiye çalışması yok.
 
 [[gorsel:t-goruntu-bursa-karacabey-domates-calismasinda]]
 
-TAGEM'in 2025'te başlattığı üç yapay zekâ projesinin üçü de görüntüye dayanıyor: meyve ve bağdaki hastalık ve zararlılar için **8** araştırma enstitüsü ve **2** üniversiteyle hazırlanacak bir görüntü veri seti, kuru kayısıda multispektral görüntüleme ve mısırla pamuk için kameralı bir ilaçlama makinesi prototipi. Sonuçları henüz açıklanmadı.
+TAGEM'in 2025'te başlattığı üç yapay zekâ projesinin üçü de görüntüye dayanıyor:
+
+- Meyve ve bağdaki hastalık ve zararlılar için **8** araştırma enstitüsü ve **2** üniversiteyle hazırlanacak bir görüntü veri seti
+- Kuru kayısıda multispektral görüntüleme
+- Mısırla pamuk için kameralı bir ilaçlama makinesi prototipi
+
+Sonuçları henüz açıklanmadı.

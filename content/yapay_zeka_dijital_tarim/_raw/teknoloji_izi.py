@@ -142,6 +142,12 @@ def bloklar(md: str) -> list[str]:
             if not re.fullmatch(r"\|[\s:|-]+\|?", t):
                 cikti.append(t)
             continue
+        # Madde listesi (karar 60) tek blok: Dart'taki yzAyristir gibi liste
+        # paragraftan ayrı başlıyor ve ilk liste dışı satırda bitiyor.
+        liste = t.startswith("- ")
+        if paragraf and paragraf[0].startswith("- ") != liste:
+            cikti.append(" ".join(paragraf))
+            paragraf = []
         paragraf.append(t)
     if paragraf:
         cikti.append(" ".join(paragraf))

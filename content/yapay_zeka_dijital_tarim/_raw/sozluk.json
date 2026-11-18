@@ -1,8 +1,8 @@
 {
   "_ne": "§29 Sözlük — terimler, tanımlar ve metindeki desenler (karar 14). Her tanım b29_kaynaklar.json'daki alıntılara dayanıyor; `kaynak` o kaydın anahtarı (ya da anahtarları). sozluk_uret.py §29 sayfasını, dart_uret.py yz_sozluk.g.dart'ı buradan üretiyor.",
-  "_desen": "Küçük harfli desen kelime başında aranır ve kelimenin sonuna kadar uzanır (Türkçe ekler); '=' önekli desen büyük-küçük harfe duyarlı ve tam kelime. Cümle ortasında büyük harfle başlayan geçiş özel adın parçası sayılır; tırnak içi, kalın/italik ve adres sayılmaz; uzun terimin geçişi kısa terime gölge olur. `yalniz`: balon yalnız bu başlıklarda; `haric`: terim bu başlıklarda başka anlamda geçtiği için balon açılmaz.",
+  "_desen": "Küçük harfli desen kelime başında aranır ve kelimenin sonuna kadar uzanır (Türkçe ekler); '=' önekli desen büyük-küçük harfe duyarlı ve tam kelime. Cümle ortasında büyük harfle başlayan geçiş özel adın parçası sayılır; tırnak içi, kalın/italik ve adres sayılmaz; uzun terimin geçişi kısa terime gölge olur. `yalniz`: balon yalnız bu başlıklarda; `haric`: terim bu başlıklarda başka anlamda geçtiği için balon açılmaz. `temel` (karar 60): bölümün her sayfasında geçen kavram; balonu yalnız Kavramlar sayfasında açılır, \"geçtiği başlıklar\" listesi değişmez.",
   "terimler": [
-    {"kimlik": "yapay-zeka", "tr": "Yapay zekâ", "en": "Artificial intelligence (AI)", "kaynak": "ab_yz_tuzugu",
+    {"kimlik": "yapay-zeka", "temel": true, "tr": "Yapay zekâ", "en": "Artificial intelligence (AI)", "kaynak": "ab_yz_tuzugu",
      "tanim_tr": "AB Yapay Zekâ Tüzüğü'nün tanımıyla yapay zekâ sistemi: değişen düzeylerde özerklikle çalışmak üzere tasarlanmış ve aldığı girdiden tahmin, içerik, öneri ya da karar gibi çıktıların nasıl üretileceğini çıkaran makine tabanlı sistem.",
      "tanim_en": "In the EU AI Act's definition, an AI system is a machine-based system designed to operate with varying levels of autonomy that infers from the input it receives how to generate outputs such as predictions, content, recommendations or decisions.",
      "kaynak_tr": "Kaynak: AB Yapay Zekâ Tüzüğü (2024).", "kaynak_en": "Source: EU AI Act (2024).",
@@ -188,7 +188,7 @@
      "kaynak_tr": "Kaynak: FAO, İklim Akıllı Tarım Kaynak Kitabı (2013).", "kaynak_en": "Source: FAO, Climate-Smart Agriculture Sourcebook (2013).",
      "desen_tr": ["iklim akıllı tarım"], "desen_en": ["climate-smart agriculture"]},
 
-    {"kimlik": "dijital-tarim", "tr": "Dijital tarım", "en": "Digital farming", "kaynak": "abd_ers_2023",
+    {"kimlik": "dijital-tarim", "temel": true, "tr": "Dijital tarım", "en": "Digital farming", "kaynak": "abd_ers_2023",
      "tanim_tr": "Tarımda dijital içeriğin toplanmasını, paylaşılmasını, birleştirilmesini, çözümlenmesini ve ona erişimi güçlendirmek için internet, nesnelerin interneti, mobil cihazlar ve tahmine dayalı analiz gibi bilgi teknolojilerinin yayılması.",
      "tanim_en": "The diffusion of information technologies such as the internet, the Internet of Things, mobile devices and predictive analytics to enhance the collection, exchange, combination, analysis and access of digital content in agriculture.",
      "kaynak_tr": "Kaynak: ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (2023).", "kaynak_en": "Source: USDA Economic Research Service (2023).",
@@ -297,13 +297,13 @@
      "desen_tr": ["tarımsal yayım", "yayım eleman", "yayım ve danışmanlık", "yayım servis", "yayım uzman", "eğitim ve yayım"],
      "desen_en": ["agricultural extension", "extension officer", "extension agent", "extension service", "extension and advisory"]},
 
-    {"kimlik": "sensor", "tr": "Sensör", "en": "Sensor", "kaynak": "nist_csrc_sensor",
+    {"kimlik": "sensor", "temel": true, "tr": "Sensör", "en": "Sensor", "kaynak": "nist_csrc_sensor",
      "tanim_tr": "Ölçülen bir fiziksel özelliği (hız, sıcaklık, akış gibi) temsil eden gerilim ya da akım çıktısı üreten cihaz.",
      "tanim_en": "A device that produces a voltage or current output representative of some physical property being measured (such as speed, temperature or flow).",
      "kaynak_tr": "Kaynak: NIST, CSRC sözlüğü.", "kaynak_en": "Source: NIST, CSRC glossary.",
      "desen_tr": ["sensör"], "desen_en": ["sensor"]},
 
-    {"kimlik": "robot", "tr": "Robot", "en": "Robot", "kaynak": "fao_2022_sofa",
+    {"kimlik": "robot", "temel": true, "tr": "Robot", "en": "Robot", "kaynak": "fao_2022_sofa",
      "tanim_tr": "Doğrudan insan müdahalesi olmadan özerk çalışabilen makine.",
      "tanim_en": "A machine capable of autonomous operation without direct human intervention.",
      "kaynak_tr": "Kaynak: FAO, Gıda ve Tarımın Durumu 2022, sözlük.", "kaynak_en": "Source: FAO, The State of Food and Agriculture 2022, glossary.",

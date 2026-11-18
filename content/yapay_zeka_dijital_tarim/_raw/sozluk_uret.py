@@ -84,7 +84,7 @@ def adresler(metin: str) -> list[tuple[int, int]]:
 
 def bloklar(md: str) -> list[tuple[str, str]]:
     """yzAyristir ile aynı bölme: (tür, metin). Tür: ozet, altBaslik,
-    paragraf, tablo (tablonun metni boş)."""
+    paragraf, tablo (tablonun metni boş). Liste maddesi ayrı paragraf."""
     out, paragraf = [], []
     satirlar = md.replace("\r\n", "\n").split("\n")
 
@@ -116,6 +116,10 @@ def bloklar(md: str) -> list[tuple[str, str]]:
             while i < len(satirlar) and satirlar[i].strip().startswith("|"):
                 i += 1
             out.append(("tablo", ""))
+        elif t.startswith("- "):
+            # Madde listesi (karar 60): Dart her maddeyi ayrı parça olarak
+            # tarıyor; burada da her madde ayrı blok.
+            kapat(); out.append(("paragraf", t[2:].strip())); i += 1
         else:
             paragraf.append(t); i += 1
     kapat()

@@ -76,7 +76,14 @@ class YzMerkezEkrani extends StatelessWidget {
                                   style: YzYazi.govde(boy: dar ? 18 : 20),
                                 ),
                               ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 22),
+                              // Bölüm içi arama (karar 60): tarayıcının "sayfada
+                              // bul"u tuval metnini bulamıyor.
+                              ConstrainedBox(
+                                constraints: const BoxConstraints(maxWidth: 620),
+                                child: const YzAramaKutusu(),
+                              ),
+                              const SizedBox(height: 16),
                               Wrap(spacing: 18, runSpacing: 6, children: [
                                 Text(
                                   en ? '${kYzBasliklar.length} headings' : '${kYzBasliklar.length} başlık',

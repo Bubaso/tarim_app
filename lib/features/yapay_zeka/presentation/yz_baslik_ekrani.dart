@@ -8,7 +8,7 @@ import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import '../yz_providers.dart';
-import 'yz_metin_gorunumu.dart';
+import 'yz_makale.dart';
 import 'yz_ortak.dart' show yzDizinTuruAdi;
 import 'yz_parcalar.dart';
 import 'yz_sozluk_esle.dart';
@@ -20,29 +20,15 @@ import 'yz_teknoloji_izi.dart';
 /// Gömülü metin; yazım durumu okura gösterilmiyor (iç not; kullanıcı,
 /// 18 Kas 2026 — bölüm zaten 30 başlığın hepsi yazılınca açılıyor, karar
 /// 51). Haber alan başlıkta altında kendi haberleri (karar 32). Güncellik
-/// başlık bazında (karar 23).
-class YzBaslikEkrani extends StatefulWidget {
+/// başlık bazında (karar 23). Sayfanın iskeleti (içindekiler rayı, kaldığı
+/// yer, işaret şeridi) `YzMakaleSayfasi`nda (karar 60).
+///
+/// Adres parametreleri: `?teknoloji=` merkez sayfada seçilen teknoloji
+/// (karar 57), `?ara=` bölüm içi arama, `?terim=` sözlükte açılan terim,
+/// `?geri=` balondan gelindiyse dönülecek başlık.
+class YzBaslikEkrani extends StatelessWidget {
   const YzBaslikEkrani({super.key, required this.slug});
   final String slug;
-
-  @override
-  State<YzBaslikEkrani> createState() => _YzBaslikEkraniState();
-}
-
-class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
-  final _vurgu = YzVurguDenetcisi();
-
-  String get slug => widget.slug;
-
-  /// Teknoloji işaretini değiştiren adres (karar 57): `?teknoloji=` aynı
-  /// sayfada açılıp kapanıyor; balondan gelindiyse `?geri=` korunuyor.
-  String _adres(String? teknoloji, String? geri) => Uri(
-        path: yzBaslikPath(slug),
-        queryParameters: {
-          if (teknoloji != null) 'teknoloji': teknoloji,
-          if (geri != null) 'geri': geri,
-        },
-      ).toString().replaceFirst(RegExp(r'\?$'), '');
 
   @override
   Widget build(BuildContext context) {
@@ -56,114 +42,67 @@ class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
 
     // Sözlüğe bir terim balonundan gelindiyse (`?geri=<adres>`) geri ok o
     // başlığa dönüyor; öbür durumlarda bölümün merkez sayfasına.
-    final parametreler = GoRouter.maybeOf(context) == null
+    final yonlendirici = GoRouter.maybeOf(context);
+    final parametreler = yonlendirici == null
         ? const <String, String>{}
         : GoRouterState.of(context).uri.queryParameters;
     final geri = parametreler['geri'];
     // Merkez sayfada seçilen teknoloji (karar 57): geçtiği yerler işaretli.
     final vurgu = yzTeknolojiVar(parametreler['teknoloji']) ? parametreler['teknoloji'] : null;
-    final vurguSayisi =
-        vurgu != null && metin != null ? yzTeknolojiSay(metin.metin(en), vurgu, en) : 0;
+    final ara = (parametreler['ara'] ?? '').trim();
+    final terim = parametreler['terim'];
     final geriAdres = geri != null && kYzBasliklar.any((x) => x.slug == geri)
         ? yzBaslikPath(geri)
         : yzPath;
 
-    return Scaffold(
-      backgroundColor: YzRenk.zemin,
-      body: Column(children: [
-        YzUstSerit(geriAdres: geriAdres),
-        Expanded(
-          child: LayoutBuilder(builder: (context, kis) {
-            final dar = kis.maxWidth < 640;
-            final yan = dar ? 16.0 : 32.0;
-            return SingleChildScrollView(
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 760),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(yan, dar ? 24 : 44, yan, 56),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          buyukHarf(kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman, en),
-                          style: YzYazi.ustEtiket(renk: YzRenk.makine),
-                        ),
-                        const SizedBox(height: 10),
-                        Semantics(
-                          header: true,
-                          child: Text(b.ad(en), style: YzYazi.baslik(dar ? 30 : 40)),
-                        ),
-                        const SizedBox(height: 14),
-                        Wrap(spacing: 6, runSpacing: 6, children: [
-                          for (final t in b.teknoloji)
-                            YzTeknolojiCipi(
-                              kod: t,
-                              secili: t == vurgu,
-                              onTap: GoRouter.maybeOf(context) == null || metin == null
-                                  ? null
-                                  : () => context.go(_adres(t == vurgu ? null : t, geri)),
-                            ),
-                        ]),
-                        if (vurgu != null && metin != null) ...[
-                          const SizedBox(height: 14),
-                          _VurguSeridi(
-                            kod: vurgu,
-                            sayi: vurguSayisi,
-                            en: en,
-                            sonraki: _vurgu.sonraki,
-                            kapat: GoRouter.maybeOf(context) == null
-                                ? null
-                                : () => context.go(_adres(null, geri)),
-                          ),
-                        ],
-                        const SizedBox(height: 14),
-                        if (metin != null)
-                          Text(
-                            en
-                                ? 'Last checked against its sources: ${yzTarih(metin.guncellendi, true)}'
-                                : 'Kaynaklarından son okunduğu gün: ${yzTarih(metin.guncellendi, false)}',
-                            style: YzYazi.veri(boy: 12.5, renk: YzRenk.soluk),
-                          ),
-                        const SizedBox(height: 26),
-                        if (metin != null)
-                          _Icindekiler(
-                            basliklar: [
-                              for (final x in yzAyristir(metin.metin(en)))
-                                if (x.tur == YzBlokTuru.altBaslik) x.metin,
-                            ],
-                            en: en,
-                            git: _vurgu.basligaGit,
-                          ),
-                        if (metin != null)
-                          YzMetinGorunumu(
-                              metin: metin.metin(en),
-                              en: en,
-                              sozluk: !kYzSozluksuzBasliklar.contains(b.no),
-                              bolumNo: b.no,
-                              vurgu: vurgu,
-                              vurguDenetcisi: _vurgu,
-                              kaynakSayfasi: kYzSozluksuzBasliklar.contains(b.no)
-                                  ? null
-                                  : 'b${b.no.toString().padLeft(2, '0')}'),
-                        // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.
-                        if (b.slug == kYzDizinAdresi) const _DizinEklenenler(),
-                        if (b.haberAlir) ...[
-                          const SizedBox(height: 30),
-                          YzBolumBasligi(en ? 'News under this heading' : 'Bu başlıktaki haberler'),
-                          YzHaberListesi(baslikNo: b.no, enCok: 12),
-                        ],
-                        const SizedBox(height: 40),
-                        _KomsuBasliklar(onceki: onceki, sonraki: sonraki),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
-        ),
-      ]),
+    // Teknoloji işaretini değiştiren adres: `?teknoloji=` aynı sayfada açılıp
+    // kapanıyor; balondan gelindiyse `?geri=` korunuyor.
+    String adres([String? teknoloji]) => Uri(
+          path: yzBaslikPath(slug),
+          queryParameters: {
+            if (teknoloji != null) 'teknoloji': teknoloji,
+            if (geri != null) 'geri': geri,
+          },
+        ).toString().replaceFirst(RegExp(r'\?$'), '');
+
+    return YzMakaleSayfasi(
+      key: ValueKey('baslik-$slug'),
+      konumAnahtari: slug,
+      geriAdres: geriAdres,
+      ustEtiket: kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman,
+      baslik: b.ad(en),
+      metin: metin?.metin(en),
+      en: en,
+      cipler: [
+        for (final t in b.teknoloji)
+          YzTeknolojiCipi(
+            kod: t,
+            secili: t == vurgu,
+            onTap: yonlendirici == null || metin == null
+                ? null
+                : () => context.go(adres(t == vurgu ? null : t)),
+          ),
+      ],
+      guncellendi: metin?.guncellendi,
+      sozluk: !kYzSozluksuzBasliklar.contains(b.no),
+      bolumNo: b.no,
+      kaynakSayfasi:
+          kYzSozluksuzBasliklar.contains(b.no) ? null : 'b${b.no.toString().padLeft(2, '0')}',
+      teknoloji: vurgu,
+      arama: ara.isEmpty ? null : ara,
+      odakTerim: terim,
+      isaretiKaldir: yonlendirici == null ? null : () => context.go(adres()),
+      altlar: [
+        // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.
+        if (b.slug == kYzDizinAdresi) const _DizinEklenenler(),
+        if (b.haberAlir) ...[
+          const SizedBox(height: 30),
+          YzBolumBasligi(en ? 'News under this heading' : 'Bu başlıktaki haberler'),
+          YzHaberListesi(baslikNo: b.no, enCok: 12),
+        ],
+        const SizedBox(height: 40),
+        _KomsuBasliklar(onceki: onceki, sonraki: sonraki),
+      ],
     );
   }
 }
@@ -326,87 +265,3 @@ class _Bulunamadi extends StatelessWidget {
     );
   }
 }
-
-
-/// Seçili teknolojinin bu sayfadaki izi (karar 57): kaç yerde geçtiği,
-/// sıradaki işaretli yere gitme ve işareti kaldırma.
-class _VurguSeridi extends StatelessWidget {
-  const _VurguSeridi(
-      {required this.kod, required this.sayi, required this.en, required this.sonraki, this.kapat});
-  final String kod;
-  final int sayi;
-  final bool en;
-  final VoidCallback sonraki;
-  final VoidCallback? kapat;
-
-  @override
-  Widget build(BuildContext context) {
-    final ad = kYzTeknoloji[kod]?[en ? 'en' : 'tr'] ?? kod;
-    final metin = sayi == 0
-        ? (en ? '$ad does not come up on this page.' : '$ad bu sayfada geçmiyor.')
-        : (en
-            ? '$ad comes up in $sayi places on this page; they are marked.'
-            : '$ad bu sayfada $sayi yerde geçiyor; geçtiği yerler işaretli.');
-    return Container(
-      padding: const EdgeInsets.fromLTRB(12, 6, 4, 6),
-      decoration: const BoxDecoration(
-        color: YzRenk.makineAcik,
-        border: Border(left: BorderSide(color: YzRenk.makine, width: 3)),
-      ),
-      child: Row(children: [
-        Expanded(child: Text(metin, style: YzYazi.govde(boy: 15))),
-        if (sayi > 0)
-          TextButton(
-            onPressed: sonraki,
-            child: Text(en ? 'Next ↓' : 'Sonraki ↓', style: YzYazi.veri(boy: 13, renk: YzRenk.makine)),
-          ),
-        if (kapat != null)
-          IconButton(
-            tooltip: en ? 'Remove marking' : 'İşareti kaldır',
-            icon: const Icon(Icons.close_rounded, size: 18, color: YzRenk.makine),
-            onPressed: kapat,
-          ),
-      ]),
-    );
-  }
-}
-
-
-/// İçindekiler: üç ya da daha çok alt başlığı olan metinde, metnin üstünde.
-/// Alt başlığa dokununca o bölüme kaydırıyor.
-class _Icindekiler extends StatelessWidget {
-  const _Icindekiler({required this.basliklar, required this.en, required this.git});
-  final List<String> basliklar;
-  final bool en;
-  final void Function(int) git;
-
-  @override
-  Widget build(BuildContext context) {
-    if (basliklar.length < 3) return const SizedBox.shrink();
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 22),
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(14, 10, 14, 6),
-        decoration: BoxDecoration(
-          border: Border(left: BorderSide(color: YzRenk.bitki.withValues(alpha: 0.6), width: 2)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(buyukHarf(en ? 'Contents' : 'İçindekiler', en), style: YzYazi.ustEtiket()),
-            const SizedBox(height: 4),
-            for (var i = 0; i < basliklar.length; i++)
-              InkWell(
-                onTap: () => git(i),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4),
-                  child: Text(basliklar[i], style: YzYazi.govde(boy: 15, renk: YzRenk.makine)),
-                ),
-              ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-

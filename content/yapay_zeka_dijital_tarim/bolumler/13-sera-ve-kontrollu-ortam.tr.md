@@ -37,4 +37,4 @@ Tarlayla karşılaştırınca sera, yapay zekâ için elverişli bir alan: koşu
 
 [[gorsel:b13-turkiye-de-jeotermal-isitmali-modern]]
 
-Araştırma tarafında, TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü'nün ortak olduğu bir proje, yapay zekâ ve görüntü işlemeyle domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir mobil robot geliştiriyor; proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor. Proje sera iklimini değil, seradaki işleri hedefliyor.
+Araştırma tarafında, TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü'nün ortak olduğu bir proje, yapay zekâ ve görüntü işlemeyle domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir mobil robot geliştiriyor. Proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor. Proje sera iklimini değil, seradaki işleri hedefliyor.

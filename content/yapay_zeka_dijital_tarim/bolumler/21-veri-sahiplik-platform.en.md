@@ -8,7 +8,14 @@ A tractor's position, a harvester's yield map, a sensor's moisture reading, a fe
 
 ## What the field says
 
-In 2018 Europe's farmer and agri-industry organisations published a joint code of conduct on agricultural data sharing by contractual agreement. The code accepts that data cannot be owned in the same way as physical assets; it grants the farmer the rights over data produced on the farm or during farming operations. The parties may not use, process or share data without the consent of whoever generated them; the data originator has the right to receive data on their operation in a structured, machine-readable format; contracts should use simple and understandable language. Data must not be used to assess the originator's ability to pay for a service or machine. But access to data relevant to the correct functioning of the machinery stays restricted, and compliance with the code is voluntary. Where data are linked, through a contract, a land register or coordinates, to an identifiable person, they count as personal data and fall under Europe's data protection regulation. The EU Data Act cites the code as a precedent and, since 2025, has made a user's access to the data of a connected machine binding.
+In 2018 Europe's farmer and agri-industry organisations published a joint code of conduct on agricultural data sharing by contractual agreement. The code accepts that data cannot be owned in the same way as physical assets; it grants the farmer the rights over data produced on the farm or during farming operations. Under the code:
+
+- The parties may not use, process or share data without the consent of whoever generated them.
+- The data originator has the right to receive data on their operation in a structured, machine-readable format.
+- Contracts should use simple and understandable language.
+- Data must not be used to assess the originator's ability to pay for a service or machine.
+
+But access to data relevant to the correct functioning of the machinery stays restricted, and compliance with the code is voluntary. Where data are linked, through a contract, a land register or coordinates, to an identifiable person, they count as personal data and fall under Europe's data protection regulation. The EU Data Act cites the code as a precedent and, since 2025, has made a user's access to the data of a connected machine binding.
 
 The ownership framing itself is disputed. According to a legal analysis by Atik (2022), the idea of giving farmers a data ownership right has been adopted through voluntary codes in Europe and the US; but that framing is not adequate to address the sector's real problems, namely data lock-in, data fragmentation, data access problems and farmers' lack of trust, and has the potential to make them worse.
 

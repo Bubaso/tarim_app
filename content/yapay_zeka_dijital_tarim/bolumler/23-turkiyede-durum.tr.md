@@ -17,7 +17,12 @@ Programın dışında bakanlık birimleri yapay zekâyı üç izleme işinde kul
 
 Bir önceki plan, Ulusal Yapay Zekâ Stratejisi'nin 2024-2025 Eylem Planı, **71** eylemin hiçbirinde tarımı anmıyordu. Eylemlerin sorumlu ve ilgili kurumu olarak **11** bakanlık sayılıyordu; Tarım ve Orman Bakanlığı aralarında yoktu.
 
-2026-2030 planı bu tabloyu değiştirdi. Tarım artık veri ve mevzuat gereksinimleri öncelikle belirlenecek dört sektörden biri: sağlık, tarım, savunma ve e-ticaret. Pilot uygulamaların yürütüleceği alanlar arasında "tarım sahaları" sayılıyor; fiziksel yapay zekâ ve robotik programında tarım robotları var; temel model araştırma çağrılarının öncelikli alanlarından biri tarım; D-8 ülkeleriyle ortak pilot programlar tarımı da kapsıyor. Plan tarımı **11** ayrı bağlamda anıyor.
+2026-2030 planı bu tabloyu değiştirdi. Tarım artık veri ve mevzuat gereksinimleri öncelikle belirlenecek dört sektörden biri: sağlık, tarım, savunma ve e-ticaret. Plan tarımı **11** ayrı bağlamda anıyor; aralarında şunlar var:
+
+- Pilot uygulamaların yürütüleceği alanlar arasında "tarım sahaları" sayılıyor.
+- Fiziksel yapay zekâ ve robotik programında tarım robotları var.
+- Temel model araştırma çağrılarının öncelikli alanlarından biri tarım.
+- D-8 ülkeleriyle ortak pilot programlar tarımı da kapsıyor.
 
 Değişmeyen şey kurum. Yeni planda her eylemin bir "ana sorumlu" kurumu ve iş birliği kurumları yazılı. Bu listelerde dokuz bakanlık geçiyor; Tarım ve Orman Bakanlığı hiçbirinde yok. İki plan da çiftçiden ve kırsaldan hiç söz etmiyor. Tarım, yapay zekânın uygulanacağı bir alan olarak plana giriyor; kendi kurumuyla ve kendi öznesiyle değil.
 
@@ -51,7 +56,15 @@ Bakan da Mayıs 2025'te, bakanlığın sitesinde yayımlanan bir konuşmasında,
 
 ## Bakanlığın kendi belgesi: beklemede
 
-Bakanlığın hazırladığı belgenin adı Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı. Bakan Mayıs 2025'teki aynı konuşmasında, IV. Tarım Orman Şûrası'nda yapay zekâ konusunda önemli tespitler yapıldığını aktararak planlarını sıraladı: dijital tarım, yapay zekâ ve ileri tarım teknolojileri araştırmaları için bir araştırma enstitüsü, kuraklık ve aşırı hava olaylarına karşı erken uyarı sistemleri ve dijital kuraklık izleme sistemi, tarım sigortasında uydu teknolojilerinin ve yapay zekânın kullanılması, bir tarımsal gözlem uydu ağı, tarımsal üretim için yapay zekâ destekli tahmin ve izleme sistemleri. 23-24 Ekim 2025'te Tarım Reformu Genel Müdürlüğü'nün ev sahipliğinde, Şûra kararlarına dayanan bir çalıştay yapıldı; hazırlanacak strateji ve eylem planına altlık olmak üzere bitkisel üretim, hayvancılık, kırsal kalkınma, orman ve su yönetimi için yapay zekâ destekli dijital dönüşüm eylem önerileri belirlendi. Önerilere kamu, akademi ve özel sektörden uzmanlarla birlikte Gartner uzmanları da katkı verdi.
+Bakanlığın hazırladığı belgenin adı Tarım ve Orman Sektöründe Yapay Zekâ Destekli Dijital Dönüşüm Strateji Belgesi ve Eylem Planı. Bakan Mayıs 2025'teki aynı konuşmasında, IV. Tarım Orman Şûrası'nda yapay zekâ konusunda önemli tespitler yapıldığını aktararak planlarını sıraladı:
+
+- Dijital tarım, yapay zekâ ve ileri tarım teknolojileri araştırmaları için bir araştırma enstitüsü
+- Kuraklık ve aşırı hava olaylarına karşı erken uyarı sistemleri ve dijital kuraklık izleme sistemi
+- Tarım sigortasında uydu teknolojilerinin ve yapay zekânın kullanılması
+- Bir tarımsal gözlem uydu ağı
+- Tarımsal üretim için yapay zekâ destekli tahmin ve izleme sistemleri
+
+23-24 Ekim 2025'te Tarım Reformu Genel Müdürlüğü'nün ev sahipliğinde, Şûra kararlarına dayanan bir çalıştay yapıldı. Hazırlanacak strateji ve eylem planına altlık olmak üzere bitkisel üretim, hayvancılık, kırsal kalkınma, orman ve su yönetimi için yapay zekâ destekli dijital dönüşüm eylem önerileri belirlendi. Önerilere kamu, akademi ve özel sektörden uzmanlarla birlikte Gartner uzmanları da katkı verdi.
 
 Belge 24 Kasım 2025'te, 2026 bütçesinin sunumunda, yılın başında paylaşılacak bir belge olarak anıldı. Bakan 4 Haziran 2026'daki bir zirvede belgenin hazırlandığını ve en kısa zamanda paylaşılacağını söyledi; aynı konuşmada bir Yapay Zekâ ve Dijital Tarım Teknolojileri Araştırma Merkezi kurduklarını açıkladı. Kasım 2026 itibarıyla strateji belgesinin metni yayımlanmadı.
 
@@ -59,11 +72,11 @@ Belge 24 Kasım 2025'te, 2026 bütçesinin sunumunda, yılın başında paylaş�
 
 ## Araştırma tarafı: TAGEM
 
-Bakanlığın araştırma kolu Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü'nün (TAGEM) Ocak 2026'da yayımlanan 2025 faaliyet raporu, yürüttüğü araştırma alanları arasında dijital tarım ve yapay zekâ araştırmalarını da sayıyor; 2026-2030 Tarımsal Araştırma Master Planı'nda ayrı bir Dijital Tarım ve Yapay Zekâ Araştırma Fırsat Alanı var.
+Bakanlığın araştırma kolu Tarımsal Araştırmalar ve Politikalar Genel Müdürlüğü'nün (TAGEM) Ocak 2026'da yayımlanan 2025 faaliyet raporu, yürüttüğü araştırma alanları arasında dijital tarım ve yapay zekâ araştırmalarını da sayıyor. 2026-2030 Tarımsal Araştırma Master Planı'nda ayrı bir Dijital Tarım ve Yapay Zekâ Araştırma Fırsat Alanı var.
 
-Raporun anlattığı üç yapay zekâ projesinden birincisi bazı meyve türlerinde ve bağda önemli hastalık ve zararlıları derin öğrenmeyle tespit etmeyi amaçlıyor: TAGEM'e bağlı **8** araştırma enstitüsü ve **2** üniversitenin iş birliğiyle bir görüntü veri seti hazırlanacak, en iyi performansı veren model meyve üreticilerine ve uzmanlara web ve mobil yazılım olarak sunulacak. İkincisi kuru kayısıda kükürtdioksit ve nem oranını multispektral görüntüleme ve derin öğrenmeyle belirleyecek bir cihaz prototipi. Üçüncüsü mısır ve pamukta yabancı otların yerini kamerayla tespit edip ilaç memelerini yalnız hedefin üstünde açacak bir hassas ilaçlama makinesi prototipi. Rapor yayımlandığında üç proje de sürüyordu; sonuçları henüz açıklanmadı.
+Raporun anlattığı üç yapay zekâ projesinden birincisi bazı meyve türlerinde ve bağda önemli hastalık ve zararlıları derin öğrenmeyle tespit etmeyi amaçlıyor. TAGEM'e bağlı **8** araştırma enstitüsü ve **2** üniversitenin iş birliğiyle bir görüntü veri seti hazırlanacak; en iyi performansı veren model meyve üreticilerine ve uzmanlara web ve mobil yazılım olarak sunulacak. İkincisi kuru kayısıda kükürtdioksit ve nem oranını multispektral görüntüleme ve derin öğrenmeyle belirleyecek bir cihaz prototipi. Üçüncüsü mısır ve pamukta yabancı otların yerini kamerayla tespit edip ilaç memelerini yalnız hedefin üstünde açacak bir hassas ilaçlama makinesi prototipi. Rapor yayımlandığında üç proje de sürüyordu; sonuçları henüz açıklanmadı.
 
-Rapora göre hayvan hastalıklarında yapay zekâ tabanlı erken teşhis ve uyarı sistemi geliştirecek VetAlarm projesi de 2025'te onaylandı. TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü ise yapay zekâ ve görüntü işlemeyle gübreleme, ilaçlama ve hasat yapabilecek otonom bir sera robotu projesinin ortağı; proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor.
+Rapora göre hayvan hastalıklarında yapay zekâ tabanlı erken teşhis ve uyarı sistemi geliştirecek VetAlarm projesi de 2025'te onaylandı. TAGEM'e bağlı Zirai Mücadele Merkez Araştırma Enstitüsü ise yapay zekâ ve görüntü işlemeyle gübreleme, ilaçlama ve hasat yapabilecek otonom bir sera robotu projesinin ortağı. Proje TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulundu, 1 Ocak 2026'da başladı ve 2027 sonunda tamamlanması planlanıyor.
 
 ## Yapay zekânın altındaki katman
 

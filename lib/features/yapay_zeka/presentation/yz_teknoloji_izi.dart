@@ -61,13 +61,16 @@ bool yzTeknolojiGeciyor(String blok, String kod, bool en) {
 /// ile birleştirmek aynı sonucu veriyor.
 String yzTabloSatiri(List<String> hucreler) => '| ${hucreler.join(' | ')} |';
 
-/// Bir metinde teknolojinin geçtiği blok sayısı (paragraflar + tablo
-/// satırları) — Python'daki `teknoloji_izi.iz()` sayımının karşılığı.
+/// Bir metinde teknolojinin geçtiği blok sayısı (paragraflar, listeler,
+/// tablo satırları) — Python'daki `teknoloji_izi.iz()` sayımının karşılığı.
 int yzTeknolojiSay(String md, String kod, bool en) {
   var n = 0;
   for (final b in yzAyristir(md)) {
     if (b.tur == YzBlokTuru.paragraf || b.tur == YzBlokTuru.ozet) {
       if (yzTeknolojiGeciyor(b.metin, kod, en)) n++;
+    } else if (b.tur == YzBlokTuru.liste) {
+      // Python listeyi tek blok sayıyor (satırlar boşlukla birleşik).
+      if (yzTeknolojiGeciyor(yzListeMetni(b.ogeler), kod, en)) n++;
     } else if (b.tur == YzBlokTuru.tablo) {
       for (final s in b.satirlar) {
         if (yzTeknolojiGeciyor(yzTabloSatiri(s), kod, en)) n++;

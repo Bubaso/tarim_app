@@ -43,7 +43,7 @@ class YzGorselKarti extends StatelessWidget {
                     color: YzRenk.zemin,
                     alignment: Alignment.center,
                     child: Image.network(
-                      g.adres,
+                      g.adresi(en),
                       fit: BoxFit.contain,
                       errorBuilder: (c, h, i) => const Center(
                           child: Icon(Icons.image_not_supported_outlined, color: YzRenk.soluk)),
@@ -93,7 +93,7 @@ class YzGorselKarti extends StatelessWidget {
 extension on YzGorselKarti {
   Widget _buyukGorunum() {
     final cizim = _cizim(gorsel.kimlik, en, buyuk: true);
-    if (cizim == null) return Image.network(gorsel.adres, fit: BoxFit.contain);
+    if (cizim == null) return Image.network(gorsel.adresi(en), fit: BoxFit.contain);
     return FittedBox(fit: BoxFit.contain, child: SizedBox(width: 1000, child: cizim));
   }
 }

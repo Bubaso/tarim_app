@@ -215,7 +215,7 @@ def main() -> int:
          "class YzTerim {",
          "  const YzTerim(this.kimlik, this.tr, this.en, this.tanimTr, this.tanimEn,",
          "      this.kaynakTr, this.kaynakEn, this.desenTr, this.desenEn,",
-         "      {this.yalniz = const [], this.haric = const []});",
+         "      {this.yalniz = const [], this.haric = const [], this.temel = false});",
          "  final String kimlik;",
          "  final String tr;",
          "  final String en;",
@@ -241,6 +241,14 @@ def main() -> int:
          "  /// Balonun açılmayacağı başlıklar.",
          "  final List<int> haric;",
          "",
+         "  /// Temel terim (karar 60): bölümün her sayfasında geçen kavram (yapay",
+         "  /// zekâ, sensör…). Balonu yalnız Kavramlar sayfasında açılır; sözlükteki",
+         "  /// \"geçtiği başlıklar\" listesi bundan etkilenmez.",
+         "  final bool temel;",
+         "",
+         "  /// Balonun bu sayfada açılıp açılmadığı ([no] null: teknoloji sayfası).",
+         "  bool balonda(int? no) => no == null ? !temel : baslikta(no) && (!temel || no == kYzKavramlarNo);",
+         "",
          "  bool baslikta(int no) => (yalniz.isEmpty || yalniz.contains(no)) && !haric.contains(no);",
          "",
          "  String ad(bool en) => en ? this.en : tr;",
@@ -248,6 +256,9 @@ def main() -> int:
          "  String kaynak(bool en) => en ? kaynakEn : kaynakTr;",
          "  List<String> desen(bool en) => en ? desenEn : desenTr;",
          "}",
+         "",
+         "/// Kavramlar başlığının numarası: temel terimlerin balonu yalnız orada.",
+         "const int kYzKavramlarNo = 2;",
          "",
          "const List<YzTerim> kYzSozluk = ["]
     for x in terimler:
@@ -261,6 +272,8 @@ def main() -> int:
             ek += f", yalniz: [{', '.join(str(n) for n in x['yalniz'])}]"
         if x.get("haric"):
             ek += f", haric: [{', '.join(str(n) for n in x['haric'])}]"
+        if x.get("temel"):
+            ek += ", temel: true"
         z.append(f"      [{', '.join(dizgi(d) for d in x['desen_en'])}]{ek}),")
     z.append("];")
     z.append("")
@@ -405,10 +418,50 @@ def main() -> int:
         gr.append(f"  {dizgi(kimlik)}: YzGorsel(kimlik: {dizgi(kimlik)}, adres: {dizgi(adres)},")
         gr.append(f"      genislik: {int(x.get('genislik', 0))}, yukseklik: {int(x.get('yukseklik', 0))},")
         gr.append(f"      kunyeTr: {kt}, kunyeEn: {ke}, kaynakTr: {st}, kaynakEn: {se},")
-        gr.append(f"      yapayZeka: {'true' if x.get('yapay_zeka') else 'false'}),")
+        tr_adres = ("/" + x["dosya_tr"].removeprefix("web/")) if x.get("dosya_tr") else None
+        gr.append(f"      yapayZeka: {'true' if x.get('yapay_zeka') else 'false'}"
+                  + (f", adresTr: {dizgi(tr_adres)}" if tr_adres else "") + "),")
     gr.append("};")
     gr.append("")
     GRAFIK.write_text("\n".join(gr), encoding="utf-8")
+
+    # ── kısaltma balonu (karar 60) ─────────────────────────────────────
+    # _raw/kisaltmalar.json → yz_kisaltmalar.g.dart. Balon yalnız
+    # `kisaltmalar`daki kısaltmalarda; `bilinen` ve `ad` doğrulayıcı içindir.
+    kyol = raw / "kisaltmalar.json"
+    kis = json.loads(kyol.read_text(encoding="utf-8")) if kyol.exists() else {}
+    KIS = KOK / "lib/features/yapay_zeka/data/yz_kisaltmalar.g.dart"
+    kz = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+          "// Kaynak: content/yapay_zeka_dijital_tarim/_raw/kisaltmalar.json",
+          "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+          "//",
+          "// Kısaltma balonu (karar 60): az bilinen bir kısaltma bir sayfada ilk",
+          "// geçtiği yerde açılmıyorsa açılımı balonla gösteriliyor.",
+          "",
+          "class YzKisaltma {",
+          "  const YzKisaltma(this.tr, this.en);",
+          "  final String tr;",
+          "  final String en;",
+          "  String acilim(bool en) => en ? this.en : tr;",
+          "}",
+          "",
+          "const Map<String, YzKisaltma> kYzKisaltmalar = {"]
+    for k, x in sorted(kis.get("kisaltmalar", {}).items()):
+        kz.append(f"  {dizgi(k)}: YzKisaltma({dizgi(x['tr'])}, {dizgi(x['en'])}),")
+    kz.append("};")
+    kz.append("")
+    kz.append("/// Balonsuz geçen büyük harfli sözcükler: herkesin bildiği kısaltmalar ve")
+    kz.append("/// özel adlar (testin kapsama denetimi için).")
+    kz.append("const Set<String> kYzKisaltmaDisi = {")
+    for k in sorted(set(kis.get("bilinen", [])) | set(kis.get("ad", []))):
+        kz.append(f"  {dizgi(k)},")
+    kz.append("};")
+    kz.append("")
+    KIS.write_text("\n".join(kz), encoding="utf-8")
+    try:
+        subprocess.run(["dart", "format", str(KIS)], check=False, capture_output=True, timeout=60)
+    except Exception:
+        pass
 
     # ── rakamdan kaynağa (karar 58, etkileşim) ─────────────────────────
     # Her kalın rakamın kaynağı: _raw/rakam_kaynaklari.py eşliyor.

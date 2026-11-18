@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_teknoloji.g.dart';
-import 'yz_metin_gorunumu.dart';
+import 'yz_makale.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 
@@ -34,59 +34,33 @@ class YzTeknolojiEkrani extends StatelessWidget {
       return aa != bb ? aa - bb : a.no - b.no;
     });
 
-    return Scaffold(
-      backgroundColor: YzRenk.zemin,
-      body: Column(children: [
-        const YzUstSerit(geriAdres: yzPath),
-        Expanded(
-          child: LayoutBuilder(builder: (context, kis) {
-            final dar = kis.maxWidth < 640;
-            final yan = dar ? 16.0 : 32.0;
-            return SingleChildScrollView(
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 760),
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(yan, dar ? 24 : 44, yan, 56),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(buyukHarf(en ? 'Technology' : 'Teknoloji', en),
-                            style: YzYazi.ustEtiket(renk: YzRenk.makine)),
-                        const SizedBox(height: 10),
-                        Semantics(
-                          header: true,
-                          child: Text(ad, style: YzYazi.baslik(dar ? 30 : 40)),
-                        ),
-                        const SizedBox(height: 14),
-                        if (metin != null) ...[
-                          Text(
-                            en
-                                ? 'Last checked against its sources: ${yzTarih(metin.guncellendi, true)}'
-                                : 'Kaynaklarından son okunduğu gün: ${yzTarih(metin.guncellendi, false)}',
-                            style: YzYazi.veri(boy: 12.5, renk: YzRenk.soluk),
-                          ),
-                          const SizedBox(height: 26),
-                          YzMetinGorunumu(metin: metin.metin(en), en: en, kaynakSayfasi: 'tek_$kod'),
-                        ],
-                        const SizedBox(height: 30),
-                        YzBolumBasligi(
-                          en ? 'Where it comes up' : 'Geçtiği başlıklar',
-                          alt: en
-                              ? 'Open a heading to see the passages on ${ad.toLowerCase()} marked.'
-                              : 'Bir başlığı açınca ${kucukHarf(ad, false)} geçtiği yerler işaretli gelir.',
-                        ),
-                        for (final b in basliklar)
-                          YzKesisimSatiri(baslik: b, kod: kod, ana: ana.contains(b.no)),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
+    final yonlendirici = GoRouter.maybeOf(context);
+    final ara = yonlendirici == null
+        ? ''
+        : (GoRouterState.of(context).uri.queryParameters['ara'] ?? '').trim();
+
+    return YzMakaleSayfasi(
+      key: ValueKey('teknoloji-$kod'),
+      konumAnahtari: 'teknoloji-$kod',
+      geriAdres: yzPath,
+      ustEtiket: en ? 'Technology' : 'Teknoloji',
+      baslik: ad,
+      metin: metin?.metin(en),
+      en: en,
+      guncellendi: metin?.guncellendi,
+      kaynakSayfasi: 'tek_$kod',
+      arama: ara.isEmpty ? null : ara,
+      isaretiKaldir: yonlendirici == null ? null : () => context.go(yzTeknolojiPath(kod)),
+      altlar: [
+        const SizedBox(height: 30),
+        YzBolumBasligi(
+          en ? 'Where it comes up' : 'Geçtiği başlıklar',
+          alt: en
+              ? 'Open a heading to see the passages on ${ad.toLowerCase()} marked.'
+              : 'Bir başlığı açınca ${kucukHarf(ad, false)} geçtiği yerler işaretli gelir.',
         ),
-      ]),
+        for (final b in basliklar) YzKesisimSatiri(baslik: b, kod: kod, ana: ana.contains(b.no)),
+      ],
     );
   }
 }

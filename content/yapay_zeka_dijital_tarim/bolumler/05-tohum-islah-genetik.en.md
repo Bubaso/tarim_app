@@ -30,7 +30,13 @@ Montesinos-López and colleagues (2021) reviewed the applications of deep learni
 
 ## Türkiye
 
-The 2027 Programme counts plant breeding and the conservation of genetic resources as strategic for climate adaptation and productivity; it lists the conservation of local varieties and genetic resources, the development of varieties tolerant of drought, heat, disease and pests, and greater capacity to use biotechnology and modern breeding methods among the work that must continue. The programme's agricultural measures, however, contain no item dedicated to genomic selection or to AI in breeding; in the agriculture chapter, the only genomics item is in livestock: an additional support coefficient for breeding heifers that have been genomically tested. The R&D chapter lists genome editing, together with AI, among the technology areas for which R&D infrastructure is to be built, but does not link it to agriculture.
+The 2027 Programme counts plant breeding and the conservation of genetic resources as strategic for climate adaptation and productivity. Among the work that must continue, it lists:
+
+- The conservation of local varieties and genetic resources
+- The development of varieties tolerant of drought, heat, disease and pests
+- Greater capacity to use biotechnology and modern breeding methods
+
+The programme's agricultural measures, however, contain no item dedicated to genomic selection or to AI in breeding; in the agriculture chapter, the only genomics item is in livestock: an additional support coefficient for breeding heifers that have been genomically tested. The R&D chapter lists genome editing, together with AI, among the technology areas for which R&D infrastructure is to be built, but does not link it to agriculture.
 
 The Türkiye-based International Winter Wheat Improvement Program (IWWIP) was set up in **1986** between the Government of Türkiye and CIMMYT; ICARDA joined in **1991**. According to an assessment published in 2019, **93** varieties from the programme had been released in **11** countries and were sown on an estimated **2.5-3.0** million hectares a year; the programme distributes its material to more than **100** cooperators on every continent.
 
