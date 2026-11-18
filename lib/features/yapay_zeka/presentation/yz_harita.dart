@@ -5,6 +5,8 @@ import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_teknoloji.g.dart';
 import '../data/yz_metinler.g.dart';
+import 'yz_merkez_liste.dart';
+import 'yz_mobil.dart';
 import 'yz_okuma.dart';
 import 'yz_tasarim.dart';
 import 'yz_yollar.dart';
@@ -15,14 +17,33 @@ import 'yz_parcalar.dart';
 
 /// Teknoloji etiketi çipi. Seçiliyse çelik mavisiyle dolu.
 class YzTeknolojiCipi extends StatelessWidget {
-  const YzTeknolojiCipi({super.key, required this.kod, this.secili = false, this.onTap});
+  const YzTeknolojiCipi(
+      {super.key, required this.kod, this.secili = false, this.onTap, this.genisDokunma = false});
   final String kod;
   final bool secili;
   final VoidCallback? onTap;
 
+  /// Telefonda (merkez sayfa çip satırı): görünen çip aynı, dokunma alanı
+  /// en az 44 piksel yüksek.
+  final bool genisDokunma;
+
   @override
   Widget build(BuildContext context) {
     final ad = kYzTeknoloji[kod]?[yzIsEn(context) ? 'en' : 'tr'] ?? kod;
+    final cip = _cip(ad);
+    if (!genisDokunma) return cip;
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      excludeFromSemantics: true,
+      onTap: onTap,
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(minHeight: 44),
+        child: Align(widthFactor: 1, heightFactor: 1, child: cip),
+      ),
+    );
+  }
+
+  Widget _cip(String ad) {
     return Semantics(
       button: onTap != null,
       selected: secili,
@@ -69,6 +90,7 @@ class _YzHaritaState extends State<YzHarita> {
     for (final b in kYzBasliklar) {
       katmanlar.putIfAbsent(b.katman, () => []).add(b);
     }
+    final telefon = yzTelefon(context);
     return LayoutBuilder(builder: (context, kis) {
       final genis = kis.maxWidth >= 760;
       final karoGenisligi = genis
@@ -79,7 +101,22 @@ class _YzHaritaState extends State<YzHarita> {
         children: [
           // Telefonda çipler tek satırda yana kayıyor: başlık haritası ilk
           // ekrana yaklaşsın (karar 60).
-          if (kis.maxWidth < 640)
+          // Telefonda (★2): taşıyorsa sağda yumuşak solgunluk, kesik çip
+          // yok; dokunma alanı 44 piksel.
+          if (telefon)
+            YzMerkezCipSeridi(children: [
+              for (final kod in kYzTeknoloji.keys)
+                Padding(
+                  padding: const EdgeInsets.only(right: 6),
+                  child: YzTeknolojiCipi(
+                    kod: kod,
+                    secili: _teknoloji == kod,
+                    genisDokunma: true,
+                    onTap: () => setState(() => _teknoloji = _teknoloji == kod ? null : kod),
+                  ),
+                ),
+            ])
+          else if (kis.maxWidth < 640)
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(children: [
@@ -108,15 +145,47 @@ class _YzHaritaState extends State<YzHarita> {
             const SizedBox(height: 12),
             _TeknolojiOzeti(kod: _teknoloji!, en: en),
           ],
-          const SizedBox(height: 18),
+          SizedBox(height: telefon ? 10 : 18),
           for (final k in katmanlar.entries)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 14),
-              child: _katmanSatiri(k.key, k.value, genis, karoGenisligi, en),
-            ),
+            if (telefon)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: _katmanListesi(k.key, k.value, en),
+              )
+            else
+              Padding(
+                padding: const EdgeInsets.only(bottom: 14),
+                child: _katmanSatiri(k.key, k.value, genis, karoGenisligi, en),
+              ),
         ],
       );
     });
+  }
+
+  /// Telefonda (★20): katman etiketi, altında karosuz, ince çizgiyle
+  /// ayrılmış satırlar. Karonun taşıdığı bütün durumlar satırda.
+  Widget _katmanListesi(String katman, List<YzBaslik> basliklar, bool en) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 2),
+          child: Text(
+            buyukHarf(kYzKatmanlar[katman]?[en ? 'en' : 'tr'] ?? katman, en),
+            style: YzYazi.ustEtiket(),
+          ),
+        ),
+        for (var i = 0; i < basliklar.length; i++)
+          YzBaslikSatiri(
+            baslik: basliklar[i],
+            ustCizgi: i > 0,
+            sonuk: _teknoloji != null && !basliklar[i].teknoloji.contains(_teknoloji),
+            teknoloji: _teknoloji,
+            ana: _teknoloji != null &&
+                (kYzTeknolojiAna[_teknoloji]?.contains(basliklar[i].no) ?? false),
+          ),
+      ],
+    );
   }
 
   /// Geniş ekranda katman adı solda, karolar sağda (Row + Expanded); dar
