@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_sozluk.g.dart';
+import 'yz_balon_kabugu.dart';
 import 'yz_okuma.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
@@ -192,7 +193,8 @@ class YzEtkilesim {
 }
 
 /// Terimin balonu: dokunulan yerin altında (ekranın alt kısmındaysa üstünde)
-/// açılan küçük kart. Dışarı dokununca ya da Esc ile kapanıyor.
+/// açılan küçük kart. Dışarı dokununca ya da Esc ile kapanıyor. Telefonda
+/// aynı içerik alttan açılan sayfada (yz_balon_kabugu.dart).
 /// [geri]: balonun açıldığı başlığın adresi. "Sözlükte aç" sözlüğe `go` ile
 /// gidiyor — webde adres çubuğu da değişsin, tarayıcının geri tuşu başlığa
 /// dönsün — ve `?geri=` ile sözlük sayfasının geri okunu o başlığa bağlıyor.
@@ -202,71 +204,48 @@ class YzEtkilesim {
 Future<void> yzTerimBalonu(BuildContext context, YzTerim terim, Offset konum, bool en,
     {String? geri}) {
   final yonlendirici = GoRouter.maybeOf(context);
-  return showDialog<void>(
-    context: context,
-    barrierColor: Colors.transparent,
-    barrierDismissible: true,
-    barrierLabel: en ? 'Close' : 'Kapat',
-    useSafeArea: false,
-    builder: (ctx) {
-      final ekran = MediaQuery.sizeOf(ctx);
-      final genislik = math.min(340.0, ekran.width - 24);
-      final sol = (konum.dx - genislik / 2)
-          .clamp(12.0, math.max(12.0, ekran.width - genislik - 12))
-          .toDouble();
-      final ustte = konum.dy > ekran.height * 0.62;
-      return Stack(children: [
-        Positioned(
-          left: sol,
-          width: genislik,
-          top: ustte ? null : konum.dy + 16,
-          bottom: ustte ? ekran.height - konum.dy + 16 : null,
-          child: Semantics(
-            container: true,
-            label: terim.ad(en),
-            child: Material(
-              color: YzRenk.yuzey,
-              elevation: 6,
-              borderRadius: BorderRadius.circular(6),
-              child: Container(
-                padding: const EdgeInsets.fromLTRB(16, 14, 16, 6),
-                decoration: BoxDecoration(
-                  border: Border.all(color: YzRenk.cizgi),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(terim.ad(en), style: YzYazi.baslik(17)),
-                    const SizedBox(height: 6),
-                    Text(terim.tanim(en),
-                        style: YzYazi.govde(boy: 15.5).copyWith(height: 1.45)),
-                    const SizedBox(height: 8),
-                    Text(terim.kaynak(en), style: YzYazi.veri(boy: 11.5, renk: YzRenk.soluk)),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          // Okur dönünce başlık kaldığı yerden açılsın (karar 60).
-                          final konum = Scrollable.maybeOf(context)?.position.pixels;
-                          if (geri != null && konum != null) YzOkumaKonumu.kaydet(geri, konum);
-                          Navigator.of(ctx).pop();
-                          yonlendirici?.go(Uri(
-                            path: yzBaslikPath('sozluk'),
-                            queryParameters: {'terim': terim.kimlik, if (geri != null) 'geri': geri},
-                          ).toString());
-                        },
-                        child: Text(en ? 'Open the glossary' : 'Sözlükte aç'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+  return yzBalonAc(
+    context,
+    konum: konum,
+    en: en,
+    etiket: terim.ad(en),
+    genislik: 340,
+    ustteOrani: 0.62,
+    dolgu: const EdgeInsets.fromLTRB(16, 14, 16, 6),
+    icerik: (ctx, telefon) {
+      void sozluguAc() {
+        // Okur dönünce başlık kaldığı yerden açılsın (karar 60).
+        final konum = Scrollable.maybeOf(context)?.position.pixels;
+        if (geri != null && konum != null) YzOkumaKonumu.kaydet(geri, konum);
+        Navigator.of(ctx).pop();
+        yonlendirici?.go(Uri(
+          path: yzBaslikPath('sozluk'),
+          queryParameters: {'terim': terim.kimlik, if (geri != null) 'geri': geri},
+        ).toString());
+      }
+
+      final eylem = en ? 'Open the glossary' : 'Sözlükte aç';
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(terim.ad(en), style: YzYazi.baslik(telefon ? 18 : 17)),
+          SizedBox(height: telefon ? 8 : 6),
+          Text(terim.tanim(en),
+              style: YzYazi.govde(boy: telefon ? 16.5 : 15.5).copyWith(height: 1.45)),
+          SizedBox(height: telefon ? 10 : 8),
+          Text(terim.kaynak(en),
+              style: YzYazi.veri(boy: telefon ? 12 : 11.5, renk: YzRenk.soluk)),
+          if (telefon) ...[
+            const SizedBox(height: 14),
+            YzBalonEylemi(yazi: eylem, onPressed: sozluguAc),
+          ] else
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(onPressed: sozluguAc, child: Text(eylem)),
             ),
-          ),
-        ),
-      ]);
+        ],
+      );
     },
   );
 }

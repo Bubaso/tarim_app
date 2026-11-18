@@ -1,8 +1,7 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 import '../data/yz_kisaltmalar.g.dart';
+import 'yz_balon_kabugu.dart';
 import 'yz_tasarim.dart';
 
 /// Kısaltma balonu (karar 60).
@@ -64,56 +63,31 @@ List<YzKisaltmaIsareti> yzKisaltmalariBul(String metin, Set<String> gorulen,
 }
 
 /// Dokunulan yerin altında (ekranın alt kısmındaysa üstünde) açılan küçük
-/// kart; dışarı dokununca ya da Esc ile kapanıyor.
+/// kart; dışarı dokununca ya da Esc ile kapanıyor. Telefonda aynı içerik
+/// alttan açılan sayfada (yz_balon_kabugu.dart).
 Future<void> yzKisaltmaBalonu(BuildContext context, String kisaltma, Offset konum, bool en) {
   final k = kYzKisaltmalar[kisaltma];
   if (k == null) return Future.value();
-  return showDialog<void>(
-    context: context,
-    barrierColor: Colors.transparent,
-    barrierDismissible: true,
-    barrierLabel: en ? 'Close' : 'Kapat',
-    useSafeArea: false,
-    builder: (ctx) {
-      final ekran = MediaQuery.sizeOf(ctx);
-      final genislik = math.min(320.0, ekran.width - 24);
-      final sol = (konum.dx - genislik / 2)
-          .clamp(12.0, math.max(12.0, ekran.width - genislik - 12))
-          .toDouble();
-      final ustte = konum.dy > ekran.height * 0.62;
-      return Stack(children: [
-        Positioned(
-          left: sol,
-          width: genislik,
-          top: ustte ? null : konum.dy + 16,
-          bottom: ustte ? ekran.height - konum.dy + 16 : null,
-          child: Semantics(
-            container: true,
-            label: kisaltma,
-            child: Material(
-              color: YzRenk.yuzey,
-              elevation: 6,
-              borderRadius: BorderRadius.circular(6),
-              child: Container(
-                padding: const EdgeInsets.fromLTRB(16, 12, 16, 14),
-                decoration: BoxDecoration(
-                  border: Border.all(color: YzRenk.cizgi),
-                  borderRadius: BorderRadius.circular(6),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(kisaltma, style: YzYazi.veri(boy: 13, renk: YzRenk.makine, kalinlik: FontWeight.w700)),
-                    const SizedBox(height: 6),
-                    Text(k.acilim(en), style: YzYazi.govde(boy: 15.5).copyWith(height: 1.45)),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-      ]);
-    },
+  return yzBalonAc(
+    context,
+    konum: konum,
+    en: en,
+    etiket: kisaltma,
+    genislik: 320,
+    ustteOrani: 0.62,
+    dolgu: const EdgeInsets.fromLTRB(16, 12, 16, 14),
+    icerik: (ctx, telefon) => Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(kisaltma,
+            style: telefon
+                ? YzYazi.baslik(18, renk: YzRenk.makine)
+                : YzYazi.veri(boy: 13, renk: YzRenk.makine, kalinlik: FontWeight.w700)),
+        SizedBox(height: telefon ? 8 : 6),
+        Text(k.acilim(en),
+            style: YzYazi.govde(boy: telefon ? 16.5 : 15.5).copyWith(height: 1.45)),
+      ],
+    ),
   );
 }
