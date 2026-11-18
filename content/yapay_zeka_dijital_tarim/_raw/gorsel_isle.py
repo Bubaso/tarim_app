@@ -190,7 +190,20 @@ def kaynak_en(tr: str) -> str:
     return en
 
 
-def kimlik(no: int, konu: str) -> str:
+def sayfa_kodu(a: dict) -> str:
+    """Adayın sayfası: başlık "bNN" ya da teknoloji sayfası "tek_<kod>"."""
+    if a.get("teknoloji"):
+        return f"tek_{a['teknoloji']}"
+    return f"b{int(a['baslik_no']):02d}"
+
+
+def sayfa_dosyasi(kod: str) -> Path:
+    if kod.startswith("tek_"):
+        return BURASI.parent / "teknolojiler" / f"{kod[4:]}.tr.md"
+    return next(BOLUMLER.glob(f"{kod[1:]}-*.tr.md"))
+
+
+def kimlik(no, konu: str) -> str:
     s = re.sub(r"\([^)]*\)", "", konu).replace("ı", "i").replace("İ", "i")
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode().lower()
     kelimeler = [k for k in re.split(r"[^a-z0-9]+", s) if k]
@@ -199,7 +212,12 @@ def kimlik(no: int, konu: str) -> str:
         if len(sonuc) + len(k) + 1 > 36:
             break
         sonuc = f"{sonuc}-{k}" if sonuc else k
-    return f"b{no:02d}-{sonuc}"
+    return f"{no}-{sonuc}" if isinstance(no, str) else f"b{no:02d}-{sonuc}"
+
+
+def aday_kimligi(a: dict) -> str:
+    """Başlık adayı "bNN-…", teknoloji sayfası adayı "t-<kod>-…"."""
+    return kimlik("t-" + a["teknoloji"] if a.get("teknoloji") else a["baslik_no"], a["konu"])
 
 
 def bloklar(metin: str) -> list[str]:
@@ -252,11 +270,11 @@ def main() -> int:
     print(f"{len(adaylar)} aday · {len(secilen)} işlenecek · {len(pdf)} PDF şekli (ayrı adım) · {len(atlanan)} alınmıyor")
     if kuru:
         for a in secilen:
-            print(f"  {kimlik(a['baslik_no'], a['konu'])} ← {a['gorsel_adresi'][:80]}")
+            print(f"  {aday_kimligi(a)} ← {a['gorsel_adresi'][:80]}")
         return 0
     hatalar = []
     for a in secilen:
-        k = kimlik(a["baslik_no"], a["konu"])
+        k = aday_kimligi(a)
         if k in gorseller and (DEPO / gorseller[k]["dosya"]).exists():
             continue
         if a["gorsel_adresi"] in KIRP:
@@ -278,7 +296,8 @@ def main() -> int:
         kaynak_tr = IC_NOT.sub("", a.get("kaynak_satiri", "")).strip()
         on = kaynak_tr.split(":")[0]
         gorseller[k] = {
-            "baslik_no": a["baslik_no"],
+            "sayfa": sayfa_kodu(a),
+            **({"baslik_no": a["baslik_no"]} if a.get("baslik_no") else {}),
             "dosya": sonuc["dosya"],
             "genislik": sonuc["genislik"],
             "yukseklik": sonuc["yukseklik"],
@@ -295,9 +314,11 @@ def main() -> int:
         }
         print(f"  ✓ {k} · {sonuc['genislik']}×{sonuc['yukseklik']} · {sonuc['bayt'] // 1024} KB")
         KAYIT.write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    # Yönergeler.
-    for no in sorted({g["baslik_no"] for g in gorseller.values()}):
-        tr = next(BOLUMLER.glob(f"{no:02d}-*.tr.md"))
+    # Yönergeler: TR'de adayın paragrafının ardına, EN'de aynı blok sırasına.
+    for g in gorseller.values():
+        g.setdefault("sayfa", f"b{int(g['baslik_no']):02d}" if g.get("baslik_no") else "")
+    for kod in sorted({g["sayfa"] for g in gorseller.values() if g["sayfa"]}):
+        tr = sayfa_dosyasi(kod)
         en = tr.with_name(tr.name.replace(".tr.md", ".en.md"))
         mt, me = tr.read_text(encoding="utf-8"), en.read_text(encoding="utf-8")
         bt, be = bloklar(mt), bloklar(me)
@@ -306,7 +327,7 @@ def main() -> int:
             continue
         eklenecek: dict[int, list[str]] = {}
         for k, g in gorseller.items():
-            if g["baslik_no"] != no or f"[[gorsel:{k}]]" in mt:
+            if g["sayfa"] != kod or f"[[gorsel:{k}]]" in mt:
                 continue
             i = [j for j, b in enumerate(bt) if b.startswith(g["yer"])]
             if len(i) != 1:
@@ -325,7 +346,7 @@ def main() -> int:
     if pdf:
         print("PDF şekilleri (ayrı adım):")
         for a in pdf:
-            print(f"  {kimlik(a['baslik_no'], a['konu'])} ← {a['sayfa_adresi']} · {a.get('boyut')}")
+            print(f"  {aday_kimligi(a)} ← {a['sayfa_adresi']} · {a.get('boyut')}")
     return 0
 
 
