@@ -154,9 +154,24 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     super.dispose();
   }
 
+  /// Yazı boyu değişince okunan yer kaymasın: kaydırma, sayfadaki oranıyla
+  /// korunuyor (metin uzayınca piksel konumu başka bir paragrafa düşerdi).
+  void _olcekDegisti(double? eski, double yeni) {
+    if (eski == null || eski == yeni || !_kaydirma.hasClients) return;
+    final p = _kaydirma.position;
+    if (p.maxScrollExtent <= 0) return;
+    final oran = p.pixels / p.maxScrollExtent;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !_kaydirma.hasClients) return;
+      final q = _kaydirma.position;
+      _kaydirma.jumpTo((oran * q.maxScrollExtent).clamp(0.0, q.maxScrollExtent));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final en = widget.en;
+    ref.listen<double>(yzYaziOlcegiProvider, _olcekDegisti);
     final olcek = ref.watch(yzYaziOlcegiProvider);
     final md = widget.metin;
     final altBasliklar = md == null

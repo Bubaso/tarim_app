@@ -263,6 +263,29 @@ void main() {
     });
   });
 
+  testWidgets('madde işareti küçük kare; madde metni işaretin yanında', (t) async {
+    t.view.physicalSize = const Size(800, 800);
+    t.view.devicePixelRatio = 1;
+    addTearDown(t.view.reset);
+    await t.pumpWidget(const MaterialApp(
+        home: Scaffold(
+            body: SingleChildScrollView(
+                child: YzMetinGorunumu(
+                    metin: '# 1 · B\n\nGiriş:\n\n- birinci madde\n- ikinci madde\n', en: false)))));
+    await t.pumpAndSettle();
+    final isaretler = find.byWidgetPredicate((w) =>
+        w is Container &&
+        w.decoration is BoxDecoration &&
+        (w.decoration as BoxDecoration).borderRadius == BorderRadius.circular(1));
+    expect(isaretler, findsNWidgets(2));
+    for (final e in isaretler.evaluate()) {
+      expect(t.getSize(find.byWidget(e.widget)), const Size(6, 6), reason: 'çubuk değil kare');
+    }
+    final kare = t.getRect(find.byWidget(isaretler.evaluate().first.widget));
+    final madde = t.getRect(find.textContaining('birinci madde', findRichText: true).first);
+    expect(madde.left - kare.right, greaterThanOrEqualTo(10), reason: 'madde metni işarete yapışmasın');
+  });
+
   test('her teknoloji sayfasında ve başlıkta listeler iki dilde aynı', () {
     for (final b in kYzBasliklar) {
       final m = kYzMetinler[b.no];

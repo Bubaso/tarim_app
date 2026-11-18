@@ -707,15 +707,21 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                     children: [
                       SizedBox(
                         width: 22,
-                        child: Padding(
-                          // Madde işareti ilk satırın ortasında.
-                          padding: EdgeInsets.only(top: (govde.fontSize! * govde.height!) / 2 - 3),
-                          child: Container(
-                            width: 6,
-                            height: 6,
-                            decoration: BoxDecoration(
-                              color: YzRenk.bitki.withValues(alpha: 0.8),
-                              borderRadius: BorderRadius.circular(1),
+                        // Align: SizedBox'ın sıkı genişliği kareyi çubuğa
+                        // çevirmesin (6 × 6 kalsın).
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            // Madde işareti ilk satırın ortasında.
+                            padding: EdgeInsets.only(
+                                left: 2, top: (govde.fontSize! * govde.height!) / 2 - 3),
+                            child: Container(
+                              width: 6,
+                              height: 6,
+                              decoration: BoxDecoration(
+                                color: YzRenk.bitki.withValues(alpha: 0.8),
+                                borderRadius: BorderRadius.circular(1),
+                              ),
                             ),
                           ),
                         ),
