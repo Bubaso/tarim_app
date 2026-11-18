@@ -176,6 +176,67 @@ KAYNAK = {
 }
 
 
+# Lejant çevirisi (karar 60, ○ 16): yazısı İngilizce kalan haritalarda Türkçe
+# sayfa görselin altında görseldeki yazıların karşılığını veriyor. Yalnız
+# Türkçe; künye değil (görselin ne olduğu künyede).
+LEJANT = {
+    "b06-degisken-oranli-ekim-recete-haritasi":
+        "Görseldeki yazılar: 32,000 / 28,000 / 24,000 spa = akre başına 32.000 / 28.000 / 24.000 tohum "
+        "(spa: seeds per acre).",
+    "b06-soya-ekim-sikligi-ciftlik":
+        "Görseldeki yazılar: Data-intensive prescription research layout for the Saunders County site = "
+        "Saunders County'deki veri yoğun reçete denemesinin parsel düzeni; Soybean Prescription Target Rate "
+        "(sds/ac) = soya reçetesinde hedef ekim sıklığı (akre başına tohum); Feet = fit.",
+    "b09-makine-ogrenmesiyle-almanya-urun":
+        "Görseldeki yazılar: Germany's agricultural landscape = Almanya'nın tarım peyzajı; Grassland = "
+        "çayır-mera; Winter Wheat & Triticale = kışlık buğday ve tritikale; Winter Rye = kışlık çavdar; "
+        "Winter Barley = kışlık arpa; Winter Spelt = kışlık kavılca; Maize = mısır; Winter Rapeseed = "
+        "kışlık kolza; Summer Cereals = yazlık tahıllar; Lupine = acı bakla; Sugar Beet = şeker pancarı; "
+        "Sunflower = ayçiçeği; Potatoes = patates; Beans = bakla ve fasulye; Peas = bezelye; Soy = soya; "
+        "Orchards & Vineyards = meyve bahçeleri ve bağlar; Deciduous & Mixed Forest = yaprak döken ve "
+        "karışık orman; Coniferous Forest = iğne yapraklı orman; Built-up = yerleşim; Water = su; "
+        "Other = diğer.",
+    "b09-sen4cap-sentinel-1-ve-sentinel-2-ile":
+        "Görseldeki yazılar: Agricultural landscape of the Netherlands = Hollanda'nın tarım peyzajı; "
+        "Oat = yulaf; Sugar beet = şeker pancarı; Clover root = üçgül kökü; Winter barley = kışlık arpa; "
+        "Summer barley = yazlık arpa; Lilium = zambak; Medicago = yonca; Onion = soğan; Potato = patates; "
+        "Tulip = lale; Winter carrot = kışlık havuç; Winter wheat = kışlık buğday; Maize = mısır; "
+        "Permanent crops = çok yıllık bitkiler; Grass = çayır; Summer wheat = yazlık buğday; "
+        "Fallow = nadas; Other crops = diğer ürünler.",
+    "b14-kamuya-acik-izlemede-gorunmeyen":
+        "Görseldeki yazılar: a Industrial fishing vessels = a endüstriyel balıkçı gemileri; b Transport "
+        "and energy vessels = b taşıma ve enerji gemileri; publicly tracked = kamuya açık izlenen; "
+        "Fraction of vessels publicly tracked per km² = kilometrekare başına kamuya açık izlenen gemilerin "
+        "payı; Industrial fishing / Transport and energy (number of vessels) = endüstriyel balıkçılık / "
+        "taşıma ve enerji (gemi sayısı); Asia = Asya; Europe = Avrupa; N. America = Kuzey Amerika; "
+        "Africa = Afrika; S. America = Güney Amerika; Australia = Avustralya; Not publicly tracked = "
+        "kamuya açık izlenmeyen; Publicly tracked = kamuya açık izlenen.",
+    "b14-global-fishing-watch-yapay-zeka-ve":
+        "Görseldeki yazılar: Offshore infrastructure = açık deniz yapıları; Oil platforms = petrol "
+        "platformları; Wind turbines = rüzgâr türbinleri; Vessel activity = gemi hareketleri; Oil vessels "
+        "= petrol gemileri; Wind vessels = rüzgâr santrali gemileri; Fishing vessels = balıkçı gemileri; "
+        "Non-fishing vessels = balıkçılık dışı gemiler.",
+    "b02-verim-haritasi":
+        "Görseldeki yazılar: Estimated Volume (Dry) (bu/ac) = tahmini kuru verim (akre başına buşel); "
+        "parantez içindeki ac = sınıfın kapladığı alan (akre).",
+    "b11-meyve-boylamasinda-makine-gorusunun":
+        "Görseldeki yazılar: Emlid GNSS = Emlid GNSS alıcısı; LED light panels = LED aydınlatma "
+        "panelleri; Basler cameras = Basler kameraları; Generator = jeneratör; Computer = bilgisayar.",
+    "t-goruntu-avustralya-seker-kamisi":
+        "Görseldeki yazılar: Spray Application = ilaç atılan alan; Spray Trial Boundary = deneme alanının "
+        "sınırı; Spray Trial 1-6 = ilaçlama denemesi 1-6.",
+    "t-sensor-nebraska-da-bitki-ortusu-sensoruyle":
+        "Görseldeki yazılar: 2020 Sites / 2019 Sites = 2020 / 2019 deneme yerleri; NE_Cities = Nebraska "
+        "kentleri; NE_NRDs = Nebraska doğal kaynak bölgeleri; NE_Counties = Nebraska ilçeleri; Treatments "
+        "= uygulamalar; Active Sensor Management = aktif sensörle yönetim; Grower = üreticinin uygulaması; "
+        "High N Reference = yüksek azotlu karşılaştırma; Rate Block - Grower Timing = doz bloğu, üreticinin "
+        "zamanlaması; Rate Block - Sensor-Based Timing = doz bloğu, sensöre dayalı zamanlama.",
+    "b28-digital-green-video-egitimi":
+        "Görseldeki yazılar: Treatments = gruplar; Any DG = Digital Green'in videolu eğitimi; Control = "
+        "karşılaştırma grubu (yalnız yüz yüze eğitim).",
+}
+
+
 def kunye_duzelt(gorseller: dict) -> None:
     for k, g in gorseller.items():
         for alan, tablo in (("kunye", KUNYE), ("kaynak", KAYNAK)):
@@ -186,6 +247,10 @@ def kunye_duzelt(gorseller: dict) -> None:
             m = g["kunye"][dil].rstrip()
             g["kunye"][dil] = m if m.endswith((".", "!", "?")) else m + "."
         turkce_kopya(k, g)
+        if k in LEJANT:
+            g["lejant"] = {"tr": LEJANT[k]}
+        else:
+            g.pop("lejant", None)
 
 
 GORSEL_KLASORU = BURASI.parents[2] / "web" / "yz" / "gorsel"
@@ -213,8 +278,7 @@ def turkce_kopyalari_isle() -> int:
     """Yalnız Türkçe kopyaları kayda işler (aday klasörü olmadan):
     `python3 -I gorsel_isle.py --turkce`."""
     kayit = json.loads(KAYIT.read_text(encoding="utf-8"))
-    for k, g in kayit["gorseller"].items():
-        turkce_kopya(k, g)
+    kunye_duzelt(kayit["gorseller"])
     KAYIT.write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     n = sum(1 for g in kayit["gorseller"].values() if g.get("dosya_tr"))
     print(f"✓ {n} görselin Türkçe kopyası kayıtta")

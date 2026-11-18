@@ -160,7 +160,10 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Doz iki yoldan belirleniyor. Birincisinde önceden bir reçete haritası hazırlanıyor:",
-   "sayfa": "b06"
+   "sayfa": "b06",
+   "lejant": {
+    "tr": "Görseldeki yazılar: 32,000 / 28,000 / 24,000 spa = akre başına 32.000 / 28.000 / 24.000 tohum (spa: seeds per acre)."
+   }
   },
   "b06-bitki-ortusu-sensoruyle-azot": {
    "baslik_no": 6,
@@ -206,7 +209,10 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Yapay zekânın bu zincirdeki yeri karar halkası: hangi noktaya ne kadar",
-   "sayfa": "b06"
+   "sayfa": "b06",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Data-intensive prescription research layout for the Saunders County site = Saunders County'deki veri yoğun reçete denemesinin parsel düzeni; Soybean Prescription Target Rate (sds/ac) = soya reçetesinde hedef ekim sıklığı (akre başına tohum); Feet = fit."
+   }
   },
   "b07-derin-pekistirmeli-ogrenmeyle-sulama": {
    "baslik_no": 7,
@@ -323,7 +329,10 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Ürün izlemenin iki ayrı sorusu var. İlki: tarlada ne ekili?",
-   "sayfa": "b09"
+   "sayfa": "b09",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Germany's agricultural landscape = Almanya'nın tarım peyzajı; Grassland = çayır-mera; Winter Wheat & Triticale = kışlık buğday ve tritikale; Winter Rye = kışlık çavdar; Winter Barley = kışlık arpa; Winter Spelt = kışlık kavılca; Maize = mısır; Winter Rapeseed = kışlık kolza; Summer Cereals = yazlık tahıllar; Lupine = acı bakla; Sugar Beet = şeker pancarı; Sunflower = ayçiçeği; Potatoes = patates; Beans = bakla ve fasulye; Peas = bezelye; Soy = soya; Orchards & Vineyards = meyve bahçeleri ve bağlar; Deciduous & Mixed Forest = yaprak döken ve karışık orman; Coniferous Forest = iğne yapraklı orman; Built-up = yerleşim; Water = su; Other = diğer."
+   }
   },
   "b09-sen4cap-sentinel-1-ve-sentinel-2-ile": {
    "baslik_no": 9,
@@ -346,7 +355,10 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "AB'de ürün tespitinde uydu verisi artık yasal bir gereklilik.",
-   "sayfa": "b09"
+   "sayfa": "b09",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Agricultural landscape of the Netherlands = Hollanda'nın tarım peyzajı; Oat = yulaf; Sugar beet = şeker pancarı; Clover root = üçgül kökü; Winter barley = kışlık arpa; Summer barley = yazlık arpa; Lilium = zambak; Medicago = yonca; Onion = soğan; Potato = patates; Tulip = lale; Winter carrot = kışlık havuç; Winter wheat = kışlık buğday; Maize = mısır; Permanent crops = çok yıllık bitkiler; Grass = çayır; Summer wheat = yazlık buğday; Fallow = nadas; Other crops = diğer ürünler."
+   }
   },
   "b10-sweeper-biber-hasat-robotu": {
    "baslik_no": 10,
@@ -511,7 +523,10 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "İzleme dışı gemileri gösteren harita, Paolo ve arkadaşlarının (2024) çalışmasından",
-   "sayfa": "b14"
+   "sayfa": "b14",
+   "lejant": {
+    "tr": "Görseldeki yazılar: a Industrial fishing vessels = a endüstriyel balıkçı gemileri; b Transport and energy vessels = b taşıma ve enerji gemileri; publicly tracked = kamuya açık izlenen; Fraction of vessels publicly tracked per km² = kilometrekare başına kamuya açık izlenen gemilerin payı; Industrial fishing / Transport and energy (number of vessels) = endüstriyel balıkçılık / taşıma ve enerji (gemi sayısı); Asia = Asya; Europe = Avrupa; N. America = Kuzey Amerika; Africa = Afrika; S. America = Güney Amerika; Australia = Avustralya; Not publicly tracked = kamuya açık izlenmeyen; Publicly tracked = kamuya açık izlenen."
+   }
   },
   "b15-kuresel-agac-boyu-haritasi-2020": {
    "baslik_no": 15,
@@ -1351,7 +1366,10 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Av denetiminde ise yapay zekâ, insanın elle izleyemeyeceği ölçekte bir şey",
-   "sayfa": "b14"
+   "sayfa": "b14",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Offshore infrastructure = açık deniz yapıları; Oil platforms = petrol platformları; Wind turbines = rüzgâr türbinleri; Vessel activity = gemi hareketleri; Oil vessels = petrol gemileri; Wind vessels = rüzgâr santrali gemileri; Fishing vessels = balıkçı gemileri; Non-fishing vessels = balıkçılık dışı gemiler."
+   }
   },
   "b15-kamerayla-orman-yangini-dumani": {
    "baslik_no": 15,
@@ -1696,7 +1714,10 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e,",
-   "sayfa": "b02"
+   "sayfa": "b02",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Estimated Volume (Dry) (bu/ac) = tahmini kuru verim (akre başına buşel); parantez içindeki ac = sınıfın kapladığı alan (akre)."
+   }
   },
   "b08-seker-kamisi-hedefli-ilaclama": {
    "sayfa": "b08",
@@ -1883,7 +1904,10 @@
    "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni; MDPI). Şeklin (ii) parçası makaleye göre başka bir yayından izinle alınmış ('with permission [70]'); o parça için CC BY kapsamı belirsiz. mdpi.com bot korumalı olduğu için PMC kopyası kullanıldı.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda"
+   "yer": "Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Emlid GNSS = Emlid GNSS alıcısı; LED light panels = LED aydınlatma panelleri; Basler cameras = Basler kameraları; Generator = jeneratör; Computer = bilgisayar."
+   }
   },
   "b14-deniz-kafesinde-balik-boyunu-olcen": {
    "sayfa": "b14",
@@ -1995,7 +2019,10 @@
    "lisans_notu": "arXiv sayfasında 'License: CC BY-NC-ND 4.0'. Şeklin altlığı Google uydu görüntüsü (köşede 'Google' yazısı) — üçüncü taraf içeriği; kaynak satırında belirtilmeli. arxiv.org robots.txt /html/ yolunu kapatmıyor.",
    "tur": "harita",
    "yapay_zeka": false,
-   "yer": "Tanıma tarlada da yüksek çıkabiliyor: Almanya'daki mısır denemesinde insansız hava aracı görüntülerinde"
+   "yer": "Tanıma tarlada da yüksek çıkabiliyor: Almanya'daki mısır denemesinde insansız hava aracı görüntülerinde",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Spray Application = ilaç atılan alan; Spray Trial Boundary = deneme alanının sınırı; Spray Trial 1-6 = ilaçlama denemesi 1-6."
+   }
   },
   "t-goruntu-guney-kaliforniya-da-dag-kamerasi": {
    "sayfa": "tek_goruntu",
@@ -2288,7 +2315,10 @@
    "lisans_notu": "CC BY 4.0 (Frontiers açık erişim; makale sayfasındaki lisans). frontiersin.org robots.txt makale sayfasını ve /files/Articles/ yolunu kapatmıyor (ilk turda da kullanıldı).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Kazancın büyüklüğü, sensörün neyin yerine geçtiğine bağlı: Datta ve Taghvaeian'ın (2023) derlemesinde"
+   "yer": "Kazancın büyüklüğü, sensörün neyin yerine geçtiğine bağlı: Datta ve Taghvaeian'ın (2023) derlemesinde",
+   "lejant": {
+    "tr": "Görseldeki yazılar: 2020 Sites / 2019 Sites = 2020 / 2019 deneme yerleri; NE_Cities = Nebraska kentleri; NE_NRDs = Nebraska doğal kaynak bölgeleri; NE_Counties = Nebraska ilçeleri; Treatments = uygulamalar; Active Sensor Management = aktif sensörle yönetim; Grower = üreticinin uygulaması; High N Reference = yüksek azotlu karşılaştırma; Rate Block - Grower Timing = doz bloğu, üreticinin zamanlaması; Rate Block - Sensor-Based Timing = doz bloğu, sensöre dayalı zamanlama."
+   }
   },
   "t-dil-digital-green-in-sohbet-robotu": {
    "sayfa": "tek_dil",
@@ -2768,7 +2798,10 @@
    "lisans_notu": "Makale CC BY 4.0 (yayıncı ve PMC kaydı). Altlık harita Esri ve ortaklarının (şekilde 'Esri, NASA, NGA, USGS, … OpenStreetMap contributors, HERE, Garmin, FAO, METI/NASA, USGS' satırı var). pmc.ncbi.nlm.nih.gov /articles/ yolu robots.txt'de açık; cdn.ncbi.nlm.nih.gov robots.txt 404 (kısıt yok); oturum ya da bot koruması yok.",
    "tur": "harita",
    "yapay_zeka": false,
-   "yer": "Hindistan'ın Bihar eyaletinde, ulaşılması zor kadın çiftçilere yönelik video eğitimleriyle tanınan Digital Green adlı sivil toplum kuruluşu"
+   "yer": "Hindistan'ın Bihar eyaletinde, ulaşılması zor kadın çiftçilere yönelik video eğitimleriyle tanınan Digital Green adlı sivil toplum kuruluşu",
+   "lejant": {
+    "tr": "Görseldeki yazılar: Treatments = gruplar; Any DG = Digital Green'in videolu eğitimi; Control = karşılaştırma grubu (yalnız yüz yüze eğitim)."
+   }
   },
   "b28-zirai-ilaclama-dronu-mugla-il-tarim": {
    "sayfa": "b28",

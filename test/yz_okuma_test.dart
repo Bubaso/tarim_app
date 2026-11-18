@@ -11,6 +11,8 @@ import 'package:tarim_app/features/yapay_zeka/data/yz_kisaltmalar.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_metinler.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_teknoloji.g.dart';
+import 'package:tarim_app/features/yapay_zeka/data/yz_grafikler.g.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_gorsel.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_arama_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_kisaltma.dart';
@@ -373,6 +375,21 @@ void main() {
       expect(y, lessThan(400), reason: 'sayfa o bölümden açılmalı');
       expect(find.byTooltip('Bu bölümün bağlantısını kopyala'), findsWidgets);
     });
+  });
+
+  testWidgets('İngilizce lejantlı haritada Türkçe sayfada çeviri satırı, İngilizcede yok', (t) async {
+    final g = kYzGorseller['b14-global-fishing-watch-yapay-zeka-ve']!;
+    expect(g.lejantTr, startsWith('Görseldeki yazılar:'));
+    for (final en in [false, true]) {
+      await t.pumpWidget(MaterialApp(
+          home: Scaffold(body: SingleChildScrollView(child: YzGorselKarti(gorsel: g, en: en)))));
+      expect(find.textContaining('Görseldeki yazılar:'), en ? findsNothing : findsOneWidget);
+    }
+    // Türkçe kopyası olan görselde Türkçe sayfa kopyayı gösteriyor.
+    final k = kYzGorseller['b24-ab-yapay-zeka-tuzugu-risk-piramidi']!;
+    expect(k.adresi(false), endsWith('.tr.webp'));
+    expect(k.adresi(true), isNot(endsWith('.tr.webp')));
+    expect(k.kaynak(false), contains('Türkçeye uyarlandı'));
   });
 
   test('her teknoloji sayfasında ve başlıkta listeler iki dilde aynı', () {

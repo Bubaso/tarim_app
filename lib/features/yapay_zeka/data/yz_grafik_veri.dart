@@ -203,6 +203,7 @@ class YzGorsel {
     required this.kaynakEn,
     this.yapayZeka = false,
     this.adresTr,
+    this.lejantTr,
   });
 
   final String kimlik;
@@ -213,6 +214,10 @@ class YzGorsel {
   /// Türkçeye uyarlanmış kopyası (karar 60): İngilizce yazılı şekil ve
   /// grafikte Türkçe sayfa bunu gösteriyor; İngilizce sayfa özgününü.
   final String? adresTr;
+
+  /// Lejant çevirisi (karar 60): yazısı İngilizce kalan haritada Türkçe
+  /// sayfa görseldeki yazıların karşılığını gösteriyor.
+  final String? lejantTr;
 
   /// Sayfanın diline göre gösterilecek dosya.
   String adresi(bool en) => !en && adresTr != null ? adresTr! : adres;

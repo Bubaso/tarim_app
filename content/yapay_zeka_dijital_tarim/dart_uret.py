@@ -419,8 +419,10 @@ def main() -> int:
         gr.append(f"      genislik: {int(x.get('genislik', 0))}, yukseklik: {int(x.get('yukseklik', 0))},")
         gr.append(f"      kunyeTr: {kt}, kunyeEn: {ke}, kaynakTr: {st}, kaynakEn: {se},")
         tr_adres = ("/" + x["dosya_tr"].removeprefix("web/")) if x.get("dosya_tr") else None
+        lejant = (x.get("lejant") or {}).get("tr")
         gr.append(f"      yapayZeka: {'true' if x.get('yapay_zeka') else 'false'}"
-                  + (f", adresTr: {dizgi(tr_adres)}" if tr_adres else "") + "),")
+                  + (f", adresTr: {dizgi(tr_adres)}" if tr_adres else "")
+                  + (f", lejantTr: {dizgi(lejant)}" if lejant else "") + "),")
     gr.append("};")
     gr.append("")
     GRAFIK.write_text("\n".join(gr), encoding="utf-8")
