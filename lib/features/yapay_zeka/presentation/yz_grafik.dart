@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_grafik_veri.dart';
+import 'yz_gorsel_mobil.dart';
+import 'yz_mobil.dart';
 import 'yz_tasarim.dart';
 
 /// Bölüm grafiklerinin çizicisi (karar 58).
@@ -101,6 +103,9 @@ class _YzGrafikKartiState extends State<YzGrafikKarti> {
   Widget build(BuildContext context) {
     final g = widget.grafik;
     final en = widget.en;
+    // Telefonda kaynak satırı mono değil sade küçük Outfit (mobil okuma turu,
+    // karar 62); eksen rakamları ve büyük harfli etiketler mono kalıyor.
+    final telefon = yzTelefon(context);
     final govde = _tablo
         ? _Tablo(g: g, en: en)
         : switch (g.tur) {
@@ -173,7 +178,7 @@ class _YzGrafikKartiState extends State<YzGrafikKarti> {
                   g.satici
                       ? '${g.kaynak(en)} · ${en ? "includes the company's own statement" : 'şirketin kendi beyanı da var'}'
                       : g.kaynak(en),
-                  style: YzYazi.veri(boy: 11.5, renk: YzRenk.soluk),
+                  style: telefon ? yzKunyeYazisi() : YzYazi.veri(boy: 11.5, renk: YzRenk.soluk),
                 ),
               ),
               TextButton(
@@ -211,7 +216,11 @@ class _Lejant extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 6),
-            Flexible(child: Text(d.ad(en), style: YzYazi.veri(boy: 12, renk: YzRenk.murekkep))),
+            Flexible(
+                child: Text(d.ad(en),
+                    style: yzTelefon(context)
+                        ? yzKunyeYazisi(renk: YzRenk.murekkep, boy: 13)
+                        : YzYazi.veri(boy: 12, renk: YzRenk.murekkep))),
           ]),
       ]);
 }
@@ -1068,7 +1077,12 @@ class _Egim extends StatelessWidget {
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               Container(width: 14, height: 3, color: renk(i)),
               const SizedBox(width: 6),
-              Flexible(child: Text(kat[i], style: YzYazi.veri(boy: 12, renk: YzRenk.murekkep))),
+              // Lejant adı: telefonda sade küçük Outfit (karar 62).
+              Flexible(
+                  child: Text(kat[i],
+                      style: yzTelefon(context)
+                          ? yzKunyeYazisi(renk: YzRenk.murekkep, boy: 13)
+                          : YzYazi.veri(boy: 12, renk: YzRenk.murekkep))),
             ]),
           ),
       ]),

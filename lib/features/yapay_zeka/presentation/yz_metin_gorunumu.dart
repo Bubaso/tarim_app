@@ -12,6 +12,7 @@ import '../data/yz_grafikler.g.dart';
 import 'yz_gorsel.dart';
 import 'yz_kaynak_balonu.dart';
 import 'yz_kisaltma.dart';
+import 'yz_mobil.dart';
 import 'yz_grafik.dart';
 import 'yz_okuma.dart';
 import 'yz_sozluk_esle.dart';
@@ -636,12 +637,16 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, kis) {
       final dar = kis.maxWidth < 560;
+      // Telefon kararları (mobil okuma turu, karar 62) ekranın genişliğiyle
+      // (< 640, yzTelefon); `dar` metin sütununun genişliğiyle (< 560) ve
+      // yalnız punto ile tablo düzenini seçiyor.
+      final telefon = yzTelefon(context);
       final metinW = math.min(kis.maxWidth, kYzMetinGenisligi);
-      final anahtar = '$dar|${widget.olcek}|${metinW.round()}';
+      final anahtar = '$dar|$telefon|${widget.olcek}|${metinW.round()}';
       if (!_onbellek.containsKey(anahtar)) {
         _onbellek
           ..clear()
-          ..[anahtar] = _ciz(dar, metinW);
+          ..[anahtar] = _ciz(dar, metinW, telefon: telefon);
       }
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -676,7 +681,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
       ? const []
       : yzAramaAraliklari(hucre, yzAramaKelimeleri(widget.arama!, widget.en), widget.en);
 
-  List<Widget> _ciz(bool dar, double metinW) {
+  List<Widget> _ciz(bool dar, double metinW, {bool telefon = false}) {
     final o = widget.olcek;
     final govde = YzYazi.govde(boy: (dar ? 17.5 : 18.5) * o);
     final giris = YzYazi.govde(boy: (dar ? 19.5 : 21) * o).copyWith(height: 1.55);
@@ -721,7 +726,11 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           cikti.add(_sutun(
               metinW,
               Padding(
-                padding: const EdgeInsets.only(top: 34, bottom: 12),
+                // Telefonda alt başlığın üstü daha açık, altı daha sıkı:
+                // başlık önceki bölümden ayrılıp kendi paragrafına bağlanıyor.
+                padding: telefon
+                    ? const EdgeInsets.only(top: 44, bottom: 10)
+                    : const EdgeInsets.only(top: 34, bottom: 12),
                 child: widget.bolumBaglantisi == null
                     ? baslikMetni
                     : Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
