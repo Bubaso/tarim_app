@@ -13,6 +13,7 @@ import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_teknoloji.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_grafikler.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_gorsel.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_tasarim.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_arama_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_kisaltma.dart';
@@ -303,9 +304,10 @@ void main() {
     final solCizgi = find.byWidgetPredicate((w) {
       if (w is! Container || w.decoration is! BoxDecoration) return false;
       final b = (w.decoration as BoxDecoration).border;
-      return b is Border && b.left.width >= 3 && b.top == BorderSide.none;
+      return b is Border && b.left.width >= 2 && b.top == BorderSide.none;
     });
-    expect(solCizgi, findsNothing, reason: 'paragraf ya da şerit solunda dikey çizgi');
+    expect(solCizgi, findsNothing,
+        reason: 'paragraf, şerit ya da içindekiler solunda dikey çizgi (kullanıcı)');
     var kalem = 0;
     for (final e in find.byType(SelectableText).evaluate()) {
       (e.widget as SelectableText).textSpan?.visitChildren((span) {
@@ -314,6 +316,20 @@ void main() {
       });
     }
     expect(kalem, greaterThan(0), reason: 'teknolojinin geçtiği kelimeler fosforlu kalemle');
+    // Rakam gövde yazı tipinde (kullanıcının seçimi B): ayrı eşit genişlikli
+    // yazı tipi yok, renk çelik mavisi.
+    var rakam = 0;
+    for (final e in find.byType(SelectableText).evaluate()) {
+      (e.widget as SelectableText).textSpan?.visitChildren((span) {
+        if (span is TextSpan && RegExp(r'^%?\d').hasMatch(span.text ?? '') &&
+            span.style?.color == YzRenk.makine) {
+          rakam++;
+          expect(span.style?.fontFamily, isNull, reason: 'rakam gövdenin yazı tipini kullanmalı');
+        }
+        return true;
+      });
+    }
+    expect(rakam, greaterThan(0));
     expect(find.textContaining('bu sayfada'), findsOneWidget);
   });
 

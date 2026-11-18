@@ -18,10 +18,10 @@ import 'package:google_fonts/google_fonts.dart';
 ///
 /// ══ YAZI ═════════════════════════════════════════════════════════════════
 /// Başlıklar Outfit — site kuralı (CLAUDE.md §36). Gövde Newsreader: uzun
-/// okuma için optik boyutlu bir serif. Rakamlar ve künyeler IBM Plex Mono:
-/// metindeki her ölçülmüş sayı "makinenin sesiyle" — eşit genişlikli,
-/// çelik mavisiyle — duruyor. Okur ölçülmüş olanla anlatılanı yazıdan ayırt
-/// edebiliyor.
+/// okuma için optik boyutlu bir serif. Künyeler, etiketler ve grafik
+/// değerleri IBM Plex Mono. Metindeki ölçülmüş sayı gövdenin kendi rakamıyla,
+/// tam boy ve çelik mavisiyle (karar 60, kullanıcının seçimi): okur ölçülmüş
+/// olanı renkten ayırt ediyor, cümlenin ritmi bölünmüyor.
 class YzRenk {
   YzRenk._();
   static const zemin = Color(0xFFF3F5F1);

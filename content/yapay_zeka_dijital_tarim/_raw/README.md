@@ -1319,7 +1319,8 @@ hikâyeleri); masaüstünde satır ~85 harfti. 26 öneri; kullanıcı yıldızl�
   yazdırır ya da PDF olarak kaydeder. Okura kapalıyken `web/` altına
   YAZMAZ: önizlemede `build/yz_onizleme/yz/yazdir`, açılışta
   `web/yz/yazdir` (aşağıda adım 3).
-- Rakam yazı tipi (9): iki hâl yan yana gösterildi, karar kullanıcıda.
+- Rakam yazı tipi (9): iki hâl yan yana gösterildi; kullanıcı B'yi seçti: rakam gövdenin
+  kendi rakamıyla, tam boy, çelik mavisi. İçindekiler ve rayda sol çizgi kalktı (kullanıcı).
 
 ## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
 

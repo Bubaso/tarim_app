@@ -173,8 +173,8 @@ const Color _aramaZemini = kYzAramaRengi;
 const Color kYzKalemRengi = Color(0xFFCFE0F7);
 
 /// Satır içi biçim: `**kalın**`, `*italik*`. Rakam taşıyan kalın parça
-/// "makinenin sesiyle" — eşit genişlikli, çelik mavisi — çiziliyor: metindeki
-/// ölçülmüş sayılar böyle yazılıyor (bkz. §8, §23).
+/// çelik mavisiyle çiziliyor (gövde yazı tipinin kendi rakamı, tam boy;
+/// karar 60): metindeki ölçülmüş sayılar böyle ayırt ediliyor.
 ///
 /// [etkilesim] verilirse düz metindeki adresler bağlantı (§30 kaynakça),
 /// [isaretler]deki sözlük terimleri (karar 14) ve [kisaltmalar] balon açan
@@ -290,11 +290,13 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
       ekle(m.start + 2, m.end - 2,
           r: r,
           imlec: kaynakli ? SystemMouseCursors.click : null,
+          // Rakam gövde yazı tipinin kendi rakamıyla, tam boy, çelik mavisi
+          // (karar 60, kullanıcının seçimi B): eşit genişlikli ayrı yazı tipi
+          // yoğun paragraflarda cümlenin ritmini bölüyordu.
           stil: rakamli
-              ? YzYazi.veri(
-                  boy: (taban.fontSize ?? 18) * 0.86,
-                  renk: YzRenk.makine,
-                  kalinlik: FontWeight.w600,
+              ? const TextStyle(
+                  color: YzRenk.makine,
+                  fontFeatures: [FontFeature.liningFigures()],
                 )
               : const TextStyle(fontWeight: FontWeight.w700));
     } else {

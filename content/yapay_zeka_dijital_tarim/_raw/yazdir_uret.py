@@ -223,7 +223,7 @@ p{margin:0 0 14px}
 p.giris{font-size:19px;line-height:1.55}
 ul{margin:0 0 16px;padding-left:22px}
 li{margin:0 0 6px}
-.rakam{font:600 .88em/1 "YzVeri",monospace;color:var(--makine)}
+.rakam{font-weight:400;color:var(--makine);font-variant-numeric:lining-nums}
 a{color:var(--makine);word-break:break-word}
 table{border-collapse:collapse;width:100%;margin:6px 0 18px;font-size:14px;line-height:1.4}
 th,td{border-bottom:1px solid var(--cizgi);padding:6px 8px;text-align:left;vertical-align:top}

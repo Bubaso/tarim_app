@@ -548,10 +548,13 @@ class _IcindekilerState extends State<_Icindekiler> {
         : buyukHarf(en ? 'Contents' : 'İçindekiler', en);
     return Padding(
       padding: const EdgeInsets.only(bottom: 22),
+      // Sol çizgi yok (kullanıcı, 18 Kas 2026): beyaz, yuvarlak köşeli kart.
       child: Container(
-        padding: const EdgeInsets.fromLTRB(14, 4, 8, 4),
+        padding: const EdgeInsets.fromLTRB(16, 4, 10, 4),
         decoration: BoxDecoration(
-          border: Border(left: BorderSide(color: YzRenk.bitki.withValues(alpha: 0.6), width: 2)),
+          color: YzRenk.yuzey,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: YzRenk.cizgi),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -630,14 +633,13 @@ class _Ray extends StatelessWidget {
                       selected: i == aktif,
                       child: InkWell(
                         onTap: () => git(i),
+                        borderRadius: BorderRadius.circular(6),
+                        // Okunan bölüm yumuşak zeminle; sol çizgi yok.
                         child: Container(
-                          padding: const EdgeInsets.fromLTRB(12, 8, 4, 8),
+                          padding: const EdgeInsets.fromLTRB(10, 8, 6, 8),
                           decoration: BoxDecoration(
-                            border: Border(
-                              left: BorderSide(
-                                  color: i == aktif ? YzRenk.makine : YzRenk.cizgi,
-                                  width: i == aktif ? 3 : 2),
-                            ),
+                            color: i == aktif ? YzRenk.makineAcik : null,
+                            borderRadius: BorderRadius.circular(6),
                           ),
                           child: Text(
                             basliklar[i],
