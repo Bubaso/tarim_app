@@ -19,11 +19,31 @@ export 'yz_harita.dart';
 /// Sayfaların üst şeridi: geri ve bölümün adı. Site çubuğu değil — bölüm
 /// bir başvuru dosyası, okurun dikkati metinde kalsın.
 class YzUstSerit extends StatelessWidget {
-  const YzUstSerit({super.key, this.geriAdres = '/', this.aramaDugmesi = true});
+  const YzUstSerit({
+    super.key,
+    this.geriAdres = '/',
+    this.aramaDugmesi = true,
+    this.yaziBoyuDugmesi = true,
+    this.altBaslik,
+    this.etiketeDokununca,
+  });
   final String geriAdres;
 
   /// Bölüm içi aramanın düğmesi (karar 60); arama sayfasının kendisinde yok.
   final bool aramaDugmesi;
+
+  /// Yazı boyu düğmesi. Telefonda makale sayfası onu alt çubuğa taşıyor
+  /// (karar 62).
+  final bool yaziBoyuDugmesi;
+
+  /// Telefonda okur ilk alt başlığı geçince bölümün adı yerine okunan alt
+  /// başlık (tek satır, karar 62). Verilmezse bölümün adı.
+  final String? altBaslik;
+
+  /// Ortadaki ada dokununca: verilmezse bölümün merkez sayfası (eskisi gibi).
+  /// Telefondaki makale şeridi okunan alt başlığı gösterirken içindekileri
+  /// açıyor; okur sayfadan çıkmıyor (karar 62).
+  final VoidCallback? etiketeDokununca;
 
   @override
   Widget build(BuildContext context) {
@@ -50,12 +70,21 @@ class YzUstSerit extends StatelessWidget {
           const SizedBox(width: 4),
           Expanded(
             child: InkWell(
-              onTap: yonlendirici == null ? null : () => context.go(yzPath),
-              child: Text(
-                buyukHarf(en ? kYzAdEn : kYzAdTr, en),
-                overflow: TextOverflow.ellipsis,
-                style: YzYazi.ustEtiket(renk: YzRenk.murekkep),
-              ),
+              onTap: etiketeDokununca ?? (yonlendirici == null ? null : () => context.go(yzPath)),
+              // Varsayılan şerit eskisi gibi düz yazı; telefondaki makale
+              // şeridi (yazı boyu alt çubukta) ad ile alt başlık arasında
+              // geçişli.
+              child: yaziBoyuDugmesi && altBaslik == null
+                  ? _bolumAdi(en)
+                  : _gecisli(altBaslik == null
+                      ? _bolumAdi(en)
+                      : Text(
+                          altBaslik!,
+                          key: ValueKey(altBaslik),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: YzYazi.baslik(15, renk: YzRenk.murekkep),
+                        )),
             ),
           ),
           if (aramaDugmesi)
@@ -64,7 +93,7 @@ class YzUstSerit extends StatelessWidget {
               icon: const Icon(Icons.search_rounded, color: YzRenk.makine),
               onPressed: yonlendirici == null ? null : () => context.push(yzAramaPath),
             ),
-          const YzYaziBoyuDugmesi(),
+          if (yaziBoyuDugmesi) const YzYaziBoyuDugmesi(),
           if (dar)
             IconButton(
               tooltip: 'Tarım Portalı',
@@ -81,6 +110,23 @@ class YzUstSerit extends StatelessWidget {
       );
     });
   }
+
+  Widget _bolumAdi(bool en) => Text(
+        buyukHarf(en ? kYzAdEn : kYzAdTr, en),
+        key: const ValueKey('yz-bolum-adi'),
+        overflow: TextOverflow.ellipsis,
+        style: YzYazi.ustEtiket(renk: YzRenk.murekkep),
+      );
+
+  /// Bölüm adı ile alt başlık arasında yumuşak geçiş (telefon).
+  Widget _gecisli(Widget cocuk) => AnimatedSwitcher(
+        duration: const Duration(milliseconds: 200),
+        layoutBuilder: (simdiki, onceki) => Stack(
+          alignment: Alignment.centerLeft,
+          children: [...onceki, if (simdiki != null) simdiki],
+        ),
+        child: cocuk,
+      );
 }
 
 /// Merkez sayfada yön satırı (karar 60): yarıda bırakılan sayfa varsa

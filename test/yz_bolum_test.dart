@@ -471,7 +471,11 @@ Liste bitti, paragraf başladı.
         final b = kYzBasliklar.firstWhere((x) => x.slug == slug);
         expect(find.text(b.tr), findsOneWidget);
         if (b.yazildi) {
-          expect(find.textContaining('Kaynaklarından son okunduğu gün'), findsOneWidget);
+          // Telefonda künye tek satır ve kısa (mobil tur, karar 62):
+          // "N dk · kaynaklar 17 Kas 2026". Masaüstünde uzun biçim.
+          expect(
+              find.textContaining(olcu.width < 640 ? ' · kaynaklar ' : 'Kaynaklarından son okunduğu gün'),
+              findsOneWidget);
         }
         // Yazım durumu okura gösterilmez (iç not; kullanıcı, 18 Kas 2026).
         expect(find.textContaining(RegExp(r'yazılıyor|yazıldı|yazılacak|NEYİ ANLATACAK')), findsNothing);
