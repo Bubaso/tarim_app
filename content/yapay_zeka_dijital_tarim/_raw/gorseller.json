@@ -8,11 +8,11 @@
    "yukseklik": 692,
    "sha256": "2d690e796ab11839cd618ee695628d2cb22322dd8afbbea172eb4490ae309f98",
    "kunye": {
-    "tr": "ECMWF'nin yapay zekâ tahmin sistemi AIFS'i sadeleştirilmiş biçimde anlatan bilgi şeması; AIFS'in 25 Şubat 2025'te işletime alındığını duyuran ECMWF haberinde yayımlandı.",
+    "tr": "ECMWF'nin yapay zekâ tahmin sistemi AIFS'i sadeleştirilmiş biçimde anlatan bilgi şemasının Türkçeye uyarlanmış hâli; özgün şema, AIFS'in 25 Şubat 2025'te işletime alındığını duyuran ECMWF haberinde yayımlandı.",
     "en": "ECMWF's simplified explainer graphic of its Artificial Intelligence Forecasting System (AIFS), published with ECMWF's announcement that AIFS became operational on 25 February 2025."
    },
    "kaynak": {
-    "tr": "Görsel: ECMWF (CC BY 4.0)",
+    "tr": "Görsel: ECMWF (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Image: ECMWF (CC BY 4.0)"
    },
    "sayfa_adresi": "https://www.ecmwf.int/en/about/media-centre/news/2025/ecmwfs-ai-forecasts-become-operational",

@@ -15,6 +15,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_haber_vitrini.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show YzBaslikKarosu, YzTeknolojiCipi, yzPath;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
@@ -419,16 +420,11 @@ devam ediyor.
           reason: 'harita karosu (numarasız, karar 56)');
       expect(find.textContaining(RegExp(r'§\d')), findsNothing, reason: 'okura numara yok');
       expect(find.textContaining('Orman yangınlarıyla'), findsOneWidget, reason: 'haber akışı');
-      // §1 yazıldıysa giriş paragrafı haritanın üstünde (karar 6, 56)
-      if (kYzMetinler[1] != null) {
-        expect(find.text('Durum tespitinin tamamı'), findsOneWidget);
-        final giris = yzAyristir(kYzMetinler[1]!.tr)
-            .firstWhere((b) => b.tur == YzBlokTuru.paragraf)
-            .metin
-            .replaceAll('**', '');
-        expect(find.textContaining(giris.substring(0, 30), findRichText: true), findsOneWidget);
-        expect(find.textContaining('Özet.', findRichText: true), findsNothing);
-      }
+      // Merkez sayfada ayrıca "Bugün nerede duruyoruz" özet kutusu yok
+      // (kullanıcı, 18 Kas 2026): §1 haritada bir başlık olarak duruyor.
+      expect(find.text('Durum tespitinin tamamı'), findsNothing);
+      expect(find.widgetWithText(YzBaslikKarosu, 'Bugün nerede duruyoruz'), findsOneWidget);
+      expect(find.textContaining('Özet.', findRichText: true), findsNothing);
       // teknoloji süzgeci (karar 57): seçilince kaç başlıkta geçtiği ve
       // karolarda geçtiği yer sayısı
       // Isı haritasının sütun başlığında da aynı ad var: çip ayrıca aranıyor.
@@ -776,6 +772,43 @@ devam ediyor.
     await t.pumpAndSettle();
     expect(find.text('Böyle bir başlık yok.'), findsOneWidget);
   });
+
+  group('haber vitrini', () {
+    final cok = [
+      for (var i = 0; i < 10; i++)
+        YzHaber(
+          NewsArticle(
+            id: 'v$i',
+            title: i.isEven
+                ? 'Yapay zekâ destekli sulama sistemi pilot ilde üreticilerle denendi ve ilk sonuçlar açıklandı $i'
+                : 'Dron haritası $i',
+            summary: i == 0 ? 'Uzun bir özet cümlesi: denemenin nerede, kimle ve nasıl yapıldığı anlatılıyor.' : null,
+            content: '',
+            createdAt: DateTime(2026, 11, 1 + i),
+            sourceName: i % 3 == 0 ? 'Çok Uzun Adlı Bir Haber Ajansı ve Yayın Kuruluşu' : null,
+          ),
+          [6, 8, 15, 20, 25][i % 5],
+        ),
+    ];
+    for (final w in const [360.0, 760.0, 1280.0]) {
+      for (final merkez in const [true, false]) {
+        testWidgets('${w.toInt()} piksel · ${merkez ? 'merkez' : 'başlık'} · taşmıyor', (t) async {
+          t.view.physicalSize = Size(w, 2400);
+          t.view.devicePixelRatio = 1;
+          addTearDown(t.view.reset);
+          await t.pumpWidget(_sarmala(Scaffold(
+              body: SingleChildScrollView(
+                  child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: YzHaberVitrini(haberler: cok, merkez: merkez))))));
+          await t.pumpAndSettle();
+          expect(t.takeException(), isNull);
+          expect(find.textContaining('Dron haritası 1'), findsOneWidget);
+        });
+      }
+    }
+  });
+
 }
 
 /// Çizim testlerinin başlıkları: yazılmışların HEPSİ + yazılmamışlardan ilki

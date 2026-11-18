@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/router/app_router.dart';
 import '../../../core/utils/turkce_metin.dart';
-import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
 import '../data/yz_teknoloji.g.dart';
+import 'yz_haber_vitrini.dart';
 import 'yz_tasarim.dart';
 
 /// Bölümün adresleri. Adres ASCII (öteki bölümlerle aynı gerekçe).
@@ -345,13 +344,7 @@ class YzHaberListesi extends ConsumerWidget {
           ? _bos(baslikNo == null
               ? (en ? 'No news in this section yet.' : 'Bu bölümde henüz haber yok.')
               : (en ? 'No news under this heading yet.' : 'Bu başlıkta henüz haber yok.'))
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                for (final h in liste.take(enCok))
-                  _HaberSatiri(h, baslikGoster: baslikNo == null),
-              ],
-            ),
+          : YzHaberVitrini(haberler: liste.take(enCok).toList(), merkez: baslikNo == null),
     );
   }
 
@@ -359,57 +352,6 @@ class YzHaberListesi extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(vertical: 14),
         child: Text(metin, style: YzYazi.govde(boy: 16, renk: YzRenk.soluk)),
       );
-}
-
-class _HaberSatiri extends StatelessWidget {
-  const _HaberSatiri(this.h, {required this.baslikGoster});
-  final YzHaber h;
-  final bool baslikGoster;
-
-  @override
-  Widget build(BuildContext context) {
-    final en = yzIsEn(context);
-    final a = h.haber;
-    final baslik = (en && (a.titleEn ?? '').isNotEmpty) ? a.titleEn! : a.title;
-    final tarih = a.createdAt.toLocal();
-    final gun = '${tarih.day.toString().padLeft(2, '0')}.'
-        '${tarih.month.toString().padLeft(2, '0')}.${tarih.year}';
-    return InkWell(
-      onTap: () => context.push(articlePath(a.id)),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 13),
-        decoration: const BoxDecoration(
-          border: Border(bottom: BorderSide(color: YzRenk.cizgi)),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Wrap(
-              spacing: 10,
-              runSpacing: 4,
-              crossAxisAlignment: WrapCrossAlignment.center,
-              children: [
-                Text(gun, style: YzYazi.veri(boy: 11.5)),
-                if ((a.sourceName ?? '').isNotEmpty)
-                  Text(a.sourceName!, style: YzYazi.veri(boy: 11.5)),
-                if (baslikGoster && h.baslik != null)
-                  InkWell(
-                    onTap: () => context.push(yzBaslikPath(h.baslik!.slug)),
-                    child: Text(h.baslik!.ad(en),
-                        style: YzYazi.veri(boy: 11.5, renk: YzRenk.bitki, kalinlik: FontWeight.w600)),
-                  ),
-              ],
-            ),
-            const SizedBox(height: 5),
-            Text(baslik,
-                style: YzYazi.baslik(16.5).copyWith(height: 1.3),
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis),
-          ],
-        ),
-      ),
-    );
-  }
 }
 
 /// Bölüm başlığı (h2) — sayfa içi.

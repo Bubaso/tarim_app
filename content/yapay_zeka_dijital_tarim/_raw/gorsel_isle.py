@@ -104,6 +104,11 @@ KIRP = {
 
 # Künye düzeltmeleri: künye görselin ne olduğudur; şerh ve yorum girmez.
 KUNYE = {
+    "b01-ecmwf-nin-yapay-zeka-tahmin-sistemi": {
+        "tr": "ECMWF'nin yapay zekâ tahmin sistemi AIFS'i sadeleştirilmiş biçimde anlatan bilgi şemasının Türkçeye "
+              "uyarlanmış hâli; özgün şema, AIFS'in 25 Şubat 2025'te işletime alındığını duyuran ECMWF haberinde yayımlandı.",
+        "en": None,  # özgün İngilizce künye kalır
+    },
     "b06-bitki-ortusu-sensoruyle-azot": {
         "tr": "Nebraska Üniversitesi–Lincoln'ün Project SENSE çalışmasını tanıtan CropWatch yazısındaki yüksek "
               "açıklıklı uygulama makinesi; çalışma, mısırda bitki örtüsü sensörüne dayalı sezon içi değişken oranlı "
@@ -115,10 +120,18 @@ KUNYE = {
 }
 
 
+# Kaynak satırı düzeltmeleri (ör. Türkçe uyarlama).
+KAYNAK = {
+    "b01-ecmwf-nin-yapay-zeka-tahmin-sistemi": {"tr": "Görsel: ECMWF (CC BY 4.0); Türkçeye uyarlandı", "en": None},
+}
+
+
 def kunye_duzelt(gorseller: dict) -> None:
     for k, g in gorseller.items():
-        if k in KUNYE:
-            g["kunye"] = dict(KUNYE[k])
+        for alan, tablo in (("kunye", KUNYE), ("kaynak", KAYNAK)):
+            for dil, metin in tablo.get(k, {}).items():
+                if metin:
+                    g[alan][dil] = metin
         for dil in ("tr", "en"):
             m = g["kunye"][dil].rstrip()
             g["kunye"][dil] = m if m.endswith((".", "!", "?")) else m + "."

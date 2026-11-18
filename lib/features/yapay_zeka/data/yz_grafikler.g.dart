@@ -983,7 +983,7 @@ const Map<String, YzGrafik> kYzGrafikler = {
 const Map<String, YzGorsel> kYzGorseller = {
   "b01-ecmwf-nin-yapay-zeka-tahmin-sistemi": YzGorsel(kimlik: "b01-ecmwf-nin-yapay-zeka-tahmin-sistemi", adres: "/yz/gorsel/b01-ecmwf-nin-yapay-zeka-tahmin-sistemi.webp",
       genislik: 1000, yukseklik: 692,
-      kunyeTr: "ECMWF'nin yapay zekâ tahmin sistemi AIFS'i sadeleştirilmiş biçimde anlatan bilgi şeması; AIFS'in 25 Şubat 2025'te işletime alındığını duyuran ECMWF haberinde yayımlandı.", kunyeEn: "ECMWF's simplified explainer graphic of its Artificial Intelligence Forecasting System (AIFS), published with ECMWF's announcement that AIFS became operational on 25 February 2025.", kaynakTr: "Görsel: ECMWF (CC BY 4.0)", kaynakEn: "Image: ECMWF (CC BY 4.0)",
+      kunyeTr: "ECMWF'nin yapay zekâ tahmin sistemi AIFS'i sadeleştirilmiş biçimde anlatan bilgi şemasının Türkçeye uyarlanmış hâli; özgün şema, AIFS'in 25 Şubat 2025'te işletime alındığını duyuran ECMWF haberinde yayımlandı.", kunyeEn: "ECMWF's simplified explainer graphic of its Artificial Intelligence Forecasting System (AIFS), published with ECMWF's announcement that AIFS became operational on 25 February 2025.", kaynakTr: "Görsel: ECMWF (CC BY 4.0); Türkçeye uyarlandı", kaynakEn: "Image: ECMWF (CC BY 4.0)",
       yapayZeka: false),
   "b03-rasat-uydusunun-cektigi-goruntu": YzGorsel(kimlik: "b03-rasat-uydusunun-cektigi-goruntu", adres: "/yz/gorsel/b03-rasat-uydusunun-cektigi-goruntu.webp",
       genislik: 573, yukseklik: 480,

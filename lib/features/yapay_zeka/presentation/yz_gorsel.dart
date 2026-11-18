@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../data/yz_grafik_veri.dart';
+import 'yz_aifs_semasi.dart';
 import 'yz_tasarim.dart';
 
 /// Metindeki görsel (karar 58): görsel, altında künye ve kaynak satırı.
 /// Dokununca tam ekranda, yakınlaştırılabilir açılıyor.
+///
+/// Bazı İngilizce bilgi şemalarının Türkçe sayfada çizilmiş uyarlaması var
+/// ([_cizim]); İngilizce sayfada özgün görsel gösteriliyor.
 class YzGorselKarti extends StatelessWidget {
   const YzGorselKarti({super.key, required this.gorsel, required this.en});
   final YzGorsel gorsel;
@@ -31,7 +35,7 @@ class YzGorselKarti extends StatelessWidget {
               // yanları zeminle dolar.
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(4),
-                child: LayoutBuilder(builder: (context, kis) {
+                child: _cizim(g.kimlik, en) ?? LayoutBuilder(builder: (context, kis) {
                   final boy = (kis.maxWidth / g.oran).clamp(120.0, 560.0).toDouble();
                   return Container(
                     height: boy,
@@ -67,7 +71,9 @@ class YzGorselKarti extends StatelessWidget {
           Positioned.fill(
             child: InteractiveViewer(
               maxScale: 4,
-              child: Center(child: Image.network(gorsel.adres, fit: BoxFit.contain)),
+              child: Center(
+                  child: _cizim(gorsel.kimlik, en, buyuk: true) ??
+                      Image.network(gorsel.adres, fit: BoxFit.contain)),
             ),
           ),
           Positioned(
@@ -81,4 +87,13 @@ class YzGorselKarti extends StatelessWidget {
       ),
     );
   }
+}
+
+/// Türkçe sayfada çizilmiş uyarlaması olan görseller (özgünü İngilizce).
+Widget? _cizim(String kimlik, bool en, {bool buyuk = false}) {
+  if (en) return null;
+  return switch (kimlik) {
+    'b01-ecmwf-nin-yapay-zeka-tahmin-sistemi' => YzAifsSemasi(genisZorla: buyuk),
+    _ => null,
+  };
 }
