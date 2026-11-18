@@ -1,7 +1,12 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../data/yz_grafik_veri.dart';
 import 'yz_aifs_semasi.dart';
+import 'yz_gorsel_mobil.dart';
+import 'yz_gorsel_tam_ekran.dart';
+import 'yz_mobil.dart';
 import 'yz_semalar.dart';
 import 'yz_tasarim.dart';
 
@@ -10,17 +15,22 @@ import 'yz_tasarim.dart';
 ///
 /// Bazı İngilizce bilgi şemalarının Türkçe sayfada çizilmiş uyarlaması var
 /// ([_cizim]); İngilizce sayfada özgün görsel gösteriliyor.
+///
+/// Telefonda (< 640 px, mobil okuma turu) ayrı düzen: [_telefon].
 class YzGorselKarti extends StatelessWidget {
   const YzGorselKarti({super.key, required this.gorsel, required this.en});
   final YzGorsel gorsel;
   final bool en;
 
+  String get _kaynakSatiri => gorsel.yapayZeka
+      ? '${gorsel.kaynak(en)} · ${en ? 'AI-generated illustration' : 'yapay zekâ ile üretilmiş çizim'}'
+      : gorsel.kaynak(en);
+
   @override
   Widget build(BuildContext context) {
+    if (yzTelefon(context)) return _telefon(context);
     final g = gorsel;
-    final kaynak = g.yapayZeka
-        ? '${g.kaynak(en)} · ${en ? 'AI-generated illustration' : 'yapay zekâ ile üretilmiş çizim'}'
-        : g.kaynak(en);
+    final kaynak = _kaynakSatiri;
     return Padding(
       padding: const EdgeInsets.only(top: 6, bottom: 24),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -96,9 +106,99 @@ class YzGorselKarti extends StatelessWidget {
 }
 
 extension on YzGorselKarti {
-  Widget _buyukGorunum() {
-    final cizim = _cizim(gorsel.kimlik, en, buyuk: true);
-    if (cizim == null) return Image.network(gorsel.adresi(en), fit: BoxFit.contain);
+  /// Telefon düzeni (mobil okuma turu, karar 62):
+  ///  · fotoğraf ve raster şekil kenardan kenara: makale sütununun 16 piksel
+  ///    yan payından taşıyor, ekran kenarında köşe yuvarlatılmıyor; künye ve
+  ///    kaynak satırı metin payının içinde kalıyor;
+  ///  · dokununca tam ekran gösterim (koyu zemin, 4 kata kadar yakınlaştırma);
+  ///  · çizilmiş şemalar (ECMWF/AIFS, ERS, CEMA, FarmerChat) ve ekran boyunun
+  ///    %85'ini aşan görsel katlanıyor (yz_gorsel_mobil.dart);
+  ///  · kaynak satırı mono değil, sade küçük Outfit.
+  Widget _telefon(BuildContext context) {
+    final g = gorsel;
+    final ekran = MediaQuery.sizeOf(context);
+    final cizim = _cizim(g.kimlik, en);
+    // Çizilmiş şema tam ekranda dar düzeninde, ekran genişliğinde kuruluyor
+    // ve dikey kaydırılıyor (1000 piksellik geniş düzen telefona sığdırılınca
+    // yazıları okunmuyordu).
+    void ac() => yzGorselTamEkran(context,
+        gorunum: _buyukGorunum(telefon: true),
+        altyazi: '${g.kunye(en)} — ${g.kaynak(en)}',
+        en: en,
+        uzun: cizim != null);
+    Widget dokunulur(Widget cocuk) => Semantics(
+          image: true,
+          label: g.kunye(en),
+          child: GestureDetector(onTap: ac, child: cocuk),
+        );
+    final Widget gorselAlani;
+    if (cizim != null) {
+      // Çizilmiş şema sütunun içinde kalıyor (kenardan kenara yalnız
+      // fotoğraf ve raster şekil).
+      gorselAlani = YzGorselKatlanir(
+        en: en,
+        child: dokunulur(ClipRRect(borderRadius: BorderRadius.circular(4), child: cizim)),
+      );
+    } else {
+      gorselAlani = LayoutBuilder(builder: (context, kis) {
+        // Makale sütununun yan payı telefonda 16 piksel (yz_makale.dart);
+        // sütun ekrandan dar değilse taşma yok.
+        final tasma = ((ekran.width - kis.maxWidth) / 2).clamp(0.0, 16.0).toDouble();
+        final genislik = kis.maxWidth + 2 * tasma;
+        final boy = (genislik / g.oran).clamp(120.0, 560.0).toDouble();
+        final resim = Container(
+          height: boy,
+          color: YzRenk.zemin,
+          alignment: Alignment.center,
+          child: Image.network(
+            g.adresi(en),
+            fit: BoxFit.contain,
+            errorBuilder: (c, h, i) =>
+                const Center(child: Icon(Icons.image_not_supported_outlined, color: YzRenk.soluk)),
+          ),
+        );
+        return YzGorselKatlanir(
+          en: en,
+          sema: false,
+          tasma: tasma,
+          // Ekran boyunun %85'ini aşan görsel katlanıyor. Alt sınır: katlama
+          // en az 60 pikseli gizlemeli, yoksa düğme kazandırdığından fazla
+          // yer kaplıyor (çok kısa ekranlar).
+          esik: math.max(ekran.height * 0.85, kYzKatliBoy + 60),
+          child: dokunulur(tasma > 0
+              ? resim
+              : ClipRRect(borderRadius: BorderRadius.circular(4), child: resim)),
+        );
+      });
+    }
+    return Padding(
+      padding: const EdgeInsets.only(top: 6, bottom: 24),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        gorselAlani,
+        const SizedBox(height: 8),
+        Text(g.kunye(en), style: YzYazi.govde(boy: 14.5, renk: YzRenk.murekkep).copyWith(height: 1.45)),
+        if (!en && g.lejantTr != null) ...[
+          const SizedBox(height: 4),
+          Text(g.lejantTr!,
+              style: YzYazi.govde(boy: 13.5, renk: YzRenk.soluk).copyWith(height: 1.4)),
+        ],
+        const SizedBox(height: 3),
+        Text(_kaynakSatiri, style: yzKunyeYazisi()),
+      ]),
+    );
+  }
+
+  Widget _buyukGorunum({bool telefon = false}) {
+    final cizim = _cizim(gorsel.kimlik, en, buyuk: !telefon);
+    if (cizim == null) {
+      return Image.network(gorsel.adresi(en),
+          fit: BoxFit.contain,
+          // Telefonun tam ekran gösteriminde yüklenemeyen görsel için simge.
+          errorBuilder: telefon
+              ? (c, h, i) => const Icon(Icons.image_not_supported_outlined, color: Colors.white54, size: 40)
+              : null);
+    }
+    if (telefon) return cizim;
     return FittedBox(fit: BoxFit.contain, child: SizedBox(width: 1000, child: cizim));
   }
 }
