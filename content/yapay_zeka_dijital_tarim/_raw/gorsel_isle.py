@@ -127,6 +127,26 @@ KIRP = {
 
 # Künye düzeltmeleri: künye görselin ne olduğudur; şerh ve yorum girmez.
 KUNYE = {
+    "b02-ers-nin-dijital-tarim-bilesenleri": {
+        "tr": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin (ERS) dijital tarımın temel bileşen teknolojilerini veri ve "
+              "veri toplama, karar destek ve veriye dayalı ekipman ve girdi ayarlaması olarak üç grupta gösteren şemasının "
+              "Türkçeye uyarlanmış hâli; özgünü McFadden, Njuki ve Griffin'in Şubat 2023 tarihli 'Precision Agriculture in "
+              "the Digital Era: Recent Adoption on U.S. Farms' raporunun (EIB-248) 2. şekli.",
+        "en": None,
+    },
+    "b02-cema-nin-dijital-tarim-tarifi": {
+        "tr": "Avrupa tarım makineleri sanayi birliği CEMA'nın çiftlik düzeyinde dijital tarım ağını örnekleyen şemasının "
+              "(makineler, ISOBUS, GPS, veri portalları ve çiftliğin iş ortakları) Türkçeye uyarlanmış hâli; özgünü CEMA'nın "
+              "13 Şubat 2017 tarihli 'Digital Farming: what does it really mean?' tutum belgesinin 1. şekli.",
+        "en": None,
+    },
+    "t-dil-digital-green-in-sohbet-robotu": {
+        "tr": "Digital Green'in üretken yapay zekâyla çalışan sohbet robotu Farmer.Chat'in etkileşim akışını gösteren şemanın "
+              "Türkçeye uyarlanmış hâli: Telegram üzerinden katılım, dil ve değer zinciri seçimi, soru-yanıt ve takip soruları, "
+              "geri bildirim ve hatırlatmalar; özgünü geliştiricilerinin arXiv'de yayımlanan makalesinin (Singh ve ark., 2024) "
+              "Şekil 1'i.",
+        "en": None,
+    },
     "b01-ecmwf-nin-yapay-zeka-tahmin-sistemi": {
         "tr": "ECMWF'nin yapay zekâ tahmin sistemi AIFS'i sadeleştirilmiş biçimde anlatan bilgi şemasının Türkçeye "
               "uyarlanmış hâli; özgün şema, AIFS'in 25 Şubat 2025'te işletime alındığını duyuran ECMWF haberinde yayımlandı.",
@@ -146,6 +166,13 @@ KUNYE = {
 # Kaynak satırı düzeltmeleri (ör. Türkçe uyarlama).
 KAYNAK = {
     "b01-ecmwf-nin-yapay-zeka-tahmin-sistemi": {"tr": "Görsel: ECMWF (CC BY 4.0); Türkçeye uyarlandı", "en": None},
+    "b02-ers-nin-dijital-tarim-bilesenleri": {
+        "tr": "Şekil: McFadden, Njuki ve Griffin 2023, USDA ERS, EIB-248, Şekil 2 (kamu malı); Türkçeye uyarlandı", "en": None},
+    "b02-cema-nin-dijital-tarim-tarifi": {
+        "tr": "Şekil: CEMA 2017, 'Digital Farming: what does it really mean?', Şekil 1; Türkçeye uyarlandı", "en": None},
+    "t-dil-digital-green-in-sohbet-robotu": {
+        "tr": "Şekil: Singh N. ve ark. 2024, Farmer.Chat, arXiv:2409.08916, Şekil 1 (CC BY-NC-SA 4.0); Türkçeye uyarlandı",
+        "en": None},
 }
 
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/yz_grafik_veri.dart';
 import 'yz_aifs_semasi.dart';
+import 'yz_semalar.dart';
 import 'yz_tasarim.dart';
 
 /// Metindeki görsel (karar 58): görsel, altında künye ve kaynak satırı.
@@ -71,9 +72,9 @@ class YzGorselKarti extends StatelessWidget {
           Positioned.fill(
             child: InteractiveViewer(
               maxScale: 4,
-              child: Center(
-                  child: _cizim(gorsel.kimlik, en, buyuk: true) ??
-                      Image.network(gorsel.adres, fit: BoxFit.contain)),
+              // Çizim büyütmede 1000 piksel genişlikte (geniş düzen) kurulup
+              // ekrana sığdırılıyor; telefonda sütunlar sıkışmıyor.
+              child: Center(child: _buyukGorunum()),
             ),
           ),
           Positioned(
@@ -89,11 +90,22 @@ class YzGorselKarti extends StatelessWidget {
   }
 }
 
+extension on YzGorselKarti {
+  Widget _buyukGorunum() {
+    final cizim = _cizim(gorsel.kimlik, en, buyuk: true);
+    if (cizim == null) return Image.network(gorsel.adres, fit: BoxFit.contain);
+    return FittedBox(fit: BoxFit.contain, child: SizedBox(width: 1000, child: cizim));
+  }
+}
+
 /// Türkçe sayfada çizilmiş uyarlaması olan görseller (özgünü İngilizce).
 Widget? _cizim(String kimlik, bool en, {bool buyuk = false}) {
   if (en) return null;
   return switch (kimlik) {
     'b01-ecmwf-nin-yapay-zeka-tahmin-sistemi' => YzAifsSemasi(genisZorla: buyuk),
+    'b02-ers-nin-dijital-tarim-bilesenleri' => YzErsSemasi(genisZorla: buyuk),
+    'b02-cema-nin-dijital-tarim-tarifi' => YzCemaSemasi(genisZorla: buyuk),
+    't-dil-digital-green-in-sohbet-robotu' => YzFarmerChatSemasi(genisZorla: buyuk),
     _ => null,
   };
 }

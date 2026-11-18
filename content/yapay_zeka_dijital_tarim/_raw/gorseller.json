@@ -2273,11 +2273,11 @@
    "yukseklik": 1229,
    "sha256": "74b7c5c4eaca22a69542f74fac664a32c23567ee593dcbdac8cc54c99541a149",
    "kunye": {
-    "tr": "Digital Green'in üretken yapay zekâyla çalışan sohbet robotu Farmer.Chat'in etkileşim akışını gösteren şema: Telegram üzerinden katılım, dil ve değer zinciri seçimi, soru-yanıt ve takip soruları, geri bildirim ve hatırlatmalar. Geliştiricilerinin arXiv'de yayımlanan makalesinin (Singh ve ark., 2024) Şekil 1'i.",
+    "tr": "Digital Green'in üretken yapay zekâyla çalışan sohbet robotu Farmer.Chat'in etkileşim akışını gösteren şemanın Türkçeye uyarlanmış hâli: Telegram üzerinden katılım, dil ve değer zinciri seçimi, soru-yanıt ve takip soruları, geri bildirim ve hatırlatmalar; özgünü geliştiricilerinin arXiv'de yayımlanan makalesinin (Singh ve ark., 2024) Şekil 1'i.",
     "en": "Diagram of the interaction flow of Farmer.Chat, Digital Green's generative-AI chatbot: onboarding via Telegram, language and value-chain selection, questions and follow-up questions, feedback and reminders. Fig. 1 of the developers' paper (Singh et al., arXiv, 2024)."
    },
    "kaynak": {
-    "tr": "Şekil: Singh N. ve ark. 2024, Farmer.Chat, arXiv:2409.08916, Şekil 1 (CC BY-NC-SA 4.0)",
+    "tr": "Şekil: Singh N. ve ark. 2024, Farmer.Chat, arXiv:2409.08916, Şekil 1 (CC BY-NC-SA 4.0); Türkçeye uyarlandı",
     "en": "Figure: Singh N. et al. 2024, Farmer.Chat, arXiv:2409.08916, Fig. 1 (CC BY-NC-SA 4.0)"
    },
    "sayfa_adresi": "https://arxiv.org/abs/2409.08916",
@@ -2341,11 +2341,11 @@
    "yukseklik": 1484,
    "sha256": "582be225a2fa188efbdd397e8f640cc33bf106197a0125f0a440528c85291403",
    "kunye": {
-    "tr": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin (ERS) dijital tarımın temel bileşen teknolojilerini veri ve veri toplama, karar destek ve veriye dayalı ekipman ve girdi ayarlaması olarak üç grupta gösteren şeması; McFadden, Njuki ve Griffin'in Şubat 2023 tarihli 'Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms' raporunun (EIB-248) 2. şekli.",
+    "tr": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin (ERS) dijital tarımın temel bileşen teknolojilerini veri ve veri toplama, karar destek ve veriye dayalı ekipman ve girdi ayarlaması olarak üç grupta gösteren şemasının Türkçeye uyarlanmış hâli; özgünü McFadden, Njuki ve Griffin'in Şubat 2023 tarihli 'Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms' raporunun (EIB-248) 2. şekli.",
     "en": "USDA Economic Research Service (ERS) diagram of the key component technologies of digital agriculture, grouped as data and data collection, decision support, and data-driven equipment and input adjustment; Figure 2 of McFadden, Njuki and Griffin, 'Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms' (EIB-248), February 2023."
    },
    "kaynak": {
-    "tr": "Şekil: McFadden, Njuki ve Griffin 2023, USDA ERS, EIB-248, Şekil 2 (kamu malı)",
+    "tr": "Şekil: McFadden, Njuki ve Griffin 2023, USDA ERS, EIB-248, Şekil 2 (kamu malı); Türkçeye uyarlandı",
     "en": "Figure: McFadden, Njuki ve Griffin 2023, USDA ERS, EIB-248, Fig. 2 (public domain)"
    },
    "sayfa_adresi": "https://www.ers.usda.gov/publications/105893",
@@ -2364,11 +2364,11 @@
    "yukseklik": 871,
    "sha256": "3d536e2d742d1477c87d1fce76dd9b65c5e7e4da76c6a7648d62f96014ad0336",
    "kunye": {
-    "tr": "Avrupa tarım makineleri sanayi birliği CEMA'nın çiftlik düzeyinde dijital tarım ağını örnekleyen şeması (makineler, ISOBUS, GPS, veri portalları ve çiftliğin iş ortakları); CEMA'nın 13 Şubat 2017 tarihli 'Digital Farming: what does it really mean?' tutum belgesinin 1. şekli.",
+    "tr": "Avrupa tarım makineleri sanayi birliği CEMA'nın çiftlik düzeyinde dijital tarım ağını örnekleyen şemasının (makineler, ISOBUS, GPS, veri portalları ve çiftliğin iş ortakları) Türkçeye uyarlanmış hâli; özgünü CEMA'nın 13 Şubat 2017 tarihli 'Digital Farming: what does it really mean?' tutum belgesinin 1. şekli.",
     "en": "Diagram by CEMA (European Agricultural Machinery) of an example digital farming network at farm level (machines, ISOBUS, GPS, data portals and the farm's business partners); Figure 1 of CEMA's position paper 'Digital Farming: what does it really mean?', 13 February 2017."
    },
    "kaynak": {
-    "tr": "Şekil: CEMA 2017, 'Digital Farming: what does it really mean?', Şekil 1",
+    "tr": "Şekil: CEMA 2017, 'Digital Farming: what does it really mean?', Şekil 1; Türkçeye uyarlandı",
     "en": "Figure: CEMA 2017, 'Digital Farming: what does it really mean?', Fig. 1"
    },
    "sayfa_adresi": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
