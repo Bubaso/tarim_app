@@ -219,7 +219,7 @@
     "en": "Figure 2 of Saikai, Peake and Chenu (2023), PLOS Water: chart comparing profits from the regional benchmark irrigation rule and the rule learned by deep reinforcement learning over the training (1981-2010) and testing (2011-2020) years; APSIM-Wheat simulation for Goondiwindi, Australia."
    },
    "kaynak": {
-    "tr": "Görsel: Saikai, Peake ve Chenu 2023, PLOS Water (CC BY 4.0)",
+    "tr": "Görsel: Saikai, Peake ve Chenu 2023, PLOS Water (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Image: Saikai, Peake and Chenu 2023, PLOS Water (CC BY 4.0)"
    },
    "sayfa_adresi": "https://journals.plos.org/water/article?id=10.1371/journal.pwat.0000169",
@@ -229,7 +229,9 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Saikai, Peake ve Chenu (2023), sulanan buğday için derin pekiştirmeli",
-   "sayfa": "b07"
+   "sayfa": "b07",
+   "dosya_tr": "web/yz/gorsel/b07-derin-pekistirmeli-ogrenmeyle-sulama.tr.webp",
+   "sha256_tr": "cf1dd5425d0e1bc4b60025e1a37c19767940047c796464a342f349ab4ea315dc"
   },
   "b08-autoweed-spot-ilaclama-sistemi": {
    "baslik_no": 8,
@@ -426,7 +428,7 @@
     "en": "A 96 m² experimental compartment of the first Autonomous Greenhouse Challenge, Wageningen University & Research greenhouses, Bleiswijk, 2018: (a) schematic of the actuators, (b) photograph of the compartment. Fig. 1 in Hemming et al. (2019)."
    },
    "kaynak": {
-    "tr": "Şekil: Hemming S. ve ark. 2019, Sensors 19(8):1807, Şekil 1 (CC BY 4.0)",
+    "tr": "Şekil: Hemming S. ve ark. 2019, Sensors 19(8):1807, Şekil 1 (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Figure: Hemming S. et al. 2019, Sensors 19(8):1807, Fig. 1 (CC BY 4.0)"
    },
    "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6515393/",
@@ -436,7 +438,9 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Modern bir serada ısıtma, havalandırma, perde, aydınlatma, sisleme, karbondioksit,",
-   "sayfa": "b13"
+   "sayfa": "b13",
+   "dosya_tr": "web/yz/gorsel/b13-otonom-sera-yarismasi-nin-deney.tr.webp",
+   "sha256_tr": "cc2e7dcaf69bbb424af13d86094c870c3901a9f91fbf1ece7612b7515bf261f3"
   },
   "b13-otonom-sera-yarismasi-ekiplerin": {
    "baslik_no": 13,
@@ -449,7 +453,7 @@
     "en": "Scheme of data exchange from the teams' AI algorithms to the greenhouse process computer via a digital interface (REST API) in the second Autonomous Greenhouse Challenge (cherry tomato, WUR Bleiswijk, 2019–2020). Fig. 2 in Hemming et al. (2020)."
    },
    "kaynak": {
-    "tr": "Şekil: Hemming S. ve ark. 2020, Sensors 20(22):6430, Şekil 2 (CC BY 4.0)",
+    "tr": "Şekil: Hemming S. ve ark. 2020, Sensors 20(22):6430, Şekil 2 (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Figure: Hemming S. et al. 2020, Sensors 20(22):6430, Fig. 2 (CC BY 4.0)"
    },
    "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7698269/",
@@ -459,7 +463,9 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Otonom Sera Yarışması'nda uluslararası ekipler kendi bölmelerini uzaktan, kendi algoritmalarıyla",
-   "sayfa": "b13"
+   "sayfa": "b13",
+   "dosya_tr": "web/yz/gorsel/b13-otonom-sera-yarismasi-ekiplerin.tr.webp",
+   "sha256_tr": "7290e0df2b782a881f8d443853ec5db5807d2d1939a9f031b6333e463c4a4e12"
   },
   "b13-turkiye-de-jeotermal-isitmali-modern": {
    "baslik_no": 13,
@@ -587,7 +593,7 @@
     "en": "Fig. 2 of the GraphCast paper by Lam et al. (Google DeepMind): skill of GraphCast versus ECMWF's HRES up to 10 days ahead in the 2018 test year; (a–c) error and skill scores for 500 hPa geopotential, (d) scorecard by variable, pressure level and lead time."
    },
    "kaynak": {
-    "tr": "Grafik: Lam R. ve ark. (Google DeepMind), 'GraphCast: Learning skillful medium-range global weather forecasting', arXiv:2212.12794v2, Şekil 2 (CC BY 4.0)",
+    "tr": "Grafik: Lam R. ve ark. (Google DeepMind), 'GraphCast: Learning skillful medium-range global weather forecasting', arXiv:2212.12794v2, Şekil 2 (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Chart: Lam R. et al. (Google DeepMind), 'GraphCast: Learning skillful medium-range global weather forecasting', arXiv:2212.12794v2, Fig. 2 (CC BY 4.0)"
    },
    "sayfa_adresi": "https://arxiv.org/html/2212.12794v2",
@@ -597,7 +603,9 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Hava tahmininde Lam ve arkadaşları (2023), doğrudan geçmiş hava verisinden",
-   "sayfa": "b17"
+   "sayfa": "b17",
+   "dosya_tr": "web/yz/gorsel/b17-graphcast-in-isletimdeki-en-iyi.tr.webp",
+   "sha256_tr": "d6624375cc3396162acec52d41a21cefb15c1878e99aaecbea0d2acb24c51150"
   },
   "b17-graphcast-modelinin-semasi": {
    "baslik_no": 17,
@@ -610,7 +618,7 @@
     "en": "Fig. 1 of the GraphCast paper by Lam et al. (Google DeepMind): model schematic, from the input weather state on a 0.25° latitude–longitude grid to the next-step prediction and the 10-day forecast rollout."
    },
    "kaynak": {
-    "tr": "Şema: Lam R. ve ark. (Google DeepMind), 'GraphCast: Learning skillful medium-range global weather forecasting', arXiv:2212.12794v2, Şekil 1 (CC BY 4.0)",
+    "tr": "Şema: Lam R. ve ark. (Google DeepMind), 'GraphCast: Learning skillful medium-range global weather forecasting', arXiv:2212.12794v2, Şekil 1 (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Diagram: Lam R. et al. (Google DeepMind), 'GraphCast: Learning skillful medium-range global weather forecasting', arXiv:2212.12794v2, Fig. 1 (CC BY 4.0)"
    },
    "sayfa_adresi": "https://arxiv.org/html/2212.12794v2",
@@ -620,7 +628,9 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Hava tahmininde Lam ve arkadaşları (2023), doğrudan geçmiş hava verisinden",
-   "sayfa": "b17"
+   "sayfa": "b17",
+   "dosya_tr": "web/yz/gorsel/b17-graphcast-modelinin-semasi.tr.webp",
+   "sha256_tr": "04be0f56055122686aaf40e31c28263dd727d194a46360b179b9baf64d9c69f0"
   },
   "b17-uydudan-kuraklik-izleme-turkiye-de": {
    "baslik_no": 17,
@@ -725,7 +735,7 @@
     "en": "Landsat-based journal publications and Landsat scene downloads over time, before and after USGS made the data free in 2008. Figure from Zhu et al. (2019), reproduced on NASA's Landsat Science page of 20 March 2019."
    },
    "kaynak": {
-    "tr": "Grafik: Zhu ve ark. 2019 (Remote Sensing of Environment) / NASA Landsat Science",
+    "tr": "Grafik: Zhu ve ark. 2019 (Remote Sensing of Environment) / NASA Landsat Science; Türkçeye uyarlandı",
     "en": "Chart: Zhu et al. 2019 (Remote Sensing of Environment) / NASA Landsat Science"
    },
    "sayfa_adresi": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy",
@@ -735,7 +745,9 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Landsat görüntülerini ücretsiz dağıtma kararını ABD Jeoloji Araştırmaları Kurumu",
-   "sayfa": "b19"
+   "sayfa": "b19",
+   "dosya_tr": "web/yz/gorsel/b19-landsat-verisinin.tr.webp",
+   "sha256_tr": "d471ab95b979279ea2f6efb922933ae11c8728d47d69f2934f31e3038e0e9033"
   },
   "b19-dunyanin-ortalama-bulutlulugu": {
    "baslik_no": 19,
@@ -817,7 +829,7 @@
     "en": "Share of U.S. corn, soybean, winter wheat and cotton acreage managed with auto-steer and guidance systems, ARMS survey years 2001–2019; USDA Economic Research Service 'Chart of Note' of 27 March 2023 (based on report EIB-248)."
    },
    "kaynak": {
-    "tr": "Grafik: USDA Economic Research Service (McFadden ve Njuki, Chart of Note)",
+    "tr": "Grafik: USDA Economic Research Service (McFadden ve Njuki, Chart of Note); Türkçeye uyarlandı",
     "en": "Chart: USDA Economic Research Service (McFadden and Njuki, Chart of Note)"
    },
    "sayfa_adresi": "https://ers.usda.gov/data-products/charts-of-note/106187",
@@ -827,7 +839,9 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Bakanlığın ekonomik araştırma servisi (ERS) aynı teknolojileri ekili alan üzerinden",
-   "sayfa": "b22"
+   "sayfa": "b22",
+   "dosya_tr": "web/yz/gorsel/b22-abd-de-otomatik-dumen-ve-yonlendirme.tr.webp",
+   "sha256_tr": "4f5f82e065713e0e3620473c5b761593c9d7999f69d659d399256fe42729821e"
   },
   "b22-ab-de-ciftliklerin-internet-ve": {
    "baslik_no": 22,
@@ -840,7 +854,7 @@
     "en": "Figure 2 of Eurostat's Statistics Explained article 'Agriculture statistics – machinery and digitalisation': share of EU farms with internet access, farm management information systems and robotics, by economic size of farm (%, 2023 farm structure survey)."
    },
    "kaynak": {
-    "tr": "Grafik: Eurostat (ef_mp_digi), Statistics Explained",
+    "tr": "Grafik: Eurostat (ef_mp_digi), Statistics Explained; Türkçeye uyarlandı",
     "en": "Chart: Eurostat (ef_mp_digi), Statistics Explained"
    },
    "sayfa_adresi": "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Agriculture_statistics_-_machinery_and_digitalisation",
@@ -850,7 +864,9 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Eurostat'ın 2023 çiftlik yapı araştırmasına dayanan Temmuz 2026 tarihli analizine göre",
-   "sayfa": "b22"
+   "sayfa": "b22",
+   "dosya_tr": "web/yz/gorsel/b22-ab-de-ciftliklerin-internet-ve.tr.webp",
+   "sha256_tr": "cb71033949a82a321093cd652cade968c3c1e594d329d12d7b6747ab4658bbf5"
   },
   "b22-kisan-e-mitra-sohbet-robotunun": {
    "baslik_no": 22,
@@ -932,7 +948,7 @@
     "en": "European Commission diagram of the four risk levels in the AI Act (unacceptable, high, limited, minimal or no risk); from the Commission's AI Act page."
    },
    "kaynak": {
-    "tr": "Görsel: Avrupa Komisyonu (CC BY 4.0)",
+    "tr": "Görsel: Avrupa Komisyonu (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Image: European Commission (CC BY 4.0)"
    },
    "sayfa_adresi": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
@@ -942,7 +958,9 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Tarım tüzüğe Ek I'den giriyor. Yapay zekâ, Ek I'de sayılan",
-   "sayfa": "b24"
+   "sayfa": "b24",
+   "dosya_tr": "web/yz/gorsel/b24-ab-yapay-zeka-tuzugu-risk-piramidi.tr.webp",
+   "sha256_tr": "50c0e2b47594674ca3edb4915f6622580da0e9a01ec8a6c209d4c8749dad8ba9"
   },
   "b25-gorsentam-g-trap-dijital-feromon": {
    "baslik_no": 25,
@@ -1715,7 +1733,7 @@
     "en": "Illustration of how the AutoWeed spot-spraying system works: the detection unit detects the weed (1) and activates the sprayer (2). Figure 1a of the sugarcane paper by Rahimi Azghadi et al. (James Cook University and Sugar Research Australia)."
    },
    "kaynak": {
-    "tr": "Çizim: Rahimi Azghadi ve ark. 2025, arXiv:2401.13931, Şekil 1a (CC BY-NC-ND 4.0)",
+    "tr": "Çizim: Rahimi Azghadi ve ark. 2025, arXiv:2401.13931, Şekil 1a (CC BY-NC-ND 4.0); Türkçeye uyarlandı",
     "en": "Çizim: Rahimi Azghadi et al. 2025, arXiv:2401.13931, Fig. 1a (CC BY-NC-ND 4.0)"
    },
    "sayfa_adresi": "https://arxiv.org/html/2401.13931v2",
@@ -1724,7 +1742,9 @@
    "lisans_notu": "arXiv sayfasında 'License: CC BY-NC-ND 4.0'. Türev yasağı: çizimdeki İngilizce etiketler ('1. Detect', '2. Spray') çevrilirse bu lisansla çelişir; kullanıcı kararıyla lisans şartı aranmıyor, kaynak belirtilecek. arxiv.org robots.txt /html/ yolunu kapatmıyor.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Geleneksel ilaçlama tarlanın tamamına aynı dozu atar; buna yayma ilaçlama deniyor."
+   "yer": "Geleneksel ilaçlama tarlanın tamamına aynı dozu atar; buna yayma ilaçlama deniyor.",
+   "dosya_tr": "web/yz/gorsel/b08-hedefli-ilaclamanin-isleyisi-kamera.tr.webp",
+   "sha256_tr": "65446823216d5a04ead6b771edd8aca3fa6f6fa1fee3465e7b0f0aa70d067c8b"
   },
   "b08-nadasta-ciplak-toprakta-yesil-ot": {
    "sayfa": "b08",
@@ -1738,7 +1758,7 @@
     "en": "Frame-by-frame processing in OpenWeedLocator (OWL), an open-source, low-cost fallow weed detector: the frame is split into colour channels, a greenness algorithm and thresholding are applied, and detected weeds are boxed. Figure 5 of Coleman, Salter and Walsh, Scientific Reports (2022), University of Sydney; images come from fallow fields in New South Wales, Australia."
    },
    "kaynak": {
-    "tr": "Şekil: Coleman, Salter ve Walsh 2022, Scientific Reports 12, Şekil 5 (CC BY 4.0)",
+    "tr": "Şekil: Coleman, Salter ve Walsh 2022, Scientific Reports 12, Şekil 5 (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Figure: Coleman, Salter ve Walsh 2022, Scientific Reports 12, Fig. 5 (CC BY 4.0)"
    },
    "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8741824/",
@@ -1747,7 +1767,9 @@
    "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni). nature.com robots'u yapay zekâ ajanlarını kapattığı için yayıncı sayfası açılmadı; şekil media.springernature.com'dan (robots '*' için açık), makale bilgisi PMC'den. Küçük sürüm PMC'de: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/29b8/8741824/c0c69d096873/41598_2021_3858_Fig5_HTML.jpg (707x417).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "İki ayrı durum var ve ayrımı yapmadan hiçbir rakam okunamaz."
+   "yer": "İki ayrı durum var ve ayrımı yapmadan hiçbir rakam okunamaz.",
+   "dosya_tr": "web/yz/gorsel/b08-nadasta-ciplak-toprakta-yesil-ot.tr.webp",
+   "sha256_tr": "5abaab418438ae14c47f5799a97742ffe3a4547723bf2def124fa70f075f4b8f"
   },
   "b09-agrosens-nisan-2026-bulteninin": {
    "sayfa": "b09",
@@ -2166,7 +2188,7 @@
     "en": "Illustration showing the shares of visible and near-infrared light reflected by healthy (left) and unhealthy or sparse (right) vegetation, and the Normalized Difference Vegetation Index (NDVI) values calculated from them (0.72 and 0.14); by Robert Simmon, from NASA Earth Observatory's article 'Measuring Vegetation (NDVI & EVI)' of 30 August 2000."
    },
    "kaynak": {
-    "tr": "Çizim: Robert Simmon / NASA Earth Observatory (kamu malı)",
+    "tr": "Çizim: Robert Simmon / NASA Earth Observatory (kamu malı); Türkçeye uyarlandı",
     "en": "Çizim: Robert Simmon / NASA Earth Observatory (public domain)"
    },
    "sayfa_adresi": "https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi",
@@ -2175,7 +2197,9 @@
    "lisans_notu": "NASA içeriği ABD'de telif korumasına tabi değil; Earth Observatory görselleri, aksi belirtilmedikçe, belirtilen künyeyle serbestçe yeniden kullanılabiliyor (görselde ayrı telif ibaresi yok). science.nasa.gov robots.txt sayfayı kapatmıyor; assets.science.nasa.gov'da robots.txt yok (404).",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Uydu, tarlayı birkaç günde bir, aynı yöntemle ve geniş alanda gören bir ölçüm aracı. Bitki örtüsünün yansıttığı ışık"
+   "yer": "Uydu, tarlayı birkaç günde bir, aynı yöntemle ve geniş alanda gören bir ölçüm aracı. Bitki örtüsünün yansıttığı ışık",
+   "dosya_tr": "web/yz/gorsel/b19-uydunun-bitki-ortusunu-olcme-ilkesi.tr.webp",
+   "sha256_tr": "caf35a73ba848e963cf3d35c11bb20ee647afe32b9d259a0691d5a444a22d7e2"
   },
   "b21-2025-genel-tarim-sayimi-nin-saha": {
    "sayfa": "b21",
@@ -2299,7 +2323,7 @@
     "en": "Fig. 2, 'ChatGPT-4 integration process', of the study by Şahin et al. (Bursa Uludağ University) in tomato fields in Karacabey, Bursa: input photograph, detection and segmentation by the YOLOv8 model, transfer of the detected labels to ChatGPT-4 via an API, and the text produced by the language model. Frontiers in Plant Science, 21 February 2025."
    },
    "kaynak": {
-    "tr": "Şekil: Şahin Y.S., Gençer N.S., Şahin H. 2025, Frontiers in Plant Science 15:1468676, Şekil 2 (CC BY 4.0)",
+    "tr": "Şekil: Şahin Y.S., Gençer N.S., Şahin H. 2025, Frontiers in Plant Science 15:1468676, Şekil 2 (CC BY 4.0); Türkçeye uyarlandı",
     "en": "Figure: Şahin Y.S., Gençer N.S., Şahin H. 2025, Frontiers in Plant Science 15:1468676, Fig. 2 (CC BY 4.0)"
    },
    "sayfa_adresi": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1468676/full",
@@ -2308,7 +2332,9 @@
    "lisans_notu": "CC BY 4.0 (Frontiers açık erişim). frontiersin.org robots.txt makale sayfasını ve /files/Articles/ yolunu kapatmıyor; aynı makalenin Şekil 7'si ilk turda bu yoldan alındı.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Karamanoğlu Mehmetbey Üniversitesi'nden bir çalışma (Eldem ve Eldem, 2026), dört seçenekli"
+   "yer": "Karamanoğlu Mehmetbey Üniversitesi'nden bir çalışma (Eldem ve Eldem, 2026), dört seçenekli",
+   "dosya_tr": "web/yz/gorsel/t-dil-zararliyi-goruntuden-taniyan-model.tr.webp",
+   "sha256_tr": "5e7a0b30e9118e147a6340950da43247f3e86927af88355d24ec16b819b5f3ec"
   },
   "b01-turkiye-de-ilaclama-dronu-kayseri": {
    "sayfa": "b01",

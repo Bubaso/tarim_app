@@ -1,0 +1,262 @@
+{
+  "_aciklama": "İngilizce etiketli 13 şeklin Türkçe kopyaları (web/yz/gorsel/<kimlik>.tr.webp). Üreten: gorsel_turkce.py; kutular ocr_kutular.swift çıktısından başlayıp gözle düzeltildi. Koordinatlar özgün görselin pikselleri (sol üst başlangıç). Terimler ilgili başlığın Türkçe metninden ve künyesinden.",
+  "yazi_tipleri": {
+    "arial": "/System/Library/Fonts/Supplemental/Arial.ttf",
+    "arial-kalin": "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+    "arial-italik": "/System/Library/Fonts/Supplemental/Arial Italic.ttf",
+    "times": "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
+    "times-kalin": "/System/Library/Fonts/Supplemental/Times New Roman Bold.ttf",
+    "helvetica": {"dosya": "/System/Library/Fonts/Helvetica.ttc", "indeks": 0},
+    "century-gothic": "/Applications/Microsoft Word.app/Contents/Resources/DFonts/Century Gothic.ttf",
+    "calibri": "/Applications/Microsoft Word.app/Contents/Resources/DFonts/Calibri.ttf",
+    "calibri-kalin": "/Applications/Microsoft Word.app/Contents/Resources/DFonts/Calibrib.ttf",
+    "avenir-dar": {"dosya": "/System/Library/Fonts/Avenir Next Condensed.ttc", "indeks": 7},
+    "aptos-kalin": "/Applications/Microsoft Word.app/Contents/Resources/DFonts/Aptos-Bold.ttf",
+    "pt-sans": {"dosya": "/System/Library/Fonts/Supplemental/PTSans.ttc", "indeks": 0},
+    "pt-sans-kalin": {"dosya": "/System/Library/Fonts/Supplemental/PTSans.ttc", "indeks": 7},
+    "verdana": "/System/Library/Fonts/Supplemental/Verdana.ttf",
+    "aptos": "/Applications/Microsoft Word.app/Contents/Resources/DFonts/Aptos.ttf"
+  },
+  "gorseller": {
+    "b19-uydunun-bitki-ortusunu-olcme-ilkesi": {
+      "_not": "NASA Earth Observatory çizimi; yazı tipi Century Gothic benzeri geometrik, zemin gökyüzü geçişi (Coons). Yüzdeler Türkçe yazımla (%50); formüldeki ondalık noktalar virgüle çevrildi, rakamlar ve kesir çizgileri özgün (yalnız nokta pikselleri virgülle değişti).",
+      "varsayilan": {"yazi_tipi": "century-gothic", "boyut": 11.5, "renk": "#10233a", "hiza": "orta", "zemin": "auto", "ss": 4, "kalin": 0.2},
+      "etiketler": [
+        {"en": "near infrared", "tr": "yakın\nkızılötesi", "kutu": [40, 9, 95, 35], "nokta": [67, 20], "satir": 11},
+        {"en": "visible", "tr": "görünür", "kutu": [100, 13, 146, 29], "nokta": [123, 25]},
+        {"en": "near infrared", "tr": "yakın\nkızılötesi", "kutu": [217, 9, 273, 35], "nokta": [245, 20], "satir": 11},
+        {"en": "visible", "tr": "görünür", "kutu": [278, 13, 324, 29], "nokta": [301, 25]},
+        {"en": "50%", "tr": "%50", "kutu": [28, 62, 52, 75], "zemin": "auto-dikey", "nokta": [40.5, 73]},
+        {"en": "8%", "tr": "%8", "kutu": [89, 62, 109, 75], "zemin": "auto-dikey", "nokta": [99, 73]},
+        {"en": "40%", "tr": "%40", "kutu": [206, 62, 231, 75], "zemin": "auto-dikey", "nokta": [219, 73]},
+        {"en": "30%", "tr": "%30", "kutu": [261, 62, 287, 75], "zemin": "auto-dikey", "nokta": [274, 73]},
+        {"en": "ondalık nokta: 0.50 (sol pay)", "tr": ",", "kutu": [48, 363, 52, 367], "nokta": [48.35, 366], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.08 (sol pay)", "tr": ",", "kutu": [82, 363, 86, 367], "nokta": [81.85, 366], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: = 0.72", "tr": ",", "kutu": [128, 372, 132, 376], "nokta": [127.85, 375], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.50 (sol payda)", "tr": ",", "kutu": [47, 383, 50, 387], "nokta": [46.85, 386], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.08 (sol payda)", "tr": ",", "kutu": [84, 383, 87, 387], "nokta": [83.85, 386], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.4 (sağ pay)", "tr": ",", "kutu": [226, 363, 230, 367], "nokta": [225.9, 366], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.30 (sağ pay)", "tr": ",", "kutu": [254, 363, 257, 367], "nokta": [253.85, 366], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: = 0.14", "tr": ",", "kutu": [303, 372, 306, 376], "nokta": [302.85, 375], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.4 (sağ payda)", "tr": ",", "kutu": [225, 383, 228, 387], "nokta": [224.85, 386], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0},
+        {"en": "ondalık nokta: 0.30 (sağ payda)", "tr": ",", "kutu": [255, 383, 259, 387], "nokta": [254.9, 386], "yazi_tipi": "arial", "boyut": 12.6, "renk": "#2c2c2c", "hiza": "sol", "zemin": "#ffffff", "kalin": 0}
+      ]
+    },
+    "b24-ab-yapay-zeka-tuzugu-risk-piramidi": {
+      "_not": "Avrupa Komisyonu risk piramidi; yazı tipi EC Square Sans benzeri dar yazı → Avenir Next Condensed. Risk düzeyleri künyedeki ve §24'teki adlarla (kabul edilemez, yüksek, sınırlı, asgari). KABUL EDİLEMEZ RİSK ve YÜKSEK RİSK uzadığı için bu iki satırın uç karesi sola alındı (çizgi biraz kısaldı; piramit ve renkler aynı). Küçük açıklama üç satıra bölündü.",
+      "varsayilan": {"yazi_tipi": "avenir-dar", "boyut": 14.7, "hiza": "sag", "zemin": "auto", "ss": 8, "kalin": 0.125},
+      "tasimalar": [
+        {"kutu": [376, 46, 387, 59], "hedef": [366, 46], "zemin": "#ffffff"},
+        {"kutu": [432, 118, 444, 133], "hedef": [414, 118], "zemin": "#ffffff"}
+      ],
+      "ortuler": [
+        {"kutu": [377, 44, 390, 61], "zemin": "#ffffff"},
+        {"kutu": [426, 116, 446, 135], "zemin": "#ffffff"}
+      ],
+      "etiketler": [
+        {"en": "UNACCEPTABLE RISK", "tr": "KABUL EDİLEMEZ RİSK", "kutu": [390, 42, 514, 61], "nokta": [508, 57], "renk": "#e04a55"},
+        {"en": "HIGH RISK", "tr": "YÜKSEK RİSK", "kutu": [446, 116, 514, 136], "nokta": [508, 131], "renk": "#96227f"},
+        {"en": "LIMITED RISK", "tr": "SINIRLI RİSK", "kutu": [428, 190, 514, 209], "nokta": [508, 206], "renk": "#33108a"},
+        {"en": "(AI systems with specific transparency obligations)", "tr": "(belirli şeffaflık\nyükümlülükleri olan\nyapay zekâ sistemleri)", "kutu": [412, 208, 514, 231], "nokta": [508, 216], "satir": 10.5, "yazi_tipi": "avenir-dar", "boyut": 10, "renk": "#3f1f7c"},
+        {"en": "MINIMAL RISK", "tr": "ASGARİ RİSK", "kutu": [428, 264, 514, 286], "nokta": [508, 280], "renk": "#17a594"}
+      ]
+    },
+    "b08-hedefli-ilaclamanin-isleyisi-kamera": {
+      "_not": "AutoWeed çizimi; özgün yazı Myriad Pro Bold → en yakın PT Sans Bold (Myriad'dan dar olduğu için yatayda %6 açıldı). Yazılar renkli konilerin içinde; zemin koninin düz rengi (Coons). Adımlar özgündeki gibi emir kipinde: Algıla / Püskürt (künye: algılama birimi otu tespit ediyor, püskürtücüyü çalıştırıyor).",
+      "varsayilan": {"yazi_tipi": "pt-sans-kalin", "boyut": 21.5, "sikistir": 1.06, "renk": "#1b1a1e", "hiza": "orta", "zemin": "auto", "ss": 4, "kalin": 0.25},
+      "etiketler": [
+        {"en": "2. Spray", "tr": "2. Püskürt", "kutu": [174, 278, 268, 308], "nokta": [221.5, 299]},
+        {"en": "1. Detect", "tr": "1. Algıla", "kutu": [528, 283, 631, 309], "nokta": [580, 304]}
+      ]
+    },
+    "b08-nadasta-ciplak-toprakta-yesil-ot": {
+      "_not": "OpenWeedLocator şekli (Coleman ve ark. 2022, Şekil 5); özgün yazı Myriad Pro → PT Sans (yatayda %4 daraltıldı). ExG, NExG, ExHSV, HSV ve RGB adları özgün. Seçilen algoritma başlığı özgünde üstten 1 px kesik; Türkçede taban çizgisi 1 px aşağıda, kesik yok.",
+      "varsayilan": {"yazi_tipi": "pt-sans", "boyut": 31.4, "sikistir": 0.96, "renk": "#000000", "hiza": "orta", "zemin": "#ffffff", "ss": 4},
+      "etiketler": [
+        {"en": "Input frame", "tr": "Girdi karesi", "kutu": [30, 212, 197, 247], "nokta": [112, 239]},
+        {"en": "RGB Channels", "tr": "RGB kanalları", "kutu": [286, 137, 476, 172], "nokta": [380, 165]},
+        {"en": "HSV Channels", "tr": "HSV kanalları", "kutu": [285, 326, 475, 362], "nokta": [380, 357]},
+        {"en": "Selected algorithm", "tr": "Seçilen algoritma", "kutu": [462, 0, 718, 33], "nokta": [590.5, 24]},
+        {"en": "Thresholding & contouring", "tr": "Eşikleme ve\nkontur bulma", "kutu": [720, 126, 906, 204], "nokta": [726, 155], "satir": 38, "hiza": "sol"},
+        {"en": "Output", "tr": "Çıktı", "kutu": [896, 211, 1003, 247], "nokta": [948.5, 239]}
+      ]
+    },
+    "b13-otonom-sera-yarismasi-nin-deney": {
+      "_not": "Hemming ve ark. 2019, Şekil 1a; yazı tipi Calibri Bold. Yazılar çizimin (çatı çizgisi, perde çizgileri, yapraklar, saksılar) üstünde: zemin 'onar' yalnız siyah yazı piksellerini siler; perde çizgisi ve yapraklar için silinen pikseller aynı çizimin yazısız bir yerinden (kaynak) alınır; saksılar üç özdeş saksının yazısız olanından (kopya) yeniden kurulur. CO₂, (a), (b) ve fotoğraf özgün.",
+      "varsayilan": {"yazi_tipi": "calibri-kalin", "boyut": 21.2, "renk": "#000000", "hiza": "orta", "ss": 4,
+                     "zemin": {"onar": {"renk": "#000000", "tolerans": 60, "genislet": 2}}},
+      "etiketler": [
+        {"en": "Roof ventilation", "tr": "Çatı havalandırması", "kutu": [172, 56, 326, 80], "nokta": [322, 74], "hiza": "sag"},
+        {"en": "Screens", "tr": "Perdeler", "kutu": [104, 104, 182, 126], "nokta": [142, 121],
+         "zemin": {"onar": {"renk": "#000000", "tolerans": 60, "genislet": 2, "kaynak": [100, 0]}}},
+        {"en": "Artificial light", "tr": "Yapay aydınlatma", "kutu": [125, 160, 254, 186], "nokta": [189, 178]},
+        {"en": "Cucumber", "tr": "Salatalık", "kutu": [68, 241, 170, 262], "nokta": [118.5, 258],
+         "zemin": {"onar": {"renk": "#000000", "tolerans": 60, "genislet": 1, "kaynak": [0, -21]}}},
+        {"en": "Heating (dikey)", "tr": "Isıtma", "kutu": [240, 294, 265, 372], "nokta": [257, 333], "aci": 90,
+         "zemin": {"onar": {"renk": "#000000", "tolerans": 60, "genislet": 2, "kaynak": [-169, 0]}}},
+        {"en": "Irrigation", "tr": "Sulama", "nokta": [135.5, 423], "ortu": [
+          {"kutu": [86, 403, 160, 433]},
+          {"kutu": [69, 411, 104, 447], "zemin": {"kopya": [169, 0]}},
+          {"kutu": [152, 411, 187, 447], "zemin": {"kopya": [86, 0]}}]},
+        {"en": "Heating", "tr": "Isıtma", "kutu": [194, 444, 267, 463], "zemin": "#ffffff", "nokta": [228.5, 461]}
+      ]
+    },
+    "b13-otonom-sera-yarismasi-ekiplerin": {
+      "_not": "Hemming ve ark. 2020, Şekil 2; yazı tipi Calibri (Bold ve Regular). Boyut, çapa ve açılar özgün yazının yeniden çizilip özgünle örtüştürülmesiyle bulundu. Çizgi ve çizim üstündeki yazılar 'onar' ile siliniyor (perde çizgileri yatay kaydırmayla, çatı çizgisi komşu piksellerden tamamlanıyor). (REST API), CO₂, HPS ve LED özgün.",
+      "varsayilan": {"yazi_tipi": "calibri-kalin", "boyut": 15.4, "renk": "#1f4a5e", "hiza": "orta", "ss": 4, "kalin": 0.25, "bulaniklik": 0.3, "zemin": "#ffffff"},
+      "etiketler": [
+        {"en": "Greenhouse equipment", "tr": "Sera\ndonanımı", "nokta": [68.5, 21.5], "satir": 18.5, "ortu": [
+          {"kutu": [24, 4, 115, 29], "zemin": "#ffffff"},
+          {"kutu": [26, 29, 113, 48], "zemin": {"onar": {"renk": "#214b5f", "tolerans": 100, "genislet": 2, "kaynak": [-22, 12]}}}]},
+        {"en": "Roof ventilation", "tr": "Çatı havalandırması", "kutu": [100, 55, 202, 76], "nokta": [148.5, 70], "boyut": 13.3, "renk": "#2c2c2e",
+         "zemin": {"onar": {"renk": "#2c2c2e", "tolerans": 90, "genislet": 2}}},
+        {"en": "2 Screens", "tr": "2 perde", "kutu": [56, 82, 116, 128], "nokta": [84.5, 109.5], "boyut": 13.2, "aci": -35.5, "renk": "#6698b9",
+         "zemin": {"onar": {"renk": "#6698b9", "tolerans": 60, "genislet": 1, "kaynak": [70, 0]}}},
+        {"en": "Artificial light: HPS & LED", "tr": "Yapay aydınlatma: HPS ve LED", "kutu": [52, 136, 204, 152], "nokta": [117, 146], "boyut": 13.2, "renk": "#cf7d47",
+         "zemin": {"onar": {"renk": "#cf7d47", "tolerans": 100, "genislet": 2}}},
+        {"en": "Sensors & information (dikey)", "tr": "Sensörler ve\nbilgi", "kutu": [207, 120, 250, 227], "nokta": [222, 173], "satir": 20.5, "boyut": 17.7, "aci": 90,
+         "zemin": {"onar": {"renk": "#1b465c", "tolerans": 100, "genislet": 2}}},
+        {"en": "Irrigation", "tr": "Sulama", "kutu": [84, 299, 150, 320], "nokta": [116.5, 313], "boyut": 13.0, "renk": "#27527d",
+         "zemin": {"onar": {"renk": "#27527d", "tolerans": 100, "genislet": 2}}},
+        {"en": "Heating", "tr": "Isıtma", "kutu": [118, 360, 176, 381], "nokta": [146.5, 374], "boyut": 13.3, "renk": "#080807",
+         "zemin": {"onar": {"renk": "#000000", "tolerans": 110, "genislet": 1}}},
+        {"en": "Process Computer", "tr": "Süreç\nbilgisayarı", "kutu": [398, 152, 478, 197], "nokta": [436, 169], "satir": 20, "yazi_tipi": "calibri", "boyut": 18.9, "renk": "#141414"},
+        {"en": "Digital Interface (dikey; (REST API) özgün)", "tr": "Dijital arayüz", "kutu": [563, 134, 586, 276], "nokta": [579, 205], "yazi_tipi": "calibri", "boyut": 19.3, "aci": 90, "renk": "#141414"},
+        {"en": "Crop handling", "tr": "Bitki bakımı", "dortgen": [[374.5, 270.2], [464.2, 249.5], [378.8, 288.7]], "nokta": [422.5, 273.5], "boyut": 15.6, "aci": 13,
+         "zemin": {"onar": {"renk": "#20495d", "tolerans": 90, "genislet": 2}}},
+        {"en": "Input", "tr": "Girdi", "kutu": [612, 12, 664, 31], "nokta": [636.5, 26], "boyut": 15.6},
+        {"en": "Control setpoints climate, irrgation [sic], crop", "tr": "Kontrol ayar noktaları:\niklim, sulama, bitki", "kutu": [548, 31, 728, 69], "nokta": [637, 44.5], "satir": 18.5},
+        {"en": "AI algorithms", "tr": "Yapay zekâ\nalgoritmaları", "kutu": [670, 102, 797, 130], "nokta": [733, 100], "satir": 21, "boyut": 19.8},
+        {"en": "Output", "tr": "Çıktı", "kutu": [622, 283, 688, 304], "nokta": [654, 297.5]},
+        {"en": "Realised climate, irrigation", "tr": "Gerçekleşen iklim, sulama", "kutu": [562, 301, 748, 322], "nokta": [654, 316]},
+        {"en": "Measured crop parameters incl. harvest", "tr": "Ölçülen bitki parametreleri\nhasat dâhil", "kutu": [562, 324, 748, 365], "nokta": [654, 339], "satir": 18.5}
+      ]
+    },
+    "b17-graphcast-modelinin-semasi": {
+      "_not": "GraphCast şeması (Lam ve ark., Şekil 1); yazı tipi Helvetica. Panel harfleri a)–g), GraphCast, GC ve M⁰–M⁶ özgün; yalnız harften sonraki sözcükler değişti (aynı kalem başlangıcından).",
+      "varsayilan": {"yazi_tipi": "helvetica", "boyut": 36.8, "renk": "#000000", "hiza": "sol", "ss": 4, "zemin": "#ffffff"},
+      "etiketler": [
+        {"en": "a) Input weather state", "tr": "Girdi hava durumu", "kutu": [49, 7, 375, 50], "nokta": [56.5, 37.5]},
+        {"en": "b) Predict the next state", "tr": "Sonraki durumun tahmini", "kutu": [591, 4, 952, 50], "nokta": [596.5, 37.5]},
+        {"en": "c) Roll out a forecast", "tr": "Adım adım tahmin", "kutu": [1177, 7, 1490, 50], "nokta": [1182, 38]},
+        {"en": "d) Encoder", "tr": "Kodlayıcı", "kutu": [48, 680, 199, 725], "nokta": [51.5, 714.5]},
+        {"en": "e) Processor", "tr": "İşlemci", "kutu": [622, 680, 801, 725], "nokta": [626.5, 714]},
+        {"en": "f) Decoder", "tr": "Kod çözücü", "kutu": [1156, 678, 1313, 725], "nokta": [1163.5, 714.5]},
+        {"en": "g) Simultaneous multi-mesh message-passing", "tr": "Çoklu ağda eşzamanlı mesaj iletimi", "kutu": [46, 1236, 768, 1285], "nokta": [55, 1270.5]}
+      ]
+    },
+    "t-dil-zararliyi-goruntuden-taniyan-model": {
+      "_not": "Şahin ve ark. 2025, Şekil 2; yazı tipi Times New Roman, özgün büyütülmüş ve yumuşak olduğu için Türkçe yazıya hafif bulanıklık. Etiket boyutları özgünde farklı; her biri özgünle örtüştürülerek bulundu. Özgün kalanlar: YOLOv8, ChatGPT-4), GPT-4, det_labels_str / seg_labels_str (kod adları), kırmızı tespit etiketi (Myzus persicae adult) ve OUTPUT kutusundaki model çıktısı paragrafı. Çalışma süreleri Türkçe yazımla (0,10 sn).",
+      "varsayilan": {"yazi_tipi": "times", "renk": "#000000", "hiza": "orta", "ss": 4, "kalin": 0.25, "bulaniklik": 0.6, "zemin": "#ffffff"},
+      "etiketler": [
+        {"en": "INPUT", "tr": "GİRDİ", "kutu": [12, 13, 210, 51], "zemin": "#ee7d31", "nokta": [110, 44], "boyut": 31.8, "renk": "#fff8f0"},
+        {"en": "OUTPUT", "tr": "ÇIKTI", "kutu": [1290, 13, 1480, 51], "zemin": "#ee7d31", "nokta": [1380, 44], "boyut": 31.8, "renk": "#fff8f0"},
+        {"en": "Detection", "tr": "Tespit", "kutu": [232, 152, 360, 191], "nokta": [295.5, 181], "boyut": 28.2},
+        {"en": "Segmentation", "tr": "Bölütleme", "kutu": [218, 221, 372, 263], "nokta": [295.5, 248.5], "boyut": 27.75},
+        {"en": "API key", "tr": "API anahtarı", "kutu": [745, 154, 860, 197], "nokta": [813, 184], "boyut": 31},
+        {"en": "Detected labes [sic]", "tr": "Tespit edilen\netiketler", "kutu": [905, 52, 1046, 133], "nokta": [975.5, 84], "satir": 37.5, "boyut": 33.2},
+        {"en": "interpretation (GPT-4 özgün)", "tr": "yorumu", "kutu": [998, 288, 1155, 323], "nokta": [1076, 313.5], "boyut": 28.2},
+        {"en": "Input", "tr": "Girdi", "kutu": [120, 422, 212, 468], "nokta": [164, 451.5], "boyut": 30.9},
+        {"en": "Output", "tr": "Çıktı", "kutu": [1322, 422, 1432, 468], "nokta": [1376, 451.5], "boyut": 31.35},
+        {"en": "(Running time: 0.10 s.)", "tr": "(Çalışma süresi: 0,10 sn)", "kutu": [382, 458, 704, 505], "nokta": [542.5, 488], "boyut": 32.25},
+        {"en": "(Running time: 3.5 s.)", "tr": "(Çalışma süresi: 3,5 sn)", "kutu": [840, 460, 1145, 505], "nokta": [992, 488], "boyut": 32.25}
+      ]
+    },
+    "b19-landsat-verisinin": {
+      "_not": "Zhu ve ark. 2019 grafiği (Excel); eksen başlıkları ve 'Free' Times New Roman Bold, açıklama Times New Roman. Fiyat etiketleri ($ 20 … $ 600), eksen değerleri, yıllar ve '\"Landsat\"' arama terimi özgün; arama sorgusundaki AND → VE.",
+      "varsayilan": {"yazi_tipi": "times-kalin", "renk": "#000000", "hiza": "orta", "ss": 4, "zemin": "#ffffff"},
+      "etiketler": [
+        {"en": "Number of publications", "tr": "Yayın sayısı", "kutu": [0, 204, 27, 436], "nokta": [17, 321.5], "boyut": 21.3, "aci": 90},
+        {"en": "Download (million images)", "tr": "İndirilen görüntü (milyon)", "kutu": [1572, 192, 1600, 448], "nokta": [1593, 322], "boyut": 21.0, "aci": 90},
+        {"en": "Year", "tr": "Yıl", "kutu": [780, 688, 838, 716], "nokta": [808.5, 708.5], "boyut": 19.7},
+        {"en": "Free", "tr": "Ücretsiz", "kutu": [1346, 44, 1411, 77], "nokta": [1378.5, 68], "boyut": 23.65},
+        {"en": "\"Landsat\" AND \"time series\"", "tr": "\"Landsat\" VE \"zaman serisi\"", "kutu": [627, 740, 924, 777], "nokta": [628, 769], "yazi_tipi": "times", "boyut": 25, "hiza": "sol"},
+        {"en": "Download (images)", "tr": "İndirilen görüntü", "kutu": [1008, 740, 1212, 777], "nokta": [1009.5, 769], "yazi_tipi": "times", "boyut": 25, "hiza": "sol"}
+      ]
+    },
+    "b17-graphcast-in-isletimdeki-en-iyi": {
+      "_not": "GraphCast beceri grafiği (Lam ve ark., Şekil 2; matplotlib, DejaVu Sans). DejaVu Sans yok; ölçüleri (büyük harf, x yüksekliği, genişlik) en yakın Verdana. Panel harfleri a)–d) özgün; başlıklardaki kalın z500 özgün pikselleriyle sağa taşındı. Eksen değerleri, RMSE (m²/s²), ACC, HRES, GraphCast, u v z t q 2t 10u 10v msl ve hPa özgün.",
+      "varsayilan": {"yazi_tipi": "verdana", "boyut": 19.7, "renk": "#000000", "hiza": "orta", "ss": 4, "zemin": "#ffffff"},
+      "tasimalar": [
+        {"kutu": [246, 9, 301, 28], "hedef": [270, 9], "zemin": "#ffffff"},
+        {"kutu": [810, 9, 866, 28], "hedef": [837, 9], "zemin": "#ffffff"},
+        {"kutu": [1298, 9, 1353, 28], "hedef": [1323, 9], "zemin": "#ffffff"}
+      ],
+      "etiketler": [
+        {"en": "[a)] Skill (RMSE): [z500]", "tr": "Beceri (RMSE):", "kutu": [111, 6, 246, 34], "nokta": [113.07, 26], "hiza": "sol"},
+        {"en": "[b)] Skill score (RMSE): [z500]", "tr": "Beceri skoru (RMSE):", "kutu": [615, 5, 810, 34], "nokta": [618.07, 26], "hiza": "sol"},
+        {"en": "[c)] Skill score (ACC): [z500]", "tr": "Beceri skoru (ACC):", "kutu": [1117, 5, 1298, 35], "nokta": [1120.07, 26], "hiza": "sol"},
+        {"en": "[d)] Scorecard (RMSE skill score)", "tr": "Skor kartı (RMSE beceri skoru)", "kutu": [123, 496, 415, 526], "nokta": [125.7, 515], "hiza": "sol"},
+        {"en": "Lower is better (a)", "tr": "Düşük daha iyi", "kutu": [105, 68, 137, 234], "nokta": [128, 151], "aci": 90},
+        {"en": "Lower is better (b)", "tr": "Düşük daha iyi", "kutu": [609, 69, 641, 232], "nokta": [632, 147.5], "aci": 90},
+        {"en": "Higher is better", "tr": "Yüksek daha iyi", "kutu": [1113, 226, 1148, 398], "nokta": [1136, 311.5], "aci": 90},
+        {"en": "Norm. RMSE diff.", "tr": "Norm. RMSE farkı", "kutu": [490, 136, 517, 318], "nokta": [512, 226.5], "aci": 90},
+        {"en": "Level (hPa)", "tr": "Seviye (hPa)", "nokta": [39, 606], "aci": 90, "ortu": [{"kutu": [16, 546, 47, 640]}, {"kutu": [16, 640, 42, 676]}]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [190, 448, 376, 483], "nokta": [282.5, 469]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [692, 448, 880, 483], "nokta": [786, 469]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [1196, 446, 1382, 483], "nokta": [1290, 469]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [102, 702, 290, 738], "nokta": [196, 724]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [338, 702, 526, 738], "nokta": [432, 724]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [574, 702, 761, 738], "nokta": [668, 724]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [810, 702, 998, 738], "nokta": [904, 724]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [1046, 702, 1234, 738], "nokta": [1140.5, 724]},
+        {"en": "Lead time (days)", "tr": "Tahmin süresi (gün)", "kutu": [1282, 702, 1470, 738], "nokta": [1376.5, 724]}
+      ]
+    },
+    "b07-derin-pekistirmeli-ogrenmeyle-sulama": {
+      "_not": "Saikai, Peake ve Chenu 2023, Şekil 2 (matplotlib, DejaVu Sans → Verdana). Lejant başlıktaki sıfatlarla eşleşiyor (Yaygın / Öğrenilen; metindeki 'bölgede yaygın kural'). Lejant matplotlib'in kendi aralıklarıyla yeniden dizildi: turuncu kutucuk ve çerçevenin sağ ucu özgün pikselleriyle sola taşındı. Çubuklar, eksen değerleri ve yıllar özgün; y ekseni başlığındaki yazım hatası (Prfofits) Türkçede yok.",
+      "varsayilan": {"yazi_tipi": "verdana", "renk": "#000000", "hiza": "orta", "ss": 4, "zemin": "#ffffff"},
+      "ortuler": [
+        {"kutu": [579, 49, 622, 106], "zemin": "#ffffff"}
+      ],
+      "tasimalar": [
+        {"kutu": [421, 63, 481, 88], "hedef": [358, 63], "zemin": "#ffffff"},
+        {"kutu": [607, 49, 621, 106], "hedef": [565, 49], "zemin": "#ffffff"}
+      ],
+      "etiketler": [
+        {"en": "Profit comparison between the benchmark and learned decision rules", "tr": "Yaygın ve öğrenilen karar kurallarının kâr karşılaştırması", "kutu": [300, 0, 1422, 35], "nokta": [859.5, 25], "boyut": 31.67},
+        {"en": "Benchmark", "tr": "Yaygın", "kutu": [208, 58, 380, 98], "nokta": [220.5, 85], "boyut": 26.8, "hiza": "sol"},
+        {"en": "Learned", "tr": "Öğrenilen", "kutu": [490, 58, 607, 98], "nokta": [434, 85], "boyut": 26.8, "hiza": "sol"},
+        {"en": "Prfofits ($/ha) [sic]", "tr": "Kâr ($/ha)", "kutu": [0, 234, 32, 434], "nokta": [21, 333], "boyut": 25.4, "aci": 90},
+        {"en": "Year", "tr": "Yıl", "kutu": [822, 676, 900, 703], "nokta": [860.5, 701.5], "boyut": 25}
+      ]
+    },
+    "b22-abd-de-otomatik-dumen-ve-yonlendirme": {
+      "_not": "USDA ERS 'Chart of Note' grafiği; başlık, lejant ve notlar Aptos (özgündeki Roboto/Inter benzeri yazıya ölçüce en yakın), alt başlık PT Sans (Myriad benzeri). Başlık zemini lacivert yatay geçiş (Coons). USDA logosu, eksen değerleri, yıllar ve traktör çizimi özgün.",
+      "varsayilan": {"yazi_tipi": "aptos", "renk": "#131313", "hiza": "sol", "ss": 4, "zemin": "#ffffff"},
+      "etiketler": [
+        {"en": "Adoption of auto-steer and guidance systems on row crop acreage, 2001–19", "tr": "Tarla bitkilerinde otomatik dümen ve\nyönlendirme sistemi kullanımı, 2001–19", "kutu": [24, 26, 860, 146], "zemin": "auto", "nokta": [31.5, 68.5], "satir": 54, "yazi_tipi": "aptos-kalin", "boyut": 46.3, "renk": "#ffffff"},
+        {"en": "Percent of planted acres using guidance systems", "tr": "Yönlendirme sistemi kullanılan ekili alanın yüzdesi", "kutu": [32, 194, 824, 248], "nokta": [38.5, 229], "yazi_tipi": "pt-sans", "boyut": 37, "renk": "#000000"},
+        {"en": "Corn", "tr": "Mısır", "kutu": [244, 306, 342, 356], "nokta": [247, 342], "boyut": 39.3},
+        {"en": "Soybeans", "tr": "Soya", "kutu": [244, 386, 427, 438], "nokta": [248, 421.5], "boyut": 39.3},
+        {"en": "Winter wheat", "tr": "Kışlık buğday", "kutu": [244, 462, 492, 518], "nokta": [247.5, 503], "boyut": 39.3},
+        {"en": "Cotton", "tr": "Pamuk", "kutu": [244, 550, 372, 594], "nokta": [247, 584], "boyut": 39.3},
+        {"en": "Note: Before 2018, guidance system adoption included auto-steer systems or light bar systems. Starting in 2018, guidance system adoption is only the use of guidance auto-steer; light bar system data no longer are collected because of minimal use.",
+         "tr": "Not: 2018'den önce yönlendirme sistemi kullanımı otomatik dümen ya da ışık çubuğu sistemlerini\nkapsıyordu. 2018'den itibaren yalnız otomatik dümenli yönlendirme kullanımı sayılıyor; ışık çubuğu\nsistemleri az kullanıldığı için artık bunlara ilişkin veri toplanmıyor.",
+         "kutu": [28, 1080, 1565, 1200], "nokta": [35, 1110], "satir": 38.5, "boyut": 32.5, "renk": "#101010"},
+        {"en": "Source: USDA, Economic Research Service and USDA, National Agricultural Statistics Service, Agricultural Resource Management Survey, years 2001–07, 2009–13, 2015–19.",
+         "tr": "Kaynak: USDA Ekonomik Araştırma Servisi ve USDA Ulusal Tarım İstatistikleri Servisi, Tarımsal Kaynak\nYönetimi Anketi; 2001–07, 2009–13 ve 2015–19 yılları.",
+         "kutu": [28, 1208, 1565, 1296], "nokta": [35, 1238], "satir": 38.5, "boyut": 32.5, "renk": "#101010"}
+      ]
+    },
+    "b22-ab-de-ciftliklerin-internet-ve": {
+      "_not": "Eurostat (ef_mp_digi) grafiği; yazı tipi Arial (başlık ve lejant Bold, 'Kaynak:' italik). Büyüklük sınıfları Türkçe sayı yazımıyla (binlik ayıracı nokta: 100.000 avro). (%, 2023), eksen değerleri, çubuklar ve eurostat logosu özgün.",
+      "varsayilan": {"yazi_tipi": "arial", "boyut": 19.85, "renk": "#000000", "hiza": "sol", "ss": 4, "zemin": "#ffffff"},
+      "etiketler": [
+        {"en": "Farms with access to internet, farm management information systems and robotics according to economic size of farm",
+         "tr": "İnternete erişen, çiftlik yönetim bilgi sistemi ve robotik\nkullanan çiftlikler, çiftliğin ekonomik büyüklüğüne göre",
+         "ortu": [{"kutu": [6, 12, 892, 45]}, {"kutu": [0, 45, 852, 81]}], "nokta": [12, 37.5], "satir": 35.5, "yazi_tipi": "arial-kalin", "boyut": 29.8},
+        {"en": "100 000 euros or over", "tr": "100.000 avro ve üstü", "kutu": [0, 174, 386, 200], "nokta": [376.6, 193], "hiza": "sag"},
+        {"en": "From 25 000 to 99 999 euro", "tr": "25.000 ile 99.999 avro arası", "kutu": [110, 280, 386, 306], "nokta": [376.6, 299], "hiza": "sag"},
+        {"en": "From 8 000 to 24 999 euro", "tr": "8.000 ile 24.999 avro arası", "kutu": [120, 386, 386, 412], "nokta": [376.6, 405], "hiza": "sag"},
+        {"en": "From 2 000 to 7 999 euro", "tr": "2.000 ile 7.999 avro arası", "kutu": [130, 492, 386, 518], "nokta": [376.6, 512], "hiza": "sag"},
+        {"en": "Zero euros or over to less than 2 000 euro", "tr": "0 avro ve üstü, 2.000 avronun altı", "kutu": [0, 598, 386, 626], "nokta": [376.6, 618], "hiza": "sag"},
+        {"en": "Access to internet", "tr": "İnternete erişim", "kutu": [632, 727, 832, 752], "nokta": [634.5, 746], "yazi_tipi": "arial-kalin", "boyut": 20.14},
+        {"en": "Farm management information systems", "tr": "Çiftlik yönetim bilgi sistemleri", "kutu": [632, 756, 1026, 781], "nokta": [634.5, 775], "yazi_tipi": "arial-kalin", "boyut": 20.14},
+        {"en": "Robotics", "tr": "Robotik", "kutu": [632, 785, 736, 810], "nokta": [634.5, 804], "yazi_tipi": "arial-kalin", "boyut": 20.14},
+        {"en": "Note: Only farms above the Regulation physical thresholds included.", "tr": "Not: Yalnız tüzükteki fiziksel eşiklerin üstündeki çiftlikler dâhil.", "kutu": [5, 845, 640, 871], "nokta": [11.5, 865]},
+        {"en": "Source: Eurostat (online data code: ef_mp_digi)", "tr": [[{"metin": "Kaynak:", "yazi_tipi": "arial-italik"}, {"metin": " Eurostat (çevrimiçi veri kodu: ef_mp_digi)"}]], "kutu": [5, 871, 445, 901], "nokta": [11.5, 888]}
+      ]
+    }
+  }
+}
