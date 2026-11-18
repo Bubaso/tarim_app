@@ -235,10 +235,19 @@ void main() {
             w is RichText && w.text.toPlainText().startsWith(dil == 'tr' ? 'İlk kez' : 'New here'));
         expect(paragraf, findsOneWidget);
         final duz = t.widget<RichText>(paragraf).text.toPlainText();
-        // Bağlantılar satır içi parça (U+FFFC); ardından gelen noktalama ona yapışık.
+        // Bağlantılar satır içi parça (U+FFFC); noktalama parçanın içinde.
         expect(duz, dil == 'tr'
-            ? 'İlk kez mi geliyorsunuz? Önce ￼, terimler için ￼.'
-            : 'New here? Start with ￼; for the terms, ￼.');
+            ? 'İlk kez mi geliyorsunuz? Önce \uFFFC terimler için \uFFFC'
+            : 'New here? Start with \uFFFC for the terms, \uFFFC');
+        // Noktalama bağlantıyla aynı kırılmaz parçada (telefonda "." tek başına
+        // alt satıra düşmüştü).
+        for (final (ad, isaret) in [
+          (yzBaslik(1)!.ad(dil == 'en'), dil == 'tr' ? ',' : ';'),
+          (yzBaslik(2)!.ad(dil == 'en').split(':').first.trim(), '.'),
+        ]) {
+          final parca = find.ancestor(of: find.text(ad), matching: find.byType(Row)).first;
+          expect(find.descendant(of: parca, matching: find.text(isaret)), findsOneWidget);
+        }
         expect(find.text(yzBaslik(1)!.ad(dil == 'en')), findsOneWidget);
         expect(find.text(yzBaslik(2)!.ad(dil == 'en').split(':').first.trim()), findsOneWidget);
       });

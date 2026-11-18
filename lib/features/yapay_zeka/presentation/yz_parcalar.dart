@@ -169,17 +169,23 @@ class YzYonSatiri extends ConsumerWidget {
     // TEK PARAGRAF: noktalama bağlantıya yapışık, satır doğal yerinde
     // kırılıyor. Wrap'le kurulduğunda dar ekranda virgül satır başına
     // düşüyor, noktadan önce boşluk kalıyordu (canlıda görüldü, 18 Kas 2026).
-    InlineSpan baglantiParcasi(String metin, VoidCallback git) => WidgetSpan(
+    // Noktalama bağlantıyla AYNI satır içi parçada: Flutter satır içi
+    // parçadan sonra noktalamanın önünde de kırabiliyor (telefonda "."
+    // tek başına alt satıra düştü).
+    InlineSpan baglantiParcasi(String metin, String noktalama, VoidCallback git) => WidgetSpan(
           alignment: PlaceholderAlignment.baseline,
           baseline: TextBaseline.alphabetic,
-          child: baglanti(metin, git),
+          child: Row(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic, children: [
+            Flexible(child: baglanti(metin, git)),
+            Text(noktalama, style: duz),
+          ]),
         );
     return Text.rich(TextSpan(style: duz, children: [
       TextSpan(text: en ? 'New here? Start with ' : 'İlk kez mi geliyorsunuz? Önce '),
-      baglantiParcasi(ilk, () => context.push(yzBaslikPath(_ilk))),
-      TextSpan(text: en ? '; for the terms, ' : ', terimler için '),
-      baglantiParcasi(kav, () => context.push(yzBaslikPath(_kavramlar))),
-      const TextSpan(text: '.'),
+      baglantiParcasi(ilk, en ? ';' : ',', () => context.push(yzBaslikPath(_ilk))),
+      TextSpan(text: en ? ' for the terms, ' : ' terimler için '),
+      baglantiParcasi(kav, '.', () => context.push(yzBaslikPath(_kavramlar))),
     ]));
   }
 }
