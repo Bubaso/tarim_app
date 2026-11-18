@@ -4,6 +4,7 @@ import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import 'yz_matris.dart';
 import 'yz_merkez_liste.dart';
+import 'yz_mobil.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 
@@ -34,6 +35,9 @@ class YzMerkezEkrani extends StatelessWidget {
         Expanded(
           child: LayoutBuilder(builder: (context, kis) {
             final dar = kis.maxWidth < 640;
+            // Mobil tur: telefona özgü seçimler, listeyi seçen ölçüyle aynı
+            // (yzTelefon); alt yazı ile düzen hiç ayrışmasın.
+            final telefon = yzTelefon(context);
             final yan = dar ? 16.0 : 32.0;
             return SingleChildScrollView(
               child: Column(
@@ -95,8 +99,8 @@ class YzMerkezEkrani extends StatelessWidget {
                                 Text(
                                   en ? '${kYzBasliklar.length} headings' : '${kYzBasliklar.length} başlık',
                                   // Telefonda düz, küçük yazı (★10); masaüstünde mono.
-                                  style: dar
-                                      ? yzMerkezMeta(renk: YzRenk.murekkep)
+                                  style: telefon
+                                      ? yzMerkezMeta()
                                       : YzYazi.veri(boy: 13, renk: YzRenk.murekkep),
                                 ),
                                 if (sonGuncelleme != null)
@@ -104,7 +108,7 @@ class YzMerkezEkrani extends StatelessWidget {
                                     en
                                         ? 'last updated ${yzTarih(sonGuncelleme, true)}'
                                         : 'son güncelleme ${yzTarih(sonGuncelleme, false)}',
-                                    style: dar ? yzMerkezMeta() : YzYazi.veri(boy: 13),
+                                    style: telefon ? yzMerkezMeta() : YzYazi.veri(boy: 13),
                                   ),
                               ]),
                             ],
@@ -125,7 +129,7 @@ class YzMerkezEkrani extends StatelessWidget {
                             YzBolumBasligi(
                               en ? 'The headings' : 'Başlıklar',
                               // Telefonda karo yok, liste var (★20): alt yazı ona göre.
-                              alt: dar
+                              alt: telefon
                                   ? (en
                                       ? 'From the soil to the market, in the order of the farming year. Pick a technology: each heading shows what it says about it, and the technology has a page of its own across agriculture.'
                                       : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: her başlık o teknolojinin oradaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.')

@@ -145,11 +145,11 @@ class _YzHaritaState extends State<YzHarita> {
             const SizedBox(height: 12),
             _TeknolojiOzeti(kod: _teknoloji!, en: en),
           ],
-          SizedBox(height: telefon ? 14 : 18),
+          SizedBox(height: telefon ? 10 : 18),
           for (final k in katmanlar.entries)
             if (telefon)
               Padding(
-                padding: const EdgeInsets.only(bottom: 16),
+                padding: const EdgeInsets.only(bottom: 8),
                 child: _katmanListesi(k.key, k.value, en),
               )
             else
@@ -169,22 +169,21 @@ class _YzHaritaState extends State<YzHarita> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(8, 0, 8, 4),
+          padding: const EdgeInsets.fromLTRB(8, 0, 8, 2),
           child: Text(
             buyukHarf(kYzKatmanlar[katman]?[en ? 'en' : 'tr'] ?? katman, en),
             style: YzYazi.ustEtiket(),
           ),
         ),
-        for (var i = 0; i < basliklar.length; i++) ...[
-          if (i > 0) const YzMerkezCizgi(),
+        for (var i = 0; i < basliklar.length; i++)
           YzBaslikSatiri(
             baslik: basliklar[i],
+            ustCizgi: i > 0,
             sonuk: _teknoloji != null && !basliklar[i].teknoloji.contains(_teknoloji),
             teknoloji: _teknoloji,
             ana: _teknoloji != null &&
                 (kYzTeknolojiAna[_teknoloji]?.contains(basliklar[i].no) ?? false),
           ),
-        ],
       ],
     );
   }

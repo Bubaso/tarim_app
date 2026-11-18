@@ -35,14 +35,28 @@ class YzMerkezCizgi extends StatelessWidget {
 /// konu olduğu başlıkta "ana" ve yumuşak mavi zemin, altında kesişim
 /// cümlesi; dokununca aynı adres (seçiliyse `?teknoloji=` ile).
 class YzBaslikSatiri extends ConsumerWidget {
-  const YzBaslikSatiri(
-      {super.key, required this.baslik, this.sonuk = false, this.teknoloji, this.ana = false});
+  const YzBaslikSatiri({
+    super.key,
+    required this.baslik,
+    this.sonuk = false,
+    this.teknoloji,
+    this.ana = false,
+    this.ustCizgi = false,
+  });
   final YzBaslik baslik;
   final bool sonuk;
   final String? teknoloji;
   final bool ana;
 
+  /// Önceki satırla arasındaki ince çizgi satırın İÇİNDE (üst kenarında):
+  /// listeye yükseklik eklemiyor, sönük satırda da aynı koyulukta.
+  final bool ustCizgi;
+
   static const double enAzYukseklik = 52;
+
+  /// Sağdaki süre/hap, satır genişliğinin en çok bu kadarı: büyük yazı
+  /// ölçeğinde (erişilebilirlik, 2×) başlığı ezip taşmasın.
+  static const double sagAzamiOran = 0.4;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -69,8 +83,8 @@ class YzBaslikSatiri extends ConsumerWidget {
                 ? '$dakika min read${okundu ? ', read' : ''}'
                 : '$dakika dk okuma${okundu ? ', okundu' : ''}'))
         : (ana
-            ? (en ? 'main heading, $izSayisi mentions' : 'ana başlık, $izSayisi yerde geçiyor')
-            : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'));
+            ? (en ? 'main heading, ${_anma(izSayisi)}' : 'ana başlık, $izSayisi yerde geçiyor')
+            : (en ? _anma(izSayisi) : '$izSayisi yerde geçiyor'));
     final etiket = [baslik.ad(en), if (durum != null) durum, if (kesisim != null) kesisim].join('. ');
 
     Widget sag;
@@ -84,22 +98,34 @@ class YzBaslikSatiri extends ConsumerWidget {
         child: Text(
           ana
               ? (en ? 'main · $izSayisi' : 'ana · $izSayisi')
-              : (en ? '$izSayisi mentions' : '$izSayisi yerde'),
+              : (en ? _anma(izSayisi) : '$izSayisi yerde'),
+          maxLines: 1,
+          softWrap: false,
+          overflow: TextOverflow.ellipsis,
           style: yzMerkezMeta(
               renk: anaVurgu ? Colors.white : YzRenk.makine, kalinlik: FontWeight.w600),
         ),
       );
     } else {
       sag = Row(mainAxisSize: MainAxisSize.min, children: [
-        if (dakika != null) Text(en ? '$dakika min' : '$dakika dk', style: yzMerkezMeta()),
+        if (dakika != null)
+          Flexible(
+            child: Text(
+              en ? '$dakika min' : '$dakika dk',
+              maxLines: 1,
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+              style: yzMerkezMeta(),
+            ),
+          ),
         if (okundu) ...[
-          const SizedBox(width: 6),
+          if (dakika != null) const SizedBox(width: 6),
           Text('✓', style: yzMerkezMeta(renk: YzRenk.bitki, kalinlik: FontWeight.w700)),
         ],
       ]);
     }
 
-    return AnimatedOpacity(
+    final satir = AnimatedOpacity(
       duration: const Duration(milliseconds: 180),
       opacity: sonuk ? 0.32 : 1,
       child: Semantics(
@@ -116,8 +142,10 @@ class YzBaslikSatiri extends ConsumerWidget {
             child: ConstrainedBox(
               constraints: const BoxConstraints(minHeight: enAzYukseklik),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-                child: Row(children: [
+                // Dikey 6: iki satırlık başlık da 52 pikselde kalıyor; liste
+                // eski karo ızgarasından kısa (ölçü testi sınıyor).
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                child: LayoutBuilder(builder: (context, kis) => Row(children: [
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,26 +175,39 @@ class YzBaslikSatiri extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  sag,
-                ]),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: kis.maxWidth * sagAzamiOran),
+                    child: sag,
+                  ),
+                ])),
               ),
             ),
           ),
         ),
       ),
     );
+    if (!ustCizgi) return satir;
+    return Stack(children: [
+      satir,
+      const Positioned(top: 0, left: 0, right: 0, child: IgnorePointer(child: YzMerkezCizgi())),
+    ]);
   }
 }
 
+/// İngilizce sayı: "1 mention", "3 mentions".
+String _anma(int n) => n == 1 ? '1 mention' : '$n mentions';
+
 /// Telefonda teknoloji çiplerinin tek satırı (★2): yana kayıyor; taşıyorsa
 /// sağ kenarda yumuşak bir solgunluk "devamı var" diyor, sonuna gelince
-/// kalkıyor. Kesik bir çip kalmıyor.
+/// kalkıyor. Sağa kaydırılınca aynı solgunluk sol kenarda da: iki uçta da
+/// kesik bir çip kalmıyor.
 class YzMerkezCipSeridi extends StatefulWidget {
   const YzMerkezCipSeridi({super.key, required this.children, this.zemin = YzRenk.zemin});
   final List<Widget> children;
   final Color zemin;
 
   static const solgunlukAnahtari = ValueKey('yz-merkez-cip-solgunluk');
+  static const solSolgunlukAnahtari = ValueKey('yz-merkez-cip-solgunluk-sol');
 
   @override
   State<YzMerkezCipSeridi> createState() => _YzMerkezCipSeridiState();
@@ -175,6 +216,7 @@ class YzMerkezCipSeridi extends StatefulWidget {
 class _YzMerkezCipSeridiState extends State<YzMerkezCipSeridi> {
   final _kaydirma = ScrollController();
   bool _solgun = false;
+  bool _solSolgun = false;
 
   @override
   void initState() {
@@ -187,8 +229,14 @@ class _YzMerkezCipSeridiState extends State<YzMerkezCipSeridi> {
     if (!mounted || !_kaydirma.hasClients) return;
     final p = _kaydirma.position;
     if (!p.hasContentDimensions) return;
-    final yeni = p.maxScrollExtent > 0.5 && p.pixels < p.maxScrollExtent - 0.5;
-    if (yeni != _solgun) setState(() => _solgun = yeni);
+    final sag = p.maxScrollExtent > 0.5 && p.pixels < p.maxScrollExtent - 0.5;
+    final sol = p.maxScrollExtent > 0.5 && p.pixels > 0.5;
+    if (sag != _solgun || sol != _solSolgun) {
+      setState(() {
+        _solgun = sag;
+        _solSolgun = sol;
+      });
+    }
   }
 
   @override
@@ -196,6 +244,31 @@ class _YzMerkezCipSeridiState extends State<YzMerkezCipSeridi> {
     _kaydirma.removeListener(_guncelle);
     _kaydirma.dispose();
     super.dispose();
+  }
+
+  Widget _solgunluk(Key anahtar, bool gorunur, {required bool sol}) {
+    final bos = widget.zemin.withValues(alpha: 0);
+    return Positioned(
+      top: 0,
+      bottom: 0,
+      left: sol ? 0 : null,
+      right: sol ? null : 0,
+      width: 44,
+      child: IgnorePointer(
+        child: AnimatedOpacity(
+          key: anahtar,
+          duration: const Duration(milliseconds: 160),
+          opacity: gorunur ? 1 : 0,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: sol ? [widget.zemin, bos] : [bos, widget.zemin],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -211,26 +284,8 @@ class _YzMerkezCipSeridiState extends State<YzMerkezCipSeridi> {
           scrollDirection: Axis.horizontal,
           child: Row(children: widget.children),
         ),
-        Positioned(
-          top: 0,
-          bottom: 0,
-          right: 0,
-          width: 44,
-          child: IgnorePointer(
-            child: AnimatedOpacity(
-              key: YzMerkezCipSeridi.solgunlukAnahtari,
-              duration: const Duration(milliseconds: 160),
-              opacity: _solgun ? 1 : 0,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [widget.zemin.withValues(alpha: 0), widget.zemin],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+        _solgunluk(YzMerkezCipSeridi.solSolgunlukAnahtari, _solSolgun, sol: true),
+        _solgunluk(YzMerkezCipSeridi.solgunlukAnahtari, _solgun, sol: false),
       ]),
     );
   }

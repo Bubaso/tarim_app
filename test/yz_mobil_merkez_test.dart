@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -36,12 +39,25 @@ const _yerellik = [
   GlobalCupertinoLocalizations.delegate,
 ];
 
-Widget _uygulama(Widget cocuk, {String dil = 'tr'}) => ProviderScope(
+Widget _uygulama(Widget cocuk, {String dil = 'tr', double olcek = 1, double? sahteGenislik}) =>
+    ProviderScope(
       overrides: _gecersiz,
       child: MaterialApp(
         locale: Locale(dil),
         supportedLocales: const [Locale('tr'), Locale('en')],
         localizationsDelegates: _yerellik,
+        // Yazı ölçeği (erişilebilirlik) ve ölçü testinde "geniş ekran sanan"
+        // dar kutu: eski ızgarayı telefon genişliğinde çizdirmek için.
+        builder: (ctx, child) {
+          final mq = MediaQuery.of(ctx);
+          return MediaQuery(
+            data: mq.copyWith(
+              textScaler: TextScaler.linear(olcek),
+              size: sahteGenislik == null ? null : Size(sahteGenislik, mq.size.height),
+            ),
+            child: child!,
+          );
+        },
         home: cocuk,
       ),
     );
@@ -67,7 +83,7 @@ Widget _yonlendirmeli({String dil = 'tr'}) {
 }
 
 /// Haritayı tek başına, verilen genişlikte (merkez sayfadaki yan boşlukla).
-Widget _harita({String dil = 'tr'}) => _uygulama(
+Widget _harita({String dil = 'tr', double olcek = 1, double? sahteGenislik}) => _uygulama(
       const Scaffold(
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16),
@@ -75,6 +91,8 @@ Widget _harita({String dil = 'tr'}) => _uygulama(
         ),
       ),
       dil: dil,
+      olcek: olcek,
+      sahteGenislik: sahteGenislik,
     );
 
 void _telefon(WidgetTester t) {
@@ -257,8 +275,70 @@ void main() {
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       expect(_ailesi(t, find.text('${kYzBasliklar.length} başlık')), contains('Outfit'));
+      expect(t.widget<Text>(find.text('${kYzBasliklar.length} başlık')).style!.color, YzRenk.soluk,
+          reason: '★10: sayı satırı soluk');
       expect(find.byType(YzBaslikSatiri), findsNWidgets(kYzBasliklar.length));
       expect(find.textContaining('karolar'), findsNothing, reason: 'telefonda karo yok');
+    });
+  });
+
+  group('telefon · dar ekran ve büyük yazı', () {
+    for (final dil in ['tr', 'en']) {
+      testWidgets('320 px, yazı 2×, $dil: teknoloji seçiliyken satır taşmıyor', (t) async {
+        t.view.physicalSize = const Size(320, 800);
+        t.view.devicePixelRatio = 1;
+        addTearDown(t.view.reset);
+        await t.pumpWidget(_harita(dil: dil, olcek: 2));
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+        for (final kod in ['goruntu', 'dil']) {
+          final ad = kYzTeknoloji[kod]![dil]!;
+          await t.ensureVisible(_cip(ad));
+          await t.pumpAndSettle();
+          await t.tap(_cip(ad));
+          await t.pumpAndSettle();
+          expect(t.takeException(), isNull, reason: '$kod seçili');
+          // Sağdaki hap satırın en çok %40'ı.
+          for (final e in find.byType(YzBaslikSatiri).evaluate()) {
+            expect(e.size!.width, lessThanOrEqualTo(320));
+          }
+          await t.tap(_cip(ad)); // seçimi kaldır
+          await t.pumpAndSettle();
+          expect(t.takeException(), isNull);
+        }
+      });
+    }
+
+    testWidgets('İngilizce tekil: "1 mention", "1 mentions" değil', (t) async {
+      // Bir teknolojinin tek yerde geçtiği, ana olmayan bir başlık.
+      String? kod;
+      YzBaslik? b;
+      for (final x in kYzBasliklar) {
+        for (final k in x.teknoloji) {
+          if ((kYzTeknolojiIzi[x.no]?[k]?[1] ?? 0) == 1 &&
+              !(kYzTeknolojiAna[k]?.contains(x.no) ?? false)) {
+            kod = k;
+            b = x;
+            break;
+          }
+        }
+        if (b != null) break;
+      }
+      _telefon(t);
+      await t.pumpWidget(_harita(dil: 'en'));
+      await t.pumpAndSettle();
+      if (b == null) {
+        expect(find.textContaining('1 mentions'), findsNothing);
+        return;
+      }
+      final ad = kYzTeknoloji[kod]!['en']!;
+      await t.ensureVisible(_cip(ad));
+      await t.pumpAndSettle();
+      await t.tap(_cip(ad));
+      await t.pumpAndSettle();
+      final satir = find.widgetWithText(YzBaslikSatiri, b.en);
+      expect(find.descendant(of: satir, matching: find.text('1 mention')), findsOneWidget);
+      expect(find.text('1 mentions'), findsNothing);
     });
   });
 
@@ -270,16 +350,25 @@ void main() {
       expect(find.byType(YzMerkezCipSeridi), findsOneWidget);
       double solgunluk() =>
           t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solgunlukAnahtari)).opacity;
+      double solSolgunluk() =>
+          t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solSolgunlukAnahtari)).opacity;
       expect(solgunluk(), 1, reason: 'çipler 343 piksele sığmıyor');
+      expect(solSolgunluk(), 0, reason: 'başta solda kesik çip yok');
       final kaydirma = find.descendant(
           of: find.byType(YzMerkezCipSeridi), matching: find.byType(Scrollable));
       final durum = t.state<ScrollableState>(kaydirma);
+      durum.position.jumpTo(durum.position.maxScrollExtent / 2);
+      await t.pumpAndSettle();
+      expect(solgunluk(), 1, reason: 'ortada: iki uçta da devamı var');
+      expect(solSolgunluk(), 1);
       durum.position.jumpTo(durum.position.maxScrollExtent);
       await t.pumpAndSettle();
       expect(solgunluk(), 0, reason: 'sona gelindi');
+      expect(solSolgunluk(), 1, reason: 'sağa kaydı: solda solgunluk');
       durum.position.jumpTo(0);
       await t.pumpAndSettle();
       expect(solgunluk(), 1);
+      expect(solSolgunluk(), 0);
       for (final e in find.byType(YzTeknolojiCipi).evaluate()) {
         expect(e.size!.height, greaterThanOrEqualTo(44));
       }
@@ -300,6 +389,9 @@ void main() {
       await t.pumpAndSettle();
       expect(
           t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solgunlukAnahtari)).opacity, 0);
+      expect(
+          t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solSolgunlukAnahtari)).opacity,
+          0);
     });
   });
 
@@ -321,6 +413,8 @@ void main() {
       final etiket = find.text('$dakika dk okuma').first;
       expect(_ailesi(t, etiket), contains('IBMPlexMono'));
       expect(_ailesi(t, find.text('${kYzBasliklar.length} başlık')), contains('IBMPlexMono'));
+      expect(t.widget<Text>(find.text('${kYzBasliklar.length} başlık')).style!.color,
+          YzRenk.murekkep);
       expect(find.textContaining('karolar o teknolojinin'), findsOneWidget);
       // Karo 196 piksel genişliğinde, çerçeveli.
       expect(t.getSize(find.byType(YzBaslikKarosu).first).width, 196);
@@ -330,6 +424,49 @@ void main() {
       await t.tap(_cip('Dil modelleri'));
       await t.pumpAndSettle();
       expect(find.textContaining('yerde geçiyor'), findsWidgets, reason: 'karo etiketi aynı');
+    });
+  });
+
+  _olcuGrubu();
+}
+
+// ── Ölçü: GERÇEK yazı tipleriyle (dosyanın SONUNDA; yüklenen yazı tipleri
+// sonraki testlere de geçer). Test yazı tipi her harfi kare çiziyor;
+// başlıklar orada iki-üç satıra kırılıp ölçüyü bozuyor. Outfit'in yalnız
+// Bold'u gömülü: 500/600 için de o (biraz geniş, yani ihtiyatlı ölçü).
+void _olcuGrubu() {
+  group('telefon · liste yüksekliği (gerçek yazı tipi)', () {
+    setUpAll(() async {
+      Future<void> yukle(List<String> aileler, String dosya) async {
+        final b = File('assets/google_fonts/$dosya').readAsBytesSync();
+        for (final a in aileler) {
+          await (FontLoader(a)..addFont(Future.value(ByteData.sublistView(b)))).load();
+        }
+      }
+
+      await yukle(['Outfit_500', 'Outfit_600', 'Outfit_700'], 'Outfit-Bold.ttf');
+      await yukle(['IBMPlexMono_500'], 'IBMPlexMono-Medium.ttf');
+      await yukle(['IBMPlexMono_600'], 'IBMPlexMono-SemiBold.ttf');
+      await yukle(['IBMPlexMono_700'], 'IBMPlexMono-Bold.ttf');
+      await yukle(['Newsreader_regular', 'Newsreader_400'], 'Newsreader-Regular.ttf');
+    });
+
+    testWidgets('liste eski karo ızgarasından uzun değil (≤ %5 pay)', (t) async {
+      _telefon(t);
+      await t.pumpWidget(_harita());
+      await t.pumpAndSettle();
+      final liste = t.getSize(find.byType(YzHarita)).height;
+      expect(find.byType(YzBaslikSatiri), findsNWidgets(kYzBasliklar.length));
+      for (final e in find.byType(YzBaslikSatiri).evaluate()) {
+        expect(e.size!.height, greaterThanOrEqualTo(52));
+      }
+      // Aynı 343 piksellik kutuda eski ızgara: ekran "geniş" sanılınca.
+      await t.pumpWidget(_harita(sahteGenislik: 700));
+      await t.pumpAndSettle();
+      expect(find.byType(YzBaslikKarosu), findsNWidgets(kYzBasliklar.length));
+      final izgara = t.getSize(find.byType(YzHarita)).height;
+      // 30 × 52 = 1560 piksel yalnız satır tabanı; çizgiler satırın içinde.
+      expect(liste, lessThanOrEqualTo(izgara * 1.05), reason: 'liste $liste, ızgara $izgara');
     });
   });
 }
