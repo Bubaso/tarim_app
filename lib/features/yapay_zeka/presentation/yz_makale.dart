@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/utils/turkce_metin.dart' show buyukHarf, etiketSlug;
 import '../data/yz_iskelet.g.dart';
@@ -56,6 +57,10 @@ class YzMakaleSayfasi extends ConsumerStatefulWidget {
 
   /// Açılışta kaydırılacak alt başlık (`?bolum=`, karar 60).
   final String? bolum;
+
+  /// Yazdırılabilir sürümün dosya adı (`/yz/yazdir/<ad>.<dil>.html`): başlıkta
+  /// adresi, teknoloji sayfasında `teknoloji-<kod>`.
+  String get yazdirAdi => konumAnahtari;
   final String geriAdres;
   final String ustEtiket;
   final String baslik;
@@ -354,8 +359,30 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
               : Wrap(spacing: 6, runSpacing: 6, children: widget.cipler),
         ],
         if (satir.isNotEmpty) ...[
-          const SizedBox(height: 14),
-          Text(satir, style: YzYazi.veri(boy: 12.5, renk: YzRenk.soluk)),
+          const SizedBox(height: 10),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: 6,
+            runSpacing: 0,
+            children: [
+              Text(satir, style: YzYazi.veri(boy: 12.5, renk: YzRenk.soluk)),
+              // Yazdırılabilir sürüm (karar 60): tuvale çizilen sayfa düzgün
+              // basılamıyor; duru HTML sayfası yazdırılıyor ya da PDF olarak
+              // kaydediliyor (`_raw/yazdir_uret.py`).
+              if (md != null)
+                TextButton.icon(
+                  onPressed: () => launchUrl(
+                      Uri.parse('/yz/yazdir/${widget.yazdirAdi}.${en ? 'en' : 'tr'}.html'),
+                      webOnlyWindowName: '_blank'),
+                  style: TextButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      visualDensity: VisualDensity.compact),
+                  icon: const Icon(Icons.print_outlined, size: 16, color: YzRenk.makine),
+                  label: Text(en ? 'Print / PDF' : 'Yazdır / PDF',
+                      style: YzYazi.veri(boy: 12.5, renk: YzRenk.makine)),
+                ),
+            ],
+          ),
         ],
         SizedBox(height: dar ? 20 : 26),
       ],

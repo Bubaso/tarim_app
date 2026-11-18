@@ -226,6 +226,7 @@ void main() {
       expect(find.text('İÇİNDEKİLER'), findsOneWidget, reason: 'yalnız ray');
       expect(find.text('Başa dön'), findsOneWidget);
       expect(find.textContaining('dakikalık okuma'), findsOneWidget);
+      expect(find.text('Yazdır / PDF'), findsOneWidget, reason: 'yazdırılabilir sürüm');
     });
 
     testWidgets('telefonda içindekiler tek satıra katlanıyor', (t) async {

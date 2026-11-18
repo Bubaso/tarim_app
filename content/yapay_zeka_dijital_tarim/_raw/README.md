@@ -1300,6 +1300,27 @@ hikâyeleri); masaüstünde satır ~85 harfti. 26 öneri; kullanıcı yıldızl�
   kayda işliyor (`dosya_tr`, `sha256_tr`, kaynak "Türkçeye uyarlandı").
 - Testler: `test/yz_okuma_test.dart` eklendi.
 
+### 2 · ○ maddeler (25, sesli dinleme hariç) ve kullanıcının eklediği iki iş
+
+- Teknoloji ve arama vurgusu kelime düzeyinde fosforlu kalem (mavi /
+  sarı); paragraf kutusu ve paragrafın solunda çizgi YOK (kullanıcı).
+  Merkez sayfada teknoloji sayfasına dolgulu kart. — 0e62564
+- Aralıklar (paragraf 22, ara başlık üstü 34 px, dokunma ~44 px);
+  rakamlarda noktalı çizgi yok, bir kez ipucu; okuma izi (tarayıcıda;
+  karolarda "✓ okundu", merkez sayfada "Kaldığınız yer"); ara başlık adresi
+  `?bolum=` ve bağlantı kopyalama; "İlk kez mi geliyorsunuz?" satırı. — 73a9f92
+- İngilizce lejantlı 11 haritada Türkçe sayfada "Görseldeki yazılar"
+  satırı (`gorsel_isle.py` LEJANT). — b1d7b5c
+- Yazı tipleri `assets/google_fonts/` altında (Outfit Bold, Newsreader,
+  IBM Plex Mono 500/600/700; OFL). — b526c8e
+- Yazdırılabilir sürüm: `_raw/yazdir_uret.py <klasör>` her sayfanın duru
+  HTML'ini üretir (grafikler tablo karşılığıyla, görseller künyesiyle,
+  kaynak listesi); sayfadaki "Yazdır / PDF" düğmesi açar, tarayıcı
+  yazdırır ya da PDF olarak kaydeder. Okura kapalıyken `web/` altına
+  YAZMAZ: önizlemede `build/yz_onizleme/yz/yazdir`, açılışta
+  `web/yz/yazdir` (aşağıda adım 3).
+- Rakam yazı tipi (9): iki hâl yan yana gösterildi, karar kullanıcıda.
+
 ## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
 
 1. **Supabase göçü:** `supabase/migrations/20261117120000_yz_dizin_okur.sql`
@@ -1307,7 +1328,8 @@ hikâyeleri); masaüstünde satır ~85 harfti. 26 öneri; kullanıcı yıldızl�
 2. **Son canlılık koşusu:** `python3 -I _raw/kaynak_canlilik.py`, sonra
    `--ozet`; yeni "kapali" satırı varsa adres düzeltilir.
 3. **Açılış:** `yayin.json` → `"okura_acik": true`; `python3 -I
-   dart_uret.py` (30/30'u sınar, eksik varsa durur). Doğrulayıcılar ve
+   dart_uret.py` (30/30'u sınar, eksik varsa durur); yazdırılabilir
+   sürüm `python3 -I _raw/yazdir_uret.py ../../web/yz/yazdir`. Doğrulayıcılar ve
    `flutter test test/yz_bolum_test.dart test/yz_panel_test.dart test/yz_grafik_test.dart`.
 4. **Dağıtım:** `./deploy.sh --hosting` (fonksiyon değişmedi; sürüm ve
    durum bekçileri koşuyor). Bayrak açıkken paylaşım kabukları da
