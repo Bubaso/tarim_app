@@ -10,19 +10,11 @@ import '../data/yz_metinler.g.dart';
 import 'yz_haber_vitrini.dart';
 import 'yz_okuma.dart';
 import 'yz_tasarim.dart';
+import 'yz_yollar.dart';
 
-/// Bölümün adresleri. Adres ASCII (öteki bölümlerle aynı gerekçe).
-const String yzPath = '/yapay-zeka-dijital-tarim';
-String yzBaslikPath(String slug) => '$yzPath/$slug';
-
-/// Teknolojinin alanlar arası durum sayfası (karar 57).
-String yzTeknolojiPath(String kod) => '$yzPath/teknoloji/$kod';
-
-/// Bölüm içi arama (karar 60).
-const String yzAramaPath = '$yzPath/ara';
-
-bool yzIsEn(BuildContext context) =>
-    Localizations.localeOf(context).languageCode == 'en';
+// Adresler ve dil sorusu ilk yükte kalan hafif dosyada; bölümün öbür
+// dosyaları onları buradan almaya devam ediyor.
+export 'yz_yollar.dart';
 
 /// Sayfaların üst şeridi: geri ve bölümün adı. Site çubuğu değil — bölüm
 /// bir başvuru dosyası, okurun dikkati metinde kalsın.

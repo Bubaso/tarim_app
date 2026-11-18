@@ -4,8 +4,11 @@ import 'package:go_router/go_router.dart';
 
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
-import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
+// yz_parcalar DEĞİL: şerit ana sayfada, ilk yükte. yz_parcalar bölümün
+// metinlerini içe aktarıyor; buradan aktarılırsa metinler yeniden her
+// ziyaretçiye iner (bkz. yz_yollar.dart).
+import 'yz_yollar.dart';
 
 /// Yazılmış başlıklar arasından bugünün öne çıkanı (karar 2: pencere yok,
 /// ama kartta "şu an öne çıkan" başlık dönüyor). Rastgele değil, takvime

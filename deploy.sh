@@ -168,12 +168,54 @@ fi
 #
 #  TAVAN YÜKSELTİLECEKSE: sebebini buraya yazın. "Derleme durdu, sayıyı
 #  büyüttüm" diye yükseltilen bir tavan bekçi olmaktan çıkıyor.
+#
+#  18 Kasım 2026 — Yapay Zeka ve Dijital Tarım'ın açılış derlemesi iki
+#  kalemde de durdu:
+#   · main.dart.js 2.281.207: bölümün metinleri, grafikleri ve kaynak
+#     kayıtları (477 KB gzip) ilk yükteydi. Bölüm ERTELİ pakete alındı
+#     (lib/features/yapay_zeka/presentation/yz_ekranlar.dart); erteli
+#     parçalar (main.dart.js_N.part.js) burada sayılmıyor, çünkü onları
+#     yalnız bölüme giren indiriyor. test/yz_erteli_test.dart ağır
+#     dosyaların ilk yüke geri sızmasını yakalıyor.
+#     Ertelemeden sonra main.dart.js 1.804.897 — tavanın 4.897 bayt
+#     üstünde. Sebep bölüm değil, bütçenin tükenmiş olması: CANLIDAKİ
+#     main.dart.js açılıştan önce 1.794.920'ydi (6 Kasım'dan bu yana
+#     eklenen özelliklerle 1.664.255 → 1.794.920). Açılışın ilk yüke
+#     eklediği ~10 KB: ana sayfa şeridi, dört rota ve uygulamadaki ilk
+#     erteli yükleme düzeneği. JS tavanı bu yüzden 1.800.000 → 1.830.000
+#     (en az artış; yeniden %8 pay VERİLMEDİ, bekçi sıkı kalsın).
+#     BİR SONRAKİ AŞIMDA tavanı yeniden yükseltmeyin: yer açmanın yolu
+#     okurun hiç kullanmadığı paneli (dashboard) erteli pakete almak. O
+#     zaman sürüm bekçisi de parça dosyalarını taramalı — belirteçlerin
+#     çoğu panelde.
+#   · fontlar 441.420: ölçü build/web/assets altındaki BÜTÜN .ttf/.otf'yi
+#     topluyordu; açılışta inen ise yalnız FontManifest'tekiler (yukarıda
+#     yazan amaç). Bölümün yazı tipleri (assets/google_fonts, 387 KB)
+#     manifestte değil: google_fonts paketi onları ilk kullanımda, o aileyi
+#     çizen sayfada yüklüyor — gömülmeden önce de aynı dosyaları Google'ın
+#     sunucusundan aynı anda indiriyordu. summernote.ttf de yalnız panel
+#     editöründe. Ölçü amaca çekildi: manifestteki fontlar toplanıyor.
 # ══════════════════════════════════════════════════════════════════════════
-JS_TAVAN=1800000      # bayt, gzip — 6 Kas 2026 ölçümü: 1.664.255
+JS_TAVAN=1830000      # bayt, gzip — 6 Kas 2026: 1.664.255 · 18 Kas 2026: 1.804.897 (yukarıda)
 FONT_TAVAN=70000      # bayt, ham  — 6 Kas 2026 ölçümü: 49.180
 
 js_boyut=$(gzip -c build/web/main.dart.js | wc -c | tr -d " ")
-font_boyut=$(find build/web/assets \( -name "*.ttf" -o -name "*.otf" \) -exec stat -f%z {} + | awk "{s+=\$1} END {print s+0}")
+font_boyut=$(python3 -I - <<'PYEOF'
+import json, os, sys
+kok = 'build/web/assets'
+try:
+    manifest = json.load(open(os.path.join(kok, 'FontManifest.json'), encoding='utf-8'))
+except (OSError, ValueError) as e:
+    # Manifest okunamıyorsa ölçü yapılamıyor: dağıtım DURSUN, sessizce 0 yazmasın.
+    print(f'FontManifest okunamadı: {e}', file=sys.stderr)
+    sys.exit(1)
+toplam = 0
+for aile in manifest:
+    for f in aile.get('fonts', []):
+        toplam += os.path.getsize(os.path.join(kok, f['asset']))
+print(toplam)
+PYEOF
+) || { echo "✗ Font ağırlığı ölçülemedi (build/web/assets/FontManifest.json)." >&2; exit 1; }
 
 printf "▸ Ağırlık: main.dart.js %s bayt (gzip, tavan %s) · fontlar %s bayt (tavan %s)\n" \
   "$js_boyut" "$JS_TAVAN" "$font_boyut" "$FONT_TAVAN"

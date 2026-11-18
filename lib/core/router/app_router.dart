@@ -35,11 +35,12 @@ import '../../features/sergi/presentation/screens/sergi_ekrani.dart';
 import '../../features/sergi/presentation/screens/sergi_izleyici.dart';
 import '../../features/turkuaz_nexus/presentation/screens/tni_ekrani.dart';
 import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
-import '../../features/yapay_zeka/presentation/yz_arama_ekrani.dart';
-import '../../features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
-import '../../features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
-import '../../features/yapay_zeka/presentation/yz_parcalar.dart';
-import '../../features/yapay_zeka/presentation/yz_teknoloji_ekrani.dart';
+// Bölümün ekranları ERTELİ: metinleri, grafikleri ve kaynak kayıtları ilk
+// yükte değil, okur bölüme girince iniyor (bkz. yz_ekranlar.dart).
+import '../../features/yapay_zeka/presentation/yz_ekranlar.dart'
+    deferred as yz_ekranlar;
+import '../../features/yapay_zeka/presentation/yz_erteli.dart';
+import '../../features/yapay_zeka/presentation/yz_yollar.dart';
 import '../../features/yapay_zeka/data/yz_iskelet.g.dart';
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -158,10 +159,9 @@ class CategoryArgs {
   }
   if (page is YYTDosyasiScreen) return (path: '/yyt-dosyasi', extra: null);
   if (page is TniEkrani) return (path: turkuazPath, extra: null);
-  if (page is YzMerkezEkrani) return (path: yzPath, extra: null);
-  if (page is YzBaslikEkrani) return (path: yzBaslikPath(page.slug), extra: null);
-  if (page is YzTeknolojiEkrani) return (path: yzTeknolojiPath(page.kod), extra: null);
-  if (page is YzAramaEkrani) return (path: yzAramaPath, extra: null);
+  // Yapay Zeka ve Dijital Tarım burada yok: ekranları erteli pakette
+  // (tipleri ilk yükte anılamıyor) ve hiçbir yerde sayfa nesnesi olarak
+  // itilmiyor — bölüme her geçiş adresle (`context.push(yzPath)`).
   if (page is FinancialTerminalScreen) return (path: '/piyasalar', extra: null);
   if (page is AboutScreen) return (path: '/hakkimizda', extra: null);
   if (page is SettingsScreen) return (path: '/ayarlar', extra: null);
@@ -433,25 +433,44 @@ final appRouter = GoRouter(
     // OKURA KAPALI (kYzOkuraAcik, yayin.json): kullanıcı kararı — bölüm 30
     // başlığın TAMAMI yazılınca açılır. Sabit derleme anında `false` olduğu
     // için rotalar kurulmuyor ve okur ekranları pakete girmiyor.
+    //
+    // OKURA AÇIK (18 Kasım 2026): ekranlar erteli pakette. Rota önce paketi
+    // indiriyor (YzErteliSayfa), sonra ekranı kuruyor.
     if (kYzOkuraAcik) ...[
       GoRoute(
         path: yzPath,
-        pageBuilder: (context, state) => _fadePage(state, const YzMerkezEkrani()),
+        pageBuilder: (context, state) => _fadePage(
+            state,
+            YzErteliSayfa(
+                yukle: () => yz_ekranlar.loadLibrary(),
+                kur: () => yz_ekranlar.merkezEkrani())),
       ),
       GoRoute(
         path: yzAramaPath,
         pageBuilder: (context, state) => _fadePage(
-            state, YzAramaEkrani(sorgu: state.uri.queryParameters['q'] ?? '')),
+            state,
+            YzErteliSayfa(
+                yukle: () => yz_ekranlar.loadLibrary(),
+                kur: () => yz_ekranlar
+                    .aramaEkrani(state.uri.queryParameters['q'] ?? ''))),
       ),
       GoRoute(
         path: '$yzPath/teknoloji/:kod',
         pageBuilder: (context, state) => _fadePage(
-            state, YzTeknolojiEkrani(kod: state.pathParameters['kod'] ?? '')),
+            state,
+            YzErteliSayfa(
+                yukle: () => yz_ekranlar.loadLibrary(),
+                kur: () => yz_ekranlar
+                    .teknolojiEkrani(state.pathParameters['kod'] ?? ''))),
       ),
       GoRoute(
         path: '$yzPath/:slug',
         pageBuilder: (context, state) => _fadePage(
-            state, YzBaslikEkrani(slug: state.pathParameters['slug'] ?? '')),
+            state,
+            YzErteliSayfa(
+                yukle: () => yz_ekranlar.loadLibrary(),
+                kur: () => yz_ekranlar
+                    .baslikEkrani(state.pathParameters['slug'] ?? ''))),
       ),
     ],
 
