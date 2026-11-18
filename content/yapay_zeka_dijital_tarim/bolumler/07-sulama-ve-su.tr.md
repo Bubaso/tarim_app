@@ -10,12 +10,12 @@ Yapay zekâ en üst katmanda devreye giriyor. Alttaki iki katman — ölçmek �
 
 ## Saha ne diyor
 
-Datta ve Taghvaeian (2023), ABD'de son yirmi yılda yayımlanmış toprak nem sensörü çalışmalarını sistematik olarak taradı. Sonuç iki parçalı:
+Datta ve Taghvaeian (2023), hakemli bir sistematik derlemede ABD'de son yirmi yılda yayımlanmış toprak nem sensörü çalışmalarını taradı. Sonuç iki parçalı:
 
-| Sensörle zamanlama neye karşı | Ortalama su tasarrufu | Nitelik |
-|---|---|---|
-| Bitki örtüsü sıcaklığına dayalı zamanlama | **%1** | Hakemli derleme |
-| Geleneksel yöntemler | **%38** | Hakemli derleme |
+| Sensörle zamanlama neye karşı | Ortalama su tasarrufu |
+|---|---|
+| Bitki örtüsü sıcaklığına dayalı zamanlama | **%1** |
+| Geleneksel yöntemler | **%38** |
 
 Verim, karşılaştırılan yöntemlere göre aynı ya da daha yüksek. Ama derlemenin en önemli bulgusu başka: sensörün doğruluğunu en çok etkileyen şey kalibrasyon. Fabrika ayarıyla takılmış bir sensör toprağı yanlış okuduğu sürece yanlış zamanda sulatır.
 

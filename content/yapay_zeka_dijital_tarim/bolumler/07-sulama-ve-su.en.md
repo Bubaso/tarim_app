@@ -10,12 +10,12 @@ AI comes in at the top layer. The two layers beneath it — measuring — work w
 
 ## What the field says
 
-Datta and Taghvaeian (2023) systematically reviewed the soil moisture sensor studies published in the United States over the past two decades. The result has two parts:
+In a peer-reviewed systematic review, Datta and Taghvaeian (2023) examined the soil moisture sensor studies published in the United States over the past two decades. The result has two parts:
 
-| Sensor-based scheduling compared with | Average water saving | Standing |
-|---|---|---|
-| Scheduling based on canopy temperature | **1%** | Peer-reviewed review |
-| Traditional approaches | **38%** | Peer-reviewed review |
+| Sensor-based scheduling compared with | Average water saving |
+|---|---|
+| Scheduling based on canopy temperature | **1%** |
+| Traditional approaches | **38%** |
 
 Yields were the same as or higher than with the methods compared. The review's most important finding lies elsewhere, though: what most affects a sensor's accuracy is calibration. A sensor installed with factory settings will time irrigation wrongly for as long as it misreads the soil.
 
