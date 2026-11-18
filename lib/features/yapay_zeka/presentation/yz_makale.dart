@@ -333,6 +333,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
         sayi: sayi,
         en: en,
         sonraki: _vurgu.sonraki,
+        kalem: kYzKalemRengi,
         kapat: widget.isaretiKaldir,
       );
     }
@@ -348,6 +349,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
         sayi: sayi,
         en: en,
         sonraki: _vurgu.sonraki,
+        kalem: kYzAramaRengi,
         kapat: widget.isaretiKaldir,
       );
     }
@@ -359,22 +361,38 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
 /// sıradaki işaretli yere gitme ve işareti kaldırma.
 class _IsaretSeridi extends StatelessWidget {
   const _IsaretSeridi(
-      {required this.metin, required this.sayi, required this.en, required this.sonraki, this.kapat});
+      {required this.metin,
+      required this.sayi,
+      required this.en,
+      required this.sonraki,
+      required this.kalem,
+      this.kapat});
   final String metin;
   final int sayi;
   final bool en;
   final VoidCallback sonraki;
+
+  /// Metindeki fosforlu kalemin rengi: şeritteki küçük örnek okura işaretin
+  /// neye benzediğini gösteriyor. Sol çizgi yok (karar 60).
+  final Color kalem;
   final VoidCallback? kapat;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.fromLTRB(12, 6, 4, 6),
-      decoration: const BoxDecoration(
-        color: YzRenk.makineAcik,
-        border: Border(left: BorderSide(color: YzRenk.makine, width: 3)),
+      padding: const EdgeInsets.fromLTRB(14, 6, 4, 6),
+      decoration: BoxDecoration(
+        color: YzRenk.yuzey,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: YzRenk.cizgi),
       ),
       child: Row(children: [
+        Container(
+          width: 22,
+          height: 12,
+          decoration: BoxDecoration(color: kalem, borderRadius: BorderRadius.circular(3)),
+        ),
+        const SizedBox(width: 10),
         Expanded(child: Text(metin, style: YzYazi.govde(boy: 15))),
         if (sayi > 0)
           TextButton(

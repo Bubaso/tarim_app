@@ -164,8 +164,13 @@ String yzBolunmez(String metin) {
   return b.join();
 }
 
-/// Arama sonucunun metin içi vurgusu (karar 60).
-const Color _aramaZemini = Color(0xFFFFE9A8);
+/// Arama sonucunun metin içi vurgusu (karar 60): sarı fosforlu kalem.
+const Color kYzAramaRengi = Color(0xFFFFE9A8);
+const Color _aramaZemini = kYzAramaRengi;
+
+/// Seçili teknolojinin geçtiği kelimeler (karar 60): mavi fosforlu kalem.
+/// Paragraf kutusu ve paragrafın solunda çizgi yok (kullanıcı, 18 Kas 2026).
+const Color kYzKalemRengi = Color(0xFFCFE0F7);
 
 /// Satır içi biçim: `**kalın**`, `*italik*`. Rakam taşıyan kalın parça
 /// "makinenin sesiyle" — eşit genişlikli, çelik mavisi — çiziliyor: metindeki
@@ -174,12 +179,14 @@ const Color _aramaZemini = Color(0xFFFFE9A8);
 /// [etkilesim] verilirse düz metindeki adresler bağlantı (§30 kaynakça),
 /// [isaretler]deki sözlük terimleri (karar 14) ve [kisaltmalar] balon açan
 /// parça olur (karar 60). [arama]: arama kelimelerinin geçtiği aralıklar,
-/// sarı zeminle.
+/// sarı zeminle; [kalem]: seçili teknolojinin geçtiği kelimeler, mavi
+/// zeminle (ikisi çakışırsa arama önde).
 TextSpan yzSatirIci(String metin, TextStyle taban,
     {YzEtkilesim? etkilesim,
     List<YzIsaret> isaretler = const [],
     List<YzKisaltmaIsareti> kisaltmalar = const [],
-    List<(int, int)> arama = const []}) {
+    List<(int, int)> arama = const [],
+    List<(int, int)> kalem = const []}) {
   final gorunen = yzBolunmez(metin);
   final parcalar = <InlineSpan>[];
   final desen = RegExp(r'\*\*(.+?)\*\*|\*(.+?)\*');
@@ -188,17 +195,19 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
   void ekle(int a, int b, {TextStyle? stil, GestureRecognizer? r, MouseCursor? imlec}) {
     if (b <= a) return;
     final kesimler = <int>{a, b};
-    for (final x in arama) {
+    for (final x in [...arama, ...kalem]) {
       if (x.$1 > a && x.$1 < b) kesimler.add(x.$1);
       if (x.$2 > a && x.$2 < b) kesimler.add(x.$2);
     }
     final sirali = kesimler.toList()..sort();
     for (var i = 0; i + 1 < sirali.length; i++) {
       final s = sirali[i], e = sirali[i + 1];
-      final vurgulu = arama.any((x) => x.$1 <= s && e <= x.$2);
+      final zemin = arama.any((x) => x.$1 <= s && e <= x.$2)
+          ? _aramaZemini
+          : (kalem.any((x) => x.$1 <= s && e <= x.$2) ? kYzKalemRengi : null);
       var st = stil;
-      if (vurgulu) {
-        st = (st ?? const TextStyle()).copyWith(backgroundColor: _aramaZemini);
+      if (zemin != null) {
+        st = (st ?? const TextStyle()).copyWith(backgroundColor: zemin);
       }
       parcalar.add(TextSpan(text: gorunen.substring(s, e), style: st, recognizer: r, mouseCursor: imlec));
     }
@@ -447,6 +456,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   late List<List<List<YzIsaret>>> _isaretler;
   late List<List<List<YzKisaltmaIsareti>>> _kisaltmalar;
   late List<List<List<(int, int)>>> _arama;
+
+  /// Seçili teknolojinin geçtiği kelimeler (blok → parça → aralıklar).
+  late List<List<List<(int, int)>>> _kalem;
+
+  /// Sözlükte açılan terimin bloğu (yumuşak zeminli kutu, çizgisiz).
+  late List<bool> _odakBlok;
   // Karar 57 ve 60: işaretli (teknoloji, arama ya da sözlük terimi) bloklar
   // ve tablo satırları.
   late List<bool> _isaretliBlok;
@@ -492,13 +507,16 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     final no = widget.bolumNo;
     final sozluk = no == null ? kYzSozluk : kYzSozluk.where((t) => t.baslikta(no)).toList();
     final kelimeler = widget.arama == null ? const <String>[] : yzAramaKelimeleri(widget.arama!, en);
+    final kod = yzTeknolojiVar(widget.vurgu) ? widget.vurgu! : null;
     _isaretler = [];
     _kisaltmalar = [];
     _arama = [];
+    _kalem = [];
     for (final b in _bloklar) {
       final ti = <List<YzIsaret>>[];
       final ki = <List<YzKisaltmaIsareti>>[];
       final ar = <List<(int, int)>>[];
+      final ka = <List<(int, int)>>[];
       for (final p in b.parcalar) {
         // Temel terim (yapay zekâ, sensör…) yalnız Kavramlar'da balonlu; eşleşme
         // yine yapılıyor ki gölgesi ve "bir kez" kuralı değişmesin.
@@ -516,12 +534,13 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
               ])
             : const []);
         ar.add(yzAramaAraliklari(p, kelimeler, en));
+        ka.add(kod == null ? const [] : yzTeknolojiAraliklari(p, kod, en));
       }
       _isaretler.add(ti);
       _kisaltmalar.add(ki);
       _arama.add(ar);
+      _kalem.add(ka);
     }
-    final kod = yzTeknolojiVar(widget.vurgu) ? widget.vurgu! : null;
     final odak = widget.odakTerim == null
         ? null
         : kYzSozluk.where((t) => t.kimlik == widget.odakTerim).firstOrNull;
@@ -538,6 +557,12 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           YzBlokTuru.altBaslik => kelimeler.isNotEmpty && yzAramaGeciyor(b.metin, kelimeler, en),
           _ => false,
         },
+    ];
+    _odakBlok = [
+      for (final b in _bloklar)
+        odak != null &&
+            (b.tur == YzBlokTuru.paragraf || b.tur == YzBlokTuru.ozet) &&
+            b.metin.startsWith('**${odak.ad(en)}** ('),
     ];
     _isaretliSatir = [
       for (final b in _bloklar)
@@ -625,14 +650,26 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
   Widget _sutun(double metinW, Widget cocuk, {Key? key}) =>
       Center(key: key, child: SizedBox(width: metinW, child: cocuk));
 
-  Widget _isaretKutusu(Widget cocuk) => Container(
-        padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
-        decoration: const BoxDecoration(
-          color: YzRenk.makineAcik,
-          border: Border(left: BorderSide(color: YzRenk.makine, width: 3)),
+  /// Sözlükte açılan terimin girdisi: yumuşak zeminli, yuvarlak köşeli kutu;
+  /// kenar ve sol çizgi yok (karar 60).
+  Widget _odakKutusu(Widget cocuk) => Container(
+        padding: const EdgeInsets.fromLTRB(14, 10, 14, 10),
+        decoration: BoxDecoration(
+          color: YzRenk.bitkiAcik,
+          borderRadius: BorderRadius.circular(8),
         ),
         child: cocuk,
       );
+
+  /// Tablo hücresinde fosforlu kalem: teknoloji ve arama kelimeleri.
+  List<(int, int)> _hucreKalemi(String hucre) {
+    final kod = yzTeknolojiVar(widget.vurgu) ? widget.vurgu! : null;
+    return kod == null ? const [] : yzTeknolojiAraliklari(hucre, kod, widget.en);
+  }
+
+  List<(int, int)> _hucreAramasi(String hucre) => widget.arama == null
+      ? const []
+      : yzAramaAraliklari(hucre, yzAramaKelimeleri(widget.arama!, widget.en), widget.en);
 
   List<Widget> _ciz(bool dar, double metinW) {
     final o = widget.olcek;
@@ -660,7 +697,8 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                       etkilesim: etkilesim,
                       isaretler: _isaretler[i][0],
                       kisaltmalar: _kisaltmalar[i][0],
-                      arama: _arama[i][0])),
+                      arama: _arama[i][0],
+                      kalem: _kalem[i][0])),
                 ),
               ),
               key: _anahtar[i]));
@@ -687,12 +725,13 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
               etkilesim: etkilesim,
               isaretler: _isaretler[i][0],
               kisaltmalar: _kisaltmalar[i][0],
-              arama: _arama[i][0]));
+              arama: _arama[i][0],
+              kalem: _kalem[i][0]));
           cikti.add(_sutun(
               metinW,
               Padding(
                 padding: EdgeInsets.only(bottom: i == _ilkParagraf ? 20 : 16),
-                child: _isaretliBlok[i] ? _isaretKutusu(metin) : metin,
+                child: _odakBlok[i] ? _odakKutusu(metin) : metin,
               ),
               key: _anahtar[i]));
         case YzBlokTuru.liste:
@@ -731,7 +770,8 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
                             etkilesim: etkilesim,
                             isaretler: _isaretler[i][j],
                             kisaltmalar: _kisaltmalar[i][j],
-                            arama: _arama[i][j])),
+                            arama: _arama[i][j],
+                            kalem: _kalem[i][j])),
                       ),
                     ],
                   ),
@@ -742,7 +782,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
               metinW,
               Padding(
                 padding: const EdgeInsets.only(top: 2, bottom: 18),
-                child: _isaretliBlok[i] ? _isaretKutusu(liste) : liste,
+                child: liste,
               ),
               key: _anahtar[i]));
         case YzBlokTuru.grafik:
@@ -756,8 +796,10 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
             key: _anahtar[i],
             padding: const EdgeInsets.only(top: 4, bottom: 22),
             child: dar
-                ? _KartTablo(b.satirlar, en, vurgulu: _isaretliSatir[i], olcek: o)
-                : _GenisTablo(b.satirlar, en, vurgulu: _isaretliSatir[i], olcek: o),
+                ? _KartTablo(b.satirlar, en,
+                    vurgulu: _isaretliSatir[i], olcek: o, kalem: _hucreKalemi, arama: _hucreAramasi)
+                : _GenisTablo(b.satirlar, en,
+                    vurgulu: _isaretliSatir[i], olcek: o, kalem: _hucreKalemi, arama: _hucreAramasi),
           ));
       }
     }
@@ -766,10 +808,15 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
 }
 
 class _GenisTablo extends StatelessWidget {
-  const _GenisTablo(this.satirlar, this.en, {this.vurgulu = const {}, this.olcek = 1.0});
+  const _GenisTablo(this.satirlar, this.en,
+      {this.vurgulu = const {}, this.olcek = 1.0, this.kalem, this.arama});
   final List<List<String>> satirlar;
   final bool en;
   final double olcek;
+
+  /// Hücredeki teknoloji ve arama kelimeleri (fosforlu kalem, karar 60).
+  final List<(int, int)> Function(String)? kalem;
+  final List<(int, int)> Function(String)? arama;
 
   /// Seçili teknolojinin geçtiği satırlar (satirlar içindeki sıra; 0 başlık).
   final Set<int> vurgulu;
@@ -816,6 +863,8 @@ class _GenisTablo extends StatelessWidget {
                     i == 0 && baslik.first.isEmpty
                         ? hucre.copyWith(fontWeight: FontWeight.w600)
                         : hucre,
+                    kalem: kalem?.call(i < s.length ? s[i] : '') ?? const [],
+                    arama: arama?.call(i < s.length ? s[i] : '') ?? const [],
                   )),
                 ),
             ]),
@@ -828,10 +877,13 @@ class _GenisTablo extends StatelessWidget {
 /// Dar ekran: her satır bir kart, sütun adı hücrenin üstünde. Telefonda
 /// yatay kaydırılan bir tablo okunmuyor; satırı dikey okumak doğal.
 class _KartTablo extends StatelessWidget {
-  const _KartTablo(this.satirlar, this.en, {this.vurgulu = const {}, this.olcek = 1.0});
+  const _KartTablo(this.satirlar, this.en,
+      {this.vurgulu = const {}, this.olcek = 1.0, this.kalem, this.arama});
   final List<List<String>> satirlar;
   final bool en;
   final double olcek;
+  final List<(int, int)> Function(String)? kalem;
+  final List<(int, int)> Function(String)? arama;
   final Set<int> vurgulu;
 
   @override
@@ -850,14 +902,13 @@ class _KartTablo extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(14, 12, 14, 6),
             decoration: BoxDecoration(
               color: vurgulu.contains(r + 1) ? YzRenk.makineAcik : YzRenk.yuzey,
-              border: vurgulu.contains(r + 1)
-                  ? const Border(
-                      left: BorderSide(color: YzRenk.makine, width: 3),
-                      top: BorderSide(color: YzRenk.cizgi),
-                      right: BorderSide(color: YzRenk.cizgi),
-                      bottom: BorderSide(color: YzRenk.cizgi))
-                  : Border.all(color: YzRenk.cizgi),
-              borderRadius: vurgulu.contains(r + 1) ? null : BorderRadius.circular(4),
+              // İşaretli satır: yumuşak zemin, ince mavi çerçeve; sol çizgi yok
+              // (karar 60).
+              border: Border.all(
+                  color: vurgulu.contains(r + 1)
+                      ? YzRenk.makine.withValues(alpha: 0.45)
+                      : YzRenk.cizgi),
+              borderRadius: BorderRadius.circular(vurgulu.contains(r + 1) ? 6 : 4),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -877,8 +928,9 @@ class _KartTablo extends StatelessWidget {
                           Text(buyukHarf(baslik[i], en),
                               style: YzYazi.ustEtiket(renk: YzRenk.makine)),
                         const SizedBox(height: 2),
-                        SelectableText.rich(
-                            yzSatirIci(i < s.length ? s[i] : '', hucre)),
+                        SelectableText.rich(yzSatirIci(i < s.length ? s[i] : '', hucre,
+                            kalem: kalem?.call(i < s.length ? s[i] : '') ?? const [],
+                            arama: arama?.call(i < s.length ? s[i] : '') ?? const [])),
                       ],
                     ),
                   ),

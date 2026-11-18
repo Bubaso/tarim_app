@@ -448,7 +448,7 @@ Liste bitti, paragraf başladı.
       expect(t.takeException(), isNull);
       final dilSayisi = kYzBasliklar.where((b) => b.teknoloji.contains('dil')).length;
       expect(find.textContaining('Dil modelleri $dilSayisi başlıkta geçiyor'), findsOneWidget);
-      expect(find.text('Dil modelleri: alanlar arası durum →'), findsOneWidget,
+      expect(find.text('Dil modelleri: alanlar arası durum'), findsOneWidget,
           reason: 'teknoloji sayfasına bağlantı');
       expect(find.textContaining('yerde geçiyor'), findsWidgets);
     });

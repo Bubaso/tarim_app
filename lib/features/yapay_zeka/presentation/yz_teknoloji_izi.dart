@@ -56,6 +56,38 @@ bool yzTeknolojiGeciyor(String blok, String kod, bool en) {
   return false;
 }
 
+/// Teknolojinin metindeki sayılan geçişleri [bas, son) — kelime düzeyindeki
+/// vurgu için (karar 60: paragraf kutusu ve sol çizgi yok, fosforlu kalem).
+/// Aralık kelimenin sonuna kadar uzatılıyor ("robot" → "robotun"); kalın
+/// parçalar ve `haric` geçişler sayılmıyor.
+List<(int, int)> yzTeknolojiAraliklari(String blok, String kod, bool en) {
+  final t = kYzTeknolojiDesen[kod];
+  if (t == null) return const [];
+  final dil = en ? 'en' : 'tr';
+  final metin = blok.replaceAllMapped(_kalin, (m) => ' ' * m[0]!.length);
+  final haric = _gecisler(metin, t['haric_$dil'] ?? const [], en);
+  final ham = <(int, int)>[];
+  for (final (a, b) in _gecisler(metin, t['desen_$dil'] ?? const [], en)) {
+    if (haric.any((h) => h.$1 <= a && b <= h.$2)) continue;
+    var son = b;
+    while (son < metin.length && _harfVeRakam.hasMatch(metin[son])) {
+      son++;
+    }
+    ham.add((a, son));
+  }
+  ham.sort((x, y) => x.$1.compareTo(y.$1));
+  final cikti = <(int, int)>[];
+  for (final a in ham) {
+    if (cikti.isNotEmpty && a.$1 <= cikti.last.$2) {
+      final son = cikti.removeLast();
+      cikti.add((son.$1, a.$2 > son.$2 ? a.$2 : son.$2));
+    } else {
+      cikti.add(a);
+    }
+  }
+  return cikti;
+}
+
 /// Tablo satırının eşleştiricinin gördüğü metni: Python satırın kendisini
 /// ("| a | b |") okuyor; ayraç karakteri harf olmadığı için hücreleri " | "
 /// ile birleştirmek aynı sonucu veriyor.

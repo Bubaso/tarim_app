@@ -286,6 +286,31 @@ void main() {
     expect(madde.left - kare.right, greaterThanOrEqualTo(10), reason: 'madde metni işarete yapışmasın');
   });
 
+  testWidgets('teknoloji vurgusu kelime düzeyinde; paragrafın solunda çizgi yok', (t) async {
+    t.view.physicalSize = const Size(900, 900);
+    t.view.devicePixelRatio = 1;
+    addTearDown(t.view.reset);
+    await t.pumpWidget(
+        _yonlendirmeli('$yzPath/goruntu-isleme-ve-hedefli-ilaclama?teknoloji=goruntu'));
+    await t.pumpAndSettle();
+    expect(t.takeException(), isNull);
+    final solCizgi = find.byWidgetPredicate((w) {
+      if (w is! Container || w.decoration is! BoxDecoration) return false;
+      final b = (w.decoration as BoxDecoration).border;
+      return b is Border && b.left.width >= 3 && b.top == BorderSide.none;
+    });
+    expect(solCizgi, findsNothing, reason: 'paragraf ya da şerit solunda dikey çizgi');
+    var kalem = 0;
+    for (final e in find.byType(SelectableText).evaluate()) {
+      (e.widget as SelectableText).textSpan?.visitChildren((span) {
+        if (span is TextSpan && span.style?.backgroundColor == kYzKalemRengi) kalem++;
+        return true;
+      });
+    }
+    expect(kalem, greaterThan(0), reason: 'teknolojinin geçtiği kelimeler fosforlu kalemle');
+    expect(find.textContaining('bu sayfada'), findsOneWidget);
+  });
+
   test('her teknoloji sayfasında ve başlıkta listeler iki dilde aynı', () {
     for (final b in kYzBasliklar) {
       final m = kYzMetinler[b.no];
