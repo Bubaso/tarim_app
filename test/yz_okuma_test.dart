@@ -259,18 +259,19 @@ void main() {
       expect(find.text('Yazdır / PDF'), findsOneWidget, reason: 'yazdırılabilir sürüm');
     });
 
-    testWidgets('telefonda içindekiler tek satıra katlanıyor', (t) async {
+    // Mobil tur (karar 62): telefonda metnin üstünde içindekiler kartı yok;
+    // içindekiler alt çubuktan, alttan açılan sayfada.
+    testWidgets('telefonda içindekiler alt çubuktan açılıyor', (t) async {
       t.view.physicalSize = const Size(375, 812);
       t.view.devicePixelRatio = 1;
       addTearDown(t.view.reset);
       await t.pumpWidget(_uygulama(const YzBaslikEkrani(slug: 'saha-hikayeleri')));
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
-      final katli = find.textContaining('İÇİNDEKİLER · ');
-      expect(katli, findsOneWidget);
+      expect(find.textContaining('İÇİNDEKİLER · '), findsNothing, reason: 'satır içi kart yok');
       expect(find.text('Türkiye: ilaçlama dronları'), findsWidgets,
           reason: 'alt başlık metinde var');
-      await t.tap(katli);
+      await t.tap(find.text('İçindekiler'));
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       // Açılınca alt başlık hem içindekilerde hem metinde.
