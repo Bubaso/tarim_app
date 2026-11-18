@@ -76,19 +76,23 @@ class YzMerkezEkrani extends StatelessWidget {
                                 constraints: const BoxConstraints(maxWidth: 620),
                                 child: Text(
                                   en
-                                      ? 'Where artificial intelligence and digital technology in farming stand today: a reference file built on measured, sourced figures and scanned on a regular schedule. Every figure carries its standing next to it; a vendor claim is labelled as a vendor claim.'
-                                      : 'Yapay zekâ ve dijital teknolojiler tarımda bugün nerede duruyor: ölçülmüş, kaynaklı rakamlar üzerine kurulan ve düzenli taranan bir başvuru dosyası. Her rakamın niteliği yanında yazıyor; satıcı beyanı, satıcı beyanı olarak.',
+                                      ? 'Where artificial intelligence and digital technology in farming stand today: a reference file built on measured, sourced figures and scanned on a regular schedule.'
+                                      : 'Yapay zekâ ve dijital teknolojiler tarımda bugün nerede duruyor: ölçülmüş, kaynaklı rakamlar üzerine kurulan ve düzenli taranan bir başvuru dosyası.',
                                   style: YzYazi.govde(boy: dar ? 18 : 20),
                                 ),
                               ),
                               const SizedBox(height: 22),
                               // Bölüm içi arama (karar 60): tarayıcının "sayfada
-                              // bul"u tuval metnini bulamıyor.
-                              ConstrainedBox(
-                                constraints: const BoxConstraints(maxWidth: 620),
-                                child: const YzAramaKutusu(),
-                              ),
-                              const SizedBox(height: 12),
+                              // bul"u tuval metnini bulamıyor. Telefonda kutu yok
+                              // (kullanıcı, 18 Kas 2026: "gerek yok"); arama üst
+                              // şeritteki simgeden açılıyor.
+                              if (!telefon) ...[
+                                ConstrainedBox(
+                                  constraints: const BoxConstraints(maxWidth: 620),
+                                  child: const YzAramaKutusu(),
+                                ),
+                                const SizedBox(height: 12),
+                              ],
                               // Kaldığınız yer ya da nereden başlamalı (karar 60).
                               ConstrainedBox(
                                 constraints: const BoxConstraints(maxWidth: 620),

@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart' show ScrollDirection;
 import 'package:flutter/services.dart';
@@ -278,7 +279,10 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
         // Web'de paylaşma yoksa e-posta açılmasın; bağlantı panoya.
         mailToFallbackEnabled: false,
       ));
-      if (sonuc.status == ShareResultStatus.unavailable) _baglantiyiKopyala();
+      // Web'de share_plus BAŞARILI paylaşımdan sonra da `unavailable`
+      // döndürüyor (share_plus_web.dart); başarısızlıkta ise — e-posta
+      // yedeği kapalıyken — hata fırlatıyor. Yedek yalnız hata dalında.
+      if (!kIsWeb && sonuc.status == ShareResultStatus.unavailable) _baglantiyiKopyala();
     } catch (_) {
       // Tarayıcı paylaşmayı desteklemiyorsa bağlantı panoya.
       _baglantiyiKopyala();

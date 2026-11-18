@@ -255,7 +255,10 @@ class _TeknolojiOzeti extends StatelessWidget {
           style: YzYazi.govde(boy: 15, renk: YzRenk.makine),
         ),
         // Teknolojinin kendi sayfası (karar 57): küçük bir yazı bağlantısı
-        // gözden kaçıyordu (kullanıcı, 18 Kas 2026); dolgulu, oklu bir kart.
+        // gözden kaçıyordu (kullanıcı, 18 Kas 2026); kart oldu. Koyu dolgulu,
+        // beyaz yazılı hâli "çok kaba" bulundu (kullanıcı, aynı gün): açık
+        // çelik mavisi zemin, çelik mavisi yazı, ince kenar — fark ediliyor
+        // ama bağırmıyor.
         if (kYzTeknolojiMetinleri.containsKey(kod)) ...[
           const SizedBox(height: 12),
           ConstrainedBox(
@@ -264,32 +267,36 @@ class _TeknolojiOzeti extends StatelessWidget {
               button: true,
               label: en ? '$ad across agriculture' : '$ad: alanlar arası durum',
               child: Material(
-                color: YzRenk.makine,
-                borderRadius: BorderRadius.circular(8),
+                color: YzRenk.makineAcik.withValues(alpha: 0.7),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  side: BorderSide(color: YzRenk.makine.withValues(alpha: 0.22)),
+                ),
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(10),
                   onTap: () => context.push(yzTeknolojiPath(kod)),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 12, 14, 12),
                     child: Row(children: [
-                      const Icon(Icons.travel_explore_rounded, color: Colors.white, size: 24),
+                      Icon(Icons.travel_explore_rounded, color: YzRenk.makine.withValues(alpha: 0.8), size: 21),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(buyukHarf(en ? 'Technology page' : 'Teknoloji sayfası', en),
-                                style: YzYazi.ustEtiket(renk: Colors.white.withValues(alpha: 0.78))),
+                                style: YzYazi.ustEtiket(renk: YzRenk.makine.withValues(alpha: 0.7))),
                             const SizedBox(height: 3),
                             Text(
                               en ? '$ad across agriculture' : '$ad: alanlar arası durum',
-                              style: YzYazi.baslik(17, renk: Colors.white).copyWith(height: 1.25),
+                              style: YzYazi.baslik(16, renk: YzRenk.makine)
+                                  .copyWith(height: 1.25, fontWeight: FontWeight.w600),
                             ),
                           ],
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Icon(Icons.arrow_forward_rounded, color: Colors.white, size: 22),
+                      Icon(Icons.arrow_forward_rounded, color: YzRenk.makine.withValues(alpha: 0.8), size: 20),
                     ]),
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../data/yz_grafik_veri.dart';
 import 'yz_aifs_semasi.dart';
+import 'yz_gorsel_altyazi.dart';
 import 'yz_gorsel_mobil.dart';
 import 'yz_gorsel_tam_ekran.dart';
 import 'yz_mobil.dart';
@@ -65,14 +66,13 @@ class YzGorselKarti extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(g.kunye(en), style: YzYazi.govde(boy: 14.5, renk: YzRenk.murekkep).copyWith(height: 1.45)),
-        if (!en && g.lejantTr != null) ...[
-          const SizedBox(height: 4),
-          Text(g.lejantTr!,
-              style: YzYazi.govde(boy: 13.5, renk: YzRenk.soluk).copyWith(height: 1.4)),
-        ],
-        const SizedBox(height: 3),
-        Text(kaynak, style: YzYazi.veri(boy: 11.5, renk: YzRenk.soluk)),
+        YzGorselAltyazisi(
+          kunye: g.kunye(en),
+          lejant: !en ? g.lejantTr : null,
+          kaynak: kaynak,
+          kaynakYazisi: YzYazi.veri(boy: 11.5, renk: YzRenk.soluk),
+          en: en,
+        ),
       ]),
     );
   }
@@ -176,14 +176,13 @@ extension on YzGorselKarti {
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         gorselAlani,
         const SizedBox(height: 8),
-        Text(g.kunye(en), style: YzYazi.govde(boy: 14.5, renk: YzRenk.murekkep).copyWith(height: 1.45)),
-        if (!en && g.lejantTr != null) ...[
-          const SizedBox(height: 4),
-          Text(g.lejantTr!,
-              style: YzYazi.govde(boy: 13.5, renk: YzRenk.soluk).copyWith(height: 1.4)),
-        ],
-        const SizedBox(height: 3),
-        Text(_kaynakSatiri, style: yzKunyeYazisi()),
+        YzGorselAltyazisi(
+          kunye: g.kunye(en),
+          lejant: !en ? g.lejantTr : null,
+          kaynak: _kaynakSatiri,
+          kaynakYazisi: yzKunyeYazisi(),
+          en: en,
+        ),
       ]),
     );
   }

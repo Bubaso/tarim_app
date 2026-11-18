@@ -382,7 +382,9 @@ class _YatayCubuk extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(
                 child: Text('${r.kategori(en)}: ${g.yaz(r, en)}',
-                    style: YzYazi.veri(boy: 12, renk: YzRenk.soluk)),
+                    style: yzTelefon(context)
+                        ? yzKunyeYazisi()
+                        : YzYazi.veri(boy: 12, renk: YzRenk.soluk)),
               ),
             ]),
           ),
