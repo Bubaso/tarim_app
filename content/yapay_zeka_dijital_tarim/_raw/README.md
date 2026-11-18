@@ -1235,7 +1235,6 @@ kenar kesilmez), dokununca yakınlaştırılabilir açılıyor.
 - §25 Türkiye haritası (karar 58 etkileşim listesinde): dizindeki
   üniversitelerin çoğunun ili kayıtlarda yok; kaynaklı konum turu
   gerekiyor.
-- §7 tablosundaki "Nitelik" sütunu sorusu kullanıcıda.
 - `genel-user-agent` dalı (9bfcde3) birleştirilmedi.
 
 ## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
