@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart' show RenderParagraph;
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -292,8 +293,9 @@ void main() {
           find.descendant(of: find.byType(YzUstSerit), matching: find.text(_dron));
       expect(serittekiAd, findsOneWidget);
       expect(t.widget<Text>(serittekiAd).maxLines, 1);
-      // İçindekiler yeniden açılınca okunan bölüm yumuşak zeminle.
-      await t.drag(find.byType(SingleChildScrollView).first, const Offset(0, 30));
+      // İçindekiler yeniden açılınca okunan bölüm yumuşak zeminle. (Çubuklar
+      // yukarı doğru birkaç on piksel birikince geliyor: 60 piksel.)
+      await t.drag(find.byType(SingleChildScrollView).first, const Offset(0, 60));
       await t.pumpAndSettle();
       await t.tap(find.text('İçindekiler'));
       await t.pumpAndSettle();
@@ -420,7 +422,8 @@ void main() {
       final ad = kYzTeknoloji['goruntu']!['tr']!;
       final cubuk = find.byKey(const ValueKey('yz-isaret-cubugu'));
       expect(cubuk, findsOneWidget);
-      expect(find.descendant(of: cubuk, matching: find.text('$ad · $sayi yer')), findsOneWidget);
+      expect(find.descendant(of: cubuk, matching: find.text(ad)), findsOneWidget);
+      expect(find.descendant(of: cubuk, matching: find.text(' · $sayi yer')), findsOneWidget);
       expect(find.textContaining('geçtiği yerler işaretli'), findsNothing, reason: 'uzun şerit yok');
       expect(t.getBottomLeft(cubuk).dy, lessThanOrEqualTo(t.getTopLeft(_altCubuk).dy));
       // Metin yine ilk ekranın üçte birinde (çipler ve işaretle).
@@ -432,6 +435,106 @@ void main() {
       await t.pumpAndSettle();
       expect(r.routerDelegate.currentConfiguration.uri.queryParameters.containsKey('teknoloji'), isFalse);
       expect(cubuk, findsNothing);
+    });
+
+    for (final genislik in [320.0, 375.0]) {
+      testWidgets('uzun teknoloji adında yalnız ad kısalıyor, sayı görünür · $genislik', (t) async {
+        t.view.physicalSize = Size(genislik, 812);
+        t.view.devicePixelRatio = 1;
+        addTearDown(t.view.reset);
+        _ipucuGoruldu();
+        final b = kYzBasliklar.firstWhere((x) => x.no == 7);
+        await t.pumpWidget(_yonlendirmeli(_yonlendirici('$yzPath/${b.slug}?teknoloji=sensor')));
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+        final sayi = kYzTeknolojiIzi[7]!['sensor']![0];
+        expect(sayi, greaterThan(0));
+        final sayiYazisi = find.byKey(const ValueKey('yz-isaret-sayisi'));
+        expect(t.widget<Text>(sayiYazisi).data, ' · $sayi yer');
+        final p = t.renderObject<RenderParagraph>(
+            find.descendant(of: sayiYazisi, matching: find.byType(RichText)));
+        expect(p.didExceedMaxLines, isFalse, reason: 'sayı kesilmiyor');
+        expect(t.getTopRight(sayiYazisi).dx,
+            lessThanOrEqualTo(t.getTopLeft(find.text('Sonraki ↓')).dx), reason: 'sonraki düğmesinin solunda');
+        final adi = t.renderObject<RenderParagraph>(find.descendant(
+            of: find.byKey(const ValueKey('yz-isaret-adi')), matching: find.byType(RichText)));
+        expect(adi.size.width, greaterThan(0));
+      });
+    }
+  });
+
+  group('telefon · düzen geçişi, yavaş kaydırma, üst şeridin adı', () {
+    testWidgets('telefon yan çevrilip geri dönünce okunan yer korunuyor (640 eşiği)', (t) async {
+      _telefon(t);
+      _ipucuGoruldu();
+      await t.pumpWidget(_uygulama(const YzBaslikEkrani(slug: _saha)));
+      await t.pumpAndSettle();
+      await t.drag(find.byType(SingleChildScrollView).first, const Offset(0, -2000));
+      await t.pumpAndSettle();
+      final once = _konum(t).pixels;
+      expect(once, greaterThan(1000));
+      // Yan: 812 × 375, geniş düzen.
+      t.view.physicalSize = const Size(812, 375);
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      expect(_altCubuk, findsNothing, reason: 'geniş düzen');
+      expect(_konum(t).pixels, closeTo(once, 1));
+      // Geri dik: telefon düzeni.
+      t.view.physicalSize = const Size(375, 812);
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      expect(_altCubuk, findsOneWidget);
+      expect(_konum(t).pixels, closeTo(once, 1));
+    });
+
+    testWidgets('yavaş kaydırmada da çubuklar saklanıp geliyor', (t) async {
+      _telefon(t);
+      _ipucuGoruldu();
+      await t.pumpWidget(_uygulama(const YzBaslikEkrani(slug: _saha)));
+      await t.pumpAndSettle();
+      final merkez = t.getCenter(find.byType(SingleChildScrollView).first);
+      final g = await t.startGesture(merkez);
+      for (var i = 0; i < 200; i++) {
+        await g.moveBy(const Offset(0, -1.5));
+        await t.pump(const Duration(milliseconds: 16));
+      }
+      await t.pump(const Duration(milliseconds: 300));
+      expect(_konum(t).pixels, greaterThan(200));
+      expect(_ustKayma(t), -1, reason: 'yavaş aşağı kaydırınca saklı');
+      expect(_altYukseklikCarpani(t), 0);
+      for (var i = 0; i < 60; i++) {
+        await g.moveBy(const Offset(0, 1.5));
+        await t.pump(const Duration(milliseconds: 16));
+      }
+      await t.pump(const Duration(milliseconds: 300));
+      expect(_konum(t).pixels, greaterThan(kYzUstSeritYuksekligi));
+      expect(_ustKayma(t), 0, reason: 'yavaş yukarı kaydırınca geri');
+      expect(_altYukseklikCarpani(t), 1);
+      await g.up();
+      await t.pumpAndSettle();
+    });
+
+    testWidgets('okunan alt başlığa dokununca sayfadan çıkılmıyor, içindekiler açılıyor', (t) async {
+      _telefon(t);
+      _ipucuGoruldu();
+      final r = _yonlendirici('$yzPath/$_saha');
+      await t.pumpWidget(_yonlendirmeli(r));
+      await t.pumpAndSettle();
+      await t.tap(find.text('İçindekiler'));
+      await t.pumpAndSettle();
+      await t.tap(find.descendant(of: find.byType(BottomSheet), matching: find.text(_dron)));
+      await t.pumpAndSettle();
+      // Biraz yukarı: çubuklar geliyor, şeritte okunan alt başlık.
+      await t.drag(find.byType(SingleChildScrollView).first, const Offset(0, 60));
+      await t.pumpAndSettle();
+      expect(_ustKayma(t), 0);
+      final serittekiAd = find.descendant(of: find.byType(YzUstSerit), matching: find.text(_dron));
+      expect(serittekiAd, findsOneWidget);
+      await t.tap(serittekiAd);
+      await t.pumpAndSettle();
+      expect(find.text('MERKEZ'), findsNothing);
+      expect(r.routerDelegate.currentConfiguration.uri.path, '$yzPath/$_saha');
+      expect(find.descendant(of: find.byType(BottomSheet), matching: find.text('Başa dön')), findsOneWidget);
     });
   });
 
@@ -463,6 +566,18 @@ void main() {
       await t.pumpAndSettle();
       expect(t.getTopLeft(find.byType(YzUstSerit)).dy, 0);
       expect(find.descendant(of: find.byType(YzUstSerit), matching: find.text(buyukHarf(kYzAdTr, false))), findsOneWidget);
+    });
+
+    testWidgets('üst şeritteki ada dokununca merkez sayfa (eskisi gibi)', (t) async {
+      _masaustu(t);
+      _ipucuGoruldu();
+      await t.pumpWidget(_yonlendirmeli(_yonlendirici('$yzPath/$_saha')));
+      await t.pumpAndSettle();
+      await t.drag(find.byType(SingleChildScrollView).at(1), const Offset(0, -1500));
+      await t.pumpAndSettle();
+      await t.tap(find.descendant(of: find.byType(YzUstSerit), matching: find.text(buyukHarf(kYzAdTr, false))));
+      await t.pumpAndSettle();
+      expect(find.text('MERKEZ'), findsOneWidget);
     });
 
     testWidgets('işaret şeridi metnin üstünde, uzun cümleyle', (t) async {

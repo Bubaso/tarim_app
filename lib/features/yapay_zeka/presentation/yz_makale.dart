@@ -110,17 +110,34 @@ const double _rayEsigi = 1100;
 
 class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   final _kaydirma = ScrollController();
+
+  /// Kaydırılan sütunun kimliği: telefon ile geniş düzen arasında geçişte
+  /// (telefonu yan çevirmek, pencereyi 640 pikselin ötesine açmak) kaydırıcı
+  /// yeniden kurulmasın, okur kaldığı yerde kalsın (karar 62).
+  final _kaydiriciAnahtari = GlobalKey(debugLabel: 'yz-makale-kaydirici');
   final _vurgu = YzVurguDenetcisi();
   int _aktif = 0;
   bool _dugme = false;
 
-  // Telefon çerçevesi (karar 62).
+  // Telefon çerçevesi (karar 62). Kaydırırken değişenler ayrı dinleyicide:
+  // çubuklar saklanıp göründükçe bütün sayfa (metin) yeniden kurulmasın.
   /// Okurun geçtiği son alt başlık; ilkine varılmadıysa -1.
-  int _gecilen = -1;
+  final _gecilen = ValueNotifier<int>(-1);
 
   /// Üst ve alt çubuk saklı mı (aşağı kaydırınca saklanıyor).
-  bool _gizli = false;
+  final _gizli = ValueNotifier<bool>(false);
   double _sonKonum = 0;
+
+  /// Aynı yönde biriken kaydırma: yavaş kaydırmada da çubuklar saklanıp
+  /// gelsin (tek karedeki fark birkaç pikseli geçmiyor).
+  double _birikim = 0;
+  static const double _gizlemeEsigi = 16;
+
+  // Ayrıştırma ve sayım her kurulumda yinelenmesin.
+  String? _bellekMetin;
+  List<String> _bellekBasliklar = const [];
+  Object? _isaretAnahtari;
+  _Isaret? _isaretBellegi;
 
   /// Sayfanın okunan oranı (okuma çizgisi); her kaydırmada bütün sayfa
   /// yeniden çizilmesin diye ayrı.
@@ -193,27 +210,36 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
       }
     }
     final aktif = math.max(0, gecilen);
-    var gizli = _gizli;
     if (yzTelefon(context)) {
+      // Telefonda ray ve yüzen düğme yok: sayfa yeniden kurulmuyor, yalnız
+      // çubuklar ve okuma çizgisi dinleyicilerinden güncelleniyor.
+      _dugme = dugme;
+      _aktif = aktif;
       final p = _kaydirma.position;
       _ilerleme.value = enCok > 0 ? (p.pixels / enCok).clamp(0.0, 1.0) : 0.0;
+      _gecilen.value = gecilen;
       final fark = p.pixels - _sonKonum;
+      _sonKonum = p.pixels;
       if (p.pixels <= kYzUstSeritYuksekligi || p.pixels >= enCok - 24) {
         // En üstte ve sayfanın sonunda çubuklar hep görünür.
-        gizli = false;
-      } else if (p.userScrollDirection == ScrollDirection.reverse && fark > 2) {
-        gizli = true;
-      } else if (p.userScrollDirection == ScrollDirection.forward && fark < -2) {
-        gizli = false;
+        _birikim = 0;
+        _gizli.value = false;
+      } else if (fark != 0) {
+        // Yön değişince birikim sıfırdan başlıyor.
+        if (_birikim != 0 && fark.sign != _birikim.sign) _birikim = 0;
+        _birikim += fark;
+        if (p.userScrollDirection == ScrollDirection.reverse && _birikim > _gizlemeEsigi) {
+          _gizli.value = true;
+        } else if (p.userScrollDirection == ScrollDirection.forward && _birikim < -_gizlemeEsigi) {
+          _gizli.value = false;
+        }
       }
-      _sonKonum = p.pixels;
+      return;
     }
-    if (dugme != _dugme || aktif != _aktif || gecilen != _gecilen || gizli != _gizli) {
+    if (dugme != _dugme || aktif != _aktif) {
       setState(() {
         _dugme = dugme;
         _aktif = aktif;
-        _gecilen = gecilen;
-        _gizli = gizli;
       });
     }
   }
@@ -228,6 +254,8 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   void dispose() {
     _kaydirma.dispose();
     _ilerleme.dispose();
+    _gecilen.dispose();
+    _gizli.dispose();
     super.dispose();
   }
 
@@ -243,10 +271,14 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
 
   Future<void> _baglantiyiPaylas() async {
     try {
-      await SharePlus.instance.share(ShareParams(
-        text: '${widget.baslik}\n$_adres',
+      final sonuc = await SharePlus.instance.share(ShareParams(
+        uri: Uri.parse(_adres),
+        title: widget.baslik,
         subject: widget.baslik,
+        // Web'de paylaşma yoksa e-posta açılmasın; bağlantı panoya.
+        mailToFallbackEnabled: false,
       ));
+      if (sonuc.status == ShareResultStatus.unavailable) _baglantiyiKopyala();
     } catch (_) {
       // Tarayıcı paylaşmayı desteklemiyorsa bağlantı panoya.
       _baglantiyiKopyala();
@@ -298,9 +330,29 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   /// Telefonda içindekilerden bir bölüme gidiş: üst çubuk başlığı örtmesin
   /// diye çubuklar saklanıyor (kaydırma okurun değil, kendiliğinden).
   void _telefondaBasligaGit(int i) {
-    setState(() => _gizli = true);
+    _birikim = 0;
+    _gizli.value = true;
     _vurgu.basligaGit(i);
   }
+
+  List<String> _altBasliklar(String? md) {
+    if (md == null) return const [];
+    if (!identical(md, _bellekMetin)) {
+      _bellekMetin = md;
+      _bellekBasliklar = [for (final x in yzAyristir(md)) if (x.tur == YzBlokTuru.altBaslik) x.metin];
+    }
+    return _bellekBasliklar;
+  }
+
+  void _icindekileriAc(BuildContext context, bool en, List<String> altBasliklar) =>
+      yzCerceveIcindekiler(
+        context,
+        en: en,
+        basliklar: altBasliklar,
+        aktif: _gecilen.value,
+        git: _telefondaBasligaGit,
+        basaDon: _basaDon,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -308,11 +360,14 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     ref.listen<double>(yzYaziOlcegiProvider, _olcekDegisti);
     final olcek = ref.watch(yzYaziOlcegiProvider);
     final md = widget.metin;
-    final altBasliklar = md == null
-        ? const <String>[]
-        : [for (final x in yzAyristir(md)) if (x.tur == YzBlokTuru.altBaslik) x.metin];
+    final altBasliklar = _altBasliklar(md);
     final telefon = yzTelefon(context);
-    final isaret = _isaret(md, en);
+    final isaretAnahtari = (md, widget.teknoloji, widget.arama, en);
+    if (isaretAnahtari != _isaretAnahtari) {
+      _isaretAnahtari = isaretAnahtari;
+      _isaretBellegi = _isaret(md, en);
+    }
+    final isaret = _isaretBellegi;
     final ipucu = md != null && ref.watch(yzIpucuProvider) == false;
 
     Widget icerik(BuildContext context, BoxConstraints kis) {
@@ -392,7 +447,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
           : Center(child: sutun);
       return Stack(children: [
         Positioned.fill(
-          child: SingleChildScrollView(controller: _kaydirma, child: govde),
+          child: SingleChildScrollView(key: _kaydiriciAnahtari, controller: _kaydirma, child: govde),
         ),
         if (rayli)
           Positioned(
@@ -436,8 +491,8 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     const sure = Duration(milliseconds: 200);
     final altGuvenli = MediaQuery.paddingOf(context).bottom;
     final yonlendirici = GoRouter.maybeOf(context);
-    final okunan =
-        _gecilen >= 0 && _gecilen < altBasliklar.length ? altBasliklar[_gecilen] : null;
+    Widget gizliyle(Widget Function(bool gizli) kur) =>
+        ValueListenableBuilder<bool>(valueListenable: _gizli, builder: (_, g, __) => kur(g));
     return Scaffold(
       backgroundColor: YzRenk.zemin,
       body: Stack(children: [
@@ -446,96 +501,101 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
           top: 0,
           left: 0,
           right: 0,
-          child: AnimatedSlide(
-            offset: _gizli ? const Offset(0, -1) : Offset.zero,
-            duration: sure,
-            curve: Curves.easeOut,
-            child: YzUstSerit(
-              geriAdres: widget.geriAdres,
-              aramaDugmesi: false,
-              yaziBoyuDugmesi: false,
-              altBaslik: okunan,
-            ),
-          ),
+          child: gizliyle((gizli) => AnimatedSlide(
+                offset: gizli ? const Offset(0, -1) : Offset.zero,
+                duration: sure,
+                curve: Curves.easeOut,
+                child: ValueListenableBuilder<int>(
+                  valueListenable: _gecilen,
+                  builder: (context, gecilen, _) {
+                    final okunan = gecilen >= 0 && gecilen < altBasliklar.length
+                        ? altBasliklar[gecilen]
+                        : null;
+                    return YzUstSerit(
+                      geriAdres: widget.geriAdres,
+                      aramaDugmesi: false,
+                      yaziBoyuDugmesi: false,
+                      altBaslik: okunan,
+                      // Okunan alt başlığa dokunan okur sayfadan çıkmasın:
+                      // içindekiler açılıyor.
+                      etiketeDokununca:
+                          okunan == null ? null : () => _icindekileriAc(context, en, altBasliklar),
+                    );
+                  },
+                ),
+              )),
         ),
         // Okuma çizgisi: üst çubuk saklanınca ekranın en üstünde kalıyor.
-        AnimatedPositioned(
-          duration: sure,
-          curve: Curves.easeOut,
-          top: _gizli ? 0 : kYzUstSeritYuksekligi,
-          left: 0,
-          right: 0,
-          height: 2,
-          child: YzCerceveIlerleme(oran: _ilerleme, en: en),
-        ),
+        gizliyle((gizli) => AnimatedPositioned(
+              duration: sure,
+              curve: Curves.easeOut,
+              top: gizli ? 0 : kYzUstSeritYuksekligi,
+              left: 0,
+              right: 0,
+              height: 2,
+              child: YzCerceveIlerleme(oran: _ilerleme, en: en),
+            )),
         Positioned(
           left: 0,
           right: 0,
           bottom: 0,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // İpucu ve işaret çubuğu alt çubuğun üstünde; alt çubuk
-              // saklanınca alt güvenli alanın üstüne iniyorlar.
-              AnimatedPadding(
-                duration: sure,
-                curve: Curves.easeOut,
-                padding: EdgeInsets.only(bottom: _gizli ? altGuvenli : 0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    if (ipucu)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-                        child: YzCerceveIpucu(en: en, kapat: ref.read(yzIpucuProvider.notifier).kapat),
-                      ),
-                    if (isaret != null)
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-                        child: YzCerceveIsaretCubugu(
-                          ad: isaret.ad,
-                          sayi: isaret.sayi,
-                          en: en,
-                          kalem: isaret.kalem,
-                          sonraki: _vurgu.sonraki,
-                          kapat: widget.isaretiKaldir,
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-              ClipRect(
-                child: AnimatedAlign(
-                  duration: sure,
-                  curve: Curves.easeOut,
-                  alignment: Alignment.topCenter,
-                  heightFactor: _gizli ? 0 : 1,
-                  child: YzCerceveAltCubuk(
-                    en: en,
-                    icindekiler: () => yzCerceveIcindekiler(
-                      context,
-                      en: en,
-                      basliklar: altBasliklar,
-                      aktif: _gecilen,
-                      git: _telefondaBasligaGit,
-                      basaDon: _basaDon,
-                    ),
-                    yaziBoyu: () => yzCerceveYaziBoyu(context, en: en),
-                    ara: yonlendirici == null ? null : () => context.push(yzAramaPath),
-                    paylas: () => yzCercevePaylas(
-                      context,
-                      en: en,
-                      paylas: _baglantiyiPaylas,
-                      kopyala: _baglantiyiKopyala,
-                      yazdir: md == null ? null : _yazdir,
+          child: gizliyle((gizli) => Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  // İpucu ve işaret çubuğu alt çubuğun üstünde; alt çubuk
+                  // saklanınca alt güvenli alanın üstüne iniyorlar.
+                  AnimatedPadding(
+                    duration: sure,
+                    curve: Curves.easeOut,
+                    padding: EdgeInsets.only(bottom: gizli ? altGuvenli : 0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (ipucu)
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                            child: YzCerceveIpucu(en: en, kapat: ref.read(yzIpucuProvider.notifier).kapat),
+                          ),
+                        if (isaret != null)
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                            child: YzCerceveIsaretCubugu(
+                              ad: isaret.ad,
+                              sayi: isaret.sayi,
+                              en: en,
+                              kalem: isaret.kalem,
+                              sonraki: _vurgu.sonraki,
+                              kapat: widget.isaretiKaldir,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-                ),
-              ),
-            ],
-          ),
+                  ClipRect(
+                    child: AnimatedAlign(
+                      duration: sure,
+                      curve: Curves.easeOut,
+                      alignment: Alignment.topCenter,
+                      heightFactor: gizli ? 0 : 1,
+                      child: YzCerceveAltCubuk(
+                        en: en,
+                        icindekiler: () => _icindekileriAc(context, en, altBasliklar),
+                        yaziBoyu: () => yzCerceveYaziBoyu(context, en: en),
+                        ara: yonlendirici == null ? null : () => context.push(yzAramaPath),
+                        paylas: () => yzCercevePaylas(
+                          context,
+                          en: en,
+                          paylas: _baglantiyiPaylas,
+                          kopyala: _baglantiyiKopyala,
+                          yazdir: md == null ? null : _yazdir,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )),
         ),
       ]),
     );

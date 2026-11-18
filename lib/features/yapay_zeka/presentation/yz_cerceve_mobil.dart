@@ -533,11 +533,22 @@ class YzCerceveIsaretCubugu extends StatelessWidget {
             decoration: BoxDecoration(color: kalem, borderRadius: BorderRadius.circular(3)),
           ),
           const SizedBox(width: 8),
+          // Uzun adda yalnız ad kısalıyor; kaç yerde geçtiği hep görünür.
           Expanded(
-            child: Text('$ad · $sayiYazisi',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: _sade(boy: 14, renk: YzRenk.murekkep)),
+            child: Row(children: [
+              Flexible(
+                child: Text(ad,
+                    key: const ValueKey('yz-isaret-adi'),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: _sade(boy: 14, renk: YzRenk.murekkep)),
+              ),
+              Text(' · $sayiYazisi',
+                  key: const ValueKey('yz-isaret-sayisi'),
+                  maxLines: 1,
+                  softWrap: false,
+                  style: _sade(boy: 14, renk: YzRenk.murekkep)),
+            ]),
           ),
           if (sayi > 0)
             TextButton(

@@ -25,6 +25,7 @@ class YzUstSerit extends StatelessWidget {
     this.aramaDugmesi = true,
     this.yaziBoyuDugmesi = true,
     this.altBaslik,
+    this.etiketeDokununca,
   });
   final String geriAdres;
 
@@ -38,6 +39,11 @@ class YzUstSerit extends StatelessWidget {
   /// Telefonda okur ilk alt başlığı geçince bölümün adı yerine okunan alt
   /// başlık (tek satır, karar 62). Verilmezse bölümün adı.
   final String? altBaslik;
+
+  /// Ortadaki ada dokununca: verilmezse bölümün merkez sayfası (eskisi gibi).
+  /// Telefondaki makale şeridi okunan alt başlığı gösterirken içindekileri
+  /// açıyor; okur sayfadan çıkmıyor (karar 62).
+  final VoidCallback? etiketeDokununca;
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +70,7 @@ class YzUstSerit extends StatelessWidget {
           const SizedBox(width: 4),
           Expanded(
             child: InkWell(
-              onTap: yonlendirici == null ? null : () => context.go(yzPath),
+              onTap: etiketeDokununca ?? (yonlendirici == null ? null : () => context.go(yzPath)),
               // Varsayılan şerit eskisi gibi düz yazı; telefondaki makale
               // şeridi (yazı boyu alt çubukta) ad ile alt başlık arasında
               // geçişli.
