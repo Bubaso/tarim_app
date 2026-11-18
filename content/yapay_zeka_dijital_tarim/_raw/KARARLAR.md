@@ -210,3 +210,16 @@ açık tonla ve kenarlı, referans değer ince dikey işaret, alt kalem girintil
 yüzde pay çubuğu 100'e tamamlanır, sayı karesi (ör. 71 eylemde 0), küçük
 çoklu (ayrı eksenler), iki şeritli zaman çizelgesi (geniş ekranda eksenin iki
 yanı), şirket beyanı içi boş işaret.
+
+## L · Merkez sayfa ve haber sunumu (18 Kasım 2026)
+
+Kullanıcı: "anasayfada ayrıca Bugün nerede duruyoruz gövdesine gerek
+olmadığını düşünüyorum. zaten başlıklar içinde var. … son haberler liste
+olarak yapılmış. bu çok monoton ve sıkıcı. görselleri thumbnailleri ile
+birlikte … site anasayfasına uygun bir estetik, tasarım ve dizinle
+sunulması gerekir. aynı mantık … başlıklar içinde geçerli. … ingilizce
+metin olan bir infografik var … mümkünse bunu türkçe yeniden üret."
+
+| # | karar |
+|---|---|
+| 59 | **Merkez sayfada özet kutusu yok:** §1 haritada bir başlık olarak duruyor (karar 6'daki "§1 özeti haritanın üstünde" kalktı). **Haberler görselli vitrin:** liste değil; merkez sayfada manşet + küçük resimli yan haberler + kart ızgarası, başlık sayfalarında kart ızgarası, dar ekranda küçük resimli satırlar (`yz_haber_vitrini.dart`). **İngilizce bilgi şeması Türkçe sayfada Türkçe çizimle:** özgünün teması ve akışı korunarak sitede çizilir (`yz_aifs_semasi.dart`), metin özgünün çevirisidir, künye ve kaynak "Türkçeye uyarlandı" der; İngilizce sayfada özgün görsel. |
