@@ -145,47 +145,17 @@ class _YzHaritaState extends State<YzHarita> {
             const SizedBox(height: 12),
             _TeknolojiOzeti(kod: _teknoloji!, en: en),
           ],
-          SizedBox(height: telefon ? 10 : 18),
+          // Telefonda da karolar: tek sütun satır listesi denendi, kullanıcı
+          // beğenmedi ("başlık kutuları eski haliyle daha iyiydi", 18 Kas 2026).
+          const SizedBox(height: 18),
           for (final k in katmanlar.entries)
-            if (telefon)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: _katmanListesi(k.key, k.value, en),
-              )
-            else
-              Padding(
-                padding: const EdgeInsets.only(bottom: 14),
-                child: _katmanSatiri(k.key, k.value, genis, karoGenisligi, en),
-              ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 14),
+              child: _katmanSatiri(k.key, k.value, genis, karoGenisligi, en),
+            ),
         ],
       );
     });
-  }
-
-  /// Telefonda (★20): katman etiketi, altında karosuz, ince çizgiyle
-  /// ayrılmış satırlar. Karonun taşıdığı bütün durumlar satırda.
-  Widget _katmanListesi(String katman, List<YzBaslik> basliklar, bool en) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(8, 0, 8, 2),
-          child: Text(
-            buyukHarf(kYzKatmanlar[katman]?[en ? 'en' : 'tr'] ?? katman, en),
-            style: YzYazi.ustEtiket(),
-          ),
-        ),
-        for (var i = 0; i < basliklar.length; i++)
-          YzBaslikSatiri(
-            baslik: basliklar[i],
-            ustCizgi: i > 0,
-            sonuk: _teknoloji != null && !basliklar[i].teknoloji.contains(_teknoloji),
-            teknoloji: _teknoloji,
-            ana: _teknoloji != null &&
-                (kYzTeknolojiAna[_teknoloji]?.contains(basliklar[i].no) ?? false),
-          ),
-      ],
-    );
   }
 
   /// Geniş ekranda katman adı solda, karolar sağda (Row + Expanded); dar
