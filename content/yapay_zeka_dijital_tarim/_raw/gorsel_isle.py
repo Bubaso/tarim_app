@@ -52,6 +52,8 @@ ALINMAZ = (
     "Ulusal Arazi Örtüsü Sınıflandırma ve İzleme",         # Programdaki tedbirle bağı kaynakta yok
     "İzmir'deki ıslah kampüsünde LED",                     # tesisin ne olduğu kaynakta yazmıyor
     "SoilGrids 2.0'ın üretim iş akışı",                    # §4'te SoilGrids şekli yeterli
+    "Hands Free Hectare'de otonom traktörle ekim",         # §28'de aynı projenin görseli var
+    "Silalatshani'de bir çiftçinin mısırında",             # aynı denemenin ikinci şekli
 )
 
 # Kaynak satırındaki iç notlar okura gitmez.
@@ -108,6 +110,8 @@ KIRP = {
     "https://dergipark.org.tr/en/download/article-file/2608585": (None, 4, "0.224,0.564,0.795,0.721"),
     "https://dergipark.org.tr/en/download/article-file/1201243": ("civelek_2022_tarim_bilimleri_dergisi.pdf", 3, "0.127,0.449,0.876,0.598"),
     # İkinci tur (18 Kas 2026)
+    'https://oar.icrisat.org/11550/1/The%20dynamics%20between%20irrigation%20frequency%20and%20soil%20nutrient%20management%20transitioning%20smallholder%20irrigation%20towards%20more%20profitable%20and%20sustainable.pdf': (None, 7, '0.279,0.492,0.721,0.821'),
+    'https://assets.gov.ie/static/documents/3864056a/1._Responding_to_an_AMS_Notification_July_2026.pdf': (None, 23, '0.119,0.575,0.775,0.908'),
     'https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908': (None, 12, '0.115,0.080,0.885,0.632'),
     'https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf': (None, 2, '0.390,0.246,0.886,0.466'),
     'https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf': (None, 24, '0.165,0.142,0.910,0.776'),
@@ -160,41 +164,17 @@ TUR = {"Fotoğraf": "foto", "Görsel": "gorsel", "Görüntü": "goruntu", "Şeki
        "Harita": "harita", "Grafik": "grafik"}
 
 
-def commons_kucuk(adres: str) -> str:
-    """Wikimedia Commons özgün dosyası yerine 1280 piksellik küçük resmi
-    (Wikimedia'nın önerdiği yol; özgün dosyalarda hız sınırı sıkı). Commons
-    API'si küçük resim adresini verir; özgün daha darsa özgünün adresini."""
+def commons_kucukleri(adres: str) -> list[str]:
+    """Wikimedia Commons özgün dosyası yerine küçük resim adresleri (sırayla
+    1280, 960, 500 piksel). Commons'ın robots.txt'si API yolunu (/w/) kapattığı
+    için API'ye gidilmiyor; adres upload.wikimedia.org'un standart küçük resim
+    deseninden kuruluyor (özgün dosyalarda hız sınırı sıkı: 429)."""
     if "upload.wikimedia.org/wikipedia/commons/" not in adres or "/thumb/" in adres:
-        return adres
-    import urllib.parse
-    import urllib.request
-    ad = urllib.parse.unquote(adres.rsplit("/", 1)[-1])
-
-    def sor(genislik: int) -> str:
-        sorgu = urllib.parse.urlencode({"action": "query", "titles": f"File:{ad}", "prop": "imageinfo",
-                                        "iiprop": "url", "iiurlwidth": str(genislik), "format": "json"})
-        istek = urllib.request.Request(f"https://commons.wikimedia.org/w/api.php?{sorgu}",
-                                       headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                                                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"})
-        try:
-            with urllib.request.urlopen(istek, timeout=30) as y:
-                veri = json.loads(y.read().decode("utf-8"))
-            for sayfa in veri.get("query", {}).get("pages", {}).values():
-                for bilgi in sayfa.get("imageinfo", []):
-                    return bilgi.get("thumburl") or ""
-        except Exception:
-            pass
-        return ""
-
-    # Özgün 1280'den darsa API özgünün adresini döner; o zaman daha dar küçük resim.
-    for genislik in (1280, 600):
-        kucuk = sor(genislik)
-        if "/thumb/" in kucuk:
-            return kucuk
-    # Küçük özgünlerde API özgünü veriyor; standart 500 piksellik küçük resim.
+        return [adres]
     yol = adres.split("/wikipedia/commons/", 1)[1]
     dosya = yol.rsplit("/", 1)[-1]
-    return f"https://upload.wikimedia.org/wikipedia/commons/thumb/{yol}/500px-{dosya}"
+    ek = ".png" if dosya.lower().endswith((".svg", ".tif", ".tiff")) else ""
+    return [f"https://upload.wikimedia.org/wikipedia/commons/thumb/{yol}/{g}px-{dosya}{ek}" for g in (1280, 960, 500)]
 
 
 def kaynak_en(tr: str) -> str:
@@ -321,9 +301,16 @@ def main() -> int:
             kaynak_pdf = str(BURASI / "kaynak_dosyalari" / yerel) if yerel else a["gorsel_adresi"]
             komut = [str(PYTHON), "-I", str(BURASI / "gorsel_kirp.py"), k, kaynak_pdf, str(sayfa), kutu]
         else:
-            indirilecek = commons_kucuk(a["gorsel_adresi"])
-            komut = [str(PYTHON), "-I", str(BURASI / "gorsel_al.py"), k, indirilecek]
-        cikti = subprocess.run(komut, capture_output=True, text=True, timeout=400)
+            komut = None
+        if komut is not None:
+            cikti = subprocess.run(komut, capture_output=True, text=True, timeout=400)
+        else:
+            for indirilecek in commons_kucukleri(a["gorsel_adresi"]):
+                cikti = subprocess.run([str(PYTHON), "-I", str(BURASI / "gorsel_al.py"), k, indirilecek],
+                                       capture_output=True, text=True, timeout=400)
+                if cikti.returncode == 0:
+                    break
+                time.sleep(3)
         # Sunucuları yormamak için; Wikimedia'da daha uzun ara (hız sınırı: 429).
         time.sleep(8 if "wikimedia.org" in a["gorsel_adresi"] else 3)
         son = (cikti.stdout.strip().splitlines() or [""])[-1]

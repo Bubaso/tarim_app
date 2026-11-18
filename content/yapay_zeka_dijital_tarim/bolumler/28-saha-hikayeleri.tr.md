@@ -26,11 +26,15 @@ Proje sonra birkaç tarlalık bir Hands Free Farm'a dönüştü. Projenin kendi 
 
 Hindistan'ın Bihar eyaletinde, ulaşılması zor kadın çiftçilere yönelik video eğitimleriyle tanınan Digital Green adlı sivil toplum kuruluşu, devletin yüz yüze yaptığı çeltik eğitimine yerel olarak çekilmiş videolar ekledi. Baul ve arkadaşlarının (2024) rastgele kontrollü denemesinde Nalanda, Muzaffarpur ve Purnia ilçelerinde **280** köy videolu eğitime, **120** köy yalnız yüz yüze eğitime ayrıldı.
 
+[[gorsel:b28-digital-green-video-egitimi]]
+
 Ortalama etkiler büyük ve olumlu çıktı, ama çoklu karşılaştırma düzeltmesinden sonra istatistiksel olarak anlamlı değil. Yazarların Bayesçi tahminine göre videolar üretimi **%5-12**, verimi **%12-18**, tahmini kârı **%9-24** artırdı; videonun çiftçi başına ek maliyeti **96** rupi. Girdi kullanımında ise etki yok denecek kadar az. Denemede saf bir kontrol grubu yok: karşılaştırılan, videolu ve videosuz eğitim.
 
 ## Zimbabve: sensör ve komşudan öğrenme
 
 Zimbabve'nin yarı kurak bölgelerindeki iki küçük çiftçi sulama şebekesinde, Mkoba ve Silalatshani'de, 2013-2017 arasında yürüyen bir projede her şebekede **20** sulayıcıya bir toprak nemi sensörü dizisi ve iki ıslanma cephesi dedektörü verildi (Moyo ve arkadaşları, 2020). Çiftçiler daha seyrek ve daha kısa sulamaya geçti, besini kök bölgesinde tuttu.
+
+[[gorsel:b28-zimbabve-denemesinde-kullanilan]]
 
 Mısırda su verimliliği **%100**'den fazla arttı, ama hem sensörü olan hem olmayan çiftçilerde. Yazarlar bunu toplumsal öğrenmeye bağlıyor: sensörü olmayanlar, olanları izleyerek ve onlarla konuşarak aynı değişikliği yaptı. Vardıkları sonuç da bu: küçük işletmede üretimi iyileştirmek, ne kadar iyi olursa olsun yalnız uygun teknolojiyi getirmekle başarılamıyor.
 
@@ -61,6 +65,8 @@ Türkiye'de geniş alanlarda kullanılan dijital tarım teknolojilerinden biri i
 [[grafik:b28-dron-operatorleri]]
 
 Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil. Gıda ve Kontrol Genel Müdürlüğü'nün Mart 2026'daki değerlendirme toplantısında, dronla mücadeleye izin verilen **15** zararlı organizmaya yönelik uygulamalar ve il müdürlüklerinin izin süreçleri ele alındı. Batı Türkiye'de dron kullanan çiftçilerle yapılan etnografik bir çalışma (Kaya, 2024), dronların tarlanın durumunu ölçüp görselleştirdiğini ve ilacı buna göre uygulattığını; ama yüksek maliyet ve bazı işletmelerin ekolojisine ve mevcut teknolojisine uymaması yüzünden her çiftçiye eşit ulaşmadığını, dron kullanımının ulusal güvenlik düzenlemelerine uyum için ek adımlar gerektirdiğini anlatıyor. Bu çalışmalar dronların sahada nasıl kullanıldığını gösteriyor; dijital bir aracın Türkiye'de bir işletmede verime, su kullanımına ya da gelire etkisini ölçen, yayımlanmış bağımsız bir saha çalışması ise yok.
+
+[[gorsel:b28-zirai-ilaclama-dronu-mugla-il-tarim]]
 
 ## Hikâyelerin ortak noktası
 

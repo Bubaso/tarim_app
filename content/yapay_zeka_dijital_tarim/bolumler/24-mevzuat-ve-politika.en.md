@@ -38,6 +38,8 @@ The Machinery Regulation (2023/1230) applies from 14 January 2027. It assigns th
 
 Some of the rules that shape how AI is used in agriculture today never mention AI. Regulation 2021/2116, which governs the financing and monitoring of the EU's common agricultural policy, requires member states to have an area monitoring system working with Copernicus Sentinel satellite data or data of at least equivalent value: the system had to be operational from 1 January 2023 and fully operational in all member states by 1 January 2024 at the latest. The Regulation prescribes the satellite, not the method; it does not mention machine learning or AI.
 
+[[gorsel:b24-alan-izleme-sistemi-irlanda-da-bir]]
+
 In Türkiye, the technical requirements of one of the ministry's AI projects show what is demanded while no AI-specific rule exists. The requirements for the project that will analyse fishing vessel monitoring data with AI, published in June 2026, demand that the system comply with the legislation under Law No. 6698 on the Protection of Personal Data, run in-house on a closed network, and pass a penetration test by an independent body or the ministry before going live.
 
 ## Türkiye: a framework on the way, no separate annex for agriculture

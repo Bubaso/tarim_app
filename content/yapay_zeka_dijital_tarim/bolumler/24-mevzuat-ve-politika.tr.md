@@ -38,6 +38,8 @@ Makine Tüzüğü (2023/1230) 14 Ocak 2027'den itibaren uygulanacak. Makine öğ
 
 Tarımda yapay zekânın bugünkü kullanımına dokunan kuralların bir kısmı yapay zekâdan hiç söz etmiyor. AB'nin ortak tarım politikasının finansmanını ve izlenmesini düzenleyen 2021/2116 sayılı Tüzük, üye ülkelerden Copernicus Sentinel uydu verisiyle ya da en az onun değerinde veriyle çalışan bir alan izleme sistemi istiyor: sistem 1 Ocak 2023'ten itibaren çalışır, en geç 1 Ocak 2024'te bütün üye ülkelerde tam işler olmalıydı. Tüzük uyduyu şart koşuyor, yöntemi değil; makine öğrenmesinden ya da yapay zekâdan söz etmiyor.
 
+[[gorsel:b24-alan-izleme-sistemi-irlanda-da-bir]]
+
 Türkiye'de bakanlığın yapay zekâ projelerinden birinin teknik isterleri, yapay zekâya özgü bir kural yokken neyin şart koşulduğunu gösteriyor. Balıkçı gemisi izleme verisini yapay zekâyla inceleyecek projenin Haziran 2026'da yayımlanan isterleri, geliştirilecek sistemin 6698 sayılı Kişisel Verilerin Korunması Kanunu mevzuatına uyumlu olmasını, kurum içinde kapalı devre çalışmasını ve canlıya alınmadan önce bağımsız bir kurumun ya da bakanlığın yapacağı sızma testinden geçmesini istiyor.
 
 ## Türkiye: çerçeve yolda, tarım için ayrı bir ek yok

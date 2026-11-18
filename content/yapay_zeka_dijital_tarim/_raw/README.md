@@ -1237,6 +1237,30 @@ kenar kesilmez), dokununca yakınlaştırılabilir açılıyor.
   gerekiyor.
 - `genel-user-agent` dalı (9bfcde3) birleştirilmedi.
 
+## Tur 12 — GÖRSEL İKİNCİ TUR · 18 Kasım 2026
+
+Kullanıcı: görseli olmayan bilgiler için kapsamlı ikinci tur; ilgisiz ya da
+süs görsel yok. Boşluk envanteri (37 sayfa, 305 görselsiz paragraf) ve
+ilk turun engel ve bulunamayan listesiyle dört ajan tarandı (A §1-7 +
+genomik, karar; B §8-14 + goruntu, tahmin, robotik; C §15-21 + uzaktan,
+sensor, dil, veri; D §22-28). 59 aday; 50'si alındı (44 yeni dosya, 6
+başka sayfadaki görselin yeniden kullanımı). Alınmayanlar: başka sayfada
+olan ya da aynı içeriği tekrar eden şekiller, bağı kaynakta kurulamayanlar,
+altyazısı doğrulanamayan bir şekil, genel kareler. İlk turda bulunamayan
+Hal Kayıt Sistemi künyesi, OGM Yangın Karar Destek Sistemi, Digital Green
+(FarmerChat ve Bihar denemesi), Türkiye'de ilaçlama dronu (Kayseri, Muğla),
+IWWIP'in karşılığı yerel buğday envanteri, Zimbabve sensörü ve §27'nin
+üç şirketi (Virgo robotu, Morehead serası, Infarm, Wilma) bu turda
+bulundu. 13 şekil makale ve rapor PDF'lerinden kırpıldı. Sonuç: 123 görsel
+kaydı, 117 dosya (22 MB); 28 başlığın ve 9 teknoloji sayfasının hepsinde
+görsel var.
+
+`gorsel_isle.py` artık teknoloji sayfalarına da yerleştiriyor (aday
+`teknoloji` alanı, kimlik `t-<kod>-…`), aynı görseli ikinci kez indirmiyor
+ve Wikimedia Commons'ta API'ye gitmiyor (Commons robots.txt `/w/` yolunu
+kapatıyor): küçük resim adresi standart desenden kuruluyor (1280, 960,
+500 px). Testler: 151 geçti.
+
 ## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
 
 1. **Supabase göçü:** `supabase/migrations/20261117120000_yz_dizin_okur.sql`

@@ -2605,6 +2605,212 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini"
+  },
+  "b27-appharvest-in-satin-aldigi-root-ai": {
+   "sayfa": "b27",
+   "baslik_no": 27,
+   "dosya": "web/yz/gorsel/b27-appharvest-in-satin-aldigi-root-ai.webp",
+   "genislik": 1600,
+   "yukseklik": 1068,
+   "sha256": "2cebc43dd9759ed3f3e023bca75d09b2d78d26714b639c0a74ecaaf6f306c8fd",
+   "kunye": {
+    "tr": "Root AI'ın geliştirdiği Virgo hasat robotunun AppHarvest logolu sürümü; AppHarvest'in Root AI'ı satın aldığını duyurduğu 8 Nisan 2021'de şirketin web sitesine yüklenen tanıtım fotoğrafı.",
+    "en": "The AppHarvest-branded version of Virgo, the harvesting robot developed by Root AI; promotional photo uploaded to AppHarvest's website on 8 April 2021, the day the company announced its acquisition of Root AI."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Chris Radcliffe / AppHarvest (tanıtım görseli)",
+    "en": "Photo: Chris Radcliffe / AppHarvest (promotional image)"
+   },
+   "sayfa_adresi": "https://appharvest.com/appharvestai_1/",
+   "gorsel_adresi": "https://appharvest.com/wp-content/uploads/2021/04/AppHarvestAI_1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Şirketin kendi tanıtım fotoğrafı; dosyanın EXIF telif kaydı 'www.chrisradcliffephotography.com 2020'. appharvest.com robots.txt '*' için yalnız /wp-admin/ yolunu kapatıyor (Crawl-delay: 10; istekler 10 sn arayla yapıldı). Site Ocak 2025'ten beri bakım modunda ('© AppHarvest 2025'); WordPress sayfa listesinde kullanım koşulları sayfası yok (yalnız içeriği boş bir 'privacy' sayfası), açık indirme ya da yeniden kullanım yasağı görülmedi. Oturum ya da bot koruması yok.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "**AppHarvest.** Kapalı ortamda üretim yapan ABD'li AppHarvest, 8 Nisan 2021'de tarım robotu ve yapay zekâ şirketi Root AI'ı satın aldığını duyurdu."
+  },
+  "b27-appharvest-in-morehead-sera-ciftligi": {
+   "sayfa": "b27",
+   "baslik_no": 27,
+   "dosya": "web/yz/gorsel/b27-appharvest-in-morehead-sera-ciftligi.webp",
+   "genislik": 1600,
+   "yukseklik": 1066,
+   "sha256": "b6c96f88c3ecbf258df0075c3fcba50c7c0a2c1913860bda96cf67586fd9b283",
+   "kunye": {
+    "tr": "AppHarvest'in Kentucky'nin Morehead kentindeki ana sera çiftliğinin havadan görünümü; şirketin web sitesine Şubat 2021'de yüklenen tanıtım fotoğrafı.",
+    "en": "Aerial view of AppHarvest's flagship greenhouse farm in Morehead, Kentucky; promotional photo uploaded to the company's website in February 2021."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: AppHarvest (tanıtım görseli)",
+    "en": "Photo: AppHarvest (promotional image)"
+   },
+   "sayfa_adresi": "https://appharvest.com/morehead-farm-01/",
+   "gorsel_adresi": "https://appharvest.com/wp-content/uploads/2021/02/Morehead-Farm-01.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Şirketin kendi tanıtım fotoğrafı (dosyada telif ya da fotoğrafçı kaydı yok). appharvest.com robots.txt '*' için yalnız /wp-admin/ yolunu kapatıyor (Crawl-delay: 10). Site Ocak 2025'ten beri bakım modunda; kullanım koşulları sayfası yok, açık indirme ya da yeniden kullanım yasağı görülmedi. Oturum ya da bot koruması yok.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "23 Temmuz 2023'te AppHarvest Products, LLC ve on bir bağlı şirket, ABD İflas Kanunu'nun Chapter 11 hükümleri uyarınca koruma başvurusu yaptı."
+  },
+  "b27-infarm-in-metro-nanterre": {
+   "sayfa": "b27",
+   "baslik_no": 27,
+   "dosya": "web/yz/gorsel/b27-infarm-in-metro-nanterre.webp",
+   "genislik": 1500,
+   "yukseklik": 996,
+   "sha256": "be28959ba5ad96783c0690c15ad24d292493702a156ef6a7874f8f9db9f9cc9c",
+   "kunye": {
+    "tr": "Infarm'ın Paris yakınlarındaki METRO Nanterre mağazasında kurduğu ve Kasım 2018'de açılan kapalı çiftliğin dışarıdan görünümü; Infarm Fransa genel müdürü Cointet ile METRO'dan Garnier ve Sollet'nin Veolia Enstitüsü'nün FACTS Reports dergisindeki 2019 tarihli yazısında yer alan fotoğraf.",
+    "en": "Outside view of the indoor farm Infarm set up in the METRO store in Nanterre, near Paris, opened in November 2018; photo from the 2019 article by Cointet (general manager of Infarm France) and Garnier and Sollet (METRO) in the Veolia Institute's FACTS Reports."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Maja Bialon; Cointet, Garnier ve Sollet 2019, Field Actions Science Reports, Özel Sayı 20",
+    "en": "Photo: Maja Bialon; Cointet, Garnier ve Sollet 2019, Field Actions Science Reports, Özel Sayı 20"
+   },
+   "sayfa_adresi": "https://journals.openedition.org/factsreports/5886",
+   "gorsel_adresi": "https://journals.openedition.org/factsreports/docannexe/image/5886/img-2.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale sayfasındaki ifade: 'The text only may be used under licence CC BY 4.0. All other elements (illustrations, imported files) may be subject to specific use terms.' Fotoğraf CC BY değil (©Maja Bialon); sayfada açık indirme ya da yeniden kullanım yasağı yok. journals.openedition.org robots.txt sayfa ve görsel yolunu kapatmıyor. Sitede Anubis tarayıcı doğrulaması (JavaScript iş ispatı) var: curl gibi istemcilere sayfa yerine doğrulama ekranı dönüyor, normal tarayıcı kendiliğinden geçiyor; görsel dosyası doğrulamasız, doğrudan iniyor (doğrulama aşılmadı). OpenEdition Journals kullanıcı koşulları amubox.univ-amu.fr'de; o alanın robots.txt'si her yolu kapattığı için koşullar okunmadı. Aynı fotoğrafın bulunduğu Veolia Enstitüsü PDF'i önerilmedi: institut.veolia.org yasal uyarısı içeriğin kopyalanmasını, çoğaltılmasını ve yayımlanmasını açıkça yasaklıyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "**Infarm.** Kentlerde dikey tarım yapan Infarm, 16 Aralık 2021'de **200** milyon dolar yatırım aldığını duyurdu;"
+  },
+  "b27-small-robot-company-nin-yapay-zeka": {
+   "sayfa": "b27",
+   "baslik_no": 27,
+   "dosya": "web/yz/gorsel/b27-small-robot-company-nin-yapay-zeka.webp",
+   "genislik": 1140,
+   "yukseklik": 641,
+   "sha256": "36a93a68c16705dfe1d5c686f7b8eeba0b30692bb45270e44a188f65d2d3ab20",
+   "kunye": {
+    "tr": "Small Robot Company'nin yapay zekâ tavsiye motoru Wilma'nın arayüzü: Leckford Estate'teki (Hampshire) kışlık buğday taramaları; şirketin web sitesinde Wilma'yı tanıtan ekran görüntüsü.",
+    "en": "The interface of Wilma, Small Robot Company's AI advice engine, showing winter wheat surveys at the Leckford Estate (Hampshire); screenshot used on the company's website to present Wilma."
+   },
+   "kaynak": {
+    "tr": "Görsel: Small Robot Company (ekran görüntüsü, tanıtım görseli)",
+    "en": "Image: Small Robot Company (ekran görüntüsü, tanıtım görseli)"
+   },
+   "sayfa_adresi": "https://smallrobotcompany.github.io/smallrobotco/intelligence.html",
+   "gorsel_adresi": "https://smallrobotcompany.github.io/smallrobotco/assets/images/snapshot-47-1140x641.png",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Şirketin kendi sitesi; GitHub Pages'te, şirketin smallssd veri seti deposunun da bulunduğu 'SmallRobotCompany' kuruluş hesabında. Altbilgi: '© Copyright 2022 Small Robot Company- All Rights Reserved' (şirket no. 10846464); kullanım koşulları sayfası yok, açık indirme ya da yeniden kullanım yasağı görülmedi. smallrobotcompany.github.io robots.txt 404 (kısıt yok); oturum ya da bot koruması yok. Asıl alan adı smallrobotcompany.com artık yanıt vermiyor.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "**Small Robot Company.** Birleşik Krallık'taki tarım robotu girişimi Small Robot Company, 2020'de robotik tarım sisteminin merkezine yapay zekâ destekli bir tavsiye motoru, Wilma'yı koyduğunu duyurdu."
+  },
+  "b28-zimbabve-denemesinde-kullanilan": {
+   "sayfa": "b28",
+   "baslik_no": 28,
+   "dosya": "web/yz/gorsel/b28-zimbabve-denemesinde-kullanilan.webp",
+   "genislik": 1238,
+   "yukseklik": 1313,
+   "sha256": "8f93ba0a21f7067151e8a11bebfdfc15c9254f3a53959a21638df6b9d51d162e",
+   "kunye": {
+    "tr": "Chameleon toprak nemi sensörleri ve okuyucusu; Moyo ve arkadaşlarının (2020) Zimbabve'nin Mkoba ve Silalatshani sulama şebekelerindeki çalışmasını anlatan makalesinin 3. şekli (görselin kaynağı Virtual Irrigation Academy, 2019).",
+    "en": "Chameleon soil moisture sensors and reader; Figure 3 of the article by Moyo et al. (2020) on their study in the Mkoba and Silalatshani irrigation schemes in Zimbabwe (image credited to the Virtual Irrigation Academy, 2019)."
+   },
+   "kaynak": {
+    "tr": "Şekil: Moyo ve ark. 2020, International Journal of Water Resources Development, Şekil 3 (CC BY-NC-ND 4.0; görsel: Virtual Irrigation Academy)",
+    "en": "Figure: Moyo et al. 2020, International Journal of Water Resources Development, Fig. 3 (CC BY-NC-ND 4.0; görsel: Virtual Irrigation Academy)"
+   },
+   "sayfa_adresi": "https://oar.icrisat.org/11550/",
+   "gorsel_adresi": "https://oar.icrisat.org/11550/1/The%20dynamics%20between%20irrigation%20frequency%20and%20soil%20nutrient%20management%20transitioning%20smallholder%20irrigation%20towards%20more%20profitable%20and%20sustainable.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale açık erişim, CC BY-NC-ND 4.0 ('© 2020 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group'); şeklin altyazısı görseli Virtual Irrigation Academy'ye (2019) dayandırıyor, yani üçüncü taraf görseli olabilir. PDF, ICRISAT'ın açık erişim deposunda (OAR); oar.icrisat.org robots.txt kayıt ve dosya yolunu kapatmıyor, oturum ya da bot koruması yok. core.ac.uk kopyası 403 verdi.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Zimbabve'nin yarı kurak bölgelerindeki iki küçük çiftçi sulama şebekesinde, Mkoba ve Silalatshani'de, 2013-2017 arasında yürüyen bir projede"
+  },
+  "b28-digital-green-video-egitimi": {
+   "sayfa": "b28",
+   "baslik_no": 28,
+   "dosya": "web/yz/gorsel/b28-digital-green-video-egitimi.webp",
+   "genislik": 774,
+   "yukseklik": 567,
+   "sha256": "736f1565cfe6119e54cfc72555003c31f8bba88a7cb1f1fd0c8a9f5fd3189ad6",
+   "kunye": {
+    "tr": "Baul ve arkadaşlarının (2024) Bihar'daki (Hindistan) rastgele kontrollü denemesinde videolu eğitime (Any DG) ve yalnız yüz yüze eğitime (Control) ayrılan köylerin haritası: Muzaffarpur, Nalanda ve Purnia kümeleri; makalenin 1. şekli.",
+    "en": "Map of the villages assigned to video-based training (Any DG) and to face-to-face training only (Control) in the randomised controlled trial of Baul et al. (2024) in Bihar, India, showing the Muzaffarpur, Nalanda and Purnia clusters; Figure 1 of the paper."
+   },
+   "kaynak": {
+    "tr": "Harita: Baul ve ark. 2024, Journal of Development Economics, Şekil 1 (CC BY 4.0)",
+    "en": "Map: Baul et al. 2024, Journal of Development Economics, Fig. 1 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11636748/",
+   "gorsel_adresi": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/3586/11636748/1d776c3c56c6/gr1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY 4.0 (yayıncı ve PMC kaydı). Altlık harita Esri ve ortaklarının (şekilde 'Esri, NASA, NGA, USGS, … OpenStreetMap contributors, HERE, Garmin, FAO, METI/NASA, USGS' satırı var). pmc.ncbi.nlm.nih.gov /articles/ yolu robots.txt'de açık; cdn.ncbi.nlm.nih.gov robots.txt 404 (kısıt yok); oturum ya da bot koruması yok.",
+   "tur": "harita",
+   "yapay_zeka": false,
+   "yer": "Hindistan'ın Bihar eyaletinde, ulaşılması zor kadın çiftçilere yönelik video eğitimleriyle tanınan Digital Green adlı sivil toplum kuruluşu"
+  },
+  "b28-zirai-ilaclama-dronu-mugla-il-tarim": {
+   "sayfa": "b28",
+   "baslik_no": 28,
+   "dosya": "web/yz/gorsel/b28-zirai-ilaclama-dronu-mugla-il-tarim.webp",
+   "genislik": 1600,
+   "yukseklik": 1067,
+   "sha256": "c110f42fd4dd7d13c580086085b506a6d4b6ab5bcec64d7022285d1e4a1e5e73",
+   "kunye": {
+    "tr": "Zirai ilaçlama dronu (İHA); Muğla İl Tarım ve Orman Müdürlüğü'nün İHA'larla zirai mücadelede uygulama şartlarını duyurduğu 15 Mayıs 2026 tarihli haberindeki fotoğraf.",
+    "en": "Agricultural spraying drone (UAV); photo from the Muğla Provincial Directorate of Agriculture and Forestry's news item of 15 May 2026 announcing the conditions for using drones in plant protection."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Muğla İl Tarım ve Orman Müdürlüğü",
+    "en": "Photo: Muğla Provincial Directorate of Agriculture and Forestry"
+   },
+   "sayfa_adresi": "https://mugla.tarimorman.gov.tr/Haber/1283/Ihalarla-Zirai-Mucadelede-Uygulama-Sartlari-Belirlendi",
+   "gorsel_adresi": "https://mugla.tarimorman.gov.tr/IcerikResimleri/HaberResimleri/Y13A7374.JPG",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "İl müdürlüğü alt alan adı; mugla.tarimorman.gov.tr robots.txt sayfa ve görsel yolunu kapatmıyor (bakanlığın ana alan adı www.tarimorman.gov.tr kapalı). Altbilgide yalnız '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.'; kullanım koşulları sayfası yok, açık indirme ya da yeniden kullanım yasağı görülmedi. Oturum ya da bot koruması yok.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil."
+  },
+  "b24-alan-izleme-sistemi-irlanda-da-bir": {
+   "sayfa": "b24",
+   "baslik_no": 24,
+   "dosya": "web/yz/gorsel/b24-alan-izleme-sistemi-irlanda-da-bir.webp",
+   "genislik": 1600,
+   "yukseklik": 1149,
+   "sha256": "970fc8220d277f71f724d7c20393e7768659b8268ca1594b5111ec2e016bbe17",
+   "kunye": {
+    "tr": "İrlanda'nın alan izleme sisteminde (AMS) bir parselin Sentinel-2 2026 görüntüsü üzerindeki görünümü: parsel sınırı ve sistemin 'olası uygun olmayan alan' işareti; İrlanda Tarım, Gıda ve Denizcilik Bakanlığı'nın çiftçilere yönelik Temmuz 2026 tarihli 'Responding to an AMS Notification' kılavuzundan ekran görüntüsü.",
+    "en": "A parcel in Ireland's Area Monitoring System (AMS) shown on Sentinel-2 2026 imagery, with the parcel boundary and the system's 'potential ineligible area' marker; screenshot from the Department of Agriculture, Food and the Marine's July 2026 farmer guide 'Responding to an AMS Notification'."
+   },
+   "kaynak": {
+    "tr": "Ekran görüntüsü: İrlanda Tarım, Gıda ve Denizcilik Bakanlığı (DAFM), 'Responding to an AMS Notification' kılavuzu, Temmuz 2026 (CC BY 4.0)",
+    "en": "Ekran görüntüsü: İrlanda Tarım, Gıda ve Denizcilik Bakanlığı (DAFM), 'Responding to an AMS Notification' kılavuzu, Temmuz 2026 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://www.gov.ie/en/department-of-agriculture-food-and-the-marine/publications/area-monitoring-system-ams/",
+   "gorsel_adresi": "https://assets.gov.ie/static/documents/3864056a/1._Responding_to_an_AMS_Notification_July_2026.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "DAFM'nin 'Re-use of Public Sector Information' sayfasına göre yeniden kullanım Creative Commons Attribution (CC BY) 4.0'a tabi (kaynak açıkça belirtilmeli, değişiklik belirtilmeli). assets.gov.ie robots.txt '*' için açık (Allow: /); oturum ya da bot koruması yok. gov.ie'nin site geneli telif sayfası bulunamadı (404); lisans bilgisi bakanlığın kendi sayfasından.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Tarımda yapay zekânın bugünkü kullanımına dokunan kuralların bir kısmı yapay zekâdan hiç söz etmiyor."
+  },
+  "t-veri-hal-kayit-sistemi-nin-karekodlu-urun": {
+   "sayfa": "tek_veri",
+   "dosya": "web/yz/gorsel/b16-hal-kayit-sistemi-nin-karekodlu-urun.webp",
+   "genislik": 677,
+   "yukseklik": 427,
+   "sha256": "53925978626b1f6875fa9a9bc8faa6463fdc6cc78591fa5332b78877a0d7bac1",
+   "kunye": {
+    "tr": "Ürün Künyelerine Yönelik Tebliğ'le (Resmî Gazete, 21 Eylül 2016) belirlenen karekodlu sebze ve meyve ürün künyesinin iki örneği, geleneksel (konvansiyonel) ve organik tarım ürünleri için: ürün adı ve cinsi, üretim yeri ya da gümrük kapısı, üretim ya da ithal tarihi, miktar, alış fiyatı, üretici ve işletme adı alanları ile Hal Kayıt Sistemi'nde sorgulanabilen künye numarası. Dönemin Gümrük ve Ticaret Bakanlığı'nın 21 Eylül 2016 tarihli haberinden.",
+    "en": "Two specimens of the QR-coded fruit and vegetable product label (künye) set by Türkiye's Communiqué on Product Labels (Official Gazette, 21 September 2016), for conventional and organic products: fields for product name and type, place of production or customs gate, production or import date, quantity, purchase price, producer and business name, and a label number that can be queried in the Wholesale Market Registration System (HKS). From a news item of the then Ministry of Customs and Trade dated 21 September 2016."
+   },
+   "kaynak": {
+    "tr": "Görsel: T.C. Ticaret Bakanlığı",
+    "en": "Image: T.C. Ticaret Bakanlığı"
+   },
+   "sayfa_adresi": "https://ticaret.gov.tr/haberler/sebze-ve-meyvede-urun-kunyelerine-yonelik-teblig-resmi-gazetede-yayimlandi",
+   "gorsel_adresi": "https://ticaret.gov.tr/data/57e295ca1a79f5d3c080972a/galeri/buyuk/screenshot_1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "ticaret.gov.tr robots.txt sayfa ve görsel yolunu kapatmıyor. Site alt bilgisinde 'Tüm Hakları Saklıdır' ibaresi var (tek başına açık indirme/yeniden kullanım yasağı değil); ayrı kullanım koşulları sayfası bulunamadı (yalnız çerez politikası var). Haber sayfasındaki görsel bağlantısı artık çözümlenmeyen eski alan adını (www.gtb.gov.tr) gösteriyor; aynı dosya ticaret.gov.tr altında aynı yolla erişilebiliyor (HTTP 200).",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Türkiye'de çiftlik verisinin omurgası kamu kayıtları. Dünya "
   }
  }
 }

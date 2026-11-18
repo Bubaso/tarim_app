@@ -6,13 +6,21 @@ The short history of AI in agriculture also includes promises that failed. Of th
 
 **Infarm.** Infarm, which ran vertical farms in cities, announced on 16 December 2021 that it had raised **200** million dollars; according to the company's own statement, it was valued at well over **1** billion dollars. According to the release, each farm was equipped with lab-grade sensors that had collected more than **60** billion data points from the company's global network, and its crop science team analysed the data with AI and its patented technology to improve yield, quality and nutritional value. According to the company's own statement, in the previous three years the analyses made possible by the AI-driven "farm brain" had cut production costs by **80%** and raised yields by more than **250%**; the new farming model could be as much as **400** times more efficient than soil-based agriculture. The goal was **100** growing centres in **20** countries by 2030.
 
+[[gorsel:b27-infarm-in-metro-nanterre]]
+
 According to the company's own announcement, Infarm – Indoor Urban Farming GmbH entered administration on 4 September 2023 under the insolvency rules of England and Wales; the UK companies register also records that the administration began on that date. The cost and yield figures in the investment release were the company's own statement, and no published measurement independently tests such claims that companies attribute to AI.
 
 **AppHarvest.** AppHarvest, a US company growing produce indoors, announced on 8 April 2021 that it had bought Root AI, an agricultural robotics and AI company. According to the company's own statement, the price was about **60** million dollars, about **10** million of it in cash and the rest in AppHarvest shares. The release presented the robot, Virgo, as the world's first universal harvester, able to identify and harvest many crops of different sizes, from tomatoes to strawberries; the company said the real advantage would be using the data the robots collect as they harvest to assess crop health and predict yields precisely.
 
+[[gorsel:b27-appharvest-in-satin-aldigi-root-ai]]
+
 On 23 July 2023, AppHarvest Products, LLC and eleven affiliated companies filed for protection under Chapter 11 of the US Bankruptcy Code. Even in the release announcing the filing, according to the company's own statement, its farms were designed to use up to **90%** less water than open fields and to produce yields up to **30** times those of traditional agriculture.
 
+[[gorsel:b27-appharvest-in-morehead-sera-ciftligi]]
+
 **Small Robot Company.** Small Robot Company, a farm robotics start-up in the United Kingdom, announced in 2020 that it had placed an AI-driven advice engine, Wilma, at the heart of its robotic farming system. According to the company's post, the aim was per-plant farming, which the company believed would become the dominant system in the fourth agricultural revolution, and that year it aimed to show that it could kill weeds autonomously without chemicals. The post said Wilma would be commercially available to early customers from October. According to the UK companies register, the company entered creditors' voluntary liquidation on 1 February 2024 and was dissolved on 30 April 2026.
+
+[[gorsel:b27-small-robot-company-nin-yapay-zeka]]
 
 [[grafik:b27-vaatten-iflasa]]
 

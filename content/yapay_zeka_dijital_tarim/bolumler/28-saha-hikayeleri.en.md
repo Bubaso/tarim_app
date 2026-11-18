@@ -26,11 +26,15 @@ The project later grew into a Hands Free Farm of several fields. According to th
 
 In the Indian state of Bihar, Digital Green, a non-governmental organisation known for video training aimed at hard-to-reach women farmers, added locally filmed videos to the government's face-to-face rice training. In a randomised controlled trial by Baul and colleagues (2024) in the Nalanda, Muzaffarpur and Purnia districts, **280** villages were assigned to training with videos and **120** to face-to-face training alone.
 
+[[gorsel:b28-digital-green-video-egitimi]]
+
 The average effects were large and positive, but not statistically significant after correcting for multiple comparisons. According to the authors' Bayesian estimate, the videos raised output by **5-12%**, yields by **12-18%** and estimated profits by **9-24%**; the extra cost of the videos is **96** rupees per farmer. The effect on input use was little to none. The trial has no pure control group: it compares training with and without videos.
 
 ## Zimbabwe: a sensor and learning from neighbours
 
 In two smallholder irrigation schemes in Zimbabwe's semi-arid regions, Mkoba and Silalatshani, a project running from 2013 to 2017 gave **20** irrigators in each scheme a soil moisture sensor array and two wetting front detectors (Moyo and colleagues, 2020). Farmers switched to less frequent and shorter irrigation and kept nutrients in the root zone.
+
+[[gorsel:b28-zimbabve-denemesinde-kullanilan]]
 
 Water productivity in maize rose by more than **100%**, but among farmers both with and without sensors. The authors attribute this to social learning: those without sensors made the same changes by watching and talking to those who had them. Their conclusion is just that: improving production on small farms cannot be achieved simply by introducing appropriate technology, however good it is.
 
@@ -61,6 +65,8 @@ One of the digital farming technologies used over large areas in Türkiye is the
 [[grafik:b28-dron-operatorleri]]
 
 In Türkiye, drone spraying is not permitted for every crop, pest or type of application. At an evaluation meeting of the General Directorate of Food and Control in March 2026, applications against the **15** harmful organisms for which drone use is permitted, and the permit procedures of provincial directorates, were discussed. An ethnographic study of farmers using drones in western Türkiye (Kaya, 2024) describes how drones measure and visualise a farm's condition and let farmers apply chemicals accordingly; but because of their high cost and their poor fit with some farms' ecologies and existing technologies, they are not equally available to all farmers, and using them requires extra steps to comply with national security rules. These studies show how drones are used in the field; there is, however, no published independent field study from Türkiye measuring the effect of a digital tool on a farm's yields, water use or income.
+
+[[gorsel:b28-zirai-ilaclama-dronu-mugla-il-tarim]]
 
 ## What the stories have in common
 
