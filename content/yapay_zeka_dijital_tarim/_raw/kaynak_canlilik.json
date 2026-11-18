@@ -1,12 +1,12 @@
 {
  "_ne": "Kaynak adreslerinin canlılık denetimi (kaynak_canlilik.py)",
- "tarih": "2026-11-17T19:01:24+00:00",
+ "tarih": "2026-11-18T18:29:39+00:00",
  "sayac": {
-  "acik": 209,
+  "acik": 205,
   "yonlendi": 0,
-  "kisa": 3,
-  "engelli": 39,
-  "kapali": 2
+  "kisa": 4,
+  "engelli": 40,
+  "kapali": 4
  },
  "adresler": [
   {
@@ -95,7 +95,7 @@
    "kod": 200,
    "son_adres": "https://archive.ics.uci.edu/dataset/90/soybean+large",
    "tur": "text/html",
-   "boy": 194912,
+   "boy": 194914,
    "adres": "https://archive.ics.uci.edu/dataset/90/soybean+large",
    "kullanan": [
     "b03 · uci_soybean_sayfa"
@@ -152,7 +152,7 @@
    "kod": 200,
    "son_adres": "https://cases.stretto.com/appharvest/",
    "tur": "text/html; charset=UTF-8",
-   "boy": 91454,
+   "boy": 91433,
    "adres": "https://cases.stretto.com/appharvest/",
    "kullanan": [
     "b01 · appharvest_2023_chapter11",
@@ -243,7 +243,7 @@
    "kod": 200,
    "son_adres": "https://developers.google.com/machine-learning/glossary",
    "tur": "text/html; charset=utf-8",
-   "boy": 794917,
+   "boy": 794913,
    "adres": "https://developers.google.com/machine-learning/glossary",
    "kullanan": [
     "b29 · google_ml_sozluk"
@@ -254,7 +254,7 @@
    "kod": 200,
    "son_adres": "https://digital-strategy.ec.europa.eu/en/policies/data-spaces",
    "tur": "text/html; charset=UTF-8",
-   "boy": 62527,
+   "boy": 62455,
    "adres": "https://digital-strategy.ec.europa.eu/en/policies/data-spaces",
    "kullanan": [
     "b21 · ab_veri_alanlari"
@@ -284,15 +284,15 @@
    "sinif": "acik"
   },
   {
-   "kod": 403,
-   "son_adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
-   "tur": "text/html",
-   "boy": 0,
+   "kod": 200,
+   "son_adres": "https://documents1.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
+   "tur": "application/pdf;charset=utf-8",
+   "boy": 1101459,
    "adres": "https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf",
    "kullanan": [
     "b03 · dunya_bankasi_2009_arip"
    ],
-   "sinif": "engelli"
+   "sinif": "acik"
   },
   {
    "kod": 403,
@@ -342,9 +342,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s00122-016-2818-8?error=cookies_not_supported&code=947523cc-6b9f-4649-80da-7b2d58d8fe5c",
+   "son_adres": "https://link.springer.com/article/10.1007/s00122-016-2818-8?error=cookies_not_supported&code=0512e5ea-95e5-47aa-8121-1a4a6bdb9109",
    "tur": "text/html; charset=utf-8",
-   "boy": 581420,
+   "boy": 581698,
    "adres": "https://doi.org/10.1007/s00122-016-2818-8",
    "kullanan": [
     "b05 · michel_2016"
@@ -353,7 +353,7 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s10341-022-00800-9?error=cookies_not_supported&code=4ba31035-6099-4e42-83bd-7ac4fb9b1eff",
+   "son_adres": "https://link.springer.com/article/10.1007/s10341-022-00800-9?error=cookies_not_supported&code=539f20c2-c6fd-467e-9061-efec849e8387",
    "tur": "text/html; charset=utf-8",
    "boy": 312100,
    "adres": "https://doi.org/10.1007/s10341-022-00800-9",
@@ -365,9 +365,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s11119-022-09913-3?error=cookies_not_supported&code=1efc4c94-cdb1-4d31-8f78-3056809c6771",
+   "son_adres": "https://link.springer.com/article/10.1007/s11119-022-09913-3?error=cookies_not_supported&code=99fb1cb8-2039-44fa-8433-28937960159b",
    "tur": "text/html; charset=utf-8",
-   "boy": 679636,
+   "boy": 679602,
    "adres": "https://doi.org/10.1007/s11119-022-09913-3",
    "kullanan": [
     "b10 · zhou_2022"
@@ -376,9 +376,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s11119-022-09925-z?error=cookies_not_supported&code=a65234ea-8b9a-43b9-8401-59991ee8c57a",
+   "son_adres": "https://link.springer.com/article/10.1007/s11119-022-09925-z?error=cookies_not_supported&code=dc78c1aa-d34c-495e-90e1-770fb385ece5",
    "tur": "text/html; charset=utf-8",
-   "boy": 379014,
+   "boy": 379050,
    "adres": "https://doi.org/10.1007/s11119-022-09925-z",
    "kullanan": [
     "b28 · lapidus_2022"
@@ -387,9 +387,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s11119-023-10018-8?error=cookies_not_supported&code=7131a247-44e2-4d98-8b6d-f6b1b3f89d83",
+   "son_adres": "https://link.springer.com/article/10.1007/s11119-023-10018-8?error=cookies_not_supported&code=8657a348-d6ec-442e-a4e1-c20eb0b3093e",
    "tur": "text/html; charset=utf-8",
-   "boy": 493853,
+   "boy": 493757,
    "adres": "https://doi.org/10.1007/s11119-023-10018-8",
    "kullanan": [
     "b06 · de_lara_2023"
@@ -398,7 +398,7 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s40319-022-01191-w?error=cookies_not_supported&code=1bda5ffc-5ca5-41f3-aac3-ee9c901a9d52",
+   "son_adres": "https://link.springer.com/article/10.1007/s40319-022-01191-w?error=cookies_not_supported&code=fb8be411-0ae1-458a-a1d1-1e86c0e00122",
    "tur": "text/html; charset=utf-8",
    "boy": 701297,
    "adres": "https://doi.org/10.1007/s40319-022-01191-w",
@@ -409,9 +409,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1007/s43154-020-00034-1?error=cookies_not_supported&code=c7f25cb0-a071-48fd-9ee0-372fc7e0405d",
+   "son_adres": "https://link.springer.com/article/10.1007/s43154-020-00034-1?error=cookies_not_supported&code=ed9ab83f-041b-47c8-8784-93c3b79a88af",
    "tur": "text/html; charset=utf-8",
-   "boy": 377167,
+   "boy": 377233,
    "adres": "https://doi.org/10.1007/s43154-020-00034-1",
    "kullanan": [
     "b10 · kootstra_2021"
@@ -534,9 +534,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41477-017-0083-8?error=cookies_not_supported&code=a37badc7-3f21-4e18-888f-a364e7833a01",
+   "son_adres": "https://www.nature.com/articles/s41477-017-0083-8?error=cookies_not_supported&code=f3aa92f8-b537-4cc6-8c58-67d4d2ce964d",
    "tur": "text/html; charset=utf-8",
-   "boy": 390333,
+   "boy": 390317,
    "adres": "https://doi.org/10.1038/s41477-017-0083-8",
    "kullanan": [
     "b05 · watson_2018"
@@ -545,9 +545,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41559-023-02206-6?error=cookies_not_supported&code=3dd30dd2-65e4-4a28-b948-9994a5ff26c4",
+   "son_adres": "https://www.nature.com/articles/s41559-023-02206-6?error=cookies_not_supported&code=2ab9289b-4444-4d13-9774-f29c0a7d6d39",
    "tur": "text/html; charset=utf-8",
-   "boy": 467621,
+   "boy": 467601,
    "adres": "https://doi.org/10.1038/s41559-023-02206-6",
    "kullanan": [
     "b15 · lang_2023"
@@ -556,9 +556,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41586-023-06825-8?error=cookies_not_supported&code=f22550dd-971d-490b-b299-f4f90a3394b4",
+   "son_adres": "https://www.nature.com/articles/s41586-023-06825-8?error=cookies_not_supported&code=2c8fbac4-18b4-42e9-8a4d-3cc06c36975d",
    "tur": "text/html; charset=utf-8",
-   "boy": 490978,
+   "boy": 490962,
    "adres": "https://doi.org/10.1038/s41586-023-06825-8",
    "kullanan": [
     "b01 · paolo_2024",
@@ -568,9 +568,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41598-024-53916-1?error=cookies_not_supported&code=2646ee94-7c5c-4a38-a090-ea6b4a74d13e",
+   "son_adres": "https://www.nature.com/articles/s41598-024-53916-1?error=cookies_not_supported&code=2c86538e-ab14-4ee8-bcfb-2ee580d0672f",
    "tur": "text/html; charset=utf-8",
-   "boy": 279395,
+   "boy": 289735,
    "adres": "https://doi.org/10.1038/s41598-024-53916-1",
    "kullanan": [
     "b01 · ibrahim_2024",
@@ -580,9 +580,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41598-025-05103-z?error=cookies_not_supported&code=faa5c5d0-368f-40a1-b4ac-d498d1834385",
+   "son_adres": "https://www.nature.com/articles/s41598-025-05103-z?error=cookies_not_supported&code=ed69bfd2-a3e7-4eff-8f0c-993d8ac4e5c1",
    "tur": "text/html; charset=utf-8",
-   "boy": 409709,
+   "boy": 419614,
    "adres": "https://doi.org/10.1038/s41598-025-05103-z",
    "kullanan": [
     "b16 · manogna_2025"
@@ -591,9 +591,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41598-026-35003-9?error=cookies_not_supported&code=20d99c53-9306-4e4d-a019-8b1884d9a33b",
+   "son_adres": "https://www.nature.com/articles/s41598-026-35003-9?error=cookies_not_supported&code=a326b1c5-1b7e-4fe2-8860-1c9875d6b61c",
    "tur": "text/html; charset=utf-8",
-   "boy": 408838,
+   "boy": 408822,
    "adres": "https://doi.org/10.1038/s41598-026-35003-9",
    "kullanan": [
     "b18 · eldem_2026",
@@ -603,9 +603,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s41893-020-00631-0?error=cookies_not_supported&code=11fdd10a-dc80-46df-9867-a30e814e387d",
+   "son_adres": "https://www.nature.com/articles/s41893-020-00631-0?error=cookies_not_supported&code=d5b42c48-9618-4716-9b1d-93327419672b",
    "tur": "text/html; charset=utf-8",
-   "boy": 305701,
+   "boy": 305687,
    "adres": "https://doi.org/10.1038/s41893-020-00631-0",
    "kullanan": [
     "b01 · mehrabi_2021",
@@ -615,9 +615,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s42256-022-00440-4?error=cookies_not_supported&code=feb394b4-8dfb-43ca-bd6f-8b2b99461a30",
+   "son_adres": "https://www.nature.com/articles/s42256-022-00440-4?error=cookies_not_supported&code=20cc524d-afa1-4de7-982e-c1a9b592946a",
    "tur": "text/html; charset=utf-8",
-   "boy": 294462,
+   "boy": 294450,
    "adres": "https://doi.org/10.1038/s42256-022-00440-4",
    "kullanan": [
     "b26 · tzachor_2022"
@@ -626,9 +626,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s43016-021-00402-w?error=cookies_not_supported&code=ed4d3041-fa57-479c-9cf5-9f196261997c",
+   "son_adres": "https://www.nature.com/articles/s43016-021-00402-w?error=cookies_not_supported&code=0e7985f1-f40c-4239-8105-b98f5201df7d",
    "tur": "text/html; charset=utf-8",
-   "boy": 527274,
+   "boy": 527256,
    "adres": "https://doi.org/10.1038/s43016-021-00402-w",
    "kullanan": [
     "b13 · van_delden_2021"
@@ -637,9 +637,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://www.nature.com/articles/s43017-020-00122-y?error=cookies_not_supported&code=41b77121-7f92-4b94-8394-d18ca688b056",
+   "son_adres": "https://www.nature.com/articles/s43017-020-00122-y?error=cookies_not_supported&code=a7ac90d3-6b42-4511-9f9e-50fb0a65a066",
    "tur": "text/html; charset=utf-8",
-   "boy": 580775,
+   "boy": 580763,
    "adres": "https://doi.org/10.1038/s43017-020-00122-y",
    "kullanan": [
     "b17 · benami_2021"
@@ -782,9 +782,9 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/article/10.1186/s12864-020-07319-x?error=cookies_not_supported&code=09110b03-122b-41bb-95fc-301df99e7f53",
+   "son_adres": "https://link.springer.com/article/10.1186/s12864-020-07319-x?error=cookies_not_supported&code=80057970-8235-490d-a8f7-51275d19cde6",
    "tur": "text/html; charset=utf-8",
-   "boy": 654706,
+   "boy": 649246,
    "adres": "https://doi.org/10.1186/s12864-020-07319-x",
    "kullanan": [
     "b01 · montesinos_lopez_2021",
@@ -794,7 +794,7 @@
   },
   {
    "kod": 200,
-   "son_adres": "https://link.springer.com/journal/13007?error=cookies_not_supported&code=2a7089eb-6041-45e5-aad2-d400cd09a3b9",
+   "son_adres": "https://link.springer.com/journal/13007?error=cookies_not_supported&code=9e07725c-8624-42f2-a8cb-25f006f72712",
    "tur": "text/html; charset=utf-8",
    "boy": 214089,
    "adres": "https://doi.org/10.1186/s13007-015-0056-8",
@@ -831,7 +831,7 @@
    "son_adres": null,
    "tur": "",
    "boy": 0,
-   "hata": "<urlopen error timed out>",
+   "hata": "<urlopen error [Errno 8] nodename nor servname provided, or not known>",
    "adres": "https://doi.org/10.15302/J-FASE-2019261",
    "kullanan": [
     "b05 · morgounov_2019_iwwip"
@@ -863,15 +863,15 @@
    "sinif": "acik"
   },
   {
-   "kod": 200,
-   "son_adres": "http://agricecon.agriculturejournals.cz/artkey/age-202505-0001_the-path-to-smart-farming-profiling-farmers-adoption-of-technologies-in-t-rkiye.php",
+   "kod": 301,
+   "son_adres": "http://agricecon.agriculturejournals.cz/doi/10.17221/401/2023-AGRICECON.html",
    "tur": "text/html; charset=ISO-8859-2",
-   "boy": 69317,
+   "boy": 0,
    "adres": "https://doi.org/10.17221/401/2023-AGRICECON",
    "kullanan": [
     "b20 · guldal_2025"
    ],
-   "sinif": "acik"
+   "sinif": "kisa"
   },
   {
    "kod": 403,
@@ -924,7 +924,7 @@
    "kod": 200,
    "son_adres": "https://op.europa.eu/en/publication-detail/-/publication/40fe549e-cb49-11e7-a5d5-01aa75ed71a1/language-en",
    "tur": "text/html;charset=UTF-8",
-   "boy": 458686,
+   "boy": 458689,
    "adres": "https://doi.org/10.2861/020809",
    "kullanan": [
     "b02 · eprs_stoa_2016_ozet"
@@ -935,7 +935,7 @@
    "kod": 200,
    "son_adres": "https://op.europa.eu/en/publication-detail/-/publication/6a75e0ac-90ae-11e9-9369-01aa75ed71a1/language-en",
    "tur": "text/html;charset=UTF-8",
-   "boy": 450387,
+   "boy": 450388,
    "adres": "https://doi.org/10.2861/763030",
    "kullanan": [
     "b02 · eprs_stoa_2016_ek1"
@@ -1053,7 +1053,7 @@
    "kod": 200,
    "son_adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.00272/full",
    "tur": "text/html;charset=utf-8",
-   "boy": 633645,
+   "boy": 627506,
    "adres": "https://doi.org/10.3389/fpls.2019.00272",
    "kullanan": [
     "b26 · ramcharan_2019"
@@ -1075,7 +1075,7 @@
    "kod": 200,
    "son_adres": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1468676/full",
    "tur": "text/html;charset=utf-8",
-   "boy": 844436,
+   "boy": 836427,
    "adres": "https://doi.org/10.3389/fpls.2024.1468676",
    "kullanan": [
     "b18 · sahin_2025"
@@ -1086,7 +1086,7 @@
    "kod": 200,
    "son_adres": "https://www.frontiersin.org/journals/veterinary-science/articles/10.3389/fvets.2021.634338/full",
    "tur": "text/html;charset=utf-8",
-   "boy": 1310805,
+   "boy": 1342281,
    "adres": "https://doi.org/10.3389/fvets.2021.634338",
    "kullanan": [
     "b12 · stygar_2021"
@@ -1619,7 +1619,7 @@
    "kod": 200,
    "son_adres": "https://lora-alliance.org/about-lorawan/",
    "tur": "text/html; charset=UTF-8",
-   "boy": 352997,
+   "boy": 352787,
    "adres": "https://lora-alliance.org/about-lorawan/",
    "kullanan": [
     "b29 · lora_alliance"
@@ -1627,15 +1627,16 @@
    "sinif": "acik"
   },
   {
-   "kod": 200,
-   "son_adres": "https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning",
-   "tur": "text/html; charset=UTF-8",
-   "boy": 28793,
+   "kod": null,
+   "son_adres": null,
+   "tur": "",
+   "boy": 0,
+   "hata": "The read operation timed out",
    "adres": "https://natural-resources.canada.ca/maps-tools-publications/satellite-elevation-air-photos/multispectral-scanning",
    "kullanan": [
     "b29 · nrcan_cok_bantli"
    ],
-   "sinif": "acik"
+   "sinif": "kapali"
   },
   {
    "kod": 200,
@@ -1720,7 +1721,7 @@
    "kod": 200,
    "son_adres": "http://publications.europa.eu/resource/cellar/51ed7804-1617-11ee-806b-01aa75ed71a1/rdf/object/full",
    "tur": "application/rdf+xml;charset=UTF-8",
-   "boy": 1857016,
+   "boy": 1869021,
    "adres": "https://publications.europa.eu/resource/celex/32023R1230",
    "kullanan": [
     "b29 · ab_makine_tuzugu"
@@ -1754,7 +1755,7 @@
    "kod": 200,
    "son_adres": "https://science.nasa.gov/mission/landsat-1/",
    "tur": "text/html; charset=UTF-8",
-   "boy": 432222,
+   "boy": 469367,
    "adres": "https://science.nasa.gov/mission/landsat-1/",
    "kullanan": [
     "b03 · nasa_landsat1"
@@ -1765,7 +1766,7 @@
    "kod": 200,
    "son_adres": "https://science.nasa.gov/mission/landsat-2/",
    "tur": "text/html; charset=UTF-8",
-   "boy": 404284,
+   "boy": 426323,
    "adres": "https://science.nasa.gov/mission/landsat-2/",
    "kullanan": [
     "b03 · nasa_landsat2_lacie"
@@ -1776,7 +1777,7 @@
    "kod": 200,
    "son_adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
    "tur": "text/html; charset=UTF-8",
-   "boy": 269337,
+   "boy": 270491,
    "adres": "https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/",
    "kullanan": [
     "b03 · nasa_2019_landsat_acik_veri",
@@ -1917,28 +1918,29 @@
    "sinif": "acik"
   },
   {
-   "kod": 200,
+   "kod": 404,
    "son_adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
-   "tur": "text/html;charset=utf-8",
-   "boy": 84077,
+   "tur": "text/html",
+   "boy": 0,
    "adres": "https://web.archive.org/web/20201110154816id_/https://www.smallrobotcompany.com/blog-posts/2020/7/17/meet-wilma-artificial-intelligence-for-per-plant-farming",
    "kullanan": [
     "b01 · small_robot_company_2020_vaat",
     "b27 · small_robot_company_2020_vaat"
    ],
-   "sinif": "acik"
+   "sinif": "kapali"
   },
   {
-   "kod": 200,
-   "son_adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
-   "tur": "text/html; charset=UTF-8",
-   "boy": 36430,
+   "kod": null,
+   "son_adres": null,
+   "tur": "",
+   "boy": 0,
+   "hata": "<urlopen error [Errno 54] Connection reset by peer>",
    "adres": "https://web.archive.org/web/20210408162556id_/https://investors.appharvest.com/news-releases/news-release-details/appharvest-acquires-agricultural-robotics-and-artificial/",
    "kullanan": [
     "b01 · appharvest_2021_root_ai",
     "b27 · appharvest_2021_root_ai"
    ],
-   "sinif": "acik"
+   "sinif": "engelli"
   },
   {
    "kod": 200,
@@ -2122,7 +2124,7 @@
    "kod": 200,
    "son_adres": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
    "tur": "text/html; charset=UTF-8",
-   "boy": 184870,
+   "boy": 184571,
    "adres": "https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/sar",
    "kullanan": [
     "b29 · nasa_sar"
@@ -2157,7 +2159,7 @@
    "kod": 200,
    "son_adres": "https://www.esa.int/articles/about-us/directorates/earth-observation-programmes/copernicus/sentinel-2/facts-and-figures",
    "tur": "text/html; charset=UTF-8",
-   "boy": 177158,
+   "boy": 177166,
    "adres": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2/Facts_and_figures",
    "kullanan": [
     "b03 · esa_sentinel2_olgular"
@@ -2245,7 +2247,7 @@
    "kod": 200,
    "son_adres": "https://www.fao.org/newsroom/detail/disasters-cost-global-agriculture--3.26-trillion-over-three-decades--fao-report-reveals/en",
    "tur": "text/html; charset=utf-8",
-   "boy": 68328,
+   "boy": 68381,
    "adres": "https://www.fao.org/newsroom/detail/disasters-cost-global-agriculture--3.26-trillion-over-three-decades--fao-report-reveals/en",
    "kullanan": [
     "b17 · fao_2025_haber"
@@ -2267,7 +2269,7 @@
    "kod": 200,
    "son_adres": "https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows/en",
    "tur": "text/html; charset=utf-8",
-   "boy": 69541,
+   "boy": 69549,
    "adres": "https://www.fao.org/newsroom/detail/global-deforestation-slows--but-forests-remain-under-pressure--fao-report-shows/en",
    "kullanan": [
     "b15 · fao_2025_fra"
@@ -2278,7 +2280,7 @@
    "kod": 200,
    "son_adres": "https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en",
    "tur": "text/html; charset=utf-8",
-   "boy": 64744,
+   "boy": 64789,
    "adres": "https://www.fao.org/statistics/highlights-archive/highlights-detail/on-the-international-day-of-awareness-of-food-loss-and-waste--learn-how-fao-is-leveraging-data-to-save-food-and-advance-the-2030-agenda/en",
    "kullanan": [
     "b11 · fao_2025_gida_kaybi_gunu"
@@ -2289,7 +2291,7 @@
    "kod": 200,
    "son_adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en",
    "tur": "text/html; charset=utf-8",
-   "boy": 100935,
+   "boy": 101633,
    "adres": "https://www.fao.org/sustainable-development-goals-data-portal/data/indicators/1231-global-food-losses/en",
    "kullanan": [
     "b11 · fao_sdg_1231"
@@ -2300,7 +2302,7 @@
    "kod": 200,
    "son_adres": "https://www.farms.com/news/farm-equipment/john-deere-customers-use-see-spray-technology-across-five-million-acres-in-2025-234561.aspx",
    "tur": "text/html; charset=utf-8",
-   "boy": 92269,
+   "boy": 92695,
    "adres": "https://www.farms.com/news/farm-equipment/john-deere-customers-use-see-spray-technology-across-five-million-acres-in-2025-234561.aspx",
    "kullanan": [
     "b08 · deere2025"
@@ -2311,7 +2313,7 @@
    "kod": 200,
    "son_adres": "https://www.farms.com/news/farm-equipment/see-spray-customers-see-59-average-herbicide-savings-in-2024-215613.aspx",
    "tur": "text/html; charset=utf-8",
-   "boy": 92814,
+   "boy": 93240,
    "adres": "https://www.farms.com/news/farm-equipment/see-spray-customers-see-59-average-herbicide-savings-in-2024-215613.aspx",
    "kullanan": [
     "b08 · deere2024"
@@ -2410,7 +2412,7 @@
    "kod": 200,
    "son_adres": "https://www.harper-adams.ac.uk/news/203144/harvest-completed-at-worldfirst-project-to-farm-a-crop-exclusively-with-robots",
    "tur": "text/html;charset=UTF-8",
-   "boy": 56974,
+   "boy": 57025,
    "adres": "https://www.harper-adams.ac.uk/news/203144/harvest-completed-at-worldfirst-project-to-farm-a-crop-exclusively-with-robots",
    "kullanan": [
     "b28 · hau_2017_hfh"
@@ -2432,7 +2434,7 @@
    "kod": 200,
    "son_adres": "https://www.iea.org/reports/energy-and-ai/executive-summary",
    "tur": "text/html; charset=utf-8",
-   "boy": 257292,
+   "boy": 257280,
    "adres": "https://www.iea.org/reports/energy-and-ai/executive-summary",
    "kullanan": [
     "b26 · iea_2025_enerji_ve_yz"
@@ -2476,7 +2478,7 @@
    "kod": 200,
    "son_adres": "https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor",
    "tur": "text/html; charset=UTF-8",
-   "boy": 151205,
+   "boy": 151287,
    "adres": "https://www.karatay.edu.tr/tr/haber/2023/10/13/konya-da-universite-sanayi-is-birligiyle-tarim-makineleri-ileri-teknolojiyle-gelistiriliyor",
    "kullanan": [
     "b25 · karatay_akitek"
@@ -2487,7 +2489,7 @@
    "kod": 200,
    "son_adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
    "tur": "application/pdf",
-   "boy": 175987,
+   "boy": 176647,
    "adres": "https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&mevzuatTur=KurumVeKurulusYonetmeligi&mevzuatTertip=5",
    "kullanan": [
     "b16 · hks_yonetmelik",
@@ -2534,7 +2536,7 @@
    "kod": 200,
    "son_adres": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296209&reg=3&lang=1",
    "tur": "text/html; charset=utf-8",
-   "boy": 90074,
+   "boy": 90106,
    "adres": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296209&reg=3&lang=1",
    "kullanan": [
     "b22 · hindistan_pib_2026_agristack"
@@ -2545,7 +2547,7 @@
    "kod": 200,
    "son_adres": "https://www.reaganlibrary.gov/archives/speech/statement-deputy-press-secretary-speakes-soviet-attack-korean-civilian-airliner-1",
    "tur": "text/html; charset=UTF-8",
-   "boy": 43227,
+   "boy": 43225,
    "adres": "https://www.reaganlibrary.gov/archives/speech/statement-deputy-press-secretary-speakes-soviet-attack-korean-civilian-airliner-1",
    "kullanan": [
     "b03 · reagan_1983_gps_sivil"
@@ -2622,7 +2624,7 @@
    "kod": 200,
    "son_adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
    "tur": "text/html",
-   "boy": 49973,
+   "boy": 49300,
    "adres": "https://www.sanayi.gov.tr/assets/pdf/plan-program/TurkiyeYapayZekaEylemPlani20262030.pdf",
    "kullanan": [
     "b02 · yz_eylem_plani_2026_2030",
@@ -2681,7 +2683,7 @@
    "kod": 200,
    "son_adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
    "tur": "text/html; charset=utf-8",
-   "boy": 243051,
+   "boy": 242942,
    "adres": "https://www.tarimorman.gov.tr/Haber/6249/Orman-Yanginlariyla-Mucadelede-Kullanilan-Yapay-Zek%C3%A2-Sistemi-Uluslararasi-Odule-Aday",
    "kullanan": [
     "b01 · tob_2024_karar_destek",
@@ -2695,7 +2697,7 @@
    "kod": 200,
    "son_adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
    "tur": "text/html; charset=utf-8",
-   "boy": 246762,
+   "boy": 246653,
    "adres": "https://www.tarimorman.gov.tr/Haber/7094/Bakan-Yumakli-Tarimda-Yerli-Ve-Milli-Teknoloji-Hamlesine-Iliskin-Kararliligimiz-Suruyor",
    "kullanan": [
     "b23 · tob_2026_ai_tomorrow",
@@ -2802,7 +2804,7 @@
    "kod": 200,
    "son_adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
    "tur": "text/html; charset=utf-8",
-   "boy": 127565,
+   "boy": 127279,
    "adres": "https://www.tarimorman.gov.tr/TRGM/Haber/912/Urun-Belirleme-Calismasi-Bolge-Degerlendirme-Toplantilari-Gerceklestirildi",
    "kullanan": [
     "b01 · trgm_2026_urun_belirleme",
@@ -2858,15 +2860,16 @@
    "sinif": "acik"
   },
   {
-   "kod": 200,
-   "son_adres": "https://www.teknofest.org/tr/yarismalar/tarim-teknolojileri-yarismasi/",
-   "tur": "text/html; charset=utf-8",
-   "boy": 276388,
+   "kod": null,
+   "son_adres": null,
+   "tur": "",
+   "boy": 0,
+   "hata": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.teknofest.org'. (_ssl.c:1129)>",
    "adres": "https://www.teknofest.org/tr/yarismalar/tarim-teknolojileri-yarismasi/",
    "kullanan": [
     "b25 · teknofest_tarim"
    ],
-   "sinif": "acik"
+   "sinif": "engelli"
   },
   {
    "kod": 200,
