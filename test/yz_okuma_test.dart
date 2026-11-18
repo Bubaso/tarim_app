@@ -21,7 +21,8 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_kisaltma.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_okuma.dart';
-import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show yzPath, yzAramaPath;
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart'
+    show YzYonSatiri, yzPath, yzAramaPath;
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
 // ══════════════════════════════════════════════════════════════════════════
@@ -216,6 +217,32 @@ void main() {
       expect(t.takeException(), isNull);
       expect(find.textContaining('Makine öğrenmesi', findRichText: true), findsWidgets);
     });
+
+    // Canlıda görüldü (18 Kas 2026): Wrap'le kurulan satırda telefonda
+    // virgül satır başına düşüyor, "Kavramlar ." yazıyordu.
+    for (final dil in ['tr', 'en']) {
+      testWidgets('ilk kez gelen okura yön satırı tek paragraf, noktalama yapışık · $dil',
+          (t) async {
+        t.view.physicalSize = const Size(360, 800);
+        t.view.devicePixelRatio = 1;
+        addTearDown(t.view.reset);
+        await t.pumpWidget(_uygulama(
+            const Scaffold(body: Padding(padding: EdgeInsets.all(16), child: YzYonSatiri())),
+            dil: dil));
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+        final paragraf = find.byWidgetPredicate((w) =>
+            w is RichText && w.text.toPlainText().startsWith(dil == 'tr' ? 'İlk kez' : 'New here'));
+        expect(paragraf, findsOneWidget);
+        final duz = t.widget<RichText>(paragraf).text.toPlainText();
+        // Bağlantılar satır içi parça (U+FFFC); ardından gelen noktalama ona yapışık.
+        expect(duz, dil == 'tr'
+            ? 'İlk kez mi geliyorsunuz? Önce ￼, terimler için ￼.'
+            : 'New here? Start with ￼; for the terms, ￼.');
+        expect(find.text(yzBaslik(1)!.ad(dil == 'en')), findsOneWidget);
+        expect(find.text(yzBaslik(2)!.ad(dil == 'en').split(':').first.trim()), findsOneWidget);
+      });
+    }
   });
 
   group('içindekiler', () {

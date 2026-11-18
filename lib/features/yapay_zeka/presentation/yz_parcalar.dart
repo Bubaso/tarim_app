@@ -120,14 +120,21 @@ class YzYonSatiri extends ConsumerWidget {
     if (iz.okunan.contains(yzBaslikPath(_ilk))) return const SizedBox.shrink();
     final ilk = yzBaslik(1)?.ad(en) ?? '';
     final kav = yzBaslik(2)?.ad(en).split(':').first.trim() ?? '';
-    return Wrap(crossAxisAlignment: WrapCrossAlignment.center, spacing: 5, runSpacing: 4, children: [
-      Text(en ? 'New here? Start with' : 'İlk kez mi geliyorsunuz?', style: duz),
-      if (!en) Text('Önce', style: duz),
-      baglanti(ilk, () => context.push(yzBaslikPath(_ilk))),
-      Text(en ? '; for the terms,' : ', terimler için', style: duz),
-      baglanti(kav, () => context.push(yzBaslikPath(_kavramlar))),
-      Text('.', style: duz),
-    ]);
+    // TEK PARAGRAF: noktalama bağlantıya yapışık, satır doğal yerinde
+    // kırılıyor. Wrap'le kurulduğunda dar ekranda virgül satır başına
+    // düşüyor, noktadan önce boşluk kalıyordu (canlıda görüldü, 18 Kas 2026).
+    InlineSpan baglantiParcasi(String metin, VoidCallback git) => WidgetSpan(
+          alignment: PlaceholderAlignment.baseline,
+          baseline: TextBaseline.alphabetic,
+          child: baglanti(metin, git),
+        );
+    return Text.rich(TextSpan(style: duz, children: [
+      TextSpan(text: en ? 'New here? Start with ' : 'İlk kez mi geliyorsunuz? Önce '),
+      baglantiParcasi(ilk, () => context.push(yzBaslikPath(_ilk))),
+      TextSpan(text: en ? '; for the terms, ' : ', terimler için '),
+      baglantiParcasi(kav, () => context.push(yzBaslikPath(_kavramlar))),
+      const TextSpan(text: '.'),
+    ]));
   }
 }
 
