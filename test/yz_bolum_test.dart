@@ -17,6 +17,7 @@ import 'package:tarim_app/features/yapay_zeka/data/yz_sozluk.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_haber_vitrini.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart' show YzBaslikKarosu, YzTeknolojiCipi, yzPath;
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_liste.dart' show YzBaslikSatiri;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_seridi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_sozluk_esle.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_teknoloji_izi.dart';
@@ -425,7 +426,9 @@ Liste bitti, paragraf başladı.
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       expect(find.text(kYzAdTr), findsOneWidget);
-      expect(find.widgetWithText(YzBaslikKarosu, "Türkiye'de durum"), findsOneWidget,
+      // Mobil tur (★20): telefonda karo yerine liste satırı; masaüstü karo.
+      final karo = olcu.width < 640 ? YzBaslikSatiri : YzBaslikKarosu;
+      expect(find.widgetWithText(karo, "Türkiye'de durum"), findsOneWidget,
           reason: 'harita karosu (numarasız, karar 56)');
       expect(find.textContaining(RegExp(r'§\d')), findsNothing, reason: 'okura numara yok');
       expect(find.textContaining('Orman yangınlarıyla'), findsOneWidget, reason: 'haber akışı');
@@ -435,7 +438,7 @@ Liste bitti, paragraf başladı.
       // Yazım durumu okura gösterilmez (iç not): karolarda ve sayı satırında.
       expect(find.textContaining(RegExp(r'yazıldı|yazılıyor|yazılacak')), findsNothing);
       expect(find.text('${kYzBasliklar.length} başlık'), findsOneWidget);
-      expect(find.widgetWithText(YzBaslikKarosu, 'Bugün nerede duruyoruz'), findsOneWidget);
+      expect(find.widgetWithText(karo, 'Bugün nerede duruyoruz'), findsOneWidget);
       expect(find.textContaining('Özet.', findRichText: true), findsNothing);
       // teknoloji süzgeci (karar 57): seçilince kaç başlıkta geçtiği ve
       // karolarda geçtiği yer sayısı
@@ -450,7 +453,9 @@ Liste bitti, paragraf başladı.
       expect(find.textContaining('Dil modelleri $dilSayisi başlıkta geçiyor'), findsOneWidget);
       expect(find.text('Dil modelleri: alanlar arası durum'), findsOneWidget,
           reason: 'teknoloji sayfasına bağlantı');
-      expect(find.textContaining('yerde geçiyor'), findsWidgets);
+      // Telefonda satır kısa yazıyor: "N yerde" (mobil tur ★20).
+      expect(find.textContaining(olcu.width < 640 ? RegExp(r'^\d+ yerde$') : 'yerde geçiyor'),
+          findsWidgets);
     });
 
     // Yazılmış her başlık (tablo, uzun satır, § göndermesi ne varsa) ve

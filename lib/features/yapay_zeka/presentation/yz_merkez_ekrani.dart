@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import 'yz_matris.dart';
+import 'yz_merkez_liste.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 
@@ -93,14 +94,17 @@ class YzMerkezEkrani extends StatelessWidget {
                               Wrap(spacing: 18, runSpacing: 6, children: [
                                 Text(
                                   en ? '${kYzBasliklar.length} headings' : '${kYzBasliklar.length} başlık',
-                                  style: YzYazi.veri(boy: 13, renk: YzRenk.murekkep),
+                                  // Telefonda düz, küçük yazı (★10); masaüstünde mono.
+                                  style: dar
+                                      ? yzMerkezMeta(renk: YzRenk.murekkep)
+                                      : YzYazi.veri(boy: 13, renk: YzRenk.murekkep),
                                 ),
                                 if (sonGuncelleme != null)
                                   Text(
                                     en
                                         ? 'last updated ${yzTarih(sonGuncelleme, true)}'
                                         : 'son güncelleme ${yzTarih(sonGuncelleme, false)}',
-                                    style: YzYazi.veri(boy: 13),
+                                    style: dar ? yzMerkezMeta() : YzYazi.veri(boy: 13),
                                   ),
                               ]),
                             ],
@@ -120,9 +124,14 @@ class YzMerkezEkrani extends StatelessWidget {
                           children: [
                             YzBolumBasligi(
                               en ? 'The headings' : 'Başlıklar',
-                              alt: en
-                                  ? 'From the soil to the market, in the order of the farming year. Pick a technology: the tiles show what each heading says about it, and the technology has a page of its own across agriculture.'
-                                  : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: karolar o teknolojinin her başlıktaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.',
+                              // Telefonda karo yok, liste var (★20): alt yazı ona göre.
+                              alt: dar
+                                  ? (en
+                                      ? 'From the soil to the market, in the order of the farming year. Pick a technology: each heading shows what it says about it, and the technology has a page of its own across agriculture.'
+                                      : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: her başlık o teknolojinin oradaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.')
+                                  : (en
+                                      ? 'From the soil to the market, in the order of the farming year. Pick a technology: the tiles show what each heading says about it, and the technology has a page of its own across agriculture.'
+                                      : 'Topraktan pazara, tarım yılının sırasıyla. Bir teknoloji seçin: karolar o teknolojinin her başlıktaki durumunu gösterir; teknolojinin alanlar arası durumu da ayrı bir sayfada.'),
                             ),
                             const YzHarita(),
                             const SizedBox(height: 34),
