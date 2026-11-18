@@ -134,6 +134,24 @@
         ]
       },
       {
+        "source": "**/*.@(otf|ttf)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0"
+          }
+        ]
+      },
+      {
+        "source": "/assets/@(FontManifest.json|AssetManifest.json|AssetManifest.bin|AssetManifest.bin.json)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0"
+          }
+        ]
+      },
+      {
         "source": "/paylasim/**",
         "headers": [
           {
