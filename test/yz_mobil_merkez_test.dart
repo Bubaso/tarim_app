@@ -9,9 +9,9 @@ import 'package:tarim_app/core/utils/turkce_metin.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_iskelet.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_metinler.g.dart';
+import 'package:tarim_app/features/yapay_zeka/data/yz_teknoloji.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_harita.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
-import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_liste.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_okuma.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_tasarim.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
@@ -107,56 +107,45 @@ void main() {
     });
   });
 
-  group('telefon · çip satırı (★2)', () {
-    testWidgets('taşıyorsa sağda solgunluk, sonuna gelince kalkıyor; dokunma 44 px', (t) async {
+  // Karar 63 (kullanıcı, 18 Kas 2026): teknoloji seçilince karo büyümez,
+  // altına metin gelmez; telefonda çipler satırda üç kart.
+  group('karar 63 · teknoloji seçimi ve çip ızgarası', () {
+    for (final telefon in [true, false]) {
+      testWidgets('seçimde karolar aynı boyda, kesişim cümlesi yok · ${telefon ? 'telefon' : 'masaüstü'}',
+          (t) async {
+        telefon ? _telefon(t) : _masaustu(t);
+        await t.pumpWidget(_harita());
+        await t.pumpAndSettle();
+        final karo = find.byType(YzBaslikKarosu);
+        final once = [for (final e in karo.evaluate()) t.getSize(find.byWidget(e.widget))];
+        final cip = find.widgetWithText(YzTeknolojiCipi, kYzTeknoloji['goruntu']!['tr']!);
+        await t.ensureVisible(cip);
+        await t.tap(cip);
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+        final sonra = [for (final e in karo.evaluate()) t.getSize(find.byWidget(e.widget))];
+        expect(sonra, once, reason: 'karo büyümüyor');
+        for (final k in kYzKesisim['goruntu']!.values) {
+          expect(find.text(k[0]), findsNothing, reason: 'karoda kesişim cümlesi yok');
+        }
+        expect(find.textContaining('yerde geçiyor'), findsNothing, reason: 'karoda sayı yok');
+      });
+    }
+
+    testWidgets('telefonda dokuz çip üç satırda, ekranın içinde, kayma yok', (t) async {
       _telefon(t);
       await t.pumpWidget(_harita());
       await t.pumpAndSettle();
-      expect(find.byType(YzMerkezCipSeridi), findsOneWidget);
-      double solgunluk() =>
-          t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solgunlukAnahtari)).opacity;
-      double solSolgunluk() =>
-          t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solSolgunlukAnahtari)).opacity;
-      expect(solgunluk(), 1, reason: 'çipler 343 piksele sığmıyor');
-      expect(solSolgunluk(), 0, reason: 'başta solda kesik çip yok');
-      final kaydirma = find.descendant(
-          of: find.byType(YzMerkezCipSeridi), matching: find.byType(Scrollable));
-      final durum = t.state<ScrollableState>(kaydirma);
-      durum.position.jumpTo(durum.position.maxScrollExtent / 2);
-      await t.pumpAndSettle();
-      expect(solgunluk(), 1, reason: 'ortada: iki uçta da devamı var');
-      expect(solSolgunluk(), 1);
-      durum.position.jumpTo(durum.position.maxScrollExtent);
-      await t.pumpAndSettle();
-      expect(solgunluk(), 0, reason: 'sona gelindi');
-      expect(solSolgunluk(), 1, reason: 'sağa kaydı: solda solgunluk');
-      durum.position.jumpTo(0);
-      await t.pumpAndSettle();
-      expect(solgunluk(), 1);
-      expect(solSolgunluk(), 0);
+      expect(find.byType(YzCipIzgarasi), findsOneWidget);
+      final ustler = <double>{};
       for (final e in find.byType(YzTeknolojiCipi).evaluate()) {
-        expect(e.size!.height, greaterThanOrEqualTo(44));
+        final r = t.getRect(find.byWidget(e.widget));
+        expect(r.right, lessThanOrEqualTo(375 - 16 + 0.5));
+        ustler.add(r.top.roundToDouble());
       }
-      // Görünen çipin üstündeki boşluğa dokunmak da seçiyor.
-      final ad = kYzTeknoloji.values.first['tr']!;
-      final r = t.getRect(_cip(ad));
-      await t.tapAt(Offset(r.center.dx, r.top + 2));
-      await t.pumpAndSettle();
-      expect(find.textContaining('$ad '), findsWidgets);
-      expect(find.textContaining('başlıkta geçiyor'), findsOneWidget);
-    });
-
-    testWidgets('sığıyorsa solgunluk yok', (t) async {
-      _telefon(t);
-      await t.pumpWidget(_uygulama(const Scaffold(
-        body: YzMerkezCipSeridi(children: [Text('kısa')]),
-      )));
-      await t.pumpAndSettle();
-      expect(
-          t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solgunlukAnahtari)).opacity, 0);
-      expect(
-          t.widget<AnimatedOpacity>(find.byKey(YzMerkezCipSeridi.solSolgunlukAnahtari)).opacity,
-          0);
+      expect(ustler.length, 3);
+      expect(find.ancestor(of: find.byType(YzTeknolojiCipi).first, matching: find.byType(Scrollable)),
+          findsOneWidget, reason: 'yalnız sayfanın dikey kaydırması');
     });
   });
 
@@ -167,7 +156,7 @@ void main() {
       await t.pumpAndSettle();
       expect(t.takeException(), isNull);
       expect(find.byType(YzBaslikKarosu), findsNWidgets(kYzBasliklar.length));
-      expect(find.byType(YzMerkezCipSeridi), findsNothing);
+      expect(find.byType(YzCipIzgarasi), findsNothing);
       expect(find.ancestor(of: find.byType(YzTeknolojiCipi).first, matching: find.byType(Wrap)),
           findsWidgets);
       // Çip eski boyunda (geniş dokunma alanı yalnız telefonda).
@@ -186,7 +175,8 @@ void main() {
       await t.pumpAndSettle();
       await t.tap(_cip('Dil modelleri'));
       await t.pumpAndSettle();
-      expect(find.textContaining('yerde geçiyor'), findsWidgets, reason: 'karo etiketi aynı');
+      // Seçimde karo değişmiyor, sayı yazmıyor (karar 63).
+      expect(find.textContaining('yerde geçiyor'), findsNothing);
     });
   });
 

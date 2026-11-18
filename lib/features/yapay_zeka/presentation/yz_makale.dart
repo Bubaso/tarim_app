@@ -626,10 +626,10 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
         ),
         if (widget.cipler.isNotEmpty) ...[
           SizedBox(height: telefon ? 10 : 14),
-          // Telefonda çipler tek satırda yana kayıyor: metin ilk ekrana sığsın.
-          // Satır taşıyorsa sağ kenarda solma (karar 62).
+          // Telefonda çipler satırda üç kart; yana kayıp ekran dışına
+          // çıkmıyor (kullanıcı, 18 Kas 2026; karar 63).
           telefon
-              ? YzCerceveCipSirasi(cipler: widget.cipler)
+              ? YzCipIzgarasi(cipler: widget.cipler)
               : dar
                   ? SingleChildScrollView(
                       scrollDirection: Axis.horizontal,

@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_grafikler.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_iskelet.g.dart';
+import 'package:tarim_app/features/yapay_zeka/presentation/yz_baslik_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_gorsel.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_merkez_ekrani.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart';
@@ -126,5 +127,61 @@ void main() {
       await t.pumpAndSettle();
       expect(find.byType(YzAramaKutusu), findsOneWidget);
     });
+  });
+
+  // Kullanıcı (18 Kas 2026): "punto büyütüp küçültme ikonu çalışmıyor".
+  // Merkez sayfada ve aramada düğme vardı ama yazı ölçeği dinlemiyordu.
+  group('yazı boyu düğmesi her sayfada çalışıyor', () {
+    double? cizilen(WidgetTester t, String parca) {
+      for (final e in find.byType(EditableText).evaluate()) {
+        final w = e.widget as EditableText;
+        if (w.controller.text.contains(parca)) return (w.textScaler ?? TextScaler.noScaling).scale(w.style.fontSize!);
+      }
+      for (final e in find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText().contains(parca)).evaluate()) {
+        final r = e.widget as RichText;
+        final boy = r.text.style?.fontSize ??
+            (r.text as TextSpan).children!.whereType<TextSpan>().first.style!.fontSize!;
+        return r.textScaler.scale(boy);
+      }
+      return null;
+    }
+
+    for (final (ad, ekran, parca) in [
+      ('başlık', const YzBaslikEkrani(slug: 'toprak-ve-arazi') as Widget, 'Toprağı her metrede'),
+      ('merkez', const YzMerkezEkrani() as Widget, 'Yapay zekâ ve dijital teknolojiler'),
+    ]) {
+      testWidgets('A+ iki kez: yazı %125 · $ad', (t) async {
+        _boyut(t, const Size(1280, 900));
+        await t.pumpWidget(_uygulama(ekran));
+        await t.pumpAndSettle();
+        final once = cizilen(t, parca)!;
+        await t.tap(find.byIcon(Icons.format_size_rounded));
+        await t.pumpAndSettle();
+        await t.tap(find.byTooltip('Büyüt'));
+        await t.pumpAndSettle();
+        await t.tap(find.byTooltip('Büyüt'));
+        await t.pumpAndSettle();
+        expect(cizilen(t, parca), closeTo(once * 1.25, 0.01));
+      });
+    }
+
+    for (final boy in const [Size(375, 812), Size(1280, 900)]) {
+      testWidgets('merkez sayfa en büyük yazıda taşmıyor · ${boy.width.toInt()} px', (t) async {
+        _boyut(t, boy);
+        SharedPreferences.setMockInitialValues({'yz_yazi_olcegi': 1.4});
+        await t.pumpWidget(_uygulama(const YzMerkezEkrani()));
+        await t.pumpAndSettle();
+        expect(t.takeException(), isNull);
+      });
+    }
+  });
+
+  test('ısı haritası başlığı ve vurgu cümlesi; güncelleme bölümü yok', () {
+    final s = File('lib/features/yapay_zeka/presentation/yz_merkez_ekrani.dart').readAsStringSync();
+    expect(s, contains("'Teknoloji ve Alan Isı Haritası'"));
+    expect(s, contains("'Tarımda Yapay Zeka kullanımının nabzını buradan takip edin.'"));
+    expect(s, contains("'Her hücre, bir teknolojinin bir başlıkta geçtiği yer sayısı."));
+    expect(s, isNot(contains("'Bu dosya nasıl güncel tutuluyor'")));
+    expect(s, isNot(contains('editör ajanı')));
   });
 }

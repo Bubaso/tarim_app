@@ -17,7 +17,7 @@ import 'package:tarim_app/features/yapay_zeka/presentation/yz_cerceve_mobil.dart
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_metin_gorunumu.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_okuma.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_parcalar.dart'
-    show YzUstSerit, YzTeknolojiCipi, yzPath, yzAramaPath;
+    show YzUstSerit, YzTeknolojiCipi, YzCipIzgarasi, yzPath, yzAramaPath;
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_tasarim.dart';
 import 'package:tarim_app/features/yapay_zeka/yz_providers.dart';
 
@@ -165,7 +165,9 @@ void main() {
           await t.pumpAndSettle();
           final metin = find.byType(SelectableText);
           if (metin.evaluate().isNotEmpty) {
-            expect(t.getTopLeft(metin.first).dy, lessThan(812 / 3), reason: '§${b.no} $dil');
+            // Çipler satırda üç kart (karar 63): çok teknolojili başlıkta iki
+            // ya da üç satır; metin yine ilk ekranın %42'si içinde (en uzunu §2).
+            expect(t.getTopLeft(metin.first).dy, lessThan(812 * 0.42), reason: '§${b.no} $dil');
           }
           await t.pumpWidget(const SizedBox());
         }
@@ -200,32 +202,31 @@ void main() {
   });
 
   group('telefon · teknoloji çipleri', () {
-    testWidgets('taşan satır yana kayıyor, sağda solma; taşmayanda solma yok', (t) async {
+    // Kayan satır kaldırıldı (kullanıcı, 18 Kas 2026; karar 63): satırda üç
+    // kart, ekran dışına taşan çip yok.
+    testWidgets('satırda üç kart, hepsi ekranın içinde, yana kayma yok', (t) async {
       _telefon(t);
-      Future<void> ciz(List<String> kodlar) async {
-        await t.pumpWidget(_uygulama(Scaffold(
-          body: Center(
-            child: SizedBox(
-              width: 343,
-              child: YzCerceveCipSirasi(cipler: [for (final k in kodlar) YzTeknolojiCipi(kod: k)]),
-            ),
-          ),
-        )));
-        await t.pumpAndSettle();
-        expect(t.takeException(), isNull);
-      }
-
       final hepsi = kYzTeknoloji.keys.toList();
-      await ciz(hepsi);
-      expect(find.byKey(const ValueKey('yz-cip-solma')), findsOneWidget);
-      expect(t.getSize(find.byType(YzCerceveCipSirasi)).height, lessThan(40), reason: 'tek satır');
-      // Sona kaydırınca solma kalkıyor.
-      await t.drag(find.byType(SingleChildScrollView), const Offset(-3000, 0));
+      await t.pumpWidget(_uygulama(Scaffold(
+        body: Center(
+          child: SizedBox(
+            width: 343,
+            child: YzCipIzgarasi(cipler: [for (final k in hepsi) YzTeknolojiCipi(kod: k)]),
+          ),
+        ),
+      )));
       await t.pumpAndSettle();
-      expect(find.byKey(const ValueKey('yz-cip-solma')), findsNothing);
-
-      await ciz([hepsi.first]);
-      expect(find.byKey(const ValueKey('yz-cip-solma')), findsNothing);
+      expect(t.takeException(), isNull);
+      expect(find.byType(Scrollable), findsNothing);
+      final ustler = <double>{};
+      for (final e in find.byType(YzTeknolojiCipi).evaluate()) {
+        final r = t.getRect(find.byWidget(e.widget));
+        expect(r.left, greaterThanOrEqualTo(16 - 0.5));
+        expect(r.right, lessThanOrEqualTo(375 - 16 + 0.5));
+        expect(r.height, greaterThanOrEqualTo(44));
+        ustler.add(r.top.roundToDouble());
+      }
+      expect(ustler.length, 3, reason: 'dokuz kart üç satırda');
     });
   });
 

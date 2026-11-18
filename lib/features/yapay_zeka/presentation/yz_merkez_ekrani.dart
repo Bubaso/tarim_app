@@ -33,7 +33,8 @@ class YzMerkezEkrani extends StatelessWidget {
       body: Column(children: [
         const YzUstSerit(),
         Expanded(
-          child: LayoutBuilder(builder: (context, kis) {
+          child: YzOlcekliIcerik(
+            child: LayoutBuilder(builder: (context, kis) {
             final dar = kis.maxWidth < 640;
             // Mobil tur: telefona özgü seçimler, listeyi seçen ölçüyle aynı
             // (yzTelefon); alt yazı ile düzen hiç ayrışmasın.
@@ -144,7 +145,10 @@ class YzMerkezEkrani extends StatelessWidget {
                             const YzHarita(),
                             const SizedBox(height: 34),
                             YzBolumBasligi(
-                              en ? 'Technology by field' : 'Teknoloji ve alan',
+                              en ? 'Technology and Field Heat Map' : 'Teknoloji ve Alan Isı Haritası',
+                              vurgu: en
+                                  ? 'Follow the pulse of AI use in agriculture here.'
+                                  : 'Tarımda Yapay Zeka kullanımının nabzını buradan takip edin.',
                               alt: en
                                   ? 'Each cell counts the passages where a technology comes up in a heading. Tap a cell to open the heading with those passages marked, or a technology to open its page.'
                                   : 'Her hücre, bir teknolojinin bir başlıkta geçtiği yer sayısı. Hücreye dokununca başlık o yerler işaretli açılır; teknolojinin adına dokununca kendi sayfası.',
@@ -158,17 +162,8 @@ class YzMerkezEkrani extends StatelessWidget {
                                   : 'Portaldaki haberlerden bu teknolojilere dair somut bir bilgi taşıyanlar, her biri kendi başlığının altında.',
                             ),
                             const YzHaberListesi(enCok: 10),
-                            const SizedBox(height: 34),
-                            YzBolumBasligi(en ? 'How this guide is kept up to date' : 'Bu dosya nasıl güncel tutuluyor'),
-                            ConstrainedBox(
-                              constraints: const BoxConstraints(maxWidth: 720),
-                              child: Text(
-                                en
-                                    ? 'Every time the portal pulls news, an editorial agent checks each item that mentions these technologies and links it to a heading only if it can quote a concrete sentence from the text; an editor can remove it with one click. Once a month a wider scan reads academic databases, news and official pages. Nothing it finds enters a page directly: it goes to an approval queue and becomes material for the next round of writing.'
-                                    : 'Portal her haber çektiğinde, bu teknolojileri anan her haberi bir editör ajanı okuyor ve haberi bir başlığa ancak metinden somut bir cümle gösterebildiğinde bağlıyor; editör tek tıkla kaldırabiliyor. Ayda bir daha geniş bir tarama akademik veritabanlarını, haberleri ve resmî sayfaları okuyor. Bulduğu hiçbir şey sayfaya doğrudan girmiyor: önce onaya düşüyor, onaylanınca bir sonraki yazım turunun malzemesi oluyor.',
-                                style: YzYazi.govde(boy: 17),
-                              ),
-                            ),
+                            // "Bu dosya nasıl güncel tutuluyor" bölümü kaldırıldı
+                            // (kullanıcı, 18 Kas 2026).
                           ],
                         ),
                       ),
@@ -177,7 +172,7 @@ class YzMerkezEkrani extends StatelessWidget {
                 ],
               ),
             );
-          }),
+          })),
         ),
       ]),
     );

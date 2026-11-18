@@ -15,7 +15,7 @@ import 'yz_tasarim.dart';
 /// Telefonda (< 640 px) metin ilk ekranın üçte birinde başlasın, okurken
 /// ekranda yalnız metin kalsın diye:
 ///   · başlığın altındaki künye tek satır ve kısa ("4 dk · kaynaklar
-///     17 Kas 2026"); teknoloji çipleri yana kayan tek satır;
+///     17 Kas 2026"); teknoloji çipleri satırda üç kart (yz_harita.dart);
 ///   · içindekiler, yazı boyu, arama ve paylaşma alttaki ince çubukta;
 ///     çubuk aşağı kaydırınca saklanıyor, yukarı kaydırınca geri geliyor;
 ///   · bir kez gösterilen ipucu ve işaret şeridi metnin üstünde değil,
@@ -51,61 +51,6 @@ String yzKisaKunye({int? dakika, String? guncellendi, required bool en}) => [
 
 TextStyle _sade({double boy = 13, Color renk = YzRenk.soluk, FontWeight kalinlik = FontWeight.w500}) =>
     GoogleFonts.outfit(fontSize: boy, fontWeight: kalinlik, color: renk, height: 1.25);
-
-/// Başlıktaki teknoloji çipleri: tek satır, yana kayıyor; satır taşıyorsa
-/// sağ kenarda yumuşak bir solma (kesik çip görünmesin).
-class YzCerceveCipSirasi extends StatefulWidget {
-  const YzCerceveCipSirasi({super.key, required this.cipler});
-  final List<Widget> cipler;
-
-  @override
-  State<YzCerceveCipSirasi> createState() => _YzCerceveCipSirasiState();
-}
-
-class _YzCerceveCipSirasiState extends State<YzCerceveCipSirasi> {
-  bool _solma = false;
-
-  bool _olc(ScrollMetrics m) {
-    final s = m.extentAfter > 0.5;
-    if (s != _solma) setState(() => _solma = s);
-    return false;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(children: [
-      NotificationListener<ScrollMetricsNotification>(
-        onNotification: (n) => _olc(n.metrics),
-        child: NotificationListener<ScrollNotification>(
-          onNotification: (n) => _olc(n.metrics),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(children: [
-              for (final c in widget.cipler) Padding(padding: const EdgeInsets.only(right: 6), child: c),
-            ]),
-          ),
-        ),
-      ),
-      if (_solma)
-        Positioned(
-          right: 0,
-          top: 0,
-          bottom: 0,
-          width: 36,
-          child: IgnorePointer(
-            child: DecoratedBox(
-              key: const ValueKey('yz-cip-solma'),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [YzRenk.zemin.withValues(alpha: 0), YzRenk.zemin],
-                ),
-              ),
-            ),
-          ),
-        ),
-    ]);
-  }
-}
 
 /// Sayfanın ne kadarının okunduğu: üst şeridin hemen altında 2 piksel.
 class YzCerceveIlerleme extends StatelessWidget {

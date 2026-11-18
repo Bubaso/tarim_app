@@ -150,7 +150,8 @@ class _YzAramaEkraniState extends State<YzAramaEkrani> {
       body: Column(children: [
         const YzUstSerit(geriAdres: yzPath, aramaDugmesi: false),
         Expanded(
-          child: LayoutBuilder(builder: (context, kis) {
+          child: YzOlcekliIcerik(
+            child: LayoutBuilder(builder: (context, kis) {
             final dar = kis.maxWidth < 640;
             final yan = dar ? 16.0 : 32.0;
             return SingleChildScrollView(
@@ -230,7 +231,7 @@ class _YzAramaEkraniState extends State<YzAramaEkrani> {
                 ),
               ),
             );
-          }),
+          })),
         ),
       ]),
     );

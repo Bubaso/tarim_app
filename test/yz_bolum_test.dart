@@ -451,7 +451,8 @@ Liste bitti, paragraf başladı.
       expect(find.textContaining('Dil modelleri $dilSayisi başlıkta geçiyor'), findsOneWidget);
       expect(find.text('Dil modelleri: alanlar arası durum'), findsOneWidget,
           reason: 'teknoloji sayfasına bağlantı');
-      expect(find.textContaining('yerde geçiyor'), findsWidgets);
+      // Karoda geçtiği yer sayısı yok: seçimde karo değişmiyor (karar 63).
+      expect(find.textContaining('yerde geçiyor'), findsNothing);
     });
 
     // Yazılmış her başlık (tablo, uzun satır, § göndermesi ne varsa) ve

@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -5,7 +7,6 @@ import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_teknoloji.g.dart';
 import '../data/yz_metinler.g.dart';
-import 'yz_merkez_liste.dart';
 import 'yz_mobil.dart';
 import 'yz_okuma.dart';
 import 'yz_tasarim.dart';
@@ -18,7 +19,11 @@ import 'yz_parcalar.dart';
 /// Teknoloji etiketi çipi. Seçiliyse çelik mavisiyle dolu.
 class YzTeknolojiCipi extends StatelessWidget {
   const YzTeknolojiCipi(
-      {super.key, required this.kod, this.secili = false, this.onTap, this.genisDokunma = false});
+      {super.key,
+      required this.kod,
+      this.secili = false,
+      this.onTap,
+      this.genisDokunma = false});
   final String kod;
   final bool secili;
   final VoidCallback? onTap;
@@ -30,6 +35,7 @@ class YzTeknolojiCipi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ad = kYzTeknoloji[kod]?[yzIsEn(context) ? 'en' : 'tr'] ?? kod;
+    if (_YzCipIzgarasiKapsami.icinde(context)) return _kart(ad);
     final cip = _cip(ad);
     if (!genisDokunma) return cip;
     return GestureDetector(
@@ -39,6 +45,43 @@ class YzTeknolojiCipi extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: 44),
         child: Align(widthFactor: 1, heightFactor: 1, child: cip),
+      ),
+    );
+  }
+
+  /// Telefondaki ızgarada (karar 63): hücreyi dolduran kart, ad ortada,
+  /// gerekirse iki-üç satır; dokunma alanı en az 44 piksel.
+  Widget _kart(String ad) {
+    return Semantics(
+      button: onTap != null,
+      selected: secili,
+      child: Material(
+        color: secili ? YzRenk.makine : YzRenk.yuzey,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+          side: BorderSide(color: secili ? YzRenk.makine : YzRenk.cizgi),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(6),
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 44),
+            alignment: Alignment.center,
+            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 7),
+            child: Text(
+              ad,
+              textAlign: TextAlign.center,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.outfit(
+                fontSize: 12.5,
+                fontWeight: FontWeight.w600,
+                height: 1.2,
+                color: secili ? Colors.white : YzRenk.makine,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -62,6 +105,52 @@ class YzTeknolojiCipi extends StatelessWidget {
                   boy: 12, renk: secili ? Colors.white : YzRenk.makine)),
         ),
       ),
+    );
+  }
+}
+
+class _YzCipIzgarasiKapsami extends InheritedWidget {
+  const _YzCipIzgarasiKapsami({required super.child});
+
+  static bool icinde(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<_YzCipIzgarasiKapsami>() !=
+      null;
+
+  @override
+  bool updateShouldNotify(_YzCipIzgarasiKapsami oldWidget) => false;
+}
+
+/// Telefonda teknoloji çipleri: satırda üç kart, yana kayma yok — dokuz
+/// teknoloji üç satıra sığıyor (kullanıcı, 18 Kas 2026; karar 63). Aynı
+/// satırdaki kartlar eşit boyda.
+class YzCipIzgarasi extends StatelessWidget {
+  const YzCipIzgarasi(
+      {super.key, required this.cipler, this.sutun = 3, this.aralik = 6});
+  final List<Widget> cipler;
+  final int sutun;
+  final double aralik;
+
+  @override
+  Widget build(BuildContext context) {
+    final satirlar = <Widget>[];
+    for (var i = 0; i < cipler.length; i += sutun) {
+      final parca = cipler.sublist(i, math.min(i + sutun, cipler.length));
+      satirlar.add(Padding(
+        padding: EdgeInsets.only(top: i == 0 ? 0 : aralik),
+        child: IntrinsicHeight(
+          child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            for (var j = 0; j < sutun; j++) ...[
+              if (j > 0) SizedBox(width: aralik),
+              Expanded(
+                  child: j < parca.length ? parca[j] : const SizedBox.shrink()),
+            ],
+          ]),
+        ),
+      ));
+    }
+    return _YzCipIzgarasiKapsami(
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch, children: satirlar),
     );
   }
 }
@@ -104,16 +193,13 @@ class _YzHaritaState extends State<YzHarita> {
           // Telefonda (★2): taşıyorsa sağda yumuşak solgunluk, kesik çip
           // yok; dokunma alanı 44 piksel.
           if (telefon)
-            YzMerkezCipSeridi(children: [
+            YzCipIzgarasi(cipler: [
               for (final kod in kYzTeknoloji.keys)
-                Padding(
-                  padding: const EdgeInsets.only(right: 6),
-                  child: YzTeknolojiCipi(
-                    kod: kod,
-                    secili: _teknoloji == kod,
-                    genisDokunma: true,
-                    onTap: () => setState(() => _teknoloji = _teknoloji == kod ? null : kod),
-                  ),
+                YzTeknolojiCipi(
+                  kod: kod,
+                  secili: _teknoloji == kod,
+                  onTap: () => setState(
+                      () => _teknoloji = _teknoloji == kod ? null : kod),
                 ),
             ])
           else if (kis.maxWidth < 640)
@@ -126,7 +212,8 @@ class _YzHaritaState extends State<YzHarita> {
                     child: YzTeknolojiCipi(
                       kod: kod,
                       secili: _teknoloji == kod,
-                      onTap: () => setState(() => _teknoloji = _teknoloji == kod ? null : kod),
+                      onTap: () => setState(
+                          () => _teknoloji = _teknoloji == kod ? null : kod),
                     ),
                   ),
               ]),
@@ -175,7 +262,8 @@ class _YzHaritaState extends State<YzHarita> {
             baslik: b,
             sonuk: _teknoloji != null && !b.teknoloji.contains(_teknoloji),
             teknoloji: _teknoloji,
-            ana: _teknoloji != null && (kYzTeknolojiAna[_teknoloji]?.contains(b.no) ?? false),
+            ana: _teknoloji != null &&
+                (kYzTeknolojiAna[_teknoloji]?.contains(b.no) ?? false),
           ),
         ),
     ]);
@@ -188,7 +276,10 @@ class _YzHaritaState extends State<YzHarita> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(width: 170, child: Padding(padding: const EdgeInsets.only(top: 12), child: etiket)),
+        SizedBox(
+            width: 170,
+            child: Padding(
+                padding: const EdgeInsets.only(top: 12), child: etiket)),
         const SizedBox(width: 10),
         Expanded(child: karolar),
       ],
@@ -208,7 +299,8 @@ class _TeknolojiOzeti extends StatelessWidget {
     final ad = kYzTeknoloji[kod]?[en ? 'en' : 'tr'] ?? kod;
     final sayi = kYzBasliklar.where((b) => b.teknoloji.contains(kod)).length;
     final ana = [
-      for (final no in kYzTeknolojiAna[kod] ?? const <int>[]) yzBaslik(no)?.ad(en),
+      for (final no in kYzTeknolojiAna[kod] ?? const <int>[])
+        yzBaslik(no)?.ad(en),
     ].whereType<String>().toList();
     final anaMetni = ana.isEmpty
         ? ''
@@ -240,7 +332,8 @@ class _TeknolojiOzeti extends StatelessWidget {
                 color: YzRenk.makineAcik.withValues(alpha: 0.7),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
-                  side: BorderSide(color: YzRenk.makine.withValues(alpha: 0.22)),
+                  side:
+                      BorderSide(color: YzRenk.makine.withValues(alpha: 0.22)),
                 ),
                 child: InkWell(
                   borderRadius: BorderRadius.circular(10),
@@ -248,25 +341,40 @@ class _TeknolojiOzeti extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 12, 14, 12),
                     child: Row(children: [
-                      Icon(Icons.travel_explore_rounded, color: YzRenk.makine.withValues(alpha: 0.8), size: 21),
+                      Icon(Icons.travel_explore_rounded,
+                          color: YzRenk.makine.withValues(alpha: 0.8),
+                          size: 21),
                       const SizedBox(width: 12),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(buyukHarf(en ? 'Technology page' : 'Teknoloji sayfası', en),
-                                style: YzYazi.ustEtiket(renk: YzRenk.makine.withValues(alpha: 0.7))),
+                            Text(
+                                buyukHarf(
+                                    en
+                                        ? 'Technology page'
+                                        : 'Teknoloji sayfası',
+                                    en),
+                                style: YzYazi.ustEtiket(
+                                    renk:
+                                        YzRenk.makine.withValues(alpha: 0.7))),
                             const SizedBox(height: 3),
                             Text(
-                              en ? '$ad across agriculture' : '$ad: alanlar arası durum',
+                              en
+                                  ? '$ad across agriculture'
+                                  : '$ad: alanlar arası durum',
                               style: YzYazi.baslik(16, renk: YzRenk.makine)
-                                  .copyWith(height: 1.25, fontWeight: FontWeight.w600),
+                                  .copyWith(
+                                      height: 1.25,
+                                      fontWeight: FontWeight.w600),
                             ),
                           ],
                         ),
                       ),
                       const SizedBox(width: 8),
-                      Icon(Icons.arrow_forward_rounded, color: YzRenk.makine.withValues(alpha: 0.8), size: 20),
+                      Icon(Icons.arrow_forward_rounded,
+                          color: YzRenk.makine.withValues(alpha: 0.8),
+                          size: 20),
                     ]),
                   ),
                 ),
@@ -281,7 +389,11 @@ class _TeknolojiOzeti extends StatelessWidget {
 
 class YzBaslikKarosu extends ConsumerWidget {
   const YzBaslikKarosu(
-      {super.key, required this.baslik, this.sonuk = false, this.teknoloji, this.ana = false});
+      {super.key,
+      required this.baslik,
+      this.sonuk = false,
+      this.teknoloji,
+      this.ana = false});
   final YzBaslik baslik;
   final bool sonuk;
 
@@ -297,24 +409,25 @@ class YzBaslikKarosu extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final en = yzIsEn(context);
     final secili = teknoloji != null && !sonuk;
-    final izSayisi = secili ? (kYzTeknolojiIzi[baslik.no]?[teknoloji]?[en ? 1 : 0] ?? 0) : 0;
-    // Karoda yazım durumu yok (iç not; kullanıcı, 18 Kas 2026): yalnız seçili
-    // teknolojinin bu başlıkta kaç yerde geçtiği.
+    // Teknoloji seçilince karo BÜYÜMEZ, altına metin gelmez (kullanıcı,
+    // 18 Kas 2026: "kartlar olduğu gibi kalsın. sadece başlık ismi"; karar
+    // 63). Seçimi kenar rengi ve taşımayanların sönükleşmesi gösteriyor;
+    // dokununca başlık o teknolojinin geçtiği yerler işaretli açılıyor.
     final metin = kYzMetinler[baslik.no];
     // Okuma izi (karar 60): okunan başlık işaretli; yalnız okurun tarayıcısında.
-    final okundu = ref.watch(yzOkumaIziProvider).okunan.contains(yzBaslikPath(baslik.slug));
-    final durum = !secili
-        ? (metin == null
-            ? null
-            : (en
-                ? '${yzOkumaSuresi(metin.metin(true), true)} min${okundu ? ' · ✓ read' : ''}'
-                : '${yzOkumaSuresi(metin.metin(false), false)} dk okuma${okundu ? ' · ✓ okundu' : ''}'))
-        : (ana
-            ? (en ? 'main heading · $izSayisi mentions' : 'ana başlık · $izSayisi yerde geçiyor')
-            : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'));
+    final okundu = ref
+        .watch(yzOkumaIziProvider)
+        .okunan
+        .contains(yzBaslikPath(baslik.slug));
+    final durum = metin == null
+        ? null
+        : (en
+            ? '${yzOkumaSuresi(metin.metin(true), true)} min${okundu ? ' · ✓ read' : ''}'
+            : '${yzOkumaSuresi(metin.metin(false), false)} dk okuma${okundu ? ' · ✓ okundu' : ''}');
     final adres = secili
-        ? Uri(path: yzBaslikPath(baslik.slug), queryParameters: {'teknoloji': teknoloji!})
-            .toString()
+        ? Uri(
+            path: yzBaslikPath(baslik.slug),
+            queryParameters: {'teknoloji': teknoloji!}).toString()
         : yzBaslikPath(baslik.slug);
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 180),
@@ -331,8 +444,11 @@ class YzBaslikKarosu extends ConsumerWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               border: Border.all(
-                color: secili ? YzRenk.makine : YzRenk.bitki.withValues(alpha: 0.55),
-                width: secili && ana ? 2 : 1,
+                color: secili
+                    ? YzRenk.makine
+                    : YzRenk.bitki.withValues(alpha: 0.55),
+                // Kalınlık sabit: kalın kenar karoyu büyütüyordu (karar 63).
+                width: 1,
               ),
             ),
             child: Column(
@@ -344,7 +460,7 @@ class YzBaslikKarosu extends ConsumerWidget {
                     durum,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: YzYazi.veri(boy: 10.5, renk: secili ? YzRenk.makine : YzRenk.soluk),
+                    style: YzYazi.veri(boy: 10.5, renk: YzRenk.soluk),
                   ),
                   const SizedBox(height: 5),
                 ],
@@ -352,14 +468,6 @@ class YzBaslikKarosu extends ConsumerWidget {
                     style: YzYazi.baslik(14.5).copyWith(height: 1.25),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis),
-                // Karar 57: seçili teknolojinin bu başlıktaki durumu, tek cümle.
-                if (secili && kYzKesisim[teknoloji]?[baslik.no] != null) ...[
-                  const SizedBox(height: 6),
-                  Text(kYzKesisim[teknoloji]![baslik.no]![en ? 1 : 0],
-                      style: YzYazi.govde(boy: 12.5).copyWith(height: 1.35),
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis),
-                ],
               ],
             ),
           ),

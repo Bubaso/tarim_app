@@ -351,9 +351,12 @@ class YzHaberListesi extends ConsumerWidget {
 
 /// Bölüm başlığı (h2) — sayfa içi.
 class YzBolumBasligi extends StatelessWidget {
-  const YzBolumBasligi(this.metin, {super.key, this.alt});
+  const YzBolumBasligi(this.metin, {super.key, this.alt, this.vurgu});
   final String metin;
   final String? alt;
+
+  /// Açıklamanın önünde, ayrı vurguyla duran cümle (ısı haritası, karar 63).
+  final String? vurgu;
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -362,6 +365,12 @@ class YzBolumBasligi extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Semantics(header: true, child: Text(metin, style: YzYazi.baslik(22))),
+            if (vurgu != null) ...[
+              const SizedBox(height: 6),
+              Text(vurgu!,
+                  style: YzYazi.baslik(16.5, renk: YzRenk.bitki)
+                      .copyWith(fontWeight: FontWeight.w600, height: 1.3)),
+            ],
             if (alt != null) ...[
               const SizedBox(height: 4),
               Text(alt!, style: YzYazi.govde(boy: 15.5, renk: YzRenk.soluk)),
@@ -369,4 +378,24 @@ class YzBolumBasligi extends StatelessWidget {
           ],
         ),
       );
+}
+
+/// Yazı boyu düğmesinin seçtiği ölçek makale dışındaki sayfalarda da
+/// (merkez sayfa, arama): düğme bu sayfalarda görünüyor ama hiçbir yazı onu
+/// dinlemiyordu — kullanıcı (18 Kas 2026): "büyütsen de birşey değişmiyor".
+/// Üst şerit ölçeklenmiyor (makalede de öyle).
+class YzOlcekliIcerik extends ConsumerWidget {
+  const YzOlcekliIcerik({super.key, required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final olcek = ref.watch(yzYaziOlcegiProvider);
+    if (olcek == 1.0) return child;
+    final mq = MediaQuery.of(context);
+    return MediaQuery(
+      data: mq.copyWith(textScaler: TextScaler.linear(mq.textScaler.scale(1) * olcek)),
+      child: child,
+    );
+  }
 }
