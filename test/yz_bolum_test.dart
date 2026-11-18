@@ -504,9 +504,11 @@ Liste bitti, paragraf başladı.
   }
 
   testWidgets('okura kapalıyken şerit HİÇ çizilmiyor (yayin.json)', (t) async {
-    expect(kYzOkuraAcik, isFalse,
-        reason: 'bölüm 30 başlığın tamamı yazılınca açılır — kullanıcı kararı');
-    await t.pumpWidget(_sarmala(const Scaffold(body: SingleChildScrollView(child: YzSeridi()))));
+    // Bölüm 18 Kasım 2026'da okura açıldı (kullanıcı: "dosyayı canlıya
+    // alalım"); bayrak kapatılırsa şerit yine hiç çizilmemeli.
+    expect(kYzOkuraAcik, isTrue, reason: 'yayin.json okura_acik: true');
+    await t.pumpWidget(_sarmala(
+        const Scaffold(body: SingleChildScrollView(child: YzSeridi(okuraAcik: false)))));
     await t.pumpAndSettle();
     expect(find.text(kYzAdTr), findsNothing);
     expect(find.byType(SizedBox), findsWidgets);

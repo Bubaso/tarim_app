@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tarimportali.net/yapay-zeka-dijital-tarim/teknoloji/veri">
+<title>Veri platformları · Yapay Zeka ve Dijital Tarım · Tarım Portalı</title>
+<style>
+@font-face{font-family:"YzGovde";src:url("/assets/assets/google_fonts/Newsreader-Regular.ttf") format("truetype")}
+@font-face{font-family:"YzBaslik";font-weight:700;src:url("/assets/assets/google_fonts/Outfit-Bold.ttf") format("truetype")}
+@font-face{font-family:"YzVeri";font-weight:600;src:url("/assets/assets/google_fonts/IBMPlexMono-SemiBold.ttf") format("truetype")}
+@page{size:A4;margin:18mm 17mm 20mm}
+:root{--murekkep:#1D2321;--soluk:#5C6662;--makine:#34507A;--cizgi:#D5DBD4;--zemin:#F3F5F1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--zemin);color:var(--murekkep);font:17.5px/1.6 "YzGovde",Georgia,"Times New Roman",serif}
+.arac{position:sticky;top:0;z-index:2;display:flex;gap:12px;align-items:center;justify-content:space-between;
+  padding:10px 16px;background:var(--zemin);border-bottom:1px solid var(--cizgi);font:600 13px/1.3 "YzVeri",monospace}
+.arac a{color:var(--makine);text-decoration:none}
+.arac button{font:600 13px/1 "YzVeri",monospace;color:#fff;background:var(--makine);border:0;border-radius:6px;
+  padding:10px 14px;cursor:pointer}
+.arac button:focus-visible{outline:3px solid #9DB4D6;outline-offset:2px}
+main{max-width:680px;margin:0 auto;padding:28px 24px 48px;background:#fff}
+.ust{font:600 11px/1.4 "YzVeri",monospace;letter-spacing:1.1px;color:var(--makine);margin:0 0 6px}
+h1{font:700 30px/1.15 "YzBaslik",system-ui,sans-serif;margin:0 0 8px;text-wrap:balance}
+.kunye-ust{font:500 12px/1.5 "YzVeri",monospace;color:var(--soluk);margin:0 0 22px}
+h2{font:700 19px/1.25 "YzBaslik",system-ui,sans-serif;margin:28px 0 8px;break-after:avoid;text-wrap:balance}
+p{margin:0 0 14px}
+p.giris{font-size:19px;line-height:1.55}
+ul{margin:0 0 16px;padding-left:22px}
+li{margin:0 0 6px}
+.rakam{font-weight:400;color:var(--makine);font-variant-numeric:lining-nums}
+a{color:var(--makine);word-break:break-word}
+table{border-collapse:collapse;width:100%;margin:6px 0 18px;font-size:14px;line-height:1.4}
+th,td{border-bottom:1px solid var(--cizgi);padding:6px 8px;text-align:left;vertical-align:top}
+th{font:600 11px/1.3 "YzVeri",monospace;letter-spacing:.6px;color:var(--makine);background:#EEF2F7}
+figure{margin:18px 0 22px;break-inside:avoid}
+figure img{display:block;max-width:100%;max-height:118mm;margin:0 auto;object-fit:contain}
+figcaption,.kunye,.kaynak,.lejant{display:block;font-size:13.5px;line-height:1.45}
+figcaption{margin-top:8px}
+.kaynak{font:500 11px/1.4 "YzVeri",monospace;color:var(--soluk);margin-top:4px}
+.lejant{color:var(--soluk);margin-top:4px}
+.grafik-baslik{font:700 15px/1.3 "YzBaslik",system-ui,sans-serif;margin:0 0 6px}
+.grafik table{font-size:13px}
+.kaynaklar{margin-top:34px;border-top:1px solid var(--cizgi);padding-top:6px}
+.kaynaklar ol{font-size:12.5px;line-height:1.45;padding-left:20px}
+.son{margin-top:26px;font:500 11px/1.5 "YzVeri",monospace;color:var(--soluk)}
+@media print{
+  body{background:#fff;font-size:11pt}
+  .arac{display:none}
+  main{max-width:none;padding:0}
+  h1{font-size:22pt}
+  h2{font-size:14pt}
+  p.giris{font-size:12.5pt}
+  a{color:var(--murekkep)}
+}
+</style>
+</head>
+<body>
+<nav class="arac"><a href="/yapay-zeka-dijital-tarim/teknoloji/veri">← Sayfaya dön</a>
+<button type="button" onclick="window.print()">Yazdır ya da PDF olarak kaydet</button></nav>
+<main>
+<p class="ust">TARIM PORTALI · TEKNOLOJİ</p>
+<h1>Veri platformları</h1>
+<p class="kunye-ust">https://tarimportali.net/yapay-zeka-dijital-tarim/teknoloji/veri</p>
+<p class="giris">Tarımda verinin değeri tek bir tarlada değil, binlerce tarlanın verisi bir araya geldiğinde ortaya çıkıyor; yapay zekâ da bu birikimle eğitiliyor. Kamunun uydu verisinde serbest erişim kullanımı katladı: Landsat görüntüleri 2008'de ücretsiz olunca, NASA'nın aktardığına göre veri kullanımı <strong class="rakam">20</strong> kat arttı. Çiftlik verisi ise güven olmadan akmıyor: bir seçim deneyinde çiftçilerin ortalama <strong class="rakam">%36</strong>'sı verisini büyük bir veri platformuyla paylaşmaya istekliydi. Verinin kimin olduğu sorusuna Avrupa mülkiyetle değil haklarla cevap veriyor. Türkiye'de çiftlik verisinin en büyük kaydı devletin elinde; çiftçinin kendi verisine erişimini ve onu taşımasını düzenleyen bir kural ise yok.</p>
+<h2>Paylaşımı belirleyen güven</h2>
+<p>Turland ve Slade'in (2020) deneyinde platformu kimin işlettiği belirleyiciydi: çiftçiler verilerini en çok üniversite araştırmacılarıyla, en az devletle paylaşmaya istekliydi. Küçük faydalar ise mahremiyete güçlü önem veren çiftçilerde bile katılımı belirgin biçimde artırdı. Verinin fiilen nasıl aktığını sözleşmeler gösteriyor: Kaur ve Dara'nın (2023) incelediği <strong class="rakam">141</strong> tarım uygulaması sözleşmesinin <strong class="rakam">%95</strong>'i okunması zor kategorisinde, yaklaşık <strong class="rakam">%75</strong>'i anlaşılmak için üniversite düzeyinde eğitim gerektiriyor. Kamu verisinde ise belirleyici olan ücret: USGS, Landsat görüntüleri için ücret konursa kullanıcıların <strong class="rakam">%50</strong>'den fazlasının ödemeyi reddetmesini bekliyor.</p>
+<h2>Mülkiyetten erişim hakkına</h2>
+<p>Avrupa'nın çiftçi ve tarım sanayii örgütlerinin 2018 tarihli davranış kuralları, verinin fiziksel mallar gibi sahiplenilemeyeceğini kabul edip hakları çiftçiye veriyor: üretenin rızası olmadan kullanım ve paylaşım yok, üreten kendi verisini makinece okunur biçimde alabiliyor. Ama makine verisine erişim kısıtlı kalıyor ve uyum gönüllü. Atik'e (2022) göre mülkiyet çerçevesi veriye kilitlenme, verinin parçalanması ve çiftçinin güvensizliği gibi asıl sorunları çözmeye yetmiyor, hatta ağırlaştırabilir.</p>
+<p>Gönüllü kuralların yanına artık bağlayıcı bir tüzük eklendi. AB Veri Tüzüğü'ne göre 12 Eylül 2025'ten beri kullanıcının, bağlantılı makinesinin ürettiği veriye erişim hakkı var; 12 Eylül 2026'dan sonra piyasaya çıkan bağlantılı ürünler bu veriyi varsayılan olarak, ücretsiz ve makinece okunur biçimde sunacak şekilde tasarlanmak zorunda. Gerekçesi ayrıca, veriyi tutan şirketin çiftliğin performans bilgisini ürün alım pazarlığında çiftçinin aleyhine kullanmaması gerektiğini yazıyor. Komisyon'a göre ortak Avrupa veri alanları <strong class="rakam">14</strong> sektörde geliştiriliyor, tarımda sekiz girişim var. Tzachor ve arkadaşları (2022) ise veri şeffaflığı ve sahiplik hakları için veri kooperatifleri kurulmasını öneriyor.</p>
+<h2>Kayıt devletin elinde</h2>
+<p>Türkiye'de çiftlik verisinin omurgası kamu kayıtları. Dünya Bankası'nın Türkiye'nin temel kırsal veri tabanı dediği çiftçi kaydı, 2000 tarım yılında yapılan bir pilotun ardından doğrudan gelir desteğiyle birlikte kuruldu. Çiftçi Kayıt Sistemi'ne (ÇKS) kayıtlı alan 2025'te <strong class="rakam">16,1</strong> milyon hektarla <strong class="rakam">17,3</strong> milyon hektarlık hedefin <strong class="rakam">%93</strong>'üne ulaştı. Genel Tarım Sayımı, bakanlık sistemlerinde kayıtlı olmayan yaklaşık <strong class="rakam">3,4</strong> milyon hektarı re'sen kayda aldı; 2027 Programı bütün işletmelerin mekânsal veriyle kaydedileceği bir sistem ve bir ulusal açık veri portalı öngörüyor. Sebze ve meyve ticaretinde Hal Kayıt Sistemi, her bildirim için özgün numaralı bir künye üreten merkezî bir kayıt. Bu kaydın verisi araştırmada da kullanılıyor: bir makine öğrenmesi denemesi <strong class="rakam">1.791</strong> günlük hal fiyatını ve işlem hacmini Ticaret Bakanlığı'nın sitesinden elle derleyerek yeni bir veri seti kurdu.</p>
+<figure class="gorsel"><img src="/yz/gorsel/b16-hal-kayit-sistemi-nin-karekodlu-urun.webp" alt="Ürün Künyelerine Yönelik Tebliğ&#x27;le (Resmî Gazete, 21 Eylül 2016) belirlenen karekodlu sebze ve meyve ürün künyesinin iki örneği, geleneksel (konvansiyonel) ve organik tarım ürünleri için: ürün adı ve cinsi, üretim yeri ya da gümrük kapısı, üretim ya da ithal tarihi, miktar, alış fiyatı, üretici ve işletme adı alanları ile Hal Kayıt Sistemi&#x27;nde sorgulanabilen künye numarası. Dönemin Gümrük ve Ticaret Bakanlığı&#x27;nın 21 Eylül 2016 tarihli haberinden." loading="eager"><figcaption><span class="kunye">Ürün Künyelerine Yönelik Tebliğ&#x27;le (Resmî Gazete, 21 Eylül 2016) belirlenen karekodlu sebze ve meyve ürün künyesinin iki örneği, geleneksel (konvansiyonel) ve organik tarım ürünleri için: ürün adı ve cinsi, üretim yeri ya da gümrük kapısı, üretim ya da ithal tarihi, miktar, alış fiyatı, üretici ve işletme adı alanları ile Hal Kayıt Sistemi&#x27;nde sorgulanabilen künye numarası. Dönemin Gümrük ve Ticaret Bakanlığı&#x27;nın 21 Eylül 2016 tarihli haberinden.</span><span class="kaynak">Görsel: T.C. Ticaret Bakanlığı</span></figcaption></figure>
+<p>Türkiye Yapay Zekâ Eylem Planı (2026-2030), şirketlerin ve kamu kurumlarının verilerini ortak kurallar ve standart sözleşmelerle paylaşacağı veri alanlarını, tarım için sektörel bir yol haritasını ve en az <strong class="rakam">2.000</strong> kamu veri setinin makinece okunur biçimde yayımlanmasını hedefliyor. Ama veri sahipliğinden söz etmiyor, çiftçiden de hiç bahsetmiyor. <strong class="rakam">6698</strong> sayılı Kişisel Verilerin Korunması Kanunu'nun tanımıyla bir çiftçiye bağlanabilen parsel ya da üretim verisi kişisel veri sayılabilir. Türk çiftçisinin veri paylaşma isteğini ölçen yayımlanmış bir çalışma da bulunmuyor.</p>
+<section class="kaynaklar"><h2>Kaynaklar</h2><ol><li>6698 sayılı Kişisel Verilerin Korunması Kanunu. Kabul 24.03.2016; Resmî Gazete 07.04.2016. <a href="https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf">https://www.mevzuat.gov.tr/mevzuatmetin/1.5.6698.pdf</a></li><li>Atik C. 2022. Towards Comprehensive European Agricultural Data Governance: Moving Beyond the “Data Ownership” Debate. IIC – International Review of Intellectual Property and Competition Law 53(5): 701–742.</li><li>Copa-Cogeca, CEMA, Fertilizers Europe, CEETTAR, CEJA, ECPA, EFFAB, FEFAC, ESA. 2018. EU Code of conduct on agricultural data sharing by contractual agreement. Brüksel. <a href="https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf">https://cema-agri.org/images/publications/brochures/EU_Code_of_conduct_on_agricultural_data_sharing_by_contractual_agreement_2020_ENGLISH.pdf</a></li><li>European Commission. 2026. Common European data spaces (Shaping Europe’s digital future; son güncelleme 5 Kasım 2026). Brüksel. <a href="https://digital-strategy.ec.europa.eu/en/policies/data-spaces">https://digital-strategy.ec.europa.eu/en/policies/data-spaces</a></li><li>Kaur J., Dara R. 2023. Analysis of Farm Data License Agreements: Do Data Agreements Adequately Reflect on Farm Data Practices and Farmers’ Data Rights? Agriculture 13(11): 2170.</li><li>NASA Landsat Science (Rocchio L.E.P.). 2019. Landsat Science Team members support the free and open Landsat data policy. 20 Mart 2019. [Zhu Z. ve ark. 2019, Benefits of the free and open Landsat data policy, Remote Sensing of Environment 224: 382-385 makalesinin kurumsal özeti] <a href="https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/">https://science.nasa.gov/missions/landsat/landsat-science-team-members-support-the-free-and-open-landsat-data-policy/</a></li><li>Regulation (EU) 2023/2854 — Data Act</li><li>Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik. Resmî Gazete 7.7.2012, sayı 28346; değişikliklerle konsolide metin (son değişiklik Resmî Gazete 29.4.2023). Mevzuat Bilgi Sistemi. <a href="https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&amp;mevzuatTur=KurumVeKurulusYonetmeligi&amp;mevzuatTertip=5">https://www.mevzuat.gov.tr/File/GeneratePdf?mevzuatNo=16340&amp;mevzuatTur=KurumVeKurulusYonetmeligi&amp;mevzuatTertip=5</a></li><li>Straub C.L., Koontz S.R., Loomis J.B. 2019. Economic valuation of Landsat imagery. U.S. Geological Survey Open-File Report 2019-1112. 13 s.</li><li>T.C. Cumhurbaşkanlığı. 2026. 2027 Yılı Cumhurbaşkanlığı Yıllık Programı. Resmî Gazete, 27 Ekim 2026, Sayı 33413 (Mükerrer).</li><li>T.C. Cumhurbaşkanlığı. 2026. Türkiye Yapay Zekâ Eylem Planı (2026-2030). Cumhurbaşkanlığı Genelgesi 2026/9, Resmî Gazete, 18 Ağustos 2026.</li><li>T.C. Tarım ve Orman Bakanlığı, Strateji Geliştirme Başkanlığı. 2026. 2025 Yılı İdare Faaliyet Raporu. Ankara. <a href="https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf">https://www.tarimorman.gov.tr/SGB/Belgeler/Bakanl%C4%B1k_Faaliyet_Raporlar%C4%B1/2025%20YIL%C4%B0DARE%20FAAL%C4%B0YET.pdf</a></li><li>Turland M., Slade P. 2020. Farmers&#x27; willingness to participate in a big data platform. Agribusiness 36(1): 20–36.</li><li>Tzachor A., Devare M., King B., Avin S., Ó hÉigeartaigh S. 2022. Responsible artificial intelligence in agriculture requires systemic understanding of risks and externalities. Nature Machine Intelligence 4(2): 104–109.</li><li>World Bank. 23 Kasım 2009. Implementation Completion and Results Report (IBRD-46310) on a Loan in the Amount of US$600 Million to the Republic of Turkey for an Agricultural Reform Implementation Project. Report No: ICR00001155. <a href="https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf">https://documents.worldbank.org/curated/en/952161468308967946/pdf/ICR11550P070281C0Disclosed012115191.pdf</a></li><li>Özden C. 2023. Comparative Analysis of CNN, LSTM and Random Forest for Multivariate Agricultural Price Forecasting. Black Sea Journal of Agriculture 6(4): 422-426.</li></ol></section>
+<p class="son">Bu yazdırılabilir sürüm https://tarimportali.net/yapay-zeka-dijital-tarim/teknoloji/veri adresindeki sayfanın metnidir; kaynaklarından son okunduğu gün 17 Kasım 2026.</p>
+</main>
+</body>
+</html>
