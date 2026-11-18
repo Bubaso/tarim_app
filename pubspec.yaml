@@ -48,6 +48,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    # Yapay Zeka ve Dijital Tarım bölümünün yazı tipleri (karar 60): ilk
+    # ziyarette Google'ın sunucusundan inmesin, metin yedek yazı tipiyle
+    # çizilip sonra kaymasın. google_fonts dosyayı adından buluyor
+    # (Aile-Kalınlık.ttf); yalnız bölümün kullandığı kalınlıklar. Lisanslar
+    # (OFL) yanında. Öteki aile ve kalınlıklar eskisi gibi ağdan iner.
+    - assets/google_fonts/
     # assets/videos/ kaldırıldı: dizin yok ve kodda hiçbir yerde yerel
     # video açılmıyor (videolar ağdan geliyor). Flutter her derlemede
     # "unable to find directory entry" hatası basıyordu; derleme yine de
