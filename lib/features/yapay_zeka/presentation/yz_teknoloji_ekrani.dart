@@ -68,9 +68,7 @@ class YzTeknolojiEkrani extends StatelessWidget {
                           ),
                           const SizedBox(height: 26),
                           YzMetinGorunumu(metin: metin.metin(en), en: en, kaynakSayfasi: 'tek_$kod'),
-                        ] else
-                          Text(en ? 'This page is being written.' : 'Bu sayfa yazılıyor.',
-                              style: YzYazi.veri(boy: 12.5, renk: YzRenk.bekleyenMetin)),
+                        ],
                         const SizedBox(height: 30),
                         YzBolumBasligi(
                           en ? 'Where it comes up' : 'Geçtiği başlıklar',

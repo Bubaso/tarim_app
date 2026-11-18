@@ -17,10 +17,10 @@ import 'yz_teknoloji_izi.dart';
 
 /// Bir başlığın sayfası — `/yapay-zeka-dijital-tarim/<adres>` (karar 8).
 ///
-/// Yazılmış başlıkta gömülü metin; yazılmakta olanda iskeletin özeti ve
-/// "yazılıyor" durumu (karar 40'ın ruhu: gerçekleşmemiş olan gizlenmiyor,
-/// durumuyla gösteriliyor). Haber alan başlıkta altında kendi haberleri
-/// (karar 32). Güncellik başlık bazında (karar 23).
+/// Gömülü metin; yazım durumu okura gösterilmiyor (iç not; kullanıcı,
+/// 18 Kas 2026 — bölüm zaten 30 başlığın hepsi yazılınca açılıyor, karar
+/// 51). Haber alan başlıkta altında kendi haberleri (karar 32). Güncellik
+/// başlık bazında (karar 23).
 class YzBaslikEkrani extends StatefulWidget {
   const YzBaslikEkrani({super.key, required this.slug});
   final String slug;
@@ -118,16 +118,13 @@ class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
                           ),
                         ],
                         const SizedBox(height: 14),
-                        Text(
-                          metin != null
-                              ? (en
-                                  ? 'Last checked against its sources: ${yzTarih(metin.guncellendi, true)}'
-                                  : 'Kaynaklarından son okunduğu gün: ${yzTarih(metin.guncellendi, false)}')
-                              : (en ? 'This heading is being written.' : 'Bu başlık yazılıyor.'),
-                          style: YzYazi.veri(
-                              boy: 12.5,
-                              renk: metin != null ? YzRenk.soluk : YzRenk.bekleyenMetin),
-                        ),
+                        if (metin != null)
+                          Text(
+                            en
+                                ? 'Last checked against its sources: ${yzTarih(metin.guncellendi, true)}'
+                                : 'Kaynaklarından son okunduğu gün: ${yzTarih(metin.guncellendi, false)}',
+                            style: YzYazi.veri(boy: 12.5, renk: YzRenk.soluk),
+                          ),
                         const SizedBox(height: 26),
                         if (metin != null)
                           _Icindekiler(
@@ -148,9 +145,7 @@ class _YzBaslikEkraniState extends State<YzBaslikEkrani> {
                               vurguDenetcisi: _vurgu,
                               kaynakSayfasi: kYzSozluksuzBasliklar.contains(b.no)
                                   ? null
-                                  : 'b${b.no.toString().padLeft(2, '0')}')
-                        else
-                          _Yaziliyor(baslik: b),
+                                  : 'b${b.no.toString().padLeft(2, '0')}'),
                         // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.
                         if (b.slug == kYzDizinAdresi) const _DizinEklenenler(),
                         if (b.haberAlir) ...[
@@ -245,40 +240,6 @@ class _DizinSatiri extends StatelessWidget {
               ),
             ),
           ],
-        ],
-      ),
-    );
-  }
-}
-
-class _Yaziliyor extends StatelessWidget {
-  const _Yaziliyor({required this.baslik});
-  final YzBaslik baslik;
-
-  @override
-  Widget build(BuildContext context) {
-    final en = yzIsEn(context);
-    return Container(
-      padding: const EdgeInsets.fromLTRB(18, 16, 18, 18),
-      decoration: BoxDecoration(
-        color: YzRenk.yuzey,
-        borderRadius: BorderRadius.circular(4),
-        border: Border.all(color: YzRenk.bekleyen.withValues(alpha: 0.6)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(en ? 'WHAT THIS HEADING WILL COVER' : 'BU BAŞLIK NEYİ ANLATACAK',
-              style: YzYazi.ustEtiket(renk: YzRenk.bekleyenMetin)),
-          const SizedBox(height: 8),
-          Text(baslik.ozet(en), style: YzYazi.govde(boy: 17.5)),
-          const SizedBox(height: 10),
-          Text(
-            en
-                ? 'Text enters this page only after every figure in it has been traced to a locked source record.'
-                : 'Metin bu sayfaya, içindeki her rakam kilitli bir kaynak kaydına bağlandıktan sonra giriyor.',
-            style: YzYazi.govde(boy: 15, renk: YzRenk.soluk),
-          ),
         ],
       ),
     );

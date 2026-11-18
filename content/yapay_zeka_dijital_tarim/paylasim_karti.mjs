@@ -11,8 +11,8 @@
 // Renkler yz_tasarim.dart ile aynı değerler.
 //
 // ══ SAYI HAFIZADAN YAZILMIYOR ═══════════════════════════════════════════
-// "30 başlık · 3 yazıldı" iskelet.json'dan sayılıyor. Başlık yazıldıkça
-// kart da değişiyor — yeniden koşturulunca.
+// "30 başlık" iskelet.json'dan sayılıyor. Yazım durumu ("3 yazıldı") kartta
+// yok: iç not, okura gösterilmez (kullanıcı, 18 Kas 2026).
 //
 // ══ FONTLAR GÖMÜLÜ ══════════════════════════════════════════════════════
 // Öteki kartlarla aynı gerekçe: content/dossiers/_ortak/fontlar/KAYNAK.md
@@ -32,7 +32,6 @@ const puppeteer = require('puppeteer');
 
 const iskelet = JSON.parse(readFileSync(join(BURASI, 'iskelet.json'), 'utf8'));
 const toplam = iskelet.basliklar.length;
-const yazilan = iskelet.basliklar.filter((b) => b.durum === 'yazildi').length;
 
 const FONTLAR = join(KOK, 'content', 'dossiers', '_ortak', 'fontlar');
 const font64 = (ad) => readFileSync(join(FONTLAR, ad)).toString('base64');
@@ -113,7 +112,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
     <h1>Yapay Zeka ve<br>Dijital Tarım</h1>
     <p>Tarımda bugün nerede duruyoruz: ölçülmüş, kaynaklı, düzenli taranan.</p>
   </div>
-  <div class="alt">TARIMPORTALI.NET · ${toplam} BAŞLIK · <b>${yazilan} YAZILDI</b></div>
+  <div class="alt">TARIMPORTALI.NET · <b>${toplam} BAŞLIK</b></div>
 </div></body></html>`;
 
 const tarayici = await puppeteer.launch({ args: ['--no-sandbox'] });
@@ -128,4 +127,4 @@ const hedef = join(cikti, 'yapay-zeka-dijital-tarim.jpg');
 await sayfa.screenshot({ path: hedef, type: 'jpeg', quality: 92 });
 await tarayici.close();
 
-console.log(`✓ web/paylasim/yapay-zeka-dijital-tarim.jpg — ${toplam} başlık, ${yazilan} yazıldı`);
+console.log(`✓ web/paylasim/yapay-zeka-dijital-tarim.jpg — ${toplam} başlık`);

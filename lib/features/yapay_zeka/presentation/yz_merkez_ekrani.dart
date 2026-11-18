@@ -9,7 +9,7 @@ import 'yz_tasarim.dart';
 /// Yapay Zeka ve Dijital Tarım — merkez sayfa (karar 8: merkez + alt sayfalar).
 ///
 /// Bir giriş sayfası değil, bir HARİTA: okur ilk bakışta bölümün neyi
-/// kapsadığını, ne kadarının yazıldığını ve son haberleri görüyor. Tez yok
+/// kapsadığını ve son haberleri görüyor. Tez yok
 /// (karar 6). "Bugün nerede duruyoruz" haritada bir başlık olarak duruyor;
 /// merkez sayfada ayrıca özet kutusu yok (kullanıcı, 18 Kas 2026: aynı
 /// metin başlıkta var). Son haberler görselli vitrin (yz_haber_vitrini.dart).
@@ -22,7 +22,6 @@ class YzMerkezEkrani extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
-    final yazilan = kYzBasliklar.where((b) => b.yazildi).length;
     final sonGuncelleme = kYzMetinler.values.isEmpty
         ? null
         : (kYzMetinler.values.map((m) => m.guncellendi).toList()..sort()).last;
@@ -80,9 +79,7 @@ class YzMerkezEkrani extends StatelessWidget {
                               const SizedBox(height: 20),
                               Wrap(spacing: 18, runSpacing: 6, children: [
                                 Text(
-                                  en
-                                      ? '${kYzBasliklar.length} headings · $yazilan written'
-                                      : '${kYzBasliklar.length} başlık · $yazilan yazıldı',
+                                  en ? '${kYzBasliklar.length} headings' : '${kYzBasliklar.length} başlık',
                                   style: YzYazi.veri(boy: 13, renk: YzRenk.murekkep),
                                 ),
                                 if (sonGuncelleme != null)

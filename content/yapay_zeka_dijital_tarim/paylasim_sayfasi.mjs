@@ -113,8 +113,7 @@ const toplam = iskelet.basliklar.length;
 const yazilanlar = iskelet.basliklar.filter((b) => b.durum === 'yazildi');
 yaz(YOL, 'Yapay Zeka ve Dijital Tarım',
   `Tarımda yapay zekâ ve dijital teknolojiler bugün nerede duruyor: ölçülmüş, `
-  + `kaynaklı, düzenli taranan bir başvuru dosyası. ${toplam} başlık, `
-  + `${yazilanlar.length} yazıldı.`);
+  + `kaynaklı, düzenli taranan, ${toplam} başlıklık bir başvuru dosyası.`);
 
 for (const b of yazilanlar) {
   const on = `${String(b.no).padStart(2, '0')}-${b.slug}`;

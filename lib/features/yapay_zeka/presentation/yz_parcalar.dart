@@ -248,14 +248,15 @@ class YzBaslikKarosu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
-    final y = baslik.yazildi;
     final secili = teknoloji != null && !sonuk;
     final izSayisi = secili ? (kYzTeknolojiIzi[baslik.no]?[teknoloji]?[en ? 1 : 0] ?? 0) : 0;
-    final durum = secili
-        ? (ana
+    // Karoda yazım durumu yok (iç not; kullanıcı, 18 Kas 2026): yalnız seçili
+    // teknolojinin bu başlıkta kaç yerde geçtiği.
+    final durum = !secili
+        ? null
+        : (ana
             ? (en ? 'main heading · $izSayisi mentions' : 'ana başlık · $izSayisi yerde geçiyor')
-            : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'))
-        : (y ? (en ? 'written' : 'yazıldı') : (en ? 'in progress' : 'yazılıyor'));
+            : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'));
     final adres = secili
         ? Uri(path: yzBaslikPath(baslik.slug), queryParameters: {'teknoloji': teknoloji!})
             .toString()
@@ -264,7 +265,7 @@ class YzBaslikKarosu extends StatelessWidget {
       duration: const Duration(milliseconds: 180),
       opacity: sonuk ? 0.32 : 1,
       child: Material(
-        color: secili && ana ? YzRenk.makineAcik : (y ? YzRenk.bitkiAcik : YzRenk.yuzey),
+        color: secili && ana ? YzRenk.makineAcik : YzRenk.bitkiAcik,
         borderRadius: BorderRadius.circular(4),
         child: InkWell(
           borderRadius: BorderRadius.circular(4),
@@ -275,33 +276,23 @@ class YzBaslikKarosu extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(4),
               border: Border.all(
-                color: secili
-                    ? YzRenk.makine
-                    : (y ? YzRenk.bitki.withValues(alpha: 0.55) : YzRenk.cizgi),
+                color: secili ? YzRenk.makine : YzRenk.bitki.withValues(alpha: 0.55),
                 width: secili && ana ? 2 : 1,
               ),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [
-                  // Esnek: dar karoda İngilizce etiket ("in progress")
-                  // taşmasın, kısalsın. Karoda numara yok: okur başlığı
-                  // adıyla tanıyor.
-                  Expanded(
-                    child: Text(
-                      durum,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: YzYazi.veri(
-                          boy: 10.5,
-                          renk: secili
-                              ? YzRenk.makine
-                              : (y ? YzRenk.bitki : YzRenk.bekleyenMetin)),
-                    ),
+                // Karoda numara yok: okur başlığı adıyla tanıyor.
+                if (durum != null) ...[
+                  Text(
+                    durum,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: YzYazi.veri(boy: 10.5, renk: YzRenk.makine),
                   ),
-                ]),
-                const SizedBox(height: 5),
+                  const SizedBox(height: 5),
+                ],
                 Text(baslik.ad(en),
                     style: YzYazi.baslik(14.5).copyWith(height: 1.25),
                     maxLines: 3,

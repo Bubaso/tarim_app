@@ -423,6 +423,9 @@ devam ediyor.
       // Merkez sayfada ayrıca "Bugün nerede duruyoruz" özet kutusu yok
       // (kullanıcı, 18 Kas 2026): §1 haritada bir başlık olarak duruyor.
       expect(find.text('Durum tespitinin tamamı'), findsNothing);
+      // Yazım durumu okura gösterilmez (iç not): karolarda ve sayı satırında.
+      expect(find.textContaining(RegExp(r'yazıldı|yazılıyor|yazılacak')), findsNothing);
+      expect(find.text('${kYzBasliklar.length} başlık'), findsOneWidget);
       expect(find.widgetWithText(YzBaslikKarosu, 'Bugün nerede duruyoruz'), findsOneWidget);
       expect(find.textContaining('Özet.', findRichText: true), findsNothing);
       // teknoloji süzgeci (karar 57): seçilince kaç başlıkta geçtiği ve
@@ -455,10 +458,9 @@ devam ediyor.
         expect(find.text(b.tr), findsOneWidget);
         if (b.yazildi) {
           expect(find.textContaining('Kaynaklarından son okunduğu gün'), findsOneWidget);
-        } else {
-          expect(find.text('Bu başlık yazılıyor.'), findsOneWidget);
-          expect(find.text('BU BAŞLIK NEYİ ANLATACAK'), findsOneWidget);
         }
+        // Yazım durumu okura gösterilmez (iç not; kullanıcı, 18 Kas 2026).
+        expect(find.textContaining(RegExp(r'yazılıyor|yazıldı|yazılacak|NEYİ ANLATACAK')), findsNothing);
       });
     }
 
@@ -812,7 +814,7 @@ devam ediyor.
 }
 
 /// Çizim testlerinin başlıkları: yazılmışların HEPSİ + yazılmamışlardan ilki
-/// ("Bu başlık yazılıyor." dalı da sınansın; hepsi yazılınca o dal düşer).
+/// (metni olmayan başlık da çökmeden çizilsin; hepsi yazılınca o dal düşer).
 final List<String> _sinanacakBasliklar = [
   ...kYzBasliklar.where((b) => b.yazildi).map((b) => b.slug),
   ...kYzBasliklar.where((b) => !b.yazildi).map((b) => b.slug).take(1),
