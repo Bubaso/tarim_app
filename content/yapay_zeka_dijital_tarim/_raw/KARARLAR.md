@@ -237,3 +237,13 @@ sıralayabilir misin?" Claude 26 öneri sıraladı (16'sı yıldızlı). Kullan�
 | # | karar |
 |---|---|
 | 60 | **Metin kesilmez; okuma kolaylaştırılır.** (a) Madde listesi: noktalı virgülle dizilen sayım listeye döner, TR ve EN aynı yapıda (kural 14). (b) 40 kelimeyi aşan cümle içerik aynen kalarak bölünür. (c) Az bilinen kısaltma sayfada ilk geçtiği yerde açılmıyorsa balonla açılır (`kisaltmalar.json`, kural 13); temel terimlerin (yapay zekâ, sensör, robot, dijital tarım) sözlük balonu yalnız Kavramlar'da. (d) Terim birliği: "makine öğrenmesi", "dron" (kural 15). (e) Sayfa: metin sütunu ~610 px, giriş paragrafı bir punto büyük, geniş ekranda içindekiler rayı, telefonda katlanan içindekiler ve "İçindekiler / Başa dön" düğmesi, okuma süresi, yazı boyu (A−/A+), bölüm içi arama (`/ara`, `?ara=`), sözlükten dönüşte kaldığı yer, rakamla birim arasında bölünmez boşluk. (f) İngilizce yazılı şekil ve grafik Türkçe sayfada Türkçeye uyarlanmış kopyayla (`<kimlik>.tr.webp`, `gorsel_turkce.py`; kaynak satırı "Türkçeye uyarlandı"); İngilizce sayfada özgünü. (g) Sesli dinleme yapılmaz (kullanıcı, 25. madde). (h) Vurgu kelime düzeyinde fosforlu kalem (teknoloji mavi, arama sarı); paragrafın, içindekilerin ve şeridin solunda dikey çizgi YOK (kullanıcı). (i) Metindeki rakam gövde yazı tipinin kendi rakamıyla, tam boy, çelik mavisi (kullanıcının seçimi B; eşit genişlikli ayrı yazı tipi kalktı) |
+
+## N · Açılış (18 Kasım 2026)
+
+Kullanıcı: "inceledim. dosyayı canlıya alalım. bir kere de canlıda görelim.
+çalışmamıza canlıda devam edebiliriz. canlıda tecrübe edelim." Göç için
+"Uygula", git için "Birleştir ve gönder" seçildi.
+
+| # | karar |
+|---|---|
+| 61 | **Bölüm okura açıldı; çalışma canlıda sürüyor.** Karar 51'in eşiği (30/30) tuttu; `yayin.json` `okura_acik: true` (e48ebe8), göç `20261117120000_yz_dizin_okur.sql` canlıda, `./deploy.sh --hosting` ile yayında, uygulama deposu main'de ve GitHub'da. Bundan sonraki her düzeltme canlı siteye gidiyor: her dağıtım yine ayrı onayla ve biriktirilerek. Bölümün ekranları ERTELİ pakette — sitenin ilk yükünü ağırlaştırmıyor (bkz. README "Açılış"). |

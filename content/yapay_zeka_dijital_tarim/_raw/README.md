@@ -1322,18 +1322,83 @@ hikâyeleri); masaüstünde satır ~85 harfti. 26 öneri; kullanıcı yıldızl�
 - Rakam yazı tipi (9): iki hâl yan yana gösterildi; kullanıcı B'yi seçti: rakam gövdenin
   kendi rakamıyla, tam boy, çelik mavisi. İçindekiler ve rayda sol çizgi kalktı (kullanıcı).
 
-## Açılış adımları (sırayla; her biri kullanıcının ayrı onayıyla)
+## Açılış adımları — YAPILDI, 18 Kasım 2026
 
-1. **Supabase göçü:** `supabase/migrations/20261117120000_yz_dizin_okur.sql`
-   (canlı veritabanı). Uygulanmazsa §25'in dinamik listesi boş kalır.
-2. **Son canlılık koşusu:** `python3 -I _raw/kaynak_canlilik.py`, sonra
-   `--ozet`; yeni "kapali" satırı varsa adres düzeltilir.
-3. **Açılış:** `yayin.json` → `"okura_acik": true`; `python3 -I
-   dart_uret.py` (30/30'u sınar, eksik varsa durur); yazdırılabilir
-   sürüm `python3 -I _raw/yazdir_uret.py ../../web/yz/yazdir`. Doğrulayıcılar ve
-   `flutter test test/yz_bolum_test.dart test/yz_panel_test.dart test/yz_grafik_test.dart`.
-4. **Dağıtım:** `./deploy.sh --hosting` (fonksiyon değişmedi; sürüm ve
-   durum bekçileri koşuyor). Bayrak açıkken paylaşım kabukları da
-   üretiliyor.
-5. **Git:** `yapay-zeka-bolumu` dalının birleştirilmesi ve GitHub'a
-   gönderilmesi; haber hattında ff061cd ve 82e150c (tarama ELLE koşuyor).
+Kullanıcı: "inceledim. dosyayı canlıya alalım. bir kere de canlıda
+görelim. çalışmamıza canlıda devam edebiliriz. canlıda tecrübe edelim."
+Göç ve git için ayrıca soruldu, ikisi de onaylandı (karar 61).
+
+1. **Supabase göçü** `20261117120000_yz_dizin_okur.sql` — UYGULANDI.
+   Anon rolüyle `yz_dizin_eklenenler` çağrısı 200, 0 satır (dizine
+   sonradan eklenen yok).
+2. **Canlılık koşusu** — açık 205 · kısa 4 · engelli 40 · kapalı 4
+   (0cf6e34). Kapalı dördün üçü ağ düzeyinde: J-FASE DOI'si ve Çin
+   bakanlığı sayfasında alan adı çözülmedi (ikisi önceki koşuda da öyleydi
+   ve hemen ardından açılmıştı), NRCan sayfası zaman aşımı. Wayback'teki
+   Small Robot Company kopyası (b01, b27) 404. Dördü de tarayıcıyla
+   yeniden denenecek; bu oturumda betik dışı tekil deneme izin
+   denetiminden geçmedi.
+3. **Açılış** — e48ebe8: `okura_acik: true`, yazdırılabilir sürüm
+   `web/yz/yazdir` (78 sayfa), paylaşım kartı.
+4. **Dağıtım** — ilk deneme ağırlık bekçisinde DURDU, canlıya bir şey
+   gitmedi (main.dart.js 2.281.207 > 1.800.000; fontlar 441.420 > 70.000).
+   Bölüm erteli pakete alındı (ff13d4f, aşağıda). İkinci deneme geçti:
+   main.dart.js 1.803.838 (tavan 1.830.000), fontlar 42.072; durum
+   bekçisi ayrışma yok; sürüm bekçisi 27/27; merkez + 30 başlık + 9
+   teknoloji paylaşım kabuğu; Mısır taslak, kabuğu üretilmedi.
+5. **Git** — uygulama deposu: `yapay-zeka-bolumu` main'e ileri sarıldı ve
+   gönderildi. Haber hattı: gönderilecek dalda ff061cd ve 82e150c'nin
+   altında üçüncü bir commit var (47e2ef2, 17 Kasım: koşu sonunda eksik
+   görsel türevlerini süpürme); kullanıcıya sorulmadan gönderilmedi.
+
+## Açılış — 18 Kasım 2026
+
+### Erteli paket (ff13d4f)
+
+Bayrak kapalıyken derleyici okur ekranlarını hiç pakete koymuyordu; önceki
+dağıtımlar bu yüzden ağırlık bekçisinden geçmişti. Bayrak açılınca 30
+başlığın metni, teknoloji sayfaları, grafikler, sözlük ve rakamların
+kaynak kayıtları ilk yüke girdi ve sitenin her sayfası (ana sayfa, haber,
+piyasa) onları indirecekti.
+
+- Yönlendirici ekranları `presentation/yz_ekranlar.dart` üzerinden
+  `deferred as` alıyor; rota önce paketi indiriyor (`yz_erteli.dart`,
+  YzErteliSayfa: 400 ms'den önce gösterge yok, düşerse "Yeniden dene",
+  ikinci girişte bekleme yok), sonra ekranı kuruyor.
+- Adresler ve `yzIsEn` hafif `yz_yollar.dart`ta; `yz_parcalar` onları
+  dışa aktarıyor. Ana sayfa şeridi `yz_parcalar`ı içe AKTARMIYOR.
+- Ölçü: bölüm parçası 477 KB gzip (canlıda 307 KB aktarım). Ana sayfa
+  parçayı indirmiyor; okur bölüme ilk girdiğinde bir kez iniyor (canlıda
+  168-307 ms).
+- KURAL: bölümün ağır dosyaları (metinler, rakam kaynakları, grafikler,
+  teknoloji, sözlük, `yz_parcalar`, `yz_metin_gorunumu`) ilk yükteki bir
+  dosyadan içe aktarılmaz — `test/yz_erteli_test.dart` `lib/main.dart`'tan
+  erteli olmayan yolları tarıyor. Yeni bir bölüm ekranı yönlendiriciye
+  `yz_ekranlar.dart`a bir işlev eklenerek bağlanır; ekranın tipi
+  yönlendiricide anılamaz (erteli tip).
+- Ağırlık bekçisi (deploy.sh, gerekçesi orada): font ölçüsü açılışta inen
+  FontManifest fontlarına çekildi (bölümün `assets/google_fonts`
+  dosyaları manifestte değil, ilk kullanımda iniyor). JS tavanı 1.800.000
+  → 1.830.000: canlıdaki main.dart.js açılıştan önce zaten 1.794.920'ydi;
+  açılış ilk yüke ~10 KB ekliyor. Bir sonraki aşımda yol paneli ertelemek
+  (sürüm bekçisi o zaman parça dosyalarını da taramalı).
+
+### Canlıda doğrulanan
+
+Ana sayfa yalnız `main.dart.js` indiriyor, konsolda hata yok; şerit
+Uzayda Tarım'ın altında. Şeride tıklayınca sayfa yenilenmeden parça
+iniyor ve merkez sayfa açılıyor. Doğrudan adres (merkez, başlık,
+teknoloji) 200 ve çiziliyor; `main.dart.js_1.part.js` `no-cache`
+(sonraki dağıtımda eski parça kalmaz). Paylaşım kabuklarının og
+etiketleri doğru; `/yz/yazdir/` sayfaları açılıyor.
+
+### Açık kalanlar
+
+- Merkez sayfadaki "İlk kez mi geliyorsunuz?" satırı telefonda kırılıyordu
+  (virgül satır başına, "Kavramlar ."): 2117d88'de tek paragraf yapıldı,
+  sınandı — HENÜZ DAĞITILMADI.
+- Ana sayfa şeridinden girince adres çubuğu `/` kalıyor: `context.push`
+  adresi değiştirmiyor (go_router 14). Uzayda Tarım şeridinde de aynı;
+  site geneli, bölüme özgü değil.
+- Canlılık koşusunun dört kapalı adresi (yukarıda adım 2).
+- Haber hattı deposunun gönderimi (adım 5).
