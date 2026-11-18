@@ -861,8 +861,18 @@ class _Pay extends StatelessWidget {
               Container(width: 9, height: 9, color: _renk(g, n.dizi)),
               const SizedBox(width: 5),
               Flexible(
-                child: Text('${g.diziAdi(n.dizi, en)} ${g.yaz(n, en)}',
-                    style: YzYazi.veri(boy: 12, renk: YzRenk.murekkep, kalinlik: FontWeight.w600)),
+                // Telefonda dizi adı sade küçük Outfit, değer mono (karar 62).
+                child: yzTelefon(context)
+                    ? Text.rich(TextSpan(children: [
+                        TextSpan(
+                            text: '${g.diziAdi(n.dizi, en)} ',
+                            style: yzKunyeYazisi(renk: YzRenk.murekkep, boy: 13)),
+                        TextSpan(
+                            text: g.yaz(n, en),
+                            style: YzYazi.veri(boy: 12, renk: YzRenk.murekkep, kalinlik: FontWeight.w600)),
+                      ]))
+                    : Text('${g.diziAdi(n.dizi, en)} ${g.yaz(n, en)}',
+                        style: YzYazi.veri(boy: 12, renk: YzRenk.murekkep, kalinlik: FontWeight.w600)),
               ),
             ]),
         ]),

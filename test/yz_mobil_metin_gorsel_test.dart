@@ -110,6 +110,52 @@ Finder _dokunulan() => find
     .descendant(of: find.byType(YzGorselKarti), matching: find.byType(GestureDetector))
     .first;
 
+/// Katlanmış görselin altındaki solma geçişi.
+Finder _solma() => find.descendant(
+    of: find.byType(YzGorselKatlanir),
+    matching: find.byWidgetPredicate((w) {
+      if (w is! DecoratedBox || w.decoration is! BoxDecoration) return false;
+      final g = (w.decoration as BoxDecoration).gradient;
+      // Saydamdan zemine, yukarıdan aşağı (şemanın kendi geçişleri değil).
+      return g is LinearGradient &&
+          g.begin == Alignment.topCenter &&
+          g.end == Alignment.bottomCenter &&
+          g.colors.first.a == 0;
+    }));
+
+/// Pay çubuğu: lejantta dizi adı ve değer yan yana.
+YzGrafik _payGrafigi() => const YzGrafik(
+      kimlik: 'ornek-pay',
+      tur: 'pay',
+      baslikTr: 'Pay',
+      baslikEn: 'Share',
+      aciklamaTr: 'Açıklama.',
+      aciklamaEn: 'Description.',
+      kaynakTr: 'Kaynak: örnek',
+      kaynakEn: 'Source: example',
+      birimTr: '%',
+      birimEn: '%',
+      diziler: [YzGrafikDizi('a', 'Küçük işletme', 'Small farms'), YzGrafikDizi('b', 'Büyük işletme', 'Large farms')],
+      noktalar: [
+        YzGrafikNokta('Dünya', 'World', 'a', 35),
+        YzGrafikNokta('Dünya', 'World', 'b', 65),
+      ],
+    );
+
+/// Lejanttaki dizi adının yazı ailesi (düz Text ya da Text.rich parçası).
+List<String> _lejantAileleri(WidgetTester t, String ad) {
+  final sonuc = <String>[];
+  for (final r in t.widgetList<RichText>(find.byType(RichText))) {
+    r.text.visitChildren((s) {
+      if (s is TextSpan && (s.text ?? '').contains(ad)) {
+        sonuc.add(s.style?.fontFamily ?? r.text.style?.fontFamily ?? '');
+      }
+      return true;
+    });
+  }
+  return sonuc;
+}
+
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
   setUp(() => SharedPreferences.setMockInitialValues({}));
@@ -205,6 +251,10 @@ void main() {
       expect(t.getSize(gorunen).height, kYzKatliBoy);
       // Çizilmiş şema sütunun içinde kalıyor (kenardan kenara değil).
       expect(t.getRect(gorunen).left, 16);
+      // Alt kenar zemine soluyor (96 piksellik geçiş), açılınca kalkıyor.
+      expect(_solma(), findsOneWidget);
+      expect(t.getSize(_solma()).height, 96);
+      expect(t.getRect(_solma()).bottom, t.getRect(gorunen).bottom);
       final ac = find.text('Şemanın tamamını gör');
       expect(ac, findsOneWidget);
       final dugme = find.ancestor(of: ac, matching: find.byType(TextButton));
@@ -214,6 +264,7 @@ void main() {
       await t.pumpAndSettle();
       expect(t.getSize(gorunen).height, greaterThan(kYzKatlamaEsigi));
       expect(find.text('Şemayı daralt'), findsOneWidget);
+      expect(_solma(), findsNothing);
       // Düğme şemanın sonunda.
       expect(t.getRect(find.text('Şemayı daralt')).top, greaterThan(t.getRect(gorunen).bottom));
       await t.ensureVisible(find.text('Şemayı daralt'));
@@ -221,6 +272,7 @@ void main() {
       await t.tap(find.text('Şemayı daralt'));
       await t.pumpAndSettle();
       expect(t.getSize(gorunen).height, kYzKatliBoy);
+      expect(_solma(), findsOneWidget);
       // Daraltınca şemanın başı yeniden görünür.
       expect(t.getRect(gorunen).top, greaterThanOrEqualTo(0));
       expect(t.takeException(), isNull);
@@ -235,12 +287,19 @@ void main() {
         't-dil-digital-green-in-sohbet-robotu',
       ]) {
         final g = kYzGorseller[k];
-        if (g == null) continue;
-        await t.pumpWidget(_uygulama(YzGorselKarti(gorsel: g, en: false)));
+        expect(g, isNotNull, reason: k);
+        await t.pumpWidget(_uygulama(YzGorselKarti(gorsel: g!, en: false)));
         await t.pump();
         await t.pump();
         expect(t.takeException(), isNull, reason: k);
         expect(find.text('Şemanın tamamını gör'), findsOneWidget, reason: k);
+        // Tam ekran gösterimi de dar düzende taşmadan açılıyor.
+        await t.tap(find.byType(YzGorselKatlanir), warnIfMissed: false);
+        await t.pumpAndSettle();
+        expect(find.byType(YzGorselTamEkran), findsOneWidget, reason: k);
+        expect(t.takeException(), isNull, reason: k);
+        await t.tap(find.byTooltip('Kapat'));
+        await t.pumpAndSettle();
         await t.pumpWidget(const SizedBox());
       }
     });
@@ -276,6 +335,83 @@ void main() {
           .map((p) => p.padding);
       expect(dolgular, contains(const EdgeInsets.only(top: 44, bottom: 10)));
       expect(dolgular, isNot(contains(const EdgeInsets.only(top: 34, bottom: 12))));
+    });
+
+    testWidgets('tam ekran: zemine tek dokunuş kapatıyor, görsele dokunuş kapatmıyor', (t) async {
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(const YzGorselKarti(gorsel: _foto, en: false)));
+      await t.pump();
+      await t.tap(_dokunulan());
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsOneWidget);
+      // Görselin üstüne (ortaya) tek dokunuş: açık kalıyor.
+      await t.tapAt(t.getCenter(find.byType(InteractiveViewer)));
+      await t.pump(const Duration(milliseconds: 400));
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsOneWidget);
+      // Koyu zemine tek dokunuş: kapanıyor.
+      await t.tapAt(const Offset(12, 300));
+      await t.pump(const Duration(milliseconds: 400));
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsNothing);
+      expect(t.takeException(), isNull);
+    });
+
+    testWidgets('tam ekran: aşağı çekip bırakınca kapanıyor, az çekince yerine dönüyor', (t) async {
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(const YzGorselKarti(gorsel: _foto, en: false)));
+      await t.pump();
+      await t.tap(_dokunulan());
+      await t.pumpAndSettle();
+      final alan = find.byType(InteractiveViewer);
+      await t.timedDrag(alan, const Offset(0, 50), const Duration(milliseconds: 800));
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsOneWidget, reason: 'az çekme kapatmaz');
+      for (final k in t.widgetList<Transform>(find.descendant(of: alan, matching: find.byType(Transform)))) {
+        expect(k.transform.getTranslation().y, closeTo(0, 0.01), reason: 'bırakınca yerine dönüyor');
+      }
+      await t.timedDrag(alan, const Offset(0, 220), const Duration(milliseconds: 800));
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsNothing);
+      expect(t.takeException(), isNull);
+    });
+
+    testWidgets('çizilmiş şema tam ekranda dar düzende, ekran genişliğinde ve kaydırılabilir', (t) async {
+      await _telefon(t);
+      final g = kYzGorseller['b01-ecmwf-nin-yapay-zeka-tahmin-sistemi']!;
+      await t.pumpWidget(_uygulama(YzGorselKarti(gorsel: g, en: false)));
+      await t.pump();
+      await t.pump();
+      await t.tap(find.descendant(of: find.byType(YzAifsSemasi), matching: find.byType(Container)).first,
+          warnIfMissed: false);
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsOneWidget);
+      final tam = find.descendant(of: find.byType(YzGorselTamEkran), matching: find.byType(YzAifsSemasi));
+      expect(tam, findsOneWidget);
+      expect(t.widget<YzAifsSemasi>(tam).genisZorla, isFalse, reason: 'dar düzen');
+      expect(find.descendant(of: find.byType(YzGorselTamEkran), matching: find.byType(FittedBox)),
+          findsNothing, reason: '1000 piksellik düzen ekrana sığdırılmıyor');
+      expect(t.getSize(tam).width, 375 - 24);
+      final iv = t.widget<InteractiveViewer>(find.byType(InteractiveViewer));
+      expect(iv.constrained, isFalse, reason: 'uzun şema dikey kaydırılıyor');
+      expect(iv.maxScale, 4);
+      expect(t.takeException(), isNull);
+      await t.tap(find.byTooltip('Kapat'));
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselTamEkran), findsNothing);
+    });
+
+    testWidgets('pay çubuğunun lejantında dizi adı Outfit, değer mono', (t) async {
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(YzGrafikKarti(grafik: _payGrafigi(), en: false)));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      final adlar = _lejantAileleri(t, 'Küçük işletme');
+      expect(adlar, isNotEmpty);
+      expect(adlar, everyElement(contains('Outfit')));
+      final degerler = _lejantAileleri(t, '%35');
+      expect(degerler, isNotEmpty);
+      expect(degerler, everyElement(isNot(contains('Outfit'))));
     });
 
     testWidgets('grafiğin lejant adları ve kaynak satırı Outfit; eksen değerleri mono', (t) async {
@@ -345,6 +481,14 @@ void main() {
       expect(_aile(t, find.text('Kaynak: örnek')), contains('IBMPlexMono'));
       expect(_aileler(t, 'Laboratuvar'), isNot(contains(predicate<String>((a) => a.contains('Outfit')))));
       expect(_aileler(t, 'Laboratuvar'), contains(predicate<String>((a) => a.contains('IBMPlexMono'))));
+    });
+    testWidgets('pay çubuğunun lejantı mono', (t) async {
+      await _masaustu(t);
+      await t.pumpWidget(_uygulama(YzGrafikKarti(grafik: _payGrafigi(), en: false), yan: 32));
+      await t.pumpAndSettle();
+      final adlar = _lejantAileleri(t, 'Küçük işletme');
+      expect(adlar, isNotEmpty);
+      expect(adlar, everyElement(contains('IBMPlexMono')));
     });
   });
 }

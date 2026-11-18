@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../data/yz_grafik_veri.dart';
@@ -116,8 +118,14 @@ extension on YzGorselKarti {
     final g = gorsel;
     final ekran = MediaQuery.sizeOf(context);
     final cizim = _cizim(g.kimlik, en);
+    // Çizilmiş şema tam ekranda dar düzeninde, ekran genişliğinde kuruluyor
+    // ve dikey kaydırılıyor (1000 piksellik geniş düzen telefona sığdırılınca
+    // yazıları okunmuyordu).
     void ac() => yzGorselTamEkran(context,
-        gorunum: _buyukGorunum(telefon: true), altyazi: '${g.kunye(en)} — ${g.kaynak(en)}', en: en);
+        gorunum: _buyukGorunum(telefon: true),
+        altyazi: '${g.kunye(en)} — ${g.kaynak(en)}',
+        en: en,
+        uzun: cizim != null);
     Widget dokunulur(Widget cocuk) => Semantics(
           image: true,
           label: g.kunye(en),
@@ -153,7 +161,10 @@ extension on YzGorselKarti {
           en: en,
           sema: false,
           tasma: tasma,
-          esik: (ekran.height * 0.85).clamp(kYzKatlamaEsigi, double.infinity).toDouble(),
+          // Ekran boyunun %85'ini aşan görsel katlanıyor. Alt sınır: katlama
+          // en az 60 pikseli gizlemeli, yoksa düğme kazandırdığından fazla
+          // yer kaplıyor (çok kısa ekranlar).
+          esik: math.max(ekran.height * 0.85, kYzKatliBoy + 60),
           child: dokunulur(tasma > 0
               ? resim
               : ClipRRect(borderRadius: BorderRadius.circular(4), child: resim)),
@@ -178,7 +189,7 @@ extension on YzGorselKarti {
   }
 
   Widget _buyukGorunum({bool telefon = false}) {
-    final cizim = _cizim(gorsel.kimlik, en, buyuk: true);
+    final cizim = _cizim(gorsel.kimlik, en, buyuk: !telefon);
     if (cizim == null) {
       return Image.network(gorsel.adresi(en),
           fit: BoxFit.contain,
@@ -187,6 +198,7 @@ extension on YzGorselKarti {
               ? (c, h, i) => const Icon(Icons.image_not_supported_outlined, color: Colors.white54, size: 40)
               : null);
     }
+    if (telefon) return cizim;
     return FittedBox(fit: BoxFit.contain, child: SizedBox(width: 1000, child: cizim));
   }
 }
