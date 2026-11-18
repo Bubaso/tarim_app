@@ -6,6 +6,8 @@ Soil cannot be measured everywhere: it is sampled at a few points, and a model f
 
 In a conventional soil survey, a surveyor goes into the field, digs profiles, takes samples and draws the boundaries between soil types on the map by expert judgement. Digital soil mapping starts from the same measurements but leaves the drawing to a model. The model relates a soil property measured at sampled points — organic carbon, pH, clay content — to environmental data at those points, such as vegetation, slope, climate and geology, and then produces a prediction for every cell without a measurement.
 
+[[gorsel:b04-turkiye-de-detayli-toprak-etudu]]
+
 The method SoilGrids uses is quantile regression forests: because it keeps the predictions of many decision trees together, it yields a distribution rather than a single value. For each cell, alongside the prediction, it computes an interval within which the true value is expected to fall with **90%** probability. That matters to anyone using the map: it shows where the map is confident and where it is not. The authors present this to users as both a measure and a warning.
 
 [[gorsel:b04-soilgrids-2-0-kuresel-toprak-organik]]
@@ -29,6 +31,8 @@ The authors' own assessment cuts both ways. Broad patterns are well reproduced, 
 [[gorsel:b04-soilgrids-2-0-da-toprak-olcum]]
 
 At field scale, a preliminary comparison in the United States with a national soil database built on detailed field surveys showed that SoilGrids can miss local transitions in parent material; the local particle-size pattern was off at times by around **20-30%** of a particle-size class. The authors describe global and wide-area regional applications as the real test of the product.
+
+[[gorsel:b04-soilgrids-2-0-yerel-olcekte]]
 
 One cell is a square of **6.25** hectares. The 2027 Programme describes the land structure of farms in Türkiye as small-scale, fragmented and scattered; on such land a single cell of the global map can cover more than one field. The global map is a strong starting point for understanding a region's soils; it should not be expected to replace local measurement for a decision at field scale — variable-rate fertilisation, for example. The predictions are openly available under a CC BY 4.0 licence.
 

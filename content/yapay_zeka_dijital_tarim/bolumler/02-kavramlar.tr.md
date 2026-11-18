@@ -28,7 +28,11 @@ Hassas tarım değişken oranlı uygulamaya da eşit değil. Lowenberg-DeBoer ve
 
 ERS dijital tarımı tarım işlerinin dijitalleşmesini ve otomasyonunu kapsayan bir dönüşüm olarak tanımlıyor ve hassas tarımı onun başlıca öğesi sayıyor. Servise göre dijital tarımın bileşenleri üç gruba ayrılıyor: veri ve veri toplama sistemleri; karar destek araçları; veriye dayalı ekipman ile girdi ayarlaması.
 
+[[gorsel:b02-ers-nin-dijital-tarim-bilesenleri]]
+
 Öbür kurumların sıralaması farklı. FAO'nun 2020 tarihli bir yayınına göre Tarım 4.0, hassas tarımı, nesnelerin internetini ve büyük veriyi kapsayan yeniliklerin bütünü; FAO'nun 2019 brifinginde ise hassas tarım, nesnelerin internetinin tarımdaki uygulamalarından biri. Avrupa tarım makineleri sanayi birliği CEMA'nın kendi sınıflandırmasında hassas tarım, GPS sinyallerinin halka açılmasıyla başlayan Tarım 3.0; dijital tarım, hassas tarım teknolojisine akıllı ağları ve veri yönetimini ekleyen aşama; robotik ve yapay zekâ ise ancak Tarım 5.0'da. Avrupa Parlamentosu'nun 2016 araştırmasının teknik ekinde akıllı tarım ile hassas tarım eş anlamlı kullanılıyor. Wolfert ve arkadaşlarına (2017) göre akıllı tarım, bilgi ve iletişim teknolojisinin çiftlik yönetim döngüsünde kullanılması; robotlar ve yapay zekâ bu gelişmenin beklenen sonucu. FAO ile Uluslararası Telekomünikasyon Birliği'nin 2016 rehberi aynı alanı e-tarım diye adlandırıyordu.
+
+[[gorsel:b02-cema-nin-dijital-tarim-tarifi]]
 
 Adı benzeyen bir terim de karışıklık yaratıyor: iklim akıllı tarım. FAO'nun 2010'da tanımladığı bu yaklaşımın üç hedefi var: üretkenliği ve geliri sürdürülebilir biçimde artırmak, iklim değişikliğine uyum sağlamak ve sera gazı salımını mümkün olan yerlerde azaltmak. FAO'ya göre iklim akıllı tarım her yere uygulanabilecek tek bir teknoloji ya da uygulama değil.
 

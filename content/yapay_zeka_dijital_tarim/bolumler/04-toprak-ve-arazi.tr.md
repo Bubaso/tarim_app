@@ -6,6 +6,8 @@ Toprağı her metrede ölçmek mümkün değil: birkaç noktada ölçülür, ara
 
 Klasik toprak etüdünde uzman araziye çıkar, profil açar, örnek alır; toprak tiplerinin sınırını haritaya uzman bilgisiyle çizer. Dijital toprak haritacılığı aynı ölçümlerle başlıyor ama sınırı çizmeyi bir modele bırakıyor. Model, ölçülen noktalardaki toprak özelliğini — organik karbon, pH, kil oranı — o noktanın bitki örtüsü, eğimi, iklimi ve jeolojisi gibi ortam verileriyle ilişkilendiriyor; sonra ölçüm olmayan her hücre için bir tahmin üretiyor.
 
+[[gorsel:b04-turkiye-de-detayli-toprak-etudu]]
+
 SoilGrids'in kullandığı yöntem kantil regresyon ormanları: çok sayıda karar ağacının tahminini bir arada tuttuğu için tek bir değer yerine bir dağılım veriyor. Her hücre için tahminin yanında, gerçek değerin **%90** olasılıkla içinde kalması beklenen bir aralık da hesaplanıyor. Haritayı kullanan için bu önemli: harita nerede emin olduğunu, nerede olmadığını da gösteriyor. Yazarlar bunu kullanıcıya hem bir ölçü hem bir uyarı olarak sunuyor.
 
 [[gorsel:b04-soilgrids-2-0-kuresel-toprak-organik]]
@@ -29,6 +31,8 @@ Yazarların kendi değerlendirmesi iki yönlü. Kaba ölçekli desenler iyi yaka
 [[gorsel:b04-soilgrids-2-0-da-toprak-olcum]]
 
 Tarla ölçeğine inildiğinde ise ABD'de, ayrıntılı saha etüdüne dayanan ulusal toprak veritabanıyla yapılan bir ön karşılaştırma, SoilGrids'in yerel ana materyal geçişlerini kaçırabildiğini gösterdi; yerel tane boyu deseni kimi yerde bir tane boyu sınıfının **%20-30**'u mertebesinde sapıyordu. Yazarlar ürünün asıl sınavını küresel ve geniş bölgesel uygulamalar olarak tarif ediyor.
+
+[[gorsel:b04-soilgrids-2-0-yerel-olcekte]]
 
 Bir hücre **6,25** hektarlık bir kare. 2027 Programı Türkiye'de işletmelerin arazi yapısını küçük ölçekli, parçalı ve dağınık diye tanımlıyor; böyle bir arazide küresel haritanın tek hücresi birden fazla tarlayı kapsayabilir. Küresel harita bir bölgenin toprağını anlamak için güçlü bir başlangıç; tarla ölçeğinde bir karar için — örneğin değişken oranlı gübreleme — yerel ölçümün yerini tutması beklenmemeli. Tahminler CC BY 4.0 lisansıyla herkese açık.
 

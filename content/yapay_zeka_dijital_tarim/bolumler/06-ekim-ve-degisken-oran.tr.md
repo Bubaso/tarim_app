@@ -52,4 +52,6 @@ Türkiye'de benimsemeye dair yayımlanmış veri ise eski. Çukurova'da **164** 
 
 Sahadan bir ölçüm de var. Çankırı merkezine **20** km uzaklıkta, **70** yılı aşkın süredir kuru tarımla buğday ekilen **300** hektarlık eğimli bir arazide **155** toprak örneği alındı (Wardamı, Erşahin ve Karahan, 2024). Bitkinin alabileceği fosfor arazinin içinde orta düzeyde değişiyordu (değişkenlik katsayısı **%21,3**) ve arazi düşük, orta ve yüksek olmak üzere üç gübreleme bölgesine ayrılabildi. Bakanlığın gübre tavsiye yöntemiyle aynı büyüklükteki beş alt bölge için hesaplanan fosfor dozları ise birebir aynı çıktı: yazarlara göre yöntem, bu topraklardaki fosfor farkına duyarsız. Değişken fosfor uygulamasının etkinliğini ve maliyet-faydasını ölçmek için daha kapsamlı bir çalışma gerektiğini yazarlar kendileri belirtiyor. Değişken oranlı gübre ya da tohum uygulamasının verime ve kâra etkisini Türkiye'de tarlada ölçen, yayımlanmış bir deneme de henüz yok.
 
+[[gorsel:b06-cankiri-da-300-hektarlik-bugday]]
+
 Makine tarafında da bir çalışma var: Tekirdağ Namık Kemal Üniversitesi'nden bir ekip, zeytin bahçeleri için çoklu gübre dağıtma makinesi ve değişken oranlı denetleyici geliştirdi (Akdemir ve arkadaşları, 2022).

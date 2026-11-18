@@ -12,6 +12,8 @@ Landsat 1 was launched on 23 July 1972. According to NASA, the US, unaware of a 
 
 LACIE, a joint experiment of NASA, the US Department of Agriculture and the National Oceanic and Atmospheric Administration (NOAA), began in 1974 and was completed on 30 June 1978. The goal was for production estimates at harvest to fall within ±**10** percent of true country production **90%** of the time; LACIE met this goal in the US Great Plains and in the Soviet Union for two consecutive years. In August 1977 it gave an early indication of the shortfall in Soviet spring wheat; its final estimate was **91.4** million tons, against the Soviets' official figure of **92.0** million tons. Application in Canada was less successful. According to NASA, LACIE marked a shift from interpreting satellite images by eye to digital image processing; by 1978 a US Department of Agriculture system based on the technology had begun operation.
 
+[[gorsel:b03-lacie-nin-teknik-yaklasimi-landsat]]
+
 ## Letting computers decide: expert systems (1980-1988)
 
 In 1980 Michalski and Chilausky compared two ways of acquiring knowledge for an expert system that diagnoses soybean diseases: encoding an expert's rules, and having the computer induce rules from examples. According to a 1983 paper by Michalski and Baskin, the feasibility of the program that induces rules from examples for an expert system was proven in this soybean disease system. The study's dataset entered the UCI Machine Learning Repository in 1988, which calls it Michalski's famous soybean disease database.
@@ -51,5 +53,7 @@ Türkiye's first optical remote sensing satellite, BİLSAT, was launched in 2003
 [[gorsel:b03-rasat-uydusunun-cektigi-goruntu]]
 
 According to the ministry's page, the Agricultural Monitoring and Information System (TARBİL) started in 2008, under the direction of the State Planning Organisation, as a three-year pilot named the "Tarımsal Rekolte Tahmin ve Kuraklık İzleme" project (TARİT, crop yield forecasting and drought monitoring); the first **25** stations were set up in Şanlıurfa, and by 2012 the number of stations had reached **100**. According to a 2025 report by FAO and the EBRD, however, the project was not completed, and interviews in the field showed that many of the stations set up were not working.
+
+[[gorsel:b03-tarbil-zirai-gozlem-ve-meteoroloji]]
 
 Public programmes for AI in agriculture are recent: the first call of TÜBİTAK's AI ecosystem programme opened in 2022, with smart agriculture, food and livestock among its priority areas; the ministry's research arm TAGEM started three AI projects in 2025.

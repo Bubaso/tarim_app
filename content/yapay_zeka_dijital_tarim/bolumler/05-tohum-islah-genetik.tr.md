@@ -38,6 +38,8 @@ Aynı değerlendirme programın yeni araçlara geçişini de anlatıyor: klasik 
 
 Program genetik kaynak tarafında da iz bıraktı: 2009-2014'te Türkiye'de yerel buğdayların ulusal envanterini çıkardı; **81** ilin **60**'tan fazlası gezildi, **1.500**'ü aşkın çiftlikten yerel buğday toplandı.
 
+[[gorsel:b05-turkiye-de-yerel-bugday-ulusal]]
+
 Akademide makine öğrenmesi ıslahın ön elemesine giriyor. Türkiye'den beş üniversitenin Polonyalı ortaklarla yaptığı bir çalışma, tetraploid buğday genotiplerinin çimlenme döneminde kuraklığa tepkisini laboratuvarda polietilen glikolle oluşturulan stres altında ölçtü ve dört makine öğrenmesi tekniğiyle modelledi (Benlioğlu ve arkadaşları, 2024). Yazarlar yöntemi hızlı ve düşük maliyetli bir yol olarak sunuyor; sonuçlar laboratuvara ve çimlenme dönemine ait, tarladaki verime değil.
 
 Tohumun kendisinde ölçek büyük: Bakanlığın verisine göre sertifikalı tohum üretimi 2025'te bir önceki yıla göre **%3,7** artarak yaklaşık **1,35** milyon tona çıktı; en büyük kalem **640.829** tonla buğday.

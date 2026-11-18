@@ -52,4 +52,6 @@ Published data on adoption in Türkiye, however, are old. In a survey published 
 
 There is a field measurement too. On **300** hectares of sloping land **20** km from the centre of Çankırı, under rainfed wheat for more than **70** years, **155** soil samples were taken (Wardamı, Erşahin and Karahan, 2024). Plant-available phosphorus varied moderately across the land (coefficient of variation **21.3%**), and the land could be divided into three fertilisation zones: low, medium and high. Yet the phosphorus rates calculated with the ministry's recommendation method for five equal-sized sub-regions came out exactly the same: in the authors' reading, the method is insensitive to the phosphorus differences in these soils. The authors themselves note that a more comprehensive study is needed to measure the efficiency and cost-benefit of variable phosphorus application. No published trial has yet measured, in a field in Türkiye, the effect of variable-rate fertiliser or seed application on yield and profit.
 
+[[gorsel:b06-cankiri-da-300-hektarlik-bugday]]
+
 There is work on the machinery side as well: a team from Tekirdağ Namık Kemal University developed a multi-fertiliser spreader and a variable-rate controller for olive orchards (Akdemir and colleagues, 2022).

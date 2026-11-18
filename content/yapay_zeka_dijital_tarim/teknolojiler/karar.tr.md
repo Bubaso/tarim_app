@@ -16,4 +16,6 @@ Meksika'nın Yaqui Vadisi'nde CIMMYT ile Oklahoma Eyalet Üniversitesi'nin geli�
 
 Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiren bir Karar Destek Sistemi kullanıyor; sistem yangın çıkma olasılığını ve nedenini tahmin ediyor, yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistemin tespit süresine, yanan alana ya da yanlış alarm oranına etkisi bağımsız olarak ölçülüp yayımlanmış değil.
 
+[[gorsel:t-karar-ogm-yangin-karar-destek-sistemi]]
+
 Tarlada ise kamunun kendi tavsiyesi sınandı: Çankırı'da **300** hektarlık bir arazide fosfor orta düzeyde değişirken (değişkenlik katsayısı **%21,3**), Bakanlığın gübre tavsiye yöntemi aynı büyüklükteki beş alt bölgenin hepsine birebir aynı fosfor dozunu verdi (Wardamı, Erşahin ve Karahan, 2024). Sulamada karar desteği kuruluş aşamasında: 2027 Programı'na göre Dijital Sulama Yönetim Sistemi (DİSU) tamamlanacak, sulama yönetiminde karar destek sistemlerinin kullanımı ve bunu destekleyecek mevzuat üzerinde çalışılacak.

@@ -47,6 +47,11 @@ ALINMAZ = (
     "Infarm şirket logosu", "AppHarvest şirket logosu",   # logo
     "Zhou ve ark. (2022) derlemesinde",                    # şekil altyazısı doğrulanamadı
     "Türkiye'de tahıl hasadında biçerdöver",               # genel kare (süs)
+    "Digital Green'in FarmerChat sohbet robotunun",        # aynı şekil dil sayfasında
+    "De Lara ve ark. (2023): Arjantin'deki",               # aynı şekil uzaktan sayfasında
+    "Ulusal Arazi Örtüsü Sınıflandırma ve İzleme",         # Programdaki tedbirle bağı kaynakta yok
+    "İzmir'deki ıslah kampüsünde LED",                     # tesisin ne olduğu kaynakta yazmıyor
+    "SoilGrids 2.0'ın üretim iş akışı",                    # §4'te SoilGrids şekli yeterli
 )
 
 # Kaynak satırındaki iç notlar okura gitmez.
@@ -103,6 +108,12 @@ KIRP = {
     "https://dergipark.org.tr/en/download/article-file/2608585": (None, 4, "0.224,0.564,0.795,0.721"),
     "https://dergipark.org.tr/en/download/article-file/1201243": ("civelek_2022_tarim_bilimleri_dergisi.pdf", 3, "0.127,0.449,0.876,0.598"),
     # İkinci tur (18 Kas 2026)
+    'https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908': (None, 12, '0.115,0.080,0.885,0.632'),
+    'https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf': (None, 2, '0.390,0.246,0.886,0.466'),
+    'https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf': (None, 24, '0.165,0.142,0.910,0.776'),
+    'https://www.fao.org/3/a-i5316e.pdf': (None, 71, '0.143,0.600,0.828,0.848'),
+    'https://dergipark.org.tr/en/download/article-file/2752142': (None, 5, '0.296,0.425,0.704,0.855'),
+    'https://dergipark.org.tr/tr/download/article-file/3870675': (None, 5, '0.140,0.115,0.866,0.502'),
     'https://arastirma.tarimorman.gov.tr/toprakgubre/Belgeler/Tar%C4%B1msal%20%C3%9Cr%C3%BCn%20%C4%B0zleme%20ve%20Verim%20Tahmin%20B%C3%BClteni/AGROSENS%20-%20Agrometeoroloji%20ve%20Uzaktan%20Alg%C4%B1lama%20Destekli%20Tar%C4%B1msal%20%C4%B0zleme%20B%C3%BClteni%20Nisan%202026.pdf': (None, 5, '0.096,0.136,0.903,0.361'),
     'https://dergipark.org.tr/en/download/article-file/2622098': (None, 5, '0.155,0.104,0.844,0.394'),
     'https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-00166/article_deploy/remotesensing-12-00166.pdf': (None, 6, '0.130,0.400,0.873,0.779'),

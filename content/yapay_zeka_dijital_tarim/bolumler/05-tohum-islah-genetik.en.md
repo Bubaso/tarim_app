@@ -38,6 +38,8 @@ The same assessment describes the programme's move to new tools: alongside the l
 
 The programme has left a mark on genetic resources too: in 2009-2014 it carried out a national inventory of wheat landraces in Türkiye; more than **60** of the **81** provinces were visited and landraces were collected from more than **1,500** farms.
 
+[[gorsel:b05-turkiye-de-yerel-bugday-ulusal]]
+
 In academia, machine learning is entering early-stage screening. A study by five universities in Türkiye with Polish partners measured the response of tetraploid wheat genotypes to drought at germination, under stress induced in the laboratory with polyethylene glycol, and modelled it with four machine learning techniques (Benlioğlu and colleagues, 2024). The authors present the method as a fast and low-cost approach; the results belong to the laboratory and the germination stage, not to yield in the field.
 
 The scale of seed itself is large: according to the ministry's data, certified seed production rose by **3.7%** in 2025 on the previous year to about **1.35** million tonnes; the largest item is wheat, at **640,829** tonnes.

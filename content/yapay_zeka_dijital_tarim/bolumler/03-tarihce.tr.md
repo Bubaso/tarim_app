@@ -12,6 +12,8 @@ Landsat 1, 23 Temmuz 1972'de fırlatıldı. NASA'nın anlatımına göre ABD, d�
 
 NASA, ABD Tarım Bakanlığı ve Ulusal Okyanus ve Atmosfer İdaresi'nin (NOAA) ortak deneyi LACIE 1974'te başladı ve 30 Haziran 1978'de tamamlandı. Hedef, hasat anındaki üretim tahmininin zamanın **%90**'ında gerçek ülke üretiminin ±**%10**'u içinde kalmasıydı; LACIE bu hedefi ABD'nin Büyük Ovalar bölgesinde ve Sovyetler Birliği'nde iki yıl üst üste tutturdu. Ağustos 1977'de Sovyet yazlık buğdayındaki açığı önceden gösterdi; son tahmini **91,4** milyon ton, Sovyetlerin resmî rakamı **92,0** milyon tondu. Kanada'daki uygulama daha az başarılı oldu. NASA'ya göre LACIE, uydu görüntüsünü gözle yorumlamaktan sayısal görüntü işlemeye geçişi işaret ediyordu; 1978'de ABD Tarım Bakanlığı'nın bu teknolojiye dayanan sistemi işletmeye başlamıştı.
 
+[[gorsel:b03-lacie-nin-teknik-yaklasimi-landsat]]
+
 ## Bilgisayara karar verdirmek: uzman sistemler (1980-1988)
 
 1980'de Michalski ve Chilausky, soya hastalıklarını teşhis eden bir uzman sistem için bilgi edinmenin iki yolunu karşılaştırdı: uzmanın kurallarını kodlamak ve bilgisayarın örneklerden kural çıkarması. Michalski ve Baskin'in 1983 tarihli bildirisine göre örneklerden kural çıkaran programın uzman sistemde kullanılabilirliği bu soya hastalığı sisteminde kanıtlandı. Çalışmanın veri seti 1988'de UCI Makine Öğrenmesi Deposu'na girdi; depo onu Michalski'nin ünlü soya hastalığı veritabanı olarak anıyor.
@@ -51,5 +53,7 @@ Türkiye'nin ilk optik uzaktan algılama uydusu BİLSAT 2003'te teknoloji transf
 [[gorsel:b03-rasat-uydusunun-cektigi-goruntu]]
 
 Bakanlığın sayfasına göre Tarımsal İzleme ve Bilgi Sistemi (TARBİL), 2008'de Devlet Planlama Teşkilatı'nın yönlendirmesiyle üç yıllık bir pilot olarak "Tarımsal Rekolte Tahmin ve Kuraklık İzleme" projesi (TARİT) adıyla başladı; ilk **25** istasyon Şanlıurfa'da kuruldu, 2012'de istasyon sayısı **100**'e ulaştı. FAO ile EBRD'nin 2025 raporuna göre ise proje tamamlanmadı; sahada yapılan görüşmeler kurulan istasyonların birçoğunun çalışmadığını gösterdi.
+
+[[gorsel:b03-tarbil-zirai-gozlem-ve-meteoroloji]]
 
 Tarımda yapay zekâya dönük kamu programları ise yakın tarihli: TÜBİTAK'ın yapay zekâ ekosistem çağrısının ilki 2022'de açıldı ve öncelikli alanlarından biri akıllı tarım, gıda ve hayvancılık; bakanlığın araştırma kolu TAGEM 2025'te üç yapay zekâ projesi başlattı.

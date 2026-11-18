@@ -2309,6 +2309,302 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Karamanoğlu Mehmetbey Üniversitesi'nden bir çalışma (Eldem ve Eldem, 2026), dört seçenekli"
+  },
+  "b01-turkiye-de-ilaclama-dronu-kayseri": {
+   "sayfa": "b01",
+   "baslik_no": 1,
+   "dosya": "web/yz/gorsel/b01-turkiye-de-ilaclama-dronu-kayseri.webp",
+   "genislik": 1024,
+   "yukseklik": 479,
+   "sha256": "52633a42e93113b96e5b711d16e87edabc5fd46125933d4b2ba740e5f39b7c44",
+   "kunye": {
+    "tr": "Kayseri'nin Bünyan ilçesinde süne mücadelesi için 10 dekarlık buğday tarlasında yapılan dronla ilaçlama denemesi; Kayseri İl Tarım ve Orman Müdürlüğü'nün 1 Temmuz 2020 tarihli 'Süne İle Mücadelede İlk Defa Drone Kullanıldı' haberinin fotoğraf galerisinden.",
+    "en": "Drone spraying trial against sunn pest on a 10-decare wheat field in Bünyan district, Kayseri; from the photo gallery of the Kayseri Provincial Directorate of Agriculture and Forestry's news item of 1 July 2020 on the first use of a drone against sunn pest in the province."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Kayseri İl Tarım ve Orman Müdürlüğü",
+    "en": "Photo: Kayseri Provincial Directorate of Agriculture and Forestry"
+   },
+   "sayfa_adresi": "https://kayseri.tarimorman.gov.tr/Haber/1603/Sune-Ile-Mucadelede-Ilk-Defa-Drone-Kullanildi",
+   "gorsel_adresi": "https://kayseri.tarimorman.gov.tr/FotografGalerisi/2020701%20S%c3%bcne%20%c4%b0le%20M%c3%bccadelede%20%c4%b0lk%20Defa%20Drone%20Kullan%c4%b1ld%c4%b1/Kapak.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Açık lisans yok. Sayfa altbilgisi yalnız '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.' diyor; indirmeyi ya da kaynak göstererek yeniden kullanımı açıkça yasaklayan bir koşul görülmedi. kayseri.tarimorman.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; haber sayfası ve /FotografGalerisi/ açık. Fotoğrafçı adı verilmemiş.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Türkiye Yapay Zekâ Eylem Planı (2026-2030) tarımı öncelikli dört sektörden biri sayıyor"
+  },
+  "b02-ers-nin-dijital-tarim-bilesenleri": {
+   "sayfa": "b02",
+   "baslik_no": 2,
+   "dosya": "web/yz/gorsel/b02-ers-nin-dijital-tarim-bilesenleri.webp",
+   "genislik": 1600,
+   "yukseklik": 1484,
+   "sha256": "582be225a2fa188efbdd397e8f640cc33bf106197a0125f0a440528c85291403",
+   "kunye": {
+    "tr": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi'nin (ERS) dijital tarımın temel bileşen teknolojilerini veri ve veri toplama, karar destek ve veriye dayalı ekipman ve girdi ayarlaması olarak üç grupta gösteren şeması; McFadden, Njuki ve Griffin'in Şubat 2023 tarihli 'Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms' raporunun (EIB-248) 2. şekli.",
+    "en": "USDA Economic Research Service (ERS) diagram of the key component technologies of digital agriculture, grouped as data and data collection, decision support, and data-driven equipment and input adjustment; Figure 2 of McFadden, Njuki and Griffin, 'Precision Agriculture in the Digital Era: Recent Adoption on U.S. Farms' (EIB-248), February 2023."
+   },
+   "kaynak": {
+    "tr": "Şekil: McFadden, Njuki ve Griffin 2023, USDA ERS, EIB-248, Şekil 2 (kamu malı)",
+    "en": "Figure: McFadden, Njuki ve Griffin 2023, USDA ERS, EIB-248, Fig. 2 (public domain)"
+   },
+   "sayfa_adresi": "https://www.ers.usda.gov/publications/105893",
+   "gorsel_adresi": "https://ers.usda.gov/sites/default/files/_laserfiche/publications/105894/EIB-248.pdf?v=27908",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Şeklin altında 'Source: USDA, Economic Research Service illustration.' yazıyor; ABD federal kurumu çalışması (17 U.S.C. §105), kamu malı. ers.usda.gov robots.txt PDF yolunu ve yayın sayfasını kapatmıyor (yalnız birkaç sistem yolu kapalı).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "ERS dijital tarımı tarım işlerinin dijitalleşmesini ve otomasyonunu kapsayan bir dönüşüm olarak tanımlıyor"
+  },
+  "b02-cema-nin-dijital-tarim-tarifi": {
+   "sayfa": "b02",
+   "baslik_no": 2,
+   "dosya": "web/yz/gorsel/b02-cema-nin-dijital-tarim-tarifi.webp",
+   "genislik": 1389,
+   "yukseklik": 871,
+   "sha256": "3d536e2d742d1477c87d1fce76dd9b65c5e7e4da76c6a7648d62f96014ad0336",
+   "kunye": {
+    "tr": "Avrupa tarım makineleri sanayi birliği CEMA'nın çiftlik düzeyinde dijital tarım ağını örnekleyen şeması (makineler, ISOBUS, GPS, veri portalları ve çiftliğin iş ortakları); CEMA'nın 13 Şubat 2017 tarihli 'Digital Farming: what does it really mean?' tutum belgesinin 1. şekli.",
+    "en": "Diagram by CEMA (European Agricultural Machinery) of an example digital farming network at farm level (machines, ISOBUS, GPS, data portals and the farm's business partners); Figure 1 of CEMA's position paper 'Digital Farming: what does it really mean?', 13 February 2017."
+   },
+   "kaynak": {
+    "tr": "Şekil: CEMA 2017, 'Digital Farming: what does it really mean?', Şekil 1",
+    "en": "Figure: CEMA 2017, 'Digital Farming: what does it really mean?', Fig. 1"
+   },
+   "sayfa_adresi": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
+   "gorsel_adresi": "https://www.cema-agri.org/images/publications/position-papers/CEMA_Digital_Farming_-_Agriculture_4.0__13_02_2017_0.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Belgede lisans ya da telif ibaresi yok. cema-agri.org'da robots.txt yok (404: kısıt yok); ana sayfada ve gizlilik politikasında indirmeyi ya da yeniden kullanımı yasaklayan bir ifade görülmedi.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Öbür kurumların sıralaması farklı. FAO'nun 2020 tarihli bir yayınına göre Tarım 4.0"
+  },
+  "b03-lacie-nin-teknik-yaklasimi-landsat": {
+   "sayfa": "b03",
+   "baslik_no": 3,
+   "dosya": "web/yz/gorsel/b03-lacie-nin-teknik-yaklasimi-landsat.webp",
+   "genislik": 1600,
+   "yukseklik": 1770,
+   "sha256": "bc47c0ba1c6f85875fe616f8ae12b17229239f703c1c40ef9358e215e02f72c6",
+   "kunye": {
+    "tr": "NASA, ABD Tarım Bakanlığı ve NOAA'nın ortak deneyi Büyük Alan Ürün Envanteri Deneyi'nin (LACIE) teknik yaklaşımını gösteren şema: Landsat görüntüsünden örnek alanlarda buğday alanı ölçümü, hava verisinden verim tahmini, aylık alan, verim ve üretim raporları ve doğruluk değerlendirmesi; NASA Johnson Uzay Merkezi'nin 15 Ağustos 1978 tarihli LACIE yönetici özetinin 8. şekli.",
+    "en": "Diagram of the technical approach of the Large Area Crop Inventory Experiment (LACIE), the joint NASA–USDA–NOAA experiment: wheat area measurement in sample segments from Landsat imagery, yield estimation from weather data, monthly area, yield and production reports, and accuracy assessment; Figure 8 of the LACIE Executive Summary, NASA Johnson Space Center, 15 August 1978."
+   },
+   "kaynak": {
+    "tr": "Şekil: LACIE Proje Ekibi (NASA, USDA, NOAA) 1978, LACIE Executive Summary, Şekil 8 (kamu malı)",
+    "en": "Figure: LACIE Proje Ekibi (NASA, USDA, NOAA) 1978, LACIE Executive Summary, Fig. 8 (public domain)"
+   },
+   "sayfa_adresi": "https://ntrs.nasa.gov/citations/19790010237",
+   "gorsel_adresi": "https://ntrs.nasa.gov/api/citations/19790010237/downloads/19790010237.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "NTRS kaydı (api/citations/19790010237): dağıtım 'PUBLIC', telif belirlemesi 'GOV_PUBLIC_USE_PERMITTED' (ABD hükümeti çalışması, kamuya açık kullanım serbest). ntrs.nasa.gov robots.txt 'Allow: /'.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "NASA, ABD Tarım Bakanlığı ve Ulusal Okyanus ve Atmosfer İdaresi'nin (NOAA) ortak deneyi LACIE 1974'te başladı"
+  },
+  "b03-tarbil-zirai-gozlem-ve-meteoroloji": {
+   "sayfa": "b03",
+   "baslik_no": 3,
+   "dosya": "web/yz/gorsel/b03-tarbil-zirai-gozlem-ve-meteoroloji.webp",
+   "genislik": 1600,
+   "yukseklik": 900,
+   "sha256": "086a93c586839de3602473ac1272e21cd6c614ab885c8d5eaa181b65777a6770",
+   "kunye": {
+    "tr": "Tarımsal İzleme ve Bilgi Sistemi (TARBİL) kapsamında Kırşehir'de kurulan zirai gözlem ve meteoroloji yer istasyonlarından 40.12 numaralı istasyon; Kırşehir İl Tarım ve Orman Müdürlüğü'nün, ilde İTÜ iş birliğiyle 12 istasyon kurulduğunu duyuran 23 Ocak 2015 tarihli haberinin fotoğraf galerisinden.",
+    "en": "TARBİL (Agricultural Monitoring and Information System) agro-meteorological ground observation station no. 40.12 in Kırşehir province; from the photo gallery of the Kırşehir Provincial Directorate of Agriculture and Forestry's news item of 23 January 2015 announcing 12 stations set up in the province in cooperation with Istanbul Technical University."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Kırşehir İl Tarım ve Orman Müdürlüğü",
+    "en": "Photo: Kırşehir Provincial Directorate of Agriculture and Forestry"
+   },
+   "sayfa_adresi": "https://kirsehir.tarimorman.gov.tr/Haber/75/Ilimizde-Tarbil-Projesi-Kapsaminda-12-Adet-Zirai-Gozlem-Yer-Istasyonu-Kuruldu",
+   "gorsel_adresi": "https://kirsehir.tarimorman.gov.tr/FotografGalerisi/2015/TAR%c4%b0M_B%c4%b0LG%c4%b0_S%c4%b0STEMLER%c4%b0_%c4%b0STASYONLAR%c4%b0/DSC_0943.JPG",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Açık lisans yok; site altbilgisi '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.' — indirmeyi ya da kaynak göstererek kullanımı açıkça yasaklayan bir koşul görülmedi. kirsehir.tarimorman.gov.tr robots.txt haber sayfasını ve /FotografGalerisi/ yolunu kapatmıyor. Fotoğrafçı adı yok.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Bakanlığın sayfasına göre Tarımsal İzleme ve Bilgi Sistemi (TARBİL), 2008'de"
+  },
+  "b04-turkiye-de-detayli-toprak-etudu": {
+   "sayfa": "b04",
+   "baslik_no": 4,
+   "dosya": "web/yz/gorsel/b04-turkiye-de-detayli-toprak-etudu.webp",
+   "genislik": 1600,
+   "yukseklik": 1200,
+   "sha256": "9dcf49097486a29f59c0cf7016e6c63306592d38818f3d7f630434f64e953e71",
+   "kunye": {
+    "tr": "Balıkesir'de Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında yürütülen toprak etüdü ve sınıflandırma çalışmasında profil çukuru açılması; Balıkesir İl Tarım ve Orman Müdürlüğü'nün 13 Ağustos 2024 tarihli haberinin fotoğraf galerisinden.",
+    "en": "Digging a soil profile pit during the soil survey and classification work carried out in Balıkesir under the Türkiye Climate Smart and Competitive Agricultural Growth Project (TUCSAP); from the photo gallery of the Balıkesir Provincial Directorate of Agriculture and Forestry's news item of 13 August 2024."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Balıkesir İl Tarım ve Orman Müdürlüğü",
+    "en": "Photo: Balıkesir Provincial Directorate of Agriculture and Forestry"
+   },
+   "sayfa_adresi": "https://balikesir.tarimorman.gov.tr/Haber/1283/%E2%80%8Btoprak-Etut-Ve-Siniflandirma-Islemleri-Ile-Balikesirin-Toprak-Haritasi-Cikariliyor",
+   "gorsel_adresi": "https://balikesir.tarimorman.gov.tr/FotografGalerisi/20240813_Toprak%20Et%c3%bct%20ve%20S%c4%b1n%c4%b1fland%c4%b1rma%20%c4%b0%c5%9flemleri%20ile%20Bal%c4%b1kesir%27in%20Toprak%20Haritas%c4%b1%20%c3%87%c4%b1kar%c4%b1l%c4%b1yor/455110760_892238182947045_7436177639380900858_n.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Açık lisans yok; il müdürlüğü sitelerinin altbilgisi '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.' — indirmeyi ya da kaynak göstererek kullanımı açıkça yasaklayan bir koşul görülmedi. balikesir.tarimorman.gov.tr robots.txt haber sayfasını ve /FotografGalerisi/ yolunu kapatmıyor. Fotoğrafçı adı yok; dosya adı biçimi fotoğrafın önce kurumun sosyal medya hesabında paylaşıldığını düşündürüyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Klasik toprak etüdünde uzman araziye çıkar, profil açar, örnek alır"
+  },
+  "b04-soilgrids-2-0-yerel-olcekte": {
+   "sayfa": "b04",
+   "baslik_no": 4,
+   "dosya": "web/yz/gorsel/b04-soilgrids-2-0-yerel-olcekte.webp",
+   "genislik": 1138,
+   "yukseklik": 766,
+   "sha256": "15996a1f437dcbf748a376c197ec89bc8b3bb40a54b70d5fa6b8f86b1737de57",
+   "kunye": {
+    "tr": "SoilGrids 2.0'ın Pennsylvania'nın ortasında (ABD) yaklaşık 50×50 km'lik bir alan için 0–5 cm derinlikte kum oranı tahmini (a) ve 250 m'lik hücrelerin görüldüğü ayrıntı (b), Google Earth altlığı üzerinde; Poggio ve arkadaşlarının SOIL dergisinde 14 Haziran 2021'de yayımlanan makalesinin 6. şekli.",
+    "en": "SoilGrids 2.0 predicted sand concentration at 0–5 cm for an area of about 50×50 km in central Pennsylvania, USA (a), and a detail showing the 250 m cells (b), overlaid on Google Earth; Figure 6 of Poggio et al., SOIL, published 14 June 2021."
+   },
+   "kaynak": {
+    "tr": "Şekil: Poggio ve ark. 2021, SOIL 7, Şekil 6 (CC BY 4.0; altlık © Google Earth)",
+    "en": "Figure: Poggio et al. 2021, SOIL 7, Fig. 6 (CC BY 4.0; altlık © Google Earth)"
+   },
+   "sayfa_adresi": "https://soil.copernicus.org/articles/7/217/2021/",
+   "gorsel_adresi": "https://soil.copernicus.org/articles/7/217/2021/soil-7-217-2021-f06-web.png",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY 4.0 (Copernicus Publications). Şeklin altlığı Google Earth (şekil açıklamasında '© Google Earth'); üçüncü taraf altlık olduğu için atıf korunmalı. soil.copernicus.org robots.txt kısıt koymuyor (ilk turda da kullanıldı).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Tarla ölçeğine inildiğinde ise ABD'de, ayrıntılı saha etüdüne dayanan ulusal toprak veritabanıyla"
+  },
+  "b05-turkiye-de-yerel-bugday-ulusal": {
+   "sayfa": "b05",
+   "baslik_no": 5,
+   "dosya": "web/yz/gorsel/b05-turkiye-de-yerel-bugday-ulusal.webp",
+   "genislik": 1600,
+   "yukseklik": 819,
+   "sha256": "d86ea6c6735c3de094363225232b3701ad4770b3b2b35e30b707030b804264b1",
+   "kunye": {
+    "tr": "2009-2014 yerel buğday ulusal envanterinde taranan illeri gösteren Türkiye haritası (2009-2014 toplu durum); FAO'nun 2015'te yayımladığı 'Wheat Landraces in Farmers' Fields in Turkey: National Survey, Collection and Conservation, 2009-2014' kitabının 3.9 numaralı şeklinden; şeklin kaynağı Gıda, Tarım ve Hayvancılık Bakanlığı.",
+    "en": "Map of Türkiye showing the provinces surveyed in the 2009–2014 national inventory of wheat landraces (cumulative situation 2009–2014); from Figure 3.9 of FAO's 'Wheat Landraces in Farmers' Fields in Turkey: National Survey, Collection and Conservation, 2009–2014' (2015), sourced from the Ministry of Food, Agriculture and Livestock."
+   },
+   "kaynak": {
+    "tr": "Harita: Kan ve ark. 2015, Wheat Landraces in Farmers' Fields in Turkey (FAO), Şekil 3.9 (kaynak: Gıda, Tarım ve Hayvancılık Bakanlığı)",
+    "en": "Map: Kan et al. 2015, Wheat Landraces in Farmers' Fields in Turkey (FAO), Fig. 3.9 (kaynak: Gıda, Tarım ve Hayvancılık Bakanlığı)"
+   },
+   "sayfa_adresi": "https://openknowledge.fao.org/handle/20.500.14283/i5316e",
+   "gorsel_adresi": "https://www.fao.org/3/a-i5316e.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "© FAO, 2015. Kitabın künye sayfası: 'FAO encourages the use, reproduction and dissemination of material in this information product'; kaynak ve hak sahibi olarak FAO'ya atıfla ticari olmayan ürünlerde kopyalama/indirme serbest, çeviri-uyarlama ve ticari kullanım için izin isteniyor. Harita zaten Türkçe il adlı; yeniden çizim/uyarlama gerekirse FAO izni gerekebilir. fao.org ve openknowledge.fao.org robots.txt bu yolları kapatmıyor.",
+   "tur": "harita",
+   "yapay_zeka": false,
+   "yer": "Program genetik kaynak tarafında da iz bıraktı: 2009-2014'te Türkiye'de yerel buğdayların ulusal envanterini çıkardı"
+  },
+  "b06-cankiri-da-300-hektarlik-bugday": {
+   "sayfa": "b06",
+   "baslik_no": 6,
+   "dosya": "web/yz/gorsel/b06-cankiri-da-300-hektarlik-bugday.webp",
+   "genislik": 1142,
+   "yukseklik": 1703,
+   "sha256": "1efba33e83adb67948016ce91bff537c0d747a106d7cd8d3ee17fe64c6b4e3f6",
+   "kunye": {
+    "tr": "Çankırı yakınındaki 300 hektarlık kuru tarım buğday arazisinde bitkiye yarayışlı fosforun mekânsal dağılım haritası (b) ve bu dağılıma göre ayrılan hektarda 27, 24 ve 21 kg fosforlu üç gübreleme bölgesi (c); Wardamı, Erşahin ve Karahan'ın Mediterranean Agricultural Sciences'ta 17 Nisan 2024'te yayımlanan makalesinin 2. şekli.",
+    "en": "Map of the spatial distribution of plant-available phosphorus (b) and the three phosphorus application zones derived from it, at 27, 24 and 21 kg P per hectare (c), on a 300-hectare rainfed wheat field near Çankırı; Figure 2 of Wardamı, Erşahin and Karahan, Mediterranean Agricultural Sciences, published 17 April 2024."
+   },
+   "kaynak": {
+    "tr": "Şekil: Wardamı, Erşahin ve Karahan 2024, Mediterranean Agricultural Sciences 37(1), Şekil 2 (CC BY-NC-ND 4.0)",
+    "en": "Figure: Wardamı, Erşahin ve Karahan 2024, Mediterranean Agricultural Sciences 37(1), Fig. 2 (CC BY-NC-ND 4.0)"
+   },
+   "sayfa_adresi": "https://dergipark.org.tr/en/pub/mediterranean/article/1199628",
+   "gorsel_adresi": "https://dergipark.org.tr/en/download/article-file/2752142",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "DergiPark makale sayfası: Creative Commons Atıf-GayriTicari-Türetilemez 4.0 (CC BY-NC-ND 4.0); kırpma dışında değişiklik (çeviri, yeniden çizim) türetme sayılabilir. dergipark.org.tr robots.txt makale ve indirme yollarını kapatmıyor (yalnız login/search).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Sahadan bir ölçüm de var. Çankırı merkezine"
+  },
+  "b07-tagem-suet-uygulama-ekrani-referans": {
+   "sayfa": "b07",
+   "baslik_no": 7,
+   "dosya": "web/yz/gorsel/b07-tagem-suet-uygulama-ekrani-referans.webp",
+   "genislik": 1600,
+   "yukseklik": 1206,
+   "sha256": "d3d5a13f2a4d2f8e00d5561c7d2fc970dc65c715acf9406ef7eced9bf1e5a278",
+   "kunye": {
+    "tr": "TAGEM'in Sulama Yönetimi ve Bitki Su Tüketimi Sistemi'nin (TAGEM-SuET) referans bitki su tüketimi (ETo) hesaplama modülünün ekran görüntüsü: Edirne meteoroloji istasyonu (17050) için yedi yöntemle hesaplanan günlük ETo; Altınbilek ve Kızıl'ın Uludağ Üniversitesi Mühendislik Fakültesi Dergisi'nde 30 Ağustos 2024'te yayımlanan makalesinin 3. şekli.",
+    "en": "Screenshot of the reference evapotranspiration (ETo) module of TAGEM's Irrigation Management and Crop Water Consumption System (TAGEM-SuET): daily ETo for the Edirne weather station (17050) calculated with seven methods; Figure 3 of Altınbilek and Kızıl, Uludağ University Journal of the Faculty of Engineering, published 30 August 2024."
+   },
+   "kaynak": {
+    "tr": "Şekil: Altınbilek ve Kızıl 2024, Uludağ Üniversitesi Mühendislik Fakültesi Dergisi 29(2), Şekil 3",
+    "en": "Figure: Altınbilek ve Kızıl 2024, Uludağ Üniversitesi Mühendislik Fakültesi Dergisi 29(2), Fig. 3"
+   },
+   "sayfa_adresi": "https://dergipark.org.tr/tr/pub/uumfd/article/1470239",
+   "gorsel_adresi": "https://dergipark.org.tr/tr/download/article-file/3870675",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale sayfasında ve PDF'te lisans ibaresi bulunamadı; indirmeyi ya da yeniden kullanımı yasaklayan bir koşul da görülmedi. dergipark.org.tr robots.txt makale ve indirme yollarını kapatmıyor. Ekran görüntüsündeki arayüz TAGEM'in; SuET kılavuzu sistemin içerik kullanım hakkının TAGEM'e ait olduğunu ve ticari amaçla kullanılamayacağını yazıyor (kılavuz www.tarimorman.gov.tr'de, robots kapalı; bilgi arama özetinden).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı"
+  },
+  "t-genomik-holstein-genomik-seciliminin": {
+   "sayfa": "tek_genomik",
+   "dosya": "web/yz/gorsel/t-genomik-holstein-genomik-seciliminin.webp",
+   "genislik": 1600,
+   "yukseklik": 2387,
+   "sha256": "1f5428b032c8e0a239a25626304b6e69f0ac83bec8dbb9fff402bc2e6f90cacc",
+   "kunye": {
+    "tr": "ABD Tarım Bakanlığı Tarımsal Araştırma Servisi'nden (ARS) genetikçi Curt Van Tassell ve biyoloji teknisyeni Alecia Bertles, SNP50 BeadChip teknolojisiyle DNA çıkarımı ve testi için boğa sperması örneklerini seçerken; ARS'nin Agricultural Research dergisinde Ağustos 2008'de yayımlanan genomik yazısındaki fotoğraf (ARS görüntü galerisi, D1149-8).",
+    "en": "USDA Agricultural Research Service (ARS) geneticist Curt Van Tassell and biological technician Alecia Bertles select bull semen samples for DNA extraction and testing using the SNP50 BeadChip technology; photo published in ARS's Agricultural Research magazine genomics article of August 2008 (ARS Image Gallery, D1149-8)."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Stephen Ausmus, USDA Agricultural Research Service (kamu malı)",
+    "en": "Photo: Stephen Ausmus, USDA Agricultural Research Service (public domain)"
+   },
+   "sayfa_adresi": "https://www.ars.usda.gov/oc/images/photos/aug08/d1149-8/",
+   "gorsel_adresi": "https://www.ars.usda.gov/ARSUserFiles/oc/graphics/photos/300dpi/kesa/d1149-8.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "ARS görüntü galerisinin telif sayfası (ars.usda.gov/oc/images/copyright): galerideki fotoğraflar aksi belirtilmedikçe ücretsiz, telifsiz, kamu malı; 'Photo by (fotoğrafçı), USDA Agricultural Research Service' biçiminde atıf isteniyor. ars.usda.gov robots.txt '*' için kural koymuyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Hayvanda zaman kazancı doğrudan kuşak aralığında görülüyor: García-Ruiz ve arkadaşlarının (2016)"
+  },
+  "t-genomik-dna-isaretleyicilerini-okuyan-cip": {
+   "sayfa": "tek_genomik",
+   "dosya": "web/yz/gorsel/t-genomik-dna-isaretleyicilerini-okuyan-cip.webp",
+   "genislik": 1600,
+   "yukseklik": 2400,
+   "sha256": "39bb020be59ba96f4202845d0cbcf3b26f60abc3e6dcd4e82dc05143d896e6bd",
+   "kunye": {
+    "tr": "ABD'de sığır genomik çalışmalarında kullanılan SNP50 BeadChip genotipleme çipi; ABD Tarım Bakanlığı Tarımsal Araştırma Servisi'nin (ARS) Agricultural Research dergisinde Ağustos 2008'de yayımlanan genomik yazısındaki fotoğraf (ARS görüntü galerisi, D1158-1).",
+    "en": "The SNP50 BeadChip genotyping chip used in cattle genomics research in the United States; photo published in the USDA Agricultural Research Service (ARS) Agricultural Research magazine genomics article of August 2008 (ARS Image Gallery, D1158-1)."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Stephen Ausmus, USDA Agricultural Research Service (kamu malı)",
+    "en": "Photo: Stephen Ausmus, USDA Agricultural Research Service (public domain)"
+   },
+   "sayfa_adresi": "https://www.ars.usda.gov/oc/images/photos/aug08/d1158-1/",
+   "gorsel_adresi": "https://www.ars.usda.gov/ARSUserFiles/oc/graphics/photos/300dpi/kesa/d1158-1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "ARS görüntü galerisi: fotoğraflar aksi belirtilmedikçe ücretsiz, telifsiz, kamu malı; 'Photo by (fotoğrafçı), USDA Agricultural Research Service' atfı isteniyor. ars.usda.gov robots.txt '*' için kural koymuyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Genomik seçilim, bir bitkinin ya da hayvanın genetik değerini tarladaki denemenin"
+  },
+  "t-karar-ogm-yangin-karar-destek-sistemi": {
+   "sayfa": "tek_karar",
+   "dosya": "web/yz/gorsel/b15-orman-genel-mudurlugu-nun-yapay-zeka.webp",
+   "genislik": 1080,
+   "yukseklik": 1080,
+   "sha256": "22114c492c5838a4a5057ba0f508c8349a79802d2dbb7a72b1b6839eac5b6724",
+   "gorsel_adresi": "https://www.ogm.gov.tr/sanliurfaobm/haber-sitesi/PublishingImages/orman-yanginlari-ile-mucadelede-yapay-zeka-donemi;-yangin-karar-destek-sistemi/1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "kunye": {
+    "tr": "Orman Genel Müdürlüğü'nün Yangın Karar Destek Sistemi'ni tanıtan bilgi kartı; Şanlıurfa Orman Bölge Müdürlüğü'nün, sistemin Dünya Bilgi Toplumu Zirvesi (WSIS) Ödülleri'ne aday gösterildiğini duyuran 19 Mart 2024 tarihli haberinden.",
+    "en": "Information card introducing the General Directorate of Forestry's (OGM) Fire Decision Support System; from the Şanlıurfa Regional Directorate of Forestry's news item of 19 March 2024 announcing the system's nomination for the World Summit on the Information Society (WSIS) Prizes."
+   },
+   "kaynak": {
+    "tr": "Görsel: Orman Genel Müdürlüğü (tanıtım görseli)",
+    "en": "Image: Orman Genel Müdürlüğü (promotional image)"
+   },
+   "sayfa_adresi": "https://www.ogm.gov.tr/sanliurfaobm/haberler/orman-yanginlari-ile-mucadelede-yapay-zeka-donemi-yangin-karar-destek-sistemi",
+   "lisans_notu": "Açık lisans yok; sayfada telif, izin ya da yeniden kullanım yasağı ibaresi görülmedi. ogm.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; haber sayfası ve görsel yolu açık.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini"
   }
  }
 }

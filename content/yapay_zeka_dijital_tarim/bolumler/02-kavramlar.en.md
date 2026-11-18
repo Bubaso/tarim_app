@@ -28,7 +28,11 @@ Nor is precision farming the same as variable-rate application. According to Low
 
 ERS defines digital agriculture as a transformation that includes the digitalisation and automation of farming tasks, with precision agriculture as its chief element. According to the service, the components of digital agriculture fall into three groups: data and data collection systems, decision support tools, and data-driven equipment and input adjustments.
 
+[[gorsel:b02-ers-nin-dijital-tarim-bilesenleri]]
+
 Other bodies order the terms differently. According to a 2020 FAO publication, Agriculture 4.0 is a set of innovations covering precision farming, the Internet of Things and big data; in a 2019 FAO briefing, precision agriculture is one application of the Internet of Things in agriculture. In CEMA's own classification (CEMA is the association of Europe's farm machinery industry), precision farming is Agriculture 3.0, which began when GPS signals were opened to the public; digital farming is the stage that adds intelligent networks and data management to precision farming technology; and robotics and AI come only with Agriculture 5.0. The technical annex of the 2016 study for the European Parliament uses smart farming and precision agriculture as synonyms. According to Wolfert and colleagues (2017), smart farming is the use of information and communication technology in the farm management cycle; robots and AI are an expected outcome of this development. A 2016 guide by FAO and the International Telecommunication Union called the same field e-agriculture.
+
+[[gorsel:b02-cema-nin-dijital-tarim-tarifi]]
 
 A similarly named term adds to the confusion: climate-smart agriculture. Defined by FAO in 2010, this approach has three objectives: sustainably increasing productivity and incomes, adapting to climate change, and reducing greenhouse gas emissions where possible. According to FAO, climate-smart agriculture is not a single technology or practice that can be applied everywhere.
 

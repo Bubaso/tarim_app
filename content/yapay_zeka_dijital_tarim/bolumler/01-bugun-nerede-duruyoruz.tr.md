@@ -25,3 +25,5 @@ ABD'de çiftliklerin **%22**'si 2025'te herhangi bir hassas tarım uygulaması k
 ## Türkiye
 
 Türkiye Yapay Zekâ Eylem Planı (2026-2030) tarımı öncelikli dört sektörden biri sayıyor, ama planın **16** eyleminin hiçbirinde Tarım ve Orman Bakanlığı ne sorumlu ne iş birliği kurumu. Bakanlığın kendi birimleri ise yapay zekâyı izleme işlerinde kullanıyor ya da kullanmaya hazırlanıyor: uydudan ürün belirleme 2025 üretim yılında ilk kez uygulandı, orman yangınında yapay zekâ destekli karar destek sistemi 2022'den beri kullanılıyor; bakanlığın araştırma kolu TAGEM 2025'te üç yapay zekâ projesi başlattı. Bu teknolojilerin karşısındaki yapı küçük işletmeler ve yaşlanan bir tarım nüfusu: Çiftçi Kayıt Sistemi'nde ortalama işletme **6,9** hektar, tarımda çalışanların yaş ortalaması **46**. Dünya Bankası kredili iklim akıllı tarım projesinde 2025 sonuna kadar kredinin **%12,91**'i harcanmıştı ve hibe harcaması sıfırdı. İlaçlama dronlarında ise **71** operatörle yapılan bir ankete göre operatörlerin yalnız **%14,1**'i her uygulamadan önce kalibrasyon yapıyor.
+
+[[gorsel:b01-turkiye-de-ilaclama-dronu-kayseri]]

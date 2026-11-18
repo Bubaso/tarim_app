@@ -16,4 +16,6 @@ In Mexico's Yaqui Valley, CIMMYT and Oklahoma State University developed GreenSe
 
 According to a 2024 ministry news item, the General Directorate of Forestry has since 2022 used a Decision Support System that combines meteorological data, forest information system (ORBİS) data, and drone and satellite images; it estimates the likelihood and cause of fires and, with AI support, predicts a fire's behaviour and spread. Its effect on detection time, burned area or false alarm rate has not been independently measured and published.
 
+[[gorsel:t-karar-ogm-yangin-karar-destek-sistemi]]
+
 In the field, the state's own recommendation was put to the test: on **300** hectares in Çankırı, where phosphorus varied moderately (coefficient of variation **21.3%**), the ministry's fertiliser recommendation method gave exactly the same phosphorus rate to all five equal-sized sub-regions (Wardamı, Erşahin and Karahan, 2024). In irrigation, decision support is still being set up: according to the 2027 Programme, the Digital Irrigation Management System (DİSU) is to be completed, and work will continue on the use of decision-support systems in irrigation management and on the regulations to support it.
