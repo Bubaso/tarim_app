@@ -1,9 +1,10 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../core/utils/turkce_metin.dart';
+import '../../../core/utils/turkce_metin.dart' show buyukHarf, etiketSlug;
 import '../data/yz_iskelet.g.dart';
 import 'yz_metin_gorunumu.dart';
 import 'yz_okuma.dart';
@@ -28,6 +29,7 @@ class YzMakaleSayfasi extends ConsumerStatefulWidget {
   const YzMakaleSayfasi({
     super.key,
     required this.konumAnahtari,
+    required this.yol,
     required this.geriAdres,
     required this.ustEtiket,
     required this.baslik,
@@ -42,11 +44,18 @@ class YzMakaleSayfasi extends ConsumerStatefulWidget {
     this.arama,
     this.odakTerim,
     this.isaretiKaldir,
+    this.bolum,
     this.altlar = const [],
   });
 
   /// Kaydırma konumunun saklandığı ad (başlığın adresi).
   final String konumAnahtari;
+
+  /// Sayfanın adresi: okuma izi (karar 60) ve bölüm bağlantısı bunu kullanıyor.
+  final String yol;
+
+  /// Açılışta kaydırılacak alt başlık (`?bolum=`, karar 60).
+  final String? bolum;
   final String geriAdres;
   final String ustEtiket;
   final String baslik;
@@ -111,10 +120,23 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
 
   void _ilkKonum() {
     if (!mounted || !_kaydirma.hasClients) return;
-    final k = YzOkumaKonumu.al(widget.konumAnahtari);
-    if (k != null) {
-      _kaydirma.jumpTo(math.min(k, _kaydirma.position.maxScrollExtent));
+    final k = YzOkumaKonumu.alHepsi(widget.konumAnahtari);
+    final enCok = _kaydirma.position.maxScrollExtent;
+    if (k != null && (k.$1 != null || k.$2 != null)) {
+      _kaydirma.jumpTo(math.min(k.$1 ?? (k.$2! * enCok), enCok));
       return;
+    }
+    // Alt başlığın adresiyle gelindiyse (`?bolum=`) o bölüme.
+    final bolum = widget.bolum;
+    if (bolum != null && widget.metin != null) {
+      final basliklar = [
+        for (final x in yzAyristir(widget.metin!)) if (x.tur == YzBlokTuru.altBaslik) x.metin,
+      ];
+      final i = basliklar.indexWhere((b) => etiketSlug(b) == bolum);
+      if (i >= 0) {
+        _vurgu.basligaGit(i);
+        return;
+      }
     }
     // Aramadan ya da sözlük balonundan gelindiyse ilk işaretli yere.
     if (widget.arama != null || widget.odakTerim != null) _vurgu.sonraki();
@@ -122,6 +144,11 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
 
   void _kaydirildi() {
     if (!_kaydirma.hasClients) return;
+    // Okuma izi (karar 60): sayfanın ne kadarının geçildiği.
+    final enCok = _kaydirma.position.maxScrollExtent;
+    if (enCok > 0 && widget.metin != null) {
+      ref.read(yzOkumaIziProvider.notifier).ilerle(widget.yol, widget.baslik, _kaydirma.offset / enCok);
+    }
     final dugme = _kaydirma.offset > 480;
     var aktif = 0;
     final anahtarlar = _vurgu.basliklar;
@@ -152,6 +179,21 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   void dispose() {
     _kaydirma.dispose();
     super.dispose();
+  }
+
+  /// Alt başlığın adresini panoya kopyalar (karar 60).
+  void _bolumBaglantisi(String altBaslik) {
+    final b = Uri.base;
+    final kok = (b.scheme == 'http' || b.scheme == 'https') ? b.origin : 'https://tarimportali.net';
+    final adres = Uri.parse(kok)
+        .replace(path: widget.yol, queryParameters: {'bolum': etiketSlug(altBaslik)})
+        .toString();
+    Clipboard.setData(ClipboardData(text: adres));
+    ScaffoldMessenger.maybeOf(context)?.showSnackBar(SnackBar(
+      content: Text(widget.en ? 'Link to this section copied' : 'Bölümün bağlantısı kopyalandı'),
+      behavior: SnackBarBehavior.floating,
+      duration: const Duration(seconds: 2),
+    ));
   }
 
   /// Yazı boyu değişince okunan yer kaymasın: kaydırma, sayfadaki oranıyla
@@ -202,6 +244,8 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     ortala(_baslikBlogu(dar, en, md)),
+                    if (md != null && ref.watch(yzIpucuProvider) == false)
+                      ortala(_Ipucu(en: en, kapat: ref.read(yzIpucuProvider.notifier).kapat)),
                     if (!rayli && altBasliklar.length >= 3)
                       ortala(_Icindekiler(
                         basliklar: altBasliklar,
@@ -222,6 +266,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                         vurguDenetcisi: _vurgu,
                         kaynakSayfasi: widget.kaynakSayfasi,
                         olcek: olcek,
+                        bolumBaglantisi: _bolumBaglantisi,
                       ),
                     ...widget.altlar,
                   ],
@@ -410,6 +455,45 @@ class _IsaretSeridi extends StatelessWidget {
   }
 }
 
+/// Bir kez gösterilen ipucu (karar 60): rakamlardaki noktalı çizgi kalktı;
+/// okura mavi rakamın ve altı noktalı terimin dokunulabildiği söyleniyor.
+class _Ipucu extends StatelessWidget {
+  const _Ipucu({required this.en, required this.kapat});
+  final bool en;
+  final VoidCallback kapat;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(14, 10, 6, 10),
+        decoration: BoxDecoration(
+          color: YzRenk.bitkiAcik,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          const Icon(Icons.touch_app_outlined, size: 20, color: YzRenk.bitki),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              en
+                  ? 'Tap a blue figure to see its source; tap a term or abbreviation with a dotted underline to see what it means.'
+                  : 'Mavi rakamlara dokunun, kaynağı açılır. Altı noktalı terim ve kısaltmalara dokunun, ne demek olduğu açılır.',
+              style: YzYazi.govde(boy: 14.5).copyWith(height: 1.4),
+            ),
+          ),
+          TextButton(
+            onPressed: kapat,
+            child: Text(en ? 'Got it' : 'Anladım',
+                style: YzYazi.veri(boy: 12.5, renk: YzRenk.bitki, kalinlik: FontWeight.w700)),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
 /// Metnin üstündeki içindekiler (rayın olmadığı ekranlar). Telefonda tek
 /// satıra katlanıyor; dokununca açılıyor. Alt başlığa dokununca o bölüme
 /// kaydırıyor.
@@ -471,7 +555,8 @@ class _IcindekilerState extends State<_Icindekiler> {
                 InkWell(
                   onTap: () => widget.git(i),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    // Dokunma yüksekliği ~44 px (karar 60).
+                    padding: const EdgeInsets.symmetric(vertical: 12),
                     child: Text(widget.basliklar[i],
                         style: YzYazi.govde(boy: 15, renk: YzRenk.makine).copyWith(height: 1.35)),
                   ),
@@ -519,7 +604,7 @@ class _Ray extends StatelessWidget {
                       child: InkWell(
                         onTap: () => git(i),
                         child: Container(
-                          padding: const EdgeInsets.fromLTRB(12, 7, 4, 7),
+                          padding: const EdgeInsets.fromLTRB(12, 8, 4, 8),
                           decoration: BoxDecoration(
                             border: Border(
                               left: BorderSide(

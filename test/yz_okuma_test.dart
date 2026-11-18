@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_iskelet.g.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_kisaltmalar.g.dart';
@@ -68,6 +69,8 @@ Widget _yonlendirmeli(String konum, {String dil = 'tr'}) {
 
 void main() {
   GoogleFonts.config.allowRuntimeFetching = false;
+  // Okuma izi, yazı boyu ve ipucu tarayıcıda (SharedPreferences) tutuluyor.
+  setUp(() => SharedPreferences.setMockInitialValues({}));
 
   group('kısaltma balonu', () {
     test('yalnız ilk geçiş; açılmışsa ve kalın içinde işaret yok', () {
@@ -309,6 +312,67 @@ void main() {
     }
     expect(kalem, greaterThan(0), reason: 'teknolojinin geçtiği kelimeler fosforlu kalemle');
     expect(find.textContaining('bu sayfada'), findsOneWidget);
+  });
+
+  group('okuma izi, ipucu, bölüm adresi (karar 60)', () {
+    test('sayfanın %80\'i geçilince okundu; yarıda kalan son sayfa', () {
+      final d = YzOkumaIziDenetcisi();
+      addTearDown(d.dispose);
+      d.ilerle('$yzPath/a', 'A', 0.3);
+      expect(d.state.okunan, isEmpty);
+      expect(d.state.yarimKaldi, isTrue);
+      expect(d.state.sonAd, 'A');
+      d.ilerle('$yzPath/a', 'A', 0.85);
+      expect(d.state.okunan, {'$yzPath/a'});
+      expect(d.state.yarimKaldi, isFalse, reason: 'okunan sayfa yarım sayılmaz');
+      d.ilerle('$yzPath/b', 'B', 0.5);
+      expect(d.state.sonYol, '$yzPath/b');
+      expect(d.state.okunan, {'$yzPath/a'});
+    });
+
+    test('kaldığı yer oranla da saklanıyor', () {
+      YzOkumaKonumu.kaydetOran('x', 0.4);
+      final k = YzOkumaKonumu.alHepsi('x');
+      expect(k?.$1, isNull);
+      expect(k?.$2, 0.4);
+      expect(YzOkumaKonumu.alHepsi('x'), isNull);
+    });
+
+    testWidgets('ipucu bir kez; kapatınca gelmiyor', (t) async {
+      t.view.physicalSize = const Size(900, 900);
+      t.view.devicePixelRatio = 1;
+      addTearDown(t.view.reset);
+      final kap = ProviderContainer(overrides: [
+        yzBolumHaberleriProvider.overrideWith((ref, no) async => const <YzHaber>[]),
+        yzDizinEklenenlerProvider.overrideWith((ref) async => const <YzDizinKaydi>[]),
+      ]);
+      addTearDown(kap.dispose);
+      await t.pumpWidget(UncontrolledProviderScope(
+        container: kap,
+        child: _uygulama(const YzBaslikEkrani(slug: 'kavramlar')),
+      ));
+      await t.pumpAndSettle();
+      if (kap.read(yzIpucuProvider) == false) {
+        expect(find.textContaining('Mavi rakamlara dokunun'), findsOneWidget);
+        await t.tap(find.text('Anladım'));
+        await t.pumpAndSettle();
+      }
+      expect(kap.read(yzIpucuProvider), isTrue);
+      expect(find.textContaining('Mavi rakamlara dokunun'), findsNothing);
+    });
+
+    testWidgets('?bolum= ile alt başlıktan açılıyor; bağlantı düğmesi var', (t) async {
+      t.view.physicalSize = const Size(900, 900);
+      t.view.devicePixelRatio = 1;
+      addTearDown(t.view.reset);
+      await t.pumpWidget(_yonlendirmeli('$yzPath/saha-hikayeleri?bolum=turkiye-ilaclama-dronlari'));
+      await t.pumpAndSettle();
+      expect(t.takeException(), isNull);
+      final baslik = find.text('Türkiye: ilaçlama dronları').last;
+      final y = t.getTopLeft(baslik).dy;
+      expect(y, lessThan(400), reason: 'sayfa o bölümden açılmalı');
+      expect(find.byTooltip('Bu bölümün bağlantısını kopyala'), findsWidgets);
+    });
   });
 
   test('her teknoloji sayfasında ve başlıkta listeler iki dilde aynı', () {

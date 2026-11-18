@@ -278,7 +278,9 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
     if (m.group(1) != null) {
       final ic = m.group(1)!;
       final rakamli = RegExp(r'\d').hasMatch(ic);
-      // Karar 58: kaynağı bağlı rakam dokunulabilir; noktalı alt çizgi.
+      // Karar 58: kaynağı bağlı rakam dokunulabilir. Noktalı alt çizgi
+      // kalktı (karar 60): renk ve yazı tipi dokunulabildiğini söylüyor,
+      // fareyle üstüne gelince el imleci; okura bir kez ipucu.
       final kaynakli = rakamli && etkilesim != null && (etkilesim.rakamVar?.call(ic) ?? false);
       TapGestureRecognizer? r;
       if (kaynakli) {
@@ -293,10 +295,6 @@ TextSpan yzSatirIci(String metin, TextStyle taban,
                   boy: (taban.fontSize ?? 18) * 0.86,
                   renk: YzRenk.makine,
                   kalinlik: FontWeight.w600,
-                ).copyWith(
-                  decoration: kaynakli ? TextDecoration.underline : null,
-                  decorationStyle: TextDecorationStyle.dotted,
-                  decorationColor: YzRenk.makine.withValues(alpha: 0.55),
                 )
               : const TextStyle(fontWeight: FontWeight.w700));
     } else {
@@ -399,8 +397,13 @@ class YzMetinGorunumu extends StatefulWidget {
       this.vurguDenetcisi,
       this.kaynakSayfasi,
       this.olcek = 1.0,
-      this.giris = true});
+      this.giris = true,
+      this.bolumBaglantisi});
   final String metin;
+
+  /// Alt başlığın paylaşılabilir adresi (karar 60): verilirse başlığın
+  /// yanında küçük bir bağlantı düğmesi; dokununca adres panoya kopyalanır.
+  final void Function(String altBaslik)? bolumBaglantisi;
 
   /// Rakamdan kaynağa (karar 58): "bNN" ya da "tek_<kod>"; verilirse kalın
   /// rakamlar dokunulabilir ve kaynağın balonunu açıyor.
@@ -707,16 +710,27 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           final ar = widget.arama == null
               ? const <(int, int)>[]
               : yzAramaAraliklari(b.metin, yzAramaKelimeleri(widget.arama!, en), en);
+          final baslikMetni = Semantics(
+            header: true,
+            child: ar.isEmpty
+                ? Text(b.metin, style: stil)
+                : Text.rich(yzSatirIci(b.metin, stil, arama: ar)),
+          );
           cikti.add(_sutun(
               metinW,
               Padding(
-                padding: const EdgeInsets.only(top: 22, bottom: 12),
-                child: Semantics(
-                  header: true,
-                  child: ar.isEmpty
-                      ? Text(b.metin, style: stil)
-                      : Text.rich(yzSatirIci(b.metin, stil, arama: ar)),
-                ),
+                padding: const EdgeInsets.only(top: 34, bottom: 12),
+                child: widget.bolumBaglantisi == null
+                    ? baslikMetni
+                    : Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Expanded(child: baslikMetni),
+                        IconButton(
+                          tooltip: en ? 'Copy link to this section' : 'Bu bölümün bağlantısını kopyala',
+                          visualDensity: VisualDensity.compact,
+                          icon: const Icon(Icons.link_rounded, size: 18, color: YzRenk.soluk),
+                          onPressed: () => widget.bolumBaglantisi!(b.metin),
+                        ),
+                      ]),
               ),
               key: _baslikAnahtari[i]));
         case YzBlokTuru.paragraf:
@@ -730,7 +744,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           cikti.add(_sutun(
               metinW,
               Padding(
-                padding: EdgeInsets.only(bottom: i == _ilkParagraf ? 20 : 16),
+                padding: EdgeInsets.only(bottom: i == _ilkParagraf ? 26 : 22),
                 child: _odakBlok[i] ? _odakKutusu(metin) : metin,
               ),
               key: _anahtar[i]));
@@ -781,7 +795,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           cikti.add(_sutun(
               metinW,
               Padding(
-                padding: const EdgeInsets.only(top: 2, bottom: 18),
+                padding: const EdgeInsets.only(top: 2, bottom: 22),
                 child: liste,
               ),
               key: _anahtar[i]));

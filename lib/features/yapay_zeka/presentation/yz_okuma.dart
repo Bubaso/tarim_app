@@ -98,33 +98,153 @@ final yzYaziOlcegiProvider =
 
 /// Okur bir terimin balonundan sözlüğe gidince başlıktaki kaydırma konumu
 /// burada tutuluyor; başlığa dönünce (sözlüğün geri oku ya da tarayıcının
-/// geri tuşu) sayfa o konumdan açılıyor. Tek kayıt: başka bir başlık
-/// açılınca düşüyor.
+/// geri tuşu) sayfa o konumdan açılıyor. Merkez sayfadaki "Kaldığınız yer"
+/// bağlantısı da konumu sayfadaki oranıyla buraya bırakıyor (karar 60).
+/// Tek kayıt: başka bir başlık açılınca düşüyor.
 class YzOkumaKonumu {
   YzOkumaKonumu._();
   static String? _slug;
   static double? _konum;
+  static double? _oran;
 
   static void kaydet(String slug, double konum) {
     _slug = slug;
     _konum = konum;
+    _oran = null;
   }
 
-  /// [slug] için kayıtlı konumu verir ve kaydı düşürür. Sözlük sayfası
-  /// kaydı düşürmez (okur oradan dönecek).
-  static double? al(String slug) {
+  /// Konum sayfadaki oranıyla (0-1): sayfa açılınca o orana kaydırılır.
+  static void kaydetOran(String slug, double oran) {
+    _slug = slug;
+    _konum = null;
+    _oran = oran;
+  }
+
+  /// [slug] için kayıtlı konumu (piksel) verir ve kaydı düşürür. Sözlük
+  /// sayfası kaydı düşürmez (okur oradan dönecek).
+  static double? al(String slug) => _al(slug)?.$1;
+
+  /// Kayıt: (piksel, oran) — biri dolu. Okunduktan sonra düşer.
+  static (double?, double?)? alHepsi(String slug) => _al(slug);
+
+  static (double?, double?)? _al(String slug) {
     if (slug == 'sozluk') return null;
     if (_slug != slug) {
       _slug = null;
       _konum = null;
+      _oran = null;
       return null;
     }
-    final k = _konum;
+    final k = (_konum, _oran);
     _slug = null;
     _konum = null;
+    _oran = null;
     return k;
   }
 }
+
+// ── Okuma izi (karar 60) ─────────────────────────────────────────────────
+// Okunan sayfalar ve son kalınan yer yalnız okurun tarayıcısında tutuluyor;
+// hesap gerekmiyor. Sayfanın %80'i geçilince okundu sayılıyor.
+
+const double kYzOkunduEsigi = 0.8;
+const String _okunanAnahtari = 'yz_okunan';
+const String _sonAnahtari = 'yz_son_okunan';
+
+class YzOkumaIzi {
+  const YzOkumaIzi({this.okunan = const {}, this.sonYol, this.sonAd, this.sonOran = 0});
+
+  /// Okunan sayfaların adresleri.
+  final Set<String> okunan;
+  final String? sonYol;
+  final String? sonAd;
+  final double sonOran;
+
+  /// Yarıda bırakılmış son sayfa varsa.
+  bool get yarimKaldi => sonYol != null && sonOran > 0.05 && sonOran < kYzOkunduEsigi;
+}
+
+class YzOkumaIziDenetcisi extends StateNotifier<YzOkumaIzi> {
+  YzOkumaIziDenetcisi() : super(const YzOkumaIzi()) {
+    _yukle();
+  }
+
+  Future<void> _yukle() async {
+    try {
+      final p = await SharedPreferences.getInstance();
+      final okunan = p.getStringList(_okunanAnahtari) ?? const <String>[];
+      final son = p.getStringList(_sonAnahtari);
+      if (!mounted) return;
+      state = YzOkumaIzi(
+        okunan: {...okunan},
+        sonYol: son != null && son.length == 3 ? son[0] : null,
+        sonAd: son != null && son.length == 3 ? son[1] : null,
+        sonOran: son != null && son.length == 3 ? (double.tryParse(son[2]) ?? 0) : 0,
+      );
+    } catch (_) {}
+  }
+
+  Future<void> _kaydet() async {
+    try {
+      final p = await SharedPreferences.getInstance();
+      await p.setStringList(_okunanAnahtari, state.okunan.toList()..sort());
+      if (state.sonYol != null) {
+        await p.setStringList(
+            _sonAnahtari, [state.sonYol!, state.sonAd ?? '', state.sonOran.toStringAsFixed(3)]);
+      }
+    } catch (_) {}
+  }
+
+  /// Okur [yol] sayfasında [oran] kadar ilerledi.
+  void ilerle(String yol, String ad, double oran) {
+    final o = oran.clamp(0.0, 1.0).toDouble();
+    final okundu = o >= kYzOkunduEsigi && !state.okunan.contains(yol);
+    final kayda = state.sonYol != yol || (state.sonOran - o).abs() >= 0.04;
+    if (!okundu && !kayda) return;
+    state = YzOkumaIzi(
+      okunan: okundu ? {...state.okunan, yol} : state.okunan,
+      sonYol: yol,
+      sonAd: ad,
+      sonOran: o,
+    );
+    _kaydet();
+  }
+}
+
+final yzOkumaIziProvider =
+    StateNotifierProvider<YzOkumaIziDenetcisi, YzOkumaIzi>((ref) => YzOkumaIziDenetcisi());
+
+// ── Bir kez ipucu (karar 60) ─────────────────────────────────────────────
+// Rakamlardaki noktalı çizgi kalktı: mavi rakamın dokunulabildiğini okura
+// bir kez söyleyen ipucu. null: henüz bilinmiyor (gösterilmez).
+
+const String _ipucuAnahtari = 'yz_ipucu_goruldu';
+
+class YzIpucu extends StateNotifier<bool?> {
+  YzIpucu() : super(null) {
+    _yukle();
+  }
+
+  Future<void> _yukle() async {
+    try {
+      final p = await SharedPreferences.getInstance();
+      if (mounted) state = p.getBool(_ipucuAnahtari) ?? false;
+    } catch (_) {
+      if (mounted) state = false;
+    }
+  }
+
+  Future<void> kapat() async {
+    state = true;
+    try {
+      final p = await SharedPreferences.getInstance();
+      await p.setBool(_ipucuAnahtari, true);
+    } catch (_) {}
+  }
+}
+
+/// true: ipucu görüldü; false: gösterilecek; null: henüz yüklenmedi.
+final yzIpucuProvider = StateNotifierProvider<YzIpucu, bool?>((ref) => YzIpucu());
 
 // ── Arama ────────────────────────────────────────────────────────────────
 

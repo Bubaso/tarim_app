@@ -25,7 +25,8 @@ import 'yz_teknoloji_izi.dart';
 ///
 /// Adres parametreleri: `?teknoloji=` merkez sayfada seçilen teknoloji
 /// (karar 57), `?ara=` bölüm içi arama, `?terim=` sözlükte açılan terim,
-/// `?geri=` balondan gelindiyse dönülecek başlık.
+/// `?geri=` balondan gelindiyse dönülecek başlık, `?bolum=` açılışta
+/// kaydırılacak alt başlık (karar 60).
 class YzBaslikEkrani extends StatelessWidget {
   const YzBaslikEkrani({super.key, required this.slug});
   final String slug;
@@ -68,6 +69,8 @@ class YzBaslikEkrani extends StatelessWidget {
     return YzMakaleSayfasi(
       key: ValueKey('baslik-$slug'),
       konumAnahtari: slug,
+      yol: yzBaslikPath(slug),
+      bolum: parametreler['bolum'],
       geriAdres: geriAdres,
       ustEtiket: kYzKatmanlar[b.katman]?[en ? 'en' : 'tr'] ?? b.katman,
       baslik: b.ad(en),

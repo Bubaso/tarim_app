@@ -42,6 +42,10 @@ class YzTeknolojiEkrani extends StatelessWidget {
     return YzMakaleSayfasi(
       key: ValueKey('teknoloji-$kod'),
       konumAnahtari: 'teknoloji-$kod',
+      yol: yzTeknolojiPath(kod),
+      bolum: yonlendirici == null
+          ? null
+          : GoRouterState.of(context).uri.queryParameters['bolum'],
       geriAdres: yzPath,
       ustEtiket: en ? 'Technology' : 'Teknoloji',
       baslik: ad,

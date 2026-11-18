@@ -91,6 +91,54 @@ class YzUstSerit extends StatelessWidget {
   }
 }
 
+/// Merkez sayfada yön satırı (karar 60): yarıda bırakılan sayfa varsa
+/// "Kaldığınız yer", yoksa ilk kez gelen okura nereden başlayacağı.
+/// Okuma izi yalnız okurun tarayıcısında.
+class YzYonSatiri extends ConsumerWidget {
+  const YzYonSatiri({super.key});
+
+  static const String _ilk = 'bugun-nerede-duruyoruz';
+  static const String _kavramlar = 'kavramlar';
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final en = yzIsEn(context);
+    final iz = ref.watch(yzOkumaIziProvider);
+    final yonlendirici = GoRouter.maybeOf(context);
+    final duz = YzYazi.govde(boy: 15.5, renk: YzRenk.soluk);
+    final bag = YzYazi.govde(boy: 15.5, renk: YzRenk.makine).copyWith(
+        decoration: TextDecoration.underline,
+        decorationColor: YzRenk.makine.withValues(alpha: 0.4));
+    Widget baglanti(String metin, VoidCallback git) => InkWell(
+          onTap: yonlendirici == null ? null : git,
+          child: Text(metin, style: bag),
+        );
+    if (iz.yarimKaldi) {
+      final yol = iz.sonYol!;
+      final parca = yol.split('/').where((x) => x.isNotEmpty).toList();
+      final anahtar = yol.contains('/teknoloji/') ? 'teknoloji-${parca.last}' : parca.last;
+      return Wrap(crossAxisAlignment: WrapCrossAlignment.center, spacing: 6, runSpacing: 4, children: [
+        Text(en ? 'Where you left off:' : 'Kaldığınız yer:', style: duz),
+        baglanti('${iz.sonAd} →', () {
+          YzOkumaKonumu.kaydetOran(anahtar, iz.sonOran);
+          context.push(yol);
+        }),
+      ]);
+    }
+    if (iz.okunan.contains(yzBaslikPath(_ilk))) return const SizedBox.shrink();
+    final ilk = yzBaslik(1)?.ad(en) ?? '';
+    final kav = yzBaslik(2)?.ad(en).split(':').first.trim() ?? '';
+    return Wrap(crossAxisAlignment: WrapCrossAlignment.center, spacing: 5, runSpacing: 4, children: [
+      Text(en ? 'New here? Start with' : 'İlk kez mi geliyorsunuz?', style: duz),
+      if (!en) Text('Önce', style: duz),
+      baglanti(ilk, () => context.push(yzBaslikPath(_ilk))),
+      Text(en ? '; for the terms,' : ', terimler için', style: duz),
+      baglanti(kav, () => context.push(yzBaslikPath(_kavramlar))),
+      Text('.', style: duz),
+    ]);
+  }
+}
+
 /// Merkez sayfadaki arama kutusu (karar 60): dokununca arama sayfası açılıyor.
 class YzAramaKutusu extends StatelessWidget {
   const YzAramaKutusu({super.key});
@@ -439,7 +487,7 @@ class _TeknolojiOzeti extends StatelessWidget {
   }
 }
 
-class YzBaslikKarosu extends StatelessWidget {
+class YzBaslikKarosu extends ConsumerWidget {
   const YzBaslikKarosu(
       {super.key, required this.baslik, this.sonuk = false, this.teknoloji, this.ana = false});
   final YzBaslik baslik;
@@ -454,19 +502,21 @@ class YzBaslikKarosu extends StatelessWidget {
   final bool ana;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final en = yzIsEn(context);
     final secili = teknoloji != null && !sonuk;
     final izSayisi = secili ? (kYzTeknolojiIzi[baslik.no]?[teknoloji]?[en ? 1 : 0] ?? 0) : 0;
     // Karoda yazım durumu yok (iç not; kullanıcı, 18 Kas 2026): yalnız seçili
     // teknolojinin bu başlıkta kaç yerde geçtiği.
     final metin = kYzMetinler[baslik.no];
+    // Okuma izi (karar 60): okunan başlık işaretli; yalnız okurun tarayıcısında.
+    final okundu = ref.watch(yzOkumaIziProvider).okunan.contains(yzBaslikPath(baslik.slug));
     final durum = !secili
         ? (metin == null
             ? null
             : (en
-                ? '${yzOkumaSuresi(metin.metin(true), true)} min'
-                : '${yzOkumaSuresi(metin.metin(false), false)} dk okuma'))
+                ? '${yzOkumaSuresi(metin.metin(true), true)} min${okundu ? ' · ✓ read' : ''}'
+                : '${yzOkumaSuresi(metin.metin(false), false)} dk okuma${okundu ? ' · ✓ okundu' : ''}'))
         : (ana
             ? (en ? 'main heading · $izSayisi mentions' : 'ana başlık · $izSayisi yerde geçiyor')
             : (en ? '$izSayisi mentions' : '$izSayisi yerde geçiyor'));

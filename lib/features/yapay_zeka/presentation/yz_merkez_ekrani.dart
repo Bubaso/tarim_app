@@ -83,7 +83,13 @@ class YzMerkezEkrani extends StatelessWidget {
                                 constraints: const BoxConstraints(maxWidth: 620),
                                 child: const YzAramaKutusu(),
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 12),
+                              // Kaldığınız yer ya da nereden başlamalı (karar 60).
+                              ConstrainedBox(
+                                constraints: const BoxConstraints(maxWidth: 620),
+                                child: const YzYonSatiri(),
+                              ),
+                              const SizedBox(height: 14),
                               Wrap(spacing: 18, runSpacing: 6, children: [
                                 Text(
                                   en ? '${kYzBasliklar.length} headings' : '${kYzBasliklar.length} başlık',
