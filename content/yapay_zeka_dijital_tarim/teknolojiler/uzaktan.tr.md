@@ -12,11 +12,15 @@ En sağlam sonuçlar neyin nerede olduğunu bulmaktan geliyor. Uzaydaki GEDI laz
 
 Soru verim ya da doz olunca tablo değişiyor. Uydu, toprak ve arazi değişkenleriyle **20** çiftlik denemesinde eğitilen modeller verimi ortalama **%13,7** hatayla tahmin etti, ama benzer doğruluktaki iki model çok farklı azot dozları çıkardı (de Lara ve arkadaşları, 2023). Karar tarafında umut veren bir ölçüm tek tarladan geliyor: Fas'ta Sentinel-2 benzeri görüntülerle planlanan sulama, neredeyse aynı buğday verimini **%14** daha az suyla aldı.
 
+[[gorsel:t-uzaktan-ciftlikte-hassas-azot-denemesi]]
+
 ## Bulutun ve yer gerçeğinin sınırı
 
 Optik algılayıcı yansıyan güneş ışığını topluyor, bulutun altını göremiyor. Whitcraft ve arkadaşlarına (2015) göre ürün deseninin belirlenmesi ve verim tahmini için önemli olan sezon başı ve ortası sık ve yaygın bulutla örtülüyor: birçok önemli tarım bölgesinde **8** günlük bileşik görüntülerin yarısından azı **%70** açık çıkabiliyor. Yazarlar radar gibi alternatiflere bakılmasını öneriyor; TARSİM de araştırma çalışmalarında sel alanlarını Sentinel-1 radar görüntüleriyle inceledi.
 
 Yerden toplanan veri de sonucu belirliyor: kışlık ürünlerin referans parsellerinin hasattan önce yeterli yoğunlukta toplanması bakanlığın ürün belirleme çalışmasının başarısını doğrudan etkiliyor, Yozgat'ta beyanları uyduyla otomatik denetleyen yöntem de bir parsele iki ürün ekildiğinde hatalı sonuç verdi.
+
+[[gorsel:t-uzaktan-yozgat-ta-urun-beyaninin-uydu]]
 
 ## Bakanlığın uydu işleri ve İMECE
 

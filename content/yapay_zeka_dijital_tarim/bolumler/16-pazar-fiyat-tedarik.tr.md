@@ -26,6 +26,8 @@ Fiyat tahmininde yapay zekâ ölçülebilir bir iyileşme getiriyor, ama kazanc�
 
 Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012; son değişiklik 2023) göre Hal Kayıt Sistemi (HKS), ticaretten sorumlu bakanlığın bünyesinde kurulan, internet tabanlı merkezi bir kayıt sistemi. Bildirim eşiğindeki ya da üzerindeki mal (kilogramla satışta **100** kilogram, adetle **150** adet, bağla **50** bağ) üretildiği yerden ya da girdiği gümrük kapısından sevk edilmeden önce sisteme bildiriliyor. Her bildirim için sistem malın üretim yerini, cinsini, miktarını, hangi üreticiye ait olduğunu ve varsa sertifika bilgisini içeren, özgün numaralı bir künye üretiyor; toptan ve perakende satışta künyenin malın üstünde herkesin görebileceği bir yerde bulunması zorunlu.
 
+[[gorsel:b16-hal-kayit-sistemi-nin-karekodlu-urun]]
+
 [[gorsel:b16-toptanci-hali]]
 
 Bu kaydın verisi araştırmada da kullanılıyor. Türkiye'den hakemli bir makine öğrenmesi denemesi (Özden, 2023), patates, soğan ve sarımsağın 2018 başından Kasım 2022'ye kadarki **1.791** günlük işlem hacmini ve fiyatını Ticaret Bakanlığı'nın resmî hal sitesinden elle derleyerek **10** günlük fiyat tahmini denedi. Ama yapay zekânın Türkiye'de fiyat tahminine, talep planlamasına ya da izlenebilirliğe gerçekte ne kattığını gösteren yayımlanmış bir değerlendirme yok.

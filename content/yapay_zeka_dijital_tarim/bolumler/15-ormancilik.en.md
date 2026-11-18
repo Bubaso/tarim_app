@@ -42,7 +42,11 @@ According to the ministry's data, Türkiye's forest area was **23,375,331** hect
 
 Türkiye has a long record in early detection. According to a 2013 TÜBİTAK announcement, the Forest Fire Warning System developed by the General Directorate of Forestry and Bilkent University with TÜBİTAK support processes images from cameras installed on fire lookout towers with software; at the time, **3.2** million hectares were watched by **154** cameras on **77** towers, and the announcement says a small fire is detected in **15-25** seconds. This is the institution's own claim; there is no published assessment independently measuring the system's accuracy and false alarm rate.
 
+[[gorsel:b15-kamerali-insansiz-yangin-gozetleme]]
+
 According to a 2024 ministry news item, the General Directorate of Forestry has since 2022 used a domestically developed Decision Support System: it combines meteorological data, forest information system (ORBİS) data, UAV and satellite images; it estimates the likelihood and cause of fires and, with AI support, predicts a fire's behaviour and spread. The system was nominated for the World Summit on the Information Society Prizes of the International Telecommunication Union, a UN agency.
+
+[[gorsel:b15-orman-genel-mudurlugu-nun-yapay-zeka]]
 
 There is academic work as well. A study from Karabük University tested fire detection with deep learning embedded on a four-rotor UAV designed by the authors, reporting **96%** accuracy in classification (Shamta and Demir, 2024). A study involving Hacettepe University mapped burned area in a Turkish red pine forest in a Mediterranean ecosystem using radar, optical and thermal satellite data and the random forest method, with **96%** overall accuracy (Abdikan and colleagues, 2022).
 

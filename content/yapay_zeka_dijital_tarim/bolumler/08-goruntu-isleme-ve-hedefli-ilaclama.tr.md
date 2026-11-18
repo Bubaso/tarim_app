@@ -6,7 +6,11 @@ Hedefli ilaçlamanın vaadi basit: ilacı bütün tarlaya değil, yalnız yabanc
 
 Geleneksel ilaçlama tarlanın tamamına aynı dozu atar; buna yayma ilaçlama deniyor. Hedefli ilaçlama ise tarlayı tek tek bitkilere ayırır. İlaçlayıcının üstündeki ya da bir insansız hava aracının taşıdığı kamera görüntü alır, bir model o görüntüde neyin ürün neyin yabancı ot olduğuna karar verir ve meme yalnız otun üstünden geçerken açılır.
 
+[[gorsel:b08-hedefli-ilaclamanin-isleyisi-kamera]]
+
 İki ayrı durum var ve ayrımı yapmadan hiçbir rakam okunamaz. **Çıplak toprakta yeşil ot** — nadasta, ekim öncesinde — görece kolay bir problem: kahverengi zemin üstünde yeşil olan her şey ottur. **Ürünün içinde yeşil ot** ise zor bir problem: yeşil bir bitkiyi yeşil bir bitkiden ayırmak gerekir, yapraklar örtüşür, ışık ve gölge değişir. Satıcı broşürlerindeki en yüksek rakamlar çoğunlukla ilk durumdan geliyor.
+
+[[gorsel:b08-nadasta-ciplak-toprakta-yesil-ot]]
 
 ## Saha denemeleri ne diyor
 
@@ -26,6 +30,8 @@ Avustralya denemesinin en önemli bulgusu ortalamadan çok ortalamanın nasıl o
 [[grafik:b08-hedefli-ilaclama-azalmalar]]
 
 Aynı deneme bir şeyi daha ölçtü: ilaçlamadan sonraki günlerde tarladan çıkan sudaki ilaç. Tarım ilacının akarsuya ve yer altı suyuna karışması, ilacın maliyetinden bağımsız bir sorun. Hedefli ilaçlama orada da ölçülebilir bir fark yaratıyor.
+
+[[gorsel:b08-seker-kamisi-hedefli-ilaclama]]
 
 Almanya'daki mısır denemesinde kamera ilaçlayıcının üstünde değil: önce bir insansız hava aracı tarlanın yüksek çözünürlüklü haritasını çıkarıyor, sonra ilaçlayıcı o haritayı izliyor. Yöntem farklı, sonuç aynı yönde.
 

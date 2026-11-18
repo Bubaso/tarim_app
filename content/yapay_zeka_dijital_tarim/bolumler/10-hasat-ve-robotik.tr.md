@@ -8,6 +8,8 @@ Hasat iki ayrı makine dünyası. Tahılda biçerdöver tarlanın tamamını tek
 
 Seçici hasat robotu üç işi birden yapmak zorunda: meyveyi kameradan tanıyıp yerini bulmak, kolunu yaprakların ve dalların arasından ona ulaştırmak, meyveyi zarar vermeden koparmak. Yapay zekâ ilk işte, görüntüde meyveyi tanımakta. Zorluk ise robota yabancı bir ortamda: bitkiden bitkiye değişkenlik, eksik bilgi ve güvenlik.
 
+[[gorsel:b10-sweeper-biber-hasat-robotunun-uc]]
+
 ## Saha ne diyor
 
 Bac ve arkadaşları (2014), yüksek değerli ürünler için geliştirilmiş hasat robotlarını aynı ölçülerle karşılaştırdı:
@@ -42,6 +44,8 @@ Yapay zekânın katkısı robotun gözünde: kamera görüntüsünde meyveyi bul
 Türkiye'de hasadın makine tarafı klasik mekanizasyon. Bakanlığın verisine göre 2025'te **1.610.133** traktör ve **21.116** biçerdöver vardı; biçerdöverlerin **%49,3**'ü 10 yaşında ya da daha genç, traktörlerin **%71**'i 35-70 beygir gücünde.
 
 2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim tekniklerinin etkin kullanımını güçleştirdiğini yazıyor. Aralık 2025 tarihli kırsal kalkınma kararı ve Nisan 2026 tarihli tebliğ ise robotik ve otomasyon teknolojilerinin yaygınlaştırılmasını da hedefliyor; hibe, yatırımın niteliğine göre proje tutarının **%50-70**'i.
+
+[[gorsel:b10-parcali-arazi-yapisi-burdur-yesilova]]
 
 Araştırma tarafında Tekirdağ Namık Kemal Üniversitesi'nden Kahya, biri ekip arkadaşlarıyla yazdığı iki çalışmada (2024) patlıcan ve kabak hasadı için derin öğrenme tabanlı nesne tanıma modelleri eğitti. Ölçülen şey modelin doğrulama görüntülerinde meyveyi tanıma başarısı; robotun tarlada meyveyi koparıp koparamadığı değil. Bir hasat robotunun Türkiye'de tarlada ya da serada meyve topladığı ve başarısının ölçüldüğü bir deneme henüz yayımlanmadı. Hasat da yapabilecek otonom bir sera robotu ise TÜBİTAK desteğiyle 2026'da başlayan bir projede geliştiriliyor.
 

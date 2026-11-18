@@ -6,6 +6,8 @@ Su ürünlerinde yapay zekânın en çarpıcı sonucu av denetiminden geliyor: u
 
 Su ürünlerinde dijital teknoloji iki ayrı dünyada çalışıyor. Yetiştiricilikte kafeslerde ve havuzlarda kameralar ve sensörler balığı, yemi ve suyu izliyor: balığın sayısı ve boyu, yemleme davranışı, suyun sıcaklığı ve oksijeni. Avcılıkta ise mesele gemiyi izlemek: konum vericileri, elektronik seyir defterleri ve uydudan gemi tespiti, hangi geminin nerede, ne kadar süre ve neyi avladığını gösteriyor.
 
+[[gorsel:b14-deniz-kafesinde-balik-boyunu-olcen]]
+
 Yapay zekâ ilk dünyada görüntüden balığı tanıyor, yem kararını ve biyokütleyi tahmin etmeye çalışıyor; ikincisinde konum izlerinden avlanma davranışını ve izlemenin dışında kalan gemileri çıkarıyor.
 
 ## Saha ne diyor
@@ -21,6 +23,8 @@ FAO'nun 2024 raporuna göre dünya su ürünleri üretimi 2022'de **223,2** mily
 ## Yapay zekâ nerede duruyor
 
 Yetiştiricilikte derin öğrenme canlı balık tanıma, tür sınıflandırma, davranış analizi, yemleme kararları, boy ve biyokütle tahmini ve su kalitesi öngörüsünde deneniyor. Yang ve arkadaşlarının (2021) derlemesine göre en büyük katkısı, özellikleri verinin içinden kendiliğinden çıkarabilmesi. Ama yöntem hâlâ zayıf yapay zekâ aşamasında ve eğitim için çok miktarda etiketli veri istiyor; derlemeye göre bu ihtiyaç, yetiştiricilikte yayılmasının önündeki darboğaz.
+
+[[gorsel:b14-kafes-ici-su-alti-goruntusunde-yapay]]
 
 Av denetiminde ise yapay zekâ, insanın elle izleyemeyeceği ölçekte bir şey yapıyor: kamuya açık izlemenin dışında kalan gemileri görünür kılıyor.
 

@@ -6,6 +6,8 @@ Satellite imagery is the widest data source for AI in agriculture, and whether i
 
 A satellite is a measuring instrument that sees fields every few days, the same way, over a wide area. The light reflected by vegetation reveals a crop's growth, water status and disease; radar satellites can also see through cloud. AI extracts from these images the crop sown, the yield, drought, and burned or idle land. Crop monitoring and yield forecasting, vessel tracking in fisheries, forestry and insurance rest on this layer.
 
+[[gorsel:b19-uydunun-bitki-ortusunu-olcme-ilkesi]]
+
 ## What the field says
 
 The decision to make Landsat imagery free was taken by the US Geological Survey (USGS). According to a NASA page summarising a 2019 paper by Zhu and colleagues from the Landsat Science Team, scientific publications based on Landsat also rose four-fold after the decision; the authors say that losing the open data policy would have a significant impact on the research community. According to the USGS's own valuation, Landsat imagery gave domestic and international users an estimated **3.45** billion dollars in benefits in 2017 (**2.19** billion in 2011); much of that value stems from the free and open data policy. Charging even small fees would lead to a loss of users and, most likely, a steep decline in the amount of imagery downloaded; more than **50%** of users are expected to decline to pay.

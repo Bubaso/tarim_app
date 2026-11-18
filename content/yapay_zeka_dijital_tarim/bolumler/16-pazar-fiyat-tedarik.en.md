@@ -26,6 +26,8 @@ In price forecasting, AI brings a measurable improvement, but the size of the ga
 
 Under the Regulation on Fruit and Vegetable Trade and Wholesale Markets (2012; last amended 2023), the Wholesale Market Registration System (HKS) is a central, internet-based registration system set up within the ministry responsible for trade. Goods at or above the notification threshold (**100** kilograms when sold by weight, **150** pieces when sold by the piece, **50** bunches when sold by the bunch) are notified to the system before they are shipped from where they were produced or from the customs gate they entered through. For each notification the system generates a uniquely numbered tag (künye) giving the goods' place of production, type, quantity, the producer they belong to and any certificate information; in wholesale and retail sale the tag must be displayed on the goods where anyone can see it.
 
+[[gorsel:b16-hal-kayit-sistemi-nin-karekodlu-urun]]
+
 [[gorsel:b16-toptanci-hali]]
 
 The register's data are also used in research. A peer-reviewed machine learning trial from Türkiye (Özden, 2023) compiled by hand, from the Ministry of Trade's official wholesale market website, the trade volumes and prices of potatoes, onions and garlic for **1,791** days from the start of 2018 to November 2022, and tested **10**-day price forecasts. But there is no published assessment showing what AI actually adds to price forecasting, demand planning or traceability in Türkiye.

@@ -42,7 +42,11 @@ Bakanlığın verisine göre Türkiye'nin orman alanı 2025'te **23.375.331** he
 
 Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin TÜBİTAK desteğiyle geliştirdiği Orman Yangın Uyarı Sistemi, yangın gözetleme kulelerine kurulan kameraların görüntüsünü bir yazılımla işliyor; o tarihte **77** kulede **154** kamerayla **3,2** milyon hektar izleniyordu ve duyuru küçük bir yangının **15-25** saniyede tespit edildiğini söylüyor. Bu, kurumun kendi açıklaması; sistemin isabetini ve yanlış alarm oranını bağımsız olarak ölçen yayımlanmış bir değerlendirme bulunmuyor.
 
+[[gorsel:b15-kamerali-insansiz-yangin-gozetleme]]
+
 Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor: meteoroloji verisini, orman bilgi sistemi (ORBİS) verisini, İHA ve uydu görüntülerini birleştiriyor; yangın çıkma olasılığını ve nedenini tahmin ediyor ve yapay zekâ desteğiyle yangının davranışını ve ilerleyişini öngörüyor. Sistem, BM'ye bağlı Uluslararası Telekomünikasyon Birliği'nin Dünya Bilgi Toplumu Zirvesi Ödülleri'ne aday gösterildi.
+
+[[gorsel:b15-orman-genel-mudurlugu-nun-yapay-zeka]]
 
 Akademide de çalışmalar var. Karabük Üniversitesi'nden bir çalışma, yazarların tasarladığı dört rotorlu bir İHA'ya gömülü derin öğrenmeyle yangın tespitini sınadı ve sınıflandırmada **%96** doğruluk bildiriyor (Shamta ve Demir, 2024). Hacettepe Üniversitesi'nin de yer aldığı bir çalışma, Akdeniz ekosistemindeki bir kızılçam ormanında yanmış alanı radar, optik ve termal uydu verisi ve rastgele orman yöntemiyle **%96** genel doğrulukla haritaladı (Abdikan ve arkadaşları, 2022).
 

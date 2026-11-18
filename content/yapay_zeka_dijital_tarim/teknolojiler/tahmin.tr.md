@@ -6,6 +6,8 @@ Tarımda tahmin modelleri havayı, verimi, fiyatı ve bir hayvanın genetik değ
 
 Geçmiş hava verisinden öğrenen bir makine öğrenmesi modeli olan GraphCast (Lam ve arkadaşları, 2023), **10** günlük küresel tahminde **1.380** doğrulama hedefinin **%90**'ında işletimdeki en doğru sistemlerden belirgin biçimde iyi sonuç veriyor. Avrupa Orta Vadeli Hava Tahminleri Merkezi 25 Şubat 2025'ten beri kendi yapay zekâ sistemini fizik tabanlı modelinin yanında çalıştırıyor; kuruma göre sistem fizik tabanlı modelleri birçok ölçütte geçiyor, kazanç tropikal siklon rotası gibi ölçütlerde **%20**'ye varıyor.
 
+[[gorsel:t-tahmin-graphcast-in-calisma-semasi-hava]]
+
 Bu çalışmalar isabeti ölçüyor; daha iyi bir don ya da kuraklık tahmininin çiftçinin kaybını ne kadar azalttığını ölçmüyor. Tahminin karara dönüştüğünü gösteren bir ölçüm Hindistan'dan geliyor: yerel muson başlangıcına dair olasılıklı tahminler **13** eyalette **38,8** milyonu aşkın çiftçiye kısa mesajla gönderildi ve iki eyaletteki takip anketlerine göre çiftçilerin **%31-52**'si ekim kararını bu tahminlere göre değiştirdi.
 
 ## Klasik yöntemlerle yarışta kazanç değişken

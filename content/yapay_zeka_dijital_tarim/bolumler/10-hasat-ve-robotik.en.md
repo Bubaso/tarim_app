@@ -8,6 +8,8 @@ Harvesting is two different worlds of machinery. In grain, a combine harvests th
 
 A selective harvesting robot has to do three things at once: recognise the fruit in the camera image and locate it, reach it with its arm through leaves and branches, and detach it without damage. AI comes in at the first task, recognising fruit in images. The difficulty lies in an environment that is foreign to a robot: variation from plant to plant, incomplete information, and safety.
 
+[[gorsel:b10-sweeper-biber-hasat-robotunun-uc]]
+
 ## What the field says
 
 Bac and colleagues (2014) compared harvesting robots developed for high-value crops on the same measures:
@@ -42,6 +44,8 @@ AI's contribution is the robot's eye: finding the fruit in a camera image and ju
 On the machinery side, harvesting in Türkiye rests on conventional mechanisation. According to the ministry's data there were **1,610,133** tractors and **21,116** combine harvesters in 2025; **49.3%** of the combines were 10 years old or younger, and **71%** of the tractors had 35-70 horsepower.
 
 The 2027 Programme writes that the small-scale, fragmented and scattered land structure of holdings makes effective use of mechanisation and modern production techniques harder. A rural development decision of December 2025 and a communiqué of April 2026 also aim to spread robotics and automation technologies; grants cover **50-70%** of the project amount, depending on the type of investment.
+
+[[gorsel:b10-parcali-arazi-yapisi-burdur-yesilova]]
 
 On the research side, in two 2024 studies, one of them with co-authors, Kahya of Tekirdağ Namık Kemal University trained deep-learning object-recognition models for harvesting eggplant and courgette. What was measured is the models' success in recognising fruit in validation images — not whether a robot detached fruit in the field. No trial in which a harvesting robot picked fruit in a field or greenhouse in Türkiye and had its success measured has yet been published. An autonomous greenhouse robot that will also be able to harvest, meanwhile, is being developed in a project that started with TÜBİTAK support in 2026.
 

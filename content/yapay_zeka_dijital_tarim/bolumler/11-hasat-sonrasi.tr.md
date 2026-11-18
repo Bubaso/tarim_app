@@ -33,6 +33,8 @@ Tahıl, gelişmekte olan ülkelerin çoğunda temel besin; kalori bakımından h
 
 Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda mekanik yöntemlerden makine görüşüne geçti; şimdi aynı ölçüm ağaçtaki meyveye, bahçeye taşınıyor (Neupane ve arkadaşları, 2023). Yapay zekâ bu gözün tanıyabildiği kusurları çoğaltmaya aday.
 
+[[gorsel:b11-meyve-boylamasinda-makine-gorusunun]]
+
 Ama FAO'nun tablosu depolama derlemesiyle birlikte okununca bir uyarı taşıyor: kaybın en yüksek olduğu bölgelerde asıl açık, ürünü ayıklamaktan çok onu korumakta görünüyor.
 
 ## Türkiye

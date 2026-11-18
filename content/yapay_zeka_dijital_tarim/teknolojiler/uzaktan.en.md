@@ -12,11 +12,15 @@ The most solid results come from finding what is where. A deep learning model fu
 
 When the question becomes yield or rate, the picture changes. Models trained on satellite, soil and terrain variables from **20** on-farm trials predicted yield with an average error of **13.7%**, yet two models of similar accuracy produced very different nitrogen rates (de Lara and colleagues, 2023). A promising measurement on the decision side comes from a single field: in Morocco, irrigation scheduled with Sentinel-2-like images produced almost the same wheat yield with **14%** less water.
 
+[[gorsel:t-uzaktan-ciftlikte-hassas-azot-denemesi]]
+
 ## The limits of cloud and ground truth
 
 An optical sensor collects reflected sunlight and cannot see beneath cloud. According to Whitcraft and colleagues (2015), cloud covers the start and middle of the growing season, which matter for identifying crops and forecasting yields, both frequently and extensively: in many important farming areas, fewer than half of **8**-day composite images are even **70%** clear. The authors recommend considering alternatives such as radar; TARSİM, too, has examined flood areas with Sentinel-1 radar images in its research.
 
 Ground data matter as well: collecting enough reference parcels for winter crops before harvest directly affects the success of the ministry's crop identification, and in Yozgat an automatic satellite check of declarations gave wrong results where two crops were sown in one parcel.
+
+[[gorsel:t-uzaktan-yozgat-ta-urun-beyaninin-uydu]]
 
 ## The ministry's satellite work and İMECE
 

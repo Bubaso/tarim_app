@@ -1679,6 +1679,636 @@
    "yapay_zeka": false,
    "yer": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e,",
    "sayfa": "b02"
+  },
+  "b08-seker-kamisi-hedefli-ilaclama": {
+   "sayfa": "b08",
+   "baslik_no": 8,
+   "dosya": "web/yz/gorsel/b08-seker-kamisi-hedefli-ilaclama.webp",
+   "genislik": 1600,
+   "yukseklik": 1200,
+   "sha256": "c314b54f4e0f2af6a55273a1b982ed62a3202895d32abbe9866dc2f4d57dab7c",
+   "kunye": {
+    "tr": "Avustralya'nın Queensland eyaletindeki Burdekin bölgesinde, şeker kamışında yapılan 6. hedefli ilaçlama denemesinin (2 Ağustos 2022) ardından gelen ilk sulamada tarlada su kalitesi örneklemesi; Rahimi Azghadi ve arkadaşlarının hedefli ilaçlama makalesindeki Şekil 9b.",
+    "en": "In-field water-quality sampling after the first irrigation following the sixth spot-spraying trial (2 August 2022) in sugarcane in the Burdekin region of Queensland, Australia; Figure 9b of Rahimi Azghadi et al.'s spot-spraying paper."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Rahimi Azghadi ve ark. 2025, arXiv:2401.13931, Şekil 9b (CC BY-NC-ND 4.0)",
+    "en": "Photo: Rahimi Azghadi et al. 2025, arXiv:2401.13931, Fig. 9b (CC BY-NC-ND 4.0)"
+   },
+   "sayfa_adresi": "https://arxiv.org/html/2401.13931v2",
+   "gorsel_adresi": "https://arxiv.org/html/2401.13931v2/fig10b.jpeg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "arXiv sayfasında 'License: CC BY-NC-ND 4.0' yazıyor (ticari olmayan, türev yok). arxiv.org robots.txt /html/ yolunu '*' için kapatmıyor; yapay zekâ ajanlarına özel engel yok.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Aynı deneme bir şeyi daha ölçtü: ilaçlamadan sonraki günlerde tarladan çıkan sudaki ilaç."
+  },
+  "b08-hedefli-ilaclamanin-isleyisi-kamera": {
+   "sayfa": "b08",
+   "baslik_no": 8,
+   "dosya": "web/yz/gorsel/b08-hedefli-ilaclamanin-isleyisi-kamera.webp",
+   "genislik": 850,
+   "yukseklik": 423,
+   "sha256": "f70aca1fd01e434f290cdb15e9f839a320aa8683ed509926d119d6f68d88ebc3",
+   "kunye": {
+    "tr": "AutoWeed hedefli ilaçlama sisteminin işleyişini anlatan çizim: algılama birimi yabancı otu tespit ediyor (1), püskürtücüyü çalıştırıyor (2). James Cook Üniversitesi ve Sugar Research Australia araştırmacılarından Rahimi Azghadi ve arkadaşlarının şeker kamışı makalesindeki Şekil 1a.",
+    "en": "Illustration of how the AutoWeed spot-spraying system works: the detection unit detects the weed (1) and activates the sprayer (2). Figure 1a of the sugarcane paper by Rahimi Azghadi et al. (James Cook University and Sugar Research Australia)."
+   },
+   "kaynak": {
+    "tr": "Çizim: Rahimi Azghadi ve ark. 2025, arXiv:2401.13931, Şekil 1a (CC BY-NC-ND 4.0)",
+    "en": "Çizim: Rahimi Azghadi et al. 2025, arXiv:2401.13931, Fig. 1a (CC BY-NC-ND 4.0)"
+   },
+   "sayfa_adresi": "https://arxiv.org/html/2401.13931v2",
+   "gorsel_adresi": "https://arxiv.org/html/2401.13931v2/fig1a.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "arXiv sayfasında 'License: CC BY-NC-ND 4.0'. Türev yasağı: çizimdeki İngilizce etiketler ('1. Detect', '2. Spray') çevrilirse bu lisansla çelişir; kullanıcı kararıyla lisans şartı aranmıyor, kaynak belirtilecek. arxiv.org robots.txt /html/ yolunu kapatmıyor.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Geleneksel ilaçlama tarlanın tamamına aynı dozu atar; buna yayma ilaçlama deniyor."
+  },
+  "b08-nadasta-ciplak-toprakta-yesil-ot": {
+   "sayfa": "b08",
+   "baslik_no": 8,
+   "dosya": "web/yz/gorsel/b08-nadasta-ciplak-toprakta-yesil-ot.webp",
+   "genislik": 1061,
+   "yukseklik": 626,
+   "sha256": "63d6fa69d12f5b1783ada5681bbd0fa82d4741a74a7f096f741ab7028796690e",
+   "kunye": {
+    "tr": "Açık kaynaklı, düşük maliyetli nadas yabancı otu algılayıcısı OpenWeedLocator'ın (OWL) bir video karesini işleme adımları: kare renk kanallarına ayrılıyor, yeşillik algoritması ve eşikleme uygulanıyor, bulunan otlar çerçeveleniyor. Sidney Üniversitesi araştırmacıları Coleman, Salter ve Walsh'ın Scientific Reports'ta 2022'de yayımlanan makalesindeki Şekil 5; makaledeki görüntüler Avustralya'nın Yeni Güney Galler eyaletindeki nadas tarlalarından.",
+    "en": "Frame-by-frame processing in OpenWeedLocator (OWL), an open-source, low-cost fallow weed detector: the frame is split into colour channels, a greenness algorithm and thresholding are applied, and detected weeds are boxed. Figure 5 of Coleman, Salter and Walsh, Scientific Reports (2022), University of Sydney; images come from fallow fields in New South Wales, Australia."
+   },
+   "kaynak": {
+    "tr": "Şekil: Coleman, Salter ve Walsh 2022, Scientific Reports 12, Şekil 5 (CC BY 4.0)",
+    "en": "Figure: Coleman, Salter ve Walsh 2022, Scientific Reports 12, Fig. 5 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8741824/",
+   "gorsel_adresi": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-021-03858-9/MediaObjects/41598_2021_3858_Fig5_HTML.png",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni). nature.com robots'u yapay zekâ ajanlarını kapattığı için yayıncı sayfası açılmadı; şekil media.springernature.com'dan (robots '*' için açık), makale bilgisi PMC'den. Küçük sürüm PMC'de: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/29b8/8741824/c0c69d096873/41598_2021_3858_Fig5_HTML.jpg (707x417).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "İki ayrı durum var ve ayrımı yapmadan hiçbir rakam okunamaz."
+  },
+  "b09-agrosens-nisan-2026-bulteninin": {
+   "sayfa": "b09",
+   "baslik_no": 9,
+   "dosya": "web/yz/gorsel/b09-agrosens-nisan-2026-bulteninin.webp",
+   "genislik": 1600,
+   "yukseklik": 631,
+   "sha256": "179e73349ac6b46c2444a55e172d7ea955f0b1505115ddccc7cf09882f689496",
+   "kunye": {
+    "tr": "Türkiye NDVI anomalisi haritası, Nisan 2026: MODIS Terra ve Aqua uydularının 250 m çözünürlüklü verisinden, 2003-2025 nisan ortalamasına göre Z-skoru. Tarım ve Orman Bakanlığı TAGEM'e bağlı Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü Coğrafi Bilgi Sistemleri ve Uzaktan Algılama Araştırma Merkezi'nin AGROSENS Agrometeoroloji ve Uzaktan Algılama Destekli Tarımsal İzleme Bülteni'nin 58. sayısındaki Şekil 1.1.",
+    "en": "NDVI anomaly map of Türkiye, April 2026: Z-score against the 2003-2025 April climatology from 250 m MODIS Terra and Aqua data. Figure 1.1 of issue 58 of AGROSENS, the agrometeorology and remote-sensing agricultural monitoring bulletin of the Soil, Fertilizer and Water Resources Central Research Institute (GIS and Remote Sensing Research Centre, TAGEM, Ministry of Agriculture and Forestry)."
+   },
+   "kaynak": {
+    "tr": "Harita: Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü, AGROSENS Nisan 2026 (Sayı 58), Şekil 1.1",
+    "en": "Map: Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü, AGROSENS Nisan 2026 (Sayı 58), Fig. 1.1"
+   },
+   "sayfa_adresi": "https://arastirma.tarimorman.gov.tr/toprakgubre/Menu/180/Agrosens",
+   "gorsel_adresi": "https://arastirma.tarimorman.gov.tr/toprakgubre/Belgeler/Tar%C4%B1msal%20%C3%9Cr%C3%BCn%20%C4%B0zleme%20ve%20Verim%20Tahmin%20B%C3%BClteni/AGROSENS%20-%20Agrometeoroloji%20ve%20Uzaktan%20Alg%C4%B1lama%20Destekli%20Tar%C4%B1msal%20%C4%B0zleme%20B%C3%BClteni%20Nisan%202026.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Kamu kurumu yayını; PDF'te kullanım koşulu ya da yasak ifadesi görülmedi. arastirma.tarimorman.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; PDF yolu '*' için açık. Haritanın altında kendi veri notu var: 'Kaynak: Google Earth Engine üzerinden üretilen MODIS MOD13Q1/MYD13Q1 NDVI anomalisi.'",
+   "tur": "harita",
+   "yapay_zeka": false,
+   "yer": "Bu bültenlerin hepsi bugün Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü'nün AGROSENS sayfasında listeleniyor"
+  },
+  "b10-sweeper-biber-hasat-robotunun-uc": {
+   "sayfa": "b10",
+   "baslik_no": 10,
+   "dosya": "web/yz/gorsel/b10-sweeper-biber-hasat-robotunun-uc.webp",
+   "genislik": 1600,
+   "yukseklik": 2835,
+   "sha256": "0f67d86f5f9533750dab1aa825331e909e344e3a93c5da1018b5bded6e801ba1",
+   "kunye": {
+    "tr": "Biber hasat robotu SWEEPER'ın son sistemindeki uç işlevci (end-effector): kamera, flaş ışığı, kesici ve tutma düzeneği. Wageningen University & Research'ün yürüttüğü AB Ufuk 2020 projesi SWEEPER'ın Şubat-Ekim 2018 dönemi raporundan (CORDIS).",
+    "en": "End-effector of the final SWEEPER sweet pepper harvesting robot: camera, flash light, cutting tool and catching device. From the February-October 2018 periodic report of the EU Horizon 2020 project SWEEPER, coordinated by Wageningen University & Research (CORDIS)."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: SWEEPER projesi (www.sweeper-robot.eu) / CORDIS",
+    "en": "Photo: SWEEPER projesi (www.sweeper-robot.eu) / CORDIS"
+   },
+   "sayfa_adresi": "https://cordis.europa.eu/project/id/644313/reporting",
+   "gorsel_adresi": "https://cordis.europa.eu/docs/results/h2020/644/644313_PS/sweeper-sweeper-endeffector-v4-1-cordis.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CORDIS yasal bildirimi: AB'ye ait içerik CC BY 4.0; üçüncü taraf fotoğrafları için hak sahibine bakılması isteniyor. Hak sahibi SWEEPER konsorsiyumu; WUR'un proje sayfası robot fotoğraflarının 'Source: www.sweeper-robot.eu' kaydıyla yayınlarda kullanılabileceğini yazıyordu (sayfa bugün 404, ifade arama sonucundan). cordis.europa.eu robots.txt /docs/results/ yolunu kapatmıyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Seçici hasat robotu üç işi birden yapmak zorunda: meyveyi kameradan tanıyıp yerini bulmak"
+  },
+  "t-goruntu-hasat-robotunun-gozu-sweeper-in": {
+   "sayfa": "tek_goruntu",
+   "dosya": "web/yz/gorsel/t-goruntu-hasat-robotunun-gozu-sweeper-in.webp",
+   "genislik": 800,
+   "yukseklik": 600,
+   "sha256": "b5b0136ce5ebad19eac261f48c1fa1b4018e7c75f6c5792acceaf7e7f06115ef",
+   "kunye": {
+    "tr": "Biber hasat robotu SWEEPER'ın biber tespit yazılımı modülünün sonucu (ekran görüntüsü): kamera görüntüsünde bulunan biberlerin sınırları ve konum değerleri işaretli. Wageningen University & Research'ün yürüttüğü AB Ufuk 2020 projesi SWEEPER'ın Şubat-Ekim 2018 dönemi raporundan (CORDIS).",
+    "en": "Result of the pepper detection software module of the SWEEPER sweet pepper harvesting robot (screenshot): detected peppers are outlined and their position values are marked. From the February-October 2018 periodic report of the EU Horizon 2020 project SWEEPER, coordinated by Wageningen University & Research (CORDIS)."
+   },
+   "kaynak": {
+    "tr": "Görsel: SWEEPER projesi (www.sweeper-robot.eu) / CORDIS (ekran görüntüsü)",
+    "en": "Image: SWEEPER projesi (www.sweeper-robot.eu) / CORDIS (ekran görüntüsü)"
+   },
+   "sayfa_adresi": "https://cordis.europa.eu/project/id/644313/reporting",
+   "gorsel_adresi": "https://cordis.europa.eu/docs/results/h2020/644/644313_PS/sweeper-result-of-pepper-detection-cordis.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CORDIS yasal bildirimi: AB'ye ait içerik CC BY 4.0; üçüncü taraf görselleri için hak sahibine bakılması isteniyor. Hak sahibi SWEEPER konsorsiyumu; WUR proje görsellerinin 'Source: www.sweeper-robot.eu' kaydıyla kullanılabileceğini yazıyordu. cordis.europa.eu robots.txt yolu kapatmıyor.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Hasat robotlarında da göz en iyi işleyen halka. Bac ve arkadaşlarının (2014) derlediği"
+  },
+  "b10-parcali-arazi-yapisi-burdur-yesilova": {
+   "sayfa": "b10",
+   "baslik_no": 10,
+   "dosya": "web/yz/gorsel/b10-parcali-arazi-yapisi-burdur-yesilova.webp",
+   "genislik": 1600,
+   "yukseklik": 872,
+   "sha256": "65c59240cc521964e543175ffdbbccfadd47724533c9a23c31a75be4c98d8ef8",
+   "kunye": {
+    "tr": "Burdur'un Yeşilova ilçesine bağlı Sazak köyünde arazi toplulaştırması öncesi (solda) ve sonrası (sağda) parsel haritası. Burdur İl Tarım ve Orman Müdürlüğü'nden Ömer Cebeci ile Isparta Uygulamalı Bilimler Üniversitesi'nden Yusuf Uçar'ın 31 Aralık 2022'de yayımlanan makalesindeki Şekil 2.",
+    "en": "Parcel map of Sazak village (Yeşilova, Burdur, Türkiye) before (left) and after (right) land consolidation. Figure 2 of the article by Ömer Cebeci (Burdur Provincial Directorate of Agriculture and Forestry) and Yusuf Uçar (Isparta University of Applied Sciences), published 31 December 2022."
+   },
+   "kaynak": {
+    "tr": "Harita: Cebeci ve Uçar 2022, Mehmet Akif Ersoy Üniversitesi Fen Bilimleri Enstitüsü Dergisi 13(Ek Sayı 1), Şekil 2",
+    "en": "Map: Cebeci ve Uçar 2022, Mehmet Akif Ersoy Üniversitesi Fen Bilimleri Enstitüsü Dergisi 13(Ek Sayı 1), Fig. 2"
+   },
+   "sayfa_adresi": "https://dergipark.org.tr/tr/pub/makufebed/article/1168419",
+   "gorsel_adresi": "https://dergipark.org.tr/en/download/article-file/2622098",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "DergiPark makale sayfasında ve PDF'te açık bir lisans ifadesi görülmedi; yeniden kullanımı yasaklayan bir ifade de yok. dergipark.org.tr robots.txt indirme yolunu '*' için kapatmıyor.",
+   "tur": "harita",
+   "yapay_zeka": false,
+   "yer": "2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim"
+  },
+  "b11-meyve-boylamasinda-makine-gorusunun": {
+   "sayfa": "b11",
+   "baslik_no": 11,
+   "dosya": "web/yz/gorsel/b11-meyve-boylamasinda-makine-gorusunun.webp",
+   "genislik": 729,
+   "yukseklik": 481,
+   "sha256": "be0a348ac31508df31bdd11b0308199df01e46e67f874e4a54d737b8db920193",
+   "kunye": {
+    "tr": "Bahçede hareket hâlinde görüntü almak için araca takılmış görüntüleme sistemleri: (i) GNSS alıcısı, LED aydınlatma panelleri, Basler kameralar, jeneratör ve bilgisayardan oluşan düzenek; (ii) bir mango bahçesinde görüntüleme düzenekli robot. Central Queensland Üniversitesi'nden Neupane, Pereira, Koirala ve Walsh'ın Sensors dergisinde Nisan 2023'te yayımlanan bahçede meyve boylaması derlemesindeki Şekil 3.",
+    "en": "Vehicle-mounted imaging systems for on-the-go image acquisition in orchards: (i) a rig with GNSS receiver, LED light panels, Basler cameras, generator and computer; (ii) a robot with an imaging rig in a mango orchard. Figure 3 of the review of in-orchard fruit sizing by Neupane, Pereira, Koirala and Walsh (Central Queensland University), Sensors, April 2023."
+   },
+   "kaynak": {
+    "tr": "Şekil: Neupane ve ark. 2023, Sensors 23(8), Şekil 3 (CC BY 4.0)",
+    "en": "Figure: Neupane et al. 2023, Sensors 23(8), Fig. 3 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10144371/",
+   "gorsel_adresi": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/3414/10144371/039bc92aeb08/sensors-23-03868-g003.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni; MDPI). Şeklin (ii) parçası makaleye göre başka bir yayından izinle alınmış ('with permission [70]'); o parça için CC BY kapsamı belirsiz. mdpi.com bot korumalı olduğu için PMC kopyası kullanıldı.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda"
+  },
+  "b14-deniz-kafesinde-balik-boyunu-olcen": {
+   "sayfa": "b14",
+   "baslik_no": 14,
+   "dosya": "web/yz/gorsel/b14-deniz-kafesinde-balik-boyunu-olcen.webp",
+   "genislik": 1600,
+   "yukseklik": 2092,
+   "sha256": "5610430b0594e75d066e74417ac2da3bef222221a7c7928ecdd7f1b200625836",
+   "kunye": {
+    "tr": "Çipura ve levrek yetiştirilen bir deniz kafesine yerleştirilmiş, stereo kameralı ve çok parametreli sondalı düşük maliyetli 'akıllı şamandıra': (a, b) şamandıranın kafes içindeki konumu, fotoğraf ve çizim; (c) stereo kamera ve su geçirmez muhafazası; (d) iki kameranın görüş alanları. İtalya'nın Capraia Adası açığındaki bir çiftlikte yapılan çalışma; İtalyan tarım araştırma kurumu CREA'dan Tonachella ve arkadaşlarının Scientific Reports'ta Eylül 2022'de yayımlanan makalesindeki Şekil 4.",
+    "en": "A low-cost 'smart buoy' with stereo cameras and a multi-parameter probe placed in a gilthead seabream and sea bass sea cage: (a, b) the buoy's position in the cage, photographs and diagrams; (c) the stereo camera and its waterproof housing; (d) the two cameras' fields of view. Study at a fish farm off Capraia Island, Italy; Figure 4 of Tonachella et al. (CREA), Scientific Reports, September 2022."
+   },
+   "kaynak": {
+    "tr": "Şekil: Tonachella ve ark. 2022, Scientific Reports 12, Şekil 4 (CC BY 4.0)",
+    "en": "Figure: Tonachella et al. 2022, Scientific Reports 12, Fig. 4 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9485232/",
+   "gorsel_adresi": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-022-19932-9/MediaObjects/41598_2022_19932_Fig4_HTML.png",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni). Fotoğrafların çekenleri şekil altyazısında adıyla yazılı (N. Tonachella, M. Martinoli, F. Capoccioni). nature.com robots'u yapay zekâ ajanlarını kapattığı için yayıncı sayfası açılmadı; büyük sürüm media.springernature.com'da (robots '*' için açık). PMC'deki küçük sürüm: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea26/9485232/0d34b37776f7/41598_2022_19932_Fig4_HTML.jpg (708x926).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Su ürünlerinde dijital teknoloji iki ayrı dünyada çalışıyor. Yetiştiricilikte kafeslerde ve havuzlarda kameralar"
+  },
+  "b14-kafes-ici-su-alti-goruntusunde-yapay": {
+   "sayfa": "b14",
+   "baslik_no": 14,
+   "dosya": "web/yz/gorsel/b14-kafes-ici-su-alti-goruntusunde-yapay.webp",
+   "genislik": 1600,
+   "yukseklik": 1790,
+   "sha256": "606d1921251bf16fdd01366cb4f61f6da47f62ded86dad761e16cb622d1c9d0c",
+   "kunye": {
+    "tr": "Deniz kafesindeki stereo kamera görüntülerinin işlenmesi: (a) gerçek piksel boyutunun kalibrasyonunda kullanılan dama tahtası deseni, (b) kafeste balık silüetleriyle doğrulama, (c) otomatik işaretlenmiş balıklar ve güven değerleri, (d) tek tek balık kırpımları ve işaret noktaları, (e) iki kamera görüntüsü arasında silüetlerin kayması. Tonachella ve arkadaşlarının (CREA, İtalya) Scientific Reports'ta Eylül 2022'de yayımlanan makalesindeki Şekil 5.",
+    "en": "Processing of stereo-camera images from a sea cage: (a) chessboard pattern used to calibrate real pixel size, (b) validation with fish silhouettes in the cage, (c) automatically annotated fish with confidence values, (d) cropped single fish with landmarks, (e) silhouette translation between the two camera images. Figure 5 of Tonachella et al. (CREA, Italy), Scientific Reports, September 2022."
+   },
+   "kaynak": {
+    "tr": "Şekil: Tonachella ve ark. 2022, Scientific Reports 12, Şekil 5 (CC BY 4.0)",
+    "en": "Figure: Tonachella et al. 2022, Scientific Reports 12, Fig. 5 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9485232/",
+   "gorsel_adresi": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-022-19932-9/MediaObjects/41598_2022_19932_Fig5_HTML.png",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni). Büyük sürüm media.springernature.com'da (robots '*' için açık); PMC'deki küçük sürüm: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea26/9485232/ddcd01308e58/41598_2022_19932_Fig5_HTML.jpg (708x792).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Yetiştiricilikte derin öğrenme canlı balık tanıma, tür sınıflandırma, davranış analizi, yemleme kararları"
+  },
+  "t-goruntu-tanzanya-daki-saha-denemesinde": {
+   "sayfa": "tek_goruntu",
+   "dosya": "web/yz/gorsel/b26-tanzanya-tarla-deneyinden-manyok.webp",
+   "genislik": 1418,
+   "yukseklik": 942,
+   "sha256": "49fa597925a0fb6b7503dde0f9c57518f9e37c6aec963536992e983f771db9cf",
+   "gorsel_adresi": "https://www.frontiersin.org/files/Articles/425916/xml-images/fpls-10-00272-g0003.webp",
+   "indirme_gunu": "2026-11-18",
+   "kunye": {
+    "tr": "Tanzanya'daki saha denemesinden manyok yaprağı örnekleri: üst sırada (A-C) kahverengi çizgi hastalığı (CBSD), mozaik hastalığı (CMD) ve yeşil akar zararının hafif belirtileri, alt sırada (D-F) aynı üç durumun belirgin belirtileri. Penn State Üniversitesi ve Uluslararası Tropikal Tarım Enstitüsü (IITA) araştırmacılarından Ramcharan ve arkadaşlarının telefonda çalışan manyok hastalığı teşhis modelini sınayan makalesindeki Şekil 3 (Frontiers in Plant Science, 20 Mart 2019).",
+    "en": "Cassava leaflets from the field experiment in Tanzania: mild symptoms (A-C) and pronounced symptoms (D-F) of cassava brown streak disease (CBSD), cassava mosaic disease (CMD) and cassava green mite damage (CGM). Figure 3 of Ramcharan et al. (Penn State University and IITA), who tested a mobile cassava disease diagnosis model; Frontiers in Plant Science, 20 March 2019."
+   },
+   "kaynak": {
+    "tr": "Şekil: Ramcharan ve ark. 2019, Frontiers in Plant Science 10, Şekil 3 (CC BY 4.0)",
+    "en": "Figure: Ramcharan et al. 2019, Frontiers in Plant Science 10, Fig. 3 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.00272/full",
+   "lisans_notu": "Makale CC BY (Frontiers sayfasındaki telif bildirimi). frontiersin.org robots.txt /files/ yolunu '*' için kapatmıyor. JPG sürümü (765x508): https://www.frontiersin.org/files/Articles/425916/fpls-10-00272-HTML-r1/image_m/fpls-10-00272-g003.jpg.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Telefona taşınan modeller tarlada aynı sınavı verdi. Tanzanya'da bir manyok modelinin F-1 skoru"
+  },
+  "t-goruntu-bursa-karacabey-domates-calismasinda": {
+   "sayfa": "tek_goruntu",
+   "dosya": "web/yz/gorsel/b18-domates-zararlilarini-goruntuden.webp",
+   "genislik": 1600,
+   "yukseklik": 1613,
+   "sha256": "d37fbd32cedb004aae005ed96a1ad2dd5313db4e6163582d9109fc7f5e0f87d1",
+   "kunye": {
+    "tr": "YOLOv8 modelinin domates bitkisi fotoğraflarında zararlıları ve zararlarını (ör. Tuta absoluta, Helicoverpa armigera, yaprak biti) çerçeveyle işaretlediği örnekler ve ChatGPT-4'ün bu etiketlere göre ürettiği İngilizce açıklamalar. Bursa Uludağ Üniversitesi ve Bursa Teknik Üniversitesi'nden Şahin, Gençer ve Şahin'in Bursa'nın Karacabey ilçesinde 96 domates tarlasında yürüttüğü çalışmanın makalesindeki Şekil 7 (Frontiers in Plant Science, 21 Şubat 2025).",
+    "en": "Examples of the YOLOv8 model marking pests and pest damage (e.g. Tuta absoluta, Helicoverpa armigera, aphids) with boxes in tomato plant photographs, with ChatGPT-4's English descriptions generated from the labels. Figure 7 of the study by Şahin, Gençer and Şahin (Bursa Uludağ University and Bursa Technical University) covering 96 tomato fields in Karacabey, Bursa, Türkiye; Frontiers in Plant Science, 21 February 2025."
+   },
+   "kaynak": {
+    "tr": "Şekil: Şahin, Gençer ve Şahin 2025, Frontiers in Plant Science 15, Şekil 7 (CC BY 4.0)",
+    "en": "Figure: Şahin, Gençer ve Şahin 2025, Frontiers in Plant Science 15, Fig. 7 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1468676/full",
+   "gorsel_adresi": "https://www.frontiersin.org/files/Articles/1468676/fpls-15-1468676-HTML/image_m/fpls-15-1468676-g007.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale CC BY (Frontiers sayfasındaki telif bildirimi). frontiersin.org robots.txt /files/ yolunu kapatmıyor.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Akademiden gelen rakamlar yüksek, ama tanımanın başarısını ölçüyor: kokarcanın zarar verdiği fındıklar"
+  },
+  "t-goruntu-avustralya-seker-kamisi": {
+   "sayfa": "tek_goruntu",
+   "dosya": "web/yz/gorsel/t-goruntu-avustralya-seker-kamisi.webp",
+   "genislik": 1600,
+   "yukseklik": 1302,
+   "sha256": "6d09d554f955b5b865dab02882e65cfc2e54134556d2e80f0c064822736b6bc8",
+   "kunye": {
+    "tr": "Queensland'in Burdekin bölgesine yayılmış altı hedefli ilaçlama denemesinin ilaç uygulama haritaları: kırmızı alanlar ilacın atıldığı yerleri, aradaki boşluklar ot bulunmadığı için ilaç atılmayan yerleri gösteriyor. Rahimi Azghadi ve arkadaşlarının (James Cook Üniversitesi, Sugar Research Australia) şeker kamışı makalesindeki Şekil 10; denemeler Kasım 2021-Ağustos 2022 arasında yapıldı.",
+    "en": "Spray application maps of the six spot-spraying trials across the Burdekin region of Queensland, Australia: red areas show where herbicide was applied; gaps show areas without weeds where no herbicide was sprayed. Figure 10 of Rahimi Azghadi et al. (James Cook University, Sugar Research Australia); trials ran from November 2021 to August 2022."
+   },
+   "kaynak": {
+    "tr": "Harita: Rahimi Azghadi ve ark. 2025, arXiv:2401.13931, Şekil 10 (CC BY-NC-ND 4.0); altlık uydu görüntüsü Google",
+    "en": "Map: Rahimi Azghadi et al. 2025, arXiv:2401.13931, Fig. 10 (CC BY-NC-ND 4.0); altlık uydu görüntüsü Google"
+   },
+   "sayfa_adresi": "https://arxiv.org/html/2401.13931v2",
+   "gorsel_adresi": "https://arxiv.org/html/2401.13931v2/fig11.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "arXiv sayfasında 'License: CC BY-NC-ND 4.0'. Şeklin altlığı Google uydu görüntüsü (köşede 'Google' yazısı) — üçüncü taraf içeriği; kaynak satırında belirtilmeli. arxiv.org robots.txt /html/ yolunu kapatmıyor.",
+   "tur": "harita",
+   "yapay_zeka": false,
+   "yer": "Tanıma tarlada da yüksek çıkabiliyor: Almanya'daki mısır denemesinde insansız hava aracı görüntülerinde"
+  },
+  "t-goruntu-guney-kaliforniya-da-dag-kamerasi": {
+   "sayfa": "tek_goruntu",
+   "dosya": "web/yz/gorsel/t-goruntu-guney-kaliforniya-da-dag-kamerasi.webp",
+   "genislik": 1600,
+   "yukseklik": 1155,
+   "sha256": "9faa4a54b831715e9df020ffd6658dfcdadf5a984b8e1067ac61c945eda9d998",
+   "kunye": {
+    "tr": "Güney Kaliforniya'daki HPWREN ağına ait bir dağ kamerasının görüntüsü (High Point East, 22 Temmuz 2017) 299×299 piksellik karelere bölünmüş; her karenin üstünde makine öğrenmesi modelinin duman puanı yazılı, duman içeren ve 0,5'in üstünde puan alan iki kare mor çerçeveyle işaretli. Lawrence Berkeley Ulusal Laboratuvarı'ndan Govil ve arkadaşlarının Remote Sensing dergisinde 2 Ocak 2020'de yayımlanan makalesindeki Şekil 3.",
+    "en": "A frame from an HPWREN mountain-top camera in Southern California (High Point East, 22 July 2017) split into 299×299-pixel squares, each labelled with the machine-learning model's smoke score; the two squares containing smoke and scoring above 0.5 are highlighted in purple. Figure 3 of Govil et al. (Lawrence Berkeley National Laboratory), Remote Sensing, 2 January 2020."
+   },
+   "kaynak": {
+    "tr": "Şekil: Govil ve ark. 2020, Remote Sensing 12(1), Şekil 3 (CC BY 4.0)",
+    "en": "Figure: Govil et al. 2020, Remote Sensing 12(1), Fig. 3 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://doi.org/10.3390/rs12010166",
+   "gorsel_adresi": "https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-00166/article_deploy/remotesensing-12-00166.pdf",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "PDF'in son sayfasında: '© 2020 by the authors. Licensee MDPI ... Creative Commons Attribution (CC BY) license'. Dosya MDPI'nin kaynak sunucusunda (mdpi-res.com); robots.txt 404 (kısıt yok), indirme doğrudan açıldı, bot sınaması yok. mdpi.com makale sayfası bot korumalı olduğu için açılmadı; sayfa adresi olarak DOI verildi. Kamera karesi HPWREN ağına ait (karede 'hpwren.ucsd.edu' damgası).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Ormanda kamera ölçeği değiştiriyor: Güney Kaliforniya'da yüzlerce kamerayı dakikada bir tarayan bir prototip"
+  },
+  "t-tahmin-graphcast-in-calisma-semasi-hava": {
+   "sayfa": "tek_tahmin",
+   "dosya": "web/yz/gorsel/b17-graphcast-modelinin-semasi.webp",
+   "genislik": 1600,
+   "yukseklik": 1523,
+   "sha256": "53b1d1a9fdf1a8767f3cdb212491e3b8a36ccdd5c2cb8411138a25b446b780b3",
+   "gorsel_adresi": "https://arxiv.org/html/2212.12794v2/figures/schematic.png",
+   "indirme_gunu": "2026-11-18",
+   "kunye": {
+    "tr": "GraphCast modelinin şeması: (a) 0,25 derecelik küresel ızgarada girdi hava durumu, (b) modelin bir sonraki durumu tahmin etmesi, (c) tahminin önceki tahminlere art arda uygulanarak ileri yürütülmesi; (d-g) kodlayıcı, işlemci ve kod çözücü bileşenleri ile çok çözünürlüklü küresel ağ. Google DeepMind araştırmacılarından Lam ve arkadaşlarının GraphCast makalesinin arXiv sürümündeki Şekil 1 (makalenin hakemli sürümü Science'ta 2023'te yayımlandı).",
+    "en": "Schematic of the GraphCast model: (a) input weather state on a 0.25-degree global grid, (b) the model predicting the next state, (c) a forecast rolled out by applying the model iteratively to its own predictions; (d-g) encoder, processor and decoder components and the multi-resolution global mesh. Figure 1 of the arXiv version of the GraphCast paper by Lam et al. (Google DeepMind); peer-reviewed version published in Science, 2023."
+   },
+   "kaynak": {
+    "tr": "Şekil: Lam ve ark., arXiv:2212.12794, Şekil 1 (CC BY 4.0)",
+    "en": "Figure: Lam et al., arXiv:2212.12794, Fig. 1 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://arxiv.org/html/2212.12794v2",
+   "lisans_notu": "arXiv kaydının lisansı CC BY 4.0 (arxiv.org/abs/2212.12794'teki lisans bağlantısı). science.org robots'u yapay zekâ ajanlarını kapattığı için dergi sürümüne gidilmedi. arxiv.org robots.txt /html/ yolunu kapatmıyor.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Geçmiş hava verisinden öğrenen bir makine öğrenmesi modeli olan GraphCast (Lam ve arkadaşları, 2023)"
+  },
+  "t-robotik-hands-free-hectare-surucusuz": {
+   "sayfa": "tek_robotik",
+   "dosya": "web/yz/gorsel/b28-hands-free-hectare-otonom.webp",
+   "genislik": 960,
+   "yukseklik": 640,
+   "sha256": "cd8a9dc6ec8750d6f1919f94cbff9ce8897ce30d084cddd1c0bf9ec1ad0bee86",
+   "gorsel_adresi": "https://assets.publishing.service.gov.uk/media/5a612c2aed915d7dfb5834da/s960_Harvester_in_barley_field.jpg",
+   "indirme_gunu": "2026-11-18",
+   "kunye": {
+    "tr": "Harper Adams Üniversitesi ile Precision Decisions'ın Hands Free Hectare projesinde arpa tarlasında biçerdöver; Innovate UK'nin projenin ekimden hasada yalnız otonom araçlar ve dronlarla tamamlandığını duyurduğu 29 Eylül 2017 tarihli GOV.UK haberinin fotoğrafı ('Combine harvester in barley field').",
+    "en": "Combine harvester in a barley field in the Hands Free Hectare project of Harper Adams University and Precision Decisions; photograph from Innovate UK's GOV.UK news item of 29 September 2017 announcing that the crop was grown from drilling to harvest using only autonomous vehicles and drones ('Combine harvester in barley field')."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Innovate UK / GOV.UK (Open Government Licence v3.0)",
+    "en": "Photo: Innovate UK / GOV.UK (Open Government Licence v3.0)"
+   },
+   "sayfa_adresi": "https://www.gov.uk/government/news/autonomous-vehicles-for-farming-world-first-achieved",
+   "lisans_notu": "GOV.UK altbilgisi: 'All content is available under the Open Government Licence v3.0, except where otherwise stated'; görselin yanında ayrı hak bildirimi görülmedi. www.gov.uk robots.txt haber yolunu, assets.publishing.service.gov.uk robots.txt (404) görsel yolunu kapatmıyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Tam otonomi görece az yayıldı: Eurostat'a göre 2023'te AB çiftliklerinin yaklaşık"
+  },
+  "t-robotik-sweeper-biber-hasat-robotu-ticari": {
+   "sayfa": "tek_robotik",
+   "dosya": "web/yz/gorsel/t-robotik-sweeper-biber-hasat-robotu-ticari.webp",
+   "genislik": 1600,
+   "yukseklik": 2835,
+   "sha256": "cf851b876bb3cc25b3d5578708e2bd4b80e989d4e6ac411f8a574967555c4d58",
+   "kunye": {
+    "tr": "Biber hasat robotu SWEEPER'ın son sistemi ticari bir serada biber hasat ederken. Wageningen University & Research'ün yürüttüğü AB Ufuk 2020 projesi SWEEPER'ın Şubat-Ekim 2018 dönemi raporundan (CORDIS).",
+    "en": "The final SWEEPER sweet pepper harvesting robot harvesting peppers in a commercial greenhouse. From the February-October 2018 periodic report of the EU Horizon 2020 project SWEEPER, coordinated by Wageningen University & Research (CORDIS)."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: SWEEPER projesi (www.sweeper-robot.eu) / CORDIS",
+    "en": "Photo: SWEEPER projesi (www.sweeper-robot.eu) / CORDIS"
+   },
+   "sayfa_adresi": "https://cordis.europa.eu/project/id/644313/reporting",
+   "gorsel_adresi": "https://cordis.europa.eu/docs/results/h2020/644/644313_PS/sweeper-sweeper-robot-final-system-harvesting-peppers-cordis.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CORDIS yasal bildirimi: AB'ye ait içerik CC BY 4.0; üçüncü taraf fotoğrafları için hak sahibine bakılması isteniyor. Hak sahibi SWEEPER konsorsiyumu; WUR robot fotoğraflarının 'Source: www.sweeper-robot.eu' kaydıyla kullanılabileceğini yazıyordu. cordis.europa.eu robots.txt yolu kapatmıyor.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Hasat robotu meyveyi bulmak, dalların arasından ona uzanmak ve ezmeden koparmak zorunda."
+  },
+  "t-robotik-tekirdag-da-serada-patlicani": {
+   "sayfa": "tek_robotik",
+   "dosya": "web/yz/gorsel/t-robotik-tekirdag-da-serada-patlicani.webp",
+   "genislik": 812,
+   "yukseklik": 1639,
+   "sha256": "8acac72ca578acee82e2d33a7006766e0e4783a298084f6e8f119ab1d77bd0cc",
+   "kunye": {
+    "tr": "Patlıcan hasadı için eğitilen YOLOv5 modellerinin (YOLOv5m ve YOLOv5l) doğrulama görüntülerinde patlıcanları çerçeveyle işaretlemesi. Tekirdağ Namık Kemal Üniversitesi'nden Kahya, Özdüven ve Aslan'ın Journal of Agricultural Science'ta 15 Ocak 2024'te yayımlanan makalesindeki Şekil 7; görüntüler Tekirdağ Naip köyündeki üretici seralarında çekildi.",
+    "en": "YOLOv5 models trained for eggplant harvesting (YOLOv5m and YOLOv5l) marking eggplants with bounding boxes in validation images. Figure 7 of Kahya, Özdüven and Aslan (Tekirdağ Namık Kemal University), Journal of Agricultural Science, 15 January 2024; images were taken in producer greenhouses in Naip village, Tekirdağ."
+   },
+   "kaynak": {
+    "tr": "Görsel: Kahya, Özdüven ve Aslan 2024, Journal of Agricultural Science 16(2), Şekil 7 (CC BY 4.0)",
+    "en": "Image: Kahya, Özdüven ve Aslan 2024, Journal of Agricultural Science 16(2), Fig. 7 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://ccsenet.org/journal/index.php/jas/article/view/0/49707",
+   "gorsel_adresi": "https://ccsenet.org/journal/index.php/jas/article/download/0/0/49707/53720",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "Makale sayfasında 'This work is licensed under a Creative Commons Attribution 4.0 License' yazıyor. ccsenet.org robots.txt makale ve PDF yolunu '*' için kapatmıyor.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Tekirdağ Namık Kemal Üniversitesi'nden Kahya'nın 2024 tarihli iki çalışması patlıcan ve kabak hasadı için"
+  },
+  "b15-orman-genel-mudurlugu-nun-yapay-zeka": {
+   "sayfa": "b15",
+   "baslik_no": 15,
+   "dosya": "web/yz/gorsel/b15-orman-genel-mudurlugu-nun-yapay-zeka.webp",
+   "genislik": 1080,
+   "yukseklik": 1080,
+   "sha256": "22114c492c5838a4a5057ba0f508c8349a79802d2dbb7a72b1b6839eac5b6724",
+   "kunye": {
+    "tr": "Orman Genel Müdürlüğü'nün Yangın Karar Destek Sistemi'ni anlatan tanıtım bilgi grafiği ('Orman Yangınlarıyla Mücadelede Yapay Zeka Dönemi'): sistemin bir araya getirdiği veriler (meteoroloji, ORBİS, İHA ve uydu görüntüleri) ve dört işlevi. OGM Şanlıurfa Orman Bölge Müdürlüğü'nün 19 Mart 2024 tarihli haberinde yayımlandı.",
+    "en": "Promotional infographic of the Forest Fire Decision Support System of Türkiye's General Directorate of Forestry (OGM), titled 'The era of artificial intelligence in fighting forest fires': the data it combines (meteorological data, the ORBİS forest information system, UAV and satellite imagery) and its four functions. Published in a news item of OGM's Şanlıurfa Regional Directorate on 19 March 2024."
+   },
+   "kaynak": {
+    "tr": "Görsel: Orman Genel Müdürlüğü (tanıtım görseli)",
+    "en": "Image: Orman Genel Müdürlüğü (promotional image)"
+   },
+   "sayfa_adresi": "https://www.ogm.gov.tr/sanliurfaobm/haberler/orman-yanginlari-ile-mucadelede-yapay-zeka-donemi-yangin-karar-destek-sistemi",
+   "gorsel_adresi": "https://www.ogm.gov.tr/sanliurfaobm/haber-sitesi/PublishingImages/orman-yanginlari-ile-mucadelede-yapay-zeka-donemi;-yangin-karar-destek-sistemi/1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "ogm.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; sayfa ve görsel yolu açık. Haber sayfasında hak bildirimi ya da kullanım koşulları bağlantısı yok; açık indirme/yeniden kullanım yasağı görülmedi.",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor"
+  },
+  "b15-kamerali-insansiz-yangin-gozetleme": {
+   "sayfa": "b15",
+   "baslik_no": 15,
+   "dosya": "web/yz/gorsel/b15-kamerali-insansiz-yangin-gozetleme.webp",
+   "genislik": 1600,
+   "yukseklik": 1067,
+   "sha256": "bdc8b1ad215d62f4bcfc63e7a015bb747476844b3d208413cf0f86d7c34fb999",
+   "kunye": {
+    "tr": "Orman Genel Müdürlüğü ile Anadolu Sigorta'nın 'Ormanın Gözleri' projesi kapsamında Adana Orman Bölge Müdürlüğü'ne bağlı Balcalı Orman İşletme Şefliği yerleşkesine kurulan insansız yangın gözetleme kulesi: 50 metrelik kafes kule, yapay zekâ yazılımlı iki IP kamera. OGM'nin 8 Aralık 2022 tarihli açılış haberinden.",
+    "en": "Unmanned fire lookout tower built at the Balcalı Forest Management Chiefdom of the Adana Regional Directorate of Forestry under the 'Eyes of the Forest' project of Türkiye's General Directorate of Forestry (OGM) and Anadolu Sigorta: a 50-metre lattice tower with two IP cameras running AI software. From OGM's opening news item of 8 December 2022."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Orman Genel Müdürlüğü",
+    "en": "Photo: Orman Genel Müdürlüğü"
+   },
+   "sayfa_adresi": "https://www.ogm.gov.tr/tr/haberler/i%CC%87lk-i%CC%87nsansiz-yangin-gozetleme-kulesi-balcali%E2%80%99da-hizmete-acildi",
+   "gorsel_adresi": "https://www.ogm.gov.tr/tr/haber-sitesi/PublishingImages/i%CC%87lk-i%CC%87nsansiz-yangin-gozetleme-kulesi-balcali%E2%80%99da-hizmete-acildi/04.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "ogm.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; sayfa ve görsel yolu açık. Haber sayfasında hak bildirimi ya da kullanım koşulları bağlantısı yok. Dosyanın EXIF/IPTC bilgisinde ajans ya da çeken adı yok (yalnız 'Adobe Photoshop Camera', 7 Aralık 2022); aynı haberin ajans kopyası aramada görülmedi.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin"
+  },
+  "b16-hal-kayit-sistemi-nin-karekodlu-urun": {
+   "sayfa": "b16",
+   "baslik_no": 16,
+   "dosya": "web/yz/gorsel/b16-hal-kayit-sistemi-nin-karekodlu-urun.webp",
+   "genislik": 677,
+   "yukseklik": 427,
+   "sha256": "53925978626b1f6875fa9a9bc8faa6463fdc6cc78591fa5332b78877a0d7bac1",
+   "kunye": {
+    "tr": "Ürün Künyelerine Yönelik Tebliğ'le (Resmî Gazete, 21 Eylül 2016) belirlenen karekodlu sebze ve meyve ürün künyesinin iki örneği, geleneksel (konvansiyonel) ve organik tarım ürünleri için: ürün adı ve cinsi, üretim yeri ya da gümrük kapısı, üretim ya da ithal tarihi, miktar, alış fiyatı, üretici ve işletme adı alanları ile Hal Kayıt Sistemi'nde sorgulanabilen künye numarası. Dönemin Gümrük ve Ticaret Bakanlığı'nın 21 Eylül 2016 tarihli haberinden.",
+    "en": "Two specimens of the QR-coded fruit and vegetable product label (künye) set by Türkiye's Communiqué on Product Labels (Official Gazette, 21 September 2016), for conventional and organic products: fields for product name and type, place of production or customs gate, production or import date, quantity, purchase price, producer and business name, and a label number that can be queried in the Wholesale Market Registration System (HKS). From a news item of the then Ministry of Customs and Trade dated 21 September 2016."
+   },
+   "kaynak": {
+    "tr": "Görsel: T.C. Ticaret Bakanlığı",
+    "en": "Image: T.C. Ticaret Bakanlığı"
+   },
+   "sayfa_adresi": "https://ticaret.gov.tr/haberler/sebze-ve-meyvede-urun-kunyelerine-yonelik-teblig-resmi-gazetede-yayimlandi",
+   "gorsel_adresi": "https://ticaret.gov.tr/data/57e295ca1a79f5d3c080972a/galeri/buyuk/screenshot_1.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "ticaret.gov.tr robots.txt sayfa ve görsel yolunu kapatmıyor. Site alt bilgisinde 'Tüm Hakları Saklıdır' ibaresi var (tek başına açık indirme/yeniden kullanım yasağı değil); ayrı kullanım koşulları sayfası bulunamadı (yalnız çerez politikası var). Haber sayfasındaki görsel bağlantısı artık çözümlenmeyen eski alan adını (www.gtb.gov.tr) gösteriyor; aynı dosya ticaret.gov.tr altında aynı yolla erişilebiliyor (HTTP 200).",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012; son değişiklik 2023) göre Hal Kayıt Sistemi (HKS)"
+  },
+  "b19-uydunun-bitki-ortusunu-olcme-ilkesi": {
+   "sayfa": "b19",
+   "baslik_no": 19,
+   "dosya": "web/yz/gorsel/b19-uydunun-bitki-ortusunu-olcme-ilkesi.webp",
+   "genislik": 350,
+   "yukseklik": 389,
+   "sha256": "a696d232c0be1b9510d93a7ba75e7b620221bc5ebbdd76af18d3223dd8621652",
+   "kunye": {
+    "tr": "Sağlıklı (solda) ve sağlıksız ya da seyrek (sağda) bitki örtüsünün görünür ışığı ve yakın kızılötesi ışığı yansıtma oranlarını ve bunlardan hesaplanan Normalleştirilmiş Fark Bitki İndeksi (NDVI) değerlerini (0,72 ve 0,14) gösteren çizim; Robert Simmon, NASA Earth Observatory'nin 30 Ağustos 2000 tarihli 'Measuring Vegetation (NDVI & EVI)' yazısından.",
+    "en": "Illustration showing the shares of visible and near-infrared light reflected by healthy (left) and unhealthy or sparse (right) vegetation, and the Normalized Difference Vegetation Index (NDVI) values calculated from them (0.72 and 0.14); by Robert Simmon, from NASA Earth Observatory's article 'Measuring Vegetation (NDVI & EVI)' of 30 August 2000."
+   },
+   "kaynak": {
+    "tr": "Çizim: Robert Simmon / NASA Earth Observatory (kamu malı)",
+    "en": "Çizim: Robert Simmon / NASA Earth Observatory (public domain)"
+   },
+   "sayfa_adresi": "https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi",
+   "gorsel_adresi": "https://assets.science.nasa.gov/content/dam/science/esd/eo/content-feature/measuringvegetation/images/ndvi_example.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "NASA içeriği ABD'de telif korumasına tabi değil; Earth Observatory görselleri, aksi belirtilmedikçe, belirtilen künyeyle serbestçe yeniden kullanılabiliyor (görselde ayrı telif ibaresi yok). science.nasa.gov robots.txt sayfayı kapatmıyor; assets.science.nasa.gov'da robots.txt yok (404).",
+   "tur": "gorsel",
+   "yapay_zeka": false,
+   "yer": "Uydu, tarlayı birkaç günde bir, aynı yöntemle ve geniş alanda gören bir ölçüm aracı. Bitki örtüsünün yansıttığı ışık"
+  },
+  "b21-2025-genel-tarim-sayimi-nin-saha": {
+   "sayfa": "b21",
+   "baslik_no": 21,
+   "dosya": "web/yz/gorsel/b21-2025-genel-tarim-sayimi-nin-saha.webp",
+   "genislik": 1600,
+   "yukseklik": 1067,
+   "sha256": "90ff92f158c6442da5a8376a8a7c0d87e8b5f9bc704a2bb63aa3e5e2dbca9ad9",
+   "kunye": {
+    "tr": "2025 Genel Tarım Sayımı'nın Isparta'daki saha çalışmasından yüz yüze görüşme; Isparta İl Tarım ve Orman Müdürlüğü'nün 12 Ağustos 2025 tarihli 'Isparta'da 2025 Genel Tarım Sayımı Sürüyor' haberinden.",
+    "en": "A face-to-face interview during the field work of the 2025 General Agricultural Census in Isparta; from the Isparta Provincial Directorate of Agriculture and Forestry's news item of 12 August 2025."
+   },
+   "kaynak": {
+    "tr": "Fotoğraf: Isparta İl Tarım ve Orman Müdürlüğü",
+    "en": "Photo: Isparta Provincial Directorate of Agriculture and Forestry"
+   },
+   "sayfa_adresi": "https://isparta.tarimorman.gov.tr/Haber/998/Ispartada-2025-Genel-Tarim-Sayimi-Suruyor-Guclu-Veri-Guclu-Tarim",
+   "gorsel_adresi": "https://isparta.tarimorman.gov.tr/FotografGalerisi/Isparta%e2%80%99da%202025%20Genel%20Tar%c4%b1m%20Say%c4%b1m%c4%b1%20S%c3%bcr%c3%bcyor%20G%c3%bc%c3%a7l%c3%bc%20Veri,%20G%c3%bc%c3%a7l%c3%bc%20Tar%c4%b1m/2.JPG",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "isparta.tarimorman.gov.tr robots.txt yalnız SharePoint sistem yollarını kapatıyor (ilk turla aynı il alt alanı yapısı); sayfa ve görsel yolu açık. Sayfada açık indirme/yeniden kullanım yasağı görülmedi. Dosyanın XMP bilgisinde yalnız haber başlığı ve 12 Ağustos 2025 tarihi var; ajans ya da çeken adı yok.",
+   "tur": "foto",
+   "yapay_zeka": false,
+   "yer": "2027 Programı'na göre Bakanlık ile TÜİK'in iş birliğinde yürütülen Genel Tarım Sayımı'nın saha çalışmalarında"
+  },
+  "t-uzaktan-ciftlikte-hassas-azot-denemesi": {
+   "sayfa": "tek_uzaktan",
+   "dosya": "web/yz/gorsel/t-uzaktan-ciftlikte-hassas-azot-denemesi.webp",
+   "genislik": 1416,
+   "yukseklik": 441,
+   "sha256": "4749fff460d43f1c0b6a33958f4ba8a8fb54a861ee3be59d58c5b18a6147b450",
+   "kunye": {
+    "tr": "de Lara ve arkadaşlarının 2023 tarihli Precision Agriculture makalesindeki Şekil 1: makine öğrenmesiyle tarlaya özgü ekonomik optimum azot dozunu tahmin eden çalışmanın çiftlik denemeleri; (A) Arjantin, (B) Buenos Aires eyaletindeki deneme yerleri, (C) bir deneme tarlası, (D) tarlaya yerleştirilen DIFM azot denemesinin parsel deseni.",
+    "en": "Fig. 1 of de Lara et al. (2023, Precision Agriculture): the on-farm trials of a study that predicts site-specific economic optimal nitrogen rates with machine learning; (A) Argentina, (B) trial sites in Buenos Aires province, (C) one trial field, (D) the plot layout of the DIFM nitrogen trial placed in the field."
+   },
+   "kaynak": {
+    "tr": "Şekil: de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023, Precision Agriculture 24(5), Şekil 1 (CC BY 4.0)",
+    "en": "Figure: de Lara A., Mieno T., Luck J.D., Puntel L.A. 2023, Precision Agriculture 24(5), Fig. 1 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://doi.org/10.1007/s11119-023-10018-8",
+   "gorsel_adresi": "https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs11119-023-10018-8/MediaObjects/11119_2023_10018_Fig1_HTML.png",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CC BY 4.0 (Crossref lisans kaydı: yayıncı sürümü ve metin madenciliği için CC BY 4.0). Görsel Springer Nature'ın görsel sunucusundan (media.springernature.com; robots.txt 'Allow: /'). Makale sayfası (link.springer.com) bot korumalı olduğu için açılmadı; şekil altyazısı okunamadı, künye şeklin üzerindeki etiketlerden ve makale özetinden yazıldı.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Soru verim ya da doz olunca tablo değişiyor. Uydu, toprak ve arazi değişkenleriyle"
+  },
+  "t-uzaktan-yozgat-ta-urun-beyaninin-uydu": {
+   "sayfa": "tek_uzaktan",
+   "dosya": "web/yz/gorsel/t-uzaktan-yozgat-ta-urun-beyaninin-uydu.webp",
+   "genislik": 1600,
+   "yukseklik": 670,
+   "sha256": "ce53c274cd27144244c52d26c6661497dc008a3bc0cca2800ec81634d1e60791",
+   "kunye": {
+    "tr": "Yaşar ve Yağcı'nın 2024 tarihli Türk Uzaktan Algılama ve CBS Dergisi makalesinin Şekil 11'i: Yozgat Merkez'deki 101 numaralı parselin 17 Temmuz 2021 tarihli Sentinel-2 NDVI görüntüsü üzerinde tapu kadastro (TKGM) parsel sınırı ve parselin iki bölümü, 101/1 ve 101/2 (solda); iki bölümün Aralık 2020–Ekim 2021 NDVI zaman serileri (sağda).",
+    "en": "Fig. 11 of Yaşar and Yağcı (2024, Turkish Journal of Remote Sensing and GIS): parcel no. 101 in central Yozgat shown on a Sentinel-2 NDVI image of 17 July 2021, with its cadastral (TKGM) boundary and its two parts, 101/1 and 101/2 (left); NDVI time series of the two parts from December 2020 to October 2021 (right)."
+   },
+   "kaynak": {
+    "tr": "Şekil: Yaşar O., Yağcı A.L. 2024, Türk Uzaktan Algılama ve CBS Dergisi 5(1), Şekil 11 (CC BY-NC-ND 4.0)",
+    "en": "Figure: Yaşar O., Yağcı A.L. 2024, Türk Uzaktan Algılama ve CBS Dergisi 5(1), Fig. 11 (CC BY-NC-ND 4.0)"
+   },
+   "sayfa_adresi": "https://dergipark.org.tr/tr/pub/rsgis/article/1309618",
+   "gorsel_adresi": "https://dergipark.org.tr/tr/download/article-file/3187958",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CC BY-NC-ND 4.0 (dergi sayfasındaki lisans): ticari olmayan kullanım, atıf, DEĞİŞTİRMEDEN; şekil olduğu gibi alınmalı (etiketler zaten Türkçe; İngilizce sürümde de çevrilmeden kullanılmalı). dergipark.org.tr robots.txt makale sayfasını ve PDF yolunu kapatmıyor; PDF şifresiz.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Yerden toplanan veri de sonucu belirliyor: kışlık ürünlerin referans parsellerinin hasattan önce yeterli yoğunlukta"
+  },
+  "t-sensor-nebraska-da-bitki-ortusu-sensoruyle": {
+   "sayfa": "tek_sensor",
+   "dosya": "web/yz/gorsel/t-sensor-nebraska-da-bitki-ortusu-sensoruyle.webp",
+   "genislik": 1417,
+   "yukseklik": 1864,
+   "sha256": "9ca2619bfda4a5709a53b10abf7eea2e29005f054237821c7912bead24030533",
+   "kunye": {
+    "tr": "Kortbein ve arkadaşlarının (Nebraska–Lincoln Üniversitesi) 2026 tarihli Frontiers in Agronomy makalesinin Şekil 1'i: sulanmayan mısırda aktif bitki örtüsü sensörüyle azot yönetimini sınayan çiftlik denemelerinin doğu Nebraska'daki yerleri, 2019 ve 2020 (A) ve bir tarladaki deneme deseni: aktif sensörle yönetim, üreticinin uygulaması, yüksek azotlu referans ve azot oranı blokları şeritleri (B).",
+    "en": "Fig. 1 of Kortbein et al. (University of Nebraska–Lincoln), Frontiers in Agronomy 2026: locations of on-farm trials testing active crop canopy sensor nitrogen management in dryland maize in eastern Nebraska, 2019 and 2020 (A), and the layout of one trial field with strips for active sensor management, the grower's practice, a high-N reference and N rate blocks (B)."
+   },
+   "kaynak": {
+    "tr": "Şekil: Kortbein S.L. ve ark. 2026, Frontiers in Agronomy 7:1722488, Şekil 1 (CC BY 4.0)",
+    "en": "Figure: Kortbein S.L. et al. 2026, Frontiers in Agronomy 7:1722488, Fig. 1 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://www.frontiersin.org/journals/agronomy/articles/10.3389/fagro.2025.1722488/full",
+   "gorsel_adresi": "https://www.frontiersin.org/files/Articles/1722488/fagro-07-1722488-HTML/image_m/fagro-07-1722488-g001.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CC BY 4.0 (Frontiers açık erişim; makale sayfasındaki lisans). frontiersin.org robots.txt makale sayfasını ve /files/Articles/ yolunu kapatmıyor (ilk turda da kullanıldı).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Kazancın büyüklüğü, sensörün neyin yerine geçtiğine bağlı: Datta ve Taghvaeian'ın (2023) derlemesinde"
+  },
+  "t-dil-digital-green-in-sohbet-robotu": {
+   "sayfa": "tek_dil",
+   "dosya": "web/yz/gorsel/t-dil-digital-green-in-sohbet-robotu.webp",
+   "genislik": 1600,
+   "yukseklik": 1229,
+   "sha256": "74b7c5c4eaca22a69542f74fac664a32c23567ee593dcbdac8cc54c99541a149",
+   "kunye": {
+    "tr": "Digital Green'in üretken yapay zekâyla çalışan sohbet robotu Farmer.Chat'in etkileşim akışını gösteren şema: Telegram üzerinden katılım, dil ve değer zinciri seçimi, soru-yanıt ve takip soruları, geri bildirim ve hatırlatmalar. Geliştiricilerinin arXiv'de yayımlanan makalesinin (Singh ve ark., 2024) Şekil 1'i.",
+    "en": "Diagram of the interaction flow of Farmer.Chat, Digital Green's generative-AI chatbot: onboarding via Telegram, language and value-chain selection, questions and follow-up questions, feedback and reminders. Fig. 1 of the developers' paper (Singh et al., arXiv, 2024)."
+   },
+   "kaynak": {
+    "tr": "Şekil: Singh N. ve ark. 2024, Farmer.Chat, arXiv:2409.08916, Şekil 1 (CC BY-NC-SA 4.0)",
+    "en": "Figure: Singh N. et al. 2024, Farmer.Chat, arXiv:2409.08916, Fig. 1 (CC BY-NC-SA 4.0)"
+   },
+   "sayfa_adresi": "https://arxiv.org/abs/2409.08916",
+   "gorsel_adresi": "https://arxiv.org/html/2409.08916v2/images/interaction_flow.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "arXiv kaydındaki lisans CC BY-NC-SA 4.0 (ticari olmayan kullanım, atıf, aynı lisansla paylaşım; değiştirilmiş hâli de aynı lisansla). arxiv.org robots.txt /html ve /abs yollarını açık tutuyor (ilk turda GraphCast şekilleri de buradan alındı).",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Hindistan'ın sesle çalışan, yapay zekâlı sohbet robotu Kisan e-Mitra 2023'te devlet programlarına dair soruları"
+  },
+  "t-dil-zararliyi-goruntuden-taniyan-model": {
+   "sayfa": "tek_dil",
+   "dosya": "web/yz/gorsel/t-dil-zararliyi-goruntuden-taniyan-model.webp",
+   "genislik": 1600,
+   "yukseklik": 505,
+   "sha256": "62ce593065dc3a7ed15e488bb06c14f6c1aca89eb61606879cd7117bf0520a63",
+   "kunye": {
+    "tr": "Şahin ve arkadaşlarının (Bursa Uludağ Üniversitesi) Bursa Karacabey'deki domates tarlalarında yürüttüğü çalışmanın Şekil 2'si, 'ChatGPT-4 entegrasyon süreci': girdi fotoğrafı, YOLOv8 modelinin tespit ve bölütlemesi, tespit edilen etiketlerin API ile ChatGPT-4'e aktarılması ve dil modelinin ürettiği metin. Frontiers in Plant Science, 21 Şubat 2025.",
+    "en": "Fig. 2, 'ChatGPT-4 integration process', of the study by Şahin et al. (Bursa Uludağ University) in tomato fields in Karacabey, Bursa: input photograph, detection and segmentation by the YOLOv8 model, transfer of the detected labels to ChatGPT-4 via an API, and the text produced by the language model. Frontiers in Plant Science, 21 February 2025."
+   },
+   "kaynak": {
+    "tr": "Şekil: Şahin Y.S., Gençer N.S., Şahin H. 2025, Frontiers in Plant Science 15:1468676, Şekil 2 (CC BY 4.0)",
+    "en": "Figure: Şahin Y.S., Gençer N.S., Şahin H. 2025, Frontiers in Plant Science 15:1468676, Fig. 2 (CC BY 4.0)"
+   },
+   "sayfa_adresi": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1468676/full",
+   "gorsel_adresi": "https://www.frontiersin.org/files/Articles/1468676/fpls-15-1468676-HTML/image_m/fpls-15-1468676-g002.jpg",
+   "indirme_gunu": "2026-11-18",
+   "lisans_notu": "CC BY 4.0 (Frontiers açık erişim). frontiersin.org robots.txt makale sayfasını ve /files/Articles/ yolunu kapatmıyor; aynı makalenin Şekil 7'si ilk turda bu yoldan alındı.",
+   "tur": "sema",
+   "yapay_zeka": false,
+   "yer": "Karamanoğlu Mehmetbey Üniversitesi'nden bir çalışma (Eldem ve Eldem, 2026), dört seçenekli"
   }
  }
 }

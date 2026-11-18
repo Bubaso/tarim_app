@@ -45,6 +45,8 @@ ALINMAZ = (
     "AB tarımsal veri paylaşımı davranış kuralları",       # broşür kapağı
     "FAO Gıda ve Tarımın Durumu 2022 raporu",              # rapor kapağı
     "Infarm şirket logosu", "AppHarvest şirket logosu",   # logo
+    "Zhou ve ark. (2022) derlemesinde",                    # şekil altyazısı doğrulanamadı
+    "Türkiye'de tahıl hasadında biçerdöver",               # genel kare (süs)
 )
 
 # Kaynak satırındaki iç notlar okura gitmez.
@@ -100,6 +102,12 @@ KIRP = {
     "https://dergipark.org.tr/en/download/article-file/4074610": (None, 16, "0.214,0.154,0.848,0.330"),
     "https://dergipark.org.tr/en/download/article-file/2608585": (None, 4, "0.224,0.564,0.795,0.721"),
     "https://dergipark.org.tr/en/download/article-file/1201243": ("civelek_2022_tarim_bilimleri_dergisi.pdf", 3, "0.127,0.449,0.876,0.598"),
+    # İkinci tur (18 Kas 2026)
+    'https://arastirma.tarimorman.gov.tr/toprakgubre/Belgeler/Tar%C4%B1msal%20%C3%9Cr%C3%BCn%20%C4%B0zleme%20ve%20Verim%20Tahmin%20B%C3%BClteni/AGROSENS%20-%20Agrometeoroloji%20ve%20Uzaktan%20Alg%C4%B1lama%20Destekli%20Tar%C4%B1msal%20%C4%B0zleme%20B%C3%BClteni%20Nisan%202026.pdf': (None, 5, '0.096,0.136,0.903,0.361'),
+    'https://dergipark.org.tr/en/download/article-file/2622098': (None, 5, '0.155,0.104,0.844,0.394'),
+    'https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-00166/article_deploy/remotesensing-12-00166.pdf': (None, 6, '0.130,0.400,0.873,0.779'),
+    'https://ccsenet.org/journal/index.php/jas/article/download/0/0/49707/53720': (None, 11, '0.482,0.084,0.772,0.515'),
+    'https://dergipark.org.tr/tr/download/article-file/3187958': (None, 11, '0.113,0.640,0.886,0.869'),
 }
 
 # Künye düzeltmeleri: künye görselin ne olduğudur; şerh ve yorum girmez.
@@ -276,6 +284,26 @@ def main() -> int:
     for a in secilen:
         k = aday_kimligi(a)
         if k in gorseller and (DEPO / gorseller[k]["dosya"]).exists():
+            continue
+        # Aynı görsel başka bir sayfada zaten varsa yeniden indirilmez: aynı
+        # dosya bu sayfanın künyesi ve yeriyle ikinci bir kayıt olur.
+        es = next((x for x in gorseller.values()
+                   if x.get("gorsel_adresi") == a["gorsel_adresi"] and (DEPO / x["dosya"]).exists()), None)
+        if es is not None:
+            kaynak_tr = IC_NOT.sub("", a.get("kaynak_satiri", "")).strip() or es["kaynak"]["tr"]
+            gorseller[k] = {
+                "sayfa": sayfa_kodu(a),
+                **({"baslik_no": a["baslik_no"]} if a.get("baslik_no") else {}),
+                **{alan: es[alan] for alan in ("dosya", "genislik", "yukseklik", "sha256", "gorsel_adresi", "indirme_gunu")},
+                "kunye": {"tr": a["kunye_tr"].strip(), "en": a["kunye_en"].strip()},
+                "kaynak": {"tr": kaynak_tr, "en": kaynak_en(kaynak_tr)},
+                "sayfa_adresi": a.get("sayfa_adresi", "") or es.get("sayfa_adresi", ""),
+                "lisans_notu": a.get("lisans_notu", "") or es.get("lisans_notu", ""),
+                "tur": es.get("tur", "gorsel"),
+                "yapay_zeka": False,
+                "yer": a["metindeki_yer"],
+            }
+            print(f"  ↺ {k} · {es['dosya'].rsplit('/', 1)[-1]} yeniden kullanıldı")
             continue
         if a["gorsel_adresi"] in KIRP:
             yerel, sayfa, kutu = KIRP[a["gorsel_adresi"]]

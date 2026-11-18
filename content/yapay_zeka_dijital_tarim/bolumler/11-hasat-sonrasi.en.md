@@ -33,6 +33,8 @@ In most developing countries cereals are the staple food, and on a calorie basis
 
 Machine vision in grading is not new: in packhouses, the sizing of fruit and vegetables has moved from mechanical methods to machine vision over the last three decades; the same measurement is now moving to fruit on the tree, in the orchard (Neupane and colleagues, 2023). AI is a candidate for widening the range of defects this eye can recognise.
 
+[[gorsel:b11-meyve-boylamasinda-makine-gorusunun]]
+
 But read together with the storage review, FAO's table carries a warning: where losses are highest, the main gap appears to lie less in sorting produce than in protecting it.
 
 ## Türkiye

@@ -6,6 +6,8 @@ Sensörün tarımdaki en sağlam ölçülmüş katkısı, takvimin ya da tek tip
 
 Kazancın büyüklüğü, sensörün neyin yerine geçtiğine bağlı: Datta ve Taghvaeian'ın (2023) derlemesinde, bitki örtüsü sıcaklığına bakarak sulayana karşı tasarruf yalnız **%1**. Sensörün doğruluğunu en çok kalibrasyon belirliyor. Azotta da kazanç ölçülüyor: kışlık buğdayda **26** çalışmanın derlemesine göre sensörle azot yönetimi azot kullanım etkinliğini yaklaşık **%10,4** artırıyor (Aula ve arkadaşları, 2020). Nebraska'da sulanmayan mısırda sensör azotu hektarda ortalama **38,7** kg azalttı ve tarlaların **%77**'sinde verim kaybı olmadı; ama kâr avantajı yalnız **%35**'inde görüldü (Kortbein ve arkadaşları, 2026).
 
+[[gorsel:t-sensor-nebraska-da-bitki-ortusu-sensoruyle]]
+
 Sonucu belirleyen de çoğu zaman sensörün kendisi değil, çevresindeki kurumlar ve insanlar. Meksika'nın Yaqui Vadisi'nde elde taşınan GreenSeeker sensörü buğday çiftçisine, cihaz ve teknisyen maliyeti hariç, hektar başına **37** dolar ek kâr getirdi; yine de kullanımı 2015-2016 sezonunda geriledi. RTI'nın raporu olası nedenler arasında gübreyi de satan kredi birliklerinin isteksizliğini sayıyor. Zimbabve'de sensör verilen sulayıcılarda mısırın su verimliliği **%100**'den fazla arttı, ama sensörü olmayan komşularında da: onlar sensörü olanları izleyerek öğrendi (Moyo ve arkadaşları, 2020).
 
 ## Ahırdaki cihazların karnesi

@@ -6,7 +6,11 @@ The promise of targeted spraying is simple: herbicide goes not on the whole fiel
 
 Conventional spraying applies the same dose to the whole field; this is called broadcast spraying. Targeted spraying breaks the field into individual plants. A camera on the sprayer, or one carried by a drone, captures images; a model decides what in the image is crop and what is weed; and the nozzle opens only as it passes over the weed.
 
+[[gorsel:b08-hedefli-ilaclamanin-isleyisi-kamera]]
+
 There are two distinct situations, and no figure can be read without separating them. **Green weeds on bare soil** — in fallow, before sowing — is a comparatively easy problem: anything green on brown ground is a weed. **Green weeds within a green crop** is a hard problem: a green plant must be told from a green plant, leaves overlap, light and shade shift. The highest figures in vendor brochures come mostly from the first situation.
+
+[[gorsel:b08-nadasta-ciplak-toprakta-yesil-ot]]
 
 ## What the field trials say
 
@@ -26,6 +30,8 @@ The most important finding of the Australian trial is not the average but how th
 [[grafik:b08-hedefli-ilaclama-azalmalar]]
 
 The same trial measured one more thing: herbicide in the water leaving the field in the days after spraying. Agrochemicals reaching streams and groundwater is a problem independent of what the herbicide costs. Targeted spraying makes a measurable difference there too.
+
+[[gorsel:b08-seker-kamisi-hedefli-ilaclama]]
 
 In the German maize trial the camera is not on the sprayer: a drone first maps the field at high resolution, and the sprayer then follows the map. A different method, with results pointing the same way.
 

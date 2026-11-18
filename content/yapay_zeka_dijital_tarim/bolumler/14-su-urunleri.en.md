@@ -6,6 +6,8 @@ The most striking AI result in fisheries and aquaculture comes from catch monito
 
 In fisheries and aquaculture, digital technology works in two different worlds. In aquaculture, cameras and sensors in cages and ponds monitor the fish, the feed and the water: fish numbers and size, feeding behaviour, water temperature and oxygen. In capture fisheries the task is to track the vessel: position transmitters, electronic logbooks and satellite vessel detection show which vessel fished where, for how long and what it caught.
 
+[[gorsel:b14-deniz-kafesinde-balik-boyunu-olcen]]
+
 In the first world, AI recognises fish in images and tries to estimate feeding decisions and biomass; in the second, it extracts fishing behaviour from position tracks and finds the vessels that fall outside tracking.
 
 ## What the field says
@@ -21,6 +23,8 @@ The map of untracked vessels comes from Paolo and colleagues (2024), who combine
 ## Where AI stands
 
 In aquaculture, deep learning is being tried for live fish recognition, species classification, behavioural analysis, feeding decisions, size and biomass estimation, and water-quality prediction. According to the review by Yang and colleagues (2021), its greatest contribution is its ability to extract features from the data automatically. But the method is still at a weak artificial intelligence stage and needs large amounts of labelled data for training; according to the review, this need is the bottleneck holding back its spread in aquaculture.
+
+[[gorsel:b14-kafes-ici-su-alti-goruntusunde-yapay]]
 
 In catch monitoring, by contrast, AI does something at a scale no human could watch by hand: it makes visible the vessels that fall outside public tracking.
 

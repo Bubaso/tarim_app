@@ -6,6 +6,8 @@ The sensor's best-measured contribution to farming comes where it replaces a cal
 
 How much a sensor gains depends on what it replaces: in the review by Datta and Taghvaeian (2023), the saving against irrigating by canopy temperature is only **1%**. What most determines a sensor's accuracy is calibration. Gains are measured in nitrogen too: according to a review of **26** studies in winter wheat, sensor-based nitrogen management raises nitrogen use efficiency by about **10.4%** (Aula and colleagues, 2020). In dryland maize in Nebraska, sensors cut nitrogen by an average of **38.7** kg per hectare with no yield loss on **77%** of the fields; but a profit advantage appeared on only **35%** of them (Kortbein and colleagues, 2026).
 
+[[gorsel:t-sensor-nebraska-da-bitki-ortusu-sensoruyle]]
+
 The outcome, too, is often decided not by the sensor itself but by the institutions and people around it. In Mexico's Yaqui Valley, the hand-held GreenSeeker sensor brought wheat farmers **37** dollars of extra profit per hectare, excluding the cost of the device and technician; even so, its use declined in the 2015-2016 season. RTI's report lists among the possible reasons the reluctance of credit unions that also sell fertiliser. In Zimbabwe, maize water productivity rose by more than **100%** among irrigators given sensors, but also among their neighbours without them, who learned by watching those who had them (Moyo and colleagues, 2020).
 
 ## The barn devices' record

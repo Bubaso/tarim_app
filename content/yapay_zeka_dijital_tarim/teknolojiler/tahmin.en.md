@@ -6,6 +6,8 @@ In agriculture, predictive models try to anticipate the weather, yields, prices 
 
 GraphCast, a machine learning model that learns from past weather data (Lam and colleagues, 2023), does markedly better than the most accurate operational systems on **90%** of **1,380** verification targets in **10**-day global forecasts. Since 25 February 2025 the European Centre for Medium-Range Weather Forecasts has run its own AI system alongside its physics-based model; according to the centre, the system outperforms physics-based models on many measures, with gains of up to **20%** on measures such as tropical cyclone tracks.
 
+[[gorsel:t-tahmin-graphcast-in-calisma-semasi-hava]]
+
 These studies measure accuracy; they do not measure how much a better frost or drought forecast reduces a farmer's losses. One measurement of a forecast turning into a decision comes from India: probabilistic forecasts of local monsoon onset were sent by text message to more than **38.8** million farmers in **13** states, and according to follow-up surveys in two states, **31-52%** of farmers changed their sowing decisions based on them.
 
 ## Racing classical methods: the gain varies
