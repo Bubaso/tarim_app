@@ -484,7 +484,7 @@ class YzFarmerChatSemasi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, kis) {
-      final uc = genisZorla || kis.maxWidth >= 700;
+      final uc = genisZorla || kis.maxWidth >= 600;
       final sutunlar = [
         const _FcSutun('KATILIM', [
           _FcKart('Karşılama ve Telegram botu bağlantısı', [

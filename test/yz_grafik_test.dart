@@ -81,7 +81,7 @@ void main() {
     expect(yzSayi(7, false), '7');
   });
 
-  for (final olcu in const [Size(360, 900), Size(1280, 900)]) {
+  for (final olcu in const [Size(360, 900), Size(700, 900), Size(1280, 900)]) {
     for (final en in const [false, true]) {
       testWidgets('her grafik türü · ${en ? 'en' : 'tr'} · ${olcu.width.toInt()} piksel · taşmıyor', (t) async {
         t.view.physicalSize = olcu;
