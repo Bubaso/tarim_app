@@ -606,7 +606,11 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     // işaretli yer" yalnız işaretlileri geziyor.
     _anahtar = [
       for (var i = 0; i < _bloklar.length; i++)
-        _bloklar[i].tur == YzBlokTuru.grafik || _bloklar[i].tur == YzBlokTuru.gorsel ? null : GlobalKey(),
+        _bloklar[i].tur == YzBlokTuru.grafik ||
+                _bloklar[i].tur == YzBlokTuru.gorsel ||
+                _bloklar[i].tur == YzBlokTuru.cekme
+            ? null
+            : GlobalKey(),
     ];
     widget.vurguDenetcisi?._kur(_isaretliAnahtarlar);
     widget.vurguDenetcisi?._bloklariKur(_anahtar);
@@ -898,7 +902,7 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
           cikti.add(g == null ? const SizedBox.shrink() : YzGorselKarti(gorsel: g, en: en));
         case YzBlokTuru.cekme:
           cikti.add(yzCekme(b.metin, _bloklar,
-              en: en, telefon: telefon, olcek: o, genislik: metinW, etkilesim: etkilesim, oncekiAralik: 22));
+              en: en, telefon: telefon, olcek: o, genislik: metinW, etkilesim: etkilesim, oncekiAralik: ritim.paragrafArasi));
         case YzBlokTuru.tablo:
           cikti.add(Padding(
             key: _anahtar[i],

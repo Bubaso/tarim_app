@@ -256,10 +256,12 @@ void main() {
               expect(find.ancestor(of: yazi, matching: find.byType(SelectionContainer)), findsWidgets);
               semantik.dispose();
 
-              // Üst ve alt boşluk 48 px (önceki paragrafın 22 px'i dahil).
+              // Üst ve alt boşluk 48 px (önceki paragrafın alt boşluğu dahil;
+              // madde 3: telefonda 28, masaüstünde 30, yazı boyuyla büyüyor).
               final pay = find.descendant(of: kutu, matching: find.byType(Padding)).first;
               final p = t.widget<Padding>(pay).padding as EdgeInsets;
-              expect(p.top + 22, kYzCekmeBoslugu);
+              final onceki = YzOkumaRitmi(telefon: telefon, s: olcek).paragrafArasi;
+              expect(p.top + onceki, closeTo(kYzCekmeBoslugu, 0.01));
               expect(p.bottom, kYzCekmeBoslugu);
             });
           }
