@@ -429,6 +429,12 @@ Liste bitti, paragraf başladı.
       expect(find.widgetWithText(YzBaslikKarosu, "Türkiye'de durum"), findsOneWidget,
           reason: 'harita karosu (numarasız, karar 56)');
       expect(find.textContaining(RegExp(r'§\d')), findsNothing, reason: 'okura numara yok');
+      // Haber akışı: sorgu ilk kareden ~1,5 s sonra, kartlar okur
+      // yaklaşınca kuruluyor (madde 29).
+      await t.pump(const Duration(milliseconds: 1600));
+      await t.pumpAndSettle();
+      await t.ensureVisible(find.byKey(const ValueKey('yz-merkez-haberleri')));
+      await t.pumpAndSettle();
       expect(find.textContaining('Orman yangınlarıyla'), findsOneWidget, reason: 'haber akışı');
       // Merkez sayfada ayrıca "Bugün nerede duruyoruz" özet kutusu yok
       // (kullanıcı, 18 Kas 2026): §1 haritada bir başlık olarak duruyor.
