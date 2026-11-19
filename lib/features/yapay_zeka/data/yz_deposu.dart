@@ -381,8 +381,12 @@ class YzDeposu {
       if (baslikNo != null) {
         sorgu = sorgu.eq('bolum_etiketleri.baslik_no', baslikNo);
       }
-      final veri =
-          await sorgu.order('created_at', ascending: false).limit(limit);
+      // 8 sn zaman aşımı (madde 29): sorgu asılı kalırsa liste boş döner,
+      // okur sayfasında haber bloğu hiç çizilmez.
+      final veri = await sorgu
+          .order('created_at', ascending: false)
+          .limit(limit)
+          .timeout(const Duration(seconds: 8));
       return [
         for (final m in List<Map<String, dynamic>>.from(veri as List))
           YzHaber(

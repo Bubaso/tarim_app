@@ -8,7 +8,12 @@ import '../data/yz_deposu.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
 import '../yz_providers.dart';
+import 'yz_haber_vitrini.dart';
 import 'yz_makale.dart';
+import 'yz_metin_gorunumu.dart' show kYzMetinGenisligi;
+import 'yz_mobil.dart';
+import 'yz_okuma.dart';
+import 'yz_olcum_gonderici.dart';
 import 'yz_ortak.dart' show yzDizinTuruAdi;
 import 'yz_parcalar.dart';
 import 'yz_sozluk_esle.dart';
@@ -98,13 +103,41 @@ class YzBaslikEkrani extends StatelessWidget {
       altlar: [
         // §25'in dinamik kısmı (karar 38): onaylanan kayıtlar.
         if (b.slug == kYzDizinAdresi) const _DizinEklenenler(),
-        if (b.haberAlir) ...[
-          const SizedBox(height: 30),
-          YzBolumBasligi(en ? 'News under this heading' : 'Bu başlıktaki haberler'),
-          YzHaberListesi(baslikNo: b.no, enCok: 12),
-        ],
-        const SizedBox(height: 40),
-        _KomsuBasliklar(onceki: onceki, sonraki: sonraki),
+        // Metnin sonu (madde 26): 48 px → Önceki/Sonraki → 72/80 px ve
+        // ince yatay çizgi → küçük etiket → haberler (karar 32: haberler
+        // başlığın altında). Hepsi metin sütunu genişliğinde.
+        Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: kYzMetinGenisligi),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 48),
+                _KomsuBasliklar(slug: slug, onceki: onceki, sonraki: sonraki),
+                if (b.haberAlir)
+                  YzHaberBlogu(
+                    key: const ValueKey('yz-baslik-haberleri'),
+                    baslikNo: b.no,
+                    olcumSayfasi: slug,
+                    ust: [
+                      SizedBox(height: yzTelefon(context) ? 72 : 80),
+                      const Divider(height: 1, thickness: 1, color: YzRenk.cizgi),
+                      const SizedBox(height: 22),
+                      Semantics(
+                        header: true,
+                        child: Text(
+                          buyukHarf(en ? 'News on this topic' : 'Bu başlıktaki haberler', en),
+                          key: const ValueKey('yz-haber-etiketi'),
+                          style: YzYazi.ustEtiket(),
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                  ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -188,16 +221,36 @@ class _DizinSatiri extends StatelessWidget {
   }
 }
 
-class _KomsuBasliklar extends StatelessWidget {
-  const _KomsuBasliklar({this.onceki, this.sonraki});
+/// Önceki/Sonraki kartları. "Sonraki": okurun okumadığı ilk sonraki başlık
+/// (`yzSiradakiSlug`); öneri yoksa sıradaki numaralı başlık. Telefonda alt
+/// alta dizilince önce SONRAKİ (metni bitiren okurun ilk gördüğü sonraki
+/// metin); geniş sütunda solda Önceki, sağda Sonraki.
+class _KomsuBasliklar extends ConsumerWidget {
+  const _KomsuBasliklar({required this.slug, this.onceki, this.sonraki});
+  final String slug;
   final YzBaslik? onceki;
   final YzBaslik? sonraki;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final en = yzIsEn(context);
+    final okunan = ref.watch(yzOkumaIziProvider.select((iz) => iz.okunan));
+    final oneri = yzSiradakiSlug(okunan, slug);
+    YzBaslik? hedef = sonraki;
+    if (oneri != null && oneri != slug) {
+      for (final x in kYzBasliklar) {
+        if (x.slug == oneri) {
+          hedef = x;
+          break;
+        }
+      }
+    }
     Widget kutu(YzBaslik b, bool ileri) => InkWell(
-          onTap: () => context.go(yzBaslikPath(b.slug)),
+          key: ValueKey(ileri ? 'yz-sonraki' : 'yz-onceki'),
+          onTap: () {
+            if (ileri) yzOlcum('yz_sonraki', {'sayfa': slug, 'hedef': b.slug});
+            context.go(yzBaslikPath(b.slug));
+          },
           child: Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
@@ -218,21 +271,26 @@ class _KomsuBasliklar extends StatelessWidget {
             ),
           ),
         );
+    final ileri = hedef;
+    final geri = onceki;
     return LayoutBuilder(builder: (context, kis) {
       final yan = kis.maxWidth >= 520;
-      final parcalar = [
-        if (onceki != null) kutu(onceki!, false),
-        if (sonraki != null) kutu(sonraki!, true),
-      ];
       if (!yan) {
+        final parcalar = [
+          if (ileri != null) kutu(ileri, true),
+          if (geri != null) kutu(geri, false),
+        ];
         return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          for (final p in parcalar) Padding(padding: const EdgeInsets.only(bottom: 10), child: p),
+          for (var i = 0; i < parcalar.length; i++) ...[
+            if (i > 0) const SizedBox(height: 10),
+            parcalar[i],
+          ],
         ]);
       }
       return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Expanded(child: onceki != null ? kutu(onceki!, false) : const SizedBox()),
+        Expanded(child: geri != null ? kutu(geri, false) : const SizedBox()),
         const SizedBox(width: 12),
-        Expanded(child: sonraki != null ? kutu(sonraki!, true) : const SizedBox()),
+        Expanded(child: ileri != null ? kutu(ileri, true) : const SizedBox()),
       ]);
     });
   }

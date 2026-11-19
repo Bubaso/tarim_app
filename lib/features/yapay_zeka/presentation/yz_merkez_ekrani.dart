@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_metinler.g.dart';
+import 'yz_haber_vitrini.dart';
 import 'yz_matris.dart';
 import 'yz_merkez_liste.dart';
 import 'yz_mobil.dart';
@@ -14,7 +15,8 @@ import 'yz_tasarim.dart';
 /// kapsadığını ve son haberleri görüyor. Tez yok
 /// (karar 6). "Bugün nerede duruyoruz" haritada bir başlık olarak duruyor;
 /// merkez sayfada ayrıca özet kutusu yok (kullanıcı, 18 Kas 2026: aynı
-/// metin başlıkta var). Son haberler görselli vitrin (yz_haber_vitrini.dart).
+/// metin başlıkta var). Son haberler görselli vitrin (yz_haber_vitrini.dart):
+/// manşet ve üç yan haber; okur sona yaklaşınca kuruluyor (madde 28, 29).
 ///
 /// Ekran argüman almıyor: iskelet ve metinler derlemede gömülü, haber
 /// akışı veritabanından (karar 21). Adres tek başına sayfayı kuruyor.
@@ -154,14 +156,20 @@ class YzMerkezEkrani extends StatelessWidget {
                                   : 'Her hücre, bir teknolojinin bir başlıkta geçtiği yer sayısı. Hücreye dokununca başlık o yerler işaretli açılır; teknolojinin adına dokununca kendi sayfası.',
                             ),
                             const YzTeknolojiMatrisi(),
-                            const SizedBox(height: 34),
-                            YzBolumBasligi(
-                              en ? 'Latest news' : 'Son haberler',
-                              alt: en
-                                  ? 'News from the portal that carries a concrete statement about these technologies, each under its heading.'
-                                  : 'Portaldaki haberlerden bu teknolojilere dair somut bir bilgi taşıyanlar, her biri kendi başlığının altında.',
+                            // Son haberler (madde 28): manşet + üç yan haber;
+                            // haber yoksa başlığıyla birlikte hiç çizilmiyor.
+                            YzHaberBlogu(
+                              key: const ValueKey('yz-merkez-haberleri'),
+                              ust: [
+                                const SizedBox(height: 34),
+                                YzBolumBasligi(
+                                  en ? 'Latest news' : 'Son haberler',
+                                  alt: en
+                                      ? 'News from the portal that carries a concrete statement about these technologies, each under its heading.'
+                                      : 'Portaldaki haberlerden bu teknolojilere dair somut bir bilgi taşıyanlar, her biri kendi başlığının altında.',
+                                ),
+                              ],
                             ),
-                            const YzHaberListesi(enCok: 10),
                             // "Bu dosya nasıl güncel tutuluyor" bölümü kaldırıldı
                             // (kullanıcı, 18 Kas 2026).
                           ],

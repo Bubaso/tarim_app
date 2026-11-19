@@ -1,109 +1,181 @@
+import 'dart:async';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/constants/api_constants.dart';
 import '../../../core/router/app_router.dart';
-import '../../../core/utils/image_fallback_helper.dart';
 import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_deposu.dart';
-import 'yz_parcalar.dart';
+import '../yz_providers.dart';
+import 'yz_olcum_gonderici.dart';
 import 'yz_tasarim.dart';
+import 'yz_yollar.dart';
 
-/// Bölümün haberleri, görselleriyle bir vitrin olarak (liste değil).
+/// Bölümün haberleri, görselleriyle bir vitrin olarak (karar 59: liste değil).
 ///
-/// Merkez sayfada dergi düzeni: geniş ekranda solda büyük görselli manşet,
-/// sağda küçük resimli üç haber, altında üç sütunlu kart ızgarası; orta
-/// genişlikte manşet yatay, kartlar iki sütun; dar ekranda manşetin altında
-/// küçük resimli satırlar. Başlık sayfasında aynı kartlar ızgarada.
+/// Başlık sayfasında (madde 27, seçenek A): en yeni 3 haber küçük kartlarda
+/// (geniş sütunda yan yana üç, dar sütunda iki sütun); fazlası varsa
+/// "N haber daha" listeyi yerinde açar (en çok 12). Özet yok.
 ///
-/// Yükseklikler sabit ölçülerle kuruluyor (IntrinsicHeight yok): sitenin
-/// görsel bileşeni içeride LayoutBuilder kullanıyor ve iç boy sorulamıyor.
-/// Görseli olmayan haberde bölümün tarla dokusu ve haberin başlığının adı;
-/// boş kutu ya da sonsuz yükleme yok.
-class YzHaberVitrini extends StatelessWidget {
-  const YzHaberVitrini({super.key, required this.haberler, this.merkez = true});
+/// Merkez sayfada (madde 28): geniş ekranda solda manşet, sağda üç yan
+/// haber; tablette ve telefonda manşet ve altında iki sütunlu dört küçük
+/// kart. "Tüm haberler (N)" geri kalanını yerinde açar.
+///
+/// Kartlarda üzerine gelince büyüme ya da gölge yok; kartın tamamı tek
+/// dokunma hedefi (içinde ikinci bir bağlantı yok). Bütün boylar sabit
+/// ölçülerle hesaplanıyor: [kur] kapalıyken aynı boyda durağan çerçeveler
+/// çiziliyor, kartlar kurulunca yerleşim kaymıyor (madde 29).
+///
+/// Görsel: listelerde yalnız küçük görsel (`thumb_image_url`), merkezdeki
+/// manşette büyük görsel; ikisi de yalnız portalın kendi deposundan. Dış
+/// siteye doğrudan bağlanılmıyor; görsel yoksa yazısız tarla dokusu.
+class YzHaberVitrini extends StatefulWidget {
+  const YzHaberVitrini({
+    super.key,
+    required this.haberler,
+    this.merkez = true,
+    this.kur = true,
+    this.olcumSayfasi,
+  });
   final List<YzHaber> haberler;
 
-  /// Merkez sayfa (dergi düzeni, kartta başlık etiketi) ya da başlık sayfası.
+  /// Merkez sayfa (manşet düzeni) ya da başlık sayfası (küçük kartlar).
   final bool merkez;
 
-  static const _ara = 20.0;
+  /// false: kartların yerine aynı boyda durağan çerçeveler.
+  final bool kur;
+
+  /// Habere dokunulunca `yz_haber` ölçümüne giden sayfa (başlığın slug'ı).
+  final String? olcumSayfasi;
 
   @override
-  Widget build(BuildContext context) {
-    if (haberler.isEmpty) return const SizedBox.shrink();
-    return LayoutBuilder(builder: (context, kis) {
-      final w = kis.maxWidth;
-      if (w < 600) {
-        return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          if (merkez) ...[
-            _Manset(haberler.first, baslikEtiketi: true),
-            const SizedBox(height: 12),
-          ],
-          for (final h in merkez ? haberler.skip(1) : haberler) _Satir(h, baslikEtiketi: merkez),
-        ]);
-      }
-      if (!merkez) {
-        return _Izgara(haberler, sutun: w >= 900 ? 3 : 2, genislik: w, baslikEtiketi: false);
-      }
-      if (w < 900) {
-        return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          _MansetYatay(haberler.first),
-          if (haberler.length > 1) ...[
-            const SizedBox(height: _ara),
-            _Izgara(haberler.skip(1).toList(), sutun: 2, genislik: w, baslikEtiketi: true),
-          ],
-        ]);
-      }
-      final yan = haberler.skip(1).take(3).toList();
-      final alt = haberler.skip(4).toList();
-      final mansetGenisligi = yan.isEmpty ? w : (w - _ara) * 3 / 5;
-      final ustBoy = mansetGenisligi * 9 / 16 + 188;
-      return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        SizedBox(
-          height: ustBoy,
-          child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            Expanded(flex: 3, child: _Manset(haberler.first, baslikEtiketi: true, sabit: true)),
-            if (yan.isNotEmpty) ...[
-              const SizedBox(width: _ara),
-              Expanded(
-                flex: 2,
-                child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                  for (var i = 0; i < 3; i++) ...[
-                    if (i > 0) const SizedBox(height: 12),
-                    Expanded(child: i < yan.length ? _Yan(yan[i]) : const SizedBox.shrink()),
-                  ],
-                ]),
-              ),
-            ],
-          ]),
-        ),
-        if (alt.isNotEmpty) ...[
-          const SizedBox(height: _ara),
-          _Izgara(alt, sutun: 3, genislik: w, baslikEtiketi: true),
-        ],
-      ]);
-    });
-  }
+  State<YzHaberVitrini> createState() => _YzHaberVitriniState();
 }
 
-/// Kartlar satır satır; her kartın metin alanı aynı boyda, satırlar eşit.
-class _Izgara extends StatelessWidget {
-  const _Izgara(this.haberler, {required this.sutun, required this.genislik, required this.baslikEtiketi});
-  final List<YzHaber> haberler;
-  final int sutun;
-  final double genislik;
-  final bool baslikEtiketi;
+/// Başlık sayfasında ilk gösterilen ve en çok açılan haber sayısı.
+const int kYzBaslikHaberIlk = 3;
+const int kYzBaslikHaberEnCok = 12;
+
+class _YzHaberVitriniState extends State<YzHaberVitrini> {
+  bool _acik = false;
 
   @override
   Widget build(BuildContext context) {
-    const ara = YzHaberVitrini._ara;
-    final kartGenisligi = (genislik - (sutun - 1) * ara) / sutun;
-    return Wrap(spacing: ara, runSpacing: ara, children: [
-      for (final h in haberler)
-        SizedBox(width: kartGenisligi, child: _Kart(h, baslikEtiketi: baslikEtiketi)),
+    if (widget.haberler.isEmpty) return const SizedBox.shrink();
+    final en = yzIsEn(context);
+    final s = MediaQuery.textScalerOf(context);
+    return LayoutBuilder(builder: (context, kis) {
+      final w = kis.maxWidth;
+      return widget.merkez ? _merkez(w, s, en) : _baslik(w, en);
+    });
+  }
+
+  void _ac() => setState(() => _acik = true);
+
+  Widget _baslik(double w, bool en) {
+    final hepsi = widget.haberler.take(kYzBaslikHaberEnCok).toList();
+    final gorunen = _acik ? hepsi : hepsi.take(kYzBaslikHaberIlk).toList();
+    final kalan = hepsi.length - gorunen.length;
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      _KartIzgarasi(
+        haberler: gorunen,
+        sutun: w >= 480 ? 3 : 2,
+        genislik: w,
+        kur: widget.kur,
+        baslikAdi: false,
+        olcumSayfasi: widget.olcumSayfasi,
+      ),
+      if (kalan > 0)
+        _AcmaBaglantisi(
+          anahtar: const ValueKey('yz-haber-daha'),
+          metin: en ? '$kalan more' : '$kalan haber daha',
+          onTap: _ac,
+        ),
+    ]);
+  }
+
+  Widget _merkez(double w, TextScaler s, bool en) {
+    final haberler = widget.haberler;
+    final kur = widget.kur;
+    final genis = w >= 900;
+    final ilk = genis ? 4 : 5;
+    final kalanlar = haberler.skip(ilk).toList();
+    final ust = genis ? _MerkezBandi(haberler: haberler, genislik: w, kur: kur) : _merkezDar(w, s, kur);
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      ust,
+      if (kalanlar.isNotEmpty && !_acik)
+        _AcmaBaglantisi(
+          anahtar: const ValueKey('yz-tum-haberler'),
+          metin: en ? 'All news (${haberler.length})' : 'Tüm haberler (${haberler.length})',
+          onTap: _ac,
+        ),
+      if (kalanlar.isNotEmpty && _acik) ...[
+        SizedBox(height: _ara(w)),
+        _KartIzgarasi(
+          haberler: kalanlar,
+          sutun: genis ? 4 : 2,
+          genislik: w,
+          kur: kur,
+          baslikAdi: true,
+        ),
+      ],
+    ]);
+  }
+
+  Widget _merkezDar(double w, TextScaler s, bool kur) {
+    final haberler = widget.haberler;
+    final manset = haberler.first;
+    final kartlar = haberler.skip(1).take(4).toList();
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      if (w < 600)
+        SizedBox(
+          height: w * 9 / 16 + _Manset.metinBoyu(s, baslikBoyu: 21, baslikSatiri: 3),
+          child: _Manset(manset, kur: kur, baslikBoyu: 21, baslikSatiri: 3),
+        )
+      else
+        SizedBox(height: _MansetYatay.boy, child: _MansetYatay(manset, kur: kur)),
+      if (kartlar.isNotEmpty) ...[
+        SizedBox(height: _ara(w)),
+        _KartIzgarasi(haberler: kartlar, sutun: 2, genislik: w, kur: kur, baslikAdi: true),
+      ],
     ]);
   }
 }
+
+double _ara(double w) => w < 480 ? 12 : 16;
+
+/// "N haber daha" / "Tüm haberler (N)": çelik mavisi, listeyi yerinde açar.
+class _AcmaBaglantisi extends StatelessWidget {
+  const _AcmaBaglantisi({required this.anahtar, required this.metin, required this.onTap});
+  final Key anahtar;
+  final String metin;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(top: 6),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: TextButton(
+            key: anahtar,
+            onPressed: onTap,
+            style: TextButton.styleFrom(
+              minimumSize: const Size(44, 44),
+              padding: const EdgeInsets.symmetric(horizontal: 4),
+              foregroundColor: YzRenk.makine,
+            ),
+            child: Text('$metin →',
+                style: YzYazi.veri(boy: 13, renk: YzRenk.makine, kalinlik: FontWeight.w600)),
+          ),
+        ),
+      );
+}
+
+// ── Ortak parçalar ───────────────────────────────────────────────────────
 
 String _gun(DateTime t, bool en) {
   const tr = ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'];
@@ -112,7 +184,7 @@ String _gun(DateTime t, bool en) {
   return '${y.day} ${(en ? ing : tr)[y.month - 1]} ${y.year}';
 }
 
-String _baslik(YzHaber h, bool en) {
+String _baslikMetni(YzHaber h, bool en) {
   final a = h.haber;
   return (en && (a.titleEn ?? '').isNotEmpty) ? a.titleEn! : a.title;
 }
@@ -123,200 +195,330 @@ String? _ozet(YzHaber h, bool en) {
   return (s ?? '').trim().isEmpty ? null : s!.trim();
 }
 
-/// Kartın görseli; görsel yoksa tarla dokusu ve haberin başlığının adı.
-class _Gorsel extends StatelessWidget {
-  const _Gorsel(this.h, {required this.buyuk});
-  final YzHaber h;
-  final bool buyuk;
-
-  @override
-  Widget build(BuildContext context) {
-    final a = h.haber;
-    final kucuk = (a.thumbImageUrl ?? '').trim();
-    final asil = (a.imageUrl ?? '').trim();
-    final adres = buyuk ? (asil.isNotEmpty ? asil : kucuk) : (kucuk.isNotEmpty ? kucuk : asil);
-    if (adres.startsWith('http')) {
-      return NewsArticleImage(imageUrl: adres, isHighQuality: buyuk, semanticLabel: a.imageCaption);
-    }
-    final en = yzIsEn(context);
-    return Container(
-      color: YzRenk.bitkiAcik,
-      child: Stack(fit: StackFit.expand, children: [
-        const CustomPaint(painter: TarlaIzgarasi(solma: false, yogunluk: 1.4)),
-        if (h.baslik != null)
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: Text(buyukHarf(h.baslik!.ad(en), en),
-                  maxLines: 2, overflow: TextOverflow.ellipsis, style: YzYazi.ustEtiket(renk: YzRenk.bitki)),
-            ),
-          ),
-      ]),
-    );
-  }
+/// Künye: kaynak · tarih (mono 12 px).
+String _kunyeMetni(YzHaber h, bool en) {
+  final kaynak = (h.haber.sourceName ?? '').trim();
+  final gun = _gun(h.haber.createdAt, en);
+  return kaynak.isEmpty ? gun : '$kaynak · $gun';
 }
 
-/// Künye: (merkez sayfada) başlığın adı, altında tarih · kaynak.
+const double _kunyeBoyu = 12;
+const double _kunyeSatiri = 1.35;
+const double _etiketBoyu = 11.5;
+const double _etiketSatiri = 1.35;
+
+TextStyle _kunyeYazisi() => YzYazi.veri(boy: _kunyeBoyu).copyWith(height: _kunyeSatiri);
+
+/// Haberin başlığının adı — düz yazı (iç içe ikinci dokunma hedefi değil).
+TextStyle _etiketYazisi() => YzYazi.ustEtiket(renk: YzRenk.bitki).copyWith(height: _etiketSatiri);
+
+/// Künye bloğunun boyu: (isteğe bağlı) başlık adı + kaynak · tarih.
+double _kunyeBlokBoyu(TextScaler s, {required bool baslikAdi}) =>
+    (baslikAdi ? s.scale(_etiketBoyu) * _etiketSatiri + 3 : 0) + s.scale(_kunyeBoyu) * _kunyeSatiri;
+
 class _Kunye extends StatelessWidget {
-  const _Kunye(this.h, {required this.baslikEtiketi});
+  const _Kunye(this.h, {required this.baslikAdi});
   final YzHaber h;
-  final bool baslikEtiketi;
+  final bool baslikAdi;
 
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
-    final a = h.haber;
-    final kaynak = (a.sourceName ?? '').trim();
+    final ad = h.baslik?.ad(en);
     return Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisSize: MainAxisSize.min, children: [
-      if (baslikEtiketi && h.baslik != null)
-        InkWell(
-          onTap: () => context.push(yzBaslikPath(h.baslik!.slug)),
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 3),
-            child: Text(buyukHarf(h.baslik!.ad(en), en),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: YzYazi.ustEtiket(renk: YzRenk.bitki).copyWith(fontWeight: FontWeight.w600)),
-          ),
-        ),
-      Text(kaynak.isEmpty ? _gun(a.createdAt, en) : '${_gun(a.createdAt, en)} · $kaynak',
-          maxLines: 1, overflow: TextOverflow.ellipsis, style: YzYazi.veri(boy: 11.5)),
+      if (baslikAdi) ...[
+        Text(ad == null ? '' : buyukHarf(ad, en),
+            maxLines: 1, overflow: TextOverflow.ellipsis, style: _etiketYazisi()),
+        const SizedBox(height: 3),
+      ],
+      Text(_kunyeMetni(h, en), maxLines: 1, overflow: TextOverflow.ellipsis, style: _kunyeYazisi()),
     ]);
   }
 }
 
-/// Üstüne gelince hafifçe yükselen, görseli yavaşça büyüyen dokunulabilir kart.
-class _Dokunulur extends StatefulWidget {
-  const _Dokunulur({required this.h, required this.cocuk});
-  final YzHaber h;
-  final Widget Function(bool uzerinde) cocuk;
-
-  @override
-  State<_Dokunulur> createState() => _DokunulurState();
+/// Görsel yalnız portalın kendi deposundan: dış siteye doğrudan bağlanılmaz.
+String? _kendiGorseli(String? ham) {
+  final u = (ham ?? '').trim();
+  if (!u.startsWith('https://')) return null;
+  final host = Uri.tryParse(u)?.host ?? '';
+  if (host.isEmpty) return null;
+  if (host == Uri.tryParse(ApiConstants.supabaseUrl)?.host) return u;
+  final firebase = host.endsWith('.firebasestorage.app') ||
+      host == 'firebasestorage.googleapis.com' ||
+      host == 'storage.googleapis.com';
+  return firebase && u.contains('tarim-app-2026') ? u : null;
 }
 
-class _DokunulurState extends State<_Dokunulur> {
-  bool _uzerinde = false;
+/// Kartın görseli; yoksa (ya da inemezse) yazısız tarla dokusu. Dönen
+/// gösterge ya da parıltı yok: görsel inene kadar da doku duruyor.
+class _Gorsel extends StatelessWidget {
+  const _Gorsel(this.h, {required this.buyuk});
+  final YzHaber h;
+
+  /// Merkezdeki manşet: büyük görsel. Öbür her yerde küçük görsel.
+  final bool buyuk;
+
+  static Widget doku() => Container(
+        color: YzRenk.bitkiAcik,
+        child: const CustomPaint(
+          painter: TarlaIzgarasi(solma: false, yogunluk: 1.4),
+          child: SizedBox.expand(),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
-    final hareketsiz = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+    final a = h.haber;
+    final adres = buyuk
+        ? (_kendiGorseli(a.imageUrl) ?? _kendiGorseli(a.thumbImageUrl))
+        : _kendiGorseli(a.thumbImageUrl);
+    if (adres == null) return doku();
+    final altyazi = (a.imageCaption ?? '').trim();
+    return LayoutBuilder(builder: (context, kis) {
+      final dpr = MediaQuery.devicePixelRatioOf(context);
+      final gen = kis.maxWidth.isFinite ? kis.maxWidth : 320.0;
+      final cozum = (gen * dpr).clamp(160.0, buyuk ? 1400.0 : 640.0).round();
+      return Image(
+        image: ResizeImage(CachedNetworkImageProvider(adres), width: cozum),
+        fit: BoxFit.cover,
+        width: double.infinity,
+        height: double.infinity,
+        gaplessPlayback: true,
+        semanticLabel: altyazi.isEmpty ? null : altyazi,
+        excludeFromSemantics: altyazi.isEmpty,
+        frameBuilder: (context, cocuk, kare, esZamanli) => kare == null && !esZamanli ? doku() : cocuk,
+        errorBuilder: (_, __, ___) => doku(),
+      );
+    });
+  }
+}
+
+/// Kartın kabuğu: çerçeve; [kur] açıksa dokunulur (tamamı tek hedef),
+/// kapalıysa aynı boyda boş, durağan çerçeve.
+class _Kabuk extends StatelessWidget {
+  const _Kabuk({required this.h, required this.kur, required this.cocuk, this.olcumSayfasi});
+  final YzHaber h;
+  final bool kur;
+  final Widget Function() cocuk;
+  final String? olcumSayfasi;
+
+  static const _cerceve = BoxDecoration(
+    color: YzRenk.yuzey,
+    borderRadius: BorderRadius.all(Radius.circular(6)),
+    border: Border.fromBorderSide(BorderSide(color: YzRenk.cizgi)),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    if (!kur) return const DecoratedBox(decoration: _cerceve, child: SizedBox.expand());
     return Semantics(
       button: true,
-      label: _baslik(widget.h, yzIsEn(context)),
+      label: _baslikMetni(h, yzIsEn(context)),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
-        onEnter: (_) => setState(() => _uzerinde = true),
-        onExit: (_) => setState(() => _uzerinde = false),
         child: GestureDetector(
-          onTap: () => context.push(articlePath(widget.h.haber.id)),
-          child: AnimatedContainer(
-            duration: hareketsiz ? Duration.zero : const Duration(milliseconds: 180),
-            decoration: BoxDecoration(
-              color: YzRenk.yuzey,
-              borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: _uzerinde ? YzRenk.bitki.withValues(alpha: 0.55) : YzRenk.cizgi),
-              boxShadow: _uzerinde
-                  ? [BoxShadow(color: YzRenk.murekkep.withValues(alpha: 0.08), blurRadius: 18, offset: const Offset(0, 6))]
-                  : const [],
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: widget.cocuk(_uzerinde && !hareketsiz),
-          ),
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            final sayfa = olcumSayfasi;
+            if (sayfa != null) yzOlcum('yz_haber', {'sayfa': sayfa});
+            context.push(articlePath(h.haber.id));
+          },
+          child: Container(decoration: _cerceve, clipBehavior: Clip.antiAlias, child: cocuk()),
         ),
       ),
     );
   }
 }
 
-Widget _yakinlasan(Widget gorsel, bool uzerinde) => ClipRect(
-      child: AnimatedScale(
-        scale: uzerinde ? 1.035 : 1,
-        duration: const Duration(milliseconds: 320),
-        curve: Curves.easeOutCubic,
-        child: gorsel,
-      ),
-    );
+// ── Küçük kart (madde 27, seçenek A) ─────────────────────────────────────
 
-/// Manşet: büyük görsel, başlık, özet. [sabit]: dışarıdan verilen boya
-/// sığar (görsel 16:9, metin alanı kalan yer).
-class _Manset extends StatelessWidget {
-  const _Manset(this.h, {required this.baslikEtiketi, this.sabit = false});
+/// 16:9 küçük görsel, künye (mono 12 px), en çok 3 satır başlık
+/// (Outfit 700, 15 px). Boyu genişlikten ve yazı ölçeğinden hesaplanıyor.
+class _KucukKart extends StatelessWidget {
+  const _KucukKart(this.h, {required this.kur, required this.baslikAdi, this.olcumSayfasi});
   final YzHaber h;
-  final bool baslikEtiketi;
-  final bool sabit;
+  final bool kur;
+  final bool baslikAdi;
+  final String? olcumSayfasi;
+
+  static const double _ustPay = 10;
+  static const double _altPay = 12;
+  static const double _baslikBoyu = 15;
+  static const double _baslikSatiri = 1.25;
+
+  static double gorselBoyu(double genislik) => (genislik * 9 / 16).roundToDouble();
+
+  static double metinBoyu(TextScaler s, {required bool baslikAdi}) =>
+      (_ustPay + _kunyeBlokBoyu(s, baslikAdi: baslikAdi) + 5 + 3 * s.scale(_baslikBoyu) * _baslikSatiri + _altPay)
+          .ceilToDouble() +
+      2;
+
+  static double boy(double genislik, TextScaler s, {required bool baslikAdi}) =>
+      gorselBoyu(genislik) + metinBoyu(s, baslikAdi: baslikAdi);
 
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
-    final ozet = _ozet(h, en);
-    final metin = Padding(
-      padding: const EdgeInsets.fromLTRB(18, 14, 18, 14),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        _Kunye(h, baslikEtiketi: baslikEtiketi),
-        const SizedBox(height: 8),
-        Text(_baslik(h, en),
-            maxLines: sabit ? 2 : 4,
-            overflow: TextOverflow.ellipsis,
-            style: YzYazi.baslik(sabit ? 24 : 21).copyWith(height: 1.22)),
-        if (ozet != null) ...[
-          const SizedBox(height: 6),
-          // Sabit boyda özet kalan yere sığar (taşarsa kesilir, hata vermez);
-          // serbest boyda (dar ekran) olduğu gibi.
-          if (sabit)
-            Flexible(child: _ozetYazisi(ozet))
-          else
-            _ozetYazisi(ozet),
-        ],
-      ]),
-    );
-    return _Dokunulur(
+    return _Kabuk(
       h: h,
-      cocuk: (u) => Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        AspectRatio(aspectRatio: 16 / 9, child: _yakinlasan(_Gorsel(h, buyuk: true), u)),
-        if (sabit) Expanded(child: ClipRect(child: metin)) else metin,
+      kur: kur,
+      olcumSayfasi: olcumSayfasi,
+      cocuk: () => LayoutBuilder(
+        builder: (context, kis) => Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          SizedBox(height: gorselBoyu(kis.maxWidth), child: _Gorsel(h, buyuk: false)),
+          Expanded(
+            child: ClipRect(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(10, _ustPay, 10, 0),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  _Kunye(h, baslikAdi: baslikAdi),
+                  const SizedBox(height: 5),
+                  Text(_baslikMetni(h, en),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                      style: YzYazi.baslik(_baslikBoyu).copyWith(height: _baslikSatiri)),
+                ]),
+              ),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+}
+
+/// Küçük kartlar satır satır; satırdaki kartlar eşit genişlik ve boyda.
+class _KartIzgarasi extends StatelessWidget {
+  const _KartIzgarasi({
+    required this.haberler,
+    required this.sutun,
+    required this.genislik,
+    required this.kur,
+    required this.baslikAdi,
+    this.olcumSayfasi,
+  });
+  final List<YzHaber> haberler;
+  final int sutun;
+  final double genislik;
+  final bool kur;
+  final bool baslikAdi;
+  final String? olcumSayfasi;
+
+  @override
+  Widget build(BuildContext context) {
+    final ara = _ara(genislik);
+    final kartGenisligi = (genislik - (sutun - 1) * ara) / sutun;
+    final kartBoyu = _KucukKart.boy(kartGenisligi, MediaQuery.textScalerOf(context), baslikAdi: baslikAdi);
+    final satirlar = <Widget>[];
+    for (var i = 0; i < haberler.length; i += sutun) {
+      if (i > 0) satirlar.add(SizedBox(height: ara));
+      satirlar.add(SizedBox(
+        height: kartBoyu,
+        child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          for (var j = 0; j < sutun; j++) ...[
+            if (j > 0) SizedBox(width: ara),
+            Expanded(
+              child: i + j < haberler.length
+                  ? _KucukKart(haberler[i + j], kur: kur, baslikAdi: baslikAdi, olcumSayfasi: olcumSayfasi)
+                  : const SizedBox.shrink(),
+            ),
+          ],
+        ]),
+      ));
+    }
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: satirlar);
+  }
+}
+
+// ── Merkez: manşet ve yan haberler (madde 28) ───────────────────────────
+
+/// Geniş ekranda tek bant: solda manşet, sağda üç yan haber. Altında ızgara yok.
+class _MerkezBandi extends StatelessWidget {
+  const _MerkezBandi({required this.haberler, required this.genislik, required this.kur});
+  final List<YzHaber> haberler;
+  final double genislik;
+  final bool kur;
+
+  static const double _ara = 20;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = MediaQuery.textScalerOf(context);
+    final yan = haberler.skip(1).take(3).toList();
+    final mansetGenisligi = yan.isEmpty ? genislik : (genislik - _ara) * 3 / 5;
+    final boy = mansetGenisligi * 9 / 16 + _Manset.metinBoyu(s, baslikBoyu: 24, baslikSatiri: 2);
+    return SizedBox(
+      height: boy,
+      child: Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Expanded(flex: 3, child: _Manset(haberler.first, kur: kur, baslikBoyu: 24, baslikSatiri: 2)),
+        if (yan.isNotEmpty) ...[
+          const SizedBox(width: _ara),
+          Expanded(
+            flex: 2,
+            child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+              for (var i = 0; i < 3; i++) ...[
+                if (i > 0) const SizedBox(height: 12),
+                Expanded(child: i < yan.length ? _Yan(yan[i], kur: kur) : const SizedBox.shrink()),
+              ],
+            ]),
+          ),
+        ],
       ]),
     );
   }
 }
 
-Widget _ozetYazisi(String ozet) => Text(ozet,
-    maxLines: 2,
-    overflow: TextOverflow.ellipsis,
-    style: YzYazi.govde(boy: 15.5, renk: YzRenk.soluk).copyWith(height: 1.45));
-
-/// Orta genişlikte manşet: solda görsel, sağda metin; sabit boy.
-class _MansetYatay extends StatelessWidget {
-  const _MansetYatay(this.h);
+/// Manşet: 16:9 görsel, başlık, 2 satır özet. Dışarıdan verilen boya sığar.
+class _Manset extends StatelessWidget {
+  const _Manset(this.h, {required this.kur, required this.baslikBoyu, required this.baslikSatiri});
   final YzHaber h;
+  final bool kur;
+  final double baslikBoyu;
+  final int baslikSatiri;
+
+  static const double _satir = 1.22;
+  static const double _ozetBoyu = 15.5;
+  static const double _ozetSatiri = 1.45;
+
+  /// Görselin altındaki metin alanının boyu (özet yoksa da aynı: boy sabit).
+  static double metinBoyu(TextScaler s, {required double baslikBoyu, required int baslikSatiri}) =>
+      (14 +
+              _kunyeBlokBoyu(s, baslikAdi: true) +
+              8 +
+              baslikSatiri * s.scale(baslikBoyu) * _satir +
+              6 +
+              2 * s.scale(_ozetBoyu) * _ozetSatiri +
+              14)
+          .ceilToDouble() +
+      2;
 
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
     final ozet = _ozet(h, en);
-    return SizedBox(
-      height: 250,
-      child: _Dokunulur(
-        h: h,
-        cocuk: (u) => Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Expanded(flex: 11, child: _yakinlasan(_Gorsel(h, buyuk: true), u)),
+    return _Kabuk(
+      h: h,
+      kur: kur,
+      cocuk: () => LayoutBuilder(
+        builder: (context, kis) => Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          SizedBox(height: kis.maxWidth * 9 / 16, child: _Gorsel(h, buyuk: true)),
           Expanded(
-            flex: 9,
             child: ClipRect(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(18, 16, 18, 14),
+                padding: const EdgeInsets.fromLTRB(18, 14, 18, 0),
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  _Kunye(h, baslikEtiketi: true),
+                  _Kunye(h, baslikAdi: true),
                   const SizedBox(height: 8),
-                  Text(_baslik(h, en),
-                      maxLines: 3, overflow: TextOverflow.ellipsis, style: YzYazi.baslik(21).copyWith(height: 1.25)),
+                  Text(_baslikMetni(h, en),
+                      maxLines: baslikSatiri,
+                      overflow: TextOverflow.ellipsis,
+                      style: YzYazi.baslik(baslikBoyu).copyWith(height: _satir)),
                   if (ozet != null) ...[
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 6),
                     Text(ozet,
-                        maxLines: 3,
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: YzYazi.govde(boy: 15, renk: YzRenk.soluk).copyWith(height: 1.45)),
+                        style: YzYazi.govde(boy: _ozetBoyu, renk: YzRenk.soluk).copyWith(height: _ozetSatiri)),
                   ],
                 ]),
               ),
@@ -328,18 +530,63 @@ class _MansetYatay extends StatelessWidget {
   }
 }
 
-/// Manşetin yanındaki haber: solda küçük resim, sağda künye ve başlık.
-class _Yan extends StatelessWidget {
-  const _Yan(this.h);
+/// Tablette manşet: solda görsel, sağda metin; sabit boy.
+class _MansetYatay extends StatelessWidget {
+  const _MansetYatay(this.h, {required this.kur});
   final YzHaber h;
+  final bool kur;
+
+  static const double boy = 250;
 
   @override
   Widget build(BuildContext context) {
     final en = yzIsEn(context);
-    return _Dokunulur(
+    final ozet = _ozet(h, en);
+    return _Kabuk(
       h: h,
-      cocuk: (u) => Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        SizedBox(width: 136, child: _yakinlasan(_Gorsel(h, buyuk: false), u)),
+      kur: kur,
+      cocuk: () => Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Expanded(flex: 11, child: _Gorsel(h, buyuk: true)),
+        Expanded(
+          flex: 9,
+          child: ClipRect(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(18, 16, 18, 14),
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                _Kunye(h, baslikAdi: true),
+                const SizedBox(height: 8),
+                Text(_baslikMetni(h, en),
+                    maxLines: 3, overflow: TextOverflow.ellipsis, style: YzYazi.baslik(21).copyWith(height: 1.25)),
+                if (ozet != null) ...[
+                  const SizedBox(height: 8),
+                  Text(ozet,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: YzYazi.govde(boy: 15, renk: YzRenk.soluk).copyWith(height: 1.45)),
+                ],
+              ]),
+            ),
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+/// Manşetin yanındaki haber: solda küçük görsel, sağda künye ve başlık.
+class _Yan extends StatelessWidget {
+  const _Yan(this.h, {required this.kur});
+  final YzHaber h;
+  final bool kur;
+
+  @override
+  Widget build(BuildContext context) {
+    final en = yzIsEn(context);
+    return _Kabuk(
+      h: h,
+      kur: kur,
+      cocuk: () => Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        SizedBox(width: 136, child: _Gorsel(h, buyuk: false)),
         Expanded(
           child: ClipRect(
             child: Padding(
@@ -348,9 +595,9 @@ class _Yan extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    _Kunye(h, baslikEtiketi: true),
+                    _Kunye(h, baslikAdi: true),
                     const SizedBox(height: 5),
-                    Text(_baslik(h, en),
+                    Text(_baslikMetni(h, en),
                         maxLines: 3, overflow: TextOverflow.ellipsis, style: YzYazi.baslik(16).copyWith(height: 1.28)),
                   ]),
             ),
@@ -361,74 +608,114 @@ class _Yan extends StatelessWidget {
   }
 }
 
-/// Izgara kartı: görsel 16:10, altında sabit boylu metin alanı.
-class _Kart extends StatelessWidget {
-  const _Kart(this.h, {required this.baslikEtiketi});
-  final YzHaber h;
-  final bool baslikEtiketi;
+// ── Haber bloğu: sorgu ve kurulum zamanlaması (madde 29) ─────────────────
+
+/// Okur haber bloğuna bu kadar yaklaşmadan kartlar kurulmuyor (piksel).
+const double kYzHaberKurmaMesafesi = 1250;
+
+/// Haber sorgusu metnin ilk karesinden bu kadar sonra başlıyor.
+const Duration kYzHaberSorguGecikmesi = Duration(milliseconds: 1500);
+
+/// Haberler: sorgu metnin yüklenmesiyle yarışmasın, görseller okur
+/// yaklaşmadan inmesin. Haber sorgusu ilk kareden ~1,5 s sonra ya da okur
+/// sayfanın yarısına gelince başlıyor; okur bloğa ~1.250 px yaklaşınca
+/// kartlar kuruluyor, o zamana kadar aynı boyda durağan çerçeveler.
+///
+/// Haber yoksa, yüklenirken ya da sorgu hata verirse hiçbir şey çizilmiyor
+/// ([ust] de: boşluk, çizgi, etiket). Liste RepaintBoundary içinde.
+class YzHaberBlogu extends ConsumerStatefulWidget {
+  const YzHaberBlogu({super.key, this.baslikNo, this.ust = const [], this.olcumSayfasi});
+
+  /// null: bütün bölüm (merkez sayfa); sayı: o başlığın haberleri.
+  final int? baslikNo;
+
+  /// Haber varsa listenin üstünde çizilenler (boşluk, çizgi, etiket).
+  final List<Widget> ust;
+
+  /// Habere dokunulunca `yz_haber` ölçümüne giden sayfa.
+  final String? olcumSayfasi;
 
   @override
-  Widget build(BuildContext context) {
-    final en = yzIsEn(context);
-    return _Dokunulur(
-      h: h,
-      cocuk: (u) => Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        AspectRatio(aspectRatio: 16 / 10, child: _yakinlasan(_Gorsel(h, buyuk: false), u)),
-        SizedBox(
-          height: baslikEtiketi ? 132 : 116,
-          child: ClipRect(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                _Kunye(h, baslikEtiketi: baslikEtiketi),
-                const SizedBox(height: 6),
-                Text(_baslik(h, en),
-                    maxLines: 3, overflow: TextOverflow.ellipsis, style: YzYazi.baslik(17).copyWith(height: 1.28)),
-              ]),
-            ),
-          ),
-        ),
-      ]),
-    );
-  }
+  ConsumerState<YzHaberBlogu> createState() => _YzHaberBloguState();
 }
 
-/// Dar ekranda satır: solda küçük resim, sağda künye ve başlık.
-class _Satir extends StatelessWidget {
-  const _Satir(this.h, {required this.baslikEtiketi});
-  final YzHaber h;
-  final bool baslikEtiketi;
+class _YzHaberBloguState extends ConsumerState<YzHaberBlogu> {
+  bool _sorgu = false;
+  bool _yakin = false;
+  Timer? _zamanlayici;
+  ScrollPosition? _konum;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _zamanlayici = Timer(kYzHaberSorguGecikmesi, () {
+        if (mounted && !_sorgu) setState(() => _sorgu = true);
+      });
+      _denetle();
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final yeni = Scrollable.maybeOf(context)?.position;
+    if (!identical(yeni, _konum)) {
+      _konum?.removeListener(_denetle);
+      _konum = yeni;
+      _konum?.addListener(_denetle);
+    }
+  }
+
+  @override
+  void dispose() {
+    _zamanlayici?.cancel();
+    _konum?.removeListener(_denetle);
+    super.dispose();
+  }
+
+  void _denetle() {
+    if (!mounted || (_sorgu && _yakin)) return;
+    final ro = context.findRenderObject();
+    if (ro is! RenderBox || !ro.attached || !ro.hasSize) return;
+    final konum = _konum;
+    final vp = RenderAbstractViewport.maybeOf(ro);
+    var kalan = 0.0;
+    var oran = 1.0;
+    if (konum != null && vp != null && konum.hasContentDimensions && konum.hasPixels) {
+      // Bloğun üst kenarının kaydırma içindeki yeri ≈ metnin sonu.
+      final ust = vp.getOffsetToReveal(ro, 0).offset;
+      final gorulen = konum.pixels + konum.viewportDimension;
+      kalan = ust - gorulen;
+      oran = ust <= 0 ? 1 : gorulen / ust;
+    }
+    final yakin = kalan < kYzHaberKurmaMesafesi;
+    final sorgu = yakin || oran >= 0.5;
+    if ((yakin && !_yakin) || (sorgu && !_sorgu)) {
+      setState(() {
+        _yakin = _yakin || yakin;
+        _sorgu = _sorgu || sorgu;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    final en = yzIsEn(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
-      child: SizedBox(
-        height: 104,
-        child: _Dokunulur(
-          h: h,
-          cocuk: (u) => Row(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-            SizedBox(width: 112, child: _yakinlasan(_Gorsel(h, buyuk: false), u)),
-            Expanded(
-              child: ClipRect(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _Kunye(h, baslikEtiketi: baslikEtiketi),
-                        const SizedBox(height: 4),
-                        Text(_baslik(h, en),
-                            maxLines: 2, overflow: TextOverflow.ellipsis, style: YzYazi.baslik(15).copyWith(height: 1.25)),
-                      ]),
-                ),
-              ),
-            ),
-          ]),
+    const hicbiri = SizedBox(width: double.infinity);
+    if (!_sorgu) return hicbiri;
+    final liste = ref.watch(yzBolumHaberleriProvider(widget.baslikNo)).valueOrNull ?? const <YzHaber>[];
+    if (liste.isEmpty) return hicbiri;
+    return RepaintBoundary(
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        ...widget.ust,
+        YzHaberVitrini(
+          haberler: liste,
+          merkez: widget.baslikNo == null,
+          kur: _yakin,
+          olcumSayfasi: widget.olcumSayfasi,
         ),
-      ),
+      ]),
     );
   }
 }
