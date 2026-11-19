@@ -62,7 +62,7 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
       );
     }
 
-    Widget hucreW(YzBaslik b, String kod) {
+    Widget hucreW(YzBaslik b, String kod, {double genislik = hucre}) {
       final n = sayi(b.no, kod);
       final etiketli = b.teknoloji.contains(kod);
       final oran = n / enBuyuk;
@@ -88,7 +88,7 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
                       queryParameters: {'teknoloji': kod},
                     ).toString()),
             child: Container(
-              width: hucre,
+              width: genislik,
               height: hucre - 6,
               margin: const EdgeInsets.all(2),
               alignment: Alignment.center,
@@ -113,7 +113,7 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
       );
     }
 
-    return SingleChildScrollView(
+    Widget dikey() => SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,5 +145,80 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
         ],
       ),
     );
+
+    // Masaüstünde yan yatık (kullanıcı, 19 Kas 2026: "ısı haritası dikeye
+    // uzamasın yataya uzasın"): teknolojiler satırda, başlıklar sütunda.
+    // Hücre genişliği sütun sayısına göre ekrana sığdırılıyor; dar
+    // pencerede ve telefonda eski düzen (başlık satırda, yatay kaydırma).
+    Widget yatay(double genislik) {
+      const solEn = 176.0;
+      final hucreEn = ((genislik - solEn) / basliklar.length - 4).clamp(22.0, hucre);
+
+      Widget sutunBasi(YzBaslik b) => SizedBox(
+            width: hucreEn + 4,
+            height: 168,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: RotatedBox(
+                quarterTurns: 3,
+                child: InkWell(
+                  onTap: yonlendirici == null ? null : () => context.push(yzBaslikPath(b.slug)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2),
+                    child: Text(b.ad(en),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: YzYazi.govde(
+                            boy: 12.5,
+                            renk: _uzerinde?.$1 == b.no ? YzRenk.makine : YzRenk.murekkep)),
+                  ),
+                ),
+              ),
+            ),
+          );
+
+      Widget satirBasi(String kod) {
+        final ad = kYzTeknoloji[kod]![en ? 'en' : 'tr']!;
+        final sayfaVar = kYzTeknolojiMetinleri.containsKey(kod);
+        return SizedBox(
+          width: solEn,
+          child: InkWell(
+            onTap: sayfaVar && yonlendirici != null ? () => context.push(yzTeknolojiPath(kod)) : null,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Text(ad,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.right,
+                  style: YzYazi.veri(
+                      boy: 12,
+                      renk: _uzerinde?.$2 == kod ? YzRenk.makine : YzRenk.murekkep,
+                      kalinlik: FontWeight.w600)),
+            ),
+          ),
+        );
+      }
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(children: [
+            const SizedBox(width: solEn),
+            for (final b in basliklar) sutunBasi(b),
+          ]),
+          for (final k in kodlar)
+            Row(children: [
+              satirBasi(k),
+              for (final b in basliklar) hucreW(b, k, genislik: hucreEn),
+            ]),
+        ],
+      );
+    }
+
+    return LayoutBuilder(builder: (context, kis) {
+      final yataySigar = kis.maxWidth >= 176 + basliklar.length * 26.0;
+      if (yataySigar) return yatay(kis.maxWidth);
+      return dikey();
+    });
   }
 }
