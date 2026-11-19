@@ -151,7 +151,7 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
     // Hücre genişliği sütun sayısına göre ekrana sığdırılıyor; dar
     // pencerede ve telefonda eski düzen (başlık satırda, yatay kaydırma).
     Widget yatay(double genislik) {
-      const solEn = 176.0;
+      const solEn = 214.0;
       final hucreEn = ((genislik - solEn) / basliklar.length - 4).clamp(22.0, hucre);
 
       Widget sutunBasi(YzBaslik b) => SizedBox(
@@ -190,10 +190,9 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.right,
-                  style: YzYazi.veri(
-                      boy: 12,
-                      renk: _uzerinde?.$2 == kod ? YzRenk.makine : YzRenk.murekkep,
-                      kalinlik: FontWeight.w600)),
+                  style: YzYazi.govde(
+                      boy: 13.5,
+                      renk: _uzerinde?.$2 == kod ? YzRenk.makine : YzRenk.murekkep)),
             ),
           ),
         );
@@ -216,7 +215,7 @@ class _YzTeknolojiMatrisiState extends State<YzTeknolojiMatrisi> {
     }
 
     return LayoutBuilder(builder: (context, kis) {
-      final yataySigar = kis.maxWidth >= 176 + basliklar.length * 26.0;
+      final yataySigar = kis.maxWidth >= 214 + basliklar.length * 26.0;
       if (yataySigar) return yatay(kis.maxWidth);
       return dikey();
     });
