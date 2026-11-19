@@ -311,3 +311,9 @@ List<(int, int)> yzAramaAraliklari(String metin, List<String> kelimeler, bool en
   }
   return cikti;
 }
+
+// ── Sıradaki başlık (KALIP) ──────────────────────────────────────────────
+/// [mevcut] başlığı bitiren okura önerilecek sıradaki başlığın slug'ı:
+/// okunmamış ilk sonraki, başvuru sayfası (sözlük, kaynakça) değil.
+/// null: öneri yok; çağıran sıradaki numaralı başlığa düşer.
+String? yzSiradakiSlug(Set<String> okunanYollar, String mevcut) => null;

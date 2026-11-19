@@ -21,6 +21,7 @@ import 'features/dossiers/providers/dossier_providers.dart';
 import 'features/home/providers/hero_rotation.dart';
 import 'features/home/providers/home_providers.dart';
 import 'firebase_options.dart';
+import 'core/widgets/metin_araligi_koruyucusu.dart';
 import 'features/sergi/data/sergi_onizleme_deposu.dart';
 import 'features/sergi/providers/sergi_providers.dart';
 
@@ -216,7 +217,12 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
         // istisnası bu yüzden hep "yol /" görüp kapalı kalıyordu.
         // `routerDelegate` bir ChangeNotifier, rota değişince haber
         // veriyor.
-        return ListenableBuilder(
+        // Android WebView (Instagram, Facebook içi tarayıcı) sistem yazısı
+        // büyütülmüşken satır yüksekliği çarpanını ~624,9 bildiriyor;
+        // Flutter 3.47 öncesinde bütün Text'ler görünmez oluyor
+        // (flutter#190350). Anlamsız değerde aralık override'ları
+        // düşürülüyor; okurun yazı büyütmesi (textScaler) korunuyor.
+        return MetinAraligiKoruyucusu(child: ListenableBuilder(
           listenable: appRouter.routerDelegate,
           builder: (context, _) => OrientationBuilder(
           builder: (context, orientation) {
@@ -282,7 +288,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             return child ?? const SizedBox.shrink();
             },
           ),
-        );
+        ));
       },
 
       // Theme definitions
