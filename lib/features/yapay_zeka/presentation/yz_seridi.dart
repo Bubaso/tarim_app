@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../core/router/app_router.dart' show articlePath;
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
 // Okuma izi hafif dosyada (riverpod + shared_preferences + iskelet): şerit
