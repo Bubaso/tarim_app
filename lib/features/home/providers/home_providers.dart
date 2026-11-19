@@ -669,8 +669,11 @@ final homeAllocationProvider = Provider<HomeAllocation>((ref) {
       .where((a) => !ozelBolumeAit(a, ozelBolumSaati))
       .toList();
 
-  List<NewsArticle> claim(bool Function(NewsArticle) test, {required int cap}) {
-    final out = <NewsArticle>[];
+  List<NewsArticle> claim(bool Function(NewsArticle) test,
+      {required int cap, List<NewsArticle> onceden = const []}) {
+    // [onceden]: tazelik payında bu bölüme ayrılmış kartlar. Zaten `spent`
+    // içinde oldukları için döngü onları ikinci kez eklemiyor.
+    final out = <NewsArticle>[...onceden];
     for (final a in pool) {
       if (out.length >= cap) break;
       if (spent.contains(a.id) || !test(a)) continue;
@@ -695,17 +698,68 @@ final homeAllocationProvider = Provider<HomeAllocation>((ref) {
   //  4. Sektörel — bölgeden artan konulu haberler.
   //  5. ICYMI — "ana akışa girmemiş, kaçırmış olabileceğiniz", tanımı gereği
   //     artığı alır.
-  final science = claim(_articleIsScience, cap: 8);
-  final turkey = claim(_articleIsTurkey, cap: 12);
+  // ── TAZELİK PAYI ────────────────────────────────────────────────────────
+  //
+  // SORUN (19 Kasım 2026'da ölçüldü). Öncelik sırası tek yönlü bir kuyruktu:
+  // manşet 10, Bilim 8, Türkiye 12, Dünya 10 — yani sektör sekmeleri sıraya
+  // ancak 40 haber harcandıktan sonra geliyordu. Günlük arz 15,3 haber
+  // olduğu için bu, sektör sekmelerinin KALICI olarak 2,6 gün geride
+  // kalması demekti. Ölçülen ilk kart yaşları: Hayvancılık 3,6 gün,
+  // Bitkisel Üretim 3,0 gün, Ekonomi 3,1 gün.
+  //
+  // Daha kötüsü aynı sekmenin arkasında iki farklı liste vardı: önizleme
+  // dağıtımdan ARTANI, "Tümünü gör" ise hiç eksiltilmemiş tam listeyi
+  // gösteriyordu. Ekonomi sekmesi 3,1 günlük bir haberle açılıyor, dokununca
+  // ilk kart bugünün haberi oluyordu. Okur için bu, anasayfanın bayat
+  // olduğunu söyleyen bir kanıt.
+  //
+  // ÇÖZÜM. Kuyruk başlamadan önce her bölüm kendi EN TAZE iki haberini
+  // ayırıyor. Tur tur gidiliyor ve DAR kovalar önce geçiyor: sektör konuları
+  // (günde 1,5-5,2 haber), sonra Bilim (2,5), Dünya (2,9), en sonda Türkiye
+  // (12,1). Türkiye en bol kova olduğu için verdiği iki kartı hissetmiyor;
+  // sektör sekmeleri ise o iki kart sayesinde en tazesiyle açılıyor.
+  //
+  // "Bir haber en fazla bir bölümde" vaadi BOZULMUYOR: ayrılan her haber
+  // `spent`e giriyor, aşağıdaki `claim` çağrıları onu bir daha görmüyor.
+  //
+  // Tazelik payı manşeti AŞMIYOR — manşet havuzdan önce seçiyor. Yani
+  // bölümlerin tavanı manşetin bıraktığı en taze haber; ölçümde bu ~1 gün.
+  // Amaç da bu: 3,6 günden 1 güne inmek, manşeti boşaltmak değil.
+  const tazelikPayi = 2;
+  final paylar = <String, bool Function(NewsArticle)>{
+    for (final t in _sektorelKonular) t: (a) => topicIs(a, t),
+    'bilim': _articleIsScience,
+    'dünya': _articleIsWorld,
+    'türkiye': _articleIsTurkey,
+  };
+  final ayrilan = <String, List<NewsArticle>>{
+    for (final k in paylar.keys) k: <NewsArticle>[],
+  };
+  for (var tur = 0; tur < tazelikPayi; tur++) {
+    for (final pay in paylar.entries) {
+      for (final a in pool) {
+        if (spent.contains(a.id) || !pay.value(a)) continue;
+        spent.add(a.id);
+        ayrilan[pay.key]!.add(a);
+        break; // bu turda bu bölüme bir haber yeter
+      }
+    }
+  }
+
+  final science =
+      claim(_articleIsScience, cap: 8, onceden: ayrilan['bilim']!);
+  final turkey =
+      claim(_articleIsTurkey, cap: 12, onceden: ayrilan['türkiye']!);
   // "Türkiye'den haberler"in 2. HABERİ elle seçilebiliyor (articles.turkiye_pin).
   // Birinci sıra en taze habere ait kalıyor; yöneticinin öne çıkarmak
   // istediği haber onun hemen ardına giriyor. İşaretli haber bu listeye
   // girmemişse (havuzun dışında kalacak kadar eskiyse) hiçbir şey yapılmıyor —
   // listeye zorla sokmak, bölümün tazelik düzenini bozardı.
   _turkiyeSabitiniYerlestir(turkey);
-  final world = claim(_articleIsWorld, cap: 10);
+  final world = claim(_articleIsWorld, cap: 10, onceden: ayrilan['dünya']!);
   final byTopic = <String, List<NewsArticle>>{
-    for (final t in _sektorelKonular) t: claim((a) => topicIs(a, t), cap: 10),
+    for (final t in _sektorelKonular)
+      t: claim((a) => topicIs(a, t), cap: 10, onceden: ayrilan[t]!),
   };
 
   final now = DateTime.now();
@@ -762,7 +816,8 @@ final cop31ArticlesProvider = Provider<List<NewsArticle>>((ref) {
   };
   final kalan =
       liste.where((a) => !mansettekiler.contains(a.id)).toList(growable: false);
-  return _bakaniOneAl(kalan, ref.watch(heroSeedProvider));
+  return _bakaniOneAl(
+      kalan, ref.watch(heroSeedProvider), ref.watch(simdiProvider)());
 });
 
 /// Bölümün büyük kartında geçmesi gereken ad.
@@ -789,9 +844,29 @@ bool _bakanGeciyor(NewsArticle a) => kucukHarf(
 ///
 /// Aday yoksa liste OLDUĞU GİBİ kalıyor: bölümü boş bırakmaktansa en taze
 /// haberle açmak yeğ.
-List<NewsArticle> _bakaniOneAl(List<NewsArticle> liste, int tohum) {
+/// Büyük karta aday olabilmek için bir Yumaklı haberinin en çok kaç saatlik
+/// olabileceği.
+///
+/// 19 Kasım 2026'da ölçüldü: bölümde 18 Yumaklı haberi vardı, dönüşüme giren
+/// en taze beşinin yaşı 2,0-7,0 gün, oysa bölümün en taze haberi 1,0 günlük.
+/// Yani "en taze beş aday" kuralı yalnızca ADAYLAR arasında tazeydi; bölümün
+/// kendi tazeliğine karşı bir tavanı yoktu ve büyük kart bir haftalık bir
+/// haber olabiliyordu.
+///
+/// 48 saat, bakan garantisini koruyacak kadar geniş (zirve boyunca bakanın
+/// geçtiği haber neredeyse her gün var), bayatlığı engelleyecek kadar dar.
+const _kBakanTazelikSaati = 48.0;
+
+List<NewsArticle> _bakaniOneAl(
+    List<NewsArticle> liste, int tohum, DateTime simdi) {
   if (liste.length < 2) return liste;
-  final adaylar = liste.where(_bakanGeciyor).toList(growable: false);
+  final adaylar = liste
+      .where(_bakanGeciyor)
+      .where((a) =>
+          simdi.difference(a.createdAt).inMinutes / 60 <= _kBakanTazelikSaati)
+      .toList(growable: false);
+  // Pencerede bakan haberi yoksa bölüm en taze haberiyle açılıyor: bayat bir
+  // bakan kartı, bakansız taze bir karttan kötü.
   if (adaylar.isEmpty) return liste;
   final secilen = adaylar[tohum.abs() % math.min(adaylar.length, 5)];
   return [secilen, ...liste.where((a) => a.id != secilen.id)];

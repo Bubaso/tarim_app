@@ -223,6 +223,49 @@ void main() {
       ]);
       expect(liste.map((a) => a.id), ['a', 'b']);
     });
+
+    // ── YAŞ TAVANI ────────────────────────────────────────────────────
+    //
+    //  19 Kasım 2026'da ölçüldü: bölümde 18 Yumaklı haberi vardı ve
+    //  dönüşüme giren en taze beşinin yaşı 2,0-7,0 gündü — oysa bölümün
+    //  en taze haberi 1,0 günlüktü. "En taze beş aday" kuralı yalnızca
+    //  ADAYLAR arasında tazeydi; bölümün kendi tazeliğine karşı tavanı
+    //  yoktu, bu yüzden büyük kart bir haftalık olabiliyordu.
+    //
+    //  Kullanıcı kararı: bakan garantisi KALSIN ama 48 saatlik pencereyle.
+    test('48 saati aşan Yumaklı haberi büyük karta ÇIKMIYOR', () async {
+      final liste = await bolum([
+        h('taze', baslik: 'Antalya\'da iklim mutabakatı imzalandı',
+            saatOnce: 2),
+        h('bakan-eski', baslik: 'Bakan Yumaklı zirvede konuştu',
+            saatOnce: 120), // 5 gün
+      ]);
+      expect(liste.first.id, 'taze',
+          reason: 'Beş günlük bakan haberi bölümü açmamalı.');
+      // Haber KAYBOLMUYOR, yalnız ilk sıraya zorlanmıyor.
+      expect(liste.map((a) => a.id), containsAll(['taze', 'bakan-eski']));
+    });
+
+    test('pencere içindeki Yumaklı haberi büyük kartı ALIYOR', () async {
+      final liste = await bolum([
+        h('daha-taze', baslik: 'Tarımsal üretim arttı', saatOnce: 1),
+        h('bakan-taze', baslik: 'Bakan Yumaklı zirvede konuştu',
+            saatOnce: 10),
+      ]);
+      expect(liste.first.id, 'bakan-taze',
+          reason: 'Pencere içindeki bakan haberi garantisini korumalı.');
+    });
+
+    test('pencerede bakan haberi yoksa bölüm EN TAZESİYLE açılıyor', () async {
+      final liste = await bolum([
+        h('taze-1', baslik: 'Akdeniz havzasında verim düşüşü', saatOnce: 3),
+        h('taze-2', baslik: 'Küresel emisyonlar açıklandı', saatOnce: 20),
+        h('bakan-cok-eski', baslik: 'Bakan Yumaklı açıklama yaptı',
+            saatOnce: 240), // 10 gün
+      ]);
+      expect(liste.first.id, 'taze-1',
+          reason: 'Bayat bir bakan kartı, bakansız taze karttan kötü.');
+    });
   });
 
   // ── Kaynak değişmezleri ────────────────────────────────────────────────
