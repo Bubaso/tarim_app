@@ -7,6 +7,7 @@ import 'yz_matris.dart';
 import 'yz_merkez_liste.dart';
 import 'yz_mobil.dart';
 import 'yz_parcalar.dart';
+import 'yz_paylas_satiri.dart';
 import 'yz_tasarim.dart';
 
 /// Yapay Zeka ve Dijital Tarım — merkez sayfa (karar 8: merkez + alt sayfalar).
@@ -133,6 +134,13 @@ class YzMerkezEkrani extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
+                            // Paylaş ikonları (kullanıcı, 19 Kas 2026): "Başlıklar"
+                            // ve "Son haberler" başlıklarının hemen üstünde;
+                            // bağlantı bu sayfayı açıyor.
+                            Align(
+                                alignment: Alignment.centerLeft,
+                                child: YzPaylasSatiri(en: en, key: const ValueKey('yz-paylas-basliklar'))),
+                            const SizedBox(height: 12),
                             YzBolumBasligi(
                               en ? 'The headings' : 'Başlıklar',
                               // Telefonda karo yok, liste var (★20): alt yazı ona göre.
@@ -162,6 +170,10 @@ class YzMerkezEkrani extends StatelessWidget {
                               key: const ValueKey('yz-merkez-haberleri'),
                               ust: [
                                 const SizedBox(height: 34),
+                                Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: YzPaylasSatiri(en: en, key: const ValueKey('yz-paylas-haberler'))),
+                                const SizedBox(height: 12),
                                 YzBolumBasligi(
                                   en ? 'Latest news' : 'Son haberler',
                                   alt: en

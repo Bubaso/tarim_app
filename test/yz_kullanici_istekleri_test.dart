@@ -184,4 +184,21 @@ void main() {
     expect(s, isNot(contains("'Bu dosya nasıl güncel tutuluyor'")));
     expect(s, isNot(contains('editör ajanı')));
   });
+
+  // Kullanıcı (19 Kas 2026): "Başlıklar" başlığının hemen üstünde paylaş
+  // ikonları (Son haberler'deki eşi haber varken çiziliyor).
+  for (final boy in const [Size(375, 812), Size(1280, 900)]) {
+    testWidgets('merkezde Başlıklar başlığının üstünde paylaş satırı · ${boy.width.toInt()} px', (t) async {
+      _boyut(t, boy);
+      await t.pumpWidget(_uygulama(const YzMerkezEkrani()));
+      await t.pumpAndSettle();
+      final satir = find.byKey(const ValueKey('yz-paylas-basliklar'));
+      expect(satir, findsOneWidget);
+      final baslik = find.text('Başlıklar');
+      final altSatir = t.getRect(satir).bottom;
+      final ustBaslik = t.getRect(baslik).top;
+      expect(ustBaslik - altSatir, inInclusiveRange(0, 40), reason: 'hemen üstünde');
+      expect(t.takeException(), isNull);
+    });
+  }
 }
