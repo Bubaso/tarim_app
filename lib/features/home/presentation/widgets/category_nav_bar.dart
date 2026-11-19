@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/fade_page_route.dart';
+import '../../../yapay_zeka/data/yz_iskelet.g.dart' show kYzOkuraAcik;
+import '../../../yapay_zeka/presentation/yz_yollar.dart' show yzPath;
 import '../../data/category_catalog.dart';
 import '../../data/models/news_article.dart';
 import '../../providers/home_providers.dart';
@@ -55,7 +58,9 @@ class CategoryNavBar extends ConsumerWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 8),
         physics: const ClampingScrollPhysics(),
-        itemCount: homeCategorySlugs.length + (cop31Goster ? 1 : 0),
+        // Yapay Zeka ve Dijital Tarım dosyası şeridin SONUNDA (kullanıcı,
+        // 19 Kas 2026). Kategori değil, kalıcı bir bölüm: kataloğa girmiyor.
+        itemCount: homeCategorySlugs.length + (cop31Goster ? 1 : 0) + (kYzOkuraAcik ? 1 : 0),
         separatorBuilder: (_, __) => const SizedBox(width: 2),
         itemBuilder: (context, ham) {
           // COP31 şeridin BAŞINDA ve dolgulu: süreli bir bölüm, kalıcı
@@ -66,6 +71,9 @@ class CategoryNavBar extends ConsumerWidget {
             return _Cop31Dugmesi(isDark: isDark);
           }
           final i = ham - (cop31Goster ? 1 : 0);
+          if (i == homeCategorySlugs.length) {
+            return _YzDugmesi(fg: fg, isEn: isEn);
+          }
           final slug = homeCategorySlugs[i];
           final def = categoryBySlug(slug)!;
           // Kısa etiket: sağlayıcı başlığı uzun ("Türkiye'den Haberler"),
@@ -188,6 +196,45 @@ class _Cop31Dugmesi extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// Şeridin sonundaki "Yapay Zeka" düğmesi — bölümün ana sayfasını açıyor.
+/// Öbür kategori öğeleriyle aynı düz yazı; adres paylaşılabilir olsun diye
+/// yönlendiriciyle (`push`: ana sayfa altta kalsın).
+class _YzDugmesi extends StatelessWidget {
+  final Color fg;
+  final bool isEn;
+
+  const _YzDugmesi({required this.fg, required this.isEn});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () => context.push(yzPath),
+      style: TextButton.styleFrom(
+        foregroundColor: fg,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        minimumSize: const Size(0, 40),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            isEn ? 'AI & Digital' : 'Yapay Zeka',
+            style: GoogleFonts.inter(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 0.2,
+            ),
+          ),
+          // Öbür öğelerle aynı yükseklik (altı çizgisinin yeri).
+          const SizedBox(height: 5),
+        ],
       ),
     );
   }
