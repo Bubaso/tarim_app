@@ -130,8 +130,9 @@ class YzUstSerit extends StatelessWidget {
 }
 
 /// Merkez sayfada yön satırı (karar 60): yarıda bırakılan sayfa varsa
-/// "Kaldığınız yer", yoksa ilk kez gelen okura nereden başlayacağı.
-/// Okuma izi yalnız okurun tarayıcısında.
+/// "Kaldığınız yer" (madde 17-18; ana sayfa şeridiyle aynı yardımcı), yoksa
+/// okumuş okura sıradaki okunmamış başlık (madde 20), ilk kez gelen okura
+/// nereden başlayacağı. Okuma izi yalnız okurun tarayıcısında.
 class YzYonSatiri extends ConsumerWidget {
   const YzYonSatiri({super.key});
 
@@ -141,7 +142,19 @@ class YzYonSatiri extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final en = yzIsEn(context);
-    final iz = ref.watch(yzOkumaIziProvider);
+    // Yalnız bu satırın gösterdiği alanlar (madde 31): okur okurken iz her
+    // paragrafta güncelleniyor; satır yalnız bunlar değişince kuruluyor.
+    final yon = ref.watch(yzOkumaIziProvider.select((iz) {
+      final devam = yzDevam(iz, en: en);
+      if (devam != null) return (devam: devam, sirada: null as String?, ilkOkundu: true);
+      final son = iz.son;
+      final mevcut = son != null && !son.teknoloji ? son.slug : '';
+      return (
+        devam: null as YzDevamBilgisi?,
+        sirada: iz.okunan.isEmpty ? null : yzSiradakiSlug(iz.okunan, mevcut),
+        ilkOkundu: iz.okunan.contains(yzBaslikPath(_ilk)),
+      );
+    }));
     final yonlendirici = GoRouter.maybeOf(context);
     final duz = YzYazi.govde(boy: 15.5, renk: YzRenk.soluk);
     final bag = YzYazi.govde(boy: 15.5, renk: YzRenk.makine).copyWith(
@@ -151,19 +164,28 @@ class YzYonSatiri extends ConsumerWidget {
           onTap: yonlendirici == null ? null : git,
           child: Text(metin, style: bag),
         );
-    if (iz.yarimKaldi) {
-      final yol = iz.sonYol!;
-      final parca = yol.split('/').where((x) => x.isNotEmpty).toList();
-      final anahtar = yol.contains('/teknoloji/') ? 'teknoloji-${parca.last}' : parca.last;
+    final devam = yon.devam;
+    if (devam != null) {
+      final ad = devam.altBaslik == null ? devam.baslik : '${devam.baslik} · ${devam.altBaslik}';
       return Wrap(crossAxisAlignment: WrapCrossAlignment.center, spacing: 6, runSpacing: 4, children: [
         Text(en ? 'Where you left off:' : 'Kaldığınız yer:', style: duz),
-        baglanti('${iz.sonAd} →', () {
-          YzOkumaKonumu.kaydetOran(anahtar, iz.sonOran);
-          context.push(yol);
+        baglanti('$ad →', () {
+          final yol = yzDevamHazirla(ref.read(yzOkumaIziProvider), 'devam');
+          if (yol != null) context.push(yol);
         }),
       ]);
     }
-    if (iz.okunan.contains(yzBaslikPath(_ilk))) return const SizedBox.shrink();
+    final sirada = yzBaslikSlugla(yon.sirada);
+    if (sirada != null) {
+      return Wrap(crossAxisAlignment: WrapCrossAlignment.center, spacing: 6, runSpacing: 4, children: [
+        Text(en ? 'Up next:' : 'Sırada:', style: duz),
+        baglanti('${sirada.ad(en)} →', () {
+          YzGiris.isaretle('merkez');
+          context.push(yzBaslikPath(sirada.slug));
+        }),
+      ]);
+    }
+    if (yon.ilkOkundu) return const SizedBox.shrink();
     final ilk = yzBaslik(1)?.ad(en) ?? '';
     final kav = yzBaslik(2)?.ad(en).split(':').first.trim() ?? '';
     // TEK PARAGRAF: noktalama bağlantıya yapışık, satır doğal yerinde

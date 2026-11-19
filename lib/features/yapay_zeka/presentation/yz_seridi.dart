@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/router/app_router.dart' show articlePath;
 import '../data/yz_iskelet.g.dart';
 import '../yz_providers.dart';
+// Okuma izi hafif dosyada (riverpod + shared_preferences + iskelet): şerit
+// "Kaldığınız yer"i ilk yükte gösterebiliyor (madde 18).
+import 'yz_okuma.dart';
 import 'yz_tasarim.dart';
 // yz_parcalar DEĞİL: şerit ana sayfada, ilk yükte. yz_parcalar bölümün
 // metinlerini içe aktarıyor; buradan aktarılırsa metinler yeniden her
@@ -30,8 +34,14 @@ YzBaslik? yzOneCikan([DateTime? gun]) {
 /// olan (karar 42) ve şerit kapının kendisi: okur tıkladığında aynı kâğıt
 /// grisine, aynı ızgaraya giriyor.
 ///
+/// ══ KALDIĞINIZ YER (madde 18) ══════════════════════════════════════════════
+/// Okurun yarım bıraktığı başlık varsa (son 30 gün, başvuru sayfası değil)
+/// "Şu an öne çıkan" satırının yerinde düz metin bağlantısı: "Kaldığınız
+/// yer: <başlık> · <alt başlık> →". Yüzde yok; dokununca metindeki konuma.
+///
 /// ══ CANLI HABER ═══════════════════════════════════════════════════════════
-/// Geniş ekranda bölümün son iki haberi şeridin sağında. Veri gelmezse
+/// Geniş ekranda bölümün son haberi şeridin sağında; dokununca o habere.
+/// Yarım başlık varken gizli (okurun yolu "Kaldığınız yer"). Veri gelmezse
 /// (ağ, boş akış) o sütun hiç çizilmiyor — şerit yine tam.
 class YzSeridi extends ConsumerWidget {
   const YzSeridi({super.key, this.spacing = 0, this.okuraAcik = kYzOkuraAcik});
@@ -53,7 +63,10 @@ class YzSeridi extends ConsumerWidget {
     final g = MediaQuery.sizeOf(context).width;
     final dar = g < 700;
     final oneCikan = yzOneCikan();
-    final haberler = dar
+    // Yalnız satırın gösterdiği alanlar izleniyor (select).
+    final devam = ref.watch(yzOkumaIziProvider.select((iz) => yzDevam(iz, en: en)));
+    // Yarım başlık varken haber sorgusu da atılmıyor.
+    final haberler = dar || devam != null
         ? const <Never>[]
         : (ref.watch(yzBolumHaberleriProvider(null)).valueOrNull ?? const []);
 
@@ -89,7 +102,10 @@ class YzSeridi extends ConsumerWidget {
                           const SizedBox(height: 6),
                           Text(en ? kYzAdEn : kYzAdTr,
                               style: YzYazi.baslik(dar ? 21 : 25)),
-                          if (oneCikan != null) ...[
+                          if (devam != null) ...[
+                            const SizedBox(height: 2),
+                            _DevamSatiri(devam: devam, en: en),
+                          ] else if (oneCikan != null) ...[
                             const SizedBox(height: 8),
                             InkWell(
                               onTap: () => context.push(yzBaslikPath(oneCikan.slug)),
@@ -123,33 +139,37 @@ class YzSeridi extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            for (final h in haberler.take(2))
-                              Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 4),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 6, right: 8),
-                                      child: Container(
-                                          width: 6,
-                                          height: 6,
-                                          decoration: const BoxDecoration(
-                                              color: YzRenk.bitki,
-                                              shape: BoxShape.circle)),
-                                    ),
-                                    Expanded(
-                                      child: Text(
-                                        (en && (h.haber.titleEn ?? '').isNotEmpty)
-                                            ? h.haber.titleEn!
-                                            : h.haber.title,
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: YzYazi.baslik(14.5).copyWith(
-                                            fontWeight: FontWeight.w500, height: 1.3),
+                            for (final h in haberler.take(1))
+                              InkWell(
+                                // Doğrudan habere (sahibin onayı, madde 18).
+                                onTap: () => context.push(articlePath(h.haber.id)),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 4),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 6, right: 8),
+                                        child: Container(
+                                            width: 6,
+                                            height: 6,
+                                            decoration: const BoxDecoration(
+                                                color: YzRenk.bitki,
+                                                shape: BoxShape.circle)),
                                       ),
-                                    ),
-                                  ],
+                                      Expanded(
+                                        child: Text(
+                                          (en && (h.haber.titleEn ?? '').isNotEmpty)
+                                              ? h.haber.titleEn!
+                                              : h.haber.title,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: YzYazi.baslik(14.5).copyWith(
+                                              fontWeight: FontWeight.w500, height: 1.3),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                           ],
@@ -162,6 +182,49 @@ class YzSeridi extends ConsumerWidget {
                 ),
               ),
             ]),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// "Kaldığınız yer: <başlık> · <alt başlık> →" — düz metin bağlantısı,
+/// dokunma alanı en az 44 piksel (WCAG 2.5.5).
+class _DevamSatiri extends ConsumerWidget {
+  const _DevamSatiri({required this.devam, required this.en});
+  final YzDevamBilgisi devam;
+  final bool en;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ad = devam.altBaslik == null ? devam.baslik : '${devam.baslik} · ${devam.altBaslik}';
+    return Semantics(
+      link: true,
+      child: InkWell(
+        onTap: () {
+          final yol = yzDevamHazirla(ref.read(yzOkumaIziProvider), 'serit');
+          if (yol != null) context.push(yol);
+        },
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(minHeight: 44),
+          child: Align(
+            alignment: Alignment.centerLeft,
+            widthFactor: 1,
+            child: Text.rich(
+              TextSpan(children: [
+                TextSpan(
+                  text: en ? 'Where you left off: ' : 'Kaldığınız yer: ',
+                  style: YzYazi.veri(boy: 12.5),
+                ),
+                TextSpan(
+                  text: '$ad →',
+                  style: YzYazi.veri(boy: 12.5, renk: YzRenk.bitki, kalinlik: FontWeight.w600),
+                ),
+              ]),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ),
       ),

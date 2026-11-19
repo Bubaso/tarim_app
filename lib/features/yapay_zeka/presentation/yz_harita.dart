@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/utils/turkce_metin.dart';
 import '../data/yz_iskelet.g.dart';
 import '../data/yz_teknoloji.g.dart';
-import '../data/yz_metinler.g.dart';
 import 'yz_mobil.dart';
 import 'yz_okuma.dart';
 import 'yz_tasarim.dart';
@@ -413,17 +412,18 @@ class YzBaslikKarosu extends ConsumerWidget {
     // 18 Kas 2026: "kartlar olduğu gibi kalsın. sadece başlık ismi"; karar
     // 63). Seçimi kenar rengi ve taşımayanların sönükleşmesi gösteriyor;
     // dokununca başlık o teknolojinin geçtiği yerler işaretli açılıyor.
-    final metin = kYzMetinler[baslik.no];
     // Okuma izi (karar 60): okunan başlık işaretli; yalnız okurun tarayıcısında.
-    final okundu = ref
-        .watch(yzOkumaIziProvider)
-        .okunan
-        .contains(yzBaslikPath(baslik.slug));
-    final durum = metin == null
+    // Karo yalnız KENDİ okundu durumunu izliyor (madde 31): okur başka bir
+    // başlığı okurken iz güncellendikçe merkezdeki 30 karo yeniden kurulmuyor.
+    final yol = yzBaslikPath(baslik.slug);
+    final okundu = ref.watch(yzOkumaIziProvider.select((iz) => iz.okunan.contains(yol)));
+    // Süre önceden hesaplanmış (dart_uret.py): metin taranmıyor.
+    final dakika = yzBaslikDakikasi(baslik.no, en);
+    final durum = dakika == null
         ? null
         : (en
-            ? '${yzOkumaSuresi(metin.metin(true), true)} min${okundu ? ' · ✓ read' : ''}'
-            : '${yzOkumaSuresi(metin.metin(false), false)} dk okuma${okundu ? ' · ✓ okundu' : ''}');
+            ? '$dakika min${okundu ? ' · ✓ read' : ''}'
+            : '$dakika dk okuma${okundu ? ' · ✓ okundu' : ''}');
     final adres = secili
         ? Uri(
             path: yzBaslikPath(baslik.slug),
@@ -437,7 +437,10 @@ class YzBaslikKarosu extends ConsumerWidget {
         borderRadius: BorderRadius.circular(4),
         child: InkWell(
           borderRadius: BorderRadius.circular(4),
-          onTap: () => context.push(adres),
+          onTap: () {
+            YzGiris.isaretle('merkez');
+            context.push(adres);
+          },
           child: Container(
             constraints: const BoxConstraints(minHeight: 76),
             padding: const EdgeInsets.fromLTRB(11, 9, 11, 10),
