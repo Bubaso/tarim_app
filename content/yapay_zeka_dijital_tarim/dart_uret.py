@@ -25,9 +25,9 @@ def dizgi(s: str) -> str:
 
 
 # yz_okuma.dart › yzKelimeSayisi ile aynı kural: başlık satırı (`# `),
-# grafik/görsel yönergesi ve tablo ayıracı sayılmaz; kelime = harf ya da
+# her [[ad:kimlik]] yönergesi (grafik, görsel, öne çıkan cümle) ve tablo ayıracı sayılmaz; kelime = harf ya da
 # rakam dizisi (Dart'ta [\p{L}\p{N}]+; Python'da isalnum aynı sınıfı veriyor).
-_YONERGE = re.compile(r"^\[\[(grafik|gorsel):[a-z0-9-]+\]\]$")
+_YONERGE = re.compile(r"^\[\[[a-z]+:[a-z0-9-]+\]\]$")
 _AYIRAC = re.compile(r"^\|?[\s:|-]+\|?$")
 
 
