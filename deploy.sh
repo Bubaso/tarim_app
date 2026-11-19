@@ -82,6 +82,51 @@ for arg in "$@"; do
   esac
 done
 
+# ── BEKÇİ: KİRLİ ÇALIŞMA AĞACI ───────────────────────────────────────────────
+#
+# Bu depoda aynı anda ÜÇ oturum çalışıyor ve dağıtım derlemeyi diskteki
+# çalışma ağacından yapıyor — commit'ten değil. Yani bir oturum deploy.sh
+# çalıştırdığında ötekilerin commit'lenmemiş dosyaları da pakete giriyor.
+#
+# 19 Kasım 2026'da tam bu oldu: bir oturum kendi düzeltmesini --hosting ile
+# dağıttı; o sırada başka bir oturumun `home_providers.dart` yaması çalışma
+# ağacında commit'siz duruyordu, derlemeye girdi ve canlıya çıktı. Sonradan
+# ölçüldü: canlıdaki paket, yamadan sonra derlenmiş olanla bayt bayt aynıydı.
+# Kullanıcının "dağıtım her zaman açık onay ister" kuralı, kimsenin kastı
+# olmadan böyle atlandı.
+#
+# O gün şans vardı — yama tamamlanmıştı. Beş dakika önce koşsaydı yarısı
+# yayına girerdi.
+#
+# Bu yüzden dağıtım TEMİZ AĞAÇ istiyor: yayına giden her satırın arkasında
+# birinin "bitti" demesi var. Kaçış kapısı YOK; bu dosyadaki öteki bekçilerin
+# de yok. Atlanabilen bekçi atlanır.
+#
+# Derlemeden ÖNCE: derleme dakikalar sürüyor, duracak bir dağıtım için
+# harcanmasının anlamı yok.
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "✗ DAĞITIM DURDU — burası bir git çalışma ağacı değil." >&2
+  echo "  Ağacın temiz olup olmadığı denetlenemiyor ve denetimin çalışmaması," >&2
+  echo "  geçmesiyle aynı şey değil." >&2
+  exit 1
+fi
+
+kirli=$(git status --porcelain 2>/dev/null || true)
+if [[ -n "$kirli" ]]; then
+  echo "✗ DAĞITIM DURDU — çalışma ağacı temiz değil." >&2
+  echo "" >&2
+  echo "  Aşağıdakileri kimse 'bitti' diye işaretlemedi. Dağıtım derlemeyi" >&2
+  echo "  çalışma ağacından yapıyor, yani bunlar olduğu gibi canlıya gider:" >&2
+  echo "" >&2
+  echo "$kirli" | sed "s/^/    /" >&2
+  echo "" >&2
+  echo "  Ne yapmalı:" >&2
+  echo "    · Senin işinse commit et, sonra dağıt." >&2
+  echo "    · Başka bir oturumun işiyse ONA sor — sen onun adına commit etme." >&2
+  echo "    · Dağıtımın dışında tutmak istiyorsan: git stash -u" >&2
+  exit 1
+fi
+
 if [[ $DO_BUILD -eq 1 ]]; then
   # iCloud buluta attığı dosyaları yerelde "veri yok" yer tutucusu olarak
   # bırakıyor; derleme okumaya çalışınca `errno 60 — Operation timed out`
