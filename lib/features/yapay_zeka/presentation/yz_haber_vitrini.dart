@@ -30,7 +30,7 @@ import 'yz_yollar.dart';
 /// ölçülerle hesaplanıyor: [kur] kapalıyken aynı boyda durağan çerçeveler
 /// çiziliyor, kartlar kurulunca yerleşim kaymıyor (madde 29).
 ///
-/// Görsel: listelerde yalnız küçük görsel (`thumb_image_url`), merkezdeki
+/// Görsel: listelerde önce küçük görsel (`thumb_image_url`; yoksa büyük görsel küçültülerek), merkezdeki
 /// manşette büyük görsel; ikisi de yalnız portalın kendi deposundan. Dış
 /// siteye doğrudan bağlanılmıyor; görsel yoksa yazısız tarla dokusu.
 class YzHaberVitrini extends StatefulWidget {
@@ -269,9 +269,13 @@ class _Gorsel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final a = h.haber;
+    // Küçük görsel yoksa büyük görsel küçültülerek çözülüyor (ResizeImage).
+    // Haber hattı Kasım 2026'da 114 haberde `thumb_image_url` alanını boş
+    // bıraktı (türev dosyaları depoda var, alan yazılmamış); yalnız küçük
+    // görsele bakmak bu haberleri dokuya düşürüyordu (kullanıcı, 19 Kas).
     final adres = buyuk
         ? (_kendiGorseli(a.imageUrl) ?? _kendiGorseli(a.thumbImageUrl))
-        : _kendiGorseli(a.thumbImageUrl);
+        : (_kendiGorseli(a.thumbImageUrl) ?? _kendiGorseli(a.imageUrl));
     if (adres == null) return doku();
     final altyazi = (a.imageCaption ?? '').trim();
     return LayoutBuilder(builder: (context, kis) {

@@ -253,7 +253,7 @@ void main() {
     expect(find.descendant(of: find.byKey(blok), matching: find.byType(RepaintBoundary)), findsWidgets);
   });
 
-  testWidgets('dış sitedeki görsele bağlanılmıyor; küçük görsel yoksa tarla dokusu', (t) async {
+  testWidgets('dış sitedeki görsele bağlanılmıyor; küçük görsel yoksa portalın büyük görseli küçültülüyor', (t) async {
     await _boyut(t, _masaustu);
     final haberler = [
       YzHaber(
@@ -283,7 +283,12 @@ void main() {
         haber: (no) async => const []));
     await t.pump();
     expect(t.takeException(), isNull);
-    expect(find.byType(Image), findsNothing, reason: 'listede yalnız portalın küçük görseli');
+    // Kullanıcı (19 Kas 2026): küçük görseli boş kalan haberler dokuya
+    // düşüyordu. Dış görsel yine yok; portalın büyük görseli tek Image.
+    final resimler = t.widgetList<Image>(find.byType(Image)).toList();
+    expect(resimler, hasLength(1), reason: 'yalnız portalın kendi görseli');
+    final r = resimler.single.image as ResizeImage;
+    expect((r.imageProvider as dynamic).url, contains('supabase.co'));
     expect(_haberBasligi(0), findsOneWidget);
   });
 }
