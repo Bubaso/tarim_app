@@ -108,7 +108,9 @@ class YzSeridi extends ConsumerWidget {
                           ] else if (oneCikan != null) ...[
                             const SizedBox(height: 8),
                             InkWell(
-                              onTap: () => context.push(yzBaslikPath(oneCikan.slug)),
+                              // Kullanıcı (19 Kas 2026): karttaki her bağlantı
+                              // bölümün ana sayfasını açar, başlığı ya da haberi değil.
+                              onTap: () => context.push(yzPath),
                               child: Text.rich(
                                 TextSpan(children: [
                                   TextSpan(
@@ -141,8 +143,8 @@ class YzSeridi extends ConsumerWidget {
                           children: [
                             for (final h in haberler.take(1))
                               InkWell(
-                                // Doğrudan habere (sahibin onayı, madde 18).
-                                onTap: () => context.push(articlePath(h.haber.id)),
+                                // Bölümün ana sayfasına (kullanıcı, 19 Kas 2026).
+                                onTap: () => context.push(yzPath),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(vertical: 4),
                                   child: Row(
@@ -202,10 +204,9 @@ class _DevamSatiri extends ConsumerWidget {
     return Semantics(
       link: true,
       child: InkWell(
-        onTap: () {
-          final yol = yzDevamHazirla(ref.read(yzOkumaIziProvider), 'serit');
-          if (yol != null) context.push(yol);
-        },
+        // Bölümün ana sayfasına (kullanıcı, 19 Kas 2026); oradaki "Kaldığınız
+        // yer" satırı okuru başlığa götürüyor.
+        onTap: () => context.push(yzPath),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 44),
           child: Align(

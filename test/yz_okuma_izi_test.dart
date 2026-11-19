@@ -428,7 +428,7 @@ void main() {
     }
 
     for (final boy in const [Size(1280, 900), Size(375, 812)]) {
-      testWidgets('yarım başlık yok: öne çıkan; masaüstünde tek haber, habere gidiyor · ${boy.width}', (t) async {
+      testWidgets('yarım başlık yok: öne çıkan; masaüstünde tek haber; her bağlantı bölümün ana sayfasına · ${boy.width}', (t) async {
         await serit(t, boy);
         expect(t.takeException(), isNull, reason: 'taşma yok');
         expect(find.textContaining('Kaldığınız yer'), findsNothing);
@@ -436,11 +436,16 @@ void main() {
         if (boy.width >= 700) {
           expect(find.text('Şerit haberi 1'), findsOneWidget);
           expect(find.text('Şerit haberi 2'), findsNothing, reason: 'en çok 1 haber');
+          // Kullanıcı (19 Kas 2026): karttaki hangi bağlantıya basılırsa
+          // basılsın bölümün ana sayfası; habere ya da başlığa değil.
           await t.tap(find.text('Şerit haberi 1'));
           await t.pumpAndSettle();
-          expect(find.text('HABER h1'), findsOneWidget);
+          expect(find.text('MERKEZ'), findsOneWidget);
         } else {
           expect(find.textContaining('Şerit haberi'), findsNothing);
+          await t.tap(find.textContaining('Şu an öne çıkan'));
+          await t.pumpAndSettle();
+          expect(find.text('MERKEZ'), findsOneWidget);
         }
       });
 
@@ -461,8 +466,7 @@ void main() {
         expect(alan.height, greaterThanOrEqualTo(44));
         await t.tap(satir);
         await t.pumpAndSettle();
-        expect(find.text('SAYFA $_slug'), findsOneWidget);
-        expect(YzOkumaKonumu.alTumu(_slug)?.$3?.altAd, 'Türkiye');
+        expect(find.text('MERKEZ'), findsOneWidget, reason: 'kullanıcı, 19 Kas: başlığa değil ana sayfaya');
       });
     }
   });
