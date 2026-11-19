@@ -162,7 +162,21 @@ class _YzGrafikKartiState extends State<YzGrafikKarti> {
             const SizedBox(height: 14),
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),
-              child: KeyedSubtree(key: ValueKey(_tablo), child: govde),
+              // Telefonda ekranın %85'inden uzun grafik katlanıyor (madde 7):
+              // ilk 420 piksel, alt kenar zemine soluyor, altında "Grafiğin
+              // tamamını gör". Başlık, açıklama, kaynak ve "Tablo olarak gör"
+              // katlamanın dışında; tablo görünümü katlanmıyor.
+              child: KeyedSubtree(
+                  key: ValueKey(_tablo),
+                  child: telefon && !_tablo
+                      ? YzGorselKatlanir(
+                          en: en,
+                          grafik: true,
+                          zemin: YzRenk.yuzey,
+                          esik: MediaQuery.sizeOf(context).height * 0.85,
+                          child: govde,
+                        )
+                      : govde),
             ),
             if (ayrinti != null && !_tablo) ...[
               const SizedBox(height: 8),

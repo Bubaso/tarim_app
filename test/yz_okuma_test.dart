@@ -348,8 +348,8 @@ void main() {
     expect(solCizgi, findsNothing,
         reason: 'paragraf, şerit ya da içindekiler solunda dikey çizgi (kullanıcı)');
     var kalem = 0;
-    for (final e in find.byType(SelectableText).evaluate()) {
-      (e.widget as SelectableText).textSpan?.visitChildren((span) {
+    for (final e in find.byType(Text).evaluate()) {
+      (e.widget as Text).textSpan?.visitChildren((span) {
         if (span is TextSpan && span.style?.backgroundColor == kYzKalemRengi) kalem++;
         return true;
       });
@@ -358,8 +358,8 @@ void main() {
     // Rakam gövde yazı tipinde (kullanıcının seçimi B): ayrı eşit genişlikli
     // yazı tipi yok, renk çelik mavisi.
     var rakam = 0;
-    for (final e in find.byType(SelectableText).evaluate()) {
-      (e.widget as SelectableText).textSpan?.visitChildren((span) {
+    for (final e in find.byType(Text).evaluate()) {
+      (e.widget as Text).textSpan?.visitChildren((span) {
         if (span is TextSpan && RegExp(r'^%?\d').hasMatch(span.text ?? '') &&
             span.style?.color == YzRenk.makine) {
           rakam++;

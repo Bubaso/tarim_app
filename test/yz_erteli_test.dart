@@ -121,6 +121,54 @@ void main() {
       expect(cagri, 0);
     });
 
+    testWidgets('paket ve yazı tipleri birlikte bekleniyor; ikinci girişte yazı tipi beklenmiyor (madde 16)',
+        (t) async {
+      YzErteliSayfa.testIcinSifirla(yaziTipleri: true);
+      final paket = Completer<void>();
+      final yazi = Completer<void>();
+      var yaziCagri = 0;
+      Future<void> yaziTipleri() {
+        yaziCagri++;
+        return yazi.future;
+      }
+
+      await t.pumpWidget(sar(YzErteliSayfa(
+          yukle: () => paket.future, kur: () => const Text('EKRAN'), yaziTipleri: yaziTipleri)));
+      expect(yaziCagri, 1, reason: 'paketle aynı anda isteniyor');
+      paket.complete();
+      await t.pump();
+      expect(find.text('EKRAN'), findsNothing, reason: 'yazı tipi gelmeden metin yedek yazıyla çizilmiyor');
+      yazi.complete();
+      await t.pump();
+      await t.pump();
+      expect(find.text('EKRAN'), findsOneWidget);
+
+      // Yazı tipi hata verirse sayfa yine açılıyor.
+      YzErteliSayfa.testIcinSifirla(yaziTipleri: true);
+      await t.pumpWidget(sar(YzErteliSayfa(
+          key: const ValueKey(2),
+          yukle: () => paket.future,
+          kur: () => const Text('EKRAN'),
+          yaziTipleri: () async => throw 'x')));
+      await t.pump();
+      await t.pump();
+      expect(find.text('EKRAN'), findsOneWidget, reason: 'yazı tipi hatası sayfayı durdurmuyor');
+    });
+
+    testWidgets('yazı tipi beklemesi üst sınırda bitiyor, hata yakalanıyor', (t) async {
+      await t.runAsync(() async {
+        final sw = Stopwatch()..start();
+        await yzYaziTipleriniBekle(azami: const Duration(milliseconds: 100));
+        expect(sw.elapsedMilliseconds, lessThan(1000));
+      });
+    });
+
+    test('üst sınır 1.200 ms; firebase.json\'a dokunulmadı', () {
+      final s = File('lib/features/yapay_zeka/presentation/yz_erteli.dart').readAsStringSync();
+      expect(s, contains('Duration(milliseconds: 1200)'));
+      expect(s, contains('GoogleFonts.pendingFonts()'));
+    });
+
     testWidgets('indirme düşerse söylüyor; yeniden dene ekranı kuruyor', (t) async {
       YzErteliSayfa.testIcinSifirla();
       var deneme = 0;

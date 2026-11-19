@@ -36,6 +36,8 @@ class YzGorselKatlanir extends StatefulWidget {
     this.esik = kYzKatlamaEsigi,
     this.tasma = 0,
     this.sema = true,
+    this.grafik = false,
+    this.zemin = YzRenk.zemin,
   });
 
   final Widget child;
@@ -47,6 +49,13 @@ class YzGorselKatlanir extends StatefulWidget {
 
   /// Düğmenin dili: şema mı, görsel mi.
   final bool sema;
+
+  /// Düğmenin dili grafik için (madde 7): "Grafiğin tamamını gör"; [sema]'yı
+  /// geçersiz kılar.
+  final bool grafik;
+
+  /// Alt kenarın solduğu zemin: sayfa zemini; grafik kartında kartın beyazı.
+  final Color zemin;
 
   @override
   State<YzGorselKatlanir> createState() => _YzGorselKatlanirState();
@@ -95,7 +104,7 @@ class _YzGorselKatlanirState extends State<YzGorselKatlanir> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [YzRenk.zemin.withValues(alpha: 0), YzRenk.zemin],
+                  colors: [widget.zemin.withValues(alpha: 0), widget.zemin],
                 ),
               ),
             ),
@@ -120,7 +129,11 @@ class _YzGorselKatlanirState extends State<YzGorselKatlanir> {
     if (!_uzun) {
       return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [gorsel]);
     }
-    final etiket = widget.sema
+    final etiket = widget.grafik
+        ? (_acik
+            ? (en ? 'Collapse chart' : 'Grafiği daralt')
+            : (en ? 'Show the full chart' : 'Grafiğin tamamını gör'))
+        : widget.sema
         ? (_acik
             ? (en ? 'Collapse diagram' : 'Şemayı daralt')
             : (en ? 'Show the full diagram' : 'Şemanın tamamını gör'))

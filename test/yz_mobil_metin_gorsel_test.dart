@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_deposu.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_grafik_veri.dart';
 import 'package:tarim_app/features/yapay_zeka/data/yz_grafikler.g.dart';
+import 'package:tarim_app/features/yapay_zeka/data/yz_metinler.g.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_aifs_semasi.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_gorsel.dart';
 import 'package:tarim_app/features/yapay_zeka/presentation/yz_gorsel_mobil.dart';
@@ -325,7 +326,7 @@ void main() {
       expect(find.text('Şemanın tamamını gör'), findsNothing);
     });
 
-    testWidgets('alt başlık aralığı 44 üstte, 10 altta', (t) async {
+    testWidgets('alt başlık aralığı 48 üstte, 12 altta (madde 3)', (t) async {
       await _telefon(t);
       await t.pumpWidget(_uygulama(const YzMetinGorunumu(
           metin: 'Giriş paragrafı.\n\n## Alt başlık\n\nİkinci paragraf.', en: false)));
@@ -333,8 +334,154 @@ void main() {
       final dolgular = t
           .widgetList<Padding>(find.ancestor(of: find.text('Alt başlık'), matching: find.byType(Padding)))
           .map((p) => p.padding);
-      expect(dolgular, contains(const EdgeInsets.only(top: 44, bottom: 10)));
-      expect(dolgular, isNot(contains(const EdgeInsets.only(top: 34, bottom: 12))));
+      expect(dolgular, contains(const EdgeInsets.only(top: 48, bottom: 12)));
+      expect(dolgular, isNot(contains(const EdgeInsets.only(top: 48, bottom: 14))));
+    });
+
+    testWidgets('aralıklar yazı boyuyla büyüyor: × (1 + (s − 1) × 0,6)', (t) async {
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(const YzMetinGorunumu(
+          metin: 'Giriş paragrafı.\n\n## Alt başlık\n\nİkinci paragraf.\n\n- bir\n- iki\n\nSon.',
+          en: false,
+          olcek: 1.25)));
+      await t.pump();
+      const k = 1 + 0.25 * 0.6;
+      final dolgular = t.widgetList<Padding>(find.byType(Padding)).map((p) => p.padding).toList();
+      expect(dolgular, contains(const EdgeInsets.only(top: 48 * k, bottom: 12 * k)));
+      expect(dolgular, contains(const EdgeInsets.only(bottom: 28 * k)), reason: 'paragraf arası');
+      expect(dolgular, contains(const EdgeInsets.only(top: 2, bottom: 28 * k)), reason: 'liste altı');
+      expect(dolgular, contains(const EdgeInsets.only(bottom: 12 * k)), reason: 'maddeler arası');
+    });
+
+    testWidgets('gövde satırı 1,68, giriş 1,60; tablo hücresi 1,45 kalıyor', (t) async {
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(const YzMetinGorunumu(
+          metin: 'Giriş paragrafı.\n\nİkinci paragraf.\n\n| A | B |\n|---|---|\n| x | y |', en: false)));
+      await t.pump();
+      double? satir(String m) {
+        double? h;
+        for (final r in t.widgetList<RichText>(find.byType(RichText))) {
+          if (r.text.toPlainText() != m) continue;
+          void gez(InlineSpan span) {
+            if (span.style?.height != null) h = span.style!.height;
+            if (span is TextSpan) span.children?.forEach(gez);
+          }
+
+          gez(r.text);
+        }
+        return h;
+      }
+
+      expect(satir('Giriş paragrafı.'), 1.60);
+      expect(satir('İkinci paragraf.'), 1.68);
+      expect(satir('x'), 1.45);
+    });
+
+    testWidgets('uzun grafik katlanıyor: 420 piksel, solma, düğme; başlık ve kaynak dışarıda', (t) async {
+      await _telefon(t);
+      final g = kYzGrafikler['b03-donum-noktalari']!;
+      await t.pumpWidget(_uygulama(YzGrafikKarti(grafik: g, en: false)));
+      await t.pump();
+      await t.pump();
+      expect(t.takeException(), isNull);
+      final katlanir = find.byType(YzGorselKatlanir);
+      expect(katlanir, findsOneWidget);
+      final gorunen = find.descendant(of: katlanir, matching: find.byType(Stack)).first;
+      expect(t.getSize(gorunen).height, kYzKatliBoy);
+      expect(_solma(), findsOneWidget);
+      final ac = find.text('Grafiğin tamamını gör');
+      expect(ac, findsOneWidget);
+      expect(t.getSize(find.ancestor(of: ac, matching: find.byType(TextButton))).width, 375 - 32 - 32 - 2,
+          reason: 'kartın içinde tam genişlik');
+      // Başlık, açıklama, kaynak ve "Tablo olarak gör" katlamanın dışında.
+      for (final m in [g.baslik(false), g.aciklama(false), 'Tablo olarak gör']) {
+        expect(find.descendant(of: katlanir, matching: find.text(m)), findsNothing, reason: m);
+        expect(find.text(m), findsOneWidget, reason: m);
+      }
+      await t.tap(ac);
+      await t.pumpAndSettle();
+      expect(t.getSize(gorunen).height, greaterThan(812 * 0.85));
+      await t.ensureVisible(find.text('Grafiği daralt'));
+      await t.pumpAndSettle();
+      await t.tap(find.text('Grafiği daralt'));
+      await t.pumpAndSettle();
+      expect(t.getSize(gorunen).height, kYzKatliBoy);
+      expect(t.getRect(gorunen).top, greaterThanOrEqualTo(0), reason: 'daraltınca grafiğin başı görünür');
+      // Tablo görünümü katlanmıyor.
+      await t.ensureVisible(find.text('Tablo olarak gör'));
+      await t.tap(find.text('Tablo olarak gör'));
+      await t.pumpAndSettle();
+      expect(find.byType(YzGorselKatlanir), findsNothing);
+      expect(t.takeException(), isNull);
+    });
+
+    testWidgets('hareket azaltma açıksa grafik daraltınca konum anında', (t) async {
+      await _telefon(t);
+      final g = kYzGrafikler['b03-donum-noktalari']!;
+      t.platformDispatcher.accessibilityFeaturesTestValue =
+          const FakeAccessibilityFeatures(disableAnimations: true);
+      addTearDown(t.platformDispatcher.clearAccessibilityFeaturesTestValue);
+      await t.pumpWidget(_uygulama(YzGrafikKarti(grafik: g, en: false)));
+      await t.pump();
+      await t.pump();
+      await t.tap(find.text('Grafiğin tamamını gör'));
+      await t.pumpAndSettle();
+      await t.ensureVisible(find.text('Grafiği daralt'));
+      await t.pumpAndSettle();
+      await t.tap(find.text('Grafiği daralt'));
+      await t.pump();
+      await t.pump();
+      final gorunen = find.descendant(of: find.byType(YzGorselKatlanir), matching: find.byType(Stack)).first;
+      expect(t.getRect(gorunen).top, greaterThanOrEqualTo(0), reason: 'animasyonsuz, tek karede');
+    });
+
+    testWidgets('kısa grafik katlanmıyor', (t) async {
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(YzGrafikKarti(grafik: _grafik(), en: false)));
+      await t.pump();
+      await t.pump();
+      expect(find.text('Grafiğin tamamını gör'), findsNothing);
+    });
+
+    testWidgets('uzun paragraf parçalara bölünüyor; arama vurgusu masaüstüyle aynı', (t) async {
+      final md = kYzMetinler[1]!.tr;
+      int vurgulu(WidgetTester t) {
+        var n = 0;
+        for (final r in t.widgetList<RichText>(find.descendant(of: find.byType(YzMetinGorunumu), matching: find.byType(RichText)))) {
+          r.text.visitChildren((span) {
+            if (span is TextSpan && span.style?.backgroundColor == kYzAramaRengi) n += (span.text ?? '').length;
+            return true;
+          });
+        }
+        return n;
+      }
+
+      final paragraf = yzAyristir(md).where((b) => b.tur == YzBlokTuru.paragraf).length;
+      int bloklar(WidgetTester t) => t
+          .widget<Column>(find.descendant(of: find.byType(YzMetinGorunumu), matching: find.byType(Column)).first)
+          .children
+          .length;
+      // Metin parçaları (paragraf, parça, liste maddesi, hücre…).
+      int parcalar(WidgetTester t) =>
+          find.descendant(of: find.byType(YzMetinGorunumu), matching: find.byType(RichText)).evaluate().length;
+      final hepsi = yzAyristir(md).length;
+
+      await _telefon(t);
+      await t.pumpWidget(_uygulama(YzMetinGorunumu(metin: md, en: false, bolumNo: 1, arama: 'yapay zekâ')));
+      await t.pump();
+      expect(t.takeException(), isNull);
+      final telefonda = vurgulu(t);
+      final telefonParca = parcalar(t);
+      // Dosyadaki bir paragraf telefonda da tek (anahtarlı) blok; parçalar içinde.
+      expect(bloklar(t), hepsi);
+      expect(telefonda, greaterThan(0));
+
+      await _masaustu(t);
+      await t.pumpWidget(_uygulama(YzMetinGorunumu(metin: md, en: false, bolumNo: 1, arama: 'yapay zekâ'), yan: 32));
+      await t.pump();
+      expect(bloklar(t), hepsi, reason: 'masaüstünde blok sayısı = blok sayısı ($paragraf paragraf)');
+      expect(telefonParca, greaterThan(parcalar(t)), reason: 'telefonda paragraflar parçalara bölünüyor');
+      expect(vurgulu(t), telefonda, reason: 'arama vurgusu parçalara aynen dağılıyor');
     });
 
     testWidgets('tam ekran: zemine tek dokunuş kapatıyor, görsele dokunuş kapatmıyor', (t) async {
@@ -462,7 +609,7 @@ void main() {
       expect(find.text('Şemanın tamamını gör'), findsNothing);
     });
 
-    testWidgets('alt başlık aralığı 34/12', (t) async {
+    testWidgets('alt başlık aralığı 48/14 (madde 3)', (t) async {
       await _masaustu(t);
       await t.pumpWidget(_uygulama(
           const YzMetinGorunumu(metin: 'Giriş paragrafı.\n\n## Alt başlık\n\nİkinci paragraf.', en: false),
@@ -471,7 +618,16 @@ void main() {
       final dolgular = t
           .widgetList<Padding>(find.ancestor(of: find.text('Alt başlık'), matching: find.byType(Padding)))
           .map((p) => p.padding);
-      expect(dolgular, contains(const EdgeInsets.only(top: 34, bottom: 12)));
+      expect(dolgular, contains(const EdgeInsets.only(top: 48, bottom: 14)));
+    });
+
+    testWidgets('uzun grafik masaüstünde katlanmıyor', (t) async {
+      await _masaustu(t);
+      await t.pumpWidget(_uygulama(YzGrafikKarti(grafik: kYzGrafikler['b03-donum-noktalari']!, en: false), yan: 32));
+      await t.pump();
+      await t.pump();
+      expect(find.byType(YzGorselKatlanir), findsNothing);
+      expect(t.takeException(), isNull);
     });
 
     testWidgets('grafiğin lejantı ve kaynak satırı mono', (t) async {

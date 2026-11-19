@@ -54,6 +54,12 @@ class YzYazi {
   static TextStyle govde({double boy = 18, Color renk = YzRenk.murekkep}) =>
       GoogleFonts.newsreader(fontSize: boy, height: 1.62, color: renk);
 
+  /// Makalenin okuma gövdesi (paragraf ve liste maddesi; madde 3): satır
+  /// telefonda 1,68, masaüstünde 1,70. Tablo hücresi (1,45) ve [govde]'nin
+  /// öteki kullanımları (açıklama, künye, kartlar) etkilenmiyor.
+  static TextStyle okuma({required double boy, required bool telefon, Color renk = YzRenk.murekkep}) =>
+      GoogleFonts.newsreader(fontSize: boy, height: telefon ? 1.68 : 1.70, color: renk);
+
   /// Rakam, tarih, § numarası, künye.
   static TextStyle veri({
     double boy = 12.5,
@@ -76,6 +82,34 @@ class YzYazi {
         letterSpacing: 1.1,
         color: renk,
       );
+}
+
+/// Okuma ritmi (madde 3): üç kademeli boşluk. Telefonda parça arası 16,
+/// paragraf arası 28, alt başlık üstü 48; masaüstünde paragraf arası 30.
+/// Değerler etkin ölçekle (sistem yazı büyütmesi × A−/A+) büyüyor:
+/// değer × (1 + (s − 1) × 0,6) — A+ seçen okurda paragraf arası erimesin.
+class YzOkumaRitmi {
+  const YzOkumaRitmi._(this.carpan, this.telefon);
+
+  factory YzOkumaRitmi({required bool telefon, required double s}) =>
+      YzOkumaRitmi._(1 + (s - 1) * 0.6, telefon);
+
+  final double carpan;
+  final bool telefon;
+
+  /// Telefonda bölünmüş paragrafın parçaları arası.
+  double get parcaArasi => 16 * carpan;
+
+  /// Yazarın paragrafları arası (giriş sonrası da).
+  double get paragrafArasi => (telefon ? 28 : 30) * carpan;
+
+  double get baslikUstu => 48 * carpan;
+  double get baslikAlti => (telefon ? 12 : 14) * carpan;
+  double get maddeArasi => 12 * carpan;
+  double get listeAlti => (telefon ? 28 : 30) * carpan;
+
+  /// Giriş paragrafının satır yüksekliği (masaüstünde değişmedi).
+  double get girisSatiri => telefon ? 1.60 : 1.55;
 }
 
 /// VERİ-TARLA IZGARASI (karar 44).

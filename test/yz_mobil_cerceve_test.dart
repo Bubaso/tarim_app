@@ -69,6 +69,9 @@ Widget _yonlendirmeli(GoRouter r, {String dil = 'tr'}) => ProviderScope(
       ),
     );
 
+/// Makalenin metin blokları (Text.rich; makale tek SelectionArea içinde).
+final _makaleMetni = find.descendant(of: find.byType(YzMetinGorunumu), matching: find.byType(RichText));
+
 void _telefon(WidgetTester t) {
   t.view.physicalSize = const Size(375, 812);
   t.view.devicePixelRatio = 1;
@@ -140,7 +143,7 @@ void main() {
         expect(find.byTooltip(en ? 'Copy the link to this section' : 'Bu bölümün bağlantısını kopyala'),
             findsNothing);
         // Metin ilk ekranın üçte birinde başlıyor.
-        final ilkMetin = find.byType(SelectableText).first;
+        final ilkMetin = _makaleMetni.first;
         expect(t.getTopLeft(ilkMetin).dy, lessThan(812 / 3));
         // Alt çubuk dört düğmeyle; üst şeritte arama ve yazı boyu yok (alt çubukta).
         expect(_altCubuk, findsOneWidget);
@@ -163,7 +166,7 @@ void main() {
         for (final b in kYzBasliklar.where((b) => b.yazildi)) {
           await t.pumpWidget(_uygulama(YzBaslikEkrani(slug: b.slug), dil: dil));
           await t.pumpAndSettle();
-          final metin = find.byType(SelectableText);
+          final metin = _makaleMetni;
           if (metin.evaluate().isNotEmpty) {
             // Çipler satırda üç kart (karar 63): çok teknolojili başlıkta iki
             // ya da üç satır; metin yine ilk ekranın %42'si içinde (en uzunu §2).
@@ -324,6 +327,12 @@ void main() {
       final y = t.getTopLeft(metindeki).dy;
       expect(y, lessThan(400), reason: 'o bölümden açılıyor');
       expect(_ustKayma(t) == -1 || y >= kYzUstSeritYuksekligi, isTrue, reason: 'örtülmüyor');
+      // Madde 3: alt başlık üstü 48 piksel; başlık üst çubuğun 8 piksel altında
+      // kalıyor (çubuk saklı olsa da geri geldiğinde örtmesin).
+      expect(y, greaterThanOrEqualTo(kYzUstSeritYuksekligi + 8));
+      // "Şu anki alt başlık" eşiği (y ≤ 170) 48 piksellik üst boşlukla da
+      // o bölümü buluyor.
+      expect(find.descendant(of: find.byType(YzUstSerit), matching: find.text(_dron)), findsOneWidget);
     });
 
     testWidgets('aşağı kaydırınca çubuklar saklanıyor, yukarı kaydırınca geliyor; okuma çizgisi',
@@ -428,7 +437,7 @@ void main() {
       expect(find.textContaining('geçtiği yerler işaretli'), findsNothing, reason: 'uzun şerit yok');
       expect(t.getBottomLeft(cubuk).dy, lessThanOrEqualTo(t.getTopLeft(_altCubuk).dy));
       // Metin yine ilk ekranın üçte birinde (çipler ve işaretle).
-      expect(t.getTopLeft(find.byType(SelectableText).first).dy, lessThan(812 / 3));
+      expect(t.getTopLeft(_makaleMetni.first).dy, lessThan(812 / 3));
       await t.tap(find.descendant(of: cubuk, matching: find.text('Sonraki ↓')));
       await t.pumpAndSettle();
       expect(_konum(t).pixels, greaterThan(0));
