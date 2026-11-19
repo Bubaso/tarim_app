@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import 'yz_olcum_gonderici.dart';
 import 'yz_tasarim.dart';
 
 /// Erteli paketi indirip bölüm ekranını kuran sayfa (bkz. `yz_ekranlar.dart`).
@@ -40,6 +41,7 @@ class _YzErteliSayfaState extends State<YzErteliSayfa> {
   @override
   void initState() {
     super.initState();
+    yzOlcumAcilisBaslat();
     if (!_yuklendi) _indir();
   }
 
@@ -74,6 +76,7 @@ class _YzErteliSayfaState extends State<YzErteliSayfa> {
 
   @override
   Widget build(BuildContext context) {
+    if (_yuklendi) yzOlcumIlkMetinKaresi();
     if (_yuklendi) return widget.kur();
     final en = Localizations.localeOf(context).languageCode == 'en';
     final Widget icerik;

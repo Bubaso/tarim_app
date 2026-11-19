@@ -22,6 +22,10 @@
 // olarak yazılıyor: aydınlatma metni bir mimari belgesi değil ve kullanılan
 // yığının adres adres yayımlanması gereksiz bir saldırı yüzeyi.
 //
+// TEK İSTİSNA (19 Kasım 2026): ölçüm sağlayıcısı ADIYLA anılıyor (Google
+// Analytics). Bıraktığı çerezlerin adı (_ga) sağlayıcıyı zaten ele veriyor
+// ve çerez aydınlatması çerezi kimin bıraktığını söylemeli.
+//
 // Ad eklenecekse ÖNCE teyit edilmeli. `test/kunye_test.dart` bu kararı
 // bekçiliyor — yanlışlıkla geri gelmesin diye.
 //
@@ -144,6 +148,9 @@ const String kYayinAdi = 'Tarım Portalı';
 // kanalların "yayımlanacağı" söyleniyor; o paragraflar da güncellenmeli.
 
 final DateTime _kLastReview = DateTime(2026, 11, 5);
+
+/// Gizlilik ve çerez metinlerine ölçümün eklendiği sürüm.
+final DateTime _kOlcumGuncellemesi = DateTime(2026, 11, 19);
 
 // ═══════════════════════════════════════════════════════════════════════════
 //  KÜNYE
@@ -393,7 +400,7 @@ final LegalDoc _gizlilik = LegalDoc(
   slug: 'gizlilik',
   titleTr: 'Gizlilik Politikası',
   titleEn: 'Privacy Policy',
-  updatedAt: _kLastReview,
+  updatedAt: _kOlcumGuncellemesi,
   blocks: const [
     LegalBlock.paragraph(
       'Bu metin, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) md. 10 '
@@ -423,13 +430,15 @@ final LegalDoc _gizlilik = LegalDoc(
     ),
     LegalBlock.bullets(
       'İşlem güvenliği verileri: IP adresi, tarayıcı ve cihaz bilgisi, istek zamanı. Barındırma hizmetinin sunucu kayıtlarında tutulur.\n'
-          'Kullanım verileri: hangi haberlerin görüntülendiği. Haber bazında toplu tutulur, kişiye bağlanmaz.\n'
-          'Tercihleriniz: dil ve yazı boyutu seçiminiz ile okuduğunuz haberlerin işareti. Bu veriler yalnızca kendi cihazınızda kalır, sunucularımıza gönderilmez.\n'
+          'Kullanım ölçümü: görüntülenen sayfalar; Yapay Zeka ve Dijital Tarım bölümünde bir metnin ne kadarının okunduğu (dörtte bir, yarı, dörtte üç, tamamı); cihaz türü (telefon, tablet, bilgisayar), dil ve yazı boyu. Ölçüm Google Analytics ile yapılır ve tarayıcınıza rastgele bir ziyaretçi tanımlayıcısı taşıyan çerezler bırakır. Ad, e-posta gibi kimlik bilgisi, arama kutusuna yazdığınız sözcükler ve okuduğunuz alt başlıkların adları gönderilmez.\n'
+          'Tercihleriniz ve okuma kaydınız: dil ve yazı boyutu seçiminiz, okuduğunuz haberlerin ve bölüm metinlerinin işareti, "Kaldığınız yer" bilgisi. Bunlar yalnızca kendi tarayıcınızda tutulur; ölçüme yalnızca dil ve yazı boyu seçiminiz katılır.\n'
+          'Bildirim verileri: bildirimlere izin verdiyseniz, bildirim gönderilebilmesi için cihazınızın bildirim adresi, seçtiğiniz bildirim türleri ve dil sunucumuzda tutulur.\n'
           'Hesap verileri: yalnızca yayın yönetim arayüzüne giriş yapan editörler için e-posta adresi ve şifrenin geri döndürülemez özeti.',
       'Transaction security data: IP address, browser and device information, '
           'request time. Held in the hosting service\'s server logs.\n'
-          'Usage data: which articles are viewed. Kept in aggregate per article and not linked to an individual.\n'
-          'Your preferences: your language and text size choices and the read markers on articles. This data remains only on your own device and is not sent to our servers.\n'
+          'Usage measurement: the pages viewed; in the AI and Digital Agriculture section, how much of a text is read (a quarter, half, three quarters, all of it); device type (phone, tablet, computer), language and text size. Measurement is carried out with Google Analytics, which places cookies in your browser carrying a random visitor identifier. Identifying information such as your name or email address, the words you type into the search box and the titles of the subheadings you read are not sent.\n'
+          'Your preferences and reading record: your language and text size choices, the read markers on articles and section texts, and the "Where you left off" information. These are kept only in your own browser; only your language and text size choices are included in the measurement.\n'
+          'Notification data: if you have allowed notifications, your device\'s notification address, the notification types you chose and your language are kept on our server so that notifications can be sent.\n'
           'Account data: an email address and an irreversible hash of the password, only for editors who sign in to the publishing interface.',
     ),
     LegalBlock.heading('3. İşleme Amacı ve Hukuki Sebep',
@@ -437,12 +446,12 @@ final LegalDoc _gizlilik = LegalDoc(
     LegalBlock.bullets(
       'Yayın hizmetinin sunulması ve içeriğin görüntülenmesi — KVKK md. 5/2-c (sözleşmenin ifası) ve md. 5/2-f (meşru menfaat)\n'
           'Sistem güvenliğinin sağlanması ve kötüye kullanımın tespiti — md. 5/2-ç (hukuki yükümlülük) ve md. 5/2-f\n'
-          'Hangi haberlerin ilgi gördüğünün ölçülmesi ve yayın planlaması — md. 5/2-f\n'
+          'Hangi haberlerin ve metinlerin ilgi gördüğünün, metinlerin nerede bırakıldığının ölçülmesi ve yayın planlaması — md. 5/2-f\n'
           'Editör hesaplarının yönetimi — md. 5/2-c',
       'Providing the publishing service and displaying content — KVKK Art. '
           '5/2-c (performance of a contract) and Art. 5/2-f (legitimate interest)\n'
           'Ensuring system security and detecting misuse — Art. 5/2-ç (legal obligation) and Art. 5/2-f\n'
-          'Measuring which articles attract interest and planning coverage — Art. 5/2-f\n'
+          'Measuring which articles and texts attract interest and where texts are left off, and planning coverage — Art. 5/2-f\n'
           'Managing editor accounts — Art. 5/2-c',
     ),
     LegalBlock.heading('4. Aktarım', '4. Transfers'),
@@ -461,10 +470,14 @@ final LegalDoc _gizlilik = LegalDoc(
       'Barındırma hizmeti sağlayıcısı — sayfa isteklerinin karşılanması ve sunucu kayıtlarının tutulması\n'
           'Veritabanı ve kimlik doğrulama hizmeti sağlayıcısı — haber içeriğinin sunulması ve editör girişleri\n'
           'Yazı tipi hizmeti sağlayıcısı — sayfanın görüntülenmesi\n'
+          'Ölçüm hizmeti sağlayıcısı (Google Analytics) — kullanım ölçümü; bu sırada IP adresiniz ve tarayıcı bilginiz sağlayıcıya iletilir\n'
+          'Bildirim gönderim hizmeti sağlayıcısı — yalnızca bildirimlere izin verdiyseniz, bildirimlerin cihazınıza iletilmesi\n'
           'Hava durumu ve piyasa verisi sağlayıcıları — yalnızca sorgu bilgisi iletilir, kimliğinize ilişkin bir bilgi iletilmez',
       'Hosting service provider — serving page requests and keeping server logs\n'
           'Database and authentication service provider — serving news content and editor sign-in\n'
           'Typeface service provider — rendering the page\n'
+          'Measurement service provider (Google Analytics) — usage measurement; your IP address and browser information are transmitted to the provider in the process\n'
+          'Notification delivery service provider — only if you have allowed notifications, delivering notifications to your device\n'
           'Weather and market data providers — only the query is transmitted; no information identifying you is sent',
     ),
     LegalBlock.paragraph(
@@ -477,11 +490,13 @@ final LegalDoc _gizlilik = LegalDoc(
     LegalBlock.paragraph(
       'Sunucu kayıtları, 5651 sayılı Kanun kapsamındaki yükümlülükler saklı '
           'kalmak üzere azami iki yıl tutulur. Cihazınızda tutulan tercihler '
-          'tarayıcı verilerini temizlediğinizde silinir. Editör hesapları, '
+          've okuma kaydı, tarayıcı verilerini temizlediğinizde silinir; ölçüm '
+          'çerezleri de bu sırada silinir. Editör hesapları, '
           'hesap kapatıldıktan sonra makul bir süre içinde silinir.',
       'Server logs are retained for a maximum of two years, without prejudice '
-          'to obligations under Law No. 5651. Preferences stored on your device '
-          'are deleted when you clear your browser data. Editor accounts are '
+          'to obligations under Law No. 5651. Preferences and the reading record '
+          'stored on your device are deleted when you clear your browser data; '
+          'the measurement cookies are deleted at the same time. Editor accounts are '
           'deleted within a reasonable period after closure.',
     ),
     LegalBlock.heading('6. Haklarınız', '6. Your Rights'),
@@ -529,15 +544,15 @@ final LegalDoc _cerezler = LegalDoc(
   slug: 'cerezler',
   titleTr: 'Çerez Politikası',
   titleEn: 'Cookie Policy',
-  updatedAt: _kLastReview,
+  updatedAt: _kOlcumGuncellemesi,
   blocks: const [
     LegalBlock.paragraph(
-      'Bu sitede reklam veya profilleme amaçlı izleme çerezi kullanılmıyor. '
-          'Kullanılan teknolojiler, sitenin çalışması ve tercihlerinizin '
-          'hatırlanması için gereken asgari düzeydedir.',
-      'This site does not use advertising or profiling trackers. The '
-          'technologies used are the minimum required for the site to function '
-          'and to remember your preferences.',
+      'Bu sitede reklam çerezi kullanılmıyor. Sitenin çalışması ve '
+          'tercihlerinizin hatırlanması için tarayıcınızın kendi deposu, '
+          'ziyaretlerin ölçülmesi için Google Analytics çerezleri kullanılıyor.',
+      'This site does not use advertising cookies. Your browser\'s own '
+          'storage is used for the site to function and to remember your '
+          'preferences, and Google Analytics cookies are used to measure visits.',
     ),
     LegalBlock.heading('1. Zorunlu Yerel Depolama', '1. Strictly Necessary Storage'),
     LegalBlock.paragraph(
@@ -552,29 +567,58 @@ final LegalDoc _cerezler = LegalDoc(
       'Dil tercihi (Türkçe / İngilizce)\n'
           'Yazı boyutu tercihi\n'
           'Okuduğunuz haberlerin işareti\n'
+          'Yapay Zeka ve Dijital Tarım bölümünde okuduğunuz metinler ve "Kaldığınız yer" bilgisi\n'
           'Gösterilen bilgilendirme uyarılarını kapattığınız bilgisi\n'
           'Oturum bilgisi — yalnızca yayın yönetim arayüzüne giriş yaptıysanız',
       'Language preference (Turkish / English)\n'
           'Text size preference\n'
           'Read markers on articles\n'
+          'The texts you have read in the AI and Digital Agriculture section and the "Where you left off" information\n'
           'Whether you dismissed the informational prompts shown to you\n'
           'Session information — only if you have signed in to the publishing interface',
     ),
-    LegalBlock.heading('2. Üçüncü Taraf', '2. Third Parties'),
+    LegalBlock.heading('2. Ölçüm Çerezleri', '2. Measurement Cookies'),
+    LegalBlock.paragraph(
+      'Ziyaretleri ölçmek için Google Analytics kullanılıyor. Google '
+          'Analytics tarayıcınıza _ga ve _ga_ ile başlayan adlı çerezler '
+          'bırakır; bu çerezler rastgele bir ziyaretçi tanımlayıcısı taşır ve '
+          'aynı tarayıcıdan gelen ziyaretlerin birbirine bağlanmasını sağlar. '
+          'Ölçülenler: görüntülenen sayfalar, Yapay Zeka ve Dijital Tarım '
+          'bölümünde bir metnin ne kadarının okunduğu (çeyrek dilimlerle), '
+          'cihaz türü, dil ve yazı boyu. Kimlik bilgisi, arama sözcükleri ve '
+          'okuduğunuz alt başlıkların adları gönderilmez.',
+      'Google Analytics is used to measure visits. Google Analytics places '
+          'cookies named _ga and starting with _ga_ in your browser; these '
+          'cookies carry a random visitor identifier and allow visits from the '
+          'same browser to be linked. What is measured: the pages viewed, how '
+          'much of a text is read in the AI and Digital Agriculture section (in '
+          'quarters), device type, language and text size. Identifying '
+          'information, search words and the titles of the subheadings you '
+          'read are not sent.',
+    ),
+    LegalBlock.paragraph(
+      'Bu çerezleri tarayıcınızın ayarlarından engelleyebilir ya da '
+          'silebilirsiniz; sitenin çalışmasında bir değişiklik olmaz.',
+      'You can block or delete these cookies in your browser settings; this '
+          'does not change how the site works.',
+    ),
+    LegalBlock.heading('3. Üçüncü Taraf', '3. Third Parties'),
     LegalBlock.bullets(
       'Barındırma hizmeti — sayfa isteklerinizi karşılar ve sunucu kaydı tutar.\n'
           'Yazı tipi hizmeti — yazı tipi dosyalarını sunar; bu istek sırasında IP adresiniz ilgili sağlayıcıya iletilir.\n'
-          'Veritabanı hizmeti — haber içeriğini sunar.',
+          'Veritabanı hizmeti — haber içeriğini sunar.\n'
+          'Ölçüm hizmeti (Google Analytics) — kullanım ölçümü; bu sırada IP adresiniz ve tarayıcı bilginiz ilgili sağlayıcıya iletilir.',
       'Hosting service — serves your page requests and keeps server logs.\n'
           'Typeface service — serves the typeface files; your IP address is transmitted to that provider during the request.\n'
-          'Database service — serves the news content.',
+          'Database service — serves the news content.\n'
+          'Measurement service (Google Analytics) — usage measurement; your IP address and browser information are transmitted to that provider in the process.',
     ),
     LegalBlock.paragraph(
       'Bu hizmetlerin güncel listesi KVKK başvuru adresimizden talep edilebilir.',
       'The current list of these services can be requested from our data '
           'protection address.',
     ),
-    LegalBlock.heading('3. Uygulama Önbelleği', '3. App Cache'),
+    LegalBlock.heading('4. Uygulama Önbelleği', '4. App Cache'),
     LegalBlock.paragraph(
       'Siteyi uygulama olarak yüklediyseniz, çevrimdışı da açılabilmesi için '
           'arayüz dosyaları cihazınızda önbelleğe alınır. Bu önbellek kişisel '
@@ -583,15 +627,17 @@ final LegalDoc _cerezler = LegalDoc(
           'cached on your device so that it can also open offline. This cache '
           'contains no personal data.',
     ),
-    LegalBlock.heading('4. Nasıl Silerim?', '4. How to Delete'),
+    LegalBlock.heading('5. Nasıl Silerim?', '5. How to Delete'),
     LegalBlock.paragraph(
       'Tarayıcınızın ayarlarından "site verilerini temizle" seçeneğini '
-          'kullanarak tüm yerel verileri silebilirsiniz. Silme sonrasında dil '
-          've yazı boyutu tercihleriniz varsayılana döner, okunmuş haber '
-          'işaretleri kaybolur. Sitenin çalışmasında başka bir değişiklik olmaz.',
-      'You can delete all local data using the "clear site data" option in '
-          'your browser settings. After deletion your language and text size '
-          'preferences revert to their defaults and read markers are lost. '
+          'kullanarak tüm yerel verileri ve ölçüm çerezlerini silebilirsiniz. '
+          'Silme sonrasında dil ve yazı boyutu tercihleriniz varsayılana döner, '
+          'okunmuş haber işaretleri ve "Kaldığınız yer" bilgisi kaybolur. '
+          'Sitenin çalışmasında başka bir değişiklik olmaz.',
+      'You can delete all local data and the measurement cookies using the '
+          '"clear site data" option in your browser settings. After deletion '
+          'your language and text size preferences revert to their defaults, '
+          'and read markers and the "Where you left off" information are lost. '
           'Nothing else about the site\'s operation changes.',
     ),
   ],

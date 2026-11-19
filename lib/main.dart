@@ -9,6 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'core/analitik/sayfa_gorunumu.dart' show BelgeDili;
 import 'core/constants/api_constants.dart';
 import 'core/network/supabase_client.dart';
 import 'core/router/app_router.dart';
@@ -222,7 +223,9 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
         // Flutter 3.47 öncesinde bütün Text'ler görünmez oluyor
         // (flutter#190350). Anlamsız değerde aralık override'ları
         // düşürülüyor; okurun yazı büyütmesi (textScaler) korunuyor.
-        return MetinAraligiKoruyucusu(child: ListenableBuilder(
+        // BelgeDili: `<html lang>` site diliyle eşit (ekran okuyucu) ve
+        // dil değişince bölüm sayfasının sekme başlığı yeniden yazılır.
+        return BelgeDili(child: MetinAraligiKoruyucusu(child: ListenableBuilder(
           listenable: appRouter.routerDelegate,
           builder: (context, _) => OrientationBuilder(
           builder: (context, orientation) {
@@ -288,7 +291,7 @@ class _MyAppState extends ConsumerState<MyApp> with WidgetsBindingObserver {
             return child ?? const SizedBox.shrink();
             },
           ),
-        ));
+        )));
       },
 
       // Theme definitions

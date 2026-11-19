@@ -1437,3 +1437,91 @@ Bilinen sınırlar: tam ekran görsel tarayıcının geri tuşuyla kapanmıyor
 (kapat düğmesi var); Outfit w500/w600 gömülü değil (site genelinde de
 ağdan iniyor). Ölçüm notu: tarayıcı bölmesi gizliyken Flutter kare
 çizmiyor, yazı tipi istekleri gecikmiş görünür — ölçüm hatası.
+
+## Ölçüm — 19 Kasım 2026 (madde 15, 23, 24, 25)
+
+Anonim okuma ölçümünün altyapısı. Karar (birleştirici): GA'nın site genelindeki
+çalışma biçimi (çerez / rıza modu) değişmedi; olaylar kişisel veri taşımıyor,
+gizlilik metni ölçümü anlatıyor, GA panel ayarları sahibe kontrol listesi
+olarak verildi: `_raw/GA_AYARLARI.md` (özel boyutlar olaylardan ÖNCE).
+
+### Dosyalar (hepsi ilk yükte, hafif)
+
+- `lib/core/analitik/analitik.dart` — tek ölçüm kapısı `analitikOlay`.
+  Firebase yoksa ya da hata olursa yutar. Örnek `send_page_view: false` ile
+  kuruluyor: Dart tarafının Firebase SDK'sı `index.html`'dekinden AYRI bir
+  kopya ve ilk çağrıda kendi `config`'iyle bir `page_view` daha sayardı.
+- `lib/core/analitik/sayfa_gorunumu.dart` — yönlendirici dinleyicisi
+  (`sayfaGorunumunuIzle`, app_router.dart) ve `BelgeDili` (main.dart
+  `builder`'ı).
+- `lib/core/analitik/belge.dart` (+ `_web`/`_stub`) — `dart:js_interop` ile
+  `<html lang>`, `document.title`, `performance.now()`.
+- `lib/features/yapay_zeka/presentation/yz_sekme_basligi.dart` — rota → sekme
+  adı (iskeletten).
+- `lib/features/yapay_zeka/presentation/yz_olcum_gonderici.dart` — bölümün
+  olay göndericisi `yzOlcum`.
+
+### Site içi `page_view` (site geneli)
+
+`routerDelegate` dinleyicisi; adres değişince, kare çizildikten (sekme başlığı
+yazıldıktan) sonra `page_view` — `page_location`, `page_title`,
+`page_referrer`. İlk sayfa atlanır (index.html'deki SDK sayıyor). Aynı adres
+art arda gelirse elenir. Adreste yalnız `bolum` ve `teknoloji` kalır; `q`,
+`ara`, `terim`, `geri` (ve `utm_*` dahil öteki her şey) atılır. `context.push`
+adres çubuğunu değiştirmediği için adres en üstteki `ImperativeRouteMatch`'ten
+okunuyor. `FirebaseAnalyticsObserver` yerinde (yalnız adı olan iki rotada
+`screen_view` yazıyor; sayfa raporlarına girmiyor), örneği paylaşıyor.
+
+### Sekme başlığı ve belge dili
+
+Bölüm sayfalarında (merkez, başlık, sözlük, teknoloji, arama) sekme
+"<sayfa adı> | Tarım Portalı"; İngilizcede İngilizce ad. Bölümden çıkınca
+"Tarım Portalı" (MaterialApp `title`); bölüm dışındaki sayfaların başlığına
+dokunulmaz. Haber ekranı kapanırken sekmeyi kendi varsayılanına çektiği için
+başlık geçişten 600 ms sonra bir kez denetlenip gerekirse yeniden yazılıyor.
+`<html lang>` site diliyle eşit (tr / en), dil değişince güncellenir.
+
+### `yzOlcum(olay, parametreler)` — olay sözleşmesi
+
+Gönderici: değerler metin ya da sayı (bool → 1/0), metin 100 karaktere
+kırpılır, en çok 25 parametre. Adı kişisel veri çağrıştıran anahtar atılır
+(`_` ile bölünen parçalardan biri: mail, eposta, posta, telefon, tel, phone,
+isim, name, ad, soyad, user, kullanici, uid, kimlik, tc, ip, adres, konum,
+location, lat, lng, sorgu, query, q, arama, ara, search, terim, term, token,
+sifre, password, cerez, cookie…); e-posta biçimli değer atılır. Testte
+`yzOlcumDinleyici` çağrıları yakalar.
+
+| Olay | Ne zaman | Parametreler |
+|---|---|---|
+| `yz_okuma_adimi` | adim: acildi, y25, y50, y75, y100 (kelime çeyreği; her eşik sayfa görüntülemesi başına bir kez, sayfa 3 sn açık kalmadan eşik yok, atlamayla geçilen eşik yok) | adim, sayfa, sayfa_turu, bolum_sira, bolum_sayisi, aktif_sure, hizli, cihaz, dil, giris, yazi_olcegi; acildi'de + ilk_kare |
+| `yz_bolum_gecis` | yeni alt başlık geçildi (yalnız ileri, başlık başına bir kez) | sayfa, bolum_sira, bolum_sayisi, cihaz, dil |
+| `yz_okuma_cikis` | en iyi gayret, sayfadan çıkış | sayfa, adim (en derin), bolum_sira (son), aktif_sure, cihaz, dil |
+| `yz_sonraki_tik` | "Sonraki" | sayfa |
+| `yz_haber_gorundu`, `yz_haber_tik` | haber kartı | sayfa, yer, sira |
+| `yz_haber_daha` | "daha fazla haber" | sayfa, yer |
+| `yz_serit_gorundu`, `yz_serit_tik` | ana sayfa şeridi | sira |
+| `yz_devam_gorundu`, `yz_devam_tik` | "Kaldığınız yer" | sayfa |
+
+Değerler: `cihaz` telefon / tablet / masaustu; `dil` tr / en; `giris` dis /
+merkez / serit / devam / arama / sozluk / komsu / bildirim; `hizli` 1 ya da 0
+(o noktaya beklenen sürenin %25'inden önce gelindi; TR 180, EN 230 kelime/dk).
+Alt başlığın METNİ, arama sözcüğü ve kimlik GÖNDERİLMEZ; yalnız sırası.
+Okuma adımı olaylarını okuma grubu çağırır; tablo sözleşmedir, yeni bir
+parametre eklenirse önce `GA_AYARLARI.md`'deki özel boyutlara eklenir.
+
+**Açılış hızı (`ilk_kare`).** `YzErteliSayfa` kurulunca `yzOlcumAcilisBaslat()`,
+bölüm ekranını ilk kurduğunda `yzOlcumIlkMetinKaresi()` çağırıyor; o karenin
+çizildiği an ölçülür. Kova: `<1`, `1-2`, `2-4`, `>4` sn. Soğuk açılışta (okur
+siteye doğrudan bölümden girdi) süre sayfanın açılışından (`performance.now`),
+site içi geçişte YzErteliSayfa'nın kurulduğu andan. `acildi` kare çizilmeden
+gelirse kareye kadar bekletilir ve kovasıyla gider; kova açılış başına bir
+`acildi`'ye eklenir. `navigator.deviceMemory` kovası eklenmedi.
+
+### CSP ve aydınlatma
+
+`firebase.json` (rapor kipi): script-src'ye `https://*.googletagmanager.com`,
+connect-src'ye `https://*.googletagmanager.com https://www.google.com`
+(google-analytics zaten vardı). Gizlilik ve Çerez Politikası (güncelleme
+19 Kasım 2026): ölçülenler, gönderilmeyenler, Google Analytics ve `_ga`
+çerezleri, okur kaydının yalnız tarayıcıda tutulduğu, bildirim verisi.
+Sağlayıcılar kategoriyle yazılıyordu; ölçüm sağlayıcısı tek istisna, adıyla.
