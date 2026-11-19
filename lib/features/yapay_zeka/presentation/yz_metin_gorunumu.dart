@@ -328,6 +328,18 @@ class YzVurguDenetcisi {
       ..addAll(a);
   }
 
+  /// Bütün blokların anahtarları, `yzAyristir` sırasıyla (madde 17): okuma
+  /// izi metindeki konumu DOSYADAKİ bloklardan ölçüyor. Grafik ve görselde
+  /// null. Telefonda bölünen paragrafta anahtar bütün parçaları sarmalı.
+  final List<GlobalKey?> _bloklar = [];
+  List<GlobalKey?> get blokAnahtarlari => List.unmodifiable(_bloklar);
+
+  void _bloklariKur(List<GlobalKey?> a) {
+    _bloklar
+      ..clear()
+      ..addAll(a);
+  }
+
   /// [i]. alt başlığa kaydırır (içindekilerden).
   void basligaGit(int i) {
     if (i < 0 || i >= _basliklar.length) return;
@@ -498,8 +510,9 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     } else if (eski.olcek != widget.olcek || eski.giris != widget.giris) {
       _onbellek.clear();
     } else if (eski.vurguDenetcisi != widget.vurguDenetcisi) {
-      widget.vurguDenetcisi?._kur([for (final a in _anahtar) if (a != null) a]);
+      widget.vurguDenetcisi?._kur(_isaretliAnahtarlar);
       widget.vurguDenetcisi?._basliklariKur([for (final a in _baslikAnahtari) if (a != null) a]);
+      widget.vurguDenetcisi?._bloklariKur(_anahtar);
     }
   }
 
@@ -581,11 +594,14 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
               }
             : <int>{},
     ];
+    // Her metin bloğunun anahtarı var (okuma izi, madde 17); "sonraki
+    // işaretli yer" yalnız işaretlileri geziyor.
     _anahtar = [
       for (var i = 0; i < _bloklar.length; i++)
-        _isaretliBlok[i] || _isaretliSatir[i].isNotEmpty ? GlobalKey() : null,
+        _bloklar[i].tur == YzBlokTuru.grafik || _bloklar[i].tur == YzBlokTuru.gorsel ? null : GlobalKey(),
     ];
-    widget.vurguDenetcisi?._kur([for (final a in _anahtar) if (a != null) a]);
+    widget.vurguDenetcisi?._kur(_isaretliAnahtarlar);
+    widget.vurguDenetcisi?._bloklariKur(_anahtar);
     _baslikAnahtari = [
       for (var i = 0; i < _bloklar.length; i++)
         _bloklar[i].tur == YzBlokTuru.altBaslik ? (_anahtar[i] ?? GlobalKey()) : null,
@@ -593,6 +609,11 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
     widget.vurguDenetcisi?._basliklariKur([for (final a in _baslikAnahtari) if (a != null) a]);
     _ilkParagraf = widget.giris && _bloklar.isNotEmpty && _bloklar.first.tur == YzBlokTuru.paragraf ? 0 : -1;
   }
+
+  List<GlobalKey> get _isaretliAnahtarlar => [
+        for (var i = 0; i < _anahtar.length; i++)
+          if (_isaretliBlok[i] || _isaretliSatir[i].isNotEmpty) _anahtar[i]!,
+      ];
 
   void _birak() {
     for (final t in _tanicilar) {

@@ -260,7 +260,12 @@ class _SonucKarti extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         child: InkWell(
           borderRadius: BorderRadius.circular(4),
-          onTap: GoRouter.maybeOf(context) == null ? null : () => context.push(adres),
+          onTap: GoRouter.maybeOf(context) == null
+              ? null
+              : () {
+                  YzGiris.isaretle('arama');
+                  context.push(adres);
+                },
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),

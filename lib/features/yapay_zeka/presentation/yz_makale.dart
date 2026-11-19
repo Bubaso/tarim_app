@@ -15,6 +15,7 @@ import 'yz_cerceve_mobil.dart';
 import 'yz_metin_gorunumu.dart';
 import 'yz_mobil.dart';
 import 'yz_okuma.dart';
+import 'yz_okuma_olcer.dart';
 import 'yz_parcalar.dart';
 import 'yz_tasarim.dart';
 import 'yz_teknoloji_izi.dart';
@@ -140,34 +141,91 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   Object? _isaretAnahtari;
   _Isaret? _isaretBellegi;
 
-  /// Sayfanın okunan oranı (okuma çizgisi); her kaydırmada bütün sayfa
-  /// yeniden çizilmesin diye ayrı.
+  /// Metnin okunan oranı, kelimeyle (okuma çizgisi; madde 17); her
+  /// kaydırmada bütün sayfa yeniden çizilmesin diye ayrı.
   final _ilerleme = ValueNotifier<double>(0);
+
+  /// Metne bağlı okuma izi ve okuma adımı olayları (madde 17, 24).
+  YzOkumaTakipcisi? _takip;
+
+  /// Okuma çizgisinin görünen alanın üstünden uzaklığı ve ekran sınıfı;
+  /// her kurulumda güncelleniyor (takipçi bağlamı okumuyor).
+  double _cizgiPayi = 0;
+  String _cihaz = 'masaustu';
+
+  void _takipciKur() {
+    _takip?.kapat();
+    final md = widget.metin;
+    _takip = md == null
+        ? null
+        : YzOkumaTakipcisi(
+            md: md,
+            en: widget.en,
+            yol: widget.yol,
+            ad: widget.baslik,
+            kaydirma: _kaydirma,
+            vurgu: _vurgu,
+            iz: ref.read(yzOkumaIziProvider.notifier),
+            ilerleme: _ilerleme,
+            cizgiPayi: () => _cizgiPayi,
+            ortam: () => (cihaz: _cihaz, olcek: ref.read(yzYaziOlcegiProvider)),
+          );
+  }
+
+  /// Programın kaydırması (içindekiler, `?bolum=`, arama, yazı boyu):
+  /// okurun kendi kaydırması sayılmıyor (madde 17).
+  void _atla(VoidCallback f) => _takip == null ? f() : _takip!.atla(f);
+  void _basligaAtla(int i) => _atla(() => _vurgu.basligaGit(i));
+  void _sonrakiIsaret() => _atla(_vurgu.sonraki);
 
   @override
   void initState() {
     super.initState();
     _kaydirma.addListener(_kaydirildi);
+    _takipciKur();
     WidgetsBinding.instance.addPostFrameCallback((_) => _ilkKonum());
   }
 
   @override
   void didUpdateWidget(covariant YzMakaleSayfasi eski) {
     super.didUpdateWidget(eski);
+    if (eski.metin != widget.metin || eski.en != widget.en || eski.yol != widget.yol) {
+      _takipciKur();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _takip?.baslat();
+      });
+      WidgetsBinding.instance.scheduleFrame();
+    }
     if ((eski.arama != widget.arama && widget.arama != null) ||
         (eski.odakTerim != widget.odakTerim && widget.odakTerim != null)) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) _vurgu.sonraki();
+        if (mounted) _sonrakiIsaret();
       });
     }
   }
 
   void _ilkKonum() {
     if (!mounted || !_kaydirma.hasClients) return;
-    final k = YzOkumaKonumu.alHepsi(widget.konumAnahtari);
+    final k = YzOkumaKonumu.alTumu(widget.konumAnahtari);
     final enCok = _kaydirma.position.maxScrollExtent;
+    // Açılış ölçüsü ve `acildi` olayı atlamadan önce (madde 24).
+    _takip?.baslat();
+    final metindeki = k?.$3;
+    if (metindeki != null && _takip != null) {
+      // "Kaldığınız yer" (madde 17): kayıttaki paragrafa. Yazı tipleri ve
+      // görseller yerleşsin diye bir kare sonra; hareket azaltma tercihi
+      // açıksa animasyonsuz (madde 14).
+      final hareketsiz = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _takip?.metneGit(metindeki, hareketsiz: hareketsiz);
+      });
+      WidgetsBinding.instance.scheduleFrame();
+      return;
+    }
     if (k != null && (k.$1 != null || k.$2 != null)) {
-      _kaydirma.jumpTo(math.min(k.$1 ?? (k.$2! * enCok), enCok));
+      // Sözlükten dönüş piksel konumuyla geliyor.
+      if (k.$1 != null && _takip != null && _takip!.giris == 'dis') _takip!.giris = 'sozluk';
+      _atla(() => _kaydirma.jumpTo(math.min(k.$1 ?? (k.$2! * enCok), enCok)));
       return;
     }
     // Alt başlığın adresiyle gelindiyse (`?bolum=`) o bölüme.
@@ -182,22 +240,20 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
         if (yzTelefon(context)) {
           _telefondaBasligaGit(i);
         } else {
-          _vurgu.basligaGit(i);
+          _basligaAtla(i);
         }
         return;
       }
     }
     // Aramadan ya da sözlük balonundan gelindiyse ilk işaretli yere.
-    if (widget.arama != null || widget.odakTerim != null) _vurgu.sonraki();
+    if (widget.arama != null || widget.odakTerim != null) _sonrakiIsaret();
   }
 
   void _kaydirildi() {
     if (!_kaydirma.hasClients) return;
-    // Okuma izi (karar 60): sayfanın ne kadarının geçildiği.
+    // Okuma izi (madde 17): metnin kelimelerinden ne kadarının geçildiği.
     final enCok = _kaydirma.position.maxScrollExtent;
-    if (enCok > 0 && widget.metin != null) {
-      ref.read(yzOkumaIziProvider.notifier).ilerle(widget.yol, widget.baslik, _kaydirma.offset / enCok);
-    }
+    _takip?.kaydirildi();
     final dugme = _kaydirma.offset > 480;
     var gecilen = -1;
     final anahtarlar = _vurgu.basliklar;
@@ -217,7 +273,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
       _dugme = dugme;
       _aktif = aktif;
       final p = _kaydirma.position;
-      _ilerleme.value = enCok > 0 ? (p.pixels / enCok).clamp(0.0, 1.0) : 0.0;
+      if (_takip == null) _ilerleme.value = enCok > 0 ? (p.pixels / enCok).clamp(0.0, 1.0) : 0.0;
       _gecilen.value = gecilen;
       final fark = p.pixels - _sonKonum;
       _sonKonum = p.pixels;
@@ -253,6 +309,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
 
   @override
   void dispose() {
+    _takip?.kapat();
     _kaydirma.dispose();
     _ilerleme.dispose();
     _gecilen.dispose();
@@ -317,10 +374,18 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     ));
   }
 
-  /// Yazı boyu değişince okunan yer kaymasın: kaydırma, sayfadaki oranıyla
-  /// korunuyor (metin uzayınca piksel konumu başka bir paragrafa düşerdi).
+  /// Yazı boyu değişince okunan yer kaymasın: aynı paragraf ve içinde aynı
+  /// yer (madde 17); metin yoksa sayfadaki oranıyla.
   void _olcekDegisti(double? eski, double yeni) {
     if (eski == null || eski == yeni || !_kaydirma.hasClients) return;
+    final yer = _takip?.yeriTut();
+    if (yer != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _takip?.yereDon(yer);
+      });
+      WidgetsBinding.instance.scheduleFrame();
+      return;
+    }
     final p = _kaydirma.position;
     if (p.maxScrollExtent <= 0) return;
     final oran = p.pixels / p.maxScrollExtent;
@@ -336,7 +401,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   void _telefondaBasligaGit(int i) {
     _birikim = 0;
     _gizli.value = true;
-    _vurgu.basligaGit(i);
+    _basligaAtla(i);
   }
 
   List<String> _altBasliklar(String? md) {
@@ -366,6 +431,8 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     final md = widget.metin;
     final altBasliklar = _altBasliklar(md);
     final telefon = yzTelefon(context);
+    _cizgiPayi = telefon ? kYzUstSeritYuksekligi : 0;
+    _cihaz = yzCihaz(MediaQuery.sizeOf(context).width);
     final isaretAnahtari = (md, widget.teknoloji, widget.arama, en);
     if (isaretAnahtari != _isaretAnahtari) {
       _isaretAnahtari = isaretAnahtari;
@@ -409,7 +476,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                   basliklar: altBasliklar,
                   en: en,
                   daralt: dar,
-                  git: _vurgu.basligaGit,
+                  git: _basligaAtla,
                 )),
               if (!telefon && isaret != null)
                 ortala(Padding(
@@ -463,7 +530,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
               basliklar: altBasliklar,
               aktif: _aktif,
               en: en,
-              git: _vurgu.basligaGit,
+              git: _basligaAtla,
               basaDon: _basaDon,
             ),
           ),
@@ -474,7 +541,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
             child: _YuzenDugme(
               basliklar: altBasliklar.length >= 3 ? altBasliklar : const [],
               en: en,
-              git: _vurgu.basligaGit,
+              git: _basligaAtla,
               basaDon: _basaDon,
             ),
           ),
@@ -570,7 +637,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                               sayi: isaret.sayi,
                               en: en,
                               kalem: isaret.kalem,
-                              sonraki: _vurgu.sonraki,
+                              sonraki: _sonrakiIsaret,
                               kapat: widget.isaretiKaldir,
                             ),
                           ),
@@ -606,7 +673,9 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
   }
 
   Widget _baslikBlogu(bool dar, bool en, String? md, bool telefon) {
-    final sure = md == null ? null : yzOkumaSuresiYazisi(md, en);
+    // Kelime sayısı açılışta bir kez sayıldı (madde 31): kurulumda metin taranmıyor.
+    final dakika = _takip == null ? null : yzDakikaKelimeden(_takip!.harita.toplam, en);
+    final sure = dakika == null ? null : yzDakikaYazisi(dakika, en);
     final tarih = widget.guncellendi == null
         ? null
         : (en
@@ -644,7 +713,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
         if (telefon && satir.isNotEmpty) ...[
           const SizedBox(height: 8),
           YzCerceveKunye(yzKisaKunye(
-            dakika: md == null ? null : yzOkumaSuresi(md, en),
+            dakika: dakika,
             guncellendi: widget.guncellendi,
             en: en,
           )),
@@ -713,7 +782,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
               : '$ad bu sayfada $sayi yerde geçiyor; geçtiği yerler işaretli.'),
       sayi: sayi,
       en: en,
-      sonraki: _vurgu.sonraki,
+      sonraki: _sonrakiIsaret,
       kalem: i.kalem,
       kapat: widget.isaretiKaldir,
     );

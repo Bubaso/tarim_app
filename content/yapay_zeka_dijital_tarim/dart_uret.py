@@ -13,7 +13,7 @@ sabiti okur — hattın başlık listesi de aynı iskeletle sınanıyor
 ÇİFT DOLAR TUZAĞI: Dart dizgisinde `$` interpolasyon başlatır; kaçış burada
 konuyor (turkuaz_nexus/dart_uret.py ile aynı kural).
 """
-import json, pathlib, subprocess, sys
+import json, pathlib, re, subprocess, sys
 
 KOK = pathlib.Path(__file__).resolve().parents[2]
 GIRIS = KOK / "content/yapay_zeka_dijital_tarim/iskelet.json"
@@ -22,6 +22,36 @@ CIKIS = KOK / "lib/features/yapay_zeka/data/yz_iskelet.g.dart"
 
 def dizgi(s: str) -> str:
     return json.dumps(s, ensure_ascii=False).replace("$", r"\$")
+
+
+# yz_okuma.dart › yzKelimeSayisi ile aynı kural: başlık satırı (`# `),
+# grafik/görsel yönergesi ve tablo ayıracı sayılmaz; kelime = harf ya da
+# rakam dizisi (Dart'ta [\p{L}\p{N}]+; Python'da isalnum aynı sınıfı veriyor).
+_YONERGE = re.compile(r"^\[\[(grafik|gorsel):[a-z0-9-]+\]\]$")
+_AYIRAC = re.compile(r"^\|?[\s:|-]+\|?$")
+
+
+def kelime_sayisi(md: str) -> int:
+    n = 0
+    for satir in md.split("\n"):
+        t = satir.strip()
+        if not t or t.startswith("# ") or _YONERGE.match(t) or _AYIRAC.match(t):
+            continue
+        icinde = False
+        for c in t:
+            if c.isalnum():
+                if not icinde:
+                    n += 1
+                icinde = True
+            else:
+                icinde = False
+    return n
+
+
+def okuma_dakikasi(kelime: int, dakikada: int) -> int:
+    # Dart'ın round()'u yarımı sıfırdan uzağa yuvarlıyor (Python'unki çifte).
+    dk = int(kelime / dakikada + 0.5)
+    return max(dk, 1)
 
 
 def main() -> int:
@@ -145,6 +175,29 @@ def main() -> int:
             continue
         parcalar = ", ".join(f"{dizgi(k)}: [{v.get('tr', 0)}, {v.get('en', 0)}]" for k, v in iz.items())
         s.append(f"  {x['no']}: {{{parcalar}}},")
+    s.append("};")
+    s.append("")
+
+    # Madde 31: kelime sayısı ve okuma süresi önceden hesaplanıyor; merkez
+    # sayfanın karoları metni taramıyor. Kural yz_okuma.dart'taki
+    # yzKelimeSayisi'yle AYNI — test (yz_okuma_izi_test.dart) eşitliği sınıyor.
+    s.append("/// Başlığın kelime sayısı: {no: [tr, en]} (yzKelimeSayisi kuralı; madde 31).")
+    s.append("const Map<int, List<int>> kYzKelimeSayilari = {")
+    dakikalar = []
+    for x in b:
+        if x.get("durum") != "yazildi":
+            continue
+        on = f"{x['no']:02d}-{x['slug']}"
+        say = [kelime_sayisi((KOK / "content/yapay_zeka_dijital_tarim/bolumler" / f"{on}.{dil}.md")
+                             .read_text(encoding="utf-8")) for dil in ("tr", "en")]
+        s.append(f"  {x['no']}: [{say[0]}, {say[1]}],")
+        dakikalar.append((x["no"], okuma_dakikasi(say[0], 180), okuma_dakikasi(say[1], 230)))
+    s.append("};")
+    s.append("")
+    s.append("/// Başlığın okuma süresi, dakika: {no: [tr, en]} (TR 180, EN 230 kelime/dk; en az 1).")
+    s.append("const Map<int, List<int>> kYzOkumaDakikalari = {")
+    for no, tr, en in dakikalar:
+        s.append(f"  {no}: [{tr}, {en}],")
     s.append("};")
     s.append("")
 

@@ -373,17 +373,17 @@ void main() {
   });
 
   group('okuma izi, ipucu, bölüm adresi (karar 60)', () {
-    test('sayfanın %80\'i geçilince okundu; yarıda kalan son sayfa', () {
+    test('yarıda kalan son sayfa; okunan sayfa yarım sayılmaz (madde 17)', () {
       final d = YzOkumaIziDenetcisi();
       addTearDown(d.dispose);
-      d.ilerle('$yzPath/a', 'A', 0.3);
+      d.konum(const YzSonOkunan(yol: '$yzPath/a', ad: 'A', oran: 0.3, paragraf: 4));
       expect(d.state.okunan, isEmpty);
       expect(d.state.yarimKaldi, isTrue);
       expect(d.state.sonAd, 'A');
-      d.ilerle('$yzPath/a', 'A', 0.85);
+      d.okundu('$yzPath/a');
       expect(d.state.okunan, {'$yzPath/a'});
       expect(d.state.yarimKaldi, isFalse, reason: 'okunan sayfa yarım sayılmaz');
-      d.ilerle('$yzPath/b', 'B', 0.5);
+      d.konum(const YzSonOkunan(yol: '$yzPath/b', ad: 'B', oran: 0.5, paragraf: 2));
       expect(d.state.sonYol, '$yzPath/b');
       expect(d.state.okunan, {'$yzPath/a'});
     });
