@@ -1438,6 +1438,37 @@ Bilinen sınırlar: tam ekran görsel tarayıcının geri tuşuyla kapanmıyor
 ağdan iniyor). Ölçüm notu: tarayıcı bölmesi gizliyken Flutter kare
 çizmiyor, yazı tipi istekleri gecikmiş görünür — ölçüm hatası.
 
+## Tur 15 — OKUMA RİTMİ · 19 Kasım 2026 (karar 63, 64) — DAĞITIM BEKLİYOR
+
+Kullanıcı: "metinler çok güzel dolu ve derin … dikkat eşiği çok düşük
+kullanıcı için zor takip edilir durumda." 16 soruluk tur, altı tarayıcı ve
+iki eleştirmenli analiz (37 öneri), sonra "yıldızlıların hepsini ve karar
+sorularının en uygununu yap". Beş grup paralel worktree'de yaptı, birleşti.
+
+- Metin (yz_telefon_bolme.dart + _raw/telefon_bolme.py ikizi, fikstür
+  test/veri/yz_telefon_bolme.json): telefonda 375 px'te 138/422 paragraf
+  bölünüyor, en büyük blok 0,54 ekran. Text.rich + tek SelectionArea.
+  Ferahlık YzOkumaRitmi'de. Uzun grafik telefonda katlı. Yazı tipi paketle
+  birlikte en çok 1,2 sn bekleniyor.
+- İçerik: 12 görsel yönergesi aynı bölümde kaydırıldı (gorseller.json
+  `konum`); öne çıkan cümle `[[cekme:…]]`, _raw/cekmeler.json, kural 16,
+  yz_cekme.dart. Kelime sayımı her `[[ad:kimlik]]` satırını atlar.
+- Okuma izi (yz_okuma.dart, yz_okuma_olcer.dart): yz_son_okunan_m, metne
+  bağlı "okundu", şeritte "Kaldığınız yer", yzSiradakiSlug, karolar
+  yalnız kendi durumunu izler, kelime/dakika iskelette.
+- Haber (yz_haber_vitrini.dart): başlık sonunda 3 görselli kart + "N haber
+  daha", haber yoksa hiçbir şey; merkezde manşet + 3; küçük görsel, geç
+  sorgu, yer tutucu.
+- Ölçüm: aşağıdaki bölüm. Android WebView koruyucusu:
+  lib/core/widgets/metin_araligi_koruyucusu.dart.
+- Merkez: masaüstünde ısı haritası yatay (≥ 214 + 26 × başlık px), paylaş
+  satırı (yz_paylas_satiri.dart) "Başlıklar" ve "Son haberler" üstünde.
+
+İlk yük: main.dart.js 1.815.328 bayt gzip (tavan 1.830.000).
+Bilinen sınırlar: büyük yazı boyunda (s > 1) 0,6 ekran sınırı tek cümleli
+paragraflarda tutmuyor (s=1,4'te en büyük blok 0,92). GA panel ayarları
+sahibe: GA_AYARLARI.md. Çerezli GA için açık rıza sorusu hukukçuya.
+
 ## Ölçüm — 19 Kasım 2026 (madde 15, 23, 24, 25)
 
 Anonim okuma ölçümünün altyapısı. Karar (birleştirici): GA'nın site genelindeki
