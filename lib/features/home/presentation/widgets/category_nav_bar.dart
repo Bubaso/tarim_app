@@ -58,8 +58,8 @@ class CategoryNavBar extends ConsumerWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 8),
         physics: const ClampingScrollPhysics(),
-        // Yapay Zeka ve Dijital Tarım dosyası şeridin SONUNDA (kullanıcı,
-        // 19 Kas 2026). Kategori değil, kalıcı bir bölüm: kataloğa girmiyor.
+        // Yapay Zeka ve Dijital Tarım dosyası (kullanıcı, 19 Kas 2026).
+        // Kategori değil, kalıcı bir bölüm: kataloğa girmiyor.
         itemCount: homeCategorySlugs.length + (cop31Goster ? 1 : 0) + (kYzOkuraAcik ? 1 : 0),
         separatorBuilder: (_, __) => const SizedBox(width: 2),
         itemBuilder: (context, ham) {
@@ -70,9 +70,13 @@ class CategoryNavBar extends ConsumerWidget {
           if (cop31Goster && ham == 0) {
             return _Cop31Dugmesi(isDark: isDark);
           }
-          final i = ham - (cop31Goster ? 1 : 0);
-          if (i == homeCategorySlugs.length) {
-            return _YzDugmesi(fg: fg, isEn: isEn);
+          // Yapay Zeka düğmesi Tarım-Bilim'in hemen sağında (kullanıcı,
+          // 19 Kas 2026).
+          var i = ham - (cop31Goster ? 1 : 0);
+          final yzSira = homeCategorySlugs.indexOf('tarim-bilim') + 1;
+          if (kYzOkuraAcik) {
+            if (i == yzSira) return _YzDugmesi(isDark: isDark, isEn: isEn);
+            if (i > yzSira) i -= 1;
           }
           final slug = homeCategorySlugs[i];
           final def = categoryBySlug(slug)!;
@@ -201,40 +205,44 @@ class _Cop31Dugmesi extends StatelessWidget {
   }
 }
 
-/// Şeridin sonundaki "Yapay Zeka" düğmesi — bölümün ana sayfasını açıyor.
-/// Öbür kategori öğeleriyle aynı düz yazı; adres paylaşılabilir olsun diye
-/// yönlendiriciyle (`push`: ana sayfa altta kalsın).
+/// Şeritteki "Yapay Zeka" düğmesi — COP31 gibi DOLGULU (kullanıcı, 19 Kas
+/// 2026: "COP31 gibi vurgulu"), bölümün kendi çelik mavisinde. Bölümün ana
+/// sayfasını açıyor; adres paylaşılabilir olsun diye yönlendiriciyle
+/// (`push`: ana sayfa altta kalsın).
 class _YzDugmesi extends StatelessWidget {
-  final Color fg;
+  final bool isDark;
   final bool isEn;
 
-  const _YzDugmesi({required this.fg, required this.isEn});
+  const _YzDugmesi({required this.isDark, required this.isEn});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => context.push(yzPath),
-      style: TextButton.styleFrom(
-        foregroundColor: fg,
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        minimumSize: const Size(0, 40),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            isEn ? 'AI & Digital' : 'Yapay Zeka',
-            style: GoogleFonts.inter(
-              fontSize: 12.5,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.2,
+    final vurgu = isDark ? const Color(0xFF8FB0DA) : const Color(0xFF34507A);
+    final uzerindeki = isDark ? const Color(0xFF0B1422) : Colors.white;
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+        child: Material(
+          color: vurgu,
+          borderRadius: BorderRadius.circular(999),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(999),
+            onTap: () => context.push(yzPath),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+              child: Text(
+                isEn ? 'AI & Digital' : 'Yapay Zeka',
+                style: GoogleFonts.outfit(
+                  fontSize: 12.5,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 0.4,
+                  color: uzerindeki,
+                ),
+              ),
             ),
           ),
-          // Öbür öğelerle aynı yükseklik (altı çizgisinin yeri).
-          const SizedBox(height: 5),
-        ],
+        ),
       ),
     );
   }

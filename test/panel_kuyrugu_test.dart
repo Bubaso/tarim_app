@@ -185,6 +185,11 @@ void main() {
 
     testWidgets('etkin kategori tıklanamıyor, ötekiler tıklanabiliyor',
         (tester) async {
+      // Şerit tembel bir ListView: "Yapay Zeka" düğmesi (19 Kas 2026)
+      // eklenince Ekonomi 800 px'lik test ekranının dışına düşüyordu.
+      tester.view.physicalSize = const Size(1600, 800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
       await tester.pumpWidget(sar('ekonomi'));
       await tester.pumpAndSettle();
 
