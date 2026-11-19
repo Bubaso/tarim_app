@@ -415,7 +415,10 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                 ortala(Padding(
                     padding: const EdgeInsets.only(bottom: 18), child: _isaretSeridi(isaret, en))),
               if (md != null)
-                YzMetinGorunumu(
+                // Makale tek seçim alanı (madde 2): paragraflar Text.rich,
+                // telefonda bölünmüş paragraf da tek hareketle kopyalanıyor.
+                SelectionArea(
+                    child: YzMetinGorunumu(
                   metin: md,
                   en: en,
                   sozluk: widget.sozluk,
@@ -429,7 +432,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
                   // Telefonda alt başlıkların bağlantı simgesi yok:
                   // paylaşmak alt çubuktaki Paylaş'tan.
                   bolumBaglantisi: telefon ? null : _bolumBaglantisi,
-                ),
+                )),
               ...widget.altlar,
             ],
           ),

@@ -139,9 +139,15 @@ void main() {
       }
       for (final e in find.byWidgetPredicate((w) => w is RichText && w.text.toPlainText().contains(parca)).evaluate()) {
         final r = e.widget as RichText;
-        final boy = r.text.style?.fontSize ??
-            (r.text as TextSpan).children!.whereType<TextSpan>().first.style!.fontSize!;
-        return r.textScaler.scale(boy);
+        // Text.rich dış span'e varsayılan stili koyuyor: en içteki punto.
+        double? boy;
+        void gez(InlineSpan span) {
+          if (span.style?.fontSize != null) boy = span.style!.fontSize;
+          if (span is TextSpan) span.children?.forEach(gez);
+        }
+
+        gez(r.text);
+        return r.textScaler.scale(boy!);
       }
       return null;
     }
