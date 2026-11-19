@@ -33,9 +33,9 @@ Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012; son 
 
 [[gorsel:b16-hal-kayit-sistemi-nin-karekodlu-urun]]
 
-[[gorsel:b16-toptanci-hali]]
-
 Bu kaydın verisi araştırmada da kullanılıyor. Türkiye'den hakemli bir makine öğrenmesi denemesi (Özden, 2023), patates, soğan ve sarımsağın 2018 başından Kasım 2022'ye kadarki **1.791** günlük işlem hacmini ve fiyatını Ticaret Bakanlığı'nın resmî hal sitesinden elle derleyerek **10** günlük fiyat tahmini denedi. Ama yapay zekânın Türkiye'de fiyat tahminine, talep planlamasına ya da izlenebilirliğe gerçekte ne kattığını gösteren yayımlanmış bir değerlendirme yok.
+
+[[gorsel:b16-toptanci-hali]]
 
 2027 Programı, tarım ürünü fiyatlarının sağlıklı oluşması ve gıda arz zincirinin etkinliği için kayıt sistemlerinin güçlendirilmesini, lisanslı depoculuğun yaygınlaştırılmasını ve yaş meyve-sebze tedarik zincirinde lojistik altyapının geliştirilmesini öngörüyor. Kayıt ve bilgi sistemleri erken uyarı, piyasa kontrolü, üretim planlaması ve stok yönetimine hizmet edecek biçimde tasarlanacak. 2025'te **265** olan lisanslı depo sayısının 2026'da **288** olması bekleniyor; 2027 hedefi **295**. Lisanslı depoculuk desteklerinin etki analizi ise yapılacak işler arasında. Program tarım ürünü fiyat tahminine yer vermiyor; blokzinciri yalnız gümrük ve dış ticaret işlemleri için öngörüyor.
 

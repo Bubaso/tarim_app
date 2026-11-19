@@ -39,9 +39,9 @@ According to the Information and Communication Technologies Authority (BTK), sub
 
 One official measuring network that runs continuously in the field belongs to meteorology. The General Directorate of Meteorology has **2,059** observation systems; **1,717** of them are automatic weather stations with sensors, data collection and communication units. The directorate turns this network's data into agricultural products such as frost warnings.
 
-In the ministry's 2025 activity report, the 2025 target for the indicator on the number of farms using climate-friendly smart farming technology systems is **410**, and the outcome is **0**. According to the report, the target was not reached because grant schemes under the World Bank-financed Türkiye Climate Smart and Competitive Agricultural Growth Project (TUCSAP) had not yet started; training of trainers was held in **15** pilot provinces. Which technologies the indicator covers has not been specified. The Digital Villages Initiative, launched by TAGEM and FAO in 2023 and covering Albania, Bosnia and Herzegovina, Georgia and Türkiye, was completed in December 2025; in Türkiye a village digital centre was set up in Boyalı, in Ankara's Güdül district.
-
 [[gorsel:b20-boyali-koy-dijital-merkezi]]
+
+In the ministry's 2025 activity report, the 2025 target for the indicator on the number of farms using climate-friendly smart farming technology systems is **410**, and the outcome is **0**. According to the report, the target was not reached because grant schemes under the World Bank-financed Türkiye Climate Smart and Competitive Agricultural Growth Project (TUCSAP) had not yet started; training of trainers was held in **15** pilot provinces. Which technologies the indicator covers has not been specified. The Digital Villages Initiative, launched by TAGEM and FAO in 2023 and covering Albania, Bosnia and Herzegovina, Georgia and Türkiye, was completed in December 2025; in Türkiye a village digital centre was set up in Boyalı, in Ankara's Güdül district.
 
 [[grafik:b20-akilli-tarim-hedef]]
 

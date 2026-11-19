@@ -34,9 +34,9 @@ Paudel ve arkadaşları (2021), aynı sistemin veritabanındaki bitki modeli ç�
 
 Erken sezonda Hollanda'da bütün ürünlerde, Almanya'da yumuşak buğday dışındakilerde, Fransa'da yumuşak buğday, yazlık arpa ve ayçiçeğinde iki yöntem birbirine yakın. Ama Almanya'da yumuşak buğdayda, Fransa'da şeker pancarı ve patateste makine öğrenmesinin hatası sistemin iki katı. Sezon sonunda Hollanda'da yine yakın, Almanya ve Fransa'da daha kötü. Yazarlar çalışmayı bir başlangıç çizgisi olarak sunuyor: yeni veri kaynakları, daha iyi değişkenler ve başka algoritmalarla iyileştirilebilir. Bu karşılaştırmada makine öğrenmesi, büyük ölçekli verim tahmininde yerleşik sistemi geride bırakmadı.
 
-AB'de ürün tespitinde uydu verisi artık yasal bir gereklilik. AB'nin ortak tarım politikasının finansmanını ve izlenmesini düzenleyen 2021/2116 sayılı Tüzük, üye ülkelerden bir alan izleme sistemi kurmalarını istiyor: tarımsal faaliyetin Copernicus Sentinel uydu verisiyle ya da en az onun değerinde veriyle düzenli ve sistematik olarak gözlenmesi, izlenmesi ve değerlendirilmesi. Sistemin 1 Ocak 2023'ten itibaren çalışır, en geç 1 Ocak 2024'te bütün üye ülkelerde tam işler olması gerekiyor; ülkeler kalitesini her yıl Birlik düzeyinde belirlenen yönteme göre değerlendiriyor. Tüzük Sentinel verisini ya da eşdeğerini şart koşuyor; analiz yöntemini belirlemiyor.
-
 [[gorsel:b09-sen4cap-sentinel-1-ve-sentinel-2-ile]]
+
+AB'de ürün tespitinde uydu verisi artık yasal bir gereklilik. AB'nin ortak tarım politikasının finansmanını ve izlenmesini düzenleyen 2021/2116 sayılı Tüzük, üye ülkelerden bir alan izleme sistemi kurmalarını istiyor: tarımsal faaliyetin Copernicus Sentinel uydu verisiyle ya da en az onun değerinde veriyle düzenli ve sistematik olarak gözlenmesi, izlenmesi ve değerlendirilmesi. Sistemin 1 Ocak 2023'ten itibaren çalışır, en geç 1 Ocak 2024'te bütün üye ülkelerde tam işler olması gerekiyor; ülkeler kalitesini her yıl Birlik düzeyinde belirlenen yönteme göre değerlendiriyor. Tüzük Sentinel verisini ya da eşdeğerini şart koşuyor; analiz yöntemini belirlemiyor.
 
 ## Türkiye
 

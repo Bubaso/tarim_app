@@ -18,12 +18,14 @@ import '../data/yz_iskelet.g.dart';
 const int kYzDakikadaKelimeTr = 180;
 const int kYzDakikadaKelimeEn = 230;
 
-final RegExp _yonergeSatiri = RegExp(r'^\[\[(grafik|gorsel):[a-z0-9-]+\]\]$');
+/// Her yönerge satırı: grafik, görsel, öne çıkan cümle (madde 6) ve
+/// tanınmayanlar. Hiçbiri okunan metin değil.
+final RegExp _yonergeSatiri = RegExp(r'^\[\[[a-z]+:[a-z0-9-]+\]\]$');
 final RegExp _ayiracSatiri = RegExp(r'^\|?[\s:|-]+\|?$');
 final RegExp _kelime = RegExp(r'[\p{L}\p{N}]+', unicode: true);
 
-/// Metnin kelime sayısı: başlık satırı, grafik/görsel yönergeleri ve tablo
-/// ayıraçları sayılmaz.
+/// Metnin kelime sayısı: başlık satırı, yönerge satırları (grafik, görsel,
+/// öne çıkan cümle) ve tablo ayıraçları sayılmaz.
 int yzKelimeSayisi(String md) {
   var n = 0;
   for (final satir in md.split('\n')) {

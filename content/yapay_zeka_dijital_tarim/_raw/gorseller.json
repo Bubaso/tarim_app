@@ -22,6 +22,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Yapay zekâ hava tahmininde araştırmadan işletmeye geçti. GraphCast,",
+   "konum": "sonra",
    "sayfa": "b01"
   },
   "b03-rasat-uydusunun-cektigi-goruntu": {
@@ -45,6 +46,7 @@
    "tur": "goruntu",
    "yapay_zeka": false,
    "yer": "Türkiye'nin ilk optik uzaktan algılama uydusu BİLSAT 2003'te teknoloji transferiyle",
+   "konum": "sonra",
    "sayfa": "b03"
   },
   "b04-soilgrids-2-0-kuresel-toprak-organik": {
@@ -68,6 +70,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "SoilGrids'in kullandığı yöntem kantil regresyon ormanları: çok sayıda karar ağacının",
+   "konum": "sonra",
    "sayfa": "b04"
   },
   "b04-soilgrids-2-0-da-toprak-olcum": {
@@ -91,6 +94,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Yazarların kendi değerlendirmesi iki yönlü. Kaba ölçekli desenler iyi yakalanıyor;",
+   "konum": "sonra",
    "sayfa": "b04"
   },
   "b04-fao-kuresel-toprak-organik-karbonu": {
@@ -114,6 +118,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Türkiye'nin ulusal ölçekte toprak verisi yeni değil. TAGEM'in 2017 tarihli duyurusuna",
+   "konum": "sonra",
    "sayfa": "b04"
   },
   "b05-hizli-islah-serasi": {
@@ -137,6 +142,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Watson ve arkadaşları (2018) uzun kuşak süresini ıslahın yavaş ilerlemesinin",
+   "konum": "sonra",
    "sayfa": "b05"
   },
   "b06-degisken-oranli-ekim-recete-haritasi": {
@@ -160,6 +166,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Doz iki yoldan belirleniyor. Birincisinde önceden bir reçete haritası hazırlanıyor:",
+   "konum": "sonra",
    "sayfa": "b06",
    "lejant": {
     "tr": "Görseldeki yazılar: 32,000 / 28,000 / 24,000 spa = akre başına 32.000 / 28.000 / 24.000 tohum (spa: seeds per acre)."
@@ -186,6 +193,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Tasarruf gerçek: sensörlü azot verimi düşürmeden gübreyi azaltıyor, soya denemeleri de",
+   "konum": "sonra",
    "sayfa": "b06"
   },
   "b06-soya-ekim-sikligi-ciftlik": {
@@ -209,6 +217,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Yapay zekânın bu zincirdeki yeri karar halkası: hangi noktaya ne kadar",
+   "konum": "sonra",
    "sayfa": "b06",
    "lejant": {
     "tr": "Görseldeki yazılar: Data-intensive prescription research layout for the Saunders County site = Saunders County'deki veri yoğun reçete denemesinin parsel düzeni; Soybean Prescription Target Rate (sds/ac) = soya reçetesinde hedef ekim sıklığı (akre başına tohum); Feet = fit."
@@ -235,6 +244,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Saikai, Peake ve Chenu (2023), sulanan buğday için derin pekiştirmeli",
+   "konum": "sonra",
    "sayfa": "b07",
    "dosya_tr": "web/yz/gorsel/b07-derin-pekistirmeli-ogrenmeyle-sulama.tr.webp",
    "sha256_tr": "cf1dd5425d0e1bc4b60025e1a37c19767940047c796464a342f349ab4ea315dc"
@@ -260,6 +270,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Avustralya'daki ve Almanya'daki hakemli denemeler iki şeyi birlikte ölçtü:",
+   "konum": "sonra",
    "sayfa": "b08"
   },
   "b08-iha-ot-haritasiyla-misirda-spot": {
@@ -283,6 +294,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Almanya'daki mısır denemesinde kamera ilaçlayıcının üstünde değil: önce bir insansız",
+   "konum": "sonra",
    "sayfa": "b08"
   },
   "b08-plantvillage-veri-setinden-yaprak": {
@@ -306,6 +318,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Görüntü işlemenin tarımdaki en çok alıntılanan başarılarından biri 2016'da yayımlandı.",
+   "konum": "sonra",
    "sayfa": "b08"
   },
   "b09-makine-ogrenmesiyle-almanya-urun": {
@@ -329,6 +342,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Ürün izlemenin iki ayrı sorusu var. İlki: tarlada ne ekili?",
+   "konum": "sonra",
    "sayfa": "b09",
    "lejant": {
     "tr": "Görseldeki yazılar: Germany's agricultural landscape = Almanya'nın tarım peyzajı; Grassland = çayır-mera; Winter Wheat & Triticale = kışlık buğday ve tritikale; Winter Rye = kışlık çavdar; Winter Barley = kışlık arpa; Winter Spelt = kışlık kavılca; Maize = mısır; Winter Rapeseed = kışlık kolza; Summer Cereals = yazlık tahıllar; Lupine = acı bakla; Sugar Beet = şeker pancarı; Sunflower = ayçiçeği; Potatoes = patates; Beans = bakla ve fasulye; Peas = bezelye; Soy = soya; Orchards & Vineyards = meyve bahçeleri ve bağlar; Deciduous & Mixed Forest = yaprak döken ve karışık orman; Coniferous Forest = iğne yapraklı orman; Built-up = yerleşim; Water = su; Other = diğer."
@@ -355,6 +369,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "AB'de ürün tespitinde uydu verisi artık yasal bir gereklilik.",
+   "konum": "önce",
    "sayfa": "b09",
    "lejant": {
     "tr": "Görseldeki yazılar: Agricultural landscape of the Netherlands = Hollanda'nın tarım peyzajı; Oat = yulaf; Sugar beet = şeker pancarı; Clover root = üçgül kökü; Winter barley = kışlık arpa; Summer barley = yazlık arpa; Lilium = zambak; Medicago = yonca; Onion = soğan; Potato = patates; Tulip = lale; Winter carrot = kışlık havuç; Winter wheat = kışlık buğday; Maize = mısır; Permanent crops = çok yıllık bitkiler; Grass = çayır; Summer wheat = yazlık buğday; Fallow = nadas; Other crops = diğer ürünler."
@@ -381,6 +396,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Bu önerinin sahadaki karşılığını biber hasat robotu SWEEPER gösterdi",
+   "konum": "sonra",
    "sayfa": "b10"
   },
   "b11-pics-hava-gecirmez-depolama-torbasi": {
@@ -404,6 +420,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Depolamada ise belirleyici olan çoğu zaman fiziksel teknoloji:",
+   "konum": "sonra",
    "sayfa": "b11"
   },
   "b12-guvenli-elektronik-kupe-ve-izleme": {
@@ -427,6 +444,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Politika tarafında iki adım var. Hayvancılık desteklerini düzenleyen karar",
+   "konum": "sonra",
    "sayfa": "b12"
   },
   "b13-otonom-sera-yarismasi-nin-deney": {
@@ -450,6 +468,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Modern bir serada ısıtma, havalandırma, perde, aydınlatma, sisleme, karbondioksit,",
+   "konum": "sonra",
    "sayfa": "b13",
    "dosya_tr": "web/yz/gorsel/b13-otonom-sera-yarismasi-nin-deney.tr.webp",
    "sha256_tr": "cc2e7dcaf69bbb424af13d86094c870c3901a9f91fbf1ece7612b7515bf261f3"
@@ -475,6 +494,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Otonom Sera Yarışması'nda uluslararası ekipler kendi bölmelerini uzaktan, kendi algoritmalarıyla",
+   "konum": "sonra",
    "sayfa": "b13",
    "dosya_tr": "web/yz/gorsel/b13-otonom-sera-yarismasi-ekiplerin.tr.webp",
    "sha256_tr": "7290e0df2b782a881f8d443853ec5db5807d2d1939a9f031b6333e463c4a4e12"
@@ -500,6 +520,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "2027 Programı, iklimden kaynaklanan üretim ve fiyat dalgalanmalarını azaltmak ve",
+   "konum": "sonra",
    "sayfa": "b13"
   },
   "b14-kamuya-acik-izlemede-gorunmeyen": {
@@ -523,6 +544,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "İzleme dışı gemileri gösteren harita, Paolo ve arkadaşlarının (2024) çalışmasından",
+   "konum": "sonra",
    "sayfa": "b14",
    "lejant": {
     "tr": "Görseldeki yazılar: a Industrial fishing vessels = a endüstriyel balıkçı gemileri; b Transport and energy vessels = b taşıma ve enerji gemileri; publicly tracked = kamuya açık izlenen; Fraction of vessels publicly tracked per km² = kilometrekare başına kamuya açık izlenen gemilerin payı; Industrial fishing / Transport and energy (number of vessels) = endüstriyel balıkçılık / taşıma ve enerji (gemi sayısı); Asia = Asya; Europe = Avrupa; N. America = Kuzey Amerika; Africa = Afrika; S. America = Güney Amerika; Australia = Avustralya; Not publicly tracked = kamuya açık izlenmeyen; Publicly tracked = kamuya açık izlenen."
@@ -549,6 +571,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Lang ve arkadaşları (2023), uzaydaki GEDI lazer ölçerinin seyrek yükseklik",
+   "konum": "sonra",
    "sayfa": "b15"
   },
   "b15-uydudan-orman-yangini-manavgat-ve": {
@@ -572,6 +595,7 @@
    "tur": "goruntu",
    "yapay_zeka": false,
    "yer": "Ormancılıkta dijital teknoloji üç işe yarıyor: ormanın ne kadar ve",
+   "konum": "sonra",
    "sayfa": "b15"
   },
   "b15-iha-ya-gomulu-derin-ogrenmeyle": {
@@ -595,6 +619,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Akademide de çalışmalar var. Karabük Üniversitesi'nden bir çalışma, yazarların tasarladığı",
+   "konum": "sonra",
    "sayfa": "b15"
   },
   "b17-graphcast-in-isletimdeki-en-iyi": {
@@ -618,6 +643,7 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Hava tahmininde Lam ve arkadaşları (2023), doğrudan geçmiş hava verisinden",
+   "konum": "sonra",
    "sayfa": "b17",
    "dosya_tr": "web/yz/gorsel/b17-graphcast-in-isletimdeki-en-iyi.tr.webp",
    "sha256_tr": "d6624375cc3396162acec52d41a21cefb15c1878e99aaecbea0d2acb24c51150"
@@ -643,6 +669,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Hava tahmininde Lam ve arkadaşları (2023), doğrudan geçmiş hava verisinden",
+   "konum": "önce",
    "sayfa": "b17",
    "dosya_tr": "web/yz/gorsel/b17-graphcast-modelinin-semasi.tr.webp",
    "sha256_tr": "04be0f56055122686aaf40e31c28263dd727d194a46360b179b9baf64d9c69f0"
@@ -668,6 +695,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Erken uyarıda Meteoroloji Genel Müdürlüğü'nün Zirai Don Uyarı Sistemi, bütün",
+   "konum": "önce",
    "sayfa": "b17"
   },
   "b17-2025-zirai-donu-sonrasi-bahcelerde": {
@@ -691,6 +719,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "2027 Programı'na göre kuraklık ve zirai don 2024-2025 üretim sezonunda",
+   "konum": "sonra",
    "sayfa": "b17"
   },
   "b18-domates-zararlilarini-goruntuden": {
@@ -714,6 +743,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Akademide dil modelleri tarım sorularında sınanmaya başladı. Karamanoğlu Mehmetbey Üniversitesi'nden",
+   "konum": "sonra",
    "sayfa": "b18"
   },
   "b18-tarim-ve-orman-bakanligi-nin": {
@@ -737,6 +767,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Dijital tarafta bakanlığın **17** mobil uygulaması var. TAGEM'in geliştirdiği Sulama",
+   "konum": "sonra",
    "sayfa": "b18"
   },
   "b19-landsat-verisinin": {
@@ -760,6 +791,7 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Landsat görüntülerini ücretsiz dağıtma kararını ABD Jeoloji Araştırmaları Kurumu",
+   "konum": "sonra",
    "sayfa": "b19",
    "dosya_tr": "web/yz/gorsel/b19-landsat-verisinin.tr.webp",
    "sha256_tr": "d471ab95b979279ea2f6efb922933ae11c8728d47d69f2934f31e3038e0e9033"
@@ -785,6 +817,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Bulut, optik uydunun tarımdaki asıl sınırı. Whitcraft ve arkadaşları (2015)",
+   "konum": "sonra",
    "sayfa": "b19"
   },
   "b19-imece-yer-gozlem-uydusu": {
@@ -808,6 +841,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "İMECE, TÜBİTAK UZAY'ın tasarlayıp ürettiği ilk yerli metre altı çözünürlüklü",
+   "konum": "sonra",
    "sayfa": "b19"
   },
   "b21-cks-cbs-ve-uretim-planlamasi": {
@@ -831,6 +865,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Bakanlığın 2025 faaliyet raporuna göre Çiftçi Kayıt Sistemi (ÇKS), bitkisel",
+   "konum": "sonra",
    "sayfa": "b21"
   },
   "b22-abd-de-otomatik-dumen-ve-yonlendirme": {
@@ -854,6 +889,7 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Bakanlığın ekonomik araştırma servisi (ERS) aynı teknolojileri ekili alan üzerinden",
+   "konum": "önce",
    "sayfa": "b22",
    "dosya_tr": "web/yz/gorsel/b22-abd-de-otomatik-dumen-ve-yonlendirme.tr.webp",
    "sha256_tr": "4f5f82e065713e0e3620473c5b761593c9d7999f69d659d399256fe42729821e"
@@ -879,6 +915,7 @@
    "tur": "grafik",
    "yapay_zeka": false,
    "yer": "Eurostat'ın 2023 çiftlik yapı araştırmasına dayanan Temmuz 2026 tarihli analizine göre",
+   "konum": "sonra",
    "sayfa": "b22",
    "dosya_tr": "web/yz/gorsel/b22-ab-de-ciftliklerin-internet-ve.tr.webp",
    "sha256_tr": "cb71033949a82a321093cd652cade968c3c1e594d329d12d7b6747ab4658bbf5"
@@ -904,6 +941,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Hükümetin Şubat 2026 notuna göre 2023'te başlatılan, sesle çalışan yapay zekâlı",
+   "konum": "önce",
    "sayfa": "b22"
   },
   "b23-uzaktan-algilamayla-urun-belirleme": {
@@ -927,6 +965,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Tarım Reformu Genel Müdürlüğü uzaktan algılamayla ürün belirleme çalışmasını 2025",
+   "konum": "sonra",
    "sayfa": "b23"
   },
   "b23-b-recete-sistemi-bilgilendirme": {
@@ -950,6 +989,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Yıllık programda, kendisi yapay zekâ olmayan ama yapay zekânın üzerine kurulacağı",
+   "konum": "sonra",
    "sayfa": "b23"
   },
   "b24-ab-yapay-zeka-tuzugu-risk-piramidi": {
@@ -973,6 +1013,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Tarım tüzüğe Ek I'den giriyor. Yapay zekâ, Ek I'de sayılan",
+   "konum": "sonra",
    "sayfa": "b24",
    "dosya_tr": "web/yz/gorsel/b24-ab-yapay-zeka-tuzugu-risk-piramidi.tr.webp",
    "sha256_tr": "50c0e2b47594674ca3edb4915f6622580da0e9a01ec8a6c209d4c8749dad8ba9"
@@ -998,6 +1039,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "FAO ile EBRD'nin raporundaki girişimler akıllı ve hassas tarım, tedarik",
+   "konum": "sonra",
    "sayfa": "b25"
   },
   "b25-actimoo-aktivite-olcerle-kizginlik": {
@@ -1021,6 +1063,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Rapor Actimoo'yu ve BenimSürüm'ü yerleşik şirketlerin iştiraki olarak kurulan girişimler",
+   "konum": "sonra",
    "sayfa": "b25"
   },
   "b26-tanzanya-tarla-deneyinden-manyok": {
@@ -1044,6 +1087,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Ramcharan ve arkadaşları (2019), manyok hastalıklarını tanıyan bir modeli telefon",
+   "konum": "önce",
    "sayfa": "b26"
   },
   "b28-plantvillage-nuru-uygulamasi": {
@@ -1067,6 +1111,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "PlantVillage Nuru, Penn State Üniversitesi'nin PlantVillage projesi, FAO, Uluslararası Tropik",
+   "konum": "sonra",
    "sayfa": "b28"
   },
   "b28-hands-free-hectare-otonom": {
@@ -1090,6 +1135,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "2017 hasadında yazlık arpadan **4,5** ton alındı. Devletin yenilik ajansı",
+   "konum": "sonra",
    "sayfa": "b28"
   },
   "b28-greenseeker-el-sensoru-yaqui-vadisi": {
@@ -1113,6 +1159,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Meksika'nın en büyük buğday bölgesi Yaqui Vadisi'nde CIMMYT ile Oklahoma",
+   "konum": "sonra",
    "sayfa": "b28"
   },
   "b25-agcurate-platformu-uydu-ve-makine": {
@@ -1136,6 +1183,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Rapor Actimoo'yu ve BenimSürüm'ü yerleşik şirketlerin iştiraki olarak kurulan girişimler",
+   "konum": "sonra",
    "sayfa": "b25"
   },
   "b07-aquatag-kablosuz-toprak-nem-sensoru": {
@@ -1159,6 +1207,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Sahadan iki çalışma var ve ikisi de sensörü sınıyor;",
+   "konum": "sonra",
    "sayfa": "b07"
   },
   "b09-mardin-kiziltepe-de-sentinel-2-ve": {
@@ -1182,6 +1231,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Böyle bir sistemin ne kadar iyi çalışabileceğine dair en yakın",
+   "konum": "sonra",
    "sayfa": "b09"
   },
   "b09-turkiye-olceginde-arazi-ortusu-ve": {
@@ -1205,6 +1255,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Böyle bir sistemin ne kadar iyi çalışabileceğine dair en yakın",
+   "konum": "sonra",
    "sayfa": "b09"
   },
   "b10-yolov5-ile-serada-kabak-tanima": {
@@ -1228,6 +1279,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Araştırma tarafında Tekirdağ Namık Kemal Üniversitesi'nden Kahya, biri ekip arkadaşlarıyla",
+   "konum": "sonra",
    "sayfa": "b10"
   },
   "b11-kahverengi-kokarcanin-zarar-verdigi": {
@@ -1251,6 +1303,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Görüntüyle sınıflandırmada bir örnek de yine fındıktan. Ondokuz Mayıs Üniversitesi'nin",
+   "konum": "sonra",
    "sayfa": "b11"
   },
   "b20-lorawan-ile-calisan-traktor-izleme": {
@@ -1274,6 +1327,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Tarımsal sensör ve nesnelerin interneti ağlarının Türkiye'de tarıma etkisini ölçen",
+   "konum": "sonra",
    "sayfa": "b20"
   },
   "b05-turkiye-de-bugday-islah-parselleri": {
@@ -1297,6 +1351,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Islah, binlerce melez arasından birkaçını yıllarca süren denemelerle ayıklama işi.",
+   "konum": "sonra",
    "sayfa": "b05"
   },
   "b08-john-deere-see-spray-ultimate": {
@@ -1320,6 +1375,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "En yaygın ticari sistemlerden biri John Deere'nin See & Spray'i.",
+   "konum": "sonra",
    "sayfa": "b08"
   },
   "b11-optik-lazer-ayiklama-makinesi": {
@@ -1343,6 +1399,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "AB'nin gıda ve yem hızlı alarm sisteminde (RASFF) 2020-2023 döneminde",
+   "konum": "sonra",
    "sayfa": "b11"
   },
   "b14-global-fishing-watch-yapay-zeka-ve": {
@@ -1366,6 +1423,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Av denetiminde ise yapay zekâ, insanın elle izleyemeyeceği ölçekte bir şey",
+   "konum": "sonra",
    "sayfa": "b14",
    "lejant": {
     "tr": "Görseldeki yazılar: Offshore infrastructure = açık deniz yapıları; Oil platforms = petrol platformları; Wind turbines = rüzgâr türbinleri; Vessel activity = gemi hareketleri; Oil vessels = petrol gemileri; Wind vessels = rüzgâr santrali gemileri; Fishing vessels = balıkçı gemileri; Non-fishing vessels = balıkçılık dışı gemiler."
@@ -1392,6 +1450,7 @@
    "tur": "goruntu",
    "yapay_zeka": false,
    "yer": "Govil ve arkadaşları (2020), Güney Kaliforniya'da yüzlerce kamerayı dakikada bir",
+   "konum": "sonra",
    "sayfa": "b15"
   },
   "b18-africarice-in-riceadvice-uygulamasi": {
@@ -1415,6 +1474,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Tek tek denemeler ortalamanın arkasındaki farkı gösteriyor. Nijerya'da çeltikte gübrelemeyi",
+   "konum": "sonra",
    "sayfa": "b18"
   },
   "b20-boyali-koy-dijital-merkezi": {
@@ -1438,6 +1498,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Bakanlığın 2025 faaliyet raporunda, iklim dostu akıllı tarım teknoloji sistemleri kullanan",
+   "konum": "önce",
    "sayfa": "b20"
   },
   "b02-uydu-konumuyla-otomatik-dumenleme": {
@@ -1461,6 +1522,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e,",
+   "konum": "sonra",
    "sayfa": "b02"
   },
   "b03-landsat-1-uydusu": {
@@ -1484,6 +1546,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Landsat 1, 23 Temmuz 1972'de fırlatıldı. NASA'nın anlatımına göre ABD,",
+   "konum": "sonra",
    "sayfa": "b03"
   },
   "b03-gps-block-ii-uydusu": {
@@ -1507,6 +1570,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Hassas tarımın temeli uydudan konum. 16 Eylül 1983'te, Sovyetlerin bir",
+   "konum": "sonra",
    "sayfa": "b03"
   },
   "b03-sentinel-2a-nin-firlatilisi": {
@@ -1530,6 +1594,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "ABD 2008'de Landsat arşivini ücretsiz yaptı; NASA'ya göre veri kullanımı",
+   "konum": "sonra",
    "sayfa": "b03"
   },
   "b12-sagim-robotu": {
@@ -1553,6 +1618,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Tek çalışmalar çok daha yüksek rakamlar bildirebiliyor. Muğla Sıtkı Koçman",
+   "konum": "sonra",
    "sayfa": "b12"
   },
   "b13-dikey-tarim-kapali-cok-katli-uretim": {
@@ -1576,6 +1642,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Dikey tarım iklime dayanıklı, pestisit ve gübre salımını sıfıra indirebilen,",
+   "konum": "sonra",
    "sayfa": "b13"
   },
   "b14-turkiye-de-deniz-kafeslerinde-balik": {
@@ -1599,6 +1666,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Bakanlığın verisine göre Türkiye'de 2025'te **1.037.019** ton su ürünü üretildi:",
+   "konum": "sonra",
    "sayfa": "b14"
   },
   "b16-toptanci-hali": {
@@ -1622,6 +1690,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012;",
+   "konum": "sonra",
    "sayfa": "b16"
   },
   "b19-sentinel-2c-nin-vega-roketiyle": {
@@ -1645,6 +1714,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Avrupa'nın Copernicus programındaki Sentinel-2, aynı yörüngede uçan ikiz uydularla ekvatorda",
+   "konum": "sonra",
    "sayfa": "b19"
   },
   "b24-otonom-mobil-tarim-makinesi": {
@@ -1668,6 +1738,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Makine Tüzüğü (2023/1230) 14 Ocak 2027'den itibaren uygulanacak. Makine öğrenmesiyle",
+   "konum": "sonra",
    "sayfa": "b24"
   },
   "b28-halter-sanal-cit-tasmasi": {
@@ -1691,6 +1762,7 @@
    "tur": "foto",
    "yapay_zeka": false,
    "yer": "Yeni Zelanda'nın Canterbury ve Waikato bölgelerinde, meraya dayalı süt işletmelerinde",
+   "konum": "sonra",
    "sayfa": "b28"
   },
   "b02-verim-haritasi": {
@@ -1714,6 +1786,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e,",
+   "konum": "önce",
    "sayfa": "b02",
    "lejant": {
     "tr": "Görseldeki yazılar: Estimated Volume (Dry) (bu/ac) = tahmini kuru verim (akre başına buşel); parantez içindeki ac = sınıfın kapladığı alan (akre)."
@@ -1740,7 +1813,8 @@
    "lisans_notu": "arXiv sayfasında 'License: CC BY-NC-ND 4.0' yazıyor (ticari olmayan, türev yok). arxiv.org robots.txt /html/ yolunu '*' için kapatmıyor; yapay zekâ ajanlarına özel engel yok.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Aynı deneme bir şeyi daha ölçtü: ilaçlamadan sonraki günlerde tarladan çıkan sudaki ilaç."
+   "yer": "Aynı deneme bir şeyi daha ölçtü: ilaçlamadan sonraki günlerde tarladan çıkan sudaki ilaç.",
+   "konum": "sonra"
   },
   "b08-hedefli-ilaclamanin-isleyisi-kamera": {
    "sayfa": "b08",
@@ -1764,6 +1838,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Geleneksel ilaçlama tarlanın tamamına aynı dozu atar; buna yayma ilaçlama deniyor.",
+   "konum": "sonra",
    "dosya_tr": "web/yz/gorsel/b08-hedefli-ilaclamanin-isleyisi-kamera.tr.webp",
    "sha256_tr": "65446823216d5a04ead6b771edd8aca3fa6f6fa1fee3465e7b0f0aa70d067c8b"
   },
@@ -1789,6 +1864,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "İki ayrı durum var ve ayrımı yapmadan hiçbir rakam okunamaz.",
+   "konum": "sonra",
    "dosya_tr": "web/yz/gorsel/b08-nadasta-ciplak-toprakta-yesil-ot.tr.webp",
    "sha256_tr": "5abaab418438ae14c47f5799a97742ffe3a4547723bf2def124fa70f075f4b8f"
   },
@@ -1813,7 +1889,8 @@
    "lisans_notu": "Kamu kurumu yayını; PDF'te kullanım koşulu ya da yasak ifadesi görülmedi. arastirma.tarimorman.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; PDF yolu '*' için açık. Haritanın altında kendi veri notu var: 'Kaynak: Google Earth Engine üzerinden üretilen MODIS MOD13Q1/MYD13Q1 NDVI anomalisi.'",
    "tur": "harita",
    "yapay_zeka": false,
-   "yer": "Bu bültenlerin hepsi bugün Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü'nün AGROSENS sayfasında listeleniyor"
+   "yer": "Bu bültenlerin hepsi bugün Toprak Gübre ve Su Kaynakları Merkez Araştırma Enstitüsü'nün AGROSENS sayfasında listeleniyor",
+   "konum": "sonra"
   },
   "b10-sweeper-biber-hasat-robotunun-uc": {
    "sayfa": "b10",
@@ -1836,7 +1913,8 @@
    "lisans_notu": "CORDIS yasal bildirimi: AB'ye ait içerik CC BY 4.0; üçüncü taraf fotoğrafları için hak sahibine bakılması isteniyor. Hak sahibi SWEEPER konsorsiyumu; WUR'un proje sayfası robot fotoğraflarının 'Source: www.sweeper-robot.eu' kaydıyla yayınlarda kullanılabileceğini yazıyordu (sayfa bugün 404, ifade arama sonucundan). cordis.europa.eu robots.txt /docs/results/ yolunu kapatmıyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Seçici hasat robotu üç işi birden yapmak zorunda: meyveyi kameradan tanıyıp yerini bulmak"
+   "yer": "Seçici hasat robotu üç işi birden yapmak zorunda: meyveyi kameradan tanıyıp yerini bulmak",
+   "konum": "sonra"
   },
   "t-goruntu-hasat-robotunun-gozu-sweeper-in": {
    "sayfa": "tek_goruntu",
@@ -1858,7 +1936,8 @@
    "lisans_notu": "CORDIS yasal bildirimi: AB'ye ait içerik CC BY 4.0; üçüncü taraf görselleri için hak sahibine bakılması isteniyor. Hak sahibi SWEEPER konsorsiyumu; WUR proje görsellerinin 'Source: www.sweeper-robot.eu' kaydıyla kullanılabileceğini yazıyordu. cordis.europa.eu robots.txt yolu kapatmıyor.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Hasat robotlarında da göz en iyi işleyen halka. Bac ve arkadaşlarının (2014) derlediği"
+   "yer": "Hasat robotlarında da göz en iyi işleyen halka. Bac ve arkadaşlarının (2014) derlediği",
+   "konum": "sonra"
   },
   "b10-parcali-arazi-yapisi-burdur-yesilova": {
    "sayfa": "b10",
@@ -1881,7 +1960,8 @@
    "lisans_notu": "DergiPark makale sayfasında ve PDF'te açık bir lisans ifadesi görülmedi; yeniden kullanımı yasaklayan bir ifade de yok. dergipark.org.tr robots.txt indirme yolunu '*' için kapatmıyor.",
    "tur": "harita",
    "yapay_zeka": false,
-   "yer": "2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim"
+   "yer": "2027 Programı, işletmelerin küçük ölçekli, parçalı ve dağınık arazi yapısının mekanizasyonun ve modern üretim",
+   "konum": "sonra"
   },
   "b11-meyve-boylamasinda-makine-gorusunun": {
    "sayfa": "b11",
@@ -1905,6 +1985,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Sınıflandırmada makine görüşü yeni değil: paketleme tesislerinde meyve ve sebze boylaması son otuz yılda",
+   "konum": "sonra",
    "lejant": {
     "tr": "Görseldeki yazılar: Emlid GNSS = Emlid GNSS alıcısı; LED light panels = LED aydınlatma panelleri; Basler cameras = Basler kameraları; Generator = jeneratör; Computer = bilgisayar."
    }
@@ -1930,7 +2011,8 @@
    "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni). Fotoğrafların çekenleri şekil altyazısında adıyla yazılı (N. Tonachella, M. Martinoli, F. Capoccioni). nature.com robots'u yapay zekâ ajanlarını kapattığı için yayıncı sayfası açılmadı; büyük sürüm media.springernature.com'da (robots '*' için açık). PMC'deki küçük sürüm: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea26/9485232/0d34b37776f7/41598_2022_19932_Fig4_HTML.jpg (708x926).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Su ürünlerinde dijital teknoloji iki ayrı dünyada çalışıyor. Yetiştiricilikte kafeslerde ve havuzlarda kameralar"
+   "yer": "Su ürünlerinde dijital teknoloji iki ayrı dünyada çalışıyor. Yetiştiricilikte kafeslerde ve havuzlarda kameralar",
+   "konum": "sonra"
   },
   "b14-kafes-ici-su-alti-goruntusunde-yapay": {
    "sayfa": "b14",
@@ -1953,7 +2035,8 @@
    "lisans_notu": "Makale CC BY 4.0 (PMC sayfasındaki lisans metni). Büyük sürüm media.springernature.com'da (robots '*' için açık); PMC'deki küçük sürüm: https://cdn.ncbi.nlm.nih.gov/pmc/blobs/ea26/9485232/ddcd01308e58/41598_2022_19932_Fig5_HTML.jpg (708x792).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Yetiştiricilikte derin öğrenme canlı balık tanıma, tür sınıflandırma, davranış analizi, yemleme kararları"
+   "yer": "Yetiştiricilikte derin öğrenme canlı balık tanıma, tür sınıflandırma, davranış analizi, yemleme kararları",
+   "konum": "sonra"
   },
   "t-goruntu-tanzanya-daki-saha-denemesinde": {
    "sayfa": "tek_goruntu",
@@ -1975,7 +2058,8 @@
    "lisans_notu": "Makale CC BY (Frontiers sayfasındaki telif bildirimi). frontiersin.org robots.txt /files/ yolunu '*' için kapatmıyor. JPG sürümü (765x508): https://www.frontiersin.org/files/Articles/425916/fpls-10-00272-HTML-r1/image_m/fpls-10-00272-g003.jpg.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Telefona taşınan modeller tarlada aynı sınavı verdi. Tanzanya'da bir manyok modelinin F-1 skoru"
+   "yer": "Telefona taşınan modeller tarlada aynı sınavı verdi. Tanzanya'da bir manyok modelinin F-1 skoru",
+   "konum": "sonra"
   },
   "t-goruntu-bursa-karacabey-domates-calismasinda": {
    "sayfa": "tek_goruntu",
@@ -1997,7 +2081,8 @@
    "lisans_notu": "Makale CC BY (Frontiers sayfasındaki telif bildirimi). frontiersin.org robots.txt /files/ yolunu kapatmıyor.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Akademiden gelen rakamlar yüksek, ama tanımanın başarısını ölçüyor: kokarcanın zarar verdiği fındıklar"
+   "yer": "Akademiden gelen rakamlar yüksek, ama tanımanın başarısını ölçüyor: kokarcanın zarar verdiği fındıklar",
+   "konum": "sonra"
   },
   "t-goruntu-avustralya-seker-kamisi": {
    "sayfa": "tek_goruntu",
@@ -2020,6 +2105,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Tanıma tarlada da yüksek çıkabiliyor: Almanya'daki mısır denemesinde insansız hava aracı görüntülerinde",
+   "konum": "sonra",
    "lejant": {
     "tr": "Görseldeki yazılar: Spray Application = ilaç atılan alan; Spray Trial Boundary = deneme alanının sınırı; Spray Trial 1-6 = ilaçlama denemesi 1-6."
    }
@@ -2044,7 +2130,8 @@
    "lisans_notu": "PDF'in son sayfasında: '© 2020 by the authors. Licensee MDPI ... Creative Commons Attribution (CC BY) license'. Dosya MDPI'nin kaynak sunucusunda (mdpi-res.com); robots.txt 404 (kısıt yok), indirme doğrudan açıldı, bot sınaması yok. mdpi.com makale sayfası bot korumalı olduğu için açılmadı; sayfa adresi olarak DOI verildi. Kamera karesi HPWREN ağına ait (karede 'hpwren.ucsd.edu' damgası).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Ormanda kamera ölçeği değiştiriyor: Güney Kaliforniya'da yüzlerce kamerayı dakikada bir tarayan bir prototip"
+   "yer": "Ormanda kamera ölçeği değiştiriyor: Güney Kaliforniya'da yüzlerce kamerayı dakikada bir tarayan bir prototip",
+   "konum": "sonra"
   },
   "t-tahmin-graphcast-in-calisma-semasi-hava": {
    "sayfa": "tek_tahmin",
@@ -2066,7 +2153,8 @@
    "lisans_notu": "arXiv kaydının lisansı CC BY 4.0 (arxiv.org/abs/2212.12794'teki lisans bağlantısı). science.org robots'u yapay zekâ ajanlarını kapattığı için dergi sürümüne gidilmedi. arxiv.org robots.txt /html/ yolunu kapatmıyor.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Geçmiş hava verisinden öğrenen bir makine öğrenmesi modeli olan GraphCast (Lam ve arkadaşları, 2023)"
+   "yer": "Geçmiş hava verisinden öğrenen bir makine öğrenmesi modeli olan GraphCast (Lam ve arkadaşları, 2023)",
+   "konum": "sonra"
   },
   "t-robotik-hands-free-hectare-surucusuz": {
    "sayfa": "tek_robotik",
@@ -2088,7 +2176,8 @@
    "lisans_notu": "GOV.UK altbilgisi: 'All content is available under the Open Government Licence v3.0, except where otherwise stated'; görselin yanında ayrı hak bildirimi görülmedi. www.gov.uk robots.txt haber yolunu, assets.publishing.service.gov.uk robots.txt (404) görsel yolunu kapatmıyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Tam otonomi görece az yayıldı: Eurostat'a göre 2023'te AB çiftliklerinin yaklaşık"
+   "yer": "Tam otonomi görece az yayıldı: Eurostat'a göre 2023'te AB çiftliklerinin yaklaşık",
+   "konum": "sonra"
   },
   "t-robotik-sweeper-biber-hasat-robotu-ticari": {
    "sayfa": "tek_robotik",
@@ -2110,7 +2199,8 @@
    "lisans_notu": "CORDIS yasal bildirimi: AB'ye ait içerik CC BY 4.0; üçüncü taraf fotoğrafları için hak sahibine bakılması isteniyor. Hak sahibi SWEEPER konsorsiyumu; WUR robot fotoğraflarının 'Source: www.sweeper-robot.eu' kaydıyla kullanılabileceğini yazıyordu. cordis.europa.eu robots.txt yolu kapatmıyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Hasat robotu meyveyi bulmak, dalların arasından ona uzanmak ve ezmeden koparmak zorunda."
+   "yer": "Hasat robotu meyveyi bulmak, dalların arasından ona uzanmak ve ezmeden koparmak zorunda.",
+   "konum": "sonra"
   },
   "t-robotik-tekirdag-da-serada-patlicani": {
    "sayfa": "tek_robotik",
@@ -2132,7 +2222,8 @@
    "lisans_notu": "Makale sayfasında 'This work is licensed under a Creative Commons Attribution 4.0 License' yazıyor. ccsenet.org robots.txt makale ve PDF yolunu '*' için kapatmıyor.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Tekirdağ Namık Kemal Üniversitesi'nden Kahya'nın 2024 tarihli iki çalışması patlıcan ve kabak hasadı için"
+   "yer": "Tekirdağ Namık Kemal Üniversitesi'nden Kahya'nın 2024 tarihli iki çalışması patlıcan ve kabak hasadı için",
+   "konum": "önce"
   },
   "b15-orman-genel-mudurlugu-nun-yapay-zeka": {
    "sayfa": "b15",
@@ -2155,7 +2246,8 @@
    "lisans_notu": "ogm.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; sayfa ve görsel yolu açık. Haber sayfasında hak bildirimi ya da kullanım koşulları bağlantısı yok; açık indirme/yeniden kullanım yasağı görülmedi.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor"
+   "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri yerli imkânlarla geliştirilmiş bir Karar Destek Sistemi kullanıyor",
+   "konum": "sonra"
   },
   "b15-kamerali-insansiz-yangin-gozetleme": {
    "sayfa": "b15",
@@ -2178,7 +2270,8 @@
    "lisans_notu": "ogm.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; sayfa ve görsel yolu açık. Haber sayfasında hak bildirimi ya da kullanım koşulları bağlantısı yok. Dosyanın EXIF/IPTC bilgisinde ajans ya da çeken adı yok (yalnız 'Adobe Photoshop Camera', 7 Aralık 2022); aynı haberin ajans kopyası aramada görülmedi.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin"
+   "yer": "Erken tespitte Türkiye'nin geçmişi uzun. TÜBİTAK'ın 2013 duyurusuna göre Orman Genel Müdürlüğü ile Bilkent Üniversitesi'nin",
+   "konum": "sonra"
   },
   "b16-hal-kayit-sistemi-nin-karekodlu-urun": {
    "sayfa": "b16",
@@ -2201,7 +2294,8 @@
    "lisans_notu": "ticaret.gov.tr robots.txt sayfa ve görsel yolunu kapatmıyor. Site alt bilgisinde 'Tüm Hakları Saklıdır' ibaresi var (tek başına açık indirme/yeniden kullanım yasağı değil); ayrı kullanım koşulları sayfası bulunamadı (yalnız çerez politikası var). Haber sayfasındaki görsel bağlantısı artık çözümlenmeyen eski alan adını (www.gtb.gov.tr) gösteriyor; aynı dosya ticaret.gov.tr altında aynı yolla erişilebiliyor (HTTP 200).",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012; son değişiklik 2023) göre Hal Kayıt Sistemi (HKS)"
+   "yer": "Sebze ve Meyve Ticareti ve Toptancı Halleri Hakkında Yönetmelik'e (2012; son değişiklik 2023) göre Hal Kayıt Sistemi (HKS)",
+   "konum": "sonra"
   },
   "b19-uydunun-bitki-ortusunu-olcme-ilkesi": {
    "sayfa": "b19",
@@ -2225,6 +2319,7 @@
    "tur": "gorsel",
    "yapay_zeka": false,
    "yer": "Uydu, tarlayı birkaç günde bir, aynı yöntemle ve geniş alanda gören bir ölçüm aracı. Bitki örtüsünün yansıttığı ışık",
+   "konum": "sonra",
    "dosya_tr": "web/yz/gorsel/b19-uydunun-bitki-ortusunu-olcme-ilkesi.tr.webp",
    "sha256_tr": "caf35a73ba848e963cf3d35c11bb20ee647afe32b9d259a0691d5a444a22d7e2"
   },
@@ -2249,7 +2344,8 @@
    "lisans_notu": "isparta.tarimorman.gov.tr robots.txt yalnız SharePoint sistem yollarını kapatıyor (ilk turla aynı il alt alanı yapısı); sayfa ve görsel yolu açık. Sayfada açık indirme/yeniden kullanım yasağı görülmedi. Dosyanın XMP bilgisinde yalnız haber başlığı ve 12 Ağustos 2025 tarihi var; ajans ya da çeken adı yok.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "2027 Programı'na göre Bakanlık ile TÜİK'in iş birliğinde yürütülen Genel Tarım Sayımı'nın saha çalışmalarında"
+   "yer": "2027 Programı'na göre Bakanlık ile TÜİK'in iş birliğinde yürütülen Genel Tarım Sayımı'nın saha çalışmalarında",
+   "konum": "sonra"
   },
   "t-uzaktan-ciftlikte-hassas-azot-denemesi": {
    "sayfa": "tek_uzaktan",
@@ -2271,7 +2367,8 @@
    "lisans_notu": "CC BY 4.0 (Crossref lisans kaydı: yayıncı sürümü ve metin madenciliği için CC BY 4.0). Görsel Springer Nature'ın görsel sunucusundan (media.springernature.com; robots.txt 'Allow: /'). Makale sayfası (link.springer.com) bot korumalı olduğu için açılmadı; şekil altyazısı okunamadı, künye şeklin üzerindeki etiketlerden ve makale özetinden yazıldı.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Soru verim ya da doz olunca tablo değişiyor. Uydu, toprak ve arazi değişkenleriyle"
+   "yer": "Soru verim ya da doz olunca tablo değişiyor. Uydu, toprak ve arazi değişkenleriyle",
+   "konum": "sonra"
   },
   "t-uzaktan-yozgat-ta-urun-beyaninin-uydu": {
    "sayfa": "tek_uzaktan",
@@ -2293,7 +2390,8 @@
    "lisans_notu": "CC BY-NC-ND 4.0 (dergi sayfasındaki lisans): ticari olmayan kullanım, atıf, DEĞİŞTİRMEDEN; şekil olduğu gibi alınmalı (etiketler zaten Türkçe; İngilizce sürümde de çevrilmeden kullanılmalı). dergipark.org.tr robots.txt makale sayfasını ve PDF yolunu kapatmıyor; PDF şifresiz.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Yerden toplanan veri de sonucu belirliyor: kışlık ürünlerin referans parsellerinin hasattan önce yeterli yoğunlukta"
+   "yer": "Yerden toplanan veri de sonucu belirliyor: kışlık ürünlerin referans parsellerinin hasattan önce yeterli yoğunlukta",
+   "konum": "sonra"
   },
   "t-sensor-nebraska-da-bitki-ortusu-sensoruyle": {
    "sayfa": "tek_sensor",
@@ -2316,6 +2414,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Kazancın büyüklüğü, sensörün neyin yerine geçtiğine bağlı: Datta ve Taghvaeian'ın (2023) derlemesinde",
+   "konum": "sonra",
    "lejant": {
     "tr": "Görseldeki yazılar: 2020 Sites / 2019 Sites = 2020 / 2019 deneme yerleri; NE_Cities = Nebraska kentleri; NE_NRDs = Nebraska doğal kaynak bölgeleri; NE_Counties = Nebraska ilçeleri; Treatments = uygulamalar; Active Sensor Management = aktif sensörle yönetim; Grower = üreticinin uygulaması; High N Reference = yüksek azotlu karşılaştırma; Rate Block - Grower Timing = doz bloğu, üreticinin zamanlaması; Rate Block - Sensor-Based Timing = doz bloğu, sensöre dayalı zamanlama."
    }
@@ -2340,7 +2439,8 @@
    "lisans_notu": "arXiv kaydındaki lisans CC BY-NC-SA 4.0 (ticari olmayan kullanım, atıf, aynı lisansla paylaşım; değiştirilmiş hâli de aynı lisansla). arxiv.org robots.txt /html ve /abs yollarını açık tutuyor (ilk turda GraphCast şekilleri de buradan alındı).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Hindistan'ın sesle çalışan, yapay zekâlı sohbet robotu Kisan e-Mitra 2023'te devlet programlarına dair soruları"
+   "yer": "Hindistan'ın sesle çalışan, yapay zekâlı sohbet robotu Kisan e-Mitra 2023'te devlet programlarına dair soruları",
+   "konum": "sonra"
   },
   "t-dil-zararliyi-goruntuden-taniyan-model": {
    "sayfa": "tek_dil",
@@ -2363,6 +2463,7 @@
    "tur": "sema",
    "yapay_zeka": false,
    "yer": "Karamanoğlu Mehmetbey Üniversitesi'nden bir çalışma (Eldem ve Eldem, 2026), dört seçenekli",
+   "konum": "sonra",
    "dosya_tr": "web/yz/gorsel/t-dil-zararliyi-goruntuden-taniyan-model.tr.webp",
    "sha256_tr": "5e7a0b30e9118e147a6340950da43247f3e86927af88355d24ec16b819b5f3ec"
   },
@@ -2387,7 +2488,8 @@
    "lisans_notu": "Açık lisans yok. Sayfa altbilgisi yalnız '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.' diyor; indirmeyi ya da kaynak göstererek yeniden kullanımı açıkça yasaklayan bir koşul görülmedi. kayseri.tarimorman.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; haber sayfası ve /FotografGalerisi/ açık. Fotoğrafçı adı verilmemiş.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Türkiye Yapay Zekâ Eylem Planı (2026-2030) tarımı öncelikli dört sektörden biri sayıyor"
+   "yer": "Türkiye Yapay Zekâ Eylem Planı (2026-2030) tarımı öncelikli dört sektörden biri sayıyor",
+   "konum": "sonra"
   },
   "b02-ers-nin-dijital-tarim-bilesenleri": {
    "sayfa": "b02",
@@ -2410,7 +2512,8 @@
    "lisans_notu": "Şeklin altında 'Source: USDA, Economic Research Service illustration.' yazıyor; ABD federal kurumu çalışması (17 U.S.C. §105), kamu malı. ers.usda.gov robots.txt PDF yolunu ve yayın sayfasını kapatmıyor (yalnız birkaç sistem yolu kapalı).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "ERS dijital tarımı tarım işlerinin dijitalleşmesini ve otomasyonunu kapsayan bir dönüşüm olarak tanımlıyor"
+   "yer": "ERS dijital tarımı tarım işlerinin dijitalleşmesini ve otomasyonunu kapsayan bir dönüşüm olarak tanımlıyor",
+   "konum": "sonra"
   },
   "b02-cema-nin-dijital-tarim-tarifi": {
    "sayfa": "b02",
@@ -2433,7 +2536,8 @@
    "lisans_notu": "Belgede lisans ya da telif ibaresi yok. cema-agri.org'da robots.txt yok (404: kısıt yok); ana sayfada ve gizlilik politikasında indirmeyi ya da yeniden kullanımı yasaklayan bir ifade görülmedi.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Öbür kurumların sıralaması farklı. FAO'nun 2020 tarihli bir yayınına göre Tarım 4.0"
+   "yer": "Öbür kurumların sıralaması farklı. FAO'nun 2020 tarihli bir yayınına göre Tarım 4.0",
+   "konum": "sonra"
   },
   "b03-lacie-nin-teknik-yaklasimi-landsat": {
    "sayfa": "b03",
@@ -2456,7 +2560,8 @@
    "lisans_notu": "NTRS kaydı (api/citations/19790010237): dağıtım 'PUBLIC', telif belirlemesi 'GOV_PUBLIC_USE_PERMITTED' (ABD hükümeti çalışması, kamuya açık kullanım serbest). ntrs.nasa.gov robots.txt 'Allow: /'.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "NASA, ABD Tarım Bakanlığı ve Ulusal Okyanus ve Atmosfer İdaresi'nin (NOAA) ortak deneyi LACIE 1974'te başladı"
+   "yer": "NASA, ABD Tarım Bakanlığı ve Ulusal Okyanus ve Atmosfer İdaresi'nin (NOAA) ortak deneyi LACIE 1974'te başladı",
+   "konum": "sonra"
   },
   "b03-tarbil-zirai-gozlem-ve-meteoroloji": {
    "sayfa": "b03",
@@ -2479,7 +2584,8 @@
    "lisans_notu": "Açık lisans yok; site altbilgisi '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.' — indirmeyi ya da kaynak göstererek kullanımı açıkça yasaklayan bir koşul görülmedi. kirsehir.tarimorman.gov.tr robots.txt haber sayfasını ve /FotografGalerisi/ yolunu kapatmıyor. Fotoğrafçı adı yok.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Bakanlığın sayfasına göre Tarımsal İzleme ve Bilgi Sistemi (TARBİL), 2008'de"
+   "yer": "Bakanlığın sayfasına göre Tarımsal İzleme ve Bilgi Sistemi (TARBİL), 2008'de",
+   "konum": "sonra"
   },
   "b04-turkiye-de-detayli-toprak-etudu": {
    "sayfa": "b04",
@@ -2502,7 +2608,8 @@
    "lisans_notu": "Açık lisans yok; il müdürlüğü sitelerinin altbilgisi '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.' — indirmeyi ya da kaynak göstererek kullanımı açıkça yasaklayan bir koşul görülmedi. balikesir.tarimorman.gov.tr robots.txt haber sayfasını ve /FotografGalerisi/ yolunu kapatmıyor. Fotoğrafçı adı yok; dosya adı biçimi fotoğrafın önce kurumun sosyal medya hesabında paylaşıldığını düşündürüyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Klasik toprak etüdünde uzman araziye çıkar, profil açar, örnek alır"
+   "yer": "Klasik toprak etüdünde uzman araziye çıkar, profil açar, örnek alır",
+   "konum": "sonra"
   },
   "b04-soilgrids-2-0-yerel-olcekte": {
    "sayfa": "b04",
@@ -2525,7 +2632,8 @@
    "lisans_notu": "Makale CC BY 4.0 (Copernicus Publications). Şeklin altlığı Google Earth (şekil açıklamasında '© Google Earth'); üçüncü taraf altlık olduğu için atıf korunmalı. soil.copernicus.org robots.txt kısıt koymuyor (ilk turda da kullanıldı).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Tarla ölçeğine inildiğinde ise ABD'de, ayrıntılı saha etüdüne dayanan ulusal toprak veritabanıyla"
+   "yer": "Tarla ölçeğine inildiğinde ise ABD'de, ayrıntılı saha etüdüne dayanan ulusal toprak veritabanıyla",
+   "konum": "sonra"
   },
   "b05-turkiye-de-yerel-bugday-ulusal": {
    "sayfa": "b05",
@@ -2548,7 +2656,8 @@
    "lisans_notu": "© FAO, 2015. Kitabın künye sayfası: 'FAO encourages the use, reproduction and dissemination of material in this information product'; kaynak ve hak sahibi olarak FAO'ya atıfla ticari olmayan ürünlerde kopyalama/indirme serbest, çeviri-uyarlama ve ticari kullanım için izin isteniyor. Harita zaten Türkçe il adlı; yeniden çizim/uyarlama gerekirse FAO izni gerekebilir. fao.org ve openknowledge.fao.org robots.txt bu yolları kapatmıyor.",
    "tur": "harita",
    "yapay_zeka": false,
-   "yer": "Program genetik kaynak tarafında da iz bıraktı: 2009-2014'te Türkiye'de yerel buğdayların ulusal envanterini çıkardı"
+   "yer": "Program genetik kaynak tarafında da iz bıraktı: 2009-2014'te Türkiye'de yerel buğdayların ulusal envanterini çıkardı",
+   "konum": "önce"
   },
   "b06-cankiri-da-300-hektarlik-bugday": {
    "sayfa": "b06",
@@ -2571,7 +2680,8 @@
    "lisans_notu": "DergiPark makale sayfası: Creative Commons Atıf-GayriTicari-Türetilemez 4.0 (CC BY-NC-ND 4.0); kırpma dışında değişiklik (çeviri, yeniden çizim) türetme sayılabilir. dergipark.org.tr robots.txt makale ve indirme yollarını kapatmıyor (yalnız login/search).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Sahadan bir ölçüm de var. Çankırı merkezine"
+   "yer": "Sahadan bir ölçüm de var. Çankırı merkezine",
+   "konum": "sonra"
   },
   "b07-tagem-suet-uygulama-ekrani-referans": {
    "sayfa": "b07",
@@ -2594,7 +2704,8 @@
    "lisans_notu": "Makale sayfasında ve PDF'te lisans ibaresi bulunamadı; indirmeyi ya da yeniden kullanımı yasaklayan bir koşul da görülmedi. dergipark.org.tr robots.txt makale ve indirme yollarını kapatmıyor. Ekran görüntüsündeki arayüz TAGEM'in; SuET kılavuzu sistemin içerik kullanım hakkının TAGEM'e ait olduğunu ve ticari amaçla kullanılamayacağını yazıyor (kılavuz www.tarimorman.gov.tr'de, robots kapalı; bilgi arama özetinden).",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı"
+   "yer": "Dijital tarafta iki tedbir var. Uzaktan algılama ve coğrafi bilgi sistemleriyle sulama programı",
+   "konum": "sonra"
   },
   "t-genomik-holstein-genomik-seciliminin": {
    "sayfa": "tek_genomik",
@@ -2616,7 +2727,8 @@
    "lisans_notu": "ARS görüntü galerisinin telif sayfası (ars.usda.gov/oc/images/copyright): galerideki fotoğraflar aksi belirtilmedikçe ücretsiz, telifsiz, kamu malı; 'Photo by (fotoğrafçı), USDA Agricultural Research Service' biçiminde atıf isteniyor. ars.usda.gov robots.txt '*' için kural koymuyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Hayvanda zaman kazancı doğrudan kuşak aralığında görülüyor: García-Ruiz ve arkadaşlarının (2016)"
+   "yer": "Hayvanda zaman kazancı doğrudan kuşak aralığında görülüyor: García-Ruiz ve arkadaşlarının (2016)",
+   "konum": "sonra"
   },
   "t-genomik-dna-isaretleyicilerini-okuyan-cip": {
    "sayfa": "tek_genomik",
@@ -2638,7 +2750,8 @@
    "lisans_notu": "ARS görüntü galerisi: fotoğraflar aksi belirtilmedikçe ücretsiz, telifsiz, kamu malı; 'Photo by (fotoğrafçı), USDA Agricultural Research Service' atfı isteniyor. ars.usda.gov robots.txt '*' için kural koymuyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Genomik seçilim, bir bitkinin ya da hayvanın genetik değerini tarladaki denemenin"
+   "yer": "Genomik seçilim, bir bitkinin ya da hayvanın genetik değerini tarladaki denemenin",
+   "konum": "sonra"
   },
   "t-karar-ogm-yangin-karar-destek-sistemi": {
    "sayfa": "tek_karar",
@@ -2660,7 +2773,8 @@
    "lisans_notu": "Açık lisans yok; sayfada telif, izin ya da yeniden kullanım yasağı ibaresi görülmedi. ogm.gov.tr robots.txt yalnız /_layouts/, /_vti_bin/, /_catalogs/ yollarını kapatıyor; haber sayfası ve görsel yolu açık.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini"
+   "yer": "Bakanlığın 2024 tarihli haberine göre Orman Genel Müdürlüğü 2022'den beri meteoroloji verisini",
+   "konum": "sonra"
   },
   "b27-appharvest-in-satin-aldigi-root-ai": {
    "sayfa": "b27",
@@ -2683,7 +2797,8 @@
    "lisans_notu": "Şirketin kendi tanıtım fotoğrafı; dosyanın EXIF telif kaydı 'www.chrisradcliffephotography.com 2020'. appharvest.com robots.txt '*' için yalnız /wp-admin/ yolunu kapatıyor (Crawl-delay: 10; istekler 10 sn arayla yapıldı). Site Ocak 2025'ten beri bakım modunda ('© AppHarvest 2025'); WordPress sayfa listesinde kullanım koşulları sayfası yok (yalnız içeriği boş bir 'privacy' sayfası), açık indirme ya da yeniden kullanım yasağı görülmedi. Oturum ya da bot koruması yok.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "**AppHarvest.** Kapalı ortamda üretim yapan ABD'li AppHarvest, 8 Nisan 2021'de tarım robotu ve yapay zekâ şirketi Root AI'ı satın aldığını duyurdu."
+   "yer": "**AppHarvest.** Kapalı ortamda üretim yapan ABD'li AppHarvest, 8 Nisan 2021'de tarım robotu ve yapay zekâ şirketi Root AI'ı satın aldığını duyurdu.",
+   "konum": "sonra"
   },
   "b27-appharvest-in-morehead-sera-ciftligi": {
    "sayfa": "b27",
@@ -2706,7 +2821,8 @@
    "lisans_notu": "Şirketin kendi tanıtım fotoğrafı (dosyada telif ya da fotoğrafçı kaydı yok). appharvest.com robots.txt '*' için yalnız /wp-admin/ yolunu kapatıyor (Crawl-delay: 10). Site Ocak 2025'ten beri bakım modunda; kullanım koşulları sayfası yok, açık indirme ya da yeniden kullanım yasağı görülmedi. Oturum ya da bot koruması yok.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "23 Temmuz 2023'te AppHarvest Products, LLC ve on bir bağlı şirket, ABD İflas Kanunu'nun Chapter 11 hükümleri uyarınca koruma başvurusu yaptı."
+   "yer": "23 Temmuz 2023'te AppHarvest Products, LLC ve on bir bağlı şirket, ABD İflas Kanunu'nun Chapter 11 hükümleri uyarınca koruma başvurusu yaptı.",
+   "konum": "sonra"
   },
   "b27-infarm-in-metro-nanterre": {
    "sayfa": "b27",
@@ -2729,7 +2845,8 @@
    "lisans_notu": "Makale sayfasındaki ifade: 'The text only may be used under licence CC BY 4.0. All other elements (illustrations, imported files) may be subject to specific use terms.' Fotoğraf CC BY değil (©Maja Bialon); sayfada açık indirme ya da yeniden kullanım yasağı yok. journals.openedition.org robots.txt sayfa ve görsel yolunu kapatmıyor. Sitede Anubis tarayıcı doğrulaması (JavaScript iş ispatı) var: curl gibi istemcilere sayfa yerine doğrulama ekranı dönüyor, normal tarayıcı kendiliğinden geçiyor; görsel dosyası doğrulamasız, doğrudan iniyor (doğrulama aşılmadı). OpenEdition Journals kullanıcı koşulları amubox.univ-amu.fr'de; o alanın robots.txt'si her yolu kapattığı için koşullar okunmadı. Aynı fotoğrafın bulunduğu Veolia Enstitüsü PDF'i önerilmedi: institut.veolia.org yasal uyarısı içeriğin kopyalanmasını, çoğaltılmasını ve yayımlanmasını açıkça yasaklıyor.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "**Infarm.** Kentlerde dikey tarım yapan Infarm, 16 Aralık 2021'de **200** milyon dolar yatırım aldığını duyurdu;"
+   "yer": "**Infarm.** Kentlerde dikey tarım yapan Infarm, 16 Aralık 2021'de **200** milyon dolar yatırım aldığını duyurdu;",
+   "konum": "sonra"
   },
   "b27-small-robot-company-nin-yapay-zeka": {
    "sayfa": "b27",
@@ -2752,7 +2869,8 @@
    "lisans_notu": "Şirketin kendi sitesi; GitHub Pages'te, şirketin smallssd veri seti deposunun da bulunduğu 'SmallRobotCompany' kuruluş hesabında. Altbilgi: '© Copyright 2022 Small Robot Company- All Rights Reserved' (şirket no. 10846464); kullanım koşulları sayfası yok, açık indirme ya da yeniden kullanım yasağı görülmedi. smallrobotcompany.github.io robots.txt 404 (kısıt yok); oturum ya da bot koruması yok. Asıl alan adı smallrobotcompany.com artık yanıt vermiyor.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "**Small Robot Company.** Birleşik Krallık'taki tarım robotu girişimi Small Robot Company, 2020'de robotik tarım sisteminin merkezine yapay zekâ destekli bir tavsiye motoru, Wilma'yı koyduğunu duyurdu."
+   "yer": "**Small Robot Company.** Birleşik Krallık'taki tarım robotu girişimi Small Robot Company, 2020'de robotik tarım sisteminin merkezine yapay zekâ destekli bir tavsiye motoru, Wilma'yı koyduğunu duyurdu.",
+   "konum": "sonra"
   },
   "b28-zimbabve-denemesinde-kullanilan": {
    "sayfa": "b28",
@@ -2775,7 +2893,8 @@
    "lisans_notu": "Makale açık erişim, CC BY-NC-ND 4.0 ('© 2020 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group'); şeklin altyazısı görseli Virtual Irrigation Academy'ye (2019) dayandırıyor, yani üçüncü taraf görseli olabilir. PDF, ICRISAT'ın açık erişim deposunda (OAR); oar.icrisat.org robots.txt kayıt ve dosya yolunu kapatmıyor, oturum ya da bot koruması yok. core.ac.uk kopyası 403 verdi.",
    "tur": "sema",
    "yapay_zeka": false,
-   "yer": "Zimbabve'nin yarı kurak bölgelerindeki iki küçük çiftçi sulama şebekesinde, Mkoba ve Silalatshani'de, 2013-2017 arasında yürüyen bir projede"
+   "yer": "Zimbabve'nin yarı kurak bölgelerindeki iki küçük çiftçi sulama şebekesinde, Mkoba ve Silalatshani'de, 2013-2017 arasında yürüyen bir projede",
+   "konum": "sonra"
   },
   "b28-digital-green-video-egitimi": {
    "sayfa": "b28",
@@ -2799,6 +2918,7 @@
    "tur": "harita",
    "yapay_zeka": false,
    "yer": "Hindistan'ın Bihar eyaletinde, ulaşılması zor kadın çiftçilere yönelik video eğitimleriyle tanınan Digital Green adlı sivil toplum kuruluşu",
+   "konum": "sonra",
    "lejant": {
     "tr": "Görseldeki yazılar: Treatments = gruplar; Any DG = Digital Green'in videolu eğitimi; Control = karşılaştırma grubu (yalnız yüz yüze eğitim)."
    }
@@ -2824,7 +2944,8 @@
    "lisans_notu": "İl müdürlüğü alt alan adı; mugla.tarimorman.gov.tr robots.txt sayfa ve görsel yolunu kapatmıyor (bakanlığın ana alan adı www.tarimorman.gov.tr kapalı). Altbilgide yalnız '© Türkiye Cumhuriyeti Tarım ve Orman Bakanlığı. Tüm Hakları Saklıdır.'; kullanım koşulları sayfası yok, açık indirme ya da yeniden kullanım yasağı görülmedi. Oturum ya da bot koruması yok.",
    "tur": "foto",
    "yapay_zeka": false,
-   "yer": "Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil."
+   "yer": "Türkiye'de dronla ilaçlama her ürün, zararlı ve uygulama türü için izinli değil.",
+   "konum": "sonra"
   },
   "b24-alan-izleme-sistemi-irlanda-da-bir": {
    "sayfa": "b24",
@@ -2847,7 +2968,8 @@
    "lisans_notu": "DAFM'nin 'Re-use of Public Sector Information' sayfasına göre yeniden kullanım Creative Commons Attribution (CC BY) 4.0'a tabi (kaynak açıkça belirtilmeli, değişiklik belirtilmeli). assets.gov.ie robots.txt '*' için açık (Allow: /); oturum ya da bot koruması yok. gov.ie'nin site geneli telif sayfası bulunamadı (404); lisans bilgisi bakanlığın kendi sayfasından.",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Tarımda yapay zekânın bugünkü kullanımına dokunan kuralların bir kısmı yapay zekâdan hiç söz etmiyor."
+   "yer": "Tarımda yapay zekânın bugünkü kullanımına dokunan kuralların bir kısmı yapay zekâdan hiç söz etmiyor.",
+   "konum": "sonra"
   },
   "t-veri-hal-kayit-sistemi-nin-karekodlu-urun": {
    "sayfa": "tek_veri",
@@ -2869,7 +2991,8 @@
    "lisans_notu": "ticaret.gov.tr robots.txt sayfa ve görsel yolunu kapatmıyor. Site alt bilgisinde 'Tüm Hakları Saklıdır' ibaresi var (tek başına açık indirme/yeniden kullanım yasağı değil); ayrı kullanım koşulları sayfası bulunamadı (yalnız çerez politikası var). Haber sayfasındaki görsel bağlantısı artık çözümlenmeyen eski alan adını (www.gtb.gov.tr) gösteriyor; aynı dosya ticaret.gov.tr altında aynı yolla erişilebiliyor (HTTP 200).",
    "tur": "gorsel",
    "yapay_zeka": false,
-   "yer": "Türkiye'de çiftlik verisinin omurgası kamu kayıtları. Dünya "
+   "yer": "Türkiye'de çiftlik verisinin omurgası kamu kayıtları. Dünya ",
+   "konum": "sonra"
   }
  }
 }

@@ -34,9 +34,9 @@ In catch monitoring, by contrast, AI does something at a scale no human could wa
 
 According to the ministry's data, Türkiye produced **1,037,019** tonnes of fish and seafood in 2025: **410,428** tonnes from capture and **626,591** tonnes from aquaculture. **70.4%** of aquaculture is at sea. Trout leads in inland waters (**185,310** tonnes), sea bass (**174,859** tonnes) and sea bream (**164,643** tonnes) at sea; the most-caught fish was anchovy (**245,261** tonnes). According to the 2027 Programme, **2,502** aquaculture facilities with a capacity of **925** thousand tonnes a year are in operation; **17** species in capture and aquaculture have been brought into production planning, covering **80%** of production.
 
-[[gorsel:b14-turkiye-de-deniz-kafeslerinde-balik]]
-
 In academia, machine learning has reached the feeding side of aquaculture: a study involving Muğla Sıtkı Koçman University used machine learning to examine how **11** physical and chemical characteristics of water relate to fish feed consumption; temperature emerged as the most important variable (Özdemir and colleagues, 2025). The effect of AI on feeding or fish health on a farm, or on catch monitoring in a fleet, has not yet been the subject of a published assessment in Türkiye.
+
+[[gorsel:b14-turkiye-de-deniz-kafeslerinde-balik]]
 
 For monitoring catches, however, Türkiye has a digital infrastructure. The Fishing Vessel Monitoring System (BAGİS) tracks the position, route and speed of commercial fishing vessels of **12** metres and over in real time via satellite and GSM; vessels send a position about every **10** minutes. The Fisheries Information System (SUBİS) records the species and quantity caught through electronic logbooks and transport documents. According to the ministry's technical requirements document, published on TÜBİTAK's website in June 2026, data for **1,629** vessels are current and accessible; but this data pool is for now used mainly for monitoring and record keeping, and checks such as entry into prohibited areas are done by staff at screens. The document also notes that data gaps can occur because of technical faults or fishers tampering with the device. In the project it describes, BAGİS data will be analysed with AI to detect possible violations in prohibited areas and generate warnings.
 

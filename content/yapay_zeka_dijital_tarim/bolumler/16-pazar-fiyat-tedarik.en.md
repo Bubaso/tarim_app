@@ -33,9 +33,9 @@ Under the Regulation on Fruit and Vegetable Trade and Wholesale Markets (2012; l
 
 [[gorsel:b16-hal-kayit-sistemi-nin-karekodlu-urun]]
 
-[[gorsel:b16-toptanci-hali]]
-
 The register's data are also used in research. A peer-reviewed machine learning trial from Türkiye (Özden, 2023) compiled by hand, from the Ministry of Trade's official wholesale market website, the trade volumes and prices of potatoes, onions and garlic for **1,791** days from the start of 2018 to November 2022, and tested **10**-day price forecasts. But there is no published assessment showing what AI actually adds to price forecasting, demand planning or traceability in Türkiye.
+
+[[gorsel:b16-toptanci-hali]]
 
 The 2027 Programme foresees strengthening registration systems, spreading licensed warehousing and developing logistics infrastructure in the fresh fruit and vegetable supply chain, so that farm prices form soundly and the food supply chain works efficiently; registration and information systems are to be designed to serve early warning, market control, production planning and stock management. The number of licensed warehouses, **265** in 2025, is expected to reach **288** in 2026; the 2027 target is **295**. An impact analysis of licensed warehousing support is among the things still to be done. The Programme does not address farm price forecasting; it foresees blockchain only for customs and foreign trade procedures.
 

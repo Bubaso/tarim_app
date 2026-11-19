@@ -9,8 +9,10 @@ Aday klasöründe gorsel_adaylari.json (birleşik) ya da gorsel_adaylari_parca_*
 Aday klasöründeki `gorsel_adaylari_parca_*.json` dosyalarını okur; seçilen
 her adayı `gorsel_al.py` ile indirip WebP'ye çevirir (web/yz/gorsel/),
 `gorseller.json`'a künye, kaynak satırı, adres ve indirme günüyle yazar ve
-[[gorsel:…]] yönergesini TR metinde adayın paragrafının ardına, EN metinde
-aynı blok sırasına yerleştirir. Tekrar çalıştırmada var olanı yeniden
+[[gorsel:…]] yönergesini TR metinde adayın paragrafının ardına (kayıtta
+`konum: "önce"` ise önüne; `yer` her durumda görselin anlattığı paragraf),
+EN metinde aynı blok sırasına yerleştirir. [[cekme:…]] ve tanınmayan
+yönerge satırları blok sayılmaz. Tekrar çalıştırmada var olanı yeniden
 indirmez, yönergeyi ikinci kez eklemez.
 
 Seçim ilkesi: bilgi taşıyan, metinde adı geçen gerçek şeyin görseli. Bizim
@@ -344,16 +346,27 @@ def aday_kimligi(a: dict) -> str:
     return kimlik("t-" + a["teknoloji"] if a.get("teknoloji") else a["baslik_no"], a["konu"])
 
 
+# Blok sayılmayan yönerge: öne çıkan cümle ([[cekme:…]], madde 6) ve
+# tanınmayan her [[ad:kimlik]] satırı. Sayılsaydı bir dilde eksik kalan
+# satır öteki dilin blok sırasını kaydırırdı.
+SAYILMAZ = re.compile(r"\[\[(?!(?:grafik|gorsel):)[a-z]+:[a-z0-9-]+\]\]")
+
+
 def bloklar(metin: str) -> list[str]:
-    return [b for b in re.split(r"\n\s*\n", metin.strip()) if b.strip()]
+    return [b for b in re.split(r"\n\s*\n", metin.strip()) if b.strip() and not SAYILMAZ.fullmatch(b.strip())]
 
 
-def yerlestir(metin: str, eklenecek: dict[int, list[str]]) -> str:
+def yerlestir(metin: str, eklenecek: dict[int, list[str]], once: dict[int, list[str]] | None = None) -> str:
+    """[eklenecek]: blok dizini → ardına konacak yönergeler; [once]: önüne
+    konacaklar (`konum: "önce"`, madde 5)."""
+    once = once or {}
     parcalar = re.split(r"(\n[ \t]*\n\s*)", metin)
     sayac = -1
     for j in range(0, len(parcalar), 2):
-        if parcalar[j].strip():
+        if parcalar[j].strip() and not SAYILMAZ.fullmatch(parcalar[j].strip()):
             sayac += 1
+            if sayac in once:
+                parcalar[j] = "".join(f"{y}\n\n" for y in once[sayac]) + parcalar[j]
             if sayac in eklenecek:
                 parcalar[j] = parcalar[j].rstrip("\n") + "".join(f"\n\n{y}" for y in eklenecek[sayac])
     return "".join(parcalar)
@@ -420,6 +433,7 @@ def main() -> int:
                 "tur": es.get("tur", "gorsel"),
                 "yapay_zeka": False,
                 "yer": a["metindeki_yer"],
+            "konum": "sonra",
             }
             print(f"  ↺ {k} · {es['dosya'].rsplit('/', 1)[-1]} yeniden kullanıldı")
             continue
@@ -464,6 +478,7 @@ def main() -> int:
             "tur": TUR.get(on, "gorsel"),
             "yapay_zeka": False,
             "yer": a["metindeki_yer"],
+            "konum": "sonra",
         }
         print(f"  ✓ {k} · {sonuc['genislik']}×{sonuc['yukseklik']} · {sonuc['bayt'] // 1024} KB")
         KAYIT.write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -479,6 +494,7 @@ def main() -> int:
             print(f"  ! {tr.name}: TR {len(bt)}, EN {len(be)} blok — yerleştirilmedi")
             continue
         eklenecek: dict[int, list[str]] = {}
+        once: dict[int, list[str]] = {}
         for k, g in gorseller.items():
             if g["sayfa"] != kod or f"[[gorsel:{k}]]" in mt:
                 continue
@@ -486,11 +502,14 @@ def main() -> int:
             if len(i) != 1:
                 print(f"  ! {k}: yer bulunamadı ya da birden çok ({len(i)})")
                 continue
-            eklenecek.setdefault(i[0], []).append(f"[[gorsel:{k}]]")
-        if eklenecek:
-            tr.write_text(yerlestir(mt, eklenecek), encoding="utf-8")
-            en.write_text(yerlestir(me, eklenecek), encoding="utf-8")
-            print(f"  · {tr.name}: {sum(len(v) for v in eklenecek.values())} görsel")
+            # `yer` görselin anlattığı paragraf; `konum` görselin o paragrafın
+            # önünde mi ardında mı durduğu (madde 5; yoksa ardında).
+            hedef = once if g.get("konum") == "önce" else eklenecek
+            hedef.setdefault(i[0], []).append(f"[[gorsel:{k}]]")
+        if eklenecek or once:
+            tr.write_text(yerlestir(mt, eklenecek, once), encoding="utf-8")
+            en.write_text(yerlestir(me, eklenecek, once), encoding="utf-8")
+            print(f"  · {tr.name}: {sum(len(v) for v in [*eklenecek.values(), *once.values()])} görsel")
     kunye_duzelt(gorseller)
     KAYIT.write_text(json.dumps(kayit, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"✓ {len(gorseller)} görsel kayıtta · {len(hatalar)} alınamadı")

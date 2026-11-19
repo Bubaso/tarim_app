@@ -42,9 +42,9 @@ Türkiye merkezli Uluslararası Kışlık Buğday Islah Programı (IWWIP), **198
 
 Aynı değerlendirme programın yeni araçlara geçişini de anlatıyor: klasik sistemin uzun yolunun yanına 2018'de İzmir'de, yılda iki-üç kuşak veren bir hızlı ıslah tesisiyle daha kısa bir yol açıldı. Program yakın zamana kadar büyük ölçüde klasik bir ıslah programıydı: 2017'de **1.500**'ü aşan bir materyalde moleküler işaretleyiciler incelendi, 2018'de uluslararası gözlem fidanlığına aday bütün hatlar işaretleyicilerle genotiplendi. Elde taşınan bir bitki sensörüyle NDVI ölçümü ön verim denemelerinde rutin; 2018'de Konya'da modern fenotipleme araçları için bir çalıştay yapıldı. Programın ilan ettiği gelecek stratejisi, klasik ıslahı hassas ve yüksek kapasiteli fenotipleme, genomik araçlar ve hızlı ıslahla birleştirmek. Genomik seçilimin ya da yapay zekânın Türkiye'de bir ıslah programında çeşit geliştirme süresini veya genetik ilerlemeyi nasıl etkilediği ise yayımlanmış bir değerlendirmeyle ölçülmüş değil.
 
-Program genetik kaynak tarafında da iz bıraktı: 2009-2014'te Türkiye'de yerel buğdayların ulusal envanterini çıkardı; **81** ilin **60**'tan fazlası gezildi, **1.500**'ü aşkın çiftlikten yerel buğday toplandı.
-
 [[gorsel:b05-turkiye-de-yerel-bugday-ulusal]]
+
+Program genetik kaynak tarafında da iz bıraktı: 2009-2014'te Türkiye'de yerel buğdayların ulusal envanterini çıkardı; **81** ilin **60**'tan fazlası gezildi, **1.500**'ü aşkın çiftlikten yerel buğday toplandı.
 
 Akademide makine öğrenmesi ıslahın ön elemesine giriyor. Türkiye'den beş üniversitenin Polonyalı ortaklarla yaptığı bir çalışma, tetraploid buğday genotiplerinin çimlenme döneminde kuraklığa tepkisini laboratuvarda polietilen glikolle oluşturulan stres altında ölçtü ve dört makine öğrenmesi tekniğiyle modelledi (Benlioğlu ve arkadaşları, 2024). Yazarlar yöntemi hızlı ve düşük maliyetli bir yol olarak sunuyor; sonuçlar laboratuvara ve çimlenme dönemine ait, tarladaki verime değil.
 

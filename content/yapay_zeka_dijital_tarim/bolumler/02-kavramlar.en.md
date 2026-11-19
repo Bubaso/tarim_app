@@ -23,9 +23,9 @@ In TÃ¼rkiye, the National AI Strategy (2021-2025) defines AI as "bir bilgisayarÄ
 
 According to the definition the International Society of Precision Agriculture (ISPA) updated in January 2024, precision farming is not a technology but a management strategy: it gathers, processes and analyses temporal, spatial and individual plant and animal data, combines them with other information and supports management decisions according to estimated variability, in order to improve resource use efficiency, productivity, quality, profitability and sustainability. The society's first official definition was written through a process that began in 2018 with feedback from its members and a panel of **46** experts; following a decision in 2023 to expand it, the definition was updated in January 2024. FAO's 2022 definition also frames precision farming as a management strategy.
 
-The US Department of Agriculture's Economic Research Service (ERS) dates the commercialisation of the yield monitor to 1993 and of variable-rate equipment to 1995; in 2023 the same service wrote that AI and machine learning have not yet been deployed at scale in agriculture, so there is little evidence of their contribution to productivity. FAO counts auto-steer guided by satellite positioning as a good example of precision farming technology.
-
 [[gorsel:b02-verim-haritasi]]
+
+The US Department of Agriculture's Economic Research Service (ERS) dates the commercialisation of the yield monitor to 1993 and of variable-rate equipment to 1995; in 2023 the same service wrote that AI and machine learning have not yet been deployed at scale in agriculture, so there is little evidence of their contribution to productivity. FAO counts auto-steer guided by satellite positioning as a good example of precision farming technology.
 
 [[gorsel:b02-uydu-konumuyla-otomatik-dumenleme]]
 

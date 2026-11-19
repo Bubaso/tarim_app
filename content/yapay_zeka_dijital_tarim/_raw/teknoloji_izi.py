@@ -41,7 +41,7 @@ ISKELET = BURASI.parent / "iskelet.json"
 # vermesin diye 2.
 ESIK = 2
 IZSIZ = {29, 30}          # sözlük ve kaynakça: her terimi anıyorlar, etiket almıyorlar
-YONERGE = re.compile(r"\[\[(grafik|gorsel):[a-z0-9-]+\]\]")   # karar 58: metin değil
+YONERGE = re.compile(r"\[\[[a-z]+:[a-z0-9-]+\]\]")   # karar 58, madde 6: yönerge satırı metin değil
 
 
 def kucult(s: str) -> str:
@@ -125,7 +125,7 @@ def bloklar(md: str) -> list[str]:
     cikti, paragraf = [], []
     for satir in md.splitlines()[1:]:
         t = satir.strip()
-        if YONERGE.fullmatch(t):          # [[grafik:…]] / [[gorsel:…]] (karar 58)
+        if YONERGE.fullmatch(t):          # [[grafik:…]] / [[gorsel:…]] / [[cekme:…]] ve tanınmayan
             if paragraf:
                 cikti.append(" ".join(paragraf))
                 paragraf = []
