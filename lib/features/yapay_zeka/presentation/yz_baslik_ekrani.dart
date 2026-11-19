@@ -249,6 +249,7 @@ class _KomsuBasliklar extends ConsumerWidget {
           key: ValueKey(ileri ? 'yz-sonraki' : 'yz-onceki'),
           onTap: () {
             if (ileri) yzOlcum('yz_sonraki', {'sayfa': slug, 'hedef': b.slug});
+            YzGiris.isaretle('komsu');
             context.go(yzBaslikPath(b.slug));
           },
           child: Container(
