@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_core/firebase_core.dart';
+
+import '../analitik/analitik.dart';
+import '../analitik/sayfa_gorunumu.dart';
 
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/commodities/presentation/screens/commodity_detail_screen.dart';
@@ -40,6 +42,7 @@ import '../../features/uzay_tarimi/presentation/screens/uzay_ekrani.dart';
 import '../../features/yapay_zeka/presentation/yz_ekranlar.dart'
     deferred as yz_ekranlar;
 import '../../features/yapay_zeka/presentation/yz_erteli.dart';
+import '../../features/yapay_zeka/presentation/yz_sekme_basligi.dart';
 import '../../features/yapay_zeka/presentation/yz_yollar.dart';
 import '../../features/yapay_zeka/data/yz_iskelet.g.dart';
 
@@ -214,11 +217,15 @@ CustomTransitionPage<void> _fadePage(GoRouterState state, Widget child) {
   );
 }
 
-final appRouter = GoRouter(
+// Sayfa geçişleri GA'ya ve bölüm sayfalarının sekme başlığı yönlendiricinin
+// DİNLEYİCİSİNDEN (bkz. lib/core/analitik/sayfa_gorunumu.dart). Gözlemci
+// yalnız adı olan rotada `screen_view` yazıyor; bugünkü davranışı
+// korunuyor, yalnız ölçüm örneğini paylaşıyor (`send_page_view: false`).
+final GoRouter appRouter = sayfaGorunumunuIzle(GoRouter(
   initialLocation: '/',
   observers: [
-    if (Firebase.apps.isNotEmpty)
-      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+    if (analitikOrnegi() case final analitik?)
+      FirebaseAnalyticsObserver(analytics: analitik),
     // Ana sayfa düğmesinin eşiği buradan besleniyor: sayfanın yığındaki
     // yerini yalnızca bir gözlemci görebiliyor.
     GezintiDerinligi(),
@@ -540,7 +547,7 @@ final appRouter = GoRouter(
       pageBuilder: (context, state) => _fadePage(state, const DashboardScreen()),
     ),
   ],
-);
+), sekmeAdi: yzSekmeAdi);
 
 /// Doğrudan `/haber/:id` adresiyle açıldığında makaleyi kimliğinden çeker.
 class _ArticleLoader extends ConsumerWidget {
