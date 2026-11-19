@@ -9,6 +9,7 @@ import '../data/yz_iskelet.g.dart';
 import '../data/yz_sozluk.g.dart';
 
 import '../data/yz_grafikler.g.dart';
+import 'yz_cekme.dart';
 import 'yz_gorsel.dart';
 import 'yz_kaynak_balonu.dart';
 import 'yz_kisaltma.dart';
@@ -39,7 +40,10 @@ import 'yz_teknoloji_izi.dart';
 /// yutulmaz. Metin dogrula_bolumler.py'den geçerek buraya geliyor.
 /// `grafik` ve `gorsel`: `[[grafik:<kimlik>]]` / `[[gorsel:<kimlik>]]` yönerge
 /// satırı (karar 58); metin değil, terim ve teknoloji aranmaz.
-enum YzBlokTuru { ozet, altBaslik, paragraf, tablo, grafik, gorsel, liste }
+/// `cekme`: `[[cekme:<kimlik>]]`, öne çıkan cümle (madde 6); metnin tekrarı,
+/// arama, okuma süresi ve sözlük görmez. Tanınmayan `[[ad:kimlik]]` satırı
+/// blok sayılmaz, metin olarak da çizilmez.
+enum YzBlokTuru { ozet, altBaslik, paragraf, tablo, grafik, gorsel, liste, cekme }
 
 class YzBlok {
   const YzBlok(this.tur, {this.metin = '', this.satirlar = const [], this.ogeler = const []});
@@ -75,7 +79,8 @@ List<String> _hucreler(String satir) {
 bool _ayiracMi(String satir) =>
     RegExp(r'^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$').hasMatch(satir.trim());
 
-final RegExp _yonerge = RegExp(r'^\[\[(grafik|gorsel):([a-z0-9-]+)\]\]$');
+final RegExp _yonerge = RegExp(r'^\[\[(grafik|gorsel|cekme):([a-z0-9-]+)\]\]$');
+final RegExp _herYonerge = RegExp(r'^\[\[[a-z]+:[a-z0-9-]+\]\]$');
 
 /// Metni bloklara ayırır. Testler doğrudan bunu sınıyor.
 List<YzBlok> yzAyristir(String md) {
@@ -103,9 +108,11 @@ List<YzBlok> yzAyristir(String md) {
     } else if (_yonerge.hasMatch(t)) {
       paragrafiKapat();
       final m = _yonerge.firstMatch(t)!;
-      bloklar.add(YzBlok(m.group(1) == 'grafik' ? YzBlokTuru.grafik : YzBlokTuru.gorsel,
-          metin: m.group(2)!));
+      bloklar.add(YzBlok(YzBlokTuru.values.byName(m.group(1)!), metin: m.group(2)!));
       i++;
+    } else if (_herYonerge.hasMatch(t)) {
+      paragrafiKapat();
+      i++; // tanınmayan yönerge: blok değil
     } else if (t.startsWith('## ')) {
       paragrafiKapat();
       bloklar.add(YzBlok(YzBlokTuru.altBaslik, metin: t.substring(3).trim()));
@@ -816,6 +823,9 @@ class _YzMetinGorunumuState extends State<YzMetinGorunumu> {
         case YzBlokTuru.gorsel:
           final g = kYzGorseller[b.metin];
           cikti.add(g == null ? const SizedBox.shrink() : YzGorselKarti(gorsel: g, en: en));
+        case YzBlokTuru.cekme:
+          cikti.add(yzCekme(b.metin, _bloklar,
+              en: en, telefon: telefon, olcek: o, genislik: metinW, etkilesim: etkilesim, oncekiAralik: 22));
         case YzBlokTuru.tablo:
           cikti.add(Padding(
             key: _anahtar[i],

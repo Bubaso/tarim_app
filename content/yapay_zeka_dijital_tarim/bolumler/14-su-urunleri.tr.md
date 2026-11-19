@@ -34,9 +34,9 @@ Av denetiminde ise yapay zekâ, insanın elle izleyemeyeceği ölçekte bir şey
 
 Bakanlığın verisine göre Türkiye'de 2025'te **1.037.019** ton su ürünü üretildi: **410.428** ton avcılıkla, **626.591** ton yetiştiricilikle. Yetiştiriciliğin **%70,4**'ü denizlerde. İç sularda alabalık (**185.310** ton), denizlerde levrek (**174.859** ton) ve çipura (**164.643** ton) başı çekiyor; avda en çok hamsi tutuldu (**245.261** ton). 2027 Programı'na göre **925** bin ton/yıl kapasiteli **2.502** yetiştiricilik tesisi faaliyette; avcılıkta ve yetiştiricilikte **17** tür üretim planlamasına alındı ve üretimin **%80**'i planlı üretim kapsamında.
 
-[[gorsel:b14-turkiye-de-deniz-kafeslerinde-balik]]
-
 Akademide makine öğrenmesi yetiştiricilikte yem tarafına girmiş durumda: Muğla Sıtkı Koçman Üniversitesi'nin de yer aldığı bir çalışma, suyun **11** fiziksel ve kimyasal özelliğinin balık yem tüketimiyle ilişkisini makine öğrenmesiyle inceledi; en önemli değişken sıcaklık çıktı (Özdemir ve arkadaşları, 2025). Yapay zekânın bir çiftlikte yeme ya da balık sağlığına, bir filoda av denetimine etkisi ise Türkiye'de henüz yayımlanmış bir değerlendirmeye konu olmadı.
+
+[[gorsel:b14-turkiye-de-deniz-kafeslerinde-balik]]
 
 Avın denetiminde ise Türkiye'nin dijital bir altyapısı var. Balıkçı Gemileri İzleme Sistemi (BAGİS), ticari avcılık yapan **12** metre ve üzeri gemilerin konumunu, rotasını ve hızını uydu ve GSM üzerinden anlık izliyor; gemiler ortalama **10** dakikada bir konum gönderiyor. Su Ürünleri Bilgi Sistemi (SUBİS) avlanan tür ve miktarı elektronik seyir defteri ve nakil belgeleriyle kaydediyor. Bakanlığın Haziran 2026'da TÜBİTAK'ın sitesinde yayımlanan teknik ister belgesine göre **1.629** geminin verisi güncel ve erişilebilir; ama bu veri havuzu şimdilik ağırlıkla izleme ve kayıt için kullanılıyor ve yasak alana girme gibi kontrolleri ekran başındaki personel yapıyor. Belge, teknik arızalar ya da balıkçıların cihaza müdahalesi yüzünden veri kesintileri olabildiğini de yazıyor. Tanımlanan projede BAGİS verisi yapay zekâyla analiz edilecek, yasak alanlardaki olası ihlaller tespit edilip uyarı üretilecek.
 

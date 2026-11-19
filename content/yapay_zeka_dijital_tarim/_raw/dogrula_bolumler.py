@@ -54,7 +54,10 @@ KURALLAR
      `web/yz/gorsel/` altında, sha256'sı tutuyor; künye ve kaynak iki dilde;
      adres ve indirme günü yazılı; yapay zekâ üretimi fotoğraf yok. Türkçeye
      uyarlanmış kopyası (`dosya_tr`, karar 60) varsa o da yerinde ve kaynak
-     satırı "Türkçeye uyarlandı" diyor.
+     satırı "Türkçeye uyarlandı" diyor. `yer` görselin anlattığı paragraf,
+     `konum` ("önce"/"sonra", madde 5) görselin o paragrafın önünde mi
+     ardında mı durduğu: Türkçe metinde paragraf yönergenin o yanında ve
+     aynı alt başlık bölümünde.
  13. KISALTMA (karar 60). Başlık ve teknoloji metinlerinde büyük harfli bir
      kısaltma bir sayfada ilk geçtiği yerde açılmıyorsa ("Uzun Ad (KISA)" ya
      da "KISA (uzun ad)") `kisaltmalar.json`da olmalı: balonla açılan
@@ -66,6 +69,19 @@ KURALLAR
  15. TERİM BİRLİĞİ (karar 60). Türkçe metinde aynı kavram tek adla:
      "makine öğrenmesi" ("makine öğrenimi" değil), "dron" ("drone" değil).
      Tırnak ve italik içi (özgün ad, alıntı) sayılmaz.
+ 16. ÖNE ÇIKAN CÜMLE (madde 6). `_raw/cekmeler.json`daki her cümle
+     ({kimlik, sayfa, sinif, tr, en}) kendi sayfasında bir gövde
+     paragrafının içinde tam bir kez ve harfi harfine geçer; başı ve sonu
+     cümle sınırı; 60-170 görünen harf (EN 190); gönderme ya da bağlaçla
+     başlamaz, iki nokta ya da soru işareti yok; satıcı beyanı paragrafından
+     ve bir grafiğin `yer` paragrafından değil, aynı bölümdeki grafiğin
+     rakamını tekrarlamıyor; A sınıfında kaynaklı kalın rakam var; TR ve EN
+     rakam kümeleri aynı, EN cümlesi aynı sıradaki paragrafta. Yönerge
+     `[[cekme:kimlik]]` iki dilde aynı yerde; yeri: iki paragraf arasında,
+     telefonda 1,0 ekranı aşan bir paragraf koşusunun ortasına en yakın
+     uygun aralık (ilk ekran, giriş paragrafının ardı ve kaynak paragrafın
+     bitişiği değil), aynı alt başlıkta; alt başlık başına en çok 1, sayfa
+     başına en çok max(1, round(kelime/600)). Tanınmayan yönerge yok.
  10. KESİŞİM NOTU (karar 57). Bir başlık bir teknolojiyle etiketliyse
      `kesisim_<kod>.json`'da o başlığın tek cümlelik notu var, değilse yok.
      Notun sayıları başlığın kendi kaydından, iki dilde aynı.
@@ -136,8 +152,8 @@ def metin_sayilari(metin: str, dil: str) -> list[tuple[float, int, str]]:
     for satir in metin.splitlines():
         if satir.startswith("# "):
             continue                        # başlık satırı: bölüm numarası
-        if re.fullmatch(r"\s*\[\[(grafik|gorsel):[a-z0-9-]+\]\]\s*", satir):
-            continue                        # grafik/görsel yönergesi (karar 58)
+        if re.fullmatch(r"\s*\[\[[a-z]+:[a-z0-9-]+\]\]\s*", satir):
+            continue                        # yönerge satırı: grafik, görsel (karar 58), öne çıkan cümle
         # "§8" bir veri değil, bölümün iç göndermesi; ayrıca sınanıyor
         # (gönderilen başlık iskelette var mı — `gondermeler`).
         satir = re.sub(r"§\d+", "§", satir)
@@ -342,7 +358,10 @@ def sina_kesisimler() -> None:
 GRAFIK_TURLERI = {"yatay_cubuk", "dikey_cubuk", "cizgi", "alan", "dumbbell", "aralik", "pay",
                   "waffle", "egim", "kpi", "isi", "zaman", "kucuk"}
 DIZI_ROLLERI = {"", "ongoru", "referans", "toplam", "alt"}
-YONERGE_DESENI = re.compile(r"^\[\[(grafik|gorsel):([a-z0-9-]+)\]\]$", re.M)
+YONERGE_DESENI = re.compile(r"^\[\[(grafik|gorsel|cekme):([a-z0-9-]+)\]\]$", re.M)
+# Her yönerge satırı (tanınmayanlar dahil): ayrıştırıcılarda blok sayılmaz.
+YONERGE_SATIRI = re.compile(r"^\[\[([a-z]+):([a-z0-9-]+)\]\]$")
+BILINEN_YONERGE = {"grafik", "gorsel", "cekme"}
 
 
 def _alan_degerleri(deger) -> list[float]:
@@ -472,7 +491,7 @@ def sina_grafikler() -> None:
         y_tr = YONERGE_DESENI.findall(tr.read_text(encoding="utf-8"))
         y_en = YONERGE_DESENI.findall(en.read_text(encoding="utf-8")) if en.exists() else []
         if y_tr != y_en:
-            hata(f"{tr.name}: TR ve EN'deki grafik/görsel yönergeleri aynı değil")
+            hata(f"{tr.name}: TR ve EN'deki grafik/görsel/öne çıkan cümle yönergeleri aynı sırada değil")
         for tur, kimlik in y_tr:
             if tur == "grafik":
                 if kimlik not in grafikler:
@@ -481,6 +500,104 @@ def sina_grafikler() -> None:
     for kimlik in sorted(set(grafikler) - kullanilan):
         hata(f"grafik {kimlik}: hiçbir metinde kullanılmıyor")
     print(f"  · {len(grafikler)} grafik, {len(kullanilan)} yönerge sınandı")
+
+
+# ── Blok ayrıştırıcı (yzAyristir'in eşi; kural 12 ve 16) ──────────────────
+
+def sayfa_bloklari(md: str) -> list[dict]:
+    """Sayfanın blokları sırayla: {tur, metin, ogeler}. Tür: paragraf,
+    altBaslik, liste, tablo, ozet, grafik, gorsel, cekme (yönergede metin
+    kimliktir). Başlık satırı ve tanınmayan yönerge blok sayılmaz."""
+    bloklar: list[dict] = []
+    par: list[str] = []
+    satirlar = md.replace("\r\n", "\n").split("\n")
+
+    def kapat():
+        if par:
+            bloklar.append({"tur": "paragraf", "metin": " ".join(par), "ogeler": []})
+            par.clear()
+
+    i = 0
+    while i < len(satirlar):
+        t = satirlar[i].strip()
+        m = YONERGE_SATIRI.fullmatch(t)
+        if not t or t.startswith("# "):
+            kapat(); i += 1
+        elif m:
+            kapat(); i += 1
+            if m.group(1) in BILINEN_YONERGE:
+                bloklar.append({"tur": m.group(1), "metin": m.group(2), "ogeler": []})
+        elif t.startswith("## "):
+            kapat(); bloklar.append({"tur": "altBaslik", "metin": t[3:].strip(), "ogeler": []}); i += 1
+        elif t.startswith("- "):
+            kapat()
+            ogeler = []
+            while i < len(satirlar) and satirlar[i].strip().startswith("- "):
+                ogeler.append(satirlar[i].strip()[2:].strip()); i += 1
+            bloklar.append({"tur": "liste", "metin": "", "ogeler": ogeler})
+        elif t.startswith(">"):
+            kapat()
+            while i < len(satirlar) and satirlar[i].strip().startswith(">"):
+                i += 1
+            bloklar.append({"tur": "ozet", "metin": "", "ogeler": []})
+        elif t.startswith("|"):
+            kapat()
+            n = 0
+            while i < len(satirlar) and satirlar[i].strip().startswith("|"):
+                i += 1; n += 1
+            bloklar.append({"tur": "tablo", "metin": "", "ogeler": [""] * n})
+        else:
+            par.append(t); i += 1
+    kapat()
+    return bloklar
+
+
+def bolum_numaralari(bloklar: list[dict]) -> list[int]:
+    """Her bloğun alt başlık bölümü (0: ilk alt başlıktan önceki giriş)."""
+    n, cikti = 0, []
+    for b in bloklar:
+        if b["tur"] == "altBaslik":
+            n += 1
+        cikti.append(n)
+    return cikti
+
+
+def sayfa_dosyasi(kod: str) -> Path | None:
+    """"bNN" → bolumler/NN-*.tr.md; "tek_<kod>" → teknolojiler/<kod>.tr.md."""
+    if kod.startswith("tek_"):
+        yol = TEKNOLOJILER / f"{kod[4:]}.tr.md"
+        return yol if yol.exists() else None
+    return next(BOLUMLER.glob(f"{kod[1:]}-*.tr.md"), None) if re.fullmatch(r"b\d{2}", kod) else None
+
+
+def sina_gorsel_yerleri(gorseller: dict) -> None:
+    """Kural 12, madde 5: `yer` görselin anlattığı paragraf, `konum` görselin
+    o paragrafın neresinde durduğu. Türkçe metinde paragraf yönergenin o
+    yanında ve aynı alt başlık bölümünde."""
+    sayac = 0
+    for kimlik, g in gorseller.items():
+        if g.get("konum") not in ("önce", "sonra"):
+            hata(f"görsel {kimlik}: konum 'önce' ya da 'sonra' değil ({g.get('konum')!r})")
+            continue
+        yol = sayfa_dosyasi(g.get("sayfa", ""))
+        if yol is None:
+            hata(f"görsel {kimlik}: sayfası çözülemiyor ({g.get('sayfa')!r})")
+            continue
+        bl = sayfa_bloklari(yol.read_text(encoding="utf-8"))
+        bn = bolum_numaralari(bl)
+        gi = [i for i, b in enumerate(bl) if b["tur"] == "gorsel" and b["metin"] == kimlik]
+        if not gi:
+            continue                                    # kullanılmayan görsel ayrıca hata
+        pi = [i for i, b in enumerate(bl) if b["tur"] == "paragraf" and b["metin"].startswith(g.get("yer") or "\0")]
+        if len(pi) != 1:
+            hata(f"görsel {kimlik}: `yer` paragrafı {yol.name}'de {len(pi)} kez bulundu (tam bir kez olmalı)")
+            continue
+        gi, pi = gi[0], pi[0]
+        if (pi < gi) != (g["konum"] == "sonra") or bn[pi] != bn[gi]:
+            hata(f"görsel {kimlik}: {yol.name}'de `yer` paragrafının {'ardında' if g['konum'] == 'sonra' else 'önünde'} "
+                 "ve aynı alt başlıkta değil (konum, madde 5)")
+        sayac += 1
+    print(f"  · {sayac} görselin yeri ve konumu sınandı")
 
 
 def sina_gorseller() -> None:
@@ -529,6 +646,7 @@ def sina_gorseller() -> None:
     for kimlik in sorted(set(gorseller) - kullanilan):
         hata(f"görsel {kimlik}: hiçbir metinde kullanılmıyor")
     print(f"  · {len(gorseller)} görsel sınandı")
+    sina_gorsel_yerleri(gorseller)
 
 
 def sina_kopyalar() -> None:
@@ -573,7 +691,7 @@ def metin_parcalari(md: str) -> list[str]:
     cikti, par = [], []
     for satir in md.split("\n")[1:]:
         t = satir.strip()
-        if not t or t.startswith(("#", "|", ">")) or YONERGE_DESENI.fullmatch(t):
+        if not t or t.startswith(("#", "|", ">")) or YONERGE_SATIRI.fullmatch(t):
             if par:
                 cikti.append(" ".join(par)); par = []
             continue
@@ -688,6 +806,271 @@ def sina_terim_birligi() -> None:
     print("  · tamam")
 
 
+# ── Kural 16: öne çıkan cümle (madde 6) ───────────────────────────────────
+
+CEKME_KAYDI = BURASI / "cekmeler.json"
+CEKME_UZUNLUK = {"tr": (60, 170), "en": (60, 190)}
+CEKME_SINIFLARI = {"A", "S"}            # A: kaynaklı rakamlı; S: rakamsız sonuç (ayrı onay)
+CEKME_GONDERIM = {
+    "tr": set("""Bu Bunlar Bunun Buna Bunu Bunda Bundan Bunlara Şu Şunlar O Onun Ona Onu Onlar Onların
+        Aynı Yani Ama Ancak Fakat Oysa Çünkü Ayrıca Dolayısıyla Böylece Yine Üstelik Öte İkisi Birincisi
+        İkincisi Üçüncüsü Sonuncusu İlki Sonuç Burada Orada Şimdi Ardından Sonra Hem Ne Asıl Tersine
+        Kısacası Öyleyse Bununla Ve Veya Ya""".split()),
+    "en": set("""This These That Those It Its They Their Them So But However Yet Because Also Thus
+        Therefore Hence Still Moreover Second Third Finally Here There Then Such And Or""".split()),
+}
+# Telefon ölçüsü (yz_metin_gorunumu.dart, 375 px'lik ekran, 16 px yan pay):
+# satırda ~40 harf (17,5 px Newsreader; giriş paragrafı 19,5 px, ~36 harf),
+# satır yüksekliği 1,62 (giriş 1,55), paragraf arası 22 (giriş 26); ekran
+# 812 - 56 (üst çubuk) = 756 px. Kaba bir ölçü; kuralın amacı yeri metnin
+# içinden, ortaya yakın seçmek.
+TEL = {"harf": 40, "giris_harf": 36, "satir": 17.5 * 1.62, "giris_satir": 19.5 * 1.55,
+       "aralik": 22.0, "giris_aralik": 26.0, "ekran": 756.0}
+
+
+def gorunen_metin(s: str) -> str:
+    """Okurun gördüğü dizgi: ** ve *italik* imleri kalkmış."""
+    s = s.replace("**", "")
+    return re.sub(r"(?<!\w)\*(?!\s)(.+?)(?<!\s)\*(?!\w)", r"\1", s)
+
+
+def _satir_sayisi(metin: str, harf: int) -> int:
+    n, satir = 0, 0
+    for k in gorunen_metin(metin).split():
+        if satir == 0 or satir + 1 + len(k) > harf:
+            n += 1
+            satir = len(k)
+        else:
+            satir += 1 + len(k)
+    return max(1, n)
+
+
+def tel_yuksekligi(b: dict, giris: bool = False) -> float:
+    """Bloğun telefondaki yaklaşık yüksekliği (px)."""
+    if b["tur"] == "paragraf":
+        if giris:
+            return _satir_sayisi(b["metin"], TEL["giris_harf"]) * TEL["giris_satir"] + TEL["giris_aralik"]
+        return _satir_sayisi(b["metin"], TEL["harf"]) * TEL["satir"] + TEL["aralik"]
+    if b["tur"] == "altBaslik":
+        return 44 + 10 + _satir_sayisi(b["metin"], 30) * 21 * 1.14
+    if b["tur"] == "liste":
+        return 24 + sum(_satir_sayisi(o, TEL["harf"] - 3) * TEL["satir"] + 9 for o in b["ogeler"])
+    if b["tur"] == "tablo":
+        return 22 + 110 * max(0, len(b["ogeler"]) - 2)
+    if b["tur"] in ("gorsel", "grafik"):
+        return 360.0
+    return 0.0
+
+
+def kelime_sayisi(s: str) -> int:
+    return len(re.findall(r"[^\W_]+", gorunen_metin(s)))
+
+
+def cumle_siniri_mi(paragraf: str, bas: int, son: int) -> bool:
+    """[bas, son) paragrafta tam bir cümle mi: önü paragraf başı ya da bir
+    cümle sonu ve boşluk; kendisi cümle sonu imiyle bitiyor, ardı paragraf
+    sonu ya da boşluk; parantez ve kalın imleri kendi içinde kapanıyor
+    ("(**505.** paragraf)" içindeki sıra noktası cümle sonu değil)."""
+    once, cumle = paragraf[:bas], paragraf[bas:son]
+    bas_iyi = bas == 0 or bool(re.search(r"[.!?…][\"”’)*]*\s$", once))
+    son_iyi = bool(re.search(r"[.!?…][\"”’)*]*$", cumle)) and (son == len(paragraf) or paragraf[son] == " ")
+    kapali = cumle.count("(") == cumle.count(")") and cumle.count("**") % 2 == 0
+    return bas_iyi and son_iyi and kapali
+
+
+def _kaynakli_rakamlar(cumle: str, esleme: dict) -> list[str]:
+    """Cümlenin kaynağa bağlı (rakamdan kaynağa eşlemesinde olan) kalın rakamları."""
+    return [m.group(1) for m in re.finditer(r"\*\*([^*]*\d[^*]*)\*\*", cumle) if m.group(1) in esleme]
+
+
+def cekme_yerleri(bloklar: list[dict], kaynak: int | None = None) -> list[tuple[int, float, float, int]]:
+    """Öne çıkan cümle konabilecek paragraf araları: (j, koşunun ortasına
+    uzaklık, koşunun ekranı, koşunun ilk bloğu); j ile j+1 arası. [bloklar] yönergesiz
+    (cekme'siz) blok dizisi. Koşu: grafik, görsel, tablo, liste ve alt
+    başlıkla kesilen ardışık paragraflar; telefonda 1,0 ekranı aşmalı ve en
+    az 2 paragraf. Konmaz: ilk ekran, giriş paragrafının ardı, [kaynak]
+    paragrafın bitişiği."""
+    giris = 0 if bloklar and bloklar[0]["tur"] == "paragraf" else -1
+    yuk = [tel_yuksekligi(b, i == giris) for i, b in enumerate(bloklar)]
+    ust = [sum(yuk[:i]) for i in range(len(bloklar) + 1)]
+    kosular, bas = [], None
+    for i, b in enumerate(bloklar + [{"tur": "son"}]):
+        if b["tur"] == "paragraf":
+            bas = i if bas is None else bas
+        else:
+            if bas is not None:
+                kosular.append((bas, i - 1))
+            bas = None
+    cikti = []
+    for a, z in kosular:
+        boy = ust[z + 1] - ust[a]
+        if z == a or boy <= TEL["ekran"]:
+            continue
+        orta = ust[a] + boy / 2
+        for j in range(a, z):
+            if ust[j + 1] < TEL["ekran"] or j == giris or kaynak in (j, j + 1):
+                continue
+            cikti.append((j, abs(ust[j + 1] - orta), boy / TEL["ekran"], a))
+    return cikti
+
+
+def _cekme_konumlari(bloklar: list[dict]) -> list[tuple[str, int]]:
+    """(kimlik, önündeki cekme'siz blok sayısı) — iki dilin yer eşitliği için."""
+    cikti, n = [], 0
+    for b in bloklar:
+        if b["tur"] == "cekme":
+            cikti.append((b["metin"], n))
+        else:
+            n += 1
+    return cikti
+
+
+def sina_cekmeler() -> None:
+    """Kural 16 (madde 6): öne çıkan cümle."""
+    print("\nÖne çıkan cümleler")
+    kayit = json.loads(CEKME_KAYDI.read_text(encoding="utf-8")) if CEKME_KAYDI.exists() else {}
+    cekmeler = kayit.get("cekmeler", [])
+    grafikler = json.loads((BURASI / "grafikler.json").read_text(encoding="utf-8")).get("grafikler", {})
+    grafik_yerleri = [g["yer"] for g in grafikler.values() if g.get("yer")]
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("rakam_kaynaklari_16", BURASI / "rakam_kaynaklari.py")
+    rk = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rk)
+    esleme = rk.esle()[0]
+
+    # Tanınmayan yönerge (her sayfa) ve yönergesi olmayan ya da kaydı olmayan cümle.
+    kayitli = {c.get("kimlik"): c for c in cekmeler}
+    if len(kayitli) != len(cekmeler):
+        hata("cekmeler.json: aynı kimlik birden çok")
+    kullanilan: dict[str, list[str]] = {}
+    for md in [*sorted(BOLUMLER.glob("[0-2][0-9]-*.md")), *sorted(TEKNOLOJILER.glob("*.md"))]:
+        for n, satir in enumerate(md.read_text(encoding="utf-8").split("\n"), 1):
+            m = YONERGE_SATIRI.fullmatch(satir.strip())
+            if m and m.group(1) not in BILINEN_YONERGE:
+                hata(f"{md.name}:{n}: tanınmayan yönerge [[{m.group(1)}:…]] (kural 16)")
+            if m and m.group(1) == "cekme":
+                kullanilan.setdefault(m.group(2), []).append(md.name)
+    for k, dosyalar in sorted(kullanilan.items()):
+        if k not in kayitli:
+            hata(f"[[cekme:{k}]] cekmeler.json'da yok ({', '.join(dosyalar)})")
+    sayfa_basina: dict[str, list[dict]] = {}
+    for c in cekmeler:
+        k = c.get("kimlik", "")
+        if not re.fullmatch(r"[a-z0-9-]+", k or ""):
+            hata(f"cekmeler.json: kimlik geçersiz {k!r}")
+            continue
+        if c.get("sinif") not in CEKME_SINIFLARI:
+            hata(f"öne çıkan {k}: sınıf {c.get('sinif')!r} (A ya da S)")
+        if not all((c.get(d) or "").strip() for d in ("tr", "en")):
+            hata(f"öne çıkan {k}: tr ve en cümlesi dolu değil")
+            continue
+        sayfa_basina.setdefault(c.get("sayfa", ""), []).append(c)
+
+    sayac = 0
+    for kod, liste in sorted(sayfa_basina.items()):
+        tr = sayfa_dosyasi(kod)
+        if tr is None:
+            hata(f"cekmeler.json: sayfa çözülemiyor ({kod!r})")
+            continue
+        en = tr.with_name(tr.name.replace(".tr.md", ".en.md"))
+        bl = {"tr": sayfa_bloklari(tr.read_text(encoding="utf-8")),
+              "en": sayfa_bloklari(en.read_text(encoding="utf-8"))}
+        if _cekme_konumlari(bl["tr"]) != _cekme_konumlari(bl["en"]):
+            hata(f"{tr.name}: öne çıkan cümle yönergeleri iki dilde aynı yerde değil")
+        yalin = {d: [b for b in bl[d] if b["tur"] != "cekme"] for d in bl}
+        bn = bolum_numaralari(yalin["tr"])
+        giris = 0 if yalin["tr"] and yalin["tr"][0]["tur"] == "paragraf" else -1
+        kelime = sum(kelime_sayisi(b["metin"]) for b in yalin["tr"] if b["tur"] == "paragraf") + \
+            sum(kelime_sayisi(o) for b in yalin["tr"] if b["tur"] == "liste" for o in b["ogeler"])
+        butce = max(1, round(kelime / 600))
+        konumlar = dict(_cekme_konumlari(bl["tr"]))
+        if len(konumlar) > butce:
+            hata(f"{tr.name}: {len(konumlar)} öne çıkan cümle, en çok {butce} (sayfa {kelime} kelime)")
+        dolu_bolum: set[int] = set()
+        for c in liste:
+            k = c["kimlik"]
+            ad = f"öne çıkan {k}"
+            sayac += 1
+            if k not in konumlar:
+                hata(f"{ad}: {tr.name}'de [[cekme:{k}]] yönergesi yok")
+                continue
+            # Cümle: tam bir kez, bir gövde paragrafının içinde, cümle sınırında.
+            kaynak: dict[str, int] = {}
+            for d, yol in (("tr", tr), ("en", en)):
+                cumle = c[d]
+                if yol.read_text(encoding="utf-8").count(cumle) != 1:
+                    hata(f"{ad} ({d}): cümle {yol.name}'de tam bir kez geçmiyor")
+                    continue
+                yer = [(i, b["metin"].index(cumle)) for i, b in enumerate(yalin[d])
+                       if b["tur"] == "paragraf" and cumle in b["metin"]]
+                if len(yer) != 1:
+                    hata(f"{ad} ({d}): cümle bir gövde paragrafının içinde değil")
+                    continue
+                i, bas = yer[0]
+                kaynak[d] = i
+                par = yalin[d][i]["metin"]
+                if not cumle_siniri_mi(par, bas, bas + len(cumle)):
+                    hata(f"{ad} ({d}): başı ya da sonu cümle sınırı değil")
+                if i == giris:
+                    hata(f"{ad} ({d}): giriş paragrafından alınmış")
+                g = gorunen_metin(cumle)
+                a, z = CEKME_UZUNLUK[d]
+                if not a <= len(g) <= z:
+                    hata(f"{ad} ({d}): {len(g)} görünen harf ({a}-{z})")
+                ilk = re.split(r"['’\s,;]", re.sub(r"^[*“\"(]+", "", cumle), maxsplit=1)[0]
+                if ilk in CEKME_GONDERIM[d]:
+                    hata(f"{ad} ({d}): gönderme ya da bağlaçla başlıyor ({ilk!r})")
+                if ":" in g or "?" in g:
+                    hata(f"{ad} ({d}): iki nokta ya da soru işareti var")
+                if SATICI_ETIKETI[d].search(par):
+                    hata(f"{ad} ({d}): satıcı/şirket beyanı paragrafından")
+                if d == "tr" and any(par.startswith(y) for y in grafik_yerleri):
+                    hata(f"{ad}: bir grafiğin `yer` paragrafından (grafik o rakamı gösteriyor)")
+                if c.get("sinif") == "A" and not _kaynakli_rakamlar(cumle, esleme.get(kod, {}).get(d, {})):
+                    hata(f"{ad} ({d}): A sınıfı ama kaynağa bağlı kalın rakam yok")
+            if set(kaynak) != {"tr", "en"}:
+                continue
+            if kaynak["tr"] != kaynak["en"]:
+                hata(f"{ad}: İngilizce cümle aynı sıradaki paragrafta değil")
+            rakam = {d: sorted({round(v, 4) for v, _, _ in metin_sayilari(c[d], d)}) for d in ("tr", "en")}
+            if rakam["tr"] != rakam["en"]:
+                hata(f"{ad}: iki dilin rakamları farklı {rakam['tr']} / {rakam['en']}")
+            # Yer: cekme'siz dizide konumlar[k]. ve konumlar[k]-1. bloklar arası.
+            j = konumlar[k] - 1
+            ks = kaynak["tr"]
+            if not (0 <= j and j + 1 < len(yalin["tr"]) and yalin["tr"][j]["tur"] == "paragraf"
+                    and yalin["tr"][j + 1]["tur"] == "paragraf"):
+                hata(f"{ad}: yönerge iki paragrafın arasında değil")
+                continue
+            if bn[j] != bn[ks]:
+                hata(f"{ad}: yönerge cümlenin alt başlık bölümünde değil")
+            if bn[j] in dolu_bolum:
+                hata(f"{ad}: aynı alt başlıkta ikinci öne çıkan cümle")
+            dolu_bolum.add(bn[j])
+            # Bölümdeki grafiklerin rakamı tekrarlanmıyor.
+            gosterilen: set[float] = set()
+            for i, b in enumerate(yalin["tr"]):
+                if b["tur"] == "grafik" and bn[i] == bn[j] and b["metin"] in grafikler:
+                    gr = grafikler[b["metin"]]
+                    gosterilen |= {round(float(n["deger"]), 4) for n in gr.get("noktalar", [])}
+                    gosterilen |= {round(v, 4) for v, _, _ in metin_sayilari(
+                        f"{gr['baslik']['tr']}\n{gr['aciklama']['tr']}", "tr")}
+            kalin = {round(v, 4) for m in re.finditer(r"\*\*([^*]*\d[^*]*)\*\*", c["tr"])
+                     for v, _, _ in metin_sayilari(m.group(1), "tr")}
+            if kalin & gosterilen:
+                hata(f"{ad}: yanındaki grafiğin rakamını tekrarlıyor ({sorted(kalin & gosterilen)})")
+            uygun = cekme_yerleri(yalin["tr"], kaynak=ks)
+            bu = [u for u in uygun if u[0] == j]
+            if not bu:
+                hata(f"{ad}: yer kurala uymuyor (telefonda 1,0 ekranı aşan koşu, ilk ekran, giriş ya da kaynak bitişiği)")
+            elif (en_iyi := min((u for u in uygun if u[3] == bu[0][3]), key=lambda u: (u[1], u[0]))[0]) != j:
+                hata(f"{ad}: koşunun ortasına en yakın uygun ara değil — "
+                     f"«{gorunen_metin(yalin['tr'][en_iyi + 1]['metin'])[:50]}…» paragrafının önü olmalı")
+    for k in sorted(set(kayitli) - set(kullanilan)):
+        hata(f"öne çıkan {k}: hiçbir metinde yönergesi yok")
+    print(f"  · {sayac} öne çıkan cümle sınandı")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -723,6 +1106,7 @@ def main() -> int:
     sina_kisaltmalar()
     sina_listeler()
     sina_terim_birligi()
+    sina_cekmeler()
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
         return 1

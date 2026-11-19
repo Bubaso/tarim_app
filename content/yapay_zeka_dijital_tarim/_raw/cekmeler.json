@@ -1,0 +1,12 @@
+{
+ "_ne": "Öne çıkan cümle (madde 6): metinde zaten geçen bir cümle, sayfanın içinde büyük puntoyla bir kez daha. Metinde yeri kendi satırında [[cekme:kimlik]]. Cümle harfi harfine paragraftaki gibi (kalın rakam imleri dahil); kurallar dogrula_bolumler.py kural 16. Sınıf A: kaynaklı kalın rakam taşıyor; S: rakamsız sonuç cümlesi (ayrı onay). Arama, okuma süresi, basılı sürüm ve ölçüme girmez.",
+ "cekmeler": [
+  {
+   "kimlik": "b26-tarim-istihdam-payi",
+   "sayfa": "b26",
+   "sinif": "A",
+   "tr": "Tarımın toplam istihdamdaki payı 2025'te **%14**, 2026'nın ilk yarısında **%13,4**.",
+   "en": "Agriculture's share of total employment was **14%** in 2025 and **13.4%** in the first half of 2026."
+  }
+ ]
+}

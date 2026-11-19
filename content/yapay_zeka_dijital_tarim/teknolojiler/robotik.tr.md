@@ -22,6 +22,6 @@ Robota ve yapay zekâya yatırım yapan şirketlerin bazıları ayakta kalamadı
 
 Türkiye'de hasadın makine tarafı klasik mekanizasyon: bakanlığın verisine göre 2025'te **1.610.133** traktör ve **21.116** biçerdöver vardı. 2027 Programı küçük, parçalı ve dağınık arazi yapısının mekanizasyonu güçleştirdiğini yazıyor; kırsal kalkınma desteği robotik ve otomasyonun yaygınlaşmasını da hedefliyor, hibe proje tutarının **%50-70**'i. Türkiye Yapay Zekâ Eylem Planı'nın (2026-2030) fiziksel yapay zekâ ve robotik programında tarım robotları var, ama planın **16** eyleminin hiçbirinde Tarım ve Orman Bakanlığı yok.
 
-Tekirdağ Namık Kemal Üniversitesi'nden Kahya'nın 2024 tarihli iki çalışması patlıcan ve kabak hasadı için meyveyi görüntüde tanıyan modeller eğitti; bir robotun meyveyi koparıp koparamadığı ölçülmedi. TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulunan bir proje, domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir robot geliştiriyor: 1 Ocak 2026'da başladı, 2027 sonunda bitmesi planlanıyor. Bakanlığın 2020 anketine göre çiftçilerin **%3**'ünden azı robotik gibi akıllı tarım teknolojilerini kullanıyordu.
-
 [[gorsel:t-robotik-tekirdag-da-serada-patlicani]]
+
+Tekirdağ Namık Kemal Üniversitesi'nden Kahya'nın 2024 tarihli iki çalışması patlıcan ve kabak hasadı için meyveyi görüntüde tanıyan modeller eğitti; bir robotun meyveyi koparıp koparamadığı ölçülmedi. TÜBİTAK'ın 1711 Yapay Zekâ Ekosistem Çağrısı'nda desteklenmeye değer bulunan bir proje, domates serasında gübreleme, ilaçlama ve hasat yapacak otonom bir robot geliştiriyor: 1 Ocak 2026'da başladı, 2027 sonunda bitmesi planlanıyor. Bakanlığın 2020 anketine göre çiftçilerin **%3**'ünden azı robotik gibi akıllı tarım teknolojilerini kullanıyordu.

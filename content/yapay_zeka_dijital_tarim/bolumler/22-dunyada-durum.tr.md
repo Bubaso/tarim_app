@@ -8,9 +8,9 @@ Yapay zekâ da çoğu yerde ayrıca ölçülmüyor. ABD'nin anketi hassas tarım
 
 ABD Tarım Bakanlığı'nın istatistik servisine (NASS) göre 2025'te çiftliklerin **%85**'i internete erişiyordu; **%55**'i geniş bant, **%74**'ü cep telefonu veri paketi kullanıyordu. Son on iki ayda hassas tarım uygulaması kullandığını bildiren çiftliklerin payı 2023'te **%27**, 2025'te **%22**. Soru GPS'le yönlendirmeyi, verim haritasını, değişken oranlı uygulamayı, dronları, elektronik küpeyi, hassas beslemeyi ve sağım robotunu kapsıyor; anket yaklaşık **28.000** işletmeyle yapılıyor.
 
-Bakanlığın ekonomik araştırma servisi (ERS) aynı teknolojileri ekili alan üzerinden ölçüyor. 2023 raporuna göre verim haritası, toprak haritası ve değişken oranlı uygulama kışlık buğday, pamuk, sorgum ve pirinçte ekili alanın yalnız **%5-25**'inde kullanılıyor; otomatik yönlendirme ise altı ana ürünün ekili alanının yarısından fazlasında. Mısırda otomatik dümen 2001'de ekili alanın **%5,3**'ünde, 2016'da **%58**'inde kullanılıyordu. Büyük ile küçük çiftlik arasındaki fark büyük: büyük çiftliklerin en az yarısı bu teknolojilerden birine dayanıyor, en küçük çiftliklerin ise **%25**'inden azı bunlardan herhangi birini kullanıyor. Federal desteğe bir örnek çevre koruma ödemeleri: 2020'de bu ödemelerle **2,24** milyon akreyi aşkın alanda hassas ilaçlama sözleşmeye bağlandı; programın dijital tarımla ilgili ek uygulamaları arasında en yaygını buydu. Raporun yazarlarına göre son yıllarda dijital tarımı doğrudan etkileyen birkaç federal program uygulandı, ama bunları belgeleyen büyük bir çalışma bulunmuyor; geniş bant eksikliği ise benimsemenin önündeki önemli engellerden biri.
-
 [[gorsel:b22-abd-de-otomatik-dumen-ve-yonlendirme]]
+
+Bakanlığın ekonomik araştırma servisi (ERS) aynı teknolojileri ekili alan üzerinden ölçüyor. 2023 raporuna göre verim haritası, toprak haritası ve değişken oranlı uygulama kışlık buğday, pamuk, sorgum ve pirinçte ekili alanın yalnız **%5-25**'inde kullanılıyor; otomatik yönlendirme ise altı ana ürünün ekili alanının yarısından fazlasında. Mısırda otomatik dümen 2001'de ekili alanın **%5,3**'ünde, 2016'da **%58**'inde kullanılıyordu. Büyük ile küçük çiftlik arasındaki fark büyük: büyük çiftliklerin en az yarısı bu teknolojilerden birine dayanıyor, en küçük çiftliklerin ise **%25**'inden azı bunlardan herhangi birini kullanıyor. Federal desteğe bir örnek çevre koruma ödemeleri: 2020'de bu ödemelerle **2,24** milyon akreyi aşkın alanda hassas ilaçlama sözleşmeye bağlandı; programın dijital tarımla ilgili ek uygulamaları arasında en yaygını buydu. Raporun yazarlarına göre son yıllarda dijital tarımı doğrudan etkileyen birkaç federal program uygulandı, ama bunları belgeleyen büyük bir çalışma bulunmuyor; geniş bant eksikliği ise benimsemenin önündeki önemli engellerden biri.
 
 [[grafik:b22-abd-iki-olcu]]
 
@@ -36,9 +36,9 @@ Ortak tarım politikasında (2023-2027) dijitalleşme, bilgi ve yenilikle birlik
 
 Hindistan 2024'te **2.817** crore rupi bütçeli bir Dijital Tarım Misyonu başlattı (**1** crore, **10** milyon eder). Misyonun omurgası AgriStack: çiftçi bilgileri dijital tapu kayıtlarıyla eşleştirilerek her çiftçiye bir kimlik veriliyor. 3 Ağustos 2026 itibarıyla **10,31** crore, yani **103** milyonu aşkın çiftçi kimliği oluşturuldu; 2026-27 hedefi **11** crore. Çiftçi kayıtları eyaletler düzeyinde tutuluyor ve verinin sahibi eyaletler; yapay zekâ ve makine öğrenmesi, bu altyapıda verim tahmini için öngörülen yöntemlerden biri.
 
-Hükümetin Şubat 2026 notuna göre 2023'te başlatılan, sesle çalışan yapay zekâlı sohbet robotu Kisan e-Mitra, çiftçilerin devlet programlarına dair sorularını yanıtlıyor. Aralık 2025'e kadar **93** lakh, yani **9,3** milyonu aşkın soruyu yanıtladı ve günde **8.000**'den fazla soruya **11** bölgesel dilde cevap veriyor. Yerel muson başlangıcına dair olasılıklı tahminler **13** eyalette **3,88** crore'u (**38,8** milyon) aşkın çiftçiye kısa mesajla gönderildi; iki eyaletteki takip anketlerine göre çiftçilerin **%31-52**'si ekim kararını bu tahminlere göre değiştirdi.
-
 [[gorsel:b22-kisan-e-mitra-sohbet-robotunun]]
+
+Hükümetin Şubat 2026 notuna göre 2023'te başlatılan, sesle çalışan yapay zekâlı sohbet robotu Kisan e-Mitra, çiftçilerin devlet programlarına dair sorularını yanıtlıyor. Aralık 2025'e kadar **93** lakh, yani **9,3** milyonu aşkın soruyu yanıtladı ve günde **8.000**'den fazla soruya **11** bölgesel dilde cevap veriyor. Yerel muson başlangıcına dair olasılıklı tahminler **13** eyalette **3,88** crore'u (**38,8** milyon) aşkın çiftçiye kısa mesajla gönderildi; iki eyaletteki takip anketlerine göre çiftçilerin **%31-52**'si ekim kararını bu tahminlere göre değiştirdi.
 
 ## İsrail: çiftlik değil şirket
 

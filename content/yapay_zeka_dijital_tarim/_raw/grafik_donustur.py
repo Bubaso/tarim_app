@@ -348,15 +348,20 @@ def donustur(o: dict) -> dict:
     return g
 
 
+# Blok sayılmayan yönerge: öne çıkan cümle ([[cekme:…]], madde 6) ve
+# tanınmayan her [[ad:kimlik]] satırı (gorsel_isle.py ile aynı kural).
+SAYILMAZ = re.compile(r"\[\[(?!(?:grafik|gorsel):)[a-z]+:[a-z0-9-]+\]\]")
+
+
 def bloklar(metin: str) -> list[str]:
-    return [b for b in re.split(r"\n\s*\n", metin.strip()) if b.strip()]
+    return [b for b in re.split(r"\n\s*\n", metin.strip()) if b.strip() and not SAYILMAZ.fullmatch(b.strip())]
 
 
 def yerlestir(metin: str, eklenecek: dict[int, list[str]]) -> str:
     parcalar = re.split(r"(\n[ \t]*\n\s*)", metin)
     sayac = -1
     for j in range(0, len(parcalar), 2):
-        if parcalar[j].strip():
+        if parcalar[j].strip() and not SAYILMAZ.fullmatch(parcalar[j].strip()):
             sayac += 1
             if sayac in eklenecek:
                 parcalar[j] = parcalar[j].rstrip("\n") + "".join(f"\n\n{y}" for y in eklenecek[sayac])

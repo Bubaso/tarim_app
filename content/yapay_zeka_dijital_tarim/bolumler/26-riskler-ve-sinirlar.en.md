@@ -6,9 +6,9 @@ Some of the risks of AI in agriculture have been measured. In Tanzania, the F-1 
 
 The best-known limit of models that recognise disease from images is that their performance falls outside the conditions they were trained in. Mohanty and colleagues (2016) trained a deep learning model on **54,306** leaf images taken in controlled conditions to recognise **26** diseases in **14** crop species. On test images held out from the same set, the model reached **99.35%** accuracy. But on two small sets (**121** and **119** images) collected from trusted online sources such as agricultural extension services and taken in other conditions, accuracy stayed at **31.40%** and **31.69%**; a random guess among the **38** classes would average **2.63%**. The authors list this as the study's first limitation; the second is that the model can only classify single leaves, facing up, on a plain background. According to the authors, laboratory tests are always more reliable than a diagnosis based on visible symptoms alone, and diagnosing a disease at an early stage by eye alone is often difficult.
 
-Ramcharan and colleagues (2019) put a model that recognises cassava diseases into a phone app and tested it on **720** diseased leaflets in a field in Tanzania. For pronounced symptoms, the F-1 score fell from **0.79** on the test set to **0.54** in field photos (a **32%** drop) and **0.48** in video (a **39%** drop). For early, mild symptoms the F-1 score stood at **0.26** in photos and **0.25** in video. In other words, the model performed worst at the early stage, where diagnosis is most useful. According to the authors, a model running on a phone faces new challenges such as lighting and orientation, and such models must be tested in real-world conditions.
-
 [[gorsel:b26-tanzanya-tarla-deneyinden-manyok]]
+
+Ramcharan and colleagues (2019) put a model that recognises cassava diseases into a phone app and tested it on **720** diseased leaflets in a field in Tanzania. For pronounced symptoms, the F-1 score fell from **0.79** on the test set to **0.54** in field photos (a **32%** drop) and **0.48** in video (a **39%** drop). For early, mild symptoms the F-1 score stood at **0.26** in photos and **0.25** in video. In other words, the model performed worst at the early stage, where diagnosis is most useful. According to the authors, a model running on a phone faces new challenges such as lighting and orientation, and such models must be tested in real-world conditions.
 
 [[grafik:b26-manyok-f1-tarlada]]
 
@@ -51,6 +51,8 @@ According to the International Energy Agency (IEA), data centres used about **1.
 ## The ground for risk in Türkiye
 
 According to the Ministry of Agriculture and Forestry's National Rural Development Strategy (2024-2028), the average farm in the Farmer Registration System was **6.9** hectares in 2023, and has been between **6.9** and **7.1** hectares since 2020. In the same year, **2,245,215** farms and **306,033** young farmers were registered in the system. The strategy writes that Turkish agriculture combines medium and large farms producing for world markets with traditional small family farms producing for local markets and household consumption. Its list of weaknesses includes the ageing of the farming population and young people's declining interest in farming, the small scale of farms, and limited access to smart farming applications. The strategy's measures include increasing the use of AI and smart technology applications and training to raise digital literacy.
+
+[[cekme:b26-tarim-istihdam-payi]]
 
 A working paper on rural development for the Fourth Agriculture and Forestry Council, based on TÜİK's 2023 labour data, puts the average age of people working in agriculture at **46**, against about **39** across all employment; **68.4%** of agricultural workers are over **40**, compared with **47.1%** in overall employment. Agricultural employment fell from **5** million **220** thousand in 2014 to **4** million **695** thousand in 2023.
 

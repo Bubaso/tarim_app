@@ -34,9 +34,9 @@ Paudel and colleagues (2021) built a machine learning model from the crop-model 
 
 Early in the season the two were comparable for all crops in the Netherlands, for all but soft wheat in Germany, and for soft wheat, spring barley and sunflower in France. For soft wheat in Germany and for sugar beet and potatoes in France, however, the machine learning error was twice the system's. At the end of the season they were still comparable in the Netherlands, but machine learning was worse in Germany and France. The authors present the work as a baseline, to be improved with new data sources, better features and other algorithms. In this comparison, machine learning did not overtake the established system in large-scale yield forecasting.
 
-In the EU, satellite data are now a legal requirement for identifying crops. Regulation (EU) 2021/2116, which governs the financing and monitoring of the EU's common agricultural policy, requires member states to set up an area monitoring system: regular and systematic observation, tracking and assessment of agricultural activity with Copernicus Sentinel satellite data or other data of at least equivalent value. The system had to be operational from 1 January 2023 and fully operational in all member states by 1 January 2024; countries assess its quality every year against a methodology set at Union level. The regulation requires Sentinel data or equivalent; it does not prescribe the method of analysis.
-
 [[gorsel:b09-sen4cap-sentinel-1-ve-sentinel-2-ile]]
+
+In the EU, satellite data are now a legal requirement for identifying crops. Regulation (EU) 2021/2116, which governs the financing and monitoring of the EU's common agricultural policy, requires member states to set up an area monitoring system: regular and systematic observation, tracking and assessment of agricultural activity with Copernicus Sentinel satellite data or other data of at least equivalent value. The system had to be operational from 1 January 2023 and fully operational in all member states by 1 January 2024; countries assess its quality every year against a methodology set at Union level. The regulation requires Sentinel data or equivalent; it does not prescribe the method of analysis.
 
 ## Türkiye
 

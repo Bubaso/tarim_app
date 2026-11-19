@@ -42,9 +42,9 @@ The Türkiye-based International Winter Wheat Improvement Program (IWWIP) was se
 
 The same assessment describes the programme's move to new tools: alongside the long route of the established system, a shorter one opened in 2018 with a speed breeding facility in İzmir that allows two to three generations a year. Until recently the programme remained largely a conventional breeding programme: in 2017 molecular markers were analysed on a germplasm set of more than **1,500**, and in 2018 all candidate lines for the international observation nursery were genotyped with markers. NDVI measurement with a hand-held crop sensor is routine in preliminary yield trials; in 2018 a workshop on modern phenotyping tools was held in Konya. The programme's stated future strategy is to combine conventional breeding with precision and high-throughput phenotyping, genomic tools and speed breeding. How genomic selection or AI affects variety development time or genetic gain in a breeding programme in Türkiye, however, has not been measured in a published assessment.
 
-The programme has left a mark on genetic resources too: in 2009-2014 it carried out a national inventory of wheat landraces in Türkiye; more than **60** of the **81** provinces were visited and landraces were collected from more than **1,500** farms.
-
 [[gorsel:b05-turkiye-de-yerel-bugday-ulusal]]
+
+The programme has left a mark on genetic resources too: in 2009-2014 it carried out a national inventory of wheat landraces in Türkiye; more than **60** of the **81** provinces were visited and landraces were collected from more than **1,500** farms.
 
 In academia, machine learning is entering early-stage screening. A study by five universities in Türkiye with Polish partners measured the response of tetraploid wheat genotypes to drought at germination, under stress induced in the laboratory with polyethylene glycol, and modelled it with four machine learning techniques (Benlioğlu and colleagues, 2024). The authors present the method as a fast and low-cost approach; the results belong to the laboratory and the germination stage, not to yield in the field.
 

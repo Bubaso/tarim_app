@@ -23,9 +23,9 @@ Türkiye'de Ulusal Yapay Zekâ Stratejisi (2021-2025) yapay zekâyı "bir bilgis
 
 Uluslararası Hassas Tarım Derneği'nin (ISPA) Ocak 2024'te güncellediği tanıma göre hassas tarım bir teknoloji değil, bir yönetim stratejisi: zamana, mekâna ve tek tek bitki ve hayvana ait verileri toplayıp işleyen, başka bilgilerle birleştiren ve tahmin edilen değişkenliğe göre yönetim kararlarını destekleyen bir strateji. Amacı kaynak kullanım etkinliğini, verimliliği, kaliteyi, kârlılığı ve sürdürülebilirliği artırmak. Derneğin ilk resmî tanımı 2018'de başlayan, üyelerin görüşlerinin ve **46** kişilik bir uzman panelinin katıldığı bir süreçle yazılmıştı; tanım 2023'teki genişletme kararının ardından Ocak 2024'te güncellendi. FAO'nun 2022 tanımı da hassas tarımı bir yönetim stratejisi olarak koyuyor.
 
-ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e, değişken oranlı uygulama ekipmanınınkini 1995'e tarihliyor; aynı servis 2023'te, yapay zekânın ve makine öğrenmesinin tarımda henüz ölçekli kullanılmadığını, bu yüzden verimliliğe katkılarına dair kanıtın az olduğunu yazıyor. FAO, uydu konumuyla çalışan otomatik dümenlemeyi hassas tarım teknolojisinin iyi bir örneği sayıyor.
-
 [[gorsel:b02-verim-haritasi]]
+
+ABD Tarım Bakanlığı Ekonomik Araştırma Servisi (ERS) verim monitörünün ticarileşmesini 1993'e, değişken oranlı uygulama ekipmanınınkini 1995'e tarihliyor; aynı servis 2023'te, yapay zekânın ve makine öğrenmesinin tarımda henüz ölçekli kullanılmadığını, bu yüzden verimliliğe katkılarına dair kanıtın az olduğunu yazıyor. FAO, uydu konumuyla çalışan otomatik dümenlemeyi hassas tarım teknolojisinin iyi bir örneği sayıyor.
 
 [[gorsel:b02-uydu-konumuyla-otomatik-dumenleme]]
 

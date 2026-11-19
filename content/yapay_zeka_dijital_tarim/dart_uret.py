@@ -500,10 +500,49 @@ def main() -> int:
     rk.append("")
     RK.write_text("\n".join(rk), encoding="utf-8")
 
+    # ── öne çıkan cümle (madde 6) ───────────────────────────────────────
+    # _raw/cekmeler.json → yz_cekmeler.g.dart. Cümle metinde zaten geçiyor
+    # (dogrula_bolumler.py kural 16); metinde yeri [[cekme:kimlik]] satırı.
+    CEK = KOK / "lib/features/yapay_zeka/data/yz_cekmeler.g.dart"
+    cyol = raw / "cekmeler.json"
+    cekmeler = json.loads(cyol.read_text(encoding="utf-8")).get("cekmeler", []) if cyol.exists() else []
+    ck = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+          "// Kaynak: content/yapay_zeka_dijital_tarim/_raw/cekmeler.json",
+          "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+          "//",
+          "// Öne çıkan cümle (madde 6): metinde zaten geçen bir cümlenin büyük",
+          "// puntolu tekrarı; yeri metindeki [[cekme:kimlik]] satırı.",
+          "",
+          "class YzCekmeCumlesi {",
+          "  const YzCekmeCumlesi(this.kimlik, this.sayfa, this.sinif, this.tr, this.en);",
+          "  final String kimlik;",
+          "",
+          "  /// \"bNN\" ya da \"tek_<kod>\".",
+          "  final String sayfa;",
+          "",
+          "  /// A: kaynaklı rakam taşıyan; S: rakamsız sonuç cümlesi.",
+          "  final String sinif;",
+          "  final String tr;",
+          "  final String en;",
+          "",
+          "  String cumle(bool isEn) => isEn ? en : tr;",
+          "}",
+          "",
+          "const Map<String, YzCekmeCumlesi> kYzCekmeler = {"]
+    for c in cekmeler:
+        ck.append(f"  {dizgi(c['kimlik'])}: YzCekmeCumlesi({dizgi(c['kimlik'])}, {dizgi(c['sayfa'])}, "
+                  f"{dizgi(c['sinif'])},")
+        ck.append(f"      {dizgi(c['tr'])},")
+        ck.append(f"      {dizgi(c['en'])}),")
+    ck.append("};")
+    ck.append("")
+    CEK.write_text("\n".join(ck), encoding="utf-8")
+
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
     print(f"✓ {RK.relative_to(KOK)} · {sum(e for e, _ in kapsama.values())}/{sum(t for _, t in kapsama.values())} kalın rakam kaynağa bağlı")
     print(f"✓ {GRAFIK.relative_to(KOK)} · {len(grafikler)} grafik, {len(gorseller)} görsel")
+    print(f"✓ {CEK.relative_to(KOK)} · {len(cekmeler)} öne çıkan cümle")
     print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
     print(f"✓ {METIN.relative_to(KOK)} · {yazilan} yazılmış başlık gömüldü")
     print(f"✓ {SOZLUK.relative_to(KOK)} · {len(terimler)} terim")

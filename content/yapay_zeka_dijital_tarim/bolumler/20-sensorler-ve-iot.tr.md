@@ -39,9 +39,9 @@ Bilgi Teknolojileri ve İletişim Kurumu'na (BTK) göre Haziran 2026 sonunda abo
 
 Sahada sürekli çalışan resmî bir ölçüm ağı meteorolojinin. Meteoroloji Genel Müdürlüğü'nün **2.059** gözlem sistemi var; bunların **1.717**'si algılayıcıları, veri toplama ve iletişim üniteleriyle otomatik meteoroloji gözlem istasyonu. Kurum bu ağın verisini zirai don uyarısı gibi tarım ürünlerine dönüştürüyor.
 
-Bakanlığın 2025 faaliyet raporunda, iklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı göstergesinin 2025 hedefi **410**, gerçekleşmesi **0**. Rapora göre Dünya Bankası'nın finanse ettiği Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında hibe uygulamalarına henüz başlanmadığı için hedefe ulaşılamadı; **15** pilot ilde eğiticilerin eğitimi yapıldı. Göstergenin hangi teknolojileri kapsadığı açıklanmadı. TAGEM ile FAO'nun 2023'te başlattığı ve Arnavutluk, Bosna-Hersek, Gürcistan ve Türkiye'yi kapsayan Dijital Köyler Girişimi Aralık 2025'te tamamlandı; Türkiye'de Ankara'nın Güdül ilçesine bağlı Boyalı'da bir köy dijital merkezi kuruldu.
-
 [[gorsel:b20-boyali-koy-dijital-merkezi]]
+
+Bakanlığın 2025 faaliyet raporunda, iklim dostu akıllı tarım teknoloji sistemleri kullanan işletme sayısı göstergesinin 2025 hedefi **410**, gerçekleşmesi **0**. Rapora göre Dünya Bankası'nın finanse ettiği Türkiye İklim Akıllı ve Rekabetçi Tarımsal Büyüme Projesi (TUCSAP) kapsamında hibe uygulamalarına henüz başlanmadığı için hedefe ulaşılamadı; **15** pilot ilde eğiticilerin eğitimi yapıldı. Göstergenin hangi teknolojileri kapsadığı açıklanmadı. TAGEM ile FAO'nun 2023'te başlattığı ve Arnavutluk, Bosna-Hersek, Gürcistan ve Türkiye'yi kapsayan Dijital Köyler Girişimi Aralık 2025'te tamamlandı; Türkiye'de Ankara'nın Güdül ilçesine bağlı Boyalı'da bir köy dijital merkezi kuruldu.
 
 [[grafik:b20-akilli-tarim-hedef]]
 

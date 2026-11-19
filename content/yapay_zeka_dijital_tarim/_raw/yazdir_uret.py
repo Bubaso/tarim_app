@@ -102,6 +102,10 @@ def bloklar(md: str) -> list[tuple[str, object]]:
             kapat(); i += 1
         elif m := re.fullmatch(r"\[\[(grafik|gorsel):([a-z0-9-]+)\]\]", t):
             kapat(); cikti.append((m.group(1), m.group(2))); i += 1
+        elif re.fullmatch(r"\[\[[a-z]+:[a-z0-9-]+\]\]", t):
+            # Öne çıkan cümle (madde 6) basılı sürüme girmez: metnin tekrarı.
+            # Tanınmayan yönerge de blok değil.
+            kapat(); i += 1
         elif t.startswith("## "):
             kapat(); cikti.append(("h", t[3:].strip())); i += 1
         elif t.startswith("- "):

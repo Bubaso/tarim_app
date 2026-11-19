@@ -6,9 +6,9 @@ Tarımda yapay zekânın risklerinin bir kısmı ölçülmüş durumda. Tanzanya
 
 Görüntüden hastalık tanıyan modellerin en çok anılan sınırı, eğitildikleri koşulların dışında başarılarının düşmesi. Mohanty ve arkadaşları (2016), kontrollü koşullarda çekilmiş **54.306** yaprak görüntüsüyle **14** ürün türünde **26** hastalığı tanıyan bir derin öğrenme modeli eğitti. Model aynı setten ayrılmış test görüntülerinde **%99,35** doğruluğa ulaştı. Ama tarım yayım servisleri gibi güvenilir çevrimiçi kaynaklardan toplanan, başka koşullarda çekilmiş iki küçük sette (**121** ve **119** görüntü) doğruluk **%31,40** ve **%31,69**'da kaldı; **38** sınıf arasında rastgele tahminin ortalama başarısı **%2,63**. Yazarlar bunu çalışmanın ilk sınırlılığı olarak yazıyor; ikincisi, modelin yalnız düz bir arka plan önünde, yüzü yukarı dönük tek yaprakları sınıflandırabilmesi. Yazarlara göre laboratuvar testleri yalnız görünür belirtiye dayanan teşhisten her zaman daha güvenilir; hastalığı erken evrede yalnız gözle teşhis etmek de çoğu zaman zor.
 
-Ramcharan ve arkadaşları (2019), manyok hastalıklarını tanıyan bir modeli telefon uygulamasına koyup Tanzanya'da bir tarlada **720** hastalıklı yaprakçıkla denedi. Belirgin belirtilerde F-1 skoru test setindeki **0,79**'dan tarla fotoğraflarında **0,54**'e (**%32** düşüş), videoda **0,48**'e (**%39** düşüş) indi. Erken, hafif belirtilerde F-1 skoru fotoğrafta **0,26**'da, videoda **0,25**'te kaldı. Yani model, teşhisin en çok işe yarayacağı erken evrede en düşük başarıyı gösterdi. Yazarlara göre telefonda çalışan bir model ışık ve açı gibi yeni güçlüklerle karşılaşıyor ve bu tür modellerin gerçek koşullarda sınanması şart.
-
 [[gorsel:b26-tanzanya-tarla-deneyinden-manyok]]
+
+Ramcharan ve arkadaşları (2019), manyok hastalıklarını tanıyan bir modeli telefon uygulamasına koyup Tanzanya'da bir tarlada **720** hastalıklı yaprakçıkla denedi. Belirgin belirtilerde F-1 skoru test setindeki **0,79**'dan tarla fotoğraflarında **0,54**'e (**%32** düşüş), videoda **0,48**'e (**%39** düşüş) indi. Erken, hafif belirtilerde F-1 skoru fotoğrafta **0,26**'da, videoda **0,25**'te kaldı. Yani model, teşhisin en çok işe yarayacağı erken evrede en düşük başarıyı gösterdi. Yazarlara göre telefonda çalışan bir model ışık ve açı gibi yeni güçlüklerle karşılaşıyor ve bu tür modellerin gerçek koşullarda sınanması şart.
 
 [[grafik:b26-manyok-f1-tarlada]]
 
@@ -51,6 +51,8 @@ Uluslararası Enerji Ajansı'na (IEA) göre veri merkezleri 2024'te dünya elekt
 ## Türkiye'de riskin zemini
 
 Tarım ve Orman Bakanlığı'nın Ulusal Kırsal Kalkınma Stratejisi'ne (2024-2028) göre Çiftçi Kayıt Sistemi'ndeki ortalama işletme büyüklüğü 2023'te **6,9** hektar; 2020'den beri **6,9** ile **7,1** hektar arasında. Aynı yıl ÇKS'de **2.245.215** işletme ve **306.033** genç çiftçi kayıtlıydı. Strateji, Türk tarımında dünya pazarlarına üreten orta ve büyük işletmelerle yerel pazara ve hane tüketimine üreten geleneksel küçük aile işletmelerinin bir arada olduğunu yazıyor. Zayıf yönler arasında tarımsal nüfusun yaşlanması ve gençlerin tarıma ilgisinin azalması, işletme ölçeğinin düşüklüğü ve akıllı tarım uygulamalarına erişim olanaklarının kısıtlı olması sayılıyor. Stratejinin tedbirleri arasında yapay zekâ ve akıllı teknoloji uygulamalarının kullanımının artırılması ve dijital okuryazarlığa yönelik eğitimler var.
+
+[[cekme:b26-tarim-istihdam-payi]]
 
 IV. Tarım Orman Şûrası'nın kırsal kalkınma çalışma belgesi, TÜİK'in 2023 işgücü verisine dayanarak tarımda çalışanların yaş ortalamasını **46**, bütün istihdamda yaklaşık **39** olarak veriyor; tarımda çalışanların **%68,4**'ü **40** yaşın üzerinde, genel istihdamda bu oran **%47,1**. Tarım istihdamı 2014'te **5** milyon **220** binken 2023'te **4** milyon **695** bine indi.
 
