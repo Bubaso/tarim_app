@@ -23,6 +23,7 @@ import '../../features/home/presentation/screens/financial_terminal_screen.dart'
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/home/presentation/screens/kisa_kisa_screen.dart';
 import '../../features/home/presentation/screens/weather_detail_screen.dart';
+import '../../features/tarladan_paylasim/presentation/tarladan_paylasim_ekrani.dart';
 import '../../features/home/presentation/screens/weekly_recap_screen.dart';
 import '../../features/home/presentation/screens/yyt_dosyasi_screen.dart';
 import '../../features/home/presentation/widgets/ai_columnists.dart';
@@ -489,6 +490,14 @@ final GoRouter appRouter = sayfaGorunumunuIzle(GoRouter(
     // Fotoğraf sergisi. Adresten tamamen yeniden kurulabiliyor: ekran
     // hiçbir argüman almıyor, yarışma kodu varsayılandan geliyor. Anasayfa
     // bandındaki "tümünü gör" buraya geliyor.
+    // Tarladan Paylaşım — sosyal medyada dönen tarım içeriğinin günlük
+    // derlemesi. Sayfa son yedi günü çiziyor; pencere sorguda.
+    GoRoute(
+      path: '/tarladan',
+      pageBuilder: (context, state) =>
+          _fadePage(state, const TarladanPaylasimEkrani()),
+    ),
+
     GoRoute(
       path: '/sergi',
       pageBuilder: (context, state) => _fadePage(state, const SergiEkrani()),

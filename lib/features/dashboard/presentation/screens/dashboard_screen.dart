@@ -20,6 +20,8 @@ import 'onay_kuyrugu_ekrani.dart';
 import 'hikaye_yonetimi_ekrani.dart';
 import 'hat_ekrani.dart';
 import '../../../yapay_zeka/presentation/yz_panel_ekrani.dart';
+import '../../../tarladan_paylasim/presentation/paylasim_panel_ekrani.dart';
+import '../../../tarladan_paylasim/paylasim_providers.dart';
 
 // Riverpod providers for categories and assignments
 final categoriesFutureProvider = FutureProvider<List<Map<String, dynamic>>>((ref) {
@@ -174,7 +176,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 9, vsync: this);
+    _tabController = TabController(length: 10, vsync: this);
   }
 
   @override
@@ -615,6 +617,36 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
         _sekme(isEn ? 'Stories' : 'Hikâyeler'),
         _sekme(isEn ? 'Hero News' : 'Hero'),
         _sekme(isEn ? 'Video News' : 'Video'),
+        // Tarladan Paylaşım. Rozet onay kuyruğundakiyle aynı sebeple:
+        // hat bir aday düşürdüğünde hangi sekmede olursan ol görünmeli.
+        Tab(
+          height: 46,
+          child: Consumer(
+            builder: (context, ref, _) {
+              final sayi = ref.watch(bekleyenPaylasimSayisiProvider)
+                  .maybeWhen(data: (n) => n, orElse: () => 0);
+              const ad = 'Tarladan';
+              if (sayi == 0) return const Text(ad);
+              return Row(mainAxisSize: MainAxisSize.min, children: [
+                const Text(ad),
+                const SizedBox(width: 7),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 6, vertical: 1),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary,
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: Text('$sayi',
+                      style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white)),
+                ),
+              ]);
+            },
+          ),
+        ),
         _sekme(loc.translate('dash_tab_stats')),
         _sekme(isEn ? 'Columnists' : 'Yazarlar'),
       ],
@@ -648,6 +680,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> with SingleTi
           const HikayeYonetimiEkrani(),
           const AdminHeroScreen(),
           const VideoOnayEkrani(),
+          const PaylasimPanelEkrani(),
           const AdminStatisticsScreen(),
           const AdminYazarlarScreen(),
         ],

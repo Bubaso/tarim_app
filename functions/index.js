@@ -1086,6 +1086,105 @@ export const categoryRenderer = onRequest(
   },
 );
 
+// ─── /tarladan ─────────────────────────────────────────────────────────────
+
+/// Tarladan Paylaşım köşesinin paylaşım kartı ve sekme başlığı.
+///
+/// NEDEN AYRI FONKSİYON. `firebase.json` yalnız `/haber/**`, `/hafta/**`,
+/// `/kategori/**` ve iki XML'i fonksiyona yönlendiriyor; geri kalan her şey
+/// statik `index.html`e düşüyor. Yani köşe bağlantısı paylaşıldığında
+/// sitenin genel yedek görseli ve genel başlığı çıkıyordu.
+///
+/// GÖRSEL SABİT, METİN GÜNLÜK. Kart (`/paylasim/tarladan.jpg`) depoda duruyor
+/// ve köşenin kimliğini taşıyor; günün bilgisi — tarih ve paylaşım sayısı —
+/// burada veritabanından CANLI okunuyor. Gerekçe
+/// `content/tarladan/paylasim_karti.mjs` başında: köşe derlemesi her gün
+/// değiştiği için kartı depoya koymak her gün bir dağıtım demek olurdu.
+///
+/// BOŞ KÖŞE DE DÜRÜST BİR CEVAP. Yayında derleme yoksa başlık günü değil
+/// yalnız köşenin adını taşıyor. "0 paylaşım" yazmak okura bozuk bir sayfa
+/// vaat etmek olurdu.
+///
+/// HER HATA YOLUNDA KABUK 200 İLE DÖNÜYOR: meta üretilemese de uygulama
+/// açılıp sayfayı kendisi kuruyor. Köşe bir bildirim hedefi değil, ama
+/// aynı ilke geçerli — etiket eksikliği sayfayı düşürmemeli.
+///
+/// İNGİLİZCE YOL BİLEREK BAĞLANMADI. Fonksiyon `/en/tarladan`'ı karşılamaya
+/// hazır ama `firebase.json`'da kuralı YOK. Sebebi ölçüldü: uygulamanın
+/// yönlendiricisinde hiç `/en/` rotası yok ve bilinmeyen yol `onException`
+/// ile ana sayfaya atılıyor. Kuralı eklemek, tarayıcı robotuna ince bir
+/// sayfa, okura ana sayfaya yönlendirme vermek olurdu. Köşenin İngilizce
+/// rotası açıldığında kural tek satır.
+export const tarladanRenderer = onRequest(
+  { region: REGION, memory: '256MiB', maxInstances: 10, invoker: 'public' },
+  async (req, res) => {
+    res.set('Content-Type', 'text/html; charset=utf-8');
+    res.set('Cache-Control', ARTICLE_CACHE);
+
+    const isEn = req.path.startsWith('/en/');
+    const url = `${SITE_ORIGIN}${isEn ? '/en' : ''}/tarladan`;
+    const title = isEn ? 'From the Field' : 'Tarladan Paylaşım';
+    const kart = `${SITE_ORIGIN}/paylasim/tarladan.jpg`;
+
+    try {
+      let gunEki = '';
+      let sayiEki = '';
+      try {
+        // Son yayındaki derleme ve onun yayındaki birim sayısı. Taslak
+        // görünmüyor: RLS zaten gizliyor, sorgu da aynı şeyi söylüyor.
+        const derlemeler = await supabaseGet(
+          'paylasim_derlemeleri?durum=eq.yayinda' +
+            '&select=id,tarih&order=tarih.desc&limit=1',
+        );
+        const d = Array.isArray(derlemeler) ? derlemeler[0] : null;
+        if (d?.id) {
+          const birimler = await supabaseGet(
+            `paylasim_birimleri?durum=eq.yayinda&derleme_id=eq.${d.id}` +
+              '&select=id',
+          );
+          const n = Array.isArray(birimler) ? birimler.length : 0;
+          if (n > 0) {
+            gunEki = ` · ${tarihEtiketi(d.tarih, isEn)}`;
+            sayiEki = isEn
+              ? ` ${n} post${n === 1 ? '' : 's'}.`
+              : ` ${n} paylaşım.`;
+          }
+        }
+      } catch (err) {
+        // Sayı çekilemezse başlık köşenin adıyla gider. Kartın kendisi
+        // zaten statik; paylaşım yine de doğru görünür.
+        console.error('tarladanRenderer derleme', err);
+      }
+
+      const description = isEn
+        ? `Agricultural posts circulating on social media, compiled daily.${sayiEki}`
+        : `Sosyal medyada dönen tarım içeriğinin günlük derlemesi.${sayiEki}`;
+
+      const block = metaTags({
+        title: `${title}${gunEki}`,
+        documentTitle: `${title} | ${SITE_NAME}`,
+        description,
+        image: kart,
+        url,
+        type: 'website',
+        isEn,
+      });
+
+      const ssr =
+        `<div id="ssr-content">` +
+        `<h1>${escapeHtml(title)}</h1>` +
+        `<p>${escapeHtml(description)}</p>` +
+        navBloku() +
+        `</div>`;
+
+      res.status(200).send(injectSsr(inject(SHELL, block), ssr));
+    } catch (err) {
+      console.error('tarladanRenderer', err);
+      res.status(200).send(SHELL);
+    }
+  },
+);
+
 // ─── /hafta/** ─────────────────────────────────────────────────────────────
 
 /// Haftalık özet sayfasının paylaşım kartı ve sekme başlığı.

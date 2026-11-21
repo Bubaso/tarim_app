@@ -33,6 +33,7 @@ import 'weather_detail_screen.dart';
 import '../widgets/news_search_delegate.dart';
 import '../widgets/portal_footer.dart';
 import '../../../sergi/presentation/widgets/sergi_bandi.dart';
+import '../../../tarladan_paylasim/presentation/widgets/tarladan_bandi.dart';
 import '../widgets/yyt_dosyasi_section.dart';
 import '../widgets/kisa_kisa_section.dart';
 import '../widgets/icymi_section.dart';
@@ -502,6 +503,11 @@ class _MobileContent extends ConsumerWidget {
           // sonra, altbilgiden önce. Haber duvarı bitti; okur artık
           // okumuyor, bakıyor. Bant kenardan kenara ve koyu: portalın
           // temasını izlemiyor, kendi salonunu kuruyor.
+          // TARLADAN ŞERİDİ — sergi bandından hemen önce. Köşenin TEK
+          // kapısı bu; `/tarladan` rotası başka hiçbir yerden bağlı
+          // değil. Haber duvarı bitti ama okur hâlâ bilgiye bakıyor;
+          // saf görsel dinlenme sergi bandında.
+          const TarladanBandi(),
           const SergiBandi(),
           PortalFooter(isDark: isDark),
         ],
@@ -595,6 +601,11 @@ class _TabletContent extends ConsumerWidget {
           // sonra, altbilgiden önce. Haber duvarı bitti; okur artık
           // okumuyor, bakıyor. Bant kenardan kenara ve koyu: portalın
           // temasını izlemiyor, kendi salonunu kuruyor.
+          // TARLADAN ŞERİDİ — sergi bandından hemen önce. Köşenin TEK
+          // kapısı bu; `/tarladan` rotası başka hiçbir yerden bağlı
+          // değil. Haber duvarı bitti ama okur hâlâ bilgiye bakıyor;
+          // saf görsel dinlenme sergi bandında.
+          const TarladanBandi(),
           const SergiBandi(),
           PortalFooter(isDark: isDark),
         ],
@@ -726,6 +737,9 @@ class _DesktopContent extends ConsumerWidget {
         ),
         // SERGİ BANDI — kapanış bloğundan sonra, altbilgiden önce.
         // maxWidth ile sarılmıyor: bant kenardan kenara.
+        // TARLADAN ŞERİDİ — sergi bandından hemen önce. Köşenin TEK
+        // kapısı bu; `/tarladan` rotası başka hiçbir yerden bağlı değil.
+        const SliverToBoxAdapter(child: TarladanBandi()),
         const SliverToBoxAdapter(child: SergiBandi()),
         SliverToBoxAdapter(
           child: PortalFooter(isDark: isDark),

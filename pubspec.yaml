@@ -28,6 +28,10 @@ dependencies:
   geolocator: ^14.0.2
   html_editor_enhanced: ^2.7.1
   http: ^1.6.0
+  # Tarladan Paylaşım'ın gömme kutusu için: web'de iframe'i
+  # `dart:ui_web` ile platform görünümü olarak kaydediyoruz.
+  # Zaten geçişli olarak 1.1.1 sürümüyle vardı.
+  web: ^1.1.0
   image_picker: ^1.2.2
   share_plus: ^12.0.2
   shimmer: ^3.0.0
