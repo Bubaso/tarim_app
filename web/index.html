@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+  <!-- ══ GOOGLE ETİKETİ (Google Ads · GTM-5W2SZB98) ════════════════════════
+       22 Kasım 2026'da eklendi. Arama kampanyası yayına alınınca Google Ads
+       "siteye etiketi elle yükleyin" dedi; reklamdan gelen tıklamanın siteye
+       ulaşıp ulaşmadığını ancak bu etiket ölçebiliyor.
+
+       NEDEN TAM BURADA: Google'ın şartı "<head> öğesinin hemen sonrası".
+       Daha aşağı konursa sayfanın ilk saniyesinde ateşlenmiyor ve erken
+       çıkan ziyaretçi sayılmıyor.
+
+       FIREBASE ANALYTICS'LE İLİŞKİSİ: sitede zaten GA4 var (aşağıda,
+       Firebase SDK'sı üzerinden, G-0FF4T9BHJ4). Bu etiket onun yerine
+       geçmiyor, ikisi ayrı hedefe yazıyor: GA4 okur davranışını, bu etiket
+       Ads'in dönüşümünü. `dataLayer` ve `gtag` burada ÖNCE tanımlanıyor;
+       Firebase modülü `type="module"` olduğu için ertelenmiş çalışıyor ve
+       hazır bulduğu kuyruğun üstüne biniyor. Sıra tersine çevrilirse
+       Firebase'in kendi sarmalayıcısı bu tanımla ezilir.
+
+       Google'ın uyarısı: sayfa başına BİRDEN FAZLA Google etiketi eklemeyin.
+       Üçüncü bir etiket eklenecekse önce bu ikisinin birleştirilmesi gerekir.
+  -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5W2SZB98"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
