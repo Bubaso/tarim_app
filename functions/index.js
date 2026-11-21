@@ -1480,11 +1480,34 @@ export const sitemap = onRequest(
       // tarama botu. Zaman aşımına uğrarsak Google yalnızca 10 statik adres
       // görür ve tüm arşiv sessizce indeksten düşer — bu, birkaç saniye
       // beklemekten çok daha pahalı. Onun için ayrı ve geniş bir bütçe.
-      const rows = await supabaseGet(
-        'articles?status=eq.published&select=id,created_at&order=created_at.desc&limit=5000',
-        20000,
-      );
-      for (const row of Array.isArray(rows) ? rows : []) {
+      // SAYFA SAYFA: PostgREST 1.000 satırda SESSİZCE kesiyor.
+      //
+      // Buradaki istek `limit=5000` diyordu ve kimse itiraz etmiyordu —
+      // ne hata, ne uyarı. 21 Kasım 2026'da ölçüldü: sitemap'te 1.000 tekil
+      // haber vardı, veritabanında 1.546 yayındaki haber. Yani 546 haber
+      // (arşivin %35'i) Google'a HİÇ bildirilmiyordu. Aynı tuzağa bu depoda
+      // daha önce de düşülmüştü; sunucunun `db-max-rows` ayarı istemciden
+      // gelen `limit`i sessizce eziyor.
+      //
+      // Sıralamaya `id` eklendi: `created_at` eşit olan satırlarda sıra
+      // belirsiz kalıyor ve sayfa sınırında bir haber iki kez gelip bir
+      // başkası hiç gelmeyebiliyor.
+      const SAYFA_BOYU = 1000;
+      // 20.000 haber = 40.000 adres; sitemap protokolünün tek dosya sınırı
+      // 50.000. Arşiv buraya yaklaşırsa sitemap index'e bölmek gerekir.
+      const TAVAN = 20000;
+      const rows = [];
+      for (let offset = 0; offset < TAVAN; offset += SAYFA_BOYU) {
+        const parca = await supabaseGet(
+          'articles?status=eq.published&select=id,created_at' +
+            `&order=created_at.desc,id.desc&limit=${SAYFA_BOYU}&offset=${offset}`,
+          20000,
+        );
+        const liste = Array.isArray(parca) ? parca : [];
+        rows.push(...liste);
+        if (liste.length < SAYFA_BOYU) break;
+      }
+      for (const row of rows) {
         if (!row?.id) continue;
         const trLoc = `${SITE_ORIGIN}/haber/${row.id}`;
         const enLoc = `${SITE_ORIGIN}/en/haber/${row.id}`;
