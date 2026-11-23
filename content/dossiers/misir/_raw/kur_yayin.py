@@ -188,6 +188,13 @@ d["hikaye"] = {
     "_ayna_notu": ("Hiçbir slayt TİCARET rakamı taşımıyor. İki beyan "
                    "birbirini tutmuyor (%58,8 ve %53,1) ve bir slayta "
                    "sığmayacak kadar şerh ister; o bölüm dosyanın içinde."),
+    "_sinir_notu": ("Slayt alanlarının gösterim sınırları (scripts/"
+                    "dosya_hikayeleri.py, SINIR sözlüğü): ust 24, baslik 60, "
+                    "etiket 48, rakam 12 karakter. İlk yazımda etiketler "
+                    "115-147 karakterdi ve dördü cümlenin ortasından "
+                    "kırpılıyordu; üst satır da bir karakterle taşıyordu. "
+                    "Betik kırpmayı ekrana yazıyor ki kaynak düzeltilebilsin — "
+                    "23 Kasım 2026'da düzeltildi."),
     "_gorsel_notu": ("Görseller dosyanın İÇİNDEKİ karelerden; paylaşım kartı "
                      "kullanılmıyor. Altyazıları bölüm görselleriyle aynı — "
                      "künyeden yazıldı, kareden değil."),
@@ -198,57 +205,36 @@ d["hikaye"] = {
          "baslik": "Bir tarım çalışanına 1,71 feddan düşüyor",
          "baslik_en": "An agricultural worker has 1.71 feddans",
          "rakam": "11,0 kat", "rakam_en": "11.0 fold",
-         "etiket": ("Mısır'da çalışan başına 0,72 hektar, Türkiye'de 7,89 — "
-                    "ve Mısır tarımda Türkiye'den daha fazla insan "
-                    "çalıştırıyor (FAOSTAT, arazi 2024 · istihdam 2025)"),
-         "etiket_en": ("0.72 hectares per worker in Egypt against 7.89 in "
-                       "Türkiye — and Egypt employs more people in agriculture "
-                       "than Türkiye does (FAOSTAT, land 2024 · employment 2025)"),
+         "etiket": "Çalışan başına 0,72 ha · Türkiye 7,89 ha",
+         "etiket_en": "0.72 ha per worker · Türkiye 7.89 ha",
          "gorsel": slayt_gorseli("misir_tarla_at")},
-        {"ust": "SU YUKARIDAN GELİYOR", "ust_en": "THE WATER COMES FROM UPSTREAM",
+        {"ust": "SU YUKARIDAN GELİYOR", "ust_en": "WATER FROM UPSTREAM",
          "baslik": "Mısır'ın suyunun %96,9'u ülke dışından geliyor",
          "baslik_en": "96.9% of Egypt's water originates outside the country",
          "rakam": "%96,9", "rakam_en": "96.9%",
-         "etiket": ("Ülke içinde yenilenen su 1.800 milyon m³, bütün "
-                    "yenilenebilir kaynak 58.300 — ve çekimin %86'sı tarıma "
-                    "gidiyor (FAO AQUASTAT, 2016 taraması)"),
-         "etiket_en": ("Water renewed inside the country is 1,800 million m³ "
-                       "against 58,300 for all renewable resources — and 86% "
-                       "of withdrawal goes to agriculture (FAO AQUASTAT, 2016 review)"),
+         "etiket": "Çekilen suyun %86'sı tarıma gidiyor",
+         "etiket_en": "86% of water withdrawn goes to farming",
          "gorsel": slayt_gorseli("misir_sakiye_deve")},
-        {"ust": "DÜNYANIN EN BÜYÜK ALICISI", "ust_en": "THE WORLD'S LARGEST BUYER",
+        {"ust": "DÜNYANIN EN BÜYÜĞÜ", "ust_en": "THE LARGEST BUYER",
          "baslik": "Buğdayda dünyanın en büyük alıcısı Mısır",
          "baslik_en": "Egypt is the world's largest wheat buyer",
-         "rakam": "12.467 bin ton", "rakam_en": "12,467 thousand tonnes",
-         "etiket": ("Tüketiminin %62,3'ü ithal ve dünya buğday ithalatının "
-                    "%6,2'si tek bir ülkeye ait (USDA PSD, 2024/25 pazarlama "
-                    "yılı)"),
-         "etiket_en": ("62.3% of its consumption is imported and 6.2% of all "
-                       "world wheat imports belong to one country (USDA PSD, "
-                       "2024/25 marketing year)"),
+         "rakam": "%62,3", "rakam_en": "62.3%",
+         "etiket": "Tüketiminin ithal edilen payı · 2024",
+         "etiket_en": "Share of consumption imported · 2024",
          "gorsel": slayt_gorseli("misir_bugday_hasadi")},
         {"ust": "ÇELİŞKİ", "ust_en": "THE CONTRADICTION",
          "baslik": "Su istemeyen taneyi alıyor, su isteyeni kendi ekiyor",
-         "baslik_en": "It buys the grain that needs little water and grows the one that needs most",
+         "baslik_en": "It buys the dry grain and grows the thirsty one",
          "rakam": "%3,9", "rakam_en": "3.9%",
-         "etiket": ("Buğdayda arzın %58,1'i, tane mısırda %60,1'i ithal — "
-                    "pirinçte yalnız %3,9'u, ve pirinç üretimi Türkiye'nin "
-                    "6,31 katı (USDA PSD · FAOSTAT QCL, 2024)"),
-         "etiket_en": ("58.1% of wheat supply and 60.1% of maize supply are "
-                       "imported — in rice only 3.9%, and output is 6.31 times "
-                       "Türkiye's (USDA PSD · FAOSTAT QCL, 2024)"),
+         "etiket": "Pirinçte arzın ithal payı · buğday %58,1",
+         "etiket_en": "Rice supply imported · wheat 58.1%",
          "gorsel": slayt_gorseli("misir_pirinc_hasat")},
         {"ust": "AÇILAN MAKAS", "ust_en": "THE WIDENING GAP",
          "baslik": "Portakalda Mısır 1970'te geçti, hâlâ açıyor",
-         "baslik_en": "Egypt passed Türkiye in oranges in 1970 and is still pulling away",
+         "baslik_en": "Egypt passed Türkiye in oranges and keeps pulling away",
          "rakam": "2,61 kat", "rakam_en": "2.61 fold",
-         "etiket": ("Oran 1990'da 2,14 kattı, 2024'te 2,61 — ama mandalinada "
-                    "Türkiye önde (0,64 kat), limonda daha önde (0,22 kat) "
-                    "(FAOSTAT QCL, ortak son yıl 2024)"),
-         "etiket_en": ("The ratio was 2.14 fold in 1990 and 2.61 in 2024 — but "
-                       "Türkiye leads in mandarins (0.64 fold) and leads by "
-                       "more in lemons (0.22 fold) (FAOSTAT QCL, shared last "
-                       "year 2024)"),
+         "etiket": "1990'da 2,14 kat · 2024'te 2,61 kat",
+         "etiket_en": "2.14 fold in 1990 · 2.61 fold in 2024",
          "gorsel": slayt_gorseli("misir_portakal_bahcesi")},
     ],
 }
