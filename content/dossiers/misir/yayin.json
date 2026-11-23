@@ -1,0 +1,460 @@
+{
+  "_dosya": "Mısır — Ülke Dosyası Sayı 06 · yayın künyesi",
+  "_amac": "Dosyanın kimliği, penceresi, bölüm iskeleti ve ana sayfa hikâyesi.",
+  "_uretim": "_raw/kur_yayin.py — elle yazılmaz; başlıklar metinden okunur.",
+  "slug": "misir",
+  "name_tr": "Mısır",
+  "name_en": "Egypt",
+  "iso3": "EGY",
+  "tur": "ulke",
+  "edition": 6,
+  "pencere": {
+    "gun": 28,
+    "baslangic": null,
+    "_baslangic_notu": "null → seed anında now(). İleri tarihli pencere dosyayı yayına sokup şeritten gizler (§2.12/1)."
+  },
+  "status": "draft",
+  "_status_notu": "TASLAK. Devir ve dağıtım kullanıcı onayı ister; bu alan devirde 'published' olur ve AYNI TURDA veritabanıyla eşitlenir — durum bekçisi ayrışmayı dağıtımda durduruyor.",
+  "kapak": {
+    "url": "https://tarimportali.net/dosya/misir/misir_kapak_vadi.jpg",
+    "atif": "Planet Labs, Inc.",
+    "lisans": "CC BY-SA 4.0",
+    "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+    "alt_tr": "Nil vadisi, Mısır. Planet Labs uydu görüntüsü, 13 Ağustos 2016.",
+    "alt_en": "The Nile valley, Egypt. Planet Labs satellite image, 13 August 2016.",
+    "en_boy": 1.3333,
+    "_commons": "https://commons.wikimedia.org/wiki/File:Nile_River_Valley%2C_Egypt_by_Planet_Labs.jpg",
+    "_dayanak": "nesne_adi 'Nile River Valley, Egypt by Planet Labs' + açıklama 'Nile River Valley Egypt August 13, 2016' + tarih 'Taken on 13 August 2016'",
+    "_tasarimla_uyum": "tasarim.json'un kapak tarifi: 'Nil vadisinin çöl sınırı — yüksekten, ekili yeşil ile kumun kesiştiği çizgi kadrajın içinden geçecek kadar yakın.' Bu kare o tarife uyuyor; sapma yok.",
+    "_gozle_dogrulandi": false,
+    "_gozle_notu": "GÖZLE AÇILMADI. Kullanıcı kareyi onaylamadan devredilmez."
+  },
+  "video": {
+    "url": null,
+    "_notu": "null ise kapakta video bloğu hiç çizilmez."
+  },
+  "bolum_turleri": {
+    "_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis.",
+    "_neden_boyle": "Eksen Türkiye bağı değil Mısır'ın kendi tarımı (kullanıcı şartı). Ticaret bölümleri 13 ve 14, belge bölümü 15 SONA konuldu; dosya tarlayla başlayıp tarlayla sürüyor. Su bölümü (4) erken duruyor çünkü sonraki bütün bölümlerin kısıtı o.",
+    "1": "anlati",
+    "2": "veri",
+    "3": "veri",
+    "4": "belge",
+    "5": "veri",
+    "6": "anlati",
+    "7": "veri",
+    "8": "veri",
+    "9": "veri",
+    "10": "anlati",
+    "11": "veri",
+    "12": "veri",
+    "13": "veri",
+    "14": "belge",
+    "15": "belge",
+    "16": "anlati",
+    "17": "anlati",
+    "18": "belge"
+  },
+  "bolum_grafikleri": {
+    "_amac": "Hangi bölümde hangi grafik. Kimlikler grafikler.json ile birebir eşleşmek zorunda.",
+    "_bos_bolumler": "9, 10 ve 18'de grafik YOK. 9'un verisi 8'deki uc_tane grafiğinde zaten çizili; 10 bir anlatı bölümü ve rakamı yok; 18 kaynakça.",
+    "_ayna_uyarisi": "13 ve 14'teki grafikler ticaret rakamları taşıyor. İKİ TARAF da muhabir olarak rapor veriyor ve beyanlar tutmuyor; 13 tek muhabirden (Türkiye) hesaplandı, 14 ikisini yan yana koyuyor.",
+    "1": [
+      "feddan"
+    ],
+    "2": [
+      "kirkta_bir"
+    ],
+    "3": [
+      "on_bir_kat"
+    ],
+    "4": [
+      "suyun_defteri"
+    ],
+    "5": [
+      "ayni_tarla"
+    ],
+    "6": [
+      "arazinin_egrisi"
+    ],
+    "7": [
+      "dunyanin_alicisi",
+      "ithalatin_egrisi"
+    ],
+    "8": [
+      "uc_tane"
+    ],
+    "11": [
+      "pamuk_endeksi"
+    ],
+    "12": [
+      "portakalda_ikiye_bir"
+    ],
+    "13": [
+      "ayni_fasillar"
+    ],
+    "14": [
+      "iki_defter"
+    ],
+    "15": [
+      "kahirede_imzalandi",
+      "taviz_degisimi"
+    ],
+    "16": [
+      "kirsalda_cogunluk"
+    ],
+    "17": [
+      "tarimin_agirligi"
+    ]
+  },
+  "_bolum_basliklari": {
+    "_notu": "METİNDEN OKUNDU; başlıklar metinle birebir.",
+    "1": "Bir feddan",
+    "2": "Kırkta bir",
+    "3": "On bir kat",
+    "4": "Suyun yüzde doksan yedisi",
+    "5": "Aynı tarla, yılda bir buçuk kez",
+    "6": "Eski toprak, yeni toprak",
+    "7": "Dünyanın en büyük buğday alıcısı",
+    "8": "Ama pirinci kendi yetiştiriyor",
+    "9": "Tane mısırda da aynı",
+    "10": "Adı bir kişiden gelen ürün",
+    "11": "Pamuğun altmış üç yılı",
+    "12": "Portakalda ikiye bir",
+    "13": "Aynı rafta iki satıcı",
+    "14": "İki defter",
+    "15": "Kahire'de imzalandı, Mükerrer'de yayımlandı",
+    "16": "Kırsalda yaşayan çoğunluk",
+    "17": "Türkiye buradan ne görebilir",
+    "18": "Kaynakça"
+  },
+  "_bolum_basliklari_en": {
+    "1": "One feddan",
+    "2": "One part in forty",
+    "3": "Eleven fold",
+    "4": "Ninety-seven per cent of the water",
+    "5": "The same field, one and a half times a year",
+    "6": "Old land, new land",
+    "7": "The world's largest wheat buyer",
+    "8": "But it grows its own rice",
+    "9": "The same in maize",
+    "10": "A crop that takes its name from a person",
+    "11": "Sixty-three years of cotton",
+    "12": "Two to one in oranges",
+    "13": "Two sellers on the same shelf",
+    "14": "Two ledgers",
+    "15": "Signed in Cairo, published in a supplement",
+    "16": "A majority still in the countryside",
+    "17": "What Türkiye can see from here",
+    "18": "Sources"
+  },
+  "bolum_gorselleri": {
+    "_amac": "Grafik veriyi anlatır, görsel konuyu gösterir. Atıfsız görsel yayımlanmaz (§2.4).",
+    "_kaynak": "Hepsi Wikimedia Commons; atıf ve lisans Commons API'sinden çekildi, elle yazılmadı.",
+    "_altyazi_kurali": "Altyazı KÜNYEDİR: konu + yer + tarih, kaynağın kendi açıklamasından yazıldı. Karede ne görüldüğü ANLATILMADI. Her altyazının `_dayanak` alanı hangi künye alanından geldiğini söylüyor.",
+    "_kapak_tekrari": "§2 kapakla AYNI kareyi kullanıyor. Tekrar bilinçli: §2'nin konusu zaten vadinin çöl sınırı, yani kapağın gösterdiği şey. On sekiz bölüme on sekiz ayrı kare bulunamadığı için değil.",
+    "1": {
+      "anahtar": "misir_tarla_at",
+      "url": "https://tarimportali.net/dosya/misir/misir_tarla_at.jpg",
+      "atif": "AmiraAdel93",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.5,
+      "alt_tr": "Atla tarla hazırlığı. Dakahliye, Mısır, 19 Mayıs 2024.",
+      "alt_en": "Preparing a field with a horse. Dakahlia, Egypt, 19 May 2024.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Preparing_the_Field_by_Horse.jpg",
+      "_dayanak": "nesne_adi 'Preparing the Field by Horse' + kategori 'Dakahlia Governorate' + tarih 2024-05-19"
+    },
+    "2": {
+      "anahtar": "misir_kapak_vadi",
+      "url": "https://tarimportali.net/dosya/misir/misir_kapak_vadi.jpg",
+      "atif": "Planet Labs, Inc.",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.3333,
+      "alt_tr": "Nil vadisi, Mısır. Planet Labs uydu görüntüsü, 13 Ağustos 2016.",
+      "alt_en": "The Nile valley, Egypt. Planet Labs satellite image, 13 August 2016.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Nile_River_Valley%2C_Egypt_by_Planet_Labs.jpg",
+      "_dayanak": "nesne_adi 'Nile River Valley, Egypt by Planet Labs' + açıklama 'Nile River Valley Egypt August 13, 2016' + tarih 'Taken on 13 August 2016'"
+    },
+    "3": {
+      "anahtar": "misir_ciftciler",
+      "url": "https://tarimportali.net/dosya/misir/misir_ciftciler.jpg",
+      "atif": "Hbegzee",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.5,
+      "alt_tr": "Mısırlı çiftçiler, 15 Mart 2023. Kaynak ili kaydetmiyor.",
+      "alt_en": "Egyptian farmers, 15 March 2023. The source does not record the governorate.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Egyptian_farmers.jpg",
+      "_dayanak": "nesne_adi 'Egyptian farmers' + kategori 'People of Egypt in 2023' + tarih 2023-03-15. Açıklama alanı boş; il bilgisi kaynakta YOK."
+    },
+    "4": {
+      "anahtar": "misir_sakiye_deve",
+      "url": "https://tarimportali.net/dosya/misir/misir_sakiye_deve.jpg",
+      "atif": "Matson Collection",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "en_boy": 0.6715,
+      "alt_tr": "Deveyle döndürülen su dolabı, Mısır, 1900. G. Eric ve Edith Matson Fotoğraf Koleksiyonu.",
+      "alt_en": "A water wheel turned by a camel, Egypt, 1900. G. Eric and Edith Matson Photograph Collection.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Egyptian_characters%2C_etc._Egyptian_irrigating_wheel_with_camel_LOC_matpc.01603.jpg",
+      "_dayanak": "Künye başlığı: 'Egyptian characters, etc. Egyptian irrigating wheel with camel' · koleksiyon 'G. Eric and Edith Matson Photograph Collection' · tarih 1900"
+    },
+    "5": {
+      "anahtar": "misir_su_cekme_1934",
+      "url": "https://tarimportali.net/dosya/misir/misir_su_cekme_1934.jpg",
+      "atif": "Matson Collection",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "en_boy": 1.3235,
+      "alt_tr": "Kanaldan su çıkarmakta kullanılan burgulu boru, Mısır, 1934. Matson Fotoğraf Koleksiyonu.",
+      "alt_en": "A spiral tube used to raise water from a canal, Egypt, 1934. Matson Photograph Collection.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Agriculture_in_Egypt._Primitive_irrigation._Close-up_showing_method_of_raising_water_from_canals_by_means_of_spiral_tube_LOC_matpc.16336.jpg",
+      "_dayanak": "Künye başlığı: 'Agriculture in Egypt. Primitive irrigation. Close-up showing method of raising water from canals by means of spiral tube' · tarih 1934. 'Primitive' sıfatı altyazıya alınmadı — bkz. _matson_notu."
+    },
+    "6": {
+      "anahtar": "misir_col_tarimi",
+      "url": "https://tarimportali.net/dosya/misir/misir_col_tarimi.jpg",
+      "atif": "NASA Goddard Photo and Video",
+      "lisans": "CC BY 2.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by/2.0",
+      "en_boy": 1.3676,
+      "alt_tr": "Batı Çölü'nde sulamalı tarım, Nil'in batısı, Mısır. NASA, 9 Şubat 2018.",
+      "alt_en": "Irrigated farming in the Western Desert, west of the Nile, Egypt. NASA, 9 February 2018.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Cultivating_Egypt%E2%80%99s_Desert.jpg",
+      "_dayanak": "nesne_adi 'Cultivating Egypt's Desert' + açıklama 'Egypt's Western Desert… this part of the eastern Sahara (west of the Nile River)' + tarih 2018-02-09"
+    },
+    "7": {
+      "anahtar": "misir_bugday_hasadi",
+      "url": "https://tarimportali.net/dosya/misir/misir_bugday_hasadi.jpg",
+      "atif": "Doaa Adel",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.5,
+      "alt_tr": "Buğday hasadı. Şarkiye, Mısır, 1 Mayıs 2024.",
+      "alt_en": "Wheat harvest. Sharqia, Egypt, 1 May 2024.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Wheat_harvest_in_Egypt.jpg",
+      "_dayanak": "nesne_adi 'Wheat harvest in Egypt' + kategoriler 'Sharqia Governorate', 'Wheat fields in Egypt' + tarih 2024-05-01"
+    },
+    "8": {
+      "anahtar": "misir_pirinc_hasat",
+      "url": "https://tarimportali.net/dosya/misir/misir_pirinc_hasat.jpg",
+      "atif": "Doaa Adel",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.5,
+      "alt_tr": "Pirinç hasadı, Mısır, 12 Ekim 2024. Kaynak ili kaydetmiyor.",
+      "alt_en": "Rice harvest, Egypt, 12 October 2024. The source does not record the governorate.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Rice_harvest_4.jpg",
+      "_dayanak": "nesne_adi 'Rice harvest 4' + kategoriler 'Harvesting', 'Paddy fields in Egypt' + tarih 2024-10-12"
+    },
+    "9": {
+      "anahtar": "misir_tane_misir_1934",
+      "url": "https://tarimportali.net/dosya/misir/misir_tane_misir_1934.jpg",
+      "atif": "Matson Collection",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "en_boy": 1.3187,
+      "alt_tr": "Nil boyunca tane mısır ekilişi, Mısır, 1934. Matson Fotoğraf Koleksiyonu.",
+      "alt_en": "Maize growing along the Nile, Egypt, 1934. Matson Photograph Collection.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Agriculture_in_Egypt._Maize%2C_Indian_corn._(Zea_Mays)._Luxuriant_growth_along_the_Nile_LOC_matpc.16337.jpg",
+      "_dayanak": "Künye başlığı: 'Agriculture in Egypt. Maize, Indian corn. (Zea Mays). Luxuriant growth along the Nile' · tarih 1934"
+    },
+    "10": {
+      "anahtar": "misir_pamuk_muzesi",
+      "url": "https://tarimportali.net/dosya/misir/misir_pamuk_muzesi.jpg",
+      "atif": "Amr F.Nagy",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "en_boy": 1.3333,
+      "alt_tr": "Pamuk Müzesi, Mısır, 27 Ağustos 2025.",
+      "alt_en": "The Cotton Museum, Egypt, 27 August 2025.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Cotton_Museum%2C_Egypt_(60611).jpg",
+      "_dayanak": "nesne_adi 'Cotton Museum, Egypt (60611)' + kategori 'Cotton Museum (Egypt)' + tarih 2025-08-27"
+    },
+    "11": {
+      "anahtar": "misir_pamuk_toplama",
+      "url": "https://tarimportali.net/dosya/misir/misir_pamuk_toplama.jpg",
+      "atif": "Matson Collection",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "en_boy": 1.3967,
+      "alt_tr": "Pamuk toplama, Mısır, 1934-1939 arası. Matson Fotoğraf Koleksiyonu.",
+      "alt_en": "Picking cotton, Egypt, between 1934 and 1939. Matson Photograph Collection.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Egypt._Types_%26_agriculture._Picking_cotton_LOC_matpc.18004.jpg",
+      "_dayanak": "Künye başlığı: 'Egypt. Types & agriculture. Picking cotton' · tarih 'between 1934 and 1939'"
+    },
+    "12": {
+      "anahtar": "misir_portakal_bahcesi",
+      "url": "https://tarimportali.net/dosya/misir/misir_portakal_bahcesi.jpg",
+      "atif": "LBM1948",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.4792,
+      "alt_tr": "Hurma ağaçlı portakal bahçesi, Aşağı Mısır, Mart 1999.",
+      "alt_en": "An orange orchard with date palms, Lower Egypt, March 1999.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Delta_del_Nilo_1999_07.jpg",
+      "_dayanak": "açıklama 'Orange orchard with date palm trees. Lower Egypt' + tarih 1999-03"
+    },
+    "13": {
+      "anahtar": "misir_narenciye_kahire",
+      "url": "https://tarimportali.net/dosya/misir/misir_narenciye_kahire.jpg",
+      "atif": "Walter G Rodriguez",
+      "lisans": "CC BY 2.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by/2.0",
+      "en_boy": 1.5,
+      "alt_tr": "Narenciye, Kahire, Mısır, 15 Mart 2012.",
+      "alt_en": "Citrus fruit, Cairo, Egypt, 15 March 2012.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:2012_citrus_Cairo_7018991799.jpg",
+      "_dayanak": "nesne_adi '2012 citrus Cairo' + açıklama 'Egypt, Cairo' + tarih 2012-03-15"
+    },
+    "14": {
+      "anahtar": "misir_konteyner",
+      "url": "https://tarimportali.net/dosya/misir/misir_konteyner.jpg",
+      "atif": "TheEgyptian",
+      "lisans": "CC BY-SA 3.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/3.0",
+      "en_boy": 2.1176,
+      "alt_tr": "İskenderiye limanına götürülen yük konteyneri, Mısır, 2 Kasım 2008.",
+      "alt_en": "A freight container on its way to the port of Alexandria, Egypt, 2 November 2008.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:CMA_CGM_container.JPG",
+      "_dayanak": "açıklama 'CMA CGM container loaded on a truck to be delivered to ALexandria port, Egypt' + tarih 2008-11-02"
+    },
+    "15": {
+      "anahtar": "misir_pirinc_ekim",
+      "url": "https://tarimportali.net/dosya/misir/misir_pirinc_ekim.jpg",
+      "atif": "Doaa Adel",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.4984,
+      "alt_tr": "Pirinç ekimi, Mısır, 21 Haziran 2023. Kaynak ili kaydetmiyor.",
+      "alt_en": "Rice planting, Egypt, 21 June 2023. The source does not record the governorate.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Rice_planting_1.jpg",
+      "_dayanak": "nesne_adi 'Rice planting 1' + kategori 'Paddy fields in Egypt' + tarih 2023-06-21"
+    },
+    "16": {
+      "anahtar": "misir_tarlada_calisan",
+      "url": "https://tarimportali.net/dosya/misir/misir_tarlada_calisan.jpg",
+      "atif": "Evon2023",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.4977,
+      "alt_tr": "Tarlasında yabancı ot temizleyen çiftçi, Mısır, 1 Temmuz 2023.",
+      "alt_en": "A farmer clearing weeds in his field, Egypt, 1 July 2023.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:A_farmer_works_in_his_field%2C_cleaning_the_weeds..jpg",
+      "_dayanak": "açıklama 'A farmer works in his field, cleaning the weeds.' + kategori 'Farmers from Egypt' + tarih 2023-07-01"
+    },
+    "17": {
+      "anahtar": "misir_bugday_fayyum",
+      "url": "https://tarimportali.net/dosya/misir/misir_bugday_fayyum.jpg",
+      "atif": "Mohamed shokry algarnosy",
+      "lisans": "CC BY-SA 4.0",
+      "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
+      "en_boy": 1.5,
+      "alt_tr": "Feyyum'da buğday hasadı, Mısır, 3 Mayıs 2023.",
+      "alt_en": "Wheat harvest in Fayoum, Egypt, 3 May 2023.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:%D8%AD%D8%B5%D8%A7%D8%AF_%D8%A7%D9%84%D9%82%D9%85%D8%AD_%D8%A8%D8%A7%D9%84%D9%81%D9%8A%D9%88%D9%85_114.jpg",
+      "_dayanak": "nesne_adi (Arapça) 'حصاد القمح بالفيوم' — 'Feyyum'da buğday hasadı' · kategori 'Agriculture in Egypt' · tarih 2023-05-03"
+    },
+    "18": {
+      "anahtar": "misir_pamuk_tarlasi_1934",
+      "url": "https://tarimportali.net/dosya/misir/misir_pamuk_tarlasi_1934.jpg",
+      "atif": "Matson Collection",
+      "lisans": "Public domain",
+      "lisans_adresi": null,
+      "en_boy": 1.3139,
+      "alt_tr": "Toplanmaya hazır pamuk tarlası, Mısır, 1934. Matson Fotoğraf Koleksiyonu.",
+      "alt_en": "A cotton field ready to be picked, Egypt, 1934. Matson Photograph Collection.",
+      "_commons": "https://commons.wikimedia.org/wiki/File:Agriculture_in_Egypt._Egyptian_cotton._(Gossypium_Peruvianum)._Field_of_cotton_ready_to_be_picked_LOC_matpc.16338.jpg",
+      "_dayanak": "Künye başlığı: 'Agriculture in Egypt. Egyptian cotton. (Gossypium Peruvianum). Field of cotton ready to be picked' · tarih 1934"
+    }
+  },
+  "anahtar_kelimeler": [
+    "Mısır",
+    "Nil",
+    "feddan",
+    "buğday",
+    "buğday ithalatı",
+    "pirinç",
+    "tane mısır",
+    "pamuk",
+    "portakal",
+    "narenciye",
+    "sulama",
+    "su",
+    "tarım arazisi",
+    "tarım ticareti",
+    "serbest ticaret anlaşması",
+    "gıda güvenliği",
+    "kırsal nüfus",
+    "delta"
+  ],
+  "_anahtar_kelimeler_notu": "Dosyanın ölçtüğü kalemlerden türetildi. 'Tane mısır' ayrı yazıldı: ürün ile ülke Türkçede aynı kelime ve arama ikisini karıştırır.",
+  "hikaye": {
+    "_amac": "Ana sayfadaki hikâye baloncuğu. Habere değil DOSYAYA çağırıyor.",
+    "_kural": "Metin ELLE yazıldı. Beş rakamın beşi de data.json'dan OKUNARAK yazıldı: çalışan başına 1,71 feddan ve 11,0 kat (FAOSTAT arazi 2024 + istihdam 2025); suyun %96,9'u dışarıdan (FAO AQUASTAT 2016 taraması, belgenin kendi ifadesi); buğday ithalatı 12.467 bin ton ve tüketimin %62,3'ü (USDA PSD 2024/25); pirinçte arzın yalnız %3,9'u ithal; portakalda oran 1990'da 2,14 kat, 2024'te 2,61 kat (FAOSTAT QCL).",
+    "_akis": "Tarla → su → buğday → pirinç çelişkisi → portakal. İlk dördü Mısır'ın kendi tarımı; Türkiye yalnız beşinci slaytta ve orada da karşılaştırma olarak. Dosya tarlayla başlayıp tarlayla sürüyor.",
+    "_ayna_notu": "Hiçbir slayt TİCARET rakamı taşımıyor. İki beyan birbirini tutmuyor (%58,8 ve %53,1) ve bir slayta sığmayacak kadar şerh ister; o bölüm dosyanın içinde.",
+    "_gorsel_notu": "Görseller dosyanın İÇİNDEKİ karelerden; paylaşım kartı kullanılmıyor. Altyazıları bölüm görselleriyle aynı — künyeden yazıldı, kareden değil.",
+    "grup_tr": "Ülke Dosyası · Mısır",
+    "grup_en": "Country Dossier · Egypt",
+    "slaytlar": [
+      {
+        "ust": "DOSYANIN BİRİMİ",
+        "ust_en": "THE UNIT OF THIS DOSSIER",
+        "baslik": "Bir tarım çalışanına 1,71 feddan düşüyor",
+        "baslik_en": "An agricultural worker has 1.71 feddans",
+        "rakam": "11,0 kat",
+        "rakam_en": "11.0 fold",
+        "etiket": "Mısır'da çalışan başına 0,72 hektar, Türkiye'de 7,89 — ve Mısır tarımda Türkiye'den daha fazla insan çalıştırıyor (FAOSTAT, arazi 2024 · istihdam 2025)",
+        "etiket_en": "0.72 hectares per worker in Egypt against 7.89 in Türkiye — and Egypt employs more people in agriculture than Türkiye does (FAOSTAT, land 2024 · employment 2025)",
+        "gorsel": "https://tarimportali.net/dosya/misir/misir_tarla_at.jpg"
+      },
+      {
+        "ust": "SU YUKARIDAN GELİYOR",
+        "ust_en": "THE WATER COMES FROM UPSTREAM",
+        "baslik": "Mısır'ın suyunun %96,9'u ülke dışından geliyor",
+        "baslik_en": "96.9% of Egypt's water originates outside the country",
+        "rakam": "%96,9",
+        "rakam_en": "96.9%",
+        "etiket": "Ülke içinde yenilenen su 1.800 milyon m³, bütün yenilenebilir kaynak 58.300 — ve çekimin %86'sı tarıma gidiyor (FAO AQUASTAT, 2016 taraması)",
+        "etiket_en": "Water renewed inside the country is 1,800 million m³ against 58,300 for all renewable resources — and 86% of withdrawal goes to agriculture (FAO AQUASTAT, 2016 review)",
+        "gorsel": "https://tarimportali.net/dosya/misir/misir_sakiye_deve.jpg"
+      },
+      {
+        "ust": "DÜNYANIN EN BÜYÜK ALICISI",
+        "ust_en": "THE WORLD'S LARGEST BUYER",
+        "baslik": "Buğdayda dünyanın en büyük alıcısı Mısır",
+        "baslik_en": "Egypt is the world's largest wheat buyer",
+        "rakam": "12.467 bin ton",
+        "rakam_en": "12,467 thousand tonnes",
+        "etiket": "Tüketiminin %62,3'ü ithal ve dünya buğday ithalatının %6,2'si tek bir ülkeye ait (USDA PSD, 2024/25 pazarlama yılı)",
+        "etiket_en": "62.3% of its consumption is imported and 6.2% of all world wheat imports belong to one country (USDA PSD, 2024/25 marketing year)",
+        "gorsel": "https://tarimportali.net/dosya/misir/misir_bugday_hasadi.jpg"
+      },
+      {
+        "ust": "ÇELİŞKİ",
+        "ust_en": "THE CONTRADICTION",
+        "baslik": "Su istemeyen taneyi alıyor, su isteyeni kendi ekiyor",
+        "baslik_en": "It buys the grain that needs little water and grows the one that needs most",
+        "rakam": "%3,9",
+        "rakam_en": "3.9%",
+        "etiket": "Buğdayda arzın %58,1'i, tane mısırda %60,1'i ithal — pirinçte yalnız %3,9'u, ve pirinç üretimi Türkiye'nin 6,31 katı (USDA PSD · FAOSTAT QCL, 2024)",
+        "etiket_en": "58.1% of wheat supply and 60.1% of maize supply are imported — in rice only 3.9%, and output is 6.31 times Türkiye's (USDA PSD · FAOSTAT QCL, 2024)",
+        "gorsel": "https://tarimportali.net/dosya/misir/misir_pirinc_hasat.jpg"
+      },
+      {
+        "ust": "AÇILAN MAKAS",
+        "ust_en": "THE WIDENING GAP",
+        "baslik": "Portakalda Mısır 1970'te geçti, hâlâ açıyor",
+        "baslik_en": "Egypt passed Türkiye in oranges in 1970 and is still pulling away",
+        "rakam": "2,61 kat",
+        "rakam_en": "2.61 fold",
+        "etiket": "Oran 1990'da 2,14 kattı, 2024'te 2,61 — ama mandalinada Türkiye önde (0,64 kat), limonda daha önde (0,22 kat) (FAOSTAT QCL, ortak son yıl 2024)",
+        "etiket_en": "The ratio was 2.14 fold in 1990 and 2.61 in 2024 — but Türkiye leads in mandarins (0.64 fold) and leads by more in lemons (0.22 fold) (FAOSTAT QCL, shared last year 2024)",
+        "gorsel": "https://tarimportali.net/dosya/misir/misir_portakal_bahcesi.jpg"
+      }
+    ]
+  }
+}

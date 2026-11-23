@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mısır — `metin_tr.md` ve `metin_en.md`'yi veri katmanına karşı sınar.
 
-ON ÜÇ AVCI. İlk altısı dizide devralındı; 7-13 bu dosyanın kendi tuzakları.
+ON DÖRT AVCI. İlk altısı dizide devralındı; 7-13 bu dosyanın kendi tuzakları.
 
  1. SAYI İZİ — metindeki her ondalık ve binlikli sayı veri katmanında
     karşılık bulmalı. TR ve EN kendi biçimleriyle AYRI taranıyor: "12.467"
@@ -39,8 +39,17 @@ ON ÜÇ AVCI. İlk altısı dizide devralındı; 7-13 bu dosyanın kendi tuzakla
     "mısır" yalnız "tane mısır" ya da "mısır yağı" içinde geçebilir.
 12. PROTOKOL I ASİMETRİSİ SANAYİ ETİKETLİ — 2020'ye kadar kademeli iniş
     SANAYİ ürünlerine ait; tarım tavizi gibi okunmamalı.
-13. İDDİA EDİLMEYENLER — ayna farkının sebebi ve pirincin ekilme amacı bu
-    dosyada ölçülmedi; iki bölüm de bunu açıkça söylemek zorunda.
+13. İDDİA EDİLMEYENLER — ayna farkının sebebi ve pirincin ekilme amacı
+    gösterilmiş değil; iki bölüm de bunu söylemek zorunda. KALIPLAR 23 KASIM
+    2026'DA DEĞİŞTİ: eski hâlleri "bu dosya iddia etmiyor" gibi SÜREÇ dilini
+    arıyordu ve 14. avcı onu artık yasaklıyor. Aranan şey aynı olgu, okur
+    diliyle: "sebebi açıklanmış değil", "gösteren bir kayıt yok".
+14. YAZIM SÜRECİ DİLİ METNE GİRMEZ — kullanıcı kuralı (17 Kasım 2026):
+    "Canlıya yansıyan metinler her zaman kullanıcı içindir." Kendi
+    aramamızı, doğrulama adımlarımızı, sayım yöntemimizi ve kaynak
+    seçimimizi anlatan cümle yazılmaz; yeri kilitli kayıttaki `_not`,
+    `_denetim`, `_reddedilen` alanları. Okurun bir rakamı doğru okuması için
+    gereken çekince KALIR, ama dünyaya dair bir olgu olarak ve atıfla.
 
 NEYİ KANITLAMAZ (§2.2.2): metnin VERİ KATMANINDAN sapmadığını kanıtlar. Veri
 katmanı yanlışsa metin ona sadık kalır ve bu denetim yeşil yanar. Ayrıca
@@ -312,8 +321,10 @@ for dil, bolumler, etiket in (("tr", BTR, "sanayi"), ("en", BEN, "industrial")):
 
 # ── 13 — iddia edilmeyenler ───────────────────────────────────────────────
 for dil, bolumler, kalip, ne in (
-        ("tr", BTR, r"iddia etmiyor|sebebini iddia", "ayna farkının sebebi"),
-        ("en", BEN, r"does not assert|not assert a cause", "the mirror gap's cause")):
+        ("tr", BTR, r"sebebi açıklanmış değil|sebebi gösterilmiş değil",
+         "ayna farkının sebebi"),
+        ("en", BEN, r"cause of the gap has not been established|has not been established",
+         "the mirror gap's cause")):
     if 14 in bolumler and not re.search(kalip, sade(bolumler[14]), re.I):
         hata.append(f"{dil} §14: {ne} iddia edilmediği yazılmamış")
 # 'model' kelimesinin bölümde GEÇMESİ yetmiyor: olumsuz denemede etiket
@@ -327,11 +338,11 @@ for dil, bolumler, kalip in (
         hata.append(f"{dil} §8: pirinç süzülmesi bulgusunun MODELDEN geldiği "
                     f"ve saha ölçümü OLMADIĞI bir arada yazılmamış")
 for dil, bolumler, kalip in (
-        ("tr", BTR, r"bu amaçla ekildiğini doğrulayan"),
-        ("en", BEN, r"confirms that rice is grown")):
+        ("tr", BTR, r"bu amaçla ekildiğini gösteren bir kayıt"),
+        ("en", BEN, r"record of rice being grown")):
     if 8 in bolumler and not re.search(kalip, sade(bolumler[8]), re.I):
-        hata.append(f"{dil} §8: pirincin bu amaçla ekildiğinin "
-                    f"doğrulanmadığı yazılmamış")
+        hata.append(f"{dil} §8: pirincin bu amaçla ekildiğini gösteren bir "
+                    f"kayıt bulunmadığı yazılmamış")
 # Jumel — tek yıl iddia edilmiyor
 for dil, bolumler in (("tr", BTR), ("en", BEN)):
     if 10 in bolumler:
@@ -339,6 +350,53 @@ for dil, bolumler in (("tr", BTR), ("en", BEN)):
         if not all(y in g for y in ("1818", "1819", "1821")):
             hata.append(f"{dil} §10: Jumel'in yıl çelişkisi tam yazılmamış — "
                         f"üç yılın üçü de geçmeli")
+
+# ── 14 — YAZIM SÜRECİ DİLİ ───────────────────────────────────────────────
+# Kullanıcı kuralı, 17 Kasım 2026. İlk yazımda bu dosyanın metninde 34
+# eşleşme vardı: "bu dosyada ölçülmedi", "elimizdeki", "bu dosyanın
+# araştırmasında bulunamadı", "kota başına sayıldı", "veri sayfasından
+# okundu". Hepsi doğruydu ve hiçbiri okura ait değildi.
+SUREC = {
+    "tr": [
+        r"\bbu dosya\w*\b[^.]{0,70}\b(ölç|kullanm|iddia|kapsam|belgele|çizil|araştır)",
+        r"\belimizdeki\b",
+        r"\byazılmadan geçilemez\b",
+        r"\bbu taramada\b",
+        r"\bbulunamadı\b",
+        r"\bkota başına sayıld",
+        r"\bveri sayfasından okundu\b",
+        r"\bveri sayfası[^.]{0,30}kilitlen",
+        r"\bsüzgeçler[^.]{0,30}uygulandı\b",
+        r"\bcümlenin doğru hâli\b",
+        r"\bkaynak uyarısı\b",
+        r"\batlandı, doldurulmadı\b",
+        r"\bdoğrulama\b",
+    ],
+    "en": [
+        r"\bthis dossier\b[^.]{0,70}\b(measure|use|assert|scope|document|research)",
+        r"\bin hand\b",
+        r"\bcannot be passed over\b",
+        r"\bwere found in this dossier\b",
+        r"\bcounted per quota\b",
+        r"\bread from the data page\b",
+        r"\bdata page was locked\b",
+        r"\bfilters were applied\b",
+        r"\bthe accurate form of\b",
+        r"\bA note on sources\b",
+        r"\bskipped, not filled in\b",
+        r"\bvalidations\b",
+    ],
+}
+for dil, bolumler in (("tr", BTR), ("en", BEN)):
+    for no, govde in bolumler.items():
+        g = sade(govde)
+        for k in SUREC[dil]:
+            for m in re.finditer(k, g, re.I):
+                a = max(0, m.start() - 45)
+                hata.append(f"{dil} §{no}: YAZIM SÜRECİ DİLİ — "
+                            f"…{g[a:m.end() + 45]}… "
+                            f"Okura ait olmayan cümle metne girmez; yeri "
+                            f"kilitli kayıttaki _not alanı")
 
 # ══════════════════════════════════════════════════════════════════════════
 if hata:
@@ -353,6 +411,6 @@ tr_k = sum(len(v.split()) for v in BTR.values())
 en_k = sum(len(v.split()) for v in BEN.values())
 print(f"metin kilitlendi · TR {len(BTR)} bölüm / {tr_k} kelime · "
       f"EN {len(BEN)} bölüm / {en_k} kelime · "
-      f"{len(SAYILAR)} veri sayısı taranarak 13 avcının 13'ü geçti")
+      f"{len(SAYILAR)} veri sayısı taranarak 14 avcının 14'ü geçti")
 for uy in uyari:
     print("  ⚠", uy)

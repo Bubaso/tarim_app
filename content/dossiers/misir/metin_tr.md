@@ -7,8 +7,8 @@
 Mısır'ın kendi arazi birimi feddan. Bir feddan 4.200,833 metrekare, yani
 hektarın biraz altında: 0,42 hektar. Resmî istatistik hektarla yayımlanıyor,
 uluslararası veritabanları hektarla tutuyor, ama tarla hâlâ feddanla
-konuşuluyor. Bu dosya o birimle başlıyor çünkü ölçtüğü şey bir ülkeden çok
-bir tarla.
+konuşuluyor. Mısır tarımının ölçeği bir ülke değil bir tarla, ve o tarlanın
+birimi feddan.
 
 Rakam şu: Mısır'da tarımda çalışan bir kişiye 0,72 hektar tarım arazisi
 düşüyor. Feddana çevirince **1,71 feddan**. Türkiye'de aynı hesap 7,89
@@ -78,20 +78,14 @@ Kırsal nüfus alınırsa Mısır'da 63.742 bin kişiye bölünür ve bu da yanl
 olur, çünkü kırsalda yaşayan herkes tarımda çalışmıyor. Doğru payda
 istihdam: tarımda fiilen çalışan kişi sayısı.
 
-O sayının kendisi de dikkatli alınması gereken bir kalem. Kaynak serisi
-istihdamı cinsiyete göre de bölüyor ve yalnız bir dilim okunursa Mısır için
-1.102 bin gibi bir rakam çıkıyor — doğrusunun beşte birinden az. Bu dosyada
-toplam dilim alındı: 5.898 bin.
-
 İki ülkenin bu rakamları yan yana konduğunda çıkan tablo şu: Mısır tarımda
 Türkiye'den yaklaşık bir milyon kişi daha fazla çalıştırıyor ve bunu
 Türkiye'nin tarım arazisinin onda birinden biraz fazlasıyla yapıyor. Böyle bir orana iki şeyden
 biri eşlik eder — ya kişi başına üretim çok düşüktür, ya aynı toprak yılda
 birden fazla hasat verir. Mısır'da ikincisi geçerli ve 5. bölüm onu ölçüyor.
 
-Karşılaştırma iki ülkenin ortak son veri yılından kuruldu. Arazi 2024,
-istihdam 2025 yılına ait; iki kalem ayrı yıllardan olduğu için oran bir
-tarihin fotoğrafı değil, iki yakın yılın bileşimi.
+Arazi rakamı 2024, istihdam rakamı 2025 yılına ait. Oran bu yüzden tek bir
+tarihin fotoğrafı değil, birbirine yakın iki yılın bileşimi.
 
 ## 4. Suyun yüzde doksan yedisi
 
@@ -142,18 +136,16 @@ Bunu mümkün kılan şey ikinci rakam: sulama. Kaynak veritabanında Mısır'ı
 fiilen sulanan tarım alanı ile tarım arazisi **birebir aynı sayı** —
 ikisi de 4.229 bin hektar. Oran **%100**. Türkiye'de aynı oran %12,72.
 
-Bu eşitliğin bir sınırı var ve yazılmadan geçilemez: aynı veritabanında
-eşitlik yalnız 2021-2024 yılları için görünüyor, daha eski yıllarda iki kalem
-ayrışıyor. Dolayısıyla Mısır'ın tarım arazisinin tamamının sulandığı cümlesi
-bir ölçümden çok bir kayıt durumunu anlatıyor: sulanmayan tarım arazisi
-ayrıca kaydedilmiyor. Cümlenin doğru hâli bu.
+Eşitliğin bir sınırı var: kayıtlarda yalnız 2021-2024 yılları için
+görünüyor, daha eski yıllarda iki kalem ayrışıyor. Yani Mısır'ın tarım
+arazisinin tamamının sulandığı, bir ölçümden çok bir kayıt durumu —
+sulanmayan tarım arazisi ayrıca kaydedilmiyor.
 
 %175'lik yoğunluğun kendisi, sulamanın ekim takvimini yağışa bağlı bir
 tarladan farklı kıldığının ölçüsü: aynı arazi bir yıl içinde birden fazla kez
 ekiliyor. Mısır'ın %4,25'lik tarım arazisinden çıkan üretimin bir kısmı
-buradan geliyor — aynı hektar, yılda birden fazla kez sayılıyor. Kaç ürünün
-üst üste ekildiği ve hangi ürünlerin eşlendiği bu dosyada ölçülmedi;
-elimizdeki tek rakam toplam oran.
+buradan geliyor — aynı hektar, yılda birden fazla kez sayılıyor. Hangi
+ürünlerin üst üste ekildiğini bu oran tek başına söylemiyor.
 
 Üçüncü rakam bu düzenin bedelini söylüyor. Kişi başına 699 metreküp suyla,
 %86'sı tarıma giden bir çekimle ve dışarıdan gelen bir kaynakla yürüyen bir
@@ -167,9 +159,8 @@ Artış **%64,7**.
 
 Bu rakam, çölde açılmış yeni araziden geliyor. Nil vadisi ve deltası
 yüzyıllardır aynı yerde duruyor; büyüyen şey o değil, kenarına eklenenler.
-Eğri beş ölçüm noktasından geçiyor: 1961'de 2.568, 1990'da 2.648, 2010'da
-3.671, 2020'de 3.971, 2024'te 4.229 bin hektar. Aradaki yıllar bu dosyada
-çizilmedi, yani ara dalgalanmalar görünmüyor.
+Seri beş noktadan geçiyor: 1961'de 2.568, 1990'da 2.648, 2010'da 3.671,
+2020'de 3.971, 2024'te 4.229 bin hektar.
 
 Eğrinin biçimi kendi başına bir şey söylüyor. 1961 ile 1990 arasındaki yirmi
 dokuz yılda arazi yalnız 80 bin hektar arttı; 1990 ile 2010 arasındaki yirmi
@@ -181,17 +172,12 @@ paya düşen yer azaldı. Bir ülkenin tarım arazisini %64,7 büyütmesi olağa
 değil, hatta nadir; ama nüfus daha hızlı büyüdüyse çiftçinin tarlası yine
 küçülür.
 
-Burada dikkatli olunması gereken bir karşılaştırma var. Bu dosya nüfusun
-ileriki yıllar için öngörülen değerlerini kullanmıyor. Kaynak nüfus serisi
-2100'e kadar gidiyor ve ölçülen yılı öngörülen yıldan ayıran bir işaret
-taşımıyor; o yüzden gövdeye yalnız bugüne kadarki kalemler girdi. Nüfus
-rakamı 2026 yılına ait.
+Nüfus rakamı 2026 yılına ait.
 
-Yeni arazinin niteliği ayrı bir soru ve bu dosya onu ölçmedi. Çölde açılan
-toprağın deltanın alüvyonuyla aynı verimi verip vermediği, sulama altyapısının
-ve tuzlanma riskinin nasıl farklılaştığı — hiçbiri bu dosyanın kapsamında
-değil. Elimizdeki veri kaç hektar olduğunu söylüyor, o hektarın ne verdiğini
-söylemiyor.
+Arazi kayıtları kaç hektar olduğunu söylüyor, o hektarın ne verdiğini
+söylemiyor. Çölde açılan toprağın deltanın alüvyonuyla aynı verimi verip
+vermediği, sulama altyapısının ve tuzlanma riskinin orada nasıl
+farklılaştığı ayrı bir soru.
 
 ## 7. Dünyanın en büyük buğday alıcısı
 
@@ -223,8 +209,9 @@ kattan fazla arttı, yani eğrinin tamamı nüfusla açıklanmıyor ama bir kıs
 onunla açıklanıyor.
 
 Buradaki rakamlar pazarlama yılına ait, takvim yılına değil; Mısır'da buğday
-pazarlama yılı Temmuz-Haziran. Kaynak veritabanının yayımladığı son iki yıl
-tahmin ve öngörü olduğu için bu dosyada **kesin** son yıl kullanıldı: 2024.
+pazarlama yılı Temmuz-Haziran. Kaynak veritabanının yayımladığı son iki
+pazarlama yılı tahmin ve öngörü; yukarıdaki rakamlar kesin veriye dayanan son
+yıla, **2024**'e ait.
 
 ## 8. Ama pirinci kendi yetiştiriyor
 
@@ -247,22 +234,17 @@ doğru ilerlemesini geri itiyor. 2023 tarihli hakemli bir çalışma bunu
 ölçtü: kuzey deltada pirinç ekimi akiferdeki tuz hacminde **%19** azalma
 veriyor; deniz seviyesi yükselmesi de hesaba katıldığında azalma **%17**.
 
-Bu bulgunun üç sınırı var ve üçü de yazılmadan geçilemez. Birincisi: sonuç
-sayısal bir **modelden** geliyor, uzun süreli saha ölçümünden değil.
-İkincisi: sonuç nereye ekildiğine bağlı; kuzey dışındaki bölgeler için
-kaynaklar farklı rakam veriyor ve bu dosya onları kullanmıyor. Üçüncüsü ve en
-önemlisi: pirincin **bu amaçla** ekildiğini doğrulayan hiçbir kaynak yok.
-Tuzlanmayı yavaşlatması sulamanın yan etkisi, gerekçesi değil. Devletin
-deltanın bazı yerlerinde pirinç ekimini su tasarrufu için kısıtladığı
-biliniyor; yani kamu politikası bu yan etkiyi desteklemiyor.
+Bulgunun sınırları var. Sayısal bir **modelden** geliyor, uzun süreli saha
+ölçümünden değil; ve sonuç pirincin nereye ekildiğine bağlı — kuzey dışındaki
+bölgeler için aynı etki gösterilmiş değil. Pirincin **bu amaçla** ekildiğini
+gösteren bir kayıt da yok: tuzlanmayı yavaşlatması sulamanın yan etkisi,
+gerekçesi değil. Devlet deltanın bazı yerlerinde pirinç ekimini su tasarrufu
+için kısıtlıyor; yani kamu politikası bu yan etkiyi desteklemiyor.
 
 Dosyanın çelişkisi burada tam olarak görünüyor: su istemeyen taneler
 dışarıdan alınıyor, su isteyen tane içeride yetiştiriliyor.
 
 ## 9. Tane mısırda da aynı
-
-Tane mısır, ülkenin adıyla aynı kelime; o yüzden bu dosyada ürün her geçtiği
-yerde tane mısır olarak yazılıyor.
 
 2024/25 pazarlama yılında Mısır 7.000 bin ton tane mısır üretti, 10.564 bin
 ton ithal etti. İthalat üretimin üstünde ve arzın **%60,1'i** dışarıdan
@@ -306,10 +288,10 @@ ardından fellahlara Nil deltasında bu pamuk ektirildi ve pamuk ticareti devlet
 denetimine girdi. Jumel 1823'te öldü.
 
 Keşfin ya da ilk ekim denemesinin hangi yılda olduğu kaynaklar arasında
-ayrışıyor: 1818, 1819 ve 1821 ayrı ayrı geçiyor. Bu dosya tek bir yıl iddia
-etmiyor. Sağlam olan tarih 1817, yani Jumel'in Mısır'a gelişi.
+ayrışıyor: 1818, 1819 ve 1821 ayrı ayrı geçiyor. Kesin olan tarih 1817,
+Jumel'in Mısır'a gelişi.
 
-Ölçeğe dair bir rakam var ve kaynağı gazetecilik, arşiv değil: 1821'de ilk
+Ölçeğe dair bir rakam: 1821'de ilk
 denemelerde toplam üretim bin kantarı geçmiyordu; kantar pamuğa mahsus
 tarihsel bir birim ve kabaca 45 kilogram. Kırk yıl sonra üretim 1.180.000
 kantara çıkmıştı.
@@ -319,11 +301,6 @@ yükselişi ve düşüşü de bir ülkenin kararlarının izini taşır. Pamuk M
 rastgele gelmedi; getirildi, desteklendi, devlet eliyle yayıldı. Bir sonraki
 bölüm aynı ürünün altmış üç yılını gösteriyor ve orada görülen şey doğal bir
 gerileme değil.
-
-Birincil kaynak uyarısı: bu bölümün dayanakları ansiklopedi maddesi ve gazete
-yazısı. Jumel'in kendi yazdığı bir metin, dönemin arşiv belgesi ya da
-akademik bir biyografi bu dosyanın araştırmasında bulunamadı. Bölüm bu yüzden
-bir anlatı; belge değil.
 
 ## 11. Pamuğun altmış üç yılı
 
@@ -357,12 +334,11 @@ Yani adını bir ülkeye vermiş ürün, bugün komşusunun onda biri kadar
 Verimin iki kattan fazla artmış olması, düşüşün bir teknik yetersizlik
 olmadığını gösteriyor. Tarla daha verimli; sadece tarla kalmamış. Alanın
 onda birine inmesi bir tercih zincirinin sonucu — hangi ürünün ekileceği,
-hangi suyun nereye gideceği, hangi ürünün desteklendiği. Bu dosya o zincirin
-her halkasını belgeleyemiyor; ölçtüğü şey sonucu.
+hangi suyun nereye gideceği, hangi ürünün desteklendiği.
 
-Bir uyarı: 2016 yılındaki indeks değeri 14,6 ile serinin en dibi. Tek yıllık
-çöküşler bu tür serilerde olağan ve eğriyi tek yıldan okumak yanıltıcı; 2021
-yılında indeks 30,7'ye çıkmış, 2024'te 23,0.
+Serinin en dibi 2016: indeks 14,6. Tek yıllık çöküşler bu tür serilerde
+olağan ve eğriyi tek yıldan okumak yanıltıcı — 2021'de indeks 30,7'ye
+çıkmış, 2024'te 23,0.
 
 ## 12. Portakalda ikiye bir
 
@@ -392,8 +368,7 @@ Bu dört oran birlikte okunduğunda ortaya çıkan şey bir üstünlük sıralam
 değil, iki ayrı uzmanlaşma. Mısır portakala yoğunlaşmış, Türkiye mandalina
 ve limona. İki ülke aynı rafı paylaşıyor ama aynı kutuyu paylaşmıyor.
 
-Karşılaştırmalar iki ülkenin ortak son veri yılından kuruldu — hepsi 2024.
-Bir ülkede verisi olup ötekinde olmayan yıl atlandı, doldurulmadı.
+Bütün karşılaştırmalar 2024 yılına ait.
 
 Portakalın dosyadaki yeri 11. bölümle birlikte okunduğunda beliriyor: aynı
 ülke, aynı altmış üç yılda bir üründe onda bire indi, başka bir üründe
@@ -425,15 +400,10 @@ Yağda neredeyse tek yönlü bir denge var ve bu fasıl Türkiye'nin Mısır'a e
 Tek yönlü fasıllar bu listede yok, çünkü tek yönlü bir faslın payı olmaz.
 Listeye yalnız iki yönde de kaydı bulunan fasıllar girdi.
 
-Rakamların hepsi Türkiye'nin beyanından okundu. Mısır da ticaret
-veritabanına muhabir olarak rapor veriyor — Irak'ın aksine — ve iki beyan
-birbirini tutmuyor. 14. bölüm o farkı ölçüyor. Bu bölümün payları tek
-muhabirden hesaplandı ki satırlar kendi içinde tutarlı kalsın; iki beyanı
-karıştırmak payları anlamsız kılardı.
-
-Fasıl dökümünün toplamı manşet rakamla birebir tutuyor, yani ayrıştırma
-sırasında çift sayım yok. Gümrük rejimi, taşıma türü ve ikinci partner
-boyutları ayrıca süzüldü.
+Rakamların hepsi Türkiye'nin beyanından. Mısır da ticaret veritabanına
+muhabir olarak rapor veriyor ve iki beyan birbirini tutmuyor; 14. bölüm o
+farkı gösteriyor. Buradaki paylar tek bir beyandan okunuyor, çünkü iki
+defterin rakamları yan yana konduğunda oranlar anlamını yitiriyor.
 
 ## 14. İki defter
 
@@ -448,15 +418,14 @@ Ters yönde Mısır'ın beyanı **282,0 milyon dolar**, Türkiye'nin beyanı
 **184,2 milyon dolar**. Fark **%53,1**.
 
 Yönü dikkat çekici: her iki taraf da kendi **gidenini** karşı tarafın
-gördüğünden fazla sayıyor. Bu simetri rastlantı olmayabilir ama bu dosya
-sebebini iddia etmiyor. Navlun ve sigortanın hangi tarafta sayıldığı,
-serbest bölge işlemleri, kayıt zamanı farkları ve yeniden ihracat — hepsi
-olası sebepler ve hiçbiri bu dosyada ayrı ayrı ölçülmedi. Ölçülen şey farkın
-kendisi.
+gördüğünden fazla sayıyor. Farkın sebebi açıklanmış değil — navlun ve
+sigortanın hangi tarafta sayıldığı, serbest bölge işlemleri, kayıt zamanı
+farkları ve yeniden ihracat hepsi olası, hiçbiri tek başına gösterilmiş
+değil.
 
-İki rakam da aynı yıla, 2024'e ve aynı fasıl aralığına (01-24) ait; süzgeçler
-iki taraf için aynı uygulandı. Yani fark bir yöntem farkından değil, iki
-gümrük kaydının birbirini tutmamasından geliyor.
+İki rakam da aynı yıla, 2024'e ve aynı fasıl aralığına (01-24) ait. Yani fark
+bir yöntem farkından değil, iki gümrük kaydının birbirini tutmamasından
+geliyor.
 
 Bu hattın iki ülke için ne kadar büyük olduğu da ölçüldü ve cevap: iki taraf
 için de küçük. Mısır, Türkiye'nin 32,54 milyar dolarlık tarım ihracatının
@@ -486,9 +455,8 @@ Anlaşmanın tarım tavizleri Protokol II'de, iki tablo halinde duruyor.
 Tablo A, Türkiye menşeli ürünlerin Mısır'a girişini düzenliyor: 16 kota
 grubu, 18 tarife pozisyonu, toplam **54.500 ton**. Tablo B, Mısır menşeli
 ürünlerin Türkiye'ye girişini: 22 kota grubu, 27 tarife pozisyonu, toplam
-**58.015 ton**. Kotalar kota başına sayıldı, tarife pozisyonu başına değil;
-tabloda birleştirilmiş hücreler var ve birden çok pozisyon tek kotayı
-paylaşıyor.
+**58.015 ton**. Tabloda birleştirilmiş hücreler var: birden çok tarife
+pozisyonu tek kotayı paylaşıyor.
 
 Toplamlar birbirine yakın. Anlamlı olan hangi ürüne ne kadar yer açıldığı.
 
@@ -569,7 +537,7 @@ kalem alındı. Pay dolar tabanlı; yerel para tabanlı seriyle aynı değil.
 tarım çalışanının tarlası Türkiye'dekinin on birde biri kadar, ama tarımın
 ekonomideki ağırlığı **2,58 kat** fazla. Küçük tarla, büyük yük.
 
-Türkiye'nin bu dosyadan çıkarabileceği üç şey var ve üçü de ölçülü.
+Türkiye açısından üç şey öne çıkıyor.
 
 Birincisi portakal. Makas 1990'da 2,14 kattı, 2024'te 2,61 kat ve açılmaya
 devam ediyor. Mısır'ın portakalda yaptığı şey bir avantajın korunması değil,
@@ -584,11 +552,9 @@ akış o kapıdan değil, başka bir yerden geçiyor.
 büyük kotasını almış ve 2024'te hâlâ en büyük akış. İki uç arasında on yedi
 yıl var ve ikisi aynı fasılı gösteriyor.
 
-Bir şey de bu dosyada ölçülemedi ve bunu yazmak gerekiyor. Mısır'ın yeni
-açtığı çöl arazilerinin verimi, pamuktan çıkışın hangi politika kararlarıyla
-olduğu, suyun yukarı havzada nasıl paylaşıldığı — üçü de bu dosyanın
-kapsamında değil. Ölçülen şey sonuçlar; sebeplerin bir kısmı açık, bir kısmı
-değil.
+Üç soru açık kalıyor: yeni açılan çöl arazilerinin verimi, pamuktan çıkışın
+hangi politika kararlarıyla olduğu ve suyun yukarı havzada nasıl
+paylaşıldığı.
 
 Dosyanın birimi feddan kaldı. Çünkü Mısır tarımını anlatan sayı toplam değil
 pay: 4.200,833 metrekare, ve bir tarım çalışanının tarlası bunun **1,71
@@ -610,7 +576,3 @@ katı**.
 | Abd-Elaty ve diğerleri, 2023 · *Journal of Hydrology: Regional Studies* 48, 101466 | Birincil | Pirinç sulamasının kıyı akiferine süzülmesi ve tuzlanmaya etkisi (sayısal model) |
 | *Encyclopedia of Western Colonialism since 1450* · *Cotton* maddesi | İkincil | Jumel'in Mısır'a gelişi ve uzun elyaflı pamuğun bulunuşu |
 | Osama Diab · *Cotton Specters*, Al Manassa, 27 Temmuz 2026 | İkincil | 1821 denemesi ve kantar cinsinden üretim rakamları |
-
-Veri sayfası metinden önce kilitlendi: 10 blok, 104 kalem, 23 doğrulama.
-Bu metindeki hiçbir rakam cümle içinde hesaplanmadı; hepsi veri
-sayfasından okundu.

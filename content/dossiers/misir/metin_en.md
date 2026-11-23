@@ -7,8 +7,8 @@
 Egypt's own land unit is the feddan. One feddan is 4,200.833 square metres,
 a little under a hectare: 0.42 hectares. Official statistics are published in
 hectares and international databases keep them in hectares, but the field is
-still spoken of in feddans. This dossier begins with that unit because what it
-measures is less a country than a field.
+still spoken of in feddans. The scale of Egyptian agriculture is less a
+country than a field, and that field's unit is the feddan.
 
 The figure is this: in Egypt one person working in agriculture has 0.72
 hectares of farmland. Converted, **1.71 feddans**. The same calculation for
@@ -82,11 +82,6 @@ divide by 63,742 thousand, which is also wrong, because not everyone living
 in a rural area works in agriculture. The right denominator is employment:
 the number of people actually working the land.
 
-That number itself has to be read with care. The source series also splits
-employment by sex, and reading a single slice returns something like 1,102
-thousand for Egypt — less than a fifth of the correct figure. This dossier
-takes the total slice: 5,898 thousand.
-
 Set the two countries side by side and the picture is this: Egypt employs
 roughly a million more people in agriculture than Türkiye, and does so on a
 little more than a tenth of Türkiye's farmland. A ratio like that comes with
@@ -94,10 +89,8 @@ one of two things — either output per person is very low, or the same soil
 yields more than one harvest a year. In Egypt it is the second, and section 5
 measures it.
 
-The comparison is built from the two countries' latest shared data years. The
-land figure is for 2024 and the employment figure for 2025; because the two
-items come from different years, the ratio is not a snapshot of one date but
-a composite of two adjacent ones.
+The land figure is for 2024 and the employment figure for 2025. The ratio is
+therefore not a snapshot of one date but a composite of two adjacent years.
 
 ## 4. Ninety-seven per cent of the water
 
@@ -152,19 +145,16 @@ database the area actually irrigated and the agricultural land of Egypt are
 **the same number** — 4,229 thousand hectares each. The ratio is **100%**. In
 Türkiye the same ratio is 12.72%.
 
-That identity has a limit, and it cannot be passed over in silence: in the
-same database the identity appears only for the years 2021 to 2024, and in
-earlier years the two items diverge. So the sentence saying all of Egypt's farmland
-is irrigated describes a recording state more than a measurement:
-unirrigated farmland is not separately recorded. That is the accurate form of
-the sentence.
+That identity has a limit: in the records it appears only for the years 2021
+to 2024, and in earlier years the two items diverge. So saying that all of
+Egypt's farmland is irrigated describes a recording state more than a
+measurement — unirrigated farmland is not separately recorded.
 
 The 175% figure is itself the measure of how far irrigation separates the
 sowing calendar from a rain-fed field: the same land is sown more than once
 within a year. Part of the output from Egypt's 4.25% of farmland comes from
-there — the same hectare counted more than once a year. How many crops are
-stacked, and which crops are paired, was not measured in this dossier; the
-only figure in hand is the overall ratio.
+there — the same hectare counted more than once a year. Which crops are
+stacked on one another the ratio alone does not say.
 
 The third figure names the cost of the arrangement. A system running on 699
 cubic metres per person, with 86% of withdrawal going to agriculture and the
@@ -179,10 +169,9 @@ Egypt's agricultural land was 2,568 thousand hectares in 1961. In 2024 it is
 
 That figure comes from new land opened in the desert. The Nile valley and
 delta have stood in the same place for centuries; what has grown is not them
-but what has been added at the edges. The curve passes through five measured
+but what has been added at the edges. The series passes through five
 points: 2,568 thousand hectares in 1961, 2,648 in 1990, 3,671 in 2010, 3,971
-in 2020 and 4,229 in 2024. The years between were not plotted here, so
-intermediate swings are invisible.
+in 2020 and 4,229 in 2024.
 
 The shape of the curve says something by itself. Across the twenty-nine years
 from 1961 to 1990 the land grew by only 80 thousand hectares; across the
@@ -195,16 +184,12 @@ the soil increased, the share each worker holds fell. For a country to enlarge
 its agricultural land by 64.7% is not ordinary, and is rare; but if the
 population grows faster, the farmer's field shrinks all the same.
 
-One comparison here needs care. This dossier does not use projected values of
-population for later years. The source population series runs to 2100 and
-carries no marker separating a measured year from a projected one, so only
-items up to the present entered the body. The population figure is for 2026.
+The population figure is for 2026.
 
-The quality of the new land is a separate question and this dossier did not
-measure it. Whether soil opened in the desert yields as the delta's alluvium
-does, and how irrigation infrastructure and salinity risk differ, lie outside
-its scope. The data in hand say how many hectares there are, not what those
-hectares produce.
+The land records say how many hectares there are, not what those hectares
+produce. Whether soil opened in the desert yields as the delta's alluvium
+does, and how irrigation infrastructure and salinity risk differ there, is a
+separate question.
 
 ## 7. The world's largest wheat buyer
 
@@ -238,9 +223,9 @@ same period the population more than quadrupled, so the curve is not fully
 explained by population growth, though part of it is.
 
 These figures belong to the marketing year, not the calendar year; in Egypt
-the wheat marketing year runs July to June. Because the last two years the
-source database publishes are an estimate and a forecast, this dossier uses
-the last **definite** year: 2024.
+the wheat marketing year runs July to June. The last two marketing years the
+source database publishes are an estimate and a forecast; the figures above
+belong to the last year resting on definite data, **2024**.
 
 ## 8. But it grows its own rice
 
@@ -264,14 +249,13 @@ seawater inland. A peer-reviewed study published in 2023 measured it: rice
 cultivation in the northern delta gives a **19%** reduction in the salt volume
 of the aquifer, and **17%** when sea level rise is included in the model.
 
-That finding has three limits, and none can be passed over. First: the result
-comes from a numerical **model**, not from long-term field monitoring.
-Second: the result depends on where the rice is planted; for regions other
-than the north the sources give differing figures and this dossier does not
-use them. Third and most important: no source confirms that rice is grown
-**for** this purpose. Slowing salinisation is a side effect of irrigation,
-not its rationale. The state is known to restrict rice cultivation in parts of
-the delta to conserve water; public policy does not support the side effect.
+The finding has its limits. It comes from a numerical **model**, not from
+long-term field monitoring, and the result depends on where the rice is
+planted — for regions other than the north the same effect has not been
+shown. Nor is there any record of rice being grown **for** this purpose:
+slowing salinisation is a side effect of irrigation, not its rationale. The
+state restricts rice cultivation in parts of the delta to conserve water, so
+public policy does not support the side effect.
 
 Here the dossier's contradiction stands fully visible: the grains that need
 little water are bought from outside, and the grain that needs the most is
@@ -322,11 +306,10 @@ work financially; the fellahin were then set to plant this cotton in the Nile
 delta and the cotton trade came under state control. Jumel died in 1823.
 
 In which year the discovery, or the first planting trial, took place differs
-between sources: 1818, 1819 and 1821 each appear. This dossier claims no
-single year. The firm date is 1817, Jumel's arrival in Egypt.
+between sources: 1818, 1819 and 1821 each appear. The firm date is 1817,
+Jumel's arrival in Egypt.
 
-One figure speaks to scale, and its source is journalism rather than an
-archive: in the first trials of 1821 total output did not exceed a thousand
+One figure speaks to scale: in the first trials of 1821 total output did not exceed a thousand
 qantars, a qantar being a historical unit specific to cotton of roughly 45
 kilograms. Forty years later output had reached 1,180,000 qantars.
 
@@ -335,11 +318,6 @@ from a person, its rise and its fall both carry the mark of a country's
 decisions. Cotton did not arrive in Egypt by chance; it was brought,
 supported and spread by the state. The next section shows sixty-three years of
 the same crop, and what is visible there is not a natural decline.
-
-A note on sources: this section rests on an encyclopedia entry and a
-newspaper article. No text written by Jumel, no archival document of the
-period and no academic biography were found in this dossier's research. The
-section is therefore a narrative, not a document.
 
 ## 11. Sixty-three years of cotton
 
@@ -373,12 +351,11 @@ neighbour's level.
 That yield more than doubled shows the decline was not a technical failure.
 The field is more productive; there is simply less field. Falling to a tenth
 of the area is the outcome of a chain of choices — which crop is sown, where
-the water goes, which product is supported. This dossier cannot document every
-link in that chain; what it measures is the outcome.
+the water goes, which product is supported.
 
-One caution: the index value for 2016 is 14.6, the lowest point in the series.
-Single-year collapses are common in series of this kind and reading the curve
-from one year misleads; the index stood at 30.7 in 2021 and 23.0 in 2024.
+The lowest point in the series is 2016, at 14.6. Single-year collapses are
+common in series of this kind and reading the curve from one year misleads —
+the index stood at 30.7 in 2021 and 23.0 in 2024.
 
 ## 12. Two to one in oranges
 
@@ -408,9 +385,7 @@ Read together, these four ratios do not give a ranking of superiority but two
 different specialisations. Egypt has concentrated on oranges, Türkiye on
 mandarins and lemons. The two countries share a shelf without sharing a box.
 
-The comparisons are built from the two countries' latest shared data year —
-2024 in every case. A year present in one country and missing in the other was
-skipped, not filled in.
+All the comparisons belong to 2024.
 
 The place of oranges in the dossier appears when read alongside section 11:
 the same country, over the same sixty-three years, fell to a tenth in one crop
@@ -442,15 +417,11 @@ the item Türkiye sells most to Egypt: 84,061,216 dollars.
 One-directional chapters are absent from this list, because a one-way chapter
 has no share. Only chapters with records in both directions were included.
 
-All the figures were read from Türkiye's reporting. Egypt does report to the
-trade database as a correspondent — unlike Iraq — and the two declarations do
-not agree. Section 14 measures that gap. The shares in this section were
-computed from a single correspondent so that the rows stay internally
-consistent; mixing the two declarations would make the shares meaningless.
-
-The chapter breakdown sums exactly to the headline figure, so no double
-counting entered the disaggregation. Customs procedure, mode of transport and
-second-partner dimensions were filtered out separately.
+All the figures come from Türkiye's reporting. Egypt also reports to the
+trade database as a correspondent, and the two declarations do not agree;
+section 14 shows that gap. The shares here are read from a single ledger,
+because set side by side the two sets of figures leave the ratios without
+meaning.
 
 ## 14. Two ledgers
 
@@ -465,15 +436,14 @@ In the other direction Egypt declares **282.0 million dollars** and Türkiye
 **184.2 million**. The gap is **53.1%**.
 
 The direction is notable: each side counts its own **outgoing** flow higher
-than the other side sees it. That symmetry may not be coincidence, but this
-dossier does not assert a cause. Which side counts freight and insurance,
-free-zone treatment, differences in recording time and re-exports are all
-possible explanations, and none was measured separately here. What was
-measured is the gap itself.
+than the other side sees it. The cause of the gap has not been established —
+which side counts freight and insurance, free-zone treatment, differences in
+recording time and re-exports are all possible, and none has been shown on
+its own.
 
-Both figures belong to the same year, 2024, and the same chapter range (01-24);
-the filters were applied identically for both sides. So the gap comes not from
-a difference of method but from two customs records that do not match.
+Both figures belong to the same year, 2024, and the same chapter range
+(01-24). So the gap comes not from a difference of method but from two
+customs records that do not match.
 
 How large this line is for each country was measured too, and the answer is:
 small for both. Egypt accounts for **1.3%** of Türkiye's 32.54 billion dollars
@@ -504,8 +474,8 @@ The agreement's agricultural concessions sit in Protocol II, in two tables.
 Table A governs the entry of goods of Turkish origin into Egypt: 16 quota
 groups, 18 tariff lines, **54,500 tonnes** in total. Table B governs the entry
 of goods of Egyptian origin into Türkiye: 22 quota groups, 27 tariff lines,
-**58,015 tonnes**. The quotas were counted per quota, not per tariff line; the
-table has merged cells and several lines share a single quota.
+**58,015 tonnes**. The table has merged cells: several tariff lines share a
+single quota.
 
 The totals are close to each other. What is meaningful is how much room was
 made for which product.
@@ -592,7 +562,7 @@ Read together, the two ratios summarise the dossier. In Egypt an agricultural
 worker's field is about a eleventh of Türkiye's, yet agriculture's weight in
 the economy is **2.58 times** greater. A small field carrying a large load.
 
-Three things can be taken from this dossier, and all three are measured.
+Three things stand out for Türkiye.
 
 The first is oranges. The gap was 2.14 fold in 1990 and 2.61 fold in 2024, and
 it is still widening. What Egypt has done in oranges is not the defence of an
@@ -607,11 +577,9 @@ The third is oil. The chapter Türkiye sells most to Egypt took the agreement's
 largest quota in 2007 and is still the largest flow in 2024. Seventeen years
 separate the two ends, and both point to the same chapter.
 
-One thing this dossier could not measure, and that needs saying. The yield of
-the desert land Egypt has newly opened, the policy decisions behind the exit
-from cotton, and how the water is shared in the upstream basin all lie outside
-its scope. What is measured here are outcomes; some of the causes are clear
-and some are not.
+Three questions stay open: the yield of the desert land Egypt has newly
+opened, the policy decisions behind the exit from cotton, and how the water is
+shared in the upstream basin.
 
 The dossier's unit remained the feddan. Because the number that describes
 Egyptian agriculture is not a total but a share: 4,200.833 square metres, and
@@ -633,7 +601,3 @@ an agricultural worker's field is **1.71 times** that.
 | Abd-Elaty et al., 2023 · *Journal of Hydrology: Regional Studies* 48, 101466 | Primary | Recharge from rice irrigation into the coastal aquifer and its effect on salinity (numerical model) |
 | *Encyclopedia of Western Colonialism since 1450* · *Cotton* entry | Secondary | Jumel's arrival in Egypt and the discovery of long-staple cotton |
 | Osama Diab · *Cotton Specters*, Al Manassa, 27 July 2026 | Secondary | The 1821 trial and output figures in qantars |
-
-The data page was locked before the text: 10 blocks, 106 items, 23
-validations. No figure in this text was computed inside a sentence; every one
-was read from the data page.
