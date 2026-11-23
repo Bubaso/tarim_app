@@ -13,8 +13,8 @@
     "baslangic": null,
     "_baslangic_notu": "null → seed anında now(). İleri tarihli pencere dosyayı yayına sokup şeritten gizler (§2.12/1)."
   },
-  "status": "draft",
-  "_status_notu": "TASLAK. Devir ve dağıtım kullanıcı onayı ister; bu alan devirde 'published' olur ve AYNI TURDA veritabanıyla eşitlenir — durum bekçisi ayrışmayı dağıtımda durduruyor.",
+  "status": "published",
+  "_status_notu": "YAYINDA. Devir 23 Kasım 2026'da yapıldı: göçler 20261123110000 (içerik, draft) ve 20261123120000 (devir) uygulandı, 13 sağlamanın 13'ü geçti. Pencere o gün başladı, 28 gün. Bu alan veritabanıyla AYNI TURDA eşitlendi — durum bekçisi ayrışmayı dağıtımda durduruyor ve Irak bu yüzden on gün og etiketlerini kaybetmişti.",
   "kapak": {
     "url": "https://tarimportali.net/dosya/misir/misir_kapak_vadi.jpg",
     "atif": "Planet Labs, Inc.",
@@ -351,7 +351,7 @@
       "atif": "Mohamed shokry algarnosy",
       "lisans": "CC BY-SA 4.0",
       "lisans_adresi": "https://creativecommons.org/licenses/by-sa/4.0",
-      "en_boy": 1.5,
+      "en_boy": 1.5002,
       "alt_tr": "Feyyum'da buğday hasadı, Mısır, 3 Mayıs 2023.",
       "alt_en": "Wheat harvest in Fayoum, Egypt, 3 May 2023.",
       "_commons": "https://commons.wikimedia.org/wiki/File:%D8%AD%D8%B5%D8%A7%D8%AF_%D8%A7%D9%84%D9%82%D9%85%D8%AD_%D8%A8%D8%A7%D9%84%D9%81%D9%8A%D9%88%D9%85_114.jpg",

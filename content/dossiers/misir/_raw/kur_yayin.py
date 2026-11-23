@@ -93,10 +93,13 @@ d = {
   "tur": "ulke", "edition": 6,
   "pencere": {"gun": 28, "baslangic": None,
               "_baslangic_notu": "null → seed anında now(). İleri tarihli pencere dosyayı yayına sokup şeritten gizler (§2.12/1)."},
-  "status": "draft",
-  "_status_notu": ("TASLAK. Devir ve dağıtım kullanıcı onayı ister; bu alan "
-                   "devirde 'published' olur ve AYNI TURDA veritabanıyla "
-                   "eşitlenir — durum bekçisi ayrışmayı dağıtımda durduruyor."),
+  "status": "published",
+  "_status_notu": ("YAYINDA. Devir 23 Kasım 2026'da yapıldı: göçler "
+                   "20261123110000 (içerik, draft) ve 20261123120000 (devir) "
+                   "uygulandı, 13 sağlamanın 13'ü geçti. Pencere o gün "
+                   "başladı, 28 gün. Bu alan veritabanıyla AYNI TURDA "
+                   "eşitlendi — durum bekçisi ayrışmayı dağıtımda durduruyor "
+                   "ve Irak bu yüzden on gün og etiketlerini kaybetmişti."),
   "kapak": {},          # aşağıda dolduruluyor
   "video": {"url": None, "_notu": "null ise kapakta video bloğu hiç çizilmez."},
   "bolum_turleri": dict({"_amac": "Bölüm sırası → görsel ritim. anlati | belge | veri | akis.",

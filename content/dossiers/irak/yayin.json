@@ -12,7 +12,7 @@
     "baslangic": null,
     "_baslangic_notu": "null → seed anında now(). İleri tarihli pencere dosyayı yayına sokup şeritten gizler (§2.12/1)."
   },
-  "status": "published",
+  "status": "archived",
   "_status_notu": "YAYINDA. Devir 2 Kasım 2026'da yapıldı; pencere 2 Kasım → 30 Kasım 2026 (country_dossiers satırından okundu, 12 Kasım 2026).",
   "_status_duzeltme_notu": "12 KASIM 2026'DA DÜZELTİLDİ. Bu alan devirden sonra 'draft' kalmıştı: devir göçü veritabanını güncelliyor, bu dosyayı güncellemiyordu. Sonucu sessiz ve canlıydı — statik_sayfa.mjs yalnızca published/archived için kabuk üretiyor, hosting dağıtımı ise genel dizini DEĞİŞTİRİYOR; yani her dağıtımda /ulke/irak og etiketlerini kaybediyordu ve paylaşıldığında jenerik site kartı çıkıyordu. statik_sayfa_db.mjs de kapatmıyor, çünkü o yalnızca KLASÖRÜ OLMAYAN dosyalar için çalışıyor. 12 Kasım dağıtımının çıktısında \"irak: durum 'draft' — statik sayfa üretilmedi\" satırı görülüp fark edildi. Aynı sınıfın tekrarını durum_bekcisi.mjs engelliyor: depo ile veritabanı ayrışırsa dağıtım durur.",
   "kapak": {
@@ -413,5 +413,6 @@
       }
     ],
     "_baslik_notu": "BAŞLIKLAR İKİ KEZ DÜZELTİLDİ (kullanıcı, 3 Kasım 2026). İlk sürüm 110-151 karakterlik iki-üç cümlelik paragraflardı; baloncukta okunmuyordu. İkinci sürüm kısaldı ama BİLMECEYE döndü — 'Su geliyor, gidemiyor. Tarlada tuz kalıyor.' şiir, manşet değil. Baloncuğun işi okuru dosyaya ÇEKMEK: başlık konuyu adıyla söyler, olanı açıkça yazar ve rakamı taşır. Ayrıntı yine `etiket` satırında."
-  }
+  },
+  "_status_devir_notu": "ARŞİVDE. 23 Kasım 2026'da Mısır devri ile arşive alındı (göç 20261123120000). Penceresi sekiz gün erken kapandı; kullanıcı kararı: 'Irak dosyası var ve 8 gün kaldı ancak önemli değil, şu an Mısır'ı canlıya alabiliriz.' Bu alan veritabanıyla aynı turda eşitlendi."
 }

@@ -11,24 +11,52 @@ gün listeye sadık kalmayı seçti: **"Yakında" kartı Danimarka'ya dönüyor.
 Devir göçü `migrations/` altına KONMADI, burada bekliyor: ilgisiz bir
 sebeple atılan tek bir `supabase db push` dosyayı onaysız yayına sokardı.
 
-## Sıra — ikisi sizde, hizmet anahtarı hiçbir yerde durmuyor
+## Sıra — DÜZELTİLDİ 23 Kasım 2026
+
+İlk plan yanlıştı: seed'in elle uygulanacağı varsayılmıştı ve devir göçü
+birinci sağlamasında durdu —
+
+```
+ERROR: Mısır bölüm sayısı 0, 18 olmalı — seed uygulanmamış olabilir (SQLSTATE P0001)
+```
+
+Bekçi doğru çalıştı, hiçbir şeye dokunulmadı. Sebep: `supabase db push`
+yalnız `migrations/` altını uyguluyor, `seed/` klasörünü değil. Kurum
+dosyalarında bu sorun yoktu çünkü TİGEM'in içeriği zaten bir göçtü.
+
+**İçerik de göç oldu.** Damgası devirden önce:
+
+| # | dosya | ne yapar |
+|---|---|---|
+| 1 | `20261123110000_misir_icerik_draft.sql` | içerik **draft** iner, anon anahtarıyla görünmez |
+| 2 | `20261123120000_dosya_devri_misir.sql` | Mısır yayına, Irak arşive, kart Danimarka'ya |
+
+CLI göçleri dosya adına göre sıralıyor, yani **tek komut ikisini sırayla**
+uygular:
+
+```bash
+cd ~/Developer/tarim_app && supabase db push
+```
+
+Sonrası:
 
 | # | adım | kim |
 |---|---|---|
-| 1 | `supabase/seed/dossier_misir.sql` uygulanır — içerik **draft** iner, anon anahtarıyla görünmez | **siz** |
-| 2 | `ls supabase/migrations/ \| tail` — damga kontrolü | siz |
-| 3 | Devir göçü `migrations/` altına taşınır, `supabase db push` | **siz** |
-| 4 | `yayin.json` durumları veritabanıyla eşitlenir (misir→published, irak→archived) | ben |
-| 5 | `./deploy.sh --hosting` — og kabuğu ve şerit | onayınızla |
-| 6 | `scripts/dosya_hikayeleri.py` — ana sayfa hikâyesi | ben |
+| 3 | `yayin.json` veritabanıyla eşitlenir (misir→published, irak→archived) | ben |
+| 4 | `./deploy.sh --hosting` — og kabuğu ve şerit | onayınızla |
+| 5 | `scripts/dosya_hikayeleri.py` — ana sayfa hikâyesi | ben |
 
-```bash
-ls supabase/migrations/ | tail
-```
+### Seed'in dış işlem sınırı çıkarıldı
 
-```bash
-mv content/dossiers/misir/beklemede/20261123120000_dosya_devri_misir.sql supabase/migrations/ && supabase db push
-```
+Seed dosyası tek başına çalıştırılmak için yazıldığından kendi `begin;` ve
+`commit;`'ini taşıyor. Göç olarak koşarken CLI zaten her göçü tek işlemde
+çalıştırıyor; içteki `commit` işlemi **erken kapatır** ve sonraki sağlamalar
+başarısız olsa bile içerik yazılmış kalırdı. Göç kopyasından çıkarıldı,
+özgün `supabase/seed/dossier_misir.sql` dokunulmadan duruyor.
+
+**Sonraki ülke dosyasında:** `seed_dossier.mjs` çıktısı doğrudan göç olarak
+kullanılamaz; dış `begin;`/`commit;` çıkarılmalı ve damga devir göçünden
+önce olmalı.
 
 ## Dört tuzak — dördü de önceki devirlerde yaşandı
 
