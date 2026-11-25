@@ -89,10 +89,22 @@ class DossierRepository {
       // Bu satır bir kez süzgeçsiz kaldı ve kimse fark etmedi: imzada `tur`
       // duruyordu ama gövde onu kullanmıyordu, analyzer da bunu hata saymıyor.
       // Arşiv testi artık bunu yakalıyor.
+      // AÇILMAMIŞ DOSYA LİSTEDE GÖRÜNMEZ.
+      //
+      // Türkşeker dizinin ilk ZAMANLANMIŞ dosyası: satır 25 Kasım'da
+      // 'published' yazıldı ama penceresi 26 Kasım 00:00'da (TR) açılıyor.
+      // Süzgeç yokken dosya o gün boyunca /kurumlar listesinin EN ÜSTÜNDE
+      // durdu — ölçüldü — ve yayın gününe zamanlamanın anlamı kalmadı.
+      //
+      // `is_active` yetmiyor: arşivdeki dosyalar da false ve onlar listede
+      // KALMALI. Ayrım başlangıçta: geçmişte başlamış her dosya (açık ya da
+      // kapanmış) listede, geleceğe ayarlı olan değil.
+      final simdi = DateTime.now().toUtc().toIso8601String();
       final response = await _supabaseClient
           .from('country_dossier_index')
           .select()
-          .eq('tur', tur);
+          .eq('tur', tur)
+          .or('starts_at.is.null,starts_at.lte.$simdi');
       return (response as List)
           .map((r) => DossierSummary.fromJson(r as Map<String, dynamic>))
           .toList();
