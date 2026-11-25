@@ -5,6 +5,7 @@ etkileşim: "rakamdan kaynağa").
 
     python3 -I rakam_kaynaklari.py           # kapsama özeti
     python3 -I rakam_kaynaklari.py b07 tr    # bir sayfanın eşlemesi
+    python3 -I rakam_kaynaklari.py karne     # sayfa başına kaynak karnesi
 
 Okur bir rakama dokununca o rakamın geldiği kaynağın künyesi, belgeden
 birebir alıntısı ve bağlantısı açılıyor. Doğrulayıcı (dogrula_bolumler.py,
@@ -161,8 +162,56 @@ def esle() -> tuple[dict, dict, dict]:
     return esleme, kunyeler, kapsama
 
 
+# ── Kaynak karnesi ─────────────────────────────────────────────────────────
+# Bir sayfanın mavi rakamlarını destekleyen FARKLI kaynakların türe göre
+# sayısı: TR ve EN rakamlarının birleşimi, iki dilde aynı karne. Dört tür,
+# sabit sırayla. PROJE (tek bir proje raporu) kurumsal rapora katılıyor.
+# Niteliği olmayan ya da tanınmayan kaynak sayılmıyor; dogrula_bolumler.py
+# (kural 17) uyarı veriyor ve üretilen karneyi kayıtlardan yeniden hesaplıyor.
+KARNE_TURLERI = ("hakemli", "kurumsal", "resmi", "satici")
+KARNE_NITELIK = {"HAKEMLI": "hakemli", "KURUMSAL": "kurumsal", "PROJE": "kurumsal",
+                 "RESMI": "resmi", "SATICI": "satici"}
+
+
+def karne(esleme: dict | None = None) -> tuple[dict, list[str]]:
+    """({sayfa: {hakemli, kurumsal, resmi, satici, rakam_tr, rakam_en}}, sayılmayanlar).
+    `rakam_<dil>`: kaynağa bağlanan farklı kalın rakam sayısı. Sayılmayan:
+    rakam destekleyen ama niteliği olmayan ya da tanınmayan kaynak."""
+    if esleme is None:
+        esleme = esle()[0]
+    yollar = {s: k for s, _, k in sayfalar()}
+    sonuc: dict = {}
+    sayilmayan: list[str] = []
+    for sayfa, diller in esleme.items():
+        kaynaklar = json.loads(yollar[sayfa].read_text(encoding="utf-8")).get("kaynaklar", {})
+        destek = {a for kalinlar in diller.values() for adaylar in kalinlar.values() for a, _ in adaylar}
+        say = {t: 0 for t in KARNE_TURLERI}
+        for a in sorted(destek):
+            nitelik = (kaynaklar.get(a) or {}).get("nitelik")
+            tur = KARNE_NITELIK.get(nitelik) if isinstance(nitelik, str) else None
+            if tur is None:
+                sayilmayan.append(f"{sayfa}: {a} (nitelik {nitelik!r})")
+                continue
+            say[tur] += 1
+        say["rakam_tr"] = len(diller.get("tr", {}))
+        say["rakam_en"] = len(diller.get("en", {}))
+        sonuc[sayfa] = say
+    return sonuc, sayilmayan
+
+
 def main() -> int:
     esleme, kunyeler, kapsama = esle()
+    if len(sys.argv) > 1 and sys.argv[1] == "karne":
+        karneler, sayilmayan = karne(esleme)
+        print(f"{'sayfa':<12} {'hakemli':>7} {'kurumsal':>8} {'resmi':>5} {'satici':>6} "
+              f"{'toplam':>6} {'rakam tr/en':>11}")
+        for s, k in karneler.items():
+            toplam = sum(k[t] for t in KARNE_TURLERI)
+            print(f"{s:<12} {k['hakemli']:>7} {k['kurumsal']:>8} {k['resmi']:>5} {k['satici']:>6} "
+                  f"{toplam:>6} {k['rakam_tr']:>5}/{k['rakam_en']}")
+        for x in sayilmayan:
+            print(f"  ⚠ niteliksiz, sayılmadı: {x}")
+        return 0
     if len(sys.argv) > 2:
         print(json.dumps(esleme.get(sys.argv[1], {}).get(sys.argv[2], {}), ensure_ascii=False, indent=1))
         return 0

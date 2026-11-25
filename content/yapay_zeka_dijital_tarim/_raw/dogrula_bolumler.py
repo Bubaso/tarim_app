@@ -82,6 +82,14 @@ KURALLAR
      uygun aralık (ilk ekran, giriş paragrafının ardı ve kaynak paragrafın
      bitişiği değil), aynı alt başlıkta; alt başlık başına en çok 1, sayfa
      başına en çok max(1, round(kelime/600)). Tanınmayan yönerge yok.
+ 17. KAYNAK KARNESİ. `lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart`
+     her sayfa için kayıtlardan yeniden hesaplanan karneyle aynı: sayfanın
+     mavi rakamlarını (TR ve EN birlikte) destekleyen FARKLI kaynakların
+     türe göre sayısı — hakemli (HAKEMLI), kurumsal (KURUMSAL + PROJE),
+     resmî (RESMI), satıcı (SATICI) — ve dil başına kaynaklı rakam sayısı.
+     Rakam eşlemesindeki her sayfanın karnesi var, fazlası yok; sayılar
+     ≥ 0; toplamı ≥ 1 olan sayfa var. Niteliği olmayan ya da tanınmayan
+     kaynak sayılmaz ve UYARI verir (durdurmaz).
  10. KESİŞİM NOTU (karar 57). Bir başlık bir teknolojiyle etiketliyse
      `kesisim_<kod>.json`'da o başlığın tek cümlelik notu var, değilse yok.
      Notun sayıları başlığın kendi kaydından, iki dilde aynı.
@@ -98,11 +106,18 @@ BURASI = Path(__file__).resolve().parent
 BOLUMLER = BURASI.parent / "bolumler"
 
 hatalar: list[str] = []
+uyarilar: list[str] = []
 
 
 def hata(m: str) -> None:
     hatalar.append(m)
     print(f"  ✗ {m}")
+
+
+def uyari(m: str) -> None:
+    """Durdurmayan bulgu (kural 17: niteliği olmayan kaynak)."""
+    uyarilar.append(m)
+    print(f"  ⚠ {m}")
 
 
 # Künye ve tarih alanlarından YALNIZ YIL alınır; tanıtıcı alanlardan hiçbir
@@ -1071,6 +1086,71 @@ def sina_cekmeler() -> None:
     print(f"  · {sayac} öne çıkan cümle sınandı")
 
 
+# ── Kural 17: kaynak karnesi ──────────────────────────────────────────────
+
+KARNE_DART = BURASI.parents[2] / "lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart"
+# Üretilen satır: `  "b23": YzKarne(0, 4, 3, 0, 20, 20),` — hakemli, kurumsal,
+# resmî, satıcı, rakam (TR), rakam (EN). Eksi sayı desene uymaz: o sayfa
+# "üretilen dosyada yok" diye yakalanır.
+KARNE_SATIRI = re.compile(r'^\s*"([a-z0-9_]+)": YzKarne\((\d+), (\d+), (\d+), (\d+), (\d+), (\d+)\),\s*$', re.M)
+# Bilerek rakam_kaynaklari.KARNE_NITELIK'ten alınmıyor: karne bağımsız
+# yeniden hesaplanıyor.
+KARNE_TURU = {"HAKEMLI": 0, "KURUMSAL": 1, "PROJE": 1, "RESMI": 2, "SATICI": 3}
+
+
+def sina_karne() -> None:
+    """Kural 17: üretilen kaynak karnesi kayıtlardan yeniden hesaplanınca aynı."""
+    print("\nKaynak karnesi")
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("rakam_kaynaklari_17", BURASI / "rakam_kaynaklari.py")
+    rk = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(rk)
+    esleme = rk.esle()[0]
+    beklenen: dict[str, tuple[int, ...]] = {}
+    for sayfa, diller in esleme.items():
+        kayit = json.loads((BURASI / f"{sayfa}_kaynaklar.json").read_text(encoding="utf-8"))
+        kaynaklar = kayit.get("kaynaklar", {})
+        destek: set[str] = set()
+        for kalinlar in diller.values():
+            for adaylar in kalinlar.values():
+                destek.update(a for a, _ in adaylar)
+        say = [0, 0, 0, 0]
+        for a in sorted(destek):
+            nitelik = (kaynaklar.get(a) or {}).get("nitelik")
+            if nitelik not in KARNE_TURU:
+                neden = "niteliği yok" if not nitelik else f"niteliği tanınmıyor ({nitelik!r})"
+                uyari(f"{sayfa}: «{a}» rakam destekliyor ama {neden} — karnede sayılmadı (kural 17)")
+                continue
+            say[KARNE_TURU[nitelik]] += 1
+        beklenen[sayfa] = (*say, len(diller.get("tr", {})), len(diller.get("en", {})))
+    if not KARNE_DART.exists():
+        hata(f"{KARNE_DART.name} yok — dart_uret.py koşturulmalı (kural 17)")
+        return
+    metin = KARNE_DART.read_text(encoding="utf-8")
+    uretilen: dict[str, tuple[int, ...]] = {}
+    for m in KARNE_SATIRI.finditer(metin):
+        if m.group(1) in uretilen:
+            hata(f"karne: {m.group(1)} üretilen dosyada iki kez (kural 17)")
+        uretilen[m.group(1)] = tuple(int(x) for x in m.groups()[1:])
+    girdi = len(re.findall(r'^\s*"[^"]*": YzKarne\(', metin, re.M))
+    if girdi != len(uretilen):
+        hata(f"karne: {girdi} girdi var, okunabilen {len(uretilen)} — biçim bozuk (kural 17)")
+    for sayfa in sorted(set(beklenen) | set(uretilen)):
+        if sayfa not in uretilen:
+            hata(f"karne: {sayfa} üretilen dosyada yok — dart_uret.py koşturulmalı (kural 17)")
+        elif sayfa not in beklenen:
+            hata(f"karne: {sayfa} üretilen dosyada var ama rakam eşlemesinde yok (kural 17)")
+        elif uretilen[sayfa] != beklenen[sayfa]:
+            hata(f"karne: {sayfa} kayıtlardan yeniden hesaplanınca farklı — üretilen {uretilen[sayfa]}, "
+                 f"kayıtlar {beklenen[sayfa]}; dart_uret.py koşturulmalı (kural 17)")
+    if any(x < 0 for v in uretilen.values() for x in v):
+        hata("karne: eksi sayı (kural 17)")
+    if not any(sum(v[:4]) >= 1 for v in uretilen.values()):
+        hata("karne: hiçbir sayfanın toplamı 1'e ulaşmıyor (kural 17)")
+    print(f"  · {len(uretilen)} sayfanın karnesi kayıtlardan yeniden hesaplandı "
+          f"({sum(sum(v[:4]) for v in beklenen.values())} sayfa-kaynak çifti)")
+
+
 def main() -> int:
     gruplar: dict[str, dict[str, Path]] = {}
     for yol in sorted(BOLUMLER.glob("*.md")):
@@ -1107,6 +1187,9 @@ def main() -> int:
     sina_listeler()
     sina_terim_birligi()
     sina_cekmeler()
+    sina_karne()
+    if uyarilar:
+        print(f"\n⚠ {len(uyarilar)} UYARI (durdurmaz)")
     if hatalar:
         print(f"\n✗ {len(hatalar)} HATA")
         return 1

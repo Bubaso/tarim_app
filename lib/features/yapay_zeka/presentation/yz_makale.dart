@@ -12,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../core/utils/turkce_metin.dart' show buyukHarf, etiketSlug;
 import '../data/yz_iskelet.g.dart';
 import 'yz_cerceve_mobil.dart';
+import 'yz_kaynak_karnesi.dart';
 import 'yz_metin_gorunumu.dart';
 import 'yz_mobil.dart';
 import 'yz_okuma.dart';
@@ -468,7 +469,7 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              ortala(_baslikBlogu(dar, en, md, telefon)),
+              ortala(_baslikBlogu(dar, en, md, telefon, sagPay: (ic - ust) / 2)),
               if (!telefon && ipucu)
                 ortala(_Ipucu(en: en, kapat: ref.read(yzIpucuProvider.notifier).kapat)),
               if (!telefon && !rayli && altBasliklar.length >= 3)
@@ -675,9 +676,14 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
     );
   }
 
-  Widget _baslikBlogu(bool dar, bool en, String? md, bool telefon) {
+  /// [sagPay]: metin sütununun sağında görsel ve tablonun kullandığı pay;
+  /// masaüstündeki kaynak karnesi satırı tek satırda kalsın diye oraya
+  /// taşabiliyor.
+  Widget _baslikBlogu(bool dar, bool en, String? md, bool telefon, {double sagPay = 0}) {
     // Kelime sayısı açılışta bir kez sayıldı (madde 31): kurulumda metin taranmıyor.
     final dakika = _takip == null ? null : yzDakikaKelimeden(_takip!.harita.toplam, en);
+    // Kaynak karnesi: sözlük ve kaynakçada (kaynakSayfasi yok) çizilmez.
+    final karne = yzKarne(widget.kaynakSayfasi);
     final sure = dakika == null ? null : yzDakikaYazisi(dakika, en);
     final tarih = widget.guncellendi == null
         ? null
@@ -721,6 +727,9 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
             en: en,
           )),
         ],
+        // Kaynak karnesi, telefonda: kısa künyenin altında tek satır; alt
+        // payı aşağıdaki boşluğun yerini alıyor (üst bölüm 5 px uzuyor).
+        if (telefon && karne != null) YzKarneMobilSatiri(karne: karne, en: en),
         if (!telefon && satir.isNotEmpty) ...[
           const SizedBox(height: 10),
           Wrap(
@@ -745,7 +754,12 @@ class _YzMakaleSayfasiState extends ConsumerState<YzMakaleSayfasi> {
             ],
           ),
         ],
-        SizedBox(height: telefon ? 16 : (dar ? 20 : 26)),
+        // Kaynak karnesi, masaüstünde: künyenin hemen altında tek satır.
+        if (!telefon && karne != null) ...[
+          const SizedBox(height: 6),
+          YzKarneSatiri(karne: karne, en: en, sagPay: sagPay),
+        ],
+        SizedBox(height: telefon ? (karne != null ? 0 : 16) : (dar ? 20 : 26)),
       ],
     );
   }

@@ -50,6 +50,9 @@ Set<String> ilkYukKapanisi(String baslangic) {
 const _agir = [
   'lib/features/yapay_zeka/data/yz_metinler.g.dart',
   'lib/features/yapay_zeka/data/yz_rakam_kaynaklari.g.dart',
+  // Kaynak karnesi: yalnız erteli ekranlardan (yz_makale.dart, yz_matris.dart).
+  'lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart',
+  'lib/features/yapay_zeka/presentation/yz_kaynak_karnesi.dart',
   'lib/features/yapay_zeka/data/yz_grafikler.g.dart',
   'lib/features/yapay_zeka/data/yz_teknoloji.g.dart',
   'lib/features/yapay_zeka/data/yz_sozluk.g.dart',

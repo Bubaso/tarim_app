@@ -553,6 +553,63 @@ def main() -> int:
     rk.append("")
     RK.write_text("\n".join(rk), encoding="utf-8")
 
+    # ── kaynak karnesi ──────────────────────────────────────────────────
+    # Her sayfanın mavi rakamlarını destekleyen FARKLI kaynakların türe göre
+    # sayısı (_raw/rakam_kaynaklari.py › karne). Kayıtlara karşı
+    # dogrula_bolumler.py kural 17 ile sınanıyor. Dosya YALNIZ erteli
+    # ekranlardan içe aktarılıyor (yz_makale.dart, yz_matris.dart): ilk yüke
+    # girmez (test/yz_erteli_test.dart).
+    karneler, sayilmayan = _rk.karne(esleme)
+    KARNE = KOK / "lib/features/yapay_zeka/data/yz_kaynak_karnesi.g.dart"
+    kn = ["// ÜRETİLMİŞ DOSYA — ELLE DEĞİŞTİRİLMEZ.",
+          "// Kaynak: _raw/bNN_kaynaklar.json ve _raw/tek_<kod>_kaynaklar.json (`nitelik`),",
+          "//         rakam eşlemesi; hesap _raw/rakam_kaynaklari.py › karne",
+          "// Üretici: content/yapay_zeka_dijital_tarim/dart_uret.py",
+          "//",
+          "// Kaynak karnesi: bir sayfanın mavi rakamlarını destekleyen FARKLI",
+          "// kaynakların türe göre sayısı. TR ve EN rakamlarının birleşimi; iki dilde",
+          "// aynı. Tür sırası sabit: hakemli çalışma (HAKEMLI), kurumsal rapor",
+          "// (KURUMSAL + PROJE: tek bir proje raporu), resmî kaynak (RESMI), satıcı",
+          "// beyanı (SATICI). Niteliği olmayan kaynak sayılmaz. Yalnız erteli",
+          "// ekranlardan içe aktarılır (ilk yüke girmez).",
+          "",
+          "class YzKarne {",
+          "  const YzKarne(",
+          "      this.hakemli, this.kurumsal, this.resmi, this.satici, this.rakamTr, this.rakamEn);",
+          "",
+          "  /// Hakemli çalışma (HAKEMLI).",
+          "  final int hakemli;",
+          "",
+          "  /// Kurumsal rapor (KURUMSAL; tek bir proje raporu, PROJE, de burada).",
+          "  final int kurumsal;",
+          "",
+          "  /// Resmî kaynak (RESMI).",
+          "  final int resmi;",
+          "",
+          "  /// Satıcı beyanı (SATICI).",
+          "  final int satici;",
+          "",
+          "  /// Kaynağa bağlanan farklı kalın rakam sayısı, dil başına.",
+          "  final int rakamTr;",
+          "  final int rakamEn;",
+          "",
+          "  /// Dört tür, sabit sırayla: hakemli, kurumsal, resmî, satıcı.",
+          "  List<int> get turler => [hakemli, kurumsal, resmi, satici];",
+          "",
+          "  int get toplam => hakemli + kurumsal + resmi + satici;",
+          "",
+          "  int rakam(bool en) => en ? rakamEn : rakamTr;",
+          "}",
+          "",
+          "/// {sayfa: karne}; sayfa \"bNN\" (başlık) ya da \"tek_<kod>\" (teknoloji sayfası).",
+          "const Map<String, YzKarne> kYzKaynakKarnesi = {"]
+    for sayfa, k in karneler.items():
+        sayilar = ", ".join(str(k[t]) for t in (*_rk.KARNE_TURLERI, "rakam_tr", "rakam_en"))
+        kn.append(f"  {dizgi(sayfa)}: YzKarne({sayilar}),")
+    kn.append("};")
+    kn.append("")
+    KARNE.write_text("\n".join(kn), encoding="utf-8")
+
     # ── öne çıkan cümle (madde 6) ───────────────────────────────────────
     # _raw/cekmeler.json → yz_cekmeler.g.dart. Cümle metinde zaten geçiyor
     # (dogrula_bolumler.py kural 16); metinde yeri [[cekme:kimlik]] satırı.
@@ -594,6 +651,9 @@ def main() -> int:
     haber = sum(1 for x in b if x["haber_alir"])
     print(f"✓ {CIKIS.relative_to(KOK)} · {len(b)} başlık, {haber} haber alıyor")
     print(f"✓ {RK.relative_to(KOK)} · {sum(e for e, _ in kapsama.values())}/{sum(t for _, t in kapsama.values())} kalın rakam kaynağa bağlı")
+    print(f"✓ {KARNE.relative_to(KOK)} · {len(karneler)} sayfanın kaynak karnesi")
+    for x in sayilmayan:
+        print(f"  ⚠ niteliği olmayan kaynak karnede sayılmadı — {x}")
     print(f"✓ {GRAFIK.relative_to(KOK)} · {len(grafikler)} grafik, {len(gorseller)} görsel")
     print(f"✓ {CEK.relative_to(KOK)} · {len(cekmeler)} öne çıkan cümle")
     print(f"✓ {TEK.relative_to(KOK)} · {sayfa_sayisi} teknoloji sayfası, {not_sayisi} kesişim notu")
