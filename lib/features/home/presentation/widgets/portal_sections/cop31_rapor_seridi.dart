@@ -116,21 +116,42 @@ class Cop31RaporSeridi extends ConsumerWidget {
       ],
     );
 
-    // Görsel: darda üstte tam genişlik, genişte sağda sabit sütun.
+    // Görsel KIRPILMIYOR — kutunun oranı kapağın oranına eşit.
+    //
+    // İlk hâli `thumb_image_url` kullanıyordu ve kart boş görünmüyordu ama
+    // görseldeki COP31 tabelası kayboluyordu. Sebep ölçüldü: thumb türevi
+    // 320×320 KARE. Kareyi geniş bir kutuya `cover` ile oturtmak üstten ve
+    // alttan kesiyor, kesilen yerde de tam o tabela kalıyordu. Üstelik
+    // kesilen bölge kutunun oranına göre değiştiği için her ekran boyutunda
+    // başka bir parça gidiyordu.
+    //
+    // Çözüm iki parçalı: (1) kare türev yerine tam kapak kullanılıyor,
+    // (2) kutunun oranı kapağın oranına sabitleniyor. Portalın bütün
+    // kapakları 1200×630 üretiliyor (Open Graph ölçüsü; dört haberde
+    // ölçüldü, dördü de aynı). Oran birebir tuttuğu için `cover` hiçbir
+    // şeyi kesmiyor ve kart dar da olsa geniş de olsa AYNI kareyi
+    // gösteriyor.
+    //
+    // Kapak yoksa kare türeve düşülüyor: o durumda kırpılma olur ama
+    // görselsiz karttan iyidir.
+    const kapakOrani = 1200 / 630;
     Widget? gorsel;
     if (kapakHaber != null) {
       final img = NewsArticleImage(
-        imageUrl: (kapakHaber.thumbImageUrl?.isNotEmpty ?? false)
-            ? kapakHaber.thumbImageUrl
-            : kapakHaber.imageUrl,
+        imageUrl: (kapakHaber.imageUrl?.isNotEmpty ?? false)
+            ? kapakHaber.imageUrl
+            : kapakHaber.thumbImageUrl,
         fit: BoxFit.cover,
         semanticLabel: '',
       );
       gorsel = ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: dar
-            ? SizedBox(width: double.infinity, height: 150, child: img)
-            : SizedBox(width: 248, height: 168, child: img),
+            ? AspectRatio(aspectRatio: kapakOrani, child: img)
+            : SizedBox(
+                width: 300,
+                child: AspectRatio(aspectRatio: kapakOrani, child: img),
+              ),
       );
     }
 
