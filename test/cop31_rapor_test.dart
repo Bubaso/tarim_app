@@ -111,18 +111,25 @@ void main() {
   });
 
   group('tarih kapısı', () {
-    test('29 Kasım\'da açık', () {
-      expect(raporAktif(DateTime(2026, 11, 29, 23, 59)), isTrue);
+    // Kapı 30 Kasım'dan 5 ARALIK'a taşındı (kullanıcı, 25 Kasım 2026).
+    //
+    // Bu kapı YALNIZ ANASAYFA KARTINI kapatıyor. Sayfanın kendisi üst
+    // çubuktaki COP31 düğmesinden açılmaya devam ediyor; o düğmenin tarih
+    // kapısı yok (bkz. category_nav_bar.dart).
+    test('4 Aralık\'ta açık', () {
+      expect(raporAktif(DateTime(2026, 11, 30)), isTrue,
+          reason: 'eski kapı buydu, artık kapanmıyor');
+      expect(raporAktif(DateTime(2026, 12, 4, 23, 59)), isTrue);
     });
 
-    test('30 Kasım\'da kapalı', () {
-      expect(raporAktif(DateTime(2026, 11, 30)), isFalse);
-      expect(raporAktif(DateTime(2026, 12, 1)), isFalse);
+    test('5 Aralık\'ta kapalı', () {
+      expect(raporAktif(DateTime(2026, 12, 5)), isFalse);
+      expect(raporAktif(DateTime(2026, 12, 6)), isFalse);
     });
 
     testWidgets('kapalıyken şerit hiç çizilmiyor', (tester) async {
       await _ciz(tester, _serit([_h(_hukumHaberi.haberId, 'Başlık')],
-          DateTime(2026, 11, 30)));
+          DateTime(2026, 12, 5)));
       expect(find.textContaining('COP31'), findsNothing);
     });
 
@@ -214,6 +221,98 @@ void main() {
     test('erteli giriş sayfanın tamamına ve verisine ulaşıyor', () {
       final erteli = ilkYukKapanisi(ekran);
       expect(erteli, contains(veri));
+    });
+  });
+
+  // ════════════════════════════════════════════════════════════════════
+  //  Üst çubuktaki COP31 düğmesi
+  // ────────────────────────────────────────────────────────────────────
+  //  Rapor kartı 5 Aralık'ta anasayfadan kalkıyor. O tarihten sonra sayfaya
+  //  giden TEK yol üst çubuktaki düğme. Düğme yeniden bir tarih kapısına
+  //  bağlanırsa sayfa sessizce erişilemez olur — görünürde hiçbir şey
+  //  bozulmaz, kimse fark etmez.
+  // ════════════════════════════════════════════════════════════════════
+  group('üst çubuk düğmesi', () {
+    const cubuk =
+        'lib/features/home/presentation/widgets/category_nav_bar.dart';
+
+    test('düğmenin tarih kapısı yok', () {
+      final k = File(cubuk).readAsStringSync();
+      expect(k, isNot(contains('ozelBolumAktif')),
+          reason: 'düğme yeniden bölümün tarih kapısına bağlanmış: rapor '
+              '5 Aralık\'tan sonra erişilemez olurdu');
+      expect(k, isNot(contains('cop31Goster')));
+      expect(k, contains('_Cop31Dugmesi'));
+    });
+
+    test('düğme raporu ERTELİ paketten açıyor', () {
+      final k = File(cubuk).readAsStringSync();
+      expect(
+          k,
+          matches(RegExp(
+              r"import '[^']*cop31_rapor_ekrani\.dart'\s+deferred as cop31_rapor;")),
+          reason: 'çubuk portalın HER sayfasında çiziliyor; erteli olmazsa '
+              'rapor sayfası ilk yüke girer');
+      expect(k, contains('cop31_rapor.loadLibrary()'));
+      expect(k, contains('cop31_rapor.raporEkrani()'));
+    });
+  });
+
+  // ════════════════════════════════════════════════════════════════════
+  //  Arşiv gün gün
+  // ────────────────────────────────────────────────────────────────────
+  //  Düz liste 54 satır aynı ritimde akıyordu. Gün başlıkları ve değişen
+  //  kart boyutları o düzlüğü kırıyor; burada aranan şey gün başlığının
+  //  gerçekten çizildiği ve günlerin yeniden eskiye sıralandığı.
+  // ════════════════════════════════════════════════════════════════════
+  group('arşiv gün gün', () {
+    NewsArticle gunluk(String id, String baslik, DateTime t, int puan) =>
+        NewsArticle(
+          id: id,
+          title: baslik,
+          content: 'Gövde.',
+          createdAt: t,
+          status: 'published',
+          topic: 'Genel',
+          imageUrl: 'https://x/i.jpg',
+          heroScore: puan,
+        );
+
+    testWidgets('gün başlıkları çiziliyor ve yeniden eskiye sıralı',
+        (tester) async {
+      await _ciz(
+          tester,
+          _ekran([
+            gunluk('a1', 'Yirmi üçün küçüğü', DateTime(2026, 11, 23, 9), 10),
+            gunluk('a2', 'Yirmi üçün büyüğü', DateTime(2026, 11, 23, 18), 90),
+            gunluk('a3', 'Yirmi birin haberi', DateTime(2026, 11, 21, 12), 50),
+          ]));
+
+      expect(find.text('23 Kasım'), findsOneWidget);
+      expect(find.text('21 Kasım'), findsOneWidget);
+      expect(find.text('Pazartesi'), findsOneWidget); // 23 Kasım 2026
+      expect(find.text('2 haber'), findsOneWidget);
+      expect(find.text('1 haber'), findsOneWidget);
+
+      // Yeni gün önce: 23 Kasım, 21 Kasım'ın yukarısında.
+      final y23 = tester.getTopLeft(find.text('23 Kasım')).dy;
+      final y21 = tester.getTopLeft(find.text('21 Kasım')).dy;
+      expect(y23, lessThan(y21));
+    });
+
+    testWidgets('günün en yüksek puanlısı büyük kartta', (tester) async {
+      await _ciz(
+          tester,
+          _ekran([
+            gunluk('b1', 'Düşük puanlı', DateTime(2026, 11, 23, 9), 10),
+            gunluk('b2', 'Yüksek puanlı', DateTime(2026, 11, 23, 18), 90),
+          ]));
+
+      // Büyük kart gün başlığının hemen altında: puanı yüksek olan önce.
+      final yYuksek = tester.getTopLeft(find.text('Yüksek puanlı')).dy;
+      final yDusuk = tester.getTopLeft(find.text('Düşük puanlı')).dy;
+      expect(yYuksek, lessThan(yDusuk),
+          reason: 'sıralama editör puanından gelmeli, saatten değil');
     });
   });
 }

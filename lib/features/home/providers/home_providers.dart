@@ -834,15 +834,23 @@ bool _bakanGeciyor(NewsArticle a) => kucukHarf(
 // ─── COP31 DEĞERLENDİRME RAPORU ────────────────────────────────────────────
 //
 // Bölüm 25 Kasım'da kendiliğinden kalktı ve anasayfada bir boşluk bıraktı.
-// O boşluğa beş günlük bir değerlendirme sayfası giriyor: zirvenin kararları,
+// O boşluğa bir değerlendirme sayfası giriyor: zirvenin kararları,
 // rakamları ve portalın iki aylık izleği tek sayfada.
 //
 // AYRI BİR TARİH KAPISI var ve bilerek: bölümün kapısı (`ozelBolumAktif`)
 // 25 Kasım'da kapandı, raporunki tam o gün açılıyor. Tek kapı olsaydı ya
-// bölüm fazladan beş gün açık kalırdı ya rapor hiç açılmazdı.
-final kRaporBitis = DateTime(2026, 11, 30);
+// bölüm fazladan açık kalırdı ya rapor hiç açılmazdı.
+//
+// 30 Kasım → 5 ARALIK (kullanıcı, 25 Kasım 2026).
+//
+// BU KAPI YALNIZ ANASAYFA KARTINI KAPATIYOR, sayfayı değil. 5 Aralık'ta
+// kart akıştan çekiliyor ama rapor üst çubuktaki COP31 düğmesinden
+// açılmaya devam ediyor (bkz. category_nav_bar.dart). Kapı sayfayı da
+// kapatsaydı düğme boşluğa tıklardı.
+final kRaporBitis = DateTime(2026, 12, 5);
 
-/// Rapor şu an anasayfada mı. [simdi] yalnızca testler için.
+/// Rapor kartı şu an ANASAYFADA mı. Sayfanın kendisi bundan bağımsız
+/// olarak erişilebilir kalıyor. [simdi] yalnızca testler için.
 bool raporAktif([DateTime? simdi]) =>
     (simdi ?? DateTime.now()).isBefore(kRaporBitis);
 
@@ -852,7 +860,7 @@ bool raporAktif([DateTime? simdi]) =>
 /// ise tam da kapandıktan SONRA o arşivi gösteriyor. Aynı sağlayıcıyı
 /// kullansaydı sayfa boş açılırdı — raporun varlık sebebi o arşiv.
 ///
-/// Sınır 200: işaretli haber 54, ama rapor beş gün yayında ve bu sürede
+/// Sınır 200: işaretli haber 54, ama rapor 5 Aralık'a kadar yayında ve
 /// işaretlenen yeni haber olursa listeden düşmesin.
 final cop31RaporAkisiProvider = StreamProvider<List<NewsArticle>>((ref) {
   if (!raporAktif(ref.watch(simdiProvider)())) {

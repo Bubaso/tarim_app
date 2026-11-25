@@ -38,10 +38,32 @@ import 'article_detail_screen.dart';
 //  sayfa için hem gereksiz hem kafa karıştırıcı olurdu.
 // ══════════════════════════════════════════════════════════════════════════
 
-const _vurguAcik = Color(0xFF0E5C52);
-const _vurguKoyu = Color(0xFF57C9B0);
-const _yuzeyAcik = Color(0xFFEDF4F1);
-const _yuzeyKoyu = Color(0xFF0F1F1C);
+// ── COP31 Türkiye'nin resmî afiş paleti ──────────────────────────────────
+//  Lacivert zemin, lale kırmızısı, beyaz yazı. Renkler uydurulmadı: Antalya
+//  salonundaki afişten alındı — o afiş zaten sayfanın kapak görsellerinde
+//  duruyor (UN Climate Change · COP31 TÜRKİYE ANTALYA).
+//
+//  Anasayfa kartı ve üst çubuktaki COP31 düğmesi de aynı üç rengi taşıyor;
+//  okur üçünü tek şey olarak görüyor.
+//
+//  KIRMIZI İÇERİK YARGILAMIYOR. Rozetlerde, başlık altı çizgilerinde ve
+//  düğmelerde var; "kararlaştırılamadı" sütununda YOK. Orası bir hata değil,
+//  müzakerenin sonucu — kırmızıya boyamak portalın taraf tuttuğu izlenimi
+//  verirdi (bu karar sayfanın ilk sürümünden beri böyle).
+const _laciAcik = Color(0xFF0B2E63);
+const _laciKoyu = Color(0xFF123A72);
+const _kirmizi = Color(0xFFE1172C);
+const _solukMavi = Color(0xFFC7D6EC);
+const _yuzeyAcik = Color(0xFFEEF2F9);
+const _yuzeyKoyu = Color(0xFF101D33);
+
+const _aylar = [
+  'Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran',
+  'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık',
+];
+const _haftaGunleri = [
+  'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar',
+];
 
 /// ERTELİ PAKETİN GİRİŞİ — ana sayfa şeridi bu dosyayı `deferred as` ile
 /// alıyor (bkz. cop31_rapor_seridi.dart). Sayfanın on dört parçası ve
@@ -61,7 +83,7 @@ class Cop31RaporEkrani extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final vurgu = isDark ? _vurguKoyu : _vurguAcik;
+    final vurgu = isDark ? _laciKoyu : _laciAcik;
     final yuzey = isDark ? _yuzeyKoyu : _yuzeyAcik;
     final liste = ref.watch(cop31RaporAkisiProvider).valueOrNull ?? const [];
     final sayilar = ref.watch(cop31RaporSayilariProvider);
@@ -79,18 +101,31 @@ class Cop31RaporEkrani extends ConsumerWidget {
       appBar: AppBar(
         title: Text('COP31 Değerlendirme',
             style: GoogleFonts.outfit(fontWeight: FontWeight.w800)),
-        backgroundColor: yuzey,
-        foregroundColor: vurgu,
+        backgroundColor: vurgu,
+        foregroundColor: Colors.white,
         elevation: 0,
       ),
       body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 980),
-            child: ListView(
-              padding: EdgeInsets.fromLTRB(genis ? 24 : 16, 20, genis ? 24 : 16, 48),
+        child: LayoutBuilder(
+          builder: (context, kutu) {
+            // KAYDIRMA ALANI ARTIK EKRANIN TAMAMI (kullanıcı, 25 Kasım 2026).
+            //
+            // Önce `Center(ConstrainedBox(maxWidth: 980, ListView))` vardı.
+            // ListView yalnız o 980 piksellik şeridi kaplıyordu; geniş
+            // ekranda tekerlek şeridin DIŞINDA hiçbir şey yapmıyordu ve okur
+            // sayfayı kaydırmak için imleci metnin üstüne getirmek
+            // zorundaydı.
+            //
+            // Artık ListView bütün genişliği kaplıyor, içerik ise yanal
+            // dolguyla ortalanıyor. Görüntü birebir aynı; kaydırma her
+            // yerden çalışıyor.
+            final kenar = genis ? 24.0 : 16.0;
+            final yanal =
+                ((kutu.maxWidth - 980) / 2).clamp(kenar, double.infinity);
+            return ListView(
+              padding: EdgeInsets.fromLTRB(yanal, 20, yanal, 48),
               children: [
-                _Kunye(vurgu: vurgu, yuzey: yuzey, isDark: isDark),
+                _Kunye(vurgu: vurgu),
                 const SizedBox(height: 28),
 
                 // ── Hüküm ──────────────────────────────────────────────
@@ -162,7 +197,7 @@ class Cop31RaporEkrani extends ConsumerWidget {
                     for (final r in kRaporRakamlari)
                       if (bul(r.haberId) != null)
                         _RakamKarti(rakam: r, haber: bul(r.haberId)!,
-                            vurgu: vurgu, yuzey: yuzey, isDark: isDark,
+                            vurgu: vurgu,
                             genislik: genis ? 224 : double.infinity),
                   ],
                 ),
@@ -191,53 +226,68 @@ class Cop31RaporEkrani extends ConsumerWidget {
                 // ── Bütün arşiv ────────────────────────────────────────
                 _Baslik('COP31 arşivi', vurgu),
                 const SizedBox(height: 4),
-                _Aciklama('${liste.length} içerik, en yeniden eskiye.', isDark),
-                const SizedBox(height: 12),
-                for (final a in liste)
-                  _ArsivSatiri(haber: a, vurgu: vurgu, isDark: isDark),
+                _Aciklama(
+                    '${liste.length} içerik, gün gün. Her günün en çok '
+                    'işlenen haberi büyük kartta.', isDark),
+                const SizedBox(height: 16),
+                for (final gun in _gunlereBol(liste))
+                  _GunBlogu(gun: gun.key, haberler: gun.value, vurgu: vurgu,
+                      isDark: isDark, genis: genis),
                 const SizedBox(height: 28),
                 _KapanisNotu(isDark: isDark),
               ],
-            ),
-          ),
+            );
+          },
         ),
       ),
     );
   }
 }
 
+/// Sayfanın başlığı — afişin kendisi gibi duruyor.
+///
+/// Önce açık yüzeyli soluk bir kutuydu ve sayfanın geri kalanından
+/// ayrışmıyordu. Artık lacivert bir blok: okur anasayfadaki karttan buraya
+/// geldiğinde AYNI yüzeyi, aynı kırmızı rozeti buluyor.
 class _Kunye extends StatelessWidget {
-  const _Kunye({required this.vurgu, required this.yuzey, required this.isDark});
-  final Color vurgu, yuzey;
-  final bool isDark;
+  const _Kunye({required this.vurgu});
+  final Color vurgu;
 
   @override
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 22),
         decoration: BoxDecoration(
-          color: yuzey,
+          color: vurgu,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: vurgu.withValues(alpha: 0.32)),
+          border:
+              Border.all(color: _kirmizi.withValues(alpha: 0.55), width: 1.6),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('COP31 · ANTALYA · 9-22 KASIM 2026',
-                style: GoogleFonts.inter(
-                    fontSize: 11.5, fontWeight: FontWeight.w800,
-                    letterSpacing: 1.1, color: vurgu)),
-            const SizedBox(height: 8),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 11, vertical: 5),
+              decoration: BoxDecoration(
+                color: _kirmizi,
+                borderRadius: BorderRadius.circular(6),
+              ),
+              child: Text('COP31 · ANTALYA · 9-22 KASIM 2026',
+                  style: GoogleFonts.inter(
+                      fontSize: 11.5, fontWeight: FontWeight.w800,
+                      letterSpacing: 1.0, color: Colors.white)),
+            ),
+            const SizedBox(height: 12),
             Text('Değerlendirme Raporu',
                 style: GoogleFonts.outfit(
                     fontSize: 27, height: 1.15, fontWeight: FontWeight.w800,
-                    color: isDark ? Colors.white : Colors.black87)),
+                    color: Colors.white)),
             const SizedBox(height: 10),
             Text(
               'Zirvede ne kararlaştırıldı, ne kararlaştırılamadı ve tarıma '
               'ne düştü. Portalın iki aylık izleğiyle birlikte.',
               style: GoogleFonts.inter(
-                  fontSize: 14.5, height: 1.55,
-                  color: isDark ? Colors.grey[300] : Colors.grey[800]),
+                  fontSize: 14.5, height: 1.55, color: _solukMavi),
             ),
           ],
         ),
@@ -249,9 +299,26 @@ class _Baslik extends StatelessWidget {
   final String metin;
   final Color vurgu;
   @override
-  Widget build(BuildContext context) => Text(metin,
-      style: GoogleFonts.outfit(
-          fontSize: 19, fontWeight: FontWeight.w800, color: vurgu));
+  Widget build(BuildContext context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(metin,
+              style: GoogleFonts.outfit(
+                  fontSize: 19, fontWeight: FontWeight.w800, color: vurgu)),
+          const SizedBox(height: 7),
+          // Kırmızı çizgi: paletin ikinci rengi sayfaya buradan giriyor ve
+          // uzun sayfada bölüm başlarını taramayı kolaylaştırıyor.
+          Container(
+            width: 38,
+            height: 3,
+            decoration: BoxDecoration(
+              color: _kirmizi,
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+          const SizedBox(height: 4),
+        ],
+      );
 }
 
 class _Aciklama extends StatelessWidget {
@@ -442,12 +509,10 @@ class _MaddeSatiri extends StatelessWidget {
 
 class _RakamKarti extends StatelessWidget {
   const _RakamKarti({required this.rakam, required this.haber,
-      required this.vurgu, required this.yuzey, required this.isDark,
-      required this.genislik});
+      required this.vurgu, required this.genislik});
   final RaporRakami rakam;
   final NewsArticle haber;
-  final Color vurgu, yuzey;
-  final bool isDark;
+  final Color vurgu;
   final double genislik;
 
   @override
@@ -459,10 +524,14 @@ class _RakamKarti extends StatelessWidget {
           onTap: () => pushScreen(context, ArticleDetailScreen(article: haber)),
           child: Container(
             padding: const EdgeInsets.fromLTRB(14, 13, 14, 14),
+            // Rakam kartları sayfanın en gösterişli öğesi; afişin lacivertini
+            // taşıyan yer burası. Rakam beyaz (~14:1), etiket soluk mavi
+            // (~9:1) — ikisi de lacivert üstünde rahat okunuyor.
             decoration: BoxDecoration(
-              color: yuzey,
+              color: vurgu,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: vurgu.withValues(alpha: 0.26)),
+              border:
+                  Border.all(color: _kirmizi.withValues(alpha: 0.45)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -470,13 +539,13 @@ class _RakamKarti extends StatelessWidget {
                 Text(rakam.deger,
                     style: GoogleFonts.outfit(
                         fontSize: 22, fontWeight: FontWeight.w800,
-                        color: vurgu)),
+                        color: Colors.white)),
                 const SizedBox(height: 3),
                 Text(rakam.etiket,
                     style: GoogleFonts.inter(
-                        fontSize: 12.5, height: 1.4,
-                        color: isDark ? Colors.grey[300] : Colors.grey[800])),
-                _Dayanak(haber: haber, vurgu: vurgu),
+                        fontSize: 12.5, height: 1.4, color: _solukMavi)),
+                // Künye lacivert üstünde: lacivert yazı görünmezdi.
+                _Dayanak(haber: haber, vurgu: _solukMavi),
               ],
             ),
           ),
@@ -571,6 +640,238 @@ class _DisBilgiSatiri extends StatelessWidget {
       );
 }
 
+/// Arşivi güne böler: günler yeniden eskiye, gün içi editör puanına göre.
+///
+/// Düz liste 54 satır boyunca aynı ritimde akıyordu ve göz tutunacak bir yer
+/// bulamıyordu (kullanıcı, 25 Kasım 2026). Gün başlıkları zirvenin takvimini
+/// geri veriyor: okur "17 Kasım'da ne oldu" diye bakabiliyor.
+List<MapEntry<DateTime, List<NewsArticle>>> _gunlereBol(
+    List<NewsArticle> liste) {
+  final kova = <DateTime, List<NewsArticle>>{};
+  for (final a in liste) {
+    final t = a.createdAt;
+    kova
+        .putIfAbsent(
+            DateTime(t.year, t.month, t.day), () => <NewsArticle>[])
+        .add(a);
+  }
+  final gunler = kova.keys.toList()..sort((a, b) => b.compareTo(a));
+  return [
+    for (final g in gunler)
+      MapEntry(
+        g,
+        kova[g]!
+          ..sort((a, b) => (b.heroScore ?? 0).compareTo(a.heroScore ?? 0)),
+      ),
+  ];
+}
+
+/// Bir günün bloğu: gün başlığı + değişen boyutta kartlar.
+///
+/// RİTİM KASITLI. Günün en yüksek editör puanlı haberi büyük kartta, sonraki
+/// ikisi orta boy, kalanı sıkışık satırda. Hepsi aynı boyda olsaydı liste
+/// yine düz akardı; boyut farkı günün ağırlık merkezini ilk bakışta
+/// gösteriyor.
+///
+/// Sıralama EDİTÖR PUANINDAN geliyor, elle yazılmış bir seçimden değil: o
+/// haber yayından kalkarsa blok kendiliğinden bir sonrakine geçiyor.
+class _GunBlogu extends StatelessWidget {
+  const _GunBlogu({required this.gun, required this.haberler,
+      required this.vurgu, required this.isDark, required this.genis});
+  final DateTime gun;
+  final List<NewsArticle> haberler;
+  final Color vurgu;
+  final bool isDark;
+  final bool genis;
+
+  @override
+  Widget build(BuildContext context) {
+    if (haberler.isEmpty) return const SizedBox.shrink();
+    final orta = haberler.skip(1).take(2).toList();
+    final kucuk = haberler.skip(3).toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _GunBasligi(
+            gun: gun, adet: haberler.length, vurgu: vurgu, isDark: isDark),
+        _ArsivBuyuk(haber: haberler.first, isDark: isDark),
+        if (orta.isNotEmpty)
+          if (genis && orta.length == 2)
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: _ArsivOrta(haber: orta[0], isDark: isDark)),
+                  const SizedBox(width: 10),
+                  Expanded(child: _ArsivOrta(haber: orta[1], isDark: isDark)),
+                ],
+              ),
+            )
+          else
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (final a in orta) _ArsivOrta(haber: a, isDark: isDark),
+              ],
+            ),
+        if (kucuk.isNotEmpty) ...[
+          const SizedBox(height: 4),
+          for (final a in kucuk)
+            _ArsivSatiri(haber: a, vurgu: vurgu, isDark: isDark),
+        ],
+        const SizedBox(height: 26),
+      ],
+    );
+  }
+}
+
+/// Gün başlığı: tarih, haftanın günü ve o günün haber sayısı.
+///
+/// Ayraç YATAY bir çizgi. Paragrafın soluna dikey çizgi konmuyor — portalın
+/// yerleşik kuralı.
+class _GunBasligi extends StatelessWidget {
+  const _GunBasligi({required this.gun, required this.adet,
+      required this.vurgu, required this.isDark});
+  final DateTime gun;
+  final int adet;
+  final Color vurgu;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    final soluk = isDark ? Colors.grey[500] : Colors.grey[600];
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 11),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Text('${gun.day} ${_aylar[gun.month - 1]}',
+                  style: GoogleFonts.outfit(
+                      fontSize: 16, fontWeight: FontWeight.w800,
+                      color: vurgu)),
+              const SizedBox(width: 8),
+              Text(_haftaGunleri[gun.weekday - 1],
+                  style: GoogleFonts.inter(fontSize: 12, color: soluk)),
+              const Spacer(),
+              Text('$adet haber',
+                  style: GoogleFonts.inter(
+                      fontSize: 11.5, fontWeight: FontWeight.w600,
+                      color: soluk)),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Container(
+              height: 1.5, color: _kirmizi.withValues(alpha: 0.38)),
+        ],
+      ),
+    );
+  }
+}
+
+/// Günün öne çıkan haberi — tam genişlikte kapak, başlık ve özet.
+class _ArsivBuyuk extends StatelessWidget {
+  const _ArsivBuyuk({required this.haber, required this.isDark});
+  final NewsArticle haber;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) {
+    final ozet = haber.summary;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: HaberDokunmaAlani(
+        etiket: haber.title,
+        borderRadius: BorderRadius.circular(12),
+        onTap: () => pushScreen(context, ArticleDetailScreen(article: haber)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Kutunun oranı kapağın oranına eşit (1200x630): `cover` hiçbir
+            // şeyi kesmiyor. Anasayfa kartında da aynı kural geçerli.
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: AspectRatio(
+                aspectRatio: 1200 / 630,
+                child: NewsArticleImage(
+                  imageUrl: (haber.imageUrl?.isNotEmpty ?? false)
+                      ? haber.imageUrl
+                      : haber.thumbImageUrl,
+                  fit: BoxFit.cover,
+                  semanticLabel: '',
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(haber.title,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: GoogleFonts.outfit(
+                    fontSize: 17.5, height: 1.25,
+                    fontWeight: FontWeight.w800,
+                    color: isDark ? Colors.white : Colors.black87)),
+            if (ozet != null && ozet.isNotEmpty) ...[
+              const SizedBox(height: 6),
+              Text(ozet,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                      fontSize: 13, height: 1.45,
+                      color: isDark ? Colors.grey[400] : Colors.grey[700])),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Günün ikinci ve üçüncü haberi — kapak daha küçük, özet yok.
+class _ArsivOrta extends StatelessWidget {
+  const _ArsivOrta({required this.haber, required this.isDark});
+  final NewsArticle haber;
+  final bool isDark;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.only(bottom: 12),
+        child: HaberDokunmaAlani(
+          etiket: haber.title,
+          borderRadius: BorderRadius.circular(10),
+          onTap: () => pushScreen(context, ArticleDetailScreen(article: haber)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: AspectRatio(
+                  aspectRatio: 1200 / 630,
+                  child: NewsArticleImage(
+                    imageUrl: (haber.imageUrl?.isNotEmpty ?? false)
+                        ? haber.imageUrl
+                        : haber.thumbImageUrl,
+                    fit: BoxFit.cover,
+                    semanticLabel: '',
+                  ),
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(haber.title,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: GoogleFonts.inter(
+                      fontSize: 14, height: 1.4,
+                      fontWeight: FontWeight.w700,
+                      color: isDark ? Colors.grey[100] : Colors.black87)),
+            ],
+          ),
+        ),
+      );
+}
+
 class _ArsivSatiri extends StatelessWidget {
   const _ArsivSatiri({required this.haber, required this.vurgu,
       required this.isDark});
@@ -626,8 +927,9 @@ class _KapanisNotu extends StatelessWidget {
   final bool isDark;
   @override
   Widget build(BuildContext context) => Text(
-        'Bu sayfa 30 Kasım 2026\'da anasayfadan kalkacak. Haberler '
-        'arşivde kalmaya ve aramada çıkmaya devam ediyor.',
+        'Bu sayfanın kartı 5 Aralık 2026\'da anasayfadan kalkacak. Sayfa '
+        'kapanmıyor: üst çubuktaki COP31 düğmesinden açılmaya devam edecek. '
+        'Haberler de arşivde kalmaya ve aramada çıkmaya devam ediyor.',
         style: GoogleFonts.inter(
             fontSize: 12, height: 1.5, fontStyle: FontStyle.italic,
             color: isDark ? Colors.grey[500] : Colors.grey[600]),

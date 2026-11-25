@@ -8,10 +8,11 @@ import '../../../../core/utils/fade_page_route.dart';
 import '../../../yapay_zeka/data/yz_iskelet.g.dart' show kYzOkuraAcik;
 import '../../../yapay_zeka/presentation/yz_yollar.dart' show yzPath;
 import '../../data/category_catalog.dart';
-import '../../data/models/news_article.dart';
-import '../../providers/home_providers.dart';
 import '../screens/category_articles_screen.dart';
-import '../screens/cop31_liste_ekrani.dart';
+// Rapor ekranı ERTELİ: bu çubuk portalın HER sayfasında çiziliyor, raporu
+// erteli olmayan bir `import` ile alsaydı sayfanın tamamı ilk yüke girerdi.
+import '../../../../core/utils/erteli_sayfa.dart';
+import '../screens/cop31_rapor_ekrani.dart' deferred as cop31_rapor;
 
 /// Üst çubuğun altında duran, her ekran boyutunda görünen kalıcı kategori
 /// şeridi. Eskiden gezinme yalnızca "izlenince kaybolan" hikâye baloncuklarına
@@ -39,13 +40,16 @@ class CategoryNavBar extends ConsumerWidget {
     final bg = isDark ? const Color(0xFF0C0F12) : const Color(0xFFEDEBE4);
     final fg = isDark ? AppColors.creamBackground : AppColors.earthText;
 
-    // Süreli COP31 bölümü açıkken şeride bir düğme giriyor.
+    // COP31 düğmesi KALICI (kullanıcı, 25 Kasım 2026).
     //
-    // Yalnızca TARİHE bakılıyor, listeye değil. İlk sürüm haber listesini de
-    // okuyordu ve şerit ana sayfa, haber sayfası ve kategori sayfasında
-    // görünüyor: her birinde ayrı bir Supabase sorgusu açılıyordu. Listeyi
-    // zaten açılan ekran kendisi çekiyor.
-    final cop31Goster = ozelBolumAktif(ref.watch(simdiProvider)());
+    // Eskiden bölümün tarih kapısına bağlıydı ve 25 Kasım'da bölümle
+    // birlikte kayboldu. Artık değerlendirme raporunu açıyor ve kapısı yok:
+    // rapor kartı 5 Aralık'ta anasayfadan kalkınca sayfaya giden TEK yol bu
+    // düğme olacak. Kapıya bağlı kalsaydı sayfa erişilemez olurdu.
+    //
+    // Şerit haber listesi TAŞIMIYOR: ana sayfa, haber ve kategori
+    // sayfalarının üçünde de çiziliyor, liste taşısaydı her birinde ayrı bir
+    // Supabase sorgusu açılırdı. Listeyi açılan ekran kendisi çekiyor.
 
     return Container(
       height: 40,
@@ -60,19 +64,19 @@ class CategoryNavBar extends ConsumerWidget {
         physics: const ClampingScrollPhysics(),
         // Yapay Zeka ve Dijital Tarım dosyası (kullanıcı, 19 Kas 2026).
         // Kategori değil, kalıcı bir bölüm: kataloğa girmiyor.
-        itemCount: homeCategorySlugs.length + (cop31Goster ? 1 : 0) + (kYzOkuraAcik ? 1 : 0),
+        itemCount: homeCategorySlugs.length + 1 + (kYzOkuraAcik ? 1 : 0),
         separatorBuilder: (_, __) => const SizedBox(width: 2),
         itemBuilder: (context, ham) {
           // COP31 şeridin BAŞINDA ve dolgulu: süreli bir bölüm, kalıcı
           // kategorilerle aynı görünürse ne olduğu anlaşılmaz. Kataloğa
           // eklenmedi — bölüm 25 Kasım'da kalkınca kataloğa girmiş bir slug
           // geride kalırdı.
-          if (cop31Goster && ham == 0) {
+          if (ham == 0) {
             return _Cop31Dugmesi(isDark: isDark);
           }
           // Yapay Zeka düğmesi Tarım-Bilim'in hemen sağında (kullanıcı,
           // 19 Kas 2026).
-          var i = ham - (cop31Goster ? 1 : 0);
+          var i = ham - 1;
           final yzSira = homeCategorySlugs.indexOf('tarim-bilim') + 1;
           if (kYzOkuraAcik) {
             if (i == yzSira) return _YzDugmesi(isDark: isDark, isEn: isEn);
@@ -170,22 +174,25 @@ class _Cop31Dugmesi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final vurgu =
-        isDark ? const Color(0xFF57C9B0) : const Color(0xFF0E5C52);
-    final uzerindeki = isDark ? const Color(0xFF07140F) : Colors.white;
+    // Zirvenin resmî afiş kimliği: lacivert zemin, beyaz yazı. Kart ve rapor
+    // sayfası da aynı paleti taşıyor; okur üçünü tek şey olarak görüyor.
+    final zemin = isDark ? const Color(0xFF123A72) : const Color(0xFF0B2E63);
 
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 6),
         child: Material(
-          color: vurgu,
+          color: zemin,
           borderRadius: BorderRadius.circular(999),
           child: InkWell(
             borderRadius: BorderRadius.circular(999),
-            // Tohum boş: ekran listeyi kendi sağlayıcısından çekiyor. Şeridin
-            // liste taşımaması, şeridin sorgu açmamasının bedeli.
             onTap: () => pushScreen(
-                context, const Cop31ListeEkrani(tohum: <NewsArticle>[])),
+                context,
+                ErteliSayfa(
+                  kimlik: 'cop31-rapor',
+                  yukle: () => cop31_rapor.loadLibrary(),
+                  kur: () => cop31_rapor.raporEkrani(),
+                )),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
               child: Text(
@@ -194,7 +201,7 @@ class _Cop31Dugmesi extends StatelessWidget {
                   fontSize: 12.5,
                   fontWeight: FontWeight.w900,
                   letterSpacing: 0.4,
-                  color: uzerindeki,
+                  color: Colors.white,
                 ),
               ),
             ),
