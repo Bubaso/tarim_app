@@ -412,8 +412,6 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
                               children: [
                                 _CropValueCalculator(usdTryRate: _usdTry, isEn: isEn),
                                 const SizedBox(height: 16),
-                                _FertilizerIndex(isEn: isEn),
-                                const SizedBox(height: 16),
                                 _BorsaNewsFeed(newsItems: _newsItems, isEn: isEn),
                               ],
                             ),
@@ -425,8 +423,6 @@ class _FinancialTerminalScreenState extends State<FinancialTerminalScreen> {
                           _buildChartsSection(isEn, false),
                           const SizedBox(height: 16),
                           _CropValueCalculator(usdTryRate: _usdTry, isEn: isEn),
-                          const SizedBox(height: 16),
-                          _FertilizerIndex(isEn: isEn),
                           const SizedBox(height: 16),
                           _BorsaNewsFeed(newsItems: _newsItems, isEn: isEn),
                         ],
@@ -1192,83 +1188,31 @@ class _CropValueCalculatorState extends State<_CropValueCalculator> {
 }
 
 // ─── Suggestion 4: Fertilizer & Pesticide Input Index Card ────────────────
-class _FertilizerIndex extends StatelessWidget {
-  final bool isEn;
+// ══════════════════════════════════════════════════════════════════════════
+//  KALDIRILDI — "Tarımsal Girdi Endeksi" (25 Kasım 2026)
+// ──────────────────────────────────────────────────────────────────────────
+//  Burada dört satırlık bir girdi fiyatı paneli vardı:
+//
+//      Üre Gübresi      14.20 TL/kg   -1.35%
+//      DAP Gübresi      22.80 TL/kg   +0.45%
+//      Amonyum Nitrat    9.40 TL/kg    0.00%
+//      Mazot / Motorin  42.15 TL/lt   +0.12%
+//
+//  Dördü de KODA GÖMÜLÜ sabit metindi. Kaynak yok, tarih yok, "temsili"
+//  ibaresi yok; değişim yüzdeleri hiç değişmiyordu. Panel, sayfanın
+//  "CANLI VERİ" rozetinin ve gerçekten canlı akan verinin (USD/TRY, Brent,
+//  CBOT buğday, ICE şeker) hemen yanında duruyordu. Okur bunu günün
+//  fiyatı sanıyordu.
+//
+//  Portalın kuralı: kaynağı olmayan bilgi yayına çıkmaz. Bu panel o
+//  kuralın tam karşısındaydı — üstelik "mazot fiyatları" anahtar
+//  kelimesiyle reklam verilen bir sitede.
+//
+//  GERİ GELECEKSE: sayıların bir kaynağı olmalı — canlı bir uç nokta ya da
+//  tarihi görünen, künyesi yazan bir derleme. Sabit yazılmış fiyat, en iyi
+//  ihtimalle eskimiş bir fiyattır.
+// ══════════════════════════════════════════════════════════════════════════
 
-  const _FertilizerIndex({required this.isEn});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: _kSurface,
-        border: Border.all(color: _kBorder),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
-            children: [
-              const Icon(Icons.analytics, color: Color(0xFFFF9500), size: 16),
-              const SizedBox(width: 8),
-              Text(
-                isEn ? 'INPUT COST INDEX' : 'TARIMSAL GİRDİ ENDEKSİ',
-                style: GoogleFonts.inter(
-                  color: AppColors.earthText,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1.0,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          Container(height: 1, color: _kBorder),
-          const SizedBox(height: 12),
-          _buildIndexRow(isEn ? 'Urea (Üre)' : 'Üre Gübresi', '14.20 TL/kg', '-1.35%', true),
-          _buildIndexRow(isEn ? 'DAP Fertilizer' : 'DAP Gübresi', '22.80 TL/kg', '+0.45%', false),
-          _buildIndexRow(isEn ? 'Ammonium Nitrate' : 'Amonyum Nitrat', '9.40 TL/kg', ' 0.00%', null),
-          _buildIndexRow(isEn ? 'Diesel (Istanbul)' : 'Mazot / Motorin', '42.15 TL/lt', '+0.12%', false), // false = upward cost increase is negative for farmer, but green/red indicates trend
-        ],
-      ),
-    );
-  }
-
-  Widget _buildIndexRow(String title, String price, String change, bool? isDown) {
-    final clr = isDown == null
-        ? _kNeutral
-        : (isDown ? _kUp : _kDown); // Down cost is green (good), Up cost is red (bad)
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(title, style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 11)),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(price, style: GoogleFonts.inter(color: AppColors.earthText, fontSize: 11, fontWeight: FontWeight.bold)),
-              const SizedBox(width: 10),
-              Container(
-                width: 60,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                color: clr.withValues(alpha: 0.1),
-                child: Text(
-                  change,
-                  style: GoogleFonts.inter(color: clr, fontSize: 10, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-// ─── Suggestion 7: Bloomberg Tarım Haberleri Akışı (News Feed) ─────────────
 class _BorsaNewsFeed extends StatelessWidget {
   final List<_NewsItem> newsItems;
   final bool isEn;
